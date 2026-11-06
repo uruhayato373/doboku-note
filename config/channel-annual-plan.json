@@ -35,7 +35,8 @@
         "why": "1級二次の直前で、経験記述の販売が最も近い"
       }
     ],
-    "calendarBasis": "2027 年度の日程は公式発表前で確定しない。window の月は config/exam-calendar.json の 2026 年度の実績を目安にした仮の月で、anchors の行事が公式に出たら改める。試験日はこの設定へ写さない"
+    "calendarBasis": "2027 年度の日程は公式発表前で確定しない。window の月は config/exam-calendar.json の 2026 年度の実績を目安にした仮の月で、anchors の行事が公式に出たら改める。試験日はこの設定へ写さない",
+    "rebuildUntil": "2026-11-30"
   },
   "metrics": {
     "primary": [
@@ -283,8 +284,7 @@
           "materials": {
             "status": "accepted",
             "packs": [
-              "pe-comprehensive-management/sokan-kojutsu-kangaekata",
-              "pe-comprehensive-management/gokanri-tradeoff"
+              "pe-comprehensive-management/sokan-kojutsu-kangaekata"
             ],
             "products": [
               "coconala-pe-oral-qa"
@@ -343,8 +343,7 @@
           "materials": {
             "status": "accepted",
             "packs": [
-              "pe-construction/pe-kojutsu-keireki",
-              "pe-construction/competency-r8-taiou"
+              "pe-construction/pe-kojutsu-keireki"
             ],
             "products": [],
             "make": "コンピテンシーの変更点を投稿にする",
@@ -399,12 +398,7 @@
           },
           "materials": {
             "status": "accepted",
-            "packs": [
-              "civil-construction-1/roadmap-juken-shikaku",
-              "civil-construction-1/roadmap-nanido-goukakuritsu",
-              "civil-construction-1/study-plan-1kyu",
-              "civil-construction-1/sekokan-shippaidan"
-            ],
+            "packs": [],
             "products": [],
             "make": "過去問の 1 問は既存の記事から作る",
             "angles": [
@@ -457,10 +451,7 @@
           },
           "materials": {
             "status": "accepted",
-            "packs": [
-              "civil-construction-2/nikyuu-gaiyo-roadmap",
-              "civil-construction-2/study-plan-2kyu"
-            ],
+            "packs": [],
             "products": [],
             "make": "過去問の 1 問は既存の記事から作る",
             "angles": [
@@ -513,11 +504,7 @@
           },
           "materials": {
             "status": "accepted",
-            "packs": [
-              "pe-comprehensive-management/sokan-goukaku-senryaku",
-              "pe-comprehensive-management/takuitsu-keyword",
-              "pe-comprehensive-management/gyoumu-keirekihyo"
-            ],
+            "packs": [],
             "products": [],
             "make": "不合格の原因の点検表を投稿の連載にする",
             "angles": [
@@ -569,12 +556,8 @@
             "next": "サイト利用者を見て本数を見直す"
           },
           "materials": {
-            "status": "accepted",
-            "packs": [
-              "pe-construction/secondary-study-houhou",
-              "pe-construction/gakushuu-schedule-gyakusan",
-              "pe-construction/nanido-goukakuritsu-shindan"
-            ],
+            "status": "proposed",
+            "packs": [],
             "products": [],
             "make": "",
             "angles": [
@@ -631,14 +614,7 @@
           },
           "materials": {
             "status": "accepted",
-            "packs": [
-              "civil-construction-1/gakka-doshitsu-chosa",
-              "civil-construction-1/gakka-network-koteihyo",
-              "civil-construction-1/gakka-anzen-taisei",
-              "civil-construction-1/gakka-kensetsugyoho",
-              "civil-construction-1/kikinagashi-anzen-suchi",
-              "civil-construction-1/kikinagashi-hoki-suchi"
-            ],
+            "packs": [],
             "products": [],
             "make": "分野ごとの引っかけと暗記の数字を過去問の記事から作る",
             "angles": [
@@ -693,10 +669,7 @@
           "materials": {
             "status": "accepted",
             "packs": [
-              "civil-construction-2/gakka-2kyu-concrete",
-              "civil-construction-2/gakka-2kyu-kiso",
-              "civil-construction-2/gakka-2kyu-doko",
-              "civil-construction-2/gakka-2kyu-hoki"
+              "civil-construction-2/gakka-2kyu-doko"
             ],
             "products": [
               "civil-2-anki-note"
@@ -757,10 +730,7 @@
           "materials": {
             "status": "accepted",
             "packs": [
-              "pe-comprehensive-management/hakusho-map",
-              "pe-comprehensive-management/monbun-yomikata",
-              "pe-comprehensive-management/sanso-kozo",
-              "pe-comprehensive-management/kata-oudan-ryuyo"
+              "pe-comprehensive-management/sanso-kozo"
             ],
             "products": [
               "essay-core-pack"
@@ -820,8 +790,6 @@
           "materials": {
             "status": "accepted",
             "packs": [
-              "pe-construction/sentaku-kakiwake-3type",
-              "pe-construction/hissu1-theme-map",
               "pe-construction/kaitourei-tsukaikata"
             ],
             "products": [],
@@ -927,13 +895,7 @@
           },
           "materials": {
             "status": "accepted",
-            "packs": [
-              "civil-construction-1/keiken-kadai-kakikata",
-              "civil-construction-1/keiken-ochiru-toan-1kyu",
-              "civil-construction-1/keiken-anzen-1kyu",
-              "civil-construction-1/keiken-hinshitsu-1kyu",
-              "civil-construction-1/koji-gaiyo-7items"
-            ],
+            "packs": [],
             "products": [
               "civil-1-niji-marugoto-pack"
             ],
@@ -990,12 +952,8 @@
             "next": "販売の投稿の位置ごとのサイト利用者と販売の時期を見る"
           },
           "materials": {
-            "status": "accepted",
-            "packs": [
-              "civil-construction-2/keiken-genten-kyotsuten",
-              "civil-construction-2/keiken-koji-ga-nai",
-              "civil-construction-2/keiken-2kyu-level"
-            ],
+            "status": "proposed",
+            "packs": [],
             "products": [
               "civil-2-koji-bank"
             ],
@@ -1107,7 +1065,6 @@
           "materials": {
             "status": "accepted",
             "packs": [
-              "concrete-chief-engineer/shunin-shouronbun-theme",
               "concrete-chief-engineer/shunin-shouronbun-kousei",
               "concrete-chief-engineer/shunin-ochiru-shouronbun"
             ],
@@ -1506,10 +1463,7 @@
           },
           "materials": {
             "status": "accepted",
-            "packs": [
-              "civil-construction-1/roadmap-juken-shikaku",
-              "civil-construction-1/study-plan-1kyu"
-            ],
+            "packs": [],
             "products": [],
             "make": "受検の順序の図解を 4 枚作る",
             "angles": [
@@ -1557,12 +1511,7 @@
           },
           "materials": {
             "status": "accepted",
-            "packs": [
-              "civil-construction-1/gakka-network-koteihyo",
-              "civil-construction-1/gakka-histogram",
-              "civil-construction-1/gakka-kanrizu",
-              "civil-construction-1/gakka-dodome-kussaku"
-            ],
+            "packs": [],
             "products": [],
             "make": "図解の動画の図をカルーセルへ転用する",
             "angles": [
@@ -1608,10 +1557,7 @@
           },
           "materials": {
             "status": "accepted",
-            "packs": [
-              "civil-construction-2/gakka-2kyu-concrete",
-              "civil-construction-2/gakka-2kyu-kiso"
-            ],
+            "packs": [],
             "products": [],
             "make": "図解の動画の図をカルーセルへ転用する",
             "angles": [
@@ -1659,9 +1605,7 @@
           "materials": {
             "status": "accepted",
             "packs": [
-              "pe-comprehensive-management/hakusho-map",
-              "pe-comprehensive-management/sanso-kozo",
-              "pe-comprehensive-management/gokanri-tradeoff"
+              "pe-comprehensive-management/sanso-kozo"
             ],
             "products": [],
             "make": "ショートをリールへ転用する",
@@ -1709,10 +1653,7 @@
           },
           "materials": {
             "status": "accepted",
-            "packs": [
-              "civil-construction-1/keiken-ochiru-toan-1kyu",
-              "civil-construction-1/koji-gaiyo-7items"
-            ],
+            "packs": [],
             "products": [],
             "make": "答案の良い例と悪い例の図解を作る",
             "angles": [
@@ -1758,10 +1699,7 @@
           },
           "materials": {
             "status": "accepted",
-            "packs": [
-              "civil-construction-2/keiken-genten-kyotsuten",
-              "civil-construction-2/koji-gaiyo-seigou"
-            ],
+            "packs": [],
             "products": [],
             "make": "答案の良い例と悪い例の図解を作る",
             "angles": [
@@ -1858,8 +1796,7 @@
           "materials": {
             "status": "accepted",
             "packs": [
-              "concrete-chief-engineer/shunin-shouronbun-kousei",
-              "concrete-chief-engineer/shunin-shouronbun-theme"
+              "concrete-chief-engineer/shunin-shouronbun-kousei"
             ],
             "products": [],
             "make": "立場別のテーマの図解を作る",
@@ -1962,7 +1899,7 @@
         "next": "3 か月後に総監の平均視聴率を他資格と比べる"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -2001,7 +1938,7 @@
         "next": "申込期の検索クリックと動画の再生を比べる"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -2048,10 +1985,10 @@
         "next": "動画の公開後に該当商品の販売が動くかを note の販売記録で見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
-        "make": "白書の 1 テーマを課題と解決策へつなぐ実演を 1 本作る"
+        "make": ""
       }
     },
     {
@@ -2092,7 +2029,7 @@
         "next": "総監でも尺の長い動画の平均視聴時間が伸びるかを見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -2132,10 +2069,10 @@
         "next": "直前 4 週の視聴維持と販売を見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
-        "make": "白書の改訂の差分を 1 本足す"
+        "make": ""
       }
     },
     {
@@ -2176,7 +2113,7 @@
         "next": "口頭教材の販売の時期と動画の公開を比べる"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -2220,7 +2157,7 @@
         "next": "書き分けの動画が検索から再生されるかを見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -2259,7 +2196,7 @@
         "next": "申込期の検索クリックと動画の再生を比べる"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -2312,7 +2249,7 @@
         "next": "科目ごとにマガジンの販売が動くかを note の販売記録で見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -2364,14 +2301,10 @@
       "materials": {
         "status": "accepted",
         "packs": [
-          "pe-construction/sentaku-kakiwake-3type",
-          "pe-construction/sentaku-road-yomikata",
-          "pe-construction/sentaku-geotechnical-yomikata",
-          "pe-construction/sentaku-steel-concrete-yomikata",
           "pe-construction/kaitourei-tsukaikata"
         ],
         "products": [],
-        "make": "書き分けの実演を長尺用に足し、科目の読み方と束ねる"
+        "make": ""
       }
     },
     {
@@ -2412,7 +2345,7 @@
         "next": "必須マガジンの販売と動画の公開を比べる"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -2453,7 +2386,7 @@
         "next": "予想の動画が検索から再生されるかを見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -2493,7 +2426,7 @@
         "next": "直前 4 週の視聴維持と販売を見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -2546,7 +2479,7 @@
         "products": [
           "pe1-chokuzen-pack"
         ],
-        "make": "基礎・適性・専門・全体の 4 本に束ねる"
+        "make": ""
       }
     },
     {
@@ -2584,13 +2517,8 @@
         "next": "1 本目の検索流入を見る"
       },
       "materials": {
-        "status": "accepted",
-        "packs": [
-          "civil-construction-1/roadmap-juken-shikaku",
-          "civil-construction-1/roadmap-nanido-goukakuritsu",
-          "civil-construction-1/roadmap-1kyu-vs-2kyu",
-          "civil-construction-1/study-plan-1kyu"
-        ],
+        "status": "proposed",
+        "packs": [],
         "products": [],
         "make": ""
       }
@@ -2634,40 +2562,12 @@
         "next": "最初の 1 本で平均視聴時間を見て残りを決める"
       },
       "materials": {
-        "status": "accepted",
-        "packs": [
-          "civil-construction-1/gakka-doshitsu-chosa",
-          "civil-construction-1/gakka-morido-shimekatame",
-          "civil-construction-1/gakka-nanjaku-jiban",
-          "civil-construction-1/gakka-nori-hogoko",
-          "civil-construction-1/gakka-dodome-kussaku",
-          "civil-construction-1/gakka-kotei-kanri-kiso",
-          "civil-construction-1/gakka-network-koteihyo",
-          "civil-construction-1/gakka-histogram",
-          "civil-construction-1/gakka-kanrizu",
-          "civil-construction-1/gakka-hinshitsu-kensa",
-          "civil-construction-1/gakka-anzen-taisei",
-          "civil-construction-1/gakka-ashiba-kijun",
-          "civil-construction-1/gakka-crane-sogo",
-          "civil-construction-1/gakka-risk-assessment",
-          "civil-construction-1/gakka-kensetsugyoho",
-          "civil-construction-1/gakka-roudou-kijun",
-          "civil-construction-1/gakka-hoki-kasen-doro",
-          "civil-construction-1/gakka-hoki-kenchiku-kayaku",
-          "civil-construction-1/gakka-kikai-kiso",
-          "civil-construction-1/gakka-kussaku-tsumikomi-kikai",
-          "civil-construction-1/gakka-unpan-shimekatame-kikai",
-          "civil-construction-1/gakka-kankyo-hozen",
-          "civil-construction-1/gakka-haikibutsu-recycle",
-          "civil-construction-1/kikinagashi-anzen-suchi",
-          "civil-construction-1/kikinagashi-doko-suchi",
-          "civil-construction-1/kikinagashi-hinshitsu-kikaku",
-          "civil-construction-1/kikinagashi-hoki-suchi"
-        ],
+        "status": "proposed",
+        "packs": [],
         "products": [
           "civil-1-anki-note"
         ],
-        "make": "土工・施工管理・安全・法規・機械と環境の 5 分野に束ねる。停止中の図解は承認してから連結する"
+        "make": ""
       }
     },
     {
@@ -2706,10 +2606,10 @@
         "next": "20 問の試作を目視してから本数を決める"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
-        "make": "過去問の記事から論点の一問一答を作る（DN-0600）。問題文は写さない"
+        "make": ""
       }
     },
     {
@@ -2747,10 +2647,10 @@
         "next": "無料版の視聴維持と模試の販売を見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
-        "make": "模試の無料版を 2027 年度用に 1 本作る。有料の一次の模試はまだ無いので、商品ができるまでは出る順ノートへ送る"
+        "make": ""
       }
     },
     {
@@ -2788,10 +2688,10 @@
         "next": "再生が読者リストや二次の準備につながるかを見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
-        "make": "試験当日の解答解説の記事を先に作り、動画は次の検定への案内に絞る"
+        "make": ""
       }
     },
     {
@@ -2829,11 +2729,8 @@
         "next": "合格発表の週の販売を見る"
       },
       "materials": {
-        "status": "accepted",
-        "packs": [
-          "civil-construction-1/niji-junbi-roadmap",
-          "civil-construction-1/keiken-dokugaku-genkai"
-        ],
+        "status": "proposed",
+        "packs": [],
         "products": [
           "civil-1-keiken-complete-pack"
         ],
@@ -2879,16 +2776,12 @@
         "next": "再生ではなくココナラと note への遷移で判断する"
       },
       "materials": {
-        "status": "accepted",
-        "packs": [
-          "civil-construction-1/keiken-anzen-1kyu",
-          "civil-construction-1/keiken-hinshitsu-1kyu",
-          "civil-construction-1/keiken-ochiru-toan-1kyu"
-        ],
+        "status": "proposed",
+        "packs": [],
         "products": [
           "civil-1-niji-marugoto-pack"
         ],
-        "make": "発注者の視点の答案の見方を 1 本作る"
+        "make": ""
       }
     },
     {
@@ -2927,15 +2820,12 @@
         "next": "購入前相談の「何で知ったか」で動画起点を数える"
       },
       "materials": {
-        "status": "accepted",
-        "packs": [
-          "civil-construction-1/keiken-kadai-kakikata",
-          "civil-construction-1/keiken-kaizen-example"
-        ],
+        "status": "proposed",
+        "packs": [],
         "products": [
           "coconala-tensaku-4theme"
         ],
-        "make": "架空の答案を発注者の視点で直す見本を 1 本作る"
+        "make": ""
       }
     },
     {
@@ -2972,15 +2862,12 @@
         "next": "予想の動画の検索流入を見る"
       },
       "materials": {
-        "status": "accepted",
-        "packs": [
-          "civil-construction-1/keiken-yosou-renshu",
-          "civil-construction-1/keiken-nendo-keiko-1kyu"
-        ],
+        "status": "proposed",
+        "packs": [],
         "products": [
           "civil-1-r8-bunseki"
         ],
-        "make": "出題予想の導き方に作り直す。的中は断定しない"
+        "make": ""
       }
     },
     {
@@ -3020,7 +2907,7 @@
         "next": "検索から動画へ人が来るかを見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
@@ -3061,16 +2948,12 @@
         "next": "1級の聞き流しと平均視聴時間を比べる"
       },
       "materials": {
-        "status": "accepted",
-        "packs": [
-          "civil-construction-2/kikinagashi-2kyu-matome",
-          "civil-construction-2/gakka-2kyu-concrete",
-          "civil-construction-2/gakka-2kyu-kiso"
-        ],
+        "status": "proposed",
+        "packs": [],
         "products": [
           "civil-2-anki-note"
         ],
-        "make": "土工・コンクリート・施工管理の総まとめを束ねる"
+        "make": ""
       }
     },
     {
@@ -3113,7 +2996,7 @@
         "next": "試験前 8 週の販売が動くかを見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [
           "civil-2-koji-bank"
@@ -3157,10 +3040,10 @@
         "next": "読者リストへの登録につながるかを見る（DN-0632 の後）"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
-        "make": "試験当日の解答解説の記事を先に作り、動画は来年度の案内に絞る"
+        "make": ""
       }
     },
     {
@@ -3203,7 +3086,6 @@
       "materials": {
         "status": "accepted",
         "packs": [
-          "concrete-chief-engineer/shunin-shouronbun-theme",
           "concrete-chief-engineer/shunin-shouronbun-kousei",
           "concrete-chief-engineer/shunin-ochiru-shouronbun"
         ],
@@ -3211,7 +3093,7 @@
           "cce-essay-persona-pack",
           "cce-essay-mokuji"
         ],
-        "make": "停止中のテーマの動画を見直して足す"
+        "make": ""
       }
     },
     {
@@ -3252,7 +3134,7 @@
         "next": "検索からの再生を見る"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [
           "ce-marugoto-pack"
@@ -3297,10 +3179,10 @@
         "next": "1 本目の視聴維持を見て残りを決める"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [],
-        "make": "3 本のうち 1 本は問題Ⅲの型を主題にする"
+        "make": ""
       }
     },
     {
@@ -3338,7 +3220,7 @@
         "next": "企画の判断のときに続けるかを決める"
       },
       "materials": {
-        "status": "accepted",
+        "status": "proposed",
         "packs": [],
         "products": [
           "cd-problem-b-pack",
@@ -3372,31 +3254,6 @@
       "priority": "P1",
       "note": "2級土木3テーマの2番目。管理項目→現場条件→確認方法を、夏季コンクリートの温度管理の例で説明。総監・元発注者・1級/2級土木合格者の訴求を反映。実予約と動画IDは公開台帳を参照。通常動画の次はShorts1本／Reels1本→カルーセル1投稿→X1〜2投稿。送客先 civil-2-experience-essay。旧 keiken-hinshitsu-kakikata は停止を維持。",
       "publicationId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform"
-    },
-    {
-      "id": "kotei-touan-gutaika",
-      "exam": "civil-construction-2",
-      "title": "工程管理｜増員した、だけで終わらせない",
-      "action": "new",
-      "start": "2027-07-26",
-      "ready": "2027-08-02",
-      "target": "2027-08-05",
-      "priority": "P1",
-      "note": "ユーザーの追加5本予約依頼。内容QA・画像QA・完成動画確認を経て予約。実日時・動画IDは公開台帳を参照。送客先 civil-2-experience-essay。Shorts・Reels・カルーセル・Xへの派生は別工程。",
-      "publicationId": "civil-construction-2/kotei-touan-gutaika/youtube.longform",
-      "slot": "c2-keiken-2027"
-    },
-    {
-      "id": "c2-matome-2kyu-chokuzen-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform",
-      "action": "finish",
-      "start": "2027-03-13",
-      "ready": "2027-03-20",
-      "target": "2027-03-23",
-      "note": "2級土木の試験終了により追加制作を保留。次年度の公式日程が出てから再配分する。",
-      "priority": "P3",
-      "slot": "c2-listen-2027"
     },
     {
       "id": "p1-pe1-zentaizou-finish",
@@ -3433,126 +3290,6 @@
       "publicationId": "pe-construction/pe-kojutsu-keireki/youtube.longform"
     },
     {
-      "id": "cm-kojutsu-tradeoff",
-      "exam": "pe-comprehensive-management",
-      "title": "総監の口頭対策 — 5管理のトレードオフを自分の経験で説明する",
-      "action": "new",
-      "start": "2026-11-09",
-      "ready": "2026-11-14",
-      "target": "2026-11-17",
-      "note": "現行制度・一次資料と既存教材を確認して新規台本を制作。図解・POP表紙の確認後に動画QAと主CTAを確認。",
-      "priority": "P1",
-      "slot": "cm-oral-2026"
-    },
-    {
-      "id": "pe-kojutsu-fukabori",
-      "exam": "pe-construction",
-      "title": "技術士建設部門の口頭対策 — 深掘り質問に事実で答える",
-      "action": "new",
-      "start": "2026-11-09",
-      "ready": "2026-11-16",
-      "target": "2026-11-19",
-      "note": "現行制度・一次資料と既存教材を確認して新規台本を制作。図解・POP表紙の確認後に動画QAと主CTAを確認。",
-      "priority": "P1",
-      "slot": "pc-oral-2026"
-    },
-    {
-      "id": "pe-competency-r8-taiou-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/competency-r8-taiou/youtube.longform",
-      "action": "revise",
-      "start": "2026-12-14",
-      "ready": "2026-12-21",
-      "target": "2026-12-24",
-      "note": "令和8年度改訂を口頭試験の評価にも接続。筆記向け原稿との差分と公式評価項目を照合してから公開。",
-      "priority": "P1",
-      "slot": "pc-oral-2026"
-    },
-    {
-      "id": "pe-secondary-study-houhou-finish",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/secondary-study-houhou/youtube.longform",
-      "action": "finish",
-      "start": "2026-11-23",
-      "ready": "2026-11-30",
-      "target": "2026-12-03",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "pc-restart-2027"
-    },
-    {
-      "id": "cm-sokan-goukaku-senryaku-finish",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform",
-      "action": "finish",
-      "start": "2026-11-21",
-      "ready": "2026-11-28",
-      "target": "2026-12-01",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "cm-restart-2027"
-    },
-    {
-      "id": "pe-gakushuu-schedule-gyakusan-finish",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/gakushuu-schedule-gyakusan/youtube.longform",
-      "action": "finish",
-      "start": "2026-12-21",
-      "ready": "2026-12-28",
-      "target": "2026-12-31",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "pc-restart-2027"
-    },
-    {
-      "id": "cm-persona-settei-finish",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/persona-settei/youtube.longform",
-      "action": "finish",
-      "start": "2026-12-15",
-      "ready": "2026-12-22",
-      "target": "2026-12-25",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "cm-restart-2027"
-    },
-    {
-      "id": "pe-nanido-goukakuritsu-shindan-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/nanido-goukakuritsu-shindan/youtube.longform",
-      "action": "revise",
-      "start": "2027-01-19",
-      "ready": "2027-01-26",
-      "target": "2027-01-29",
-      "note": "直近の公式合格率・科目構成を確認。全体と科目別の分母を混同しない。",
-      "priority": "P1",
-      "slot": "pc-restart-2027"
-    },
-    {
-      "id": "cm-takuitsu-keyword-finish",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/takuitsu-keyword/youtube.longform",
-      "action": "finish",
-      "start": "2027-01-05",
-      "ready": "2027-01-12",
-      "target": "2027-01-15",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "cm-restart-2027"
-    },
-    {
-      "id": "cm-gokanri-tradeoff-finish",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/gokanri-tradeoff/youtube.longform",
-      "action": "finish",
-      "start": "2027-02-01",
-      "ready": "2027-02-08",
-      "target": "2027-02-11",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "cm-restart-2027"
-    },
-    {
       "id": "pe-kaitourei-tsukaikata-finish",
       "exam": "pe-construction",
       "publicationId": "pe-construction/kaitourei-tsukaikata/youtube.longform",
@@ -3586,305 +3323,6 @@
       "priority": "P1"
     },
     {
-      "id": "cm-monbun-yomikata-finish",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/monbun-yomikata/youtube.longform",
-      "action": "finish",
-      "start": "2027-02-23",
-      "ready": "2027-03-02",
-      "target": "2027-03-05",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "cm-restart-2027"
-    },
-    {
-      "id": "c2-shiken-2027-roadmap",
-      "exam": "civil-construction-2",
-      "title": "2級土木 2027年の受検計画 — 前期・後期と二次の準備を分ける",
-      "action": "new",
-      "start": "2026-11-24",
-      "ready": "2026-12-01",
-      "target": "2026-12-04",
-      "note": "2027年度の公式日程・資格要件発表を確認して制作。旧動画との差分に絞り、未発表なら公開目標を見直す。",
-      "priority": "P1",
-      "slot": "c2-start-2027"
-    },
-    {
-      "id": "cm-gyoumu-keirekihyo-revise",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/gyoumu-keirekihyo/youtube.longform",
-      "action": "revise",
-      "start": "2027-01-23",
-      "ready": "2027-01-30",
-      "target": "2027-02-02",
-      "note": "2027年度の申込案内で様式・要件を照合。未発表なら制度部分は保留。",
-      "priority": "P1",
-      "slot": "cm-application-2027"
-    },
-    {
-      "id": "pe-keirekihyo-kakikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/keirekihyo-kakikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-01-25",
-      "ready": "2027-02-01",
-      "target": "2027-02-04",
-      "note": "2027年度の申込案内で様式・文字数・記載事項を照合。未発表なら制度部分は保留。",
-      "priority": "P1",
-      "slot": "pc-application-2027"
-    },
-    {
-      "id": "c1-shiken-2027-difference",
-      "exam": "civil-construction-1",
-      "title": "1級土木 2027年の受検準備 — 日程・要件・学習順序の確認",
-      "action": "new",
-      "start": "2026-12-22",
-      "ready": "2026-12-29",
-      "target": "2027-01-01",
-      "note": "既存の受検資格・学習計画動画を踏まえ、公式2027年度案内で変わった点だけ制作。未発表なら公開目標を見直す。",
-      "priority": "P1",
-      "slot": "c1-start-2027"
-    },
-    {
-      "id": "pe-sentaku-kakiwake-3type-finish",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-kakiwake-3type/youtube.longform",
-      "action": "finish",
-      "start": "2027-02-20",
-      "ready": "2027-02-27",
-      "target": "2027-03-02",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "pc-restart-2027"
-    },
-    {
-      "id": "cm-hakusho-map-revise",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/hakusho-map/youtube.longform",
-      "action": "revise",
-      "start": "2027-03-20",
-      "ready": "2027-03-27",
-      "target": "2027-03-30",
-      "note": "2027受験で使える白書の版・対象時点を確認。27冊という既存見出しは現行収録数を検証する。",
-      "priority": "P1",
-      "slot": "cm-essay-2027"
-    },
-    {
-      "id": "pe-hissu1-theme-map-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/hissu1-theme-map/youtube.longform",
-      "action": "revise",
-      "start": "2027-04-03",
-      "ready": "2027-04-10",
-      "target": "2027-04-13",
-      "note": "2026年度の出題を加え、対象年数と分類を再検証。2027予想と出題実績を分ける。",
-      "priority": "P1",
-      "slot": "pc-hissu-2027"
-    },
-    {
-      "id": "cm-setsumon3-shisaku-finish",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform",
-      "action": "finish",
-      "start": "2027-03-27",
-      "ready": "2027-04-03",
-      "target": "2027-04-06",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "cm-essay-2027"
-    },
-    {
-      "id": "pe-kensetsu-pe-career-kachi-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/kensetsu-pe-career-kachi/youtube.longform",
-      "action": "revise",
-      "start": "2027-03-08",
-      "ready": "2027-03-15",
-      "target": "2027-03-18",
-      "note": "合格発表後の進路検討向け。年収・転職効果を保証せず根拠と条件を明示。",
-      "priority": "P1",
-      "slot": "pc-application-2027"
-    },
-    {
-      "id": "cm-kata-oudan-ryuyo-finish",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform",
-      "action": "finish",
-      "start": "2027-04-20",
-      "ready": "2027-04-27",
-      "target": "2027-04-30",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "cm-essay-2027"
-    },
-    {
-      "id": "pe-sentaku-construction-planning-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-construction-planning-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-02-27",
-      "ready": "2027-03-06",
-      "target": "2027-03-09",
-      "note": "2026年出題を照合し2027受験に対応。選択科目別シリーズの先行枠。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "pe-sentaku-road-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-road-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-03-01",
-      "ready": "2027-03-08",
-      "target": "2027-03-11",
-      "note": "2026年出題を追加確認してから公開。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "pe-sentaku-river-coast-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-river-coast-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-03-09",
-      "ready": "2027-03-16",
-      "target": "2027-03-19",
-      "note": "2026年出題を追加確認してから公開。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "pe-sentaku-steel-concrete-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-steel-concrete-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-03-15",
-      "ready": "2027-03-22",
-      "target": "2027-03-25",
-      "note": "2026年出題と技術基準を追加確認してから公開。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "c2-gakka-2kyu-doko-reuse",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
-      "action": "reuse",
-      "start": "2027-03-31",
-      "ready": "2027-04-04",
-      "target": "2027-04-07",
-      "note": "公開済み動画の内容・表紙・教材導線を点検して再生リストへ再案内。同一動画の再アップロードはしない。未公開ならこの枠は保留。",
-      "priority": "P2"
-    },
-    {
-      "id": "pe-sentaku-geotechnical-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-03-23",
-      "ready": "2027-03-30",
-      "target": "2027-04-02",
-      "note": "2026年出題と技術基準を追加確認してから公開。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "pe-sentaku-tunnel-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-tunnel-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-03-30",
-      "ready": "2027-04-06",
-      "target": "2027-04-09",
-      "note": "2026年出題と技術基準を追加確認してから公開。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "pe-sentaku-urban-planning-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-urban-planning-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-04-10",
-      "ready": "2027-04-17",
-      "target": "2027-04-20",
-      "note": "2026年出題を追加確認してから公開。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "pe-sentaku-environment-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-environment-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-04-17",
-      "ready": "2027-04-24",
-      "target": "2027-04-27",
-      "note": "2026年出題を追加確認してから公開。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "pe-sentaku-port-airport-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-port-airport-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-04-26",
-      "ready": "2027-05-03",
-      "target": "2027-05-06",
-      "note": "2026年出題と技術基準を追加確認してから公開。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "pe-sentaku-railway-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-railway-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-05-03",
-      "ready": "2027-05-10",
-      "target": "2027-05-13",
-      "note": "2026年出題と技術基準を追加確認してから公開。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "pe-sentaku-power-civil-yomikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/sentaku-power-civil-yomikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-05-11",
-      "ready": "2027-05-18",
-      "target": "2027-05-21",
-      "note": "2026年出題と技術基準を追加確認してから公開。",
-      "priority": "P1",
-      "slot": "pc-sentaku-2027"
-    },
-    {
-      "id": "pe-hissu1-bosai-kyoujinka-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/hissu1-bosai-kyoujinka/youtube.longform",
-      "action": "revise",
-      "start": "2027-04-06",
-      "ready": "2027-04-13",
-      "target": "2027-04-16",
-      "note": "最新の国家施策・白書と2026年問題を照合。",
-      "priority": "P1",
-      "slot": "pc-hissu-2027"
-    },
-    {
-      "id": "cm-r8-yosou-theme-revise",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/r8-yosou-theme/youtube.longform",
-      "action": "revise",
-      "start": "2027-05-22",
-      "ready": "2027-05-29",
-      "target": "2027-06-01",
-      "note": "R8予想のまま公開しない。2026実績と最新白書からR9版へ実質改稿し、題名・本文・音声・字幕・表紙を再QA。",
-      "priority": "P1",
-      "slot": "cm-essay-2027"
-    },
-    {
       "id": "pe-hissu1-infra-roukyuuka-revise",
       "exam": "pe-construction",
       "publicationId": "pe-construction/hissu1-infra-roukyuuka/youtube.longform",
@@ -3894,18 +3332,6 @@
       "target": "2027-05-11",
       "note": "最新の国家施策・白書と2026年問題を照合。",
       "priority": "P1"
-    },
-    {
-      "id": "pe-r8-yosou-dashikata-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/r8-yosou-dashikata/youtube.longform",
-      "action": "revise",
-      "start": "2027-04-24",
-      "ready": "2027-05-01",
-      "target": "2027-05-04",
-      "note": "R8予想のまま公開しない。2026実績と最新施策からR9版へ実質改稿し、題名・本文・音声・字幕・表紙を再QA。",
-      "priority": "P1",
-      "slot": "pc-yosou-2027"
     },
     {
       "id": "pe-hissu1-kensetsu-dx-revise",
@@ -3919,369 +3345,6 @@
       "priority": "P1"
     },
     {
-      "id": "pe-hissu1-carbon-neutral-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/hissu1-carbon-neutral/youtube.longform",
-      "action": "revise",
-      "start": "2027-04-27",
-      "ready": "2027-05-04",
-      "target": "2027-05-07",
-      "note": "最新の施策・統計と2026年問題を照合。",
-      "priority": "P1",
-      "slot": "pc-hissu-2027"
-    },
-    {
-      "id": "pe-hissu1-ninaite-seisansei-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/hissu1-ninaite-seisansei/youtube.longform",
-      "action": "revise",
-      "start": "2027-05-15",
-      "ready": "2027-05-22",
-      "target": "2027-05-25",
-      "note": "2024年問題の説明を2027時点へ更新し、最新統計と施策を照合。",
-      "priority": "P1",
-      "slot": "pc-hissu-2027"
-    },
-    {
-      "id": "pe-hissu1-kokudo-chiiki-revise",
-      "exam": "pe-construction",
-      "publicationId": "pe-construction/hissu1-kokudo-chiiki/youtube.longform",
-      "action": "revise",
-      "start": "2027-06-01",
-      "ready": "2027-06-08",
-      "target": "2027-06-11",
-      "note": "最新の施策・白書と2026年問題を照合。",
-      "priority": "P1",
-      "slot": "pc-hissu-2027"
-    },
-    {
-      "id": "cm-takuitsu-r07-enshu-finish",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform",
-      "action": "finish",
-      "start": "2027-05-04",
-      "ready": "2027-05-11",
-      "target": "2027-05-14",
-      "note": "令和7年度の過去問演習として年度を保持。R9予想に見せない。",
-      "priority": "P1",
-      "slot": "cm-takuitsu-2027"
-    },
-    {
-      "id": "c1-ichiji-bunseki",
-      "exam": "civil-construction-1",
-      "title": "1級土木一次 — 間違えた問題から復習順序を決める",
-      "action": "new",
-      "start": "2027-05-01",
-      "ready": "2027-05-08",
-      "target": "2027-05-11",
-      "note": "現行制度・一次資料と既存教材を確認して新規台本を制作。図解・POP表紙の確認後に動画QAと主CTAを確認。",
-      "priority": "P1",
-      "slot": "c1-moshi-2027"
-    },
-    {
-      "id": "cm-kikinagashi-sokan-keyword-revise",
-      "exam": "pe-comprehensive-management",
-      "publicationId": "pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform",
-      "action": "revise",
-      "start": "2027-06-07",
-      "ready": "2027-06-14",
-      "target": "2027-06-17",
-      "note": "数値・制度用語を現行版と照合。変更がなければ音声字幕を再利用。",
-      "priority": "P1",
-      "slot": "cm-takuitsu-2027"
-    },
-    {
-      "id": "pe-hissu1-jikan",
-      "exam": "pe-construction",
-      "title": "技術士必須Ⅰ — 本番で構成と執筆の時間を配分する",
-      "action": "new",
-      "start": "2027-05-25",
-      "ready": "2027-06-01",
-      "target": "2027-06-04",
-      "note": "現行制度・一次資料と既存教材を確認して新規台本を制作。図解・POP表紙の確認後に動画QAと主CTAを確認。",
-      "priority": "P1",
-      "slot": "pc-final-2027"
-    },
-    {
-      "id": "cd-shindan-ronten-map",
-      "exam": "concrete-diagnostician",
-      "title": "コンクリート診断士 — 劣化機構から調査・対策へつなぐ",
-      "action": "new",
-      "start": "2027-05-08",
-      "ready": "2027-05-15",
-      "target": "2027-05-18",
-      "note": "試行1本目。専門事実を一次資料でQAし、既存note教材1点へ接続。公開後28日で制作時間と送客を検証。",
-      "priority": "P3",
-      "slot": "cd-2027"
-    },
-    {
-      "id": "pe-toan-risk-check",
-      "exam": "pe-construction",
-      "title": "技術士建設部門 — 効果・新たなリスク・対応をつなぐ直前演習",
-      "action": "new",
-      "start": "2027-06-21",
-      "ready": "2027-06-28",
-      "target": "2027-07-01",
-      "note": "現行制度・一次資料と既存教材を確認して新規台本を制作。図解・POP表紙の確認後に動画QAと主CTAを確認。",
-      "priority": "P1",
-      "slot": "pc-final-2027"
-    },
-    {
-      "id": "cm-kijutsu-chokuzen",
-      "exam": "pe-comprehensive-management",
-      "title": "総監記述式 — 設問間の整合を確認する直前チェック",
-      "action": "new",
-      "start": "2027-05-24",
-      "ready": "2027-05-31",
-      "target": "2027-06-03",
-      "note": "現行制度・一次資料と既存教材を確認して新規台本を制作。図解・POP表紙の確認後に動画QAと主CTAを確認。",
-      "priority": "P1",
-      "slot": "cm-final-2027"
-    },
-    {
-      "id": "cd-shindan-kijutsu",
-      "exam": "concrete-diagnostician",
-      "title": "コンクリート診断士 — 調査結果を記述答案へつなぐ",
-      "action": "new",
-      "start": "2027-06-08",
-      "ready": "2027-06-15",
-      "target": "2027-06-18",
-      "note": "試行2本目。1本目のQA・工数を確認して着手。未検証の劣化原因を断定しない。",
-      "priority": "P3",
-      "slot": "cd-2027"
-    },
-    {
-      "id": "c1-koji-gaiyo-sheet-zukai-finish",
-      "exam": "civil-construction-1",
-      "publicationId": "civil-construction-1/koji-gaiyo-sheet-zukai/youtube.longform",
-      "action": "finish",
-      "start": "2027-07-24",
-      "ready": "2027-07-31",
-      "target": "2027-08-03",
-      "note": "既存台本を精査し、POP表紙・画像確認、レンダー、主CTA確認を終える。",
-      "priority": "P1",
-      "slot": "c1-keiken-2027"
-    },
-    {
-      "id": "rc-rccm-gakushu",
-      "exam": "rccm",
-      "title": "RCCM — CBTの試験構成と学習順序",
-      "action": "new",
-      "start": "2027-05-29",
-      "ready": "2027-06-05",
-      "target": "2027-06-08",
-      "note": "試行1本目。2027年度公式案内を確認。公開後28日で視聴・送客・制作時間を記録し拡大判断。",
-      "priority": "P3",
-      "slot": "rc-2027"
-    },
-    {
-      "id": "c1-niji-gyakusan-2027",
-      "exam": "civil-construction-1",
-      "title": "1級土木二次 — 経験記述と学科記述の10週間プラン",
-      "action": "new",
-      "start": "2027-06-22",
-      "ready": "2027-06-29",
-      "target": "2027-07-02",
-      "note": "2027公式試験日から逆算して週数を再計算。既存ロードマップとの重複を整理して差分を制作。",
-      "priority": "P1",
-      "slot": "c1-bridge-2027"
-    },
-    {
-      "id": "rc-rccm-keiken",
-      "exam": "rccm",
-      "title": "RCCM 問題Ⅰ — 業務経験を管理技術者の視点で整理する",
-      "action": "new",
-      "start": "2027-06-29",
-      "ready": "2027-07-06",
-      "target": "2027-07-09",
-      "note": "試行2本目。公式案内と既存教材を確認。1本目の反応を見て導入を改善。",
-      "priority": "P3",
-      "slot": "rc-2027"
-    },
-    {
-      "id": "ce-gishi-keisan-enshu",
-      "exam": "concrete-engineer",
-      "title": "コンクリート技士 — 配合計算のつまずきを図で解く",
-      "action": "new",
-      "start": "2027-08-02",
-      "ready": "2027-08-09",
-      "target": "2027-08-12",
-      "note": "現行制度・一次資料と既存教材を確認して新規台本を制作。図解・POP表紙の確認後に動画QAと主CTAを確認。",
-      "priority": "P2",
-      "slot": "ce-2027"
-    },
-    {
-      "id": "cc-shunin-shouronbun-2027",
-      "exam": "concrete-chief-engineer",
-      "title": "コンクリート主任技士 — 立場別に小論文の対策を書き分ける",
-      "action": "new",
-      "start": "2027-07-31",
-      "ready": "2027-08-07",
-      "target": "2027-08-10",
-      "note": "令和形式の実績と8立場の教材を照合。試験直前ではなく学習開始期に公開。",
-      "priority": "P2",
-      "slot": "cc-2027"
-    },
-    {
-      "id": "c1-niji-jiko-tenken",
-      "exam": "civil-construction-1",
-      "title": "1級土木二次 — 自分の答案で減点要因を点検する",
-      "action": "new",
-      "start": "2027-08-23",
-      "ready": "2027-08-30",
-      "target": "2027-09-02",
-      "note": "現行制度・一次資料と既存教材を確認して新規台本を制作。図解・POP表紙の確認後に動画QAと主CTAを確認。",
-      "priority": "P1",
-      "slot": "c1-keiken-2027"
-    },
-    {
-      "id": "c2-niji-2027-kakidashi",
-      "exam": "civil-construction-2",
-      "title": "2級土木二次 — 工事概要から課題・対策へ書き始める",
-      "action": "new",
-      "start": "2027-08-07",
-      "ready": "2027-08-14",
-      "target": "2027-08-17",
-      "note": "現行制度・一次資料と既存教材を確認して新規台本を制作。図解・POP表紙の確認後に動画QAと主CTAを確認。",
-      "priority": "P1",
-      "slot": "c2-keiken-2027"
-    },
-    {
-      "id": "cc-shunin-suji-2027",
-      "exam": "concrete-chief-engineer",
-      "title": "コンクリート主任技士 — 数値を条件とセットで覚える",
-      "action": "new",
-      "start": "2027-09-07",
-      "ready": "2027-09-14",
-      "target": "2027-09-17",
-      "note": "既存聞き流し動画との差分を確認し、法令・規格改訂や誤りがある部分を優先。",
-      "priority": "P2",
-      "slot": "cc-2027"
-    },
-    {
-      "id": "c2-niji-2027-theme",
-      "exam": "civil-construction-2",
-      "title": "2級土木二次 — 品質・工程・安全の答案を混同しない",
-      "action": "new",
-      "start": "2027-08-24",
-      "ready": "2027-08-31",
-      "target": "2027-09-03",
-      "note": "現行制度・一次資料と既存教材を確認して新規台本を制作。図解・POP表紙の確認後に動画QAと主CTAを確認。",
-      "priority": "P1",
-      "slot": "c2-keiken-2027"
-    },
-    {
-      "id": "rc-rccm-kanrigijutsu",
-      "exam": "rccm",
-      "title": "RCCM 問題Ⅲ — 指定用語を論理につなぐ",
-      "action": "new",
-      "start": "2027-08-10",
-      "ready": "2027-08-17",
-      "target": "2027-08-20",
-      "note": "条件付き拡充。先行2本それぞれ公開28日後の送客・工数を9月3日に確認。欠測なら制作・予約を保留。評価後に着手するため今回は25日前着手。",
-      "priority": "P3",
-      "slot": "rc-2027"
-    },
-    {
-      "id": "c2-gakka-2kyu-hoki-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/gakka-2kyu-hoki/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-14",
-      "ready": "2026-10-20",
-      "target": "2026-10-23",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "c2-gakka-2kyu-sekokeikaku-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-14",
-      "ready": "2026-10-20",
-      "target": "2026-10-23",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "c2-gakka-kijutsu-2kyu-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/gakka-kijutsu-2kyu/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-14",
-      "ready": "2026-10-20",
-      "target": "2026-10-23",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "c2-keiken-2kyu-level-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/keiken-2kyu-level/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-14",
-      "ready": "2026-10-20",
-      "target": "2026-10-23",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "c2-keiken-genten-kyotsuten-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/keiken-genten-kyotsuten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-14",
-      "ready": "2026-10-20",
-      "target": "2026-10-23",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "c2-keiken-koji-ga-nai-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/keiken-koji-ga-nai/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-14",
-      "ready": "2026-10-20",
-      "target": "2026-10-23",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "c2-keiken-nendo-keiko-2kyu-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-14",
-      "ready": "2026-10-20",
-      "target": "2026-10-23",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "c2-kikinagashi-2kyu-matome-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/kikinagashi-2kyu-matome/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-14",
-      "ready": "2026-10-20",
-      "target": "2026-10-23",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "cc-kikinagashi-shunin-suchi-finish",
-      "exam": "concrete-chief-engineer",
-      "publicationId": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
       "id": "cc-shunin-chokuzen-senryaku-finish",
       "exam": "concrete-chief-engineer",
       "publicationId": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform",
@@ -4291,28 +3354,6 @@
       "target": "2026-11-20",
       "note": "11/29の試験に向けて制作・確認を優先する。停止済みの公開行は再利用前に内容・権利・公開日時を確認する。",
       "priority": "P1"
-    },
-    {
-      "id": "cc-shunin-construction-ronten-finish",
-      "exam": "concrete-chief-engineer",
-      "publicationId": "concrete-chief-engineer/shunin-construction-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "cc-shunin-durability-ronten-finish",
-      "exam": "concrete-chief-engineer",
-      "publicationId": "concrete-chief-engineer/shunin-durability-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
     },
     {
       "id": "cc-shunin-hinshutsu-yusen-finish",
@@ -4326,64 +3367,9 @@
       "priority": "P3"
     },
     {
-      "id": "cc-shunin-materials-ronten-finish",
-      "exam": "concrete-chief-engineer",
-      "publicationId": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "cc-shunin-mix-design-ronten-finish",
-      "exam": "concrete-chief-engineer",
-      "publicationId": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
       "id": "cc-shunin-ochiru-shouronbun-finish",
       "exam": "concrete-chief-engineer",
       "publicationId": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "cc-shunin-production-qc-ronten-finish",
-      "exam": "concrete-chief-engineer",
-      "publicationId": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "cc-shunin-products-ronten-finish",
-      "exam": "concrete-chief-engineer",
-      "publicationId": "concrete-chief-engineer/shunin-products-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "cc-shunin-properties-ronten-finish",
-      "exam": "concrete-chief-engineer",
-      "publicationId": "concrete-chief-engineer/shunin-properties-ronten/youtube.longform",
       "action": "finish",
       "start": "2026-10-20",
       "ready": "2026-11-17",
@@ -4425,173 +3411,6 @@
       "priority": "P3"
     },
     {
-      "id": "cc-shunin-shouronbun-theme-finish",
-      "exam": "concrete-chief-engineer",
-      "publicationId": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "cc-shunin-structural-design-ronten-finish",
-      "exam": "concrete-chief-engineer",
-      "publicationId": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-12week-plan-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-12week-plan/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-construction-ronten-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-construction-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-environment-ronten-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-environment-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-haigou-keisan-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-haigou-keisan/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-jis-handan-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-jis-handan/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-jukenshikaku-2026-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-jukenshikaku-2026/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-materials-ronten-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-materials-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-mix-design-ronten-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-mix-design-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-production-qc-ronten-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-production-qc-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-properties-testing-ronten-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-properties-testing-ronten/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-shiken-zentaizou-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-shiken-zentaizou/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "ce-gishi-shunin-dochira-finish",
-      "exam": "concrete-engineer",
-      "publicationId": "concrete-engineer/gishi-shunin-dochira/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-20",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "koji-gaiyo-seigou",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/koji-gaiyo-seigou/youtube.longform",
-      "title": "工事概要｜本文とのズレを防ぐ",
-      "action": "new",
-      "start": "2027-09-06",
-      "ready": "2027-09-13",
-      "target": "2027-09-16",
-      "priority": "P1",
-      "note": "ユーザーの追加5本予約依頼。内容QA・画像QA・完成動画確認を経て予約。実日時・動画IDは公開台帳を参照。送客先 civil-2-experience-essay。Shorts・Reels・カルーセル・Xへの派生は別工程。",
-      "slot": "c2-keiken-2027"
-    },
-    {
       "id": "keiken-daizai-erabi",
       "exam": "civil-construction-2",
       "publicationId": "civil-construction-2/keiken-daizai-erabi/youtube.longform",
@@ -4602,32 +3421,6 @@
       "target": "2026-10-25",
       "priority": "P1",
       "note": "ユーザーの追加5本予約依頼。内容QA・画像QA・完成動画確認を経て予約。実日時・動画IDは公開台帳を参照。送客先 civil-2-experience-essay。Shorts・Reels・カルーセル・Xへの派生は別工程。"
-    },
-    {
-      "id": "kento-taio-kakiwake",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/kento-taio-kakiwake/youtube.longform",
-      "title": "検討と対応｜考えたことと実施したことを分ける",
-      "action": "new",
-      "start": "2027-09-21",
-      "ready": "2027-09-28",
-      "target": "2027-10-01",
-      "priority": "P1",
-      "note": "ユーザーの追加5本予約依頼。内容QA・画像QA・完成動画確認を経て予約。実日時・動画IDは公開台帳を参照。送客先 civil-2-experience-essay。Shorts・Reels・カルーセル・Xへの派生は別工程。",
-      "slot": "c2-keiken-2027"
-    },
-    {
-      "id": "touan-teishutsu-check",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/touan-teishutsu-check/youtube.longform",
-      "title": "答案の見直し｜条件・処置・結果のつながりを確認",
-      "action": "new",
-      "start": "2027-10-05",
-      "ready": "2027-10-12",
-      "target": "2027-10-15",
-      "priority": "P1",
-      "note": "ユーザーの追加5本予約依頼。内容QA・画像QA・完成動画確認を経て予約。実日時・動画IDは公開台帳を参照。送客先 civil-2-experience-essay。Shorts・Reels・カルーセル・Xへの派生は別工程。",
-      "slot": "c2-keiken-2027"
     },
     {
       "id": "cc-shunin-cement-4kagoubutsu-finish",

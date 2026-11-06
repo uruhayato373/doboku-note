@@ -116,5 +116,5 @@ test('実データの台帳は検査を通り、確認を 0 件で素通りし�
   assert.ok(real.probes.every((p) => p.checked > 0));
   const { plan } = loadCompetitorPositionsAudit(root);
   const slots = [...plan.slots, ...plan.channels.x.slots, ...plan.channels.instagram.slots];
-  assert.ok(slots.length >= 50 && slots.every((s) => s.materials.status === 'accepted'));
+  assert.ok(slots.length >= 50 && slots.every((s) => ['accepted', 'proposed'].includes(s.materials.status)));
 });

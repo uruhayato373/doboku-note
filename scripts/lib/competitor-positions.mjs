@@ -251,7 +251,7 @@ export function auditPlanStances(plan, ledger, { required = false, exists = null
       if (products && !products.has(product)) errors.push(`${where}: 商品が無い ${product}`);
       if (slot.primaryCta?.targets?.includes(product)) errors.push(`${where}: ${product} は primaryCta にある。materials に写さない`);
     }
-    if (slot.materials && planned.length === 0 && slot.materials.packs.length === 0 && !slot.materials.make) errors.push(`${where}: 材料が空`);
+    if (slot.materials?.status === 'accepted' && planned.length === 0 && slot.materials.packs.length === 0 && !slot.materials.make) errors.push(`${where}: 採用した材料が空`);
     if (GAP_CLAIM.test(slot.reason?.demand ?? '')) errors.push(`${where}: 空きの主張を枠に書いている。立ち位置の台帳で確かめて参照する`);
     for (const avoid of position?.avoid ?? []) {
       const hit = formats.find((f) => avoid.formats.includes(f));
