@@ -74,8 +74,8 @@ type ExamRow = { id: string; label: string; marks: { date: string; label: string
 const labels: Record<string, string> = PLAN_ACTIONS;
 
 /** 通常動画の制作・公開管理。計画と公開台帳はIDで結合済み。 */
-export function VideoAnnualPlan({ board, planAudit, slotInfo, months, exams, periods, month, exam, library, view, tab }: {
-  board: Board; planAudit: PlanAudit | null; slotInfo: SlotInfo; months: string[]; exams: ExamRow[]; periods: { exam: string; label: string; window: string }[]; month?: string; exam?: string; library: boolean; view?: string; tab?: string;
+export function VideoAnnualPlan({ board, planAudit, metricLines, slotInfo, months, exams, periods, month, exam, library, view, tab }: {
+  board: Board; planAudit: PlanAudit | null; metricLines: string[]; slotInfo: SlotInfo; months: string[]; exams: ExamRow[]; periods: { exam: string; label: string; window: string }[]; month?: string; exam?: string; library: boolean; view?: string; tab?: string;
 }) {
   const link = (m?: string, e = exam, lib = library) => longformPlanHref({ m, e, library: lib ? '1' : undefined });
   const examRows = board.rows.filter((r) => !exam || r.exam === exam);
@@ -150,7 +150,7 @@ export function VideoAnnualPlan({ board, planAudit, slotInfo, months, exams, per
       <DataTable columns={[{ key: 'window', label: '時期（仮）' }, { key: 'slot', label: '枠', wrap: true }, { key: 'role', label: '役割' }, { key: 'count', label: '本数' }]} rows={slotRows} />
       <div className="mt-3 flex flex-wrap gap-4 text-sm">
         <DetailSheet trigger="成功指標" title="成功指標">
-          <DetailText title="主な指標" items={(board.plan.metrics.primary as PlanConfig['metrics']['primary']).map((m) => `${m.label}: ${m.definition}（${m.source}）`)} />
+          <DetailText title="主な指標" items={metricLines} />
           <DetailText title="目標" items={[board.plan.metrics.target]} />
         </DetailSheet>
         <DetailSheet trigger="2027 年度の時期の置き方" title="2027 年度の時期の置き方">

@@ -8,7 +8,7 @@ export type BoardSlot = {
 };
 export type BoardChannel = {
   id: string; label: string; role: string; state: string; weekly: string; planned: number; capacity: number;
-  metrics: { label: string; status: string }[]; slots: BoardSlot[]; pending: string[]; errors: string[];
+  metrics: { label: string; state: string; ok: boolean }[]; slots: BoardSlot[]; pending: string[]; errors: string[];
 };
 
 const KIND: Record<string, string> = { 'site-article': 'サイトの記事', 'links-hub': 'リンク集（/links）' };
@@ -114,7 +114,7 @@ export function ChannelAnnualBoard({ channels, months, nameOf, targetLabel, acti
               <TableCell className="align-top text-xs">{c.slots.length} 枠・{c.planned} 本<div className="text-muted-foreground">週の上限の合計 {c.capacity} 本</div></TableCell>
               <TableCell className="align-top text-xs">{c.weekly}</TableCell>
               <TableCell className="align-top whitespace-normal text-xs">
-                {c.metrics.map((m) => <div key={m.label}>{m.label}{m.status === 'unmeasured' && <span className="project-warning-text">（未計測）</span>}</div>)}
+                {c.metrics.map((m) => <div key={m.label}>{m.label}{m.ok ? <span className="text-muted-foreground">（{m.state}）</span> : <span className="project-warning-text">（{m.state}）</span>}</div>)}
               </TableCell>
             </TableRow>
           ))}
