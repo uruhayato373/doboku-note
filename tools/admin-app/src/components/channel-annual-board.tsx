@@ -1,4 +1,4 @@
-import { FilterBar, FilterChip, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DetailList, DetailSheet, FilterBar, FilterChip, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 
 export type BoardSlot = {
   id: string; exam: string; title: string; role: 'attract' | 'sell'; window: { from: string; to: string };
@@ -13,8 +13,45 @@ const mon = (ym: string) => `${Number(ym.slice(5))}`;
 const inWindow = (m: string, w: BoardSlot['window']) => m >= w.from && m <= w.to;
 const CELL: Record<BoardSlot['role'], string> = { attract: 'border-[var(--accent)]/30 bg-[var(--accent-fill)]', sell: 'border-[var(--accent)] bg-[var(--accent)]' };
 const EMPTY = 'border-[var(--border)] bg-transparent';
+const TILE = 'h-6 rounded-[3px] border';
+const ROLE: Record<BoardSlot['role'], string> = { attract: '集客', sell: '販売' };
+const period = (w: BoardSlot['window']) => `${w.from.replace('-', '/')}〜${w.to.replace('-', '/')}`;
 
 const KIND: Record<string, string> = { 'site-article': 'サイトの記事', 'links-hub': 'リンク集（/links）' };
+
+/** 枠の送り先の名前 */
+function targetNames(s: BoardSlot, targetLabel: (kind: string, id: string) => string) {
+  return s.primaryCta.targets.length ? s.primaryCta.targets.map((t) => targetLabel(s.primaryCta.kind, t)) : [KIND[s.primaryCta.kind] ?? s.primaryCta.kind];
+}
+
+/** 資格の 1 か月の四角。販売の枠を含む月は濃い色にし、押すとその月の枠を右に開く。枠が 2 つ以上なら数を出す */
+function MonthTile({ channel, examName, month, slots, targetLabel }: {
+  channel: string; examName: string; month: string; slots: BoardSlot[]; targetLabel: (kind: string, id: string) => string;
+}) {
+  if (!slots.length) return <div className={`${TILE} ${EMPTY}`} />;
+  const role = slots.some((s) => s.role === 'sell') ? 'sell' : 'attract';
+  return (
+    <DetailSheet
+      triggerClassName="block w-full cursor-pointer hover:opacity-80"
+      triggerLabel={`${examName} ${mon(month)} 月の枠 ${slots.length} 件`}
+      trigger={<span className={`flex items-center justify-center text-[11px] font-semibold ${TILE} ${CELL[role]} ${role === 'sell' ? 'text-primary-foreground' : 'text-[color:var(--accent)]'}`}>{slots.length > 1 ? slots.length : null}</span>}
+      title={`${examName} ${mon(month)} 月`}
+      description={channel}
+    >
+      <ul className="space-y-4">
+        {slots.map((s) => (
+          <li key={s.id} className="space-y-2">
+            <div className="flex items-center gap-2">
+              <StatusBadge tone={s.role === 'sell' ? 'info' : 'neutral'}>{ROLE[s.role]}</StatusBadge>
+              <span className="font-semibold">{s.title}</span>
+            </div>
+            <DetailList items={[{ label: '時期', value: period(s.window) }, { label: '送り先', value: targetNames(s, targetLabel).join('・') }]} />
+          </li>
+        ))}
+      </ul>
+    </DetailSheet>
+  );
+}
 
 /** YouTube の枠を起点に、同じ時期に動く X・Instagram の枠と送り先を横に並べる。どの枠にも結ばれていない枠は末尾に出す */
 function WiringTable({ channels, nameOf, targetLabel }: { channels: BoardChannel[]; nameOf: (id: string) => string; targetLabel: (kind: string, id: string) => string }) {
@@ -22,7 +59,7 @@ function WiringTable({ channels, nameOf, targetLabel }: { channels: BoardChannel
   const linked = (id: string, c: BoardChannel) => c.slots.filter((s) => s.parents?.includes(id));
   const parents = new Set(youtube.slots.map((s) => s.id));
   const orphans = social.flatMap((c) => c.slots.filter((s) => !s.parents?.some((p) => parents.has(p))).map((s) => `${c.label}: ${s.title}`));
-  const target = (s: BoardSlot) => (s.primaryCta.targets.length ? s.primaryCta.targets.map((t) => targetLabel(s.primaryCta.kind, t)) : [KIND[s.primaryCta.kind] ?? s.primaryCta.kind]);
+  const target = (s: BoardSlot) => targetNames(s, targetLabel);
   const exams = [...new Set(youtube.slots.map((s) => s.exam))];
   return (
     <div className="mt-3">
@@ -99,28 +136,26 @@ export function ChannelAnnualBoard({ channels, months, nameOf, targetLabel, acti
         </TableBody>
       </TableFrame>}
       {view !== 'wiring' && <p className="small text-muted-foreground mt-3! mb-1!">
-        <span className={`inline-block h-3 w-3 rounded-[3px] border align-middle ${CELL.attract}`} /> 集客　<span className={`inline-block h-3 w-3 rounded-[3px] border align-middle ${CELL.sell}`} /> 販売　2027 年度の月は 2026 年度の実績を目安にした仮の月
+        <span className={`inline-block h-3 w-3 rounded-[3px] border align-middle ${CELL.attract}`} /> 集客　<span className={`inline-block h-3 w-3 rounded-[3px] border align-middle ${CELL.sell}`} /> 販売　濃い色は販売の枠を含む月、数字はその月の枠の数。四角を押すと項目が開く。2027 年度の月は 2026 年度の実績を目安にした仮の月
       </p>}
       {view === 'wiring' ? <WiringTable channels={channels} nameOf={nameOf} targetLabel={targetLabel} /> : <TableFrame>
         <TableHeader>
           <TableRow>
-            <TableHead>枠</TableHead>
-            <TableHead className="w-24">資格</TableHead>
+            <TableHead>資格</TableHead>
             {months.map((m) => <TableHead key={m} className="w-9 px-0.5! text-center text-xs">{mon(m)}</TableHead>)}
           </TableRow>
         </TableHeader>
         {shown.map((c) => (
           <TableBody key={c.id}>
             <TableRow>
-              <TableCell colSpan={2 + months.length} className="bg-muted text-xs font-bold">{c.label}</TableCell>
+              <TableCell colSpan={1 + months.length} className="bg-muted text-xs font-bold">{c.label}</TableCell>
             </TableRow>
-            {c.slots.map((s) => (
-              <TableRow key={s.id}>
-                <TableCell className="whitespace-normal text-xs">{s.title}</TableCell>
-                <TableCell className="whitespace-normal text-xs text-muted-foreground">{nameOf(s.exam)}</TableCell>
+            {[...new Set(c.slots.map((s) => s.exam))].map((exam) => (
+              <TableRow key={exam}>
+                <TableCell className="whitespace-normal text-xs">{nameOf(exam)}</TableCell>
                 {months.map((m) => (
                   <TableCell key={m} className="w-9 p-0.5!">
-                    <div className={`h-6 rounded-[3px] border ${inWindow(m, s.window) ? CELL[s.role] : EMPTY}`} />
+                    <MonthTile channel={c.label} examName={nameOf(exam)} month={m} slots={c.slots.filter((s) => s.exam === exam && inWindow(m, s.window))} targetLabel={targetLabel} />
                   </TableCell>
                 ))}
               </TableRow>

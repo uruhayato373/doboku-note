@@ -4,17 +4,20 @@
 // Radix の Slot が落ちる（2026-11-06・/skills が 500）。トリガーの button をクライアントで作るためにここで宣言する
 import type { ReactNode } from 'react';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { cn } from '@/lib/cn';
 
 /**
  * 表の行の詳細を右から開くシート（shadcn/ui の Sheet。dashboard-01 の「名前を押すと詳細が開く」形）。
  * 表には判断に要る値だけを置き、根拠・説明・メモ・ID などはここに入れる（記憶 feedback_admin_ui_for_humans）。
  * 前例は components/video-annual-plan.tsx。中身は DetailList と DetailText で組む。
  */
-export function DetailSheet({ trigger, title, description, children }: { trigger: ReactNode; title: ReactNode; description?: ReactNode; children: ReactNode }) {
+export function DetailSheet({ trigger, triggerClassName, triggerLabel, title, description, children }: {
+  trigger: ReactNode; triggerClassName?: string; triggerLabel?: string; title: ReactNode; description?: ReactNode; children: ReactNode;
+}) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <button type="button" className="text-left underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring">
+        <button type="button" aria-label={triggerLabel} className={cn('text-left underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring', triggerClassName)}>
           {trigger}
         </button>
       </SheetTrigger>
