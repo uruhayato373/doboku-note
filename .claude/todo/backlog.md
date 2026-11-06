@@ -21,6 +21,16 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1010] note 商品カタログの読み口を 1 つにして TS の正規表現解析をやめる
+タグ: [エージェント・SSOT] [領域:商品] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。正本は `config/products.json` で `src/lib/note-magazines.ts` は生成物だが、7 か所が別々の正規表現で読む: `sales-mapping.mjs:35`・`site-to-sales.mjs:54`・`check-magazine-membership.mjs:101`・`check-note-vocabulary-boundary.mjs:61`・`check-x-review.mjs:18`・`note-article-price-sweep.mjs:100`・管理画面 `content.ts:86`。2026-09-13 に単品 10 件が unknown になった記録が `sales-mapping.mjs` にある。現時点では `catalogMagazines` と `parseNoteCatalog` が 175 件で一致する。
+
+**やること**: `product-registry.mjs` の `loadProducts()` の上に読み口を作り、売上系→検査系→管理画面の順に置き換える。生成物そのものの形を確かめる検査は残す。
+
+**完了条件**: `note-magazines.ts` を正規表現で読むコードが、生成物の形の検査を除いて 0 件。売上の対応付けの結果が移行の前後で変わらない。
+
+
 ### [DN-1009] note スクリプト 5 本にアカウント確認を足す
 タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
 
