@@ -21,6 +21,16 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1011] hub-cta とココナラの TS 文字列解析を商品の読み口へ移す
+タグ: [エージェント・SSOT] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`hub-cta.ts` は `site-to-sales.mjs` の `parseHubProducts` と `check-magazine-cta-reachability.ts:120` が文字列で読む。ココナラは `coconala-catalog.mjs:21`・`check-coconala-wiring.mjs:95`・`check-x-campaign-plan.mjs:65`・`schedule-events.mjs:806` が `coconala-services.ts` を読む。ココナラ側は関数の存在まで確認し、解析の中身の差は未確認。
+
+**やること**: ココナラ 4 か所の差を確かめ、商品の読み口へ載せる。`HUB` の商品指定はデータへ移す。
+
+**完了条件**: 新しいチャネルや商品を足しても TS を文字列で読むコードが増えない。ココナラの解析が 1 か所になっている。
+
+
 ### [DN-1010] note 商品カタログの読み口を 1 つにして TS の正規表現解析をやめる
 タグ: [エージェント・SSOT] [領域:商品] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-06]
 
