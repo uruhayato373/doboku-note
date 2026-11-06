@@ -615,8 +615,7 @@ table.data tbody tr:hover td {
 }
 
 /* 件数バッジ（右ペイン・グループ見出しで共通。層タブはサイドバー側が持つ） */
-.todo-rail .n,
-.todo-group .n {
+.todo-rail .n {
   flex: none;
   color: var(--ink-muted);
   font-size: 11px;
@@ -646,22 +645,6 @@ table.data tbody tr:hover td {
 .tier-dot.hold {
   background: var(--hold);
 }
-.todo-plan-focus {
-  display: flex;
-  gap: 10px;
-  max-width: 100%;
-  margin: -8px 0 16px;
-  padding: 10px 12px;
-  border-left: 3px solid var(--accent);
-  background: var(--accent-fill);
-  color: var(--ink-body);
-  font-size: 12px;
-  line-height: 1.65;
-}
-.todo-plan-focus strong {
-  flex: none;
-  color: var(--accent);
-}
 .todo-priority {
   display: inline-flex;
   align-items: center;
@@ -669,19 +652,6 @@ table.data tbody tr:hover td {
   color: var(--ink-body);
   font-size: 11.5px;
   white-space: nowrap;
-}
-.todo-title {
-  display: block;
-  max-width: 100%;
-  color: var(--ink);
-  font-size: 12.5px;
-  font-weight: 600;
-  line-height: 1.55;
-  overflow-wrap: anywhere;
-}
-.todo-title:hover {
-  color: var(--accent);
-  text-decoration: none;
 }
 .todo-task-meta {
   display: flex;
@@ -695,54 +665,6 @@ table.data tbody tr:hover td {
 }
 .todo-id {
   color: var(--ink-muted);
-  font-family: var(--mono);
-  font-size: 10px;
-}
-.todo-task-detail {
-  margin-top: 4px;
-}
-.todo-task-detail > summary {
-  color: var(--ink-muted);
-  font-size: 10.5px;
-  list-style: none;
-  cursor: pointer;
-}
-.todo-task-detail > summary::-webkit-details-marker {
-  display: none;
-}
-.todo-task-detail > summary::before {
-  content: '▸ ';
-}
-.todo-task-detail[open] > summary::before {
-  content: '▾ ';
-}
-.todo-task-detail .md-prose {
-  max-height: 260px;
-  margin-top: 6px;
-  padding: 8px 10px;
-  border: 1px solid var(--border-soft);
-  border-radius: 6px;
-  background: var(--panel-2);
-  color: var(--ink-body);
-  font-size: 11px;
-  line-height: 1.65;
-  overflow: auto;
-  overflow-wrap: anywhere;
-}
-.todo-task-detail .md-prose > :first-child {
-  margin-top: 0;
-}
-.todo-task-detail .md-prose > :last-child {
-  margin-bottom: 0;
-}
-.todo-task-detail .md-prose p,
-.todo-task-detail .md-prose ul,
-.todo-task-detail .md-prose ol,
-.todo-task-detail .md-prose pre,
-.todo-task-detail .md-prose table {
-  margin: 0.55em 0;
-}
-.todo-task-detail .md-prose code {
   font-family: var(--mono);
   font-size: 10px;
 }
@@ -817,12 +739,6 @@ table.data tbody tr:hover td {
   padding: 24px;
   text-align: center;
   font-size: 13px;
-}
-.desc-clamp {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 details.expand > summary {
   cursor: pointer;
@@ -1263,9 +1179,7 @@ table.data th,
 table.data td {
   padding: 5px 8px;
 }
-table.data td.wrap,
-table.data td.title-cell,
-table.data td.path-cell {
+table.data td.wrap {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

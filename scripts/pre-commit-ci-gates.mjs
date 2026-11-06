@@ -127,6 +127,12 @@ export const GATES = [
     isolateGit: true,
   },
   {
+    id: 'admin-pages',
+    // 管理画面のページを足す・消すときの台帳との照合。全量で 0.2 秒
+    match: (f) => /^tools\/admin-app\/src\/app\/.*\/(page\.tsx|route\.ts)$/.test(f) || f === datasetPath('config.admin-pages'),
+    cmd: () => ['node', 'scripts/check-admin-pages.mjs'],
+  },
+  {
     id: 'agent-config',
     // .claude/config/ の JSON の型。基準値に項目を足して型を直し忘れると CI で初めて落ちた（2026-11-06・PR #1424）。全量で 0.3 秒
     match: (f) => /^\.claude\/config\/[^/]+\.json$/.test(f) || f === 'scripts/lib/dataset-schemas-agent-config.mjs',
