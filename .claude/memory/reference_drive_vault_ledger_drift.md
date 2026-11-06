@@ -17,3 +17,6 @@ metadata:
 
 ## Drive の読み取りが即 ETIMEDOUT のときの pre-commit（2026-10-22）
 Google Drive のアプリが不調だと、保存庫のファイルの読み取りが 0〜2ms で ETIMEDOUT を返し、pre-commit の check-content-series が落ちる（一覧は読めるのに中身が読めない）。CI は Drive なしでこの照合を飛ばすので、`DOBOKU_DRIVE_VAULT=/nonexistent-vault` を付けて CI と同じ条件で検査とコミットができる。Drive のアプリの再起動で直る見込み（再起動は運営者）。
+
+## 素材を消すときの巻き込み（2026-11-07）
+作品ごとのフォルダで Drive の素材を消すと、残す動画の `pop-image.json` などが別の作品の素材を指しているものまで消える（25 件をゴミ箱から戻した）。消す一覧を作ったら、`git ls-files` の文書を `.tmp/media/` の参照で検索して除く。`rclone backend untrash` はフォルダ単位で、一覧に無い過去のゴミ箱の分も戻るので、戻したあとで実物を一覧して再度ゴミ箱へ移す。`rclone config` の scope が `drive.readonly` だと削除は 1 件ずつ失敗するので、先に 1 件で試す。

@@ -214,6 +214,7 @@
     "check-disk-hygiene": "node scripts/check-disk-hygiene.mjs",
     "check-branch-hygiene": "node scripts/check-branch-hygiene.mjs",
     "check-youtube-cover-handoff": "node scripts/check-youtube-cover-handoff.mjs",
+    "check-media-references": "node scripts/check-media-references.mjs",
     "resources:check": "node scripts/local-resource-audit.mjs --quick",
     "resources:audit": "node scripts/local-resource-audit.mjs",
     "resources:clean": "node scripts/local-resource-clean.mjs",
