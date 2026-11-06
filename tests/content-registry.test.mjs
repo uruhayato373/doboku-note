@@ -15,11 +15,11 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cfg = loadRegistryConfig(ROOT);
 const youtubeOnlyCfg = { ...cfg, cutover: ['youtube'] };
 const SHA = 'a'.repeat(64);
-const DEF = 'content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen';
-const PUB = 'civil-construction-2/matome-2kyu-chokuzen/youtube.longform';
+const DEF = 'content/sns/video-packs/civil-construction-2/keiken-daizai-erabi';
+const PUB = 'civil-construction-2/keiken-daizai-erabi/youtube.longform';
 
-const work = (over = {}) => ({ id: 'matome-2kyu-chokuzen', kind: 'video-pack', definition: DEF, exam: 'civil-construction-2', file: 'w.json', ...over });
-const pub = (over = {}) => ({ id: PUB, work: 'matome-2kyu-chokuzen', account: 'youtube:main', format: 'longform', status: 'qa_passed', exam: 'civil-construction-2', channel: 'youtube', file: 'p.json', ...over });
+const work = (over = {}) => ({ id: 'keiken-daizai-erabi', kind: 'video-pack', definition: DEF, exam: 'civil-construction-2', file: 'w.json', ...over });
+const pub = (over = {}) => ({ id: PUB, work: 'keiken-daizai-erabi', account: 'youtube:main', format: 'longform', status: 'qa_passed', exam: 'civil-construction-2', channel: 'youtube', file: 'p.json', ...over });
 const media = (over = {}) => ({
   id: `${PUB}/cover`, role: 'cover', type: 'image/png', sha256: SHA, scope: 'civil-construction-2', file: 'm.json',
   store: { tier: 'drive', path: `.tmp/media/${PUB}/cover.${SHA.slice(0, 8)}.png` }, provenance: { kind: 'template', by: 'brand-video-pack' }, ...over,
@@ -36,7 +36,7 @@ test('公開 ID の組み立てと分解が往復する', () => {
 
 test('新しい ID に日付・NNN-・pack-NN・末尾の連番を使わない', () => {
   for (const bad of ['060-civil-drafts', 'exam-pack-09', 'point-taisho-1', 'covers-20260909', 'plan-2026-10']) assert.ok(idShapeIssues('work', bad, cfg.idRules).length, bad);
-  for (const ok of ['matome-2kyu-chokuzen', 'gishi-12week-plan', 'r03-pfi', 'koji-gaiyo-7items']) assert.deepEqual(idShapeIssues('work', ok, cfg.idRules), [], ok);
+  for (const ok of ['keiken-daizai-erabi', 'gishi-12week-plan', 'r03-pfi', 'koji-gaiyo-7items']) assert.deepEqual(idShapeIssues('work', ok, cfg.idRules), [], ok);
 });
 
 test('承認ハッシュは鍵の順序に依らず、予定・文面・素材が変わると変わる', () => {
@@ -58,16 +58,16 @@ test('R01: 台帳が 0 件なら検査不成立（FAIL）', () => {
 
 test('R02: ID の重複・行の中身と合わない ID・例外の上限を止める', () => {
   assert.ok(codes(run({ publications: [pub(), pub()] })).includes('R02'));
-  assert.ok(codes(run({ publications: [pub({ id: 'civil-construction-2/matome-2kyu-chokuzen/youtube.short' })] })).includes('R02'));
+  assert.ok(codes(run({ publications: [pub({ id: 'civil-construction-2/keiken-daizai-erabi/youtube.short' })] })).includes('R02'));
   assert.ok(codes(run({ works: [work({ idException: 'imported-before-cutover' })], c: { ...cfg, idRules: { ...cfg.idRules, idExceptionMax: 0 } } })).includes('R02'));
 });
 
 test('R03: 予約以上の公開を消す・改名するのを止める（改名は renamedTo で許す）', () => {
   const r = (publications, basePublications) => checkRegistry(ROOT, { cfg, reg: { works: [work()], publications, media: [] }, driveManifest: { entries: {} }, aiLedger: { figures: {} }, packs: new Map(), basePublications });
-  const old = pub({ id: 'civil-construction-2/matome-2kyu-chokuzen/youtube.short.point-old', format: 'short', variant: 'point-old', status: 'scheduled' });
+  const old = pub({ id: 'civil-construction-2/keiken-daizai-erabi/youtube.short.point-old', format: 'short', variant: 'point-old', status: 'scheduled' });
   assert.ok(codes(r([pub()], [old])).includes('R03'));
   assert.ok(!codes(r([pub()], [{ ...old, status: 'draft' }])).includes('R03'));
-  const oldIg = { ...old, id: 'civil-construction-2/matome-2kyu-chokuzen/instagram.carousel', channel: 'instagram', format: 'carousel', account: 'instagram:main' };
+  const oldIg = { ...old, id: 'civil-construction-2/keiken-daizai-erabi/instagram.carousel', channel: 'instagram', format: 'carousel', account: 'instagram:main' };
   assert.ok(!codes(r([pub()], [{ ...oldIg, status: 'stopped', stopReason: 'gone' }])).includes('R03'));
   assert.ok(codes(r([pub()], [oldIg])).includes('R03'));
 });
@@ -98,7 +98,7 @@ test('R07: 承認・停止の理由・公開の証拠が無い状態を止める
 
 test('R08: 外部 ID の重複を止める', () => {
   const a = pub({ status: 'qa_passed', platform: { id: 'dup' } });
-  const b = pub({ id: 'civil-construction-2/matome-2kyu-chokuzen/youtube.short.point-a', format: 'short', variant: 'point-a', platform: { id: 'dup' }, relatedTo: PUB });
+  const b = pub({ id: 'civil-construction-2/keiken-daizai-erabi/youtube.short.point-a', format: 'short', variant: 'point-a', platform: { id: 'dup' }, relatedTo: PUB });
   assert.ok(codes(run({ publications: [a, b] })).includes('R08'));
 });
 

@@ -6,11 +6,12 @@
  * --inventory で資格×型×状態の棚卸しを出す。--json で結果をそのまま出す。
  */
 import { parseCliArgs } from './lib/cli-args.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadPlanAudit } from './lib/youtube-longform-plan.mjs';
 
 const args = parseCliArgs({ inventory: { type: 'boolean' }, json: { type: 'boolean' } });
-const { audit, inventory } = loadPlanAudit(REPO_ROOT);
+const { plan, audit, inventory } = loadPlanAudit(REPO_ROOT);
 
 if (args.json) console.log(JSON.stringify({ audit, inventory }, null, 2));
 else {
@@ -23,5 +24,8 @@ else {
     for (const r of inventory) console.log([r.exam, r.type, r.published, r.scheduled, r.stock, r.unbuilt, r.stopped].join('\t'));
   }
 }
-if (audit.targets === 0) process.exitCode = 2;
+// 計画の作り直し中だけ、対象 0 本を認める。期限を過ぎたら検査不成立に戻す
+const { rebuildUntil } = plan.cycle;
+if (audit.targets === 0 && rebuildUntil && todayJst() <= rebuildUntil) console.log(`  判断待ち: 計画の作り直し中（期限 ${rebuildUntil}）。動画の行はまだ無い`);
+else if (audit.targets === 0) process.exitCode = 2;
 else if (audit.errors.length) process.exitCode = 1;

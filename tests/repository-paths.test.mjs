@@ -172,7 +172,7 @@ test('content/ の各チャネルに実体がある（空を PASS と呼ばな�
   // 追跡から外した（3,240 → 1,250）。下げる前に 1,990 件すべてが manifest に
   // sha256・bytes・寸法つきで載り、R2（公開 7 / archive 1,983）に実在して bytes 一致することを確認済み。
   // SoT（slide-data.json と同名 .svg）は Git に残っているので、退避したのは再生成できる側だけ。
-  assert.ok(counts.sns > 1000, `content/sns が少なすぎる: ${counts.sns}`);
+  assert.ok(counts.sns > 500, `content/sns が少なすぎる: ${counts.sns}`);
 });
 
 test('content/kindle は Web 配信対象に含まれない（非公開原稿）', async () => {

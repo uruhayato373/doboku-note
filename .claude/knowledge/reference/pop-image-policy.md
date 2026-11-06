@@ -55,10 +55,10 @@ Shortsの操作UI用安全域は、重要な文字と顔を避ける範囲とし
 | 内容とポーズ | 原稿・生成履歴（revisionsのキー） |
 |---|---|
 | Shorts全面構図・土試料の指差し／4テーマ案内（表紙・本文・締め） | [2級土木・土工](../../../content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json)（`shorts-pop-fullbleed-20261012`。`publications[].images` の最終 `output` を参照し、途中の余白が大きい生成案は使わない） |
-| 答案確認・赤ペン | [2級土木・安全管理](../../../content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/pop-image.json)（`point-cause1-1`） |
-| 比較・両手 | [2級土木・混和材料](../../../content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/pop-image.json)（`point-block1-2`） |
+| 答案確認・赤ペン | 2級土木・安全管理（`point-cause1-1`） |
+| 比較・両手 | 2級土木・混和材料（`point-block1-2`） |
 | 判断・考える | [総監・アクセス権](../../../content/sns/youtube/pop-image.json)（`access-control`） |
-| 聞き流し・ヘッドホン | [1級土木・品質管理](../../../content/sns/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/pop-image.json)（`longform`） |
+| 聞き流し・ヘッドホン | 1級土木・品質管理（`longform`） |
 
 ヘッドホン等の用途に合う装備へ変えてよい。顔・服装の同一性を保ち、ポーズを単なる順番で割り当てない。今回の全面画像生成版は `pop-poster-v3`。従来の `pop-v2` 一括レンダラーは3ポーズの別組版であり、この見本の再生成器ではない。
 

@@ -107,6 +107,7 @@ export const ConfigChannelAnnualPlan = z.object({
     peakWeeklyMax: z.number().int().positive().describe('山場の週の上限'),
     peaks: z.array(z.object({ window: planWindow, why: z.string().min(1) }).strict()),
     calendarBasis: z.string().min(1).describe('2027 年度の月をどう置いたか。公式発表前は確定しない'),
+    rebuildUntil: jstDate('計画の作り直しの期限。この日までは動画の行が 0 本でも検査不成立にしない').optional(),
   }).strict(),
   metrics: z.object({
     primary: z.array(z.string().min(1)).length(2).describe('成功指標の id（config.business-direction）。定義と計測の状態はそちらから引き、ここに書かない。登録者数・再生数・本数は入れない'),
