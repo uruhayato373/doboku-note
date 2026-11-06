@@ -70,8 +70,8 @@ test('/content は本文を読まずにチャネルを数え、ドリルダウ�
   const cards = page.locator('a.knowledge-card');
   expect(await cards.count()).toBeGreaterThan(0);
 
-  // Kindle は専用画面（/content/kindle）へ誘導するため、汎用ドリルダウンの検証からは除く。
-  const genericCards = page.locator('a.knowledge-card:not([href="/content/kindle"])');
+  // Kindle は専用画面（販売状態）へ誘導するため、汎用ドリルダウンの検証からは除く。
+  const genericCards = page.locator('a.knowledge-card:not([href="/product/status?ch=kindle"])');
   expect(await genericCards.count()).toBeGreaterThan(0);
   await genericCards.first().click();
   await expect(page).toHaveURL(/\/content\/.+~/);

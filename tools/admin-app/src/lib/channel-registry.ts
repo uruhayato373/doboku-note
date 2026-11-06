@@ -57,8 +57,7 @@ export const ADMIN_CHANNELS: readonly AdminChannel[] = [
     enabled: true,
     tabs: [
       { href: '/content/note', label: '記事', match: '/content/note' },
-      { href: '/content/magazines', label: 'マガジン', match: '/content/magazines' },
-      { href: '/content/note-status', label: '公開状態', match: '/content/note-status' },
+      { href: '/product/status?ch=note', label: '公開状態', match: '/product/status' },
       { href: '/content/note-sync', label: '反映', match: '/content/note-sync' },
       { href: '/gallery/note', label: '画像', match: '/gallery/note' },
     ],
@@ -127,13 +126,13 @@ export const ADMIN_CHANNELS: readonly AdminChannel[] = [
     id: 'kindle',
     label: 'Kindle',
     sourcePath: 'content/kindle',
-    // 専用 read-only 画面が /content/kindle にできた。
+    // 専用 read-only 画面は販売状態の Kindle タブ（/product/status?ch=kindle）。
     enabled: true,
     tabs: [
       {
-        href: '/content/kindle',
+        href: '/product/status?ch=kindle',
         label: '書籍',
-        match: '/content/kindle',
+        match: '/product/status',
       },
       {
         href: '/content/content~kindle',

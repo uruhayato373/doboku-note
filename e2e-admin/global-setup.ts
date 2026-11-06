@@ -17,7 +17,7 @@ import type { FullConfig } from '@playwright/test';
 const WARM_UP_PATHS = [
   '/',
   '/content',
-  '/content/kindle',
+  '/product/status?ch=kindle',
   '/content/content~kindle',
   '/content/items',
   '/content/items/civil-construction-2/matome-2kyu-chokuzen',

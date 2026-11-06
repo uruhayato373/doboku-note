@@ -10,7 +10,7 @@ import {
 } from '../scripts/lib/kindle-catalog.mjs'
 
 /**
- * scripts/lib/kindle-catalog.mjs（admin `/content/kindle` が読む唯一の判定ロジック）の
+ * scripts/lib/kindle-catalog.mjs（admin の販売状態（Kindle タブ） が読む唯一の判定ロジック）の
  * 契約を固定する。pure 関数だけを対象に fixture で検証する（fs/git アクセスは対象外）。
  */
 

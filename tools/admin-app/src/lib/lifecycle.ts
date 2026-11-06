@@ -148,7 +148,7 @@ function countUnpublishedSiteDocs(): number {
 }
 
 function noteLifecycle(): ChannelLifecycle {
-  const href = '/content/magazines';
+  const href = '/product/status?ch=note&tab=magazines';
   const source = 'src/lib/note-magazines.ts（published）';
   try {
     const mags = magazines();
@@ -202,7 +202,7 @@ function coconalaLifecycle(): ChannelLifecycle {
 }
 
 async function kindleLifecycle(): Promise<ChannelLifecycle> {
-  const href = '/content/kindle';
+  const href = '/product/status?ch=kindle';
   const source = 'scripts/kindle-published/catalog.json（status）';
   try {
     // loadKindleView は git log を非同期実行する（同期版は next dev の単一プロセスを
