@@ -38,7 +38,7 @@ function targetNames(s: BoardSlot, targetLabel: (kind: string, id: string) => st
 }
 
 
-/** YouTube の枠を起点に、同じ時期に動く X・Instagram の枠と送り先を横に並べる。どの枠にも結ばれていない枠は末尾に出す */
+/** YouTube の枠を起点に、同じ時期に動く X・Instagram の枠と送り先を横に並べる。YouTube の枠が無い枠は末尾に出す */
 function WiringTable({ channels, nameOf, targetLabel }: { channels: BoardChannel[]; nameOf: (id: string) => string; targetLabel: (kind: string, id: string) => string }) {
   const [youtube, ...social] = channels;
   const linked = (id: string, c: BoardChannel) => c.slots.filter((s) => s.parents?.includes(id));
@@ -76,7 +76,7 @@ function WiringTable({ channels, nameOf, targetLabel }: { channels: BoardChannel
           </TableBody>
         ))}
       </TableFrame>
-      {orphans.length > 0 && <p className="small project-warning-text">YouTube の枠に結ばれていない枠: {orphans.join(' / ')}</p>}
+      {orphans.length > 0 && <p className="small text-muted-foreground">YouTube の枠が無い枠: {orphans.join(' / ')}</p>}
     </div>
   );
 }
