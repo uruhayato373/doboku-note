@@ -5,11 +5,11 @@ const isCI = Boolean(process.env.CI);
 // ポートを分けているのは、dev が起動中でも reuseExistingServer が取り違えないようにするため。
 const useDevServer = Boolean(process.env.E2E_DEV);
 const port = useDevServer ? 3020 : 3025;
+// 夜間はアクセシビリティを週 1 回だけ回す（.github/workflows/e2e.yml）。project の testIgnore は上書きなので各 project に入れる
+const skipA11y = process.env.E2E_SKIP_A11Y ? ['**/a11y.spec.ts'] : [];
 
 export default defineConfig({
   testDir: './e2e',
-  // 夜間はアクセシビリティを週 1 回だけ回す（.github/workflows/e2e.yml）
-  testIgnore: process.env.E2E_SKIP_A11Y ? ['**/a11y.spec.ts'] : [],
   fullyParallel: true,
   forbidOnly: isCI,
   retries: isCI ? 1 : 0,
@@ -38,11 +38,12 @@ export default defineConfig({
     {
       name: 'desktop-chromium',
       // 専用メニューなどの検査はモバイルだけで収集する。a11yは両projectで実行する。
-      testIgnore: ['**/mobile.spec.ts'],
+      testIgnore: ['**/mobile.spec.ts', ...skipA11y],
       use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'mobile-chromium',
+      testIgnore: skipA11y,
       use: { ...devices['iPhone 13'], browserName: 'chromium' },
     },
   ],
