@@ -21,6 +21,16 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1009] note スクリプト 5 本にアカウント確認を足す
+タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`note-article-price-sweep`・`note-edit-session`・`note-edit-magazine`・`note-magazine-add-articles`・`note-magazine-remove-articles` にアカウント確認の処理が見当たらない（文字列検索で確認）。別アカウントのまま書き込む経路が残り、`note-article-price-sweep` は有料境界を壊し得ると `note-api-verification.md` に記録がある。書き込み経路を読んだのは price-sweep と edit-magazine だけで、残り 3 本は未確認。
+
+**やること**: 5 本の書き込み経路を確かめ、ブラウザ操作の前に `scripts/lib/note-browser.mjs` の `assertAccountGate` を通す。読み取りだけのものは理由を書いて対象から外す。
+
+**完了条件**: 書き込むスクリプトすべてが、確認に失敗すると何もせず止まる。26 本への全面移行は別カード。
+
+
 ### [DN-1005] 動画から note へのクリックを計測できるようにする
 タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-06]
 
