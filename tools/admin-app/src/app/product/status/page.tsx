@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import NoteStatusPage from '../../content/note-status/page';
@@ -34,11 +34,11 @@ export default async function ProductStatusPage({ searchParams }: { searchParams
     <>
       <PageHead title="販売状態" />
       <Stack>
-      <nav className="filterbar">
+      <FilterBar>
         {TABS.map((t) => (
-          <Link key={t.id} href={`/product/status?ch=${t.id}`} className={'chip' + (t.id === tab.id ? ' active' : '')}>
+          <FilterChip key={t.id} href={`/product/status?ch=${t.id}`} active={t.id === tab.id}>
             {t.label}
-          </Link>
+          </FilterChip>
         ))}
         <span className="small muted ml-auto">
           {tab.work.map(([label, href]) => (
@@ -47,7 +47,7 @@ export default async function ProductStatusPage({ searchParams }: { searchParams
             </Link>
           ))}
         </span>
-      </nav>
+      </FilterBar>
       {tab.id === 'note' && <NoteStatusPage searchParams={Promise.resolve({})} />}
       {tab.id === 'kindle' && <KindleContentPage searchParams={Promise.resolve({})} />}
       {tab.id === 'coconala' && <Coconala />}

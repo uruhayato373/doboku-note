@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { DataTable, PanelCard, StatCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
+import { DataTable, PanelCard, StatCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { Grid, Section, Stack } from '@/components/layout';
 import SectionTabs from '@/components/SectionTabs';
@@ -65,13 +64,13 @@ export default async function ChannelsPage({ searchParams }: { searchParams: Pro
     <>
       <PageHead title="チャネル設計" />
       <SectionTabs set="market" current="/strategy/channels" />
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {TABS.map((t) => (
-          <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'numbers' ? '/strategy/channels' : `/strategy/channels?tab=${t.id}`}>
+          <FilterChip key={t.id} active={t.id === current} href={t.id === 'numbers' ? '/strategy/channels' : `/strategy/channels?tab=${t.id}`}>
             {t.label}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
       {current === 'numbers' && <Numbers v={v} />}
       {current === 'mix' && <Mix v={v} />}
       {current === 'swot' && <Swot v={v} />}

@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { DataTable, DetailSheet, DetailText, PanelCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailSheet, DetailText, PanelCard, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { loadSkills } from '@/lib/registry';
 import { domainList } from '@/lib/domains';
@@ -52,16 +51,16 @@ export default async function SkillsPage({ searchParams }: { searchParams: Promi
         </PanelCard>
       ) : null}
 
-      <nav className="filterbar mb-3!">
-        <Link href="/skills" className={'chip' + (!dom ? ' active' : '')}>
+      <FilterBar className="mb-3!">
+        <FilterChip href="/skills" active={!dom}>
           すべて
-        </Link>
+        </FilterChip>
         {ids.map((id) => (
-          <Link key={id ?? 'none'} href={`/skills?dom=${id ?? ''}`} className={'chip' + (dom && dom === id ? ' active' : '')}>
+          <FilterChip key={id ?? 'none'} href={`/skills?dom=${id ?? ''}`} active={Boolean(dom) && dom === id}>
             {label(id)} {items.filter((s) => s.domain === id).length}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
 
       <DataTable columns={COLUMNS} rows={rows} pageSize={50} filter="名前・領域で絞り込む" />
     </>

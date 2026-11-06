@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import { Minus, TrendingDown, TrendingUp } from 'lucide-react';
-import { DataTable, DetailList, DetailSheet, DetailText, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, StatusBadge, type DataTableColumn, type DataTableRow, type Tone, FilterBar, FilterChip } from '@/components/admin';
 import { Grid, Stack } from '@/components/layout';
 import SearchTabs from '@/components/SearchTabs';
 import { PageHead } from '@/components/ui';
@@ -244,13 +243,13 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
   return (
     <>
       {head}
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {TABS.map((x) => (
-          <Link key={x.id} className={'chip' + (x.id === tab ? ' active' : '')} href={x.id === 'clusters' ? BASE : `${BASE}?tab=${x.id}`}>
+          <FilterChip key={x.id} active={x.id === tab} href={x.id === 'clusters' ? BASE : `${BASE}?tab=${x.id}`}>
             {x.label}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
       <Stack gap="lg">
         {tab === 'clusters' && (
           <Grid min="md">

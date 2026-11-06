@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, StatusBadge, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { loadDesignView, type DesignMagazine, type DesignPlanned, type DesignSingle, type DesignStage, type Intent, type Ref } from '@/lib/product-design';
@@ -79,30 +79,30 @@ export default async function ProductDesignPage({
         {view.sourceErrors.map((e) => (
           <p key={e} className="project-warning-text text-sm">{e}</p>
         ))}
-        <nav className="filterbar">
+        <FilterBar>
           {view.stages.map((x) => (
-            <Link key={x.stageId} href={href({ s: x.stageId })} className={'chip' + (x.stageId === stage?.stageId ? ' active' : '')}>
+            <FilterChip key={x.stageId} href={href({ s: x.stageId })} active={x.stageId === stage?.stageId}>
               {x.stageLabel}
-            </Link>
+            </FilterChip>
           ))}
           {view.snapshotAt && <span className="small muted ml-auto">収録 {view.snapshotAt.slice(0, 10)}</span>}
-        </nav>
+        </FilterBar>
         {!stage ? (
           <p className="text-sm text-muted-foreground">note の商品がありません。</p>
         ) : (
           <>
-            <nav className="filterbar">
+            <FilterBar>
               {TIERS.map((x) => (
-                <Link key={x.id} href={href({ t: x.id })} className={'chip' + (x.id === tier && !sp.m && !sp.orphan ? ' active' : '')}>
+                <FilterChip key={x.id} href={href({ t: x.id })} active={x.id === tier && !sp.m && !sp.orphan}>
                   {x.label} {count(stage, x.id)}
-                </Link>
+                </FilterChip>
               ))}
               {tier === 'single' && (
-                <Link href={href({ t: 'single', orphan: true })} className={'chip' + (sp.orphan ? ' active' : '')}>
+                <FilterChip href={href({ t: 'single', orphan: true })} active={Boolean(sp.orphan)}>
                   マガジン無し {stage.noMagazine}
-                </Link>
+                </FilterChip>
               )}
-            </nav>
+            </FilterBar>
             {tier === 'planned' ? (
               <PlannedTable rows={stage.planned} />
             ) : tier === 'single' ? (

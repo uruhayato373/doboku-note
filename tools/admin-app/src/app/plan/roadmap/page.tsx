@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { longformPlanHref } from '@/lib/content-plan-links';
 import { readFileSync } from 'node:fs';
-import { PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot, repoPath } from '@/lib/repo-root';
 import { domainList } from '@/lib/domains';
@@ -82,10 +82,10 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
     <>
       <PageHead title="年間ロードマップ" sub={`${cfg.period.start.replace('-', '/')}〜${cfg.period.end.replace('-', '/')}`} />
       {annualNotes && (
-        <nav className="filterbar mb-3!">
-          <Link className={'chip' + (sp.tab !== 'policy' ? ' active' : '')} href="/plan/roadmap">ロードマップ</Link>
-          <Link className={'chip' + (sp.tab === 'policy' ? ' active' : '')} href="/plan/roadmap?tab=policy">年間の方針</Link>
-        </nav>
+        <FilterBar className="mb-3!">
+          <FilterChip active={sp.tab !== 'policy'} href="/plan/roadmap">ロードマップ</FilterChip>
+          <FilterChip active={sp.tab === 'policy'} href="/plan/roadmap?tab=policy">年間の方針</FilterChip>
+        </FilterBar>
       )}
       {sp.tab === 'policy' && annualNotes ? (
         <PanelCard title="年間の方針">

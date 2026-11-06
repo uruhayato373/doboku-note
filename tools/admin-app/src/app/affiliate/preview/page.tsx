@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { PanelCard } from '@/components/admin';
+import { PanelCard, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { affiliatePreviewSurfaces, type PreviewSurface, type PreviewWidth } from '@/lib/affiliate';
@@ -48,14 +47,14 @@ export default async function AffiliatePreviewPage({ searchParams }: { searchPar
   return (
     <>
       <PageHead title="広告の見本" />
-      <nav className="filterbar mb-3">
+      <FilterBar className="mb-3">
         {surfaces.map((s) => (
-          <Link key={s.slot} href={`/affiliate/preview?slot=${s.slot}`} className={'chip' + (s.slot === current?.slot ? ' active' : '')}>
+          <FilterChip key={s.slot} href={`/affiliate/preview?slot=${s.slot}`} active={s.slot === current?.slot}>
             {s.label}
             {!s.path && '（見本なし）'}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
       {current && !current.path && <p className="text-sm text-muted-foreground">この面の見本ページは未登録（tools/admin-app/src/lib/affiliate.ts の PREVIEW_PAGES）</p>}
       {current?.path && (
         <Stack gap="lg">

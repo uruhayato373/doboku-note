@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { z } from 'zod';
-import { DataTable, DetailList, DetailSheet, DetailText, StatusBadge, type DataTableRow, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, StatusBadge, type DataTableRow, type Tone, FilterBar, FilterChip } from '@/components/admin';
 import { Button } from '@/components/ui/button';
 import { examLabel } from '@/lib/video-board';
 import { longformPlanHref } from '@/lib/content-plan-links';
@@ -130,12 +130,12 @@ export function VideoAnnualPlan({ board, planAudit, slotInfo, months, exams, per
   });
   const tabHref = (t: string) => `/sns/youtube/longform?${new URLSearchParams({ ...(exam ? { e: exam } : {}), ...(month ? { m: month } : {}), ...(t !== 'videos' ? { tab: t } : {}) }).toString()}`;
   return <>
-    <nav className="filterbar mb-3!">
-      <Link className={'chip' + (current === 'videos' ? ' active' : '')} href={tabHref('videos')}>動画</Link>
-      <Link className={'chip' + (current === 'plan' ? ' active' : '')} href={tabHref('plan')}>月別制作配分</Link>
-      <Link className={'chip' + (current === 'slots' ? ' active' : '')} href={tabHref('slots')}>年間の枠</Link>
+    <FilterBar className="mb-3!">
+      <FilterChip active={current === 'videos'} href={tabHref('videos')}>動画</FilterChip>
+      <FilterChip active={current === 'plan'} href={tabHref('plan')}>月別制作配分</FilterChip>
+      <FilterChip active={current === 'slots'} href={tabHref('slots')}>年間の枠</FilterChip>
       <span className="small muted ml-auto">予約済み {reserved} 本 · 公開済み {published} 本</span>
-    </nav>
+    </FilterBar>
     {current === 'videos' && <>
     <form method="get" action="/sns/youtube/longform" className="mb-4 flex flex-wrap items-end gap-3">
       <label className="grid gap-1 text-sm">資格<select name="e" defaultValue={exam ?? ''} className="h-9 rounded-md border border-input bg-background px-3"><option value="">全資格</option>{[...new Set(board.rows.map((r) => r.exam))].map((e) => <option key={e} value={e}>{examLabel(e)}</option>)}</select></label>

@@ -1,8 +1,7 @@
-import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { MAGAZINES_STALE_DAYS, membershipState, STATUS_STALE_DAYS, statusSnapshot } from '@/lib/note-status';
-import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
 
@@ -42,11 +41,11 @@ export default async function NoteStatusPage({ searchParams }: { searchParams: P
   return (
     <>
       <PageHead title="note 公開状態" />
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {TABS.map((t) => (
-          <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'membership' ? '/content/note-status' : `/content/note-status?tab=${t.id}`}>{t.label}</Link>
+          <FilterChip key={t.id} active={t.id === current} href={t.id === 'membership' ? '/content/note-status' : `/content/note-status?tab=${t.id}`}>{t.label}</FilterChip>
         ))}
-      </nav>
+      </FilterBar>
 
       <Stack>
       {/* ─── 表1: マガジン収録の三軸 ─── */}

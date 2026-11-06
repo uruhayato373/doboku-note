@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { StatusBadge } from '@/components/admin';
+import { StatusBadge, FilterBar, FilterChip } from '@/components/admin';
 import Thumb from '@/components/Thumb';
 import { PageHead } from '@/components/ui';
 import { GROUP_LABEL, scanOgp } from '@/lib/gallery';
@@ -34,26 +33,26 @@ export default async function OgpGallery({
     <>
       <PageHead title="OGP ギャラリー" sub={`${items.length} 枚（表示中 ${filtered.length}）`} />
 
-      <div className="filterbar">
-        <Link href={link('all', activeGroup)} className={'chip' + (activeCat === 'all' ? ' active' : '')}>
+      <FilterBar>
+        <FilterChip href={link('all', activeGroup)} active={activeCat === 'all'}>
           全資格
-        </Link>
+        </FilterChip>
         {cats.map((c) => (
-          <Link key={c} href={link(c, activeGroup)} className={'chip' + (activeCat === c ? ' active' : '')}>
+          <FilterChip key={c} href={link(c, activeGroup)} active={activeCat === c}>
             {catLabel[c] ?? c}
-          </Link>
+          </FilterChip>
         ))}
-      </div>
-      <div className="filterbar">
-        <Link href={link(activeCat, 'all')} className={'chip' + (activeGroup === 'all' ? ' active' : '')}>
+      </FilterBar>
+      <FilterBar>
+        <FilterChip href={link(activeCat, 'all')} active={activeGroup === 'all'}>
           全分類
-        </Link>
+        </FilterChip>
         {Object.entries(GROUP_LABEL).map(([g, label]) => (
-          <Link key={g} href={link(activeCat, g)} className={'chip' + (activeGroup === g ? ' active' : '')}>
+          <FilterChip key={g} href={link(activeCat, g)} active={activeGroup === g}>
             {label}
-          </Link>
+          </FilterChip>
         ))}
-      </div>
+      </FilterBar>
 
       {filtered.length === 0 ? (
         <p className="text-sm text-muted-foreground">該当なし</p>

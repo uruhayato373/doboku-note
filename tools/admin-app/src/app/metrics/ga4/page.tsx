@@ -1,7 +1,6 @@
-import Link from 'next/link';
-import { PanelCard } from '@/components/admin';
+import { DataTable, FilterBar, FilterChip, PanelCard, toDataTable, type DataTableCol } from '@/components/admin';
 import { Stack } from '@/components/layout';
-import { DataTable, Freshness, PageHead, SnapshotPicker, fmt, type Col } from '@/components/ui';
+import { Freshness, PageHead, SnapshotPicker, fmt } from '@/components/ui';
 import {
   latestSnapshot,
   listSnapshots,
@@ -21,7 +20,7 @@ interface GaRow {
 }
 
 /** 標準 GA4 指標 4 列（dim ラベル列は呼び出し側で先頭に差す）。 */
-function metricCols(): Col<GaRow>[] {
+function metricCols(): DataTableCol<GaRow>[] {
   return [
     { key: 'activeUsers', label: 'ユーザー', num: true, render: (r) => fmt.int(r.activeUsers) },
     { key: 'sessions', label: 'セッション', num: true, render: (r) => fmt.int(r.sessions) },
@@ -49,7 +48,7 @@ function Section({
   let rows = data?.rows ?? [];
   rows = rows.slice().sort((a, b) => (b.activeUsers || 0) - (a.activeUsers || 0));
   if (limit) rows = rows.slice(0, limit);
-  const cols: Col<GaRow>[] = [
+  const cols: DataTableCol<GaRow>[] = [
     { key: dimKey, label: dimLabel, wrap: wrapDim, render: (r) => String(r[dimKey] ?? '') },
     ...metricCols(),
   ];
@@ -58,7 +57,7 @@ function Section({
       title={title}
       description={<Freshness snapshot={snap} />}
     >
-      <DataTable cols={cols} rows={rows} />
+      <DataTable {...toDataTable(cols, rows)} />
     </PanelCard>
   );
 }
@@ -86,27 +85,26 @@ export default async function Ga4Page({
       <PageHead title="アクセス（GA4）" />
 
       <Stack>
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {TABS.map((x) => (
-          <Link key={x.id} className={'chip' + (x.id === tab ? ' active' : '')} href={x.id === 'channel' ? '/metrics/ga4' : `/metrics/ga4?tab=${x.id}`}>
+          <FilterChip key={x.id} active={x.id === tab} href={x.id === 'channel' ? '/metrics/ga4' : `/metrics/ga4?tab=${x.id}`}>
             {x.label}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
       {tab === 'channel' && <Section title="チャネル別" snap={latestSnapshot('ga4.channel')} dimKey="channel" dimLabel="チャネル" />}
 
       {tab === 'page' && <PanelCard title="ページ別（上位20）" description={<Freshness snapshot={pageSnap} />}>
         <Stack gap="sm">
         <SnapshotPicker basePath="/metrics/ga4" files={pageHistory} current={pageSnap?.file ?? ''} />
         <DataTable
-          cols={[
-            { key: 'page', label: 'ページ', wrap: true, render: (r) => String(r.page ?? '') },
-            ...metricCols(),
-          ]}
-          rows={(loadSnapshot<GaRow>(pageSnap)?.rows ?? [])
-            .slice()
-            .sort((a, b) => (b.activeUsers || 0) - (a.activeUsers || 0))
-            .slice(0, 20)}
+          {...toDataTable(
+            [{ key: 'page', label: 'ページ', wrap: true, render: (r) => String(r.page ?? '') }, ...metricCols()],
+            (loadSnapshot<GaRow>(pageSnap)?.rows ?? [])
+              .slice()
+              .sort((a, b) => (b.activeUsers || 0) - (a.activeUsers || 0))
+              .slice(0, 20),
+          )}
         />
         </Stack>
       </PanelCard>}

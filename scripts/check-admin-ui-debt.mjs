@@ -8,7 +8,7 @@
  *   shadcn/ui の部品（components/ui/*）とレイアウト部品（components/layout.tsx）へ移すにあたり、
  *   移行済みのページに生の書き方が戻らないよう、ページごとの件数を基準値として固定する。
  *
- * 数えるもの（tools/admin-app/src/app/ 配下の .tsx）:
+ * 数えるもの（tools/admin-app/src/app/ と src/components/ の .tsx。部品そのものの components/ui と components/admin は除く）:
  *   rawCard      className に単語 "card" を含む（"card" / "card warn-border" など。"card-grid" 等は数えない）
  *   inlineStyle  style={{ の出現
  *   rawTable     生の <table（2026-09-29 追加。表は components/admin の TableFrame＋shadcn の Table 部品で組む）
@@ -17,6 +17,7 @@
  *   uiBadge      shadcn の <Badge> をページで直に使う（状態は StatusBadge の tone）
  *   handTable    表を手で組む（<TableFrame> と shadcn の <Table>）。一覧は DataTable（並べ替え・絞り込み・ページ送り）で作り、
  *                行・列の結合や合計行など形の違う表だけ TableFrame に残す
+ *   handChip     絞り込みを filterbar・chip のクラスで手で組む（2026-11-06 追加。components/admin の FilterBar・FilterChip を使う）
  *
  * 判定:
  *   基準値（.claude/config/admin-ui-debt-baseline.json）より増えたページがあれば exit 1。
@@ -37,6 +38,8 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 
 const APP_DIR = join(ROOT, 'tools/admin-app/src/app');
+const COMPONENTS_DIR = join(ROOT, 'tools/admin-app/src/components');
+const PARTS = /components\/(ui|admin)\//;
 const BASELINE = join(ROOT, '.claude/config/admin-ui-debt-baseline.json');
 const TAG = '[check-admin-ui-debt]';
 
@@ -46,8 +49,9 @@ const RE_TABLE = /<table\b/g;
 const RE_UI_CARD = /<Card[\s>]/g;
 const RE_UI_BADGE = /<Badge[\s>]/g;
 const RE_HAND_TABLE = /<TableFrame[\s>]|<Table[\s>]/g;
-export const KEYS = ['rawCard', 'inlineStyle', 'rawTable', 'rawBadge', 'uiCard', 'uiBadge', 'handTable'];
-const LABEL = { rawCard: '生の card クラス', inlineStyle: 'インライン style', rawTable: '生の <table>', rawBadge: '生の badge クラス', uiCard: 'shadcn の Card の直接利用', uiBadge: 'shadcn の Badge の直接利用', handTable: '手で組んだ表' };
+const RE_HAND_CHIP = /className="filterbar\b|<Link\b[^>]*className=(\{\s*'chip'|"chip")/g;
+export const KEYS = ['rawCard', 'inlineStyle', 'rawTable', 'rawBadge', 'uiCard', 'uiBadge', 'handTable', 'handChip'];
+const LABEL = { rawCard: '生の card クラス', inlineStyle: 'インライン style', rawTable: '生の <table>', rawBadge: '生の badge クラス', uiCard: 'shadcn の Card の直接利用', uiBadge: 'shadcn の Badge の直接利用', handTable: '手で組んだ表', handChip: '手で組んだ絞り込み' };
 
 /** ソース 1 本の件数を数える（テストから使う純関数）。 */
 export function countDebt(src) {
@@ -65,7 +69,8 @@ export function countDebt(src) {
   const uiCard = (src.match(RE_UI_CARD) || []).length;
   const uiBadge = (src.match(RE_UI_BADGE) || []).length;
   const handTable = (src.match(RE_HAND_TABLE) || []).length;
-  return { rawCard, inlineStyle, rawTable, rawBadge, uiCard, uiBadge, handTable };
+  const handChip = (src.match(RE_HAND_CHIP) || []).length;
+  return { rawCard, inlineStyle, rawTable, rawBadge, uiCard, uiBadge, handTable, handChip };
 }
 
 /** 基準値と比べる（テストから使う純関数）。 */
@@ -85,7 +90,8 @@ export function compare(current, baseline) {
 
 function main() {
   const argv = process.argv.slice(2);
-  const files = listFiles(APP_DIR, { ext: '.tsx', followLinks: true, allowMissing: true });
+  const scanned = (dir) => listFiles(dir, { ext: '.tsx', followLinks: true, allowMissing: true });
+  const files = [...scanned(APP_DIR), ...scanned(COMPONENTS_DIR).filter((f) => !PARTS.test(relative(ROOT, f).split(sep).join('/')))];
   if (!files.length) {
     console.error(`${TAG} 検査不成立: ${relative(ROOT, APP_DIR)} に .tsx が 1 件も無い`);
     return 2;

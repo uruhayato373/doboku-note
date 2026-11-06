@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { PanelCard, StatusBadge } from '@/components/admin';
+import { PanelCard, StatusBadge, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import Thumb from '@/components/Thumb';
 import { PageHead } from '@/components/ui';
@@ -28,13 +27,13 @@ export default async function SnsGallery({
         sub={`${packs.length} パック（表示中 ${filtered.length} パック / ${totalImages} 点）`}
       />
 
-      <div className="filterbar">
+      <FilterBar>
         {['all', 'instagram', 'x'].map((c) => (
-          <Link key={c} href={link(c)} className={'chip' + (activeCh === c ? ' active' : '')}>
+          <FilterChip key={c} href={link(c)} active={activeCh === c}>
             {c === 'all' ? '全チャネル' : c === 'instagram' ? 'Instagram' : 'X'}
-          </Link>
+          </FilterChip>
         ))}
-      </div>
+      </FilterBar>
 
       {filtered.length === 0 ? (
         <p className="text-sm text-muted-foreground">該当なし</p>

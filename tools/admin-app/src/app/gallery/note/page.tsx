@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { StatusBadge } from '@/components/admin';
+import { StatusBadge, FilterBar, FilterChip } from '@/components/admin';
 import Thumb from '@/components/Thumb';
 import { PageHead } from '@/components/ui';
 import { scanNoteImages } from '@/lib/gallery';
@@ -36,23 +35,23 @@ export default async function NoteGallery({
         sub={`${items.length} 枚（表示中 ${filtered.length}）`}
       />
 
-      <div className="filterbar">
-        <Link href={link('all', activeKind)} className={'chip' + (activeSeg === 'all' ? ' active' : '')}>
+      <FilterBar>
+        <FilterChip href={link('all', activeKind)} active={activeSeg === 'all'}>
           全ディレクトリ
-        </Link>
+        </FilterChip>
         {segs.map((s) => (
-          <Link key={s} href={link(s, activeKind)} className={'chip' + (activeSeg === s ? ' active' : '')}>
+          <FilterChip key={s} href={link(s, activeKind)} active={activeSeg === s}>
             {s}
-          </Link>
+          </FilterChip>
         ))}
-      </div>
-      <div className="filterbar">
+      </FilterBar>
+      <FilterBar>
         {['all', 'cover', 'figure'].map((k) => (
-          <Link key={k} href={link(activeSeg, k)} className={'chip' + (activeKind === k ? ' active' : '')}>
+          <FilterChip key={k} href={link(activeSeg, k)} active={activeKind === k}>
             {k === 'all' ? '全種別' : k === 'cover' ? 'カバー' : '図版'}
-          </Link>
+          </FilterChip>
         ))}
-      </div>
+      </FilterBar>
 
       {filtered.length === 0 ? (
         <p className="text-sm text-muted-foreground">該当なし</p>

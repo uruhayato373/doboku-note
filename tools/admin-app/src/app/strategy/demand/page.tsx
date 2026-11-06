@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { Section, Stack } from '@/components/layout';
 import SectionTabs from '@/components/SectionTabs';
@@ -76,13 +75,13 @@ export default async function DemandPage({ searchParams }: { searchParams: Promi
         <p className="text-sm text-muted-foreground">悩みと商品候補の台帳がありません。</p>
       ) : (
         <>
-          <nav className="filterbar mb-3!">
+          <FilterBar className="mb-3!">
             {TABS.map((t) => (
-              <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'candidates' ? '/strategy/demand' : `/strategy/demand?tab=${t.id}`}>
+              <FilterChip key={t.id} active={t.id === current} href={t.id === 'candidates' ? '/strategy/demand' : `/strategy/demand?tab=${t.id}`}>
                 {t.label}
-              </Link>
+              </FilterChip>
             ))}
-          </nav>
+          </FilterBar>
           <Stack>
             {view.errors.length > 0 && (
               <PanelCard title={`正本の不整合 ${view.errors.length} 件`}>
