@@ -2,15 +2,15 @@ import Link from 'next/link';
 import { DataTable, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
-import NoteStatusPage from '../../content/note-status/page';
-import KindleContentPage from '../../content/kindle/page';
+import { KindlePanel } from '@/components/kindle-panel';
+import { NoteStatusPanel } from '@/components/note-status-panel';
 import { yen } from '@/lib/format';
 import { readCatalog } from '../../../../../../scripts/lib/coconala-catalog.mjs';
 
 export const dynamic = 'force-dynamic';
 
 const TABS = [
-  { id: 'note', label: 'note', work: [['記事', '/content/note'], ['マガジン', '/content/magazines'], ['画像', '/gallery/note']] },
+  { id: 'note', label: 'note', work: [['記事', '/content/note'], ['画像', '/gallery/note']] },
   { id: 'coconala', label: 'ココナラ', work: [['原稿', '/content/content~coconala']] },
   { id: 'kindle', label: 'Kindle', work: [['原稿', '/content/content~kindle']] },
 ] as const;
@@ -27,8 +27,8 @@ const COCONALA_COLUMNS: DataTableColumn[] = [
  * /product/status — 販売状態（人が手を打つもの）。チャネルはサイドバーの枝にせずこのページのタブにする
  * （domains.json navRules）。原稿・画像の作業場は各タブ上のリンクから開く。
  */
-export default async function ProductStatusPage({ searchParams }: { searchParams: Promise<{ ch?: string }> }) {
-  const { ch } = await searchParams;
+export default async function ProductStatusPage({ searchParams }: { searchParams: Promise<{ ch?: string; tab?: string }> }) {
+  const { ch, tab: inner } = await searchParams;
   const tab = TABS.find((t) => t.id === ch) ?? TABS[0];
   return (
     <>
@@ -48,8 +48,8 @@ export default async function ProductStatusPage({ searchParams }: { searchParams
           ))}
         </span>
       </FilterBar>
-      {tab.id === 'note' && <NoteStatusPage searchParams={Promise.resolve({})} />}
-      {tab.id === 'kindle' && <KindleContentPage searchParams={Promise.resolve({})} />}
+      {tab.id === 'note' && <NoteStatusPanel tab={inner} />}
+      {tab.id === 'kindle' && <KindlePanel tab={inner} />}
       {tab.id === 'coconala' && <Coconala />}
       </Stack>
     </>

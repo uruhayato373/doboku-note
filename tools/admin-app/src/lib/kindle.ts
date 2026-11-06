@@ -16,7 +16,7 @@ import {
 } from '../../../../scripts/lib/kindle-catalog.mjs';
 
 /**
- * kindle.ts — `/content/kindle`（read-only）の表示モデル。
+ * kindle.ts — `/product/status?ch=kindle`（read-only）の表示モデル。
  *
  * 判定ロジックは `scripts/lib/kindle-catalog.mjs` にすべて置き、ここでは表示用に
  * 整形するだけ。`config/kdp-memo.json`（accountEmail 等の秘密混じり）は
