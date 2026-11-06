@@ -14,7 +14,7 @@ const COLUMNS: DataTableColumn[] = [
 ];
 
 export default function SalesPage() {
-  const { months, total } = salesSummary();
+  const { loaded, months, total } = salesSummary();
 
   const bars: Bar[] = months.map((m) => ({
     label: m.month.slice(2),
@@ -25,13 +25,14 @@ export default function SalesPage() {
     <>
       <PageHead
         title="note売上の登録実績"
-        sub={`累計 ${yen(total.revenue)} / ${total.count} 件 / ${total.months} ヶ月`}
+        sub={loaded ? `累計 ${yen(total.revenue)} / ${total.count} 件 / ${total.months} ヶ月` : '売上の台帳を読めていない（0 円ではない）'}
       />
 
       <Stack>
-      <PanelCard title="月次売上推移">
+      {!loaded && <PanelCard title="売上の台帳を読めません"><p className="text-sm">note の売上の台帳を読めなかったので、金額を出していません。</p></PanelCard>}
+      {loaded && <PanelCard title="月次売上推移">
         <BarChart bars={bars} />
-      </PanelCard>
+      </PanelCard>}
 
       {months
         .slice()

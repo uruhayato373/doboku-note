@@ -474,20 +474,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1029] 管理画面の欠測を 0 と見せる表示とタブが外れる不具合を直す
+### [DN-1030] 管理画面の E2E を今の画面に合わせ、回す時機を決める
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
 
-**起点**: 2026-11-06 の棚卸し `docs/reviews/critical/2026-11-06-admin-screen-inventory.md`。Codex の指摘を実物で確かめた不具合で、どれも画面の数とは別の問題。
+**起点**: 2026-11-06 に管理画面の統合で `e2e-admin` を動かしたところ、画面の簡素化のあとで更新されていないテストがいくつもあった。Kindle の 3 件は統合の PR で直した。`e2e-admin/docs-todo.spec.ts` の「文書 → TODO → 文書 を往復できる」は 54 行目の `.todo-card-hit a[href^="/docs/"]` が見つからず、デスクトップとスマホの両方で落ちる。`e2e-admin` は `.github/workflows` のどこからも呼ばれておらず、落ちても誰も気づかない。
 
-**やること**:
+**やること**: このテストを今の `/todo` の画面に合わせて直す。`e2e-admin` を CI で回すか、手元で回す時機を決める。回す人がいないなら残すテストを絞る（CLAUDE.md §9「赤いのに誰も見ていない検査は無いのと同じ」）。
 
-1. `tools/admin-app/src/lib/sales.ts` は読み込みに失敗すると 0 件・0 円を返す。欠測として表示する
-2. `tools/admin-app/src/app/metrics/gsc/page.tsx` はスナップショットが無いと総クリック 0 と表示する。欠測として表示する
-3. `tools/admin-app/src/app/metrics/ga4/page.tsx` のページ別の履歴は `tab=page` を落とす。`SnapshotPicker` にタブを渡す
-4. `tools/admin-app/src/app/strategy/market/page.tsx` の金額は実績 0 円を「—」にする。0 と欠測を分ける
-5. `tools/admin-app/README.md` の 6 グループと Route handler の説明を実態に直す
+**完了条件**: `npm run test:e2e:admin` が通り、いつ誰が回すかが決まっている。
 
-**完了条件**: データが無い状態で売上と GSC の画面を開いて欠測と表示され、GA4 の履歴を選んでもページ別タブに残る。
+
 
 
 ### [DN-1028] Instagram の投稿は増やさず、ハイライトの導線を作って流入を測る
