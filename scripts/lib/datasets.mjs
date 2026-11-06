@@ -98,7 +98,7 @@ export const DATASETS = [
   d('config.competitors', 'config/competitors.json', 'config', 'strategy', '競合の追跡リスト（note・ココナラ・Instagram・X・YouTube・講座の企業の枠ごと）', { schema: 'ConfigCompetitors' }),
   d('config.issue-map', 'config/issue-map.json', 'config', 'strategy', '事業イシューマップ（全体・施工管理）。判定日は DN、現在値は指標 id で参照する', { schema: 'ConfigIssueMap', refs: [{ at: 'maps[].calendar.rows[].qualifications[]', to: 'qualification' }, { at: 'maps[].comparison.qualifications[]', to: 'qualification' }] }),
   // 計画
-  d('config.youtube-longform-plan', 'config/youtube-longform-plan.json', 'config', 'plan', '通常動画の年間編集計画（制作期限・公開目標。実予約は公開台帳）', { schema: 'ConfigYoutubeLongformPlan', refs: [{ at: 'entries[].exam', to: 'qualification' }] }),
+  d('config.youtube-longform-plan', 'config/youtube-longform-plan.json', 'config', 'plan', '通常動画の年間編集計画（年間の枠・制作期限・公開目標。実予約は公開台帳）', { schema: 'ConfigYoutubeLongformPlan', refs: [{ at: 'entries[].exam', to: 'qualification' }, { at: 'slots[].exam', to: 'qualification' }] }),
   d('config.annual-roadmap', 'config/annual-roadmap.json', 'config', 'plan', '年間ロードマップの期間と買い場の週数', { schema: 'ConfigAnnualRoadmap' }),
   // 商品
   d('config.products', 'config/products.json', 'config', 'product', '商品の正本（全チャネル・1ファイル。書き換えは npm run product）', { schema: 'ConfigProducts', refs: [{ at: 'products[].qualification', to: 'qualification' }] }),
@@ -150,6 +150,7 @@ export const DATASETS = [
   d('config.ig-account', 'config/ig-account.json', 'config', 'sns', 'Instagram のアカウントとプロフィール', { schema: 'ConfigIgAccount' }),
   d('config.instagram-pinned', 'config/instagram-pinned.json', 'config', 'sns', 'Instagramプロフィール固定投稿3本の原稿と図解データ', { schema: 'InstagramPinnedManifest' }),
   d('config.character-poses', 'config/character-poses.json', 'config', 'sns', 'キャラクター素材のポーズと命名', { schema: 'ConfigCharacterPoses' }),
+  d('config.image-generation', 'config/image-generation.json', 'config', 'sns', 'AI 画像の共通ルールと生成経路', { schema: 'ConfigImageGeneration' }),
   d('config.video-brand', 'config/video-brand.json', 'config', 'sns', '動画のブランド（ロゴ・背景）', { schema: 'ConfigVideoBrand' }),
   d('config.video-content', 'config/video-content.json', 'config', 'sns', '動画パックの契約', { schema: 'ConfigVideoContent' }),
   d('config.youtube-delivery', 'config/youtube-delivery.json', 'config', 'sns', 'YouTube 配信の設定', { schema: 'ConfigYoutubeDelivery' }),

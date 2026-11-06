@@ -2,9 +2,10 @@
 // 実際の API 呼び出しは scripts/youtube-unschedule.mjs。台帳は npm run registry -- unschedule で合わせる。
 
 /** 台帳の公開の行から、外す対象（YouTube・scheduled・未来の publishAt・外部 ID あり）を選ぶ。 */
-export function selectScheduled(publications, now = Date.now()) {
+export function selectScheduled(publications, now = Date.now(), only = null) {
   return publications
     .filter((p) => p.channel === 'youtube' && p.status === 'scheduled' && p.publishAt && p.platform?.id)
+    .filter((p) => !only || only.includes(p.id))
     .filter((p) => Date.parse(p.publishAt) > now)
     .sort((a, b) => Date.parse(a.publishAt) - Date.parse(b.publishAt));
 }

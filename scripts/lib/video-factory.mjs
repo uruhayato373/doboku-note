@@ -16,18 +16,13 @@ import { readJson, writeJson } from './json-io.mjs';
 import { normalizeLearningFrame } from './learning-frame.mjs';
 import { popSceneHash, requirePopDiagramStandard } from './longform-pop-images.mjs';
 import { coverInputDigest } from './youtube-approved-cover.mjs';
+import { examPalette, loadImageRules } from './image-rules.mjs';
 
 export const MAX_ATTEMPTS = 3;
-const SUBTITLE_ZONE = 0.18; // 本文の下端は字幕が載る。生成指示と機械検査で同じ値を使う
 const SUBTITLE_STDEV_MAX = 14;
-// 通常動画の基準（pop-image-policy.md）が使った 2 枚。どちらも Drive の content-media にある
-const COVER_STYLE = '.tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png';
-const CHARACTER = '.tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png';
-const BODY_STYLE = '.tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png';
-const PALETTES = {
-  'pe-construction': '深いインディゴ #33356B と明るい青紫', // qualification-ssot: allow 画像の配色の指示で資格名ではない
-  'pe-comprehensive-management': '鮮やかな青・シアン・ネイビー', // qualification-ssot: allow 画像の配色の指示で資格名ではない
-};
+const rules = loadImageRules();
+const SUBTITLE_ZONE = rules.formats.longform.bottomZone; // 本文の下端は字幕が載る。生成指示と機械検査で同じ値を使う
+const { coverStyle: COVER_STYLE, character: CHARACTER, bodyStyle: BODY_STYLE } = rules.references;
 const COMPOSITION = {
   compare: '左右2つの枠を比べ、右を強調する構図',
   grid: '同じ大きさの枠を並べる構図',
@@ -43,12 +38,12 @@ const oneLine = (text) => String(text ?? '').replace(/\n/g, ' ');
 export const planPath = (pack) => `.tmp/media/${pack}/work/factory/plan.json`;
 export const packDirOf = (pack) => `content/sns/video-packs/${pack}`;
 
-export function readPlan(root, pack) {
-  return existsSync(join(root, planPath(pack))) ? readJson(root, planPath(pack)) : null;
+export function readPlan(root, pack, path = planPath(pack)) {
+  return existsSync(join(root, path)) ? readJson(root, path) : null;
 }
 
 /** 参照画像を手元へ揃える。.tmp/media に無ければ Drive から写す */
-function fileRef(root, rel) {
+export function fileRef(root, rel) {
   const abs = join(root, rel);
   if (!existsSync(abs) && rel.startsWith('.tmp/media/')) {
     const vault = resolveVaultRoot();
@@ -62,13 +57,13 @@ function fileRef(root, rel) {
 
 /** 本文の生成指示。場面の原稿だけから決まる（同じ原稿なら同じ指示）。 */
 export function buildBodyPrompt(scene, exam) {
-  const palette = PALETTES[exam] ?? '試験の青と深紺';
+  const palette = examPalette(exam);
   const art = scene.visual?.art ?? {};
   const words = (scene.visual?.items ?? []).map(oneLine);
   return [
     `参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、${palette}の太い線、補助に小さな黄色。`,
     'シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。',
-    `すべての意味ある文字・図は左右5%・上5%・下${SUBTITLE_ZONE * 100}%の内側に置く。下端は字幕用の無地の背景だけ。`,
+    rules.formats.longform.frame,
     '文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。',
     `見出し『${scene.visual?.heading ?? scene.sceneId}』。`,
     COMPOSITION[art.type] ? `構図: ${COMPOSITION[art.type]}。` : '',
@@ -82,11 +77,11 @@ export function buildBodyPrompt(scene, exam) {
 /** 表紙の生成指示。cover-design の見出しだけを文字にする。 */
 export function buildCoverPrompt(spec, exam) {
   const lines = spec.headline ?? [];
-  const palette = PALETTES[exam] ?? '鮮やかな青・シアン・ネイビー';
+  const palette = examPalette(exam);
   return [
     '添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。',
     `新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。${palette}、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。`,
-    '先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。',
+    rules.teacher.identity,
     `左〜中央に正確に${lines.map((l) => `『${l}』`).join('')}を大きく配置。上部の黄色帯に小さく『${spec.pop?.authority ?? '総監が制作'}』。`,
     '誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。',
   ].join(' ');
@@ -151,8 +146,8 @@ export async function inspectImage(bytes, kind) {
 }
 
 /** 未生成と不合格の項目だけを作る。回数の上限に達した項目は残す（勝手に通さない）。 */
-export async function generatePlan(root, pack, { concurrency = 3, generate = generateWithCodexAsync, log = () => {} } = {}) {
-  const plan = readPlan(root, pack);
+export async function generatePlan(root, pack, { concurrency = 3, generate = generateWithCodexAsync, log = () => {}, path: file = planPath(pack), inspect = inspectImage } = {}) {
+  const plan = readPlan(root, pack, file);
   if (!plan) throw new Error(`${pack}: 先に plan を作る`);
   const todo = plan.items.filter((i) => !i.raw && i.attempts < MAX_ATTEMPTS);
   let next = 0;
@@ -162,7 +157,7 @@ export async function generatePlan(root, pack, { concurrency = 3, generate = gen
     const out = await generate(prompt, null, { images: item.references.map((r) => join(root, r.path)) });
     if (!out) { item.lastError = '画像が出なかった'; log(`${item.id}: 画像が出なかった`); return; }
     const bytes = await sharp(readFileSync(out)).png().toBuffer();
-    const issues = await inspectImage(bytes, item.kind);
+    const issues = await inspect(bytes, item.kind);
     if (issues.length) { item.fix = issues.join('／'); item.lastError = item.fix; log(`${item.id}: ${item.fix}`); return; }
     const sha256 = hash(bytes);
     const path = `.tmp/media/${pack}/work/factory/raw-${item.id}.${sha256.slice(0, 8)}.png`;
@@ -174,7 +169,7 @@ export async function generatePlan(root, pack, { concurrency = 3, generate = gen
   await Promise.all(Array.from({ length: concurrency }, async () => {
     while (next < todo.length) await one(todo[next++]);
   }));
-  writeJson(root, planPath(pack), plan);
+  writeJson(root, file, plan);
   return summarize(plan);
 }
 
@@ -191,20 +186,20 @@ export function summarize(plan) {
 }
 
 /** 監査へ渡す項目。作った側の説明は渡さず、原稿と指示だけを渡す。 */
-export function auditQueue(root, pack) {
-  const plan = readPlan(root, pack);
+export function auditQueue(root, pack, { path = planPath(pack), label = (i) => `${pack} の通常動画の${i.kind === 'cover' ? '表紙' : `本文の場面 ${i.id}`}` } = {}) {
+  const plan = readPlan(root, pack, path);
   if (!plan) throw new Error(`${pack}: 先に plan を作る`);
   return plan.items.filter((i) => i.raw && i.audit?.sha !== i.raw.sha256).map((i) => ({
     figKey: i.id, kind: i.kind, img: join(root, i.raw.path), prompt: i.basePrompt,
-    用途の説明: `${pack} の通常動画の${i.kind === 'cover' ? '表紙' : `本文の場面 ${i.id}`}`,
-    references: i.kind === 'cover' ? i.references.map((r) => join(root, r.path)) : [],
+    用途の説明: label(i),
+    references: i.kind === 'body' ? [] : i.references.map((r) => join(root, r.path)),
   }));
 }
 
 /** 判定を記録する。fail は画像を外し、理由を次の生成へ渡す。 */
-export function recordAudit(root, pack, verdicts, { by }) {
+export function recordAudit(root, pack, verdicts, { by, path = planPath(pack) }) {
   if (!by) throw new Error('判定した担当の名前が要る');
-  const plan = readPlan(root, pack);
+  const plan = readPlan(root, pack, path);
   if (!plan) throw new Error(`${pack}: 先に plan を作る`);
   const byId = new Map(plan.items.map((i) => [i.id, i]));
   for (const v of verdicts) {
@@ -217,7 +212,7 @@ export function recordAudit(root, pack, verdicts, { by }) {
       Object.assign(item, { raw: null, audit: null, fix: v.reason });
     }
   }
-  writeJson(root, planPath(pack), plan);
+  writeJson(root, path, plan);
   return summarize(plan);
 }
 

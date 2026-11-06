@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/youtube.longform/cover.7295bbd3.png",
-        "sha256": "7295bbd3d73827ec93bb0b1fb5a36c5d66ad4571986dbcc4296ce3040a1cd379",
-        "specSha256": "bf813fb2b1b684255e5ac84e176ba9b541c9e30598b0eaf8a6e2b8e4afb18fc5"
+        "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/cover-pop.252eeb56.png",
+        "sha256": "252eeb563a87df7942c3006bb95914d1713e66216bd6dbbcf188986cde4aee36",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "6c32588ac547f0c121859ce38c32888b8da714bf7f63be3d576160aa84ee5030"
       }
     }
   }

@@ -287,7 +287,7 @@ function loadPack(arg: string, kind: "carousel" | "reel" = "carousel"): Pack {
       path.join(dir, "video.mp4"),
     ]);
     if (!video) {
-      throw new Error(`reels/video.mp4 が見つかりません: ${dir}\n  （ig-reel-create で mp4 を先に生成）`);
+      throw new Error(`reels/video.mp4 が見つかりません: ${dir}\n  （mp4 を先に用意する）`);
     }
     const captionPath = findFirstExisting([
       path.join(dir, "reels", "caption.txt"),

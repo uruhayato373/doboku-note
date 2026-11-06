@@ -14,8 +14,10 @@ test('投稿スクリプトが渡す絶対パスでも固定投稿の台帳IDを
 });
 
 test('プランナー照合後の予約済み行も現版の承認と予定日時を照合できる', () => {
-  const row = loadRegistry(REPO_ROOT).publications.find((p) => p.id === 'account/ig-start-guide/instagram.carousel');
-  assert.equal(row?.status, 'scheduled');
+  // 実在の行は公開で状態が進むので、予約済みの形を作って照合する
+  const published = loadRegistry(REPO_ROOT).publications.find((p) => p.id === 'account/ig-start-guide/instagram.carousel');
+  const row = { ...published, status: 'scheduled' };
+  assert.ok(row.publishAt);
   assert.doesNotThrow(() => assertIgScheduleApproval(REPO_ROOT, row, row.publishAt));
   assert.throws(() => assertIgScheduleApproval(REPO_ROOT, row, new Date(Date.parse(row.publishAt) + 3600_000).toISOString()), /予約日時と投稿日時が違う/);
 });

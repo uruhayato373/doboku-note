@@ -25,7 +25,9 @@ const arg = (name, fallback = '') => {
   const i = argv.indexOf(name);
   return i >= 0 && argv[i + 1] ? argv[i + 1] : fallback;
 };
-const exams = new Set(arg('--exam', 'civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer').split(',').filter(Boolean));
+const exams = new Set(arg('--exam', 'civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer,pe-comprehensive-management,pe-construction').split(',').filter(Boolean));
+const onlyPack = arg('--pack-id');
+const onlyKey = arg('--key');
 const max = Math.max(1, Number(arg('--max', '999')) || 999);
 const concurrency = Math.min(8, Math.max(1, Number(arg('--concurrency', '4')) || 4));
 
@@ -63,7 +65,7 @@ function assertReady(file, expected) {
   }
   const rel = file.slice(ROOT.length + 1).replace(/\\/g, '/');
   const entry = DRIVE_MANIFEST.entries?.[rel];
-  if (entry?.group !== 'video-render-artifact' || entry.sha256 !== expected || !(entry.bytes > 0)) {
+  if (!['video-render-artifact', 'content-media'].includes(entry?.group) || entry.sha256 !== expected || !(entry.bytes > 0)) {
     throw new Error(`${rel}: ローカルにも照合済みDrive台帳にもありません`);
   }
 }
@@ -85,9 +87,15 @@ function targets() {
       const youtube = JSON.parse(readFileSync(youtubePath, 'utf8'));
       const current = STATE.packs?.[packId]?.derivatives?.shorts ?? [];
       for (const item of youtube.shorts ?? []) {
-        if (current.some((entry) => entry.key === item.key && entry.videoId)) continue;
-        const video = join(RENDER_ROOT, packId, 'shorts', item.key, 'shorts.mp4');
-        const thumbnail = join(RENDER_ROOT, packId, 'shorts', item.key, 'thumbnail.png');
+        if (onlyPack && packId !== onlyPack) continue;
+        if (onlyKey && item.key !== onlyKey) continue;
+        // 停止した行の旧 videoId は新しい在庫の投稿を妨げない
+        if (current.some((entry) => entry.key === item.key && entry.videoId && entry.status !== 'stopped')) continue;
+        const popPath = join(examRoot, packId, 'pop-image.json');
+        const pop = existsSync(popPath) ? JSON.parse(readFileSync(popPath, 'utf8')) : {};
+        const stock = pop.revisions?.[pop.activeShorts?.[item.key]]?.stock;
+        const video = stock ? join(ROOT, stock.video.path) : join(RENDER_ROOT, packId, 'shorts', item.key, 'shorts.mp4');
+        const thumbnail = stock ? join(ROOT, stock.thumbnail.path) : join(RENDER_ROOT, packId, 'shorts', item.key, 'thumbnail.png');
         if (!/^[a-f0-9]{64}$/.test(item.sha256 ?? '') || !/^[a-f0-9]{64}$/.test(item.thumbnailSha256 ?? '')) {
           throw new Error(`${packId}/${item.key}: youtube.json のsha256が未確定です`);
         }

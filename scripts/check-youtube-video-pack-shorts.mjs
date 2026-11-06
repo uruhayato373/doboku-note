@@ -14,6 +14,8 @@ const EXAMS = [
   'civil-construction-2',
   'concrete-engineer',
   'concrete-chief-engineer',
+  'pe-comprehensive-management',
+  'pe-construction',
 ];
 const errors = [];
 const warnings = [];
@@ -26,6 +28,7 @@ const STATE = loadVideoState(ROOT);
 let packCount = 0;
 let targetCount = 0;
 let shortsCount = 0;
+let stoppedCount = 0;
 
 function readJsonLenient(path) {
   return JSON.parse(readFileSync(path, 'utf8'));
@@ -80,12 +83,23 @@ for (const exam of EXAMS) {
     const shorts = youtube.shorts ?? [];
     const expected = manifest.outputs?.shorts;
     if (!Number.isInteger(expected) || expected < 0) errors.push(`${packId}: outputs.shorts が非負の整数ではない (${expected})`);
-    if (shorts.length !== expected) errors.push(`${packId}: shorts=${shorts.length} (期待値${expected})`);
+    // ショートは年間の枠で選んで作る。未着手のパックは企画の希望本数があっても失敗にしない
+    if (shorts.length && shorts.length !== expected) errors.push(`${packId}: shorts=${shorts.length} (期待値${expected})`);
     if (!youtube.longform) errors.push(`${packId}: longform メタデータなし`);
     else publicationSlot(packId, 'longform', youtube.longform);
 
+    const covers = existsSync(join(dir, 'cover-design.json')) ? readJsonLenient(join(dir, 'cover-design.json')).covers ?? {} : {};
+    const pop = existsSync(join(dir, 'pop-image.json')) ? readJsonLenient(join(dir, 'pop-image.json')) : {};
+    const rows = STATE.packs?.[packId]?.derivatives?.shorts ?? [];
     for (const item of shorts) {
+      const row = rows.find((candidate) => candidate.key === item.key);
+      // 停止したショートは公開されない。標準（全面画像）への移行は再開するときに shorts-factory で行う
+      if (row?.status === 'stopped') { stoppedCount += 1; continue; }
       shortsCount += 1;
+      if (row && covers[item.key]?.design !== 'pop-poster-v3') errors.push(`${packId}:${item.key}: 表紙が pop-poster-v3 ではない`);
+      const adopted = pop.revisions?.[pop.activeShorts?.[item.key]];
+      if (row && adopted && adopted.render?.videoSha256 !== item.sha256) errors.push(`${packId}:${item.key}: 採用画像の描画記録が今の動画と合わない`);
+      if (row && adopted && (adopted.screenReview?.verdict !== 'pass' || adopted.screenReview.videoSha256 !== item.sha256)) errors.push(`${packId}:${item.key}: 今の動画の画面確認 pass が無い`);
       const label = `${packId}:${item.key ?? '?'}`;
       const chars = [...String(item.title ?? '')].length;
       if (!item.key) errors.push(`${label}: keyなし`);
@@ -131,10 +145,10 @@ for (const [publishAt, label] of pendingSlots) {
   if ((daily.get(day) ?? 0) >= 3) warnings.push(`承認前の予定枠: ${day} は既に${daily.get(day)}本（承認すると1日上限3本を超える）: ${label}`);
 }
 
-console.log(`YouTube Shorts gate: targets=${targetCount}, packs=${packCount}, shorts=${shortsCount}, titles=${titles.size}, slots=${slots.size}`);
+console.log(`YouTube Shorts gate: targets=${targetCount}, packs=${packCount}, shorts=${shortsCount}, stopped=${stoppedCount}, titles=${titles.size}, slots=${slots.size}`);
 for (const warning of warnings) console.warn(`WARN: ${warning}`);
 if (errors.length) {
   for (const error of errors) console.error(`FAIL: ${error}`);
   process.exit(1);
 }
-console.log('PASS: パックごとの制作本数・タイトル・UTM・著者表記・関連scene・公開枠上限が整合');
+console.log('PASS: パックごとの制作本数・タイトル・UTM・著者表記・関連scene・公開枠上限・表紙の標準・画面確認が整合');

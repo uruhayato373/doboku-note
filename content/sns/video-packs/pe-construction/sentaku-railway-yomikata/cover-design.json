@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/cover.2f989837.png",
-        "sha256": "2f9898378d7697858c5332fc9cdd5495717203246d42f2443e1100a680527e1d",
-        "specSha256": "a2b0d12ab6e5ad84f4a5a7807f91bf389aa05cf7434ee123edd62c96587e37a6"
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/cover-pop.aa97e796.png",
+        "sha256": "aa97e7965aff267fd5383f7cc56973edc19254853b16c1f41f3305ee426d21aa",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "050341d912e49d3f71feb9e252725809b1ba26b61b5fd53d492f4852b9290a8b"
       }
     }
   }

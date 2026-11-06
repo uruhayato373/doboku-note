@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "択一はキーワード集をこう使う",
-        "items": ["技術士 総合技術監理部門・択一対策"]
+        "items": [
+          "技術士 総合技術監理部門・択一対策"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "1つの読み方に固執しない",
       "visual": {
         "heading": "誤解：一語ずつ順に暗記する",
-        "items": ["キーワード集は暗記帳でなく事典", "場面ごとに開き方を変える"]
+        "items": [
+          "キーワード集は暗記帳でなく事典",
+          "場面ごとに開き方を変える"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
     },
@@ -33,7 +38,11 @@
       "caption": "5管理・600語超の全体量を数字で知る",
       "visual": {
         "heading": "1. まず構造を知る",
-        "items": ["経済性7区分／人的資源4区分／情報5区分", "安全6区分／社会環境4区分", "合わせて600語超"]
+        "items": [
+          "経済性7区分／人的資源4区分／情報5区分",
+          "安全6区分／社会環境4区分",
+          "合わせて600語超"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
     },
@@ -45,7 +54,10 @@
       "caption": "通読は60〜90分で1周",
       "visual": {
         "heading": "2. 通読は60〜90分で1周",
-        "items": ["章番号順に通読し全体像をつかむ", "章末の学習ガイドカードで深掘り"]
+        "items": [
+          "章番号順に通読し全体像をつかむ",
+          "章末の学習ガイドカードで深掘り"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
     },
@@ -57,7 +69,10 @@
       "caption": "深掘りはリンクで2段構え",
       "visual": {
         "heading": "3. 個別キーワードはリンクで深掘り",
-        "items": ["通読中は立ち止まらない", "曖昧な語は後でリンクをたどる"]
+        "items": [
+          "通読中は立ち止まらない",
+          "曖昧な語は後でリンクをたどる"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
     },
@@ -69,7 +84,10 @@
       "caption": "検索は虫食いチェックに使う",
       "visual": {
         "heading": "4. 検索は虫食いチェックに使う",
-        "items": ["ブラウザ内検索（Ctrl／Cmd+F）で照合", "都度どの管理の語か確認する"]
+        "items": [
+          "ブラウザ内検索（Ctrl／Cmd+F）で照合",
+          "都度どの管理の語か確認する"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
     },
@@ -81,7 +99,10 @@
       "caption": "優先順位は頻出論点ランキングで決める",
       "visual": {
         "heading": "5. 優先順位は頻出論点ランキング",
-        "items": ["過去問18年分・720問から頻度順に把握", "頻出語に深掘りを絞る"]
+        "items": [
+          "過去問18年分・720問から頻度順に把握",
+          "頻出語に深掘りを絞る"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
     },
@@ -93,7 +114,11 @@
       "caption": "通読→深掘り→検索→優先順位",
       "visual": {
         "heading": "まとめ",
-        "items": ["① 60〜90分で通読し全体構造をつかむ", "② リンクで深掘り・検索で虫食い確認", "③ 頻出論点ランキングで優先順位を決める"]
+        "items": [
+          "① 60〜90分で通読し全体構造をつかむ",
+          "② リンクで深掘り・検索で虫食い確認",
+          "③ 頻出論点ランキングで優先順位を決める"
+        ]
       }
     },
     {
@@ -105,8 +130,17 @@
       "visual": {
         "kind": "cover",
         "heading": "キーワード集を回し切る",
-        "items": ["択一キーワード攻略マガジン（概要欄リンク）"]
+        "items": [
+          "択一キーワード攻略マガジン（概要欄リンク）"
+        ]
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261105",
+    "coverRevision": "cover-pop-20261105",
+    "layout": "diagram-led"
+  }
 }

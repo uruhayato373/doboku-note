@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "teacher": {
+    "identity": "先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。",
+    "body": "手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。"
+  },
+  "popStyle": "親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。",
+  "textRule": "指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+  "diagramLedExams": ["civil-construction-2"],
+  "references": {
+    "coverStyle": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+    "character": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+    "bodyStyle": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png"
+  },
+  "formats": {
+    "longform": {
+      "width": 1920,
+      "height": 1080,
+      "bottomZone": 0.18,
+      "frame": "すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。"
+    },
+    "shorts": {
+      "width": 1080,
+      "height": 1920,
+      "minWidth": 900,
+      "bottomZone": 0.18,
+      "frame": "縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。"
+    }
+  },
+  "routes": [
+    { "id": "longform", "label": "通常動画の表紙と本文", "kind": "script", "entry": "scripts/lib/video-factory.mjs", "audit": "ai-image-fidelity-auditor" },
+    { "id": "shorts", "label": "ショートの全画面", "kind": "script", "entry": "scripts/lib/shorts-factory.mjs", "audit": "ai-image-fidelity-auditor" },
+    { "id": "article-photo", "label": "記事の写真", "kind": "script", "entry": "scripts/gen-article-photo.mjs", "audit": "ai-image-fidelity-auditor" },
+    { "id": "media-plate", "label": "公開の役割の素材（note・ココナラなど）", "kind": "script", "entry": "scripts/lib/media-plate.mjs", "audit": "ai-image-fidelity-auditor" },
+    { "id": "guide-covers", "label": "ガイドのカバー写真", "kind": "script", "entry": "scripts/generate-guide-covers.mjs", "audit": "none" },
+    { "id": "ogp-backgrounds", "label": "OGP の背景", "kind": "script", "entry": "scripts/generate-ogp-backgrounds.mjs", "audit": "none" },
+    { "id": "pop-manual", "label": "商品画像・カバーの POP 手作業", "kind": "manual", "entry": ".claude/skills/social/create-pop-image/SKILL.md", "audit": "ai-image-fidelity-auditor" },
+    { "id": "brand-photos", "label": "資格別ブランド写真", "kind": "manual", "entry": ".claude/knowledge/reference/brand-image-system.md", "audit": "none" },
+    { "id": "character-assets", "label": "キャラクター素材", "kind": "manual", "entry": "scripts/character-extract.mjs", "audit": "none" }
+  ]
+}

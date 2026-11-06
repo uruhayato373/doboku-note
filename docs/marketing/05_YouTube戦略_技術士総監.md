@@ -19,7 +19,7 @@
 | 論点 | v7（親 SSOT の現定義） | 本ドキュメント（総監の差分） |
 |---|---|---|
 | YouTube の位置づけ | IG Reels mp4 の二次展開のみ（Shorts 週 1〜2 本）。YT 単独パイプライン廃止 | Shorts は slide-data.json 共通一次ソースを維持しつつ**2 経路併存**（§3）。**通常動画を YouTube 固有の一次制作として新設**（v7 で Phase 4 補助だった標準動画を総監については本丸へ昇格） |
-| Shorts の生成経路 | IG Reels mp4 の ffmpeg トリム派生 | 総監は `per-problem-shorts.mjs` の **YT 専用再描画**（2026-06-06 新設）で稼働中。IG mp4 を経由しない |
+| Shorts の生成経路 | IG Reels mp4 の ffmpeg トリム派生 | 総監は旧 YT 専用再描画（2026-06-06 新設・2026-11 に削除）で稼働していた。現行は `shorts-factory`。IG mp4 を経由しない |
 | 投稿頻度 | 週 1〜2 本 | legacy総監Shortsは13本投稿済み・187本retiredで凍結。非総監video-packの日次cron承認は総監へ波及しない |
 
 ### 改訂トリガー
@@ -66,9 +66,9 @@
 | **Tier 1** | Shorts（9:16・30-60 秒） | slide-data.json 起点・2 経路併存（下記） | **legacy凍結**（uploaded 13・retired 187） | 再開しない。非総監video-pack cronとは別系統 |
 | **Tier 2** | 通常動画（16:9・5-60 分） | **YouTube 固有の一次制作**（5 ピラー、§4） | Phase B（試験後〜） | 戦略拡張の本丸。**台本+storyboard+QA 済みの在庫 14 本**（pilot 2＋2026-09-01 全量準備 12＝択一演習・聞き流し・口頭試験系の素案 1/3 対応を含む。実数 SSOT は[企画バンク](../../content/sns/video-packs/README.md)）。残るはレンダリング（16:9 実装済み `render-longform`）→承認→公開 |
 
-**Shorts の 2 経路併存（v7 原則の総監差分）**: v7 は「IG Reels mp4 のトリム派生」一本だったが、総監は `per-problem-shorts.mjs`（YT 専用再描画。ページ番号・スワイプ CTA を構造的に抑止、4 問全展開対応）で IG mp4 を経由せず生成・投稿している。両経路とも一次ソースは `slide-data.json` で共通のため、コンテンツの二重保守は発生しない。**IG Reels パイプライン障害時も YT 単独で台帳消化を継続できる**＝v7 が懸念した単一障害点は総監では構造的に緩和済み。
+**Shorts の 2 経路併存（v7 原則の総監差分）**: v7 は「IG Reels mp4 のトリム派生」一本だったが、総監は旧 YT 専用再描画（2026-11 に削除。ページ番号・スワイプ CTA を構造的に抑止、4 問全展開対応）で IG mp4 を経由せず生成・投稿している。両経路とも一次ソースは `slide-data.json` で共通のため、コンテンツの二重保守は発生しない。**IG Reels パイプライン障害時も YT 単独で台帳消化を継続できる**＝v7 が懸念した単一障害点は総監では構造的に緩和済み。
 
-> **どちらの経路を使うか（優先度・障害時の扱い）**: 総監legacy Shortsは **経路B＝`per-problem-shorts.mjs`（YT 専用再描画）が正**。**経路A＝`yt-shorts-create --from-reels` はIG Reelsを先に作ったパックの補助**。一方、2026-09-05承認済みの1級・2級土木・コンクリートは、この2経路ではなく通常動画へ1:1接続する動画パック直結経路を使う。
+> **どちらの経路を使うか（優先度・障害時の扱い）**: 旧2経路（IG Reels 派生・YT 専用再描画）のスキルとスクリプトは 2026-11 に削除した。現行は通常動画へ1:1接続する動画パック直結経路（`npm run shorts-factory`）。
 
 旧 Shorts は台帳（`content/registry/`・kind `legacy-short`・uploaded 13／retired 187）。2026-10-09 に旧台帳 `youtube-schedule.json` と旧スクリプトを消した。`post-youtube-scheduled.yml` の日次cron（2026-09-05に承認された1級・2級土木・コンクリートの動画パック専用で、総監legacyを対象にしない）は 2026-10-24 に廃止した。
 
@@ -116,7 +116,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 |---|---|---|
 | スライド生成 | Satori + resvg（`.claude/scripts/lib/sns-common/slide-render.mjs`） | 9:16・16:9とも実装済み |
 | 音声 | VOICEVOX 四国めたん（Docker、`tts-client.mjs`） | 稼働中 |
-| Shorts 生成 | `yt-shorts-create --from-reels`／`per-problem-shorts.mjs`（YT 専用再描画・4 問全展開・`--ig-mode`） | 実装済 |
+| Shorts 生成 | `npm run shorts-factory`（動画パック直結） | 実装済 |
 | Shorts 投稿 | legacy=台帳（kind `legacy-short`）、動画パック=`youtube.json`（計画）＋`content/registry/`（状態） | legacy総監は13本で凍結。日次cronは承認済み非総監video-packのみ |
 | タイトル | `yt-shorts-title-writer`（Generator・論点ベース 40 字以内） | 実装済（200 本入力済み） |
 | 品質採点 | `yt-shorts-publisher-qa`（Evaluator・4 軸ルーブリック） | 実装済 |
@@ -127,7 +127,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 ### 16:9 拡張（Tier 2 の前提作業）
 
-`render-longform` が1920×1080、`render-video-pack-shorts.mjs` が1080×1920を生成する。縦横レンダー基盤は実装済み。
+`render-longform` が1920×1080、`shorts-factory` が1080×1920を生成する。縦横レンダー基盤は実装済み。
 
 ### Generator/Evaluator 分業の拡張方針
 
@@ -142,27 +142,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 ## 6. 投稿カデンス・季節カレンダー
 
-### 定常カデンス
-
-- **Shorts: legacy200本は13本投稿済み・187本retiredで凍結**。総監で再開する場合は改めてユーザー承認を要する
-- **通常動画: Phase B で月 2-4 本（パイロット）**、Phase C 以降は KPI 次第で月 4-6 本
-
-### 試験サイクル連動 年間カレンダー
-
-試験日は内部 SoT 07-13 想定と外部情報（R8 筆記 7/19-20）が不一致のため、**外部 7/19-20 を仮置き**（§11 で要確認）。note 商品連動は [noteコンテンツ計画.md](../../content/note/技術士総監/noteコンテンツ計画.md) の統合リリースカレンダーが真実源。
-
-| 時期 | 試験/note イベント | Shorts | 通常動画 | ねらい |
-|---|---|---|---|---|
-| 6 月（Phase A） | 直前期 | 3 本/日で台帳消化 | —（16:9 実装） | 直前検索の刈り取り |
-| 7 月第 1-2 週 | 筆記直前 | 継続 | P5 直前総括（任意 1 本） | 直前ピーク |
-| 7 月第 3 週 | **筆記試験（仮 7/19-20）** | 当日「お疲れさま」系を控えめに | — | 静観 |
-| 7 月第 4 週 | **E-01 解答再現 ¥1,980** | 概要欄を E-01 へ | P4 設問構造解説（解答は出さない）→E-01 | 解答再現需要 |
-| 8 月 | **E-02 ¥2,480** | 継続 | P1 過去問まとめ＋P4 | 復習需要 |
-| 9 月 | **E-03 ¥1,480** | 継続 | P2＋P3 聞き流し | 中だるみ期の耳学需要 |
-| **11 月（筆記合格発表・日付未発表）** | **筆記合格発表＝完全パック ¥9,800 リローンチ** | 「合格された方へ」＋口頭導線 | P4 口頭試験の考え方→完全パック/E-04 | **年間最大の送客日。集中投下**（発表月は `config/exam-calendar.json` が真実源。2026-09-01 に「10 月末」から補正） |
-| 11 月 | **E-04 口頭試験 ¥2,980** | 口頭ネタ | P4 口頭の構造→E-04 | 口頭対策需要 |
-| 12-1 月 | 口頭試験本番 | 季節リマインド | P5 体験角度 | 来年度 TOFU の早期囲い込み |
-| 3 月 | 最終合格発表 | 「合格しました」1 本 | P5 1 年総括 | 権威性更新 |
+年間の時期・本数・週の上限の正本は `config/youtube-longform-plan.json` の `slots` と `cycle`、試験日は `config/exam-calendar.json`。本書には写さない。管理画面は `/sns/youtube/longform`。
 
 ## 7. KPI
 
@@ -198,21 +178,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 ## 9. Phase ロードマップ
 
-### Phase A（DN-0110 Phase 0-1）: 契約＋通常動画pilot
-
-DoD: ① 動画パックschema・state・機械ゲート確定 ② `slide-render.mjs` 16:9テンプレ追加 ③ 総監通常動画2本を制作 ④ 各動画に関連Shortsを接続 ⑤ `utm_medium=video&utm_content=longform` を通常動画概要欄へ付与。
-
-### Phase B（公開後6週間）: 送客観測
-
-DoD: ① Shorts→関連動画流入 ② 通常動画の視聴維持 ③ サイト・noteへのUTM ④ note遷移・売上シグナルをsnapshotで観測。未達なら追加量産せずテーマ・導線・尺を修正。
-
-### Phase C（pilot継続判定後）: 季節需要と他ピラー
-
-DoD: 実績のあるP4/P5または検索テーマだけを追加し、口頭試験・来年度需要へ接続する。P1/P2/P3の一括量産は行わない。
-
-### Phase D（2027〜）: 判定と拡張
-
-DoD: ① 6 ヶ月 KPI で Tier 2 継続/縮小を判定 ② 最終合格発表後にプロフィール「総監保有」更新 ③ 横展開（TikTok 等）は親 SSOT の Phase 3 待機チャネル判定に従う
+年間の時期・本数・週の上限の正本は `config/youtube-longform-plan.json` の `slots` と `cycle`、試験日は `config/exam-calendar.json`。本書には写さない。管理画面は `/sns/youtube/longform`。
 
 ## 10. やらないこと（Red Line 遵守）
 

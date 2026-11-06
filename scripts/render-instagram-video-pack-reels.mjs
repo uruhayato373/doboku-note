@@ -50,7 +50,7 @@ const { isRunning, synthesize } = await import(
   pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/tts-client.mjs')).href
 );
 const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/lib/ffmpeg-compose.mjs')).href
 );
 if (!ffmpegAvailable()) throw new Error('ffmpeg / ffprobe が利用できません');
 if (!args['preview-only'] && !(await isRunning())) throw new Error('VOICEVOX が起動していません（127.0.0.1:50021）');

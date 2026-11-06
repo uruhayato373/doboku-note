@@ -358,6 +358,13 @@ async function main() {
       ? [publish.longform, ...(publish.shorts ?? [])]
       : publish.shorts;
   for (const item of selected) assertMetadata(item, PACK_ID);
+  if (PHASE.startsWith('shorts-')) {
+    // 標準外の旧テンプレートのショートを投稿へ進めない（pop-image-policy.md・2026-11-06）
+    const coversPath = path.join(pack.dir, 'cover-design.json');
+    const covers = fs.existsSync(coversPath) ? JSON.parse(fs.readFileSync(coversPath, 'utf8')).covers ?? {} : {};
+    const legacy = selected.filter((item) => covers[item.key]?.design !== 'pop-poster-v3').map((item) => item.key);
+    if (legacy.length) throw new Error(`pop-poster-v3 ではないショートは投稿しない: ${legacy.join(', ')}`);
+  }
   console.log(`target: account=${publish.channel.title}/${publish.channel.id} pack=${PACK_ID} phase=${PHASE}`);
   for (const item of selected) console.log(`  ${item.key}: ${item.title}`);
   if (PHASE === 'longform') assertLongformPublishable((await loadState()).packs?.[PACK_ID]?.derivatives?.longform, publish.longform);

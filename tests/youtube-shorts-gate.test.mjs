@@ -15,7 +15,7 @@ function check(packs) {
     cpSync(join(REPO_ROOT, 'scripts/lib/repository-paths.mjs'), join(root, 'scripts/lib/repository-paths.mjs'));
     write('scripts/lib/utm-contract.mjs', 'export const utmChannel = () => ({});');
     write('scripts/lib/registry-video-state.mjs', `export const loadVideoState = () => (${JSON.stringify({ packs: Object.fromEntries(packs.map((p) => [p.id, { derivatives: { longform: p.row } }])) })});`);
-    for (const exam of ['civil-construction-1', 'civil-construction-2', 'concrete-engineer', 'concrete-chief-engineer']) mkdirSync(join(root, 'content/sns/video-packs', exam), { recursive: true });
+    for (const exam of ['civil-construction-1', 'civil-construction-2', 'concrete-engineer', 'concrete-chief-engineer', 'pe-comprehensive-management', 'pe-construction']) mkdirSync(join(root, 'content/sns/video-packs', exam), { recursive: true });
     for (const p of packs) {
       const dir = `content/sns/video-packs/civil-construction-2/${p.id}`;
       mkdirSync(join(root, dir));
@@ -33,7 +33,7 @@ const scheduled = { status: 'scheduled', publishAt: slot };
 test('通常動画のみのパックを制作契約どおり検査し、停止済みの旧予定を数えない', () => {
   const r = check([{ id: 'new', row: scheduled, plan: slot }, { id: 'old', row: { status: 'stopped' }, plan: slot }]);
   assert.equal(r.status, 0, r.text);
-  assert.match(r.text, /packs=2, shorts=0, titles=0, slots=1/);
+  assert.match(r.text, /packs=2, shorts=0, stopped=0, titles=0, slots=1/);
 });
 test('実予約日時は旧メタデータの日時より優先する', () => {
   const r = check([{ id: 'a', row: scheduled, plan: slot }, { id: 'b', row: { ...scheduled, publishAt: '2026-10-20T20:00:00+09:00' }, plan: slot }]);
@@ -49,10 +49,8 @@ test('1日4本の実予約は上限違反になる', () => {
   assert.equal(r.status, 1);
   assert.match(r.text, /1日上限3本/);
 });
-test('Shortsを作る契約なのに無い場合は失敗する', () => {
-  const r = check([{ id: 'a', shorts: 2, row: scheduled }]);
-  assert.equal(r.status, 1);
-  assert.match(r.text, /shorts=0 \(期待値2\)/);
+test('ショートは年間の枠で選んで作るので、未着手のパックは失敗にしない', () => {
+  assert.equal(check([{ id: 'a', shorts: 2, row: scheduled }]).status, 0);
 });
 test('予約済みパックのメタデータ欠落と予約日時欠落は失敗する', () => {
   for (const p of [{ id: 'a', row: scheduled, missing: true }, { id: 'a', row: { status: 'scheduled' }, plan: slot }]) assert.equal(check([p]).status, 1);

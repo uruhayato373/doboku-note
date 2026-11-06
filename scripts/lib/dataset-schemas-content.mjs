@@ -12,16 +12,57 @@ const repoPath = (what) => z.string().min(1).describe(`${what}（リポジトリ
 const STATUS = ['draft', 'qa_blocked', 'qa_passed', 'approved', 'rendered', 'uploaded_private', 'scheduled', 'published', 'failed', 'refresh_due', 'stopped'];
 
 /** 編集上の目標。公開・予約の事実は RegistryPublications から解決する。 */
+const planMonth = z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/, 'YYYY-MM');
+const planWindow = z.object({ from: planMonth, to: planMonth }).strict().refine((w) => w.from <= w.to, '開始月 ≤ 終了月');
+const repoRef = z.string().regex(/^[^\s:]+(:\d+)?$/, 'リポジトリの相対パス（:行番号は任意）');
+const longformSlot = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/), exam: z.string().min(1), format: z.string().min(1).describe('台帳 config.youtube-formats の型 id'),
+  title: z.string().min(1), role: z.enum(['attract', 'sell']).describe('attract＝集客・sell＝販売'),
+  window: planWindow.describe('公開する月の範囲。2027 年度は 2026 年度の実績を目安にした仮の月'),
+  anchors: z.array(z.string().min(1)).min(1).describe('台帳 config.exam-calendar の events・periods のキー。日付は写さない'),
+  primaryCta: z.object({ kind: z.enum(['note-magazine', 'coconala-service', 'site-article', 'links-hub']), targets: z.array(z.string().min(1)) }).strict(),
+  count: z.number().int().positive().describe('この枠で公開してよい本数の上限'),
+  shorts: z.object({ count: z.number().int().positive().describe('この枠の通常動画を親にするショートの上限'), note: z.string().min(1).optional() }).strict().optional().describe('枠のショート。無ければこの枠の親からショートを作らない'),
+  reuse: z.enum(['stock', 'revise', 'bundle', 'new']).describe('stock＝完成済み・revise＝既存を改訂・bundle＝既存パックを束ねる・new＝新規'),
+  reuseNote: z.string().min(1).describe('既存パックの流用可否の説明'),
+  reason: z.object({
+    reader: z.string().min(1).describe('読者の課題'), harm: z.string().min(1).describe('HARM と理由'),
+    value: z.string().min(1).describe('提供価値と支払う理由'),
+    demand: z.string().min(1).describe('需要の証拠。無ければ「未検証」で始める'), evidence: z.array(repoRef).describe('証拠の所在'),
+    next: z.string().min(1).describe('次の検証'),
+  }).strict(),
+}).strict();
+
 export const ConfigYoutubeLongformPlan = z.object({
-  schemaVersion: z.literal(1),
+  schemaVersion: z.literal(2),
   _doc: z.string().min(1),
   updatedAt: jstDate('計画の更新日'),
+  cycle: z.object({
+    id: z.string().min(1), window: planWindow,
+    enforceFrom: jstDate('週の上限を数え始める月曜'),
+    reviewAt: jstDate('3 か月後の見直し日'),
+    weeklyMax: z.number().int().positive().describe('平常の週の上限（月曜始まり・JST）'),
+    peakWeeklyMax: z.number().int().positive().describe('山場の週の上限'),
+    peaks: z.array(z.object({ window: planWindow, why: z.string().min(1) }).strict()),
+    calendarBasis: z.string().min(1).describe('2027 年度の月をどう置いたか。公式発表前は確定しない'),
+  }).strict(),
+  metrics: z.object({
+    primary: z.array(z.object({
+      id: z.enum(['youtubeNoteClicks', 'averageViewPercentage']), label: z.string().min(1), definition: z.string().min(1),
+      source: z.string().min(1), status: z.enum(['measured', 'unmeasured']),
+    }).strict()).length(2).describe('成功指標。登録者数・再生数・本数は入れない'),
+    support: z.array(z.string().min(1)).describe('補助に見る指標（business-direction の id）'),
+    notSuccess: z.array(z.string().min(1)).min(1),
+    target: z.string().min(1).describe('目標値の扱い。実測前は決めない'),
+  }).strict(),
   cadence: z.string().min(1),
   productionRule: z.string().min(1),
   reviewRule: z.string().min(1),
+  slots: z.array(longformSlot).min(1).superRefine(uniqueBy('id')),
   entries: z.array(z.object({
     id: z.string().min(1), exam: z.string().min(1), publicationId: z.string().optional(),
     title: z.string().min(1).optional(), action: z.enum(['finish', 'revise', 'new', 'reuse']),
+    slot: z.string().min(1).optional().describe('入る年間の枠。今の期より前に公開した行と再案内は持たない'),
     start: jstDate('制作・改訂の着手日'), ready: jstDate('画像・動画確認完了の目標日'),
     target: jstDate('公開または再案内の目標日（予約の事実ではない）'),
     priority: z.enum(['P1', 'P2', 'P3']),
@@ -33,6 +74,10 @@ export const ConfigYoutubeLongformPlan = z.object({
       ctx.addIssue({ code: 'custom', path: ['entries', i], message: '着手 ≤ 確認完了 < 公開目標' });
     if (!e.publicationId && (e.action !== 'new' || !e.title))
       ctx.addIssue({ code: 'custom', path: ['entries', i], message: '既存動画は公開IDが必要。新規企画はタイトルが必要' });
+  });
+  v.slots.forEach((s, i) => {
+    if (s.primaryCta.kind === 'links-hub' ? s.primaryCta.targets.length : !s.primaryCta.targets.length)
+      ctx.addIssue({ code: 'custom', path: ['slots', i, 'primaryCta'], message: 'links-hub は宛先なし、それ以外は宛先が必要' });
   });
 });
 const STOP_REASONS = ['user-decision', 'superseded', 'gone', 'unverified-legacy'];

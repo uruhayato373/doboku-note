@@ -63,7 +63,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | note カバーロールアウト（親が起動）              | `note-cover-writer`                                              | 記事の `cover:` ブロック（leadIn/headline/hi/hiSuffix/benefit）執筆 → `add-note-cover.mjs` → 再生成（描画は 2026-09-17〜 V5 キャラクターカバー） |
 | X 投稿生成（親が起動 / `social-post` 連携）     | `x-post-writer`, `x-post-qa`                                     | X 投稿 `tweets.md` 執筆 → 5軸採点（多資格 exam 横断） |
 | `/x-repost`（親が起動）                          | `x-repost-curator`                                              | 引用RP 候補の選別＋引用コメント生成（discover/exec は純 Playwright） |
-| `/yt-shorts-create`（親が起動）                  | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
+| `npm run shorts-factory`（親が起動）           | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
 | `/video-content`（動画パックの入口）            | `video-script-writer`, `video-content-qa`                       | 動画パック（台本・storyboard・CTA）の生成 → `check-video-content` → 6軸（0〜3）＋BLOCK 採点 → 承認待ちで停止 |
 | `/standards-table-rebuild`                | `standards-table-writer`, `standards-table-qa`                  | 公的基準の版面のまま残った表を原本画像と照合して組み直す（`validate` で文字の過不足ゼロ）→ 1 セルずつ照合して承認 |
 | UI/ページデザイン（親が起動）                    | `page-design-builder` → `/design-review`                        | design-system.md 準拠でページ/レイアウト/UI コンポーネント実装 → 視覚回帰採点（Generator/Evaluator 分離） |
@@ -139,8 +139,6 @@ Shortsの全場面POP差し替えは `yt-shorts-publisher-qa` が原画像と字
 | `scanned-figure-crop-auditor`  | スキャン教材（`content/sources/textbook/**` 内部リファレンス）の図クロップ PNG を 4 軸（クリップ純度45/図完全性30/正図同定15/alt10）で採点し `adjust_bbox`（相対調整値）を返す Evaluator。`pdf-to-mdx --scanned` 経路Bの図 audit/refine ループ用。locate 単発の緩い枠（本文写り込み・切れ）を実 PNG 監査で締める。別図掴みは relocate でエスカレーション。audit-only | Evaluator | sonnet | `civil-exam-figure-auditor` のスキャン教材版。`scripts/scanned/figure_crop_audit.workflow.js` 連携 | ✅ 新設（2026-06-24 起動） |
 | `pe-exam-figure-auditor`       | 総監 primary（h2x-primary）試験図 SVG の 4 軸ルーブリック品質評価（概念・構造の正確性・ラベル整合・可読性・MDX 結線）。MDX 問題文を真実源として SVG 忠実度を採点。P1-P8・キャンバス標準は非適用（試験原図はサイズ自由）。audit-only | Evaluator | sonnet | `civil-exam-figure-auditor` の PE 版。`svg-audit.json` の `.exam_crops` が対象 SVG 一覧 | ✅ 新設（2026-06-23） |
 | `ai-image-fidelity-auditor`   | 記事の写真と動画・商品の素材（`media:<素材 ID>`。すべて AI 生成画像。機械・器械・変状・画像内の文字）を種別・構造・本文整合・生成の破綻の 4 軸（文字入りは文字の誤りの軸を加える）で判定し ok / fail を返す。生成の指示（`prompt`）も照らす。市販書の写真を元に描き直した写真（`basedOn`）は元と見比べる「描き直し」の軸（構図をなぞっていないか・元の文字が残っていないか）を加える。判定の記録は親が `check-image-origin record-ai`（画像のハッシュつき）。audit-only | Evaluator | sonnet | `check-image-origin` 連携（`ai-unreviewed` を CI で止める）。2026-10-07 にセオドライトが実在しない形のまま公開されていたのを受けて新設 | ✅ 新設（2026-10-07） |
-| `ig-reels-writer` | 旧Instagram過去問パックのReels台本担当。入力ソース削除に伴い退役 | 退役 | sonnet | `.claude/knowledge/reference/ig-reels-policy.md` は設計記録 | 2026-11-01退役 |
-| `ig-reels-qa` | 旧Instagram過去問パックのReels品質評価。入力ソース削除に伴い退役 | 退役 | sonnet | `.claude/knowledge/reference/ig-reels-policy.md` は設計記録 | 2026-11-01退役 |
 | `yt-shorts-title-writer`       | YouTube Shorts（過去問派生）の**論点ベースのタイトル**を執筆し meta.json の既定タイトルを上書き（`技術士総監 令和X年度 択一｜論点 #Shorts`・40字以内・使い回し/ネタバレ禁止）。親が featured 設問文を抽出して渡す | Generator    | sonnet  | `.claude/knowledge/reference/yt-shorts-publisher-policy.md` §2 参照、`yt-shorts-publisher-qa` と対 | ✅ 運用中（2026-06-05 起動）            |
 | `yt-shorts-publisher-qa` | 現行YouTube Shortsの品質評価。旧IG Reels派生経路は退役 | Evaluator | sonnet | `.claude/knowledge/reference/yt-shorts-publisher-policy.md` 参照 | 現行Shortsのみ運用 |
 | `video-script-writer`          | 動画パック（`content/sns/video-packs/{exam}/{slug}/` の video-pack.json・script.md・storyboard.json・派生ブリーフ）を 1 パック書く。出典を読んでから書き、逐語転用・主 CTA 複数・推測の URL/数値を避ける。全資格共通（資格別エージェントは作らない）。判定・レンダリング・投稿は担当外 | Generator    | sonnet  | `.claude/knowledge/reference/video-content-policy.md` §2-4・§6、`video-content-qa` と対 | 🚧 新設（DN-0406・2026-10-12） |
@@ -185,6 +183,7 @@ Shortsの全場面POP差し替えは `yt-shorts-publisher-qa` が原画像と字
 | `a8-report-collector` | A8.net レポート CSV の Playwright 収集（`a8-ui:fetch`）を実行する Generator | 2026-10-24 退役（DN-0817。ログインが要る取得は土曜の Mac 収集に集約し、エージェントのセッションは収集 script を実行しない）。収集は `weekly-collect` の a8 段（運営者の取り直しは `node scripts/weekly-collect.mjs --only a8`）。品質監査は `a8-csv-auditor` |
 | `gsc-browser-collector` | GSC/GA4 の Playwright UI CSV 収集を実行する Generator | 2026-10-24 退役（DN-0817。同上）。収集は `weekly-collect` の gsc 段（`--only gsc`）。品質監査は `gsc-csv-auditor` |
 | `scanned-textbook-transcriber` | スキャン書籍のページ画像を逐語で書き起こす Generator | 2026-10-24 退役（市販書籍の本文を Claude が画像から書き写すと、私的利用でも複製を作る主体が Claude になる）。文字起こしは機械 OCR（`pdf-to-mdx/scripts/book-ocr/book_ocr_machine.py` → obsidian vault の `ocr_pdf.py`）。視覚 OCR の新規・変更は `check-reference-book-pages`・`check-reference-sources --deep`・`record-reference-book-artifacts` が止める |
+| `ig-reels-writer` / `ig-reels-qa` | 旧 Instagram 過去問パックの Reels 台本・品質評価 | 2026-11-01 退役（入力ソース削除）。新規リールは `instagram-reels:*` |
 
 ## Generator と Evaluator の分離原則
 
@@ -226,8 +225,7 @@ Shortsの全場面POP差し替えは `yt-shorts-publisher-qa` が原画像と字
 | **pe-exam-figure-auditor** | `content/site/pe-comprehensive-management/h*-primary/img/*.svg` + 該当 MDX（問題文） | 概念・構造の正確性・ラベル整合・可読性・MDX 結線（4軸）。MDX 問題文を真実源として SVG 忠実度を採点。P1-P8・キャンバス標準は非適用。`svg-audit.json.exam_crops` が対象一覧 | 総監 h2x-primary 過去問ページ SVG を新規作成・修正後 |
 | **ai-image-fidelity-auditor** | `content/site/**/img/*` のうち写真（AI 生成画像・`check-image-origin --ai-queue --json`）＋生成の指示＋記事の該当節 | 種別・構造・本文整合・生成の破綻（4 軸、すべて満たすときだけ ok）。背景・色・アングルは問わない | AI 画像を足した・差し替えた後（`check-image-origin` の `ai-unreviewed`） |
 | **svg-figure-auditor** | site: `content/site/**/img/figure-*.svg`（コンテンツ図版のみ）/ note: `content/note/**/img/figure-*.{svg,png}` | site=svg-tokens（viewBox/font/色 allowlist/marker）+ 概念伝達/alt/可読性/結線、note=note-svg-policy（キャンバス/フォント/ブランド/密度）。各 4 軸・加重 ≥2.0 かつ全軸 ≥2。**過去問クロップ（h*-primary）は対象外** | `/note-prepublish-review`（note 枝）/ 単体 SVG 監査時。機械 svg audit(P1-P8) の後段 |
-| **ig-reels-qa** | 旧 `reels/script.json`・`caption.txt`・`video.mp4` | 旧過去問パックの5軸評価（退役） | 新規では呼ばない |
-| **yt-shorts-publisher-qa** | 現行の YouTube Shorts mp4・meta・表紙 | 尺・導線・タイトル・字幕を評価し、予約後に `videos.list` を照合 | 現行Shorts制作時。旧IG派生経路は退役 |
+| **yt-shorts-publisher-qa** | 現行の YouTube Shorts mp4・meta・表紙 | 尺・導線・タイトル・字幕・画面品質を評価し、予約後に `videos.list` を照合 | 現行Shorts制作時。旧IG派生経路は退役 |
 | **video-content-qa** | `content/sns/video-packs/{exam}/{slug}/`（video-pack.json・script.md・storyboard.json）＋ `sourceRefs` の実体 | 悩み適合・事実/出典・視聴維持・図版音声字幕整合・差別化/Red Line・CTA/計測（6軸 0〜3・平均 ≥2.0 かつ BLOCK なし）。`check-video-content` FAIL・出典なし断定・逐語転用・主 CTA 複数は BLOCK | `/video-content` で台本生成後（レンダリング前） |
 | **pe-secondary-exam-qa** | `content/note/技術士建設部門/magazines/{magazine}/{year}/article.md`（論述式 模範解答） | 設問適合・論述構成/論点絞り込み・分かりやすさ/あいまい表現排除・発注者視点/専門性・note完成度（5軸）＋字数上限〔枚数×600字〕・note-lint・設問1対1・論述式文体ゲート。論述原則は `技術士論文の書き方`（非公開・原則抽出）由来 | 技術士二次 模範解答 article.md 生成後 |
 | **cem-essay-qa** | `content/note/技術士総監/magazines/{magazine}/{slug}/article.md`（総監記述式 模範論文／模範解答） | 字数〔各施策600字〕・散文性・監理可能性〔越権排除〕・専門度〔設問3 NG用語/5管理正式名〕・白書根拠/真正性〔ペルソナ経験座〕（5軸）＋字数 strict・見出し構造・note-lint・blockquote濫用ゲート。評価軸の真実源は `note-essay-review-checklist.md`。pe-secondary-exam-qa（建設部門）/cem-qa（キーワードページ）と守備範囲が直交 | 総監 note 記述式 模範論文 article.md 生成後 |

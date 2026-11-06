@@ -182,5 +182,271 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
+  },
+  "revisions": {
+    "shorts-pop-point-step1-1-20261106": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1",
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "862c0a92f7014a92b79c990b6da06c6c25399b50fd096b0dbc6b011b02b0947f",
+          "narration": "配合計算の前に、3つをそろえます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。重要な文字・図・顔は左右とも8%以上内側、右は端から18%より内側、上は8%より下、下は端から32%より上に収める（下32%は字幕とアプリの操作ボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。深いティール（青緑）を主色に、黄色と白、少量の赤。太い黒の輪郭と斜めの面で勢いを出す。 黄色と白の極太文字。 上部に『コンクリート技士』、最も大きく『配合計算の前に』『３つをそろえる』、小さな黄色帯に『総監が制作』。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体と脚は画面の下端まで途切れず続ける。先生の右手（画面左側）は胸の高さで手のひらをこちらへ向け、人差し指・中指・薬指の3本を真っすぐ立て、親指と小指を折りたたんで『3』を示す。先生の左手（画面右側）は胸の前で配合計算のノートを持ち、5本の指がノートの縁にかかって見える。電卓は描かない。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 上部の『コンクリート技士』の上端が画面の上から6%で、基準の8%より上にはみ出している。添付の最後の画像を土台に、文字のまとまり全体だけを画面の高さの3%下げ、人物・両手・背景・ノートは一切変えない",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              },
+              {
+                "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover.53b9da83.png",
+                "sha256": "53b9da83d7b250e23255c789ddabd8a9e004dd46b60378ba77b9200daab14df4"
+              },
+              {
+                "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/work/factory/raw-cover.f70bca60.png",
+                "sha256": "f70bca6038c1549a80d46c717184c7f7d333b32f9ca4f560a2c207ebbda6d529"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/work/factory/raw-cover.54a6eed6.png",
+              "sha256": "54a6eed6c8d8ac88eee1661f7106f9dfe22debe025269ab4a1c6567f7b51ca55"
+            },
+            "generatedAt": "2026-11-05T22:09:54.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover.9f75a1c2.png",
+            "sha256": "9f75a1c2b4c4b0378ae80c450fc9d65ba153ae80b58008dcbe992cc367727fc9",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "54a6eed6c8d8ac88eee1661f7106f9dfe22debe025269ab4a1c6567f7b51ca55"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:09:54.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は4つだけで誤字なし。見出しは安全域の内側に収まり、人物の同一性、3本指の手とノートを持つ手、身体の連続、背景の連続に問題なし"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "43019b0574eefeeebd0687d68ec404256c5b03c394ea082f26316a1f7cfc2fff",
+          "narration": "基準は1立方メートル、1000リットル。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。重要な文字・図・顔は左右とも8%以上内側、右は端から18%より内側、上は8%より下、下は端から32%より上に収める（下32%は字幕とアプリの操作ボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。深いティール（青緑）を主色に、黄色と白、少量の赤。太い黒の輪郭と斜めの面で勢いを出す。 図を画面の主役にする。白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート技士』。大きな番号『1』と見出し『基準は 1m³＝1000L』。 図: 中央に立方体を大きく描き、一辺に『1m』、立方体の中に水が満ちた様子と大きく『1000L』。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/work/factory/raw-point-step1-1-scene-001.062df6d0.png",
+              "sha256": "062df6d0bde28ee7c1e7c400e2394705982d39b80352e8d4f7fa83399feccd45"
+            },
+            "generatedAt": "2026-11-05T22:09:54.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/scene-001.e4e4baf9.png",
+            "sha256": "e4e4baf9499f65c46714ec31eaa855c02bd8ac46ed6bbb9e3ec276dced2c32d7",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "062df6d0bde28ee7c1e7c400e2394705982d39b80352e8d4f7fa83399feccd45"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:09:54.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『コンクリート技士』『1』『基準は 1m³＝1000L』『1000L』『1m』が指定どおりで誤字なし。立方体は水で満たされ、右18%・下32%に重要要素はなく、背景は四辺まで連続している"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "708af33038afda98e630c44c3510a58e5b5f35bef7fb6280a0be32d847e29c5f",
+          "narration": "百分率は計算前に小数へ直す。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。重要な文字・図・顔は左右とも8%以上内側、右は端から18%より内側、上は8%より下、下は端から32%より上に収める（下32%は字幕とアプリの操作ボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。深いティール（青緑）を主色に、黄色と白、少量の赤。太い黒の輪郭と斜めの面で勢いを出す。 図を画面の主役にする。白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート技士』。大きな番号『2』と見出し『百分率は 小数に直す』。 図: 中央に大きな矢印で『％』から『小数』へ変換する図を描き、矢印の上に『計算の前に』。具体的な数値は描かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/work/factory/raw-point-step1-1-scene-002.4fa3efcb.png",
+              "sha256": "4fa3efcb20997c79c8b0394b1a62475e02ebb9013824556fc413982f7674a445"
+            },
+            "generatedAt": "2026-11-05T22:09:54.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/scene-002.8c4ceb16.png",
+            "sha256": "8c4ceb168bd9ed04f8c9e794552c4e24a659b20b98198bea394c755b047f906e",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4fa3efcb20997c79c8b0394b1a62475e02ebb9013824556fc413982f7674a445"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:09:54.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『2』『百分率は 小数に直す』『計算の前に』『％→小数』が正確で、具体的な数値もない。重要文字は右端から18%の内側に収まり、下部は背景のみ"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "fac9301db71034c62164e38bf33b2daf0e788642f5c0d4a446f886e23673a0fb",
+          "narration": "水セメント比W/Cとセメント水比C/Wを逆にしない。この3つを最初に確認してから式を立てます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。重要な文字・図・顔は左右とも8%以上内側、右は端から18%より内側、上は8%より下、下は端から32%より上に収める（下32%は字幕とアプリの操作ボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。深いティール（青緑）を主色に、黄色と白、少量の赤。太い黒の輪郭と斜めの面で勢いを出す。 図を画面の主役にする。白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート技士』。大きな番号『3』と見出し『W/C と C/W を 逆にしない』。 図: 分数を2つ上下に大きく並べる。上は『W/C』と併記して、分子『水』、分母『セメント』。下は『C/W』と併記して、分子『セメント』、分母『水』。2つの間に黄色の入れ替わり矢印と赤い注意マーク。分子と分母を絶対に取り違えない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/work/factory/raw-point-step1-1-scene-003.20905ecd.png",
+              "sha256": "20905ecd3ca2ca3d8a32175ea89ecff781e117325a86c2796cbc3ce796c1f4a3"
+            },
+            "generatedAt": "2026-11-05T22:09:54.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/scene-003.a1e51f36.png",
+            "sha256": "a1e51f36687cb81d538103a60ec332da257e23c1fbaa052f374f7afb164e00e6",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "20905ecd3ca2ca3d8a32175ea89ecff781e117325a86c2796cbc3ce796c1f4a3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:09:54.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "W/C は分子が水・分母がセメント、C/W は分子がセメント・分母が水で、技術的に正しい。併記、入れ替わり矢印、赤い注意マークも指定どおりで誤字なし"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "e042567ef5e9b64777d73018834377faa51b8edc4e729b0ef1a4024d84cd5f44",
+          "narration": "詳しい解説は、このショートの関連動画からご覧ください。今回のポイントを全体の流れからまとめて確認できます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。重要な文字・図・顔は左右とも8%以上内側、右は端から18%より内側、上は8%より下、下は端から32%より上に収める（下32%は字幕とアプリの操作ボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。深いティール（青緑）を主色に、黄色と白、少量の赤。太い黒の輪郭と斜めの面で勢いを出す。 大きく2行で『詳しい解説は』『関連動画へ』、下向きの矢印を添える。先生が大きく腰から上で、手のひらで矢印を示す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『コンクリート技士』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              },
+              {
+                "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover.53b9da83.png",
+                "sha256": "53b9da83d7b250e23255c789ddabd8a9e004dd46b60378ba77b9200daab14df4"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/work/factory/raw-point-step1-1-cta.eeaca71f.png",
+              "sha256": "eeaca71fe6c5621b8a099be2987d8c50290064cc4ba465eb4420d7d0991e3171"
+            },
+            "generatedAt": "2026-11-05T22:09:54.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cta.57764c4d.png",
+            "sha256": "57764c4df6574893a7ea81fccd2bba71c998171dad4abd98201793fbd69d7c30",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "eeaca71fe6c5621b8a099be2987d8c50290064cc4ba465eb4420d7d0991e3171"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:09:54.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『詳しい解説は』『関連動画へ』と下向き矢印が正確で、余計な文字はない。先生は同一人物で、両手とも指が自然で、顔と文字は右18%の内側、背景は四辺まで連続している"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "6668f2988a9b4ec5f5257cabef50b34a0eb60fac4c4b936a346ad270b62741ad",
+        "durationSeconds": 25.466667,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "5軸平均4.2・全軸3以上。全5場面を確認。YouTube実画面の操作UIと関連動画の設定は未確認",
+        "videoSha256": "6668f2988a9b4ec5f5257cabef50b34a0eb60fac4c4b936a346ad270b62741ad",
+        "checkedAt": "2026-11-05T22:11:14.297Z"
+      },
+      "audio": {
+        "videoSha256": "6668f2988a9b4ec5f5257cabef50b34a0eb60fac4c4b936a346ad270b62741ad",
+        "similarity": 0.977,
+        "maxVolumeDb": -5.8,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/video.6668f298.mp4",
+          "sha256": "6668f2988a9b4ec5f5257cabef50b34a0eb60fac4c4b936a346ad270b62741ad"
+        },
+        "frames": {
+          "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/frames.24f43ac4.png",
+          "sha256": "24f43ac419e10defc363afbe2b4bfd327eb390180bb42e6c9ed0f2e2b6cdd075"
+        },
+        "subtitles": {
+          "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/subtitles.353a4f48.ass",
+          "sha256": "353a4f48827b4796b057bf6979ba9a362dff5c19fe17b94416e5b6b6e82fe38c"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/raw-cover.54a6eed6.png",
+            "sha256": "54a6eed6c8d8ac88eee1661f7106f9dfe22debe025269ab4a1c6567f7b51ca55"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/raw-scene-001.062df6d0.png",
+            "sha256": "062df6d0bde28ee7c1e7c400e2394705982d39b80352e8d4f7fa83399feccd45"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/raw-scene-002.4fa3efcb.png",
+            "sha256": "4fa3efcb20997c79c8b0394b1a62475e02ebb9013824556fc413982f7674a445"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/raw-scene-003.20905ecd.png",
+            "sha256": "20905ecd3ca2ca3d8a32175ea89ecff781e117325a86c2796cbc3ce796c1f4a3"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/raw-cta.eeaca71f.png",
+            "sha256": "eeaca71fe6c5621b8a099be2987d8c50290064cc4ba465eb4420d7d0991e3171"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover.9f75a1c2.png",
+          "sha256": "9f75a1c2b4c4b0378ae80c450fc9d65ba153ae80b58008dcbe992cc367727fc9"
+        },
+        "savedAt": "2026-11-05T23:10:09.543Z",
+        "cloudVerified": true
+      }
+    }
+  },
+  "activeShorts": {
+    "point-step1-1": "shorts-pop-point-step1-1-20261106"
   }
 }

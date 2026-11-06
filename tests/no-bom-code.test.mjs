@@ -7,7 +7,7 @@ import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /**
  * コードの先頭に BOM を置かない。BOM の直後にシバン行（#!）があると node が構文エラーで起動できない
- * （2026-08-22 から yt-shorts-create.mjs など 5 本が実行できなかった。ESLint は BOM を読み飛ばすので no-undef の検査では気づけない）。
+ * （2026-08-22 から Shorts 生成スクリプトなど 5 本が実行できなかった。ESLint は BOM を読み飛ばすので no-undef の検査では気づけない）。
  */
 
 test('追跡中のコードファイルは先頭に BOM を持たない', () => {

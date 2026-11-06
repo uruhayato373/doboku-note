@@ -8,7 +8,7 @@ domain: sns
 
 # YouTube Shorts Title Writer Agent
 
-`yt-shorts-create --from-reels` が生成した**既定タイトル**（`技術士総監 令和X年度 択一式 過去問（管理）`）を、**その Short が抜粋する問題の論点を反映した検索性の高いタイトル**に書き換える Generator エージェント。
+旧 Shorts 生成スキル（削除済み）が付けていた**既定タイトル**（`技術士総監 令和X年度 択一式 過去問（管理）`）を、**その Short が抜粋する問題の論点を反映した検索性の高いタイトル**に書き換える Generator エージェント。
 
 > **READ FIRST（真実源）**:
 > - タイトル規約・尺・偽成功検証 → [`.claude/knowledge/reference/yt-shorts-publisher-policy.md`](../../.claude/knowledge/reference/yt-shorts-publisher-policy.md)（特に §2 タイトル規約・§6 使い回し禁止）
@@ -58,6 +58,6 @@ domain: sns
 
 ## 担当外
 
-- **mp4 / thumbnail / meta.json の生成** — `yt-shorts-create --from-reels`（機械処理）
+- **mp4 / thumbnail / meta.json の生成** — `npm run shorts-factory`（機械処理）
 - **4 軸品質採点** — `yt-shorts-publisher-qa`
 - **予約アップロード・偽成功検証** — `upload.js` / `post.js` + `videos.list`（別工程）

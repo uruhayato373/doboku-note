@@ -63,5 +63,329 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261106": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『建設環境』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-cover.fffb4163.png",
+          "sha256": "fffb41636c92a7aae6ea66dbe79ab7ae9507f8462c56ba6c0ea4291f6c8c56d3"
+        },
+        "generatedAt": "2026-11-05T21:36:14.343Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "建設環境",
+          "テーマの読み方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/cover-pop.00067f6a.png",
+        "sha256": "00067f6a5e75f3d829d9bf972a9ec7a1aef5819a3e3c3ddfb98b74e3649406de",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "fffb41636c92a7aae6ea66dbe79ab7ae9507f8462c56ba6c0ea4291f6c8c56d3"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T21:36:14.343Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "『建設環境』『テーマの読み方』『総監が制作』を1字ずつ照合し誤字・余計な文字なし。キャラは眼鏡・ひげ・白ヘルメット・紺作業服・反射帯で、顔と文字は安全域内、下端は背景のみ",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261106": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "ebe7557391c1b56114fa1a1b8e27f4fda2400cf36bda28cfa41db9fc9f58a61e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：政策名を幅広く集めれば安心』。 図に入れる文字: 『II-2に環境影響評価の設問：8年中8年』 『R01 法・条例／R02〜R07 II-2-1／R08 II-2-2』。 この場面の説明（文字にしない）: 政策文書の名前を片っ端から集めれば安心、と考えていませんか。ところが年度別の表を見ると、II-2には8年すべてで、環境影響評価の設問が1問入っています。令和1年度は法と条例、2年度から7年度はII-2-1の第一種事業、令和8年度はII-2-2の地下鉄道事業です。変わるのは事業の種類で、軸そのものは動きません。まずここを固める順番で考えます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 32.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-premise.6c0e0cfc.png",
+              "sha256": "6c0e0cfc5f72c007f106e91c9eefc0adfce708500fe76476aa98b5be790ad5c0"
+            },
+            "generatedAt": "2026-11-05T21:36:14.343Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/premise-diagram.6c0e0cfc.png",
+            "sha256": "6c0e0cfc5f72c007f106e91c9eefc0adfce708500fe76476aa98b5be790ad5c0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6c0e0cfc5f72c007f106e91c9eefc0adfce708500fe76476aa98b5be790ad5c0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの図内文字（II-2に環境影響評価の設問：8年中8年／R01 法・条例／R02〜R07 II-2-1／R08 II-2-2）が指示と一致。年表の目盛は8本で8年と整合し、破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "axis",
+          "inputSha256": "ec375011be2fb18368532c6093c7936ae493294e103a5630252256b9b9009261",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『動かない軸：環境影響評価』。 図に入れる文字: 『II-2-1の第一種事業：R02〜R07の6年連続』 『R08はII-2-2（地下鉄道事業）へ移動』 『評価項目選定→保全措置→合意形成』。 この場面の説明（文字にしない）: もう少し具体的に見ます。II-2-1の第一種事業の環境影響評価は、令和2年度から7年度の6年連続です。令和8年度はII-2-1が都市の低炭素化と立地適正化計画になり、アセスはII-2-2の地下鉄道事業へ移りました。設問番号は動いても、環境影響評価そのものは8年とも出ています。事業の種類が変わっても、評価項目の選び方、調査・予測・評価、回避・低減・代償の保全措置、住民や行政との合意形成という流れは共通です。この流れを自分の言葉で書けるようにしておきます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-axis.14bae967.png",
+              "sha256": "14bae967722f50fcd56e613cc1c01ef93466143ee072bd74ee4d5c602ec6bb73"
+            },
+            "generatedAt": "2026-11-05T21:36:14.343Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/axis-diagram.14bae967.png",
+            "sha256": "14bae967722f50fcd56e613cc1c01ef93466143ee072bd74ee4d5c602ec6bb73",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "14bae967722f50fcd56e613cc1c01ef93466143ee072bd74ee4d5c602ec6bb73"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つの図内文字が指示と一字一致。丸は6個＋矢印＋1個で6年連続とR08移動に整合し、流れ図も指示どおり。見出しの左右余白がやや狭い(約3%)が内容の誤りはない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "policy1",
+          "inputSha256": "6a1cdc2fa20dc500198b3f94229c316e06a0383c2b17432ab02e085e534a45f8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『政策更新①：生物多様性・グリーンインフラ』。 図に入れる文字: 『IIIの自然・生態系：R01・R02・R03・R04・R06・R08』 『R06：生物多様性国家戦略2023-2030』 『グリーンインフラ推進戦略：R02・R06』。 この場面の説明（文字にしない）: 次に選択科目IIIです。8年分16問を見ると、自然や生態系に関わる問題は、令和1、2、3、4、6、8年度の6年度にあります。令和1年度は水辺や藻場・干潟の自然再生、3年度は生物多様性が確保された国土、4年度と8年度は生態系ネットワーク、6年度は生物多様性国家戦略2023-2030とグリーンインフラ推進戦略2023です。グリーンインフラは令和2年度にも推進戦略が出ています。国家戦略がネイチャーポジティブと30by30を掲げていることと、政策名と問われ方をセットで覚えます。 前回の不合格の理由を直す: 文字: 見出しの前後に指示にない鉤括弧『』が描かれている（プロンプトの引用符の写り込み）。他の文字（R01・R02・R03・R04・R06・R08、国家戦略2023-2030、推進戦略R02・R06）は一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-policy1.5fc3a7da.png",
+              "sha256": "5fc3a7dab6dbecabdf7464778c04acf8ccb907d8f9a10998071553492d2efba6"
+            },
+            "generatedAt": "2026-11-05T21:36:14.343Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/policy1-diagram.1c359ad3.png",
+            "sha256": "1c359ad389031fe14f8f8a6edea361342234c7a3567f80a3a52376ddb9f196b4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5fc3a7dab6dbecabdf7464778c04acf8ccb907d8f9a10998071553492d2efba6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3つの図中文字が指示と一字一句一致し崩れなし。生態系の図解で破綻なく、下端は無地で安全域内に収まる",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "policy2",
+          "inputSha256": "4a479bf66fde33db4ddeb513788dbdc8c444a49c2b9eae233cf76b85c8699715",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『政策更新②：再エネ・脱炭素』。 図に入れる文字: 『II-1の再エネ：R02〜R06の5年度』 『R03 カーボンニュートラル／R06 港湾の脱炭素化』 『R07・R08のII-1には再エネの設問なし』。 この場面の説明（文字にしない）: もうひとつ、再生可能エネルギーと脱炭素です。II-1で再エネが直接のテーマになったのは、令和2年度の再エネ事業、3年度の再エネの環境影響評価、4年度の早期導入、5年度の太陽光発電、6年度の洋上風力で、2年度から6年度の5年度です。令和3年度にはカーボンニュートラル、6年度には港湾の脱炭素化も出ています。ただし令和7年度と8年度のII-1には、再エネの設問は見当たりません。2年度から6年度に集まっていた、と数えて言えるのはそこまでです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-policy2.73936358.png",
+              "sha256": "7393635801f081a5cbca6c14b95062aa3e224bf17c4b9133150bf0025a3c3e3c"
+            },
+            "generatedAt": "2026-11-05T21:36:14.343Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/policy2-diagram.ca46ebaf.png",
+            "sha256": "ca46ebafe3b413422c039cec4bc7b1e515f7cebdeb8cd43db4e68616bab42b59",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7393635801f081a5cbca6c14b95062aa3e224bf17c4b9133150bf0025a3c3e3c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと4つの図内文字が指示と一字一致。太陽光・風車・蓄電・植物・港湾の5アイコンは年度数・内容と矛盾せず、文字の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "priority",
+          "inputSha256": "b7ac833ad7d125085d8ce2db2b104f67c0b860c8781c7f682f195da0dbe5ffb0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『対策の優先順位（過去の件数順）』。 図に入れる文字: 『① 環境影響評価：8年』 『② IIIの自然・生態系：6年度』 『③ II-1の再エネ：5年度』 『④ 建設リサイクル：4年度』。 この場面の説明（文字にしない）: では順位をつけます。表から数えた件数で並べると、II-2の環境影響評価が8年中8年、IIIの自然・生態系が6年度、II-1の再エネが5年度、建設リサイクルが令和1、2、4、7年度の4年度です。これは次の出題を当てる順番ではなく、過去の件数の順です。この順に、自分が書ける題材の厚みを見ながら仕込みます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-priority.1f2cb8fa.png",
+              "sha256": "1f2cb8fac312db95a6cf170764694c5e509436e70d70c984ec0f1c3a692782e7"
+            },
+            "generatedAt": "2026-11-05T21:36:14.343Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/priority-diagram.1f2cb8fa.png",
+            "sha256": "1f2cb8fac312db95a6cf170764694c5e509436e70d70c984ec0f1c3a692782e7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1f2cb8fac312db95a6cf170764694c5e509436e70d70c984ec0f1c3a692782e7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと①〜④の4行（環境影響評価：8年／IIIの自然・生態系：6年度／II-1の再エネ：5年度／建設リサイクル：4年度）が指示と一致し、棒の長さも件数順で整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "25a0eed0607ed865fe3bbb16d30fa7fc7e2133f2b2f57c4673eb9066fb01310b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『動かない軸：環境影響評価（8年）』 『次に：自然・生態系／再エネ／リサイクル』 『自分で年度別の表を数え直す』。 この場面の説明（文字にしない）: 整理します。II-2の環境影響評価は8年すべてに出ていて、最初に固める軸です。次にIIIの自然・生態系、II-1の再エネ、建設リサイクルの順で、件数の多い方から仕込みます。分け方によって件数は多少変わりますので、自分の選ぶ設問枠で、年度別の表を一度数え直してみてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-summary.333f78ff.png",
+              "sha256": "333f78ffca9e0be3927f73f43b08cfeaa5da039ca33d119a85bcd7291cd3a746"
+            },
+            "generatedAt": "2026-11-05T21:36:14.343Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/summary-diagram.167e6a64.png",
+            "sha256": "167e6a6490aa82db81938667c4efd2d58c464b216a3e0b671746a026f96c81fa",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "333f78ffca9e0be3927f73f43b08cfeaa5da039ca33d119a85bcd7291cd3a746"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『まとめ』と3つの図内文字が指示と一字一致。山川・太陽光・リサイクルのアイコンと表のチェックは内容に合い、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "2372eff54108355b97e40b57a6cc9793becada7e5b33956742d226605b240e3e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『続きは建設環境マガジンで』。 図に入れる文字: 『R03〜R07の模範解答集（概要欄リンク）』 『年度別の出題一覧は無料のサイト記事』。 この場面の説明（文字にしない）: 令和3年度から7年度の模範解答を収めたマガジンが、概要欄にあります。II-1、II-2、IIIの全設問について、答案の構成と書き方を確認できます。年度別の出題テーマの一覧は、無料のサイト記事にあります。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-cta.f2a304cf.png",
+              "sha256": "f2a304cfe70acfa1aa2aa996e77c3f7c4df711c3629fe45b63e1c215a327b9cb"
+            },
+            "generatedAt": "2026-11-05T21:36:14.343Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/cta-diagram.f2a304cf.png",
+            "sha256": "f2a304cfe70acfa1aa2aa996e77c3f7c4df711c3629fe45b63e1c215a327b9cb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f2a304cfe70acfa1aa2aa996e77c3f7c4df711c3629fe45b63e1c215a327b9cb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『続きは建設環境マガジンで』と2つの注記が指示と一字一致。本と画面の図は内容に合い、余計な文言・価格・URLなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261106",
+  "activeBodyRevision": "body-diagram-20261106"
 }

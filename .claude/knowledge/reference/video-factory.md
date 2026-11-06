@@ -1,5 +1,5 @@
 ---
-title: 通常動画の量産工程
+title: 動画の量産工程（通常動画・ショート）
 ---
 
 # 通常動画の量産工程
@@ -38,12 +38,13 @@ title: 通常動画の量産工程
 `gate` は次の全項目を機械で確かめる。1 つでも欠けると `auto-approve` は書かない。
 
 - 方針が有効で、YouTube の通常動画である
+- 年間の枠に入っている（`config/youtube-longform-plan.json`。計画にない動画は在庫にもしない）
 - 画像の基準、AI 画像の判定、完成動画の照合、内容QA（平均 2 以上・BLOCK 0）、今の digest の画面確認 pass
 - `check-youtube-funnels --pub`（商品リンクと関連サイト記事の導線）。予約後の監査で初めて落ちる事故を防ぐ
 - 音声の照合（文字起こしと台本の一致、音量、尺。動画の sha に結ぶ）
 - 公開まで 24 時間以上ある。人が止める猶予として残す
 
-音声の照合で分かるのは発話の欠落・崩れ・音量・尺までで、1 語の読み間違いは分からない。機械では足さないと決めた（2026-11-05）。文字起こしは同音語で誤るので判定に使えない。公開までの 24 時間で運営者が抜き打ちで聞く。方針の承認は `approval.by: 'policy'` で記録し、受け付けるのは YouTube の通常動画だけ（`acceptedApproval`）。他のチャネルは運営者の承認のまま。トークンを節約するため、機械の検査を先に通し、LLM は内容QAと画面確認だけに使う。白書の数値の照合が要る動画は `notebooklm-cross-query.mjs` で引く。
+音声の照合は、台本と文字起こしを VOICEVOX の読み仮名で比べる。表記で比べると `whisper` の同音の誤変換（圧密→厚密）で正常な音声が落ち、`II-1` を「アイアイ」と読む誤りも見逃す（2026-11-06）。基準は 0.85。公開までの 24 時間で運営者が抜き打ちで聞く。方針の承認は `approval.by: 'policy'` で記録し、受け付けるのは YouTube の通常動画だけ（`acceptedApproval`）。他のチャネルは運営者の承認のまま。トークンを節約するため、機械の検査を先に通し、LLM は内容QAと画面確認だけに使う。白書の数値の照合が要る動画は `notebooklm-cross-query.mjs` で引く。
 
 ## 手で回す
 
@@ -67,7 +68,7 @@ npm run video-factory -- auto-approve --pack <資格>/<作品>
 
 ## Workflow で回す
 
-Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }] }` を渡す。`rendered: true` は制作済みの動画で、画像と描画を飛ばす。工程は同じで、画像の並行は 2 本まで、描画と台帳の書き込みは直列。止まったパックは理由を返し、他のパックは進む。最後の `finish` が音声照合・関門・コミットを回す。
+Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }] }` を渡す。`rendered: true` は制作済みの動画で、画像と描画を飛ばす。`from: "audit"` と `from: "review"` はその段から再開し、内容QAは飛ばす。内容QAは画像の生成より前に行い、BLOCK ならそこで止める（描画のあとに止まると画像の費用が無駄になる）。工程は同じで、画像の並行は 2 本まで、描画と台帳の書き込みは直列。止まったパックは理由を返し、他のパックは進む。最後の `finish` が音声照合・関門・コミットを回す。
 
 通ったパックは親が予約する。Workflow の中では外へ出さない。
 
@@ -85,13 +86,47 @@ node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
 
 トークンの大半は代理エージェントの起動にかかる（2026-11-05 の実測: 13 体で約 100 万・1 体約 8 万）。機械の工程は `produce`・`finish` のようにコマンド 1 本へまとめ、代理を増やさない。判定の記録は監査役・QA 役が自分で行う。1 本で 12 枚前後を生成するので、Codex の利用枠も確かめる。
 
+## 生成ルールの正本
+
+先生の特徴、画風、媒体別の安全域、文字の禁止事項、参照画像、生成経路の一覧は `config/image-generation.json` にあり、通常動画とショートの生成指示はここから組み立てる。資格の色は `note-cover-tokens.json`。工程のコードへ文面を書き足さない（`npm run check-image-rules`）。
+
+## ショートの工程
+
+ショートは通常動画とは別に、`npm run shorts-factory` で作る。入口は `shorts-design.json`（論点の分割）で、`beats` の語りをつなぐと承認済みの台本の場面に一致しないと止まる。導入の `hook` だけが足せる語り。画面は表紙・論点ごとの図解・締めの全面画像で、尺は 20〜60 秒。
+
+```bash
+npm run shorts-factory -- status --exam <資格>                         # 全本の工程の位置
+npm run shorts-factory -- record-script-qa --pack <資格>/<作品> --key <key> --verdict pass --by yt-shorts-publisher-qa --reason "…"
+npm run shorts-factory -- plan --pack <資格>/<作品> --key <key>
+npm run shorts-factory -- generate --pack <資格>/<作品> --key <key>
+npm run shorts-factory -- audit-queue --pack <資格>/<作品> --key <key>   # ai-image-fidelity-auditor へ渡す
+npm run shorts-factory -- record-audit --pack <資格>/<作品> --key <key> --file <判定の JSON> --by ai-image-fidelity-auditor
+npm run shorts-factory -- adopt --pack <資格>/<作品> --key <key>
+npm run shorts-factory -- render --pack <資格>/<作品> --key <key>
+npm run shorts-factory -- record-review --pack <資格>/<作品> --key <key> --verdict pass --by yt-shorts-publisher-qa --reason "…"
+npm run shorts-factory -- audio-check --pack <資格>/<作品> --key <key>
+npm run shorts-factory -- stock --pack <資格>/<作品> --key <key>         # Drive へ入れ、クラウド照合の後に手元を消す
+npm run shorts-factory -- restore --pack <資格>/<作品> --key <key>       # 在庫を手元へ戻して sha を照合する
+```
+
+- 下端の無地帯、9:16 以外、解像度不足は生成の時点で落ちる（`inspectShortImage`）。
+- 台本の監査は台本の中身の sha に付く。語りや図の指示を変えると `plan` が止まる。
+- 判定は通常動画と同じく画像の sha に付き、画面確認と音声の検査は動画の sha に付く。描き直すと全部やり直す。
+- `stock` はクラウドの照合が通ってから手元の画像と動画を消す。確認用の一覧は `.tmp/shorts-stock/` に残す。在庫の判断材料はこの一覧で見る。
+- 予約は別の判断。`restore` は `youtube-shorts:stage` が自動で行う分と同じで、手動の確認に使う。
+- 再開する公開行は `check-youtube-shorts` が `pop-poster-v3`・描画の記録・画面確認の pass を要求する。停止中の行は数えるだけで検査しない。
+- 投稿は既存の `youtube-shorts:stage` と `publish-video-pack`。ショートの投稿の CI はまだ無く、手元に YouTube の認証情報も無い。方針の自動承認の対象は通常動画だけで、ショートは運営者が承認する。
+- 2級土木は `diagram-led` を優先するので対象外。Instagram リールの描画はまだこの工程に載っていない。
+
 ## 罠
+
+- `wire` の空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない。在庫を前倒しするときは計画の枠と目標日を先に直す（2026-11-06）。
 
 - 予約の検査に要る `channel`・`r2Key`・`thumbnailR2Key` は `wire` が入れる。手で足さない（2026-11-05）。
 - 予約後に概要欄を直すと digest が変わり、承認が無効になる。承認の前に関門で導線を見る（2026-11-05）。
-- `whisper-cli` に全編を渡すと途中を飛ばす。`-mc 0` でも安定しないので 30 秒ごとに切る。7 本の一致は 0.79〜0.91（2026-11-05）。
+- `whisper-cli` に全編を渡すと途中を飛ばす。`-mc 0` でも安定しない。一定秒数で切っても文の途中で飛ぶので、文の間で 12 秒以上ごとに切る（2026-11-05 に 0.62 の誤判定を確認。実際は 0.8 台）。
 - `youtube-single-publish.yml` の同時実行グループは待機を 1 本しか持たない。まとめて流すと途中が取り消されるので `publish` は 1 本ずつ待つ（2026-11-05）。
-- YouTube API は投稿 1 本 1,600 ユニット・日次 10,000。`publish` は直近 24 時間の投稿を数え、1 日 4 本までに止める。割当の超過は結果不明になり再送できない（2026-11-05）。
+- YouTube API は投稿 1 本 1,600 ユニット・日次 10,000。`publish` は太平洋時間の 0 時からの投稿を数え、1 日 4 本までに止める。割当の超過は結果不明になり再送できない（2026-11-05）。
 - エージェントの `npm run` はセッションの場所で動く。worktree で回すときは `( cd <root> && … )` を指示しないと、判定がメインのチェックアウトへ書かれる（2026-11-05）。
 - 件数をモデルに申告させない。監査で 2 枚の不合格を 0 件と返した例がある。判定の中身から数える（2026-11-05）。
 - 改訂版の `wire` は `--refresh-draft` で日時を変え、文面と素材が同じなので同じ QA を記録し直す（2026-11-05）。

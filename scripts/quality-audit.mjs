@@ -167,11 +167,14 @@ export const CHECKS = [
   { id: 'orphan-figures', npm: 'check-orphan-figures', timeout: 90_000, ci: true },
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
   // SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査は、SNS の保留に合わせて 2026-10-25 に CI から外した
-  //（video-content・content-registry・registry-due・instagram-reels・youtube-shorts・video-publication・x-length・x-utm・
+  //（video-content・content-registry・registry-due・instagram-reels・video-publication・x-length・x-utm・
   // x-campaign-plan・x-review・x-card-render・x-posted-live・youtube-cover-handoff・sns-landing-cta）。スクリプトは手元の道具として残す。
   // SNS を再開するときに必要なものを作り直す（運営者の判断）。
   // 2026-10-31: 予約済み動画の商品・無料記事への導線漏れを実際に起こしたため、この1ゲートだけ復帰。
+  // 2026-11-06: YouTube の再開と全面画像の標準化に合わせて復帰
+  { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: 'ショートの本数・タイトル・UTM・公開枠、停止以外の表紙が全面生成の標準か、採用画像の描画と画面確認が今の動画に結ばれているか' },
   { id: 'youtube-funnels', npm: 'check-youtube-funnels', timeout: 60_000, ci: true, note: '公開・予約・private 通常動画の有料note商品・UTM・関連サイト経路と公開台帳の一致を全件確認する' },
+  { id: 'youtube-plan', npm: 'check-youtube-plan', timeout: 60_000, ci: true, note: '通常動画の年間の枠と公開台帳を照合する。計画にない動画・枠の超過・週の上限超え・時期の外を止める（壁時計に依らない）' },
   { id: 'instagram-profile-funnel', npm: 'check-instagram-profile-funnel', timeout: 30_000, ci: true, note: 'Instagram bio の着地・UTMと固定投稿3本の原稿・画像SHA・Drive保存を検査する' },
 
   { id: 'codex-compat', npm: 'check-codex-compat', timeout: 60_000, ci: false, ops: true, cadence: 'weekly', note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847））。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。AGENTS.md / .agents/skills が CLAUDE.md / .claude/skills（正典）から生成された状態と一致するか（第2SSOTドリフトの再発防止・DN-0098）' },
@@ -219,6 +222,7 @@ export const CHECKS = [
   { id: 'kdp-category-coverage', npm: 'check-kdp-category-coverage', timeout: 30_000, ci: true, note: '新刊(buildSpec持ち)の id 接頭辞が categoryAssign に明示登録されているか（2026-08-28・g-01実測: 未登録は警告なく既定「技術士」へ入稿される）' },
   { id: 'kindle-prices', npm: 'check-kindle-prices', timeout: 30_000, ci: true, note: 'spec.price と catalog.priceJpy の一致・royalty 0.7 の本が 70% 帯（¥250〜¥1,650）内か（2026-09-23: 価格改定で片側だけ直すと --set-price が旧値へ戻す／台帳が実売と食い違う）' },
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
+  { id: 'image-rules', npm: 'check-image-rules', timeout: 30_000, ci: true, note: 'AI 画像の経路が全部共通ルールの設定にあるか、先生の特徴をコードへ書いていないか' },
   { id: 'image-origin', npm: 'check-image-origin', timeout: 180_000, ci: true, note: '公開記事のラスター画像すべてに出所（provenance の kind）があり、写真（AI 生成画像のみ）は 4:3・仕様の指示から生成・実物どおりの判定まで済んでいるか（2026-10-07・DN-0574/0578: 出所なし 56 枚・CC 実写の AI 描き直しで実在しない器械）' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
   { id: 'page-quality-profiles', npm: 'page-quality-inventory', timeout: 120_000, ci: true, note: '全ページが採点プロファイル（台帳 config.page-quality-profiles）のちょうど 1 つの種類に当たり、プロファイルの評価役（.claude/agents）と機械の検査 id が実在するか。評価役の無い資格は失敗にせず一覧で出す（DN-0936・埋めるのは DN-0937）' },

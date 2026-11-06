@@ -1,12 +1,18 @@
 import Link from 'next/link';
+import type { z } from 'zod';
 import { DataTable, DetailList, DetailSheet, DetailText, StatusBadge, type DataTableRow, type Tone } from '@/components/admin';
 import { Button } from '@/components/ui/button';
 import { examLabel } from '@/lib/video-board';
 import { longformPlanHref } from '@/lib/content-plan-links';
-import { PLAN_ACTIONS, type loadLongformPlan } from '../../../../scripts/lib/youtube-longform-plan.mjs';
+import type { ConfigYoutubeLongformPlan } from '../../../../scripts/lib/dataset-schemas-content.mjs';
+import { PLAN_ACTIONS, type loadLongformPlan, type loadPlanAudit } from '../../../../scripts/lib/youtube-longform-plan.mjs';
 
 type Board = ReturnType<typeof loadLongformPlan>;
 type PlanRow = Board['rows'][number];
+type PlanAudit = ReturnType<typeof loadPlanAudit>['audit'];
+export type PlanConfig = z.infer<typeof ConfigYoutubeLongformPlan>;
+type Slot = PlanConfig['slots'][number];
+type SlotInfo = Record<string, { format: string; formatStatus: string; anchors: string[] }>;
 const viewOptions = { active: '予定・制作中', scheduled: '予約済み', published: '公開済み', stopped: '停止中', all: 'すべて' };
 
 function publicationState(row: PlanRow): { label: string; tone: Tone } {
@@ -44,12 +50,32 @@ function VideoDetail({ row }: { row: PlanRow }) {
   );
 }
 
+function SlotDetail({ slot, info, filled }: { slot: Slot; info: SlotInfo[string]; filled: number }) {
+  const r = slot.reason;
+  return (
+    <DetailSheet trigger={slot.title} title={slot.title} description={`${examLabel(slot.exam)} · ${info.format}`}>
+      <DetailList
+        items={[
+          { label: '時期（仮）', value: `${slot.window.from}〜${slot.window.to}` },
+          { label: '役割', value: slot.role === 'sell' ? '販売' : '集客' },
+          { label: '主 CTA', value: <span className="break-all">{slot.primaryCta.kind} {slot.primaryCta.targets.join(' / ')}</span> },
+          { label: '本数', value: `${filled} / ${slot.count}` },
+          { label: '型の採否', value: info.formatStatus },
+        ]}
+      />
+      <DetailText title="既存パックの流用" items={[slot.reuseNote]} />
+      <DetailText title="目安の行事" items={info.anchors} />
+      <DetailText title="判断理由" items={[`読者の課題: ${r.reader}`, `HARM: ${r.harm}`, `提供価値: ${r.value}`, `需要: ${r.demand}`, `次の検証: ${r.next}`]} />
+    </DetailSheet>
+  );
+}
+
 type ExamRow = { id: string; label: string; marks: { date: string; label: string; estimated: boolean }[] };
 const labels: Record<string, string> = PLAN_ACTIONS;
 
 /** 通常動画の制作・公開管理。計画と公開台帳はIDで結合済み。 */
-export function VideoAnnualPlan({ board, months, exams, periods, month, exam, library, view, tab }: {
-  board: Board; months: string[]; exams: ExamRow[]; periods: { exam: string; label: string; window: string }[]; month?: string; exam?: string; library: boolean; view?: string; tab?: string;
+export function VideoAnnualPlan({ board, planAudit, slotInfo, months, exams, periods, month, exam, library, view, tab }: {
+  board: Board; planAudit: PlanAudit | null; slotInfo: SlotInfo; months: string[]; exams: ExamRow[]; periods: { exam: string; label: string; window: string }[]; month?: string; exam?: string; library: boolean; view?: string; tab?: string;
 }) {
   const link = (m?: string, e = exam, lib = library) => longformPlanHref({ m, e, library: lib ? '1' : undefined });
   const examRows = board.rows.filter((r) => !exam || r.exam === exam);
@@ -87,12 +113,27 @@ export function VideoAnnualPlan({ board, months, exams, periods, month, exam, li
       exam: <div className="text-xs">{events.map((e, i) => <div key={i}>{e.estimated ? `${e.date.slice(0, 7)}頃` : e.date} {examLabel(e.exam)} {e.label}{e.estimated ? '（推定）' : ''}</div>)}{!events.length && '—'}</div>,
     } };
   });
-  const current = tab === 'plan' ? 'plan' : 'videos';
-  const tabHref = (t: string) => `/sns/youtube/longform?${new URLSearchParams({ ...(exam ? { e: exam } : {}), ...(month ? { m: month } : {}), ...(t === 'plan' ? { tab: 'plan' } : {}) }).toString()}`;
+  const current = tab === 'plan' || tab === 'slots' ? tab : 'videos';
+  const slotRows: DataTableRow[] = (board.plan.slots as Slot[]).filter((s) => !exam || s.exam === exam).map((s) => {
+    const filled = planAudit?.fill[s.id] ?? 0;
+    const pendingFormat = ['proposed', 'paused'].includes(slotInfo[s.id].formatStatus);
+    return {
+      id: s.id,
+      values: { window: s.window.from, slot: `${s.title} ${examLabel(s.exam)}`, role: s.role, count: filled },
+      cells: {
+        window: <>{s.window.from}〜{s.window.to}</>,
+        slot: <><SlotDetail slot={s} info={slotInfo[s.id]} filled={filled} /><div className="text-xs text-muted-foreground">{examLabel(s.exam)} · {slotInfo[s.id].format}</div></>,
+        role: <StatusBadge tone={s.role === 'sell' ? 'info' : 'neutral'}>{s.role === 'sell' ? '販売' : '集客'}</StatusBadge>,
+        count: <>{filled} / {s.count}{pendingFormat && <div className="text-xs text-muted-foreground">採否待ち</div>}</>,
+      },
+    };
+  });
+  const tabHref = (t: string) => `/sns/youtube/longform?${new URLSearchParams({ ...(exam ? { e: exam } : {}), ...(month ? { m: month } : {}), ...(t !== 'videos' ? { tab: t } : {}) }).toString()}`;
   return <>
     <nav className="filterbar mb-3!">
       <Link className={'chip' + (current === 'videos' ? ' active' : '')} href={tabHref('videos')}>動画</Link>
       <Link className={'chip' + (current === 'plan' ? ' active' : '')} href={tabHref('plan')}>月別制作配分</Link>
+      <Link className={'chip' + (current === 'slots' ? ' active' : '')} href={tabHref('slots')}>年間の枠</Link>
       <span className="small muted ml-auto">予約済み {reserved} 本 · 公開済み {published} 本</span>
     </nav>
     {current === 'videos' && <>
@@ -103,6 +144,22 @@ export function VideoAnnualPlan({ board, months, exams, periods, month, exam, li
       <Button type="submit" variant="outline">絞り込む</Button>
     </form>
     <DataTable columns={[{ key: 'date', label: '公開日' }, { key: 'title', label: '動画', wrap: true }, { key: 'state', label: '状態', sortable: false }]} rows={rows} filter="動画名で検索" emptyText="該当なし" pageSize={25} />
+    </>}
+    {current === 'slots' && <>
+      <p className="mb-3 text-sm">週の上限 {board.plan.cycle.weeklyMax} 本（山場 {board.plan.cycle.peakWeeklyMax} 本） · 見直し {board.plan.cycle.reviewAt} · {planAudit ? `違反 ${planAudit.errors.length} 件・要対応 ${planAudit.warnings.length} 件・採否待ち ${planAudit.pending.length} 枠` : '照合を読めません'}</p>
+      <DataTable columns={[{ key: 'window', label: '時期（仮）' }, { key: 'slot', label: '枠', wrap: true }, { key: 'role', label: '役割' }, { key: 'count', label: '本数' }]} rows={slotRows} />
+      <div className="mt-3 flex flex-wrap gap-4 text-sm">
+        <DetailSheet trigger="成功指標" title="成功指標">
+          <DetailText title="主な指標" items={(board.plan.metrics.primary as PlanConfig['metrics']['primary']).map((m) => `${m.label}: ${m.definition}（${m.source}）`)} />
+          <DetailText title="目標" items={[board.plan.metrics.target]} />
+        </DetailSheet>
+        <DetailSheet trigger="2027 年度の時期の置き方" title="2027 年度の時期の置き方">
+          <DetailText title="目安" items={[board.plan.cycle.calendarBasis]} />
+        </DetailSheet>
+        {planAudit && planAudit.warnings.length + planAudit.errors.length > 0 && <DetailSheet trigger="違反と要対応" title="違反と要対応">
+          <DetailText title="一覧" items={[...planAudit.errors, ...planAudit.warnings]} />
+        </DetailSheet>}
+      </div>
     </>}
     {current === 'plan' && <>
       <div className="min-w-0 max-w-full overflow-x-auto"><DataTable columns={[{ key: 'month', label: '月' }, { key: 'exam', label: '試験・発表・申込', wrap: true }, { key: 'priority', label: '優先する資格', wrap: true }, { key: 'start', label: '制作着手', num: true }, { key: 'publish', label: '公開枠', num: true }, { key: 'reuse', label: '再案内', num: true }]} rows={overview} pageSize={12} /></div>

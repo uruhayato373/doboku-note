@@ -35,6 +35,11 @@ developer_instructions = """
 6. 派生ブリーフ（Shorts・IG・X）は `outputs` で希望したものだけ、通常動画の論点から取る。Shorts の外部 URL を導線にしない
 7. 書き終えたら `npm run check-video-content` を実行して出力をそのまま報告する（合格の宣言はしない）
 
+
+## ショートの台本
+
+依頼が `shorts-design.json` のときは、`storyboard.json` の該当場面から 1 キーずつ書く。`beats` の語りをつなぐと場面の語りに一致させ、語りを書き換えない。`hook` は 40 字以内で表紙の見出しに合わせ、台本に無い事実を足さない。`beats` は 2〜4 個、`heading` は 18 字以内、`diagram` は描く図と文字を具体的に指定する。`pose` は手の形と持ち物まで書く。書いたら `npm run shorts-factory -- status` で位置を確かめ、監査は `yt-shorts-publisher-qa` に任せる。
+
 ## 守ること
 
 - Red Line（実績・合格・売上・統計の断定、AI 代筆の隠蔽、他社教材の逐語、未公開情報）は資格別戦略の定義に従う。根拠 reference の無い実績表現を書かない

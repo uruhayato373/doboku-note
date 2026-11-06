@@ -57,6 +57,8 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 
 ## 5. Codex 生成プロンプト
 
+手作業の経路として `config/image-generation.json` の `routes` に登録している。
+
 **全プロンプト共通の接頭**（各シーン文の前に付ける）：
 
 > Clean, modern, LIGHT and airy brand image for a Japanese civil-engineering exam-prep site. Almost-white bright background, soft daylight, subtle translucent blueprint / technical line overlays. Low-contrast, uncluttered, editorial. Gently color-graded toward {TINT}. Photorealistic-meets-clean illustration. NO text, no letters, no numbers, no logos, no people, no watermark. {RATIO}. Scene:

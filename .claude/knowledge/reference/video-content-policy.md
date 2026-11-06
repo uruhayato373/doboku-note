@@ -187,7 +187,7 @@ YouTube の stage スクリプトはローカル実体が無くても、`video-r
 
 全レンダラーでschemaVersion・見出し行数/文字数・正規の試験キーを検査し、動画レンダラーではパックの試験との一致も要求する。単一サムネ更新の結果はstateの対象派生物の `thumbnailUpdate` に記録する（送信画像SHA・保存確認・実画像の確認面・動画本体の変更有無）。一括更新の詳細結果・前後情報・旧画像は暗号化receiptsを正本とし、公開可能な確認結果を必要に応じ既存stateへ反映する。`.claude/state/youtube-thumbnail-designs.json` は画像チェック台帳であり、外部更新完了を示さない。`cdn-matched` は配信画像の画素一致、`accepted-cdn-pending` はAPI受理後の確認待ち。いずれも公開フィード確認とは別である。`youtube.json` の元レンダーのmedia/thumbnail hashとは分離し、Studio/CDN確認を公開フィード確認へ読み替えない。一括手順は [SNS画像ポリシー §0.1](./sns-image-policy.md)。
 
-`npm run youtube-shorts:render -- --pack-dir PATH --key KEY --preview-only --render-root .tmp/preview` は表紙・本文・CTAのPNGだけを `work/` に生成する。投稿サムネ・mp4・youtube.jsonのhashは書き換えない。公開済みサムネだけの更新ではこちらか `youtube-covers` を使い、動画まで更新したとは記録しない。通常動画の `--skip-tts` も完成動画ではなくPNG/字幕設計の確認用。
+ショートの完成動画は `npm run shorts-factory` が作る（[工程](./video-factory.md)）。定型カードの本番描画は止めた（2026-11-06）。公開済みサムネだけの更新は `youtube-covers` を使い、動画まで更新したとは記録しない。通常動画の `--skip-tts` も完成動画ではなくPNG/字幕設計の確認用。
 
 採用した締め画像はパックの `cta-design.json`（schemaVersion 1）で指定する。`longform` / `shorts` はそれぞれ `{path, sha256}` を持ち、1920×1080 / 1080×1920 のPNGを全画面で使う。画像の復元・hash・寸法の検査は表紙と共通で、不一致時は停止する。通常動画ではsceneId `cta` を置換し、`--resume` でも反映、`--skip-png` は拒否する。Shorts側には画像に対応する `narration` も必須で、通常動画の `render-manifest.json` に記録した `speaker` と同じ話者で合成し、字幕もこの文面に揃える。音声キャッシュは入力・話者・WAV hashで照合する。`--preview-only` はCTA画像までを検査し、音声は生成しない。設定のない形式は従来のCTAを使う。
 
@@ -234,7 +234,7 @@ published → measured → refresh_due | stopped
 
 - `yt-shorts-title-writer`: Short固有タイトルだけ
 - `yt-shorts-publisher-qa`: Shortのmp4/meta/UTM/配信適合だけ
-- `ig-reels-writer` / `ig-reels-qa`: 旧Instagram過去問パック専用で退役。新規ReelsのGenerator/Evaluatorは現行素材スキーマが決まってから定義する
+- 旧Instagram過去問パックのReels用Generator/Evaluator（2026-11-01退役）: 新規ReelsのGenerator/Evaluatorは現行素材スキーマが決まってから定義する
 - `x-post-writer` / `x-post-qa`: 派生後のX固有物だけ
 
 ## 7. オーケストレータ責務

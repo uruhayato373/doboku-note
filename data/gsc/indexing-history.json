@@ -1811,6 +1811,54 @@
         "/exam/pe-comprehensive-management/keywords/human-capital-disclosure",
         "/exam/pe-comprehensive-management/keywords/job-execution-ability"
       ]
+    },
+    {
+      "runId": "2026-11-05T22-40-09Z",
+      "collectedAt": "2026-11-05T22:40:09.751Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 20,
+      "accepted": 10,
+      "alreadyIndexed": 3,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-1/textbook/river-act",
+        "/exam/concrete-chief-engineer/primary/production-qc",
+        "/exam/pe-comprehensive-management/keywords/job-analysis",
+        "/exam/pe-water-supply/guide/hissu-kamoku",
+        "/exam/pe-water-supply/guide/overview",
+        "/exam/pe-water-supply/guide/sentaku-kamoku",
+        "/exam/pe-water-supply/guide/study-plan",
+        "/exam/pipe-work/guide/kotei-hyo",
+        "/exam/pipe-work/guide/overview",
+        "/exam/pipe-work/guide/sekou-kijutsu",
+        "/exam/pipe-work/guide/study-plan",
+        "/practice/barrier-free-roads-stations",
+        "/practice/buried-cultural-property-survey",
+        "/practice/ccus-kentaikyo-site",
+        "/practice/civil-engineer-annual-cycle",
+        "/practice/concrete-durability-specification",
+        "/practice/concrete-hydration-basics",
+        "/practice/concrete-labor-saving-technology",
+        "/practice/concrete-quality-and-workforce",
+        "/practice/concrete-roles-overview"
+      ],
+      "acceptedSlugs": [
+        "/exam/concrete-chief-engineer/primary/production-qc",
+        "/exam/pe-comprehensive-management/keywords/job-analysis",
+        "/exam/pe-water-supply/guide/hissu-kamoku",
+        "/exam/pe-water-supply/guide/overview",
+        "/exam/pe-water-supply/guide/study-plan",
+        "/exam/pipe-work/guide/overview",
+        "/practice/buried-cultural-property-survey",
+        "/practice/civil-engineer-annual-cycle",
+        "/practice/concrete-quality-and-workforce",
+        "/practice/concrete-roles-overview"
+      ]
     }
   ]
 }

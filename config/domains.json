@@ -403,7 +403,6 @@
     ".claude/knowledge/reference/gsc-management.md": "site",
     ".claude/knowledge/reference/ig-carousel-policy.md": "sns",
     ".claude/knowledge/reference/ig-carousel-skill.md": "sns",
-    ".claude/knowledge/reference/ig-reels-policy.md": "sns",
     ".claude/knowledge/reference/image-policy.md": "site",
     ".claude/knowledge/reference/implementation-handoff.md": "ops",
     ".claude/knowledge/reference/information-architecture.md": "ops",
@@ -446,7 +445,6 @@
     ".claude/knowledge/reference/workflows.md": "plan",
     ".claude/knowledge/reference/x-post-policy.md": "sns",
     ".claude/knowledge/reference/yt-shorts-publisher-policy.md": "sns",
-    ".claude/knowledge/reference/yt-shorts-script-policy.md": "sns",
     "docs/README.md": "ops",
     "docs/design/": "site",
     "docs/editorial/": "site",
@@ -580,10 +578,8 @@
       "docs/operations/09_BuildJob収益最大化スプリント.md"
     ],
     "/sns": [
-      "docs/marketing/00_SNS整理マップ.md",
       "docs/marketing/01_SNS集客戦略.md",
       "docs/marketing/02_チャネル動線設計.md",
-      "docs/marketing/03_多資格SNS展開設計.md",
       "docs/strategy/10_リスト化・自社オーディエンス戦略.md"
     ],
     "/sns/youtube/longform": [
@@ -592,7 +588,6 @@
       "docs/marketing/05a_YouTube競合分析_技術士総監_2026-06.md",
       "docs/marketing/07_YouTube戦略_土木施工管理技士.md",
       "docs/marketing/07a_YouTube競合分析_土木施工管理技士_2026-09.md",
-      "docs/marketing/10_YouTube再開計画_2026-11.md",
       "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md",
       "docs/marketing/08_YouTube戦略_技術士建設部門.md",
       "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md",

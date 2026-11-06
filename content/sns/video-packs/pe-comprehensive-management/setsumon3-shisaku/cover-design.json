@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/cover.766b4ca5.png",
-        "sha256": "766b4ca589e00c5c54ffc291aa74e153f2995af7e6a1d714087fa23a581e1a82",
-        "specSha256": "76d5a408b5d2ab543bbdf128794b3a1968c09ec2a323b649bd73116ce0ca12c7"
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/cover-pop.97df96e6.png",
+        "sha256": "97df96e69e403105bf58a6f83987f4e133bdb7bb0996a0fe2a4cbe021a95e668",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "e2c66dde4ad79dd4dbc3ca79b42b2b74f2b1e76f6b285700781f70aefd0aa8bd"
       }
     }
   }

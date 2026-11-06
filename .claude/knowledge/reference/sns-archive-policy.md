@@ -26,7 +26,7 @@
 > 新しく作るパックでは slide-data.json + script/caption のテキストと公開状態の正本 `content/registry/` を保存する。旧 IG パックはソースを撤去したため、この再生成手順の対象外。
 
 > [!warning] wav は JIT 動画の入力でもある
-> `reels/wav` は `publish-reel-jit.mjs` / `per-problem-shorts.mjs` の**入力素材**（解答/CTA ナレ）。ローカルから消した pack で動画を JIT 生成するには、先に `drive-vault-sync --pull --path <pack> --commit` で取り戻すか script.txt から VOICEVOX で再合成する。
+> `reels/wav` は旧リール生成（2026-11 に削除）の**入力素材**（解答/CTA ナレ）。ローカルから消した pack で動画を再生成するには、先に `drive-vault-sync --pull --path <pack> --commit` で取り戻すか script.txt から VOICEVOX で再合成する。
 
 ## 3 層モデル
 
@@ -90,4 +90,3 @@ npm run drive-vault-sync -- --pull --path <現行の制作パック> --commit  #
 
 - `.gitignore` の `content/sns/**/reels/` 節 — wav/mp4/中間ファイルの除外ルール（このポリシーの機械的裏付け）
 - [asset-storage-policy.md](asset-storage-policy.md) — 置き場ルールの SSOT（§1 3 行ルール・§1-1 Drive vault のレイアウト）
-- [ig-reels-policy.md](ig-reels-policy.md) — reels の JIT 運用

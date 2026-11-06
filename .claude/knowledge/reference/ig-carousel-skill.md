@@ -79,7 +79,7 @@ content/sns/instagram/
 │   │       │   ├── reels/             ← Reels 投稿用
 │   │       │   │   ├── caption.txt    ← 主題のみ（ネタバレなし）+ エンゲージメント CTA
 │   │       │   │   ├── img/{00-09}.png  ← 1080×1920 PNG × 10
-│   │       │   │   ├── script.txt     ← TTS 読み上げ台本（ig-reel-create）
+│   │       │   │   ├── script.txt     ← TTS 読み上げ台本
 │   │       │   │   ├── wav/slide-NN.wav  ← VOICEVOX 音声（gitignore・R2退避＝再生成可 / sns-archive-policy.md）
 │   │       │   │   └── video.mp4      ← 最終 Reels 動画（gitignore・JIT生成/R2退避＝コミットしない）
 │   │       │   └── stories/           ← ストーリー連投用（reels から 4 枚厳選）
@@ -234,7 +234,7 @@ node .claude/scripts/sns/render-quiz-pack.mjs content/sns/instagram/_quiz-sample
 
 **変更フロー**: tokens.json を編集 → `ig-carousel-restyle --pack ...` で再生成 → `ig-carousel-qa` で 6 軸採点。
 
-> **B（過去問 `exam-packs`）のカバーは別レンダラ**（`.claude/scripts/sns/templates/exam-cover-ig.mjs` の `renderExamCoverIg`、上表の A 用 tokens は不使用）。2026-06-17 に**カバー1枚目を「管理分野」主役に変更**＝上部色帯を 5 管理別色（`sns-config.mjs managementMap[].color`）にし、管理分野ラベルを大見出し、年度＋形式は従（小）へ降格。YT Shorts カバー（`per-problem-shorts.mjs` / `generate-thumbnails.mjs`）も同様に管理分野主役＋「この動画の論点」併記。真実源は sns-image-policy.md §12。本文 problem/answer スライドは単一 brand 配色のまま。
+> **B（過去問 `exam-packs`）のカバーは別レンダラ**（`.claude/scripts/sns/templates/exam-cover-ig.mjs` の `renderExamCoverIg`、上表の A 用 tokens は不使用）。2026-06-17 に**カバー1枚目を「管理分野」主役に変更**＝上部色帯を 5 管理別色（`sns-config.mjs managementMap[].color`）にし、管理分野ラベルを大見出し、年度＋形式は従（小）へ降格。YT Shorts カバー（`generate-thumbnails.mjs` ほか）も同様に管理分野主役＋「この動画の論点」併記。真実源は sns-image-policy.md §12。本文 problem/answer スライドは単一 brand 配色のまま。
 
 ### A 択一クイズパック（既存 SVG）
 
@@ -360,7 +360,7 @@ slide-data.json
        ↓
 [generate-caption] ← --format carousel|reels: メディア別 caption.txt 生成
        ↓
-[ig-reel-create]  ← reels PNG + VOICEVOX TTS + ffmpeg で video.mp4 生成（任意）
+[リール動画]      ← reels PNG + VOICEVOX TTS + ffmpeg で video.mp4 生成（旧生成スキルは 2026-11 に削除。新規は instagram-reels:*）
        ↓
 ┌─────────────────────────────────┬─────────────────────────────────┐
 │ カルーセル投稿（フィード）       │ Reels 投稿                       │
@@ -379,7 +379,6 @@ slide-data.json
 - `content/sns/instagram/README.md` — IG 運用基本
 - `.claude/skills/social/ig-post-create/SKILL.md` — カルーセル PNG 生成
 - `.claude/skills/social/ig-carousel-restyle/SKILL.md` — 一括再生成
-- `.claude/skills/social/ig-reel-create/SKILL.md` — Reels 動画生成
 - `.claude/skills/social/publish-ig-bs/SKILL.md` — Business Suite 予約投稿エンジン
 - 公開状態の照合: `verify-ig-status` でライブ↔SoT 突合（公開の状態の正本は台帳・照合は `verify-ig-status --registry`）。照合の手順書・`/ig-reconcile` スキル・`ig-publish-auditor` は SNS の保留に合わせて 2026-10-25 に外した（git の履歴にある）
 - `scripts/lint-exam-pack-structure.mjs` — 構造違反 lint

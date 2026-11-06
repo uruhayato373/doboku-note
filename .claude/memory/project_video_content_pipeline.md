@@ -25,6 +25,8 @@ YouTube 通常動画を核とするストックコンテンツ基盤（DN-0110�
 
 関連: [[feedback_metrics_cicd_supplied]] / [[feedback_gate_zero_coverage_false_pass]] / [[project_admin_app_consolidation]]
 
+**ショートの標準（2026-11-06 運営者決定）**: 全面生成の `pop-poster-v3` を `npm run shorts-factory` で作る。定型カードの本番描画は止めた。手の指定は `shorts-design.json` の pose に具体的に書く。見本はコンクリート技士 gishi-haigou-keisan の point-step1-1。
+
 ## 統合: 総監 YouTube 戦略 SSOT（旧 cem_youtube_strategy_ssot・2026-06-12）
 `docs/project/03_SNS/05_YouTube戦略_技術士総監.md` v1。二層構造＝Tier1 Shorts（旧 Shorts は台帳 `content/registry/` の kind `legacy-short` に凍結・旧 youtube-schedule.json は 2026-10-09 に消した）／Tier2 通常動画16:9（5ピラー P1択一演習/P2キーワード/P3聞き流し/P4記述式思考系＝note 送客主力/P5体験キャリア）。ポジショニング＝総監特化×合格者×発注者視点×顔出しなしTTS。登録者数は主KPIにしない（送客器評価）。Phase A 残: 16:9テンプレ実装（slide-render.mjs）・競合「技術士 総監 約3〜10分チャンネル」実態調査・台帳 meta.total ドリフト是正・試験日の内部/外部不一致の解消（engineer.or.jp で照合し§6補正）。
 

@@ -24,7 +24,7 @@
  *
  * 運営者の approve・stop は別の入口。auto-approve は config/video-auto-publish.json の方針で動き、関門の全項目を通ったときだけ書く。
  */
-import { execFileSync, spawn, spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
@@ -36,11 +36,14 @@ import { readDataset } from './lib/dataset-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
 import { requirePopDiagramStandard } from './lib/longform-pop-images.mjs';
+import { ensureVoicevox, readingOf } from './lib/voicevox-engine.mjs';
 import { approvalState, reviewIsCurrent } from './lib/media-review.mjs';
 import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
-import { audioProblems, evaluateGate, nextSlot, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
+import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
+import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
+import { slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
 import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, summarize } from './lib/video-factory.mjs';
 
 const { values: args, positionals } = parseArgs({
@@ -109,20 +112,6 @@ function status() {
   console.log(`パック ${scanned} 件のうち、公開行のある ${rows.length} 件を判定`);
   for (const [stage, n] of Object.entries(counts).sort()) console.log(`  ${stage}: ${n}`);
   for (const r of rows.filter((x) => !['done', 'stopped'].includes(x.stage))) console.log(`${r.stage}\t${r.pack}`);
-}
-
-async function ensureVoicevox() {
-  const up = () => fetch('http://127.0.0.1:50021/version').then((r) => r.ok, () => false);
-  if (await up()) return null;
-  const engine = join(homedir(), 'voicevox_engine/macos-arm64/run');
-  if (!existsSync(engine)) throw new Error(`VOICEVOX が無い: ${engine}`);
-  const child = spawn(engine, ['--host', '127.0.0.1', '--port', '50021'], { stdio: 'ignore', detached: true });
-  for (let i = 0; i < 60; i += 1) {
-    await new Promise((r) => { setTimeout(r, 1000); });
-    if (await up()) return child;
-  }
-  child.kill();
-  throw new Error('VOICEVOX が起動しない');
 }
 
 async function render() {
@@ -204,8 +193,8 @@ function videoFile(pack, mediaById, pub) {
   return { abs, video };
 }
 
-/** 音声の機械検査。読み間違いの 1 語までは分からない。欠落・崩れ・音量・尺を見る */
-function audioCheck() {
+/** 音声の機械検査。欠落・崩れ・音量・尺に加え、読み仮名の比較で台本と違う読みも見る */
+async function audioCheck() {
   const pack = requirePack();
   const [exam, work] = pack.split('/');
   const policy = readPolicy(ROOT);
@@ -216,23 +205,30 @@ function audioCheck() {
   const { abs, video } = videoFile(pack, new Map(reg.media.map((m) => [m.id, m])), pub);
   const out = join(ROOT, '.tmp/media', pack, 'work/factory');
   mkdirSync(out, { recursive: true });
-  // 全編を 1 回で渡すと whisper が途中を飛ばす（2026-11-05 に場面単体では聞き取れた箇所が欠けた）。短く切って渡す
+  // 全編を 1 回で渡すと whisper が途中を飛ばす（2026-11-05 に場面単体では聞き取れた箇所が欠けた）。
+  // 一定秒数で切っても文の途中で飛ぶ（同日 takuitsu-keyword が 0.62、場面ごとなら 0.85）ので、文の間で 12 秒以上ごとに切る
   const chunks = join(out, 'audio-chunks');
   rmSync(chunks, { recursive: true, force: true });
   mkdirSync(chunks, { recursive: true });
-  execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', abs, '-ar', '16000', '-ac', '1', '-f', 'segment', '-segment_time', '30', join(chunks, 'part-%03d.wav')]);
+  const pauses = spawnSync('ffmpeg', ['-hide_banner', '-i', abs, '-af', 'silencedetect=noise=-35dB:d=0.25', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
+  const cuts = [];
+  for (const [, end] of pauses.matchAll(/silence_end: ([\d.]+)/g)) if (Number(end) - (cuts.at(-1) ?? 0) >= 12) cuts.push(Number(end));
+  execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', abs, '-ar', '16000', '-ac', '1', '-f', 'segment', '-segment_times', cuts.join(',') || '30', join(chunks, 'part-%03d.wav')]);
   const wavs = readdirSync(chunks).filter((f) => f.endsWith('.wav')).sort().map((f) => join(chunks, f));
   execFileSync('whisper-cli', ['-m', model, '-l', policy.audio.language, '-nt', '-otxt', ...wavs.flatMap((f) => ['-f', f])], { stdio: 'ignore' });
-  const heard = wavs.map((f) => readFileSync(`${f}.txt`, 'utf8')).join('');
+  const heard = wavs.map((f) => readFileSync(`${f}.txt`, 'utf8')).join('。').replace(/\s+/g, '、');
   const board = JSON.parse(readFileSync(join(ROOT, packDirOf(pack), 'storyboard.json'), 'utf8'));
-  const expected = board.scenes.map((s) => s.narration ?? '').join('');
+  const expected = board.scenes.map((s) => s.narration ?? '').join('。');
   const volume = spawnSync('ffmpeg', ['-hide_banner', '-i', abs, '-af', 'volumedetect', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
   const maxVolumeDb = Number(/max_volume: (-?[\d.]+) dB/.exec(volume)?.[1]);
   // 台本の予定尺は読み上げ前の見積りなので、音声が映像の途中で切れていないかを実体で比べる
   const streams = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,duration', '-of', 'json', abs], { encoding: 'utf8' })).streams;
   const seconds = (type) => Number(streams.find((x) => x.codec_type === type)?.duration);
+  const engine = await ensureVoicevox();
+  const similarity = await Promise.all([readingOf(applyReadingDict(expected)), readingOf(heard)])
+    .then(([a, b]) => Number(speechSimilarity(a, b).toFixed(3))).finally(() => engine?.kill());
   const row = {
-    videoSha256: video.sha256, at: new Date().toISOString(), similarity: Number(speechSimilarity(expected, heard).toFixed(3)),
+    videoSha256: video.sha256, at: new Date().toISOString(), similarity,
     maxVolumeDb, durationGapSec: Number(Math.abs(seconds('video') - seconds('audio')).toFixed(1)), chars: { expected: expected.length, heard: heard.length },
   };
   const store = readAudio();
@@ -249,7 +245,11 @@ function wire() {
   const reg = loadRegistry(ROOT);
   const pub = targetPub(reg, exam, work);
   const taken = reg.publications.filter((p) => p.channel === 'youtube' && p.publishAt && p.status !== 'stopped' && p.id !== pub?.id && Date.parse(p.publishAt) > Date.now()).map((p) => p.publishAt);
-  const publishAt = args['publish-at'] ?? (Date.parse(pub?.publishAt) > Date.now() ? pub.publishAt : nextSlot(taken, policy));
+  // 空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない
+  const plan = readDataset(ROOT, 'config.youtube-longform-plan');
+  const publishAt = args['publish-at'] ?? (Date.parse(pub?.publishAt) > Date.now() ? pub.publishAt : nextSlot(taken, policy, Date.now(), {
+    weekLimit: (monday) => weekLimit(plan.cycle, monday), notBefore: pub ? slotProblems(plan, pub).entry?.target ?? null : null,
+  }));
   if (pub?.revisionOf) {
     if (args.stock) throw new Error(`${pub.id}: 改訂版は在庫にしない。予約のときに結線する`);
     wireRevision(reg, pub, publishAt);
@@ -312,7 +312,7 @@ function gateFacts(pack) {
   return {
     policy, reg, mediaById,
     facts: {
-      pub, standard: facts.standard, aiBlocked, renderVerified: verify.status === 0, qa: reg.works.find((w) => w.id === work && w.exam === exam)?.qa,
+      pub, planProblems: planProblems(ROOT, pub), standard: facts.standard, aiBlocked, renderVerified: verify.status === 0, qa: reg.works.find((w) => w.id === work && w.exam === exam)?.qa,
       review: facts.review, funnelOk: funnel.status === 0, funnelDetail: funnel.status === 0 ? '' : (funnel.stderr || funnel.stdout).trim().split('\n').slice(0, 3).join(' / '),
       audioProblems: audioProblems(readAudio().checks[pub.id], video?.sha256, policy),
     },
@@ -442,7 +442,14 @@ function cleanup() {
 const commands = {
   status,
   plan: () => { const p = buildPlan(ROOT, requirePack(), { scope: args.scope, date: args.date ?? today() }); console.log(JSON.stringify(summarize(p))); },
-  generate: async () => console.log(JSON.stringify(await generatePlan(ROOT, requirePack(), { concurrency: Number(args.concurrency ?? 3), log: console.log }))),
+  generate: async () => {
+    // 機械検査で落ちた分は上限まで作り直す。上限に達して残れば失敗で返す
+    let result;
+    do result = await generatePlan(ROOT, requirePack(), { concurrency: Number(args.concurrency ?? 3), log: console.log });
+    while (result.missing > result.exhausted.length);
+    console.log(JSON.stringify(result));
+    if (result.missing) process.exit(1);
+  },
   'audit-queue': () => console.log(JSON.stringify(auditQueue(ROOT, requirePack()), null, 2)),
   'record-audit': () => console.log(JSON.stringify(recordAudit(ROOT, requirePack(), JSON.parse(readFileSync(args.file, 'utf8')), { by: args.by }))),
   adopt: async () => console.log(JSON.stringify(await adoptPlan(ROOT, requirePack(), { now: new Date().toISOString() }))),
