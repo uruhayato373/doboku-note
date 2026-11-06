@@ -23,7 +23,7 @@ const OUT = path.join(REPO_ROOT, '.tmp', 'x-outreach', 'candidates.json');
 const UA = 'Mozilla/5.0 (compatible; doboku-note-research/1.0)';
 
 const config = readDataset(REPO_ROOT, 'config.x-reply-trial');
-const log = readDatasetIf(REPO_ROOT, 'x.reply-log') ?? { replies: [] };
+const log = readDatasetIf(REPO_ROOT, 'x.reply-log') ?? { replies: [], skips: [] };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -60,13 +60,14 @@ if (fetchFailDominant(failed, config.queries.length)) {
   const { candidates, counts } = selectCandidates(posts, { ...config, excludeAccounts: [...config.excludeAccounts, X_HANDLE] }, {
     now: Date.now(),
     repliedHashes: new Set(log.replies.map((r) => r.userHash)),
+    skippedHashes: new Set(log.skips.map((r) => r.userHash)),
   });
 
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, `${JSON.stringify({ collectedAt: new Date().toISOString(), counts, candidates }, null, 2)}\n`);
 
   console.log(`投稿 ${counts.total} 件を判定 / 候補 ${candidates.length} 件`);
-  console.log(`除外: 古い ${counts.old}・返信済みの相手 ${counts.replied}・配慮 ${counts.care}・講座や宣伝 ${counts.supplier}・返信やリポスト ${counts.reply}・無関係 ${counts.other}`);
+  console.log(`除外: 古い ${counts.old}・返信済みの相手 ${counts.replied}・見送り済みの相手 ${counts.skipped}・配慮 ${counts.care}・講座や宣伝 ${counts.supplier}・返信やリポスト ${counts.reply}・無関係 ${counts.other}`);
   if (candidates.length === 0) console.log('対象 0 件でした（失敗ではありません）。');
   console.log(`書き出し: ${path.relative(REPO_ROOT, OUT)}`);
 }

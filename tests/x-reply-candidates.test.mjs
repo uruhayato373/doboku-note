@@ -92,3 +92,12 @@ test('送信の門番: 期間・1 日の上限・間隔・同じ相手を止め�
   assert.match(checkSendAllowed([row(90, 'a')], { ...base, user: 'A', now: NOW }), /すでに返信/);
   assert.equal(checkSendAllowed([row(90)], { ...base, user: 'a', now: NOW }), null);
 });
+
+test('見送った相手は候補に戻らず、送信も止まる', () => {
+  const posts = [post({ id: '1', user: 'skip', text: '合格しました' }), post({ id: '2', user: 'ok', text: '合格しました' })];
+  const { candidates, counts } = selectCandidates(posts, config, { now: NOW, skippedHashes: new Set([hashUser('SKIP')]) });
+  assert.deepEqual(candidates.map((c) => c.user), ['ok']);
+  assert.equal(counts.skipped, 1);
+  const base = { limits: config.limits, trial: config.trial, now: NOW };
+  assert.match(checkSendAllowed([], { ...base, user: 'skip', skips: [{ userHash: hashUser('skip') }] }), /見送り/);
+});

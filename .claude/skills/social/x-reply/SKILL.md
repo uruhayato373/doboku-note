@@ -20,6 +20,8 @@ domain: sns
    - 趣味のアカウントなど、試験の話をする場ではない
    - 講座や添削の販売を批判している
    - 講座や添削を売る側
+
+   見送った相手は `npm run x-reply-log -- --skip --user <screenName> --reason situation|offtopic|supplier|not-self|other` で記録する。次回から候補に出ない。
 4. **下書き**: ねぎらいを先に置く。答案は見えないので、褒めるのは投稿に書かれた行動だけ。助言は方法を尋ねている人にだけ添える。リンク・商品名・ハッシュタグは入れない。体験は `src/config/author.ts` と記事で確かめられる事実だけ書く。
 5. **確認画面**: `.tmp/x-outreach/round.json` に下書きを書き、`npm run x-reply-sheet`。`preview_start` の `x-outreach` で開く。
 6. **運営者の承認**: 採用された案だけを送る。画面の判断は `window.__state()` で読む。

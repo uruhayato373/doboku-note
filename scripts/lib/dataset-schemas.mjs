@@ -690,6 +690,15 @@ export const XReplyLog = z
         })
         .strict(),
     ),
+    skips: z.array(
+      z
+        .object({
+          at: utcTime('見送りを決めた時刻'),
+          reason: z.enum(['situation', 'offtopic', 'supplier', 'not-self', 'other']),
+          userHash: z.string().regex(/^[0-9a-f]{12}$/),
+        })
+        .strict(),
+    ),
   })
   .strict();
 
