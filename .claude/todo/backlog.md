@@ -482,6 +482,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1013] AI 画像の来歴と台帳の記録を image-origin に集める
+タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。来歴を `media.mjs:49`・`shorts-candidate-sources.mjs:18`・`media-plate.mjs:63,78`・`gen-article-photo.mjs:132` が別々に書く。`media-plate` は `image-origin.mjs:92` の `promptSha`（trim する）を使わず自前で hash を作る。hash の値が実際に食い違うかは未確認。`media-plate` は `codex-image` の一時フォルダ名も知っている。
+
+**やること**: `image-origin.mjs` に `aiProvenance()` と `recordAiImage()` を置き、4 か所から呼ぶ。一時フォルダの後始末は `codex-image` へ移す。hash の食い違いがあれば既存の記録の扱いも決める。
+
+**完了条件**: 来歴の行と台帳の hash を作るコードが 1 か所。既存の台帳の照合が通る。
+
+
 ### [DN-1008] PR #1423 のマージ後に台帳だけの push で CI が走らないことを確かめる
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-06]
 
