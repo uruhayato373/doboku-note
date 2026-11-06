@@ -934,6 +934,173 @@
             ],
             "next": "サイト利用者と演習の開始を見る"
           }
+        },
+        {
+          "id": "x-sv-2027",
+          "exam": "surveyor",
+          "formats": [
+            "x-quiz",
+            "x-point",
+            "x-empathy",
+            "x-timing",
+            "x-sell"
+          ],
+          "title": "測量士 午後の準備",
+          "role": "sell",
+          "window": {
+            "from": "2027-01",
+            "to": "2027-05"
+          },
+          "anchors": [
+            "applicationOpen",
+            "exam"
+          ],
+          "primaryCta": {
+            "kind": "note-magazine",
+            "targets": [
+              "surveyor-gogo-pack",
+              "surveyor-gogo-bunya-magazine",
+              "surveyor-keisan-20"
+            ]
+          },
+          "count": 8,
+          "salesMax": 2,
+          "parents": [],
+          "reason": {
+            "reader": "午後の記述で選ぶ分野と計算の練習の仕方が分からない",
+            "harm": "A（資格の取得）。合格という目標への近道を探している",
+            "value": "分野の選び方を無料で示し、計算の型と分野別の教材は note で買う",
+            "demand": "未検証。note の商品は公開済みだが販売の実績はまだ無く、X でのこの資格の反応も測っていない",
+            "evidence": [
+              "content/note/測量士/noteコンテンツ計画.md",
+              "content/note/測量士/午後記述-出題分析.md"
+            ],
+            "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
+          }
+        },
+        {
+          "id": "x-pv1-2027",
+          "exam": "pavement-1",
+          "formats": [
+            "x-quiz",
+            "x-point",
+            "x-empathy",
+            "x-timing",
+            "x-sell"
+          ],
+          "title": "1級舗装 応用試験の準備",
+          "role": "sell",
+          "window": {
+            "from": "2027-02",
+            "to": "2027-06"
+          },
+          "anchors": [
+            "applicationOpen",
+            "exam"
+          ],
+          "primaryCta": {
+            "kind": "note-magazine",
+            "targets": [
+              "pavement-1-pack",
+              "pavement-1-keiken-magazine"
+            ]
+          },
+          "count": 6,
+          "salesMax": 2,
+          "parents": [],
+          "reason": {
+            "reader": "応用試験の経験記述と選択問題の準備が分からない",
+            "harm": "A（資格の取得）。合格という目標への近道を探している",
+            "value": "頻出の論点を無料で示し、答案の教材は note で買う",
+            "demand": "未検証。note の商品は公開済みだが販売の実績はまだ無く、X でのこの資格の反応も測っていない",
+            "evidence": [
+              "content/note/舗装/noteコンテンツ計画.md",
+              "content/note/舗装/応用試験-出題分析.md"
+            ],
+            "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
+          }
+        },
+        {
+          "id": "x-pv2-2027",
+          "exam": "pavement-2",
+          "formats": [
+            "x-quiz",
+            "x-point",
+            "x-empathy",
+            "x-timing",
+            "x-sell"
+          ],
+          "title": "2級舗装 応用試験の準備",
+          "role": "sell",
+          "window": {
+            "from": "2027-02",
+            "to": "2027-06"
+          },
+          "anchors": [
+            "applicationOpen",
+            "exam"
+          ],
+          "primaryCta": {
+            "kind": "note-magazine",
+            "targets": [
+              "pavement-2-keiken",
+              "pavement-2-sentaku-hinshutsu"
+            ]
+          },
+          "count": 3,
+          "salesMax": 1,
+          "parents": [],
+          "reason": {
+            "reader": "初めての経験記述で何を書くかが分からない",
+            "harm": "A（資格の取得）。合格という目標への近道を探している",
+            "value": "書き方を無料で示し、答案の教材は note で買う",
+            "demand": "未検証。note の商品は公開済みだが販売の実績はまだ無く、X でのこの資格の反応も測っていない",
+            "evidence": [
+              "content/note/舗装/noteコンテンツ計画.md",
+              "content/note/舗装/応用試験-出題分析.md"
+            ],
+            "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
+          }
+        },
+        {
+          "id": "x-pw-2027",
+          "exam": "pe-water-supply",
+          "formats": [
+            "x-quiz",
+            "x-point",
+            "x-empathy",
+            "x-timing",
+            "x-sell"
+          ],
+          "title": "上下水道 筆記の直前まで",
+          "role": "sell",
+          "window": {
+            "from": "2027-04",
+            "to": "2027-07"
+          },
+          "anchors": [
+            "written"
+          ],
+          "primaryCta": {
+            "kind": "note-magazine",
+            "targets": [
+              "pe-water-supply-pack",
+              "pe-water-sewerage-pack"
+            ]
+          },
+          "count": 6,
+          "salesMax": 2,
+          "parents": [],
+          "reason": {
+            "reader": "必須と選択の答案の型が定まらない",
+            "harm": "A（資格の取得）。合格という目標への近道を探している",
+            "value": "出題の傾向を無料で示し、模範解答は note で買う",
+            "demand": "未検証。note の商品は公開済みだが販売の実績はまだ無く、X でのこの資格の反応も測っていない",
+            "evidence": [
+              "content/note/技術士上下水道部門/出題テーマ_R01-R08.md"
+            ],
+            "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
+          }
         }
       ]
     },
