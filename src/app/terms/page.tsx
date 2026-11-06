@@ -42,7 +42,7 @@ export default function TermsPage() {
       <PageHeader
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Terms' }]}
         title="利用規約"
-        meta="最終更新日 2026.04.08"
+        meta="最終更新日 2026.11.06"
         className="mb-8"
       />
 
@@ -116,7 +116,8 @@ export default function TermsPage() {
         >
           <div className={bodyClass}>
             <p>
-              当サイトにはアフィリエイトプログラムに基づく広告リンクが含まれる場合があります。
+              当サイトでは、Google AdSense 等の第三者配信事業者による広告を掲載する場合があります。
+              また、アフィリエイトプログラムに基づく広告リンクが含まれる場合があります。
               Cookie の使用については
               <a href="/privacy" className="text-(--accent) hover:underline">プライバシーポリシー</a>
               をご確認ください。
