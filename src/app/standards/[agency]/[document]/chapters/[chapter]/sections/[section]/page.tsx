@@ -27,6 +27,7 @@ import {
   standardBookLabel,
   standardChapterHeading,
   standardChapterOgpUrl,
+  isStandardChapterMerged,
   standardChapterPath,
   standardSectionPageRange,
 } from '@/lib/standards-articles';
@@ -42,7 +43,7 @@ export const dynamicParams = false;
 
 /** 節ページは splitBySection の章（manifest。判定は build-standard-articles.mjs）だけに作る。 */
 export function generateStaticParams(): Params[] {
-  return getStandardDocuments().flatMap((document) =>
+  return getStandardDocuments().filter((document) => !isStandardChapterMerged(document.agencyId, document.documentId)).flatMap((document) =>
     getStandardChapters(document.agencyId, document.documentId)
       .filter((chapter) => chapter.splitBySection)
       .flatMap((chapter) =>

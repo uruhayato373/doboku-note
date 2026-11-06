@@ -30,6 +30,7 @@ import {
   standardChapterHeading,
   standardChapterOgpUrl,
   standardChapterPreamble,
+  isStandardChapterMerged,
   standardChapterPath,
 } from '@/lib/standards-articles';
 import { getTopicsForStandardText } from '@/lib/topics';
@@ -45,7 +46,7 @@ type Params = { agency: string; document: string; chapter: string };
 export const dynamicParams = false;
 
 export function generateStaticParams(): Params[] {
-  return getStandardDocuments().flatMap((document) =>
+  return getStandardDocuments().filter((document) => !isStandardChapterMerged(document.agencyId, document.documentId)).flatMap((document) =>
     getStandardChapters(document.agencyId, document.documentId).map((chapter) => ({
       agency: document.agencyId,
       document: document.documentId,

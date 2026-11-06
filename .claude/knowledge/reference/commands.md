@@ -22,6 +22,7 @@ npm run content-ledger    # 管理画面「コンテンツ台帳」（/content/l
 npm run admin             # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO/**プロジェクト**/**ライフサイクル横断 `/content/lifecycle`**/**動画パック `/content/video`**・tools/admin-app）
 npm run check-career-separation:built  # 学習系ナビ（data-nav-list="exam-guide"）に career 記事が混ざっていないかを out/ の HTML で見る。**要 `npm run build`** で ci.yml の build 後に置く。走査先は out/{exam,practice,standards,laws,topics}（2026-09 の URL 分割前は out/docs だった）。ナビ一覧 0 箇所は検査不成立＝exit 1
 npm run check-e2e-execution -- --report .tmp/e2e-report.json # E2E CIのJSON結果から対象/実行/未実行/skipを確認。対象0・未実行・skip・失敗・集計不一致でexit 1（E2E後にalwaysで実行）
+node scripts/upload-standards-data-r2.mjs # 公的基準の章データ（.md・.jsonld）を R2 へ送る。変わった分だけ。cloudflare-deploy.yml が Pages への配信の前に実行する。`--dry-run` で件数だけ見る
 npm run check-e2e-targets      # E2E が叩くサイト内 URL が out/ に実在するか（`_redirects` の転送元を叩くと dev で必ず 404 になり、検査が成立しないまま赤が放置される）。**要 `npm run build`** なので quality:audit ではなく ci.yml / e2e.yml の build 後に置く。exit 2=検査不成立
 npm run check-client-chunk-size # build 済み out/_next/static/chunks の JS 1 本が 600KB を超えていないか（client component が doc-meta-index 等の大きい JSON を import すると /search のように 1.66MB になる・DN-0684）。out/ が無ければ exit 2。読み手＝ci.yml の build ジョブ
 npm run deploy:main # develop の検査済み commit を main へ昇格し、デプロイと本番確認まで行う（途中の失敗で止まる。exit 0 は本番確認まで通ったときだけ）

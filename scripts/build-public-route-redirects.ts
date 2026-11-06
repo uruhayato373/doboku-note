@@ -7,7 +7,8 @@ import { getAllCategories, getCategoryHubPath } from '../src/lib/categories';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { planDocRedirects, isGeneratedDocRule } from './lib/docs-redirect-plan.mjs';
 import { ROUTE_TABLE_PREFIX, isLegacyPath } from './lib/legacy-routes.mjs';
-import { isGeneratedPartRule, standardPartRedirectRules } from './lib/standards-part-targets.mjs';
+import { isGeneratedPartRule, mergedChapterRedirectRules, standardPartRedirectRules } from './lib/standards-part-targets.mjs';
+import comparison from '../content/site/standards-articles/comparison.json';
 
 const path = join(REPO_ROOT, 'public/_redirects');
 const startMarker = '# BEGIN GENERATED PUBLIC ROUTES';
@@ -51,6 +52,8 @@ function canonicalizeExistingTargets(value: string): string {
 // 動的ルールの後ろに静的ルールを置くと、後続も動的上限（100件）の対象として
 // 打ち切られるため、既存のワイルドカードを全て管理ブロック末尾へ移動する。
 // 前回この生成が出した /docs の動的ルールは入力に数えない（毎回 plan から作り直す）。
+const STANDARDS_DATA_RULE = '/standards-data/:agency/:document/chapters/:file https://storage.doboku-note.com/standards-data/:agency/:document/chapters/:file 301';
+const isGeneratedStandardsRule = (line: string) => /^\/standards(-data)?\/\S*chapters\//.test(line);
 const dynamicRedirects = [...new Set(source.split('\n').filter(isDynamicRedirect).map((line) => line.trim()).filter((line) => !isGeneratedDocRule(line) && !isGeneratedPartRule(line)))];
 const base = canonicalizeExistingTargets(stripManagedBlock(source))
   .split('\n')
@@ -82,7 +85,10 @@ const generated = [
   ...partRules,
   '',
   '# Dynamic redirects must remain after every static redirect (Cloudflare Pages contract)',
-  ...dynamicRedirects,
+  ...dynamicRedirects.filter((line) => !isGeneratedStandardsRule(line)),
+  '# Standards chapter data is served from R2; chapters identical to the Kinki edition live on its pages',
+  STANDARDS_DATA_RULE,
+  ...mergedChapterRedirectRules(comparison),
   '# /docs slugs that follow the public-URL rule: longest prefix first (first match wins), after every static rule',
   ...plan.dynamicRules.map((rule) => `${rule.from} ${rule.to} 301`),
   endMarker,

@@ -6,7 +6,9 @@ import { getStandardDocument, type StandardDocument } from '@/lib/standards';
 import { getSiteAssetR2Url } from '@/lib/r2-image-loader';
 import { chapterPreambleText, sectionPageMarkdown, splitChapterBySection } from '@/lib/standards-section-split.mjs';
 import { standardBookLabel } from '@/lib/standards-chapter-labels';
+import comparisonJson from '@/../content/site/standards-articles/comparison.json';
 import { standardsChapterPath } from '@/lib/route-paths';
+import { CHAPTER_BASELINE, isMergedChapterDocument } from '@/lib/standards-chapter-merge.mjs';
 
 export { standardBookLabel, standardChapterHeading } from '@/lib/standards-chapter-labels';
 
@@ -222,7 +224,13 @@ export function standardChapterPath(
   document: Pick<StandardDocument, 'agencyId' | 'documentId'>,
   chapter: Pick<StandardChapter, 'chapterId'>,
 ): string {
-  return standardsChapterPath(document.agencyId, document.documentId, chapter.chapterId);
+  const home = isStandardChapterMerged(document.agencyId, document.documentId) ? CHAPTER_BASELINE : document;
+  return standardsChapterPath(home.agencyId, home.documentId, chapter.chapterId);
+}
+
+/** 近畿版と本文が同じ文書か。章ページは作らず、近畿版へまとめる（standards-chapter-merge.mjs） */
+export function isStandardChapterMerged(agencyId: string, documentId: string): boolean {
+  return isMergedChapterDocument(comparisonJson, agencyId, documentId);
 }
 
 /**
