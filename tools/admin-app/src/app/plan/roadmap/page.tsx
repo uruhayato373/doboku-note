@@ -26,6 +26,8 @@ type Mark = { kind: string; label: string; date: string; estimated: boolean };
 type Buy = { estimated: boolean; fromDate: string; toDate: string; label: string };
 type Row = { id: string; label: string; marks: Mark[]; buys: Buy[] };
 
+const fiscalOrder = (ym: string) => (Number(ym.slice(5)) + 8) % 12;
+
 /** 年間の枠の 1 枚に出す形へ。YouTube は枠の形が違うので、ここで揃える */
 function channelBoard(root: string): { channels: BoardChannel[]; months: string[] } {
   const { plan, x, instagram } = loadChannelPlanAudit(root);
@@ -34,16 +36,17 @@ function channelBoard(root: string): { channels: BoardChannel[]; months: string[
     const c = plan.channels[id];
     return {
       id, label: c.label, role: c.role, state: c.operation.status === 'hold' ? '保留' : '運用中', weekly: `平常 ${c.weeklyMax} 本・山場 ${c.peakWeeklyMax} 本`,
-      planned: a.planned, capacity: a.capacity, metrics: c.metrics.primary, fill: a.fill, slots: c.slots, pending: a.pending, errors: a.errors,
+      planned: a.planned, capacity: a.capacity, metrics: c.metrics.primary, slots: c.slots, pending: a.pending, errors: a.errors,
     };
   };
   return {
-    months: monthsOf({ start: plan.cycle.window.from, end: plan.cycle.window.to }) as string[],
+    // 期は 12 か月なので月の数字は重ならない。4 月始まりに並べる（窓の判定は年つきの YYYY-MM のまま）
+    months: (monthsOf({ start: plan.cycle.window.from, end: plan.cycle.window.to }) as string[]).sort((a, b) => fiscalOrder(a) - fiscalOrder(b)),
     channels: [
       {
         id: 'youtube', label: 'YouTube', role: '検索と理解。通常動画で教材へ送り、ショートは通常動画へ案内する', state: '運用中',
         weekly: `平常 ${plan.cycle.weeklyMax} 本・山場 ${plan.cycle.peakWeeklyMax} 本`, planned: youtube.planned, capacity: youtube.capacity,
-        metrics: plan.metrics.primary, fill: youtube.fill, slots: plan.slots, pending: youtube.pending, errors: youtube.errors,
+        metrics: plan.metrics.primary, slots: plan.slots, pending: youtube.pending, errors: youtube.errors,
       },
       social('x', x), social('instagram', instagram),
     ],

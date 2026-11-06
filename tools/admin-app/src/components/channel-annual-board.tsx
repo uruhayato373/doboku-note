@@ -1,17 +1,18 @@
 import { FilterBar, FilterChip, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 
 export type BoardSlot = {
-  id: string; exam: string; title: string; role: 'attract' | 'sell'; window: { from: string; to: string }; count: number; salesMax?: number;
+  id: string; exam: string; title: string; role: 'attract' | 'sell'; window: { from: string; to: string };
   primaryCta: { kind: string; targets: string[] }; parents?: string[];
 };
 export type BoardChannel = {
   id: string; label: string; role: string; state: string; weekly: string; planned: number; capacity: number;
-  metrics: { label: string; status: string }[]; fill: Record<string, number>; slots: BoardSlot[]; pending: string[]; errors: string[];
+  metrics: { label: string; status: string }[]; slots: BoardSlot[]; pending: string[]; errors: string[];
 };
 
 const mon = (ym: string) => `${Number(ym.slice(5))}`;
 const inWindow = (m: string, w: BoardSlot['window']) => m >= w.from && m <= w.to;
-const CELL: Record<BoardSlot['role'], string> = { attract: 'bg-[var(--accent-fill)]', sell: 'bg-[var(--accent)]' };
+const CELL: Record<BoardSlot['role'], string> = { attract: 'border-[var(--accent)]/30 bg-[var(--accent-fill)]', sell: 'border-[var(--accent)] bg-[var(--accent)]' };
+const EMPTY = 'border-[var(--border)] bg-transparent';
 
 const KIND: Record<string, string> = { 'site-article': 'サイトの記事', 'links-hub': 'リンク集（/links）' };
 
@@ -98,28 +99,30 @@ export function ChannelAnnualBoard({ channels, months, nameOf, targetLabel, acti
         </TableBody>
       </TableFrame>}
       {view !== 'wiring' && <p className="small text-muted-foreground mt-3! mb-1!">
-        <span className={`inline-block h-3 w-3 align-middle ${CELL.attract}`} /> 集客　<span className={`inline-block h-3 w-3 align-middle ${CELL.sell}`} /> 販売　2027 年度の月は 2026 年度の実績を目安にした仮の月
+        <span className={`inline-block h-3 w-3 rounded-[3px] border align-middle ${CELL.attract}`} /> 集客　<span className={`inline-block h-3 w-3 rounded-[3px] border align-middle ${CELL.sell}`} /> 販売　2027 年度の月は 2026 年度の実績を目安にした仮の月
       </p>}
       {view === 'wiring' ? <WiringTable channels={channels} nameOf={nameOf} targetLabel={targetLabel} /> : <TableFrame>
         <TableHeader>
           <TableRow>
             <TableHead>枠</TableHead>
             <TableHead className="w-24">資格</TableHead>
-            <TableHead className="w-16">本数</TableHead>
-            {months.map((m) => <TableHead key={m} className="w-7 px-0! text-center text-xs">{mon(m)}</TableHead>)}
+            {months.map((m) => <TableHead key={m} className="w-9 px-0.5! text-center text-xs">{mon(m)}</TableHead>)}
           </TableRow>
         </TableHeader>
         {shown.map((c) => (
           <TableBody key={c.id}>
             <TableRow>
-              <TableCell colSpan={3 + months.length} className="bg-muted text-xs font-bold">{c.label}</TableCell>
+              <TableCell colSpan={2 + months.length} className="bg-muted text-xs font-bold">{c.label}</TableCell>
             </TableRow>
             {c.slots.map((s) => (
               <TableRow key={s.id}>
                 <TableCell className="whitespace-normal text-xs">{s.title}</TableCell>
                 <TableCell className="whitespace-normal text-xs text-muted-foreground">{nameOf(s.exam)}</TableCell>
-                <TableCell className="text-xs">{c.fill[s.id] ?? 0}/{s.count}{s.salesMax ? <span className="text-muted-foreground">（売{s.salesMax}）</span> : null}</TableCell>
-                {months.map((m) => <TableCell key={m} className={'px-0!' + (inWindow(m, s.window) ? ` ${CELL[s.role]}` : '')} />)}
+                {months.map((m) => (
+                  <TableCell key={m} className="w-9 p-0.5!">
+                    <div className={`h-6 rounded-[3px] border ${inWindow(m, s.window) ? CELL[s.role] : EMPTY}`} />
+                  </TableCell>
+                ))}
               </TableRow>
             ))}
           </TableBody>
