@@ -21,6 +21,46 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1012] 資格キーの変換を導出にして全資格をテストで固定する
+タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。資格 id の別名を変換する表が `longform-render.mjs:25` の `EXAM_TO_PALETTE`、`registry-x-state.mjs:21` の `EXAM_ALIAS`、`exam-brand.ts` の `QUALIFICATION_TO_EXAM_KEY`、`hub-cta.ts` の `examKey`、`past-exam-ledger.mjs` の `quizExam` に分かれる。実測で rccm・pe-water-supply・civil-construction-1-2・surveying・pavement・pipe-work が `EXAM_TO_PALETTE` にない。`render-instagram-video-pack-*` は `resolveExam(undefined)` で落ちるコードで、`image-rules.mjs` は `?? exam` で通るので呼び出し元で結果が変わる。例外の実行は未確認。`check-qualification-ssot` は名前だけを見てキー変換を見ない。
+
+**やること**: `note-cover-tokens.json` の `qualification` から変換を導出する。`exam-palette.mjs` を描画に依存しない場所へ置き、`image-rules.mjs` から `longform-render.mjs` への依存を外す。
+
+**完了条件**: registry の全資格について変換できるか、未対応と明示されているかをテストが確かめる。呼び出し元ごとの fallback の違いが無くなる。
+
+
+### [DN-1011] hub-cta とココナラの TS 文字列解析を商品の読み口へ移す
+タグ: [エージェント・SSOT] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`hub-cta.ts` は `site-to-sales.mjs` の `parseHubProducts` と `check-magazine-cta-reachability.ts:120` が文字列で読む。ココナラは `coconala-catalog.mjs:21`・`check-coconala-wiring.mjs:95`・`check-x-campaign-plan.mjs:65`・`schedule-events.mjs:806` が `coconala-services.ts` を読む。ココナラ側は関数の存在まで確認し、解析の中身の差は未確認。
+
+**やること**: ココナラ 4 か所の差を確かめ、商品の読み口へ載せる。`HUB` の商品指定はデータへ移す。
+
+**完了条件**: 新しいチャネルや商品を足しても TS を文字列で読むコードが増えない。ココナラの解析が 1 か所になっている。
+
+
+### [DN-1010] note 商品カタログの読み口を 1 つにして TS の正規表現解析をやめる
+タグ: [エージェント・SSOT] [領域:商品] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。正本は `config/products.json` で `src/lib/note-magazines.ts` は生成物だが、7 か所が別々の正規表現で読む: `sales-mapping.mjs:35`・`site-to-sales.mjs:54`・`check-magazine-membership.mjs:101`・`check-note-vocabulary-boundary.mjs:61`・`check-x-review.mjs:18`・`note-article-price-sweep.mjs:100`・管理画面 `content.ts:86`。2026-09-13 に単品 10 件が unknown になった記録が `sales-mapping.mjs` にある。現時点では `catalogMagazines` と `parseNoteCatalog` が 175 件で一致する。
+
+**やること**: `product-registry.mjs` の `loadProducts()` の上に読み口を作り、売上系→検査系→管理画面の順に置き換える。生成物そのものの形を確かめる検査は残す。
+
+**完了条件**: `note-magazines.ts` を正規表現で読むコードが、生成物の形の検査を除いて 0 件。売上の対応付けの結果が移行の前後で変わらない。
+
+
+### [DN-1009] note スクリプト 5 本にアカウント確認を足す
+タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`note-article-price-sweep`・`note-edit-session`・`note-edit-magazine`・`note-magazine-add-articles`・`note-magazine-remove-articles` にアカウント確認の処理が見当たらない（文字列検索で確認）。別アカウントのまま書き込む経路が残り、`note-article-price-sweep` は有料境界を壊し得ると `note-api-verification.md` に記録がある。書き込み経路を読んだのは price-sweep と edit-magazine だけで、残り 3 本は未確認。
+
+**やること**: 5 本の書き込み経路を確かめ、ブラウザ操作の前に `scripts/lib/note-browser.mjs` の `assertAccountGate` を通す。読み取りだけのものは理由を書いて対象から外す。
+
+**完了条件**: 書き込むスクリプトすべてが、確認に失敗すると何もせず止まる。26 本への全面移行は別カード。
+
+
 ### [DN-1005] 動画から note へのクリックを計測できるようにする
 タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-06]
 
@@ -441,6 +481,96 @@
 
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-1025] note スクリプトの起動と確認を note-browser へ移す
+タグ: [インフラ・計測] [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`scripts/note-*.mjs` 26 本が `launchPersistentContext` を直接呼び、`launchNoteContext` を使うのは 3 本だけ。21 本が `settings/account` の確認を手書きし、`assertAccountGate` を使うのは 3 本だけ。note の画面や認証が変わると、操作ごとに成功と失敗が分かれる。
+
+**やること**: スクリプトを触るときに `launchNoteContext` と `assertAccountGate` へ移す。viewport と待機の実測値は引数で保つ。有料境界や更新の処理は共通化しない。
+
+**完了条件**: note スクリプトの起動と確認の手書きが 0 件。
+
+
+### [DN-1020] YouTube の R2 配置スクリプトの共通処理を lib へ移す
+タグ: [インフラ・計測] [領域:SNS] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd が `stage-youtube-renders-r2.mjs` と `stage-youtube-shorts-r2.mjs` の間に 5 ブロック 64 行の重複を検出した。内容は Shorts 側の冒頭まで確認し、重複部分は未読。読み戻し検証を片方だけ直す恐れがある。
+
+**やること**: 重複部分を読み、アップロードと sha256 の読み戻し検証を lib へ移す。
+
+**完了条件**: 2 本の差が対象の違いだけになる。dry-run の出力が移行の前後で変わらない。
+
+
+### [DN-1019] scripts と管理画面の URL 組み立てを route-paths の共有関数へ移す
+タグ: [インフラ・計測] [領域:サイト] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`tests/route-paths-ratchet.test.mjs` は `src` だけが対象で、scripts と admin に 10 か所の組み立てがある（`standards-render-targets.mjs:24`・`standards-part-targets.mjs:32`・`affiliate-layout-judge.mjs:92`・`build-llms-txt.mjs:41`・`fetch-business-metrics.mjs:39` など）。一部は組み立てではなく前方一致の判定に使う。
+
+**やること**: 純粋なパス関数を `.mjs` にして共有し、組み立ての箇所を移す。ラチェットの対象を scripts と admin へ広げる。
+
+**完了条件**: URL の形を変える修正が共有関数だけで済む。ラチェットが scripts と admin の直書きを止める。
+
+
+### [DN-1018] 管理画面の台帳の型を Zod スキーマから導出する
+タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`dataset-schemas-config-ops.mjs:816` に Zod スキーマがあるが、`tools/admin-app/src/lib/automations.ts:15,65` は手書きの型へキャストして読む。管理画面の `JSON.parse(readFileSync` は 27 ファイル、データセット経由は 22 ファイル。automations 以外の中身は未確認で、件数まで。
+
+**やること**: よく変わる台帳から順に、スキーマから型を導出し、読み取り時に検証を通す。
+
+**完了条件**: automations で台帳に欄を足すと型検査が知らせる。残りの台帳の移行範囲が決まっている。
+
+
+### [DN-1017] どこからも呼ばれない CLI を検出するレポートを足す
+タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`knip.json` は `scripts/**` を全部 entry にし、`tools/admin-app` を project に含めないので、使われなくなった CLI を検出できない。休止中の `generate-guide-covers.mjs` は `package.json:420` と routes に残るが `public/images/guide-covers` はない。knip の現状は exports 7・types 17・unlisted 4・unresolved 1。管理画面の孤立ファイルは import の簡易検査で 0 件。
+
+**やること**: npm script・workflow・skill・docs から到達しない CLI を一覧にするレポートを足し、週次で読む。`generate-guide-covers.mjs` を残すか消すかを決める。管理画面を knip の対象へ入れるかも決める。
+
+**完了条件**: 到達しない CLI の一覧が検査件数つきで出る。`generate-guide-covers.mjs` の扱いが決まっている。
+
+
+### [DN-1016] scripts と src と .claude/scripts の依存の向きを整理する
+タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。grep の概数で scripts→src 59 行、src→scripts 3 行、admin→scripts 191 行、scripts→`.claude/scripts` 41 行、`.claude/scripts`→scripts 193 行。向きが双方向で、層の区別がないので境界の検査を置けない。
+
+**やること**: まず `.claude/scripts/sns/lib/exam-palette.mjs` を `scripts/lib` へ移す（資格キーのカードと一緒に進めてよい）。その後、ブラウザと Node の両方で使う純粋な関数の置き場を決める。
+
+**完了条件**: scripts から `.claude/scripts` への import が 0 件。純粋な関数の置き場が決まり、向きの検査が入っている。
+
+
+### [DN-1015] check-image-rules で codex の直接起動も検出する
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`codex exec` の起動は `scripts/lib/codex-image.mjs` の 1 か所で、現在の迂回はない。ただし `image-rules.mjs:23` は import 文だけを見るので `spawn('codex', …)` を直接書いても検査を通る。`tools/admin-app` と `src` は走査の対象外。
+
+**やること**: `codex-image.mjs` 以外の `codex` の直接起動を検出し、走査の対象を広げる。回帰テストを足す。
+
+**完了条件**: 直接起動を書いた偽のファイルで検査が落ちるテストがある。実リポジトリでは通る。
+
+
+### [DN-1014] AI 画像の生成指示の置き場を config.image-generation へ寄せる
+タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。生成指示が `config/image-generation.json`・`config/image-limits.json` の `aiPhoto`・コード内（`generate-guide-covers.mjs`・`generate-ogp-backgrounds.mjs`）の 3 か所にある。OGP 背景の `EXAMS` は 6 資格でトークンは 14 資格。背景がない資格の表示は未確認。
+
+**やること**: `aiPhoto` の指示と OGP の指示を `config.image-generation` へ寄せ、モチーフも設定へ移す。背景がない資格の表示を確かめる。
+
+**完了条件**: 共通の指示を 1 か所直すと全経路に届く。コード内に指示の文が残らない。
+
+
+### [DN-1013] AI 画像の来歴と台帳の記録を image-origin に集める
+タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。来歴を `media.mjs:49`・`shorts-candidate-sources.mjs:18`・`media-plate.mjs:63,78`・`gen-article-photo.mjs:132` が別々に書く。`media-plate` は `image-origin.mjs:92` の `promptSha`（trim する）を使わず自前で hash を作る。hash の値が実際に食い違うかは未確認。`media-plate` は `codex-image` の一時フォルダ名も知っている。
+
+**やること**: `image-origin.mjs` に `aiProvenance()` と `recordAiImage()` を置き、4 か所から呼ぶ。一時フォルダの後始末は `codex-image` へ移す。hash の食い違いがあれば既存の記録の扱いも決める。
+
+**完了条件**: 来歴の行と台帳の hash を作るコードが 1 か所。既存の台帳の照合が通る。
+
 
 ### [DN-1008] PR #1423 のマージ後に台帳だけの push で CI が走らないことを確かめる
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-06]
@@ -2349,6 +2479,56 @@ Windows の PowerShell で repo 直下から順に:
 **完了条件**: title・description・冒頭が直って develop に入り、28 日後に同じ検索語の CTR を比べた記録がカードに残る
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+### [DN-1026] 冗長コード監査で見なかった範囲を確かめる
+タグ: [エージェント・SSOT] [領域:管理] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd の対象は `src`・`scripts`・`tools`・`tests`・`e2e`・`e2e-admin` で、`.claude/scripts` と `.claude/skills` は対象外だった。`KakomonQuizClient.tsx`（817 行）などの大きなコンポーネントの中身は読まず、責務の混在は `fs` と `gtag` の検索だけで見た（どちらも問題なし）。`scout-*`・`check-bold-rendering` と `check-table-rendering`・launchd の install スクリプトの重複は検出したが評価していない。
+
+**やること**: jscpd を `.claude/scripts` と `.claude/skills` へ広げ、大きなコンポーネントの責務を読む。残った重複は共通化するかを判断する。
+
+**完了条件**: 未評価の範囲について、直すものが起票され、直さないものは理由が書かれている。
+
+
+### [DN-1024] 管理画面が CLI の check スクリプトを import している箇所を確かめる
+タグ: [エージェント・SSOT] [領域:管理] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。Codex の報告では `tools/admin-app/src/lib/automations.ts:5` と `video-outcomes.ts:10` が `check-*.mjs` や実行スクリプトの関数を import している。この報告は実コードで未確認。
+
+**やること**: 実際の import を確かめ、該当すれば判定を `scripts/lib` の副作用のない関数へ移す。
+
+**完了条件**: 管理画面が CLI の入口を import していないか、残す理由が書かれている。
+
+
+### [DN-1023] カテゴリと標準ページの重複部品を抽出する
+タグ: [UI・UX] [領域:サイト] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd が `src/components/category/CategoryViews.tsx` の内部で 261 行、`chapters/[chapter]/page.tsx` と `sections/[section]/page.tsx` の間で 83 行の重複を検出した。資格を足すと View を写すことになる。CategoryViews の関数構成は確認済みで、標準ページの重複の中身は未読。
+
+**やること**: 共通の小部品だけを抽出する。資格別のレイアウトは試験構成の違いをそのまま表すので残す。
+
+**完了条件**: 新しい資格の View が小部品の組み合わせで書ける。表示が変わらない。
+
+
+### [DN-1022] sha256 の補助関数を scripts/lib に 1 つ置く
+タグ: [エージェント・SSOT] [領域:管理] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。sha256 の補助関数らしき定義が scripts・src・`.claude/scripts`・管理画面に 39 件あり（検索の概数）、共通の関数がない。
+
+**やること**: `scripts/lib` に 1 つ置き、スクリプトを触るときに移す。一括で置き換えない。
+
+**完了条件**: 共通の関数があり、新しいコードはそれを使う。
+
+
+### [DN-1021] note の収録の追加と解除の共通処理を lib へ移す
+タグ: [インフラ・計測] [領域:商品] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd が `note-magazine-add-articles.mjs` と `note-magazine-remove-articles.mjs` の間に 142 行の重複を検出した（全 260 行と 210 行）。内容の確認は remove 側の冒頭まで。
+
+**やること**: ダイアログ操作の共通部分を lib へ出す。実行スクリプトは 2 本のままにする。
+
+**完了条件**: note のダイアログが変わっても lib の 1 か所を直せば済む。
+
 
 ### [DN-0996] Windows の手元で落ちる npm run test の 48 件を直すか skip に分ける
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-05]
