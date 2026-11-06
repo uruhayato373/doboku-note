@@ -28,13 +28,15 @@
 
 **やること**: 取り方を決めて実装する。案は、概要欄の主 CTA をサイトの短い転送ページ経由にし、GA4 にイベントを残して note へ送る形。静的サイトで転送できるか、YouTube の外部リンクの扱い、視聴者の離脱を確かめる。既に公開した動画の概要欄を変えると digest と承認に影響するので、新しい予約から適用する。
 
-**完了条件**: 動画ごとの note クリックが取れ、`config/youtube-longform-plan.json` の `youtubeNoteClicks` の status が measured になっている。
+X の投稿からの note クリックも同じ形で取れるかを確かめる（`channels.x.metrics` の `xNoteClicks`）。
+
+**完了条件**: 動画ごとの note クリックが取れ、`config/channel-annual-plan.json` の `youtubeNoteClicks` の status が measured になっている。
 
 
 ### [DN-1004] YouTube 年間の枠の未決定の論点を運営者が決める
 タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-06]
 
-**起点**: 2026-11-06 に YouTube の年間の枠を `config/youtube-longform-plan.json` へ入れた。枠の案は作ったが、次は運営者が決める。一覧は `npm run check-youtube-plan` の「採否待ち」「要対応」。
+**起点**: 2026-11-06 に YouTube の年間の枠を `config/channel-annual-plan.json` へ入れた。枠の案は作ったが、次は運営者が決める。一覧は `npm run check-youtube-plan` の「採否待ち」「要対応」。
 
 **決めること**:
 1. 公開の頻度: 週 2 本・山場 3 本、年 89 本の枠でよいか
@@ -442,14 +444,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1006] YouTube 年間計画を 3 か月の実測で見直す
+### [DN-1006] YouTube・X・Instagram の年間計画を 3 か月の実測で見直す
 タグ: [領域:SNS] [時期:2027-02] [種類:意思決定] [起票:2026-11-06] [期日:2027-02-05]
 
-**起点**: 2026-11-06 に決めた YouTube 年間計画の 3 か月後の見直し。
+**起点**: 2026-11-06 に決めた YouTube 年間計画の 3 か月後の見直し。同じ日に足した X・Instagram の枠（`channels`）も同じ日に見直す。X は `xUsers` と資格×型の反応、Instagram は `instagramUsers` と試行を続けるかを見る。
 
 **やること**: 2026-11-16 以降の公開について、型ごとの平均視聴率（28 日）、動画からの note クリック（取れていなければ補助の YouTube 経由のサイト利用者とサイトからの note クリック）、制作時間を見て、枠・本数・週の上限を見直す。目標値はこの実測から決める。欠測は 0 にしない。2027 年度の公式日程が出ていれば `config/exam-calendar.json` の更新に合わせて枠の月を直す。
 
-**完了条件**: `config/youtube-longform-plan.json` の `cycle.reviewAt` と `metrics.target` が更新され、判断が `data/business/records/` に残っている。
+**完了条件**: `config/channel-annual-plan.json` の `cycle.reviewAt` と `metrics.target` が更新され、判断が `data/business/records/` に残っている。
 
 
 ### [DN-1003] YouTube 台帳の停止行の公開状態が実体とずれているのを直す
@@ -3097,7 +3099,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 ### [DN-0726] 通常動画 38 本の計画台帳への仮配分を YouTube 再開時に運営者が見直す
 タグ: [領域:SNS] [種類:意思決定] [起票:2026-10-13]
 
-**起点**: 2026-10-13、PR #967（YouTube POP サムネイル）を develop へ取り込む際、develop で増えた通常動画 38 本が `config/youtube-longform-plan.json` に無く検査が赤だったため、各資格の試験日の直前（2級土木 10/14・10/20・10/23、コンクリート 10/20・11/17・11/20 など）へ仮に配分した。運営者が見て決めた配分ではない。YouTube は一時停止中（#1044）。
+**起点**: 2026-10-13、PR #967（YouTube POP サムネイル）を develop へ取り込む際、develop で増えた通常動画 38 本が `config/channel-annual-plan.json` に無く検査が赤だったため、各資格の試験日の直前（2級土木 10/14・10/20・10/23、コンクリート 10/20・11/17・11/20 など）へ仮に配分した。運営者が見て決めた配分ではない。YouTube は一時停止中（#1044）。
 
 **やること**: 再開を決めるときに 38 本の `finish` 日を運営者が見直し、試験日を過ぎた枠は次の試験期へ送るか計画から外す。
 

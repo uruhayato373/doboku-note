@@ -82,6 +82,7 @@
 - [OGP・カバー](project_ogp_design_ssot.md) — OGP SSOT・G2色
 - [動画パック](project_video_content_pipeline.md) — YouTube基盤DN-0110
 - [SNS v7・IG](project_sns_v7_pivot.md) — BS投稿のみ・論点パック
+- [チャネル年間計画](project_channel_annual_plan.md) — 枠と型の台帳を一本化・保留の解除は別判断
 - [X運用](project_x_account_reboot_2026_06.md) — 凍結対策・偽成功確認
 - [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・全年度¥1,480
 - [note書込自動化](project_note_write_automation.md) — Playwright・CTAインフラ

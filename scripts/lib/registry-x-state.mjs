@@ -18,7 +18,7 @@ import { X_HANDLE } from './site-identity.mjs';
 
 export const X_ROOT = 'content/sns/x';
 const OLD_ACCOUNT = '_archive-old-account';
-const EXAM_ALIAS = {
+export const EXAM_ALIAS = {
   'pe-construction': 'pe-construction', 'pe-comprehensive': 'pe-comprehensive-management', cem: 'pe-comprehensive-management',
   'civil-1': 'civil-construction-1', civil1: 'civil-construction-1', 'civil-construction-1': 'civil-construction-1',
   'civil-2': 'civil-construction-2', civil2: 'civil-construction-2', 'civil-1-2': 'civil-construction-1-2', 'civil-1+2': 'civil-construction-1-2', civil: 'civil-construction-1-2',

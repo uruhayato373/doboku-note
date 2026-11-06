@@ -109,7 +109,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 - `config/content-registry.json` の `cutover` に YouTube・Instagram・X が入り、公開状態の正本は台帳になった。YouTube の写し `.claude/state/video-content-status.json` は 2026-10-09 に削除済み（P7）。`derivatives.longform`・`derivatives.shorts` は `loadVideoState` が台帳から作る。Instagram（動画パックのリールを含む）は台帳が正本で、`instagramReel` は派生物に含めない（P5）。IG の旧パックと旧 `status.json`・`posted.json` は 2026-11-01 に撤去済み。X の旧状態ファイルは DN-0629 で撤去する。
 - Instagram の新規固定カルーセルは `import-instagram --folder profile-pinned/<key> --commit` で対象1件を台帳へ入れ、`media -- plate`（POP表紙）と `media -- adopt-render`（SVGから描いた図解）で両スライドを素材IDへ結ぶ。Drive同期とAI画像監査の後、`prepare-instagram-pinned --pub <ID> --publish-at <ISO+09:00> --commit` が画像・文面・日時を照合して `qa_passed` にする。運営者本人のハッシュ付き `approve --stage final` を経て `mark-instagram-rendered --pub <ID> --commit` で予約可能にする。`publish-ig-bs` は台帳行・予定日時・現版の承認が揃わなければBusiness Suiteへ進まない。実投稿後のプロフィール固定は実表示を読み戻してから記録する。
-- `import-instagram` は `--folder` を必須とし、投稿する新規作品だけを個別に追加する。一括取り込みは旧パックの再登録につながるため使わない。既存行の変更は該当する台帳の書き手で行い、旧キャンペーン計画から投稿を再開しない。
+- `import-instagram` は `--folder` を必須とし、投稿する新規作品だけを個別に追加する。`--slot` で年間の枠（`config/channel-annual-plan.json`）へ結ぶ（公開行の `planSlot`）。一括取り込みは旧パックの再登録につながるため使わない。既存行の変更は該当する台帳の書き手で行い、旧キャンペーン計画から投稿を再開しない。
 - 実体の削除を確認して `registry -- stop --reason gone` を記録すると、公開状態を `stopped(gone)`、外部側の公開範囲を `platform.privacy=gone` にする。削除済みの Instagram 行はアクティブ台帳から撤去できる。予約中の行は削除ガードを維持する。
 - `verify-ig-status` と `fetch-ig-insights --reconcile` は台帳で `stopped(gone)` のパックを照合対象から外す。新しい投稿は新規公開行と素材で準備する。
 - 変換は `scripts/lib/registry-video-state.mjs` だけが持つ。派生物の欄と台帳の欄は欠けなく往復し（全パックで往復するテストつき）、知らない欄は投げる。書き手が新しい欄を足すときは、型（`dataset-schemas-content.mjs`）と変換の両方に足す。

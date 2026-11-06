@@ -98,7 +98,7 @@ export const DATASETS = [
   d('config.competitors', 'config/competitors.json', 'config', 'strategy', '競合の追跡リスト（note・ココナラ・Instagram・X・YouTube・講座の企業の枠ごと）', { schema: 'ConfigCompetitors' }),
   d('config.issue-map', 'config/issue-map.json', 'config', 'strategy', '事業イシューマップ（全体・施工管理）。判定日は DN、現在値は指標 id で参照する', { schema: 'ConfigIssueMap', refs: [{ at: 'maps[].calendar.rows[].qualifications[]', to: 'qualification' }, { at: 'maps[].comparison.qualifications[]', to: 'qualification' }] }),
   // 計画
-  d('config.youtube-longform-plan', 'config/youtube-longform-plan.json', 'config', 'plan', '通常動画の年間編集計画（年間の枠・制作期限・公開目標。実予約は公開台帳）', { schema: 'ConfigYoutubeLongformPlan', refs: [{ at: 'entries[].exam', to: 'qualification' }, { at: 'slots[].exam', to: 'qualification' }] }),
+  d('config.channel-annual-plan', 'config/channel-annual-plan.json', 'config', 'plan', 'チャネルの年間計画（YouTube・X・Instagram の年間の枠と型。通常動画は制作期限と公開目標も持つ。実予約は公開台帳）', { schema: 'ConfigChannelAnnualPlan', refs: [{ at: 'entries[].exam', to: 'qualification' }, { at: 'slots[].exam', to: 'qualification' }, { at: 'channels.x.slots[].exam', to: 'qualification' }, { at: 'channels.instagram.slots[].exam', to: 'qualification' }] }),
   d('config.annual-roadmap', 'config/annual-roadmap.json', 'config', 'plan', '年間ロードマップの期間と買い場の週数', { schema: 'ConfigAnnualRoadmap' }),
   // 商品
   d('config.products', 'config/products.json', 'config', 'product', '商品の正本（全チャネル・1ファイル。書き換えは npm run product）', { schema: 'ConfigProducts', refs: [{ at: 'products[].qualification', to: 'qualification' }] }),

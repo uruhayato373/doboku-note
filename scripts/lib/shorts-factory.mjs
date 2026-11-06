@@ -127,7 +127,7 @@ const ctaPrompt = (label, palette) => [
 
 /** 親の通常動画の枠にショートの空きがなければ止める。無駄な生成を計画の時点で防ぐ */
 export function assertInSlot(root, pack, key) {
-  const plan = readDataset(root, 'config.youtube-longform-plan');
+  const plan = readDataset(root, 'config.channel-annual-plan');
   const designs = listShortDesigns(root).filter((d) => !(d.pack === pack && d.key === key));
   const { errors } = shortsSlotFill(plan, [...designs.map((d) => ({ ...d, stocked: true })), { pack, key }]);
   if (errors.length) throw new Error(errors.join(' / '));
