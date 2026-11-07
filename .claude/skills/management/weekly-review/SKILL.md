@@ -55,7 +55,7 @@ domain: strategy
 - **点検と Issue**: `npm run review-checks -- --cadence weekly --run YYYY-Www --write` の結果、失敗・検査不成立の点検と開いている Issue・Dependabot の全件に行き先を書く。
 - **イシューマップ**: `npm run check-issue-map -- --due` の「更新の番の判定」（カードが閉じた・時期を過ぎた）を全件処分する。実測があれば `config/issue-map.json` の該当サブイシューの `state` と `evidence` を直し、終えた判定の行は消すか次の判定に書き換える。実測が無ければ `state` を変えず、判定の行を残して「## イシューマップ」に `- overall A1・A2: 未確認の理由 → 振り分け: DN-#### ／ 定常` と書く（見出しは `--due` の出力のまま）。節は 0 件の週も置く（「更新の番 0 件」）。日付や値はマップへ写さない（カードの `[時期:]`・指標が正本）。節の欠け・行き先の無い判定は `check-weekly-review` が未完にする。
 - **計測トリアージ**: `npm run growth-triage -- list` の未処分を 0 件にしてから終える（月曜の `check-growth-triage` が検査）。
-- 最後に `check-weekly-review`（`--week YYYY-Www`）を回し、欠けを補う。
+- 最後に `npm run check-weekly-review -- --week YYYY-Www` を回し、欠けを補う（exit 0 で完了）。
 
 ## 出力フォーマット（節の一覧）
 
