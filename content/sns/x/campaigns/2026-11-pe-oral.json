@@ -3,6 +3,7 @@
   "month": "2026-11",
   "timezone": "Asia/Tokyo",
   "status": "draft-plan",
+  "supersededBy": "実際の予約は content/sns/x/draft の 115・116・117・118 にある（2026-11-07 に公式の通知日と空き枠に合わせて組み直した）。この計画の日付は当初案",
   "examCalendar": {
     "pe-comprehensive / pe-construction 筆記合格発表": "2026-11-04（予定・config/exam-calendar.json の writtenResult）",
     "口頭試験": "2026年12月5日〜20日と2027年1月9日〜17日のうち、受験者ごとに通知する日"
