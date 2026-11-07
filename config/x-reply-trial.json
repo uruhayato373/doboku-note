@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "experiment": "EXP-059",
+  "backlog": "DN-1037",
+  "trial": {
+    "from": "2026-11-07",
+    "to": "2026-11-21"
+  },
+  "limits": {
+    "minIntervalMinutes": 60,
+    "candidatesPerRun": 8,
+    "lookbackHours": 72
+  },
+  "queries": [
+    "技術士 口頭試験",
+    "技術士 二次試験",
+    "技術士 不合格",
+    "技術士 勉強",
+    "施工管理 勉強",
+    "1級土木 二次",
+    "2級土木 勉強"
+  ],
+  "askWords": [
+    "教えて",
+    "どうすれば",
+    "どうやって",
+    "どうしたら",
+    "何をすれば",
+    "おすすめ",
+    "わからな",
+    "分からな"
+  ],
+  "passWords": [
+    "合格して",
+    "合格しま",
+    "合格でした",
+    "筆記通過",
+    "通過して",
+    "受かって",
+    "受かった"
+  ],
+  "failWords": [
+    "不合格",
+    "落ちた",
+    "落ちて",
+    "ダメでした",
+    "だめでした"
+  ],
+  "careWords": [
+    "死に",
+    "消えたい",
+    "楽になりたい",
+    "しんどい",
+    "つらい",
+    "辛い",
+    "眠れな",
+    "申し訳",
+    "失格",
+    "嫌気",
+    "潰れそう",
+    "心が折れ",
+    "やめたい",
+    "諦め"
+  ],
+  "supplierWords": [
+    "講座",
+    "添削",
+    "セミナー",
+    "募集",
+    "受付",
+    "無料",
+    "プレゼント",
+    "PR",
+    "受講",
+    "お申し込み",
+    "アフィリエイト",
+    "転職相談",
+    "note.com",
+    "t.co"
+  ],
+  "excludeAccounts": [
+    "pafe_purin",
+    "nekki5149",
+    "gijyutsushinavi",
+    "doboku_civil55",
+    "JES26907419",
+    "komatsu88888",
+    "H_sin_",
+    "mikamitg",
+    "gijutushiindex",
+    "gijutsushi_Navi",
+    "around50style",
+    "kensetsu_route",
+    "DubianMurillo"
+  ]
+}

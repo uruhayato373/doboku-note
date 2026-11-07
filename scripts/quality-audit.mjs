@@ -176,6 +176,7 @@ export const CHECKS = [
   { id: 'youtube-funnels', npm: 'check-youtube-funnels', timeout: 60_000, ci: true, note: '公開・予約・private 通常動画の有料note商品・UTM・関連サイト経路と公開台帳の一致を全件確認する' },
   { id: 'youtube-plan', npm: 'check-youtube-plan', timeout: 60_000, ci: true, note: '通常動画の年間の枠と公開台帳を照合する。計画にない動画・枠の超過・週の上限超え・時期の外を止める（壁時計に依らない）' },
   { id: 'admin-pages', npm: 'check-admin-pages', timeout: 30_000, ci: true, note: '管理画面の全ルートと台帳を照合する。台帳に無い画面・同じ問いの画面・上限超えを止める' },
+  { id: 'competitor-positions', npm: 'check-competitor-positions', timeout: 30_000, ci: true, note: '資格ごとの競合の立ち位置を市場の検索と取得物で照合する。目立つ相手の見落とし・空きの主張の崩れ・文章への観測値の写し・年間の枠の参照切れを止める' },
   { id: 'channel-plan', npm: 'check-channel-plan', timeout: 60_000, ci: true, note: 'X・Instagram の年間の枠と計画・公開台帳を照合する。計画にない投稿・枠の超過・販売の超過・週の上限超えを止める' },
   { id: 'instagram-profile-funnel', npm: 'check-instagram-profile-funnel', timeout: 30_000, ci: true, note: 'Instagram bio の着地・UTMと固定投稿3本の原稿・画像SHA・Drive保存を検査する' },
 
@@ -354,6 +355,7 @@ export const CHECKS = [
   // 置き場ルール（誰が使うか: site→public R2 / ci→private R2 / human→Google Drive vault）と Drive 台帳の整合（2026-09-05 追加）。
   // 共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止。CI は Drive を持たないので
   // マウント無しでは「実体検査 0 件」と明示して設定・台帳・ルーティング衝突・audience だけを判定する。
+  { id: 'media-references', npm: 'check-media-references', timeout: 30_000, ci: true, note: 'content/sns の文書が指す素材が Drive の台帳にあるかを確かめる。素材を消すときの巻き込みを止める' },
   { id: 'drive-vault', npm: 'check-drive-vault', args: ['--metadata-only'], timeout: 120_000, ci: true, note: 'audience・ルーティング・drive-manifest の整合を検査。Drive 実体検査は通常の check-drive-vault で行う' },
   // ローカルディスクの肥大は gitignore 済み・ホーム配下・worktree に溜まるので CI にも pre-commit にも
   // 映らない（2026-09-10 に空き 7.5GB まで落ちて初めて気づいた）。ローカル（Mac / Windows）でだけ意味がある検査。

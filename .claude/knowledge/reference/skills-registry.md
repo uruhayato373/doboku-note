@@ -6,6 +6,8 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+- 2026-11-07: `social/x-reply` を追加。X の返信候補と下書きを用意し、人が 1 件ずつ承認して送る 2 週間の試行（EXP-059・DN-1037）。
+
 - 2026-11-01: `coconala-publish` の既存出品編集を現行フォームに合わせ、FAQ・有料オプションの投入と入力警告時の更新中止を記載。新規出品の未対応範囲は維持。スキル・エージェントの件数は不変。
 
 - 2026-11-01: `check-seo-meta` が動的転送の `# route` 対応表も読むよう修正。旧 `/docs/` の HTML 欠落という誤検知を解消。件数は不変。
@@ -92,7 +94,7 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **96 スキル**（10 カテゴリ・SKILL.md 実数・2026-10-25 に 11 本、2026-11-06 に 2 本を退役）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **97 スキル**（10 カテゴリ・SKILL.md 実数・2026-10-25 に 11 本、2026-11-06 に 2 本を退役）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
 > 2026-09-05 新設: `dev/asset-route`（Git の外に置くアセットの置き場を **誰が使うか** で決める決定木＋コマンド。サイトが配信→public R2 / GitHub Actions が読み書き→private R2 / 人か手元のスクリプトだけ→Google Drive vault）。背景＝同日、共通仕様書のページ画像 3.4GB を「教材ページ画像→private R2」の行に従って private R2 へ上げかけた。その行はスキャン書籍の著作権のために書かれたもので、資産の種類で列挙する旧ルールには判断軸が無かった。`asset-storage.json` の全 group に `audience` を必須化し（`loadConfig`・`tests/asset-storage.test.mjs`・新 `check-drive-vault` の 3 か所で止める）、Drive 側は独立した系 `drive-vault.json` / `drive-vault-sync` / `drive-manifest.json` にした（R2 の fail-closed なコードに第 3 バケットの分岐を足さない）。**新エージェントは作らない**（検査は決定的スクリプトで足りる・CLAUDE.md §9）。合計 `104→105`、dev `14→15`。
 

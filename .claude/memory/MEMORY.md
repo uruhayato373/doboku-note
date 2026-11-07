@@ -20,6 +20,7 @@
 - [過去問PDF突合](feedback_exam_pdf_cross_reference.md) — 全問を原典と視覚照合
 - [noteカタログ再生成](feedback_note_catalog_regen.md) — note原稿を変えたらbuild-note-catalog
 - [MDX整形の委任](feedback_subagent_mdx_acceptance.md) — textlint・lint・facts照合を受入れ条件に
+- [発表当日の再確認](feedback_recheck_official_on_result_day.md) — 発送日は発表ページで変わる
 - [事実の一次照合](feedback_factcheck_guide_facts.md) — 制度・白書・URL・科目外・条文は条の範囲だけ
 - [ゲート偽PASS](feedback_gate_zero_coverage_false_pass.md) — 検査0件の緑・否定の単発判定
 - [hub強化とSEO判断](feedback_hub_strengthening_approach.md) — クエリ整合・即noindex禁止
@@ -28,6 +29,7 @@
 - [シェルの失敗で停止](feedback_shell_fail_fast.md) — assert失敗後のGit操作禁止・巨大JSONはparseで確認
 - [スクリプト編集安全](feedback_mdx_script_frontmatter_safety.md) — frontmatter分離・Python CR・引用符なしheredoc禁止
 - [計測はCI供給](feedback_metrics_cicd_supplied.md) — PSIはfield・GAはSSR
+- [競合の空きの確かめ方](feedback_competitor_ledger_before_claims.md) — 立ち位置の台帳・市場の検索・報告も裏取り
 - [計測の仕組みの前に](feedback_measure_before_building_tracking.md) — 既存データと規模を先に見る
 - [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止
 - [worktreeの管理外データ](feedback_worktree_ignored_data.md) — 中身をコピー・tracked未コミットは脇へ
@@ -84,6 +86,7 @@
 - [動画パック](project_video_content_pipeline.md) — YouTube基盤DN-0110
 - [SNS v7・IG](project_sns_v7_pivot.md) — BS投稿のみ・論点パック
 - [チャネル年間計画](project_channel_annual_plan.md) — 枠と型の台帳を一本化・保留の解除は別判断
+- [X返信の試行](project_x_reply_trial.md) — 人が承認・間隔60分・EXP-059・無人送信なし
 - [X運用](project_x_account_reboot_2026_06.md) — 凍結対策・偽成功確認
 - [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・全年度¥1,480
 - [note書込自動化](project_note_write_automation.md) — Playwright・CTAインフラ
@@ -132,6 +135,7 @@
 - [スキャンOCR](reference_scanned_pdf_pipeline.md) — 市販書籍は機械OCRのみ・旧視覚OCR罠
 - [保存版の過去問](reference_wayback_past_exam_gotchas.md) — CDX・brotli・数字字形・正答HTML
 - [土木PDF所在](reference_civil_pdfs.md) — docs/textbook配下
+- [Xの読み取り](reference_x_read_without_account.md) — Yahoo検索が無認証・CLIは投稿用アカ
 - [競合調査](reference_competitors_civil.md) — 土木・総監・pejp・YT解析
 - [アフィリ/Gmail](reference_affiliate_status_mail_vs_playwright.md) — 二経路確認・Gmail MCP
 - [ココナラ価格](reference_coconala_price_edit_gotchas.md) — 500円刻み・偽成功

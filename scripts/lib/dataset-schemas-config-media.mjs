@@ -552,6 +552,29 @@ const checkProfileLengths = (v, ctx) => {
   if ([...v.profile.bio].length > v.limits.bio) flag(ctx, ['profile', 'bio'], `自己紹介が ${v.limits.bio} 字を超える`);
 };
 
+export const ConfigXReplyTrial = z
+  .object({
+    schemaVersion: schemaVersion1,
+    experiment: z.string().regex(/^EXP-\d{3}$/),
+    backlog: z.string().regex(/^DN-\d{4}$/),
+    trial: z.object({ from: z.string(), to: z.string() }).strict(),
+    limits: z
+      .object({
+        minIntervalMinutes: z.number().int().positive(),
+        candidatesPerRun: z.number().int().positive(),
+        lookbackHours: z.number().int().positive(),
+      })
+      .strict(),
+    queries: z.array(z.string().min(1)).min(1),
+    askWords: z.array(z.string().min(1)),
+    passWords: z.array(z.string().min(1)),
+    failWords: z.array(z.string().min(1)),
+    careWords: z.array(z.string().min(1)).min(1),
+    supplierWords: z.array(z.string().min(1)),
+    excludeAccounts: z.array(z.string().min(1)),
+  })
+  .strict();
+
 export const ConfigXAccount = z
   .object({
     schemaVersion: schemaVersion1,
@@ -807,6 +830,21 @@ const imageFormat = z.object({
   frame: z.string().min(1).describe('構図と安全域の生成指示'),
 }).strict();
 
+export const ConfigSiteThumbnails = z
+  .object({
+    schemaVersion: schemaVersion1,
+    _doc: z.string().min(1),
+    version: z.number().int().positive().describe('台帳の版'),
+    styleVersion: z.number().int().positive().describe('画風の版。上げると古い版の絵が作り直しの対象になる'),
+    imageFile: z.string().min(1).describe('記事の隣に置く画像のファイル名'),
+    style: z.string().min(1).describe('ページ別の絵の画風'),
+    ledgerRules: z.string().min(1).describe('Codex が台帳を書くときの規則'),
+    review: z.object({ sampleRate: z.number().min(0).max(1), similarScene: z.number().min(0).max(1), riskWords: z.array(z.string().min(1)) }).strict().describe('二次監査の絞り込みの基準'),
+    pages: z.record(z.string().min(1), z.record(z.string().min(1), z.object({ text: z.string().min(1), scene: z.string().min(1), version: z.string().min(1).optional() }).strict())).describe('資格ごと、ページごとの帯の文字と絵の題材'),
+  })
+  .strict()
+  .describe('サイト内サムネイルの正本');
+
 export const ConfigImageGeneration = z
   .object({
     schemaVersion: schemaVersion1,
@@ -816,6 +854,7 @@ export const ConfigImageGeneration = z
     textRule: z.string().min(1).describe('文字の禁止事項'),
     diagramLedExams: z.array(z.string().min(1)).describe('POP ではなく図解主体にする資格'),
     references: z.object({ coverStyle: z.string().min(1), character: z.string().min(1), bodyStyle: z.string().min(1) }).strict().describe('参照画像'),
+    antiAi: z.object({ version: z.number().int().positive(), avoid: z.string().min(1), real: z.string().min(1), tone: z.string().min(1) }).strict().describe('AI っぽく見せないための指示の部品'),
     formats: z.object({ longform: imageFormat, shorts: imageFormat }).strict().describe('媒体別の寸法と安全域'),
     routes: z.array(z.object({
       id: z.string().min(1), label: z.string().min(1), kind: z.enum(['script', 'manual']),

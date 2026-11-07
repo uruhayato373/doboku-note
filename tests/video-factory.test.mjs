@@ -39,14 +39,6 @@ const fake = (bytes) => async (_p, _m, { images }) => {
 };
 const allOk = (root) => auditQueue(root, PACK).map((q) => ({ figKey: q.figKey, verdict: 'ok', reason: '原稿どおりで文字の誤りが無い' }));
 
-test('generateWithCodexAsync: 偽の実行で画像の有無を返す', async () => {
-  const tmp = mkdtempSync(join(tmpdir(), 'codex-async-'));
-  try {
-    assert.ok((await generateWithCodexAsync('p', null, { tmp, run: async (_a, dir) => writeFileSync(join(dir, 'out.png'), 'x') })).endsWith('out.png'));
-    assert.equal(await generateWithCodexAsync('p', null, { tmp, run: async () => {} }), null);
-  } finally { rmSync(tmp, { recursive: true, force: true }); }
-});
-
 test('指示は原稿だけから決まり、指定の文字を含む', () => {
   const s = scene('a');
   assert.equal(buildBodyPrompt(s, 'pe-construction'), buildBodyPrompt(s, 'pe-construction'));

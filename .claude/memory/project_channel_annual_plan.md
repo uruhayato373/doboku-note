@@ -10,3 +10,5 @@ metadata:
 **Why:** 試験の暦が需要を決めるのは全チャネル共通で、別々に計画すると同じ山場で送り先の商品がずれ、負荷も合算できないため。X の本文まで年間で決めないのは、時事性と凍結リスク（near-dup）のため。
 
 **How to apply:** X・Instagram の投稿を企画するときは先に枠を確かめる。2026-12-01 以降は枠の無い投稿を `x-schedule-guard` と Instagram の予約の関門が止める。枠を作っただけで保留は解けていない（`channels.*.operation` と DN-1007）。[[feedback-sns-hold-check-before-proposing]] [[project_x_account_reboot_2026_06]] [[project-sns-v7-pivot]]
+
+2026-11-06: 枠に `stance`（立ち位置）と `materials`（材料）を追加し、運営者が全枠の材料を採用した。`materials` は `entries` と `primaryCta` の写しを持たない。競合の結論の正本は `config/competitor-positions.json`。

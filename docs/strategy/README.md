@@ -15,6 +15,7 @@
 | [04_収益化戦略.md](./04_収益化戦略.md) | 何をやるか。現在の方針（2026-11-01）と商品の種類ごとの売り先。チャネル別は 22 | 横断コア | `content/note/{資格}/noteコンテンツ計画.md` |
 | [05_情報アーキテクチャ.md](./05_情報アーキテクチャ.md) | 検索意図別 URL・公的資料の公開範囲・タグ回遊・移行時 SEO/GSC 規約 | 横断コア | — |
 | [06_多資格展開戦略.md](./06_多資格展開戦略.md) | 展開する資格の判断の軸（自分で答案を組み立てる区分・受験者数・買われる時期・競合の空き・実売・信頼性）と判断の記録。値は `npm run qualification-market` | 横断 | — |
+| `config/competitor-positions.json` | 資格ごとの競合の立ち位置の正本。取る所・勝負しない所・調査の限界。年間の枠の `stance` が指す。読むのは `npm run competitor-position` | 横断 | — |
 | [競合調査（資格別）](../reviews/competitors/README.md) | 資格別の市場規模・競合サイト・SEO の状況（調査日つきの記録・docs/reviews/competitors へ移した） | チャネル別 | — |
 | [Kindle 管理SSOT](../../content/kindle/strategy.md) | KDP を第 3 の収益柱に（設定手順・価格） | `content/kindle` | — |
 | [09_販売チャネル競合分析.md](./09_販売チャネル競合分析.md) | note 競合 18 社・価格妥当性の判断根拠 | チャネル別 | `src/lib/note-magazines.ts` |

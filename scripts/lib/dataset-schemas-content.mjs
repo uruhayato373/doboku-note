@@ -15,6 +15,15 @@ const STATUS = ['draft', 'qa_blocked', 'qa_passed', 'approved', 'rendered', 'upl
 const planMonth = z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/, 'YYYY-MM');
 const planWindow = z.object({ from: planMonth, to: planMonth }).strict().refine((w) => w.from <= w.to, '開始月 ≤ 終了月');
 const repoRef = z.string().regex(/^[^\s:]+(:\d+)?$/, 'リポジトリの相対パス（:行番号は任意）');
+/** 枠で展開する材料。packs＝動画パック（資格/パック）・products＝商品 id・make＝新しく作るもの */
+const slotMaterials = z.object({
+  status: z.enum(['proposed', 'accepted']).describe('proposed＝提案のまま・accepted＝運営者が採用'),
+  packs: z.array(z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/, '資格/パック')),
+  products: z.array(z.string().min(1)).describe('config.products の id'),
+  make: z.string().describe('新しく作るもの。無ければ空'),
+  angles: z.array(z.enum(['conclusion', 'reason', 'experience', 'counter', 'number', 'howto'])).optional().describe('X・Instagram の主な切り口（content-angle-policy の 6 種）'),
+}).strict();
+
 const longformSlot = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/), exam: z.string().min(1), format: z.string().min(1).describe('台帳 config.youtube-formats の型 id'),
   title: z.string().min(1), role: z.enum(['attract', 'sell']).describe('attract＝集客・sell＝販売'),
@@ -23,6 +32,8 @@ const longformSlot = z.object({
   primaryCta: z.object({ kind: z.enum(['note-magazine', 'coconala-service', 'site-article', 'links-hub']), targets: z.array(z.string().min(1)) }).strict(),
   count: z.number().int().positive().describe('この枠で公開してよい本数の上限'),
   shorts: z.object({ count: z.number().int().positive().describe('この枠の通常動画を親にするショートの上限'), note: z.string().min(1).optional() }).strict().optional().describe('枠のショート。無ければこの枠の親からショートを作らない'),
+  stance: z.string().min(1).describe('取る立ち位置。台帳 config.competitor-positions の stances の id'),
+  materials: slotMaterials,
   reuse: z.enum(['stock', 'revise', 'bundle', 'new']).describe('stock＝完成済み・revise＝既存を改訂・bundle＝既存パックを束ねる・new＝新規'),
   reuseNote: z.string().min(1).describe('既存パックの流用可否の説明'),
   reason: z.object({
@@ -44,6 +55,8 @@ const channelSlot = z.object({
   count: z.number().int().positive().describe('この枠で投稿してよい本数の上限'),
   salesMax: z.number().int().nonnegative().describe('この枠の販売の投稿の上限。attract は 0'),
   parents: z.array(z.string().min(1)).describe('同じ時期に同じ商品へ送る YouTube の枠'),
+  stance: z.string().min(1).describe('取る立ち位置。台帳 config.competitor-positions の stances の id'),
+  materials: slotMaterials,
   reason: z.object({
     reader: z.string().min(1).describe('読者の課題'), harm: z.string().min(1).describe('HARM と理由'),
     value: z.string().min(1).describe('提供価値と支払う理由'),
@@ -94,6 +107,7 @@ export const ConfigChannelAnnualPlan = z.object({
     peakWeeklyMax: z.number().int().positive().describe('山場の週の上限'),
     peaks: z.array(z.object({ window: planWindow, why: z.string().min(1) }).strict()),
     calendarBasis: z.string().min(1).describe('2027 年度の月をどう置いたか。公式発表前は確定しない'),
+    rebuildUntil: jstDate('計画の作り直しの期限。この日までは動画の行が 0 本でも検査不成立にしない').optional(),
   }).strict(),
   metrics: z.object({
     primary: z.array(z.string().min(1)).length(2).describe('成功指標の id（config.business-direction）。定義と計測の状態はそちらから引き、ここに書かない。登録者数・再生数・本数は入れない'),

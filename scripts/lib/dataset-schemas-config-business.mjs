@@ -282,6 +282,7 @@ export const ConfigMarketScan = z
       z
         .object({
           keywords: strList.min(1).describe('YouTube・note で検索する語'),
+          probeKeywords: strList.optional().describe('立ち位置の主張を確かめる語。混み具合の判定には入れない'),
           titleMatch: text.optional().describe('その資格のものとみなすタイトルの正規表現（NFKC で半角にそろえて照合）'),
           coconala: strList.min(1).describe('ココナラで検索する語'),
         })
@@ -325,6 +326,84 @@ export const ConfigCompetitors = z
   })
   .strict()
   .meta({ title: '競合の追跡リスト' });
+
+// ---- 資格ごとの競合の立ち位置（config/competitor-positions.json） --------------------------------
+
+const rivalChannel = z.enum(['youtube', 'note', 'coconala', 'x', 'instagram', 'courses']);
+const positionText = text.describe('件数・金額・再生数を書かない。数字は取得物から読む');
+const repoFileRef = z.string().regex(/^[^\s:]+(:\d+)?$/, 'リポジトリの相対パス（:行番号は任意）');
+const rivalRef = z.object({ channel: rivalChannel, handle: text.describe('追跡リストの handle') }).strict();
+
+const positionProbe = z
+  .object({
+    claim: text.describe('確かめる主張'),
+    exam: QID,
+    channel: z.enum(['youtube', 'note']).describe('市場の検索の取得元'),
+    match: text.describe('題名の正規表現（NFKC 後）。資格の題名の条件は market-scan の titleMatch が先にかかる'),
+    paidOnly: z.boolean().optional().describe('note の有料だけを数える'),
+    max: z.number().int().nonnegative().describe('この件数を超えたら主張が崩れた扱い'),
+  })
+  .strict();
+
+const positionStance = z
+  .object({
+    id: QID,
+    stage: text.describe('学習の段階'),
+    text: positionText.describe('取る立ち位置'),
+    why: positionText.describe('そこを取る理由'),
+    state: z.enum(['seen', 'inferred', 'untested']).describe('seen＝データで確認・inferred＝推定・untested＝未検証'),
+    channels: z.array(z.enum(['youtube', 'x', 'instagram', 'note', 'coconala', 'site', 'kindle', 'email'])).min(1),
+    evidence: z.array(repoFileRef).describe('根拠の文書'),
+    probes: z.array(positionProbe).describe('空き・不在の主張を市場の検索で確かめる。空きの主張には必須'),
+  })
+  .strict();
+
+const competitorPosition = z
+  .object({
+    id: QID,
+    topic: text.optional().describe('資格に結び付かない立ち位置の名前。exams を空にする'),
+    exams: z.array(QID).describe('資格 id。名前は qualification-registry から読む。試験の外は空'),
+    reviewedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).describe('取得物を読んで分析した日'),
+    read: z.array(repoFileRef).min(1).describe('分析で読んだ文書。読んでいないものは書かない'),
+    summary: positionText,
+    rivals: z
+      .array(rivalRef.extend({ holds: positionText.describe('押さえている所') }).strict())
+      .min(1),
+    dismissed: z
+      .array(
+        z
+          .object({ channel: rivalChannel, handle: text, label: text, why: positionText.describe('市場の検索で目立つが競合と見ない理由') })
+          .strict(),
+      )
+      .describe('検索で目立つが分析から外す相手'),
+    avoid: z
+      .array(
+        z
+          .object({
+            id: QID,
+            text: positionText,
+            why: positionText,
+            rivals: z.array(rivalRef),
+            formats: z.array(text).describe('この所に当たる型の id。年間の枠で使うと止まる'),
+          })
+          .strict(),
+      )
+      .describe('勝負しない所'),
+    stances: z.array(positionStance).min(1).describe('取る立ち位置。年間の枠の angle が指す'),
+    limits: z.array(text).min(1).describe('調査の限界。見ていないものを書く'),
+  })
+  .strict();
+
+/** 資格ごとの競合の分析結果。数字は写さず、件数と主張は scripts/lib/competitor-positions.mjs が実データで確かめる */
+export const ConfigCompetitorPositions = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    self: z.object({ youtube: z.array(text), note: z.array(text) }).strict().describe('自社のアカウント。競合の検出から除く'),
+    positions: z.array(competitorPosition).min(1).superRefine(uniqueBy('id')),
+  })
+  .strict()
+  .meta({ title: '資格ごとの競合の立ち位置' });
 
 // ---- 事業イシューマップ（config/issue-map.json） ------------------------------------------------
 

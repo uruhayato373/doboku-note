@@ -73,6 +73,7 @@ npm run figure-qa-sheet -- <figKey...> # /figure-quality-loop の親の QA を 1
 npm run find-book-figure -- "図2.41" ["図2.42" …] [--book <書籍名の一部>] # 書籍の図番号から、Drive vault の書籍 OCR（原資料PDF/書籍/<book>/ocr/*.md の「（図: 図X.Y 図名。…）」とページ印）を引き、書籍・原典 PDF（vault: パス）・PDF のページ・印字ページ・図名を JSON で出す（figure-crop-worker に渡す。DN-0556）。status＝found（1 件）/ multiple（複数の書籍・箇所。--book で絞る）/ not-found。exit 0＝全部 found か multiple・1＝見つからない・2＝検査不成立（vault なし・OCR を読めない）。罠: 複数ファイルの書籍は pdf でなく pdfCandidates（ページ印がどのファイルかは OCR から決まらない）
 npm run figure-reextract -- <figKey...> # 図の切り出しを provenance の cropBox・rotate・post（scripts/lib/figure-recipe.mjs の手順）から作り直し、配信中の画像と寸法が同じで画素の差が閾値以下（平均差 1.0・大差の画素 0.2%）かを確かめる（DN-0570）。`--write-dir <dir>` で作り直した画像を保存（配信中の画像は上書きしない）・`cut --pdf … --page N --dpi D --box l,t,r,b [--rotate] [--despeckle] [--width] [--colors] --out f`＝同じ手順で 1 枚切り出す（figure-crop-worker が使う）。Drive vault の在る PC でだけ動く。exit 0＝全部一致・1＝不一致・2＝検査不成立（vault なし・記録に枠なし等）。罠: cropBox は回転後のページ画像の座標。枠の無い古い記録は作り直せない（切り出し直して record し直す）
 npm run check-image-origin  # 公開記事のラスター画像すべての出所（config/figure-sources.json の provenance の kind。試験ページの設問の図は記事の sources: から導き、<details> の解説の図は導かない）と、写真（AI 生成画像のみ）の状態＝未生成・未監査・不合格・合格を出す。出所なし・実写（CC コメント）・4:3 でない・未生成・未監査・不合格・公的資料の caption に提供者なしで exit 1（quality:audit:ci）。`--ai-queue --json`＝判定待ちの写真（ai-image-fidelity-auditor へ渡す）・`record-ai <verdicts.json>`＝判定を .claude/state/quality/ai-image-review-ledger.json へ（今の画像の sha つき）。罠: 仕様の prompt を書き換えると、画像が同じでも「未生成」に戻る。素材台帳の画像判定の照合は `check-content-registry` の R10（`--media` はない）。未対応フラグを渡してサイト画像の成功を素材検査と読み替えない
+npm run site-thumbs -- --exam <資格>  # サイト内サムネイルの三段の分担（Codex の台帳→生成→機械検査→Codex 一次監査→Claude の確認リスト）。途中で止まっても再実行で続きから動く。--fix-fails は Codex の不合格を指摘つきで作り直す、--record <JSON> は二次監査の結果を台帳へ書く。設計は docs/operations/画像運用設計.md。長時間なのでセッションから切り離して動かす
 npm run gen-article-photo -- --fig <資格/記事/img/名前> [--prompt "…"] [--model <codex のモデル>] [--from <画像>]  # 記事の写真を codex exec の画像生成で作り、中央で 4:3 に切って 960×720 の webp で配置し、記事の src・寸法と実績の台帳（sha・promptSha）を更新する。--from は生成済みの画像を配置だけ。罠: codex の既定モデルが ChatGPT アカウントで使えないと 400 で何も出ない（2026-10-07 は --model gpt-6-astra で動いた）。同じ名前の古い jpg/png は消さずに警告だけ出す
 npm run upload-images-r2  # 画像を R2 にアップロード（変わった画像だけ・--force で全件・--dry-run で数えるだけ。MDX は送らない）
 npm run check-r2-orphans  # 公開バケットの孤児（台帳・git 管理の画像・OGP 縮小のどれでもないキー）を数える。月次点検。--write で .tmp/r2-orphans.txt へ候補。exit 1＝孤児か削除待ちあり・2＝認証なし
@@ -282,6 +283,9 @@ npm run youtube-own-metrics   # 自社 YouTube の動画ごとの再生数・尺
 npm run youtube-analytics -- --check # 公開台帳の計測対象数を外部通信なしで確認。通常実行は YouTube Analytics API から28日窓の視聴回数・平均視聴時間・平均視聴率・流入元を取得し、型検証後 data/youtube/analytics/YYYY-MM-DD.json へ保存（CIのOAuth認証が必要・不足時 exit 2）。サムネイルのインプレッション/CTRはAPIの対象外
 npm run check-youtube-analytics # 最新のYouTube Analytics記録を公開台帳のID・対象数・鮮度と照合。未取得は0件成功にせず exit 1
 npm run scout-youtube-competitors # config/competitors.json の youtube の各チャンネルの通常動画（新しい順100本）の再生・尺・題名の語ごとの中央値を data/youtube/competitors/YYYY-MM-DD.json へ（四半期・前回比 drift・`--handle UC…` は .tmp/）。一覧だけ読み、動画の再生用 API と映像は触らない（クラウドの IP でロボット確認・403 になるため）
+npm run x-reply-candidates  # X の返信候補を Yahoo!リアルタイム検索から集めて .tmp/x-outreach/candidates.json へ書く（読むだけ・送信しない）。配慮が要る投稿は件数だけ数える。手順は /x-reply
+npm run x-reply-sheet       # .tmp/x-outreach/round.json から確認画面を作る。開くのは preview_start の x-outreach
+npm run x-reply-log         # 送信前の門番 --check --user <id>（試行期間・間隔・同じ相手・見送り済み）。--add で送信を記録、--skip で見送りを記録、--report で集計
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x/own-posts/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・quality-audit の report 区分＝weekly-review-guard が週次で読む）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
 ```
@@ -361,6 +365,9 @@ npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 npm run exam-ssot-status # 資格の正本（日程・受験者数・出題形式）の照合状態＝要対応（未確認・原文未照合・180日超・次年度日程未登録・統計が古い）と記録（発表待ち・非公表）。月次レビューが読む（`-- --json`／`-- --check` は完走だけ＝quality-audit ci）
 npm run qualification-market # 資格ごとの展開の判断材料（自分で書く区分＝経験記述・論文とその受験者数・買われる時期・売上・YouTube/note/ココナラの混み具合・X/IG 追跡数）。管理画面 戦略＞資格と市場＞展開の判断と同じ実装（`-- --json`／`-- --check`）。要対応（市場スキャンの未取得・90日超・出題形式の未確認）があっても exit 0
+npm run competitor-position -- --exam rccm # 資格または枠（--slot）の競合の立ち位置を最新の実測つきで表示する。企画と分析の前に読む
+npm run check-competitor-positions # 立ち位置の台帳を市場の検索と取得物で照合する。目立つ相手の見落とし・空きの主張の崩れ・観測値の写し・年間の枠の参照切れを止める
+npm run check-media-references # content/sns の文書が指す素材が Drive の台帳にあるかを確かめる。素材を消す前に通す
 npm run check-past-exam-inventory # 過去問の年度在庫台帳（data/pastexams/inventory.json）と Drive 台帳の整合。FAIL＝台帳の不整合のみ（資格 id・textbook-source-pdf に当たらないパス・取得済みなのに実体無し）。WARN＝掲載中の未取得・最古年度の消失見込み（windowYears があるとき）・Drive 未退避・試験日＋publishLagDays 経過で今年度の行が無い。月次レビューが読む。罠: CI は手元の PDF を見ないので「Drive 台帳に未登録」は WARN 止まり
 npm run check-past-exam-ledger    # 過去問の問題台帳（data/pastexams/questions/{資格}.json）の配線（問題 ID の過不足・記事・原典の実在）と、演習データの正答と公式正答の一致を FAIL。転記の照合率は件数だけ出す（--json は管理画面向け）。罠: civil-1・civil-2 は src/config の JSON を読むので、記事の MDX だけ直しても演習データが古いと不一致が残る
 npm run check-answer-marks        # 過去問 MDX の正答と解説の ✅/❌ の整合（集合・問い方の向き・解説の文と印・記述（①〜）の解説の番号）を全記事で FAIL（引数に記事を渡すとその記事だけ）。✅＝記述が正しい・適当、否定の問いは正答だけ ❌。「該当しない」「許可を必要としない」「適用されない」「対象とならない」「含まれない」を選ぶ問いも否定として、問いに当てはまる選択肢＝正答だけ ❌（DN-0673）。罠: 「改善の必要がない」「どれにも当てはまらない」のように選ぶ対象が肯定の中身・語句の穴埋めになる問い、○×の組合せ・数を問う問いは向きを照合しない（集合だけ）。直した値を述べる「『3 cm以下』が正しい」は判定の語として読まない

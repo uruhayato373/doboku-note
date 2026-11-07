@@ -30,7 +30,6 @@
       "lengthMinutes": { "min": 3, "max": 8 },
       "ctaKinds": ["note-magazine", "coconala-service", "site-article", "links-hub"],
       "producedBy": "render-longform の visual.character・compare・sheet（video-content-policy §4）",
-      "packIds": ["koji-gaiyo-sheet-zukai"],
       "evidence": ["docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"],
       "decision": "DN-0601",
       "note": "試作1本（未公開・音声なし）。Mac で音声付きにして1本公開し、旧版 koji-gaiyo-7items と28日の再生・視聴維持を比べる（実行は DN-0601）。2026-10-08 の判断: 比べる視聴維持を DN-0597 で取れるようになってから公開する"
@@ -43,7 +42,6 @@
       "lengthMinutes": { "min": 20, "max": 60 },
       "ctaKinds": ["note-magazine", "links-hub"],
       "producedBy": "compilation.json（章立てと冒頭・章の区切り・締めの語り）→ npm run build-video-compilation が承認済みパックの場面から storyboard.json を生成 → render-longform（新しい台本は書かない）",
-      "packIds": ["matome-2kyu-chokuzen"],
       "evidence": ["docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"],
       "decision": "DN-0599",
       "note": "競合の土木の動画321本で、30〜60分は再生中央値21,000回、題名に「聞き流し」を含む19本は30,000回（2026-10-08）。2026-10-08 にユーザーが試作に採用。最初の1本は2級の直前総まとめ（15章・設計尺26分・2級の試験 10/25 の前に公開予定）。音声付きの描画・承認・公開は DN-0599"
@@ -92,7 +90,6 @@
       "lengthMinutes": { "min": 8, "max": 20 },
       "ctaKinds": ["note-magazine"],
       "producedBy": "動画パックの通常の工程（新しい描画は要らない）。r8-yosou-dashikata・r8-yosou-theme を出題実績と一次資料で改稿して使う",
-      "packIds": ["r8-yosou-dashikata", "r8-yosou-theme"],
       "evidence": ["docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md", "docs/marketing/08_YouTube戦略_技術士建設部門.md"],
       "decision": "DN-1004",
       "note": "ちゃんさとの出題予想・傾向は16本で再生中央値13,300。的中の断定と予想の連番はしない（08 §7）。採否は DN-1004"

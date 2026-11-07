@@ -315,6 +315,19 @@
         "jsonld_recommended_missing": 407,
         "ssr_thin_body": 1
       }
+    },
+    {
+      "date": "2026-11-07",
+      "generatedAt": "2026-11-06T22:31:02.945Z",
+      "sitemapUrls": 1988,
+      "checked": 1988,
+      "errors": 0,
+      "warnings": 408,
+      "errorsByCode": {},
+      "warningsByCode": {
+        "jsonld_recommended_missing": 407,
+        "ssr_thin_body": 1
+      }
     }
   ]
 }

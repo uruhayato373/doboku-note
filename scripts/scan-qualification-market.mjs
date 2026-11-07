@@ -75,7 +75,7 @@ for (const id of onlyQ) {
 }
 const targets = Object.entries(config.queries).filter(([id]) => (onlyQ.length ? onlyQ.includes(id) : !declined.has(id)));
 const uniq = (xs) => [...new Set(xs)];
-const keywords = uniq(targets.flatMap(([, q]) => q.keywords));
+const keywords = uniq(targets.flatMap(([, q]) => [...q.keywords, ...(q.probeKeywords ?? [])]));
 const coconalaKeywords = uniq(targets.flatMap(([, q]) => q.coconala));
 
 const today = todayJst();

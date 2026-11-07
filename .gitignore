@@ -473,3 +473,6 @@ public/data/pe-cem-frequent-topics.csv
 public/quiz/civil-1.json
 public/quiz/pe-first-stage.json
 src/config/pillar-exam-questions.json
+
+# サイト内サムネイル（R2 の posts/ へ供給。来歴は ai-image-review-ledger.json）
+content/site/**/site-thumb.webp

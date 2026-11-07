@@ -757,3 +757,34 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 旧 `/docs/` 326件はすべて301転送に対応。`/standards-data/` は本番応答でも `X-Robots-Tag: noindex, follow` を確認。その他19件は転送10・非HTML4・現行HTML5。送信済み330件は旧 `/docs/` 325件と現行HTML5件に分かれる。生成物を更新して再診断した `FIX_TECHNICAL`・`REDIRECT_LEGACY` はともに0件。
 - 現行HTML5件をGSC URL検査画面で確認すると、建設部門コンピテンシー改訂、近畿共通仕様書7-2、総監メンタルヘルスの3件は登録済み。RCCM問題IIIとコンクリート診断士の予測・評価・判定は未登録のまま。両ページは200・自己canonical・index許可で、内部リンクもそれぞれ5件・8件ある。登録リクエストはRCCMが10/14、診断士が10/22に受理済み。
 - 判断: 再リクエストや逐語基準の統合は行わず、11/4以降の全URL検査の保存完了と2ページの状態遷移を確認する。Googleの登録は保証できない。根拠: `data/gsc/ui-urls.json`（11/1 run）、`data/gsc/indexing-requests.json`、`data/gsc/indexing-history.json`、`.claude/state/improvements/search-growth-latest.md`、本番ヘッダー、DN-0922。
+
+### 2026-11-07（週次・自動レビュー）
+
+- **観測**: GSC page 10-06〜11-02（28日・1000行打ち切り・`#fragment` 126行を統合して874 URL）/ GA4 10-03〜10-30。P1=4（OPP）+自抽出2・P2=0・P3=1・P4=2級土木二次系・P5/P6=未実施・P7=0・P8=0
+- **上位候補と推奨**:
+  1. `/exam/civil-construction-2/guide/r08-secondary-answers` — imp 31,025 / clicks 5,222 / CTR 16.8% / 順位 6.3、W43 週次クリックは基準の約37倍。クエリ「二級土木施工管理技士 二次試験」は CTR 0.98%・順位 8.4。推奨: 需要の山の取りこぼしと「合格発表までの流れ」等の鮮度を現物確認（メタ実験なら1URL・14〜28日）
+  2. `/exam/civil-construction-1/textbook/scraper` — imp 3,535 / CTR 0.82% / 順位 6.4。推奨: 検索意図（機械の名称・用途）を現物確認のうえメタ実験枠（最大5URL・14〜28日）の1枠
+  3. `/exam/pe-comprehensive-management/past-exams/r08-secondary` — imp 467 / CTR 0.43% / 順位 2.4。推奨: SERP 上のタイトル・日付表示を現物確認
+  - 他 5 件 → improvements/2026-11-07.md
+- **トリアージ待ち**:
+  - OPP-fcfcda5a1a（r08-secondary-answers）→ 起票（鮮度確認・メタ実験は1URL）
+  - OPP-adc3bac9b1（scraper）→ 実験枠候補
+  - OPP-5dd26ae975（2級二次 採点と部分点）→ 保留（伸長側・観測のみ）
+  - OPP-a202ad33ee（2級二次 r06 -69%）→ 保留（clicks 2 vs 6.5 と小さい・次週の連続性を見る）
+  - OPP-22c5d85639（okinawa hikkei-08 part-01）→ 却下（10-26 の part-NN 301 廃止どおり）
+- **注記**: 自動生成（人間の上書き歓迎）。ダイジェストは W43（W44 未反映）。EXP-014〜029 の判定期限（10-26/10-31）超過が11件あり、新規メタ実験より判定を先に回すのが筋。RCCM問題III・診断士の未登録2ページは 11-01 判断どおり観測継続 ✓
+
+### 2026-11-07（coverage・自動レビュー）
+
+- **観測**（history 2026-11-05 エントリ・batch 2026-11-05T08-51-47・全件周回）: inspected 1,982 / sitemap 1,982 / indexed 1,779 / ratio 89.8%（前回 80.6% から +9.2pt）/ discovered_not_indexed 144（sitemap 比 7.3%・前回 206）/ crawled_not_indexed 5（前回 4）/ hygiene（404+redirect）0 / other 54（未認識 45・Google 選択の正規が別 9）
+  - 率の上昇は、10-26 の part-NN 301 廃止による分母縮小と、前回 117 件未検査だった周回が全件そろった影響が大きい。サイトの評価が改善した結果と読まない
+- **原因バケット**:
+  - 権威性: 軽度。discovered 144 件のうち 87 件が `/standards/` の地方整備局版（kinki 40・kyushu 31・tohoku 7・mlit 6・hokkaido 3）に集中
+  - 技術: 問題なし。discovered は未クロール（fetch UNSPECIFIED）、crawled・重複の 14 件は fetch SUCCESSFUL で、5xx・robots ブロックはない
+  - hygiene: 404・redirect は 0。canonical 不一致 9 件はすべて総監 `keywords/`（authenticity・competency-hr・initial-investment ほか）
+- **推奨アクション**:
+  1. ratio が目標 80% を超え、hygiene も 0 なので現状維持
+  2. 総監 keywords の canonical 不一致 9 件は、Google が選んだ正規ページとの重複度を確かめ、統合するか差別化するかを判断する（起票候補）
+  3. 新規資格 pe-water-supply・pipe-work の guide 8 件（未認識。ハブは登録済み）と `/standards/` 地方版の discovered は、次回周回まで観測する。地方版が増え続けるなら量を抑える
+- **異常フラグ**: なし
+- **注記**: 自動生成のため最終決定は人間。11-01 に観測中とした 2 ページのうち、RCCM は 8/8 が登録済みになった。コンクリ診断士 `textbook/assessment` は crawled_not_indexed のまま。gsc-management.md の判断マトリクスは本文を読まず、auditor 定義の閾値で判定した

@@ -96,6 +96,7 @@ export const DATASETS = [
   d('config.market-scan', 'config/market-scan.json', 'config', 'strategy', '資格ごとの市場（競合の混み具合）を取る検索語と閾値', { schema: 'ConfigMarketScan' }),
   d('config.demand-map', 'config/demand-map.json', 'config', 'strategy', '悩みと商品候補の地図（悩み → 立場 → 商品。類似／差別の軸と需要の証拠）', { schema: 'ConfigDemandMap', refs: [{ at: 'candidates[].qualification', to: 'qualification' }, { at: 'candidates[].productIds', to: 'product' }, { at: 'candidates[].experimentId', to: 'experiment' }] }),
   d('config.competitors', 'config/competitors.json', 'config', 'strategy', '競合の追跡リスト（note・ココナラ・Instagram・X・YouTube・講座の企業の枠ごと）', { schema: 'ConfigCompetitors' }),
+  d('config.competitor-positions', 'config/competitor-positions.json', 'config', 'strategy', '資格ごとの競合の立ち位置（押さえられた所・空き・勝負しない所。数字は取得物から読み、npm run check-competitor-positions が検査）', { schema: 'ConfigCompetitorPositions' }),
   d('config.issue-map', 'config/issue-map.json', 'config', 'strategy', '事業イシューマップ（全体・施工管理）。判定日は DN、現在値は指標 id で参照する', { schema: 'ConfigIssueMap', refs: [{ at: 'maps[].calendar.rows[].qualifications[]', to: 'qualification' }, { at: 'maps[].comparison.qualifications[]', to: 'qualification' }] }),
   // 計画
   d('config.channel-annual-plan', 'config/channel-annual-plan.json', 'config', 'plan', 'チャネルの年間計画（YouTube・X・Instagram の年間の枠と型。通常動画は制作期限と公開目標も持つ。実予約は公開台帳）', { schema: 'ConfigChannelAnnualPlan', refs: [{ at: 'entries[].exam', to: 'qualification' }, { at: 'slots[].exam', to: 'qualification' }, { at: 'channels.x.slots[].exam', to: 'qualification' }, { at: 'channels.instagram.slots[].exam', to: 'qualification' }] }),
@@ -146,11 +147,13 @@ export const DATASETS = [
   d('config.ogp-backgrounds', 'config/ogp/backgrounds/{name}.png', 'config', 'site', 'OGP の資格別の背景画像（AI で作った一点物。実体は private R2・素材の group ogp-background。2026-10-10 に git から外した）', { local: true, regen: 'npm run asset-hydrate -- --group ogp-background（R2 から取り戻す。作り直しは scripts/generate-ogp-backgrounds.mjs だが同じ画素は再現しない）' }),
   // SNS
   d('config.x-account', 'config/x-account.json', 'config', 'sns', 'X のアカウントとプロフィール', { schema: 'ConfigXAccount' }),
+  d('config.x-reply-trial', 'config/x-reply-trial.json', 'config', 'sns', 'X の返信の試行（検索語・候補の判定語・1 日の上限）', { schema: 'ConfigXReplyTrial' }),
   d('config.x-repost', 'config/x-repost.json', 'config', 'sns', 'X の引用リポストの設定', { schema: 'ConfigXRepost' }),
   d('config.ig-account', 'config/ig-account.json', 'config', 'sns', 'Instagram のアカウントとプロフィール', { schema: 'ConfigIgAccount' }),
   d('config.instagram-pinned', 'config/instagram-pinned.json', 'config', 'sns', 'Instagramプロフィール固定投稿3本の原稿と図解データ', { schema: 'InstagramPinnedManifest' }),
   d('config.character-poses', 'config/character-poses.json', 'config', 'sns', 'キャラクター素材のポーズと命名', { schema: 'ConfigCharacterPoses' }),
   d('config.image-generation', 'config/image-generation.json', 'config', 'sns', 'AI 画像の共通ルールと生成経路', { schema: 'ConfigImageGeneration' }),
+  d('config.site-thumbnails', 'config/site-thumbnails.json', 'config', 'site', 'サイト内サムネイルの正本', { schema: 'ConfigSiteThumbnails' }),
   d('config.video-brand', 'config/video-brand.json', 'config', 'sns', '動画のブランド（ロゴ・背景）', { schema: 'ConfigVideoBrand' }),
   d('config.video-content', 'config/video-content.json', 'config', 'sns', '動画パックの契約', { schema: 'ConfigVideoContent' }),
   d('config.youtube-delivery', 'config/youtube-delivery.json', 'config', 'sns', 'YouTube 配信の設定', { schema: 'ConfigYoutubeDelivery' }),
@@ -213,6 +216,7 @@ export const DATASETS = [
   // X
   d('x.own-posts', 'data/x/own-posts/{date}.json', 'series', 'sns', '自分の X 投稿の反応', { retain: { family: 'x', keepAll: true }, schema: 'XOwnPosts' }),
   d('x.reposted', 'data/x/reposted.json', 'ledger', 'sns', 'X で引用リポストした投稿', { schema: 'XReposted' }),
+  d('x.reply-log', 'data/x/reply-log.json', 'ledger', 'sns', 'X の返信の送信記録（相手はハッシュのみ）', { schema: 'XReplyLog' }),
   d('x.competitors', 'data/x/competitors/{date}.json', 'series', 'strategy', 'X の競合アカウント（全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'XCompetitors' }),
   // Instagram・YouTube
   d('instagram.competitors', 'data/instagram/competitors/{date}.json', 'series', 'strategy', 'Instagram の競合アカウント（全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'InstagramCompetitors' }),

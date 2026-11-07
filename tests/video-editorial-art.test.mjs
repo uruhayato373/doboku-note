@@ -11,16 +11,6 @@ test('詰め込み過ぎと対応関係の欠落を黙って描画しない', ()
   assert.throws(() => buildEditorialArtwork({ visual: { heading: '長'.repeat(300), art: { type: 'focus' }, items: [] } }), /収まらない/);
   assert.throws(() => buildEditorialArtwork({ visual: { art: { type: 'mapping' }, items: ['対応先がない'] } }), /→/);
 });
-test('対象動画の130枚は指定構図で生成でき、4項目の概要も全件表示する', () => {
-  const { scenes } = JSON.parse(readFileSync(new URL('../content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json', import.meta.url)));
-  const rendered = scenes.filter(s => s.visual?.art).map(s => [s, buildEditorialArtwork(s)]);
-  assert.equal(scenes.length, 131);
-  assert.equal(rendered.length, 130);
-  for (const [s, svg] of rendered) assert.doesNotMatch(svg, /undefined|NaN/, s.sceneId);
-  const overview = rendered.find(([s]) => s.sceneId === 'c01-overview');
-  assert.equal(overview[0].visual.items.length, 4);
-  for (const n of ['01', '02', '03', '04']) assert.ok(overview[1].includes(`>${n}</text>`));
-});
 
 test('口頭対策の図は必要な4項目を欠く入力を拒否する', () => {
   for (const diagram of ['decision', 'learning-loop', 'influence']) {

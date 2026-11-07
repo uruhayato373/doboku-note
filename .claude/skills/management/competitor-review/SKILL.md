@@ -52,12 +52,15 @@ npm run scout-youtube-competitors               # YouTube（追跡チャンネ�
 
 `competitor-analyst` サブエージェント（sonnet）に対象チャネルのスナップショットを渡す（親が手順1を実行済みであること）。
 
-- 入力: 各チャネルの `snapshot.json`（`drift[]` を起点に）、資格ごとの混み具合 `npm run qualification-market -- --json`、参照 09・07・`src/lib/note-magazines.ts`・`src/lib/coconala-services.ts`（自社実価格）
+- 入力: `npm run competitor-position`（現在の立ち位置と実測）、各チャネルの `snapshot.json`（`drift[]` を起点に）、資格ごとの混み具合 `npm run qualification-market -- --json`、参照 09・07・`src/lib/note-magazines.ts`・`src/lib/coconala-services.ts`（自社実価格）
 - 出力: 4観点（ポジショニング/価格対比/品揃えギャップ/脅威と代替軸）＋**「反映パッチ」＝反映先SSOT（09 or 07）と節番号を明示したそのまま貼れる文案**
 - audit-only（取得・価格変更・doc への直接書込みはしない）
 
 ### 3. 反映（ユーザー承認 → 親が適用）
 
+- **資格ごとの結論は `config/competitor-positions.json` へ入れる**（文書へ写さない）。取得で数字が変わっただけなら、読み直して `reviewedOn` を更新する。主張が変わったら `rivals`・`avoid`・`stances`・`limits` を直す
+- 適用後に `npm run check-competitor-positions` を通す。市場の検索で目立つ相手の見落とし、空きの主張の崩れ、文章への観測値の写し、年間の枠の参照切れで止まる
+- 検索語が足りない主張は `config/market-scan.json` の `probeKeywords` に足して `npm run scan-qualification-market -- --qualification <id>` で取り直す
 - analyst の反映パッチを**ユーザーに提示**し、承認を得てから親が該当 doc（価格/品揃え→09・エンゲージ/コンテンツ型→07）を Edit で更新
 - **鉄則（現物照合）**: 自社価格を書くときは `note-magazines.ts`/`coconala-services.ts` を Read して file:line で裏取り。裏取りできない主張は confidence:low か「未確認」
 

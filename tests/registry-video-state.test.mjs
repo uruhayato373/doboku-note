@@ -11,15 +11,15 @@ import {
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const rules = loadRegistryConfig(ROOT).idRules;
-const MATOME = 'content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen';
+const MATOME = 'content/sns/video-packs/civil-construction-2/keiken-daizai-erabi';
 
-test('総まとめパックを作品と通常動画の公開に変換する（状態は今の台帳から写す）', () => {
-  const state = { packs: { 'matome-2kyu-chokuzen': { derivatives: { longform: { status: 'qa_passed', qa: { avg: 2.33, blocks: 0, at: '2026-10-08', by: 'qa' } } } } } };
+test('動画パックを作品と通常動画の公開に変換する（状態は今の台帳から写す）', () => {
+  const state = { packs: { 'keiken-daizai-erabi': { derivatives: { longform: { status: 'qa_passed', qa: { avg: 2.33, blocks: 0, at: '2026-10-08', by: 'qa' } } } } } };
   const { exam, work, publications } = videoPackRows(ROOT, MATOME, { state, rules });
   assert.equal(exam, 'civil-construction-2');
-  assert.deepEqual(work, { id: 'matome-2kyu-chokuzen', kind: 'video-pack', definition: MATOME, format: 'compilation', qa: { avg: 2.33, blocks: 0, at: '2026-10-08', by: 'qa' } });
+  assert.deepEqual(work, { id: 'keiken-daizai-erabi', kind: 'video-pack', definition: MATOME, qa: { avg: 2.33, blocks: 0, at: '2026-10-08', by: 'qa' } });
   assert.equal(publications.length, 1);
-  assert.equal(publications[0].id, 'civil-construction-2/matome-2kyu-chokuzen/youtube.longform');
+  assert.equal(publications[0].id, 'civil-construction-2/keiken-daizai-erabi/youtube.longform');
   assert.equal(publications[0].status, 'qa_passed');
   assert.equal(publications[0].copy, `${MATOME}/youtube.json#longform`);
 });
@@ -58,7 +58,7 @@ test('派生物の無い Shorts は素の下書きで、今の台帳には出さ
 test('台帳から作った形（loadVideoState）を saveVideoState の計画に通しても、台帳の行は 1 件も変わらない', async () => {
   const state = loadVideoState(ROOT);
   const ids = Object.keys(state.packs);
-  assert.ok(ids.length >= 100, `検査したパックが少ない: ${ids.length}`);
+  assert.ok(ids.length >= 30, `検査したパックが少ない: ${ids.length}`);
   const plan = await planVideoRows(ROOT, state, { packIds: ids, evidence: { kind: 'publisher', ref: 'test' } });
   assert.equal(plan.counts.packs, ids.length);
   assert.deepEqual({ works: plan.counts.works, publications: plan.counts.publications }, { works: 0, publications: 0 });

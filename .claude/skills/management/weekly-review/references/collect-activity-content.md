@@ -28,7 +28,7 @@
   ※予約投稿は go-live がサーバ側後刻で writeback できず draft 取り残しが起きるため週次で自己修復する
 - IG 公開状態ドリフト: SNS 保留中は照合を回していない（土曜の収集に IG の段は無い）。`.claude/state/ig-reconcile/snapshot.json` は保留前の記録なので、日付を添えて読むだけにする（Graph API は使わない＝2026-09-23 ユーザー決定）。★ドリフトが出たら SNS の再開を待つ（`/ig-reconcile` スキルと照合の手順書は 2026-10-25 に外した）。
   SNS を再開するときは土曜の収集に IG の段を足す（weekly-collect-plan.mjs）。
-- 競合再スキャンの期限: 週次の点検（`npm run quality:audit:weekly`・review-checks が下書きで回す・DN-0847）の `competitor-scan-due` が 90 日超を知らせる。FAIL の週だけ「点検と Issue」に行き先を書き、チャネルは `/competitor-review`、market（資格キーワードの市場スキャン）は次の月次レビューでの再取得を申し送る。
+- 競合再スキャンの期限: 週次の点検（`npm run quality:audit:weekly`・review-checks が下書きで回す・DN-0847）の `competitor-scan-due` が 90 日超を知らせる。FAIL の週だけ「点検と Issue」に行き先を書き、チャネルは `/competitor-review`、market（資格キーワードの市場スキャン）は次の月次レビューでの再取得を申し送る。 `positions` の DUE は取得が分析より新しいという知らせで、`/competitor-review` の手順 2・3 で立ち位置を読み直す。
 - 競合の変化と追跡候補（ココナラ）: `npm run report-competitor-watch -- --json` を実行（オフライン・committed state 参照・creds不要）。
   `changes[]`（値下げ・出品増減・撤収・累計販売 +20 件以上）、`candidates[]`（追跡外で関連サービスの販売実績 20 件以上の売り手）、
   `partial[]`（売上推定が一部だけの売り手）を読む。候補は次セッションで handle を解決して `config/competitors.json` の coconala に足すかを判断。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合

@@ -676,6 +676,32 @@ export const CoconalaResolvedInquiries = z
   .meta({ title: 'ココナラの決着した問い合わせ' });
 
 /** 引用リポスト済みの記録（data/x/reposted.json）。重複リポストを防ぐ */
+export const XReplyLog = z
+  .object({
+    schemaVersion: z.literal(1),
+    replies: z.array(
+      z
+        .object({
+          at: utcTime('送信時刻'),
+          kind: z.enum(['ask', 'pass', 'fail']),
+          targetId: z.string().regex(/^\d+$/),
+          replyId: z.string().regex(/^\d+$/),
+          userHash: z.string().regex(/^[0-9a-f]{12}$/),
+        })
+        .strict(),
+    ),
+    skips: z.array(
+      z
+        .object({
+          at: utcTime('見送りを決めた時刻'),
+          reason: z.enum(['situation', 'offtopic', 'supplier', 'not-self', 'other']),
+          userHash: z.string().regex(/^[0-9a-f]{12}$/),
+        })
+        .strict(),
+    ),
+  })
+  .strict();
+
 export const XReposted = z
   .object({
     _comment: z.string(),

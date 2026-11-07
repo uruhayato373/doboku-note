@@ -21,6 +21,7 @@
  * ---------------------------------------------------------------------------
  */
 
+import { positionsReviewDue } from './lib/competitor-positions.mjs';
 import { freshnessDays, latestFileDate } from './lib/datasets.mjs';
 import { readDatasetIf } from './lib/dataset-io.mjs';
 import { researchDue } from './lib/demand-map.mjs';
@@ -74,6 +75,19 @@ for (const [name, cfg] of Object.entries(platforms)) {
   perPlatform[name] = { lastScan: last, daysSince, due, paused: cfg.paused ?? null, automation: cfg.automation ?? 'manual', review: cfg.review };
 }
 
+// 取得物が分析より新しければ、資格ごとの立ち位置を読み直す。期限ではなく取得の更新で鳴らす
+if (!ONLY) {
+  const position = positionsReviewDue(ROOT);
+  perPlatform.positions = {
+    lastScan: position.reviewedOn,
+    daysSince: position.reviewedOn ? Math.floor((Date.now() - Date.parse(position.reviewedOn + 'T00:00:00Z')) / 86400000) : null,
+    due: position.due,
+    paused: null,
+    automation: 'manual',
+    review: `/competitor-review の手順 2・3 で立ち位置を読み直す（取得の最新 ${position.newest ?? 'なし'}）`,
+  };
+}
+
 const dueList = Object.entries(perPlatform).filter(([, v]) => v.due).map(([k]) => k);
 const result = {
   check: 'competitor-scan-due',
@@ -91,12 +105,20 @@ if (WANT_JSON) {
     if (v.paused) {
       console.log(`[競合再スキャン:${name}] 保留: ${v.paused}（前回 ${v.lastScan ?? 'なし'}）`);
     } else if (v.due) {
+      if (name === 'positions') {
+        console.log(`[競合再スキャン:positions] DUE: 分析 ${v.lastScan ?? 'なし'} → ${v.review}`);
+        continue;
+      }
       console.log(
         v.lastScan
           ? `[競合再スキャン:${name}] DUE: 前回 ${v.lastScan}（${v.daysSince}日前・しきい値${thresholdOf(platforms[name].dataset)}日）→ ${v.review}`
           : `[競合再スキャン:${name}] DUE: 履歴なし（初回）→ ${v.review}`
       );
     } else {
+      if (name === 'positions') {
+        console.log(`[競合再スキャン:positions] OK: 分析 ${v.lastScan}（取得より新しい）`);
+        continue;
+      }
       console.log(`[競合再スキャン:${name}] OK: 前回 ${v.lastScan}（${v.daysSince}日前・次回まで${thresholdOf(platforms[name].dataset) - v.daysSince}日）`);
     }
   }

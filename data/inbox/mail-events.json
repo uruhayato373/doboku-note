@@ -1,8 +1,15 @@
 {
   "schemaVersion": 1,
   "description": "obsidian の mail-triage（毎日 cron）がメールから拾ったイベント。売上の正本ではない——正本は各リポのスクレイパーが取るログ。辞書は obsidian .claude/mail-rules.json",
-  "updatedAt": "2026-11-04T02:40:31.804Z",
+  "updatedAt": "2026-11-07T02:20:41.870Z",
   "events": [
+    {
+      "id": "1a1aecd3e5d1154f",
+      "receivedAt": "2026-11-06T03:00:48.000Z",
+      "account": "doboku",
+      "kind": "adsense",
+      "label": "AdSense のお知らせ"
+    },
     {
       "id": "1a1a10c5302116eb",
       "receivedAt": "2026-11-03T10:55:01.000Z",

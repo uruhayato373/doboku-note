@@ -592,9 +592,9 @@
 
 着手時に使う原稿と作品:
 
-- **安全**：[現行パック](../../sns/video-packs/civil-construction-2/anzen-touan-gutaika/video-pack.json) と [安全管理教材](2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md)。まず現在の予約・公開状態を台帳とYouTubeで照合し、改訂版へ切り替える際は公開対象が二重にならないよう反映する。
-- **品質**：[品質管理教材](2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md) と [既存企画](../../sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/video-pack.json)。切り口は「試験をした、だけで終わらせない」。
-- **工程**：[工程管理教材](2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md) と [既存企画](../../sns/video-packs/civil-construction-2/keiken-kotei-kakikata/video-pack.json)。切り口は「増員した、だけで終わらせない」。
+- **安全**：現行パック と [安全管理教材](2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md)。まず現在の予約・公開状態を台帳とYouTubeで照合し、改訂版へ切り替える際は公開対象が二重にならないよう反映する。
+- **品質**：[品質管理教材](2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md) と 既存企画。切り口は「試験をした、だけで終わらせない」。
+- **工程**：[工程管理教材](2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md) と 既存企画。切り口は「増員した、だけで終わらせない」。
 
 品質・工程の既存企画は素材として参照し、停止済みの旧動画を再公開しない。旧動画を仕上げる2件の制作予定は、上表の新規企画へ置き換える。旧パックに残る派生本数より、本節の初期制作量を優先する。
 

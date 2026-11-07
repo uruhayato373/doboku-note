@@ -46,6 +46,8 @@ domain: sns
 
 ## 進め方
 
+着手前に、投稿の枠の `npm run competitor-position -- --slot <枠 id>` を読み、取る立ち位置と勝負しない所に沿って書く。
+
 1. `.claude/knowledge/reference/ig-carousel-policy.md` と `.claude/shared-policy/REPURPOSE.md` を読む。
 2. `angle` が指定されていれば、その切り口でカバーの `hook` とスライド構成を設計する（repurpose-policy §2 カルーセル欄参照）。未指定なら文脈から最適な切り口を選ぶ。いずれの切り口でも必ず1パック作れる。
 3. キーワード MDX `content/site/{category}/{slug}/article.mdx` を読み、定義・試験ポイント・関連キーワード・管理区分を把握する。

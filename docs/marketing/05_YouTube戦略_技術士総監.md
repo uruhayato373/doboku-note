@@ -3,6 +3,7 @@
 技術士総合技術監理部門（以下、総監）に特化した YouTube チャネルの設計・運用・撤退判断を定める SSOT。[01_SNS集客戦略.md](./01_SNS集客戦略.md)（v7.3）の YouTube 節を、総監について改訂・拡張する。
 
 **最終更新**: 2026-09-05（legacy Shorts台帳の凍結状態とvideo-pack経路を同期）
+**競合の結論の正本**: `config/competitor-positions.json`（`npm run competitor-position -- --exam <資格 id>`）。この文書の競合の記述は作成時点の記録で、結論が食い違うときは台帳を優先する。
 **運営者**: ペンネーム「架」。元・地方自治体土木職（発注者）の退職者。技術士（建設部門・総合技術監理部門）含む 10 資格保有。顔出しなし・TTS 前提（真実源: `src/config/author.ts`）
 **親 SSOT**: [01_SNS集客戦略.md](./01_SNS集客戦略.md)（SNS チャネル全体）／[06_動画コンテンツ運用設計.md](./06_動画コンテンツ運用設計.md)（多資格の動画パック・役割・管理・KPI）。本ファイルは総監固有のテーマ・Red Line・季節運用を上書きする
 **関連**: [video-content-policy.md](../../.claude/knowledge/reference/video-content-policy.md)（動画パック作業契約）／[yt-shorts-publisher-policy.md](../../.claude/knowledge/reference/yt-shorts-publisher-policy.md)（Shorts 品質基準）／[noteコンテンツ計画.md](../../content/note/技術士総監/noteコンテンツ計画.md)（送客先・Red Line の真実源）／[content-angle-policy.md](../../.claude/knowledge/reference/content-angle-policy.md)（6 切り口）
