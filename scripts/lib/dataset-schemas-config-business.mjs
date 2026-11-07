@@ -361,7 +361,8 @@ const positionStance = z
 const competitorPosition = z
   .object({
     id: QID,
-    exams: z.array(QID).min(1).describe('資格 id。名前は qualification-registry から読む'),
+    topic: text.optional().describe('資格に結び付かない立ち位置の名前。exams を空にする'),
+    exams: z.array(QID).describe('資格 id。名前は qualification-registry から読む。試験の外は空'),
     reviewedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).describe('取得物を読んで分析した日'),
     read: z.array(repoFileRef).min(1).describe('分析で読んだ文書。読んでいないものは書かない'),
     summary: positionText,

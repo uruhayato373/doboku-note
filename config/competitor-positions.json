@@ -1643,6 +1643,109 @@
         "ココナラの舗装の出品は追跡していない",
         "自社の売上の実績がまだ無い"
       ]
+    },
+    {
+      "id": "beyond-exam",
+      "topic": "試験の外（実務・発注者・転職）",
+      "exams": [],
+      "reviewedOn": "2026-11-07",
+      "read": [
+        "docs/reviews/competitors/2026-11_試験の外.md"
+      ],
+      "summary": "実務はジョウ所長、発注者支援の転職は土木の資格チャンネルが強い。工事検査と設計図書を発注者の目で説明する動画は検索の上位に少ない。娯楽に近い働き方の話題は大きなチャンネルが占める。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UCTBEJ48xCuWQvvQFuvqGYHA",
+          "holds": "積算・設計変更・工事書類の施工者の側の解説"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCWR71DNlOsPN6LMdeIyZ84w",
+          "holds": "資格と発注者支援業務への転職の案内"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCGGdNWSWRHN91pOBcc5WLTg",
+          "holds": "積算の解説と資格の紹介"
+        },
+        {
+          "channel": "note",
+          "handle": "jichitai_senmon",
+          "holds": "自治体の技術職向けの実務の教材"
+        }
+      ],
+      "dismissed": [],
+      "avoid": [
+        {
+          "id": "beyond-entertainment",
+          "text": "働き方の暴露と娯楽",
+          "why": "切り抜きと大きなチャンネルが占め、合格や実務の役に立つ内容から離れる",
+          "rivals": [],
+          "formats": []
+        },
+        {
+          "id": "beyond-site-field",
+          "text": "現場の密着と施工の映像",
+          "why": "現場の映像を持たず、撮影に強い相手と比べられる",
+          "rivals": [],
+          "formats": []
+        }
+      ],
+      "stances": [
+        {
+          "id": "beyond-owner-eye",
+          "stage": "合格の後も",
+          "text": "工事検査・設計図書・設計変更を発注者の目で説明する",
+          "why": "元発注者の経験が使える。施工者の側の解説と違う見方を出せる",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "note",
+            "site"
+          ],
+          "evidence": [
+            "docs/reviews/competitors/2026-11_試験の外.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "beyond-owner-career",
+          "stage": "転職の検討",
+          "text": "発注者の仕事の中身と、発注者側へ移る前に知ること",
+          "why": "転職の案内は多いので、仕事の中身を元発注者が説明する形にする",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "site"
+          ],
+          "evidence": [
+            "docs/reviews/competitors/2026-11_試験の外.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "beyond-next-license",
+          "stage": "次の資格",
+          "text": "今の資格から次に何を取るかの順序",
+          "why": "土木から技術士へ進む順序は自社の商品の並びと同じ",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "site"
+          ],
+          "evidence": [
+            "docs/reviews/competitors/2026-11_試験の外.md"
+          ],
+          "probes": []
+        }
+      ],
+      "limits": [
+        "検索語 26 個の上位の結果だけで、全件ではない",
+        "題名だけを見ていて、本編の内容は比べていない",
+        "note の販売数は分からない",
+        "ショートは見ていない"
+      ]
     }
   ]
 }
