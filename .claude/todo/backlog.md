@@ -21,6 +21,18 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1043] fetch-metrics の develop への publish が型のテストで落ちるのを直し、W44 の計測ダイジェストを出す
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-08]
+
+**起点**: 週次レビュー（2026-11-02〜2026-11-08）。金曜 11/6 の `fetch-metrics.yml`（run 42142682662）と 11/8 の再実行（run 42419458353）がどちらも develop への publish で失敗し、W44 の計測ダイジェスト・資格別 KPI の自然検索人数・実験の自動計測が記録されていない（Issue #1421）。
+
+**分かっていること**: commit 前の検査（pre-commit-ci-gates）の unit-tests で 60 件中 1 件が落ちる。対象は `tests/dataset-schemas.test.mjs` と `tests/dataset-schemas-search.test.mjs`（`config/`・`data/` の JSON が staged のとき選ばれる）。手元の develop のデータでは 60 件とも通るので、金曜に新しく取ったデータが型の不変条件に引っかかっている。CI のログは末尾しか残らず、落ちたテスト名が読めない。
+
+**やること**: (1) 落ちたテストの名前と理由が CI のログに残るようにする（失敗した行を先に出す）。(2) 取ったデータか型のどちらが正しいかを決めて直す。(3) `gh workflow run fetch-metrics.yml --ref develop` で W44 のダイジェストを publish し、`npm run growth-triage -- list` の未処分を処分する。
+
+**完了条件**: fetch-metrics が develop へ publish でき、`data/analysis/growth/digest-2026-W44.json` が develop にあり、Issue #1421 が復旧で閉じている。
+
+
 ### [DN-1036] Codex の並列画像生成で別の実行の画像を取り違える
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
 
