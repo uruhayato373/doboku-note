@@ -54,6 +54,11 @@ export function getOgpDisplayUrl(fullSlug: string): string {
   return process.env.NODE_ENV === 'production' ? `${R2_PUBLIC_URL}${path}` : path;
 }
 
+/** 記事の隣の素材の表示用 URL（path は posts/ からの相対）。development は /posts、production は R2 */
+export function getPostAssetDisplayUrl(path: string): string {
+  return process.env.NODE_ENV === 'production' ? `${R2_PUBLIC_URL}/posts/${path}` : `/posts/${path}`;
+}
+
 /**
  * Next.js カスタム画像ローダー
  * dev/prod問わずR2 URLに変換（画像はR2で一元管理）

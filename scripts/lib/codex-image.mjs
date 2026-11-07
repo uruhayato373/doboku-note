@@ -1,17 +1,40 @@
 /**
  * codex-image.mjs — codex exec の画像生成を 1 か所に集める（gen-article-photo.mjs・media-plate.mjs が使う）。
- * 実行（spawn）は run で差し替えられる。テストは偽の run で「画像ができた」「できなかった」を固定する。
+ * 実行（spawn）は run で差し替えられる。run は codex --json の出力を返し、画像はその thread_id のフォルダから取る。
  */
-import { mkdtempSync, readdirSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdtempSync, readdirSync, statSync } from 'node:fs';
 import { execFileSync, spawn } from 'node:child_process';
-import { tmpdir } from 'node:os';
+import { homedir, tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 export const CODEX_TIMEOUT_MS = 15 * 60 * 1000;
 
-/** 既定の実行: codex を同期で呼ぶ。失敗しても投げない（画像が出たかで判断する） */
+const IMAGE = /\.(png|jpe?g|webp)$/i;
+/** Codex が生成画像を置く場所。実行ごとに thread_id のフォルダへ入る */
+export const codexImagesRoot = () => join(process.env.CODEX_HOME || join(homedir(), '.codex'), 'generated_images');
+
+/** 既定の実行: codex を同期で呼び、--json の出力を返す。失敗しても投げない（画像が出たかで判断する） */
 export function runCodex(args) {
-  try { execFileSync('codex', args, { stdio: ['ignore', 'ignore', 'inherit'], timeout: CODEX_TIMEOUT_MS }); } catch { /* 画像が出たかで判断する */ }
+  try {
+    return execFileSync('codex', args, { stdio: ['ignore', 'pipe', 'inherit'], timeout: CODEX_TIMEOUT_MS, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  } catch (error) { return String(error?.stdout ?? ''); }
+}
+
+/**
+ * この実行の画像だけを dir へ取り出す。Codex に探させると、並列時に別の実行の最新画像を取る（DN-1036）。
+ * thread_id が読めない、または自分の画像が無いときは null。
+ */
+export function takeOwnImage(stdout, dir, imagesRoot = codexImagesRoot()) {
+  const threadId = String(stdout ?? '').match(/"thread_id"\s*:\s*"([^"]+)"/)?.[1];
+  if (!threadId) return null;
+  const own = join(imagesRoot, threadId);
+  if (!existsSync(own)) return null;
+  const newest = readdirSync(own).filter((f) => IMAGE.test(f)).map((f) => join(own, f))
+    .sort((a, b) => statSync(b).mtimeMs - statSync(a).mtimeMs)[0];
+  if (!newest) return null;
+  const dest = join(dir, `out${newest.slice(newest.lastIndexOf('.'))}`);
+  copyFileSync(newest, dest);
+  return dest;
 }
 
 /**
@@ -19,8 +42,8 @@ export function runCodex(args) {
  * -i は続けて複数の画像を受けるので、直後にフラグ（--sandbox）を置いて指示文が画像として読まれないようにする。
  */
 export function codexArgs(dir, fullPrompt, model, images = []) {
-  return ['exec', '--skip-git-repo-check', ...images.flatMap((image) => ['-i', image]), '--sandbox', 'workspace-write', '-C', dir, ...(model ? ['-m', model] : []),
-    `Use your image generation tool. ${fullPrompt} After generating, copy the generated image file into the current working directory as out.png. Reply with only the saved path.`];
+  return ['exec', '--json', '--skip-git-repo-check', ...images.flatMap((image) => ['-i', image]), '--sandbox', 'workspace-write', '-C', dir, ...(model ? ['-m', model] : []),
+    `Use your image generation tool. ${fullPrompt} Generate exactly one image. Do not search for or copy image files. Reply with only: done.`];
 }
 
 /**
@@ -29,26 +52,41 @@ export function codexArgs(dir, fullPrompt, model, images = []) {
  * @param {string|null} [model]
  * @param {{ run?: (args: string[], dir: string) => void, tmp?: string, images?: string[] }} [opts] run を差し替えると codex を呼ばない
  */
-export function generateWithCodex(fullPrompt, model, { run = (args) => runCodex(args), tmp = tmpdir(), images = [] } = {}) {
+export function generateWithCodex(fullPrompt, model, { run = (args) => runCodex(args), tmp = tmpdir(), images = [], imagesRoot } = {}) {
   const dir = mkdtempSync(join(tmp, 'gen-article-photo-'));
-  run(codexArgs(dir, fullPrompt, model, images), dir);
-  const out = readdirSync(dir).find((f) => /\.(png|jpe?g|webp)$/i.test(f));
-  return out ? join(dir, out) : null;
+  return takeOwnImage(run(codexArgs(dir, fullPrompt, model, images), dir), dir, imagesRoot);
 }
 
 /** 既定の非同期実行。標準入力は必ず閉じる（開いたままだと codex exec が入力を待ち続けて止まる・2026-11-04） */
 export function spawnCodex(args) {
   return new Promise((done) => {
-    const child = spawn('codex', args, { stdio: 'ignore', timeout: CODEX_TIMEOUT_MS });
-    child.on('error', () => done());
-    child.on('close', () => done());
+    const child = spawn('codex', args, { stdio: ['ignore', 'pipe', 'ignore'], timeout: CODEX_TIMEOUT_MS });
+    let stdout = '';
+    child.stdout.on('data', (chunk) => { stdout += chunk; });
+    child.on('error', () => done(stdout));
+    child.on('close', () => done(stdout));
   });
 }
 
 /** generateWithCodex の並列用。出た最初の画像のパスを返す（出なければ null） */
-export async function generateWithCodexAsync(fullPrompt, model, { run = spawnCodex, tmp = tmpdir(), images = [] } = {}) {
+export async function generateWithCodexAsync(fullPrompt, model, { run = spawnCodex, tmp = tmpdir(), images = [], imagesRoot } = {}) {
   const dir = mkdtempSync(join(tmp, 'gen-article-photo-'));
-  await run(codexArgs(dir, fullPrompt, model, images), dir);
-  const out = readdirSync(dir).find((f) => /\.(png|jpe?g|webp)$/i.test(f));
-  return out ? join(dir, out) : null;
+  return takeOwnImage(await run(codexArgs(dir, fullPrompt, model, images), dir), dir, imagesRoot);
+}
+
+/** codex --json の出力から最後の応答文を取り出す */
+export function agentMessage(stdout) {
+  let last = '';
+  for (const line of String(stdout ?? '').split('\n')) {
+    if (!line.includes('agent_message')) continue;
+    try { const event = JSON.parse(line); if (event.item?.type === 'agent_message') last = event.item.text ?? last; } catch { /* JSON でない行 */ }
+  }
+  return last;
+}
+
+/** 画像を添付して Codex に文章で答えさせる（読み取り専用）。監査など、画像を作らない用途 */
+export async function askCodexAboutImages(prompt, images, { run = spawnCodex, model = null, tmp = tmpdir() } = {}) {
+  const dir = mkdtempSync(join(tmp, 'codex-review-'));
+  const args = ['exec', '--json', '--skip-git-repo-check', ...images.flatMap((image) => ['-i', image]), '--sandbox', 'read-only', '-C', dir, ...(model ? ['-m', model] : []), prompt];
+  return agentMessage(await run(args, dir));
 }
