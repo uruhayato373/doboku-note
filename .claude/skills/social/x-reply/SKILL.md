@@ -32,6 +32,15 @@ domain: sns
    - 送信し、自分の返信タブで表示を確かめる
 8. **記録**: `npm run x-reply-log -- --add --user <screenName> --target <元の投稿の ID> --reply <自分の返信の ID> --kind ask|pass|fail`。`data/x/reply-log.json` だけをコミットする。
 
+## 承認済みの分を時間差で送る
+
+1. 運営者が相手と文面を 1 件ずつ承認する（1 回 5 件まで）
+2. 承認された分を `.tmp/x-outreach/queue.json` に書く。形は `{ "approvedAt": <UTC>, "items": [{ "user", "targetId", "kind", "text" }] }`
+3. 運営者が `/loop` で 1 時間おきの実行を始める
+4. 毎回、先頭の 1 件だけを手順 7・8 で送り、`queue.json` から消す
+5. 次のときは送らない。新しい投稿で状況が変わった、`x-reply-log --check` が BLOCK、承認から 24 時間を超えた。止めた分は運営者に返す
+6. `queue.json` が空になったら `/loop` を止める
+
 ## 止める条件
 
 - `x-reply-log --check` が BLOCK を返したら送らない

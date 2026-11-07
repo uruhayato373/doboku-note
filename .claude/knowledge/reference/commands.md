@@ -284,7 +284,7 @@ npm run check-youtube-analytics # 最新のYouTube Analytics記録を公開台�
 npm run scout-youtube-competitors # config/competitors.json の youtube の各チャンネルの通常動画（新しい順100本）の再生・尺・題名の語ごとの中央値を data/youtube/competitors/YYYY-MM-DD.json へ（四半期・前回比 drift・`--handle UC…` は .tmp/）。一覧だけ読み、動画の再生用 API と映像は触らない（クラウドの IP でロボット確認・403 になるため）
 npm run x-reply-candidates  # X の返信候補を Yahoo!リアルタイム検索から集めて .tmp/x-outreach/candidates.json へ書く（読むだけ・送信しない）。配慮が要る投稿は件数だけ数える。手順は /x-reply
 npm run x-reply-sheet       # .tmp/x-outreach/round.json から確認画面を作る。開くのは preview_start の x-outreach
-npm run x-reply-log         # 送信前の門番 --check --user <id>（試行期間・1 日の上限・間隔・同じ相手・見送り済み）。--add で送信を記録、--skip で見送りを記録、--report で集計
+npm run x-reply-log         # 送信前の門番 --check --user <id>（試行期間・間隔・同じ相手・見送り済み）。--add で送信を記録、--skip で見送りを記録、--report で集計
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x/own-posts/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・quality-audit の report 区分＝weekly-review-guard が週次で読む）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
 ```
