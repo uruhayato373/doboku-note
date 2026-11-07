@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "_doc": "docs/marketing/02_チャネル動線設計.md（チャネル横断の役割）・docs/marketing/06_動画コンテンツ運用設計.md（動画）。チャネルの年間の枠と型の正本。slots・entries・cycle・metrics は YouTube、channels は X・Instagram の枠と型を持つ。枠の stance は config.competitor-positions の立ち位置を指す。materials は entries と primaryCta に無い材料だけを持ち、写さない。編集後は check-channel-plan・check-youtube-plan・check-competitor-positions を通す",
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-07",
   "cycle": {
     "id": "2026-11_2027-10",
     "window": {
@@ -35,8 +35,7 @@
         "why": "1級二次の直前で、経験記述の販売が最も近い"
       }
     ],
-    "calendarBasis": "2027 年度の日程は公式発表前で確定しない。window の月は config/exam-calendar.json の 2026 年度の実績を目安にした仮の月で、anchors の行事が公式に出たら改める。試験日はこの設定へ写さない",
-    "rebuildUntil": "2026-11-30"
+    "calendarBasis": "2027 年度の日程は公式発表前で確定しない。window の月は config/exam-calendar.json の 2026 年度の実績を目安にした仮の月で、anchors の行事が公式に出たら改める。試験日はこの設定へ写さない"
   },
   "metrics": {
     "primary": [
@@ -54,7 +53,7 @@
     ],
     "target": "目標値は決めない。2027-02-05 の見直し（DN-1006）で 3 か月の実測から決める。欠測は 0 として扱わない"
   },
-  "cadence": "通常動画の公開は平常で週 2 本まで、山場の週で 3 本まで（cycle）。毎日 1 本の目標は 2026-11-06 に取り下げた。実予約は公開台帳の日程を参照し、再案内は本数に数えない。ショートは各枠の shorts に上限を持ち、通常動画の週の上限とは別に数える。",
+  "cadence": "通常動画の公開は週 2 本まで、山場の週で 3 本まで（cycle）。全 74 本は月 6〜8 本で、在庫に頼らず作れる量に絞った（2026-11-07）。実予約は公開台帳の日程を参照する。",
   "productionRule": "次に公開する枠の分を先行して台本・内容QA、POP表紙・図解、レンダー、画面・最終承認まで進める。台本・内容QAはClaude Code、画像の新規生成はCodex ImageGenを担当する。既存の品質・承認・予約ゲートは維持する。変更のない音声・字幕は再利用。R8予想と年度依存箇所は実質改稿して再QA。目標日と予定は公開承認や外部予約を意味しない。",
   "reviewRule": "毎月最初の営業日に翌2か月の公式試験日・教材・制作余力を再確認。公開28日後の視聴維持・教材クリック・受取・制作時間を記録し、欠測は0にしない。2027年度日程は公式発表後に改訂し、未確認の日付を試験日として確定しない。 優先度はP1＝受験期限が近い主軸の制作、P2＝季節集中・既存資産の再活用、P3＝試行。試験日は既存の試験日程台帳、表示期間は年間ロードマップの設定を参照する。 2027-02-05 に枠・本数・成功指標の目標を見直す。",
   "channels": {
@@ -824,9 +823,7 @@
           },
           "count": 4,
           "salesMax": 0,
-          "parents": [
-            "c1-sokuho-2027"
-          ],
+          "parents": [],
           "reason": {
             "reader": "試験の直後に自分の出来を確かめたい",
             "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -1816,10 +1813,16 @@
       "format": "single-topic-zukai",
       "title": "総監 口頭試験の準備",
       "stance": "cm-oral",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "sell",
       "window": {
         "from": "2026-11",
-        "to": "2027-01"
+        "to": "2026-12"
       },
       "anchors": [
         "writtenResult",
@@ -1834,7 +1837,7 @@
       },
       "count": 2,
       "reuse": "new",
-      "reuseNote": "トレードオフの 1 本は新規。残り 1 本の余白を持つ",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "筆記に受かったが、経験を5管理の言葉で説明する練習ができていない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -1846,233 +1849,6 @@
           "docs/marketing/05_YouTube戦略_技術士総監.md:162"
         ],
         "next": "動画ごとの平均視聴率と、口頭教材の販売の時期を見る"
-      },
-      "materials": {
-        "status": "accepted",
-        "packs": [
-          "pe-comprehensive-management/sokan-kojutsu-kangaekata"
-        ],
-        "products": [
-          "coconala-pe-oral-qa"
-        ],
-        "make": ""
-      }
-    },
-    {
-      "id": "cm-restart-2027",
-      "exam": "pe-comprehensive-management",
-      "format": "single-topic-zukai",
-      "title": "総監 再挑戦と学習開始",
-      "stance": "cm-restart",
-      "role": "attract",
-      "window": {
-        "from": "2026-12",
-        "to": "2027-03"
-      },
-      "anchors": [
-        "finalResult",
-        "applicationOpen"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "essay-complete-pack",
-          "essay-core-pack",
-          "tankan-reading-guide",
-          "tradeoff-5kanri"
-        ]
-      },
-      "count": 5,
-      "shorts": {
-        "count": 5
-      },
-      "reuse": "stock",
-      "reuseNote": "3 本は完成済み。残りは台本まで",
-      "reason": {
-        "reader": "来年度の総監をどこから始めるか決められない",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "択一と記述の配分を無料で示し、型は note で買う",
-        "demand": "落ちた原因の診断を軸にした商品は検索に見当たらない（立ち位置 cm-restart）。再生の需要は未検証",
-        "evidence": [
-          "docs/marketing/05_YouTube戦略_技術士総監.md:52"
-        ],
-        "next": "3 か月後に総監の平均視聴率を他資格と比べる"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      }
-    },
-    {
-      "id": "cm-application-2027",
-      "exam": "pe-comprehensive-management",
-      "format": "single-topic-zukai",
-      "title": "総監 申込と業務経歴票",
-      "stance": "cm-restart",
-      "role": "attract",
-      "window": {
-        "from": "2027-02",
-        "to": "2027-04"
-      },
-      "anchors": [
-        "applicationOpen",
-        "applicationDeadlineWeb"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "essay-complete-pack"
-        ]
-      },
-      "count": 1,
-      "reuse": "revise",
-      "reuseNote": "既存の台本を年度に合わせて改訂する。主 CTA は links-hub から商品へ変える",
-      "reason": {
-        "reader": "業務経歴票で何を書けば通るか分からない",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "経歴票の型を無料で示し、論文の準備へつなぐ",
-        "demand": "未検証。申込の時期に検索が増えるかを見る",
-        "evidence": [],
-        "next": "申込期の検索クリックと動画の再生を比べる"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      }
-    },
-    {
-      "id": "cm-essay-2027",
-      "exam": "pe-comprehensive-management",
-      "format": "single-topic-zukai",
-      "title": "総監 記述式の型",
-      "stance": "cm-essay",
-      "role": "sell",
-      "window": {
-        "from": "2027-03",
-        "to": "2027-06"
-      },
-      "anchors": [
-        "written"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "tankan-reading-guide",
-          "setsumon3-policy-bank",
-          "essay-core-pack",
-          "r8-essay-forecast"
-        ]
-      },
-      "count": 5,
-      "shorts": {
-        "count": 10
-      },
-      "reuse": "stock",
-      "reuseNote": "3 本は完成済み。予想の 1 本は R8 の出題と照合して改稿し再QA",
-      "reason": {
-        "reader": "論文を自力で組み立てられず、施策が書けない",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "設問の読み方を無料で示し、答案の型と施策集は note で買う",
-        "demand": "受取の 64% が 6〜7 月に集中する。総監は note の主力の一つ",
-        "evidence": [
-          "docs/strategy/22_チャネル別商品設計2026-11.md:47",
-          "docs/strategy/22_チャネル別商品設計2026-11.md:27"
-        ],
-        "next": "動画の公開後に該当商品の販売が動くかを note の販売記録で見る"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      }
-    },
-    {
-      "id": "cm-takuitsu-2027",
-      "exam": "pe-comprehensive-management",
-      "format": "compilation",
-      "title": "総監 択一の聞き流し",
-      "stance": "cm-takuitsu",
-      "role": "attract",
-      "window": {
-        "from": "2027-05",
-        "to": "2027-07"
-      },
-      "anchors": [
-        "written"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "tankan-takuitsu-reiwa-pdf"
-        ]
-      },
-      "count": 2,
-      "shorts": {
-        "count": 5
-      },
-      "reuse": "stock",
-      "reuseNote": "聞き流しと演習は完成済み。同じ型の追加は成績を見てから",
-      "reason": {
-        "reader": "移動中に択一のキーワードを反復したい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "耳で反復し、問題演習は PDF で買う",
-        "demand": "競合の土木では「聞き流し」の再生中央値が最も高い。総監での実績は未検証",
-        "evidence": [
-          "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:40",
-          "docs/marketing/05_YouTube戦略_技術士総監.md:107"
-        ],
-        "next": "総監でも尺の長い動画の平均視聴時間が伸びるかを見る"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      }
-    },
-    {
-      "id": "cm-final-2027",
-      "exam": "pe-comprehensive-management",
-      "format": "single-topic-zukai",
-      "title": "総監 直前の確認",
-      "stance": "cm-final",
-      "role": "sell",
-      "window": {
-        "from": "2027-06",
-        "to": "2027-07"
-      },
-      "anchors": [
-        "written"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "essay-complete-pack"
-        ]
-      },
-      "count": 2,
-      "reuse": "new",
-      "reuseNote": "新規。台本から作る",
-      "reason": {
-        "reader": "直前に設問間の整合を確かめたい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "確認の順序を無料で示し、模範論文は note で買う",
-        "demand": "受取の 64% が 6〜7 月に集中する",
-        "evidence": [
-          "docs/strategy/22_チャネル別商品設計2026-11.md:47"
-        ],
-        "next": "直前 4 週の視聴維持と販売を見る"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
       }
     },
     {
@@ -2081,10 +1857,16 @@
       "format": "single-topic-zukai",
       "title": "建設部門 口頭試験の準備",
       "stance": "pc-oral",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "sell",
       "window": {
         "from": "2026-11",
-        "to": "2027-01"
+        "to": "2026-12"
       },
       "anchors": [
         "writtenResult",
@@ -2099,8 +1881,8 @@
         ]
       },
       "count": 2,
-      "reuse": "revise",
-      "reuseNote": "コンピテンシーは改訂、深掘りは新規",
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "筆記に受かったが、業務経歴とコンピテンシーを結んで話せない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -2111,24 +1893,24 @@
           "docs/strategy/22_チャネル別商品設計2026-11.md:27"
         ],
         "next": "口頭教材の販売の時期と動画の公開を比べる"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
       }
     },
     {
       "id": "pc-restart-2027",
       "exam": "pe-construction",
       "format": "single-topic-zukai",
-      "title": "建設部門 再挑戦と学習開始",
+      "title": "建設部門 落ちる答案の直し方",
       "stance": "pc-restart",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "attract",
       "window": {
         "from": "2026-12",
-        "to": "2027-03"
+        "to": "2026-12"
       },
       "anchors": [
         "finalResult",
@@ -2140,12 +1922,9 @@
           "pe-construction-required-magazine"
         ]
       },
-      "count": 4,
-      "shorts": {
-        "count": 5
-      },
-      "reuse": "revise",
-      "reuseNote": "台本まで完成。links-hub の 4 本は商品を決めてから流す",
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "来年度の二次をどの順で始めるか分からない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -2156,23 +1935,112 @@
         ],
         "next": "書き分けの動画が検索から再生されるかを見る"
       },
+      "shorts": {
+        "count": 5
+      }
+    },
+    {
+      "id": "cm-restart-2027",
+      "exam": "pe-comprehensive-management",
+      "format": "single-topic-zukai",
+      "title": "総監 落ちた原因の点検",
+      "stance": "cm-restart",
       "materials": {
         "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-01",
+        "to": "2027-01"
+      },
+      "anchors": [
+        "finalResult",
+        "applicationOpen"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "essay-complete-pack",
+          "essay-core-pack",
+          "tankan-reading-guide",
+          "tradeoff-5kanri"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "来年度の総監をどこから始めるか決められない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "択一と記述の配分を無料で示し、型は note で買う",
+        "demand": "落ちた原因の診断を軸にした商品は検索に見当たらない（立ち位置 cm-restart）。再生の需要は未検証",
+        "evidence": [
+          "docs/marketing/05_YouTube戦略_技術士総監.md:52"
+        ],
+        "next": "3 か月後に総監の平均視聴率を他資格と比べる"
+      },
+      "shorts": {
+        "count": 5
+      }
+    },
+    {
+      "id": "cm-application-2027",
+      "exam": "pe-comprehensive-management",
+      "format": "single-topic-zukai",
+      "title": "総監 申込と業務経歴",
+      "stance": "cm-restart",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-02",
+        "to": "2027-02"
+      },
+      "anchors": [
+        "applicationOpen",
+        "applicationDeadlineWeb"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "essay-complete-pack"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "業務経歴票で何を書けば通るか分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "経歴票の型を無料で示し、論文の準備へつなぐ",
+        "demand": "未検証。申込の時期に検索が増えるかを見る",
+        "evidence": [],
+        "next": "申込期の検索クリックと動画の再生を比べる"
       }
     },
     {
       "id": "pc-application-2027",
       "exam": "pe-construction",
       "format": "single-topic-zukai",
-      "title": "建設部門 申込と業務経歴票",
+      "title": "建設部門 申込と業務内容の詳細",
       "stance": "pc-restart",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "attract",
       "window": {
         "from": "2027-02",
-        "to": "2027-04"
+        "to": "2027-02"
       },
       "anchors": [
         "applicationOpen",
@@ -2184,9 +2052,9 @@
           "pe-construction-required-magazine"
         ]
       },
-      "count": 2,
-      "reuse": "revise",
-      "reuseNote": "既存の台本を年度に合わせて改訂する。キャリアの 1 本を含む",
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "720字の業務内容の詳細が書けない。取得の価値も確かめたい",
         "harm": "A（資格の取得）とM（収入・転職）。取得の価値を確かめたい",
@@ -2194,24 +2062,24 @@
         "demand": "未検証。申込の時期に検索が増えるかを見る",
         "evidence": [],
         "next": "申込期の検索クリックと動画の再生を比べる"
-      },
+      }
+    },
+    {
+      "id": "cm-hakusho-2027",
+      "exam": "pe-comprehensive-management",
+      "format": "single-topic-zukai",
+      "title": "総監 白書の読み方",
+      "stance": "cm-essay",
       "materials": {
         "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
-      }
-    },
-    {
-      "id": "pc-sentaku-2027",
-      "exam": "pe-construction",
-      "format": "single-topic-zukai",
-      "title": "建設部門 選択科目の読み方",
-      "stance": "pc-subject",
+      },
       "role": "sell",
       "window": {
         "from": "2027-03",
-        "to": "2027-05"
+        "to": "2027-04"
       },
       "anchors": [
         "written"
@@ -2219,100 +2087,38 @@
       "primaryCta": {
         "kind": "note-magazine",
         "targets": [
-          "pe-construction-construction-planning-magazine",
-          "pe-construction-road-magazine",
-          "pe-construction-river-coast-magazine",
-          "pe-construction-steel-concrete-magazine",
-          "pe-construction-geotechnical-magazine",
-          "pe-construction-tunnel-magazine",
-          "pe-construction-urban-planning-magazine",
-          "pe-construction-environment-magazine",
-          "pe-construction-port-airport-magazine",
-          "pe-construction-railway-magazine",
-          "pe-construction-power-civil-magazine"
+          "tankan-reading-guide",
+          "setsumon3-policy-bank",
+          "essay-core-pack",
+          "r8-essay-forecast"
         ]
       },
-      "count": 11,
-      "shorts": {
-        "count": 8
-      },
-      "reuse": "stock",
-      "reuseNote": "8 本は完成済み。残り 3 本は描画から",
+      "count": 4,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
-        "reader": "自分の科目で何が出るか、どこから手を付けるか分からない",
+        "reader": "白書をどこまで読み、どう答案に使うか分からない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "出題テーマの読み方を無料で示し、科目別の模範解答は note で買う",
-        "demand": "動画で全科目を揃えた連載は検索に見当たらない（立ち位置 pc-subject）。note は小泉の科目別の部屋が先行する。自社の科目別マガジンも揃っている",
+        "value": "白書から答案へつなぐ手順を無料で示し、模範論文は note で買う",
+        "demand": "未検証。白書を題名に出す動画は検索の上位に少ない（立ち位置 cm-essay）",
         "evidence": [
-          "docs/marketing/08_YouTube戦略_技術士建設部門.md:42"
+          "docs/marketing/05a_YouTube競合分析_技術士総監_2026-06.md"
         ],
-        "next": "科目ごとにマガジンの販売が動くかを note の販売記録で見る"
-      },
+        "next": "視聴維持と教材のクリックを見る"
+      }
+    },
+    {
+      "id": "cm-essay-2027",
+      "exam": "pe-comprehensive-management",
+      "format": "single-topic-zukai",
+      "title": "総監 記述式の型",
+      "stance": "cm-essay",
       "materials": {
         "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
-      }
-    },
-    {
-      "id": "pc-split-2027",
-      "exam": "pe-construction",
-      "format": "compilation",
-      "title": "建設部門 Ⅱ-1・Ⅱ-2・Ⅲの書き分け（長尺の試行）",
-      "stance": "pc-split",
-      "role": "sell",
-      "window": {
-        "from": "2027-04",
-        "to": "2027-05"
       },
-      "anchors": [
-        "written"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "pe-construction-construction-planning-magazine",
-          "pe-construction-road-magazine",
-          "pe-construction-river-coast-magazine",
-          "pe-construction-steel-concrete-magazine",
-          "pe-construction-geotechnical-magazine",
-          "pe-construction-tunnel-magazine",
-          "pe-construction-urban-planning-magazine",
-          "pe-construction-environment-magazine",
-          "pe-construction-port-airport-magazine",
-          "pe-construction-railway-magazine",
-          "pe-construction-power-civil-magazine"
-        ]
-      },
-      "count": 2,
-      "reuse": "bundle",
-      "reuseNote": "書き分けの動画と科目の読み方の動画を 15〜30 分に束ねる。尺の違いを同じ資格で比べる",
-      "reason": {
-        "reader": "問題の区分ごとに何を書き分けるか分からない",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "書き分けを通して無料で示し、科目別の模範解答は note で買う",
-        "demand": "ぺんたは 15〜30 分の動画が最も伸びている。書き分けを主題にした長い動画は検索の上位に少ない（立ち位置 pc-split）",
-        "evidence": [
-          "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md"
-        ],
-        "next": "単論点の動画と比べて、視聴維持と教材のクリックを見る"
-      },
-      "materials": {
-        "status": "accepted",
-        "packs": [
-          "pe-construction/kaitourei-tsukaikata"
-        ],
-        "products": [],
-        "make": ""
-      }
-    },
-    {
-      "id": "pc-hissu-2027",
-      "exam": "pe-construction",
-      "format": "single-topic-zukai",
-      "title": "建設部門 必須Ⅰのテーマ",
-      "stance": "pc-hissu",
       "role": "sell",
       "window": {
         "from": "2027-04",
@@ -2324,15 +2130,293 @@
       "primaryCta": {
         "kind": "note-magazine",
         "targets": [
+          "tankan-reading-guide",
+          "setsumon3-policy-bank",
+          "essay-core-pack",
+          "r8-essay-forecast"
+        ]
+      },
+      "count": 4,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "論文を自力で組み立てられず、施策が書けない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "設問の読み方を無料で示し、答案の型と施策集は note で買う",
+        "demand": "受取の 64% が 6〜7 月に集中する。総監は note の主力の一つ",
+        "evidence": [
+          "docs/strategy/22_チャネル別商品設計2026-11.md:47",
+          "docs/strategy/22_チャネル別商品設計2026-11.md:27"
+        ],
+        "next": "動画の公開後に該当商品の販売が動くかを note の販売記録で見る"
+      },
+      "shorts": {
+        "count": 10
+      }
+    },
+    {
+      "id": "cm-yosou-2027",
+      "exam": "pe-comprehensive-management",
+      "format": "yosou-derivation",
+      "title": "総監 出題予想の導き方",
+      "stance": "cm-essay",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "sell",
+      "window": {
+        "from": "2027-06",
+        "to": "2027-06"
+      },
+      "anchors": [
+        "written"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "tankan-reading-guide",
+          "setsumon3-policy-bank",
+          "essay-core-pack",
+          "r8-essay-forecast"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "何を重点に準備すればよいか分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "予想の根拠と限界を無料で示し、予想論文は note で買う",
+        "demand": "未検証。的中を断定しない",
+        "evidence": [],
+        "next": "視聴維持と教材のクリックを見る"
+      }
+    },
+    {
+      "id": "cm-final-2027",
+      "exam": "pe-comprehensive-management",
+      "format": "single-topic-zukai",
+      "title": "総監 直前の確認",
+      "stance": "cm-final",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "sell",
+      "window": {
+        "from": "2027-06",
+        "to": "2027-07"
+      },
+      "anchors": [
+        "written"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "essay-complete-pack"
+        ]
+      },
+      "count": 2,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "直前に設問間の整合を確かめたい",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "確認の順序を無料で示し、模範論文は note で買う",
+        "demand": "受取の 64% が 6〜7 月に集中する",
+        "evidence": [
+          "docs/strategy/22_チャネル別商品設計2026-11.md:47"
+        ],
+        "next": "直前 4 週の視聴維持と販売を見る"
+      }
+    },
+    {
+      "id": "pc-split-2027",
+      "exam": "pe-construction",
+      "format": "single-topic-zukai",
+      "title": "建設部門 書き分け",
+      "stance": "pc-split",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "sell",
+      "window": {
+        "from": "2027-02",
+        "to": "2027-03"
+      },
+      "anchors": [
+        "written"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "pe-construction-construction-planning-magazine",
+          "pe-construction-road-magazine",
+          "pe-construction-river-coast-magazine",
+          "pe-construction-steel-concrete-magazine",
+          "pe-construction-geotechnical-magazine",
+          "pe-construction-tunnel-magazine",
+          "pe-construction-urban-planning-magazine",
+          "pe-construction-environment-magazine",
+          "pe-construction-port-airport-magazine",
+          "pe-construction-railway-magazine",
+          "pe-construction-power-civil-magazine"
+        ]
+      },
+      "count": 3,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "問題の区分ごとに何を書き分けるか分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "書き分けを通して無料で示し、科目別の模範解答は note で買う",
+        "demand": "ぺんたは 15〜30 分の動画が最も伸びている。書き分けを主題にした長い動画は検索の上位に少ない（立ち位置 pc-split）",
+        "evidence": [
+          "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md"
+        ],
+        "next": "単論点の動画と比べて、視聴維持と教材のクリックを見る"
+      }
+    },
+    {
+      "id": "pc-long-2027",
+      "exam": "pe-construction",
+      "format": "compilation",
+      "title": "建設部門 書き分けの長尺（試行）",
+      "stance": "pc-split",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "sell",
+      "window": {
+        "from": "2027-04",
+        "to": "2027-04"
+      },
+      "anchors": [
+        "written"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "pe-construction-construction-planning-magazine",
+          "pe-construction-road-magazine",
+          "pe-construction-river-coast-magazine",
+          "pe-construction-steel-concrete-magazine",
+          "pe-construction-geotechnical-magazine",
+          "pe-construction-tunnel-magazine",
+          "pe-construction-urban-planning-magazine",
+          "pe-construction-environment-magazine",
+          "pe-construction-port-airport-magazine",
+          "pe-construction-railway-magazine",
+          "pe-construction-power-civil-magazine"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "書き分けを通して見たい",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "通して見せ、科目別の模範解答は note で買う",
+        "demand": "ぺんたは 15〜30 分の動画が最も伸びている。自社は未検証",
+        "evidence": [
+          "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md"
+        ],
+        "next": "単論点の動画と視聴維持と教材のクリックを比べる"
+      }
+    },
+    {
+      "id": "pc-sentaku-2027",
+      "exam": "pe-construction",
+      "format": "single-topic-zukai",
+      "title": "建設部門 売上上位 6 科目",
+      "stance": "pc-subject",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "sell",
+      "window": {
+        "from": "2027-02",
+        "to": "2027-05"
+      },
+      "anchors": [
+        "written"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "pe-construction-construction-planning-magazine",
+          "pe-construction-road-magazine",
+          "pe-construction-river-coast-magazine",
+          "pe-construction-steel-concrete-magazine",
+          "pe-construction-geotechnical-magazine",
+          "pe-construction-tunnel-magazine",
+          "pe-construction-urban-planning-magazine",
+          "pe-construction-environment-magazine",
+          "pe-construction-port-airport-magazine",
+          "pe-construction-railway-magazine",
+          "pe-construction-power-civil-magazine"
+        ]
+      },
+      "count": 6,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "自分の科目で何が出るか、どこから手を付けるか分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "出題テーマの読み方を無料で示し、科目別の模範解答は note で買う",
+        "demand": "動画で全科目を揃えた連載は検索に見当たらない（立ち位置 pc-subject）。note は小泉の科目別の部屋が先行する。自社の科目別マガジンも揃っている",
+        "evidence": [
+          "docs/marketing/08_YouTube戦略_技術士建設部門.md:42"
+        ],
+        "next": "科目ごとにマガジンの販売が動くかを note の販売記録で見る"
+      },
+      "shorts": {
+        "count": 8
+      }
+    },
+    {
+      "id": "pc-hissu-2027",
+      "exam": "pe-construction",
+      "format": "single-topic-zukai",
+      "title": "建設部門 必須Ⅰ",
+      "stance": "pc-hissu",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "sell",
+      "window": {
+        "from": "2027-04",
+        "to": "2027-05"
+      },
+      "anchors": [
+        "written"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
           "pe-construction-required-magazine"
         ]
       },
-      "count": 5,
-      "shorts": {
-        "count": 7
-      },
-      "reuse": "stock",
-      "reuseNote": "4 本は完成済み。テーマ地図の 1 本は描画から",
+      "count": 2,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "必須Ⅰの論点を6系統に整理できていない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -2344,23 +2428,26 @@
         ],
         "next": "必須マガジンの販売と動画の公開を比べる"
       },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
+      "shorts": {
+        "count": 7
       }
     },
     {
       "id": "pc-yosou-2027",
       "exam": "pe-construction",
       "format": "yosou-derivation",
-      "title": "建設部門 R9 の出題予想の導き方",
+      "title": "建設部門 出題予想の導き方",
       "stance": "pc-hissu",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "sell",
       "window": {
         "from": "2027-05",
-        "to": "2027-06"
+        "to": "2027-05"
       },
       "anchors": [
         "written"
@@ -2372,8 +2459,8 @@
         ]
       },
       "count": 1,
-      "reuse": "revise",
-      "reuseNote": "R8 の台本を題名だけ変えて使わない。出題実績と一次資料で改稿し再QA",
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "次の出題を自分で絞る方法を知りたい",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -2384,20 +2471,20 @@
           "docs/marketing/08_YouTube戦略_技術士建設部門.md:90"
         ],
         "next": "予想の動画が検索から再生されるかを見る"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
       }
     },
     {
       "id": "pc-final-2027",
       "exam": "pe-construction",
       "format": "single-topic-zukai",
-      "title": "建設部門 直前の時間配分",
+      "title": "建設部門 直前の確認",
       "stance": "pc-final",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "sell",
       "window": {
         "from": "2027-06",
@@ -2414,7 +2501,7 @@
       },
       "count": 2,
       "reuse": "new",
-      "reuseNote": "新規。台本から作る",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "本番で構成と執筆の時間が足りるか不安",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -2424,74 +2511,24 @@
           "docs/strategy/22_チャネル別商品設計2026-11.md:47"
         ],
         "next": "直前 4 週の視聴維持と販売を見る"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      }
-    },
-    {
-      "id": "pe1-2027",
-      "exam": "pe-first-stage",
-      "format": "compilation",
-      "title": "技術士一次 総まとめ",
-      "stance": "pe1-practice",
-      "role": "attract",
-      "window": {
-        "from": "2027-08",
-        "to": "2027-10"
-      },
-      "anchors": [
-        "exam",
-        "applicationDeadline"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "pe1-takuitsu-pdf"
-        ]
-      },
-      "count": 4,
-      "reuse": "bundle",
-      "reuseNote": "公開済みの 11 本の台本を束ねる。新しい台本は要らない",
-      "reason": {
-        "reader": "一次の範囲を短時間で一周したい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "全体を耳で一周し、演習は PDF で買う",
-        "demand": "競合の 30〜60 分は再生中央値が最も高い。技術士一次での実績は未検証",
-        "evidence": [
-          "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:37"
-        ],
-        "next": "2026 年の直前動画の結果を見て本数を決める"
-      },
-      "materials": {
-        "status": "accepted",
-        "packs": [
-          "pe-first-stage/pe1-kiso-gyouretsu-vector",
-          "pe-first-stage/pe1-kiso-xor-shingihyou",
-          "pe-first-stage/pe1-kiso-simpson-haba",
-          "pe-first-stage/pe1-kiso-senmon",
-          "pe-first-stage/pe1-tekisei-3shiten",
-          "pe-first-stage/pe1-senmon-kensetsu-25mon"
-        ],
-        "products": [
-          "pe1-chokuzen-pack"
-        ],
-        "make": ""
       }
     },
     {
       "id": "c1-start-2027",
       "exam": "civil-construction-1",
       "format": "single-topic-zukai",
-      "title": "1級土木 来年度の受検準備",
+      "title": "1級土木 学習の順序",
       "stance": "civil-start",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "attract",
       "window": {
         "from": "2027-01",
-        "to": "2027-03"
+        "to": "2027-01"
       },
       "anchors": [
         "secondResult",
@@ -2503,9 +2540,9 @@
           "civil-1-ichiji-ronten"
         ]
       },
-      "count": 2,
+      "count": 1,
       "reuse": "new",
-      "reuseNote": "新規。公式の日程が出てから台本を確定する",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "来年度の申込と学習の順序を確かめたい",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -2515,371 +2552,24 @@
           ".claude/todo/backlog.md:420"
         ],
         "next": "1 本目の検索流入を見る"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      }
-    },
-    {
-      "id": "c1-listen-2027",
-      "exam": "civil-construction-1",
-      "format": "compilation",
-      "title": "1級一次 聞き流し（分野別）",
-      "stance": "civil-listen",
-      "role": "attract",
-      "window": {
-        "from": "2027-02",
-        "to": "2027-05"
-      },
-      "anchors": [
-        "first"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "civil-1-ichiji-ronten"
-        ]
-      },
-      "count": 5,
-      "shorts": {
-        "count": 5
-      },
-      "reuse": "bundle",
-      "reuseNote": "停止中の論点パック 37 本の台本を束ね、音声を読み直す。公開はしていない",
-      "reason": {
-        "reader": "現場の合間に一次の頻出を耳で覚えたい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "頻出を耳で反復し、論点集と過去問は note で買う",
-        "demand": "ちゃんさとの聞き流しは再生中央値 19,545、1級一次は 18,656。競合 321 本でも 30〜60 分が最高",
-        "evidence": [
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:75",
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:76",
-          "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:37"
-        ],
-        "next": "最初の 1 本で平均視聴時間を見て残りを決める"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [
-          "civil-1-anki-note"
-        ],
-        "make": ""
-      }
-    },
-    {
-      "id": "c1-quiz-2027",
-      "exam": "civil-construction-1",
-      "format": "quiz-tts",
-      "title": "1級一次 一問一答",
-      "stance": "civil-quiz",
-      "role": "attract",
-      "window": {
-        "from": "2027-04",
-        "to": "2027-06"
-      },
-      "anchors": [
-        "first"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "civil-1-ichiji-ronten",
-          "civil-1-takuitsu-pdf"
-        ]
-      },
-      "count": 3,
-      "reuse": "new",
-      "reuseNote": "作る仕組みが未実装（DN-0600）。過去問の論点から組み直し、問題文は写さない",
-      "reason": {
-        "reader": "過去問を繰り返して確かめたい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "論点の一問一答を無料で示し、全問の演習は PDF で買う",
-        "demand": "題名に「一問一答」の 10 本は再生中央値 51,500、ちゃんさとの過去問解説は 13,936",
-        "evidence": [
-          "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:40",
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:77"
-        ],
-        "next": "20 問の試作を目視してから本数を決める"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      }
-    },
-    {
-      "id": "c1-moshi-2027",
-      "exam": "civil-construction-1",
-      "format": "moshi-free",
-      "title": "1級一次 無料模試",
-      "stance": "civil-moshi",
-      "role": "sell",
-      "window": {
-        "from": "2027-05",
-        "to": "2027-06"
-      },
-      "anchors": [
-        "first"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "civil-1-ichiji-ronten"
-        ]
-      },
-      "count": 2,
-      "reuse": "new",
-      "reuseNote": "既存の模試から問題数を絞る。2027 年度版の模試は別途要る",
-      "reason": {
-        "reader": "本番形式で今の実力を確かめたい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "同じ形式の無料版を解き、有料の 3 回分へ進む",
-        "demand": "ちゃんさとの模擬テストは再生中央値 12,598 で、note の模試 ¥1,980 へつないでいる",
-        "evidence": [
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:79",
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:11"
-        ],
-        "next": "無料版の視聴維持と模試の販売を見る"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      }
-    },
-    {
-      "id": "c1-sokuho-2027",
-      "exam": "civil-construction-1",
-      "format": "exam-sokuho",
-      "title": "1級一次 試験直後の解答解説",
-      "stance": "civil-after-exam",
-      "role": "attract",
-      "window": {
-        "from": "2027-07",
-        "to": "2027-07"
-      },
-      "anchors": [
-        "first"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "civil-1-niji-marugoto-pack"
-        ]
-      },
-      "count": 1,
-      "reuse": "new",
-      "reuseNote": "新規。正答公表前は暫定と明示し、訂正の出し方を決めてから作る",
-      "reason": {
-        "reader": "試験の直後に自分の答えを確かめたい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "答え合わせを無料で示し、二次の準備へつなぐ",
-        "demand": "2級の R8 二次の解答ページが 4 週間で 5,222 クリック（全体 8,137 の 64%）。ただし試験後の販売は 0 件で、買う窓の外",
-        "evidence": [
-          "data/gsc/reports/2026-11-05.json",
-          ".claude/todo/backlog.md:939"
-        ],
-        "next": "再生が読者リストや二次の準備につながるかを見る"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      }
-    },
-    {
-      "id": "c1-bridge-2027",
-      "exam": "civil-construction-1",
-      "format": "single-topic-zukai",
-      "title": "1級 一次後の二次準備",
-      "stance": "civil-second-answer",
-      "role": "sell",
-      "window": {
-        "from": "2027-07",
-        "to": "2027-08"
-      },
-      "anchors": [
-        "first",
-        "firstResult"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "civil-1-niji-marugoto-pack"
-        ]
-      },
-      "count": 2,
-      "reuse": "new",
-      "reuseNote": "新規。一次の分析と二次の逆算の 2 本。合格発表の日に販売を集中させる",
-      "reason": {
-        "reader": "一次の後、二次の準備を何週間でどう進めるか分からない",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "逆算の計画を無料で示し、二次の教材は note で買う",
-        "demand": "ちゃんさとは一次の合格発表日の添削の案内が反応最大（いいね 48）",
-        "evidence": [
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:101"
-        ],
-        "next": "合格発表の週の販売を見る"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [
-          "civil-1-keiken-complete-pack"
-        ],
-        "make": ""
-      }
-    },
-    {
-      "id": "c1-keiken-2027",
-      "exam": "civil-construction-1",
-      "format": "single-topic-zukai",
-      "title": "1級二次 経験記述",
-      "stance": "civil-second-answer",
-      "role": "sell",
-      "window": {
-        "from": "2027-08",
-        "to": "2027-09"
-      },
-      "anchors": [
-        "second"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "civil-1-keiken-complete-pack",
-          "civil-1-experience-essay"
-        ]
-      },
-      "count": 4,
-      "shorts": {
-        "count": 10
-      },
-      "reuse": "revise",
-      "reuseNote": "図解版の試作と停止中の howto 15 本の台本を流用できる",
-      "reason": {
-        "reader": "経験記述の答案が一般論になり、減点が不安",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "答案のどこを見られるかを無料で示し、完成答案は note で買う",
-        "demand": "経験記述は再生が少ない（中央値 6,850）が、売上の主力。ちゃんさとの販売は 995 件",
-        "evidence": [
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:81",
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:15"
-        ],
-        "next": "再生ではなくココナラと note への遷移で判断する"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [
-          "civil-1-niji-marugoto-pack"
-        ],
-        "make": ""
-      }
-    },
-    {
-      "id": "c1-tensaku-2027",
-      "exam": "civil-construction-1",
-      "format": "tensaku-demo",
-      "title": "1級二次 添削の見本",
-      "stance": "civil-second-answer",
-      "role": "sell",
-      "window": {
-        "from": "2027-08",
-        "to": "2027-09"
-      },
-      "anchors": [
-        "second"
-      ],
-      "primaryCta": {
-        "kind": "coconala-service",
-        "targets": [
-          "coconala-shindan",
-          "coconala-tensaku-set"
-        ]
-      },
-      "count": 1,
-      "reuse": "new",
-      "reuseNote": "新規。伏せ字の架空答案だけを使う。添削の実績では争わないので 1 本だけ試す",
-      "reason": {
-        "reader": "自分の答案で受かるか誰かに見てほしい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "添削の過程を見せ、自分の答案はココナラで頼む",
-        "demand": "ちゃんさとの販売は 995 件。自社の添削の受注は実績が少ない",
-        "evidence": [
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:15",
-          ".claude/todo/backlog.md:110"
-        ],
-        "next": "購入前相談の「何で知ったか」で動画起点を数える"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [
-          "coconala-tensaku-4theme"
-        ],
-        "make": ""
-      }
-    },
-    {
-      "id": "c1-yosou-2027",
-      "exam": "civil-construction-1",
-      "format": "yosou-derivation",
-      "title": "1級二次 出題予想",
-      "stance": "civil-second-answer",
-      "role": "attract",
-      "window": {
-        "from": "2027-08",
-        "to": "2027-09"
-      },
-      "anchors": [
-        "second"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "civil-1-niji-marugoto-pack"
-        ]
-      },
-      "count": 1,
-      "reuse": "new",
-      "reuseNote": "新規。導き方と限界を示す",
-      "reason": {
-        "reader": "学科記述で何が出るか絞りたい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "出題の読み方を無料で示し、対策は note で買う",
-        "demand": "ちゃんさとの出題予想は再生中央値 13,300",
-        "evidence": [
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:78"
-        ],
-        "next": "予想の動画の検索流入を見る"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [
-          "civil-1-r8-bunseki"
-        ],
-        "make": ""
       }
     },
     {
       "id": "c2-start-2027",
       "exam": "civil-construction-2",
       "format": "single-topic-zukai",
-      "title": "2級 来年度の受検計画",
+      "title": "2級土木 学習の順序",
       "stance": "civil-start",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "attract",
       "window": {
-        "from": "2026-12",
-        "to": "2027-03"
+        "from": "2027-01",
+        "to": "2027-01"
       },
       "anchors": [
         "firstLateResult",
@@ -2894,7 +2584,7 @@
       },
       "count": 1,
       "reuse": "new",
-      "reuseNote": "新規。公式の日程が出てから台本を確定する",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "前期・後期と二次の準備をどう分けるか分からない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -2905,24 +2595,69 @@
           "docs/strategy/22_チャネル別商品設計2026-11.md:27"
         ],
         "next": "検索から動画へ人が来るかを見る"
-      },
+      }
+    },
+    {
+      "id": "c1-listen-2027",
+      "exam": "civil-construction-1",
+      "format": "compilation",
+      "title": "1級一次 分野別の総まとめ（試行）",
+      "stance": "civil-listen",
       "materials": {
         "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-02",
+        "to": "2027-04"
+      },
+      "anchors": [
+        "first"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "civil-1-ichiji-ronten"
+        ]
+      },
+      "count": 2,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "現場の合間に一次の頻出を耳で覚えたい",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "頻出を耳で反復し、論点集と過去問は note で買う",
+        "demand": "ちゃんさとの聞き流しは再生中央値 19,545、1級一次は 18,656。競合 321 本でも 30〜60 分が最高",
+        "evidence": [
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:75",
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:76",
+          "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:37"
+        ],
+        "next": "最初の 1 本で平均視聴時間を見て残りを決める"
+      },
+      "shorts": {
+        "count": 5
       }
     },
     {
       "id": "c2-listen-2027",
       "exam": "civil-construction-2",
       "format": "compilation",
-      "title": "2級 総まとめ（聞き流し）",
+      "title": "2級一次 総まとめ（試行）",
       "stance": "civil-listen",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "attract",
       "window": {
         "from": "2027-03",
-        "to": "2027-05"
+        "to": "2027-03"
       },
       "anchors": [
         "firstEarly"
@@ -2933,9 +2668,9 @@
           "civil-2-takuitsu-pdf"
         ]
       },
-      "count": 3,
-      "reuse": "bundle",
-      "reuseNote": "直前総まとめは下書きがある。停止中の論点パックも束ねられる。主 CTA は links-hub から商品へ変える",
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "前期の一次を短時間で一周したい",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -2946,14 +2681,257 @@
           "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:80"
         ],
         "next": "1級の聞き流しと平均視聴時間を比べる"
-      },
+      }
+    },
+    {
+      "id": "c1-quiz-2027",
+      "exam": "civil-construction-1",
+      "format": "quiz-tts",
+      "title": "1級一次 一問一答（試行）",
+      "stance": "civil-quiz",
       "materials": {
         "status": "proposed",
         "packs": [],
-        "products": [
-          "civil-2-anki-note"
-        ],
+        "products": [],
         "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-05",
+        "to": "2027-05"
+      },
+      "anchors": [
+        "first"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "civil-1-ichiji-ronten",
+          "civil-1-takuitsu-pdf"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "過去問を繰り返して確かめたい",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "論点の一問一答を無料で示し、全問の演習は PDF で買う",
+        "demand": "題名に「一問一答」の 10 本は再生中央値 51,500、ちゃんさとの過去問解説は 13,936",
+        "evidence": [
+          "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:40",
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:77"
+        ],
+        "next": "20 問の試作を目視してから本数を決める"
+      }
+    },
+    {
+      "id": "c1-moshi-2027",
+      "exam": "civil-construction-1",
+      "format": "moshi-free",
+      "title": "1級一次 無料模試（試行）",
+      "stance": "civil-moshi",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "sell",
+      "window": {
+        "from": "2027-06",
+        "to": "2027-06"
+      },
+      "anchors": [
+        "first"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "civil-1-ichiji-ronten"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "本番形式で今の実力を確かめたい",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "同じ形式の無料版を解き、有料の 3 回分へ進む",
+        "demand": "ちゃんさとの模擬テストは再生中央値 12,598 で、note の模試 ¥1,980 へつないでいる",
+        "evidence": [
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:79",
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:11"
+        ],
+        "next": "無料版の視聴維持と模試の販売を見る"
+      }
+    },
+    {
+      "id": "c1-bridge-2027",
+      "exam": "civil-construction-1",
+      "format": "single-topic-zukai",
+      "title": "1級 一次のあとの準備",
+      "stance": "civil-second-answer",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "sell",
+      "window": {
+        "from": "2027-07",
+        "to": "2027-07"
+      },
+      "anchors": [
+        "first",
+        "firstResult"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "civil-1-niji-marugoto-pack"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "一次の後、二次の準備を何週間でどう進めるか分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "逆算の計画を無料で示し、二次の教材は note で買う",
+        "demand": "ちゃんさとは一次の合格発表日の添削の案内が反応最大（いいね 48）",
+        "evidence": [
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:101"
+        ],
+        "next": "合格発表の週の販売を見る"
+      }
+    },
+    {
+      "id": "c1-keiken-2027",
+      "exam": "civil-construction-1",
+      "format": "single-topic-zukai",
+      "title": "1級二次 経験記述",
+      "stance": "civil-second-answer",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "sell",
+      "window": {
+        "from": "2027-07",
+        "to": "2027-09"
+      },
+      "anchors": [
+        "second"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "civil-1-keiken-complete-pack",
+          "civil-1-experience-essay"
+        ]
+      },
+      "count": 5,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "経験記述の答案が一般論になり、減点が不安",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "答案のどこを見られるかを無料で示し、完成答案は note で買う",
+        "demand": "経験記述は再生が少ない（中央値 6,850）が、売上の主力。ちゃんさとの販売は 995 件",
+        "evidence": [
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:81",
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:15"
+        ],
+        "next": "再生ではなくココナラと note への遷移で判断する"
+      },
+      "shorts": {
+        "count": 10
+      }
+    },
+    {
+      "id": "c1-tensaku-2027",
+      "exam": "civil-construction-1",
+      "format": "tensaku-demo",
+      "title": "1級二次 添削の見本（試行）",
+      "stance": "civil-second-answer",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "sell",
+      "window": {
+        "from": "2027-08",
+        "to": "2027-08"
+      },
+      "anchors": [
+        "second"
+      ],
+      "primaryCta": {
+        "kind": "coconala-service",
+        "targets": [
+          "coconala-shindan",
+          "coconala-tensaku-set"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "自分の答案で受かるか誰かに見てほしい",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "添削の過程を見せ、自分の答案はココナラで頼む",
+        "demand": "ちゃんさとの販売は 995 件。自社の添削の受注は実績が少ない",
+        "evidence": [
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:15",
+          ".claude/todo/backlog.md:110"
+        ],
+        "next": "購入前相談の「何で知ったか」で動画起点を数える"
+      }
+    },
+    {
+      "id": "c1-yosou-2027",
+      "exam": "civil-construction-1",
+      "format": "yosou-derivation",
+      "title": "1級二次 出題予想の導き方",
+      "stance": "civil-second-answer",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-09",
+        "to": "2027-09"
+      },
+      "anchors": [
+        "second"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "civil-1-niji-marugoto-pack"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "学科記述で何が出るか絞りたい",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "出題の読み方を無料で示し、対策は note で買う",
+        "demand": "ちゃんさとの出題予想は再生中央値 13,300",
+        "evidence": [
+          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:78"
+        ],
+        "next": "予想の動画の検索流入を見る"
       }
     },
     {
@@ -2962,6 +2940,12 @@
       "format": "single-topic-zukai",
       "title": "2級二次 経験記述",
       "stance": "civil-second-answer",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "sell",
       "window": {
         "from": "2027-08",
@@ -2977,13 +2961,9 @@
           "civil-2-niji-marugoto-pack"
         ]
       },
-      "count": 6,
-      "shorts": {
-        "count": 5,
-        "note": "2級土木は図解主体。shorts-factory の POP 工程の対象外なので、作るときは diagram-led の経路を足す"
-      },
-      "reuse": "stock",
-      "reuseNote": "4 本は非公開で完成済み。改訂版 7 本は DN-0600 の比較の結果を見てから",
+      "count": 5,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "工事概要から課題・対策へ書き始められない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -2995,67 +2975,27 @@
         ],
         "next": "試験前 8 週の販売が動くかを見る"
       },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [
-          "civil-2-koji-bank"
-        ],
-        "make": ""
-      }
-    },
-    {
-      "id": "c2-sokuho-2027",
-      "exam": "civil-construction-2",
-      "format": "exam-sokuho",
-      "title": "2級二次 試験直後の解答解説",
-      "stance": "civil-after-exam",
-      "role": "attract",
-      "window": {
-        "from": "2027-10",
-        "to": "2027-10"
-      },
-      "anchors": [
-        "second",
-        "firstLate"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "civil-2-niji-marugoto-pack"
-        ]
-      },
-      "count": 1,
-      "reuse": "new",
-      "reuseNote": "新規。試験日が 2027-10 の外になれば月を動かす",
-      "reason": {
-        "reader": "試験の直後に自分の答案を確かめたい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "答え合わせを無料で示し、次回の準備へつなぐ",
-        "demand": "R8 二次の解答ページが 4 週間で 5,222 クリック。ただし買う窓の外",
-        "evidence": [
-          "data/gsc/reports/2026-11-05.json",
-          ".claude/todo/backlog.md:939"
-        ],
-        "next": "読者リストへの登録につながるかを見る（DN-0632 の後）"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
+      "shorts": {
+        "count": 5,
+        "note": "2級土木は図解主体。shorts-factory の POP 工程の対象外なので、作るときは diagram-led の経路を足す"
       }
     },
     {
       "id": "cc-2027",
       "exam": "concrete-chief-engineer",
       "format": "single-topic-zukai",
-      "title": "主任技士 小論文と数値",
+      "title": "主任技士 小論文",
       "stance": "cc-essay-video",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "sell",
       "window": {
         "from": "2027-08",
-        "to": "2027-10"
+        "to": "2027-09"
       },
       "anchors": [
         "exam",
@@ -3068,11 +3008,8 @@
         ]
       },
       "count": 3,
-      "shorts": {
-        "count": 3
-      },
       "reuse": "new",
-      "reuseNote": "新規 2 本に、停止中の小論文のテーマの動画を足す。停止中の 16 本の台本を参考にできる",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "立場別に小論文を書き分けられない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -3083,29 +3020,26 @@
         ],
         "next": "2026 年の 28 日の視聴維持を見る"
       },
-      "materials": {
-        "status": "accepted",
-        "packs": [
-          "concrete-chief-engineer/shunin-shouronbun-kousei",
-          "concrete-chief-engineer/shunin-ochiru-shouronbun"
-        ],
-        "products": [
-          "cce-essay-persona-pack",
-          "cce-essay-mokuji"
-        ],
-        "make": ""
+      "shorts": {
+        "count": 3
       }
     },
     {
       "id": "ce-2027",
       "exam": "concrete-engineer",
       "format": "single-topic-zukai",
-      "title": "コンクリート技士 計算",
+      "title": "コンクリート技士 配合計算",
       "stance": "ce-calc",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "attract",
       "window": {
-        "from": "2027-08",
-        "to": "2027-10"
+        "from": "2027-07",
+        "to": "2027-07"
       },
       "anchors": [
         "exam",
@@ -3118,11 +3052,8 @@
         ]
       },
       "count": 1,
-      "shorts": {
-        "count": 2
-      },
       "reuse": "new",
-      "reuseNote": "新規。停止中の 12 本の台本を参考にできる",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "配合計算でつまずく",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -3133,25 +3064,26 @@
         ],
         "next": "検索からの再生を見る"
       },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [
-          "ce-marugoto-pack"
-        ],
-        "make": ""
+      "shorts": {
+        "count": 2
       }
     },
     {
       "id": "rc-2027",
       "exam": "rccm",
       "format": "single-topic-zukai",
-      "title": "RCCM 試験構成と論文",
+      "title": "RCCM 書く問題の型",
       "stance": "rc-essay",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "sell",
       "window": {
         "from": "2027-06",
-        "to": "2027-09"
+        "to": "2027-08"
       },
       "anchors": [
         "applicationDeadline",
@@ -3165,9 +3097,9 @@
           "rccm-mondai1-template"
         ]
       },
-      "count": 3,
+      "count": 2,
       "reuse": "new",
-      "reuseNote": "新規。動画パックが 1 本も無い",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "CBT の構成と論文の準備の順序が分からない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -3177,24 +3109,24 @@
           "data/gsc/reports/2026-11-05.json"
         ],
         "next": "1 本目の視聴維持を見て残りを決める"
-      },
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
       }
     },
     {
       "id": "cd-2027",
       "exam": "concrete-diagnostician",
       "format": "single-topic-zukai",
-      "title": "診断士 試行",
+      "title": "診断士 記述の試行",
       "stance": "cd-essay",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
       "role": "sell",
       "window": {
-        "from": "2027-05",
-        "to": "2027-07"
+        "from": "2027-06",
+        "to": "2027-06"
       },
       "anchors": [
         "exam",
@@ -3206,9 +3138,9 @@
           "cd-marugoto-pack"
         ]
       },
-      "count": 2,
+      "count": 1,
       "reuse": "new",
-      "reuseNote": "新規。企画が未確定の試行",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
       "reason": {
         "reader": "劣化機構から調査・対策へつなげられない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -3218,15 +3150,167 @@
           "docs/marketing/09_YouTube戦略_コンクリート技士・主任技士.md:70"
         ],
         "next": "企画の判断のときに続けるかを決める"
-      },
+      }
+    },
+    {
+      "id": "pe1-2027",
+      "exam": "pe-first-stage",
+      "format": "compilation",
+      "title": "技術士一次 総まとめ",
+      "stance": "pe1-practice",
       "materials": {
         "status": "proposed",
         "packs": [],
-        "products": [
-          "cd-problem-b-pack",
-          "cd-essay-complete-pack"
-        ],
+        "products": [],
         "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-09",
+        "to": "2027-10"
+      },
+      "anchors": [
+        "exam",
+        "applicationDeadline"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "pe1-takuitsu-pdf"
+        ]
+      },
+      "count": 2,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "一次の範囲を短時間で一周したい",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "全体を耳で一周し、演習は PDF で買う",
+        "demand": "競合の 30〜60 分は再生中央値が最も高い。技術士一次での実績は未検証",
+        "evidence": [
+          "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:37"
+        ],
+        "next": "2026 年の直前動画の結果を見て本数を決める"
+      }
+    },
+    {
+      "id": "owner-eye-2027",
+      "exam": "civil-construction-1",
+      "format": "single-topic-zukai",
+      "title": "発注者の目で読む工事",
+      "stance": "beyond-owner-eye",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2026-12",
+        "to": "2027-03"
+      },
+      "anchors": [
+        "first"
+      ],
+      "primaryCta": {
+        "kind": "site-article",
+        "targets": [
+          "content/site/civil-practice/construction-inspection-types/article.mdx",
+          "content/site/civil-practice/reading-civil-drawings/article.mdx",
+          "content/site/civil-practice/cost-and-design-change/article.mdx"
+        ]
+      },
+      "count": 5,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "発注者が工事で何を見ているか分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "元発注者の見方を無料で示し、答案と仕事の両方に使ってもらう",
+        "demand": "未検証。工事検査と設計図書を題名に出す動画は検索の上位に少ない",
+        "evidence": [
+          "docs/reviews/competitors/2026-11_試験の外.md"
+        ],
+        "next": "再生と視聴維持、記事への流入を見る"
+      }
+    },
+    {
+      "id": "owner-career-2027",
+      "exam": "civil-construction-1",
+      "format": "single-topic-zukai",
+      "title": "発注者の仕事と転職（試行）",
+      "stance": "beyond-owner-career",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-01",
+        "to": "2027-03"
+      },
+      "anchors": [
+        "first"
+      ],
+      "primaryCta": {
+        "kind": "site-article",
+        "targets": [
+          "content/site/civil-practice/owner-safety-responsibility/article.mdx"
+        ]
+      },
+      "count": 2,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "発注者側の仕事の中身を知りたい",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "元発注者が仕事の中身を説明する",
+        "demand": "未検証。転職の案内は多いが、note は売れにくい",
+        "evidence": [
+          "docs/reviews/competitors/2026-11_試験の外.md"
+        ],
+        "next": "再生と視聴維持を見る。アフィリエイトは別に判断する"
+      }
+    },
+    {
+      "id": "next-license-2027",
+      "exam": "civil-construction-1",
+      "format": "single-topic-zukai",
+      "title": "次に取る資格（試行）",
+      "stance": "beyond-next-license",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-02",
+        "to": "2027-08"
+      },
+      "anchors": [
+        "first"
+      ],
+      "primaryCta": {
+        "kind": "links-hub",
+        "targets": []
+      },
+      "count": 2,
+      "reuse": "new",
+      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reason": {
+        "reader": "次に何を取ればよいか分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "資格の順序を無料で示し、該当の教材へつなぐ",
+        "demand": "未検証",
+        "evidence": [
+          "docs/reviews/competitors/2026-11_試験の外.md"
+        ],
+        "next": "資格ごとの教材のクリックを見る"
       }
     }
   ],
@@ -3531,6 +3615,870 @@
       "target": "2026-11-20",
       "priority": "P2",
       "note": "JIS A 5308の現行条文を一次資料で確認できるまで保留。確認後に画像・音声・完成動画を制作する。"
+    },
+    {
+      "id": "y27-cm-oral-1",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 口頭｜5管理のトレードオフを自分の経験で語る",
+      "action": "new",
+      "slot": "cm-oral-2026",
+      "start": "2026-11-08",
+      "ready": "2026-11-15",
+      "target": "2026-11-18",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-oral-1",
+      "exam": "pe-construction",
+      "title": "建設部門 口頭｜深掘りの質問に事実で答える",
+      "action": "new",
+      "slot": "pc-oral-2026",
+      "start": "2026-11-15",
+      "ready": "2026-11-22",
+      "target": "2026-11-25",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-owner-eye-1",
+      "exam": "civil-construction-1",
+      "title": "工事検査で発注者が見るところ",
+      "action": "new",
+      "slot": "owner-eye-2027",
+      "start": "2026-11-21",
+      "ready": "2026-11-28",
+      "target": "2026-12-01",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-oral-2",
+      "exam": "pe-construction",
+      "title": "建設部門 口頭｜改訂コンピテンシーで変わる質問",
+      "action": "new",
+      "slot": "pc-oral-2026",
+      "start": "2026-11-28",
+      "ready": "2026-12-05",
+      "target": "2026-12-08",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-oral-2",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 口頭｜立場ごとに聞かれることと答え方",
+      "action": "new",
+      "slot": "cm-oral-2026",
+      "start": "2026-12-05",
+      "ready": "2026-12-12",
+      "target": "2026-12-15",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-restart-1",
+      "exam": "pe-construction",
+      "title": "建設部門｜不合格の答案はどこで落ちるか",
+      "action": "new",
+      "slot": "pc-restart-2027",
+      "start": "2026-12-12",
+      "ready": "2026-12-19",
+      "target": "2026-12-22",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-start-1",
+      "exam": "civil-construction-1",
+      "title": "1級土木｜2027 年度の受検の順序",
+      "action": "new",
+      "slot": "c1-start-2027",
+      "start": "2026-12-22",
+      "ready": "2026-12-29",
+      "target": "2027-01-01",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-owner-eye-2",
+      "exam": "civil-construction-1",
+      "title": "監督員とのやり取りで押さえること",
+      "action": "new",
+      "slot": "owner-eye-2027",
+      "start": "2026-12-26",
+      "ready": "2027-01-02",
+      "target": "2027-01-05",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c2-start-1",
+      "exam": "civil-construction-2",
+      "title": "2級土木｜2027 年度の受検の順序",
+      "action": "new",
+      "slot": "c2-start-2027",
+      "start": "2027-01-02",
+      "ready": "2027-01-09",
+      "target": "2027-01-12",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-owner-eye-3",
+      "exam": "civil-construction-1",
+      "title": "発注者の目で読む設計図書",
+      "action": "new",
+      "slot": "owner-eye-2027",
+      "start": "2027-01-05",
+      "ready": "2027-01-12",
+      "target": "2027-01-15",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-owner-career-1",
+      "exam": "civil-construction-1",
+      "title": "発注者の仕事の中身",
+      "action": "new",
+      "slot": "owner-career-2027",
+      "start": "2027-01-12",
+      "ready": "2027-01-19",
+      "target": "2027-01-22",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-restart-1",
+      "exam": "pe-comprehensive-management",
+      "title": "総監｜落ちた原因を点検して学習を始め直す",
+      "action": "new",
+      "slot": "cm-restart-2027",
+      "start": "2027-01-16",
+      "ready": "2027-01-23",
+      "target": "2027-01-26",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-listen-1",
+      "exam": "civil-construction-1",
+      "title": "1級土木 第一次検定｜土工の総まとめ",
+      "action": "new",
+      "slot": "c1-listen-2027",
+      "start": "2027-01-23",
+      "ready": "2027-01-30",
+      "target": "2027-02-02",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-next-license-1",
+      "exam": "civil-construction-1",
+      "title": "2級から1級、技術士へ進む順序",
+      "action": "new",
+      "slot": "next-license-2027",
+      "start": "2027-01-26",
+      "ready": "2027-02-02",
+      "target": "2027-02-05",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-application-1",
+      "exam": "pe-construction",
+      "title": "建設部門｜業務内容の詳細 720 字の組み立て",
+      "action": "new",
+      "slot": "pc-application-2027",
+      "start": "2027-01-30",
+      "ready": "2027-02-06",
+      "target": "2027-02-09",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-sentaku-1",
+      "exam": "pe-construction",
+      "title": "建設部門 道路｜出題の読み方と書き方",
+      "action": "new",
+      "slot": "pc-sentaku-2027",
+      "start": "2027-02-02",
+      "ready": "2027-02-09",
+      "target": "2027-02-12",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-owner-eye-4",
+      "exam": "civil-construction-1",
+      "title": "設計変更を発注者はどう判断するか",
+      "action": "new",
+      "slot": "owner-eye-2027",
+      "start": "2027-02-06",
+      "ready": "2027-02-13",
+      "target": "2027-02-16",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-application-1",
+      "exam": "pe-comprehensive-management",
+      "title": "総監｜業務経歴の書き方",
+      "action": "new",
+      "slot": "cm-application-2027",
+      "start": "2027-02-09",
+      "ready": "2027-02-16",
+      "target": "2027-02-19",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-split-1",
+      "exam": "pe-construction",
+      "title": "建設部門｜Ⅱ-1 の書き方",
+      "action": "new",
+      "slot": "pc-split-2027",
+      "start": "2027-02-13",
+      "ready": "2027-02-20",
+      "target": "2027-02-23",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-owner-eye-5",
+      "exam": "civil-construction-1",
+      "title": "数量と積算を発注者の目で見る",
+      "action": "new",
+      "slot": "owner-eye-2027",
+      "start": "2027-02-20",
+      "ready": "2027-02-27",
+      "target": "2027-03-02",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c2-listen-1",
+      "exam": "civil-construction-2",
+      "title": "2級土木 第一次検定｜総まとめ",
+      "action": "new",
+      "slot": "c2-listen-2027",
+      "start": "2027-02-23",
+      "ready": "2027-03-02",
+      "target": "2027-03-05",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-hakusho-1",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜白書から課題を選ぶ",
+      "action": "new",
+      "slot": "cm-hakusho-2027",
+      "start": "2027-02-27",
+      "ready": "2027-03-06",
+      "target": "2027-03-09",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-split-2",
+      "exam": "pe-construction",
+      "title": "建設部門｜Ⅲ の書き方",
+      "action": "new",
+      "slot": "pc-split-2027",
+      "start": "2027-03-02",
+      "ready": "2027-03-09",
+      "target": "2027-03-12",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-owner-career-2",
+      "exam": "civil-construction-1",
+      "title": "発注者側へ移る前に知ること",
+      "action": "new",
+      "slot": "owner-career-2027",
+      "start": "2027-03-06",
+      "ready": "2027-03-13",
+      "target": "2027-03-16",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-hakusho-2",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜白書の読み方と読む深さ",
+      "action": "new",
+      "slot": "cm-hakusho-2027",
+      "start": "2027-03-09",
+      "ready": "2027-03-16",
+      "target": "2027-03-19",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-split-3",
+      "exam": "pe-construction",
+      "title": "建設部門｜Ⅱ-2 の書き方",
+      "action": "new",
+      "slot": "pc-split-2027",
+      "start": "2027-03-13",
+      "ready": "2027-03-20",
+      "target": "2027-03-23",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-sentaku-2",
+      "exam": "pe-construction",
+      "title": "建設部門 トンネル｜出題の読み方と書き方",
+      "action": "new",
+      "slot": "pc-sentaku-2027",
+      "start": "2027-03-16",
+      "ready": "2027-03-23",
+      "target": "2027-03-26",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-listen-2",
+      "exam": "civil-construction-1",
+      "title": "1級土木 第一次検定｜施工管理の総まとめ",
+      "action": "new",
+      "slot": "c1-listen-2027",
+      "start": "2027-03-23",
+      "ready": "2027-03-30",
+      "target": "2027-04-02",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-hakusho-3",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜白書の論点を答案へつなぐ実演",
+      "action": "new",
+      "slot": "cm-hakusho-2027",
+      "start": "2027-03-27",
+      "ready": "2027-04-03",
+      "target": "2027-04-06",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-long-1",
+      "exam": "pe-construction",
+      "title": "建設部門｜Ⅱ-1・Ⅱ-2・Ⅲの書き分けを通して見る",
+      "action": "new",
+      "slot": "pc-long-2027",
+      "start": "2027-03-30",
+      "ready": "2027-04-06",
+      "target": "2027-04-09",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-sentaku-3",
+      "exam": "pe-construction",
+      "title": "建設部門 土質及び基礎｜出題の読み方と書き方",
+      "action": "new",
+      "slot": "pc-sentaku-2027",
+      "start": "2027-04-03",
+      "ready": "2027-04-10",
+      "target": "2027-04-13",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-hakusho-4",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜白書の施策を解決策へつなぐ",
+      "action": "new",
+      "slot": "cm-hakusho-2027",
+      "start": "2027-04-06",
+      "ready": "2027-04-13",
+      "target": "2027-04-16",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-essay-1",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜問題文の読み方",
+      "action": "new",
+      "slot": "cm-essay-2027",
+      "start": "2027-04-10",
+      "ready": "2027-04-17",
+      "target": "2027-04-20",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-sentaku-4",
+      "exam": "pe-construction",
+      "title": "建設部門 都市及び地方計画｜出題の読み方と書き方",
+      "action": "new",
+      "slot": "pc-sentaku-2027",
+      "start": "2027-04-13",
+      "ready": "2027-04-20",
+      "target": "2027-04-23",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-hissu-1",
+      "exam": "pe-construction",
+      "title": "建設部門 必須Ⅰ｜テーマの読み方と準備の順序",
+      "action": "new",
+      "slot": "pc-hissu-2027",
+      "start": "2027-04-17",
+      "ready": "2027-04-24",
+      "target": "2027-04-27",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-quiz-1",
+      "exam": "civil-construction-1",
+      "title": "1級土木 第一次検定｜一問一答",
+      "action": "new",
+      "slot": "c1-quiz-2027",
+      "start": "2027-04-23",
+      "ready": "2027-04-30",
+      "target": "2027-05-03",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-essay-2",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜設問3の将来のリスクと克服策",
+      "action": "new",
+      "slot": "cm-essay-2027",
+      "start": "2027-04-25",
+      "ready": "2027-05-02",
+      "target": "2027-05-05",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-sentaku-5",
+      "exam": "pe-construction",
+      "title": "建設部門 河川、砂防及び海岸・海洋｜出題の読み方と書き方",
+      "action": "new",
+      "slot": "pc-sentaku-2027",
+      "start": "2027-04-30",
+      "ready": "2027-05-07",
+      "target": "2027-05-10",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-yosou-1",
+      "exam": "pe-construction",
+      "title": "建設部門｜出題予想の導き方",
+      "action": "new",
+      "slot": "pc-yosou-2027",
+      "start": "2027-05-04",
+      "ready": "2027-05-11",
+      "target": "2027-05-14",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-essay-3",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜5管理のトレードオフを答案に書く",
+      "action": "new",
+      "slot": "cm-essay-2027",
+      "start": "2027-05-09",
+      "ready": "2027-05-16",
+      "target": "2027-05-19",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-sentaku-6",
+      "exam": "pe-construction",
+      "title": "建設部門 建設環境｜出題の読み方と書き方",
+      "action": "new",
+      "slot": "pc-sentaku-2027",
+      "start": "2027-05-14",
+      "ready": "2027-05-21",
+      "target": "2027-05-24",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-hissu-2",
+      "exam": "pe-construction",
+      "title": "建設部門 必須Ⅰ｜答案の組み立て",
+      "action": "new",
+      "slot": "pc-hissu-2027",
+      "start": "2027-05-18",
+      "ready": "2027-05-25",
+      "target": "2027-05-28",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-moshi-1",
+      "exam": "civil-construction-1",
+      "title": "1級土木 第一次検定｜無料模試",
+      "action": "new",
+      "slot": "c1-moshi-2027",
+      "start": "2027-05-23",
+      "ready": "2027-05-30",
+      "target": "2027-06-02",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-essay-4",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜落ちる答案の直し方",
+      "action": "new",
+      "slot": "cm-essay-2027",
+      "start": "2027-05-25",
+      "ready": "2027-06-01",
+      "target": "2027-06-04",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-final-1",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜白書の改訂の差分を確認する",
+      "action": "new",
+      "slot": "cm-final-2027",
+      "start": "2027-05-30",
+      "ready": "2027-06-06",
+      "target": "2027-06-09",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-rc-1",
+      "exam": "rccm",
+      "title": "RCCM｜問題Ⅰの業務経験の書き方",
+      "action": "new",
+      "slot": "rc-2027",
+      "start": "2027-06-04",
+      "ready": "2027-06-11",
+      "target": "2027-06-14",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cd-1",
+      "exam": "concrete-diagnostician",
+      "title": "コンクリート診断士｜問題Bの書き方",
+      "action": "new",
+      "slot": "cd-2027",
+      "start": "2027-06-08",
+      "ready": "2027-06-15",
+      "target": "2027-06-18",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-yosou-1",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜出題予想の導き方",
+      "action": "new",
+      "slot": "cm-yosou-2027",
+      "start": "2027-06-13",
+      "ready": "2027-06-20",
+      "target": "2027-06-23",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-final-1",
+      "exam": "pe-construction",
+      "title": "建設部門 必須Ⅰ｜時間配分",
+      "action": "new",
+      "slot": "pc-final-2027",
+      "start": "2027-06-18",
+      "ready": "2027-06-25",
+      "target": "2027-06-28",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-bridge-1",
+      "exam": "civil-construction-1",
+      "title": "1級土木｜第一次検定のあとにやる二次の準備",
+      "action": "new",
+      "slot": "c1-bridge-2027",
+      "start": "2027-06-22",
+      "ready": "2027-06-29",
+      "target": "2027-07-02",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-keiken-1",
+      "exam": "civil-construction-1",
+      "title": "1級土木 経験記述｜工事概要の書き方",
+      "action": "new",
+      "slot": "c1-keiken-2027",
+      "start": "2027-06-26",
+      "ready": "2027-07-03",
+      "target": "2027-07-06",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-final-2",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 記述｜試験前の確認と時間配分",
+      "action": "new",
+      "slot": "cm-final-2027",
+      "start": "2027-07-03",
+      "ready": "2027-07-10",
+      "target": "2027-07-13",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-keiken-2",
+      "exam": "civil-construction-1",
+      "title": "1級土木 経験記述｜発注者はどこを読むか",
+      "action": "new",
+      "slot": "c1-keiken-2027",
+      "start": "2027-07-06",
+      "ready": "2027-07-13",
+      "target": "2027-07-16",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-ce-1",
+      "exam": "concrete-engineer",
+      "title": "コンクリート技士｜令和形式の配合計算",
+      "action": "new",
+      "slot": "ce-2027",
+      "start": "2027-07-13",
+      "ready": "2027-07-20",
+      "target": "2027-07-23",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pc-final-2",
+      "exam": "pe-construction",
+      "title": "建設部門｜答案のリスクの確認",
+      "action": "new",
+      "slot": "pc-final-2027",
+      "start": "2027-07-17",
+      "ready": "2027-07-24",
+      "target": "2027-07-27",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-keiken-3",
+      "exam": "civil-construction-1",
+      "title": "1級土木 経験記述｜安全管理の書き方",
+      "action": "new",
+      "slot": "c1-keiken-2027",
+      "start": "2027-07-24",
+      "ready": "2027-07-31",
+      "target": "2027-08-03",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-tensaku-1",
+      "exam": "civil-construction-1",
+      "title": "1級土木 経験記述｜架空の答案の添削の見本",
+      "action": "new",
+      "slot": "c1-tensaku-2027",
+      "start": "2027-07-27",
+      "ready": "2027-08-03",
+      "target": "2027-08-06",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c2-keiken-1",
+      "exam": "civil-construction-2",
+      "title": "2級土木 経験記述｜題材の選び方",
+      "action": "new",
+      "slot": "c2-keiken-2027",
+      "start": "2027-07-31",
+      "ready": "2027-08-07",
+      "target": "2027-08-10",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cc-1",
+      "exam": "concrete-chief-engineer",
+      "title": "主任技士 小論文｜項目と行数から骨子を作る",
+      "action": "new",
+      "slot": "cc-2027",
+      "start": "2027-08-03",
+      "ready": "2027-08-10",
+      "target": "2027-08-13",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-keiken-4",
+      "exam": "civil-construction-1",
+      "title": "1級土木 経験記述｜品質管理の書き方",
+      "action": "new",
+      "slot": "c1-keiken-2027",
+      "start": "2027-08-07",
+      "ready": "2027-08-14",
+      "target": "2027-08-17",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-next-license-2",
+      "exam": "civil-construction-1",
+      "title": "1級の次に取る資格",
+      "action": "new",
+      "slot": "next-license-2027",
+      "start": "2027-08-10",
+      "ready": "2027-08-17",
+      "target": "2027-08-20",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c2-keiken-2",
+      "exam": "civil-construction-2",
+      "title": "2級土木 経験記述｜工事概要の書き方",
+      "action": "new",
+      "slot": "c2-keiken-2027",
+      "start": "2027-08-14",
+      "ready": "2027-08-21",
+      "target": "2027-08-24",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-rc-2",
+      "exam": "rccm",
+      "title": "RCCM｜問題Ⅲの論文の型",
+      "action": "new",
+      "slot": "rc-2027",
+      "start": "2027-08-17",
+      "ready": "2027-08-24",
+      "target": "2027-08-27",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-keiken-5",
+      "exam": "civil-construction-1",
+      "title": "1級土木 経験記述｜落ちる答案の直し方",
+      "action": "new",
+      "slot": "c1-keiken-2027",
+      "start": "2027-08-22",
+      "ready": "2027-08-29",
+      "target": "2027-09-01",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c2-keiken-3",
+      "exam": "civil-construction-2",
+      "title": "2級土木 経験記述｜安全管理の書き方",
+      "action": "new",
+      "slot": "c2-keiken-2027",
+      "start": "2027-08-24",
+      "ready": "2027-08-31",
+      "target": "2027-09-03",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cc-2",
+      "exam": "concrete-chief-engineer",
+      "title": "主任技士 小論文｜テーマの傾向と立場の選び方",
+      "action": "new",
+      "slot": "cc-2027",
+      "start": "2027-08-29",
+      "ready": "2027-09-05",
+      "target": "2027-09-08",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pe1-1",
+      "exam": "pe-first-stage",
+      "title": "技術士 第一次試験｜基礎科目の総まとめ",
+      "action": "new",
+      "slot": "pe1-2027",
+      "start": "2027-09-03",
+      "ready": "2027-09-10",
+      "target": "2027-09-13",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c1-yosou-1",
+      "exam": "civil-construction-1",
+      "title": "1級土木 第二次検定｜出題予想の導き方",
+      "action": "new",
+      "slot": "c1-yosou-2027",
+      "start": "2027-09-07",
+      "ready": "2027-09-14",
+      "target": "2027-09-17",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c2-keiken-4",
+      "exam": "civil-construction-2",
+      "title": "2級土木 経験記述｜品質管理の書き方",
+      "action": "new",
+      "slot": "c2-keiken-2027",
+      "start": "2027-09-12",
+      "ready": "2027-09-19",
+      "target": "2027-09-22",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cc-3",
+      "exam": "concrete-chief-engineer",
+      "title": "主任技士 小論文｜落ちる答案の直し方",
+      "action": "new",
+      "slot": "cc-2027",
+      "start": "2027-09-17",
+      "ready": "2027-09-24",
+      "target": "2027-09-27",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-c2-keiken-5",
+      "exam": "civil-construction-2",
+      "title": "2級土木 経験記述｜提出前の点検",
+      "action": "new",
+      "slot": "c2-keiken-2027",
+      "start": "2027-09-21",
+      "ready": "2027-09-28",
+      "target": "2027-10-01",
+      "priority": "P1",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-pe1-2",
+      "exam": "pe-first-stage",
+      "title": "技術士 第一次試験｜適性科目の総まとめ",
+      "action": "new",
+      "slot": "pe1-2027",
+      "start": "2027-10-05",
+      "ready": "2027-10-12",
+      "target": "2027-10-15",
+      "priority": "P2",
+      "note": "競合の立ち位置から起こした企画。台本から作る"
     }
   ]
 }
