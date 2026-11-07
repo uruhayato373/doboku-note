@@ -7,11 +7,19 @@
   },
   "popStyle": "親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。",
   "textRule": "指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
-  "diagramLedExams": ["civil-construction-2"],
+  "diagramLedExams": [
+    "civil-construction-2"
+  ],
   "references": {
     "coverStyle": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
     "character": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
     "bodyStyle": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png"
+  },
+  "antiAi": {
+    "version": 1,
+    "avoid": "光沢の強い質感、レンズフレア、意味のない光の筋、不自然な左右対称、絵空事の未来的な機材、読めない看板や記号、同じ形の雲の繰り返し、彩度の高すぎる青空、白く飛んだ空、崩れた手指は描かない。",
+    "real": "日本の土木現場の実物に寄せる。機材は実在する形と部品の配置で描き、保護具、仮囲い、地面の土や砕石の質感を具体的に描く。整いすぎた理想図ではなく、実際の現場の少し雑然とした配置にする。",
+    "tone": "色数を抑えた落ち着いた教材イラスト。太さの揃った輪郭線とマットな塗り。ライトとダークのどちらの背景でも浮かないよう、画面全体を中間から濃い色調でまとめ、白い大きな面を作らない。"
   },
   "formats": {
     "longform": {
@@ -29,14 +37,89 @@
     }
   },
   "routes": [
-    { "id": "longform", "label": "通常動画の表紙と本文", "kind": "script", "entry": "scripts/lib/video-factory.mjs", "audit": "ai-image-fidelity-auditor" },
-    { "id": "shorts", "label": "ショートの全画面", "kind": "script", "entry": "scripts/lib/shorts-factory.mjs", "audit": "ai-image-fidelity-auditor" },
-    { "id": "article-photo", "label": "記事の写真", "kind": "script", "entry": "scripts/gen-article-photo.mjs", "audit": "ai-image-fidelity-auditor" },
-    { "id": "media-plate", "label": "公開の役割の素材（note・ココナラなど）", "kind": "script", "entry": "scripts/lib/media-plate.mjs", "audit": "ai-image-fidelity-auditor" },
-    { "id": "guide-covers", "label": "ガイドのカバー写真", "kind": "script", "entry": "scripts/generate-guide-covers.mjs", "audit": "none" },
-    { "id": "ogp-backgrounds", "label": "OGP の背景", "kind": "script", "entry": "scripts/generate-ogp-backgrounds.mjs", "audit": "none" },
-    { "id": "pop-manual", "label": "商品画像・カバーの POP 手作業", "kind": "manual", "entry": ".claude/skills/social/create-pop-image/SKILL.md", "audit": "ai-image-fidelity-auditor" },
-    { "id": "brand-photos", "label": "資格別ブランド写真", "kind": "manual", "entry": ".claude/knowledge/reference/brand-image-system.md", "audit": "none" },
-    { "id": "character-assets", "label": "キャラクター素材", "kind": "manual", "entry": "scripts/character-extract.mjs", "audit": "none" }
+    {
+      "id": "longform",
+      "label": "通常動画の表紙と本文",
+      "kind": "script",
+      "entry": "scripts/lib/video-factory.mjs",
+      "audit": "ai-image-fidelity-auditor"
+    },
+    {
+      "id": "shorts",
+      "label": "ショートの全画面",
+      "kind": "script",
+      "entry": "scripts/lib/shorts-factory.mjs",
+      "audit": "ai-image-fidelity-auditor"
+    },
+    {
+      "id": "article-photo",
+      "label": "記事の写真",
+      "kind": "script",
+      "entry": "scripts/gen-article-photo.mjs",
+      "audit": "ai-image-fidelity-auditor"
+    },
+    {
+      "id": "media-plate",
+      "label": "公開の役割の素材（note・ココナラなど）",
+      "kind": "script",
+      "entry": "scripts/lib/media-plate.mjs",
+      "audit": "ai-image-fidelity-auditor"
+    },
+    {
+      "id": "site-thumbs",
+      "label": "サイト内サムネイル",
+      "kind": "script",
+      "entry": "scripts/generate-site-thumbnails.mjs",
+      "audit": "ai-image-fidelity-auditor"
+    },
+    {
+      "id": "site-thumbs-review",
+      "label": "サイト内サムネイルの Codex 監査",
+      "kind": "script",
+      "entry": "scripts/review-site-thumbnails.mjs",
+      "audit": "ai-image-fidelity-auditor"
+    },
+    {
+      "id": "site-thumbs-pipeline",
+      "label": "サイト内サムネイルの三段の分担",
+      "kind": "script",
+      "entry": "scripts/site-thumbnails.mjs",
+      "audit": "ai-image-fidelity-auditor"
+    },
+    {
+      "id": "guide-covers",
+      "label": "ガイドのカバー写真",
+      "kind": "script",
+      "entry": "scripts/generate-guide-covers.mjs",
+      "audit": "none"
+    },
+    {
+      "id": "ogp-backgrounds",
+      "label": "OGP の背景",
+      "kind": "script",
+      "entry": "scripts/generate-ogp-backgrounds.mjs",
+      "audit": "none"
+    },
+    {
+      "id": "pop-manual",
+      "label": "商品画像・カバーの POP 手作業",
+      "kind": "manual",
+      "entry": ".claude/skills/social/create-pop-image/SKILL.md",
+      "audit": "ai-image-fidelity-auditor"
+    },
+    {
+      "id": "brand-photos",
+      "label": "資格別ブランド写真",
+      "kind": "manual",
+      "entry": ".claude/knowledge/reference/brand-image-system.md",
+      "audit": "none"
+    },
+    {
+      "id": "character-assets",
+      "label": "キャラクター素材",
+      "kind": "manual",
+      "entry": "scripts/character-extract.mjs",
+      "audit": "none"
+    }
   ]
 }

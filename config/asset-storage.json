@@ -108,6 +108,25 @@
       "phase": "site-ogp-thumbnails"
     },
     {
+      "id": "site-thumbnails",
+      "audience": "site",
+      "match": {
+        "pathRegex": "^content/site/.+/site-thumb[.]webp$"
+      },
+      "bucket": "public",
+      "keyPrefix": "posts/",
+      "keyFrom": "stripPrefix:content/site/",
+      "visibilityFrom": "fixed:public",
+      "regenerable": false,
+      "generator": "npm run site-thumbs",
+      "requiredBy": [
+        "src/lib/site-thumbnail.ts",
+        "src/components/ui/ContentThumbnail.tsx"
+      ],
+      "reason": "Codex で生成するサイト内サムネイル。再生成すると別の画像になるので原本として保存する",
+      "phase": "site-thumbnails"
+    },
+    {
       "id": "site-figure-png",
       "audience": "site",
       "match": {

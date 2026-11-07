@@ -3,6 +3,7 @@ import ContentThumbnail from '@/components/ui/ContentThumbnail';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
 import { getOgpDisplayUrl } from '@/lib/r2-image-loader';
+import { getSiteThumbnail } from '@/lib/site-thumbnail';
 import ExamMatrix, { type ExamMatrixRow } from '@/components/category/ExamMatrix';
 import {
   PE_CONSTRUCTION_SUBJECTS,
@@ -329,13 +330,14 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
 export function OgpThumbRow({ doc, rank, eager = false, headingLevel: Heading = 'h3' }: { doc: DocMeta; rank?: number; eager?: boolean; headingLevel?: 'h3' | 'h4' }) {
   const title = doc.shortTitle || doc.title;
   const excerpt = doc.subtitle || doc.description;
+  const thumbnail = getSiteThumbnail(doc);
   return (
     <li className="border-b border-(--rule-soft) last:border-b-0">
       <Link href={getPublicDocPath(doc.slug)} className="focus-ring group flex gap-3 sm:gap-4 py-4">
         {/* self-start 必須: 親 flex の align-items:stretch がサムネをテキスト列の高さに
             引き伸ばし aspect-1200/630 を無効化する（縦伸び事故の根治・2026-07-15）。 */}
         <div className="relative aspect-1200/630 w-[124px] sm:w-[168px] shrink-0 self-start overflow-hidden border border-(--rule-soft) bg-(--bg)">
-          <ContentThumbnail src={getOgpDisplayUrl(doc.slug)} eager={eager} />
+          <ContentThumbnail src={thumbnail?.src ?? getOgpDisplayUrl(doc.slug)} band={thumbnail} eager={eager} />
         </div>
         <div className="flex min-w-0 flex-1 gap-2.5">
           {rank != null && (

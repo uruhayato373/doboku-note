@@ -12,6 +12,8 @@ on:
       - "public/**"
       - "content/site/**"
       # src/ が src の外から import するもの（DN-0808。tests/e2e-paths.test.mjs が siteImportedFiles で漏れを止める）
+      - "config/site-thumbnails.json"
+      - ".claude/knowledge/design-system/note-cover-tokens.json"
       - "config/affiliate-placements.json"
       - "config/cta-placements.json"
       - "config/egov-laws.json"

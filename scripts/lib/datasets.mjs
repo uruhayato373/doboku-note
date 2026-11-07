@@ -153,6 +153,7 @@ export const DATASETS = [
   d('config.instagram-pinned', 'config/instagram-pinned.json', 'config', 'sns', 'Instagramプロフィール固定投稿3本の原稿と図解データ', { schema: 'InstagramPinnedManifest' }),
   d('config.character-poses', 'config/character-poses.json', 'config', 'sns', 'キャラクター素材のポーズと命名', { schema: 'ConfigCharacterPoses' }),
   d('config.image-generation', 'config/image-generation.json', 'config', 'sns', 'AI 画像の共通ルールと生成経路', { schema: 'ConfigImageGeneration' }),
+  d('config.site-thumbnails', 'config/site-thumbnails.json', 'config', 'site', 'サイト内サムネイルの正本', { schema: 'ConfigSiteThumbnails' }),
   d('config.video-brand', 'config/video-brand.json', 'config', 'sns', '動画のブランド（ロゴ・背景）', { schema: 'ConfigVideoBrand' }),
   d('config.video-content', 'config/video-content.json', 'config', 'sns', '動画パックの契約', { schema: 'ConfigVideoContent' }),
   d('config.youtube-delivery', 'config/youtube-delivery.json', 'config', 'sns', 'YouTube 配信の設定', { schema: 'ConfigYoutubeDelivery' }),

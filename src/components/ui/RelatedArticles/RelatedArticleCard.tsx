@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ContentThumbnail from '@/components/ui/ContentThumbnail';
 import type { DocMeta } from '@/lib/docs';
 import { getOgpDisplayUrl } from '@/lib/r2-image-loader';
+import { getSiteThumbnail } from '@/lib/site-thumbnail';
 import { getPublicDocPath } from '@/lib/content-routes';
 
 interface RelatedArticleCardProps {
@@ -15,13 +16,14 @@ interface RelatedArticleCardProps {
  * 画像下地に --bg を敷き、万一の 404 でも枠が崩れないようにする。
  */
 export default function RelatedArticleCard({ doc }: RelatedArticleCardProps) {
+  const thumbnail = getSiteThumbnail(doc);
   return (
     <Link
       href={getPublicDocPath(doc.slug)}
       className="card-interactive card-surface-content focus-ring not-prose group flex h-full flex-col overflow-hidden hover:border-brand dark:hover:border-brand"
     >
       <div className="relative aspect-1200/630 w-full overflow-hidden bg-(--bg)">
-        <ContentThumbnail src={getOgpDisplayUrl(doc.slug)} sizes="(max-width: 640px) 100vw, 320px" />
+        <ContentThumbnail src={thumbnail?.src ?? getOgpDisplayUrl(doc.slug)} band={thumbnail} sizes="(max-width: 640px) 100vw, 320px" />
       </div>
       <div className="flex flex-1 flex-col px-4 py-3">
         <div className="line-clamp-2 text-sm font-semibold text-brand">{doc.title}</div>
