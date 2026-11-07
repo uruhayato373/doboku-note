@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 月次の未完・再確認日到来を SessionStart と週次 launchd に知らせる。
+ * 月次の未完・再確認日到来を SessionStart と週次の点検（quality:audit:weekly）で知らせる。月次レビューは運営者の指示で実行する（2026-11-08〜）。
  * 毎月3日(JST)以降、前月のレポート・記録・snapshot・点検・申し送りを確認する。
  * --due-key は起動対象月だけを出力（対象なしは空、検査エラーは非ゼロ）。
  * --month YYYY-MM はその月の完了検査、--ref は Git 上の証拠を読む。
@@ -58,7 +58,7 @@ export async function run({ argv = [], quiet = false } = {}) {
   if (args.dueKey) out.log(due ?? '');
   else if (args.json) out.log(JSON.stringify({ due, ...result, checkedAt: new Date().toISOString() }));
   else if (args.month) out.log(`[monthly-review] ${month}: 対象 ${result.expected}・検査 ${result.checked}・未完 ${result.missing.length}\n${result.missing.join('\n')}`);
-  else if (due) out.log(`[monthly-review-due] ${due} の月次レビューが未完または再確認日到来。週次の launchd が /monthly-review を自動起動する（手動でも実行可能）。`);
+  else if (due) out.log(`[monthly-review-due] ${due} の月次レビューが未完または再確認日到来。運営者の指示で /monthly-review を実行する（後日でよい）。`);
   return out.result(args.dueKey ? 0 : args.month ? (result.complete ? 0 : 1) : due ? 1 : 0);
 }
 
