@@ -192,7 +192,7 @@ export function auditPositions({ ledger, tracked, market, scan, snapshots, plan,
     }
     for (const r of [...p.rivals, ...p.avoid.flatMap((a) => a.rivals)]) {
       if (!isTracked(r)) errors.push(`${where}: ${r.channel} ${r.handle} が追跡リストに無い`);
-      else if (!tracked[r.channel].competitors.find((c) => c.handle === r.handle).exams?.some((e) => p.exams.includes(e))) {
+      else if (p.exams.length && !tracked[r.channel].competitors.find((c) => c.handle === r.handle).exams?.some((e) => p.exams.includes(e))) {
         errors.push(`${where}: ${r.channel} ${r.handle} の追跡リストの exams に、この資格が無い`);
       }
     }
@@ -278,6 +278,7 @@ function fileDate(file) {
 
 /** 立ち位置の表示名。資格名の正本は qualification-registry */
 export function positionLabel(position, registry) {
+  if (position.topic) return position.topic;
   const label = (id) => registry.qualifications.find((q) => q.id === id)?.label ?? id;
   return position.exams.map(label).join('・');
 }

@@ -350,6 +350,14 @@
           "surveyor"
         ],
         "note": "資格ごとの問題集を量産"
+      },
+      {
+        "handle": "jichitai_senmon",
+        "label": "jichitai_senmon",
+        "exams": [
+          "pe-construction"
+        ],
+        "note": "自治体の技術職向けの実務の記事と教材"
       }
     ]
   },
@@ -1213,6 +1221,23 @@
           "concrete-engineer"
         ],
         "note": "分野別の練習問題と用語解説を読み上げで連続して出す"
+      },
+      {
+        "handle": "UCTBEJ48xCuWQvvQFuvqGYHA",
+        "label": "ジョウ所長の土木技術者サポートチャンネル",
+        "exams": [
+          "civil-construction-1"
+        ],
+        "note": "土木の実務。積算・設計変更・工事書類を施工者の側から解説"
+      },
+      {
+        "handle": "UCWR71DNlOsPN6LMdeIyZ84w",
+        "label": "土木の資格チャンネル",
+        "exams": [
+          "civil-construction-1",
+          "pe-construction"
+        ],
+        "note": "資格と転職。発注者支援業務への転職の案内が多い"
       }
     ]
   },
