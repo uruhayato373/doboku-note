@@ -314,6 +314,8 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     const NEW_WRAP_CFG = { ...textConfig, breakAt: [] };
     const { main, sub } = deriveTitleParts(sourceTitle, categoryLabel, contentType?.label);
     mainLines = await wrapTitle(main, NEW_WRAP_CFG);
+    // 長い主題は 1 行を長めに折り直す。10 字折りのままだと法令名が 5 行になり、副題と詰まる（2026-11-07）
+    if (mainLines.length > 3) mainLines = await wrapTitle(main, { ...NEW_WRAP_CFG, charCountFallback: 15 });
     const mfApprox = pickFontSize(mainLines, { ...NEW_WRAP_CFG, fontSizeTable: MAIN_FONT_TABLE, safetyWidth: SAFE_W });
     // サブは小フォント（≒主題×0.46・最小26px）で 1 行に多く入る。主題と同じ13字で折ると不要に改行
     // されるため、サブfont と横幅から 1 行最大文字数を出し、記号/スペースでの過剰改行も避ける。
@@ -329,7 +331,8 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     // タイトルは分割後の mainLines を使う（旧 lines はフル title＝区切り込みで、subLines と重複するため）。
     lines: mainLines,
     categoryLabel,
-    fontSize,
+    // ライトの文字は主題の長さで決める。タイトル全文で決めると副題つきの主題が小さくなる（2026-11-07）
+    fontSize: pickFontSize(mainLines, textConfig),
     backgroundImage,
     accentColor,
     contentType,

@@ -263,7 +263,7 @@ export function auditPlanStances(plan, ledger, { required = false, exists = null
     }
     const found = stances.get(slot.stance);
     if (!found) errors.push(`${where}: stance ${slot.stance} が台帳に無い`);
-    else if (!found.position.exams.includes(slot.exam)) errors.push(`${where}: stance ${slot.stance} は ${slot.exam} の立ち位置ではない`);
+    else if (found.position.exams.length && !found.position.exams.includes(slot.exam)) errors.push(`${where}: stance ${slot.stance} は ${slot.exam} の立ち位置ではない`);
     else if (!found.stance.channels.includes(channel)) errors.push(`${where}: stance ${slot.stance} は ${channel} を対象にしていない`);
   };
   for (const s of plan.slots) check('youtube', s);

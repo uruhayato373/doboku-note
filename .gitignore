@@ -399,6 +399,7 @@ content/site/**/img/*.png
 # 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。2026-09-17 に magazines/ 直下以外
 # （メンバーシップ特典マガジン `メンバーシップ/予想問題マガジン/_cover.png`）も同じ扱いに広げた。
 content/note/**/_cover.png
+content/note/**/_cover-photo.png
 
 # content/coconala/assets/（59件・28.3MB）は実体を Google Drive vault
 # （drive-vault.json の coconala-asset group・台帳 drive-manifest.json）に置く。

@@ -333,6 +333,22 @@
       "reason": "note マガジンのカバー。マガジン作成は人が手元で行う。CI が書く記事カバー（note-cover-png）とは別物。"
     },
     {
+      "id": "note-magazine-cover-photo",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/note/.+/_cover-photo\\.png$"
+      },
+      "vaultDir": "制作物/マガジンカバー写真",
+      "keyFrom": "stripPrefix:content/note/",
+      "regenerable": false,
+      "generator": "Codex（docs/operations/画像運用設計.md）",
+      "requiredBy": [
+        "scripts/lib/note-character-cover.mjs"
+      ],
+      "reason": "note マガジンの写真カバーの元写真。作り直すと別の画像になるので原本として保存する。カバーの描画が使う。"
+    },
+    {
       "id": "note-cover-pop-preview",
       "status": "active",
       "audience": "human",

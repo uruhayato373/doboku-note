@@ -803,7 +803,7 @@ export const ConfigNoteIntroStandard = z
 // ---- note カバー（config/note-covers.json） ----------------------------------------------------
 
 const coverText = z
-  .object({ qualifier: text.describe('試験名の行'), magazineName: text.describe('マガジン名'), proof: text.describe('実績・範囲の行'), benefit: text.describe('得られるものの行') })
+  .object({ photo: z.string().min(1).optional().describe('写真カバーの元写真のファイル名'), qualifier: text.describe('試験名の行'), magazineName: text.describe('マガジン名'), proof: text.describe('実績・範囲の行'), benefit: text.describe('得られるものの行') })
   .strict();
 
 /** note カバーの設定。記事の上書き・退役／追加マガジン・分類の語彙とルール・マガジンの文言。字数の収まりは check-note-cover-fit が実測する */
