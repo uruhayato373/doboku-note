@@ -11,7 +11,7 @@
 
 - 計画タスク達成率: 0/2（実行タスクの DN-0706・DN-0819 はどちらも残り。DN-0706 は画像を作って develop へ入れ、本番の確認と 28 日の比較が残る）
 - 主な成果: 週次レビューを指示で回す形に変えた（#1452）。検索の改善 3 件（EXP-060〜062）。運営者の判断 8 件を台帳に反映し、作業カード 5 枚（DN-1043〜1047）を起票した。
-- 要注意: 金曜の計測（fetch-metrics）が develop へ書き戻せず、W44 の計測ダイジェストと自然検索人数が欠測（DN-1043）。土曜の収集も前段の記録が develop に入っていない（DN-0819）。
+- 要注意: 金曜の計測（fetch-metrics）が develop へ書き戻せていなかった（同日に DN-1043 で直し、W44 の数字を取り直した）。土曜の収集も前段の記録が develop に入っていない（DN-0819）。
 - 数値の要点: W44 窓の note 販売 2 件 ¥9,960（部分）。10 月の受取額は推計 ¥64,418 で、目標 ¥100,000 に −¥35,582。
 
 ## 計画 vs 実績
@@ -59,99 +59,105 @@
 
 | 指標 | 全体 | 前週比 | 1級土木 | 技術士 総監 | 技術士 建設部門 | RCCM |
 |---|--:|--:|--:|--:|--:|--:|
-| 自然検索 | — | — | — | — | — | — |
-| Google クリック | — | — | — | — | — | — |
-| YouTube 経由 | — | — | — | — | — | — |
-| X 経由 | — | — | — | — | — | — |
-| Instagram 経由 | — | — | — | — | — | — |
-| note CTA | — | — | — | — | — | — |
+| 自然検索 | 6,247 | -15.8% | 418 | 164 | 78 | 130 |
+| Google クリック | 1,198 | -78.8% | 9（部分） | 13（部分） | 0（部分） | 3（部分） |
+| YouTube 経由 | 32 | — | — | — | — | — |
+| X 経由 | 10 | — | — | — | — | — |
+| Instagram 経由 | 1 | — | — | — | — | — |
+| note CTA | 129 | -66.3% | 3 | 7 | 7 | 12 |
 | note 販売（件） | 2（部分） | -71.4% | 0（部分） | 0（部分） | 0（部分） | 0（部分） |
 | note 売上（円） | 9,960（部分） | -43.3% | 0（部分） | 0（部分） | 0（部分） | 0（部分） |
 | ココナラ（件） | 0 | — | 0 | — | — | 0 |
-| 演習開始 | — | — | — | — | — | — |
+| 演習開始 | 92 | +80.4% | 3 | — | — | — |
 
 欠測（—）は 0 ではない。資格間で合算しない。
 
 ## NSM（オーガニック検索流入）
 
-- W44 窓の自然検索人数・Google クリックは欠測（金曜の fetch-metrics が develop へ書き戻せていない・DN-1043）。欠測は 0 ではない
+- W44 窓（10/26〜11/1）の自然検索人数は 6,247（前週比 −15.8%）、Google クリックは 1,198（−78.8%）。重点 4 資格は 1級土木 418・総監 164・建設部門 78・RCCM 130 人
+- 計測は 11/8 に DN-1043（PR #1456）で書き戻しを直してから取り直した
 
 ### NSM トレンドの洞察
-- 判断は W44 のダイジェストが出てから行う。参考の W43（10/19〜10/25）は 2級二次の解答例ページで Google 流入が基線の約 8 倍だった（季節の山）
+- 減少の大半は 2級二次（10/25）の解答例ページの検索需要が試験後に終わった季節の動き（W43 は同ページで Google 流入が基線の約 8 倍だった）。重点 4 資格のページの不具合ではない
+- 演習開始は 92（+80.4%）で、技術士一次（11/22）の直前期に入った動きと合う
 
 ## 計測ダイジェスト
 
-- W44 のダイジェストは未作成（DN-1043）。参考として前回の W43 を残す
+- 11/8 に計測の書き戻しを直して W44 のダイジェストを出した（DN-1043・PR #1456）
 
-<!-- growth-digest:2026-W43 -->
-### 前回のダイジェスト 2026-W43（2026-10-19〜2026-10-25・基線 2026-09-21〜2026-10-18 の週平均と比較）
+<!-- growth-digest:2026-W44 -->
+### 計測ダイジェスト 2026-W44（2026-10-26〜2026-11-01・基線 2026-09-28〜2026-10-25 の週平均と比較）
 
 入力: growth-pack=取得済み / monetization-coverage=取得済み / bing-webmaster=取得済み
 
 | 流入元（GA4・日本） | セッション | 基線週平均 | 増減 | エンゲージ率 | キーイベント |
 |---|--:|--:|--:|--:|--:|
-| bing | 5,440 | 3,341.3 | +62.8% | 76.6% | 250 |
-| google | 4,100 | 516.5 | +693.8% | 75.9% | 79 |
-| yahoo | 979 | 173.8 | +463.5% | 79.3% | 19 |
-| direct | 595 | 252.5 | +135.6% | 69.7% | 43 |
-| referral | 225 | 115.5 | +94.8% | 77.8% | 20 |
-| organic-other | 81 | 17 | +376.5% | 70.4% | 0 |
-| ai-assistant | 44 | 19 | +131.6% | 72.7% | 0 |
-| organic-social | 12 | 26.3 | -54.3% | 66.7% | 0 |
-| unassigned | 9 | 10.3 | -12.2% | 77.8% | 0 |
-| organic-video | 0 | 4.8 | -100% | —% | 0 |
+| bing | 4,558 | 4,189.3 | +8.8% | 78.9% | 78 |
+| google | 2,754 | 1,498 | +83.8% | 78.1% | 46 |
+| yahoo | 994 | 382 | +160.2% | 77.9% | 13 |
+| direct | 405 | 305 | +32.8% | 69.9% | 9 |
+| organic-other | 132 | 36.3 | +264.1% | 63.6% | 0 |
+| referral | 92 | 128.5 | -28.4% | 68.5% | 1 |
+| ai-assistant | 73 | 25 | +192% | 76.7% | 1 |
+| organic-video | 32 | 3.5 | +814.3% | 0% | 0 |
+| organic-social | 18 | 24 | -25% | 66.7% | 1 |
+| unassigned | 7 | 9.3 | -24.3% | 71.4% | 0 |
 
-GSC（日本・web・プロパティ全体）: クリック 5,648（基線週平均 449.5・+1156.5%）/ 表示 50,150 / CTR 11.26%
+GSC（日本・web・プロパティ全体）: クリック 1,198（基線週平均 1,816.8・-34.1%）/ 表示 18,701 / CTR 6.41%
 
-ページ明細（国の条件なしのページ別＝匿名化された検索語の分を含み、日本以外の行も含む）: 1312 行・5668 クリック / 139674 表示・byPage 全体（日本）5,665 クリックの 100% / 表示の 100%。急落・減衰の判定に使う。全体の KPI・資格別の合計には使わない。
+ページ明細（国の条件なしのページ別＝匿名化された検索語の分を含み、日本以外の行も含む）: 1301 行・1209 クリック / 32614 表示・byPage 全体（日本）1,209 クリックの 100% / 表示の 101%。急落・減衰の判定に使う。全体の KPI・資格別の合計には使わない。
 
-Bing 照合: GA4 の bing 自然検索セッション 5,440 / Bing Webmaster クリック 6,371（0.9 倍）
+Bing 照合: GA4 の bing 自然検索セッション 4,558 / Bing Webmaster クリック 3,194（1.4 倍）
 
 | イベント | 今週 | 基線週平均 | 増減 |
 |---|--:|--:|--:|
-| note_cta_click | 383 | 125.5 | +205.2% |
-| affiliate_cta_click | 10 | 5.3 | +90.5% |
-| coconala_cta_click | 2 | 2.5 | -20% |
+| note_cta_click | 129 | 193.8 | -33.4% |
+| affiliate_cta_click | 3 | 6.5 | -53.8% |
+| coconala_cta_click | 1 | 3 | -66.7% |
 | quiz_cta_click | 0 | 0 | — |
-| note_cta_impression | 31,521 | 12,483.3 | +152.5% |
-| affiliate_cta_impression | 8,719 | 4,857.3 | +79.5% |
-| coconala_cta_impression | 648 | 759.3 | -14.7% |
-| quiz_start | 51 | 18.8 | +172% |
-| quiz_complete | 12 | 1.8 | +585.7% |
-| standards_data_download | 4 | 0.8 | +433.3% |
+| note_cta_impression | 19,522 | 18,340 | +6.4% |
+| affiliate_cta_impression | 6,890 | 5,663.3 | +21.7% |
+| coconala_cta_impression | 159 | 871.5 | -81.8% |
+| quiz_start | 92 | 31.3 | +194.4% |
+| quiz_complete | 10 | 4.8 | +110.5% |
+| standards_data_download | 6 | 1.8 | +242.9% |
 
-google 流入の上昇: /exam/civil-construction-2/guide/r08-secondary-answers（75→2768） / /exam/civil-construction-2/guide/secondary-grading-and-partial-credit（3.8→152） / (not set)（31.3→127） / /exam/civil-construction-2/secondary/experience-writing-guide（10→58） / /exam/civil-construction-2/guide/secondary-written-questions-guide（1.8→37）
-google 流入の下落: /exam/pe-comprehensive-management/past-exams/r08-primary（15→9） / /exam/civil-construction-1/secondary/r06（19.8→15） / /exam/pe-comprehensive-management/past-exams/r08-secondary（5→3） / /exam/civil-construction-1/textbook/safety-scaffolding（4→2） / /exam/civil-construction-1/secondary/r04（14.3→13）
+google 流入の上昇: /exam/civil-construction-2/guide/r08-secondary-answers（785.8→1603） / /exam/civil-construction-2/guide/secondary-grading-and-partial-credit（41.8→138） / /exam/civil-construction-2/secondary/r08（0→85） / (not set)（59.5→130） / /exam/concrete-chief-engineer（11→38）
+google 流入の下落: /tools/keiken-charcount（29.3→4） / /exam/civil-construction-2/secondary/experience-writing-examples（25→2） / /exam/civil-construction-1/secondary/r06（22.5→3） / /exam/civil-construction-2/secondary/experience-writing-guide（23.5→8） / /exam/civil-construction-1/secondary/r04（14.3→0）
 
-#### トリアージ対象 19 件（候補 136・抑止 27・表示上限で見送り SEO 3 / 収益 51）
+#### トリアージ対象 10 件（候補 156・抑止 31・表示上限で見送り SEO 18 / 収益 51）
 
 | ID | 区分 | 内容 | 期待効果/週 | 推奨 |
 |---|---|---|--:|---|
-| OPP-57c84288a8 | 実験 | EXP-015（2級土木 二次の経験記述3商品（想定工事バンク ¥5,480→¥6,980・過去問模範答案集 ¥2,480→¥2,980・完成答案集 ¥2,480→¥2,980）を試験直前に値上げし、販売額が落ちないかを見る）: next_check_date 2026-10-26 を超過 | — | verdict / defer |
-| OPP-8cf8dd82e2 | 実験 | EXP-027（資格名: /exam/pe-comprehensive-management/keywords/cpd の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 20.1→9.8・目安 improved）。裁定して close する | — | verdict / defer |
-| OPP-9fb321f255 | 実験 | EXP-034（技術図書（共通仕様書など）: /standards/tohoku の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 13.5→20.5・目安 insufficient-data）。裁定して close する | — | verdict / defer |
-| OPP-c04120b67c | 実験 | EXP-024（技術図書（共通仕様書など）: /standards/hokuriku の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 13.4→6.9・目安 insufficient-data）。裁定して close する | — | verdict / defer |
-| OPP-c49d25f32d | 実験 | EXP-025（技術図書（共通仕様書など）: /standards/hokkaido の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 18.7→—・目安 insufficient-data）。裁定して close する | — | verdict / defer |
-| OPP-e0e8a74145 | 実験 | EXP-026（技術図書（共通仕様書など）: /standards/kinki の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 10.5→9.2・目安 insufficient-data）。裁定して close する | — | verdict / defer |
-| OPP-e65f3f93f4 | 実験 | EXP-023（技術図書（共通仕様書など）: /standards/chugoku/local の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 11.7→6.9・目安 insufficient-data）。裁定して close する | — | verdict / defer |
-| OPP-f2ba0b6d6d | 実験 | EXP-014（2級土木 二次ページの冒頭 CTA を、高額のまとめ売りから時期・検索意図に合う商品へ差し替え、冒頭バナーの表示崩れを直して、冒頭 CTA のクリック率を上げる）: next_check_date 2026-10-26 を超過 / 自動計測の事後窓が完了（ga4.event:note_cta_click 186→296・目安 target-met）。裁定して close する | — | verdict / defer |
-| OPP-f834cfe4ab | 実験 | EXP-028（資格名: /exam/civil-construction-1/secondary/r06 の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 15.5→7.3・目安 improved）。裁定して close する | — | verdict / defer |
-| OPP-f9ced5b0c3 | 実験 | EXP-029（土木公務員: /exam/pe-comprehensive-management/guide/public-engineer-qualification-map の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 11.4→7.7・目安 improved）。裁定して close する | — | verdict / defer |
-| OPP-fa225d9335 | 実験 | EXP-022（技術図書（共通仕様書など）: /standards/okinawa の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 10.7→—・目安 insufficient-data）。裁定して close する | — | verdict / defer |
-| OPP-fcfcda5a1a | SEO | 「二級土木施工管理技士 二次試験」は平均 8.4 位なのに CTR 0.98%（期待 3%） | 12.7 searchClicks | experiment / backlog |
-| OPP-a202ad33ee | SEO | /exam/civil-construction-2/secondary/r06 の検索クリックが週 2（基線の週平均 6.5・-69.2%） | 4.5 searchClicks | backlog |
-| OPP-5dd26ae975 | SEO | 「2級土木施工管理技士 2次試験 配点」は平均 1.5 位なのに CTR 5.88%（期待 15%） | 1.2 searchClicks | experiment / backlog |
-| OPP-adc3bac9b1 | SEO | 「スクレープドーザー」は平均 6.3 位なのに CTR 1.34%（期待 4%） | 1.2 searchClicks | experiment / backlog |
-| OPP-22c5d85639 | SEO | 「建設工事公衆災害防止対策要綱」は平均 8.1 位なのに CTR 0.56%（期待 3%） | 0.9 searchClicks | backlog |
-| OPP-9039aef12c | 収益導線 | /exam/civil-construction-1/secondary/r06 の CTA クリック率 0.33%（サイト平均 0.82%） | 1.8 ctaClicks | backlog / experiment |
-| OPP-5b6a44c56a | 収益導線 | /exam/pe-first-stage/primary/r07-basic の CTA クリック率 0.24%（サイト平均 0.82%） | 1.5 ctaClicks | backlog / experiment |
-| OPP-9a77f81ae7 | 収益導線 | /exam/pe-first-stage の CTA クリック率 0.11%（サイト平均 0.82%） | 1.3 ctaClicks | backlog / experiment |
+| OPP-1a1e06a94b | 実験 | EXP-018（転職アフィリエイトの残りの面（公的基準の章以外・トピック・実務ツール・測量士・舗装・建築）へ広げ、サイト全体のクリックと発生が増えるかを見る）: 自動計測の事後窓が完了（ga4.event:affiliate_cta_click 0→0・目安 insufficient-data）。裁定して close する | — | verdict / defer |
+| OPP-54c4b70fae | 実験 | EXP-017（転職アフィリエイトを、アクセスがあるのに広告の無い面（実務・公的基準・ツール・トップ・経験記述の書き方）へ広げ、2級は建設JOBs に替えて、クリックと発生が増えるかを見る）: 自動計測の事後窓が完了（ga4.event:affiliate_cta_click 15→25・目安 improved）。裁定して close する / 要人手 1 件: （任意）A8 にサイトを 2 つ登録して面ごとの月次成果を分ける（PR-3）。2026-10-07 に広告リンクのリファラ方針を直し、デプロイ後の成果は A8 の成果別レポートの「リファラ」でページまで分かるようになったので、成果の帰属には不要。面の合計を A8 のサイト別で見たいときだけ | — | verdict / defer |
+| OPP-23fcb9d041 | SEO | /exam/civil-construction-2/guide/r08-secondary-answers の検索クリックが週 381（基線の週平均 1210.5・-68.5%） | 829.5 searchClicks | backlog |
+| OPP-125be209b4 | SEO | /tools/keiken-charcount の検索クリックが週 2（基線の週平均 28.8・-93%） | 26.8 searchClicks | backlog |
+| OPP-c308f66990 | SEO | /exam/civil-construction-2/secondary/experience-writing-examples の検索クリックが週 2（基線の週平均 28.5・-93%） | 26.5 searchClicks | backlog |
+| OPP-8d6d1d552c | SEO | /exam/civil-construction-1/secondary/r06 の検索クリックが週 1（基線の週平均 24.8・-96%） | 23.8 searchClicks | backlog |
+| OPP-b1f54e7b6d | SEO | /exam/civil-construction-2/secondary/experience-writing-guide の検索クリックが週 4（基線の週平均 19.3・-79.2%） | 15.3 searchClicks | backlog |
+| OPP-5a37725ac3 | 収益導線 | /exam/civil-construction-2/secondary/r08 の CTA クリック率 0.23%（サイト平均 0.75%） | 3.1 ctaClicks | backlog / experiment |
+| OPP-b67bbfd016 | 収益導線 | 演習の完了率が 12%（基線 17.5%）に低下 | 2.8 quizCompletions | backlog |
+| OPP-1d0d1c99f7 | 収益導線 | /exam/civil-construction-2/secondary/r04 の CTA クリック率 0.25%（サイト平均 0.75%） | 2.3 ctaClicks | backlog / experiment |
 
 全件を `npm run growth-triage -- list` で確認し、`apply --decisions <file> --commit` で backlog / 実験 / 束ね / 却下 / 保留に振り分ける（11〜30 位の取りこぼしは検索キーワード戦略のサイクルが受け持つ）。
 
 ## 計測→改善トリアージ
 
-- W43 のダイジェストの未処分は 0 件（W44 のレビューで処分済み）。W44 のダイジェストは fetch-metrics の publish の失敗で作られていないので、処分は DN-1043 で出してから行う
+W44 のダイジェストの 10 件を全件処分した（未処分 0）。
+
+| OPP | 区分 | 処分 | 行き先・理由 |
+|---|---|---|---|
+| OPP-1a1e06a94b | 実験 EXP-018 | defer（11/13） | 計測の停止で事後窓が未完。再計測日に判定 |
+| OPP-54c4b70fae | 実験 EXP-017 | defer（11/13） | 同上 |
+| OPP-23fcb9d041 | SEO 2級 R8 解答例 −68.5% | reject | 2級二次（10/25）の後の季節の減少 |
+| OPP-125be209b4 | SEO 経験記述の字数ツール −93% | reject | 二次試験の後の季節の減少 |
+| OPP-c308f66990 | SEO 2級 経験記述の例文 −93% | reject | 試験後の季節の減少 |
+| OPP-8d6d1d552c | SEO 1級二次 R6 −96% | reject | 試験後の季節の減少（順位は EXP-028 で改善済み） |
+| OPP-b1f54e7b6d | SEO 2級 経験記述の書き方 −79.2% | reject | 試験後の季節の減少 |
+| OPP-5a37725ac3 | 収益 2級二次 R8 の CTA 0.23% | bundle | DN-0959（試験後の読者への結果別の次の一手） |
+| OPP-1d0d1c99f7 | 収益 2級二次 R4 の CTA 0.25% | bundle | DN-0959 |
+| OPP-b67bbfd016 | 収益 演習の完了率 12%（基線 17.5%） | backlog | DN-1048（資格別・問題数別に原因を切り分ける） |
 
 ## 検索の改善（今週 3/3 件・triage --check --weekly は要処置 0）
 
