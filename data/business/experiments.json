@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-07T22:21:16.917Z",
+  "updated_at": "2026-11-07T22:21:24.240Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8932,6 +8932,124 @@
         "commit": "a4de7278ca2b",
         "at": "2026-11-08",
         "change": "title・seoTitle・description を「技術士・建設業はオワコン？」に寄せ、冒頭に H2「技術士はオワコンなのか」で答えと関連ガイドへの内部リンクを足した"
+      }
+    },
+    {
+      "id": "EXP-061",
+      "kind": "search-strategy",
+      "title": "資格名: /exam/rccm/guide/study-plan の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/rccm/guide/study-plan は 8 語が11〜30位（最良 10.5 位・表示 15）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 8 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-11-08",
+      "searchStrategy": {
+        "cluster": "qualification",
+        "page": "/exam/rccm/guide/study-plan",
+        "contentPath": "content/site/rccm/guide-study-plan/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "source": "data/gsc/reports/2026-10-31.json#page-query",
+        "period": {
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-27"
+        },
+        "impressions": 15,
+        "clicks": 0,
+        "bestPosition": 10.5,
+        "queries": [
+          {
+            "query": "rccm 予約",
+            "position": 10.8,
+            "impressions": 5,
+            "clicks": 0
+          },
+          {
+            "query": "rccm 試験日",
+            "position": 26,
+            "impressions": 2,
+            "clicks": 0
+          },
+          {
+            "query": "rccm 試験期間",
+            "position": 14.5,
+            "impressions": 2,
+            "clicks": 0
+          },
+          {
+            "query": "rccm予約",
+            "position": 10.5,
+            "impressions": 2,
+            "clicks": 0
+          },
+          {
+            "query": "rccm 受験予約",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "rccm 試験 日程",
+            "position": 24,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "rccm試験予約",
+            "position": 18,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "rccm試験会場",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/rccm/guide/study-plan"
+          ],
+          "queries": [
+            "rccm 予約",
+            "rccm 試験日",
+            "rccm 試験期間",
+            "rccm予約",
+            "rccm 受験予約",
+            "rccm 試験 日程",
+            "rccm試験予約",
+            "rccm試験会場"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-11-07T22:21:24.240Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-07T22:21:24.240Z",
+          "event": "implemented",
+          "commit": "e485e01fe8ce",
+          "change": "title・seoTitle・description を「RCCMの予約・試験期間・試験日」に寄せ、冒頭に予約の方法と2026年度の予約・試験期間、2027年度の申込の目安を答える段落を足した"
+        }
+      ],
+      "implementation": {
+        "commit": "e485e01fe8ce",
+        "at": "2026-11-08",
+        "change": "title・seoTitle・description を「RCCMの予約・試験期間・試験日」に寄せ、冒頭に予約の方法と2026年度の予約・試験期間、2027年度の申込の目安を答える段落を足した"
       }
     }
   ]
