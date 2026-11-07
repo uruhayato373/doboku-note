@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-07T22:21:24.240Z",
+  "updated_at": "2026-11-07T22:21:31.380Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -9050,6 +9050,96 @@
         "commit": "e485e01fe8ce",
         "at": "2026-11-08",
         "change": "title・seoTitle・description を「RCCMの予約・試験期間・試験日」に寄せ、冒頭に予約の方法と2026年度の予約・試験期間、2027年度の申込の目安を答える段落を足した"
+      }
+    },
+    {
+      "id": "EXP-062",
+      "kind": "search-strategy",
+      "title": "土木公務員: /exam/pe-comprehensive-management/guide/public-engineer-qualification-map の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/pe-comprehensive-management/guide/public-engineer-qualification-map は 4 語が11〜30位（最良 11 位・表示 14）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 4 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-11-08",
+      "searchStrategy": {
+        "cluster": "public-servant",
+        "page": "/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+        "contentPath": "content/site/pe-comprehensive-management/public-engineer-qualification-map/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "source": "data/gsc/reports/2026-10-31.json#page-query",
+        "period": {
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-27"
+        },
+        "impressions": 14,
+        "clicks": 0,
+        "bestPosition": 11,
+        "queries": [
+          {
+            "query": "土木 公務員 資格",
+            "position": 11.5,
+            "impressions": 11,
+            "clicks": 0
+          },
+          {
+            "query": "技術士業務経歴公務員",
+            "position": 15,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "土木 公務員 資格",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "土木 公務員 資格",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/pe-comprehensive-management/guide/public-engineer-qualification-map"
+          ],
+          "queries": [
+            "土木 公務員 資格",
+            "技術士業務経歴公務員",
+            "土木 公務員 資格",
+            "土木 公務員 資格"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-11-07T22:21:31.380Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-07T22:21:31.380Z",
+          "event": "implemented",
+          "commit": "f97e52dfc125",
+          "change": "前回（EXP-029・取得順）と別の角度で、title・description を「土木公務員の資格一覧」に寄せ、冒頭に検討する資格 4 つの一覧の段落を足した"
+        }
+      ],
+      "implementation": {
+        "commit": "f97e52dfc125",
+        "at": "2026-11-08",
+        "change": "前回（EXP-029・取得順）と別の角度で、title・description を「土木公務員の資格一覧」に寄せ、冒頭に検討する資格 4 つの一覧の段落を足した"
       }
     }
   ]
