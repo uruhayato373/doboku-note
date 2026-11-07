@@ -22,13 +22,13 @@
 | 6 | `civil-construction-2-secondary-grading-and-partial-credit` | 633 | civil-2-r8-bunseki+civil-2-pastexam-essay+civil-2-gakka-kijutsu+category-civil-construction-2-hub-mokuji | KensetsuJobs | 1.6% | 0.2% |
 | 7 | `civil-construction-2-secondary-r06` | 442 | civil-2-niji-marugoto-pack+civil-2-r8-bunseki+civil-2-pastexam-essay+category-civil-construction-2-hub-mokuji | KensetsuJobs | 2.0% | 0.0% |
 | 8 | `civil-practice-formwork-removal-timing` | 429 | — | BuildJob | 0.0% | 0.0% |
-| 9 | `civil-construction-1-secondary-r07` | 424 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+civil-1-pastexam-essay+category-civil-construction-1-hub-mokuji | BuildJob | 0.9% | 0.0% |
+| 9 | `civil-construction-1-secondary-r07` | 424 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+category-civil-construction-1-hub-mokuji | BuildJob | 0.9% | 0.0% |
 | 10 | `civil-construction-2-secondary-r05` | 313 | civil-2-niji-marugoto-pack+civil-2-r8-bunseki+civil-2-pastexam-essay+civil-2-koji-bank+civil-2-chokuzen-pack+category-civil-construction-2-hub-mokuji | KensetsuJobs | 3.2% | 0.3% |
 | 11 | `civil-construction-2-secondary-r04` | 279 | civil-2-niji-marugoto-pack+civil-2-r8-bunseki+civil-2-pastexam-essay+category-civil-construction-2-hub-mokuji | KensetsuJobs | 1.4% | 0.0% |
 | 12 | `civil-construction-2-guide-exam-overview` | 259 | civil-2-reading-guide+civil-2-takuitsu-pdf+category-civil-construction-2-hub-mokuji | KensetsuJobs | 2.3% | 0.0% |
 | 13 | `civil-practice-subbase-subgrade-control` | 255 | — | BuildJob | 0.0% | 0.4% |
 | 14 | `rccm-guide-overview` | 220 | rccm-marugoto-pack+rccm-mondai3-magazine | DXConsulting | 1.8% | 0.0% |
-| 15 | `civil-construction-1-secondary-r06` | 207 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+civil-1-pastexam-essay+category-civil-construction-1-hub-mokuji | BuildJob | 1.4% | 0.0% |
+| 15 | `civil-construction-1-secondary-r06` | 207 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+category-civil-construction-1-hub-mokuji | BuildJob | 1.4% | 0.0% |
 | 16 | `pe-first-stage-r07-basic` | 205 | pe1-takuitsu-pdf | BuildJob | 2.9% | 0.0% |
 | 17 | `pe-first-stage-guide-overview` | 185 | pe1-chokuzen-pack+pe1-takuitsu-pdf | BuildJob | 3.2% | 1.1% |
 | 18 | `civil-practice-asphalt-pavement-control` | 182 | — | BuildJob | 0.0% | 0.0% |
