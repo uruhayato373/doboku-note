@@ -19,6 +19,7 @@
 - [キーワードサイクル](feedback_exam_keyword_cycle_completeness.md) — 全RelatedKeywords処理
 - [過去問PDF突合](feedback_exam_pdf_cross_reference.md) — 全問を原典と視覚照合
 - [noteカタログ再生成](feedback_note_catalog_regen.md) — note原稿を変えたらbuild-note-catalog
+- [校正学習は自動で入れる](feedback_proofread_learnings_auto_apply.md) — 2回以上は承認待ちにせず即反映
 - [MDX整形の委任](feedback_subagent_mdx_acceptance.md) — textlint・lint・facts照合を受入れ条件に
 - [発表当日の再確認](feedback_recheck_official_on_result_day.md) — 発送日は発表ページで変わる
 - [事実の一次照合](feedback_factcheck_guide_facts.md) — 制度・白書・URL・科目外・条文は条の範囲だけ

@@ -1,7 +1,7 @@
 ---
 name: distill-proofread-learnings
 description: >
-  直近の校正作業の差分と指示から、content-principles・スキル・memory に反映すべき新ルールを抽出するメタスキル。Use when user asks to [校正スキル改善, 校正ルール更新, 校正の学習, /distill-proofread-learnings].
+  直近の校正作業の差分と指示から、content-principles・スキル・memory に反映すべき新ルールを抽出し、承認を待たずに反映するメタスキル。Use when user asks to [校正スキル改善, 校正ルール更新, 校正の学習, /distill-proofread-learnings].
 domain: ops
 ---
 

@@ -227,10 +227,12 @@ google 流入の下落: /exam/pe-comprehensive-management/past-exams/r08-primary
 - 新規ルール候補: 1 件
 - 既存原則の精緻化・ユーザー嗜好・ワークフロー改善: 0 件
 
-### 採択候補（ユーザー承認待ち）
+### 適用した変更（承認を待たずに反映済み）
 | # | カテゴリ | 概要 | 反映先 |
 |---|---|---|---|
-| 1 | 新規ルール | 404 になった外部リンクは、新しい URL → Wayback の保存版 → 出典名だけ、の順で直す（DN-0927 の 6 コミットで同じ順序） | content-principles.md の出典・リンクの節 |
+| 1 | 新規ルール | 載せていた出典が後から 404 になったら、新しい URL → Wayback の保存版 → 出典名だけ、の順で直す（DN-0927 の 6 コミットで同じ順序）。§12 の「出典名だけ残すのも不可」は新しく載せる URL の決まりとして書き分けた | content-principles.md §12 |
+
+- 2026-11-08 から、校正学習は承認を待たずに規約へ入れる（運営者の指示。distill-proofread-learnings の Phase 4）
 
 ### 学習ログ
 - `.claude/state/proofread-learnings/2026-11-08.md`

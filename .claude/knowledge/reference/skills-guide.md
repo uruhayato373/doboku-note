@@ -146,7 +146,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ/YouTube・`--platform`）で四半期再取得（scout＋時系列drift＋資格キーワードの市場スキャン `scan-qualification-market`）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |
 | `/knowledge` | 過去の失敗・教訓を参照・追記 | `ナレッジ参照`, `失敗から学ぶ`, `/knowledge` |
 | `/critical-review` | 批判的レビュー | `批判的に見て`, `/critical-review` |
-| `/distill-proofread-learnings` | 校正作業から新規ルール・ユーザー嗜好を抽出 | `校正から学ぶ`, `新ルール抽出`, `/distill-proofread-learnings` |
+| `/distill-proofread-learnings` | 校正作業から新規ルール・ユーザー嗜好を抽出し、承認を待たずに規約へ反映 | `校正から学ぶ`, `新ルール抽出`, `/distill-proofread-learnings` |
 | `/routines` | クラウドルーティン（/schedule）を一覧・監査（重複・残骸・平文トークン・cron 衝突検出）。**新規作成前の重複チェック必須** | `ルーティン一覧`, `ルーティン監査`, `/routines` |
 
 ### UI/UX（ui）
