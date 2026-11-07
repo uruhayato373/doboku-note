@@ -232,6 +232,19 @@ export function gateEnv(gate, env = process.env) {
  * pre-commit からは scripts/pre-commit-mdx.mjs が呼ぶ（フック本体を変えると共有フックの入れ直しが
  * 全ワークツリー・Mac に要るので、毎回呼ばれている既存スクリプトに相乗りする）。
  */
+/**
+ * 失敗した検査の出力から、落ちたテストの行（TAP の `not ok`）とその直後の理由を抜き出す。
+ * 末尾 25 行だけだと、テストが多いと落ちた行が切れて読めない（2026-11-06 の fetch-metrics の publish で原因が追えなかった・DN-1043）。
+ */
+export function failureLines(output, context = 4) {
+  const lines = output.split('\n');
+  const picked = [];
+  lines.forEach((line, i) => {
+    if (/^\s*not ok \d+/.test(line)) picked.push(...lines.slice(i, i + 1 + context));
+  });
+  return picked;
+}
+
 export function runGates(staged = stagedFiles()) {
   const plan = planGates(staged);
   const failed = [];
@@ -240,7 +253,10 @@ export function runGates(staged = stagedFiles()) {
     const r = spawnSync(bin, args, { encoding: 'utf8', shell: false, env: gateEnv(g) });
     if (r.status !== 0) {
       failed.push(g.id);
-      process.stdout.write(`${r.stdout ?? ''}${r.stderr ?? ''}`.split('\n').slice(-25).join('\n') + '\n');
+      const out = `${r.stdout ?? ''}${r.stderr ?? ''}`;
+      const failures = failureLines(out);
+      if (failures.length) process.stdout.write(`[pre-commit-ci-gates] ${g.id} の落ちたテスト:\n${failures.join('\n')}\n`);
+      process.stdout.write(out.split('\n').slice(-25).join('\n') + '\n');
     }
   }
   if (plan.length > 0) {

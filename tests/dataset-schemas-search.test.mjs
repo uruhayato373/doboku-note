@@ -140,7 +140,8 @@ test('GscSitemaps: 実データが通り、送信の語彙・重複・時刻・�
   assertFails(S, broken(s, (x) => { x.submit[0].status = 'failed'; }), /submit\.0\.status/);
   assertFails(S, broken(s, (x) => { x.sitemaps.push(clone(x.sitemaps[0])); }), /重複/);
   assertFails(S, broken(s, (x) => { x.sitemaps[0].lastDownloaded = '2026-09-30T22:05:25+09:00'; }), /lastDownloaded/);
-  assertFails(S, broken(s, (x) => { x.submit.pop(); }), /送信 1 件/);
+  // robots.txt の sitemap の数に依らず件数を合わなくする（2026-11-08 に sitemap-legacy.xml が外れて 1 件になり、pop では空＝送らない取得になった）
+  assertFails(S, broken(s, (x) => { x.submit.push({ path: 'https://doboku-note.com/sitemap-extra.xml', status: 'ok' }); }), /送信 \d+ 件/);
   assertFails(S, broken(s, (x) => { x.robotsSitemaps = []; }), /robotsSitemaps/);
   assertFails(S, broken(s, (x) => { x.sitemaps[0].errors = -1; }), /errors/);
   assert.deepEqual(issues(S, broken(s, (x) => { x.submit = []; })), [], '送らない取得（submit が空）は通る');
