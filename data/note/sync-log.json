@@ -1,6 +1,37 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-07T08:35:58.864Z",
+      "finishedAt": "2026-11-07T08:38:08.102Z",
+      "plan": {
+        "synced": 0,
+        "ready": 0,
+        "blocked": 0,
+        "blockers": {},
+        "magazinesOnly": true
+      },
+      "articles": {
+        "selected": 0,
+        "attempted": 0,
+        "updated": [],
+        "failed": [],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 2,
+        "updated": [
+          {
+            "key": "magazine:river-consultant"
+          },
+          {
+            "key": "magazine:water-municipality"
+          }
+        ],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-07T02:23:02.879Z",
       "finishedAt": "2026-11-07T03:54:30.257Z",
       "plan": {
@@ -908,37 +939,6 @@
             "reason": "結果なし（連続失敗で中断された可能性）"
           }
         ],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:19:21.865Z",
-      "finishedAt": "2026-11-03T09:20:28.277Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/転職のベストタイミング-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/転職のベストタイミング-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
         "deferred": []
       },
       "magazines": {
