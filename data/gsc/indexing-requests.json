@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-11-05T22-40-09Z",
-  "collectedAt": "2026-11-05T22:40:09.751Z",
+  "runId": "2026-11-07T22-40-05Z",
+  "collectedAt": "2026-11-07T22:40:05.199Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "0ae2c4b298",
+  "scriptVersion": "6de13438a",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 176,
+  "targetCount": 166,
   "items": [
     {
       "slug": "/exam/civil-construction-1/textbook/river-act",
@@ -26,74 +26,6 @@
       "request": {
         "requested": false,
         "status": "already-indexed"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/concrete-chief-engineer/primary/production-qc",
-      "url": "https://doboku-note.com/exam/concrete-chief-engineer/primary/production-qc",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/10/06 21:10:19",
-        "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-comprehensive-management/keywords/job-analysis",
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/job-analysis",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-water-supply/guide/hissu-kamoku",
-      "url": "https://doboku-note.com/exam/pe-water-supply/guide/hissu-kamoku",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-water-supply/guide/overview",
-      "url": "https://doboku-note.com/exam/pe-water-supply/guide/overview",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -115,54 +47,19 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-water-supply/guide/study-plan",
-      "url": "https://doboku-note.com/exam/pe-water-supply/guide/study-plan",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
       "slug": "/exam/pipe-work/guide/kotei-hyo",
       "url": "https://doboku-note.com/exam/pipe-work/guide/kotei-hyo",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
+        "state": "indexed",
+        "reason": null,
         "lastCrawl": null,
-        "discoveredVia": "sitemap",
+        "discoveredVia": null,
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
         "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pipe-work/guide/overview",
-      "url": "https://doboku-note.com/exam/pipe-work/guide/overview",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -170,17 +67,16 @@
       "slug": "/exam/pipe-work/guide/sekou-kijutsu",
       "url": "https://doboku-note.com/exam/pipe-work/guide/sekou-kijutsu",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
+        "state": "indexed",
+        "reason": null,
         "lastCrawl": null,
-        "discoveredVia": "sitemap",
+        "discoveredVia": null,
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
         "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -188,41 +84,22 @@
       "slug": "/exam/pipe-work/guide/study-plan",
       "url": "https://doboku-note.com/exam/pipe-work/guide/study-plan",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
+        "state": "indexed",
+        "reason": null,
         "lastCrawl": null,
-        "discoveredVia": "sitemap",
+        "discoveredVia": null,
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
         "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
     {
       "slug": "/practice/barrier-free-roads-stations",
       "url": "https://doboku-note.com/practice/barrier-free-roads-stations",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/buried-cultural-property-survey",
-      "url": "https://doboku-note.com/practice/buried-cultural-property-survey",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -241,34 +118,16 @@
       "slug": "/practice/ccus-kentaikyo-site",
       "url": "https://doboku-note.com/practice/ccus-kentaikyo-site",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
+        "state": "indexed",
+        "reason": null,
         "lastCrawl": null,
-        "discoveredVia": "sitemap",
+        "discoveredVia": null,
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
         "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/civil-engineer-annual-cycle",
-      "url": "https://doboku-note.com/practice/civil-engineer-annual-cycle",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -293,17 +152,16 @@
       "slug": "/practice/concrete-hydration-basics",
       "url": "https://doboku-note.com/practice/concrete-hydration-basics",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
+        "state": "indexed",
+        "reason": null,
         "lastCrawl": null,
-        "discoveredVia": "sitemap",
+        "discoveredVia": null,
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
         "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
@@ -311,23 +169,90 @@
       "slug": "/practice/concrete-labor-saving-technology",
       "url": "https://doboku-note.com/practice/concrete-labor-saving-technology",
       "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/concrete-structure-inspection",
+      "url": "https://doboku-note.com/practice/concrete-structure-inspection",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/concrete-work-preparation",
+      "url": "https://doboku-note.com/practice/concrete-work-preparation",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/construction-business-overview",
+      "url": "https://doboku-note.com/practice/construction-business-overview",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/construction-dispute-resolution",
+      "url": "https://doboku-note.com/practice/construction-dispute-resolution",
+      "inspected": {
         "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
+        "reason": "URL が Google に認識されていません",
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
-        "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/concrete-quality-and-workforce",
-      "url": "https://doboku-note.com/practice/concrete-quality-and-workforce",
+      "slug": "/practice/construction-materials-overview",
+      "url": "https://doboku-note.com/practice/construction-materials-overview",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -343,8 +268,266 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/concrete-roles-overview",
-      "url": "https://doboku-note.com/practice/concrete-roles-overview",
+      "slug": "/practice/coordinate-systems-geodetic-datum",
+      "url": "https://doboku-note.com/practice/coordinate-systems-geodetic-datum",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/environmental-impact-assessment-flow",
+      "url": "https://doboku-note.com/practice/environmental-impact-assessment-flow",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/flood-control-facilities",
+      "url": "https://doboku-note.com/practice/flood-control-facilities",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/floodgate-design",
+      "url": "https://doboku-note.com/practice/floodgate-design",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/inverted-siphon-design",
+      "url": "https://doboku-note.com/practice/inverted-siphon-design",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/keishin-bidder-qualification",
+      "url": "https://doboku-note.com/practice/keishin-bidder-qualification",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/levee-failure-reinforcement",
+      "url": "https://doboku-note.com/practice/levee-failure-reinforcement",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/license-scope-judgment",
+      "url": "https://doboku-note.com/practice/license-scope-judgment",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/nature-conservation-mitigation",
+      "url": "https://doboku-note.com/practice/nature-conservation-mitigation",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/netis-new-technology-use",
+      "url": "https://doboku-note.com/practice/netis-new-technology-use",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/pre-construction-process",
+      "url": "https://doboku-note.com/practice/pre-construction-process",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/public-works-delivery-methods",
+      "url": "https://doboku-note.com/practice/public-works-delivery-methods",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/reading-civil-drawings",
+      "url": "https://doboku-note.com/practice/reading-civil-drawings",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/ready-mixed-concrete-ordering",
+      "url": "https://doboku-note.com/practice/ready-mixed-concrete-ordering",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/site-wireless-communication",
+      "url": "https://doboku-note.com/practice/site-wireless-communication",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/social-infrastructure-overview",
+      "url": "https://doboku-note.com/practice/social-infrastructure-overview",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -362,9 +545,9 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 20,
+    "inspected": 31,
     "accepted": 10,
-    "alreadyIndexed": 3,
+    "alreadyIndexed": 18,
     "unreadable": 0
   }
 }

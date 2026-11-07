@@ -1859,6 +1859,65 @@
         "/practice/concrete-quality-and-workforce",
         "/practice/concrete-roles-overview"
       ]
+    },
+    {
+      "runId": "2026-11-07T22-40-05Z",
+      "collectedAt": "2026-11-07T22:40:05.199Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 31,
+      "accepted": 10,
+      "alreadyIndexed": 18,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-1/textbook/river-act",
+        "/exam/pe-water-supply/guide/sentaku-kamoku",
+        "/exam/pipe-work/guide/kotei-hyo",
+        "/exam/pipe-work/guide/sekou-kijutsu",
+        "/exam/pipe-work/guide/study-plan",
+        "/practice/barrier-free-roads-stations",
+        "/practice/ccus-kentaikyo-site",
+        "/practice/concrete-durability-specification",
+        "/practice/concrete-hydration-basics",
+        "/practice/concrete-labor-saving-technology",
+        "/practice/concrete-structure-inspection",
+        "/practice/concrete-work-preparation",
+        "/practice/construction-business-overview",
+        "/practice/construction-dispute-resolution",
+        "/practice/construction-materials-overview",
+        "/practice/coordinate-systems-geodetic-datum",
+        "/practice/environmental-impact-assessment-flow",
+        "/practice/flood-control-facilities",
+        "/practice/floodgate-design",
+        "/practice/inverted-siphon-design",
+        "/practice/keishin-bidder-qualification",
+        "/practice/levee-failure-reinforcement",
+        "/practice/license-scope-judgment",
+        "/practice/nature-conservation-mitigation",
+        "/practice/netis-new-technology-use",
+        "/practice/pre-construction-process",
+        "/practice/public-works-delivery-methods",
+        "/practice/reading-civil-drawings",
+        "/practice/ready-mixed-concrete-ordering",
+        "/practice/site-wireless-communication",
+        "/practice/social-infrastructure-overview"
+      ],
+      "acceptedSlugs": [
+        "/practice/barrier-free-roads-stations",
+        "/practice/construction-dispute-resolution",
+        "/practice/construction-materials-overview",
+        "/practice/flood-control-facilities",
+        "/practice/floodgate-design",
+        "/practice/inverted-siphon-design",
+        "/practice/license-scope-judgment",
+        "/practice/nature-conservation-mitigation",
+        "/practice/site-wireless-communication",
+        "/practice/social-infrastructure-overview"
+      ]
     }
   ]
 }
