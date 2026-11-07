@@ -3,17 +3,17 @@
   "measured": true,
   "status": "collecting",
   "source": {
-    "startDate": "2026-10-03",
-    "endDate": "2026-10-30",
+    "startDate": "2026-10-10",
+    "endDate": "2026-11-06",
     "pagePath": "/tools/kakomon-quiz"
   },
   "metrics": {
-    "quizUsers": 5,
-    "quizCompletions": 1,
+    "quizUsers": 2,
+    "quizCompletions": 0,
     "reviewUsers": 0,
-    "premiumViewUsers": 1,
+    "premiumViewUsers": 0,
     "premiumIntentUsers": 0,
-    "premiumIntentRate": 0,
+    "premiumIntentRate": null,
     "emailInterestUsers": 0,
     "lineInterestUsers": 0,
     "noteCtaUsers": 0

@@ -1,0 +1,19 @@
+{
+  "kind": "measurement",
+  "qualification": "pe-comprehensive-management",
+  "period": {
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31"
+  },
+  "channel": "GA4",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+  "values": {
+    "organicUsers": 694,
+    "noteCtaClicks": 52
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-11-07T23:30:09.983Z",
+  "strategyHash": "b4731265e984d12c496be00e6ce1d91fcbc36c606c5bd6825ed6981d810727e7"
+}

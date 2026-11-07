@@ -1,0 +1,18 @@
+{
+  "kind": "measurement",
+  "qualification": "civil-construction-1",
+  "period": {
+    "startDate": "2026-10-26",
+    "endDate": "2026-11-01"
+  },
+  "channel": "GSC",
+  "subject": "aggregate",
+  "coverage": "partial",
+  "source": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・太平洋時間。dimensions=[]・aggregation=byPage・取得1行。正規URLのpageフィルタ。Google側で明細が欠落し得るため下限。",
+  "values": {
+    "gscClicks": 9
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-11-07T23:30:08.685Z",
+  "strategyHash": "b4731265e984d12c496be00e6ce1d91fcbc36c606c5bd6825ed6981d810727e7"
+}

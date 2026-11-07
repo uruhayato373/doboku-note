@@ -1,0 +1,545 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-11-07T23:30:21.541Z",
+  "source": "youtube-analytics-api-v2",
+  "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+  "period": {
+    "startDate": "2026-10-10",
+    "endDate": "2026-11-06"
+  },
+  "coverage": {
+    "targets": 25,
+    "measured": 25,
+    "noData": 0
+  },
+  "videos": [
+    {
+      "publicationId": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform",
+      "videoId": "GCyAWGoJthU",
+      "packId": "anzen-touan-gutaika-kaitei",
+      "kind": "longform",
+      "state": "measured",
+      "views": 34,
+      "averageViewDurationSec": 56,
+      "averageViewPercentage": 55.1,
+      "trafficSources": [
+        {
+          "type": "NO_LINK_OTHER",
+          "views": 0
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 29
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 4
+        },
+        {
+          "type": "EXT_URL",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+      "videoId": "lNI2f_SjCTk",
+      "packId": "gakka-2kyu-doko",
+      "kind": "longform",
+      "state": "measured",
+      "views": 40,
+      "averageViewDurationSec": 58,
+      "averageViewPercentage": 60.49,
+      "trafficSources": [
+        {
+          "type": "NO_LINK_OTHER",
+          "views": 1
+        },
+        {
+          "type": "SUBSCRIBER",
+          "views": 11
+        },
+        {
+          "type": "YT_CHANNEL",
+          "views": 4
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 5
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 19
+        }
+      ]
+    },
+    {
+      "publicationId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform",
+      "videoId": "7fEJR-WD8Ng",
+      "packId": "hinshitsu-touan-gutaika",
+      "kind": "longform",
+      "state": "measured",
+      "views": 37,
+      "averageViewDurationSec": 41,
+      "averageViewPercentage": 37.62,
+      "trafficSources": [
+        {
+          "type": "NO_LINK_OTHER",
+          "views": 1
+        },
+        {
+          "type": "SUBSCRIBER",
+          "views": 1
+        },
+        {
+          "type": "YT_CHANNEL",
+          "views": 1
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 24
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 10
+        }
+      ]
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform",
+      "videoId": "678g4juk1NA",
+      "packId": "shunin-cement-4kagoubutsu",
+      "kind": "longform",
+      "state": "measured",
+      "views": 2,
+      "averageViewDurationSec": 119,
+      "averageViewPercentage": 52.2,
+      "trafficSources": [
+        {
+          "type": "YT_CHANNEL",
+          "views": 1
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram",
+      "videoId": "z2KPTSlIP1I",
+      "packId": "shunin-chokuzen-senryaku",
+      "kind": "longform",
+      "state": "measured",
+      "views": 15,
+      "averageViewDurationSec": 81,
+      "averageViewPercentage": 47.45,
+      "trafficSources": [
+        {
+          "type": "YT_CHANNEL",
+          "views": 2
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 12
+        },
+        {
+          "type": "EXT_URL",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform",
+      "videoId": "_4a6-sZrucQ",
+      "packId": "shunin-haigou-zettaiyouseki",
+      "kind": "longform",
+      "state": "measured",
+      "views": 10,
+      "averageViewDurationSec": 124,
+      "averageViewPercentage": 51.89,
+      "trafficSources": [
+        {
+          "type": "YT_CHANNEL",
+          "views": 2
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 7
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2",
+      "videoId": "W-oc8NWXTR0",
+      "packId": "shunin-hinshutsu-yusen",
+      "kind": "longform",
+      "state": "measured",
+      "views": 13,
+      "averageViewDurationSec": 109,
+      "averageViewPercentage": 70.79,
+      "trafficSources": [
+        {
+          "type": "NO_LINK_OTHER",
+          "views": 2
+        },
+        {
+          "type": "YT_CHANNEL",
+          "views": 2
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 2
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 4
+        },
+        {
+          "type": "EXT_URL",
+          "views": 3
+        }
+      ]
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform",
+      "videoId": "OFGDtn0OQ_Q",
+      "packId": "shunin-kanri-kikaku-genkai",
+      "kind": "longform",
+      "state": "measured",
+      "views": 1,
+      "averageViewDurationSec": 19,
+      "averageViewPercentage": 9.6,
+      "trafficSources": [
+        {
+          "type": "YT_SEARCH",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram",
+      "videoId": "aMWOpun3m-0",
+      "packId": "shunin-ochiru-shouronbun",
+      "kind": "longform",
+      "state": "measured",
+      "views": 10,
+      "averageViewDurationSec": 87,
+      "averageViewPercentage": 72.56,
+      "trafficSources": [
+        {
+          "type": "NO_LINK_OTHER",
+          "views": 2
+        },
+        {
+          "type": "YT_CHANNEL",
+          "views": 1
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 4
+        },
+        {
+          "type": "EXT_URL",
+          "views": 3
+        }
+      ]
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram",
+      "videoId": "RcIxuN7-uI0",
+      "packId": "shunin-r8-juuten",
+      "kind": "longform",
+      "state": "measured",
+      "views": 5,
+      "averageViewDurationSec": 35,
+      "averageViewPercentage": 30.72,
+      "trafficSources": [
+        {
+          "type": "YT_CHANNEL",
+          "views": 1
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 1
+        },
+        {
+          "type": "EXT_URL",
+          "views": 3
+        }
+      ]
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform",
+      "videoId": "T9t0ykZoKLk",
+      "packId": "shunin-rekka-taio",
+      "kind": "longform",
+      "state": "measured",
+      "views": 6,
+      "averageViewDurationSec": 124,
+      "averageViewPercentage": 44.32,
+      "trafficSources": [
+        {
+          "type": "YT_CHANNEL",
+          "views": 1
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 4
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram",
+      "videoId": "n7mNQ2VCflE",
+      "packId": "shunin-shiken-zentaizou",
+      "kind": "longform",
+      "state": "measured",
+      "views": 11,
+      "averageViewDurationSec": 101,
+      "averageViewPercentage": 72.24,
+      "trafficSources": [
+        {
+          "type": "NO_LINK_OTHER",
+          "views": 0
+        },
+        {
+          "type": "SUBSCRIBER",
+          "views": 1
+        },
+        {
+          "type": "YT_CHANNEL",
+          "views": 1
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 7
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 1
+        },
+        {
+          "type": "EXT_URL",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform",
+      "videoId": "9ADPE2fYSRs",
+      "packId": "shunin-shoki-3kyokusen",
+      "kind": "longform",
+      "state": "measured",
+      "views": 0,
+      "averageViewDurationSec": 0,
+      "averageViewPercentage": 0,
+      "trafficSources": []
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2",
+      "videoId": "mViqz6hWEeo",
+      "packId": "shunin-shouronbun-kousei",
+      "kind": "longform",
+      "state": "measured",
+      "views": 6,
+      "averageViewDurationSec": 106,
+      "averageViewPercentage": 77.53,
+      "trafficSources": [
+        {
+          "type": "YT_CHANNEL",
+          "views": 2
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 4
+        }
+      ]
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform",
+      "videoId": "-9UuHAQkt4o",
+      "packId": "pe1-kiso-2of3-reliability",
+      "kind": "longform",
+      "state": "measured",
+      "views": 0,
+      "averageViewDurationSec": 0,
+      "averageViewPercentage": 0,
+      "trafficSources": []
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform",
+      "videoId": "LfGrUP0DahI",
+      "packId": "pe1-kiso-2s-complement",
+      "kind": "longform",
+      "state": "measured",
+      "views": 0,
+      "averageViewDurationSec": 0,
+      "averageViewPercentage": 0,
+      "trafficSources": []
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform",
+      "videoId": "DnFUe-knWns",
+      "packId": "pe1-kiso-gyouretsu-vector",
+      "kind": "longform",
+      "state": "measured",
+      "views": 0,
+      "averageViewDurationSec": 0,
+      "averageViewPercentage": 0,
+      "trafficSources": []
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform",
+      "videoId": "asNkuQvdIq0",
+      "packId": "pe1-kiso-kairo-setsuten",
+      "kind": "longform",
+      "state": "measured",
+      "views": 2,
+      "averageViewDurationSec": 96,
+      "averageViewPercentage": 42.15,
+      "trafficSources": [
+        {
+          "type": "YT_CHANNEL",
+          "views": 1
+        },
+        {
+          "type": "EXT_URL",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
+      "videoId": "xhYEwdON8ps",
+      "packId": "pe1-kiso-newton-hou",
+      "kind": "longform",
+      "state": "measured",
+      "views": 2,
+      "averageViewDurationSec": 84,
+      "averageViewPercentage": 33.91,
+      "trafficSources": [
+        {
+          "type": "SUBSCRIBER",
+          "views": 1
+        },
+        {
+          "type": "EXT_URL",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-senmon/youtube.longform",
+      "videoId": "p8fZi3a2Un8",
+      "packId": "pe1-kiso-senmon",
+      "kind": "longform",
+      "state": "measured",
+      "views": 4,
+      "averageViewDurationSec": 96,
+      "averageViewPercentage": 55.7,
+      "trafficSources": [
+        {
+          "type": "YT_SEARCH",
+          "views": 2
+        },
+        {
+          "type": "EXT_URL",
+          "views": 2
+        }
+      ]
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform",
+      "videoId": "hGr1DpHXKZ8",
+      "packId": "pe1-kiso-simpson-haba",
+      "kind": "longform",
+      "state": "measured",
+      "views": 1,
+      "averageViewDurationSec": 46,
+      "averageViewPercentage": 21.98,
+      "trafficSources": [
+        {
+          "type": "YT_SEARCH",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform",
+      "videoId": "-Oeh3Gi8-yU",
+      "packId": "pe1-kiso-xor-shingihyou",
+      "kind": "longform",
+      "state": "measured",
+      "views": 1,
+      "averageViewDurationSec": 0,
+      "averageViewPercentage": 0,
+      "trafficSources": [
+        {
+          "type": "YT_SEARCH",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform",
+      "videoId": "gRUKhWDZJhk",
+      "packId": "pe1-senmon-kensetsu-25mon",
+      "kind": "longform",
+      "state": "measured",
+      "views": 5,
+      "averageViewDurationSec": 134,
+      "averageViewPercentage": 58.21999999999999,
+      "trafficSources": [
+        {
+          "type": "YT_SEARCH",
+          "views": 5
+        }
+      ]
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform",
+      "videoId": "hevqxT9zH7A",
+      "packId": "pe1-tekisei-3shiten",
+      "kind": "longform",
+      "state": "measured",
+      "views": 3,
+      "averageViewDurationSec": 191,
+      "averageViewPercentage": 89.28,
+      "trafficSources": [
+        {
+          "type": "YT_SEARCH",
+          "views": 3
+        }
+      ]
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-zentaizou/youtube.longform",
+      "videoId": "xLQ5bqfUEOE",
+      "packId": "pe1-zentaizou",
+      "kind": "longform",
+      "state": "measured",
+      "views": 3,
+      "averageViewDurationSec": 0,
+      "averageViewPercentage": 0,
+      "trafficSources": [
+        {
+          "type": "YT_SEARCH",
+          "views": 2
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 1
+        }
+      ]
+    }
+  ]
+}
