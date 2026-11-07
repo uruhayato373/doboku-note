@@ -1,10 +1,11 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import satori from 'satori';
 import sharp from 'sharp';
 import opentype from '@shuding/opentype.js';
 import { renderCharacterFrame } from './character-framing.mjs';
+import { driveGroupFor, loadDriveConfig, resolveVaultRoot, vaultAbsFor, vaultRelFor } from './drive-vault.mjs';
 import { loadRegistry, qualificationBadgeLabel, qualificationLabel, qualificationShortLabel } from './qualification-registry.mjs';
 import { REPO_ROOT } from './repository-paths.mjs';
 
@@ -237,7 +238,51 @@ function magazineTypography(copy, measure) {
   };
 }
 
+/** 写真カバーの元写真。手元に無ければ Drive vault から読む（週次の同期は収集用の worktree で動く） */
+function magazinePhoto(root, input) {
+  const repoRel = `${input.magazineDir}/${input.cover.photo}`;
+  const local = join(root, repoRel);
+  if (existsSync(local)) return readFileSync(local);
+  const cfg = loadDriveConfig();
+  const group = driveGroupFor(repoRel, cfg);
+  const { root: vaultRoot, reason } = resolveVaultRoot();
+  if (!group || !vaultRoot) throw new Error(`写真カバーの元写真が無い: ${repoRel}（${reason ?? 'group 未登録'}）`);
+  return readFileSync(vaultAbsFor(vaultRoot, vaultRelFor(repoRel, group)));
+}
+
+/** 写真カバー: 左に資格色の文字欄、右に写真。文字はマガジン一覧の帯（上下を切った範囲）に収める */
+async function renderMagazinePhotoCover(root, input) {
+  const ctx = context(root);
+  const measure = (text, size) => ctx.font.getAdvanceWidth(text, size);
+  const copy = magazineDisplayCopy(input);
+  const band = input.palette.band;
+  const panelWidth = 640;
+  const textWidth = panelWidth - 76;
+  const words = copy.title.split(/\s+/);
+  const titleLines = measure(copy.title, 96) <= textWidth ? [copy.title] : (words.length > 1 ? words : [copy.title]);
+  const titleSize = Math.min(...titleLines.map((line) => fittedSize(line, titleLines.length > 1 ? 92 : 104, textWidth, measure)));
+  const { lead, benefit } = coverCopy(input);
+  const rows = [
+    [lead, 32, '#FFD24A', 16],
+    ...titleLines.map((line) => [line, titleSize, '#FFFFFF', 4]),
+    ...(copy.proof ? [[copy.proof, fittedSize(copy.proof, 36, textWidth, measure), '#FFFFFF', 0]] : []),
+  ];
+  const chip = benefit ? div({ display: 'flex', alignSelf: 'flex-start', marginTop: 16, padding: '8px 18px', borderRadius: 6, background: '#FFD24A', color: band, fontSize: fittedSize(benefit, 32, textWidth - 36, measure) }, benefit) : null;
+  const svg = await satori(div({ width: panelWidth, height: 670, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: 52, background: band, fontFamily: 'Noto Sans JP', fontWeight: 700 }, [
+    ...rows.map(([text, size, color, gap], i) => div({ display: 'flex', fontSize: size, lineHeight: 1.14, color, marginBottom: gap, marginTop: i === rows.length - 1 && copy.proof ? 14 : 0 }, text)),
+    ...(chip ? [chip] : []),
+    div({ display: 'flex', marginTop: 12, fontSize: 26, color: '#E6EDF3' }, copy.authority),
+  ]), { width: panelWidth, height: 670, fonts: ctx.fonts });
+  const panel = await sharp(Buffer.from(svg)).png().toBuffer();
+  const source = magazinePhoto(root, input);
+  const photo = await sharp(source).resize(1280 - panelWidth, 670, { fit: 'cover' }).png().toBuffer();
+  const buffer = await sharp({ create: { width: 1280, height: 670, channels: 3, background: band } })
+    .composite([{ input: panel, left: 0, top: 0 }, { input: photo, left: panelWidth, top: 0 }]).png().toBuffer();
+  return { buffer, copy, layout: { lines: titleLines, size: titleSize }, pose: 'photo', poseReason: '写真カバー', characterBox: null, sourceSha256: createHash('sha256').update(source).digest('hex') };
+}
+
 async function renderMagazineCharacterCover(root, input) {
+  if (input.cover?.photo) return renderMagazinePhotoCover(root, input);
   const ctx = context(root);
   const measure = (text, size) => ctx.font.getAdvanceWidth(text, size);
   const copy = magazineDisplayCopy(input);
