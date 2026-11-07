@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-07T00:00:00.000Z",
+  "updated_at": "2026-11-07T22:21:16.917Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8863,6 +8863,75 @@
         "posts": 328,
         "xUsersRecord": 9,
         "repliesSentBeforeTrial": 7
+      }
+    },
+    {
+      "id": "EXP-060",
+      "kind": "search-strategy",
+      "title": "資格名: /exam/civil-construction-1/guide/future の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/civil-construction-1/guide/future は 1 語が11〜30位（最良 13.1 位・表示 16）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 1 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-11-08",
+      "searchStrategy": {
+        "cluster": "qualification",
+        "page": "/exam/civil-construction-1/guide/future",
+        "contentPath": "content/site/civil-construction-1/guide-future/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "source": "data/gsc/reports/2026-10-31.json#page-query",
+        "period": {
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-27"
+        },
+        "impressions": 16,
+        "clicks": 0,
+        "bestPosition": 13.1,
+        "queries": [
+          {
+            "query": "技術士 オワコン",
+            "position": 13.1,
+            "impressions": 16,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/civil-construction-1/guide/future"
+          ],
+          "queries": [
+            "技術士 オワコン"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-11-07T22:21:16.917Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-07T22:21:16.917Z",
+          "event": "implemented",
+          "commit": "a4de7278ca2b",
+          "change": "title・seoTitle・description を「技術士・建設業はオワコン？」に寄せ、冒頭に H2「技術士はオワコンなのか」で答えと関連ガイドへの内部リンクを足した"
+        }
+      ],
+      "implementation": {
+        "commit": "a4de7278ca2b",
+        "at": "2026-11-08",
+        "change": "title・seoTitle・description を「技術士・建設業はオワコン？」に寄せ、冒頭に H2「技術士はオワコンなのか」で答えと関連ガイドへの内部リンクを足した"
       }
     }
   ]
