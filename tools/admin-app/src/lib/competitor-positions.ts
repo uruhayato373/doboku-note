@@ -31,6 +31,15 @@ export const STANCE_STATE: Record<string, { label: string; tone: 'good' | 'neutr
   untested: { label: '未検証', tone: 'warn' },
 };
 
+/** サイトの記事の題名。読めないときはパスのまま返す */
+export function siteArticleTitle(root: string, path: string): string {
+  try {
+    return /^title:\s*["']?(.+?)["']?\s*$/m.exec(readFileSync(join(root, path), 'utf8'))?.[1] ?? path;
+  } catch {
+    return path;
+  }
+}
+
 export type WiringPosition = { id: string; label: string; summary: string; stances: { id: string; stage: string; text: string; state: string }[] };
 
 /** 配線の画面が読む、資格ごとの立ち位置 */

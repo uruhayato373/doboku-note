@@ -7,7 +7,7 @@ import { PageHead } from '@/components/ui';
 import { ChannelAnnualBoard, type BoardChannel } from '@/components/channel-annual-board';
 import { magazines } from '@/lib/content';
 import { findRepoRoot, repoPath } from '@/lib/repo-root';
-import { slotReader, wiringPositions } from '@/lib/competitor-positions';
+import { siteArticleTitle, slotReader, wiringPositions } from '@/lib/competitor-positions';
 import { domainList } from '@/lib/domains';
 import { todoBoard } from '@/lib/todo';
 import { renderMarkdown } from '@/lib/markdown';
@@ -134,7 +134,7 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
         {annualNotes && <FilterChip active={sp.tab === 'policy'} href="/plan/roadmap?tab=policy">年間の方針</FilterChip>}
       </FilterBar>
       {sp.tab === 'channels' ? (
-        <ChannelAnnualBoard {...board!} nameOf={nameOf} targetLabel={(_kind, id) => magazineNames.get(id) ?? id} active={sp.ch} view={sp.view} positions={wiringPositions(findRepoRoot())} position={sp.position} />
+        <ChannelAnnualBoard {...board!} nameOf={nameOf} targetLabel={(kind, id) => (kind === 'site-article' ? siteArticleTitle(findRepoRoot(), id) : magazineNames.get(id) ?? id)} active={sp.ch} view={sp.view} positions={wiringPositions(findRepoRoot())} position={sp.position} />
       ) : sp.tab === 'policy' && annualNotes ? (
         <PanelCard title="年間の方針">
           <div className="md-prose small" dangerouslySetInnerHTML={{ __html: renderMarkdown(annualNotes) }} />
