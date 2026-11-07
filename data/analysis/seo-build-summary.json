@@ -331,15 +331,14 @@
     },
     {
       "date": "2026-11-08",
-      "generatedAt": "2026-11-07T22:07:54.277Z",
+      "generatedAt": "2026-11-07T23:37:50.901Z",
       "sitemapUrls": 1988,
       "checked": 1988,
       "errors": 0,
-      "warnings": 408,
+      "warnings": 407,
       "errorsByCode": {},
       "warningsByCode": {
-        "jsonld_recommended_missing": 407,
-        "ssr_thin_body": 1
+        "jsonld_recommended_missing": 407
       }
     }
   ]
