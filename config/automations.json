@@ -43,11 +43,10 @@
         "coconala",
         "google"
       ],
-      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後・取った記録の検算つき）、note の公開状態の照合（公開 API）・公開画面の撮影と競合の公開データ（四半期の最初の土曜だけ）も前段で回す。続けてヘッドレスの Claude Code で GSC の記録層（週次観測・coverage・改善候補。旧 gsc-auto-review.yml）を書き、週次・月次レビュー（週次の点検 quality:audit:weekly を含む）と翌週の計画を書いて develop へ push する（DN-0817・DN-0847・DN-0849・DN-0852）",
+      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後・取った記録の検算つき）、note の公開状態の照合（公開 API）・公開画面の撮影と競合の公開データ（四半期の最初の土曜だけ）も前段で回す。続けてヘッドレスの Claude Code で GSC の記録層（週次観測・coverage・改善候補。旧 gsc-auto-review.yml）を書いて develop へ push する。週次・月次レビューは回さず、運営者の指示で対話セッションが実行する（2026-11-08〜・DN-0817・DN-0847・DN-0849・DN-0852）",
       "readers": [
         "quality-audit:weekly-collect",
         "issue:weekly-collect",
-        "issue:weekly-review-local",
         "issue:gsc-auto-review",
         "admin:/metrics/business",
         "admin:/content/note",

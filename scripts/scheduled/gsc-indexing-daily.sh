@@ -10,20 +10,30 @@ export LANG="ja_JP.UTF-8"
 export LC_ALL="ja_JP.UTF-8"
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-WT="$REPO/.claude/worktrees/gsc-indexing"
+# 土曜の収集（weekly-review.sh）と同じ自動実行用の worktree を使う（常設の worktree を 1 本にする・2026-11-08）
+WT="$REPO/.claude/worktrees/weekly-collect"
 LOG_DIR="$HOME/Library/Logs/doboku-note"
 LOG_FILE="$LOG_DIR/gsc-indexing.log"
+WEEKLY_LOCK="$LOG_DIR/weekly-review.lock"
 mkdir -p "$LOG_DIR"
 
 echo "=== $(date -Iseconds) [gsc-indexing] start ===" >> "$LOG_FILE"
 
-# 人が作業する checkout には触らない。ブランチに乗らない専用の worktree を毎回 origin/develop に合わせる。
+# 土曜の収集が同じ worktree を使っている間は譲る（収集も gsc-local-routine を回すので、その日の登録は欠けない）
+if [ -f "$WEEKLY_LOCK/pid" ] && kill -0 "$(cat "$WEEKLY_LOCK/pid")" 2>/dev/null; then
+  echo "=== $(date -Iseconds) [gsc-indexing] skip: 土曜の収集が実行中 ===" >> "$LOG_FILE"
+  exit 0
+fi
+
+# 人が作業する checkout には触らない。ブランチに乗らない worktree を毎回 origin/develop に合わせる。
 git -C "$REPO" fetch -q origin develop >> "$LOG_FILE" 2>&1
 if [ -e "$WT/.git" ]; then
   git -C "$WT" checkout -q --detach -f origin/develop >> "$LOG_FILE" 2>&1
   git -C "$WT" clean -fdq -e node_modules >> "$LOG_FILE" 2>&1
 else
+  git -C "$REPO" worktree prune >> "$LOG_FILE" 2>&1
   git -C "$REPO" worktree add -q --detach "$WT" origin/develop >> "$LOG_FILE" 2>&1
+  git -C "$REPO" worktree lock --reason "weekly-collect launchd routine" "$WT" >> "$LOG_FILE" 2>&1
 fi
 [ -e "$WT/node_modules" ] || ln -s "$REPO/node_modules" "$WT/node_modules"
 
