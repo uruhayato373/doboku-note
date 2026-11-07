@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 /**
- * install-weekly-review-launchd.mjs — 週次レビュー（/weekly-review と /plan-weekly）を Mac のヘッドレスの Claude Code で
- * 毎週土曜に回すジョブを launchd へ登録する。
+ * install-weekly-review-launchd.mjs — 土曜の収集（ログインが要る取得と書き込み）と GSC の記録層を
+ * 毎週土曜に回すジョブを launchd へ登録する。週次レビュー自体は運営者の指示で対話セッションが実行する（2026-11-08〜）。
  * ---------------------------------------------------------------------------
  * 中身は scripts/scheduled/weekly-review.sh（なぜ Mac で回すかは同ファイル冒頭）。登録の手順は note の週次同期の
  * インストーラと同じで、plist の絶対パスは端末ごとに違うため template から描画し、リポジトリにはコミットしない。
  *
  * 時刻は毎週土曜 9:30。Mac が寝ていた・閉じていた週は、次に起きたときに launchd が 1 回だけ実行する。
- * 今週のレビュー・翌週計画・事業記録・点検が develop で成立済みなら週次を省く。月次は未完・再確認日到来を別途判定する。電源が切れていた週は、月曜の weekly-review-guard が赤で出す。
+ * 電源が切れていた週の収集の遅れは、日次の ops-audit が weekly-collect の鮮度で出す。
  *
  * 使い方:
  *   npm run weekly-review:install                  # 登録（再登録も同じコマンド）。前提: Claude Code にログイン済み・gh にログイン済み
  *   npm run weekly-review:install -- --status      # 登録状況
  *   npm run weekly-review:install -- --run-now     # 今すぐ 1 回走らせる（ログ: ~/Library/Logs/doboku-note/weekly-review.log）
- *   npm run weekly-review:install -- --uninstall   # 解除（専用 worktree は残す。消すなら git worktree remove --force）
+ *   npm run weekly-review:install -- --uninstall   # 解除（自動実行用の worktree は残す。消すなら git worktree unlock してから git worktree remove --force）
  *
  * exit: 0 成功 / 1 失敗 / 2 検査不成立（macOS 以外＝launchd が無い）
  * ---------------------------------------------------------------------------
@@ -58,7 +58,7 @@ if (argv.includes('--status')) {
 } else if (argv.includes('--uninstall')) {
   launchctl('bootout', `${domain}/${LABEL}`);
   if (existsSync(PLIST_PATH)) rmSync(PLIST_PATH);
-  console.log(`${TAG} 解除した（${PLIST_PATH} を削除）。土曜の自動の週次レビューは止まる（月曜の guard が欠けを赤で出す）。`);
+  console.log(`${TAG} 解除した（${PLIST_PATH} を削除）。土曜の収集と GSC の記録層は止まる。`);
 } else if (argv.includes('--run-now')) {
   const r = launchctl('kickstart', `${domain}/${LABEL}`);
   if (r.status !== 0) {

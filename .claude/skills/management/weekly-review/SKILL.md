@@ -25,13 +25,11 @@ domain: strategy
 
 **配線の正本**: このスキル（本ファイルと `references/`）が実行するコマンドは `.claude/config/review-wiring.json` の weekly に段（KPI ツリー）と役割（判断／点検）付きで載せる（check-review-wiring が食い違いを止める）。**起票したカードの本文の起点は「週次レビュー（開始日〜終了日）」で始める**（管理画面がレビュー由来のカードを数える）。
 
-## 実行主体（2026-10-10〜）
+## 実行主体（2026-11-08〜）
 
-1. **土曜 9:30・Mac の launchd**（`scripts/scheduled/weekly-review.sh`）が、ログインが要る取得を土曜の収集（`scripts/weekly-collect.mjs --phase pre`）で回し、GSC の記録層を回し、収集の後に機械の節を `draft.json` に書く（`npm run weekly-review:draft`）。
-2. 続けて**ヘッドレスの Claude Code**が本スキルと `/plan-weekly` を回して develop へ push し、最後に `--phase post` を回す（`npm run weekly-review:install`）。レビュー本文・翌週計画・事業レビューと snapshot・点検と振り分け・backlog 検証の 5 種の証跡が揃う場合だけ省略。揃わなければ Issue（channel: weekly-review-local）。
-3. **対話セッション**がヘッドレスの残した諮問待ち（`<!-- weekly-review:pending-questions -->`）を諮る。
-
-**ヘッドレスの守り**（詳細 → [operations.md](references/operations.md)）: AskUserQuestion は使えない（判断待ち 🟣 は「## バックログの関門」に背景・選択肢・おすすめを 1 件ずつ書き、上の印を行頭に置く）。Claude の中ではログインしない（直前の収集の記録と `runs.json`・`npm run check-weekly-collect` を読み、失敗・skipped の段は理由とともに未取得と書く）。`.claude/` の下は書けないので翌週の `weekly.md` などは `.tmp/claude-out/` に `.claude/` を外した相対パスで書く。外部への公開・投稿・送信・購入はしない。
+1. **土曜 9:30・Mac の launchd**（`scripts/scheduled/weekly-review.sh`・`npm run weekly-review:install`）が、ログインが要る取得を土曜の収集（`scripts/weekly-collect.mjs --phase pre`／`post`）で回し、GSC の記録層を回す。レビューは回さない。
+2. **運営者の指示で対話セッションが**本スキルと `/plan-weekly` を実行する（土曜以降いつでも。抜けた週は後日まとめて回してよい）。未作成の週は SessionStart の `check-weekly-review-due` が知らせる。
+3. 実行の最初に `npm run weekly-review:draft` で機械の節（`draft.json`）を作り直す。Claude の中ではログインしない（直前の収集の記録と `runs.json`・`npm run check-weekly-collect` を読み、失敗・skipped の段は理由とともに未取得と書く）。外部への公開・投稿・送信・購入はしない。運用の詳細 → [operations.md](references/operations.md)。
 
 ## 手順と読む reference
 

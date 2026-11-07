@@ -2,10 +2,9 @@
 /**
  * check-weekly-review-due.mjs — 週次レビュー（ローカル実行）の催促 surfacer（SessionStart 用）
  * ---------------------------------------------------------------------------
- * 2026-09-19 に週次レビューをクラウドルーティンからローカル実行（土曜・/weekly-review）へ切り替えた。
- * ローカル実行は「忘れる」のが唯一の故障モードなので、土曜 09:00 JST を過ぎて今週分の
- * docs/reviews/weekly/YYYY-Www-review.md が無ければセッション開始時に 1 行で催促する。
- * 月曜の weekly-review-guard.yml（先週分の実在検査）が最終 backstop、こちらは早期の催促。
+ * 週次レビューは運営者の指示で対話セッションが実行する（2026-11-08 に土曜の自動実行をやめた）。
+ * 抜けた週は月曜以降に回せば足りるので赤落ちはさせず、土曜 09:00 JST を過ぎて
+ * docs/reviews/weekly/YYYY-Www-review.md が無ければセッション開始時に 1 行で知らせるだけにする（唯一の知らせ）。
  *
  * 判定（JST）:
  *   - 土曜 09:00 より前 … 対象外（exit 0・無言）
@@ -63,10 +62,10 @@ export async function run({ argv = [], quiet = false } = {}) {
   const exists = (w) => existsSync(join(ROOT, 'docs', 'reviews', 'weekly', `${w}-review.md`));
   const due = dueWeek(Date.now(), exists);
   if (json) { out.log(JSON.stringify({ due, checkedAt: new Date().toISOString() })); }
-  else if (due) { out.log(`[weekly-review-due] ${due} の週次レビューが未作成（土曜 09:00 JST 以降）。対話セッションで /weekly-review を実行する（完了後 /plan-weekly で weekly.md を更新）`); }
-  // 土曜の Mac launchd（ヘッドレス）は判断待ちを聞けないので、レビューに印を残す。印が残っている間は対話セッションで諮る
+  else if (due) { out.log(`[weekly-review-due] ${due} の週次レビューが未作成（土曜 09:00 JST 以降）。運営者の指示で /weekly-review を実行する（後日でよい・完了後 /plan-weekly で weekly.md を更新）`); }
+  // 以前のヘッドレスの週次レビューが残した判断待ちの印。印が残っている間は対話セッションで諮る
   const pending = pendingQuestionsReview(join(ROOT, 'docs', 'reviews', 'weekly'));
-  if (!json && pending) out.log(`[weekly-review-due] ${pending} に諮問待ちがある（自動の週次レビューが残した判断待ち）。「## バックログの関門」の候補を運営者に諮り、台帳を直して印（${PENDING_MARK}）を消す`);
+  if (!json && pending) out.log(`[weekly-review-due] ${pending} に諮問待ちがある（週次レビューが残した判断待ち）。「## バックログの関門」の候補を運営者に諮り、台帳を直して印（${PENDING_MARK}）を消す`);
   return out.result(due ? 1 : 0);
 }
 

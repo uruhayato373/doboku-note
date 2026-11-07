@@ -1,24 +1,23 @@
 #!/bin/bash
-# launchd から毎週土曜 9:30 に呼ばれるラッパー（com.doboku-note.weekly-review）。
+# launchd から毎週土曜 9:30 に呼ばれるラッパー（com.doboku-note.weekly-review）。名前は登録済みの launchd に合わせて残している。
 #   1. 土曜の収集（前）: ログインが要る取得と、その検算・note の公開状態の照合を scripts/weekly-collect.mjs --phase pre で回す（DN-0817・DN-0819・DN-0847）
-#   1.5 GSC の記録層: 要るときだけヘッドレスの Claude に週次観測・coverage の断片を書かせ、scripts/apply-gsc-records.mjs が
+#   2. GSC の記録層: 要るときだけヘッドレスの Claude に週次観測・coverage の断片を書かせ、scripts/apply-gsc-records.mjs が
 #      gsc-management.md へ追記して push する（旧 gsc-auto-review.yml・CI の中の Claude をやめて土曜へ寄せた・DN-0849）
-#   2. Mac のヘッドレスの Claude Code で /weekly-review・/plan-weekly と、期日到来の /monthly-review を回し、develop へ push する
 #   3. 土曜の収集（後）: 時間がかかる照合と note への書き込みを --phase post で回す
 # 導入・状態確認・即実行・解除: npm run weekly-review:install [-- --status|--run-now|--uninstall]
 #
-# なぜ Mac で回すか: 2026-W40 の週次レビューが抜けた（土曜に対話セッションを開かないと何も始まらなかった）。
-# クラウドルーティンはサンドボックスで .claude/ への書き込みが止まり、Playwright・ログインの要る検査も回せず退役した
-# （memory feedback_cloud_routines_minimized）。Mac にはログイン済みのプロファイルとキーチェーンがあるので全部回せる。
+# 週次レビュー（/weekly-review・/plan-weekly・/monthly-review）はここで回さない。運営者の指示で対話セッションが実行する
+# （2026-11-08 に自動実行をやめた。画面のない実行は落ちても気づかれず、抜けた週は後日まとめて回せば足りる）。
+# 未作成の週はセッション開始時に check-weekly-review-due が 1 行で知らせる。
+#
+# なぜ収集を Mac で回すか: クラウドルーティンはサンドボックスで .claude/ への書き込みが止まり、Playwright・ログインの要る
+# 検査も回せず退役した（memory feedback_cloud_routines_minimized）。Mac にはログイン済みのプロファイルとキーチェーンがある。
 # ログインが要る処理はこの 1 本にまとめ、CI と他のセッションはログインしない（記録を読む・DN-0817）。
 # Claude Code の中（CLAUDECODE=1）では資格情報が読めないので、収集は Claude の外（このスクリプト）で回す。
-# 判断待ち（🟣）の諮問だけはヘッドレスでは聞けないので、レビューに「諮問待ち」として残し、次の対話セッションで聞く。
 #
-# 人が作業する checkout には触らない。収集は使い捨ての worktree（.claude/worktrees/weekly-collect）、レビューは
-# 専用の worktree（.claude/worktrees/weekly-review）を、毎回 origin/develop に合わせて使う（どちらも detached・lock 済み）。
-# 収集を別にするのは、レビューが途中で落ちて worktree を残しても、翌週の収集を止めないため。
-# レビュー・翌週計画・事業記録・点検・backlog 検証が develop で成立した場合だけ再生成しない。
-# 失敗は automation-failure へ通知する。レビューは weekly-review-local、収集は weekly-collect（片方の成功でもう片方の赤を閉じない）。
+# 人が作業する checkout には触らない。自動実行用の worktree（.claude/worktrees/weekly-collect・detached・lock 済み）を
+# 毎回 origin/develop に合わせて使う。毎日の GSC の登録（gsc-indexing-daily.sh）も同じ worktree を使う。
+# 失敗は automation-failure へ通知する（収集は weekly-collect、GSC の記録層は gsc-auto-review）。
 
 set -euo pipefail
 
@@ -32,7 +31,6 @@ export DOBOKU_SNS_PAUSED=1
 
 REPO="${DOBOKU_WEEKLY_REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
 REPO="$(cd "$REPO" && pwd -P)"
-WT="$REPO/.claude/worktrees/weekly-review"
 CWT="$REPO/.claude/worktrees/weekly-collect"
 LOG_DIR="$HOME/Library/Logs/doboku-note"
 LOG_FILE="$LOG_DIR/weekly-review.log"
@@ -45,19 +43,17 @@ mkdir -p "$LOG_DIR"
   echo "=== $(date -Iseconds) [weekly-review] start ==="
 } >> "$LOG_FILE"
 
-week="未確定"
-review="未確定"
-review_rc=0
+week="$(date +%G-W%V)"
 collect_rc=0
 gsc_rc=0
 
-# A concurrent invocation must not reset the active dedicated worktree.
+# A concurrent invocation must not reset the active worktree. gsc-indexing-daily.sh も同じロックを見て譲る
 LOCK="$LOG_DIR/weekly-review.lock"
 if ! mkdir "$LOCK" 2>/dev/null; then
   if [ -f "$LOCK/pid" ] && kill -0 "$(cat "$LOCK/pid")" 2>/dev/null; then
     echo "[weekly-review] already running pid=$(cat "$LOCK/pid")" >> "$LOG_FILE"
     if [ -n "$(find "$LOCK" -maxdepth 0 -mmin +"$STUCK_MINUTES" 2>/dev/null)" ]; then
-      (cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-review-local --title "自動の週次レビューが ${STUCK_MINUTES} 分を超えて動き続けている" --body "前の回（pid $(cat "$LOCK/pid")）が終わらず、この回は始められなかった。ログ: ~/Library/Logs/doboku-note/weekly-review.log") >> "$LOG_FILE" 2>&1 || true
+      (cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-collect --title "土曜の収集が ${STUCK_MINUTES} 分を超えて動き続けている" --body "前の回（pid $(cat "$LOCK/pid")）が終わらず、この回は始められなかった。ログ: ~/Library/Logs/doboku-note/weekly-review.log") >> "$LOG_FILE" 2>&1 || true
     fi
     exit 0
   fi
@@ -87,30 +83,30 @@ finish() {
   trap - EXIT
   rm -f "$LOCK/pid"
   rmdir "$LOCK"
-  # set -e で途中終了したときはレビューの失敗として扱う
-  [ "$rc" -eq 0 ] || [ "$review_rc" -ne 0 ] || [ "$collect_rc" -ne 0 ] || review_rc=$rc
+  # set -e で途中終了したときは収集の失敗として扱う
+  [ "$rc" -eq 0 ] || [ "$collect_rc" -ne 0 ] || [ "$gsc_rc" -ne 0 ] || collect_rc=$rc
   if [ "$collect_rc" -eq 0 ]; then
     (cd "$REPO" && node scripts/report-automation-failure.mjs --resolve --channel weekly-collect --body "復旧: $week の土曜の収集（前・後）が合格") >> "$LOG_FILE" 2>&1 || true
   else
+    echo "=== $(date -Iseconds) [weekly-collect] FAILED rc=$collect_rc ===" >> "$LOG_FILE"
     notify weekly-collect "土曜の収集（ログインが要る取得と書き込み）が完了しませんでした" "$collect_rc" "土曜の収集"
   fi
-  if [ "$review_rc" -eq 0 ]; then
-    echo "=== $(date -Iseconds) [weekly-review] evidence complete ($review) ===" >> "$LOG_FILE"
-    (cd "$REPO" && node scripts/report-automation-failure.mjs --resolve --channel weekly-review-local --body "復旧: $week の週次・対象月次のレビュー・計画・事業記録・点検・backlog 検証が develop で成立") >> "$LOG_FILE" 2>&1 || review_rc=1
-  else
-    echo "=== $(date -Iseconds) [weekly-review] FAILED rc=$review_rc ===" >> "$LOG_FILE"
-    notify weekly-review-local "自動の週次レビューが完了しませんでした" "$review_rc" "自動週次レビュー"
-  fi
-  [ "$collect_rc" -eq 0 ] || echo "=== $(date -Iseconds) [weekly-collect] FAILED rc=$collect_rc ===" >> "$LOG_FILE"
   # GSC の記録層の失敗は channel gsc-auto-review。復旧は月曜の weekly-review-guard が記録の鮮度で閉じる
   #（ここで閉じると、Claude が同じ channel に出した異常の報告まで閉じてしまう）
   if [ "$gsc_rc" -ne 0 ]; then
     echo "=== $(date -Iseconds) [gsc-record] FAILED rc=$gsc_rc ===" >> "$LOG_FILE"
     notify gsc-auto-review "土曜の GSC の記録層（週次観測・coverage）が完了しませんでした" "$gsc_rc" "GSC の記録層"
   fi
-  if [ "$review_rc" -ne 0 ]; then exit "$review_rc"; fi
-  if [ "$collect_rc" -ne 0 ]; then exit "$collect_rc"; fi
-  exit "$gsc_rc"
+  if [ "$collect_rc" -ne 0 ]; then
+    echo "=== $(date -Iseconds) [weekly-review] FAILED rc=$collect_rc ===" >> "$LOG_FILE"
+    exit "$collect_rc"
+  fi
+  if [ "$gsc_rc" -ne 0 ]; then
+    echo "=== $(date -Iseconds) [weekly-review] FAILED rc=$gsc_rc ===" >> "$LOG_FILE"
+    exit "$gsc_rc"
+  fi
+  echo "=== $(date -Iseconds) [weekly-review] ok ($week の収集と GSC の記録層) ===" >> "$LOG_FILE"
+  exit 0
 }
 trap finish EXIT
 exec >> "$LOG_FILE" 2>&1
@@ -122,7 +118,7 @@ link_deps() { # worktree
   [ -e "$1/.env.local" ] || [ -L "$1/.env.local" ] || ln -s "$REPO/.env.local" "$1/.env.local"
 }
 
-# 収集用 worktree を origin/develop に合わせる。前回の残り（未保存・未 push）は捨てずに退避してから戻す（翌週を止めない）
+# 自動実行用の worktree を origin/develop に合わせる。前回の残り（未保存・未 push）は捨てずに退避してから戻す（翌週を止めない）
 prepare_collect_worktree() {
   git -C "$REPO" fetch -q origin develop || return 1
   if ! git -C "$REPO" worktree list --porcelain | grep -x "worktree $CWT" > /dev/null; then
@@ -157,149 +153,44 @@ collect_phase() { # pre|post
   [ "$rc" -eq 0 ] || collect_rc=$rc
 }
 
-# レビュー用の専用 worktree を origin/develop に合わせる（GSC の記録層とレビューが使う）。
-# 前回の未保存変更・未 push commit があれば止める（他人の作業を消さない・失敗の跡を残す）
-prepare_review_worktree() {
-  git -C "$REPO" fetch -q origin develop || return 1
-  if ! git -C "$REPO" worktree list --porcelain | grep -x "worktree $WT" > /dev/null; then
-    git -C "$REPO" worktree prune || return 1
-    git -C "$REPO" worktree add -q --detach "$WT" origin/develop || return 1
-    git -C "$REPO" worktree lock --reason "weekly-review launchd routine" "$WT" || return 1
-  fi
-  if [ -n "$(git -C "$WT" status --porcelain)" ] || [ -n "$(git -C "$WT" log --oneline origin/develop..HEAD)" ]; then
-    echo '[weekly-review] 前回の未保存変更・未 push commit がある。worktree を保持して停止'
-    return 1
-  fi
-  git -C "$WT" reset -q --hard origin/develop || return 1
-  link_deps "$WT"
-  week="$(node -e "import('$WT/scripts/lib/review-week.mjs').then(m=>import('$WT/scripts/lib/jst-date.mjs').then(j=>console.log(m.reviewWeekOfDay(j.todayJst()))))")" || return 1
-}
-
-# GSC の記録層（DN-0849）。失敗しても worktree の残りを退避して戻し、この後のレビューを止めない
+# GSC の記録層（DN-0849）。失敗しても worktree の残りを退避して戻し、この後の収集を止めない
 run_gsc_record() {
-  prepare_review_worktree || return $?
-  cd "$WT" || return 1
-  # 実行前のゲートは worktree の外に置く（worktree を汚すと、この後のレビューが「未保存の変更」で止まる）
+  prepare_collect_worktree || return $?
+  cd "$CWT" || return 1
+  # 実行前のゲートは worktree の外に置く（worktree を汚すと、記録の検査が「未保存の変更」を拾う）
   local gates
   gates="$(mktemp)"
   node scripts/check-gsc-auto-review.mjs --json > "$gates" || true
   local need_rc=0
   node scripts/apply-gsc-records.mjs --needed --before "$gates" || need_rc=$?
-  if [ "$need_rc" -eq 3 ]; then echo '[gsc-record] 週次・coverage とも記録済みか、データが古い。Claude は回さない'; return 0; fi
-  [ "$need_rc" -eq 0 ] || return "$need_rc"
+  if [ "$need_rc" -eq 3 ]; then echo '[gsc-record] 週次・coverage とも記録済みか、データが古い。Claude は回さない'; rm -f "$gates"; return 0; fi
+  [ "$need_rc" -eq 0 ] || { rm -f "$gates"; return "$need_rc"; }
   local rc=0
-  node .claude/scripts/build-doc-meta-index.mjs --ci > /dev/null || rc=$?
   rm -rf .tmp/claude-out/gsc && mkdir -p .tmp/claude-out/gsc
-  if [ "$rc" -eq 0 ]; then
-    CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS=1800000 claude -p "$(cat scripts/scheduled/gsc-record-prompt.md)" \
-      --permission-mode acceptEdits \
-      --allowedTools "Bash Read Write Edit Glob Grep Agent" \
-      --disallowedTools "ScheduleWakeup Bash(git commit:*) Bash(git push:*) Bash(git reset:*) Bash(git checkout:*) Bash(git stash:*) Bash(rm -rf:*)" || rc=$?
-  fi
+  CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS=1800000 claude -p "$(cat scripts/scheduled/gsc-record-prompt.md)" \
+    --permission-mode acceptEdits \
+    --allowedTools "Bash Read Write Edit Glob Grep Agent" \
+    --disallowedTools "ScheduleWakeup Bash(git commit:*) Bash(git push:*) Bash(git reset:*) Bash(git checkout:*) Bash(git stash:*) Bash(rm -rf:*)" || rc=$?
   [ "$rc" -ne 0 ] || node scripts/apply-gsc-records.mjs --before "$gates" || rc=$?
   rm -f "$gates"
   [ "$rc" -ne 0 ] || rm -rf .tmp/claude-out/gsc
   git -C "$REPO" fetch -q origin develop || true
-  if [ -n "$(git -C "$WT" status --porcelain)" ] || [ -n "$(git -C "$WT" log --oneline origin/develop..HEAD)" ]; then
+  if [ -n "$(git -C "$CWT" status --porcelain)" ] || [ -n "$(git -C "$CWT" log --oneline origin/develop..HEAD)" ]; then
     local keep
     keep="$LOG_DIR/gsc-record-leftover-$(date +%Y%m%dT%H%M%S)"
     mkdir -p "$keep"
-    git -C "$WT" -c core.quotepath=false status --porcelain > "$keep/status.txt"
-    git -C "$WT" diff > "$keep/diff.patch"
-    git -C "$WT" format-patch -q origin/develop..HEAD -o "$keep" > /dev/null 2>&1 || true
-    echo "[gsc-record] 残りを退避して origin/develop に戻す（レビューを止めない）: $keep"
-    git -C "$WT" reset -q --hard origin/develop
-    git -C "$WT" clean -q -fd
+    git -C "$CWT" -c core.quotepath=false status --porcelain > "$keep/status.txt"
+    git -C "$CWT" diff > "$keep/diff.patch"
+    git -C "$CWT" format-patch -q origin/develop..HEAD -o "$keep" > /dev/null 2>&1 || true
+    echo "[gsc-record] 残りを退避して origin/develop に戻す（収集を止めない）: $keep"
+    git -C "$CWT" reset -q --hard origin/develop
+    git -C "$CWT" clean -q -fd
     [ "$rc" -ne 0 ] || rc=1
   fi
   return "$rc"
 }
 
-# set -e は `||` の中の関数では効かないので、各段の失敗を明示して返す
-run_review() {
-  prepare_review_worktree || return $?
-  review="docs/reviews/weekly/${week}-review.md"
-  cd "$WT" || return 1
-  local month weekly_needed=0 check_rc
-  month="$(node scripts/check-monthly-review-due.mjs --ref origin/develop --due-key)" || return 1
-  if node "$WT/scripts/check-weekly-review.mjs" --week "$week" --ref origin/develop; then
-    echo "[weekly-review] $week の全成果物を確認。再生成しない"
-  else
-    check_rc=$?
-    weekly_needed=1
-    [ "$check_rc" -eq 1 ] || return "$check_rc"
-  fi
-
-  if [ "$weekly_needed" -eq 0 ] && [ -z "$month" ]; then
-    echo '[monthly-review] 未実施・再確認日到来なし'
-    return 0
-  fi
-  node .claude/scripts/build-doc-meta-index.mjs --ci > /dev/null || return 1
-  if [ "$weekly_needed" -eq 1 ]; then
-    # Same prerequisite as CI; 0 EPUBs must never be reported as a successful inspection.
-    node scripts/asset-hydrate.mjs --group kindle-dist || return 1
-    QUALITY_AUDIT_CONCURRENCY=2 node scripts/check-backlog-verify.mjs || return 1
-    # 金曜の CI の下書きは土曜の収集より前の材料なので、収集の後に作り直す
-    node scripts/build-weekly-review-draft.mjs || return 1
-  fi
-  local precheck_changes tasks="" prompt
-  precheck_changes="$(git -c core.quotepath=false status --short)"
-  [ "$weekly_needed" -eq 0 ] || tasks="/weekly-review ${week} と /plan-weekly を実行する。backlog 検証は直前の実行記録を読み、再実行は失敗・変更がある場合だけ。"
-  if [ -n "$month" ]; then
-    echo "[monthly-review] 自動起動: $month"
-    tasks="$tasks
-/monthly-review ${month} を実行する。対象は ${month} の暦月。既存記録を読み、再確認日到来の補完として最新証拠・欠測・判断を追記する。次回日を未来の日に定め、取得できない材料は理由と対応先を明示する。SNS 保留を優先する。"
-  fi
-
-  prompt="$(cat <<PROMPT
-${tasks}
-
-これは Mac の launchd から起動したヘッドレスの実行（scripts/scheduled/weekly-review.sh）で、作業場所は専用の worktree（detached HEAD・origin/develop）です。人は見ていません。次を守ってください。
-- 最初に .claude/state/weekly-review/draft.json の markdown（土曜の収集の後に作り直した機械の節）を読み、無いか古ければ node scripts/build-weekly-review-draft.mjs --print で作り直す。数字は写し、転記し直さない。
-- ログインが要る取得（ブラウザ・note/ココナラ/A8/KDP/GSC の画面）はしない。直前に土曜の収集（scripts/weekly-collect.mjs）が取った記録を読む。収集の段ごとの結果は .claude/state/weekly-collect/runs.json の最後の pre の回にある（npm run check-weekly-collect で段ごとの最新の合否）。失敗・skipped の段は理由とともに「未取得の材料」に書き、0 や成功に読み替えない。段の理由の「検算 <点検 id>」は取った記録の検算の失敗で、取り直しか記録の修正を申し送る。note の公開状態の照合（note-audit 段・公開 API）の指摘も同じ回の理由にある。
-- .claude/ の下のファイルは Claude Code の保護で Edit・Write・Bash の書き込みが拒否される。書く必要があるファイル（翌週の .claude/todo/weekly.md・.claude/state/proofread-learnings/YYYY-MM-DD.md）は、.tmp/claude-out/ の下に .claude/ を外した相対パスで書く（例: .claude/todo/weekly.md → .tmp/claude-out/todo/weekly.md。途中に .claude を含めると、その書き込みも拒否される）。backlog は、起票は npm run todo:add、完了は npm run todo:complete、削除は node scripts/backlog-edit.mjs を使う（node のスクリプトは書ける）。カードの本文を直すときだけ、mkdir -p .tmp/claude-out/todo && cp .claude/todo/backlog.md .tmp/claude-out/todo/backlog.md してから写しを直す。サブエージェント（todo-planner など）に書かせるときも、この置き場を指示する。これらは自分で commit しない（終了後にラッパーが写して commit する）。
-- バックグラウンドの実行（Agent や Bash の run_in_background）は使わず、前景で終わるのを待つ。ScheduleWakeup は使えない。ターンを終えると実行が終わる。
-- AskUserQuestion は使えない。判断待ち（🟣）の諮問は「## バックログの関門」に「諮問待ち（次の対話セッションで諮る）」として背景・選択肢・おすすめを 1 件ずつ書き、行頭に <!-- weekly-review:pending-questions --> を置く。台帳の 🟣 はそのまま残す。
-- 現在の重点は2級土木とコンクリート主任技士のサイト・note教材。主任技士は8立場を維持する。EXP-014・015・016と docs/reviews/critical/2026-10-17-civil2-cce-content-quality.md の公開済み改善を読み、週次・月次の結果と次の一手へ引き継ぐ。POP画像だけをクリック減少の原因と断定しない。
-- SNS はユーザー指示で保留中。X/Instagram/YouTube の公開・予約・追加投入・認証復旧・ブラウザによる取得は行わない。既存の保存データだけ参考にする。サイトと note 教材の改善を優先する。
-- 外部への公開・投稿・送信・購入・価格変更・note やココナラの編集はしない。
-- commit は変更したファイルだけを pathspec で指定し、git push origin HEAD:develop で積む（push が競合したら git pull --rebase origin develop してやり直す）。git reset・checkout・stash・force push はしない。
-- quality:audit:ci・check-backlog-verify の再実行は終了を待ってから commit・rebase する。生成物の検査中に HEAD を動かすと検査不成立になる。
-- 起動時の専用worktreeはcleanだった。以下は今回の前処理が生成した変更で、他人の変更ではない。レビューとともに各パスを明示して保存・pushし、git status --porcelainが空になるまで終えない（検査記録の時刻更新も対象）:
-${precheck_changes}
-- 週次が実行対象なら、レビューの保存後に /plan-weekly で来週の計画を .tmp/claude-out/todo/weekly.md に書く（ラッパーが .claude/todo/weekly.md へ写す）。月次だけの回では週間計画を再生成しない。
-- 最後に node scripts/check-weekly-review.mjs --week ${week} を回す。週間計画はラッパーが写した後に成立するので、それ以外の欠けを補う。月次も対象なら node scripts/check-monthly-review-due.mjs --month ${month} が exit 0、同コマンドの --due-key が空になることを確かめる。既存 md だけで完了にしない。
-- 最後に、作ったファイル・起票した DN・諮問待ちの件数・未取得の材料を 10 行以内で書いて終える。
-PROMPT
-)"
-  rm -rf "$WT/.tmp/claude-out"
-  # print モードは背景の作業を既定で 600 秒しか待たない（2026-10-24 はここで打ち切られた・DN-0829）。無期限にはしない
-  CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS=1800000 claude -p "$prompt" \
-    --permission-mode acceptEdits \
-    --allowedTools "Bash Read Write Edit Glob Grep Agent Skill TodoWrite" \
-    --disallowedTools "ScheduleWakeup Bash(git reset:*) Bash(git checkout:*) Bash(git stash:*) Bash(git push --force:*) Bash(git push -f:*) Bash(gh pr merge:*) Bash(rm -rf:*)" || return $?
-  # .tmp/claude-out/ の許可したファイル（週間計画など）を .claude/ へ写して commit・push する
-  node scripts/apply-claude-out.mjs --commit || return $?
-  git -C "$REPO" fetch -q origin develop || return 1
-  if [ -n "$(git -C "$WT" status --porcelain)" ] || [ -n "$(git -C "$WT" log --oneline origin/develop..HEAD)" ]; then
-    echo '[weekly-review] 今回の未保存変更・未 push commit が残る。次回起動を妨げるため完了としない'
-    return 1
-  fi
-  node "$WT/scripts/check-weekly-review.mjs" --week "$week" --ref origin/develop || return $?
-
-  if [ -n "$month" ]; then
-    node "$WT/scripts/check-monthly-review-due.mjs" --month "$month" --ref origin/develop || return $?
-    local remaining
-    remaining="$(node "$WT/scripts/check-monthly-review-due.mjs" --ref origin/develop --due-key)" || return 1
-    if [ -n "$remaining" ]; then echo "[monthly-review] 未完・再確認が残る: $remaining"; return 1; fi
-    echo "[monthly-review] $month の develop 上の記録・点検・次回日を確認"
-  fi
-  return 0
-}
-
 collect_phase pre
 run_gsc_record || gsc_rc=$?
-cd "$REPO"
-run_review || review_rc=$?
 cd "$REPO"
 collect_phase post
