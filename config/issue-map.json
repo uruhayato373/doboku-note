@@ -98,7 +98,6 @@
               "focusMonth": "2026-11",
               "evidence": "11/4 に無料 note と口頭の教材を公開し、ココナラの想定質問も再出品した（受付は週 2 件まで）。教材は 3 本（単品・マガジン）だけ。",
               "next": "11〜1 月の販売と受注を見る",
-              "dns": ["DN-0955"],
               "metrics": [{ "id": "noteSales", "qualification": "pe-comprehensive-management" }, { "id": "noteSales", "qualification": "pe-construction" }, { "id": "coconalaInquiries" }]
             },
             {
@@ -206,7 +205,7 @@
               { "mark": "prep", "head": "制作", "text": "R9 の予想問題・パック", "dns": ["DN-0932"] },
               { "mark": "hot", "head": "◎ 主戦場", "text": "予想問題 → パック。受取の大半がここ" },
               { "mark": "empty", "text": "買い場なし" },
-              { "mark": "open", "head": "？ 口頭", "text": "教材 3 本。再受験の単品は 7 月末に 2 件", "dns": ["DN-0955"] }
+              { "mark": "open", "head": "？ 口頭", "text": "教材 3 本。11/4 に想定質問を再出品。再受験の単品は 7 月末に 2 件" }
             ]
           },
           {
@@ -278,7 +277,7 @@
         ]
       },
       "judgments": [
-        { "issues": ["B1"], "dns": ["DN-0955"], "picture": "再出品した想定質問の受注と、発表後の無料記事からの案内の反映" },
+        { "issues": ["B1"], "window": "2026-12", "metrics": [{ "id": "noteSales", "qualification": "pe-comprehensive-management" }, { "id": "noteSales", "qualification": "pe-construction" }, { "id": "coconalaInquiries" }], "picture": "再出品した想定質問の受注と、口頭の教材の 11 月の販売" },
         { "issues": ["0-1"], "window": "2026-11", "metrics": [{ "id": "netReceipts" }], "picture": "確定した月の受取と ¥10 万の差" },
         { "issues": ["0-2"], "dns": ["DN-0368"], "picture": "費用の記録の開始。受取 − 費用が出るか" },
         { "issues": ["0-3"], "dns": ["DN-0958"], "picture": "note の閲覧のうち人の閲覧の割合" },
