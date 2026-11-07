@@ -162,20 +162,21 @@ google 流入の下落: /exam/pe-comprehensive-management/past-exams/r08-primary
 
 ## 実験の進捗
 
-期限の来た実験 10 件（`check-experiment-due`）。この回では再計測していない。
+期限の来た実験 10 件（`check-experiment-due`）を、同じ日の積み残しの処理で片付けた。残る期限は人手待ちの 2 件（EXP-008・EXP-017 の PENDING）だけ。
 
-| ID | 状態 | 次アクション |
+| ID | 処置 | 根拠 |
 |---|---|---|
-| EXP-009 RCCM 問題III 模範論文集 | MEASURE_DUE（11/3 超過） | `/nsm-experiment measure EXP-009`。CBT 期間（〜10/31）が終わったので販売の実績で判定する |
-| EXP-010 note CTA の rel=noreferrer | MEASURE_DUE（11/7 超過） | note ダッシュボードの流入元（月次）で判定する |
-| EXP-015 2級二次 3 商品の値上げ | MEASURE_DUE（11/3 超過） | 試験（10/25）後なので販売額で判定する |
-| EXP-017・EXP-018 転職アフィリの面の拡大 | MEASURE_DUE（11/4 超過） | `report-career-funnel` の配置ルール別のクリックで判定する |
-| EXP-008 キャリアの再設計 | PENDING（要人手 2 件） | 28 日後の `report-career-funnel` と A8 の月次成果（要ログイン）を待つ |
-| EXP-055〜058 | NO_BASELINE | 基準値（前 28 日）を記録してから計測する |
+| EXP-009 RCCM 問題III 模範論文集 | close: no-effect | CBT 期間（9/16〜10/31）の rccm-* 売上 ¥0。停止条件 ¥10,000 未満に当たり、2027 サイクルの商品追加は止め、記事は保守だけ |
+| EXP-010 note CTA の rel=noreferrer | close: partial | 10 月の note の流入元に doboku-note.com 52 PV（外す前は 0）。ただし GA4 の note_cta_click と桁が合わず、大半は no referrer に入る |
+| EXP-015 2級二次 3 商品の値上げ | close: partial | 事後窓 2 件 ¥5,960 < 値上げ前 3 件 ¥6,440（-7.5%）。件数が少なく切り分け不能。価格は 2027 年の直前期の前に判断 |
+| EXP-017・EXP-018 転職アフィリの面の拡大 | 再計測日を 11/13 へ | 自動計測の事後窓が 10/27 で止まっている（DN-1043）。途中経過は EXP-017 が 15 → 22 クリック、EXP-018 は 0 → 0 |
+| EXP-055〜058 | 基線を記録 | 055 は同時比較のため前後の基線なし、056 は新設の導線で変更前 0、057・058 は変更前の GSC の値 |
+| EXP-008 | 人手待ち | 28 日後の report-career-funnel と A8 の月次成果（要ログイン） |
 | EXP-060〜062（今週の検索改善） | 本番反映待ち | 本番反映の日から計測を始める |
 
 ### 次サイクルへの仮説
 - 検索改善は 10 月に判定した 9 件のうち成功 3・一部 2・効果なし 4。title を検索語へ寄せるだけで足りないページは、冒頭の答えの段落も合わせて直す（今週の 3 件はその形）
+- 新しい資格の商品は、試験期間の X の送客だけでは売れなかった（EXP-009）。2027 の RCCM は記事の保守に留める
 
 ## PSI パフォーマンス推移
 
@@ -208,7 +209,11 @@ google 流入の下落: /exam/pe-comprehensive-management/past-exams/r08-primary
 
 ## 収益カバレッジ ダッシュボード
 
-- この回では `report-monetization-coverage` を回していない。W44 のダイジェストと合わせて DN-1043 の後に読む
+- 流入 10/3〜10/30（GA4 10/31 取得）: 流入のある 1,001 ページのうち、15 人以上で収益導線ゼロは 0 件
+- 流入最大の 2級 R8 二次の解答例ページ（6,265 人）は note へのクリック率が 0.3% と低い。試験後の季節なので、来年の山の前に冒頭の案内を見直す
+- 実務のページ 4 本（型枠の取り外し時期 429 人・路盤 255 人・アスファルト舗装 182 人・図面の読み方 179 人）は note の案内が無く、転職広告だけ
+- 配置別では本文中（article-body）のクリック率が 2.77% と最も高く、サイドバー 0.12%・インライン 0.08% は低い
+- 記録: `data/analysis/monetization/coverage-latest.md`
 
 ## SNS 流入と投稿実績
 
@@ -217,7 +222,18 @@ google 流入の下落: /exam/pe-comprehensive-management/past-exams/r08-primary
 
 ## 校正学習の蒸留
 
-- 今週の学習候補: この回では `/distill-proofread-learnings` を回していない（未実施）
+### 今週の抽出結果
+- 既存原則の適用: 3 件（検索語に合わせた title と冒頭、管工事の再採点による訂正、「〜ます。」3 文連続の回避）
+- 新規ルール候補: 1 件
+- 既存原則の精緻化・ユーザー嗜好・ワークフロー改善: 0 件
+
+### 採択候補（ユーザー承認待ち）
+| # | カテゴリ | 概要 | 反映先 |
+|---|---|---|---|
+| 1 | 新規ルール | 404 になった外部リンクは、新しい URL → Wayback の保存版 → 出典名だけ、の順で直す（DN-0927 の 6 コミットで同じ順序） | content-principles.md の出典・リンクの節 |
+
+### 学習ログ
+- `.claude/state/proofread-learnings/2026-11-08.md`
 
 ## SNS 予約キュー投入（X）
 
@@ -277,7 +293,7 @@ google 流入の下落: /exam/pe-comprehensive-management/past-exams/r08-primary
 
 ## イシューマップ
 
-- 更新の番 0 件（`check-issue-map -- --due`）
+- overall B1: DN-0955 が閉じて判定の番が来たが、11/4 以降の受注・販売は 11/7 の収集が記録できず実測が無い。state は open のまま、判定を 2026-12 の note 販売（総監・建設部門）とココナラの問い合わせに付け替えた → 振り分け: 定常
 
 ## 課題・ブロッカー
 
@@ -302,7 +318,10 @@ google 流入の下落: /exam/pe-comprehensive-management/past-exams/r08-primary
 - 決定済み: DN-0955 は 11/4 に再開を決めて再出品済み。完了には issue-map.json と 2026-11-04 の critical レビューの参照の付け替えが要るため、この回では閉じていない
 - 期日切れ 0 件
 - backlog 検証（`check-backlog-verify`）: 対象 7 本を実走・赤→緑 0・常時緑 3・赤 4・実行不能 0（1 回目は Mac の負荷で standards-page-images が時間切れになり再実行）。常時緑の 3 本（check-video-content・check-standard-articles・check-competitor-scan-due）は `[検証:]` が surfacer を指していて完了判定に使えない疑い → 次の `/backlog-sweep --audit` で差し替える
-- 直近 7 日の起票 90 件: 1 件ずつの重要度と時期の見直しはしていない。健全性の S3（意思決定なのに 🟣 でない 10 件）を含め、次の `/backlog-sweep --audit` で見る
+- 直近 7 日の起票 93 件（積み残しの処理で台帳監査）: 全件のタグと約 55 件の本文を確かめた。
+  - 反映: DN-1004・DN-1006 を判断待ちへ、DN-1028 を低へ（Instagram は保留）、DN-1010・DN-1011・DN-1042・DN-0946 を中へ、DN-0979 の種類を改善へ。DN-1027 は DN-1028 で答えが出たので削除、DN-0996 は DN-0889 に統合
+  - 運営者の判断: DN-0981 は登録の特典を解説から「次の一手・復習シート」に取り替える／DN-1045 は問題と正答だけで作る／DN-1034 は CLI の認証先を読み取り用へ戻す（X 再開の前提）
+  - 残り（重複の疑い・対象の突き合わせ）: DN-1024 と DN-1016、DN-1013 と DN-1014、DN-0959・DN-0966・DN-0981 の対象 URL、DN-0932 の閉じ方、DN-0969 の重要度、YouTube の進行中カード（DN-0980・DN-0988・DN-1001・DN-1002）→ 次の `/backlog-sweep --audit`
 - 7 日超の Issue: #1006・#1217 → DN-0819、#1331 → 復旧済み（月曜に自動クローズ）
 
 ## 来週への申し送り
