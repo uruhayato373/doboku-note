@@ -35,6 +35,10 @@ npm run note-character-covers -- --filter 工程管理
 - 人物は右端へ縦横比を保って収める。人物は補助要素なので狭いカードでは腕や小物が切れてもよいが、顔を残す。左右反転はしない。
 - コピーは原稿の`cover`／`coverTitle`と既存マガジン定義から取る。補完する定義は[設定](../../../config/note-covers.json)に限定する。公開URL・価格は販売カタログから確認し、ここへ複製しない。
 
+## 写真カバー（マガジン・試験中）
+
+`config/note-covers.json` の `magazineText.<id>.photo` に元写真のファイル名を書いたマガジンは、先生の絵の代わりに、左に資格色の文字欄、右に Codex の写真を置く。文言は `magazineText` の正本を使う。元写真は `<magazineDir>/_cover-photo.png`（Git 管理外・Drive vault の `note-magazine-cover-photo`）で、作り直すと別の画像になるので原本として保存する。手元に無ければ Drive vault から読み、どちらにも無ければ生成を失敗させる。設定を `develop` へ入れると、次の note 同期で live のカバーが差し替わる。設計は [画像運用設計](../../../docs/operations/画像運用設計.md)。
+
 ## 全件生成と差し替えの境界
 
 `manifest.json`に対象・生成・失敗件数、ポーズ別件数、選択理由、人物の配置枠、退役対象、入力・出力のhash、生成前のカバーhash、実描画枠を保存する。0件・生成失敗・出力先重複・未解決のマガジン出力先は成功扱いにしない。途中結果も50件ごとに保存する。
