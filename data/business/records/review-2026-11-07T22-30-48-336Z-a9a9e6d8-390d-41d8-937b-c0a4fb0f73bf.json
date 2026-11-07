@@ -1,0 +1,39 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "cadence": "weekly",
+  "period": {
+    "startDate": "2026-10-26",
+    "endDate": "2026-11-01"
+  },
+  "status": "provisional",
+  "snapshot": "data/business/records/snapshot-2026-11-07T22-30-14-662Z-f9181ae5-694d-4694-a3c0-c5582ec702c5.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction",
+    "rccm"
+  ],
+  "findings": "W44 窓（10/26〜11/1）。note 販売 2 件 ¥9,960（部分・前週比 件数 -71.4%・金額 -43.3%）で、重点 4 資格はいずれも 0 件（部分）。ココナラ 0 件。10 月の受取額は推計 ¥64,418（note ¥56,655 推計・ココナラ ¥0・KDP ¥7,763 推計）で目標 ¥100,000 に対し −¥35,582（推計）。自然検索人数・Google クリック・note CTA・演習開始は欠測: 金曜 11/6 の fetch-metrics が develop への publish で失敗し（11/8 の再実行も同じ・型のテストで 1 件落ちる）、W44 の計測ダイジェストも無い（DN-1043）。土曜 11/7 の収集は auth・KDP のログイン、ココナラと GSC の記録の commit 前の検査、note-sync の Drive 保存で落ち、前段の記録が develop に入っていない（DN-0819）。検索改善は今週 3 件（EXP-060〜062）。",
+  "decision": "重点 4 資格と、サイトと note 教材の品質優先を維持する。SNS は X だけ再開する（本数・配分を決めてから active。Instagram と YouTube は保留）。過去問の解説は全面的に有料側（note・KDP）へ移す方針とし、資格 1 つで先に切り替えて検索と売上を比べる（DN-1044）。技術士一次は環境部門から展開する（DN-1045）。もしもの成果を取る段を作る（DN-1046）。記述の答案の需要は別の資格へ広げる方向で、広げる先を選ぶ（DN-0989）。欠測が多いため provisional とする。",
+  "nextAction": "(1) DN-1043 で fetch-metrics の publish を直し、W44 のダイジェストを出して計測トリアージを処分する。(2) 11/14 の土曜の収集を全段 rc=0 にする（運営者の KDP の再ログイン・DN-0819）。(3) 2026-10 の月次レビューを再確認日（11/7）に合わせて補完する。(4) 実験の期限 10 件（EXP-009・010・015・017・018 の再計測、EXP-055〜058 の基準値）を片付ける。(5) X の再開の論点（DN-1007 の 2・3・5）を決める。",
+  "experimentIds": [
+    "EXP-008",
+    "EXP-009",
+    "EXP-010",
+    "EXP-015",
+    "EXP-017",
+    "EXP-018",
+    "EXP-055",
+    "EXP-056",
+    "EXP-057",
+    "EXP-058",
+    "EXP-060",
+    "EXP-061",
+    "EXP-062"
+  ],
+  "nextReviewDate": "2026-12-02",
+  "schemaVersion": 1,
+  "createdAt": "2026-11-07T22:30:48.336Z",
+  "strategyHash": "b4731265e984d12c496be00e6ce1d91fcbc36c606c5bd6825ed6981d810727e7"
+}
