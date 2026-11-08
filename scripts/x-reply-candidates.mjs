@@ -93,7 +93,7 @@ if (fetchFailDominant(failed, queries.length)) {
   console.error('取得失敗が多いので検査不成立です。候補は書き出しません。');
   process.exitCode = 1;
 } else {
-  const { candidates, counts } = selectCandidates(posts, { ...config, excludeAccounts: [...config.excludeAccounts, X_HANDLE] }, {
+  const { candidates, counts, excluded } = selectCandidates(posts, { ...config, excludeAccounts: [...config.excludeAccounts, X_HANDLE] }, {
     now: Date.now(),
     repliedHashes: new Set(log.replies.map((r) => r.userHash)),
     skippedHashes: new Set(log.skips.map((r) => r.userHash)),
@@ -102,6 +102,8 @@ if (fetchFailDominant(failed, queries.length)) {
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, `${JSON.stringify({ collectedAt: new Date().toISOString(), counts, candidates }, null, 2)}\n`);
 
+  // 外した投稿（理由つき・配慮の投稿は本文を残さない）。語の調整に読む
+  fs.writeFileSync(path.join(path.dirname(OUT), 'excluded.json'), `${JSON.stringify(excluded, null, 2)}\n`);
   console.log(`投稿 ${counts.total} 件を判定 / 候補 ${candidates.length} 件`);
   console.log(`除外: 古い ${counts.old}・返信済みの相手 ${counts.replied}・見送り済みの相手 ${counts.skipped}・配慮 ${counts.care}・講座や宣伝 ${counts.supplier}・返信やリポスト ${counts.reply}・場面が合わない ${counts.other}・どの資格にも当たらない ${counts.offTopic}・上限超え ${counts.overTopicLimit}`);
   const byTopic = Object.groupBy(candidates, (c) => c.topicLabel ?? '（話題なし）');
