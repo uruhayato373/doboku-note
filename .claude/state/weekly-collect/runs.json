@@ -462,6 +462,33 @@
       ],
       "commit": {},
       "leftover": []
+    },
+    {
+      "phase": "only",
+      "only": "coconala",
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-11-08T02:35:04.445Z",
+      "finishedAt": "2026-11-08T02:40:57.370Z",
+      "stages": [
+        {
+          "id": "coconala",
+          "title": "ココナラの取引・出品分析・売上履歴",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "coconala-analytics",
+              "exit": 0
+            }
+          ],
+          "durationSec": 352
+        }
+      ],
+      "commit": {},
+      "leftover": []
     }
   ]
 }
