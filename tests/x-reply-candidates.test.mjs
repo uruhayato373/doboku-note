@@ -7,12 +7,17 @@ import {
   cleanText,
   hashUser,
   parseRealtimeHtml,
+  parseXPosts,
   selectCandidates,
+  topicOf,
 } from '../scripts/lib/x-reply-candidates.mjs';
 
 const config = JSON.parse(fs.readFileSync(new URL('../config/x-reply-trial.json', import.meta.url), 'utf8'));
 const NOW = Date.parse('2026-11-08T03:00:00Z');
-const post = (over) => ({ id: '1', user: 'a', text: '', createdAt: NOW - 3600_000, inReplyTo: '', ...over });
+// 検索語で取った投稿と同じく、既定で話題（技術士）を付ける
+const post = (over) => ({ id: '1', user: 'a', text: '', createdAt: NOW - 3600_000, inReplyTo: '', topic: 'pe', ...over });
+// 話題の語（技術士）を本文の頭に付けた投稿。選ぶ処理は本文に資格の語があることを求める
+const tp = (over) => post({ ...over, text: `技術士 ${over.text ?? ''}` });
 
 test('検索ページの投稿を取り出し、強調の印を消す', () => {
   const data = { props: { pageProps: { pageData: { timeline: { entry: [{
@@ -54,10 +59,10 @@ test('講座側・返信・リポストは候補にしない', () => {
 
 test('1 アカウント 1 件で、尋ねている投稿を先に出す', () => {
   const posts = [
-    post({ id: '1', user: 'a', text: '不合格でした' }),
-    post({ id: '2', user: 'a', text: '不合格でした。どうすれば' }),
-    post({ id: '3', user: 'b', text: '合格しました' }),
-    post({ id: '3', user: 'b', text: '合格しました' }),
+    tp({ id: '1', user: 'a', text: '不合格でした' }),
+    tp({ id: '2', user: 'a', text: '不合格でした。どうすれば' }),
+    tp({ id: '3', user: 'b', text: '合格しました' }),
+    tp({ id: '3', user: 'b', text: '合格しました' }),
   ];
   const { candidates, counts } = selectCandidates(posts, config, { now: NOW });
   assert.deepEqual(candidates.map((c) => c.id), ['2', '3']);
@@ -66,18 +71,58 @@ test('1 アカウント 1 件で、尋ねている投稿を先に出す', () => 
 
 test('古い投稿と返信済みの相手を除き、配慮の投稿は件数だけ残す', () => {
   const posts = [
-    post({ id: '1', user: 'old', text: '合格しました', createdAt: NOW - 100 * 3600_000 }),
-    post({ id: '2', user: 'done', text: '合格しました' }),
-    post({ id: '3', user: 'c', text: 'もう死にたい' }),
+    tp({ id: '1', user: 'old', text: '合格しました', createdAt: NOW - (config.limits.lookbackHours + 1) * 3600_000 }),
+    tp({ id: '2', user: 'done', text: '合格しました' }),
+    tp({ id: '3', user: 'c', text: 'もう死にたい' }),
   ];
   const { candidates, counts } = selectCandidates(posts, config, { now: NOW, repliedHashes: new Set([hashUser('done')]) });
   assert.equal(candidates.length, 0);
   assert.deepEqual([counts.old, counts.replied, counts.care], [1, 1, 1]);
 });
 
-test('上限で切る', () => {
-  const posts = Array.from({ length: 20 }, (_, i) => post({ id: String(i), user: `u${i}`, text: '合格しました' }));
-  assert.equal(selectCandidates(posts, config, { now: NOW }).candidates.length, config.limits.candidatesPerRun);
+test('話題ごとの上限と全体の上限で切る', () => {
+  const one = Array.from({ length: 20 }, (_, i) => tp({ id: String(i), user: `u${i}`, text: '合格しました' }));
+  const r1 = selectCandidates(one, config, { now: NOW });
+  assert.equal(r1.candidates.length, config.limits.perTopic, '1 つの話題からは perTopic 件まで');
+  assert.equal(r1.counts.overTopicLimit, 20 - config.limits.perTopic);
+  const ids = config.topics.map((t) => t.id);
+  const many = Array.from({ length: 60 }, (_, i) => post({ id: String(i), user: `m${i}`, text: `${config.topics[i % ids.length].match[0]} 合格しました`, topic: ids[i % ids.length] }));
+  assert.equal(selectCandidates(many, config, { now: NOW }).candidates.length, Math.min(config.limits.candidatesPerRun, config.limits.perTopic * ids.length));
+});
+
+test('試験前の勉強・直前の悩みも拾い、結果の投稿より後に並べる', () => {
+  assert.equal(classifyPost(post({ text: '過去問が全然解けない' }), config), 'study');
+  const { candidates } = selectCandidates([
+    tp({ id: '1', user: 's', text: '試験まで2週間、過去問を回している' }),
+    tp({ id: '2', user: 'p', text: '筆記に合格しました' }),
+  ], config, { now: NOW });
+  assert.deepEqual(candidates.map((c) => c.kind), ['pass', 'study']);
+});
+
+test('タイムラインの投稿は match の語で資格に振り分け、どれにも当たらなければ候補にしない', () => {
+  assert.equal(topicOf({ text: 'コンクリート主任技士の小論文が書けない' }, config.topics).id, 'concrete');
+  assert.equal(topicOf({ text: '2級土木の二次、経験記述を書き直した' }, config.topics).id, 'civil-2');
+  assert.equal(topicOf({ text: '今日のラーメンうまい' }, config.topics), null);
+  // 検索語の話題でも、本文にその資格の語が無ければ振り分けない（「施工管理 勉強」で拾った建築・電気の投稿）
+  assert.equal(topicOf({ text: '明日は二級施工管理技士（電気工事）の試験', topic: 'civil' }, config.topics), null);
+  assert.equal(topicOf({ text: '1級土木の二次、経験記述', topic: 'civil' }, config.topics).id, 'civil-1');
+  const { candidates, counts } = selectCandidates([
+    post({ id: '1', user: 'x1', text: 'コンクリート技士 合格しました', topic: undefined }),
+    post({ id: '2', user: 'x2', text: '資格試験に合格しました', topic: undefined }),
+  ], config, { now: NOW });
+  assert.deepEqual(candidates.map((c) => c.topic), ['concrete']);
+  assert.equal(counts.offTopic, 1);
+});
+
+test('内蔵ブラウザで取り出した X の投稿を揃え、形の合わない行は数えて捨てる', () => {
+  const { posts, invalid } = parseXPosts([
+    { id: '123', user: 'abc_1', text: ' 技術士 合格 ', createdAt: NOW, isReply: false },
+    { id: '124', user: 'abc_2', text: '返信です', createdAt: NOW, isReply: true },
+    { id: 'x', user: 'bad user', text: 1, createdAt: 'no' },
+  ]);
+  assert.equal(invalid, 1);
+  assert.deepEqual(posts.map((p) => [p.id, p.text, p.inReplyTo, p.source]), [['123', '技術士 合格', '', 'x'], ['124', '返信です', 'x', 'x']]);
+  assert.equal(parseXPosts(null).posts.length, 0);
 });
 
 test('送信の門番: 期間・間隔・同じ相手を止める', () => {
@@ -99,7 +144,7 @@ test('送信の門番: 期間・間隔・同じ相手を止める', () => {
 });
 
 test('見送った相手は候補に戻らず、送信も止まる', () => {
-  const posts = [post({ id: '1', user: 'skip', text: '合格しました' }), post({ id: '2', user: 'ok', text: '合格しました' })];
+  const posts = [tp({ id: '1', user: 'skip', text: '合格しました' }), tp({ id: '2', user: 'ok', text: '合格しました' })];
   const { candidates, counts } = selectCandidates(posts, config, { now: NOW, skippedHashes: new Set([hashUser('SKIP')]) });
   assert.deepEqual(candidates.map((c) => c.user), ['ok']);
   assert.equal(counts.skipped, 1);

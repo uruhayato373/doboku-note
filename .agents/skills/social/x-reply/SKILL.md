@@ -1,7 +1,7 @@
 ---
 name: x-reply
 description: >
-  X の返信候補を集め、相手の最新の投稿を確認して下書きを作り、人が 1 件ずつ承認したものを送る（EXP-059・DN-1037）。Use when user says "返信候補", "X の返信", "次の返信". 無人では送らない。
+  技術士・土木施工管理・コンクリートなど資格横断で X の返信候補を集め（Yahoo!リアルタイム検索と X のタイムライン・検索）、相手の最新の投稿を確認して下書きを作り、人が 1 件ずつ承認したものを送る（EXP-059・DN-1037）。Use when user says "返信候補", "X の返信", "次の返信". 無人では送らない。
 disable-model-invocation: true
 argument-hint: ""
 domain: sns

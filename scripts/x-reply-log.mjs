@@ -7,7 +7,7 @@
  * Usage:
  *   npm run x-reply-log -- --check --user <screenName>     # 送ってよいか（だめなら exit 1）
  *   npm run x-reply-log -- --check --user <screenName> --answer  # 返信した相手からの質問に答えてよいか
- *   npm run x-reply-log -- --add --user <screenName> --target <statusId> --reply <statusId> --kind ask|pass|fail|answer
+ *   npm run x-reply-log -- --add --user <screenName> --target <statusId> --reply <statusId> --kind ask|pass|fail|study|answer
  *   npm run x-reply-log -- --skip --user <screenName> --reason situation|offtopic|supplier|not-self|other  # 見送りを記録
  *   npm run x-reply-log -- --report                        # 件数の集計
  */
@@ -49,8 +49,8 @@ if (flags.check) {
     } else console.log('OK: 送信できます');
   }
 } else if (flags.add) {
-  if (!flags.user || !flags.target || !flags.reply || !['ask', 'pass', 'fail', 'answer'].includes(flags.kind)) {
-    usage('--user・--target・--reply と --kind ask|pass|fail|answer が要ります');
+  if (!flags.user || !flags.target || !flags.reply || !['ask', 'pass', 'fail', 'study', 'answer'].includes(flags.kind)) {
+    usage('--user・--target・--reply と --kind ask|pass|fail|study|answer が要ります');
   } else {
     log.replies.push({
       at: new Date().toISOString().replace(/\.\d+Z$/, 'Z'),

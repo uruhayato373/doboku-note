@@ -683,7 +683,7 @@ export const XReplyLog = z
       z
         .object({
           at: utcTime('送信時刻'),
-          kind: z.enum(['ask', 'pass', 'fail', 'answer']),
+          kind: z.enum(['ask', 'pass', 'fail', 'study', 'answer']),
           targetId: z.string().regex(/^\d+$/),
           replyId: z.string().regex(/^\d+$/),
           userHash: z.string().regex(/^[0-9a-f]{12}$/),
