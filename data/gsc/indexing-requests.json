@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-11-07T22-40-05Z",
-  "collectedAt": "2026-11-07T22:40:05.199Z",
+  "runId": "2026-11-08T22-40-09Z",
+  "collectedAt": "2026-11-08T22:40:09.535Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "6de13438a",
+  "scriptVersion": "ee760ff61",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 166,
+  "targetCount": 156,
   "items": [
     {
       "slug": "/exam/civil-construction-1/textbook/river-act",
@@ -19,7 +19,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -36,7 +36,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -53,7 +53,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -70,7 +70,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -87,7 +87,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -98,30 +98,13 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/barrier-free-roads-stations",
-      "url": "https://doboku-note.com/practice/barrier-free-roads-stations",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
       "slug": "/practice/ccus-kentaikyo-site",
       "url": "https://doboku-note.com/practice/ccus-kentaikyo-site",
       "inspected": {
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -138,7 +121,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -155,7 +138,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -172,7 +155,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -189,7 +172,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -206,7 +189,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -223,47 +206,13 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
         "requested": false,
         "status": "already-indexed"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/construction-dispute-resolution",
-      "url": "https://doboku-note.com/practice/construction-dispute-resolution",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/construction-materials-overview",
-      "url": "https://doboku-note.com/practice/construction-materials-overview",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -292,7 +241,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -303,64 +252,13 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/flood-control-facilities",
-      "url": "https://doboku-note.com/practice/flood-control-facilities",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/floodgate-design",
-      "url": "https://doboku-note.com/practice/floodgate-design",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/inverted-siphon-design",
-      "url": "https://doboku-note.com/practice/inverted-siphon-design",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
       "slug": "/practice/keishin-bidder-qualification",
       "url": "https://doboku-note.com/practice/keishin-bidder-qualification",
       "inspected": {
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -377,47 +275,13 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
         "requested": false,
         "status": "already-indexed"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/license-scope-judgment",
-      "url": "https://doboku-note.com/practice/license-scope-judgment",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/nature-conservation-mitigation",
-      "url": "https://doboku-note.com/practice/nature-conservation-mitigation",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -446,7 +310,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -463,7 +327,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -480,7 +344,7 @@
         "state": "indexed",
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
@@ -493,6 +357,41 @@
     {
       "slug": "/practice/ready-mixed-concrete-ordering",
       "url": "https://doboku-note.com/practice/ready-mixed-concrete-ordering",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/special-concrete-selection",
+      "url": "https://doboku-note.com/practice/special-concrete-selection",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/steel-material-properties",
+      "url": "https://doboku-note.com/practice/steel-material-properties",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -509,8 +408,169 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/site-wireless-communication",
-      "url": "https://doboku-note.com/practice/site-wireless-communication",
+      "slug": "/practice/subcontract-instruction-boundary",
+      "url": "https://doboku-note.com/practice/subcontract-instruction-boundary",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/supervision-compliance-surveys",
+      "url": "https://doboku-note.com/practice/supervision-compliance-surveys",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/survey-informatics-overview",
+      "url": "https://doboku-note.com/practice/survey-informatics-overview",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/urban-greening",
+      "url": "https://doboku-note.com/practice/urban-greening",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/waterworks-business",
+      "url": "https://doboku-note.com/practice/waterworks-business",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/weather-information-reading",
+      "url": "https://doboku-note.com/practice/weather-information-reading",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/wood-and-stone-materials",
+      "url": "https://doboku-note.com/practice/wood-and-stone-materials",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/concrete-diagnostician/textbook/assessment",
+      "url": "https://doboku-note.com/exam/concrete-diagnostician/textbook/assessment",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/10/16 18:23:29",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/h23-aptitude",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h23-aptitude",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/h24-basic",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h24-basic",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -526,8 +586,412 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/social-infrastructure-overview",
-      "url": "https://doboku-note.com/practice/social-infrastructure-overview",
+      "slug": "/exam/pe-first-stage/primary/r04-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r04-water-supply",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/r05-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r05-water-supply",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/r06-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r06-water-supply",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/r07-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-water-supply",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/mlit",
+      "url": "https://doboku-note.com/standards/mlit",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/hokkaido/local",
+      "url": "https://doboku-note.com/standards/hokkaido/local",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/privacy",
+      "url": "https://doboku-note.com/privacy",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/chubu/special/chapters/10-13",
+      "url": "https://doboku-note.com/standards/chubu/special/chapters/10-13",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/chubu/special/chapters/6-7",
+      "url": "https://doboku-note.com/standards/chubu/special/chapters/6-7",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/hokkaido/local/chapters/10-14",
+      "url": "https://doboku-note.com/standards/hokkaido/local/chapters/10-14",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/hokkaido/local/chapters/10-2",
+      "url": "https://doboku-note.com/standards/hokkaido/local/chapters/10-2",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/hokkaido/local/chapters/10-4",
+      "url": "https://doboku-note.com/standards/hokkaido/local/chapters/10-4",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/1",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/1",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/10",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/10",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/11",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/11",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/12",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/12",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/13",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/13",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/14",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/14",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/15",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/15",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/16",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/16",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/17",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/17",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/2",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/2",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/3",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/3",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -545,9 +1009,9 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 31,
+    "inspected": 57,
     "accepted": 10,
-    "alreadyIndexed": 18,
+    "alreadyIndexed": 22,
     "unreadable": 0
   }
 }
