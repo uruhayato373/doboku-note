@@ -127,7 +127,7 @@ test('validateMarketInputs: 未登録の資格・検索語の欠け・未知の 
     scanConfig: { ...scanConfig, queries: { q1: { ...scanConfig.queries.q1, titleMatch: '(' }, zz: { keywords: [], titleMatch: 'x', coconala: ['x'] } } },
     competitors: { note: [{ handle: 'h', exams: ['q1', 'nope'] }, { handle: 'h', exams: [] }] },
     lineupConfig,
-    sales: [{ productId: 'unknown-1' }],
+    sales: [{ productId: 'mystery-1' }, { productId: 'article:unknown-20261105-0' }],
     orders: [{ serviceId: 'svc-x' }],
   });
   for (const needle of [
@@ -138,11 +138,13 @@ test('validateMarketInputs: 未登録の資格・検索語の欠け・未知の 
     'exams の nope は qualification-registry に無い',
     'handle が重複',
     'exams（資格 id の配列）が必要',
-    '売上 unknown-1 が資格へ分類できない',
+    '売上 mystery-1 が資格へ分類できない',
     'ココナラ受注 svc-x が資格へ分類できない',
   ]) {
     assert.ok(errors.some((e) => e.includes(needle)), `${needle}\n${errors.join('\n')}`);
   }
+  // 題名から商品を決められなかった保留（article:unknown-*）は check-sales-mapping の WARN で数え、ここでは止めない
+  assert.ok(!errors.some((e) => e.includes('unknown-20261105-0')));
   // 見送り（q3）には検索語が要らない
   assert.ok(!errors.some((e) => e.includes('q3')));
 });
