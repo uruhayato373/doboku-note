@@ -105,6 +105,13 @@
       "targetId": "2118687633023062387",
       "replyId": "2118980706990952542",
       "userHash": "6c098eb484ad"
+    },
+    {
+      "at": "2026-11-08T00:50:52Z",
+      "kind": "fail",
+      "targetId": "2118634301340499977",
+      "replyId": "2119231102112113045",
+      "userHash": "2d2d653ca8ef"
     }
   ],
   "skips": [
@@ -232,6 +239,31 @@
       "at": "2026-11-07T05:38:22Z",
       "reason": "offtopic",
       "userHash": "cb6b00e538f5"
+    },
+    {
+      "at": "2026-11-08T00:49:44Z",
+      "reason": "offtopic",
+      "userHash": "672d4a51e78a"
+    },
+    {
+      "at": "2026-11-08T00:49:44Z",
+      "reason": "offtopic",
+      "userHash": "0c5b1bb75c10"
+    },
+    {
+      "at": "2026-11-08T00:49:44Z",
+      "reason": "offtopic",
+      "userHash": "e0665a3d3b1f"
+    },
+    {
+      "at": "2026-11-08T00:49:45Z",
+      "reason": "supplier",
+      "userHash": "46887f13dbc0"
+    },
+    {
+      "at": "2026-11-08T00:49:45Z",
+      "reason": "supplier",
+      "userHash": "4dceab0f963c"
     }
   ]
 }
