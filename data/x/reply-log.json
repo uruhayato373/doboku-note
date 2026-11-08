@@ -133,6 +133,188 @@
       "targetId": "2119096022639288377",
       "replyId": "2119235507637150176",
       "userHash": "05b8bc43ac4f"
+    },
+    {
+      "at": "2026-11-08T06:44:58Z",
+      "kind": "pass",
+      "targetId": "2118115224083742845",
+      "replyId": "2119320213586170036",
+      "userHash": "2db4a2b7b38e"
+    },
+    {
+      "at": "2026-11-08T06:50:30Z",
+      "kind": "pass",
+      "targetId": "2117964672200839396",
+      "replyId": "2119321614173319394",
+      "userHash": "35b43a511f61"
+    },
+    {
+      "at": "2026-11-08T06:56:00Z",
+      "kind": "pass",
+      "targetId": "2117805344382673407",
+      "replyId": "2119322999925166316",
+      "userHash": "df706eb50c0a"
+    },
+    {
+      "at": "2026-11-08T07:01:30Z",
+      "kind": "fail",
+      "targetId": "2118720629969244329",
+      "replyId": "2119324387371532346",
+      "userHash": "dab7ecfd78be"
+    },
+    {
+      "at": "2026-11-08T07:06:57Z",
+      "kind": "fail",
+      "targetId": "2118681380972605619",
+      "replyId": "2119325755981373449",
+      "userHash": "2d121aa3f6d2"
+    },
+    {
+      "at": "2026-11-08T07:12:24Z",
+      "kind": "fail",
+      "targetId": "2118664597611901435",
+      "replyId": "2119327129636925946",
+      "userHash": "c80a9ba7df4c"
+    },
+    {
+      "at": "2026-11-08T07:17:51Z",
+      "kind": "fail",
+      "targetId": "2118682250267205913",
+      "replyId": "2119328500301848929",
+      "userHash": "90df57ec3823"
+    },
+    {
+      "at": "2026-11-08T07:23:19Z",
+      "kind": "pass",
+      "targetId": "2117953868349034660",
+      "replyId": "2119329869494649322",
+      "userHash": "5d4eedf56aff"
+    },
+    {
+      "at": "2026-11-08T07:28:45Z",
+      "kind": "study",
+      "targetId": "2118873880119197959",
+      "replyId": "2119331243418644574",
+      "userHash": "26f0d0930383"
+    },
+    {
+      "at": "2026-11-08T07:34:12Z",
+      "kind": "study",
+      "targetId": "2117722575954682045",
+      "replyId": "2119332614112993499",
+      "userHash": "67d9bdb42e56"
+    },
+    {
+      "at": "2026-11-08T07:39:39Z",
+      "kind": "pass",
+      "targetId": "2117901501100413397",
+      "replyId": "2119333982466904162",
+      "userHash": "cd183d67f42d"
+    },
+    {
+      "at": "2026-11-08T07:45:07Z",
+      "kind": "pass",
+      "targetId": "2117821746229490131",
+      "replyId": "2119335363386958175",
+      "userHash": "777f91be5b21"
+    },
+    {
+      "at": "2026-11-08T07:50:31Z",
+      "kind": "fail",
+      "targetId": "2119142558362488928",
+      "replyId": "2119336721846555124",
+      "userHash": "97d2d4b19a2b"
+    },
+    {
+      "at": "2026-11-08T07:55:55Z",
+      "kind": "fail",
+      "targetId": "2119020985110397112",
+      "replyId": "2119338079370846673",
+      "userHash": "06b036912443"
+    },
+    {
+      "at": "2026-11-08T08:01:18Z",
+      "kind": "fail",
+      "targetId": "2118725924430774412",
+      "replyId": "2119339434072211794",
+      "userHash": "461fae02b290"
+    },
+    {
+      "at": "2026-11-08T08:06:41Z",
+      "kind": "fail",
+      "targetId": "2118693110083707293",
+      "replyId": "2119340788329124092",
+      "userHash": "3b7015eb29ca"
+    },
+    {
+      "at": "2026-11-08T08:12:03Z",
+      "kind": "fail",
+      "targetId": "2118648197149229472",
+      "replyId": "2119342141034152282",
+      "userHash": "0f0059286deb"
+    },
+    {
+      "at": "2026-11-08T08:17:29Z",
+      "kind": "fail",
+      "targetId": "2118641309095489871",
+      "replyId": "2119343506896622034",
+      "userHash": "a019e8d07621"
+    },
+    {
+      "at": "2026-11-08T08:22:53Z",
+      "kind": "pass",
+      "targetId": "2117771712603492680",
+      "replyId": "2119344866488672431",
+      "userHash": "9f9a4db324fd"
+    },
+    {
+      "at": "2026-11-08T08:28:17Z",
+      "kind": "ask",
+      "targetId": "2118660934147485944",
+      "replyId": "2119346224436490350",
+      "userHash": "22cd54f8588d"
+    },
+    {
+      "at": "2026-11-08T08:33:41Z",
+      "kind": "study",
+      "targetId": "2119262738254094817",
+      "replyId": "2119347584640979037",
+      "userHash": "0bf2557b9946"
+    },
+    {
+      "at": "2026-11-08T08:39:05Z",
+      "kind": "study",
+      "targetId": "2119104747382915572",
+      "replyId": "2119348944950235308",
+      "userHash": "d043d99c4e2a"
+    },
+    {
+      "at": "2026-11-08T08:44:28Z",
+      "kind": "study",
+      "targetId": "2118986200434495688",
+      "replyId": "2119350299534250422",
+      "userHash": "ea5c8907c703"
+    },
+    {
+      "at": "2026-11-08T08:49:51Z",
+      "kind": "study",
+      "targetId": "2118985724552982716",
+      "replyId": "2119351654982283572",
+      "userHash": "ad14b4c61d24"
+    },
+    {
+      "at": "2026-11-08T08:55:16Z",
+      "kind": "study",
+      "targetId": "2118923745985532099",
+      "replyId": "2119353017380241452",
+      "userHash": "9895677a4db2"
+    },
+    {
+      "at": "2026-11-08T21:26:11Z",
+      "kind": "study",
+      "targetId": "2119084266785218805",
+      "replyId": "2119541992141345063",
+      "userHash": "1eed37bd8179"
     }
   ],
   "skips": [
@@ -285,6 +467,236 @@
       "at": "2026-11-08T00:49:45Z",
       "reason": "supplier",
       "userHash": "4dceab0f963c"
+    },
+    {
+      "at": "2026-11-08T06:30:05Z",
+      "reason": "supplier",
+      "userHash": "edacbaef40db"
+    },
+    {
+      "at": "2026-11-08T06:30:05Z",
+      "reason": "offtopic",
+      "userHash": "0f4f9f789e18"
+    },
+    {
+      "at": "2026-11-08T06:30:06Z",
+      "reason": "other",
+      "userHash": "4d22a2d4effd"
+    },
+    {
+      "at": "2026-11-08T06:30:06Z",
+      "reason": "not-self",
+      "userHash": "418f36aa6bb0"
+    },
+    {
+      "at": "2026-11-08T06:30:06Z",
+      "reason": "offtopic",
+      "userHash": "6dc8df828354"
+    },
+    {
+      "at": "2026-11-08T06:30:06Z",
+      "reason": "supplier",
+      "userHash": "a91b7347d709"
+    },
+    {
+      "at": "2026-11-08T06:30:07Z",
+      "reason": "supplier",
+      "userHash": "1ef54a31ed07"
+    },
+    {
+      "at": "2026-11-08T06:30:07Z",
+      "reason": "supplier",
+      "userHash": "a447ca03d0ba"
+    },
+    {
+      "at": "2026-11-08T06:30:07Z",
+      "reason": "offtopic",
+      "userHash": "586083fb9eb2"
+    },
+    {
+      "at": "2026-11-08T06:30:07Z",
+      "reason": "supplier",
+      "userHash": "74d4630cf1c5"
+    },
+    {
+      "at": "2026-11-08T06:41:11Z",
+      "reason": "supplier",
+      "userHash": "d993b7f600eb"
+    },
+    {
+      "at": "2026-11-08T06:41:11Z",
+      "reason": "supplier",
+      "userHash": "4d2ac4061686"
+    },
+    {
+      "at": "2026-11-08T06:41:11Z",
+      "reason": "supplier",
+      "userHash": "66895cc5f599"
+    },
+    {
+      "at": "2026-11-08T06:41:12Z",
+      "reason": "supplier",
+      "userHash": "4b47d40ab65e"
+    },
+    {
+      "at": "2026-11-08T06:41:12Z",
+      "reason": "supplier",
+      "userHash": "88285ad71d23"
+    },
+    {
+      "at": "2026-11-08T06:41:12Z",
+      "reason": "supplier",
+      "userHash": "29c64c4d105f"
+    },
+    {
+      "at": "2026-11-08T06:41:12Z",
+      "reason": "supplier",
+      "userHash": "c44aff1d4d57"
+    },
+    {
+      "at": "2026-11-08T06:41:13Z",
+      "reason": "supplier",
+      "userHash": "913fd867e23c"
+    },
+    {
+      "at": "2026-11-08T06:41:13Z",
+      "reason": "supplier",
+      "userHash": "d6b70227f098"
+    },
+    {
+      "at": "2026-11-08T06:41:13Z",
+      "reason": "supplier",
+      "userHash": "196fa8040b06"
+    },
+    {
+      "at": "2026-11-08T06:41:13Z",
+      "reason": "supplier",
+      "userHash": "bda067526c17"
+    },
+    {
+      "at": "2026-11-08T06:41:14Z",
+      "reason": "supplier",
+      "userHash": "da51cfc20c4c"
+    },
+    {
+      "at": "2026-11-08T06:41:14Z",
+      "reason": "not-self",
+      "userHash": "8a620b3f8a17"
+    },
+    {
+      "at": "2026-11-08T06:41:14Z",
+      "reason": "not-self",
+      "userHash": "9e3e9f6bff2d"
+    },
+    {
+      "at": "2026-11-08T06:41:14Z",
+      "reason": "not-self",
+      "userHash": "992dc69b3a14"
+    },
+    {
+      "at": "2026-11-08T06:41:15Z",
+      "reason": "not-self",
+      "userHash": "abc9dedbde09"
+    },
+    {
+      "at": "2026-11-08T06:41:15Z",
+      "reason": "not-self",
+      "userHash": "3e633818cb6a"
+    },
+    {
+      "at": "2026-11-08T06:41:15Z",
+      "reason": "not-self",
+      "userHash": "a8df4a0bb0d1"
+    },
+    {
+      "at": "2026-11-08T06:41:15Z",
+      "reason": "not-self",
+      "userHash": "a6b8717a01dd"
+    },
+    {
+      "at": "2026-11-08T06:41:16Z",
+      "reason": "offtopic",
+      "userHash": "369b3b27e4ec"
+    },
+    {
+      "at": "2026-11-08T06:41:16Z",
+      "reason": "offtopic",
+      "userHash": "6b5e17ea5433"
+    },
+    {
+      "at": "2026-11-08T06:41:16Z",
+      "reason": "offtopic",
+      "userHash": "4bd2426a7066"
+    },
+    {
+      "at": "2026-11-08T06:41:16Z",
+      "reason": "offtopic",
+      "userHash": "239123d2ca9c"
+    },
+    {
+      "at": "2026-11-08T06:41:17Z",
+      "reason": "offtopic",
+      "userHash": "41714a2b4fbd"
+    },
+    {
+      "at": "2026-11-08T06:41:17Z",
+      "reason": "offtopic",
+      "userHash": "49853f346673"
+    },
+    {
+      "at": "2026-11-08T06:41:17Z",
+      "reason": "offtopic",
+      "userHash": "f0c4a3d3886d"
+    },
+    {
+      "at": "2026-11-08T06:41:17Z",
+      "reason": "offtopic",
+      "userHash": "c9bc03c96d53"
+    },
+    {
+      "at": "2026-11-08T06:41:18Z",
+      "reason": "offtopic",
+      "userHash": "03428933fb0f"
+    },
+    {
+      "at": "2026-11-08T06:41:18Z",
+      "reason": "offtopic",
+      "userHash": "2137790a47ba"
+    },
+    {
+      "at": "2026-11-08T06:41:18Z",
+      "reason": "offtopic",
+      "userHash": "a392149de67e"
+    },
+    {
+      "at": "2026-11-08T06:41:18Z",
+      "reason": "offtopic",
+      "userHash": "14e1d4080886"
+    },
+    {
+      "at": "2026-11-08T06:41:19Z",
+      "reason": "offtopic",
+      "userHash": "192f0d1e6309"
+    },
+    {
+      "at": "2026-11-08T06:41:19Z",
+      "reason": "offtopic",
+      "userHash": "7360863b1b68"
+    },
+    {
+      "at": "2026-11-08T06:41:19Z",
+      "reason": "situation",
+      "userHash": "247b8e9e406f"
+    },
+    {
+      "at": "2026-11-08T06:41:19Z",
+      "reason": "situation",
+      "userHash": "4565fdd5f088"
+    },
+    {
+      "at": "2026-11-08T08:55:36Z",
+      "reason": "other",
+      "userHash": "533a2295ef5e"
     }
   ]
 }
