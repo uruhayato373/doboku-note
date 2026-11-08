@@ -92,6 +92,10 @@ test('送信の門番: 期間・間隔・同じ相手を止める', () => {
   assert.equal(checkSendAllowed([row(61), row(62), row(63), row(64)], { ...base, user: 'a', now: NOW }), null);
   assert.match(checkSendAllowed([row(90, 'a')], { ...base, user: 'A', now: NOW }), /すでに返信/);
   assert.equal(checkSendAllowed([row(90)], { ...base, user: 'a', now: NOW }), null);
+  // 返信した相手からの質問への答え（--answer）は 2 回目でも通し、返信していない相手には送らない
+  assert.equal(checkSendAllowed([row(90, 'a')], { ...base, user: 'a', now: NOW, answer: true }), null);
+  assert.match(checkSendAllowed([row(90, 'x')], { ...base, user: 'a', now: NOW, answer: true }), /まだ返信していません/);
+  assert.match(checkSendAllowed([row(config.limits.minIntervalMinutes - 1, 'a')], { ...base, user: 'a', now: NOW, answer: true }), /分あけます/);
 });
 
 test('見送った相手は候補に戻らず、送信も止まる', () => {

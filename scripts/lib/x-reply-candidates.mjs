@@ -83,13 +83,19 @@ export function selectCandidates(posts, config, { now, repliedHashes = new Set()
 }
 
 /** 送信の前に通す門番。理由があれば文字列を返す。 */
-export function checkSendAllowed(log, { user, now, limits, trial, skips = [] }) {
+/**
+ * answer=true は、返信した相手からの質問に答える返事（2026-11-08 運営者の判断「質問には答える」）。
+ * 同じ相手への 2 回目を通すのは、その相手にすでに返信している（＝相手が質問してきた会話がある）ときだけ。間隔と見送りはそのまま効かせる。
+ */
+export function checkSendAllowed(log, { user, now, limits, trial, skips = [], answer = false }) {
   const day = jstDayOf(now);
   if (day < trial.from || day > trial.to) return `試行期間（${trial.from}〜${trial.to}）の外です`;
   const last = Math.max(0, ...log.map((r) => Date.parse(r.at)));
   const waited = (now - last) / 60_000;
   if (waited < limits.minIntervalMinutes) return `前の返信から ${Math.floor(waited)} 分です（${limits.minIntervalMinutes} 分あけます）`;
-  if (log.some((r) => r.userHash === hashUser(user))) return 'この相手にはすでに返信しています';
+  const replied = log.some((r) => r.userHash === hashUser(user));
+  if (answer && !replied) return 'この相手にはまだ返信していません（質問への答えは返信した相手にだけ送ります）';
+  if (!answer && replied) return 'この相手にはすでに返信しています（相手からの質問に答えるなら --answer）';
   if (skips.some((r) => r.userHash === hashUser(user))) return 'この相手は見送りにしています';
   return null;
 }
