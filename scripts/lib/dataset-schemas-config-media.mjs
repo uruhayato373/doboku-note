@@ -585,6 +585,10 @@ export const ConfigXReplyTrial = z
     askWords: z.array(z.string().min(1)),
     passWords: z.array(z.string().min(1)),
     failWords: z.array(z.string().min(1)),
+    failPatterns: z
+      .array(z.string().refine((s) => { try { new RegExp(s, 'u'); return true; } catch { return false; } }, '正規表現として読めない'))
+      .optional()
+      .describe('不合格と判定する正規表現（技術士二次の成績 BBA・CCC など。2026-11-08〜）'),
     studyWords: z.array(z.string().min(1)).describe('試験前の勉強・直前の悩みの語（2026-11-08〜）'),
     careWords: z.array(z.string().min(1)).min(1),
     supplierWords: z.array(z.string().min(1)),

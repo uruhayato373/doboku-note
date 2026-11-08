@@ -83,7 +83,7 @@ export function classifyPost(post, config) {
   if (includesAny(text, config.careWords)) return 'care';
   if (includesAny(text, config.supplierWords)) return 'supplier';
   if (includesAny(text, config.askWords)) return 'ask';
-  if (includesAny(text, config.failWords)) return 'fail';
+  if (includesAny(text, config.failWords) || (config.failPatterns ?? []).some((p) => new RegExp(p, 'u').test(text))) return 'fail';
   if (includesAny(text, config.passWords)) return 'pass';
   if (includesAny(text, config.studyWords ?? [])) return 'study';
   return 'other';
@@ -98,6 +98,9 @@ const ORDER = { ask: 0, pass: 1, fail: 2, study: 3 };
 export function selectCandidates(posts, config, { now, repliedHashes = new Set(), skippedHashes = new Set() }) {
   const since = now - config.limits.lookbackHours * 3600_000;
   const counts = { total: 0, old: 0, replied: 0, skipped: 0, care: 0, supplier: 0, reply: 0, other: 0, offTopic: 0, overTopicLimit: 0 };
+  // 外した投稿を理由つきで残す（語の調整に使う）。配慮の投稿は本文を残さない
+  const excluded = [];
+  const drop = (post, reason) => { counts[reason] += 1; if (reason !== 'care') excluded.push({ id: post.id, user: post.user, reason, text: post.text, url: post.url, source: post.source ?? 'yahoo' }); };
   const topics = config.topics ?? [];
   const seen = new Set();
   const byUser = new Map();
@@ -105,14 +108,14 @@ export function selectCandidates(posts, config, { now, repliedHashes = new Set()
     if (seen.has(post.id)) continue;
     seen.add(post.id);
     counts.total += 1;
-    if (post.createdAt < since) { counts.old += 1; continue; }
+    if (post.createdAt < since) { drop(post, 'old'); continue; }
     const hash = hashUser(post.user);
-    if (repliedHashes.has(hash)) { counts.replied += 1; continue; }
-    if (skippedHashes.has(hash)) { counts.skipped += 1; continue; }
+    if (repliedHashes.has(hash)) { drop(post, 'replied'); continue; }
+    if (skippedHashes.has(hash)) { drop(post, 'skipped'); continue; }
     const topic = topics.length ? topicOf(post, topics) : null;
-    if (topics.length && !topic) { counts.offTopic += 1; continue; }
+    if (topics.length && !topic) { drop(post, 'offTopic'); continue; }
     const kind = classifyPost(post, config);
-    if (!(kind in ORDER)) { counts[kind] += 1; continue; }
+    if (!(kind in ORDER)) { drop(post, kind); continue; }
     const prev = byUser.get(post.user);
     const better = !prev || ORDER[kind] < ORDER[prev.kind]
       || (ORDER[kind] === ORDER[prev.kind] && post.createdAt > prev.createdAt);
@@ -123,12 +126,12 @@ export function selectCandidates(posts, config, { now, repliedHashes = new Set()
   const candidates = [];
   for (const c of sorted) {
     const n = perTopic.get(c.topic) ?? 0;
-    if (config.limits.perTopic && n >= config.limits.perTopic) { counts.overTopicLimit += 1; continue; }
-    if (candidates.length >= config.limits.candidatesPerRun) { counts.overTopicLimit += 1; continue; }
+    if (config.limits.perTopic && n >= config.limits.perTopic) { drop(c, 'overTopicLimit'); continue; }
+    if (candidates.length >= config.limits.candidatesPerRun) { drop(c, 'overTopicLimit'); continue; }
     perTopic.set(c.topic, n + 1);
     candidates.push(c);
   }
-  return { candidates, counts };
+  return { candidates, counts, excluded };
 }
 
 /** 送信の前に通す門番。理由があれば文字列を返す。 */

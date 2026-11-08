@@ -43,6 +43,18 @@ test('尋ねている投稿・合格・不合格を分ける', () => {
   assert.equal(classifyPost(post({ text: '口頭試験までに何をすれば' }), config), 'ask');
   assert.equal(classifyPost(post({ text: '筆記に合格しました' }), config), 'pass');
   assert.equal(classifyPost(post({ text: '技術士、不合格でした' }), config), 'fail');
+  // 技術士二次の成績は A・B の並びで書く人が多い（「不合格」の語がない）
+  assert.equal(classifyPost(post({ text: '成績通知届きました。BBAでした' }), config), 'fail');
+  assert.equal(classifyPost(post({ text: '選択Ⅱの判定がBでした' }), config), 'fail');
+  assert.equal(classifyPost(post({ text: '口頭試験の準備をしている。想定問答が少なくて不安' }), config), 'study');
+  // 2026-11-08 の外した投稿の見直しで足した語と成績の規則
+  assert.equal(classifyPost(post({ text: '【技術士二次試験結果】CCC' }), config), 'fail');
+  assert.equal(classifyPost(post({ text: '総監の筆記一発合格できて自分が一番びっくり' }), config), 'pass');
+  assert.equal(classifyPost(post({ text: '口頭試験対策 QAのアウトプット10周目が終わった' }), config), 'study');
+  assert.equal(classifyPost(post({ text: '筆記はAAAでした' }), config), 'other', 'AAA は不合格にしない');
+  // リンク（t.co）が付いているだけでは宣伝にしない。発信アカウントの書き方は宣伝にする
+  assert.equal(classifyPost(post({ text: '技術士二次試験、筆記で不合格でした https://t.co/abc' }), config), 'fail');
+  assert.equal(classifyPost(post({ text: '口頭試験の想定問答をまとめました👇 https://t.co/abc' }), config), 'supplier');
 });
 
 test('配慮が要る投稿は、ほかの語より先に判定する', () => {

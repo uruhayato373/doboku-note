@@ -11,7 +11,7 @@
  * 出力: .tmp/x-outreach/candidates.json（個人の投稿を含むので Git に入れない）
  * exit: 0 検索できた（候補 0 件も含む） / 1 取得失敗が支配的で検査不成立
  *
- * Usage: npm run x-reply-candidates [-- --x-posts <dir>]
+ * Usage: npm run x-reply-candidates [-- --x-posts <dir>] [-- --all]（--all は話題ごと・全体の上限を外して全部出す）
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -27,12 +27,13 @@ import { parseRealtimeHtml, parseXPosts, selectCandidates } from './lib/x-reply-
 const OUT = path.join(REPO_ROOT, '.tmp', 'x-outreach', 'candidates.json');
 const UA = 'Mozilla/5.0 (compatible; doboku-note-research/1.0)';
 
-const flags = parseCliArgs({ 'x-posts': { type: 'string' } });
+const flags = parseCliArgs({ 'x-posts': { type: 'string' }, all: { type: 'boolean' } });
 const X_POSTS_DIR = path.resolve(REPO_ROOT, flags.xPosts ?? path.join('.tmp', 'x-outreach', 'x-posts'));
 // 話題の表示名は資格の台帳から引く（設定に名前を写さない・check-qualification-ssot）
 const registry = readDataset(REPO_ROOT, 'config.qualification-registry');
 const rawConfig = readDataset(REPO_ROOT, 'config.x-reply-trial');
-const config = { ...rawConfig, topics: rawConfig.topics.map((t) => ({ ...t, label: t.qualifications.map((id) => qualificationShortLabel(registry, id)).join('・') })) };
+const limits = flags.all ? { ...rawConfig.limits, perTopic: Number.MAX_SAFE_INTEGER, candidatesPerRun: Number.MAX_SAFE_INTEGER } : rawConfig.limits;
+const config = { ...rawConfig, limits, topics: rawConfig.topics.map((t) => ({ ...t, label: t.qualifications.map((id) => qualificationShortLabel(registry, id)).join('・') })) };
 const log = readDatasetIf(REPO_ROOT, 'x.reply-log') ?? { replies: [], skips: [] };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -92,7 +93,7 @@ if (fetchFailDominant(failed, queries.length)) {
   console.error('取得失敗が多いので検査不成立です。候補は書き出しません。');
   process.exitCode = 1;
 } else {
-  const { candidates, counts } = selectCandidates(posts, { ...config, excludeAccounts: [...config.excludeAccounts, X_HANDLE] }, {
+  const { candidates, counts, excluded } = selectCandidates(posts, { ...config, excludeAccounts: [...config.excludeAccounts, X_HANDLE] }, {
     now: Date.now(),
     repliedHashes: new Set(log.replies.map((r) => r.userHash)),
     skippedHashes: new Set(log.skips.map((r) => r.userHash)),
@@ -101,6 +102,8 @@ if (fetchFailDominant(failed, queries.length)) {
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, `${JSON.stringify({ collectedAt: new Date().toISOString(), counts, candidates }, null, 2)}\n`);
 
+  // 外した投稿（理由つき・配慮の投稿は本文を残さない）。語の調整に読む
+  fs.writeFileSync(path.join(path.dirname(OUT), 'excluded.json'), `${JSON.stringify(excluded, null, 2)}\n`);
   console.log(`投稿 ${counts.total} 件を判定 / 候補 ${candidates.length} 件`);
   console.log(`除外: 古い ${counts.old}・返信済みの相手 ${counts.replied}・見送り済みの相手 ${counts.skipped}・配慮 ${counts.care}・講座や宣伝 ${counts.supplier}・返信やリポスト ${counts.reply}・場面が合わない ${counts.other}・どの資格にも当たらない ${counts.offTopic}・上限超え ${counts.overTopicLimit}`);
   const byTopic = Object.groupBy(candidates, (c) => c.topicLabel ?? '（話題なし）');
