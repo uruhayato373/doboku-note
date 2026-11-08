@@ -10,6 +10,14 @@ const NEXT_DATA = /<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/;
 
 const includesAny = (text, words) => words.some((w) => text.includes(w));
 
+/**
+ * 返信の下書きに含まれる、相手を評価する・指図する言い方（config の toneWords）を返す。
+ * 合格者が受験者を採点しているように読める言い方を、確認画面を作る前に止める（2026-11-09 運営者の指摘）。
+ */
+export function toneIssues(text, config) {
+  return (config.toneWords ?? []).filter((w) => text.includes(w));
+}
+
 export function cleanText(raw) {
   return String(raw ?? '').replace(/\t(?:START|END)\t/g, '').replace(/\s+/g, ' ').trim();
 }
