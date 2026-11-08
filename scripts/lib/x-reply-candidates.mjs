@@ -1,6 +1,7 @@
 /**
  * X の返信候補を選ぶ純関数（通信とファイルを持たない）。
- * 入力は Yahoo!リアルタイム検索のページ。配慮が要る投稿は本文を残さず件数だけ返す。
+ * 入力は Yahoo!リアルタイム検索のページと、内蔵ブラウザで読んだ X のタイムライン・検索の投稿（parseXPosts）。
+ * 話題（config.topics＝資格のまとまり）ごとに振り分けて上限で切る。配慮が要る投稿は本文を残さず件数だけ返す。
  */
 import { createHash } from 'node:crypto';
 import { jstDayOf } from './jst-date.mjs';
@@ -36,6 +37,40 @@ export function parseRealtimeHtml(html) {
   }));
 }
 
+/**
+ * 内蔵ブラウザで X のタイムライン・検索から取り出した投稿（references/extract-x-posts.js の出力）を検査して揃える。
+ * 形の合わない行は捨て、捨てた数を返す（黙って 0 件にしない）。
+ */
+export function parseXPosts(rows) {
+  const posts = [];
+  let invalid = 0;
+  for (const r of Array.isArray(rows) ? rows : []) {
+    const ok = r && /^\d+$/.test(String(r.id)) && /^[A-Za-z0-9_]{1,15}$/.test(String(r.user)) && typeof r.text === 'string' && Number.isFinite(Number(r.createdAt));
+    if (!ok) { invalid += 1; continue; }
+    posts.push({
+      id: String(r.id),
+      user: String(r.user),
+      text: cleanText(r.text),
+      createdAt: Number(r.createdAt),
+      replyCount: 0,
+      likes: 0,
+      inReplyTo: r.isReply ? 'x' : '',
+      url: `https://x.com/${r.user}/status/${r.id}`,
+      source: 'x',
+    });
+  }
+  return { posts, invalid };
+}
+
+/**
+ * 投稿をどの話題（資格）に振り分けるか。本文に話題の語（match）が入っているときだけ振り分ける。
+ * 検索語で取った投稿は、その検索語の話題を先に見る（「施工管理 勉強」で建築・電気の投稿まで拾うので、語の確認を省かない）。
+ */
+export function topicOf(post, topics) {
+  const first = post.topic ? topics.filter((t) => t.id === post.topic) : [];
+  return [...first, ...topics].find((t) => includesAny(post.text, t.match)) ?? null;
+}
+
 export function hashUser(user) {
   return createHash('sha256').update(String(user).toLowerCase()).digest('hex').slice(0, 12);
 }
@@ -50,15 +85,20 @@ export function classifyPost(post, config) {
   if (includesAny(text, config.askWords)) return 'ask';
   if (includesAny(text, config.failWords)) return 'fail';
   if (includesAny(text, config.passWords)) return 'pass';
+  if (includesAny(text, config.studyWords ?? [])) return 'study';
   return 'other';
 }
 
-const ORDER = { ask: 0, pass: 1, fail: 2 };
+const ORDER = { ask: 0, pass: 1, fail: 2, study: 3 };
 
-/** 1 アカウント 1 件。尋ねている投稿 → 合格 → 不合格 → 新しい順に並べて上限で切る。 */
+/**
+ * 1 アカウント 1 件。尋ねている投稿 → 合格 → 不合格 → 勉強・直前 → 新しい順に並べ、話題ごとの上限（perTopic）と全体の上限で切る。
+ * どの話題（資格）にも当たらない投稿は「無関係」に数える。
+ */
 export function selectCandidates(posts, config, { now, repliedHashes = new Set(), skippedHashes = new Set() }) {
   const since = now - config.limits.lookbackHours * 3600_000;
-  const counts = { total: 0, old: 0, replied: 0, skipped: 0, care: 0, supplier: 0, reply: 0, other: 0 };
+  const counts = { total: 0, old: 0, replied: 0, skipped: 0, care: 0, supplier: 0, reply: 0, other: 0, offTopic: 0, overTopicLimit: 0 };
+  const topics = config.topics ?? [];
   const seen = new Set();
   const byUser = new Map();
   for (const post of posts) {
@@ -69,16 +109,25 @@ export function selectCandidates(posts, config, { now, repliedHashes = new Set()
     const hash = hashUser(post.user);
     if (repliedHashes.has(hash)) { counts.replied += 1; continue; }
     if (skippedHashes.has(hash)) { counts.skipped += 1; continue; }
+    const topic = topics.length ? topicOf(post, topics) : null;
+    if (topics.length && !topic) { counts.offTopic += 1; continue; }
     const kind = classifyPost(post, config);
     if (!(kind in ORDER)) { counts[kind] += 1; continue; }
     const prev = byUser.get(post.user);
     const better = !prev || ORDER[kind] < ORDER[prev.kind]
       || (ORDER[kind] === ORDER[prev.kind] && post.createdAt > prev.createdAt);
-    if (better) byUser.set(post.user, { ...post, kind });
+    if (better) byUser.set(post.user, { ...post, kind, topic: topic?.id ?? null, topicLabel: topic?.label ?? null });
   }
-  const candidates = [...byUser.values()]
-    .sort((a, b) => ORDER[a.kind] - ORDER[b.kind] || b.createdAt - a.createdAt)
-    .slice(0, config.limits.candidatesPerRun);
+  const sorted = [...byUser.values()].sort((a, b) => ORDER[a.kind] - ORDER[b.kind] || b.createdAt - a.createdAt);
+  const perTopic = new Map();
+  const candidates = [];
+  for (const c of sorted) {
+    const n = perTopic.get(c.topic) ?? 0;
+    if (config.limits.perTopic && n >= config.limits.perTopic) { counts.overTopicLimit += 1; continue; }
+    if (candidates.length >= config.limits.candidatesPerRun) { counts.overTopicLimit += 1; continue; }
+    perTopic.set(c.topic, n + 1);
+    candidates.push(c);
+  }
   return { candidates, counts };
 }
 

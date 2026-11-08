@@ -563,12 +563,29 @@ export const ConfigXReplyTrial = z
         minIntervalMinutes: z.number().int().positive(),
         candidatesPerRun: z.number().int().positive(),
         lookbackHours: z.number().int().positive(),
+        perTopic: z.number().int().positive().describe('1 つの話題（資格）から出す候補の上限。偏りを防ぐ'),
       })
       .strict(),
-    queries: z.array(z.string().min(1)).min(1),
+    topics: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^[a-z0-9-]+$/),
+            qualifications: z.array(z.string().min(1)).min(1).describe('qualification-registry の資格 id'),
+            queries: z.array(z.string().min(1)).min(1).describe('Yahoo!リアルタイム検索と X の検索（最新）で使う語'),
+            match: z.array(z.string().min(1)).min(1).describe('タイムラインの投稿をこの話題に振り分ける語'),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine((topics, ctx) => {
+        const ids = topics.map((t) => t.id);
+        if (new Set(ids).size !== ids.length) ctx.addIssue({ code: 'custom', message: '話題の id が重複しています' });
+      }),
     askWords: z.array(z.string().min(1)),
     passWords: z.array(z.string().min(1)),
     failWords: z.array(z.string().min(1)),
+    studyWords: z.array(z.string().min(1)).describe('試験前の勉強・直前の悩みの語（2026-11-08〜）'),
     careWords: z.array(z.string().min(1)).min(1),
     supplierWords: z.array(z.string().min(1)),
     excludeAccounts: z.array(z.string().min(1)),

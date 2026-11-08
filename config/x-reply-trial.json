@@ -8,17 +8,97 @@
   },
   "limits": {
     "minIntervalMinutes": 5,
-    "candidatesPerRun": 8,
-    "lookbackHours": 72
+    "candidatesPerRun": 20,
+    "lookbackHours": 120,
+    "perTopic": 6
   },
-  "queries": [
-    "技術士 口頭試験",
-    "技術士 二次試験",
-    "技術士 不合格",
-    "技術士 勉強",
-    "施工管理 勉強",
-    "1級土木 二次",
-    "2級土木 勉強"
+  "topics": [
+    {
+      "id": "pe",
+      "qualifications": [
+        "pe-construction",
+        "pe-comprehensive-management",
+        "pe-first-stage"
+      ],
+      "queries": [
+        "技術士 口頭試験",
+        "技術士 二次試験",
+        "技術士 不合格",
+        "技術士 勉強",
+        "技術士 一次試験",
+        "総監 技術士"
+      ],
+      "match": [
+        "技術士",
+        "総監",
+        "口頭試験"
+      ]
+    },
+    {
+      "id": "civil-1",
+      "qualifications": [
+        "civil-construction-1"
+      ],
+      "queries": [
+        "1級土木 二次",
+        "1級土木 勉強",
+        "一級土木施工管理"
+      ],
+      "match": [
+        "1級土木",
+        "一級土木",
+        "1級土木施工",
+        "1級施工管理"
+      ]
+    },
+    {
+      "id": "civil-2",
+      "qualifications": [
+        "civil-construction-2"
+      ],
+      "queries": [
+        "2級土木 勉強",
+        "2級土木 二次",
+        "二級土木施工管理"
+      ],
+      "match": [
+        "2級土木",
+        "二級土木",
+        "2級土木施工"
+      ]
+    },
+    {
+      "id": "civil",
+      "qualifications": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "queries": [
+        "施工管理 勉強",
+        "土木施工管理技士"
+      ],
+      "match": [
+        "土木施工管理"
+      ]
+    },
+    {
+      "id": "concrete",
+      "qualifications": [
+        "concrete-chief-engineer",
+        "concrete-engineer"
+      ],
+      "queries": [
+        "コンクリート主任技士",
+        "コンクリート技士 勉強",
+        "コンクリート技士 試験"
+      ],
+      "match": [
+        "コンクリート主任技士",
+        "コンクリート技士",
+        "コン技",
+        "主任技士"
+      ]
+    }
   ],
   "askWords": [
     "教えて",
@@ -45,6 +125,19 @@
     "落ちて",
     "ダメでした",
     "だめでした"
+  ],
+  "studyWords": [
+    "勉強中",
+    "勉強して",
+    "勉強始め",
+    "過去問",
+    "暗記",
+    "覚えられ",
+    "解けな",
+    "直前",
+    "試験まで",
+    "模試",
+    "問題集"
   ],
   "careWords": [
     "死に",
@@ -76,7 +169,12 @@
     "アフィリエイト",
     "転職相談",
     "note.com",
-    "t.co"
+    "t.co",
+    "毎朝一問",
+    "クイズ",
+    "一問一答",
+    "アプリ",
+    "答えと解説"
   ],
   "excludeAccounts": [
     "pafe_purin",
