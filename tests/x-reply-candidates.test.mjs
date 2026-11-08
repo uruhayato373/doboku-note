@@ -87,7 +87,8 @@ test('送信の門番: 期間・間隔・同じ相手を止める', () => {
   assert.match(checkSendAllowed([], { ...base, user: 'a', now: Date.parse('2026-11-06T03:00:00Z') }), /試行期間/);
   assert.match(checkSendAllowed([], { ...base, user: 'a', now: Date.parse('2026-12-01T03:00:00Z') }), /試行期間/);
   assert.equal(checkSendAllowed([], { ...base, user: 'a', now: NOW }), null);
-  assert.match(checkSendAllowed([row(10)], { ...base, user: 'a', now: NOW }), /分あけます/);
+  // 間隔の下限は設定（minIntervalMinutes）から作る（2026-11-08 に 60 分→5 分へ変えたら 10 分前の固定値で落ちた）
+  assert.match(checkSendAllowed([row(config.limits.minIntervalMinutes - 1)], { ...base, user: 'a', now: NOW }), /分あけます/);
   assert.equal(checkSendAllowed([row(61), row(62), row(63), row(64)], { ...base, user: 'a', now: NOW }), null);
   assert.match(checkSendAllowed([row(90, 'a')], { ...base, user: 'A', now: NOW }), /すでに返信/);
   assert.equal(checkSendAllowed([row(90)], { ...base, user: 'a', now: NOW }), null);

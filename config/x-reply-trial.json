@@ -7,7 +7,7 @@
     "to": "2026-11-21"
   },
   "limits": {
-    "minIntervalMinutes": 60,
+    "minIntervalMinutes": 5,
     "candidatesPerRun": 8,
     "lookbackHours": 72
   },

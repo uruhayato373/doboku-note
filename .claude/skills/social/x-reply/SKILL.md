@@ -36,7 +36,7 @@ domain: sns
 
 1. 運営者が相手と文面を 1 件ずつ承認する（1 回 5 件まで）
 2. 承認された分を `.tmp/x-outreach/queue.json` に書く。形は `{ "approvedAt": <UTC>, "items": [{ "user", "targetId", "kind", "text" }] }`
-3. 運営者が `/loop` で 1 時間おきの実行を始める
+3. 運営者が `/loop` で 5 分おき以上の実行を始める（間隔の下限は `config/x-reply-trial.json` の `minIntervalMinutes`）
 4. 毎回、先頭の 1 件だけを手順 7・8 で送り、`queue.json` から消す
 5. 次のときは送らない。新しい投稿で状況が変わった、`x-reply-log --check` が BLOCK、承認から 24 時間を超えた。止めた分は運営者に返す
 6. `queue.json` が空になったら `/loop` を止める
