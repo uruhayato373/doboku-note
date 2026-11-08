@@ -489,6 +489,37 @@
       ],
       "commit": {},
       "leftover": []
+    },
+    {
+      "phase": "only",
+      "only": "gsc",
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-11-08T02:41:09.746Z",
+      "finishedAt": "2026-11-08T02:41:10.509Z",
+      "stages": [
+        {
+          "id": "gsc",
+          "title": "GSC の登録リクエスト 10 件と月次の理由別 CSV",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "gsc-ui-due",
+              "exit": 0
+            },
+            {
+              "id": "gsc-indexing-due",
+              "exit": 0
+            }
+          ],
+          "durationSec": 0
+        }
+      ],
+      "commit": {},
+      "leftover": []
     }
   ]
 }
