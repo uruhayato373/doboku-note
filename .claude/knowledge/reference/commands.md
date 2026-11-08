@@ -284,7 +284,7 @@ npm run check-youtube-analytics # 最新のYouTube Analytics記録を公開台�
 npm run scout-youtube-competitors # config/competitors.json の youtube の各チャンネルの通常動画（新しい順100本）の再生・尺・題名の語ごとの中央値を data/youtube/competitors/YYYY-MM-DD.json へ（四半期・前回比 drift・`--handle UC…` は .tmp/）。一覧だけ読み、動画の再生用 API と映像は触らない（クラウドの IP でロボット確認・403 になるため）
 npm run x-reply-candidates  # X の返信候補を、資格ごとの話題（config/x-reply-trial.json の topics）で集めて .tmp/x-outreach/candidates.json へ書く（読むだけ・送信しない）。Yahoo!リアルタイム検索と、内蔵ブラウザで保存した X のタイムライン・検索の投稿（.tmp/x-outreach/x-posts/*.json・-- --x-posts <dir>）をまとめ、`-- --all` で話題ごと・全体の上限を外し、外した投稿は理由つきで .tmp/x-outreach/excluded.json に書く（語の調整に読む・配慮の投稿は本文を残さない）。本文に資格の語がある投稿だけを話題に振り分ける。配慮が要る投稿は件数だけ数える。手順は /x-reply
 npm run x-reply-sheet       # .tmp/x-outreach/round.json から確認画面を作る。開くのは preview_start の x-outreach
-npm run x-reply-log         # 送信前の門番 --check --user <id>（試行期間・間隔・同じ相手・見送り済み。返信した相手からの質問に答えるときは --answer）。--add で送信を記録、--skip で見送りを記録、--report で集計
+npm run x-reply-log         # 送信前の門番 --check --user <id>（試行期間・間隔・同じ相手・見送り済み。返信した相手からの質問に答えるときは --answer）。--add で送信を記録（--text に送った文面が必須）、--skip で見送りを記録、--report で集計
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x/own-posts/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・quality-audit の report 区分＝weekly-review-guard が週次で読む）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
 ```
