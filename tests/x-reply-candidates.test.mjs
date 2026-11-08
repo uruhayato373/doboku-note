@@ -9,6 +9,7 @@ import {
   parseRealtimeHtml,
   parseXPosts,
   selectCandidates,
+  toneIssues,
   topicOf,
 } from '../scripts/lib/x-reply-candidates.mjs';
 
@@ -170,4 +171,12 @@ test('返信の記録は送った文面を持つ（文面の無い記録は型�
   assert.equal(XReplyLog.safeParse({ schemaVersion: 1, replies: [reply], skips: [] }).success, false);
   assert.equal(XReplyLog.safeParse({ schemaVersion: 1, replies: [{ ...reply, text: '  ' }], skips: [] }).success, false);
   assert.equal(XReplyLog.safeParse({ schemaVersion: 1, replies: [{ ...reply, text: '体調を整えて進めてください。' }], skips: [] }).success, true);
+});
+
+test('相手を評価する・指図する言い方を下書きから拾う（2026-11-09 運営者の指摘）', () => {
+  const config = JSON.parse(fs.readFileSync(new URL('../config/x-reply-trial.json', import.meta.url), 'utf8'));
+  assert.deepEqual(toneIssues('同じ自治体の土木職出身として、筆記突破を心強く思います。', config), ['心強']);
+  assert.deepEqual(toneIssues('始めて10日で全体を見渡せているのは良いペースです。', config), ['良いペース']);
+  assert.deepEqual(toneIssues('残り一か月、体調を整えながら進めてください。', config), ['てください']);
+  assert.deepEqual(toneIssues('共働きで子育てをしながらの筆記通過、おめでとうございます。準備を進められますように。', config), []);
 });

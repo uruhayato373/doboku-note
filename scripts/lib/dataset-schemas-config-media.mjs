@@ -592,6 +592,10 @@ export const ConfigXReplyTrial = z
     studyWords: z.array(z.string().min(1)).describe('試験前の勉強・直前の悩みの語（2026-11-08〜）'),
     careWords: z.array(z.string().min(1)).min(1),
     supplierWords: z.array(z.string().min(1)),
+    toneWords: z
+      .array(z.string().min(1))
+      .min(1)
+      .describe('返信の下書きに使わない、相手を評価する・指図する言い方。x-reply-sheet が含む下書きを止める（2026-11-09〜）'),
     excludeAccounts: z.array(z.string().min(1)),
   })
   .strict();

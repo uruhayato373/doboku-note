@@ -28,7 +28,7 @@ domain: sns
 
    見送った相手は `npm run x-reply-log -- --skip --user <screenName> --reason situation|offtopic|supplier|not-self|other` で記録する。次回から候補に出ない。
 5. **下書き**（`x-reply-drafter` が書く）: ねぎらいを先に置く。答案は見えないので、褒めるのは投稿に書かれた行動だけ。助言は方法を尋ねている人にだけ添える。リンク・商品名・ハッシュタグは入れない。体験は `src/config/author.ts` と記事で確かめられる事実だけ書く。
-6. **確認画面**: `.tmp/x-outreach/round.json` に下書きを書き、`npm run x-reply-sheet`。`preview_start` の `x-outreach` で開く。
+6. **確認画面**: `.tmp/x-outreach/round.json` に下書きを書き、`npm run x-reply-sheet`。`preview_start` の `x-outreach` で開く。相手を評価する・指図する言い方（`config/x-reply-trial.json` の `toneWords`）を含む下書きがあると、該当の相手と語を出して exit 1 で止まる。言い換えてから作り直す。
 7. **運営者の承認**: 採用された案だけを送る。画面の判断は `window.__state()` で読む。
 8. **送信**: 1 件ごとに次を通す。
    - `npm run x-reply-log -- --check --user <screenName>` が OK（exit 0）
