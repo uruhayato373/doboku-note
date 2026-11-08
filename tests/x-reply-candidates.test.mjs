@@ -163,3 +163,11 @@ test('見送った相手は候補に戻らず、送信も止まる', () => {
   const base = { limits: config.limits, trial: config.trial, now: NOW };
   assert.match(checkSendAllowed([], { ...base, user: 'skip', skips: [{ userHash: hashUser('skip') }] }), /見送り/);
 });
+
+test('返信の記録は送った文面を持つ（文面の無い記録は型で止まる）', async () => {
+  const { XReplyLog } = await import('../scripts/lib/dataset-schemas.mjs');
+  const reply = { at: '2026-11-08T21:26:11Z', kind: 'study', targetId: '1', replyId: '2', userHash: '1eed37bd8179' };
+  assert.equal(XReplyLog.safeParse({ schemaVersion: 1, replies: [reply], skips: [] }).success, false);
+  assert.equal(XReplyLog.safeParse({ schemaVersion: 1, replies: [{ ...reply, text: '  ' }], skips: [] }).success, false);
+  assert.equal(XReplyLog.safeParse({ schemaVersion: 1, replies: [{ ...reply, text: '体調を整えて進めてください。' }], skips: [] }).success, true);
+});

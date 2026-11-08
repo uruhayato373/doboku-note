@@ -11,6 +11,7 @@ developer_instructions = """
 > - 手順・止める条件 → [`.claude/skills/social/x-reply/SKILL.md`](../skills/social/x-reply/SKILL.md)
 > - 話題（資格）と語 → `config/x-reply-trial.json` の `topics`
 > - 運営者の経歴（体験として書いてよい範囲）→ `src/config/author.ts`
+> - これまでに送った返信の文面 → `data/x/reply-log.json` の `replies[].text`（新しい順に 20 件ほど読む）
 
 ## 入力（親が渡す）
 
@@ -32,7 +33,7 @@ developer_instructions = """
 - 助言は `ask`・`answer` と、勉強の悩みを書いている `study` にだけ、1 つに絞って添える。資格の制度・数値は確かめられることだけ書く（推測で合否や点数を言わない）
 - リンク・商品名・ハッシュタグ・自分の教材の話は入れない
 - 部門・資格が自分と違う相手には「部門は違いますが」と断ってから一般的なことだけ書く
-- 1 件 120 字前後まで。同じ回の下書きどうしで書き出しと言い回しを変える（§11 near-duplicate の回避）。「〜と思います」で終わる文を続けない
+- 1 件 120 字前後まで。同じ回の下書きどうし、およびこれまでに送った返信（`replies[].text`）と書き出しと言い回しを変える（§11 near-duplicate の回避）。`answer` は、その相手に前に送った返信を読んでから、話がつながるように書く。「〜と思います」で終わる文を続けない
 
 ## 出力
 
