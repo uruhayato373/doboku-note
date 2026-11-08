@@ -11,7 +11,7 @@
  * 出力: .tmp/x-outreach/candidates.json（個人の投稿を含むので Git に入れない）
  * exit: 0 検索できた（候補 0 件も含む） / 1 取得失敗が支配的で検査不成立
  *
- * Usage: npm run x-reply-candidates [-- --x-posts <dir>]
+ * Usage: npm run x-reply-candidates [-- --x-posts <dir>] [-- --all]（--all は話題ごと・全体の上限を外して全部出す）
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -27,12 +27,13 @@ import { parseRealtimeHtml, parseXPosts, selectCandidates } from './lib/x-reply-
 const OUT = path.join(REPO_ROOT, '.tmp', 'x-outreach', 'candidates.json');
 const UA = 'Mozilla/5.0 (compatible; doboku-note-research/1.0)';
 
-const flags = parseCliArgs({ 'x-posts': { type: 'string' } });
+const flags = parseCliArgs({ 'x-posts': { type: 'string' }, all: { type: 'boolean' } });
 const X_POSTS_DIR = path.resolve(REPO_ROOT, flags.xPosts ?? path.join('.tmp', 'x-outreach', 'x-posts'));
 // 話題の表示名は資格の台帳から引く（設定に名前を写さない・check-qualification-ssot）
 const registry = readDataset(REPO_ROOT, 'config.qualification-registry');
 const rawConfig = readDataset(REPO_ROOT, 'config.x-reply-trial');
-const config = { ...rawConfig, topics: rawConfig.topics.map((t) => ({ ...t, label: t.qualifications.map((id) => qualificationShortLabel(registry, id)).join('・') })) };
+const limits = flags.all ? { ...rawConfig.limits, perTopic: Number.MAX_SAFE_INTEGER, candidatesPerRun: Number.MAX_SAFE_INTEGER } : rawConfig.limits;
+const config = { ...rawConfig, limits, topics: rawConfig.topics.map((t) => ({ ...t, label: t.qualifications.map((id) => qualificationShortLabel(registry, id)).join('・') })) };
 const log = readDatasetIf(REPO_ROOT, 'x.reply-log') ?? { replies: [], skips: [] };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

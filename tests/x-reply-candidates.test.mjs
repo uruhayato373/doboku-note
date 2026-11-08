@@ -43,6 +43,10 @@ test('尋ねている投稿・合格・不合格を分ける', () => {
   assert.equal(classifyPost(post({ text: '口頭試験までに何をすれば' }), config), 'ask');
   assert.equal(classifyPost(post({ text: '筆記に合格しました' }), config), 'pass');
   assert.equal(classifyPost(post({ text: '技術士、不合格でした' }), config), 'fail');
+  // 技術士二次の成績は A・B の並びで書く人が多い（「不合格」の語がない）
+  assert.equal(classifyPost(post({ text: '成績通知届きました。BBAでした' }), config), 'fail');
+  assert.equal(classifyPost(post({ text: '選択Ⅱの判定がBでした' }), config), 'fail');
+  assert.equal(classifyPost(post({ text: '口頭試験の準備をしている。想定問答が少なくて不安' }), config), 'study');
 });
 
 test('配慮が要る投稿は、ほかの語より先に判定する', () => {
