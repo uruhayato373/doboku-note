@@ -37,7 +37,7 @@ cover:
 - **ステークホルダーの意見の取り入れと合意形成**：港湾管理者・荷主・海運・倉庫・エネルギー事業者・地域住民との協議プロセスを解決策に明示する
 - **持続可能な成果の達成**：安全・経済・環境の三側面から残余リスクを論じ、文化的価値を含む持続可能な成果を志向する
 
-改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
+改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=nbc7f930a7bd9)をご覧ください。
 
 ---
 
@@ -74,6 +74,17 @@ cover:
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。
 
 https://note.com/dobokunote/n/n7279ca0d926f
+
+## 令和8年度 本試験との照合（2026年11月追記）
+
+この記事は、令和8年度の本試験（2026年7月20日）より前の2026年6月17日に公開した予想問題です。本試験で実際に出た設問と照らし合わせた結果を、外れた設問も含めてそのまま載せます。
+
+- III-1 国際コンテナ戦略港湾の施策：外れた
+- III-2 港湾・空港施設の更新（改廃を含む）：外れた
+
+判定は「重なった（主題がほぼ同じ）」「一部重なった（同じ対象の一部の論点を扱っている）」「外れた」の3段階です。本試験の設問全文とフル模範解答は、次の記事に収録しています。
+
+[技術士 建設部門｜港湾及び空港 R08 選択科目III 模範解答（III-1・III-2）](https://note.com/dobokunote/n/ndebefeb944fc)
 
 ## 予想問題（令和8年度 港湾及び空港 選択科目III・予想）
 

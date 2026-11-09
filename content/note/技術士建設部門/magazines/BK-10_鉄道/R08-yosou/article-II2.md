@@ -34,7 +34,7 @@ cover:
 
 反映ポイント：被災調査データ・計測データの活用（データ活用）・鉄道事業者内の運転部門・沿線自治体・住民との合意形成（ステークホルダー）・安全・経済・環境の三側面。
 
-改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary) をご参照ください。
+改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=ncf693e43a180) をご参照ください。
 
 **こんな人のための記事です**
 
@@ -66,6 +66,17 @@ cover:
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。
 
 https://note.com/dobokunote/n/n7279ca0d926f
+
+## 令和8年度 本試験との照合（2026年11月追記）
+
+この記事は、令和8年度の本試験（2026年7月20日）より前の2026年7月13日に公開した予想問題です。本試験で実際に出た設問と照らし合わせた結果を、外れた設問も含めてそのまま載せます。
+
+- II-2-1 鉄道構造物の点検と補修：外れた
+- II-2-2 密集地の高架化と近接施工：一部重なった（予想 II-2-2 で営業線に近接した高架橋の工事計画を扱っています（主題は耐震補強です））
+
+判定は「重なった（主題がほぼ同じ）」「一部重なった（同じ対象の一部の論点を扱っている）」「外れた」の3段階です。本試験の設問全文とフル模範解答は、次の記事に収録しています。
+
+[技術士 建設部門｜鉄道 R08 選択科目II-2 模範解答（II-2-1・II-2-2）](https://note.com/dobokunote/n/nf1531b01dc71)
 
 ## 予想問題（令和8年度 鉄道 選択科目II-2・予想）
 

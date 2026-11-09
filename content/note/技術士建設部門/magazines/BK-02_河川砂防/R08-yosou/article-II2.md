@@ -33,7 +33,7 @@ cover:
 
 反映ポイント：流量・氾濫モニタリングデータの活用（データ活用）・流域関係者・住民との合意形成（ステークホルダー）・治水安全・経済・環境の三側面。
 
-改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary) をご参照ください。
+改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n11815f9d9ce2) をご参照ください。
 
 **こんな人のための記事です**
 
@@ -65,6 +65,17 @@ cover:
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。
 
 https://note.com/dobokunote/n/n7279ca0d926f
+
+## 令和8年度 本試験との照合（2026年11月追記）
+
+この記事は、令和8年度の本試験（2026年7月20日）より前の2026年6月15日に公開した予想問題です。本試験で実際に出た設問と照らし合わせた結果を、外れた設問も含めてそのまま載せます。
+
+- II-2-1 気候変動を踏まえた河川整備基本方針の変更：一部重なった（気候変動を踏まえた治水計画の策定という流れは共通です。この記事は中小河川の流域治水で、基本方針の変更そのものは扱っていません）
+- II-2-2 地区防災計画の策定支援：外れた
+
+判定は「重なった（主題がほぼ同じ）」「一部重なった（同じ対象の一部の論点を扱っている）」「外れた」の3段階です。本試験の設問全文とフル模範解答は、次の記事に収録しています。
+
+[技術士 建設部門｜河川・砂防及び海岸・海洋 R08 選択科目II-2 模範解答（II-2-1・II-2-2）](https://note.com/dobokunote/n/n4c84f9500f9e)
 
 ## 予想問題（令和8年度 河川、砂防及び海岸・海洋 選択科目II-2・予想）
 

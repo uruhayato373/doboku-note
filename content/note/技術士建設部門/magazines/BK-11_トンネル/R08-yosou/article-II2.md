@@ -33,7 +33,7 @@ cover:
 
 反映ポイント：施工計測データ・前方探査データの活用（データ活用）・近接構造物管理者・住民・関係機関との合意形成（ステークホルダー）・安全・経済・環境の三側面。
 
-改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary) をご参照ください。
+改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=ne1f0b3082f6b) をご参照ください。
 
 **こんな人のための記事です**
 
@@ -65,6 +65,17 @@ cover:
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。
 
 https://note.com/dobokunote/n/n7279ca0d926f
+
+## 令和8年度 本試験との照合（2026年11月追記）
+
+この記事は、令和8年度の本試験（2026年7月20日）より前の2026年6月17日に公開した予想問題です。本試験で実際に出た設問と照らし合わせた結果を、外れた設問も含めてそのまま載せます。
+
+- II-2-1 膨張性地山の山岳トンネル：重なった（予想 II-2-1「膨張性地山の山岳トンネル施工計画」と主題がほぼ同じです）
+- II-2-2 都市部トンネルの耐久性（開削工法・RC構造）：外れた
+
+判定は「重なった（主題がほぼ同じ）」「一部重なった（同じ対象の一部の論点を扱っている）」「外れた」の3段階です。本試験の設問全文とフル模範解答は、次の記事に収録しています。
+
+[技術士 建設部門｜トンネル R08 選択科目II-2 模範解答（II-2-1・II-2-2）](https://note.com/dobokunote/n/nea89b596ed86)
 
 ## 予想問題（令和8年度 トンネル 選択科目II-2・予想）
 

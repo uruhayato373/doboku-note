@@ -38,7 +38,7 @@ cover:
 - **ステークホルダーの意見の取り入れと合意形成**：鉄道利用者・沿線住民・気象台・沿線自治体・鉄道事業者間との協議プロセスを解決策に明示する
 - **持続可能な成果の達成**：安全・経済・環境の三側面から残余リスクを論じ、地域の生活を支える鉄道の文化的・社会的価値を含む持続可能な成果を志向する
 
-改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
+改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n31042910b6fa)をご覧ください。
 
 ---
 
@@ -75,6 +75,17 @@ cover:
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。
 
 https://note.com/dobokunote/n/n7279ca0d926f
+
+## 令和8年度 本試験との照合（2026年11月追記）
+
+この記事は、令和8年度の本試験（2026年7月20日）より前の2026年7月13日に公開した予想問題です。本試験で実際に出た設問と照らし合わせた結果を、外れた設問も含めてそのまま載せます。
+
+- III-1 鉄道施設の防災・減災：重なった（予想 III-1「自然災害の激甚化に対する鉄道防災力の強化」と主題がほぼ同じです）
+- III-2 工事費高騰下のコスト縮減・抑制：外れた
+
+判定は「重なった（主題がほぼ同じ）」「一部重なった（同じ対象の一部の論点を扱っている）」「外れた」の3段階です。本試験の設問全文とフル模範解答は、次の記事に収録しています。
+
+[技術士 建設部門｜鉄道 R08 選択科目III 模範解答（III-1・III-2）](https://note.com/dobokunote/n/n7a618a6dadf7)
 
 ## 予想問題（令和8年度 鉄道 選択科目III・予想）
 
