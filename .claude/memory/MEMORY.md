@@ -52,6 +52,7 @@
 - [再発防止の仕組み化](feedback_prevention_over_patching.md) — 手動ゲートは素通り
 - [X予約偽成功](feedback_publish_x_false_success.md) — キュー実体検証
 - [レビュー申し送り台帳](feedback_review_tasks_to_backlog.md) — DN起票・backlog罠
+- [検証タグは develop の script](feedback_backlog_verify_tag_unmerged_script.md) — 未マージの script を書くと CI 赤
 - [週次の遅れ取り戻し](feedback_weekly_review_late_catchup.md) — 旧週削除のリンク・対応済み照合・publish型停止
 - [着手前git同期](feedback_session_start_git_sync.md) — fetch・PR squash巻込み
 - [/docs/URLフラットslug](feedback_sns_docs_url_flat_slug.md) — 接頭辞必須・pre-commit検証
