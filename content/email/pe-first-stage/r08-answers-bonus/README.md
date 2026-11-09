@@ -7,6 +7,9 @@
 | [self-scoring-sheet.md](./self-scoring-sheet.md) | ①科目別の自己採点シート（合格ラインとの差）と復習シート | 印刷用 PDF にして登録直後のメールに添付（PDF は配布を始めるときに作る） |
 | [next-steps.md](./next-steps.md) | ②結果別の次の一手（合格圏・ボーダー・届かない） | 登録直後のメール本文、または同じ PDF の後半 |
 | ― | ③合格発表日の通知 | Brevo の配信で送る（日付は日本技術士会の公表後に決める） |
+| [emails.md](./emails.md) | 確認メールと特典メールの文面 | Brevo のテンプレートに入れる |
+
+PDF は `node scripts/magazine-to-pdf.mjs --spec "scripts/pdf-specs/技術士一次-R8速報-登録特典.json"` で作る（出力 `.tmp/pe1-r08-bonus-pdf/`）。配る PDF は Drive vault の `制作物/` に置き、リンクを知っている人が見られる共有にして特典メールに貼る（公開 R2 に置かない・asset-storage-policy.md）。
 
 ## 根拠にした事実（2026-11-09 確認）
 
