@@ -6856,6 +6856,23 @@
       "commit": "b1ed46e80484",
       "verification": null,
       "note": "PR #1456: GscSitemaps のテストが robots.txt の sitemap 1 件で成り立たなくなっていたのを直し、commit 前の検査が落ちたテストの行を先に出すようにした。fetch-metrics（run 42425463096）が develop へ publish し、W44 のダイジェストが出て Issue #1421 が閉じた"
+    },
+    {
+      "id": "DN-1055",
+      "at": "2026-11-09",
+      "task": "基準書 kinki/common の 2 章が画面の目視判定で不合格（1-2・10-15）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/standards-render-fixes.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7537d21f85bf",
+      "verification": "standards-visual-review record で 2 章 pass・check-standard-articles 480 PASS",
+      "note": "1-2・10-15 を撮り直して目視判定で合格（作業票 20261109T060218Z）。横結合の長文は（同左）、表1-2-1 は headerImage で 1 段、キャプション直後の 1 行見出しの小さな表を表に"
     }
   ]
 }
