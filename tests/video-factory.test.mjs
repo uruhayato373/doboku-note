@@ -31,9 +31,19 @@ function fixture() {
   write('pop-image.json', { policy: 'keep-me', revisions: { old: { note: 'keep' } } });
   return { root, dir, done: () => rmSync(root, { recursive: true, force: true }) };
 }
+let fakeCalls = 0;
+// 実際の生成と同じく呼ぶたびに別の画像を返す（左上の 1 画素だけ変える）。同じ画像は取り違えとして弾かれる（DN-1036）
 const fake = (bytes) => async (_p, _m, { images }) => {
   assert.ok(images.length > 0);
-  const out = join(tmpdir(), `vf-${process.pid}-${Math.floor(performance.now() * 1000)}.png`);
+  fakeCalls += 1;
+  const out = join(tmpdir(), `vf-${process.pid}-${fakeCalls}-${Math.floor(performance.now() * 1000)}.png`);
+  const n = fakeCalls;
+  writeFileSync(out, await sharp(bytes).composite([{ input: { create: { width: 1, height: 1, channels: 3, background: { r: n % 256, g: (n >> 8) % 256, b: 7 } } }, left: 0, top: 0 }]).png().toBuffer());
+  return out;
+};
+// 呼ぶたびに同じ画像を返す（並列の実行で別の実行の画像を取り違えたときの形）
+const fakeSame = (bytes) => async () => {
+  const out = join(tmpdir(), `vf-same-${process.pid}-${Math.floor(performance.now() * 1000)}.png`);
   writeFileSync(out, bytes);
   return out;
 };
@@ -68,6 +78,21 @@ test('計画: 原稿が同じ項目は生成済みを引き継ぎ、変わった
     writeFileSync(join(f.dir, 'storyboard.json'), JSON.stringify(board));
     const plan = buildPlan(f.root, PACK, { date: '20261104', refs });
     assert.deepEqual(plan.items.filter((i) => !i.raw).map((i) => i.id), ['a']);
+  } finally { f.done(); }
+});
+
+test('生成: 別の場面と同じ画像は採らず、取り違えの疑いとして作り直しへ回す（DN-1036）', async () => {
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261104', refs });
+    const result = await generatePlan(f.root, PACK, { generate: fakeSame(await png(1920, 1080)), concurrency: 1 });
+    const plan = readPlan(f.root, PACK);
+    const adopted = plan.items.filter((i) => i.raw);
+    assert.equal(adopted.length, 1, '同じ画像を 2 つ以上の場面に採った');
+    const rejected = plan.items.filter((i) => !i.raw);
+    assert.ok(rejected.length >= 1);
+    for (const i of rejected) assert.match(i.lastError, /同じ画像（取り違えの疑い）/);
+    assert.equal(result.missing, rejected.length);
   } finally { f.done(); }
 });
 

@@ -160,6 +160,9 @@ export async function generatePlan(root, pack, { concurrency = 3, generate = gen
     const issues = await inspect(bytes, item.kind);
     if (issues.length) { item.fix = issues.join('／'); item.lastError = item.fix; log(`${item.id}: ${item.fix}`); return; }
     const sha256 = hash(bytes);
+    // 別の場面と同じ画像は、並列の実行で別の画像を取り違えた疑いがある（DN-1036）。採らずに作り直しへ回す
+    const twin = plan.items.find((other) => other !== item && other.raw?.sha256 === sha256);
+    if (twin) { item.lastError = `${twin.id} と同じ画像（取り違えの疑い）`; log(`${item.id}: ${item.lastError}`); return; }
     const path = `.tmp/media/${pack}/work/factory/raw-${item.id}.${sha256.slice(0, 8)}.png`;
     mkdirSync(dirname(join(root, path)), { recursive: true });
     writeFileSync(join(root, path), bytes);
