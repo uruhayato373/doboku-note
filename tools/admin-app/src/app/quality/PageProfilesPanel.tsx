@@ -6,7 +6,7 @@ import { readDataset } from '../../../../../scripts/lib/dataset-io.mjs';
 type Evaluator = { agent: string; role: string; categories?: string[] };
 type Profile = { id: string; label: string; focus: string; machineChecks: string[]; metrics: string[]; evaluators: Evaluator[]; evaluatorGap?: string; notApplicable: string[] };
 
-const ROLE: Record<string, string> = { rubric: '採点', facts: '事実', figures: '図', tables: '表' };
+const ROLE: Record<string, string> = { rubric: '採点', facts: '事実', figures: '図', tables: '表', render: '画面' };
 const COLUMNS: DataTableColumn[] = [
   { key: 'label', label: 'ページの種類' },
   { key: 'rubric', label: '採点の評価役' },

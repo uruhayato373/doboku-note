@@ -39,6 +39,8 @@ OGP は章ごとに `chapters/{id}/ogp.png` へ生成し asset-storage の `site
 MDX だけでなく manifest と生成器も見る**——入れ忘れると章を足しても供給が発火せず、
 og:image が R2 に無い URL を指したまま本番へ出る。
 
+**画面の目視判定（2026-11-09・`/standards-visual-review`）。** 機械の 20 検査が全 PASS でも、本番の画面に表の記法の文字が出ていた（DN-0916）。`npm run standards-visual-review` が章を撮り（表・図ごと・本文の区切り・記法の段落）、`<SourceRef>` の原本ページ画像を添えた作業票を作る → `standards-page-visual-auditor` が見比べて pass/fail → record が検証して台帳（outputSha256 に結ぶ・中身が変わった章が次に先に選ばれる）へ書き、`--ticket` で文書ごとに起票。週次の点検 `standards-visual-review:status` が未起票と 14 日以上の放置を赤にする。初回 3 章で、近畿の共通仕様書 3-2 の表の崩れ 2 件（DN-1052）と必携の標準図の欠落（図の見出しだけの 1 行の表・DN-1053）を拾った。**機械の検査で通っていた「図が見出しだけの表に化ける」は目視でしか拾えない**。
+
 **E2E はビルド成果物に対して回す（2026-08-30 に移行）。** `npm run serve`（新設・out/ を
 3025 で配信し `_redirects` の 301 も適用）が既定ターゲット。`E2E_DEV=1` で従来の dev。
 dev だと初回コンパイルで落ちるテストが実行ごとに入れ替わり、旧 `/category/` `/docs/` は

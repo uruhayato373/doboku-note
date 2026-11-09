@@ -1220,7 +1220,7 @@ export const ConfigPageQualityProfiles = z
                 z
                   .object({
                     agent: QID.describe('.claude/agents の名前'),
-                    role: z.enum(['rubric', 'facts', 'figures', 'tables']),
+                    role: z.enum(['rubric', 'facts', 'figures', 'tables', 'render']),
                     categories: z.array(QID).min(1).optional().describe('対象の資格（省略は全資格）'),
                   })
                   .strict(),

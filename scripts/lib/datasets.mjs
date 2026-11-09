@@ -358,6 +358,7 @@ export const DATASETS = [
   d('state.video-agent-reviews', '.claude/state/quality/video-agent-reviews.json', 'ledger', 'sns', '承認待ちの動画を video-review エージェントが確認した判定'),
   d('state.video-audio-checks', '.claude/state/quality/video-audio-checks.json', 'ledger', 'sns', '完成動画の音声を台本と機械で照合した結果（動画の sha に結ぶ）'),
   d('state.figure-review-ledger', '.claude/state/quality/figure-review-ledger.json', 'ledger', 'site', '図の目視判定の記録'),
+  d('state.standards-visual-review', '.claude/state/quality/standards-visual-review.json', 'ledger', 'site', '基準書の章ページの画面を原本と見比べた目視判定の記録（standards-visual-review record・章の outputSha256 に結ぶ）'),
   d('state.figure-crop-report', '.claude/state/quality/figure-crop-report.json', 'state', 'site', '図のクロップ品質の最新'),
   d('state.quality-campaigns', '.claude/state/quality/content-{name}.json', 'evidence', 'site', '記事の拡充・出典の回復の一回きりの作業記録'),
   d('state.playwright-auth-wiring', '.claude/state/quality/playwright-auth-wiring-last.json', 'state', 'ops', 'Playwright の認証の配線検査の最新'),

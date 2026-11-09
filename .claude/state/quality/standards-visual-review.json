@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "runs": [
+    {
+      "runId": "20261109T030512Z",
+      "at": "2026-11-09T03:09:16.223Z",
+      "base": "https://doboku-note.com",
+      "chapters": 3,
+      "pass": 0,
+      "fail": 3
+    }
+  ],
+  "chapters": {
+    "kinki/common/3-2": {
+      "outputSha256": "47e9c362faf6994974c528c148e29b634374b2992b0f58301d5c24f60f49a082",
+      "verdict": "fail",
+      "reviewedAt": "2026-11-09T03:09:16.221Z",
+      "runId": "20261109T030512Z",
+      "urls": [
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/1",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/2",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/3",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/4",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/5",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/6",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/7",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/8",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/9",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/10",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/11",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/12",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/13",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/14",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/15",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/16",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/17",
+        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/18"
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "type": "table",
+          "detail": "原本 p260 の表3-2-15（現場円周溶接部の目違いの許容値、3行×3列）が、画面では見出し行（外径・許容量・摘要）だけの空の表になっている。本体の3行は表の外に段落として出て、『上ぐ い と下 ぐ いの 外 周長…』のように文字間が空き、外径・許容量が摘要と混ざって読めない（MD 1901-1909 行付近、2276 行付近）。",
+          "shot": "table-24.png",
+          "sourcePage": 260
+        },
+        {
+          "severity": "major",
+          "type": "table",
+          "detail": "原本 p273 の表3-2-22 は、混合物の種類の見出し下に粒度区分（20）（13）（13F）が全列にあるが、画面では③④⑥⑦⑧の列で区分が欠け、⑥⑦⑧の（13F）と③④⑨の（13）が読み取れない。また行見出しが『通過質量百分率□%□』と記号で化けている（原本は縦書きの『通過質量百分率（%）』）。",
+          "shot": "table-32.png",
+          "sourcePage": 273
+        },
+        {
+          "severity": "minor",
+          "type": "table",
+          "detail": "原本 p242 の表3-2-12 の線径欄の（ ）［ ］の括弧（30cm規格・50cm規格の区別）が画面で消え、4つの値が並ぶだけで注2と対応が付かない。左見出しの『項目 項目 試験箇所』は原本の斜線見出しの崩れで原本どおり。表中に薄い縦の帯が出ている。",
+          "shot": "table-17.png",
+          "sourcePage": 242
+        },
+        {
+          "severity": "minor",
+          "type": "other",
+          "detail": "原本との対応が付いておらず原本未照合。画面だけでは3列の表として読める（ゴムアスファルト系の行が表中の見出し行のように出ている）。",
+          "shot": "table-40.png"
+        }
+      ],
+      "deterministic": [],
+      "ticket": "DN-1052"
+    },
+    "kinki/hikkei/19-2": {
+      "outputSha256": "0c4dc929f5f8a6254fc1d2db06fff1273f3edd3271164ea5f24b7244cf29240d",
+      "verdict": "fail",
+      "reviewedAt": "2026-11-09T03:09:16.221Z",
+      "runId": "20261109T030512Z",
+      "urls": [
+        "https://doboku-note.com/standards/kinki/hikkei/chapters/19-2"
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "type": "figure",
+          "detail": "原本の標準図（A-3・A-4（p502-503相当）、B-1・B-2（p503）、C-1・C-2（p504）、E・F-1（p506）の配置図。保安施設の番号・距離・矢印・工事施工箇所）が画面に一切無く、表は『型名・条件・昼夜』の見出し1行だけが残っている（table-01〜06 すべて。原本画像と照合済み。06 は p506 の E型・F-1型）。注（1）〜（4）の図の注記も同様に欠けている。",
+          "shot": "table-01.png",
+          "sourcePage": 502
+        },
+        {
+          "severity": "major",
+          "type": "markup",
+          "detail": "markup-01.png に表記法の文字『| G型 標準図 | 長期間の路側工事 | 夜間工事 ||---|---|---|』が段落として出ている（機械検査の markup 2件：区切り行と表の1行）。G型の表が表にならず記法の文字のまま読者に見える。",
+          "shot": "markup-01.png"
+        }
+      ],
+      "deterministic": [
+        {
+          "type": "markup",
+          "detail": "表記法: …必要に応じ交通誘導員を置くこと。 10 | G型 標準図 | 長期間の路側工事 | 夜間工事 ||---|---|---…",
+          "url": "/standards/kinki/hikkei/chapters/19-2"
+        },
+        {
+          "type": "markup",
+          "detail": "表記法（区切り行）: … | 長期間の路側工事 | 夜間工事 ||---|---|---| ↔ 左右にスクロールして表を読む 注（1）①及び…",
+          "url": "/standards/kinki/hikkei/chapters/19-2"
+        }
+      ],
+      "ticket": "DN-1053"
+    },
+    "kinki/hikkei/36-1": {
+      "outputSha256": "5194cfd3460d24a5f27b0016443561c1131fe878fab33c0e1659f54c0de59d1b",
+      "verdict": "fail",
+      "reviewedAt": "2026-11-09T03:09:16.221Z",
+      "runId": "20261109T030512Z",
+      "urls": [
+        "https://doboku-note.com/standards/kinki/hikkei/chapters/36-1"
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "type": "markup",
+          "detail": "表－1（試験依頼内訳）が表にならず、『| 層別と混合物／交通区分 | 表層：排水性 | … ||---|---|:---:| …』と記法の文字のまま1段落に出ている（markup-01）。",
+          "shot": "markup-01.png"
+        },
+        {
+          "severity": "major",
+          "type": "markup",
+          "detail": "表－2（試験項目と持ち込み数量）が記法の文字の段落になり、区切り行『||---|---|』と『<br>』の文字もそのまま画面に出て、行・列が読み取れない（markup-02、page-01 でも確認）。",
+          "shot": "markup-02.png"
+        },
+        {
+          "severity": "major",
+          "type": "markup",
+          "detail": "表－3（持ち込み骨材の内訳）と表－4（目標動的安定度）も同様に記法の文字の段落で出ている（markup-03、page-01）。撮影（shots）は 0 件のため、表としての描画が無い。原本（p721-725）との個別照合はしていない。",
+          "shot": "markup-03.png"
+        }
+      ],
+      "deterministic": [
+        {
+          "type": "markup",
+          "detail": "表記法: …験対象層について 表－1 試験依頼内訳 | 層別と混合物／交通区分 | 表層：排水性 | 表層：改質As | 表層：改質…",
+          "url": "/standards/kinki/hikkei/chapters/36-1"
+        },
+        {
+          "type": "markup",
+          "detail": "表記法（区切り行）: …間層：改質As | 中間層：改質再生 ||---|---:|---:|---:|---:|---:|| C交通 | ○ …",
+          "url": "/standards/kinki/hikkei/chapters/36-1"
+        }
+      ],
+      "ticket": "DN-1053"
+    }
+  }
+}
