@@ -51,6 +51,7 @@
 - [ライブ一括操作の罠](feedback_platform_only_artifacts_destroyed_by_bulk_ops.md) — SoT外の添付破壊
 - [再発防止の仕組み化](feedback_prevention_over_patching.md) — 手動ゲートは素通り
 - [X予約偽成功](feedback_publish_x_false_success.md) — キュー実体検証
+- [X返信の表示遅れ](reference_x_reply_send_lag.md) — 押し直さず入力欄で判定
 - [レビュー申し送り台帳](feedback_review_tasks_to_backlog.md) — DN起票・backlog罠
 - [検証タグは develop の script](feedback_backlog_verify_tag_unmerged_script.md) — 未マージの script を書くと CI 赤
 - [週次の遅れ取り戻し](feedback_weekly_review_late_catchup.md) — 旧週削除のリンク・対応済み照合・publish型停止
