@@ -70,6 +70,19 @@ test('講座側・返信・リポストは候補にしない', () => {
   assert.equal(classifyPost(post({ text: 'RT @x: 合格しました' }), config), 'reply');
 });
 
+test('添削・講座の語があっても、結果を書いた受験者本人の投稿は宣伝にしない（DN-1059）', () => {
+  // 2026-11-09 に取りこぼした実際の投稿
+  assert.equal(classifyPost(post({ text: '技術士の試験結果を上司に提出したら、「来年は添削コースに申し込もう！」て言われたけど、予想問題と骨子だけ下さい。あとは自分でやりますので。。' }), config), 'study');
+  assert.equal(classifyPost(post({ text: 'ABAで不合格。来年は添削を受けようかな' }), config), 'fail');
+  // 結果を書いていなければ、これまでどおり宣伝
+  assert.equal(classifyPost(post({ text: '技術士二次の論文添削をしています' }), config), 'supplier');
+  assert.equal(classifyPost(post({ text: '口頭試験対策の講座を開きます' }), config), 'supplier');
+  // 自分のアカウント（@doboku373）の投稿は語によらず候補にしない
+  assert.equal(classifyPost(post({ text: "総監の筆記、おつかれさまでした。届かなかった人は通知で確かめるところから", user: "doboku373" }), config), "supplier");
+  // 強い宣伝の語は結果の語があっても宣伝
+  assert.equal(classifyPost(post({ text: '不合格だった方へ、添削の受付中です' }), config), 'supplier');
+});
+
 test('1 アカウント 1 件で、尋ねている投稿を先に出す', () => {
   const posts = [
     tp({ id: '1', user: 'a', text: '不合格でした' }),

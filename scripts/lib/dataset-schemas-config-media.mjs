@@ -602,6 +602,14 @@ export const ConfigXReplyTrial = z
     studyWords: z.array(z.string().min(1)).describe('試験前の勉強・直前の悩みの語（2026-11-08〜）'),
     careWords: z.array(z.string().min(1)).min(1),
     supplierWords: z.array(z.string().min(1)),
+    supplierSoftWords: z
+      .array(z.string().min(1))
+      .optional()
+      .describe('受験者本人も書く宣伝寄りの語（添削・講座など）。結果を書いた投稿では宣伝にしない（2026-11-09〜・DN-1059）'),
+    resultWords: z
+      .array(z.string().min(1))
+      .optional()
+      .describe('合否を書かずに試験の結果に触れる語（試験結果など）。勉強・直前と同じ扱いで候補にする（2026-11-09〜・DN-1059）'),
     toneWords: z
       .array(z.string().min(1))
       .min(1)
