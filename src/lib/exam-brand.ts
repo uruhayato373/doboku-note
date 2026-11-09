@@ -50,6 +50,10 @@ export const QUALIFICATION_TO_EXAM_KEY: Readonly<Record<string, ExamKey>> = {
   'concrete-diagnostician': 'concrete-diagnosis',
   rccm: 'rccm',
   surveyor: 'surveyor',
+  'assistant-surveyor': 'surveyor',
+  // まとまり（registry の groups）で指す商品も同じブランドへ（画像のパレットと揃える・DN-1012）
+  surveying: 'surveyor',
+  pavement: 'pavement',
   'pavement-1': 'pavement',
   'pavement-2': 'pavement',
   'pipe-work': 'pipe-work',

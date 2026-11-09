@@ -29,14 +29,6 @@
 
 
 
-### [DN-1012] 資格キーの変換を導出にして全資格をテストで固定する
-タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。資格 id の別名を変換する表が `longform-render.mjs:25` の `EXAM_TO_PALETTE`、`registry-x-state.mjs:21` の `EXAM_ALIAS`、`exam-brand.ts` の `QUALIFICATION_TO_EXAM_KEY`、`hub-cta.ts` の `examKey`、`past-exam-ledger.mjs` の `quizExam` に分かれる。実測で rccm・pe-water-supply・civil-construction-1-2・surveying・pavement・pipe-work が `EXAM_TO_PALETTE` にない。`render-instagram-video-pack-*` は `resolveExam(undefined)` で落ちるコードで、`image-rules.mjs` は `?? exam` で通るので呼び出し元で結果が変わる。例外の実行は未確認。`check-qualification-ssot` は名前だけを見てキー変換を見ない。
-
-**やること**: `note-cover-tokens.json` の `qualification` から変換を導出する。`exam-palette.mjs` を描画に依存しない場所へ置き、`image-rules.mjs` から `longform-render.mjs` への依存を外す。
-
-**完了条件**: registry の全資格について変換できるか、未対応と明示されているかをテストが確かめる。呼び出し元ごとの fallback の違いが無くなる。
 
 
 

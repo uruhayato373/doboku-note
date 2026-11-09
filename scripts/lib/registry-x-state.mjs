@@ -15,15 +15,20 @@ import { idShapeIssues, pubIdOf } from './content-registry.mjs';
 import { datasetDir } from './datasets.mjs';
 import { readJsonIf } from './json-io.mjs';
 import { X_HANDLE } from './site-identity.mjs';
+import { examToPalette, paletteQualification } from './qualification-palette.mjs';
 
 export const X_ROOT = 'content/sns/x';
 const OLD_ACCOUNT = '_archive-old-account';
-export const EXAM_ALIAS = {
-  'pe-construction': 'pe-construction', 'pe-comprehensive': 'pe-comprehensive-management', cem: 'pe-comprehensive-management',
-  'civil-1': 'civil-construction-1', civil1: 'civil-construction-1', 'civil-construction-1': 'civil-construction-1',
-  'civil-2': 'civil-construction-2', civil2: 'civil-construction-2', 'civil-1-2': 'civil-construction-1-2', 'civil-1+2': 'civil-construction-1-2', civil: 'civil-construction-1-2',
-  'concrete-chief': 'concrete-chief-engineer', 'pe-first-stage': 'pe-first-stage', rccm: 'rccm',
-};
+/**
+ * X の作品フォルダ・状態に書かれた資格の呼び名 → 資格 id。パレットのキー（civil-1 など）と資格 id は note-cover-tokens.json の
+ * qualification から導き（DN-1012）、トークンに無い略称だけをここに書く。
+ */
+const X_SHORTHANDS = { cem: 'pe-comprehensive-management', civil1: 'civil-construction-1', civil2: 'civil-construction-2', 'civil-1+2': 'civil-construction-1-2', civil: 'civil-construction-1-2' };
+export const EXAM_ALIAS = Object.fromEntries([
+  ...Object.values(examToPalette()).map((key) => [key, paletteQualification(key)]),
+  ...Object.keys(examToPalette()).map((id) => [id, id]),
+  ...Object.entries(X_SHORTHANDS),
+]);
 
 /** フォルダ名 → 作品 ID（規則に合う形） */
 export function xWorkId(folder) {

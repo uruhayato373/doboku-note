@@ -28,7 +28,7 @@ import sharp from 'sharp';
 import { COVER_FORMATS, coverFonts, renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 import { coverInputDigest } from './lib/youtube-approved-cover.mjs';
 import { loadVideoBrand, brandedCoverNode, brandedCtaNode } from './lib/video-brand.mjs';
-import { EXAM_TO_PALETTE } from './lib/longform-render.mjs';
+import { requirePaletteKey } from './lib/qualification-palette.mjs';
 import { mediaPath } from './lib/media-paths.mjs';
 import { pubIdOf } from './lib/content-registry.mjs';
 
@@ -60,7 +60,7 @@ const results = [];
 // 表紙: 見出しと人物は spec から描き直し（採用済み画像は使わない）、ロゴを重ねる
 const designPath = join(packDir, 'cover-design.json');
 if (existsSync(designPath)) {
-  const design = validateCoverDesign(JSON.parse(readFileSync(designPath, 'utf8')), { exam: EXAM_TO_PALETTE[exam] });
+  const design = validateCoverDesign(JSON.parse(readFileSync(designPath, 'utf8')), { exam: requirePaletteKey(exam) });
   for (const [key, spec] of Object.entries(design.covers ?? {})) {
     const { approvedImage: _previous, ...fresh } = spec;
     const layout = COVER_FORMATS[spec.format];

@@ -6,14 +6,15 @@
 import { readDataset } from './dataset-io.mjs';
 import { REPO_ROOT } from './repository-paths.mjs';
 import { readJson } from './json-io.mjs';
-import { EXAM_TO_PALETTE } from './longform-render.mjs';
+import { paletteKeyOf } from './qualification-palette.mjs';
 
 export const loadImageRules = (root = REPO_ROOT) => readDataset(root, 'config.image-generation');
 
 /** 資格の色を生成指示の文へ。未知の資格は投げる（色を推測しない） */
 export function examPalette(exam, root = REPO_ROOT) {
   const tokens = readJson(root, '.claude/knowledge/design-system/note-cover-tokens.json').exams;
-  const color = tokens[EXAM_TO_PALETTE[exam] ?? exam];
+  const key = paletteKeyOf(exam, root);
+  const color = key ? tokens[key] : null;
   if (!color?.base) throw new Error(`資格の色が無い: ${exam}`);
   return `主色 ${color.base} と濃色 ${color.deep}`;
 }
