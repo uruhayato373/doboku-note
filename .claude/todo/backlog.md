@@ -459,6 +459,21 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1055] 基準書 kinki/common の 2 章が画面の目視判定で不合格（1-2・10-15）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:standards-visual-review] [起票:2026-11-09]
+
+**起点**: 2026-11-09 の画面の目視判定（`npm run standards-visual-review`・作業票 20261109T042537Z）で、kinki/common の 2 章が不合格になった。判定は撮影した画面と原本のページ画像の見比べ（エージェント standards-page-visual-auditor）と、描画で決まる崩れの機械判定。台帳は .claude/state/quality/standards-visual-review.json。
+
+- kinki/common/1-2（http://localhost:3025/standards/kinki/common/chapters/1-2）
+  - table: 表1-2-1 は値が別の列へずれてはおらず、原本の結合セルを平らに展開した結果の横長（約5000px）。ただし画面では、名称の4列目（Ⅰ・Ⅱ列）と説明の2列目に見出しが無く、見出し行の A/B/C が本体の最初の行として出る。岩塊玉石・軟岩・硬岩の行では原本で 1 つに結合された説明文が 2 列に同じ文で重複し、摘要が名称から約4000px 右に離れて、原本を見ずに行を追えない。（table-01.png・原本 p118）
+- kinki/common/10-15（http://localhost:3025/standards/kinki/common/chapters/10-15）
+  - table: 10-15-3-1 第4項の表10-15-1（作業区分・作業時間帯の表）が表にならず、「表10-15-1 作業区分作業区分 作業時間帯」「昼間作業 7時00分～19時00分」「夜間作業 19時00分～7時00分」の3段落になって見出しの列と値の対応が読み取れない（原本は表）（page-02.png）
+
+**やること**: 原因（生成器 scripts/build-standard-articles.mjs・表の台帳・描画の部品のどれか）を直す。同じ原因の章はまとめて直す。
+
+**完了条件**: `npm run standards-visual-review -- prepare --keys kinki/common/1-2,kinki/common/10-15` で撮り直して判定し、record で全章が pass と台帳に記録される。
+
+
 ### [DN-1054] 東北の参考資料 16-1 の保安施設の標準図（横向きの 1 ページ 1 図）を原本から切り出して入れる
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:check-standard-articles] [起票:2026-11-09]
 
