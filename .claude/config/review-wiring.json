@@ -62,6 +62,12 @@
           "role": "点検"
         },
         {
+          "command": "standards-visual-review:status",
+          "label": "基準書の章ページの画面の目視判定（未起票の不合格・判定待ちがあるのに 14 日以上回していない）",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
           "command": "quality:audit:weekly",
           "label": "週次の点検（期日が週・月の単位の点検と、結果がリポジトリの中身だけで決まる点検。毎日は回さない・DN-0847）",
           "stage": "基盤の点検",
@@ -370,6 +376,10 @@
         {
           "command": "check-taxonomy-wiring",
           "label": "分類と回遊の配線"
+        },
+        {
+          "command": "standards-visual-review:status",
+          "label": "基準書の章ページの画面の目視判定"
         },
         {
           "command": "quality:audit:weekly",

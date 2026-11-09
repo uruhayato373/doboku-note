@@ -368,6 +368,10 @@
         {
           "agent": "scanned-figure-crop-auditor",
           "role": "figures"
+        },
+        {
+          "agent": "standards-page-visual-auditor",
+          "role": "render"
         }
       ],
       "notApplicable": [
