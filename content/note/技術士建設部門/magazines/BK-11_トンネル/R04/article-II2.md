@@ -25,7 +25,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：補助工法の実施記録データや計測データの収集・活用（データ活用）、設計者・施工者・近接施設管理者・住民との合意形成（合意形成）、安全・経済・環境の三側面による持続可能なトンネル施工の実現（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：補助工法の実施記録データや計測データの収集・活用（データ活用）、設計者・施工者・近接施設管理者・住民との合意形成（合意形成）、安全・経済・環境の三側面による持続可能なトンネル施工の実現（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=nc91789634fa9)
 
 ---
 
@@ -54,6 +54,11 @@ cover:
 本番ではII-2-1・II-2-2のいずれか1問を選んで解答しますが、本記事では両選択肢を網羅し、どちらを選んでも対応できるようにしています。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜トンネル 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）21本をまとめて読めるマガジンがあります。4本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/m5da4b560d8be
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。

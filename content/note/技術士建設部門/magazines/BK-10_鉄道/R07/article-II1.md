@@ -25,7 +25,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：点検・計測・モニタリングデータの活用（データ活用）、地域住民・関係機関・発注者との合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果の達成（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：点検・計測・モニタリングデータの活用（データ活用）、地域住民・関係機関・発注者との合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果の達成（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n4b921418b0ec)
 
 ---
 
@@ -56,6 +56,11 @@ cover:
 各解答は、設問が求める論点を論理連鎖で組み立て、発注者（鉄道事業者・公共交通担当行政）ならではの施工監督・品質管理・維持管理の視点を答案に活かす方法を示すものです。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜鉄道 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）21本をまとめて読めるマガジンがあります。4本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/m535a4a4353c3
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。

@@ -23,7 +23,7 @@ cover:
 
 # 技術士 建設部門｜必須科目 I R07 模範解答
 
-**令和8年度の改訂コンピテンシーに対応した模範解答です。** 令和8年度の技術士第二次試験から適用される改訂版コンピテンシーを踏まえ、問題解決（データ・情報技術の活用／多角的な視点・ステークホルダーの合意形成）と技術者倫理（持続可能な成果の達成／社会・経済・環境の三側面／文化的価値の尊重）を答案に織り込んでいます。改訂内容は[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)を参照してください。
+**令和8年度の改訂コンピテンシーに対応した模範解答です。** 令和8年度の技術士第二次試験から適用される改訂版コンピテンシーを踏まえ、問題解決（データ・情報技術の活用／多角的な視点・ステークホルダーの合意形成）と技術者倫理（持続可能な成果の達成／社会・経済・環境の三側面／文化的価値の尊重）を答案に織り込んでいます。改訂内容は[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n6cbd95df5aad)を参照してください。
 
 **こんな人のための記事です**
 
@@ -58,6 +58,11 @@ R07は「持続可能な建設業の実現（I-1）」と「経済成長の実�
 丸暗記ではなく、示した論理展開を自分の言葉で再現できるよう繰り返し読み込んでください。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜必須科目I 模範解答集 R3-R8」に収録されています。必須科目I の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）12本をまとめて読めるマガジンがあります。5本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/m0f3bc3933454
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。
