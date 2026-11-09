@@ -145,3 +145,4 @@
 - [IG照合](reference_ig_publish_reconcile.md) — verify-ig-status・--now偽陰性
 - [YouTube予約](reference_youtube_schedule.md) — publishAt・quota・60秒
 - [aidesigner](reference_aidesigner_mcp.md) — クレジット制約・inspire
+- [note コメント上限](reference_note_comment_rate_limit.md) — 約50分10件で上限・購入者限定欄
