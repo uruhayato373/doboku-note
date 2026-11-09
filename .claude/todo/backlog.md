@@ -474,6 +474,19 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1054] 東北の参考資料 16-1 の保安施設の標準図（横向きの 1 ページ 1 図）を原本から切り出して入れる
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:check-standard-articles] [起票:2026-11-09]
+
+**起点**: 2026-11-09、近畿の必携 19-2（DN-1053）と北海道の付表 1-1 で、保安施設の標準図の題名だけが残り図が抜けていたのを、原本から切り出した図で直した（設定 `standardFigureTitles`・図の台帳 figures.json）。同じ標準図を持つ東北の参考資料（tohoku/reference）16-1 は、原本 p360〜p380 が 1 ページ 1 図の横向き（備考の注記も枠の中）で、テキスト層の表の領域が複数ページにまたがる（例 SourceRef 359-370）ため、同じ手順では題名とページを結べず、今回は外した。いまも題名だけが表のキャプションや段落で出ていて、図は無い。16-1 は索引される章。
+
+**やること**:
+1. p360〜p380 の各ページの標準図（横向き）を、題名から型（A-1 など）とページの対応表にする。テキスト層で拾えている題名は 9 件（A-1・A-2・C-1・C-2・E-1・E-2・F-3・H-1・H-2）
+2. 横向きのページを回転して、枠ごと（備考を含めるかを決める）切り出し、`scanned-figure-crop-auditor` で監査して `content/sources/standards/tohoku/reference/figures.json` に足す
+3. 題名を拾えていない型の図の置き場所を決める（章末にまとめる・ページの順に差し込むなど）。`config/standards-structure.json` の `documents["tohoku/reference"].standardFigureTitles` を有効にする
+
+**完了条件**: `npm run check-standard-articles -- tohoku/reference` の検査 20 が PASS で、`npm run standards-visual-review -- prepare --keys tohoku/reference/16-1` の目視判定が pass と台帳に記録される。
+
+
 ### [DN-1053] 基準書 kinki/hikkei の 2 章が画面の目視判定で不合格（19-2・36-1）
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:standards-visual-review] [起票:2026-11-09]
 
