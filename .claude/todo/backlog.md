@@ -459,6 +459,21 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1059] X 返信候補の収集で結果報告の言い方と「添削」を含む受験者の投稿を取りこぼす
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-09]
+
+2026-11-09、X 返信候補の収集で @Nekoryoshka（技術士 土質及び基礎 不合格・投稿 2119734938878816396）を取りこぼした。原因は 2 つ。
+
+1. 収集漏れ: 本文「技術士の試験結果を上司に提出したら…」が config/x-reply-trial.json の検索語（技術士 不合格／二次試験／勉強 など）に当たらない。未フォローなのでフォロー中タブにも出ない（おすすめタブは手順で読んでいない）。
+2. 判定漏れ: classifyPost が本文の supplierWords「添削」一語で supplier に落とす（受験者本人の投稿でも）。同日の supplier 除外 57 件に同種が混じるかは未確認。
+
+完了条件:
+- scripts/lib/x-reply-candidates.mjs: 本文に結果・受験の語（試験結果・不合格・✗ 等）があるときは 添削/講座/受講 等で supplier にしない。上の投稿を回帰テストに入れる
+- config/x-reply-trial.json: 検索語に「技術士 試験結果」等を足す
+- .claude/skills/social/x-reply/SKILL.md 手順 2 におすすめタブの保存を足す
+- 当日の excluded.json の supplier 分を新判定で再判定し、拾い直せた件数を記録
+
+
 **やること**: 原因（生成器 scripts/build-standard-articles.mjs・表の台帳・描画の部品のどれか）を直す。同じ原因の章はまとめて直す。
 
 **完了条件**: `npm run standards-visual-review -- prepare --keys kinki/hikkei/36-1` で撮り直して判定し、record で全章が pass と台帳に記録される。
