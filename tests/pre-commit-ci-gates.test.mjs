@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { existsSync } from 'node:fs';
-import { GATES, UNIT_TEST_RULES, gateEnv, planGates, unitTestsFor } from '../scripts/pre-commit-ci-gates.mjs';
+import { GATES, UNIT_TEST_RULES, failureLines, gateEnv, planGates, unitTestsFor } from '../scripts/pre-commit-ci-gates.mjs';
 import { STEPS } from '../scripts/lib/pre-commit-steps.mjs';
 import { CHECKS } from '../scripts/quality-audit.mjs';
 
@@ -135,4 +135,11 @@ test('unit-tests は hook の GIT_INDEX_FILE などを外して起動する（�
   // --staged で index を読む検査には commit 用の index をそのまま渡す
   const other = GATES.find((g) => !g.isolateGit);
   assert.equal(gateEnv(other, env).GIT_INDEX_FILE, '/repo/.git/next-index.lock');
+});
+
+test('failureLines: 落ちたテストの行と理由だけを抜き出す（末尾だけだと切れる・DN-1043）', () => {
+  const out = ['ok 1 - a', 'not ok 2 - b', '  error: x', '  expected: true', '  actual: false', '  ...', 'ok 3 - c', ...Array.from({ length: 40 }, (_, i) => `ok ${i + 4} - d`)].join('\n');
+  assert.deepEqual(failureLines(out), ['not ok 2 - b', '  error: x', '  expected: true', '  actual: false', '  ...']);
+  assert.ok(!out.split('\n').slice(-25).includes('not ok 2 - b'), '末尾 25 行には落ちた行が残らない例');
+  assert.deepEqual(failureLines('ok 1 - a\nok 2 - b'), []);
 });

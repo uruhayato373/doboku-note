@@ -245,8 +245,14 @@
         "originals": "Codex generated_images（各 variant の original.filename のPNG。実寸のまま変換）"
       },
       "publication": {
-        "status": "未公開",
-        "note": "本番反映・R2読み戻しは main への昇格後に確認する"
+        "status": "反映済み",
+        "deployedAt": "2026-11-04",
+        "verifiedAt": "2026-11-09",
+        "urls": [
+          "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-lead-chokuzen-body-v1.webp?v=f59e5b3844c5",
+          "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-lead-chokuzen-tile-v1.webp?v=b7ad8abce550"
+        ],
+        "note": "R2 の読み戻しは body・tile とも SHA-256 が output と一致。本番 HTML で資格トップ（tile）・概要と解答速報の冒頭（body＋サイドバー tile）に出ることを確認。概要ページを幅375pxで読み込み、冒頭の body が判読できる（tile はサイドバーなのでモバイルでは非表示）"
       }
     }
   }

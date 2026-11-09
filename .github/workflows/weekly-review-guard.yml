@@ -4,12 +4,9 @@ name: Guard PDCA cycle (weekly-review + offline surfacers)
 # 停止・無効・cron ズレで発火しなくなっても、状態はクラウド側にしかなく repo からは見えない。
 # 実際 2026-W27/W28 の 2 週分が silent に欠落した（docs/reviews/weekly が W26 で止まっていた）。
 #
-# 本ガードは毎週月曜に「先週分の *-review.md が生成済みか」を決定的に検査し、無ければ赤落ちさせて
-# ルーティン停止を可視化する（r2-audit / check-ogp-coverage と同じ backstop 思想。レビューの生成は
-# しない＝生成はクラウドルーティンの責務、本ガードは発火の欠落検知のみ）。
-#
-# 赤落ち時の対処: 対話セッション（デスクトップ/web アプリ）で /routines（list-first）→ 無ければ
-#   /schedule で再作成、cron ズレなら update。真実源: .claude/skills/management/routines/SKILL.md
+# 2026-11-08: 週次レビューは運営者の指示で対話セッションが実行する（自動実行をやめた）。抜けた週は後日まとめて
+# 回せば足りるので、「先週分の *-review.md が無ければ赤落ち」の段は外した。未作成の週はセッション開始時に
+# check-weekly-review-due が 1 行で知らせる。本 workflow は下のオフラインの surfacer の実行キャリアとして残す。
 #
 # 2026-07-30: 本 workflow は「レビュー生成の欠落検知」だけでなく、**オフラインで判定できる
 # PDCA surfacer の実行キャリア**も兼ねる。理由: surfacer を weekly-review スキルの中だけに置くと
@@ -18,7 +15,7 @@ name: Guard PDCA cycle (weekly-review + offline surfacers)
 
 on:
   schedule:
-    - cron: "17 2 * * 1" # 毎週月曜 11:17 JST（月曜 02:17 UTC）。先週分の review 生成を検査
+    - cron: "17 2 * * 1" # 毎週月曜 11:17 JST（月曜 02:17 UTC）
   workflow_dispatch:
 
 permissions:
@@ -142,7 +139,7 @@ jobs:
 
       # （2026-09-19 撤去）「ルーティンが PR を出したか」の検査（check-weekly-routine-fired / channel weekly-pdca）は、
       # 週次レビューをクラウドルーティンからローカル実行（土曜・/weekly-review）へ切り替えたため廃止。
-      # 欠落の backstop は下の「Check last week's review exists」（ファイルの実在）だけに一本化する。
+      # その後の「Check last week's review exists」（ファイルの実在で赤落ち）も 2026-11-08 に外した（冒頭）。
 
       # 重要 workflow が「赤いまま」「動いていないまま」を検知する watchdog（2026-08-24 新設）。
       #
@@ -261,9 +258,3 @@ jobs:
               --body-file /tmp/growth-triage-body.md
           fi
 
-      # 先週分の docs/reviews/weekly/YYYY-Www-review.md が無ければ exit 1（赤落ち）。
-      # 依存パッケージ不要（fs のみ）なので npm ci はスキップ。
-      # surfacer より後に置く＝レビュー欠落で赤くても上のサマリは必ず残る。
-      - name: Check last week's review exists
-        if: always()
-        run: node scripts/check-weekly-review.mjs

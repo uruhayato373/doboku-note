@@ -115,8 +115,16 @@ test('ConfigIssueMap: 状態の語彙・判定の dns と window の排他・列
   assertFails(schema, mutated(v, (x) => (leaf(x).competitors = ['note:foo'])), /coconala/);
   assertFails(schema, mutated(v, (x) => (leaf(x).proposedMetrics = ['nope'])), /承認待ちの指標 nope/);
   assertFails(schema, mutated(v, (x) => (leaf(x).map = 'nope')), /マップ nope/);
-  assertFails(schema, mutated(v, (x) => (x.maps[0].judgments[0].window = '2026-11')), /どちらか一方/);
-  assertFails(schema, mutated(v, (x) => delete x.maps[0].judgments[0].dns), /どちらか一方/);
+  // 実データの先頭の判定の型（dns か window か）に依らないよう、dns 型の判定を作ってから崩す
+  const dnsJudgment = (x) => {
+    const j = x.maps[0].judgments[0];
+    delete j.window;
+    delete j.metrics;
+    j.dns = ['DN-0001'];
+    return j;
+  };
+  assertFails(schema, mutated(v, (x) => (dnsJudgment(x).window = '2026-11')), /どちらか一方/);
+  assertFails(schema, mutated(v, (x) => delete dnsJudgment(x).dns), /どちらか一方/);
   assertFails(schema, mutated(v, (x) => (x.maps[0].judgments[0].issues = ['ZZ'])), /サブイシュー ZZ/);
   assertFails(schema, mutated(v, (x) => x.maps[0].calendar.rows[0].cells.pop()), /列の数/);
   assertFails(schema, mutated(v, (x) => x.maps[0].storyline.pop()), /storyline/);

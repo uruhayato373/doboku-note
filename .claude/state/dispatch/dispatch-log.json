@@ -6826,6 +6826,36 @@
       "commit": "66ebe9d4a01c",
       "verification": "公開 API で 2 本の本文に新しい日付があり発送予定が無いことを確認",
       "note": "原稿 2 本・公開中の note 2 本・11 月の X 計画を公式に合わせた"
+    },
+    {
+      "id": "DN-0955",
+      "at": "2026-11-08",
+      "task": "技術士の口頭試験でココナラの想定質問の作成を今季再開するか決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7e79b39be3b9",
+      "verification": null,
+      "note": "2026-11-04 に運営者が再開を決め、週 2 件まで受付で再出品（services/4486050）。下書き 4486043 の削除は DN-0946 で追う"
+    },
+    {
+      "id": "DN-1043",
+      "at": "2026-11-08",
+      "task": "fetch-metrics の develop への publish が型のテストで落ちるのを直し、W44 の計測ダイジェストを出す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/pre-commit-ci-gates.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b1ed46e80484",
+      "verification": null,
+      "note": "PR #1456: GscSitemaps のテストが robots.txt の sitemap 1 件で成り立たなくなっていたのを直し、commit 前の検査が落ちたテストの行を先に出すようにした。fetch-metrics（run 42425463096）が develop へ publish し、W44 のダイジェストが出て Issue #1421 が閉じた"
     }
   ]
 }

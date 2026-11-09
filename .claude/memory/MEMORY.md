@@ -19,6 +19,7 @@
 - [キーワードサイクル](feedback_exam_keyword_cycle_completeness.md) — 全RelatedKeywords処理
 - [過去問PDF突合](feedback_exam_pdf_cross_reference.md) — 全問を原典と視覚照合
 - [noteカタログ再生成](feedback_note_catalog_regen.md) — note原稿を変えたらbuild-note-catalog
+- [校正学習は自動で入れる](feedback_proofread_learnings_auto_apply.md) — 2回以上は承認待ちにせず即反映
 - [MDX整形の委任](feedback_subagent_mdx_acceptance.md) — textlint・lint・facts照合を受入れ条件に
 - [発表当日の再確認](feedback_recheck_official_on_result_day.md) — 発送日は発表ページで変わる
 - [事実の一次照合](feedback_factcheck_guide_facts.md) — 制度・白書・URL・科目外・条文は条の範囲だけ
@@ -61,6 +62,7 @@
 - [Workflow運用の罠](feedback_workflow_orchestration_gotchas.md) — 並行2本・git禁止明記・一時パス共有
 - [SNS保留の確認](feedback_sns_hold_check_before_proposing.md) — SNSカード提案前に保留指示を確認
 - [Xタグ個数](feedback_x_hashtag_count.md) — #技術士 #総監+種別
+- [X返信の言い方](feedback_x_reply_peer_tone.md) — 横に並ぶ・評価語と指図を書かない
 - [X凍結ガードレール](feedback_x_suspension_guardrail.md) — 重複・連投・同時刻回避
 - [knip裏取りとworktree npm](feedback_knip_grep_scope_and_worktree_npm.md) — repo全体grep・symlink実体化
 - [売り場から外す線引き](feedback_shelving_unsold_products.md) — 試験日で判定・唯一のCTAは残す・無料は数値

@@ -6,6 +6,7 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+- 2026-11-08: `social/x-reply` を資格横断にした（`config/x-reply-trial.json` の topics・X のタイムラインと検索の取り込み・試験前の勉強の場面）。仕分けと下書きを `x-reply-drafter` エージェントに分けた。
 - 2026-11-07: `social/x-reply` を追加。X の返信候補と下書きを用意し、人が 1 件ずつ承認して送る 2 週間の試行（EXP-059・DN-1037）。
 
 - 2026-11-01: `coconala-publish` の既存出品編集を現行フォームに合わせ、FAQ・有料オプションの投入と入力警告時の更新中止を記載。新規出品の未対応範囲は維持。スキル・エージェントの件数は不変。
@@ -76,6 +77,8 @@ title: スキル ガバナンス記録
 
 > 2026-10-16 新設: `conversion/standards-table-rebuild`（共通仕様書の章記事で版面のまま残った表を、原本のページ画像と照合して `content/sources/standards/tables/{key}.json` に組み直す流れ）。背景＝初回の組み直し（217 件）の手順書・照合スクリプト・ページ画像が 1 台の PC の `.tmp/` にしか無く、別の PC で原本の改訂や表の断片（DN-0755）を直せなかった。道具は決定的スクリプト `scripts/standards-tables.mjs`（台帳・ページ画像・作業票・文字の過不足ゼロの照合・承認の記録）、ページ画像は既存の Drive vault（`build-standards-page-images`）、見えない PC は原本から render。**新エージェント 2 体**＝`standards-table-writer`（Generator）と `standards-table-qa`（Evaluator・audit-only）。合計 `110→111`、conversion `8→9`、agents `88→90`。
 
+> 2026-11-09 新設: `quality/standards-visual-review`（基準書の章ページを撮り、原本のページ画像と見比べる目視判定を新エージェント `standards-page-visual-auditor`〔Evaluator・sonnet・audit-only〕に回し、`.claude/state/quality/standards-visual-review.json` に記録して不合格を文書ごとに起票する）。背景＝`check-standard-articles` が全 PASS でも表の記法の文字が本番の画面に出ていた（DN-0916）。週次の点検 `standards-visual-review:status` が判定待ちと未起票を読む。quality `17→18`。
+
 > 2026-10-24 更新: `conversion/pdf-to-mdx` の本文の文字起こしを**機械 OCR だけ**にした（市販書籍の本文を Claude がページ画像から書き写すと、私的利用でも複製を作る主体が Claude になる）。新経路＝`scripts/book-ocr/book_ocr_machine.py`（obsidian vault の `ocr_pdf.py`・縦書き NDLOCR-Lite／横書き Indra OCR／文字層を自動選択）→ `book_ocr_concat.py`。削除＝エージェント `scanned-textbook-transcriber`、Workflow `book_ocr_fanout`・`book_ocr_proofread`・`scanned/ocr_fanout`・`scanned/proofread`、`book_ocr_compare.py`。視覚 OCR の新規・変更は `check-reference-book-pages`・`check-reference-sources --deep`・`record-reference-book-artifacts` が止める（廃止前の 231 件は `reference-sources-baseline.json` の一覧で残す）。スキル件数は不変、agents `-1`。
 
 > このツリーがスキル件数の**唯一の真実源（SSOT）**。CLAUDE.md など他 doc は件数を重複記載せずここを指す。スキルを追加/削除したら同一 commit でここを更新する（`/doc-declutter` → `doc-curator` でドリフトを棚卸し）。
@@ -85,7 +88,7 @@ title: スキル ガバナンス記録
 ├── ads/             # 4 — A8 開拓/成果取込 ＋ 3 ASP（A8/もしも/afb）横断の提携状態照合・提携申請
 ├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 9 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作 ＋ 公式過去問原本の取得・退避 ＋ 公的基準の表の組み直し
-├── quality/         # 17 — MDX・note 公開前品質検査・記事図クロップの品質ループ
+├── quality/         # 18 — MDX・note 公開前品質検査・記事図クロップの品質ループ
 ├── management/      # 22 — 計画・分析・戦略
 ├── dev/             # 11 — 開発・CI/CD・ローカルPlaywright認証運用・アセット置き場の判定
 ├── analytics/       # 2 — サイト分析

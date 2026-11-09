@@ -683,10 +683,12 @@ export const XReplyLog = z
       z
         .object({
           at: utcTime('送信時刻'),
-          kind: z.enum(['ask', 'pass', 'fail']),
+          kind: z.enum(['ask', 'pass', 'fail', 'study', 'answer']),
           targetId: z.string().regex(/^\d+$/),
           replyId: z.string().regex(/^\d+$/),
           userHash: z.string().regex(/^[0-9a-f]{12}$/),
+          // 送った文面（相手への @ を除く）。次の下書きで言い回しの重なりを避け、質問に答えるときに読み返す
+          text: z.string().trim().min(1),
         })
         .strict(),
     ),

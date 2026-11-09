@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "fetchedAt": "2026-10-31T00:44:56.273Z",
-  "fetchedOnJst": "2026-10-31",
+  "fetchedAt": "2026-11-08T02:40:05.165Z",
+  "fetchedOnJst": "2026-11-08",
   "status": "ok",
   "source": "coconala.com /mypage/analytics（Playwright・read-only・書き込みなし）",
   "caveats": [
@@ -11,21 +11,21 @@
   ],
   "period": {
     "services": {
-      "from": "2026-10-01",
-      "to": "2026-10-30",
+      "from": "2026-10-09",
+      "to": "2026-11-07",
       "label": "過去30日間",
       "windowDays": 30
     },
     "blogs": {
-      "from": "2026-10-02",
-      "to": "2026-10-31",
+      "from": "2026-10-10",
+      "to": "2026-11-08",
       "label": "過去30日間",
       "windowDays": 30
     }
   },
   "totals": {
     "impressions": null,
-    "views": 781,
+    "views": 685,
     "orders": 0,
     "salesYen": 0,
     "favorites": 0,
@@ -35,13 +35,55 @@
   },
   "services": [
     {
+      "serviceId": "coconala-tensaku-4theme",
+      "numericId": "4418735",
+      "catalogStatus": "listed",
+      "title": "1級・2級土木の経験記述を元発注者が添削します",
+      "ok": true,
+      "impressions": null,
+      "views": 37,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
+    },
+    {
+      "serviceId": "coconala-pe-oral-qa",
+      "numericId": "4486050",
+      "catalogStatus": "listed",
+      "title": "技術士口頭試験の想定質問を経歴から作ります",
+      "ok": true,
+      "impressions": null,
+      "views": 12,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
+    },
+    {
       "serviceId": "coconala-cce-essay-tensaku",
       "numericId": "4425046",
       "catalogStatus": "listed",
       "title": "コンクリート主任技士の小論文を添削します",
       "ok": true,
       "impressions": null,
-      "views": 191,
+      "views": 189,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
+    },
+    {
+      "serviceId": "coconala-cce-essay-shindan",
+      "numericId": "4484121",
+      "catalogStatus": "listed",
+      "title": "コンクリート主任技士の小論文1本を診断します",
+      "ok": true,
+      "impressions": null,
+      "views": 17,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -59,49 +101,43 @@
     {
       "serviceId": "coconala-tensaku-set",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
-      "reason": "公開中でないため分析ページが存在しない"
-    },
-    {
-      "serviceId": "coconala-tensaku-4theme",
-      "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
       "serviceId": "coconala-sakusei",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
       "serviceId": "coconala-sakusei-4theme",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
       "serviceId": "coconala-2kyu-tensaku",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
       "serviceId": "coconala-2kyu-tensaku-3theme",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
       "serviceId": "coconala-2kyu-sakusei",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
       "serviceId": "coconala-2kyu-sakusei-3theme",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
@@ -149,13 +185,13 @@
     {
       "serviceId": "coconala-1kyu-moshi-pdf",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
       "serviceId": "coconala-2kyu-moshi-pdf",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
@@ -173,7 +209,7 @@
     {
       "serviceId": "coconala-1kyu-premium",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
@@ -225,12 +261,6 @@
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
-      "serviceId": "coconala-pe-oral-qa",
-      "catalogStatus": "paused",
-      "pauseReason": "retired",
-      "reason": "公開中でないため分析ページが存在しない"
-    },
-    {
       "serviceId": "coconala-cce-essay-pdf",
       "catalogStatus": "paused",
       "pauseReason": "retired",
@@ -255,105 +285,105 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 8
+      "views": 14
     },
     {
       "title": "経験記述の数値、どこに何を入れるか｜5箇所と整合チェック",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 15
+      "views": 17
     },
     {
       "title": "経験記述は工事概要で落ちる｜対象工事・数量・立場の書き方",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 7
+      "views": 12
     },
     {
       "title": "経験記述の技術的課題「珍しい工事」でなくていい理由",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 8
+      "views": 12
     },
     {
       "title": "経験記述の工程管理、遅延要因から評価まで書く手順",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 20
+      "views": 15
     },
     {
       "title": "2級 二次 予想模試の使い方｜丸付けで終わらせない3段階",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 12
+      "views": 15
     },
     {
       "title": "1級土木二次 直前2週間の過ごし方｜経験記述と学科記述",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 11
+      "views": 13
     },
     {
       "title": "【第5回】経験記述の安全管理、品質管理と同じ手順で書く",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 13
+      "views": 14
     },
     {
       "title": "【第4回】経験記述の品質管理、設問1〜評価まで書く手順",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 11
+      "views": 7
     },
     {
       "title": "経験記述の直しは効く順番から｜添削で最初に見る4点",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 9
+      "views": 8
     },
     {
       "title": "2級の経験記述はどこまで書けば通る？1級との基準の違い",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-24",
-      "views": 8
+      "views": 13
     },
     {
-      "title": "2級土木 二次 予想模試の中身を見本公開｜設問1問と教材構成",
+      "title": "2級土木 二次 予想模試の見本｜設問1問と復習の進め方",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-23",
-      "views": 9
+      "views": 17
     },
     {
       "title": "【第3回】経験記述は予想テーマで書く練習｜週1回5ステップ",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-17",
-      "views": 12
+      "views": 15
     },
     {
       "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-13",
-      "views": 13
+      "views": 12
     },
     {
       "title": "【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-12",
-      "views": 14
+      "views": 9
     }
   ],
   "scan": {
@@ -365,16 +395,16 @@
         "ok": true,
         "cards": 5,
         "blogs": 15,
-        "serviceCards": 14
+        "serviceCards": 6
       },
       {
         "key": "services",
         "label": "サービス別",
         "url": "https://coconala.com/mypage/analytics/{id}",
         "ok": true,
-        "rows": 1,
-        "expected": 1,
-        "skipped": 33
+        "rows": 4,
+        "expected": 4,
+        "skipped": 31
       }
     ],
     "ok": 2,

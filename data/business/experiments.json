@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-07T00:00:00.000Z",
+  "updated_at": "2026-11-07T23:31:46.926Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1155,14 +1155,17 @@
         "metricId": "noteRevenue",
         "reviewRecord": "data/metrics/business/review-2026-09-14T00-08-35-683Z-fa0ea0d1-ad8b-448f-83b1-afeca29e370a.json"
       },
-      "status": "running",
+      "status": "done",
       "created_at": "2026-09-16T00:30:00.000Z",
       "started_at": "2026-09-16T00:30:00.000Z",
       "paused_at": null,
       "paused_reason": null,
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
+      "result": "no-effect",
+      "learnings": [
+        "CBT 期間（9/16〜10/31）の rccm-* の note 売上は ¥0（台帳 10/30 まで）。目標 ¥30,000 にも停止条件 ¥10,000 にも届かず、新資格の支払い意思は実売で確かめられなかった。",
+        "事前の条件どおり、2027 サイクルの RCCM の商品追加は止め、記事は保守だけにする。X の送客 21 本（10/11〜10/31）も売上につながらなかった。"
+      ],
+      "closed_at": "2026-11-08T00:00:00.000Z",
       "actions": [
         "2026-09-15: 問題III 模範論文集 7 本を note 公開・マガジン m770bef96b39f 作成・RCCMもくじ nd297cb9b31e0・L1/L2 導線配線（PR #513）",
         "2026-09-16: X 2026-10-rccm.json（21 本・販売 4 本）を計画",
@@ -1403,6 +1406,11 @@
           "at": "2026-10-10T01:49:25.286Z",
           "event": "measure-defer",
           "note": "週次レビュー W40: 10/3 時点の自動計測は rccm-* 0 円・途中。事後窓 09-16〜10-31 が閉じ 10 月分が確定する 11/3 に裁定（OPP-162229ca6d defer）"
+        },
+        {
+          "date": "2026-11-08T00:00:00.000Z",
+          "action": "closed",
+          "summary": "週次レビュー W45 で close。事後窓の rccm-* 売上 ¥0 < 停止条件 ¥10,000。2027 サイクルの商品追加は止め、記事は保守のみ。"
         }
       ],
       "measure": {
@@ -1438,14 +1446,17 @@
         "metricId": "noteCtaClicks",
         "reviewRecord": "data/metrics/business/review-2026-09-14T00-08-35-683Z-fa0ea0d1-ad8b-448f-83b1-afeca29e370a.json"
       },
-      "status": "running",
+      "status": "done",
       "created_at": "2026-09-16T00:30:00.000Z",
       "started_at": "2026-09-16T00:30:00.000Z",
       "paused_at": null,
       "paused_reason": null,
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
+      "result": "partial",
+      "learnings": [
+        "rel=noreferrer を外した後、note の流入元に doboku-note.com が出た（9 月 79 PV・10 月 52 PV。外す前の 2025/9〜2026/9 は 0）。可視化そのものは成立した。",
+        "ただし GA4 の note_cta_click（W43 だけで 383 回）と桁が合わず、サイト経由の大半は note 側で no referrer（10 月 79.2%）に入っている。note の流入元の数字はサイトの寄与の下限としてだけ読む。"
+      ],
+      "closed_at": "2026-11-08T00:00:00.000Z",
       "actions": [
         "2026-09-15: PR #511 feat/note-link-referrer（src/lib/external-link-rel.ts に判定集約・note.com は noopener のみ）。deploy 待ち",
         "2026-11-01: 週次レビュー（2026-10-19〜2026-10-25）で延長。10/1〜10/10 の途中取得（data/note/referrers/2026-10.json・10/10 取得）で流入元に doboku-note.com 52 PV が出た（基線 0）。月全体の値は note の確定（11/2）後、11/7 の土曜の収集で取り、GA4 の note_cta_click（10月）と桁を比べて閉じる"
@@ -1458,6 +1469,11 @@
           "at": "2026-09-16T00:30:00.000Z",
           "event": "propose→start",
           "note": "deploy 後の翌月（2026-10）を note-traffic-fetch で取得して判定"
+        },
+        {
+          "date": "2026-11-08T00:00:00.000Z",
+          "action": "closed",
+          "summary": "週次レビュー W45 で close。10 月の流入元に doboku-note.com 52 PV（条件の 1 PV 以上は満たす）。GA4 の note_cta_click と桁が合わないので partial。"
         }
       ]
     },
@@ -1713,6 +1729,28 @@
           "salesLedgerThrough": "2026-10-30",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:39.196Z",
+          "specHash": "d28a7d59daa2",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-20",
+            "endDate": "2026-09-16",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-17",
+            "endDate": "2026-11-04",
+            "value": 26140,
+            "volume": 9
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-30",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -1961,6 +1999,27 @@
             "endDate": "2026-10-27",
             "value": 4,
             "volume": 4
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:39.777Z",
+          "specHash": "d3e6f543e588",
+          "metric": "ga4.event:qualification_bridge_click",
+          "pre": {
+            "startDate": "2026-08-28",
+            "endDate": "2026-09-24",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-02",
+            "endDate": "2026-11-04",
+            "value": 7,
+            "volume": 7
           },
           "complete": false,
           "deltaPct": null,
@@ -2281,11 +2340,14 @@
         "note": "anchor は note 反映日 2026-10-06。事後窓は試験日まで（20 日）",
         "anchor": "2026-10-06"
       },
-      "status": "running",
+      "status": "done",
       "created_at": "2026-10-06T01:59:43.321Z",
-      "closed_at": null,
-      "result": null,
-      "learnings": null,
+      "closed_at": "2026-11-08T00:00:00.000Z",
+      "result": "partial",
+      "learnings": [
+        "値上げ後の事後窓（10/6〜10/25・試験日まで）は 2 件 ¥5,960 で、値上げ前 28 日の 3 件 ¥6,440 を 7.5% 下回った。売れたのは完成答案集（¥2,980）の 2 件で、想定工事バンクと過去問模範答案集は 0 件。",
+        "件数が 2〜3 件と少なく、季節と EXP-014 の冒頭 CTA の変更と切り分けられない。価格を戻すかは 2027 年の 2級二次の直前期の前に、前年同期の件数と並べて決める。"
+      ],
       "next_check_date": "2026-11-03",
       "pending_user_actions": [],
       "actions": [
@@ -2428,6 +2490,11 @@
           "at": "2026-10-17T03:48:38.573Z",
           "event": "content-quality-published",
           "note": "2級note有料10記事と無料診断・商品案内の本文を公開反映。改訂PDF9冊を差し替え、R8の既存フル模試6冊は保持。添付監査は対象10/実検査10、充足10・取得失敗0、計15冊。R8の復旧時に無料境界ずれを検出し、指定見出し直前へ修復、無料2,074字・有料PDF6・無料PDF0を再確認。暗記146問へ案内記事と2マガジンの件数を訂正、価格維持。サイトも上記mainで反映。価格実験の旧baselineを変えず複合施策として観測する。 詳細: docs/reviews/critical/2026-10-17-civil2-cce-content-quality.md"
+        },
+        {
+          "date": "2026-11-08T00:00:00.000Z",
+          "action": "closed",
+          "summary": "週次レビュー W45 で close。事後窓 2 件 ¥5,960 < 値上げ前 ¥6,440（-7.5%）。件数が少なく切り分け不能のため partial。価格は 2027 直前期の前に判断。"
         }
       ],
       "started_at": "2026-10-06",
@@ -2821,6 +2888,28 @@
           "salesLedgerThrough": "2026-10-30",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:39.777Z",
+          "specHash": "8bf703a65759",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-09-08",
+            "endDate": "2026-10-05",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-06",
+            "endDate": "2026-11-04",
+            "value": 15940,
+            "volume": 3
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-30",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -2986,7 +3075,7 @@
       "closed_at": null,
       "result": null,
       "learnings": null,
-      "next_check_date": "2026-11-04",
+      "next_check_date": "2026-11-13",
       "pending_user_actions": [
         {
           "action": "（任意）A8 にサイトを 2 つ登録して面ごとの月次成果を分ける（PR-3）。2026-10-07 に広告リンクのリファラ方針を直し、デプロイ後の成果は A8 の成果別レポートの「リファラ」でページまで分かるようになったので、成果の帰属には不要。面の合計を A8 のサイト別で見たいときだけ"
@@ -3105,6 +3194,27 @@
           "complete": false,
           "deltaPct": 95.6,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:40.198Z",
+          "specHash": "c54553e54ac2",
+          "metric": "ga4.event:affiliate_cta_click",
+          "pre": {
+            "startDate": "2026-09-09",
+            "endDate": "2026-10-06",
+            "value": 15,
+            "volume": 15
+          },
+          "post": {
+            "startDate": "2026-10-07",
+            "endDate": "2026-11-03",
+            "value": 25,
+            "volume": 25
+          },
+          "complete": true,
+          "deltaPct": 66.7,
+          "verdictHint": "improved"
         }
       ],
       "history": [
@@ -3117,6 +3227,11 @@
           "at": "2026-10-07T10:41:52.177Z",
           "event": "start",
           "note": "本番デプロイ（cloudflare-deploy run 37608403630・main da252f501）。check-production-ssr 合格、本番 HTML で広告枠・リファラ方針・ピクセル 1 発を確認"
+        },
+        {
+          "date": "2026-11-08T00:00:00.000Z",
+          "action": "note",
+          "summary": "週次レビュー W45: 金曜 11/6 の fetch-metrics が develop へ publish できず（DN-1043）、自動計測の事後窓が 10/27 で止まっている。直った後の金曜に再計測する。"
         }
       ],
       "started_at": "2026-10-07T10:35:24.000Z"
@@ -3157,7 +3272,7 @@
       "closed_at": null,
       "result": null,
       "learnings": null,
-      "next_check_date": "2026-11-04",
+      "next_check_date": "2026-11-13",
       "pending_user_actions": [],
       "actions": [
         "2026-10-07: 配置ルール PL-0035〜PL-0041 を追加（面 standards-list-end・topic-end・tool-end、測量士・舗装・建築の記事と資格トップ）。EXP-017 のルールとは面・カテゴリを分け、数字を混ぜない（運営者の指示）",
@@ -3268,6 +3383,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:40.297Z",
+          "specHash": "c28d0a65dd4f",
+          "metric": "ga4.event:affiliate_cta_click",
+          "pre": {
+            "startDate": "2026-09-09",
+            "endDate": "2026-10-06",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-07",
+            "endDate": "2026-11-03",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": true,
+          "deltaPct": null,
+          "verdictHint": "insufficient-data"
         }
       ],
       "history": [
@@ -3280,6 +3416,11 @@
           "at": "2026-10-07T11:47:04.180Z",
           "event": "start",
           "note": "本番デプロイ（cloudflare-deploy run 37615478580）。check-production-ssr 合格。本番の全 1,622 ページ中 1,614 に転職広告（残りは運営ページ 6・/exam・キャリア診断〔結果画面でクライアント描画〕）"
+        },
+        {
+          "date": "2026-11-08T00:00:00.000Z",
+          "action": "note",
+          "summary": "週次レビュー W45: 金曜 11/6 の fetch-metrics が develop へ publish できず（DN-1043）、自動計測の事後窓が 10/27 で止まっている。直った後の金曜に再計測する。"
         }
       ],
       "started_at": "2026-10-07T11:44:23.000Z"
@@ -3743,6 +3884,27 @@
           "complete": false,
           "deltaPct": 665.8,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:40.938Z",
+          "specHash": "63e2eeb6bc5b",
+          "metric": "gsc.clicks",
+          "pre": {
+            "startDate": "2026-09-14",
+            "endDate": "2026-10-11",
+            "value": 9,
+            "volume": 9
+          },
+          "post": {
+            "startDate": "2026-10-15",
+            "endDate": "2026-11-04",
+            "value": 36,
+            "volume": 36
+          },
+          "complete": false,
+          "deltaPct": 433.3,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -3858,6 +4020,27 @@
           },
           "complete": false,
           "deltaPct": 115.4,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:41.576Z",
+          "specHash": "99cbed99d56f",
+          "metric": "gsc.clicks",
+          "pre": {
+            "startDate": "2026-09-14",
+            "endDate": "2026-10-11",
+            "value": 3,
+            "volume": 3
+          },
+          "post": {
+            "startDate": "2026-10-15",
+            "endDate": "2026-11-04",
+            "value": 9,
+            "volume": 9
+          },
+          "complete": false,
+          "deltaPct": 300,
           "verdictHint": "in-progress"
         }
       ]
@@ -5819,6 +6002,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:41.925Z",
+          "specHash": "80ac37faa846",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 16.7,
+            "volume": 33
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-04",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -5977,6 +6181,27 @@
           "post": {
             "startDate": "2026-10-16",
             "endDate": "2026-10-27",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:42.343Z",
+          "specHash": "ff7f22cf1b1d",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 20,
+            "volume": 20
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-04",
             "value": null,
             "volume": 0
           },
@@ -6161,6 +6386,27 @@
           "complete": false,
           "deltaPct": 95.6,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:42.768Z",
+          "specHash": "288ee90c335b",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 29.3,
+            "volume": 17
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-04",
+            "value": 61,
+            "volume": 6
+          },
+          "complete": false,
+          "deltaPct": 108.2,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -6324,6 +6570,27 @@
           },
           "complete": false,
           "deltaPct": 9.4,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:43.115Z",
+          "specHash": "af81ea06d327",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 13.8,
+            "volume": 13
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-04",
+            "value": 15.3,
+            "volume": 16
+          },
+          "complete": false,
+          "deltaPct": 10.9,
           "verdictHint": "in-progress"
         }
       ]
@@ -6719,6 +6986,27 @@
           "complete": false,
           "deltaPct": -11.4,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:43.361Z",
+          "specHash": "ba8cc239545e",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 23.6,
+            "volume": 28
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-04",
+            "value": 24.4,
+            "volume": 16
+          },
+          "complete": false,
+          "deltaPct": 3.4,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -6888,6 +7176,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:43.799Z",
+          "specHash": "5c1c4495141d",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 20.3,
+            "volume": 10
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-04",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -7035,6 +7344,27 @@
           },
           "complete": false,
           "deltaPct": -90.3,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:44.126Z",
+          "specHash": "2e14aa1310ec",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 10.3,
+            "volume": 9
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-04",
+            "value": 8.5,
+            "volume": 6
+          },
+          "complete": false,
+          "deltaPct": -17.5,
           "verdictHint": "in-progress"
         }
       ]
@@ -7301,6 +7631,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:44.532Z",
+          "specHash": "ef0f6b09a6db",
+          "metric": "ga4.event:note_cta_click",
+          "pre": {
+            "startDate": "2026-09-25",
+            "endDate": "2026-10-22",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-26",
+            "endDate": "2026-11-04",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -7505,6 +7856,27 @@
           "complete": false,
           "deltaPct": -31.6,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:45.026Z",
+          "specHash": "6b7a5ed39a49",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-26",
+            "endDate": "2026-10-23",
+            "value": 13.6,
+            "volume": 63
+          },
+          "post": {
+            "startDate": "2026-10-27",
+            "endDate": "2026-11-04",
+            "value": 7.9,
+            "volume": 19
+          },
+          "complete": false,
+          "deltaPct": -41.9,
+          "verdictHint": "in-progress"
         }
       ],
       "actions": [
@@ -7622,6 +7994,27 @@
           "post": {
             "startDate": "2026-10-27",
             "endDate": "2026-10-27",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:45.366Z",
+          "specHash": "064300830106",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-26",
+            "endDate": "2026-10-23",
+            "value": 16,
+            "volume": 23
+          },
+          "post": {
+            "startDate": "2026-10-27",
+            "endDate": "2026-11-04",
             "value": null,
             "volume": 0
           },
@@ -7768,6 +8161,27 @@
           },
           "complete": false,
           "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:45.774Z",
+          "specHash": "1f900c18e556",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-26",
+            "endDate": "2026-10-23",
+            "value": 14.6,
+            "volume": 31
+          },
+          "post": {
+            "startDate": "2026-10-27",
+            "endDate": "2026-11-04",
+            "value": 17.2,
+            "volume": 5
+          },
+          "complete": false,
+          "deltaPct": 17.8,
           "verdictHint": "in-progress"
         }
       ]
@@ -8232,7 +8646,47 @@
           "note": "配信のコード（src/lib/affiliate-experiment.mjs）を EXP-048 に切り替える PR #1318 と同時に running にした（台帳とコードを同じ PR でそろえる・tests/data-wiring.test.mjs）。本番への反映は deploy の日。"
         }
       ],
-      "started_at": "2026-10-31T00:00:00.000Z"
+      "started_at": "2026-10-31T00:00:00.000Z",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:39.188Z",
+          "sourceReport": "data/ga4/reports/2026-11-08.json#affiliate-experiment:2026-11-07T23-30-35",
+          "metric": "affiliate-design",
+          "window": {
+            "startDate": "2026-10-31",
+            "endDate": "2026-11-06"
+          },
+          "variants": [
+            {
+              "variant": "B",
+              "impressions": 1566,
+              "clicks": 2,
+              "pageViews": 3829,
+              "noteImpressions": 4911,
+              "noteClicks": 59,
+              "ctr": 0.001277139208173691,
+              "clicksPerPageView": 0.0005223295899712719,
+              "noteCtr": 0.01201384646711464,
+              "evidence": "insufficient-data"
+            },
+            {
+              "variant": "B2",
+              "impressions": 2590,
+              "clicks": 4,
+              "pageViews": 4255,
+              "noteImpressions": 6037,
+              "noteClicks": 59,
+              "ctr": 0.0015444015444015444,
+              "clicksPerPageView": 0.0009400705052878966,
+              "noteCtr": 0.009773066092430015,
+              "evidence": "insufficient-data"
+            }
+          ],
+          "verdictHint": "review-required",
+          "note": "取得窓内の案別イベント回数。週次の窓は重複するため足し合わせない。少数・案別の構成差・同一訪問者の複数表示を確認して人が裁定する。A8成果の案別帰属は未取得（ビルドジョブは EXP-043 から B/C で mat が別なので A8 の成果別レポートで読める。建設JOBs・DXコンサルは素材が 1 つで不可）。"
+        }
+      ]
     },
     {
       "id": "EXP-049",
@@ -8241,7 +8695,7 @@
       "hypothesis": "/exam/civil-construction-2/secondary/r07 は 11 語が11〜30位（最良 10.5 位・表示 30）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 直す前の検索語 11 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-11-01",
       "searchStrategy": {
         "cluster": "qualification",
@@ -8353,7 +8807,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-11-01"
       },
       "history": [
         {
@@ -8365,13 +8820,49 @@
           "event": "implemented",
           "commit": "f3feb1b52419",
           "change": "seoTitle を「解答」表記にし、冒頭に公式の解答が公表されない点と参考解答例である旨を追記した"
+        },
+        {
+          "at": "2026-11-07T23:31:37.889Z",
+          "event": "deployed",
+          "commit": "f3feb1b52419",
+          "deploy": {
+            "id": 41286189097,
+            "sha": "d952737ed34e0b9a048551fee9d2aa0323735aec",
+            "at": "2026-11-01T07:53:26Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/41286189097"
+          }
         }
       ],
       "implementation": {
         "commit": "f3feb1b52419",
         "at": "2026-11-01",
         "change": "seoTitle を「解答」表記にし、冒頭に公式の解答が公表されない点と参考解答例である旨を追記した"
-      }
+      },
+      "started_at": "2026-11-01",
+      "next_check_date": "2026-12-05",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:46.122Z",
+          "specHash": "f1f7a25df97f",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-04",
+            "endDate": "2026-10-31",
+            "value": 11.6,
+            "volume": 33
+          },
+          "post": {
+            "startDate": "2026-11-04",
+            "endDate": "2026-11-04",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        }
+      ]
     },
     {
       "id": "EXP-050",
@@ -8380,7 +8871,7 @@
       "hypothesis": "/exam/civil-construction-1/secondary/r04 は 3 語が11〜30位（最良 12.1 位・表示 18）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 直す前の検索語 3 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-11-01",
       "searchStrategy": {
         "cluster": "qualification",
@@ -8436,7 +8927,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-11-01"
       },
       "history": [
         {
@@ -8448,13 +8940,49 @@
           "event": "implemented",
           "commit": "f569ea6115f6",
           "change": "冒頭に1級R4の概要を追加し、2級R4への案内リンクを置いた"
+        },
+        {
+          "at": "2026-11-07T23:31:37.889Z",
+          "event": "deployed",
+          "commit": "f569ea6115f6",
+          "deploy": {
+            "id": 41286189097,
+            "sha": "d952737ed34e0b9a048551fee9d2aa0323735aec",
+            "at": "2026-11-01T07:53:26Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/41286189097"
+          }
         }
       ],
       "implementation": {
         "commit": "f569ea6115f6",
         "at": "2026-11-01",
         "change": "冒頭に1級R4の概要を追加し、2級R4への案内リンクを置いた"
-      }
+      },
+      "started_at": "2026-11-01",
+      "next_check_date": "2026-12-05",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:46.584Z",
+          "specHash": "d5c7c2ad533d",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-04",
+            "endDate": "2026-10-31",
+            "value": 14.7,
+            "volume": 18
+          },
+          "post": {
+            "startDate": "2026-11-04",
+            "endDate": "2026-11-04",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        }
+      ]
     },
     {
       "id": "EXP-051",
@@ -8463,7 +8991,7 @@
       "hypothesis": "/practice/owner-safety-responsibility は 3 語が11〜30位（最良 10.9 位・表示 16）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 直す前の検索語 3 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-11-01",
       "searchStrategy": {
         "cluster": "public-servant",
@@ -8519,7 +9047,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-11-01"
       },
       "history": [
         {
@@ -8531,13 +9060,49 @@
           "event": "implemented",
           "commit": "ee596a036afa",
           "change": "seoTitle を「発注者責任と安全配慮義務」にし、冒頭にその検索語への答えを追記した"
+        },
+        {
+          "at": "2026-11-07T23:31:37.889Z",
+          "event": "deployed",
+          "commit": "ee596a036afa",
+          "deploy": {
+            "id": 41286189097,
+            "sha": "d952737ed34e0b9a048551fee9d2aa0323735aec",
+            "at": "2026-11-01T07:53:26Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/41286189097"
+          }
         }
       ],
       "implementation": {
         "commit": "ee596a036afa",
         "at": "2026-11-01",
         "change": "seoTitle を「発注者責任と安全配慮義務」にし、冒頭にその検索語への答えを追記した"
-      }
+      },
+      "started_at": "2026-11-01",
+      "next_check_date": "2026-12-05",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-07T23:31:46.925Z",
+          "specHash": "1ad8bd757b35",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-04",
+            "endDate": "2026-10-31",
+            "value": 13.2,
+            "volume": 24
+          },
+          "post": {
+            "startDate": "2026-11-04",
+            "endDate": "2026-11-04",
+            "value": 11.5,
+            "volume": 2
+          },
+          "complete": false,
+          "deltaPct": -12.9,
+          "verdictHint": "in-progress"
+        }
+      ]
     },
     {
       "id": "EXP-052",
@@ -8772,8 +9337,18 @@
           "at": "2026-11-03T07:46:30.000Z",
           "event": "start",
           "note": "本番デプロイ cf37bd33a。/exam/pe-construction の資格トップで、alternate の側はハイクラス DX・コンサル転職だけ（サイドバー・スマホの 2 枠）が見えることを確かめた"
+        },
+        {
+          "date": "2026-11-08T00:00:00.000Z",
+          "action": "baseline",
+          "summary": "週次レビュー W45: 同時比較のため前後の基線を使わない旨を baseline に記録。"
         }
-      ]
+      ],
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "note": "訪問者ごとに 2 案を同時に出し分ける比較で、前後の基線は使わない。案ごとの閲覧あたりクリックと発生・確定額を同じ期間で比べる（target_delta のとおり）。",
+        "source": "design"
+      }
     },
     {
       "id": "EXP-056",
@@ -8794,6 +9369,18 @@
       "actions": [
         "src/components/ui/TextbookNav/ExamYearNav.tsx を記事末に追加（PR #1388）",
         "2級の経験記述ガイド、1級・2級の試験概要、RCCM の概要に ctaLabel つきの SeeAlso を追加"
+      ],
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "note": "年度ナビ（exam-year-nav）は今回新設で、変更前のクリックは 0（導線が無かった）。screenPageViewsPerSession は季節で動くため、前年同期の比較は 2027 年の山で読む（target_delta のとおり）。",
+        "source": "design"
+      },
+      "history": [
+        {
+          "date": "2026-11-08T00:00:00.000Z",
+          "action": "baseline",
+          "summary": "週次レビュー W45: 新設の導線のため変更前 0 を baseline に記録。"
+        }
       ]
     },
     {
@@ -8814,6 +9401,18 @@
       },
       "actions": [
         "順位 20 位以内で表示の多い 30 ページの seoTitle を変更。走行中の実験の対象ページは除いた"
+      ],
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "note": "変更前の 28 日（target_delta に記載）: 対象 30 ページの GSC 表示 1,380・クリック 19（CTR 1.38%）。",
+        "source": "gsc"
+      },
+      "history": [
+        {
+          "date": "2026-11-08T00:00:00.000Z",
+          "action": "baseline",
+          "summary": "週次レビュー W45: target_delta に書かれた変更前 28 日の値を baseline に記録。"
+        }
       ]
     },
     {
@@ -8836,6 +9435,18 @@
       "actions": [
         "excavation-bottom-failure・service-commencement・textbook-distance-angle の seoTitle と冒頭を変更",
         "board-of-audit-inspection の seoTitle と冒頭を変更（「会計実地検査」206 表示 2 クリック 9.2 位）"
+      ],
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "note": "変更前 9/30〜10/27 の GSC（businessContext.verifiedGap）: 「ヒービング 盤ぶくれ 違い」87 表示 0 クリック 8.4 位、「供用開始とは」128 表示 0 クリック 5.0 位、「測角とは」80 表示 1 クリック 7.1 位。4 本目（教科書 1 本）の変更前の値は記録が無く、事後の比較のときに同じ窓で取り直す。",
+        "source": "gsc"
+      },
+      "history": [
+        {
+          "date": "2026-11-08T00:00:00.000Z",
+          "action": "baseline",
+          "summary": "週次レビュー W45: businessContext の変更前の GSC の値を baseline に記録（4 本目は事後に取り直す）。"
+        }
       ]
     },
     {
@@ -8863,6 +9474,283 @@
         "posts": 328,
         "xUsersRecord": 9,
         "repliesSentBeforeTrial": 7
+      }
+    },
+    {
+      "id": "EXP-060",
+      "kind": "search-strategy",
+      "title": "資格名: /exam/civil-construction-1/guide/future の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/civil-construction-1/guide/future は 1 語が11〜30位（最良 13.1 位・表示 16）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 1 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-11-08",
+      "searchStrategy": {
+        "cluster": "qualification",
+        "page": "/exam/civil-construction-1/guide/future",
+        "contentPath": "content/site/civil-construction-1/guide-future/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "source": "data/gsc/reports/2026-10-31.json#page-query",
+        "period": {
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-27"
+        },
+        "impressions": 16,
+        "clicks": 0,
+        "bestPosition": 13.1,
+        "queries": [
+          {
+            "query": "技術士 オワコン",
+            "position": 13.1,
+            "impressions": 16,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/civil-construction-1/guide/future"
+          ],
+          "queries": [
+            "技術士 オワコン"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-11-07T22:21:16.917Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-07T22:21:16.917Z",
+          "event": "implemented",
+          "commit": "a4de7278ca2b",
+          "change": "title・seoTitle・description を「技術士・建設業はオワコン？」に寄せ、冒頭に H2「技術士はオワコンなのか」で答えと関連ガイドへの内部リンクを足した"
+        }
+      ],
+      "implementation": {
+        "commit": "a4de7278ca2b",
+        "at": "2026-11-08",
+        "change": "title・seoTitle・description を「技術士・建設業はオワコン？」に寄せ、冒頭に H2「技術士はオワコンなのか」で答えと関連ガイドへの内部リンクを足した"
+      }
+    },
+    {
+      "id": "EXP-061",
+      "kind": "search-strategy",
+      "title": "資格名: /exam/rccm/guide/study-plan の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/rccm/guide/study-plan は 8 語が11〜30位（最良 10.5 位・表示 15）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 8 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-11-08",
+      "searchStrategy": {
+        "cluster": "qualification",
+        "page": "/exam/rccm/guide/study-plan",
+        "contentPath": "content/site/rccm/guide-study-plan/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "source": "data/gsc/reports/2026-10-31.json#page-query",
+        "period": {
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-27"
+        },
+        "impressions": 15,
+        "clicks": 0,
+        "bestPosition": 10.5,
+        "queries": [
+          {
+            "query": "rccm 予約",
+            "position": 10.8,
+            "impressions": 5,
+            "clicks": 0
+          },
+          {
+            "query": "rccm 試験日",
+            "position": 26,
+            "impressions": 2,
+            "clicks": 0
+          },
+          {
+            "query": "rccm 試験期間",
+            "position": 14.5,
+            "impressions": 2,
+            "clicks": 0
+          },
+          {
+            "query": "rccm予約",
+            "position": 10.5,
+            "impressions": 2,
+            "clicks": 0
+          },
+          {
+            "query": "rccm 受験予約",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "rccm 試験 日程",
+            "position": 24,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "rccm試験予約",
+            "position": 18,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "rccm試験会場",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/rccm/guide/study-plan"
+          ],
+          "queries": [
+            "rccm 予約",
+            "rccm 試験日",
+            "rccm 試験期間",
+            "rccm予約",
+            "rccm 受験予約",
+            "rccm 試験 日程",
+            "rccm試験予約",
+            "rccm試験会場"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-11-07T22:21:24.240Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-07T22:21:24.240Z",
+          "event": "implemented",
+          "commit": "e485e01fe8ce",
+          "change": "title・seoTitle・description を「RCCMの予約・試験期間・試験日」に寄せ、冒頭に予約の方法と2026年度の予約・試験期間、2027年度の申込の目安を答える段落を足した"
+        }
+      ],
+      "implementation": {
+        "commit": "e485e01fe8ce",
+        "at": "2026-11-08",
+        "change": "title・seoTitle・description を「RCCMの予約・試験期間・試験日」に寄せ、冒頭に予約の方法と2026年度の予約・試験期間、2027年度の申込の目安を答える段落を足した"
+      }
+    },
+    {
+      "id": "EXP-062",
+      "kind": "search-strategy",
+      "title": "土木公務員: /exam/pe-comprehensive-management/guide/public-engineer-qualification-map の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/pe-comprehensive-management/guide/public-engineer-qualification-map は 4 語が11〜30位（最良 11 位・表示 14）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 4 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-11-08",
+      "searchStrategy": {
+        "cluster": "public-servant",
+        "page": "/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+        "contentPath": "content/site/pe-comprehensive-management/public-engineer-qualification-map/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "source": "data/gsc/reports/2026-10-31.json#page-query",
+        "period": {
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-27"
+        },
+        "impressions": 14,
+        "clicks": 0,
+        "bestPosition": 11,
+        "queries": [
+          {
+            "query": "土木 公務員 資格",
+            "position": 11.5,
+            "impressions": 11,
+            "clicks": 0
+          },
+          {
+            "query": "技術士業務経歴公務員",
+            "position": 15,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "土木 公務員 資格",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "土木 公務員 資格",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/pe-comprehensive-management/guide/public-engineer-qualification-map"
+          ],
+          "queries": [
+            "土木 公務員 資格",
+            "技術士業務経歴公務員",
+            "土木 公務員 資格",
+            "土木 公務員 資格"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-11-07T22:21:31.380Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-07T22:21:31.380Z",
+          "event": "implemented",
+          "commit": "f97e52dfc125",
+          "change": "前回（EXP-029・取得順）と別の角度で、title・description を「土木公務員の資格一覧」に寄せ、冒頭に検討する資格 4 つの一覧の段落を足した"
+        }
+      ],
+      "implementation": {
+        "commit": "f97e52dfc125",
+        "at": "2026-11-08",
+        "change": "前回（EXP-029・取得順）と別の角度で、title・description を「土木公務員の資格一覧」に寄せ、冒頭に検討する資格 4 つの一覧の段落を足した"
       }
     }
   ]

@@ -168,7 +168,10 @@ export function validateMarketInputs({ registry, scanConfig, competitors, lineup
   }
 
   const unclassified = new Set();
-  for (const r of sales ?? []) if (!classifySale(lineupConfig, r.productId)) unclassified.add(r.productId);
+  // article:unknown-* は note-sales-fetch が題名から商品を決められなかった「保留」で、check-sales-mapping が WARN で数え、
+  // business-direction が売上の網羅性を partial にして示す。ここで違反にすると、保留 1 件で土曜の収集の記録が全部止まる
+  //（2026-11-08: 11/5 の 1 件でココナラと GSC の記録の commit が 2 週続けて落ちた）。
+  for (const r of sales ?? []) if (!/(^|:)unknown-/.test(String(r.productId)) && !classifySale(lineupConfig, r.productId)) unclassified.add(r.productId);
   for (const id of unclassified) errors.push(`売上 ${id} が資格へ分類できない（product-lineup.json の salesRules か rules.note に足す）`);
   for (const o of orders ?? []) {
     if (!classifyProduct(lineupConfig.rules?.coconala, String(o.serviceId))) errors.push(`ココナラ受注 ${o.serviceId} が資格へ分類できない（product-lineup.json の rules.coconala）`);

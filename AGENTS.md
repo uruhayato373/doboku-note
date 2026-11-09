@@ -16,7 +16,7 @@
 
 ```
 content/site/                # サイト記事 MDX（全資格 `<資格>/<slug>/article.mdx` の 1 形式）
-content/{note,sns,kindle,coconala,sources}/  # チャネル別の制作物と入力（kindle は非公開原稿・Git 管理・Web 配信外）
+content/{note,sns,kindle,coconala,email,sources}/  # チャネル別の制作物と入力（kindle は非公開原稿・Git 管理・Web 配信外）
 src/ config/ data/          # 実装／事業・試験・商品の正本と設定／売上・計測など事業の記録
 docs/                        # 人が読む恒久文書（strategy / editorial / marketing / operations / products / design）
 .claude/rules/               # パス条件付きルール（paths: 必須。該当ファイルを Read/Edit したときだけ読み込まれる）

@@ -16,7 +16,7 @@ metadata:
 - business-review の record は nextReviewDate が今日より後、note 確定前の月を含むスナップショットなら確定日（翌月 2 日）以降が必須。
 - **レビュー（週次・月次）に、その回で消したカードの ID を書かない**。`check-project-task-refs` は月次を live 文書として扱い、月次レポートが DN-0303（同じ回で DN-0368 にまとめて消した）を書いただけで develop の Pre-merge が赤になった（#969・2026-10-10 で 2 回目の自分起因の赤）。#971 で月次も時点の記録にし、pre-commit で docs/・backlog が staged なら全量を回すようにした。それまでは積む前に `node scripts/check-project-task-refs.mjs` を回す
 - 2 週分を同日に作るときも保持は最新週だけ。前の週は申し送りを次の週へ同文転記するか DN に振ってから消す（check-handoff-extraction）。完了済みで dispatch-log に無い DN は SKIP_HANDOFF_EXTRACT=1 と理由をコミットに書く。
-- **自動の週次が失敗した週は、まず `~/Library/Logs/doboku-note/weekly-review.log` の該当回を読む**（2026-10-31 はヘッドレスの Claude の `OAuth session expired` で本体だけ止まった）。手動で回すときは専用 worktree `.claude/worktrees/weekly-review` を `git -C … checkout --detach origin/develop` にそろえて使い、完了は `node scripts/check-weekly-review.mjs --week <週> --ref origin/develop` が未完 0 になるまで。backlog 検証の quality:audit:ci は、空き容量不足（Kindle EPUB の復元が予約 20GB を割る）と Drive の取り寄せ待ちの timeout で検査不成立になりやすい。
+- **週次レビューは運営者の指示で回す（2026-11-08〜・自動実行はやめた）。抜けた週は後日まとめて回してよい**。土曜の収集が落ちた週は `~/Library/Logs/doboku-note/weekly-review.log` の該当回を読み、未取得の材料として書く。完了は `node scripts/check-weekly-review.mjs --week <週> --ref origin/develop` が未完 0 になるまで。backlog 検証の quality:audit:ci は、空き容量不足（Kindle EPUB の復元が予約 20GB を割る）と Drive の取り寄せ待ちの timeout で検査不成立になりやすい。
 - **完了判定が通っても、スキルの手順を省いていないかを自分で数える**（2026-11-01 に note 公開状態・ココナラ・競合・Drive の照合と公開ページの目視・校正学習を省いて「完了」と報告し、運営者に問われてから回したら、無料の序章 3 本が全文会員限定になっている実害が見つかった＝DN-0929）。
 - サブエージェントに検索改善を任せると、`record --sha` に別の commit を渡したり、15-1 を避けて常体へ逃げたりする。報告の SHA と文末を親が確かめる。
 

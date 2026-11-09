@@ -37,6 +37,8 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_GA_ID: G-8VXJ1RL1HG
+          # /privacy#mail の送信者の住所（特定電子メール法）。公開リポジトリに書かない（DN-1051）
+          MAIL_SENDER_ADDRESS: ${{ secrets.MAIL_SENDER_ADDRESS }}
 
       # 章データは out/ から除いたので、Pages へ出す前に R2 へ送る
       - name: Upload standards chapter data to R2

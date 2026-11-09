@@ -1,0 +1,82 @@
+{
+  "cadence": "weekly",
+  "runKey": "2026-W45",
+  "ranAt": "2026-11-07T22:29:14.319Z",
+  "checks": [
+    {
+      "command": "check-workflow-health",
+      "label": "重要 workflow の健全性",
+      "exitCode": 1,
+      "state": "fail",
+      "summary": "[check-workflow-health] ✗ 1 本が不健全",
+      "seconds": 13
+    },
+    {
+      "command": "node:check-backlog-health",
+      "label": "バックログの健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-backlog-health] カード 239 件を実検査（判定はしない・候補の列挙のみ）",
+      "seconds": 4
+    },
+    {
+      "command": "check-taxonomy-wiring",
+      "label": "分類と回遊の配線",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "- GSC 2026-10-06〜2026-11-02: テーマページ 0 件・クリック 0・表示 0",
+      "seconds": 2
+    },
+    {
+      "command": "quality:audit:weekly",
+      "label": "土曜の週次の点検（quality-audit の cadence weekly）",
+      "exitCode": 1,
+      "state": "fail",
+      "summary": "[quality-audit] weekly 区分の失敗: egov-drift, monthly-review-due",
+      "seconds": 171
+    }
+  ],
+  "issues": [
+    {
+      "number": 1006,
+      "title": "[auto] note-live-audit: note のライブ監査で異常があります",
+      "createdAt": "2026-10-12T02:32:25Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1217,
+      "title": "[auto] weekly-collect: 土曜の収集（ログインが要る取得と書き込み）が完了しませんでした",
+      "createdAt": "2026-10-24T08:55:15Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1331,
+      "title": "[auto] gsc-auto-review: 土曜の GSC の記録層（週次観測・coverage）が完了しませんでした",
+      "createdAt": "2026-10-31T03:06:59Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1421,
+      "title": "[auto] fetch-metrics: 計測アラート（1 件）",
+      "createdAt": "2026-11-06T01:19:12Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1445,
+      "title": "[auto] gsc-indexing-local: GSC の登録リクエストが失敗した",
+      "createdAt": "2026-11-06T22:40:45Z",
+      "labels": [
+        "automation-failure"
+      ]
+    }
+  ],
+  "alerts": []
+}

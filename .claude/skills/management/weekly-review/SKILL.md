@@ -25,13 +25,11 @@ domain: strategy
 
 **配線の正本**: このスキル（本ファイルと `references/`）が実行するコマンドは `.claude/config/review-wiring.json` の weekly に段（KPI ツリー）と役割（判断／点検）付きで載せる（check-review-wiring が食い違いを止める）。**起票したカードの本文の起点は「週次レビュー（開始日〜終了日）」で始める**（管理画面がレビュー由来のカードを数える）。
 
-## 実行主体（2026-10-10〜）
+## 実行主体（2026-11-08〜）
 
-1. **土曜 9:30・Mac の launchd**（`scripts/scheduled/weekly-review.sh`）が、ログインが要る取得を土曜の収集（`scripts/weekly-collect.mjs --phase pre`）で回し、GSC の記録層を回し、収集の後に機械の節を `draft.json` に書く（`npm run weekly-review:draft`）。
-2. 続けて**ヘッドレスの Claude Code**が本スキルと `/plan-weekly` を回して develop へ push し、最後に `--phase post` を回す（`npm run weekly-review:install`）。レビュー本文・翌週計画・事業レビューと snapshot・点検と振り分け・backlog 検証の 5 種の証跡が揃う場合だけ省略。揃わなければ Issue（channel: weekly-review-local）。
-3. **対話セッション**がヘッドレスの残した諮問待ち（`<!-- weekly-review:pending-questions -->`）を諮る。
-
-**ヘッドレスの守り**（詳細 → [operations.md](references/operations.md)）: AskUserQuestion は使えない（判断待ち 🟣 は「## バックログの関門」に背景・選択肢・おすすめを 1 件ずつ書き、上の印を行頭に置く）。Claude の中ではログインしない（直前の収集の記録と `runs.json`・`npm run check-weekly-collect` を読み、失敗・skipped の段は理由とともに未取得と書く）。`.claude/` の下は書けないので翌週の `weekly.md` などは `.tmp/claude-out/` に `.claude/` を外した相対パスで書く。外部への公開・投稿・送信・購入はしない。
+1. **土曜 9:30・Mac の launchd**（`scripts/scheduled/weekly-review.sh`・`npm run weekly-review:install`）が、ログインが要る取得を土曜の収集（`scripts/weekly-collect.mjs --phase pre`／`post`）で回し、GSC の記録層を回す。レビューは回さない。
+2. **運営者の指示で対話セッションが**本スキルと `/plan-weekly` を実行する（土曜以降いつでも。抜けた週は後日まとめて回してよい）。未作成の週は SessionStart の `check-weekly-review-due` が知らせる。
+3. 実行の最初に `npm run weekly-review:draft` で機械の節（`draft.json`）を作り直す。Claude の中ではログインしない（直前の収集の記録と `runs.json`・`npm run check-weekly-collect` を読み、失敗・skipped の段は理由とともに未取得と書く）。外部への公開・投稿・送信・購入はしない。運用の詳細 → [operations.md](references/operations.md)。
 
 ## 手順と読む reference
 
@@ -57,7 +55,7 @@ domain: strategy
 - **点検と Issue**: `npm run review-checks -- --cadence weekly --run YYYY-Www --write` の結果、失敗・検査不成立の点検と開いている Issue・Dependabot の全件に行き先を書く。
 - **イシューマップ**: `npm run check-issue-map -- --due` の「更新の番の判定」（カードが閉じた・時期を過ぎた）を全件処分する。実測があれば `config/issue-map.json` の該当サブイシューの `state` と `evidence` を直し、終えた判定の行は消すか次の判定に書き換える。実測が無ければ `state` を変えず、判定の行を残して「## イシューマップ」に `- overall A1・A2: 未確認の理由 → 振り分け: DN-#### ／ 定常` と書く（見出しは `--due` の出力のまま）。節は 0 件の週も置く（「更新の番 0 件」）。日付や値はマップへ写さない（カードの `[時期:]`・指標が正本）。節の欠け・行き先の無い判定は `check-weekly-review` が未完にする。
 - **計測トリアージ**: `npm run growth-triage -- list` の未処分を 0 件にしてから終える（月曜の `check-growth-triage` が検査）。
-- 最後に `check-weekly-review`（`--week YYYY-Www`）を回し、欠けを補う。
+- 最後に `npm run check-weekly-review -- --week YYYY-Www` を回し、欠けを補う（exit 0 で完了）。
 
 ## 出力フォーマット（節の一覧）
 

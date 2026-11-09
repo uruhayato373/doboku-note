@@ -43,6 +43,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/exam-questions-import` | 過去問集 PDF → MDX（解答追加も可） | `過去問取込`, `/exam-questions-import --exam {civil-primary\|civil-secondary\|pe-primary\|pe-first-stage}` |
 | `/past-exam-archive` | 公式過去問の原本 PDF を年度在庫台帳に沿って公式から取得 → Drive `原資料PDF/過去問/` へ退避 → 全バイト照合 → 台帳登録（会社PCは Playwright＋Drive MCP・`drive-browser-transfer`）。新年度・新資格の在庫追加も | `過去問の取得`, `過去問PDFの保存`, `新年度の過去問`, `/past-exam-archive` |
 | `/standards-table-rebuild` | 共通仕様書の章記事で版面のまま残った表を、原本のページ画像と照合して表に組み直す（台帳→ページ画像（Drive vault／無い PC は原本から render）→作業票→`standards-table-writer`→`standards-table-qa`→生成・検査）。原本の改訂・新文書の追加・表の断片の修正に | `表を組み直す`, `共通仕様書の表`, `原本照合で表を直す`, `/standards-table-rebuild` |
+| `/standards-visual-review` | 基準書（/standards）の章ページを読者の画面のまま撮り、原本のページ画像と見比べる目視判定を `standards-page-visual-auditor` に回して台帳へ記録し、不合格を文書ごとに起票（`npm run standards-visual-review` の prepare→判定→record --ticket）。週次の点検の `standards-visual-review:status` が赤のとき・生成器や表を直したあとに | `基準書の画面を確認`, `共通仕様書の目視`, `スクショで確認`, `/standards-visual-review` |
 | `/create-pop-image` | 承認済みPOP意匠でnote・SNS・ココナラ画像を制作し、原稿・プロンプト・原本を管理 | `POP画像`, `この感じで画像を作る`, `/create-pop-image` |
 | `/ogp-create` | サイト OGP（mono-tag・全幅＋資格別テーマ色外枠）生成。note記事・マガジンカバーは本スキル外のV5文字優先POP（`generate-note-covers.mjs` / `generate-magazine-covers.mjs`・SSOT `.claude/knowledge/design-system/note-cover-character-v5.md`）で、本スキルはフォントだけを共有する。全件確認用はDrive group `note-cover-pop-preview`。デザインSSOTは`.claude/knowledge/reference/ogp-prompts.md`（OGP）、一括目視QAは`npm run ogp-gallery` / `npm run note-cover-gallery` | `OGP画像`, `noteカバー`, `/ogp-create` |
 | `/ogp-design-explore` | OGP 意匠の**新方向を aidesigner / Canva の MCP で素案として試作**し、採用案を `/ogp-create` の satori テンプレに落として量産につなぐ。試作専用（量産・per-article 生成は `/ogp-create`）。MCP は外部クレジット消費 | `OGPデザイン検討`, `OGP素案`, `OGPリデザイン試作`, `/ogp-design-explore` |
@@ -100,7 +101,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/note-magazine-cover` | note 有料マガジンの**見出し画像（cover）**を `_cover.png`（1280×670）から設定（Playwright × システム Chrome）。`note-magazine-create` が作成時に付けない systematic 欠落を補う＝**マガジン作成パイプラインの一工程**。**既定 probe・実保存は `--commit`**・「この画像を使う」→更新・保存後 API で `cover`/`coverRectangle`（`eyecatch` でない）が実カバー（未設定時 cloudfront `default_magazine_header`＝デフォルト判定）かを検証。Windows可 | `noteマガジンのカバー設定`, `マガジン見出し画像`, `マガジン画像が未登録`, `/note-magazine-cover --key {key} --dir {magazineDir}` |
 | `/note-attach-pdf` | note 記事の**本文末尾（有料記事は有料エリア内）に印刷用 PDF をダウンロードカードとして添付**（Playwright × システム Chrome）。`note-publish` が扱わない「ファイル添付」（従来半手動）を自動化。1記事=`note-attach-file.mjs`／1マガジン直列バッチ=`note-attach-magazine-pdfs.mjs`（noteId↔PDF 突合・done-log 再開・最大2回試行）。**既定 dry/probe、`--draft-only` は下書きへ実添付→下書き保存/一時保存→再読込で要求ファイル名の添付を検証、`--commit` は公開/更新→ライブ添付を実測**（両者は排他）。有料境界を**非破壊検証**（出典URLの `.pdf` は添付に数えない。既定=試験問題直前を維持・**別型は `--boundary-regex "<H2先頭一致>"` で上書き**、例 暗記ノート=`コンクリート工`／`2. コンクリート工`・崩れたら中断）。**PDF挿入は既定で本文末尾へJSで caret 移動**（旧 Control+End は Windows専用でMac無効→冒頭挿入=無料流出だった・2026-07-04是正）。**`note-attach-file --anchor "<段落テキスト>"` で指定段落の直後に挿入も可**（未検出は ABORT・複数は `--force` 併用）。Windows/Mac可 | `note記事にPDF添付`, `印刷用PDFを記事末尾に`, `下書きにPDF添付`, `/note-attach-pdf --dir {magazineDir} [--commit] [--boundary-regex "<H2>"]`, `note-attach-file --note {key} --file {pdf} [--commit\|--draft-only]` |
 | `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `--now`（Graph API 経路は 2026-06-17 全廃＝IG 投稿は本スキルに一本化） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
-| `/x-reply` | 返信候補を集め、相手の最新の投稿を確認して下書きを作り、人が 1 件ずつ承認したものを送る（EXP-059・DN-1037）。無人では送らない | `X返信`, `リプライ候補`, `/x-reply` |
+| `/x-reply` | 技術士・土木施工管理・コンクリートなど資格横断で返信候補を集め（Yahoo!リアルタイム検索と X のタイムライン・検索）、`x-reply-drafter` の仕分けと下書きを人が 1 件ずつ承認して送る（EXP-059・DN-1037）。無人では送らない | `X返信`, `リプライ候補`, `/x-reply` |
 | `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
 | `/video-content` | 動画パック（悩み・出典付き台本・storyboard・CTA）の薄い入口。既存パック重複確認→`video-script-writer` 生成→`check-video-content`→`video-content-qa` 独立採点→承認待ちで停止（BLOCK は指摘だけ Generator へ返す・最大2回）。レンダリング・投稿・承認は担当外（初回通常動画の投稿は `registry -- publish-youtube`）。契約 `video-content-policy.md` §7 | `動画パックを作る`, `動画台本を作る`, `パックの台本をQA`, `/video-content <exam> <packId>` |
 
@@ -146,7 +147,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ/YouTube・`--platform`）で四半期再取得（scout＋時系列drift＋資格キーワードの市場スキャン `scan-qualification-market`）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |
 | `/knowledge` | 過去の失敗・教訓を参照・追記 | `ナレッジ参照`, `失敗から学ぶ`, `/knowledge` |
 | `/critical-review` | 批判的レビュー | `批判的に見て`, `/critical-review` |
-| `/distill-proofread-learnings` | 校正作業から新規ルール・ユーザー嗜好を抽出 | `校正から学ぶ`, `新ルール抽出`, `/distill-proofread-learnings` |
+| `/distill-proofread-learnings` | 校正作業から新規ルール・ユーザー嗜好を抽出し、承認を待たずに規約へ反映 | `校正から学ぶ`, `新ルール抽出`, `/distill-proofread-learnings` |
 | `/routines` | クラウドルーティン（/schedule）を一覧・監査（重複・残骸・平文トークン・cron 衝突検出）。**新規作成前の重複チェック必須** | `ルーティン一覧`, `ルーティン監査`, `/routines` |
 
 ### UI/UX（ui）
