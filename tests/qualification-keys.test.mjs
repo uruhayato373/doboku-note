@@ -54,10 +54,8 @@ test('呼び出し元で結果が変わらない: 色の文・requirePaletteKey�
 
 test('X の別名は全部 registry の資格かまとまりへ行き、パレットのキーはそのトークンの資格へ行く', () => {
   for (const [alias, id] of Object.entries(EXAM_ALIAS)) assert.ok(IDS.includes(id), `別名 ${alias} の行き先「${id}」が registry に無い`);
-  // パレットのキーが資格 id と同じ綴り（surveyor など）のときは資格 id の意味が勝つ
-  for (const key of new Set(Object.values(examToPalette()))) {
-    assert.equal(EXAM_ALIAS[key], IDS.includes(key) ? key : paletteQualification(key), `パレット ${key} の別名`);
-  }
+  // パレットのキーは、資格 id と同じ綴り（surveyor）でもトークンの資格を指す（data-wiring.test と同じ約束）
+  for (const key of new Set(Object.values(examToPalette()))) assert.equal(EXAM_ALIAS[key], paletteQualification(key), `パレット ${key} の別名`);
 });
 
 test('サイトのブランド（exam-brand.ts）は、パレットを持つ資格をすべて持つ', () => {

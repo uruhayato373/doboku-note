@@ -25,8 +25,9 @@ const OLD_ACCOUNT = '_archive-old-account';
  */
 const X_SHORTHANDS = { cem: 'pe-comprehensive-management', civil1: 'civil-construction-1', civil2: 'civil-construction-2', 'civil-1+2': 'civil-construction-1-2', civil: 'civil-construction-1-2' };
 export const EXAM_ALIAS = Object.fromEntries([
-  ...Object.values(examToPalette()).map((key) => [key, paletteQualification(key)]),
   ...Object.keys(examToPalette()).map((id) => [id, id]),
+  // パレットのキーは、そのトークンの資格を指す（資格 id と同じ綴りの surveyor もトークンの意味＝surveying が勝つ）
+  ...Object.values(examToPalette()).map((key) => [key, paletteQualification(key)]),
   ...Object.entries(X_SHORTHANDS),
 ]);
 

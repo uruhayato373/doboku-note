@@ -110,7 +110,8 @@ test('SNS・動画・図解の資格キーの表は、資格の registry と表�
   const registry = readJson(datasetPath('config.qualification-registry'));
   const tokens = readJson('.claude/knowledge/design-system/note-cover-tokens.json').exams;
   const tables = {
-    'X の EXAM_ALIAS': objectLiteral('scripts/lib/registry-x-state.mjs', 'EXAM_ALIAS'),
+    // EXAM_ALIAS はトークンから導く（DN-1012）ので、実行して得た表で見る
+    'X の EXAM_ALIAS': (await import('../scripts/lib/registry-x-state.mjs')).EXAM_ALIAS,
     'Instagram の EXAM_OF_DIR': objectLiteral('scripts/lib/registry-ig-state.mjs', 'EXAM_OF_DIR'),
     '図解パックの FIGURE_PACK_CATEGORIES': objectLiteral('.claude/scripts/sns/lib/figure-pack-labels.mjs', 'FIGURE_PACK_CATEGORIES'),
   };
@@ -121,11 +122,13 @@ test('SNS・動画・図解の資格キーの表は、資格の registry と表�
       if (tokens[key]?.qualification) assert.equal(qualification, tokens[key].qualification, `${name}: ${key} が表紙の色の定義（${tokens[key].qualification}）と違う`);
     }
   }
-  // 動画パックは向きが逆（資格 id → 色のキー）
-  const palette = objectLiteral('scripts/lib/longform-render.mjs', 'EXAM_TO_PALETTE');
-  for (const [qualification, key] of Object.entries(palette)) {
+  // 動画パックは向きが逆（資格 id → 色のキー）。トークンの資格そのものか、そのまとまり（registry の groups）のメンバー
+  const { examToPalette } = await import('../scripts/lib/qualification-palette.mjs');
+  for (const [qualification, key] of Object.entries(examToPalette())) {
     assert.ok(isQualificationRef(registry, qualification), `EXAM_TO_PALETTE: ${qualification} は registry に無い`);
-    assert.equal(tokens[key]?.qualification, qualification, `EXAM_TO_PALETTE: ${qualification} → ${key} が表紙の色の定義と違う`);
+    const owner = tokens[key]?.qualification;
+    const viaGroup = registry.groups?.[owner]?.members?.includes(qualification);
+    assert.ok(owner === qualification || viaGroup, `EXAM_TO_PALETTE: ${qualification} → ${key} が表紙の色の定義（${owner}）と違う`);
   }
 });
 
