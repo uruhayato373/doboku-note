@@ -25,7 +25,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：計測データ・点検記録のデジタル活用による課題定義（データ活用）、施設管理者・設計者・施工者・地域住民・行政機関との合意形成（ステークホルダー）、社会・経済・環境の三側面を踏まえた施設の持続的運用と安全確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：計測データ・点検記録のデジタル活用による課題定義（データ活用）、施設管理者・設計者・施工者・地域住民・行政機関との合意形成（ステークホルダー）、社会・経済・環境の三側面を踏まえた施設の持続的運用と安全確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n123b13c13595)
 
 ---
 
@@ -54,6 +54,11 @@ cover:
 本番ではII-2-1・II-2-2のいずれか1設問を選んで解答しますが、本記事では出題された両設問を網羅し、どちらを選んでも対応できるようにしています。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜電力土木 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）21本をまとめて読めるマガジンがあります。4本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/ma87d182c8113
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。

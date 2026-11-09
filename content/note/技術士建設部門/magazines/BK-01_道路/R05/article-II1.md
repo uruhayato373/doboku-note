@@ -26,7 +26,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：路肩の状態モニタリング・地質調査・点検データの活用（データ活用）、用地制約・排水・防災・環境を統合した社会・経済・環境三側面の持続的確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：路肩の状態モニタリング・地質調査・点検データの活用（データ活用）、用地制約・排水・防災・環境を統合した社会・経済・環境三側面の持続的確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n5b4a27a3ab18)
 
 ---
 
@@ -65,6 +65,11 @@ https://note.com/dobokunote/m/m9e825cfd8348
 論述の骨格と発注者視点の着眼点を参照しながら、各自の答案作成にお役立てください。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜道路 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）27本をまとめて読めるマガジンがあります。5本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/m9e825cfd8348
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。

@@ -23,7 +23,7 @@ cover:
 
 # 技術士 建設部門｜電力土木 R04 選択科目II-2 模範解答
 
-令和8年度の改訂コンピテンシーに対応した模範解答です。データ活用・ステークホルダーとの合意形成・社会経済環境の三側面と文化的価値の尊重を答案に織り込んでいます。詳細は[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご参照ください。
+令和8年度の改訂コンピテンシーに対応した模範解答です。データ活用・ステークホルダーとの合意形成・社会経済環境の三側面と文化的価値の尊重を答案に織り込んでいます。詳細は[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n1d29b4c1f636)をご参照ください。
 
 **こんな人のための記事です**
 
@@ -52,6 +52,11 @@ cover:
 本解答は、設問が求める論点を「現状・課題 → 解決策 → リスク・対策」の論理連鎖で組み立て、発注者ならではの視点を答案に活かす方法を示すものです。論述の骨格と発注者視点の着眼点を参照しながら、各自の答案作成にお役立てください。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜電力土木 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）21本をまとめて読めるマガジンがあります。4本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/ma87d182c8113
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。
