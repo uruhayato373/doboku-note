@@ -489,6 +489,8 @@
     "ogp-backgrounds": "node scripts/generate-ogp-backgrounds.mjs",
     "ogp-gallery": "node scripts/ogp-gallery.mjs",
     "standards-table-gallery": "node scripts/standards-table-gallery.mjs",
+    "standards-visual-review": "node scripts/standards-visual-review.mjs",
+    "standards-visual-review:status": "node scripts/standards-visual-review.mjs status",
     "standards-tables": "node scripts/standards-tables.mjs",
     "standards-library-mojibake": "node scripts/standards-library-mojibake.mjs",
     "standards-amendments": "node scripts/standards-amendments.mjs",

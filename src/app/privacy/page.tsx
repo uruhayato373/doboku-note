@@ -15,6 +15,7 @@ import {
   UserCheck,
   RefreshCw,
   Mail,
+  Send,
 } from 'lucide-react';
 import { DEFAULT_OG_IMAGE, SITE_TITLE } from '@/lib/metadata';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
@@ -55,6 +56,10 @@ function PolicyCard({ icon, title, children }: PolicyCardProps) {
   );
 }
 
+// 特定電子メール法の送信者の住所（施行規則第9条第2号）。配信メールの末尾からこのページの #mail へリンクして表示する。
+// 公開リポジトリの履歴に残さないため、本番ビルドで GitHub Secret から渡す（DN-1051）。無ければ住所の行を出さない。
+const MAIL_SENDER_ADDRESS = process.env.MAIL_SENDER_ADDRESS?.trim();
+
 export default function PrivacyPage() {
   return (
     <PageShell variant="default">
@@ -63,7 +68,7 @@ export default function PrivacyPage() {
         width="780"
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Privacy' }]}
         title="プライバシーポリシー"
-        meta="最終更新日 2026.11.06"
+        meta="最終更新日 2026.11.09"
       />
 
       <SectionBlock width="860" space="lg">
@@ -206,6 +211,33 @@ export default function PrivacyPage() {
               当サイトが個人を特定できる情報を取得することはありません。
             </p>
           </PolicyCard>
+
+          {/* 5c. メール配信 */}
+          <div id="mail" className="scroll-mt-24">
+            <PolicyCard
+              icon={<Send className="w-5 h-5 text-(--accent)" />}
+              title="メール配信について"
+            >
+              <p className="mb-4">
+                当サイトの登録フォームからお申し込みいただいた方に、試験の情報・登録特典・教材のご案内をメールでお送りします。
+                登録したメールアドレスは、配信サービス「Brevo」に預けて管理します。
+              </p>
+              <dl className="grid gap-2 rounded-card-content bg-(--bg) p-4 text-sm sm:grid-cols-[8rem_1fr]">
+                <dt className="font-semibold text-(--ink)">送信者</dt>
+                <dd>doboku-note</dd>
+                {MAIL_SENDER_ADDRESS && (
+                  <>
+                    <dt className="font-semibold text-(--ink)">住所</dt>
+                    <dd>{MAIL_SENDER_ADDRESS}</dd>
+                  </>
+                )}
+                <dt className="font-semibold text-(--ink)">お問い合わせ・苦情</dt>
+                <dd>info@doboku-note.com</dd>
+                <dt className="font-semibold text-(--ink)">配信の停止</dt>
+                <dd>毎回のメールの末尾にある配信停止のリンクから、いつでも停止できます。</dd>
+              </dl>
+            </PolicyCard>
+          </div>
 
           {/* 6 & 7: 2カラム */}
           <div className="grid sm:grid-cols-2 gap-6">

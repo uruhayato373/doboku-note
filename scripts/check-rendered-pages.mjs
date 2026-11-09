@@ -36,6 +36,7 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
+import { inspectInPage } from './lib/rendered-page-inspect.mjs';
 import { R2_PUBLIC_HOST, SITE_ORIGIN } from './lib/site-identity.mjs';
 
 const flags = parseCliArgs({
@@ -79,72 +80,6 @@ function listRoutes() {
     .map((f) => htmlPathToRoute(relative(outRoot, f)))
     .filter((r) => !SKIP.has(r) && r.startsWith(PREFIX || '/'));
   return [...new Set(routes)].sort();
-}
-
-// ページ内で走る判定（ブラウザ側）。
-function inspectInPage() {
-  const vw = document.documentElement.clientWidth;
-  const issues = [];
-  const sw = document.documentElement.scrollWidth;
-  if (sw > vw + 1) {
-    const isClipped = (el) => {
-      for (let p = el.parentElement; p && p !== document.body; p = p.parentElement) {
-        const ox = getComputedStyle(p).overflowX;
-        if (ox === 'auto' || ox === 'scroll' || ox === 'hidden' || ox === 'clip') return true;
-      }
-      return false;
-    };
-    const offenders = [];
-    for (const el of document.body.querySelectorAll('*')) {
-      const r = el.getBoundingClientRect();
-      // position:fixed の要素（閉じたドロワー等）は文書の横幅を広げないので原因にしない
-      if (r.width === 0 || r.right <= vw + 1 || isClipped(el) || getComputedStyle(el).position === 'fixed') continue;
-      // 親もはみ出しているなら親だけを報告する
-      const parent = el.parentElement;
-      if (parent && parent.getBoundingClientRect().right > vw + 1 && !isClipped(parent) && parent !== document.body) continue;
-      const cls = typeof el.className === 'string' ? el.className.trim().split(/\s+/).slice(0, 3).join('.') : '';
-      offenders.push(`${el.tagName.toLowerCase()}${cls ? `.${cls}` : ''} (right=${Math.round(r.right)})`);
-      if (offenders.length >= 3) break;
-    }
-    issues.push({ type: 'overflow', detail: `scrollWidth=${sw} > ${vw}: ${offenders.join(' | ')}` });
-  }
-
-  for (const img of document.querySelectorAll('img')) {
-    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
-      issues.push({ type: 'image', detail: img.currentSrc || img.getAttribute('src') });
-    }
-  }
-
-  const katex = document.querySelectorAll('.katex-error');
-  if (katex.length) issues.push({ type: 'katex', detail: `${katex.length} 件: ${katex[0].textContent.slice(0, 60)}` });
-
-  const main = document.querySelector('main');
-  if (!main) {
-    issues.push({ type: 'main', detail: '<main> が無い' });
-    return issues;
-  }
-  const clone = main.cloneNode(true);
-  clone.querySelectorAll('.katex, script, style, pre, code, noscript, svg, textarea').forEach((n) => n.remove());
-  const text = clone.textContent ?? '';
-  if (text.replace(/\s/g, '').length < 150) issues.push({ type: 'main', detail: `本文 ${text.replace(/\s/g, '').length} 字` });
-  const patterns = [
-    [/<\/?[A-Z][A-Za-z]+[\s/>]/, 'JSX タグ'],
-    [/\$\$|\\(?:frac|times|mathrm|text|sqrt|left|right)\b/, '数式記法'],
-    [/\*\*[^*\s][^*]{0,40}\*\*/, '太字記法'],
-    [/\]\((?:https?:|\/)/, 'リンク記法'],
-    [/^#{2,4} /m, '見出し記法'],
-    [/\{\/\*|\*\/\}/, 'MDX コメント'],
-    [/^\s*\|.*\|.*\|\s*$/m, '表記法'],
-  ];
-  for (const [re, label] of patterns) {
-    const m = text.match(re);
-    if (m) {
-      const at = Math.max(0, m.index - 20);
-      issues.push({ type: 'markup', detail: `${label}: …${text.slice(at, m.index + 40).replace(/\s+/g, ' ')}…` });
-    }
-  }
-  if (text.includes('�')) issues.push({ type: 'mojibake', detail: 'U+FFFD' });
-  return issues;
 }
 
 async function checkRoute(context, route) {
