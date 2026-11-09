@@ -20,6 +20,7 @@ import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { assertAccountGate } from './lib/note-browser.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { curlJson as apiCurlJson } from './lib/note-api.mjs';
@@ -113,6 +114,13 @@ try {
   process.exit(11);
 }
 const page = ctx.pages()[0] || (await ctx.newPage());
+// 別アカウントのまま書き込まない（DN-1009）。設定画面で note のアカウント名が確かめられなければ何もせず止まる
+const accountGate = await assertAccountGate(page);
+if (!accountGate.ok) {
+  console.error('ABORT: note のアカウントを確かめられなかった（別アカウントか未ログイン）。何も変更していない');
+  await ctx.close();
+  process.exit(2);
+}
 
 // ログイン状態の確認（未ログインなら note-edit-session を案内して中断）
 await page.goto(`https://note.com/${CREATOR}`, { waitUntil: 'domcontentloaded', timeout: 45000 }).catch(() => {});

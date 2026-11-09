@@ -32,6 +32,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { assertAccountGate } from './lib/note-browser.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { curlJson as apiCurlJson } from './lib/note-api.mjs';
@@ -99,6 +100,13 @@ const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   args: ['--disable-blink-features=AutomationControlled'],
 }));
 const page = ctx.pages()[0] || (await ctx.newPage());
+// 別アカウントのまま書き込まない（DN-1009）。設定画面で note のアカウント名が確かめられなければ何もせず止まる
+const accountGate = await assertAccountGate(page);
+if (!accountGate.ok) {
+  console.error('ABORT: note のアカウントを確かめられなかった（別アカウントか未ログイン）。何も変更していない');
+  await ctx.close();
+  process.exit(2);
+}
 let exitCode = 0;
 
 async function setField(loc, value) {
