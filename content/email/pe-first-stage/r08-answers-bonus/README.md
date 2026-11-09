@@ -9,7 +9,7 @@
 | ― | ③合格発表日の通知 | Brevo の配信で送る（日付は日本技術士会の公表後に決める） |
 | [emails.md](./emails.md) | 確認メールと特典メールの文面 | Brevo のテンプレートに入れる |
 
-PDF は `node scripts/magazine-to-pdf.mjs --spec "scripts/pdf-specs/技術士一次-R8速報-登録特典.json"` で作る（出力 `.tmp/pe1-r08-bonus-pdf/`）。配る PDF は Drive vault の `制作物/` に置き、リンクを知っている人が見られる共有にして特典メールに貼る（公開 R2 に置かない・asset-storage-policy.md）。
+PDF は `node scripts/magazine-to-pdf.mjs --spec "scripts/pdf-specs/技術士一次-R8速報-登録特典.json"` で作る（出力 `.tmp/pe1-r08-bonus-pdf/`）。配る PDF は Drive vault の `制作物/` に置き、リンクを知っている人が見られる共有にして特典メールに貼る（公開 R2 に置かない・asset-storage-policy.md）。2026-11-09 版は `制作物/技術士一次R8_自己採点シート.pdf`（file id 1y1pIMVP_BylgeLO44WMqGS8RYUOTn2pJ・リンクを知っている全員が閲覧可）。作り直したら同じファイルを差し替え、リンクを変えない。
 
 ## 根拠にした事実（2026-11-09 確認）
 
