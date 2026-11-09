@@ -64,6 +64,7 @@ content/
   sns/          instagram / x / youtube の制作物
   registry/     公開の事実の正本（ID・状態・予定・外部 ID・承認・素材の参照）。全チャネルの投稿を ID で引く（content-registry.md・2026-10-09）
   kindle/       Kindle 非公開原稿（Web 配信対象ではない）
+  email/        メール配信の原稿（登録特典・配信文面。Brevo で配る・2026-11-09）
   sources/      制作の根拠となる入力資料（原典 PDF・OCR 入力・シリーズの章の骨子 sources/series/）
 ```
 
