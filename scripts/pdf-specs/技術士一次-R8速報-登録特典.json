@@ -1,0 +1,13 @@
+{
+  "srcDir": "content/email/pe-first-stage/r08-answers-bonus",
+  "outDir": ".tmp/pe1-r08-bonus-pdf",
+  "articles": [
+    {
+      "src": "self-scoring-sheet.md",
+      "out": "pe1-r08-self-scoring-sheet",
+      "include": [
+        { "from": "^## 記入の前に", "to": "(?![\\s\\S])" }
+      ]
+    }
+  ]
+}
