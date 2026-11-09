@@ -459,6 +459,12 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1060] add-note-utm が article-II1.md などの分割原稿を扱えず、check-note-site-utm の案内どおりに直せない
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-10]
+
+scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけを探すため、建設部門の article-II1/II2/III.md を指すと「no note directory matches」で落ちる。check-note-site-utm は同じ原稿に node scripts/add-note-utm.mjs '<dir>' を案内する。2026-11-09 の R8 本試験 34 本は手で utm_term を足した。完了条件: 記事の走査を article(-*)?.md にし、分割原稿のディレクトリで utm_term が付くテストを足す。
+
+
 ### [DN-1059] X 返信候補の収集で結果報告の言い方と「添削」を含む受験者の投稿を取りこぼす
 タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-09]
 
