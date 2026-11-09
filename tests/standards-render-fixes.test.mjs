@@ -78,3 +78,35 @@ test('近畿の共通仕様書 3-2 の表3-2-15 に本体の 3 行が入り、�
   const t22 = md.slice(md.lastIndexOf('**表3-2-22'));
   assert.match(t22.split('\n').find((line) => line.includes('(20F)')) ?? '', /\*\*\(20\)\*\* \| \*\*\(20\)\*\* \| \*\*\(13\)\*\* \| \*\*\(13\)\*\*/);
 });
+
+test('横に結合した長い文は隣の列に繰り返さず（同左）と出す。短い語は繰り返す（DN-1055）', () => {
+  const long = '岩塊、玉石が混入して掘削しにくく、バケット等に空隙のでき易いもの。岩塊、玉石は粒径7.5㎝以上とする。';
+  const layout = [`名称 説明 摘要 岩塊玉石 ${long} 玉石まじり土 砂 細砂`];
+  const override = {
+    kind: 'table',
+    layout,
+    key: tableKey(layout),
+    header: [['名称', '説明', { same: 'left' }, '摘要']],
+    rows: [['岩塊玉石', long, { same: 'left' }, '玉石まじり土'], ['砂', '細砂', { same: 'left' }, { same: 'left' }]],
+    review: { status: 'approved' },
+  };
+  const result = applyTableOverride(layout, override);
+  assert.equal(result.ok, true, result.reason);
+  const table = result.parts.find((p) => p.kind === 'table');
+  assert.deepEqual(table.rows[0], ['岩塊玉石', long, '（同左）', '玉石まじり土']);
+  assert.deepEqual(table.rows[1], ['砂', '細砂', '細砂', '細砂']);
+});
+
+test('近畿の共通仕様書 1-2 の表1-2-1 は見出しが 1 段で、説明の文が 2 列に重ならない（DN-1055）', () => {
+  const md = readFileSync(join(SITE_CONTENT_ROOT, 'standards-articles', 'kinki', 'common', 'chapters', '1-2.md'), 'utf8');
+  const block = md.slice(md.indexOf('**表1-2-1'), md.indexOf('<SourceRef', md.indexOf('**表1-2-1')));
+  assert.match(block, /^\| 名称Ａ \| 名称Ｂ \| 名称Ｃ \|/m);
+  assert.ok(!/\*\*Ａ\*\*/.test(block), 'Ａ Ｂ Ｃ の見出しが本体の行に残っている');
+  const rock = block.split('\n').find((line) => line.startsWith('| 岩または石 | 岩塊玉石'));
+  assert.match(rock, /\| （同左） \|/);
+});
+
+test('キャプションの直後に見出しの 1 行が続き、データの行が空行で離れた小さな表を表にする（表10-15-1・DN-1055）', () => {
+  const md = readFileSync(join(SITE_CONTENT_ROOT, 'standards-articles', 'kinki', 'common', 'chapters', '10-15.md'), 'utf8');
+  assert.match(md, /\| 作業区分 \| 作業時間帯 \|\n\| --- \| --- \|\n\| 昼間作業 \| 7時00分～19時00分 \|\n\| 夜間作業 \| 19時00分～7時00分 \|/);
+});

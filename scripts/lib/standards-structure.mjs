@@ -518,7 +518,15 @@ function segmentToBlocks(segment, pageWidths = null) {
   if (current.length) chunks.push(current);
 
   const classified = [];
-  for (const chunk of chunks) {
+  for (const raw of chunks) {
+    let chunk = raw;
+    // キャプションと表の見出しの 1 行が空行なしで続き、データの行が空行で 1 行ずつ離れた小さな表
+    // （近畿版 p639 表10-15-1 の `作業区分   作業時間帯`）は、2 行の chunk が表とも散文とも判定されず段落に化けていた。
+    // キャプションを切り離し、見出しの行をキャプションの直後の表の行として扱う（DN-1055）
+    if (chunk.length === 2 && RE_TABLE_CAPTION.test(chunk[0].text) && hasWideGap(chunk[1].text) && !isLayoutLine(chunk[1].text) && !trimBoth(chunk[1].text).endsWith('。')) {
+      classified.push({ chunk: [chunk[0]], isTable: false, captionOnly: true });
+      chunk = chunk.slice(1);
+    }
     const captionOnly =
       chunk.length === 1 &&
       (RE_TABLE_CAPTION.test(chunk[0].text) || RE_FIGURE_CAPTION.test(chunk[0].text));
@@ -532,7 +540,7 @@ function segmentToBlocks(segment, pageWidths = null) {
     // 句点で終わらない 1 行は表の続きとみなす。
     const previous = classified[classified.length - 1];
     const tableRowAfterTable =
-      chunk.length === 1 && !captionOnly && previous?.isTable && hasWideGap(chunk[0].text) && !trimBoth(chunk[0].text).endsWith('。');
+      chunk.length === 1 && !captionOnly && (previous?.isTable || (previous?.captionOnly && chunk !== raw)) && hasWideGap(chunk[0].text) && !trimBoth(chunk[0].text).endsWith('。');
     const isTable =
       tableRowAfterTable || (!captionOnly && !isWrappedProse(chunk) && (dense || (wide >= 2 && wide / chunk.length >= 0.4)));
     if (!isTable) {

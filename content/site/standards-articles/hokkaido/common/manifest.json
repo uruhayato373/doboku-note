@@ -35,8 +35,8 @@
     "removedPrintPageNumbers": 583,
     "removedChapterFront": 49,
     "dedentedPages": 145,
-    "tables": 163,
-    "tablesGfm": 5,
+    "tables": 164,
+    "tablesGfm": 6,
     "tablesList": 33,
     "tablesOverride": 121,
     "tablesVerbatim": 4
@@ -45,7 +45,7 @@
     "override-verbatim": 4,
     "restored-override": 121,
     "restored-standards-list": 33,
-    "restored": 5
+    "restored": 6
   },
   "removedSamples": {
     "runningHeaders": [
@@ -551,8 +551,8 @@
         141
       ],
       "sourceSha256": "869ecc879ecee3305c41a4572bb6b36a9b1ac0db36cd3cb0fb4ce04eaadbb18c",
-      "outputSha256": "77e5dc97df1b800cb4c5cb7672b3f33d5f26b54e8c44b9387260b2612610fc67",
-      "outputBytes": 46256,
+      "outputSha256": "305aa2a26e79bf050c10d9fe173a13be0e693a112e47fd30d401ea1344737a21",
+      "outputBytes": 44900,
       "splitBySection": false,
       "sections": [
         {
@@ -2147,8 +2147,8 @@
         376
       ],
       "sourceSha256": "097eecc7dc7a6bd3827f2d9b9ffc6903b98dac9fcec6d8ef2148aa4b3497e4db",
-      "outputSha256": "f8e84071749b12a14b4703605ae2f85558827f4c0d53b24d5ecffd6045265607",
-      "outputBytes": 468463,
+      "outputSha256": "9b34bac6997b4d671ef6f38f486a9b6904a35071634de67c28ab733a26e5db26",
+      "outputBytes": 466956,
       "splitBySection": true,
       "sections": [
         {
@@ -15989,8 +15989,8 @@
         651
       ],
       "sourceSha256": "8b5df9da94b92dfd9e66faf1deebf31c2e823a55a17b3c74df8ea3f0d9c5a759",
-      "outputSha256": "652c979200c4f51d205dd56e0a4f4b3bb7c7dbfa188e14b9881cee25e5f6fd38",
-      "outputBytes": 12031,
+      "outputSha256": "1d9d501042a5885632bef64433da7add51a243f55a18f53d72838a0eb92d8404",
+      "outputBytes": 12109,
       "splitBySection": false,
       "sections": [
         {
@@ -16089,18 +16089,19 @@
         "sections": 3,
         "articles": 11,
         "clauses": 39,
-        "paragraphs": 50,
+        "paragraphs": 47,
         "items": 8,
         "notes": 0,
         "captions": 0,
-        "tablesGfm": 0,
+        "tablesGfm": 1,
         "tablesList": 1,
         "tablesOverride": 0,
         "tablesVerbatim": 0,
-        "tables": 1
+        "tables": 2
       },
       "tableOutcomes": {
-        "restored-standards-list": 1
+        "restored-standards-list": 1,
+        "restored": 1
       },
       "indexable": false,
       "duplicateOf": null,

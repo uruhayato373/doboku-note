@@ -16,6 +16,14 @@
       "chapters": 43,
       "pass": 41,
       "fail": 2
+    },
+    {
+      "runId": "20261109T060218Z",
+      "at": "2026-11-09T06:05:53.558Z",
+      "base": "http://localhost:3025",
+      "chapters": 3,
+      "pass": 2,
+      "fail": 1
     }
   ],
   "chapters": {
@@ -40,31 +48,31 @@
       "ticket": null
     },
     "kinki/common/1-2": {
-      "outputSha256": "cf1d26eeb1b18a7cdb1c47540631919dc58e3f0ff3de93ec93ba5d025a17689d",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-09T04:32:13.113Z",
-      "runId": "20261109T042537Z",
+      "outputSha256": "5fb1c6e58ffce20b4d6a61655b6527cfe624554c820705099239fa319c9b4a1e",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T06:05:53.556Z",
+      "runId": "20261109T060218Z",
       "urls": [
         "http://localhost:3025/standards/kinki/common/chapters/1-2"
       ],
       "findings": [
         {
-          "severity": "major",
+          "severity": "minor",
           "type": "table",
-          "detail": "表1-2-1 は値が別の列へずれてはおらず、原本の結合セルを平らに展開した結果の横長（約5000px）。ただし画面では、名称の4列目（Ⅰ・Ⅱ列）と説明の2列目に見出しが無く、見出し行の A/B/C が本体の最初の行として出る。岩塊玉石・軟岩・硬岩の行では原本で 1 つに結合された説明文が 2 列に同じ文で重複し、摘要が名称から約4000px 右に離れて、原本を見ずに行を追えない。",
+          "detail": "表1-2-1 は A/B/C の見出しが上段に収まり、説明・摘要の値も原本どおりの行に並んでいる。説明の右半分（礫の多い砂など）は見出しの無い列に出て、列幅が大きく離れる。読めるので minor。",
           "shot": "table-01.png",
           "sourcePage": 118
         },
         {
           "severity": "minor",
           "type": "table",
-          "detail": "表1-2-2 は原本の 2 段見出し（種別の下に雑草・ささ類／倒木／古根株／立木）が、見出し行と本体の先頭行に分かれて出ている。内容は原本どおりで読める。table-04.png（表1-2-3、原本 p127）も同じ形で、結合セルの除去・抜根除去・同左が各行に展開されているが内容は一致。",
+          "detail": "表1-2-2 と表1-2-3（table-04）は、種別の下段（雑草・ささ類／倒木／古根株／立木）が見出し行ではなく太字の本体行として出るが、値の対応は原本どおり。結合セルは繰り返しで表現されている。",
           "shot": "table-02.png",
           "sourcePage": 120
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1055"
+      "ticket": null
     },
     "kinki/common/1-3": {
       "outputSha256": "2311ed25748fbac74f04d37d5e95a30536dd72683339f4936f7bf01eddbcccb4",
@@ -181,23 +189,16 @@
       "ticket": null
     },
     "kinki/common/10-15": {
-      "outputSha256": "3eeb95ec590569f66f9365f53fd8aac2a32673b466639e8b8238acbff411db55",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-09T04:32:13.113Z",
-      "runId": "20261109T042537Z",
+      "outputSha256": "beace23a7eeb537df668c23709afb5addf71ebe54b9eeb9c42db6324743b41f5",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T06:05:53.556Z",
+      "runId": "20261109T060218Z",
       "urls": [
         "http://localhost:3025/standards/kinki/common/chapters/10-15"
       ],
-      "findings": [
-        {
-          "severity": "major",
-          "type": "table",
-          "detail": "10-15-3-1 第4項の表10-15-1（作業区分・作業時間帯の表）が表にならず、「表10-15-1 作業区分作業区分 作業時間帯」「昼間作業 7時00分～19時00分」「夜間作業 19時00分～7時00分」の3段落になって見出しの列と値の対応が読み取れない（原本は表）",
-          "shot": "page-02.png"
-        }
-      ],
+      "findings": [],
       "deterministic": [],
-      "ticket": "DN-1055"
+      "ticket": null
     },
     "kinki/common/10-16": {
       "outputSha256": "5cb32154450ff7abcbe845ffec276f8d5ccfdbe6310c9fd240fc8492ab89de76",
@@ -748,46 +749,31 @@
       "ticket": "DN-1053"
     },
     "kinki/hikkei/36-1": {
-      "outputSha256": "5194cfd3460d24a5f27b0016443561c1131fe878fab33c0e1659f54c0de59d1b",
+      "outputSha256": "1ad21cab3864c2f9c27e045036c00943a5fdc01b07b13e1595af28eed3eb661f",
       "verdict": "fail",
-      "reviewedAt": "2026-11-09T03:09:16.221Z",
-      "runId": "20261109T030512Z",
+      "reviewedAt": "2026-11-09T06:05:53.556Z",
+      "runId": "20261109T060218Z",
       "urls": [
-        "https://doboku-note.com/standards/kinki/hikkei/chapters/36-1"
+        "http://localhost:3025/standards/kinki/hikkei/chapters/36-1"
       ],
       "findings": [
         {
           "severity": "major",
-          "type": "markup",
-          "detail": "表－1（試験依頼内訳）が表にならず、『| 層別と混合物／交通区分 | 表層：排水性 | … ||---|---|:---:| …』と記法の文字のまま1段落に出ている（markup-01）。",
-          "shot": "markup-01.png"
+          "type": "table",
+          "detail": "表-2 の試料内容と数量の行がずれている。原本ではストレートAs=4kg入り(3缶)、①プレミックス=4kg入り(3缶)、②プラントミックス=2kg、再生用添加剤=1ℓ、冷骨材=150kg。画面は左列に「供試体作製用」を含む 8 行、右列は 5 値を上から詰めており、①プレミックスの横に 1ℓ、②プラントミックスの横に 150kg、再生用添加剤・冷骨材の横が空になる。供試体作製用は原本では縦書きの行見出し。",
+          "shot": "table-02.png",
+          "sourcePage": 723
         },
         {
-          "severity": "major",
-          "type": "markup",
-          "detail": "表－2（試験項目と持ち込み数量）が記法の文字の段落になり、区切り行『||---|---|』と『<br>』の文字もそのまま画面に出て、行・列が読み取れない（markup-02、page-01 でも確認）。",
-          "shot": "markup-02.png"
-        },
-        {
-          "severity": "major",
-          "type": "markup",
-          "detail": "表－3（持ち込み骨材の内訳）と表－4（目標動的安定度）も同様に記法の文字の段落で出ている（markup-03、page-01）。撮影（shots）は 0 件のため、表としての描画が無い。原本（p721-725）との個別照合はしていない。",
-          "shot": "markup-03.png"
+          "severity": "minor",
+          "type": "table",
+          "detail": "表-5 は横に広く、章ページ（page-03）では右端の舗設時・持込み数量の列が切れて横スクロールになる。値は原本と一致。",
+          "shot": "table-05.png",
+          "sourcePage": 724
         }
       ],
-      "deterministic": [
-        {
-          "type": "markup",
-          "detail": "表記法: …験対象層について 表－1 試験依頼内訳 | 層別と混合物／交通区分 | 表層：排水性 | 表層：改質As | 表層：改質…",
-          "url": "/standards/kinki/hikkei/chapters/36-1"
-        },
-        {
-          "type": "markup",
-          "detail": "表記法（区切り行）: …間層：改質As | 中間層：改質再生 ||---|---:|---:|---:|---:|---:|| C交通 | ○ …",
-          "url": "/standards/kinki/hikkei/chapters/36-1"
-        }
-      ],
-      "ticket": "DN-1053"
+      "deterministic": [],
+      "ticket": "DN-1056"
     }
   }
 }
