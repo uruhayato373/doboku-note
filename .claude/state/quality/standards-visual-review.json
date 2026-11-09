@@ -8,66 +8,707 @@
       "chapters": 3,
       "pass": 0,
       "fail": 3
+    },
+    {
+      "runId": "20261109T042537Z",
+      "at": "2026-11-09T04:32:13.115Z",
+      "base": "http://localhost:3025",
+      "chapters": 43,
+      "pass": 41,
+      "fail": 2
     }
   ],
   "chapters": {
-    "kinki/common/3-2": {
-      "outputSha256": "47e9c362faf6994974c528c148e29b634374b2992b0f58301d5c24f60f49a082",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-09T03:09:16.221Z",
-      "runId": "20261109T030512Z",
+    "kinki/common/1-1": {
+      "outputSha256": "9abfc1c066f03d3b69b0d1e3ddadf55fbac2c2a0b276632b2184f2a96acc4e54",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
       "urls": [
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/1",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/2",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/3",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/4",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/5",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/6",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/7",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/8",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/9",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/10",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/11",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/12",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/13",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/14",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/15",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/16",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/17",
-        "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/18"
+        "http://localhost:3025/standards/kinki/common/chapters/1-1"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "table",
+          "detail": "表1-1-1・表1-1-2 は原本では機種を縦に列挙しているが、画面では 1 行に「・」でつないだ横長の表になり、幅が大きく読みにくい。内容の欠けはない。",
+          "shot": "table-02.png",
+          "sourcePage": 109
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/1-2": {
+      "outputSha256": "cf1d26eeb1b18a7cdb1c47540631919dc58e3f0ff3de93ec93ba5d025a17689d",
+      "verdict": "fail",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/1-2"
       ],
       "findings": [
         {
           "severity": "major",
           "type": "table",
-          "detail": "原本 p260 の表3-2-15（現場円周溶接部の目違いの許容値、3行×3列）が、画面では見出し行（外径・許容量・摘要）だけの空の表になっている。本体の3行は表の外に段落として出て、『上ぐ い と下 ぐ いの 外 周長…』のように文字間が空き、外径・許容量が摘要と混ざって読めない（MD 1901-1909 行付近、2276 行付近）。",
-          "shot": "table-24.png",
-          "sourcePage": 260
-        },
-        {
-          "severity": "major",
-          "type": "table",
-          "detail": "原本 p273 の表3-2-22 は、混合物の種類の見出し下に粒度区分（20）（13）（13F）が全列にあるが、画面では③④⑥⑦⑧の列で区分が欠け、⑥⑦⑧の（13F）と③④⑨の（13）が読み取れない。また行見出しが『通過質量百分率□%□』と記号で化けている（原本は縦書きの『通過質量百分率（%）』）。",
-          "shot": "table-32.png",
-          "sourcePage": 273
+          "detail": "表1-2-1 は値が別の列へずれてはおらず、原本の結合セルを平らに展開した結果の横長（約5000px）。ただし画面では、名称の4列目（Ⅰ・Ⅱ列）と説明の2列目に見出しが無く、見出し行の A/B/C が本体の最初の行として出る。岩塊玉石・軟岩・硬岩の行では原本で 1 つに結合された説明文が 2 列に同じ文で重複し、摘要が名称から約4000px 右に離れて、原本を見ずに行を追えない。",
+          "shot": "table-01.png",
+          "sourcePage": 118
         },
         {
           "severity": "minor",
           "type": "table",
-          "detail": "原本 p242 の表3-2-12 の線径欄の（ ）［ ］の括弧（30cm規格・50cm規格の区別）が画面で消え、4つの値が並ぶだけで注2と対応が付かない。左見出しの『項目 項目 試験箇所』は原本の斜線見出しの崩れで原本どおり。表中に薄い縦の帯が出ている。",
+          "detail": "表1-2-2 は原本の 2 段見出し（種別の下に雑草・ささ類／倒木／古根株／立木）が、見出し行と本体の先頭行に分かれて出ている。内容は原本どおりで読める。table-04.png（表1-2-3、原本 p127）も同じ形で、結合セルの除去・抜根除去・同左が各行に展開されているが内容は一致。",
+          "shot": "table-02.png",
+          "sourcePage": 120
+        }
+      ],
+      "deterministic": [],
+      "ticket": "DN-1055"
+    },
+    "kinki/common/1-3": {
+      "outputSha256": "2311ed25748fbac74f04d37d5e95a30536dd72683339f4936f7bf01eddbcccb4",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/1-3"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "table",
+          "detail": "表1-3-1 示方配合表で、原本の「単位量」の結合見出しが無く、水W・セメントC等の副見出しが本体の1行目に出て、データ行は原本どおり空欄。読めるが見出し構造は平坦化されている。",
+          "shot": "table-01.png",
+          "sourcePage": 136
+        },
+        {
+          "severity": "minor",
+          "type": "table",
+          "detail": "表1-3-4 で「セメントの種類」の副見出し行が本体行になり、結合セルの区分名が各行に繰り返されている。値の列は原本と一致。",
+          "shot": "table-05.png",
+          "sourcePage": 153
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-1": {
+      "outputSha256": "407acd13de99f3f7d166a0c8636daf25dac78f8b9b900b7b82eb15a89c2e2c4e",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-1"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-10": {
+      "outputSha256": "7ec168d901d71cbc0520a67195bb17ca3869542985ccd8a16a3d5e5a939819c4",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-10"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-11": {
+      "outputSha256": "3c8cb639af500a313daae5108087fe5f1254dc710c4569a13847b1a0f557da88",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-11"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "text",
+          "detail": "10-11-7-3 縦締工の「3項（3）～」の後で段落が切れ、「（6）及び（8）～（11）の規定による。」が別段落になっている（単発）",
+          "shot": "page-04.png"
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-12": {
+      "outputSha256": "bb57e7460b4e379c64e313c07cd78b83437ccf2cd2b988557ef24de267db6010",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-12"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-13": {
+      "outputSha256": "8884db57daf4671759dbe4cf9cadd3a57ae4405f01f873ee876f3c9781970397",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-13"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-14": {
+      "outputSha256": "61338f298b3cbc087c810c98d29ab77e3dc5c4b0457ea19a77fa626ff72982c5",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-14"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "表10-14-2 は作業内容の列が非常に広く表全体が約2000pxで、作業方法の列が右に離れる。値・行は原本と一致。",
+          "shot": "table-02.png",
+          "sourcePage": 630
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-15": {
+      "outputSha256": "3eeb95ec590569f66f9365f53fd8aac2a32673b466639e8b8238acbff411db55",
+      "verdict": "fail",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-15"
+      ],
+      "findings": [
+        {
+          "severity": "major",
+          "type": "table",
+          "detail": "10-15-3-1 第4項の表10-15-1（作業区分・作業時間帯の表）が表にならず、「表10-15-1 作業区分作業区分 作業時間帯」「昼間作業 7時00分～19時00分」「夜間作業 19時00分～7時00分」の3段落になって見出しの列と値の対応が読み取れない（原本は表）",
+          "shot": "page-02.png"
+        }
+      ],
+      "deterministic": [],
+      "ticket": "DN-1055"
+    },
+    "kinki/common/10-16": {
+      "outputSha256": "5cb32154450ff7abcbe845ffec276f8d5ccfdbe6310c9fd240fc8492ab89de76",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-16"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "table",
+          "detail": "表10-16-1 で原本の「蒸発残留物」の結合セルが展開され、他の行では項目名が2列に重複して出る。値は原本と一致し読める。",
+          "shot": "table-01.png",
+          "sourcePage": 645
+        },
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "表10-16-2 は検査基準の列が広く表が横長だが、値・行は原本と一致。",
+          "shot": "table-02.png",
+          "sourcePage": 658
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-2": {
+      "outputSha256": "7b9ceb61a95024a405cdeaca750bdf8dc56e70fd626f8dfdb1d6988afb62853f",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-2"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-3": {
+      "outputSha256": "843833f704c468a1808809dadaa637cfb8ff6e5e83e3454620b20b34a761a8f3",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-3"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-4": {
+      "outputSha256": "7129800f389ecd3af87a78e0180d5c563eacfaae708fe289038a3132b0941a8b",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-4"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-5": {
+      "outputSha256": "421aa505791767326b697637c7b342b67b8e390ede982374f07117e34926e696",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-5"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-6": {
+      "outputSha256": "5bfd6dd6e65bded2234bbf0b807b4e5b9b5efe751929024cdcafd1d85bf57ffc",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-6"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-7": {
+      "outputSha256": "8624c866a5de4546dfe0043501e5460e4151a455fca846197e0aa01438cf823e",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-7"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-8": {
+      "outputSha256": "cec7971f00e7c0d9619995fd7781109f912e9378ed202d4ae04a84c0a390e151",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-8"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/10-9": {
+      "outputSha256": "8a5efb7c40d9be6d3d2e266ab9bccfca48abcb3bf8ba1f7fd7cf5a3229952997",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/10-9"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/2-1": {
+      "outputSha256": "c65514308faa5677ad94cf32a6cd3e160dd0f9f7d47d63fae4a764c549043cf4",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/2-1"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "table",
+          "detail": "原本 p163-164 の表2-1-1 は区分セルが結合されているが、画面では各行に区分名を繰り返して表示している。値の欠落・ずれは無い",
+          "shot": "table-01.png",
+          "sourcePage": 163
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/2-2": {
+      "outputSha256": "56ebac94dab26beb5c7a2aa64dcbc38c9fe3a27a3c92da6495c4ab868601aece",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/2-2"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "table",
+          "detail": "原本 p168 の表2-2-2(2)プレパックドコンクリートは見出し行の無い 2 列表だが、画面では空の見出し行が先頭に出ている。値の対応は正しい。",
+          "shot": "table-04.png",
+          "sourcePage": 168
+        },
+        {
+          "severity": "minor",
+          "type": "table",
+          "detail": "原本 p184 の表2-2-19 は左の項目が結合セルだが、画面では各行に項目名を繰り返して 3 列にしている（酸化マグネシウム等は 2 列目にも同名）。値の対応は正しく読める。",
+          "shot": "table-21.png",
+          "sourcePage": 184
+        },
+        {
+          "severity": "minor",
+          "type": "text",
+          "detail": "原本未照合。page-02 の表2-2-17 の主な用途欄に「プライムコ□ト」と□が出ている（md にも U+25A1 がある）。原本の字形は未確認。",
+          "shot": "table-18.png"
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/3-1": {
+      "outputSha256": "0e551e7f321cde208502d4b1e8950e344be0d4687f83fc8125c842226159f790",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/3-1"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "表3-1-1 段階確認一覧表は種別列が非常に広く、結合セルの種別名が行ごとに繰り返され、複数項目が1行に並ぶ。行と値の対応は原本（p197-198）と一致。",
+          "shot": "table-01.png",
+          "sourcePage": 197
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/3-2": {
+      "outputSha256": "68b2646c5d35c0c14d8749b8342eb1fd453f2fd99b3d602f01bdbf5d5256efe4",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/3-2",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/1",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/2",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/3",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/4",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/5",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/6",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/7",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/8",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/9",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/10",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/11",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/12",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/13",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/14",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/15",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/16",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/17",
+        "http://localhost:3025/standards/kinki/common/chapters/3-2/sections/18"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "table",
+          "detail": "表3-2-12 の線径の基準値で、原本の ( )・[ ] の括弧（30cm 規格・50cm 規格）が画面では 4 値の並びになり括弧が無い。見出し行に「項目 項目 試験箇所」と重複した文字が出ている。",
           "shot": "table-17.png",
           "sourcePage": 242
         },
         {
           "severity": "minor",
+          "type": "table",
+          "detail": "表3-2-22 は原本の結合セル（35〜50 など）が列ごとに値を繰り返す形で出て、横に非常に広い。値のずれはない。",
+          "shot": "table-32.png",
+          "sourcePage": 273
+        },
+        {
+          "severity": "minor",
           "type": "other",
-          "detail": "原本との対応が付いておらず原本未照合。画面だけでは3列の表として読める（ゴムアスファルト系の行が表中の見出し行のように出ている）。",
+          "detail": "原本未照合。画面だけでは見出し・行ともに読める。",
           "shot": "table-40.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1052"
+      "ticket": null
+    },
+    "kinki/common/6-1": {
+      "outputSha256": "06307b8ac9010599d10880f9485daa13ed64d375d4ff34140de98659801379cf",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/6-1"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "table",
+          "detail": "表6-1-1 は原本で結合されている「耐薬品性」「老化性」等の項目名を各行に繰り返して表示している。値・単位・試験方法の対応は原本どおり。table-01 は sourcePages 未対応だが p374 と照合済み。",
+          "shot": "table-01.png",
+          "sourcePage": 374
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/6-2": {
+      "outputSha256": "52ad0278cb3732637bbd3202abb3bc1369460372954b0f813779d140c3646efa",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/6-2"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/6-3": {
+      "outputSha256": "d62a2a697e33e5acd0644ed8dfd1ad82bacbf56e5ea35743b664a4b18677dc08",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/6-3"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/6-4": {
+      "outputSha256": "d8f70f8c19fcf515b663a5769c8a87ed5dc43c0cb57937f22cbfb7f401128c6f",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/6-4"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/6-5": {
+      "outputSha256": "2524e6a003eb8206bc0e3e2a12e77a4d4751aec4a6154478745fe7f8c46c41ef",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/6-5"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/6-6": {
+      "outputSha256": "e2827d417927e01cd8becb6d8ec51aa50dc8a23bef5d0494a0c46be1777680ce",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/6-6"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/6-7": {
+      "outputSha256": "229cb41a0b74c64274a988215ee5fbbcbb57de0dcaf72343692858a528a6af0c",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/6-7"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/6-8": {
+      "outputSha256": "dce2d945660ea348807c67e6c73d47888753fd4d8b4db5f0be8892f3fd370b9a",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/6-8"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/6-9": {
+      "outputSha256": "014fa520890d821149f310ebf501d47c8f0eae6f0a03f1aa5397cba05218c32f",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/6-9"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "表6-9-1 は作業内容列が極端に広く、スマホ幅の page-04 では作業方法列が画面外になり横スクロールが要る。値は原本 p442 と一致",
+          "shot": "table-01.png",
+          "sourcePage": 442
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/7-1": {
+      "outputSha256": "3b8efdf0fbf54918e74d63aab89cdae3ef105723149243ed93e62be5fbcb1074",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/7-1"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/7-2": {
+      "outputSha256": "cf6fccd1e1fc33f38c3bb1628e5973de47dae6f996a4656febc3619647592338",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/7-2"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/7-3": {
+      "outputSha256": "219df004702d12eb2101c7d62c9e3b00c5c7a3c92b687c2b2dc72c5217bc9a66",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/7-3"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/7-4": {
+      "outputSha256": "6fd611ed319ddacb29daec754eb9b417272acc66dc972e6daa50ec3752eb6044",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/7-4"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/7-5": {
+      "outputSha256": "0b03b873f12c476582dfb84fe6adac154f720440e379ee48be372fccc41d2eac",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/7-5"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/8-1": {
+      "outputSha256": "cc3be653b65f46db4a3e649a0f6fbf3002cd1ed52e5893813d95bda96772b5f6",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/8-1"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/8-2": {
+      "outputSha256": "029ab566b5ca88c4d74ec2a1d4cb8b256428693f9bc18ac2438808ac6802ad6d",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/8-2"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/8-3": {
+      "outputSha256": "79cd23e01b3aa6ac1b0016eb4b4f0341056a74928758bf8f237eee2fa318611a",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/8-3"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/9-1": {
+      "outputSha256": "7f79273615454415ebd8ea385f7309c066c457cdf52adf796f454a67b2d87763",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/9-1"
+      ],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "text",
+          "detail": "第2節の基準類（土木学会 コンクリート標準示方書）が原本では独立行だが、画面では直前の段落の末尾に続けて出ている（page-01）。表9-1-1 は原本 p498 と一致",
+          "shot": "table-01.png",
+          "sourcePage": 494
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/9-2": {
+      "outputSha256": "25fc68ee1c93b8b6b7b33d82db48e218f331dd02593cc40524b159323277d344",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/9-2"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
+    },
+    "kinki/common/9-3": {
+      "outputSha256": "b88bd87d4a416b5396df889b4d575005e87c6cb36ef096ae0d8e307987386c8a",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-09T04:32:13.113Z",
+      "runId": "20261109T042537Z",
+      "urls": [
+        "http://localhost:3025/standards/kinki/common/chapters/9-3"
+      ],
+      "findings": [],
+      "deterministic": [],
+      "ticket": null
     },
     "kinki/hikkei/19-2": {
       "outputSha256": "0c4dc929f5f8a6254fc1d2db06fff1273f3edd3271164ea5f24b7244cf29240d",
