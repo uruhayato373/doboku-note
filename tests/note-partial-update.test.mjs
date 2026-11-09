@@ -59,6 +59,14 @@ test('部分更新 spec は article と限定 operation を必須にする', () 
   }));
   assert.doesNotThrow(() => validatePartialSpec({
     article: 'content/note/x/article.md',
+    operations: [{ type: 'insertTopCta', newText: '新CTA', newUrls: [], probe: '新CTA', beforeNeedle: 'もくじ' }],
+  }));
+  assert.throws(() => validatePartialSpec({
+    article: 'content/note/x/article.md',
+    operations: [{ type: 'insertTopCta', newText: '新CTA', newUrls: [], probe: '新CTA', beforeNeedle: '  ' }],
+  }), /beforeNeedle/);
+  assert.doesNotThrow(() => validatePartialSpec({
+    article: 'content/note/x/article.md',
     operations: [{ type: 'replaceTopCta', oldStart: '旧CTA', newText: '新CTA', newUrls: ['https://note.com/dobokunote/m/m1'], probe: '新CTA' }],
   }));
 });
