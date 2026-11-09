@@ -150,12 +150,12 @@
         "paragraphs": 144,
         "items": 0,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 3
       },
       "tableOutcomes": {
         "override-verbatim": 1,
@@ -201,12 +201,12 @@
         "paragraphs": 79,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 1
       },
       "tableOutcomes": {
         "override-verbatim": 1
@@ -303,12 +303,12 @@
         "paragraphs": 592,
         "items": 0,
         "notes": 0,
-        "tables": 38,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 29,
-        "tablesVerbatim": 9
+        "tablesVerbatim": 9,
+        "tables": 38
       },
       "tableOutcomes": {
         "override-verbatim": 9,
@@ -381,12 +381,12 @@
         "paragraphs": 228,
         "items": 0,
         "notes": 0,
-        "tables": 24,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 13,
-        "tablesVerbatim": 11
+        "tablesVerbatim": 11,
+        "tables": 24
       },
       "tableOutcomes": {
         "restored-override": 13,
@@ -434,12 +434,12 @@
         "paragraphs": 93,
         "items": 0,
         "notes": 0,
-        "tables": 6,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 5,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 6
       },
       "tableOutcomes": {
         "restored-override": 5,
@@ -553,12 +553,12 @@
         "paragraphs": 211,
         "items": 21,
         "notes": 0,
-        "tables": 9,
         "captions": 0,
         "tablesGfm": 1,
         "tablesList": 0,
         "tablesOverride": 7,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 9
       },
       "tableOutcomes": {
         "restored": 1,

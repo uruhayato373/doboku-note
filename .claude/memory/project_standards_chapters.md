@@ -81,6 +81,12 @@ navigation は長期間ずっと赤だった。CI も同じ dev で走ってい�
 - **同じ要綱を複数機関・版で収録 → `editionCanonical`**（`src/lib/standards-editions.mjs`・12 群）。原本が別 PDF なので SHA では拾えない。版（年月）を原本の表紙・告示で確かめ、新しい 1 本だけ索引・他は noindex, follow と「同じ要綱を掲載しています」の案内。同じ版ならその要綱だけの文書を優先。近畿の必携は item（総目次の番号）で指す。
 - 地方版 61 文書のページ画像（4,480p）も Drive に生成済み（mlit/sekou-kanri-kijun は原本 PDF 未配置）。全文ライブラリの文字化けは 2026-10-19 に 4 文書 154p を直した（下）。
 
+## 目視で見つけた崩れの修正（2026-11-09・DN-0916・DN-1052・DN-1053）
+- **画像から起こしたページの GFM の表**は、段落の全行が表の記法なら表で出す（生成器 parseTranscribedGfmTable）。検査 14 は文字起こしの記法（`|`・区切り行・`<br>`）を除いて照合、検査 19 は様式の記入欄（2 列の「項目名 | 空欄」）を空の列に数えない。
+- **見出しの結合セルの空欄化は `{same}` だった欄だけ**（headerMerged）。以前は左・上と同じ文字の欄を全部消していて、表3-2-22 の粒度区分 (13)(13F) が欠けていた。他文書の表でも、消えていた見出しの語が出るようになった。
+- **同じ版面（key）が同じ章に 2 回出て本体が違う表**は `paragraphVariants`（表3-2-14／15。北海道版は `documentVariants` の中に同じ形）。
+- **保安施設の標準図**（近畿の必携 19-2・北海道の付表 1-1 の各 17 図）は題名だけが表・段落に残っていた。設定 `standardFigureTitles` の文書だけ、題名（`Ａ―３型 標準図 …`・崩れて段落の途中に来るものも）を図のキャプションにし、figures.json の切り出しを差し込む。枠の自動検出（太線の枠＋題名の段の下の線）→ scanned-figure-crop-auditor の監査で 34 枚とも調整 0。章の最初の題名は outline の `keepLine` で本文に残す。東北の参考資料は横向き 1 ページ 1 図で手順が違うので DN-1054。
+
 ## 全文ライブラリの文字化け（DN-0767・2026-10-19 完了）
 - PDF のフォントの文字対応（ToUnicode）が壊れたページは、どの抽出器でも制御文字（U+0000〜001F）や無関係な文字の範囲（ู ᵝ Ũ 㻝）になる。U+FFFD は出ないので replacementCharacters 0 をすり抜けていた。**判定は「紙面に出る文字の範囲」の外の割合**（scripts/lib/standards-mojibake.mjs）。Latin-1 の割合で数えると目次の点線 U+00B7 と数式の上線・添字を誤判定する（初回の 51p 見積もりは誤り。実数は関東マニュアル 109・東北参考資料 34・沖縄必携10 10・四国 1）
 - 起こし直しは **macOS Vision の OCR（scripts/lib/vision-ocr.swift）を下書きに Writer が画像で 1 行ずつ直し、別の QA が照合**。OCR との 2-gram 一致の低いページは理由を注記。QA が直したのは全角/半角（様式の「年月日:」の半角コロン・半角読点「､」）、旧字形（攪）、図の中の繰り返しラベルの数、看板の小さな URL。正本は content/sources/standards/{機関}/{文書}/visual-review.json、`npm run standards-library-mojibake -- apply` が分冊と catalog のハッシュを書く。検査 `check-standards-library`（ci）

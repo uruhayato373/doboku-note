@@ -83,7 +83,13 @@ export function renderFigureImage(documentKey, entry) {
  * 図のキャプションの文字か（`図3-1`・`図 19 …`・`図−1 …`・`図５−２ …`・`図-4 …`）。図の番号を持たない
  * `図 一 覧`・`図書名` は図ではない。表の領域・組み直した表の中に出た図のキャプション（DN-0881）を拾うのに使う。
  */
-export const isFigureCaption = (text) => /^図[\s　]*[-−－]?[\s　]*[0-9０-９]/.test(text);
+// 保安施設の標準図の題名（`Ａ―３型 標準図 ４車線以上 …`）。原本では題名の下が図で、テキスト層には題名しか無い。
+// テキスト層で崩れて段落の途中に来る（`目地シール作業等（…） 夜間工Ｄ―１型 標準`）ので位置を問わない（DN-1053）。
+// 図を切り出した文書だけが設定 documents.<文書>.standardFigureTitles で有効にする（図の無い文書で検査 20 を落とさないため）
+export const RE_STANDARD_FIGURE_TITLE = /[Ａ-ＺA-Z](?:[―－-][０-９0-9]+)?[\s　]*型[\s　]*標準/;
+/** 図のキャプションか。図の番号で始まるもの。standardTitles のときは標準図の題名も */
+export const isFigureCaption = (text, { standardTitles = false } = {}) =>
+  /^図[\s　]*[-−－]?[\s　]*[0-9０-９]/.test(text) || (standardTitles && RE_STANDARD_FIGURE_TITLE.test(text));
 
 /**
  * 章記事 1 本の図を数える（検査用）。
@@ -93,7 +99,7 @@ export const isFigureCaption = (text) => /^図[\s　]*[-−－]?[\s　]*[0-9０-
  *   直後のブロックが <ArticleImage> かを見る。sourceRef はその後ろで最初の `<SourceRef kind="table">` のページ
  *   （生成器が台帳を引くのと同じ値）。inTable: true を付ける。
  */
-export function figureRefsOf(markdown) {
+export function figureRefsOf(markdown, { standardTitles = false } = {}) {
   const lines = markdown.split('\n');
   const refs = [];
   let inCode = false;
@@ -101,7 +107,7 @@ export function figureRefsOf(markdown) {
     if (line.startsWith('```')) inCode = !inCode;
     if (inCode) return;
     const bold = line.match(/^\*\*(.+)\*\*$/)?.[1]?.replace(/\\(.)/g, '$1');
-    if (bold && isFigureCaption(bold)) {
+    if (bold && isFigureCaption(bold, { standardTitles })) {
       let k = index + 1;
       while (k < lines.length && !lines[k].trim()) k += 1;
       // 図の SourceRef の直前のキャプション（下の分岐で数える）
