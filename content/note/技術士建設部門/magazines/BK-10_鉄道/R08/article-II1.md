@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-10
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: railway
 exam_type: II-1
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/nb70dff660594"
+noteId: "nb70dff660594"
 title: "技術士 建設部門｜鉄道 R08 選択科目II-1 模範解答（全4設問）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜鉄道 R08 選択科目II-1 模範解答"
 utmCampaign: pe-construction-secondary
@@ -30,7 +30,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：軌道検測データ・計測データの活用（データ活用）、鉄道事業者・河川管理者・利用者団体との協議と合意形成（ステークホルダー）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：軌道検測データ・計測データの活用（データ活用）、鉄道事業者・河川管理者・利用者団体との協議と合意形成（ステークホルダー）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=nb70dff660594)
 
 ---
 

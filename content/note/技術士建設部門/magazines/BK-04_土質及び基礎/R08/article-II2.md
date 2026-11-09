@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-04
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: geotechnical
 exam_type: II-2
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n722adeca77cc"
+noteId: "n722adeca77cc"
 title: "技術士 建設部門｜土質及び基礎 R08 選択科目II-2 模範解答（II-2-1・II-2-2）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜土質及び基礎 R08 選択科目II-2 模範解答"
 utmCampaign: pe-construction-secondary
@@ -30,7 +30,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：ボーリング・地下水位・計測データ等に基づく判断（データ活用）、共同溝管理者・住民・関係機関とのステークホルダー調整と合意形成、沈下・周辺影響と、初期費用・維持管理費をあわせた比較による対策の選定。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：ボーリング・地下水位・計測データ等に基づく判断（データ活用）、共同溝管理者・住民・関係機関とのステークホルダー調整と合意形成、沈下・周辺影響と、初期費用・維持管理費をあわせた比較による対策の選定。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n722adeca77cc)
 
 ---
 

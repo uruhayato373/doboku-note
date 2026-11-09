@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-04
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: geotechnical
 exam_type: III
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n05eb031c1f4f"
+noteId: "n05eb031c1f4f"
 title: "技術士 建設部門｜土質及び基礎 R08 選択科目III 模範解答（III-1・III-2）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜土質及び基礎 R08 選択科目III 模範解答"
 utmCampaign: pe-construction-secondary
@@ -36,7 +36,7 @@ cover:
 - **ステークホルダーの意見の取り入れと合意形成**：住民・施設管理者・占用事業者・関係機関との協議を解決策に明示する
 - **持続可能な成果の達成**：社会・経済・環境の三側面と文化的価値の尊重から、残余リスクと技術者としての責務を論じる
 
-改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
+改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n05eb031c1f4f)をご覧ください。
 
 ---
 

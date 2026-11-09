@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-07
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: environment
 exam_type: II-1
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n891f78276f6c"
+noteId: "n891f78276f6c"
 title: "技術士 建設部門｜建設環境 R08 選択科目II-1 模範解答（全4設問）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜建設環境 R08 選択科目II-1 模範解答"
 utmCampaign: pe-construction-secondary
@@ -30,7 +30,7 @@ cover:
 
 **令和8年度の改訂コンピテンシーに対応した模範解答です。**
 
-反映点：モニタリングデータ・巡視データ・アンケート調査データの活用（データ活用）、住民・関係機関・専門家との合意形成（ステークホルダー）、費用の合理化や河川景観・水辺利用の質といった経済・社会・環境にまたがる成果への言及。答案用紙1枚の短文論述のため、三側面と文化的価値を独立の段落では扱っていません。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：モニタリングデータ・巡視データ・アンケート調査データの活用（データ活用）、住民・関係機関・専門家との合意形成（ステークホルダー）、費用の合理化や河川景観・水辺利用の質といった経済・社会・環境にまたがる成果への言及。答案用紙1枚の短文論述のため、三側面と文化的価値を独立の段落では扱っていません。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n891f78276f6c)
 
 ---
 

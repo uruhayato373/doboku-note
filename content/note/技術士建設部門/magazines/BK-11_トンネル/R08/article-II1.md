@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-11
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: tunnel
 exam_type: II-1
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n1c5b03884d98"
+noteId: "n1c5b03884d98"
 title: "技術士 建設部門｜トンネル R08 選択科目II-1 模範解答（全4設問）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜トンネル R08 選択科目II-1 模範解答"
 utmCampaign: pe-construction-secondary
@@ -30,7 +30,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：観察・計測データの活用（データ活用）、施工者・関係機関との情報共有と合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果の達成（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：観察・計測データの活用（データ活用）、施工者・関係機関との情報共有と合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果の達成（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n1c5b03884d98)
 
 ---
 

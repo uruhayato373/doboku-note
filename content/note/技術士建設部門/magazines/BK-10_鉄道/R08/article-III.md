@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-10
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: railway
 exam_type: III
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n7a618a6dadf7"
+noteId: "n7a618a6dadf7"
 title: "技術士 建設部門｜鉄道 R08 選択科目III 模範解答（III-1・III-2）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜鉄道 R08 選択科目III 模範解答"
 utmCampaign: pe-construction-secondary
@@ -30,7 +30,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：GISデータ・点検データ・BIM/CIMなどの活用（データ活用）、河川管理者・運転部門・沿線自治体・住民との協議と合意形成（ステークホルダー）、安全・経済・環境の三側面と地域の文化的価値に配慮した持続可能な成果の達成（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：GISデータ・点検データ・BIM/CIMなどの活用（データ活用）、河川管理者・運転部門・沿線自治体・住民との協議と合意形成（ステークホルダー）、安全・経済・環境の三側面と地域の文化的価値に配慮した持続可能な成果の達成（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n7a618a6dadf7)
 
 ---
 

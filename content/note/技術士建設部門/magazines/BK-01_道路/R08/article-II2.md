@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-01
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: road
 exam_type: II-2
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n9200e4724d4d"
+noteId: "n9200e4724d4d"
 title: "技術士 建設部門｜道路 R08 選択科目II-2 模範解答"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜道路 R08 選択科目II-2 模範解答"
 utmCampaign: pe-construction-secondary
@@ -30,7 +30,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：交通量・人流・地盤計測などのデータの活用（データ活用）、検討協議会やワークショップでのステークホルダーの意見の取り入れと合意形成、社会・経済・環境三側面の持続的確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：交通量・人流・地盤計測などのデータの活用（データ活用）、検討協議会やワークショップでのステークホルダーの意見の取り入れと合意形成、社会・経済・環境三側面の持続的確保（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n9200e4724d4d)
 
 ---
 

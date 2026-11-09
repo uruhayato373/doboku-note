@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-09
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: power-civil
 exam_type: II-1
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n13d4168399f9"
+noteId: "n13d4168399f9"
 title: "技術士 建設部門｜電力土木 R08 選択科目II-1 模範解答（全4設問）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜電力土木 R08 選択科目II-1 模範解答"
 utmCampaign: pe-construction-secondary
@@ -30,7 +30,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：観測・調査・点検データに基づく判断（データ活用、II-1-1・II-1-3）、規制機関・河川管理者・利水者などとの協議（ステークホルダー、II-1-1・II-1-2）、安全・経済・環境の三側面（II-1-2）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：観測・調査・点検データに基づく判断（データ活用、II-1-1・II-1-3）、規制機関・河川管理者・利水者などとの協議（ステークホルダー、II-1-1・II-1-2）、安全・経済・環境の三側面（II-1-2）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n13d4168399f9)
 
 ---
 

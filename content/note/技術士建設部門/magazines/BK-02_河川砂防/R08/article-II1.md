@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-02
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: river-coast
 exam_type: II-1
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/nf6e6195b962c"
+noteId: "nf6e6195b962c"
 title: "技術士 建設部門｜河川・砂防及び海岸・海洋 R08 選択科目II-1 模範解答（全4設問）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜河川・砂防及び海岸・海洋 R08 選択科目II-1 模範解答"
 utmCampaign: pe-construction-secondary
@@ -28,7 +28,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：測量・観測データの活用（データ活用）、管理者・関係機関・地域との合意形成（ステークホルダー）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：測量・観測データの活用（データ活用）、管理者・関係機関・地域との合意形成（ステークホルダー）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=nf6e6195b962c)
 
 ---
 

@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-02
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: river-coast
 exam_type: III
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n3f73de90ed77"
+noteId: "n3f73de90ed77"
 title: "技術士 建設部門｜河川・砂防及び海岸・海洋 R08 選択科目III 模範解答（III-1・III-2）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜河川・砂防及び海岸・海洋 R08 選択科目III 模範解答"
 utmCampaign: pe-construction-secondary
@@ -34,7 +34,7 @@ cover:
 - **ステークホルダーの意見の取り入れと合意形成**：国・県・市町村、住民、流域治水協議会、第三者委員会との協議を解決策やリスク対策に明示する
 - **持続可能な成果の達成**：社会・経済・環境の三側面と、文化的価値への配慮を、技術者倫理の記述に含める
 
-改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
+改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n3f73de90ed77)をご覧ください。
 
 ---
 

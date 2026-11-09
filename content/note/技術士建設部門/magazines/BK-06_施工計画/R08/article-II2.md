@@ -5,11 +5,11 @@ noteMagazine: BK-06
 year: R08
 subject: construction-planning
 exam_type: II-2
-noteUrl: ""
-noteId: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n99dc4e825a72"
+noteId: "n99dc4e825a72"
+noteStatus: published
 title: "技術士 建設部門｜施工計画、施工設備及び積算 R08 選択科目II-2 模範解答（II-2-1・II-2-2）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜施工計画、施工設備及び積算 R08 選択科目II-2 模範解答"
 utmCampaign: pe-construction-secondary
@@ -26,7 +26,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：計測データ・調査データの活用（データ活用）、地下街管理者・鉄道事業者・学校・警察等との協議と合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：計測データ・調査データの活用（データ活用）、地下街管理者・鉄道事業者・学校・警察等との協議と合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果（三側面）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n99dc4e825a72)
 
 本記事が扱うのは、令和8年度の技術士第二次試験 建設部門の本試験で実際に出題された問題です。予想問題ではありません。
 

@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-I
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: required
 exam_type: I
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/nffbdcd25eaf7"
+noteId: "nffbdcd25eaf7"
 title: "技術士 建設部門｜必須科目 I R08 模範解答"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜必須科目 I R08 模範解答"
 utmCampaign: pe-construction-secondary
@@ -28,7 +28,7 @@ cover:
 
 予想問題ではありません。日本技術士会が公表した令和8年度の問題（I-1・I-2）に対する解答例です。
 
-**令和8年度の改訂コンピテンシーに対応した模範解答です。** 問題解決（データ・情報技術の活用／多角的な視点・ステークホルダーの合意形成）と技術者倫理（持続可能な成果の達成／社会・経済・環境の三側面／文化的価値の尊重）を答案に織り込んでいます。改訂内容は[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)を参照してください。
+**令和8年度の改訂コンピテンシーに対応した模範解答です。** 問題解決（データ・情報技術の活用／多角的な視点・ステークホルダーの合意形成）と技術者倫理（持続可能な成果の達成／社会・経済・環境の三側面／文化的価値の尊重）を答案に織り込んでいます。改訂内容は[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=nffbdcd25eaf7)を参照してください。
 
 **こんな人のための記事です**
 

@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-03
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: urban-planning
 exam_type: II-2
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/nb2d750bfa608"
+noteId: "nb2d750bfa608"
 title: "技術士 建設部門｜都市及び地方計画 R08 選択科目II-2 模範解答"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜都市及び地方計画 R08 選択科目II-2 模範解答"
 utmCampaign: pe-construction-secondary
@@ -30,7 +30,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：人流データ・被害想定・GISなどのデータの活用（データ活用）、権利者・鉄道事業者・住民・関係機関のステークホルダーとの包摂的な合意形成（ステークホルダー）、社会・経済・環境の三側面で持続する成果（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：人流データ・被害想定・GISなどのデータの活用（データ活用）、権利者・鉄道事業者・住民・関係機関のステークホルダーとの包摂的な合意形成（ステークホルダー）、社会・経済・環境の三側面で持続する成果（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=nb2d750bfa608)
 
 ---
 

@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-09
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: power-civil
 exam_type: III
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/ndfa29476367f"
+noteId: "ndfa29476367f"
 title: "技術士 建設部門｜電力土木 R08 選択科目III 模範解答（III-1・III-2）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜電力土木 R08 選択科目III 模範解答"
 utmCampaign: pe-construction-secondary
@@ -30,7 +30,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：実測・点検データに基づく課題の定義と解決策の根拠（データ活用）、河川管理者・漁協・地元・協力会社・学協会との合意形成（ステークホルダー）、技術者倫理での社会・経済・環境の三側面と文化的価値の尊重。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：実測・点検データに基づく課題の定義と解決策の根拠（データ活用）、河川管理者・漁協・地元・協力会社・学協会との合意形成（ステークホルダー）、技術者倫理での社会・経済・環境の三側面と文化的価値の尊重。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=ndfa29476367f)
 
 ---
 

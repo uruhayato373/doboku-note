@@ -2,14 +2,14 @@
 notePricing: paid
 noteContentType: product
 noteMagazine: BK-04
-noteStatus: draft
+noteStatus: published
 year: R08
 subject: geotechnical
 exam_type: II-1
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n858de00dcb6c"
+noteId: "n858de00dcb6c"
 title: "技術士 建設部門｜土質及び基礎 R08 選択科目II-1 模範解答（全4設問）"
-notePublishedAt: ""
+notePublishedAt: "2026-11-09"
 price: 780
 coverTitle: "技術士 建設部門｜土質及び基礎 R08 選択科目II-1 模範解答"
 utmCampaign: pe-construction-secondary
@@ -30,7 +30,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：試験データ・計測データに基づく判断（データ活用）、施工者・関係機関との確認と合意（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：試験データ・計測データに基づく判断（データ活用）、施工者・関係機関との確認と合意（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n858de00dcb6c)
 
 ---
 
