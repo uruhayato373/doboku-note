@@ -406,6 +406,17 @@ async function shootChapter({ desktop, mobile, base, chapter, dir, maxShots, max
     try {
       await d.goto(`${base}${url}`, { waitUntil: 'networkidle', timeout: 120_000 });
       await d.addStyleTag({ content: SHOT_STYLE });
+      // 図は遅延読み込み（loading=lazy）なので、撮る前に全部読み込ませる。読み込めない図は描画の崩れとして残す
+      // （待たずに撮ると真っ白の図を「図が無い」と判定させてしまう。2026-11-09 の近畿 1-2・10-6）
+      const unloaded = await d.evaluate(async () => {
+        const images = [...document.querySelectorAll('[data-standards-chapter] img')];
+        for (const img of images) img.loading = 'eager';
+        await Promise.all(images.map((img) => (img.complete && img.naturalWidth > 0
+          ? null
+          : new Promise((resolve) => { img.addEventListener('load', resolve, { once: true }); img.addEventListener('error', resolve, { once: true }); setTimeout(resolve, 20_000); }))));
+        return images.filter((img) => !(img.complete && img.naturalWidth > 0)).map((img) => img.currentSrc || img.getAttribute('src'));
+      });
+      for (const src of unloaded) deterministicIssues.push({ type: 'image', detail: `読み込めない画像 ${src}`, url });
       const locator = d.locator('[data-standards-chapter] table, [data-standards-chapter] img[src*="/standards-articles/"]');
       const count = await locator.count();
       for (let i = 0; i < count; i += 1) {

@@ -31,7 +31,7 @@ import { readJson, writeJson } from './lib/json-io.mjs';
 import { CONTENT_SOURCES_ROOT, REPO_ROOT } from './lib/repository-paths.mjs';
 import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { applyTableOverride, tableKey } from './lib/standards-table.mjs';
-import { TABLE_OVERRIDES_ROOT, getCatalog, loadOverrides, loadTableOverrides } from './lib/standards-structure.mjs';
+import { TABLE_OVERRIDES_ROOT, getCatalog, loadOverrides, loadTableOverrides, variantsOf } from './lib/standards-structure.mjs';
 import { buildDocument } from './build-standard-articles.mjs';
 
 const WORK = join(REPO_ROOT, '.tmp', 'standards-tables');
@@ -284,6 +284,13 @@ function validate() {
       const file = `${key}--${doc.replace('/', '-')}.md`;
       writeFileSync(join(PREVIEW, file), out.join('\n'));
       console.log(`✓ ${key} [${doc}] 差し替え → ${join(PREVIEW, file)}`);
+    }
+    // 段落で選ぶ差し替え（paragraphVariants）も候補ごとに照合する（DN-1052）
+    for (const [n, variant] of variantsOf(entry).entries()) {
+      const v = applyTableOverride(source?.body ?? entry.layout, asApproved(variant), { lookup: (ref) => asApproved(overrides.get(ref)), absorbedBodies: earlier(source) });
+      if (!v.ok) { console.log(`✗ ${key} [paragraphVariants ${n}]: ${v.reason} ${v.detail ?? ''}`); variantNg = true; continue; }
+      const tablePart = (v.parts ?? []).find((part) => part.kind === 'table');
+      console.log(`✓ ${key} [paragraphVariants ${n}] 後ろの段落: ${(variant.absorbsParagraphs?.after ?? []).length} 段落・${tablePart ? `table ${tablePart.header[0].length}列×${tablePart.rows.length}行` : 'parts'}`);
     }
     if (variantNg) { ng += 1; continue; }
     ok += 1;

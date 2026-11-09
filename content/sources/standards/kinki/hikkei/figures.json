@@ -360,6 +360,363 @@
         "at": "2026-10-27",
         "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
       }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "501",
+      "caption": "Ａ―１型 標準図 ４車線 片側全車線閉塞 夜間作業",
+      "imagePage": 501,
+      "bbox": [
+        199,
+        364,
+        2033,
+        1358
+      ],
+      "file": "fig-p0501-1.webp",
+      "width": 1200,
+      "height": 650,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "501",
+      "caption": "Ａ―２型 標準図 ２車線 片側全車線閉塞 夜間作業",
+      "imagePage": 501,
+      "bbox": [
+        199,
+        1763,
+        2033,
+        2605
+      ],
+      "file": "fig-p0501-2.webp",
+      "width": 1200,
+      "height": 551,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "502",
+      "caption": "Ａ―３型 標準図 ４車線以上 片側 1 車線以上通行可 夜間作業",
+      "imagePage": 502,
+      "bbox": [
+        199,
+        364,
+        2033,
+        1289
+      ],
+      "file": "fig-p0502-1.webp",
+      "width": 1200,
+      "height": 605,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "502",
+      "caption": "Ａ―４型 標準図 ４車線以上 片側全車線閉塞 軌道のある場合 夜間作業",
+      "imagePage": 502,
+      "bbox": [
+        199,
+        1694,
+        2033,
+        2620
+      ],
+      "file": "fig-p0502-2.webp",
+      "width": 1200,
+      "height": 606,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "503",
+      "caption": "Ｂ―１型 標準図 ４車線以上 作業中止中 路面占用して片側通行 昼夜間",
+      "imagePage": 503,
+      "bbox": [
+        199,
+        364,
+        2033,
+        1263
+      ],
+      "file": "fig-p0503-1.webp",
+      "width": 1200,
+      "height": 588,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "503",
+      "caption": "Ｂ―２型 標準図 ２車線以上 作業中止中 路面占用して片側通行 昼夜間",
+      "imagePage": 503,
+      "bbox": [
+        199,
+        1673,
+        2033,
+        2594
+      ],
+      "file": "fig-p0503-2.webp",
+      "width": 1200,
+      "height": 603,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "504",
+      "caption": "Ｃ―１型 標準図 ２車線 片側全車線閉塞 局部打換（小規模）カットカバー等 夜間工事",
+      "imagePage": 504,
+      "bbox": [
+        199,
+        364,
+        2071,
+        1205
+      ],
+      "file": "fig-p0504-1.webp",
+      "width": 1200,
+      "height": 539,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "504",
+      "caption": "Ｃ―２型 標準図 ４車線以上 片側 1 車線以上通行可 局部打換（小規模）カットカバー等 夜間工事",
+      "imagePage": 504,
+      "bbox": [
+        199,
+        1737,
+        2071,
+        2565
+      ],
+      "file": "fig-p0504-2.webp",
+      "width": 1200,
+      "height": 531,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "505",
+      "caption": "目地シール作業等（比較的短時間に作業個所の移動をする場合） 夜間工Ｄ―１型 標準図",
+      "imagePage": 505,
+      "bbox": [
+        199,
+        417,
+        2033,
+        1262
+      ],
+      "file": "fig-p0505-1.webp",
+      "width": 1200,
+      "height": 553,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "505",
+      "caption": "目地シール作業等 １車線以上確保（比較的短時間に作業個所移動） 夜間Ｄ―２型 標準図",
+      "imagePage": 505,
+      "bbox": [
+        199,
+        1809,
+        2033,
+        2727
+      ],
+      "file": "fig-p0505-2.webp",
+      "width": 1200,
+      "height": 601,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "506",
+      "caption": "Ｅ型 標準図 レーンマーク作業 昼間工事",
+      "imagePage": 506,
+      "bbox": [
+        199,
+        364,
+        2033,
+        1096
+      ],
+      "file": "fig-p0506-1.webp",
+      "width": 1200,
+      "height": 479,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "506",
+      "caption": "Ｆ―１型 標準図 路面清掃 夜間工事",
+      "imagePage": 506,
+      "bbox": [
+        199,
+        1594,
+        2033,
+        2299
+      ],
+      "file": "fig-p0506-2.webp",
+      "width": 1200,
+      "height": 461,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "507",
+      "caption": "Ｆ―２型 標準図 路面作業（機械） 夜間工事",
+      "imagePage": 507,
+      "bbox": [
+        199,
+        364,
+        2033,
+        1123
+      ],
+      "file": "fig-p0507-1.webp",
+      "width": 1200,
+      "height": 497,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "507",
+      "caption": "Ｆ―３型 標準図 短時間の路側作業（人力） 夜間工事",
+      "imagePage": 507,
+      "bbox": [
+        199,
+        1529,
+        2033,
+        2440
+      ],
+      "file": "fig-p0507-2.webp",
+      "width": 1200,
+      "height": 596,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "508",
+      "caption": "G型　標準図 長期間の路側工事 夜間工事",
+      "imagePage": 508,
+      "bbox": [
+        199,
+        364,
+        2033,
+        1232
+      ],
+      "file": "fig-p0508-1.webp",
+      "width": 1200,
+      "height": 568,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "509",
+      "caption": "Ｈ―１型 標準図 ２車線以上 歩道工事 昼夜間",
+      "imagePage": 509,
+      "bbox": [
+        199,
+        364,
+        2033,
+        1280
+      ],
+      "file": "fig-p0509-1.webp",
+      "width": 1200,
+      "height": 599,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
+    },
+    {
+      "chapterId": "19-2",
+      "sourceRef": "509",
+      "caption": "Ｈ―２型 標準図 ２車線以上 路肩工事 昼夜間",
+      "imagePage": 509,
+      "bbox": [
+        199,
+        1690,
+        2033,
+        2582
+      ],
+      "file": "fig-p0509-2.webp",
+      "width": 1200,
+      "height": 584,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-11-09",
+        "method": "切り出しを出所のページ画像に赤枠で重ねて目視で照合（題名の段・枠外の注記の写り込み・配置図の端の切れ・同じページの枠の取り違え）。17 枚とも調整 0"
+      }
     }
   ]
 }

@@ -29,6 +29,7 @@ import {
   loadOverrides,
   loadTableOverrides,
   patterns,
+  variantsOf,
 } from './lib/standards-structure.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { pathToFileURL } from 'node:url';
@@ -500,7 +501,8 @@ function checkSourceRefs(def, { manifest, document, agencyId, documentId, overri
  * 表の領域・組み直した表の中に出た図のキャプション（太字の 1 行で図の番号を持つもの・DN-0881）も同じく数え、
  * キャプションの直後に画像があることを見る（台帳の sourceRef はその表の SourceRef のページ）。
  */
-function checkFigures(def, { manifest, agencyId, documentId }) {
+function checkFigures(def, { manifest, agencyId, documentId, overrides }) {
+  const standardTitles = overrides?.documents?.[`${agencyId}/${documentId}`]?.standardFigureTitles === true;
   const documentKey = `${agencyId}/${documentId}`;
   const violations = [];
   const ledger = loadFigureLedger(documentKey);
@@ -518,7 +520,7 @@ function checkFigures(def, { manifest, agencyId, documentId }) {
   for (const chapter of manifest.chapters) {
     const { text } = readChapterFile(agencyId, documentId, chapter.file);
     if (text === null) continue; // ファイル欠落は検査 5/6 が FAIL にする
-    for (const ref of figureRefsOf(text)) {
+    for (const ref of figureRefsOf(text, { standardTitles })) {
       refs += 1;
       const where = `${chapter.file}:${ref.line} 図「${ref.caption ?? '（キャプションなし）'}」p${ref.sourceRef}${ref.inTable ? '（表の領域）' : ''}`;
       if (ref.inTable && ref.sourceRef === null) {
@@ -729,6 +731,14 @@ const TABLE_REASONS = new Set([
  * 出力された GFM のセルを連結したものが原典ページの本文に実在することを独立に確認する
  * （生成器と検査で同じ関数を使うと、その関数のバグは永久に見つからない）。
  */
+/** 表の記法（| ・区切り行の - と :・<br>）と空白を除く。GFM で書いた文字起こしと章記事の表のセルを比べるため */
+function stripTableSyntax(text) {
+  return text
+    .replace(/<br\s*\/?>/gi, '')
+    .replace(/\|\s*:?-{3,}:?\s*(?=\|)/g, '')
+    .replace(/[|\s　]/g, '');
+}
+
 function checkTables(def, { manifest, agencyId, documentId, document, overrides, analysis }) {
   const violations = [];
   const notes = [];
@@ -744,8 +754,8 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides,
    * 誤りは永久に見つからない）。見るのは: 承認済み・layout のハッシュが key・layout が原典にある・
    * 部品の文字と版面（取り込んだ版面を含む）の文字が多重集合で一致（結合セルの繰り返し {same} は数えない）。
    */
-  const verifyTableOverride = (key, absorbedInto, existsInSource) => {
-    const entry = tableOverrides.get(key);
+  const verifyTableOverride = (key, absorbedInto, existsInSource, variant = null) => {
+    const entry = variant ?? tableOverrides.get(key);
     if (!entry) return '組み直しのファイルが無い';
     if (entry.review?.status !== 'approved') return `承認されていない（${entry.review?.status ?? 'review なし'}）`;
     const hash = createHash('sha256').update((entry.layout ?? []).join('').replace(/[\s　]/g, ''), 'utf8').digest('hex').slice(0, 16);
@@ -793,6 +803,7 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides,
   }
   const pageText = new Map();
   const pageBody = new Map();
+  const pagePlain = new Map();
   for (const part of document.parts) {
     const source = toLf(readFileSync(join(LIBRARY_ROOT, part.file), 'utf8')).toString('utf8');
     const heads = [...source.matchAll(/^## PDF page (\d+)\s*$/gm)];
@@ -802,6 +813,8 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides,
       const body = source.slice(start, end).match(/`{3,4}text\s*\r?\n([\s\S]*?)\r?\n`{3,4}/);
       if (!body) return;
       pageText.set(Number(match[1]), body[1].replace(/[\s　]/g, ''));
+      // 画像から起こしたページは表を GFM で書いている。章記事の表のセルと比べるときは記法（| と区切り行・<br>）を除く（DN-0916）
+      pagePlain.set(Number(match[1]), stripTableSyntax(body[1]));
       const content = body[1].split('\n').filter((line) => line.trim() !== '');
       const removedLines = [...(furniture.get(Number(match[1])) ?? [])];
       const kept = content.filter((line) => {
@@ -842,6 +855,10 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides,
       return chapter.sourcePages.some((page) => (pageText.get(page) ?? '').includes(joined))
         || chapter.sourcePages.map((page) => pageBody.get(page) ?? '').join('').includes(joined);
     };
+    // GFM の表のセル: 文字起こしの GFM（画像から起こしたページ）とも比べられるよう、両方から表の記法を除いて探す
+    const existsInSourceAsTable = (pieces) =>
+      existsInSource(pieces.map((piece) => piece.replace(/<br\s*\/?>/gi, '')))
+      || chapter.sourcePages.some((page) => (pagePlain.get(page) ?? '').includes(stripTableSyntax(pieces.join('').replace(/\\([\\`*_[\]<>{}|.#>+-])/g, '$1'))));
     let inCode = false;
     for (let i = 0; i < lines.length; i += 1) {
       if (/^```/.test(lines[i])) { if (!inCode) verbatimFound += 1; inCode = !inCode; continue; }
@@ -849,7 +866,12 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides,
       // 原本と照合して組み直した表（生成器が `{/* table-override: KEY */}` を前に置く）
       const marker = lines[i].match(/^\{\/\* table-override: ([0-9a-f]{16})(?: absorbed-into ([0-9a-f]{16}))? \*\/\}$/);
       if (marker) {
-        const problem = verifyTableOverride(marker[1], marker[2] ?? null, existsInSource);
+        // 段落で選ぶ差し替え（paragraphVariants）は、どれが使われても良いよう候補ごとに照合する（DN-1052）
+        const problem = verifyTableOverride(marker[1], marker[2] ?? null, existsInSource)
+          ?? (marker[2] ? null : variantsOf(tableOverrides.get(marker[1]) ?? {}).map((v, n) => {
+            const p = verifyTableOverride(marker[1], null, existsInSource, v);
+            return p ? `paragraphVariants[${n}]: ${p}` : null;
+          }).find(Boolean) ?? null);
         if (problem) violations.push(`${chapter.chapterId}: 組み直した表 ${marker[1]}: ${problem}`);
         else verified += 1;
         const entry = tableOverrides.get(marker[1]);
@@ -872,7 +894,7 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides,
         i = end - 1;
         continue;
       }
-      if (!/^\|.*\|$/.test(lines[i]) || !/^\|( *-{3,} *\|)+$/.test(lines[i + 1] ?? '')) continue;
+      if (!/^\|.*\|$/.test(lines[i]) || !/^\|( *:?-{3,}:? *\|)+$/.test(lines[i + 1] ?? '')) continue;
       gfmFound += 1;
       let end = i + 2;
       const cells = [];
@@ -881,7 +903,7 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides,
         cells.push(row.replace(/^\||\|$/g, '').split('|').join(''));
       }
       while (end < lines.length && /^\|/.test(lines[end])) end += 1;
-      if (!existsInSource(cells)) {
+      if (!existsInSourceAsTable(cells)) {
         violations.push(`${chapter.chapterId}: GFM 表のセル内容が原典 p.${chapter.firstPage}-${chapter.lastPage} に見つからない（GFM 化で文字が変わった疑い）`);
       } else {
         verified += 1;
@@ -1220,10 +1242,14 @@ function checkReadability([midDef, strayDef, brokenDef], { manifest, agencyId, d
       if (kind === 'table' && !insideCode) {
         const rows = block
           .split('\n')
-          .filter((line) => line.startsWith('|') && !/^\|( *-{3,} *\|)+$/.test(line))
+          .filter((line) => line.startsWith('|') && !/^\|( *:?-{3,}:? *\|)+$/.test(line))
           .map((line) => line.replace(/^\||\|$/g, '').split('|').map((cell) => cell.trim()));
         const header = rows[0] ?? [];
-        const emptyColumns = header.filter((_, c) => rows.every((row) => !row[c])).length;
+        // 様式の記入欄は原本でも空欄なので、空の列に数えない（DN-0916）。見出しが「記入欄」など、
+        // または 2 列の「項目名 | 空欄」の様式（全行の 1 列目に項目名がある）
+        const labelForm = header.length === 2 && rows.length > 1 && rows.slice(1).every((row) => row[0]);
+        const isFormField = (cell, c) => /記入|欄$/.test(cell ?? '') || (labelForm && c === 1);
+        const emptyColumns = header.filter((cell, c) => !isFormField(cell, c) && rows.every((row) => !row[c])).length;
         if (emptyColumns > 0 || (rows.length <= 1 && header.every((cell) => !cell))) {
           broken.push(`${chapter.chapterId}: 列 ${header.length}・全行が空の列 ${emptyColumns}・本体 ${rows.length - 1} 行`);
         }
