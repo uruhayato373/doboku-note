@@ -488,7 +488,7 @@
 
 
 ### [DN-1053] 基準書 kinki/hikkei の 2 章が画面の目視判定で不合格（19-2・36-1）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:standards-visual-review] [起票:2026-11-09]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:check-standard-articles] [起票:2026-11-09]
 
 **起点**: 2026-11-09 の画面の目視判定（`npm run standards-visual-review`・作業票 20261109T030512Z）で、kinki/hikkei の 2 章が不合格になった。判定は撮影した画面と原本のページ画像の見比べ（エージェント standards-page-visual-auditor）と、描画で決まる崩れの機械判定。台帳は .claude/state/quality/standards-visual-review.json。
 
@@ -510,7 +510,7 @@
 
 
 ### [DN-1052] 基準書 kinki/common の 1 章が画面の目視判定で不合格（3-2）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:standards-visual-review] [起票:2026-11-09]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:check-standard-articles] [起票:2026-11-09]
 
 **起点**: 2026-11-09 の画面の目視判定（`npm run standards-visual-review`・作業票 20261109T030512Z）で、kinki/common の 1 章が不合格になった。判定は撮影した画面と原本のページ画像の見比べ（エージェント standards-page-visual-auditor）と、描画で決まる崩れの機械判定。台帳は .claude/state/quality/standards-visual-review.json。
 
