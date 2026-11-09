@@ -163,6 +163,12 @@ function buildHtml(title, bodyHtml) {
   blockquote { margin: 0 0 11px; padding: 4px 12px; border-left: 3px solid #b8c6d4;
                background: #f5f8fb; color: #333; }
   hr { border: none; border-top: 1px solid #d6dde4; margin: 16px 0; }
+  /* GFM の表（記入欄マーカーの表 .af-tbl 以外）。罫線が無いと表に見えない。空のセルは手書きの欄なので高さを取る */
+  table:not(.af-tbl) { width: 100%; border-collapse: collapse; margin: 0 0 12px; font-size: 9.5pt; }
+  table:not(.af-tbl) th, table:not(.af-tbl) td { border: 1px solid #97a6b4; padding: 3px 8px; text-align: left; vertical-align: middle; }
+  table:not(.af-tbl) th { background: #f3f7fa; font-weight: 500; font-family: "Yu Gothic","YuGothic","Meiryo",sans-serif; }
+  table:not(.af-tbl) td:empty { height: 9mm; }
+  table:not(.af-tbl) tr { break-inside: avoid; page-break-inside: avoid; }
   /* 記入欄（印刷して手書きする冊子用） */
   /* 「ア）品質管理について」等の見出し的な段落を、直後の記入欄と切り離さない */
   p:has(> strong:only-child) { break-after: avoid; page-break-after: avoid; }
