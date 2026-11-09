@@ -40,6 +40,7 @@ import { listAttachedFiles } from './lib/note-attach.mjs';
 import { evaluatePostSaveGate, evaluatePreSaveGate, expectationsByNoteId, recordAttachmentLoss } from './lib/note-attachments.mjs';
 import { join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { assertAccountGate } from './lib/note-browser.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { curlJson as apiCurlJson } from './lib/note-api.mjs';
 
@@ -220,6 +221,13 @@ const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   args: ['--disable-blink-features=AutomationControlled'],
 }));
 const page = ctx.pages()[0] || (await ctx.newPage());
+// 別アカウントのまま書き込まない（DN-1009）。設定画面で note のアカウント名が確かめられなければ何もせず止まる
+const accountGate = await assertAccountGate(page);
+if (!accountGate.ok) {
+  console.error('ABORT: note のアカウントを確かめられなかった（別アカウントか未ログイン）。何も変更していない');
+  await ctx.close();
+  process.exit(2);
+}
 
 // 添付（配布 PDF）の期待値。価格変更は本文へ触らないが、**壊れた状態のエディタのまま「更新する」を
 // 押すと添付ごと保存される**（2026-09-05 nded084d4f646＝同日の価格一括変更でこの記事だけ
