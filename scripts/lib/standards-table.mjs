@@ -327,7 +327,11 @@ function resolveTablePart(part, lookup) {
       const source = cell.same === 'above' ? original[r - 1]?.[c] : original[r][c - 1];
       if (typeof source !== 'string') return { error: 'override-bad-same' };
       original[r][c] = source;
-      resolved[r][c] = cell.same === 'above' && [...source].length > SAME_ABOVE_TEXT_MAX ? '（同上）' : source;
+      const long = [...source].length > SAME_ABOVE_TEXT_MAX;
+      // 横に結合した長い文（土及び岩の分類表の説明と例の列）も、隣の列に同じ文を繰り返さず「（同左）」と表示する。
+      // 繰り返すと表の幅が倍になり、同じ文が 2 列に並んで読めない。空欄にすると比較の表（2 機種の測定項目）で
+      // 「該当なし」と読めるので空けない（DN-1055）
+      resolved[r][c] = !long ? source : cell.same === 'above' ? '（同上）' : '（同左）';
     }
   }
   if (resolved.flat().some((cell) => String(cell).includes('|'))) return { error: 'pipe-in-cell' };
