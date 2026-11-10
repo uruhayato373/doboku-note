@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
  * check-past-exam-ledger — 過去問の問題台帳（data/pastexams/questions/{資格}.json）と演習データ・在庫台帳・記事の配線、
- * 演習データの正答と公式正答の一致を検査する（DN-0647）。
+ * 演習データの正答と公式正答の一致を検査する（DN-0647）。演習データの無い資格（測量士補・コンクリート主任技士）は記事の MDX の見出しと「正答：N」を演習データの代わりに読む（DN-1085）。
  *
- *   node scripts/check-past-exam-ledger.mjs            # 4 資格すべて
+ *   node scripts/check-past-exam-ledger.mjs            # 台帳の対象資格すべて（LEDGER_EXAMS）
  *   node scripts/check-past-exam-ledger.mjs --json     # 機械向け（管理画面・週次が読む）
  *   node scripts/check-past-exam-ledger.mjs --exam civil-construction-1
  *
  * FAIL（CI で止める・結果は diff だけで決まる）:
- *   - 演習データの問題 ID が台帳に無い／台帳の ID が演習データに無い（ID の消失はアプリの学習履歴を消す）
+ *   - 演習データ（または記事の MDX）の問題 ID が台帳に無い／台帳の ID がそこに無い（ID の消失はアプリの学習履歴を消す）
  *   - 記事が無い・原典のファイルが在庫台帳に無い
  *   - 公式正答を確かめた問題で、演習データの正答が公式と違う
  *   - 原典が無いのに転記を照合済みと記録している

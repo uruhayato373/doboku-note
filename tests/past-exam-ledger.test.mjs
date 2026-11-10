@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { LEDGER_EXAMS, evaluateLedger, locateSources, syncRows, unreadyForApp, yearOfCode } from '../scripts/lib/past-exam-ledger.mjs';
+import { LEDGER_EXAMS, evaluateLedger, locateSources, parseMdxQuestions, syncRows, unreadyForApp, yearOfCode } from '../scripts/lib/past-exam-ledger.mjs';
 
 const inventoryExam = {
   years: [
@@ -127,4 +127,30 @@ test('iOS の書き出しは照合済み（verified・fixed）だけを通し、
   ] };
   assert.deepEqual(unreadyForApp(ledger, questions), { unverified: ['c'], mismatch: ['b'] });
   assert.deepEqual(unreadyForApp(null, questions).unverified, ['a', 'b', 'c']);
+});
+
+test('演習データの無い資格は記事の MDX の見出しと「正答：N」から問題を拾う（DN-1085）', () => {
+  const cce = LEDGER_EXAMS['concrete-chief-engineer'].source;
+  const mdx = '---\ntitle: x\n---\n\n## セメント\n\n### 平成24年度 問題1\n\n本文\n\n**正答：3**\n\n## 令和元年度 問題26（構造）\n\n**正解: (2)**\n\n### 令和5年度 問題7\n\n解説なし\n';
+  assert.deepEqual(parseMdxQuestions(mdx, { dir: 'concrete-chief-engineer', slug: 'primary-materials', headingId: cce.headingId }), [
+    { id: 'h24-01', correct: 3, article: 'concrete-chief-engineer/primary-materials' },
+    { id: 'r01-26', correct: 2, article: 'concrete-chief-engineer/primary-materials' },
+    { id: 'r05-07', correct: null, article: 'concrete-chief-engineer/primary-materials' },
+  ]);
+  const surv = LEDGER_EXAMS['assistant-surveyor'].source;
+  assert.deepEqual(parseMdxQuestions('## No.3\n\n**正答：5**\n', { dir: 'surveyor', slug: 'primary-r08', headingId: surv.headingId }), [
+    { id: 'r08-03', correct: 5, article: 'surveyor/primary-r08' },
+  ]);
+});
+
+test('MDX から拾った資格も、記事の正答が照合済みの正答と違えば FAIL（DN-1085）', () => {
+  const qualification = 'concrete-chief-engineer';
+  const questions = [{ id: 'h28-24', correct: 1, article: 'concrete-chief-engineer/primary-construction' }];
+  const rows = syncRows({ qualification, questions, inventoryExam: undefined }).rows;
+  assert.equal(rows[0].no, '問題24');
+  assert.deepEqual(rows[0].source, { question: null, page: null, answer: null });
+  rows[0].answer = { status: 'official', official: [3] };
+  const { fails, stats } = evaluateLedger({ qualification, ledger: { questions: rows }, questions, inventoryExam: undefined, articleExists: () => true });
+  assert.equal(stats.answerMismatch, 1);
+  assert.ok(fails[0].includes('h28-24'));
 });

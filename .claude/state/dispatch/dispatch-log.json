@@ -7015,6 +7015,19 @@
       "commit": "93d4fad87f41",
       "verification": "gh run list --branch develop --workflow ci.yml: 394373cf3 completed success",
       "note": "別セッションが Kindle C 系の実体を R2 へ上げ、develop の CI（394373cf3）の audit が通った"
+    },
+    {
+      "id": "DN-1085",
+      "at": "2026-11-10",
+      "task": "測量士補とコンクリート主任技士を過去問の問題台帳に入れ、正答の照合を CI で止める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "29b9bdf5fad1",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
