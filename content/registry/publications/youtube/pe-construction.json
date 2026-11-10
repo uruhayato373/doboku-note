@@ -495,7 +495,7 @@
       "work": "pe-kojutsu-fukabori",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-kojutsu-fukabori/youtube.longform/cover",
         "scene-001": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-001",
@@ -514,7 +514,20 @@
         "subtitles": "pe-construction/pe-kojutsu-fukabori/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori/youtube.json#longform",
-      "publishAt": "2026-11-25T11:30:00Z"
+      "publishAt": "2026-11-25T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:45:15.352Z",
+          "digest": "afe2e78e1f0a3914dd6423f1046d00dfa07b176e755e4336b2232e803e781f46"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:45:15.352Z",
+        "contentSha256": "67033a56701079af77a3a3fd071b5a6719a09a49e60e584c0a1cb2083e48dc20"
+      }
     },
     {
       "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform",

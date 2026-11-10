@@ -1421,6 +1421,632 @@
       "durationSec": 106.9
     },
     {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "bfda2f64537ceccc77b3d6631483b29bd91c698a883a99fbd4de909cb940bc03",
+      "bytes": 704053,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/cover.bfda2f64.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『技術士 建設部門』『口頭の深掘り』『事実で答える』を大きく配置。上部の黄色帯に小さく『総監が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "0ce25bb005b7a2d5e2de4b4c73c557879d46d6bd56f91d98b8e6fef097a1e51f",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/cover-pop.bfda2f64.png"
+      ]
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "bfda2f64537ceccc77b3d6631483b29bd91c698a883a99fbd4de909cb940bc03",
+      "bytes": 704053,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-001.bfda2f64.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『技術士 建設部門』『口頭の深掘り』『事実で答える』を大きく配置。上部の黄色帯に小さく『総監が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "0ce25bb005b7a2d5e2de4b4c73c557879d46d6bd56f91d98b8e6fef097a1e51f",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "0a2dd6050d757ba0271572fe6ca4c0640869ce25c24c0c135e60dccfa372a04c",
+      "bytes": 1570648,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-002.0a2dd605.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『説明はできるのに、深掘りで崩れる』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『経歴の説明 工事概要・自分の担当』 『深掘りへの答え 一般論・言い訳になる』。 図の下に『説明できることと、事実で答えることは別』の全文を省かずに入れる。 この場面の説明（文字にしない）: 経歴の説明はできても、なぜその判断をしたのかと聞かれた途端に、一般論や言い訳になっていませんか。今日は、深掘りの質問の四つの型と、事実で答える返し方を整理します。",
+        "promptSha256": "6d7c22252e616a3a20cfb6408eab5d92e19647731efa1fcd02c0cc96c08a41de",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "dbc08648651226d2955b7df7f4de1fcae10005f73e07b7709db265a6debf016d",
+      "bytes": 1794233,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-003.dbc08648.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『深掘りは、事実を確かめる質問』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『筆記の答案』 『業務経歴』 『対話での確認 （質問の例は想定）』。 図の下に『質問の例は動画の想定で、実際の試験の再現ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 口頭試験は、筆記の答案と業務経歴を踏まえた対話で進みます。深掘りは、説明が自分の事実に支えられているかを確かめる質問だと考えて準備しましょう。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 27.9）",
+        "promptSha256": "59f44f22b34f16a85c3bb046d6d43413ab05b234717971ba8881993b325991c7",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "c56628b7e578fcb1da2e2191285df186a64a14085094ea6312c9d771aaf17885",
+      "bytes": 1549350,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-004.c56628b7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『深掘りの4つの型（想定）』。 図に入れる文字: 『理由 なぜそう判断したか』 『代替 他の案はなかったか』 『確認 結果をどう確かめたか』 『役割 自分は何をしたか』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 想定する深掘りは、四つの型に分けられます。なぜそう判断したのかという理由、他の案はなかったのかという代替、結果をどう確かめたのかという確認、そしてあなた自身は何をしたのかという役割です。型が分かれば、答える材料も事前に探せます。",
+        "promptSha256": "6f6e4edb1548af3ab3b52d84844706d438a55d3c67ff5e104f3be043760d63c3",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "d029fdf962e68124948ffbf9df4283f050eb9d8da096412bc052beb55b1c15c1",
+      "bytes": 1393770,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-005.d029fdf9.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『理由の型｜一般論と事実（仮の例）』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下に『仮の例。自分の業務の事実に置き換える』の全文を省かずに入れる。 この場面の説明（文字にしない）: 理由の質問には、結論を先に言い、そのときの条件と制約を事実で続けます。例えば発注者の立場で、補修の工法を選んだ場面です。コストを考えて選びました、は一般論です。予算の上限の中で、工期に間に合う案を選びました、なら事実です。現場の事情で、は一般論。交通規制を短くできる案だった、なら事実です。この例は仮のものです。",
+        "promptSha256": "5dc371e90dac50f442a10a0fa9a6d237574dac0be7fa72e15a9d32565a3e42ca",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "982a50176470afe3781527b8415783238199d34cc2dc3282e19acda54c6de24e",
+      "bytes": 1635349,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-006.982a5017.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『代替の型｜比べた案と外した理由』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『比べた案を挙げる』 『外した理由を言う』 『比べていないなら そう認める』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 代替の質問には、実際に比べた案と、外した理由を答えます。比べていないなら、比べていないと認めたうえで、なぜ一案で足りると考えたかを事実で説明します。後から案を作って、比べたことにしてはいけません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 49.8）",
+        "promptSha256": "7957e1ce57e73659cee6b853f0dd92431c2b7871bdb4e6c912f2d944de8e55ed",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "82b4ac16229ed9ed0d5f49692bb1f7fb2fb4c91491031e80893d071f3ef79a14",
+      "bytes": 1489454,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-007.82b4ac16.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『確認の型｜記録と確認した範囲』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『確かめた記録 検査・立会い・完成後の確認』 『数値は 自分が確認した範囲だけ』 『あいまいな数字は あいまいと伝える』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 確認の質問には、何の記録で確かめたかを答えます。検査の結果、立会いの記録、完成後の状態の確認などです。数値を答えるなら、自分が確認した範囲に限ります。記憶があいまいな数字は、あいまいだと伝えるほうが安全です。",
+        "promptSha256": "8c5b8897fb0e4cd6ada5b8dd0157da61f7a123f15068346437117e92d7e8ea3d",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "e8445953a896e4e1d98b1ea3d37b27c81854315aba2f7c3994c30433a91c120b",
+      "bytes": 1450450,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-008.e8445953.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『役割の型｜全体と自分を分ける』。 図に入れる文字: 『チーム全体の結果』 『自分が決めたこと』 『自分が動いたこと』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 役割の質問には、主語を自分にして答えます。私たちは、という言い方が続くと、あなたの判断が見えません。チーム全体の結果と、自分が決めたことや動いたことを分けて話しましょう。分けて話せば、聞く側も範囲を確かめやすくなります。",
+        "promptSha256": "291bb7a689bd947b0b37196b604fbbe2d6ff901d1f149ce7977dd8f98ee73760",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "d3ae441545fa129b40c893eb139d57b1aaa43f7a3e66350aff35f67764dbfcac",
+      "bytes": 1521999,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-009.d3ae4415.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『同じ質問への、2つの答え』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 答え方を比べます。安全を第一に考えて判断しました、は一般論です。予算と工期の制約の中で、二案を比べ、この案を選びました、と言えば事実になります。忙しかったので、は言い訳です。何を後回しにし、何を守ったかを答えましょう。",
+        "promptSha256": "2a329e2eae0ab19ec082fe43c909cc26cb8463594604ac3b2f633540be32fb16",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "89268d1c50cec5010e1e54697d7b7b354ec1bcd8886900be57e8590b22bb2b47",
+      "bytes": 1560418,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-010.89268d1c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『分からないときの返し方』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『担当外は 担当ではなかったと言う』 『今ならどう考えるか 推測と断って話す』 『作り話で 埋めない』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 経験していないことや、覚えていないことを聞かれたときも、事実の範囲を区切ります。担当していない部分は、担当ではなかったと述べます。そのうえで、今ならどう考えるかを、推測だと断って説明します。作り話で埋めるのは避けましょう。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 37.6）",
+        "promptSha256": "ad7a5930b6a67a774492fa8eb74ec43223d002b426988722de53081eb4d39e2b",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "5ba87e5f3a8b140f3d48b44043faca652bd84a2e144f4a34bc5e5c6b2974c5cb",
+      "bytes": 1512728,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-011.5ba87e5f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『今日やることは、この3つ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『1業務で 4型の質問を作る』 『結論→事実→根拠→結果で 声に出して答える』 『録音を聞いて 一般論・言い訳を探す』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 今日やることは三つです。一つの業務について、四つの型の質問を自分で作ります。結論、事実、根拠、結果の順で、声に出して答えます。録音を聞き、一般論と言い訳になっていないかを確認しましょう。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 48.0）",
+        "promptSha256": "3b7c18ccfd27b024298dea8503c0d229dd261e92444014c49c5a587765696a1f",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "58c06b7a1e7d1bbec4d6b090bfb5b912765418879c9126ecebde280af99d4823",
+      "bytes": 1840244,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-012.58c06b7a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『想定問答で、練習を進める』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『建設部門の口頭試験対策教材』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 想定問答を使って練習したい方には、建設部門の口頭試験対策教材があります。収録の想定問答は運営者が作ったもので、実際の出題の再現ではありません。概要欄から、収録内容を確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 40.2）",
+        "promptSha256": "37c096ab0a280db08541072c3359612eab7600c418f870581aa1ff1f8deb64dc",
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "fc89cc1a4898344a3cae08eec57dbc5ca247c77c73cf6b7617fea63a5e12cedb",
+      "bytes": 6898,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/subtitles.fc89cc1a.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "da8346b81ec6715796fe317f43a28ee8db98b74ba2518728185fac0b13177e7a",
+      "bytes": 20835775,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/youtube.longform/video.da8346b8.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori/storyboard.json",
+        "specSha256": "3154b8a0d7d31892378e8daf5ac03570b38cc9e3ec512c6cfbfd856126031794",
+        "renderInputSha256": "5349281161ea5385b9c1c42e1a48bd1a1ef0c7bf14a584c766e79a57e4790de4",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 196.7
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "2083b9f8c4e5dbd2aea8fff95a8de86e600eff15d64d87733f461d3443757169",
+      "bytes": 719699,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/cover.2083b9f8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『技術士 建設部門』『新コンピテンシー』『口頭で変わる質問』を大きく配置。上部の黄色帯に小さく『総監が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "22888da2d08817160aaab76ede2e4c3aaace4de1c85378e101f0f0a8ae0d8b50",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/cover-pop.2083b9f8.png"
+      ]
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "2083b9f8c4e5dbd2aea8fff95a8de86e600eff15d64d87733f461d3443757169",
+      "bytes": 719699,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-001.2083b9f8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『技術士 建設部門』『新コンピテンシー』『口頭で変わる質問』を大きく配置。上部の黄色帯に小さく『総監が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "22888da2d08817160aaab76ede2e4c3aaace4de1c85378e101f0f0a8ae0d8b50",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "01172cb861896428335166eb68319e52eee1900061c49cbe586917c3c7cdf288",
+      "bytes": 1347786,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-002.01172cb8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『今日の答え』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『改訂は4項目』 『口頭の4区分のうち3つに関わる』 『試験の枠組みは変更なし』。 この場面の説明（文字にしない）: コンピテンシーが改訂されたと聞くが、口頭試験で何が変わるのか。元自治体の土木技術者、発注者の立場から整理します。先に答えを言うと、改訂されたのは四項目で、口頭の四つの区分のうち三つに関わります。ただし、試験の枠組み自体は変わりません。 前回の不合格の理由を直す: 見出しに指示にない括弧『』が文字として描かれている（lettering fail）。他の文字は指示と一致",
+        "promptSha256": "1d48d6ca0eb88a84337cad908d1d61c0a63e5d99e6c95f747acea0a27fb1be73",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "f390af1e13af318e59dc09aea471dba2aa2a5509039d4f2c715ba6f50e0cbb0c",
+      "bytes": 1485414,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-003.f390af1e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『よくある誤解』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『試験が変わった → 公式は変更なし』 『令和8年度から 改訂版を適用』 『観点が動く可能性 → 本動画の推論』。 図の下に『出題内容は公式に示されていない。以降の質問例は資料からの推論』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず誤解を解きます。改訂は令和8年度の第二次試験から適用で、令和7年度までは従来版です。文部科学省の試験部会は、筆記と口頭の試験内容は変更の必要なしと結論し、日本技術士会も、試験内容は変更されないと公表しています。質問が総入れ替えになるのではなく、同じ区分の中で見られる観点が動くかもしれない、という話です。",
+        "promptSha256": "2fa459410ac15c3fefc4b30a34c92178b02613cccb95a3dec5d70594328c0fe7",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "df5256e5e706450460672af914974479ed6b344918ea38a78b81f8b1497212d1",
+      "bytes": 1506671,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-004.df5256e5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『口頭の4区分 × 改訂』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『マネジメント・評価 変更なし』 『コミュニケーション・ リーダーシップ コミュニケーションが改訂』 『技術者倫理 改訂あり』 『継続研さん 改訂あり』。 図の下に『リーダーシップは変更なし。問題解決は改訂だが口頭の評価項目にない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 口頭の評価は四つの区分です。マネジメントと評価、コミュニケーションとリーダーシップで一区分、技術者倫理、継続研さん。八つの資質能力のうち、改訂されたのは問題解決、コミュニケーション、技術者倫理、継続研さんの四項目です。区分に当てはめると、マネジメントと評価は変更なし。コミュニケーションとリーダーシップの区分ではコミュニケーションの文言が改訂され、倫理と継続研さんにも改訂があります。問題解決は、口頭の評価項目に入っていません。 前回の不合格の理由を直す: 見出しに指示にない括弧『』が文字として描かれている（lettering fail）。他の文字は指示と一致",
+        "promptSha256": "1f3eb365455bdd68ec1881db70d14b5e25ed3d786ed00852d5cdf521935fab4a",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "9508fa090c302f051918fedbea6668435b2af65755ffe032c2eaac4951b0a4e3",
+      "bytes": 1579421,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-005.9508fa09.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『コミュニケーション』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『旧：明確かつ効果的な 意思疎通を行う』 『新：情報技術を活用し 包摂的な意思疎通を図り、協働する』 『推論：協働の相手と 意見の聞き方を問われうる』。 図の下に『文言は文部科学省の新旧対照表。右の質問は推論』の全文を省かずに入れる。 この場面の説明（文字にしない）: コミュニケーションは、二点が変わりました。一つは、情報技術を活用して、が加わったこと。もう一つは、効果的な意思疎通を行う、が、包摂的な意思疎通を図り、協働する、に変わったことです。推論ですが、誰とどう協働したか、立場の違う関係者の意見をどう聞いたか、という深掘りが増えても不思議はありません。",
+        "promptSha256": "5cb2663982ff2b59350f6faedc9b68a119931df59390acd8e69abe94309c15db",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "579dc933a63c2061401a6428ec43e5cd5241afa13a254c254f55254ec5fa2a88",
+      "bytes": 1748356,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-006.579dc933.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『技術者倫理①：影響の予見と持続性』。 構図: 左の問いから右の行動へ矢印で結ぶ対応図。 図に入れる文字: 『影響の予見 社会・文化・環境 → 社会・経済・環境』 『持続性の確保 → 持続可能な成果の達成を目指す』。 図の下に『文言は文部科学省の新旧対照表』の全文を省かずに入れる。 この場面の説明（文字にしない）: 技術者倫理は、三点が変わりました。まず影響の予見です。対象が、社会、文化及び環境から、社会、経済及び環境へ変わりました。次に持続性です。持続性の確保が、持続可能な成果の達成を目指す、に変わっています。",
+        "promptSha256": "523061dfee40bd6c0ccf978b3f7ef3ed15eb34a775264abfdf61d6158a9cf757",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "86f56391fef215e872ba48422046f803b9a2b009f57f95589a2ab354c3f0bbbd",
+      "bytes": 1734150,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-007.86f56391.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『技術者倫理②：法令の遵守』。 構図: 左の問いから右の行動へ矢印で結ぶ対応図。 図に入れる文字: 『旧：関係法令等の 制度を遵守する』 『新：遵守し、 文化的価値を尊重する』 『仮の例：景観・歴史的構造物の そばの工事で費用と文化的価値』。 図の下に『例は仮の例。実際の経験に置き換える／出題の断定ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 三つ目は法令の遵守です。関係法令の遵守に、文化的価値を尊重すること、が加わりました。発注者の立場なら、地域の景観や歴史的な構造物のそばの工事で、費用と文化的価値をどう考えたか。これは仮の例で、自分の経験に置き換えて考えます。",
+        "promptSha256": "dc42383969baa02b236172128870141d63951cda727c4ba8db726f74b0957d0f",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "a52c400a08d0bf6821138ab680b75c8b847063e641dfdc9cfd0458d89ada76f4",
+      "bytes": 1891103,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-008.a52c400a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『継続研さん』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『旧：十分な継続研さん （CPD）を行う』 『新：変わり続ける仕事に 適応する能力を高める』 『推論：学んだ内容と 仕事への使い方を問われうる』。 図の下に『文言は文部科学省の新旧対照表。右の質問は推論』の全文を省かずに入れる。 この場面の説明（文字にしない）: 継続研さんは、書き方が大きく変わりました。従来は、十分な継続研さんを行うこと。改訂後は、コンピテンシーを維持・向上させ、新しい技術とともに変わり続ける仕事に適応する能力を高めること、です。推論ですが、受講歴を並べるだけでなく、変化に対して何を学び、仕事にどう使ったかが問われやすくなります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 15.5）",
+        "promptSha256": "af5bec5a300b56d45d5b065717bbe0a9144ee60388e5c6c263ab357850ebee6c",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "14422d1d5367e332a4e7edceb6f232dbcff15fe953f89ab8df916f9ddc3b9303",
+      "bytes": 1473112,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-009.14422d1d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『変わっていない部分』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『マネジメント』 『評価』 『リーダーシップ』。 図の下に『準備を捨てず、差分だけを足し直す』の全文を省かずに入れる。 この場面の説明（文字にしない）: 一方、マネジメントと評価、リーダーシップの文言は変わっていません。ここまでの準備を捨てる必要はありません。経歴を四つの区分で整理する準備は、別の動画で扱っています。この動画は、差分の部分だけを足し直す回です。",
+        "promptSha256": "2c76790091978544dbe6d08193cdc6673b57c0ca35ff30508480f3835878606d",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "9b565b27890b7198dd76ea29281686f4ac0a861cea7c6568cc2c666324650f88",
+      "bytes": 1557365,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-010.9b565b27.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『準備の直し方』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『1　回答を4つの言葉で点検 情報技術・包摂と協働 経済・文化的価値・変化への適応』 『2　あるものは 具体的に言えるようにする』 『3　無いものは作らず 考え方を説明する』。 この場面の説明（文字にしない）: 準備の直し方は三つです。一つ目、自分の回答に、情報技術、協働と包摂、経済への影響と文化的価値、変化への適応のどれが事実としてあるかを点検します。二つ目、あるものは具体的に言えるようにします。三つ目、無いものは作らず、経験していないと区別して、考え方を説明できるようにします。 前回の不合格の理由を直す: 見出しに指示にない括弧『』が文字として描かれている（lettering fail）。他の文字は指示と一致",
+        "promptSha256": "045240be8084a140993ac7bf496a13124ba66d9ba5bee95bcb4e846e1befd505",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "e2673f545f0ae8d7145b608f11fd554f2d5d8413fc820b6a38c720f1c46ee006",
+      "bytes": 1560638,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-011.e2673f54.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『やってはいけないこと』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『言葉を入れるために 経験を盛る』 『事実に無い話は 深掘りで崩れる』 『公式が示すのは文言まで 質問そのものではない』。 この場面の説明（文字にしない）: 注意点です。改訂の言葉を入れるために、経験を盛ってはいけません。口頭では、経歴に結びつけて深掘りされます。事実に無い話は、次の質問で崩れます。公式に示されているのは改訂の文言までで、質問そのものではありません。",
+        "promptSha256": "f9a12538b6a91690de1c09e679976f496f76d52045b67b903bcc6ff6451fd089",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "8de938683eca6712fd119eac5a00f748de1ae73a7a9871773ca885dd169b4792",
+      "bytes": 1438212,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-012.8de93868.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『改訂4項目 試験の枠組みは変更なし』 『口頭では3区分に 新しい文言』 『事実だけを 足し直す』。 この場面の説明（文字にしない）: まとめます。改訂は四項目で、試験の枠組みは変わりません。口頭の四区分のうち、コミュニケーションとリーダーシップの区分、技術者倫理、継続研さんの三つに、新しい文言があります。自分の回答を点検し、事実としてあるものだけを足し直してください。",
+        "promptSha256": "087dadc13107293d28137aed32d48482dea79500e0a896339387f6915a9fcb7b",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "b09bf8494f2bcdccfc201c03089755b8d014860df5dd187a9b3d19a0a8913b20",
+      "bytes": 1923574,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-013.b09bf849.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『想定問答で、準備を進める』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『建設部門の口頭試験対策教材』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 改訂コンピテンシーに対応した想定問答と、準備の進め方をまとめた建設部門向けの教材を用意しています。収録内容は概要欄から確認してください。 前回の不合格の理由を直す: 見出しに指示にない括弧『』が文字として描かれている（lettering fail）。他の文字は指示と一致",
+        "promptSha256": "4ede52a24910dfd704976f4f143a60a47adb8389a9f44cabe3df740cd3bba495",
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "d5f615351a83d1d5f80579cfde4b40d93d9088e0ea71116d248f7807b4992f99",
+      "bytes": 8952,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/subtitles.d5f61535.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/pe-kojutsu-kaitei-competency/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "c3fd220bb8ff1812ec15ccdc81879735b770fa89f16e712ded2264c76cb4b0b8",
+      "bytes": 26702458,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/video.c3fd220b.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/pe-kojutsu-kaitei-competency/storyboard.json",
+        "specSha256": "c5598496ba015597099e8efb271ad6a040cb04c5c2f1606736f77a6607dac0c0",
+        "renderInputSha256": "29c7fecab40569ad2bff8c3a96400ce35967398c7338a594c7ebc382cb095c16",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 265
+    },
+    {
       "id": "pe-construction/pe-kojutsu-keireki/youtube.longform/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",

@@ -385,6 +385,17 @@
         "expected": 1963,
         "heard": 1891
       }
+    },
+    "pe-construction/pe-kojutsu-fukabori/youtube.longform": {
+      "videoSha256": "da8346b81ec6715796fe317f43a28ee8db98b74ba2518728185fac0b13177e7a",
+      "at": "2026-11-10T12:45:14.327Z",
+      "similarity": 0.98,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1168,
+        "heard": 1110
+      }
     }
   }
 }

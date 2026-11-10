@@ -22,7 +22,7 @@
           "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-cover.c552f294.png",
           "sha256": "c552f2940337a0930fa7c15695c361edfa4dc3fccc5cea083272de6619644d9b"
         },
-        "generatedAt": "2026-11-10T12:06:56.683Z"
+        "generatedAt": "2026-11-10T12:31:26.462Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -45,7 +45,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-10T12:06:56.683Z",
+        "checkedAt": "2026-11-10T12:31:26.462Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字は指示と一字一致（総監が解説・技術士 建設部門・口頭の深掘り・事実で答える）で括弧なし。キャラは黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指の破綻なし。最下行の左余白は約5%でやや狭いが誤読は生じない",
         "userImageReview": "pending"
@@ -76,7 +76,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-premise.9022fcf8.png",
               "sha256": "9022fcf822df4d30751f99ff8c52311b3a61a807a162faea197ab6874e7347a2"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/premise-diagram.0a2dd605.png",
@@ -90,7 +90,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・2枠の文字・下の全文を指示と1字ずつ照合し一致。誤字・余計な文字なし、比較構図で右を強調、下端は無地",
             "userReview": "pending",
@@ -113,7 +113,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-frame.e2bdd590.png",
               "sha256": "e2bdd590f8b05ee78955880621a7a73d19670daf4c155929bc32602a0e13bc44"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/frame-diagram.dbc08648.png",
@@ -127,7 +127,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・3枠の文字・括弧つき注記・下の全文が指示と一致。同じ大きさの枠が並び、アイコンの崩れなし",
             "userReview": "pending",
@@ -150,7 +150,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-types.1dcaca95.png",
               "sha256": "1dcaca95cf5c0dc9a304268a18561dec4c0ed691f2a44698eb194f18113b7e00"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/types-diagram.c56628b7.png",
@@ -164,7 +164,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・4型の見出しと副文・下の注記『本動画の独自の整理。自分の事実で埋める』が指示どおり一字一致し、誤字や余計な文言なし。アイコンも意味に合い、下端は無地",
             "userReview": "pending",
@@ -187,7 +187,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-why.b89bf62f.png",
               "sha256": "b89bf62ffdef6bacf727e2ff87aaf910cbc6211386170c0b9b34ae45e05242dd"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/why-diagram.d029fdf9.png",
@@ -201,7 +201,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと下の全文が指示と一致。左の曇った図(一般論)と右の予算・工期・補修案の図(事実)が本文と矛盾せず、崩れなし",
             "userReview": "pending",
@@ -224,7 +224,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-alternative.8f51c606.png",
               "sha256": "8f51c6062b370cde75041706e954f9321f1dbf2318d4ca028db62ed2ce670a53"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/alternative-diagram.982a5017.png",
@@ -238,7 +238,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・3行・下の全文が指示と一致。整理メモの用紙で行ごとに欄が分かれている",
             "userReview": "pending",
@@ -261,7 +261,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-verify.8264960c.png",
               "sha256": "8264960c471fda92d3f7d0df58d40d570dd511aa7d6195e2bbe97723386285e4"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/verify-diagram.82b4ac16.png",
@@ -275,7 +275,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・3行・下の全文が指示と一致。用紙の欄分けも指定どおり",
             "userReview": "pending",
@@ -298,7 +298,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-role.132bd7ba.png",
               "sha256": "132bd7baeb332bd843b4f00a127033ea9feaec971202f462afbda26d3d0caf52"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/role-diagram.e8445953.png",
@@ -312,7 +312,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・3つの枠・下の全文が指示と一致。全体と自分の分離が図で読める",
             "userReview": "pending",
@@ -335,7 +335,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-contrast.e06ca100.png",
               "sha256": "e06ca1000badf798877bbd494f5587fef949fdb543d6baf412343b092b669bf9"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/contrast-diagram.d3ae4415.png",
@@ -349,7 +349,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと下の全文が指示と一致。左はあいまいな吹き出し、右は二案を比べて決める流れで本文と矛盾せず、余計な文字なし",
             "userReview": "pending",
@@ -372,7 +372,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-unknown.d37e6c3d.png",
               "sha256": "d37e6c3de99d9363ed5ec20235c28745ba8129ea42dda5c6faf81907fb29dd52"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/unknown-diagram.89268d1c.png",
@@ -386,7 +386,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・番号つき3枠の文字・下の全文が指示と1字ずつ一致。余計な文字なし",
             "userReview": "pending",
@@ -409,7 +409,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-recap.a8d18aff.png",
               "sha256": "a8d18aff1b7184e0ed0d9339f3c4f6e4345aececdfe77185e0db1156f1360023"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/recap-diagram.5ba87e5f.png",
@@ -423,7 +423,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・3枠の文字(→含む)・下の全文が指示と一致。番号と枠の構図も指定どおり",
             "userReview": "pending",
@@ -446,7 +446,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-cta.f5cb8524.png",
               "sha256": "f5cb852447c904072557044ce702516e5f2c238095dd0a4fbb1f8f2ffa02049b"
             },
-            "generatedAt": "2026-11-10T12:06:56.683Z"
+            "generatedAt": "2026-11-10T12:31:26.462Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/cta-diagram.58c06b7a.png",
@@ -460,7 +460,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:56.683Z",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・ノートの文字・吹き出しの文字が指示と一致。価格・URLなし、ノート中央の構図",
             "userReview": "pending",
