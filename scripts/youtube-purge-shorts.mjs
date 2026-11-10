@@ -65,8 +65,13 @@ async function main() {
   for (const v of batch) {
     try {
       await youtube.videos.delete({ id: v.id }, { retry: false });
-      const still = (await youtube.videos.list({ part: 'id', id: v.id })).data.items ?? [];
-      if (still.length) failed += 1; else deleted += 1;
+      // 削除の直後は読み戻しにまだ出る（2026-11-10・消えているのに失敗 2 と数えた）。間を空けて確かめ直す
+      let gone = false;
+      for (let n = 0; n < 6 && !gone; n += 1) {
+        await new Promise((r) => setTimeout(r, 2000));
+        gone = !((await youtube.videos.list({ part: 'id', id: v.id })).data.items ?? []).length;
+      }
+      if (gone) deleted += 1; else failed += 1;
     } catch (error) {
       failed += 1;
       console.error(`  削除に失敗（${error?.code ?? error?.message ?? 'unknown'}）`);
