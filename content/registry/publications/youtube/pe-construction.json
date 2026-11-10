@@ -488,7 +488,7 @@
       "work": "pe-fugoukaku-toan",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-fugoukaku-toan/youtube.longform/cover",
         "scene-001": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-001",
@@ -509,7 +509,20 @@
         "subtitles": "pe-construction/pe-fugoukaku-toan/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#longform",
-      "publishAt": "2026-12-22T11:30:00Z"
+      "publishAt": "2026-12-22T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:51:37.123Z",
+          "digest": "7c94c5d486028319506a8fd18bd2a66e4b4331cfa5d68193c544293a6a83e0ae"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:51:37.123Z",
+        "contentSha256": "d732c4d8ff642489e82e09377e21ec42f4b261087fe974b6dde59d7c80e33597"
+      }
     },
     {
       "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform",

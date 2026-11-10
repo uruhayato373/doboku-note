@@ -429,6 +429,17 @@
         "expected": 1099,
         "heard": 1040
       }
+    },
+    "pe-construction/pe-fugoukaku-toan/youtube.longform": {
+      "videoSha256": "0f7c06ab3dbcf9024c8f745ca3746035feaeb5249116f02e1c1824ad04985b9d",
+      "at": "2026-11-10T12:51:36.499Z",
+      "similarity": 0.94,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1440,
+        "heard": 1396
+      }
     }
   }
 }
