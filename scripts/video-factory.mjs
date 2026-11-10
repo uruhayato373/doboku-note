@@ -101,15 +101,18 @@ function status() {
     for (const entry of readdirSync(join(root, exam), { withFileTypes: true })) {
       if (!entry.isDirectory() || !existsSync(join(root, exam, entry.name, 'storyboard.json'))) continue;
       scanned += 1;
-      const facts = factsOf(reg, `${exam}/${entry.name}`, reviews, mediaById);
-      if (facts) rows.push({ pack: `${exam}/${entry.name}`, stage: nextStage(facts), ...facts });
+      const pack = `${exam}/${entry.name}`;
+      const facts = factsOf(reg, pack, reviews, mediaById);
+      // 台帳に行が無いパックも 1 本ずつ出す。数だけ出して名前を落とすと、台本だけある動画が工程の一覧から消える
+      rows.push(facts ? { pack, stage: nextStage(facts), ...facts } : { pack, stage: 'unregistered' });
     }
   }
   if (!scanned) { console.error('検査不成立: 対象のパックが 0 件'); process.exit(2); }
   const counts = {};
   for (const r of rows) counts[r.stage] = (counts[r.stage] ?? 0) + 1;
-  if (args.json) { console.log(JSON.stringify({ scanned, checked: rows.length, counts, rows }, null, 2)); return; }
-  console.log(`パック ${scanned} 件のうち、公開行のある ${rows.length} 件を判定`);
+  const checked = rows.filter((r) => r.stage !== 'unregistered').length;
+  if (args.json) { console.log(JSON.stringify({ scanned, checked, counts, rows }, null, 2)); return; }
+  console.log(`パック ${scanned} 件のうち、公開行のある ${checked} 件を判定（台帳未登録 ${scanned - checked} 件は registry -- import-video-pack で載せる）`);
   for (const [stage, n] of Object.entries(counts).sort()) console.log(`  ${stage}: ${n}`);
   for (const r of rows.filter((x) => !['done', 'stopped'].includes(x.stage))) console.log(`${r.stage}\t${r.pack}`);
 }

@@ -22,7 +22,7 @@ title: 動画の量産工程（通常動画・ショート）
 | ready-for-approval | 音声を照合し、関門を通ったら方針の承認を書く | スクリプト |
 | 予約 | R2 へ転送し `youtube-single-publish.yml` で予約する | スクリプト |
 
-`fix-script` は内容QAの不合格、`images-exhausted` は作り直しの上限、`review-failed` は画面確認の fail で、どれも人が見る。
+`unregistered` は台本はあるが台帳に公開行が無いパックで、`npm run registry -- import-video-pack --pack-dir <パック> --commit` で載せ、年間計画の行に `publicationId` を結ぶ。`fix-script` は内容QAの不合格、`images-exhausted` は作り直しの上限、`review-failed` は画面確認の fail で、どれも人が見る。
 
 ## 品質の守り方
 
