@@ -396,6 +396,17 @@
         "expected": 1168,
         "heard": 1110
       }
+    },
+    "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform": {
+      "videoSha256": "c3fd220bb8ff1812ec15ccdc81879735b770fa89f16e712ded2264c76cb4b0b8",
+      "at": "2026-11-10T12:45:57.599Z",
+      "similarity": 0.975,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1549,
+        "heard": 1480
+      }
     }
   }
 }
