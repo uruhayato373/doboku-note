@@ -39,7 +39,8 @@ function actualDay(p) {
 /** 通常動画 1 本の棚卸しの状態。実体が消えた停止行を公開に数えない（DN-1003） */
 export function inventoryState(p) {
   if (p.status === 'published') return 'published';
-  if (p.status === 'scheduled' || p.status === 'approved') return 'scheduled';
+  // 承認だけでは予約していない。YouTube に予約が入った行だけを予約済みに数える（DN-1066）
+  if (p.status === 'scheduled') return 'scheduled';
   if (INACTIVE.has(p.status)) return 'stopped';
   return p.media?.video ? 'stock' : 'unbuilt';
 }
