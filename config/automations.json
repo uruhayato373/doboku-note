@@ -383,14 +383,18 @@
       "id": "youtube-single-publish",
       "runner": "github-actions",
       "source": ".github/workflows/youtube-single-publish.yml",
-      "title": "承認済み YouTube 通常動画の個別予約",
+      "title": "承認済み YouTube 通常動画の個別予約と、予約の毎朝の照合",
       "group": "manual",
       "triggers": [
+        "schedule",
         "workflow_dispatch"
       ],
-      "schedule": [],
+      "schedule": [
+        "40 23 * * *"
+      ],
+      "scheduleJst": "照合（reconcile）だけ 毎日 08:40",
       "login": [],
-      "purpose": "公開IDと入力digestを固定し、private R2のintent・YouTube API実査を経て予約する",
+      "purpose": "公開IDと入力digestを固定し、private R2のintent・YouTube API実査を経て予約する。毎朝の schedule では reconcile だけを回し、公開日時を過ぎた予約を published へ照合する（DN-1070）",
       "readers": [
         "human"
       ],
