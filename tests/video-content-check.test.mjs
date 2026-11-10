@@ -194,7 +194,8 @@ test('パック内の mp4 混入 → F04（fixture には binary を置かず te
     const r = checkAll(root, { config });
     const codes = codesOf(r);
     assert.ok(codes.has('F04'));
-    assert.deepEqual([...codes], ['F04'], '想定外の FAIL が混ざっている');
+    // mp4 は置いてよいファイルの一覧にも無いので M11 も出る（2026-11-10）
+    assert.deepEqual([...codes].sort(), ['F04', 'M11'], '想定外の FAIL が混ざっている');
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -233,4 +234,11 @@ test('checkUtmUrls: 自サイト URL の UTM 欠落・誤値を検出', () => {
   assert.deepEqual(ok, []);
   const external = checkUtmUrls('https://www.mlit.go.jp/hakusyo', 'p1', config, 't');
   assert.deepEqual(external, [], '外部サイトは UTM 対象外');
+});
+
+test('M11: パックに置いてよいファイルだけを通す（2026-11-10 に Writer の中間ファイルが混ざった）', async () => {
+  const { strayPackFiles } = await import('../scripts/lib/video-content-check.mjs');
+  const ok = ['video-pack.json', 'storyboard.json', 'script.md', 'cover-design.json', 'pop-image.json', 'cta-design.json', 'compilation.json', 'shorts-design.json', 'cover-prompt.txt', 'youtube.json', 'youtube.revision-reading-fix.json', 'youtube.candidate-20261022.json', 'youtube-copy-pop-diagram.json'];
+  assert.deepEqual(strayPackFiles(ok), []);
+  assert.deepEqual(strayPackFiles(['.body.md', 'gen.mjs', 'notes.md', 'img', 'script.md']), ['.body.md', 'gen.mjs', 'notes.md', 'img']);
 });
