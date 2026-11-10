@@ -58,9 +58,10 @@
 - `pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix`（2026-11-13T11:30Z）
 
 **やること**:
-1. 間に合う行は Mac で `node --env-file=.env.local scripts/video-factory.mjs publish --packs <a,b>` を 1 本ずつ流す（割当は 1 日 4 本）
-2. 間に合わない行は日時を付け直す。承認済みの行を `wire` に戻すコマンドが無いので、手順を決めて記録する（仕組みの修正は別カード「承認済みで未予約の行を status と棚卸しで見分ける」）
-3. `registry-reconcile`（`mode=audit-funnel`）で予約の実体を読み戻す
+1. Mac で develop を取り込み、`npm run video-factory -- status --exam pe-construction` を見る（PR #1484 のマージ後は `publish-pending`・`slot-expired` で出る）
+2. `publish-pending` の行は `node --env-file=.env.local scripts/video-factory.mjs publish --packs <a,b>` を 1 本ずつ流す（割当は 1 日 4 本）
+3. `slot-expired` の行は `npm run video-factory -- unapprove --pack <資格>/<作品>` → `wire --pack <資格>/<作品>`（空き枠へ付け直す）→ `gate` → `auto-approve` → `publish` の順でやり直す（`unapprove` は PR #1484 で足す）
+4. `registry-reconcile`（`mode=audit-funnel`）で予約の実体を読み戻す
 
 **完了条件**: 3 本とも台帳が `scheduled` で、YouTube 側の予約日時と一致している。
 
