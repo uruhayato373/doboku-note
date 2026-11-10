@@ -22,7 +22,7 @@ import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
-import { wrapTitle, pickFontSize } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs';
+import { wrapTitle, pickFontSize } from '../.claude/skills/ogp-create/scripts/lib/ogp-text.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';

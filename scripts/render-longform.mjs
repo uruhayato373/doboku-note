@@ -125,7 +125,7 @@ if (!args['skip-tts']) {
 }
 
 // ─── フォント（render-editorial-reels と同一資産） ─────────────
-const FONT_DIR = resolve(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
+const FONT_DIR = resolve(ROOT, '.claude/skills/ogp-create/assets/fonts');
 const FONTSOURCE_DIR = resolve(ROOT, 'node_modules/@fontsource');
 const fonts = [
   { name: 'Noto Sans JP', data: readFileSync(resolve(FONT_DIR, 'NotoSansJP-Bold.ttf')), weight: 700, style: 'normal' },

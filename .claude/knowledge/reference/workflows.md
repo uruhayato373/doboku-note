@@ -28,7 +28,7 @@ title: 推奨ワークフロー
 
 計測→記録→改善サイクルの分業・閾値・処分の規則は [growth-cycle.md](growth-cycle.md)。
 
-詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/plan-weekly/SKILL.md` を参照。
+詳細は `.claude/skills/weekly-review/SKILL.md` と `.claude/skills/plan-weekly/SKILL.md` を参照。
 
 **実行主体（2026-11-08〜）**: 週次・月次レビューは**運営者の指示で対話セッションが実行する**（`/weekly-review`・`/plan-weekly`・`/monthly-review`）。土曜の launchd は収集と GSC の記録層だけを回し、レビューを回さない。画面のないレビューは落ちても気づかれず（2026-W45 は収集の失敗で止まり、下書きだけが worktree に残った）、抜けた週は後日まとめて回せば足りるため。未作成の週は SessionStart の `check-weekly-review-due` が 1 行で知らせるだけで、月曜の guard の赤落ち（「Check last week's review exists」）も外した。自動実行用の worktree は `.claude/worktrees/weekly-collect` の 1 本で、毎日の GSC の登録（`gsc-indexing-daily.sh`）も同じものを使う（土曜の収集の実行中は譲る）。
 

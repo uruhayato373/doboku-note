@@ -16,7 +16,7 @@ import { listFiles } from './lib/fs-walk.mjs';
 const campaign = assertInstagramPublicationReady(ROOT);
 const campaignSchedule = campaign && new Map(campaign.schedule.filter(row => row.format === 'reel').map(row => [row.path, row.publishAt]));
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
-const PUBLISHER = join(ROOT, '.claude/skills/social/publish-ig-bs/publish-ig-bs.ts');
+const PUBLISHER = join(ROOT, '.claude/skills/publish-ig-bs/publish-ig-bs.ts');
 const argv = process.argv.slice(2);
 const commit = argv.includes('--commit');
 const arg = (name, fallback) => {

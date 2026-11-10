@@ -14,7 +14,7 @@ metadata:
 本文プレースホルダー `{{MAGAZINE_URL}}` への反映は sed/perl/Edit でなく:
 `node .claude/scripts/note/inject-magazine-url.cjs <persona> <マガジンURL>`（例 `... 自治体技術基準担当 https://note.com/dobokunote/m/mf9f281e2cb32`・persona はディレクトリ名の `総監模範論文-` を除いた部分・付きでも可・配下の全 RXX/article.md を一括処理）。
 - **Why:** (1) CRLF/LF を元ファイルから保持（MSYS `sed -i` は CRLF を LF に壊し git が「LF will be replaced by CRLF」警告）(2) `{{MAGAZINE_URL}}` 以外の旧バリアント（「※note 公開後に…予定」等）も吸収 (3) 冪等。2026-06-11 Opus が既存スクリプトを探さず perl で手置換し、その前段で MSYS sed が CRLF を一度破壊した。frontmatter の `noteUrl:`/`noteId:`（個別記事 URL・各記事公開後に記入）は非対象。
-- **How to apply:** 着手前に `docs/reference/note-essay-review-checklist.md` Step10 と `.claude/skills/social/publish-note` を Read（CLAUDE.md「書く前に読む」）。本文で `{{...}}` を見たら手で埋めず `.claude/scripts/note/` の対応スクリプトを探す。docs/note の .md 一括置換が必要でも `sed -i` でなく CRLF 保持手段（perl binmode / Node で元 EOL 保持）。プレースホルダーは単独行＝リンクカード化の前提（[[feedback_note_cta_no_price_linkcard]]）。
+- **How to apply:** 着手前に `docs/reference/note-essay-review-checklist.md` Step10 と `.claude/skills/publish-note` を Read（CLAUDE.md「書く前に読む」）。本文で `{{...}}` を見たら手で埋めず `.claude/scripts/note/` の対応スクリプトを探す。docs/note の .md 一括置換が必要でも `sed -i` でなく CRLF 保持手段（perl binmode / Node で元 EOL 保持）。プレースホルダーは単独行＝リンクカード化の前提（[[feedback_note_cta_no_price_linkcard]]）。
 
 ## 収録を増やしたら同じ commit で snapshot 再生成（2026-09-24）
 `note-magazine-add-articles --commit` で収録を増やしたら `npm run verify-note-magazines -- --contents --json` で `data/note/magazines-snapshot.json` を作り直して commit する。

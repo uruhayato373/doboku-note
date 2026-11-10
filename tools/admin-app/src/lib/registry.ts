@@ -22,7 +22,7 @@ export interface AgentEntry {
 export interface SkillEntry {
   name: string;
   description: string;
-  category: string; // skills/ 直下ディレクトリ名
+  category: string; // SKILL.md の frontmatter category
   domain: string | null; // 事業の領域 id（config/domains.json）
   file: string; // repo-relative
 }
@@ -75,9 +75,9 @@ export function loadSkills(): RegistryResult<SkillEntry> {
   const errors: string[] = [];
   for (const abs of findSkillFiles(root).sort()) {
     const rel = toPosix(relative(repoPath(), abs));
-    const category = rel.split('/')[2] ?? 'その他'; // .claude/skills/<category>/...
     try {
       const { data } = matter(readFileSync(abs, 'utf8'));
+      const category = data.category ? String(data.category) : 'その他'; // SKILL.md の frontmatter（置き場は .claude/skills/<名前>/ の 1 階層）
       items.push({
         name: String(data.name ?? rel.split('/').slice(-2, -1)[0] ?? rel),
         description: firstLine(data.description),

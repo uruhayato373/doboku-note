@@ -26,7 +26,7 @@ https://www.help-note.com/hc/ja/articles/360000231642-%E7%99%BB%E9%8C%B2%E7%94%B
 - 現行SSOT：`.claude/knowledge/design-system/note-cover.md`
 - 値SSOT：`.claude/knowledge/design-system/note-cover-tokens.json`
 - 既存提案：`.claude/knowledge/design-system/note-cover-clarity-v3.md`
-- 記事レンダラー：`.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`
+- 記事レンダラー：`.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs`
 - 記事生成：`scripts/generate-note-covers.mjs`
 - マガジン生成：`scripts/generate-magazine-covers.mjs`
 
@@ -230,7 +230,7 @@ note記事カバー用の文字なし背景素材を生成してください。
    - version更新
    - `layout.cropSafeV4`
    - variant別schema
-2. `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`
+2. `.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs`
    - `renderNoteCoverCropSafeV4`
    - 既存G2入口のopt-in分岐
 3. `scripts/add-note-cover.mjs`

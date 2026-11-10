@@ -27,7 +27,7 @@
 
 ## 作り方
 
-流れは `/standards-table-rebuild`（`.claude/skills/conversion/standards-table-rebuild/SKILL.md`）、道具は `npm run standards-tables -- inventory|render|sheets|validate|review|split|merge`（Writer 1 体に収まらない大きな表は split で断片に分ける。手順書の「大きな表」）、
+流れは `/standards-table-rebuild`（`.claude/skills/standards-table-rebuild/SKILL.md`）、道具は `npm run standards-tables -- inventory|render|sheets|validate|review|split|merge`（Writer 1 体に収まらない大きな表は split で断片に分ける。手順書の「大きな表」）、
 組み直しは `standards-table-writer`、照合・承認は `standards-table-qa`（`.claude/agents/`）。どの PC でも同じ手順で回せる。
 
 - 原本のページ画像は Google Drive vault（`npm run build-standards-page-images` が作る 270dpi の画像・provenance は `content/sources/standards/{機関}/{文書}/manifest.json`）を使う。vault が見えない PC は発行機関の掲載ページから原本 PDF を取り、`render` で必要なページだけ画像にする（catalog の SHA-256 と違えば拒否）

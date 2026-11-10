@@ -9,7 +9,7 @@
   },
   "templates": {
     "version": 2,
-    "description": "OGP / note カバー共通テンプレレジストリ。T06 Mono Tag に統一（旧 navy-white / dark-wood / red-line / blackboard / dark-grid は撤去）。テンプレ追加時は .claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs に renderer を追加し、ここに定義を記載する。",
+    "description": "OGP / note カバー共通テンプレレジストリ。T06 Mono Tag に統一（旧 navy-white / dark-wood / red-line / blackboard / dark-grid は撤去）。テンプレ追加時は .claude/skills/ogp-create/scripts/lib/ogp-templates.mjs に renderer を追加し、ここに定義を記載する。",
     "templates": {
       "mono-tag": {
         "name": "Mono Tag（T06）",
@@ -36,7 +36,7 @@
   },
   "text": {
     "version": 6,
-    "description": "OGP / note カバー共通テンプレ（T06 Mono Tag）のタイトル改行・フォントサイズ・セーフティゾーン設定。.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs が消費する。2026-06-16 v5: セーフゾーン(中央630)制約を撤廃し全幅レイアウトへ。タイトルを全幅で大きく描画して余白を圧縮（最大76px・1行13文字目安・safetyWidth 1010）。",
+    "description": "OGP / note カバー共通テンプレ（T06 Mono Tag）のタイトル改行・フォントサイズ・セーフティゾーン設定。.claude/skills/ogp-create/scripts/lib/ogp-text.mjs が消費する。2026-06-16 v5: セーフゾーン(中央630)制約を撤廃し全幅レイアウトへ。タイトルを全幅で大きく描画して余白を圧縮（最大76px・1行13文字目安・safetyWidth 1010）。",
     "safetyWidth": 1010,
     "safetyHeightForTitle": 380,
     "maxLines": 4,

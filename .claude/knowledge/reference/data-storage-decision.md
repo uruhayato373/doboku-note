@@ -44,9 +44,9 @@ sections:
 | タグ辞書ビルダー | `.claude/scripts/build-tag-index.mjs` → `src/config/tag-dictionary.json`（git 管理外の生成物・refresh-indexes が作る） |
 | frontmatter lint | `.claude/scripts/lint-frontmatter.mjs` |
 | pre-commit 検証 | `scripts/pre-commit-mdx.mjs` |
-| ルール真実源 | `.claude/skills/quality/check-mdx/SKILL.md` |
+| ルール真実源 | `.claude/skills/check-mdx/SKILL.md` |
 
-frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/check-mdx/SKILL.md` を参照。
+frontmatter 検査ルールの追加・変更手順は `.claude/skills/check-mdx/SKILL.md` を参照。
 
 ## 再検討トリガー
 

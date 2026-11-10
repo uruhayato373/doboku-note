@@ -55,7 +55,7 @@ const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await impor
 if (!ffmpegAvailable()) throw new Error('ffmpeg / ffprobe が利用できません');
 if (!args['preview-only'] && !(await isRunning())) throw new Error('VOICEVOX が起動していません（127.0.0.1:50021）');
 
-const FONT_DIR = resolve(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
+const FONT_DIR = resolve(ROOT, '.claude/skills/ogp-create/assets/fonts');
 const FONTSOURCE_DIR = resolve(ROOT, 'node_modules/@fontsource');
 const fonts = [
   { name: 'Noto Sans JP', data: readFileSync(resolve(FONT_DIR, 'NotoSansJP-Bold.ttf')), weight: 700, style: 'normal' },

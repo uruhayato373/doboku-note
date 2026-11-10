@@ -151,7 +151,7 @@ export function instagramCtaNode(logo, { reel = false } = {}) {
 
 export async function renderInstagramNode(root, node, height) {
   const fonts = [...coverFonts(root), { name: 'Noto Sans JP', weight: 700, style: 'normal',
-    data: readFileSync(join(root, '.claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf')) }];
+    data: readFileSync(join(root, '.claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf')) }];
   const svg = await satori(node, { width: 1080, height, fonts });
   return { svg, buffer: new Resvg(svg).render().asPng() };
 }

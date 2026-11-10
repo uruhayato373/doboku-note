@@ -119,7 +119,7 @@ URL Inspection のスナップショットを読み込み、**サイトの index
 ## 参照
 
 - `.claude/knowledge/reference/gsc-management.md` — GSC 管理 SSOT（分業/閾値/判断マトリクス/観測ログ）
-- `.claude/skills/management/gsc-review/SKILL.md` — 本エージェントの主な呼び出し元（月次）
+- `.claude/skills/gsc-review/SKILL.md` — 本エージェントの主な呼び出し元（月次）
 - `.claude/scripts/append-coverage-history.mjs` — history 追記（CI 用・同じ bucketOf 写像）
 - `.github/workflows/index-coverage.yml` — URL Inspection の月次取得 CI
 - `.claude/agents/metrics-analyzer.md` — performance 分析（守備範囲が直交）

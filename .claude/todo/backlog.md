@@ -476,7 +476,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 完了条件:
 - scripts/lib/x-reply-candidates.mjs: 本文に結果・受験の語（試験結果・不合格・✗ 等）があるときは 添削/講座/受講 等で supplier にしない。上の投稿を回帰テストに入れる
 - config/x-reply-trial.json: 検索語に「技術士 試験結果」等を足す
-- .claude/skills/social/x-reply/SKILL.md 手順 2 におすすめタブの保存を足す
+- .claude/skills/x-reply/SKILL.md 手順 2 におすすめタブの保存を足す
 - 当日の excluded.json の supplier 分を新判定で再判定し、拾い直せた件数を記録
 
 
@@ -1250,7 +1250,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **決定（2026-11-01・運営者・週次レビュー（2026-10-19〜2026-10-25）の諮問）**: 変える。stats47 と同じく、件数の上限をやめ「同じページ・同じ指標に重ねない／始める前に指標・判定日・停止条件を書く」に置き換える。上の 4 か所と SEO の 7 日観察の記述を直し、npm run check-business-direction を通す。
 
-**起点**: stats47 でオーナーは「打ち手は件数の上限なく幅広く試し、反応と計測記録で配分を決める（同じページ・同じ指標に重ねない、始める前に指標・判定日・停止条件を書く）」と決めた。doboku-note には「同時実験上限を守る」という規則がある（config/business-direction.json の rules・.claude/skills/management/nsm-experiment/SKILL.md の start 手順 4・monthly-review の手順 9・docs/marketing/転職アフィリエイト訴求設計.md の例外の記述）。上限の数はどこにも書かれていない。
+**起点**: stats47 でオーナーは「打ち手は件数の上限なく幅広く試し、反応と計測記録で配分を決める（同じページ・同じ指標に重ねない、始める前に指標・判定日・停止条件を書く）」と決めた。doboku-note には「同時実験上限を守る」という規則がある（config/business-direction.json の rules・.claude/skills/nsm-experiment/SKILL.md の start 手順 4・monthly-review の手順 9・docs/marketing/転職アフィリエイト訴求設計.md の例外の記述）。上限の数はどこにも書かれていない。
 
 **やること**: 運営者に、同じ方針へ変えるかを確かめる。変えるなら「上限」を「同じページ・同じ指標に重ねない／始める前に指標・判定日・停止条件を書く」に置き換え、上の 4 か所と SEO の 7 日観察（変えない）を同じ commit で直す。
 

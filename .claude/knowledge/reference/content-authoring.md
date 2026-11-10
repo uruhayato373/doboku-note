@@ -100,14 +100,14 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - 試験対策ポイントは `<ExamPoint>` コンポーネントを使用
 - **共通仕様書への根拠リンク**（DN-0879）: 施工系の問で、土木工事共通仕様書の条文が肢の正誤を直接決めるときだけ、その肢の解説から条へ結ぶ（語の一致では結ばない・条文は写さず章と論点を書く）。結ぶ先は**近畿地方整備局版**（サイトが検索に載せる共通仕様書の正本・`config/standards-structure.json` の `canonical.commonAgencyId`。`/standards/kinki/common/chapters/{章}#{条の見出し ID}`、節ページに分けた 3-2 は `/sections/{節}`）に揃える。国交省本省（`/standards/mlit`）のサイトには土木工事共通仕様書の章記事が無く（施工管理基準だけ）、関東版などの他の機関の章は noindex のため。リンク先の実在は `npm run check-standards-links`（CI）が止める
 - **公式正答が非公表の年度の解説**（DN-0866）: 肢の正誤は推論で書かず、公式正答のある別年度の同じ論点の問題・共通仕様書の条・一次資料で根拠を示す。運営者が正答を確定した後は「〜と考えられる」など未確定の言い回しを残さない
-- 詳細テンプレートは `.claude/skills/conversion/pdf-to-mdx/templates/cem.md` を参照
+- 詳細テンプレートは `.claude/skills/pdf-to-mdx/templates/cem.md` を参照
 
 ## 数式・図表
 
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
 - 図表: SVG（模式図）/ WebP（写真＝AI 生成・960×720）／PNG（複雑なイラスト）
 - スクリーンショット・図版: `content/site/{slug}/img/` に配置
-- SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/authoring/create-svg/SKILL.md`）を参照
+- SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/create-svg/SKILL.md`）を参照
 
 ### ブロック数式は必ず複数行 `$$`（最重要）
 
@@ -268,7 +268,7 @@ MDX パイプラインは raw `<img>` の `style` / `width` / `height` / `classN
 
 既存記事に raw `<img>` が残っていても、それは移行未完了の遺物であり、**真似をしない**。新規追加は必ず `<ArticleImage>` を使う。`<ArticleImage>` は SVG 用に `w-full max-w-2xl mx-auto px-6` コンテナと `max-width:100%;height:auto` inline style を付与してレスポンシブ表示する。
 
-SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100%"` が必須（`/check-mdx --rules svg` の P3-missing-maxwidth HIGH 違反）。詳細は [.claude/skills/authoring/create-svg/SKILL.md](../../skills/authoring/create-svg/SKILL.md) §最大表示幅の固定。
+SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100%"` が必須（`/check-mdx --rules svg` の P3-missing-maxwidth HIGH 違反）。詳細は [.claude/skills/create-svg/SKILL.md](../../skills/create-svg/SKILL.md) §最大表示幅の固定。
 
 ### 写真（AI 生成）と出所の記録
 

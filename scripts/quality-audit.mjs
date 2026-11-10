@@ -298,6 +298,7 @@ export const CHECKS = [
   { id: 'command-guidance', npm: 'check-command-guidance', timeout: 60_000, ci: true, note: '検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。移設後に旧パスを案内し続ける置き去りを止める（2026-08-22 に 26 箇所見つかった）。2026-10-11 から skills・knowledge・agents・docs・workflows も走査（DN-0686）' },
   { id: 'doc-refs', npm: 'check-doc-refs', timeout: 90_000, ci: true },
   { id: 'agent-descriptions', npm: 'check-agent-descriptions', timeout: 30_000, ci: true, note: '.claude/agents/*.md の description（81 件すべてが毎セッションの system prompt に載る）が 300 code points を超えて増えないか。既存 32 件は baseline（返済は DN-0232）' },
+  { id: 'skill-layout', npm: 'check-skill-layout', timeout: 30_000, ci: true, note: 'スキルの置き場が .claude/skills/<name>/SKILL.md の 1 階層か・name とディレクトリ名・category の語彙。カテゴリのフォルダを挟むと Claude Code が読み込まず、2026-11-10 まで 98 本すべてが Unknown skill だった' },
   { id: 'claude-md-size', npm: 'check-claude-md-size', timeout: 30_000, ci: true, note: 'CLAUDE.md（常時読み込みの核）が 150 行以下か・12 原則の見出しが揃っているか・.claude/rules が全件 paths: 条件付きか。2026-09-08 に 311 行 / 69KB から分離した後、1 行ずつ戻るのを止める' },
   { id: 'task-plan-links', npm: 'check-task-plan-links', timeout: 30_000, ci: true, note: '.claude/plans/ の実装計画とbacklogカードの結線（存在・相互参照・1task=1plan・ID重複・孤児plan）。DN-0093 処方箋2' },
   { id: 'dispatch-log', npm: 'check-dispatch-log', timeout: 30_000, ci: true, note: 'dispatch-log.json の id 必須化・at キー・outcome 語彙整合（_schema=date/実データ=at/読み手=e.date の三つ巴不一致で weekly-review 集計が常に0件だった再発防止）。DN-0093 順4' },

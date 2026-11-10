@@ -25,7 +25,7 @@ import { requireLocalAsset } from './lib/asset-storage.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT as ROOT, COCONALA_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const FONTS_DIR = path.join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
+const FONTS_DIR = path.join(ROOT, '.claude/skills/ogp-create/assets/fonts');
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 

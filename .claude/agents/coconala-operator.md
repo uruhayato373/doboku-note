@@ -162,7 +162,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 
 ## 参照
 
-- スキル: `.claude/skills/management/coconala-publish/SKILL.md`（出品・修正）/ `coconala-order/SKILL.md`（受注）/ `coconala-status/SKILL.md`（KPI）
+- スキル: `.claude/skills/coconala-publish/SKILL.md`（出品・修正）/ `coconala-order/SKILL.md`（受注）/ `coconala-status/SKILL.md`（KPI）
 - 出品スクリプト: `scripts/coconala-publish.mjs`（`--image` で公開時に画像も。**bare 名は `content/coconala/assets/` に解決**＝フルパス不要・存在は fail-fast 検査）/ `coconala-edit.mjs` / `coconala-delete-draft.mjs`（空の下書き掃除・4重ガード・現行フォーム未対応＝DN-0946）/ `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
 - 商品画像/コンテンツ: `scripts/coconala-thumb.mjs`・`build-coconala-content-pdf.mjs`（＋`lib/strip-note-funnel.mjs`）
 - プロフィール: `scripts/coconala-profile.mjs`（自己紹介）・`coconala-cover.mjs`（カバー）／SoT=`coconala-account.json` の `profile`・資格は `src/config/author.ts`

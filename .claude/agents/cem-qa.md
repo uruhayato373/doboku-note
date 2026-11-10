@@ -237,7 +237,7 @@ weighted < 2.5 → /quality-cycle --mode rewrite に渡す
 
 - [`docs/editorial/02_採点ルーブリック方針.md`](../../docs/editorial/02_採点ルーブリック方針.md) — **真実源**（ルーブリック詳細・採点フロー・改善議論）
 - [`.claude/knowledge/reference/content-principles.md`](../../.claude/knowledge/reference/content-principles.md) — §1-18 コンテンツ原則
-- `.claude/skills/authoring/keyword-page/SKILL.md` — Generator 側のルール
-- `.claude/skills/quality/review-mobile/SKILL.md` — モバイル視認性の詳細
+- `.claude/skills/keyword-page/SKILL.md` — Generator 側のルール
+- `.claude/skills/review-mobile/SKILL.md` — モバイル視認性の詳細
 - `.claude/scripts/lint-mdx-mobile.mjs` — 機械チェッカー
 - `src/config/pe-chapters.json` — キーワード集の章・節構造

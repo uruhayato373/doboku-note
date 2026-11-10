@@ -153,7 +153,7 @@ const benefitFit = L => [L.benefit, L.textWidth - 36];
 
 function context(root) {
   if (contexts.has(root)) return contexts.get(root);
-  const dir = join(root, '.claude/skills/conversion/ogp-create/assets/fonts');
+  const dir = join(root, '.claude/skills/ogp-create/assets/fonts');
   const noto = readFileSync(join(dir, 'NotoSansJP-Bold.ttf'));
   const inter = readFileSync(join(dir, 'Inter-Bold.ttf'));
   const font = opentype.parse(noto.buffer.slice(noto.byteOffset, noto.byteOffset + noto.byteLength));

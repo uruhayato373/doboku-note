@@ -37,7 +37,7 @@ const fuzz = Number(arg('fuzz', 12));
 const outDir = resolve(arg('out', 'content/sns/_assets/character'));
 const names = arg('names') ? String(arg('names')).split(',').map((s) => s.trim()).filter(Boolean) : null;
 const montageOnly = arg('montage') === true;
-const FONT = join(CLAUDE_ROOT, 'skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf');
+const FONT = join(CLAUDE_ROOT, 'skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf');
 
 const IMG = /\.(png|jpe?g|webp)$/i;
 const inputs = readdirSync(inDir)

@@ -131,11 +131,11 @@
       "collectors": [
         "scripts/x-own-metrics.mjs",
         "scripts/x-sync-status.mjs",
-        ".claude/skills/social/x-repost/x-repost-discover.ts"
+        ".claude/skills/x-repost/x-repost-discover.ts"
       ],
       "writers": [
-          ".claude/skills/social/publish-x/publish-x.ts",
-        ".claude/skills/social/x-repost/x-repost-exec.ts",
+          ".claude/skills/publish-x/publish-x.ts",
+        ".claude/skills/x-repost/x-repost-exec.ts",
         "scripts/x-article-publish.mjs",
         "scripts/x-thread-replies.mjs"
       ],
@@ -163,7 +163,7 @@
         "scripts/verify-ig-status.mjs"
       ],
       "writers": [
-        ".claude/skills/social/publish-ig-bs/publish-ig-bs.ts"
+        ".claude/skills/publish-ig-bs/publish-ig-bs.ts"
       ],
       "credential": {
         "label": "Instagram",

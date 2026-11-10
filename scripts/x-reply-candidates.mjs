@@ -5,8 +5,8 @@
  * X の返信候補を、資格ごとの話題（config/x-reply-trial.json の topics）で集める。読むだけで送信はしない。
  *   1. Yahoo!リアルタイム検索（X のアカウントを使わない）を話題ごとの検索語で引く
  *   2. 内蔵ブラウザで読んだ X のタイムライン・検索（最新）の投稿を .tmp/x-outreach/x-posts/*.json から取り込む
- *      （取り出しは .claude/skills/social/x-reply/references/extract-x-posts.js。lookbackHours より古いファイルは読まない）
- * 手順は .claude/skills/social/x-reply/SKILL.md。
+ *      （取り出しは .claude/skills/x-reply/references/extract-x-posts.js。lookbackHours より古いファイルは読まない）
+ * 手順は .claude/skills/x-reply/SKILL.md。
  *
  * 出力: .tmp/x-outreach/candidates.json（個人の投稿を含むので Git に入れない）
  * exit: 0 検索できた（候補 0 件も含む） / 1 取得失敗が支配的で検査不成立

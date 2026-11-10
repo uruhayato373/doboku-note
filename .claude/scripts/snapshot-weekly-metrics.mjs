@@ -9,7 +9,7 @@
  * week_id はその窓の ISO 週。実行日の ISO 週ではない（2026-10 まで実行日の前日までの 7 日を実行日の週で呼んでいて、
  * 同じ W37 でも事業レビューと自然検索の人数が合わなかった）。窓は metrics-reader の completedWeekRanges。
  *
- * 参照: .claude/skills/management/nsm-experiment/references/definition.md
+ * 参照: .claude/skills/nsm-experiment/references/definition.md
  *       .claude/scripts/lib/metrics-reader.mjs
  *       .claude/skills/management/weekly-plan/SKILL.md (Phase 0)
  *

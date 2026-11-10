@@ -172,7 +172,7 @@ test('budgets: countBudgets=false のとき総量を判定も観測もしない�
 });
 
 test('allowlist: appliesTo で免除範囲を絞る（全免除にしない）', () => {
-  const fontPath = '.claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf';
+  const fontPath = '.claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf';
   assert.ok(allowReason(POLICY, fontPath, 'size'), 'フォントはサイズ検査を免除される');
   assert.equal(allowReason(POLICY, fontPath, 'video-audio'), null, '免除は指定した検査だけに効く');
   assert.equal(allowReason(POLICY, 'content/note/x/img/cover.svg', 'size'), null);

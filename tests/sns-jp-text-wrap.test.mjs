@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 
 import { wrapTitle, pickFontSize } from '#lib/sns-common/jp-text-wrap.mjs';
 // 後方互換: OGP の thin wrapper も同じ実装を返す
-import { wrapTitle as wrapTitleViaOgp, pickFontSize as pickFontSizeViaOgp } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs';
+import { wrapTitle as wrapTitleViaOgp, pickFontSize as pickFontSizeViaOgp } from '../.claude/skills/ogp-create/scripts/lib/ogp-text.mjs';
 
 const DEFAULT_CONFIG = {
   breakBefore: ['（', '：', '〜'],

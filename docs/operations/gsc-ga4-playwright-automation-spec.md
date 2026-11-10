@@ -315,7 +315,7 @@ URLごとの出力:
 
 ## 9. オーケストレータースキル
 
-`.claude/skills/management/google-search-growth/SKILL.md`は副作用があるため以下を指定する。
+`.claude/skills/google-search-growth/SKILL.md`は副作用があるため以下を指定する。
 
 ```yaml
 ---
@@ -494,12 +494,12 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 - docs/operations/gsc-ga4-playwright-automation-spec.md
 - .claude/knowledge/reference/gsc-management.md
 - .claude/knowledge/reference/playwright-auth-profiles.md
-- .claude/skills/management/gsc-review/SKILL.md
+- .claude/skills/gsc-review/SKILL.md
 - .claude/agents/gsc-index-auditor.md
 - .github/workflows/fetch-metrics.yml
 - .github/workflows/index-coverage.yml
 - .claude/scripts/inspect-url.mjs
-- .claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs
+- .claude/skills/fetch-gsc-data/scripts/fetch-gsc-data.mjs
 - .claude/scripts/fetch-ga4-data.mjs
 
 ゴール:
@@ -518,9 +518,9 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 - scripts/normalize-google-console-csv.mjs
 - scripts/report-search-growth.mjs
 - config/google-console-automation.json
-- .claude/skills/management/google-search-growth/SKILL.md
-- .claude/skills/management/google-search-growth/references/csv-schema.md
-- .claude/skills/management/google-search-growth/references/recovery.md
+- .claude/skills/google-search-growth/SKILL.md
+- .claude/skills/google-search-growth/references/csv-schema.md
+- .claude/skills/google-search-growth/references/recovery.md
 - .claude/agents/gsc-csv-auditor.md
 - .claude/agents/seo-fix-planner.md
 - testsとfixtures

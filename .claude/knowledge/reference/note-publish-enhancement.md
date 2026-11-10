@@ -480,7 +480,7 @@ B9: 最終検証＋commit/push
 - **安全管理（完成版）**：`content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/article.md`（806行・19出題例・12図版・カバー画像・全条文 e-gov リンク済み）
 - **図版生成スクリプト**：`scripts/render-figure-safety-management.mjs`
 - **カバー生成**：`scripts/generate-note-covers.mjs`
-- **既存スキル**：`.claude/skills/quality/note-prepublish-review/SKILL.md`（公開前チェック）
+- **既存スキル**：`.claude/skills/note-prepublish-review/SKILL.md`（公開前チェック）
 - **図版品質**：`.claude/knowledge/reference/note-svg-policy.md`
 - **記事品質**：`.claude/knowledge/reference/content-principles.md`
 

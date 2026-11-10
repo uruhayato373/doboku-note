@@ -151,8 +151,8 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 1. Part 1 の「試験別の整備方針差分」表に新しい列を追加して整備方針を決定
 2. Part 2 の「コンテンツ別レビュー視点」表にも対応する列を追加
 3. 必要なら `{exam-id}-pdf-to-mdx`（Generator スキル）と `{exam-id}-qa`（Evaluator エージェント）を新設
-4. `/review` のディスパッチ表（`.claude/skills/dev/review/SKILL.md`）に行を追加
-5. `/improve-article --mode verify` のルートテーブル（`.claude/skills/authoring/improve-article --mode verify/SKILL.md`）に行を追加
+4. `/review` のディスパッチ表（`.claude/skills/review/SKILL.md`）に行を追加
+5. `/improve-article --mode verify` のルートテーブル（`.claude/skills/improve-article --mode verify/SKILL.md`）に行を追加
 6. このファイル（exam-content-policy.md）と `agents-registry.md` を更新
 7. **トップページの資格カードに追加**（公開＝サイトに出すなら必須）: `src/config/home-exam-cards.json` にカード（`slug`/`order`/`label`）を追加する。カードに出すのは名前だけで、説明文・試験日・件数は持たない（2026-10-02 に `en`/`subtitle`/`description`/`nextExam`/`stats` と `exam-schedule.ts` を消した。画面が描画していなかった）。試験日は `config/exam-calendar.json` が正本なので、新資格はそちらにも登録する。**ナビ（`categories.json`）と別管理**なのは、カードのコピーがナビ用と意図的に異なるため（例: ナビ「技術士第二次試験（建設部門）」⇄ カード「技術士（建設部門）」）。「どの資格をトップに出すか」は `categories.json` の `visible`（≠false）/`variant`（≠reference）が真実源で、両者の整合は `npm run check-home-exam-coverage`（pre-commit / CI ゲート）が強制する。**これを忘れると、公開済みコンテンツがあってもトップの資格カードに出ない**（2026-06-15 pe-first-stage 21本が該当＝ナビからのみ到達可能だった）。意図的にトップへ出さない資格は `categories.json` で `visible:false` にする。
 8. **SNSリンクハブに追加**: `src/app/links/page.tsx` の `EXAM_CARDS` と `EXAM_GROUPS` に追加する。L2もくじ・商品が未整備ならサイト行だけを表示する。

@@ -1,0 +1,108 @@
+---
+name: figure-quality-loop
+category: quality
+description: >
+  記事図クロップの品質を、機械検出→目視判定→再クロップ→再検査→台帳記録で1周回すループ（/loop 向け）。単発は /figure-recrop。Use when user asks to [図クロップの品質ループ, 切れた図を直す, /figure-quality-loop].
+user-invocable: true
+domain: site
+---
+
+# /figure-quality-loop
+
+記事に載っている図クロップを 1 周ぶん（最大 8 枚）判定し、直せるものは直して、判定を台帳に記録する。`/loop /figure-quality-loop` で繰り返すと、判定待ちが 0 になったところで止まる。
+
+```
+検出（機械）: figure-review-queue.mjs ─ 画素検査（EDGE_CUT / STRAY_* / LOW_RES）＋ OCR の needs − 判定済み
+  → 判定・修正（figure-crop-worker を並列）: ok ／ 写り込みを切り直す ／ 図本体が切れている（needs-source）
+  → 親の QA（書き換えた図と suspect を目視＋ check-figure-crop-integrity --file）
+  → 記録（figure-review-queue.mjs record: 画像のハッシュつき・MDX の寸法も合わせる）→ commit
+needs-source の図は次の段（stage=reextract）で元 PDF のページから切り出し直す。原典が無ければ source-unavailable（入手待ち）
+切り出し直しの依頼には、記事の `sources:` から引いた原典候補（PDF・向き・OCR）が付く。試験ページでない記事で原典が流用不可の市販書籍しか無い図は、切り出し直しに回らない（自作の図への置き換えか削除を運営者へ上げる・reference-sources-policy.md §6）
+```
+
+真実源: 判定待ちと台帳の仕組み＝`scripts/figure-review-queue.mjs`・`scripts/lib/figure-review.mjs`、台帳＝`.claude/state/quality/figure-review-ledger.json`、図の出所と needs＝[figure-provenance.md](../../knowledge/reference/figure-provenance.md)。
+
+## 1 周の手順
+
+### 0. 前提
+- ブランチは `develop`（図と記事はコンテンツ＝develop 直 push）。`git fetch -q` して遅れていれば `git merge --ff-only origin/develop` してから始める。
+- 作業ファイルは `.tmp/figure-loop/` に置く。
+
+### 1. 集計して次の一括を決める
+```bash
+node scripts/figure-review-queue.mjs
+```
+- exit 2（検査不成立）→ 止めて原因を報告する（`/loop` も止める）。
+- `⚠ OCR 未監査 N 枚` が出たら先に `npm run audit-figures`（OCR・数分）を実行してから集計し直す（答え・本文の写り込みの兆候が欠けるため）。
+- **「判定待ち・切り出し直し待ちとも 0」なら完了**。残数を報告して終わる（`/loop` 中なら次を予約せず止める）。
+
+判定待ちを 8 枚ずつ回す。ただし切り出し直し待ちが 8 件以上たまったら、次の周は切り出し直しを 4 件回す（判定だけ進んで実際の修正が止まらないように交互にする）。判定待ちが 0 なら切り出し直しだけ:
+```bash
+mkdir -p .tmp/figure-loop
+node scripts/figure-review-queue.mjs --next 8 --json > .tmp/figure-loop/batch.json
+# 切り出し直し待ちが 8 件以上、または判定待ちが 0 のとき: --stage reextract --next 4
+```
+切り出し直しの図が書籍の図（記事の caption・alt が「図X.Y」）なら、worker に原典のページを渡す。`node scripts/find-book-figure.mjs "図2.41" --book <書籍名の一部>` が Drive vault の書籍 OCR から書籍・PDF・ページ・印字ページ・図名を JSON で返すので、`status: found` の `matches[0]` をその要素の `bookHit` に入れる（`multiple` は `--book` で絞る・`not-found` は入れない・exit 2 は vault が無い PC なので切り出し直しを回さない）。
+
+### 2. ワーカーを並列で回す
+```
+Workflow({ scriptPath: ".claude/skills/figure-recrop/scripts/figure-crop-batch.workflow.mjs", args: <batch.json の配列> })
+```
+各図を `figure-crop-worker`（sonnet）が処理する。判定の規則（何を切り、何を残し、いつ needs-source にするか）は worker の定義が唯一の正本。
+
+### 3. 親の QA（Evaluator）
+Workflow は結果を `.tmp/figure-loop/results-<runId>.json` に保存する（保存の確認はログに出る。失敗の警告が出たら戻り値から自分で保存する）。対象は **画像を書き換えた図（crop / reextract）** と **`selfVerify: suspect` の図**。次の 1 コマンドで 3 つが出るので、親は合否だけを決める:
+```bash
+node scripts/figure-qa-sheet.mjs <書き換えた図と suspect の figKey...>
+```
+- png・webp 両方のクロップ検査（`STRAY_SLIVER` が無く、新しい `EDGE_CUT` を作っていないこと）
+- 新旧を並べた画像 `.tmp/figure-loop/qa-<図名>.png` を Read して、写り込みが消え図本体が欠けていないこと・reextract は同じ図で欠けが戻っていること
+- 画像から図番号のキャプションが消えたのに MDX に caption も直後の `<p>` も無い図の一覧。出典・図名が画面から消えるので `ArticleImage` の `caption` に足す
+
+不合格（切り過ぎ・写り込み残り・別の図）は原画に戻し（`git checkout -- <追跡中の png> <webp>`。未追跡の png を pathspec に混ぜると全体が止まる）、その図は**記録しない**（`--pass` に入れない。次の周で再判定される）。
+
+### 4. 判定を記録する
+判定 JSON は手で書かない。結果ファイルから作って記録する（QA に合格した書き換え済み・suspect の図だけを `--pass` に並べる。`ok`・`needs-source`・`source-unavailable` の判定は `--pass` なしで記録される）:
+```bash
+node scripts/figure-review-queue.mjs record --from-results .tmp/figure-loop/results-<runId>.json --pass <QA 合格の figKey...>
+```
+
+| worker の action | 親の QA | 記録される判定 |
+|---|---|---|
+| `ok` | — | verdict `ok`・action `none` |
+| `crop` | `--pass` | `ok`・`recrop` |
+| `needs-source` | — | `needs-source`・`none` |
+| `reextract` | `--pass` | `ok`・`reextract`（出典 `{pdf, page, dpi}`・切り出し枠と回転は結果から入る） |
+| `source-unavailable` | — | `source-unavailable`・`none` |
+| `error`・`--pass` に入れなかった書き換え | — | 記録しない（理由が出る） |
+
+record は判定を判定台帳へ、`source` を `config/figure-sources.json` の `provenance`（図ごとの出典の正本）へ書く。verdict=ok の図は png・webp のどちらかに `STRAY_SLIVER` があれば記録を拒む。台帳は今の画像のハッシュで記録し、直した図は記事 MDX の `width`/`height` を新しい寸法に合わせる。台帳を手で編集しない（結果ファイルを使えない特別な場合だけ `record <verdicts.json>` に `{ figKey, verdict, action, reason, source? }` の配列を渡す）。
+
+### 5. commit して進捗を出す
+```bash
+npm run check-image-assets:ci               # 画像サイズの上限（config/image-limits.json・webp 150KB 等）。超えたら縮小して record し直す（CI の audit がここで落ちる）
+npm run refresh-indexes                     # MDX の寸法を変えたときだけ
+grep -c "�" <変えた MDX>                     # 文字化け 0
+git add <書き換えた png/webp> <変えた MDX> .claude/state/quality/figure-review-ledger.json config/figure-sources.json <refresh-indexes で変わった src/config/*-exam-questions.json・public/quiz/*.json>   # 明示指定（git add -A 禁止）。出典は figure-sources.json の provenance に入る
+git commit -m "content(figures): 図クロップ品質ループ N 枚（ok a・切り直し b・切り出し直し c・要切り出し直し d・原典なし e）"
+git fetch -q && git rev-list --count HEAD..origin/develop   # 0 でなければ下の載せ直しをしてから
+git push origin develop                     # 載せ直し・検証とは別の呼び出しにする
+node scripts/figure-review-queue.mjs        # 残数を 1 行で報告
+```
+- MDX の寸法を変えると pre-commit の lint-ja がその記事全体を見るので、既存の表記ゆれ（「締め固め」「打ち込み」等）でコミットが止まることがある。設問の選択肢を引用した行は原文として除外されるので、止まった行は自前の解説。設問の表記に合わせて直してから同じコミットに入れる（`--no-verify` で飛ばさない）。
+- `develop` が先に進んでいたら、作業ツリーに他のセッションの変更があっても `git reset --keep origin/develop` → `git cherry-pick <自分の sha>` で載せ直し、元のパッチと同じか確かめてから push する（`git rebase` は他人の未コミットの変更で拒否される・stash は共有なので使わない）。
+
+## /loop での回し方
+
+`/loop /figure-quality-loop`（間隔なし＝自走）。1 回の起動で 1 周回し、手順 1 で「判定待ち・切り出し直し待ちとも 0」なら止める（ScheduleWakeup の `stop`）。外部の状態を待つ処理は無いので、次の周は 60 秒後に予約してよい。検査不成立（exit 2）・push の失敗・同じ図が 2 周続けて QA 不合格のときも止めて報告する。
+
+完了条件（決定的）: `node scripts/figure-review-queue.mjs` が「判定待ち・切り出し直し待ちとも 0」。`source-unavailable` は残ってよい（入手待ち。provenance では `rescan-need-source` として見える）。
+
+## 鉄則
+
+- **判定は目視**。機械の兆候（`signals`）は疑う場所の手がかりで、EDGE_CUT の大半は罫線・写真・機材イラストが縁に接しているだけ（正当）。兆候があるというだけで切らない。
+- **写真（provenance の kind が ai-generated）は判定待ちに入れない**。切り出し図ではなく、実物どおりかは AI 画像の台帳と `check-image-origin` が見る（OCR が写真の模様を文字と誤読して recrop-review を出すため・2026-10-07）。
+- **LOW_RES**（長辺が `config/image-limits.json` の `figureMinLongSide` 未満）は、原典 PDF から高い dpi で切り出し直す（`needs-source`）。原典の解像度が上限で直らないと確かめたら `ok` で理由に書く。記録には判定したときの画素数（`px`）が残り、それが無い古い ok は判定し直しになる。
+- **二度切り厳禁**（やり直しは原画に戻してから）・**過去問の図に正答・解説を写し込まない**・**過去問のデータグラフを SVG に描き直さない**（図の幾何が答え＝誤答誘発。[figure-provenance.md](../../knowledge/reference/figure-provenance.md)）。
+- worker は MDX・台帳・git に触らない。記録・MDX・commit は親が直列で行う（同じ記事の MDX に複数の図があるため）。
+- provenance（`.claude/state/figure-provenance.json`）は台帳を読んで needs を上書きする。毎周の再生成は不要で、OCR 未監査の警告が出たときに `npm run audit-figures` で作り直す。

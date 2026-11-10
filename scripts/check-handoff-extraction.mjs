@@ -40,7 +40,7 @@
 // 違反が 1 件でもあれば exit 1。
 //
 // 真実源: .claude/knowledge/reference/information-architecture.md「handoff のライフサイクル」、
-// 週次レビューの振り分け規約は .claude/skills/management/weekly-review/SKILL.md「Phase 4」。
+// 週次レビューの振り分け規約は .claude/skills/weekly-review/SKILL.md「Phase 4」。
 
 import { execFileSync } from 'node:child_process';
 import { parseBacklog } from './lib/backlog-lib.mjs';

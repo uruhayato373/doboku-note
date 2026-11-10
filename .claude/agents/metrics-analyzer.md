@@ -216,7 +216,7 @@ total_candidates: N
 
 ## 参照
 
-- `.claude/skills/management/weekly-improve/SKILL.md` — 本エージェントの主な呼び出し元
-- `.claude/skills/management/nsm-experiment/references/rubric.md` — 候補採点の rubric（本エージェントは採点しない）
+- `.claude/skills/weekly-improve/SKILL.md` — 本エージェントの主な呼び出し元
+- `.claude/skills/nsm-experiment/references/rubric.md` — 候補採点の rubric（本エージェントは採点しない）
 - `.claude/scripts/lib/metrics-reader.mjs` — 週次メトリクス取得ユーティリティ
 - CLAUDE.md §ハーネス設計原則 — Generator/Evaluator 分離原則

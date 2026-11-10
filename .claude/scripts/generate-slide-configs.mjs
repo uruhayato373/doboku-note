@@ -13,7 +13,7 @@ import { spawnSync } from 'node:child_process';
 import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
 const IG_DIR = resolve(ROOT, 'content/sns/instagram');
-const SCRIPT = resolve(ROOT, '.claude/skills/social/ig-post-create/scripts/ig-post-create.mjs');
+const SCRIPT = resolve(ROOT, '.claude/skills/ig-post-create/scripts/ig-post-create.mjs');
 
 const forceFlag = process.argv.includes('--force');
 

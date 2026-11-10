@@ -24,7 +24,7 @@ import satori from 'satori'
 import sharp from 'sharp'
 import { REPO_ROOT as REPO } from '../lib/repository-paths.mjs'
 
-const FONT_DIR = path.join(REPO, '.claude/skills/conversion/ogp-create/assets/fonts')
+const FONT_DIR = path.join(REPO, '.claude/skills/ogp-create/assets/fonts')
 const W = 1600, H = 2560
 
 function parseArgs(argv) {

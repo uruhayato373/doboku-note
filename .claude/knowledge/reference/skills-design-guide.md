@@ -33,13 +33,18 @@ domain: product
 
 - 事業の領域 id（`strategy` / `plan` / `product` / `affiliate` / `site` / `sns` / `material` / `ops`）。正本は `config/domains.json`、`npm run check-domains` が欠落と語彙外を止める
 - **作るもの・動かすものの領域**で決める。writer と qa の組は同じ領域（例: note 記事の書き手と QA は `product`、X 投稿は `sns`）。領域を横断する道具（文書同期・デプロイ・コードレビュー）は `ops`
-- 置き場（`.claude/skills/<カテゴリ>/`）は作業の種類、domain は事業の領域で、別の軸。domain のためにディレクトリを移さない
+- `category`（作業の種類: `ads` / `analytics` / `authoring` / `conversion` / `dev` / `management` / `metrics` / `quality` / `social` / `ui`）とは別の軸。管理画面のスキル一覧は `category` で分ける
+
+### 置き場と category フィールド（必須・2026-11-10〜）
+
+- 置き場は **`.claude/skills/<name>/SKILL.md` の 1 階層だけ**。Claude Code はこの深さしか探さず、カテゴリのフォルダを挟むと読み込まれない（2026-11-10 まで 98 本すべてが `Unknown skill` だった）。`npm run check-skill-layout` が止める
+- 作業の種類は frontmatter の `category:` に書く（フォルダでは分けない）
 
 ### name フィールド（Critical）
 
 - **kebab-case のみ** — `my-skill` ✓ / `my_skill` ✗ / `MySkill` ✗ / `My Skill` ✗
 - **スペース・大文字・アンダースコア禁止**
-- **ディレクトリ名と完全一致**（例: `.claude/skills/quality/check-mdx/` → `name: check-mdx`）
+- **ディレクトリ名と完全一致**（例: `.claude/skills/check-mdx/` → `name: check-mdx`）
 - `claude` または `anthropic` を含む名前は禁止（予約語）
 
 ### description フィールド（Critical）

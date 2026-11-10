@@ -10,7 +10,7 @@ doboku-note の記事に図・写真を載せるときのルール集。PDF ス�
 
 **関連文書**:
 - 画像全体の分類と管理の設計: `docs/operations/画像運用設計.md`（サイト内サムネイルは `npm run site-thumbs`）
-- 図版作成スキル: `.claude/skills/authoring/create-svg/SKILL.md`
+- 図版作成スキル: `.claude/skills/create-svg/SKILL.md`
 - 画像配信フロー: `.claude/knowledge/reference/content-authoring.md` § 画像配信
 - デザイン原則: `.claude/knowledge/design-system/design-system.md`
 

@@ -149,7 +149,7 @@ npm run note-update-body -- --parts cover --list .tmp/list.txt --commit
 ## 関連
 
 - 値 SSoT: [`note-cover-tokens.json`](note-cover-tokens.json)
-- レンダラ: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`（`renderNoteCoverG2` / `renderNoteCoverCropSafeV4`）
+- レンダラ: `.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs`（`renderNoteCoverG2` / `renderNoteCoverCropSafeV4`）
 - ジェネレータ: `scripts/generate-note-covers.mjs`
-- Skill: `.claude/skills/conversion/ogp-create/SKILL.md`
+- Skill: `.claude/skills/ogp-create/SKILL.md`
 - OGP（サイト 1200×630）は別系統の `mono-tag` テンプレ（試験色分けなし、サイト内 OGP 専用）

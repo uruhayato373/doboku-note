@@ -5,7 +5,7 @@
     "appliesTo": "content/sns/instagram/{exam}/exam-packs/**",
     "consumedBy": [
       ".claude/scripts/lib/sns-common/quiz-slides.mjs",
-      ".claude/skills/social/ig-post-create/scripts/ig-post-create.mjs",
+      ".claude/skills/ig-post-create/scripts/ig-post-create.mjs",
       ".claude/scripts/lib/sns-common/sns-config.mjs"
     ],
     "spec": ".claude/knowledge/design-system/instagram-carousel.md",

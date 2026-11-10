@@ -53,7 +53,7 @@ domain: site
 2. パスで枝を判定（`content/site/` → site / `content/note/` → note）。
 3. Edit で外科的に修正（表現層のみ）。
 4. **自己チェック（必須）**:
-   - **site**: `node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --file=<path> --fail-on=HIGH` を走らせ、HIGH=0 を確認。
+   - **site**: `node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs --file=<path> --fail-on=HIGH` を走らせ、HIGH=0 を確認。
    - **note**: 対応する `scripts/render-figure-*.mjs`（または `.tmp/gen-figures-*.mjs`）があれば実行して PNG を再生成。無ければ「PNG 再生成スクリプト未検出。手動再生成が必要」と申し送る。
    - U+FFFD 検査。
 5. 修正したファイルだけを報告（`git add` は親が pathspec 指定）。

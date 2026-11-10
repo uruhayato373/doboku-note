@@ -15,7 +15,7 @@ import { mediaPath, mimeOf } from './media-paths.mjs';
 import { createSceneSheet } from '../video-scene-sheet.mjs';
 
 const FFMPEG_FULL = '/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg';
-const FONTS_DIR = '.claude/skills/conversion/ogp-create/assets/fonts';
+const FONTS_DIR = '.claude/skills/ogp-create/assets/fonts';
 const sha256Of = (buf) => createHash('sha256').update(buf).digest('hex');
 const round1 = (n) => Math.round(n * 10) / 10;
 const round3 = (n) => Math.round(n * 1000) / 1000;

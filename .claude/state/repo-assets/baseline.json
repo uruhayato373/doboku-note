@@ -280,12 +280,12 @@
       "bucket": "REVIEW"
     },
     {
-      "path": ".agents/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
+      "path": ".agents/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
       "sizeMiB": 5.1,
       "bucket": "REVIEW"
     },
     {
-      "path": ".claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
+      "path": ".claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
       "sizeMiB": 5.1,
       "bucket": "REVIEW"
     },
@@ -739,11 +739,11 @@
           "generator": null,
           "samples": [
             {
-              "path": ".agents/skills/conversion/ogp-create/assets/fonts/Inter-Bold.ttf",
+              "path": ".agents/skills/ogp-create/assets/fonts/Inter-Bold.ttf",
               "sizeMiB": 0.3
             },
             {
-              "path": ".claude/skills/conversion/ogp-create/assets/fonts/Inter-Bold.ttf",
+              "path": ".claude/skills/ogp-create/assets/fonts/Inter-Bold.ttf",
               "sizeMiB": 0.3
             }
           ]
@@ -943,11 +943,11 @@
           "generator": null,
           "samples": [
             {
-              "path": ".agents/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
+              "path": ".agents/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
               "sizeMiB": 5.1
             },
             {
-              "path": ".claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
+              "path": ".claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
               "sizeMiB": 5.1
             }
           ]
@@ -1051,8 +1051,8 @@
           "sizeMiB": 5.1,
           "copies": 2,
           "paths": [
-            ".agents/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
-            ".claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf"
+            ".agents/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
+            ".claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf"
           ]
         },
         {

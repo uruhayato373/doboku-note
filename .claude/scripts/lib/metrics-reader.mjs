@@ -5,7 +5,7 @@
  * 組み込むためのサマリ + 差分を計算する。`/weekly-review` スキル Phase 1 / Agent C から呼ばれる。
  *
  * 参照:
- *   - .claude/skills/management/nsm-experiment/references/definition.md
+ *   - .claude/skills/nsm-experiment/references/definition.md
  *   - scripts/fetch-ga4-data.mjs / scripts/fetch-gsc-data.mjs / scripts/fetch-psi-data.mjs
  *
  * 必要な環境変数 (.env.local):

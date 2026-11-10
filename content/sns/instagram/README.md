@@ -10,7 +10,7 @@
 
 1. 資格・作品ごとに新しい素材フォルダを作る。旧パックの `posted.json`・`status.json` をコピーしない。
 2. `npm run registry -- import-instagram --folder <content/sns/instagram からの相対パス> --slot <年間の枠>` で対象を dry-run し、`--commit` で台帳に追加する。枠は `config/channel-annual-plan.json` の `channels.instagram.slots`。2026-12-01 以降は枠に結ばれていない作品を予約できない（固定投稿は枠の外）。一括取り込みは受け付けない。
-3. 現行の投稿スキル [publish-ig-bs](../../../.claude/skills/social/publish-ig-bs/SKILL.md) で画像・文面・予約時刻を確認し、台帳の承認ゲートを通してからMeta Business Suiteへ予約する。
+3. 現行の投稿スキル [publish-ig-bs](../../../.claude/skills/publish-ig-bs/SKILL.md) で画像・文面・予約時刻を確認し、台帳の承認ゲートを通してからMeta Business Suiteへ予約する。
 4. 投稿後はBusiness Suiteの実体と台帳の状態を照合する。削除した投稿は台帳の停止記録を確認してからアクティブ台帳から外す。
 
 固定投稿の画像・リンクは `npm run check-instagram-profile-funnel` で検査する。旧パックのフォルダや旧キャンペーン計画から投稿を再開しない。

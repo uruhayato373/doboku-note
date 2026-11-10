@@ -174,7 +174,7 @@ export const GATES = [
   {
     id: 'review-wiring',
     // 週次・月次レビューのスキルが実行するコマンドと配線の正本（6 回）
-    match: (f) => f === '.claude/config/review-wiring.json' || /^\.claude\/skills\/management\/(weekly|monthly)-review\//.test(f) || f === 'package.json',
+    match: (f) => f === '.claude/config/review-wiring.json' || /^\.claude\/skills\/(weekly|monthly)-review\//.test(f) || f === 'package.json',
     cmd: () => ['node', 'scripts/check-review-wiring.mjs'],
   },
   {
