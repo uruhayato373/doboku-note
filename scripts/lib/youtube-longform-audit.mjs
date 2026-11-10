@@ -76,23 +76,34 @@ export function slotProblems(plan, pub, day = null) {
  * ショートを親の通常動画の枠へ割り当てる。親の枠が無い台本と、枠の上限を超える台本を見つける。
  * @param designs [{ pack, key, stocked }]。stocked は枠の導入より前に在庫へ入ったもので、警告に留める
  */
-export function shortsSlotFill(plan, designs) {
+export function shortsSlotFill(plan, designs, publications = []) {
   const fill = new Map(plan.slots.filter((s) => s.shorts).map((s) => [s.id, 0]));
   const errors = [], warnings = [];
+  const rule = plan.shortsRule;
+  const perParent = new Map();
+  let trial = 0;
   for (const { pack, key, stocked } of designs) {
-    const entry = plan.entries.find((e) => e.publicationId === `${pack}/youtube.longform` && e.action !== 'reuse');
-    const slot = plan.slots.find((s) => s.id === entry?.slot);
-    if (!slot?.shorts) {
-      (stocked ? warnings : errors).push(`親の枠にショートの割り当てが無い: ${pack}/${key}`);
-      continue;
+    const parentId = `${pack}/youtube.longform`;
+    const report = (message) => (stocked ? warnings : errors).push(message);
+    if (rule) {
+      // ショートは通常動画の展開に合わせる。親（改訂版を含む）が公開・予約に進む前は作らない
+      const live = publications.some((p) => (p.id === parentId || p.revisionOf === parentId) && rule.parentStatus.includes(p.status));
+      if (!live) { report(`親の通常動画が公開・予約されていない: ${pack}/${key}`); continue; }
+      perParent.set(pack, (perParent.get(pack) ?? 0) + 1);
     }
-    fill.set(slot.id, fill.get(slot.id) + 1);
+    const entry = plan.entries.find((e) => e.publicationId === parentId && e.action !== 'reuse');
+    const slot = plan.slots.find((s) => s.id === entry?.slot);
+    if (slot?.shorts) { fill.set(slot.id, fill.get(slot.id) + 1); continue; }
+    if (rule?.trial) { trial += 1; continue; }
+    report(`親の枠にショートの割り当てが無い: ${pack}/${key}`);
   }
   for (const [id, n] of fill) {
     const { count } = plan.slots.find((s) => s.id === id).shorts;
     if (n > count) errors.push(`ショートの枠の超過: ${id} ${n} 本 / 上限 ${count} 本`);
   }
-  return { fill: Object.fromEntries(fill), errors, warnings };
+  for (const [pack, n] of perParent) if (n > rule.perLongform) errors.push(`通常動画 1 本あたりのショートの超過: ${pack} ${n} 本 / 上限 ${rule.perLongform} 本`);
+  if (rule?.trial && trial > rule.trial.max) errors.push(`ショートの試行の超過: ${trial} 本 / 上限 ${rule.trial.max} 本`);
+  return { fill: Object.fromEntries(fill), errors, warnings, ...(rule?.trial ? { trial } : {}) };
 }
 
 /**
@@ -101,7 +112,7 @@ export function shortsSlotFill(plan, designs) {
  *   hasTarget(kind, id) は CTA の宛先が実在するか、exists(path) はファイルの実在
  */
 export function auditLongformPlan({ plan, publications, revisions = [], formats, calendar, exists, hasTarget, shortDesigns = [] }, today = todayJst()) {
-  const shorts = shortsSlotFill(plan, shortDesigns);
+  const shorts = shortsSlotFill(plan, shortDesigns, [...publications, ...revisions]);
   const errors = [...shorts.errors], warnings = [...shorts.warnings], pending = [];
   const { cycle } = plan;
   const cycleStart = cycle.enforceFrom;
