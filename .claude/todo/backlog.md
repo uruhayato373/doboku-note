@@ -1160,7 +1160,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **次にやること**:
 1. 運営者: 親の通常動画が公開されたら、Studio でショートの「関連動画」に親を設定する（API では設定できない）
 2. 設定したら `npm run registry -- record-related --pub <ショート> --video-id <親>` で記録し、youtube-single-publish の publish をもう一度流すと予約する（`expect` は `publish-youtube --phase upload` の dry-run の digest）。purpose-1 は 11/13 14:30 より前に済ませる
-3. point-funding-2 は表紙の設定（`thumbnails.set`）が応答なしで「thumbnail結果不明」で止まっている。日次の投稿の上限（4 本）を超えて 10 本流したのが原因と見ている（同じ画像なので送り直しは無害）。太平洋時間の 0 時（JST 17 時）以降に、台帳と R2 の実行記録から `thumbnailRequestedAt` を外して流し直す
+3. point-funding-2 は表紙の設定（`thumbnails.set`）が応答なしで「thumbnail結果不明」で止まっている。割当は余っていた（GCP の実測: アップロード 10/100・クエリ 1,066/10,000）ので超過ではなく、原因は未確認。同じ画像なので送り直しは無害。台帳と R2 の実行記録から `thumbnailRequestedAt` を外して流し直す
 4. 公開 28 日後に、ショートから通常動画へ移った数を見て、`shortsRule` の上限と枠ごとの本数を見直す（2026-12-15）
 5. 画面確認で出た改善点（止め条件にはしていない）: 字幕の改行が語の途中で切れる（`video-subtitles.mjs` の `subtitleChunks` は通常動画と共通）、字幕の文字を 80〜84px に上げるか、point-koukarisk-2 は画面に「リスク」の語が出ず題名の論点が弱い、point-means-2 の 2 枚目の絵が階層に見えにくい
 6. YouTube の実画面で、右端の余白が 3〜4% の見出しが欠けないかを確かめる
