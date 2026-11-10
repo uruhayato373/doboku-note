@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { lineupQualifier, reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily, noteMonthFacts, notePeriodFacts, kdpMonthFacts, coconalaDmDate, coconalaInquiryFacts, coconalaViewFacts } from '../scripts/lib/business-direction.mjs';
+import { writeReport } from '../scripts/lib/metric-reports.mjs';
+import { lineupQualifier, reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, a8MonthFacts, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily, noteMonthFacts, notePeriodFacts, kdpMonthFacts, coconalaDmDate, coconalaInquiryFacts, coconalaViewFacts } from '../scripts/lib/business-direction.mjs';
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
@@ -346,4 +347,26 @@ test('a missing cell says why it is missing: another period, or who supplies the
  // 欠測のセルには必ず理由が付き、値のあるセル・対象外のセルには付かない
  assert.equal(r.cells.filter(c=>c.coverage==='missing').length>0,true);
  assert.ok(r.cells.every(c=>(c.coverage==='missing')===(c.gap!==undefined)));
+});
+test('A8 confirmed revenue sums the single-month site rows and is complete only when fetched after the month closed',()=>{
+ const row=(site,period,revenueYen,fetchedAt)=>({site,period,revenueYen,fetchedAt});
+ const log={siteSummary:[row('doboku-note','202609-202609',300,'2026-10-03T00:00:00Z'),row('doboku-note（note）','202609-202609',200,'2026-10-03T00:00:00Z'),row('doboku-note','202601-202609',9999,'2026-10-03T00:00:00Z'),row('doboku-note','202610-202610',50,'2026-10-31T00:00:00Z')],monthly:[{month:'2026-09',revenueYen:77777}]};
+ const [sep,oct]=a8MonthFacts({log,months:['2026-09','2026-10','2026-11'],path:'p'});
+ assert.deepEqual([sep.metric,sep.value,sep.coverage,sep.period],['a8ConfirmedYen',500,'complete',{startDate:'2026-09-01',endDate:'2026-09-30'}]);
+ assert.deepEqual([oct.value,oct.coverage],[50,'partial']);
+ assert.equal(a8MonthFacts({log,months:['2026-11'],path:'p'}).length,0);
+});
+test('a metric with a dataSource is carried with its own window, so a calendar cell shows another period instead of a made-up value',t=>{
+ const root=fixture(t);
+ mkdirSync(join(root,'content/sns/x/campaigns'),{recursive:true});
+ writeFileSync(join(root,'content/sns/x/campaigns/a.json'),JSON.stringify({posts:[{target:'https://doboku-note.com/exam/?utm_source=x&utm_campaign=x-a'}]}));
+ writeReport(root,'ga4.campaign-note-cta',{meta:{startDate:'2026-09-04',endDate:'2026-10-01'},rows:[{campaign:'x-a',eventCount:3},{campaign:'other',eventCount:9}]},{stamp:'2026-10-02T00-00-00'});
+ const r=buildReport(root,week,new Date('2026-10-05T00:00:00Z'));
+ const src=r.sources.find(s=>s.metric==='xCampaignClicks');
+ assert.deepEqual([src.value,src.period,src.coverage],[3,{startDate:'2026-09-04',endDate:'2026-10-01'},'partial']);
+ const cell=r.cells.find(c=>c.qualification==='all'&&c.metric==='xCampaignClicks');
+ assert.deepEqual([cell.value,cell.gap],[null,'other-period']);
+ // 該当の行が無い指標（動画パックが無い）は 0 と読まず、載せない
+ assert.equal(r.sources.some(s=>s.metric==='youtubeCampaignClicks'),false);
+ assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='youtubeCampaignClicks').gap,'ci');
 });
