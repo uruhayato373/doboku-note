@@ -1533,3 +1533,30 @@ export const ConfigDemandMap = z
     });
   })
   .meta({ title: '悩みと商品候補の地図' });
+
+/** 運営の固定費の表。月ごとに繰り返す費用だけを持ち、土曜の収集が月の費用（costYen）の計測記録を作る（scripts/record-operating-costs.mjs） */
+export const ConfigOperatingCosts = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    items: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^[a-z][a-z0-9-]*$/, '英小文字・数字・ハイフン'),
+            label: text.describe('何の費用か'),
+            monthlyYen: yen('税込の月額（年払いは 12 で割る）'),
+            from: month.describe('計上を始める月'),
+            to: month.optional().describe('計上を終える月（続いていれば書かない）'),
+            note: text.optional().describe('金額の出どころ・契約の単位'),
+          })
+          .strict(),
+      )
+      .superRefine(uniqueBy('id'))
+      .describe('固定費の行（空なら記録しない＝費用は欠測のまま）'),
+  })
+  .strict()
+  .superRefine((m, ctx) => {
+    m.items.forEach((x, i) => { if (x.to && x.to < x.from) flag(ctx, ['items', i, 'to'], '終える月が始める月より前'); });
+  })
+  .meta({ title: '運営の固定費の表' });

@@ -108,6 +108,15 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       commands: [{ argv: ['npm', 'run', '-s', 'product-sales'] }],
     },
     {
+      // 売上の段のあとで、確定した月の受取額と固定費を事業の計測記録へ書く（台帳と設定を読むだけ。ブラウザ・資格情報は使わない）。
+      // 受取額は note・ココナラ・KDP が 3 つとも確定した週（KDP は翌月 16 日以降）に入る。逃した週の分を拾うので前々月も回す
+      id: 'business-records', phase: 'pre', title: '月の受取額と固定費の記録（前々月と前月）', timeoutMin: 5, browser: false,
+      commands: [previousMonth(prev), prev].flatMap((m) => [
+        { argv: ['scripts/record-net-receipts.mjs', '--month', m, '--when-complete', '--commit'] },
+        { argv: ['scripts/record-operating-costs.mjs', '--month', m, '--commit'] },
+      ]),
+    },
+    {
       id: 'gsc', phase: 'pre', title: 'GSC の登録リクエスト 10 件と月次の理由別 CSV', timeoutMin: 40, browser: true, selfCommits: true,
       // 前回の送信から 20 時間以内なら送らない・月次 CSV は期日のときだけ（判定は gsc-local-routine 自身）
       commands: [{ argv: ['scripts/gsc-local-routine.mjs'] }],

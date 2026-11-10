@@ -12,13 +12,14 @@
  * 使い方:
  *   npm run record-net-receipts -- --month 2026-09            # dry-run（記録しない）
  *   npm run record-net-receipts -- --month 2026-09 --commit   # 記録する（data/business/records/ に書くだけ・git commit はしない）
+ *   node scripts/record-net-receipts.mjs --month 2026-09 --when-complete --commit   # 土曜の収集（weekly-collect の business-records の段）。3 つとも確定のときだけ記録し、記録済みなら何もしない
  * 同じ月を記録済みなら、その記録を訂正先（supersedes）にして取り直す。complete の月を partial で上書きはしない（exit 1）。
  * 終了コード: 0＝組み立てた（partial を含む）/ 1＝complete の月を partial で上書きしようとした
  */
 import { execFileSync } from 'node:child_process';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { buildNetReceiptsMeasurement, netReceiptsSupersedes } from './lib/net-receipts.mjs';
+import { autoRecordAction, buildNetReceiptsMeasurement, netReceiptsSupersedes } from './lib/net-receipts.mjs';
 import { loadMonthReceipts } from './lib/net-receipts-ledger.mjs';
 import { currentRecords, records } from './lib/business-direction.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -28,6 +29,8 @@ const argv = process.argv.slice(2);
 const arg = (name) => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1] : null; };
 const MONTH = arg('--month');
 const COMMIT = argv.includes('--commit');
+// 土曜の収集が使う: 3 つとも確定して値が出るときだけ記録し、同じ値を記録済みなら何もしない（毎週 partial の記録を積まない）
+const WHEN_COMPLETE = argv.includes('--when-complete');
 if (!/^\d{4}-\d{2}$/.test(MONTH ?? '')) {
   console.error(`${TAG} --month YYYY-MM が必要`);
   process.exit(1);
@@ -42,6 +45,13 @@ function main() {
   const coconala = arg('--coconala') != null ? Number(arg('--coconala')) : ch.coconala.status === 'final' ? ch.coconala.value : null;
   const kdp = ch.kdp.value == null ? null : { royalty: ch.kdp.value, estimated: ch.kdp.status !== 'final' };
   const record = buildNetReceiptsMeasurement({ month: MONTH, note, coconala, kdp });
+  if (WHEN_COMPLETE) {
+    const action = autoRecordAction(currentRecords(records(ROOT), 'measurement'), record);
+    if (action !== 'record') {
+      console.log(`${TAG} ${MONTH}: ${action === 'recorded' ? '同じ値を記録済み' : `まだ確定していない（${record.source.match(/欠測: [^。]+/)?.[0] ?? '値が出ない'}）`}。記録しない`);
+      return 0;
+    }
+  }
   // 同じ月を記録済みなら訂正先にする（partial → complete の取り直し。履歴は残る）
   const prior = netReceiptsSupersedes(currentRecords(records(ROOT), 'measurement'), record);
   if (prior.error) {
