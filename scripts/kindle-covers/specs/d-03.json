@@ -16,5 +16,19 @@
   "subLines": [
     "令和元〜7年度 245問"
   ],
-  "brand": "doboku-note"
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "pe-first-stage",
+    "kicker": "技術士 第一次試験",
+    "title": "専門科目",
+    "titleSub": "建設部門",
+    "badge": [
+      "R1〜R7",
+      "7年分"
+    ],
+    "redBand": "令和7年度 本試験まで収録",
+    "navyBand": "全245問 完全解説",
+    "scene": "土木構造物（橋梁・トンネル・堤防）の現場",
+    "reference": "scripts/kindle-dist/c-05.jpg"
+  }
 }

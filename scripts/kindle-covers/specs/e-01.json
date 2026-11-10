@@ -16,5 +16,19 @@
   "subLines": [
     "前期・後期 全630問"
   ],
-  "brand": "doboku-note"
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "civil-construction-2",
+    "kicker": "2級土木施工管理技士 第1次検定",
+    "title": "過去問",
+    "titleSub": "完全解説",
+    "badge": [
+      "R3〜R7",
+      "5年分"
+    ],
+    "redBand": "令和7年度 本試験まで収録",
+    "navyBand": "前期・後期 全630問",
+    "scene": "バックホウと舗装・土工の現場",
+    "reference": "scripts/kindle-dist/c-05.jpg"
+  }
 }

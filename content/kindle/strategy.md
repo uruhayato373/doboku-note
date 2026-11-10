@@ -402,7 +402,7 @@
 ### Phase 3（2026-08〜）: Dシリーズ
 
 - [x] D-01/D-02/D-03 の spec＋書き下ろし前付け整備・EPUB 生成・epubcheck 0/0・`check-kindle-format` PASS（2026-07-11）。D-01 の MathML 構文不正（KaTeX 不可視演算子＋多文字演算子）は build-pe1-kindle の sanitizeMathml で恒久修正
-- [ ] 表紙背景（Codex 生成）→ `kindle-book-qa` 5軸 → Kindle Previewer 目視（D-01/D-03 の MathML・D-03 の図欠落）→ KDP 提出 ← **一部ユーザー作業**
+- [ ] 表紙（`kindle-pop-cover` で候補生成→文字照合→採用）→ `kindle-book-qa` 5軸 → Kindle Previewer 目視（D-01/D-03 の MathML・D-03 の図欠落）→ KDP 提出 ← **一部ユーザー作業**
 - [ ] D-00 合本（21ソース）の spec＋前付け → 出版
 
 ### Phase 4（2026-10〜）: B・Cシリーズ

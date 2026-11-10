@@ -34,6 +34,13 @@
       "minWidth": 900,
       "bottomZone": 0.18,
       "frame": "縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。"
+    },
+    "kindle": {
+      "width": 1600,
+      "height": 2560,
+      "minWidth": 960,
+      "bottomZone": 0,
+      "frame": "媒体: Kindle電子書籍の表紙。縦長 5:8（1600×2560相当）。Amazonの検索結果の小さなサムネイル（幅約136px）でも題名・丸い印・帯の文字が読める構成にする。背景は四辺まで連続させ、無地の余白帯を作らない。人物の身体と文字を画面の端で切らない。"
     }
   },
   "routes": [
@@ -63,6 +70,13 @@
       "label": "公開の役割の素材（note・ココナラなど）",
       "kind": "script",
       "entry": "scripts/lib/media-plate.mjs",
+      "audit": "ai-image-fidelity-auditor"
+    },
+    {
+      "id": "kindle-pop-cover",
+      "label": "Kindle の表紙（POP・文字まで生成）",
+      "kind": "script",
+      "entry": "scripts/kindle-covers/build-pop-cover.mjs",
       "audit": "ai-image-fidelity-auditor"
     },
     {

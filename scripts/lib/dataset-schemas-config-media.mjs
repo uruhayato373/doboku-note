@@ -882,7 +882,7 @@ export const ConfigImageGeneration = z
     diagramLedExams: z.array(z.string().min(1)).describe('POP ではなく図解主体にする資格'),
     references: z.object({ coverStyle: z.string().min(1), character: z.string().min(1), bodyStyle: z.string().min(1) }).strict().describe('参照画像'),
     antiAi: z.object({ version: z.number().int().positive(), avoid: z.string().min(1), real: z.string().min(1), tone: z.string().min(1) }).strict().describe('AI っぽく見せないための指示の部品'),
-    formats: z.object({ longform: imageFormat, shorts: imageFormat }).strict().describe('媒体別の寸法と安全域'),
+    formats: z.object({ longform: imageFormat, shorts: imageFormat, kindle: imageFormat }).strict().describe('媒体別の寸法と安全域'),
     routes: z.array(z.object({
       id: z.string().min(1), label: z.string().min(1), kind: z.enum(['script', 'manual']),
       entry: z.string().min(1).describe('入口のファイル'), audit: z.string().min(1).describe('独立監査の担当。無ければ none'),

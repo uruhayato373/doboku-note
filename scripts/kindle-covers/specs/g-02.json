@@ -4,12 +4,32 @@
   "accent": "#1E73C8",
   "kicker": "コンクリート主任技士",
   "titleLines": [
-    { "text": "体系解説＋", "size": 176 },
-    { "text": "過去問解説", "size": 176 }
+    {
+      "text": "体系解説＋",
+      "size": 176
+    },
+    {
+      "text": "過去問解説",
+      "size": 176
+    }
   ],
   "subLines": [
     "平成26〜令和5年度 四肢択一 全303問",
     "8分野別に収録／図版57点"
   ],
-  "brand": "doboku-note"
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "concrete-chief-engineer",
+    "kicker": "コンクリート主任技士",
+    "title": "体系解説＋",
+    "titleSub": "過去問解説",
+    "badge": [
+      "H26〜R5",
+      "303問"
+    ],
+    "redBand": "8分野別に収録",
+    "navyBand": "図版57点収録",
+    "scene": "コンクリートの打設と品質試験の現場",
+    "reference": "scripts/kindle-dist/c-05.jpg"
+  }
 }
