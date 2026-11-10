@@ -213,6 +213,10 @@
         "issue:cloudflare-metrics",
         "issue:cloudflare-config",
         "quality-audit:cloudflare-metrics-freshness"
+      ],
+      "writes": [
+        "cloudflare.zone",
+        "state.cloudflare-zone-config"
       ]
     },
     {
@@ -274,6 +278,27 @@
         "quality-audit:gsc-sitemaps-due",
         "issue:fetch-metrics",
         "skill:weekly-review"
+      ],
+      "writes": [
+        "ga4.reports",
+        "gsc.reports",
+        "gsc.sitemaps",
+        "rum.web-vitals",
+        "business.measurement",
+        "business.snapshot",
+        "business.weekly",
+        "business.experiments",
+        "analysis.quiz-premium-funnel",
+        "analysis.monetization-coverage",
+        "analysis.monetization-report",
+        "analysis.career-funnel",
+        "analysis.career-funnel-report",
+        "analysis.career-funnel-baseline",
+        "analysis.growth-pack",
+        "analysis.growth-digest",
+        "bing.snapshots",
+        "ga4.admin-inventory",
+        "youtube.analytics"
       ]
     },
     {
@@ -296,6 +321,13 @@
       "readers": [
         "issue:index-coverage",
         "skill:google-search-growth"
+      ],
+      "writes": [
+        "gsc.reports",
+        "gsc.url-inspection",
+        "gsc.index-coverage-history",
+        "gsc.indexing-priority",
+        "gsc.indexing-priority-list"
       ]
     },
     {
@@ -377,6 +409,10 @@
       "purpose": "PageSpeed Insights を記録する",
       "readers": [
         "admin:/metrics/psi"
+      ],
+      "writes": [
+        "psi.batch",
+        "analysis.psi-report"
       ]
     },
     {
