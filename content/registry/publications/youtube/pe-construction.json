@@ -610,7 +610,8 @@
         "status": "set",
         "setAt": "2026-11-05T08:27:17.250Z"
       },
-      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-12T11:30:00Z）"
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-12T11:30:00Z）",
+      "publishAt": "2026-11-12T11:30:00Z"
     },
     {
       "id": "pe-construction/toan-kousei-template/youtube.longform.reading-fix",
