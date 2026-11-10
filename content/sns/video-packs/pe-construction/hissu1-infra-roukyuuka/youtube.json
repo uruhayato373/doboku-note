@@ -22,5 +22,40 @@
     "thumbnailSha256": "33feb20745bc2bf30b56f8832e890d1396a2b386a7f5b577cdf799e79a1d1f4c",
     "publishAt": "2026-11-13T11:30:00Z"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-breakdown-1",
+      "sceneId": "breakdown",
+      "title": "技術士 建設部門｜老朽化の課題は3つに分ける #Shorts",
+      "description": "老朽化の課題、思いつくまま並べていませんか。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 建設部門2次｜必須I 模範解答集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m0f3bc3933454?utm_source=youtube&utm_medium=video&utm_campaign=hissu1-infra-roukyuuka&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#技術士建設部門 #技術士 #Shorts",
+      "tags": [
+        "技術士（建設部門）",
+        "技術士 建設部門",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "r2Key": "video/render/hissu1-infra-roukyuuka/shorts/point-breakdown-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/hissu1-infra-roukyuuka/shorts/point-breakdown-1/thumbnail.png"
+    },
+    {
+      "key": "point-funding-2",
+      "sceneId": "funding",
+      "title": "技術士 建設部門｜財源と人員の不足はインフラを群で捉える #Shorts",
+      "description": "財源と人員の不足に、どう答えますか。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 建設部門2次｜必須I 模範解答集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m0f3bc3933454?utm_source=youtube&utm_medium=video&utm_campaign=hissu1-infra-roukyuuka&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#技術士建設部門 #技術士 #Shorts",
+      "tags": [
+        "技術士（建設部門）",
+        "技術士 建設部門",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "r2Key": "video/render/hissu1-infra-roukyuuka/shorts/point-funding-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/hissu1-infra-roukyuuka/shorts/point-funding-2/thumbnail.png"
+    }
+  ]
 }
