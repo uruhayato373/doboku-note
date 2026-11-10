@@ -809,6 +809,7 @@ function isExamArchiveStrict(filePath) {
   if (/(?:primary|secondary)-(?:r|h)\d{2}/.test(filePath)) return true;
   if (/-past-problems[\\\/]/.test(filePath)) return true;
   if (/concrete-(?:chief-engineer|diagnostician)[\\\/]primary-/.test(filePath)) return true;
+  if (/surveyor[\\\/]gozen-(?:r|h)\d{2}[\\\/]/.test(filePath)) return true;
   return false;
 }
 
@@ -942,6 +943,8 @@ function isExamArchive(filePath) {
   if (/concrete-chief-engineer[\\\/]primary-/.test(filePath)) return true;
   // コンクリート診断士 形式: 分野別過去問 primary-deterioration/, primary-investigation/ 等
   if (/concrete-diagnostician[\\\/]primary-/.test(filePath)) return true;
+  // 測量士 午前の年度別過去問（surveyor/gozen-r04/ 等・DN-0900）
+  if (/surveyor[\\\/]gozen-(?:r|h)\d{2}[\\\/]/.test(filePath)) return true;
   return false;
 }
 

@@ -154,3 +154,21 @@ test('MDX から拾った資格も、記事の正答が照合済みの正答と�
   assert.equal(stats.answerMismatch, 1);
   assert.ok(fails[0].includes('h28-24'));
 });
+
+test('測量士の午前は gozen-rNN の記事から r04-01 の形の ID を作り、測量士補の記事と混ざらない（DN-0900）', () => {
+  const src = LEDGER_EXAMS.surveyor.source;
+  assert.ok(src.article.test('gozen-r04') && !src.article.test('primary-r04'));
+  assert.ok(!LEDGER_EXAMS['assistant-surveyor'].source.article.test('gozen-r04'));
+  assert.deepEqual(parseMdxQuestions('## No.12\n\n**正答：4**\n', { dir: 'surveyor', slug: 'gozen-r04', headingId: src.headingId }), [
+    { id: 'r04-12', correct: 4, article: 'surveyor/gozen-r04' },
+  ]);
+  assert.equal(LEDGER_EXAMS.surveyor.locate('r04-12', { article: 'surveyor/gozen-r04' }).no, '午前 No.12');
+  // 令和7年の問題集は2分冊。問題番号で冊子を選ぶ
+  const inv = { years: [{ year: 2025, files: [
+    { kind: 'question', section: '午前（No.1〜13）', file: 'R07/R07_午前_問題1.pdf', acquiredAt: '2026-09-29' },
+    { kind: 'question', section: '午前（No.14〜28）', file: 'R07/R07_午前_問題2.pdf', acquiredAt: '2026-09-29' },
+    { kind: 'answer', section: '午前', file: 'R07/R07_午前_正答.pdf', acquiredAt: '2026-09-29' },
+  ] }] };
+  assert.equal(locateSources(inv, LEDGER_EXAMS.surveyor.locate('r07-13', {})).question, 'R07/R07_午前_問題1.pdf');
+  assert.equal(locateSources(inv, LEDGER_EXAMS.surveyor.locate('r07-14', {})).question, 'R07/R07_午前_問題2.pdf');
+});
