@@ -101,6 +101,7 @@ public/posts
 .local/playwright-*-state.json
 # 認証 state のバックアップ（*.bak-日時）も資格情報を含むので追跡しない
 .local/*.bak-*
+.local/affiliate-status/
 .local/playwright-*-profile/
 .local/playwright-*-debug/
 
