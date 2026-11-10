@@ -15,7 +15,14 @@
       "accentLine": 1,
       "subtitle": "",
       "design": "pop-poster-v3",
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/cover-pop.805b445f.png",
+        "sha256": "805b445fb9217465eaec84e8a7cd338ea82847a9826a7704d3dd6abaf186519f",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "c5e61393dd3f02fafa1d646c03feadec886b45637853ce75820124ce4d298a33"
+      }
     }
   }
 }
