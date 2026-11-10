@@ -685,6 +685,8 @@ export const XReplyLog = z
         .object({
           at: utcTime('送信時刻'),
           kind: z.enum(['ask', 'pass', 'fail', 'study', 'answer']),
+          // 相手の投稿の資格（config/x-reply-trial.json の topics の id）。試行の終わりに資格ごとの反応を比べる
+          topic: z.string().regex(/^[a-z0-9-]+$/),
           targetId: z.string().regex(/^\d+$/),
           replyId: z.string().regex(/^\d+$/),
           userHash: z.string().regex(/^[0-9a-f]{12}$/),
