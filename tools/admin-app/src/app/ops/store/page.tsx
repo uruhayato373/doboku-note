@@ -20,6 +20,7 @@ const DATASET_COLUMNS: DataTableColumn[] = [
   { key: 'name', label: '名前', wrap: true },
   { key: 'kind', label: '種類' },
   { key: 'shape', label: '型' },
+  { key: 'writers', label: '書き手', wrap: true },
   { key: 'files', label: 'ファイル', num: true },
   { key: 'updated', label: '更新' },
 ];
@@ -102,7 +103,7 @@ function Rows({ v }: { v: StoreView }) {
         columns={DATASET_COLUMNS}
         rows={v.rows.map((r) => ({
           id: r.id,
-          values: { name: `${r.name} ${r.doc}`, kind: r.kind, shape: r.typed ? '型あり' : r.shape, files: r.files, updated: r.updated },
+          values: { name: `${r.name} ${r.doc}`, kind: r.kind, shape: r.typed ? '型あり' : r.shape, writers: r.writers.join('・') || '—', files: r.files, updated: r.updated },
           cells: {
             name: (
               <>

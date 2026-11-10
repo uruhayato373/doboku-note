@@ -3,7 +3,7 @@
  *
  * 問題台帳は「1 問ごとに、どの原典 PDF の何ページから取り、公式正答は何で、転記を原典と照合したか」の正本。
  * キーは演習データ（Web の過去問演習・iOS アプリ）の問題 ID そのもの（アプリの学習履歴が「試験 + 問題 ID」に紐づくので変えない）。
- * 演習データの無い資格（測量士補・コンクリート主任技士）は記事の MDX の見出しから ID を作り、記事の「正答：N」を照合する（DN-1085）。
+ * 演習データの無い資格（測量士・測量士補・コンクリート主任技士）は記事の MDX の見出しから ID を作り、記事の「正答：N」を照合する（DN-1085）。
  *   演習データの問題 ─(id)→ 台帳の行 ─(article)→ content/site の記事
  *                                     ─(source.question / source.answer)→ 在庫台帳 data/pastexams/inventory.json のファイル（Drive vault の原本）
  * 判定（evaluateLedger）は純関数で、検査（check-past-exam-ledger）・iOS の書き出し（build-ios-quiz-bundle）・管理画面が同じものを使う。
@@ -118,6 +118,20 @@ export const LEDGER_EXAMS = {
       const m = /^(r\d{2})-(\d{2})$/.exec(id);
       if (!m) return null;
       return { year: yearOfCode(m[1]), article: q?.article || `surveyor/primary-${m[1]}`, no: `No.${Number(m[2])}`, question: /筆記/, answer: /筆記/ };
+    },
+  },
+  surveyor: {
+    quizExam: 'surveyor',
+    source: { kind: 'mdx', dir: 'surveyor', article: /^gozen-r\d{2}$/, headingId: (h, slug) => {
+      const m = /^No\.\s*(\d+)$/.exec(h);
+      return m ? `${slug.replace('gozen-', '')}-${m[1].padStart(2, '0')}` : null;
+    } },
+    locate(id, q) {
+      const m = /^(r\d{2})-(\d{2})$/.exec(id);
+      if (!m) return null;
+      // 令和7年は問題集が2分冊（在庫台帳の section に問題番号の範囲を書いてある）。範囲の書かれた冊子だけを当てる
+      const no = Number(m[2]);
+      return { year: yearOfCode(m[1]), article: q?.article || `surveyor/gozen-${m[1]}`, no: `午前 No.${no}`, question: m[1] === 'r07' ? (no <= 13 ? /午前（No\.1〜13）/ : /午前（No\.14〜28）/) : /^午前$/, answer: /午前/ };
     },
   },
   'concrete-chief-engineer': {

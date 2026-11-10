@@ -4,12 +4,32 @@
   "accent": "#9C3D1E",
   "kicker": "RCCM資格試験 問題III 管理技術力",
   "titleLines": [
-    { "text": "公開6テーマ", "size": 200 },
-    { "text": "模範論文集", "size": 200 }
+    {
+      "text": "公開6テーマ",
+      "size": 200
+    },
+    {
+      "text": "模範論文集",
+      "size": 200
+    }
   ],
   "subLines": [
     "2026年度版／全6テーマ 1,200〜1,600字",
     "指定用語「」4語以上・部門別置換ポイント付き"
   ],
-  "brand": "doboku-note"
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "rccm",
+    "kicker": "RCCM資格試験 問題III 管理技術力",
+    "title": "模範論文集",
+    "titleSub": "公開6テーマ",
+    "badge": [
+      "2026年度版",
+      "全6テーマ"
+    ],
+    "redBand": "指定用語4語以上で構成",
+    "navyBand": "1,200〜1,600字 模範論文",
+    "scene": "設計図と打合せ資料が広がる建設コンサルタントの机と、窓の外の橋梁",
+    "reference": "scripts/kindle-dist/c-05.jpg"
+  }
 }

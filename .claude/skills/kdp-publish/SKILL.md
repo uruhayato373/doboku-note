@@ -190,7 +190,7 @@ node scripts/kdp-publish.mjs --id <id> --update-cover [--commit [--commit-publis
 |---|---|
 | 「ファイルの処理中に問題が見つかりました」 | EPUB に **.svg 拡張子の JPEG** が混入（KDP が拡張子で SVG 解析→失敗・epubcheck は通る）。`build-pe1-kindle.mjs` は修正済（`.svg`→`.jpg` 正規化）。`unzip -l <epub> \| grep -c .svg` が 0 か確認し 0 でなければ再ビルド（[[kdp-svg-named-jpeg-bug]]） |
 | カテゴリーが「本のカテゴリーを追加します」で進めない | 末端は4つ目のドロップダウンでなく**「場所」パネルのチェックボックス**。技術士系=工学・技術・環境▸☑技術士。A/E系は `--diag-category` で確認 |
-| AI申告で「画像の作成に使用したAIツールを指定します」 | 画像=AI生成 を選ぶとツール名が必須。config `defaults.aiDeclaration.imageTool` を記入（表紙背景の生成元） |
+| AI申告で「画像の作成に使用したAIツールを指定します」 | 画像=AI生成 を選ぶとツール名が必須。config `defaults.aiDeclaration.imageTool` を記入（表紙画像の生成元） |
 | 価格ページへ進めない | AI申告未完 or アクセシビリティ未回答。新規アップロード時は affirmation チェックボックスも必要（script が自動チェック） |
 | 連続実行で Chrome がハング | 永続プロファイルのロック競合。`<auth root>/profiles/playwright-kdp-profile/Singleton*` を削除し1プロセスずつ実行 |
 

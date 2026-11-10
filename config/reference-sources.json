@@ -4114,7 +4114,8 @@
         "url": "https://www.gsi.go.jp/LAW/SHIKEN/past.html"
       },
       "appliesTo": [
-        "content/site/surveyor/primary-*/article.mdx"
+        "content/site/surveyor/primary-*/article.mdx",
+        "content/site/surveyor/gozen-*/article.mdx"
       ]
     },
     {

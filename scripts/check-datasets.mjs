@@ -30,7 +30,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { AREAS, DATASETS, KINDS, areaOf, datasetFiles, datasetsFor, freshnessProblems, listAreaFiles, matchFiles, pathMatchesId, patternOf, resolveDataset } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
-import { checkRefs, refContext, refDeclarationError, refResolvers } from './lib/dataset-refs.mjs';
+import { REF_MASTERS, checkRefs, refContext, refDeclarationError, refResolvers } from './lib/dataset-refs.mjs';
 import { schemaOf, validateFiles } from './lib/dataset-validate.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { findDuplicateKeys } from './lib/json-duplicate-keys.mjs';
@@ -193,7 +193,11 @@ for (const f of settingFiles) {
   checkIds(f, source);
 }
 
-// 12. 参照の実在（外部キー相当）
+// 12. 参照の実在（外部キー相当）。宛先の台帳はマスタでなければならない
+for (const id of Object.values(REF_MASTERS)) {
+  const kind = resolveDataset(id)?.kind;
+  if (kind !== 'master') errors.push(`${id}: 参照の宛先（dataset-refs.mjs の REF_MASTERS）なのに種類が ${kind ?? '未宣言'}。master にする`);
+}
 const refDatasets = DATASETS.filter((x) => x.refs);
 let refsChecked = 0;
 let refsBroken = 0;

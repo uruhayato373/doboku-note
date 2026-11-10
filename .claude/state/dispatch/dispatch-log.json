@@ -7000,6 +7000,23 @@
       "note": "content/site/pe-construction/koutou-shiken（本文約3,900字・guide-qa 2.60/3・事実照合済み）。note の口頭試験教材へ配置。口頭試験の時期（〜1月中旬）に効くよう main 反映を運営者に諮る"
     },
     {
+      "id": "DN-1087",
+      "at": "2026-11-10",
+      "task": "develop の CI が Kindle C 系 26 件の R2 取得失敗で落ちている",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "別セッションの作業途中の一時的な状態で、資産の未アップロードは asset-hydrate が既に止めている"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "93d4fad87f41",
+      "verification": "gh run list --branch develop --workflow ci.yml: 394373cf3 completed success",
+      "note": "別セッションが Kindle C 系の実体を R2 へ上げ、develop の CI（394373cf3）の audit が通った"
+    },
+    {
       "id": "DN-1085",
       "at": "2026-11-10",
       "task": "測量士補とコンクリート主任技士を過去問の問題台帳に入れ、正答の照合を CI で止める",
@@ -7009,6 +7026,19 @@
       "outcome": "done",
       "plan": null,
       "commit": "29b9bdf5fad1",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0900",
+      "at": "2026-11-10",
+      "task": "測量士の午前（択一）過去問（令和4〜8年・各28問）をサイトに載せ、午後の note 教材へつなぐ",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c77803b345f7",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
     }

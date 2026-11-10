@@ -2,7 +2,7 @@
 name: create-pop-image
 category: social
 description: >
-  承認済みのキャラクターPOP意匠で、ココナラ商品画像・note表紙・SNSサムネイルを制作する。Use when user asks to [POP画像, キャッチーなサムネイル, 画像を展開, /create-pop-image].
+  承認済みのキャラクターPOP意匠で、ココナラ商品画像・note表紙・SNSサムネイルを制作する（Kindle の表紙は担当外＝npm run kindle-pop-cover）。Use when user asks to [POP画像, キャッチーなサムネイル, 画像を展開, /create-pop-image].
 argument-hint: "対象の商品・記事・投稿、媒体（複数可）、変更する文言"
 domain: product
 ---

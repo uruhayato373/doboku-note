@@ -39,7 +39,7 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 | i-01〜i-04 / i-11〜i-24 | I: 1級土木 第2次検定 記述（施工経験記述・学科記述・想定工事14分冊） | `build-essay-kindle.mjs --spec kindle-specs/{id}.json`（`chapterLabel: h1-tail`・`dropLines`・`replaceText`） | spec + 前付け | 2026-09-23 新設 |
 | j-01〜j-03 / j-11〜j-15 | J: 2級土木 第2次検定 記述（同上・想定工事5分冊） | 同上 | spec + 前付け | 2026-09-23 新設 |
 
-表紙は全冊 spec 駆動で再生成可能（`scripts/kindle-covers/specs/<id>.json`＋`backgrounds/`、下記「表紙」参照）。全書籍の状態・ASIN は [`scripts/kindle-published/catalog.json`](../../../scripts/kindle-published/catalog.json)（マスター登録簿）が真実源。
+表紙は spec の `pop` から `npm run kindle-pop-cover` で作る（採用後は `adoptedImage`＋`scripts/kindle-covers/pop/<id>.pop-image.json` が正本。`adoptedImage` の無い旧本だけ `backgrounds/` から組版で再生成。下記「表紙」参照）。全書籍の状態・ASIN は [`scripts/kindle-published/catalog.json`](../../../scripts/kindle-published/catalog.json)（マスター登録簿）が真実源。
 
 - A系入力: `src/config/civil-1-exam-questions.json`（1,162問）。D/E系入力: 各 `content/site/**/article.mdx`（択一・全問完全解説）。C/F系入力: `content/note/**/article*.md`（記述式模範解答）
 - 出力: `.tmp/kindle-{id}/{id}.epub`。配布物は `scripts/kindle-dist/<id>.epub`（R2 が正本・git 追跡しない） + `<id>.jpg`（`npm run sync-kindle-dist` で spec から再生成）
@@ -107,19 +107,19 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 - ページを読む方向: **左から右（横書き）**
 - DRM: **はい（適用）**推奨（過去問集の再配布防止・出版後変更不可）
 - アクセシビリティ「画像にアクセスできますか?」: **すべてに代替テキスト/説明が含まれています**（本文に情報伝達図版なし＝図依存問題は除外済み）
-- **AI 生成コンテンツ申告**: 「含む」→ 対象は**画像（表紙）のみ**（背景は Codex 生成）。**本文テキストは AI ではない**（過去問データ＋条文ベース・人が編集）と正確に申告
+- **AI 生成コンテンツ申告**: 「含む」→ 対象は**画像（表紙）のみ**（表紙は文字まで Codex 生成）。**本文テキストは AI ではない**（過去問データ＋条文ベース・人が編集）と正確に申告
 - 著者: **doboku-note**（ブランド統一・表紙署名/EPUB dc:creator も同じ）。フリガナ=ドボクノート
 - 価格: `strategy.md` の価格ポリシー（150問↑¥490 / 80-150¥390 / 80未満¥350）。日本の実効ロイヤリティは書籍別の KDP セレクト設定で確認する（セレクト登録かつ ¥250〜1,650 は 70%、非登録は 35%）。入稿メモは `gen-kdp-memo` が書籍別設定から生成する
 
 **ユーザー本人しかできない工程（自動化・代行不可）**: KDP アカウント登録、**税務情報（マイナンバー＝米国以外の TIN・住所は英語ローマ字入力）・W-8BEN**、銀行口座、最終「出版」クリック。
 
-**表紙（git 管理下・spec 駆動で再生成可能）**: `scripts/kindle-covers/build-kindle-cover.mjs --spec scripts/kindle-covers/specs/<id>.json`。背景（Codex 生成・文字なし・上部余白ゾーン）は `scripts/kindle-covers/backgrounds/<id>.png`、文言は spec に。日本語タイトルは satori + NotoSansJP-Bold で後合成（画像モデルは日本語を崩すため文字は必ずコードで乗せる）。詳細 → `scripts/kindle-covers/README.md`
+**表紙（2026-11-10 に一本化）**: `npm run kindle-pop-cover -- --id <id>` で候補を作り、描く文字の一覧と 1 文字ずつ照合して `-- --adopt <id> --candidate <png> --review "…"` で採用する。文言と場面は表紙 spec（`scripts/kindle-covers/specs/<id>.json`）の `pop` に書く。制作記録は `scripts/kindle-covers/pop/<id>.pop-image.json`。旧 `build-kindle-cover.mjs` と `backgrounds/` は、`adoptedImage` の無い本を sync-kindle-dist が作り直すときだけ動く。詳細 → `scripts/kindle-covers/README.md`
 
 ## KDP 提出運用（分割提出・catalog 管理）
 
 - **KDP 新規/実績浅アカウントは本の作成数制限あり**（2026-07-11、d-03 提出時に到達）。数日〜で枠回復・売上/審査通過で緩和。**分割提出運用**が前提
 - **入稿メモ**: `npm run gen-kdp-memo <id...>` で共通テンプレ生成（共通項=著者 doboku-note/レーベル/AI申告/カテゴリ/フローは `config/kdp-memo.json` の defaults＝真実源、読取りは `scripts/lib/kdp-common.mjs`、固有値は books[id]、title/price/issuer は spec 自動取得）→ `scripts/kindle-published/KDP入力メモ_<id>.txt`。**KDP への実入稿・出版は後工程の `/kdp-publish`（`kdp-operator`）が自動化**
-- **配布物（R2 が正本）**: `npm run sync-kindle-dist -- --downloads` で ready 全冊を再ビルド→`kindle-dist/`＋`~/Downloads/kindle-<id>.(epub|cover.jpg)`
+- **配布物（R2 が正本）**: `npm run sync-kindle-dist -- --downloads` で ready 全冊を再ビルド→`kindle-dist/`＋`~/Downloads/kindle-<id>.(epub|cover.jpg)`（`adoptedImage` のある本の表紙は作り直さず採用済み JPEG を使う）
 - **提出後**: `npm run product -- set kindle-<書籍id> catalog.asin '"B0…"'` と `catalog.status '"live"'` で正本（config/products.json）を更新し（catalog.json は自動で作り直す）、`strategy.md` の該当シリーズ表に ASIN/出版日を追記
 
 ## 参照

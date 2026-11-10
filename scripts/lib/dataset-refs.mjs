@@ -33,6 +33,14 @@ import { join } from 'node:path';
 import { isQualificationRef } from './qualification-names.mjs';
 import { TODO_ROOT } from './repository-paths.mjs';
 
+/** 参照の宛先になる台帳（マスタ）。台帳の種類は master でなければならない（check-datasets） */
+export const REF_MASTERS = {
+  registry: 'config.qualification-registry',
+  products: 'config.products',
+  experiments: 'business.experiments',
+  catalog: 'affiliate.catalog',
+  direction: 'config.business-direction',
+};
 export const REF_TARGETS = ['qualification', 'product', 'article', 'experiment', 'affiliate-program', 'metric', 'backlog-card'];
 export const REF_OPTION_KEYS = ['at', 'to', 'keys', 'prefix', 'ignore', 'severity', 'copies'];
 
@@ -141,10 +149,6 @@ export function checkRefs(dataset, files, resolvers) {
 
 /** 参照先の台帳をまとめて読む（check-datasets とテストが同じ組み合わせを使う）。read は台帳 id を受けて中身を返す関数 */
 export const refContext = (read) => ({
-  registry: read('config.qualification-registry'),
-  products: read('config.products'),
-  experiments: read('business.experiments'),
-  catalog: read('affiliate.catalog'),
-  direction: read('config.business-direction'),
+  ...Object.fromEntries(Object.entries(REF_MASTERS).map(([key, id]) => [key, read(id)])),
   backlog: readFileSync(join(TODO_ROOT, 'backlog.md'), 'utf8'),
 });

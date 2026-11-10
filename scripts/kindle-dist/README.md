@@ -4,7 +4,7 @@ KDP 提出用に**制作完了した Kindle 配布物（EPUB＋表紙）**の置
 KDP のアカウント作成数制限で提出は数日〜に分けて進めるため、いつでも取り出せるよう成果物を保全する。
 
 - `<id>.epub` … 入稿用 EPUB（build-pe1-kindle / build-essay-kindle の出力）
-- `<id>.jpg`  … 表紙 1600×2560（build-kindle-cover の出力）
+- `<id>.jpg`  … 表紙 1600×2560（`kindle-pop-cover --adopt` の出力。`adoptedImage` の無い旧本だけ build-kindle-cover の出力）
 
 ## マスター登録簿
 
@@ -16,8 +16,8 @@ A シリーズ（公開済/審査中）の実物は歴史的経緯で [`../kindl
 
 ## 再生成（spec / theme から決定的に再現できる）
 
-EPUB は B〜G 系の `buildSpec` または A 系の `buildTheme`、表紙は
-`kindle-covers/specs/<id>.json` から再現可能。A 系は公開済み版を保護するため、ID を明示したときだけ
+EPUB は B〜G 系の `buildSpec` または A 系の `buildTheme` から再現可能。表紙は、`adoptedImage` のある本は採用済み JPEG と制作記録
+（`kindle-covers/pop/<id>.pop-image.json`）が正本で再生成しない。それ以外の旧本だけ `kindle-covers/specs/<id>.json`＋`backgrounds/` から再現する。A 系は公開済み版を保護するため、ID を明示したときだけ
 `scripts/kindle-published/` の catalog 配布先へ再生成する。
 
 ```bash

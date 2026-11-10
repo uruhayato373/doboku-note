@@ -17,5 +17,19 @@
     "13年分 全26回・1263問",
     "図版114点収録"
   ],
-  "brand": "doboku-note"
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "civil-construction-1",
+    "kicker": "1級土木施工管理技士 第1次検定",
+    "title": "過去問",
+    "titleSub": "完全解説",
+    "badge": [
+      "H26〜R8",
+      "13年分"
+    ],
+    "redBand": "令和8年度 本試験まで収録",
+    "navyBand": "全26回・1263問 図版114点",
+    "scene": "橋脚の工事とクレーンが立つ現場",
+    "reference": "scripts/kindle-dist/c-05.jpg"
+  }
 }

@@ -1482,6 +1482,11 @@
 # route /docs/surveyor-guide-gogo-bunya /exam/surveyor/guide/gogo-bunya
 # route /docs/surveyor-guide-overview /exam/surveyor/guide/overview
 # route /docs/surveyor-guide-study-plan /exam/surveyor/guide/study-plan
+# route /docs/surveyor-gozen-r04 /exam/surveyor/past-exams/gozen-r04
+# route /docs/surveyor-gozen-r05 /exam/surveyor/past-exams/gozen-r05
+# route /docs/surveyor-gozen-r06 /exam/surveyor/past-exams/gozen-r06
+# route /docs/surveyor-gozen-r07 /exam/surveyor/past-exams/gozen-r07
+# route /docs/surveyor-gozen-r08 /exam/surveyor/past-exams/gozen-r08
 # route /docs/surveyor-primary-r04 /exam/surveyor/primary/r04
 # route /docs/surveyor-primary-r05 /exam/surveyor/primary/r05
 # route /docs/surveyor-primary-r06 /exam/surveyor/primary/r06
@@ -2024,5 +2029,6 @@
 /docs/pe-first-stage-* /exam/pe-first-stage/primary/:splat 301
 /docs/surveyor-guide-* /exam/surveyor/guide/:splat 301
 /docs/rccm-guide-* /exam/rccm/guide/:splat 301
+/docs/surveyor-* /exam/surveyor/past-exams/:splat 301
 /docs/laws-* /laws/:splat 301
 # END GENERATED PUBLIC ROUTES

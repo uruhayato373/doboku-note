@@ -17,6 +17,7 @@ import {
   schemaRows,
 } from '../../../../scripts/lib/datasets.mjs';
 import { jsonSchemaOf, validateFiles } from '../../../../scripts/lib/dataset-validate.mjs';
+import { readDatasetIf } from '../../../../scripts/lib/dataset-io.mjs';
 import { findRepoRoot } from './repo-root';
 import { jstDayOf } from '../../../../scripts/lib/jst-date.mjs';
 
@@ -60,6 +61,8 @@ export interface StoreRow {
   updated: string | null;
   local: boolean;
   typed: boolean;
+  /** これを書く自動化の題名（config/automations.json の writes から）。宣言が無ければ空 */
+  writers: string[];
   shape: string;
 }
 
@@ -128,6 +131,14 @@ function codeRefs(root: string, token: string): string[] {
   }
 }
 
+/** 台帳 id → それを書く自動化の題名（config/automations.json の writes の逆引き。宣言が無ければ空） */
+function writersByDataset(root: string): Map<string, string[]> {
+  const out = new Map<string, string[]>();
+  const automations = (readDatasetIf(root, 'config.automations') as { automations?: { title: string; writes?: string[] }[] } | null)?.automations ?? [];
+  for (const a of automations) for (const id of a.writes ?? []) out.set(id, [...(out.get(id) ?? []), a.title]);
+  return out;
+}
+
 export function loadStoreView(area: StoreArea, domainId?: string, datasetId?: string): StoreView {
   const root = findRepoRoot();
   const { dir, label: areaLabel } = AREAS[area];
@@ -138,6 +149,7 @@ export function loadStoreView(area: StoreArea, domainId?: string, datasetId?: st
     const tracked = new Set(listAreaFiles(root, area, { tracked: true }) as string[]);
     const { byId, unmatched } = matchFiles(files) as { byId: Map<string, string[]>; unmatched: string[] };
     const sets = (DATASETS as Dataset[]).filter((x) => areaOf(x) === area);
+    const writers = writersByDataset(root);
     const filesOf = (x: Dataset) => byId.get(x.id) ?? [];
     const name = (x: Dataset) => x.path.slice(dir.length + 1);
 
@@ -165,6 +177,7 @@ export function loadStoreView(area: StoreArea, domainId?: string, datasetId?: st
               updated: st ? day(st.mtimeMs) : null,
               local: !!x.local || (list.length > 0 && list.every((f) => !tracked.has(f))),
               typed: !!x.schema,
+              writers: writers.get(x.id) ?? [],
               shape: x.schema ? '型あり' : shape ? shapeLabel(shape) : x.planned ? '未着手' : '—',
             };
           })
