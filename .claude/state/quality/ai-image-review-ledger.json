@@ -9601,6 +9601,42 @@
       "reason": "画風・題材・人物を確認",
       "reviewer": "codex+ai-image-fidelity-auditor",
       "reviewedAt": "2026-11-06T23:59:52Z"
+    },
+    "media:pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/cover": {
+      "sha": "89f38ccb86f1f86f",
+      "verdict": "ok",
+      "reason": "帯が左側に移り操作ボタンの範囲を外れた。誤字がなく、手と指が自然で胴体が下端まで続く",
+      "reviewedAt": "2026-11-10T12:40:09.005Z"
+    },
+    "media:pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/cover": {
+      "sha": "d28f2b5185f658fb",
+      "verdict": "ok",
+      "reason": "見出しと帯に誤字がなく、手と指が自然で胴体が下端まで続く",
+      "reviewedAt": "2026-11-10T12:39:56.502Z"
+    },
+    "media:pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/cover": {
+      "sha": "0033ae1996bce9ee",
+      "verdict": "ok",
+      "reason": "指示の文字に誤字・余計な文字がなく、人物の手と顔の崩れもない。下32%と左右の余白も守っている",
+      "reviewedAt": "2026-11-10T12:04:30.351Z"
+    },
+    "media:pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/cover": {
+      "sha": "18a2cc4633111c5e",
+      "verdict": "ok",
+      "reason": "見出しと帯に誤字がなく、指と手が自然で胴体が下端まで続く",
+      "reviewedAt": "2026-11-10T12:30:09.964Z"
+    },
+    "media:pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/cover": {
+      "sha": "30a15eb4cf5afaab",
+      "verdict": "ok",
+      "reason": "見出しと帯に誤字がなく、指と手が自然で、文字が余白の内側に収まる",
+      "reviewedAt": "2026-11-10T12:27:39.047Z"
+    },
+    "media:pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/cover": {
+      "sha": "58a01f607ba2461c",
+      "verdict": "ok",
+      "reason": "見出しと帯に誤字がなく、手と指が自然で、文字が操作ボタンの範囲を避ける",
+      "reviewedAt": "2026-11-10T12:34:23.206Z"
     }
   }
 }
