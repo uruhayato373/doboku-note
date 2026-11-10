@@ -22,7 +22,7 @@ title: 動画の量産工程（通常動画・ショート）
 | ready-for-approval | 音声を照合し、関門を通ったら方針の承認を書く | スクリプト |
 | 予約 | R2 へ転送し `youtube-single-publish.yml` で予約する | スクリプト |
 
-`publish-pending` は承認したが予約の段（`publish`）へ進んでいない行で、`publish` を回す。`slot-expired` は公開日時まで 24 時間を切った（または過ぎた）未予約の行で、`unapprove` で承認を外し、`wire` で日時を付け直してから関門・承認・予約をやり直す（承認しただけの行は棚卸しで予約済みに数えない・DN-1066）。`fix-script` は内容QAの不合格、`images-exhausted` は作り直しの上限、`generate-stalled` は同じ項目で画像が出ない試行が続いたもの、`review-failed` は画面確認の fail で、どれも人が見る。`status` は止まった項目の理由も出す。原稿を変えずにやり直すときは `plan --retry <項目 id|all>` で回数と理由を戻す。画像が出なかった試行は作り直しの回数に数えず、試した全項目で出なければ `generate` は exit 2（検査不成立）で止まる（生成の経路を確かめて同じコマンドを打ち直す・DN-1065）。
+`unregistered` は台本はあるが台帳に公開行が無いパックで、`npm run registry -- import-video-pack --pack-dir <パック> --commit` で載せ、年間計画の行に `publicationId` を結ぶ。`publish-pending` は承認したが予約の段（`publish`）へ進んでいない行で、`publish` を回す。`slot-expired` は公開日時まで 24 時間を切った（または過ぎた）未予約の行で、`unapprove` で承認を外し、`wire` で日時を付け直してから関門・承認・予約をやり直す（承認しただけの行は棚卸しで予約済みに数えない・DN-1066）。`fix-script` は内容QAの不合格、`images-exhausted` は作り直しの上限、`generate-stalled` は同じ項目で画像が出ない試行が続いたもの、`review-failed` は画面確認の fail で、どれも人が見る。`status` は止まった項目の理由も出す。原稿を変えずにやり直すときは `plan --retry <項目 id|all>` で回数と理由を戻す。画像が出なかった試行は作り直しの回数に数えず、試した全項目で出なければ `generate` は exit 2（検査不成立）で止まる（生成の経路を確かめて同じコマンドを打ち直す・DN-1065）。
 
 ## 品質の守り方
 
