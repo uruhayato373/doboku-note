@@ -49,7 +49,7 @@ cover:
 
 ## 合格率は「二段階構造」で読む
 
-建設部門は技術士第二次試験で最も受験者が多い部門で、近年は1万人を超える受験者が挑みますが、最終合格率は受験者ベースでおおむね1割前後で推移しています（令和7年度の建設部門は約9.8%）。
+建設部門は技術士第二次試験で最も受験者が多い部門で、近年は1万人を超える受験者が挑みますが、最終合格率は受験者ベースでおおむね1割前後で推移しています（令和7年度の建設部門は約9.3%）。
 
 低く見える数字ですが、これは一発勝負の関門ではなく、二つの段階を掛け合わせた結果です。
 
@@ -85,7 +85,7 @@ cover:
 
 多面性とは知識の量ではなく、立場を行き来できる視野のことだと考えると腑に落ちるはずです。
 
-必須科目Iの答案構成そのものをもっと具体的に知りたい方は、[二次試験 論文の書き方](https://doboku-note.com/exam/pe-construction/guide/pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-nanido&utm_content=pe-secondary-essay-guide)もあわせてどうぞ。
+必須科目Iの答案構成そのものをもっと具体的に知りたい方は、[二次試験 論文の書き方](https://doboku-note.com/exam/pe-construction/guide/pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-nanido&utm_content=pe-secondary-essay-guide&utm_term=nd2a733652805)もあわせてどうぞ。
 
 ## 合格する人に共通する取り組み方
 
@@ -101,7 +101,7 @@ cover:
 - 論述の型を体に入れる：課題抽出→解決策→リスクと対策→倫理という流れを、白紙から再現できるまで書き込む。
 - 自分の経歴を具体例に変換する：業務経歴を答案の根拠として使えるよう棚卸ししておく。これは口頭試験でも問われます。
 
-頻出テーマと出題源をひととおり押さえたい方は、[必須科目I 頻出テーマ](https://doboku-note.com/exam/pe-construction/keywords/required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-nanido&utm_content=required-exam-themes)の整理が役立ちます。
+頻出テーマと出題源をひととおり押さえたい方は、[必須科目I 頻出テーマ](https://doboku-note.com/exam/pe-construction/keywords/required-exam-themes?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-nanido&utm_content=required-exam-themes&utm_term=nd2a733652805)の整理が役立ちます。
 
 加えて、令和8年度のコンピテンシー改訂にも注意が必要です。令和8年度からコンピテンシーが改訂され、データ・情報技術の活用、ステークホルダーとの合意形成、持続可能性、文化的価値の尊重などが明文化されました。
 
