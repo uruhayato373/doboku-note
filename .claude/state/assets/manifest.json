@@ -73036,6 +73036,32 @@
       "verifiedAt": "2026-11-09T11:37:34.013Z",
       "width": 1280,
       "height": 670
+    },
+    "content/site/civil-construction-1/primary-r08-a/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-1/primary-r08-a/ogp.png",
+      "sha256": "c6bd19811d4de5ff7afca9387bb94c0b1006f35d05ab0f97521ec8b73145ceb5",
+      "bytes": 575409,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-10T01:41:28.512Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "a15f37bfa7ad9df2"
+    },
+    "content/site/civil-construction-1/primary-r08-b/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-1/primary-r08-b/ogp.png",
+      "sha256": "bb6b3fd0278fa2e3b508675d9d015b9d78b16ccb745953359f53ea1575f113c7",
+      "bytes": 574478,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-10T01:41:29.024Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "52c1676d1600f4cf"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
