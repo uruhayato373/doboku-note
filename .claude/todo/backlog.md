@@ -535,6 +535,19 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1096] 建設部門の読み修正の後始末（使われていない改訂の行を止める・旧版 2 本の扱いを決める）
+タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-10]
+
+**起点**: DN-1064 で建設部門の読み修正版 3 本を予約した（2026-11-10）。hissu1-kensetsu-dx・hissu1-infra-roukyuuka は改訂版を新しい動画として予約したので、読み間違いのある旧版（SvV8zXamMvo・1EAPnQVwARE）が非公開のまま残っている。toan-kousei-template は改訂版が旧版と同じ動画だったため、旧版 ywemm49EBPA をそのまま 11/12 に予約し直した（PR #1512・#1513）。そのため改訂の行は `approved` のまま使われていない。
+
+**やること**:
+1. 使われていない改訂の行を止める（運営者が自分の端末で実行）: `npm run registry -- stop --pub pe-construction/toan-kousei-template/youtube.longform.reading-fix --reason superseded`
+2. 旧版 2 本（`pe-construction/hissu1-kensetsu-dx/youtube.longform`・`pe-construction/hissu1-infra-roukyuuka/youtube.longform`）は、非公開で残すか止めるかを決める。止めるなら `registry -- stop --reason superseded`
+3. 予約した 3 本の公開後、毎朝の照合で `published` になったことを確かめる
+
+**完了条件**: toan-kousei-template の改訂の行が `stopped` になっている。旧版 2 本の扱いが台帳に記録されている。3 本が `published` で YouTube の実体と一致している。
+
+
 ### [DN-1095] 技術士一次の情報工学部門の専門科目の過去問 16 回分を作る
 タグ: [領域:サイト] [時期:2027-05..2027-07] [種類:制作] [起票:2026-11-10]
 
