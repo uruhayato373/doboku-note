@@ -993,8 +993,8 @@ const MAGAZINES_RAW = {
   // 1級一次の 2 点セット（2026-11-10 新設・DN-0957 の (4)）。一次の有料単品は過去問PDF ¥1,980 と出る順 合格ノート ¥1,480 の 2 本（精読ガイドは無料）。単品合計 ¥3,460 → ¥2,980。サイトの一次の過去問ページの CTA 切り替えは試験 8 週前（DN-0957 の (3)）。
   'civil-1-ichiji-pack': {
     id: 'civil-1-ichiji-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mf863c7bdaf21',
     qualification: 'civil-construction-1',
     noteTitle: '1級土木 一次｜過去問PDF＋出る順ノート',
     title: '1級土木 第1次検定｜過去問PDF＋出る順 合格ノート セット',
