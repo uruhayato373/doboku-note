@@ -568,47 +568,16 @@
 **完了条件**: 広げる・広げないの判断と理由がこのカードにあり、広げた場合は約 96 本が develop にある。
 
 
-### [DN-1070] 予約の後の公開の照合と転送ファイルの後始末を定期で回す
-タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-10] [進行中]
+### [DN-1070] 予約の毎朝の照合が main で動くのを確かめ、status に予約後の段を足す
+タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-10]
 
-**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。公開日時を過ぎても台帳が `scheduled` のままの通常動画が 7 本ある（うち 6 本は `check-registry-due` が超過と報告）。`check-registry-due` は 2026-10-25 に CI から外れたまま（`scripts/quality-audit.mjs:169-172`）。`youtube-funnel-audit.yml` の cron はコメントアウト、`reconcile` は手動のみ、`cleanup` も手で回す。計測の取得が台帳の `published` に依存するかは未確認。
-
-**やること**:
-1. 照合（`reconcile`）を日次の cron にする
-2. `check-registry-due` を ops（日次）に戻す
-3. `status` に `verify`（予約済みで実体未確認）と `cleanup-pending` を足す
-4. 計測の取得が `published` に依存するかを確かめ、依存するなら欠測の扱いを決める
-
-**完了条件**: 公開日時を過ぎた行が翌日までに `published` へ照合され、超過が日次の検査で赤になる。
-
-
-### [DN-1069] status に台本待ちの企画を出し、期限超過と QA 不合格の滞留を週次で読む
-タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-10] [進行中]
-
-**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。年間計画の行のうち約 70 行は公開行が無い。`video-factory status` はパックのディレクトリしか走査しない（`scripts/video-factory.mjs:97-106`）ので、次にどの企画の台本を書くかが出ない。確認期限の超過は warning で exit 0（`scripts/lib/youtube-longform-audit.mjs:161`、`scripts/check-youtube-plan.mjs:229-231`）、`qa_blocked` の行は照合を飛ばすので期限超過も出ない（audit :8,150）。
+**起点**: PR #1491（2026-11-10 マージ）で、予約の照合（youtube-single-publish の reconcile）を毎日 08:40 JST の schedule でも回し、`check-registry-due` を日次の ops に戻した。schedule は main の版で走るので、main へ昇格するまで動かない。その時点で公開日時を過ぎて `scheduled` のままの通常動画は 14 本。計測（youtube-analytics）は `published` だけを測るので、照合が止まると公開済みの動画が計測から漏れる。
 
 **やること**:
-1. `status` に `script` 段を足し、公開行の無い計画の行を ready の近い順に出す
-2. ready 超過と `qa_blocked` の滞留を週次レビューが読む項目にする（壁時計に依存するので ci ではなく ops の weekly）
+1. main へ昇格した翌朝、youtube-single-publish の schedule の run が成功し、`npm run check-registry-due` の超過が 0 本になったことを確かめる
+2. `video-factory status` に `verify`（予約済みで実体未確認）と `cleanup-pending`（R2 の転送ファイルの後始末待ち）を足す
 
-**完了条件**: `status` に台本待ちの企画が期限の順に出る。期限を過ぎた行が週次の検査で赤になる。
-
-
-### [DN-1068] 動画の制作の途中状態を段ごとに commit し、生成の前に無料の検査を通す
-タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-10] [進行中]
-
-**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。
-- 制作の記録を commit するのは関門を通ったパックの `finish` だけ（`.claude/workflows/video-factory.js:103-106`、`scripts/video-factory.mjs:367-372`）。QA の BLOCK・画像の上限・画面確認の fail・音声の関門落ちは、その PC の未コミットの変更にだけ残る。plan.json と生成画像は `.tmp/` にだけあり（lib :38）、別の PC では同じ台本を再採点・再生成する
-- 年間の枠と導線の検査は関門でだけ評価する（gate lib :64,70）。計画の行と結んでいないパックや CTA が未定のパックは、画像・描画・画面確認を済ませた後で初めて落ちる（video-factory.md の罠にもある）
-
-**やること**:
-1. 止まったパックも段ごとに `commit`（pathspec 限定）して develop へ push する
-2. 画像の途中状態は PC 限りと割り切るなら、`status` に「plan.json はこの PC に無い」と出す。運ぶなら Drive への同期を足す
-3. `preflight --pack` を足す（公開行の有無・`planProblems`・`primaryCta` の種別と宛先・重複）。Workflow の最初の段（エージェント不要）に置く
-
-**完了条件**: 途中で止まったパックの状態が別の PC の `status` で同じに見える。計画にないパックが画像の生成の前に止まる。
-
-
+**完了条件**: 公開日時を過ぎた行が翌日までに `published` へ照合され、超過が日次の検査で赤になる。status に予約後の 2 段が出る。
 
 
 ### [DN-1063] YouTube の維持率曲線を取り、場面ごとの離脱を台本の Writer と QA に渡す
