@@ -623,7 +623,7 @@
       "format": "longform",
       "variant": "reading-fix",
       "revisionOf": "pe-construction/toan-kousei-template/youtube.longform",
-      "status": "approved",
+      "status": "stopped",
       "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.revision-reading-fix.json",
       "media": {
         "cover": "pe-construction/toan-kousei-template/work/candidate-cover",
@@ -652,7 +652,8 @@
         "by": "policy",
         "at": "2026-11-05T22:13:24.544Z",
         "contentSha256": "f79ff0d179bc9a6ac3ab87b8155c7ce092b108e4df16c03bc4364439816d9bee"
-      }
+      },
+      "stopReason": "superseded"
     }
   ]
 }

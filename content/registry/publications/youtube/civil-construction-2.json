@@ -192,7 +192,7 @@
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#shorts/point-block1-2",
       "relatedTo": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -201,7 +201,7 @@
       "platform": {
         "id": "uNCBD0A9zpw",
         "url": "https://www.youtube.com/shorts/uNCBD0A9zpw",
-        "privacy": "private",
+        "privacy": "gone",
         "relatedVideoId": "lNI2f_SjCTk",
         "desiredRelatedVideoId": "lNI2f_SjCTk",
         "evidence": {
@@ -218,7 +218,8 @@
         "scene-002": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002",
         "video": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video",
         "subtitles": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/subtitles"
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2-diagram-led",
@@ -227,7 +228,7 @@
       "format": "short",
       "variant": "point-block1-2-diagram-led",
       "revisionOf": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
-      "status": "draft",
+      "status": "stopped",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.revision-point-block1-2-diagram-led.json",
       "media": {
         "body": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-body",
@@ -237,7 +238,8 @@
         "subtitles": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-subtitles",
         "video": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-video"
       },
-      "relatedTo": "civil-construction-2/gakka-2kyu-doko/youtube.longform.diagram-led"
+      "relatedTo": "civil-construction-2/gakka-2kyu-doko/youtube.longform.diagram-led",
+      "stopReason": "superseded"
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
@@ -248,7 +250,7 @@
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -257,7 +259,7 @@
       "platform": {
         "id": "vYPjT713Hyg",
         "url": "https://www.youtube.com/shorts/vYPjT713Hyg",
-        "privacy": "private",
+        "privacy": "gone",
         "relatedVideoId": "lNI2f_SjCTk",
         "desiredRelatedVideoId": "lNI2f_SjCTk",
         "evidence": {
@@ -274,7 +276,8 @@
         "scene-002": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002",
         "video": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video",
         "subtitles": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/subtitles"
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1-diagram-led",
@@ -283,7 +286,7 @@
       "format": "short",
       "variant": "point-overview-1-diagram-led",
       "revisionOf": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
-      "status": "draft",
+      "status": "stopped",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.revision-point-overview-1-diagram-led.json",
       "media": {
         "body": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-overview-1-body",
@@ -293,7 +296,8 @@
         "subtitles": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-overview-1-subtitles",
         "video": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-overview-1-video"
       },
-      "relatedTo": "civil-construction-2/gakka-2kyu-doko/youtube.longform.diagram-led"
+      "relatedTo": "civil-construction-2/gakka-2kyu-doko/youtube.longform.diagram-led",
+      "stopReason": "superseded"
     },
     {
       "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform",
