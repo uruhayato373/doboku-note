@@ -22,7 +22,7 @@ title: 動画の量産工程（通常動画・ショート）
 | ready-for-approval | 音声を照合し、関門を通ったら方針の承認を書く | スクリプト |
 | 予約 | R2 へ転送し `youtube-single-publish.yml` で予約する | スクリプト |
 
-`fix-script` は内容QAの不合格、`images-exhausted` は作り直しの上限、`review-failed` は画面確認の fail で、どれも人が見る。
+`fix-script` は内容QAの不合格、`images-exhausted` は作り直しの上限、`generate-stalled` は同じ項目で画像が出ない試行が続いたもの、`review-failed` は画面確認の fail で、どれも人が見る。`status` は止まった項目の理由も出す。原稿を変えずにやり直すときは `plan --retry <項目 id|all>` で回数と理由を戻す。画像が出なかった試行は作り直しの回数に数えず、試した全項目で出なければ `generate` は exit 2（検査不成立）で止まる（生成の経路を確かめて同じコマンドを打ち直す・DN-1065）。
 
 ## 品質の守り方
 
@@ -51,6 +51,7 @@ title: 動画の量産工程（通常動画・ショート）
 ```bash
 npm run video-factory -- plan --pack <資格>/<作品>
 npm run video-factory -- generate --pack <資格>/<作品>
+npm run video-factory -- plan --pack <資格>/<作品> --retry <項目 id|all>   # 上限・停止の項目を原稿を変えずにやり直す
 npm run video-factory -- audit-queue --pack <資格>/<作品>
 npm run video-factory -- record-audit --pack <資格>/<作品> --file <判定の JSON> --by ai-image-fidelity-auditor
 npm run video-factory -- adopt --pack <資格>/<作品>

@@ -9,8 +9,8 @@ import { generateWithCodexAsync } from '../scripts/lib/codex-image.mjs';
 import { reviewIsCurrent } from '../scripts/lib/media-review.mjs';
 import { acceptedApproval, audioProblems, evaluateGate, nextSlot, speechSimilarity, uploadsLeft } from '../scripts/lib/video-publish-gate.mjs';
 import {
-  MAX_ATTEMPTS, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
-  ledgerVerdicts, nextStage, packDirOf, planPath, readPlan, recordAudit, summarize,
+  MAX_ATTEMPTS, MAX_NO_OUTPUT, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
+  ledgerVerdicts, nextStage, packDirOf, planPath, readPlan, recordAudit, retryItems, summarize,
 } from '../scripts/lib/video-factory.mjs';
 
 const PACK = 'pe-construction/sample';
@@ -112,15 +112,57 @@ test('計画: 指示を改善しても合格済みは残し、未合格は回数
   } finally { f.done(); }
 });
 
-test('生成: 画像が出ない項目は上限まで試して残し、勝手に通さない', async () => {
+test('生成: 画像が出ない試行は回数に数えず、続けば止めて勝手に通さない（DN-1065）', async () => {
   const f = fixture();
   try {
     buildPlan(f.root, PACK, { date: '20261104', refs, scope: 'cover' });
-    for (let i = 0; i < MAX_ATTEMPTS + 2; i += 1) await generatePlan(f.root, PACK, { generate: async () => null });
+    const first = await generatePlan(f.root, PACK, { generate: async () => null });
+    assert.equal(first.unreachable, true, '試した全項目で画像が出なければ unreachable');
+    for (let i = 0; i < MAX_NO_OUTPUT + 2; i += 1) await generatePlan(f.root, PACK, { generate: async () => null });
+    const item = readPlan(f.root, PACK).items[0];
+    assert.equal(item.attempts, 0, '画像が出なかった試行は品質の回数を使わない');
+    assert.equal(item.noOutput, MAX_NO_OUTPUT, '止めた後は呼ばない');
     const s = summarize(readPlan(f.root, PACK));
-    assert.deepEqual(s.exhausted, ['cover']);
-    assert.equal(readPlan(f.root, PACK).items[0].attempts, MAX_ATTEMPTS);
-    assert.equal(nextStage({ status: 'draft', standard: false, plan: s }), 'images-exhausted');
+    assert.deepEqual(s.exhausted, []);
+    assert.deepEqual(s.stalled, ['cover']);
+    assert.equal(s.reasons.cover, '画像が出なかった');
+    assert.equal(nextStage({ status: 'draft', standard: false, plan: s }), 'generate-stalled');
+  } finally { f.done(); }
+});
+
+test('生成: 一部でも画像が出た回は unreachable にしない', async () => {
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261104', refs });
+    const ok = fake(await png(1920, 1080));
+    const r = await generatePlan(f.root, PACK, { generate: (p, m, o) => (p.includes('『aの見出し』') ? null : ok(p, m, o)), concurrency: 1 });
+    assert.equal(r.unreachable, false);
+    assert.equal(r.attempted, 3);
+    assert.equal(r.missing, 1, '場面 a だけ画像が出ていない');
+    assert.equal(readPlan(f.root, PACK).items.find((i) => i.id === 'a').noOutput, 1);
+  } finally { f.done(); }
+});
+
+test('やり直し: 上限に達した項目の回数と理由を戻し、原稿を変えずに作り直せる（DN-1065）', async () => {
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261104', refs, scope: 'cover' });
+    const tiny = fake(await png(800, 450));
+    for (let i = 0; i < MAX_ATTEMPTS; i += 1) await generatePlan(f.root, PACK, { generate: tiny });
+    assert.deepEqual(summarize(readPlan(f.root, PACK)).exhausted, ['cover']);
+    assert.match(summarize(readPlan(f.root, PACK)).reasons.cover, /解像度/);
+    // 原稿が同じなので plan を作り直しても回数は戻らない
+    buildPlan(f.root, PACK, { date: '20261105', refs, scope: 'cover' });
+    assert.deepEqual(summarize(readPlan(f.root, PACK)).exhausted, ['cover']);
+    assert.throws(() => retryItems(f.root, PACK, ['nope']), /計画に無い/);
+    const r = retryItems(f.root, PACK, ['all']);
+    assert.deepEqual(r.reset, ['cover']);
+    assert.deepEqual(r.exhausted, []);
+    const item = readPlan(f.root, PACK).items[0];
+    assert.equal(item.attempts, 0);
+    assert.equal(item.fix, null);
+    await generatePlan(f.root, PACK, { generate: fake(await png(1920, 1080)) });
+    assert.equal(summarize(readPlan(f.root, PACK)).missing, 0);
   } finally { f.done(); }
 });
 

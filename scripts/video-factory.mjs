@@ -3,7 +3,7 @@
  * video-factory.mjs — 通常動画の量産工程の入口。手順は .claude/knowledge/reference/video-factory.md
  *
  *   npm run video-factory -- status [--exam <exam>] [--json]   全パックの次の工程
- *   npm run video-factory -- plan --pack <exam>/<work> [--scope all|cover] [--date YYYYMMDD]
+ *   npm run video-factory -- plan --pack <exam>/<work> [--scope all|cover] [--date YYYYMMDD] [--retry <項目 id,…|all>]
  *   npm run video-factory -- generate --pack <exam>/<work> [--concurrency 3]
  *   npm run video-factory -- audit-queue --pack <exam>/<work>             監査へ渡す項目
  *   npm run video-factory -- record-audit --pack <exam>/<work> --file <verdicts.json> --by <担当>
@@ -44,12 +44,12 @@ import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
-import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, summarize } from './lib/video-factory.mjs';
+import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, retryItems, summarize } from './lib/video-factory.mjs';
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
-    stock: { type: 'boolean' },
+    stock: { type: 'boolean' }, retry: { type: 'string' },
     pack: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' },
     concurrency: { type: 'string' }, packs: { type: 'string' }, 'publish-at': { type: 'string' }, file: { type: 'string' }, by: { type: 'string' }, avg: { type: 'string' }, blocks: { type: 'string' },
   },
@@ -111,7 +111,11 @@ function status() {
   if (args.json) { console.log(JSON.stringify({ scanned, checked: rows.length, counts, rows }, null, 2)); return; }
   console.log(`パック ${scanned} 件のうち、公開行のある ${rows.length} 件を判定`);
   for (const [stage, n] of Object.entries(counts).sort()) console.log(`  ${stage}: ${n}`);
-  for (const r of rows.filter((x) => !['done', 'stopped'].includes(x.stage))) console.log(`${r.stage}\t${r.pack}`);
+  for (const r of rows.filter((x) => !['done', 'stopped'].includes(x.stage))) {
+    console.log(`${r.stage}\t${r.pack}`);
+    // 止まった項目は理由まで出す。やり直すときは plan --retry
+    for (const [id, why] of Object.entries(r.plan?.reasons ?? {})) console.log(`  ${id}: ${why}`);
+  }
 }
 
 async function render() {
@@ -441,13 +445,22 @@ function cleanup() {
 
 const commands = {
   status,
-  plan: () => { const p = buildPlan(ROOT, requirePack(), { scope: args.scope, date: args.date ?? today() }); console.log(JSON.stringify(summarize(p))); },
+  plan: () => {
+    // --retry は原稿を変えずに、上限に達した項目・画像が出ずに止まった項目をやり直す（all で止まった項目すべて）
+    if (args.retry) { console.log(JSON.stringify(retryItems(ROOT, requirePack(), args.retry.split(',')))); return; }
+    const p = buildPlan(ROOT, requirePack(), { scope: args.scope, date: args.date ?? today() });
+    console.log(JSON.stringify(summarize(p)));
+  },
   generate: async () => {
-    // 機械検査で落ちた分は上限まで作り直す。上限に達して残れば失敗で返す
+    // 機械検査で落ちた分は上限まで作り直す。上限に達するか、画像が出ずに止まった項目が残れば失敗で返す
     let result;
-    do result = await generatePlan(ROOT, requirePack(), { concurrency: Number(args.concurrency ?? 3), log: console.log });
-    while (result.missing > result.exhausted.length);
+    do {
+      result = await generatePlan(ROOT, requirePack(), { concurrency: Number(args.concurrency ?? 3), log: console.log });
+      if (result.unreachable) break;
+    } while (result.missing > result.exhausted.length + result.stalled.length);
     console.log(JSON.stringify(result));
+    // 1 枚も出ないのは画像の品質ではなく生成の経路の問題。回数は使っていないので、経路を直して同じ generate を打ち直す
+    if (result.unreachable) { console.error('検査不成立: 試した項目すべてで画像が出なかった（生成の経路を確かめる。回数は使っていない）'); process.exit(2); }
     if (result.missing) process.exit(1);
   },
   'audit-queue': () => console.log(JSON.stringify(auditQueue(ROOT, requirePack()), null, 2)),
