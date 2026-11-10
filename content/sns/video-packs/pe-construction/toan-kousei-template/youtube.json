@@ -38,7 +38,9 @@
       ],
       "categoryId": "27",
       "r2Key": "video/render/toan-kousei-template/shorts/point-skeleton-1/shorts.mp4",
-      "thumbnailR2Key": "video/render/toan-kousei-template/shorts/point-skeleton-1/thumbnail.png"
+      "thumbnailR2Key": "video/render/toan-kousei-template/shorts/point-skeleton-1/thumbnail.png",
+      "sha256": "9e49ed23b687dc34eb7446fa38d0724e900043239e756da0de5ac7d3a9678df4",
+      "thumbnailSha256": "0033ae1996bce9ee08c3be396bfaad905628d3247e803b40b01fb70e3c053617"
     },
     {
       "key": "point-koukarisk-2",
@@ -55,7 +57,9 @@
       ],
       "categoryId": "27",
       "r2Key": "video/render/toan-kousei-template/shorts/point-koukarisk-2/shorts.mp4",
-      "thumbnailR2Key": "video/render/toan-kousei-template/shorts/point-koukarisk-2/thumbnail.png"
+      "thumbnailR2Key": "video/render/toan-kousei-template/shorts/point-koukarisk-2/thumbnail.png",
+      "sha256": "c477201983e2cedd1af523339f63458a6ed48d6bd7099304db0b302f0796c371",
+      "thumbnailSha256": "18a2cc4633111c5e9a94d437aa53ba96392d0691f20a78efa91995bd46605f3e"
     }
   ]
 }
