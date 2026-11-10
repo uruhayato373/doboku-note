@@ -472,6 +472,19 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1063] YouTube の維持率曲線を取り、場面ごとの離脱を台本の Writer と QA に渡す
+タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-10]
+
+**起点**: `npm run youtube-analytics`（CI の `fetch-metrics.yml`）は、28 日窓の視聴回数・平均視聴時間・平均視聴率・流入元を `data/youtube/analytics/` へ取っている（2026-11-08 は 25 本すべて計測）。ただ、動画のどこで離れたかの維持率曲線は取っていない。台本を書く `video-script-writer` と採点する `video-content-qa` もこのデータを読んでいない。公開済みの成績が、次の台本に反映されない。
+
+**やること**:
+1. `scripts/lib/youtube-analytics-report.mjs` に、動画ごとの維持率曲線を足す（`dimensions: elapsedVideoTimeRatio`、`metrics: audienceWatchRatio,relativeRetentionPerformance`）。記録の型は `scripts/lib/dataset-schemas-market.mjs` に足し、`check-youtube-analytics` で対象数と取得数を照合する。会社 PC からは API に届かないので、取得は CI で行う
+2. 曲線を storyboard の場面の秒数に重ね、場面ごとの離脱を出す要約を作る（パックごと・型ごと）。視聴回数が基準に届かない動画は「判断できない」と出し、平均や傾向に混ぜない
+3. その要約を `video-script-writer` と `video-content-qa` の入力に結ぶ（同じ型の過去の離脱の多い場面の傾向を、台本の指示として渡す）。エージェントを変えたら同じ commit で registry を更新する
+
+**完了条件**: CI の取得で維持率曲線が記録され、`check-youtube-analytics` が対象数と取得数を出して通る。基準に届いた動画では、場面ごとの離脱の要約が出る。Writer と QA の定義が、その要約を読む手順を持っている。
+
+
 ### [DN-1060] add-note-utm が article-II1.md などの分割原稿を扱えず、check-note-site-utm の案内どおりに直せない
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-10]
 
