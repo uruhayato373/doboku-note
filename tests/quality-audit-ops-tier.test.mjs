@@ -144,7 +144,7 @@ test('SNS 保留中も公開導線の実事故を防ぐゲートを CI で実行
   // YouTubeの商品導線とInstagram固定投稿のプロフィール導線を検査する。
   const SNS = /^(x-|instagram-|youtube-|video-|sns-landing|registry-due|content-registry)/;
   // registry-due は予約の照合の停止を見る運用アラート（ops・ci:false・DN-1070）
-  assert.deepEqual(CHECKS.filter((c) => SNS.test(c.id)).map((c) => c.id), ['youtube-shorts', 'youtube-funnels', 'youtube-plan', 'youtube-plan-due', 'registry-due', 'instagram-profile-funnel']);
+  assert.deepEqual(CHECKS.filter((c) => SNS.test(c.id)).map((c) => c.id), ['youtube-shorts', 'youtube-funnels', 'youtube-plan', 'video-content', 'youtube-plan-due', 'registry-due', 'instagram-profile-funnel']);
   assert.equal(CHECKS.find((c) => c.id === 'registry-due').ci, false, '壁時計に依存するので CI のゲートにしない');
   const snsUrls = CHECKS.find((c) => c.id === 'sns-urls');
   assert.deepEqual(snsUrls.steps.map((s) => s.label), ['sns-urls-mdx', 'sns-urls-note'], 'sns-urls はサイトの MDX と note のリンクだけを見る');

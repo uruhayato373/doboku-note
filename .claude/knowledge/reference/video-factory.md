@@ -125,6 +125,7 @@ npm run shorts-factory -- restore --pack <資格>/<作品> --key <key>       # �
 
 ## 罠
 
+- 会社の Windows PC では画像の工程が通らない（2026-11-10）。参照画像は Drive の `制作物/コンテンツ/` にあり、Google ドライブのアプリが起動していないと `plan` が「参照画像が無い」で止まる。Codex はプロキシを越えて届くが、`~/.codex/config.toml` の既定のモデル（`gpt-6.1-sol`）は ChatGPT アカウントでは使えず、画像が出ない（`generate` は回数を使わず exit 2）。会社 PC は台本・QA・台帳まで、画像から先は Mac で回す。
 - `wire` の空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない。在庫を前倒しするときは計画の枠と目標日を先に直す（2026-11-06）。
 
 - 予約の検査に要る `channel`・`r2Key`・`thumbnailR2Key` は `wire` が入れる。手で足さない（2026-11-05）。

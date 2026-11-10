@@ -175,6 +175,7 @@ export const CHECKS = [
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: 'ショートの本数・タイトル・UTM・公開枠、停止以外の表紙が全面生成の標準か、採用画像の描画と画面確認が今の動画に結ばれているか' },
   { id: 'youtube-funnels', npm: 'check-youtube-funnels', timeout: 60_000, ci: true, note: '公開・予約・private 通常動画の有料note商品・UTM・関連サイト経路と公開台帳の一致を全件確認する' },
   { id: 'youtube-plan', npm: 'check-youtube-plan', timeout: 60_000, ci: true, note: '通常動画の年間の枠と公開台帳を照合する。計画にない動画・枠の超過・週の上限超え・時期の外を止める（壁時計に依らない）' },
+  { id: 'video-content', npm: 'check-video-content', timeout: 120_000, ci: true, note: '動画パックの原稿・storyboard・CTA・出典・置いてよいファイル（M11）。YouTube の再開に合わせて 2026-11-10 に CI へ戻した（結果はリポジトリの中身だけで決まる）' },
   { id: 'youtube-plan-due', cmd: ['node', 'scripts/check-youtube-plan.mjs', '--due'], timeout: 60_000, ci: false, ops: true, cadence: 'weekly', note: '台本待ち・内容QAで止まった通常動画の行のうち、確認期限（ready）を過ぎたもの。壁時計に依存するので週次の ops。読み手は土曜の週次レビュー（DN-1069）' },
   { id: 'registry-due', npm: 'check-registry-due', timeout: 60_000, ci: false, ops: true, note: '予約（scheduled）のまま公開の予定を猶予より過ぎた公開を出す。照合（youtube-single-publish の reconcile）は毎朝の schedule で回るので、赤は照合の停止か API の失敗。読み手は ops-audit の automation-failure Issue（DN-1070・2026-11-10 に ops で復帰）' },
   { id: 'admin-pages', npm: 'check-admin-pages', timeout: 30_000, ci: true, note: '管理画面の全ルートと台帳を照合する。台帳に無い画面・同じ問いの画面・上限超えを止める' },
