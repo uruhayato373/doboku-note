@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * check-past-exam-ledger — 過去問の問題台帳（data/pastexams/questions/{資格}.json）と演習データ・在庫台帳・記事の配線、
- * 演習データの正答と公式正答の一致を検査する（DN-0647）。演習データの無い資格（測量士補・コンクリート主任技士）は記事の MDX の見出しと「正答：N」を演習データの代わりに読む（DN-1085）。
+ * 演習データの正答と公式正答の一致を検査する（DN-0647）。演習データの無い資格（測量士・測量士補・コンクリート主任技士）は記事の MDX の見出しと「正答：N」を演習データの代わりに読む（DN-1085）。
  *
  *   node scripts/check-past-exam-ledger.mjs            # 台帳の対象資格すべて（LEDGER_EXAMS）
  *   node scripts/check-past-exam-ledger.mjs --json     # 機械向け（管理画面・週次が読む）

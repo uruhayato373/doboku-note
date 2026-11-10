@@ -455,6 +455,7 @@
     "area": "exam",
     "groups": [
       "guide",
+      "past-exam",
       "primary"
     ],
     "order": 33,
@@ -464,10 +465,12 @@
       "ogpExamKey": "surveyor",
       "groupLabels": {
         "guide": "受験ガイド",
+        "pastExam": "測量士 午前 過去問（択一式）",
         "primary": "測量士補 過去問（択一式）"
       },
       "groupDescriptions": {
         "guide": "試験の概要・午後記述式の分野選び・測量士補の択一・学習計画",
+        "pastExam": "測量士 午前 択一式28問の年度別過去問と解答解説（国土地理院の公式正答）",
         "primary": "測量士補 択一式28問の年度別過去問と解答解説（国土地理院の公式正答）"
       },
       "jumps": [
@@ -477,9 +480,14 @@
           "goal": "試験を知る"
         },
         {
+          "href": "#sec-pastExam",
+          "label": "測量士 午前",
+          "goal": "測量士の問題を解く"
+        },
+        {
           "href": "#sec-primary",
-          "label": "過去問",
-          "goal": "問題を解く"
+          "label": "測量士補",
+          "goal": "測量士補の問題を解く"
         }
       ]
     }

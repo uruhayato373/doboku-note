@@ -140,7 +140,7 @@ python -c "import fitz,os; os.makedirs('/tmp/verify',exist_ok=True); d=fitz.open
 
 ### Step 5.8: 問題台帳に照合を記録する（DN-0647）
 
-演習データに入る試験（1級・2級土木の一次・技術士第一次・総監の択一）は、照合の結果を問題台帳 `data/pastexams/questions/{資格}.json` に 1 問ずつ記録する。測量士補・コンクリート主任技士は演習データを持たず、台帳は記事 MDX の見出しと「正答：N」から行を作る（下の 1. の refresh-indexes は要らず、sync-past-exam-ledger が記事を直接読む）。記録の無い問題は iOS の書き出し（`build-ios-quiz-bundle`）が止める。
+演習データに入る試験（1級・2級土木の一次・技術士第一次・総監の択一）は、照合の結果を問題台帳 `data/pastexams/questions/{資格}.json` に 1 問ずつ記録する。測量士・測量士補・コンクリート主任技士は演習データを持たず、台帳は記事 MDX の見出しと「正答：N」から行を作る（下の 1. の refresh-indexes は要らず、sync-past-exam-ledger が記事を直接読む）。記録の無い問題は iOS の書き出し（`build-ios-quiz-bundle`）が止める。
 
 1. `npm run refresh-indexes`（演習データ `src/config/*-exam-questions.json` を記事から作り直す）→ `npm run sync-past-exam-ledger -- --write`（新しい問題 ID の行と原典の配線を足す）
 2. Step 5.7 の照合結果を `[{ qualification, id, page, transcription: { status: "verified"|"fixed" }, answer: { status: "official", official: [N] }, checkedAt, by }]` の JSON にし、`npm run sync-past-exam-ledger -- --apply <file> --write` で記録する
