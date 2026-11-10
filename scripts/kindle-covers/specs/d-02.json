@@ -1,5 +1,6 @@
 {
   "bookId": "d-02",
+  "adoptedImage": "scripts/kindle-covers/pop/d-02.pop-image.json",
   "background": "scripts/kindle-covers/backgrounds/a-03.png",
   "accent": "#16365C",
   "kicker": "技術士第一次試験",
@@ -19,9 +20,9 @@
   "brand": "doboku-note",
   "pop": {
     "exam": "pe-first-stage",
-    "kicker": "技術士 第一次試験",
-    "title": "適性科目",
-    "titleSub": "過去問完全解説",
+    "kicker": "過去問完全解説",
+    "title": "技術士 第一次試験",
+    "titleSub": "適性科目",
     "badge": [
       "R1〜R7",
       "7年分"

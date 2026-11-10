@@ -1,5 +1,6 @@
 {
   "bookId": "d-00",
+  "adoptedImage": "scripts/kindle-covers/pop/d-00.pop-image.json",
   "background": "scripts/kindle-covers/backgrounds/a-03.png",
   "accent": "#16365C",
   "kicker": "技術士第一次試験",
@@ -19,9 +20,9 @@
   "brand": "doboku-note",
   "pop": {
     "exam": "pe-first-stage",
-    "kicker": "技術士 第一次試験",
-    "title": "合本",
-    "titleSub": "基礎・適性・専門",
+    "kicker": "過去問完全解説",
+    "title": "技術士 第一次試験",
+    "titleSub": "基礎・適性・専門 全3科目",
     "badge": [
       "3科目",
       "計560問"
