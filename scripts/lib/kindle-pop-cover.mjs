@@ -37,9 +37,9 @@ export function buildKindlePopPrompt(pop, rules, palette) {
   if (errors.length) throw new Error(errors.join(' / '))
   const [badgeTop, badgeBottom] = pop.badge
   return [
-    '添付の承認済みKindle表紙をデザインの参照に、doboku-noteの資格学習用POP表紙を作る。',
+    '添付の承認済みKindle表紙は、先生の同一性と文字組・帯・丸い印の意匠の参考にだけ使う。背景の構造物（橋など）や構図は写さず、下の場面で描き直す。doboku-noteの資格学習用POP表紙を作る。',
     rules.formats.kindle.frame,
-    `最上部の小さな帯: 「${pop.kicker}」。`,
+    `最上部の資格名の帯（画面の幅いっぱい・題名の半分ほどの高さの太字。どの資格の本かがサムネイルでひと目で分かる大きさ）: 「${pop.kicker}」。`,
     pop.titleSub
       ? `最も大きく見せる題名: 「${pop.title}」。その下に大きく「${pop.titleSub}」。`
       : `最も大きく見せる題名: 「${pop.title}」。`,

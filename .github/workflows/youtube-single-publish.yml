@@ -8,13 +8,13 @@ on:
         required: false
         default: publish
         type: choice
-        options: [publish, sync-funnel, audit-funnel, reconcile, unschedule]
+        options: [publish, sync-funnel, audit-funnel, reconcile, unschedule, purge-shorts-audit, purge-shorts]
       publication:
         description: '承認済みの通常動画の公開ID（初回または個別改訂版）'
         required: false
         type: string
       expect:
-        description: 'registry publish-youtube dry-run の入力digest（64桁）'
+        description: 'registry publish-youtube dry-run の入力digest（64桁）。purge-shorts では試運転の digest'
         required: false
         type: string
       metadata_plan:
@@ -120,6 +120,36 @@ jobs:
             git commit -m 'Unschedule YouTube videos to replace them'
             git pull --rebase origin develop
             git push origin HEAD:develop
+          fi
+  purge-shorts:
+    # 旧工程の非公開ショートを消す（取り消せない・2026-11-10 運営者の決定）。audit は読むだけ、purge-shorts は試運転と同じ digest のときだけ消す
+    if: inputs.mode == 'purge-shorts-audit' || inputs.mode == 'purge-shorts'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      MODE: ${{ inputs.mode }}
+      EXPECT: ${{ inputs.expect }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Audit or delete old private Shorts
+        run: |
+          if [[ "$MODE" == 'purge-shorts' ]]; then
+            [[ "$EXPECT" =~ ^[a-f0-9]{64}$ ]]
+            node scripts/youtube-purge-shorts.mjs --apply --expect "$EXPECT"
+          else
+            node scripts/youtube-purge-shorts.mjs
           fi
   sync-funnel:
     if: inputs.mode == 'sync-funnel'

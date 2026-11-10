@@ -336,6 +336,7 @@
     "media": "node scripts/media.mjs",
     "check-content-registry": "node scripts/check-content-registry.mjs",
     "youtube-unschedule": "node scripts/youtube-unschedule.mjs",
+    "youtube-purge-shorts": "node scripts/youtube-purge-shorts.mjs",
     "check-registry-due": "node scripts/check-registry-due.mjs",
     "youtube-longform:prepare": "tsx scripts/prepare-youtube-longforms.mts",
     "youtube-shorts:prepare": "node scripts/prepare-video-pack-shorts.mjs",

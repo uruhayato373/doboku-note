@@ -65,21 +65,6 @@
 
 
 
-### [DN-1064] 建設部門の読み修正版 3 本を予約するか、公開日時を付け直す
-タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-10] [期日:2026-11-10]
-
-**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。台帳 `content/registry/publications/youtube/pe-construction.json` で次の 3 本が `approved`（11/05 に方針の承認）なのに `times` が無く、予約の段（`publish`）が実行されていない。`video-factory status` は `done` と出すので気づけなかった。関門は公開の 24 時間以上前を求める。
-- `pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix`（publishAt 2026-11-11T11:30Z）
-- `pe-construction/toan-kousei-template/youtube.longform.reading-fix`（2026-11-12T11:30Z）
-- `pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix`（2026-11-13T11:30Z）
-
-**やること**:
-1. Mac で develop を取り込み、`npm run video-factory -- status --exam pe-construction` を見る（PR #1484 のマージ後は `publish-pending`・`slot-expired` で出る）
-2. `publish-pending` の行は `node --env-file=.env.local scripts/video-factory.mjs publish --packs <a,b>` を 1 本ずつ流す（割当は 1 日 4 本）
-3. `slot-expired` の行は `npm run video-factory -- unapprove --pack <資格>/<作品>` → `wire --pack <資格>/<作品>`（空き枠へ付け直す）→ `gate` → `auto-approve` → `publish` の順でやり直す（`unapprove` は PR #1484 で足す）
-4. `registry-reconcile`（`mode=audit-funnel`）で予約の実体を読み戻す
-
-**完了条件**: 3 本とも台帳が `scheduled` で、YouTube 側の予約日時と一致している。
 
 
 ### [DN-1061] 技術士 建設部門 道路の設問ページ 16 本の検索の表示を測り、他の科目・年度へ広げるかを決める
@@ -341,29 +326,6 @@
 
 
 
-### [DN-0857] YouTube の既存動画のカバー・サムネを ChatGPT で作り直し、DN-0670 の6本と合わせて 11/21 までに反映する
-タグ: [領域:商品] [時期:2026-11] [種類:制作] [起票:2026-10-26] [期日:2026-11-21]
-
-**起点**: ChatGPT の有料プランは 11/22 に更新で、そこでプランを下げる（運営者の決定・2026-10-26）。カバー・サムネは ChatGPT の画像が良いので、更新までの1か月で既存動画の分を作り切る。
-
-**やること**:
-1. YouTube の既存動画（`youtube.json`・台帳にある公開・非公開の全本）の一覧を出し、カバー・サムネの作り直しが要る本を決める
-2. ChatGPT でカバー・サムネを作り、台帳の採用カバーへ差し替える
-3. 公開済みの本はサムネを反映する。DN-0670 の6本（承認・クレジット・改訂3本の差し替え）も同じ期間に進める（＝案B）
-
-**罠**: 一度に全部を差し替えると、どのサムネが効いたか比べられない。差し替え日を台帳に残し、再生数（DN-0737）が取れるようになったら前後で見る。SNS の新規展開・追加予約の保留（weekly「今週やらないこと」）は解かない——対象は既存動画の画像と DN-0670 だけ。
-
-**完了条件**: 2026-11-21 までに、対象の全動画のカバー・サムネが ChatGPT 版に差し替わり、台帳と YouTube の実体が一致している。DN-0670 が完了している。
-
-
-
-
-
-
-
-
-
-
 ### [DN-0819] （DN-0817 段1）土曜の収集チェーンが 2 週続けて全段 rc=0 で終わることを確かめる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24] [進行中]
 
@@ -425,17 +387,29 @@
 
 
 
-### [DN-0670] 2級土工の動画 6 本（公開 1・非公開 2・差し替え用の改訂 3）を承認して YouTube へ反映する（技術表現の訂正と VOICEVOX のクレジット）
+### [DN-0670] 2級土木の動画の残り（公開中 1 本の概要欄のクレジット・改訂版 3 本を出すか止めるか）
 タグ: [領域:商品] [時期:2026-10..2026-11] [種類:不具合] [検証:check-video-content] [起票:2026-10-11]
 
-**起点**: 2級土木の既存動画の技術表現の訂正（締固め度の現場乾燥密度・配合とスランプ・原因別ひび割れ対策・工事選定条件の断定回避・2026-10-11）と、VOICEVOX の利用条件（話者13 青山龍星は「VOICEVOX:青山龍星」のクレジット記載・2026-10-08 に確認）。YouTube 整理（10/15）で残るのは gakka-2kyu-doko の通常動画 lNI2f_SjCTk（10/12 公開）・非公開の Shorts 2 本と、その差し替え用の改訂 3 本（diagram-led・10/19 以降の図解版）だけ。6 本の概要欄にクレジットを足し、改訂 3 本は訂正後の版で作ってある（501fde370・check-content-registry PASS・check-video-publication PASS）。2026-10-26 の backlog 監査で、クレジットのカード（旧 DN-0605）をここへまとめた。運営者の判断で SNS 保留の例外として進める。
+**起点**: 2級土木の既存動画の技術表現の訂正（締固め度の現場乾燥密度・配合とスランプ・原因別ひび割れ対策・工事選定条件の断定回避・2026-10-11）と、VOICEVOX の利用条件（話者13 青山龍星は「VOICEVOX:青山龍星」のクレジット記載・2026-10-08 に確認）。
 
-**残り（運営者・承認はエージェントからは実行できない＝registry の規約）**:
-1. `npm run admin` の確認画面で 6 本の表紙・動画・文面を確かめて承認する
-2. 公開済み lNI2f_SjCTk の概要欄を metadata の同期で反映する
-3. 改訂 3 本を `npm run registry -- publish-youtube-revision --pub <改訂公開ID> --phase upload` → schedule → verify で差し替え、旧版の扱いを決める
+**2026-11-10 の変更**: 非公開のショート 2 本（point-block1-2・point-overview-1）は YouTube から削除した（旧ショートを消す運営者の決定・PR #1515）。ショートの改訂 2 本（draft）は作らない。新しいショートは DN-1001 で企画する。
 
-**完了条件**: 残る公開・非公開の動画の概要欄に「VOICEVOX:青山龍星」があり、YouTube の実体が訂正後の版に差し替わっている（`youtube.json`・台帳と YouTube の実体が一致）。
+**分かったこと（2026-11-10）**:
+- 改訂版（diagram-led）の通常動画は、keiken-daizai-erabi が予約済み。gakka-2kyu-doko・anzen-touan-gutaika-kaitei・hinshitsu-touan-gutaika の 3 本は qa_passed で止まっている
+- この 3 本は、台帳が指す完成動画（candidate-video）が Drive に無い。出すなら描き直しが要る
+- 改訂版の表紙は図解の画面で、公開中の全面 POP の表紙より弱い。差し替えるなら表紙は POP で作り直す
+- gakka-2kyu-doko は年間計画（`config/channel-annual-plan.json`）に元の動画の行が無く、`video-factory preflight` と関門（`auto-approve`）が「計画にない動画」で止まる（旧 DN-1078 を統合）
+
+**運営者が決める・実行する**（承認と停止はエージェントからは実行できない）:
+1. 消したショートの台帳の行を実体に合わせる:
+   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2 --reason gone`
+   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1 --reason gone`
+   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2-diagram-led --reason superseded`
+   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1-diagram-led --reason superseded`
+2. 改訂版 3 本を出すか止めるかを決める。出すなら、表紙を POP で作り直し、描き直して承認する（gakka は年間計画に元の動画の行を足す）。止めるなら `registry -- stop --reason user-decision`
+3. 公開中の lNI2f_SjCTk（gakka-2kyu-doko）の概要欄に「VOICEVOX:青山龍星」を metadata の同期で入れる（改訂版を出さない場合も要る）
+
+**完了条件**: 公開中の動画の概要欄に「VOICEVOX:青山龍星」がある。改訂版 3 本は、差し替え済みか停止のどちらかになっている。台帳と YouTube の実体が一致している。
 
 ### [DN-0440] コンクリート主任技士の小論文添削を、直前期（11月）の受注に応えられる状態にする
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-29] [期日:2026-11-29]
@@ -473,10 +447,10 @@
 
 **やること**:
 1. 令和8年度の基礎・適性・専門（建設・上下水道）の解答速報ページの枠（題名・説明・公開予定・公式正答の確認先）を試験前に公開する。
-2. 試験当日〜正答公開後に、公式問題 PDF と正答 PDF から既存の過去問ページと同じ手順（起稿→原典照合）で 4 ページを作り、無料演習（建設 3 科目）に追加する。
+2. 試験当日〜正答公開後に、公式問題 PDF と正答 PDF から既存の過去問ページと同じ手順（起稿→原典照合）で 4 ページを作り、無料演習（建設 3 科目）に追加する。あわせて水産部門の専門科目（`r08-fisheries`）を、既存の水産 16 回分と同じ形（問題と公式の正答だけ・演習には入れない）で作る。スキャンなら書き起こしと別の担当に全問照合させる（2026-11-10 追加）。
 3. 速報ページから過去問一覧・note 直前パックへの導線を置く。
 
-**完了条件**: 公式正答の公開から 3 日以内に令和8年度の 4 ページが公開され、`node scripts/check-pe-first-stage-historical.mjs`（年度追加後）と `node scripts/build-quiz-data.mjs` が通る。
+**完了条件**: 公式正答の公開から 3 日以内に令和8年度の 4 ページと水産部門の 1 ページが公開され、`node scripts/check-pe-first-stage-historical.mjs`（年度追加後）と `node scripts/build-quiz-data.mjs` が通る。
 
 **進捗（2026-10-02）**: 手順1を完了。解答速報ページの枠 `/exam/pe-first-stage/guide/r08-answers`（公式の問題・正答の確認先、正答訂正の注意、科目ごとの自己採点、合格発表、直前対策の導線、FAQ）を本番へ反映（PR #844）。正答の公開日は実施案内に書かれていないため断定していない。残りは試験後: 公式正答の公開を確認したらページに掲載日を追記し、令和8年度の4ページ（基礎・適性・建設・上下水道）を起稿して演習へ追加する。
 
@@ -535,6 +509,43 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1099] サイトに技術士 水産部門（二次）の入口のガイド 4 本を作る
+タグ: [領域:サイト] [時期:2027-02..2027-04] [種類:制作] [起票:2026-11-10]
+
+**起点**: DN-1092 の計画。一次（水産部門 16 回分）は公開済み。二次の入口がサイトに無い。
+
+**やること**: 上下水道部門（`content/site/pe-water-supply/` の guide-overview・guide-hissu-kamoku・guide-sentaku-kamoku・guide-study-plan）と同じ 4 本を水産部門で作る（出題テーマ表を入力にする）。`config/qualification-registry.json` の `pe-fisheries` を candidate から active に上げ、categories・トップの資格カードを配線して `npm run check-home-exam-coverage` を通す。ガイドは本文 3,000 字以上、試験制度・統計は一次情報で照合する。
+
+**完了条件**: 4 本が develop に入り、`check-home-exam-coverage` と `check-guide-length` が通る。
+
+
+### [DN-1098] 技術士二次の水産部門の必須科目Iと水産土木の答案を R01〜R08 で作る（受験準備を兼ねる）
+タグ: [領域:商品] [時期:2027-01..2027-05] [種類:制作] [起票:2026-11-10]
+
+**起点**: DN-1092 の計画。運営者は 2027 年の第二次試験（水産部門・水産土木の見込み）を受ける。答案づくりを受験準備と兼ねる。
+
+**やること**: 出題テーマ表（前のカード）を入力に、必須科目 I と選択科目（水産土木）II-1・II-2・III の答案を R01〜R08 で作る。置き場は `content/note/技術士水産部門/` の下書き（非公開）。書き方は上下水道の模範解答集（`content/note/技術士上下水道部門/magazines/`）と答案構成のテンプレートに合わせる。運営者は水産部門の合格者ではないので、合格者・合格答案と名乗らない（`src/config/author.ts` の資格だけを書く）。技術的事実は一次情報で照合する。
+
+**未決（運営者の判断）**: 合格前に note で販売するか、合格後に模範解答集として出すか。決まるまで公開しない。
+
+**完了条件**: 必須科目 I（8 年分）と水産土木（8 年分）の答案が揃い、事実の照合を通っている。
+
+
+
+
+### [DN-1096] 建設部門の読み修正の後始末（使われていない改訂の行を止める・旧版 2 本の扱いを決める）
+タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-10]
+
+**起点**: DN-1064 で建設部門の読み修正版 3 本を予約した（2026-11-10）。hissu1-kensetsu-dx・hissu1-infra-roukyuuka は改訂版を新しい動画として予約したので、読み間違いのある旧版（SvV8zXamMvo・1EAPnQVwARE）が非公開のまま残っている。toan-kousei-template は改訂版が旧版と同じ動画だったため、旧版 ywemm49EBPA をそのまま 11/12 に予約し直した（PR #1512・#1513）。そのため改訂の行は `approved` のまま使われていない。
+
+**やること**:
+1. 使われていない改訂の行を止める（運営者が自分の端末で実行）: `npm run registry -- stop --pub pe-construction/toan-kousei-template/youtube.longform.reading-fix --reason superseded`
+2. 旧版 2 本（`pe-construction/hissu1-kensetsu-dx/youtube.longform`・`pe-construction/hissu1-infra-roukyuuka/youtube.longform`）は、非公開で残すか止めるかを決める。止めるなら `registry -- stop --reason superseded`
+3. 予約した 3 本の公開後、毎朝の照合で `published` になったことを確かめる
+
+**完了条件**: toan-kousei-template の改訂の行が `stopped` になっている。旧版 2 本の扱いが台帳に記録されている。3 本が `published` で YouTube の実体と一致している。
+
+
 ### [DN-1095] 技術士一次の情報工学部門の専門科目の過去問 16 回分を作る
 タグ: [領域:サイト] [時期:2027-05..2027-07] [種類:制作] [起票:2026-11-10]
 
@@ -565,14 +576,6 @@
 **完了条件**: 衛生工学部門の 16 回分が公開され、`npm run check-past-exam-ledger` が通る。
 
 
-### [DN-1092] 技術士二次の水産部門（水産土木を中心）の過去問と模範解答の計画を作る
-タグ: [領域:商品] [時期:2026-12..2027-02] [種類:制作] [起票:2026-11-10]
-
-**起点**: 2026-11-10、運営者が「来年、水産部門を受験したい」として、一次・二次の両方の展開を決めた。運営者はすでに技術士（建設・上下水道・総監）で、受けるのは二次の見込み。土木の経験が活きる選択科目「水産土木」が中心になる見込み（今年度の科目名は受験案内で未確認）。読者の需要は未確認。
-
-**やること**: (1) 最新の受験案内で、水産部門の選択科目の名前と、技術士が他部門を受けるときの科目の免除の有無を確かめる。(2) 二次の公式の過去問（必須科目 I・選択科目 II・III）が何年度分あるかを表にする。(3) 上下水道部門（`content/site/pe-water-supply/` のガイド 4 本と note の模範解答集）と同じ形で、サイトのガイドと note の模範解答集の計画を作る。模範解答は運営者の受験準備を兼ねて作る。合格前は合格者を名乗らない（`src/config/author.ts` の資格だけを書く）。(4) `config/qualification-registry.json` の `pe-fisheries` を candidate から上げるかを決める。
-
-**完了条件**: 選択科目・免除・過去問の年度の表と、ガイドと模範解答集の計画が決まり、最初の制作カードを起票している。
 
 
 
@@ -633,18 +636,6 @@
 **完了条件**: 比べた日と結果、広げる・直す・やめるの判断がこのカードか後継カードに書いてある。
 
 
-### [DN-1078] 2級学科の改訂版を年間計画に載せるか止めるかを決める（preflight で計画にない動画として止まる）
-タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-10]
-
-**起点**: 2026-11-10 に追加した `video-factory preflight` を実データで回すと、2級土木の `civil-construction-2/gakka-2kyu-doko` の改訂版（`youtube.longform.diagram-led`・描画待ち）が「計画にない動画」で止まった。元の公開済みの動画 `civil-construction-2/gakka-2kyu-doko/youtube.longform` が年間計画（`config/channel-annual-plan.json`）の行に無く、改訂版は元の行で照合されるため。関門（`auto-approve`）も同じ理由で止まるので、描画しても予約できない。
-
-**やること**:
-1. この改訂版を出すかを決める（出すなら年間計画に元の動画の行を足す。公開済みの動画の差し替えなので action と枠をどうするかも決める）
-2. 出さないなら `registry -- stop` で改訂版の行を止め、`status` の描画待ちから外す
-
-**完了条件**: `npm run video-factory -- preflight --pack civil-construction-2/gakka-2kyu-doko` が通るか、改訂版の行が停止になっている。
-
-
 ### [DN-1077] 工事検査の動画の台本で、一次資料の本文で確かめていない 2 点を公開前に確かめる
 タグ: [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-11-10] [期日:2026-11-28]
 
@@ -701,6 +692,9 @@
 2. `video-factory status` に `verify`（予約済みで実体未確認）と `cleanup-pending`（R2 の転送ファイルの後始末待ち）を足す
 
 **完了条件**: 公開日時を過ぎた行が翌日までに `published` へ照合され、超過が日次の検査で赤になる。status に予約後の 2 段が出る。
+
+**統合（2026-11-10 整理）: 旧 DN-0985「公開済みの通常動画が YouTube の照合記録に無い（V02）」**
+`npm run -s check-video-publication` の V02（公開済みだが照合記録に無い）は、2026-11-04 の 2 本から 2026-11-10 には 16 本に増えた。照合が毎朝動けば消える見込み。動いても残る行は、照合後に公開したのか実査の失敗かを切り分ける。完了条件に「`check-video-publication` が通る」を足す。
 
 
 ### [DN-1063] YouTube の維持率曲線を取り、場面ごとの離脱を台本の Writer と QA に渡す
@@ -921,6 +915,9 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **完了条件**: `npm run scout-youtube-competitors -- --handle UCuSGRLcIrq20nw9gyisjlRg` で中央値が出て、自社の取得も再生数の全滅で止まる。
 
+**統合（2026-11-10 整理）: 旧 DN-0737「通常動画の再生数が yt-dlp の一覧で取れなくなった原因を確かめて直す」**
+同じ原因（手元の yt-dlp が古い）なので 1 枚にまとめた。記録は 10/08 が 70/70 本、10/10 が 0/73 本、10/12 が 5/74 本。`brew upgrade yt-dlp` は Command Line Tools for Xcode の更新待ちで止まっている（2026-10-26）。運営者が CLT を更新してから進める。完了条件に「`npm run youtube-own-metrics -- --dry-run` が通常動画の再生数を取れて exit 0」を足す。
+
 
 
 
@@ -1029,6 +1026,8 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 ### [DN-1003] YouTube 台帳の停止行の公開状態が実体とずれているのを直す
 タグ: [領域:SNS] [時期:2026-12] [種類:不具合] [起票:2026-11-06]
 
+**実測（2026-11-10・認証つきの API）**: チャンネルの動画は 45 本（`youtube-purge-shorts` の試運転・run 42806257539）。内訳は、台帳で予約・公開・止めていない通常動画として守っている 40 本と、予約のない非公開で縦横が読めない 5 本。11/06 に 403 だった stopped/private のショートは、もう YouTube に無い。台帳に残る stopped のショート 12 行は `platform.privacy` が private のままで、実体は無い。残る 5 本は止めていない行と結べず、正体は未確認（公開リポジトリなので ID はログへ出していない）。
+
 **起点**: 2026-11-06 に YouTube の全動画 ID を oEmbed で確かめた。停止中の行は台帳の `platform.privacy` が更新されず、実体とずれている。
 
 **実測**: 通常動画は台帳 stopped/public の 74 本中 73 本が 404、1 本が 403。ショートは stopped/public の 12 本が 404。stopped/private の 220 本は 403 で非公開のまま残っている。186 本は動画 ID が台帳に無い。公開に届くショートは 0 本。
@@ -1039,7 +1038,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 ### [DN-1002] ショートの在庫運用を作る（台本QA・Drive 在庫・予約の分離）
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-06] [進行中]
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-06]
 
 **起点**: 2026-11-06 の運営者の検討依頼。ショートも「台本の監査 → 画像 → Drive に在庫 → 予約は別の判断」で回し、手元には残さない運用を比べた。通常動画は内容QA・`--stock`・`schedule`・`publish`・`cleanup` がある。
 
@@ -1055,28 +1054,24 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **完了条件**: 手元の画像と動画を消した状態で、Drive の在庫からショート 1 本を非公開でアップロードし、関連動画の設定と予約まで進み、`videos.list` で実体を確認できる。
 
 
-### [DN-1001] ショートの画像品質を通常動画と同じ検査に載せ、本文画面を図解中心へ直す
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-06] [進行中]
+### [DN-1001] 新しい通常動画からショートを派生させる試行（通常動画 3 本 × ショート 2 本）
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-06] [期日:2026-11-21]
 
-**起点**: 2026-11-06 にショートの画像品質を確認した。concrete-engineer/gishi-haigou-keisan の point-step1-1 を preview で目視（1 本・静止画 3 枚のみ。完成動画は未確認）。
+**方針（2026-11-10・運営者の決定）**: 旧工程のショートは品質が低いので消し、新しい通常動画の派生として企画し直す。古い 224 本の設計（pop-v2）を作り直す案はやめる。型の定義は `config/youtube-formats.json` の `pack-shorts`（外部リンクではなく関連動画で通常動画へ送る）のまま。
 
-**分かったこと**:
-0. 表紙: `create-pop-image` は全面生成の `pop-poster-v3`（Codex ImageGen）を基準とし、`pop-v2` 組版での代用を禁じているが、Shorts 表紙 224 本中 222 本が `pop-v2`（2026-11-06 に cover-design.json を集計）。`pop-poster-v3` は gakka-2kyu-doko の 2 本だけ。見本の表紙は 10/10 の Codex 確認で `userImageReview: pending`
-1. `scripts/render-video-pack-shorts.mjs` は 表紙・本文・締めの静止画 3 枚で、本文は `buildExplanationNode` の定型カード。図がなく、通常動画の図解画像を使わない（gakka-2kyu-doko は 10/12・10/19 に Codex 製の全画面画像へ別途差し替えたため例外。この標準の生成経路には全面 POP の本文がない）
-2. 見本の締め画像は下約 1/4 が無地の紺帯。`sns-image-policy`・`yt-shorts-publisher-qa` の「下の巨大な無地領域」に当たる疑い
-3. `video-factory` の画像監査・内容QA・画面確認・関門は通常動画だけで、ショートは通らない
-4. `check-youtube-shorts` は 2026-10-25 に quality-audit から外れ、現在 exit 1（主任技士の 5 件: sceneId 不一致 4・タイトル 41 字 1）
-5. `yt-shorts-publisher-qa` の手順は旧 Instagram 派生のままで、現行ポリシー（字幕必須・動画パックのタイトル型）と食い違う。4 軸に画像の軸がない
-6. prepare・render・check は 4 資格（土木 2・コンクリート 2）だけ。pe-first-stage は outputs.shorts=0 で生成できない
+**現状（2026-11-10）**: YouTube 上の旧ショートは 0 本（残っていた 2級土工の 2 本を削除・PR #1515・run 42806142170）。`npm run shorts-factory -- status` は 12 本すべて no-design。新工程の試作は concrete-engineer/gishi-haigou-keisan の point-step1-1 の 1 本だけで、完成動画は未確認。
+
+**旧ショートの欠点（繰り返さない）**: 30 秒のうち約 18 秒が締めの同じ画面だった。場面ごとに人物の見た目（ヘルメット・髪型）が変わった。字幕が小さく、人物や図に重なった。
 
 **やること**:
-- 表紙・本文・締めを gakka-2kyu-doko の実績（Codex 生成・全画面・字幕安全域）に揃えて標準の生成経路へ組み込み、代表 1 本を完成動画で確認してから展開する。pop-v2 のままでは公開工程へ進めない検査を足す
-- 表紙・本文・締めと字幕入りフレームを `ai-image-fidelity-auditor` と画面確認の対象へ足し、sha に結ぶ
-- `yt-shorts-publisher-qa` を現行の動画パック手順へ書き直し、画像の軸を足す
-- `check-youtube-shorts` の 5 件を直し、ショートを再開する時点で quality-audit へ戻す
-- 技術士一次のショートを作るなら、資格の対応を足す
+1. 公開済み・予約済みの通常動画から 3 本を選ぶ（`data/youtube/analytics` の平均視聴率で選ぶ）。1 本につきショート 2 本、1 本に論点 1 つ
+2. `shorts-factory` で台本QA → 画像 → 完成動画まで作る。画像は Codex ImageGen で、プランを下げる 2026-11-22 より前に作る。締めは 3 秒程度、人物は参照画像で揃え、字幕は完成動画で読めるかを確かめる
+3. 関連動画に元の通常動画を設定して予約する（投稿の経路は DN-1002）
+4. 公開 28 日後、YouTube Analytics でショートから通常動画へ移った数を見て、広げるかを決める。年間計画の枠ごとの本数（DN-1004）もそこで決める
 
-**完了条件**: 試行対象の全ショートで、原寸と幅 360px の画像・字幕入りフレームの判定が動画の sha に結ばれて記録され、`npm run check-youtube-shorts` が検査件数つきで exit 0。
+**同時に直す整備**: `npm run check-youtube-shorts` を検査件数つきで通し、quality-audit へ戻す。`yt-shorts-publisher-qa` の手順を現行の動画パックの手順へ書き直し、画像の軸を足す。
+
+**完了条件**: 6 本が完成動画で画面確認を通り、関連動画つきで予約されている。28 日後の判断が `data/business/records/` に残っている。
 
 
 ### [DN-1000] コンクリート技士の試験後に出題を確かめ、2027 年度の予想問題へ改題する
@@ -1139,16 +1134,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 - **起点**: 2026-11-04 に公開済み・予約済み・非公開の通常動画 33 本の台帳を確認した。全部に運営者の画面確認と最終承認の記録があり、今の内容と一致している。ただし次の 2 点が残った
 - **やること**: ① 主任技士の「令和8年度予想」を含む動画（公開済み `shunin-hinshutsu-yusen`・`shunin-r8-juuten`、予約済み `shunin-chinka-hibiware-genin`・`shunin-rekka-taio`・`shunin-shoki-3kyokusen`）の、2026-11-29 の試験後の扱いを決める ② 公開予定日がある 28 本のうち 10 本は承認の記録時刻が公開予定より後なので、理由を台帳の履歴で確かめる
 - **完了条件**: ① の扱いが決まり、② の理由が分かっている
-
-
-### [DN-0985] 公開済みの通常動画 2 本が YouTube の照合記録に無い（V02）
-タグ: [SNS・マーケ] [領域:SNS] [時期:2026-12] [種類:不具合] [検証:check-video-publication] [起票:2026-11-04]
-
-- **起点**: 2026-11-04 の DN-0980 の作業中に `npm run -s check-video-publication` を実行すると、`pe1-kiso-senmon/longform` と `pe1-zentaizou/longform` が V02（公開済みだが照合記録に無い）で FAIL だった。DN-0980 の変更とは関係しない
-- **やること**: 照合後に公開したのか、実査が失敗しているのかを切り分ける。SNS 保留で定期の照合が止まっていないかも確かめ、必要なら `npm run registry-reconcile` で照合し直す
-- **完了条件**: `npm run -s check-video-publication` が通る
-
-
 
 
 ### [DN-0982] 管工事の工程表ガイドに遅延の再計算とダミーの例題と図を足す
@@ -2005,20 +1990,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **上下水道部門の業務経歴票（旧 DN-0745）の残り**: 記事（n6cd69bf307ba）は公開済みで、もくじ（n1f06f66b158e）と口頭試験の記事（n3013d48a2864）の原稿へのリンクは 2026-11-10 までに入った。週次の note 同期のあと、`npm run check-note-sync` で 2 本のライブにリンクが出ていることを確かめる。
 
 
-### [DN-0737] YouTube 通常動画の再生数が yt-dlp の一覧で取れなくなった原因を Mac で確かめて直す
-タグ: [領域:SNS] [時期:2026-12] [種類:不具合] [起票:2026-10-14]
-
-**起点**: DN-0697 で、通常動画の再生数が 1 本も取れない回を検査不成立（exit 2・保存しない）にした。記録は 10/08 が 70/70 本、10/10 が 0/73 本、10/12 が 5/74 本で、Shorts は毎回 12/12 本取れている。取れなくなった原因（英語表示の /videos 一覧で yt-dlp が view_count を返さない）は、yt-dlp の入った Mac でしか確かめられない。
-
-**やること**: Mac で `yt-dlp --version` を確かめ、`yt-dlp --flat-playlist -J --playlist-end 10 --extractor-args youtube:lang=en https://www.youtube.com/channel/UCHRnXPqoc0Hls8nXiK_ZYqA/videos` の entries の view_count を見る。null なら yt-dlp を更新して取り直す。更新しても null なら、YouTube Data API（videos.list の statistics.viewCount）で取る案を検討する。
-
-**完了条件**: `npm run youtube-own-metrics -- --dry-run` が通常動画の再生数を全本（または欠測の理由つきで大半）取れ、exit 0 になる。
-
-**止まっている所（2026-10-26）**: Mac の yt-dlp 2026.06.09 で一覧 3 本とも view_count が null。`brew upgrade yt-dlp` は「Command Line Tools for Xcode 27.0 を入れて」と止まった。運営者が CLT を更新したら yt-dlp を更新して取り直す。それでも null なら Data API 案へ。
-
-
-
-
 ### [DN-0715] 1級土木 第二次検定の合格発表後、DM 10051134 の購入者へ結果を伺い、合格なら体験談・評価をお願いする
 タグ: [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-10-13] [期日:2027-01-15]
 
@@ -2127,6 +2098,8 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 ### [DN-0597] YouTube Analytics の2回の定期記録を確認する
 タグ: [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-10-08]
+
+**実測（2026-11-10）**: `data/youtube/analytics/` の記録は 10/26・10/30・10/31・11/08 の 4 回。金曜の定期取得は 10/30 の 1 回だけで、11/06 の記録が無い。11/13 の金曜の run を確かめる。
 
 **起点**: DN-0110 の6週間判定と DN-0601 の図解版比較には、公開動画の28日窓の視聴指標が要る。[main の検証 run](https://github.com/uruhayato373/doboku-note/actions/runs/40310233002) で対象3本・指標行3本・台帳不一致0件、取得 rc 0 を確認した。金曜の定期取得は未確認。
 **やること**:
@@ -2670,22 +2643,19 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-0110] YouTube 動画パックの公開と、概要欄（季節の主商品リンク・保有資格）の同期・6 週間判定
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10..2026-12] [種類:改善] [Codex候補] [検証:quality:audit:ci] [起票:2026-08-21]
 
-**再開（2026-11-04）**: 運営者の指示で YouTube の保留を解除した。X・Instagram など他の SNS の保留は別に確認する。
-
 **戦略SSOT**: [06_動画コンテンツ運用設計.md](../../docs/marketing/06_動画コンテンツ運用設計.md)
 
 **作業契約**: [video-content-policy.md](../knowledge/reference/video-content-policy.md)
 
-2026-09-05のユーザー決定で、QA済みの1級土木66本・2級土木18本・コンクリート技士12本・主任技士16本の通常動画112本と、各パック2本のShorts計224本を公開工程へ進める。通常動画は112本すべて公開済みまたはAPI予約済み。残作業は次の順で行う。
+**現状（2026-11-10 に整理）**: 当初の対象（通常動画 112 本と Shorts 224 本・2026-09-05 の決定）は、2026-11-07 に在庫と台帳から外した（PR #1441）。YouTube の保留は 2026-11-04 に解除済み。今の対象は台帳で止めていない通常動画 55 本（公開 25・予約 12 ほか）。旧工程のショートは 2026-11-10 に YouTube から消し、新しい通常動画からの派生として DN-1001 で企画し直す。
 
-1. 通常動画の残存メタデータを著者主体・AI制作補助表記へ同期し、全件の`videoId`・`publishAt`・CTAを実査する
-2. Shorts224本をprivate R2へ配置し、API日次更新後に最大45pack/90本でprivate uploadする
-3. 各ShortでStudioの関連動画を該当通常動画へ設定してからAPI予約し、通常動画を含む最大3投稿/日・試験日除外を守る
-4. 公開6週間後にShorts→関連動画、視聴維持、YouTube UTM、note/ココナラ遷移から継続・修正・停止を判定する
+**残作業**:
+1. 概要欄の冒頭（主 CTA・保有資格）を新テンプレートへ同期する（下の旧 DN-0278）
+2. 公開 6 週間後に、視聴維持・YouTube の UTM・note／ココナラへの遷移から、継続・修正・停止を判定する（数値は DN-0597・DN-1063・DN-1086、ショートは DN-1001）
 
-**制約**: `approved` はユーザーだけが設定する。mp4/wavをGitへ入れない。今回の対象は明示承認済み112パックだけで、技術士総監・建設部門・診断士・IG/X/Threads/TikTokへ承認を波及させない。legacy総監Shorts187本はretiredのまま再開しない。
+**制約**: `approved` はユーザーだけが設定する。mp4/wav を Git へ入れない。
 
-**完了条件**: 通常動画112本とShorts224本を外部実体で照合し、全Shortsの関連動画・予約日時・著者表記が正しく、全機械・意味ゲートがPASSする。6週間後の継続/修正/停止判断とbaselineを記録したらカードを削除する。
+**完了条件**: 予約済み・公開済みの概要欄が新テンプレートと一致し、6 週間後の継続／修正／停止の判断と baseline を記録したらカードを削除する。
 
 **統合（2026-10-26 棚卸し）: 旧 DN-0278「YouTube 概要欄の冒頭に季節の主商品リンクと保有資格を置き、予約済み・公開済みへ同期する」**
 
@@ -3418,6 +3388,8 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-0175] SNS残存画像を公開完了後に再監査する
 タグ: [インフラ・計測] [領域:管理] [種類:改善] [Codex候補] [起票:2026-09-06]
 
+**前提の変化（2026-11-10）**: 下の再開条件が待っていた通常動画 112 本と Shorts 224 本は、台帳から外した（PR #1441）。旧ショートも YouTube から消えた。legacy の thumbnail 32 件を参照する非公開動画が残っているかを確かめれば、再監査に着手できる。
+
 2026-09-06 のSNS容量監査で、重い動画・音声はDrive退避とローリング削除まで完了した。現時点で
 削除せず保持した小容量資産は、legacy YouTube thumbnail 32件（2.20MiB・private動画と投稿スクリプトが参照）と、Xの旧アカウント／投稿済みカード104件（約11MiB・Git追跡かつpublisher/checkerがローカル実体を要求）。旧 IG パックのGitソースは 2026-11-01 に撤去済み。
 
@@ -3694,6 +3666,22 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-1100] Kindle 技術士一次 D 系 4 冊の値上げの価格を決め、表紙の審査後に KDP へ反映する
+タグ: [領域:商品] [時期:2026-11] [種類:意思決定] [起票:2026-11-10]
+
+**起点**: 2026-11-10、運営者が技術士一次の Kindle D 系 4 冊（d-00 全3科目 ¥1,250・d-01 基礎 ¥980・d-02 適性 ¥590・d-03 専門 ¥490。正本は `config/products.json`）を値上げしたいとし、いったん「d-00 ¥1,650・分冊 ¥1,250」とした。その後の確認で次が分かった。
+- KDP は他チャネルより高い定価を付けられない（`content/kindle/strategy.md` の価格の項。規約の原文は未確認）。note の過去問 PDF（`pe1-takuitsu-pdf`）は ¥1,480 なので、d-00 の ¥1,650 はこれを超える
+- d-01・d-02 は KDP セレクト加入中（2027/1/6・1/7 まで）。運営者は 11/10 に自動更新を「まだ止めない」と判断
+- 4 冊は 11/10 に新しい表紙で再出版を申請し、審査中は価格を変えられない（審査は最大 72 時間）
+- 実績: 7〜10 月の購入は約 4 冊（¥390〜490 の時）、d-00 は購入 0
+
+**決めること（運営者）**: 4 冊の新しい価格。d-00 は ¥1,480 以下（または note の PDF を上げる）。分冊は d-00 との差も見る。
+
+**やること**: 表紙の審査が終わったら（`node scripts/kdp-publish.mjs --sync-status` で確認）、決めた価格で `--set-price` を dry-run → `--commit`。`config/products.json` の価格と priceHistory、`scripts/kindle-specs/d-0*.json` を同じ commit で直し、`content/kindle/strategy.md` に判断を書く。
+
+**完了条件**: KDP の 4 冊の価格が決めた値になり、catalog と一致している（`npm run check-kindle-prices`）。
+
+
 ### [DN-1062] 2027 年に AI で効率化した技術士論文の添削を出すかを、集客・入口の添削・作業時間の 3 条件で決める
 タグ: [領域:商品] [時期:2027-02] [種類:意思決定] [起票:2026-11-10]
 
@@ -3816,16 +3804,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **やること**: EXP-012 の事後窓の終わり（2026-11-26）の判定と、章の公開から 28 日の表示・クリックを読み、(a) 記事末の導線（橋渡しカード）の扱い、(b) 補強や次の章の優先を決める。`/practice/` のカテゴリページのセッション数（2026-09-12〜10-09 は 2）が 28 日で 100 を超えていたら、シリーズを工種別ノートとは別の節にする仕組みを起票する（content-taxonomy.md §4）。
 
 **完了条件**: 判定の結果と次の対応を 18 番に 1 行で残す。着手するなら制作カードを起票し、18 番の参照を書き換える（消すと check-project-task-refs が止める）。
-
-### [DN-0726] 通常動画 38 本の計画台帳への仮配分を YouTube 再開時に運営者が見直す
-タグ: [領域:SNS] [種類:意思決定] [起票:2026-10-13]
-
-**起点**: 2026-10-13、PR #967（YouTube POP サムネイル）を develop へ取り込む際、develop で増えた通常動画 38 本が `config/channel-annual-plan.json` に無く検査が赤だったため、各資格の試験日の直前（2級土木 10/14・10/20・10/23、コンクリート 10/20・11/17・11/20 など）へ仮に配分した。運営者が見て決めた配分ではない。YouTube は一時停止中（#1044）。
-
-**やること**: 再開を決めるときに 38 本の `finish` 日を運営者が見直し、試験日を過ぎた枠は次の試験期へ送るか計画から外す。
-
-**完了条件**: 38 本の配分を運営者が確認し、計画台帳に過去日の未完了枠が残っていない（`check-youtube-shorts` と計画の検査が ✓）。
-
 
 ### [DN-0721] 共通仕様書の既存回遊導線の反応を確認し、直接リンク追加の要否を判断する
 タグ: [領域:サイト] [時期:2026-11] [種類:意思決定] [起票:2026-10-13]
@@ -3973,6 +3951,8 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 5. 完成済みの選択科目 8 本は 2027-03 以降に置いた。関門は目標日より前に予約しない。前倒しするなら枠の時期を動かす
 
 **完了条件**: 上の 5 点が決まり、`check-youtube-plan` の採否待ちと要対応が判断どおりに減っている。
+
+**追加（2026-11-10）**: 6. ショートの本数。年間計画は枠ごとに 5 本前後（10 枠・計 60 本）を置いている。試行（DN-1001・通常動画 1 本につき 2 本）の結果が出るまで、枠の本数を下げるかを決める。旧 DN-0726（通常動画 38 本の仮配分の見直し）は、対象の 38 本を 2026-11-07 に計画から外したので、このカードにまとめた。
 
 
 ### [DN-1006] YouTube・X・Instagram の年間計画を 3 か月の実測で見直す

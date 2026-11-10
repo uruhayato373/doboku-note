@@ -7058,6 +7058,130 @@
       "commit": "dd35e15d3272",
       "verification": "check-past-exam-ledger FAIL 0・CI 9 件緑",
       "note": "PR #1511（dd35e15d32）で水産部門 16 回分・560 問を問題と公式の正答で develop に公開。本番反映は次の deploy"
+    },
+    {
+      "id": "DN-1064",
+      "at": "2026-11-10",
+      "task": "建設部門の読み修正版 3 本を予約するか、公開日時を付け直す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/youtube-single-publisher.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bb9ea11eeb3c",
+      "verification": "origin/develop の台帳で 3 本 scheduled・CI run 42796369138 42796661088 42802439362 が scheduled-verified",
+      "note": "3 本とも予約: kensetsu-dx 11/11（AWiTjuOa1U4）・toan-kousei-template 11/12（旧版 ywemm49EBPA を予約し直す・PR #1512 #1513）・infra-roukyuuka 11/13（w5kX20cj5Yk）。残件は DN-1096"
+    },
+    {
+      "id": "DN-1092",
+      "at": "2026-11-10",
+      "task": "技術士二次の水産部門（水産土木を中心）の過去問と模範解答の計画を作る",
+      "tier": "mid",
+      "kind": "制作",
+      "prevention": {
+        "type": "none",
+        "ref": "計画カードで不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a73fcc1ec965",
+      "verification": "日本技術士会 令和8年度 実施案内・在庫台帳 pe-fisheries",
+      "note": "選択科目（1401 水産資源及び水域環境・1402 水産食品及び流通・1403 水産土木）・免除なし（総監のみ）・原典 R01〜R08 の 8 年分を確認し、制作を DN-1097（出題テーマ表）・DN-1098（必須I・水産土木の答案）・DN-1099（サイトの入口）に分けた"
+    },
+    {
+      "id": "DN-1097",
+      "at": "2026-11-10",
+      "task": "技術士二次の水産部門の原典 32 本を固定し、出題テーマ表（R01〜R08）を作る",
+      "tier": "mid",
+      "kind": "制作",
+      "prevention": {
+        "type": "none",
+        "ref": "制作カードで不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e6174ae6767b",
+      "verification": "独立の担当が 32 本 88 ページを照合",
+      "note": "原典 32 本を在庫台帳に固定（d3884 以降の data commit）し、content/note/技術士水産部門/出題テーマ_R01-R08.md を作成。独立照合で 88 セルの取り違え 0"
+    },
+    {
+      "id": "DN-0857",
+      "at": "2026-11-10",
+      "task": "YouTube の既存動画のカバー・サムネを ChatGPT で作り直し、DN-0670 の6本と合わせて 11/21 までに反映する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "2026-11-10 に台帳と画像の現物で確認。YouTube 上の通常動画 42 本の表紙はすべて Codex 製の全面 POP",
+      "note": "作り直す対象が無かった。ショートの表紙は DN-1001、2級土木の改訂版は DN-0670 で扱う"
+    },
+    {
+      "id": "DN-0726",
+      "at": "2026-11-10",
+      "task": "通常動画 38 本の計画台帳への仮配分を YouTube 再開時に運営者が見直す",
+      "tier": "decision",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "config/channel-annual-plan.json を確認。対象の 38 本は 2026-11-07 に計画から外れている（PR #1441）",
+      "note": "前提が消えたので DN-1004 へ統合"
+    },
+    {
+      "id": "DN-0985",
+      "at": "2026-11-10",
+      "task": "公開済みの通常動画 2 本が YouTube の照合記録に無い（V02）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "直さずに別カードへ統合した"
+      },
+      "executor": "claude-code",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "check-video-publication の V02 は 16 件（2026-11-10）",
+      "note": "同じ原因（照合が動いていない）の DN-1070 へ統合"
+    },
+    {
+      "id": "DN-1078",
+      "at": "2026-11-10",
+      "task": "2級学科の改訂版を年間計画に載せるか止めるかを決める（preflight で計画にない動画として止まる）",
+      "tier": "mid",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "video-factory preflight の停止理由を確認",
+      "note": "2級土木の改訂版の判断を持つ DN-0670 へ統合"
+    },
+    {
+      "id": "DN-0737",
+      "at": "2026-11-10",
+      "task": "YouTube 通常動画の再生数が yt-dlp の一覧で取れなくなった原因を Mac で確かめて直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "直さずに別カードへ統合した"
+      },
+      "executor": "claude-code",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "カード本文の照合",
+      "note": "同じ原因（手元の yt-dlp が古い）の DN-1032 へ統合"
     }
   ]
 }

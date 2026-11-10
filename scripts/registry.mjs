@@ -21,6 +21,7 @@
  *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
  *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
  *   npm run registry -- unschedule --pub <公開 ID> --reason <理由>   # 予約を外す（scheduled → uploaded_private・後で予約し直せる）
+ *   npm run registry -- reschedule --pub <公開 ID>   # 外した予約の公開日時を戻す（承認した文面の publishAt だけ。YouTube への予約は youtube-single-publish の publish）
  *
  * 取り込み（import）は既定で dry-run。approve は --expect（画面で見た版の digest）が今の中身と一致したときだけ書く。
  * approve・stop は運営者の判断なので、エージェント（Claude Code の Bash＝環境変数 CLAUDECODE=1）からは実行できない。
@@ -37,7 +38,7 @@ import { discoverVideoPacks } from './lib/content-registry-check.mjs';
 import { readLatest } from './lib/dataset-io.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
-import { acceptedApproval } from './lib/video-publish-gate.mjs';
+import { acceptedApproval, readPolicy } from './lib/video-publish-gate.mjs';
 import { approvalState } from './lib/media-review.mjs';
 import { canTransition, requiresApproval } from './lib/content-registry.mjs';
 
@@ -253,7 +254,8 @@ function stop() {
  * stopped は戻れない終端なので、後で予約し直せる「非公開でアップロード済み」に戻す。元の予約日時は reason に残す。
  * 公開を減らす向きの操作なので運営者だけに限らないが、理由は必須。YouTube 側の実体は scripts/youtube-unschedule.mjs が先に外して確かめる。
  */
-function unschedule() {
+async function unschedule() {
+  const { SCHEDULE_DELIVERY_KEYS } = await import('./lib/youtube-revision-publisher.mjs');
   const cfg = loadRegistryConfig(ROOT);
   if (!args.pub || !args.reason || String(args.reason).trim().length < 4) throw new Error('unschedule には --pub <公開 ID> --reason <理由> が要る');
   const pub = loadRegistry(ROOT).publications.find((p) => p.id === args.pub);
@@ -262,9 +264,35 @@ function unschedule() {
   if (!canTransition(cfg, 'scheduled', 'uploaded_private', pub.channel)) throw new Error('scheduled → uploaded_private は遷移に無い');
   const reason = `${String(args.reason).trim()}（元の予約 ${pub.publishAt}）`;
   // 予約の実行記録は publishAt と対なので、予約を外したら一緒に消す。投稿と表紙の記録は残す
-  const delivery = Object.fromEntries(Object.entries(pub.delivery ?? {}).filter(([key]) => !['scheduleRequestedAt', 'scheduleAt', 'scheduledVerifiedAt'].includes(key)));
+  const delivery = Object.fromEntries(Object.entries(pub.delivery ?? {}).filter(([key]) => !SCHEDULE_DELIVERY_KEYS.includes(key)));
   writePublication(pub, { status: 'uploaded_private', publishAt: undefined, reason, ...(pub.delivery ? { delivery } : {}) });
   console.log(`予約を外した: ${pub.id}（scheduled → uploaded_private・元の予約 ${pub.publishAt}）`);
+}
+
+/**
+ * 外した予約を戻す（uploaded_private のまま publishAt だけ戻す・DN-1064）。改訂版が元の動画と同じ中身だったときなど、
+ * アップロード済みの動画をそのまま予約し直すのに使う。YouTube への予約は youtube-single-publish の publish（再アップロードしない）。
+ * 戻せるのは運営者が承認した公開日時（文面の publishAt）だけで、戻した行の承認が今の中身と一致しなければ書かない。
+ * 別の日時にするなら文面を直して運営者が承認し直す。
+ */
+async function reschedule() {
+  if (!args.pub) throw new Error('reschedule には --pub <公開 ID> が要る');
+  const reg = loadRegistry(ROOT);
+  const pub = reg.publications.find((p) => p.id === args.pub);
+  if (!pub) throw new Error(`台帳に無い: ${args.pub}`);
+  if (pub.channel !== 'youtube' || pub.status !== 'uploaded_private' || !pub.platform?.id || pub.delivery?.videoId !== pub.platform.id) throw new Error(`予約を外したアップロード済みの YouTube 動画ではない（${pub.status}）: ${pub.id}`);
+  if (pub.publishAt || pub.delivery.scheduleRequestedAt) throw new Error(`予約の記録が残っている: ${pub.id}`);
+  // 予約の段は文面の publishAt と行の publishAt の一致を求める（singlePublishPlan）ので、文面の値へ戻す
+  const [copyFile, copyKey] = String(pub.copy ?? '').split('#');
+  const publishAt = readJsonIf(ROOT, copyFile)?.[copyKey]?.publishAt;
+  const leadMs = (readPolicy(ROOT).minLeadHours ?? 24) * 3_600_000;
+  if (!(Date.parse(publishAt) - Date.now() >= leadMs)) throw new Error(`文面の公開日時 ${publishAt ?? '（無し）'} が近すぎるか過ぎている。文面を直して運営者が承認し直す`);
+  const clash = reg.publications.find((p) => p.id !== pub.id && p.channel === 'youtube' && p.status !== 'stopped' && p.platform?.id && Date.parse(p.publishAt) === Date.parse(publishAt));
+  if (clash) throw new Error(`同じ公開日時に別の動画がある: ${clash.id}`);
+  const next = { ...pub, publishAt };
+  if (!acceptedApproval(next) || !approvalState(ROOT, next, new Map(reg.media.map((m) => [m.id, m]))).final.valid) throw new Error('戻した公開日時で承認が今の中身と一致しない。運営者が承認し直す');
+  writePublication(pub, { publishAt });
+  console.log(`予約の公開日時を戻した: ${pub.id}（${publishAt}・uploaded_private のまま）。次: youtube-single-publish の publish`);
 }
 
 async function importInstagram() {
@@ -467,9 +495,9 @@ async function publishYoutube() {
   console.log(JSON.stringify(await publishYoutubePublication(ROOT, { ...options, commit: true }, { youtube, journal: singlePublishJournal(args.pub) }), null, 2));
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule };
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule, reschedule };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule|reschedule …');
   process.exit(2);
 }
 await commands[command]();

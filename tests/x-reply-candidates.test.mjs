@@ -167,10 +167,12 @@ test('見送った相手は候補に戻らず、送信も止まる', () => {
 
 test('返信の記録は送った文面を持つ（文面の無い記録は型で止まる）', async () => {
   const { XReplyLog } = await import('../scripts/lib/dataset-schemas.mjs');
-  const reply = { at: '2026-11-08T21:26:11Z', kind: 'study', targetId: '1', replyId: '2', userHash: '1eed37bd8179' };
+  const reply = { at: '2026-11-08T21:26:11Z', kind: 'study', topic: 'pe', targetId: '1', replyId: '2', userHash: '1eed37bd8179' };
   assert.equal(XReplyLog.safeParse({ schemaVersion: 1, replies: [reply], skips: [] }).success, false);
   assert.equal(XReplyLog.safeParse({ schemaVersion: 1, replies: [{ ...reply, text: '  ' }], skips: [] }).success, false);
   assert.equal(XReplyLog.safeParse({ schemaVersion: 1, replies: [{ ...reply, text: '体調を整えて進めてください。' }], skips: [] }).success, true);
+  // 資格の無い記録は止める（試行の終わりに資格ごとの反応を比べるため）
+  assert.equal(XReplyLog.safeParse({ schemaVersion: 1, replies: [{ ...reply, topic: undefined, text: '体調を整えて進めてください。' }], skips: [] }).success, false);
 });
 
 test('相手を評価する・指図する言い方を下書きから拾う（2026-11-09 運営者の指摘）', () => {

@@ -280,6 +280,7 @@ npm run check-youtube-plan    # 通常動画の年間の枠（config/channel-ann
 node scripts/youtube-sync-funnel.mjs --plan <content/sns/youtube/metadata-plans/計画.json> # 既存動画の概要欄同期のdry-run。--commit は運営者が変更版の最終承認を記録した後、youtube-single-publish.yml の mode=sync-funnel から実行。旧/新SHA・公開範囲・動画IDを照合し、API更新後に読み戻す
 node scripts/youtube-audit-live-funnels.mjs # YouTube API で現行通常動画の概要欄全文・自社リンク・公開範囲を読取照合。認証はCI供給。youtube-funnel-audit.yml（SNS 保留中は手動のみ）と手動 mode=audit-funnel から実行
 npm run youtube-unschedule        # 台帳で scheduled の YouTube の公開予約を外す（`--pub` で指定した公開だけ。CI は youtube-single-publish の mode=unschedule。private のまま・動画は消さない。既定は試運転・--apply で実行・認証は CI だけなので .github/workflows/youtube-unschedule.yml から動かしていたが、SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す）。台帳は registry -- unschedule で uploaded_private に戻す（2026-10-13・YouTube を一旦止めた）
+npm run youtube-purge-shorts      # チャンネルに残る旧工程の非公開ショートを消す（取り消せない。対象は非公開・予約なし・縦長・3 分以内・台帳で守られていない動画だけ）。既定は試運転で件数と digest を出し、--apply --expect <digest> で 1 回 100 本まで消す。認証は CI だけなので youtube-single-publish の mode=purge-shorts-audit → purge-shorts で動かす。公開リポジトリなので ID・題名はログへ出さない（2026-11-10・運営者の決定）
 npm run check-registry-due     # 予約のまま公開の予定を猶予（config の reconcileGraceDays）より過ぎた公開を出す（ops・壁時計依存なので CI ゲートにしない）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト。記録の古さ（V03）と実査のドリフト（V05）は `--freshness`）。実査本体は verify-video-publication で creds 必須・**対象0件は明示してPASS**。quality-audit・registry-reconcile.yml からはSNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す
 npm run youtube-own-metrics   # 自社 YouTube の動画ごとの再生数・尺を一覧（yt-dlp）から取り data/youtube/own-videos/YYYY-MM-DD.json へ（月次・動画パックと型を videoId で照合・`--dry-run`）。視聴維持率・クリック率は取れない（Analytics が要る）。罠: 日本語表示の一覧は「万」の再生数を null にするので英語表示と結合している
@@ -288,7 +289,7 @@ npm run check-youtube-analytics # 最新のYouTube Analytics記録を公開台�
 npm run scout-youtube-competitors # config/competitors.json の youtube の各チャンネルの通常動画（新しい順100本）の再生・尺・題名の語ごとの中央値を data/youtube/competitors/YYYY-MM-DD.json へ（四半期・前回比 drift・`--handle UC…` は .tmp/）。一覧だけ読み、動画の再生用 API と映像は触らない（クラウドの IP でロボット確認・403 になるため）
 npm run x-reply-candidates  # X の返信候補を、資格ごとの話題（config/x-reply-trial.json の topics）で集めて .tmp/x-outreach/candidates.json へ書く（読むだけ・送信しない）。Yahoo!リアルタイム検索と、内蔵ブラウザで保存した X のタイムライン・検索の投稿（.tmp/x-outreach/x-posts/*.json・-- --x-posts <dir>）をまとめ、`-- --all` で話題ごと・全体の上限を外し、外した投稿は理由つきで .tmp/x-outreach/excluded.json に書く（語の調整に読む・配慮の投稿は本文を残さない）。本文に資格の語がある投稿だけを話題に振り分ける。配慮が要る投稿は件数だけ数える。手順は /x-reply
 npm run x-reply-sheet       # .tmp/x-outreach/round.json から確認画面を作る。開くのは preview_start の x-outreach。相手を評価する・指図する言い方（x-reply-trial.json の toneWords）を含む下書きがあれば作らず exit 1
-npm run x-reply-log         # 送信前の門番 --check --user <id>（試行期間・間隔・同じ相手・見送り済み。返信した相手からの質問に答えるときは --answer）。--add で送信を記録（--text に送った文面が必須）、--skip で見送りを記録、--report で集計
+npm run x-reply-log         # 送信前の門番 --check --user <id>（試行期間・間隔・同じ相手・見送り済み。返信した相手からの質問に答えるときは --answer）。--add で送信を記録（--text に送った文面、--topic に資格の id が必須）、--skip で見送りを記録、--report で種類別・資格別に集計
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x/own-posts/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・quality-audit の report 区分＝weekly-review-guard が週次で読む）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
 ```

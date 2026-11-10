@@ -7,9 +7,9 @@
  * Usage:
  *   npm run x-reply-log -- --check --user <screenName>     # 送ってよいか（だめなら exit 1）
  *   npm run x-reply-log -- --check --user <screenName> --answer  # 返信した相手からの質問に答えてよいか
- *   npm run x-reply-log -- --add --user <screenName> --target <statusId> --reply <statusId> --kind ask|pass|fail|study|answer --text "<送った文面>"
+ *   npm run x-reply-log -- --add --user <screenName> --target <statusId> --reply <statusId> --kind ask|pass|fail|study|answer --topic <資格の id> --text "<送った文面>"
  *   npm run x-reply-log -- --skip --user <screenName> --reason situation|offtopic|supplier|not-self|other  # 見送りを記録
- *   npm run x-reply-log -- --report                        # 件数の集計
+ *   npm run x-reply-log -- --report                        # 件数の集計（種類別・資格別）
  */
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { readDataset, readDatasetIf } from './lib/dataset-io.mjs';
@@ -27,6 +27,7 @@ const flags = parseCliArgs({
   target: { type: 'string' },
   reply: { type: 'string' },
   kind: { type: 'string' },
+  topic: { type: 'string' },
   text: { type: 'string' },
   answer: { type: 'boolean' },
 });
@@ -34,6 +35,7 @@ const flags = parseCliArgs({
 const config = readDataset(REPO_ROOT, 'config.x-reply-trial');
 const log = readDatasetIf(REPO_ROOT, 'x.reply-log') ?? { schemaVersion: 1, replies: [], skips: [] };
 const REASONS = ['situation', 'offtopic', 'supplier', 'not-self', 'other'];
+const TOPICS = (config.topics ?? []).map((t) => t.id);
 
 function usage(message) {
   console.error(message);
@@ -50,12 +52,13 @@ if (flags.check) {
     } else console.log('OK: 送信できます');
   }
 } else if (flags.add) {
-  if (!flags.user || !flags.target || !flags.reply || !['ask', 'pass', 'fail', 'study', 'answer'].includes(flags.kind) || !flags.text?.trim()) {
-    usage('--user・--target・--reply・--text（送った文面）と --kind ask|pass|fail|study|answer が要ります');
+  if (!flags.user || !flags.target || !flags.reply || !['ask', 'pass', 'fail', 'study', 'answer'].includes(flags.kind) || !flags.text?.trim() || !TOPICS.includes(flags.topic)) {
+    usage(`--user・--target・--reply・--text（送った文面）と --kind ask|pass|fail|study|answer、--topic ${TOPICS.join('|')} が要ります`);
   } else {
     log.replies.push({
       at: new Date().toISOString().replace(/\.\d+Z$/, 'Z'),
       kind: flags.kind,
+      topic: flags.topic,
       targetId: flags.target,
       replyId: flags.reply,
       userHash: hashUser(flags.user),
@@ -77,7 +80,10 @@ if (flags.check) {
 } else if (flags.report) {
   const byKind = Object.groupBy(log.replies, (r) => r.kind);
   const summary = Object.entries(byKind).map(([k, v]) => `${k} ${v.length}`).join('・');
+  const byTopic = Object.groupBy(log.replies, (r) => r.topic);
+  const topics = Object.entries(byTopic).map(([k, v]) => `${k} ${v.length}`).join('・');
   console.log(`返信 ${log.replies.length} 件（${summary || '記録なし'}）・見送り ${log.skips.length} 件`);
+  if (topics) console.log(`資格別: ${topics}`);
 } else {
   usage('使い方: npm run x-reply-log -- --check|--add|--skip|--report');
 }
