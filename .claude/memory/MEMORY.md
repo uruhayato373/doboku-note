@@ -141,7 +141,7 @@
 - [スキャンOCR](reference_scanned_pdf_pipeline.md) — 市販書籍は機械OCRのみ・旧視覚OCR罠
 - [保存版の過去問](reference_wayback_past_exam_gotchas.md) — CDX・brotli・数字字形・正答HTML
 - [土木PDF所在](reference_civil_pdfs.md) — docs/textbook配下
-- [Xの読み取り](reference_x_read_without_account.md) — Yahoo検索が無認証・CLIは投稿用アカ
+- [Xの読み取り](reference_x_read_without_account.md) — Yahoo検索が無認証・続きで120h・X検索は表示名にも当たる
 - [競合調査](reference_competitors_civil.md) — 土木・総監・pejp・YT解析
 - [アフィリ/Gmail](reference_affiliate_status_mail_vs_playwright.md) — 二経路確認・Gmail MCP
 - [ココナラ価格](reference_coconala_price_edit_gotchas.md) — 500円刻み・偽成功
