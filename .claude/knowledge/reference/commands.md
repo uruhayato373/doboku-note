@@ -185,6 +185,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 ```bash
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→data/kdp/royalties.json（読み取り専用・当月/前月のみ。翌月 16 日より前に取った値は推計 estimated:true。定期取得は土曜の収集の kdp 段（当月と確定前の前月・`--list-due` が決める）。運営者が取り直すときは収集用 worktree で `node scripts/weekly-collect.mjs --only kdp`）
+npm run kindle-pop-cover -- --id <id> [--candidates 2]   # Kindle 表紙の唯一の作り方。表紙 spec の pop から Codex で文字まで描いた POP 表紙の候補を .tmp/kindle-pop/<id>/ に出し、原寸と 136px の確認用画像と描くべき文字の一覧を出す（合格とは言わない）。採用は `-- --adopt <id> --candidate <png> --review "<確かめたこと>"`＝1600×2560 JPEG を catalog の表紙の置き場へ書き、制作記録と spec の adoptedImage を残す（sync-kindle-dist はその本の表紙を作り直さない）。縦横比が 5:8 から 1% を超えて外れた候補は採用不可。採用後は asset-offload --group kindle-dist で R2 へ
 npm run kindle-preview -- --id <id[,id]>   # EPUB を 600×800 のページ画像に描画→.tmp/kindle-preview/<id>/（--status ready で一括）。管理画面 /content/kindle/<id> で表紙と並べて目視確認。Kindle 実機の描画とは近似。EPUB を作り直したら再生成（画面が「EPUB が更新されています」と出す）
 npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdoboku-note LIVE全冊（対象月末までに出版した本）のcatalog紐付けを検査（共有口座の他サイト書籍は除外。23日以降=前月確定（週次の取得が16〜22日に入る）、28日以降=当月推計。土曜の収集の kdp 段の検算＝quality-audit の cadence collect・DN-0847）
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→data/note/{referrers,articles-pv}/YYYY-MM.json（--month は今月/先月、--from YYYY-MM-DD --to YYYY-MM-DD は任意期間を note.traffic-period に直接取得・全記事の展開を確認・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる

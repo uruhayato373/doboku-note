@@ -541,6 +541,7 @@
     "search-growth:report": "node scripts/report-search-growth.mjs",
     "start": "next start -p 3020",
     "svg-gallery": "node scripts/svg-gallery.mjs",
+    "kindle-pop-cover": "node scripts/kindle-covers/build-pop-cover.mjs",
     "sync-kindle-dist": "node scripts/sync-kindle-dist.mjs",
     "test": "node --test --test-concurrency=2 --test-timeout=120000 tests/*.test.mjs",
     "test:ads": "node --test .claude/scripts/ads/__tests__/*.test.mjs",

@@ -16,5 +16,19 @@
   "subLines": [
     "令和元〜令和7年度 280問"
   ],
-  "brand": "doboku-note"
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "pe-comprehensive-management",
+    "kicker": "技術士 総合技術監理部門 択一",
+    "title": "令和 合本",
+    "titleSub": "過去問完全解説",
+    "badge": [
+      "R1〜R7",
+      "7年分"
+    ],
+    "redBand": "令和7年度 本試験まで収録",
+    "navyBand": "全280問",
+    "scene": "都市と橋を見渡すインフラ管理の風景",
+    "reference": "scripts/kindle-dist/c-05.jpg"
+  }
 }

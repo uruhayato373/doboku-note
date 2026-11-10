@@ -16,5 +16,19 @@
   "subLines": [
     "令和3〜7年度の頻出論点と解答の型"
   ],
-  "brand": "doboku-note"
+  "brand": "doboku-note",
+  "pop": {
+    "exam": "civil-construction-2",
+    "kicker": "2級土木施工管理技士 第2次検定",
+    "title": "学科記述",
+    "titleSub": "出る順＋直前暗記",
+    "badge": [
+      "R3〜R7",
+      "5年分"
+    ],
+    "redBand": "頻出論点と解答の型",
+    "navyBand": "穴埋め頻出語句つき",
+    "scene": "重機と土工・コンクリート工の現場",
+    "reference": "scripts/kindle-dist/c-05.jpg"
+  }
 }
