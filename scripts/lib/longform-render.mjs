@@ -1,4 +1,5 @@
 import { buildExplanationNode } from './video-explanation.mjs';
+import { examToPalette, requirePaletteKey } from './qualification-palette.mjs';
 import { subtitleChunks } from './video-subtitles.mjs';
 /**
  * longform-render.mjs — 動画パック（DN-0110 Phase 1）の 16:9 通常動画レンダリング・ライブラリ。
@@ -22,16 +23,8 @@ export const LONGFORM_W = 1920;
 export const LONGFORM_H = 1080;
 
 /** 動画パックの exam slug → exam-palette キー */
-export const EXAM_TO_PALETTE = {
-  'civil-construction-1': 'civil-1',
-  'civil-construction-2': 'civil-2',
-  'pe-comprehensive-management': 'pe-comprehensive',
-  'pe-construction': 'pe-construction',
-  'pe-first-stage': 'pe-first-stage',
-  'concrete-chief-engineer': 'concrete-chief',
-  'concrete-diagnostician': 'concrete-diagnosis',
-  'concrete-engineer': 'concrete-engineer',
-};
+/** 互換用の表。変換の正本は qualification-palette.mjs（トークンの qualification から導く・DN-1012） */
+export const EXAM_TO_PALETTE = examToPalette();
 
 const WHITE = '#ffffff';
 const FONT_JP = "'NotoSansJP', 'Noto Sans JP'";
@@ -166,8 +159,7 @@ export function planLongformRender(manifest, storyboard, resolvePalette) {
   if (storyboard.format !== 'longform-16x9') {
     throw new Error(`longform renderer は format=longform-16x9 専用（受領: ${storyboard.format}）`);
   }
-  const paletteKey = EXAM_TO_PALETTE[manifest.exam];
-  if (!paletteKey) throw new Error(`exam→palette 未定義: ${manifest.exam}`);
+  const paletteKey = requirePaletteKey(manifest.exam);
   const e = resolvePalette(paletteKey);
   const theme = { base: e.base, deep: e.deep, accent: e.accent, label: e.label };
   return { scenes: storyboard.scenes, theme, packTitle: manifest.title };

@@ -12,7 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
-import { EXAM_TO_PALETTE } from './lib/longform-render.mjs';
+import { requirePaletteKey } from './lib/qualification-palette.mjs';
 import { buildExplanationNode } from './lib/video-explanation.mjs';
 import { IG_DESIGN, IG_CTA_NARRATION, instagramLogo, instagramCtaNode, instagramReelCover, renderInstagramNode, instagramRendererDigest } from './lib/instagram-video-design.mjs';
 import { narrationInput } from './lib/video-narration-cache.mjs';
@@ -66,7 +66,7 @@ const fonts = [
   })),
 ];
 function themeFor(exam) {
-  const palette = resolveExam(EXAM_TO_PALETTE[exam]);
+  const palette = resolveExam(requirePaletteKey(exam));
   return { base: palette.base, deep: palette.deep, label: palette.label };
 }
 async function renderPng(node, outPath) {
