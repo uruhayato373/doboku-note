@@ -516,6 +516,24 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1067] 内容QAの合格を原稿の版に結び、工程の順を手順書・status・Workflow でそろえる
+タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-10]
+
+**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。
+- 台帳の `works.qa` は `{avg, blocks, at, by}` だけで（`scripts/video-factory.mjs:164`）、関門はその数字しか見ない（`scripts/lib/video-publish-gate.mjs:68`）。点数は QA エージェントの申告をそのまま記録する。合格の後に台本を直しても合格のまま
+- `nextStage` は描画の後に `qa` を置く（lib :338）。Workflow は QA が先（`.claude/workflows/video-factory.js:74-79`）。`status` に従うと QA の前に画像の費用を払う
+- `/video-content` は QA をしても `record-qa` を呼ばない（`.claude/skills/video-content/SKILL.md:30,35`）。会社 PC の QA が記録されず、Mac の Workflow がもう一度採点する
+
+**やること**:
+1. `record-qa` に採点 JSON（`--file`）を取らせ、軸別得点と BLOCK の一覧から平均と件数を機械で数える。採点 JSON はパック直下に置いて commit する
+2. 原稿（script.md・storyboard.json の imageDesign を除く部分・video-pack.json）の digest を `qa.inputSha256` に持たせ、不一致なら `qa: 'none'` にする
+3. `nextStage` の先頭で、QA が無いか古ければ `qa` を返す。手順書の表も同じ順にする
+4. Workflow は台帳の QA が今の原稿で合格なら QA を飛ばす
+5. `/video-content` の出口を `record-qa` → commit・push → `video-factory` に書き換える（スキルを変えたら同じ commit で registry を更新）
+
+**完了条件**: 合格の後に narration を直すと `status` が `qa` に戻る。会社 PC の QA の記録を Mac の Workflow が再採点せずに使う。
+
+
 ### [DN-1063] YouTube の維持率曲線を取り、場面ごとの離脱を台本の Writer と QA に渡す
 タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-10]
 
