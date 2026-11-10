@@ -2,14 +2,14 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1632,
-    "embedded": 1632,
+    "total": 1635,
+    "embedded": 1635,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1517,
-      "conforming": 1517,
+      "total": 1520,
+      "conforming": 1520,
       "needsRework": 0
     },
     "byCategory": {
@@ -20,7 +20,7 @@
       "concrete-diagnostician": 142,
       "concrete-engineer": 71,
       "pe-comprehensive-management": 286,
-      "pe-construction": 45,
+      "pe-construction": 48,
       "pe-first-stage": 4
     }
   },
@@ -28975,6 +28975,60 @@
       "slug": "power-civil-ronbun-keyword",
       "name": "figure-run-of-river-dependent-hydro.svg",
       "concept": "河川から新たに取水する水力では取水点と放流点の間に減水区間が生じ、既存の水利使用に従属する発電では減水区間が生じないことを比べた図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-construction/r07-road-iii-1/img/figure-answer-frame.svg",
+      "category": "pe-construction",
+      "slug": "r07-road-iii-1",
+      "name": "figure-answer-frame.svg",
+      "concept": "答案用紙3枚に、1枚目は課題3つ、2枚目は最重要の課題と解決策、3枚目はリスクと対策を書く配分を、行数の帯で示した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-construction/r08-road-ii-1-1/img/figure-answer-frame.svg",
+      "category": "pe-construction",
+      "slug": "r08-road-ii-1-1",
+      "name": "figure-answer-frame.svg",
+      "concept": "答案用紙1枚を前半と後半に分け、前半に緩和区間の目的と長さの考え方、後半に緩和曲線の特徴と留意点を書く配分を示した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/pe-construction/r08-road-ii-2-2/img/figure-answer-frame.svg",
+      "category": "pe-construction",
+      "slug": "r08-road-ii-2-2",
+      "name": "figure-answer-frame.svg",
+      "concept": "答案用紙2枚に、調査と検討事項、手順と留意点・工夫、関係者との調整を書く配分を、行数の帯で示した図。手順に最も多く行を使う",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",

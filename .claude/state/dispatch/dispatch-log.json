@@ -6948,6 +6948,19 @@
       "note": "todo-complete.mjs 経由で完了処理"
     },
     {
+      "id": "DN-1079",
+      "at": "2026-11-10",
+      "task": "出題テーマ分析の記事から設問ページ（R07・R08）へ逆リンクを張る",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e55db31e6c86",
+      "verification": "npm run check-table-rendering",
+      "note": "出題テーマ分析6本（道路・必須I・鋼コン・河川砂防・施工計画・土質）のR07・R08の出題テーマ名を設問ページ84本へのリンクにした。build の内部リンク検査は PR の CI で確認"
+    },
+    {
       "id": "DN-1068",
       "at": "2026-11-10",
       "task": "動画の制作の途中状態を段ごとに commit し、生成の前に無料の検査を通す",
