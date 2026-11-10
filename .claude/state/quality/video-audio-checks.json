@@ -374,6 +374,17 @@
         "expected": 2121,
         "heard": 2004
       }
+    },
+    "civil-construction-1/owner-eye-kouji-kensa/youtube.longform": {
+      "videoSha256": "73a2c11ab478131d3b6062b043c4925316ec59e4b2c587cc51ca96a414359bb1",
+      "at": "2026-11-10T12:44:40.677Z",
+      "similarity": 0.961,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1963,
+        "heard": 1891
+      }
     }
   }
 }
