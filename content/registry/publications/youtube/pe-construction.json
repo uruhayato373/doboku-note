@@ -189,7 +189,7 @@
       "format": "longform",
       "variant": "reading-fix",
       "revisionOf": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
-      "status": "approved",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.revision-reading-fix.json",
       "media": {
         "cover": "pe-construction/hissu1-kensetsu-dx/work/candidate-cover",
@@ -217,6 +217,43 @@
         "by": "policy",
         "at": "2026-11-05T22:12:46.119Z",
         "contentSha256": "0ab6b9470dd9edae11165c120af968f9e7f0cb2c05880af8a97204dedf1c46fd"
+      },
+      "delivery": {
+        "inputSha256": "587d921feb15d3031a5e28ae01199994aa98076a6420c2bea934ed0bd9c8c842",
+        "marker": "dn-revision-903fcd08c1a092cbfc308b1076fe108997b22d9f",
+        "uploadRequestedAt": "2026-11-10T10:07:44.192Z",
+        "videoId": "AWiTjuOa1U4",
+        "processedAt": "2026-11-10T10:08:24.975Z",
+        "thumbnailRequestedAt": "2026-11-10T10:08:25.018Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/AWiTjuOa1U4/default.jpg?sqp=CMzYy9cG&rs=AOn4CLBurZEVSxzqEx9kuTJbI4xkWAzanQ",
+          "https://i9.ytimg.com/vi/AWiTjuOa1U4/mqdefault.jpg?sqp=CMzYy9cG&rs=AOn4CLAvk7emmvrgpx3N5lnMohNK8l0P5A",
+          "https://i9.ytimg.com/vi/AWiTjuOa1U4/hqdefault.jpg?sqp=CMzYy9cG&rs=AOn4CLASt_SMdmqbRF56MWAUtxuSPWNb2g",
+          "https://i9.ytimg.com/vi/AWiTjuOa1U4/sddefault.jpg?sqp=CMzYy9cG&rs=AOn4CLDOa9q0U9PiDHlFr5uVU2pxlBjcEw",
+          "https://i9.ytimg.com/vi/AWiTjuOa1U4/maxresdefault.jpg?sqp=CMzYy9cG&rs=AOn4CLDXOgT7IJVJHFCYg4flSKgNiun2qQ",
+          "https://i9.ytimg.com/vi/AWiTjuOa1U4/fhddefault.jpg?sqp=CMzYy9cG&rs=AOn4CLDk9EbcxYa5MzeXwwUmdxyrJEkk1w"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T10:08:27.733Z",
+        "scheduleRequestedAt": "2026-11-10T10:08:28.048Z",
+        "scheduleAt": "2026-11-11T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-10T10:08:30.957Z"
+      },
+      "platform": {
+        "id": "AWiTjuOa1U4",
+        "url": "https://www.youtube.com/watch?v=AWiTjuOa1U4",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.revision-reading-fix.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-11-10T10:08:24.975Z",
+        "scheduled": "2026-11-10T10:08:30.957Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T10:08:27.733Z"
       }
     },
     {
