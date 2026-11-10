@@ -29,6 +29,8 @@ const EXAM_THEME: Record<string, ExamTheme> = {
   pavement: { bar: "bg-(--exam-pavement)", hoverBorder: "hover:border-(--exam-pavement)" },
   "pipe-work": { bar: "bg-(--exam-pipe-work)", hoverBorder: "hover:border-(--exam-pipe-work)" },
   "pe-water-supply": { bar: "bg-(--exam-pe-water-supply)", hoverBorder: "hover:border-(--exam-pe-water-supply)" },
+  // 水産部門は note 記事が無く note-cover-tokens.json に専用色を置けない（dead-entry）ので、技術士の濃紺を共有する（DN-1099）
+  "pe-fisheries": { bar: "bg-(--exam-pe)", hoverBorder: "hover:border-(--exam-pe)" },
 };
 const FALLBACK_THEME: ExamTheme = { bar: "bg-(--accent)", hoverBorder: "hover:border-(--accent)" };
 

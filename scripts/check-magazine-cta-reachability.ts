@@ -128,8 +128,8 @@ const zeroPageBaseline: Record<string, string> = baselineJson.zeroPage ?? {};
 // ページ単位の検査対象。土木は記事単位の配線（placement の許可リスト）に頼るため、新しい記事を
 // 許可リストへ足し忘れると CTA ゼロのまま公開される（2026-10-02: 2級 重要ポイント 5 本・1級 2 本）。
 // マガジン単位の検査（各商品が 1 面以上）では、他ページで面を持つ商品ばかりなので素通りする。
-// 測量士・舗装（2026-10-28 に商品を公開）と建築施工管理（商品なしは baseline）は 2026-10-29（DN-0890）に足した。管工事は 2026-11-04（DN-0452）に足した。
-const PAGE_GATE_CATEGORIES = new Set(['pe-water-supply', 'civil-construction-1', 'civil-construction-2', 'pe-first-stage', 'pe-construction', 'pe-comprehensive-management', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'rccm', 'surveyor', 'pavement', 'pipe-work', 'building-construction']);
+// 測量士・舗装（2026-10-28 に商品を公開）と建築施工管理（商品なしは baseline）は 2026-10-29（DN-0890）に足した。管工事は 2026-11-04（DN-0452）に足した。水産部門（商品なしは baseline）は 2026-11-10（DN-1099）に足した。
+const PAGE_GATE_CATEGORIES = new Set(['pe-water-supply', 'pe-fisheries', 'civil-construction-1', 'civil-construction-2', 'pe-first-stage', 'pe-construction', 'pe-comprehensive-management', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'rccm', 'surveyor', 'pavement', 'pipe-work', 'building-construction']);
 // ページ単位の検査から外すカテゴリと理由。記事のあるカテゴリは検査対象かここのどちらかに入れる（入れ忘れは検査不成立で止める）。
 const PAGE_GATE_EXCLUDED: Record<string, string> = {
   'civil-practice': '土木施工の実務記事。本文と記事末に有料教材を出さず、テーマのページで資格の記事と教材に出会う設計（content-taxonomy.md §6-3）',

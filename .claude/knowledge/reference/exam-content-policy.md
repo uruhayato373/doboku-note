@@ -159,6 +159,12 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 9. **OGP 画像を生成**（公開前必須）: `npm run ogp -- --all`（未生成分のみ生成）→ 新規 `ogp.png` を pathspec commit。**新カテゴリは OGP が 0 枚から始まる**ため、これを忘れると `og:image` が R2 で 404 になり、**note / X / Facebook 等の外部リンクカードが生成されない**（2026-06-12 pe-construction で全114本が該当）。`published:false` のドラフトは仕様上スキップされる＝公開化（`published:true`）のタイミングで再実行する。`ogp.png` は `r2-sync.yml` の path フィルタ（`**/ogp.png`）経由で main push 時に R2 同期される。詳細 → [measurement-incidents.md](./measurement-incidents.md)「2026-06-12 OGP 404」
 10. `src/components/ui/ArticleFooter/ArticleFooter.tsx` の資格別分岐を確認する（カテゴリページのビュー・並べ替え・見出しは 0 の `layout` に移した・DN-0793）。
 
+### 新資格メモ: 技術士 水産部門（`pe-fisheries`、2026-11-10 展開中へ昇格・ガイドのみ）
+
+- groups = guide のみ（受験ガイド 4 本: 試験概要・必須科目I・選択科目・学習計画。上下水道と同じ構成・DN-1099）。variant=pe / テーマ色は総監・第一次と同じ濃紺（`--exam-pe`・OGP は `pe-comprehensive`）。専用色は note-cover-tokens.json に置くと記事 dir が無いので `check-note-cover-tokens` の dead-entry で落ちる。答案の note 原稿（DN-1098）ができたら専用色を足す。note 商品はまだ無いので 4 本は `magazine-cta-baseline.json` の zeroPage に理由付きで載せ、`exam-brand.ts` の ExamKey は商品を出すときに足す。
+- 出題テーマの入力は `content/note/技術士水産部門/出題テーマ_R01-R08.md`（問題文は転載しない）。一次の専門科目（水産部門）16 回分 `pe-first-stage/*-fisheries` へは選択科目のガイドから一覧でつなぐ。
+- 運営者は水産部門の合格者ではない。合格者・合格答案を名乗らない（`src/config/author.ts` の資格だけを書く）。
+
 ### 新資格メモ: 管工事施工管理技士（`pipe-work`、2026-11-04 展開中へ昇格・ガイドのみ）
 
 - groups = guide のみ（受験ガイド 4 本: 試験概要・施工記述・工程表・学習計画）。variant=civil / テーマ色 `--exam-pipe-work`（`#1d6a7a`・note カバーの管工事色と同一）。ExamKey は `pipe-work`、商品は `pipe-work-sekou-kijutsu-bank`（note 単品）を全ガイドの top CTA に置く。

@@ -1478,6 +1478,10 @@
 # route /docs/pe-first-stage-r07-construction /exam/pe-first-stage/primary/r07-construction
 # route /docs/pe-first-stage-r07-fisheries /exam/pe-first-stage/primary/r07-fisheries
 # route /docs/pe-first-stage-r07-water-supply /exam/pe-first-stage/primary/r07-water-supply
+# route /docs/pe-fisheries-guide-hissu-kamoku /exam/pe-fisheries/guide/hissu-kamoku
+# route /docs/pe-fisheries-guide-overview /exam/pe-fisheries/guide/overview
+# route /docs/pe-fisheries-guide-sentaku-kamoku /exam/pe-fisheries/guide/sentaku-kamoku
+# route /docs/pe-fisheries-guide-study-plan /exam/pe-fisheries/guide/study-plan
 # route /docs/pe-water-supply-guide-hissu-kamoku /exam/pe-water-supply/guide/hissu-kamoku
 # route /docs/pe-water-supply-guide-overview /exam/pe-water-supply/guide/overview
 # route /docs/pe-water-supply-guide-sentaku-kamoku /exam/pe-water-supply/guide/sentaku-kamoku
@@ -1710,6 +1714,7 @@
 /category/concrete-chief-engineer /exam/concrete-chief-engineer 301
 /category/concrete-diagnostician /exam/concrete-diagnostician 301
 /category/pe-water-supply /exam/pe-water-supply 301
+/category/pe-fisheries /exam/pe-fisheries 301
 /category/pipe-work /exam/pipe-work 301
 /category/pavement /exam/pavement 301
 /category/surveyor /exam/surveyor 301
@@ -2037,6 +2042,7 @@
 /docs/concrete-engineer-guide-* /exam/concrete-engineer/guide/:splat 301
 /docs/pe-water-supply-guide-* /exam/pe-water-supply/guide/:splat 301
 /docs/pe-first-stage-guide-* /exam/pe-first-stage/guide/:splat 301
+/docs/pe-fisheries-guide-* /exam/pe-fisheries/guide/:splat 301
 /docs/surveyor-primary-* /exam/surveyor/primary/:splat 301
 /docs/pe-construction-* /exam/pe-construction/past-exams/:splat 301
 /docs/pipe-work-guide-* /exam/pipe-work/guide/:splat 301
