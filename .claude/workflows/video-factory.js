@@ -73,6 +73,9 @@ async function produceImages({ pack, scope = 'all', rendered, from }) {
 
 // 台本の検査を先に行う。BLOCK の動画に画像と描画の費用をかけない（2026-11-05 の 10 本中 5 本が描画のあとで止まった）
 async function contentQa({ pack, from }) {
+  // 無料で決まる関門の項目を先に見る。計画にない・送り先が解決できないパックに、採点・画像・描画の費用をかけない（DN-1068）
+  const pre = await run(`preflight:${pack}`, 'Content QA', `${CLI} preflight --pack ${pack}`)
+  if (!pre?.ok) return { ok: false, reason: `preflight で停止（${pre?.output ?? '確認の段が失敗'}）` }
   if (from) return { ok: true }
   // 台帳の QA が今の原稿で合格なら採点しない。別の PC で採点済みの台本を、ここでもう一度採点していた（1 体約 8 万トークン・DN-1067）
   const current = await run(`qa-check:${pack}`, 'Content QA', `${CLI} qa-check --pack ${pack}`)
@@ -111,6 +114,11 @@ const results = await pipeline(
 const rows = results.map((r, i) => ({ pack: packs[i].pack, ...(r ?? { ok: false, reason: '段の途中で失敗' }) }))
 const passed = rows.filter((r) => r.review?.verdict === 'pass').map((r) => r.pack)
 // 運営者が決めた自動予約の方針にもとづく工程。関門の判定はコマンド自身が行う
+// 止まったパックの記録（台帳の QA・公開行・原稿）を残す。残さないと別の PC で同じ採点と生成をやり直す（DN-1068）
+const stoppedPacks = rows.filter((r) => !r.review || r.review.verdict === 'fail').map((r) => r.pack)
+const saved = stoppedPacks.length
+  ? await serial(() => run('save', 'Finish', stoppedPacks.map((p) => `${CLI} save --pack ${p}`).join(' && ')))
+  : null
 const finish = passed.length
   ? await agent(`運営者が決めた通常動画の自動予約の方針にもとづく工程として、次のコマンドを 1 回実行し、最後の JSON を output に返す。関門の判定はコマンド自身が行う。他の操作をしない。\n${CLI} finish --packs ${passed.join(',')}${STOCK}`, { label: 'finish', phase: 'Finish', schema: RUN, model: 'sonnet', effort: 'low' })
   : null
@@ -119,4 +127,5 @@ return {
   reviewFailed: rows.filter((r) => r.review?.verdict === 'fail').map((r) => `${r.pack}: ${r.review.note}`),
   stopped: rows.filter((r) => !r.review).map((r) => `${r.pack}: ${r.reason}`),
   qa: rows.filter((r) => r.qa).map((r) => ({ pack: r.pack, avg: r.qa.avg, findings: r.qa.findings })),
+  saved: saved?.output ?? null, // 止まったパックの記録の commit。push は親が行う
 }
