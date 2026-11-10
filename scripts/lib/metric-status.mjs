@@ -32,6 +32,7 @@ const sum = (rows, field) => rows.reduce((n, r) => n + (Number(r[field]) || 0), 
 function campaignNames(root, kind) {
   if (kind === 'video-packs') {
     const base = join(root, 'content/sns/video-packs');
+    if (!existsSync(base)) return new Set();
     return new Set(readdirSync(base, { withFileTypes: true }).filter((d) => d.isDirectory()).flatMap((d) => readdirSync(join(base, d.name))));
   }
   const dir = 'content/sns/x/campaigns';
@@ -47,18 +48,23 @@ function campaignNames(root, kind) {
   return names;
 }
 
-function evidenceOf(root, source) {
+/**
+ * 取得元（dataSource）の最新の値。{ day, rows, value, period, ref }。period は取得元の集計窓、ref は読んだファイル（レポートは「file#枠」）。
+ * 事業レポートのセル（business-direction.mjs の sourceFacts）も同じ読み方で載せる（集計を 2 か所に書かない）
+ */
+export function evidenceOf(root, source) {
   if (source.report) {
     const report = latestReport(root, source.report);
     if (!report) return null;
     const campaigns = source.campaigns ? campaignNames(root, source.campaigns) : null;
     const rows = (report.data.rows ?? []).filter((r) => (!source.match || r[source.match.key] === source.match.value) && (!campaigns || campaigns.has(r.campaign)));
-    return { day: jstDayOfStamp(report.stamp), rows: rows.length, value: sum(rows, source.field) };
+    return { day: jstDayOfStamp(report.stamp), rows: rows.length, value: sum(rows, source.field), period: { startDate: report.data.meta?.startDate, endDate: report.data.meta?.endDate }, ref: report.ref };
   }
   const file = latestFile(root, source.dataset);
   if (!file) return null;
-  const rows = (readJson(root, file)[source.rows] ?? []).filter((r) => r[source.field] != null);
-  return { day: file.match(/(\d{4}-\d{2}-\d{2})\.json$/)[1], rows: rows.length, value: rows.length ? sum(rows, source.field) / rows.length : null };
+  const data = readJson(root, file);
+  const rows = (data[source.rows] ?? []).filter((r) => r[source.field] != null);
+  return { day: file.match(/(\d{4}-\d{2}-\d{2})\.json$/)[1], rows: rows.length, value: rows.length ? sum(rows, source.field) / rows.length : null, period: data.period, ref: file };
 }
 
 /** 全指標の状態（id → 判定）。取得元を持つ指標だけを読む */

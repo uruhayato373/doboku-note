@@ -110,6 +110,22 @@ https://note.com/dobokunote/m/m7c61c9447a4c
 
 ---
 
+## 技術士の次は総監へ
+
+上下水道部門の業務は、総監の5つの管理で語り直せます。受験資格と試験の免除、立場別の入口は無料記事にまとめました。
+
+- [上下水道部門の次に総監を受ける人へ（無料）](https://note.com/dobokunote/n/n1683f37bad7f)
+- [令和8年度 総監 記述式 模範解答例（無料・全16版）](https://note.com/dobokunote/n/nfe8bc37ce88e)
+
+立場別の総監 記述式 模範論文:
+
+- [自治体上水道担当](https://note.com/dobokunote/m/mf4c6792b4f9c)
+- [自治体下水道担当](https://note.com/dobokunote/m/mf1cbc32d53aa)
+- [上下水道コンサル](https://note.com/dobokunote/m/me0255472f9ed)
+- [上下水道施工](https://note.com/dobokunote/m/ma98a861dc9fd)
+
+---
+
 ## 目的から逆引き
 
 - **必須科目Iの型と模範解答がほしい** → [必須科目I 模範解答集](https://note.com/dobokunote/m/m7c61c9447a4c)

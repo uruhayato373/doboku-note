@@ -809,7 +809,7 @@ export const PastExamQuestionLedger = z
   .object({
     schemaVersion: z.literal(1),
     qualification: z.string().regex(/^[a-z0-9-]+$/).describe('資格 id（在庫台帳・資格台帳と同じ）'),
-    quizExam: z.string().min(1).describe('演習データの試験 id（build-quiz-data の SOURCES）'),
+    quizExam: z.string().min(1).describe('演習データの試験 id（build-quiz-data の SOURCES。演習データの無い資格は資格 id と同じ）'),
     questions: z.array(LedgerRow).superRefine(uniqueBy('id', '問題 ID')),
   })
   .strict()

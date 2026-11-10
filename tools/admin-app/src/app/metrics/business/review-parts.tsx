@@ -5,13 +5,14 @@ import { PageHead } from '@/components/ui';
 import { Grid, Section, Stack } from '@/components/layout';
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { findRepoRoot } from '@/lib/repo-root';
-import { buildReport, reviewPeriod } from '../../../../../../scripts/lib/business-direction.mjs';
+import { buildReport, reviewPeriod, samePeriod } from '../../../../../../scripts/lib/business-direction.mjs';
 import { buildProcedureView, buildReviewView, buildRunHistory, runKeyOfPeriod } from '../../../../../../scripts/lib/review-wiring.mjs';
 import { buildGate } from '../../../../../../scripts/lib/backlog-gate.mjs';
 import { todayJst } from '../../../../../../scripts/lib/jst-date.mjs';
 import { reviewWeekLabel } from '../../../../../../scripts/lib/review-week.mjs';
 import { readWeeklyDraft, reviewChecks, weeklyLaunchd } from '../../../../../../scripts/lib/review-automation.mjs';
 import { jstDateTime } from '@/lib/format';
+import { GAP_LABEL } from '@/lib/kpi-tree';
 import { StatusBadge, type Tone, DataTable, DetailSheet, DetailText, PanelCard, StatCard, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 
 /**
@@ -84,6 +85,12 @@ export function Current({ sel, cadenceId }: { sel: Selected; cadenceId: 'weekly'
             <li key={r}>{r}</li>
           ))}
         </ul>
+      )}
+      {sel.gaps && sel.gaps.human + sel.gaps.mac > 0 && (
+        <p className="m-0 text-sm">
+          {GAP_LABEL.human} {sel.gaps.human}・{GAP_LABEL.mac} {sel.gaps.mac}
+          {cadenceId === 'monthly' && sel.period && <> （<Link href={`/metrics/kpi?month=${sel.period.startDate.slice(0, 7)}`}>KPI ツリー</Link>）</>}
+        </p>
       )}
     </Stack>
   );
@@ -265,6 +272,8 @@ export function Outcome({ c, review, gate }: { c: Cadence; review: Review | null
 export type Selected = {
   key: string;
   period: { startDate: string; endDate: string } | null;
+  /** 全体の行で、人が動けば埋まる欠測の数（記録待ち・収集待ち）。レポートを組めなければ null */
+  gaps: { human: number; mac: number } | null;
   review: Review | null;
   verdict: Run['verdict'];
   /** 「不足あり」「未実施」の内訳（記録・レポート・節・申し送りのどれが欠けるか） */
@@ -342,12 +351,24 @@ export function loadReview(cadenceId: 'weekly' | 'monthly', runKey?: string): Re
   const review = (report.reviews as Review[])
     .filter((r) => r.cadence === cadenceId && runKeyOfPeriod(cadenceId, r.period) === key)
     .sort((a, b) => String((b as Review & { createdAt?: string }).createdAt ?? b.file).localeCompare(String((a as Review & { createdAt?: string }).createdAt ?? a.file)))[0] ?? null;
+  // 選んだ回の期間で、人が動けば埋まる欠測（全体の行）を数える
+  const selectedPeriod = periodOf(key);
+  const gaps = (() => {
+    if (!selectedPeriod) return null;
+    try {
+      const cells = (samePeriod(selectedPeriod, period) ? report : buildReport(root, selectedPeriod)).cells as { qualification: string; gap?: string }[];
+      const count = (gap: string) => cells.filter((c) => c.qualification === 'all' && c.gap === gap).length;
+      return { human: count('human'), mac: count('mac') };
+    } catch {
+      return null;
+    }
+  })();
   return {
     report,
     cadence,
     procedure: buildProcedureView(root, cadenceId, { reviews: report.reviews, runKey: key || null }) as Procedure | null,
     options,
-    selected: { key, period: periodOf(key), review, verdict: verdictOf(key), reasons: verdictOf(key) === 'ok' ? [] : verdictReasons(runs.find((r) => r.key === key)), current: key === keys[0] },
+    selected: { key, period: selectedPeriod, gaps, review, verdict: verdictOf(key), reasons: verdictOf(key) === 'ok' ? [] : verdictReasons(runs.find((r) => r.key === key)), current: key === keys[0] },
     gate,
     automation: loadAutomation(root, cadenceId, key),
   };

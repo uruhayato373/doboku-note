@@ -409,6 +409,14 @@
         "magazineName": "まるごとパック",
         "proof": "予想40問＋計算12問＋暗記ノート",
         "benefit": "全分野を3点で仕上げる"
+      },
+      {
+        "id": "essay-water-contractor-magazine",
+        "magazineDir": "content/note/技術士総監/magazines/総監模範論文-上下水道施工",
+        "qualifier": "技術士 総監｜記述式",
+        "magazineName": "上下水道施工",
+        "proof": "令和3〜7年度の模範論文",
+        "benefit": "自分の権限から5つの管理をつなぐ"
       }
     ]
   },

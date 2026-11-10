@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { cn } from '@/lib/cn';
-import { loadKpiView, type KpiCell } from '@/lib/kpi-tree';
+import { GAP_LABEL, loadKpiView, type KpiCell } from '@/lib/kpi-tree';
 import { withUnit } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
@@ -14,6 +14,8 @@ const INDENT = ['pl-2', 'pl-6', 'pl-10'] as const;
 
 function Cell({ cell, unit }: { cell: KpiCell | undefined; unit: string }) {
   if (!cell || !cell.applicable) return <TableCell className={`${numCol} text-muted-foreground`}>対象外</TableCell>;
+  // 欠測は「—」で済ませず、なぜ無いかを出す（根拠はマウスで）
+  if (cell.gap) return <TableCell className={numCol}><StatusBadge tone={cell.gap === 'human' || cell.gap === 'mac' ? 'warn' : 'neutral'} title={cell.note}>{GAP_LABEL[cell.gap]}</StatusBadge></TableCell>;
   return (
     <TableCell className={numCol}>
       {withUnit(cell.value, unit)}

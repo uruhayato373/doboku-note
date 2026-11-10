@@ -692,7 +692,7 @@
       "id": "c-01",
       "asin": "B0HB3374VL",
       "title": "技術士 建設部門 道路 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -702,12 +702,17 @@
       "epub": "kindle-dist/c-01.epub",
       "cover": "kindle-dist/c-01.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-01.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "A167LTUP60LEJL",
@@ -722,14 +727,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "f9cd8d731b2923fee14fbc4fa33abc22ae7c916fd91ac247779fcae4afc4917e",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "c1f89702dd6cf35681609dd686ecc17ecc1b80f03408cc8d085ad32dd42c80f5",
+          "at": "2026-11-10T15:32:44+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "ffa1432c8c928d5753baad3da89f0f4563798391baa6f53555b152c975c90e4c",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "2527476759b32acbce76c334fc18d2d30ab1b8de58ff2032fa197212e97b30f8",
+          "at": "2026-11-10T15:16:26+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -737,7 +742,7 @@
       "id": "c-02",
       "asin": "B0HB3JF9QZ",
       "title": "技術士 建設部門 河川砂防 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -747,12 +752,17 @@
       "epub": "kindle-dist/c-02.epub",
       "cover": "kindle-dist/c-02.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-02.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "ANFZKW8QGR3IS",
@@ -767,14 +777,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "78ed1c4ed0c7fbab290b12fad533b0cc4e3035d95fe607ff53af30ba565e69c7",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "33cf2f32ffa1ec89946f6a9f83dc78ba23395866d7f1e6b90552de1bdf21879e",
+          "at": "2026-11-10T15:33:56+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "713aaed70f1d1d0e79bde5a6d0d31c303da694710a5009969b3e98e69ce254c1",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "280f277f6a1e8c143ac136491f9495168297ab9ac83ca7248c41c36e3caf716d",
+          "at": "2026-11-10T15:17:00+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -782,7 +792,7 @@
       "id": "c-03",
       "asin": "B0HB3BLV94",
       "title": "技術士 建設部門 都市計画 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -792,12 +802,17 @@
       "epub": "kindle-dist/c-03.epub",
       "cover": "kindle-dist/c-03.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-03.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "AXP8QW1IX3HIE",
@@ -812,14 +827,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "7765a96d5bd4dfdcf5a09fcdc97473069b9481bfe3bd5d4a3ac4d87d53baf973",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "a3a2b360bfad31600c7fe69c7913d80f9ad47965ce2c7f3173379930c827bacc",
+          "at": "2026-11-10T15:35:08+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "153cf3eb40e98c43041faad38266460fc1140434a4f76275a8e3f5634f996d95",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "2720e96acac51466317d92afa4b57fad145b558f0c1d191c5c35c0d69086c2a0",
+          "at": "2026-11-10T15:17:34+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -827,7 +842,7 @@
       "id": "c-04",
       "asin": "B0HB3KWZBD",
       "title": "技術士 建設部門 土質及び基礎 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -837,12 +852,17 @@
       "epub": "kindle-dist/c-04.epub",
       "cover": "kindle-dist/c-04.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-04.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "A1PMVSPV7WEHT4",
@@ -857,14 +877,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "d792c720a849c84d007070ea8347be5c283664bfdce88a1c73bb5650bf263827",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "a738435fc31ec2287256580ca0c6f41dcae943a9cea7be87aaa70ce62392afd1",
+          "at": "2026-11-10T15:36:59+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "b491ae65d4950dc3aa3eb4afc30d6b702ecdaf8529aac3e55a8b212085d44ce9",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "2f794a9793183be3a3c449822877379409fe407f5d7e691bcf0cbcc363c0175f",
+          "at": "2026-11-10T15:18:08+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -872,7 +892,7 @@
       "id": "c-05",
       "asin": "B0HB3CL6C7",
       "title": "技術士 建設部門 鋼構造及びコンクリート 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -882,12 +902,17 @@
       "epub": "kindle-dist/c-05.epub",
       "cover": "kindle-dist/c-05.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-05.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "A4K870J92OVQE",
@@ -902,14 +927,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "21f00c4254cea8838e223f2af7936baf3d018cc64d7c91d71a1a8147d2d7af24",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "f477f21eebe772c439b694fff0c85a721bc7f78aa1061f7e44dacd8fa6f66eb9",
+          "at": "2026-11-10T15:31:29+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "c9148a86a10b596cb9c9831dea6ee501a936f55f1d68b8b372c7315866dfa4d1",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "39f436994ace0a2c7a854110b16f81e093be6ffc5c9a453327d77d2cd6903357",
+          "at": "2026-11-10T15:15:49+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -917,7 +942,7 @@
       "id": "c-06",
       "asin": "B0HB37CTYN",
       "title": "技術士 建設部門 施工計画 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -927,12 +952,17 @@
       "epub": "kindle-dist/c-06.epub",
       "cover": "kindle-dist/c-06.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-06.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "A2G5ZK10UFH1XK",
@@ -947,14 +977,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "c4832824095633cb75a8821fc0ef6c31e64bf2fe00a1de7ea4d29c314c6cd262",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "96b6ed7b95fd4b466faa9b43f46f70c73e3db74821596025a24451ceabb2e4bf",
+          "at": "2026-11-10T15:38:10+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "95d015be6ded7de1a99e0cd663188c18ac027aaecc9d713001a3da7217f90a69",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "69d272df4b4568a6aa624588a68542bf9cd8321a37d4b0e842e4b58c7ab66c65",
+          "at": "2026-11-10T15:18:38+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -962,7 +992,7 @@
       "id": "c-07",
       "asin": "B0HB3585PD",
       "title": "技術士 建設部門 建設環境 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -972,12 +1002,17 @@
       "epub": "kindle-dist/c-07.epub",
       "cover": "kindle-dist/c-07.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-07.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "A15CW53FVTA6F3",
@@ -992,14 +1027,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "73ea990d56a48c084b2f56924405c06a6d71296cef340d1a0ea17771d11a6543",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "122bd688e93da1a6175bc7fb45de87d1cb871a215daee615b51dbd92174d41ff",
+          "at": "2026-11-10T15:39:22+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "ddadeb9396c82ca396ea501cfd2c9dd9a4a4704dda7e77c6a12a716f7f5f54ad",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "77c1ce3dcb1925fbab31e3019220bd2657c4fb4f1ef0523c0012f467a1e0b1e7",
+          "at": "2026-11-10T15:19:11+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -1007,7 +1042,7 @@
       "id": "c-08",
       "asin": "B0HB3H3N7Y",
       "title": "技術士 建設部門 港湾及び空港 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -1017,12 +1052,17 @@
       "epub": "kindle-dist/c-08.epub",
       "cover": "kindle-dist/c-08.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-08.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "A3B7ENGI85P9X9",
@@ -1037,14 +1077,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "763efbfec30a5873004c173ec4fd9b8e608f8e79318c75bc0c6c300d2f4557fb",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "f93c76b56f747f36083668a79920be059af0a023c4031c0621d6ad54524cc6e5",
+          "at": "2026-11-10T15:40:32+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "57e150b25f8222a9391fd2ebb924ddac12403facab3f02163fdc095160e87245",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "23731346849f9fd2e63309bf2e943a96977ceb3031326cbad1694fc7d4c16587",
+          "at": "2026-11-10T15:19:45+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -1052,7 +1092,7 @@
       "id": "c-09",
       "asin": "B0HB34VG8C",
       "title": "技術士 建設部門 電力土木 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -1062,12 +1102,17 @@
       "epub": "kindle-dist/c-09.epub",
       "cover": "kindle-dist/c-09.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-09.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "A29YX93FNKVAJT",
@@ -1082,14 +1127,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "a9df0adea02cd476d33379a805ea3982e16d3190f256c68b5570985df0b88a07",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "f4956d5d6630064bb9766405cd8b4520805c691a321b8e4c8322c14db8995a3d",
+          "at": "2026-11-10T15:42:14+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "701e755e2c127143572e3cf68c3fb123327826b84bef9b8108460a5e74a130af",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "375566d6b2d318cf57c2a7b436de3c8a4f49d354e0315012739a97f23d3fd2a6",
+          "at": "2026-11-10T15:20:18+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -1097,7 +1142,7 @@
       "id": "c-10",
       "asin": "B0HBQSYKZ6",
       "title": "技術士 建設部門 鉄道 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -1107,12 +1152,17 @@
       "epub": "kindle-dist/c-10.epub",
       "cover": "kindle-dist/c-10.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-10.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "A34L0KL0IGXXYF",
@@ -1127,14 +1177,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "92bb02d88c7cb6054e8f9bcbe577abbc435203f37322f3b57297d47c018369b0",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "4b389534e076b03e12b4dc190469f349f1d90e54b3b8add43529602d676a3f47",
+          "at": "2026-11-10T15:43:25+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "cba2b117dca2adb733d6bc5f32d449fe6c3674ced200364b087d0db708e461f9",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "e78bc32a072e4dc4d82f9602fe4bf3fec6be951717cf5d00b84e0f4592b90f5c",
+          "at": "2026-11-10T15:20:49+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -1142,7 +1192,7 @@
       "id": "c-11",
       "asin": "B0HBR397N3",
       "title": "技術士 建設部門 トンネル 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全15記事",
+      "subtitle": "過去問 R03-R08 全18記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -1152,12 +1202,17 @@
       "epub": "kindle-dist/c-11.epub",
       "cover": "kindle-dist/c-11.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-11.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 3 本（II-1・II-2・III）を足し、R03〜R08 全18本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "A20UU4L5GAS3QJ",
@@ -1172,14 +1227,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "ca3a26507ede02e7bad79041574e6d4a4cc637765428f2778c57828b2e1316e2",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "dc7ba18550b8c00ae02454ee5438e9c2162c056b4155650dcc1841cca62f3343",
+          "at": "2026-11-10T15:44:37+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "24a22107629d3405e0d3c0300fef6aa72429461710727fdc35f4e7605e0a1002",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "0faf45a5586f1bd97c46b8c75f56e29484a1abf5a0b370b2ca624f0d7430f8c5",
+          "at": "2026-11-10T15:21:23+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -1187,7 +1242,7 @@
       "id": "c-I",
       "asin": "B0HBR2F6KZ",
       "title": "技術士 建設部門 必須科目I 二次 模範解答集",
-      "subtitle": "過去問 R03-R07 全5記事",
+      "subtitle": "過去問 R03-R08 全6記事",
       "series": "C 技術士建設部門 二次 模範解答",
       "priceJpy": 1650,
       "royalty": 0.7,
@@ -1197,12 +1252,17 @@
       "epub": "kindle-dist/c-I.epub",
       "cover": "kindle-dist/c-I.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-I.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
           "date": "2026-07-11",
           "change": "制作完了(EPUB＋前付け＋QA＋表紙)・KDP提出待ち"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度版に改版（R08 の 1 本（I-1・I-2）を足し、R03〜R08 全6本）。前付けの出題傾向を 6 年分で数え直し、副題・説明文・検索語を年度版にし、表紙を年度入りの POP 表紙へ差し替え。章に残っていた「PDF付き」の約束文を除き、巻末にレビューのお願いを追加"
         }
       ],
       "draftAsin": "A4JJHSD8B2DQN",
@@ -1217,14 +1277,14 @@
       ],
       "uploaded": {
         "epub": {
-          "sha256": "03b8f3f9eed687fd359fc93ae02d3329a24c231616b762bd0d8dd77d3a007cd0",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "7c9dd151562beb419652314c9e3e5fab2ca3af0a35e5ddc154fc4cb53b96e717",
+          "at": "2026-11-10T15:46:28+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "4e32b14f5c7d14b2e3eeef1e15b10d3beaf43b6acd86775842665be353288531",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "a06a3eaaf17e8648fbaaa95039aa95fc6297241fda7da0e31d6574ecb56f337a",
+          "at": "2026-11-10T15:21:57+09:00",
+          "via": "update-cover"
         }
       }
     },
