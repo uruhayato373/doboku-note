@@ -970,7 +970,7 @@ export const ConfigKdpMemo = z
     schemaVersion: z.literal(1),
     _comment: text,
     defaults: kdpDefaults,
-    books: z.record(z.string().regex(/^[a-z]-[A-Za-z0-9-]+$/, '本の id（a-01・c-I など）'), kdpBook),
+    books: z.record(z.string().regex(/^[A-Za-z]-[A-Za-z0-9-]+$/, '本の id（a-01・A-00・c-I など。A 系は catalog の id が大文字）'), kdpBook),
   })
   .strict()
   .meta({ title: 'KDP 入稿の設定' });
