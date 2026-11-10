@@ -14,13 +14,15 @@ export function protectedIds(publications) {
 
 /**
  * 1 本の扱いを決める。消すのは「非公開・予約なし・縦長・3 分以内・台帳で守られていない」をすべて満たすものだけ。
- * 縦横が読めないものは消さない（判定できないものを対象に入れない）。
+ * 縦横が読めないものは、台帳でショートの行と結べるときだけ消す（判定できないものを対象に入れない）。
  */
-export function classify(video, keep) {
+export function classify(video, keep, ledgerShorts = new Set()) {
   const status = video.status ?? {};
   if (keep.has(video.id)) return 'protected';
   if (status.privacyStatus !== 'private') return 'not-private';
   if (status.publishAt) return 'scheduled';
+  // アップロードから日が経つと fileDetails が返らない（2026-11-10・47 本中 7 本）。台帳でショートの行と結べる動画は縦横を見ずに対象にする
+  if (ledgerShorts.has(video.id)) return 'purge';
   const stream = video.fileDetails?.videoStreams?.[0];
   if (!stream?.widthPixels || !stream?.heightPixels) return 'shape-unknown';
   // 回転の情報つきの縦動画は幅と高さが入れ替わって記録される
@@ -35,10 +37,11 @@ export function classify(video, keep) {
 /** 消す計画。digest は対象の ID の集合で決まり、実行は同じ digest を渡したときだけ進む */
 export function purgePlan(videos, publications) {
   const keep = protectedIds(publications);
+  const ledgerShorts = new Set(publications.filter((p) => p.channel === 'youtube' && p.format === 'short' && p.platform?.id).map((p) => p.platform.id));
   const counts = {};
   const targets = [];
   for (const video of videos) {
-    const kind = classify(video, keep);
+    const kind = classify(video, keep, ledgerShorts);
     counts[kind] = (counts[kind] ?? 0) + 1;
     if (kind === 'purge') targets.push(video);
   }
