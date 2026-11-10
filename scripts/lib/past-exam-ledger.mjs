@@ -3,14 +3,16 @@
  *
  * 問題台帳は「1 問ごとに、どの原典 PDF の何ページから取り、公式正答は何で、転記を原典と照合したか」の正本。
  * キーは演習データ（Web の過去問演習・iOS アプリ）の問題 ID そのもの（アプリの学習履歴が「試験 + 問題 ID」に紐づくので変えない）。
+ * 演習データの無い資格（測量士補・コンクリート主任技士）は記事の MDX の見出しから ID を作り、記事の「正答：N」を照合する（DN-1085）。
  *   演習データの問題 ─(id)→ 台帳の行 ─(article)→ content/site の記事
  *                                     ─(source.question / source.answer)→ 在庫台帳 data/pastexams/inventory.json のファイル（Drive vault の原本）
  * 判定（evaluateLedger）は純関数で、検査（check-past-exam-ledger）・iOS の書き出し（build-ios-quiz-bundle）・管理画面が同じものを使う。
  */
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
-import { REPO_ROOT } from './repository-paths.mjs';
+import { existsSync, readFileSync } from 'node:fs';
+import { basename, dirname, join } from 'node:path';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
 import { readDataset, readDatasetIf } from './dataset-io.mjs';
+import { listSiteMdx } from './mdx-files.mjs';
 
 export const LEDGER_ID = 'pastexams.question-ledger';
 export const TRANSCRIPTION_STATUSES = ['unverified', 'verified', 'fixed', 'no-source'];
@@ -105,7 +107,52 @@ export const LEDGER_EXAMS = {
       };
     },
   },
+  // 演習データを持たない資格は記事の MDX を直接読む（source.kind 'mdx'。DN-1085）。quizExam は資格 id と同じにする
+  'assistant-surveyor': {
+    quizExam: 'assistant-surveyor',
+    source: { kind: 'mdx', dir: 'surveyor', article: /^primary-r\d{2}$/, headingId: (h, slug) => {
+      const m = /^No\.\s*(\d+)$/.exec(h);
+      return m ? `${slug.replace('primary-', '')}-${m[1].padStart(2, '0')}` : null;
+    } },
+    locate(id, q) {
+      const m = /^(r\d{2})-(\d{2})$/.exec(id);
+      if (!m) return null;
+      return { year: yearOfCode(m[1]), article: q?.article || `surveyor/primary-${m[1]}`, no: `No.${Number(m[2])}`, question: /筆記/, answer: /筆記/ };
+    },
+  },
+  'concrete-chief-engineer': {
+    quizExam: 'concrete-chief-engineer',
+    source: { kind: 'mdx', dir: 'concrete-chief-engineer', article: /^primary-/, headingId: (h) => {
+      const m = /^(平成|令和)\s*(\d+|元)\s*年度\s*問題\s*(\d+)(?:\s*\(.*\))?$/.exec(h);
+      if (!m) return null;
+      const n = m[2] === '元' ? 1 : Number(m[2]);
+      return `${m[1] === '平成' ? 'h' : 'r'}${String(n).padStart(2, '0')}-${m[3].padStart(2, '0')}`;
+    } },
+    locate(id, q) {
+      const m = /^([hr]\d{2})-(\d{2})$/.exec(id);
+      if (!m || !q?.article) return null;
+      // 分野別の記事に年度をまたいで載る。公式の正答表は在庫台帳に無い（正答は過去問解説書の「出題当時」の正解で照合）
+      return { year: yearOfCode(m[1]), article: q.article, no: `問題${Number(m[2])}`, question: /./, answer: /./ };
+    },
+  },
 };
+
+/**
+ * 記事 1 本の MDX から問題（見出し＝問題、解説の「正答：N」）を拾う。見出しは ## か ###。
+ * @returns {{ id: string, correct: number|null, article: string }[]}
+ */
+export function parseMdxQuestions(text, { dir, slug, headingId }) {
+  const body = text.startsWith('---') ? text.slice(text.indexOf('\n---', 3) + 4) : text;
+  const out = [];
+  for (const block of `\n${body}`.split(/\n#{2,3} /).slice(1)) {
+    const heading = block.split('\n', 1)[0].normalize('NFKC').trim();
+    const id = headingId(heading, slug);
+    if (!id) continue;
+    const m = /\*\*正[答解][：:]\s*\(?([1-5])/.exec(block.normalize('NFKC'));
+    out.push({ id, correct: m ? Number(m[1]) : null, article: `${dir}/${slug}` });
+  }
+  return out;
+}
 
 /**
  * 演習データから台帳の対象（問題 ID・演習データの正答）を並べる。演習データが落とす問題（選択肢なし等）も数えるため、
@@ -119,6 +166,12 @@ export async function enumerateQuestions(qualification, root = REPO_ROOT) {
     const { readJson } = await import('./json-io.mjs');
     const src = readJson(root, cfg.source.path);
     return (src.years || []).flatMap((y) => (y.questions || []).map((q) => ({ id: q.id, correct: q.correct ?? q.correctNum ?? null })));
+  }
+  if (cfg.source.kind === 'mdx') {
+    const files = listSiteMdx({ dir: join(root === REPO_ROOT ? SITE_CONTENT_ROOT : join(root, 'content', 'site'), cfg.source.dir), articleOnly: true })
+      .filter((f) => cfg.source.article.test(basename(dirname(f))))
+      .sort();
+    return files.flatMap((f) => parseMdxQuestions(readFileSync(f, 'utf8'), { dir: cfg.source.dir, slug: basename(dirname(f)), headingId: cfg.source.headingId }));
   }
   const { SOURCES, buildDataset } = await import('../build-quiz-data.mjs');
   const source = SOURCES.find((s) => s.exam === cfg.quizExam);
