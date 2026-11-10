@@ -201,3 +201,20 @@ export function auditLongformPlan({ plan, publications, revisions = [], formats,
   if (today > cycle.reviewAt) warnings.push(`見直し日 ${cycle.reviewAt} を過ぎている。枠と目標を見直す`);
   return { targets, checked, slots: plan.slots.length, planned, capacity, fill: Object.fromEntries(fill), shortsFill: shorts.fill, errors, warnings, pending };
 }
+
+/**
+ * 台本を書く前の企画の行（公開行が無い new）と、内容QAで止まった行（qa_blocked）を、確認期限（ready）の近い順に返す。
+ * video-factory status が「次にどの台本を書くか」を出し、check-youtube-plan --due が期限超過を週次で赤にする（DN-1069）。
+ */
+export function scriptQueue(plan, publications, today = todayJst()) {
+  const byId = new Map(publications.map((p) => [p.id, p]));
+  const rows = [];
+  for (const e of plan.entries) {
+    if (e.action !== 'new') continue;
+    const p = e.publicationId ? byId.get(e.publicationId) : null;
+    const state = !e.publicationId ? 'script' : p?.status === 'qa_blocked' ? 'qa-blocked' : null;
+    if (!state) continue;
+    rows.push({ id: e.id, exam: e.exam, title: e.title, ready: e.ready, target: e.target, state, overdue: e.ready < today, publicationId: e.publicationId ?? null });
+  }
+  return rows.sort((a, b) => a.ready.localeCompare(b.ready) || a.id.localeCompare(b.id));
+}

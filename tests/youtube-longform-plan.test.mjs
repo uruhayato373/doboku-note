@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { joinLongformPlan, loadLongformPlan, loadPlanAudit } from '../scripts/lib/youtube-longform-plan.mjs';
-import { auditLongformPlan, cycleCapacity, inventoryState, mondayOf, slotProblems, summarizeInventory, weekLimit, shortsSlotFill } from '../scripts/lib/youtube-longform-audit.mjs';
+import { auditLongformPlan, cycleCapacity, inventoryState, mondayOf, scriptQueue, slotProblems, summarizeInventory, weekLimit, shortsSlotFill } from '../scripts/lib/youtube-longform-audit.mjs';
 import { ConfigChannelAnnualPlan } from '../scripts/lib/dataset-schemas-content.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -179,4 +179,18 @@ test('主CTAがサイト記事の動画は targetPath で枠の宛先と照合�
   }), '2026-11-16');
   assert.ok(!run(path).warnings.some((w) => w.includes('主 CTA を枠に合わせる')), '枠の宛先と同じ記事なら注意を出さない');
   assert.ok(run('content/site/civil-practice/other/article.mdx').warnings.some((w) => w.includes('主 CTA を枠に合わせる')), '枠に無い記事なら注意を出す');
+});
+
+test('台本待ちは公開行の無い企画と QA で止まった行を、確認期限の近い順に出す（DN-1069）', () => {
+  const e = (id, ready, extra = {}) => ({ ...row, id, ready, ...extra });
+  const plan = { entries: [
+    e('late', '2026-12-20'),
+    e('early', '2026-11-10'),
+    e('built', '2026-11-01', { publicationId: 'q/built/youtube.longform' }),
+    e('blocked', '2026-11-20', { publicationId: 'q/blocked/youtube.longform' }),
+    e('reuse', '2026-11-01', { action: 'reuse' }),
+  ] };
+  const pubs = [{ id: 'q/built/youtube.longform', status: 'qa_passed' }, { id: 'q/blocked/youtube.longform', status: 'qa_blocked' }];
+  const q = scriptQueue(plan, pubs, '2026-11-16');
+  assert.deepEqual(q.map((r) => [r.id, r.state, r.overdue]), [['early', 'script', true], ['blocked', 'qa-blocked', false], ['late', 'script', false]]);
 });

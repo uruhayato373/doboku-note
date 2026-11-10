@@ -2,7 +2,7 @@
 /**
  * video-factory.mjs — 通常動画の量産工程の入口。手順は .claude/knowledge/reference/video-factory.md
  *
- *   npm run video-factory -- status [--exam <exam>] [--json]   全パックの次の工程
+ *   npm run video-factory -- status [--exam <exam>] [--json] [--all]   全パックの次の工程と、台本待ちの企画（--all で全部）
  *   npm run video-factory -- plan --pack <exam>/<work> [--scope all|cover] [--date YYYYMMDD] [--retry <項目 id,…|all>]
  *   npm run video-factory -- generate --pack <exam>/<work> [--concurrency 3]
  *   npm run video-factory -- audit-queue --pack <exam>/<work>             監査へ渡す項目
@@ -45,13 +45,14 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
-import { slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
+import { scriptQueue, slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
+import { loadPlanAudit } from './lib/youtube-longform-plan.mjs';
 import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, qaInputDigest, qaState, recordAudit, retryItems, summarize, unapprovedRow } from './lib/video-factory.mjs';
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
-    stock: { type: 'boolean' }, retry: { type: 'string' },
+    stock: { type: 'boolean' }, retry: { type: 'string' }, all: { type: 'boolean' },
     pack: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' },
     concurrency: { type: 'string' }, packs: { type: 'string' }, 'publish-at': { type: 'string' }, file: { type: 'string' }, by: { type: 'string' }, avg: { type: 'string' }, blocks: { type: 'string' },
   },
@@ -117,7 +118,10 @@ function status() {
   const counts = {};
   for (const r of rows) counts[r.stage] = (counts[r.stage] ?? 0) + 1;
   const checked = rows.filter((r) => r.stage !== 'unregistered').length;
-  if (args.json) { console.log(JSON.stringify({ scanned, checked, counts, rows }, null, 2)); return; }
+  // 最上流の「次にどの台本を書くか」。パックがまだ無い企画の行は上の走査に出ないので、年間計画から出す（DN-1069）
+  const { plan, publications } = loadPlanAudit(ROOT);
+  const queue = scriptQueue(plan, publications).filter((r) => !args.exam || r.exam === args.exam);
+  if (args.json) { console.log(JSON.stringify({ scanned, checked, counts, rows, scriptQueue: queue }, null, 2)); return; }
   console.log(`パック ${scanned} 件のうち、公開行のある ${checked} 件を判定（台帳未登録 ${scanned - checked} 件は registry -- import-video-pack で載せる）`);
   for (const [stage, n] of Object.entries(counts).sort()) console.log(`  ${stage}: ${n}`);
   for (const r of rows.filter((x) => !['done', 'stopped'].includes(x.stage))) {
@@ -125,6 +129,9 @@ function status() {
     // 止まった項目は理由まで出す。やり直すときは plan --retry
     for (const [id, why] of Object.entries(r.plan?.reasons ?? {})) console.log(`  ${id}: ${why}`);
   }
+  const shown = args.all ? queue : queue.slice(0, 5);
+  console.log(`台本待ち ${queue.length} 本（確認期限の近い順${args.all ? '' : `・先頭 ${shown.length} 本。全部は --all`}・期限超過 ${queue.filter((r) => r.overdue).length} 本）`);
+  for (const r of shown) console.log(`${r.state === 'script' ? 'script' : 'fix-script'}\t${r.id}\tready ${r.ready}${r.overdue ? '（超過）' : ''}\t${r.title}`);
 }
 
 async function render() {
