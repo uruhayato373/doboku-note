@@ -546,7 +546,7 @@
       "work": "toan-kousei-template",
       "account": "youtube:main",
       "format": "longform",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/toan-kousei-template/youtube.longform/cover",
         "scene-001": "pe-construction/toan-kousei-template/youtube.longform/scene-001",
@@ -578,7 +578,7 @@
       "times": {
         "rendered": "2026-11-05T01:07:49.866Z",
         "uploaded": "2026-11-05T08:27:13.172Z",
-        "scheduled": "2026-11-05T08:27:24.966Z"
+        "scheduled": "2026-11-10T10:50:50.570Z"
       },
       "delivery": {
         "inputSha256": "7c1452bf8dab20b9a61363e8378b1c374171b6670118117e454ba2d3e162a3a7",
@@ -586,16 +586,19 @@
         "uploadRequestedAt": "2026-11-05T08:26:23.612Z",
         "videoId": "ywemm49EBPA",
         "processedAt": "2026-11-05T08:27:12.448Z",
-        "thumbnailRequestedAt": "2026-11-05T08:27:13.223Z",
+        "thumbnailRequestedAt": "2026-11-10T10:50:39.256Z",
         "thumbnailUrls": [
-          "https://i9.ytimg.com/vi/ywemm49EBPA/default.jpg?sqp=CNz6sNcG&rs=AOn4CLBVixjwb9ndgrh01PdTDjV3pbNxeg",
-          "https://i9.ytimg.com/vi/ywemm49EBPA/mqdefault.jpg?sqp=CNz6sNcG&rs=AOn4CLChUfTmGMI5z83zTY-AySY60l83mQ",
-          "https://i9.ytimg.com/vi/ywemm49EBPA/hqdefault.jpg?sqp=CNz6sNcG&rs=AOn4CLC-EMDeA29jx5sxEDEfg6dc9ROXBw",
-          "https://i9.ytimg.com/vi/ywemm49EBPA/sddefault.jpg?sqp=CNz6sNcG&rs=AOn4CLCJxo7mqhIQnJCiBG8JfY7pi2h_dQ",
-          "https://i9.ytimg.com/vi/ywemm49EBPA/maxresdefault.jpg?sqp=CNz6sNcG&rs=AOn4CLDnOtia2XvOGOOYv2GvofPbJE9NbQ",
-          "https://i9.ytimg.com/vi/ywemm49EBPA/fhddefault.jpg?sqp=CNz6sNcG&rs=AOn4CLBn2Na0yufmmcieubZxlXr81ebwoA"
+          "https://i9.ytimg.com/vi/ywemm49EBPA/default.jpg?sqp=CNjty9cG&rs=AOn4CLA_RzuKHxn1ptwrieJVCcA5YlWcww",
+          "https://i9.ytimg.com/vi/ywemm49EBPA/mqdefault.jpg?sqp=CNjty9cG&rs=AOn4CLD3em0KN-EUNfZR9qd0nFg158Pg7g",
+          "https://i9.ytimg.com/vi/ywemm49EBPA/hqdefault.jpg?sqp=CNjty9cG&rs=AOn4CLBVFl0Q5as0U0qrmh5CUfZ4Jut14A",
+          "https://i9.ytimg.com/vi/ywemm49EBPA/sddefault.jpg?sqp=CNjty9cG&rs=AOn4CLAYHH1T27tviZ_33sR_ivErnufoEA",
+          "https://i9.ytimg.com/vi/ywemm49EBPA/maxresdefault.jpg?sqp=CNjty9cG&rs=AOn4CLBySBVWzN_GgDFE63t90wNMiWnQYA",
+          "https://i9.ytimg.com/vi/ywemm49EBPA/fhddefault.jpg?sqp=CNjty9cG&rs=AOn4CLCBkCw9wxF361U5I-xKa2T-Z1FSWA"
         ],
-        "thumbnailAcceptedAt": "2026-11-05T08:27:17.250Z"
+        "thumbnailAcceptedAt": "2026-11-10T10:50:43.191Z",
+        "scheduleRequestedAt": "2026-11-10T10:50:47.154Z",
+        "scheduleAt": "2026-11-12T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-10T10:50:50.570Z"
       },
       "platform": {
         "id": "ywemm49EBPA",
@@ -608,7 +611,7 @@
       },
       "thumbnail": {
         "status": "set",
-        "setAt": "2026-11-05T08:27:17.250Z"
+        "setAt": "2026-11-10T10:50:43.191Z"
       },
       "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-12T11:30:00Z）",
       "publishAt": "2026-11-12T11:30:00Z"
