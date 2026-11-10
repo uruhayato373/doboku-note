@@ -369,6 +369,27 @@ export function unapprovedRow(pub) {
   return { ...rest, ...keep, status: 'qa_passed' };
 }
 
+/**
+ * 内容QAが採点した原稿の digest。script.md・storyboard.json（画像の工程が書く imageDesign を除く）・video-pack.json。
+ * QA の合格はこの digest に付き、原稿が変われば古くなる（合格の後に台本を直しても合格のままだった・DN-1067）。
+ */
+export function qaInputDigest(root, pack) {
+  const dir = join(root, packDirOf(pack));
+  const { imageDesign: _imageDesign, ...board } = JSON.parse(readFileSync(join(dir, 'storyboard.json'), 'utf8'));
+  const text = (file) => readFileSync(join(dir, file), 'utf8').replace(/\r\n/g, '\n');
+  return hash(JSON.stringify({ script: text('script.md'), storyboard: board, videoPack: JSON.parse(text('video-pack.json')) }));
+}
+
+/**
+ * 台帳の QA を今の原稿で読む。none＝未採点・stale＝原稿が変わった・passed・blocked。
+ * digest の無い記録（DN-1067 より前）は採点時の原稿が分からないので、そのまま受け入れる。
+ */
+export function qaState(qa, digest) {
+  if (!qa) return 'none';
+  if (qa.inputSha256 && qa.inputSha256 !== digest) return 'stale';
+  return qa.avg >= 2 && qa.blocks === 0 ? 'passed' : 'blocked';
+}
+
 /** 事実から次の工程を決める。確認が取れていない工程を飛ばさない。 */
 export function nextStage(f) {
   // 承認しただけで予約の段へ進んでいない行は done にしない。公開の枠を落としても緑に見えていた（DN-1066）
@@ -376,6 +397,8 @@ export function nextStage(f) {
   if (['approved', 'rendered', 'uploaded_private', 'scheduled', 'published'].includes(f.status)) return 'done';
   if (f.status === 'stopped') return 'stopped';
   if (f.qa === 'blocked') return 'fix-script';
+  // 内容QAは画像の前。BLOCK の台本に画像と描画の費用をかけない（Workflow と同じ順・DN-1067）
+  if (f.qa !== 'passed') return 'qa';
   if (!f.standard) {
     if (!f.plan) return 'plan';
     if (f.plan.exhausted.length) return 'images-exhausted';
@@ -385,7 +408,6 @@ export function nextStage(f) {
     return 'adopt';
   }
   if (!f.rendered) return 'render';
-  if (f.qa !== 'passed') return 'qa';
   if (f.review === 'fail') return 'review-failed';
   if (f.review !== 'pass') return 'review';
   return 'ready-for-approval';
