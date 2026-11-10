@@ -23,6 +23,10 @@ node scripts/kindle-covers/build-kindle-cover.mjs --spec scripts/kindle-covers/s
 3. `node scripts/kindle-covers/build-kindle-cover.mjs --spec specs/<id>.json --out ~/Downloads/...` で生成
 4. KDP にアップロード
 
+## 全面を画像生成で作った POP 表紙
+
+C 系（技術士 建設部門 二次 模範解答集 12 冊）の令和8年度版は、文字まで画像生成で描いた POP 表紙を採用している。spec の `adoptedImage` が制作記録（`pop/c-series-r08.pop-image.json`：参照画像・プロンプト・生成と採用の SHA-256）を指し、`npm run sync-kindle-dist` はその本の表紙を組版で作り直さない。採用画像の実体は private R2 の kindle-dist（`scripts/kindle-dist/<id>.jpg`）。
+
 ## 注意
 
 - 通常の作業出力は `.tmp/` or `~/Downloads/`。入稿済み版と配布版は再現性・差し替え確認のため `scripts/kindle-published/` または `scripts/kindle-dist/` で追跡する

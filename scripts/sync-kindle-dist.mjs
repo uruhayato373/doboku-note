@@ -55,7 +55,12 @@ for (const b of books) {
   const exactCoverSpec = resolve(REPO, `scripts/kindle-covers/specs/${id}.json`)
   const lowerCoverSpec = resolve(REPO, `scripts/kindle-covers/specs/${id.toLowerCase()}.json`)
   const coverSpec = existsSync(exactCoverSpec) ? exactCoverSpec : lowerCoverSpec
-  if (existsSync(coverSpec)) {
+  // 全面を画像生成で作った POP 表紙（spec に adoptedImage がある本）は組版で作り直さない。
+  // 作り直すと採用済みの表紙が旧組版へ戻る（2026-11-10・C 系の令和8年度版）。採用画像は private R2 の kindle-dist が正本
+  const adopted = existsSync(coverSpec) ? JSON.parse(readFileSync(coverSpec, 'utf8')).adoptedImage : null
+  if (adopted) {
+    process.stdout.write(`[表紙は採用画像を維持: ${adopted}] `)
+  } else if (existsSync(coverSpec)) {
     const cover = resolve(outDir, `${id}.jpg`)
     execFileSync(node, [resolve(REPO, 'scripts/kindle-covers/build-kindle-cover.mjs'), '--spec', coverSpec, '--out', cover], { cwd: REPO, stdio: 'ignore' })
     if (existsSync(cover)) {
