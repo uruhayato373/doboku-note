@@ -1098,7 +1098,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-skeleton-1",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-skeleton-1",
       "relatedTo": "pe-construction/toan-kousei-template/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1123,13 +1123,38 @@
         "contentSha256": "5bfc7e32bcf592e304ba4fead0ad94542f8695b226b9de425526145a376ffdc6"
       },
       "times": {
-        "rendered": "2026-11-10T21:28:04.970Z"
+        "rendered": "2026-11-10T21:28:04.970Z",
+        "uploaded": "2026-11-10T22:03:19.250Z"
       },
       "delivery": {
         "inputSha256": "881fb5ed5b4c3222fd47f4e01ce887250b93c0db31290968b253ca6c4ed0a5df",
         "marker": "dn-single-cff680a8f5bfeda18bfec43b1d6cf007d35cf322",
         "uploadRequestedAt": "2026-11-10T21:54:23.122Z",
-        "videoId": "HU2LFTMrl4Y"
+        "videoId": "HU2LFTMrl4Y",
+        "processedAt": "2026-11-10T22:03:18.498Z",
+        "thumbnailRequestedAt": "2026-11-10T22:03:19.273Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/default.jpg?sqp=COCnztcG&rs=AOn4CLA48UHz-jLEReeY1u6BydEQWbIRPw",
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/mqdefault.jpg?sqp=COCnztcG&rs=AOn4CLDN2qPiW62FpsabHqIEH_eQq194bQ",
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/hqdefault.jpg?sqp=COCnztcG&rs=AOn4CLBSdbtsp-s5DNbLQ7I8BOU-2KUztQ",
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/sddefault.jpg?sqp=COCnztcG&rs=AOn4CLArG1qA8bUPMEKZWcoAiMxGBCStoQ",
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/maxresdefault.jpg?sqp=COCnztcG&rs=AOn4CLBubDYa68QWQNLitRnNhD5PoLJTBw",
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/sardefault.jpg?sqp=COCnztcG&rs=AOn4CLB-TjQV9G7bMf2o8k7jEIGQJt9LNg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T22:03:24.328Z"
+      },
+      "platform": {
+        "id": "HU2LFTMrl4Y",
+        "url": "https://www.youtube.com/watch?v=HU2LFTMrl4Y",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-skeleton-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T22:03:24.328Z"
       }
     }
   ]
