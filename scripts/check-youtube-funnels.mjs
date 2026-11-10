@@ -5,7 +5,8 @@ import { join } from 'node:path';
 import { loadRegistry, resolveCopy } from './lib/content-registry.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
-import { classifySitePath, loadSiteRoutes, siteUrlForSlug } from './lib/site-links.mjs';
+import { classifySitePath, loadSiteRoutes, siteArticleUrl, siteUrlForSlug } from './lib/site-links.mjs';
+import { siteArticleCtaProblems } from './lib/youtube-funnel-description.mjs';
 
 const POLICY_START = Date.parse('2026-10-31T12:00:00+09:00');
 const ACTIVE = new Set(['uploaded_private', 'scheduled', 'published']);
@@ -67,6 +68,12 @@ for (const pub of registry.publications.filter((p) => p.channel === 'youtube' &&
     if (!siteLinks.some((u) => new URL(u).pathname === '/links')) issue(pub, '教材一覧リンクが違う');
     if (newPolicy) issue(pub, '新規公開は商品か関連ページへの直接CTAが必要');
     else if (noteLinks.length !== 1 || !isRelevantPaidLink(noteLinks[0], exam) || links[0] !== noteLinks[0]) issue(pub, '教材一覧に加えて同資格の有料商品への直接導線が必要');
+  } else if (manifest.primaryCta?.kind === 'site-article') {
+    // 集客の枠は商品でなく関連記事へ送る。概要欄の先頭が targetPath の公開 URL であること（DN-1004）
+    let target;
+    try { target = siteArticleUrl(manifest.primaryCta.targetPath, routes); }
+    catch (error) { issue(pub, error.message); continue; }
+    for (const message of siteArticleCtaProblems(links, target)) issue(pub, message);
   } else {
     issue(pub, `未対応の主CTA: ${manifest.primaryCta?.kind ?? 'none'}`);
   }
@@ -75,7 +82,8 @@ for (const pub of registry.publications.filter((p) => p.channel === 'youtube' &&
     const path = new URL(site).pathname;
     if (path !== '/links' && classifySitePath(path, routes).kind !== 'ok') issue(pub, `サイト記事の公開URLが未登録: ${path}`);
   }
-  const source = manifest.sourceRefs?.find((r) => r.type === 'site' && !r.allowUnpublished && r.path?.startsWith(`content/site/${exam}/`));
+  // 補助の無料記事は note の主CTAに添えるもの（概要欄を作る側の supportingSite と同じ条件）
+  const source = manifest.primaryCta?.kind === 'note-magazine' && manifest.sourceRefs?.find((r) => r.type === 'site' && !r.allowUnpublished && r.path?.startsWith(`content/site/${exam}/`));
   if (source) {
     const match = /^content\/site\/([a-z0-9-]+)\/([a-z0-9-]+)\/article\.mdx$/.exec(source.path);
     if (!match) { issue(pub, '関連サイト記事の参照形式が不正'); continue; }

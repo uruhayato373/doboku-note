@@ -113,3 +113,16 @@ export function siteUrlForSlug(slug, routes) {
   const to = routes.legacy.get(`/docs/${slug}`);
   return `${SITE_ORIGIN}${to ?? `/docs/${slug}`}`;
 }
+
+/**
+ * サイト記事のリポジトリのパス（content/site/<資格>/<slug>/article.mdx）から公開 URL（絶対）を返す。
+ * 形が違うか、新しい URL へ解決できなければ投げる（旧 /docs のまま外へ出さない）。
+ * 動画の概要欄を作る側と、導線を検査する側が同じ答えを使う（DN-1004・2026-11-10）。
+ */
+export function siteArticleUrl(path, routes) {
+  const match = /^content\/site\/([a-z0-9-]+)\/([a-z0-9-]+)\/article\.mdx$/.exec(path ?? "");
+  if (!match) throw new Error(`サイト記事の参照形式が不正: ${path}`);
+  const url = siteUrlForSlug(`${match[1]}-${match[2]}`, routes);
+  if (url.includes("/docs/")) throw new Error(`サイト記事の公開URLが解決できない: ${path}`);
+  return url;
+}

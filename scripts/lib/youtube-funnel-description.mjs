@@ -29,3 +29,15 @@ export function reviseYoutubeFunnelDescription(description, { primary, site }) {
   if (urls[0] !== primary.url || (urls.length === 2 && urls[1] !== site)) throw new Error('既存概要欄のリンク先が現在のCTAと違います');
   return buildYoutubeFunnelDescription({ intro, promise, primary, site, disclosure, notice, credit, hashtags });
 }
+
+/**
+ * 主 CTA がサイト記事（site-article）の概要欄の問題を返す。空なら合格。
+ * 集客の枠は商品でなく関連記事へ送る（DN-1004・2026-11-10）。リンクの先頭が、targetPath の公開 URL であること。
+ * @param {string[]} links 概要欄の自社リンク（出現順）
+ * @param {string} target targetPath を siteArticleUrl で解決した公開 URL（解決できなければ呼ぶ側で問題にする）
+ */
+export function siteArticleCtaProblems(links, target) {
+  if (!links.length) return [`サイト記事の主CTAリンクが無い: ${target}`];
+  if (links[0].split('?')[0] !== target) return [`主CTAのサイト記事が先頭に無い: ${target}`];
+  return [];
+}
