@@ -220,7 +220,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-funding-2",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-funding-2",
       "relatedTo": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -245,13 +245,25 @@
         "contentSha256": "3de1281d97a2db3dac6bd4ac00c5bbebbd8d34cd688f01e7fef65cd2a5e5fd58"
       },
       "times": {
-        "rendered": "2026-11-10T21:28:05.492Z"
+        "rendered": "2026-11-10T21:28:05.492Z",
+        "uploaded": "2026-11-10T22:04:30.488Z"
       },
       "delivery": {
         "inputSha256": "87a0f957fd1ca853db71b4ce45283fa75a3a56fdcdb5c57d7808b2d61c39e602",
         "marker": "dn-single-8f6864744b40128dc32576ced41581605ca33314",
         "uploadRequestedAt": "2026-11-10T21:59:33.935Z",
-        "videoId": "Da1c1w3CT2c"
+        "videoId": "Da1c1w3CT2c",
+        "processedAt": "2026-11-10T22:04:29.820Z",
+        "thumbnailRequestedAt": "2026-11-10T22:04:30.512Z"
+      },
+      "platform": {
+        "id": "Da1c1w3CT2c",
+        "url": "https://www.youtube.com/watch?v=Da1c1w3CT2c",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-funding-2"
+        }
       }
     },
     {
