@@ -404,7 +404,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-means-2",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-means-2",
       "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -429,13 +429,38 @@
         "contentSha256": "c6a389b782f04de591737dd82d6bd8978cb08b123605f3bba31daf821051f9c5"
       },
       "times": {
-        "rendered": "2026-11-10T21:28:04.796Z"
+        "rendered": "2026-11-10T21:28:04.796Z",
+        "uploaded": "2026-11-10T22:02:07.374Z"
       },
       "delivery": {
         "inputSha256": "acefa6d1798d199398868212f8beb2157d14b360894503ec1a2fe5880e1a61a5",
         "marker": "dn-single-168a2f13b3abba578ab26042a1e857bda88a72bc",
         "uploadRequestedAt": "2026-11-10T21:53:21.807Z",
-        "videoId": "c5R1Y1Z87fs"
+        "videoId": "c5R1Y1Z87fs",
+        "processedAt": "2026-11-10T22:02:06.620Z",
+        "thumbnailRequestedAt": "2026-11-10T22:02:07.401Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/default.jpg?sqp=COCnztcG&rs=AOn4CLAomNvVYmm9M96AweDXUygmyIt7bQ",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/mqdefault.jpg?sqp=COCnztcG&rs=AOn4CLD8JmB6SyBxFkEW7xZ47jtOLzRQlw",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/hqdefault.jpg?sqp=COCnztcG&rs=AOn4CLB3gRBrT7MP94Km9-Ck4xvbfaV5TA",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/sddefault.jpg?sqp=COCnztcG&rs=AOn4CLAh-9q9znrpgbeU10ALiBY7luZJwg",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/maxresdefault.jpg?sqp=COCnztcG&rs=AOn4CLDauGMkLefbrqSaQYbrZnbvgHaWLA",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/sardefault.jpg?sqp=COCnztcG&rs=AOn4CLA6WvuaYeTut-TQIfXhuzOnDrdVtw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T22:02:13.736Z"
+      },
+      "platform": {
+        "id": "c5R1Y1Z87fs",
+        "url": "https://www.youtube.com/watch?v=c5R1Y1Z87fs",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-means-2"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T22:02:13.736Z"
       }
     },
     {
