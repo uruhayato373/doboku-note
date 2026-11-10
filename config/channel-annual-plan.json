@@ -2155,6 +2155,48 @@
       }
     },
     {
+      "id": "cm-quiz-2027",
+      "exam": "pe-comprehensive-management",
+      "format": "quiz-tts",
+      "title": "総監 択一の一問一答・聞き流し（試行）",
+      "stance": "cm-takuitsu",
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": ""
+      },
+      "role": "attract",
+      "window": {
+        "from": "2027-05",
+        "to": "2027-06"
+      },
+      "anchors": [
+        "written"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "tankan-takuitsu-reiwa-pdf"
+        ]
+      },
+      "count": 1,
+      "reuse": "new",
+      "reuseNote": "在庫は無い。1級土木の一問一答（DN-0600）の仕組みをキーワードページに当てて作る",
+      "reason": {
+        "reader": "移動中に択一のキーワードを耳で反復したい",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "キーワードの一問一答を耳で反復し、問題演習は PDF で買う",
+        "demand": "総監の聞き流しは競合が空白。需要の数字は土木の「一問一答」「聞き流し」の再生中央値で、総監での実績は未検証",
+        "evidence": [
+          "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:40",
+          "docs/marketing/05_YouTube戦略_技術士総監.md:102",
+          "docs/marketing/05a_YouTube競合分析_技術士総監_2026-06.md:100"
+        ],
+        "next": "1級土木の一問一答の試作の結果を見てから本数を決める。公開後は平均視聴時間と択一 PDF の販売を見る"
+      }
+    },
+    {
       "id": "cm-final-2027",
       "exam": "pe-comprehensive-management",
       "format": "single-topic-zukai",
@@ -3989,6 +4031,18 @@
       "target": "2027-05-10",
       "priority": "P1",
       "note": "競合の立ち位置から起こした企画。台本から作る"
+    },
+    {
+      "id": "y27-cm-quiz-1",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 択一｜キーワード一問一答（聞き流し）",
+      "action": "new",
+      "slot": "cm-quiz-2027",
+      "start": "2027-05-06",
+      "ready": "2027-05-13",
+      "target": "2027-05-17",
+      "priority": "P2",
+      "note": "戦略文書の聞き流しの柱（05 P3）を一問一答の型で起こした企画。台本から作る"
     },
     {
       "id": "y27-cm-essay-3",
