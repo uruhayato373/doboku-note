@@ -579,6 +579,7 @@
     "check-x-review": "node scripts/check-x-review.mjs",
     "x-reply-candidates": "node scripts/x-reply-candidates.mjs",
     "x-reply-log": "node scripts/x-reply-log.mjs",
+    "x-reply-screens": "node scripts/x-reply-screens.mjs",
     "x-reply-sheet": "node scripts/x-reply-sheet.mjs",
     "x-schedule-guard": "node scripts/x-schedule-guard.mjs",
     "x-schedule-view": "node scripts/x-schedule-view.mjs",
