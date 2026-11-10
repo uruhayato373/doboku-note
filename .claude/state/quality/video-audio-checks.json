@@ -363,6 +363,17 @@
         "expected": 1562,
         "heard": 1525
       }
+    },
+    "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform": {
+      "videoSha256": "cd013a2f8eb6ead6a9521fcc720d13f956c64ebc75341693107dd908697cbdc6",
+      "at": "2026-11-10T12:43:52.757Z",
+      "similarity": 0.964,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 2121,
+        "heard": 2004
+      }
     }
   }
 }

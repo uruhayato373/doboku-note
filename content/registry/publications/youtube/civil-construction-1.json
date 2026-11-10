@@ -90,7 +90,7 @@
       "work": "owner-eye-sekkei-tosho",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-001",
@@ -125,7 +125,20 @@
         "subtitles": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-tosho/youtube.json#longform",
-      "publishAt": "2027-01-15T11:30:00Z"
+      "publishAt": "2027-01-15T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:43:53.647Z",
+          "digest": "6b4a774c990c4f874a55ac8e2789cdca04e602c85ad43af67de799d970b03316"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:43:53.647Z",
+        "contentSha256": "df34e47ed1e97fba2255de43ef1db6d9269ae317bac71cc8a71eac9231412bb4"
+      }
     }
   ]
 }
