@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="答案用紙1枚を前半と後半に分け、前半に緩和区間の目的と長さの考え方、後半に緩和曲線の特徴と留意点を書く配分を示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sum { font-size: 11px; fill: #555; } /* ink-body */
+      .t-sheet { font-size: 11px; fill: #8a8a8a; } /* ink-muted */
+      .t-blk { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .t-lines { font-size: 11px; fill: #555; } /* ink-body */
+      .t-note { font-size: 12px; fill: #222; } /* ink-strong */
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .sheet { fill: none; stroke: #d7d7d7; stroke-width: 1; } /* token-border */
+    </style>
+  </defs>
+  <text class="t-sum" x="16" y="24">帯の高さ＝行数の目安。前半と後半をほぼ半分ずつ</text>
+  <text class="t-sheet" x="16" y="43.0">1枚目（24行・600字）</text>
+  <rect class="sheet" x="14" y="48.0" width="372" height="440.0" rx="6"/>
+  <rect class="box-brand" x="20" y="50.0" width="150" height="216.0" rx="6"/>
+  <text class="t-blk" x="30" y="156.0">前半</text>
+  <text class="t-lines" x="30" y="172.0">約12行</text>
+  <text class="t-note" x="182" y="154.0">緩和区間の設置目的と</text>
+  <text class="t-note" x="182" y="170.0">長さの設定の考え方</text>
+  <rect class="box-positive" x="20" y="270.0" width="150" height="216.0" rx="6"/>
+  <text class="t-blk" x="30" y="376.0">後半</text>
+  <text class="t-lines" x="30" y="392.0">約12行</text>
+  <text class="t-note" x="182" y="374.0">緩和曲線の特徴と</text>
+  <text class="t-note" x="182" y="390.0">設計の留意点（5〜6行は残す）</text>
+</svg>

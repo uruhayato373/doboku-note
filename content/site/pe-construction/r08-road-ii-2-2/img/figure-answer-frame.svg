@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="答案用紙2枚に、調査と検討事項、手順と留意点・工夫、関係者との調整を書く配分を、行数の帯で示した図。手順に最も多く行を使う">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sum { font-size: 11px; fill: #555; } /* ink-body */
+      .t-sheet { font-size: 11px; fill: #8a8a8a; } /* ink-muted */
+      .t-blk { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .t-lines { font-size: 11px; fill: #555; } /* ink-body */
+      .t-note { font-size: 12px; fill: #222; } /* ink-strong */
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .sheet { fill: none; stroke: #d7d7d7; stroke-width: 1; } /* token-border */
+    </style>
+  </defs>
+  <text class="t-sum" x="16" y="24">帯の高さ＝行数の目安。(2)の手順に最も厚く</text>
+  <text class="t-sheet" x="16" y="43.0">1枚目（24行・600字）</text>
+  <rect class="sheet" x="14" y="48.0" width="372" height="210.0" rx="6"/>
+  <rect class="box-brand" x="20" y="50.0" width="150" height="101.0" rx="6"/>
+  <text class="t-blk" x="30" y="98.5">(1) 調査・検討</text>
+  <text class="t-lines" x="30" y="114.5">約12行</text>
+  <text class="t-note" x="182" y="104.5">調査と検討内容を対で</text>
+  <rect class="box-positive" x="20" y="155.0" width="150" height="101.0" rx="6"/>
+  <text class="t-blk" x="30" y="203.5">(2) 手順（前半）</text>
+  <text class="t-lines" x="30" y="219.5">約12行</text>
+  <text class="t-note" x="182" y="201.5">対策工と盛土工の手順</text>
+  <text class="t-note" x="182" y="217.5">各手順に留意点と工夫</text>
+  <text class="t-sheet" x="16" y="273.0">2枚目（24行・600字）</text>
+  <rect class="sheet" x="14" y="278.0" width="372" height="210.0" rx="6"/>
+  <rect class="box-positive" x="20" y="280.0" width="150" height="101.0" rx="6"/>
+  <text class="t-blk" x="30" y="328.5">(2) 手順（後半）</text>
+  <text class="t-lines" x="30" y="344.5">約12行</text>
+  <text class="t-note" x="182" y="326.5">手順の続きと</text>
+  <text class="t-note" x="182" y="342.5">留意点・工夫</text>
+  <rect class="box-warn" x="20" y="385.0" width="150" height="101.0" rx="6"/>
+  <text class="t-blk" x="30" y="433.5">(3) 調整</text>
+  <text class="t-lines" x="30" y="449.5">約12行</text>
+  <text class="t-note" x="182" y="431.5">この工事の条件から出る</text>
+  <text class="t-note" x="182" y="447.5">関係者ごとの調整方策</text>
+</svg>
