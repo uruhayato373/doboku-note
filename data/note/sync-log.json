@@ -1,6 +1,37 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-10T00:09:43.219Z",
+      "finishedAt": "2026-11-10T00:11:18.860Z",
+      "plan": {
+        "synced": 0,
+        "ready": 21,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/技術士建設部門/magazines/BK-11"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 1,
+        "updated": [
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R03/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-08T01:33:20.888Z",
       "finishedAt": "2026-11-08T02:01:25.878Z",
       "plan": {
@@ -1463,38 +1494,6 @@
         "failed": [
           {
             "path": "content/note/1級・2級土木/工事経験の伝え方-無料/article.md",
-            "parts": [
-              "body"
-            ],
-            "reason": "結果なし（連続失敗で中断された可能性）"
-          }
-        ],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:22:07.357Z",
-      "finishedAt": "2026-11-03T09:22:24.537Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 0,
-        "updated": [],
-        "failed": [
-          {
-            "path": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md",
             "parts": [
               "body"
             ],
