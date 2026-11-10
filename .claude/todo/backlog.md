@@ -21,6 +21,20 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1066] 承認済みで未予約の行を status と棚卸しで見分け、日時を付け直せるようにする
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-10]
+
+**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。`scripts/lib/video-factory.mjs:328` の `nextStage` は `approved` を `done` に含め、`scripts/lib/youtube-longform-audit.mjs:9,42` は `approved` を予約済みに数える。`wire` は未承認の行しか受け付けない（`scripts/video-factory.mjs:258,280`）。予約を回し損ねると `status` も棚卸しも緑のまま公開枠を落とし、日時を過ぎた行を戻す経路も無い（実例はカード「建設部門の読み修正版 3 本を予約するか、公開日時を付け直す」）。
+
+**やること**:
+1. `nextStage` に、`approved`・`rendered` で `times.uploaded` が無い状態を `publish-pending` として足す。publishAt まで 24 時間未満か過ぎていれば `slot-expired` を出す
+2. 承認を外して `wire` し直すコマンドを 1 本足す（承認の記録は履歴に残す）
+3. 棚卸しの「予約済み」は `scheduled` だけにする
+4. 回帰テストを足す
+
+**完了条件**: 承認済みで未予約の行が `status` に `publish-pending` か `slot-expired` で出て、付け直しのコマンドで `wire` から予約し直せる。
+
+
 ### [DN-1065] 画像が出ないだけで試行回数を使い切る generate を直し、上限から戻す手段を足す
 タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-10]
 
