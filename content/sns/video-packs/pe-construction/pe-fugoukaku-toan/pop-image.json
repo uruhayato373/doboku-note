@@ -22,7 +22,7 @@
           "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-cover.ea497981.png",
           "sha256": "ea4979812948fce05044bc90efdc012a4f0eed83d35d1dfa91ac41df965f9ad7"
         },
-        "generatedAt": "2026-11-10T12:07:42.945Z"
+        "generatedAt": "2026-11-10T12:40:19.812Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -45,7 +45,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-10T12:07:42.945Z",
+        "checkedAt": "2026-11-10T12:40:19.812Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字: 総監が解説・技術士 建設部門・落ちた答案は・どこで落ちる？ を指示と1字ずつ照合して一致、余計な文字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺の作業服とネクタイ・黄白の反射帯で、手指の破綻なし",
         "userImageReview": "pending"
@@ -76,7 +76,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-premise.6b04a1c7.png",
               "sha256": "6b04a1c7351c3ae294b5ff3cfec6077eda4849e8161f468060bd7d659a9fae4a"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/premise-diagram.720e02ff.png",
@@ -90,7 +90,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・左右枠の文字・下の全文を指示と一字ずつ照合して一致、崩れや余計な文字なし",
             "userReview": "pending",
@@ -99,10 +99,10 @@
         },
         {
           "sceneId": "criteria",
-          "inputSha256": "60f679f927cf8db3cfa1f1c2c362d4329a8b38f6c2ec842afae42ef0811019fc",
+          "inputSha256": "e8a00bd38fa35dc166c796ad804ceb212852577b2b9da80d386c7faf1192f87c",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『筆記は、科目ごとに60%以上』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『必須科目 専門知識・応用能力・問題解決能力・課題遂行能力』 『選択科目 専門知識と応用能力／問題解決能力と課題遂行能力』。 図の下に『出典：文部科学省 令和8年度技術士試験合否決定基準（video-pack.json の sourceRefs）』の全文を省かずに入れる。 この場面の説明（文字にしない）: 文部科学省の令和8年度の合否決定基準では、筆記試験の合格基準は、いずれの科目も60パーセント以上の得点です。必須科目は、専門知識、応用能力、問題解決能力、課題遂行能力。選択科目は、専門知識と応用能力、問題解決能力と課題遂行能力の二項目が、それぞれ基準を満たす必要があります。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『筆記は、科目ごとに60%以上』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『必須科目 専門知識・応用能力・問題解決能力・課題遂行能力』 『選択科目 専門知識と応用能力／問題解決能力と課題遂行能力』。 図の下、下端の字幕の帯より上に『出典：文部科学省 令和8年度技術士試験合否決定基準』の全文を省かずに入れる。 この場面の説明（文字にしない）: 文部科学省の令和8年度の合否決定基準では、筆記試験の合格基準は、いずれの科目も60パーセント以上の得点です。必須科目は、専門知識、応用能力、問題解決能力、課題遂行能力。選択科目は、専門知識と応用能力、問題解決能力と課題遂行能力の二項目が、それぞれ基準を満たす必要があります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 20.0）",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -110,26 +110,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-criteria.7dfd82cd.png",
-              "sha256": "7dfd82cd20b281e64fd602c081998b62643d5b24ccb44c857b7efeab14b9503f"
+              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-criteria.c4fffce7.png",
+              "sha256": "c4fffce7b6ab39978d8273d8cda0f50d6106e6c68c6579d8158a9f0c1061a965"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/criteria-diagram.b57f631b.png",
-            "sha256": "b57f631bfccd1e9afb0b39e237323ce0c11fe77b4910c3ed2625e5163e237521",
+            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/criteria-diagram.109670da.png",
+            "sha256": "109670da3054af7de7b9beabb365537fd77506aab7cee8347e38ab95b02c763d",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "7dfd82cd20b281e64fd602c081998b62643d5b24ccb44c857b7efeab14b9503f"
+            "sourceSha256": "c4fffce7b6ab39978d8273d8cda0f50d6106e6c68c6579d8158a9f0c1061a965"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し・必須/選択科目の能力区分・出典全文が指示どおりで、60%の目盛りも本文と整合",
+            "reason": "文字: 見出し・必須科目と選択科目の各文言・出典の全文が指示と1字ずつ一致し誤字や崩れなし。構造: 同サイズの2枠で60%位置に黄色の目印、人物や余計な文言なし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
@@ -150,7 +150,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-types.e539e29e.png",
               "sha256": "e539e29e8ac8081b62426fbd2d975d0393ff72605982d2af2d20b6741fb3a79f"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/types-diagram.caa067e4.png",
@@ -164,7 +164,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・型1〜4の4項目・注記『本動画の独自の整理。公式の区分ではない』が指示と一致し誤字・余計な文字なし。図の絵柄も内容に合う",
             "userReview": "pending",
@@ -187,7 +187,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-type1.f9174c67.png",
               "sha256": "f9174c67e632c2fd81e78b1ea0c7c0cffa3d7a1f41b40deebe5c369ec885cb43"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/type1-diagram.4b33d140.png",
@@ -201,7 +201,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3行・注記が指示と一字ずつ一致し、余計な文字なし",
             "userReview": "pending",
@@ -224,7 +224,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-type2.c92a0bc3.png",
               "sha256": "c92a0bc3dae324bcf1ee47ec956284b64f99b57ef43587e6d306e1860f1ef423"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/type2-diagram.4904abf1.png",
@@ -238,7 +238,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・3行の対比・下の注記が指示と1字ずつ一致、誤字・余計な文字なし。用紙に行ごとの欄の構図で本文とも矛盾しない",
             "userReview": "pending",
@@ -261,7 +261,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-type3.bf421aa4.png",
               "sha256": "bf421aa48c78511d9da6fe6a2c2a9cc9cabccf4e9373dbcd1a10cfc03919d7d8"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/type3-diagram.2278c42d.png",
@@ -275,7 +275,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・注記が指示どおり、ぼやけた橋とひび割れを点検する橋の対比で本文と整合、余計な文字なし",
             "userReview": "pending",
@@ -298,7 +298,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-type4.9cf288e8.png",
               "sha256": "9cf288e893f54fe204c46eae455d1d5e2f1722a2f680fd2ba6f410cc053122e5"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/type4-diagram.d8a9b028.png",
@@ -312,7 +312,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・吹き出し・注記が指示と一致、厚い/薄い対比の天秤が本文と整合",
             "userReview": "pending",
@@ -335,7 +335,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-type4-example.7552b5f0.png",
               "sha256": "7552b5f09925a6aebd81ddfad5d07f54216529bd6d83703368fb7cf708c76547"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/type4-example-diagram.66576012.png",
@@ -349,7 +349,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・注記が指示どおり、知識のみ対追加した解決策と段取りの対比が本文と整合",
             "userReview": "pending",
@@ -372,7 +372,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-check.949b1eeb.png",
               "sha256": "949b1eebefbae191d6dd5c2ceb3b1d622f5412b026f29a1ab51c8e45a5a45809"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/check-diagram.9f67ece8.png",
@@ -386,7 +386,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・3手順の文言・注記『本動画の独自の整理』が指示と一致、誤字なし。手順の絵（印付け・一文目を読む・書き添え）も本文と整合",
             "userReview": "pending",
@@ -409,7 +409,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-material.e7ab9432.png",
               "sha256": "e7ab9432717b868db8edbf33b17efff339fca76f7843ddb3e883316e47af0df3"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/material-diagram.34e46fe8.png",
@@ -423,7 +423,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・2つの本文・注記『サイト記事「提出前の推敲チェックリスト」に基づく』が指示と一致。紙の絵に付いた『復元答案』『問題用紙』の札は指示文中の語で内容に沿い、誤字なし",
             "userReview": "pending",
@@ -446,7 +446,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-recap.536768b1.png",
               "sha256": "536768b17da6ebd2d4eedf0bdfd05a6a76c4bd721995ad7b17aee6840be0b4ed"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/recap-diagram.24bb8c0d.png",
@@ -460,7 +460,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと2つの枠の文字が指示と一致、余計な文字なし",
             "userReview": "pending",
@@ -483,7 +483,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-scope.7ca758de.png",
               "sha256": "7ca758dec4caed4a5f3bd7fa11fbee2ad2f618cb796a0051e7085137ceb52b03"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/scope-diagram.bbf62dc5.png",
@@ -497,7 +497,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し・欄2行・下の全文が指示と一字ずつ一致し誤字なし。ノート用紙と行ごとの欄の構図で、人物・余計な文言なし、字幕帯の上に収まる",
             "userReview": "pending",
@@ -520,7 +520,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-cta.af79c557.png",
               "sha256": "af79c557ec910ddf44d6d3215df62797cd638362fac3b63e1699438b56a0c37e"
             },
-            "generatedAt": "2026-11-10T12:07:42.945Z"
+            "generatedAt": "2026-11-10T12:40:19.812Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/cta-diagram.65e02d68.png",
@@ -534,7 +534,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:42.945Z",
+            "checkedAt": "2026-11-10T12:40:19.812Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・ノート表紙・吹き出しの文字が指示と一致、価格やURLなし、建設部門を示す絵も妥当",
             "userReview": "pending",

@@ -495,14 +495,53 @@
       "work": "pe-kojutsu-fukabori",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "pe-construction/pe-kojutsu-fukabori/youtube.longform/cover",
+        "scene-001": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-001",
+        "scene-002": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-002",
+        "scene-003": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-003",
+        "scene-004": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-004",
+        "scene-005": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-005",
+        "scene-006": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-006",
+        "scene-007": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-007",
+        "scene-008": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-008",
+        "scene-009": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-009",
+        "scene-010": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-010",
+        "scene-011": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-011",
+        "scene-012": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-012",
+        "video": "pe-construction/pe-kojutsu-fukabori/youtube.longform/video",
+        "subtitles": "pe-construction/pe-kojutsu-fukabori/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori/youtube.json#longform",
+      "publishAt": "2026-11-25T11:30:00Z"
     },
     {
       "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform",
       "work": "pe-kojutsu-kaitei-competency",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/cover",
+        "scene-001": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-001",
+        "scene-002": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-002",
+        "scene-003": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-003",
+        "scene-004": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-004",
+        "scene-005": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-005",
+        "scene-006": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-006",
+        "scene-007": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-007",
+        "scene-008": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-008",
+        "scene-009": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-009",
+        "scene-010": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-010",
+        "scene-011": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-011",
+        "scene-012": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-012",
+        "scene-013": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-013",
+        "video": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/video",
+        "subtitles": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-kaitei-competency/youtube.json#longform",
+      "publishAt": "2026-12-08T11:30:00Z"
     },
     {
       "id": "pe-construction/pe-kojutsu-keireki/youtube.longform",
