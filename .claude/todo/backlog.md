@@ -520,6 +520,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1099] サイトに技術士 水産部門（二次）の入口のガイド 4 本を作る
+タグ: [領域:サイト] [時期:2027-02..2027-04] [種類:制作] [起票:2026-11-10]
+
+**起点**: DN-1092 の計画。一次（水産部門 16 回分）は公開済み。二次の入口がサイトに無い。
+
+**やること**: 上下水道部門（`content/site/pe-water-supply/` の guide-overview・guide-hissu-kamoku・guide-sentaku-kamoku・guide-study-plan）と同じ 4 本を水産部門で作る（出題テーマ表を入力にする）。`config/qualification-registry.json` の `pe-fisheries` を candidate から active に上げ、categories・トップの資格カードを配線して `npm run check-home-exam-coverage` を通す。ガイドは本文 3,000 字以上、試験制度・統計は一次情報で照合する。
+
+**完了条件**: 4 本が develop に入り、`check-home-exam-coverage` と `check-guide-length` が通る。
+
+
 ### [DN-1098] 技術士二次の水産部門の必須科目Iと水産土木の答案を R01〜R08 で作る（受験準備を兼ねる）
 タグ: [領域:商品] [時期:2027-01..2027-05] [種類:制作] [起票:2026-11-10]
 
