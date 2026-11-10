@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "_doc": "docs/marketing/02_チャネル動線設計.md（チャネル横断の役割）・docs/marketing/06_動画コンテンツ運用設計.md（動画）。チャネルの年間の枠と型の正本。slots・entries・cycle・metrics は YouTube、channels は X・Instagram の枠と型を持つ。枠の stance は config.competitor-positions の立ち位置を指す。materials は entries と primaryCta に無い材料だけを持ち、写さない。編集後は check-channel-plan・check-youtube-plan・check-competitor-positions を通す",
-  "updatedAt": "2026-11-07",
+  "updatedAt": "2026-11-10",
   "cycle": {
     "id": "2026-11_2027-10",
     "window": {
@@ -2155,47 +2155,6 @@
       }
     },
     {
-      "id": "cm-yosou-2027",
-      "exam": "pe-comprehensive-management",
-      "format": "yosou-derivation",
-      "title": "総監 出題予想の導き方",
-      "stance": "cm-essay",
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      },
-      "role": "sell",
-      "window": {
-        "from": "2027-06",
-        "to": "2027-06"
-      },
-      "anchors": [
-        "written"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "tankan-reading-guide",
-          "setsumon3-policy-bank",
-          "essay-core-pack",
-          "r8-essay-forecast"
-        ]
-      },
-      "count": 1,
-      "reuse": "new",
-      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
-      "reason": {
-        "reader": "何を重点に準備すればよいか分からない",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "予想の根拠と限界を無料で示し、予想論文は note で買う",
-        "demand": "未検証。的中を断定しない",
-        "evidence": [],
-        "next": "視聴維持と教材のクリックを見る"
-      }
-    },
-    {
       "id": "cm-final-2027",
       "exam": "pe-comprehensive-management",
       "format": "single-topic-zukai",
@@ -2430,47 +2389,6 @@
       },
       "shorts": {
         "count": 7
-      }
-    },
-    {
-      "id": "pc-yosou-2027",
-      "exam": "pe-construction",
-      "format": "yosou-derivation",
-      "title": "建設部門 出題予想の導き方",
-      "stance": "pc-hissu",
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      },
-      "role": "sell",
-      "window": {
-        "from": "2027-05",
-        "to": "2027-05"
-      },
-      "anchors": [
-        "written"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "pe-construction-required-magazine"
-        ]
-      },
-      "count": 1,
-      "reuse": "new",
-      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
-      "reason": {
-        "reader": "次の出題を自分で絞る方法を知りたい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "導き方と限界を無料で示し、予想問題は note で買う",
-        "demand": "競合の出題予想は再生中央値 13,300。建設部門の予想連番は BONTA の主戦場なので導出に限る",
-        "evidence": [
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:78",
-          "docs/marketing/08_YouTube戦略_技術士建設部門.md:90"
-        ],
-        "next": "予想の動画が検索から再生されるかを見る"
       }
     },
     {
@@ -4073,18 +3991,6 @@
       "note": "競合の立ち位置から起こした企画。台本から作る"
     },
     {
-      "id": "y27-pc-yosou-1",
-      "exam": "pe-construction",
-      "title": "建設部門｜出題予想の導き方",
-      "action": "new",
-      "slot": "pc-yosou-2027",
-      "start": "2027-05-04",
-      "ready": "2027-05-11",
-      "target": "2027-05-14",
-      "priority": "P1",
-      "note": "競合の立ち位置から起こした企画。台本から作る"
-    },
-    {
       "id": "y27-cm-essay-3",
       "exam": "pe-comprehensive-management",
       "title": "総監 記述｜5管理のトレードオフを答案に書く",
@@ -4177,18 +4083,6 @@
       "start": "2027-06-08",
       "ready": "2027-06-15",
       "target": "2027-06-18",
-      "priority": "P1",
-      "note": "競合の立ち位置から起こした企画。台本から作る"
-    },
-    {
-      "id": "y27-cm-yosou-1",
-      "exam": "pe-comprehensive-management",
-      "title": "総監 記述｜出題予想の導き方",
-      "action": "new",
-      "slot": "cm-yosou-2027",
-      "start": "2027-06-13",
-      "ready": "2027-06-20",
-      "target": "2027-06-23",
       "priority": "P1",
       "note": "競合の立ち位置から起こした企画。台本から作る"
     },

@@ -3656,7 +3656,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **決めること**:
 1. 公開の頻度: 週 2 本・山場 3 本、年 89 本の枠でよいか
-2. 型の採否: 出題予想 `yosou-derivation`・添削の見本 `tensaku-demo`・解答解説 `exam-sokuho`・一問一答 `quiz-tts`・無料模試 `moshi-free`。結果を `config/youtube-formats.json` の status に書く
+2. 型の採否: 解答解説 `exam-sokuho`（paused）・無料模試 `moshi-free`（paused。送り先にする 1級一次の有料模試が無い）。結果を `config/youtube-formats.json` の status に書く
 3. 主 CTA が links-hub・site-article の 9 本の商品。予約の関門で止まるので、枠の商品へ合わせる
 4. 1級土木は公開中の動画が 0 本で、入口の枠は 2027-01 から。前倒しするか
 5. 完成済みの選択科目 8 本は 2027-03 以降に置いた。関門は目標日より前に予約しない。前倒しするなら枠の時期を動かす
