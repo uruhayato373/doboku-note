@@ -101,7 +101,40 @@
       "work": "c2-juken-junjo-2027",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "approved",
+      "media": {
+        "cover": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/cover",
+        "scene-001": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-013",
+        "video": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/video",
+        "subtitles": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/civil-construction-2/c2-juken-junjo-2027/youtube.json#longform",
+      "publishAt": "2027-01-12T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:46:39.894Z",
+          "digest": "1ff03871e685c711f9826bc5b0637e5ee08abf92f517b39cb0d49938eac734fc"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:46:39.894Z",
+        "contentSha256": "beab9016472427402f7e0ecf55fc0a14831b2d113a7fcdb58a30a30062f5aab3"
+      }
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
