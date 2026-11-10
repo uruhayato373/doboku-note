@@ -278,5 +278,12 @@
       },
       "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261110",
+    "coverRevision": "cover-pop-20261110",
+    "layout": "diagram-led"
+  }
 }
