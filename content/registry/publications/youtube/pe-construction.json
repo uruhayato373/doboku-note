@@ -946,7 +946,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-koukarisk-2",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-koukarisk-2",
       "relatedTo": "pe-construction/toan-kousei-template/youtube.longform",
       "idException": "imported-before-cutover",
@@ -971,7 +971,38 @@
         "contentSha256": "6d72737a3e87c6ed19d31278f29f15bd8f5a42bb8b25e8479158c0481ac3a17a"
       },
       "times": {
-        "rendered": "2026-11-10T21:28:05.144Z"
+        "rendered": "2026-11-10T21:28:05.144Z",
+        "uploaded": "2026-11-10T21:56:38.875Z"
+      },
+      "delivery": {
+        "inputSha256": "3d1c0a4f7e0978ac467d85c0d1cbac7efb84b04d09bed6d24caeb38a573fcf96",
+        "marker": "dn-single-032cc89ac0dadaa1c909766d8367210f12adc425",
+        "uploadRequestedAt": "2026-11-10T21:55:18.991Z",
+        "videoId": "crYjMm6gzu8",
+        "processedAt": "2026-11-10T21:56:37.967Z",
+        "thumbnailRequestedAt": "2026-11-10T21:56:38.896Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/default.jpg?sqp=CLSlztcG&rs=AOn4CLCxZK4OyMxEZ6E3TvnGt5QZV-fNuA",
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/mqdefault.jpg?sqp=CLSlztcG&rs=AOn4CLD6QlUN6gRGP-ugDTbiTTOnPiE18g",
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/hqdefault.jpg?sqp=CLSlztcG&rs=AOn4CLBV6VJueVn8sS5G960RaPMgDpotfg",
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/sddefault.jpg?sqp=CLSlztcG&rs=AOn4CLBNt7RArEyeoX39jO2-lmbXikHUQA",
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/maxresdefault.jpg?sqp=CLSlztcG&rs=AOn4CLAAb9WsoScKrhe9GFfFJWBnwBq6RA",
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/sardefault.jpg?sqp=CLSlztcG&rs=AOn4CLDH3cQeQ2MA4c_aW7kwaLFvbq7NVA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T21:56:43.602Z"
+      },
+      "platform": {
+        "id": "crYjMm6gzu8",
+        "url": "https://www.youtube.com/watch?v=crYjMm6gzu8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-koukarisk-2"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T21:56:43.602Z"
       }
     },
     {
