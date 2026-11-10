@@ -346,6 +346,8 @@ npm run check-codex-compat   # AGENTS.md（共通規約＋rules参照索引）/ 
 npm run sync-codex-compat    # 正典から AGENTS.md / .agents/skills / .codex/agents/*.toml / .codex/hooks.json を再生成（孤児は削除）
 npm run setup-memory-link    # Claude Code の auto-memory（~/.claude/projects/<key>/memory）を repo の .claude/memory へ junction/symlink（初回は `-- --migrate` で既存 memory を移す・`--settings <dotfiles の json>` で settings.local.json も張る・既存の実ディレクトリは消さず .bak へ退避。両 PC で同じ memory を読ませる）
 npm run check-memory          # エージェントの記憶（.claude/memory）の frontmatter・名前重複・索引の網羅・MEMORY.md の読み込み上限（200 行 / 25KB。超えた分は黙って読まれない）。`-- --local` でこの PC のリンク（~/.claude/projects/<key>/memory → .claude/memory）と別同期フックも見る。SessionStart は `--session`（worktree のキーにリンクが無ければ自動で張る）。記憶だけの develop push は CI を走らせない（ci.yml paths-ignore）ので pre-commit が唯一のゲート
+npm run pe-question-pages -- scaffold --year r07 --subject <科目> [--write]  # 技術士 建設部門の設問ページ（1 設問 1 ページ）の骨組みを年度×科目のページから作る（問題文の逐語・frontmatter・配分の枠・リンク。published: false で書き、論点の解説などは担当が書く）。`claims --year --subject` は論点の解説から照合が要る文（数字・年月・条番号・出典リンク）を JSON で出す（DN-1073）
+npm run check-pe-question-pages # 設問ページの問題文の節が、年度×科目のページから作った節と一字一句同じか（quality:audit の ci）
 npm run check-skill-layout     # スキルが .claude/skills/<name>/SKILL.md の 1 階層に置かれ、name がディレクトリ名と一致し、category（作業の種類）が付いているか（入れ子は Claude Code が読み込まない・quality:audit の ci）
 npm run check-claude-md-size   # CLAUDE.md（毎ターン再送される核）が 150 行 / 20KB 以下か・12 原則の見出し・.claude/rules の paths: 必須（pre-commit で CLAUDE.md / rules を stage したとき ＋ quality:audit）
 npm run check-agent-descriptions # .claude/agents/*.md の description が 120 code points を超えて増えないか（全件が毎セッションの system prompt に載る。件数は agents-registry.md。全件を上限内へ短縮済み・baseline 超過 0 件・pre-commit --staged ＋ quality:audit・`--update-baseline` で締める）
