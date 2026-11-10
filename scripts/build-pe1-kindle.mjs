@@ -97,7 +97,11 @@ async function preprocess(body, articleDir, images, imageSrc) {
     return TOK(tokens.length - 1)
   }
 
+  // 原稿の数値文字参照（&#x2460;→① など）を先に文字へ戻す。残すと後段の XML エスケープで「&amp;#x2460;」になり、
+  // 読者の画面に生の文字列が出る（2026-11-10 e-02 QA: 令和7・8年度 問題B の丸数字ほか）。A 系は normalizeText で同じことをしている。
   let out = body
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number(dec)))
 
   // サイト専用 MDX コンポーネントで Kindle に不要なものは丸ごと除去。
   // RelatedKeywords（関連キーワードリンク）は items={[...]} を含む自己完結タグで、
@@ -107,6 +111,9 @@ async function preprocess(body, articleDir, images, imageSrc) {
   // かつ Kindle 本にアフィリ広告を載せることになる（1級土木 primary-* で 48 箇所・2026-08-03 発覚）。
   out = out.replace(/<CareerAffiliate[\s\S]*?\/>/g, '')
   // MagazineCard は note マガジンの販売カード。Kindle に他チャネルの販促を載せない。
+  // カードの直前の前置き 1 段落（「…印刷用PDFがある。」など PDF・マガジン・note を案内する文）も一緒に外す
+  // （2026-11-10 e-02 QA: カードだけ消えて前置きの文が本文に残り、案内先の無い文になっていた）。
+  out = out.replace(/^[^\n<]*(?:PDF|マガジン|note)[^\n]*\n\n(?=<MagazineCard)/gm, '')
   out = out.replace(/<MagazineCard[\s\S]*?\/>/g, '')
   // Callout は中身のある本文なので捨てず、見出し付きの段落へ均す。内側は markdown のまま
   // 返して既存の変換に通す（リスト・番号付きリストを保つため）。
