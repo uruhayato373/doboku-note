@@ -97,6 +97,7 @@ https://note.com/dobokunote/m/m7c61c9447a4c
 **答案の書き方**
 
 - [業務経歴票の書き方](https://note.com/dobokunote/n/n6cd69bf307ba)
+- [業務経歴票「業務内容の詳細」720字 模範例集](https://note.com/dobokunote/n/n9c4694bf79c9)
 - [選択科目II-1・II-2・IIIの書き分け](https://note.com/dobokunote/n/nd82256afb5c3)
 - [答案構成のテンプレート](https://note.com/dobokunote/n/n3bcfe409aae9)
 
