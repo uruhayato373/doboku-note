@@ -1,5 +1,6 @@
 {
   "bookId": "d-02",
+  "adoptedImage": "scripts/kindle-covers/pop/d-02.pop-image.json",
   "background": "scripts/kindle-covers/backgrounds/a-03.png",
   "accent": "#16365C",
   "kicker": "技術士第一次試験",
@@ -19,16 +20,17 @@
   "brand": "doboku-note",
   "pop": {
     "exam": "pe-first-stage",
-    "kicker": "技術士 第一次試験",
-    "title": "適性科目",
-    "titleSub": "過去問完全解説",
+    "kicker": "過去問完全解説",
+    "title": "技術士 第一次試験",
+    "titleSub": "適性科目",
     "badge": [
       "R1〜R7",
       "7年分"
     ],
     "redBand": "令和7年度 本試験まで収録",
     "navyBand": "全105問 完全解説",
-    "scene": "会議室で技術者が打合せをする様子と、窓の外の橋梁",
-    "reference": "scripts/kindle-dist/c-05.jpg"
+    "scene": "技術者が倫理・コンプライアンスを話し合う会議室（文字のない資料）",
+    "reference": "scripts/kindle-dist/c-05.jpg",
+    "pose": "片手を胸に当てて誠実さを示すポーズ"
   }
 }

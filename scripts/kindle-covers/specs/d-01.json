@@ -1,5 +1,6 @@
 {
   "bookId": "d-01",
+  "adoptedImage": "scripts/kindle-covers/pop/d-01.pop-image.json",
   "background": "scripts/kindle-covers/backgrounds/a-03.png",
   "accent": "#16365C",
   "kicker": "技術士第一次試験",
@@ -19,16 +20,17 @@
   "brand": "doboku-note",
   "pop": {
     "exam": "pe-first-stage",
-    "kicker": "技術士 第一次試験",
-    "title": "基礎科目",
-    "titleSub": "過去問完全解説",
+    "kicker": "過去問完全解説",
+    "title": "技術士 第一次試験",
+    "titleSub": "基礎科目",
     "badge": [
       "R1〜R7",
       "7年分"
     ],
     "redBand": "令和7年度 本試験まで収録",
     "navyBand": "全210問 完全解説",
-    "scene": "製図用具と設計図、背景に橋梁と都市",
-    "reference": "scripts/kindle-dist/c-05.jpg"
+    "scene": "黒板いっぱいの数式・グラフと設計計算のノートが並ぶ研究室",
+    "reference": "scripts/kindle-dist/c-05.jpg",
+    "pose": "黒板の数式を指し示すポーズ"
   }
 }
