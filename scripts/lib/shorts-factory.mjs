@@ -34,7 +34,7 @@ export const DESIGN_FILE = 'shorts-design.json';
 export const MIN_SECONDS = 20;
 export const MAX_SECONDS = 60;
 const rules = loadImageRules();
-const { width: W, height: H, minWidth: MIN_WIDTH, bottomZone: BOTTOM_ZONE, frame: FRAME } = rules.formats.shorts;
+const { width: W, height: H, minWidth: MIN_WIDTH, bottomZone: BOTTOM_ZONE, frame: FRAME, bodyFrame: BODY_FRAME } = rules.formats.shorts;
 const BOTTOM_STDEV_MIN = 3;
 const SUBTITLE_SIZE = 74;
 const SUBTITLE_CHARS = 14;
@@ -122,7 +122,7 @@ const coverPrompt = (design, spec, label, palette) => [
 ].join(' ');
 const bodyPrompt = (beat, index, label, palette) => [
   `添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。${FRAME}`,
-  pop(palette), '図を画面の主役にする。図は画面の上から68%までの範囲いっぱいに大きく描き、上半分へ縮めて寄せない。白いカードの箇条書きにしない。人物なし。',
+  pop(palette), `図を画面の主役にする。${BODY_FRAME} 白いカードの箇条書きにしない。人物なし。`,
   `一番上に資格名の小さなラベル『${label}』。大きな番号『${index + 1}』と見出し『${beat.heading}』。`,
   `図: ${beat.diagram}`, BANS,
 ].join(' ');
@@ -152,7 +152,8 @@ export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   assertInSlot(root, pack, key);
   const label = qualificationShortLabel(loadRegistry(root), exam);
   const prior = new Map((readPlan(root, pack, shortsPlanPath(pack, key))?.items ?? []).map((i) => [i.id, i]));
-  const keep = (item) => (prior.get(item.id)?.inputSha256 === item.inputSha256 ? { ...item, ...prior.get(item.id) } : item);
+  // 入力が同じ項目は画像と判定を引き継ぐ。生成の指示と参照は今の決まりから組み直す（共通の指示を直したら、次の作り直しから効く）
+  const keep = (item) => (prior.get(item.id)?.inputSha256 === item.inputSha256 ? { ...item, ...prior.get(item.id), basePrompt: item.basePrompt, references: item.references } : item);
   const people = [refs(root, CHARACTER), ...(spec.approvedImage?.path && existsSync(join(root, spec.approvedImage.path)) ? [refs(root, spec.approvedImage.path)] : [])];
   const base = { attempts: 0, raw: null, audit: null };
   const items = [
