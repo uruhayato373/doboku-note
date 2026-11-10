@@ -75,7 +75,8 @@
         "essay-maintenance-contractor-magazine",
         "essay-steel-concrete-consultant-magazine",
         "essay-tunnel-consultant-magazine",
-        "essay-road-paving-contractor-magazine"
+        "essay-road-paving-contractor-magazine",
+        "essay-water-contractor-magazine"
       ],
       "evidence": [
         "src/lib/note-magazines.ts#essay-river-consultant-magazine",
