@@ -228,17 +228,24 @@ function approve() {
   console.log(`最終承認した: ${pub.id}（${pub.status} → ${next}・digest ${args.expect.slice(0, 12)}…）。中身が変わると承認は無効になり、stage と公開が止まる`);
 }
 
-function markRendered() {
+async function markRendered() {
   if (!args.pub) throw new Error('mark-rendered には --pub <公開 ID> が要る');
   const cfg = loadRegistryConfig(ROOT);
   const reg = loadRegistry(ROOT);
   const pub = reg.publications.find((p) => p.id === args.pub);
-  if (!pub || pub.channel !== 'youtube' || pub.format !== 'longform' || pub.revisionOf) throw new Error('元の通常動画の公開行がない');
+  if (!pub || pub.channel !== 'youtube' || !['longform', 'short'].includes(pub.format) || pub.revisionOf) throw new Error('元の通常動画・初回のショートの公開行がない');
   if (pub.status !== 'approved' || !canTransition(cfg, pub.status, 'rendered', pub.channel)) throw new Error(`${pub.id}: approved → rendered の対象ではない`);
   const mediaById = new Map(reg.media.map((m) => [m.id, m]));
   const approval = approvalState(ROOT, pub, mediaById);
   if (!approval.visual.valid || !approval.final.valid || !acceptedApproval(pub) || pub.approval.grandfathered) throw new Error('今の画面・文面・素材の承認が必要');
-  execFileSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', `${pub.exam}/${pub.work}`], { cwd: ROOT, stdio: 'inherit' });
+  if (pub.format === 'short') {
+    // ショートの完成の検査は shorts-factory の記録（描画・画面確認・音声・在庫）が今の動画のものか（DN-1002）
+    const { qualityProblems } = await import('./lib/shorts-release.mjs');
+    const work = reg.works.find((w) => w.id === pub.work && w.exam === pub.exam);
+    const record = readJsonIf(ROOT, `${work.definition}/pop-image.json`);
+    const problems = qualityProblems(record?.revisions?.[record?.activeShorts?.[pub.variant]], mediaById.get(pub.media?.video)?.sha256, readPolicy(ROOT));
+    if (problems.length) throw new Error(`${pub.id}: ${problems.join('・')}`);
+  } else execFileSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', `${pub.exam}/${pub.work}`], { cwd: ROOT, stdio: 'inherit' });
   if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
   writePublication(pub, { status: 'rendered', times: { ...pub.times, rendered: new Date().toISOString() } });
   console.log(`完成レンダーを検査して状態を進めた: ${pub.id}（approved → rendered）`);

@@ -489,6 +489,148 @@
       "durationSec": 189.8
     },
     {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/png",
+      "sha256": "3e8e2947a28ee1191c5f65723a0803397b4bf8b810a6368a2343fb6dabcf6cc4",
+      "bytes": 1466424,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/frames.3e8e2947.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/shorts-design.json"
+      },
+      "width": 1800,
+      "height": 640
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "30a15eb4cf5afaab94dc54b2b7ae9e4d25710b5b1032f10a22e0703dc0e4d885",
+      "bytes": 709750,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/cover.30a15eb4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『老朽化の課題』『3つに分ける』、小さな黄色帯に『総監が制作』。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指を1本立てて顔の横に上げ、左手（画面右側）は腰に当てる。指は5本で、立てるのは人差し指だけ。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+        "promptSha256": "59ac87997287e391964a885c85e4ee03a51e9106827dc8aeaceaf8a6a707f701",
+        "generatedAt": "2026-11-10T12:27:39.047Z"
+      },
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "d445b83970c925c1931a4cdc08161dc9542d40f4a9c94d2e7f4ece67ab6b3593",
+      "bytes": 1834,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/subtitles.d445b839.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/shorts-design.json"
+      }
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "44597e8d7b95f0cfe5b5dd302c35be1bf1909deb5525e11a0f7c40dd1cdaf212",
+      "bytes": 7112015,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/video.44597e8d.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/shorts-design.json"
+      },
+      "durationSec": 29.767
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/png",
+      "sha256": "05dc0c58f708091723c6ec6746a585657e7fd38295c3e6cdf7706ba1362eba33",
+      "bytes": 1392129,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/frames.05dc0c58.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/shorts-design.json"
+      },
+      "width": 1800,
+      "height": 640
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "58a01f607ba2461ccadbbfa1ae1e8f30723c1de0176550f08a0a48e7f3dee30c",
+      "bytes": 726844,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/cover.58a01f60.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『財源・人員不足』『群で捉えて解く』、小さな黄色帯に『総監が制作』。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを持って胸の高さに上げ、左手（画面右側）は答案用紙の束を胸の前で持つ。5本の指が紙の縁にかかって見える。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+        "promptSha256": "1756a2741af5acdc3e87ab9be6b316b955ece887b7db06cc51a3c21541e189f9",
+        "generatedAt": "2026-11-10T12:34:23.206Z"
+      },
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "04a3b5c504f688919612ee26d3c86ce494c8c1e8dd2548b238a40f85fffe16b7",
+      "bytes": 1902,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/subtitles.04a3b5c5.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/shorts-design.json"
+      }
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "9079ed3f37914e0adb8eb10df4f1701f72f68fb847ab949c5445469f85a02944",
+      "bytes": 7113426,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/video.9079ed3f.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/shorts-design.json"
+      },
+      "durationSec": 30.027
+    },
+    {
       "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-cover",
       "role": "candidate-cover",
       "type": "image/png",
@@ -933,6 +1075,148 @@
         }
       },
       "durationSec": 172.3
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/png",
+      "sha256": "56fbec743043189f1aa408ab511757418a2ccb006e5f6dd1e378e203bd8956db",
+      "bytes": 1332536,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/frames.56fbec74.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/shorts-design.json"
+      },
+      "width": 1800,
+      "height": 640
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "d28f2b5185f658fbd08d598122a9a4429ee2eee48d684db8f816377a410684e2",
+      "bytes": 709815,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/cover.d28f2b51.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『建設DXの手段』『3階層で語る』、小さな黄色帯に『総監が制作』。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを持って胸の高さに上げ、左手（画面右側）は答案用紙の束を胸の前で持つ。5本の指が紙の縁にかかって見える。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+        "promptSha256": "bbf336a2c02d919e21eab12b118dfe79724b20fc183a8f0f29d377a0ce41ea03",
+        "generatedAt": "2026-11-10T12:39:56.502Z"
+      },
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "8ff4b75b24c1205eef9230dadfa674a31f398624340855398cf81f9168e037e4",
+      "bytes": 2270,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/subtitles.8ff4b75b.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/shorts-design.json"
+      }
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "1af02b3bc87dd6b290aa1dbca4174d8b2afbf0f8e29ccd377d38e1556def9490",
+      "bytes": 6992371,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/video.1af02b3b.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/shorts-design.json"
+      },
+      "durationSec": 37.6
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/png",
+      "sha256": "6e5a82623f9099e24f289144ca4912ac43ac4458866cf5707d2b919189bdedfe",
+      "bytes": 1269270,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/frames.6e5a8262.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/shorts-design.json"
+      },
+      "width": 1800,
+      "height": 640
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "89f38ccb86f1f86f732b751a4ac2e8e2b56b1dfafda6be7876c12c9f21520288",
+      "bytes": 686762,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/cover.89f38ccb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『建設DX』『目的は4つ』、小さな黄色帯に『総監が制作』。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指を1本立てて顔の横に上げ、左手（画面右側）は腰に当てる。指は5本で、立てるのは人差し指だけ。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 小さな黄色帯『総監が制作』を画面の左寄りに置き、文字全体を左右6%の内側に収める。上から45%より下では右端から18%の範囲に文字を置かない",
+        "promptSha256": "06c55f2fb039a59d241a622ee7b8fb0f77c372a3b6c8e39676034e9cbc1adec8",
+        "generatedAt": "2026-11-10T12:40:09.005Z"
+      },
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "dc296d450a242f05c77031a58c17fa2fa23736dcad55b5a566b555aabf6144c8",
+      "bytes": 2020,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/subtitles.dc296d45.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/shorts-design.json"
+      }
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "a6faa1caa39befb1d11216bc663d2f22c0df26c01e83271462c7e96120505ee7",
+      "bytes": 6711897,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/video.a6faa1ca.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/shorts-design.json"
+      },
+      "durationSec": 37.323
     },
     {
       "id": "pe-construction/kaitourei-tsukaikata/work/candidate-cover",
@@ -3246,6 +3530,148 @@
         }
       },
       "durationSec": 158.2
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/png",
+      "sha256": "6425692d73396fe44992f4efe8d15ac8768789b718576633b8c2bbae8e704ddf",
+      "bytes": 1192725,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/frames.6425692d.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/toan-kousei-template/shorts-design.json"
+      },
+      "width": 1800,
+      "height": 640
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "18a2cc4633111c5e9a94d437aa53ba96392d0691f20a78efa91995bd46605f3e",
+      "bytes": 735985,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/cover.18a2cc46.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『効果とリスク』『対で書く』、小さな黄色帯に『総監が制作』。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指を1本立てて顔の横に上げ、左手（画面右側）は腰に当てる。指は5本で、立てるのは人差し指だけ。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+        "promptSha256": "f6a5cb17b571aa1fe16c5ed19a62ae9bbc9e2ce28b95eb4033a9f1f822ed2883",
+        "generatedAt": "2026-11-10T12:30:09.964Z"
+      },
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "dc08fc62f8d1a4ac0cf8fdb84c2dc2c85ffd029b60eddcf6db3b3bda89ed73fb",
+      "bytes": 1723,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/subtitles.dc08fc62.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/toan-kousei-template/shorts-design.json"
+      }
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "c477201983e2cedd1af523339f63458a6ed48d6bd7099304db0b302f0796c371",
+      "bytes": 4778233,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/video.c4772019.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/toan-kousei-template/shorts-design.json"
+      },
+      "durationSec": 23.267
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/png",
+      "sha256": "761b07f9b0eb76affdae77e5d0964dc6a508dc102cf0cae1f4db77dfdbc837b4",
+      "bytes": 1305732,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/frames.761b07f9.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/toan-kousei-template/shorts-design.json"
+      },
+      "width": 1800,
+      "height": 640
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "0033ae1996bce9ee08c3be396bfaad905628d3247e803b40b01fb70e3c053617",
+      "bytes": 741162,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/cover.0033ae19.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『必須Ⅰの答案』『4ブロックで組む』、小さな黄色帯に『総監が制作』。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを持って胸の高さに上げ、左手（画面右側）は答案用紙の束を胸の前で持つ。5本の指が紙の縁にかかって見える。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+        "promptSha256": "d7e220a7feab4abc296f0310e712e6945dffd88019dcbb2b2e7bc86f62706ab7",
+        "generatedAt": "2026-11-10T12:04:30.351Z"
+      },
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "72e18092e4c2e01fdea69295b8c80e6e31ee6195392cbe5f5055b9a3eebc7d88",
+      "bytes": 1916,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/subtitles.72e18092.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/toan-kousei-template/shorts-design.json"
+      }
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "9e49ed23b687dc34eb7446fa38d0724e900043239e756da0de5ac7d3a9678df4",
+      "bytes": 6899119,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/video.9e49ed23.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/toan-kousei-template/shorts-design.json"
+      },
+      "durationSec": 36.233
     }
   ]
 }
