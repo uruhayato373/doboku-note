@@ -89,6 +89,17 @@
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }
+    },
+    {
+      "id": "sokan-kojutsu-tradeoff",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tradeoff",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa"
+      }
     }
   ]
 }
