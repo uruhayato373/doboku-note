@@ -142,8 +142,11 @@ test('送信の門番: 期間・間隔・同じ相手を止める', () => {
   const base = { limits: config.limits, trial: config.trial };
   const at = (min) => new Date(NOW - min * 60_000).toISOString();
   const row = (min, user = 'x') => ({ at: at(min), userHash: hashUser(user) });
-  assert.match(checkSendAllowed([], { ...base, user: 'a', now: Date.parse('2026-11-06T03:00:00Z') }), /試行期間/);
-  assert.match(checkSendAllowed([], { ...base, user: 'a', now: Date.parse('2026-12-01T03:00:00Z') }), /試行期間/);
+  assert.match(checkSendAllowed([], { ...base, user: 'a', now: Date.parse('2026-11-06T03:00:00Z') }), /期間/);
+  // 終わり（to）を決めたときだけ、その後を止める。to が無ければ続ける（2026-11-11 に試行から継続の運用へ）
+  const ended = { ...base, trial: { from: '2026-11-07', to: '2026-11-21' } };
+  assert.match(checkSendAllowed([], { ...ended, user: 'a', now: Date.parse('2026-12-01T03:00:00Z') }), /期間/);
+  assert.equal(checkSendAllowed([], { limits: config.limits, trial: { from: '2026-11-07' }, user: 'a', now: Date.parse('2027-06-01T03:00:00Z') }), null);
   assert.equal(checkSendAllowed([], { ...base, user: 'a', now: NOW }), null);
   // 間隔の下限は設定（minIntervalMinutes）から作る（2026-11-08 に 60 分→5 分へ変えたら 10 分前の固定値で落ちた）
   assert.match(checkSendAllowed([row(config.limits.minIntervalMinutes - 1)], { ...base, user: 'a', now: NOW }), /分あけます/);

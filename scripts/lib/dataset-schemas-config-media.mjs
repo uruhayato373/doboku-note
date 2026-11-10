@@ -559,7 +559,10 @@ export const ConfigXReplyTrial = z
     schemaVersion: schemaVersion1,
     experiment: z.string().regex(/^EXP-\d{3}$/),
     backlog: z.string().regex(/^DN-\d{4}$/),
-    trial: z.object({ from: z.string(), to: z.string() }).strict(),
+    trial: z
+      .object({ from: z.string(), to: z.string().optional() })
+      .strict()
+      .describe('返信を送ってよい期間（JST の日付）。to が無ければ終わりを決めない（2026-11-11 に運営者の判断で試行から継続の運用へ）'),
     limits: z
       .object({
         minIntervalMinutes: z.number().int().positive(),
