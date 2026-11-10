@@ -7075,6 +7075,23 @@
       "commit": "bb9ea11eeb3c",
       "verification": "origin/develop の台帳で 3 本 scheduled・CI run 42796369138 42796661088 42802439362 が scheduled-verified",
       "note": "3 本とも予約: kensetsu-dx 11/11（AWiTjuOa1U4）・toan-kousei-template 11/12（旧版 ywemm49EBPA を予約し直す・PR #1512 #1513）・infra-roukyuuka 11/13（w5kX20cj5Yk）。残件は DN-1096"
+    },
+    {
+      "id": "DN-1092",
+      "at": "2026-11-10",
+      "task": "技術士二次の水産部門（水産土木を中心）の過去問と模範解答の計画を作る",
+      "tier": "mid",
+      "kind": "制作",
+      "prevention": {
+        "type": "none",
+        "ref": "計画カードで不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a73fcc1ec965",
+      "verification": "日本技術士会 令和8年度 実施案内・在庫台帳 pe-fisheries",
+      "note": "選択科目（1401 水産資源及び水域環境・1402 水産食品及び流通・1403 水産土木）・免除なし（総監のみ）・原典 R01〜R08 の 8 年分を確認し、制作を DN-1097（出題テーマ表）・DN-1098（必須I・水産土木の答案）・DN-1099（サイトの入口）に分けた"
     }
   ]
 }
