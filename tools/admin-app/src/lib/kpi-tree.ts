@@ -13,7 +13,10 @@ import { findRepoRoot } from './repo-root';
  */
 
 export type Scope = { id: string; label: string };
-export type KpiCell = { value: number | null; coverage: string; applicable: boolean };
+/** 欠測の理由（buildReport のセルの gap）。取得元は読めたが値を確定できないか、別の期間の値しか無いか、誰が値を入れる指標か */
+export type Gap = 'undetermined' | 'other-period' | 'ci' | 'mac' | 'human' | 'none';
+export const GAP_LABEL: Record<Gap, string> = { undetermined: '確定できず', 'other-period': '別期間', ci: 'CI 待ち', mac: '収集待ち', human: '記録待ち', none: '取得なし' };
+export type KpiCell = { value: number | null; coverage: string; applicable: boolean; gap?: Gap; note?: string };
 export type KpiRow = { id: string; label: string; unit: string; depth: 0 | 1 | 2; cells: Record<string, KpiCell> };
 export type KpiGroup = { label: string; rows: KpiRow[] };
 export type ReceiptChannel = { id: string; label: string; value: number | null; status: 'final' | 'to-date' | 'estimate' | 'missing'; asOf: string | null; note: string };
@@ -64,7 +67,7 @@ export function loadKpiView(month?: string): KpiView {
   const period = kpiPeriod(month);
   const report = buildReport(root, period) as {
     strategy: { qualifications: Scope[]; metrics: { id: string; label: string; unit: string }[] };
-    cells: { qualification: string; metric: string; value: number | null; coverage: string; applicable: boolean }[];
+    cells: { qualification: string; metric: string; value: number | null; coverage: string; applicable: boolean; gap?: Gap; note?: string }[];
   };
   const scopes: Scope[] = [{ id: 'all', label: '全体' }, ...report.strategy.qualifications.map((q) => ({ id: q.id, label: q.label }))];
   const latest = latestIndexAsOf(root, period.endDate, scopes.filter((s) => s.id !== 'all').map((s) => s.id));
@@ -84,7 +87,7 @@ export function loadKpiView(month?: string): KpiView {
           continue;
         }
         const c = report.cells.find((x) => x.qualification === s.id && x.metric === id);
-        cells[s.id] = { value: c?.value ?? null, coverage: c?.coverage ?? 'missing', applicable: c?.applicable !== false };
+        cells[s.id] = { value: c?.value ?? null, coverage: c?.coverage ?? 'missing', applicable: c?.applicable !== false, gap: c?.gap, note: c?.gap ? c.note : undefined };
       }
       return { id, label: meta.label, unit: meta.unit, depth, cells };
     }),

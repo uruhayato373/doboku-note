@@ -10,6 +10,8 @@ export const jstDate = (what) => z.iso.date().describe(`${what}（JST の YYYY-M
 /** 取得・記録の時刻。末尾 Z の UTC だけ通す（+09:00 や存在しない日時は通さない）。時差つきで書かれると Date.parse は通るが日付が 1 日ずれる */
 /** 事業の計測（config/business-direction.json の指標・計測の記録）の取得元。型 2 つと business-direction.mjs の検査がここを引く（2026-10-07 まで 3 か所に写していた） */
 export const BUSINESS_CHANNELS = ['GA4', 'GSC', 'note', 'KDP', 'coconala', 'A8', 'operations', 'instagram', 'youtube', 'cloudflare'];
+/** 指標の値を誰が入れるか（指標の supply）。スナップショットのセルの欠測の理由（gap）もこれを引く */
+export const METRIC_SUPPLIES = ['ci', 'mac', 'human', 'none'];
 
 export const utcTime = (what) => z.iso.datetime().describe(`${what}（UTC の ISO 8601・末尾 Z）`);
 /** 時差つきの ISO 8601（Z か ±HH:MM）。予定の時刻のように JST の +09:00 で書く欄だけ使い、理由を .describe() に書く */

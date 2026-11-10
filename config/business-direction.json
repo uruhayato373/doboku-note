@@ -67,7 +67,8 @@
       "label": "自然検索アクティブユーザー",
       "unit": "人",
       "definition": "GA4 Organic Search・日本。期間全体を重複排除した値。日別や資格別の人数を合算しない。",
-      "channel": "GA4"
+      "channel": "GA4",
+      "supply": "ci"
     },
     {
       "id": "gscClicks",
@@ -75,7 +76,8 @@
       "label": "Google検索クリック",
       "unit": "回",
       "definition": "日本・Web検索。資格別は正規URL配下のページ集計。匿名化やAPI制限により全体と一致しない場合がある。",
-      "channel": "GSC"
+      "channel": "GSC",
+      "supply": "ci"
     },
     {
       "id": "quizStarts",
@@ -84,6 +86,7 @@
       "unit": "回",
       "definition": "quiz_startのイベント回数。合格率やユニーク学習者数ではない。",
       "channel": "GA4",
+      "supply": "ci",
       "appliesTo": [
         "all",
         "civil-construction-1"
@@ -96,6 +99,7 @@
       "unit": "回",
       "definition": "quiz_completeのイベント回数。実装対象と計測範囲を示す。",
       "channel": "GA4",
+      "supply": "ci",
       "appliesTo": [
         "all",
         "civil-construction-1"
@@ -107,7 +111,8 @@
       "label": "note CTAクリック",
       "unit": "回",
       "definition": "サイトのnote_cta_click。購入者との紐付けはない。",
-      "channel": "GA4"
+      "channel": "GA4",
+      "supply": "ci"
     },
     {
       "id": "notePv",
@@ -115,7 +120,8 @@
       "label": "note記事PV",
       "unit": "回",
       "definition": "記事を開いた回数。旧全体ビュー・マガジン閲覧・インプレッションと別指標。自己閲覧を含む。",
-      "channel": "note"
+      "channel": "note",
+      "supply": "mac"
     },
     {
       "id": "noteImpressions",
@@ -123,7 +129,8 @@
       "label": "noteインプレッション",
       "unit": "回",
       "definition": "note新ダッシュボードでの露出。PVと足さず、旧全体ビューへ接続しない。",
-      "channel": "note"
+      "channel": "note",
+      "supply": "mac"
     },
     {
       "id": "noteSales",
@@ -131,7 +138,8 @@
       "label": "note販売件数",
       "unit": "件",
       "definition": "既存sales.jsonの取引件数。記事・マガジンを分け、サイト流入に帰属させない。",
-      "channel": "note"
+      "channel": "note",
+      "supply": "mac"
     },
     {
       "id": "noteRevenue",
@@ -139,7 +147,8 @@
       "label": "note販売額",
       "unit": "円",
       "definition": "既存sales.jsonの販売額。手数料控除前。入金額や利益ではない。",
-      "channel": "note"
+      "channel": "note",
+      "supply": "mac"
     },
     {
       "id": "kdpRoyalty",
@@ -147,7 +156,8 @@
       "label": "KDPロイヤリティ",
       "unit": "円",
       "definition": "KDPレポートの月次推計または確定ロイヤリティ。estimatedと取得完全性を示し、販売額や入金額へ読み替えない。",
-      "channel": "KDP"
+      "channel": "KDP",
+      "supply": "mac"
     },
     {
       "id": "coconalaViews",
@@ -156,6 +166,7 @@
       "unit": "回",
       "definition": "サービス分析の閲覧数。rolling30日の週次スナップショットを合算しない。",
       "channel": "coconala",
+      "supply": "mac",
       "appliesTo": [
         "all",
         "civil-construction-1",
@@ -169,6 +180,7 @@
       "unit": "件",
       "definition": "対象期間に受けた購入前相談。注文・完了件数と区別する。個人情報は記録しない。",
       "channel": "coconala",
+      "supply": "mac",
       "appliesTo": [
         "all",
         "civil-construction-1",
@@ -182,6 +194,7 @@
       "unit": "件",
       "definition": "サービス分析で定義される販売数。トークルームの完了件数と区別する。",
       "channel": "coconala",
+      "supply": "mac",
       "appliesTo": [
         "all",
         "civil-construction-1",
@@ -195,6 +208,7 @@
       "unit": "件",
       "definition": "公開プロフィールの評価の数（ストック）。data 台帳 coconala.seller-profile の期間末時点の値。合算しない。",
       "channel": "coconala",
+      "supply": "mac",
       "appliesTo": [
         "all"
       ]
@@ -206,6 +220,7 @@
       "unit": "円",
       "definition": "サービス分析の販売額。手数料控除前。",
       "channel": "coconala",
+      "supply": "mac",
       "appliesTo": [
         "all",
         "civil-construction-1",
@@ -219,6 +234,7 @@
       "unit": "円",
       "definition": "A8 のサイト別レポート（doboku-note と note）の確定金額の月合計（data/a8/report-log.json の単月の期間）。発生・未確定は含めない。確定は発生月へ遡って反映されるので、前月は翌月の取得まで変わりうる。",
       "channel": "A8",
+      "supply": "mac",
       "appliesTo": [
         "all"
       ]
@@ -229,7 +245,8 @@
       "label": "手数料等控除後の受取額",
       "unit": "円",
       "definition": "対象チャネルの実受取額。販売額から未確認の料率で推計しない。",
-      "channel": "operations"
+      "channel": "operations",
+      "supply": "human"
     },
     {
       "id": "costYen",
@@ -237,7 +254,8 @@
       "label": "運営費用",
       "unit": "円",
       "definition": "対象期間に対応する費用。計上範囲を出典に記す。未記録をゼロにしない。",
-      "channel": "operations"
+      "channel": "operations",
+      "supply": "human"
     },
     {
       "id": "workMinutes",
@@ -245,7 +263,8 @@
       "label": "運営作業時間",
       "unit": "分",
       "definition": "対象期間の制作・保守・顧客対応の合計。観測できた範囲を示す。",
-      "channel": "operations"
+      "channel": "operations",
+      "supply": "none"
     },
     {
       "id": "qualityDefects",
@@ -253,7 +272,8 @@
       "label": "重大な教材不備",
       "unit": "件",
       "definition": "対象・実検査数を示した品質検査の重大不備件数。未検査を0件と扱わない。",
-      "channel": "operations"
+      "channel": "operations",
+      "supply": "human"
     },
     {
       "id": "igReach",
@@ -262,6 +282,7 @@
       "unit": "人日",
       "definition": "アカウント日次リーチの合計（延べ）。ユニークではない。",
       "channel": "instagram",
+      "supply": "none",
       "appliesTo": [
         "all"
       ]
@@ -273,6 +294,7 @@
       "unit": "人",
       "definition": "GA4・日本・セッションの参照元が youtube（概要欄リンクの utm_source=youtube）のアクティブユーザー。期間全体を重複排除した値。再生数・登録者ではない。目標は 3 か月の実測を見てから決める（2026-10-10 運営者判断・DN-0598）。",
       "channel": "GA4",
+      "supply": "ci",
       "appliesTo": [
         "all"
       ],
@@ -292,6 +314,7 @@
       "unit": "人",
       "definition": "GA4・日本・セッションの参照元が x（投稿のリンクの utm_source=x）のアクティブユーザー。期間全体を重複排除した値。目標は実測を見てから決める（2026-11-06・config/channel-annual-plan.json）。",
       "channel": "GA4",
+      "supply": "ci",
       "appliesTo": [
         "all"
       ],
@@ -311,6 +334,7 @@
       "unit": "人",
       "definition": "GA4・日本・セッションの参照元が instagram（プロフィールのリンクの utm_source=instagram）のアクティブユーザー。期間全体を重複排除した値。目標は実測を見てから決める（2026-11-06・config/channel-annual-plan.json）。",
       "channel": "GA4",
+      "supply": "ci",
       "appliesTo": [
         "all"
       ],
@@ -330,6 +354,7 @@
       "unit": "回",
       "definition": "動画の概要欄の UTM 付きリンクからサイトへ来たセッションの教材クリック（note_cta_click）。utm_campaign が動画パックの id。概要欄から note へ直接行ったクリックは取れないので含まない。購入者とは結ばない。",
       "channel": "GA4",
+      "supply": "ci",
       "appliesTo": [
         "all"
       ],
@@ -346,6 +371,7 @@
       "unit": "回",
       "definition": "X の投稿の UTM 付きリンクからサイトへ来たセッションの教材クリック（note_cta_click）。投稿から note へ直接行ったクリックは取れないので含まない。購入者とは結ばない。",
       "channel": "GA4",
+      "supply": "ci",
       "appliesTo": [
         "all"
       ],
@@ -362,6 +388,7 @@
       "unit": "%",
       "definition": "公開後 28 日の平均視聴率（averageViewPercentage）。型ごとに中央値で比べる。",
       "channel": "youtube",
+      "supply": "ci",
       "appliesTo": [
         "all"
       ],
@@ -378,6 +405,7 @@
       "unit": "回",
       "definition": "投稿ごとの保存数。型ごとに中央値で比べる。Graph API は使わない判断（2026-09-23）のため取得元が無く、Business Suite の画面から取るかは DN-1007 で決める。",
       "channel": "instagram",
+      "supply": "none",
       "appliesTo": [
         "all"
       ]
@@ -389,6 +417,7 @@
       "unit": "人",
       "definition": "期間末時点のフォロワー数（ストック）。",
       "channel": "instagram",
+      "supply": "none",
       "appliesTo": [
         "all"
       ]
@@ -400,6 +429,7 @@
       "unit": "件",
       "definition": "Cloudflare edge 集計・bot を含む・GA4 と一致しない。GA4 の bot 疑義の突合用。",
       "channel": "cloudflare",
+      "supply": "ci",
       "appliesTo": [
         "all"
       ]
@@ -411,6 +441,7 @@
       "unit": "件",
       "definition": "Cloudflare edge 集計・bot を含む・GA4 と一致しない。GA4 の bot 疑義の突合用。",
       "channel": "cloudflare",
+      "supply": "ci",
       "appliesTo": [
         "all"
       ]

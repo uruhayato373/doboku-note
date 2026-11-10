@@ -7,7 +7,7 @@
  * 既存の check-*（check-exam-calendar・check-qualification-market・check-magazine-membership ほか）に残し、型は形と 1 ファイル内の不変条件だけを持つ。
  */
 import { z } from 'zod';
-import { jstDate, month, yen, flag, uniqueBy, BUSINESS_CHANNELS } from './dataset-schema-parts.mjs';
+import { jstDate, month, yen, flag, uniqueBy, BUSINESS_CHANNELS, METRIC_SUPPLIES } from './dataset-schema-parts.mjs';
 
 /** 資格・ファミリー・テーマなどの id（英小文字・数字・ハイフン） */
 const QID = z.string().regex(/^[a-z0-9][a-z0-9-]*$/, '英小文字・数字・ハイフンだけ');
@@ -80,6 +80,7 @@ export const ConfigBusinessDirection = z
               .optional()
               .describe('計測の取得元。状態はここから実データで判定する（scripts/lib/metric-status.mjs）。無ければ未計測'),
             channel: z.enum(DIRECTION_CHANNELS).describe('取得元'),
+            supply: z.enum(METRIC_SUPPLIES).describe('誰が値を入れるか（ci＝GitHub Actions の定期取得・mac＝土曜の Mac 収集・human＝人が記録・none＝取得しないと決めた）。欠測の理由の表示に使う（business-direction.mjs の buildReport）'),
             appliesTo: z.array(z.string().min(1)).min(1).optional().describe('計測する範囲（all か資格 id）。無ければ全資格が対象'),
           })
           .strict(),

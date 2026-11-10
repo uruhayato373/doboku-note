@@ -39,6 +39,8 @@ note の `notePv` / `noteImpressions` は `npm run note-traffic-fetch -- --month
 
 Instagram のリーチは日次合計＝延べ（同一ユーザーの重複を含む）であり、フォロワー数は期間末時点のストックとして読む。Cloudflare のリクエスト数は bot を含むため GA4 の代替にはせず、突合用にのみ使う。
 
+欠測のセル（`coverage: missing`）には理由 `gap` が付く（`buildReport`）。取得元は読めたが値を確定できない＝`undetermined`、別の期間の値しか無い＝`other-period`、それ以外は指標の `supply`（`config/business-direction.json` の `metrics[].supply`。`ci`＝GitHub Actions の定期取得・`mac`＝土曜の Mac 収集・`human`＝人が記録・`none`＝取得しないと決めた）。指標を足すときは `supply` を必ず書く。管理画面の KPI ツリーは「—」の代わりにこの理由を出す。
+
 ## レビュー
 
 週次は前の月曜〜日曜、月次は前の暦月を対象にする。`--start YYYY-MM-DD --end YYYY-MM-DD` で過去期間も表示できる。期間がまだ終了していなければ記録できない。GSCの窓は太平洋時間、レビューの期限は日本時間。
