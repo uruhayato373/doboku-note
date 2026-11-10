@@ -65,21 +65,6 @@
 
 
 
-### [DN-1064] 建設部門の読み修正版 3 本を予約するか、公開日時を付け直す
-タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-10] [期日:2026-11-10]
-
-**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。台帳 `content/registry/publications/youtube/pe-construction.json` で次の 3 本が `approved`（11/05 に方針の承認）なのに `times` が無く、予約の段（`publish`）が実行されていない。`video-factory status` は `done` と出すので気づけなかった。関門は公開の 24 時間以上前を求める。
-- `pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix`（publishAt 2026-11-11T11:30Z）
-- `pe-construction/toan-kousei-template/youtube.longform.reading-fix`（2026-11-12T11:30Z）
-- `pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix`（2026-11-13T11:30Z）
-
-**やること**:
-1. Mac で develop を取り込み、`npm run video-factory -- status --exam pe-construction` を見る（PR #1484 のマージ後は `publish-pending`・`slot-expired` で出る）
-2. `publish-pending` の行は `node --env-file=.env.local scripts/video-factory.mjs publish --packs <a,b>` を 1 本ずつ流す（割当は 1 日 4 本）
-3. `slot-expired` の行は `npm run video-factory -- unapprove --pack <資格>/<作品>` → `wire --pack <資格>/<作品>`（空き枠へ付け直す）→ `gate` → `auto-approve` → `publish` の順でやり直す（`unapprove` は PR #1484 で足す）
-4. `registry-reconcile`（`mode=audit-funnel`）で予約の実体を読み戻す
-
-**完了条件**: 3 本とも台帳が `scheduled` で、YouTube 側の予約日時と一致している。
 
 
 ### [DN-1061] 技術士 建設部門 道路の設問ページ 16 本の検索の表示を測り、他の科目・年度へ広げるかを決める
