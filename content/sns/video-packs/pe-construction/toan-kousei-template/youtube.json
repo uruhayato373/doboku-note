@@ -22,5 +22,40 @@
     "sha256": "7abe449a27ebbee6397b2f310ffc8ac3b415b69246e60f976f115a1b217aea29",
     "thumbnailSha256": "f8fd72a93a6ccd9b98395f5b182056a1e1b3724cd14174694187cdfabfc46aad"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-skeleton-1",
+      "sceneId": "skeleton",
+      "title": "技術士 建設部門｜必須Ⅰの答案は4ブロックで組む #Shorts",
+      "description": "必須科目Ⅰの答案は、設問から逆算して組みます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 建設部門2次｜必須I 模範解答集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m0f3bc3933454?utm_source=youtube&utm_medium=video&utm_campaign=toan-kousei-template&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#技術士建設部門 #技術士 #Shorts",
+      "tags": [
+        "技術士（建設部門）",
+        "技術士 建設部門",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "r2Key": "video/render/toan-kousei-template/shorts/point-skeleton-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/toan-kousei-template/shorts/point-skeleton-1/thumbnail.png"
+    },
+    {
+      "key": "point-koukarisk-2",
+      "sceneId": "koukarisk",
+      "title": "技術士 建設部門｜効果とリスクは対で書く #Shorts",
+      "description": "効果とリスクの設問は、対で書きます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 建設部門2次｜必須I 模範解答集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m0f3bc3933454?utm_source=youtube&utm_medium=video&utm_campaign=toan-kousei-template&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#技術士建設部門 #技術士 #Shorts",
+      "tags": [
+        "技術士（建設部門）",
+        "技術士 建設部門",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "r2Key": "video/render/toan-kousei-template/shorts/point-koukarisk-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/toan-kousei-template/shorts/point-koukarisk-2/thumbnail.png"
+    }
+  ]
 }
