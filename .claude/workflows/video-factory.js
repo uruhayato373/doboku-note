@@ -72,11 +72,20 @@ async function produceImages({ pack, scope = 'all', rendered, from }) {
 }
 
 // 台本の検査を先に行う。BLOCK の動画に画像と描画の費用をかけない（2026-11-05 の 10 本中 5 本が描画のあとで止まった）
-function contentQa({ pack, from }) {
+async function contentQa({ pack, from }) {
   if (from) return { ok: true }
-  const prompt = `動画パック ${M}/content/sns/video-packs/${pack} を定義どおり採点する。修正はしない。画像と動画はまだ無いので、台本・storyboard・文面・出典を見る。check-video-content の B20（POP画像の原稿が古い）はこのあとの画像生成で解消するので、このパックの分は FAIL にも BLOCK にも数えない。採点のあと \`${CLI} record-qa --pack ${pack} --avg <平均> --blocks <件数>\` を実行する。`
+  // 台帳の QA が今の原稿で合格なら採点しない。別の PC で採点済みの台本を、ここでもう一度採点していた（1 体約 8 万トークン・DN-1067）
+  const current = await run(`qa-check:${pack}`, 'Content QA', `${CLI} qa-check --pack ${pack}`)
+  if (current?.ok) return { ok: true }
+  const file = `${M}/.tmp/media/${pack}/work/factory/content-qa.json`
+  const prompt = `動画パック ${M}/content/sns/video-packs/${pack} を定義どおり採点する。修正はしない。画像と動画はまだ無いので、台本・storyboard・文面・出典を見る。check-video-content の B20（POP画像の原稿が古い）はこのあとの画像生成で解消するので、このパックの分は FAIL にも BLOCK にも数えない。採点を {"scores":{"軸の名前":0〜3,…},"blocks":["BLOCK の理由",…]} の JSON で ${file} に書き、\`${CLI} record-qa --pack ${pack} --file ${file}\` を実行する（平均と件数はコマンドが数える）。`
   return serial(() => agent(prompt, { label: `qa:${pack}`, phase: 'Content QA', schema: QA, agentType: 'video-content-qa', model: 'sonnet' }))
-    .then((qa) => (!qa ? { ok: false, reason: '内容QAの段が失敗' } : qa.avg >= 2 && qa.blocks === 0 ? { ok: true, qa } : { ok: false, reason: `内容QAが不合格（平均 ${qa.avg}・BLOCK ${qa.blocks}）`, qa }))
+    .then(async (qa) => {
+      if (!qa) return { ok: false, reason: '内容QAの段が失敗' }
+      // 合否はモデルの申告でなく、記録された台帳の QA で決める
+      const recorded = await run(`qa-check:${pack}#after`, 'Content QA', `${CLI} qa-check --pack ${pack}`)
+      return recorded?.ok ? { ok: true, qa } : { ok: false, reason: `内容QAが不合格か未記録（${recorded?.output ?? '確認の段が失敗'}）`, qa }
+    })
 }
 
 const results = await pipeline(
