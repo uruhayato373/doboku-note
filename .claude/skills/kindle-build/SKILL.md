@@ -99,7 +99,7 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 - **1問=1ファイル + 解答=1ファイル**に分割（`inToc:false`）。ファイル境界で Kindle が確実に改ページ＝「問題→めくって解答」を CSS 改ページに頼らず保証。CSS 改ページ方式は Kindle Previewer で崩れる（この構造にした経緯）
 - 解答ページは**全選択肢の正誤理由を ○/×** で収録（`optionExplanations` 全件）。正答だけにしない
 - 元データ（`civil-1-exam-questions.json`＝サイト MDX 派生）の **HTML 数値エンティティ（`&#x2460;`=①等）・穴埋め空欄記号（▆/｜　｜）は `normalizeText` で復号/正規化**しないと Kindle で生文字列が見える
-- 巻末に**学習導線（doboku-note.com＋note マガジン）＋著者プロフィール**を UTM 付きで内蔵（`utm_source=kindle`）。XHTML 属性内の `&` は `&amp;` にエスケープ（生 `&` は epubcheck FATAL）
+- 巻末に**学習導線（doboku-note.com＋note マガジン）＋著者プロフィール**を UTM 付きで内蔵し、最後に全ビルダー共通の「レビューのお願い」（`scripts/lib/kindle-review-request.mjs`・見返りなしの中立文）を置く（`utm_source=kindle`）。XHTML 属性内の `&` は `&amp;` にエスケープ（生 `&` は epubcheck FATAL）
 
 **ファイル受け渡し**: `.tmp/` は隠しフォルダで KDP のファイル選択に出ない → **`~/Downloads/` にコピー**して渡す（EPUB＋表紙とも）
 

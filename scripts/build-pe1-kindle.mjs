@@ -25,6 +25,7 @@ import { resolve, basename, dirname } from 'node:path'
 import { writeEpub, xhtmlDoc, xesc } from './lib/epub-writer.mjs'
 import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 import { parseCliArgs } from './lib/cli-args.mjs'
+import { reviewRequestPage } from './lib/kindle-review-request.mjs'
 
 const AUTHOR = 'doboku-note'
 const PUBLISHER = 'doboku-note'
@@ -377,6 +378,7 @@ async function main() {
       properties: pre.hasMath ? 'mathml' : undefined,
     })
   }
+  pages.push(reviewRequestPage())
 
   const resources = [...images.entries()].map(([href, data], i) => ({
     id: `img-${String(i + 1).padStart(3, '0')}`,

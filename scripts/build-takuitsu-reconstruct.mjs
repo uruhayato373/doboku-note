@@ -2,7 +2,7 @@
 // ジェネレータ。1 ソースから note 用（Markdown / 印刷 HTML）と Kindle 用（EPUB）を出す。
 //
 // 生の年度別過去問（サイトで無料公開中・無料代替も飽和）との差別化として、
-//   1) 同一テーマの択一を H26〜R07 で横断集約（出題パターンが体で分かる）
+//   1) 同一テーマの択一を H26 以降の全年度で横断集約（出題パターンが体で分かる）
 //   2) テーマ冒頭に「論点まとめ」= 正しい知識(○解説)を体系化（暗記特化）
 //   3) 同一趣旨の反復問題を圧縮（編集された教材としての価値）
 // を付与する。入力は build-time 済みの構造化全問 JSON。
@@ -29,6 +29,7 @@ import { datasetPath } from './lib/datasets.mjs'
 import { readJson } from './lib/json-io.mjs'
 import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 import { parseCliArgs } from './lib/cli-args.mjs'
+import { reviewRequestPage } from './lib/kindle-review-request.mjs'
 
 // 電子書籍（Kindle）→ サイトの UTM は契約（config/utm-templates.json の ebook.kindle）。campaign は書籍 ID の小文字、
 // content は置き場所（next＝学習をさらに進めたい方へ・author＝著者プロフィール）。DN-0947
@@ -342,6 +343,21 @@ function parseArgs(argv) {
 
 const YEAR_LABEL = (y) => (y.startsWith('h') ? `H${y.slice(1)}` : `R${y.slice(1)}`)
 
+// 収録する年度の範囲（2026-11-10）。問題データには後から H18〜H25 の飛び年度も入ったため、連続して揃う H26 以降に絞る。
+// 本文・説明の「H26〜R0X」は決め打ちせず、読み込んだ最新の年度から作る（令和8年度を足したら自動で H26〜R08 になる）。
+const FIRST_YEAR = 'h26'
+const yearOrd = (y) => (y.startsWith('h') ? 1988 : 2018) + Number(y.slice(1))
+let YEAR_RANGE = ''
+function loadThemeQuestions(theme) {
+  const data = JSON.parse(readFileSync(resolve(REPO, theme.src), 'utf8'))
+  const years = data.years.map((y) => y.year).filter((y) => yearOrd(y) >= yearOrd(FIRST_YEAR))
+  const last = years.reduce((a, b) => (yearOrd(b) > yearOrd(a) ? b : a))
+  YEAR_RANGE = `${YEAR_LABEL(FIRST_YEAR)}〜${YEAR_LABEL(last)}`
+  const all = []
+  for (const y of data.years) if (years.includes(y.year)) for (const q of y.questions) all.push(normalizeQuestion({ ...q, year: y.year }))
+  return all.filter((q) => matchesTheme(theme, q))
+}
+
 // 元 JSON（サイト MDX 派生）に残る HTML 数値エンティティを実文字へ復号し、
 // 穴埋め空欄の記号（▆ / ｜　　｜）を ［　　］ に正規化する。
 // 例: &#x2460;→① / &#x2586;→▆→［　　］。放置すると Kindle で
@@ -486,7 +502,7 @@ function renderMarkdown(model) {
   const out = [fm, `# ${model.title} ― ${model.subtitle}`, '']
   out.push(
     [
-      `本書は ${t.examLabel}「${t.label}」の択一過去問（H26〜R07）を、`,
+      `本書は ${t.examLabel}「${t.label}」の択一過去問（${YEAR_RANGE}）を、`,
       '**年度別ではなく論点別**に解体・再構成した暗記特化教材です。同じ論点の問題を',
       '年度をまたいで連続演習することで「どこが繰り返し問われるか」が体で分かります。',
       '各論点の冒頭に、過去問の正答選択肢から抽出した**「論点まとめ（覚える正しい知識）」**を',
@@ -504,7 +520,7 @@ function renderMarkdown(model) {
       for (const b of ch.ronten) out.push(`- ${b}`)
       out.push('')
     }
-    out.push(`### 一問一答（${ch.items.length} 問・H26〜R07）`, '')
+    out.push(`### 一問一答（${ch.items.length} 問・${YEAR_RANGE}）`, '')
     for (const { q, dupYears } of ch.items) {
       const tag = `${YEAR_LABEL(q.year)} ${q.part}-${String(q.no).padStart(2, '0')}`
       out.push(`**［${tag}］** ${q.body}`, '')
@@ -630,7 +646,7 @@ function chapterIntroXhtml(ch) {
     parts.push('<h2>論点まとめ（覚える正しい知識）</h2>')
     parts.push(`<div class="ronten"><ul>${ch.ronten.map((b) => `<li>${xinline(b)}</li>`).join('')}</ul></div>`)
   }
-  parts.push(`<p>この論点の一問一答は ${ch.items.length} 問（H26〜R07）。次のページから、1問ごとに「問題 → ページをめくって正答・解説」の順に進みます。</p>`)
+  parts.push(`<p>この論点の一問一答は ${ch.items.length} 問（${YEAR_RANGE}）。次のページから、1問ごとに「問題 → ページをめくって正答・解説」の順に進みます。</p>`)
   return xhtmlDoc(`${ch.n}. ${ch.label}`, parts.join('\n'))
 }
 
@@ -693,7 +709,7 @@ function renderEpub(model, outDir) {
 <strong>発行</strong>　${xesc(PUBLISHER)}</p></div>`)
   const introPage = xhtmlDoc('本書の使い方',
     `<div class="front"><h1>本書の使い方</h1>
-<p>本書は ${xesc(t.examLabel)}「${xesc(t.label)}」の択一過去問（H26〜R07）を、<strong>年度別ではなく論点別</strong>に解体・再構成した暗記特化教材です。</p>
+<p>本書は ${xesc(t.examLabel)}「${xesc(t.label)}」の択一過去問（${YEAR_RANGE}）を、<strong>年度別ではなく論点別</strong>に解体・再構成した暗記特化教材です。</p>
 <p>同じ論点の問題を年度をまたいで連続演習することで「どこが繰り返し問われるか」が体で分かります。各論点の冒頭には、過去問の正答選択肢から抽出した<strong>「論点まとめ（覚える正しい知識）」</strong>を配置しました。生の年度別過去問では得られない、横断・体系化された一冊です。</p>
 <p>1問ごとに「問題 → ページをめくって正答・解説」の順に進みます。正答・解説ページでは、各選択肢の記述が適当なものを<strong>○</strong>、誤っているものを<strong>×</strong>で示しています。</p>
 <p>図版を要する設問は本書では割愛し、文章で完結する設問のみを収録しています。</p></div>`)
@@ -746,6 +762,7 @@ function renderEpub(model, outDir) {
 <p class="url"><a href="${siteLink(t.key, 'author')}">${SITE_ORIGIN}</a></p></div>`)
   pages.push({ id: 'p-next', href: 'p-next.xhtml', label: '学習をさらに進めたい方へ', content: nextPage })
   pages.push({ id: 'p-author', href: 'p-author.xhtml', label: '著者プロフィール', content: authorPage })
+  pages.push(reviewRequestPage())
 
   return writeEpub(
     {
@@ -753,7 +770,7 @@ function renderEpub(model, outDir) {
         title: `${model.title} ― ${model.subtitle}`,
         author: AUTHOR,
         publisher: PUBLISHER,
-        description: `${t.examLabel}「${t.label}」の択一過去問（H26〜R07）を論点別に再構成した暗記特化教材。`,
+        description: `${t.examLabel}「${t.label}」の択一過去問（${YEAR_RANGE}）を論点別に再構成した暗記特化教材。`,
         rights: CREDIT_BODY,
       },
       css: EPUB_CSS,
@@ -791,7 +808,7 @@ function renderGoubonEpub(models, outDir) {
 <strong>発行</strong>　${xesc(PUBLISHER)}</p></div>`)
   const introPage = xhtmlDoc('本書の使い方',
     `<div class="front"><h1>本書の使い方</h1>
-<p>本書は ${xesc(GOUBON.examLabel)}の択一過去問（H26〜R07）を、<strong>年度別ではなく論点別</strong>に解体・再構成した暗記特化教材の<strong>全科目合本</strong>です。${models.map((m) => `「${xesc(m.theme.label)}」`).join('')}の6科目・全${totalQ}問を1冊に収録しています。</p>
+<p>本書は ${xesc(GOUBON.examLabel)}の択一過去問（${YEAR_RANGE}）を、<strong>年度別ではなく論点別</strong>に解体・再構成した暗記特化教材の<strong>全科目合本</strong>です。${models.map((m) => `「${xesc(m.theme.label)}」`).join('')}の6科目・全${totalQ}問を1冊に収録しています。</p>
 <p>同じ論点の問題を年度をまたいで連続演習することで「どこが繰り返し問われるか」が体で分かります。各論点の冒頭には、過去問の正答選択肢から抽出した<strong>「論点まとめ（覚える正しい知識）」</strong>を配置しました。</p>
 <p>1問ごとに「問題 → ページをめくって正答・解説」の順に進みます。正答・解説ページでは、各選択肢の記述が適当なものを<strong>○</strong>、誤っているものを<strong>×</strong>で示しています。</p>
 <p>図版を要する設問は本書では割愛し、文章で完結する設問のみを収録しています。</p></div>`)
@@ -808,7 +825,7 @@ function renderGoubonEpub(models, outDir) {
     const pn = pi + 1
     const partPage = xhtmlDoc(`第${pn}部 ${model.theme.label}`,
       `<div class="cover-title"><h1>第${pn}部　${xesc(model.theme.label)}</h1>
-<p class="sub">${model.chapters.length} 論点・${model.stats.rendered} 問（H26〜R07）</p></div>`)
+<p class="sub">${model.chapters.length} 論点・${model.stats.rendered} 問（${YEAR_RANGE}）</p></div>`)
     pages.push({ id: `part-${pn}`, href: `part-${pn}.xhtml`, label: `第${pn}部 ${model.theme.label}`, content: partPage })
     for (const ch of model.chapters) {
       ch.n = ++n
@@ -836,8 +853,7 @@ function renderGoubonEpub(models, outDir) {
 <div class="linkbox"><p><strong>第2次検定対策（note）</strong></p>
 <p>施工経験記述の完成答案集・学科記述のテーマ別対策など、第2次検定の教材を note で公開しています。</p>
 <p class="url"><a href="https://note.com/dobokunote/m/md29a34906314">1級土木 二次検定まるごとパック（経験記述＋学科記述＋直前暗記）</a></p>
-<p class="url"><a href="${NOTE_BASE}">note マガジン一覧（${NOTE_CREATOR}）</a></p></div>
-<p>本シリーズは科目別の分冊（安全管理・法規・施工計画・環境管理・品質管理・工程管理）でも刊行しています。</p></div>`)
+<p class="url"><a href="${NOTE_BASE}">note マガジン一覧（${NOTE_CREATOR}）</a></p></div></div>`)
   const authorPage = xhtmlDoc('doboku-note について',
     `<div class="front back"><h1>doboku-note について</h1>
 <p><strong>doboku-note</strong> は、土木・建設系資格の試験対策サイトです。1級土木施工管理技士・技術士などの過去問解説と学習コンテンツを公開しています。</p>
@@ -845,6 +861,7 @@ function renderGoubonEpub(models, outDir) {
 <p class="url"><a href="${siteLink('goubon', 'author')}">${SITE_ORIGIN}</a></p></div>`)
   pages.push({ id: 'p-next', href: 'p-next.xhtml', label: '学習をさらに進めたい方へ', content: nextPage })
   pages.push({ id: 'p-author', href: 'p-author.xhtml', label: '著者プロフィール', content: authorPage })
+  pages.push(reviewRequestPage())
 
   return writeEpub(
     {
@@ -852,7 +869,7 @@ function renderGoubonEpub(models, outDir) {
         title,
         author: AUTHOR,
         publisher: PUBLISHER,
-        description: `${GOUBON.examLabel}の択一過去問（H26〜R07）を論点別に再構成した暗記特化教材の全科目合本（6科目・全${totalQ}問）。`,
+        description: `${GOUBON.examLabel}の択一過去問（${YEAR_RANGE}）を論点別に再構成した暗記特化教材の全科目合本（6科目・全${totalQ}問）。`,
         rights: CREDIT_BODY,
       },
       css: EPUB_CSS,
@@ -868,10 +885,7 @@ async function buildGoubon(args) {
   const models = []
   for (const key of GOUBON.order) {
     const theme = THEMES[key]
-    const data = JSON.parse(readFileSync(resolve(REPO, theme.src), 'utf8'))
-    const all = []
-    for (const y of data.years) for (const q of y.questions) all.push(normalizeQuestion({ ...q, year: y.year }))
-    const questions = all.filter((q) => matchesTheme(theme, q))
+    const questions = loadThemeQuestions(theme)
     models.push(buildModel(theme, questions))
   }
   const epub = renderGoubonEpub(models, outDir)
@@ -889,10 +903,7 @@ async function main() {
   const theme = THEMES[args.theme]
   if (!theme) throw new Error(`未知のテーマ: ${args.theme}（${Object.keys(THEMES).join(',')}）`)
 
-  const data = JSON.parse(readFileSync(resolve(REPO, theme.src), 'utf8'))
-  const all = []
-  for (const y of data.years) for (const q of y.questions) all.push(normalizeQuestion({ ...q, year: y.year }))
-  const questions = all.filter((q) => matchesTheme(theme, q))
+  const questions = loadThemeQuestions(theme)
 
   const outDir = resolve(REPO, args.outDir || `.tmp/takuitsu-${theme.key}`)
   mkdirSync(outDir, { recursive: true })
