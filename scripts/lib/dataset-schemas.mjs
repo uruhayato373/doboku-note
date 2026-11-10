@@ -18,7 +18,7 @@
 import { z } from 'zod';
 import { todayJst } from './jst-date.mjs';
 import {
-  jstDate, utcTime, offsetTime, month, yen, signedYen, count, orNull, jstDateOrUtcTime, flag, uniqueBy, sumEquals, isMonday, lastDayOfMonth, jstDayOf, toMs, mondayDate, versioned, ISO_TIME, isoTime, period, sha256, BUSINESS_CHANNELS,
+  jstDate, utcTime, offsetTime, month, yen, signedYen, count, orNull, jstDateOrUtcTime, flag, uniqueBy, sumEquals, isMonday, lastDayOfMonth, jstDayOf, toMs, mondayDate, versioned, ISO_TIME, isoTime, period, sha256, BUSINESS_CHANNELS, METRIC_SUPPLIES,
 } from './dataset-schema-parts.mjs';
 
 export { uniqueBy, sumEquals, isMonday, versioned };
@@ -403,6 +403,7 @@ export const BusinessSnapshot = z
             note: z.string(),
             target: z.number().nullable(),
             applicable: z.boolean().optional(),
+            gap: z.enum(['undetermined', 'other-period', ...METRIC_SUPPLIES]).optional().describe('欠測の理由（coverage が missing のセルだけ。undetermined＝取得元は読めたが値を確定できない、other-period＝別の期間の値しか無い、それ以外は指標の supply）'),
           })
           .strict(),
       )
