@@ -1146,11 +1146,24 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 - 画像は計 30 枚の採用に、作り直しを含めて約 60 回の生成。落ちた理由は、9:16 から外れた出力（916×1717）・字幕と操作ボタンの範囲・締めの先生が腰で切れる、の 3 つがほとんどで、誤字は 1 回だけ（ラベルの鉤括弧）
 - 図を収める範囲（PR #1523）と、締めの「胴体を下端まで続ける」（PR #1524）を共通の指示に入れた
 
+**承認・アップロード（2026-11-11・PR #1526〜#1528）**: 6 本を承認し、非公開でアップロードした。公開日時は 11/13〜11/18 の 14:30 JST に 1 日 1 本。投稿の経路（`registry -- prepare-short`・`stage-youtube`・`record-related`、youtube-single-publish の publish）は DN-1002 で作った。
+
+| ショート | 動画 ID | 関連動画にする親（公開） | 予約 |
+|---|---|---|---|
+| hissu1-kensetsu-dx の point-purpose-1 | OdKCHkNllG4 | AWiTjuOa1U4（11/11 20:30） | 11/13 14:30 |
+| hissu1-kensetsu-dx の point-means-2 | c5R1Y1Z87fs | AWiTjuOa1U4（11/11 20:30） | 11/14 14:30 |
+| toan-kousei-template の point-skeleton-1 | HU2LFTMrl4Y | ywemm49EBPA（11/12 20:30） | 11/15 14:30 |
+| toan-kousei-template の point-koukarisk-2 | crYjMm6gzu8 | ywemm49EBPA（11/12 20:30） | 11/16 14:30 |
+| hissu1-infra-roukyuuka の point-breakdown-1 | LQiIN5sPBAo | w5kX20cj5Yk（11/13 20:30） | 11/17 14:30 |
+| hissu1-infra-roukyuuka の point-funding-2 | Da1c1w3CT2c | w5kX20cj5Yk（11/13 20:30） | 11/18 14:30 |
+
 **次にやること**:
-1. 運営者が 6 本を承認し、予約日時を決める（親の通常動画の公開後）。関連動画は Studio で設定する（DN-1002）
-2. 公開 28 日後に、ショートから通常動画へ移った数を見て、`shortsRule` の上限と枠ごとの本数を見直す（2026-12-15）
-3. 画面確認で出た改善点（止め条件にはしていない）: 字幕の改行が語の途中で切れる（「持続 / 可能性」など・`video-subtitles.mjs` の `subtitleChunks` は通常動画と共通）、字幕の文字を 80〜84px に上げるか、point-koukarisk-2 は画面に「リスク」の語が出ず題名の論点が弱い、point-means-2 の 2 枚目の絵が階層に見えにくい
-4. YouTube の実画面で、右端の余白が 3〜4% の見出しが欠けないかを確かめる
+1. 運営者: 親の通常動画が公開されたら、Studio でショートの「関連動画」に親を設定する（API では設定できない）
+2. 設定したら `npm run registry -- record-related --pub <ショート> --video-id <親>` で記録し、youtube-single-publish の publish をもう一度流すと予約する（`expect` は `publish-youtube --phase upload` の dry-run の digest）。purpose-1 は 11/13 14:30 より前に済ませる
+3. point-funding-2 は表紙の設定（`thumbnails.set`）が応答なしで「thumbnail結果不明」で止まっている。日次の投稿の上限（4 本）を超えて 10 本流したのが原因と見ている（同じ画像なので送り直しは無害）。太平洋時間の 0 時（JST 17 時）以降に、台帳と R2 の実行記録から `thumbnailRequestedAt` を外して流し直す
+4. 公開 28 日後に、ショートから通常動画へ移った数を見て、`shortsRule` の上限と枠ごとの本数を見直す（2026-12-15）
+5. 画面確認で出た改善点（止め条件にはしていない）: 字幕の改行が語の途中で切れる（`video-subtitles.mjs` の `subtitleChunks` は通常動画と共通）、字幕の文字を 80〜84px に上げるか、point-koukarisk-2 は画面に「リスク」の語が出ず題名の論点が弱い、point-means-2 の 2 枚目の絵が階層に見えにくい
+6. YouTube の実画面で、右端の余白が 3〜4% の見出しが欠けないかを確かめる
 
 
 ### [DN-1000] コンクリート技士の試験後に出題を確かめ、2027 年度の予想問題へ改題する
