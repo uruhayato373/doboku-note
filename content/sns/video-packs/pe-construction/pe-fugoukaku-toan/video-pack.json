@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-fugoukaku-toan",
+  "exam": "pe-construction",
+  "title": "技術士建設部門 不合格の答案はどこで落ちるか — 評価項目に照らして点検する",
+  "audience": "建設部門の筆記試験に落ちた、または結果が不安で、来年度の学習をどこから直すか決められない受験者",
+  "pain": "筆記試験の答案がどこで点を落としたのか分からず、来年度の学習をどこから直せばよいか決められない",
+  "promise": "落ちやすい答案の4つの型を、試験の評価項目に照らして点検し、直す順番を決められる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/setsumon-bunkai/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/aimai-hyougen-sahou/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/suikou-checklist/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1412635_00009.htm",
+      "title": "文部科学省「令和8年度技術士試験合否決定基準」筆記試験"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "pe-fugoukaku-toan"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
