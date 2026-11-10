@@ -4,7 +4,13 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **39**（更新: 2026-11-10）
+パック数: **40**（更新: 2026-11-10）
+
+## 1級土木施工管理技士（1）
+
+| packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
+|---|---|---|---|---|---|---|
+| `owner-eye-kouji-kensa` | 工事検査で発注者が見るところ | 発注者の工事検査で何を見られるのか分からず、書類と出来形・品質の準備が後手になる | howto | レビュー | 台本/構成 | `site-article` |
 
 ## 2級土木施工管理技士（4）
 

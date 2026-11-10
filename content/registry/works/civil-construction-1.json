@@ -81,6 +81,17 @@
       "legacyKey": "044-civil1-shiken-campaign"
     },
     {
+      "id": "owner-eye-kouji-kensa",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-kouji-kensa",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
       "id": "x042-civil1-r06",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/_archive-old-account/042-civil1-r06頻出",

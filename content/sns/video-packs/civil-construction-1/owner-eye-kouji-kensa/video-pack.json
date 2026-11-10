@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "owner-eye-kouji-kensa",
+  "exam": "civil-construction-1",
+  "title": "工事検査で発注者が見るところ",
+  "audience": "施工管理の現場で働き、1級土木施工管理技士を学ぶ受検者",
+  "pain": "発注者の工事検査で何を見られるのか分からず、書類と出来形・品質の準備が後手になる",
+  "promise": "検査の二つの系統と、見られる出来形・品質・書類を知り、着工から何を残すかが分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/civil-practice/construction-inspection-types/article.mdx",
+    "campaign": "owner-eye-kouji-kensa"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

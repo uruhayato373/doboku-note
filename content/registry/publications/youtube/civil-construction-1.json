@@ -2,5 +2,13 @@
   "schemaVersion": 1,
   "channel": "youtube",
   "exam": "civil-construction-1",
-  "publications": []
+  "publications": [
+    {
+      "id": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform",
+      "work": "owner-eye-kouji-kensa",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    }
+  ]
 }
