@@ -16,7 +16,7 @@ const tokens = JSON.parse(readFileSync(join(REPO_ROOT, '.claude/knowledge/design
 
 /** 画像・動画の色を持たない資格（教材を作っていない）。色を足すときは note-cover-tokens.json に qualification つきで足し、ここから外す */
 const NO_PALETTE = [
-  'pe-information', 'pe-agriculture', 'pe-forestry', 'pe-fisheries', 'pe-environment', 'pe-applied-science', 'pe-sanitary',
+  'pe-information', 'pe-agriculture', 'pe-forestry', 'pe-environment', 'pe-applied-science', 'pe-sanitary',
   'construction-machinery-1', 'construction-machinery-2', 'landscape-1', 'landscape-2', 'building-construction-1', 'building-construction-2',
   'electrical-work-1', 'electrical-work-2', 'civil-service-national-general-civil', 'civil-service-tokyo-1b-civil', 'civil-service-tokubetsuku-1-civil',
   'geological-survey-engineer', 'road-bridge-inspector', 'steel-structure-diagnostician',

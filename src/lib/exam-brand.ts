@@ -18,6 +18,7 @@ export type ExamKey =
   | 'tankan'
   | 'pe-construction'
   | 'pe-water-supply'
+  | 'pe-fisheries'
   | 'pe-general'
   | 'pe-first-stage'
   | 'civil-1'
@@ -40,6 +41,7 @@ export const QUALIFICATION_TO_EXAM_KEY: Readonly<Record<string, ExamKey>> = {
   'pe-comprehensive-management': 'tankan',
   'pe-construction': 'pe-construction',
   'pe-water-supply': 'pe-water-supply',
+  'pe-fisheries': 'pe-fisheries',
   'pe-first-stage': 'pe-first-stage',
   'civil-construction-1': 'civil-1',
   // 1級・2級を横断する商品（会員ラボ等）はブランドを 1 級側に寄せる
@@ -160,6 +162,10 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
   'pe-water-supply': {
     label: qualificationShortLabel('pe-water-supply'),
     themeVar: '--exam-pe-water-supply',
+  },
+  'pe-fisheries': {
+    label: qualificationShortLabel('pe-fisheries'),
+    themeVar: '--exam-pe-fisheries',
   },
 };
 
