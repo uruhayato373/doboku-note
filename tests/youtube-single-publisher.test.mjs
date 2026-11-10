@@ -92,3 +92,36 @@ test('アップロード応答を失ってもR2 intentから同じ動画を二�
   assert.equal(inserts, 1);
   assert.equal(journalState.value.delivery.inputSha256, expect);
 });
+
+test('予約を外した動画は R2 に残った予約の記録を台帳で上書きし、再アップロードせず予約し直す（DN-1064）', async t => {
+  const { root, channel } = fixture(t);
+  const plan = singlePublishPlan(root, PUB, NOW);
+  const thumbUrl = 'https://i9.ytimg.com/vi/existing001/hqdefault.jpg';
+  const base = { inputSha256: plan.digest, marker: plan.marker, uploadRequestedAt: '2026-10-25T00:00:00.000Z', videoId: 'existing001',
+    processedAt: '2026-10-25T00:01:00.000Z', thumbnailRequestedAt: '2026-10-25T00:01:01.000Z', thumbnailUrls: [thumbUrl], thumbnailAcceptedAt: '2026-10-25T00:01:02.000Z' };
+  const pub = loadRegistry(root).publications.find(p => p.id === PUB);
+  upsertPublications(root, 'youtube', EXAM, [{ ...Object.fromEntries(Object.entries(pub).filter(([k]) => !['file', 'exam', 'channel'].includes(k))),
+    status: 'uploaded_private', delivery: base, platform: { id: 'existing001', url: 'https://www.youtube.com/watch?v=existing001', privacy: 'private' } }]);
+  const journalState = { value: { pubId: PUB, delivery: { ...base, scheduleRequestedAt: '2026-10-25T00:01:03.000Z', scheduleAt: '2026-10-28T11:30:00Z', scheduledVerifiedAt: '2026-10-25T00:01:04.000Z' } } };
+  const journal = { async load() { return journalState.value; }, async save(record) { journalState.value = structuredClone(record); } };
+  const status = { privacyStatus: 'private', uploadStatus: 'processed', selfDeclaredMadeForKids: false, containsSyntheticMedia: readJson(root, 'config/youtube-production-disclosure.json').containsSyntheticMedia };
+  const media = loadRegistry(root).media;
+  const video = media.find(m => m.id === `${PUB}/video`), cover = media.find(m => m.id === `${PUB}/cover`);
+  const updates = [];
+  const youtube = {
+    channels: { list: async () => ({ data: { items: [{ id: channel.id, snippet: { title: channel.title } }] } }) },
+    videos: {
+      list: async () => ({ data: { items: [{ id: 'existing001', snippet: { ...plan.snippet, channelId: channel.id, thumbnails: { high: { url: thumbUrl } } }, status: { ...status },
+        contentDetails: { duration: 'PT10S' }, processingDetails: { processingStatus: 'succeeded' },
+        fileDetails: { fileSize: String(video.bytes), durationMs: '10000', videoStreams: [{ widthPixels: cover.width, heightPixels: cover.height }], audioStreams: [{}] } }] } }),
+      insert: async () => { throw new Error('再アップロードしない'); },
+      update: async ({ requestBody }) => { updates.push(requestBody); status.publishAt = requestBody.status.publishAt; return { data: {} }; },
+    },
+  };
+  const result = await publishYoutubePublication(root, { pubId: PUB, phase: 'schedule', commit: true, expect: plan.digest }, { youtube, journal, now: () => NOW, wait: async () => {} });
+  assert.equal(result.result, 'scheduled-verified');
+  assert.equal(updates.length, 1);
+  assert.equal(Date.parse(updates[0].status.publishAt), Date.parse(SLOT));
+  assert.equal(journalState.value.delivery.scheduleAt, SLOT);
+  assert.equal(loadRegistry(root).publications.find(p => p.id === PUB).status, 'scheduled');
+});
