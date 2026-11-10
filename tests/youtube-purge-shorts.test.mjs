@@ -35,6 +35,10 @@ test('purgePlan: 対象の集合で digest が決まり、台帳の行と結べ�
   assert.deepEqual(plan.targets.map((v) => v.id), ['nolegder001', 'oldshort001', 'oldshort002']);
   assert.deepEqual(plan.ledgerRows, ['a/x/youtube.short.old', 'a/x/youtube.short.stopped']);
   assert.deepEqual(plan.byMonth, { '2026-10': 3 });
+  // 縦横が読めなくても、台帳のショートの行と結べれば対象。結べなければ対象にしない
+  const blind = purgePlan([vid('oldshort001', { fileDetails: undefined }), vid('unknown0001', { fileDetails: undefined })], pubs);
+  assert.deepEqual(blind.targets.map((v) => v.id), ['oldshort001']);
+  assert.equal(blind.counts['shape-unknown'], 1);
   assert.equal(plan.digest, purgePlan([...videos].reverse(), pubs).digest);
   assert.notEqual(plan.digest, purgePlan(videos.slice(1), pubs).digest);
 });
