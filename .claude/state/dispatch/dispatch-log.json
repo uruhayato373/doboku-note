@@ -6985,6 +6985,19 @@
       "commit": "ccd244787506",
       "verification": "node --test tests/video-factory.test.mjs tests/youtube-longform-plan.test.mjs（PR #1494・f84d506c5）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1081",
+      "at": "2026-11-10",
+      "task": "技術士 建設部門の口頭試験の入口のガイド記事を作り、note とココナラの口頭試験教材へつなぐ",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bb7112c6aca7",
+      "verification": "npm run check-guide-length",
+      "note": "content/site/pe-construction/koutou-shiken（本文約3,900字・guide-qa 2.60/3・事実照合済み）。note の口頭試験教材へ配置。口頭試験の時期（〜1月中旬）に効くよう main 反映を運営者に諮る"
     }
   ]
 }
