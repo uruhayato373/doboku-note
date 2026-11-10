@@ -520,6 +520,18 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1086] X・動画からの教材クリックを暦の週・月で取り、動画の 0 行の理由を確かめる
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-10]
+
+**起点**: 2026-11-10、事業レポートの欠測の実査（PR #1501・#1502）。X・動画からの教材クリック（`xCampaignClicks`・`youtubeCampaignClicks`）は 28 日窓の GA4 レポート（`ga4.campaign-note-cta`）からしか読めず、週次・月次のセルには「別期間」としか出ない。`youtubeCampaignClicks` は取得はできているが該当の行が 0 件で、計測漏れか本当に 0 かを確かめていない。
+
+**やること**:
+1. `scripts/fetch-business-metrics.mjs` に `sessionCampaignName` 別の `note_cta_click` の問い合わせを足し、完了した週・月の値を measurement の `values.xCampaignClicks`・`values.youtubeCampaignClicks` に入れる。キャンペーンの集合は `scripts/lib/metric-status.mjs` の `campaignNames` を共有する（絞り込みを 2 か所に書かない）。
+2. `youtubeCampaignClicks` が 0 行の理由を確かめる。動画の説明欄・固定コメントの UTM の `utm_campaign` が動画パックの id と一致しているかを、公開済みの動画 1 本で見る。
+
+**完了条件**: 金曜の CI（`fetch-metrics.yml`）のあと、直近の完了した週のセルに X からの教材クリックが値で入る。`youtubeCampaignClicks` は 0 行の理由が記録されている（UTM の不一致なら直す）。GA4 の API は会社 PC から叩けないので、確かめるのは CI の実行結果。
+
+
 ### [DN-1085] 測量士補とコンクリート主任技士を過去問の問題台帳に入れ、正答の照合を CI で止める
 タグ: [領域:教材] [時期:2026-11] [種類:改善] [起票:2026-11-10]
 
