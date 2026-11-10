@@ -1,0 +1,285 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "口頭試験で5管理のトレードオフを、4つの順で語る型を紹介します。",
+      "caption": "5管理のトレードオフを、4つの順で語る",
+      "visual": {
+        "kind": "cover",
+        "heading": "口頭試験 5管理のトレードオフを経験で語る",
+        "items": [
+          "技術士 総合技術監理部門・口頭試験"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 8,
+      "end": 28,
+      "narration": "あなたの業務で5管理のトレードオフはどうでしたか、と聞かれた場面を考えます。品質を上げると費用が増える、という一般論しか出てこない。この動画では、管理の核同士の対立を、自分の経験の場面に結び付けて答える型を紹介します。",
+      "caption": "一般論から、自分の経験の対立へ",
+      "visual": {
+        "kind": "points",
+        "heading": "一般論で止まらず、経験の対立を語る",
+        "items": [
+          "一般論\n品質を上げると費用が増える",
+          "自分の経験\nどの目標が、なぜ対立したか"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／総監",
+          "note": "口頭試験の質問の趣旨を踏まえた例示。実際の試問の再現ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 28,
+      "end": 48,
+      "narration": "誤解しやすいのは、トレードオフを管理の名前の組み合わせで答えることです。経済性管理と安全管理が対立しました、と言うだけでは、業務のどの場面で何が対立したのかが伝わりません。名前の前に、何を求めた場面だったかを話します。",
+      "caption": "管理名だけでは、場面が伝わらない",
+      "visual": {
+        "kind": "points",
+        "heading": "管理名の組み合わせで終えない",
+        "items": [
+          "名前だけ\n経済性と安全が対立した",
+          "場面まで\n何を求めた場面で、何が両立しなかったか"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／総監",
+          "note": "名前の列挙で終えず、業務の場面を示す"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "core",
+      "start": 48,
+      "end": 66,
+      "narration": "型の土台は、5管理それぞれの核を一言で持つことです。経済性は原価と工期の最適化、人的資源は人の確保と育成、情報は守りつつ活用すること、安全は人命と健康を守ること、社会環境は環境と地域の合意です。",
+      "caption": "5管理の核を、一言で持つ",
+      "visual": {
+        "kind": "points",
+        "heading": "5管理の核を、一言で言う",
+        "items": [],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／総監",
+          "diagram": "five-management",
+          "source": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg",
+          "note": "管理ごとの核を、自分の言葉で言い換える"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "pair",
+      "start": 66,
+      "end": 86,
+      "narration": "対立は、管理の核同士が逆を向く場面で起きます。経済性管理の核は、原価と工期の最適化。安全管理の核は、人命と健康を守ること。工期を詰めるほど、安全のための余裕は減ります。核同士が向き合う形にすると、対立が具体になります。",
+      "caption": "核が逆を向くと、対立になる",
+      "visual": {
+        "kind": "points",
+        "heading": "核同士の対立で捉える",
+        "items": [
+          "経済性管理の核\n原価と工期の最適化",
+          "安全管理の核\n人命と健康を守ること"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／総監",
+          "note": "管理の核同士の対称関係で整理する",
+          "source": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "form",
+      "start": 86,
+      "end": 108,
+      "narration": "答えは、4つの順で組み立てます。1つめ、どの管理の核とどの核が対立したか。2つめ、それが表れた具体的な場面。3つめ、選んだ対策と、選ばなかった案との比較、その理由。4つめ、残った課題です。結論から入ると、聞き手は話の位置をつかめます。",
+      "caption": "対立、場面、選択と理由、残った課題",
+      "visual": {
+        "kind": "points",
+        "heading": "答えの型は4つの順",
+        "items": [
+          "対立した\n管理の核と核",
+          "場面\n業務のどこで",
+          "選択と理由\n別の案との比較",
+          "残った課題"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "口頭試験対策／総監",
+          "note": "本動画での独自の整理。自分の事実で埋める"
+        }
+      }
+    },
+    {
+      "sceneId": "case",
+      "start": 108,
+      "end": 128,
+      "narration": "仮例として、自治体の発注者の立場を考えます。年度内に工事を終えたいので、工程を詰めたい。一方で、受注者の現場には、作業に余裕を持たせたい事情があります。工程を詰める案と、作業の重なりをほどく順序に組み直す案を比べます。",
+      "caption": "発注者の仮例：工程を詰めるか、順序を組み直すか",
+      "visual": {
+        "kind": "points",
+        "heading": "発注者の仮例で、案を比べる",
+        "items": [
+          "制約\n年度内に完成させたい",
+          "案A\n工程を詰める\n余裕が減る",
+          "案B\n作業順序を組み直す\n調整が増える",
+          "判断の根拠\nなぜ、その案を選んだか"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／総監",
+          "diagram": "decision",
+          "note": "仮例であり、実際の経験や試問の再現ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "case-fit",
+      "start": 128,
+      "end": 148,
+      "narration": "この仮例を、4つの順に当てはめます。対立は、経済性管理の核と安全管理の核。場面は、年度内完成のために工程を詰めたい現場。選択は、順序の組み直しで、詰めると余裕が減るため。残った課題は、調整の手間が増えたことです。",
+      "caption": "仮例を、4つの順に当てはめる",
+      "visual": {
+        "kind": "points",
+        "heading": "仮例を、4つの順に当てはめる",
+        "items": [
+          "対立\n経済性の核と安全の核",
+          "場面\n年度内完成のため工程を詰めたい現場",
+          "選択と理由\n順序を組み直す・詰めると余裕が減る",
+          "残った課題\n調整の手間が増えた"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "口頭試験対策／総監",
+          "note": "仮例。自分の事実に置き換えて使う"
+        }
+      }
+    },
+    {
+      "sceneId": "seat",
+      "start": 148,
+      "end": 173,
+      "narration": "発注者でなくても、同じ型が使えます。設計の立場なら、設計期間と検討の余裕で、経済性管理と安全管理。施工の立場なら、連続勤務と作業の安全で、人的資源管理と安全管理。維持管理の立場なら、点検の頻度と費用で、安全管理と経済性管理です。自分が実際に動かした目標を2つ選びます。",
+      "caption": "自分の立場に置き換えて選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の立場に置き換える",
+        "items": [
+          "設計\n経済性×安全\n設計期間と検討の余裕",
+          "施工\n人的資源×安全\n連続勤務と作業の安全",
+          "維持管理\n安全×経済性\n点検の頻度と費用",
+          "自分の立場\n実際に動かした目標は？"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "口頭試験対策／総監",
+          "note": "仮例。自分が経験していない立場を、語り手として足さない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "avoid",
+      "start": 173,
+      "end": 191,
+      "narration": "避けたいのは3つです。管理名を並べるだけで終えること。経験していないことを足すこと。チームの成果と、自分が判断した部分を混ぜることです。聞かれたら、自分が何を決めたのかを、はっきり答えます。",
+      "caption": "経験していないことは足さない",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたい3つ",
+        "items": [
+          "管理名を並べて終える",
+          "経験していないことを足す",
+          "チームの成果と自分の判断を混ぜる"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "口頭試験対策／総監",
+          "note": "事実と自分の判断を分けて話す"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "drill",
+      "start": 191,
+      "end": 210,
+      "narration": "仕上げは、声に出して確かめることです。もう一つの案を選ばなかった理由を言えるか。その対策は、ほかの管理にどう響いたか。答えられなければ、業務の事実へ戻って整理し、用語の意味を確認して、もう一度声に出します。",
+      "caption": "声に出して、事実へ戻って確かめる",
+      "visual": {
+        "kind": "points",
+        "heading": "声に出して、往復して確かめる",
+        "items": [
+          "別の案を選ばなかった理由",
+          "ほかの管理への影響",
+          "業務の事実へ戻る",
+          "用語の意味を確認"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／総監",
+          "diagram": "learning-loop",
+          "source": "content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg",
+          "center": "もう一度、声に出す",
+          "note": "学習手順として再構成"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 210,
+      "end": 229,
+      "narration": "まとめです。5管理の核を一言で持ち、核同士が逆を向く場面を、自分の経験から選びます。対立、場面、選択と理由、残った課題の順で答えます。名前の列挙ではなく、自分が何を決めたかを語ることが軸になります。",
+      "caption": "核の対立を、自分の経験で語る",
+      "visual": {
+        "kind": "points",
+        "heading": "5管理のトレードオフ｜準備チェック",
+        "items": [
+          "核を一言で持つ",
+          "核同士の対立を経験から選ぶ",
+          "自分の判断を4つの順で語る"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "口頭試験対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 229,
+      "end": 240,
+      "narration": "想定25問と立場別回答例で、さらに練習したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "想定25問と立場別回答例は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "経験を、総監の言葉で",
+        "items": [
+          "核の対立を選ぶ",
+          "想定25問で、声に出す",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "口頭試験対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    }
+  ]
+}

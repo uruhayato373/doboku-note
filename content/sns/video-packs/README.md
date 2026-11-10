@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **36**（更新: 2026-11-06）
+パック数: **37**（更新: 2026-11-10）
 
 ## 2級土木施工管理技士（4）
 
@@ -42,12 +42,13 @@
 | `pe-kojutsu-keireki` | 技術士建設部門の口頭対策 — 業務経歴とコンピテンシーを結ぶ | 業務経歴は説明できても、自分の判断と成果をコンピテンシーにつなげて語れない | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |
 | `toan-kousei-template` | 答案構成のテンプレート — 課題抽出から効果・リスクまで | 書き始めてから構成が崩れ時間内に論文がまとまらない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 
-## 技術士（総合技術監理部門）（2）
+## 技術士（総合技術監理部門）（3）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `sanso-kozo` | 合否を分ける三層構造 — 前提・施策・最大リスク | 設問ごとに何を書くべきかの役割分担が分からない | exam-point | 予約 | 台本/構成 | `essay-complete-pack` |
 | `sokan-kojutsu-kangaekata` | 口頭試験の考え方 — 経歴を総監の言葉で語る | 口頭試験で自分の経歴や業務をどう総監らしく語ればよいか分からない | howto | 停止 | 台本/構成 | `tankan-oral-complete` |
+| `sokan-kojutsu-tradeoff` | 口頭試験 5管理のトレードオフを自分の経験で語る | 口頭試験で5管理のトレードオフを聞かれると、一般論の対立しか言えず、自分の経験に結び付けられない | howto | 未登録 | 台本/構成 | `tankan-oral-complete` |
 
 ## コンクリート主任技士（13）
 
