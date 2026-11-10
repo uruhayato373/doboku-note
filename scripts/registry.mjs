@@ -6,6 +6,7 @@
  *   npm run registry -- show <公開 ID・作品 ID・素材 ID>
  *   npm run registry -- index                      # .tmp/content-registry/index.json（作品・公開・素材・題名・段階を結んだ生成物）
  *   npm run registry -- import-video-pack --pack-dir content/sns/video-packs/{exam}/{packId} [--commit]
+ *   npm run registry -- import-video-pack --pack-dir <dir> --only-new [--commit]   # 台帳に無い公開の行（新しいショートなど）だけを足す。既にある行は作り直さない
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
  *   npm run registry -- prepare-youtube --pub <公開 ID> --publish-at <日時> [--commit] # 通常動画の文面・予定を登録（承認はしない）
  *   npm run registry -- mark-rendered --pub <公開 ID> [--commit] # 承認済み通常動画の完成レンダーを実検査して状態を進める
@@ -47,7 +48,7 @@ const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     channel: { type: 'string' }, exam: { type: 'string' }, status: { type: 'string' },
-    'pack-dir': { type: 'string' }, folder: { type: 'string' }, slot: { type: 'string' }, commit: { type: 'boolean' }, delete: { type: 'boolean' },
+    'pack-dir': { type: 'string' }, 'only-new': { type: 'boolean' }, folder: { type: 'string' }, slot: { type: 'string' }, commit: { type: 'boolean' }, delete: { type: 'boolean' },
     pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
     variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
     phase: { type: 'string' }, copy: { type: 'string' }, 'refresh-draft': { type: 'boolean' },
@@ -97,12 +98,18 @@ function importVideoPack() {
   const packDir = relative(ROOT, resolve(ROOT, args['pack-dir'])).split('\\').join('/');
   const cfg = loadRegistryConfig(ROOT);
   const state = loadVideoState(ROOT);
-  const { exam, work, publications } = videoPackRows(ROOT, packDir, { state, rules: cfg.idRules, reg: loadRegistry(ROOT) });
+  const reg = loadRegistry(ROOT);
+  const derived = videoPackRows(ROOT, packDir, { state, rules: cfg.idRules, reg });
+  const { exam, work } = derived;
+  // --only-new は台帳に無い公開の行だけを足す。既にある行（承認・予約・照合の記録を持つ）は作り直さない。
+  // 公開済みの通常動画にショートを足すときに使う（2026-11-10・作り直すと承認と予約の記録が消えた）
+  const known = new Set(reg.publications.map((p) => p.id));
+  const publications = args['only-new'] ? derived.publications.filter((p) => !known.has(p.id)) : derived.publications;
   console.log(JSON.stringify({ exam, work, publications }, null, 2));
   if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
-  upsertWorks(ROOT, exam, [work]);
+  if (!args['only-new']) upsertWorks(ROOT, exam, [work]);
   upsertPublications(ROOT, 'youtube', exam, publications);
-  console.log(`書いた: 作品 1・公開 ${publications.length}（${exam}）`);
+  console.log(`書いた: 作品 ${args['only-new'] ? 0 : 1}・公開 ${publications.length}（${exam}）`);
 }
 
 function prepareYoutube() {

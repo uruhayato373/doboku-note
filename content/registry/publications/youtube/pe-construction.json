@@ -150,6 +150,28 @@
       }
     },
     {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1",
+      "work": "hissu1-infra-roukyuuka",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-breakdown-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-breakdown-1",
+      "relatedTo": "pe-construction/hissu1-infra-roukyuuka/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2",
+      "work": "hissu1-infra-roukyuuka",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-funding-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-funding-2",
+      "relatedTo": "pe-construction/hissu1-infra-roukyuuka/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
       "work": "hissu1-kensetsu-dx",
       "account": "youtube:main",
@@ -292,6 +314,28 @@
         "status": "set",
         "setAt": "2026-11-10T10:08:27.733Z"
       }
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2",
+      "work": "hissu1-kensetsu-dx",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-means-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-means-2",
+      "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1",
+      "work": "hissu1-kensetsu-dx",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-purpose-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1",
+      "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/kaitourei-tsukaikata/youtube.longform",
@@ -654,6 +698,28 @@
         "contentSha256": "f79ff0d179bc9a6ac3ab87b8155c7ce092b108e4df16c03bc4364439816d9bee"
       },
       "stopReason": "superseded"
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2",
+      "work": "toan-kousei-template",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-koukarisk-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-koukarisk-2",
+      "relatedTo": "pe-construction/toan-kousei-template/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1",
+      "work": "toan-kousei-template",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-skeleton-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-skeleton-1",
+      "relatedTo": "pe-construction/toan-kousei-template/youtube.longform",
+      "idException": "imported-before-cutover"
     }
   ]
 }
