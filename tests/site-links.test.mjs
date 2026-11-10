@@ -7,6 +7,7 @@ import {
   classifySitePath,
   loadSiteRoutes,
   rewriteLegacySiteLinks,
+  siteArticleUrl,
   siteLinkRegex,
   siteUrlForSlug,
 } from "../scripts/lib/site-links.mjs";
@@ -91,4 +92,15 @@ test("末尾スラッシュの除去は線形時間で、ルートの / は残�
   classifySitePath(long, routes);
   assert.ok(Date.now() - t0 < 500, "スラッシュが大量に続く入力で遅くならない");
   assert.equal(classifySitePath("/docs/", routes).path, "/docs");
+});
+
+test("サイト記事のリポジトリのパスを公開 URL にし、解決できなければ投げる（DN-1004）", () => {
+  const routes = routesFrom(REDIRECTS);
+  assert.equal(
+    siteArticleUrl("content/site/pe-comprehensive-management/cost-benefit-analysis/article.mdx", routes),
+    "https://doboku-note.com/exam/pe-comprehensive-management/keywords/cost-benefit-analysis",
+  );
+  assert.throws(() => siteArticleUrl("content/site/civil-practice/no-such-page/article.mdx", routes), /解決できない/);
+  assert.throws(() => siteArticleUrl("content/site/civil-practice/x.mdx", routes), /参照形式が不正/);
+  assert.throws(() => siteArticleUrl(undefined, routes), /参照形式が不正/);
 });

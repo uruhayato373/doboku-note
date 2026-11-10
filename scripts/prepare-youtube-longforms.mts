@@ -19,7 +19,7 @@ import { COCONALA_SERVICES } from '../src/lib/coconala-services.ts';
 import { NOTE_MAGAZINES } from '../src/lib/note-magazines.ts';
 import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib/qualification-registry.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
-import { loadSiteRoutes, siteUrlForSlug } from './lib/site-links.mjs';
+import { loadSiteRoutes, siteArticleUrl } from './lib/site-links.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { parseJson } from './lib/json-io.mjs';
@@ -244,7 +244,8 @@ function cta(manifest: Manifest) {
     target = item.serviceUrl;
   } else if (kind === 'site-article' && targetPath) {
     label = 'サイトの詳しい解説を読む';
-    target = new URL(targetPath, SITE_ORIGIN).toString();
+    // targetPath はリポジトリのパス（content/site/…/article.mdx）。そのまま URL にすると存在しないページになる
+    target = siteArticleUrl(targetPath, loadSiteRoutes(join(ROOT, 'public/_redirects')));
   } else if (kind === 'links-hub') {
     label = '資格別の学習ガイド・教材一覧を見る';
     target = `${SITE_ORIGIN}/links`;
@@ -259,10 +260,9 @@ function supportingSite(manifest: Manifest) {
   if (manifest.primaryCta.kind !== 'note-magazine') return null;
   const ref = manifest.sourceRefs?.find((r) => r.type === 'site' && !r.allowUnpublished && r.path?.startsWith(`content/site/${manifest.exam}/`));
   if (!ref?.path) return null;
-  const match = /^content\/site\/([a-z0-9-]+)\/([a-z0-9-]+)\/article\.mdx$/.exec(ref.path);
-  if (!match) throw new Error(`${manifest.packId}: サイト記事の参照形式が不正: ${ref.path}`);
-  const target = siteUrlForSlug(`${match[1]}-${match[2]}`, loadSiteRoutes(join(ROOT, 'public/_redirects')));
-  if (target.includes('/docs/')) throw new Error(`${manifest.packId}: サイト記事の公開URLが解決できない: ${ref.path}`);
+  let target: string;
+  try { target = siteArticleUrl(ref.path, loadSiteRoutes(join(ROOT, 'public/_redirects'))); }
+  catch (error) { throw new Error(`${manifest.packId}: ${(error as Error).message}`); }
   const url = setUtmParams(new URL(target), 'youtube.longform', {
     campaign: manifest.packId,
   });
