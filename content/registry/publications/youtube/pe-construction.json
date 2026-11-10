@@ -81,7 +81,7 @@
       "format": "longform",
       "variant": "reading-fix",
       "revisionOf": "pe-construction/hissu1-infra-roukyuuka/youtube.longform",
-      "status": "approved",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.revision-reading-fix.json",
       "media": {
         "cover": "pe-construction/hissu1-infra-roukyuuka/work/candidate-cover",
@@ -110,6 +110,43 @@
         "by": "policy",
         "at": "2026-11-05T22:14:09.946Z",
         "contentSha256": "0bf3dfd2d2fe2f147896db112792f06eeeb30cfa36f63e6336eb5796c63390f9"
+      },
+      "delivery": {
+        "inputSha256": "cf369ab80882afe303383a03717c56210aa6ede3b7b12bfc61121994ac7122d3",
+        "marker": "dn-revision-b83827cf8797293ce3b13bcb86d37dec1d238473",
+        "uploadRequestedAt": "2026-11-10T10:09:32.331Z",
+        "videoId": "w5kX20cj5Yk",
+        "processedAt": "2026-11-10T10:10:19.267Z",
+        "thumbnailRequestedAt": "2026-11-10T10:10:19.311Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/w5kX20cj5Yk/default.jpg?sqp=CPjay9cG&rs=AOn4CLDmiyVgjxo-gZOvhnlmxxjJcYUU9w",
+          "https://i9.ytimg.com/vi/w5kX20cj5Yk/mqdefault.jpg?sqp=CPjay9cG&rs=AOn4CLCjPV-XIdOgLjlI6KVNymDN3MFm4A",
+          "https://i9.ytimg.com/vi/w5kX20cj5Yk/hqdefault.jpg?sqp=CPjay9cG&rs=AOn4CLCjiGW15mVpvmKG1OOaRxDedtFF7Q",
+          "https://i9.ytimg.com/vi/w5kX20cj5Yk/sddefault.jpg?sqp=CPjay9cG&rs=AOn4CLAaJMMR7wipraoNYo_S-omBvTuUfw",
+          "https://i9.ytimg.com/vi/w5kX20cj5Yk/maxresdefault.jpg?sqp=CPjay9cG&rs=AOn4CLDMCtDKKwsJhlzHHSRUeZUYfvvgPw",
+          "https://i9.ytimg.com/vi/w5kX20cj5Yk/fhddefault.jpg?sqp=CPjay9cG&rs=AOn4CLAYRKYtzIoxCvTvCkmjDfrJM5zCZQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T10:10:23.267Z",
+        "scheduleRequestedAt": "2026-11-10T10:10:23.554Z",
+        "scheduleAt": "2026-11-13T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-10T10:10:26.515Z"
+      },
+      "platform": {
+        "id": "w5kX20cj5Yk",
+        "url": "https://www.youtube.com/watch?v=w5kX20cj5Yk",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.revision-reading-fix.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-11-10T10:10:19.267Z",
+        "scheduled": "2026-11-10T10:10:26.515Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T10:10:23.267Z"
       }
     },
     {
