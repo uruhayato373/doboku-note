@@ -128,7 +128,7 @@ const bodyPrompt = (beat, index, label, palette) => [
 ].join(' ');
 const ctaPrompt = (label, palette) => [
   `添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。${FRAME}`,
-  pop(palette), '大きく2行で『詳しい解説は』『関連動画へ』、下向きの矢印を添える。先生が大きく腰から上で、手のひらで矢印を示す。',
+  pop(palette), '大きく2行で『詳しい解説は』『関連動画へ』、下向きの矢印を添える。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない（2026-11-10・締め 6 枚中 3 枚が腰で切れた）。',
   TEACHER, `資格名『${label}』は書かない。下端に無地帯を作らない。`, BANS,
 ].join(' ');
 
@@ -416,7 +416,11 @@ export async function stockShort(root, pack, key, { now, log = () => {}, wait = 
   const subtitles = place(join(out, 'subtitles.ass'), 'subtitles', 'ass');
   const originals = revision.images.flatMap((image) => {
     const raw = image.generation?.output;
-    return raw && existsSync(join(root, raw.path)) ? [place(join(root, raw.path), `raw-${image.role}`, 'png')] : [];
+    if (!raw || !existsSync(join(root, raw.path))) return [];
+    const kept = place(join(root, raw.path), `raw-${image.role}`, 'png');
+    // 作業フォルダの原本は在庫のあとに消すので、記録は在庫に写した原本を指す（指したままだと参照の欠けになる・2026-11-10）
+    if (kept.sha256 === raw.sha256) image.generation.output = { ...raw, path: kept.path };
+    return [kept];
   });
   mediaVault(root, pack, ['--commit']);
   log('Drive へ保存した');

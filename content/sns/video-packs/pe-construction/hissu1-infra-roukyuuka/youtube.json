@@ -38,7 +38,9 @@
       ],
       "categoryId": "27",
       "r2Key": "video/render/hissu1-infra-roukyuuka/shorts/point-breakdown-1/shorts.mp4",
-      "thumbnailR2Key": "video/render/hissu1-infra-roukyuuka/shorts/point-breakdown-1/thumbnail.png"
+      "thumbnailR2Key": "video/render/hissu1-infra-roukyuuka/shorts/point-breakdown-1/thumbnail.png",
+      "sha256": "44597e8d7b95f0cfe5b5dd302c35be1bf1909deb5525e11a0f7c40dd1cdaf212",
+      "thumbnailSha256": "30a15eb4cf5afaab94dc54b2b7ae9e4d25710b5b1032f10a22e0703dc0e4d885"
     },
     {
       "key": "point-funding-2",
@@ -55,7 +57,9 @@
       ],
       "categoryId": "27",
       "r2Key": "video/render/hissu1-infra-roukyuuka/shorts/point-funding-2/shorts.mp4",
-      "thumbnailR2Key": "video/render/hissu1-infra-roukyuuka/shorts/point-funding-2/thumbnail.png"
+      "thumbnailR2Key": "video/render/hissu1-infra-roukyuuka/shorts/point-funding-2/thumbnail.png",
+      "sha256": "9079ed3f37914e0adb8eb10df4f1701f72f68fb847ab949c5445469f85a02944",
+      "thumbnailSha256": "58a01f607ba2461ccadbbfa1ae1e8f30723c1de0176550f08a0a48e7f3dee30c"
     }
   ]
 }

@@ -421,8 +421,510 @@
           }
         }
       ]
+    },
+    "shorts-pop-point-koukarisk-2-20261110": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2",
+      "key": "point-koukarisk-2",
+      "sceneId": "koukarisk",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "9c7c2b1b92991c7be8798bf3ed9d021c827a2caf28c9f3d1bdd9733233cef0f5",
+          "narration": "効果とリスクの設問は、対で書きます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『効果とリスク』『対で書く』、小さな黄色帯に『総監が制作』。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指を1本立てて顔の横に上げ、左手（画面右側）は腰に当てる。指は5本で、立てるのは人差し指だけ。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/raw-cover.7b4ac759.png",
+              "sha256": "7b4ac759613c7b50e2ee5414e019a5f3e4d3bf1024f814729f2364619e94f4c9"
+            },
+            "generatedAt": "2026-11-10T12:30:09.964Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/cover.18a2cc46.png",
+            "sha256": "18a2cc4633111c5e9a94d437aa53ba96392d0691f20a78efa91995bd46605f3e",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7b4ac759613c7b50e2ee5414e019a5f3e4d3bf1024f814729f2364619e94f4c9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:30:09.964Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと帯に誤字がなく、指と手が自然で胴体が下端まで続く"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "728edf17ac66e6b70958f7c8afe6f13d0c96683695f1a8d3e634675db6af1a77",
+          "narration": "効果は、定量の見込みと定性の効果を併記すると説得力が増します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『1』と見出し『効果は 定量と定性』。 図: 左右に2つの大きな円を並べ、間に『＋』。左の円に『定量』と小さな棒グラフの絵、右の円に『定性』と笑顔の人の絵。具体的な数値は描かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/raw-scene-001.cacf3f8e.png",
+              "sha256": "cacf3f8e3cbe80454aa89a3b1a42d02e12c86418fa6eb1e3f4e221fd3e2947e4"
+            },
+            "generatedAt": "2026-11-10T12:30:09.964Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/scene-001.d8c68648.png",
+            "sha256": "d8c686487e99c0bee619c18363989aca808bc0159b75fca09aa097fcfd4f13f4",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cacf3f8e3cbe80454aa89a3b1a42d02e12c86418fa6eb1e3f4e221fd3e2947e4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:30:09.964Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "ラベルに括弧がなく、2つの円と語が指示どおりで字幕の範囲に文字が無い"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "572a261ed102f2f5c11dd2c207ff811d3a21960e27e26926141c2c998b02ddb2",
+          "narration": "新たなリスクで多い失敗は、地震や豪雨といった一般論を書いてしまうこと。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『2』と見出し『一般論は 失敗』。 図: 中央に大きな答案用紙を描き、その上に地震の揺れの記号と雨雲の絵を載せ、全体に大きな赤いバツ印。用紙の上に『一般論』。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/raw-scene-002.f9896a27.png",
+              "sha256": "f9896a273ea15784ddec8205cbd997c6cb7acd6219f4230d43e3b50ea92e06e5"
+            },
+            "generatedAt": "2026-11-10T12:30:09.964Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/scene-002.872a217e.png",
+            "sha256": "872a217ee33646e8faf8a94ddfb59168df34ca8500e5b477970a707d790b28c4",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f9896a273ea15784ddec8205cbd997c6cb7acd6219f4230d43e3b50ea92e06e5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:30:09.964Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと答案用紙とバツ印が指示どおりで、文字は字幕の範囲より上"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "c287ba97cd3128acf64819004b4f7abdee43e84180d8f8059ac49a80f1ca7e7a",
+          "narration": "問われているのは、自分の解決策を実行したからこそ生じる副作用です。挙げたら対策までセットで書きます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『3』と見出し『問いは 副作用』。 図: 上から下へ3つの大きな箱を太い矢印でつなぐ。上から『解決策』『副作用』『対策』。真ん中の『副作用』の箱を黄色で強調する。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 9:16 ではない（916×1717）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/raw-scene-003.9ed5bd2e.png",
+              "sha256": "9ed5bd2e77782c80b61f9d70b762c82d9f35bf26610db7ce1cd6bc6923efaff3"
+            },
+            "generatedAt": "2026-11-10T12:30:09.964Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/scene-003.0ea9bd73.png",
+            "sha256": "0ea9bd73e49fdef2af217c5b4750d403efbbbac943c8514959c50b602cf969f7",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9ed5bd2e77782c80b61f9d70b762c82d9f35bf26610db7ce1cd6bc6923efaff3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:30:09.964Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "3つの箱の順と強調が指示どおりで、文字は字幕の範囲を避ける"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "915c339fab066a3653bb026db798ccef64cc15c8a27cb2522f8bafa9bf22b06b",
+          "narration": "詳しい解説は関連動画へ。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 大きく2行で『詳しい解説は』『関連動画へ』、下向きの矢印を添える。先生が大きく腰から上で、手のひらで矢印を示す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『技術士 建設部門』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/raw-cta.de26e780.png",
+              "sha256": "de26e78049867eb04f74a8efe726137b8f2577256663e528b95191c45bc06971"
+            },
+            "generatedAt": "2026-11-10T12:30:09.964Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/cta.2a9c6a30.png",
+            "sha256": "2a9c6a309ebb76ab9b7ea39841cd241e7685845c77fa20d7443894dd18fafa8f",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "de26e78049867eb04f74a8efe726137b8f2577256663e528b95191c45bc06971"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:30:09.964Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字と矢印が正確で、手が自然、胴体が下端まで続き同じ人物に見える"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "c477201983e2cedd1af523339f63458a6ed48d6bd7099304db0b302f0796c371",
+        "durationSeconds": 23.266667,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "audio": {
+        "videoSha256": "c477201983e2cedd1af523339f63458a6ed48d6bd7099304db0b302f0796c371",
+        "similarity": 0.944,
+        "maxVolumeDb": -6.6,
+        "durationGapSec": 0
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "画面と語りが対応し、字幕は図と顔を隠さない。締めは約2.3秒で同じ人物に見える。論点の見え方は次の作り直しで強める",
+        "videoSha256": "c477201983e2cedd1af523339f63458a6ed48d6bd7099304db0b302f0796c371",
+        "checkedAt": "2026-11-10T12:31:23.149Z"
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/video.c4772019.mp4",
+          "sha256": "c477201983e2cedd1af523339f63458a6ed48d6bd7099304db0b302f0796c371"
+        },
+        "frames": {
+          "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/frames.6425692d.png",
+          "sha256": "6425692d73396fe44992f4efe8d15ac8768789b718576633b8c2bbae8e704ddf"
+        },
+        "subtitles": {
+          "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/subtitles.dc08fc62.ass",
+          "sha256": "dc08fc62f8d1a4ac0cf8fdb84c2dc2c85ffd029b60eddcf6db3b3bda89ed73fb"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/raw-cover.7b4ac759.png",
+            "sha256": "7b4ac759613c7b50e2ee5414e019a5f3e4d3bf1024f814729f2364619e94f4c9"
+          },
+          {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/raw-scene-001.cacf3f8e.png",
+            "sha256": "cacf3f8e3cbe80454aa89a3b1a42d02e12c86418fa6eb1e3f4e221fd3e2947e4"
+          },
+          {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/raw-scene-002.f9896a27.png",
+            "sha256": "f9896a273ea15784ddec8205cbd997c6cb7acd6219f4230d43e3b50ea92e06e5"
+          },
+          {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/raw-scene-003.9ed5bd2e.png",
+            "sha256": "9ed5bd2e77782c80b61f9d70b762c82d9f35bf26610db7ce1cd6bc6923efaff3"
+          },
+          {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/raw-cta.de26e780.png",
+            "sha256": "de26e78049867eb04f74a8efe726137b8f2577256663e528b95191c45bc06971"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/cover.18a2cc46.png",
+          "sha256": "18a2cc4633111c5e9a94d437aa53ba96392d0691f20a78efa91995bd46605f3e"
+        },
+        "savedAt": "2026-11-10T12:42:58.716Z",
+        "cloudVerified": true
+      }
+    },
+    "shorts-pop-point-skeleton-1-20261110": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1",
+      "key": "point-skeleton-1",
+      "sceneId": "skeleton",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "da0636ed29adc513a44865fb1449610233e0f48ac5b0a16a89fe5760e5dbe542",
+          "narration": "必須科目Ⅰの答案は、設問から逆算して組みます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『必須Ⅰの答案』『4ブロックで組む』、小さな黄色帯に『総監が制作』。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを持って胸の高さに上げ、左手（画面右側）は答案用紙の束を胸の前で持つ。5本の指が紙の縁にかかって見える。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/raw-cover.214f8b12.png",
+              "sha256": "214f8b129033fca43a14af0610b553ecded488bcdb46c6ae23113e63650a8e5e"
+            },
+            "generatedAt": "2026-11-10T12:04:30.351Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/cover.0033ae19.png",
+            "sha256": "0033ae1996bce9ee08c3be396bfaad905628d3247e803b40b01fb70e3c053617",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "214f8b129033fca43a14af0610b553ecded488bcdb46c6ae23113e63650a8e5e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:04:30.351Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字に誤字・余計な文字がなく、人物の手と顔の崩れもない。下32%と左右の余白も守っている"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "dba3f2f5a7532c5e3711491c3ae231ce8ee0140dc4fee84217c977813ab824f3",
+          "narration": "必須科目Ⅰの設問構成は、(1)多面的な課題抽出、(2)最重要課題の解決策、(3)新たなリスクと対策、(4)技術者倫理・持続可能性の4つ。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。図は画面の上から68%までの範囲いっぱいに大きく描き、上半分へ縮めて寄せない。白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『1』と見出し『設問は 4つ』。 図: 縦に4段の大きな帯を積む。上から順に、番号『(1)』と『課題抽出』、『(2)』と『解決策』、『(3)』と『リスクと対策』、『(4)』と『倫理・持続可能性』。番号と語は必ずこの順で、ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 9:16 ではない（916×1717）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/raw-scene-001.6d723e1e.png",
+              "sha256": "6d723e1e378bfee6924f83a8bc0fe29efd97005de04b2c2bed69ec02bdc82b8c"
+            },
+            "generatedAt": "2026-11-10T12:04:30.351Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/scene-001.3ebf5546.png",
+            "sha256": "3ebf55468c79e0b71c44bb160451b2385e33e5c2397633f340436833305565cf",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6d723e1e378bfee6924f83a8bc0fe29efd97005de04b2c2bed69ec02bdc82b8c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:04:30.351Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "4段の帯の番号と語の対応が正しく、誤字と描き足しがない。幅360pxでも読める"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "b198e6b274e74283f4d1ae0188d8b162482748654fb5ebed360f7a8b6e3b8bc9",
+          "narration": "答案の骨格を「現状→課題→解決策→効果・リスク」と対応させれば、テーマが変わっても同じ流れで書けます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『2』と見出し『答案も 同じ流れ』。 図: 2行2列に4つの大きな角丸の箱を並べる。上の行は左に『現状』、右に『課題』。下の行は左に『解決策』、右に『効果・リスク』。左上から右上、右上から左下、左下から右下へ、太い矢印で順番をたどる。4つの箱は画面の中央に寄せ、見出しのすぐ下から画面の高さの中ほどまでに収める。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/raw-scene-002.59812aaf.png",
+              "sha256": "59812aafcebe4f183c91b9b269247d5a4ac915b05481f508d282e32f7ec18dd6"
+            },
+            "generatedAt": "2026-11-10T12:04:30.351Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/scene-002.4362cf5f.png",
+            "sha256": "4362cf5f917dc0d844c3497759ccdbcc43908bb2ed0f643cdfca1489eca80e2c",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "59812aafcebe4f183c91b9b269247d5a4ac915b05481f508d282e32f7ec18dd6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:04:30.351Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "誤字がなく矢印の順が正しい。文字は左右の余白・操作ボタン・字幕の範囲の外に収まる"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "56f7b9e420ee93f4a1f523a2f529b044c40e91955aef379e57c720ebeb99c81b",
+          "narration": "書く前に骨子メモを作ると、途中で崩れても戻る場所が分かります。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。図は画面の上から68%までの範囲いっぱいに大きく描き、上半分へ縮めて寄せない。白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『3』と見出し『先に 骨子メモ』。 図: 中央に大きなメモ用紙を1枚描き、4行の短い横線の箇条書き（文字ではなく線）と、紙の上部に『骨子メモ』。メモから答案用紙へ向かう太い矢印を1本。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 9:16 ではない（916×1717）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/raw-scene-003.90a23372.png",
+              "sha256": "90a233724ecc6db479a7838473c08fb7408c28cbaef57fb26017e16fb220f485"
+            },
+            "generatedAt": "2026-11-10T12:04:30.351Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/scene-003.7288d514.png",
+            "sha256": "7288d514face9d0ab02a9147013c4e4a0da9dbb83c6d1d395172fc1c3c4def06",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "90a233724ecc6db479a7838473c08fb7408c28cbaef57fb26017e16fb220f485"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:04:30.351Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "誤字がなく、メモの線4本と矢印1本が指示どおり。語りにない事実の描き足しもない"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "915c339fab066a3653bb026db798ccef64cc15c8a27cb2522f8bafa9bf22b06b",
+          "narration": "詳しい解説は関連動画へ。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 大きく2行で『詳しい解説は』『関連動画へ』、下向きの矢印を添える。先生が大きく腰から上で、手のひらで矢印を示す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『技術士 建設部門』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 見出し『詳しい解説は』『関連動画へ』を左右6%以上内側に収まる大きさに縮め、右端で切れて見えないようにする。人物は腰で水平に切らず、胴体を画面の下端まで続ける",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/raw-cta.9c4eea86.png",
+              "sha256": "9c4eea86aa7b2a8be545f36739ce26af343fee09b750179e1f7b9f1e215e0ed7"
+            },
+            "generatedAt": "2026-11-10T12:04:30.351Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/cta.753ce63a.png",
+            "sha256": "753ce63ae4e1b74aaea350485fbc9dc0d7154aa4e87945147e0ad65e4aa2d5ac",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9c4eea86aa7b2a8be545f36739ce26af343fee09b750179e1f7b9f1e215e0ed7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:04:30.351Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しが左右6%の内側に収まり、人物の胴体が下端まで続く。誤字と手の崩れがなく、表紙と同じ人物に見える"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "9e49ed23b687dc34eb7446fa38d0724e900043239e756da0de5ac7d3a9678df4",
+        "durationSeconds": 36.233333,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "audio": {
+        "videoSha256": "9e49ed23b687dc34eb7446fa38d0724e900043239e756da0de5ac7d3a9678df4",
+        "similarity": 0.913,
+        "maxVolumeDb": -4.9,
+        "durationGapSec": 0
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "画面と語りが対応し、字幕は図と顔を隠さない。締めは約2.3秒で、表紙と締めの先生が同じ人物に見える",
+        "videoSha256": "9e49ed23b687dc34eb7446fa38d0724e900043239e756da0de5ac7d3a9678df4",
+        "checkedAt": "2026-11-10T12:07:16.449Z"
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/video.9e49ed23.mp4",
+          "sha256": "9e49ed23b687dc34eb7446fa38d0724e900043239e756da0de5ac7d3a9678df4"
+        },
+        "frames": {
+          "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/frames.761b07f9.png",
+          "sha256": "761b07f9b0eb76affdae77e5d0964dc6a508dc102cf0cae1f4db77dfdbc837b4"
+        },
+        "subtitles": {
+          "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/subtitles.72e18092.ass",
+          "sha256": "72e18092e4c2e01fdea69295b8c80e6e31ee6195392cbe5f5055b9a3eebc7d88"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/raw-cover.214f8b12.png",
+            "sha256": "214f8b129033fca43a14af0610b553ecded488bcdb46c6ae23113e63650a8e5e"
+          },
+          {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/raw-scene-001.6d723e1e.png",
+            "sha256": "6d723e1e378bfee6924f83a8bc0fe29efd97005de04b2c2bed69ec02bdc82b8c"
+          },
+          {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/raw-scene-002.59812aaf.png",
+            "sha256": "59812aafcebe4f183c91b9b269247d5a4ac915b05481f508d282e32f7ec18dd6"
+          },
+          {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/raw-scene-003.90a23372.png",
+            "sha256": "90a233724ecc6db479a7838473c08fb7408c28cbaef57fb26017e16fb220f485"
+          },
+          {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/raw-cta.9c4eea86.png",
+            "sha256": "9c4eea86aa7b2a8be545f36739ce26af343fee09b750179e1f7b9f1e215e0ed7"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/cover.0033ae19.png",
+          "sha256": "0033ae1996bce9ee08c3be396bfaad905628d3247e803b40b01fb70e3c053617"
+        },
+        "savedAt": "2026-11-10T12:39:47.771Z",
+        "cloudVerified": true
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261105",
-  "activeBodyRevision": "body-diagram-20261105"
+  "activeBodyRevision": "body-diagram-20261105",
+  "activeShorts": {
+    "point-koukarisk-2": "shorts-pop-point-koukarisk-2-20261110",
+    "point-skeleton-1": "shorts-pop-point-skeleton-1-20261110"
+  }
 }
