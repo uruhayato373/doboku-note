@@ -973,10 +973,14 @@ function resolvePlacementRaw(
   if (/^pe-first-stage-(h(?:2[3-9]|30)|r01-retry)-(basic|aptitude|construction)$/.test(slug)) {
     return { top: slot('pe1-anki-note', slug, 'top'), inline: [] };
   }
-  // 上下水道の専門教材は未発売。全部門共通の基礎・適性だけを対象として案内する。
+  // 上下水道・水産の専門教材は未発売。全部門共通の基礎・適性だけを対象として案内する。
   if (/^pe-first-stage-(?:(?:h(?:2[3-9]|30)|r0[1-7](?:-retry)?)-water-supply|guide-water-supply-subject)$/.test(slug)) {
     return { top: slot('pe1-anki-note', slug, 'top'), inline: [],
       scopeNotice: '基礎・適性科目の復習に使える教材です。収録の専門科目は建設部門向けで、上下水道の専門科目は含みません。' };
+  }
+  if (/^pe-first-stage-(?:h(?:2[3-9]|30)|r0[1-7](?:-retry)?)-fisheries$/.test(slug)) {
+    return { top: slot('pe1-anki-note', slug, 'top'), inline: [],
+      scopeNotice: '基礎・適性科目の復習に使える教材です。収録の専門科目は建設部門向けで、水産部門の専門科目は含みません。' };
   }
 
   // 11. 高流入なのに note 導線が無かった 5 面（DN-0128・2026-08-25）。
