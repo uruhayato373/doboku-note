@@ -74,3 +74,4 @@ GitHub Actions の **scheduled（cron）workflow はデフォルトブランチ 
 **現在は解消**: `.claude/scripts/check-note-magazine-cta.mjs:21-26,73-80` が `<!-- cta:pack-top -->` / `<!-- cta:pack-top-light -->` ブロック内を免除（`inPackTop`）。2026-09-22 実測で `cta:pack-top` 224 本・`cta:pack-top-light` 3 本・`cta:*-mokuji` 875 本が check-note-funnel と pre-commit を全通過。
 
 **How to apply:** この衝突を理由に作業を止めない。ただし**同一行に ¥ を書くと今も落ちる**（価格正本は `src/lib/note-magazines.ts`）。`cta:pack-top-light` は config に無い手書き 3 本で `wire-note-funnel-cta --sync-managed` では保守されない（手で直す）。関連 [[project_r8_yosou_full_matrix_2026_07]]
+- develop の audit が `asset-hydrate --group kindle-dist`（など private R2 の復元）で数件だけ「R2 取得に失敗」になるときは、R2 へ上げた後の `.claude/state/assets/manifest.json` の更新がコミットされていない疑いを先に見る（2026-11-10 d-00〜d-03・別セッションが 08:03 に offload して manifest を作業ツリーに残したまま）。手元の実物・manifest の作業ツリー差分・products/catalog の SHA を照合し、一致すれば manifest だけ pathspec でコミット。asset-offload --skip-existing は dry-run ではスキップ判定しない。
