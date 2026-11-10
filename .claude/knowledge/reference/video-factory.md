@@ -99,6 +99,13 @@ node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
 
 ショートは通常動画とは別に、`npm run shorts-factory` で作る。入口は `shorts-design.json`（論点の分割）で、`beats` の語りをつなぐと承認済みの台本の場面に一致しないと止まる。導入の `hook` だけが足せる語り。画面は表紙・論点ごとの図解・締めの全面画像で、尺は 20〜60 秒。
 
+ショートは通常動画の展開に合わせて作る（2026-11-10・運営者の決定）。決まりは `config/channel-annual-plan.json` の `shortsRule` にあり、`plan` の関門と `check-youtube-plan` が同じ判定（`shortsSlotFill`）で止める。
+- 親の通常動画（改訂版を含む）が公開済みか予約済みになってから作る
+- 通常動画 1 本につき `perLongform` 本まで。枠に `shorts` の割り当てがある親は枠の上限、割り当ての無い公開済みの親は `trial.max` の合計まで
+- 上限は `trial.reviewAt` と、通常動画の計画の見直しのときに一緒に見直す
+
+表紙の見出し（`headline`・1〜3 行）と締めの語り（`cta`・6〜20 字）は `shorts-design.json` に書ける。書いたときは `cover-design.json`・`cta-design.json` を読まず、採用（`adopt`）でも書き換えない。この 2 つは通常動画の入力ハッシュに入るので、公開済みの通常動画から派生させるショートでは必ず台本側に書く。
+
 ```bash
 npm run shorts-factory -- status --exam <資格>                         # 全本の工程の位置
 npm run shorts-factory -- record-script-qa --pack <資格>/<作品> --key <key> --verdict pass --by yt-shorts-publisher-qa --reason "…"

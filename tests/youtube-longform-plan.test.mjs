@@ -194,3 +194,26 @@ test('台本待ちは公開行の無い企画と QA で止まった行を、確�
   const q = scriptQueue(plan, pubs, '2026-11-16');
   assert.deepEqual(q.map((r) => [r.id, r.state, r.overdue]), [['early', 'script', true], ['blocked', 'qa-blocked', false], ['late', 'script', false]]);
 });
+
+test('ショートの決まり: 親が公開・予約に進んでから、1 本につき上限まで。枠の外は試行の上限まで', () => {
+  const plan = {
+    shortsRule: { parentStatus: ['published', 'scheduled'], perLongform: 2, trial: { max: 3 } },
+    slots: [{ id: 'a', shorts: { count: 1 } }],
+    entries: [{ publicationId: 'x/slotted/youtube.longform', slot: 'a', action: 'finish' }],
+  };
+  const pubs = [
+    { id: 'x/live/youtube.longform', status: 'published' },
+    { id: 'x/rev/youtube.longform.fix', revisionOf: 'x/rev/youtube.longform', status: 'scheduled' },
+    { id: 'x/draft/youtube.longform', status: 'qa_passed' },
+    { id: 'x/slotted/youtube.longform', status: 'published' },
+  ];
+  const ok = shortsSlotFill(plan, [{ pack: 'x/live', key: 'k1' }, { pack: 'x/live', key: 'k2' }, { pack: 'x/rev', key: 'k1' }, { pack: 'x/slotted', key: 'k1' }], pubs);
+  assert.deepEqual(ok.errors, []);
+  assert.equal(ok.trial, 3);
+  assert.deepEqual(ok.fill, { a: 1 });
+  assert.match(shortsSlotFill(plan, [{ pack: 'x/draft', key: 'k1' }], pubs).errors.join(), /公開・予約されていない/);
+  assert.match(shortsSlotFill(plan, [1, 2, 3].map((n) => ({ pack: 'x/live', key: `k${n}` })), pubs).errors.join(), /1 本あたりのショートの超過/);
+  assert.match(shortsSlotFill(plan, [{ pack: 'x/live', key: 'k1' }, { pack: 'x/live', key: 'k2' }, { pack: 'x/rev', key: 'k1' }, { pack: 'x/rev', key: 'k2' }], pubs).errors.join(), /試行の超過/);
+  assert.match(shortsSlotFill(plan, [{ pack: 'x/slotted', key: 'k1' }, { pack: 'x/slotted', key: 'k2' }], pubs).errors.join(), /枠の超過/);
+  assert.deepEqual(shortsSlotFill(plan, [{ pack: 'x/draft', key: 'k1', stocked: true }], pubs).errors, []);
+});

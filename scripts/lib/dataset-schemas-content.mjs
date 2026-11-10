@@ -118,6 +118,15 @@ export const ConfigChannelAnnualPlan = z.object({
   cadence: z.string().min(1),
   productionRule: z.string().min(1),
   reviewRule: z.string().min(1),
+  shortsRule: z.object({
+    parentStatus: z.array(z.enum(['published', 'scheduled'])).min(1).describe('親の通常動画がこの状態になってからショートを作る（通常動画の展開に合わせる）'),
+    perLongform: z.number().int().positive().describe('通常動画 1 本を親にするショートの上限'),
+    trial: z.object({
+      max: z.number().int().positive().describe('枠にショートの割り当てが無い親から作るショートの合計の上限'),
+      reviewAt: jstDate('試行の結果を見て上限を見直す日'),
+      note: z.string().min(1),
+    }).strict().describe('枠の外の親（計画の前に公開した通常動画）での試行'),
+  }).strict().optional().describe('ショートの決まり。無ければ枠の shorts の上限だけで数える'),
   channels: z.object({ x: channelPlan, instagram: channelPlan }).strict().describe('YouTube 以外のチャネルの枠と型'),
   slots: z.array(longformSlot).min(1).superRefine(uniqueBy('id')),
   entries: z.array(z.object({

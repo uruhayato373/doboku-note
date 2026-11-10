@@ -17,6 +17,7 @@ import { examPalette, loadImageRules, usesDiagramLed } from './image-rules.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { readJson, writeJson } from './json-io.mjs';
 import { shortsSlotFill } from './youtube-longform-audit.mjs';
+import { loadRegistry as loadContentRegistry } from './content-registry.mjs';
 import { listShortDesigns } from './youtube-longform-plan.mjs';
 import { mediaPath } from './media-paths.mjs';
 import { loadRegistry, qualificationShortLabel } from './qualification-registry.mjs';
@@ -63,11 +64,14 @@ function packContext(root, pack, key) {
   const scene = board.scenes.find((s) => s.sceneId === item.sceneId);
   if (!scene) throw new Error(`${key}: 場面が台本に無い (${item.sceneId})`);
   const covers = readJson(root, `${dir}/cover-design.json`);
-  const spec = covers.covers?.[key];
-  if (!spec || spec.format !== 'shorts') throw new Error(`${key}: cover-design.json に縦の表紙が無い`);
-  const cta = readJson(root, `${dir}/cta-design.json`).shorts?.narration;
-  if (!cta) throw new Error(`${pack}: cta-design.json に shorts の語りが無い`);
-  return { dir, exam, design, board, youtube, item, scene, covers, spec, cta };
+  // 表紙の見出しと締めの語りは、台本（shorts-design.json）に書けばそちらを使う。cover-design.json・cta-design.json は
+  // 通常動画の入力ハッシュ（longformInputHash）に入るので、公開済みの通常動画から派生させるときは書き換えない（DN-1001）
+  const ownSpec = Array.isArray(design.headline);
+  const spec = ownSpec ? { format: 'shorts', headline: design.headline } : covers.covers?.[key];
+  if (!spec || spec.format !== 'shorts') throw new Error(`${key}: 台本に headline が無く、cover-design.json にも縦の表紙が無い`);
+  const cta = design.cta ?? readJson(root, `${dir}/cta-design.json`).shorts?.narration;
+  if (!cta) throw new Error(`${pack}: 台本に cta が無く、cta-design.json にも shorts の語りが無い`);
+  return { dir, exam, design, board, youtube, item, scene, covers, spec, ownSpec, cta };
 }
 
 /** 台本の版。監査の記録を除いた中身の sha で、書き換えると監査は無効になる */
@@ -87,6 +91,9 @@ export function designProblems(design, scene) {
   const issues = narrationProblems(design, scene);
   if ([...String(design.hook ?? '')].length > 40) issues.push('hook が 40 字を超える');
   if (!String(design.pose ?? '').trim()) issues.push('pose が無い');
+  if (design.headline !== undefined && (!Array.isArray(design.headline) || design.headline.length < 1 || design.headline.length > 3 || design.headline.some((l) => [...String(l ?? '')].length < 2 || [...String(l)].length > 10))) issues.push('headline は 1〜3 行・各 2〜10 字');
+  // 締めは短く。旧工程は 30 秒のうち約 18 秒が締めの画面だった
+  if (design.cta !== undefined && ([...String(design.cta)].length < 6 || [...String(design.cta)].length > 20)) issues.push('cta は 6〜20 字');
   if (Array.isArray(design.beats) && (design.beats.length < 2 || design.beats.length > 4)) issues.push('beats は 2〜4 個');
   for (const [i, beat] of (design.beats ?? []).entries()) {
     if ([...String(beat.heading ?? '')].length < 2 || [...String(beat.heading ?? '')].length > 18) issues.push(`beats[${i}]: heading は 2〜18 字`);
@@ -125,11 +132,11 @@ const ctaPrompt = (label, palette) => [
   TEACHER, `資格名『${label}』は書かない。下端に無地帯を作らない。`, BANS,
 ].join(' ');
 
-/** 親の通常動画の枠にショートの空きがなければ止める。無駄な生成を計画の時点で防ぐ */
+/** 親の通常動画が公開・予約に進んでいないか、ショートの上限に空きがなければ止める。無駄な生成を計画の時点で防ぐ */
 export function assertInSlot(root, pack, key) {
   const plan = readDataset(root, 'config.channel-annual-plan');
   const designs = listShortDesigns(root).filter((d) => !(d.pack === pack && d.key === key));
-  const { errors } = shortsSlotFill(plan, [...designs.map((d) => ({ ...d, stocked: true })), { pack, key }]);
+  const { errors } = shortsSlotFill(plan, [...designs.map((d) => ({ ...d, stocked: true })), { pack, key }], loadContentRegistry(root).publications);
   if (errors.length) throw new Error(errors.join(' / '));
 }
 
@@ -183,7 +190,7 @@ export async function adoptShort(root, pack, key, { now }) {
   const unaudited = plan.items.filter((i) => !i.raw || i.audit?.verdict !== 'ok' || i.audit.sha !== i.raw.sha256).map((i) => i.id);
   if (unaudited.length) throw new Error(`監査の ok が無い項目がある: ${unaudited.join(', ')}`);
 
-  const { dir, covers, spec, item: short } = packContext(root, pack, key);
+  const { dir, covers, spec, ownSpec, item: short } = packContext(root, pack, key);
   const pubId = `${pack}/youtube.short.${key}`;
   const images = [];
   for (const item of plan.items) {
@@ -206,12 +213,14 @@ export async function adoptShort(root, pack, key, { now }) {
   record.revisions ??= {};
   record.revisions[plan.revision] = { version: 'pop-poster-v3-shorts', publicationId: pubId, key, sceneId: short.sceneId, images };
   record.activeShorts = { ...record.activeShorts, [key]: plan.revision };
-  const coverOutput = images[0].output;
-  const { approvedImage: _old, ...rest } = spec;
-  const input = { ...rest, design: 'pop-poster-v3' };
-  covers.covers[key] = { ...input, approvedImage: { path: coverOutput.path, sha256: coverOutput.sha256, specSha256: coverInputDigest(input) } };
   writeJson(root, `${dir}/pop-image.json`, record);
-  writeJson(root, `${dir}/cover-design.json`, covers);
+  if (!ownSpec) {
+    const coverOutput = images[0].output;
+    const { approvedImage: _old, ...rest } = spec;
+    const input = { ...rest, design: 'pop-poster-v3' };
+    covers.covers[key] = { ...input, approvedImage: { path: coverOutput.path, sha256: coverOutput.sha256, specSha256: coverInputDigest(input) } };
+    writeJson(root, `${dir}/cover-design.json`, covers);
+  }
   return { pack, key, revision: plan.revision, images: images.length };
 }
 
