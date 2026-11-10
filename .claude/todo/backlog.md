@@ -21,6 +21,20 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1106] 動画の量産工程が pop-image.json に作業用の画像の参照を残し、develop の CI（media-references）が赤になる
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
+
+**起点**: 2026-11-11、PR #1525（X の返信の設定・手順書）の CI で `quality:audit:ci` の `media-references` だけが落ちた（残り 131 本と build は合格）。develop 自体も同じ理由で赤で、Issue #1522 が開いている。
+
+**原因**: 2026-11-10 21:44〜21:49 に develop へ入った動画の量産工程のコミット（`content(video): … を量産工程で制作する`）で、`content/sns/video-packs/<資格>/<pack>/pop-image.json` が Git に入らない作業用の画像（`.tmp/media/<資格>/<pack>/work/factory/raw-*.png`）を参照している。`check-media-references` は「文書 597 / 参照 2211 / 欠け 213」で exit 1。例: `civil-construction-1/c1-juken-junjo-2027`（13 件）・`civil-construction-1/owner-eye-kouji-kensa`（7 件）。
+
+DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちらは量産工程が作業用の画像のパスを pop-image.json に書き残すことで増える。
+
+**やること**: 量産工程（`scripts/lib/video-factory.mjs` まわり）が pop-image.json に残す参照を、Drive に登録した素材か、参照を残さない形にする。すでに入った分の pop-image.json を直す。動画を作っているセッションの領域なので、そのセッションで直す。
+
+**完了条件**: `npm run quality:audit:ci` の `media-references` が develop で合格し、Issue #1522 が自動で閉じる。量産工程で 1 パック作っても欠けが増えない。
+
+
 ### [DN-1101] 承認済みの通常動画 7 本を公開日の近い順に予約する
 タグ: [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-11-11] [期日:2026-11-14]
 
