@@ -529,7 +529,7 @@
       "work": "pe-kojutsu-fukabori",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-kojutsu-fukabori/youtube.longform/cover",
         "scene-001": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-001",
@@ -563,7 +563,42 @@
         "contentSha256": "67033a56701079af77a3a3fd071b5a6719a09a49e60e584c0a1cb2083e48dc20"
       },
       "times": {
-        "rendered": "2026-11-10T21:08:06.016Z"
+        "rendered": "2026-11-10T21:08:06.016Z",
+        "uploaded": "2026-11-10T21:15:13.070Z",
+        "scheduled": "2026-11-10T21:15:20.531Z"
+      },
+      "delivery": {
+        "inputSha256": "f4c28b393d048964a976fc3f1a37629a9e4305e65333711211d317f0d5dd39cf",
+        "marker": "dn-single-f16d537436564c6fb3274bb365b08d1b28fc8df3",
+        "uploadRequestedAt": "2026-11-10T21:14:21.030Z",
+        "videoId": "2T3NCge7Rcs",
+        "processedAt": "2026-11-10T21:15:11.923Z",
+        "thumbnailRequestedAt": "2026-11-10T21:15:13.112Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/default.jpg?sqp=CNSSztcG&rs=AOn4CLCuorZ56CbnHDv9NHSN8J-UGyvYsw",
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/mqdefault.jpg?sqp=CNSSztcG&rs=AOn4CLBHnjYclyKpqrduhC0QNF5lSo8cgQ",
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/hqdefault.jpg?sqp=CNSSztcG&rs=AOn4CLBG0PuYY5MfnEENThFIkbWNsfXaRA",
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/sddefault.jpg?sqp=CNSSztcG&rs=AOn4CLDtAicemZNhD3Put3WVjgj8w3KTlw",
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/maxresdefault.jpg?sqp=CNSSztcG&rs=AOn4CLDiX3drF4dRTnHYLAPaV5oYsYYjlg",
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/fhddefault.jpg?sqp=CNSSztcG&rs=AOn4CLDw4lAI8Z306FmQTVVOHG2XwI3cYQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T21:15:16.167Z",
+        "scheduleRequestedAt": "2026-11-10T21:15:17.073Z",
+        "scheduleAt": "2026-11-25T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-10T21:15:20.531Z"
+      },
+      "platform": {
+        "id": "2T3NCge7Rcs",
+        "url": "https://www.youtube.com/watch?v=2T3NCge7Rcs",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T21:15:16.167Z"
       }
     },
     {
