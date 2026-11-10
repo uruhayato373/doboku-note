@@ -130,6 +130,8 @@
     "check-doc-refs": "node scripts/check-doc-refs.mjs",
     "check-claude-md-size": "node scripts/check-claude-md-size.mjs",
     "check-skill-layout": "node scripts/check-skill-layout.mjs",
+    "pe-question-pages": "node scripts/pe-question-pages.mjs",
+    "check-pe-question-pages": "node scripts/pe-question-pages.mjs check",
     "check-agent-descriptions": "node scripts/check-agent-descriptions.mjs",
     "session-start": "node scripts/session-start.mjs",
     "check-playwright-auth-wiring:strict": "node scripts/check-playwright-auth-wiring.mjs --strict",

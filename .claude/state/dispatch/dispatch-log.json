@@ -6907,6 +6907,19 @@
       "commit": "9192a4674034",
       "verification": "node --test tests/video-factory.test.mjs tests/youtube-longform-plan.test.mjs（PR #1484・9192a4674）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1073",
+      "at": "2026-11-10",
+      "task": "技術士 建設部門の設問ページの骨組み（問題文・frontmatter・配分の枠・リンク）をスクリプトで生成する",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "06398e96a7ea",
+      "verification": "npm run check-pe-question-pages && node --test tests/pe-question-pages.test.mjs",
+      "note": "pe-question-pages（scaffold/check/claims）とテスト。道路16本で問題文の節が一致"
     }
   ]
 }
