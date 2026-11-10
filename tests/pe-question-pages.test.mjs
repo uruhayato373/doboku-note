@@ -55,3 +55,22 @@ test('照合文の抜き出し: 論点の解説の節で、数字・年月・条
   assert.equal(claims[0].line, 13);
   assert.deepEqual(claims[2].urls, ['https://example.go.jp/a.pdf']);
 });
+
+test('scaffold --write は記事のフォルダを作って骨組みを書き、既存のページは上書きしない（2026-11-10 にフォルダが無く全件失敗した）', async () => {
+  const { mkdtempSync, mkdirSync, copyFileSync, rmSync, writeFileSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { execFileSync } = await import('node:child_process');
+  const root = mkdtempSync(join(tmpdir(), 'pe-q-'));
+  try {
+    mkdirSync(join(root, 'r08-road'));
+    copyFileSync(join(DIR, 'r08-road', 'article.mdx'), join(root, 'r08-road', 'article.mdx'));
+    mkdirSync(join(root, 'r08-road-ii-1-1'));
+    writeFileSync(join(root, 'r08-road-ii-1-1', 'article.mdx'), 'KEEP');
+    const out = execFileSync('node', [join(DIR, '..', '..', '..', 'scripts', 'pe-question-pages.mjs'), 'scaffold', '--year', 'r08', '--subject', 'road', '--write', '--root', root], { encoding: 'utf8' });
+    assert.match(out, /作成 7 件・既存 1 件/);
+    assert.equal(readFileSync(join(root, 'r08-road-ii-1-1', 'article.mdx'), 'utf8'), 'KEEP');
+    assert.match(readFileSync(join(root, 'r08-road-iii-2', 'article.mdx'), 'utf8'), /^published: false$/m);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
