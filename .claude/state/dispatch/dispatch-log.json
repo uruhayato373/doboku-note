@@ -6933,6 +6933,19 @@
       "commit": "a6ef74263cf8",
       "verification": "npm run check-pe-question-pages",
       "note": "必須科目I 4本＋鋼コン・河川砂防・施工計画・土質及び基礎 各16本（R07・R08）の計68本。サブエージェント約230万トークン（1本約3.4万）。道路16本の main 反映はこの段の完了で運営者に諮る"
+    },
+    {
+      "id": "DN-1067",
+      "at": "2026-11-10",
+      "task": "内容QAの合格を原稿の版に結び、工程の順を手順書・status・Workflow でそろえる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c065dcce0804",
+      "verification": "node --test tests/video-factory.test.mjs（PR #1490・91414600d）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

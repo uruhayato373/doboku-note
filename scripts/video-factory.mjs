@@ -10,11 +10,12 @@
  *   npm run video-factory -- adopt --pack <exam>/<work>                   ok が揃ったら採用
  *   npm run video-factory -- render --pack <exam>/<work>                  音声・動画・照合・取り込み
  *   npm run video-factory -- ledger --pack <exam>/<work>                  採用画像の判定を AI 台帳へ
- *   npm run video-factory -- record-qa --pack <exam>/<work> --avg <0-3> --blocks <件数>
+ *   npm run video-factory -- record-qa --pack <exam>/<work> --file <採点 JSON> | --avg <0-3> --blocks <件数>
  *   npm run video-factory -- commit --pack <exam>/<work>                 制作記録だけをコミット
  *   npm run video-factory -- audio-check --pack <exam>/<work>            音声を文字起こしして台本と照合する
  *   npm run video-factory -- wire --pack <exam>/<work> [--publish-at <ISO>]  文面へ転送先と空き枠を入れる
  *   npm run video-factory -- gate --pack <exam>/<work>                   予約へ進めてよいかを検査だけする
+ *   npm run video-factory -- qa-check --pack <exam>/<work>               台帳の QA が今の原稿で合格なら exit 0
  *   npm run video-factory -- auto-approve --pack <exam>/<work>           関門を通ったら方針の承認を台帳へ書く
  *   npm run video-factory -- unapprove --pack <exam>/<work>              予約へ進んでいない承認を外し、wire で日時を付け直せるようにする
  *   npm run video-factory -- produce --pack <exam>/<work>                採用・音声・動画・AI 台帳を続けて回す
@@ -45,7 +46,7 @@ import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
-import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, retryItems, summarize, unapprovedRow } from './lib/video-factory.mjs';
+import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, qaInputDigest, qaState, recordAudit, retryItems, summarize, unapprovedRow } from './lib/video-factory.mjs';
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
@@ -89,7 +90,7 @@ function factsOf(reg, pack, reviews, mediaById) {
     slotExpired: !pub.publishAt || Date.parse(pub.publishAt) - Date.now() < leadMs,
     pub: pub.id, status: pub.status, standard, plan: readPlan(ROOT, pack) ? summarize(readPlan(ROOT, pack)) : null,
     rendered: video?.provenance?.specSha256 === boardSha,
-    qa: !q ? 'none' : q.avg >= 2 && q.blocks === 0 ? 'passed' : 'blocked',
+    qa: qaState(q, qaInputDigest(ROOT, pack)),
     review: fresh ? r.verdict : 'none',
   };
 }
@@ -163,17 +164,29 @@ function ledger() {
   console.log(`判定 ${verdicts.length} 件を AI 台帳へ写した`);
 }
 
+/**
+ * 内容QAの結果を台帳へ書く。--file <採点 JSON>（{ scores: { 軸: 0〜3 }, blocks: [理由…] }）なら平均と BLOCK の件数を
+ * 中身から数える（件数をモデルに申告させない）。--avg・--blocks の直接指定も受ける。採点した原稿の digest を付ける（DN-1067）。
+ */
+export function qaFromFile(json) {
+  const scores = Object.values(json?.scores ?? {});
+  if (!scores.length || scores.some((v) => !Number.isFinite(v) || v < 0 || v > 3)) throw new Error('採点 JSON の scores は 軸→0〜3 の数');
+  if (!Array.isArray(json.blocks)) throw new Error('採点 JSON の blocks は理由の配列（無ければ []）');
+  return { avg: Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 100) / 100, blocks: json.blocks.length };
+}
+
 function recordQa() {
   const pack = requirePack();
   const [exam, work] = pack.split('/');
-  const avg = Number(args.avg), blocks = Number(args.blocks);
-  if (!Number.isFinite(avg) || avg < 0 || avg > 3 || !Number.isInteger(blocks) || blocks < 0) throw new Error('--avg 0〜3 と --blocks 件数が要る');
+  const { avg, blocks } = args.file ? qaFromFile(JSON.parse(readFileSync(args.file, 'utf8'))) : { avg: Number(args.avg), blocks: Number(args.blocks) };
+  if (!Number.isFinite(avg) || avg < 0 || avg > 3 || !Number.isInteger(blocks) || blocks < 0) throw new Error('--file <採点 JSON> か、--avg 0〜3 と --blocks 件数が要る');
+  const inputSha256 = qaInputDigest(ROOT, pack);
   const reg = loadRegistry(ROOT);
   const pub = targetPub(reg, exam, work);
-  if (pub?.revisionOf) { console.log(JSON.stringify(recordYoutubeRevisionQa(ROOT, { pubId: pub.id, avg, blocks, commit: true }))); return; }
+  if (pub?.revisionOf) { console.log(JSON.stringify(recordYoutubeRevisionQa(ROOT, { pubId: pub.id, avg, blocks, inputSha256, commit: true }))); return; }
   const row = reg.works.find((w) => w.id === work && w.exam === exam);
   if (!pub || pub.approval || !['draft', 'qa_blocked', 'qa_passed'].includes(pub.status) || !row) throw new Error(`${pack}: 未承認の公開行だけ記録できる`);
-  const qa = { avg, blocks, at: todayJst(), by: 'Claude Code video-content-qa' };
+  const qa = { avg, blocks, at: todayJst(), by: 'Claude Code video-content-qa', inputSha256 };
   upsertWorks(ROOT, exam, [{ ...row, qa }]);
   upsertPublications(ROOT, 'youtube', exam, [{ ...pub, status: avg >= 2 && blocks === 0 ? 'qa_passed' : 'qa_blocked' }]);
   console.log(`${pub.id}: QA を記録（平均 ${avg}・BLOCK ${blocks}）`);
@@ -296,7 +309,7 @@ function wireRevision(reg, pub, publishAt) {
   const { digest } = JSON.parse(prepare());
   prepare('--commit', '--expect', digest);
   const { qa } = reg.works.find((w) => w.id === pub.work && w.exam === pub.exam);
-  recordYoutubeRevisionQa(ROOT, { pubId: pub.id, avg: qa.avg, blocks: qa.blocks, commit: true });
+  recordYoutubeRevisionQa(ROOT, { pubId: pub.id, avg: qa.avg, blocks: qa.blocks, inputSha256: qa.inputSha256, commit: true });
   console.log(JSON.stringify({ pub: pub.id, publishAt }));
 }
 
@@ -324,7 +337,7 @@ function gateFacts(pack) {
   return {
     policy, reg, mediaById,
     facts: {
-      pub, planProblems: planProblems(ROOT, pub), standard: facts.standard, aiBlocked, renderVerified: verify.status === 0, qa: reg.works.find((w) => w.id === work && w.exam === exam)?.qa,
+      pub, planProblems: planProblems(ROOT, pub), standard: facts.standard, aiBlocked, renderVerified: verify.status === 0, qa: reg.works.find((w) => w.id === work && w.exam === exam)?.qa, qaStale: facts.qa === 'stale',
       review: facts.review, funnelOk: funnel.status === 0, funnelDetail: funnel.status === 0 ? '' : (funnel.stderr || funnel.stdout).trim().split('\n').slice(0, 3).join(' / '),
       audioProblems: audioProblems(readAudio().checks[pub.id], video?.sha256, policy),
     },
@@ -491,6 +504,14 @@ const commands = {
   render,
   ledger,
   'record-qa': recordQa,
+  // 台帳の QA が今の原稿で合格なら exit 0。Workflow が採点を飛ばすかをモデルでなくコマンドで決める（DN-1067）
+  'qa-check': () => {
+    const pack = requirePack();
+    const [exam, work] = pack.split('/');
+    const state = qaState(loadRegistry(ROOT).works.find((w) => w.id === work && w.exam === exam)?.qa, qaInputDigest(ROOT, pack));
+    console.log(JSON.stringify({ pack, qa: state }));
+    process.exitCode = state === 'passed' ? 0 : 1;
+  },
   commit,
   'audio-check': audioCheck,
   wire,
@@ -503,5 +524,5 @@ const commands = {
   publish,
   cleanup,
 };
-if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|commit|audio-check|wire|gate|auto-approve|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
+if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|qa-check|commit|audio-check|wire|gate|auto-approve|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
 await commands[command]();

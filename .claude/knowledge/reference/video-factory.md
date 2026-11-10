@@ -12,12 +12,12 @@ title: 動画の量産工程（通常動画・ショート）
 
 | 工程 | やること | 担当 |
 |---|---|---|
+| qa | 台本を 6 軸で採点し `record-qa --file` で記録する。合格は原稿の digest に付き、原稿を直すと古くなる（`qa-check` が見る・DN-1067） | `video-content-qa` |
 | plan | 原稿から生成指示を作る | スクリプト |
 | generate | 画像を作る。比率と字幕の帯は機械で検査する | Codex |
 | audit | 1 枚ずつ、原稿と文字を照合する | `ai-image-fidelity-auditor` |
 | adopt | 全項目が ok なら採用する | スクリプト |
 | render | 音声・動画を作り、照合して台帳へ取り込む | スクリプト |
-| qa | 6 軸で採点する | `video-content-qa` |
 | review | 画面と文面を確認して pass か fail を記録する | `video-review` |
 | ready-for-approval | 音声を照合し、関門を通ったら方針の承認を書く | スクリプト |
 | 予約 | R2 へ転送し `youtube-single-publish.yml` で予約する | スクリプト |
@@ -57,7 +57,8 @@ npm run video-factory -- record-audit --pack <資格>/<作品> --file <判定の
 npm run video-factory -- adopt --pack <資格>/<作品>
 npm run video-factory -- render --pack <資格>/<作品>
 npm run video-factory -- ledger --pack <資格>/<作品>
-npm run video-factory -- record-qa --pack <資格>/<作品> --avg <平均> --blocks <件数>
+npm run video-factory -- record-qa --pack <資格>/<作品> --file <採点 JSON>   # { scores: { 軸: 0〜3 }, blocks: [理由…] }
+npm run video-factory -- qa-check --pack <資格>/<作品>   # 台帳の QA が今の原稿で合格なら exit 0
 npm run video-factory -- commit --pack <資格>/<作品>
 npm run video-factory -- audio-check --pack <資格>/<作品>
 npm run video-factory -- wire --pack <資格>/<作品>
@@ -70,7 +71,7 @@ npm run video-factory -- unapprove --pack <資格>/<作品>   # slot-expired の
 
 ## Workflow で回す
 
-Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }] }` を渡す。`rendered: true` は制作済みの動画で、画像と描画を飛ばす。`from: "audit"` と `from: "review"` はその段から再開し、内容QAは飛ばす。内容QAは画像の生成より前に行い、BLOCK ならそこで止める（描画のあとに止まると画像の費用が無駄になる）。工程は同じで、画像の並行は 2 本まで、描画と台帳の書き込みは直列。止まったパックは理由を返し、他のパックは進む。最後の `finish` が音声照合・関門・コミットを回す。
+Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }] }` を渡す。`rendered: true` は制作済みの動画で、画像と描画を飛ばす。`from: "audit"` と `from: "review"` はその段から再開し、内容QAは飛ばす。台帳の QA が今の原稿で合格なら（`qa-check`）、別の PC で採点済みでも採点し直さない。内容QAは画像の生成より前に行い、BLOCK ならそこで止める（描画のあとに止まると画像の費用が無駄になる）。工程は同じで、画像の並行は 2 本まで、描画と台帳の書き込みは直列。止まったパックは理由を返し、他のパックは進む。最後の `finish` が音声照合・関門・コミットを回す。
 
 通ったパックは親が予約する。Workflow の中では外へ出さない。
 

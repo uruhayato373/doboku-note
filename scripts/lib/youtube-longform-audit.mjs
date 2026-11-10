@@ -162,8 +162,10 @@ export function auditLongformPlan({ plan, publications, revisions = [], formats,
     if (!actual && p?.status !== 'published' && e.ready < today) warnings.push(`確認期限の超過: ${e.id} ${e.ready}`);
     fill.set(slot.id, fill.get(slot.id) + 1);
     countWeek(day, e.id);
-    if (p?.primaryCta && (p.primaryCta.kind !== slot.primaryCta.kind || (slot.primaryCta.targets.length && !slot.primaryCta.targets.includes(p.primaryCta.targetId)))) {
-      warnings.push(`主 CTA を枠に合わせる: ${e.id}（${p.primaryCta.kind}${p.primaryCta.targetId ? `/${p.primaryCta.targetId}` : ''}）`);
+    // 宛先はカタログの商品なら targetId、サイト記事なら targetPath（リポジトリのパス）で持つ
+    const ctaTarget = p?.primaryCta?.targetId ?? p?.primaryCta?.targetPath;
+    if (p?.primaryCta && (p.primaryCta.kind !== slot.primaryCta.kind || (slot.primaryCta.targets.length && !slot.primaryCta.targets.includes(ctaTarget)))) {
+      warnings.push(`主 CTA を枠に合わせる: ${e.id}（${p.primaryCta.kind}${ctaTarget ? `/${ctaTarget}` : ''}）`);
     }
   }
 

@@ -106,7 +106,7 @@ export function prepareYoutubeRevision(root, options) {
 }
 
 /** 独立QAの結果を改訂公開行と作品へ記録する。承認は運営者の別操作。 */
-export function recordYoutubeRevisionQa(root, { pubId, avg, blocks, commit = false, at = todayJst() }) {
+export function recordYoutubeRevisionQa(root, { pubId, avg, blocks, commit = false, at = todayJst(), inputSha256 }) {
   const reg = loadRegistry(root), pub = reg.publications.find(p => p.id === pubId);
   const work = reg.works.find(w => w.id === pub?.work && w.exam === pub?.exam);
   if (!pub?.revisionOf || pub.channel !== 'youtube' || pub.format !== 'longform' ||
@@ -116,7 +116,7 @@ export function recordYoutubeRevisionQa(root, { pubId, avg, blocks, commit = fal
   if (!Number.isFinite(avg) || avg < 0 || avg > 3 || !Number.isInteger(blocks) || blocks < 0) {
     throw new Error('QAの平均0〜3とBLOCK件数を指定してください');
   }
-  const qa = { avg, blocks, at, by: 'Claude Code video-content-qa' };
+  const qa = { avg, blocks, at, by: 'Claude Code video-content-qa', ...(inputSha256 ? { inputSha256 } : {}) };
   const status = avg >= 2 && blocks === 0 ? 'qa_passed' : 'qa_blocked';
   if (commit) {
     upsertWorks(root, pub.exam, [{ ...work, qa }]);

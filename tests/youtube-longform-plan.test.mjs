@@ -167,3 +167,16 @@ test('ショートは親の枠の上限まで。枠の無い親からは作ら�
   assert.deepEqual(stocked.errors, []);
   assert.match(stocked.warnings.join(), /割り当てが無い/);
 });
+
+test('主CTAがサイト記事の動画は targetPath で枠の宛先と照合する', () => {
+  const path = 'content/site/civil-practice/construction-inspection-types/article.mdx';
+  const siteSlot = { ...slot, primaryCta: { kind: 'site-article', targets: [path] } };
+  const pub = (targetPath) => ({ id: 'q/a/youtube.longform', exam: 'q', status: 'qa_passed', primaryCta: { kind: 'site-article', targetPath } });
+  const run = (targetPath) => auditLongformPlan(input({
+    plan: { cycle, slots: [siteSlot], entries: [{ ...row, publicationId: 'q/a/youtube.longform' }] },
+    publications: [pub(targetPath)],
+    formats: [{ id: 'f', status: 'active', ctaKinds: ['site-article'], decision: null }],
+  }), '2026-11-16');
+  assert.ok(!run(path).warnings.some((w) => w.includes('主 CTA を枠に合わせる')), '枠の宛先と同じ記事なら注意を出さない');
+  assert.ok(run('content/site/civil-practice/other/article.mdx').warnings.some((w) => w.includes('主 CTA を枠に合わせる')), '枠に無い記事なら注意を出す');
+});

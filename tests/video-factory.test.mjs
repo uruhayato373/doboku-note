@@ -10,7 +10,7 @@ import { reviewIsCurrent } from '../scripts/lib/media-review.mjs';
 import { acceptedApproval, audioProblems, evaluateGate, nextSlot, speechSimilarity, uploadsLeft } from '../scripts/lib/video-publish-gate.mjs';
 import {
   MAX_ATTEMPTS, MAX_NO_OUTPUT, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
-  ledgerVerdicts, nextStage, packDirOf, planPath, readPlan, recordAudit, retryItems, summarize, unapprovedRow,
+  ledgerVerdicts, nextStage, packDirOf, planPath, qaInputDigest, qaState, readPlan, recordAudit, retryItems, summarize, unapprovedRow,
 } from '../scripts/lib/video-factory.mjs';
 
 const PACK = 'pe-construction/sample';
@@ -126,7 +126,7 @@ test('生成: 画像が出ない試行は回数に数えず、続けば止めて
     assert.deepEqual(s.exhausted, []);
     assert.deepEqual(s.stalled, ['cover']);
     assert.equal(s.reasons.cover, '画像が出なかった');
-    assert.equal(nextStage({ status: 'draft', standard: false, plan: s }), 'generate-stalled');
+    assert.equal(nextStage({ status: 'qa_passed', standard: false, plan: s, qa: 'passed' }), 'generate-stalled');
   } finally { f.done(); }
 });
 
@@ -281,12 +281,15 @@ test('nextStage: 工程を飛ばさない', () => {
     [{ status: 'approved' }, 'done'],
     [{ status: 'stopped' }, 'stopped'],
     [{ status: 'draft', qa: 'blocked' }, 'fix-script'],
-    [{ status: 'draft', standard: false, plan: null }, 'plan'],
-    [{ status: 'draft', standard: false, plan: { ...plan, missing: 2 } }, 'generate'],
-    [{ status: 'draft', standard: false, plan: { ...plan, unaudited: 1 } }, 'audit'],
-    [{ status: 'draft', standard: false, plan }, 'adopt'],
-    [{ status: 'draft', standard: true, rendered: false }, 'render'],
-    [{ status: 'draft', standard: true, rendered: true, qa: 'none' }, 'qa'],
+    // 内容QAは画像の前（DN-1067）。未採点・原稿が変わった QA は画像へ進めない
+    [{ status: 'draft', standard: false, plan: null, qa: 'none' }, 'qa'],
+    [{ status: 'draft', standard: false, plan: { ...plan, missing: 2 }, qa: 'stale' }, 'qa'],
+    [{ status: 'draft', standard: true, rendered: true, qa: 'stale' }, 'qa'],
+    [{ status: 'qa_passed', standard: false, plan: null, qa: 'passed' }, 'plan'],
+    [{ status: 'qa_passed', standard: false, plan: { ...plan, missing: 2 }, qa: 'passed' }, 'generate'],
+    [{ status: 'qa_passed', standard: false, plan: { ...plan, unaudited: 1 }, qa: 'passed' }, 'audit'],
+    [{ status: 'qa_passed', standard: false, plan, qa: 'passed' }, 'adopt'],
+    [{ status: 'qa_passed', standard: true, rendered: false, qa: 'passed' }, 'render'],
     [{ status: 'qa_passed', standard: true, rendered: true, qa: 'passed', review: 'none' }, 'review'],
     [{ status: 'qa_passed', standard: true, rendered: true, qa: 'passed', review: 'fail' }, 'review-failed'],
     [{ status: 'qa_passed', standard: true, rendered: true, qa: 'passed', review: 'pass' }, 'ready-for-approval'],
@@ -386,4 +389,29 @@ test('画面確認の判定は公開日時が変わっても有効で、中身�
   assert.equal(reviewIsCurrent({ visualDigest: 'v', finalDigest: 'f1', contentDigest: 'x' }, state), false);
   assert.equal(reviewIsCurrent({ visualDigest: 'x', contentDigest: 'c' }, state), false);
   assert.equal(reviewIsCurrent({ visualDigest: 'v', finalDigest: 'f1' }, state), false);
+});
+
+test('内容QAの合格は原稿の digest に付き、原稿が変われば古くなる（DN-1067）', () => {
+  const f = fixture();
+  try {
+    writeFileSync(join(f.dir, 'script.md'), ['# 台本', '本文', ''].join('\r\n'));
+    writeFileSync(join(f.dir, 'video-pack.json'), JSON.stringify({ packId: 'sample' }));
+    const digest = qaInputDigest(f.root, PACK);
+    assert.equal(qaState({ avg: 2.5, blocks: 0, inputSha256: digest }, digest), 'passed');
+    assert.equal(qaState({ avg: 1.5, blocks: 0, inputSha256: digest }, digest), 'blocked');
+    assert.equal(qaState({ avg: 2.5, blocks: 1, inputSha256: digest }, digest), 'blocked');
+    assert.equal(qaState(undefined, digest), 'none');
+    assert.equal(qaState({ avg: 2.5, blocks: 0 }, digest), 'passed', 'digest の無い記録は受け入れる');
+    // 改行コードだけの違いでは古くしない
+    writeFileSync(join(f.dir, 'script.md'), ['# 台本', '本文', ''].join('\n'));
+    assert.equal(qaInputDigest(f.root, PACK), digest);
+    // 画像の工程が書く imageDesign では古くしない
+    const board = JSON.parse(readFileSync(join(f.dir, 'storyboard.json'), 'utf8'));
+    writeFileSync(join(f.dir, 'storyboard.json'), JSON.stringify({ ...board, imageDesign: { mode: 'codex-pop' } }));
+    assert.equal(qaInputDigest(f.root, PACK), digest);
+    // 語りを変えると古くなる
+    board.scenes[1].narration = '語りを直した';
+    writeFileSync(join(f.dir, 'storyboard.json'), JSON.stringify(board));
+    assert.equal(qaState({ avg: 2.5, blocks: 0, inputSha256: digest }, qaInputDigest(f.root, PACK)), 'stale');
+  } finally { f.done(); }
 });
