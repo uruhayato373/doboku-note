@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **37**（更新: 2026-11-10）
+パック数: **39**（更新: 2026-11-10）
 
 ## 2級土木施工管理技士（4）
 
@@ -32,13 +32,15 @@
 | `pe1-tekisei-3shiten` | 技術士一次 適性科目の正誤判定で見る3つの視点 | 適性科目で、覚えたはずの内容でも選択肢の正誤判定に迷う | exam-point | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 
-## 技術士（建設部門）（5）
+## 技術士（建設部門）（7）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `hissu1-infra-roukyuuka` | インフラ老朽化と予防保全 — 維持管理テーマの論点整理 | 老朽化対策の施策が多くどれを軸に論文を組むか決められない | exam-point | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 | `hissu1-kensetsu-dx` | 建設DX・i-Construction — 施策の全体像と論点 | DX施策の名前は知っていても論文で使える形になっていない | exam-point | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 | `kaitourei-tsukaikata` | 模範解答の正しい使い方 — 写経では受からない | 解答例を読んでも自分の答案がよくならない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-kojutsu-fukabori` | 技術士建設部門の口頭対策 — 深掘りの質問に事実で答える | 業務経歴の説明はできても、なぜそう判断したのかなどの深掘りに、事実ではなく一般論や言い訳で答えてしまう | howto | レビュー | 台本/構成 | `pe-construction-oral-guide` |
+| `pe-kojutsu-kaitei-competency` | 建設部門 口頭｜改訂コンピテンシーで変わる質問 | コンピテンシー改訂で何が変わり、口頭試験の質問にどう影響するのか分からない | exam-point | レビュー | 台本/構成 | `pe-construction-oral-guide` |
 | `pe-kojutsu-keireki` | 技術士建設部門の口頭対策 — 業務経歴とコンピテンシーを結ぶ | 業務経歴は説明できても、自分の判断と成果をコンピテンシーにつなげて語れない | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |
 | `toan-kousei-template` | 答案構成のテンプレート — 課題抽出から効果・リスクまで | 書き始めてから構成が崩れ時間内に論文がまとまらない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 
@@ -48,7 +50,7 @@
 |---|---|---|---|---|---|---|
 | `sanso-kozo` | 合否を分ける三層構造 — 前提・施策・最大リスク | 設問ごとに何を書くべきかの役割分担が分からない | exam-point | 予約 | 台本/構成 | `essay-complete-pack` |
 | `sokan-kojutsu-kangaekata` | 口頭試験の考え方 — 経歴を総監の言葉で語る | 口頭試験で自分の経歴や業務をどう総監らしく語ればよいか分からない | howto | 停止 | 台本/構成 | `tankan-oral-complete` |
-| `sokan-kojutsu-tradeoff` | 口頭試験 5管理のトレードオフを自分の経験で語る | 口頭試験で5管理のトレードオフを聞かれると、一般論の対立しか言えず、自分の経験に結び付けられない | howto | 未登録 | 台本/構成 | `tankan-oral-complete` |
+| `sokan-kojutsu-tradeoff` | 口頭試験 5管理のトレードオフを自分の経験で語る | 口頭試験で5管理のトレードオフを聞かれると、一般論の対立しか言えず、自分の経験に結び付けられない | howto | レビュー | 台本/構成 | `tankan-oral-complete` |
 
 ## コンクリート主任技士（13）
 

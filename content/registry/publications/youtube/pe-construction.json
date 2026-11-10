@@ -366,6 +366,20 @@
       }
     },
     {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform",
+      "work": "pe-kojutsu-fukabori",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform",
+      "work": "pe-kojutsu-kaitei-competency",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
       "id": "pe-construction/pe-kojutsu-keireki/youtube.longform",
       "work": "pe-kojutsu-keireki",
       "account": "youtube:main",

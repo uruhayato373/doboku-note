@@ -84,6 +84,28 @@
       "legacyKey": "099-pe-construction-textbook-diagrams"
     },
     {
+      "id": "pe-kojutsu-fukabori",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
+      "id": "pe-kojutsu-kaitei-competency",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-kaitei-competency",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
       "id": "pe-kojutsu-keireki",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki",
