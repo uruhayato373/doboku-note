@@ -3,6 +3,19 @@
   "exam": "civil-construction-1",
   "works": [
     {
+      "id": "c1-juken-junjo-2027",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-juken-junjo-2027",
+      "idException": "imported-before-cutover",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "3853e8c0cb77e1f177e94f03139e7dfc9dd0fe04c6d783676e553e7dda418e5a"
+      }
+    },
+    {
       "id": "civil-09-a",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/090-civil-2026-09-a",

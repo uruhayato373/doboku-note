@@ -366,6 +366,13 @@
       }
     },
     {
+      "id": "pe-construction/pe-fugoukaku-toan/youtube.longform",
+      "work": "pe-fugoukaku-toan",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
       "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform",
       "work": "pe-kojutsu-fukabori",
       "account": "youtube:main",

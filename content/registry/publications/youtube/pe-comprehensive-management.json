@@ -203,6 +203,13 @@
       }
     },
     {
+      "id": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform",
+      "work": "sokan-kojutsu-tachiba",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
       "id": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform",
       "work": "sokan-kojutsu-tradeoff",
       "account": "youtube:main",
