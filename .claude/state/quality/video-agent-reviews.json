@@ -374,6 +374,22 @@
       "visualDigest": "a6b27ff7e3c81bed7b44aea80647f8c2c80f221ba5e33c641fad4d2e569d7003",
       "finalDigest": "42e50abd9ea059d15d08e7258eff094da8b400e1ac8368c75786a0dae50c3900",
       "contentDigest": "871fa9df4d212f0a6a028367a4a7424cfc6894f645d339592c335182f428bb48"
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と題名は中身に合い、文字の切れ・誤字なし。場面13枚は台本の順序どおり、図の文字も読める。仮例と独自の整理は図中にも明記済み。CTAはnote1つ（総監口頭試験完全準備・想定25問は商品説明と一致）で、無料の解説リンクは補助。試験日や制度の数値は動画内に無い。合格の約束なし。音声は未確認。",
+      "at": "2026-11-10T12:07:06.841Z",
+      "visualDigest": "462e69226fbf98108a25974cb2ad08b68a99d09aa680776c595f54eb0346175d",
+      "finalDigest": "89c7d4fd3d343dd4ca7fd5b8bf7611c681ce7c69c12d61fe8f6993d112965e26",
+      "contentDigest": "664055357be6c4644ddcfb04dda3d4e39ab29b93f35d14d4e7ce789c13129446"
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform": {
+      "verdict": "fail",
+      "note": "場面3と場面4の画像の出典欄に内部の参照名「video-pack.json の sourceRefs」がそのまま描かれ、視聴者に見える（storyboard.json 56行・76行の art.note が原因）。出典は文部科学省 令和8年度合否決定基準のみに直して再描画が必要。他は問題なし（表紙と題名は中身に合う、場面順は台本どおり13場面、CTAは note 1つ、日程記述は exam-calendar と矛盾なし）。音声は未確認。",
+      "at": "2026-11-10T12:11:05.022Z",
+      "visualDigest": "e996c58a82129142ee9d4d1e4b4716131f30da352512f95173eaf74494621952",
+      "finalDigest": "d2ec77cbde712a58636e4f2db23ba55d84369304b0720f3bc17f3a552e9906e3",
+      "contentDigest": "47b253d28bcce58154b4dfebe98f4248f7890156c01198da0f6248fc7c602c0f"
     }
   }
 }

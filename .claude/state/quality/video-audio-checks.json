@@ -341,6 +341,17 @@
         "expected": 1105,
         "heard": 1141
       }
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform": {
+      "videoSha256": "2dfecf70428bb01f82763a15bc84a7a90ea7c51d7264ca65f5fd23fb1a32cb3c",
+      "at": "2026-11-10T12:14:27.817Z",
+      "similarity": 0.969,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1287,
+        "heard": 1210
+      }
     }
   }
 }
