@@ -401,11 +401,7 @@
 - gakka-2kyu-doko は年間計画（`config/channel-annual-plan.json`）に元の動画の行が無く、`video-factory preflight` と関門（`auto-approve`）が「計画にない動画」で止まる（旧 DN-1078 を統合）
 
 **運営者が決める・実行する**（承認と停止はエージェントからは実行できない）:
-1. 消したショートの台帳の行を実体に合わせる:
-   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2 --reason gone`
-   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1 --reason gone`
-   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2-diagram-led --reason superseded`
-   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1-diagram-led --reason superseded`
+1. 消したショートの台帳の行（2 本は gone、作らない改訂 2 行は superseded）は、運営者の承認を受けて 2026-11-10 に停止した（e266c33ba3）
 2. 改訂版 3 本を出すか止めるかを決める。出すなら、表紙を POP で作り直し、描き直して承認する（gakka は年間計画に元の動画の行を足す）。止めるなら `registry -- stop --reason user-decision`
 3. 公開中の lNI2f_SjCTk（gakka-2kyu-doko）の概要欄に「VOICEVOX:青山龍星」を metadata の同期で入れる（改訂版を出さない場合も要る）
 
@@ -539,7 +535,7 @@
 **起点**: DN-1064 で建設部門の読み修正版 3 本を予約した（2026-11-10）。hissu1-kensetsu-dx・hissu1-infra-roukyuuka は改訂版を新しい動画として予約したので、読み間違いのある旧版（SvV8zXamMvo・1EAPnQVwARE）が非公開のまま残っている。toan-kousei-template は改訂版が旧版と同じ動画だったため、旧版 ywemm49EBPA をそのまま 11/12 に予約し直した（PR #1512・#1513）。そのため改訂の行は `approved` のまま使われていない。
 
 **やること**:
-1. 使われていない改訂の行を止める（運営者が自分の端末で実行）: `npm run registry -- stop --pub pe-construction/toan-kousei-template/youtube.longform.reading-fix --reason superseded`
+1. 使われていない改訂の行（toan-kousei-template の reading-fix）は、運営者の承認を受けて 2026-11-10 に停止した（e266c33ba3）
 2. 旧版 2 本（`pe-construction/hissu1-kensetsu-dx/youtube.longform`・`pe-construction/hissu1-infra-roukyuuka/youtube.longform`）は、非公開で残すか止めるかを決める。止めるなら `registry -- stop --reason superseded`
 3. 予約した 3 本の公開後、毎朝の照合で `published` になったことを確かめる
 
@@ -1072,6 +1068,13 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **同時に直す整備**: `npm run check-youtube-shorts` を検査件数つきで通し、quality-audit へ戻す。`yt-shorts-publisher-qa` の手順を現行の動画パックの手順へ書き直し、画像の軸を足す。
 
 **完了条件**: 6 本が完成動画で画面確認を通り、関連動画つきで予約されている。28 日後の判断が `data/business/records/` に残っている。
+
+**着手して分かったこと（2026-11-10）**: 今の仕組みのままでは、公開済みの通常動画からショートを作れない。
+- 年間計画の関門（`shorts-factory plan` の `assertInSlot`）: ショートの割り当てがあるのは 2027 年の枠だけ。公開済み・予約済みの通常動画は 1 本も枠に入っていないので、設計の段で「親の枠にショートの割り当てが無い」と止まる。試行するなら、年間計画に試行の割り当てを足す判断が要る
+- 旧い定義: `shorts-factory status` に出る主任技士 12 本は、`youtube.json` の `sceneId`（kanten・kousei など）が今の台本（premise・items・mapping …）に無い。論点の定義から作り直す
+- 表紙の見出しと締めの語りは `cover-design.json`・`cta-design.json` にある。この 2 つは通常動画の入力ハッシュ（`longformInputHash`）に入るので、書き換えると公開済みの通常動画の照合が崩れる。`shorts-design.json` 側に見出しと締めの語りを持てるようにする
+- 締めの語りは今 46 字（約 8〜9 秒）。3 秒程度にするなら短い文へ変える
+- 候補の選び方: 主任技士は試験が 2026-11-29 で、承認と関連動画の設定を待つと間に合わない。来期まで使える建設部門（必須Ⅰ・答案構成）が向く
 
 
 ### [DN-1000] コンクリート技士の試験後に出題を確かめ、2027 年度の予想問題へ改題する
