@@ -6873,6 +6873,40 @@
       "commit": "7537d21f85bf",
       "verification": "standards-visual-review record で 2 章 pass・check-standard-articles 480 PASS",
       "note": "1-2・10-15 を撮り直して目視判定で合格（作業票 20261109T060218Z）。横結合の長文は（同左）、表1-2-1 は headerImage で 1 段、キャプション直後の 1 行見出しの小さな表を表に"
+    },
+    {
+      "id": "DN-1065",
+      "at": "2026-11-10",
+      "task": "画像が出ないだけで試行回数を使い切る generate を直し、上限から戻す手段を足す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/video-factory.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9192a4674034",
+      "verification": "node --test tests/video-factory.test.mjs tests/youtube-longform-plan.test.mjs（PR #1484・9192a4674）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1066",
+      "at": "2026-11-10",
+      "task": "承認済みで未予約の行を status と棚卸しで見分け、日時を付け直せるようにする",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/video-factory.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9192a4674034",
+      "verification": "node --test tests/video-factory.test.mjs tests/youtube-longform-plan.test.mjs（PR #1484・9192a4674）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
