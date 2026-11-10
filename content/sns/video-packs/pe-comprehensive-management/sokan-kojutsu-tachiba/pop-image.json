@@ -22,7 +22,7 @@
           "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-cover.063e307a.png",
           "sha256": "063e307a6b9c7bb247050b1a6461a2088d873497e4298291f2f1c30aef77d81b"
         },
-        "generatedAt": "2026-11-10T12:07:56.501Z"
+        "generatedAt": "2026-11-10T12:40:50.840Z"
       },
       "copy": {
         "exam": "pe-comprehensive-management",
@@ -44,7 +44,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-10T12:07:56.501Z",
+        "checkedAt": "2026-11-10T12:40:50.840Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字: 総監が制作・口頭試験・立場で変わる質問を指示と一字ずつ照合し誤字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯が参照と一致し、手指の破綻なし。下端18%に文字・顔なし",
         "userImageReview": "pending"
@@ -75,7 +75,7 @@
               "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-hook.a43e4ee9.png",
               "sha256": "a43e4ee9de041860c8403f5c8acf4c12c03145d504d2735859ecf42fcdf33582"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/hook-diagram.9f0322b7.png",
@@ -89,7 +89,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・左右の枠の文字・下の注記が指定文と一字ずつ一致し、吹き出しとチェックリストの図も内容と合う。",
             "userReview": "pending",
@@ -98,10 +98,10 @@
         },
         {
           "sceneId": "misread",
-          "inputSha256": "a81ce525dde0ead6141d0b76380e03c960aa714d2f56d40114a21eff682033b9",
+          "inputSha256": "28a26e8535fedafee84566c0bd313b557a4b8bce6a66a29442759726e1039299",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『立場で変わるのは、話す材料』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『立場ごとに別の試験 ではない』 『同じ試問事項 立場で変わるのは、話す材料』。 図の下に『出典：文部科学省 令和8年度技術士試験合否決定基準（video-pack.json の sourceRefs）』の全文を省かずに入れる。 この場面の説明（文字にしない）: 誤解しやすいのは、立場ごとに別の試験がある、と考えることです。試問事項は立場にかかわらず同じで、立場で変わるのは、話す材料です。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『立場で変わるのは、話す材料』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『立場ごとに別の試験 ではない』 『同じ試問事項 立場で変わるのは、話す材料』。 図の下、下端の字幕の帯より上に『出典：文部科学省 令和8年度技術士試験合否決定基準』の全文を省かずに入れる。 この場面の説明（文字にしない）: 誤解しやすいのは、立場ごとに別の試験がある、と考えることです。試問事項は立場にかかわらず同じで、立場で変わるのは、話す材料です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 25.0）",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -109,36 +109,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-misread.fc6462fa.png",
-              "sha256": "fc6462fa36316ec9e88180c6c5b95c14d612c211bd8d92e3317ab1533d46f51d"
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-misread.6cbdb338.png",
+              "sha256": "6cbdb3380c3cb2f64b8d8f053e98aeaee631360fd7bab014be0d8bd0b651186a"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/misread-diagram.7a4127ce.png",
-            "sha256": "7a4127cee2973994933c1bb0a9365ee076d0286a3d0e98b824df956e776d52c0",
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/misread-diagram.4cf41269.png",
+            "sha256": "4cf41269a251c43e6819dbfc5d8e2d4cae55cc85f2a53aab0442363fb00a7607",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "fc6462fa36316ec9e88180c6c5b95c14d612c211bd8d92e3317ab1533d46f51d"
+            "sourceSha256": "6cbdb3380c3cb2f64b8d8f053e98aeaee631360fd7bab014be0d8bd0b651186a"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し・左右の枠の文字・出典行が指定どおりで、左は別々の3文書、右は1文書から3立場への図となり本文と矛盾しない。",
+            "reason": "見出し・左右枠の文字・出典の全文が指示と一字一句一致し、余計な文字や崩れ字なし。左右比較で右を強調する構図で本文とも矛盾しない",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "system",
-          "inputSha256": "f5a0cd0e468f7ed5d6cba18cfcf98d11ce0f270eaf9281b9f416f79acc8c174a",
+          "inputSha256": "edf278d4aa0803c61732b83a87f561bdc3081e73aea498a9ca872a8d6d74ba20",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『口頭試験の試問事項は2項目』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『経歴及び応用能力 60パーセント以上』 『体系的専門知識 60パーセント以上』。 図の下に『出典：文部科学省 令和8年度技術士試験合否決定基準（video-pack.json の sourceRefs）』の全文を省かずに入れる。 この場面の説明（文字にしない）: 令和8年度の合否決定基準では、総監の必須科目の口頭試験は、経歴及び応用能力と、体系的専門知識の2項目で、それぞれ60パーセント以上の得点が必要です。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『口頭試験の試問事項は2項目』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『経歴及び応用能力 60パーセント以上』 『体系的専門知識 60パーセント以上』。 図の下、下端の字幕の帯より上に『出典：文部科学省 令和8年度技術士試験合否決定基準』の全文を省かずに入れる。 この場面の説明（文字にしない）: 令和8年度の合否決定基準では、総監の必須科目の口頭試験は、経歴及び応用能力と、体系的専門知識の2項目で、それぞれ60パーセント以上の得点が必要です。 前回の不合格の理由を直す: 16:9 ではない（1717×916）",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -146,26 +146,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-system.ac736e85.png",
-              "sha256": "ac736e85f4bb74f93e69f6591c2301651dd1de77bf03a299699ba1ada37bf2c7"
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-system.bf1669a4.png",
+              "sha256": "bf1669a4ce3d2ec38f9acb1da74effe5dcf8633e61902c6dcf9fd4d0514a7be8"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/system-diagram.0b7cc599.png",
-            "sha256": "0b7cc599e0def99fe9be63023a38dc23e13279be97e67d5aa5b2ed38bc9fa4a5",
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/system-diagram.8c0631db.png",
+            "sha256": "8c0631db4934be14901eab11dcf46cec47376472c841f040f7742bb30dbf2483",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "ac736e85f4bb74f93e69f6591c2301651dd1de77bf03a299699ba1ada37bf2c7"
+            "sourceSha256": "bf1669a4ce3d2ec38f9acb1da74effe5dcf8633e61902c6dcf9fd4d0514a7be8"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "2項目（経歴及び応用能力・体系的専門知識）と各60パーセント以上、出典行が指定文と一致している。",
+            "reason": "見出し・2項目の名称と60パーセント以上・出典の全文が指示と一致し、誤字や余計な文言なし。2項目の比較で本文と矛盾しない",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
@@ -186,7 +186,7 @@
               "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-axis.3cf3ab84.png",
               "sha256": "3cf3ab84948fdb00e025e9682c5f4273bd8edbb0fa271e24cd7d938fe3e31b66"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/axis-diagram.84df09bb.png",
@@ -200,7 +200,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと下の文が指定どおり。5つのアイコン（費用と時間・人材・情報の盾・人の保護・地域と環境）が5管理の核と合い、文字崩れもない。",
             "userReview": "pending",
@@ -223,7 +223,7 @@
               "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-steps.7239c029.png",
               "sha256": "7239c0292d19c95796482a3b70f2a0dfc8696880abc4ec7e104a5380b0845d73"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/steps-diagram.21a16d1e.png",
@@ -237,7 +237,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "3段階の文字と注記が指定文と一致し、左から右の矢印の流れで構成されている。",
             "userReview": "pending",
@@ -260,7 +260,7 @@
               "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-owner.22f155d3.png",
               "sha256": "22f155d307af73fe3674c8b81aedab41c14d7ab0302f21a2f9ebf5ac3df12dab"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/owner-diagram.3190477c.png",
@@ -274,7 +274,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "3つの枠の文字と管理名の対応、注記が指定どおりで、アイコンも内容と合い誤字がない。",
             "userReview": "pending",
@@ -297,7 +297,7 @@
               "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-others.8b3dbd61.png",
               "sha256": "8b3dbd61d69665d794aa897044589d8d8f3f216abea2ae8b8304ef11762359de"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/others-diagram.b47cacef.png",
@@ -311,7 +311,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "設計・施工・維持管理・自分の立場の4枠の文字と注記が指定と一致し、橋・ショベル・点検表のアイコンも妥当。",
             "userReview": "pending",
@@ -334,7 +334,7 @@
               "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-neighbor.febe3405.png",
               "sha256": "febe3405399951c3713430c4a14b48c14b448a3d038b7c0aac832efe61b1a40f"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/neighbor-diagram.8c44eea1.png",
@@ -348,7 +348,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "自分の判断を中心に前後の立場と利用者・地域への流れが指定文どおりで、誤字がない。",
             "userReview": "pending",
@@ -371,7 +371,7 @@
               "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-sheet.0afe7294.png",
               "sha256": "0afe7294c80b681ddfc3df0425e1b02ef5804e6e1b151fee5cabce0645c79faf"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/sheet-diagram.7b9595e1.png",
@@ -385,7 +385,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "5つの欄の見出しと注記が指定文と一致し、欄は空で事実で埋める趣旨に合う。",
             "userReview": "pending",
@@ -408,7 +408,7 @@
               "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-avoid.f1139f2c.png",
               "sha256": "f1139f2cb0bbc40b3645947d602cf7aeaf17833832349ff844d4d2ae9d1381cf"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/avoid-diagram.02a89821.png",
@@ -422,7 +422,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "3つの避けたい行為と下の文が指定どおりで、各アイコンに禁止の×があり意味が合う。",
             "userReview": "pending",
@@ -445,7 +445,7 @@
               "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-summary.6386503d.png",
               "sha256": "6386503da68414f614e96411a180d507e4b1da0262c24fefa834b33c6a54330c"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/summary-diagram.51aed5ba.png",
@@ -459,7 +459,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "4つの番号付き枠の文字と注記が指定どおりで、順序も説明と一致している。",
             "userReview": "pending",
@@ -482,7 +482,7 @@
               "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-cta.95bad335.png",
               "sha256": "95bad33588b77cc31d6a27ead9ebf06fd4ff39e9b870750c853581c202232944"
             },
-            "generatedAt": "2026-11-10T12:07:56.501Z"
+            "generatedAt": "2026-11-10T12:40:50.840Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/cta-diagram.f0ad0296.png",
@@ -496,7 +496,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:56.501Z",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "ノート内の3行、見出し、注記が指定文と一致し、価格やURLは描かれていない。",
             "userReview": "pending",

@@ -207,7 +207,7 @@
       "work": "sokan-kojutsu-tachiba",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-001",
@@ -227,14 +227,27 @@
         "subtitles": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.json#longform",
-      "publishAt": "2026-12-15T11:30:00Z"
+      "publishAt": "2026-12-15T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:47:13.767Z",
+          "digest": "5327c9194e923b2db91e86703fda7bb96a56e97e23ec87589d7ce8bd0ad3a184"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:47:13.767Z",
+        "contentSha256": "92660710e69be7720496bcd637c840281b935afa874e7f4a04335b5f7f74666d"
+      }
     },
     {
       "id": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform",
       "work": "sokan-kojutsu-tradeoff",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-001",
@@ -267,6 +280,44 @@
         "by": "policy",
         "at": "2026-11-10T12:14:28.684Z",
         "contentSha256": "89c7d4fd3d343dd4ca7fd5b8bf7611c681ce7c69c12d61fe8f6993d112965e26"
+      },
+      "times": {
+        "rendered": "2026-11-10T21:07:58.890Z",
+        "uploaded": "2026-11-10T21:13:01.825Z",
+        "scheduled": "2026-11-10T21:13:11.758Z"
+      },
+      "delivery": {
+        "inputSha256": "2e5e2c9c35b33735c46259a07313dc6f8b52f35607ee1aeb4bfa9a4c8cc3032a",
+        "marker": "dn-single-62df711076ac55e6b734d29c7631b1dec909e9c2",
+        "uploadRequestedAt": "2026-11-10T21:12:17.912Z",
+        "videoId": "DR1vg8BGfac",
+        "processedAt": "2026-11-10T21:13:00.965Z",
+        "thumbnailRequestedAt": "2026-11-10T21:13:01.875Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/DR1vg8BGfac/default.jpg?sqp=CKiQztcG&rs=AOn4CLAQsEO3YBhlLMSBkxezp36LskX4aQ",
+          "https://i9.ytimg.com/vi/DR1vg8BGfac/mqdefault.jpg?sqp=CKiQztcG&rs=AOn4CLAZ9MnnB5uyWnCuorUunZ_HGa89KA",
+          "https://i9.ytimg.com/vi/DR1vg8BGfac/hqdefault.jpg?sqp=CKiQztcG&rs=AOn4CLDXsq_SQvrC7rh-smcr99z_ElC8UA",
+          "https://i9.ytimg.com/vi/DR1vg8BGfac/sddefault.jpg?sqp=CKiQztcG&rs=AOn4CLAmfbiwWkBWSd5EAVi63LAIIBYzlg",
+          "https://i9.ytimg.com/vi/DR1vg8BGfac/maxresdefault.jpg?sqp=CKiQztcG&rs=AOn4CLDEftXjgK6w_SQZG6LRw2YBttTWkA",
+          "https://i9.ytimg.com/vi/DR1vg8BGfac/fhddefault.jpg?sqp=CKiQztcG&rs=AOn4CLBgKIaV3GXCEl0iGuXmwrIH8mrCfQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T21:13:06.619Z",
+        "scheduleRequestedAt": "2026-11-10T21:13:07.753Z",
+        "scheduleAt": "2026-11-18T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-10T21:13:11.758Z"
+      },
+      "platform": {
+        "id": "DR1vg8BGfac",
+        "url": "https://www.youtube.com/watch?v=DR1vg8BGfac",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T21:13:06.619Z"
       }
     }
   ]

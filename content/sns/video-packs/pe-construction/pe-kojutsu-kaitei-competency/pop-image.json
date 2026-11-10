@@ -22,7 +22,7 @@
           "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-cover.01ea7b8e.png",
           "sha256": "01ea7b8ea886f50eca3766fdd2f9b77bc8ce774138d1b3e9b119ce082debdc72"
         },
-        "generatedAt": "2026-11-10T12:07:07.127Z"
+        "generatedAt": "2026-11-10T12:32:50.245Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -45,7 +45,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-10T12:07:07.127Z",
+        "checkedAt": "2026-11-10T12:32:50.245Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字: 技術士/建設部門/総監が解説/新コンピテンシー/口頭で変わる質問を指示と1字ずつ照合し誤字なし。キャラは黒髪・黒縁眼鏡・ひげ・無地白ヘルメット・紺作業服とネクタイ・黄白反射帯で参照と一致、手指の破綻なし",
         "userImageReview": "pending"
@@ -76,7 +76,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-hook.1422c944.png",
               "sha256": "1422c944c3ddf043cac853915c88122a271af9b2afe2729e9783f997adb25f01"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/hook-diagram.01172cb8.png",
@@ -90,7 +90,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字は指示の見出しと3つの文言に一字ずつ一致し、左から右への段階図で崩れも余計な文字も無い",
             "userReview": "pending",
@@ -113,7 +113,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-premise.bd637535.png",
               "sha256": "bd6375350401c733408183db28c074d13a47977f0bda855eb1b41c44b1e0b038"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/premise-diagram.f390af1e.png",
@@ -127,7 +127,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
             "userReview": "pending",
@@ -150,7 +150,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-overview.d58d50ff.png",
               "sha256": "d58d50ffb0d47e2586bfb4f68ecd4241acd3130127c3250a43553f717debbcc9"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/overview-diagram.df5256e5.png",
@@ -164,7 +164,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "4区分の枠と注記の文字が指示と一致し、同じ大きさの枠が並ぶ。誤字や余計な文言は無い",
             "userReview": "pending",
@@ -187,7 +187,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-communication.2260fe16.png",
               "sha256": "2260fe1675ac8ebd55fd3f3334640ab17c620115a794cb18327241dc10454aee"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/communication-diagram.9508fa09.png",
@@ -201,7 +201,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
             "userReview": "pending",
@@ -224,7 +224,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-ethics-impact.a08908e6.png",
               "sha256": "a08908e68996ca75b07ec0fdcd82d99d92a56c2b32d59bf83f280cc8e12c449f"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/ethics-impact-diagram.579dc933.png",
@@ -238,7 +238,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
             "userReview": "pending",
@@ -261,7 +261,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-ethics-culture.3145a62e.png",
               "sha256": "3145a62eceb7fb1bd2a8f0216e97c9a111b1f4eecadb02a7620a12b9d03f3273"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/ethics-culture-diagram.86f56391.png",
@@ -275,7 +275,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
             "userReview": "pending",
@@ -298,7 +298,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-cpd.504d2ec6.png",
               "sha256": "504d2ec67a7a3d85407a5c86f0c69fd439495b03a54d960922a48290219f6c64"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/cpd-diagram.a52c400a.png",
@@ -312,7 +312,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
             "userReview": "pending",
@@ -335,7 +335,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-unchanged.f2935a68.png",
               "sha256": "f2935a68546c54b85521f96afe12ae4fadd3dc07a1dcbdf7b3e1a3abbf44224b"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/unchanged-diagram.14422d1d.png",
@@ -349,7 +349,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
             "userReview": "pending",
@@ -372,7 +372,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-fix.2564130d.png",
               "sha256": "2564130d3cf780e807fd99a7a77a693ce050e127a3756b727ed71356c15df1c3"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/fix-diagram.9b565b27.png",
@@ -386,7 +386,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと3段階の文言が指示と一致し、アイコンにも崩れや余計な文字は無い",
             "userReview": "pending",
@@ -409,7 +409,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-caution.9ed9deb1.png",
               "sha256": "9ed9deb142d27de1c405fcf2d15b495e3d67e3983f1fc7667782bb17b711b86f"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/caution-diagram.e2673f54.png",
@@ -423,7 +423,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと3つの文言(言葉を入れるために経験を盛る/事実に無い話は深掘りで崩れる/公式が示すのは文言まで質問そのものではない)が指示と1字ずつ一致、余計な文字なし。左右2枠で右を強調、下端は無地で構図の指示どおり",
             "userReview": "pending",
@@ -446,7 +446,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-summary.7432338b.png",
               "sha256": "7432338b39b7c342337be1dc55b087ae6323de447bbed9c8d1b0485796928b2c"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/summary-diagram.8de93868.png",
@@ -460,7 +460,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
             "userReview": "pending",
@@ -483,7 +483,7 @@
               "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-cta.246671d4.png",
               "sha256": "246671d472ea297026b83580540ddb0d70f0decf2a0122f27c1f8de97f32eb7d"
             },
-            "generatedAt": "2026-11-10T12:07:07.127Z"
+            "generatedAt": "2026-11-10T12:32:50.245Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/cta-diagram.b09bf849.png",
@@ -497,7 +497,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:07:07.127Z",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと教材名・概要欄の文言が一字ずつ一致し、価格やURLも無い。ノートの構図も崩れていない",
             "userReview": "pending",

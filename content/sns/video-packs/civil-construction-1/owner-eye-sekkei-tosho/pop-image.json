@@ -22,7 +22,7 @@
           "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-cover.c3e8a2f9.png",
           "sha256": "c3e8a2f9a72c371c865619628b41e9671e06a21eaa6a55668f593f9908fd25fa"
         },
-        "generatedAt": "2026-11-10T12:06:43.697Z"
+        "generatedAt": "2026-11-10T12:22:03.013Z"
       },
       "copy": {
         "exam": "civil-construction-1",
@@ -44,7 +44,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-10T12:06:43.697Z",
+        "checkedAt": "2026-11-10T12:22:03.013Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
         "userImageReview": "pending"
@@ -75,7 +75,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-premise.aa8e40e6.png",
               "sha256": "aa8e40e6c09ba2a4504d2f9b55a297924d25280dead0a67a006ee9de0c2de4fd"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/premise-diagram.44e18d69.png",
@@ -89,7 +89,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -112,7 +112,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-premise2.68f146da.png",
               "sha256": "68f146dad760f34190878b8a58d4956ea2e41695f597b7c60e3aed3a15c56d2e"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/premise2-diagram.73741c3e.png",
@@ -126,7 +126,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -149,7 +149,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-misread.ca0580c2.png",
               "sha256": "ca0580c20ef39257ba25ba0bdba826f1f8a5ced0eb7584352d6d825c476a7c5b"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/misread-diagram.a34f58c6.png",
@@ -163,7 +163,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -186,7 +186,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-def1.232bd7f0.png",
               "sha256": "232bd7f07d3f512703c7baeb72fa8428d2c84aa92d29eb7ffed10d6765f44e82"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/def1-diagram.f5a4552f.png",
@@ -200,7 +200,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -223,7 +223,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-def2.cd3ab38e.png",
               "sha256": "cd3ab38e2aace52664595632f0c94f522134ed6cb25901b2dbb1cfdee1b46b98"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/def2-diagram.6f5eaff5.png",
@@ -237,7 +237,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -260,7 +260,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-def3.d2f44db5.png",
               "sha256": "d2f44db521a164638f972749cc786ca31e53e069807e9c3e7693fa068465f917"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/def3-diagram.51560e20.png",
@@ -274,7 +274,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -297,7 +297,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-order1.0c16a6e5.png",
               "sha256": "0c16a6e5d77f319abb65b62fd276abd69168b0e956b3d20148423ebfa5fc5ab4"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/order1-diagram.211977da.png",
@@ -311,7 +311,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -334,7 +334,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-order2.f11a79ce.png",
               "sha256": "f11a79ce539a8ef8f5fa0b4df1374ffab4a473bd8ebdcd72042ed9ba8e85e486"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/order2-diagram.a66b40a1.png",
@@ -348,7 +348,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -371,7 +371,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-order3.2e1f53d1.png",
               "sha256": "2e1f53d1576e5b1b6ee4d736c1059a30c1be67783c87dbd3793df527c952bb16"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/order3-diagram.f5f1037e.png",
@@ -385,7 +385,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -408,7 +408,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-order4.1bf83cb0.png",
               "sha256": "1bf83cb0f8da510918953edf6a7b82c535ecf2516bfcdf32aefdc0858db56136"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/order4-diagram.696785a0.png",
@@ -422,7 +422,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -445,7 +445,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-draw1.7763d40e.png",
               "sha256": "7763d40e0d913dcd58916aa99b3054c84e17bcfe898a51705adbd167268cae44"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/draw1-diagram.145032e1.png",
@@ -459,7 +459,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -482,7 +482,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-draw2.2669366b.png",
               "sha256": "2669366b4bad5bf9552b7c5ee3b50e43cea9603a6760f5326219d276fe267642"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/draw2-diagram.4bba3ecc.png",
@@ -496,7 +496,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -519,7 +519,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-check1.0855e3eb.png",
               "sha256": "0855e3eb67c8897700ceb02772c87a022c85c699e5d2cb5e0723769749af7b74"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/check1-diagram.8ae68102.png",
@@ -533,7 +533,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -556,7 +556,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-check2.52902145.png",
               "sha256": "52902145e97e8d8a56bba79f399b1b682148d31dc1c8d3e6325a72f80b2999c2"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/check2-diagram.b087a34a.png",
@@ -570,7 +570,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -593,7 +593,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-mm1.f604ae17.png",
               "sha256": "f604ae17def8b260bad47a998f9bfc9bcea504c92cac72a81d92cd5a4894f989"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/mm1-diagram.8e08c45c.png",
@@ -607,7 +607,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -630,7 +630,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-mm2.843b9ccf.png",
               "sha256": "843b9ccfe868b882617f2982af55560aa5f8e4e975c485998b7f1a09dd2d953a"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/mm2-diagram.bd296b7d.png",
@@ -644,7 +644,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -667,7 +667,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-ex1.b56f6a9d.png",
               "sha256": "b56f6a9ddd0b2b8cab77b059b9e008319d2699ef938cc22f2cd1bff0ebb5eb37"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/ex1-diagram.743130a1.png",
@@ -681,7 +681,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -704,7 +704,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-ex2.aec20e97.png",
               "sha256": "aec20e97030170e52c36833607f3b55df20e85cdd15f960334d68b64fb02e336"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/ex2-diagram.01043081.png",
@@ -718,7 +718,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -741,7 +741,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-shosa1.81191057.png",
               "sha256": "81191057a0efc3d38130ab3d8f47dcc92f46880a60034df090ca9e0d03437e62"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/shosa1-diagram.2350be97.png",
@@ -755,7 +755,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -778,7 +778,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-shosa2.af54704d.png",
               "sha256": "af54704d4b930cc2d603276b47b886455341880685d887ca280efc3d33c18709"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/shosa2-diagram.d92fc790.png",
@@ -792,7 +792,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -815,7 +815,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-five1.d006d44d.png",
               "sha256": "d006d44dc5f80539267d3bfbd931bdc95665776096715b12de55dab87d5dacbe"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/five1-diagram.9c29c32c.png",
@@ -829,7 +829,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -852,7 +852,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-five2.bd22aad7.png",
               "sha256": "bd22aad7ddbdcff4028e98eabfcb0ac2affa05144a17304e1a67579333cad5d1"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/five2-diagram.3f699093.png",
@@ -866,7 +866,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -889,7 +889,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-owner1.c52a466d.png",
               "sha256": "c52a466dde61334e67cb9d20874c06f245c03000098d88e5d4ce9512a4c0f6de"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/owner1-diagram.c10ed7b0.png",
@@ -903,7 +903,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -926,7 +926,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-owner2.1708217a.png",
               "sha256": "1708217a99fc4e21d69a1c8f5b63e96b09018d8e32300da308da3f16fa165fd5"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/owner2-diagram.47c67be9.png",
@@ -940,7 +940,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図内の文字を一字ずつ照合し、誤字・余計な文字・崩れが無く、図解も本文の説明と矛盾しない",
             "userReview": "pending",
@@ -963,7 +963,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-exam.b7ee7cfb.png",
               "sha256": "b7ee7cfb4875736ad0b5326c13ba3277c434c9fac08a2c8914afd194de6c2ceb"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/exam-diagram.194d758f.png",
@@ -977,7 +977,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -1000,7 +1000,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-recap.75395228.png",
               "sha256": "7539522850643100d36ec38347f11aaaa37c84f9bb22f09045eaeb621a028569"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/recap-diagram.a72fcd4f.png",
@@ -1014,7 +1014,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
@@ -1037,7 +1037,7 @@
               "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/factory/raw-cta.0b184b64.png",
               "sha256": "0b184b6440b15b2a08319c946d2a6d883e7aa879601ecaa99747ceb834711ece"
             },
-            "generatedAt": "2026-11-10T12:06:43.697Z"
+            "generatedAt": "2026-11-10T12:22:03.013Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-tosho/work/cta-diagram.a829ea5e.png",
@@ -1051,7 +1051,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-10T12:06:43.697Z",
+            "checkedAt": "2026-11-10T12:22:03.013Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字を1字ずつ照合して一致し、誤字・崩れ・余計な文字なし。図の構造も場面の説明と矛盾しない",
             "userReview": "pending",
