@@ -275,6 +275,14 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
     pub.times = { ...pub.times, uploaded: pub.times?.uploaded ?? at() };
     if (!scheduled) pub.status = 'uploaded_private';
     save();
+    // 非公開動画の表紙 URL は署名つきで、日が経つと変わる（2026-11-10・11/05 の受理の URL が 11/10 に合わなかった）。
+    // 受理から 1 時間以上たち、まだ予約していないのに今の URL と合わなければ、同じ表紙を設定し直して読み直す（DN-1064）
+    const staleThumbnail = pub.delivery.thumbnailAcceptedAt && !pub.delivery.scheduleRequestedAt &&
+      now() - Date.parse(pub.delivery.thumbnailAcceptedAt) > 3_600_000 && !pub.delivery.thumbnailUrls?.some(url => urls(actual.snippet.thumbnails).includes(url));
+    if (['upload', 'schedule'].includes(phase) && staleThumbnail) {
+      for (const key of ['thumbnailRequestedAt', 'thumbnailUrls', 'thumbnailAcceptedAt']) delete pub.delivery[key];
+      await journalSave(); save();
+    }
     if (['upload', 'schedule'].includes(phase) && !pub.delivery.thumbnailAcceptedAt) {
       if (pub.delivery.thumbnailRequestedAt) throw new Error('表紙(thumbnail)結果不明。自動再送しない');
       pub.delivery.thumbnailRequestedAt = at(); await journalSave(); save();

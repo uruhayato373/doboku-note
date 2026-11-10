@@ -94,11 +94,13 @@ test('アップロード応答を失ってもR2 intentから同じ動画を二�
 });
 
 test('予約を外した動画は R2 に残った予約の記録を台帳で上書きし、再アップロードせず予約し直す（DN-1064）', async t => {
+  // 表紙の URL は署名が変わる。受理の記録の URL（oldUrl）と今の URL（thumbUrl）が違えば同じ表紙を設定し直す
   const { root, channel } = fixture(t);
   const plan = singlePublishPlan(root, PUB, NOW);
-  const thumbUrl = 'https://i9.ytimg.com/vi/existing001/hqdefault.jpg';
+  const thumbUrl = 'https://i9.ytimg.com/vi/existing001/hqdefault.jpg?sqp=new';
+  const oldUrl = 'https://i9.ytimg.com/vi/existing001/hqdefault.jpg?sqp=old';
   const base = { inputSha256: plan.digest, marker: plan.marker, uploadRequestedAt: '2026-10-25T00:00:00.000Z', videoId: 'existing001',
-    processedAt: '2026-10-25T00:01:00.000Z', thumbnailRequestedAt: '2026-10-25T00:01:01.000Z', thumbnailUrls: [thumbUrl], thumbnailAcceptedAt: '2026-10-25T00:01:02.000Z' };
+    processedAt: '2026-10-25T00:01:00.000Z', thumbnailRequestedAt: '2026-10-25T00:01:01.000Z', thumbnailUrls: [oldUrl], thumbnailAcceptedAt: '2026-10-25T00:01:02.000Z' };
   const pub = loadRegistry(root).publications.find(p => p.id === PUB);
   upsertPublications(root, 'youtube', EXAM, [{ ...Object.fromEntries(Object.entries(pub).filter(([k]) => !['file', 'exam', 'channel'].includes(k))),
     status: 'uploaded_private', delivery: base, platform: { id: 'existing001', url: 'https://www.youtube.com/watch?v=existing001', privacy: 'private' } }]);
@@ -108,7 +110,9 @@ test('予約を外した動画は R2 に残った予約の記録を台帳で上�
   const media = loadRegistry(root).media;
   const video = media.find(m => m.id === `${PUB}/video`), cover = media.find(m => m.id === `${PUB}/cover`);
   const updates = [];
+  let thumbnailSets = 0;
   const youtube = {
+    thumbnails: { set: async () => { thumbnailSets++; return { data: { items: [{ high: { url: thumbUrl } }] } }; } },
     channels: { list: async () => ({ data: { items: [{ id: channel.id, snippet: { title: channel.title } }] } }) },
     videos: {
       list: async () => ({ data: { items: [{ id: 'existing001', snippet: { ...plan.snippet, channelId: channel.id, thumbnails: { high: { url: thumbUrl } } }, status: { ...status },
@@ -121,6 +125,7 @@ test('予約を外した動画は R2 に残った予約の記録を台帳で上�
   const result = await publishYoutubePublication(root, { pubId: PUB, phase: 'schedule', commit: true, expect: plan.digest }, { youtube, journal, now: () => NOW, wait: async () => {} });
   assert.equal(result.result, 'scheduled-verified');
   assert.equal(updates.length, 1);
+  assert.equal(thumbnailSets, 1);
   assert.equal(Date.parse(updates[0].status.publishAt), Date.parse(SLOT));
   assert.equal(journalState.value.delivery.scheduleAt, SLOT);
   assert.equal(loadRegistry(root).publications.find(p => p.id === PUB).status, 'scheduled');
