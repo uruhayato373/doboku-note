@@ -357,8 +357,22 @@ export function ledgerVerdicts(root, pack, media) {
     .map((m) => ({ figKey: `media:${m.id}`, verdict: 'ok', reason: reasons.get(m.sha256) }));
 }
 
+/**
+ * 承認を外した公開行（qa_passed）を返す。承認済みで予約の段へ進んでいない行だけを受け付ける（DN-1066）。
+ * 方針が書いた画面確認の承認も外し、運営者の確認は残す。
+ */
+export function unapprovedRow(pub) {
+  if (pub.status !== 'approved' || !pub.approval) throw new Error(`${pub.id}: ${pub.status} は承認済みの行ではない`);
+  if (pub.delivery?.uploadRequestedAt) throw new Error(`${pub.id}: 予約の段へ進んでいる（delivery あり）。registry-reconcile で実体を確かめる`);
+  const { approval: _approval, review, ...rest } = pub;
+  const keep = review?.visual && review.visual.by !== 'policy' ? { review } : {};
+  return { ...rest, ...keep, status: 'qa_passed' };
+}
+
 /** 事実から次の工程を決める。確認が取れていない工程を飛ばさない。 */
 export function nextStage(f) {
+  // 承認しただけで予約の段へ進んでいない行は done にしない。公開の枠を落としても緑に見えていた（DN-1066）
+  if (['approved', 'rendered'].includes(f.status) && f.delivering === false) return f.slotExpired ? 'slot-expired' : 'publish-pending';
   if (['approved', 'rendered', 'uploaded_private', 'scheduled', 'published'].includes(f.status)) return 'done';
   if (f.status === 'stopped') return 'stopped';
   if (f.qa === 'blocked') return 'fix-script';

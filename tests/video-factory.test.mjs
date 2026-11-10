@@ -10,7 +10,7 @@ import { reviewIsCurrent } from '../scripts/lib/media-review.mjs';
 import { acceptedApproval, audioProblems, evaluateGate, nextSlot, speechSimilarity, uploadsLeft } from '../scripts/lib/video-publish-gate.mjs';
 import {
   MAX_ATTEMPTS, MAX_NO_OUTPUT, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
-  ledgerVerdicts, nextStage, packDirOf, planPath, readPlan, recordAudit, retryItems, summarize,
+  ledgerVerdicts, nextStage, packDirOf, planPath, readPlan, recordAudit, retryItems, summarize, unapprovedRow,
 } from '../scripts/lib/video-factory.mjs';
 
 const PACK = 'pe-construction/sample';
@@ -292,6 +292,29 @@ test('nextStage: 工程を飛ばさない', () => {
     [{ status: 'qa_passed', standard: true, rendered: true, qa: 'passed', review: 'pass' }, 'ready-for-approval'],
   ];
   for (const [facts, stage] of cases) assert.equal(nextStage(facts), stage, JSON.stringify(facts));
+});
+
+test('nextStage: 承認しただけで予約へ進んでいない行を done にしない（DN-1066）', () => {
+  assert.equal(nextStage({ status: 'approved', delivering: false, slotExpired: false }), 'publish-pending');
+  assert.equal(nextStage({ status: 'approved', delivering: false, slotExpired: true }), 'slot-expired');
+  assert.equal(nextStage({ status: 'rendered', delivering: false, slotExpired: false }), 'publish-pending');
+  assert.equal(nextStage({ status: 'approved', delivering: true, slotExpired: true }), 'done', '予約の段へ進んだ行は照合に任せる');
+  assert.equal(nextStage({ status: 'scheduled', delivering: false, slotExpired: true }), 'done');
+});
+
+test('承認を外す: 予約へ進んでいない承認済みの行だけを qa_passed へ戻す（DN-1066）', () => {
+  const base = { id: 'pe-construction/x/youtube.longform.reading-fix', work: 'x', account: 'youtube:main', format: 'longform', revisionOf: 'pe-construction/x/youtube.longform', publishAt: '2026-11-11T11:30:00Z' };
+  const approval = { by: 'policy', at: '2026-11-05T22:12:46.119Z', contentSha256: 'a'.repeat(64) };
+  const row = unapprovedRow({ ...base, status: 'approved', approval, review: { visual: { status: 'approved', by: 'policy', at: approval.at, digest: 'b'.repeat(64) } } });
+  assert.equal(row.status, 'qa_passed');
+  assert.equal(row.approval, undefined);
+  assert.equal(row.review, undefined, '方針が書いた画面確認の承認も外す');
+  assert.equal(row.publishAt, base.publishAt);
+  const human = unapprovedRow({ ...base, status: 'approved', approval, review: { visual: { status: 'approved', by: 'user', at: approval.at } } });
+  assert.equal(human.review.visual.by, 'user', '運営者の確認は残す');
+  assert.throws(() => unapprovedRow({ ...base, status: 'scheduled', approval }), /承認済みの行ではない/);
+  assert.throws(() => unapprovedRow({ ...base, status: 'approved' }), /承認済みの行ではない/);
+  assert.throws(() => unapprovedRow({ ...base, status: 'approved', approval, delivery: { uploadRequestedAt: '2026-11-10T00:00:00Z' } }), /予約の段へ進んでいる/);
 });
 
 test('関門: 1 項目でも欠けたら通さず、検査していない音声を合格にしない', () => {

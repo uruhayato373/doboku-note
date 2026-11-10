@@ -16,6 +16,7 @@
  *   npm run video-factory -- wire --pack <exam>/<work> [--publish-at <ISO>]  文面へ転送先と空き枠を入れる
  *   npm run video-factory -- gate --pack <exam>/<work>                   予約へ進めてよいかを検査だけする
  *   npm run video-factory -- auto-approve --pack <exam>/<work>           関門を通ったら方針の承認を台帳へ書く
+ *   npm run video-factory -- unapprove --pack <exam>/<work>              予約へ進んでいない承認を外し、wire で日時を付け直せるようにする
  *   npm run video-factory -- produce --pack <exam>/<work>                採用・音声・動画・AI 台帳を続けて回す
  *   npm run video-factory -- finish --packs <a,b>                        音声照合・方針の承認・コミットを 1 本ずつ回す
  *   npm run video-factory -- schedule --packs <a,b>                      在庫へ空き枠を入れ、関門を通し直す
@@ -44,7 +45,7 @@ import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
-import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, retryItems, summarize } from './lib/video-factory.mjs';
+import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, retryItems, summarize, unapprovedRow } from './lib/video-factory.mjs';
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
@@ -81,7 +82,11 @@ function factsOf(reg, pack, reviews, mediaById) {
   const state = approvalState(ROOT, pub, mediaById);
   const r = reviews[pub.id];
   const fresh = reviewIsCurrent(r, state);
+  // 承認の後に予約の段（publish）へ進んだか。進んでいなければ公開日時までの残りで予約できるかを見る（DN-1066）
+  const leadMs = (readPolicy(ROOT).minLeadHours ?? 24) * 3_600_000;
   return {
+    delivering: Boolean(pub.delivery?.uploadRequestedAt),
+    slotExpired: !pub.publishAt || Date.parse(pub.publishAt) - Date.now() < leadMs,
     pub: pub.id, status: pub.status, standard, plan: readPlan(ROOT, pack) ? summarize(readPlan(ROOT, pack)) : null,
     rendered: video?.provenance?.specSha256 === boardSha,
     qa: !q ? 'none' : q.avg >= 2 && q.blocks === 0 ? 'passed' : 'blocked',
@@ -349,6 +354,20 @@ function autoApprove() {
   console.log(`方針の承認を書いた: ${pub.id}（digest ${state.final.current.slice(0, 12)}…）`);
 }
 
+/**
+ * 承認済みで予約の段へ進んでいない行の承認を外し、wire で日時を付け直せる状態（qa_passed）へ戻す（DN-1066）。
+ * 公開日時の 24 時間前を過ぎると関門で予約できず、wire は承認済みの行を受け付けないので、ここ以外に戻す経路が無い。
+ * 外した承認は出力と git の履歴に残る。予約の段へ進んだ行（delivery あり）は外さない。
+ */
+function unapprove() {
+  const pack = requirePack();
+  const [exam, work] = pack.split('/');
+  const pub = targetPub(loadRegistry(ROOT), exam, work);
+  if (!pub) throw new Error(`${pack}: 公開行が無い`);
+  upsertPublications(ROOT, 'youtube', exam, [unapprovedRow(stripRow(pub))]);
+  console.log(JSON.stringify({ pub: pub.id, publishAt: pub.publishAt ?? null, removedApproval: pub.approval, next: `npm run video-factory -- wire --pack ${pack} [--publish-at <ISO>]` }));
+}
+
 const self = (...cmd) => spawnSync(process.execPath, [join(ROOT, 'scripts/video-factory.mjs'), ...cmd], { cwd: ROOT, encoding: 'utf8' });
 const requirePacks = () => {
   const packs = (args.packs ?? '').split(',').filter(Boolean);
@@ -474,11 +493,12 @@ const commands = {
   wire,
   gate,
   'auto-approve': autoApprove,
+  unapprove,
   produce,
   finish,
   schedule,
   publish,
   cleanup,
 };
-if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|commit|audio-check|wire|gate|auto-approve|produce|finish|schedule|publish|cleanup'); process.exit(2); }
+if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|commit|audio-check|wire|gate|auto-approve|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
 await commands[command]();

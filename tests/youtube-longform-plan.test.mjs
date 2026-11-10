@@ -123,6 +123,9 @@ test('見直し日を過ぎたら要対応に出す。壁時計では違反に�
 test('棚卸しは実体が消えた停止行を公開に数えず、未制作の企画も数える', () => {
   assert.equal(inventoryState({ status: 'stopped', platform: { privacy: 'public' } }), 'stopped');
   assert.equal(inventoryState({ status: 'qa_passed', media: { video: 'v' } }), 'stock');
+  // 承認だけでは YouTube に予約が入っていない。予約済みに数えない（DN-1066）
+  assert.equal(inventoryState({ status: 'approved', media: { video: 'v' } }), 'stock');
+  assert.equal(inventoryState({ status: 'scheduled', media: { video: 'v' } }), 'scheduled');
   assert.equal(inventoryState({ status: 'qa_passed', media: {} }), 'unbuilt');
   const t = summarizeInventory([{ exam: 'q', intent: 'howto', status: 'published' }], [{ exam: 'q', action: 'new', title: '企画' }]);
   assert.deepEqual(t.map((r) => [r.type, r.published, r.unbuilt]), [['howto', 1, 0], ['企画のみ', 0, 1]]);
