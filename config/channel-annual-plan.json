@@ -3218,6 +3218,7 @@
       "primaryCta": {
         "kind": "site-article",
         "targets": [
+          "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx",
           "content/site/civil-practice/owner-safety-responsibility/article.mdx"
         ]
       },
@@ -3683,6 +3684,7 @@
     {
       "id": "y27-c2-start-1",
       "exam": "civil-construction-2",
+      "publicationId": "civil-construction-2/c2-juken-junjo-2027/youtube.longform",
       "title": "2級土木｜2027 年度の受検の順序",
       "action": "new",
       "slot": "c2-start-2027",
@@ -3695,6 +3697,7 @@
     {
       "id": "y27-owner-eye-3",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform",
       "title": "発注者の目で読む設計図書",
       "action": "new",
       "slot": "owner-eye-2027",
@@ -3707,6 +3710,7 @@
     {
       "id": "y27-owner-career-1",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/owner-career-shigoto/youtube.longform",
       "title": "発注者の仕事の中身",
       "action": "new",
       "slot": "owner-career-2027",

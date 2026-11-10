@@ -94,6 +94,11 @@
       "legacyKey": "044-civil1-shiken-campaign"
     },
     {
+      "id": "owner-career-shigoto",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-career-shigoto"
+    },
+    {
       "id": "owner-eye-kantokuin",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/owner-eye-kantokuin"
@@ -107,6 +112,18 @@
         "blocks": 0,
         "at": "2026-11-10",
         "by": "Claude Code video-content-qa"
+      }
+    },
+    {
+      "id": "owner-eye-sekkei-tosho",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-tosho",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "b854987dde6bf876bd22cdc2d209eb2e3dab3df1ab45e29543b1591d7d165595"
       }
     },
     {
