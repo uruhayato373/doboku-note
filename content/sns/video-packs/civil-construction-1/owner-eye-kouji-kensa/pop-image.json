@@ -1,0 +1,549 @@
+{
+  "revisions": {
+    "cover-pop-20261110": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #1E73C8 と濃色 #155293、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『工事検査』『発注者が』『見るところ』を大きく配置。上部の黄色帯に小さく『元発注者が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-cover.c4cca7aa.png",
+          "sha256": "c4cca7aabd0f3d9c38458488164ad2074e230d35b037a8a9f0f8a2d66d40d683"
+        },
+        "generatedAt": "2026-11-10T12:07:17.592Z"
+      },
+      "copy": {
+        "exam": "civil-construction-1",
+        "headline": [
+          "工事検査",
+          "発注者が",
+          "見るところ"
+        ],
+        "authority": "元発注者が解説"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/cover-pop.6a786cae.png",
+        "sha256": "6a786cae9b8d0a81028dd0ac31fc031e272048cafa63b16701ab9966966ce1a1",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "c4cca7aabd0f3d9c38458488164ad2074e230d35b037a8a9f0f8a2d66d40d683"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-10T12:07:17.592Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字: 元発注者が解説・工事検査・発注者が・見るところが指示どおり一字も違わず、先生は黒縁眼鏡・ひげ・白ヘルメット・紺作業服と反射帯で手指も破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261110": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "0183f24e365906149e7633fbad9ccb21e20713024e7d714bc81136d39149226c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の答え』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『検査は性格の違う二系統』 『見られるのは 出来形・品質・書類の積み重ね』。 図の下、下端の字幕の帯より上に『発注者の側の見方を、本動画で再構成した整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 完成検査、中間検査、既済部分検査。呼び方が似ていて、何を見られるのか分からないまま、書類と出来形の準備が後手になっていませんか。今日は、発注者の側にいた立場から、検査の見方を整理します。制度は国の工事の例で整理し、自治体は団体ごとに違います。結論は、検査には性格の違う二つの系統があり、見られるのは出来形、品質、書類の積み重ねだということです。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 30.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-premise.9f9792ff.png",
+              "sha256": "9f9792ff81d7a0af61d5f7d7dfa3d43daabf5eb6b57e2fb3087571a174492efb"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/premise-diagram.dfeb646e.png",
+            "sha256": "dfeb646eb34ac59ba066637686f68a382f318e0cafbf24d4408733bfc39c040a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9f9792ff81d7a0af61d5f7d7dfa3d43daabf5eb6b57e2fb3087571a174492efb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 今日の答え・検査は性格の違う二系統・見られるのは出来形・品質・書類の積み重ね・下段の全文が指示と一致し、図も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "95d639309f6334ff9110b7cf93f9af954a908566b76c066dd775ad1413b94fa4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『検査は一種類と思われがち』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『当日に一度だけ 一種類の確認』 『実際は 目的の違う検査が並ぶ 担当も別の職員』。 図の下、下端の字幕の帯より上に『国の工事の例。自治体は団体ごとに異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 検査は、当日に一度だけ行う一種類の確認と思われがちですが、実際には、代金を払うために完了を確かめる検査と、施工の質を評価する検査が並んでいます。しかも、日ごろやり取りする監督職員と検査をする職員は、原則として別の職員です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 43.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-misread.fad885e5.png",
+              "sha256": "fad885e5c007d90ebc785d716e844d1925d68c6818dc6ea6253b20290bd52c05"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/misread-diagram.0ec55fde.png",
+            "sha256": "0ec55fde7e71c707173ceddef83f7d58f54dba13071b8e5c3d975168947b6914",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fad885e5c007d90ebc785d716e844d1925d68c6818dc6ea6253b20290bd52c05"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・左右枠の文言・下段の注記が指示と一字一致、図も本文と矛盾せず破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "types",
+          "inputSha256": "78d766980d7d67d0f36566b7ff346e110443890fa3269acb46c99e4082f5ef15",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『代表的な4つの手続き』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『完成検査 設計図書どおりに完成したか』 『既済部分検査 代金の一部を払うための出来形』 『中間検査 施工中の品質と出来形の評価』 『部分引渡し 指定部分を先に引き渡す』。 図の下、下端の字幕の帯より上に『名称は発注機関で異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 公共土木工事の代表的な手続きは四つです。完成検査は、設計図書のとおり完成したかを確かめます。既済部分検査は、完成前に代金の一部を払うため、出来形を確かめます。中間検査は、完成を待たずに、施工状況や出来形、品質、出来ばえを評価します。部分引渡しは、あらかじめ指定した部分を先に引き渡す手続きです。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 24.6）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-types.8aa9454b.png",
+              "sha256": "8aa9454b68dff228a4fdec9675bfd1a8732f98c50e3f41d1453106f3a46cb0d6"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/types-diagram.72b23fd5.png",
+            "sha256": "72b23fd5727722020ec1de5c7af0932ec07184192e821e860f3c12c340c2ced6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8aa9454b68dff228a4fdec9675bfd1a8732f98c50e3f41d1453106f3a46cb0d6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 4つの手続き名・説明文・注記が指示と一致し、各アイコンも内容と矛盾せず破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "two-lines",
+          "inputSha256": "8d95c9eb8b2f5fdd6c4c285edcf880b7153245f2ac129208b946ae61cfb58963",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『検査の二つの系統』。 図に入れる文字: 『給付の完了の確認 完成検査・既済部分検査 （部分引渡しは完成検査と同じ系統）』 『品質の評価 中間検査（中間技術検査）』。 図の下、下端の字幕の帯より上に『国の工事の例。自治体は団体ごとの要領による』の全文を省かずに入れる。 この場面の説明（文字にしない）: この四つは、二つの系統に分けると整理できます。完成検査と既済部分検査は、会計法や地方自治法が求める、給付の完了の確認です。部分引渡しは、完成検査の仕組みを指定部分に当てはめるもので、完成検査と同じ系統です。一方、中間検査は、国の直轄工事で中間技術検査と呼ばれ、工事成績評定に使う技術的な評価です。同じ検査でも、見る目的が違います。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 45.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-two-lines.0a9d6547.png",
+              "sha256": "0a9d65476dbc79cc526c4c99a9d41fe4a0ec56eee6a569c9116923121675a020"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/two-lines-diagram.fc341159.png",
+            "sha256": "fc341159c45952d944ea47dc09d9f782b72425a59a4abc8275ee9bb9a6b38955",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0a9d65476dbc79cc526c4c99a9d41fe4a0ec56eee6a569c9116923121675a020"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 二系統の分類と部分引渡しの括弧書き・中間技術検査・注記が指示と一致し、本文の系統分けと矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "completion",
+          "inputSha256": "9c670607c0aa4b09d7e033e8e87162f9c7872775bc3272f95f9c3d9e8a6d526c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『完成検査の流れ（約款の例）』。 図に入れる文字: 『完成の通知』 『14日以内に立会いで検査』 『合格：引渡しを申し出て代金を請求』 『不合格：修補して再検査』。 図の下、下端の字幕の帯より上に『標準約款の例。日数は発注者の契約書で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 完成検査の流れを、公共工事標準請負契約約款の例で見ます。受注者が完成を通知すると、発注者は、通知から十四日以内に、受注者の立会いのもとで検査を行い、結果を通知します。必要なときは、理由を伝えたうえで、最小限の範囲で壊して確かめることもあります。合格したら、引渡しを申し出て、代金を請求できます。不合格なら直して再度検査を受けます。日数や運用は発注者ごとに違うので、契約書で確かめてください。 前回の不合格の理由を直す: 16:9 ではない（1717×916）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-completion.db1e5232.png",
+              "sha256": "db1e5232b8c4683b7a318121ed0ba0e5383a595db77655f0d800ccd2e1c97aa6"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/completion-diagram.de212e92.png",
+            "sha256": "de212e925fc4998283eff45e3d25f2c9f5afea6aed0f41536b5aff2df00e166e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "db1e5232b8c4683b7a318121ed0ba0e5383a595db77655f0d800ccd2e1c97aa6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 完成の通知→14日以内に立会いで検査→合格・不合格の分岐と再検査の戻り矢印が本文どおりで、文字も指示と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "two-people",
+          "inputSha256": "1f5bc74d9a172e33600e45d80ea0e4a8cb1ad0770d8b32c40f91195076d38f12",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『監督職員と検査職員』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『監督職員 工程・立会い・指示や承諾』 『検査職員 出来形・品質・書類を突き合わせ合否を判断』。 図の下、下端の字幕の帯より上に『国の工事の例。自治体は団体ごとに異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 監督職員と検査職員の違いです。監督職員は、工程の管理や立会い、指示や承諾など、日々の施工に付き合う窓口です。検査職員は、完成や既済部分の検査の当日に、出来形、品質、書類を突き合わせて合否を判断します。見る人が別ですから、日ごろの記録は、検査職員にも通じる形で残す必要があります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 49.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-two-people.8a79f73c.png",
+              "sha256": "8a79f73c1626f6458edf409a9081fb7215276dc38bea1882276b6d20c0523afb"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/two-people-diagram.4181b36d.png",
+            "sha256": "4181b36d94654419a9ab36d4362c5fc01fda69264f15a9538f6ab17ef2950405",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8a79f73c1626f6458edf409a9081fb7215276dc38bea1882276b6d20c0523afb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 監督職員と検査職員の見出し・説明・注記が指示と一致し、アイコンの崩れも無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "seen",
+          "inputSha256": "c8a6ab86fd07381a78134f3264c53301d179c0f591cac225b72501bf4680ea1a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『検査で確かめられる4つ』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『出来形 測定値と規格値の対比』 『品質 材料試験・管理図』 『出来ばえ 現地の仕上がり』 『関係書類 写真・しゅん功図面・打合せ記録』。 図の下、下端の字幕の帯より上に『検査の準備の整理は記事に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: 検査で確かめられるのは、出来形、品質、出来ばえ、そして関係書類です。出来形は、測った値を規格値と対比した資料。品質は、材料試験の成績や管理図。出来ばえは、現地の仕上がりです。書類には、工事写真や、しゅん功図面、打合せの記録が入ります。当日にまとめて作れるものではなく、施工の積み重ねそのものが見られます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 36.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-seen.f273773b.png",
+              "sha256": "f273773b7f895716abe877b67117bdf00617b7ead0474d854583c44d935236cf"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/seen-diagram.c50d7728.png",
+            "sha256": "c50d7728ae223c5dfd40dfa9d7c618b6fa913674e5eeada1a8c71bf6290ea8bf",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f273773b7f895716abe877b67117bdf00617b7ead0474d854583c44d935236cf"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 4つの確認項目と説明・注記が指示と一字一致し、アイコンも内容に合い破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "interim",
+          "inputSha256": "301e41c5e9622a90571a4146a4971da26524deaa42d40f998fb7bee9989853bf",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『中間検査と工事成績評定（国の例）』。 図に入れる文字: 『施工中に品質・出来形を評価』 『評定は65点から加減点』 『国の中間技術検査で確認した出来形は 状況が変わらなければ完成検査で省略されることも』。 図の下、下端の字幕の帯より上に『国の直轄工事の例。自治体は団体ごとの要領による』の全文を省かずに入れる。 この場面の説明（文字にしない）: 中間の検査は、国の直轄工事の例では、規模の大きい工事で施工中に行い、工事成績評定の点にも反映されます。国の評定は六十五点が出発点で、加点と減点で決まります。国の中間技術検査で確認された出来形は、その後に状況が変わらなければ、完成検査で確認を省略されることがあります。状況が変われば、改めて確認されます。だから、中間の段階から記録を整える価値があります。自治体は団体ごとの要領なので、受注する団体のものを確かめてください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 22.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-interim.e3fb1a92.png",
+              "sha256": "e3fb1a926896effd785efbcca9744e75c132a336bfd37ead2fd84e4c7e7c8e0a"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/interim-diagram.8b0bfb2e.png",
+            "sha256": "8b0bfb2e980057b6b8c0f1aacd0af5a96f318969fac14c66580d84267399a606",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e3fb1a926896effd785efbcca9744e75c132a336bfd37ead2fd84e4c7e7c8e0a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 65点からの加減点・中間技術検査・完成検査での省略の文言と注記が指示と一致し、本文と矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "53ce5c2c9f114406912d47607176a16e6c51d2d1e43e5fe49ce1665bdecda94e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例｜橋台の埋戻し前』。 図に入れる文字: 『埋戻し前に 鉄筋の状況と寸法を立会いで確認』 『写真と寸法を記録』 『埋戻し後は見えない 記録で確かめる』。 図の下、下端の字幕の帯より上に『説明用の仮の例。実在の工事ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 仮の例で考えます。橋台の工事で、埋戻しの前に、鉄筋の組立の状況と寸法を、監督職員の立会いで確認し、写真と寸法の記録を残したとします。埋戻したあとは、見えなくなる部分です。後から検査職員が確かめるときは、この記録が頼りになります。写真は、何を証明するためのものか、撮る前に言葉にできるかが分かれ目です。この例は説明のための仮のもので、実在の工事ではありません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 14.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-example.94265fa7.png",
+              "sha256": "94265fa7bef6264003e3f51f720d6ea1f7e82ff7f19643b296a7bf831e9a3e18"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/example-diagram.44edce43.png",
+            "sha256": "44edce43ca1817ca8f90e29b067c10694c823f3f315bb918d7667fca5353b0bb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "94265fa7bef6264003e3f51f720d6ea1f7e82ff7f19643b296a7bf831e9a3e18"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 仮の例｜橋台の埋戻し前と各枠の文言・注記が指示と一致し、埋戻し前後の橋台と鉄筋の図も成り立つ",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "exam-link",
+          "inputSha256": "6bf2da07251a9208cbfc403ab1373ce50c1ff7614bb70f747be205786f36321b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『学習への使い方』。 図に入れる文字: 『管理図・規格値を 何を証明する資料か、で覚える』 『経験記述では どの記録で確かめたかを書く』。 図の下、下端の字幕の帯より上に『出題を予想するものではない。本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 学習との接点を一つだけ。品質管理や出来形管理を学ぶとき、管理図や規格値を、検査で何を証明する資料かに置き換えて覚えると、理解が深まります。施工経験記述で品質管理の工夫を書くときも、どんな記録で確かめたかまで書けると、具体的になります。何が出題されるかは年度によって違うので、出題を予想するものではありません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 36.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-exam-link.bc0b12f5.png",
+              "sha256": "bc0b12f535907d83db61f425a95bffdca50bfe78bb15c6ee224e3051bd9a8e83"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/exam-link-diagram.b9cafd77.png",
+            "sha256": "b9cafd77ea1441105b0296b9ad0d7da8caccba1fde0e77ac94ac678db55556cc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bc0b12f535907d83db61f425a95bffdca50bfe78bb15c6ee224e3051bd9a8e83"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 学習への使い方・管理図と規格値・経験記述の文言・注記が指示と一致し、管理図の図も妥当",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "prep",
+          "inputSha256": "c8eabf06cdc6dad032ae7567b7679fd129b54d91ada1d6a4ed9a5bd85d3c158d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『着工から残す3つ』。 図に入れる文字: 『撮影箇所一覧表を 着工前に作る』 『測定値を規格値と 対比してその都度まとめる』 『食い違いは図面名・測点・数値で 通知して記録』。 図の下、下端の字幕の帯より上に『記事に基づく本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 準備は、着工のときから始まります。一つ、工事写真の撮影箇所一覧表を、着工前に作る。二つ、出来形と品質の測定値を、規格値と対比できる形で、その都度まとめる。三つ、図面と現場が合わないと気づいたら、図面名、測点、数値で、直ちに監督職員へ通知し、記録を残す。この記録は、設計変更の協議でも根拠になります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-prep.7c3c883b.png",
+              "sha256": "7c3c883b5d41aeb49904f679b1621b8833c0a73a5b1a147a004e831c0f98a0bb"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/prep-diagram.246b7283.png",
+            "sha256": "246b72831e6095ddfd2dd59d32a9119d49f66fdebd5a30d17f60346e6f461ef6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7c3c883b5d41aeb49904f679b1621b8833c0a73a5b1a147a004e831c0f98a0bb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 着工から残す3つと3枠の文言・注記が指示と一致し、アイコンも本文の内容と矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "3a5732b5eac7ddbfec4712cd1f9f24f90d3a04eff1423c14e93b5ad1e7fb5224",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『検査は二つの系統』 『監督と検査は原則別の人』 『見られるのは積み重ね』 『準備は着工から』。 図の下、下端の字幕の帯より上に『本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。検査は、給付の完了を確かめる系統と、品質を評価する系統の二つ。監督職員と検査職員は、原則として別の人。見られるのは、出来形、品質、書類の積み重ね。そして準備は、検査の当日ではなく、着工から始まります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-recap.88d73899.png",
+              "sha256": "88d7389929e4316bfa4aa3a87e76c3f1a07fc78d1e3792f482ed5809cc3592ba"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/recap-diagram.2045a38a.png",
+            "sha256": "2045a38acb7d85c899cc20750ce740135d5c80728bd41ca167207c8f3b05c7bf",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "88d7389929e4316bfa4aa3a87e76c3f1a07fc78d1e3792f482ed5809cc3592ba"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 今日のまとめと番号付き4枠の文言・注記が指示と一致し、崩れた字や余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "2c8253775578259246f201b5ddb91419006d50e11fa780193f1f33a65e09473d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『詳しくはサイトの記事で』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『工事検査の種類と役割』 『リンクは概要欄から』。 この場面の説明（文字にしない）: 検査の種類と根拠、監督職員との役割分担は、サイトの記事で詳しく整理しています。概要欄のリンクから、確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/factory/raw-cta.88cf1916.png",
+              "sha256": "88cf19168031bd2b0ef719a4017bbd05ba9447c61e1c2b84a0c77607ec905de9"
+            },
+            "generatedAt": "2026-11-10T12:07:17.592Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/cta-diagram.85f152a3.png",
+            "sha256": "85f152a3374940037626ce9b87c203551e95de70e10ef3d5256bd2ea2f9b7efb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "88cf19168031bd2b0ef719a4017bbd05ba9447c61e1c2b84a0c77607ec905de9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:07:17.592Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 詳しくはサイトの記事で・工事検査の種類と役割・リンクは概要欄からが指示と一致し、価格・URLなし、ノート中央の構図",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261110",
+  "activeBodyRevision": "body-diagram-20261110"
+}
