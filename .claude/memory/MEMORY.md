@@ -74,6 +74,7 @@
 - [資格展開SSOT](project_qualification_expansion_ssot.md) — 展開判断・行政書士取得決定
 - [NSM・領域・週次](project_nsm.md) — 月受取額NSM・8領域・週次
 - [モデル前提](project_model_assumptions.md) — Opus5.5前提・棚卸し済
+- [サブスクのみ](project_subscription_only.md) — API不使用・判断軸は枠と速度
 - [分類SSOT](project_content_taxonomy.md) — 領域×資格×型×タグ
 - [GSC/SEO方針](project_gsc_pivot_2026_04.md) — CTA最適化・AdSense再開2026-11・ピラー
 - [集客・誘導への重点移行](project_access_funnel_phase_2026_11.md) — 技術士はnote側・土木は持ち越し・棚の不足はDN台帳
