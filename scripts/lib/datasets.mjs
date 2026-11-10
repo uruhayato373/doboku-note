@@ -100,6 +100,7 @@ export const DATASETS = [
   d('config.issue-map', 'config/issue-map.json', 'config', 'strategy', '事業イシューマップ（全体・施工管理）。判定日は DN、現在値は指標 id で参照する', { schema: 'ConfigIssueMap', refs: [{ at: 'maps[].calendar.rows[].qualifications[]', to: 'qualification' }, { at: 'maps[].comparison.qualifications[]', to: 'qualification' }] }),
   // 計画
   d('config.channel-annual-plan', 'config/channel-annual-plan.json', 'config', 'plan', 'チャネルの年間計画（YouTube・X・Instagram の年間の枠と型。通常動画は制作期限と公開目標も持つ。実予約は公開台帳）', { schema: 'ConfigChannelAnnualPlan', refs: [{ at: 'entries[].exam', to: 'qualification' }, { at: 'slots[].exam', to: 'qualification' }, { at: 'channels.x.slots[].exam', to: 'qualification' }, { at: 'channels.instagram.slots[].exam', to: 'qualification' }] }),
+  d('config.operating-costs', 'config/operating-costs.json', 'config', 'strategy', '運営の固定費の表（月額の行。土曜の収集が月の費用の計測記録を作る）', { schema: 'ConfigOperatingCosts' }),
   d('config.annual-roadmap', 'config/annual-roadmap.json', 'config', 'plan', '年間ロードマップの期間と買い場の週数', { schema: 'ConfigAnnualRoadmap' }),
   // 商品
   d('config.products', 'config/products.json', 'config', 'product', '商品の正本（全チャネル・1ファイル。書き換えは npm run product）', { schema: 'ConfigProducts', refs: [{ at: 'products[].qualification', to: 'qualification' }] }),

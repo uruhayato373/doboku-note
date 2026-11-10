@@ -246,7 +246,7 @@
       "unit": "円",
       "definition": "対象チャネルの実受取額。販売額から未確認の料率で推計しない。",
       "channel": "operations",
-      "supply": "human"
+      "supply": "mac"
     },
     {
       "id": "costYen",
@@ -255,7 +255,7 @@
       "unit": "円",
       "definition": "対象期間に対応する費用。計上範囲を出典に記す。未記録をゼロにしない。",
       "channel": "operations",
-      "supply": "human"
+      "supply": "mac"
     },
     {
       "id": "workMinutes",

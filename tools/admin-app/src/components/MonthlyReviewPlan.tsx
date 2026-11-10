@@ -26,7 +26,7 @@ const readJson = (root: string, rel: string) => {
   try { return JSON.parse(readFileSync(p, 'utf8')); } catch { return null; }
 };
 
-/** 月次レビューの準備（データの確定・人の入力・判断・記録）を、前の暦月について組み立てる。読めなければ null。 */
+/** 月次レビューの準備（データの確定・判断・記録）を、前の暦月について組み立てる。読めなければ null。 */
 function loadPlan() {
   const root = findRepoRoot();
   const period = reviewPeriod('monthly') as { startDate: string; endDate: string };

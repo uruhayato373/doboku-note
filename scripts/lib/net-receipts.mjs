@@ -8,6 +8,7 @@
  * ---------------------------------------------------------------------------
  */
 
+import { datasetPath } from './datasets.mjs';
 import { todayJst } from './jst-date.mjs';
 
 /**
@@ -190,6 +191,38 @@ function kdpReceipts(month, royalties, firstMonth) {
  * 前の記録が無ければ supersedes:null。complete の月を partial で上書きしない（そろった月を欠測へ戻さない）。
  * 2026-10-11: 9 月を partial で記録した後に同じコマンドを回すと、訂正先が無く「同じ計測があります」で拒まれた。
  */
+/**
+ * 自動の記録（土曜の収集）が、同じ月・同じ指標の最新の記録に対して何をするか。
+ * 値がまだ出ない（確定前）なら 'not-ready'、同じ値を complete で記録済みなら 'recorded'、それ以外は 'record'。
+ * 毎週同じ記録を積まず、確定前の null を書かないための判定（受取額と固定費の両方が使う）
+ */
+export function autoRecordAction(current, record) {
+  const metric = record.subject;
+  if (record.coverage !== 'complete' || record.values?.[metric] == null) return 'not-ready';
+  const prev = current.find((r) => r.kind === 'measurement' && r.subject === metric && r.qualification === record.qualification
+    && r.channel === record.channel && r.period?.startDate === record.period.startDate && r.period?.endDate === record.period.endDate);
+  return prev?.coverage === 'complete' && prev.values?.[metric] === record.values[metric] ? 'recorded' : 'record';
+}
+
+/**
+ * 固定費の表（config/operating-costs.json）から、その月の費用の計測記録を組み立てる。その月に当たる項目が無ければ null（0 円と書かない）。
+ * @param {{ month: string, items: { id: string, label: string, monthlyYen: number, from: string, to?: string }[] }} input
+ */
+export function buildCostMeasurement({ month, items }) {
+  const active = (items ?? []).filter((x) => x.from <= month && (!x.to || month <= x.to));
+  if (!active.length) return null;
+  return {
+    kind: 'measurement',
+    qualification: 'all',
+    period: { startDate: `${month}-01`, endDate: monthEnd(month) },
+    channel: 'operations',
+    subject: 'costYen',
+    coverage: 'complete',
+    source: `固定費の表（${datasetPath('config.operating-costs')}）の ${active.length} 項目: ${active.map((x) => `${x.label} ${x.monthlyYen.toLocaleString('ja-JP')}円`).join('・')}。表に無い費用（変動費・単発の購入）は含めない。record-operating-costs で記録。`,
+    values: { costYen: active.reduce((sum, x) => sum + x.monthlyYen, 0) },
+  };
+}
+
 export function netReceiptsSupersedes(current, record) {
   const prev = current.find((r) => r.kind === 'measurement' && r.subject === 'netReceipts' && r.qualification === record.qualification
     && r.channel === record.channel && r.period?.startDate === record.period.startDate && r.period?.endDate === record.period.endDate);

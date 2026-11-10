@@ -17,7 +17,7 @@ test('10/1（note 確定前）は note の売上・アクセス・受取額が�
   assert.equal(r['net-receipts'].state, 'waiting');
 });
 
-test('確定後は取得コマンドを出し、売上が確定したら受取額は人の入力になる', () => {
+test('確定後は取得コマンドを出し、売上が確定したら受取額は土曜の収集待ちになる', () => {
   let r = byKey(monthlyReadiness({ period, today: '2026-10-02' }));
   assert.equal(r['note-sales'].state, 'todo');
   assert.equal(r['note-sales'].command, 'node scripts/note-sales-fetch.mjs --month 2026-09 --commit');
@@ -25,8 +25,9 @@ test('確定後は取得コマンドを出し、売上が確定したら受取�
   r = byKey(monthlyReadiness({ period, today: '2026-10-02', salesMonths: { '2026-09': { finalized: true } }, trafficFetchedAt: '2026-10-02T01:00:00Z' }));
   assert.equal(r['note-sales'].state, 'done');
   assert.equal(r['note-traffic'].state, 'done');
-  assert.equal(r['net-receipts'].state, 'human');
-  assert.match(r['net-receipts'].command, /--coconala <円>/);
+  assert.equal(r['net-receipts'].state, 'waiting');
+  assert.match(r['net-receipts'].detail, /土曜の収集/);
+  assert.equal(r['net-receipts'].command, 'npm run record-net-receipts -- --month 2026-09 --commit');
 });
 
 test('Google・KDP・受取額・実験・関門・記録の済と未', () => {

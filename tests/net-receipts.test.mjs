@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  parseNoteSalesDetail, kdpCatalogRoyalty, buildNetReceiptsMeasurement, monthEnd, netReceiptsSupersedes, monthReceipts, kdpMonthsDue, isKdpEstimated, kdpRoyaltyFinalizeDate,
+  parseNoteSalesDetail, kdpCatalogRoyalty, buildNetReceiptsMeasurement, buildCostMeasurement, autoRecordAction, monthEnd, netReceiptsSupersedes, monthReceipts, kdpMonthsDue, isKdpEstimated, kdpRoyaltyFinalizeDate,
   isNoteSalesAggregating, noteSalesFinalizeDate, noteSalesPendingMessage,
 } from '../scripts/lib/net-receipts.mjs';
 
@@ -116,4 +116,30 @@ test('過去月の note は直前に確定月が無ければ直後の確定月�
   const r = monthReceipts({ month: '2026-06', noteSales: log, coconalaRevenue: null, kdpRoyalties: null });
   assert.deepEqual([r.channels[0].value, r.channels[0].status], [8500, 'estimate']);
   assert.match(r.channels[0].note, /2026-08 の実績/);
+});
+
+test('自動の記録は、確定前の値と記録済みの同じ値を書かない（毎週同じ記録を積まない）', () => {
+  const full = buildNetReceiptsMeasurement({ month: '2026-09', note: { gross: 100, fee: 10, net: 90 }, coconala: 10, kdp: { royalty: 5, estimated: false } });
+  assert.equal(autoRecordAction([], full), 'record');
+  assert.equal(autoRecordAction([{ ...full, file: 'a.json' }], full), 'recorded');
+  assert.equal(autoRecordAction([{ ...full, file: 'a.json', values: { netReceipts: 1 } }], full), 'record');
+  assert.equal(autoRecordAction([{ ...full, file: 'a.json', coverage: 'partial' }], full), 'record');
+  const early = buildNetReceiptsMeasurement({ month: '2026-09', note: null, coconala: 10, kdp: { royalty: 5, estimated: true } });
+  assert.equal(autoRecordAction([], early), 'not-ready');
+});
+
+test('固定費はその月に当たる行だけを足し、当たる行が無ければ記録を作らない（0 円と書かない）', () => {
+  const items = [
+    { id: 'a', label: 'A', monthlyYen: 3000, from: '2026-01' },
+    { id: 'b', label: 'B', monthlyYen: 500, from: '2026-10' },
+    { id: 'c', label: 'C', monthlyYen: 70, from: '2026-01', to: '2026-08' },
+  ];
+  const sep = buildCostMeasurement({ month: '2026-09', items });
+  assert.deepEqual([sep.values.costYen, sep.subject, sep.coverage, sep.period], [3000, 'costYen', 'complete', { startDate: '2026-09-01', endDate: '2026-09-30' }]);
+  assert.equal(buildCostMeasurement({ month: '2026-08', items }).values.costYen, 3070);
+  assert.equal(buildCostMeasurement({ month: '2026-10', items }).values.costYen, 3500);
+  assert.match(sep.source, /A 3,000円/);
+  assert.equal(buildCostMeasurement({ month: '2025-12', items }), null);
+  assert.equal(buildCostMeasurement({ month: '2026-09', items: [] }), null);
+  assert.equal(autoRecordAction([{ ...sep, file: 'x.json' }], sep), 'recorded');
 });

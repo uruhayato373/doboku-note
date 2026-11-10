@@ -170,6 +170,7 @@
     "check-search-triage": "node scripts/check-search-triage.mjs",
     "report-web-vitals": "node scripts/report-web-vitals.mjs",
     "record-net-receipts": "node scripts/record-net-receipts.mjs",
+    "record-operating-costs": "node scripts/record-operating-costs.mjs",
     "x-profile-sync": "node scripts/x-profile-sync.mjs",
     "check-review-wiring": "node scripts/check-review-wiring.mjs",
     "review-checks": "node scripts/review-checks.mjs",

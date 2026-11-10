@@ -343,7 +343,7 @@ test('a missing cell says why it is missing: another period, or who supplies the
  const r=buildReport(root,week,new Date('2026-10-02T00:00:00Z'));
  const gap=id=>r.cells.find(c=>c.qualification==='all'&&c.metric===id).gap;
  assert.equal(gap('notePv'),'other-period');
- assert.equal(gap('gscClicks'),'ci');assert.equal(gap('kdpRoyalty'),'mac');assert.equal(gap('costYen'),'human');assert.equal(gap('igSaves'),'none');
+ assert.equal(gap('gscClicks'),'ci');assert.equal(gap('kdpRoyalty'),'mac');assert.equal(gap('qualityDefects'),'human');assert.equal(gap('igSaves'),'none');
  // 欠測のセルには必ず理由が付き、値のあるセル・対象外のセルには付かない
  assert.equal(r.cells.filter(c=>c.coverage==='missing').length>0,true);
  assert.ok(r.cells.every(c=>(c.coverage==='missing')===(c.gap!==undefined)));

@@ -69,13 +69,13 @@ export function monthlyReadiness({ period, today, salesMonths = {}, trafficFetch
       : { state: 'todo', detail: kdpMonth ? '推計値のみ。確定値が出たら取り直す（翌月中旬以降）' : 'まだ取得していない', command: `npm run kdp-report -- --month ${month}` }),
   });
 
-  // 5. 受取額（NSM）。ココナラの控除後額だけは人が入れる
+  // 5. 受取額（NSM）。土曜の収集（weekly-collect の business-records の段）が、note・ココナラ・KDP が 3 つとも確定した週に記録する
   const receipts = cell(cells, 'netReceipts');
   steps.push({
-    key: 'net-receipts', group: '人の入力', label: '月の受取額を記録する（ココナラの控除後額は人が入れる）',
+    key: 'net-receipts', group: 'データの確定', label: '月の受取額の記録（土曜の収集が入れる）',
     ...(receipts && receipts.value !== null ? { state: 'done', detail: `記録済み（${receipts.coverage === 'complete' ? '確定' : '一部'}）` }
       : !(sales?.finalized) ? { state: 'waiting', detail: 'note の売上が確定してから記録する' }
-        : { state: 'human', detail: 'ココナラの売上履歴で、クローズ日がこの月の手数料控除後の合計を確かめて入れる', command: `npm run record-net-receipts -- --month ${month} --coconala <円> --commit` }),
+        : { state: 'waiting', detail: 'KDP の確定（翌月 16 日以降）のあとの土曜の収集で入る。急ぐときは手で回す（確定前は一部として記録される）', command: `npm run record-net-receipts -- --month ${month} --commit` }),
   });
 
   // 6. 実験の判定（再計測日が来たもの）

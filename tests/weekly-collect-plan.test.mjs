@@ -164,3 +164,15 @@ test('四半期の初日と、競合の取得は四半期の最初の土曜だ�
   assert.deepEqual(argvOf([due], 'competitors').map((a) => a.split(' ').find((x) => /scout|research/.test(x))), ['scout-note-competitors', 'scripts/coconala-research.mjs', 'scout-coconala-competitors']);
 });
 
+test('売上の段のあとに、前々月と前月の受取額と固定費を記録する段がある（確定した月だけ書く）', () => {
+  const stages = buildStages({ today: '2026-11-14' });
+  const ids = stages.map((s) => s.id);
+  assert.ok(ids.indexOf('business-records') > ids.indexOf('product-sales'));
+  assert.deepEqual(argvOf(stages, 'business-records'), [
+    'scripts/record-net-receipts.mjs --month 2026-09 --when-complete --commit',
+    'scripts/record-operating-costs.mjs --month 2026-09 --commit',
+    'scripts/record-net-receipts.mjs --month 2026-10 --when-complete --commit',
+    'scripts/record-operating-costs.mjs --month 2026-10 --commit',
+  ]);
+  assert.equal(stages.find((s) => s.id === 'business-records').browser, false);
+});
