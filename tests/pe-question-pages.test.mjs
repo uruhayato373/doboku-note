@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { SITE_CONTENT_ROOT } from '../scripts/lib/repository-paths.mjs';
-import { extractClaims, extractQuestionSection, parseYearPage, questionKind, questionSection, scaffoldPage, subjectLabel, yearLabels } from '../scripts/lib/pe-question-pages.mjs';
+import { duplicateTags, extractClaims, extractQuestionSection, parseYearPage, questionKind, questionSection, scaffoldPage, subjectLabel, yearLabels } from '../scripts/lib/pe-question-pages.mjs';
 
 const DIR = join(SITE_CONTENT_ROOT, 'pe-construction');
 const read = (slug) => readFileSync(join(DIR, slug, 'article.mdx'), 'utf8');
@@ -54,4 +54,29 @@ test('照合文の抜き出し: 論点の解説の節で、数字・年月・条
   assert.deepEqual(claims.map((c) => c.text), ['制度は令和7年に始まった。', '根拠は第20条の2です。', '詳しくは[資料](https://example.go.jp/a.pdf)にあります。']);
   assert.equal(claims[0].line, 13);
   assert.deepEqual(claims[2].urls, ['https://example.go.jp/a.pdf']);
+});
+
+test('scaffold --write は記事のフォルダを作って骨組みを書き、既存のページは上書きしない（2026-11-10 にフォルダが無く全件失敗した）', async () => {
+  const { mkdtempSync, mkdirSync, copyFileSync, rmSync, writeFileSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { execFileSync } = await import('node:child_process');
+  const root = mkdtempSync(join(tmpdir(), 'pe-q-'));
+  try {
+    mkdirSync(join(root, 'r08-road'));
+    copyFileSync(join(DIR, 'r08-road', 'article.mdx'), join(root, 'r08-road', 'article.mdx'));
+    mkdirSync(join(root, 'r08-road-ii-1-1'));
+    writeFileSync(join(root, 'r08-road-ii-1-1', 'article.mdx'), 'KEEP');
+    const out = execFileSync('node', [join(DIR, '..', '..', '..', 'scripts', 'pe-question-pages.mjs'), 'scaffold', '--year', 'r08', '--subject', 'road', '--write', '--root', root], { encoding: 'utf8' });
+    assert.match(out, /作成 7 件・既存 1 件/);
+    assert.equal(readFileSync(join(root, 'r08-road-ii-1-1', 'article.mdx'), 'utf8'), 'KEEP');
+    assert.match(readFileSync(join(root, 'r08-road-iii-2', 'article.mdx'), 'utf8'), /^published: false$/m);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('タグの重複を見つける（2026-11-10 に鋼コンの 14 本で同じタグが最大 6 回並んだ）', () => {
+  assert.deepEqual(duplicateTags('---\ntitle: x\ntags:\n  - 道路\n  - 建設部門\n  - 道路\n  - 道路\n---\n本文'), ['道路']);
+  assert.deepEqual(duplicateTags('---\ntags:\n  - 道路\n  - 建設部門\n---\n'), []);
+  for (const d of readdirSync(DIR).filter((x) => QUESTION_PAGE.test(x))) assert.deepEqual(duplicateTags(read(d)), [], d);
 });

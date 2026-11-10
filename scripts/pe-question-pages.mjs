@@ -9,16 +9,18 @@
 // 骨組みは問題文の節（年度ページの逐語）・frontmatter・答案用紙の配分の枠・他年度へのリンクまで。
 // 論点の解説・問われていること・観点・失点は担当が書き、書き終えたら published: true にする。
 // exit 0 = 成功（check は全件一致） / 1 = 不一致・年度ページが読めない・対象 0 件（検査不成立）
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, mkdirSync, readFileSync, readdirSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
-import { extractClaims, extractQuestionSection, parseYearPage, questionSection, questionSlug, scaffoldPage } from './lib/pe-question-pages.mjs';
+import { duplicateTags, extractClaims, extractQuestionSection, parseYearPage, questionSection, questionSlug, scaffoldPage } from './lib/pe-question-pages.mjs';
 
 const NAME = 'pe-question-pages';
-const DIR = join(SITE_CONTENT_ROOT, 'pe-construction');
-const args = parseCliArgs({ year: { type: 'string' }, subject: { type: 'string' }, write: { type: 'boolean' }, only: { type: 'string' } });
+// --root は検査・テスト用（既定は content/site/pe-construction）
+const argRoot = process.argv.indexOf('--root');
+const DIR = argRoot !== -1 ? process.argv[argRoot + 1] : join(SITE_CONTENT_ROOT, 'pe-construction');
+const args = parseCliArgs({ year: { type: 'string' }, subject: { type: 'string' }, write: { type: 'boolean' }, only: { type: 'string' }, root: { type: 'string' } });
 const cmd = args._[0];
 const file = (slug) => join(DIR, slug, 'article.mdx');
 const exists = (slug) => existsSync(file(slug));
@@ -44,7 +46,7 @@ function main() {
       const slug = questionSlug(args.year, args.subject, id);
       if (exists(slug)) { skipped++; console.log(`  既存: ${slug}`); continue; }
       const text = scaffoldPage({ parsed, year: args.year, subject: args.subject, id, exists, yearCodes });
-      if (args.write) writeMdxFile(file(slug), text);
+      if (args.write) { mkdirSync(dirname(file(slug)), { recursive: true }); writeMdxFile(file(slug), text); }
       made++;
       console.log(`  ${args.write ? '作成' : '作る予定'}: ${slug}`);
     }
@@ -56,17 +58,21 @@ function main() {
     if (!pages.length) { console.error(`[${NAME}] 設問ページが 0 件（検査不成立）`); return 1; }
     const cache = new Map();
     const bad = [];
+    const dupBad = [];
     for (const [slug, year, subject, idLower] of pages) {
       const id = idLower.toUpperCase();
       const key = `${year}-${subject}`;
       if (!cache.has(key)) cache.set(key, readYear(year, subject));
       const want = questionSection(cache.get(key), id, year);
-      const got = extractQuestionSection(readFileSync(file(slug), 'utf8'));
-      if (got !== want) bad.push(slug);
+      const text = readFileSync(file(slug), 'utf8');
+      if (extractQuestionSection(text) !== want) bad.push(slug);
+      const dup = duplicateTags(text);
+      if (dup.length) dupBad.push(`${slug}（${dup.join('・')}）`);
     }
-    console.log(`[${NAME}] 設問ページ ${pages.length} 件を実検査・問題文の節の不一致 ${bad.length} 件`);
+    console.log(`[${NAME}] 設問ページ ${pages.length} 件を実検査・問題文の節の不一致 ${bad.length} 件・タグの重複 ${dupBad.length} 件`);
     for (const s of bad) console.error(`  ✗ ${s}: 問題文の節が年度ページから作ったものと違う（node scripts/${NAME}.mjs scaffold で作り直した節と比べる）`);
-    return bad.length ? 1 : 0;
+    for (const s of dupBad) console.error(`  ✗ ${s}: tags に同じタグが重なっている`);
+    return bad.length || dupBad.length ? 1 : 0;
   }
   if (cmd === 'claims') {
     const pages = readdirSync(DIR).map((d) => QUESTION_PAGE.exec(d)).filter((m) => m && (!args.year || m[1] === args.year) && (!args.subject || m[2] === args.subject));
