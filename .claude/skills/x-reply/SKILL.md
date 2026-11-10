@@ -36,7 +36,7 @@ domain: sns
    - 元の投稿を開き直し、新しい投稿がないことを確かめる
    - 返信欄に入力し、入力された本文が承認された本文と一致することを確かめる
    - 送信し、自分の返信タブで表示を確かめる
-9. **記録**: `npm run x-reply-log -- --add --user <screenName> --target <元の投稿の ID> --reply <自分の返信の ID> --kind ask|pass|fail|study|answer --text "<送った文面>"`。文面は相手への @ を除いた本文で、次回の下書きが言い回しの重なりを避けるのに読む。`data/x/reply-log.json` だけをコミットする。
+9. **記録**: `npm run x-reply-log -- --add --user <screenName> --target <元の投稿の ID> --reply <自分の返信の ID> --kind ask|pass|fail|study|answer --topic <資格の id> --text "<送った文面>"`。`--topic` は候補の `topic`（`config/x-reply-trial.json` の `topics` の id）で、答え（`--kind answer`）は最初の返信と同じ id にする。文面は相手への @ を除いた本文で、次回の下書きが言い回しの重なりを避けるのに読む。`data/x/reply-log.json` だけをコミットする。
 
 ## 承認済みの分を時間差で送る
 
