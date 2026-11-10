@@ -23,6 +23,9 @@
  *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
  *   npm run registry -- unschedule --pub <公開 ID> --reason <理由>   # 予約を外す（scheduled → uploaded_private・後で予約し直せる）
  *   npm run registry -- reschedule --pub <公開 ID>   # 外した予約の公開日時を戻す（承認した文面の publishAt だけ。YouTube への予約は youtube-single-publish の publish）
+ *   npm run registry -- prepare-short --pub <ショートの公開 ID> --publish-at <日時> [--commit]  # 在庫のショートの素材・関連動画・公開日時を台帳に入れる（承認の前）
+ *   npm run registry -- stage-youtube --pub <公開 ID> [--commit]   # 初回の投稿の動画と表紙を CI へ渡す private R2 に置く
+ *   npm run registry -- record-related --pub <ショートの公開 ID> --video-id <親の動画 ID>  # Studio で設定した関連動画を記録する（予約の前提）
  *
  * 取り込み（import）は既定で dry-run。approve は --expect（画面で見た版の digest）が今の中身と一致したときだけ書く。
  * approve・stop は運営者の判断なので、エージェント（Claude Code の Bash＝環境変数 CLAUDECODE=1）からは実行できない。
@@ -33,11 +36,11 @@ import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { execFileSync } from 'node:child_process';
 import { loadRegistry, loadRegistryConfig, publicationStage, resolveCopy } from './lib/content-registry.mjs';
-import { upsertPublications, upsertWorks } from './lib/content-registry-write.mjs';
+import { upsertMedia, upsertPublications, upsertWorks } from './lib/content-registry-write.mjs';
 import { applyVideoRows, loadVideoState, planVideoRows, videoPackRows } from './lib/registry-video-state.mjs';
 import { discoverVideoPacks } from './lib/content-registry-check.mjs';
 import { readLatest } from './lib/dataset-io.mjs';
-import { readJsonIf } from './lib/json-io.mjs';
+import { readJsonIf, writeJson } from './lib/json-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { acceptedApproval, readPolicy } from './lib/video-publish-gate.mjs';
 import { approvalState } from './lib/media-review.mjs';
@@ -48,7 +51,7 @@ const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     channel: { type: 'string' }, exam: { type: 'string' }, status: { type: 'string' },
-    'pack-dir': { type: 'string' }, 'only-new': { type: 'boolean' }, folder: { type: 'string' }, slot: { type: 'string' }, commit: { type: 'boolean' }, delete: { type: 'boolean' },
+    'pack-dir': { type: 'string' }, 'video-id': { type: 'string' }, 'only-new': { type: 'boolean' }, folder: { type: 'string' }, slot: { type: 'string' }, commit: { type: 'boolean' }, delete: { type: 'boolean' },
     pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
     variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
     phase: { type: 'string' }, copy: { type: 'string' }, 'refresh-draft': { type: 'boolean' },
@@ -302,6 +305,53 @@ async function reschedule() {
   console.log(`予約の公開日時を戻した: ${pub.id}（${publishAt}・uploaded_private のまま）。次: youtube-single-publish の publish`);
 }
 
+/**
+ * 在庫に入れた初回のショートを、承認と予約の段へ進める準備（DN-1002）。素材（動画・表紙・画面の一覧・字幕）を台帳に結び、
+ * 関連動画（予約済みか公開済みの親の通常動画）と公開日時を入れて qa_passed にする。承認は運営者（approve）。
+ * 投稿・予約は stage-youtube → youtube-single-publish の publish。関連動画は Studio で設定し、record-related で記録する。
+ */
+async function prepareShort() {
+  const { prepareShortPlan } = await import('./lib/shorts-release.mjs');
+  if (!args.pub || !args['publish-at']) throw new Error('prepare-short には --pub <ショートの公開 ID> --publish-at <時差つきの日時> が要る');
+  const plan = prepareShortPlan(ROOT, { pubId: args.pub, publishAt: args['publish-at'] });
+  console.log(JSON.stringify(plan.summary, null, 2));
+  if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
+  upsertMedia(ROOT, plan.exam, plan.media);
+  const ledgerPath = datasetPath('state.ai-image-review-ledger');
+  const ledger = readJsonIf(ROOT, ledgerPath);
+  if (!ledger?.figures) throw new Error('画像の判定の台帳が読めない');
+  ledger.figures[plan.ledger.key] = plan.ledger.value;
+  writeJson(ROOT, ledgerPath, ledger);
+  const copyFile = `${plan.dir}/youtube.json`;
+  const release = readJsonIf(ROOT, copyFile);
+  release.shorts.find((s) => s.key === plan.pub.variant).publishAt = plan.patch.publishAt;
+  writeJson(ROOT, copyFile, release);
+  writePublication(plan.pub, plan.patch);
+  console.log(`準備した: ${plan.pub.id}（${plan.pub.status} → qa_passed・関連 ${plan.parent.id}・公開 ${plan.patch.publishAt}）。次: 運営者の approve（visual → final）`);
+}
+
+/**
+ * Studio で設定した関連動画を記録する（ショートの予約の前提・API では設定できない）。運営者が Studio で確かめてから打つ。
+ * 予約の段（publish-youtube --phase schedule）は、この記録と親の動画 ID の一致を求め、親が視聴できるかを API で確かめる。
+ */
+function recordRelated() {
+  if (!args.pub || !/^[\w-]{11}$/.test(args['video-id'] ?? '')) throw new Error('record-related には --pub <ショートの公開 ID> --video-id <親の動画 ID（11 字）> が要る');
+  const reg = loadRegistry(ROOT);
+  const pub = reg.publications.find((p) => p.id === args.pub);
+  if (!pub || pub.format !== 'short' || !pub.platform?.id) throw new Error(`投稿済みのショートではない: ${args.pub}`);
+  const parent = reg.publications.find((p) => p.id === pub.relatedTo);
+  if (parent?.platform?.id !== args['video-id']) throw new Error(`関連先（${pub.relatedTo}）の動画 ID（${parent?.platform?.id ?? 'なし'}）と違う`);
+  writePublication(pub, { platform: { ...pub.platform, relatedVideoId: args['video-id'], desiredRelatedVideoId: args['video-id'] } });
+  console.log(`関連動画を記録した: ${pub.id} → ${args['video-id']}（Studio で設定済みとして）`);
+}
+
+/** 初回の投稿（通常動画・ショート）の動画と表紙を、CI へ渡す private R2 に置いて読み戻す。手元に実体が要る（ショートは shorts-factory restore） */
+async function stageYoutube() {
+  const { stageSinglePublish } = await import('./lib/youtube-single-r2.mjs');
+  if (!args.pub) throw new Error('stage-youtube には --pub が要る');
+  console.log(JSON.stringify(await stageSinglePublish(ROOT, args.pub, { commit: Boolean(args.commit) }), null, 2));
+}
+
 async function importInstagram() {
   if (!args.folder) throw new Error('Instagram は今後投稿する作品を --folder で個別指定する。一括取り込みは旧投稿を再登録するため使えない');
   const { instagramRows } = await import('./lib/registry-ig-state.mjs');
@@ -502,9 +552,9 @@ async function publishYoutube() {
   console.log(JSON.stringify(await publishYoutubePublication(ROOT, { ...options, commit: true }, { youtube, journal: singlePublishJournal(args.pub) }), null, 2));
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule, reschedule };
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule, reschedule, 'prepare-short': prepareShort, 'record-related': recordRelated, 'stage-youtube': stageYoutube };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule|reschedule …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule|reschedule|prepare-short|record-related|stage-youtube …');
   process.exit(2);
 }
 await commands[command]();

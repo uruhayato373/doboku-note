@@ -129,7 +129,12 @@ npm run shorts-factory -- restore --pack <資格>/<作品> --key <key>       # �
 - `stock` はクラウドの照合が通ってから手元の画像と動画を消す。確認用の一覧は `.tmp/shorts-stock/` に残す。在庫の判断材料はこの一覧で見る。
 - 予約は別の判断。`restore` は `youtube-shorts:stage` が自動で行う分と同じで、手動の確認に使う。
 - 再開する公開行は `check-youtube-shorts` が `pop-poster-v3`・描画の記録・画面確認の pass を要求する。停止中の行は数えるだけで検査しない。
-- 投稿は既存の `youtube-shorts:stage` と `publish-video-pack`。ショートの投稿の CI はまだ無く、手元に YouTube の認証情報も無い。方針の自動承認の対象は通常動画だけで、ショートは運営者が承認する。
+- 投稿と予約は通常動画と同じ CI（youtube-single-publish の mode=publish）で行う（2026-11-11・DN-1002）。方針の自動承認の対象は通常動画だけで、ショートは運営者が承認する。順番は次のとおり。
+  1. `npm run registry -- prepare-short --pub <ショートの公開 ID> --publish-at <時差つきの日時> --commit` — 在庫の素材（動画・表紙・画面の一覧・字幕）を台帳に結び、関連動画（同じ作品の予約済みか公開済みの通常動画・改訂版を含む）と公開日時を入れる。日時は親の公開より後・24 時間以上先・同時刻なし・1 日 3 本まで
+  2. 運営者が `npm run registry -- approve --stage visual` → `--stage final`（表紙の画像の判定は shorts-factory の監査を写してある）
+  3. `npm run shorts-factory -- restore` で手元に戻し、`npm run registry -- stage-youtube --pub … --commit` で CI へ渡す R2 に置く。`npm run registry -- publish-youtube --pub … --phase upload` の digest を `expect` にして publish を流すと、非公開でアップロードして止まる
+  4. 運営者が Studio でショートの関連動画に親の通常動画を設定し、`npm run registry -- record-related --pub … --video-id <親の動画 ID>` で記録する（API では設定できない。親が公開されてから）
+  5. もう一度 publish を流すと予約する
 - 2級土木は `diagram-led` を優先するので対象外。Instagram リールの描画はまだこの工程に載っていない。
 
 ## 罠
