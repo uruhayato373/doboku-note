@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { SITE_CONTENT_ROOT } from '../scripts/lib/repository-paths.mjs';
-import { extractClaims, extractQuestionSection, parseYearPage, questionKind, questionSection, scaffoldPage, subjectLabel, yearLabels } from '../scripts/lib/pe-question-pages.mjs';
+import { duplicateTags, extractClaims, extractQuestionSection, parseYearPage, questionKind, questionSection, scaffoldPage, subjectLabel, yearLabels } from '../scripts/lib/pe-question-pages.mjs';
 
 const DIR = join(SITE_CONTENT_ROOT, 'pe-construction');
 const read = (slug) => readFileSync(join(DIR, slug, 'article.mdx'), 'utf8');
@@ -73,4 +73,10 @@ test('scaffold --write は記事のフォルダを作って骨組みを書き、
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+test('タグの重複を見つける（2026-11-10 に鋼コンの 14 本で同じタグが最大 6 回並んだ）', () => {
+  assert.deepEqual(duplicateTags('---\ntitle: x\ntags:\n  - 道路\n  - 建設部門\n  - 道路\n  - 道路\n---\n本文'), ['道路']);
+  assert.deepEqual(duplicateTags('---\ntags:\n  - 道路\n  - 建設部門\n---\n'), []);
+  for (const d of readdirSync(DIR).filter((x) => QUESTION_PAGE.test(x))) assert.deepEqual(duplicateTags(read(d)), [], d);
 });

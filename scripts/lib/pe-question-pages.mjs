@@ -228,6 +228,15 @@ export function scaffoldPage({ parsed, year, subject, id, exists, yearCodes = []
   return [...fm, ...body].join('\n');
 }
 
+/** frontmatter の tags のうち重複しているもの（2026-11-10 に書く担当のスクリプトの再実行で同じタグが最大 6 回並んだ） */
+export function duplicateTags(text) {
+  const { fm } = splitFrontmatter(text);
+  const m = /^tags:\n((?:\s+- .*\n?)+)/m.exec(fm + '\n');
+  if (!m) return [];
+  const tags = m[1].split('\n').map((l) => l.replace(/^\s+- /, '').trim()).filter(Boolean);
+  return [...new Set(tags.filter((t, i) => tags.indexOf(t) !== i))];
+}
+
 /** 論点の解説から、照合が要る文（数字・年月・条番号・出典リンクを含む文）を抜き出す */
 export function extractClaims(text) {
   const { body } = splitFrontmatter(text);
