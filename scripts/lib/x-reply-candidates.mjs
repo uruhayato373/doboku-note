@@ -196,7 +196,8 @@ export function selectCandidates(posts, config, { now, repliedHashes = new Set()
  */
 export function checkSendAllowed(log, { user, now, limits, trial, skips = [], answer = false }) {
   const day = jstDayOf(now);
-  if (day < trial.from || day > trial.to) return `試行期間（${trial.from}〜${trial.to}）の外です`;
+  // to が無ければ終わりを決めない（2026-11-11 に試行から継続の運用へ）
+  if (day < trial.from || (trial.to && day > trial.to)) return `送信してよい期間（${trial.from}〜${trial.to ?? ''}）の外です`;
   const last = Math.max(0, ...log.map((r) => Date.parse(r.at)));
   const waited = (now - last) / 60_000;
   if (waited < limits.minIntervalMinutes) return `前の返信から ${Math.floor(waited)} 分です（${limits.minIntervalMinutes} 分あけます）`;
