@@ -21,6 +21,19 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1101] 承認済みの通常動画 7 本を公開日の近い順に予約する
+タグ: [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-11-11] [期日:2026-11-14]
+
+**起点**: 2026-11-10〜11 の通常動画 9 本の量産で、全 9 本が関門と方針の承認まで通った。11-11 に `sokan-kojutsu-tradeoff`（11/18）と `pe-kojutsu-fukabori`（11/25）を予約した。残り 7 本は投稿の割当（1 日 4 本・日本時間 17 時に戻る）を使い切って未予約。
+
+**やること**: 公開日の近い順に、割当が戻ってから `node --env-file=.env.local scripts/video-factory.mjs publish --packs <a,b>` を回す。1 日 4 本まで。
+- 1 回目: civil-construction-1/owner-eye-kouji-kensa（12/1）、pe-construction/pe-kojutsu-kaitei-competency（12/8）、pe-comprehensive-management/sokan-kojutsu-tachiba（12/15）、pe-construction/pe-fugoukaku-toan（12/22）
+- 2 回目: civil-construction-1/c1-juken-junjo-2027（2027-01-01）、civil-construction-2/c2-juken-junjo-2027（01-12）、civil-construction-1/owner-eye-sekkei-tosho（01-15）
+- 実行前に作業ツリーの未コミットの変更を片づける（publish は内部で `git pull --rebase` を行い、未コミットがあると止まる）
+
+**完了条件**: 7 本の公開行が台帳で `scheduled` になり、`youtube-single-publish.yml` の実行がすべて success。
+
+
 ### [DN-1089] 土曜の収集の business-records の段が受取額を記録するか確かめる（11/14・11/21）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-10]
 
