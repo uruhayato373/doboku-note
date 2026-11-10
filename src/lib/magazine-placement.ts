@@ -191,6 +191,8 @@ function matchPeConstructionEssay(slug: string): MagazineId | null {
   if (/^pe-construction-r0[1-9]-power-civil(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-power-civil-magazine';
   if (/^pe-construction-r0[1-9]-railway(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-railway-magazine';
   if (/^pe-construction-r0[1-9]-tunnel(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-tunnel-magazine';
+  // 口頭試験の入口のガイドは、時期によらず建設部門の口頭試験教材へ送客（DN-1081）
+  if (slug === 'pe-construction-koutou-shiken') return 'pe-construction-oral-guide';
   // 論文の書き方ガイドは全受験者向けの必須科目I マガジンへ送客
   if (/^pe-construction-(guide-required-essay|pe-secondary-essay-guide|setsumon-bunkai|aimai-hyougen-sahou|suikou-checklist|shiken-toujitsu-tejun|keyword-note-tsukurikata|secondary-study-method|gyoumu-keireki-hyou)$/.test(slug)) {
     return 'pe-construction-required-magazine';

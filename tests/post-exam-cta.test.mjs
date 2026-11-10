@@ -202,6 +202,8 @@ test('建設部門の過去問（必須I・選択科目）: 口頭試験の時�
   }
   // 設問番号でない接尾辞は拾わない（例: 出題テーマ分析・論文キーワードの記事）
   assert.notEqual(resolvePlacement('pe-construction-r07-road-exam', 'pastExam').inline[0]?.magazineId, 'pe-construction-road-magazine');
+  // 口頭試験の入口のガイドは、時期によらず口頭試験の教材へ（DN-1081）
+  for (const t of oralTimes) assert.equal(topIdAt(resolvePlacement, 'pe-construction-koutou-shiken', 'guide', t), 'pe-construction-oral-guide');
   // 論文の書き方ガイドは来年の受験者向けなので、口頭試験の時期も必須科目I の模範解答集のまま
   assert.equal(topIdAt(resolvePlacement, 'pe-construction-guide-required-essay', 'guide', oralTimes[1]), 'pe-construction-required-magazine');
 });
