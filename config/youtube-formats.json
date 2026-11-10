@@ -79,8 +79,8 @@
       "ctaKinds": [],
       "producedBy": "shorts-factory。外部リンクではなく関連動画で通常動画へ送る",
       "evidence": ["docs/marketing/06_動画コンテンツ運用設計.md"],
-      "decision": "DN-0110",
-      "note": "承認済み224本のうち222本が非公開のまま（Studio で関連動画を設定してから予約する工程・2026-10-08）"
+      "decision": "DN-1001",
+      "note": "旧工程のショートは 2026-11-10 に YouTube から消した（公開 0 本）。新しい通常動画 1 本につき 2 本を派生させる試行から作り直す（DN-1001）。関連動画は Studio で設定してから予約する"
     },
     {
       "id": "yosou-derivation",
