@@ -7028,6 +7028,19 @@
       "commit": "29b9bdf5fad1",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0900",
+      "at": "2026-11-10",
+      "task": "測量士の午前（択一）過去問（令和4〜8年・各28問）をサイトに載せ、午後の note 教材へつなぐ",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c77803b345f7",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
