@@ -48,6 +48,10 @@
         "pathPrefix": "技術士上下水道部門/"
       },
       {
+        "theme": "pe-fisheries",
+        "pathPrefix": "技術士水産部門/"
+      },
+      {
         "theme": "pe-first-stage",
         "pathPrefix": "技術士一次/"
       },

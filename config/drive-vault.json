@@ -255,7 +255,7 @@
       "status": "active",
       "audience": "human",
       "match": {
-        "pathRegex": "^\\.tmp/media/(?:[a-z0-9-]+/[a-z0-9-]+/(?:[a-z]+\\.[a-z]+(?:\\.[a-z0-9-]+)?|work)|_brand/[a-z0-9-]+)/[a-z][a-z0-9-]*\\.[0-9a-f]{8}\\.(?:png|jpe?g|webp|mp4|m4a|wav|ass|json)$"
+        "pathRegex": "^\\.tmp/media/(?:[a-z0-9-]+/[a-z0-9-]+/(?:[a-z]+\\.[a-z]+(?:\\.[a-z0-9-]+)?|work(?:/factory)?)|_brand/[a-z0-9-]+)/[a-z][a-z0-9-]*\\.[0-9a-f]{8}\\.(?:png|jpe?g|webp|mp4|m4a|wav|ass|json)$"
       },
       "vaultDir": "制作物/コンテンツ",
       "keyFrom": "stripPrefix:.tmp/media/",

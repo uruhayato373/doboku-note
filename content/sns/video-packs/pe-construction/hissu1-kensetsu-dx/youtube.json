@@ -22,5 +22,46 @@
     "sha256": "e0b1b6e6ac8fcaba5fc05d49a93038610d0dbc8b5bb3c9c66ddcb7c41f3bcb93",
     "thumbnailSha256": "bbac2c8c343ac34df6dfd8d3af10129e3aca1992a3f22e4e00d630e890a7e46e"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-purpose-1",
+      "sceneId": "purpose",
+      "title": "技術士 建設部門｜建設DXの目的は4つに整理する #Shorts",
+      "description": "建設DXは、手段より先に目的を言えますか。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 建設部門2次｜必須I 模範解答集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m0f3bc3933454?utm_source=youtube&utm_medium=video&utm_campaign=hissu1-kensetsu-dx&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#技術士建設部門 #技術士 #Shorts",
+      "tags": [
+        "技術士（建設部門）",
+        "技術士 建設部門",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "r2Key": "video/render/hissu1-kensetsu-dx/shorts/point-purpose-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/hissu1-kensetsu-dx/shorts/point-purpose-1/thumbnail.png",
+      "sha256": "a6faa1caa39befb1d11216bc663d2f22c0df26c01e83271462c7e96120505ee7",
+      "thumbnailSha256": "89f38ccb86f1f86f732b751a4ac2e8e2b56b1dfafda6be7876c12c9f21520288",
+      "publishAt": "2026-11-13T14:30:00+09:00"
+    },
+    {
+      "key": "point-means-2",
+      "sceneId": "means",
+      "title": "技術士 建設部門｜建設DXの手段は3階層で語る #Shorts",
+      "description": "建設DXの手段は、階層を混ぜると伝わりません。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 建設部門2次｜必須I 模範解答集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m0f3bc3933454?utm_source=youtube&utm_medium=video&utm_campaign=hissu1-kensetsu-dx&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#技術士建設部門 #技術士 #Shorts",
+      "tags": [
+        "技術士（建設部門）",
+        "技術士 建設部門",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "r2Key": "video/render/hissu1-kensetsu-dx/shorts/point-means-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/hissu1-kensetsu-dx/shorts/point-means-2/thumbnail.png",
+      "sha256": "1af02b3bc87dd6b290aa1dbca4174d8b2afbf0f8e29ccd377d38e1556def9490",
+      "thumbnailSha256": "d28f2b5185f658fbd08d598122a9a4429ee2eee48d684db8f816377a410684e2",
+      "publishAt": "2026-11-14T14:30:00+09:00"
+    }
+  ]
 }

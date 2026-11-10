@@ -150,6 +150,123 @@
       }
     },
     {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1",
+      "work": "hissu1-infra-roukyuuka",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-breakdown-1",
+      "status": "uploaded_private",
+      "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-breakdown-1",
+      "relatedTo": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/video",
+        "cover": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/cover",
+        "contact-sheet": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/contact-sheet",
+        "subtitles": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1/subtitles"
+      },
+      "publishAt": "2026-11-17T14:30:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-11-10T21:27:47.760Z",
+          "digest": "b167eae49a5084b3b082f3c244f2342c3cf5929539c55518ab1cca6209a2b05a"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-11-10T21:27:48.028Z",
+        "contentSha256": "4764e490e63fa9533b45422aa83dc1142dbd53e5ffa3976a5041215782f37c6d"
+      },
+      "times": {
+        "rendered": "2026-11-10T21:28:05.318Z",
+        "uploaded": "2026-11-10T21:58:23.529Z"
+      },
+      "delivery": {
+        "inputSha256": "63b3ddb4541144795d6b06d0eb425ebbd57bce7bb4be281b24b2251086f354a6",
+        "marker": "dn-single-047aebfc64d4c4450551124c91bddba2539b73f6",
+        "uploadRequestedAt": "2026-11-10T21:57:49.056Z",
+        "videoId": "LQiIN5sPBAo",
+        "processedAt": "2026-11-10T21:58:22.873Z",
+        "thumbnailRequestedAt": "2026-11-10T21:58:23.563Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/default.jpg?sqp=CLSlztcG&rs=AOn4CLCyWqYvY4fmSMvl5pwp_5MEKDvYvw",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/mqdefault.jpg?sqp=CLSlztcG&rs=AOn4CLAzWx5na3d92JGul3j9EiTUjq0xhw",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/hqdefault.jpg?sqp=CLSlztcG&rs=AOn4CLBi5AQ27oHfferaVd5jcohddRdoPQ",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/sddefault.jpg?sqp=CLSlztcG&rs=AOn4CLD-d5UnUYa3wTd4feGxwiqYr_4a-g",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/maxresdefault.jpg?sqp=CLSlztcG&rs=AOn4CLArMjd5Tr4jFHEsdYP_tbiVALmm_A",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/sardefault.jpg?sqp=CLSlztcG&rs=AOn4CLCzCHibsGS97K3Wev460lNw3uCrSQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T21:58:27.475Z"
+      },
+      "platform": {
+        "id": "LQiIN5sPBAo",
+        "url": "https://www.youtube.com/watch?v=LQiIN5sPBAo",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-breakdown-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T21:58:27.475Z"
+      }
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2",
+      "work": "hissu1-infra-roukyuuka",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-funding-2",
+      "status": "uploaded_private",
+      "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-funding-2",
+      "relatedTo": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/video",
+        "cover": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/cover",
+        "contact-sheet": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/contact-sheet",
+        "subtitles": "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2/subtitles"
+      },
+      "publishAt": "2026-11-18T14:30:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-11-10T21:27:48.380Z",
+          "digest": "37639de932a443dbeb3dcd2fbf47e833d51cc6d23306cee87a2b4ea290e68c0e"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-11-10T21:27:48.673Z",
+        "contentSha256": "3de1281d97a2db3dac6bd4ac00c5bbebbd8d34cd688f01e7fef65cd2a5e5fd58"
+      },
+      "times": {
+        "rendered": "2026-11-10T21:28:05.492Z",
+        "uploaded": "2026-11-10T22:04:30.488Z"
+      },
+      "delivery": {
+        "inputSha256": "87a0f957fd1ca853db71b4ce45283fa75a3a56fdcdb5c57d7808b2d61c39e602",
+        "marker": "dn-single-8f6864744b40128dc32576ced41581605ca33314",
+        "uploadRequestedAt": "2026-11-10T21:59:33.935Z",
+        "videoId": "Da1c1w3CT2c",
+        "processedAt": "2026-11-10T22:04:29.820Z",
+        "thumbnailRequestedAt": "2026-11-10T22:04:30.512Z"
+      },
+      "platform": {
+        "id": "Da1c1w3CT2c",
+        "url": "https://www.youtube.com/watch?v=Da1c1w3CT2c",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-funding-2"
+        }
+      }
+    },
+    {
       "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
       "work": "hissu1-kensetsu-dx",
       "account": "youtube:main",
@@ -291,6 +408,136 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-11-10T10:08:27.733Z"
+      }
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2",
+      "work": "hissu1-kensetsu-dx",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-means-2",
+      "status": "uploaded_private",
+      "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-means-2",
+      "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/video",
+        "cover": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/cover",
+        "contact-sheet": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/contact-sheet",
+        "subtitles": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2/subtitles"
+      },
+      "publishAt": "2026-11-14T14:30:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-11-10T21:27:46.244Z",
+          "digest": "50f972659c78c675fa5f7353b8b355dfb0c6866069e32520bd442999df24ff43"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-11-10T21:27:46.488Z",
+        "contentSha256": "c6a389b782f04de591737dd82d6bd8978cb08b123605f3bba31daf821051f9c5"
+      },
+      "times": {
+        "rendered": "2026-11-10T21:28:04.796Z",
+        "uploaded": "2026-11-10T22:02:07.374Z"
+      },
+      "delivery": {
+        "inputSha256": "acefa6d1798d199398868212f8beb2157d14b360894503ec1a2fe5880e1a61a5",
+        "marker": "dn-single-168a2f13b3abba578ab26042a1e857bda88a72bc",
+        "uploadRequestedAt": "2026-11-10T21:53:21.807Z",
+        "videoId": "c5R1Y1Z87fs",
+        "processedAt": "2026-11-10T22:02:06.620Z",
+        "thumbnailRequestedAt": "2026-11-10T22:02:07.401Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/default.jpg?sqp=COCnztcG&rs=AOn4CLAomNvVYmm9M96AweDXUygmyIt7bQ",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/mqdefault.jpg?sqp=COCnztcG&rs=AOn4CLD8JmB6SyBxFkEW7xZ47jtOLzRQlw",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/hqdefault.jpg?sqp=COCnztcG&rs=AOn4CLB3gRBrT7MP94Km9-Ck4xvbfaV5TA",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/sddefault.jpg?sqp=COCnztcG&rs=AOn4CLAh-9q9znrpgbeU10ALiBY7luZJwg",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/maxresdefault.jpg?sqp=COCnztcG&rs=AOn4CLDauGMkLefbrqSaQYbrZnbvgHaWLA",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/sardefault.jpg?sqp=COCnztcG&rs=AOn4CLA6WvuaYeTut-TQIfXhuzOnDrdVtw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T22:02:13.736Z"
+      },
+      "platform": {
+        "id": "c5R1Y1Z87fs",
+        "url": "https://www.youtube.com/watch?v=c5R1Y1Z87fs",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-means-2"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T22:02:13.736Z"
+      }
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1",
+      "work": "hissu1-kensetsu-dx",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-purpose-1",
+      "status": "uploaded_private",
+      "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1",
+      "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/video",
+        "cover": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/cover",
+        "contact-sheet": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/contact-sheet",
+        "subtitles": "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1/subtitles"
+      },
+      "publishAt": "2026-11-13T14:30:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-11-10T21:27:45.756Z",
+          "digest": "56ef99b539c0f81d676c07530a7b96b75dc1e0bee49cfed345b45ca47528d6fe"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-11-10T21:27:45.997Z",
+        "contentSha256": "f380741d1d16574d4dfd9461e1b0c06472bf8cf778faa43d7749f2d052c9d422"
+      },
+      "times": {
+        "rendered": "2026-11-10T21:28:04.619Z",
+        "uploaded": "2026-11-10T22:01:00.495Z"
+      },
+      "delivery": {
+        "inputSha256": "c5ef7c0290bc9fd91b62cf2a4baf93b318fa79352b12fcda0b4b3e147e109b57",
+        "marker": "dn-single-494a0303d5ba80d1b0cb332d0de47ec721bd4b7f",
+        "uploadRequestedAt": "2026-11-10T21:51:53.234Z",
+        "videoId": "OdKCHkNllG4",
+        "processedAt": "2026-11-10T22:00:59.916Z",
+        "thumbnailRequestedAt": "2026-11-10T22:01:00.547Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/default.jpg?sqp=COCnztcG&rs=AOn4CLBnV_O1KemfesA67uK5R-4qXI7JKA",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/mqdefault.jpg?sqp=COCnztcG&rs=AOn4CLCH8nH15kHqYAWHrS8qd96LA_1BBw",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/hqdefault.jpg?sqp=COCnztcG&rs=AOn4CLDfP3L6krLBBX-KwhqHVq3w22hArg",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/sddefault.jpg?sqp=COCnztcG&rs=AOn4CLC-Vb24Yic8RndIv2k2XzatofYefA",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/maxresdefault.jpg?sqp=COCnztcG&rs=AOn4CLB3x_0gqSvg-ydgyy529mFi2ocJag",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/sardefault.jpg?sqp=COCnztcG&rs=AOn4CLBOYTTDp6rrk2Iwa4fhV1d-SN9PcA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T22:01:04.381Z"
+      },
+      "platform": {
+        "id": "OdKCHkNllG4",
+        "url": "https://www.youtube.com/watch?v=OdKCHkNllG4",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T22:01:04.381Z"
       }
     },
     {
@@ -444,21 +691,158 @@
       "work": "pe-fugoukaku-toan",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "approved",
+      "media": {
+        "cover": "pe-construction/pe-fugoukaku-toan/youtube.longform/cover",
+        "scene-001": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-001",
+        "scene-002": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-002",
+        "scene-003": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-003",
+        "scene-004": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-004",
+        "scene-005": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-005",
+        "scene-006": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-006",
+        "scene-007": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-007",
+        "scene-008": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-008",
+        "scene-009": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-009",
+        "scene-010": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-010",
+        "scene-011": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-011",
+        "scene-012": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-012",
+        "scene-013": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-013",
+        "scene-014": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-014",
+        "video": "pe-construction/pe-fugoukaku-toan/youtube.longform/video",
+        "subtitles": "pe-construction/pe-fugoukaku-toan/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#longform",
+      "publishAt": "2026-12-22T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:51:37.123Z",
+          "digest": "7c94c5d486028319506a8fd18bd2a66e4b4331cfa5d68193c544293a6a83e0ae"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:51:37.123Z",
+        "contentSha256": "d732c4d8ff642489e82e09377e21ec42f4b261087fe974b6dde59d7c80e33597"
+      }
     },
     {
       "id": "pe-construction/pe-kojutsu-fukabori/youtube.longform",
       "work": "pe-kojutsu-fukabori",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "scheduled",
+      "media": {
+        "cover": "pe-construction/pe-kojutsu-fukabori/youtube.longform/cover",
+        "scene-001": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-001",
+        "scene-002": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-002",
+        "scene-003": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-003",
+        "scene-004": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-004",
+        "scene-005": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-005",
+        "scene-006": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-006",
+        "scene-007": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-007",
+        "scene-008": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-008",
+        "scene-009": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-009",
+        "scene-010": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-010",
+        "scene-011": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-011",
+        "scene-012": "pe-construction/pe-kojutsu-fukabori/youtube.longform/scene-012",
+        "video": "pe-construction/pe-kojutsu-fukabori/youtube.longform/video",
+        "subtitles": "pe-construction/pe-kojutsu-fukabori/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori/youtube.json#longform",
+      "publishAt": "2026-11-25T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:45:15.352Z",
+          "digest": "afe2e78e1f0a3914dd6423f1046d00dfa07b176e755e4336b2232e803e781f46"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:45:15.352Z",
+        "contentSha256": "67033a56701079af77a3a3fd071b5a6719a09a49e60e584c0a1cb2083e48dc20"
+      },
+      "times": {
+        "rendered": "2026-11-10T21:08:06.016Z",
+        "uploaded": "2026-11-10T21:15:13.070Z",
+        "scheduled": "2026-11-10T21:15:20.531Z"
+      },
+      "delivery": {
+        "inputSha256": "f4c28b393d048964a976fc3f1a37629a9e4305e65333711211d317f0d5dd39cf",
+        "marker": "dn-single-f16d537436564c6fb3274bb365b08d1b28fc8df3",
+        "uploadRequestedAt": "2026-11-10T21:14:21.030Z",
+        "videoId": "2T3NCge7Rcs",
+        "processedAt": "2026-11-10T21:15:11.923Z",
+        "thumbnailRequestedAt": "2026-11-10T21:15:13.112Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/default.jpg?sqp=CNSSztcG&rs=AOn4CLCuorZ56CbnHDv9NHSN8J-UGyvYsw",
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/mqdefault.jpg?sqp=CNSSztcG&rs=AOn4CLBHnjYclyKpqrduhC0QNF5lSo8cgQ",
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/hqdefault.jpg?sqp=CNSSztcG&rs=AOn4CLBG0PuYY5MfnEENThFIkbWNsfXaRA",
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/sddefault.jpg?sqp=CNSSztcG&rs=AOn4CLDtAicemZNhD3Put3WVjgj8w3KTlw",
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/maxresdefault.jpg?sqp=CNSSztcG&rs=AOn4CLDiX3drF4dRTnHYLAPaV5oYsYYjlg",
+          "https://i9.ytimg.com/vi/2T3NCge7Rcs/fhddefault.jpg?sqp=CNSSztcG&rs=AOn4CLDw4lAI8Z306FmQTVVOHG2XwI3cYQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T21:15:16.167Z",
+        "scheduleRequestedAt": "2026-11-10T21:15:17.073Z",
+        "scheduleAt": "2026-11-25T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-10T21:15:20.531Z"
+      },
+      "platform": {
+        "id": "2T3NCge7Rcs",
+        "url": "https://www.youtube.com/watch?v=2T3NCge7Rcs",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T21:15:16.167Z"
+      }
     },
     {
       "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform",
       "work": "pe-kojutsu-kaitei-competency",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "approved",
+      "media": {
+        "cover": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/cover",
+        "scene-001": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-001",
+        "scene-002": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-002",
+        "scene-003": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-003",
+        "scene-004": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-004",
+        "scene-005": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-005",
+        "scene-006": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-006",
+        "scene-007": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-007",
+        "scene-008": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-008",
+        "scene-009": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-009",
+        "scene-010": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-010",
+        "scene-011": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-011",
+        "scene-012": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-012",
+        "scene-013": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-013",
+        "video": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/video",
+        "subtitles": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-kaitei-competency/youtube.json#longform",
+      "publishAt": "2026-12-08T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:45:58.534Z",
+          "digest": "6b0292926d70eb1ed2b6c15d0ea78ddbaba15eac0d76d1de35ddd0be99ccaa5d"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:45:58.534Z",
+        "contentSha256": "367a227b125599a61406816150909ca3cd3cba55c6eb9b7abc764b1bb3fe4d78"
+      }
     },
     {
       "id": "pe-construction/pe-kojutsu-keireki/youtube.longform",
@@ -654,6 +1038,136 @@
         "contentSha256": "f79ff0d179bc9a6ac3ab87b8155c7ce092b108e4df16c03bc4364439816d9bee"
       },
       "stopReason": "superseded"
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2",
+      "work": "toan-kousei-template",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-koukarisk-2",
+      "status": "uploaded_private",
+      "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-koukarisk-2",
+      "relatedTo": "pe-construction/toan-kousei-template/youtube.longform",
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/video",
+        "cover": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/cover",
+        "contact-sheet": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/contact-sheet",
+        "subtitles": "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2/subtitles"
+      },
+      "publishAt": "2026-11-16T14:30:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-11-10T21:27:47.219Z",
+          "digest": "e0fd41a0091e2977759f2eff6bff0ffbcf68b607ab3658120f0c0b3f2dd062bc"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-11-10T21:27:47.485Z",
+        "contentSha256": "6d72737a3e87c6ed19d31278f29f15bd8f5a42bb8b25e8479158c0481ac3a17a"
+      },
+      "times": {
+        "rendered": "2026-11-10T21:28:05.144Z",
+        "uploaded": "2026-11-10T21:56:38.875Z"
+      },
+      "delivery": {
+        "inputSha256": "3d1c0a4f7e0978ac467d85c0d1cbac7efb84b04d09bed6d24caeb38a573fcf96",
+        "marker": "dn-single-032cc89ac0dadaa1c909766d8367210f12adc425",
+        "uploadRequestedAt": "2026-11-10T21:55:18.991Z",
+        "videoId": "crYjMm6gzu8",
+        "processedAt": "2026-11-10T21:56:37.967Z",
+        "thumbnailRequestedAt": "2026-11-10T21:56:38.896Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/default.jpg?sqp=CLSlztcG&rs=AOn4CLCxZK4OyMxEZ6E3TvnGt5QZV-fNuA",
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/mqdefault.jpg?sqp=CLSlztcG&rs=AOn4CLD6QlUN6gRGP-ugDTbiTTOnPiE18g",
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/hqdefault.jpg?sqp=CLSlztcG&rs=AOn4CLBV6VJueVn8sS5G960RaPMgDpotfg",
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/sddefault.jpg?sqp=CLSlztcG&rs=AOn4CLBNt7RArEyeoX39jO2-lmbXikHUQA",
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/maxresdefault.jpg?sqp=CLSlztcG&rs=AOn4CLAAb9WsoScKrhe9GFfFJWBnwBq6RA",
+          "https://i9.ytimg.com/vi/crYjMm6gzu8/sardefault.jpg?sqp=CLSlztcG&rs=AOn4CLDH3cQeQ2MA4c_aW7kwaLFvbq7NVA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T21:56:43.602Z"
+      },
+      "platform": {
+        "id": "crYjMm6gzu8",
+        "url": "https://www.youtube.com/watch?v=crYjMm6gzu8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-koukarisk-2"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T21:56:43.602Z"
+      }
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1",
+      "work": "toan-kousei-template",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-skeleton-1",
+      "status": "uploaded_private",
+      "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-skeleton-1",
+      "relatedTo": "pe-construction/toan-kousei-template/youtube.longform",
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/video",
+        "cover": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/cover",
+        "contact-sheet": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/contact-sheet",
+        "subtitles": "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1/subtitles"
+      },
+      "publishAt": "2026-11-15T14:30:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-11-10T21:27:46.730Z",
+          "digest": "67c8fbcf2c2fa8d8b968c2b984d49eb9d4b87adcfdfe1d1dd77a0ccd90cae2de"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-11-10T21:27:46.973Z",
+        "contentSha256": "5bfc7e32bcf592e304ba4fead0ad94542f8695b226b9de425526145a376ffdc6"
+      },
+      "times": {
+        "rendered": "2026-11-10T21:28:04.970Z",
+        "uploaded": "2026-11-10T22:03:19.250Z"
+      },
+      "delivery": {
+        "inputSha256": "881fb5ed5b4c3222fd47f4e01ce887250b93c0db31290968b253ca6c4ed0a5df",
+        "marker": "dn-single-cff680a8f5bfeda18bfec43b1d6cf007d35cf322",
+        "uploadRequestedAt": "2026-11-10T21:54:23.122Z",
+        "videoId": "HU2LFTMrl4Y",
+        "processedAt": "2026-11-10T22:03:18.498Z",
+        "thumbnailRequestedAt": "2026-11-10T22:03:19.273Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/default.jpg?sqp=COCnztcG&rs=AOn4CLA48UHz-jLEReeY1u6BydEQWbIRPw",
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/mqdefault.jpg?sqp=COCnztcG&rs=AOn4CLDN2qPiW62FpsabHqIEH_eQq194bQ",
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/hqdefault.jpg?sqp=COCnztcG&rs=AOn4CLBSdbtsp-s5DNbLQ7I8BOU-2KUztQ",
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/sddefault.jpg?sqp=COCnztcG&rs=AOn4CLArG1qA8bUPMEKZWcoAiMxGBCStoQ",
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/maxresdefault.jpg?sqp=COCnztcG&rs=AOn4CLBubDYa68QWQNLitRnNhD5PoLJTBw",
+          "https://i9.ytimg.com/vi/HU2LFTMrl4Y/sardefault.jpg?sqp=COCnztcG&rs=AOn4CLB-TjQV9G7bMf2o8k7jEIGQJt9LNg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T22:03:24.328Z"
+      },
+      "platform": {
+        "id": "HU2LFTMrl4Y",
+        "url": "https://www.youtube.com/watch?v=HU2LFTMrl4Y",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-skeleton-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T22:03:24.328Z"
+      }
     }
   ]
 }

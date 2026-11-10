@@ -46,6 +46,10 @@ test('台本の機械検査は画像の前に形を止める', () => {
   const good = { hook: '導入', pose: '手を挙げる', beats: [{ narration: 'あ。', heading: '見出し', diagram: '図' }, { narration: 'い。', heading: '見出し', diagram: '図' }] };
   assert.deepEqual(designProblems(good, scene), []);
   assert.match(designProblems({ ...good, pose: '' }, scene).join(), /pose/);
+  // 表紙の見出しと締めの語りは台本に持てる（通常動画と共有のファイルを書き換えない・DN-1001）
+  assert.deepEqual(designProblems({ ...good, headline: ['答案の骨組み', '4つで固定'], cta: '詳しい解説は関連動画へ。' }, scene), []);
+  assert.match(designProblems({ ...good, headline: [] }, scene).join(), /headline/);
+  assert.match(designProblems({ ...good, cta: 'あ'.repeat(21) }, scene).join(), /cta/);
   assert.match(designProblems({ ...good, hook: 'あ'.repeat(41) }, scene).join(), /40 字/);
   assert.match(designProblems({ ...good, beats: [{ narration: 'あ。い。', heading: '見出し', diagram: '図' }] }, scene).join(), /2〜4/);
   assert.match(designProblems({ ...good, beats: [good.beats[0], { ...good.beats[1], diagram: '' }] }, scene).join(), /diagram/);

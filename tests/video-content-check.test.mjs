@@ -14,8 +14,16 @@ import {
   checkAll,
   checkUtmUrls,
   hasVerbatimOverlap,
+  internalRefsOnScreen,
   loadConfig,
 } from '../scripts/lib/video-content-check.mjs';
+
+test('B21: 画面に出る文字の内部の参照名を拾い、出典の名前は通す（2026-11-10）', () => {
+  const scene = (note) => ({ caption: '字幕', visual: { heading: '見出し', items: ['語'], art: { note } } });
+  assert.deepEqual(internalRefsOnScreen(scene('出典：文部科学省 合否決定基準（video-pack.json の sourceRefs）')), ['出典：文部科学省 合否決定基準（video-pack.json の sourceRefs）']);
+  assert.deepEqual(internalRefsOnScreen(scene('出典：文部科学省 令和8年度技術士試験合否決定基準')), []);
+  assert.deepEqual(internalRefsOnScreen({}), []);
+});
 import { assembleCompilation } from '../scripts/lib/video-compilation.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 

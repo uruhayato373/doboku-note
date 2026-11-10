@@ -3,7 +3,7 @@ import { existsSync, readFileSync, writeFileSync, readdirSync, mkdirSync, unlink
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
-import { EXAM_TO_PALETTE } from './lib/longform-render.mjs';
+import { requirePaletteKey } from './lib/qualification-palette.mjs';
 import { resolveExam } from '../.claude/scripts/sns/lib/exam-palette.mjs';
 import { IG_DESIGN, instagramLogo, instagramCoverNode, instagramPointNode, instagramCtaNode, renderInstagramNode, instagramRendererDigest } from './lib/instagram-video-design.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -29,7 +29,7 @@ for (const exam of readdirSync(base).sort()) for (const id of readdirSync(join(b
     count++; images += slides.length; console.log(`[existing] ${exam}/${id}`); continue;
   }
   const output = join(dir, 'carousel/img'); mkdirSync(output, { recursive: true });
-  const label = resolveExam(EXAM_TO_PALETTE[exam]).label;
+  const label = resolveExam(requirePaletteKey(exam)).label;
   const rendered = [];
   for (let i = 0; i < slides.length; i++) {
     const slide = slides[i];

@@ -1,0 +1,511 @@
+{
+  "revisions": {
+    "cover-pop-20261110": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『口頭試験』『立場で変わる質問』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。 前回の不合格の理由を直す: 文字: 『口頭試験』の「験」の馬偏の脚と旁が潰れて崩れ、正しい字形でない。左端の文字ブロックが画面左8%の内側に収まらず(約6.6%)、先生のヘルメット上端が上5%を超えて画面端に接する。他の文字(総監が制作・立場で変わる質問)と人物の同一性・手・装備は問題なし",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-cover.063e307a.png",
+          "sha256": "063e307a6b9c7bb247050b1a6461a2088d873497e4298291f2f1c30aef77d81b"
+        },
+        "generatedAt": "2026-11-10T12:40:50.840Z"
+      },
+      "copy": {
+        "exam": "pe-comprehensive-management",
+        "headline": [
+          "口頭試験",
+          "立場で変わる質問"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/cover-pop.805b445f.png",
+        "sha256": "805b445fb9217465eaec84e8a7cd338ea82847a9826a7704d3dd6abaf186519f",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "063e307a6b9c7bb247050b1a6461a2088d873497e4298291f2f1c30aef77d81b"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-10T12:40:50.840Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字: 総監が制作・口頭試験・立場で変わる質問を指示と一字ずつ照合し誤字なし。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯が参照と一致し、手指の破綻なし。下端18%に文字・顔なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261110": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "d4d14cecb8562db70ee54dd4d79ccb3729f6a4796b8a846dda98eb5f7bf5fd9e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『立場が違うと、何を準備するのか』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『聞いた話 立場で聞かれることが違うらしい』 『知りたいこと 自分はどこを準備するのか』。 図の下に『口頭試験の受験者の悩みの整理。実際の試問の再現ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 立場によって聞かれることが違うらしい。でも自分の立場では、どこを準備すればいいのか。この動画では、自分の立場で決めたことから、聞かれそうな切り口を3つ選ぶ手順を紹介します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 62.5）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-hook.a43e4ee9.png",
+              "sha256": "a43e4ee9de041860c8403f5c8acf4c12c03145d504d2735859ecf42fcdf33582"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/hook-diagram.9f0322b7.png",
+            "sha256": "9f0322b7ef0e2260951e1edd03ce4419ba2d21f80d9a080a464a5ac78f53beca",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a43e4ee9de041860c8403f5c8acf4c12c03145d504d2735859ecf42fcdf33582"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・左右の枠の文字・下の注記が指定文と一字ずつ一致し、吹き出しとチェックリストの図も内容と合う。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "28a26e8535fedafee84566c0bd313b557a4b8bce6a66a29442759726e1039299",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『立場で変わるのは、話す材料』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『立場ごとに別の試験 ではない』 『同じ試問事項 立場で変わるのは、話す材料』。 図の下、下端の字幕の帯より上に『出典：文部科学省 令和8年度技術士試験合否決定基準』の全文を省かずに入れる。 この場面の説明（文字にしない）: 誤解しやすいのは、立場ごとに別の試験がある、と考えることです。試問事項は立場にかかわらず同じで、立場で変わるのは、話す材料です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 25.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-misread.6cbdb338.png",
+              "sha256": "6cbdb3380c3cb2f64b8d8f053e98aeaee631360fd7bab014be0d8bd0b651186a"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/misread-diagram.4cf41269.png",
+            "sha256": "4cf41269a251c43e6819dbfc5d8e2d4cae55cc85f2a53aab0442363fb00a7607",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6cbdb3380c3cb2f64b8d8f053e98aeaee631360fd7bab014be0d8bd0b651186a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・左右枠の文字・出典の全文が指示と一字一句一致し、余計な文字や崩れ字なし。左右比較で右を強調する構図で本文とも矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "system",
+          "inputSha256": "edf278d4aa0803c61732b83a87f561bdc3081e73aea498a9ca872a8d6d74ba20",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『口頭試験の試問事項は2項目』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『経歴及び応用能力 60パーセント以上』 『体系的専門知識 60パーセント以上』。 図の下、下端の字幕の帯より上に『出典：文部科学省 令和8年度技術士試験合否決定基準』の全文を省かずに入れる。 この場面の説明（文字にしない）: 令和8年度の合否決定基準では、総監の必須科目の口頭試験は、経歴及び応用能力と、体系的専門知識の2項目で、それぞれ60パーセント以上の得点が必要です。 前回の不合格の理由を直す: 16:9 ではない（1717×916）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-system.bf1669a4.png",
+              "sha256": "bf1669a4ce3d2ec38f9acb1da74effe5dcf8633e61902c6dcf9fd4d0514a7be8"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/system-diagram.8c0631db.png",
+            "sha256": "8c0631db4934be14901eab11dcf46cec47376472c841f040f7742bb30dbf2483",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bf1669a4ce3d2ec38f9acb1da74effe5dcf8633e61902c6dcf9fd4d0514a7be8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・2項目の名称と60パーセント以上・出典の全文が指示と一致し、誤字や余計な文言なし。2項目の比較で本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "axis",
+          "inputSha256": "04efd15a3d66d1f35ad8f162cd9b2561a7360a35e09c9a58112b623852eaea22",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『同じ5管理でも、前に出る核が違う』。 図の下に『管理の核を、立場ごとの材料に結び付ける』の全文を省かずに入れる。 この場面の説明（文字にしない）: 立場の違いが効くのは、経歴及び応用能力の側です。同じ5管理でも、自分の立場でどの管理の核が前に出るかが変わります。核は、経済性は原価と工期の最適化、人的資源は人の確保と育成、情報は守りつつ活用、安全は人命と健康と第三者影響の回避、社会環境は環境と地域の合意です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 77.6）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-axis.3cf3ab84.png",
+              "sha256": "3cf3ab84948fdb00e025e9682c5f4273bd8edbb0fa271e24cd7d938fe3e31b66"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/axis-diagram.84df09bb.png",
+            "sha256": "84df09bb4a588c3830050c7436e8c829bebde987a527f85f828ca9725dfb7301",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3cf3ab84948fdb00e025e9682c5f4273bd8edbb0fa271e24cd7d938fe3e31b66"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと下の文が指定どおり。5つのアイコン（費用と時間・人材・情報の盾・人の保護・地域と環境）が5管理の核と合い、文字崩れもない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "steps",
+          "inputSha256": "a7bdf867c7fbec17decb89755c6a16caecaf3953279b30c9f39a2c4bb43a8d50",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『準備の3つの手順』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『決めたこと 自分が判断できたこと』 『動いた核 どの管理の核が動いたか』 『切り口を3つ 聞かれそうな点』。 図の下に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 準備は3つの手順です。1つめ、自分が決められたことを書く。2つめ、その判断で動いた管理の核を選ぶ。3つめ、そこから聞かれそうな切り口を3つ置く。肩書きではなく、判断から始めます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-steps.7239c029.png",
+              "sha256": "7239c0292d19c95796482a3b70f2a0dfc8696880abc4ec7e104a5380b0845d73"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/steps-diagram.21a16d1e.png",
+            "sha256": "21a16d1e0565e20f767bbaf37382c21de6f2e0a5400656a91b21af29794b621b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7239c0292d19c95796482a3b70f2a0dfc8696880abc4ec7e104a5380b0845d73"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "3段階の文字と注記が指定文と一致し、左から右の矢印の流れで構成されている。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "owner",
+          "inputSha256": "0421e9604c92afc40e06464bf8fc343efca60d24ab95abe60cf28a038790c600",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『発注者の立場で、聞かれそうな切り口（想定）』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『予算と工期の制約 経済性管理』 『住民・第三者への影響 安全管理・社会環境管理』 『受注者の働き方への配慮 人的資源管理』。 図の下に『想定であり、実際の試問の再現ではない。本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 発注者の立場で整理すると、想定される切り口はこうです。予算と工期の制約は、経済性管理。住民や第三者への影響は、安全管理と社会環境管理。受注者の働き方への配慮は、人的資源管理。これは想定であり、実際の試問の再現ではありません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 53.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-owner.22f155d3.png",
+              "sha256": "22f155d307af73fe3674c8b81aedab41c14d7ab0302f21a2f9ebf5ac3df12dab"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/owner-diagram.3190477c.png",
+            "sha256": "3190477cf4a7d7cf1b4bcd61292ce6741d8af953776b34ac22012af5080917d2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "22f155d307af73fe3674c8b81aedab41c14d7ab0302f21a2f9ebf5ac3df12dab"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "3つの枠の文字と管理名の対応、注記が指定どおりで、アイコンも内容と合い誤字がない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "others",
+          "inputSha256": "780f317840c29da12cc53ec9d34507318be27994b0b65ac78971f62613f16fce",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『自分の立場に置き換える（想定）』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『設計 設計条件と費用・安全の確保』 『施工 工程と費用・作業員の確保と現場の安全』 『維持管理 点検の頻度と費用・記録の活用』 『自分の立場 何を決めたか』。 図の下に『語り手の経験ではなく、置き換えの例。想定であり、実際の試問の再現ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 設計、施工、維持管理の立場は、自分の立場に置き換えて使ってください。設計なら、設計条件と費用、安全の確保。施工なら、工程と費用、作業員の確保と現場の安全。維持管理なら、点検の頻度と費用、記録の活用です。これも想定です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-others.8b3dbd61.png",
+              "sha256": "8b3dbd61d69665d794aa897044589d8d8f3f216abea2ae8b8304ef11762359de"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/others-diagram.b47cacef.png",
+            "sha256": "b47cacefff97531b4e5b2689ca3276f64727c2b7094a45f030394b91badb3fb3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8b3dbd61d69665d794aa897044589d8d8f3f216abea2ae8b8304ef11762359de"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "設計・施工・維持管理・自分の立場の4枠の文字と注記が指定と一致し、橋・ショベル・点検表のアイコンも妥当。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "neighbor",
+          "inputSha256": "6037b91a1489a9fb206d8244d4c5cc6779a44329f9f004fa05b9fbea46141abd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『隣の立場への影響を、一言で』。 図に入れる文字: 『自分の判断』 『前の工程の立場 何を受け取ったか』 『次の工程の立場 何を渡したか』 『利用者・地域 どう響いたか』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: もう一つ準備したいのが、隣の立場への影響です。自分の判断が、発注者、設計、施工、維持管理のうち隣の立場に何を残したか。立場の外側まで一言で言えると、判断の全体像が伝わります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-neighbor.febe3405.png",
+              "sha256": "febe3405399951c3713430c4a14b48c14b448a3d038b7c0aac832efe61b1a40f"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/neighbor-diagram.8c44eea1.png",
+            "sha256": "8c44eea1e03a8541da1ca37bb99fb8b4ea1ec45ef8b4fb6607eaba955742c68a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "febe3405399951c3713430c4a14b48c14b448a3d038b7c0aac832efe61b1a40f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "自分の判断を中心に前後の立場と利用者・地域への流れが指定文どおりで、誤字がない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "sheet",
+          "inputSha256": "d7635809114a264cbf3cecf2fe6e88cbadd05d8c775f52c3b90adb5e655eade2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『立場別の準備シート』。 図に入れる文字: 『立場』 『決めたこと』 『動いた核』 『隣の立場への影響』 『聞かれそうな切り口3つ』。 図の下に『本動画の独自の整理。事実だけを書く』の全文を省かずに入れる。 この場面の説明（文字にしない）: 準備シートに、5つの欄を作ります。立場、決めたこと、動いた核、隣の立場への影響、聞かれそうな切り口3つ。全部、自分の事実で埋めます。埋まらない欄は、業務の記録に戻って確かめます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-sheet.0afe7294.png",
+              "sha256": "0afe7294c80b681ddfc3df0425e1b02ef5804e6e1b151fee5cabce0645c79faf"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/sheet-diagram.7b9595e1.png",
+            "sha256": "7b9595e16a06d517d1c91347a2d4c9699293ed0e82a337a7b32cdbc67042335f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0afe7294c80b681ddfc3df0425e1b02ef5804e6e1b151fee5cabce0645c79faf"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "5つの欄の見出しと注記が指定文と一致し、欄は空で事実で埋める趣旨に合う。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "avoid",
+          "inputSha256": "0941414d70d1243758c0ccc4d53a9dee639fc0e777fcf4fdd82671f600d9e0fa",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『避けたい3つ』。 図に入れる文字: 『肩書きだけで説明する』 『経験していない立場の話を足す』 『想定問答を再現だと思い込む』。 図の下に『事実と想定を分けて準備する』の全文を省かずに入れる。 この場面の説明（文字にしない）: 避けたいのは3つです。肩書きだけで立場を説明すること。経験していない立場の話を足すこと。想定問答を、実際の試問の再現だと思い込むことです。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 43.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-avoid.f1139f2c.png",
+              "sha256": "f1139f2cb0bbc40b3645947d602cf7aeaf17833832349ff844d4d2ae9d1381cf"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/avoid-diagram.02a89821.png",
+            "sha256": "02a898210441867875fda6fb77c72028f4f118b1bf85d448110eacf2290506f1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f1139f2cb0bbc40b3645947d602cf7aeaf17833832349ff844d4d2ae9d1381cf"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "3つの避けたい行為と下の文が指定どおりで、各アイコンに禁止の×があり意味が合う。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "bfd471cd76d88c566bd05c76af507cbf58ae8f05ff1694e1eb3db8be61fee2cb",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『立場別の準備チェック』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『決めたことから始める』 『動いた核を選ぶ』 『切り口を3つ置く』 『隣の立場への影響を言う』。 図の下に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめです。試問事項は立場にかかわらず同じで、変わるのは材料です。決めたこと、動いた核、聞かれそうな切り口を3つ、隣の立場への影響を、自分の事実で準備します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 17.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-summary.6386503d.png",
+              "sha256": "6386503da68414f614e96411a180d507e4b1da0262c24fefa834b33c6a54330c"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/summary-diagram.51aed5ba.png",
+            "sha256": "51aed5ba2258fb76548c9081a37424a978b651063871d488129b62c664a0c54c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6386503da68414f614e96411a180d507e4b1da0262c24fefa834b33c6a54330c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "4つの番号付き枠の文字と注記が指定どおりで、順序も説明と一致している。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "a13480c591cfda3b75724f7ca160074730012ec6e335a14de630fa6e824b2ab9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『自分の立場で、声に出して練習』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『切り口を3つ選ぶ』 『想定25問で、声に出す』 『教材案内は概要欄へ』。 図の下に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 想定25問と、発注者、コンサル、施工者の架空の回答例で練習したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/factory/raw-cta.95bad335.png",
+              "sha256": "95bad33588b77cc31d6a27ead9ebf06fd4ff39e9b870750c853581c202232944"
+            },
+            "generatedAt": "2026-11-10T12:40:50.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tachiba/work/cta-diagram.f0ad0296.png",
+            "sha256": "f0ad02965bb0a46170d17e1af0ac6c2fbfbf1ae4a0b5af8d6c2a9ce6c7fb432d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "95bad33588b77cc31d6a27ead9ebf06fd4ff39e9b870750c853581c202232944"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:40:50.840Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "ノート内の3行、見出し、注記が指定文と一致し、価格やURLは描かれていない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261110",
+  "activeBodyRevision": "body-diagram-20261110"
+}

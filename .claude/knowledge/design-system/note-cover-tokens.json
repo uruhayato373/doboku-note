@@ -156,6 +156,16 @@
       "soft": "#3B8898",
       "accent": "#9C3D1E"
     },
+    "pe-fisheries": {
+      "comment": "技術士 水産部門。2026-11-10 に note の下書き（DN-1098）を置いたので追加。色はサイトの資格色が決まったら合わせる。",
+      "dir": "技術士水産部門",
+      "qualification": "pe-fisheries",
+      "hue": "sea-green",
+      "base": "#0F6E5F",
+      "deep": "#0A4F44",
+      "soft": "#2E8C7C",
+      "accent": "#9C3D1E"
+    },
     "pe-water-supply": {
       "dir": "技術士上下水道部門",
       "qualification": "pe-water-supply",

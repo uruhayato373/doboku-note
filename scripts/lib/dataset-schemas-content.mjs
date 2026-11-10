@@ -118,6 +118,15 @@ export const ConfigChannelAnnualPlan = z.object({
   cadence: z.string().min(1),
   productionRule: z.string().min(1),
   reviewRule: z.string().min(1),
+  shortsRule: z.object({
+    parentStatus: z.array(z.enum(['published', 'scheduled'])).min(1).describe('親の通常動画がこの状態になってからショートを作る（通常動画の展開に合わせる）'),
+    perLongform: z.number().int().positive().describe('通常動画 1 本を親にするショートの上限'),
+    trial: z.object({
+      max: z.number().int().positive().describe('枠にショートの割り当てが無い親から作るショートの合計の上限'),
+      reviewAt: jstDate('試行の結果を見て上限を見直す日'),
+      note: z.string().min(1),
+    }).strict().describe('枠の外の親（計画の前に公開した通常動画）での試行'),
+  }).strict().optional().describe('ショートの決まり。無ければ枠の shorts の上限だけで数える'),
   channels: z.object({ x: channelPlan, instagram: channelPlan }).strict().describe('YouTube 以外のチャネルの枠と型'),
   slots: z.array(longformSlot).min(1).superRefine(uniqueBy('id')),
   entries: z.array(z.object({
@@ -359,7 +368,8 @@ const Publication = z
     if (d) {
       const issue = (key, message) => ctx.addIssue({ code: 'custom', path: ['delivery', key], message });
       if (!p.account.startsWith('youtube:')) issue('inputSha256', 'delivery は YouTube 公開行専用');
-      if (p.variant && !p.revisionOf) issue('inputSha256', 'variantの実行記録には改訂元が必要');
+      // ショートは初回の投稿でも variant（youtube.json の shorts の key）を持つ（DN-1002）
+      if (p.variant && !p.revisionOf && p.format !== 'short') issue('inputSha256', 'variantの実行記録には改訂元が必要');
       if (p.platform?.id && p.platform.id !== d.videoId) issue('videoId', 'platform.id と実行記録の動画 ID が不一致');
       if ((d.processedAt || d.thumbnailRequestedAt || d.scheduleRequestedAt) && !d.videoId) issue('videoId', '処理・表紙・予約には動画 ID が必要');
       if (d.thumbnailAcceptedAt && (!d.thumbnailRequestedAt || !d.thumbnailUrls?.length)) issue('thumbnailAcceptedAt', '表紙の開始記録と応答 URL が必要');

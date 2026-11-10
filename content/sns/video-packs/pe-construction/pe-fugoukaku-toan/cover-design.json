@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -11,15 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
+        "variant": "question",
         "authority": "総監が解説"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/cover-pop.5c24c4a7.png",
+        "sha256": "5c24c4a7db98eed739805e042c50ac48abadfaaca08428835d6453eae159e789",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "e67d915b56268c02155d920a412f208853037a38dfef5463c0f834b761e24db8"
+      }
     }
   }
 }

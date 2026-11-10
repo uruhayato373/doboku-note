@@ -8,8 +8,9 @@ import { publicationWriteSession } from './content-registry-write.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { readJson } from './json-io.mjs';
 import { approvalState } from './media-review.mjs';
+import { qualityProblems } from './shorts-release.mjs';
 import { longformInputHash } from './longform-render-integrity.mjs';
-import { acceptedApproval } from './video-publish-gate.mjs';
+import { acceptedApproval, readPolicy } from './video-publish-gate.mjs';
 import { requirePopDiagramStandard } from './longform-pop-images.mjs';
 import { findDuplicateLongforms } from './video-duplicate-check.mjs';
 import { assertChannel, assertProcessed, getVideo, sameSnippet, writableStatus } from './youtube-migration.mjs';
@@ -109,14 +110,18 @@ export function revisionPublishPlan(root, pubId, now = Date.now()) {
 export function singlePublishPlan(root, pubId, now = Date.now()) {
   const reg = loadRegistry(root), pub = reg.publications.find(p => p.id === pubId);
   const parsed = parsePubId(pubId);
-  if (!pub || pub.revisionOf || pub.channel !== 'youtube' || pub.format !== 'longform' || pub.variant ||
-      pub.account !== 'youtube:main' || parsed?.exam !== pub.exam || parsed.work !== pub.work || parsed.format !== 'longform' || parsed.variant) {
-    throw new Error('初回通常動画の公開ID・アカウントが不正');
+  // ショートも初回の投稿はこの経路（DN-1002）。ショートは variant が youtube.json の shorts の key
+  const isShort = pub?.format === 'short';
+  if (!pub || pub.revisionOf || pub.channel !== 'youtube' || !['longform', 'short'].includes(pub.format) || (isShort ? !pub.variant : pub.variant) ||
+      pub.account !== 'youtube:main' || parsed?.exam !== pub.exam || parsed.work !== pub.work || parsed.format !== pub.format || (parsed.variant ?? null) !== (pub.variant ?? null)) {
+    throw new Error('初回の通常動画・ショートの公開ID・アカウントが不正');
   }
   const work = reg.works.find(w => w.id === pub.work && w.exam === pub.exam);
-  if (work?.kind !== 'video-pack' || pub.copy !== `${work.definition}/youtube.json#longform`) throw new Error('投稿文面の置き場が作品と一致しない');
+  const copy = isShort ? `${work?.definition}/youtube.json#shorts/${pub.variant}` : `${work?.definition}/youtube.json#longform`;
+  if (work?.kind !== 'video-pack' || pub.copy !== copy) throw new Error('投稿文面の置き場が作品と一致しない');
   const release = readJson(root, `${work.definition}/youtube.json`);
-  const input = release.longform, byId = new Map(reg.media.map(m => [m.id, m]));
+  const input = isShort ? release.shorts?.find(item => item.key === pub.variant) : release.longform, byId = new Map(reg.media.map(m => [m.id, m]));
+  if (!input) throw new Error('youtube.json に投稿入力が無い');
   const assets = {}, facts = {};
   for (const role of ['video', 'cover']) {
     const id = pub.media?.[role], m = byId.get(id);
@@ -125,17 +130,25 @@ export function singlePublishPlan(root, pubId, now = Date.now()) {
     if (verifiedBytes(root, assets[role]).length !== m.bytes) throw new Error(`${role}: 素材サイズが違う`);
     facts[role] = { bytes: m.bytes, width: m.width, height: m.height, durationSec: m.durationSec, provenance: m.provenance };
   }
-  requirePopDiagramStandard(root, join(root, work.definition));
+  if (isShort) {
+    // ショートの品質は shorts-factory の記録（画面確認・音声）が今の動画のものか。関連動画は同じ作品の予約済みか公開済みの通常動画
+    const record = readJson(root, `${work.definition}/pop-image.json`);
+    const problems = qualityProblems(record.revisions?.[record.activeShorts?.[pub.variant]], assets.video.sha256, readPolicy(root));
+    if (problems.length) throw new Error(`ショートの品質の記録: ${problems.join('・')}`);
+    const target = reg.publications.find(p => p.id === pub.relatedTo);
+    if (!target || target.format !== 'longform' || target.exam !== pub.exam || target.work !== pub.work || target.account !== pub.account || !videoIdValid(target.platform?.id)) throw new Error('ショートの関連先が同じ作品の投稿済みの通常動画ではない');
+  } else requirePopDiagramStandard(root, join(root, work.definition));
+  const [coverWidth, coverHeight] = isShort ? [1080, 1920] : [1920, 1080];
   if (release.channel?.id !== readDataset(root, 'config.youtube-formats').channel.id ||
       release.channel?.title !== readDataset(root, 'config.youtube-formats').channel.title ||
       input.sha256 !== assets.video.sha256 || input.thumbnailSha256 !== assets.cover.sha256 ||
       !input.r2Key || !input.thumbnailR2Key || Date.parse(input.publishAt) !== Date.parse(pub.publishAt) ||
       !(facts.video.durationSec > 0) ||
-      facts.cover.width !== 1920 || facts.cover.height !== 1080 ||
-      facts.video.provenance.renderInputSha256 !== longformInputHash(join(root, work.definition))) throw new Error('投稿入力・完成動画・表紙の結線が不正');
+      facts.cover.width !== coverWidth || facts.cover.height !== coverHeight ||
+      (!isShort && facts.video.provenance.renderInputSha256 !== longformInputHash(join(root, work.definition)))) throw new Error('投稿入力・完成動画・表紙の結線が不正');
   const channel = readDataset(root, 'config.youtube-formats').channel;
   const disclosure = readDataset(root, 'config.youtube-production-disclosure');
-  const utm = readDataset(root, 'config.utm-templates').channels['youtube.longform'];
+  const utm = readDataset(root, 'config.utm-templates').channels[isShort ? 'youtube.shorts' : 'youtube.longform'];
   if (!input.title || input.title.length > 100 || !input.description || input.description.length > 5000 ||
       !input.description.includes(disclosure.authorityNotice) ||
       ![`utm_source=${utm.source}`, `utm_medium=${utm.medium}`, `utm_campaign=${pub.work}`].every(x => input.description.includes(x))) throw new Error('投稿文面・UTM・制作開示が不正');

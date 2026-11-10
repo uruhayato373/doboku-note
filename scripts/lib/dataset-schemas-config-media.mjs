@@ -559,13 +559,21 @@ export const ConfigXReplyTrial = z
     schemaVersion: schemaVersion1,
     experiment: z.string().regex(/^EXP-\d{3}$/),
     backlog: z.string().regex(/^DN-\d{4}$/),
-    trial: z.object({ from: z.string(), to: z.string() }).strict(),
+    trial: z
+      .object({ from: z.string(), to: z.string().optional() })
+      .strict()
+      .describe('返信を送ってよい期間（JST の日付）。to が無ければ終わりを決めない（2026-11-11 に運営者の判断で試行から継続の運用へ）'),
     limits: z
       .object({
         minIntervalMinutes: z.number().int().positive(),
         candidatesPerRun: z.number().int().positive(),
         lookbackHours: z.number().int().positive(),
         perTopic: z.number().int().positive().describe('1 つの話題（資格）から出す候補の上限。偏りを防ぐ'),
+        yahooMaxPages: z
+          .number()
+          .int()
+          .positive()
+          .describe('Yahoo!リアルタイム検索の続き（10 件ずつ）をたどる回数の上限。1 ページ目は約 40 件で止まるため（2026-11-10〜）'),
       })
       .strict(),
     topics: z
@@ -574,7 +582,7 @@ export const ConfigXReplyTrial = z
           .object({
             id: z.string().regex(/^[a-z0-9-]+$/),
             qualifications: z.array(z.string().min(1)).min(1).describe('qualification-registry の資格 id'),
-            queries: z.array(z.string().min(1)).min(1).describe('Yahoo!リアルタイム検索と X の検索（最新）で使う語'),
+            queries: z.array(z.string().min(1)).min(1).describe('Yahoo!リアルタイム検索で使う語（続きをたどるので 1 語の広い語にする）。1 語目は X の検索（最新）にも使う'),
             match: z.array(z.string().min(1)).min(1).describe('タイムラインの投稿をこの話題に振り分ける語'),
           })
           .strict(),
@@ -594,11 +602,43 @@ export const ConfigXReplyTrial = z
     studyWords: z.array(z.string().min(1)).describe('試験前の勉強・直前の悩みの語（2026-11-08〜）'),
     careWords: z.array(z.string().min(1)).min(1),
     supplierWords: z.array(z.string().min(1)),
+    supplierSoftWords: z
+      .array(z.string().min(1))
+      .optional()
+      .describe('受験者本人も書く宣伝寄りの語（添削・講座など）。結果を書いた投稿では宣伝にしない（2026-11-09〜・DN-1059）'),
+    resultWords: z
+      .array(z.string().min(1))
+      .optional()
+      .describe('合否を書かずに試験の結果に触れる語（試験結果など）。勉強・直前と同じ扱いで候補にする（2026-11-09〜・DN-1059）'),
     toneWords: z
       .array(z.string().min(1))
       .min(1)
       .describe('返信の下書きに使わない、相手を評価する・指図する言い方。x-reply-sheet が含む下書きを止める（2026-11-09〜）'),
     excludeAccounts: z.array(z.string().min(1)),
+    nameContextWords: z
+      .array(z.string().min(1))
+      .min(1)
+      .describe('表示名に資格の語がある人の投稿を、本文に資格の語が無くても話題に振り分ける条件の語（筆記・口頭など。2026-11-10〜）'),
+    xScreens: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^[a-z0-9-]+$/),
+            label: z.string().min(1),
+            url: z.string().url(),
+            tab: z.string().min(1).optional().describe('開いたあとに選ぶタブ（フォロー中・おすすめ）'),
+            scrolls: z.number().int().min(1).max(10),
+          })
+          .strict(),
+      )
+      .describe('内蔵ブラウザで読むタイムライン（npm run x-reply-screens。2026-11-10〜）'),
+    xSearch: z
+      .object({
+        suffix: z.string().describe('X の検索語に足す条件（lang:ja -filter:retweets など）'),
+        scrolls: z.number().int().min(1).max(10),
+      })
+      .strict()
+      .describe('話題ごとの X の検索（最新）。検索語は topics の queries の 1 語目'),
   })
   .strict();
 
@@ -855,6 +895,7 @@ const imageFormat = z.object({
   minWidth: z.number().int().positive().optional().describe('生成の原本に許す最小の幅'),
   bottomZone: z.number().min(0).max(1).describe('下端の字幕帯の高さの比率'),
   frame: z.string().min(1).describe('構図と安全域の生成指示'),
+  bodyFrame: z.string().min(1).optional().describe('本文の画面で、ラベル・見出し・図を収める範囲の生成指示（字幕と操作ボタンの外）'),
 }).strict();
 
 export const ConfigSiteThumbnails = z

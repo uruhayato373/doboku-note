@@ -25,11 +25,12 @@ import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import {
-  LONGFORM_W, LONGFORM_H, buildLongformAss, buildSceneNode, planLongformRender, EXAM_TO_PALETTE,
+  LONGFORM_W, LONGFORM_H, buildLongformAss, buildSceneNode, planLongformRender,
 } from './lib/longform-render.mjs';
 import { narrationInput, reusableNarration, sha256 } from './lib/video-narration-cache.mjs';
 import { readLongformPopImages } from './lib/longform-pop-images.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { requirePaletteKey } from './lib/qualification-palette.mjs';
 import { verifyLearningFrame } from './lib/learning-frame.mjs';
 import { longformInputHash, verifyLongformRender } from './lib/longform-render-integrity.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
@@ -64,7 +65,7 @@ const popImages = readLongformPopImages(ROOT, packDir, storyboard, { local: true
 if (popImages.size && args['skip-png']) throw new Error('本文POP画像があるパックは --skip-png 不可');
 const coverDesignPath = join(packDir, 'cover-design.json');
 const coverSpec = existsSync(coverDesignPath)
-  ? validateCoverDesign(JSON.parse(readFileSync(coverDesignPath, 'utf8')), { exam: EXAM_TO_PALETTE[manifest.exam] }).covers.longform : null;
+  ? validateCoverDesign(JSON.parse(readFileSync(coverDesignPath, 'utf8')), { exam: requirePaletteKey(manifest.exam) }).covers.longform : null;
 if (coverSpec && args['skip-png']) throw new Error('cover-design があるパックは --skip-png 不可。冒頭と動画を揃えて再生成してください');
 if (coverSpec && coverSpec.format !== 'longform') throw new Error('longform cover の format が不一致');
 

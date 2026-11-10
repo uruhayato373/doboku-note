@@ -99,6 +99,13 @@ node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
 
 ショートは通常動画とは別に、`npm run shorts-factory` で作る。入口は `shorts-design.json`（論点の分割）で、`beats` の語りをつなぐと承認済みの台本の場面に一致しないと止まる。導入の `hook` だけが足せる語り。画面は表紙・論点ごとの図解・締めの全面画像で、尺は 20〜60 秒。
 
+ショートは通常動画の展開に合わせて作る（2026-11-10・運営者の決定）。決まりは `config/channel-annual-plan.json` の `shortsRule` にあり、`plan` の関門と `check-youtube-plan` が同じ判定（`shortsSlotFill`）で止める。
+- 親の通常動画（改訂版を含む）が公開済みか予約済みになってから作る
+- 通常動画 1 本につき `perLongform` 本まで。枠に `shorts` の割り当てがある親は枠の上限、割り当ての無い公開済みの親は `trial.max` の合計まで
+- 上限は `trial.reviewAt` と、通常動画の計画の見直しのときに一緒に見直す
+
+表紙の見出し（`headline`・1〜3 行）と締めの語り（`cta`・6〜20 字）は `shorts-design.json` に書ける。書いたときは `cover-design.json`・`cta-design.json` を読まず、採用（`adopt`）でも書き換えない。この 2 つは通常動画の入力ハッシュに入るので、公開済みの通常動画から派生させるショートでは必ず台本側に書く。
+
 ```bash
 npm run shorts-factory -- status --exam <資格>                         # 全本の工程の位置
 npm run shorts-factory -- record-script-qa --pack <資格>/<作品> --key <key> --verdict pass --by yt-shorts-publisher-qa --reason "…"
@@ -115,12 +122,19 @@ npm run shorts-factory -- restore --pack <資格>/<作品> --key <key>       # �
 ```
 
 - 下端の無地帯、9:16 以外、解像度不足は生成の時点で落ちる（`inspectShortImage`）。
+- 本文の画面は、ラベル・見出し・図を収める範囲（左から 8%〜80%・上から 8%〜64%）を `config/image-generation.json` の `formats.shorts.bodyFrame` で最初から指示する。字幕（下 32%）と右端の操作ボタンの外に収めるためで、作り直しの指示で後から足すと縦横比や絵柄が崩れた（2026-11-10・1 枚に 7 回）。
+- 上限（3 回）に達した項目は `plan --retry <項目 id,…|all>` で回数を戻す。`plan` を作り直すと、合格済みの画像は引き継ぎ、生成の指示は今の決まりから組み直す。
 - 台本の監査は台本の中身の sha に付く。語りや図の指示を変えると `plan` が止まる。
 - 判定は通常動画と同じく画像の sha に付き、画面確認と音声の検査は動画の sha に付く。描き直すと全部やり直す。
 - `stock` はクラウドの照合が通ってから手元の画像と動画を消す。確認用の一覧は `.tmp/shorts-stock/` に残す。在庫の判断材料はこの一覧で見る。
 - 予約は別の判断。`restore` は `youtube-shorts:stage` が自動で行う分と同じで、手動の確認に使う。
 - 再開する公開行は `check-youtube-shorts` が `pop-poster-v3`・描画の記録・画面確認の pass を要求する。停止中の行は数えるだけで検査しない。
-- 投稿は既存の `youtube-shorts:stage` と `publish-video-pack`。ショートの投稿の CI はまだ無く、手元に YouTube の認証情報も無い。方針の自動承認の対象は通常動画だけで、ショートは運営者が承認する。
+- 投稿と予約は通常動画と同じ CI（youtube-single-publish の mode=publish）で行う（2026-11-11・DN-1002）。方針の自動承認の対象は通常動画だけで、ショートは運営者が承認する。順番は次のとおり。
+  1. `npm run registry -- prepare-short --pub <ショートの公開 ID> --publish-at <時差つきの日時> --commit` — 在庫の素材（動画・表紙・画面の一覧・字幕）を台帳に結び、関連動画（同じ作品の予約済みか公開済みの通常動画・改訂版を含む）と公開日時を入れる。日時は親の公開より後・24 時間以上先・同時刻なし・1 日 3 本まで
+  2. 運営者が `npm run registry -- approve --stage visual` → `--stage final`（表紙の画像の判定は shorts-factory の監査を写してある）
+  3. `npm run shorts-factory -- restore` で手元に戻し、`npm run registry -- stage-youtube --pub … --commit` で CI へ渡す R2 に置く。`npm run registry -- publish-youtube --pub … --phase upload` の digest を `expect` にして publish を流すと、非公開でアップロードして止まる
+  4. 運営者が Studio でショートの関連動画に親の通常動画を設定し、`npm run registry -- record-related --pub … --video-id <親の動画 ID>` で記録する（API では設定できない。親が公開されてから）
+  5. もう一度 publish を流すと予約する
 - 2級土木は `diagram-led` を優先するので対象外。Instagram リールの描画はまだこの工程に載っていない。
 
 ## 罠

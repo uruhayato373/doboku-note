@@ -1,0 +1,475 @@
+{
+  "revisions": {
+    "cover-pop-20261110": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『技術士 建設部門』『口頭の深掘り』『事実で答える』を大きく配置。上部の黄色帯に小さく『総監が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-cover.c552f294.png",
+          "sha256": "c552f2940337a0930fa7c15695c361edfa4dc3fccc5cea083272de6619644d9b"
+        },
+        "generatedAt": "2026-11-10T12:31:26.462Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "技術士 建設部門",
+          "口頭の深掘り",
+          "事実で答える"
+        ],
+        "authority": "総監が解説"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/cover-pop.bfda2f64.png",
+        "sha256": "bfda2f64537ceccc77b3d6631483b29bd91c698a883a99fbd4de909cb940bc03",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "c552f2940337a0930fa7c15695c361edfa4dc3fccc5cea083272de6619644d9b"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-10T12:31:26.462Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字は指示と一字一致（総監が解説・技術士 建設部門・口頭の深掘り・事実で答える）で括弧なし。キャラは黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指の破綻なし。最下行の左余白は約5%でやや狭いが誤読は生じない",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261110": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "4670156ef7db004b1866252c129b48c229076beee377eeb75dfb08833dc820a8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『説明はできるのに、深掘りで崩れる』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『経歴の説明 工事概要・自分の担当』 『深掘りへの答え 一般論・言い訳になる』。 図の下に『説明できることと、事実で答えることは別』の全文を省かずに入れる。 この場面の説明（文字にしない）: 経歴の説明はできても、なぜその判断をしたのかと聞かれた途端に、一般論や言い訳になっていませんか。今日は、深掘りの質問の四つの型と、事実で答える返し方を整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-premise.9022fcf8.png",
+              "sha256": "9022fcf822df4d30751f99ff8c52311b3a61a807a162faea197ab6874e7347a2"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/premise-diagram.0a2dd605.png",
+            "sha256": "0a2dd6050d757ba0271572fe6ca4c0640869ce25c24c0c135e60dccfa372a04c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9022fcf822df4d30751f99ff8c52311b3a61a807a162faea197ab6874e7347a2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・2枠の文字・下の全文を指示と1字ずつ照合し一致。誤字・余計な文字なし、比較構図で右を強調、下端は無地",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "frame",
+          "inputSha256": "17d5d12e4798fb305895183f9abb26434326db4b7a40d0c36dd3947ebe77353a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『深掘りは、事実を確かめる質問』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『筆記の答案』 『業務経歴』 『対話での確認 （質問の例は想定）』。 図の下に『質問の例は動画の想定で、実際の試験の再現ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 口頭試験は、筆記の答案と業務経歴を踏まえた対話で進みます。深掘りは、説明が自分の事実に支えられているかを確かめる質問だと考えて準備しましょう。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 27.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-frame.e2bdd590.png",
+              "sha256": "e2bdd590f8b05ee78955880621a7a73d19670daf4c155929bc32602a0e13bc44"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/frame-diagram.dbc08648.png",
+            "sha256": "dbc08648651226d2955b7df7f4de1fcae10005f73e07b7709db265a6debf016d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e2bdd590f8b05ee78955880621a7a73d19670daf4c155929bc32602a0e13bc44"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3枠の文字・括弧つき注記・下の全文が指示と一致。同じ大きさの枠が並び、アイコンの崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "types",
+          "inputSha256": "80cf444ee3a6d1ff2f4965fac3c3f0bdb284dc1251f0d2d2cfe479b152244318",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『深掘りの4つの型（想定）』。 図に入れる文字: 『理由 なぜそう判断したか』 『代替 他の案はなかったか』 『確認 結果をどう確かめたか』 『役割 自分は何をしたか』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 想定する深掘りは、四つの型に分けられます。なぜそう判断したのかという理由、他の案はなかったのかという代替、結果をどう確かめたのかという確認、そしてあなた自身は何をしたのかという役割です。型が分かれば、答える材料も事前に探せます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-types.1dcaca95.png",
+              "sha256": "1dcaca95cf5c0dc9a304268a18561dec4c0ed691f2a44698eb194f18113b7e00"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/types-diagram.c56628b7.png",
+            "sha256": "c56628b7e578fcb1da2e2191285df186a64a14085094ea6312c9d771aaf17885",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1dcaca95cf5c0dc9a304268a18561dec4c0ed691f2a44698eb194f18113b7e00"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・4型の見出しと副文・下の注記『本動画の独自の整理。自分の事実で埋める』が指示どおり一字一致し、誤字や余計な文言なし。アイコンも意味に合い、下端は無地",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "why",
+          "inputSha256": "573b21f055e6572fb77e949ec5b2116d64e76334d94c882da18cb9cb9e1d1264",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『理由の型｜一般論と事実（仮の例）』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下に『仮の例。自分の業務の事実に置き換える』の全文を省かずに入れる。 この場面の説明（文字にしない）: 理由の質問には、結論を先に言い、そのときの条件と制約を事実で続けます。例えば発注者の立場で、補修の工法を選んだ場面です。コストを考えて選びました、は一般論です。予算の上限の中で、工期に間に合う案を選びました、なら事実です。現場の事情で、は一般論。交通規制を短くできる案だった、なら事実です。この例は仮のものです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-why.b89bf62f.png",
+              "sha256": "b89bf62ffdef6bacf727e2ff87aaf910cbc6211386170c0b9b34ae45e05242dd"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/why-diagram.d029fdf9.png",
+            "sha256": "d029fdf962e68124948ffbf9df4283f050eb9d8da096412bc052beb55b1c15c1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b89bf62ffdef6bacf727e2ff87aaf910cbc6211386170c0b9b34ae45e05242dd"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと下の全文が指示と一致。左の曇った図(一般論)と右の予算・工期・補修案の図(事実)が本文と矛盾せず、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "alternative",
+          "inputSha256": "8e4276d35686555bbe10d13716c88aab505b443bf82fc15feb0ad8a5b9dec2e6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『代替の型｜比べた案と外した理由』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『比べた案を挙げる』 『外した理由を言う』 『比べていないなら そう認める』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 代替の質問には、実際に比べた案と、外した理由を答えます。比べていないなら、比べていないと認めたうえで、なぜ一案で足りると考えたかを事実で説明します。後から案を作って、比べたことにしてはいけません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 49.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-alternative.8f51c606.png",
+              "sha256": "8f51c6062b370cde75041706e954f9321f1dbf2318d4ca028db62ed2ce670a53"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/alternative-diagram.982a5017.png",
+            "sha256": "982a50176470afe3781527b8415783238199d34cc2dc3282e19acda54c6de24e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8f51c6062b370cde75041706e954f9321f1dbf2318d4ca028db62ed2ce670a53"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3行・下の全文が指示と一致。整理メモの用紙で行ごとに欄が分かれている",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "verify",
+          "inputSha256": "de29b8f305e49a83a61bba68dc006277f476d0dfa23cec35fbc76105ccdb03d6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『確認の型｜記録と確認した範囲』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『確かめた記録 検査・立会い・完成後の確認』 『数値は 自分が確認した範囲だけ』 『あいまいな数字は あいまいと伝える』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 確認の質問には、何の記録で確かめたかを答えます。検査の結果、立会いの記録、完成後の状態の確認などです。数値を答えるなら、自分が確認した範囲に限ります。記憶があいまいな数字は、あいまいだと伝えるほうが安全です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-verify.8264960c.png",
+              "sha256": "8264960c471fda92d3f7d0df58d40d570dd511aa7d6195e2bbe97723386285e4"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/verify-diagram.82b4ac16.png",
+            "sha256": "82b4ac16229ed9ed0d5f49692bb1f7fb2fb4c91491031e80893d071f3ef79a14",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8264960c471fda92d3f7d0df58d40d570dd511aa7d6195e2bbe97723386285e4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3行・下の全文が指示と一致。用紙の欄分けも指定どおり",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "role",
+          "inputSha256": "8de5bc78a6ffaacf90525486dc305cb75be659dfd79186352f73ad47a9a2df8a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『役割の型｜全体と自分を分ける』。 図に入れる文字: 『チーム全体の結果』 『自分が決めたこと』 『自分が動いたこと』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 役割の質問には、主語を自分にして答えます。私たちは、という言い方が続くと、あなたの判断が見えません。チーム全体の結果と、自分が決めたことや動いたことを分けて話しましょう。分けて話せば、聞く側も範囲を確かめやすくなります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-role.132bd7ba.png",
+              "sha256": "132bd7baeb332bd843b4f00a127033ea9feaec971202f462afbda26d3d0caf52"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/role-diagram.e8445953.png",
+            "sha256": "e8445953a896e4e1d98b1ea3d37b27c81854315aba2f7c3994c30433a91c120b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "132bd7baeb332bd843b4f00a127033ea9feaec971202f462afbda26d3d0caf52"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3つの枠・下の全文が指示と一致。全体と自分の分離が図で読める",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "contrast",
+          "inputSha256": "09bba5a6a9282f8f74001b1f19a5b9211ecda1f42437e1b74cee6d288cd2cda4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『同じ質問への、2つの答え』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 答え方を比べます。安全を第一に考えて判断しました、は一般論です。予算と工期の制約の中で、二案を比べ、この案を選びました、と言えば事実になります。忙しかったので、は言い訳です。何を後回しにし、何を守ったかを答えましょう。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-contrast.e06ca100.png",
+              "sha256": "e06ca1000badf798877bbd494f5587fef949fdb543d6baf412343b092b669bf9"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/contrast-diagram.d3ae4415.png",
+            "sha256": "d3ae441545fa129b40c893eb139d57b1aaa43f7a3e66350aff35f67764dbfcac",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e06ca1000badf798877bbd494f5587fef949fdb543d6baf412343b092b669bf9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと下の全文が指示と一致。左はあいまいな吹き出し、右は二案を比べて決める流れで本文と矛盾せず、余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "unknown",
+          "inputSha256": "70d38941c4fff15b7c0cb6b45d3d3e5167bc4c49e0975833e92c1c90d7e6835a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『分からないときの返し方』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『担当外は 担当ではなかったと言う』 『今ならどう考えるか 推測と断って話す』 『作り話で 埋めない』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 経験していないことや、覚えていないことを聞かれたときも、事実の範囲を区切ります。担当していない部分は、担当ではなかったと述べます。そのうえで、今ならどう考えるかを、推測だと断って説明します。作り話で埋めるのは避けましょう。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 37.6）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-unknown.d37e6c3d.png",
+              "sha256": "d37e6c3de99d9363ed5ec20235c28745ba8129ea42dda5c6faf81907fb29dd52"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/unknown-diagram.89268d1c.png",
+            "sha256": "89268d1c50cec5010e1e54697d7b7b354ec1bcd8886900be57e8590b22bb2b47",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d37e6c3de99d9363ed5ec20235c28745ba8129ea42dda5c6faf81907fb29dd52"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・番号つき3枠の文字・下の全文が指示と1字ずつ一致。余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "b4231932280d139b34e4fe1ad4dae4ccb3790ea3f57d0bd3fa0b0380b58bb6f8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『今日やることは、この3つ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『1業務で 4型の質問を作る』 『結論→事実→根拠→結果で 声に出して答える』 『録音を聞いて 一般論・言い訳を探す』。 図の下に『本動画の独自の整理。自分の事実で埋める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 今日やることは三つです。一つの業務について、四つの型の質問を自分で作ります。結論、事実、根拠、結果の順で、声に出して答えます。録音を聞き、一般論と言い訳になっていないかを確認しましょう。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 48.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-recap.a8d18aff.png",
+              "sha256": "a8d18aff1b7184e0ed0d9339f3c4f6e4345aececdfe77185e0db1156f1360023"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/recap-diagram.5ba87e5f.png",
+            "sha256": "5ba87e5f3a8b140f3d48b44043faca652bd84a2e144f4a34bc5e5c6b2974c5cb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a8d18aff1b7184e0ed0d9339f3c4f6e4345aececdfe77185e0db1156f1360023"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3枠の文字(→含む)・下の全文が指示と一致。番号と枠の構図も指定どおり",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "d6520faf111d3c59bc0e9b399724a54fb048685c8a4ddc474799aabdcabfd075",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『想定問答で、練習を進める』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『建設部門の口頭試験対策教材』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 想定問答を使って練習したい方には、建設部門の口頭試験対策教材があります。収録の想定問答は運営者が作ったもので、実際の出題の再現ではありません。概要欄から、収録内容を確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 40.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/factory/raw-cta.f5cb8524.png",
+              "sha256": "f5cb852447c904072557044ce702516e5f2c238095dd0a4fbb1f8f2ffa02049b"
+            },
+            "generatedAt": "2026-11-10T12:31:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/cta-diagram.58c06b7a.png",
+            "sha256": "58c06b7a1e7d1bbec4d6b090bfb5b912765418879c9126ecebde280af99d4823",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f5cb852447c904072557044ce702516e5f2c238095dd0a4fbb1f8f2ffa02049b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:31:26.462Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・ノートの文字・吹き出しの文字が指示と一致。価格・URLなし、ノート中央の構図",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261110",
+  "activeBodyRevision": "body-diagram-20261110"
+}

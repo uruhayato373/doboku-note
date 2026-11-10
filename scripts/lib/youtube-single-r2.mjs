@@ -79,12 +79,39 @@ export async function hydrateRevisionPublish(root, pubId) {
   console.log(`改訂通常動画の転送実体を実検査: ${assets.length}/2`);
 }
 
-export async function hydrateSinglePublish(root, pubId) {
+/** 初回の投稿（通常動画・ショート）の公開行と、youtube.json の投稿入力 */
+function singleInput(root, pubId) {
   const reg = loadRegistry(root), pub = reg.publications.find(p => p.id === pubId);
-  if (!pub || pub.revisionOf || pub.format !== 'longform' || pub.channel !== 'youtube') throw new Error('初回通常動画の公開IDが不正');
+  if (!pub || pub.revisionOf || !['longform', 'short'].includes(pub.format) || pub.channel !== 'youtube') throw new Error('初回の通常動画・ショートの公開IDが不正');
   const work = reg.works.find(w => w.id === pub.work && w.exam === pub.exam);
-  const input = readJson(root, `${work.definition}/youtube.json`).longform;
-  const byId = new Map(reg.media.map(m => [m.id, m]));
+  const release = readJson(root, `${work.definition}/youtube.json`);
+  const input = pub.format === 'short' ? release.shorts?.find(s => s.key === pub.variant) : release.longform;
+  if (!input) throw new Error(`${pubId}: youtube.json に投稿入力が無い`);
+  return { reg, pub, input, byId: new Map(reg.media.map(m => [m.id, m])) };
+}
+
+/** 初回の投稿の動画と表紙を CI へ渡す private R2（youtube.json の r2Key・thumbnailR2Key）に置き、読み戻して照合する */
+export async function stageSinglePublish(root, pubId, { commit = false } = {}) {
+  const { pub, input, byId } = singleInput(root, pubId);
+  const targets = [['video', input.r2Key, input.sha256], ['cover', input.thumbnailR2Key, input.thumbnailSha256]].map(([role, key, expected]) => {
+    const asset = byId.get(pub.media?.[role]);
+    if (!asset || asset.sha256 !== expected || !key) throw new Error(`${role}: R2転送入力と台帳が一致しない`);
+    const path = join(root, asset.store.path);
+    if (!existsSync(path) || sha(readFileSync(path)) !== expected) throw new Error(`${role}: 手元の実体が無いか SHA が違う（${asset.store.path}）`);
+    return { role, key, expected, path, size: asset.bytes };
+  });
+  if (!commit) return { publicationId: pubId, checked: targets.length, staged: 0, dryRun: true };
+  const s3 = client();
+  for (const t of targets) {
+    await s3.send(new PutObjectCommand({ Bucket: BUCKET, Key: t.key, Body: readFileSync(t.path) }));
+    const data = await bytes((await s3.send(new GetObjectCommand({ Bucket: BUCKET, Key: t.key }))).Body);
+    if (sha(data) !== t.expected || data.length !== t.size) throw new Error(`${t.role}: R2読戻しSHA・サイズが不一致`);
+  }
+  return { publicationId: pubId, checked: targets.length, staged: targets.length, dryRun: false };
+}
+
+export async function hydrateSinglePublish(root, pubId) {
+  const { pub, input, byId } = singleInput(root, pubId);
   const s3 = client();
   let checked = 0;
   for (const [role, key, expected] of [['video', input.r2Key, input.sha256], ['cover', input.thumbnailR2Key, input.thumbnailSha256]]) {
@@ -99,7 +126,7 @@ export async function hydrateSinglePublish(root, pubId) {
     if (sha(readFileSync(path)) !== expected) throw new Error(`${role}: ローカル実体のSHAが不一致`);
     checked++;
   }
-  console.log(`初回通常動画の転送実体を実検査: ${checked}/2`);
+  console.log(`初回投稿の転送実体を実検査: ${checked}/2`);
 }
 
 export function singlePublishJournal(pubId) {

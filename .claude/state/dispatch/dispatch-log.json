@@ -7182,6 +7182,40 @@
       "commit": null,
       "verification": "カード本文の照合",
       "note": "同じ原因（手元の yt-dlp が古い）の DN-1032 へ統合"
+    },
+    {
+      "id": "DN-1098",
+      "at": "2026-11-10",
+      "task": "技術士二次の水産部門の必須科目Iと水産土木の答案を R01〜R08 で作る（受験準備を兼ねる）",
+      "tier": "mid",
+      "kind": "制作",
+      "prevention": {
+        "type": "none",
+        "ref": "制作カードで不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "31991b7f3dfe",
+      "verification": "pe-secondary-exam-factcheck 3 回・note-lint 32 記事 OK",
+      "note": "必須科目I（R01〜R08・16 答案）と水産土木（R01〜R08・64 答案）を content/note/技術士水産部門/magazines/ に下書き（draft: true）で置いた。各年度の事実は別の担当が一次情報で照合し誤り 0。販売するかは未決のまま"
+    },
+    {
+      "id": "DN-1099",
+      "at": "2026-11-11",
+      "task": "サイトに技術士 水産部門（二次）の入口のガイド 4 本を作る",
+      "tier": "mid",
+      "kind": "制作",
+      "prevention": {
+        "type": "none",
+        "ref": "制作カードで不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "300366beefc4",
+      "verification": "check-home-exam-coverage・check-guide-length・guide-fact-checker",
+      "note": "PR #1521（300366beef）でガイド 4 本・pe-fisheries の active 化・入口の配線を develop へ。事実は別の担当が照合し誤り 0、科目別の統計は日本技術士会の統計 PDF で一致を確認。develop 由来の赤（media-references・video-content）の中で運営者の判断によりマージ"
     }
   ]
 }

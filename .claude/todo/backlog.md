@@ -21,6 +21,33 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1106] 動画の量産工程が pop-image.json に作業用の画像の参照を残し、develop の CI（media-references）が赤になる
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
+
+**起点**: 2026-11-11、PR #1525（X の返信の設定・手順書）の CI で `quality:audit:ci` の `media-references` だけが落ちた（残り 131 本と build は合格）。develop 自体も同じ理由で赤で、Issue #1522 が開いている。
+
+**原因**: 2026-11-10 21:44〜21:49 に develop へ入った動画の量産工程のコミット（`content(video): … を量産工程で制作する`）で、`content/sns/video-packs/<資格>/<pack>/pop-image.json` が Git に入らない作業用の画像（`.tmp/media/<資格>/<pack>/work/factory/raw-*.png`）を参照している。`check-media-references` は「文書 597 / 参照 2211 / 欠け 213」で exit 1。例: `civil-construction-1/c1-juken-junjo-2027`（13 件）・`civil-construction-1/owner-eye-kouji-kensa`（7 件）。
+
+DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちらは量産工程が作業用の画像のパスを pop-image.json に書き残すことで増える。
+
+**やること**: 量産工程（`scripts/lib/video-factory.mjs` まわり）が pop-image.json に残す参照を、Drive に登録した素材か、参照を残さない形にする。すでに入った分の pop-image.json を直す。動画を作っているセッションの領域なので、そのセッションで直す。
+
+**完了条件**: `npm run quality:audit:ci` の `media-references` が develop で合格し、Issue #1522 が自動で閉じる。量産工程で 1 パック作っても欠けが増えない。
+
+
+### [DN-1101] 承認済みの通常動画 7 本を公開日の近い順に予約する
+タグ: [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-11-11] [期日:2026-11-14]
+
+**起点**: 2026-11-10〜11 の通常動画 9 本の量産で、全 9 本が関門と方針の承認まで通った。11-11 に `sokan-kojutsu-tradeoff`（11/18）と `pe-kojutsu-fukabori`（11/25）を予約した。残り 7 本は投稿の割当（1 日 4 本・日本時間 17 時に戻る）を使い切って未予約。
+
+**やること**: 公開日の近い順に、割当が戻ってから `node --env-file=.env.local scripts/video-factory.mjs publish --packs <a,b>` を回す。1 日 4 本まで。
+- 1 回目: civil-construction-1/owner-eye-kouji-kensa（12/1）、pe-construction/pe-kojutsu-kaitei-competency（12/8）、pe-comprehensive-management/sokan-kojutsu-tachiba（12/15）、pe-construction/pe-fugoukaku-toan（12/22）
+- 2 回目: civil-construction-1/c1-juken-junjo-2027（2027-01-01）、civil-construction-2/c2-juken-junjo-2027（01-12）、civil-construction-1/owner-eye-sekkei-tosho（01-15）
+- 実行前に作業ツリーの未コミットの変更を片づける（publish は内部で `git pull --rebase` を行い、未コミットがあると止まる）
+
+**完了条件**: 7 本の公開行が台帳で `scheduled` になり、`youtube-single-publish.yml` の実行がすべて success。
+
+
 ### [DN-1089] 土曜の収集の business-records の段が受取額を記録するか確かめる（11/14・11/21）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-10]
 
@@ -106,14 +133,6 @@
 
 
 
-### [DN-1012] 資格キーの変換を導出にして全資格をテストで固定する
-タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。資格 id の別名を変換する表が `longform-render.mjs:25` の `EXAM_TO_PALETTE`、`registry-x-state.mjs:21` の `EXAM_ALIAS`、`exam-brand.ts` の `QUALIFICATION_TO_EXAM_KEY`、`hub-cta.ts` の `examKey`、`past-exam-ledger.mjs` の `quizExam` に分かれる。実測で rccm・pe-water-supply・civil-construction-1-2・surveying・pavement・pipe-work が `EXAM_TO_PALETTE` にない。`render-instagram-video-pack-*` は `resolveExam(undefined)` で落ちるコードで、`image-rules.mjs` は `?? exam` で通るので呼び出し元で結果が変わる。例外の実行は未確認。`check-qualification-ssot` は名前だけを見てキー変換を見ない。
-
-**やること**: `note-cover-tokens.json` の `qualification` から変換を導出する。`exam-palette.mjs` を描画に依存しない場所へ置き、`image-rules.mjs` から `longform-render.mjs` への依存を外す。
-
-**完了条件**: registry の全資格について変換できるか、未対応と明示されているかをテストが確かめる。呼び出し元ごとの fallback の違いが無くなる。
 
 
 
@@ -401,11 +420,7 @@
 - gakka-2kyu-doko は年間計画（`config/channel-annual-plan.json`）に元の動画の行が無く、`video-factory preflight` と関門（`auto-approve`）が「計画にない動画」で止まる（旧 DN-1078 を統合）
 
 **運営者が決める・実行する**（承認と停止はエージェントからは実行できない）:
-1. 消したショートの台帳の行を実体に合わせる:
-   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2 --reason gone`
-   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1 --reason gone`
-   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2-diagram-led --reason superseded`
-   - `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1-diagram-led --reason superseded`
+1. 消したショートの台帳の行（2 本は gone、作らない改訂 2 行は superseded）は、運営者の承認を受けて 2026-11-10 に停止した（e266c33ba3）
 2. 改訂版 3 本を出すか止めるかを決める。出すなら、表紙を POP で作り直し、描き直して承認する（gakka は年間計画に元の動画の行を足す）。止めるなら `registry -- stop --reason user-decision`
 3. 公開中の lNI2f_SjCTk（gakka-2kyu-doko）の概要欄に「VOICEVOX:青山龍星」を metadata の同期で入れる（改訂版を出さない場合も要る）
 
@@ -509,26 +524,51 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1099] サイトに技術士 水産部門（二次）の入口のガイド 4 本を作る
-タグ: [領域:サイト] [時期:2027-02..2027-04] [種類:制作] [起票:2026-11-10]
+### [DN-1104] 総監の合格戦略記事の口頭試験の配点（60点・40点）を一次資料と照合して直す
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
 
-**起点**: DN-1092 の計画。一次（水産部門 16 回分）は公開済み。二次の入口がサイトに無い。
+**起点**: 2026-11-10 の動画 `sokan-kojutsu-tachiba` の内容QA（video-content-qa）の指摘。サイト記事 `content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx:239` は、口頭試験の試問事項を「経歴及び応用能力（60点）」「体系的専門知識（40点）」と書いている。QA が見た文部科学省の令和8年度の合否決定基準は、口頭試験を「それぞれ 60% 以上」としていて、配点の記述が無い。
 
-**やること**: 上下水道部門（`content/site/pe-water-supply/` の guide-overview・guide-hissu-kamoku・guide-sentaku-kamoku・guide-study-plan）と同じ 4 本を水産部門で作る（出題テーマ表を入力にする）。`config/qualification-registry.json` の `pe-fisheries` を candidate から active に上げ、categories・トップの資格カードを配線して `npm run check-home-exam-coverage` を通す。ガイドは本文 3,000 字以上、試験制度・統計は一次情報で照合する。
+**未確認**: 配点（60 点・40 点）が試験の実施要領などの別の一次資料にあるかは確かめていない。
 
-**完了条件**: 4 本が develop に入り、`check-home-exam-coverage` と `check-guide-length` が通る。
+**やること**: 文部科学省・日本技術士会の一次資料で口頭試験の配点と合格基準を確かめ、記事の記述を一次資料どおりに直すか、出典を添える。
+
+**完了条件**: 記事の口頭試験の配点と合格基準の記述が、一次資料の URL と一致する。
 
 
-### [DN-1098] 技術士二次の水産部門の必須科目Iと水産土木の答案を R01〜R08 で作る（受験準備を兼ねる）
-タグ: [領域:商品] [時期:2027-01..2027-05] [種類:制作] [起票:2026-11-10]
+### [DN-1103] video-factory publish が未コミットの変更と drive-manifest の競合で途中で止まらないようにする
+タグ: [領域:SNS] [時期:2026-12] [種類:不具合] [起票:2026-11-11]
 
-**起点**: DN-1092 の計画。運営者は 2027 年の第二次試験（水産部門・水産土木の見込み）を受ける。答案づくりを受験準備と兼ねる。
+**起点**: 2026-11-11 の `video-factory publish` が 2 回止まった。
+1. 作業ツリーに未コミットの変更（別セッションの memory、PR に出した scripts）があり、`git pull --rebase origin develop`（`scripts/video-factory.mjs:488`）が「unstaged changes」で拒否された。`rebase.autoStash=true` は効いていなかった。止まったのは mark-rendered・R2 転送・台帳の commit の後で、push と dispatch の前
+2. 同期で `.claude/state/assets/drive-manifest.json` が競合し、rebase の途中で止まった。両側が項目を足しただけで、両方を残せば解ける
 
-**やること**: 出題テーマ表（前のカード）を入力に、必須科目 I と選択科目（水産土木）II-1・II-2・III の答案を R01〜R08 で作る。置き場は `content/note/技術士水産部門/` の下書き（非公開）。書き方は上下水道の模範解答集（`content/note/技術士上下水道部門/magazines/`）と答案構成のテンプレートに合わせる。運営者は水産部門の合格者ではないので、合格者・合格答案と名乗らない（`src/config/author.ts` の資格だけを書く）。技術的事実は一次情報で照合する。
+DN-1072 の 3（割当の計算の前に pull）とは別の論点。
 
-**未決（運営者の判断）**: 合格前に note で販売するか、合格後に模範解答集として出すか。決まるまで公開しない。
+**やること**:
+1. publish の最初に作業ツリーを検査し、未コミットがあれば何もしないうちに止める（転送や commit の後で止めない）
+2. drive-manifest.json の競合は、同じキーで値が違わない限り両側を残して解く処理を lib に置き、`git pull` の競合時に使う（または .gitattributes の merge driver）
 
-**完了条件**: 必須科目 I（8 年分）と水産土木（8 年分）の答案が揃い、事実の照合を通っている。
+**完了条件**: 未コミットの変更がある状態で publish を打つと、転送も commit もせずに止まるテストがある。両側が項目を足した drive-manifest.json の競合が手で直さずに解ける。
+
+
+### [DN-1102] 動画の合成出力が Drive に退避されず check-drive-vault が FAIL 356 件になっている分を片づける
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-11]
+
+**起点**: 2026-11-11 に手元で `npm run check-drive-vault` を回すと FAIL 356 件・WARN 86 件。中身は `.tmp/video-render/<パック>/` の合成出力（img・wav・mp4 など）が Drive に退避されていない `unsynced`。同日の通常動画 9 本の制作で増えた分を含む。台帳（drive-manifest.json）の競合解消による破損ではない（JSON は読める）。
+
+**未確認**: 予約後の `audit-funnel` と `cleanup`（video-factory.md「Workflow で回す」）を回せば消える分なのか、制作済みの古いパックの取り残しが混ざっているのか。
+
+**やること**:
+1. FAIL をパック別に数え、予約済み・承認済み・制作途中に分ける
+2. 予約済みのパックは `audit-funnel` で実体を確かめてから `cleanup` を回す
+3. それでも残る分は、退避するか消すかを決める
+
+**完了条件**: `check-drive-vault` の unsynced が、制作途中のパックの分だけになる。
+
+
+
+
 
 
 
@@ -539,7 +579,7 @@
 **起点**: DN-1064 で建設部門の読み修正版 3 本を予約した（2026-11-10）。hissu1-kensetsu-dx・hissu1-infra-roukyuuka は改訂版を新しい動画として予約したので、読み間違いのある旧版（SvV8zXamMvo・1EAPnQVwARE）が非公開のまま残っている。toan-kousei-template は改訂版が旧版と同じ動画だったため、旧版 ywemm49EBPA をそのまま 11/12 に予約し直した（PR #1512・#1513）。そのため改訂の行は `approved` のまま使われていない。
 
 **やること**:
-1. 使われていない改訂の行を止める（運営者が自分の端末で実行）: `npm run registry -- stop --pub pe-construction/toan-kousei-template/youtube.longform.reading-fix --reason superseded`
+1. 使われていない改訂の行（toan-kousei-template の reading-fix）は、運営者の承認を受けて 2026-11-10 に停止した（e266c33ba3）
 2. 旧版 2 本（`pe-construction/hissu1-kensetsu-dx/youtube.longform`・`pe-construction/hissu1-infra-roukyuuka/youtube.longform`）は、非公開で残すか止めるかを決める。止めるなら `registry -- stop --reason superseded`
 3. 予約した 3 本の公開後、毎朝の照合で `published` になったことを確かめる
 
@@ -717,7 +757,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 ### [DN-1059] X 返信候補の収集で結果報告の言い方と「添削」を含む受験者の投稿を取りこぼす
-タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-09]
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-09] [進行中]
 
 2026-11-09、X 返信候補の収集で @Nekoryoshka（技術士 土質及び基礎 不合格・投稿 2119734938878816396）を取りこぼした。原因は 2 つ。
 
@@ -1072,6 +1112,44 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **同時に直す整備**: `npm run check-youtube-shorts` を検査件数つきで通し、quality-audit へ戻す。`yt-shorts-publisher-qa` の手順を現行の動画パックの手順へ書き直し、画像の軸を足す。
 
 **完了条件**: 6 本が完成動画で画面確認を通り、関連動画つきで予約されている。28 日後の判断が `data/business/records/` に残っている。
+
+**着手して分かったこと（2026-11-10）**: 今の仕組みのままでは、公開済みの通常動画からショートを作れない。
+- 年間計画の関門（`shorts-factory plan` の `assertInSlot`）: ショートの割り当てがあるのは 2027 年の枠だけ。公開済み・予約済みの通常動画は 1 本も枠に入っていないので、設計の段で「親の枠にショートの割り当てが無い」と止まる。試行するなら、年間計画に試行の割り当てを足す判断が要る
+- 旧い定義: `shorts-factory status` に出る主任技士 12 本は、`youtube.json` の `sceneId`（kanten・kousei など）が今の台本（premise・items・mapping …）に無い。論点の定義から作り直す
+- 表紙の見出しと締めの語りは `cover-design.json`・`cta-design.json` にある。この 2 つは通常動画の入力ハッシュ（`longformInputHash`）に入るので、書き換えると公開済みの通常動画の照合が崩れる。`shorts-design.json` 側に見出しと締めの語りを持てるようにする
+- 締めの語りは今 46 字（約 8〜9 秒）。3 秒程度にするなら短い文へ変える
+- 候補の選び方: 主任技士は試験が 2026-11-29 で、承認と関連動画の設定を待つと間に合わない。来期まで使える建設部門（必須Ⅰ・答案構成）が向く
+
+**進捗（2026-11-10 夜）**:
+- 決まりを入れた（PR #1518）。`config/channel-annual-plan.json` の `shortsRule`: 親の通常動画が公開・予約に進んでから作る／1 本につき 2 本／枠の外の公開済みの親では合計 6 本まで試す／見直し 2026-12-15。表紙の見出しと締めの語り（6〜20 字）は `shorts-design.json` に持てる
+- 元にする通常動画は建設部門の 3 本に変えた（toan-kousei-template・hissu1-kensetsu-dx・hissu1-infra-roukyuuka）。主任技士は試験が 2026-11-29 で間に合わない
+- 台本 6 本は `yt-shorts-publisher-qa` の監査で 4 本を直し、全部 pass を記録した
+- 1 本目（toan-kousei-template の point-skeleton-1）は画像 5 枚中 4 枚が監査 ok。本文 2 枚目（4 つの箱の図）だけが通らない。誤字や順番の誤りは一度も無く、落ちた理由は毎回、左右 6% の余白・右端の操作ボタンの範囲・字幕の範囲のどれか。図の形を 横並び → 縦 4 段 → 2 行 2 列 と変え、計 7 枚作った。最後の 1 枚は右下の『リスク』が操作ボタンの範囲に入っていて未監査
+
+**完成（2026-11-10 夜・PR #1524）**: 6 本とも、台本の監査・画像の監査・音声の検査・画面確認を通して Drive の在庫に入れた。尺は 23〜38 秒、締めは約 2 秒。台帳の行は draft のまま。
+- 画像は計 30 枚の採用に、作り直しを含めて約 60 回の生成。落ちた理由は、9:16 から外れた出力（916×1717）・字幕と操作ボタンの範囲・締めの先生が腰で切れる、の 3 つがほとんどで、誤字は 1 回だけ（ラベルの鉤括弧）
+- 図を収める範囲（PR #1523）と、締めの「胴体を下端まで続ける」（PR #1524）を共通の指示に入れた
+
+**承認・アップロード（2026-11-11・PR #1526〜#1528）**: 6 本を承認し、非公開でアップロードした。公開日時は 11/13〜11/18 の 14:30 JST に 1 日 1 本。投稿の経路（`registry -- prepare-short`・`stage-youtube`・`record-related`、youtube-single-publish の publish）は DN-1002 で作った。
+
+| ショート | 動画 ID | 関連動画にする親（公開） | 予約 |
+|---|---|---|---|
+| hissu1-kensetsu-dx の point-purpose-1 | OdKCHkNllG4 | AWiTjuOa1U4（11/11 20:30） | 11/13 14:30 |
+| hissu1-kensetsu-dx の point-means-2 | c5R1Y1Z87fs | AWiTjuOa1U4（11/11 20:30） | 11/14 14:30 |
+| toan-kousei-template の point-skeleton-1 | HU2LFTMrl4Y | ywemm49EBPA（11/12 20:30） | 11/15 14:30 |
+| toan-kousei-template の point-koukarisk-2 | crYjMm6gzu8 | ywemm49EBPA（11/12 20:30） | 11/16 14:30 |
+| hissu1-infra-roukyuuka の point-breakdown-1 | LQiIN5sPBAo | w5kX20cj5Yk（11/13 20:30） | 11/17 14:30 |
+| hissu1-infra-roukyuuka の point-funding-2 | Da1c1w3CT2c | w5kX20cj5Yk（11/13 20:30） | 11/18 14:30 |
+
+**次にやること**:
+1. 運営者: 親の通常動画が公開されたら、Studio でショートの「関連動画」に親を設定する（API では設定できない）
+2. 設定したら `npm run registry -- record-related --pub <ショート> --video-id <親>` で記録し、youtube-single-publish の publish をもう一度流すと予約する（`expect` は `publish-youtube --phase upload` の dry-run の digest）。purpose-1 は 11/13 14:30 より前に済ませる
+3. point-funding-2 は表紙の設定（`thumbnails.set`）が応答なしで「thumbnail結果不明」で止まっている。割当は余っていた（GCP の実測: アップロード 10/100・クエリ 1,066/10,000）ので超過ではなく、原因は未確認。同じ画像なので送り直しは無害。台帳と R2 の実行記録から `thumbnailRequestedAt` を外して流し直す
+3a. 運営者が YouTube の本人確認を登録中（2026-11-11）。Studio で関連動画を開くと「チャンネル履歴が十分ではないため、上級者向け機能にアクセスできません」と出て設定できなかった。確認が通ったら、内部ブラウザの Studio（編集画面の「関連動画」＝`ytcp-shorts-content-links-picker`）でエージェントが設定し、画面で読み戻してから record-related で記録して予約する。手順が安定したらスクリプトにする
+3b. 1 日の投稿の本数の上限（`config/video-auto-publish.json` の `maxUploadsPerDay`・4）を撤廃する（2026-11-11・運営者の決定・未着手）。GCP の実測でアップロードは別枠の 100 本/日。外すのは設定・型（`dataset-schemas-config-media.mjs`）・`video-publish-gate.mjs` の `uploadsLeft`・`video-factory publish` の検査・そのテスト・`video-factory.md` の記述・DN-1101 の「1 日 4 本まで」
+4. 公開 28 日後に、ショートから通常動画へ移った数を見て、`shortsRule` の上限と枠ごとの本数を見直す（2026-12-15）
+5. 画面確認で出た改善点（止め条件にはしていない）: 字幕の改行が語の途中で切れる（`video-subtitles.mjs` の `subtitleChunks` は通常動画と共通）、字幕の文字を 80〜84px に上げるか、point-koukarisk-2 は画面に「リスク」の語が出ず題名の論点が弱い、point-means-2 の 2 枚目の絵が階層に見えにくい
+6. YouTube の実画面で、右端の余白が 3〜4% の見出しが欠けないかを確かめる
 
 
 ### [DN-1000] コンクリート技士の試験後に出題を確かめ、2027 年度の予想問題へ改題する
@@ -2906,6 +2984,20 @@ Windows の PowerShell で repo 直下から順に:
 
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+### [DN-1105] 2級土木の受検の順序の動画で受検資格の年齢と第二次の時期の言い方を手引に揃える
+タグ: [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-11]
+
+**起点**: 2026-11-10 の動画 `civil-construction-2/c2-juken-junjo-2027` の内容QA（平均 2.5・BLOCK 0 で合格）の軽い指摘。
+1. `script.md:29` と storyboard の場面 eligibility が「その年度に十七歳以上」と言う。サイト記事 guide-exam-overview は「年度末に満 17 歳以上」
+2. 場面 misread・recap が「第二次は後期だけ」を、令和8年度の例を超えて一般則のように言う
+
+**注意**: 原稿を直すと内容QAの合格が古くなり、変わった場面の画像の作り直しと照合、動画の合成、画面確認がやり直しになる（Claude のエージェント 3 体前後）。予約（2027-01-12 公開）より前に直すか、次の改訂に回すかを決めてから着手する。
+
+**やること**: 受検の手引で一次確認し、「年度末に満 17 歳以上」と「令和8年度は」を台本と場面の文字に入れる。
+
+**完了条件**: 台本と場面の文字が受検の手引と一致し、内容QAを今の原稿で通っている。
+
 
 ### [DN-1088] 測量士補とコンクリート主任技士の過去問の設問・選択肢の転記を原典と照合し、問題台帳に記録する
 タグ: [領域:教材] [種類:改善] [起票:2026-11-10]

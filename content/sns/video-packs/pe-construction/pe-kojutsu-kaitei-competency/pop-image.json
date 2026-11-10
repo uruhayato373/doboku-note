@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261110": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『技術士 建設部門』『新コンピテンシー』『口頭で変わる質問』を大きく配置。上部の黄色帯に小さく『総監が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-cover.01ea7b8e.png",
+          "sha256": "01ea7b8ea886f50eca3766fdd2f9b77bc8ce774138d1b3e9b119ce082debdc72"
+        },
+        "generatedAt": "2026-11-10T12:32:50.245Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "技術士 建設部門",
+          "新コンピテンシー",
+          "口頭で変わる質問"
+        ],
+        "authority": "総監が解説"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/cover-pop.2083b9f8.png",
+        "sha256": "2083b9f8c4e5dbd2aea8fff95a8de86e600eff15d64d87733f461d3443757169",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "01ea7b8ea886f50eca3766fdd2f9b77bc8ce774138d1b3e9b119ce082debdc72"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-10T12:32:50.245Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字: 技術士/建設部門/総監が解説/新コンピテンシー/口頭で変わる質問を指示と1字ずつ照合し誤字なし。キャラは黒髪・黒縁眼鏡・ひげ・無地白ヘルメット・紺作業服とネクタイ・黄白反射帯で参照と一致、手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261110": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "523d8a02f9dbdefe71f5a2a355c0fcc180c1a56c16a6431c16d6a23c7b730946",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『今日の答え』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『改訂は4項目』 『口頭の4区分のうち3つに関わる』 『試験の枠組みは変更なし』。 この場面の説明（文字にしない）: コンピテンシーが改訂されたと聞くが、口頭試験で何が変わるのか。元自治体の土木技術者、発注者の立場から整理します。先に答えを言うと、改訂されたのは四項目で、口頭の四つの区分のうち三つに関わります。ただし、試験の枠組み自体は変わりません。 前回の不合格の理由を直す: 見出しに指示にない括弧『』が文字として描かれている（lettering fail）。他の文字は指示と一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-hook.1422c944.png",
+              "sha256": "1422c944c3ddf043cac853915c88122a271af9b2afe2729e9783f997adb25f01"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/hook-diagram.01172cb8.png",
+            "sha256": "01172cb861896428335166eb68319e52eee1900061c49cbe586917c3c7cdf288",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1422c944c3ddf043cac853915c88122a271af9b2afe2729e9783f997adb25f01"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は指示の見出しと3つの文言に一字ずつ一致し、左から右への段階図で崩れも余計な文字も無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "c00f3d6e9da2e811cac35af545cbba09c6614bfece21df8c653ca5edbd1fcd52",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『よくある誤解』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『試験が変わった → 公式は変更なし』 『令和8年度から 改訂版を適用』 『観点が動く可能性 → 本動画の推論』。 図の下に『出題内容は公式に示されていない。以降の質問例は資料からの推論』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず誤解を解きます。改訂は令和8年度の第二次試験から適用で、令和7年度までは従来版です。文部科学省の試験部会は、筆記と口頭の試験内容は変更の必要なしと結論し、日本技術士会も、試験内容は変更されないと公表しています。質問が総入れ替えになるのではなく、同じ区分の中で見られる観点が動くかもしれない、という話です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-premise.bd637535.png",
+              "sha256": "bd6375350401c733408183db28c074d13a47977f0bda855eb1b41c44b1e0b038"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/premise-diagram.f390af1e.png",
+            "sha256": "f390af1e13af318e59dc09aea471dba2aa2a5509039d4f2c715ba6f50e0cbb0c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bd6375350401c733408183db28c074d13a47977f0bda855eb1b41c44b1e0b038"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "overview",
+          "inputSha256": "6b166eb78b79bd2cba828a753782feed3fecb5b30a9962f514ddcd2b8738a27c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『口頭の4区分 × 改訂』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『マネジメント・評価 変更なし』 『コミュニケーション・ リーダーシップ コミュニケーションが改訂』 『技術者倫理 改訂あり』 『継続研さん 改訂あり』。 図の下に『リーダーシップは変更なし。問題解決は改訂だが口頭の評価項目にない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 口頭の評価は四つの区分です。マネジメントと評価、コミュニケーションとリーダーシップで一区分、技術者倫理、継続研さん。八つの資質能力のうち、改訂されたのは問題解決、コミュニケーション、技術者倫理、継続研さんの四項目です。区分に当てはめると、マネジメントと評価は変更なし。コミュニケーションとリーダーシップの区分ではコミュニケーションの文言が改訂され、倫理と継続研さんにも改訂があります。問題解決は、口頭の評価項目に入っていません。 前回の不合格の理由を直す: 見出しに指示にない括弧『』が文字として描かれている（lettering fail）。他の文字は指示と一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-overview.d58d50ff.png",
+              "sha256": "d58d50ffb0d47e2586bfb4f68ecd4241acd3130127c3250a43553f717debbcc9"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/overview-diagram.df5256e5.png",
+            "sha256": "df5256e5e706450460672af914974479ed6b344918ea38a78b81f8b1497212d1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d58d50ffb0d47e2586bfb4f68ecd4241acd3130127c3250a43553f717debbcc9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "4区分の枠と注記の文字が指示と一致し、同じ大きさの枠が並ぶ。誤字や余計な文言は無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "communication",
+          "inputSha256": "66dada3a24091a596d1992a25bca6b9062f427d4f0671a48ba98df516b66bd35",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『コミュニケーション』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『旧：明確かつ効果的な 意思疎通を行う』 『新：情報技術を活用し 包摂的な意思疎通を図り、協働する』 『推論：協働の相手と 意見の聞き方を問われうる』。 図の下に『文言は文部科学省の新旧対照表。右の質問は推論』の全文を省かずに入れる。 この場面の説明（文字にしない）: コミュニケーションは、二点が変わりました。一つは、情報技術を活用して、が加わったこと。もう一つは、効果的な意思疎通を行う、が、包摂的な意思疎通を図り、協働する、に変わったことです。推論ですが、誰とどう協働したか、立場の違う関係者の意見をどう聞いたか、という深掘りが増えても不思議はありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-communication.2260fe16.png",
+              "sha256": "2260fe1675ac8ebd55fd3f3334640ab17c620115a794cb18327241dc10454aee"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/communication-diagram.9508fa09.png",
+            "sha256": "9508fa090c302f051918fedbea6668435b2af65755ffe032c2eaac4951b0a4e3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2260fe1675ac8ebd55fd3f3334640ab17c620115a794cb18327241dc10454aee"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ethics-impact",
+          "inputSha256": "054392abc84d6e8ba6ed6de43a8718f9574fe4df47ebf446d10a47ac282bd447",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『技術者倫理①：影響の予見と持続性』。 構図: 左の問いから右の行動へ矢印で結ぶ対応図。 図に入れる文字: 『影響の予見 社会・文化・環境 → 社会・経済・環境』 『持続性の確保 → 持続可能な成果の達成を目指す』。 図の下に『文言は文部科学省の新旧対照表』の全文を省かずに入れる。 この場面の説明（文字にしない）: 技術者倫理は、三点が変わりました。まず影響の予見です。対象が、社会、文化及び環境から、社会、経済及び環境へ変わりました。次に持続性です。持続性の確保が、持続可能な成果の達成を目指す、に変わっています。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-ethics-impact.a08908e6.png",
+              "sha256": "a08908e68996ca75b07ec0fdcd82d99d92a56c2b32d59bf83f280cc8e12c449f"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/ethics-impact-diagram.579dc933.png",
+            "sha256": "579dc933a63c2061401a6428ec43e5cd5241afa13a254c254f55254ec5fa2a88",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a08908e68996ca75b07ec0fdcd82d99d92a56c2b32d59bf83f280cc8e12c449f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ethics-culture",
+          "inputSha256": "85caaddd37eaad4f8aa0d458a28e2d7157e916d832c42a311d2ad1d7fe862031",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『技術者倫理②：法令の遵守』。 構図: 左の問いから右の行動へ矢印で結ぶ対応図。 図に入れる文字: 『旧：関係法令等の 制度を遵守する』 『新：遵守し、 文化的価値を尊重する』 『仮の例：景観・歴史的構造物の そばの工事で費用と文化的価値』。 図の下に『例は仮の例。実際の経験に置き換える／出題の断定ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 三つ目は法令の遵守です。関係法令の遵守に、文化的価値を尊重すること、が加わりました。発注者の立場なら、地域の景観や歴史的な構造物のそばの工事で、費用と文化的価値をどう考えたか。これは仮の例で、自分の経験に置き換えて考えます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-ethics-culture.3145a62e.png",
+              "sha256": "3145a62eceb7fb1bd2a8f0216e97c9a111b1f4eecadb02a7620a12b9d03f3273"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/ethics-culture-diagram.86f56391.png",
+            "sha256": "86f56391fef215e872ba48422046f803b9a2b009f57f95589a2ab354c3f0bbbd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3145a62eceb7fb1bd2a8f0216e97c9a111b1f4eecadb02a7620a12b9d03f3273"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cpd",
+          "inputSha256": "5aa2eb0a88a85cc10b11a4285352eff11dda78e4abd4b38c12159f381c625087",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『継続研さん』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『旧：十分な継続研さん （CPD）を行う』 『新：変わり続ける仕事に 適応する能力を高める』 『推論：学んだ内容と 仕事への使い方を問われうる』。 図の下に『文言は文部科学省の新旧対照表。右の質問は推論』の全文を省かずに入れる。 この場面の説明（文字にしない）: 継続研さんは、書き方が大きく変わりました。従来は、十分な継続研さんを行うこと。改訂後は、コンピテンシーを維持・向上させ、新しい技術とともに変わり続ける仕事に適応する能力を高めること、です。推論ですが、受講歴を並べるだけでなく、変化に対して何を学び、仕事にどう使ったかが問われやすくなります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 15.5）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-cpd.504d2ec6.png",
+              "sha256": "504d2ec67a7a3d85407a5c86f0c69fd439495b03a54d960922a48290219f6c64"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/cpd-diagram.a52c400a.png",
+            "sha256": "a52c400a08d0bf6821138ab680b75c8b847063e641dfdc9cfd0458d89ada76f4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "504d2ec67a7a3d85407a5c86f0c69fd439495b03a54d960922a48290219f6c64"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "unchanged",
+          "inputSha256": "bae2c642771bdc6bdb3ca1963dcd9d863c3b628d0265e8ef363b75cb47eaab9a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『変わっていない部分』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『マネジメント』 『評価』 『リーダーシップ』。 図の下に『準備を捨てず、差分だけを足し直す』の全文を省かずに入れる。 この場面の説明（文字にしない）: 一方、マネジメントと評価、リーダーシップの文言は変わっていません。ここまでの準備を捨てる必要はありません。経歴を四つの区分で整理する準備は、別の動画で扱っています。この動画は、差分の部分だけを足し直す回です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-unchanged.f2935a68.png",
+              "sha256": "f2935a68546c54b85521f96afe12ae4fadd3dc07a1dcbdf7b3e1a3abbf44224b"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/unchanged-diagram.14422d1d.png",
+            "sha256": "14422d1d5367e332a4e7edceb6f232dbcff15fe953f89ab8df916f9ddc3b9303",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f2935a68546c54b85521f96afe12ae4fadd3dc07a1dcbdf7b3e1a3abbf44224b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "fix",
+          "inputSha256": "9f00396635197608d4c61dc17a398610baaaa1e9154ac5ada2549709f0614820",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『準備の直し方』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『1　回答を4つの言葉で点検 情報技術・包摂と協働 経済・文化的価値・変化への適応』 『2　あるものは 具体的に言えるようにする』 『3　無いものは作らず 考え方を説明する』。 この場面の説明（文字にしない）: 準備の直し方は三つです。一つ目、自分の回答に、情報技術、協働と包摂、経済への影響と文化的価値、変化への適応のどれが事実としてあるかを点検します。二つ目、あるものは具体的に言えるようにします。三つ目、無いものは作らず、経験していないと区別して、考え方を説明できるようにします。 前回の不合格の理由を直す: 見出しに指示にない括弧『』が文字として描かれている（lettering fail）。他の文字は指示と一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-fix.2564130d.png",
+              "sha256": "2564130d3cf780e807fd99a7a77a693ce050e127a3756b727ed71356c15df1c3"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/fix-diagram.9b565b27.png",
+            "sha256": "9b565b27890b7198dd76ea29281686f4ac0a861cea7c6568cc2c666324650f88",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2564130d3cf780e807fd99a7a77a693ce050e127a3756b727ed71356c15df1c3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3段階の文言が指示と一致し、アイコンにも崩れや余計な文字は無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "caution",
+          "inputSha256": "2a5f1e1078f7e7cdc3dae7a4447dd74ad6646fea09051f2b22bd93d3e32f1777",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『やってはいけないこと』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『言葉を入れるために 経験を盛る』 『事実に無い話は 深掘りで崩れる』 『公式が示すのは文言まで 質問そのものではない』。 この場面の説明（文字にしない）: 注意点です。改訂の言葉を入れるために、経験を盛ってはいけません。口頭では、経歴に結びつけて深掘りされます。事実に無い話は、次の質問で崩れます。公式に示されているのは改訂の文言までで、質問そのものではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-caution.9ed9deb1.png",
+              "sha256": "9ed9deb142d27de1c405fcf2d15b495e3d67e3983f1fc7667782bb17b711b86f"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/caution-diagram.e2673f54.png",
+            "sha256": "e2673f545f0ae8d7145b608f11fd554f2d5d8413fc820b6a38c720f1c46ee006",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9ed9deb142d27de1c405fcf2d15b495e3d67e3983f1fc7667782bb17b711b86f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと3つの文言(言葉を入れるために経験を盛る/事実に無い話は深掘りで崩れる/公式が示すのは文言まで質問そのものではない)が指示と1字ずつ一致、余計な文字なし。左右2枠で右を強調、下端は無地で構図の指示どおり",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "4a0524bd1454612d9b0ea9f67ba499e54a40cdc0ac8125db901d4e719856f859",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『改訂4項目 試験の枠組みは変更なし』 『口頭では3区分に 新しい文言』 『事実だけを 足し直す』。 この場面の説明（文字にしない）: まとめます。改訂は四項目で、試験の枠組みは変わりません。口頭の四区分のうち、コミュニケーションとリーダーシップの区分、技術者倫理、継続研さんの三つに、新しい文言があります。自分の回答を点検し、事実としてあるものだけを足し直してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-summary.7432338b.png",
+              "sha256": "7432338b39b7c342337be1dc55b087ae6323de447bbed9c8d1b0485796928b2c"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/summary-diagram.8de93868.png",
+            "sha256": "8de938683eca6712fd119eac5a00f748de1ae73a7a9871773ca885dd169b4792",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7432338b39b7c342337be1dc55b087ae6323de447bbed9c8d1b0485796928b2c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字を一字ずつ照合し、誤字・余計な文字・崩れなし。図も本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "be43ff6493fa0064ba087d97b5cfc5ffadfa6ad80da88da3424de3510cb978ff",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『想定問答で、準備を進める』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『建設部門の口頭試験対策教材』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 改訂コンピテンシーに対応した想定問答と、準備の進め方をまとめた建設部門向けの教材を用意しています。収録内容は概要欄から確認してください。 前回の不合格の理由を直す: 見出しに指示にない括弧『』が文字として描かれている（lettering fail）。他の文字は指示と一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/factory/raw-cta.246671d4.png",
+              "sha256": "246671d472ea297026b83580540ddb0d70f0decf2a0122f27c1f8de97f32eb7d"
+            },
+            "generatedAt": "2026-11-10T12:32:50.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/cta-diagram.b09bf849.png",
+            "sha256": "b09bf8494f2bcdccfc201c03089755b8d014860df5dd187a9b3d19a0a8913b20",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "246671d472ea297026b83580540ddb0d70f0decf2a0122f27c1f8de97f32eb7d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:32:50.245Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと教材名・概要欄の文言が一字ずつ一致し、価格やURLも無い。ノートの構図も崩れていない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261110",
+  "activeBodyRevision": "body-diagram-20261110"
+}

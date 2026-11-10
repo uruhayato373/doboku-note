@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261110": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #2A7050 と濃色 #1C5038、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『2級土木』『2027』『受検の順序』を大きく配置。上部の黄色帯に小さく『元発注者が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-cover.e977ce68.png",
+          "sha256": "e977ce684dc4063d9d7b8eb3fd69c8d9c5e9af9c853fba8771771984c6fae897"
+        },
+        "generatedAt": "2026-11-10T12:38:09.510Z"
+      },
+      "copy": {
+        "exam": "civil-construction-2",
+        "headline": [
+          "2級土木",
+          "2027",
+          "受検の順序"
+        ],
+        "authority": "元発注者が解説"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/cover-pop.99cf6f57.png",
+        "sha256": "99cf6f5725c5408a9fa861118cdf3fd4157e374c886570d35801a52d9ce0df14",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "e977ce684dc4063d9d7b8eb3fd69c8d9c5e9af9c853fba8771771984c6fae897"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-10T12:38:09.510Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『元発注者が解説』『2級土木』『2027』『受検の順序』が指示と一字ずつ一致し、先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯で、手指も破綻なし。左余白は約6%でやや詰まるが誤りではない",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261110": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "8a407b3abbaa149f72d25a771a2e89c5a2313a2e5d993fd700b56f7775557378",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『今日の答え』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『1 受検資格の確認』 『2 前期か後期かの選択』 『3 第一次の配分』 『4 第二次の並行準備』。 図の下に『本動画の独自の整理。日程は公表後に公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 結論から言います。順序は、受検資格の確認、前期か後期かの選択、第一次の配分、第二次の並行準備の四つです。2027年度の日程は未公表なので、令和8年度を例に示します。第一次検定の前期と後期、第二次検定をどう分けて受ければよいか分からない方に向けた、一つの案です。 前回の不合格の理由を直す: 文字軸: 見出しが指示の『今日の答え』ではなく、指示の区切りかぎ括弧まで描いた『』付きになっている（余計な文字）。他の文字は一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-premise.f80937a4.png",
+              "sha256": "f80937a4b88140e0c076a8f0a6aee973b3b2fac6dc8d3429128b0f9e0224931b"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/premise-diagram.73ad3cc6.png",
+            "sha256": "73ad3cc6f1af2ae012ee66476f55fc9e7abb90373f11b2c8abc64c09cd4a3ea9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f80937a4b88140e0c076a8f0a6aee973b3b2fac6dc8d3429128b0f9e0224931b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・4項目・注記が指示と1字一致。2枠の比較で右強調、下端の余白も守られ破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "75752a0d17cf72e83e2829d64594319ad990fff7dc1544311d25c46aafc00b63",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『よくある誤解』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『第一次のあとに第二次の準備 → 後期は同じ日』 『前期で第二次も受けられる → 前期は第一次だけ』。 図の下に『令和8年度の例。年度ごとに確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 第二次検定は後期だけで、第一次の後期と同じ日に行われます。第一次が終わってから第二次の準備を始める、という段取りは、後期では通りません。また、前期は第一次検定だけです。日付より、この仕組みを先に押さえてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-misread.9ad570cf.png",
+              "sha256": "9ad570cf0be7bdb907373631f549aa91bd6b24fd4559fbafeb3eb8de19f7100f"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/misread-diagram.de063b02.png",
+            "sha256": "de063b0226b400ff93814ec7e2f7229cb492ee5c5041c717779c106495aeb827",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9ad570cf0be7bdb907373631f549aa91bd6b24fd4559fbafeb3eb8de19f7100f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字と1字ずつ照合して一致し、誤字・余計な文言・崩れ字なし。図解の構造も説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "calendar-1",
+          "inputSha256": "36c001159dbbaa6f1ca6217e5ea830965c44d3d3bb16f8b7f6231736de9a66f8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『令和8年度の日程（例）前期』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『申込 3/4〜3/18』 『第一次検定 6/7』 『合格発表 7/7 前期は土木のみ』。 図の下、下端の字幕の帯より上に『出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認）』の全文を省かずに入れる。 この場面の説明（文字にしない）: 全国建設研修センターの試験案内に載っている、令和8年度の前期です。申込、第一次検定、合格発表の日付は画面のとおりで、春に申込、六月に試験でした。前期は、土木種別だけの募集です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-calendar-1.9f67059b.png",
+              "sha256": "9f67059b4a5bdb3730de3f4ee6c6096c556459240afa0dc4bd5863dff8b429bf"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/calendar-1-diagram.d0d8bc4a.png",
+            "sha256": "d0d8bc4a01b7bf16e459ee37c0fc71130999997bad2f98f2bf2b08eac6de5d32",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9f67059b4a5bdb3730de3f4ee6c6096c556459240afa0dc4bd5863dff8b429bf"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 見出し・申込3/4〜3/18・第一次検定6/7・合格発表7/7前期は土木のみ・出典全文が指示と一字ずつ一致。誤字・余計な文字なし、枠3つ並びで本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "calendar-2",
+          "inputSha256": "4cd5f840b78bd4059ccab4f46e49b65f2641d07cb250cfe6e20183610274177a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『令和8年度の日程（例）後期』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『申込 7/8〜7/22』 『第一次・第二次 10/25（同日）』 『発表 第一次12/2、第二次 翌年2/3』 『2027年度は掲載なし』。 図の下、下端の字幕の帯より上に『出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認）。2027年度は掲載なし』の全文を省かずに入れる。 この場面の説明（文字にしない）: 後期は、夏に申込、十月に第一次検定と第二次検定が同じ日に行われました。発表は十二月と翌年二月です。日付は画面のとおりです。2027年度の分は、確認した時点では掲載がなく、日付は公表後に確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-calendar-2.bc33836c.png",
+              "sha256": "bc33836cf18d591a929da5784a67bfd55bd029321fa7f38862560f83058f1cb4"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/calendar-2-diagram.0f9a6934.png",
+            "sha256": "0f9a6934491d0996f3a7fac7d5aebebc999af5cc8e917a88db9b2ff6e9130cb1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bc33836cf18d591a929da5784a67bfd55bd029321fa7f38862560f83058f1cb4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 見出し・4枠の日付文言・出典全文が指示と一字ずつ一致。アイコン（書類・カレンダー・拡声器・×）は意味に合い、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "eligibility",
+          "inputSha256": "a6b7e4ac1c0ef1789d749fd239b8b89b076e788199ab4f9cee826b48b43a9e72",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『受検資格は二つに分ける』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『第一次：現行（令和8年度）の手引では年度に満17歳以上』 『第一次：実務経験は問わない』 『第二次：所定の実務経験が必要』 『第二次：経過措置あり』。 図の下、下端の字幕の帯より上に『出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認）。区分は年度で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 受検資格は二つに分けて見ます。現行（令和8年度）の手引では、第一次検定は、その年度に十七歳以上であれば、実務経験を問わず受けられます。第二次検定は、所定の実務経験が必要です。令和6年度から新しい受検資格が始まり、令和10年度までは旧来の資格を選べる経過措置もあります。自分に当てはまる区分は、申込の年の最新の手引で確かめてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-eligibility.6f1acdf8.png",
+              "sha256": "6f1acdf85c983e1554c83c740b8a6a204ae29991aa81d8d321076d17b3acd3a8"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/eligibility-diagram.2dcdda0e.png",
+            "sha256": "2dcdda0e371ffaa1eed38ca161e9c72f7944c459efd5446682685b325995c964",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6f1acdf85c983e1554c83c740b8a6a204ae29991aa81d8d321076d17b3acd3a8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 見出し・4つの文言・出典全文が指示と一字ずつ一致。左右2枠で右を強調する構図で本文の説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "entrance",
+          "inputSha256": "3e3f62f8238ed74c85d08186decb511b380b73c231c64abb0dfee5866495e8c2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『申込の入口』。 図に入れる文字: 『前期 第一次だけ（土木のみ）』 『後期 第一次だけ』 『後期 第一次と第二次を同じ日に』。 図の下、下端の字幕の帯より上に『出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認）。入口で受検の時期が変わる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 申込の入口を整理します。一つ目は、前期に第一次検定だけを受ける入口。二つ目は、後期に第一次検定だけを受ける入口。三つ目は、第二次の資格を満たす人が、後期に第一次と第二次を同じ日に受ける入口です。第一次に合格済みの人が、第二次だけを受ける申込もあります。第一次の合格に有効期限はありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-entrance.54ab4c5a.png",
+              "sha256": "54ab4c5a7b5f146047c548d5e5623f8212d5f62dc96d049dfe6cc5ef944615d1"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/entrance-diagram.29c73c28.png",
+            "sha256": "29c73c28dd001e60fed302e72c352f2b3cc93aa9262c28cf0ab21bb9e50b3357",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "54ab4c5a7b5f146047c548d5e5623f8212d5f62dc96d049dfe6cc5ef944615d1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 見出し・3つの入口文言・出典全文が指示と一字ずつ一致。トンネル状の装飾は入口の比喩で誤解を招かず、崩れなし（見出しが上端に寄る点のみ軽微）",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "order",
+          "inputSha256": "36a5adc8e059cb3301c1a730c35ab6c90661075f2d145182533583bbcc2cb905",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『受検の順序の案』。 図に入れる文字: 『1 受検資格と入口の確認』 『2 前期か後期か 第二次も同年度なら後期』 『3 第一次の学習の配分』 『4 第二次の題材を並行して洗い出す』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: ここからは、本動画の独自の整理です。順序は四段階です。一、公表の前に、自分の受検資格と入口を確かめる。二、前期から受けるか、後期に絞るかを決める。三、申込までに、第一次の学習の配分を決める。四、第二次も受けるなら、題材の洗い出しを第一次の学習と並行して始める。公式の区分ではなく、考え方の一案です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-order.a3b9ff32.png",
+              "sha256": "a3b9ff32007e57cdada811f356725d3b6d019b00e3a3ad7f53035c1bbffbe17c"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/order-diagram.74a4e7dd.png",
+            "sha256": "74a4e7dd41f1d01b96b588513e8adced52d1ce0020e1ba1f884fd817b42a48fa",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a3b9ff32007e57cdada811f356725d3b6d019b00e3a3ad7f53035c1bbffbe17c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『受検の順序の案』、四段の文言、『本動画の独自の整理』が指示と一字ずつ一致し、誤字・余計な文字なし。図は四段の矢印でつながり、下端は無地の背景",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ichiji",
+          "inputSha256": "af6e8f144ff265e209deb5ba24afe483108a28edb2b34f2f924423060c57e7ad",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『第一次の学習は配分から』。 図に入れる文字: 『令和8年度前期は66問から45問を解く』 『必須24問が土台』 『配分を最初に決める』。 図の下に『問題数は令和8年度前期の冊子による。配分の考え方は本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 第一次検定は、全部を同じ重さで進めると時間が足りません。令和8年度の前期では、66問が出て、解くのは45問、合格の目安は27問でした。解く問題の中でも、全員が解く必須の24問が土台になります。選ぶ問題の前に、必須の枠を固める。配分を先に決めることが、第一次の準備の要点です。その配分が合っているかは、過去問で確かめます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 18.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-ichiji.a2dfca19.png",
+              "sha256": "a2dfca19d982c871e1971603d18bf8205d3ed5b30ec312e510ec7f01adefe09d"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/ichiji-diagram.4d2cb98a.png",
+            "sha256": "4d2cb98a55b715370838bf9d4ae113d2d5dbdd7bdce46cb58cdd369dd2c347f8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a2dfca19d982c871e1971603d18bf8205d3ed5b30ec312e510ec7f01adefe09d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字と1字ずつ照合して一致し、誤字・余計な文言・崩れ字なし。図解の構造も説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "niji",
+          "inputSha256": "266521da3b02b360ce75a53fb911c5753673f602116e00557c152e13ee601c99",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『第二次は並行して種をまく』。 図に入れる文字: 『後期は第一次と同じ日』 『題材と記録の所在を洗い出す』 『対象の工事か手引で確かめる』。 図の下に『経験記述の概要は出典の記事に基づく。並行して進める提案は本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 第二次検定には、自分の工事の経験を書く記述があります。後期は第一次と同じ日なので、第一次の学習が終わってから考える、では間に合いません。どの工事を題材にするか、記録はどこにあるか、実務経験として認められる工事か。この洗い出しは、第一次の学習と並行して、早めに始めておくと安心です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-niji.fc55232c.png",
+              "sha256": "fc55232c56ee834878e40fda83aaad89c52885152ee99f4c8bedfe6ac1cf82f9"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/niji-diagram.1934dee6.png",
+            "sha256": "1934dee6d47bcbcd60268a1b24f9d2b721c55ab4ab693314cf3ffa59af8bc46c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fc55232c56ee834878e40fda83aaad89c52885152ee99f4c8bedfe6ac1cf82f9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字と1字ずつ照合して一致し、誤字・余計な文言・崩れ字なし。図解の構造も説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "limit",
+          "inputSha256": "338f8e3ea471e19e822d426b72bda8414ec0efbfdfd387a8e6ff5c0dd02d6d13",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『この順序の限界』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『合格を保証するものではない』 『区分・手続きは年度で変わる』 『最新の手引と公式の案内が優先』。 図の下に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: この順序は、合格を保証するものではありません。受検資格の区分、実務経験の数え方、日程や手続きは、年度の手引で変わることがあります。動画の内容より、公表された最新の手引が優先です。迷ったら、全国建設研修センターの案内で確かめてください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 29.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-limit.da34499c.png",
+              "sha256": "da34499c677d5fff33d41b604a61444ddb3a15f192e01cec757ca07e48141371"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/limit-diagram.144fd76b.png",
+            "sha256": "144fd76b68ba9b3303bf86bdfdbcf28056fb7811cf22a51bd3ee1a776e726ff5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "da34499c677d5fff33d41b604a61444ddb3a15f192e01cec757ca07e48141371"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字と1字ずつ照合して一致し、誤字・余計な文言・崩れ字なし。図解の構造も説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "0170ca2a542292f6f96427c4d77e728b9c474047b065b48613826f33cbbb89cb",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『日程は公表後に公式で確認』 『第二次は後期だけ・同日』 『資格→前期か後期→配分→並行準備』。 図の下に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。一、2027年度の日程は未公表なので、公表後に公式で確認する。二、第一次は十七歳以上で受けられ、第二次は実務経験が要る。三、第二次は後期だけで、第一次の後期と同じ日。四、順序の案は、資格の確認、前期か後期かの選択、第一次の配分、第二次の並行準備。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 19.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-recap.edb6e04a.png",
+              "sha256": "edb6e04a89fd8f0d8d4f402e79d02b623fada6b691c52680aed1a0a0a10ece8b"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/recap-diagram.9a1491ee.png",
+            "sha256": "9a1491ee6b6647acb7603e8df4dd25d69e8f2108142bbffceb4af48014e580be",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "edb6e04a89fd8f0d8d4f402e79d02b623fada6b691c52680aed1a0a0a10ece8b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字と1字ずつ照合して一致し、誤字・余計な文言・崩れ字なし。図解の構造も説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "3d5f42a22d1ac1055fe0e6fe1d2891a187bb154e8168d8dad468a5f528401854",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『配分を過去問で確かめる材料に』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『令和3〜7年度の前期・後期の全問を解説』 『印刷して使えるPDF』 『リンクは概要欄から』。 図の下に『2級土木 第1次検定 過去問PDF』の全文を省かずに入れる。 この場面の説明（文字にしない）: 第一次の配分を過去問で確かめる材料として、令和3年度から7年度の問題を解説した印刷用のPDFを、概要欄に置いています。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 44.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/factory/raw-cta.a45d4f8a.png",
+              "sha256": "a45d4f8a20d12a730c049e48d32219bca7669cca565bc82f3394002357ac3d50"
+            },
+            "generatedAt": "2026-11-10T12:38:09.510Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/c2-juken-junjo-2027/work/cta-diagram.dcc9ee77.png",
+            "sha256": "dcc9ee776bb44fac59e63b6f3c0ab6f1777a9efe10a190a1237398efe8c6cc00",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a45d4f8a20d12a730c049e48d32219bca7669cca565bc82f3394002357ac3d50"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-10T12:38:09.510Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字と1字ずつ照合して一致し、誤字・余計な文言・崩れ字なし。図解の構造も説明と矛盾しない。価格・URLなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261110",
+  "activeBodyRevision": "body-diagram-20261110"
+}

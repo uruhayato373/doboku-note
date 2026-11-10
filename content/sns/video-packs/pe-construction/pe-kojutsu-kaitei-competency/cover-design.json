@@ -2,24 +2,32 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
-      "format": "longform",
-      "exam": "pe-construction",
-      "headline": [
-        "技術士 建設部門",
-        "改訂コンピテンシー",
-        "口頭で変わる質問"
-      ],
-      "accentLine": 1,
-      "subtitle": "",
       "character": {
         "pose": "pop-explaining",
         "frame": "waist"
       },
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "技術士 建設部門",
+        "新コンピテンシー",
+        "口頭で変わる質問"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
       "design": "pop-poster-v3",
       "pop": {
+        "variant": "question",
         "authority": "総監が解説"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-kojutsu-kaitei-competency/work/cover-pop.2083b9f8.png",
+        "sha256": "2083b9f8c4e5dbd2aea8fff95a8de86e600eff15d64d87733f461d3443757169",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "807c8f706a0ca86a5630c950842ce688d10e3db54c6a24203e54a8168d4f5824"
+      }
     }
   }
 }

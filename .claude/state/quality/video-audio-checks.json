@@ -341,6 +341,105 @@
         "expected": 1105,
         "heard": 1141
       }
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform": {
+      "videoSha256": "2dfecf70428bb01f82763a15bc84a7a90ea7c51d7264ca65f5fd23fb1a32cb3c",
+      "at": "2026-11-10T12:14:27.817Z",
+      "similarity": 0.969,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1287,
+        "heard": 1210
+      }
+    },
+    "civil-construction-1/c1-juken-junjo-2027/youtube.longform": {
+      "videoSha256": "45ab75c76d87191b0e71a13e1a0ecfe9eb7356647d5e3c2368a8bb3b022a72e0",
+      "at": "2026-11-10T12:43:04.518Z",
+      "similarity": 0.979,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1562,
+        "heard": 1525
+      }
+    },
+    "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform": {
+      "videoSha256": "cd013a2f8eb6ead6a9521fcc720d13f956c64ebc75341693107dd908697cbdc6",
+      "at": "2026-11-10T12:43:52.757Z",
+      "similarity": 0.964,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 2121,
+        "heard": 2004
+      }
+    },
+    "civil-construction-1/owner-eye-kouji-kensa/youtube.longform": {
+      "videoSha256": "73a2c11ab478131d3b6062b043c4925316ec59e4b2c587cc51ca96a414359bb1",
+      "at": "2026-11-10T12:44:40.677Z",
+      "similarity": 0.961,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1963,
+        "heard": 1891
+      }
+    },
+    "pe-construction/pe-kojutsu-fukabori/youtube.longform": {
+      "videoSha256": "da8346b81ec6715796fe317f43a28ee8db98b74ba2518728185fac0b13177e7a",
+      "at": "2026-11-10T12:45:14.327Z",
+      "similarity": 0.98,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1168,
+        "heard": 1110
+      }
+    },
+    "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform": {
+      "videoSha256": "c3fd220bb8ff1812ec15ccdc81879735b770fa89f16e712ded2264c76cb4b0b8",
+      "at": "2026-11-10T12:45:57.599Z",
+      "similarity": 0.975,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1549,
+        "heard": 1480
+      }
+    },
+    "civil-construction-2/c2-juken-junjo-2027/youtube.longform": {
+      "videoSha256": "760f3ecf7cdf3cb26444b27aec5b156b965c1145777dcfd3eee112b06d0c5a0a",
+      "at": "2026-11-10T12:46:39.136Z",
+      "similarity": 0.984,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1525,
+        "heard": 1495
+      }
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform": {
+      "videoSha256": "836afc0521a97d93416f8bd211ca1ddcb80ccd17b90b2d7a717de5810c643ad3",
+      "at": "2026-11-10T12:47:12.895Z",
+      "similarity": 0.986,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1099,
+        "heard": 1040
+      }
+    },
+    "pe-construction/pe-fugoukaku-toan/youtube.longform": {
+      "videoSha256": "0f7c06ab3dbcf9024c8f745ca3746035feaeb5249116f02e1c1824ad04985b9d",
+      "at": "2026-11-10T12:51:36.499Z",
+      "similarity": 0.94,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1440,
+        "heard": 1396
+      }
     }
   }
 }

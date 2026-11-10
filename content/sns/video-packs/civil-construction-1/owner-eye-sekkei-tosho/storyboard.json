@@ -579,5 +579,12 @@
       },
       "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261110",
+    "coverRevision": "cover-pop-20261110",
+    "layout": "diagram-led"
+  }
 }

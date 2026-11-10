@@ -17,6 +17,7 @@ import { examPalette, loadImageRules, usesDiagramLed } from './image-rules.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { readJson, writeJson } from './json-io.mjs';
 import { shortsSlotFill } from './youtube-longform-audit.mjs';
+import { loadRegistry as loadContentRegistry } from './content-registry.mjs';
 import { listShortDesigns } from './youtube-longform-plan.mjs';
 import { mediaPath } from './media-paths.mjs';
 import { loadRegistry, qualificationShortLabel } from './qualification-registry.mjs';
@@ -33,7 +34,7 @@ export const DESIGN_FILE = 'shorts-design.json';
 export const MIN_SECONDS = 20;
 export const MAX_SECONDS = 60;
 const rules = loadImageRules();
-const { width: W, height: H, minWidth: MIN_WIDTH, bottomZone: BOTTOM_ZONE, frame: FRAME } = rules.formats.shorts;
+const { width: W, height: H, minWidth: MIN_WIDTH, bottomZone: BOTTOM_ZONE, frame: FRAME, bodyFrame: BODY_FRAME } = rules.formats.shorts;
 const BOTTOM_STDEV_MIN = 3;
 const SUBTITLE_SIZE = 74;
 const SUBTITLE_CHARS = 14;
@@ -63,11 +64,14 @@ function packContext(root, pack, key) {
   const scene = board.scenes.find((s) => s.sceneId === item.sceneId);
   if (!scene) throw new Error(`${key}: 場面が台本に無い (${item.sceneId})`);
   const covers = readJson(root, `${dir}/cover-design.json`);
-  const spec = covers.covers?.[key];
-  if (!spec || spec.format !== 'shorts') throw new Error(`${key}: cover-design.json に縦の表紙が無い`);
-  const cta = readJson(root, `${dir}/cta-design.json`).shorts?.narration;
-  if (!cta) throw new Error(`${pack}: cta-design.json に shorts の語りが無い`);
-  return { dir, exam, design, board, youtube, item, scene, covers, spec, cta };
+  // 表紙の見出しと締めの語りは、台本（shorts-design.json）に書けばそちらを使う。cover-design.json・cta-design.json は
+  // 通常動画の入力ハッシュ（longformInputHash）に入るので、公開済みの通常動画から派生させるときは書き換えない（DN-1001）
+  const ownSpec = Array.isArray(design.headline);
+  const spec = ownSpec ? { format: 'shorts', headline: design.headline } : covers.covers?.[key];
+  if (!spec || spec.format !== 'shorts') throw new Error(`${key}: 台本に headline が無く、cover-design.json にも縦の表紙が無い`);
+  const cta = design.cta ?? readJson(root, `${dir}/cta-design.json`).shorts?.narration;
+  if (!cta) throw new Error(`${pack}: 台本に cta が無く、cta-design.json にも shorts の語りが無い`);
+  return { dir, exam, design, board, youtube, item, scene, covers, spec, ownSpec, cta };
 }
 
 /** 台本の版。監査の記録を除いた中身の sha で、書き換えると監査は無効になる */
@@ -87,6 +91,9 @@ export function designProblems(design, scene) {
   const issues = narrationProblems(design, scene);
   if ([...String(design.hook ?? '')].length > 40) issues.push('hook が 40 字を超える');
   if (!String(design.pose ?? '').trim()) issues.push('pose が無い');
+  if (design.headline !== undefined && (!Array.isArray(design.headline) || design.headline.length < 1 || design.headline.length > 3 || design.headline.some((l) => [...String(l ?? '')].length < 2 || [...String(l)].length > 10))) issues.push('headline は 1〜3 行・各 2〜10 字');
+  // 締めは短く。旧工程は 30 秒のうち約 18 秒が締めの画面だった
+  if (design.cta !== undefined && ([...String(design.cta)].length < 6 || [...String(design.cta)].length > 20)) issues.push('cta は 6〜20 字');
   if (Array.isArray(design.beats) && (design.beats.length < 2 || design.beats.length > 4)) issues.push('beats は 2〜4 個');
   for (const [i, beat] of (design.beats ?? []).entries()) {
     if ([...String(beat.heading ?? '')].length < 2 || [...String(beat.heading ?? '')].length > 18) issues.push(`beats[${i}]: heading は 2〜18 字`);
@@ -115,21 +122,21 @@ const coverPrompt = (design, spec, label, palette) => [
 ].join(' ');
 const bodyPrompt = (beat, index, label, palette) => [
   `添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。${FRAME}`,
-  pop(palette), '図を画面の主役にする。図は画面の上から68%までの範囲いっぱいに大きく描き、上半分へ縮めて寄せない。白いカードの箇条書きにしない。人物なし。',
+  pop(palette), `図を画面の主役にする。${BODY_FRAME} 白いカードの箇条書きにしない。人物なし。`,
   `一番上に資格名の小さなラベル『${label}』。大きな番号『${index + 1}』と見出し『${beat.heading}』。`,
   `図: ${beat.diagram}`, BANS,
 ].join(' ');
 const ctaPrompt = (label, palette) => [
   `添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。${FRAME}`,
-  pop(palette), '大きく2行で『詳しい解説は』『関連動画へ』、下向きの矢印を添える。先生が大きく腰から上で、手のひらで矢印を示す。',
+  pop(palette), '大きく2行で『詳しい解説は』『関連動画へ』、下向きの矢印を添える。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない（2026-11-10・締め 6 枚中 3 枚が腰で切れた）。',
   TEACHER, `資格名『${label}』は書かない。下端に無地帯を作らない。`, BANS,
 ].join(' ');
 
-/** 親の通常動画の枠にショートの空きがなければ止める。無駄な生成を計画の時点で防ぐ */
+/** 親の通常動画が公開・予約に進んでいないか、ショートの上限に空きがなければ止める。無駄な生成を計画の時点で防ぐ */
 export function assertInSlot(root, pack, key) {
   const plan = readDataset(root, 'config.channel-annual-plan');
   const designs = listShortDesigns(root).filter((d) => !(d.pack === pack && d.key === key));
-  const { errors } = shortsSlotFill(plan, [...designs.map((d) => ({ ...d, stocked: true })), { pack, key }]);
+  const { errors } = shortsSlotFill(plan, [...designs.map((d) => ({ ...d, stocked: true })), { pack, key }], loadContentRegistry(root).publications);
   if (errors.length) throw new Error(errors.join(' / '));
 }
 
@@ -145,7 +152,8 @@ export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   assertInSlot(root, pack, key);
   const label = qualificationShortLabel(loadRegistry(root), exam);
   const prior = new Map((readPlan(root, pack, shortsPlanPath(pack, key))?.items ?? []).map((i) => [i.id, i]));
-  const keep = (item) => (prior.get(item.id)?.inputSha256 === item.inputSha256 ? { ...item, ...prior.get(item.id) } : item);
+  // 入力が同じ項目は画像と判定を引き継ぐ。生成の指示と参照は今の決まりから組み直す（共通の指示を直したら、次の作り直しから効く）
+  const keep = (item) => (prior.get(item.id)?.inputSha256 === item.inputSha256 ? { ...item, ...prior.get(item.id), basePrompt: item.basePrompt, references: item.references } : item);
   const people = [refs(root, CHARACTER), ...(spec.approvedImage?.path && existsSync(join(root, spec.approvedImage.path)) ? [refs(root, spec.approvedImage.path)] : [])];
   const base = { attempts: 0, raw: null, audit: null };
   const items = [
@@ -183,7 +191,7 @@ export async function adoptShort(root, pack, key, { now }) {
   const unaudited = plan.items.filter((i) => !i.raw || i.audit?.verdict !== 'ok' || i.audit.sha !== i.raw.sha256).map((i) => i.id);
   if (unaudited.length) throw new Error(`監査の ok が無い項目がある: ${unaudited.join(', ')}`);
 
-  const { dir, covers, spec, item: short } = packContext(root, pack, key);
+  const { dir, covers, spec, ownSpec, item: short } = packContext(root, pack, key);
   const pubId = `${pack}/youtube.short.${key}`;
   const images = [];
   for (const item of plan.items) {
@@ -206,12 +214,14 @@ export async function adoptShort(root, pack, key, { now }) {
   record.revisions ??= {};
   record.revisions[plan.revision] = { version: 'pop-poster-v3-shorts', publicationId: pubId, key, sceneId: short.sceneId, images };
   record.activeShorts = { ...record.activeShorts, [key]: plan.revision };
-  const coverOutput = images[0].output;
-  const { approvedImage: _old, ...rest } = spec;
-  const input = { ...rest, design: 'pop-poster-v3' };
-  covers.covers[key] = { ...input, approvedImage: { path: coverOutput.path, sha256: coverOutput.sha256, specSha256: coverInputDigest(input) } };
   writeJson(root, `${dir}/pop-image.json`, record);
-  writeJson(root, `${dir}/cover-design.json`, covers);
+  if (!ownSpec) {
+    const coverOutput = images[0].output;
+    const { approvedImage: _old, ...rest } = spec;
+    const input = { ...rest, design: 'pop-poster-v3' };
+    covers.covers[key] = { ...input, approvedImage: { path: coverOutput.path, sha256: coverOutput.sha256, specSha256: coverInputDigest(input) } };
+    writeJson(root, `${dir}/cover-design.json`, covers);
+  }
   return { pack, key, revision: plan.revision, images: images.length };
 }
 
@@ -406,7 +416,11 @@ export async function stockShort(root, pack, key, { now, log = () => {}, wait = 
   const subtitles = place(join(out, 'subtitles.ass'), 'subtitles', 'ass');
   const originals = revision.images.flatMap((image) => {
     const raw = image.generation?.output;
-    return raw && existsSync(join(root, raw.path)) ? [place(join(root, raw.path), `raw-${image.role}`, 'png')] : [];
+    if (!raw || !existsSync(join(root, raw.path))) return [];
+    const kept = place(join(root, raw.path), `raw-${image.role}`, 'png');
+    // 作業フォルダの原本は在庫のあとに消すので、記録は在庫に写した原本を指す（指したままだと参照の欠けになる・2026-11-10）
+    if (kept.sha256 === raw.sha256) image.generation.output = { ...raw, path: kept.path };
+    return [kept];
   });
   mediaVault(root, pack, ['--commit']);
   log('Drive へ保存した');

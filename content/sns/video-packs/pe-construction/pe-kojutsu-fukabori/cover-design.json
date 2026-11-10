@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -11,15 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
+        "variant": "explain",
         "authority": "総監が解説"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-kojutsu-fukabori/work/cover-pop.bfda2f64.png",
+        "sha256": "bfda2f64537ceccc77b3d6631483b29bd91c698a883a99fbd4de909cb940bc03",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "fb24f4e4389118854f9806d27ff48c9aae3390523a1d09f3a74c7806161ec9e4"
+      }
     }
   }
 }

@@ -2,23 +2,32 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
-      "format": "longform",
-      "exam": "civil-1",
-      "headline": [
-        "工事検査",
-        "発注者が見るところ"
-      ],
-      "accentLine": 1,
-      "subtitle": "",
       "character": {
         "pose": "checklist-pen",
         "frame": "waist"
       },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "工事検査",
+        "発注者が",
+        "見るところ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
       "design": "pop-poster-v3",
       "pop": {
+        "variant": "explain",
         "authority": "元発注者が解説"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/owner-eye-kouji-kensa/work/cover-pop.6a786cae.png",
+        "sha256": "6a786cae9b8d0a81028dd0ac31fc031e272048cafa63b16701ab9966966ce1a1",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "c96090fa92cf3b2d884efcc4aca3888f622a4c16f575a7a95b2e279f4cb0d520"
+      }
     }
   }
 }

@@ -374,6 +374,78 @@
       "visualDigest": "a6b27ff7e3c81bed7b44aea80647f8c2c80f221ba5e33c641fad4d2e569d7003",
       "finalDigest": "42e50abd9ea059d15d08e7258eff094da8b400e1ac8368c75786a0dae50c3900",
       "contentDigest": "871fa9df4d212f0a6a028367a4a7424cfc6894f645d339592c335182f428bb48"
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と題名は中身に合い、文字の切れ・誤字なし。場面13枚は台本の順序どおり、図の文字も読める。仮例と独自の整理は図中にも明記済み。CTAはnote1つ（総監口頭試験完全準備・想定25問は商品説明と一致）で、無料の解説リンクは補助。試験日や制度の数値は動画内に無い。合格の約束なし。音声は未確認。",
+      "at": "2026-11-10T12:07:06.841Z",
+      "visualDigest": "462e69226fbf98108a25974cb2ad08b68a99d09aa680776c595f54eb0346175d",
+      "finalDigest": "89c7d4fd3d343dd4ca7fd5b8bf7611c681ce7c69c12d61fe8f6993d112965e26",
+      "contentDigest": "664055357be6c4644ddcfb04dda3d4e39ab29b93f35d14d4e7ce789c13129446"
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名は中身と一致。全13場面を一覧で確認し、順序は台本と一致、文字の切れ・重なり・誤字なし。試問事項2項目と各60パーセント以上は出典付き、立場別の切り口は想定と明記し合格の約束なし。説明文のCTAはnote教材1つ（tankan-oral-complete）、無料のサイト解説は関連リンクとして別枠。exam-calendar.jsonとの個別照合は未実施（日付の記述が無いため）。音声は確認していない。",
+      "at": "2026-11-10T12:42:03.378Z",
+      "visualDigest": "5327c9194e923b2db91e86703fda7bb96a56e97e23ec87589d7ce8bd0ad3a184",
+      "finalDigest": "92660710e69be7720496bcd637c840281b935afa874e7f4a04335b5f7f74666d",
+      "contentDigest": "dbaebbf007d686a101cee81324f1dc5628d62092d41ee2fd1954b3049635346c"
+    },
+    "pe-construction/pe-kojutsu-fukabori/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名は中身と一致、12場面の順序は台本どおりで文字の切れ・重なり・誤字なし。想定・仮の例の注記あり、日付や合格の約束なし。CTAはnote1本、リンク先も合致。下部の注記文字は小さめだが判読可。音声は未確認。",
+      "at": "2026-11-10T12:35:39.485Z",
+      "visualDigest": "afe2e78e1f0a3914dd6423f1046d00dfa07b176e755e4336b2232e803e781f46",
+      "finalDigest": "67033a56701079af77a3a3fd071b5a6719a09a49e60e584c0a1cb2083e48dc20",
+      "contentDigest": "f3ef8c8fa9075221ff2456eb35cf413b7604713deca4feef014785f70561e508"
+    },
+    "civil-construction-1/c1-juken-junjo-2027/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名は中身と一致。全13場面の順序は台本どおりで、文字の切れ・重なり・誤字なし。令和8年度の日程(3/23-4/6、7/5、8/13、10/4、翌1/8)は exam-calendar.json と一致し、2027年度は未公表と明記。主CTAはnote1つで価格・合格保証なし、サイトは関連無料リンクとして別枠。日程場面の出典行は小さいが判読可。受検手引PDFとの突合は台本側で未了(サイト記事の範囲に限定)。音声は未確認。",
+      "at": "2026-11-10T12:35:46.071Z",
+      "visualDigest": "0a1594392bb2c754aa604ee14cc1ea6a4b099ef528d68721703c7f981b26d8d9",
+      "finalDigest": "782e356a76ade69503ae01290f115b651fa0bc75458c9117b0e2428608c7e3a4",
+      "contentDigest": "dbbebef222da89c8cda5f112c70496129b434a3f8bfc00b83798e9e2a617becf"
+    },
+    "civil-construction-1/owner-eye-kouji-kensa/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名・14場面の順序は台本と一致、文字の切れ・重なり・誤字なし(シート縮小表示で目視)。CTAは記事リンク1つで実在、試験日の記述なし、制度は国の例・自治体は別と明記、断定的な合格約束なし。音声は未確認。",
+      "at": "2026-11-10T12:35:49.938Z",
+      "visualDigest": "a04638923010905ecbf0b70c8ecd1eb400992fe8888e920ff8463852a62d66c2",
+      "finalDigest": "cbe65e517d1bace1854b872e6fd835bc801e4b61554f5f92539c04f7c519792b",
+      "contentDigest": "970c3b125e5fd1aab9d21e038debd8a880e6bb4c9cd7982840fec4738907f73c"
+    },
+    "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・全28場面シートを目視。題名と中身一致、文字切れ・誤字なし、場面順は台本どおり。CTAは1つ（practice/reading-civil-drawings）、日付・合格約束なし、国の例と本動画の整理を明記。音声は未確認。",
+      "at": "2026-11-10T12:35:51.139Z",
+      "visualDigest": "6b4a774c990c4f874a55ac8e2789cdca04e602c85ad43af67de799d970b03316",
+      "finalDigest": "df34e47ed1e97fba2255de43ef1db6d9269ae317bac71cc8a71eac9231412bb4",
+      "contentDigest": "f63e282da9452d7924556a001c5491c3815547f6970920e1a952dc2bd6e1c0df"
+    },
+    "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・全13場面シートと台本の順序一致、文字切れ誤字なし。改訂適用年度（令和8年度）は台本出典と一致し、質問の変化は推論と明記、合格の約束なし。説明文の主CTAはnote1本、他は無料解説リンクのみ。音声は未確認。場面4の一部ラベルは字が横に詰まるが可読。",
+      "at": "2026-11-10T12:36:01.958Z",
+      "visualDigest": "6b0292926d70eb1ed2b6c15d0ea78ddbaba15eac0d76d1de35ddd0be99ccaa5d",
+      "finalDigest": "367a227b125599a61406816150909ca3cd3cba55c6eb9b7abc764b1bb3fe4d78",
+      "contentDigest": "31cfb70601717ecce50fbbd2ded0a1d393273d3c973c5ebac459840135c519be"
+    },
+    "civil-construction-2/c2-juken-junjo-2027/youtube.longform": {
+      "verdict": "pass",
+      "note": "全13場面を台本の順序と照合し、表紙・題名・場面の文字に切れ・重なり・誤字なし。日程は exam-calendar と一致し、令和8年度の例と明示、2027年度は断定せず。合格保証なし、概要欄CTAはnote PDF1つ（無料サイト記事リンクは補助）で価格記載なし。音声は未確認。受検の手引PDFとの突合は台本上も未了。",
+      "at": "2026-11-10T12:40:46.512Z",
+      "visualDigest": "1ff03871e685c711f9826bc5b0637e5ee08abf92f517b39cb0d49938eac734fc",
+      "finalDigest": "beab9016472427402f7e0ecf55fc0a14831b2d113a7fcdb58a30a30062f5aab3",
+      "contentDigest": "868e5faed16d777e1662ee967e61a15b1e07128e62d459169a8ecf345a437ce5"
+    },
+    "pe-construction/pe-fugoukaku-toan/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・全14場面シートを目視。表紙と題名は内容と一致、文字の切れ・重なり・誤字なし、場面順は台本と一致。独自整理・仮の例の注記あり、60%基準は出典明記で断定的な合格約束なし。筆記発表(2026-11-04)後の公開予定で exam-calendar と矛盾なし。説明文のCTAは必須I模範解答集のnote1本(無料サイト記事リンクは関連扱)。音声は未確認。",
+      "at": "2026-11-10T12:50:50.334Z",
+      "visualDigest": "7c94c5d486028319506a8fd18bd2a66e4b4331cfa5d68193c544293a6a83e0ae",
+      "finalDigest": "d732c4d8ff642489e82e09377e21ec42f4b261087fe974b6dde59d7c80e33597",
+      "contentDigest": "7483fbb10f21278b7628cbe89afc79aa834078cbeb75ff43132b0d4ddeeaae2d"
     }
   }
 }

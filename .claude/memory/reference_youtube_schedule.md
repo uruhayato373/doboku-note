@@ -14,7 +14,8 @@ YouTube Data API 予約投稿はこの事業に**実装済み・認証済み**�
 **落とし穴（2026-06-05 実証）**:
 - `upload.js` のログ「公開設定: unlisted」は**表示バグ**（`opts.privacy` 既定値を出力するだけ）。`--schedule` 指定時は実際には private+publishAt が設定される。**ログを信用せず `videos.list(part=status)` で privacyStatus=private かつ publishAt 存在を実査**する（X の偽成功検証と同じ思想 → [[feedback_publish_x_false_success]]）。検証例: `.tmp/yt-verify.js`。
 - **unlisted だと publishAt は発火しない**（自動公開は private のみ）。予約成立の条件は private+publishAt。
-- **quota**: `videos.insert` ≈ 1600 units、日次割当 10,000 → **約6本/日が上限**。大量投稿は「6本/日×数日」。X の Playwright 予約（quota無し）との決定的違い。
+- **quota（古い・下の実測を見る）**: `videos.insert` ≈ 1600 units、日次割当 10,000 → **約6本/日が上限**。大量投稿は「6本/日×数日」。X の Playwright 予約（quota無し）との決定的違い。
+- **割当の実測（2026-11-11・GCP コンソールの「割り当てとシステム上限」）**: アップロードは別枠の **Video Uploads per day = 100**（この日の使用 10）、Queries per day = 10,000（使用 1,066・10.66%）。上の「insert ≈ 1600 units・約 6 本/日」は古い。`config/video-auto-publish.json` の `maxUploadsPerDay`（4）はこの古い前提の値。同じ日に 10 本流しても割当は余っていた。その日の `thumbnails.set` の 1 件の失敗（「thumbnail結果不明」）は割当の超過ではなく、原因は未確認。関連 [[feedback_direct_push_ci_gate]]
 
 **yt-shorts-create の量産ゴッチャ（2026-06-05 実証）**: `--from-reels` の固定4枚連結（cover+問題1+解答1+cta）は **≤60s を保証しない**。解説スライドが長いパックは60〜90s に膨らみ、YouTube で通常動画化する。総監26本一括生成では 5本（r03-08=81s/r04-06=90s/r05-01=88s/r07-04=83s/r07-06=66s）が60s超だった。**生成後は必ず `ffprobe -show_entries format=duration` で全本実査**し、60s超は**同一パック内の短い設問ペアに差し替えて再連結**で収める（`ffmpeg -f concat -safe 0 -i concat.txt -c copy` ＝再エンコード無し・画質劣化なし。slide-00/問N/答N/slide-09 の問Nを slide-03/05/07 等に変更）。総監26本量産時は5本を問4/4/3/2/3に差替えて全本≤60sに。meta.json の durationSeconds と featuredProblemSlide/Index も更新する。加えて既定タイトルは「令和X年度 択一式 過去問（管理名）」の汎用どまりで、論点タイトルは `yt-shorts-title-writer` で別途上書きが必要（policy §2）。一部 slide-data の category が「（information）」等の崩れデータを持つ個体あり（r03-08）。
 

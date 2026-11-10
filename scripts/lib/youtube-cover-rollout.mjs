@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { discoverPacks, loadConfig } from './video-content-check.mjs';
 import { loadVideoState } from './registry-video-state.mjs';
 import { validateCoverDesign } from './youtube-cover.mjs';
-import { EXAM_TO_PALETTE } from './longform-render.mjs';
+import { requirePaletteKey } from './qualification-palette.mjs';
 export const digest = data => createHash('sha256').update(data).digest('hex');
 export const specDigest = spec => digest(JSON.stringify(spec));
 
@@ -15,7 +15,7 @@ export function loadCoverSources(root) {
   for (const p of discoverPacks(root, loadConfig(root)).packs) {
     const path = join(p.dir, 'cover-design.json');
     if (!existsSync(path)) continue;
-    const design = validateCoverDesign(JSON.parse(readFileSync(path)), { exam: EXAM_TO_PALETTE[p.exam] });
+    const design = validateCoverDesign(JSON.parse(readFileSync(path)), { exam: requirePaletteKey(p.exam) });
     const youtubePath = join(p.dir, 'youtube.json');
     const y = existsSync(youtubePath) ? JSON.parse(readFileSync(youtubePath)) : {
       longform: { key: 'longform', title: JSON.parse(readFileSync(join(p.dir, 'video-pack.json'))).title }, shorts: []

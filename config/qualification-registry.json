@@ -44,7 +44,7 @@
     { "id": "pe-water-supply", "label": "技術士（上下水道部門）", "shortLabel": "技術士 上下水道", "family": "professional-engineer", "portfolio": "active" },
     { "id": "pe-agriculture", "label": "技術士（農業部門）", "family": "professional-engineer", "portfolio": "candidate" },
     { "id": "pe-forestry", "label": "技術士（森林部門）", "family": "professional-engineer", "portfolio": "candidate" },
-    { "id": "pe-fisheries", "label": "技術士（水産部門）", "family": "professional-engineer", "portfolio": "candidate" },
+    { "id": "pe-fisheries", "label": "技術士（水産部門）", "shortLabel": "技術士 水産", "family": "professional-engineer", "portfolio": "active" },
     { "id": "pe-environment", "label": "技術士（環境部門）", "family": "professional-engineer", "portfolio": "candidate" },
     { "id": "pe-applied-science", "label": "技術士（応用理学部門）", "family": "professional-engineer", "portfolio": "candidate" },
     { "id": "pe-sanitary", "label": "技術士（衛生工学部門）", "family": "professional-engineer", "portfolio": "candidate" },
