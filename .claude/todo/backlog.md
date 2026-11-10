@@ -518,6 +518,22 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1103] video-factory publish が未コミットの変更と drive-manifest の競合で途中で止まらないようにする
+タグ: [領域:SNS] [時期:2026-12] [種類:不具合] [起票:2026-11-11]
+
+**起点**: 2026-11-11 の `video-factory publish` が 2 回止まった。
+1. 作業ツリーに未コミットの変更（別セッションの memory、PR に出した scripts）があり、`git pull --rebase origin develop`（`scripts/video-factory.mjs:488`）が「unstaged changes」で拒否された。`rebase.autoStash=true` は効いていなかった。止まったのは mark-rendered・R2 転送・台帳の commit の後で、push と dispatch の前
+2. 同期で `.claude/state/assets/drive-manifest.json` が競合し、rebase の途中で止まった。両側が項目を足しただけで、両方を残せば解ける
+
+DN-1072 の 3（割当の計算の前に pull）とは別の論点。
+
+**やること**:
+1. publish の最初に作業ツリーを検査し、未コミットがあれば何もしないうちに止める（転送や commit の後で止めない）
+2. drive-manifest.json の競合は、同じキーで値が違わない限り両側を残して解く処理を lib に置き、`git pull` の競合時に使う（または .gitattributes の merge driver）
+
+**完了条件**: 未コミットの変更がある状態で publish を打つと、転送も commit もせずに止まるテストがある。両側が項目を足した drive-manifest.json の競合が手で直さずに解ける。
+
+
 ### [DN-1102] 動画の合成出力が Drive に退避されず check-drive-vault が FAIL 356 件になっている分を片づける
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-11]
 
