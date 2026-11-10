@@ -884,6 +884,7 @@ const imageFormat = z.object({
   minWidth: z.number().int().positive().optional().describe('生成の原本に許す最小の幅'),
   bottomZone: z.number().min(0).max(1).describe('下端の字幕帯の高さの比率'),
   frame: z.string().min(1).describe('構図と安全域の生成指示'),
+  bodyFrame: z.string().min(1).optional().describe('本文の画面で、ラベル・見出し・図を収める範囲の生成指示（字幕と操作ボタンの外）'),
 }).strict();
 
 export const ConfigSiteThumbnails = z

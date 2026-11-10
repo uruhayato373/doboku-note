@@ -16,7 +16,14 @@
       "accentLine": 1,
       "subtitle": "",
       "design": "pop-poster-v3",
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-tradeoff/work/cover-pop.dbccc9e5.png",
+        "sha256": "dbccc9e5c7f7f4daeda1f6b3340258ea5f3ae5879a59c71adb18a1edd4d1135f",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "8af65d54f66f0927c79119269d3bb1c5c1fce16c8c7aa32dc284c7fa5f56f7db"
+      }
     }
   }
 }

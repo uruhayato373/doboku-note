@@ -53,7 +53,7 @@
         "art": {
           "type": "compare",
           "section": "口頭試験対策／総監",
-          "note": "出典：文部科学省 令和8年度技術士試験合否決定基準（video-pack.json の sourceRefs）"
+          "note": "出典：文部科学省 令和8年度技術士試験合否決定基準"
         }
       }
     },
@@ -73,7 +73,7 @@
         "art": {
           "type": "compare",
           "section": "口頭試験対策／総監",
-          "note": "出典：文部科学省 令和8年度技術士試験合否決定基準（video-pack.json の sourceRefs）"
+          "note": "出典：文部科学省 令和8年度技術士試験合否決定基準"
         }
       }
     },
@@ -275,5 +275,12 @@
         }
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261110",
+    "coverRevision": "cover-pop-20261110",
+    "layout": "diagram-led"
+  }
 }

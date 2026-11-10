@@ -207,14 +207,67 @@
       "work": "sokan-kojutsu-tachiba",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/cover",
+        "scene-001": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-001",
+        "scene-002": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-002",
+        "scene-003": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-003",
+        "scene-004": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-004",
+        "scene-005": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-005",
+        "scene-006": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-006",
+        "scene-007": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-007",
+        "scene-008": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-008",
+        "scene-009": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-009",
+        "scene-010": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-010",
+        "scene-011": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-011",
+        "scene-012": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-012",
+        "scene-013": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-013",
+        "video": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/video",
+        "subtitles": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.json#longform",
+      "publishAt": "2026-12-15T11:30:00Z"
     },
     {
       "id": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform",
       "work": "sokan-kojutsu-tradeoff",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "approved",
+      "media": {
+        "cover": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/cover",
+        "scene-001": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-001",
+        "scene-002": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-002",
+        "scene-003": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-003",
+        "scene-004": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-004",
+        "scene-005": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-005",
+        "scene-006": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-006",
+        "scene-007": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-007",
+        "scene-008": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-008",
+        "scene-009": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-009",
+        "scene-010": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-010",
+        "scene-011": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-011",
+        "scene-012": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-012",
+        "scene-013": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-013",
+        "video": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/video",
+        "subtitles": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.json#longform",
+      "publishAt": "2026-11-18T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:14:28.684Z",
+          "digest": "462e69226fbf98108a25974cb2ad08b68a99d09aa680776c595f54eb0346175d"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:14:28.684Z",
+        "contentSha256": "89c7d4fd3d343dd4ca7fd5b8bf7611c681ce7c69c12d61fe8f6993d112965e26"
+      }
     }
   ]
 }

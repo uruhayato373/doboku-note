@@ -76,7 +76,7 @@
         "art": {
           "type": "grid",
           "section": "土木施工管理／2級の受検の順序",
-          "note": "出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認。video-pack.json の sourceRefs）"
+          "note": "出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認）"
         }
       }
     },
@@ -98,7 +98,7 @@
         "art": {
           "type": "grid",
           "section": "土木施工管理／2級の受検の順序",
-          "note": "出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認。video-pack.json の sourceRefs）。2027年度は掲載なし"
+          "note": "出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認）。2027年度は掲載なし"
         }
       }
     },
@@ -120,7 +120,7 @@
         "art": {
           "type": "compare",
           "section": "土木施工管理／2級の受検の順序",
-          "note": "出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認。video-pack.json の sourceRefs）。区分は年度で確認"
+          "note": "出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認）。区分は年度で確認"
         }
       }
     },
@@ -141,7 +141,7 @@
         "art": {
           "type": "decision",
           "section": "土木施工管理／2級の受検の順序",
-          "note": "出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認。video-pack.json の sourceRefs）。入口で受検の時期が変わる"
+          "note": "出典：全国建設研修センター 2級土木の試験案内（令和8年度・2026-11-10 確認）。入口で受検の時期が変わる"
         }
       }
     },
@@ -276,5 +276,12 @@
       },
       "sourceRef": "content/site/civil-construction-2/guide-exam-overview/article.mdx"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261110",
+    "coverRevision": "cover-pop-20261110",
+    "layout": "diagram-led"
+  }
 }

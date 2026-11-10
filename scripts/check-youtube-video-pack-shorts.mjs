@@ -94,8 +94,9 @@ for (const exam of EXAMS) {
       // 停止したショートは公開されない。標準（全面画像）への移行は再開するときに shorts-factory で行う
       if (row?.status === 'stopped') { stoppedCount += 1; continue; }
       shortsCount += 1;
-      if (row && covers[item.key]?.design !== 'pop-poster-v3') errors.push(`${packId}:${item.key}: 表紙が pop-poster-v3 ではない`);
       const adopted = pop.revisions?.[pop.activeShorts?.[item.key]];
+      // 表紙は shorts-factory の採用（pop-poster-v3-shorts）か、cover-design.json の pop-poster-v3。台本に見出しを持つショートは cover-design.json を書き換えない
+      if (row && adopted?.version !== 'pop-poster-v3-shorts' && covers[item.key]?.design !== 'pop-poster-v3') errors.push(`${packId}:${item.key}: 表紙が pop-poster-v3 ではない`);
       if (row && adopted && adopted.render?.videoSha256 !== item.sha256) errors.push(`${packId}:${item.key}: 採用画像の描画記録が今の動画と合わない`);
       if (row && adopted && (adopted.screenReview?.verdict !== 'pass' || adopted.screenReview.videoSha256 !== item.sha256)) errors.push(`${packId}:${item.key}: 今の動画の画面確認 pass が無い`);
       const label = `${packId}:${item.key ?? '?'}`;
@@ -122,9 +123,13 @@ for (const exam of EXAMS) {
       const migrated = (key, ext, sha) => new RegExp(`^youtube-migration/[^/]+/media/([a-f0-9]{64})\\.${ext}$`, 'u').exec(key ?? '')?.[1] === sha;
       if (!/^video\/render\/.+\/shorts\/.+\/shorts\.mp4$/u.test(item.r2Key ?? '') && !migrated(item.r2Key, 'mp4', item.sha256)) errors.push(`${label}: r2Key不正`);
       if (!/^video\/render\/.+\/shorts\/.+\/thumbnail\.png$/u.test(item.thumbnailR2Key ?? '') && !migrated(item.thumbnailR2Key, 'png', item.thumbnailSha256)) errors.push(`${label}: thumbnailR2Key不正`);
+      // 描画前（台帳の行が draft で動画の sha が無い）のショートは制作中。sha と予約日時は描画と承認の段で入る
+      const inProduction = (!row || row.status === 'draft') && !item.sha256;
+      if (inProduction) { warnings.push(`${label}: 制作中（描画前）`); publicationSlot(packId, 'short', item); continue; }
       if (!/^[a-f0-9]{64}$/u.test(item.sha256 ?? '')) errors.push(`${label}: sha256未確定または不正`);
       if (!/^[a-f0-9]{64}$/u.test(item.thumbnailSha256 ?? '')) errors.push(`${label}: thumbnailSha256未確定または不正`);
-      if (!item.publishAt) errors.push(`${label}: publishAtなし`);
+      if (!item.publishAt && APPROVED.has(row?.status)) errors.push(`${label}: publishAtなし`);
+      else if (!item.publishAt) warnings.push(`${label}: 予約日時は承認の段で決める`);
       if (item.publishAt && youtube.longform?.publishAt && item.publishAt <= youtube.longform.publishAt) {
         errors.push(`${label}: 通常動画より前または同時に公開 (${item.publishAt})`);
       }

@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "civil-1",
       "headline": [
@@ -11,15 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
+        "variant": "plan",
         "authority": "元発注者が解説"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/c1-juken-junjo-2027/work/cover-pop.50d233bd.png",
+        "sha256": "50d233bd984b5cf059884e14d2d6ad76db6fecb4ceb225c4d27d8733a3359dab",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "e391a412ffbee52501f67259dcc863ba1d1df328c18e27433c274b352dca33b1"
+      }
     }
   }
 }
