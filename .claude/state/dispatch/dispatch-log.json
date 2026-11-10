@@ -6946,6 +6946,32 @@
       "commit": "c065dcce0804",
       "verification": "node --test tests/video-factory.test.mjs（PR #1490・91414600d）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1068",
+      "at": "2026-11-10",
+      "task": "動画の制作の途中状態を段ごとに commit し、生成の前に無料の検査を通す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ccd244787506",
+      "verification": "node --test tests/video-factory.test.mjs tests/youtube-longform-plan.test.mjs（PR #1494・f84d506c5）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1069",
+      "at": "2026-11-10",
+      "task": "status に台本待ちの企画を出し、期限超過と QA 不合格の滞留を週次で読む",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ccd244787506",
+      "verification": "node --test tests/video-factory.test.mjs tests/youtube-longform-plan.test.mjs（PR #1494・f84d506c5）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
