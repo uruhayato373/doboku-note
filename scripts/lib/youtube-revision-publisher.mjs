@@ -19,6 +19,12 @@ import sharp from 'sharp';
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const same = (a, b) => canonicalJson(a) === canonicalJson(b);
 const videoIdValid = id => /^[\w-]{11}$/.test(id ?? '');
+/** 予約の実行記録（registry unschedule が消す欄と同じ） */
+export const SCHEDULE_DELIVERY_KEYS = ['scheduleRequestedAt', 'scheduleAt', 'scheduledVerifiedAt'];
+const withoutSchedule = delivery => Object.fromEntries(Object.entries(delivery ?? {}).filter(([key]) => !SCHEDULE_DELIVERY_KEYS.includes(key)));
+/** 台帳では予約を外し済み（uploaded_private・予約の記録なし）で、R2 の記録とは予約の欄だけが違うか */
+const unscheduledSince = (pub, remote) => pub.status === 'uploaded_private' && Boolean(pub.delivery?.videoId) && !pub.delivery.scheduleRequestedAt &&
+  Boolean(remote?.scheduleRequestedAt) && same(pub.delivery, withoutSchedule(remote));
 const urls = thumbnails => Object.values(thumbnails ?? {}).map(x => x?.url).filter(Boolean);
 
 function verifiedBytes(root, asset) {
@@ -214,12 +220,18 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
       const remote = await journal.load();
       if (remote) {
         if (remote.pubId !== pubId || remote.delivery?.inputSha256 !== plan.digest || remote.delivery?.marker !== plan.marker) throw new Error('非公開投稿意図と今の入力が不一致');
-        if (pub.delivery && !same(pub.delivery, remote.delivery)) {
-          // R2 は CI が途中停止した後の実行状態。台帳に新しい動画IDがあり R2 だけ古い場合は止める。
-          if (pub.delivery.videoId && remote.delivery.videoId !== pub.delivery.videoId) throw new Error('台帳と非公開投稿意図の動画IDが不一致');
+        if (unscheduledSince(pub, remote.delivery)) {
+          // registry unschedule は台帳から予約の記録を消すが、R2 の実行記録には残る。予約以外が一致するなら台帳を正として書き戻す
+          // （残したままだと予約し直す段が「schedule結果不明」で止まる。YouTube 側に予約が無いことは後の実査で確かめる）
+          await journalSave();
+        } else {
+          if (pub.delivery && !same(pub.delivery, remote.delivery)) {
+            // R2 は CI が途中停止した後の実行状態。台帳に新しい動画IDがあり R2 だけ古い場合は止める。
+            if (pub.delivery.videoId && remote.delivery.videoId !== pub.delivery.videoId) throw new Error('台帳と非公開投稿意図の動画IDが不一致');
+          }
+          pub.delivery = remote.delivery;
+          save();
         }
-        pub.delivery = remote.delivery;
-        save();
       }
     }
     await assertChannel(youtube, plan.channel);
