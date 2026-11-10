@@ -418,6 +418,17 @@
         "expected": 1525,
         "heard": 1495
       }
+    },
+    "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform": {
+      "videoSha256": "836afc0521a97d93416f8bd211ca1ddcb80ccd17b90b2d7a717de5810c643ad3",
+      "at": "2026-11-10T12:47:12.895Z",
+      "similarity": 0.986,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1099,
+        "heard": 1040
+      }
     }
   }
 }

@@ -207,7 +207,7 @@
       "work": "sokan-kojutsu-tachiba",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-001",
@@ -227,7 +227,20 @@
         "subtitles": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.json#longform",
-      "publishAt": "2026-12-15T11:30:00Z"
+      "publishAt": "2026-12-15T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:47:13.767Z",
+          "digest": "5327c9194e923b2db91e86703fda7bb96a56e97e23ec87589d7ce8bd0ad3a184"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:47:13.767Z",
+        "contentSha256": "92660710e69be7720496bcd637c840281b935afa874e7f4a04335b5f7f74666d"
+      }
     },
     {
       "id": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform",
