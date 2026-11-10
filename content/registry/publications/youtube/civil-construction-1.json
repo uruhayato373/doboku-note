@@ -8,7 +8,40 @@
       "work": "c1-juken-junjo-2027",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "approved",
+      "media": {
+        "cover": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/cover",
+        "scene-001": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-001",
+        "scene-002": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-002",
+        "scene-003": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-003",
+        "scene-004": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-004",
+        "scene-005": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-005",
+        "scene-006": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-006",
+        "scene-007": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-007",
+        "scene-008": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-008",
+        "scene-009": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-009",
+        "scene-010": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-010",
+        "scene-011": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-011",
+        "scene-012": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-012",
+        "scene-013": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-013",
+        "video": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/video",
+        "subtitles": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/civil-construction-1/c1-juken-junjo-2027/youtube.json#longform",
+      "publishAt": "2027-01-01T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-10T12:43:05.273Z",
+          "digest": "0a1594392bb2c754aa604ee14cc1ea6a4b099ef528d68721703c7f981b26d8d9"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-10T12:43:05.273Z",
+        "contentSha256": "782e356a76ade69503ae01290f115b651fa0bc75458c9117b0e2428608c7e3a4"
+      }
     },
     {
       "id": "civil-construction-1/owner-career-shigoto/youtube.longform",
@@ -29,14 +62,70 @@
       "work": "owner-eye-kouji-kensa",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/cover",
+        "scene-001": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-001",
+        "scene-002": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-002",
+        "scene-003": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-003",
+        "scene-004": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-004",
+        "scene-005": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-005",
+        "scene-006": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-006",
+        "scene-007": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-007",
+        "scene-008": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-008",
+        "scene-009": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-009",
+        "scene-010": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-010",
+        "scene-011": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-011",
+        "scene-012": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-012",
+        "scene-013": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-013",
+        "scene-014": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-014",
+        "video": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/video",
+        "subtitles": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/civil-construction-1/owner-eye-kouji-kensa/youtube.json#longform",
+      "publishAt": "2026-12-01T11:30:00Z"
     },
     {
       "id": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform",
       "work": "owner-eye-sekkei-tosho",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/cover",
+        "scene-001": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-001",
+        "scene-002": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-002",
+        "scene-003": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-003",
+        "scene-004": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-004",
+        "scene-005": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-005",
+        "scene-006": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-006",
+        "scene-007": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-007",
+        "scene-008": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-008",
+        "scene-009": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-009",
+        "scene-010": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-010",
+        "scene-011": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-011",
+        "scene-012": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-012",
+        "scene-013": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-013",
+        "scene-014": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-014",
+        "scene-015": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-015",
+        "scene-016": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-016",
+        "scene-017": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-017",
+        "scene-018": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-018",
+        "scene-019": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-019",
+        "scene-020": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-020",
+        "scene-021": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-021",
+        "scene-022": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-022",
+        "scene-023": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-023",
+        "scene-024": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-024",
+        "scene-025": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-025",
+        "scene-026": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-026",
+        "scene-027": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-027",
+        "scene-028": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-028",
+        "video": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/video",
+        "subtitles": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-tosho/youtube.json#longform",
+      "publishAt": "2027-01-15T11:30:00Z"
     }
   ]
 }

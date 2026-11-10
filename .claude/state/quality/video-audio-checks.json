@@ -352,6 +352,17 @@
         "expected": 1287,
         "heard": 1210
       }
+    },
+    "civil-construction-1/c1-juken-junjo-2027/youtube.longform": {
+      "videoSha256": "45ab75c76d87191b0e71a13e1a0ecfe9eb7356647d5e3c2368a8bb3b022a72e0",
+      "at": "2026-11-10T12:43:04.518Z",
+      "similarity": 0.979,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1562,
+        "heard": 1525
+      }
     }
   }
 }
