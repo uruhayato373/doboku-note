@@ -6920,6 +6920,19 @@
       "commit": "06398e96a7ea",
       "verification": "npm run check-pe-question-pages && node --test tests/pe-question-pages.test.mjs",
       "note": "pe-question-pages（scaffold/check/claims）とテスト。道路16本で問題文の節が一致"
+    },
+    {
+      "id": "DN-1067",
+      "at": "2026-11-10",
+      "task": "内容QAの合格を原稿の版に結び、工程の順を手順書・status・Workflow でそろえる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c065dcce0804",
+      "verification": "node --test tests/video-factory.test.mjs（PR #1490・91414600d）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
