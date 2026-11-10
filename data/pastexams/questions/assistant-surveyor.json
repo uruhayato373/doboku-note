@@ -1,0 +1,3087 @@
+{
+  "schemaVersion": 1,
+  "qualification": "assistant-surveyor",
+  "quizExam": "assistant-surveyor",
+  "questions": [
+    {
+      "id": "r04-01",
+      "article": "surveyor/primary-r04",
+      "no": "No.1",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-02",
+      "article": "surveyor/primary-r04",
+      "no": "No.2",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-03",
+      "article": "surveyor/primary-r04",
+      "no": "No.3",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-04",
+      "article": "surveyor/primary-r04",
+      "no": "No.4",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-05",
+      "article": "surveyor/primary-r04",
+      "no": "No.5",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-06",
+      "article": "surveyor/primary-r04",
+      "no": "No.6",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-07",
+      "article": "surveyor/primary-r04",
+      "no": "No.7",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-08",
+      "article": "surveyor/primary-r04",
+      "no": "No.8",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-09",
+      "article": "surveyor/primary-r04",
+      "no": "No.9",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-10",
+      "article": "surveyor/primary-r04",
+      "no": "No.10",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-11",
+      "article": "surveyor/primary-r04",
+      "no": "No.11",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-12",
+      "article": "surveyor/primary-r04",
+      "no": "No.12",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-13",
+      "article": "surveyor/primary-r04",
+      "no": "No.13",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-14",
+      "article": "surveyor/primary-r04",
+      "no": "No.14",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-15",
+      "article": "surveyor/primary-r04",
+      "no": "No.15",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-16",
+      "article": "surveyor/primary-r04",
+      "no": "No.16",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-17",
+      "article": "surveyor/primary-r04",
+      "no": "No.17",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-18",
+      "article": "surveyor/primary-r04",
+      "no": "No.18",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-19",
+      "article": "surveyor/primary-r04",
+      "no": "No.19",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-20",
+      "article": "surveyor/primary-r04",
+      "no": "No.20",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-21",
+      "article": "surveyor/primary-r04",
+      "no": "No.21",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-22",
+      "article": "surveyor/primary-r04",
+      "no": "No.22",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-23",
+      "article": "surveyor/primary-r04",
+      "no": "No.23",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-24",
+      "article": "surveyor/primary-r04",
+      "no": "No.24",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-25",
+      "article": "surveyor/primary-r04",
+      "no": "No.25",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-26",
+      "article": "surveyor/primary-r04",
+      "no": "No.26",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-27",
+      "article": "surveyor/primary-r04",
+      "no": "No.27",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r04-28",
+      "article": "surveyor/primary-r04",
+      "no": "No.28",
+      "source": {
+        "question": "R04/R04_問題.pdf",
+        "page": null,
+        "answer": "R04/R04_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-01",
+      "article": "surveyor/primary-r05",
+      "no": "No.1",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-02",
+      "article": "surveyor/primary-r05",
+      "no": "No.2",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-03",
+      "article": "surveyor/primary-r05",
+      "no": "No.3",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-04",
+      "article": "surveyor/primary-r05",
+      "no": "No.4",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-05",
+      "article": "surveyor/primary-r05",
+      "no": "No.5",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-06",
+      "article": "surveyor/primary-r05",
+      "no": "No.6",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-07",
+      "article": "surveyor/primary-r05",
+      "no": "No.7",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-08",
+      "article": "surveyor/primary-r05",
+      "no": "No.8",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-09",
+      "article": "surveyor/primary-r05",
+      "no": "No.9",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-10",
+      "article": "surveyor/primary-r05",
+      "no": "No.10",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-11",
+      "article": "surveyor/primary-r05",
+      "no": "No.11",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-12",
+      "article": "surveyor/primary-r05",
+      "no": "No.12",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-13",
+      "article": "surveyor/primary-r05",
+      "no": "No.13",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-14",
+      "article": "surveyor/primary-r05",
+      "no": "No.14",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-15",
+      "article": "surveyor/primary-r05",
+      "no": "No.15",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-16",
+      "article": "surveyor/primary-r05",
+      "no": "No.16",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-17",
+      "article": "surveyor/primary-r05",
+      "no": "No.17",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-18",
+      "article": "surveyor/primary-r05",
+      "no": "No.18",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-19",
+      "article": "surveyor/primary-r05",
+      "no": "No.19",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-20",
+      "article": "surveyor/primary-r05",
+      "no": "No.20",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-21",
+      "article": "surveyor/primary-r05",
+      "no": "No.21",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-22",
+      "article": "surveyor/primary-r05",
+      "no": "No.22",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-23",
+      "article": "surveyor/primary-r05",
+      "no": "No.23",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-24",
+      "article": "surveyor/primary-r05",
+      "no": "No.24",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-25",
+      "article": "surveyor/primary-r05",
+      "no": "No.25",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-26",
+      "article": "surveyor/primary-r05",
+      "no": "No.26",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-27",
+      "article": "surveyor/primary-r05",
+      "no": "No.27",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r05-28",
+      "article": "surveyor/primary-r05",
+      "no": "No.28",
+      "source": {
+        "question": "R05/R05_問題.pdf",
+        "page": null,
+        "answer": "R05/R05_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-01",
+      "article": "surveyor/primary-r06",
+      "no": "No.1",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-02",
+      "article": "surveyor/primary-r06",
+      "no": "No.2",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-03",
+      "article": "surveyor/primary-r06",
+      "no": "No.3",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-04",
+      "article": "surveyor/primary-r06",
+      "no": "No.4",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-05",
+      "article": "surveyor/primary-r06",
+      "no": "No.5",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-06",
+      "article": "surveyor/primary-r06",
+      "no": "No.6",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-07",
+      "article": "surveyor/primary-r06",
+      "no": "No.7",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-08",
+      "article": "surveyor/primary-r06",
+      "no": "No.8",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-09",
+      "article": "surveyor/primary-r06",
+      "no": "No.9",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-10",
+      "article": "surveyor/primary-r06",
+      "no": "No.10",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-11",
+      "article": "surveyor/primary-r06",
+      "no": "No.11",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-12",
+      "article": "surveyor/primary-r06",
+      "no": "No.12",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-13",
+      "article": "surveyor/primary-r06",
+      "no": "No.13",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-14",
+      "article": "surveyor/primary-r06",
+      "no": "No.14",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-15",
+      "article": "surveyor/primary-r06",
+      "no": "No.15",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-16",
+      "article": "surveyor/primary-r06",
+      "no": "No.16",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-17",
+      "article": "surveyor/primary-r06",
+      "no": "No.17",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-18",
+      "article": "surveyor/primary-r06",
+      "no": "No.18",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-19",
+      "article": "surveyor/primary-r06",
+      "no": "No.19",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-20",
+      "article": "surveyor/primary-r06",
+      "no": "No.20",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-21",
+      "article": "surveyor/primary-r06",
+      "no": "No.21",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-22",
+      "article": "surveyor/primary-r06",
+      "no": "No.22",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-23",
+      "article": "surveyor/primary-r06",
+      "no": "No.23",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-24",
+      "article": "surveyor/primary-r06",
+      "no": "No.24",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-25",
+      "article": "surveyor/primary-r06",
+      "no": "No.25",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-26",
+      "article": "surveyor/primary-r06",
+      "no": "No.26",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-27",
+      "article": "surveyor/primary-r06",
+      "no": "No.27",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r06-28",
+      "article": "surveyor/primary-r06",
+      "no": "No.28",
+      "source": {
+        "question": "R06/R06_問題.pdf",
+        "page": null,
+        "answer": "R06/R06_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-01",
+      "article": "surveyor/primary-r07",
+      "no": "No.1",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-02",
+      "article": "surveyor/primary-r07",
+      "no": "No.2",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-03",
+      "article": "surveyor/primary-r07",
+      "no": "No.3",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-04",
+      "article": "surveyor/primary-r07",
+      "no": "No.4",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-05",
+      "article": "surveyor/primary-r07",
+      "no": "No.5",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-06",
+      "article": "surveyor/primary-r07",
+      "no": "No.6",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-07",
+      "article": "surveyor/primary-r07",
+      "no": "No.7",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-08",
+      "article": "surveyor/primary-r07",
+      "no": "No.8",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-09",
+      "article": "surveyor/primary-r07",
+      "no": "No.9",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-10",
+      "article": "surveyor/primary-r07",
+      "no": "No.10",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-11",
+      "article": "surveyor/primary-r07",
+      "no": "No.11",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-12",
+      "article": "surveyor/primary-r07",
+      "no": "No.12",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-13",
+      "article": "surveyor/primary-r07",
+      "no": "No.13",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-14",
+      "article": "surveyor/primary-r07",
+      "no": "No.14",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-15",
+      "article": "surveyor/primary-r07",
+      "no": "No.15",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-16",
+      "article": "surveyor/primary-r07",
+      "no": "No.16",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-17",
+      "article": "surveyor/primary-r07",
+      "no": "No.17",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-18",
+      "article": "surveyor/primary-r07",
+      "no": "No.18",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-19",
+      "article": "surveyor/primary-r07",
+      "no": "No.19",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-20",
+      "article": "surveyor/primary-r07",
+      "no": "No.20",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-21",
+      "article": "surveyor/primary-r07",
+      "no": "No.21",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-22",
+      "article": "surveyor/primary-r07",
+      "no": "No.22",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-23",
+      "article": "surveyor/primary-r07",
+      "no": "No.23",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-24",
+      "article": "surveyor/primary-r07",
+      "no": "No.24",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-25",
+      "article": "surveyor/primary-r07",
+      "no": "No.25",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-26",
+      "article": "surveyor/primary-r07",
+      "no": "No.26",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-27",
+      "article": "surveyor/primary-r07",
+      "no": "No.27",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r07-28",
+      "article": "surveyor/primary-r07",
+      "no": "No.28",
+      "source": {
+        "question": null,
+        "page": null,
+        "answer": "R07/R07_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-01",
+      "article": "surveyor/primary-r08",
+      "no": "No.1",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-02",
+      "article": "surveyor/primary-r08",
+      "no": "No.2",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-03",
+      "article": "surveyor/primary-r08",
+      "no": "No.3",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-04",
+      "article": "surveyor/primary-r08",
+      "no": "No.4",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-05",
+      "article": "surveyor/primary-r08",
+      "no": "No.5",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-06",
+      "article": "surveyor/primary-r08",
+      "no": "No.6",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-07",
+      "article": "surveyor/primary-r08",
+      "no": "No.7",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-08",
+      "article": "surveyor/primary-r08",
+      "no": "No.8",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-09",
+      "article": "surveyor/primary-r08",
+      "no": "No.9",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-10",
+      "article": "surveyor/primary-r08",
+      "no": "No.10",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-11",
+      "article": "surveyor/primary-r08",
+      "no": "No.11",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-12",
+      "article": "surveyor/primary-r08",
+      "no": "No.12",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-13",
+      "article": "surveyor/primary-r08",
+      "no": "No.13",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-14",
+      "article": "surveyor/primary-r08",
+      "no": "No.14",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-15",
+      "article": "surveyor/primary-r08",
+      "no": "No.15",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-16",
+      "article": "surveyor/primary-r08",
+      "no": "No.16",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-17",
+      "article": "surveyor/primary-r08",
+      "no": "No.17",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-18",
+      "article": "surveyor/primary-r08",
+      "no": "No.18",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-19",
+      "article": "surveyor/primary-r08",
+      "no": "No.19",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-20",
+      "article": "surveyor/primary-r08",
+      "no": "No.20",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-21",
+      "article": "surveyor/primary-r08",
+      "no": "No.21",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-22",
+      "article": "surveyor/primary-r08",
+      "no": "No.22",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-23",
+      "article": "surveyor/primary-r08",
+      "no": "No.23",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-24",
+      "article": "surveyor/primary-r08",
+      "no": "No.24",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-25",
+      "article": "surveyor/primary-r08",
+      "no": "No.25",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-26",
+      "article": "surveyor/primary-r08",
+      "no": "No.26",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-27",
+      "article": "surveyor/primary-r08",
+      "no": "No.27",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    },
+    {
+      "id": "r08-28",
+      "article": "surveyor/primary-r08",
+      "no": "No.28",
+      "source": {
+        "question": "R08/R08_問題.pdf",
+        "page": null,
+        "answer": "R08/R08_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-11-10",
+        "by": "agent",
+        "note": "国土地理院の公式正答 PDF と照合"
+      },
+      "transcription": {
+        "status": "unverified"
+      }
+    }
+  ]
+}

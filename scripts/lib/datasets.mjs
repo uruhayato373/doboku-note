@@ -268,7 +268,7 @@ export const DATASETS = [
   d('cloudflare.zone', 'data/cloudflare/zone/{date}.json', 'series', 'site', 'Cloudflare のゾーンの解析', { schema: 'CloudflareZone', retain: { family: 'cloudflare', maxAgeDays: 120 }, freshness: { failDays: 3 } }),
   // 過去問・R2（人とスクリプトが書く作業の台帳。config/ から移した。設定ではなく、取得・削除の進み具合の記録）
   d('pastexams.inventory', 'data/pastexams/inventory.json', 'ledger', 'product', '過去問の年度の在庫（公式の掲載状態・取得日・PDF の SHA-256 とページ数。取得スクリプトが書き換える）', { schema: 'PastExamInventory' }),
-  d('pastexams.question-ledger', 'data/pastexams/questions/{name}.json', 'ledger', 'product', '過去問の問題台帳（1 問ごとの原典・ページ・公式正答・転記の照合。キーは演習データの問題 ID。検査は check-past-exam-ledger）', { schema: 'PastExamQuestionLedger', refs: [{ at: 'qualification', to: 'qualification' }, { at: 'questions[].article', to: 'article' }] }),
+  d('pastexams.question-ledger', 'data/pastexams/questions/{name}.json', 'ledger', 'product', '過去問の問題台帳（1 問ごとの原典・ページ・公式正答・転記の照合。キーは演習データの問題 ID。演習データの無い資格は記事の見出しから作る ID。検査は check-past-exam-ledger）', { schema: 'PastExamQuestionLedger', refs: [{ at: 'qualification', to: 'qualification' }, { at: 'questions[].article', to: 'article' }] }),
   d('r2.delete-list', 'data/r2/delete-list.txt', 'ledger', 'ops', 'R2 から消すオブジェクトの一覧（1 行 1 キー。削除済みはコメント行で残す）'),
 
   // ===== data/: 自社で発生した記録 =====
