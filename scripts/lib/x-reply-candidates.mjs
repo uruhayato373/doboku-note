@@ -33,20 +33,60 @@ export function parseRealtimeHtml(html) {
     return null;
   }
   if (!Array.isArray(entries)) return null;
-  return entries.map((e) => ({
-    id: String(e.id),
-    user: String(e.screenName ?? ''),
-    text: cleanText(e.displayTextBody ?? e.displayText),
-    createdAt: Number(e.createdAt) * 1000,
-    replyCount: Number(e.replyCount ?? 0),
-    likes: Number(e.likesCount ?? 0),
-    inReplyTo: String(e.inReplyTo ?? ''),
-    url: `https://x.com/${e.screenName}/status/${e.id}`,
-  }));
+  return entries.map(entryToPost);
+}
+
+const entryToPost = (e) => ({
+  id: String(e.id),
+  user: String(e.screenName ?? ''),
+  name: String(e.name ?? ''),
+  text: cleanText(e.displayTextBody ?? e.displayText),
+  createdAt: Number(e.createdAt) * 1000,
+  replyCount: Number(e.replyCount ?? 0),
+  likes: Number(e.likesCount ?? 0),
+  inReplyTo: String(e.inReplyTo ?? ''),
+  url: `https://x.com/${e.screenName}/status/${e.id}`,
+});
+
+/** 検索の続き（`/realtime/api/v1/pagination?p=…&oldestTweetId=…`・10 件ずつ）の応答から投稿を取り出す。形が違えば null。 */
+export function parseRealtimeApi(json) {
+  const entries = json?.timeline?.entry;
+  return Array.isArray(entries) ? entries.map(entryToPost) : null;
 }
 
 /**
- * 内蔵ブラウザで X のタイムライン・検索から取り出した投稿（references/extract-x-posts.js の出力）を検査して揃える。
+ * Yahoo!リアルタイム検索を、最初のページ（約 40 件）のあと「続き」で since まで古い方へたどる。
+ * 1 ページ目は約 40 件で止まり、「技術士」だけで 8 時間分にしかならなかった（2026-11-10 実測）ので、続きを読まないと取りこぼす。
+ * fetchFirst() は 1 ページ目の投稿、fetchNext(oldestId) は続きの投稿（どちらも失敗なら null か例外）を返す。
+ * 返り値の stop は止めた理由: since（読み切った）・end（続きが無い）・maxPages（上限で打ち切り）・error（続きの取得に失敗）。
+ */
+export async function paginateRealtime({ fetchFirst, fetchNext, since, maxPages }) {
+  const first = await fetchFirst();
+  if (!first) throw new Error('ページの構造が想定と違います');
+  const posts = [...first];
+  const oldest = () => posts.reduce((a, p) => (BigInt(p.id) < BigInt(a.id) ? p : a));
+  let pages = 0;
+  let stop = 'end';
+  while (posts.length) {
+    if (oldest().createdAt < since) { stop = 'since'; break; }
+    if (pages >= maxPages) { stop = 'maxPages'; break; }
+    let next;
+    try {
+      next = await fetchNext(oldest().id);
+    } catch {
+      next = null;
+    }
+    pages += 1;
+    if (!next) { stop = 'error'; break; }
+    const fresh = next.filter((p) => !posts.some((q) => q.id === p.id));
+    if (!fresh.length) { stop = 'end'; break; }
+    posts.push(...fresh);
+  }
+  return { posts, pages, stop, oldestAt: posts.length ? Math.min(...posts.map((p) => p.createdAt)) : null };
+}
+
+/**
+ * 内蔵ブラウザで X のタイムライン・検索から取り出した投稿（scripts/lib/x-reply-screens.mjs の buildExtractorJs の出力）を検査して揃える。
  * 形の合わない行は捨て、捨てた数を返す（黙って 0 件にしない）。
  */
 export function parseXPosts(rows) {
@@ -58,6 +98,7 @@ export function parseXPosts(rows) {
     posts.push({
       id: String(r.id),
       user: String(r.user),
+      name: String(r.name ?? ''),
       text: cleanText(r.text),
       createdAt: Number(r.createdAt),
       replyCount: 0,
@@ -71,12 +112,18 @@ export function parseXPosts(rows) {
 }
 
 /**
- * 投稿をどの話題（資格）に振り分けるか。本文に話題の語（match）が入っているときだけ振り分ける。
+ * 投稿をどの話題（資格）に振り分けるか。本文に話題の語（match）が入っているときに振り分ける。
  * 検索語で取った投稿は、その検索語の話題を先に見る（「施工管理 勉強」で建築・電気の投稿まで拾うので、語の確認を省かない）。
+ * 本文に資格の語が無くても、表示名に資格の語があり（「技術士目指してます」など）本文に試験の文脈の語（contextWords）があれば振り分ける。
+ * 受験者は「筆記通った」とだけ書くことが多く、本文だけでは取りこぼす（2026-11-10 X の検索で実測）。
  */
-export function topicOf(post, topics) {
+export function topicOf(post, topics, contextWords = []) {
   const first = post.topic ? topics.filter((t) => t.id === post.topic) : [];
-  return [...first, ...topics].find((t) => includesAny(post.text, t.match)) ?? null;
+  const ordered = [...first, ...topics];
+  const byText = ordered.find((t) => includesAny(post.text, t.match));
+  if (byText) return byText;
+  if (!post.name || !includesAny(post.text, contextWords)) return null;
+  return ordered.find((t) => includesAny(post.name, t.match)) ?? null;
 }
 
 export function hashUser(user) {
@@ -120,7 +167,7 @@ export function selectCandidates(posts, config, { now, repliedHashes = new Set()
     const hash = hashUser(post.user);
     if (repliedHashes.has(hash)) { drop(post, 'replied'); continue; }
     if (skippedHashes.has(hash)) { drop(post, 'skipped'); continue; }
-    const topic = topics.length ? topicOf(post, topics) : null;
+    const topic = topics.length ? topicOf(post, topics, config.nameContextWords) : null;
     if (topics.length && !topic) { drop(post, 'offTopic'); continue; }
     const kind = classifyPost(post, config);
     if (!(kind in ORDER)) { drop(post, kind); continue; }

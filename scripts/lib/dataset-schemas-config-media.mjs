@@ -566,6 +566,11 @@ export const ConfigXReplyTrial = z
         candidatesPerRun: z.number().int().positive(),
         lookbackHours: z.number().int().positive(),
         perTopic: z.number().int().positive().describe('1 つの話題（資格）から出す候補の上限。偏りを防ぐ'),
+        yahooMaxPages: z
+          .number()
+          .int()
+          .positive()
+          .describe('Yahoo!リアルタイム検索の続き（10 件ずつ）をたどる回数の上限。1 ページ目は約 40 件で止まるため（2026-11-10〜）'),
       })
       .strict(),
     topics: z
@@ -574,7 +579,7 @@ export const ConfigXReplyTrial = z
           .object({
             id: z.string().regex(/^[a-z0-9-]+$/),
             qualifications: z.array(z.string().min(1)).min(1).describe('qualification-registry の資格 id'),
-            queries: z.array(z.string().min(1)).min(1).describe('Yahoo!リアルタイム検索と X の検索（最新）で使う語'),
+            queries: z.array(z.string().min(1)).min(1).describe('Yahoo!リアルタイム検索で使う語（続きをたどるので 1 語の広い語にする）。1 語目は X の検索（最新）にも使う'),
             match: z.array(z.string().min(1)).min(1).describe('タイムラインの投稿をこの話題に振り分ける語'),
           })
           .strict(),
@@ -599,6 +604,30 @@ export const ConfigXReplyTrial = z
       .min(1)
       .describe('返信の下書きに使わない、相手を評価する・指図する言い方。x-reply-sheet が含む下書きを止める（2026-11-09〜）'),
     excludeAccounts: z.array(z.string().min(1)),
+    nameContextWords: z
+      .array(z.string().min(1))
+      .min(1)
+      .describe('表示名に資格の語がある人の投稿を、本文に資格の語が無くても話題に振り分ける条件の語（筆記・口頭など。2026-11-10〜）'),
+    xScreens: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^[a-z0-9-]+$/),
+            label: z.string().min(1),
+            url: z.string().url(),
+            tab: z.string().min(1).optional().describe('開いたあとに選ぶタブ（フォロー中・おすすめ）'),
+            scrolls: z.number().int().min(1).max(10),
+          })
+          .strict(),
+      )
+      .describe('内蔵ブラウザで読むタイムライン（npm run x-reply-screens。2026-11-10〜）'),
+    xSearch: z
+      .object({
+        suffix: z.string().describe('X の検索語に足す条件（lang:ja -filter:retweets など）'),
+        scrolls: z.number().int().min(1).max(10),
+      })
+      .strict()
+      .describe('話題ごとの X の検索（最新）。検索語は topics の queries の 1 語目'),
   })
   .strict();
 

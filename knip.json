@@ -20,8 +20,7 @@
     "public/**",
     "out/**",
     ".claude/config/shadcn-reference/**",
-    ".claude/workflows/**",
-    ".claude/skills/x-reply/references/extract-x-posts.js"
+    ".claude/workflows/**"
   ],
   "ignoreBinaries": [
     "cmd.exe",

@@ -3,9 +3,9 @@
  * x-reply-candidates.mjs
  *
  * X の返信候補を、資格ごとの話題（config/x-reply-trial.json の topics）で集める。読むだけで送信はしない。
- *   1. Yahoo!リアルタイム検索（X のアカウントを使わない）を話題ごとの検索語で引く
+ *   1. Yahoo!リアルタイム検索（X のアカウントを使わない）を話題ごとの検索語で引き、続きを lookbackHours まで古い方へたどる
  *   2. 内蔵ブラウザで読んだ X のタイムライン・検索（最新）の投稿を .tmp/x-outreach/x-posts/*.json から取り込む
- *      （取り出しは .claude/skills/x-reply/references/extract-x-posts.js。lookbackHours より古いファイルは読まない）
+ *      （読む画面と取り出しは npm run x-reply-screens。lookbackHours より古いファイルは読まない）
  * 手順は .claude/skills/x-reply/SKILL.md。
  *
  * 出力: .tmp/x-outreach/candidates.json（個人の投稿を含むので Git に入れない）
@@ -22,7 +22,7 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { X_HANDLE } from './lib/site-identity.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { qualificationShortLabel } from './lib/qualification-names.mjs';
-import { parseRealtimeHtml, parseXPosts, selectCandidates } from './lib/x-reply-candidates.mjs';
+import { paginateRealtime, parseRealtimeApi, parseRealtimeHtml, parseXPosts, selectCandidates } from './lib/x-reply-candidates.mjs';
 
 const OUT = path.join(REPO_ROOT, '.tmp', 'x-outreach', 'candidates.json');
 const UA = 'Mozilla/5.0 (compatible; doboku-note-research/1.0)';
@@ -38,25 +38,36 @@ const log = readDatasetIf(REPO_ROOT, 'x.reply-log') ?? { replies: [], skips: [] 
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+const curl = (url) => execFileSync('curl', ['-sS', '--ssl-no-revoke', '--max-time', '25', '-A', UA, url], {
+  encoding: 'utf8',
+  maxBuffer: 16 * 1024 * 1024,
+});
+
+// 1 ページ目のあと、続き（10 件ずつ）を lookbackHours まで古い方へたどる。続きの間は少し空ける
 function search(query) {
-  const url = `https://search.yahoo.co.jp/realtime/search?p=${encodeURIComponent(query)}&ei=UTF-8`;
-  const html = execFileSync('curl', ['-sS', '--ssl-no-revoke', '--max-time', '25', '-A', UA, url], {
-    encoding: 'utf8',
-    maxBuffer: 16 * 1024 * 1024,
+  const p = encodeURIComponent(query);
+  return paginateRealtime({
+    fetchFirst: () => parseRealtimeHtml(curl(`https://search.yahoo.co.jp/realtime/search?p=${p}&ei=UTF-8`)),
+    fetchNext: async (oldestId) => {
+      await sleep(800 + Math.random() * 700);
+      return parseRealtimeApi(JSON.parse(curl(`https://search.yahoo.co.jp/realtime/api/v1/pagination?p=${p}&oldestTweetId=${oldestId}`)));
+    },
+    since: Date.now() - config.limits.lookbackHours * 3600_000,
+    maxPages: config.limits.yahooMaxPages,
   });
-  const posts = parseRealtimeHtml(html);
-  if (!posts) throw new Error('ページの構造が想定と違います');
-  return posts;
 }
+
+const STOP = { since: '読み切り', end: '続きなし', maxPages: '上限で打ち切り', error: '続きの取得に失敗' };
 
 const posts = [];
 let failed = 0;
 const queries = config.topics.flatMap((t) => t.queries.map((q) => ({ topic: t.id, label: t.label, q })));
 for (const { topic, label, q } of queries) {
   try {
-    const found = search(q);
+    const { posts: found, pages, stop, oldestAt } = await search(q);
     posts.push(...found.map((p) => ({ ...p, topic, source: 'yahoo' })));
-    console.log(`  [${label}] ${q}: ${found.length} 件`);
+    const hours = oldestAt ? ((Date.now() - oldestAt) / 3600_000).toFixed(0) : '-';
+    console.log(`  [${label}] ${q}: ${found.length} 件・${hours} 時間分（続き ${pages} 回・${STOP[stop]}）`);
   } catch (error) {
     failed += 1;
     console.error(`  [${label}] ${q}: 失敗（${error.message}）`);

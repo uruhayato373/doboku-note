@@ -10,7 +10,8 @@
     "minIntervalMinutes": 5,
     "candidatesPerRun": 20,
     "lookbackHours": 120,
-    "perTopic": 6
+    "perTopic": 6,
+    "yahooMaxPages": 80
   },
   "topics": [
     {
@@ -21,12 +22,8 @@
         "pe-first-stage"
       ],
       "queries": [
-        "技術士 口頭試験",
-        "技術士 二次試験",
-        "技術士 不合格",
-        "技術士 勉強",
-        "技術士 一次試験",
-        "総監 技術士"
+        "技術士",
+        "総監 試験"
       ],
       "match": [
         "技術士",
@@ -40,9 +37,8 @@
         "civil-construction-1"
       ],
       "queries": [
-        "1級土木 二次",
-        "1級土木 勉強",
-        "一級土木施工管理"
+        "1級土木",
+        "一級土木"
       ],
       "match": [
         "1級土木",
@@ -57,9 +53,8 @@
         "civil-construction-2"
       ],
       "queries": [
-        "2級土木 勉強",
-        "2級土木 二次",
-        "二級土木施工管理"
+        "2級土木",
+        "二級土木"
       ],
       "match": [
         "2級土木",
@@ -74,8 +69,7 @@
         "civil-construction-2"
       ],
       "queries": [
-        "施工管理 勉強",
-        "土木施工管理技士"
+        "土木施工管理"
       ],
       "match": [
         "土木施工管理"
@@ -88,9 +82,8 @@
         "concrete-engineer"
       ],
       "queries": [
-        "コンクリート主任技士",
-        "コンクリート技士 勉強",
-        "コンクリート技士 試験"
+        "コンクリート技士",
+        "コンクリート主任技士"
       ],
       "match": [
         "コンクリート主任技士",
@@ -271,5 +264,44 @@
     "around50style",
     "kensetsu_route",
     "DubianMurillo"
-  ]
+  ],
+  "nameContextWords": [
+    "試験",
+    "筆記",
+    "口頭",
+    "論文",
+    "合格",
+    "不合格",
+    "受験",
+    "勉強",
+    "過去問",
+    "二次",
+    "一次",
+    "経験記述",
+    "発表",
+    "結果通知",
+    "通知が届",
+    "再現答案",
+    "業務経歴"
+  ],
+  "xScreens": [
+    {
+      "id": "home-following",
+      "label": "ホーム（フォロー中）",
+      "url": "https://x.com/home",
+      "tab": "フォロー中",
+      "scrolls": 6
+    },
+    {
+      "id": "home-for-you",
+      "label": "ホーム（おすすめ）",
+      "url": "https://x.com/home",
+      "tab": "おすすめ",
+      "scrolls": 6
+    }
+  ],
+  "xSearch": {
+    "suffix": "lang:ja -filter:retweets",
+    "scrolls": 6
+  }
 }
