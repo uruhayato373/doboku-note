@@ -649,5 +649,36 @@
         }
       ]
     }
+  },
+  {
+    "slug": "pe-fisheries",
+    "qualification": "pe-fisheries",
+    "label": "技術士（水産部門）",
+    "subtitle": "第二次試験 必須科目・選択科目の記述式対策",
+    "description": "技術士第二次試験 水産部門（日本技術士会）の対策。試験の形式と受験資格、必須科目Iの取り組み方、選択科目（水産資源及び水域環境・水産食品及び流通・水産土木）の選び方と出題の見方、学習計画を、公式の受験申込み案内と公表統計、令和元年度以降の公開問題にもとづいて整理したノート。",
+    "variant": "pe",
+    "area": "exam",
+    "groups": [
+      "guide"
+    ],
+    "order": 14,
+    "layout": {
+      "view": "concrete",
+      "sort": "concrete",
+      "ogpExamKey": "pe-comprehensive",
+      "groupLabels": {
+        "guide": "受験ガイド"
+      },
+      "groupDescriptions": {
+        "guide": "試験の概要・必須科目Iの取り組み方・選択科目の選び方・学習計画"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        }
+      ]
+    }
   }
 ]
