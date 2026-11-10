@@ -9,27 +9,28 @@ import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 // 別の設定ファイルへ写さない（URL を二重に持つと、公式の URL 変更で片方が取り残される）。
 const inventory = JSON.parse(readFileSync(join(ROOT, 'data/pastexams/inventory.json'), 'utf8'));
 
-test('在庫台帳から H23〜H30 の基礎・適性・建設 24 本と合冊の正答 1 本、上下水道の全 16 回と令和の正答 8 本を取り出す', () => {
+test('在庫台帳から H23〜H30 の基礎・適性・建設 24 本と合冊の正答 1 本、上下水道・水産の全 16 回ずつと令和の正答 8 本を取り出す', () => {
   const sources = historicalSources(inventory);
-  assert.equal(sources.length, 49);
+  assert.equal(sources.length, 65);
   assert.equal(sources.at(-1).file, 'h23-h30-answers.pdf', '平成の合冊の正答は最後');
   for (const year of ['h23', 'h30']) {
-    assert.deepEqual(sources.filter((s) => s.year === year).map((s) => s.subject), ['basic', 'aptitude', 'construction', 'specialty-10']);
+    assert.deepEqual(sources.filter((s) => s.year === year).map((s) => s.subject), ['basic', 'aptitude', 'construction', 'specialty-10', 'specialty-14']);
   }
   assert.equal(sources[0].file, 'h23-basic.pdf');
   // 令和は r01〜。再試験は -retest を付けて本試験と分け、正答は年度ごと
   assert.deepEqual(
     sources.filter((s) => s.year.startsWith('r01')).map((s) => s.file).sort(),
-    ['r01-answers.pdf', 'r01-retest-answers.pdf', 'r01-retest-specialty-10.pdf', 'r01-specialty-10.pdf'],
+    ['r01-answers.pdf', 'r01-retest-answers.pdf', 'r01-retest-specialty-10.pdf', 'r01-retest-specialty-14.pdf', 'r01-specialty-10.pdf', 'r01-specialty-14.pdf'],
   );
   assert.equal(sources.filter((s) => s.subject === 'specialty-10').length, 16);
+  assert.equal(sources.filter((s) => s.subject === 'specialty-14').length, 16);
   assert.equal(sources.filter((s) => s.subject === 'answers').length, 9);
   for (const s of sources) {
     assert.match(s.sha256, /^[a-f0-9]{64}$/, s.file);
     assert.ok(Number.isInteger(s.pages) && s.pages > 0, s.file);
     assert.match(s.url, /^https:\/\/www\.engineer\.or\.jp\//, s.file);
   }
-  assert.equal(new Set(sources.map((s) => s.file)).size, 49, '出力ファイル名が重複している');
+  assert.equal(new Set(sources.map((s) => s.file)).size, 65, '出力ファイル名が重複している');
 });
 
 test('sha256 を付けたファイルだけが固定した原典になり、付け方が不完全なら例外（黙って落とさない）', () => {
