@@ -1161,6 +1161,8 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 1. 運営者: 親の通常動画が公開されたら、Studio でショートの「関連動画」に親を設定する（API では設定できない）
 2. 設定したら `npm run registry -- record-related --pub <ショート> --video-id <親>` で記録し、youtube-single-publish の publish をもう一度流すと予約する（`expect` は `publish-youtube --phase upload` の dry-run の digest）。purpose-1 は 11/13 14:30 より前に済ませる
 3. point-funding-2 は表紙の設定（`thumbnails.set`）が応答なしで「thumbnail結果不明」で止まっている。割当は余っていた（GCP の実測: アップロード 10/100・クエリ 1,066/10,000）ので超過ではなく、原因は未確認。同じ画像なので送り直しは無害。台帳と R2 の実行記録から `thumbnailRequestedAt` を外して流し直す
+3a. 運営者が YouTube の本人確認を登録中（2026-11-11）。Studio で関連動画を開くと「チャンネル履歴が十分ではないため、上級者向け機能にアクセスできません」と出て設定できなかった。確認が通ったら、内部ブラウザの Studio（編集画面の「関連動画」＝`ytcp-shorts-content-links-picker`）でエージェントが設定し、画面で読み戻してから record-related で記録して予約する。手順が安定したらスクリプトにする
+3b. 1 日の投稿の本数の上限（`config/video-auto-publish.json` の `maxUploadsPerDay`・4）を撤廃する（2026-11-11・運営者の決定・未着手）。GCP の実測でアップロードは別枠の 100 本/日。外すのは設定・型（`dataset-schemas-config-media.mjs`）・`video-publish-gate.mjs` の `uploadsLeft`・`video-factory publish` の検査・そのテスト・`video-factory.md` の記述・DN-1101 の「1 日 4 本まで」
 4. 公開 28 日後に、ショートから通常動画へ移った数を見て、`shortsRule` の上限と枠ごとの本数を見直す（2026-12-15）
 5. 画面確認で出た改善点（止め条件にはしていない）: 字幕の改行が語の途中で切れる（`video-subtitles.mjs` の `subtitleChunks` は通常動画と共通）、字幕の文字を 80〜84px に上げるか、point-koukarisk-2 は画面に「リスク」の語が出ず題名の論点が弱い、point-means-2 の 2 枚目の絵が階層に見えにくい
 6. YouTube の実画面で、右端の余白が 3〜4% の見出しが欠けないかを確かめる
