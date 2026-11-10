@@ -38,6 +38,16 @@ function limiter(n) {
 const work = limiter(3)   // 同時に動かすのは 3 体まで（CLAUDE.md §5）
 const commitQ = limiter(1) // コミットは直列
 
+/** effort の段階分け: 合否をコマンドの結果で判定できる段だけ low で回し、通らなかったものを high で 1 回やり直す。
+ * 結果に effort（通した段）を付ける。執筆・QA・修正は判定が意味の評価なので使わない */
+async function lowThenHigh(prompt, opts, ok) {
+  const first = await agent(prompt, { ...opts, effort: 'low' })
+  if (ok(first)) return { ...first, effort: 'low' }
+  log(`${opts.label}: low で通らず high でやり直す`)
+  const second = await agent(`${prompt}\n前の担当（effort low）は通せなかった。その報告: ${JSON.stringify(first ?? '応答なし').slice(0, 600)}\n作業ツリーの今の状態を確かめ、済んだ手順は重ねずに続きから進める。`, { ...opts, label: `${opts.label}#high`, effort: 'high' })
+  return second ? { ...second, effort: 'high' } : null
+}
+
 const WRITE_SCHEMA = {
   type: 'object',
   properties: {
@@ -120,7 +130,7 @@ const results = await pipeline(
     if (!s.w || s.w.status !== 'done') return { article: it.article, ...s }
     if (s.q?.verdict === 'FIX' && !s.f) return { article: it.article, ...s, c: { committed: false, sha: '', retries: 0, notes: 'QA の指摘を直す担当が失敗したのでコミットしない' } }
     if (s.f && !s.f.gatesPassed) return { article: it.article, ...s, c: { committed: false, sha: '', retries: 0, notes: '修正後の完了条件が通らないのでコミットしない' } }
-    return commitQ(() => agent(commitPrompt(it), { label: `commit:${it.article}`, phase: 'Commit', schema: COMMIT_SCHEMA, model: 'sonnet' }))
+    return commitQ(() => lowThenHigh(commitPrompt(it), { label: `commit:${it.article}`, phase: 'Commit', schema: COMMIT_SCHEMA, model: 'sonnet' }, (c) => c?.committed))
       .then((c) => { log(`${it.article}: ${c?.committed ? `コミット ${c.sha}` : 'コミットせず'}`); return { article: it.article, ...s, c } })
   },
 )
@@ -129,9 +139,10 @@ const rows = results.map((r, i) => r ?? { article: items[i].article, failed: tru
 const committed = rows.filter((r) => r.c?.committed).length
 const nothing = rows.filter((r) => r.w?.status === 'nothing-to-add').length
 const notCommitted = rows.filter((r) => r.w?.status === 'done' && !r.c?.committed).map((r) => r.article)
-log(`コミット ${committed} 本・追記なし ${nothing} 本・未コミット ${notCommitted.length} 本`)
+const escalated = rows.filter((r) => r.c?.effort === 'high').map((r) => r.article)
+log(`コミット ${committed} 本・追記なし ${nothing} 本・未コミット ${notCommitted.length} 本・コミットを high でやり直した ${escalated.length} 本`)
 return {
-  committed, nothing, notCommitted,
+  committed, nothing, notCommitted, escalated,
   failed: rows.filter((r) => r.failed || r.w?.status === 'failed').map((r) => r.article),
   rows: rows.map((r) => ({
     article: r.article,

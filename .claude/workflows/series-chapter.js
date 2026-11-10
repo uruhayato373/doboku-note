@@ -46,6 +46,16 @@ function limiter(n) {
 const work = limiter(3)   // 同時に動かすのは 3 体まで（CLAUDE.md §5）
 const commitQ = limiter(1) // コミットは直列
 
+/** effort の段階分け: 合否をコマンドの結果で判定できる段だけ low で回し、通らなかったものを high で 1 回やり直す。
+ * 結果に effort（通した段）を付ける。brief・執筆・QA・修正は判定が意味の評価なので使わない（book-coverage-expand と同じ） */
+async function lowThenHigh(prompt, opts, ok) {
+  const first = await agent(prompt, { ...opts, effort: 'low' })
+  if (ok(first)) return { ...first, effort: 'low' }
+  log(`${opts.label}: low で通らず high でやり直す`)
+  const second = await agent(`${prompt}\n前の担当（effort low）は通せなかった。その報告: ${JSON.stringify(first ?? '応答なし').slice(0, 600)}\n作業ツリーの今の状態を確かめ、済んだ手順は重ねずに続きから進める。`, { ...opts, label: `${opts.label}#high`, effort: 'high' })
+  return second ? { ...second, effort: 'high' } : null
+}
+
 const BRIEF_SCHEMA = {
   type: 'object',
   properties: {
@@ -154,17 +164,18 @@ const results = await pipeline(
     if (s.w?.status !== 'done') return { it, ...s }
     if (s.q?.verdict === 'FIX' && !s.f) return { it, ...s, c: { committed: false, sha: '', retries: 0, notes: 'QA の指摘を直す担当が失敗したのでコミットしない' } }
     if (s.f && !s.f.gatesPassed) return { it, ...s, c: { committed: false, sha: '', retries: 0, notes: '修正後の完了条件が通らないのでコミットしない' } }
-    return commitQ(() => agent(commitPrompt(it), { label: `commit:${it.slug}`, phase: 'Commit', schema: COMMIT_SCHEMA, model: 'sonnet' }))
+    return commitQ(() => lowThenHigh(commitPrompt(it), { label: `commit:${it.slug}`, phase: 'Commit', schema: COMMIT_SCHEMA, model: 'sonnet' }, (c) => c?.committed))
       .then((c) => { log(`${it.key}: ${c?.committed ? `コミット ${c.sha}` : 'コミットせず'}`); return { it, ...s, c } })
   },
 )
 
 const rows = results.map((r, i) => r ?? { it: items[i], failed: true })
 const committed = rows.filter((r) => r.c?.committed).length
-log(`コミット ${committed} 本・未コミット ${rows.length - committed} 本`)
+const escalated = rows.filter((r) => r.c?.effort === 'high').map((r) => r.it.key)
+log(`コミット ${committed} 本・未コミット ${rows.length - committed} 本・コミットを high でやり直した ${escalated.length} 本`)
 // 親が台帳・事実ファイル・逆向きのリンク・カリキュラムへ入れるもの（§4「親が先にすること」5）
 return {
-  committed,
+  committed, escalated,
   notCommitted: rows.filter((r) => !r.c?.committed).map((r) => `${r.it.key}（${r.failed ? '失敗' : r.b?.status !== 'done' ? 'brief で止まった' : r.w?.status !== 'done' ? '執筆で止まった' : r.c?.notes ?? 'コミットせず'}）`),
   rows: rows.map((r) => ({
     chapter: `${r.it.series}/${r.it.item}`,

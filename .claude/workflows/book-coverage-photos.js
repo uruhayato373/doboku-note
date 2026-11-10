@@ -34,6 +34,16 @@ function limiter(n) {
 const serial = limiter(1) // 台帳の JSON を書く段は直列
 const audit = limiter(3)
 
+/** effort の段階分け: 合否をコマンドの結果で判定できる段だけ low で回し、通らなかったものを high で 1 回やり直す。
+ * 結果に effort（通した段）を付ける。生成・監査は判定が意味の評価なので使わない（book-coverage-expand と同じ） */
+async function lowThenHigh(prompt, opts, ok) {
+  const first = await agent(prompt, { ...opts, effort: 'low' })
+  if (ok(first)) return { ...first, effort: 'low' }
+  log(`${opts.label}: low で通らず high でやり直す`)
+  const second = await agent(`${prompt}\n前の担当（effort low）は通せなかった。その報告: ${JSON.stringify(first ?? '応答なし').slice(0, 600)}\n作業ツリーの今の状態を確かめ、済んだ手順は重ねずに続きから進める。`, { ...opts, label: `${opts.label}#high`, effort: 'high' })
+  return second ? { ...second, effort: 'high' } : null
+}
+
 const PHOTO = { type: 'object', properties: { figKey: { type: 'string' }, prompt: { type: 'string' }, context: { type: 'string', description: '本文の該当箇所の要約（監査用）' } }, required: ['figKey', 'prompt', 'context'] }
 const GEN_SCHEMA = { type: 'object', properties: { photos: { type: 'array', items: PHOTO }, skipped: { type: 'array', items: { type: 'string' } }, notes: { type: 'string' } }, required: ['photos', 'skipped', 'notes'] }
 const VERDICT_SCHEMA = { type: 'object', properties: { verdicts: { type: 'array', items: { type: 'object', properties: { figKey: { type: 'string' }, verdict: { type: 'string', enum: ['ok', 'fail'] }, reason: { type: 'string' } }, required: ['figKey', 'verdict', 'reason'] } } }, required: ['verdicts'] }
@@ -89,7 +99,7 @@ const results = await pipeline(
     const final = new Map((s.a?.verdicts ?? []).map((v) => [v.figKey, v]))
     for (const v of s.a2?.verdicts ?? []) final.set(v.figKey, v)
     for (const p of s.g.photos) if (!final.has(p.figKey)) final.set(p.figKey, { figKey: p.figKey, verdict: 'fail', reason: '監査の結果が無い' })
-    return serial(() => agent(finPrompt(it, [...final.values()]), { label: `finalize:${it.article}`, phase: 'Finalize', schema: FIN_SCHEMA, model: 'sonnet' }), 4)
+    return serial(() => lowThenHigh(finPrompt(it, [...final.values()]), { label: `finalize:${it.article}`, phase: 'Finalize', schema: FIN_SCHEMA, model: 'sonnet' }, (f) => f?.committed), 4)
       .then((f) => { log(`${it.article}: 写真 ${f?.recorded ?? 0} 枚・外した ${f?.removed?.length ?? 0} 枚・${f?.committed ? 'コミット' : '未コミット'}`); return { article: it.article, ...s, f } })
   },
 )
@@ -98,6 +108,7 @@ return {
   photos: rows.reduce((n, r) => n + (r.f?.recorded ?? 0), 0),
   removed: rows.flatMap((r) => r.f?.removed ?? []),
   notCommitted: rows.filter((r) => r.g?.photos?.length && !r.f?.committed).map((r) => r.article),
+  escalated: rows.filter((r) => r.f?.effort === 'high').map((r) => r.article),
   failed: rows.filter((r) => r.failed).map((r) => r.article),
   skipped: rows.flatMap((r) => (r.g?.skipped ?? []).map((x) => `${r.article}: ${x}`)),
 }
