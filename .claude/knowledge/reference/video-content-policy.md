@@ -220,6 +220,7 @@ published → measured → refresh_due | stopped
 - URL・数値・制度を推測しない
 - 既存動画パックとの重複候補を報告する
 - ファイル作成後に機械チェックを実行する
+- 補助のスクリプトと中間ファイルは `.tmp/video-script/<packId>/` に置き、パックのフォルダに残さない（M11 で止まる）
 - 自分の成果物を合格判定しない
 
 ### `video-content-qa`（Evaluator）
@@ -246,7 +247,7 @@ published → measured → refresh_due | stopped
 3. 機械ゲートを通す
 4. Evaluatorを独立に呼ぶ
 5. BLOCK時はGeneratorへ指摘だけを返す
-6. PASS後は承認待ちで停止
+6. PASS後は `registry -- import-video-pack` で台帳へ載せ、年間計画の行に `publicationId` を結び、`video-factory -- record-qa --file <採点 JSON>` で QA を原稿の digest つきで記録し、`cover-design.json` を足して `video-factory -- status` に従う（承認は自動補完しない）
 
 レンダリング、R2 upload、外部投稿、公開状態照合は既存CLI/workflowへ委ねる。承認を自動補完しない。
 
@@ -258,7 +259,7 @@ published → measured → refresh_due | stopped
 - `1` 違反あり
 - `2` 検査不成立（root はあるのにパック 0 件、または `--strict` で root 不在）
 
-manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSにしない）。checker 自体の健全性は `tests/video-content-check.test.mjs` が fixture（`tests/fixtures/video-content/`）で担保し、`npm test`（quality-audit ci:true）で回る。quality-audit にも `video-content` として登録済み。
+manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSにしない）。checker 自体の健全性は `tests/video-content-check.test.mjs` が fixture（`tests/fixtures/video-content/`）で担保し、`npm test`（quality-audit ci:true）で回る。quality-audit にも `video-content`（ci・2026-11-10 に復帰）として登録済み。パックに置いてよいファイル以外は M11 で止める。
 
 最低検査:
 
@@ -344,7 +345,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 撤去完了の検査は `node scripts/check-youtube-delivery.mjs --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
 
-**現行の読取監査**は `.github/workflows/youtube-funnel-audit.yml` が（SNS 保留中の 2026-11-01 から定期実行を止め手動のみ。再開時は schedule `20 23 * * *`＝毎日08:20 JST を戻す）`develop` の現行通常動画を対象として実行する。`npm run check-youtube-funnels` が公開中のnote商品・動画別UTM・同資格の関連無料記事を検査し、`youtube-audit-live-funnels.mjs` がYouTube APIで概要欄全文・自社リンク・公開範囲と予定を読み戻す。旧動画も差分はFAILとし、失敗は `automation-failure` Issue（channel `youtube-funnel`）へ通知、復旧時に閉じる。手動再実行は `youtube-single-publish.yml` の `mode=audit-funnel`。予約から公開済みへの台帳更新は別の手動 `mode=reconcile` で行う。
+**現行の読取監査**は `.github/workflows/youtube-funnel-audit.yml` が（SNS 保留中の 2026-11-01 から定期実行を止め手動のみ。再開時は schedule `20 23 * * *`＝毎日08:20 JST を戻す）`develop` の現行通常動画を対象として実行する。`npm run check-youtube-funnels` が公開中のnote商品・動画別UTM・同資格の関連無料記事を検査し、`youtube-audit-live-funnels.mjs` がYouTube APIで概要欄全文・自社リンク・公開範囲と予定を読み戻す。旧動画も差分はFAILとし、失敗は `automation-failure` Issue（channel `youtube-funnel`）へ通知、復旧時に閉じる。手動再実行は `youtube-single-publish.yml` の `mode=audit-funnel`。予約から公開済みへの台帳更新は `mode=reconcile` で行い、毎日 08:40 JST の schedule（main の版）でも走る。照合の遅れは `check-registry-due`（日次の ops）、台本待ちの確認期限の超過は `check-youtube-plan --due`（週次の ops）が出す。
 
 **旧設計（2026-10-25に停止）**: `registry-reconcile.yml` の日次実査 `verify-video-publication` は、削除/非公開・UTM欠落・Shorts関連動画を `.claude/state/video-publication-verify.json` に記録し、`check-video-publication` が網羅とドリフトを見ていた。現行の日次読取監査はこの旧記録を書かず、Shortsの関連動画も検査対象に含めない。
 

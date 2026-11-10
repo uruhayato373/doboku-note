@@ -248,8 +248,9 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 npm run image-rules -- --exam <exam> --format shorts|longform # 手作業の Codex へ渡す生成指示の部品を出す
 npm run check-image-rules # AI 画像の経路の登録と共通ルールの一本化を検査
 npm run shorts-factory -- status|record-script-qa|plan|generate|audit-queue|record-audit|adopt|render|record-review|audio-check|stock|restore --pack <exam>/<work> --key <key> # ショートの標準工程（台本QA・全面画像・Drive 在庫）
-npm run video-factory -- status  # 全動画パックの次の工程を出す。制作の入口（手順 → video-factory.md。承認・公開はしない）
-npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
+npm run video-factory -- status  # 全動画パックの次の工程を出す。末尾に台本待ちの企画を確認期限の順に出す（--all で全部）。制作の入口（手順 → video-factory.md。承認・公開はしない）
+npm run video-factory -- preflight|qa-check|save|unapprove --pack <exam>/<work> # 画像の前の無料の検査・台帳の QA が今の原稿で合格か・止まったパックの記録の commit・予約へ進んでいない承認を外す。record-qa は --file <採点 JSON> で平均と件数をコマンドが数え、原稿の digest を付ける。plan --retry <項目|all> で上限の回数を戻す
+npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・パックに置いてよいファイル以外は M11・quality:audit の ci）
 npm run render-longform        # 本文POP指定(imageDesign)は全場面の生成記録・採用PNGのSHA/実寸を検査し欠落時停止。動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。任意の --loudnorm で音量補正。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
 npm run youtube-shorts:restore -- --pack-dir <動画パック> # 全場面差し替え版の現在の動画SHAに対応するレシピ・全PNG・元動画・ASS・完成MP4を照合（--key で限定）。欠落素材は --restore でDriveから復元。既存SHA不一致・対象0件は停止。制作担当が再利用前に読むローカル検査、Drive依存のためquality-auditには登録しない。旧テンプレート再生成は差し替え版を停止する
 npm run video-preview-sheet  # 公開前の画面確認（DN-0603）。--pack-dir か --pack-id（先に render-longform --skip-tts）で、冒頭の表紙の秒数・直前と同じ画面（場面と10秒ごとのコマ）・20秒以上同じ画面が続く箇所を .tmp/video-render/{packId}/preview/ に出す。無音プレビューとコンタクトシートは ffmpeg があるときだけ（無ければ数値だけ出して exit 2＝検査不成立・--metrics-only は ffmpeg 不要で 0）。注意が出ても 0（承認は止めない）。閾値は config/video-content.json の visualCheck。台帳版は npm run media -- preview --pub
@@ -270,10 +271,10 @@ npm run media                  # 素材の CLI: promote --pub <公開ID>（作�
 npm run media -- plate --pub <公開ID> --role <役割> --prompt-file <生成指示> --input <生成済み画像> --commit # 選択画像を再生成せず採用、AI来歴と未判定の監査行を登録。欠けた入力は停止。判定記録は content-registry.md 参照
 npm run media -- verify-render --work <資格>/<作品> # 現行台本・採用指定・全場面PNG/音声入力/WAV・字幕・MP4を照合。旧レンダーは音声付き再生成が必要。promoteも通常動画には同じ検査を実行する。Shortsの改訂候補はpop-image.jsonのcandidateShortsRevisionを選び、再現レシピの素材SHA・寸法・場面・尺を照合する
 npm run check-content-registry # コンテンツ台帳の検査 R01〜R13（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・AI 素材の判定・別作品IDの通常動画の台本重複・完成動画/改訂入力の結線・YouTube の概要欄の VOICEVOX クレジット〔対象・照合・文面なしの行数を出す〕）。FAIL で exit 1
-npm run check-youtube-funnels # 現行通常動画の公開中note商品・動画別UTM・関連無料サイト記事を全件検査。FAIL で CI を止める。youtube-funnel-audit.yml（SNS 保留中は手動のみ）でも実行
+npm run check-youtube-funnels # 現行通常動画の公開中note商品・動画別UTM・関連無料サイト記事を全件検査（主CTAが site-article なら概要欄の先頭がその記事の公開 URL か。補助の無料記事は note の主CTAのときだけ）。FAIL で CI を止める。youtube-funnel-audit.yml（SNS 保留中は手動のみ）でも実行
 npm run metric-status         # 指標が今計測できているかを実データから出す（計測中・該当の行なし・取得が停止・データなし・未計測）。正本は business-direction.json の dataSource。「計測できない」と書く前に見る
 npm run check-channel-plan    # X・Instagram の年間の枠（config/channel-annual-plan.json の channels）と月次計画・公開台帳を照合。計画にない投稿・枠と販売の超過・週の上限超えで exit 1、枠 0 件は exit 2。判断待ちは exit に効かない
-npm run check-youtube-plan    # 通常動画の年間の枠（config/channel-annual-plan.json）と公開台帳を照合。計画にない動画・枠の超過・週の上限超えで exit 1、対象 0 件は exit 2。--inventory で資格×型×状態の棚卸しを出す。要対応と採否待ちは exit に効かない
+npm run check-youtube-plan    # 通常動画の年間の枠（config/channel-annual-plan.json）と公開台帳を照合。計画にない動画・枠の超過・週の上限超えで exit 1、対象 0 件は exit 2。--inventory で資格×型×状態の棚卸しを出す（予約済みは scheduled だけ・approved は在庫）。--due は台本待ち・QA 停止の確認期限の超過で exit 1（週次の ops）。site-article の主CTAは targetPath で枠と照合する。要対応と採否待ちは exit に効かない
 node scripts/youtube-sync-funnel.mjs --plan <content/sns/youtube/metadata-plans/計画.json> # 既存動画の概要欄同期のdry-run。--commit は運営者が変更版の最終承認を記録した後、youtube-single-publish.yml の mode=sync-funnel から実行。旧/新SHA・公開範囲・動画IDを照合し、API更新後に読み戻す
 node scripts/youtube-audit-live-funnels.mjs # YouTube API で現行通常動画の概要欄全文・自社リンク・公開範囲を読取照合。認証はCI供給。youtube-funnel-audit.yml（SNS 保留中は手動のみ）と手動 mode=audit-funnel から実行
 npm run youtube-unschedule        # 台帳で scheduled の YouTube の公開予約を外す（`--pub` で指定した公開だけ。CI は youtube-single-publish の mode=unschedule。private のまま・動画は消さない。既定は試運転・--apply で実行・認証は CI だけなので .github/workflows/youtube-unschedule.yml から動かしていたが、SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す）。台帳は registry -- unschedule で uploaded_private に戻す（2026-10-13・YouTube を一旦止めた）

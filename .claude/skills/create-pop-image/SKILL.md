@@ -22,7 +22,7 @@ domain: product
 
 ## 通常動画・Shorts
 
-- 通常動画のPOP表紙と本文図解の新規画像は Codex ImageGen が制作する。シナリオ・台本の執筆と内容QAは `video-script-writer` / `video-content-qa` を Claude Code で実行し、PASSした原稿から画像を生成する。原稿変更後は `popSceneHash` と画像の適合を再確認する。
+- 通常動画のPOP表紙と本文図解の新規画像は Codex ImageGen が制作する。シナリオ・台本の執筆と内容QAは `video-script-writer` / `video-content-qa` を Claude Code で実行し、PASSした原稿から画像を生成する。原稿変更後は `popSceneHash` と画像の適合を再確認する。台帳の QA も原稿の digest に付くので、原稿を変えたら `video-factory -- qa-check` が通るまで採点し直してから画像へ進む。
 
 - 2級土木の動画は [動画ポリシー §4](../../knowledge/reference/video-content-policy.md) の `diagram-led` を優先する。以下の先生・肩書き入り骨格をそのまま適用せず、図解主体・控えめな配色・著者名なし、人物は説明に必要な作業場面だけにする。原本を縮めて余白を足さず `full-frame-v1` で採用する。
 - 今後予約する通常動画は、[技術士第一次試験・全体像の採用見本](../../../content/sns/video-packs/pe-first-stage/pe1-zentaizou/pop-image.json)を基準に「表紙POP・本文と締めはシンプルな図解」とする。描画前に `storyboard.imageDesign` の `mode=codex-pop`・`scope=all-body`・`layout=diagram-led`・`coverRevision` と、`pop-image.json` の採用改訂を接続する。表紙は `cover-design.json` の `design=pop-poster-v3` と採用PNGを指定する。`npm run check-video-content` の B20 と `npm run media -- verify-render --work <資格>/<作品>` が通るまで旧カード版を完成品として扱わない。公開入口の `registry -- publish-youtube` と `publish-youtube-revision` もこの結線を必須にする。

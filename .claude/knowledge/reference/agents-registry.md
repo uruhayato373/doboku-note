@@ -65,7 +65,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/x-reply`（親が起動）                           | `x-reply-drafter`                                               | 返信候補（資格横断）をプロフィールと最新の投稿で仕分け、見送りの理由と下書きを返す（送信・記録は親と運営者） |
 | `/x-repost`（親が起動）                          | `x-repost-curator`                                              | 引用RP 候補の選別＋引用コメント生成（discover/exec は純 Playwright） |
 | `npm run shorts-factory`（親が起動）           | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
-| `/video-content`（動画パックの入口）            | `video-script-writer`, `video-content-qa`                       | 動画パック（台本・storyboard・CTA）の生成 → `check-video-content` → 6軸（0〜3）＋BLOCK 採点 → 承認待ちで停止 |
+| `/video-content`（動画パックの入口）            | `video-script-writer`, `video-content-qa`                       | 動画パック（台本・storyboard・CTA）の生成 → `check-video-content` → 6軸（0〜3）＋BLOCK 採点 → PASS 後は import-video-pack → publicationId → record-qa --file → cover-design → status |
 | `/standards-table-rebuild`                | `standards-table-writer`, `standards-table-qa`                  | 公的基準の版面のまま残った表を原本画像と照合して組み直す（`validate` で文字の過不足ゼロ）→ 1 セルずつ照合して承認 |
 | `/standards-visual-review`                | `standards-page-visual-auditor`                                 | 基準書の章ページの撮影を原本のページ画像と見比べ、章ごとに pass / fail を JSON で返す（記録・起票は `standards-visual-review record`） |
 | UI/ページデザイン（親が起動）                    | `page-design-builder` → `/design-review`                        | design-system.md 準拠でページ/レイアウト/UI コンポーネント実装 → 視覚回帰採点（Generator/Evaluator 分離） |
