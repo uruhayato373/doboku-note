@@ -221,6 +221,24 @@ function gitStaged(args) {
   }
 }
 
+/** RESEED（旧カードを消して新 ID で起こし直す）で、完了の記録なしに消えてよいカードの数 */
+export const MAX_UNRECORDED_REMOVALS = 2;
+
+/**
+ * HEAD から消えたカードのうち、完了の記録（dispatch-log）に無いものを返す。上限を超えたら違反。
+ * 置き換えのつもりで書き換えたスクリプトが、改行コードの違いで区切りを見失い、後ろのカードを全部消した（2026-11-10。
+ * 3,300 行・数十枚。たまたま参照切れの検査が止めた）。消えたカードはそのものを数えて止める。
+ */
+export function validateRemovedCards(headIds, stagedIds, completedIds, max = MAX_UNRECORDED_REMOVALS) {
+  const staged = new Set(stagedIds);
+  const removed = [...new Set(headIds)].filter((id) => id && !staged.has(id) && !completedIds.has(id));
+  if (removed.length <= max) return [];
+  return [{
+    rule: 'removed-cards', at: BACKLOG_REL,
+    msg: `完了の記録（dispatch-log）の無いカードが ${removed.length} 枚消えている（上限 ${max}）: ${removed.slice(0, 8).join(', ')}${removed.length > 8 ? ' ほか' : ''}。書き換えの範囲を確かめる（閉じるのは todo:complete）`,
+  }];
+}
+
 function main(argv = process.argv.slice(2)) {
   if (process.env.SKIP_BACKLOG_SCHEMA === '1') {
     console.log('[check-backlog-schema] SKIP_BACKLOG_SCHEMA=1 のためスキップ');
@@ -299,6 +317,11 @@ function main(argv = process.argv.slice(2)) {
     const headRaw = gitStaged(['show', `HEAD:${BACKLOG_REL}`]);
     if (headRaw) knownTitles = new Set(parseBacklog(headRaw).map((c) => c.title));
     violations.push(...validateStagedLines(addedLines, addedTodoFiles, cards, knownTitles));
+    if (headRaw) {
+      const logPath = join(ROOT, datasetPath('state.dispatch-log'));
+      const completed = new Set((existsSync(logPath) ? JSON.parse(readFileSync(logPath, 'utf8')).entries ?? [] : []).map((e) => e.id));
+      violations.push(...validateRemovedCards(parseBacklog(headRaw).map((c) => c.id), cards.map((c) => c.id), completed));
+    }
   }
 
   // 検査ゼロを PASS と呼ばない（§9）: 対象数と実検査数を必ず出す

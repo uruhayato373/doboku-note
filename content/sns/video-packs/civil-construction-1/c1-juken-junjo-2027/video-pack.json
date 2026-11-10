@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-juken-junjo-2027",
+  "exam": "civil-construction-1",
+  "title": "1級土木｜2027 年度の受検の順序",
+  "audience": "2027 年度に1級土木施工管理技士を受けたい受検予定者",
+  "pain": "2027 年度に1級土木を受けたいが、申込・第一次検定・第二次検定の時期と、それに合わせて何をどの順で準備すればよいか分からない",
+  "promise": "例年の流れと確認先を押さえ、受検資格の確認から第一次・第二次の準備までの順序の一案が分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jctc.jp/exam/doboku-1/",
+      "title": "1級土木施工管理技術検定の試験案内（全国建設研修センター）"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "c1-juken-junjo-2027"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

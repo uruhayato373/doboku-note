@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "packId": "c2-juken-junjo-2027",
+  "exam": "civil-construction-2",
+  "title": "2級土木｜2027 年度の受検の順序",
+  "audience": "2027 年度に2級土木施工管理技士を受けたい受検予定者",
+  "pain": "2027 年度に2級土木を受けたいが、第一次検定の前期・後期と第二次検定をどう分けて受け、何をどの順で準備すればよいか分からない",
+  "promise": "例年の流れと確認先を押さえ、前期・後期の選び方から第二次の準備までの順序の一案が分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jctc.jp/exam/doboku-2/",
+      "title": "2級土木施工管理技術検定の試験案内（全国建設研修センター）"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-takuitsu-pdf",
+    "campaign": "c2-juken-junjo-2027"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

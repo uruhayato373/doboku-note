@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // IG figure-pack の CTA スライド（content/sns/instagram/**/carousel/img/NN-cta.svg）が
-// 確定テンプレ（SSOT: .claude/skills/social/ig-figure-pack/templates/03-cta.template.svg）に
+// 確定テンプレ（SSOT: .claude/skills/ig-figure-pack/templates/03-cta.template.svg）に
 // 準拠しているかを検証する。
 //
 // 背景: CTA は表紙（check-ig-cover）と違い SSOT も機械ゲートも無く、コピー元の逸脱を
@@ -76,7 +76,7 @@ for (const f of files) {
 if (problems.length) {
   console.error(`[check-ig-cta] ✗ ${problems.length} 件のテンプレ逸脱:`);
   for (const p of problems) console.error(`  - ${p}`);
-  console.error(`  → SSOT: .claude/skills/social/ig-figure-pack/templates/03-cta.template.svg をコピーして {{...}} だけ差し替える`);
+  console.error(`  → SSOT: .claude/skills/ig-figure-pack/templates/03-cta.template.svg をコピーして {{...}} だけ差し替える`);
   __exit(1);
 }
 console.log(`[check-ig-cta] ✓ ${files.length} パックの CTA が新標準テンプレに準拠`);

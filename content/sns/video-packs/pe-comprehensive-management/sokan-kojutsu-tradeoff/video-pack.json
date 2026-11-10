@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "packId": "sokan-kojutsu-tradeoff",
+  "exam": "pe-comprehensive-management",
+  "title": "口頭試験 5管理のトレードオフを自分の経験で語る",
+  "audience": "口頭試験を控えた総監の筆記合格者",
+  "pain": "口頭試験で5管理のトレードオフを聞かれると、一般論の対立しか言えず、自分の経験に結び付けられない",
+  "promise": "管理の核同士の対立を、自分の経験の場面で答える4つの順の型が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "tankan-oral-complete",
+    "campaign": "sokan-kojutsu-tradeoff"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -15,7 +15,7 @@ title: 書籍の網羅をサイトへ展開する（Writer・QA・写真の手�
 1. `npm run drive-vault-sync -- --pull --group reference-book-coverage --commit` で判定（verdict.json）と候補表を手元へ取り戻す。
 2. `node scripts/audit-reference-book-coverage.mjs --briefs [--source-id <id> | --shelf <棚>] [--alias <json>]` で、判定の計画を記事ごとの brief に束ねる。書き出し先は `.tmp/book-coverage/briefs/`（市販書籍の見出しを含むので git 管理外）。同じ記事に効く複数の本の追記は 1 本の brief になる。`items.json` が workflow に渡す記事の一覧。
 3. 出力の「要確認」を読む。新しい記事の案が既にある記事・同じ資格で題名の近い案・既存記事に近い案を挙げる。同じ主題の案は 1 本にまとめ、`{"<案の slug>": "<寄せる先>"}`（題名も変えるなら `{"to": "…", "title": "…"}`）の JSON を `--alias` に渡して作り直す（2026-10-09 に、経営事項審査の新規案が 3 冊から別々に出ていた）。
-4. Workflow `book-coverage-expand`（`.claude/workflows/book-coverage-expand.js`）を、args `{ root: "<リポジトリの絶対パス>", items: <items.json の中身> }` で回す。Writer → QA → 修正 → コミットを記事ごとに進め、コミットは `node scripts/book-coverage-commit.mjs` が 1 本ずつ行う（排他・trailer `Book-Coverage:`・図のサイズの検査・一時の作業ツリーでの静的インデックスの作り直し・develop への push）。QA から再開する記事は item に `"startAt": "qa"` を足す。
+4. Workflow `book-coverage-expand`（`.claude/workflows/book-coverage-expand.js`）を、args `{ root: "<リポジトリの絶対パス>", items: <items.json の中身> }` で回す。Writer → QA → 修正 → コミットを記事ごとに進め、コミットは `node scripts/book-coverage-commit.mjs` が 1 本ずつ行う（排他・trailer `Book-Coverage:`・図のサイズの検査・一時の作業ツリーでの静的インデックスの作り直し・develop への push）。QA から再開する記事は item に `"startAt": "qa"` を足す。コミットの段（`book-coverage-photos` は Finalize の段）は effort low で回し、コミットできなかった記事だけ high で 1 回やり直す。やり直した記事は戻り値の `escalated` に出る。執筆・QA・修正は判定が意味の評価なので、effort を下げない。
 5. 写真は、展開の結果の `photosWanted` から `{ article, file, photos: [{ afterHeading, subject }] }` を作り、Workflow `book-coverage-photos` を args `{ root, items }` で回す（§3）。
 
 - 新しい記事の案をまとめたら、判定の計画（verdict.json）の記事名も合わせ、`--check` を通す。
@@ -62,7 +62,7 @@ title: 書籍の網羅をサイトへ展開する（Writer・QA・写真の手�
 
 ### 図（brief に図の案があるとき・自作 SVG）
 
-- `.claude/skills/authoring/create-svg/SKILL.md` と `.claude/knowledge/reference/figure-canvas-policy.md` を読んでから描く。
+- `.claude/skills/create-svg/SKILL.md` と `.claude/knowledge/reference/figure-canvas-policy.md` を読んでから描く。
 - viewBox は `0 0 400 500` 固定。色は `.claude/knowledge/design-system/svg-tokens.json` の allowlist だけ、最小フォントは 11。図の中に概念名のタイトルや「試験ポイント」枠を入れない。右端のラベルは x=366 以下にする（P1-text-clip）。
 - ファイル名は `img/figure-<英語のスラッグ>.svg`。本の図の構図を再現しない。
 - 本の頁の図は、`check-content-series -- --crop-jobs` の頁を `npm run record-reference-book-crops` で切り出して Drive に置いてある（1冊ぶんまとめて下見 → 監査 → 登録）。描く前・描いた後に、章の頁の切り出しと見比べ、本が伝えている要素の抜けと誤りを直す。構図は写さない。

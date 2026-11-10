@@ -2,5 +2,41 @@
   "schemaVersion": 1,
   "channel": "youtube",
   "exam": "civil-construction-1",
-  "publications": []
+  "publications": [
+    {
+      "id": "civil-construction-1/c1-juken-junjo-2027/youtube.longform",
+      "work": "c1-juken-junjo-2027",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "civil-construction-1/owner-career-shigoto/youtube.longform",
+      "work": "owner-career-shigoto",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-1/owner-eye-kantokuin/youtube.longform",
+      "work": "owner-eye-kantokuin",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform",
+      "work": "owner-eye-kouji-kensa",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform",
+      "work": "owner-eye-sekkei-tosho",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    }
+  ]
 }

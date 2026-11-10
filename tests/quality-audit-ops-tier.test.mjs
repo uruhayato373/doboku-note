@@ -143,14 +143,25 @@ test('generated-indexes waits for audit writers before comparing worktree change
 test('SNS 保留中も公開導線の実事故を防ぐゲートを CI で実行する', () => {
   // YouTubeの商品導線とInstagram固定投稿のプロフィール導線を検査する。
   const SNS = /^(x-|instagram-|youtube-|video-|sns-landing|registry-due|content-registry)/;
-  assert.deepEqual(CHECKS.filter((c) => SNS.test(c.id)).map((c) => c.id), ['youtube-shorts', 'youtube-funnels', 'youtube-plan', 'instagram-profile-funnel']);
+  // registry-due は予約の照合の停止を見る運用アラート（ops・ci:false・DN-1070）
+  assert.deepEqual(CHECKS.filter((c) => SNS.test(c.id)).map((c) => c.id), ['youtube-shorts', 'youtube-funnels', 'youtube-plan', 'video-content', 'youtube-plan-due', 'registry-due', 'instagram-profile-funnel']);
+  assert.equal(CHECKS.find((c) => c.id === 'registry-due').ci, false, '壁時計に依存するので CI のゲートにしない');
   const snsUrls = CHECKS.find((c) => c.id === 'sns-urls');
   assert.deepEqual(snsUrls.steps.map((s) => s.label), ['sns-urls-mdx', 'sns-urls-note'], 'sns-urls はサイトの MDX と note のリンクだけを見る');
 });
 
 test('束（steps）は手順を全部回し、1 つでも落ちたら fail・落ちた手順の名前を出す（DN-0805）', async () => {
   const { runSteps } = await import('../scripts/quality-audit.mjs');
-  const node = (code) => ['node', '-e', `console.log('out-${code}'); process.exit(${code})`];
+  // Windows はシェル経由で起動するので、node -e の文字列は空白で割られて process.exit が落ちる。スクリプトをファイルにして渡す
+  const { mkdtempSync, writeFileSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const dir = mkdtempSync(join(tmpdir(), 'qa-steps-'));
+  const node = (code) => {
+    const file = join(dir, `exit-${code}.mjs`);
+    writeFileSync(file, `console.log('out-${code}'); process.exit(${code});\n`);
+    return ['node', file];
+  };
   const ok = await runSteps({ id: 'b', ci: true, timeout: 30_000, steps: [{ label: 'a', cmd: node(0), timeout: 10_000 }, { label: 'b', cmd: node(0), timeout: 10_000 }] });
   assert.equal(ok.status, 'pass');
   assert.match(ok.stdoutTail, /=== a \(pass\) ===[\s\S]*=== b \(pass\) ===/, '全部の手順が回っていない');

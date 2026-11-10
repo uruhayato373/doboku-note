@@ -33,7 +33,7 @@ cover:
 
 反映ポイント：点検データ・モニタリング技術の活用（データ活用）・港湾管理者・施設利用者・航空会社等ステークホルダーとの合意形成（ステークホルダー）・安全・経済・環境の三側面。
 
-改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary) をご参照ください。
+改訂の詳細は [技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n93d409ee67fb) をご参照ください。
 
 **こんな人のための記事です**
 
@@ -60,6 +60,22 @@ cover:
 本番ではII-2-1・II-2-2のいずれか1設問を選んで解答しますが、本記事では両選択肢を網羅し、どちらを選んでも対応できるようにしています。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜港湾空港 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）21本をまとめて読めるマガジンがあります。4本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/m55096ddb1af6
+
+## 令和8年度 本試験との照合（2026年11月追記）
+
+この記事は、令和8年度の本試験（2026年7月20日）より前の2026年6月17日に公開した予想問題です。本試験で実際に出た設問と照らし合わせた結果を、外れた設問も含めてそのまま載せます。
+
+- II-2-1 農林水産物・食品の輸出促進計画：外れた
+- II-2-2 大規模地震で被災した港湾施設の復旧：外れた
+
+判定は「重なった（主題がほぼ同じ）」「一部重なった（同じ対象の一部の論点を扱っている）」「外れた」の3段階です。本試験の設問全文とフル模範解答は、次の記事に収録しています。
+
+[技術士 建設部門｜港湾及び空港 R08 選択科目II-2 模範解答（II-2-1・II-2-2）](https://note.com/dobokunote/n/n6cd31dc9f3c5)
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。

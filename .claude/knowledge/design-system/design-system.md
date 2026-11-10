@@ -88,7 +88,7 @@
 | `--color-warn` | `#d4a017` | `#fcd34d` | 警告 |
 | `--color-danger` | `#b22234` | `#fca5a5` | 危険・誤 |
 
-> SVG 図版は同じ値を**リテラル hex で書き、コメントでトークン名を併記**する（Satori/Resvg や静的 SVG は CSS 変数を解決できないため）。詳細 → `.claude/skills/authoring/create-svg/SKILL.md`、`svg-tokens.json`。
+> SVG 図版は同じ値を**リテラル hex で書き、コメントでトークン名を併記**する（Satori/Resvg や静的 SVG は CSS 変数を解決できないため）。詳細 → `.claude/skills/create-svg/SKILL.md`、`svg-tokens.json`。
 
 ### 2.3 Callout パレット `--ct-*`（12 種）
 
@@ -385,7 +385,7 @@ CLAUDE.md §7 と一致:
 
 | サブシステム | 真実源 | 入口 |
 |---|---|---|
-| SVG 図版（記事内） | `svg-tokens.json`（§2.2 の `--color-*` をリテラル hex で） | `.claude/skills/authoring/create-svg/SKILL.md` |
+| SVG 図版（記事内） | `svg-tokens.json`（§2.2 の `--color-*` をリテラル hex で） | `.claude/skills/create-svg/SKILL.md` |
 | Instagram カルーセル | `instagram-carousel-tokens.json` | `instagram-carousel.md` / `.claude/knowledge/reference/ig-carousel-policy.md` |
 | note カバー画像 | `note-cover-tokens.json` | `note-cover-character-v5.md`（現行）／`note-cover.md`（G2履歴） |
 | サイト OGP | — | `.claude/knowledge/reference/ogp-prompts.md` |

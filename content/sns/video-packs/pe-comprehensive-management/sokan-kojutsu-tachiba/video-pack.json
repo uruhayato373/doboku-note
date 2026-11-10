@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "packId": "sokan-kojutsu-tachiba",
+  "exam": "pe-comprehensive-management",
+  "title": "総監 口頭｜立場ごとに聞かれることと答え方",
+  "audience": "口頭試験を控えた総監の筆記合格者",
+  "pain": "立場によって口頭で聞かれることが違うと聞くが、自分の立場ではどこを準備すればよいか分からない",
+  "promise": "自分の立場で決めたことから、聞かれそうな切り口を3つ選んで準備する手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1412635_00009.htm",
+      "title": "文部科学省 令和8年度技術士試験合否決定基準"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-comprehensive-management/exam-application-guide/img/figure-measure-management-matrix.svg"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "tankan-oral-complete",
+    "campaign": "sokan-kojutsu-tachiba"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

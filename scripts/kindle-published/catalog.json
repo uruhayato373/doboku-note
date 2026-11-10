@@ -7,12 +7,12 @@
       "id": "A-00",
       "asin": "B0H8HW139T",
       "title": "1級土木施工管理技士 一次検定 全6科目 論点別過去問 完全版",
-      "subtitle": "平成26〜令和7年度 12年分・全422問を6科目39論点に再構成",
+      "subtitle": "平成26〜令和8年度 13年分・全440問を6科目39論点に再構成",
       "series": "1級土木施工管理技士 第1次検定 論点別過去問",
       "seriesVolume": 0,
-      "priceJpy": 1250,
+      "priceJpy": 1650,
       "royalty": 0.7,
-      "questionCount": 422,
+      "questionCount": 440,
       "rontenCount": 39,
       "status": "live",
       "submittedDate": "2026-07-11",
@@ -22,7 +22,7 @@
       "epub": "kindle-A-00-goubon.epub",
       "cover": "kindle-cover-a-00.jpg",
       "kdpMemo": "KDP入力メモ_A-00全科目合本.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
@@ -33,6 +33,11 @@
           "version": "1.0",
           "date": "2026-07-15",
           "change": "KDP 本棚突合で LIVE 確認・ASIN=B0H8HW139T（審査通過・分冊との重複規約もクリア）"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度を収録した年度版に改版（H26〜R08・440問・39論点）。書名は維持し、サブタイトル・説明文・検索語・表紙を更新。巻末にレビューのお願いを追加し、分冊の案内を削除。価格 ¥1,250→¥1,650"
         }
       ],
       "notes": "LIVE（2026-07-15 本棚突合で確認）。分冊 A-01〜A-06 との重複コンテンツ規約は審査を通過。",
@@ -40,14 +45,14 @@
       "draftAsin": "A2901CR7S6QQJY",
       "uploaded": {
         "epub": {
-          "sha256": "fd75792ac6f3dcb7314dc090f9d22a6a747186ca642b90b7a1e59d156cf7ba3f",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "de3a8d7dd1c340414b6feda729985eb0f1b409533c84ca969496ef7dfa8b943c",
+          "at": "2026-11-10T11:39:08+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "20240b36eba0a4d3effddfd447deb96a14d29881c935667cf4d1724d27919cc2",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "a386099d5d696c8c941a42b3b33ec548c1a30d320efcd0b6421cfb6665ae4477",
+          "at": "2026-11-10T11:38:57+09:00",
+          "via": "update-cover"
         }
       }
     },
@@ -316,7 +321,7 @@
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-01.txt",
       "version": "1.0",
       "duplicateDraftAsin": "B0H8KH1N6G",
-      "notes": "正版 ASIN=B0H8ZZMM7R（LIVE）。7/12 に旧著者版で作った重複タイトル B0H8KH1N6G が下書き(未出版)で残存＝KDP で削除要（売上ゼロ・完全削除可）。修正版は既存タイトルへ差し替えるべきだったが新規作成して二重発番した経緯。",
+      "notes": "正版 ASIN=B0H8ZZMM7R（LIVE）。7/12 に旧著者版で作った重複タイトル B0H8KH1N6G（下書き・未出版・売上ゼロ）は、ASIN が付いた本のため KDP の操作メニューに削除が無く、2026-11-10 に本棚のアーカイブへ移した。修正版は既存タイトルへ差し替えるべきだったが新規作成して二重発番した経緯。",
       "versionHistory": [
         {
           "version": "1.0",
@@ -346,10 +351,10 @@
     {
       "id": "e-02",
       "asin": "B0H3GX3HNW",
-      "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成26〜令和7年度 全年度】",
-      "subtitle": "平成26〜令和7年度 全1162問",
+      "title": "1級土木施工管理技士 第1次検定 過去問完全解説【平成26〜令和8年度 全年度】",
+      "subtitle": "平成26〜令和8年度 全1263問",
       "series": "E 土木施工管理 過去問合本",
-      "priceJpy": 1250,
+      "priceJpy": 1650,
       "royalty": 0.7,
       "status": "live",
       "builder": "scripts/build-pe1-kindle.mjs",
@@ -357,7 +362,7 @@
       "epub": "kindle-dist/e-02.epub",
       "cover": "kindle-dist/e-02.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-02.txt",
-      "version": "1.0",
+      "version": "1.1",
       "versionHistory": [
         {
           "version": "1.0",
@@ -373,22 +378,34 @@
           "version": "1.0",
           "date": "2026-08-28",
           "change": "KDP本棚実査(2026-08-27/28 sync-status)でLIVE確認・ASIN記録。正確な公開日は本棚に記録が無く不明"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-11-10",
+          "change": "令和8年度 問題A・B を追加した年度版に改版（H26〜R08・26回・1263問・図114点）。書名・サブタイトル・前付けの出題傾向・説明文・検索語・表紙を更新。丸数字が生の文字参照で出る不具合を修正。巻末にレビューのお願いを追加。価格 ¥1,250→¥1,650"
         }
       ],
       "draftAsin": "A2HZN8FV9FNYBO",
       "publishedDate": "2026-08-27",
       "uploaded": {
         "epub": {
-          "sha256": "0c01a3429657c76dd8740072167c95e0a3d38793468a189a22c20546a4bd7982",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "beed44a6e5bfaf41e8f2207a71e5e5627c6f8a416704d8171980eea2e7534778",
+          "at": "2026-11-10T11:18:07+09:00",
+          "via": "update-manuscript"
         },
         "cover": {
-          "sha256": "3621101ee9fd623ef9350d8ad3f9d1ae5a5bb3bb3d93b9c546a7809e0f5701f8",
-          "at": "2026-09-29",
-          "via": "baseline"
+          "sha256": "8347ee0bd9b640b2ca0ca1c67425f9d35c531512babfd1981be2362a99f24ee0",
+          "at": "2026-11-10T11:19:46+09:00",
+          "via": "update-cover"
         }
-      }
+      },
+      "priceHistory": [
+        {
+          "date": "2026-11-10",
+          "from": 1250,
+          "to": 1650
+        }
+      ]
     },
     {
       "id": "b-reiwa",
@@ -1257,7 +1274,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "live",
+      "status": "unpublished",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-02.json",
       "epub": "kindle-dist/f-02.epub",
@@ -1447,7 +1464,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "live",
+      "status": "unpublished",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-07.json",
       "epub": "kindle-dist/f-07.epub",
@@ -1485,7 +1502,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "live",
+      "status": "unpublished",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-08.json",
       "epub": "kindle-dist/f-08.epub",
@@ -1626,7 +1643,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "live",
+      "status": "unpublished",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-11.json",
       "epub": "kindle-dist/f-11.epub",
@@ -1673,7 +1690,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "live",
+      "status": "unpublished",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-12.json",
       "epub": "kindle-dist/f-12.epub",
@@ -1720,7 +1737,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "live",
+      "status": "unpublished",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-13.json",
       "epub": "kindle-dist/f-13.epub",
@@ -1814,7 +1831,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 1650,
       "royalty": 0.7,
-      "status": "live",
+      "status": "unpublished",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-15.json",
       "epub": "kindle-dist/f-15.epub",
@@ -1868,7 +1885,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 1650,
       "royalty": 0.7,
-      "status": "live",
+      "status": "unpublished",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-16.json",
       "epub": "kindle-dist/f-16.epub",

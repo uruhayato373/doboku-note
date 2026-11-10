@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "owner-eye-kantokuin",
+  "exam": "civil-construction-1",
+  "title": "監督員とのやり取りで押さえること",
+  "audience": "施工管理の現場で働き、1級土木施工管理技士を学ぶ受検者",
+  "pain": "監督員との指示・承諾・協議で何を記録し、どう伝えれば後で揉めないかが分からない",
+  "promise": "言葉の使い分けと書面、具体的な通知、回答期限の書き方が分かり、後で揉めない記録を残せる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/civil-practice/cost-and-design-change/article.mdx",
+    "campaign": "owner-eye-kantokuin"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

@@ -14,6 +14,6 @@ metadata:
 handoff（`docs/handoffs/*.md`）の棚卸しで未完了タスクを backlog へ抽出せず退避し、タスクごと消失させた（BuildJob note展開の消失をユーザーが指摘して発覚）。
 1. 完了マーク（`> [!done]`）＋PR merged の裏取りだけで「完了」と判定し、同居する `🔴🟡`・「残タスク」「次アクション」「別PC」等の**前送り節を抽出しなかった**。handoff は完了報告と前送りタスクが同居する文書。
 2. 廃止済みの `docs/handoffs/_archive/` を復活させた。正規ライフサイクルは「抽出→`git rm` 削除（記録は git 履歴）・archive は 2026-07-11 廃止」（information-architecture.md「handoff のライフサイクル」）。
-3. 規定手順スキルを「無い」と誤断定。`/doc-declutter` は `.claude/skills/dev/doc-declutter/SKILL.md` に実在したのに、フラットな `ls .claude/skills/` で探して見つからず、`doc-curator` の外部実体検証（「抽出が先・削除が後」「抽出なしの DELETE は禁止」）をスキップした。スキルはカテゴリ別サブディレクトリ構造（`.claude/skills/<category>/<name>/SKILL.md`）。
+3. 規定手順スキルを「無い」と誤断定。`/doc-declutter` は `.claude/skills/doc-declutter/SKILL.md` に実在したのに、フラットな `ls .claude/skills/` で探して見つからず、`doc-curator` の外部実体検証（「抽出が先・削除が後」「抽出なしの DELETE は禁止」）をスキップした。当時はカテゴリ別の入れ子だったが、2026-11-10 に `.claude/skills/<name>/SKILL.md` の 1 階層へ移した（入れ子は Claude Code が読み込まなかった）。
 
 **How to apply:** handoff の棚卸しは必ず `/doc-declutter`（doc-curator が KEEP/TRIM/DELETE/CONSOLIDATE を判定）。手動なら「前送りマーカー全スキャン→backlog 抽出→削除」。スキル/エージェント探索は Glob `.claude/skills/**/<name>/SKILL.md`（フラット ls 禁止）。`_archive/` は作らず抽出済みなら `git rm`（出典引用は正当・`check-doc-refs` は `docs/handoffs/**` 対象外）。機械ゲート `scripts/check-handoff-extraction.mjs`（pre-commit）が素通りを止める（handoff 直下削除で前送りマーカーあり＆backlog 未同梱／`_archive` 追加を reject・回避 `SKIP_HANDOFF_EXTRACT=1`）。判定の質は `/doc-declutter`。関連: [[feedback_prevention_over_patching]]

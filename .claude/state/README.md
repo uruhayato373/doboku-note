@@ -47,7 +47,7 @@
 
 ## 消費者
 
-- **スクリプト**: `.claude/skills/quality/quality-cycle/`（CEM 版 `scripts-cem/`・1級土木版 `scripts-civil-textbook/`）
+- **スクリプト**: `.claude/skills/quality-cycle/`（CEM 版 `scripts-cem/`・1級土木版 `scripts-civil-textbook/`）
 - **エージェント**: `keyword-rewriter` / `civil-textbook-rewriter` / `performance-auditor`
 - **スキル**: `quality-cycle` / `civil-textbook-cycle` / `weekly-plan` / `weekly-review`
 

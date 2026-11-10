@@ -89,6 +89,30 @@
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }
+    },
+    {
+      "id": "sokan-kojutsu-tachiba",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "59501f222aea0809d898712c127115009f6209efdabdcf537baa8fd6c8254c8a"
+      }
+    },
+    {
+      "id": "sokan-kojutsu-tradeoff",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tradeoff",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "11eded1125e059523a2d19c525fb15de2ef4c984b223eb7b7675fd08a94c4e88"
+      }
     }
   ]
 }

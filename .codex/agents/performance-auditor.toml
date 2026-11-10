@@ -228,7 +228,7 @@ regressions: N
 
 ## 参照
 
-- `.claude/skills/analytics/psi-audit/SKILL.md` — 本エージェントの主な呼び出し元
+- `.claude/skills/psi-audit/SKILL.md` — 本エージェントの主な呼び出し元
 - `.claude/scripts/fetch-psi-data.mjs` — PSI 計測スクリプト
 - `.claude/scripts/psi-threshold-check.mjs` — しきい値比較スクリプト（本エージェントの簡易版）
 - `config/psi-config.json` — しきい値・field の判定設定（URL リストは `config/psi-urls.txt`）

@@ -12,7 +12,7 @@ import {
   detectStructuralIssues,
   detectSvgIssues,
   parseSvg,
-} from '../.claude/skills/quality/check-mdx/scripts/rules/svg/detect.mjs';
+} from '../.claude/skills/check-mdx/scripts/rules/svg/detect.mjs';
 
 const patterns = (findings) => findings.map((f) => f.pattern);
 

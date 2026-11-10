@@ -201,6 +201,20 @@
         "status": "set",
         "setAt": "2026-11-04T22:04:25.428Z"
       }
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform",
+      "work": "sokan-kojutsu-tachiba",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform",
+      "work": "sokan-kojutsu-tradeoff",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
     }
   ]
 }

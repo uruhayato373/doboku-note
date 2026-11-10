@@ -103,7 +103,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `--now`（Graph API 経路は 2026-06-17 全廃＝IG 投稿は本スキルに一本化） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
 | `/x-reply` | 技術士・土木施工管理・コンクリートなど資格横断で返信候補を集め（Yahoo!リアルタイム検索と X のタイムライン・検索）、`x-reply-drafter` の仕分けと下書きを人が 1 件ずつ承認して送る（EXP-059・DN-1037）。無人では送らない | `X返信`, `リプライ候補`, `/x-reply` |
 | `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
-| `/video-content` | 動画パック（悩み・出典付き台本・storyboard・CTA）の薄い入口。既存パック重複確認→`video-script-writer` 生成→`check-video-content`→`video-content-qa` 独立採点→承認待ちで停止（BLOCK は指摘だけ Generator へ返す・最大2回）。レンダリング・投稿・承認は担当外（初回通常動画の投稿は `registry -- publish-youtube`）。契約 `video-content-policy.md` §7 | `動画パックを作る`, `動画台本を作る`, `パックの台本をQA`, `/video-content <exam> <packId>` |
+| `/video-content` | 動画パック（悩み・出典付き台本・storyboard・CTA）の薄い入口。既存パック重複確認→`video-script-writer` 生成→`check-video-content`→`video-content-qa` 独立採点→PASS 後は台帳へ載せて `record-qa --file` で QA を原稿の digest つきで記録し、`video-factory -- status` に従う（BLOCK は指摘だけ Generator へ返す・最大2回）。レンダリング・投稿・承認は担当外（初回通常動画の投稿は `registry -- publish-youtube`）。契約 `video-content-policy.md` §7 | `動画パックを作る`, `動画台本を作る`, `パックの台本をQA`, `/video-content <exam> <packId>` |
 
 ### 開発（dev）
 
@@ -222,7 +222,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
    - `--theme` キー（全 THEMES 定義済み・2026-07-08）: `anzen`（安全管理）/`hoki`（法規）/`sekokeikaku`（施工計画）/`kankyo`（環境管理）/`hinshitsu`（品質管理）/`koutei`（工程管理）/`goubon`（全科目合本・EPUB のみ生成）
    - 出力先: `.tmp/takuitsu-{key}/{key}.epub`（gitignore）。表紙は `scripts/kindle-covers/`（spec 駆動）
    - Kindle Previewer 確認後、KDP（[kdp.amazon.co.jp](https://kdp.amazon.co.jp)）にアップロード
-   - 書籍ID→コマンドの解決表・KDP実運用メモの真実源 → `.claude/skills/conversion/kindle-build/SKILL.md`
+   - 書籍ID→コマンドの解決表・KDP実運用メモの真実源 → `.claude/skills/kindle-build/SKILL.md`
 2. **B/D/Eシリーズ（択一・合本）**: `node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json`
 3. **C/Fシリーズ（記述式・模範解答/論文）**: `node scripts/build-essay-kindle.mjs --spec scripts/kindle-specs/{id}.json`
 4. 非公開前付け → `content/kindle/books/{id}/front-matter.md`（`kindle-book-composer` 管理）

@@ -1,0 +1,282 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "改訂で、口頭の質問は変わりますか。",
+      "caption": "改訂で、口頭の質問は変わる？",
+      "visual": {
+        "kind": "points",
+        "heading": "改訂で、質問は変わる？",
+        "items": [
+          "技術士 建設部門・口頭対策"
+        ],
+        "art": {
+          "type": "cover",
+          "section": "口頭試験対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 3,
+      "end": 25,
+      "narration": "コンピテンシーが改訂されたと聞くが、口頭試験で何が変わるのか。元自治体の土木技術者、発注者の立場から整理します。先に答えを言うと、改訂されたのは四項目で、口頭の四つの区分のうち三つに関わります。ただし、試験の枠組み自体は変わりません。",
+      "caption": "何が変わり、準備はどう直すか",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "改訂は4項目",
+          "口頭の4区分のうち3つに関わる",
+          "試験の枠組みは変更なし"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "口頭試験対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 25,
+      "end": 51,
+      "narration": "まず誤解を解きます。改訂は令和8年度の第二次試験から適用で、令和7年度までは従来版です。文部科学省の試験部会は、筆記と口頭の試験内容は変更の必要なしと結論し、日本技術士会も、試験内容は変更されないと公表しています。質問が総入れ替えになるのではなく、同じ区分の中で見られる観点が動くかもしれない、という話です。",
+      "caption": "試験が変わったのではなく、観点が動く",
+      "visual": {
+        "kind": "points",
+        "heading": "よくある誤解",
+        "items": [
+          "試験が変わった\n→ 公式は変更なし",
+          "令和8年度から\n改訂版を適用",
+          "観点が動く可能性\n→ 本動画の推論"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／建設部門",
+          "note": "出題内容は公式に示されていない。以降の質問例は資料からの推論"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 51,
+      "end": 87,
+      "narration": "口頭の評価は四つの区分です。マネジメントと評価、コミュニケーションとリーダーシップで一区分、技術者倫理、継続研さん。八つの資質能力のうち、改訂されたのは問題解決、コミュニケーション、技術者倫理、継続研さんの四項目です。区分に当てはめると、マネジメントと評価は変更なし。コミュニケーションとリーダーシップの区分ではコミュニケーションの文言が改訂され、倫理と継続研さんにも改訂があります。問題解決は、口頭の評価項目に入っていません。",
+      "caption": "口頭の4区分に、改訂4項目を重ねる",
+      "visual": {
+        "kind": "points",
+        "heading": "口頭の4区分 × 改訂",
+        "items": [
+          "マネジメント・評価\n変更なし",
+          "コミュニケーション・\nリーダーシップ\nコミュニケーションが改訂",
+          "技術者倫理\n改訂あり",
+          "継続研さん\n改訂あり"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "口頭試験対策／建設部門",
+          "note": "リーダーシップは変更なし。問題解決は改訂だが口頭の評価項目にない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "communication",
+      "start": 87,
+      "end": 115,
+      "narration": "コミュニケーションは、二点が変わりました。一つは、情報技術を活用して、が加わったこと。もう一つは、効果的な意思疎通を行う、が、包摂的な意思疎通を図り、協働する、に変わったことです。推論ですが、誰とどう協働したか、立場の違う関係者の意見をどう聞いたか、という深掘りが増えても不思議はありません。",
+      "caption": "効果的に伝える → 包摂的に協働する",
+      "visual": {
+        "kind": "points",
+        "heading": "コミュニケーション",
+        "items": [
+          "旧：明確かつ効果的な\n意思疎通を行う",
+          "新：情報技術を活用し\n包摂的な意思疎通を図り、協働する",
+          "推論：協働の相手と\n意見の聞き方を問われうる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／建設部門",
+          "note": "文言は文部科学省の新旧対照表。右の質問は推論"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "ethics-impact",
+      "start": 115,
+      "end": 131,
+      "narration": "技術者倫理は、三点が変わりました。まず影響の予見です。対象が、社会、文化及び環境から、社会、経済及び環境へ変わりました。次に持続性です。持続性の確保が、持続可能な成果の達成を目指す、に変わっています。",
+      "caption": "影響の予見に経済が入り、成果志向に",
+      "visual": {
+        "kind": "points",
+        "heading": "技術者倫理①：影響の予見と持続性",
+        "items": [
+          "影響の予見\n社会・文化・環境\n→ 社会・経済・環境",
+          "持続性の確保 →\n持続可能な成果の達成を目指す"
+        ],
+        "art": {
+          "type": "mapping",
+          "section": "口頭試験対策／建設部門",
+          "note": "文言は文部科学省の新旧対照表"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "ethics-culture",
+      "start": 131,
+      "end": 149,
+      "narration": "三つ目は法令の遵守です。関係法令の遵守に、文化的価値を尊重すること、が加わりました。発注者の立場なら、地域の景観や歴史的な構造物のそばの工事で、費用と文化的価値をどう考えたか。これは仮の例で、自分の経験に置き換えて考えます。",
+      "caption": "法令遵守に、文化的価値の尊重が加わった",
+      "visual": {
+        "kind": "points",
+        "heading": "技術者倫理②：法令の遵守",
+        "items": [
+          "旧：関係法令等の\n制度を遵守する",
+          "新：遵守し、\n文化的価値を尊重する",
+          "仮の例：景観・歴史的構造物の\nそばの工事で費用と文化的価値"
+        ],
+        "art": {
+          "type": "mapping",
+          "section": "口頭試験対策／建設部門",
+          "note": "例は仮の例。実際の経験に置き換える／出題の断定ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "cpd",
+      "start": 149,
+      "end": 175,
+      "narration": "継続研さんは、書き方が大きく変わりました。従来は、十分な継続研さんを行うこと。改訂後は、コンピテンシーを維持・向上させ、新しい技術とともに変わり続ける仕事に適応する能力を高めること、です。推論ですが、受講歴を並べるだけでなく、変化に対して何を学び、仕事にどう使ったかが問われやすくなります。",
+      "caption": "受講歴から、変化への適応へ",
+      "visual": {
+        "kind": "points",
+        "heading": "継続研さん",
+        "items": [
+          "旧：十分な継続研さん\n（CPD）を行う",
+          "新：変わり続ける仕事に\n適応する能力を高める",
+          "推論：学んだ内容と\n仕事への使い方を問われうる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／建設部門",
+          "note": "文言は文部科学省の新旧対照表。右の質問は推論"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "unchanged",
+      "start": 175,
+      "end": 193,
+      "narration": "一方、マネジメントと評価、リーダーシップの文言は変わっていません。ここまでの準備を捨てる必要はありません。経歴を四つの区分で整理する準備は、別の動画で扱っています。この動画は、差分の部分だけを足し直す回です。",
+      "caption": "変わらない区分の準備は、そのまま使う",
+      "visual": {
+        "kind": "points",
+        "heading": "変わっていない部分",
+        "items": [
+          "マネジメント",
+          "評価",
+          "リーダーシップ"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "口頭試験対策／建設部門",
+          "note": "準備を捨てず、差分だけを足し直す"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "fix",
+      "start": 193,
+      "end": 218,
+      "narration": "準備の直し方は三つです。一つ目、自分の回答に、情報技術、協働と包摂、経済への影響と文化的価値、変化への適応のどれが事実としてあるかを点検します。二つ目、あるものは具体的に言えるようにします。三つ目、無いものは作らず、経験していないと区別して、考え方を説明できるようにします。",
+      "caption": "事実を点検し、あるものを具体化する",
+      "visual": {
+        "kind": "points",
+        "heading": "準備の直し方",
+        "items": [
+          "1　回答を4つの言葉で点検\n情報技術・包摂と協働\n経済・文化的価値・変化への適応",
+          "2　あるものは\n具体的に言えるようにする",
+          "3　無いものは作らず\n考え方を説明する"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "口頭試験対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "caution",
+      "start": 218,
+      "end": 236,
+      "narration": "注意点です。改訂の言葉を入れるために、経験を盛ってはいけません。口頭では、経歴に結びつけて深掘りされます。事実に無い話は、次の質問で崩れます。公式に示されているのは改訂の文言までで、質問そのものではありません。",
+      "caption": "改訂の言葉のために、経験を盛らない",
+      "visual": {
+        "kind": "points",
+        "heading": "やってはいけないこと",
+        "items": [
+          "言葉を入れるために\n経験を盛る",
+          "事実に無い話は\n深掘りで崩れる",
+          "公式が示すのは文言まで\n質問そのものではない"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 236,
+      "end": 254,
+      "narration": "まとめます。改訂は四項目で、試験の枠組みは変わりません。口頭の四区分のうち、コミュニケーションとリーダーシップの区分、技術者倫理、継続研さんの三つに、新しい文言があります。自分の回答を点検し、事実としてあるものだけを足し直してください。",
+      "caption": "改訂は文言の差分。事実だけを足す",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ",
+        "items": [
+          "改訂4項目\n試験の枠組みは変更なし",
+          "口頭では3区分に\n新しい文言",
+          "事実だけを\n足し直す"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "口頭試験対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 254,
+      "end": 266,
+      "narration": "改訂コンピテンシーに対応した想定問答と、準備の進め方をまとめた建設部門向けの教材を用意しています。収録内容は概要欄から確認してください。",
+      "caption": "建設部門の口頭試験対策教材へ",
+      "visual": {
+        "kind": "points",
+        "heading": "想定問答で、準備を進める",
+        "items": [
+          "建設部門の口頭試験対策教材",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "口頭試験対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    }
+  ]
+}

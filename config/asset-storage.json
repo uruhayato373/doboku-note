@@ -160,7 +160,7 @@
       "regenerable": false,
       "generator": "scripts/generate-ogp-backgrounds.mjs",
       "requiredBy": [
-        ".claude/skills/conversion/ogp-create/scripts/ogp-create.mjs（サイト OGP・cover の無い note カバー）",
+        ".claude/skills/ogp-create/scripts/ogp-create.mjs（サイト OGP・cover の無い note カバー）",
         "scripts/coconala-thumb.mjs（ココナラのサムネイル）",
         ".github/workflows/ogp-supply.yml（CI の OGP 生成の前に asset-hydrate で取り戻す）"
       ],

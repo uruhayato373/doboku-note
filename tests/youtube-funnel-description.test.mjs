@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { buildYoutubeFunnelDescription, reviseYoutubeFunnelDescription } from '../scripts/lib/youtube-funnel-description.mjs';
+import { buildYoutubeFunnelDescription, reviseYoutubeFunnelDescription, siteArticleCtaProblems } from '../scripts/lib/youtube-funnel-description.mjs';
 
 test('予約済み概要欄の制作開示を保ち、noteを主CTA、無料サイト記事を補助CTAにする', () => {
   const old = [
@@ -23,4 +23,13 @@ test('概要欄生成は主CTAを一つにし、追加リンクが無い動画�
   const text = buildYoutubeFunnelDescription({ intro: '説明', promise: '学べる', primary: { label: '商品を見る', url: 'https://note.com/example' }, disclosure: '開示', credit: '音声：VOICEVOX:青山龍星', hashtags: '#試験対策' });
   assert.equal((text.match(/https?:\/\//g) ?? []).length, 1);
   assert.ok(text.indexOf('商品を見る') < text.indexOf('学べる'));
+});
+
+test("主CTAがサイト記事の概要欄は、先頭のリンクがその記事であれば通す（DN-1004）", () => {
+  const target = "https://doboku-note.com/practice/construction-inspection-types";
+  const text = buildYoutubeFunnelDescription({ intro: "説明", promise: "学べる", primary: { label: "サイトの詳しい解説を読む", url: target + "?utm_campaign=pack" }, disclosure: "開示", credit: "音声：VOICEVOX:青山龍星", hashtags: "#土木" });
+  const links = text.split('\n').filter((l) => l.startsWith("https://doboku-note.com/"));
+  assert.deepEqual(siteArticleCtaProblems(links, target), []);
+  assert.match(siteArticleCtaProblems([], target)[0], /リンクが無い/);
+  assert.match(siteArticleCtaProblems(["https://doboku-note.com/links?x=1", target], target)[0], /先頭に無い/);
 });

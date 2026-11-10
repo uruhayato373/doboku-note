@@ -68,7 +68,7 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     themeVar: '--exam-pe-construction',
     examKey: 'pe-construction',
     mokuji: { title1: '必須I・選択科目', title2: '模範解答集' },
-    seasonal: { switchUtcMs: examDayEndUtcMs('pe-construction', 'written'), product: 'pe-construction-required-magazine', sub: 'R03-R07＋R8予想' },
+    seasonal: { switchUtcMs: examDayEndUtcMs('pe-construction', 'written'), product: 'pe-construction-required-magazine', sub: 'R03-R08＋R8予想' },
     // DN-0902・EXP-047: 筆記合格発表の日から、合格した人が次に準備する口頭試験の教材へ
     afterResult: { active: isPeConstructionOralSeason, product: 'pe-construction-oral-guide', title: '口頭試験対策', sub: '想定問答33問＋準備ロードマップ' },
   },

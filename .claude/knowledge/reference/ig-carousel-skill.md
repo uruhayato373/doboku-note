@@ -8,7 +8,7 @@
 - **B. 過去問パック（年度括り）**: 公式試験問題 H21-R7。**総監（cem）専用**
 - **C. 論点パック（1級/2級土木）**: 頻出問題を**論点（科目×論点）で括り**、複数年度から4問採録。競合 @miyabi_labo 分析（2026-07）を受けて年度括りから移行。cover は「科目＋論点＋頻出度★＋第1問Q＋出題年度」
 
-スキル詳細: [`.claude/skills/social/ig-post-create/SKILL.md`](../../skills/social/ig-post-create/SKILL.md)
+スキル詳細: [`.claude/skills/ig-post-create/SKILL.md`](../../skills/ig-post-create/SKILL.md)
 
 最終更新: 2026-07-16（シリーズ C 新設: 1級/2級土木を論点括りへ移行・年度括り exam-packs は総監のみに）
 
@@ -120,7 +120,7 @@ scripts/
 │   ├── quiz-slides.mjs                 ← B type3 ビルダー
 │   ├── notebook-slides.mjs             ← C 単独 KW ビルダー
 │   └── slide-render.mjs                ← dispatch
-└── skills/social/ig-post-create/
+└── skills/ig-post-create/
     ├── SKILL.md
     └── scripts/ig-post-create.mjs      ← --slug / --exam モード
 ```
@@ -147,7 +147,7 @@ node scripts/bulk-generate-exam-packs.mjs --all  # 全 130 パック
 ### 単一パック生成・修正
 
 ```bash
-node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size carousel
+node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size carousel
 ```
 
 ### 投稿時の調整
@@ -290,7 +290,7 @@ node .claude/scripts/sns/render-quiz-pack.mjs content/sns/instagram/_quiz-sample
 
 ```bash
 # Reels サイズ PNG を 1080×1920 で生成
-node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size reels
+node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size reels
 
 # stories/img/ に 4 枚（cover/Q1/A1/cta）を抽出 + caption + note.md 自動生成
 node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
@@ -377,9 +377,9 @@ slide-data.json
 - `docs/marketing/01_SNS集客戦略.md` — IG 戦略 v6
 - `content/sns/instagram/profile.md` — IG プロフィール SoT
 - `content/sns/instagram/README.md` — IG 運用基本
-- `.claude/skills/social/ig-post-create/SKILL.md` — カルーセル PNG 生成
-- `.claude/skills/social/ig-carousel-restyle/SKILL.md` — 一括再生成
-- `.claude/skills/social/publish-ig-bs/SKILL.md` — Business Suite 予約投稿エンジン
+- `.claude/skills/ig-post-create/SKILL.md` — カルーセル PNG 生成
+- `.claude/skills/ig-carousel-restyle/SKILL.md` — 一括再生成
+- `.claude/skills/publish-ig-bs/SKILL.md` — Business Suite 予約投稿エンジン
 - 公開状態の照合: `verify-ig-status` でライブ↔SoT 突合（公開の状態の正本は台帳・照合は `verify-ig-status --registry`）。照合の手順書・`/ig-reconcile` スキル・`ig-publish-auditor` は SNS の保留に合わせて 2026-10-25 に外した（git の履歴にある）
 - `scripts/lint-exam-pack-structure.mjs` — 構造違反 lint
 - `.claude/knowledge/design-system/instagram-carousel.md` — デザイン仕様

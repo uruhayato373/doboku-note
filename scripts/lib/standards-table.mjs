@@ -327,12 +327,18 @@ function resolveTablePart(part, lookup) {
       const source = cell.same === 'above' ? original[r - 1]?.[c] : original[r][c - 1];
       if (typeof source !== 'string') return { error: 'override-bad-same' };
       original[r][c] = source;
-      resolved[r][c] = cell.same === 'above' && [...source].length > SAME_ABOVE_TEXT_MAX ? '（同上）' : source;
+      const long = [...source].length > SAME_ABOVE_TEXT_MAX;
+      // 横に結合した長い文（土及び岩の分類表の説明と例の列）も、隣の列に同じ文を繰り返さず「（同左）」と表示する。
+      // 繰り返すと表の幅が倍になり、同じ文が 2 列に並んで読めない。空欄にすると比較の表（2 機種の測定項目）で
+      // 「該当なし」と読めるので空けない（DN-1055）
+      resolved[r][c] = !long ? source : cell.same === 'above' ? '（同上）' : '（同左）';
     }
   }
   if (resolved.flat().some((cell) => String(cell).includes('|'))) return { error: 'pipe-in-cell' };
   const headerRows = part.header?.length ?? 0;
   let header = resolved.slice(0, headerRows);
+  // 見出しのうち結合セル（{same}）だった欄。表示ではこの欄だけを空にする（同じ文字の別の欄＝(13) が並ぶ粒度区分は残す。DN-1052）
+  let headerMerged = own.slice(0, headerRows).map((row) => row.map(isSameRef));
   if (header.length === 0 && part.headerFrom) {
     // ページをまたいだ表の続き。見出しは前の表から写す（原典のこの位置の文字ではないので照合の外）。
     // `key#n` は相手の n 番目（0 から）の見出し付きの表（1 つの版面に表が 2 つ以上あるとき）
@@ -342,6 +348,7 @@ function resolveTablePart(part, lookup) {
     const fromTable = candidates[Number(index ?? 0)];
     if (!fromTable || fromTable.header[0].length !== width) return { error: 'override-bad-header-from' };
     header = fromTable.header.map((row) => row.map((cell) => (isSameRef(cell) ? '' : String(cell))));
+    headerMerged = header.map((row) => row.map(() => false));
   }
   // 見出しの語がテキスト層に無く空欄になった列（国交省の品質管理基準 p218 は 9 列のうち 7 列）は、headerFill に
   // 同じ列構成の表を指すと空欄だけをその表の見出しで補う（headerFrom と同じく照合の外。文字のある欄は変えない）
@@ -360,6 +367,7 @@ function resolveTablePart(part, lookup) {
   // 原本の紙面から読んだ見出しを書くと、表示だけをそれに置き換える（照合の外。header の文字は照合に残る。QA が画像と照合する。DN-0850）
   if (Array.isArray(part.headerImage) && part.headerImage.length > 0) {
     const image = part.headerImage.map((row) => [...row]);
+    headerMerged = image.map((row) => row.map(isSameRef));
     if (image.some((row) => row.length !== width)) return { error: 'override-bad-header-image' };
     for (const row of image) {
       for (let c = 0; c < width; c += 1) {
@@ -376,9 +384,12 @@ function resolveTablePart(part, lookup) {
   }
   // 原本の表にもともと見出し行が無いもの（近畿版 表3-2-13(2) の飼育試験の表など）は、
   // headerless: true と明示したときだけ空の見出しで出す（GFM は見出し行を省けない）
-  if (header.length === 0 && part.headerless === true) header = [new Array(width).fill('')];
+  if (header.length === 0 && part.headerless === true) {
+    header = [new Array(width).fill('')];
+    headerMerged = [new Array(width).fill(false)];
+  }
   if (header.length === 0) return { error: 'override-no-header' };
-  return { kind: 'table', header, rows: resolved.slice(headerRows) };
+  return { kind: 'table', header, headerMerged, rows: resolved.slice(headerRows) };
 }
 
 /**

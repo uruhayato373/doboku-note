@@ -182,7 +182,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
   （`siteSummary`＝doboku 分離済みの真実源 / `programPeriod`＝案件に対応した行＋当期の口座横断の行 / `monthly`・`daily`＝口座横断 /
   `crossCheck` / `missingProgramCandidates` / `notAttributable`）。月次の成果（月×案件）は持たず、読み手が
   `resultsFromReportLog`（`scripts/lib/a8-report-csv.mjs`）で単月の期間から導く
-- skill: `.claude/skills/ads/a8-report/SKILL.md`（`disable-model-invocation: true`）
+- skill: `.claude/skills/a8-report/SKILL.md`（`disable-model-invocation: true`）
 - agents: `a8-csv-auditor`（品質監査）。収集は土曜の Mac 収集（`weekly-collect` の a8 段）で、`a8-report-collector` は 2026-10-24 に退役
 - 管理画面: admin-app `/affiliate` タブ（月次×プログラム×EPC・未写像の警告）
 
@@ -222,8 +222,8 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 
 ## ファイル一覧
 
-- ブラウザ: `.claude/skills/ads/scout-asp/scripts/{a8-browser.ts,login.mjs}`
-- skill: `.claude/skills/ads/scout-asp/SKILL.md`（`/scout-asp`・`disable-model-invocation: true`）
+- ブラウザ: `.claude/skills/scout-asp/scripts/{a8-browser.ts,login.mjs}`
+- skill: `.claude/skills/scout-asp/SKILL.md`（`/scout-asp`・`disable-model-invocation: true`）
 - コア（純関数）: `.claude/scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs`
 - テスト（node:test・30件）: `.claude/scripts/ads/__tests__/*.test.mjs`（`npm run test:ads`）
 - 申請上限: `.claude/scripts/ads/check-a8-apply-budget.cjs`

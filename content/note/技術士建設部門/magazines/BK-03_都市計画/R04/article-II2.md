@@ -27,7 +27,7 @@ cover:
 
 反映点：建築物調査データ・指定管理業績記録などのデータに基づく課題定義（データ活用）、地権者・住民・商店会・関係行政機関・民間事業者などステークホルダーの意見の取り入れと合意形成、社会・経済・環境・文化的価値の三側面以上からの持続可能な成果の確保。
 
-[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n0dc39bae798a)
 
 ---
 
@@ -59,6 +59,11 @@ cover:
 論述の骨格と発注者視点の着眼点を参照しながら、各自の答案作成にお役立てください。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜都市計画 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）21本をまとめて読めるマガジンがあります。4本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/mc8bd949f1f51
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。

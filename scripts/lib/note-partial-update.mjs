@@ -50,6 +50,10 @@ export function validatePartialSpec(spec) {
       if (!op.newText || !Array.isArray(op.newUrls) || !op.probe) {
         throw new Error(`${at}: newText/newUrls/probe が必要`);
       }
+      // beforeNeedle: 最初の h2 ではなく、この文言を含むブロックの直前へ入れる（有料境界が最初の h2 の直前にある記事で、無料部分に置くため）
+      if (op.beforeNeedle != null && (typeof op.beforeNeedle !== 'string' || !op.beforeNeedle.trim())) {
+        throw new Error(`${at}: beforeNeedle は空でない文字列`);
+      }
     } else if (op.type === 'replaceCard') {
       if (!op.oldKey || !op.newUrl) throw new Error(`${at}: oldKey/newUrl が必要`);
     } else if (op.type === 'replaceLink') {

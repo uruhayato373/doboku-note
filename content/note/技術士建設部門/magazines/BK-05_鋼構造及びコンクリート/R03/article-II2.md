@@ -25,7 +25,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：コア試験・電磁誘導法等の計測データに基づく課題定義（データ活用）、設計・施工・発注者・住民の多角的ステークホルダーとの合意形成（ステークホルダー）、社会・経済・環境の三側面での構造物の持続的供用（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：コア試験・電磁誘導法等の計測データに基づく課題定義（データ活用）、設計・施工・発注者・住民の多角的ステークホルダーとの合意形成（ステークホルダー）、社会・経済・環境の三側面での構造物の持続的供用（持続可能な成果）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=ne22d00b0e7a2)
 
 ---
 
@@ -54,6 +54,11 @@ cover:
 本番ではII-2-1・II-2-2のいずれか1設問を選んで解答しますが、本記事では出題された両設問を網羅し、どちらを選んでも対応できるようにしています。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜鋼コン 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）21本をまとめて読めるマガジンがあります。4本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/md38f1de30c31
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。

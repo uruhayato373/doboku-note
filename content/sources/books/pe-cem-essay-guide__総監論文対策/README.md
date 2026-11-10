@@ -54,6 +54,6 @@ p.34 と p.35 が二重に入っている**。実体は 15 本文ページ＋章
 
 ## 参考: 写り込みの機械検出
 
-`.claude/skills/conversion/pdf-to-mdx/scripts/occlusion/detect_occlusion.py`
+`.claude/skills/pdf-to-mdx/scripts/occlusion/detect_occlusion.py`
 は肌色画素の比率で写り込み候補を挙げる。本書は 18 枚中 16 枚が候補（余白の指も拾うため、
 本文が隠れているかの最終判断は目視）。

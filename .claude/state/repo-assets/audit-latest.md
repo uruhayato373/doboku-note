@@ -43,7 +43,7 @@ garbage: 0 bytes / in-pack objects: 120,312
   - 参照コード: `Next.js static assets`
 - **`ogp-background`** — 9.2 MiB / 10 files
   - 理由: 資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと生成が不能になる（git-binary-policy.json allowlist で既に判定済み）
-  - 参照コード: `scripts/generate-note-covers.mjs` / `scripts/generate-magazine-covers.mjs` / `scripts/coconala-thumb.mjs` / `.claude/skills/conversion/ogp-create`
+  - 参照コード: `scripts/generate-note-covers.mjs` / `scripts/generate-magazine-covers.mjs` / `scripts/coconala-thumb.mjs` / `.claude/skills/ogp-create`
 - **`obsidian-env`** — 5.9 MiB / 64 files
   - 理由: Obsidian のプラグイン・アイコン素材。制作物ではなくエディタ環境で、全 PC 共有が要る（git-binary-policy.json allowlist で KEEP_GIT 判定済み）
   - 参照コード: `Obsidian エディタ`
@@ -149,7 +149,7 @@ garbage: 0 bytes / in-pack objects: 120,312
 | 6.7 MiB | REVIEW | `scripts/kindle-dist/e-02.epub` |
 | 6.2 MiB | REVIEW | `.obsidian/icons/font-awesome-regular.zip` |
 | 6.2 MiB | REVIEW | `.obsidian/icons/font-awesome-solid.zip` |
-| 5.1 MiB | REVIEW | `.claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf` |
+| 5.1 MiB | REVIEW | `.claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf` |
 | 4.6 MiB | REVIEW | `public/quiz/pe-first-stage.json` |
 | 4.3 MiB | REVIEW | `scripts/kindle-dist/d-00.epub` |
 | 3.1 MiB | REVIEW | `src/config/civil-1-exam-questions.json` |

@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { fetchGscPages } from "../scripts/lib/gsc-pagination.mjs";
 import { assessGscPerformanceSnapshot } from "../scripts/lib/gsc-data-integrity.mjs";
-import { fetchSearchAnalytics } from "../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs";
+import { fetchSearchAnalytics } from "../.claude/skills/fetch-gsc-data/scripts/fetch-gsc-data.mjs";
 
 test('GSC の全体と明細は同じ国・期間で取得し、要求と応答の集計方式を保存する', async () => {
   const requests = [];

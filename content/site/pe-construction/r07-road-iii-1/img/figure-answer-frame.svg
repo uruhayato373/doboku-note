@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="答案用紙3枚に、1枚目は課題3つ、2枚目は最重要の課題と解決策、3枚目はリスクと対策を書く配分を、行数の帯で示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sum { font-size: 11px; fill: #555; } /* ink-body */
+      .t-sheet { font-size: 11px; fill: #8a8a8a; } /* ink-muted */
+      .t-blk { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .t-lines { font-size: 11px; fill: #555; } /* ink-body */
+      .t-note { font-size: 12px; fill: #222; } /* ink-strong */
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .sheet { fill: none; stroke: #d7d7d7; stroke-width: 1; } /* token-border */
+    </style>
+  </defs>
+  <text class="t-sum" x="16" y="24">帯の高さ＝行数の目安。色は小問の区分</text>
+  <text class="t-sheet" x="16" y="43.0">1枚目（24行・600字）</text>
+  <rect class="sheet" x="14" y="48.0" width="372" height="133.3" rx="6"/>
+  <rect class="box-brand" x="20" y="50.0" width="150" height="129.3" rx="6"/>
+  <text class="t-blk" x="30" y="112.7">(1) 課題3つ</text>
+  <text class="t-lines" x="30" y="128.7">約24行</text>
+  <text class="t-note" x="182" y="110.7">観点の名前＋現状＋なぜ課題か</text>
+  <text class="t-note" x="182" y="126.7">1つ7〜8行でそろえる</text>
+  <text class="t-sheet" x="16" y="196.3">2枚目（24行・600字）</text>
+  <rect class="sheet" x="14" y="201.3" width="372" height="133.3" rx="6"/>
+  <rect class="box-warn" x="20" y="203.3" width="150" height="18.2" rx="6"/>
+  <text class="t-blk" x="30" y="216.4">(2) 最重要と理由</text>
+  <text class="t-note" x="182" y="216.4">選んだ理由を2〜3行</text>
+  <rect class="box-positive" x="20" y="225.6" width="150" height="107.1" rx="6"/>
+  <text class="t-blk" x="30" y="277.1">(2) 解決策2〜3本</text>
+  <text class="t-lines" x="30" y="293.1">約20行</text>
+  <text class="t-note" x="182" y="275.1">手段と効果を書く</text>
+  <text class="t-note" x="182" y="291.1">1本7〜10行</text>
+  <text class="t-sheet" x="16" y="349.7">3枚目（24行・600字）</text>
+  <rect class="sheet" x="14" y="354.7" width="372" height="133.3" rx="6"/>
+  <rect class="box-warn" x="20" y="356.7" width="150" height="107.1" rx="6"/>
+  <text class="t-blk" x="30" y="408.2">(3) リスクと対策</text>
+  <text class="t-lines" x="30" y="424.2">約20行</text>
+  <text class="t-note" x="182" y="406.2">解決策ごとに</text>
+  <text class="t-note" x="182" y="422.2">リスクと対策を対で</text>
+  <rect class="box-surface" x="20" y="467.8" width="150" height="18.2" rx="6"/>
+  <text class="t-blk" x="30" y="480.9">締め</text>
+  <text class="t-note" x="182" y="480.9">技術者として守ること</text>
+</svg>

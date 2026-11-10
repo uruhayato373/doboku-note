@@ -223,7 +223,7 @@ jobs:
           while IFS= read -r slug; do
             [ -z "${slug}" ] && continue
             echo "::group::generate ${slug}"
-            if node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs "${slug}"; then
+            if node .claude/skills/ogp-create/scripts/ogp-create.mjs "${slug}"; then
               echo "${slug}" >> /tmp/ogp-generated-slugs.txt
               success=$((success + 1))
             else

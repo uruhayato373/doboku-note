@@ -19,6 +19,8 @@ import { coverInputDigest } from './youtube-approved-cover.mjs';
 import { examPalette, loadImageRules } from './image-rules.mjs';
 
 export const MAX_ATTEMPTS = 3;
+// 画像が出なかった試行は MAX_ATTEMPTS に数えない（品質の不合格ではないので）。同じ項目で続けば止める（DN-1065）
+export const MAX_NO_OUTPUT = 3;
 const SUBTITLE_STDEV_MAX = 14;
 const rules = loadImageRules();
 const SUBTITLE_ZONE = rules.formats.longform.bottomZone; // 本文の下端は字幕が載る。生成指示と機械検査で同じ値を使う
@@ -145,21 +147,38 @@ export async function inspectImage(bytes, kind) {
   return issues;
 }
 
-/** 未生成と不合格の項目だけを作る。回数の上限に達した項目は残す（勝手に通さない）。 */
+const stuck = (i) => !i.raw && (i.attempts >= MAX_ATTEMPTS || (i.noOutput ?? 0) >= MAX_NO_OUTPUT);
+
+/**
+ * 未生成と不合格の項目だけを作る。回数の上限に達した項目は残す（勝手に通さない）。
+ * 画像が出なかった試行は回数に数えず noOutput に数える。この回に試した全項目で画像が出なければ unreachable を返す
+ * （生成の経路が無い環境で回すと、品質の判定をしないまま全項目が上限に達していた・DN-1065）。
+ */
 export async function generatePlan(root, pack, { concurrency = 3, generate = generateWithCodexAsync, log = () => {}, path: file = planPath(pack), inspect = inspectImage } = {}) {
   const plan = readPlan(root, pack, file);
   if (!plan) throw new Error(`${pack}: 先に plan を作る`);
-  const todo = plan.items.filter((i) => !i.raw && i.attempts < MAX_ATTEMPTS);
+  const todo = plan.items.filter((i) => !i.raw && !stuck(i));
   let next = 0;
+  let noOutput = 0;
   const one = async (item) => {
-    item.attempts += 1;
     const prompt = item.fix ? `${item.basePrompt} 前回の不合格の理由を直す: ${item.fix}` : item.basePrompt;
     const out = await generate(prompt, null, { images: item.references.map((r) => join(root, r.path)) });
-    if (!out) { item.lastError = '画像が出なかった'; log(`${item.id}: 画像が出なかった`); return; }
+    if (!out) {
+      noOutput += 1;
+      item.noOutput = (item.noOutput ?? 0) + 1;
+      item.lastError = '画像が出なかった';
+      log(`${item.id}: 画像が出なかった`);
+      return;
+    }
+    item.attempts += 1;
+    item.noOutput = 0;
     const bytes = await sharp(readFileSync(out)).png().toBuffer();
     const issues = await inspect(bytes, item.kind);
     if (issues.length) { item.fix = issues.join('／'); item.lastError = item.fix; log(`${item.id}: ${item.fix}`); return; }
     const sha256 = hash(bytes);
+    // 別の場面と同じ画像は、並列の実行で別の画像を取り違えた疑いがある（DN-1036）。採らずに作り直しへ回す
+    const twin = plan.items.find((other) => other !== item && other.raw?.sha256 === sha256);
+    if (twin) { item.lastError = `${twin.id} と同じ画像（取り違えの疑い）`; log(`${item.id}: ${item.lastError}`); return; }
     const path = `.tmp/media/${pack}/work/factory/raw-${item.id}.${sha256.slice(0, 8)}.png`;
     mkdirSync(dirname(join(root, path)), { recursive: true });
     writeFileSync(join(root, path), bytes);
@@ -170,7 +189,23 @@ export async function generatePlan(root, pack, { concurrency = 3, generate = gen
     while (next < todo.length) await one(todo[next++]);
   }));
   writeJson(root, file, plan);
-  return summarize(plan);
+  return { ...summarize(plan), attempted: todo.length, unreachable: todo.length > 0 && noOutput === todo.length };
+}
+
+/**
+ * 上限に達した項目・画像が出ずに止まった項目の回数と理由を戻す。ids に 'all' を含めば止まった項目すべて。
+ * 原稿を変えずにやり直す唯一の経路（buildPlan は原稿が同じなら回数ごと引き継ぐ）。
+ */
+export function retryItems(root, pack, ids, { path: file = planPath(pack) } = {}) {
+  const plan = readPlan(root, pack, file);
+  if (!plan) throw new Error(`${pack}: 先に plan を作る`);
+  const all = ids.includes('all');
+  const unknown = ids.filter((id) => id !== 'all' && !plan.items.some((i) => i.id === id));
+  if (unknown.length) throw new Error(`${pack}: 計画に無い項目 ${unknown.join(', ')}`);
+  const targets = plan.items.filter((i) => !i.raw && (all ? stuck(i) : ids.includes(i.id)));
+  for (const item of targets) Object.assign(item, { attempts: 0, noOutput: 0, fix: null, lastError: null });
+  writeJson(root, file, plan);
+  return { reset: targets.map((i) => i.id), ...summarize(plan) };
 }
 
 export function summarize(plan) {
@@ -180,6 +215,8 @@ export function summarize(plan) {
     total: items.length,
     missing: missing.length,
     exhausted: missing.filter((i) => i.attempts >= MAX_ATTEMPTS).map((i) => i.id),
+    stalled: missing.filter((i) => i.attempts < MAX_ATTEMPTS && (i.noOutput ?? 0) >= MAX_NO_OUTPUT).map((i) => i.id),
+    reasons: Object.fromEntries(missing.filter(stuck).map((i) => [i.id, i.lastError ?? i.fix ?? '理由の記録なし'])),
     unaudited: items.filter((i) => i.raw && i.audit?.sha !== i.raw.sha256).length,
     ok: items.filter((i) => i.raw && i.audit?.sha === i.raw.sha256 && i.audit.verdict === 'ok').length,
   };
@@ -320,21 +357,83 @@ export function ledgerVerdicts(root, pack, media) {
     .map((m) => ({ figKey: `media:${m.id}`, verdict: 'ok', reason: reasons.get(m.sha256) }));
 }
 
+/**
+ * 承認を外した公開行（qa_passed）を返す。承認済みで予約の段へ進んでいない行だけを受け付ける（DN-1066）。
+ * 方針が書いた画面確認の承認も外し、運営者の確認は残す。
+ */
+export function unapprovedRow(pub) {
+  if (pub.status !== 'approved' || !pub.approval) throw new Error(`${pub.id}: ${pub.status} は承認済みの行ではない`);
+  if (pub.delivery?.uploadRequestedAt) throw new Error(`${pub.id}: 予約の段へ進んでいる（delivery あり）。registry-reconcile で実体を確かめる`);
+  const { approval: _approval, review, ...rest } = pub;
+  const keep = review?.visual && review.visual.by !== 'policy' ? { review } : {};
+  return { ...rest, ...keep, status: 'qa_passed' };
+}
+
+/**
+ * 内容QAが採点した原稿の digest。script.md・storyboard.json（画像の工程が書く imageDesign を除く）・video-pack.json。
+ * QA の合格はこの digest に付き、原稿が変われば古くなる（合格の後に台本を直しても合格のままだった・DN-1067）。
+ */
+export function qaInputDigest(root, pack) {
+  const dir = join(root, packDirOf(pack));
+  const { imageDesign: _imageDesign, ...board } = JSON.parse(readFileSync(join(dir, 'storyboard.json'), 'utf8'));
+  const text = (file) => readFileSync(join(dir, file), 'utf8').replace(/\r\n/g, '\n');
+  return hash(JSON.stringify({ script: text('script.md'), storyboard: board, videoPack: JSON.parse(text('video-pack.json')) }));
+}
+
+/**
+ * 台帳の QA を今の原稿で読む。none＝未採点・stale＝原稿が変わった・passed・blocked。
+ * digest の無い記録（DN-1067 より前）は採点時の原稿が分からないので、そのまま受け入れる。
+ */
+export function qaState(qa, digest) {
+  if (!qa) return 'none';
+  if (qa.inputSha256 && qa.inputSha256 !== digest) return 'stale';
+  return qa.avg >= 2 && qa.blocks === 0 ? 'passed' : 'blocked';
+}
+
 /** 事実から次の工程を決める。確認が取れていない工程を飛ばさない。 */
 export function nextStage(f) {
+  // 承認しただけで予約の段へ進んでいない行は done にしない。公開の枠を落としても緑に見えていた（DN-1066）
+  if (['approved', 'rendered'].includes(f.status) && f.delivering === false) return f.slotExpired ? 'slot-expired' : 'publish-pending';
   if (['approved', 'rendered', 'uploaded_private', 'scheduled', 'published'].includes(f.status)) return 'done';
   if (f.status === 'stopped') return 'stopped';
   if (f.qa === 'blocked') return 'fix-script';
+  // 内容QAは画像の前。BLOCK の台本に画像と描画の費用をかけない（Workflow と同じ順・DN-1067）
+  if (f.qa !== 'passed') return 'qa';
   if (!f.standard) {
     if (!f.plan) return 'plan';
     if (f.plan.exhausted.length) return 'images-exhausted';
+    if (f.plan.stalled?.length) return 'generate-stalled';
     if (f.plan.missing) return 'generate';
     if (f.plan.unaudited) return 'audit';
     return 'adopt';
   }
   if (!f.rendered) return 'render';
-  if (f.qa !== 'passed') return 'qa';
   if (f.review === 'fail') return 'review-failed';
   if (f.review !== 'pass') return 'review';
   return 'ready-for-approval';
+}
+
+/**
+ * 画像を作る前に、無料で決まる関門の項目を見る（DN-1068）。空なら合格。
+ * 計画にない・送り先が解決できない・表紙の設計が無いパックが、画像・描画・画面確認の費用を払った後の関門で初めて落ちていた。
+ * @param {{ pub: object|null, planProblems: string[], cta: object|undefined, products: object[], siteUrl: (path: string) => string, cover: object|null }} f
+ */
+export function preflightProblems({ pub, planProblems, cta, products, siteUrl, cover }) {
+  const problems = [];
+  if (!pub) problems.push('公開行が無い（registry -- import-video-pack で載せ、年間計画の行に publicationId を結ぶ）');
+  problems.push(...planProblems);
+  const product = (channel) => products.find((p) => p.channel === channel && p.id === cta?.targetId);
+  if (!cta?.kind) problems.push('video-pack.json に primaryCta が無い');
+  else if (cta.kind === 'note-magazine') {
+    const p = product('note');
+    if (!p?.catalog?.published || p.catalog.retiredAt) problems.push(`主CTAの note 商品が公開中でない: ${cta.targetId}`);
+  } else if (cta.kind === 'coconala-service') {
+    if (product('coconala')?.catalog?.status !== 'listed') problems.push(`主CTAのココナラ商品が出品中でない: ${cta.targetId}`);
+  } else if (cta.kind === 'site-article') {
+    try { siteUrl(cta.targetPath); } catch (error) { problems.push(`主CTAのサイト記事: ${error.message}`); }
+  } else if (cta.kind === 'links-hub') {
+    problems.push('主CTAが links-hub（新規公開は商品か関連記事への直接の導線が要る）');
+  } else problems.push(`未対応の主CTA: ${cta.kind}`);
+  if (!cover?.covers?.longform?.headline?.length) problems.push('cover-design.json に longform の見出しが無い');
+  return problems;
 }

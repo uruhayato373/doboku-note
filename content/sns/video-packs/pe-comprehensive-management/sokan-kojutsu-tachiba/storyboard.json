@@ -1,0 +1,279 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "総監の口頭試験で、立場ごとに聞かれることと、答え方を整理します。",
+      "caption": "立場ごとに聞かれることと、答え方",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監 口頭｜立場ごとに聞かれることと答え方",
+        "items": [
+          "技術士 総合技術監理部門・口頭試験"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 8,
+      "end": 26,
+      "narration": "立場によって聞かれることが違うらしい。でも自分の立場では、どこを準備すればいいのか。この動画では、自分の立場で決めたことから、聞かれそうな切り口を3つ選ぶ手順を紹介します。",
+      "caption": "自分の立場で、準備する3つの切り口を選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "立場が違うと、何を準備するのか",
+        "items": [
+          "聞いた話\n立場で聞かれることが違うらしい",
+          "知りたいこと\n自分はどこを準備するのか"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／総監",
+          "note": "口頭試験の受験者の悩みの整理。実際の試問の再現ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 26,
+      "end": 46,
+      "narration": "誤解しやすいのは、立場ごとに別の試験がある、と考えることです。試問事項は立場にかかわらず同じで、立場で変わるのは、話す材料です。",
+      "caption": "試問事項は同じで、変わるのは話す材料",
+      "visual": {
+        "kind": "points",
+        "heading": "立場で変わるのは、話す材料",
+        "items": [
+          "立場ごとに別の試験\nではない",
+          "同じ試問事項\n立場で変わるのは、話す材料"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／総監",
+          "note": "出典：文部科学省 令和8年度技術士試験合否決定基準（video-pack.json の sourceRefs）"
+        }
+      }
+    },
+    {
+      "sceneId": "system",
+      "start": 46,
+      "end": 66,
+      "narration": "令和8年度の合否決定基準では、総監の必須科目の口頭試験は、経歴及び応用能力と、体系的専門知識の2項目で、それぞれ60パーセント以上の得点が必要です。",
+      "caption": "試問は2項目、それぞれ60パーセント以上",
+      "visual": {
+        "kind": "points",
+        "heading": "口頭試験の試問事項は2項目",
+        "items": [
+          "経歴及び応用能力\n60パーセント以上",
+          "体系的専門知識\n60パーセント以上"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／総監",
+          "note": "出典：文部科学省 令和8年度技術士試験合否決定基準（video-pack.json の sourceRefs）"
+        }
+      }
+    },
+    {
+      "sceneId": "axis",
+      "start": 66,
+      "end": 102,
+      "narration": "立場の違いが効くのは、経歴及び応用能力の側です。同じ5管理でも、自分の立場でどの管理の核が前に出るかが変わります。核は、経済性は原価と工期の最適化、人的資源は人の確保と育成、情報は守りつつ活用、安全は人命と健康と第三者影響の回避、社会環境は環境と地域の合意です。",
+      "caption": "立場で、前に出る管理の核が変わる",
+      "visual": {
+        "kind": "points",
+        "heading": "同じ5管理でも、前に出る核が違う",
+        "items": [],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／総監",
+          "note": "管理の核を、立場ごとの材料に結び付ける",
+          "diagram": "five-management",
+          "source": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "steps",
+      "start": 102,
+      "end": 128,
+      "narration": "準備は3つの手順です。1つめ、自分が決められたことを書く。2つめ、その判断で動いた管理の核を選ぶ。3つめ、そこから聞かれそうな切り口を3つ置く。肩書きではなく、判断から始めます。",
+      "caption": "決めたこと、動いた核、聞かれそうな切り口",
+      "visual": {
+        "kind": "points",
+        "heading": "準備の3つの手順",
+        "items": [
+          "決めたこと\n自分が判断できたこと",
+          "動いた核\nどの管理の核が動いたか",
+          "切り口を3つ\n聞かれそうな点"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "口頭試験対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "owner",
+      "start": 128,
+      "end": 158,
+      "narration": "発注者の立場で整理すると、想定される切り口はこうです。予算と工期の制約は、経済性管理。住民や第三者への影響は、安全管理と社会環境管理。受注者の働き方への配慮は、人的資源管理。これは想定であり、実際の試問の再現ではありません。",
+      "caption": "発注者の立場の、想定される切り口",
+      "visual": {
+        "kind": "points",
+        "heading": "発注者の立場で、聞かれそうな切り口（想定）",
+        "items": [
+          "予算と工期の制約\n経済性管理",
+          "住民・第三者への影響\n安全管理・社会環境管理",
+          "受注者の働き方への配慮\n人的資源管理"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "口頭試験対策／総監",
+          "note": "想定であり、実際の試問の再現ではない。本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "others",
+      "start": 158,
+      "end": 190,
+      "narration": "設計、施工、維持管理の立場は、自分の立場に置き換えて使ってください。設計なら、設計条件と費用、安全の確保。施工なら、工程と費用、作業員の確保と現場の安全。維持管理なら、点検の頻度と費用、記録の活用です。これも想定です。",
+      "caption": "設計・施工・維持管理は、置き換えて使う",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の立場に置き換える（想定）",
+        "items": [
+          "設計\n設計条件と費用・安全の確保",
+          "施工\n工程と費用・作業員の確保と現場の安全",
+          "維持管理\n点検の頻度と費用・記録の活用",
+          "自分の立場\n何を決めたか"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "口頭試験対策／総監",
+          "note": "語り手の経験ではなく、置き換えの例。想定であり、実際の試問の再現ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/img/figure-measure-management-matrix.svg"
+    },
+    {
+      "sceneId": "neighbor",
+      "start": 190,
+      "end": 216,
+      "narration": "もう一つ準備したいのが、隣の立場への影響です。自分の判断が、発注者、設計、施工、維持管理のうち隣の立場に何を残したか。立場の外側まで一言で言えると、判断の全体像が伝わります。",
+      "caption": "自分の判断が、隣の立場に残したこと",
+      "visual": {
+        "kind": "points",
+        "heading": "隣の立場への影響を、一言で",
+        "items": [
+          "自分の判断",
+          "前の工程の立場\n何を受け取ったか",
+          "次の工程の立場\n何を渡したか",
+          "利用者・地域\nどう響いたか"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／総監",
+          "note": "本動画の独自の整理。自分の事実で埋める",
+          "diagram": "influence",
+          "source": "content/site/pe-comprehensive-management/exam-application-guide/img/figure-measure-management-matrix.svg"
+        }
+      }
+    },
+    {
+      "sceneId": "sheet",
+      "start": 216,
+      "end": 240,
+      "narration": "準備シートに、5つの欄を作ります。立場、決めたこと、動いた核、隣の立場への影響、聞かれそうな切り口3つ。全部、自分の事実で埋めます。埋まらない欄は、業務の記録に戻って確かめます。",
+      "caption": "5つの欄を、自分の事実で埋める",
+      "visual": {
+        "kind": "points",
+        "heading": "立場別の準備シート",
+        "items": [
+          "立場",
+          "決めたこと",
+          "動いた核",
+          "隣の立場への影響",
+          "聞かれそうな切り口3つ"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "口頭試験対策／総監",
+          "note": "本動画の独自の整理。事実だけを書く"
+        }
+      }
+    },
+    {
+      "sceneId": "avoid",
+      "start": 240,
+      "end": 260,
+      "narration": "避けたいのは3つです。肩書きだけで立場を説明すること。経験していない立場の話を足すこと。想定問答を、実際の試問の再現だと思い込むことです。",
+      "caption": "肩書きだけ・足す話・再現の思い込み",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたい3つ",
+        "items": [
+          "肩書きだけで説明する",
+          "経験していない立場の話を足す",
+          "想定問答を再現だと思い込む"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "口頭試験対策／総監",
+          "note": "事実と想定を分けて準備する"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 260,
+      "end": 282,
+      "narration": "まとめです。試問事項は立場にかかわらず同じで、変わるのは材料です。決めたこと、動いた核、聞かれそうな切り口を3つ、隣の立場への影響を、自分の事実で準備します。",
+      "caption": "決めたことから、3つの切り口を選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "立場別の準備チェック",
+        "items": [
+          "決めたことから始める",
+          "動いた核を選ぶ",
+          "切り口を3つ置く",
+          "隣の立場への影響を言う"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "口頭試験対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 282,
+      "end": 294,
+      "narration": "想定25問と、発注者、コンサル、施工者の架空の回答例で練習したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "想定25問と架空の回答例は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の立場で、声に出して練習",
+        "items": [
+          "切り口を3つ選ぶ",
+          "想定25問で、声に出す",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "口頭試験対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      }
+    }
+  ]
+}

@@ -3,6 +3,19 @@
   "exam": "civil-construction-1",
   "works": [
     {
+      "id": "c1-juken-junjo-2027",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-juken-junjo-2027",
+      "idException": "imported-before-cutover",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "3853e8c0cb77e1f177e94f03139e7dfc9dd0fe04c6d783676e553e7dda418e5a"
+      }
+    },
+    {
       "id": "civil-09-a",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/090-civil-2026-09-a",
@@ -79,6 +92,40 @@
       "kind": "x-thread",
       "definition": "content/sns/x/draft/_archive-old-account/044-civil1-shiken-campaign",
       "legacyKey": "044-civil1-shiken-campaign"
+    },
+    {
+      "id": "owner-career-shigoto",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-career-shigoto"
+    },
+    {
+      "id": "owner-eye-kantokuin",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-kantokuin"
+    },
+    {
+      "id": "owner-eye-kouji-kensa",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-kouji-kensa",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "135d8ea3e71beaf06770c322ed0d88591aaa6632ff0c223275d8129ee5e00595"
+      }
+    },
+    {
+      "id": "owner-eye-sekkei-tosho",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-tosho",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "b854987dde6bf876bd22cdc2d209eb2e3dab3df1ab45e29543b1591d7d165595"
+      }
     },
     {
       "id": "x042-civil1-r06",

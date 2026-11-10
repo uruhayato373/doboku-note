@@ -27,7 +27,7 @@ import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
-import { figureLookup, isFigureCaption, renderFigureImage } from './lib/standards-figures.mjs';
+import { RE_STANDARD_FIGURE_TITLE, figureLookup, isFigureCaption, renderFigureImage } from './lib/standards-figures.mjs';
 import { editionDuplicateOf } from '../src/lib/standards-editions.mjs';
 import {
   AMENDMENT_BLOCK_END,
@@ -45,6 +45,7 @@ import {
   loadOverrides,
   loadTableOverrides,
   patterns,
+  variantsOf,
 } from './lib/standards-structure.mjs';
 
 const { RE_TABLE_CAPTION, RE_FIGURE_CAPTION } = patterns;
@@ -201,19 +202,52 @@ function escapeBlockStart(text) {
 const RE_MD_HEADING = /^#{1,6}[ 　]+(\S.*)$/;
 
 /**
- * 画像から起こしたページ（review-status: visual-transcribed）は、文字起こしが見出しを `### …` で書いている。
- * 平文として escape すると `### 第Ⅰ編` が画面にそのまま出ていた（2026-10-28 の描画検査・近畿の必携）。
- * 段落の全行が見出しの記法のときだけ、太字の行（章記事の見出しの階層を崩さない）で出す。それ以外は null。
- * 同じページの GFM の表（`| 項目 | 記入欄 |` ＋ `|---|`）も平文に化けているが、表は原本との照合（検査 14・18・19）
- * と組み直しの手順に載せる必要があるので、ここでは扱わない（別カードで起票）。
+ * 画像から起こしたページ（review-status: visual-transcribed）は、文字起こしが見出しを `### …`、表を GFM
+ * （`| 項目 | 記入欄 |` ＋ `|---|`）で書いている。平文として escape すると記法がそのまま画面に出ていた
+ * （2026-10-28 の描画検査・近畿の必携。DN-0916）。
+ * 段落の全行が見出しの記法なら太字の行（章記事の見出しの階層を崩さない）、全行が GFM の表なら表で出す。
+ * 表の文字は文字起こしのまま（セルを escape し、セル内の改行 `<br>` だけ残す）なので、原典との照合は検査 14 が
+ * 記法の文字を除いて行う。それ以外は null。
+ * @returns {{ blocks: string[], table: boolean } | null}
  */
-function renderTranscribedMarkdown(entries) {
+function renderTranscribedMarkdown(entries, { standardFigureTitles = false } = {}) {
   const lines = entries.map((entry) => entry.text.replace(/^[\s　]+|[\s　]+$/g, '')).filter(Boolean);
   if (lines.length === 0) return null;
   if (lines.every((line) => RE_MD_HEADING.test(line))) {
-    return lines.map((line) => `**${escapeInline(line.match(RE_MD_HEADING)[1])}**`);
+    return { blocks: lines.map((line) => `**${escapeInline(line.match(RE_MD_HEADING)[1])}**`), table: false };
   }
+  // 見出しと区切りだけの GFM で、図の題名（`| G型　標準図 | 長期間の路側工事 | 夜間工事 |`）は図のキャプションにする（DN-1053）
+  if (lines.length === 2 && RE_GFM_ROW.test(lines[0]) && RE_GFM_SEPARATOR.test(lines[1])) {
+    const title = lines[0].replace(/^\||\|$/g, '').split('|').map((cell) => cell.trim()).join(' ');
+    if (standardFigureTitles && RE_STANDARD_FIGURE_TITLE.test(title)) return { blocks: [], table: false, figureTitle: title };
+  }
+  const table = parseTranscribedGfmTable(lines);
+  if (table) return { blocks: [table], table: true };
   return null;
+}
+
+const RE_GFM_ROW = /^\|.*\|$/;
+const RE_GFM_SEPARATOR = /^\|(\s*:?-{3,}:?\s*\|)+$/;
+
+/** 文字起こしの GFM の表（見出し行・区切り行・本体の行がそろい、列の数が同じ）を章記事の表にする。違えば null。 */
+export function parseTranscribedGfmTable(lines) {
+  if (lines.length < 2 || !lines.every((line) => RE_GFM_ROW.test(line)) || !RE_GFM_SEPARATOR.test(lines[1])) return null;
+  const split = (line) => line.replace(/^\||\|$/g, '').split('|').map((cell) => cell.trim());
+  const header = split(lines[0]);
+  const separator = split(lines[1]);
+  const rows = lines.slice(2).map(split);
+  if (separator.length !== header.length || rows.some((row) => row.length !== header.length)) return null;
+  const cell = (text) => text.split(/<br\s*\/?>/i).map((piece) => escapeInline(piece.trim())).join('<br />');
+  const row = (cells) => `| ${cells.map(cell).join(' | ')} |`;
+  return [row(header), `| ${separator.map((s) => s.replace(/\s/g, '')).join(' | ')} |`, ...rows.map(row)].join('\n');
+}
+
+/**
+ * 見出しの無い 1 行だけの表で、図の題名（標準図の `Ａ―３型 標準図 | ４車線以上 … | 夜間作業`）のもの。
+ * 原本では図の枠の上の題名で、本体は図（テキスト層に無い）なので、表ではなく図のキャプションとして出す（DN-1053）
+ */
+function isFigureTitleRow(part, standardTitles) {
+  return standardTitles && part.kind === 'table' && part.rows.length === 1 && part.header.every((cells) => cells.every((cell) => !cell)) && isFigureCaption(part.rows[0][0] ?? '', { standardTitles });
 }
 
 /** 組み直した表の部品 1 つを Markdown にする（部品の種類は applyTableOverride のコメント）。 */
@@ -225,10 +259,9 @@ function renderOverridePart(part) {
   const row = (cells, bold = false) =>
     `| ${cells.map((cell) => (cell && bold ? `**${escapeInline(cell)}**` : escapeInline(cell))).join(' | ')} |`;
   // 見出しの結合セル（横に結合した上段の見出し・縦に結合した列名）は GFM で表せないので、
-  // 左隣・上の段と同じ文字の 2 つ目以降は空欄で出す。繰り返すと列幅が膨らみスマホで読めない
-  const header = part.header.map((cells, r) =>
-    cells.map((cell, c) => (cell && (cell === cells[c - 1] || cell === part.header[r - 1]?.[c]) ? '' : cell)),
-  );
+  // 結合（{same}）だった欄は空欄で出す。繰り返すと列幅が膨らみスマホで読めない。
+  // 文字が同じでも結合ではない欄（粒度区分の (13) が隣り合う列）は消さない（DN-1052）
+  const header = part.header.map((cells, r) => cells.map((cell, c) => (part.headerMerged?.[r]?.[c] ? '' : cell)));
   return [
     row(header[0]),
     `| ${header[0].map(() => '---').join(' | ')} |`,
@@ -245,7 +278,7 @@ const formatPages = (pages) =>
  * figureOf: (chapterId, sourceRef, caption) → 差し込む <ArticleImage> の文字列 | null。
  * 切り出した図が台帳に無いキャプションは今までどおりキャプションと SourceRef だけを出す（検査 20 が落とす）。
  */
-function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = [], amendmentNote = null, amendmentRows = null, figureOf = null) {
+function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = [], amendmentNote = null, amendmentRows = null, figureOf = null, transcribedTables = [], { standardFigureTitles = false } = {}) {
   // 章記事は next-mdx-remote で MDX としてコンパイルする（<SourceRef> を解決するため）。
   // MDX は HTML コメントを受け付けないので、注記は MDX コメント {/* */} で書く。
   const lines = [
@@ -295,12 +328,16 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
   const absorbedNodes = new Set();
   const absorbedParagraphs = new Map();
   const paragraphMismatch = new Set();
+  // 同じ版面（key）が同じ章に 2 回出て、後ろの段落（表の本体）が違うもの（近畿版 表3-2-14 と 3-2-15・DN-1052）は
+  // paragraphVariants の候補から段落が一致するものを選ぶ。選んだ中身をその表の位置でだけ使う
+  const nodeOverride = new Map();
   chapter.nodes.forEach((node, index) => {
     if (node.type !== 'table') return;
     const { body } = tableLayoutOf(node);
-    const override = body.length ? tableOverrides.get(tableKey(body)) : undefined;
-    const declared = override?.absorbsParagraphs;
-    if (!declared || override.review?.status !== 'approved') return;
+    const base = body.length ? tableOverrides.get(tableKey(body)) : undefined;
+    if (!base || base.review?.status !== 'approved') return;
+    const candidates = [base, ...variantsOf(base)].filter((candidate) => candidate.absorbsParagraphs);
+    if (candidates.length === 0) return;
     // before・after とも原本の並び順。before は表の直前の段落で終わり、after は表の直後の段落から始まる。
     // 宣言の段落の区切りと生成器の段落の区切りは一致しなくてよい（DN-0864 で箇条を 1 行ずつの段落に分けた）。
     // 表から離れる向きに段落をたどり、空白を除いてつないだ文字が宣言をつないだ文字とちょうど一致したら取り込む
@@ -320,16 +357,19 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       }
       return [null];
     };
-    const matched = [
-      ...neighbors(declared.before ?? [], index - 1, -1),
-      ...neighbors(declared.after ?? [], index + 1, 1),
-    ];
-    if (matched.some((n) => n === null)) {
-      paragraphMismatch.add(node);
+    for (const candidate of candidates) {
+      const declared = candidate.absorbsParagraphs;
+      const matched = [
+        ...neighbors(declared.before ?? [], index - 1, -1),
+        ...neighbors(declared.after ?? [], index + 1, 1),
+      ];
+      if (matched.some((n) => n === null)) continue;
+      for (const n of matched) absorbedNodes.add(n);
+      absorbedParagraphs.set(node, declared);
+      if (candidate !== base) nodeOverride.set(node, candidate);
       return;
     }
-    for (const n of matched) absorbedNodes.add(n);
-    absorbedParagraphs.set(node, declared);
+    paragraphMismatch.add(node);
   });
   const pendingAbsorbed = new Map();
 
@@ -369,7 +409,7 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       // 表の領域に吸われた図のキャプション（中部の特記 1-3 の図3-1）にも、台帳の図を差し込む（DN-0881）
       const pushTableCaption = (text) => {
         push(`**${escapeInline(text)}**`);
-        const figure = isFigureCaption(text) ? figureOf?.(chapter.chapterId, pages, text) : null;
+        const figure = isFigureCaption(text, { standardTitles: standardFigureTitles }) ? figureOf?.(chapter.chapterId, pages, text) : null;
         if (figure) push(figure);
       };
       if (caption.length) pushTableCaption(caption.map((l) => l.trim()).join(' '));
@@ -378,7 +418,7 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       // ゼロのものだけ使う。検証済みなのに文字が合わないのは組み直しの誤りなので生成を止める。
       const key = body.length ? tableKey(body) : null;
       if (paragraphMismatch.has(node)) console.log(`  [absorbsParagraphs] ${chapter.chapterId}: 組み直した表 ${key} の前後の段落がこの文書では違うので、組み直しを使わず版面から出す`);
-      const override = key && !paragraphMismatch.has(node) ? tableOverrides.get(key) : undefined;
+      const override = key && !paragraphMismatch.has(node) ? (nodeOverride.get(node) ?? tableOverrides.get(key)) : undefined;
       const applied = override
         ? applyTableOverride(body, override, { lookup: (ref) => tableOverrides.get(ref), absorbedBodies: seenBodies })
         : null;
@@ -402,6 +442,7 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
         } else {
           for (const part of applied.parts) {
             if (part.kind === 'caption') pushTableCaption(part.text);
+            else if (isFigureTitleRow(part, standardFigureTitles)) pushTableCaption(part.rows[0].join(' '));
             else push(renderOverridePart(part));
           }
         }
@@ -443,9 +484,23 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       push(`> ${escapeInline(joinWrapped(node.lines))}`);
       continue;
     }
-    const markdown = renderTranscribedMarkdown(node.lines);
+    const markdown = renderTranscribedMarkdown(node.lines, { standardFigureTitles });
+    // 図の題名の段落（標準図の題名。テキスト層では本文の段落になる）は、キャプションと原本から切り出した図にする（DN-1053）
+    const figureTitle = markdown?.figureTitle ?? (standardFigureTitles && node.type === 'paragraph' && RE_STANDARD_FIGURE_TITLE.test(joinWrapped(node.lines)) ? joinWrapped(node.lines) : null);
+    if (figureTitle) {
+      push(`**${escapeInline(figureTitle)}**`);
+      const figure = figureOf?.(chapter.chapterId, pages, figureTitle);
+      if (figure) push(figure);
+      push(`<SourceRef pages="${pages}" kind="figure" />`);
+      continue;
+    }
     if (markdown) {
-      markdown.forEach(push);
+      markdown.blocks.forEach(push);
+      if (markdown.table) {
+        tableOutcomes.push('restored');
+        transcribedTables.push(node);
+        push(`<SourceRef pages="${pages}" kind="table" />`);
+      }
       continue;
     }
     push(escapeBlockStart(escapeInline(joinWrapped(node.lines))));
@@ -602,6 +657,8 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
     const itemEdition = chapter.item ? editionDuplicateOf(overrides, `${document.agencyId}/${document.documentId}`, chapter.item) : null;
     const tableOutcomes = [];
     const chapterTables = [];
+    // 画像から起こしたページの GFM の表（段落として解析された塊）。表の数に足す（DN-0916）
+    const transcribedTables = [];
     const amendmentPages = amendment?.byChapter.get(chapter.chapterId) ?? null;
     const rows = amendment?.rowsByChapter.get(chapter.chapterId) ?? [];
     const markdown = renderChapter(
@@ -609,6 +666,8 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
       amendmentPages ? renderAmendmentNote(amendment, rows.length > 0) : null,
       rows.length ? { amendment, rows } : null,
       figureOf,
+      transcribedTables,
+      { standardFigureTitles: overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.standardFigureTitles === true },
     );
     verbatimTables.push(...chapterTables.map((table) => ({ ...table, document: `${document.agencyId}/${document.documentId}` })));
     const file = `chapters/${chapter.chapterId}.md`;
@@ -642,7 +701,7 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
       ...(chapter.plainArticles ? { plainArticles: true } : {}),
       ...(chapter.item ? { item: chapter.item } : {}),
       ...(itemEdition ? { editionCanonical: itemEdition.canonical } : {}),
-      stats: { ...countNodes(chapter), ...tallyTables(tableOutcomes) },
+      stats: (({ tables, ...rest }) => ({ ...rest, tables: tables + transcribedTables.length, paragraphs: rest.paragraphs - transcribedTables.length }))({ ...countNodes(chapter), ...tallyTables(tableOutcomes) }),
       tableOutcomes: tallyReasons(tableOutcomes),
       // 本文の無い章は中身が章名だけなので検索に載せない（読める状態は保つ）
       indexable: indexable && !bodyless && !itemEdition,

@@ -65,7 +65,8 @@ export function evaluateGate(facts, policy, now = Date.now(), { stock = false } 
   add('画像の基準', facts.standard);
   add('AI 画像の判定', facts.aiBlocked?.length === 0, facts.aiBlocked?.join(', '));
   add('完成動画の照合', facts.renderVerified);
-  add('内容QA', facts.qa?.avg >= policy.minQaAvg && facts.qa?.blocks <= policy.maxBlocks, facts.qa ? `平均 ${facts.qa.avg}・BLOCK ${facts.qa.blocks}` : '記録なし');
+  // 採点の後に原稿が変わった QA は通さない（DN-1067）
+  add('内容QA', facts.qa?.avg >= policy.minQaAvg && facts.qa?.blocks <= policy.maxBlocks && !facts.qaStale, facts.qaStale ? '採点の後に原稿が変わった（record-qa をやり直す）' : facts.qa ? `平均 ${facts.qa.avg}・BLOCK ${facts.qa.blocks}` : '記録なし');
   add('画面確認', facts.review === 'pass', facts.review);
   add('導線の検査', facts.funnelOk, facts.funnelDetail);
   add('音声', facts.audioProblems?.length === 0, facts.audioProblems?.join(' / '));

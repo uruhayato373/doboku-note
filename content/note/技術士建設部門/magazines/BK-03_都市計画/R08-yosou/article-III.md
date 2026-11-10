@@ -38,7 +38,7 @@ cover:
 - **持続可能な成果の達成**：社会・経済・環境の三側面から懸念事項・リスクを論じ、持続可能な都市形成を軸にする
 - **文化的価値の尊重**：歴史的市街地・地域景観・生態系が持つ文化的・自然的価値を計画に組み込む
 
-改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)をご覧ください。
+改訂コンピテンシーの詳細は[技術士第二次試験 コンピテンシー改訂（令和8年度）の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n6cadab07edf8)をご覧ください。
 
 ---
 
@@ -70,6 +70,22 @@ cover:
 論述の骨格と発注者視点の着眼点を参照しながら、各自の答案作成にお役立てください。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜都市計画 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）21本をまとめて読めるマガジンがあります。4本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/mc8bd949f1f51
+
+## 令和8年度 本試験との照合（2026年11月追記）
+
+この記事は、令和8年度の本試験（2026年7月20日）より前の2026年6月15日に公開した予想問題です。本試験で実際に出た設問と照らし合わせた結果を、外れた設問も含めてそのまま載せます。
+
+- III-1 立地適正化計画の評価と見直し：重なった（予想 III-1 は既存の立地適正化計画の見直しを主題にしています）
+- III-2 歴史的風致形成建造物（古民家）の活用：外れた
+
+判定は「重なった（主題がほぼ同じ）」「一部重なった（同じ対象の一部の論点を扱っている）」「外れた」の3段階です。本試験の設問全文とフル模範解答は、次の記事に収録しています。
+
+[技術士 建設部門｜都市及び地方計画 R08 選択科目III 模範解答（III-1・III-2）](https://note.com/dobokunote/n/n81f259486b66)
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。

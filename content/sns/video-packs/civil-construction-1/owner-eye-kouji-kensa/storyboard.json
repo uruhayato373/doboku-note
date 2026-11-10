@@ -1,0 +1,303 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "検査で、発注者は何を見る？",
+      "caption": "工事検査で、発注者は何を見ているのか",
+      "visual": {
+        "kind": "cover",
+        "heading": "工事検査で、発注者が見るところ",
+        "items": [
+          "1級土木施工管理｜元発注者の見方"
+        ]
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 33,
+      "narration": "完成検査、中間検査、既済部分検査。呼び方が似ていて、何を見られるのか分からないまま、書類と出来形の準備が後手になっていませんか。今日は、発注者の側にいた立場から、検査の見方を整理します。制度は国の工事の例で整理し、自治体は団体ごとに違います。結論は、検査には性格の違う二つの系統があり、見られるのは出来形、品質、書類の積み重ねだということです。",
+      "caption": "検査の二系統と、見られる積み重ねを整理する",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "検査は性格の違う二系統",
+          "見られるのは\n出来形・品質・書類の積み重ね"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／工事検査",
+          "note": "発注者の側の見方を、本動画で再構成した整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 33,
+      "end": 53,
+      "narration": "検査は、当日に一度だけ行う一種類の確認と思われがちですが、実際には、代金を払うために完了を確かめる検査と、施工の質を評価する検査が並んでいます。しかも、日ごろやり取りする監督職員と検査をする職員は、原則として別の職員です。",
+      "caption": "検査は一種類ではなく、担当も別の人",
+      "visual": {
+        "kind": "points",
+        "heading": "検査は一種類と思われがち",
+        "items": [
+          "当日に一度だけ\n一種類の確認",
+          "実際は\n目的の違う検査が並ぶ\n担当も別の職員"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／工事検査",
+          "note": "国の工事の例。自治体は団体ごとに異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "types",
+      "start": 53,
+      "end": 79,
+      "narration": "公共土木工事の代表的な手続きは四つです。完成検査は、設計図書のとおり完成したかを確かめます。既済部分検査は、完成前に代金の一部を払うため、出来形を確かめます。中間検査は、完成を待たずに、施工状況や出来形、品質、出来ばえを評価します。部分引渡しは、あらかじめ指定した部分を先に引き渡す手続きです。",
+      "caption": "完成・既済部分・中間・部分引渡しの4つ",
+      "visual": {
+        "kind": "points",
+        "heading": "代表的な4つの手続き",
+        "items": [
+          "完成検査\n設計図書どおりに完成したか",
+          "既済部分検査\n代金の一部を払うための出来形",
+          "中間検査\n施工中の品質と出来形の評価",
+          "部分引渡し\n指定部分を先に引き渡す"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／工事検査",
+          "note": "名称は発注機関で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "two-lines",
+      "start": 79,
+      "end": 108,
+      "narration": "この四つは、二つの系統に分けると整理できます。完成検査と既済部分検査は、会計法や地方自治法が求める、給付の完了の確認です。部分引渡しは、完成検査の仕組みを指定部分に当てはめるもので、完成検査と同じ系統です。一方、中間検査は、国の直轄工事で中間技術検査と呼ばれ、工事成績評定に使う技術的な評価です。同じ検査でも、見る目的が違います。",
+      "caption": "給付の完了の確認と、品質の評価は別の系統",
+      "visual": {
+        "kind": "points",
+        "heading": "検査の二つの系統",
+        "items": [
+          "給付の完了の確認\n完成検査・既済部分検査\n（部分引渡しは完成検査と同じ系統）",
+          "品質の評価\n中間検査（中間技術検査）"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "土木施工管理／工事検査",
+          "note": "国の工事の例。自治体は団体ごとの要領による"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "completion",
+      "start": 108,
+      "end": 142,
+      "narration": "完成検査の流れを、公共工事標準請負契約約款の例で見ます。受注者が完成を通知すると、発注者は、通知から十四日以内に、受注者の立会いのもとで検査を行い、結果を通知します。必要なときは、理由を伝えたうえで、最小限の範囲で壊して確かめることもあります。合格したら、引渡しを申し出て、代金を請求できます。不合格なら直して再度検査を受けます。日数や運用は発注者ごとに違うので、契約書で確かめてください。",
+      "caption": "完成の通知から14日以内に検査（約款の例）",
+      "visual": {
+        "kind": "points",
+        "heading": "完成検査の流れ（約款の例）",
+        "items": [
+          "完成の通知",
+          "14日以内に立会いで検査",
+          "合格：引渡しを申し出て代金を請求",
+          "不合格：修補して再検査"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／工事検査",
+          "note": "標準約款の例。日数は発注者の契約書で確認"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "two-people",
+      "start": 142,
+      "end": 167,
+      "narration": "監督職員と検査職員の違いです。監督職員は、工程の管理や立会い、指示や承諾など、日々の施工に付き合う窓口です。検査職員は、完成や既済部分の検査の当日に、出来形、品質、書類を突き合わせて合否を判断します。見る人が別ですから、日ごろの記録は、検査職員にも通じる形で残す必要があります。",
+      "caption": "日々の窓口は監督職員、合否を見るのは検査職員",
+      "visual": {
+        "kind": "points",
+        "heading": "監督職員と検査職員",
+        "items": [
+          "監督職員\n工程・立会い・指示や承諾",
+          "検査職員\n出来形・品質・書類を突き合わせ合否を判断"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／工事検査",
+          "note": "国の工事の例。自治体は団体ごとに異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "seen",
+      "start": 167,
+      "end": 194,
+      "narration": "検査で確かめられるのは、出来形、品質、出来ばえ、そして関係書類です。出来形は、測った値を規格値と対比した資料。品質は、材料試験の成績や管理図。出来ばえは、現地の仕上がりです。書類には、工事写真や、しゅん功図面、打合せの記録が入ります。当日にまとめて作れるものではなく、施工の積み重ねそのものが見られます。",
+      "caption": "出来形・品質・出来ばえ・書類が見られる",
+      "visual": {
+        "kind": "points",
+        "heading": "検査で確かめられる4つ",
+        "items": [
+          "出来形\n測定値と規格値の対比",
+          "品質\n材料試験・管理図",
+          "出来ばえ\n現地の仕上がり",
+          "関係書類\n写真・しゅん功図面・打合せ記録"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／工事検査",
+          "note": "検査の準備の整理は記事に基づく"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "interim",
+      "start": 194,
+      "end": 231,
+      "narration": "中間の検査は、国の直轄工事の例では、規模の大きい工事で施工中に行い、工事成績評定の点にも反映されます。国の評定は六十五点が出発点で、加点と減点で決まります。国の中間技術検査で確認された出来形は、その後に状況が変わらなければ、完成検査で確認を省略されることがあります。状況が変われば、改めて確認されます。だから、中間の段階から記録を整える価値があります。自治体は団体ごとの要領なので、受注する団体のものを確かめてください。",
+      "caption": "中間の検査は評定にも効く（国の直轄工事の例）",
+      "visual": {
+        "kind": "points",
+        "heading": "中間検査と工事成績評定（国の例）",
+        "items": [
+          "施工中に品質・出来形を評価",
+          "評定は65点から加減点",
+          "国の中間技術検査で確認した出来形は\n状況が変わらなければ完成検査で省略されることも"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／工事検査",
+          "note": "国の直轄工事の例。自治体は団体ごとの要領による"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 231,
+      "end": 263,
+      "narration": "仮の例で考えます。橋台の工事で、埋戻しの前に、鉄筋の組立の状況と寸法を、監督職員の立会いで確認し、写真と寸法の記録を残したとします。埋戻したあとは、見えなくなる部分です。後から検査職員が確かめるときは、この記録が頼りになります。写真は、何を証明するためのものか、撮る前に言葉にできるかが分かれ目です。この例は説明のための仮のもので、実在の工事ではありません。",
+      "caption": "見えなくなる前の記録が頼りになる（仮の例）",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例｜橋台の埋戻し前",
+        "items": [
+          "埋戻し前に\n鉄筋の状況と寸法を立会いで確認",
+          "写真と寸法を記録",
+          "埋戻し後は見えない\n記録で確かめる"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／工事検査",
+          "note": "説明用の仮の例。実在の工事ではない"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "exam-link",
+      "start": 263,
+      "end": 290,
+      "narration": "学習との接点を一つだけ。品質管理や出来形管理を学ぶとき、管理図や規格値を、検査で何を証明する資料かに置き換えて覚えると、理解が深まります。施工経験記述で品質管理の工夫を書くときも、どんな記録で確かめたかまで書けると、具体的になります。何が出題されるかは年度によって違うので、出題を予想するものではありません。",
+      "caption": "管理の資料を、検査で何を証明するかで覚える",
+      "visual": {
+        "kind": "points",
+        "heading": "学習への使い方",
+        "items": [
+          "管理図・規格値を\n何を証明する資料か、で覚える",
+          "経験記述では\nどの記録で確かめたかを書く"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "土木施工管理／工事検査",
+          "note": "出題を予想するものではない。本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "prep",
+      "start": 290,
+      "end": 316,
+      "narration": "準備は、着工のときから始まります。一つ、工事写真の撮影箇所一覧表を、着工前に作る。二つ、出来形と品質の測定値を、規格値と対比できる形で、その都度まとめる。三つ、図面と現場が合わないと気づいたら、図面名、測点、数値で、直ちに監督職員へ通知し、記録を残す。この記録は、設計変更の協議でも根拠になります。",
+      "caption": "着工前から撮影一覧・対比・通知の記録を残す",
+      "visual": {
+        "kind": "points",
+        "heading": "着工から残す3つ",
+        "items": [
+          "撮影箇所一覧表を\n着工前に作る",
+          "測定値を規格値と\n対比してその都度まとめる",
+          "食い違いは図面名・測点・数値で\n通知して記録"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／工事検査",
+          "note": "記事に基づく本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 316,
+      "end": 335,
+      "narration": "まとめます。検査は、給付の完了を確かめる系統と、品質を評価する系統の二つ。監督職員と検査職員は、原則として別の人。見られるのは、出来形、品質、書類の積み重ね。そして準備は、検査の当日ではなく、着工から始まります。",
+      "caption": "二系統・別の担当・積み重ね・着工から",
+      "visual": {
+        "kind": "points",
+        "heading": "今日のまとめ",
+        "items": [
+          "検査は二つの系統",
+          "監督と検査は原則別の人",
+          "見られるのは積み重ね",
+          "準備は着工から"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／工事検査",
+          "note": "本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 335,
+      "end": 346,
+      "narration": "検査の種類と根拠、監督職員との役割分担は、サイトの記事で詳しく整理しています。概要欄のリンクから、確認してください。",
+      "caption": "詳しくはサイトの記事で（概要欄）",
+      "visual": {
+        "kind": "points",
+        "heading": "詳しくはサイトの記事で",
+        "items": [
+          "工事検査の種類と役割",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／工事検査"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    }
+  ]
+}

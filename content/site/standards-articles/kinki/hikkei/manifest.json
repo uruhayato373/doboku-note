@@ -69,25 +69,25 @@
     "frontMatterPages": 3,
     "bodyPages": 758,
     "bodyLineTotal": 20492,
-    "assignedLines": 19161,
-    "removedLines": 1331,
+    "assignedLines": 19162,
+    "removedLines": 1330,
     "unassignedLines": 0,
     "chapters": 115,
     "assignedPages": 744,
     "removedRunningHeaders": 152,
     "removedPrintPageNumbers": 687,
-    "removedChapterFront": 142,
+    "removedChapterFront": 141,
     "dedentedPages": 192,
-    "tables": 274,
-    "tablesGfm": 4,
+    "tables": 298,
+    "tablesGfm": 27,
     "tablesList": 0,
-    "tablesOverride": 229,
-    "tablesVerbatim": 41
+    "tablesOverride": 233,
+    "tablesVerbatim": 38
   },
   "tableOutcomes": {
-    "restored-override": 229,
-    "restored": 4,
-    "override-verbatim": 41
+    "restored-override": 233,
+    "restored": 27,
+    "override-verbatim": 38
   },
   "removedSamples": {
     "runningHeaders": [
@@ -202,12 +202,12 @@
         "paragraphs": 344,
         "items": 0,
         "notes": 0,
-        "tables": 6,
         "captions": 0,
         "tablesGfm": 2,
         "tablesList": 0,
         "tablesOverride": 4,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 6
       },
       "tableOutcomes": {
         "restored-override": 4,
@@ -262,12 +262,12 @@
         "paragraphs": 196,
         "items": 44,
         "notes": 0,
-        "tables": 12,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 12,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 12
       },
       "tableOutcomes": {
         "restored-override": 12
@@ -323,12 +323,12 @@
         "paragraphs": 231,
         "items": 47,
         "notes": 0,
-        "tables": 12,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 12,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 12
       },
       "tableOutcomes": {
         "restored-override": 12
@@ -369,12 +369,12 @@
         "paragraphs": 4,
         "items": 0,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 2
@@ -421,12 +421,12 @@
         "paragraphs": 33,
         "items": 0,
         "notes": 0,
-        "tables": 5,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 5,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 5
       },
       "tableOutcomes": {
         "restored-override": 5
@@ -465,8 +465,8 @@
         78
       ],
       "sourceSha256": "e6df1e287192da20140ba6f151172c943c5b8181681982be6d5df9f214977460",
-      "outputSha256": "4720743b134472401bb76ac196acadcb78ca471395ff4e2fca6445b75634f61a",
-      "outputBytes": 24770,
+      "outputSha256": "fd6be23f69254a4ca250233923ea6b7805aeedc5ab966e7b625bc9cb45c5e7f4",
+      "outputBytes": 24801,
       "splitBySection": false,
       "sections": [],
       "item": 3,
@@ -474,20 +474,20 @@
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 83,
+        "paragraphs": 82,
         "items": 0,
         "notes": 0,
-        "tables": 6,
         "captions": 0,
-        "tablesGfm": 1,
+        "tablesGfm": 2,
         "tablesList": 0,
         "tablesOverride": 4,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 7
       },
       "tableOutcomes": {
         "restored-override": 4,
         "override-verbatim": 1,
-        "restored": 1
+        "restored": 2
       },
       "indexable": true,
       "duplicateOf": null,
@@ -525,12 +525,12 @@
         "paragraphs": 2,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -568,8 +568,8 @@
         92
       ],
       "sourceSha256": "62598b3299dbb77b42c377682e7ebaea57c5017076aeabe51b5e34194b935733",
-      "outputSha256": "d2b2e70cc2d05bbf92c9cf926e2dcd41eba64796755bfec946f03e893a0fc45a",
-      "outputBytes": 9755,
+      "outputSha256": "37bc73c5847764e2645e44c185dde5fa3577ed9f8fd6423efb5c17da406e3b6b",
+      "outputBytes": 9791,
       "splitBySection": false,
       "sections": [],
       "item": 4,
@@ -580,12 +580,12 @@
         "paragraphs": 79,
         "items": 0,
         "notes": 0,
-        "tables": 12,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 12,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 12
       },
       "tableOutcomes": {
         "restored-override": 12
@@ -629,12 +629,12 @@
         "paragraphs": 9,
         "items": 0,
         "notes": 0,
-        "tables": 4,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 4
       },
       "tableOutcomes": {
         "restored-override": 3,
@@ -685,12 +685,12 @@
         "paragraphs": 35,
         "items": 0,
         "notes": 0,
-        "tables": 6,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 3
+        "tablesVerbatim": 3,
+        "tables": 6
       },
       "tableOutcomes": {
         "override-verbatim": 3,
@@ -740,12 +740,12 @@
         "paragraphs": 26,
         "items": 0,
         "notes": 0,
-        "tables": 8,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 4,
-        "tablesVerbatim": 4
+        "tablesVerbatim": 4,
+        "tables": 8
       },
       "tableOutcomes": {
         "override-verbatim": 4,
@@ -794,12 +794,12 @@
         "paragraphs": 60,
         "items": 0,
         "notes": 0,
-        "tables": 12,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 8,
-        "tablesVerbatim": 4
+        "tablesVerbatim": 4,
+        "tables": 12
       },
       "tableOutcomes": {
         "override-verbatim": 4,
@@ -845,12 +845,12 @@
         "paragraphs": 16,
         "items": 0,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 3
       },
       "tableOutcomes": {
         "restored-override": 3
@@ -894,12 +894,12 @@
         "paragraphs": 14,
         "items": 0,
         "notes": 1,
-        "tables": 5,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 2
+        "tablesVerbatim": 2,
+        "tables": 5
       },
       "tableOutcomes": {
         "override-verbatim": 2,
@@ -942,12 +942,12 @@
         "paragraphs": 6,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -989,12 +989,12 @@
         "paragraphs": 1,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -1036,12 +1036,12 @@
         "paragraphs": 26,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -1071,8 +1071,8 @@
         155
       ],
       "sourceSha256": "377a1013630244d550edcc2793125807ac710600fcac3a6813a6f30e2b2fd03b",
-      "outputSha256": "85250f52d5d8a28e7d3b18c338f80a60ddd080eaa87c093846d46d6f74b8d502",
-      "outputBytes": 6552,
+      "outputSha256": "04affee7321ec6431573aaab63d24c9ec0ed72185620fce0addaecc1fe52e4b4",
+      "outputBytes": 6617,
       "splitBySection": false,
       "sections": [],
       "item": 7,
@@ -1080,17 +1080,19 @@
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 51,
+        "paragraphs": 49,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
-        "tablesGfm": 0,
+        "tablesGfm": 2,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
-      "tableOutcomes": {},
+      "tableOutcomes": {
+        "restored": 2
+      },
       "indexable": true,
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -1138,12 +1140,12 @@
         "paragraphs": 130,
         "items": 17,
         "notes": 0,
-        "tables": 7,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 6,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 7
       },
       "tableOutcomes": {
         "restored-override": 6,
@@ -1191,12 +1193,12 @@
         "paragraphs": 62,
         "items": 6,
         "notes": 0,
-        "tables": 4,
         "captions": 0,
         "tablesGfm": 1,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 4
       },
       "tableOutcomes": {
         "restored-override": 3,
@@ -1241,12 +1243,12 @@
         "paragraphs": 10,
         "items": 0,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 3
       },
       "tableOutcomes": {
         "restored-override": 3
@@ -1319,12 +1321,12 @@
         "paragraphs": 33,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -1394,12 +1396,12 @@
         "paragraphs": 12,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -1492,12 +1494,12 @@
         "paragraphs": 92,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -1566,12 +1568,12 @@
         "paragraphs": 8,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -1655,12 +1657,12 @@
         "paragraphs": 36,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -1764,12 +1766,12 @@
         "paragraphs": 33,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -1797,8 +1799,8 @@
         209
       ],
       "sourceSha256": "a0bb0bda69a56fae4a92fd8196ca2f8756473a18c07911d8bb05dd9ba6468f24",
-      "outputSha256": "e63459ad2e7d393d51518bcf3effe15689db6bff6b2757d5408918c3b91077b9",
-      "outputBytes": 14240,
+      "outputSha256": "370ea45c887022efcc9e1879287fec77b812d8e725dccfb19beb184da188fbe7",
+      "outputBytes": 12830,
       "splitBySection": false,
       "sections": [],
       "item": 9,
@@ -1813,12 +1815,12 @@
         "paragraphs": 21,
         "items": 0,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 3
       },
       "tableOutcomes": {
         "restored-override": 3
@@ -1861,12 +1863,12 @@
         "paragraphs": 25,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -1917,12 +1919,12 @@
         "paragraphs": 91,
         "items": 10,
         "notes": 0,
-        "tables": 7,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 7,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 7
       },
       "tableOutcomes": {
         "restored-override": 7
@@ -1997,12 +1999,12 @@
         "paragraphs": 22,
         "items": 12,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -2133,12 +2135,12 @@
         "paragraphs": 88,
         "items": 135,
         "notes": 0,
-        "tables": 5,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 5,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 5
       },
       "tableOutcomes": {
         "restored-override": 5
@@ -2197,12 +2199,12 @@
         "paragraphs": 15,
         "items": 18,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -2298,12 +2300,12 @@
         "paragraphs": 60,
         "items": 101,
         "notes": 0,
-        "tables": 4,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 4,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 4
       },
       "tableOutcomes": {
         "restored-override": 4
@@ -2426,12 +2428,12 @@
         "paragraphs": 87,
         "items": 125,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -2533,12 +2535,12 @@
         "paragraphs": 66,
         "items": 94,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 2
@@ -2626,12 +2628,12 @@
         "paragraphs": 51,
         "items": 91,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 2
@@ -2708,12 +2710,12 @@
         "paragraphs": 21,
         "items": 55,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 2
@@ -2790,12 +2792,12 @@
         "paragraphs": 36,
         "items": 49,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -2881,12 +2883,12 @@
         "paragraphs": 53,
         "items": 61,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -2963,12 +2965,12 @@
         "paragraphs": 41,
         "items": 29,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -3018,12 +3020,12 @@
         "paragraphs": 16,
         "items": 21,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -3107,12 +3109,12 @@
         "paragraphs": 33,
         "items": 49,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 3
       },
       "tableOutcomes": {
         "restored-override": 3
@@ -3201,12 +3203,12 @@
         "paragraphs": 53,
         "items": 98,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 3
       },
       "tableOutcomes": {
         "restored-override": 3
@@ -3354,12 +3356,12 @@
         "paragraphs": 214,
         "items": 144,
         "notes": 0,
-        "tables": 15,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 15,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 15
       },
       "tableOutcomes": {
         "restored-override": 15
@@ -3449,12 +3451,12 @@
         "paragraphs": 85,
         "items": 48,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -3534,12 +3536,12 @@
         "paragraphs": 51,
         "items": 102,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -3624,12 +3626,12 @@
         "paragraphs": 49,
         "items": 72,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 2
@@ -3688,12 +3690,12 @@
         "paragraphs": 16,
         "items": 41,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -3734,12 +3736,12 @@
         "paragraphs": 30,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -3781,12 +3783,12 @@
         "paragraphs": 71,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -3840,12 +3842,12 @@
         "paragraphs": 275,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -3887,12 +3889,12 @@
         "paragraphs": 2,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -4021,12 +4023,12 @@
         "paragraphs": 45,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4122,12 +4124,12 @@
         "paragraphs": 38,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4219,12 +4221,12 @@
         "paragraphs": 60,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4301,12 +4303,12 @@
         "paragraphs": 31,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4389,12 +4391,12 @@
         "paragraphs": 36,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4451,12 +4453,12 @@
         "paragraphs": 13,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4533,12 +4535,12 @@
         "paragraphs": 32,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4640,12 +4642,12 @@
         "paragraphs": 37,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4709,12 +4711,12 @@
         "paragraphs": 13,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4802,12 +4804,12 @@
         "paragraphs": 25,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4871,12 +4873,12 @@
         "paragraphs": 13,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -4933,12 +4935,12 @@
         "paragraphs": 16,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -5065,12 +5067,12 @@
         "paragraphs": 46,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -5225,12 +5227,12 @@
         "paragraphs": 89,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -5308,12 +5310,12 @@
         "paragraphs": 29,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -5396,12 +5398,12 @@
         "paragraphs": 32,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -5470,12 +5472,12 @@
         "paragraphs": 13,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -5564,12 +5566,12 @@
         "paragraphs": 31,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": false,
@@ -5610,12 +5612,12 @@
         "paragraphs": 15,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -5658,12 +5660,12 @@
         "paragraphs": 87,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -5707,12 +5709,12 @@
         "paragraphs": 26,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -5762,12 +5764,12 @@
         "paragraphs": 62,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -5822,12 +5824,12 @@
         "paragraphs": 81,
         "items": 6,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 2
+        "tablesVerbatim": 2,
+        "tables": 3
       },
       "tableOutcomes": {
         "override-verbatim": 2,
@@ -5875,12 +5877,12 @@
         "paragraphs": 9,
         "items": 0,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 2
@@ -5916,8 +5918,8 @@
         509
       ],
       "sourceSha256": "30767fd0b0d2f7c6e8f11f5da41497be8547c266b4e7835ad7e619a3b1eb39fb",
-      "outputSha256": "0c4dc929f5f8a6254fc1d2db06fff1273f3edd3271164ea5f24b7244cf29240d",
-      "outputBytes": 7124,
+      "outputSha256": "173d0b569894b8e4eae6f8ebecf973119b8d0d2f2bcd6bf845eb03a6aad5782c",
+      "outputBytes": 10901,
       "splitBySection": false,
       "sections": [],
       "item": 19,
@@ -5932,16 +5934,15 @@
         "paragraphs": 33,
         "items": 30,
         "notes": 0,
-        "tables": 9,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 6,
-        "tablesVerbatim": 3
+        "tablesOverride": 10,
+        "tablesVerbatim": 0,
+        "tables": 10
       },
       "tableOutcomes": {
-        "restored-override": 6,
-        "override-verbatim": 3
+        "restored-override": 10
       },
       "indexable": false,
       "duplicateOf": null,
@@ -5988,12 +5989,12 @@
         "paragraphs": 16,
         "items": 24,
         "notes": 0,
-        "tables": 7,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 7,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 7
       },
       "tableOutcomes": {
         "restored-override": 7
@@ -6042,12 +6043,12 @@
         "paragraphs": 99,
         "items": 2,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -6080,8 +6081,8 @@
         532
       ],
       "sourceSha256": "fc5f7d9e0f89bacab676e6dd85ba2c29bc704c90d12eaec3903bba346de7a3f8",
-      "outputSha256": "630e426174d00cdb04899ea5bdeab1c38d610a1f9e9a4f06272fe4928de99c53",
-      "outputBytes": 12145,
+      "outputSha256": "0d0f1bd67e27812678514afc983f68b0b8f97f10ca056239cb89a604506950e6",
+      "outputBytes": 12180,
       "splitBySection": false,
       "sections": [],
       "item": 20,
@@ -6093,18 +6094,19 @@
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 43,
+        "paragraphs": 42,
         "items": 0,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
-        "tablesGfm": 0,
+        "tablesGfm": 1,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 4
       },
       "tableOutcomes": {
-        "restored-override": 3
+        "restored-override": 3,
+        "restored": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -6154,12 +6156,12 @@
         "paragraphs": 51,
         "items": 17,
         "notes": 0,
-        "tables": 4,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 4,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 4
       },
       "tableOutcomes": {
         "restored-override": 4
@@ -6203,12 +6205,12 @@
         "paragraphs": 34,
         "items": 0,
         "notes": 0,
-        "tables": 4,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 4,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 4
       },
       "tableOutcomes": {
         "restored-override": 4
@@ -6255,12 +6257,12 @@
         "paragraphs": 34,
         "items": 0,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 2
@@ -6305,12 +6307,12 @@
         "paragraphs": 33,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -6356,12 +6358,12 @@
         "paragraphs": 72,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -6429,12 +6431,12 @@
         "paragraphs": 30,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -6475,12 +6477,12 @@
         "paragraphs": 32,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -6527,12 +6529,12 @@
         "paragraphs": 71,
         "items": 0,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 2
@@ -6591,12 +6593,12 @@
         "paragraphs": 75,
         "items": 0,
         "notes": 0,
-        "tables": 4,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 4,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 4
       },
       "tableOutcomes": {
         "restored-override": 4
@@ -6637,12 +6639,12 @@
         "paragraphs": 19,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -6687,12 +6689,12 @@
         "paragraphs": 52,
         "items": 0,
         "notes": 0,
-        "tables": 6,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 6,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 6
       },
       "tableOutcomes": {
         "restored-override": 6
@@ -6734,12 +6736,12 @@
         "paragraphs": 30,
         "items": 0,
         "notes": 0,
-        "tables": 4,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 4,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 4
       },
       "tableOutcomes": {
         "restored-override": 4
@@ -6769,8 +6771,8 @@
         606
       ],
       "sourceSha256": "efe8ec23ec235e5f42e461eba5cb2c1cefd074415f43558019b83f9faeabb0e4",
-      "outputSha256": "bd5574838f54ecc24e25c614b5df1bc6dee8a077c870e0af049031a7bf90b49f",
-      "outputBytes": 6700,
+      "outputSha256": "95ea975017ff8defef21f7e2af519e281be9d8657895f16991611168bf9ac11f",
+      "outputBytes": 6703,
       "splitBySection": false,
       "sections": [],
       "item": 27,
@@ -6778,18 +6780,19 @@
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 12,
+        "paragraphs": 11,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
-        "tablesGfm": 0,
+        "tablesGfm": 1,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 2
       },
       "tableOutcomes": {
-        "override-verbatim": 1
+        "override-verbatim": 1,
+        "restored": 1
       },
       "indexable": true,
       "duplicateOf": null,
@@ -6833,12 +6836,12 @@
         "paragraphs": 39,
         "items": 0,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 2
@@ -6874,8 +6877,8 @@
         627
       ],
       "sourceSha256": "5cb2e27bb309a83914a4719b6fa67820dd7ebe03a7a317b31218b90da1880872",
-      "outputSha256": "35eeb4b6ff95d476e9ea7b8d80b09c3e14d6dda7c28d4ca04c4e8d55f80342ea",
-      "outputBytes": 11457,
+      "outputSha256": "dd0b1cf6cd4ea39d01b1210d467f863c080f460ec71e0a0a50f0786443d28153",
+      "outputBytes": 11324,
       "splitBySection": false,
       "sections": [],
       "item": 29,
@@ -6890,12 +6893,12 @@
         "paragraphs": 78,
         "items": 0,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 3
       },
       "tableOutcomes": {
         "restored-override": 3
@@ -6948,12 +6951,12 @@
         "paragraphs": 89,
         "items": 0,
         "notes": 0,
-        "tables": 7,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 6,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 7
       },
       "tableOutcomes": {
         "restored-override": 6,
@@ -7000,12 +7003,12 @@
         "paragraphs": 4,
         "items": 0,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 1,
@@ -7058,12 +7061,12 @@
         "paragraphs": 17,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
       "tableOutcomes": {
         "restored-override": 1
@@ -7104,12 +7107,12 @@
         "paragraphs": 20,
         "items": 0,
         "notes": 0,
-        "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 2
       },
       "tableOutcomes": {
         "restored-override": 1,
@@ -7154,12 +7157,12 @@
         "paragraphs": 84,
         "items": 0,
         "notes": 0,
-        "tables": 4,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 3
+        "tablesVerbatim": 3,
+        "tables": 4
       },
       "tableOutcomes": {
         "override-verbatim": 3,
@@ -7213,12 +7216,12 @@
         "paragraphs": 118,
         "items": 3,
         "notes": 0,
-        "tables": 10,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 5,
-        "tablesVerbatim": 5
+        "tablesVerbatim": 5,
+        "tables": 10
       },
       "tableOutcomes": {
         "restored-override": 5,
@@ -7254,8 +7257,8 @@
         682
       ],
       "sourceSha256": "01baae7971fd835d29b65df017e3a26cecf4b563957107051672db3f6dba3aa8",
-      "outputSha256": "b0f1e3ac1856669854dcbc4b1150eb8bc90bafd1366d108ad4f079bffdfb8705",
-      "outputBytes": 22977,
+      "outputSha256": "d086985978caa4e5d7e1aee42218297ce0925f4c84e0cf62da8bda4edc81820b",
+      "outputBytes": 22728,
       "splitBySection": false,
       "sections": [],
       "item": 31,
@@ -7263,17 +7266,19 @@
         "sections": 0,
         "articles": 0,
         "clauses": 6,
-        "paragraphs": 61,
+        "paragraphs": 55,
         "items": 2,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
-        "tablesGfm": 0,
+        "tablesGfm": 6,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 6
       },
-      "tableOutcomes": {},
+      "tableOutcomes": {
+        "restored": 6
+      },
       "indexable": true,
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -7314,12 +7319,12 @@
         "paragraphs": 36,
         "items": 0,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 3
       },
       "tableOutcomes": {
         "restored-override": 2,
@@ -7365,12 +7370,12 @@
         "paragraphs": 15,
         "items": 0,
         "notes": 0,
-        "tables": 5,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 4,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 5
       },
       "tableOutcomes": {
         "restored-override": 4,
@@ -7418,12 +7423,12 @@
         "paragraphs": 79,
         "items": 14,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -7454,8 +7459,8 @@
         707
       ],
       "sourceSha256": "a81cf1ae4de9db3b19877c70f7626a0c9e09851a69941851db4808dfa0e1974b",
-      "outputSha256": "3e8f4025976ad77c12faf13db18867f364cfbdb3e9f0596832a92586a3573412",
-      "outputBytes": 5126,
+      "outputSha256": "eac558f3dd380b573a964369cc3ce700cf5781d12a7595d5198ea0ea3bfd94f7",
+      "outputBytes": 5162,
       "splitBySection": false,
       "sections": [],
       "item": 34,
@@ -7463,18 +7468,19 @@
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 15,
+        "paragraphs": 14,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
-        "tablesGfm": 0,
+        "tablesGfm": 1,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 2
       },
       "tableOutcomes": {
-        "restored-override": 1
+        "restored-override": 1,
+        "restored": 1
       },
       "indexable": true,
       "duplicateOf": null,
@@ -7503,8 +7509,8 @@
         712
       ],
       "sourceSha256": "0f76a5ffdd91837b5e05c1c41683a2f938fcd61222bafb763577f4619d55ebee",
-      "outputSha256": "b9af4f4b1b66e4e41b1cffa2eb932afa143995adaa5d8d34e33d0198cffb2c02",
-      "outputBytes": 2939,
+      "outputSha256": "3e343ad11597f6a2e8ea8ad7d417ca02c49613093d0a9363f13c24ed46574f14",
+      "outputBytes": 3055,
       "splitBySection": false,
       "sections": [],
       "item": 34,
@@ -7512,17 +7518,18 @@
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 14,
+        "paragraphs": 11,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
-        "tablesGfm": 0,
+        "tablesGfm": 3,
         "tablesList": 0,
         "tablesOverride": 1,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 4
       },
       "tableOutcomes": {
+        "restored": 3,
         "restored-override": 1
       },
       "indexable": true,
@@ -7550,8 +7557,8 @@
         715
       ],
       "sourceSha256": "c7df6c8dd23418dc1f17d8ebcead738c10e8dc647ddd7b2a96879165ac3f8cf0",
-      "outputSha256": "524f252f134d242971c090c9eefc51eeed9ac211d20e601f4ffacccecdf07bdb",
-      "outputBytes": 3568,
+      "outputSha256": "cd84a786f326f79a5b3e886daec32cbbb3a15969fb37e86b30e08ff27bb1bd0e",
+      "outputBytes": 3575,
       "splitBySection": false,
       "sections": [],
       "item": 34,
@@ -7559,17 +7566,19 @@
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 24,
+        "paragraphs": 23,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
-        "tablesGfm": 0,
+        "tablesGfm": 1,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 1
       },
-      "tableOutcomes": {},
+      "tableOutcomes": {
+        "restored": 1
+      },
       "indexable": true,
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -7609,12 +7618,12 @@
         "paragraphs": 60,
         "items": 2,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 0
       },
       "tableOutcomes": {},
       "indexable": true,
@@ -7644,8 +7653,8 @@
         725
       ],
       "sourceSha256": "47cd900b22348686a2920ee65161f877f9624efb78cba11891dea8327dece443",
-      "outputSha256": "5194cfd3460d24a5f27b0016443561c1131fe878fab33c0e1659f54c0de59d1b",
-      "outputBytes": 6399,
+      "outputSha256": "1ad21cab3864c2f9c27e045036c00943a5fdc01b07b13e1595af28eed3eb661f",
+      "outputBytes": 6535,
       "splitBySection": false,
       "sections": [],
       "item": 36,
@@ -7653,17 +7662,19 @@
         "sections": 0,
         "articles": 0,
         "clauses": 6,
-        "paragraphs": 33,
+        "paragraphs": 27,
         "items": 0,
         "notes": 0,
-        "tables": 0,
         "captions": 0,
-        "tablesGfm": 0,
+        "tablesGfm": 6,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 0
+        "tablesVerbatim": 0,
+        "tables": 6
       },
-      "tableOutcomes": {},
+      "tableOutcomes": {
+        "restored": 6
+      },
       "indexable": true,
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -7708,12 +7719,12 @@
         "paragraphs": 94,
         "items": 0,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 3
       },
       "tableOutcomes": {
         "override-verbatim": 1,
@@ -7758,8 +7769,8 @@
         751
       ],
       "sourceSha256": "42f0419edb3acd1c948b17b8bedeb47283b1de46ee09c9c7591c2e08a161e2da",
-      "outputSha256": "6d7e8ab0c6574b5ab4d7325f421049570582b956d9a7c61cbbfeb76d380e1d83",
-      "outputBytes": 28705,
+      "outputSha256": "883cd1207f85d3bbb15fe6fc016e38005f073dd94fcbbe2d42a8b2bc3e3e1cdb",
+      "outputBytes": 28210,
       "splitBySection": false,
       "sections": [],
       "item": 38,
@@ -7770,12 +7781,12 @@
         "paragraphs": 210,
         "items": 18,
         "notes": 0,
-        "tables": 6,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 3,
-        "tablesVerbatim": 3
+        "tablesVerbatim": 3,
+        "tables": 6
       },
       "tableOutcomes": {
         "restored-override": 3,
@@ -7821,12 +7832,12 @@
         "paragraphs": 37,
         "items": 5,
         "notes": 0,
-        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
         "tablesOverride": 2,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 3
       },
       "tableOutcomes": {
         "restored-override": 2,
@@ -7858,8 +7869,8 @@
         761
       ],
       "sourceSha256": "43c2c524048a8d0a6cf6d4962c97ae74b77aeb1510660b8103a2f9d50a20a961",
-      "outputSha256": "4983aa56b34df9da3a71cd220352d86c4df5f87ec4ce22923d3a4cab093a8030",
-      "outputBytes": 7814,
+      "outputSha256": "23efd1abeaf3748cacf723bdaad328a67162a3f033e849a728533e52b7b6d377",
+      "outputBytes": 7852,
       "splitBySection": false,
       "sections": [],
       "item": 38,
@@ -7867,17 +7878,18 @@
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 9,
+        "paragraphs": 8,
         "items": 0,
         "notes": 0,
-        "tables": 1,
         "captions": 0,
-        "tablesGfm": 0,
+        "tablesGfm": 1,
         "tablesList": 0,
         "tablesOverride": 0,
-        "tablesVerbatim": 1
+        "tablesVerbatim": 1,
+        "tables": 2
       },
       "tableOutcomes": {
+        "restored": 1,
         "override-verbatim": 1
       },
       "indexable": true,

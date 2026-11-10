@@ -92,7 +92,7 @@ jobs:
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_AUDIT_SECRET_ACCESS_KEY || secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
         run: |
           set +e
-          node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs --images-only --json > "$RUNNER_TEMP/r2-diff.json"
+          node .claude/skills/diff-r2/scripts/diff-r2.mjs --images-only --json > "$RUNNER_TEMP/r2-diff.json"
           rc=$?
           set -e
           node -e '

@@ -2694,7 +2694,7 @@
       "kind": "不具合",
       "prevention": {
         "type": "doc",
-        "ref": ".claude/skills/conversion/past-exam-archive/SKILL.md"
+        "ref": ".claude/skills/past-exam-archive/SKILL.md"
       },
       "executor": "claude-code",
       "outcome": "done",
@@ -4684,7 +4684,7 @@
       "kind": "不具合",
       "prevention": {
         "type": "doc",
-        "ref": ".claude/skills/management/weekly-review/SKILL.md"
+        "ref": ".claude/skills/weekly-review/SKILL.md"
       },
       "executor": "claude-code",
       "outcome": "done",
@@ -6856,6 +6856,148 @@
       "commit": "b1ed46e80484",
       "verification": null,
       "note": "PR #1456: GscSitemaps のテストが robots.txt の sitemap 1 件で成り立たなくなっていたのを直し、commit 前の検査が落ちたテストの行を先に出すようにした。fetch-metrics（run 42425463096）が develop へ publish し、W44 のダイジェストが出て Issue #1421 が閉じた"
+    },
+    {
+      "id": "DN-1055",
+      "at": "2026-11-09",
+      "task": "基準書 kinki/common の 2 章が画面の目視判定で不合格（1-2・10-15）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/standards-render-fixes.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7537d21f85bf",
+      "verification": "standards-visual-review record で 2 章 pass・check-standard-articles 480 PASS",
+      "note": "1-2・10-15 を撮り直して目視判定で合格（作業票 20261109T060218Z）。横結合の長文は（同左）、表1-2-1 は headerImage で 1 段、キャプション直後の 1 行見出しの小さな表を表に"
+    },
+    {
+      "id": "DN-1065",
+      "at": "2026-11-10",
+      "task": "画像が出ないだけで試行回数を使い切る generate を直し、上限から戻す手段を足す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/video-factory.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9192a4674034",
+      "verification": "node --test tests/video-factory.test.mjs tests/youtube-longform-plan.test.mjs（PR #1484・9192a4674）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1066",
+      "at": "2026-11-10",
+      "task": "承認済みで未予約の行を status と棚卸しで見分け、日時を付け直せるようにする",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/video-factory.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9192a4674034",
+      "verification": "node --test tests/video-factory.test.mjs tests/youtube-longform-plan.test.mjs（PR #1484・9192a4674）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1073",
+      "at": "2026-11-10",
+      "task": "技術士 建設部門の設問ページの骨組み（問題文・frontmatter・配分の枠・リンク）をスクリプトで生成する",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "06398e96a7ea",
+      "verification": "npm run check-pe-question-pages && node --test tests/pe-question-pages.test.mjs",
+      "note": "pe-question-pages（scaffold/check/claims）とテスト。道路16本で問題文の節が一致"
+    },
+    {
+      "id": "DN-1074",
+      "at": "2026-11-10",
+      "task": "技術士 建設部門の設問ページを必須科目Ⅰと受験者の多い 4 科目（R07・R08・約 68 本）へ広げる",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a6ef74263cf8",
+      "verification": "npm run check-pe-question-pages",
+      "note": "必須科目I 4本＋鋼コン・河川砂防・施工計画・土質及び基礎 各16本（R07・R08）の計68本。サブエージェント約230万トークン（1本約3.4万）。道路16本の main 反映はこの段の完了で運営者に諮る"
+    },
+    {
+      "id": "DN-1067",
+      "at": "2026-11-10",
+      "task": "内容QAの合格を原稿の版に結び、工程の順を手順書・status・Workflow でそろえる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c065dcce0804",
+      "verification": "node --test tests/video-factory.test.mjs（PR #1490・91414600d）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1079",
+      "at": "2026-11-10",
+      "task": "出題テーマ分析の記事から設問ページ（R07・R08）へ逆リンクを張る",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e55db31e6c86",
+      "verification": "npm run check-table-rendering",
+      "note": "出題テーマ分析6本（道路・必須I・鋼コン・河川砂防・施工計画・土質）のR07・R08の出題テーマ名を設問ページ84本へのリンクにした。build の内部リンク検査は PR の CI で確認"
+    },
+    {
+      "id": "DN-1068",
+      "at": "2026-11-10",
+      "task": "動画の制作の途中状態を段ごとに commit し、生成の前に無料の検査を通す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ccd244787506",
+      "verification": "node --test tests/video-factory.test.mjs tests/youtube-longform-plan.test.mjs（PR #1494・f84d506c5）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1069",
+      "at": "2026-11-10",
+      "task": "status に台本待ちの企画を出し、期限超過と QA 不合格の滞留を週次で読む",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ccd244787506",
+      "verification": "node --test tests/video-factory.test.mjs tests/youtube-longform-plan.test.mjs（PR #1494・f84d506c5）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1081",
+      "at": "2026-11-10",
+      "task": "技術士 建設部門の口頭試験の入口のガイド記事を作り、note とココナラの口頭試験教材へつなぐ",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bb7112c6aca7",
+      "verification": "npm run check-guide-length",
+      "note": "content/site/pe-construction/koutou-shiken（本文約3,900字・guide-qa 2.60/3・事実照合済み）。note の口頭試験教材へ配置。口頭試験の時期（〜1月中旬）に効くよう main 反映を運営者に諮る"
     }
   ]
 }

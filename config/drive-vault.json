@@ -78,7 +78,7 @@
       "generator": null,
       "requiredBy": [
         "data/pastexams/inventory.json（年度在庫の実体）",
-        ".claude/skills/conversion/past-exam-archive（取得・退避・照合）",
+        ".claude/skills/past-exam-archive（取得・退避・照合）",
         "過去問 MDX の原典照合（人）"
       ],
       "reason": "試験実施機関が公開する過去問の原本（公式の問題・正答・解答例）。市販教材（textbook-source-pdf）とは出所と再利用条件（reference-sources.json の exam-official）が違うので別に持つ。{資格}/{年度}/ で並べ、在庫は data/pastexams/inventory.json が持つ。公式の掲載は直近数年度だけのことが多く取り直せないので regenerable=false。第三者の解答・解説は教材側（原資料PDF/教材/{資格}/過去問解説/）に置く。"
@@ -112,7 +112,7 @@
       "regenerable": false,
       "generator": null,
       "requiredBy": [
-        ".claude/skills/conversion/pdf-to-mdx（--scanned）",
+        ".claude/skills/pdf-to-mdx（--scanned）",
         "文字起こしの原典照合（人）"
       ],
       "reason": "スキャン教材の原本 PDF。著作権物で public repo にも public R2 にも置けない。読むのは人と手元の OCR パイプラインだけなので Drive。既に手で置いた 63 本は sha256 で adopt して二重化しない。"
@@ -129,7 +129,7 @@
       "regenerable": true,
       "generator": "原典 PDF から再抽出（pdfimages → 回転 → 分割）",
       "requiredBy": [
-        ".claude/skills/conversion/pdf-to-mdx",
+        ".claude/skills/pdf-to-mdx",
         "scanned-figure-crop-auditor"
       ],
       "reason": "教材のページ画像・図クロップ。原本 PDF と同じ 教材/{書名}/ ツリーに置き、PDF とページが同居する。"
@@ -163,7 +163,7 @@
       "regenerable": true,
       "generator": "npm run build-reference-book-pages",
       "requiredBy": [
-        ".claude/skills/conversion/pdf-to-mdx（--scanned）",
+        ".claude/skills/pdf-to-mdx（--scanned）",
         "scanned-figure-crop-auditor"
       ],
       "reason": "参考文献 ID 単位の通しページ画像と最終図クロップ。原本 PDF と同じ書籍ディレクトリに置き、OCR・原典照合・再クロップをページ単位で再実行できるようにする。"
@@ -214,7 +214,7 @@
       "regenerable": true,
       "generator": "slide-data.json / reels/script.json と採用素材から再レンダー（ig-post-create / instagram-carousels:render / render-instagram-video-pack-reels）",
       "requiredBy": [
-        ".claude/skills/social/publish-ig-bs"
+        ".claude/skills/publish-ig-bs"
       ],
       "reason": "IG カルーセルとReels表紙のレンダー PNG。投稿は人が手元の Playwright で行い、サイトもCIも読まない。"
     },
@@ -230,7 +230,7 @@
       "regenerable": true,
       "generator": "images.json の元記事・図と tweets.md から scripts/render-x-figure-drafts.mjs で再生成",
       "requiredBy": [
-        ".claude/skills/social/publish-x"
+        ".claude/skills/publish-x"
       ],
       "reason": "サイト図から生成したX下書き画像。投稿は人が手元で確認して行い、サイトもCIも実体を配信しない。"
     },

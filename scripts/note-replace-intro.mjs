@@ -243,7 +243,12 @@ async function main() {
   const page = ctx.pages()[0] || await ctx.newPage();
   let ok = 0, fail = 0, skip = 0, consecutive = 0, done = 0;
   try {
-    await assertAccountGate(page);
+    // 結果を見ないと別アカウントでも先へ進む（assertAccountGate は投げずに ok:false を返す・DN-1009）
+    if (!(await assertAccountGate(page)).ok) {
+      console.error('ABORT: note のアカウントを確かめられなかった（別アカウントか未ログイン）。何も変更していない');
+      process.exitCode = 2;
+      return;
+    }
     for (const rel of files) {
       if (done >= LIMIT) break;
       let src;

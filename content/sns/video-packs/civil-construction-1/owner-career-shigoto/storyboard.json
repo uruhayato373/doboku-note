@@ -1,0 +1,504 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "発注者は、1年を通じて何をしているの？",
+      "caption": "発注者は1年を通じて何をしているのか",
+      "visual": {
+        "kind": "cover",
+        "heading": "発注者の仕事の中身\nと1年の動き",
+        "items": [
+          "1級土木施工管理｜元発注者の見方"
+        ]
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "answer",
+      "start": 4,
+      "end": 16,
+      "narration": "答えを先に言います。発注者の仕事は、予算、設計と積算、発注と契約、監督と検査、維持管理。この一本の流れです。",
+      "caption": "予算から維持管理までが一本の流れ",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "予算",
+          "設計・積算",
+          "発注・契約",
+          "監督・検査",
+          "維持管理"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "answer2",
+      "start": 16,
+      "end": 30,
+      "narration": "そして1年では、今年度の工事、来年度の予算、前年度の締めが同時に走ります。元発注者の立場で整理します。制度は自治体で異なります。",
+      "caption": "1年は三つの年度の仕事が同時に走る",
+      "visual": {
+        "kind": "points",
+        "heading": "1年の見方",
+        "items": [
+          "今年度の工事",
+          "来年度の予算",
+          "前年度の締め"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "misread",
+      "start": 30,
+      "end": 40,
+      "narration": "発注者は、工事を出して検査する人と思われがちです。実際は、予算づくりから維持管理まで続きます。",
+      "caption": "検査だけでなく、予算の前から維持管理まで",
+      "visual": {
+        "kind": "compare",
+        "heading": "発注者は検査する人？",
+        "ngLabel": "思われがち",
+        "okLabel": "実際",
+        "rows": [
+          {
+            "label": "範囲",
+            "ng": "発注して、検査する",
+            "ok": "予算から維持管理まで"
+          },
+          {
+            "label": "時期",
+            "ng": "工事の期間だけ",
+            "ok": "工事の前後も続く"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "loop1",
+      "start": 40,
+      "end": 50,
+      "narration": "まず予算。地元の要望や点検の結果を整理して、来年度に要求する事業を決め、議会の議決を受けます。",
+      "caption": "要望と点検結果を整理し、議決を受ける",
+      "visual": {
+        "kind": "points",
+        "heading": "発注者の仕事の流れ",
+        "items": [
+          "予算",
+          "設計から契約",
+          "監督・検査",
+          "維持管理"
+        ],
+        "art": {
+          "type": "diagram",
+          "diagram": "learning-loop",
+          "source": "content/site/civil-practice/civil-engineer-annual-cycle/img/figure-budget-flow.svg",
+          "center": "① 予算",
+          "note": "本動画の整理。団体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "loop2",
+      "start": 50,
+      "end": 62,
+      "narration": "次が設計から契約。設計図書と予定価格をつくり、工期や安全の費用も決めます。見通しを公表して入札し、契約します。",
+      "caption": "設計図書と予定価格、入札と契約",
+      "visual": {
+        "kind": "points",
+        "heading": "発注者の仕事の流れ",
+        "items": [
+          "予算",
+          "設計から契約",
+          "監督・検査",
+          "維持管理"
+        ],
+        "art": {
+          "type": "diagram",
+          "diagram": "learning-loop",
+          "source": "content/site/civil-practice/civil-engineer-annual-cycle/img/figure-budget-flow.svg",
+          "center": "② 設計から契約",
+          "note": "本動画の整理。団体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "loop3",
+      "start": 62,
+      "end": 73,
+      "narration": "契約したら、監督と検査です。途中で契約どおりに進んでいるかを確かめ、完成したら給付の完了を確認します。",
+      "caption": "途中は監督、完成したら検査",
+      "visual": {
+        "kind": "points",
+        "heading": "発注者の仕事の流れ",
+        "items": [
+          "予算",
+          "設計から契約",
+          "監督・検査",
+          "維持管理"
+        ],
+        "art": {
+          "type": "diagram",
+          "diagram": "learning-loop",
+          "source": "content/site/civil-practice/civil-engineer-annual-cycle/img/figure-budget-flow.svg",
+          "center": "③ 監督と検査",
+          "note": "本動画の整理。団体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "loop4",
+      "start": 73,
+      "end": 84,
+      "narration": "完成した施設は維持管理へ。点検して直し、その結果が次の予算の材料になります。流れは輪になっています。",
+      "caption": "点検の結果が、次の予算の材料になる",
+      "visual": {
+        "kind": "points",
+        "heading": "発注者の仕事の流れ",
+        "items": [
+          "予算",
+          "設計から契約",
+          "監督・検査",
+          "維持管理"
+        ],
+        "art": {
+          "type": "diagram",
+          "diagram": "learning-loop",
+          "source": "content/site/civil-practice/civil-engineer-annual-cycle/img/figure-budget-flow.svg",
+          "center": "④ 次の予算へ",
+          "note": "本動画の整理。団体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "years1",
+      "start": 84,
+      "end": 98,
+      "narration": "ここから1年の動きです。会計年度は4月から翌年3月ですが、仕事は3月で切れません。整理は翌年度の5月末まで続き、決算もその後です。",
+      "caption": "仕事は3月で切れず、翌年度の5月末まで整理が続く",
+      "visual": {
+        "kind": "points",
+        "heading": "会計年度",
+        "items": [
+          "4月から翌年3月まで",
+          "整理は翌年度の5月末まで",
+          "決算は、その後"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "一般的な流れ。団体の日程は資料で確かめる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "years2",
+      "start": 98,
+      "end": 107,
+      "narration": "だから秋の机には、今年度の工事、来年度の予算要求、前年度の決算資料が同時に載ります。",
+      "caption": "三つの年度の仕事が、同じ机の上に載る",
+      "visual": {
+        "kind": "points",
+        "heading": "秋の机の上",
+        "items": [
+          "今年度\n契約済みの工事の監督と検査",
+          "来年度\n予算要求と、発注の見通しの下書き",
+          "前年度\n決算の説明資料と、検査への備え"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "自治体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "calA",
+      "start": 107,
+      "end": 119,
+      "narration": "4月から5月は新年度の発注が始まり、前年度の整理も並びます。梅雨から秋は出水期。夏から秋は決算と監査です。",
+      "caption": "春は発注と整理、梅雨〜秋は出水期、夏〜秋は決算",
+      "visual": {
+        "kind": "points",
+        "heading": "1年の山（目安）",
+        "items": [
+          "4〜5月\n新年度の発注\n前年度の整理",
+          "梅雨〜秋\n出水期の備え\n災害への対応",
+          "夏〜秋\n決算の審査\n監査・検査"
+        ],
+        "art": {
+          "type": "timeline",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "時期は目安。自治体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "calB",
+      "start": 119,
+      "end": 134,
+      "narration": "秋から冬は、来年度の予算要求と査定。2月から3月は、議決、完成検査、繰越しが重なります。3月と、4月から5月が、1年でいちばん混み合います。",
+      "caption": "秋〜冬は予算要求と査定、2〜3月は議決・検査・繰越し",
+      "visual": {
+        "kind": "points",
+        "heading": "1年の山（目安）",
+        "items": [
+          "秋〜冬\n来年度の\n予算要求と査定",
+          "2〜3月\n議決・完成検査\n繰越し",
+          "最も混む時期\n3月と\n4〜5月"
+        ],
+        "art": {
+          "type": "timeline",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "時期は目安。自治体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "reason1",
+      "start": 134,
+      "end": 146,
+      "narration": "受注者から見える動きにも理由があります。発注が後半に偏ると、工期の終わりが3月に集まり、検査と繰越しが重なります。",
+      "caption": "後半に偏ると、3月に検査と繰越しが集中する",
+      "visual": {
+        "kind": "compare",
+        "heading": "発注の時期",
+        "ngLabel": "偏ると",
+        "okLabel": "散らすと",
+        "rows": [
+          {
+            "label": "発注",
+            "ng": "年度の後半に偏る",
+            "ok": "年間に散らす"
+          },
+          {
+            "label": "3月",
+            "ng": "検査と繰越しが集中",
+            "ok": "集中をやわらげる"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "発注の平準化は国が自治体に求めている取組"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "reason2",
+      "start": 146,
+      "end": 158,
+      "narration": "そこで発注者は、発注の見通しの公表や債務負担行為などで、時期を年間に散らします。国も自治体に求めている取組です。",
+      "caption": "見通しの公表や債務負担行為で、時期を分散させる",
+      "visual": {
+        "kind": "points",
+        "heading": "時期を散らす工夫",
+        "items": [
+          "発注の見通しを公表する",
+          "債務負担行為を使う",
+          "適切な工期を設定する"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "国土交通省の資料の例"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "flood",
+      "start": 158,
+      "end": 169,
+      "narration": "出水期は、河川工事の暦を決める山です。国の川と県や市の川で扱いが違うため、管理者の資料で確かめます。",
+      "caption": "出水期の工事の扱いは、管理者の資料で確かめる",
+      "visual": {
+        "kind": "points",
+        "heading": "出水期という山",
+        "items": [
+          "河川工事に制約がかかる",
+          "国の川と県・市の川で扱いが違う",
+          "管理者の資料で確かめる"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "団体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "safety",
+      "start": 169,
+      "end": 185,
+      "narration": "安全の第一次の責任は受注者ですが、発注者にも、安全を損なう条件を付けない配慮が求められます。費用と時間と危険の情報を、契約と設計図書に入れる仕事です。",
+      "caption": "発注者の安全は、条件づくりが中心",
+      "visual": {
+        "kind": "points",
+        "heading": "発注者の安全：条件づくり",
+        "items": [
+          "安全を損なう条件を付けない",
+          "費用と時間を契約に入れる",
+          "危険の情報を設計図書で伝える"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "詳しくは記事（owner-safety-responsibility）"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/owner-safety-responsibility/article.mdx"
+    },
+    {
+      "sceneId": "read",
+      "start": 185,
+      "end": 202,
+      "narration": "受注者の側からは、こう読めます。発注の見通しは手配の材料。3月は混む。河川は管理者の条件を確認。判断が遅く見えるときは、予算や議決、年度の制約があるかもしれません。",
+      "caption": "見通しを材料に、3月は混むと見て、制約を考える",
+      "visual": {
+        "kind": "points",
+        "heading": "発注者の動きの読み方",
+        "items": [
+          "発注の見通しは、手配の材料",
+          "3月は検査と繰越しで混む",
+          "河川は管理者の条件を確認",
+          "遅く見える判断には、制約がある"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "ex1",
+      "start": 202,
+      "end": 214,
+      "narration": "仮の例です。ある市の橋で、定期点検の結果、修繕が必要と診断されたとします。これが秋の予算要求の材料になります。",
+      "caption": "仮の例：点検の結果が、予算要求の材料になる",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例｜橋の修繕が工事になるまで",
+        "items": [
+          "定期点検で、修繕が必要と診断される",
+          "秋：翌年度の予算要求に載せる",
+          "冬〜春：査定を経て、議会が議決する",
+          "翌年度：発注、監督、検査。そして維持管理へ"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "ex2",
+      "start": 214,
+      "end": 229,
+      "narration": "冬の査定を経て議会が議決し、翌年度に発注。監督と検査を経て完成し、維持管理に戻ります。この例は説明のための仮のもので、実在の事業ではありません。",
+      "caption": "仮の例：議決、発注、完成、そして維持管理へ",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例｜橋の修繕が工事になるまで",
+        "items": [
+          "定期点検で、修繕が必要と診断される",
+          "秋：翌年度の予算要求に載せる",
+          "冬〜春：査定を経て、議会が議決する",
+          "翌年度：発注、監督、検査。そして維持管理へ"
+        ],
+        "reveal": 4
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 229,
+      "end": 241,
+      "narration": "最後に、自治体ごとに違う所です。予算編成の日程、出水期の扱い、議会の会期。この三つは団体の資料で確かめます。",
+      "caption": "予算の日程・出水期・議会の会期は団体ごとに違う",
+      "visual": {
+        "kind": "points",
+        "heading": "団体の資料で確かめる三つ",
+        "items": [
+          "予算編成の日程",
+          "出水期の扱い",
+          "議会の会期"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "自治体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 241,
+      "end": 256,
+      "narration": "まとめます。発注者の仕事は、予算から維持管理までの流れ。1年は三つの年度が同時に走り、3月と4月から5月が混む。安全は、条件づくりです。",
+      "caption": "流れ・三つの年度・3月の山・安全は条件づくり",
+      "visual": {
+        "kind": "points",
+        "heading": "今日のまとめ",
+        "items": [
+          "予算から維持管理までの流れ",
+          "三つの年度が同時に走る",
+          "3月と4〜5月が混み合う",
+          "安全は条件づくり"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 256,
+      "end": 267,
+      "narration": "1年の動きの全体は、サイトの記事で、暦に沿って詳しく整理しています。概要欄のリンクから確認してください。",
+      "caption": "詳しくはサイトの記事で（概要欄）",
+      "visual": {
+        "kind": "points",
+        "heading": "詳しくはサイトの記事で",
+        "items": [
+          "土木担当の1年を暦で読む",
+          "リンクは概要欄に"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／発注者の仕事",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    }
+  ]
+}

@@ -173,23 +173,26 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
 
 /**
  * 技術士 建設部門 2次（pe-construction）。
- * 必須科目I・道路 の過去問ページ（pe-construction-r0X-{required,road}）と論文の書き方
+ * 必須科目I・選択科目の過去問ページ（pe-construction-r0X-{required,road,…}）と、その設問ページ
+ * （pe-construction-r0X-road-iii-1 のように設問番号を足した slug）と論文の書き方
  * ガイドを、該当する BK 模範解答集へ送客する。公開可否は呼び出し側 getMagazine() で判定
  * （現状 published:false のため CTA は表示されない＝公開時に自動発火）。
  */
 function matchPeConstructionEssay(slug: string): MagazineId | null {
-  if (/^pe-construction-r0[1-9]-required$/.test(slug)) return 'pe-construction-required-magazine';
-  if (/^pe-construction-r0[1-9]-road$/.test(slug)) return 'pe-construction-road-magazine';
-  if (/^pe-construction-r0[1-9]-river-coast$/.test(slug)) return 'pe-construction-river-coast-magazine';
-  if (/^pe-construction-r0[1-9]-urban-planning$/.test(slug)) return 'pe-construction-urban-planning-magazine';
-  if (/^pe-construction-r0[1-9]-geotechnical$/.test(slug)) return 'pe-construction-geotechnical-magazine';
-  if (/^pe-construction-r0[1-9]-steel-concrete$/.test(slug)) return 'pe-construction-steel-concrete-magazine';
-  if (/^pe-construction-r0[1-9]-construction-planning$/.test(slug)) return 'pe-construction-construction-planning-magazine';
-  if (/^pe-construction-r0[1-9]-environment$/.test(slug)) return 'pe-construction-environment-magazine';
-  if (/^pe-construction-r0[1-9]-port-airport$/.test(slug)) return 'pe-construction-port-airport-magazine';
-  if (/^pe-construction-r0[1-9]-power-civil$/.test(slug)) return 'pe-construction-power-civil-magazine';
-  if (/^pe-construction-r0[1-9]-railway$/.test(slug)) return 'pe-construction-railway-magazine';
-  if (/^pe-construction-r0[1-9]-tunnel$/.test(slug)) return 'pe-construction-tunnel-magazine';
+  if (/^pe-construction-r0[1-9]-required(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-required-magazine';
+  if (/^pe-construction-r0[1-9]-road(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-road-magazine';
+  if (/^pe-construction-r0[1-9]-river-coast(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-river-coast-magazine';
+  if (/^pe-construction-r0[1-9]-urban-planning(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-urban-planning-magazine';
+  if (/^pe-construction-r0[1-9]-geotechnical(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-geotechnical-magazine';
+  if (/^pe-construction-r0[1-9]-steel-concrete(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-steel-concrete-magazine';
+  if (/^pe-construction-r0[1-9]-construction-planning(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-construction-planning-magazine';
+  if (/^pe-construction-r0[1-9]-environment(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-environment-magazine';
+  if (/^pe-construction-r0[1-9]-port-airport(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-port-airport-magazine';
+  if (/^pe-construction-r0[1-9]-power-civil(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-power-civil-magazine';
+  if (/^pe-construction-r0[1-9]-railway(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-railway-magazine';
+  if (/^pe-construction-r0[1-9]-tunnel(?:-i{1,3}-[1-4](?:-[1-4])?)?$/.test(slug)) return 'pe-construction-tunnel-magazine';
+  // 口頭試験の入口のガイドは、時期によらず建設部門の口頭試験教材へ送客（DN-1081）
+  if (slug === 'pe-construction-koutou-shiken') return 'pe-construction-oral-guide';
   // 論文の書き方ガイドは全受験者向けの必須科目I マガジンへ送客
   if (/^pe-construction-(guide-required-essay|pe-secondary-essay-guide|setsumon-bunkai|aimai-hyougen-sahou|suikou-checklist|shiken-toujitsu-tejun|keyword-note-tsukurikata|secondary-study-method|gyoumu-keireki-hyou)$/.test(slug)) {
     return 'pe-construction-required-magazine';

@@ -127,8 +127,8 @@ Actions の checkout には `.tmp/media` がない。`publish-youtube --commit` 
 
 ## 照合（registry-reconcile）
 
-- 2026-10-25 に SNS の保留に合わせて、毎日の**状態更新**ワークフロー（`registry-reconcile.yml`）を CI から外した。予約→公開済みへの台帳更新は手動 `youtube-single-publish.yml` の `mode=reconcile` で行う。
-- 中身は `npm run registry-reconcile`（台帳の外部 ID を `videos.list` で観測し、予約が public なら `published` へ進める。所見は `.claude/state/registry-reconcile/youtube.json`。exit 0＝照合した・1＝fail の所見・2＝検査不成立）。再開するときは新しいワークフローを作り、自動化の台帳 `config/automations.json` に読み手つきで載せる。
+- 2026-10-25 に SNS の保留に合わせて、毎日の**状態更新**ワークフロー（`registry-reconcile.yml`）を CI から外した。予約→公開済みへの台帳更新は `youtube-single-publish.yml` の `mode=reconcile` で行い、2026-11-10 から毎日 08:40 JST の schedule（main の版）でも走る（DN-1070）。遅れは `check-registry-due`（quality-audit の日次 ops）が出す。
+- 中身は `npm run registry-reconcile`（台帳の外部 ID を `videos.list` で観測し、予約が public なら `published` へ進める。所見は `.claude/state/registry-reconcile/youtube.json`。exit 0＝照合した・1＝fail の所見・2＝検査不成立）。毎日の照合は新しいワークフローではなく `youtube-single-publish.yml` の schedule で再開し、自動化の台帳 `config/automations.json` にも載せた。
 - 状態を書き換えない商品導線・概要欄の読取監査は、別の `youtube-funnel-audit.yml` が実行する（SNS 保留中は定期実行を止め手動のみ）。旧動画を含む現行通常動画の本文・自社リンクのAPI差分はFAILとし、`automation-failure` Issue（channel `youtube-funnel`）に通知する。
 
 ## 検査

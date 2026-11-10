@@ -31,8 +31,8 @@ import path from 'node:path';
 import satori from 'satori';
 import sharp from 'sharp';
 import { createRequire } from 'node:module';
-import { renderTemplate, LAYOUT_CONSTANTS } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
-import { wrapTitle, pickFontSize } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs';
+import { renderTemplate, LAYOUT_CONSTANTS } from '../.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs';
+import { wrapTitle, pickFontSize } from '../.claude/skills/ogp-create/scripts/lib/ogp-text.mjs';
 import { pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
@@ -45,7 +45,7 @@ const coverTokens = require(path.join(REPO_ROOT, '.claude/knowledge/design-syste
 const ARTICLES_ROOT = path.join(REPO_ROOT, 'content', 'site', 'standards-articles');
 const FONTS_DIR = path.join(
   REPO_ROOT,
-  '.claude/skills/conversion/ogp-create/assets/fonts',
+  '.claude/skills/ogp-create/assets/fonts',
 );
 
 // 章記事は資格ではなく「土木・建設 共通」の領域。外枠色は共通トークンの bronze を使う

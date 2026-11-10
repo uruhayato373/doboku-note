@@ -1,6 +1,3559 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-10T00:36:35.859Z",
+      "finishedAt": "2026-11-10T02:10:27.492Z",
+      "plan": {
+        "synced": 30,
+        "ready": 248,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/技術士建設部門/"
+      },
+      "articles": {
+        "selected": 248,
+        "attempted": 88,
+        "updated": [
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-1/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-1_道路空間再配分/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-2_インフラDX維持管理/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-3_道路啓開災害復旧/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-4_床版取替施工/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-1_脱炭素/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-2_4車線化/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-3_事前防災/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-4_xROAD/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R04/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R04/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R04/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R03/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R03/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R03/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R04/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R04/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R04/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R05/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R05/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R05/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R06/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R06/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R06/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R07/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R07/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R07/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R03/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R03/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R03/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R04/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R04/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R04/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R05/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R05/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R05/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R06/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R06/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R06/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R07/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R07/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R07/article-III.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [],
+        "deferred": [
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R03/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R04/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R05/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R06/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R07/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-1/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-2/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-3/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-4/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-5/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-6/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "attachment-daily-limit"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "attachment-daily-limit"
+          }
+        ]
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
+      "startedAt": "2026-11-10T00:11:57.304Z",
+      "finishedAt": "2026-11-10T00:35:24.967Z",
+      "plan": {
+        "synced": 28,
+        "ready": 250,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/技術士建設部門/"
+      },
+      "articles": {
+        "selected": 250,
+        "attempted": 2,
+        "updated": [
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R03/article-II2.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R03/article-III.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: [note-sync] 180 秒で打ち切り（Drive の読み取りの停滞を疑う）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: [note-sync] 180 秒で打ち切り（Drive の読み取りの停滞を疑う）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: [note-sync] 180 秒で打ち切り（Drive の読み取りの停滞を疑う）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: [note-sync] 180 秒で打ち切り（Drive の読み取りの停滞を疑う）"
+          }
+        ],
+        "deferred": [
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-1/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-1_道路空間再配分/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-2_インフラDX維持管理/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-3_道路啓開災害復旧/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-4_床版取替施工/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-1_脱炭素/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-2_4車線化/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-3_事前防災/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/III-4_xROAD/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-03_都市計画/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-06_施工計画/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-07_建設環境/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R04/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R05/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R06/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-III.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08/article-II1.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08/article-II2.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08/article-III.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R03/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R04/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R05/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R06/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R07/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-1/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-2/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-3/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-4/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-5/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-6/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-I_必須科目I/R08/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          }
+        ]
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": [
+        "Drive から配布 PDF を読めない（再起動しても 3 件続けて失敗）。PDF の要る記事は翌週へ回した（[note-sync] 180 秒で打ち切り（Drive の読み取りの停滞を疑う））"
+      ]
+    },
+    {
+      "startedAt": "2026-11-10T00:09:43.219Z",
+      "finishedAt": "2026-11-10T00:11:18.860Z",
+      "plan": {
+        "synced": 0,
+        "ready": 21,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/技術士建設部門/magazines/BK-11"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 1,
+        "updated": [
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R03/article-II1.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-08T01:33:20.888Z",
       "finishedAt": "2026-11-08T02:01:25.878Z",
       "plan": {
@@ -1399,102 +4952,6 @@
         "failed": [
           {
             "path": "content/note/1級・2級土木/発注者支援の仕事選び-無料/article.md",
-            "parts": [
-              "body"
-            ],
-            "reason": "結果なし（連続失敗で中断された可能性）"
-          }
-        ],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:23:12.025Z",
-      "finishedAt": "2026-11-03T09:23:19.579Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/2級土木の次の職場選び-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 0,
-        "updated": [],
-        "failed": [
-          {
-            "path": "content/note/1級・2級土木/2級土木の次の職場選び-無料/article.md",
-            "parts": [
-              "body"
-            ],
-            "reason": "結果なし（連続失敗で中断された可能性）"
-          }
-        ],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:22:49.053Z",
-      "finishedAt": "2026-11-03T09:22:56.969Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/工事経験の伝え方-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 0,
-        "updated": [],
-        "failed": [
-          {
-            "path": "content/note/1級・2級土木/工事経験の伝え方-無料/article.md",
-            "parts": [
-              "body"
-            ],
-            "reason": "結果なし（連続失敗で中断された可能性）"
-          }
-        ],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:22:07.357Z",
-      "finishedAt": "2026-11-03T09:22:24.537Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 0,
-        "updated": [],
-        "failed": [
-          {
-            "path": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md",
             "parts": [
               "body"
             ],

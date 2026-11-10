@@ -123,7 +123,7 @@
     },
     "kinki/hikkei": {
       "midSentenceBreaks": 61,
-      "strayTableFragments": 355,
+      "strayTableFragments": 381,
       "verbatimTables": 41
     },
     "kyushu/management-manual": {
@@ -2116,7 +2116,8 @@
         {
           "page": 501,
           "match": "Ａ―１型 標準図 ４車線 片側全車線閉塞 夜間作業",
-          "title": "保安施設設置標準図"
+          "title": "保安施設設置標準図",
+          "keepLine": true
         },
         {
           "page": 510,
@@ -2412,7 +2413,8 @@
           "title": "データ記入様式"
         }
       ],
-      "ogpLabel": "工事必携"
+      "ogpLabel": "工事必携",
+      "standardFigureTitles": true
     },
     "hokkaido/appendix": {
       "_comment": "北海道開発局 道路・河川工事仕様書 付録（238p）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。",
@@ -2528,7 +2530,8 @@
         }
       ],
       "clauseSequence": "sparse",
-      "ogpLabel": "付録"
+      "ogpLabel": "付録",
+      "standardFigureTitles": true
     },
     "kanto/manual": {
       "_comment": "関東地方整備局 マニュアル（243p）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。",

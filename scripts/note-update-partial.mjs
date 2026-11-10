@@ -163,6 +163,10 @@ async function preflight(page, op) {
     if (operation.type === 'insertTopCta') {
       const newKeys = operation.newUrls.map((url) => (url.match(/\/[mn]\/([0-9a-z]+)/) || [])[1] || url);
       const already = (ed.innerText || '').includes(operation.probe) && newKeys.every((key) => (ed.innerHTML || '').includes(key));
+      if (operation.beforeNeedle) {
+        const blocks = [...ed.children].filter((child) => (child.innerText || '').includes(operation.beforeNeedle));
+        return { count: already ? 0 : (blocks.length === 1 ? 1 : 0), already, reason: blocks.length === 1 ? undefined : `block-count:${blocks.length}` };
+      }
       return { count: already ? 0 : (ed.querySelector('h2') ? 1 : 0), already, reason: ed.querySelector('h2') ? undefined : 'no-h2' };
     }
     if (operation.type === 'replaceCard' || operation.type === 'replaceLink') {
@@ -309,17 +313,20 @@ async function selectText(page, oldText) {
  */
 async function insertTopCtaHtml(page, headingIndex, op) {
   const html = buildTopCtaHtml(op);
-  const target = await page.evaluate(({ index, markup }) => {
+  const target = await page.evaluate(({ index, markup, needle }) => {
     const ed = document.querySelector('[contenteditable=true]');
     const heading = ed?.querySelectorAll('h2')[index];
     if (!heading) return null;
     const text = (heading.innerText || '').trim();
+    // beforeNeedle 指定時は、その文言を含む直下のブロック（1 つだけ）の直前へ入れる。戻り値の見出しは構造検査用
+    const blocks = needle ? [...ed.children].filter((child) => (child.innerText || '').includes(needle)) : [heading];
+    if (blocks.length !== 1) return null;
     if (markup) {
-      heading.insertAdjacentHTML('beforebegin', markup);
+      blocks[0].insertAdjacentHTML('beforebegin', markup);
       ed.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText' }));
     }
     return text;
-  }, { index: headingIndex, markup: html });
+  }, { index: headingIndex, markup: html, needle: op.beforeNeedle || null });
   if (target == null) return null;
   if (op.newUrls.length) {
     await sleep(500);

@@ -1,0 +1,583 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "設計図書は、どこから読む？",
+      "caption": "設計図書は、どこから読めばよいか",
+      "visual": {
+        "kind": "cover",
+        "heading": "発注者の目で読む\n設計図書",
+        "items": [
+          "1級土木施工管理｜元発注者の見方"
+        ]
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 10,
+      "narration": "答えを先に言います。先に読むのは、特記仕様書、契約図面、工事数量総括表の三つです。",
+      "caption": "先に読むのは、特記仕様書・契約図面・工事数量総括表",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "特記仕様書",
+          "契約図面",
+          "工事数量総括表",
+          "共通仕様書は、そのあと"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "premise2",
+      "start": 10,
+      "end": 28,
+      "narration": "共通仕様書は、その三つに書かれていないところを埋める標準として、あとから読みます。見るのは、三つの間の食い違いです。今日は、発注者の側にいた立場から、国の工事の例で整理します。自治体は団体ごとに違います。",
+      "caption": "共通仕様書はあとから。見るのは三つの食い違い",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "特記仕様書",
+          "契約図面",
+          "工事数量総括表",
+          "共通仕様書は、そのあと"
+        ],
+        "reveal": 4
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 28,
+      "end": 47,
+      "narration": "共通仕様書を覚えておけば、図面は補足で足りる。そう思われがちですが、国の共通仕様書は、契約図面、特記仕様書、工事数量総括表に書かれた事項が、共通仕様書に優先すると定めています。工事ごとの書き込みが、標準より上に来ます。",
+      "caption": "工事ごとの記載が、共通仕様書より優先される",
+      "visual": {
+        "kind": "compare",
+        "heading": "どちらが優先される？",
+        "ngLabel": "思われがち",
+        "okLabel": "実際",
+        "rows": [
+          {
+            "label": "優先",
+            "ng": "共通仕様書が一番上",
+            "ok": "三つの記載が優先"
+          },
+          {
+            "label": "標準と違う",
+            "ng": "標準のとおりに読む",
+            "ok": "この工事の記載に従う"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／設計図書",
+          "note": "国の工事の例。自治体は団体ごとに異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "def1",
+      "start": 47,
+      "end": 60,
+      "narration": "設計図書に入るものを確かめます。国の共通仕様書では、まず仕様書と契約図面です。仕様書は、全工事共通の共通仕様書と、その工事だけの特記仕様書の総称です。",
+      "caption": "設計図書の中身。仕様書と契約図面",
+      "visual": {
+        "kind": "points",
+        "heading": "設計図書に入るもの",
+        "items": [
+          "仕様書\n共通仕様書と特記仕様書",
+          "契約図面\n契約書に添付された図面",
+          "現場説明書と質問回答書\n入札時の条件の説明と回答",
+          "工事数量総括表\n工種・設計数量・規格"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "def2",
+      "start": 60,
+      "end": 73,
+      "narration": "次に、現場説明書と質問回答書。現場説明書は、入札に参加する人へ、発注者が契約条件を説明するための書類です。その説明への質問と回答も、設計図書に入ります。",
+      "caption": "現場説明書と質問回答書も設計図書",
+      "visual": {
+        "kind": "points",
+        "heading": "設計図書に入るもの",
+        "items": [
+          "仕様書\n共通仕様書と特記仕様書",
+          "契約図面\n契約書に添付された図面",
+          "現場説明書と質問回答書\n入札時の条件の説明と回答",
+          "工事数量総括表\n工種・設計数量・規格"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "def3",
+      "start": 73,
+      "end": 80,
+      "narration": "土木工事では、工事数量総括表も入ります。工事の工種、設計数量、規格を示した書類です。",
+      "caption": "土木工事では、工事数量総括表も含む",
+      "visual": {
+        "kind": "points",
+        "heading": "設計図書に入るもの",
+        "items": [
+          "仕様書\n共通仕様書と特記仕様書",
+          "契約図面\n契約書に添付された図面",
+          "現場説明書と質問回答書\n入札時の条件の説明と回答",
+          "工事数量総括表\n工種・設計数量・規格"
+        ],
+        "reveal": 4
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "order1",
+      "start": 80,
+      "end": 93,
+      "narration": "読む順番です。一番目は特記仕様書。共通仕様書を補足して、この工事だけの技術的な要求を定める図書なので、標準と何が違うのかが、まずここで分かります。",
+      "caption": "一番目は特記仕様書。この工事だけの要求",
+      "visual": {
+        "kind": "points",
+        "heading": "読む順番",
+        "items": [
+          "特記仕様書\nこの工事だけの要求",
+          "契約図面\nどこに、どんな形か",
+          "工事数量総括表\n何を、どれだけか",
+          "共通仕様書\n標準を確かめる"
+        ],
+        "reveal": 1
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "order2",
+      "start": 93,
+      "end": 101,
+      "narration": "二番目は契約図面。契約のときに契約書へ添付された図面で、どこに、どんな形で作るのかを示します。",
+      "caption": "二番目は契約図面。位置と形",
+      "visual": {
+        "kind": "points",
+        "heading": "読む順番",
+        "items": [
+          "特記仕様書\nこの工事だけの要求",
+          "契約図面\nどこに、どんな形か",
+          "工事数量総括表\n何を、どれだけか",
+          "共通仕様書\n標準を確かめる"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "order3",
+      "start": 101,
+      "end": 107,
+      "narration": "三番目は工事数量総括表。何を、どれだけ作るのかを、数字で読めます。",
+      "caption": "三番目は工事数量総括表。数量と規格",
+      "visual": {
+        "kind": "points",
+        "heading": "読む順番",
+        "items": [
+          "特記仕様書\nこの工事だけの要求",
+          "契約図面\nどこに、どんな形か",
+          "工事数量総括表\n何を、どれだけか",
+          "共通仕様書\n標準を確かめる"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "order4",
+      "start": 107,
+      "end": 126,
+      "narration": "最後に共通仕様書で、特記仕様書などに書かれていない部分の標準を確かめます。現場説明書と質問回答書は、入札のときに配られる資料なので、三つと合わせて手元に置きます。この順番は、本動画の整理です。制度が決めた順序ではありません。",
+      "caption": "最後に共通仕様書。順番は本動画の整理",
+      "visual": {
+        "kind": "points",
+        "heading": "読む順番",
+        "items": [
+          "特記仕様書\nこの工事だけの要求",
+          "契約図面\nどこに、どんな形か",
+          "工事数量総括表\n何を、どれだけか",
+          "共通仕様書\n標準を確かめる"
+        ],
+        "reveal": 4
+      }
+    },
+    {
+      "sceneId": "draw1",
+      "start": 126,
+      "end": 140,
+      "narration": "契約図面の中では、位置図で場所をつかみ、平面図、縦断図、横断図で全体の形をつかみます。そのあとに、構造図や詳細図へ進みます。広い範囲から、狭い範囲へ絞る順です。",
+      "caption": "図面は、広い範囲から狭い範囲へ読む",
+      "visual": {
+        "kind": "points",
+        "heading": "図面を読む順",
+        "items": [
+          "位置図\n場所をつかむ",
+          "平面・縦断・横断図\n全体の形をつかむ",
+          "構造図・詳細図\n個々の形と寸法"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "draw2",
+      "start": 140,
+      "end": 156,
+      "narration": "平面、縦断、横断の三つは、同じ中心線を別の向きから見た図です。平面図は、どこを通るか。縦断図は、どの高さか。横断図は、幅方向の形です。つなぐ鍵は測点で、読む順は図の順ではなく、測点の順です。",
+      "caption": "平面・縦断・横断を、測点でつなぐ",
+      "visual": {
+        "kind": "points",
+        "heading": "三つの図をつなぐ鍵",
+        "items": [
+          "平面図\nどこを通るか",
+          "縦断図\nどの高さで通るか",
+          "横断図\n幅方向の形",
+          "鍵は測点"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／設計図書",
+          "note": "道路の例。河川・砂防は軸が変わる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "check1",
+      "start": 156,
+      "end": 165,
+      "narration": "着工前に、三つの図を測点で突き合わせます。見るのは五点です。起点と終点、延長。曲線の位置。計画高と地盤高。",
+      "caption": "五点のうち、起終点・曲線・高さ",
+      "visual": {
+        "kind": "points",
+        "heading": "測点で突き合わせる五点",
+        "items": [
+          "起終点と延長",
+          "曲線の位置",
+          "計画高と地盤高",
+          "切土・盛土の向き",
+          "基準にする高さ"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "check2",
+      "start": 165,
+      "end": 180,
+      "narration": "盛土の測点の横断図が、盛土の断面になっているか。そして、基準にする水準点の高さが、図面どうしで同じか。現地の杭と合うか。いずれも、測点を鍵に、同じ数字になっているかを確かめます。",
+      "caption": "五点のうち、切盛の向きと基準の高さ",
+      "visual": {
+        "kind": "points",
+        "heading": "測点で突き合わせる五点",
+        "items": [
+          "起終点と延長",
+          "曲線の位置",
+          "計画高と地盤高",
+          "切土・盛土の向き",
+          "基準にする高さ"
+        ],
+        "reveal": 5
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "mm1",
+      "start": 180,
+      "end": 194,
+      "narration": "次に、図書どうしを並べます。国の共通仕様書は、特記仕様書、契約図面、工事数量総括表の間に相違があるとき、受注者は監督職員に確認して指示を受けるよう定めています。",
+      "caption": "図書どうしに相違があれば、確認して指示を受ける",
+      "visual": {
+        "kind": "points",
+        "heading": "並べて突き合わせる",
+        "items": [
+          "特記仕様書と\n契約図面",
+          "契約図面と\n工事数量総括表",
+          "図面の読み取りと\n図面の数字",
+          "自分で決めず\n確認して指示を受ける"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "mm2",
+      "start": 194,
+      "end": 208,
+      "narration": "図面の読み取りと、図面に書かれた数字が違う場合も同じです。この条項は、三つの間の上下を決めていません。だから、どちらが正しいかを自分で決めず、確認に回します。",
+      "caption": "どちらが正しいかは、自分で決めず確認する",
+      "visual": {
+        "kind": "points",
+        "heading": "並べて突き合わせる",
+        "items": [
+          "特記仕様書と\n契約図面",
+          "契約図面と\n工事数量総括表",
+          "図面の読み取りと\n図面の数字",
+          "自分で決めず\n確認して指示を受ける"
+        ],
+        "reveal": 4
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "ex1",
+      "start": 208,
+      "end": 220,
+      "narration": "仮の例で考えます。工事数量総括表の延長と、平面図の測点から読んだ延長が、合いません。まず、どの図書の、どの数字が、何と違うかを並べます。",
+      "caption": "仮の例。数量総括表と平面図の延長が合わない",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例｜延長が合わない",
+        "items": [
+          "総括表の延長と\n平面図の測点が不一致",
+          "どの図書の何の数字が\n何と違うかを並べる",
+          "監督職員に\n確認を求める",
+          "指示を受けてから進める"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "ex2",
+      "start": 220,
+      "end": 234,
+      "narration": "並べたら、監督職員に確認を求めて、指示を受けます。どちらかを自分で決めて進めると、あとから根拠を示せません。この例は説明のための仮のもので、実在の工事ではありません。",
+      "caption": "確認を求め、指示を受けてから進める（仮の例）",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例｜延長が合わない",
+        "items": [
+          "総括表の延長と\n平面図の測点が不一致",
+          "どの図書の何の数字が\n何と違うかを並べる",
+          "監督職員に\n確認を求める",
+          "指示を受けてから進める"
+        ],
+        "reveal": 4
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "shosa1",
+      "start": 234,
+      "end": 245,
+      "narration": "この確認は、共通仕様書が受注者に求める、設計図書の照査にあたります。受注者が施工前と施工途中に、自らの負担で行うと定めています。",
+      "caption": "照査は、施工前と施工途中に受注者が行う",
+      "visual": {
+        "kind": "points",
+        "heading": "設計図書の照査",
+        "items": [
+          "いつ\n施工前と施工途中",
+          "誰の負担で\n受注者の負担",
+          "求めること\n事実を資料で示し確認を求める",
+          "資料の例\n現地地形図・対比図・取合い図・施工図"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "shosa2",
+      "start": 245,
+      "end": 257,
+      "narration": "該当する事実があれば、確認できる資料を出して、監督職員に確認を求めます。資料の例は、現地地形図、設計図との対比図、取合い図、施工図です。",
+      "caption": "該当する事実は、資料を出して確認を求める",
+      "visual": {
+        "kind": "points",
+        "heading": "設計図書の照査",
+        "items": [
+          "いつ\n施工前と施工途中",
+          "誰の負担で\n受注者の負担",
+          "求めること\n事実を資料で示し確認を求める",
+          "資料の例\n現地地形図・対比図・取合い図・施工図"
+        ],
+        "reveal": 4
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "five1",
+      "start": 257,
+      "end": 275,
+      "narration": "対象になる事実は、契約書の第18条第1項に挙がる五つです。図面、仕様書、現場説明書などが一致しないこと。ただし、優先順位が定められている場合を除きます。設計図書に誤りや脱漏があること。表示が明確でないこと。",
+      "caption": "照査の対象。不一致・誤り・脱漏・不明確",
+      "visual": {
+        "kind": "points",
+        "heading": "照査の対象になる事実",
+        "items": [
+          "図面・仕様書などが\n一致しない",
+          "誤りや脱漏がある",
+          "表示が\n明確でない",
+          "施工条件が\n現場と違う",
+          "予期できない\n特別な状態"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "five2",
+      "start": 275,
+      "end": 291,
+      "narration": "施工条件が実際の現場と一致しないこと。予期できない特別な状態が生じたこと。どれに当たるかを考えてから確認を求めると、理由が明確になります。通知の書き方は、監督員とのやり取りの回で扱います。",
+      "caption": "照査の対象。施工条件の不一致・予期できない状態",
+      "visual": {
+        "kind": "points",
+        "heading": "照査の対象になる事実",
+        "items": [
+          "図面・仕様書などが\n一致しない",
+          "誤りや脱漏がある",
+          "表示が\n明確でない",
+          "施工条件が\n現場と違う",
+          "予期できない\n特別な状態"
+        ],
+        "reveal": 5
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "owner1",
+      "start": 291,
+      "end": 303,
+      "narration": "ここで、発注者が何を前提にしているかです。設計図書に書いたことが、契約の条件になります。書かれていない要望は、望んだだけでは、指定になりにくい。",
+      "caption": "書かれていない要望は、指定になりにくい",
+      "visual": {
+        "kind": "compare",
+        "heading": "発注者の前提",
+        "ngLabel": "書かれていない",
+        "okLabel": "書かれている",
+        "rows": [
+          {
+            "label": "要望",
+            "ng": "望んだだけでは指定になりにくい",
+            "ok": "契約の条件になる"
+          },
+          {
+            "label": "施工方法",
+            "ng": "受注者が責任を持って定める",
+            "ok": "その定めに従う"
+          }
+        ],
+        "focus": 0,
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／設計図書",
+          "note": "国の工事の例。自治体は団体ごとに異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "owner2",
+      "start": 303,
+      "end": 317,
+      "narration": "施工方法も、約款や設計図書に特別の定めがなければ、受注者が責任を持って定めるのが原則です。だから発注者の側は、求めることを、設計図書に書いておく必要があります。",
+      "caption": "特別の定めがなければ、施工方法は受注者が定める",
+      "visual": {
+        "kind": "compare",
+        "heading": "発注者の前提",
+        "ngLabel": "書かれていない",
+        "okLabel": "書かれている",
+        "rows": [
+          {
+            "label": "要望",
+            "ng": "望んだだけでは指定になりにくい",
+            "ok": "契約の条件になる"
+          },
+          {
+            "label": "施工方法",
+            "ng": "受注者が責任を持って定める",
+            "ok": "その定めに従う"
+          }
+        ],
+        "focus": 1,
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／設計図書",
+          "note": "国の工事の例。自治体は団体ごとに異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    },
+    {
+      "sceneId": "exam",
+      "start": 317,
+      "end": 335,
+      "narration": "学習との接点を一つだけ。設計図書に入るものと、契約図面、特記仕様書、工事数量総括表が共通仕様書に優先する点は、整理の土台になります。何が出題されるかは年度によって違うので、出題を予想するものではありません。",
+      "caption": "設計図書の範囲と優先関係は、整理の土台",
+      "visual": {
+        "kind": "points",
+        "heading": "学習との接点",
+        "items": [
+          "設計図書に入るもの",
+          "三つが共通仕様書に優先",
+          "食い違いは確認して指示"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／設計図書",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "recap",
+      "start": 335,
+      "end": 351,
+      "narration": "まとめます。先に読むのは、特記仕様書、契約図面、工事数量総括表。図面は測点の順に、三つをつなぐ。食い違いは、自分で決めず、確認して指示を受ける。照査は、施工前と施工途中に受注者が行う。",
+      "caption": "三つを先に読み、測点で突き合わせ、確認する",
+      "visual": {
+        "kind": "points",
+        "heading": "今日のまとめ",
+        "items": [
+          "三つの図書を先に読む",
+          "図面は測点の順に突き合わせる",
+          "食い違いは確認して指示を受ける",
+          "照査は施工前と施工途中"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／設計図書",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 351,
+      "end": 363,
+      "narration": "図面を測点で突き合わせる見るところと、食い違いのときの約款の扱いは、サイトの記事で整理しています。概要欄のリンクから、確認してください。",
+      "caption": "詳しくはサイトの記事で（概要欄）",
+      "visual": {
+        "kind": "points",
+        "heading": "詳しくはサイトの記事で",
+        "items": [
+          "土木図面の読み方",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／設計図書"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "技術士 建設部門",
+        "改訂コンピテンシー",
+        "口頭で変わる質問"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "authority": "総監が解説"
+      },
+      "layout": "diagram-led"
+    }
+  }
+}

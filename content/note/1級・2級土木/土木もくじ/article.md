@@ -103,7 +103,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 そのほかの2級教材（目的に合わせて追加）:
 
-- [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/md3aa0f9a37d7) — 出題された年度の設問でそのまま演習したい人向け
+- [施工経験記述 過去問 模範答案集（R03-R08）](https://note.com/dobokunote/m/md3aa0f9a37d7) — 出題された年度の設問でそのまま演習したい人向け
 - [二次学科記述 テーマ別 出る順（問題2〜9）](https://note.com/dobokunote/m/m9a09a8982734) — 経験記述以外の学科記述も出る順で固めたい人向け
 - [出題分析と直前の重点（過去5年の実績）](https://note.com/dobokunote/n/n4e4f4930cf2e) — まず何から手を付けるか、直前2週間の優先順位を決めたい人向け
 - [第1次検定 過去問PDF（R03-R07 前期後期 全630問・全選択肢解説）](https://note.com/dobokunote/n/n4963f45bd6f8) — まず一次を過去問演習で突破したい人向け
@@ -139,7 +139,8 @@ https://note.com/dobokunote/m/md29a34906314
 
 - [二次学科記述 テーマ別 出る順（問題2〜11）](https://note.com/dobokunote/m/mcfe1059b3335) — 経験記述以外の学科記述も出る順で固めたい人向け
 - [第1次検定 出る順 合格ノート（12年頻度分析）](https://note.com/dobokunote/n/nec34238ca6d6) — 一次の施工管理法を出る順で優先度づけしたい人向け
-- [第1次検定 過去問PDF（H26-R7 全1162問・全選択肢解説）](https://note.com/dobokunote/n/n155093f42183) — まず一次を過去問演習で突破したい人向け
+- [第1次検定 過去問PDF（H26-R8 全1263問・全選択肢解説）](https://note.com/dobokunote/n/n155093f42183) — まず一次を過去問演習で突破したい人向け
+- [第1次検定 過去問PDF＋出る順ノート セット](https://note.com/dobokunote/m/mf863c7bdaf21) — 一次の2点（出る順ノートと過去問PDF）をまとめて割安にそろえたい人向け
 - [二次検定 直前暗記ノート](https://note.com/dobokunote/n/na84b001e827e) — 試験直前に重要語句を絞って確認したい人向け
 
 **令和8年度の試験形式で演習する教材**

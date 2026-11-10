@@ -8,21 +8,21 @@ title: 動画の量産工程（通常動画・ショート）
 
 ## 今どの工程か
 
-`npm run video-factory -- status` が全パックの次の工程を出す。推測せずここから始める。状態は台帳と実ファイルから毎回作るので、別の台帳は持たない。
+`npm run video-factory -- status` が全パックの次の工程を出す。推測せずここから始める。末尾には、パックがまだ無い企画（台本待ち）と内容QAで止まった行を、確認期限の近い順に出す（`--all` で全部。期限超過は `check-youtube-plan --due` が週次で赤にする・DN-1069）。状態は台帳と実ファイルから毎回作るので、別の台帳は持たない。
 
 | 工程 | やること | 担当 |
 |---|---|---|
+| qa | 台本を 6 軸で採点し `record-qa --file` で記録する。合格は原稿の digest に付き、原稿を直すと古くなる（`qa-check` が見る・DN-1067） | `video-content-qa` |
 | plan | 原稿から生成指示を作る | スクリプト |
 | generate | 画像を作る。比率と字幕の帯は機械で検査する | Codex |
 | audit | 1 枚ずつ、原稿と文字を照合する | `ai-image-fidelity-auditor` |
 | adopt | 全項目が ok なら採用する | スクリプト |
 | render | 音声・動画を作り、照合して台帳へ取り込む | スクリプト |
-| qa | 6 軸で採点する | `video-content-qa` |
 | review | 画面と文面を確認して pass か fail を記録する | `video-review` |
 | ready-for-approval | 音声を照合し、関門を通ったら方針の承認を書く | スクリプト |
 | 予約 | R2 へ転送し `youtube-single-publish.yml` で予約する | スクリプト |
 
-`fix-script` は内容QAの不合格、`images-exhausted` は作り直しの上限、`review-failed` は画面確認の fail で、どれも人が見る。
+`unregistered` は台本はあるが台帳に公開行が無いパックで、`npm run registry -- import-video-pack --pack-dir <パック> --commit` で載せ、年間計画の行に `publicationId` を結ぶ。`publish-pending` は承認したが予約の段（`publish`）へ進んでいない行で、`publish` を回す。`slot-expired` は公開日時まで 24 時間を切った（または過ぎた）未予約の行で、`unapprove` で承認を外し、`wire` で日時を付け直してから関門・承認・予約をやり直す（承認しただけの行は棚卸しで予約済みに数えない・DN-1066）。`fix-script` は内容QAの不合格、`images-exhausted` は作り直しの上限、`generate-stalled` は同じ項目で画像が出ない試行が続いたもの、`review-failed` は画面確認の fail で、どれも人が見る。`status` は止まった項目の理由も出す。原稿を変えずにやり直すときは `plan --retry <項目 id|all>` で回数と理由を戻す。画像が出なかった試行は作り直しの回数に数えず、試した全項目で出なければ `generate` は exit 2（検査不成立）で止まる（生成の経路を確かめて同じコマンドを打ち直す・DN-1065）。
 
 ## 品質の守り方
 
@@ -51,24 +51,29 @@ title: 動画の量産工程（通常動画・ショート）
 ```bash
 npm run video-factory -- plan --pack <資格>/<作品>
 npm run video-factory -- generate --pack <資格>/<作品>
+npm run video-factory -- plan --pack <資格>/<作品> --retry <項目 id|all>   # 上限・停止の項目を原稿を変えずにやり直す
 npm run video-factory -- audit-queue --pack <資格>/<作品>
 npm run video-factory -- record-audit --pack <資格>/<作品> --file <判定の JSON> --by ai-image-fidelity-auditor
 npm run video-factory -- adopt --pack <資格>/<作品>
 npm run video-factory -- render --pack <資格>/<作品>
 npm run video-factory -- ledger --pack <資格>/<作品>
-npm run video-factory -- record-qa --pack <資格>/<作品> --avg <平均> --blocks <件数>
+npm run video-factory -- record-qa --pack <資格>/<作品> --file <採点 JSON>   # { scores: { 軸: 0〜3 }, blocks: [理由…] }
+npm run video-factory -- qa-check --pack <資格>/<作品>   # 台帳の QA が今の原稿で合格なら exit 0
+npm run video-factory -- preflight --pack <資格>/<作品>  # 画像の前に公開行・年間の枠・主CTA・表紙の設計を見る（Workflow の最初の段・DN-1068）
+npm run video-factory -- save --pack <資格>/<作品>       # 止まったパックの台帳と原稿の変更を commit（Workflow の最後。push は親）
 npm run video-factory -- commit --pack <資格>/<作品>
 npm run video-factory -- audio-check --pack <資格>/<作品>
 npm run video-factory -- wire --pack <資格>/<作品>
 npm run video-factory -- gate --pack <資格>/<作品>
 npm run video-factory -- auto-approve --pack <資格>/<作品>
+npm run video-factory -- unapprove --pack <資格>/<作品>   # slot-expired の行の承認を外す（次に wire）
 ```
 
 表紙だけ作り直すときは `plan` に `--scope cover` を付ける。作業の記録は `.tmp/media/<資格>/<作品>/work/factory/plan.json`。
 
 ## Workflow で回す
 
-Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }] }` を渡す。`rendered: true` は制作済みの動画で、画像と描画を飛ばす。`from: "audit"` と `from: "review"` はその段から再開し、内容QAは飛ばす。内容QAは画像の生成より前に行い、BLOCK ならそこで止める（描画のあとに止まると画像の費用が無駄になる）。工程は同じで、画像の並行は 2 本まで、描画と台帳の書き込みは直列。止まったパックは理由を返し、他のパックは進む。最後の `finish` が音声照合・関門・コミットを回す。
+Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }] }` を渡す。`rendered: true` は制作済みの動画で、画像と描画を飛ばす。`from: "audit"` と `from: "review"` はその段から再開し、内容QAは飛ばす。台帳の QA が今の原稿で合格なら（`qa-check`）、別の PC で採点済みでも採点し直さない。内容QAは画像の生成より前に行い、BLOCK ならそこで止める（描画のあとに止まると画像の費用が無駄になる）。工程は同じで、画像の並行は 2 本まで、描画と台帳の書き込みは直列。止まったパックは理由を返し、他のパックは進む。最後の `finish` が音声照合・関門・コミットを回す。
 
 通ったパックは親が予約する。Workflow の中では外へ出さない。
 
@@ -120,6 +125,7 @@ npm run shorts-factory -- restore --pack <資格>/<作品> --key <key>       # �
 
 ## 罠
 
+- 会社の Windows PC では画像の工程が通らない（2026-11-10）。参照画像は Drive の `制作物/コンテンツ/` にあり、Google ドライブのアプリが起動していないと `plan` が「参照画像が無い」で止まる。Codex はプロキシを越えて届くが、`~/.codex/config.toml` の既定のモデル（`gpt-6.1-sol`）は ChatGPT アカウントでは使えず、画像が出ない（`generate` は回数を使わず exit 2）。会社 PC は台本・QA・台帳まで、画像から先は Mac で回す。
 - `wire` の空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない。在庫を前倒しするときは計画の枠と目標日を先に直す（2026-11-06）。
 
 - 予約の検査に要る `channel`・`r2Key`・`thumbnailR2Key` は `wire` が入れる。手で足さない（2026-11-05）。
@@ -130,7 +136,7 @@ npm run shorts-factory -- restore --pack <資格>/<作品> --key <key>       # �
 - エージェントの `npm run` はセッションの場所で動く。worktree で回すときは `( cd <root> && … )` を指示しないと、判定がメインのチェックアウトへ書かれる（2026-11-05）。
 - 件数をモデルに申告させない。監査で 2 枚の不合格を 0 件と返した例がある。判定の中身から数える（2026-11-05）。
 - 改訂版の `wire` は `--refresh-draft` で日時を変え、文面と素材が同じなので同じ QA を記録し直す（2026-11-05）。
-- `wire` は `youtube.json` が無ければ描画の実体から作る。主 CTA が `links-hub`・`site-article` のパックは導線の検査で止まるので、商品を決めてから流す（2026-11-05）。
+- `wire` は `youtube.json` が無ければ描画の実体から作る。主 CTA が `links-hub` のパックは新規公開の導線の検査で止まるので、商品か関連記事を決めてから流す（2026-11-05）。`site-article` は集客の枠の主 CTA として通り、概要欄の先頭のリンクが `targetPath` の公開 URL であることを検査する（targetPath はリポジトリのパスで、`siteArticleUrl` が公開 URL に直す・2026-11-10）。
 - `registry-reconcile` は公開範囲だけを見て、予約日時は比べない。日時の実体は `mode=audit-funnel` で読み戻す（2026-11-05）。
 - `codex exec` は標準入力を閉じないと入力を待って止まる（2026-11-04）。`spawnCodex` は閉じている。
 - 表紙だけ作り直すときの本文の画像は Drive にしか無い。`render` が先に揃える（2026-11-04）。

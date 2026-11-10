@@ -6,7 +6,7 @@
  * 封筒と共通の部品（price・drift・handle）をここで 1 回だけ書く（competitorSnapshot）。取得元ごとに違うのは 1 社の行と drift の語彙だけ。
  * 書き手: scripts/scout-{note,coconala,x,ig,youtube}-competitors.mjs・scout-coconala-blogs.mjs（競合）、x-own-metrics.mjs、youtube-own-metrics.mjs、
  * coconala-research.mjs（市場調査と要約）、scan-qualification-market.mjs、verify-note-status.mjs、
- * fetch-a8-ui-csv.mjs と .claude/skills/ads/scout-asp/scripts/a8-browser.ts（A8）。
+ * fetch-a8-ui-csv.mjs と .claude/skills/scout-asp/scripts/a8-browser.ts（A8）。
  */
 import { z } from 'zod';
 import { utcTime, offsetTime, jstDate, count, yen, orNull, flag, uniqueBy } from './dataset-schema-parts.mjs';
@@ -715,7 +715,7 @@ const a8Entry = z.looseObject({
     .describe('状態の遷移の履歴（状態機械の外の記録は持たない）'),
 });
 
-/** A8 の提携案件の一覧と状態機械（data/a8/catalog.json）。更新は .claude/skills/ads/scout-asp/scripts/a8-browser.ts。キーが __ で始まる行は状態機械の外の記録（__applying・__session） */
+/** A8 の提携案件の一覧と状態機械（data/a8/catalog.json）。更新は .claude/skills/scout-asp/scripts/a8-browser.ts。キーが __ で始まる行は状態機械の外の記録（__applying・__session） */
 export const A8Catalog = z
   .object({
     schemaVersion: z.literal(1),

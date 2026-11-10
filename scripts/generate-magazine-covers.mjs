@@ -630,6 +630,16 @@ export const MAGAZINES = [
     fillBg: '#742D15',
   },
   {
+    id: 'civil-1-ichiji-pack',
+    fileBaseName: 'civil-1-ichiji-pack-cover',
+    magazineDir: 'content/note/1級・2級土木/1級土木/magazines/1級土木-一次-過去問PDF出る順セット',
+    lines: ['1級土木 第1次検定', '過去問PDF＋出る順ノート', '令和8年度まで全1263問'],
+    category: '1級土木施工管理技士',
+    fontSize: 42,
+    accentColor: '#f0c040',
+    fillBg: '#155293',
+  },
+  {
     id: 'civil-1-chokuzen-pack',
     fileBaseName: 'civil-1-chokuzen-pack-cover',
     magazineDir: 'content/note/1級・2級土木/1級土木/magazines/1級土木-二次直前総仕上げパック',

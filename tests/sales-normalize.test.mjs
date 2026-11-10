@@ -14,6 +14,7 @@ import {
 import { catalogMagazines } from '../scripts/lib/sales-mapping.mjs';
 import { classifySale, loadLineupConfig } from '../scripts/lib/product-lineup.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+import { datasetPath } from '../scripts/lib/datasets.mjs';
 
 test('既知の表記ゆれは同一 id に正規化される（DN-0018 の実例）', () => {
   assert.equal(canonicalizeProductId('bk-i-r08-yosou-4'), 'bk-i-r8-yosou-04-cn-gx');
@@ -97,8 +98,15 @@ test('実データ: カタログの noteTitle はすべて自分の id に解決
   for (const m of withNoteTitle) {
     assert.equal(resolveMagazineId(m.noteTitle, catalog), canonicalizeProductId(m.id), `${m.id}: noteTitle「${m.noteTitle}」が自分の id に解決しない`);
   }
-  // 10/8 の売上（土質基礎まるごと合格パック）が、検算つきの取り直しと同じ経路（resolveSaleEntry）で確定する
-  assert.deepEqual(resolveSaleEntry({ title: '建設部門2次｜土質基礎まるごと合格パック', date: '2026-10-08' }, catalog, 0), {
+  // 10/8 の売上（土質基礎まるごと合格パック）は、2026-11-10 の改名後も取り直しと同じ経路で同じ id に確定する。
+  // note の販売履歴は売れた時点の名前で出るので、旧名は台帳の既存行（resolveKnownSaleEntry）、新名はカタログで解決する
+  const ledger = JSON.parse(readFileSync(datasetPath('note.sales'), 'utf8'));
+  const sales = ledger.sales ?? ledger;
+  const resolve = (title, date) => resolveKnownSaleEntry(title, sales) ?? resolveSaleEntry({ title, date }, catalog, 0);
+  assert.deepEqual(resolve('建設部門2次｜土質基礎まるごと合格パック', '2026-10-08'), {
+    type: 'magazine', productId: 'bk-geotechnical-pack', resolved: true,
+  });
+  assert.deepEqual(resolve('技術士 建設部門｜土質基礎まるごと合格パック', '2026-11-10'), {
     type: 'magazine', productId: 'bk-geotechnical-pack', resolved: true,
   });
 });

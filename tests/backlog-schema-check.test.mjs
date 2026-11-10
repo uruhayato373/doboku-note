@@ -202,3 +202,15 @@ test('[期日:] があれば、その月を [時期:] に含める（🟢・🟣
   assert.deepEqual(at('🔴 高', '[収益化] [種類:制作] [時期:2026-11..2027-03] [期日:2027-03-15]'), []);
 });
 
+
+test('消えたカードは完了の記録が無いものを数え、上限を超えたら止める（2026-11-10 の CRLF の置き換えで数十枚が消えかけた）', async () => {
+  const { validateRemovedCards, MAX_UNRECORDED_REMOVALS } = await import('../scripts/check-backlog-schema.mjs');
+  const head = ['DN-1', 'DN-2', 'DN-3', 'DN-4', 'DN-5'];
+  assert.deepEqual(validateRemovedCards(head, head, new Set()), [], '何も消えていない');
+  assert.deepEqual(validateRemovedCards(head, ['DN-1', 'DN-2', 'DN-3', 'DN-6'], new Set(['DN-4'])), [], '完了の記録がある 1 枚と RESEED の 1 枚は通す');
+  assert.equal(MAX_UNRECORDED_REMOVALS, 2);
+  const bad = validateRemovedCards(head, ['DN-1'], new Set());
+  assert.equal(bad.length, 1);
+  assert.equal(bad[0].rule, 'removed-cards');
+  assert.match(bad[0].msg, /4 枚/);
+});

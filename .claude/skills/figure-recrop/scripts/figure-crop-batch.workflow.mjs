@@ -1,0 +1,109 @@
+// figure-crop-batch.workflow.mjs
+// /figure-quality-loop の 1 周分と /figure-recrop の「大量処理（並列 workflow）モード」用ワークフロー。
+// 親（メインスレッド）が worklist を args で渡す。各図を figure-crop-worker（Generator）で
+// 並列に処理し、構造化結果の配列を返す。MDX 寸法・判定台帳の記録と最終目視 QA・commit は親が直列で行う。
+//
+// 起動例（親側）:
+//   node scripts/figure-review-queue.mjs --next 12 --json > .tmp/figure-loop/batch.json
+//   Workflow({ scriptPath: ".claude/skills/figure-recrop/scripts/figure-crop-batch.workflow.mjs",
+//              args: <batch.json の配列> })
+//
+// args の各要素: figure-review-queue.mjs --next の 1 要素
+//   { stage('review'|'reextract'), figKey, img(相対 .png|.webp), kind, imgSize:[幅,高さ], mdx, signals,
+//     whyCut?, recordedSource?, sourceCandidates?, sourceRoots? }
+// 旧形式 { figKey, name, img, kind, imgSize }（/figure-recrop の recrop-review 一覧）も stage=review として受ける。
+// 判定の RULES は figure-crop-worker.md（agent の system prompt）に集約＝ここでは入力を渡すだけ。
+
+export const meta = {
+  name: 'figure-crop-batch',
+  description: '記事図(png/webp)を並列で目視分類→写り込み除去クロップ／元PDFからの切り出し直し（figure-crop-worker を spawn・MDX/台帳/QAは親が直列）',
+  phases: [
+    { title: 'Crop', detail: '各図を figure-crop-worker が目視分類→クロップまたは元PDFから切り出し直し＋自己検証', model: 'sonnet' },
+  ],
+}
+
+const RESULT_SCHEMA = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['figKey', 'action', 'reason', 'selfVerify'],
+  properties: {
+    figKey: { type: 'string' },
+    action: { type: 'string', enum: ['crop', 'ok', 'needs-source', 'reextract', 'source-unavailable'] },
+    newWidth: { type: 'number', description: 'ファイルを書き換えたときの新幅、それ以外は0' },
+    newHeight: { type: 'number', description: 'ファイルを書き換えたときの新高さ、それ以外は0' },
+    cropBox: { type: 'string', description: '(left,top,right,bottom) 適用した座標。書き換えていなければ空文字' },
+    removed: { type: 'string', description: '除去した写り込み／復元した欠けの内訳' },
+    reason: { type: 'string' },
+    sourcePdf: { type: 'string', description: 'reextract の出典 PDF パス。それ以外は空文字' },
+    sourcePage: { type: 'number', description: 'reextract の出典ページ（1 始まり）。それ以外は0' },
+    sourceDpi: { type: 'number', description: 'reextract のレンダリング dpi。それ以外は0' },
+    rotate: { type: 'number', description: 'reextract の回転（時計回り 0/90/180/270）。cropBox は回した後のページ画像の座標。それ以外は0' },
+    postDespeckle: { type: 'number', description: 'reextract で孤立した黒い点を消した面積の上限（画素）。しなければ0' },
+    postWidth: { type: 'number', description: 'reextract で縮めた後の幅。縮めなければ0' },
+    postColors: { type: 'number', description: 'reextract で png を減色した色数。しなければ0' },
+    selfVerify: { type: 'string', enum: ['clean', 'suspect'] },
+  },
+}
+
+// args は worklist の配列、または { runId, items }（runId を省くと figKey 一覧から決める。Date は使えない）
+const parsedArgs = typeof args === 'string' ? JSON.parse(args) : args
+const items = Array.isArray(parsedArgs) ? parsedArgs : parsedArgs?.items
+if (!Array.isArray(items) || items.length === 0) {
+  log('args が空です。worklist（figure-review-queue.mjs --next の配列）を渡してください。')
+  return []
+}
+const stageOf = (it) => it.stage || 'review'
+log(`${items.length} 図を並列処理開始（review ${items.filter((it) => stageOf(it) === 'review').length}・reextract ${items.filter((it) => stageOf(it) === 'reextract').length}）`)
+
+const promptOf = (it) => {
+  const lines = [
+    `対象図を1枚だけ処理し、figure-crop-worker の stage=${stageOf(it)} の手順に従って構造化結果を返せ。`,
+    `figKey: ${it.figKey}`,
+    `画像(相対): ${it.img}`,
+    `kind: ${it.kind}`,
+    `現在の寸法: ${(it.imgSize || []).join('x')}`,
+  ]
+  if (it.mdx) lines.push(`記事 MDX（読むだけ）: ${it.mdx}`)
+  if (it.signals?.length) {
+    lines.push(`機械の兆候（疑う場所の手がかり・判定は目視で）: ${it.signals.map((s) => `${s.signal}${s.side ? `(${s.side})` : ''}${s.detail ? ` ${s.detail}` : ''}`).join(' / ')}`)
+  }
+  if (stageOf(it) === 'reextract') {
+    lines.push(`切れていると判定した理由: ${it.whyCut || '（記録なし）'}`)
+    lines.push(`記録済みの出典: ${it.recordedSource ? JSON.stringify(it.recordedSource) : 'なし'}`)
+    lines.push(`原典候補（記事の sources から。まずここを見る）: ${it.sourceCandidates?.length ? JSON.stringify(it.sourceCandidates) : 'なし'}`)
+    if (it.bookHit) lines.push(`書籍 OCR から引いた図の場所（find-book-figure。PDF のページは p 番号、印字は本のページ。まずこのページを描画して確かめる）: ${JSON.stringify(it.bookHit)}`)
+    lines.push(`候補で見つからないときだけ探す場所: ${(it.sourceRoots || []).join(' | ')}`)
+    if (it.vaultNote) lines.push(`注意: ${it.vaultNote}`)
+  }
+  return lines.join('\n')
+}
+
+// worker が結果を返さなかった図は action='error'（schema 外）。親は台帳に記録せず、次の周で判定待ちに残る
+const fallback = (it) => ({
+  figKey: it.figKey, action: 'error',
+  reason: 'agent returned null（未処理）', selfVerify: 'suspect',
+  newWidth: 0, newHeight: 0, cropBox: '', removed: '', sourcePdf: '', sourcePage: 0, sourceDpi: 0,
+  rotate: 0, postDespeckle: 0, postWidth: 0, postColors: 0,
+})
+
+phase('Crop')
+const results = await parallel(items.map((it) => () =>
+  agent(promptOf(it), {
+    label: `${stageOf(it)}:${it.figKey.split('/').pop()}`,
+    phase: 'Crop', schema: RESULT_SCHEMA, agentType: 'figure-crop-worker', model: 'sonnet',
+  }).then((r) => r || fallback(it))
+))
+
+// 結果をファイルに残す（会話の要約後に判定を transcript から拾い直さないため・DN-0556）。
+// スクリプトにはファイル書き込みが無いので、書き込みだけを agent に頼み、書いた件数を返させて照合する。
+const runId = (!Array.isArray(parsedArgs) && parsedArgs?.runId)
+  || 'w' + [...items.map((it) => it.figKey).join('|')].reduce((h, c) => ((h * 33) ^ c.charCodeAt(0)) >>> 0, 5381).toString(36)
+const resultsPath = `.tmp/figure-loop/results-${runId}.json`
+const written = await agent(
+  `次の JSON をそのまま（一字も変えず）${resultsPath} に書け。リポジトリのルートで、Bash で \`mkdir -p .tmp/figure-loop\` の後、引用符つきヒアドキュメント（<<'JSON_EOF'）で書くこと。書いた後に \`node -e "console.log(JSON.parse(require('fs').readFileSync('${resultsPath}','utf8')).length)"\` を実行し、その件数を count に入れて返せ。\n\n${JSON.stringify(results)}`,
+  { label: 'save-results', phase: 'Crop', agentType: 'general-purpose', model: 'sonnet', effort: 'low', schema: { type: 'object', additionalProperties: false, required: ['count'], properties: { count: { type: 'number' } } } },
+)
+if (written?.count === results.length) log(`結果を ${resultsPath} に保存（${results.length} 件）→ record --from-results ${resultsPath} --pass <figKey...>`)
+else log(`警告: 結果ファイル ${resultsPath} の保存を確認できなかった（書いた件数 ${written?.count ?? '不明'} / ${results.length}）。戻り値の配列から .tmp/figure-loop/ に自分で保存すること`)
+
+return results

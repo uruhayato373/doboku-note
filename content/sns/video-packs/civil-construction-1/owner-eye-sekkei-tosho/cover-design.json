@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "発注者の目で読む",
+        "設計図書"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "authority": "元発注者が解説"
+      },
+      "layout": "diagram-led"
+    }
+  }
+}

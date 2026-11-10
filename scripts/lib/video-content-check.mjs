@@ -183,7 +183,30 @@ function walkFiles(dir, out = []) {
   return out;
 }
 
+/**
+ * パックの中に置いてよいファイル。作業の途中のスクリプトや中間ファイル（.body.md など）が、パックごと commit されて
+ * 台帳の正本に混ざった（2026-11-10）。ここに無いファイルと、フォルダ・ドットファイルは M11 で止める。
+ */
+export const PACK_FILE_PATTERNS = [
+  /^video-pack\.json$/, /^storyboard\.json$/, /^script\.md$/, /^cover-design\.json$/, /^pop-image\.json$/,
+  /^cta-design\.json$/, /^compilation\.json$/, /^shorts-design\.json$/, /^[a-z-]+-prompt\.txt$/,
+  /^youtube([.-][a-z0-9.-]+)?\.json$/,
+];
+
+/** パックの中の、置いてよいファイル以外の名前を返す（フォルダも含む） */
+export function strayPackFiles(names) {
+  return names.filter((name) => !PACK_FILE_PATTERNS.some((re) => re.test(name)));
+}
+
+function checkPackFiles(pack, issues) {
+  if (!existsSync(pack.dir)) return;
+  for (const name of strayPackFiles(readdirSync(pack.dir))) {
+    issues.push(issue('FAIL', 'M11', `${pack.exam}/${pack.slug}`, `パックに置かないファイル: ${name}（作業の中間ファイルは .tmp/ へ。正当な成果物なら PACK_FILE_PATTERNS に足す）`));
+  }
+}
+
 function checkManifest(pack, config, seenPackIds, issues) {
+  checkPackFiles(pack, issues);
   if (!existsSync(pack.manifestPath)) {
     issues.push(issue('FAIL', 'M00', `${pack.exam}/${pack.slug}`, 'video-pack.json が無い（パックディレクトリだけ存在）'));
     return null;

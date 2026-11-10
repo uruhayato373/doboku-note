@@ -330,9 +330,9 @@
 
   "references": {
     "spec": ".claude/knowledge/design-system/note-cover.md",
-    "renderer": ".claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs（renderNoteCoverG2）",
+    "renderer": ".claude/skills/ogp-create/scripts/lib/ogp-templates.mjs（renderNoteCoverG2）",
     "generator": "scripts/generate-note-covers.mjs",
-    "skill": ".claude/skills/conversion/ogp-create/SKILL.md",
+    "skill": ".claude/skills/ogp-create/SKILL.md",
     "cssVars": "src/styles/globals.css の --color-*",
     "prototype": "handoff covers-g2-all.jsx / design-canvas.jsx"
   }

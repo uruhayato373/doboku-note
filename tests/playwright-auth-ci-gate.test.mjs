@@ -78,7 +78,7 @@ test('エージェントのセッション: collectors の script は拒否・wr
     assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-sales-fetch.mjs' }), /記録済みのデータ.*weekly-collect\.mjs --only/s);
     // writers（運営者の依頼で行う投稿・編集）
     assert.equal(resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-publish.mjs' }), profile);
-    assert.equal(resolveProfileDir('x', { ...options, invokedScript: '.claude/skills/social/publish-x/publish-x.ts' }), join(dir, 'profiles', 'playwright-x-profile'));
+    assert.equal(resolveProfileDir('x', { ...options, invokedScript: '.claude/skills/publish-x/publish-x.ts' }), join(dir, 'profiles', 'playwright-x-profile'));
     // 未登録（認証 CLI 自身・その他）
     assert.equal(resolveProfileDir('note', { ...options, invokedScript: 'scripts/playwright-auth.mjs' }), profile);
     assert.equal(resolveProfileDir('note', { ...options, invokedScript: undefined, repoRoot: '/nonexistent-repo' }), profile);
@@ -110,7 +110,7 @@ test('エージェントでもコレクタ判定は起動 script だけで決ま
 
 test('invokedScriptRelative: repo 相対 posix・repo 外は null', () => {
   assert.equal(invokedScriptRelative('/repo', '/repo/scripts/x.mjs'), 'scripts/x.mjs');
-  assert.equal(invokedScriptRelative('/repo', '/repo/.claude/skills/social/publish-x/publish-x.ts'), '.claude/skills/social/publish-x/publish-x.ts');
+  assert.equal(invokedScriptRelative('/repo', '/repo/.claude/skills/publish-x/publish-x.ts'), '.claude/skills/publish-x/publish-x.ts');
   assert.equal(invokedScriptRelative('/repo', '/elsewhere/scripts/x.mjs'), null);
   assert.equal(invokedScriptRelative('/repo', undefined), null);
 });
@@ -170,7 +170,7 @@ test('checkAuthScriptLists: 存在しない script と write 系の collectors �
 });
 
 test('scanWorkflowForLogin: DOBOKU_AUTH_・restore-auth-state・ci-* 復元・login script の起動を検出する', () => {
-  const ctx = { loginScripts: ['scripts/note-sales-fetch.mjs', '.claude/skills/social/publish-x/publish-x.ts'], npmNames: ['note-sales-fetch'] };
+  const ctx = { loginScripts: ['scripts/note-sales-fetch.mjs', '.claude/skills/publish-x/publish-x.ts'], npmNames: ['note-sales-fetch'] };
   const scan = (text) => scanWorkflowForLogin(text, 'w.yml', ctx);
 
   assert.deepEqual(scan('steps:\n  - run: node scripts/ci-data.mjs add\n'), []);
@@ -182,7 +182,7 @@ test('scanWorkflowForLogin: DOBOKU_AUTH_・restore-auth-state・ci-* 復元・lo
   assert.match(scan('  - uses: ./.github/actions/restore-auth-state\n')[0], /restore-auth-state/);
   assert.match(scan('  - run: node scripts/playwright-auth.mjs ci-plan --event schedule\n')[0], /playwright-auth\.mjs ci-/);
   assert.match(scan('  - run: node scripts/note-sales-fetch.mjs --month 2026-10\n')[0], /note-sales-fetch\.mjs/);
-  assert.match(scan('  - run: npx tsx .claude/skills/social/publish-x/publish-x.ts post\n')[0], /publish-x\.ts/);
+  assert.match(scan('  - run: npx tsx .claude/skills/publish-x/publish-x.ts post\n')[0], /publish-x\.ts/);
   assert.match(scan('  - run: npm run note-sales-fetch -- --month 2026-10\n')[0], /npm run note-sales-fetch/);
   // 前方一致で別の npm script を誤検出しない
   assert.deepEqual(scan('  - run: npm run note-sales-fetch-check\n'), []);

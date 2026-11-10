@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "技術士 建設部門",
+        "落ちた答案は",
+        "どこで落ちる？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "authority": "総監が解説"
+      },
+      "layout": "diagram-led"
+    }
+  }
+}

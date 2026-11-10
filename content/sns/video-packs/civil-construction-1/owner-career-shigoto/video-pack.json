@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "packId": "owner-career-shigoto",
+  "exam": "civil-construction-1",
+  "title": "発注者の仕事の中身",
+  "audience": "1級土木施工管理技士を学ぶ受検者・施工管理の実務者で、発注者側の仕事を知りたい人",
+  "pain": "発注者側の土木技術者が1年を通じて何をしているかが分からず、受注者側から見た発注者の動きや判断の理由がつかめない",
+  "promise": "予算から維持管理までの仕事の流れと、1年の山の並びが分かり、発注者の動きの理由を読める",
+  "intent": "career",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/project-request-to-budget/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/owner-safety-responsibility/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/preventive-maintenance-diagnosis/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx",
+    "campaign": "owner-career-shigoto"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

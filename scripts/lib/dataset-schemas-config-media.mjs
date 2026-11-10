@@ -392,6 +392,7 @@ export const ConfigStandardsStructure = z
                     chapter: z.literal(true).optional().describe('編と同時にその題名の章も始める'),
                     item: z.number().int().positive().optional().describe('冊子の項目番号（編の項目に付ける・editionCanonical の item と結ぶ）'),
                     plainArticles: z.literal(true).optional().describe('その章では要綱の第N を条の見出しにしない'),
+                    keepLine: z.literal(true).optional().describe('章を始めた行を除かず本文の 1 行目に残す（図の題名が章の境目にあるとき）'),
                     front: z.literal(true).optional().describe('次の項目までを中扉・目次として章に入れない'),
                     title: z.string().min(1).optional().describe('表示する題名（原本の誤読・折り返しを正す）'),
                     bookTitle: z.string().min(1).optional().describe('編兼章の項目の編の名前'),
@@ -408,6 +409,7 @@ export const ConfigStandardsStructure = z
             sectionIndentMax: z.number().int().nonnegative().optional().describe('節の見出しとして認める字下げの上限'),
             noTables: z.string().min(1).optional().describe('表を持たない文書の理由（check-standard-articles 14 が表 0 件を確かめる）'),
             ogpLabel: z.string().min(1).optional().describe('章 OGP の右上の札（既定は共通仕様書）'),
+            standardFigureTitles: z.literal(true).optional().describe('保安施設の標準図の題名（Ａ―３型 標準図 …）を図のキャプションにし、図の台帳の画像を差し込む（DN-1053）'),
             amendments: z
               .object({
                 document: agencyDoc.describe('訂正・追加を定める文書（各ページ先頭に【第N編 … 第M章 関係】を刷る）'),

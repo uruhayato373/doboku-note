@@ -25,6 +25,7 @@ import { writeEpub, xhtmlDoc, xesc } from './lib/epub-writer.mjs'
 import { mdToXhtml } from './lib/kindle-md.mjs'
 import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 import { parseCliArgs } from './lib/cli-args.mjs'
+import { reviewRequestPage } from './lib/kindle-review-request.mjs'
 
 const AUTHOR = 'doboku-note'
 const PUBLISHER = 'doboku-note'
@@ -210,6 +211,7 @@ function main() {
       content: xhtmlDoc(label, `<div class="essay">${mdToXhtml(cleaned)}</div>`),
     })
   }
+  pages.push(reviewRequestPage())
 
   const resources = []
   const epubPath = writeEpub(

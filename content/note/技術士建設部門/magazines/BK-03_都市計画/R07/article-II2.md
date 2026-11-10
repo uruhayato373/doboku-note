@@ -25,7 +25,7 @@ cover:
 
 令和8年度の改訂コンピテンシーに対応した模範解答です。
 
-反映点：3D都市モデル・PLATEAUデータの活用と景観データ・現況調査データの活用（データ活用）、鉄道事業者・公安委員会・住民・商業者・景観行政団体等のステークホルダーとの包摂的な合意形成（ステークホルダー）、都市空間・景観・地域文化の持続可能な保全と更新（持続可能な成果・文化的価値）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+反映点：3D都市モデル・PLATEAUデータの活用と景観データ・現況調査データの活用（データ活用）、鉄道事業者・公安委員会・住民・商業者・景観行政団体等のステークホルダーとの包摂的な合意形成（ステークホルダー）、都市空間・景観・地域文化の持続可能な保全と更新（持続可能な成果・文化的価値）。[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=ndaa4a6d2aec3)
 
 ---
 
@@ -58,6 +58,11 @@ cover:
 論述の骨格と発注者視点の着眼点を参照しながら、各自の答案作成にお役立てください。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜都市計画 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）21本をまとめて読めるマガジンがあります。4本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/mc8bd949f1f51
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。

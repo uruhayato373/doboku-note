@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-07T23:31:46.926Z",
+  "updated_at": "2026-11-09T04:22:32.184Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -9752,6 +9752,50 @@
         "at": "2026-11-08",
         "change": "前回（EXP-029・取得順）と別の角度で、title・description を「土木公務員の資格一覧」に寄せ、冒頭に検討する資格 4 つの一覧の段落を足した"
       }
+    },
+    {
+      "id": "EXP-063",
+      "title": "技術士一次 令和8年度の解答速報で、正答は無料のまま自己採点シートと結果別の次の一手をメール登録の特典にする",
+      "hypothesis": "試験直後に正答を確かめに来た受験者は、合格ラインとの差がわかる自己採点シートと結果別の次の一手が欲しい。本文を隠さず登録の特典にすれば、検索順位を落とさずにメールのリストができ、登録者が note の教材を買う",
+      "target_metric": "速報ページ（/exam/pe-first-stage/guide/r08-answers）の PV に対する登録率（Brevo リスト「技術士一次 R8 速報」の確認済み件数）・登録者の note 購入・速報ページの GSC 平均順位",
+      "target_delta": "試験日から合格発表までに登録率 3% 以上。速報ページの平均順位が基準より 3 位以上悪くなったら特典の案内を外す",
+      "status": "running",
+      "created_at": "2026-11-09",
+      "started_at": "2026-11-09",
+      "next_check_date": "2026-11-30",
+      "updated_at": "2026-11-09T04:22:32.184Z",
+      "businessContext": {
+        "qualification": "pe-construction",
+        "readerNeed": "技術士一次の受験直後に正答を確かめ、合格ラインとの差と次に何をするか（二次の建設部門へ進む準備を含む）を決めたい",
+        "verifiedGap": "速報ページは 11/4 に登録済み・平均 6.3 位で表示がある一方、メールのリストは 0 件で、読者へ直接届ける手段が無い（DN-0981・DN-0632）",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json",
+        "metricId": "noteSales"
+      },
+      "baseline": {
+        "measured_at": "2026-11-09",
+        "source": "data/gsc/reports/2026-11-08.json（速報ページの直近 28 日）と Brevo のリスト",
+        "impressions": 174,
+        "clicks": 20,
+        "averagePosition": 6.3,
+        "subscribers": 0,
+        "note": "リストには 11/9 のテスト登録の運営者アドレスが 1 件入っている。登録数から除く"
+      },
+      "pending_user_actions": [
+        {
+          "action": "11/30 と合格発表の後に、Brevo のリスト「技術士一次 R8 速報」の件数（確認済み）を読む"
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-11-09T04:22:32.184Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-09T04:22:32.184Z",
+          "event": "implemented",
+          "change": "速報ページに Brevo の登録フォーム（確認メールあり）を置き、確認後に自己採点シートの PDF と特典メールを渡す。本番反映 main 8746cbfbb"
+        }
+      ]
     }
   ]
 }

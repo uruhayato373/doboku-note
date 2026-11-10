@@ -51,7 +51,9 @@
 - [ライブ一括操作の罠](feedback_platform_only_artifacts_destroyed_by_bulk_ops.md) — SoT外の添付破壊
 - [再発防止の仕組み化](feedback_prevention_over_patching.md) — 手動ゲートは素通り
 - [X予約偽成功](feedback_publish_x_false_success.md) — キュー実体検証
+- [X返信の表示遅れ](reference_x_reply_send_lag.md) — 押し直さず入力欄で判定
 - [レビュー申し送り台帳](feedback_review_tasks_to_backlog.md) — DN起票・backlog罠
+- [検証タグは develop の script](feedback_backlog_verify_tag_unmerged_script.md) — 未マージの script を書くと CI 赤
 - [週次の遅れ取り戻し](feedback_weekly_review_late_catchup.md) — 旧週削除のリンク・対応済み照合・publish型停止
 - [着手前git同期](feedback_session_start_git_sync.md) — fetch・PR squash巻込み
 - [/docs/URLフラットslug](feedback_sns_docs_url_flat_slug.md) — 接頭辞必須・pre-commit検証
@@ -72,6 +74,7 @@
 - [資格展開SSOT](project_qualification_expansion_ssot.md) — 展開判断・行政書士取得決定
 - [NSM・領域・週次](project_nsm.md) — 月受取額NSM・8領域・週次
 - [モデル前提](project_model_assumptions.md) — Opus5.5前提・棚卸し済
+- [サブスクのみ](project_subscription_only.md) — API不使用・判断軸は枠と速度
 - [分類SSOT](project_content_taxonomy.md) — 領域×資格×型×タグ
 - [GSC/SEO方針](project_gsc_pivot_2026_04.md) — CTA最適化・AdSense再開2026-11・ピラー
 - [集客・誘導への重点移行](project_access_funnel_phase_2026_11.md) — 技術士はnote側・土木は持ち越し・棚の不足はDN台帳
@@ -144,3 +147,4 @@
 - [IG照合](reference_ig_publish_reconcile.md) — verify-ig-status・--now偽陰性
 - [YouTube予約](reference_youtube_schedule.md) — publishAt・quota・60秒
 - [aidesigner](reference_aidesigner_mcp.md) — クレジット制約・inspire
+- [note コメント上限](reference_note_comment_rate_limit.md) — 1時間約10件・購入者限定欄・11/9の相手17人

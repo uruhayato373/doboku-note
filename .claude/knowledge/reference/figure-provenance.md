@@ -64,7 +64,7 @@ OCR/シャープネスでは検出できない欠陥がある。最重要は **�
 
 ## 運用
 
-**品質ループ（2026-10-06〜・正の運用）**: `/loop /figure-quality-loop` で「判定待ち → 目視判定・修正 → 判定台帳に記録」を判定待ちが 0 になるまで回す。判定待ちは `npm run figure-review-queue` が毎回その場で作る（公開記事の図を画素検査＝EDGE_CUT/STRAY_*・LOW_RES ＋ OCR の needs − 判定台帳で今の画像に効く記録 − manual_needs。写真（kind が ai-generated）は対象外＝check-image-origin が見る。px の無い古い ok と manual_needs の ok は低解像度なら判定待ちに戻る）。始めた時点の census: 公開記事の図 626 枚・兆候あり 264・**判定待ち 220**（優先1: 1・優先2〔EDGE_CUT〕: 176・優先3: 43）・manual_needs で確認済み 40・原典なし 4。最初に目視した EDGE_CUT 上位 4 枚のうち 3 枚は図・ラベルが縁で切れていたのに needs:ok だった（EDGE_CUT は機械だけでは正当な縁接触と区別できない＝目視判定が要る理由）。手順と判定の対応表は `.claude/skills/quality/figure-quality-loop/SKILL.md`。
+**品質ループ（2026-10-06〜・正の運用）**: `/loop /figure-quality-loop` で「判定待ち → 目視判定・修正 → 判定台帳に記録」を判定待ちが 0 になるまで回す。判定待ちは `npm run figure-review-queue` が毎回その場で作る（公開記事の図を画素検査＝EDGE_CUT/STRAY_*・LOW_RES ＋ OCR の needs − 判定台帳で今の画像に効く記録 − manual_needs。写真（kind が ai-generated）は対象外＝check-image-origin が見る。px の無い古い ok と manual_needs の ok は低解像度なら判定待ちに戻る）。始めた時点の census: 公開記事の図 626 枚・兆候あり 264・**判定待ち 220**（優先1: 1・優先2〔EDGE_CUT〕: 176・優先3: 43）・manual_needs で確認済み 40・原典なし 4。最初に目視した EDGE_CUT 上位 4 枚のうち 3 枚は図・ラベルが縁で切れていたのに needs:ok だった（EDGE_CUT は機械だけでは正当な縁接触と区別できない＝目視判定が要る理由）。手順と判定の対応表は `.claude/skills/figure-quality-loop/SKILL.md`。
 
 単発の対象選び: `node scripts/build-figure-provenance.mjs --list <needs>`（公開×掲載のパスを1行1件）。`source_dir` は `.claude/state/figure-provenance.json` の各図に入っている。管理画面（`npm run admin` → 記事図版）は**目視確認専用**で、資格・種別で絞って白地のサムネを見るだけにしている（needs・進捗・バッジは出さない。2026-09-30）。
 

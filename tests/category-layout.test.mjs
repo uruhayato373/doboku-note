@@ -6,7 +6,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { toDataUrl } from './lib/load-ts.mjs';
-import { categoryExamKeys } from '../.claude/skills/conversion/ogp-create/scripts/lib/category-exam-key.mjs';
+import { categoryExamKeys } from '../.claude/skills/ogp-create/scripts/lib/category-exam-key.mjs';
 import { ogpCoverageErrors } from '../scripts/check-home-exam-coverage.mjs';
 
 const REAL = JSON.parse(readFileSync('src/config/categories.json', 'utf8'));

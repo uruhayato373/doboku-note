@@ -5,11 +5,11 @@ title: OGP デザインリファレンス
 # OGP デザインリファレンス
 
 doboku-note のサイト OGP / note カバー共通テンプレ T06 Mono Tag の **デザイン真実源（SSOT）**。
-OGP デザインはここで継続的に検討・改善する。レイアウト・配色・フォント・テーマ色・変更履歴をこのファイルに記録し、実装（`ogp-templates.mjs`）と常に一致させる。コマンド・引数・トラブルシューティングなど運用面は [`ogp-create` SKILL.md](../../skills/conversion/ogp-create/SKILL.md) を参照。
+OGP デザインはここで継続的に検討・改善する。レイアウト・配色・フォント・テーマ色・変更履歴をこのファイルに記録し、実装（`ogp-templates.mjs`）と常に一致させる。コマンド・引数・トラブルシューティングなど運用面は [`ogp-create` SKILL.md](../../skills/ogp-create/SKILL.md) を参照。
 
 - **OGP サイズ**: 1200×630（doboku-note サイト用）
 - **note カバーサイズ**: 1280×670（note 公開用。描画は 2026-09-17 から本スキル外の V5 キャラクターカバー `scripts/lib/note-character-cover.mjs`。フォントと資格別背景写真だけを共有）
-- **テンプレ実装**: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の `renderMonoTag` が真実源
+- **テンプレ実装**: `.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs` の `renderMonoTag` が真実源
 - **ベースは CSS のみで完結**（背景画像なしでも成立）。文字・ブランド枠は常に satori が正確に描く
 - **配色は 2026-07-02 にライト写真前面を既定化**（資格別ブランド写真＋淡スクリム＋濃色文字）。**資格別 AI 背景（下記「資格別 AI 背景」）を Codex 生成のブランド写真へ差し替え**、`resolveBackgroundImage` で自動合成。旧ダーク配色（深紺グラデ地・2026-06-29〜2026-07-02 既定）は **`--dark` フラグ**で描画可能（互換保持）。※過去に AI 背景が「暗スクリムで濁る」ため見送られた経緯があるが、明るい写真＋淡スクリム＋濃色文字で解消（サンプル比較で確認）
 
@@ -189,7 +189,7 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 
 1. このファイル（出典・用途・変更履歴）に追記
 2. `config/ogp/settings.json` の templates（レジストリ）に ID を追加
-3. `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の `renderers` に `render{XYZ}` を追加（`(props, { width, height }) => element` シグネチャ）
+3. `.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs` の `renderers` に `render{XYZ}` を追加（`(props, { width, height }) => element` シグネチャ）
 4. 必要なら `config/ogp/settings.json` の rules にルール追加
-5. 背景画像が必要なら `.claude/skills/conversion/ogp-create/assets/fonts/ogp-backgrounds/{id}.png` に配置
+5. 背景画像が必要なら `.claude/skills/ogp-create/assets/fonts/ogp-backgrounds/{id}.png` に配置
 6. `npm run ogp-gallery` で一覧目視検証（mono-tag は全幅。中央クロップ耐性が要るテンプレのみ別途セーフ幅を検証）

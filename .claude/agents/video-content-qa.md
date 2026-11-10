@@ -21,7 +21,7 @@ domain: sns
 ## 入力 / 出力
 
 - **入力**: パックのディレクトリ（`content/sns/video-packs/{exam}/{slug}`）
-- **出力**: 軸別得点（0〜3）・平均・BLOCK 一覧・指摘（file:line・引用・修正案）・判定（PASS / BLOCK）。**自分では修正しない・status を変えない・投稿しない**
+- **出力**: 軸別得点（0〜3）・平均・BLOCK 一覧・指摘（file:line・引用・修正案）・判定（PASS / BLOCK）。末尾に採点を `{"scores":{"軸":0〜3,…},"blocks":["理由",…]}` の JSON で 1 つ付ける（親が `video-factory -- record-qa --file` で記録し、平均と件数はコマンドが数える。原稿の digest が付くので、採点の後に原稿が変わると QA は古くなる）。**自分では修正しない・status を変えない・投稿しない**
 
 ## 手順
 

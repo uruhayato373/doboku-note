@@ -104,7 +104,7 @@
       "id": "pop-manual",
       "label": "商品画像・カバーの POP 手作業",
       "kind": "manual",
-      "entry": ".claude/skills/social/create-pop-image/SKILL.md",
+      "entry": ".claude/skills/create-pop-image/SKILL.md",
       "audit": "ai-image-fidelity-auditor"
     },
     {

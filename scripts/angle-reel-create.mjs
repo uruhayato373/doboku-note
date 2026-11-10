@@ -30,7 +30,7 @@ import { IG_HANDLE } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const IG = join(ROOT, 'content/sns/instagram');
-const FONT = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf');
+const FONT = join(ROOT, '.claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf');
 const CHARDIR = join(ROOT, 'content/sns/_assets/character');
 
 // スライドの character 指定（slug 文字列 or {pose,side,scale}）を解決。無ければ null。

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "_doc": "docs/marketing/02_チャネル動線設計.md（チャネル横断の役割）・docs/marketing/06_動画コンテンツ運用設計.md（動画）。チャネルの年間の枠と型の正本。slots・entries・cycle・metrics は YouTube、channels は X・Instagram の枠と型を持つ。枠の stance は config.competitor-positions の立ち位置を指す。materials は entries と primaryCta に無い材料だけを持ち、写さない。編集後は check-channel-plan・check-youtube-plan・check-competitor-positions を通す",
-  "updatedAt": "2026-11-07",
+  "updatedAt": "2026-11-10",
   "cycle": {
     "id": "2026-11_2027-10",
     "window": {
@@ -2155,20 +2155,20 @@
       }
     },
     {
-      "id": "cm-yosou-2027",
+      "id": "cm-quiz-2027",
       "exam": "pe-comprehensive-management",
-      "format": "yosou-derivation",
-      "title": "総監 出題予想の導き方",
-      "stance": "cm-essay",
+      "format": "quiz-tts",
+      "title": "総監 択一の一問一答・聞き流し（試行）",
+      "stance": "cm-takuitsu",
       "materials": {
         "status": "proposed",
         "packs": [],
         "products": [],
         "make": ""
       },
-      "role": "sell",
+      "role": "attract",
       "window": {
-        "from": "2027-06",
+        "from": "2027-05",
         "to": "2027-06"
       },
       "anchors": [
@@ -2177,22 +2177,23 @@
       "primaryCta": {
         "kind": "note-magazine",
         "targets": [
-          "tankan-reading-guide",
-          "setsumon3-policy-bank",
-          "essay-core-pack",
-          "r8-essay-forecast"
+          "tankan-takuitsu-reiwa-pdf"
         ]
       },
       "count": 1,
       "reuse": "new",
-      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
+      "reuseNote": "在庫は無い。1級土木の一問一答（DN-0600）の仕組みをキーワードページに当てて作る",
       "reason": {
-        "reader": "何を重点に準備すればよいか分からない",
+        "reader": "移動中に択一のキーワードを耳で反復したい",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "予想の根拠と限界を無料で示し、予想論文は note で買う",
-        "demand": "未検証。的中を断定しない",
-        "evidence": [],
-        "next": "視聴維持と教材のクリックを見る"
+        "value": "キーワードの一問一答を耳で反復し、問題演習は PDF で買う",
+        "demand": "総監の聞き流しは競合が空白。需要の数字は土木の「一問一答」「聞き流し」の再生中央値で、総監での実績は未検証",
+        "evidence": [
+          "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:40",
+          "docs/marketing/05_YouTube戦略_技術士総監.md:102",
+          "docs/marketing/05a_YouTube競合分析_技術士総監_2026-06.md:100"
+        ],
+        "next": "1級土木の一問一答の試作の結果を見てから本数を決める。公開後は平均視聴時間と択一 PDF の販売を見る"
       }
     },
     {
@@ -2430,47 +2431,6 @@
       },
       "shorts": {
         "count": 7
-      }
-    },
-    {
-      "id": "pc-yosou-2027",
-      "exam": "pe-construction",
-      "format": "yosou-derivation",
-      "title": "建設部門 出題予想の導き方",
-      "stance": "pc-hissu",
-      "materials": {
-        "status": "proposed",
-        "packs": [],
-        "products": [],
-        "make": ""
-      },
-      "role": "sell",
-      "window": {
-        "from": "2027-05",
-        "to": "2027-05"
-      },
-      "anchors": [
-        "written"
-      ],
-      "primaryCta": {
-        "kind": "note-magazine",
-        "targets": [
-          "pe-construction-required-magazine"
-        ]
-      },
-      "count": 1,
-      "reuse": "new",
-      "reuseNote": "在庫を前提にせず、立ち位置から新しく作る",
-      "reason": {
-        "reader": "次の出題を自分で絞る方法を知りたい",
-        "harm": "A（資格の取得）。合格という目標への近道を探している",
-        "value": "導き方と限界を無料で示し、予想問題は note で買う",
-        "demand": "競合の出題予想は再生中央値 13,300。建設部門の予想連番は BONTA の主戦場なので導出に限る",
-        "evidence": [
-          "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:78",
-          "docs/marketing/08_YouTube戦略_技術士建設部門.md:90"
-        ],
-        "next": "予想の動画が検索から再生されるかを見る"
       }
     },
     {
@@ -3258,6 +3218,7 @@
       "primaryCta": {
         "kind": "site-article",
         "targets": [
+          "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx",
           "content/site/civil-practice/owner-safety-responsibility/article.mdx"
         ]
       },
@@ -3619,6 +3580,7 @@
     {
       "id": "y27-cm-oral-1",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform",
       "title": "総監 口頭｜5管理のトレードオフを自分の経験で語る",
       "action": "new",
       "slot": "cm-oral-2026",
@@ -3631,6 +3593,7 @@
     {
       "id": "y27-pc-oral-1",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-kojutsu-fukabori/youtube.longform",
       "title": "建設部門 口頭｜深掘りの質問に事実で答える",
       "action": "new",
       "slot": "pc-oral-2026",
@@ -3643,6 +3606,7 @@
     {
       "id": "y27-owner-eye-1",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform",
       "title": "工事検査で発注者が見るところ",
       "action": "new",
       "slot": "owner-eye-2027",
@@ -3655,6 +3619,7 @@
     {
       "id": "y27-pc-oral-2",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform",
       "title": "建設部門 口頭｜改訂コンピテンシーで変わる質問",
       "action": "new",
       "slot": "pc-oral-2026",
@@ -3667,6 +3632,7 @@
     {
       "id": "y27-cm-oral-2",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform",
       "title": "総監 口頭｜立場ごとに聞かれることと答え方",
       "action": "new",
       "slot": "cm-oral-2026",
@@ -3679,6 +3645,7 @@
     {
       "id": "y27-pc-restart-1",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-fugoukaku-toan/youtube.longform",
       "title": "建設部門｜不合格の答案はどこで落ちるか",
       "action": "new",
       "slot": "pc-restart-2027",
@@ -3691,6 +3658,7 @@
     {
       "id": "y27-c1-start-1",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-juken-junjo-2027/youtube.longform",
       "title": "1級土木｜2027 年度の受検の順序",
       "action": "new",
       "slot": "c1-start-2027",
@@ -3703,6 +3671,7 @@
     {
       "id": "y27-owner-eye-2",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/owner-eye-kantokuin/youtube.longform",
       "title": "監督員とのやり取りで押さえること",
       "action": "new",
       "slot": "owner-eye-2027",
@@ -3715,6 +3684,7 @@
     {
       "id": "y27-c2-start-1",
       "exam": "civil-construction-2",
+      "publicationId": "civil-construction-2/c2-juken-junjo-2027/youtube.longform",
       "title": "2級土木｜2027 年度の受検の順序",
       "action": "new",
       "slot": "c2-start-2027",
@@ -3727,6 +3697,7 @@
     {
       "id": "y27-owner-eye-3",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform",
       "title": "発注者の目で読む設計図書",
       "action": "new",
       "slot": "owner-eye-2027",
@@ -3739,6 +3710,7 @@
     {
       "id": "y27-owner-career-1",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/owner-career-shigoto/youtube.longform",
       "title": "発注者の仕事の中身",
       "action": "new",
       "slot": "owner-career-2027",
@@ -4073,16 +4045,16 @@
       "note": "競合の立ち位置から起こした企画。台本から作る"
     },
     {
-      "id": "y27-pc-yosou-1",
-      "exam": "pe-construction",
-      "title": "建設部門｜出題予想の導き方",
+      "id": "y27-cm-quiz-1",
+      "exam": "pe-comprehensive-management",
+      "title": "総監 択一｜キーワード一問一答（聞き流し）",
       "action": "new",
-      "slot": "pc-yosou-2027",
-      "start": "2027-05-04",
-      "ready": "2027-05-11",
-      "target": "2027-05-14",
-      "priority": "P1",
-      "note": "競合の立ち位置から起こした企画。台本から作る"
+      "slot": "cm-quiz-2027",
+      "start": "2027-05-06",
+      "ready": "2027-05-13",
+      "target": "2027-05-17",
+      "priority": "P2",
+      "note": "戦略文書の聞き流しの柱（05 P3）を一問一答の型で起こした企画。台本から作る"
     },
     {
       "id": "y27-cm-essay-3",
@@ -4177,18 +4149,6 @@
       "start": "2027-06-08",
       "ready": "2027-06-15",
       "target": "2027-06-18",
-      "priority": "P1",
-      "note": "競合の立ち位置から起こした企画。台本から作る"
-    },
-    {
-      "id": "y27-cm-yosou-1",
-      "exam": "pe-comprehensive-management",
-      "title": "総監 記述｜出題予想の導き方",
-      "action": "new",
-      "slot": "cm-yosou-2027",
-      "start": "2027-06-13",
-      "ready": "2027-06-20",
-      "target": "2027-06-23",
       "priority": "P1",
       "note": "競合の立ち位置から起こした企画。台本から作る"
     },

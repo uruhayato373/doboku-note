@@ -221,7 +221,10 @@ const Work = z
     format: z.string().optional().describe('同じ種類の中の型（例: compilation）'),
     definition: repoPath('作品の中身（台本・文面）のフォルダ'),
     qa: z
-      .object({ avg: z.number().min(0).max(3), blocks: z.number().int().min(0), at: jstDate('QA の日付'), by: z.string() })
+      .object({
+        avg: z.number().min(0).max(3), blocks: z.number().int().min(0), at: jstDate('QA の日付'), by: z.string(),
+        inputSha256: sha256.optional().describe('採点した原稿（script.md・imageDesign を除く storyboard.json・video-pack.json）の digest。違えば QA は古い（DN-1067）'),
+      })
       .strict()
       .optional(),
     theme: z.string().optional().describe('コンテンツのテーマの id'),

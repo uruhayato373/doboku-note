@@ -31,7 +31,7 @@ export const ARTICLES_ROOT = join(SITE_CONTENT_ROOT, 'standards-articles');
 export const TABLE_OVERRIDES_ROOT = join(CONTENT_SOURCES_ROOT, 'standards', 'tables');
 
 /** 文書ごとの差し替え（documentVariants）で置き換える中身の欄。key・layout・review は元のまま */
-const VARIANT_FIELDS = ['kind', 'header', 'rows', 'notes', 'items', 'parts', 'headerFrom', 'headerFill', 'headerImage', 'headerless', 'absorbs', 'into', 'absorbsParagraphs'];
+const VARIANT_FIELDS = ['kind', 'header', 'rows', 'notes', 'items', 'parts', 'headerFrom', 'headerFill', 'headerImage', 'headerless', 'absorbs', 'into', 'absorbsParagraphs', 'paragraphVariants'];
 
 /**
  * 組み直した表を key → 中身の Map で読む（無ければ空）。
@@ -40,6 +40,22 @@ const VARIANT_FIELDS = ['kind', 'header', 'rows', 'notes', 'items', 'parts', 'he
  * 段落の文字が違う（北海道版は ㎝ が cm）ことがあるため。承認（review）はファイル 1 つに 1 つ（DN-0776）。
  * 生成器と検査の両方がここで読む（照合そのものは別々に実装する）。
  */
+/**
+ * 段落で選ぶ差し替え（paragraphVariants）を、使える組み直しの形（元の key・layout・review を持つ）で返す。
+ * 同じ版面（key）が同じ章・文書に 2 回以上出て、表の外に化けた後ろの段落（表の本体）が場所ごとに違うときに使う
+ * （近畿版 表3-2-14 と 3-2-15 は見出しの版面が同じで本体の外径が違う・DN-1052）。各候補は absorbsParagraphs を持ち、
+ * 生成器は表の前後の段落が一致した候補をその位置でだけ使う。検査と validate は候補ごとに文字の過不足を照合する。
+ */
+export function variantsOf(entry) {
+  return (entry.paragraphVariants ?? []).map((variant) => {
+    const base = { ...entry };
+    delete base.paragraphVariants;
+    delete base.documentVariants;
+    for (const field of VARIANT_FIELDS) delete base[field];
+    return { ...base, ...variant, key: entry.key, layout: entry.layout, review: entry.review };
+  });
+}
+
 export function loadTableOverrides(document = null) {
   const map = new Map();
   if (!existsSync(TABLE_OVERRIDES_ROOT)) return map;
@@ -502,7 +518,15 @@ function segmentToBlocks(segment, pageWidths = null) {
   if (current.length) chunks.push(current);
 
   const classified = [];
-  for (const chunk of chunks) {
+  for (const raw of chunks) {
+    let chunk = raw;
+    // キャプションと表の見出しの 1 行が空行なしで続き、データの行が空行で 1 行ずつ離れた小さな表
+    // （近畿版 p639 表10-15-1 の `作業区分   作業時間帯`）は、2 行の chunk が表とも散文とも判定されず段落に化けていた。
+    // キャプションを切り離し、見出しの行をキャプションの直後の表の行として扱う（DN-1055）
+    if (chunk.length === 2 && RE_TABLE_CAPTION.test(chunk[0].text) && hasWideGap(chunk[1].text) && !isLayoutLine(chunk[1].text) && !trimBoth(chunk[1].text).endsWith('。')) {
+      classified.push({ chunk: [chunk[0]], isTable: false, captionOnly: true });
+      chunk = chunk.slice(1);
+    }
     const captionOnly =
       chunk.length === 1 &&
       (RE_TABLE_CAPTION.test(chunk[0].text) || RE_FIGURE_CAPTION.test(chunk[0].text));
@@ -516,7 +540,7 @@ function segmentToBlocks(segment, pageWidths = null) {
     // 句点で終わらない 1 行は表の続きとみなす。
     const previous = classified[classified.length - 1];
     const tableRowAfterTable =
-      chunk.length === 1 && !captionOnly && previous?.isTable && hasWideGap(chunk[0].text) && !trimBoth(chunk[0].text).endsWith('。');
+      chunk.length === 1 && !captionOnly && (previous?.isTable || (previous?.captionOnly && chunk !== raw)) && hasWideGap(chunk[0].text) && !trimBoth(chunk[0].text).endsWith('。');
     const isTable =
       tableRowAfterTable || (!captionOnly && !isWrappedProse(chunk) && (dense || (wide >= 2 && wide / chunk.length >= 0.4)));
     if (!isTable) {
@@ -816,6 +840,7 @@ const toHalfWidth = (text) => text.replace(/[０-９]/g, (c) => String.fromCharC
  *   { "page": 2, "match": "第１章 総則" }               … 章の見出し。行を除き、新しい章を始める
  *   { "page": 66, "match": "…について", "book": true, "chapter": true } … 編と、その題名の章を同時に始める
  *   { …, "plainArticles": true }                       … その章では要綱の `第N` を条の見出しにしない（見直し内容の抜き書きなど）
+ *   { …, "keepLine": true }                             … 章を始めた行を除かず本文の 1 行目に残す（章の題名は title で別に持つ。図の題名が章の境目にあるとき）
  *   { …, "book": true, "item": 14 }                      … 冊子の項目番号（近畿の必携の総目次の番号）。章に item を持たせ、設定 editionCanonical の項目と結ぶ
  *   { "page": 81, "match": "…の解説", "front": true }    … ここから次の項目までを中扉・目次として章に入れない
  *                                                          （removed.outlineFront に積み、ページは前付けと同じく章の外に数える）
@@ -893,7 +918,8 @@ function chaptersFromOutline(bodyPages, override, removed, document) {
         piece = { page: { ...page, lines: [] }, header: null, front: true };
         return;
       }
-      removed.chapterFront.push({ page: page.page, text: trimBoth(line) });
+      // keepLine: 章の始まりの行を本文にも残す（題名ではなく本文の 1 行目・近畿の必携 19-2 の最初の標準図の題名・DN-1053）
+      if (!anchor.keepLine) removed.chapterFront.push({ page: page.page, text: trimBoth(line) });
       if (anchor.book) {
         openBook(anchor.bookTitle ?? (anchor.chapter ? null : anchor.title) ?? normalizeTitle(trimBoth(line)), anchor.label && !anchor.chapter ? anchor.label : null, anchor.item ?? null);
         if (!anchor.chapter) return;
@@ -918,6 +944,7 @@ function chaptersFromOutline(bodyPages, override, removed, document) {
       };
       chapters.push(current);
       for (const early of preface.splice(0)) current.pages.push(early);
+      if (anchor.keepLine) piece.page.lines.push(line);
     });
     flush(false);
   }

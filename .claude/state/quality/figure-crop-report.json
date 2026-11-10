@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-08T00:52:54.122Z",
-  "scanned": 924,
+  "generated_at": "2026-11-10T00:30:54.153Z",
+  "scanned": 958,
   "skipped_photo": 185,
   "framed": 0,
   "errors": 0,
   "counts": {
-    "HIGH": 140,
+    "HIGH": 171,
     "MEDIUM": 0,
-    "LOW": 201
+    "LOW": 306
   },
   "violations": [
     {
@@ -2229,6 +2229,499 @@
       "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
     },
     {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0014-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.186,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 744%≥50%・縁幅 19%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0014-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0014-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0014-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0014-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.255,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 1000%≥50%・縁幅 25%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0014-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0014-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0014-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0015-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.224,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 888%≥50%・縁幅 22%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0015-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0015-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0015-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0015-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.013,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0015-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0015-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0015-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0016-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.248,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 1040%≥50%・縁幅 25%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0016-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0016-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0016-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0016-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.268,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 1102%≥50%・縁幅 27%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0016-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0016-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0016-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0017-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.088,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 403%≥50%・縁幅 9%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0017-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0017-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0017-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0017-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.013,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 80%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0017-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0017-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0017-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0018-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.054,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 253%≥50%・縁幅 5%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0018-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0018-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0018-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0018-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.194,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 823%≥50%・縁幅 19%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0018-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0018-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0018-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0019-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.013,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0019-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0019-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0019-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0019-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.013,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0019-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0019-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0019-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0020-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.013,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0020-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0020-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0020-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0020-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.016,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 120%≥50%・縁幅 2%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0020-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0020-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0020-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0021-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.013,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0021-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0021-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0021-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0022-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.16,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 647%≥50%・縁幅 16%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0022-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0022-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0022-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0022-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.013,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0022-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0022-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/appendix/img/fig-p0022-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
       "path": "content/site/standards-articles/hokkaido/common/img/fig-p0233-1.webp",
       "rule": "EDGE_LINE",
       "severity": "LOW",
@@ -2325,6 +2818,496 @@
       "severity": "LOW",
       "side": "top",
       "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0501-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0501-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0501-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0501-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0501-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 93%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0501-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0501-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0501-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0502-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0502-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0502-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0502-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0502-2.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの78%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0502-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0502-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0502-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0503-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0503-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0503-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0503-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0503-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0503-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0503-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0503-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0504-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.01,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0504-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0504-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0504-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0504-2.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの91%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0504-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0504-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0504-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0505-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 95%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0505-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0505-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0505-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0505-2.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの80%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0505-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0505-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0505-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0506-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0506-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0506-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0506-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0506-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0506-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0506-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0506-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0507-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0507-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0507-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0507-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0507-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 95%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0507-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0507-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0507-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0508-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0508-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0508-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0508-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0509-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0509-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0509-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0509-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0509-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.008,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0509-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0509-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/hikkei/img/fig-p0509-2.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 3px < 4px"
     },
     {
       "path": "content/site/standards-articles/kyushu/common/img/fig-p0228-1.webp",

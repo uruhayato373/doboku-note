@@ -26,7 +26,7 @@ import { readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { REPO_ROOT } from "./lib/repository-paths.mjs";
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
-import { CATEGORY_TO_EXAM_KEY } from '../.claude/skills/conversion/ogp-create/scripts/lib/category-exam-key.mjs';
+import { CATEGORY_TO_EXAM_KEY } from '../.claude/skills/ogp-create/scripts/lib/category-exam-key.mjs';
 
 const COVER_TOKENS = join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json');
 
@@ -42,7 +42,7 @@ export function ogpCoverageErrors(categories, categoryToExamKey, coverTokens) {
     checked += 1;
     const key = categoryToExamKey[c.slug];
     if (!key) {
-      errors.push(`カテゴリ "${c.slug}" が OGP の対応表（.claude/skills/conversion/ogp-create/scripts/lib/category-exam-key.mjs）に無い → OGP が枠色なしで出ます。`);
+      errors.push(`カテゴリ "${c.slug}" が OGP の対応表（.claude/skills/ogp-create/scripts/lib/category-exam-key.mjs）に無い → OGP が枠色なしで出ます。`);
     } else if (!coverTokens.exams?.[key]?.base) {
       errors.push(`カテゴリ "${c.slug}" の色キー "${key}" が note-cover-tokens.json の exams に無い（base が無い）。`);
     }

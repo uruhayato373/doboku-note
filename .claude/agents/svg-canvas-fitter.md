@@ -57,7 +57,7 @@ feed マスターとは**別ファイル** `figure-N--wide.svg` を新規作成�
 node scripts/check-figure-canvas.mjs            # 対象図が不適合リストから消えること
 
 # 2. SVG 品質（必須属性・色・フォント・テキストはみ出し）
-node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs <path>   # HIGH=0
+node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs <path>   # HIGH=0
 
 # 3. 埋込寸法の追随（viewBox を変えた図が記事に width/height 付きで埋め込まれていないか）
 node scripts/check-figure-embed-dims.mjs --list   # 対象図が不一致リストに出たら親へ申し送る

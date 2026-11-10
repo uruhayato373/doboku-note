@@ -1298,7 +1298,7 @@
         "pack": "civil-construction-2/gakka-2kyu-doko",
         "policy": ".claude/knowledge/reference/yt-shorts-publisher-policy.md",
         "imagePolicy": ".claude/knowledge/reference/sns-image-policy.md#0",
-        "popImageSkill": ".claude/skills/social/create-pop-image/SKILL.md",
+        "popImageSkill": ".claude/skills/create-pop-image/SKILL.md",
         "scope": "採用画像とローカル完成動画の4軸QA。公開状態を更新せず、外部反映を完了扱いにしない。",
         "coverage": {
           "videosRequested": 2,

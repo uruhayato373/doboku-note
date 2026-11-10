@@ -192,13 +192,18 @@ function endIdAt(resolvePlacement, resolveEndNoteSlot, slug, nowMs) {
 
 test('建設部門の過去問（必須I・選択科目）: 口頭試験の時期だけ冒頭が口頭試験の教材、前後と末尾は科目の模範解答集', async () => {
   const { resolvePlacement, resolveEndNoteSlot } = await loadPlacement();
-  for (const [slug, subject] of [['pe-construction-r07-required', 'pe-construction-required-magazine'], ['pe-construction-r07-road', 'pe-construction-road-magazine']]) {
+  // 設問ページ（年度×科目の slug に設問番号を足したもの）も同じ科目の模範解答集へ送る（DN-1061）
+  for (const [slug, subject] of [['pe-construction-r07-required', 'pe-construction-required-magazine'], ['pe-construction-r07-road', 'pe-construction-road-magazine'], ['pe-construction-r07-road-iii-1', 'pe-construction-road-magazine'], ['pe-construction-r08-road-ii-1-3', 'pe-construction-road-magazine']]) {
     assert.deepEqual(oralTimes.map((t) => topIdAt(resolvePlacement, slug, 'pastExam', t)),
       [subject, 'pe-construction-oral-guide', 'pe-construction-oral-guide', subject], slug);
     assert.equal(resolvePlacement(slug, 'pastExam').inline[0]?.magazineId, subject, slug);
     // 末尾の画像カードは時期によらず科目の模範解答集（冒頭だけ口頭試験へ替える）
     assert.deepEqual(oralTimes.map((t) => endIdAt(resolvePlacement, resolveEndNoteSlot, slug, t)), [subject, subject, subject, subject], `${slug} の末尾`);
   }
+  // 設問番号でない接尾辞は拾わない（例: 出題テーマ分析・論文キーワードの記事）
+  assert.notEqual(resolvePlacement('pe-construction-r07-road-exam', 'pastExam').inline[0]?.magazineId, 'pe-construction-road-magazine');
+  // 口頭試験の入口のガイドは、時期によらず口頭試験の教材へ（DN-1081）
+  for (const t of oralTimes) assert.equal(topIdAt(resolvePlacement, 'pe-construction-koutou-shiken', 'guide', t), 'pe-construction-oral-guide');
   // 論文の書き方ガイドは来年の受験者向けなので、口頭試験の時期も必須科目I の模範解答集のまま
   assert.equal(topIdAt(resolvePlacement, 'pe-construction-guide-required-essay', 'guide', oralTimes[1]), 'pe-construction-required-magazine');
 });

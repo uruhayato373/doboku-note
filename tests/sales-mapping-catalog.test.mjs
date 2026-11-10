@@ -75,5 +75,5 @@ test('catalogMagazines: 実カタログを読める（空なら検査不成立�
   const { REPO_ROOT } = await import('../scripts/lib/repository-paths.mjs');
   const all = catalogMagazines(readFileSync(join(REPO_ROOT, 'src/lib/note-magazines.ts'), 'utf8'));
   assert.ok(all.length >= 100, `カタログが ${all.length} 件しか読めない`);
-  assert.ok(all.some((m) => m.id === 'pe-construction-geotechnical-pack' && m.noteTitle === '建設部門2次｜土質基礎まるごと合格パック'));
+  assert.ok(all.some((m) => m.id === 'pe-construction-geotechnical-pack' && m.noteTitle === '技術士 建設部門｜土質基礎まるごと合格パック'));
 });

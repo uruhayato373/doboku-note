@@ -9,8 +9,8 @@ import { generateWithCodexAsync } from '../scripts/lib/codex-image.mjs';
 import { reviewIsCurrent } from '../scripts/lib/media-review.mjs';
 import { acceptedApproval, audioProblems, evaluateGate, nextSlot, speechSimilarity, uploadsLeft } from '../scripts/lib/video-publish-gate.mjs';
 import {
-  MAX_ATTEMPTS, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
-  ledgerVerdicts, nextStage, packDirOf, planPath, readPlan, recordAudit, summarize,
+  MAX_ATTEMPTS, MAX_NO_OUTPUT, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
+  ledgerVerdicts, nextStage, packDirOf, planPath, preflightProblems, qaInputDigest, qaState, readPlan, recordAudit, retryItems, summarize, unapprovedRow,
 } from '../scripts/lib/video-factory.mjs';
 
 const PACK = 'pe-construction/sample';
@@ -31,9 +31,19 @@ function fixture() {
   write('pop-image.json', { policy: 'keep-me', revisions: { old: { note: 'keep' } } });
   return { root, dir, done: () => rmSync(root, { recursive: true, force: true }) };
 }
+let fakeCalls = 0;
+// 実際の生成と同じく呼ぶたびに別の画像を返す（左上の 1 画素だけ変える）。同じ画像は取り違えとして弾かれる（DN-1036）
 const fake = (bytes) => async (_p, _m, { images }) => {
   assert.ok(images.length > 0);
-  const out = join(tmpdir(), `vf-${process.pid}-${Math.floor(performance.now() * 1000)}.png`);
+  fakeCalls += 1;
+  const out = join(tmpdir(), `vf-${process.pid}-${fakeCalls}-${Math.floor(performance.now() * 1000)}.png`);
+  const n = fakeCalls;
+  writeFileSync(out, await sharp(bytes).composite([{ input: { create: { width: 1, height: 1, channels: 3, background: { r: n % 256, g: (n >> 8) % 256, b: 7 } } }, left: 0, top: 0 }]).png().toBuffer());
+  return out;
+};
+// 呼ぶたびに同じ画像を返す（並列の実行で別の実行の画像を取り違えたときの形）
+const fakeSame = (bytes) => async () => {
+  const out = join(tmpdir(), `vf-same-${process.pid}-${Math.floor(performance.now() * 1000)}.png`);
   writeFileSync(out, bytes);
   return out;
 };
@@ -71,6 +81,21 @@ test('計画: 原稿が同じ項目は生成済みを引き継ぎ、変わった
   } finally { f.done(); }
 });
 
+test('生成: 別の場面と同じ画像は採らず、取り違えの疑いとして作り直しへ回す（DN-1036）', async () => {
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261104', refs });
+    const result = await generatePlan(f.root, PACK, { generate: fakeSame(await png(1920, 1080)), concurrency: 1 });
+    const plan = readPlan(f.root, PACK);
+    const adopted = plan.items.filter((i) => i.raw);
+    assert.equal(adopted.length, 1, '同じ画像を 2 つ以上の場面に採った');
+    const rejected = plan.items.filter((i) => !i.raw);
+    assert.ok(rejected.length >= 1);
+    for (const i of rejected) assert.match(i.lastError, /同じ画像（取り違えの疑い）/);
+    assert.equal(result.missing, rejected.length);
+  } finally { f.done(); }
+});
+
 test('計画: 指示を改善しても合格済みは残し、未合格は回数を数え直す', async () => {
   const f = fixture();
   try {
@@ -87,15 +112,57 @@ test('計画: 指示を改善しても合格済みは残し、未合格は回数
   } finally { f.done(); }
 });
 
-test('生成: 画像が出ない項目は上限まで試して残し、勝手に通さない', async () => {
+test('生成: 画像が出ない試行は回数に数えず、続けば止めて勝手に通さない（DN-1065）', async () => {
   const f = fixture();
   try {
     buildPlan(f.root, PACK, { date: '20261104', refs, scope: 'cover' });
-    for (let i = 0; i < MAX_ATTEMPTS + 2; i += 1) await generatePlan(f.root, PACK, { generate: async () => null });
+    const first = await generatePlan(f.root, PACK, { generate: async () => null });
+    assert.equal(first.unreachable, true, '試した全項目で画像が出なければ unreachable');
+    for (let i = 0; i < MAX_NO_OUTPUT + 2; i += 1) await generatePlan(f.root, PACK, { generate: async () => null });
+    const item = readPlan(f.root, PACK).items[0];
+    assert.equal(item.attempts, 0, '画像が出なかった試行は品質の回数を使わない');
+    assert.equal(item.noOutput, MAX_NO_OUTPUT, '止めた後は呼ばない');
     const s = summarize(readPlan(f.root, PACK));
-    assert.deepEqual(s.exhausted, ['cover']);
-    assert.equal(readPlan(f.root, PACK).items[0].attempts, MAX_ATTEMPTS);
-    assert.equal(nextStage({ status: 'draft', standard: false, plan: s }), 'images-exhausted');
+    assert.deepEqual(s.exhausted, []);
+    assert.deepEqual(s.stalled, ['cover']);
+    assert.equal(s.reasons.cover, '画像が出なかった');
+    assert.equal(nextStage({ status: 'qa_passed', standard: false, plan: s, qa: 'passed' }), 'generate-stalled');
+  } finally { f.done(); }
+});
+
+test('生成: 一部でも画像が出た回は unreachable にしない', async () => {
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261104', refs });
+    const ok = fake(await png(1920, 1080));
+    const r = await generatePlan(f.root, PACK, { generate: (p, m, o) => (p.includes('『aの見出し』') ? null : ok(p, m, o)), concurrency: 1 });
+    assert.equal(r.unreachable, false);
+    assert.equal(r.attempted, 3);
+    assert.equal(r.missing, 1, '場面 a だけ画像が出ていない');
+    assert.equal(readPlan(f.root, PACK).items.find((i) => i.id === 'a').noOutput, 1);
+  } finally { f.done(); }
+});
+
+test('やり直し: 上限に達した項目の回数と理由を戻し、原稿を変えずに作り直せる（DN-1065）', async () => {
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261104', refs, scope: 'cover' });
+    const tiny = fake(await png(800, 450));
+    for (let i = 0; i < MAX_ATTEMPTS; i += 1) await generatePlan(f.root, PACK, { generate: tiny });
+    assert.deepEqual(summarize(readPlan(f.root, PACK)).exhausted, ['cover']);
+    assert.match(summarize(readPlan(f.root, PACK)).reasons.cover, /解像度/);
+    // 原稿が同じなので plan を作り直しても回数は戻らない
+    buildPlan(f.root, PACK, { date: '20261105', refs, scope: 'cover' });
+    assert.deepEqual(summarize(readPlan(f.root, PACK)).exhausted, ['cover']);
+    assert.throws(() => retryItems(f.root, PACK, ['nope']), /計画に無い/);
+    const r = retryItems(f.root, PACK, ['all']);
+    assert.deepEqual(r.reset, ['cover']);
+    assert.deepEqual(r.exhausted, []);
+    const item = readPlan(f.root, PACK).items[0];
+    assert.equal(item.attempts, 0);
+    assert.equal(item.fix, null);
+    await generatePlan(f.root, PACK, { generate: fake(await png(1920, 1080)) });
+    assert.equal(summarize(readPlan(f.root, PACK)).missing, 0);
   } finally { f.done(); }
 });
 
@@ -214,17 +281,43 @@ test('nextStage: 工程を飛ばさない', () => {
     [{ status: 'approved' }, 'done'],
     [{ status: 'stopped' }, 'stopped'],
     [{ status: 'draft', qa: 'blocked' }, 'fix-script'],
-    [{ status: 'draft', standard: false, plan: null }, 'plan'],
-    [{ status: 'draft', standard: false, plan: { ...plan, missing: 2 } }, 'generate'],
-    [{ status: 'draft', standard: false, plan: { ...plan, unaudited: 1 } }, 'audit'],
-    [{ status: 'draft', standard: false, plan }, 'adopt'],
-    [{ status: 'draft', standard: true, rendered: false }, 'render'],
-    [{ status: 'draft', standard: true, rendered: true, qa: 'none' }, 'qa'],
+    // 内容QAは画像の前（DN-1067）。未採点・原稿が変わった QA は画像へ進めない
+    [{ status: 'draft', standard: false, plan: null, qa: 'none' }, 'qa'],
+    [{ status: 'draft', standard: false, plan: { ...plan, missing: 2 }, qa: 'stale' }, 'qa'],
+    [{ status: 'draft', standard: true, rendered: true, qa: 'stale' }, 'qa'],
+    [{ status: 'qa_passed', standard: false, plan: null, qa: 'passed' }, 'plan'],
+    [{ status: 'qa_passed', standard: false, plan: { ...plan, missing: 2 }, qa: 'passed' }, 'generate'],
+    [{ status: 'qa_passed', standard: false, plan: { ...plan, unaudited: 1 }, qa: 'passed' }, 'audit'],
+    [{ status: 'qa_passed', standard: false, plan, qa: 'passed' }, 'adopt'],
+    [{ status: 'qa_passed', standard: true, rendered: false, qa: 'passed' }, 'render'],
     [{ status: 'qa_passed', standard: true, rendered: true, qa: 'passed', review: 'none' }, 'review'],
     [{ status: 'qa_passed', standard: true, rendered: true, qa: 'passed', review: 'fail' }, 'review-failed'],
     [{ status: 'qa_passed', standard: true, rendered: true, qa: 'passed', review: 'pass' }, 'ready-for-approval'],
   ];
   for (const [facts, stage] of cases) assert.equal(nextStage(facts), stage, JSON.stringify(facts));
+});
+
+test('nextStage: 承認しただけで予約へ進んでいない行を done にしない（DN-1066）', () => {
+  assert.equal(nextStage({ status: 'approved', delivering: false, slotExpired: false }), 'publish-pending');
+  assert.equal(nextStage({ status: 'approved', delivering: false, slotExpired: true }), 'slot-expired');
+  assert.equal(nextStage({ status: 'rendered', delivering: false, slotExpired: false }), 'publish-pending');
+  assert.equal(nextStage({ status: 'approved', delivering: true, slotExpired: true }), 'done', '予約の段へ進んだ行は照合に任せる');
+  assert.equal(nextStage({ status: 'scheduled', delivering: false, slotExpired: true }), 'done');
+});
+
+test('承認を外す: 予約へ進んでいない承認済みの行だけを qa_passed へ戻す（DN-1066）', () => {
+  const base = { id: 'pe-construction/x/youtube.longform.reading-fix', work: 'x', account: 'youtube:main', format: 'longform', revisionOf: 'pe-construction/x/youtube.longform', publishAt: '2026-11-11T11:30:00Z' };
+  const approval = { by: 'policy', at: '2026-11-05T22:12:46.119Z', contentSha256: 'a'.repeat(64) };
+  const row = unapprovedRow({ ...base, status: 'approved', approval, review: { visual: { status: 'approved', by: 'policy', at: approval.at, digest: 'b'.repeat(64) } } });
+  assert.equal(row.status, 'qa_passed');
+  assert.equal(row.approval, undefined);
+  assert.equal(row.review, undefined, '方針が書いた画面確認の承認も外す');
+  assert.equal(row.publishAt, base.publishAt);
+  const human = unapprovedRow({ ...base, status: 'approved', approval, review: { visual: { status: 'approved', by: 'user', at: approval.at } } });
+  assert.equal(human.review.visual.by, 'user', '運営者の確認は残す');
+  assert.throws(() => unapprovedRow({ ...base, status: 'scheduled', approval }), /承認済みの行ではない/);
+  assert.throws(() => unapprovedRow({ ...base, status: 'approved' }), /承認済みの行ではない/);
+  assert.throws(() => unapprovedRow({ ...base, status: 'approved', approval, delivery: { uploadRequestedAt: '2026-11-10T00:00:00Z' } }), /予約の段へ進んでいる/);
 });
 
 test('関門: 1 項目でも欠けたら通さず、検査していない音声を合格にしない', () => {
@@ -296,4 +389,46 @@ test('画面確認の判定は公開日時が変わっても有効で、中身�
   assert.equal(reviewIsCurrent({ visualDigest: 'v', finalDigest: 'f1', contentDigest: 'x' }, state), false);
   assert.equal(reviewIsCurrent({ visualDigest: 'x', contentDigest: 'c' }, state), false);
   assert.equal(reviewIsCurrent({ visualDigest: 'v', finalDigest: 'f1' }, state), false);
+});
+
+test('内容QAの合格は原稿の digest に付き、原稿が変われば古くなる（DN-1067）', () => {
+  const f = fixture();
+  try {
+    writeFileSync(join(f.dir, 'script.md'), ['# 台本', '本文', ''].join('\r\n'));
+    writeFileSync(join(f.dir, 'video-pack.json'), JSON.stringify({ packId: 'sample' }));
+    const digest = qaInputDigest(f.root, PACK);
+    assert.equal(qaState({ avg: 2.5, blocks: 0, inputSha256: digest }, digest), 'passed');
+    assert.equal(qaState({ avg: 1.5, blocks: 0, inputSha256: digest }, digest), 'blocked');
+    assert.equal(qaState({ avg: 2.5, blocks: 1, inputSha256: digest }, digest), 'blocked');
+    assert.equal(qaState(undefined, digest), 'none');
+    assert.equal(qaState({ avg: 2.5, blocks: 0 }, digest), 'passed', 'digest の無い記録は受け入れる');
+    // 改行コードだけの違いでは古くしない
+    writeFileSync(join(f.dir, 'script.md'), ['# 台本', '本文', ''].join('\n'));
+    assert.equal(qaInputDigest(f.root, PACK), digest);
+    // 画像の工程が書く imageDesign では古くしない
+    const board = JSON.parse(readFileSync(join(f.dir, 'storyboard.json'), 'utf8'));
+    writeFileSync(join(f.dir, 'storyboard.json'), JSON.stringify({ ...board, imageDesign: { mode: 'codex-pop' } }));
+    assert.equal(qaInputDigest(f.root, PACK), digest);
+    // 語りを変えると古くなる
+    board.scenes[1].narration = '語りを直した';
+    writeFileSync(join(f.dir, 'storyboard.json'), JSON.stringify(board));
+    assert.equal(qaState({ avg: 2.5, blocks: 0, inputSha256: digest }, qaInputDigest(f.root, PACK)), 'stale');
+  } finally { f.done(); }
+});
+
+test('preflight: 画像の前に公開行・年間の枠・主CTA・表紙の設計を見る（DN-1068）', () => {
+  const cover = { covers: { longform: { headline: ['見出し'] } } };
+  const products = [{ channel: 'note', id: 'm', catalog: { published: true } }, { channel: 'note', id: 'old', catalog: { published: true, retiredAt: '2026-01-01' } }, { channel: 'coconala', id: 'c', catalog: { status: 'paused' } }];
+  const siteUrl = (p) => { if (p.includes('missing')) throw new Error('解決できない'); return 'https://example.com/x'; };
+  const base = { pub: { id: 'q/a/youtube.longform' }, planProblems: [], products, siteUrl, cover };
+  assert.deepEqual(preflightProblems({ ...base, cta: { kind: 'note-magazine', targetId: 'm' } }), []);
+  assert.deepEqual(preflightProblems({ ...base, cta: { kind: 'site-article', targetPath: 'content/site/a/b/article.mdx' } }), []);
+  const one = (over) => preflightProblems({ ...base, ...over });
+  assert.match(one({ pub: null, cta: { kind: 'note-magazine', targetId: 'm' } })[0], /公開行が無い/);
+  assert.match(one({ planProblems: ['計画にない動画: x'], cta: { kind: 'note-magazine', targetId: 'm' } })[0], /計画にない/);
+  assert.match(one({ cta: { kind: 'note-magazine', targetId: 'old' } })[0], /公開中でない/);
+  assert.match(one({ cta: { kind: 'coconala-service', targetId: 'c' } })[0], /出品中でない/);
+  assert.match(one({ cta: { kind: 'site-article', targetPath: 'content/site/missing/x/article.mdx' } })[0], /解決できない/);
+  assert.match(one({ cta: { kind: 'links-hub' } })[0], /links-hub/);
+  assert.match(one({ cta: { kind: 'note-magazine', targetId: 'm' }, cover: null })[0], /cover-design/);
 });

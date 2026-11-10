@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "owner-eye-sekkei-tosho",
+  "exam": "civil-construction-1",
+  "title": "発注者の目で読む設計図書",
+  "audience": "施工管理の現場で働き、1級土木施工管理技士を学ぶ受検者",
+  "pain": "設計図書のどこを先に読み、発注者が何を前提に書いているかが分からず、着工前の照査や食い違いの確認が後手になる",
+  "promise": "設計図書に入るものと優先の関係、先に読む三つ、測点での突き合わせ、食い違いのときの確認の流れが分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/concrete-work-preparation/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/civil-practice/reading-civil-drawings/article.mdx",
+    "campaign": "owner-eye-sekkei-tosho"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

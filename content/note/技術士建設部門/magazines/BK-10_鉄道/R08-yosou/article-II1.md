@@ -34,7 +34,7 @@ cover:
 
 反映点：軌道検測データ・非破壊検査データの活用（データ活用）、駅利用者・鉄道事業者・関係機関との合意形成（ステークホルダー）、安全・経済・環境の三側面での持続可能な成果の達成（三側面）。
 
-[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary)
+[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-secondary&utm_term=n44418c163b26)
 
 ---
 
@@ -62,6 +62,24 @@ cover:
 本番では4設問のうち1問を選んで解答しますが、本記事では全4設問の予想問題と解答を網羅しています。
 
 ---
+
+<!-- cta:pack-top -->
+この記事は「技術士 建設部門｜鉄道 選択科目 模範解答集 R3-R8」に収録されています。同じ科目の模範解答（令和3〜8年度の本試験と令和8年度の予想問題）21本をまとめて読めるマガジンがあります。4本以上読むなら、単品で買うより割安です。
+
+https://note.com/dobokunote/m/m535a4a4353c3
+
+## 令和8年度 本試験との照合（2026年11月追記）
+
+この記事は、令和8年度の本試験（2026年7月20日）より前の2026年7月13日に公開した予想問題です。本試験で実際に出た設問と照らし合わせた結果を、外れた設問も含めてそのまま載せます。
+
+- II-1-1 走行安全性のための軌道変位の管理：外れた
+- II-1-2 ホームと車両の段差・隙間：外れた（駅の昇降設備は扱っていますが、段差・隙間は扱っていません）
+- II-1-3 営業線直下の構造物の築造：外れた
+- II-1-4 河川改修に伴う鉄道橋りょうの新設・改築：外れた
+
+判定は「重なった（主題がほぼ同じ）」「一部重なった（同じ対象の一部の論点を扱っている）」「外れた」の3段階です。本試験の設問全文とフル模範解答は、次の記事に収録しています。
+
+[技術士 建設部門｜鉄道 R08 選択科目II-1 模範解答（全4設問）](https://note.com/dobokunote/n/nb70dff660594)
 
 <!-- cta:pe-construction-mokuji -->
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。

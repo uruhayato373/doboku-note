@@ -39,7 +39,8 @@ function actualDay(p) {
 /** 通常動画 1 本の棚卸しの状態。実体が消えた停止行を公開に数えない（DN-1003） */
 export function inventoryState(p) {
   if (p.status === 'published') return 'published';
-  if (p.status === 'scheduled' || p.status === 'approved') return 'scheduled';
+  // 承認だけでは予約していない。YouTube に予約が入った行だけを予約済みに数える（DN-1066）
+  if (p.status === 'scheduled') return 'scheduled';
   if (INACTIVE.has(p.status)) return 'stopped';
   return p.media?.video ? 'stock' : 'unbuilt';
 }
@@ -161,8 +162,10 @@ export function auditLongformPlan({ plan, publications, revisions = [], formats,
     if (!actual && p?.status !== 'published' && e.ready < today) warnings.push(`確認期限の超過: ${e.id} ${e.ready}`);
     fill.set(slot.id, fill.get(slot.id) + 1);
     countWeek(day, e.id);
-    if (p?.primaryCta && (p.primaryCta.kind !== slot.primaryCta.kind || (slot.primaryCta.targets.length && !slot.primaryCta.targets.includes(p.primaryCta.targetId)))) {
-      warnings.push(`主 CTA を枠に合わせる: ${e.id}（${p.primaryCta.kind}${p.primaryCta.targetId ? `/${p.primaryCta.targetId}` : ''}）`);
+    // 宛先はカタログの商品なら targetId、サイト記事なら targetPath（リポジトリのパス）で持つ
+    const ctaTarget = p?.primaryCta?.targetId ?? p?.primaryCta?.targetPath;
+    if (p?.primaryCta && (p.primaryCta.kind !== slot.primaryCta.kind || (slot.primaryCta.targets.length && !slot.primaryCta.targets.includes(ctaTarget)))) {
+      warnings.push(`主 CTA を枠に合わせる: ${e.id}（${p.primaryCta.kind}${ctaTarget ? `/${ctaTarget}` : ''}）`);
     }
   }
 
@@ -197,4 +200,21 @@ export function auditLongformPlan({ plan, publications, revisions = [], formats,
   }
   if (today > cycle.reviewAt) warnings.push(`見直し日 ${cycle.reviewAt} を過ぎている。枠と目標を見直す`);
   return { targets, checked, slots: plan.slots.length, planned, capacity, fill: Object.fromEntries(fill), shortsFill: shorts.fill, errors, warnings, pending };
+}
+
+/**
+ * 台本を書く前の企画の行（公開行が無い new）と、内容QAで止まった行（qa_blocked）を、確認期限（ready）の近い順に返す。
+ * video-factory status が「次にどの台本を書くか」を出し、check-youtube-plan --due が期限超過を週次で赤にする（DN-1069）。
+ */
+export function scriptQueue(plan, publications, today = todayJst()) {
+  const byId = new Map(publications.map((p) => [p.id, p]));
+  const rows = [];
+  for (const e of plan.entries) {
+    if (e.action !== 'new') continue;
+    const p = e.publicationId ? byId.get(e.publicationId) : null;
+    const state = !e.publicationId ? 'script' : p?.status === 'qa_blocked' ? 'qa-blocked' : null;
+    if (!state) continue;
+    rows.push({ id: e.id, exam: e.exam, title: e.title, ready: e.ready, target: e.target, state, overdue: e.ready < today, publicationId: e.publicationId ?? null });
+  }
+  return rows.sort((a, b) => a.ready.localeCompare(b.ready) || a.id.localeCompare(b.id));
 }

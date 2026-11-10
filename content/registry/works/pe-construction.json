@@ -84,6 +84,42 @@
       "legacyKey": "099-pe-construction-textbook-diagrams"
     },
     {
+      "id": "pe-fugoukaku-toan",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "40e28273f989515f796888619f5c76c47d5f0a8b66b2d5c48eed79b49df0fd39"
+      }
+    },
+    {
+      "id": "pe-kojutsu-fukabori",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "048bb0ba132ee5b5421258ee2b6198d10bad99053f7650b4c15a295dc5417f16"
+      }
+    },
+    {
+      "id": "pe-kojutsu-kaitei-competency",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-kaitei-competency",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-10",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "3347ff25e8db13f37fc9d936b5e2f09ade96b26e88a193084a02683a423d0581"
+      }
+    },
+    {
       "id": "pe-kojutsu-keireki",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki",

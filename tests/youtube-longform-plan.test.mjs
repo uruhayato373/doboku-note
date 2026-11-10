@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { joinLongformPlan, loadLongformPlan, loadPlanAudit } from '../scripts/lib/youtube-longform-plan.mjs';
-import { auditLongformPlan, cycleCapacity, inventoryState, mondayOf, slotProblems, summarizeInventory, weekLimit, shortsSlotFill } from '../scripts/lib/youtube-longform-audit.mjs';
+import { auditLongformPlan, cycleCapacity, inventoryState, mondayOf, scriptQueue, slotProblems, summarizeInventory, weekLimit, shortsSlotFill } from '../scripts/lib/youtube-longform-audit.mjs';
 import { ConfigChannelAnnualPlan } from '../scripts/lib/dataset-schemas-content.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -123,6 +123,9 @@ test('見直し日を過ぎたら要対応に出す。壁時計では違反に�
 test('棚卸しは実体が消えた停止行を公開に数えず、未制作の企画も数える', () => {
   assert.equal(inventoryState({ status: 'stopped', platform: { privacy: 'public' } }), 'stopped');
   assert.equal(inventoryState({ status: 'qa_passed', media: { video: 'v' } }), 'stock');
+  // 承認だけでは YouTube に予約が入っていない。予約済みに数えない（DN-1066）
+  assert.equal(inventoryState({ status: 'approved', media: { video: 'v' } }), 'stock');
+  assert.equal(inventoryState({ status: 'scheduled', media: { video: 'v' } }), 'scheduled');
   assert.equal(inventoryState({ status: 'qa_passed', media: {} }), 'unbuilt');
   const t = summarizeInventory([{ exam: 'q', intent: 'howto', status: 'published' }], [{ exam: 'q', action: 'new', title: '企画' }]);
   assert.deepEqual(t.map((r) => [r.type, r.published, r.unbuilt]), [['howto', 1, 0], ['企画のみ', 0, 1]]);
@@ -163,4 +166,31 @@ test('ショートは親の枠の上限まで。枠の無い親からは作ら�
   const stocked = shortsSlotFill(plan, [{ pack: 'x/two', key: 'k1', stocked: true }]);
   assert.deepEqual(stocked.errors, []);
   assert.match(stocked.warnings.join(), /割り当てが無い/);
+});
+
+test('主CTAがサイト記事の動画は targetPath で枠の宛先と照合する', () => {
+  const path = 'content/site/civil-practice/construction-inspection-types/article.mdx';
+  const siteSlot = { ...slot, primaryCta: { kind: 'site-article', targets: [path] } };
+  const pub = (targetPath) => ({ id: 'q/a/youtube.longform', exam: 'q', status: 'qa_passed', primaryCta: { kind: 'site-article', targetPath } });
+  const run = (targetPath) => auditLongformPlan(input({
+    plan: { cycle, slots: [siteSlot], entries: [{ ...row, publicationId: 'q/a/youtube.longform' }] },
+    publications: [pub(targetPath)],
+    formats: [{ id: 'f', status: 'active', ctaKinds: ['site-article'], decision: null }],
+  }), '2026-11-16');
+  assert.ok(!run(path).warnings.some((w) => w.includes('主 CTA を枠に合わせる')), '枠の宛先と同じ記事なら注意を出さない');
+  assert.ok(run('content/site/civil-practice/other/article.mdx').warnings.some((w) => w.includes('主 CTA を枠に合わせる')), '枠に無い記事なら注意を出す');
+});
+
+test('台本待ちは公開行の無い企画と QA で止まった行を、確認期限の近い順に出す（DN-1069）', () => {
+  const e = (id, ready, extra = {}) => ({ ...row, id, ready, ...extra });
+  const plan = { entries: [
+    e('late', '2026-12-20'),
+    e('early', '2026-11-10'),
+    e('built', '2026-11-01', { publicationId: 'q/built/youtube.longform' }),
+    e('blocked', '2026-11-20', { publicationId: 'q/blocked/youtube.longform' }),
+    e('reuse', '2026-11-01', { action: 'reuse' }),
+  ] };
+  const pubs = [{ id: 'q/built/youtube.longform', status: 'qa_passed' }, { id: 'q/blocked/youtube.longform', status: 'qa_blocked' }];
+  const q = scriptQueue(plan, pubs, '2026-11-16');
+  assert.deepEqual(q.map((r) => [r.id, r.state, r.overdue]), [['early', 'script', true], ['blocked', 'qa-blocked', false], ['late', 'script', false]]);
 });

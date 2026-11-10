@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-kojutsu-fukabori",
+  "exam": "pe-construction",
+  "title": "技術士建設部門の口頭対策 — 深掘りの質問に事実で答える",
+  "audience": "建設部門の筆記試験後に、口頭試験の追加の質問への答え方を準備する受験者",
+  "pain": "業務経歴の説明はできても、なぜそう判断したのかなどの深掘りに、事実ではなく一般論や言い訳で答えてしまう",
+  "promise": "深掘りの質問を4つの型に分け、事実で答える順序と、分からないときの返し方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1412635_00009.htm",
+      "title": "文部科学省「令和8年度技術士試験合否決定基準」口頭試験"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-oral-guide",
+    "campaign": "pe-kojutsu-fukabori"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
