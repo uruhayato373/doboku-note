@@ -2852,7 +2852,7 @@
         "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-01.txt",
         "version": "1.0",
         "duplicateDraftAsin": "B0H8KH1N6G",
-        "notes": "正版 ASIN=B0H8ZZMM7R（LIVE）。7/12 に旧著者版で作った重複タイトル B0H8KH1N6G が下書き(未出版)で残存＝KDP で削除要（売上ゼロ・完全削除可）。修正版は既存タイトルへ差し替えるべきだったが新規作成して二重発番した経緯。",
+        "notes": "正版 ASIN=B0H8ZZMM7R（LIVE）。7/12 に旧著者版で作った重複タイトル B0H8KH1N6G（下書き・未出版・売上ゼロ）は、ASIN が付いた本のため KDP の操作メニューに削除が無く、2026-11-10 に本棚のアーカイブへ移した。修正版は既存タイトルへ差し替えるべきだったが新規作成して二重発番した経緯。",
         "versionHistory": [
           {
             "version": "1.0",
