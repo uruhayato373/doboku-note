@@ -511,6 +511,18 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1078] 2級学科の改訂版を年間計画に載せるか止めるかを決める（preflight で計画にない動画として止まる）
+タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-10]
+
+**起点**: 2026-11-10 に追加した `video-factory preflight` を実データで回すと、2級土木の `civil-construction-2/gakka-2kyu-doko` の改訂版（`youtube.longform.diagram-led`・描画待ち）が「計画にない動画」で止まった。元の公開済みの動画 `civil-construction-2/gakka-2kyu-doko/youtube.longform` が年間計画（`config/channel-annual-plan.json`）の行に無く、改訂版は元の行で照合されるため。関門（`auto-approve`）も同じ理由で止まるので、描画しても予約できない。
+
+**やること**:
+1. この改訂版を出すかを決める（出すなら年間計画に元の動画の行を足す。公開済みの動画の差し替えなので action と枠をどうするかも決める）
+2. 出さないなら `registry -- stop` で改訂版の行を止め、`status` の描画待ちから外す
+
+**完了条件**: `npm run video-factory -- preflight --pack civil-construction-2/gakka-2kyu-doko` が通るか、改訂版の行が停止になっている。
+
+
 ### [DN-1077] 工事検査の動画の台本で、一次資料の本文で確かめていない 2 点を公開前に確かめる
 タグ: [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-11-10] [期日:2026-11-28]
 
