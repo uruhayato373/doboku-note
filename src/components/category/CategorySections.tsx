@@ -220,14 +220,14 @@ function PeExamTable({ docs }: { docs: DocMeta[] }) {
 
 /**
  * 技術士第一次試験の過去問をテーブル形式で表示
- * 年度ごとに適性科目・基礎科目・専門科目（建設部門・上下水道部門）をまとめる
+ * 年度ごとに適性科目・基礎科目・専門科目（建設部門・上下水道部門・水産部門）をまとめる
  */
-type PeFirstStageSubject = 'aptitude' | 'basic' | 'construction' | 'water-supply';
+type PeFirstStageSubject = 'aptitude' | 'basic' | 'construction' | 'water-supply' | 'fisheries';
 
 function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
   const yearMap = new Map<string, Partial<Record<PeFirstStageSubject, DocMeta>>>();
   for (const doc of docs) {
-    const match = doc.slug?.match(/(r|h)(\d+)(-retry)?-(aptitude|basic|construction|water-supply)$/);
+    const match = doc.slug?.match(/(r|h)(\d+)(-retry)?-(aptitude|basic|construction|water-supply|fisheries)$/);
     if (!match) continue;
     const yearCode = `${match[1]}${match[2]}${match[3] ?? ''}`;
     const type = match[4] as PeFirstStageSubject;
@@ -241,7 +241,7 @@ function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
     return valB - valA;
   });
 
-  const columns = ['適性科目', '基礎科目', '専門科目（建設）', '専門科目（上下水道）'];
+  const columns = ['適性科目', '基礎科目', '専門科目（建設）', '専門科目（上下水道）', '専門科目（水産）'];
   const rows: ExamMatrixRow[] = years.map((yearCode) => {
     const row = yearMap.get(yearCode)!;
     return {
@@ -252,6 +252,7 @@ function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
         { label: '基礎', doc: row.basic },
         { label: '建設', doc: row.construction },
         { label: '上下水道', doc: row['water-supply'] },
+        { label: '水産', doc: row.fisheries },
       ],
     };
   });

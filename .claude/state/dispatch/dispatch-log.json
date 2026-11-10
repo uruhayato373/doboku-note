@@ -7041,6 +7041,23 @@
       "commit": "c77803b345f7",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1091",
+      "at": "2026-11-10",
+      "task": "技術士一次の水産部門の専門科目の過去問 16 回分を作る",
+      "tier": "mid",
+      "kind": "制作",
+      "prevention": {
+        "type": "none",
+        "ref": "制作カードで不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "dd35e15d3272",
+      "verification": "check-past-exam-ledger FAIL 0・CI 9 件緑",
+      "note": "PR #1511（dd35e15d32）で水産部門 16 回分・560 問を問題と公式の正答で develop に公開。本番反映は次の deploy"
     }
   ]
 }
