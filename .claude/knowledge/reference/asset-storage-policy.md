@@ -5,7 +5,7 @@
 Git の外に置くアセットを **誰が使うかで 3 つの置き場へ振り分け**、必要なときだけ手元へ戻す運用の SSOT。
 機械可読な定義は R2 側が `config/asset-storage.json`（台帳 `.claude/state/assets/manifest.json`）、
 Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/drive-manifest.json`）。
-迷ったら `/asset-route`（`.claude/skills/dev/asset-route/SKILL.md`）が決定木と正確なコマンドを持つ。
+迷ったら `/asset-route`（`.claude/skills/asset-route/SKILL.md`）が決定木と正確なコマンドを持つ。
 
 > [!note] 経緯
 > 2026-08-21 時点で HEAD は 4.15 GiB あり、CI ランナーが checkout で空きを使い切って落ちるところまで来ていた。

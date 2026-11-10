@@ -139,5 +139,5 @@ domain: product
 - `scripts/sync-kindle-dist.mjs` — EPUB/表紙の再ビルド→Downloads 配置
 - `config/kdp-memo.json` — KDP 入稿 SSOT
 - `config/products.json`（channel kindle）— 全書籍レジストリの正本（提出後更新）。`scripts/kindle-published/catalog.json` は生成物
-- `.claude/skills/conversion/kdp-publish/SKILL.md` — 手順書（本エージェントの呼出元）
+- `.claude/skills/kdp-publish/SKILL.md` — 手順書（本エージェントの呼出元）
 - memory [[kdp-svg-named-jpeg-bug]]（原稿がKDP変換で落ちる真因）・[[kindle-dup-prevention]]（重複防止鉄則）

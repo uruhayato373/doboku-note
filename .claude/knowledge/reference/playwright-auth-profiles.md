@@ -237,4 +237,4 @@ npm run check-affiliate-wiring
 npm run check-google-ui-ssot
 ```
 
-関連: `.claude/skills/dev/playwright-auth/SKILL.md`
+関連: `.claude/skills/playwright-auth/SKILL.md`

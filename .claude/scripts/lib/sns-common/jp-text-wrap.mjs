@@ -8,7 +8,7 @@
  *   Layer 3: config.budouX.enabled = true のとき BudouX で機械学習ベース改行
  *   Layer 4: config.charCountFallback 字ごとに機械的に折り返し
  *
- * 元実装: .claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs
+ * 元実装: .claude/skills/ogp-create/scripts/lib/ogp-text.mjs
  * v4 改訂（2026-04-26）で sns-common 配下に移動し、OGP 側は thin wrapper として後方互換維持。
  */
 import { escapeRegExp } from '../../../../scripts/lib/regexp-escape.mjs';

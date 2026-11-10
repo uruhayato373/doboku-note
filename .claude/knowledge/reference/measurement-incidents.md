@@ -955,7 +955,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 
 - 本ファイルに恒久ルールとして記録（真実源）。
 - `weekly-review` / `weekly-plan` / `weekly-improve` / `nsm-experiment` の各 SKILL.md の「前提条件 / 条件未達→スキップ」「オフラインフォールバック」記述を、**「コミット済みスナップショットが既定の取得元。ライブ fetch は creds+到達性がある環境のみ任意」** に統一し、本ファイルへポインタを張った。
-- Meta API（旧 IG Graph 投稿経路）も同根で会社 PC 不可だった。IG 投稿は 2026-06-17 に Business Suite（`.claude/skills/social/publish-ig-bs/SKILL.md`・ローカル GUI）へ一本化し、Graph API/Actions cron 経路は全廃。
+- Meta API（旧 IG Graph 投稿経路）も同根で会社 PC 不可だった。IG 投稿は 2026-06-17 に Business Suite（`.claude/skills/publish-ig-bs/SKILL.md`・ローカル GUI）へ一本化し、Graph API/Actions cron 経路は全廃。
 
 > [!note] 例外レーン: A8.net は「ローカル実行が正規手順」
 > このルールは **公開 API がある計測（GA4/GSC/PSI）** の話。A8.net は公開 API が無く、
@@ -974,7 +974,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 - `.github/workflows/fetch-metrics.yml` - 週次 GA4/GSC 取得・commit（計測の本体）
 - `.github/workflows/psi-audit.yml` - 日次 PSI 取得・commit
 - `data/metrics/{ga4,gsc,psi}/` - 計測スナップショット（エージェントの既定取得元）
-- `.claude/skills/social/publish-ig-bs/SKILL.md` - IG 投稿の現行経路（Business Suite・ローカル GUI）。旧 Graph API/Mac/Actions 経路は 2026-06-17 全廃
+- `.claude/skills/publish-ig-bs/SKILL.md` - IG 投稿の現行経路（Business Suite・ローカル GUI）。旧 Graph API/Mac/Actions 経路は 2026-06-17 全廃
 
 ## 2026-05-16〜29: R2 アップロード Unauthorized の握り潰しによる本番画像 404（約2週間サイレント）
 
@@ -1022,7 +1022,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 - `.claude/scripts/upload-images-to-r2.mjs` - 同期スクリプト（exit 1 化 + パス正規化）
 - `.github/workflows/r2-sync.yml` - main push 時の R2 同期
 - `.github/workflows/r2-audit.yml` - 週次 diff-r2 監査（新設）
-- `.claude/skills/dev/diff-r2/scripts/diff-r2.mjs` - 差分監査
+- `.claude/skills/diff-r2/scripts/diff-r2.mjs` - 差分監査
 - handoff `docs/handoffs/2026-05-29-r2-content-fallback-removal.md`
 
 ## 2026-06-12: OGP 画像が r2-sync の path フィルタ外で 404 → note 外部リンクカード生成不能
@@ -1058,7 +1058,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 ### 関連
 
 - `.github/workflows/r2-sync.yml` - path フィルタに ogp 追加済み
-- `.claude/skills/conversion/ogp-create/` - OGP 生成（手動・新規カテゴリで要実行）
+- `.claude/skills/ogp-create/` - OGP 生成（手動・新規カテゴリで要実行）
 - `src/lib/r2-image-loader.ts` - `getOgpImageUrl`（slug→ogp パス解決の真実源）
 
 ## 2026-04-26: GA4 direct US bot スパイクと weekly-metrics 母数汚染
@@ -1277,7 +1277,7 @@ Apr 5 の 144 ファイル H1 構造修正（commit [`3f97641b`](https://github.
 - 会社 PC で外部 URL を叩くときに **`--noproxy` を付けない**。プロキシを自分で外すことになり必ず 000 になる。
   正しくは `curl --ssl-no-revoke <URL>`（localhost だけは `--noproxy` が要る）。
 - 接続不能（000）は**合格でも不合格でもない第三の状態**。deploy 検証はこれをコードで分けた
-  → `npm run check-production-ssr`（exit 0/1/2 を分離・[deploy skill](../../skills/dev/deploy/SKILL.md) が呼ぶ）。
+  → `npm run check-production-ssr`（exit 0/1/2 を分離・[deploy skill](../../skills/deploy/SKILL.md) が呼ぶ）。
 
 R2 でも同型が起きた。`rclone lsd obsidian-r2:` が空を返したので「bundle が無い」と判断しかけたが、
 対照実験（中身があると分かっている公開バケットを同じ remote で引く）でも空だったため、

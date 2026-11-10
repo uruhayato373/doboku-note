@@ -78,7 +78,7 @@ YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実�
 
 ## 全面POP画像の制作と復元
 
-通常動画・Shorts共通の意匠とポーズは [/create-pop-image](../../../.claude/skills/social/create-pop-image/SKILL.md) と [承認見本](../../../.claude/knowledge/reference/pop-image-policy.md) を使う。見本の `pop-poster-v3` は全面画像生成版で、上記 `pop-v2` 一括コマンドでは再制作できない。
+通常動画・Shorts共通の意匠とポーズは [/create-pop-image](../../../.claude/skills/create-pop-image/SKILL.md) と [承認見本](../../../.claude/knowledge/reference/pop-image-policy.md) を使う。見本の `pop-poster-v3` は全面画像生成版で、上記 `pop-v2` 一括コマンドでは再制作できない。
 
 コピー・参照SHA・全文プロンプト・実寸・確認結果は `pop-image.json` の `revisions`、PNGは `.tmp/media/` に保存する。各 `output.path` を対象として保存とクラウド照合を行う（下記PATHは対象JSONの実値へ置換）。
 

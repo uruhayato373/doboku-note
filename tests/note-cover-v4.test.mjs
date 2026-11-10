@@ -6,7 +6,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderTemplate, v4FitFontSize, v4FitIssues, V4_SAFE, V4_FONT, AUTHOR_CREDENTIAL_G2 } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
+import { renderTemplate, v4FitFontSize, v4FitIssues, V4_SAFE, V4_FONT, AUTHOR_CREDENTIAL_G2 } from '../.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs';
 
 const SIZE = { width: 1280, height: 670 };
 const PALETTE = { band: '#16365C', accent: '#1E73C8', label: '技術士（総合技術監理部門）' };

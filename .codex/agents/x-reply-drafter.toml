@@ -8,7 +8,7 @@ developer_instructions = """
 
 > **READ FIRST（真実源）**:
 > - 返信の方針（§10 リプライ運用・§11 凍結回避）→ [`.claude/knowledge/reference/x-post-policy.md`](../knowledge/reference/x-post-policy.md)
-> - 手順・止める条件 → [`.claude/skills/social/x-reply/SKILL.md`](../skills/social/x-reply/SKILL.md)
+> - 手順・止める条件 → [`.claude/skills/x-reply/SKILL.md`](../skills/x-reply/SKILL.md)
 > - 話題（資格）と語 → `config/x-reply-trial.json` の `topics`
 > - 運営者の経歴（体験として書いてよい範囲）→ `src/config/author.ts`
 > - これまでに送った返信の文面 → `data/x/reply-log.json` の `replies[].text`（新しい順に 20 件ほど読む）

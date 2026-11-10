@@ -17,7 +17,7 @@
 
 ```bash
 VAULT_BOOK="<vault>/原資料PDF/書籍/ipej-cem-keywords-2026__総合技術監理キーワード集2026" \
-  python3 .claude/skills/conversion/pdf-to-mdx/scripts/text-layer/extract_ipej_cem_keywords.py \
+  python3 .claude/skills/pdf-to-mdx/scripts/text-layer/extract_ipej_cem_keywords.py \
   content/sources/books/ipej-cem-keywords-2026__総合技術監理キーワード集2026/ocr
 ```
 

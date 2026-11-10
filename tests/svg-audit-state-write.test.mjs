@@ -11,7 +11,7 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 
-const AUDIT = resolve('.claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs');
+const AUDIT = resolve('.claude/skills/check-mdx/scripts/rules/svg/audit.mjs');
 // P4-tiny-font（LOW）を 1 件出す最小の SVG
 const SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="x" style="max-width:400px;width:100%" font-family="sans-serif"><text x="10" y="20" font-size="9">小さい文字</text></svg>';
 

@@ -2694,7 +2694,7 @@
       "kind": "不具合",
       "prevention": {
         "type": "doc",
-        "ref": ".claude/skills/conversion/past-exam-archive/SKILL.md"
+        "ref": ".claude/skills/past-exam-archive/SKILL.md"
       },
       "executor": "claude-code",
       "outcome": "done",
@@ -4684,7 +4684,7 @@
       "kind": "不具合",
       "prevention": {
         "type": "doc",
-        "ref": ".claude/skills/management/weekly-review/SKILL.md"
+        "ref": ".claude/skills/weekly-review/SKILL.md"
       },
       "executor": "claude-code",
       "outcome": "done",

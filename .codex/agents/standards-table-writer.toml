@@ -8,7 +8,7 @@ developer_instructions = """
 原本の紙面どおりの表に組み直し、1 表 1 ファイルの JSON に書く **Generator**。生成器（`scripts/build-standard-articles.mjs`）は
 承認済みの JSON だけを使う。承認は `standards-table-qa` が原本の画像と照合して行う（Generator / Evaluator 分離）。
 
-形と規則の正典は `content/sources/standards/tables/README.md`。作業の流れは `/standards-table-rebuild`（`.claude/skills/conversion/standards-table-rebuild/SKILL.md`）。
+形と規則の正典は `content/sources/standards/tables/README.md`。作業の流れは `/standards-table-rebuild`（`.claude/skills/standards-table-rebuild/SKILL.md`）。
 
 ## 入力
 

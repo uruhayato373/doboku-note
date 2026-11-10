@@ -150,7 +150,7 @@ clarityAlertFontSize(text)    // 26..34px、ラベル内幅に収める
 
 ### 必須
 
-1. `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`
+1. `.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs`
    - `renderNoteCoverClarity` を追加
    - `renderNoteCoverG2` 冒頭で opt-in 分岐
    - 既存アイコン、背景、文字幅 helper を再利用

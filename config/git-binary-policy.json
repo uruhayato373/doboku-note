@@ -171,7 +171,7 @@
   },
   "allowlist": [
     {
-      "path": ".claude/skills/conversion/ogp-create/assets/fonts/",
+      "path": ".claude/skills/ogp-create/assets/fonts/",
       "reason": "satori/OGP 生成に必須のフォント実体。CDN 取得にすると CI とローカルで描画が割れる",
       "appliesTo": [
         "size",
@@ -179,7 +179,7 @@
       ]
     },
     {
-      "path": ".agents/skills/conversion/ogp-create/assets/fonts/",
+      "path": ".agents/skills/ogp-create/assets/fonts/",
       "reason": "上記の .claude/ ミラー。二重追跡は DN-0111 Phase 4 の整理対象だが、Phase 1 では増加防止だけを目的にするため猶予する",
       "appliesTo": [
         "size",

@@ -272,7 +272,7 @@ const RULES = [
     test: (p) => /^config\/ogp\//.test(p), // path-literal-ok: git の全 blob を置き場の接頭辞で分類する規則表の 1 行（config/ogp/ 配下全体が対象で台帳の 1 id ではない）
     bucket: 'KEEP_GIT',
     reason: '資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと生成が不能になる（git-binary-policy.json allowlist で既に判定済み）',
-    regenFrom: null, usedBy: ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/coconala-thumb.mjs', '.claude/skills/conversion/ogp-create'], generator: null, visibility: () => 'n/a',
+    regenFrom: null, usedBy: ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/coconala-thumb.mjs', '.claude/skills/ogp-create'], generator: null, visibility: () => 'n/a',
   },
   {
     id: 'public-static',

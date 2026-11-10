@@ -235,5 +235,5 @@ const geo   = TOKENS.geometry;
 - [`instagram-carousel-tokens.json`](./instagram-carousel-tokens.json) — 真実源 JSON
 - [`.claude/knowledge/reference/ig-carousel-skill.md`](../reference/ig-carousel-skill.md) — 運用方針・2 シリーズ全体像
 - [`.claude/knowledge/reference/ig-carousel-policy.md`](../reference/ig-carousel-policy.md) — slide-data.json v2 スキーマ・ルーブリック
-- [`.claude/skills/social/ig-post-create/SKILL.md`](../../skills/social/ig-post-create/SKILL.md) — 単発生成
-- [`.claude/skills/social/ig-carousel-restyle/SKILL.md`](../../skills/social/ig-carousel-restyle/SKILL.md) — 統一再生成
+- [`.claude/skills/ig-post-create/SKILL.md`](../../skills/ig-post-create/SKILL.md) — 単発生成
+- [`.claude/skills/ig-carousel-restyle/SKILL.md`](../../skills/ig-carousel-restyle/SKILL.md) — 統一再生成

@@ -34,7 +34,7 @@ paths:
 
 - 戦略と動線 → `docs/marketing/01_SNS集客戦略.md` と `docs/marketing/02_チャネル動線設計.md`。旧 v7 の Instagram 一次制作・IG Reels からの Shorts 派生は 2026-11-01 に終了。現行の公開対象は台帳と [Instagram 投稿素材 README](../../content/sns/instagram/README.md) で確認する
 - 投稿画像（IG/X/Shorts のキャンバス・スワイプ方向・記号統一） → [sns-image-policy.md](../knowledge/reference/sns-image-policy.md)。6 切り口（結論/理由/体験/反論/数字/ハウツー）と `angle` → [content-angle-policy.md](../knowledge/reference/content-angle-policy.md)・[.claude/shared-policy/REPURPOSE.md](../shared-policy/REPURPOSE.md)
-- Instagram: 台帳は予約済み固定投稿3件のみ（2026-11-01）。新規は個別登録・QA・承認を経て [publish-ig-bs](../skills/social/publish-ig-bs/SKILL.md) で投稿する。旧カルーセルパックの [設計記録](../knowledge/reference/ig-carousel-skill.md) と旧Reels派生は現行の投稿候補にしない
+- Instagram: 台帳は予約済み固定投稿3件のみ（2026-11-01）。新規は個別登録・QA・承認を経て [publish-ig-bs](../skills/publish-ig-bs/SKILL.md) で投稿する。旧カルーセルパックの [設計記録](../knowledge/reference/ig-carousel-skill.md) と旧Reels派生は現行の投稿候補にしない
 - X → [x-post-policy.md](../knowledge/reference/x-post-policy.md)（280 weighted・試験別ベースタグ・5 軸ルーブリック。凍結対策 §11＝重複/連投/一括予約回避）。自投稿の反応は `npm run x-own-metrics`（中央値で読む）
 - YouTube Shorts は動画パックから制作し、UTM・文面・画像・完成レンダーを照合する → [video-content-policy.md](../knowledge/reference/video-content-policy.md)
 - マスコット「doboku-note 先生」素材 → [character-asset-policy.md](../knowledge/reference/character-asset-policy.md)。`/links` リンクハブ（SNS bio 用・UTM 設計） → [links-hub.md](../knowledge/reference/links-hub.md)

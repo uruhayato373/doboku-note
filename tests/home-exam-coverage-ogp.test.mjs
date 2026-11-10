@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { ogpCoverageErrors } from '../scripts/check-home-exam-coverage.mjs';
-import { CATEGORY_TO_EXAM_KEY } from '../.claude/skills/conversion/ogp-create/scripts/lib/category-exam-key.mjs';
+import { CATEGORY_TO_EXAM_KEY } from '../.claude/skills/ogp-create/scripts/lib/category-exam-key.mjs';
 
 const CATEGORIES = JSON.parse(readFileSync('src/config/categories.json', 'utf8'));
 const TOKENS = JSON.parse(readFileSync('.claude/knowledge/design-system/note-cover-tokens.json', 'utf8'));

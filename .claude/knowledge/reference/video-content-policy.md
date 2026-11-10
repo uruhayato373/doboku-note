@@ -144,7 +144,7 @@ compare の本文は 36px 未満にしない（収まらなければ例外で止
 
 ```bash
 node -e 'const d=process.argv[1],m=require(`./${d}/render-manifest.json`),L=m.scenes.map(s=>`file img/${s.png}\nduration ${s.designSec}`);L.push(`file img/${m.scenes.at(-1).png}`);console.log(L.join("\n"))' <dir> > <dir>/preview.txt
-ffmpeg -f concat -safe 0 -i <dir>/preview.txt -vf "fps=10,ass=<dir>/subtitles.ass:fontsdir=.claude/skills/conversion/ogp-create/assets/fonts,format=yuv420p" <dir>/preview.mp4
+ffmpeg -f concat -safe 0 -i <dir>/preview.txt -vf "fps=10,ass=<dir>/subtitles.ass:fontsdir=.claude/skills/ogp-create/assets/fonts,format=yuv420p" <dir>/preview.mp4
 ffmpeg -i <dir>/preview.mp4 -vf "fps=1/10,scale=480:-1,tile=4x6" -frames:v 1 <dir>/preview-10s.jpg
 ```
 

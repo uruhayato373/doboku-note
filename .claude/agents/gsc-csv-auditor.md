@@ -92,6 +92,6 @@ domain: site
 
 ## 参照
 
-- `.claude/skills/management/google-search-growth/references/csv-schema.md` — 正規化 schema の真実源
+- `.claude/skills/google-search-growth/references/csv-schema.md` — 正規化 schema の真実源
 - `scripts/lib/google-console-csv.mjs` — 正規化ロジック
 - `docs/operations/gsc-ga4-playwright-automation-spec.md` — 実装指示書

@@ -304,7 +304,7 @@ KENP既読ページは共有口座全体値でサイト帰属できないため�
 | ファイル | 役割 |
 |---|---|
 | `.claude/agents/sales-recorder.md` | 販売履歴正規化エージェント |
-| `.claude/skills/metrics/record-sales/SKILL.md` | 記録スキル |
+| `.claude/skills/record-sales/SKILL.md` | 記録スキル |
 | `scripts/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
 | `scripts/note-sales-fetch.mjs` | note ダッシュボードからの read-only 自動取得＋検算＋差し替え（`npm run note-sales-fetch`） |
 | `scripts/lib/sales-normalize.mjs` | productId 解決・表記ゆれ正規化・検算の純関数（`tests/sales-normalize.test.mjs`） |

@@ -7,7 +7,7 @@
  *   todo    やる（コマンドを実行すれば進む）
  *   human   人が判断・入力する（値を入れる・カードを決める）
  * 読み手: 管理画面 /metrics/business/monthly（tools/admin-app）・tests/monthly-review-readiness.test.mjs。
- * 手順の正本は .claude/skills/management/monthly-review/SKILL.md、証拠の判定は review-wiring.mjs（別物）。
+ * 手順の正本は .claude/skills/monthly-review/SKILL.md、証拠の判定は review-wiring.mjs（別物）。
  * ---------------------------------------------------------------------------
  */
 import { isNoteMonthFinalized, noteSalesFinalizeDate } from './net-receipts.mjs';

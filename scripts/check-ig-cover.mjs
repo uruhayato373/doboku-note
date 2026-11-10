@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // IG figure-pack の表紙（content/sns/instagram/**/carousel/img/00-cover.svg）が
-// 確定テンプレ（SSOT: .claude/skills/social/ig-figure-pack/templates/00-cover.template.svg）に
+// 確定テンプレ（SSOT: .claude/skills/ig-figure-pack/templates/00-cover.template.svg）に
 // 準拠しているかを検証する。
 //
 // 背景: figure-pack の表紙は手書き SVG で SSOT が無く、新規作者が一から書くと chrome
@@ -99,7 +99,7 @@ for (const f of files) {
 if (problems.length) {
   console.error(`[check-ig-cover] ✗ ${problems.length} 件のテンプレ逸脱:`);
   for (const p of problems) console.error(`  - ${p}`);
-  console.error(`  → SSOT: .claude/skills/social/ig-figure-pack/templates/00-cover.template.svg をコピーして文言だけ差し替える`);
+  console.error(`  → SSOT: .claude/skills/ig-figure-pack/templates/00-cover.template.svg をコピーして文言だけ差し替える`);
   __exit(1);
 }
 console.log(`[check-ig-cover] ✓ ${files.length} パックの表紙テンプレ＋図解の白背景が規約準拠`);

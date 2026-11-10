@@ -56,8 +56,8 @@ export const ALLOW = new Map([
   ['.claude/scripts/ads/check-a8-apply-budget.cjs', { kinds: ['plus9'], reason: 'CommonJS（ESM の scripts/lib/jst-date.mjs を同期で import できない。engines が Node 18 を許すので require(esm) に頼らない）' }],
   ['.claude/scripts/check-daily-anomaly.mjs', { kinds: ['local-ymd'], reason: 'YYYY-MM-DD の文字列から作った範囲を暦で数え上げるだけ（現在時刻を使わない）' }],
   ['.claude/scripts/check-data-integrity.mjs', { kinds: ['local-ymd'], reason: 'YYYYMMDD の文字列から作った範囲を暦で数え上げるだけ（現在時刻を使わない）' }],
-  ['.claude/skills/social/publish-ig-bs/publish-ig-bs.ts', { kinds: ['local-ymd'], reason: 'Business Suite の日付欄へ操作者のローカル時刻（JST の Mac）をそのまま入力する' }],
-  ['.claude/skills/social/publish-x/publish-x.ts', { kinds: ['local-ymd'], reason: 'X の予約画面の日付・時刻へ操作者のローカル時刻（JST の Mac）をそのまま入力する' }],
+  ['.claude/skills/publish-ig-bs/publish-ig-bs.ts', { kinds: ['local-ymd'], reason: 'Business Suite の日付欄へ操作者のローカル時刻（JST の Mac）をそのまま入力する' }],
+  ['.claude/skills/publish-x/publish-x.ts', { kinds: ['local-ymd'], reason: 'X の予約画面の日付・時刻へ操作者のローカル時刻（JST の Mac）をそのまま入力する' }],
 ]);
 
 const UTC_DATE = /new Date\(\)\.toISOString\(\)\.slice\(\s*0\s*,\s*10\s*\)/;

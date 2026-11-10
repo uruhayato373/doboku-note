@@ -17,7 +17,7 @@
  *
  * テンプレ解決について（フォールバック採用の理由）:
  *   本来は ogp-create.mjs の resolveTemplate()/matchesRule()
- *   （.claude/skills/conversion/ogp-create/scripts/ogp-create.mjs:219-226, 205-217）が導く
+ *   （.claude/skills/ogp-create/scripts/ogp-create.mjs:219-226, 205-217）が導く
  *   「実際に使われるテンプレ ID」を srcHash に含めたい。しかしこのロジックは独立したモジュールに
  *   切り出されておらず、ogp-create.mjs 自体を import すると末尾の `main().catch(...)`
  *   （同ファイル:428-431）が無条件に実行され、全 MDX の走査や `process.exit(1)`（同ファイル:383,

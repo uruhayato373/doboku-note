@@ -127,6 +127,6 @@ cem-qa で再評価
 
 - [`docs/editorial/03_リライト方法論方針.md`](../../docs/editorial/03_リライト方法論方針.md) — **真実源**（拡張パターン詳細・ルール・改善議論）
 - [`.claude/knowledge/reference/content-principles.md`](../../.claude/knowledge/reference/content-principles.md) — §5（ExamPoint）, §9（参考資料）, §17/§18（散文中心・配置）
-- `.claude/skills/authoring/keyword-page/SKILL.md` — 個別ページ作成テンプレート
+- `.claude/skills/keyword-page/SKILL.md` — 個別ページ作成テンプレート
 - `.claude/agents/cem-qa.md` — Evaluator 側のルーブリック
 - `.claude/scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）

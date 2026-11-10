@@ -8,7 +8,7 @@ developer_instructions = """
 
 > **READ FIRST（真実源）**:
 > - 文字数ルール・試験別タグ・UTM → [`.claude/knowledge/reference/x-post-policy.md`](../../.claude/knowledge/reference/x-post-policy.md)
-> - 運用全体・キルスイッチ・dry-run 規律 → [`.claude/skills/social/x-repost/SKILL.md`](../skills/social/x-repost/SKILL.md)
+> - 運用全体・キルスイッチ・dry-run 規律 → [`.claude/skills/x-repost/SKILL.md`](../skills/x-repost/SKILL.md)
 > - 設定（own/blocklist/maxPerRun/baseTags） → `config/x-repost.json`
 >
 > **モデル方針**: `model: sonnet`（Pro/Max サブスク枠で動作、API 課金なし）。最終判断は親エージェント。

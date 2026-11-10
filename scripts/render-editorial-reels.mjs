@@ -56,7 +56,7 @@ if (!args['skip-tts']) {
 
 // ─── フォント ─────────────────────────────────────────────────
 
-const FONT_DIR = resolve(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
+const FONT_DIR = resolve(ROOT, '.claude/skills/ogp-create/assets/fonts');
 const FONTSOURCE_DIR = resolve(ROOT, 'node_modules/@fontsource');
 
 const fonts = [

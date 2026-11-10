@@ -16,7 +16,7 @@
  * カテゴリ2（見出し構造）のみ根拠が異なる:
  *   CLAUDE.md「見出しは H2 以下のみ（H1 は frontmatter から自動生成）」/
  *   .claude/reference/exam-content-policy.md /
- *   .claude/skills/conversion/exam-questions-import/SKILL.md → カテゴリ2 (2-1, 2-3)
+ *   .claude/skills/exam-questions-import/SKILL.md → カテゴリ2 (2-1, 2-3)
  *
  * Usage:
  *   node .claude/scripts/lint-mdx-mobile.mjs <file.mdx>

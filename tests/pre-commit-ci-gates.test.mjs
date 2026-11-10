@@ -67,7 +67,7 @@ test('台帳・配線の検査は、その正本か読む側を stage したと�
     ['data/coconala/orders.json', 'qualification-market'],
     ['src/config/topics.json', 'topic-wiring'],
     ['.claude/config/review-wiring.json', 'review-wiring'],
-    ['.claude/skills/management/weekly-review/SKILL.md', 'review-wiring'],
+    ['.claude/skills/weekly-review/SKILL.md', 'review-wiring'],
     ['package.json', 'gate-parity'],
     ['scripts/quality-audit.mjs', 'gate-parity'],
     ['config/domains.json', 'domains'],

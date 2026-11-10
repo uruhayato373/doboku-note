@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const HEALTH = join(ROOT, 'scripts/check-backlog-health.mjs');
-const SKILL = join(ROOT, '.claude/skills/management/backlog-sweep/SKILL.md');
+const SKILL = join(ROOT, '.claude/skills/backlog-sweep/SKILL.md');
 
 /**
  * 「棚卸しをいつ回すか」の判定が、散文と実装で食い違わないことを固定する。

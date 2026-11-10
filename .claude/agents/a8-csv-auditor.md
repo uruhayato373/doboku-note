@@ -110,4 +110,4 @@ domain: affiliate
 
 - `.claude/knowledge/reference/a8-affiliate-pipeline.md` — A8 運用 SSOT
 - `.claude/knowledge/reference/measurement-incidents.md` — 計測データの欠損・誤報の前例
-- `.claude/skills/ads/a8-report/SKILL.md` — 主な呼び出し元
+- `.claude/skills/a8-report/SKILL.md` — 主な呼び出し元

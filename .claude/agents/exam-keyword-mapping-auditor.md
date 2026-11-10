@@ -159,4 +159,4 @@ confidence は次の 3 要素を加重合計（合計重み 1.0、最大 1.0）:
 - マスタ: `src/config/pe-chapters.json` / `src/config/tag-dictionary.json`
 - リライト優先度: `.claude/state/improvements/pe-priority-2026-05-11.json`（annotations 付与の参照源、月次更新前提）
 - 反映スクリプト: `.claude/scripts/apply-audit-result.mjs`
-- 上位 Skill: `.claude/skills/quality/audit-exam-mapping/SKILL.md`
+- 上位 Skill: `.claude/skills/audit-exam-mapping/SKILL.md`
