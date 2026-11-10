@@ -58,6 +58,13 @@ test('指示は原稿だけから決まり、指定の文字を含む', () => {
   assert.ok(cover.includes('『技術士』『口頭対策』') && cover.includes('総監が制作'));
 });
 
+test('指示: 『』を描かせず、注記を字幕の帯へ置かせない（2026-11-10）', () => {
+  const body = buildBodyPrompt(scene('a'), 'pe-construction');
+  const cover = buildCoverPrompt({ headline: ['技術士'] }, 'pe-construction');
+  for (const p of [body, cover]) assert.ok(p.includes('括弧そのものは描かない'));
+  assert.ok(body.includes('字幕の帯より上に『注記'));
+});
+
 test('機械検査: 比率と字幕の帯を止める', async () => {
   assert.deepEqual(await inspectImage(await png(1920, 1080), 'body'), []);
   assert.match((await inspectImage(await png(1536, 1024), 'body'))[0], /16:9/);

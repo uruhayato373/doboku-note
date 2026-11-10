@@ -341,6 +341,15 @@ function checkCta(m, id, root, config, issues) {
   }
 }
 
+// 画面に描く文字（字幕・見出し・図の語・注記）にファイル名や台帳のキーを書かない。
+// 画像の照合は「指示どおりの文字か」を見るので、指示に入った内部の名前はそのまま通る（2026-11-10・3 本 7 場面）
+const INTERNAL_REF = /\.(json|mjs|mdx|md)\b|sourceRefs?\b|content\/|scripts\//;
+export function internalRefsOnScreen(scene) {
+  const art = scene?.visual?.art ?? {};
+  return [scene?.caption, scene?.visual?.heading, ...(scene?.visual?.items ?? []), art.note, art.center]
+    .filter((t) => typeof t === 'string' && INTERNAL_REF.test(t));
+}
+
 function checkStoryboard(pack, id, root, config, required, issues, compilation = false) {
   const sbPath = join(pack.dir, 'storyboard.json');
   if (!existsSync(sbPath)) {
@@ -393,6 +402,9 @@ function checkStoryboard(pack, id, root, config, required, issues, compilation =
     }
     if (typeof sc.caption === 'string' && sc.caption.length > config.storyboard.captionMaxChars) {
       issues.push(issue('FAIL', 'B06', id, `${label}: caption が ${config.storyboard.captionMaxChars} 字超（1 画面へ長文を詰めない）`));
+    }
+    for (const text of internalRefsOnScreen(sc)) {
+      issues.push(issue('FAIL', 'B21', id, `${label}: 画面に出る文字に内部の参照名がある: ${text}`));
     }
     if (sc.sourceRef && !existsSync(join(root, sc.sourceRef))) {
       issues.push(issue('FAIL', 'B07', id, `${label}: sourceRef が実在しない: ${sc.sourceRef}`));

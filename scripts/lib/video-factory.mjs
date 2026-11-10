@@ -57,6 +57,9 @@ export function fileRef(root, rel) {
   return { path: rel, sha256: hash(readFileSync(abs)) };
 }
 
+// 『』は指示の中の文字の区切り。括弧ごと描かれ、照合で落ちていた（2026-11-10・2 本）
+const QUOTE_RULE = '『』は描く文字の区切りで、括弧そのものは描かない。';
+
 /** 本文の生成指示。場面の原稿だけから決まる（同じ原稿なら同じ指示）。 */
 export function buildBodyPrompt(scene, exam) {
   const palette = examPalette(exam);
@@ -67,11 +70,12 @@ export function buildBodyPrompt(scene, exam) {
     'シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。',
     rules.formats.longform.frame,
     '文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。',
+    QUOTE_RULE,
     `見出し『${scene.visual?.heading ?? scene.sceneId}』。`,
     COMPOSITION[art.type] ? `構図: ${COMPOSITION[art.type]}。` : '',
     words.length ? `図に入れる文字: ${words.map((w) => `『${w}』`).join(' ')}。` : '',
     art.center ? `図の中央に『${oneLine(art.center)}』。` : '',
-    art.note ? `図の下に『${oneLine(art.note)}』の全文を省かずに入れる。` : '',
+    art.note ? `図の下、下端の字幕の帯より上に『${oneLine(art.note)}』の全文を省かずに入れる。` : '',
     `この場面の説明（文字にしない）: ${oneLine(scene.narration)}`,
   ].filter(Boolean).join(' ');
 }
@@ -85,6 +89,7 @@ export function buildCoverPrompt(spec, exam) {
     `新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。${palette}、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。`,
     rules.teacher.identity,
     `左〜中央に正確に${lines.map((l) => `『${l}』`).join('')}を大きく配置。上部の黄色帯に小さく『${spec.pop?.authority ?? '総監が制作'}』。`,
+    QUOTE_RULE,
     '誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。',
   ].join(' ');
 }
