@@ -444,7 +444,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-purpose-1",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1",
       "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -469,13 +469,38 @@
         "contentSha256": "f380741d1d16574d4dfd9461e1b0c06472bf8cf778faa43d7749f2d052c9d422"
       },
       "times": {
-        "rendered": "2026-11-10T21:28:04.619Z"
+        "rendered": "2026-11-10T21:28:04.619Z",
+        "uploaded": "2026-11-10T22:01:00.495Z"
       },
       "delivery": {
         "inputSha256": "c5ef7c0290bc9fd91b62cf2a4baf93b318fa79352b12fcda0b4b3e147e109b57",
         "marker": "dn-single-494a0303d5ba80d1b0cb332d0de47ec721bd4b7f",
         "uploadRequestedAt": "2026-11-10T21:51:53.234Z",
-        "videoId": "OdKCHkNllG4"
+        "videoId": "OdKCHkNllG4",
+        "processedAt": "2026-11-10T22:00:59.916Z",
+        "thumbnailRequestedAt": "2026-11-10T22:01:00.547Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/default.jpg?sqp=COCnztcG&rs=AOn4CLBnV_O1KemfesA67uK5R-4qXI7JKA",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/mqdefault.jpg?sqp=COCnztcG&rs=AOn4CLCH8nH15kHqYAWHrS8qd96LA_1BBw",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/hqdefault.jpg?sqp=COCnztcG&rs=AOn4CLDfP3L6krLBBX-KwhqHVq3w22hArg",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/sddefault.jpg?sqp=COCnztcG&rs=AOn4CLC-Vb24Yic8RndIv2k2XzatofYefA",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/maxresdefault.jpg?sqp=COCnztcG&rs=AOn4CLB3x_0gqSvg-ydgyy529mFi2ocJag",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/sardefault.jpg?sqp=COCnztcG&rs=AOn4CLBOYTTDp6rrk2Iwa4fhV1d-SN9PcA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-10T22:01:04.381Z"
+      },
+      "platform": {
+        "id": "OdKCHkNllG4",
+        "url": "https://www.youtube.com/watch?v=OdKCHkNllG4",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-10T22:01:04.381Z"
       }
     },
     {
