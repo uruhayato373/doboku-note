@@ -8,12 +8,13 @@ import { jstDayOf as jst } from './jst-date.mjs';
 import { readJson } from './json-io.mjs';
 import { datasetDir, datasetFiles, datasetPath } from './datasets.mjs';
 import { latestReport } from './metric-reports.mjs';
+import { evidenceOf } from './metric-status.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
 import { classifyProduct, classifySale, withSaleProducts } from './product-lineup.mjs';
 import { qualificationKey } from './sales-by-qualification.mjs';
 import { readDataset, readDatasetIf } from './dataset-io.mjs';
 import { writeDataset } from './dataset-write.mjs';
-import { BUSINESS_CHANNELS } from './dataset-schema-parts.mjs';
+import { BUSINESS_CHANNELS, lastDayOfMonth } from './dataset-schema-parts.mjs';
 import { addDays, isoWeekKey as weekOfDay, reviewWindowOfWeek } from './review-week.mjs';
 
 export const DIRECTION = datasetPath('config.business-direction');
@@ -297,6 +298,17 @@ export function kdpMonthFacts({ entry, catalogBooks = [], qualificationOf = () =
   }
   return facts;
 }
+/** A8 の確定額。サイト別レポート（siteSummary）の単月の行だけを足す（monthly は口座横断で他サイトを含むので使わない） */
+export function a8MonthFacts({ log, months = [], path }) {
+  return months.flatMap(month => {
+    const key = month.replace('-', ''), rows = (log?.siteSummary ?? []).filter(r => r.period === `${key}-${key}`);
+    if (!rows.length) return [];
+    const endDate = `${month}-${String(lastDayOfMonth(month)).padStart(2, '0')}`;
+    // 確定は発生月へ遡って入るので、月が明けてからの取得だけを complete にする
+    const closed = rows.every(r => jst(r.fetchedAt) > endDate);
+    return [sourceFact('a8ConfirmedYen', rows.reduce((sum, r) => sum + (Number(r.revenueYen) || 0), 0), { startDate: `${month}-01`, endDate }, path, 'all', closed ? 'complete' : 'partial', `サイト別レポート ${rows.length} サイトの確定額。発生・未確定は含めない。${closed ? '' : '月の途中の取得で、確定は後から入る。'}`)];
+  });
+}
 /** 'M月D日'（年なし）/'YYYY年M月D日' → YYYY-MM-DD。年なしは取得日から遡る直近の日付。時刻表示・相対表示は null（日付を確定できない）。 */
 export function coconalaDmDate(dateText, fetchedDay) {
   const text = String(dateText ?? '').trim();
@@ -468,6 +480,15 @@ export function sourceFacts(root, c, period) {
     else if (rows.length) { const last = rows.at(-1); put('coconalaReviews', last.ratingCount, { startDate: last.date, endDate: last.date }, datasetPath('coconala.seller-profile'), 'all', 'complete', `公開プロフィールの ${last.date} の値。`); }
   }
   if (existsSync(join(root, cocoOrdersPath))) facts.push(...coconalaInquiryFacts({ snapshot: readJson(root, cocoOrdersPath), period, qualifications: qualificationIds, path: cocoOrdersPath }));
+  const a8Log = readDatasetIf(root, 'a8.report-log');
+  if (a8Log) facts.push(...a8MonthFacts({ log: a8Log, months: monthsOf(period), path: datasetPath('a8.report-log') }));
+  // 取得元（dataSource）を持つ指標で上で載せていないものは、metric-status と同じ読み方で載せる。期間は取得元の集計窓のままなので、週・暦月のセルには別期間として出る。
+  // 該当の行が無いとき（rows 0）は 0 と読まないので載せない
+  for (const metric of c.metrics) {
+    if (!metric.dataSource || facts.some(f => f.metric === metric.id)) continue;
+    const e = evidenceOf(root, metric.dataSource);
+    if (e?.rows > 0 && e.value != null && validDay(e.period?.startDate) && validDay(e.period?.endDate)) put(metric.id, e.value, e.period, e.ref, 'all', 'partial', '取得元の集計窓の値。週・暦月へ換算しない。');
+  }
   return facts;
 }
 export function buildReport(root, period = reviewPeriod('weekly'), now = new Date()) {

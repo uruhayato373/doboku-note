@@ -39,6 +39,8 @@ note の `notePv` / `noteImpressions` は `npm run note-traffic-fetch -- --month
 
 Instagram のリーチは日次合計＝延べ（同一ユーザーの重複を含む）であり、フォロワー数は期間末時点のストックとして読む。Cloudflare のリクエスト数は bot を含むため GA4 の代替にはせず、突合用にのみ使う。
 
+A8 の確定額（`a8ConfirmedYen`）は `data/a8/report-log.json` の `siteSummary` の単月の行（doboku-note と note）を自動で足す（口座横断の `monthly` は使わない。月が明けてからの取得だけ complete）。`dataSource` を持つ指標（X・動画からの教材クリック、動画の視聴維持など）は `npm run metric-status` と同じ読み方（`scripts/lib/metric-status.mjs` の `evidenceOf`）で、取得元の集計窓のまま載せる。週・暦月のセルには換算せず、別期間として出る。該当の行が無いときは 0 と読まず載せない。
+
 欠測のセル（`coverage: missing`）には理由 `gap` が付く（`buildReport`）。取得元は読めたが値を確定できない＝`undetermined`、別の期間の値しか無い＝`other-period`、それ以外は指標の `supply`（`config/business-direction.json` の `metrics[].supply`。`ci`＝GitHub Actions の定期取得・`mac`＝土曜の Mac 収集・`human`＝人が記録・`none`＝取得しないと決めた）。指標を足すときは `supply` を必ず書く。管理画面の KPI ツリーは「—」の代わりにこの理由を出す。
 
 ## レビュー
