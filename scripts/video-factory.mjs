@@ -15,6 +15,8 @@
  *   npm run video-factory -- audio-check --pack <exam>/<work>            音声を文字起こしして台本と照合する
  *   npm run video-factory -- wire --pack <exam>/<work> [--publish-at <ISO>]  文面へ転送先と空き枠を入れる
  *   npm run video-factory -- gate --pack <exam>/<work>                   予約へ進めてよいかを検査だけする
+ *   npm run video-factory -- preflight --pack <exam>/<work>              画像の前に、公開行・年間の枠・主CTA・表紙の設計を見る（exit 0 で生成へ）
+ *   npm run video-factory -- save --pack <exam>/<work>                   止まったパックの台帳と原稿の変更を commit（push は親）
  *   npm run video-factory -- qa-check --pack <exam>/<work>               台帳の QA が今の原稿で合格なら exit 0
  *   npm run video-factory -- auto-approve --pack <exam>/<work>           関門を通ったら方針の承認を台帳へ書く
  *   npm run video-factory -- unapprove --pack <exam>/<work>              予約へ進んでいない承認を外し、wire で日時を付け直せるようにする
@@ -47,7 +49,8 @@ import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { scriptQueue, slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
 import { loadPlanAudit } from './lib/youtube-longform-plan.mjs';
-import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, qaInputDigest, qaState, recordAudit, retryItems, summarize, unapprovedRow } from './lib/video-factory.mjs';
+import { loadSiteRoutes, siteArticleUrl } from './lib/site-links.mjs';
+import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, qaInputDigest, qaState, preflightProblems, recordAudit, retryItems, summarize, unapprovedRow } from './lib/video-factory.mjs';
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
@@ -197,6 +200,37 @@ function recordQa() {
   upsertWorks(ROOT, exam, [{ ...row, qa }]);
   upsertPublications(ROOT, 'youtube', exam, [{ ...pub, status: avg >= 2 && blocks === 0 ? 'qa_passed' : 'qa_blocked' }]);
   console.log(`${pub.id}: QA を記録（平均 ${avg}・BLOCK ${blocks}）`);
+}
+
+/** 画像を作る前の無料の検査。exit 0 なら生成へ進める（DN-1068） */
+function preflight() {
+  const pack = requirePack();
+  const [exam, work] = pack.split('/');
+  const dir = join(ROOT, packDirOf(pack));
+  const pub = targetPub(loadRegistry(ROOT), exam, work);
+  const routes = loadSiteRoutes(join(ROOT, 'public/_redirects'));
+  const read = (file) => (existsSync(join(dir, file)) ? JSON.parse(readFileSync(join(dir, file), 'utf8')) : null);
+  const problems = preflightProblems({
+    pub, planProblems: pub ? planProblems(ROOT, pub) : [], cta: read('video-pack.json')?.primaryCta,
+    products: readDataset(ROOT, 'config.products').products, siteUrl: (path) => siteArticleUrl(path, routes), cover: read('cover-design.json'),
+  });
+  console.log(JSON.stringify({ pack, problems }));
+  process.exitCode = problems.length ? 1 : 0;
+}
+
+/**
+ * 止まったパックの制作記録（台帳の QA・公開行・パックの原稿）を残す。関門まで進んだパックは finish の commit が持つ。
+ * 何も変わっていなければ何もしない。push は親が行う。画像の途中（.tmp の plan.json）はその PC 限り（DN-1068）
+ */
+function save() {
+  const pack = requirePack();
+  const exam = pack.split('/')[0];
+  const paths = [packDirOf(pack), ...['registry.works', 'registry.youtube'].map((id) => datasetPath(id, { name: `${exam}.json` }))].filter((p) => existsSync(join(ROOT, p)));
+  execFileSync('git', ['add', '--', ...paths], { cwd: ROOT, stdio: 'inherit' });
+  const staged = spawnSync('git', ['diff', '--cached', '--quiet', '--', ...paths], { cwd: ROOT });
+  if (staged.status === 0) { console.log(JSON.stringify({ pack, saved: false })); return; }
+  execFileSync('git', ['commit', '-m', `content(video): ${pack} の制作の途中の記録を残す`, '--', ...paths], { cwd: ROOT, stdio: 'inherit' });
+  console.log(JSON.stringify({ pack, saved: true }));
 }
 
 /** 制作記録だけを明示してコミットする。並行作業の変更を巻き込まない */
@@ -511,6 +545,8 @@ const commands = {
   render,
   ledger,
   'record-qa': recordQa,
+  preflight,
+  save,
   // 台帳の QA が今の原稿で合格なら exit 0。Workflow が採点を飛ばすかをモデルでなくコマンドで決める（DN-1067）
   'qa-check': () => {
     const pack = requirePack();
@@ -531,5 +567,5 @@ const commands = {
   publish,
   cleanup,
 };
-if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|qa-check|commit|audio-check|wire|gate|auto-approve|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
+if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|qa-check|preflight|save|commit|audio-check|wire|gate|auto-approve|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
 await commands[command]();

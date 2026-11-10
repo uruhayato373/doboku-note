@@ -10,7 +10,7 @@ import { reviewIsCurrent } from '../scripts/lib/media-review.mjs';
 import { acceptedApproval, audioProblems, evaluateGate, nextSlot, speechSimilarity, uploadsLeft } from '../scripts/lib/video-publish-gate.mjs';
 import {
   MAX_ATTEMPTS, MAX_NO_OUTPUT, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
-  ledgerVerdicts, nextStage, packDirOf, planPath, qaInputDigest, qaState, readPlan, recordAudit, retryItems, summarize, unapprovedRow,
+  ledgerVerdicts, nextStage, packDirOf, planPath, preflightProblems, qaInputDigest, qaState, readPlan, recordAudit, retryItems, summarize, unapprovedRow,
 } from '../scripts/lib/video-factory.mjs';
 
 const PACK = 'pe-construction/sample';
@@ -414,4 +414,21 @@ test('内容QAの合格は原稿の digest に付き、原稿が変われば古�
     writeFileSync(join(f.dir, 'storyboard.json'), JSON.stringify(board));
     assert.equal(qaState({ avg: 2.5, blocks: 0, inputSha256: digest }, qaInputDigest(f.root, PACK)), 'stale');
   } finally { f.done(); }
+});
+
+test('preflight: 画像の前に公開行・年間の枠・主CTA・表紙の設計を見る（DN-1068）', () => {
+  const cover = { covers: { longform: { headline: ['見出し'] } } };
+  const products = [{ channel: 'note', id: 'm', catalog: { published: true } }, { channel: 'note', id: 'old', catalog: { published: true, retiredAt: '2026-01-01' } }, { channel: 'coconala', id: 'c', catalog: { status: 'paused' } }];
+  const siteUrl = (p) => { if (p.includes('missing')) throw new Error('解決できない'); return 'https://example.com/x'; };
+  const base = { pub: { id: 'q/a/youtube.longform' }, planProblems: [], products, siteUrl, cover };
+  assert.deepEqual(preflightProblems({ ...base, cta: { kind: 'note-magazine', targetId: 'm' } }), []);
+  assert.deepEqual(preflightProblems({ ...base, cta: { kind: 'site-article', targetPath: 'content/site/a/b/article.mdx' } }), []);
+  const one = (over) => preflightProblems({ ...base, ...over });
+  assert.match(one({ pub: null, cta: { kind: 'note-magazine', targetId: 'm' } })[0], /公開行が無い/);
+  assert.match(one({ planProblems: ['計画にない動画: x'], cta: { kind: 'note-magazine', targetId: 'm' } })[0], /計画にない/);
+  assert.match(one({ cta: { kind: 'note-magazine', targetId: 'old' } })[0], /公開中でない/);
+  assert.match(one({ cta: { kind: 'coconala-service', targetId: 'c' } })[0], /出品中でない/);
+  assert.match(one({ cta: { kind: 'site-article', targetPath: 'content/site/missing/x/article.mdx' } })[0], /解決できない/);
+  assert.match(one({ cta: { kind: 'links-hub' } })[0], /links-hub/);
+  assert.match(one({ cta: { kind: 'note-magazine', targetId: 'm' }, cover: null })[0], /cover-design/);
 });

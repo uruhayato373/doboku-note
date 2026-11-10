@@ -412,3 +412,28 @@ export function nextStage(f) {
   if (f.review !== 'pass') return 'review';
   return 'ready-for-approval';
 }
+
+/**
+ * 画像を作る前に、無料で決まる関門の項目を見る（DN-1068）。空なら合格。
+ * 計画にない・送り先が解決できない・表紙の設計が無いパックが、画像・描画・画面確認の費用を払った後の関門で初めて落ちていた。
+ * @param {{ pub: object|null, planProblems: string[], cta: object|undefined, products: object[], siteUrl: (path: string) => string, cover: object|null }} f
+ */
+export function preflightProblems({ pub, planProblems, cta, products, siteUrl, cover }) {
+  const problems = [];
+  if (!pub) problems.push('公開行が無い（registry -- import-video-pack で載せ、年間計画の行に publicationId を結ぶ）');
+  problems.push(...planProblems);
+  const product = (channel) => products.find((p) => p.channel === channel && p.id === cta?.targetId);
+  if (!cta?.kind) problems.push('video-pack.json に primaryCta が無い');
+  else if (cta.kind === 'note-magazine') {
+    const p = product('note');
+    if (!p?.catalog?.published || p.catalog.retiredAt) problems.push(`主CTAの note 商品が公開中でない: ${cta.targetId}`);
+  } else if (cta.kind === 'coconala-service') {
+    if (product('coconala')?.catalog?.status !== 'listed') problems.push(`主CTAのココナラ商品が出品中でない: ${cta.targetId}`);
+  } else if (cta.kind === 'site-article') {
+    try { siteUrl(cta.targetPath); } catch (error) { problems.push(`主CTAのサイト記事: ${error.message}`); }
+  } else if (cta.kind === 'links-hub') {
+    problems.push('主CTAが links-hub（新規公開は商品か関連記事への直接の導線が要る）');
+  } else problems.push(`未対応の主CTA: ${cta.kind}`);
+  if (!cover?.covers?.longform?.headline?.length) problems.push('cover-design.json に longform の見出しが無い');
+  return problems;
+}

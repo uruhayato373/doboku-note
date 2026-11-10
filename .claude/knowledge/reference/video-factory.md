@@ -8,7 +8,7 @@ title: 動画の量産工程（通常動画・ショート）
 
 ## 今どの工程か
 
-`npm run video-factory -- status` が全パックの次の工程を出す。推測せずここから始める。状態は台帳と実ファイルから毎回作るので、別の台帳は持たない。
+`npm run video-factory -- status` が全パックの次の工程を出す。推測せずここから始める。末尾には、パックがまだ無い企画（台本待ち）と内容QAで止まった行を、確認期限の近い順に出す（`--all` で全部。期限超過は `check-youtube-plan --due` が週次で赤にする・DN-1069）。状態は台帳と実ファイルから毎回作るので、別の台帳は持たない。
 
 | 工程 | やること | 担当 |
 |---|---|---|
@@ -59,6 +59,8 @@ npm run video-factory -- render --pack <資格>/<作品>
 npm run video-factory -- ledger --pack <資格>/<作品>
 npm run video-factory -- record-qa --pack <資格>/<作品> --file <採点 JSON>   # { scores: { 軸: 0〜3 }, blocks: [理由…] }
 npm run video-factory -- qa-check --pack <資格>/<作品>   # 台帳の QA が今の原稿で合格なら exit 0
+npm run video-factory -- preflight --pack <資格>/<作品>  # 画像の前に公開行・年間の枠・主CTA・表紙の設計を見る（Workflow の最初の段・DN-1068）
+npm run video-factory -- save --pack <資格>/<作品>       # 止まったパックの台帳と原稿の変更を commit（Workflow の最後。push は親）
 npm run video-factory -- commit --pack <資格>/<作品>
 npm run video-factory -- audio-check --pack <資格>/<作品>
 npm run video-factory -- wire --pack <資格>/<作品>
