@@ -6920,6 +6920,19 @@
       "commit": "06398e96a7ea",
       "verification": "npm run check-pe-question-pages && node --test tests/pe-question-pages.test.mjs",
       "note": "pe-question-pages（scaffold/check/claims）とテスト。道路16本で問題文の節が一致"
+    },
+    {
+      "id": "DN-1074",
+      "at": "2026-11-10",
+      "task": "技術士 建設部門の設問ページを必須科目Ⅰと受験者の多い 4 科目（R07・R08・約 68 本）へ広げる",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a6ef74263cf8",
+      "verification": "npm run check-pe-question-pages",
+      "note": "必須科目I 4本＋鋼コン・河川砂防・施工計画・土質及び基礎 各16本（R07・R08）の計68本。サブエージェント約230万トークン（1本約3.4万）。道路16本の main 反映はこの段の完了で運営者に諮る"
     }
   ]
 }
