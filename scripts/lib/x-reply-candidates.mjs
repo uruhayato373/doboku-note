@@ -130,17 +130,25 @@ export function hashUser(user) {
   return createHash('sha256').update(String(user).toLowerCase()).digest('hex').slice(0, 12);
 }
 
-/** care は supplier より先に判定する。配慮が要る本人の投稿を「宣伝」に落とさないため。 */
+/**
+ * care は supplier より先に判定する。配慮が要る本人の投稿を「宣伝」に落とさないため。
+ * supplierSoftWords（添削・講座など）は受験者本人も書く。合否や試験の結果を書いた投稿では宣伝にしない
+ * （2026-11-09「試験結果を上司に提出したら添削コースを勧められた」を取りこぼした・DN-1059）。
+ */
 export function classifyPost(post, config) {
   const { text, user } = post;
   if (config.excludeAccounts.includes(user)) return 'supplier';
   if (post.inReplyTo || text.startsWith('RT @')) return 'reply';
   if (includesAny(text, config.careWords)) return 'care';
   if (includesAny(text, config.supplierWords)) return 'supplier';
+  const isFail = includesAny(text, config.failWords) || (config.failPatterns ?? []).some((p) => new RegExp(p, 'u').test(text));
+  const isPass = includesAny(text, config.passWords);
+  const isResult = includesAny(text, config.resultWords ?? []);
+  if (includesAny(text, config.supplierSoftWords ?? []) && !isFail && !isPass && !isResult) return 'supplier';
   if (includesAny(text, config.askWords)) return 'ask';
-  if (includesAny(text, config.failWords) || (config.failPatterns ?? []).some((p) => new RegExp(p, 'u').test(text))) return 'fail';
-  if (includesAny(text, config.passWords)) return 'pass';
-  if (includesAny(text, config.studyWords ?? [])) return 'study';
+  if (isFail) return 'fail';
+  if (isPass) return 'pass';
+  if (isResult || includesAny(text, config.studyWords ?? [])) return 'study';
   return 'other';
 }
 
