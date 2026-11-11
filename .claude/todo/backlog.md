@@ -3158,6 +3158,12 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1141] pre-commit の固定費の残り 44 秒を削る
+タグ: [領域:管理] [種類:改善] [起票:2026-11-12]
+
+何も stage していない状態の pre-commit は 153 秒 → 44 秒になった（PR #1541）。残りの上位は check-business-direction 7.5 秒・pre-commit-mdx 4.6 秒（MDX が無くても MDX コンパイラ一式を import）・check-exam-calendar 4.0 秒・check-note-attachments 3.1 秒。入力の置き場が広い検査は touches の宣言を検査側の走査の根から引く。ほかに、53 本の検査が各自 git diff --cached を呼び直している（ディスパッチャの ctx を渡せば 1 回で済む）、Bash 1 回ごとに agent-hook を node 4 プロセス起動している（.claude/settings.json）。PRE_COMMIT_TIMING=1 で前後を測る
+
+
 ### [DN-1140] 冒頭コメントの無い起動ファイル 32 本に用途を書く
 タグ: [領域:管理] [種類:改善] [起票:2026-11-12]
 
