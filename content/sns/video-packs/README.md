@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **76**（更新: 2026-11-11）
+パック数: **77**（更新: 2026-11-11）
 
 ## 1級土木施工管理技士（9）
 
@@ -48,7 +48,7 @@
 | `pe1-tekisei-3shiten` | 技術士一次 適性科目の正誤判定で見る3つの視点 | 適性科目で、覚えたはずの内容でも選択肢の正誤判定に迷う | exam-point | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 
-## 技術士（建設部門）（20）
+## 技術士（建設部門）（21）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
@@ -59,6 +59,7 @@
 | `pe-fugoukaku-toan` | 技術士建設部門 不合格の答案はどこで落ちるか — 評価項目に照らして点検する | 筆記試験の答案がどこで点を落としたのか分からず、来年度の学習をどこから直せばよいか決められない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-geotechnical-shutsudai-yomikata` | 技術士建設部門 土質及び基礎｜出題の読み方と書き方 | 土質及び基礎の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、数や図の条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-geotechnical-magazine` |
 | `pe-gyoumu-shousai-720` | 建設部門｜業務内容の詳細 720 字の組み立て | 業務内容の詳細720字に何を書き、字数をどう配分すればよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-hissu1-jikan-haibun` | 建設部門 必須Ⅰ｜時間配分 | 必須Ⅰの2時間で、読解・構成・記述・見直しに何分ずつ使えばよいか決められず、書き切れるか不安 | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-hissu1-konkyo-tsumikata` | 建設部門 必須Ⅰ｜答案の組み立て — (2)の解決策に根拠を積む | 必須Ⅰの(2)で解決策の名前は浮かぶのに、なぜ効くのかを支える材料を何から集めて答案のどこに置けばよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-hissu1-theme-junbi` | 建設部門 必須Ⅰ｜テーマの読み方と準備の順序 | 必須Ⅰは毎年題が変わり、過去問を並べても何から準備すればよいか決められない | roadmap | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-ii1-kakikata` | 建設部門｜Ⅱ-1 の書き方 — 600字を設問に沿って組み立てる | Ⅱ-1の知識はあるのに、600字にまとめると散らかり、何をどの順に何字で書けばよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
