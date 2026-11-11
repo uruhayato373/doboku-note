@@ -319,5 +319,12 @@
       },
       "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
 }
