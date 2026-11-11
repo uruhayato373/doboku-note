@@ -46,6 +46,12 @@ test('buildIndex: カテゴリごとの表・エージェントの種別と呼�
   assert.match(r.regions['skill-agent-map'], /\| `\/improve-article` \| `guide-qa` \|/);
 });
 
+test('表のセル: バックスラッシュと | の両方を逃がす（\\ を逃がさないと、説明の \\| が表の区切りに戻る）', () => {
+  const file = { path: '.claude/agents/x.md', content: '---\nname: x\ndescription: \'a\\|b と c|d と e\\f\'\nmodel: sonnet\ndomain: ops\n---\n' };
+  const r = buildIndex({ skillFiles: [skill('deploy', 'dev')], agentFiles: [file] });
+  assert.ok(r.regions.agents.includes('a\\\\\\|b と c\\|d と e\\\\f'), r.regions.agents);
+});
+
 test('replaceRegion: マーカーの間だけを置き換え、文書の改行コードに合わせる。マーカーが無ければ null', () => {
   const doc = `前\r\n${markers.start('skills')}\r\n古い\r\n${markers.end('skills')}\r\n後\r\n`;
   const out = replaceRegion(doc, 'skills', '新しい\n2 行目');

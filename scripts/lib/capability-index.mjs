@@ -23,7 +23,8 @@ export const CATEGORY_LABELS = [
 ];
 
 const oneLine = (s) => String(s ?? '').replace(/\s+/g, ' ').trim();
-const cell = (s) => oneLine(s).replace(/\|/g, '\\|');
+// 表のセル: バックスラッシュを先に逃がしてから | を逃がす（逆順だと、足した \ をもう一度逃がしてしまう）
+const cell = (s) => oneLine(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|');
 
 /** SKILL.md・agents の 1 ファイルを読む。frontmatter が無い・name が無いときは null */
 export function parseEntry(content) {
