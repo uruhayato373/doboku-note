@@ -566,7 +566,7 @@
               "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/raw-cover.243e4749.png",
               "sha256": "243e4749c85cb5048d115c8efff2bdc864118c552ed2bcac202f2f79bc2323e5"
             },
-            "generatedAt": "2026-11-11T11:19:06.444Z"
+            "generatedAt": "2026-11-11T11:53:32.326Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/cover.8c959c83.png",
@@ -580,7 +580,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T11:19:06.444Z",
+            "checkedAt": "2026-11-11T11:53:32.326Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字は1級土木と手続きを/並べれば/伝わる？が指示どおりで誤字・欠けなし、見出しは左右約9〜91%内に収まる。誤解を壊す型の引用と？のみで✕なし。先生は画面左側の手をあご、右側の手を腰に当て、指5本で胴体も下端まで続く"
           }
@@ -602,7 +602,7 @@
               "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/raw-scene-001.7b6a2021.png",
               "sha256": "7b6a20219e95da5330de00c4ab217b5f45951e40feb187ce94c8cd9377d35222"
             },
-            "generatedAt": "2026-11-11T11:19:06.444Z"
+            "generatedAt": "2026-11-11T11:53:32.326Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/scene-001.027b06f3.png",
@@ -616,7 +616,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T11:19:06.444Z",
+            "checkedAt": "2026-11-11T11:53:32.326Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『1級土木』『1』『手続きはどの現場も同じ』『協議した』『計画書を作成した』『どの現場でも成り立つ』が指示と一致し、余計な文字や崩れ字なし。人物なし"
           }
@@ -638,7 +638,7 @@
               "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/raw-scene-002.606261fb.png",
               "sha256": "606261fb3ed046aa4d9c2589b42a643dbe4ce9a63377178b0dc32a2417755f3d"
             },
-            "generatedAt": "2026-11-11T11:19:06.444Z"
+            "generatedAt": "2026-11-11T11:53:32.326Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/scene-002.098386de.png",
@@ -652,7 +652,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T11:19:06.444Z",
+            "checkedAt": "2026-11-11T11:53:32.326Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『2』『測る・比べる・選ぶ』と3箱『何を測ったか』『何と比べたか』『工法や材料の選択』、黄色箱『その現場の答案』が一致。矢印の向きと接続も正しい"
           }
@@ -674,7 +674,7 @@
               "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/raw-cta.5a815aa4.png",
               "sha256": "5a815aa45f8fcc8445a76bb9ea859cf65a9af8b6aecb604ae615a669fb8fdee1"
             },
-            "generatedAt": "2026-11-11T11:19:06.444Z"
+            "generatedAt": "2026-11-11T11:53:32.326Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/cta.2f4cec40.png",
@@ -688,14 +688,14 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T11:19:06.444Z",
+            "checkedAt": "2026-11-11T11:53:32.326Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『五つの見どころは』『本編で』『関連動画から』と下向き矢印が指示どおりで誤字・欠けなし。先生は手のひらで矢印を示し、指5本、胴体は下端まで続き、『1級土木』も入っていない。ただし見出し両端が左右約3〜4%まで寄り、指定の8%内側にはやや足りない（切れはなし）。"
           }
         }
       ],
       "render": {
-        "videoSha256": "f1333946689383c00db44e24753db717aefb602793ee7e07ce6b6dc5d676b422",
+        "videoSha256": "64995be77e40070959e8d75cec415858f807bacd8fbbe84473c7f57eb1491efc",
         "durationSeconds": 22.698667,
         "speaker": 13,
         "sceneCount": 4
@@ -703,20 +703,20 @@
       "screenReview": {
         "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "実測 22.7 秒・1080x1920・音声あり、sha 一致、4/4 場面確認。5 軸とも 4 以上で平均約 4.4。型 myth-buster の形に沿い、語りは misread 場面の範囲内。ライブ確認のみ未実施。",
-        "videoSha256": "f1333946689383c00db44e24753db717aefb602793ee7e07ce6b6dc5d676b422",
-        "checkedAt": "2026-11-11T11:20:08.162Z"
+        "reason": "実測 1080×1920・22.7 秒・音声ありで、sha は youtube.json と一致。5 軸は平均 4.4・全軸 3 以上。台本の観点でも型 myth-buster の形に沿い、問題なし。",
+        "videoSha256": "64995be77e40070959e8d75cec415858f807bacd8fbbe84473c7f57eb1491efc",
+        "checkedAt": "2026-11-11T11:55:02.417Z"
       },
       "audio": {
-        "videoSha256": "f1333946689383c00db44e24753db717aefb602793ee7e07ce6b6dc5d676b422",
+        "videoSha256": "64995be77e40070959e8d75cec415858f807bacd8fbbe84473c7f57eb1491efc",
         "similarity": 0.963,
         "maxVolumeDb": -5.6,
         "durationGapSec": 0
       },
       "stock": {
         "video": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/video.f1333946.mp4",
-          "sha256": "f1333946689383c00db44e24753db717aefb602793ee7e07ce6b6dc5d676b422"
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/video.64995be7.mp4",
+          "sha256": "64995be77e40070959e8d75cec415858f807bacd8fbbe84473c7f57eb1491efc"
         },
         "frames": {
           "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/frames.f4c0f3d0.png",
@@ -748,7 +748,7 @@
           "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2/cover.8c959c83.png",
           "sha256": "8c959c833e37cffbaef8061a1a15f7193ff97229eb18c9ad7d3b05f9164a57bc"
         },
-        "savedAt": "2026-11-11T11:20:24.301Z",
+        "savedAt": "2026-11-11T11:55:22.071Z",
         "cloudVerified": true
       }
     },
