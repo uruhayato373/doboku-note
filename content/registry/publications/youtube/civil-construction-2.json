@@ -604,7 +604,21 @@
       },
       "thumbnail": {
         "status": "set",
-        "setAt": "2026-11-05T08:29:07.457Z"
+        "setAt": "2026-11-11T04:54:31.821Z",
+        "update": {
+          "verifiedAt": "2026-11-11T13:54:31+09:00",
+          "method": "youtube-cover-replace",
+          "designPath": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi/cover-design.json",
+          "coverKey": "civil-construction-2/keiken-daizai-erabi/youtube.longform/cover",
+          "uploadedSha256": "f27c31a2d5a0e0358167cb7222750dad151146f4f0897b1c092f08c468796dab",
+          "saveConfirmed": true,
+          "visualVerifiedIn": "api-readback cdn-pixel-comparison-v5",
+          "publicFeedVerified": false,
+          "metadataUnchanged": true,
+          "videoFileChanged": false,
+          "privacyBefore": "public",
+          "privacyAfter": "public"
+        }
       }
     },
     {
