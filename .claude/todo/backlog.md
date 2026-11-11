@@ -3158,6 +3158,12 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1140] 冒頭コメントの無い起動ファイル 32 本に用途を書く
+タグ: [領域:管理] [種類:改善] [起票:2026-11-12]
+
+npm run cmd はコマンドの用途を、起動するスクリプトの冒頭コメントから引く（PR #1542）。冒頭コメントの無いファイルが 32 本あり（note の編集系 note-*.mjs が多い）、scripts/check-command-guidance.mjs の NO_HEADER_BASELINE に並べてある。各ファイルを読んで用途と罠を冒頭コメントに書き、基準から消す。完了条件: NO_HEADER_BASELINE が空／npm run check-command-guidance が通る
+
+
 ### [DN-1139] publish-seo-summary の待ちで CI の run が完了しない構造を外す
 タグ: [領域:管理] [種類:改善] [起票:2026-11-12]
 
