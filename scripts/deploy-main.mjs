@@ -12,11 +12,12 @@
 
 import { spawnSync } from 'node:child_process';
 import process from 'node:process';
-import { blockingNightlyIssues, findDeployRun, pickGateTarget, pushRejectedAsStale, unverifiedPrCommits } from './lib/deploy-main.mjs';
+import { blockingNightlyIssues, findDeployRun, GATE_WAIT_LIMIT_MS, gateWaitExpired, pickGateTarget, pushRejectedAsStale, ssrVerdict, stepConclusion, unverifiedPrCommits } from './lib/deploy-main.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const GATE = 'Pre-merge check (quality audit + build)';
 const DEPLOY = 'cloudflare-deploy.yml';
+const SSR_STEP = 'Verify production SSR'; // cloudflare-deploy.yml のステップ名
 const REPO_URL = 'https://github.com/uruhayato373/doboku-note.git';
 const dryRun = process.argv.includes('--dry-run');
 
@@ -35,7 +36,10 @@ function stop(code, message) {
 }
 
 function waitForGate() {
+  const startedAt = Date.now();
+  let waitingRun = null;
   for (;;) {
+    if (gateWaitExpired(startedAt, Date.now())) stop(2, `検査の緑待ちが ${GATE_WAIT_LIMIT_MS / 60000} 分を超えた（待っていた run ${waitingRun ?? '不明'}）`);
     run('git', ['fetch', '-q', 'origin']);
     const commits = out('git', ['rev-list', '--max-count=40', 'origin/develop']).split('\n');
     const runs = json('gh', ['run', 'list', '--branch', 'develop', '--workflow', GATE, '--limit', '30', '--json', 'databaseId,headSha,status,conclusion']);
@@ -43,6 +47,7 @@ function waitForGate() {
     if (pick.kind === 'ok') return pick.sha;
     if (pick.kind === 'none') stop(2, `develop の直近 40 commit に検査の結果が無い`);
     if (pick.kind === 'fail') stop(1, `develop の検査が ${pick.conclusion}（${pick.sha.slice(0, 9)}・run ${pick.runId}）。直してから昇格する`);
+    waitingRun = `${pick.runId}（${pick.sha.slice(0, 9)}）`;
     console.log(`[deploy-main] 検査の完了を待つ（${pick.sha.slice(0, 9)}）`);
     if (run('gh', ['run', 'watch', String(pick.runId), '--exit-status'], { allowFail: true }).status !== 0) sleep(5000);
   }
@@ -99,6 +104,7 @@ function waitForDeploy(commit) {
     console.error(log.split('\n').slice(-30).join('\n'));
     stop(1, `デプロイが失敗（run ${started.databaseId}）`);
   }
+  return started.databaseId;
 }
 
 const target = waitForGate();
@@ -111,7 +117,15 @@ if (dryRun) {
 }
 const commit = push(target);
 console.log(`[deploy-main] main を ${commit.slice(0, 9)} へ進めた`);
-waitForDeploy(commit);
+const deployRunId = waitForDeploy(commit);
 const ssr = spawnSync(process.execPath, ['scripts/check-production-ssr.mjs'], { cwd: ROOT, stdio: 'inherit' });
-if (ssr.status !== 0) stop(ssr.status === 2 ? 2 : 1, '本番の確認が通らない');
+let stepResult = null;
+if (ssr.status === 2) {
+  // 手元から本番に届かない（会社 PC のプロキシ）。デプロイ run が同じ検査を済ませていればそれを根拠にする
+  const view = run('gh', ['run', 'view', String(deployRunId), '--json', 'jobs'], { allowFail: true });
+  try { stepResult = stepConclusion(JSON.parse(view.stdout), SSR_STEP); } catch { stepResult = null; }
+}
+const verdict = ssrVerdict(ssr.status, stepResult);
+if (verdict.code !== 0) stop(verdict.code, '本番の確認が通らない');
+if (verdict.via === 'deploy-run') console.log(`[deploy-main] 手元からは届かないが、デプロイ run ${deployRunId} の「${SSR_STEP}」は success（本番確認は通っている）`);
 console.log(`[deploy-main] 完了: ${commit.slice(0, 9)} が本番に出て、確認も通った`);

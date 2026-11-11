@@ -16,6 +16,7 @@
  *   node scripts/quality-audit.mjs --ops   # ops:true（運用アラート）のうち毎日の分のみ・fail で exit 1・0 件実行で exit 2（ops-audit.yml が日次で回す）
  *   node scripts/quality-audit.mjs --weekly # ops:true の cadence:'weekly' のみ（土曜の週次レビューが review-checks の quality:audit:weekly で回す・DN-0847）
  *   node scripts/quality-audit.mjs --json  # 結果 JSON を stdout に出す（レポートファイルも書く）
+ *   node scripts/quality-audit.mjs --ci --except unit-tests  # id で外す（--only a,b は id で絞る）。ci.yml が unit-tests を別ジョブへ分けるのに使う
  *
  * 設計:
  *   - 各チェックは独立プロセスで最大 CONCURRENCY 本並列に実行（serial:true は並列分の後に直列）。timeout 到達で SIGTERM → status='timeout'（ハング対策完結）。
@@ -41,6 +42,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import net from 'node:net';
+import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -84,6 +86,16 @@ if (WEEKLY && (CI || REPORT_ONLY || OPS)) {
   process.exit(2);
 }
 const EMIT_JSON = argv.includes('--json');
+/**
+ * --only a,b / --except a,b: モードが選んだ検査を id でさらに絞る。CI が unit-tests（並列分の後に約 2 分直列で走る）を
+ * 別ジョブへ分けるために使う（audit ジョブ = --ci --except unit-tests、test ジョブ = --ci --only unit-tests）。
+ * 手元の quality:audit:ci は絞らず全部回す。CHECKS に無い id は検査不成立（exit 2）＝ id を変えたとき黙って 0 件にしない。
+ */
+const idArgs = parseCliArgs({ only: { type: 'string' }, except: { type: 'string' } }, argv);
+// フラグがあるのに値が無いとき（--only だけ）は空の配列にする。null（絞らない）にすると全検査が走る。
+const idList = (flag, value) => (argv.some((a) => a === flag || a.startsWith(`${flag}=`)) ? String(value ?? '').split(',').map((s) => s.trim()).filter(Boolean) : null);
+const ONLY = idList('--only', idArgs.only);
+const EXCEPT = idList('--except', idArgs.except);
 
 // 壊れていても落とさず fallback を返す（best-effort。壊れたら落とすなら json-io の readJson）
 function readJsonOr(p, fallback) {
@@ -499,11 +511,27 @@ export const CADENCES = ['weekly', 'collect'];
  *   full       … すべて
  */
 export function selectsCheck(check, mode) {
+  if (mode.only && !mode.only.includes(check.id)) return false;
+  if (mode.except && mode.except.includes(check.id)) return false;
   if (mode.ci) return Boolean(check.ci);
   if (mode.ops) return Boolean(check.ops) && !check.cadence;
   if (mode.weekly) return Boolean(check.ops) && check.cadence === 'weekly';
   if (mode.reportOnly) return !check.ci && !check.ops && check.digest !== false;
   return true;
+}
+
+/** --only / --except の id のうち CHECKS に無いもの。純関数（テストが import する）。 */
+export function unknownCheckIds(ids, checks = CHECKS) {
+  const known = new Set(checks.map((c) => c.id));
+  return (ids ?? []).filter((id) => !known.has(id));
+}
+{
+  const unknown = unknownCheckIds([...(ONLY ?? []), ...(EXCEPT ?? [])]);
+  const empty = (ONLY && !ONLY.length) || (EXCEPT && !EXCEPT.length);
+  if (unknown.length || empty) {
+    process.stderr.write(`[quality-audit] ✗ 検査不成立: --only / --except の id が${empty ? '空' : ` CHECKS に無い: ${unknown.join(', ')}`}\n`);
+    process.exit(2);
+  }
 }
 
 // expectedFail は ci:true には付けられない。ゲートに「失敗が正常」を認めると Pre-merge の
@@ -583,7 +611,7 @@ async function runCheck(check) {
   // digest:false は「常に非ゼロで判定に使えない情報出力」なので週次 Issue の対象からも外す
   // （毎週飛ぶ通知は読まれなくなる）。ops は日次の別チャネル（ops-audit.yml）が読むので
   // 週次 digest からも外す（同じ FAIL が 2 つの Issue に出ると片方が読まれなくなる）。
-  if (!selectsCheck(check, { ci: CI, ops: OPS, weekly: WEEKLY, reportOnly: REPORT_ONLY })) return null;
+  if (!selectsCheck(check, { ci: CI, ops: OPS, weekly: WEEKLY, reportOnly: REPORT_ONLY, only: ONLY, except: EXCEPT })) return null;
   if (check.skip) {
     const reason = await check.skip();
     if (reason) return { id: check.id, ci: check.ci, ops: Boolean(check.ops), status: 'skip', skipReason: reason, durationMs: 0, note: check.note, expectedFail: check.expectedFail ?? null };
@@ -774,6 +802,13 @@ async function main() {
     }
     process.stderr.write(`[quality-audit] ${WEEKLY ? 'weekly' : 'ops'} 区分の失敗: ${failed.map((f) => f.id).join(', ')}\n`);
     process.exitCode = 1;
+  }
+
+  if (EXCEPT) process.stderr.write(`[quality-audit] --except で外した検査: ${EXCEPT.join(', ')}（別ジョブが回す）\n`);
+  // 検査ゼロを PASS と呼ばない: --only で絞った結果 1 件も走らなければ、モードと id の組み合わせが誤り。
+  if (CI && results.length === 0) {
+    process.stderr.write('[quality-audit] ✗ 検査不成立: ci:true の検査が 1 件も実行されなかった\n');
+    process.exitCode = 2;
   }
 
   if (CI && failed.length) {

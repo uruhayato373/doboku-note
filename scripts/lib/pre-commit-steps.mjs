@@ -80,13 +80,17 @@ export const STEPS = [
   // 公開したマガジンがサイトで CTA として実際に出るか（published:true にしただけで売り場に出ていない事故の再発防止・
   // 2026-08-13）。ゲート自体は 2026-07-31 に作られていたが quality:audit にしか配線されておらず、公開の瞬間に誰も
   // 走らせていなかったため cce-essay-magazine が CTA 0 面のまま公開された。**作ったゲートは走らせて初めてゲート**。
-  // note-magazines.ts / magazine-placement.ts / hub-cta.ts が staged のときだけ走る（重いので）。
+  // note-magazines.ts / magazine-placement.ts / hub-cta.ts が staged のとき、または content/site の記事を新規追加（status A）
+  // したときだけ走る（重いので）。記事の追加は 2026-11 に note の CTA が 1 つも無い公開記事（concrete-engineer-guide-r08-answers）で
+  // CI だけが赤くなった。修正は記事に note への導線を配線するか、published を false にする。
   {
     id: 'check-magazine-cta-reachability',
     bin: 'npx tsx',
     script: 'scripts/check-magazine-cta-reachability.ts',
     args: ['--ci'],
-    when: (ctx) => hasStaged(ctx, /^src\/lib\/(note-magazines|magazine-placement|hub-cta)\.ts$/),
+    when: (ctx) =>
+      hasStaged(ctx, /^src\/lib\/(note-magazines|magazine-placement|hub-cta)\.ts$/) ||
+      ctx.entries.some((e) => e.status === 'A' && /^content\/site\/.+\/article\.mdx$/.test(e.path)),
   },
   // note 単品価格がマガジン内・宣言済みシリーズ内で一貫しているか（値上げの当て漏れ・値崩れの再発防止・2026-07-28）
   s('check-note-price-consistency'),

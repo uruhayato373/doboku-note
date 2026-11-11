@@ -118,7 +118,7 @@ export function validateCards(cards, orphans, opts) {
       }
     }
     if (c.verify && !npmScripts.has(c.verify)) {
-      v.push({ rule: 'verify', at: at(c), msg: `[検証:${c.verify}] は package.json に無い＝sweep が「検証したつもり」になる` });
+      v.push({ rule: 'verify', at: at(c), msg: `[検証:${c.verify}] は origin/develop の package.json に無い＝sweep が「検証したつもり」になる（script を足す PR を先にマージするか、マージ後にカードへ書く。fetch 済みか（git fetch origin develop）も確かめる）` });
     }
   }
 
@@ -239,6 +239,20 @@ export function validateRemovedCards(headIds, stagedIds, completedIds, max = MAX
   }];
 }
 
+/**
+ * [検証:<script>] の照合先。未マージの feature ブランチの package.json で pre-commit が通り、台帳だけ先に develop へ入って
+ * CI が赤くなった（台帳だけの push は CI を起こさない）。origin/develop の package.json にある script だけ合格にする。
+ * origin/develop を読めないときは作業ツリーの package.json に戻し、notice で伝える。
+ */
+export function resolveScriptNames({ readDevelop, readWorktree }) {
+  try {
+    return { names: new Set(Object.keys(JSON.parse(readDevelop()).scripts ?? {})), source: 'origin/develop', notice: null };
+  } catch {
+    const names = new Set(Object.keys(JSON.parse(readWorktree()).scripts ?? {}));
+    return { names, source: 'worktree', notice: '[check-backlog-schema] origin/develop の package.json を読めないため、作業ツリーの package.json で [検証:] を照合した（develop に未マージの script も通る）' };
+  }
+}
+
 function main(argv = process.argv.slice(2)) {
   if (process.env.SKIP_BACKLOG_SCHEMA === '1') {
     console.log('[check-backlog-schema] SKIP_BACKLOG_SCHEMA=1 のためスキップ');
@@ -252,13 +266,17 @@ function main(argv = process.argv.slice(2)) {
     console.error(`✗ 検査不成立: ${BACKLOG_REL} が無い`);
     exitWith(2);
   }
-  let pkg;
+  let resolved;
   try {
-    pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
+    resolved = resolveScriptNames({
+      readDevelop: () => execFileSync('git', ['show', 'origin/develop:package.json'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] }),
+      readWorktree: () => readFileSync(join(ROOT, 'package.json'), 'utf8'),
+    });
   } catch {
     console.error('✗ 検査不成立: package.json を読めない（[検証:] の実在を確かめられない）');
     exitWith(2);
   }
+  if (resolved.notice) console.log(resolved.notice);
 
   const text = readFileSync(backlogPath, 'utf8');
   const cards = parseBacklog(text);
@@ -275,7 +293,7 @@ function main(argv = process.argv.slice(2)) {
 
   const violations = validateCards(cards, orphans, {
     rawHeadingCount: (text.match(/^### /gm) ?? []).length,
-    npmScripts: new Set(Object.keys(pkg.scripts ?? {})),
+    npmScripts: resolved.names,
     allowedCategories,
     domainLabels: new Set(loadDomains(ROOT).domains.map((d) => d.label)),
   });

@@ -128,6 +128,12 @@ export const GATES = [
     isolateGit: true,
   },
   {
+    id: 'media-references',
+    // content/sns の文書（json・md・txt）が指す .tmp/media/ の素材が Drive の台帳にあるか。CI にだけあり、pop-image.json の参照の欠けで赤くなった。全量で手元 1 秒前後
+    match: (f) => /^content\/sns\/.+\.(json|md|txt)$/.test(f),
+    cmd: () => ['node', 'scripts/check-media-references.mjs'],
+  },
+  {
     id: 'admin-pages',
     // 管理画面のページを足す・消すときの台帳との照合。全量で 0.2 秒
     match: (f) => /^tools\/admin-app\/src\/app\/.*\/(page\.tsx|route\.ts)$/.test(f) || f === datasetPath('config.admin-pages'),
