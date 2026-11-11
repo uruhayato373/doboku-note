@@ -1,0 +1,475 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『土質及び基礎』『出題の』『読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-cover.b9160849.png",
+          "sha256": "b91608490dcca123b6515105929b6058ea6f1eca6cb4fe5bfbffa335f96cccb1"
+        },
+        "generatedAt": "2026-11-11T03:05:55.605Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "土質及び基礎",
+          "出題の",
+          "読み方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/cover-pop.a843f12a.png",
+        "sha256": "a843f12abd64ab22730ae1610778bc92832b8715179e2eafeb014c06b336cd2f",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "b91608490dcca123b6515105929b6058ea6f1eca6cb4fe5bfbffa335f96cccb1"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:05:55.605Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字: 総監が制作・土質及び基礎・出題の・読み方を指示と一字ずつ照合し一致、先生は白ヘルメット・黒縁眼鏡・ひげ・紺作業服と反射帯で手指の崩れなし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "b32bc40fd0e02628b25225ec2fd95071e7fdc0963e280c34725de9191d62f81f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『過去問の前に、読み方を決める』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『令和元年度〜8年度の出題テーマ』 『II-1・II-2・IIIの問われ方』 『指定された数と図の条件』。 図の下、下端の字幕の帯より上に『出題テーマはdoboku-noteの要約。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 過去問を開いても、浸透、支持力、液状化のどこから読めばいいのか分からない。今日は技術士建設部門の土質及び基礎を、令和元年度から8年度の出題テーマをもとに、II-1、II-2、IIIの問われ方に分けて読み方を整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-premise.5aaa1143.png",
+              "sha256": "5aaa114327c2fcdb6a9e6aa4b524aaf6a515dc69e7c56a6f2ec7dac09e47a1dc"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/premise-diagram.515d8e99.png",
+            "sha256": "515d8e99d5382c6a51b815c114900e4d7ad74f03ff9ba16390b4c827fc86aefb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5aaa114327c2fcdb6a9e6aa4b524aaf6a515dc69e7c56a6f2ec7dac09e47a1dc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・図内の文言・注記が指示と一字ずつ一致し、誤字や余計な文字・図の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "myth",
+          "inputSha256": "4cb5e7c3927dd6c51346bff3a658bef8efc0901a7e915867e0c6646fa40f1713",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『テーマ名と、問題文の条件』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『問題文の条件はテーマ名に含まれない』の全文を省かずに入れる。 この場面の説明（文字にしない）: よくある誤解は、液状化や支持力といったテーマ名と公式を覚えれば書ける、という考えです。実際の問題文は、挙げる数、図に描かれた条件、観点の明記まで決めています。テーマ名は入口で、条件の読み取りが答案の出来を分けます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-myth.5d73ec9e.png",
+              "sha256": "5d73ec9ee753e463adc7ffaf951d0f036ee12652a83aec38c71299d51a1c5e34"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/myth-diagram.117d0a4f.png",
+            "sha256": "117d0a4f2ea2d07144d5bdd188bf9301dabe478fe758854d019ef771c139b73d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5d73ec9ee753e463adc7ffaf951d0f036ee12652a83aec38c71299d51a1c5e34"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・図内の文言・注記が指示と一字ずつ一致し、誤字や余計な文字・図の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "forms",
+          "inputSha256": "2356b656627dc2e2956922f8f40b7ab2168237030243e3e2bbf12ae36b3fe3a4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『令和8年度の形式（例）』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『II-1 4設問から1つ・1枚』 『II-2 2設問から1つ・2枚』 『III 2問題から1つ・3枚』。 図の下、下端の字幕の帯より上に『令和8年度の形式。受検年度は公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず区分です。令和8年度の形式では、II-1は4設問から1設問を選び、答案用紙は1枚。II-2は2設問から1設問を選び、2枚。IIIは2問題から1問題を選び、3枚です。形式は受検年度の公式情報で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-forms.b2d9038e.png",
+              "sha256": "b2d9038e6c2babb573afacff46c4500ebee7bf11d5ba56117f996c3a96b4f95d"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/forms-diagram.79035495.png",
+            "sha256": "79035495c9fab8aa288ef1e031f9048c32a513e003e34e8750295bda41cbc6e8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b2d9038e6c2babb573afacff46c4500ebee7bf11d5ba56117f996c3a96b4f95d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・図内の文言・注記が指示と一字ずつ一致し、誤字や余計な文字・図の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii1",
+          "inputSha256": "7c8ea7db6ae8e60a4518b719329bdecb5c472570d5ebbfd4a2a06db0ec397732",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-1は原理と評価方法』。 図に入れる文字: 『河川堤防の浸透：メカニズム2つ』 『杭の支持力：押込みと引抜き』 『盛土の締固め：管理基準2つ以上』 『斜面補強：3工法から1つを選ぶ』。 図の下、下端の字幕の帯より上に『令和8年度の構成。区分の呼び方はdoboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-1は、令和8年度は河川堤防の浸透、杭の支持力、盛土の締固め、斜面補強の4設問でした。どれも原理や公式の説明に加えて、メカニズムを2つ、試験種別が異なる手法を2つ以上、管理基準を2つ以上と、挙げる数が指定されます。数を満たすことが、最初の条件です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-ii1.c2db1bad.png",
+              "sha256": "c2db1bad7a2ec0fec785528d51f2cd1733775cdb213af0d35fd7131ea8a1aefc"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/ii1-diagram.bac04599.png",
+            "sha256": "bac04599b07bc2b82b0c730a3f3ea85119092485e12a9537b047fbccbf8767a4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c2db1bad7a2ec0fec785528d51f2cd1733775cdb213af0d35fd7131ea8a1aefc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・4枠の見出し・注記が指示と一字一致、堤防浸透・杭の押込み引抜き・ローラ転圧・アンカー斜面補強の図は工学的に成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii1cond",
+          "inputSha256": "c2706a983e63052b378ebe34b08215ee826cec3f4a9ec0acd2c7f0cbfb43ad8f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-1の指定の例（R08）』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『堤防の浸透 メカニズムを2つ説明』 『盛土の締固め 管理基準を2つ以上』 『斜面補強 3工法を比べ、1つの工法で留意点』。 図の下、下端の字幕の帯より上に『令和8年度の問題文より。公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 同じ設問の中にも、読み落としやすい指定があります。令和8年度の斜面補強は、地山補強土工、グラウンドアンカー工、抑止杭工の原理と適用範囲を述べたうえで、1つの工法を選んで設計と施工の留意点を答える構成でした。選ぶ数を読み違えると、点になりません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 25.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-ii1cond.4728156a.png",
+              "sha256": "4728156a305692ee620cd1ce669a520df6ee575f8f307790dbce1786224a7875"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/ii1cond-diagram.daf711cf.png",
+            "sha256": "daf711cfc0995c7c03112905a02731f30136b0b89c1971fb11bff37e4474bad6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4728156a305692ee620cd1ce669a520df6ee575f8f307790dbce1786224a7875"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3枠の文言・注記が指示と一字一致、堤防浸透流線・ローラ・斜面補強の図に矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii2",
+          "inputSha256": "f5e58dce9a1f9569648437fa4ece6c6c33afdbf1200736efc1883ff95b745e9f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-2は、設問が三つに分かれる』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『（1）2つ以上の段階の検討事項』 『（2）手順ごとの留意点』 『（3）関係者との調整方策』。 図の下、下端の字幕の帯より上に『令和8年度II-2-1・II-2-2の構成。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-2は、令和8年度で地下水に配慮する開削道路トンネルと、住宅48戸と道路の一体的な液状化対策の2択でした。どちらも、1で複数の段階の検討事項、2で手順ごとの留意点、3で関係者との調整方策を述べる三つの設問でした。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-ii2.baf718ec.png",
+              "sha256": "baf718ec13d8d57824c695abe8b20fac519f44580f4cb7cbdc2cd58805eaf899"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/ii2-diagram.1f877c13.png",
+            "sha256": "1f877c132812d72ebfa1f432a0595a6b0d7c89238a1b6c0d263e502253e717ca",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "baf718ec13d8d57824c695abe8b20fac519f44580f4cb7cbdc2cd58805eaf899"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・(1)(2)(3)の文言・注記が指示と一字一致、図は流れ・歯車・人物の記号で崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii2cond",
+          "inputSha256": "118ec625427695bf232ed7e0dd61855e44480e26d501ec4d3f8b75a55e581cb3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-2の前提条件（R08）』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『II-2-1 住宅と共同溝が近接』 『II-2-1 ボーリングは1箇所・地下水は右から左』 『II-2-2 地下水位低下か格子状地中壁』 『II-2-2 土質データは近傍調査からの推定』。 図の下、下端の字幕の帯より上に『令和8年度の問題文と図より。公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-2は、図に描かれた条件を読みます。開削道路トンネルでは、近くに住宅と共同溝があり、ボーリング調査は1箇所のみで、地下水は右から左へ流れると想定されていました。液状化対策では、地下水位低下か格子状地中壁のどちらかを計画し、土質データは近傍の調査からの推定値でした。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 43.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-ii2cond.85c8404f.png",
+              "sha256": "85c8404f3d7ac8daf553a0093a39c78779448927f42d1b39d48df2902add5e74"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/ii2cond-diagram.09e9670a.png",
+            "sha256": "09e9670a54089511f26218cd8451bb0ec0ffd7e6a05e79ae03602f38a2794db1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "85c8404f3d7ac8daf553a0093a39c78779448927f42d1b39d48df2902add5e74"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・4枠の文言・注記が指示と一字一致、住宅と共同溝・ボーリング1箇所と地下水の右から左・格子状地中壁の図が本文条件と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "iii",
+          "inputSha256": "9ad90c1f515e19bde700fa855dd23a0e767c98e01d7f4f8ed539c64519182751",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『IIIは、課題から解決策、残るリスク』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『（1）技術課題を3つ以上・観点を明記』 『（2）最も重要な課題の解決策』 『（3）残るリスクと対策』。 図の下、下端の字幕の帯より上に『令和8年度の構成。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: IIIは、令和8年度は地震と豪雨が重なる複合災害に備える盛土と、地下インフラの維持管理と地盤リスクでした。どちらも、技術課題を観点を明記して3つ以上挙げ、重要な一つに解決策を示し、実行しても残るリスクまで答える構成です。前者は、対象とする盛土を先に述べる指定でした。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-iii.66beec24.png",
+              "sha256": "66beec24be7a74e0725650d42908788c61d9eb381e6e8323a1fef091e69b9668"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/iii-diagram.7e251779.png",
+            "sha256": "7e251779601641795aec410ee3218c2ea5a8a1602a0f4101443ae2c2da432d6a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "66beec24be7a74e0725650d42908788c61d9eb381e6e8323a1fef091e69b9668"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・図内の文言・注記が指示と一字ずつ一致し、誤字や余計な文字・図の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "steps",
+          "inputSha256": "816f98dce5ab571e234062ef44fb6907b84690e9b1ad53cf9d520d1ec2df2ebf",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読み方の3手順』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『区分を見て、選ぶ数と枚数を確かめる』 『数・図の条件・観点の明記に線を引く』 『設問が並ぶ順に答える』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。公式の手順ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 読み方を三つの手順にまとめます。一つ、区分を見て、選ぶ数と枚数を確かめる。二つ、挙げる数、図の条件、観点の明記に線を引く。三つ、設問が一から三まで並ぶときは、その順に答える。この手順は、この動画の整理です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-steps.f2a10b82.png",
+              "sha256": "f2a10b82cf2f1efe19d56b228f420bf4703c3711f0306cc1401af7b2b4719a65"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/steps-diagram.029b97e0.png",
+            "sha256": "029b97e041c45f07cdd8fab031cd0fd64661abcb379bc66466475e29580a5bad",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f2a10b82cf2f1efe19d56b228f420bf4703c3711f0306cc1401af7b2b4719a65"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・図内の文言・注記が指示と一字ずつ一致し、誤字や余計な文字・図の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "a5a6f287457ff2bb0e8c1603b661e3773a6db6f383d6543ef2e9fb74ec5f9cb0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『土質及び基礎の出題は、条件を読む』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『II-1：原理と数の指定』 『II-2：検討・手順・調整』 『III：課題・解決策・残るリスク』 『条件を読む』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。受検年度は公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。土質及び基礎の出題は、II-1、II-2、IIIで問われ方が違います。II-1は原理を数の指定つきで、II-2は検討、手順、調整の三つ、IIIは課題から残るリスクまでです。そして、テーマ名より、問題文と図の条件を読むこと。受検年度の問題と日程は、公式の情報で確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 48.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-recap.c92bb6b4.png",
+              "sha256": "c92bb6b436d32316bc42a6a2945da78be0cba1fb2732166c27ad7321a5a4227d"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/recap-diagram.6a3e01ab.png",
+            "sha256": "6a3e01ab99847918354ed92a17b79ef55c46ed2b557a8d6ac1e608d980a669b2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c92bb6b436d32316bc42a6a2945da78be0cba1fb2732166c27ad7321a5a4227d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・図内の文言・注記が指示と一字ずつ一致し、誤字や余計な文字・図の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "a870ee3383fab30b4dfac2c19a4d9bebc27533f59cf98afb00091aa19894774f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読み方の次は、書き方』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『土質及び基礎 選択科目の模範解答集』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 読み方の次は、書き方です。土質及び基礎の過去年度の設問を解答した模範解答集がnoteにあります。この動画は読み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-cta.4ac8c966.png",
+              "sha256": "4ac8c966d59e322a93912fd4626d0bef6439d7d8311a0669341c74ead1dda77a"
+            },
+            "generatedAt": "2026-11-11T03:05:55.605Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/cta-diagram.27d68e34.png",
+            "sha256": "27d68e344eca3f6826333f57b7e47e0f4776d35c1633cb94eeb7727a54ac2aa7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4ac8c966d59e322a93912fd4626d0bef6439d7d8311a0669341c74ead1dda77a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:05:55.605Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・図内の文言・注記が指示と一字ずつ一致し、誤字や余計な文字・図の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

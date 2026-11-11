@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 2,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/cover-pop.a843f12a.png",
+        "sha256": "a843f12abd64ab22730ae1610778bc92832b8715179e2eafeb014c06b336cd2f",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "fe4caa59632052e758622758d10142c176b8417ae5ea173fe3bf1d00951f6d0d"
+      }
     }
   }
 }

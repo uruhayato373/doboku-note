@@ -88,11 +88,11 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-environment-shutsudai-yomikata",
       "qa": {
-        "avg": 2.5,
-        "blocks": 1,
+        "avg": 2.33,
+        "blocks": 0,
         "at": "2026-11-11",
         "by": "Claude Code video-content-qa",
-        "inputSha256": "0c32bb95151868d30fbf65f6d61e1386e1803d933c6a7d371a623844b98eb007"
+        "inputSha256": "c17c4a24a1b7119e38c9e300165bf8fcf41addef43c82b5079ec313fd998b3dc"
       }
     },
     {
@@ -135,7 +135,14 @@
     {
       "id": "pe-hissu1-jikan-haibun",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-hissu1-jikan-haibun"
+      "definition": "content/sns/video-packs/pe-construction/pe-hissu1-jikan-haibun",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "a9034d8a68c0ec79f35d1da488caa64bdfed81fb7c4fe2bce7602ffe8f72cbfa"
+      }
     },
     {
       "id": "pe-hissu1-konkyo-tsumikata",
@@ -152,7 +159,14 @@
     {
       "id": "pe-hissu1-risk-kakunin",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin"
+      "definition": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "4d3b23752af3d7cb935878e549ff5739cebf0376ac3e9dda2b272cccdf389358"
+      }
     },
     {
       "id": "pe-hissu1-theme-junbi",
@@ -254,11 +268,11 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata",
       "qa": {
-        "avg": 2.5,
+        "avg": 2.67,
         "blocks": 0,
         "at": "2026-11-11",
         "by": "Claude Code video-content-qa",
-        "inputSha256": "c423b6a67bdf8e050d27f8069fe369edd2c057ed4c6fa7099023ba281d7b12e6"
+        "inputSha256": "2462e71e5711fc940a2df34fc3ff68a31c7e9725cb458da89ef25779d948fb1e"
       }
     },
     {
@@ -266,11 +280,11 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata",
       "qa": {
-        "avg": 2.67,
+        "avg": 2.83,
         "blocks": 0,
         "at": "2026-11-11",
         "by": "Claude Code video-content-qa",
-        "inputSha256": "5099cf944ee20181b5bbfed82ecd02f2991477b21a198a4381289709797c806e"
+        "inputSha256": "c1060f51ef31fd60e797bbb11b29afa70db449dab64905bc59d1d633980a88bf"
       }
     },
     {

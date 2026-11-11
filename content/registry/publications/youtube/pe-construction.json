@@ -691,7 +691,25 @@
       "work": "pe-environment-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_blocked"
+      "status": "qa_passed",
+      "media": {
+        "cover": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-008",
+        "scene-009": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-009",
+        "scene-010": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-010",
+        "scene-011": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-011",
+        "scene-012": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/scene-012",
+        "video": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/pe-environment-shutsudai-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/pe-fugoukaku-toan/youtube.longform",
@@ -739,7 +757,25 @@
       "work": "pe-geotechnical-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-008",
+        "scene-009": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-009",
+        "scene-010": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-010",
+        "scene-011": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-011",
+        "scene-012": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-012",
+        "video": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/pe-gyoumu-shousai-720/youtube.longform",
@@ -771,21 +807,58 @@
       "work": "pe-hissu1-jikan-haibun",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "qa_passed",
+      "media": {
+        "cover": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/cover",
+        "scene-001": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-001",
+        "scene-002": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-002",
+        "scene-003": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-003",
+        "scene-004": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-004",
+        "scene-005": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-005",
+        "scene-006": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-006",
+        "scene-007": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-007",
+        "scene-008": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-008",
+        "scene-009": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-009",
+        "scene-010": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-010",
+        "scene-011": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-011",
+        "scene-012": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-012",
+        "scene-013": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/scene-013",
+        "video": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/video",
+        "subtitles": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-jikan-haibun/youtube.json#longform"
     },
     {
       "id": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform",
       "work": "pe-hissu1-konkyo-tsumikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/cover",
+        "scene-001": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-008",
+        "scene-009": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-009",
+        "scene-010": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-010",
+        "scene-011": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-011",
+        "scene-012": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-012",
+        "video": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/video",
+        "subtitles": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform",
       "work": "pe-hissu1-risk-kakunin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "qa_passed"
     },
     {
       "id": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
