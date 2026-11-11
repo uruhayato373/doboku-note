@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #1E73C8 と濃色 #155293、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『1級土木』『安全管理の』『書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-cover.1eca7f25.png",
+          "sha256": "1eca7f25c64c316a6df23ada3f3d6e600ca5cd494e6b26bbb4bec4cee8e9397a"
+        },
+        "generatedAt": "2026-11-11T03:24:27.193Z"
+      },
+      "copy": {
+        "exam": "civil-construction-1",
+        "headline": [
+          "1級土木",
+          "安全管理の",
+          "書き方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/cover-pop.77322178.png",
+        "sha256": "7732217876037ad013cff475f255d7b71b6e24dafe9c781f14cbcc19540d28a7",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "1eca7f25c64c316a6df23ada3f3d6e600ca5cd494e6b26bbb4bec4cee8e9397a"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:24:27.193Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字: 総監が制作・1級土木・安全管理の・書き方が指示と一字一致。先生は黒縁眼鏡・ひげ・白ヘルメット・紺作業服と反射帯で手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "1c5d4e7c53bc77ee95eb0257b68e7de14f21a99544e86e8962d43ead8bb38b4a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の答え』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『どの現場でもやる活動ではなく』 『その現場に固有の危険から課題を立てる』。 図の下、下端の字幕の帯より上に『書き方の整理は本動画の再構成』の全文を省かずに入れる。 この場面の説明（文字にしない）: 経験記述で安全管理が指定されたとき、危険予知活動や安全パトロールくらいしか思い浮かばない。そんな人は多いと思います。今日は、安全管理の答案を、どこから組み立てるかを整理します。結論は、どの現場でも行う安全活動ではなく、その現場に固有の危険から課題を立てる、ということです。受検する年の問題は、公式の案内で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-premise.75a903eb.png",
+              "sha256": "75a903eb21f989627e9848dd85213ac209cea5baabc188cc1756125001c8eeaa"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/premise-diagram.4b43e1da.png",
+            "sha256": "4b43e1da6e908590f695423744ef669228d3568ab23a26d2b474447d5ef6b790",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "75a903eb21f989627e9848dd85213ac209cea5baabc188cc1756125001c8eeaa"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 今日の答え・左右の枠の2文・下段の書き方の整理は本動画の再構成が指示と一致し、図も左右比較で破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "e6ba860924fe4e11024b78f5b7cd0e7ef063fd9b27a760eb6fbe1e669cbd45f7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『よくある思い込み』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『危険予知・パトロール・入場者教育を 並べれば安全管理になる』 『どの現場でも行う活動は 課題になりにくい』。 図の下、下端の字幕の帯より上に『サイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: よくある思い込みは、危険予知活動、安全パトロール、新規入場者教育を並べれば、安全管理の答案になる、というものです。しかし、これらは、どの現場でも行う通常の安全活動です。そのため、課題になりにくいと、サイト記事では整理されています。活動の名前を並べるだけでは、その現場で何が危なかったのかが見えません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-misread.f6654cb4.png",
+              "sha256": "f6654cb4b7623b4701b12058c95dd1b7cffa44ec41019d3423d4d3fa426f0423"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/misread-diagram.3d765866.png",
+            "sha256": "3d7658666b8cd5448889a4492fee11f4b9bc2d2912437bbaece2d598a4c045cd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f6654cb4b7623b4701b12058c95dd1b7cffa44ec41019d3423d4d3fa426f0423"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: よくある思い込み・左右2文・サイト記事の整理が指示と一字一致。活動3種と同じ現場3つの図が本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "concept",
+          "inputSha256": "a212b001ddc4c113c4d988d36cb03d6628799ad40f2fb9a34775e9bf921a5e93",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『安全管理の守る範囲』。 この場面の説明（文字にしない）: まず、安全管理とは何かです。施工に従事する人と、現場周辺の住民の安全を守り、労働災害を防ぐことです。記述では、工事の内容に合った工種ごとの危険に対して、具体的な対策を書きます。評価されやすいのは、安全の考え方が見える答案です。そのために、安全確保のために何が必要かを、事前に検討したことが伝わる書き方をします。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 20.5）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-concept.f77d7b6b.png",
+              "sha256": "f77d7b6b28fd36b24dc96947e9b354539d2a862b4f54171e3f59348e817b5736"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/concept-diagram.0de4dc24.png",
+            "sha256": "0de4dc24eae0b37e67ccf9d19ea99e1f92a6c3300a07d1f39966f297e8054ce7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f77d7b6b28fd36b24dc96947e9b354539d2a862b4f54171e3f59348e817b5736"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し安全管理の守る範囲が一致。作業員・現場・住民を覆う図が本文の守る対象と合い、クレーン等の構造も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "danger",
+          "inputSha256": "159c56bb39b5164416a9d1a434d30c016d256d2a9350f1f4f2144fec469016ee",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『課題の種になる固有の危険』。 この場面の説明（文字にしない）: 課題の立て方です。その現場に固有の危険を探します。記事が挙げているのは、作業床の高さ、重機と作業員が近いこと、第三者や交通が近いことです。急な法面や、足場の上での作業も、工種ごとの危険の例です。自分の現場で、ここだけは他と違った、という点を一つ選びます。課題は一つに絞るほど、検討から評価までが一本の線でつながります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-danger.5088513d.png",
+              "sha256": "5088513d0fff8a8f9fea9ecabdae64891488668e5e5bb53cef89cc0f8bb349b9"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/danger-diagram.543b92a7.png",
+            "sha256": "543b92a730c5d4c642459ae765f2e7bd75870ef94131d4b3ca08927e5c6cc908",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5088513d0fff8a8f9fea9ecabdae64891488668e5e5bb53cef89cc0f8bb349b9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し課題の種になる固有の危険が一致。高所作業車・重機と作業員・法面・足場・交通の図が本文の例と合い、機械の形も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "state",
+          "inputSha256": "df03d2b9367add297098d0c99f4b581200c787dcfaa4c7080328bdcbab617d41",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『状況の書き方』。 この場面の説明（文字にしない）: 次に、状況の書き方です。危険の原因になった条件を、数値で書きます。危ない場所があった、ではなく、作業床の高さや、近接している距離のように、測れる条件で示します。現場条件、作業条件のどれが原因かも、はっきりさせます。ここで対処の方法まで書いてしまうと、あとの欄が書けなくなるので、原因までで止めます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-state.22c2d49f.png",
+              "sha256": "22c2d49f1ad6cf55a837135751234c72d20633468a584193ed17fd89e0091c41"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/state-diagram.ce577b93.png",
+            "sha256": "ce577b9355a8b295927bc9f6a5375291ad92d8d02b13dd717f4c5abe0d0a7d92",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "22c2d49f1ad6cf55a837135751234c72d20633468a584193ed17fd89e0091c41"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し状況の書き方が一致。作業床の高さと近接距離を矢印で示すシザース式高所作業車の構造も実在の形で破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "issue",
+          "inputSha256": "5b2c5d3b424fab0213eeefef8b666a5cf5bba19ecc93761638b58f070a5ae2f4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『課題の一文』。 図に入れる文字: 『〇〇であったため 〇〇のおそれがあり』 『〇〇の確保が課題であった』 『課題の文は短く 字数は理由と中身へ』。 図の下、下端の字幕の帯より上に『サイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 状況の最後の一文を原因として受けて、課題を一文で言い切ります。形は、何々であったため、何々のおそれがあり、何々の確保が課題であった、です。安全管理なら、墜落や接触のような、起こりうる災害を入れます。何を確保するのかを、はっきり書きます。設問の区画は限られているので、課題の文は短くして、理由と中身に字数を回します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-issue.acbc55fb.png",
+              "sha256": "acbc55fb90cc35cdc64cecf585f86369a9ba630ac6a0b055c85a6801819a203c"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/issue-diagram.c98c0ed6.png",
+            "sha256": "c98c0ed68a3c695dab2e139c4735cc207923c406f4fc9b4874e72eb3f767b334",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "acbc55fb90cc35cdc64cecf585f86369a9ba630ac6a0b055c85a6801819a203c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 課題の一文・〇〇であったため〇〇のおそれがあり・〇〇の確保が課題であった・課題の文は短く字数は理由と中身へ・サイト記事の整理が指示と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "study",
+          "inputSha256": "59ea82b441f5282b4242747203bc3b08e942eacdcc185655325ac920640db681",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『検討の項目のそろえ方』。 この場面の説明（文字にしない）: 検討した項目は、項目ごとに形をそろえます。確保したいもの、その項目を挙げた理由、長所と短所の順です。長所だけだと、比べた形にならないので、短所にも触れておくと、選んだ根拠が立ちます。令和六年度以降の形式では、検討した項目は、一つ目の区画の後半に入ります。残りの字数は少ないので、理由は項目ごとに短く絞ります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-study.9af6e473.png",
+              "sha256": "9af6e473aeb63b164a7459a17a80fac0b6dea0e623073436eb2ee82a3229471e"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/study-diagram.cca342f6.png",
+            "sha256": "cca342f66d5db77fa59c244cdee04330e2399c05ccffddb21c19059f99b84aba",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9af6e473aeb63b164a7459a17a80fac0b6dea0e623073436eb2ee82a3229471e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し検討の項目のそろえ方が一致で余計な文字なし。旗・電球・上下矢印の3行が確保したいもの・理由・長所短所の順に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "action",
+          "inputSha256": "e8302a61abfd41f4eb3408393d6985f97106e04eab7bf1a45d9466d468073dc7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『対応処置の書き方』。 この場面の説明（文字にしない）: 対応処置は、検討の結果にもとづいて、どう対処したかを書きます。ここには、具体的な数値を入れます。工法、機械、材料、管理方法を、できるだけ具体的に書きます。検討結果が、地盤改良とした、のように結果だけにならないよう、理由を添えます。評価は、残りがわずかなので、結論めいた一文で端的に書きます。数値は、あとで出どころを示せるものだけにします。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-action.6865c1ef.png",
+              "sha256": "6865c1ef80576007968af6db8c6b6479dc9053cb4fade6687a1b7c3e036277a3"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/action-diagram.209a221b.png",
+            "sha256": "209a221b006ed64fc72aeca08137e934ef872f0af38ef153b655544ae237fd85",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6865c1ef80576007968af6db8c6b6479dc9053cb4fade6687a1b7c3e036277a3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し対応処置の書き方が一致。杭打機による地盤改良から材料・計測・完了へ進む図で、機械構造も成立し本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "8f1661f05575bbed1a8e0cf9a564025aa3f09340acf8597e79276f5afa22d359",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例：切土の急な法面』。 この場面の説明（文字にしない）: 仮の例で、流れを確かめます。切土の法面で、急な勾配のため、作業員の墜落や転落が課題になった、という想定です。検討では、ハーネス型の安全帯の使用、親綱の設置、防護ネットの設置を、確保したいものと理由、長所と短所で比べます。処置では、条件を超える法面に親綱と防護ネットを設けたと、数値を入れて書きます。これは説明のための仮の例で、実在の工事ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-example.0ae26e34.png",
+              "sha256": "0ae26e3446c0346c85905f058407c6c5225a83ae1115d48620e6df31189fc9bc"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/example-diagram.6812fcd6.png",
+            "sha256": "6812fcd6ee1ff02c1bcf34caa7c353918d582bd5eb85a4ec84bf47c058f56738",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0ae26e3446c0346c85905f058407c6c5225a83ae1115d48620e6df31189fc9bc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し仮の例：切土の急な法面が一致。切土法面に防護ネットと親綱の支柱が描かれ、本文の仮の例と合い構造も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pair",
+          "inputSha256": "ec2ab4623989ab48878185c1e1113dbcee0306eaab1ac9e9d355aa0672d27740",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『二テーマ必答の注意』。 図に入れる文字: 『同じ工事で、二つの管理を書く』 『解答は同一内容にできない』 『五つの管理で一つの工事を整理』。 図の下、下端の字幕の帯より上に『サイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 令和六年度以降の形式では、五つの管理から二つが指定されて、同じ工事について両方を書きます。二つの解答は、同じ内容にはできません。安全管理が指定されても、もう一つの管理とは、課題と対策を書き分けます。だから、一つの工事を、五つの管理の視点で整理しておくと、どの組み合わせにも対応できます。設問の指定は、受検する年の問題で確かめてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-pair.ecaad903.png",
+              "sha256": "ecaad903ddb9eb48c403fd34b8309dc097d0d2d6843063e7cb5d981c7e0cd67a"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/pair-diagram.3ebfae27.png",
+            "sha256": "3ebfae27fd797c4e1ff7b35e02d1f8c8c66a928559109414de010b706a5b1a05",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ecaad903ddb9eb48c403fd34b8309dc097d0d2d6843063e7cb5d981c7e0cd67a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 二テーマ必答の注意・五つの管理で一つの工事を整理・同じ工事で、二つの管理を書く・解答は同一内容にできない・サイト記事の整理が一致。五つの円で二つ強調",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "e75f633fbd26902e8671bb50ae89d494f43ba45263f524797db4fa6df9e6dab9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『固有の危険から課題を立てる』 『状況は測れる条件で 課題は一文で』 『検討は理由と長所短所を そろえる』 『処置は数値で 評価は端的に』。 図の下、下端の字幕の帯より上に『本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。一、通常の安全活動を並べず、その現場に固有の危険から課題を立てる。二、状況は測れる条件で書き、課題は一文で言い切る。三、検討は、確保したいもの、理由、長所と短所の順にそろえる。四、処置は数値と具体策、評価は端的に。二つの管理を書き分けることも忘れずに。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-recap.3c32b087.png",
+              "sha256": "3c32b087689f4b197ed56219f5a303c69128eda69af61048bfca95a472d75b2e"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/recap-diagram.aa4aac3e.png",
+            "sha256": "aa4aac3ebaaed2cd739d6327f41c5291670fa836828824a7a5bedfed7194719a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3c32b087689f4b197ed56219f5a303c69128eda69af61048bfca95a472d75b2e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 今日のまとめ・4枠の文言・本動画の整理が指示と一字一致。番号1〜4と図が本文の4点と合い崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "80c529444e175dae48076e279df974d82f1762f932653100c5169fea6febe7b4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『自分の現場に置き換える』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『五つの管理の完成答案を見る』 『リンクは概要欄から』。 図の下、下端の字幕の帯より上に『概要欄のリンク』の全文を省かずに入れる。 この場面の説明（文字にしない）: 品質、工程などを含めた五つの管理の完成答案を見て、自分の現場に置き換えたい人は、概要欄の完成答案集を確認してください。無料のサイト記事も、概要欄に載せています。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/factory/raw-cta.70accd2f.png",
+              "sha256": "70accd2f3f36afe1ba3cf02882e4415550542d3cec44923dbf9c07356c4279d9"
+            },
+            "generatedAt": "2026-11-11T03:24:27.193Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/cta-diagram.89b24bd9.png",
+            "sha256": "89b24bd918debd9cc30808e78dc397c39ae39c11d938870d5480f955d849991c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "70accd2f3f36afe1ba3cf02882e4415550542d3cec44923dbf9c07356c4279d9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:24:27.193Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 自分の現場に置き換える・五つの管理の完成答案を見る・リンクは概要欄から・概要欄のリンクが一致。価格とURLなし、五つの枠も本文と合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}
