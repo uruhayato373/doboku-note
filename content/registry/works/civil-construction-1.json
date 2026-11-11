@@ -136,7 +136,14 @@
     {
       "id": "owner-career-before-moving",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/owner-career-before-moving"
+      "definition": "content/sns/video-packs/civil-construction-1/owner-career-before-moving",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "2c3d591d60eac0536c68a7015e3a719f1c6469900d3f5681fba3c1f6f9caf8d3"
+      }
     },
     {
       "id": "owner-career-shigoto",
@@ -177,7 +184,14 @@
     {
       "id": "owner-eye-sekkei-henkou-hantei",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-henkou-hantei"
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-henkou-hantei",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "c3ae5d308856955bbf6f534f92f9c0ca560a6cc7d351bd8786a7cd89fc6d6c41"
+      }
     },
     {
       "id": "owner-eye-sekkei-tosho",
@@ -194,7 +208,14 @@
     {
       "id": "owner-eye-suryo-sekisan",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-suryo-sekisan"
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-suryo-sekisan",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "b328632fac18ebe4f561ce40199bed9d61867e0932d252a5944c2963b4e52407"
+      }
     },
     {
       "id": "x042-civil1-r06",
