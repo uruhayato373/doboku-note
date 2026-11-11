@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/work/cover-pop.95e4e850.png",
+        "sha256": "95e4e850ed2290449b2f404c049caa70f8acac0313324dad33c2a793b33dfcf9",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "eca99098fba40c4ff8e52be09f05b5aaf04df677ca0903c39c063afa679fee7f"
+      }
     }
   }
 }
