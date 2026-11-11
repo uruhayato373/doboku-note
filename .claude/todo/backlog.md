@@ -524,6 +524,21 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1110] 画面の点検（site-visual-review）を develop に入れ、本番ビルドで全ページを回して 3 幅・縮小の設定を検証する
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [検証:site-visual-review] [起票:2026-11-11]
+
+**起点**: 2026-11-11 に画面の点検の仕組み（`/site-visual-review`・`npm run site-visual-review`）をブランチ feat/site-visual-review に作った。代表 15 ページ × 6 幅を一度判定し、合格 12・不合格 3（DN-1107・DN-1108・DN-1109）を起票済み。その後、トークンを減らすために目視に回す撮影を 3 幅（375・768・1440）に絞り、1440px 幅の撮影を 960px に縮めたが、この設定ではまだ判定を回していない。
+
+**やること**:
+- feat/site-visual-review の PR を作り develop へ入れる（会社 PC では gh がプロキシで止まった。本文の下書きは手元の .tmp/site-visual-review-pr-body.md）
+- develop 取り込み後、`npm run build` → `npm run serve` の本番ビルドで `npm run site-visual-review -- prepare --all` を回し、site-page-visual-auditor で判定 → `record --ticket`
+- 3 幅・縮小の設定で見落としが増えないかを確かめる（前回 6 幅で出た指摘のうち、640・1024px でしか出なかったものが拾えるか。例: 教科書記事の数式ボックス）。判定 1 回あたりのトークンを記録する
+- 過去問ページ w375 の edge（本文の枠が左右 0px）が誤検出かを調べる（目視では文字は 16px 内側に収まっていた）
+- 複数ページに共通した minor（補助文字 10〜11px・同じ教材バナーの 3〜4 回の重複・記事内バナーの幅・ココナラ案内カードの半幅）を、直すか起票するか決める
+
+**完了条件**: `npm run site-visual-review -- status` が exit 0 で、本番ビルドに対する判定が台帳に記録されている。3 幅・縮小の設定を続けるか戻すかを、見落としの比較とトークンの実測で決めてスキルに書いてある。
+
+
 ### [DN-1109] past-exam（/exam/civil-construction-1/secondary/r06）が画面の点検で不合格（edge・layout）
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-11]
 
