@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-keiken-hacchusha-yomu",
+  "exam": "civil-construction-1",
+  "title": "1級土木 経験記述｜発注者はどこを読むか",
+  "audience": "1級土木施工管理技士の第二次検定で施工経験記述を書き終えた受検者",
+  "pain": "経験記述を書いたが、一般論になっていないか、工事の書類を読む側にどう読まれるか分からず不安",
+  "promise": "書き終えた答案を点検する五つの見どころと、状況から評価まで一本の線でつなぐ確かめ方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-experience-essay",
+    "campaign": "c1-keiken-hacchusha-yomu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
