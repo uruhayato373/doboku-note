@@ -39,6 +39,7 @@ import { upsertPublications, upsertWorks } from './lib/content-registry-write.mj
 import { readDataset } from './lib/dataset-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 import { requirePopDiagramStandard } from './lib/longform-pop-images.mjs';
 import { ensureVoicevox, readingOf } from './lib/voicevox-engine.mjs';
 import { approvalState, reviewIsCurrent } from './lib/media-review.mjs';
@@ -226,7 +227,9 @@ function save() {
   const pack = requirePack();
   const exam = pack.split('/')[0];
   // 原稿が指す素材を Drive の台帳へ載せてから残す。載せずに commit すると check-media-references が赤になる（2026-11-11）
-  execFileSync('npm', ['run', '-s', 'media', '--', 'sync', '--work', pack, '--commit'], { cwd: ROOT, stdio: 'inherit' });
+  // 素材がまだ無い（内容QAで止まった）パックは写すものが無く、sync は対象 0 件を検査不成立で止めるので呼ばない
+  const media = listFiles(join(ROOT, '.tmp/media', pack), { match: (_path, name) => /\.[0-9a-f]{8}\.[a-z0-9]+$/.test(name), allowMissing: true });
+  if (media.length) execFileSync('npm', ['run', '-s', 'media', '--', 'sync', '--work', pack, '--commit'], { cwd: ROOT, stdio: 'inherit' });
   const paths = [packDirOf(pack), datasetPath('state.drive-manifest'), ...['registry.works', 'registry.youtube'].map((id) => datasetPath(id, { name: `${exam}.json` }))].filter((p) => existsSync(join(ROOT, p)));
   execFileSync('git', ['add', '--', ...paths], { cwd: ROOT, stdio: 'inherit' });
   const staged = spawnSync('git', ['diff', '--cached', '--quiet', '--', ...paths], { cwd: ROOT });
