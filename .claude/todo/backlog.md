@@ -534,6 +534,16 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1115] 被リンク最多の competency-revision-r8 の登録を確かめ、sitemap-legacy.xml を GSC の登録から外す
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-11]
+
+**起点**: 2026-11-11 の GSC の実査。(1) 外部リンクが最も多いページ `/exam/pe-construction/guide/competency-revision-r8`（note から 419 本）が、11-01 の理由別取得（`data/gsc/ui-urls.json`）で「クロール済み・未登録」（最後のクロール 10-25）。(2) GSC のサイトマップに `sitemap-legacy.xml` が「取得できませんでした」で残っている。本番では 404 で、robots.txt の `Sitemap:` 行からも外れている（`data/gsc/sitemaps.json` の robotsSitemaps は sitemap.xml だけ）。
+
+**やること**: (1) `npm run gsc-indexing:check` か URL 検査で `competency-revision-r8` の今の登録状況を確かめる。未登録のままなら、本文の独自性・重複（建設部門のほかのガイドとの重なり）を見て、直すか登録を申請するかを決める。(2) `sitemap-legacy.xml` を GSC の登録から外す（GSC の画面の操作。運営者が行うか、`scripts/gsc-sitemaps.mjs` が期限切れの登録を消せるならそれで行う）。
+
+**完了条件**: `competency-revision-r8` の登録状況と判断が gsc-management.md にあり、GSC のサイトマップ一覧に `sitemap-legacy.xml` が無い（`data/gsc/sitemaps.json` で確かめる）。
+
+
 ### [DN-1114] 順位の割に CTR が低い 6 ページの題名・冒頭を、判定待ちの消化後に 1 本ずつ直す
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-11]
 
