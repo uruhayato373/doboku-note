@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "hakusho-shisaku-kaiketsu",
+  "exam": "pe-comprehensive-management",
+  "title": "総監 記述｜白書の施策を解決策へつなぐ",
+  "audience": "総監の記述式に向けて白書を読み、施策を答案の解決策にする方法を探す受験者",
+  "pain": "白書で施策を見つけても、答案の解決策にどう書き換えればよいか分からない",
+  "promise": "白書の施策を、主語・手段・効果と負担の三つの変換で自分の解決策にする手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "setsumon3-policy-bank",
+    "campaign": "hakusho-shisaku-kaiketsu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
