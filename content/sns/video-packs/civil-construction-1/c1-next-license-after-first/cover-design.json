@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "1級の次に",
+        "取る資格",
+        "欄で選ぶ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/c1-next-license-after-first/work/cover-pop.265c9bbe.png",
+        "sha256": "265c9bbe4e6a41f44f876eb0dc3fe2c0fe87951ff5579da4f8c4102932509e0b",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "f3c958600dd29076960687e84a57ca10b4f1afccdda541962a91bd004ba69ec0"
+      }
+    }
+  }
+}

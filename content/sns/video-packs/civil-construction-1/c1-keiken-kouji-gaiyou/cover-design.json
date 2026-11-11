@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "1級土木",
+        "工事概要",
+        "どこまで書く"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/cover-pop.0dcb6db8.png",
+        "sha256": "0dcb6db882a172c0b0d0340857558ed1c261942b29c9ba2a35b452965e809b80",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "4b34488df0e4b8352823f08c0788a8b21d96d7570f5cf24471d52533d829a6c3"
+      }
+    }
+  }
+}

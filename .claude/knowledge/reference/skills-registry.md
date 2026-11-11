@@ -79,6 +79,8 @@ title: スキル ガバナンス記録
 
 > 2026-11-09 新設: `quality/standards-visual-review`（基準書の章ページを撮り、原本のページ画像と見比べる目視判定を新エージェント `standards-page-visual-auditor`〔Evaluator・sonnet・audit-only〕に回し、`.claude/state/quality/standards-visual-review.json` に記録して不合格を文書ごとに起票する）。背景＝`check-standard-articles` が全 PASS でも表の記法の文字が本番の画面に出ていた（DN-0916）。週次の点検 `standards-visual-review:status` が判定待ちと未起票を読む。quality `17→18`。
 
+> 2026-11-11 新設: `ui/site-visual-review`（サイトの代表ページ 15 種を 6 つの画面幅で撮り、機械の検査と新エージェント `site-page-visual-auditor`〔Evaluator・sonnet・audit-only〕の目視で判定して `.claude/state/quality/site-visual-review.json` に記録し、不合格を直して撮り直すサイクル）。背景＝トップページで 1280px を超える幅だけ 2 区画が左右 40px 広いのを人が見つけた。横はみ出しは e2e と check-rendered-pages が見ていたが、区画ごとのコンテナ幅・文字切れ・画面幅ごとの商品導線の見え方を見る検査が無かった。判定の検証・被覆の集計は `standards-visual-review` と共通の `scripts/lib/visual-review-ledger.mjs` に寄せた。週次の点検 `site-visual-review:status` が未判定と未起票を読む。ui `1→2`。
+
 > 2026-10-24 更新: `conversion/pdf-to-mdx` の本文の文字起こしを**機械 OCR だけ**にした（市販書籍の本文を Claude がページ画像から書き写すと、私的利用でも複製を作る主体が Claude になる）。新経路＝`scripts/book-ocr/book_ocr_machine.py`（obsidian vault の `ocr_pdf.py`・縦書き NDLOCR-Lite／横書き Indra OCR／文字層を自動選択）→ `book_ocr_concat.py`。削除＝エージェント `scanned-textbook-transcriber`、Workflow `book_ocr_fanout`・`book_ocr_proofread`・`scanned/ocr_fanout`・`scanned/proofread`、`book_ocr_compare.py`。視覚 OCR の新規・変更は `check-reference-book-pages`・`check-reference-sources --deep`・`record-reference-book-artifacts` が止める（廃止前の 231 件は `reference-sources-baseline.json` の一覧で残す）。スキル件数は不変、agents `-1`。
 
 > このツリーがスキル件数の**唯一の真実源（SSOT）**。CLAUDE.md など他 doc は件数を重複記載せずここを指す。スキルを追加/削除したら同一 commit でここを更新する（`/doc-declutter` → `doc-curator` でドリフトを棚卸し）。
@@ -97,7 +99,7 @@ category:
 ├── analytics    # 2 — サイト分析
 ├── social       # 21 — SNS 投稿・note運用
 ├── metrics      # 1 — 売上記録
-└── ui           # 1 — UI/UX デザイン
+└── ui           # 2 — UI/UX デザイン・全画面幅の画面の点検
 ```
 
 合計 **98 スキル**（10 カテゴリ・SKILL.md 実数・2026-11-10 時点）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。

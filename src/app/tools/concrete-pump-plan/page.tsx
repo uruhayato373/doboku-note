@@ -6,6 +6,7 @@ import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { toolByHref } from "@/lib/tools";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 const tool = toolByHref("/tools/concrete-pump-plan");
 
@@ -57,7 +58,7 @@ export default function ConcretePumpPlanPage() {
 
       <ConcretePumpPlanClient />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
+      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>
   );
 }

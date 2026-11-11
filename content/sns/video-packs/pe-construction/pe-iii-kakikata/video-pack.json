@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-iii-kakikata",
+  "exam": "pe-construction",
+  "title": "建設部門｜Ⅲ の書き方 — 3枚75行を設問に沿って組み立てる",
+  "audience": "技術士第二次試験 建設部門の選択科目Ⅲ（問題解決能力・答案用紙3枚）の書き方が定まらない受験者",
+  "pain": "Ⅲは3枚75行も書くのに、前置きが長くなって解決策が薄くなり、どこに何行使えばよいか決められない",
+  "promise": "Ⅱ-1との評価の違いを押さえ、75行を前置き・本論・結びに割り振り、解決策の遂行方策まで組める",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/r08-road/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-road-magazine",
+    "campaign": "pe-iii-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "cm-essay-tradeoff-kakikata",
+  "exam": "pe-comprehensive-management",
+  "title": "総監 記述｜5管理のトレードオフを答案に書く",
+  "audience": "総監の記述式で、施策の裏の問題点を5管理の対立として書く方法を探す受験者",
+  "pain": "施策を書いたあと、その裏の問題点を5管理のトレードオフとしてどう書けばよいか分からない",
+  "promise": "効く管理、負担が出る管理、両立の方向の三つの問いで、トレードオフを答案の一文に組み立てる手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "essay-core-pack",
+    "campaign": "cm-essay-tradeoff-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

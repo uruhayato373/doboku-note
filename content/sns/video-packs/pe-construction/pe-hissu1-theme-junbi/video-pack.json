@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-hissu1-theme-junbi",
+  "exam": "pe-construction",
+  "title": "建設部門 必須Ⅰ｜テーマの読み方と準備の順序",
+  "audience": "技術士第二次試験 建設部門の必須科目Ⅰで、年度ごとに変わる題への準備の進め方が決まらない受験者",
+  "pain": "必須Ⅰは毎年題が変わり、過去問を並べても何から準備すればよいか決められない",
+  "promise": "題を六つの知識群で読み、問題文の条件を確かめ、準備の順序を五つの手順で決められる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/guide-required-essay/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "pe-hissu1-theme-junbi"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

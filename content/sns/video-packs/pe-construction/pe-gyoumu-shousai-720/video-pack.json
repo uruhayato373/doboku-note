@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-gyoumu-shousai-720",
+  "exam": "pe-construction",
+  "title": "建設部門｜業務内容の詳細 720 字の組み立て",
+  "audience": "技術士第二次試験（建設部門）の受験申込を前に、業務内容の詳細の書き方に迷う受験者",
+  "pain": "業務内容の詳細720字に何を書き、字数をどう配分すればよいか分からない",
+  "promise": "業務の棚卸しから、役割ごとの字数配分と主語の置き方まで、720字の組み立て順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11631_2.pdf",
+      "title": "日本技術士会「令和8年度 技術士第二次試験 受験申込み案内」"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "pe-gyoumu-shousai-720"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

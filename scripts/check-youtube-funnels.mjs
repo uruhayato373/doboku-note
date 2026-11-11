@@ -58,8 +58,10 @@ for (const pub of registry.publications.filter((p) => p.channel === 'youtube' &&
     const product = noteProducts.get(manifest.primaryCta.targetId);
     if (!product?.catalog?.published || product.catalog.retiredAt) { issue(pub, '主CTAの商品が公開中でない'); continue; }
     const target = product.catalog.noteUrl;
+    // 概要欄は紹介記事（landingUrl）があればそちらへ送る（prepare-youtube-longforms の cta と同じ決まり）
+    const accepted = [product.catalog.landingUrl, target].filter(Boolean);
     if (product.catalog.price) {
-      if (noteLinks.length !== 1 || noteLinks[0].split('?')[0] !== target) issue(pub, `note商品リンクが台帳と違う: ${target}`);
+      if (noteLinks.length !== 1 || !accepted.includes(noteLinks[0].split('?')[0])) issue(pub, `note商品リンクが台帳と違う: ${accepted.join(' か ')}`);
     } else if (newPolicy || noteLinks.length !== 2 || noteLinks[1].split('?')[0] !== target || !isRelevantPaidLink(noteLinks[0], exam)) {
       issue(pub, '無料noteもくじに加えて公開中の有料商品への直接導線が必要');
     }

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "1級土木",
+        "品質管理の",
+        "書き方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/cover-pop.f529b493.png",
+        "sha256": "f529b4935fc7dfe3bfcfc63fd507c563c0cf76e556e8417ea5c2bf75dc9f162b",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "fe1f9070d9f419ac77a5bd19630392b51d6b33a523bbdf014effbeada97f22af"
+      }
+    }
+  }
+}

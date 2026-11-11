@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "総監 記述",
+        "白書から",
+        "課題を選ぶ"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/cover-pop.d9a96874.png",
+        "sha256": "d9a968740071003a65aa828c4a47204bb341a6b21102528a22eeeb52356d4e00",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "956ff67f90724e339c7e8ae755a50cbadb1bab78b28af52fabdede06fdd42458"
+      }
+    }
+  }
+}

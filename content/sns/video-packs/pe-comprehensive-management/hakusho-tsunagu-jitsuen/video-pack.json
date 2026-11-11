@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "hakusho-tsunagu-jitsuen",
+  "exam": "pe-comprehensive-management",
+  "title": "総監 記述｜白書の論点を答案へつなぐ実演",
+  "audience": "総監の記述式に向けて白書を読み、答案に書く段で手が止まる受験者",
+  "pain": "白書で読んだ論点を、答案のどこにどう置けばよいか分からない",
+  "promise": "白書の一つの論点を、前提条件、施策、リスクの三つへ置き直す手順を仮の例で見て、三つの問いで確かめられる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "essay-core-pack",
+    "campaign": "hakusho-tsunagu-jitsuen"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "総監 記述",
+        "設問3の",
+        "克服策"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/cm-setsumon3-risk-kokufuku/work/cover-pop.8eaae31b.png",
+        "sha256": "8eaae31b52f44cddcadb546c88f01d61e99cd3433314e23f35afeed11dcd4fda",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "034fa5908d9b4ec7a9ca7eba99266b0f6134eb4a217003c333d679e17a963bfc"
+      }
+    }
+  }
+}

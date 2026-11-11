@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "総監",
+        "業務経歴の",
+        "書き方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/work/cover-pop.d0084e53.png",
+        "sha256": "d0084e53b5742833d0a672eaa214b54a9ee15737b7a1953fac7566fd63fdde7b",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "a52d485ec90621febbf936adb4a54b764584db5904e74bbb911c95ae9fd2937d"
+      }
+    }
+  }
+}

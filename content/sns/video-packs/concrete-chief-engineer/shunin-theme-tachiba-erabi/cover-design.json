@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士",
+        "テーマ傾向",
+        "立場の選び方"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/cover-pop.3894c96b.png",
+        "sha256": "3894c96b731e9b626b56f26c5ff8a38a55d5cb01a645f3263a66f1b882c317d7",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "3a0dc5de6e214bed5bf471c3c11b05d1e5dc730aad959a5762a267bad3a51683"
+      }
+    }
+  }
+}

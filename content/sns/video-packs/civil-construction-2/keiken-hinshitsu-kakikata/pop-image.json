@@ -1,0 +1,549 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #2A7050 と濃色 #1C5038、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『2級土木』『品質管理』『観点で選ぶ』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-cover.f8f864ca.png",
+          "sha256": "f8f864cabe3cc9655485bc4ad89f5ef165b58de943b0715ef714549860c52aaa"
+        },
+        "generatedAt": "2026-11-11T03:39:31.813Z"
+      },
+      "copy": {
+        "exam": "civil-construction-2",
+        "headline": [
+          "2級土木",
+          "品質管理",
+          "観点で選ぶ"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/cover-pop.ec4ba1c4.png",
+        "sha256": "ec4ba1c45da6dd84e4b81cc42e7dda51271addf912634f78258706768beaee14",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "f8f864cabe3cc9655485bc4ad89f5ef165b58de943b0715ef714549860c52aaa"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:39:31.813Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『2級土木』『品質管理』『観点で選ぶ』が指示と一字一句一致。先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・黄白反射帯で、手指の破綻なし。",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "291b66f619e22f4f5cd009a5f469be424a69a79a5e9deb2150667681f535918c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『品質管理の検討は、観点から選ぶ』。 図に入れる文字: 『計画・材料・施工』 『養生・検査』 『作業員への周知』。 この場面の説明（文字にしない）: 品質管理の答案で、何を検討に書くか迷っていませんか。観点から選ぶ方法を整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-hook.257a754a.png",
+              "sha256": "257a754ab98c0baa7b320667629878f7796c6edd3cdb3ad20a89a13aacb63896"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/hook-diagram.bfa9609d.png",
+            "sha256": "bfa9609d610b1d5e1e8db5e340ce38af455c5bd34e59fc236fde8ff90e47b78f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "257a754ab98c0baa7b320667629878f7796c6edd3cdb3ad20a89a13aacb63896"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと『計画・材料・施工』『養生・検査』『作業員への周知』が指示と一致。図は検討→3観点の分岐で破綻なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "intro",
+          "inputSha256": "dbf090ea6e886909ca860ce13493cea8b5c933204ce370559748f737dda0ce0f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『元発注者の目で、品質管理を見直す』。 図に入れる文字: 『総合技術監理部門の技術士』 『1級・2級土木に合格』 『検討の選び方を整理』。 この場面の説明（文字にしない）: 総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、品質管理の検討の選び方をお伝えします。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-intro.58312055.png",
+              "sha256": "583120556310442b9a793c964374291ba91971221a31ef660101cd40c0e4217c"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/intro-diagram.0b50d729.png",
+            "sha256": "0b50d729a116006cc05983b607e6d5706e7ad0207e7add8abba30ef4e83ca555",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "583120556310442b9a793c964374291ba91971221a31ef660101cd40c0e4217c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3枠の文字（総合技術監理部門の技術士／1級・2級土木に合格／検討の選び方を整理）が指示と一致、誤字なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "ea65e491bd2bba0c2883b15a18b8aac4426c9681c3df7f7756946802e1dd9d96",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『項目数は年度で確認、選び方は共通』。 図に入れる文字: 『項目数や指示は年度で変わる』 『受検年度の公式情報を確認』 『検討の選び方に絞る』。 この場面の説明（文字にしない）: 設問の項目数や指示は、年度で変わります。受検年度の問題を確認し、ここでは品質管理の検討に絞ります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-premise.91eba642.png",
+              "sha256": "91eba642730105562cb8d22d268e0cb94a68578001ab4846d470077d72bc16b5"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/premise-diagram.5573d320.png",
+            "sha256": "5573d3202ddbfd8761c8d4bbc5691dc057e13c0d3db7752bf607fa4b9a9ff9c2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "91eba642730105562cb8d22d268e0cb94a68578001ab4846d470077d72bc16b5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つの説明文が指示と一字一句一致し、図も公式情報確認の流れとして矛盾なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "views",
+          "inputSha256": "b0afcb4bdd29bec5fd38a2fb95df0741d9b492208a2e7efe25f724b0ce950fa2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『品質管理の検討6観点』。 図に入れる文字: 『計画・材料・施工』 『養生・検査』 『作業員への周知』。 この場面の説明（文字にしない）: 検討の観点は、計画、材料、施工、養生、検査、作業員への周知です。この中から課題に合うものを選びます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-views.4233c29d.png",
+              "sha256": "4233c29d8503f93a7894f7760c2655ccba50485093816a33a47ac9307364b5bb"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/views-diagram.07f37219.png",
+            "sha256": "07f3721912d6b6b98b28b611c3a666798bf0e8003de230068b7893d3196aeb4b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4233c29d8503f93a7894f7760c2655ccba50485093816a33a47ac9307364b5bb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『品質管理の検討6観点』と3ラベルが一致し、アイコン6個で6観点に対応。枠線の重なりはあるが読み手を誤らせない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "choose",
+          "inputSha256": "e50fba3f2937510b1903c0e1de52a205c7bf263b04dfc4b80ac9f5e3190b4302",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『課題の原因に効く観点を選ぶ』。 この場面の説明（文字にしない）: 全部は書きません。問題文の項目数に合わせ、課題の原因に効く観点を選び、理由と内容をセットで書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-choose.4393994a.png",
+              "sha256": "4393994aa520905f0d57ab6d6365c690238f0f567e1381cb23acadc960ec09b8"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/choose-diagram.6b486c28.png",
+            "sha256": "6b486c28dc61767fbc963ddfbabd3a14f46d82ab8c053b826fc9f5d95c6f159b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4393994aa520905f0d57ab6d6365c690238f0f567e1381cb23acadc960ec09b8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『課題の原因に効く観点を選ぶ』が一致し、余計な文字なし。多数の候補から効くものを選ぶ図で説明と整合。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "mix",
+          "inputSha256": "ee9e77681d78158f41e2bf9a7e7a9201322be75a628ee112dc5aacf785d0a9ef",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『検討と処置を、混ぜない』。 この場面の説明（文字にしない）: 検討に書くのは考えたこと、処置に書くのは行ったことです。結果は処置と評価の側に置きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-mix.9fe21b46.png",
+              "sha256": "9fe21b4669612e3206ca395a0aa4fb859c0f0d41541a65bf7815545a6872b67a"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/mix-diagram.89d59b65.png",
+            "sha256": "89d59b654bb889e01ff6039b15a9e84ba2dc121ac3db228a3b4f64baf29047d6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9fe21b4669612e3206ca395a0aa4fb859c0f0d41541a65bf7815545a6872b67a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『検討と処置を、混ぜない』が一致。思考の雲と、実施・完了のチェックの対比で説明と整合し、余計な文字なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "3e30c98883b42a9a721f0d1ee9d8b003c46769205411132fba6872452382d75b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例｜盛土の締固め不足』。 この場面の説明（文字にしない）: 仮の例です。盛土の締固め不足が課題なら、検討は施工の層厚と、検査の測定方法に分けて考えられます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-example.0ab79ca2.png",
+              "sha256": "0ab79ca24be33b58f1a0b3aa301aec06115b1f9634b825c1d96419057656ebe5"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/example-diagram.d53e5f04.png",
+            "sha256": "d53e5f04987fbd7bd015fca41d759a52c1b0403e07d642ed83bf5f5a07f7795f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0ab79ca24be33b58f1a0b3aa301aec06115b1f9634b825c1d96419057656ebe5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『仮の例｜盛土の締固め不足』が一致。層厚を示す層状の盛土と測定棒の図で、本文の層厚・測定方法に合う。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "measure",
+          "inputSha256": "2deeba0059e96254fcd80385009f92da563d9c231b458761d8eeddf2be55f354",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『処置は、行った方法を具体的に』。 この場面の説明（文字にしない）: 処置では、巻出し厚の明示や締固め度の測定など、実際に行った方法を具体的に書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-measure.bec32aae.png",
+              "sha256": "bec32aaeb3c6d6229e01e9dae15f4a93f8d904d383d94aecba55de689c1f672a"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/measure-diagram.121878da.png",
+            "sha256": "121878da97dac431ade961d0fea8ebfd182c3e581b96e9f3b7897945295c61ae",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bec32aaeb3c6d6229e01e9dae15f4a93f8d904d383d94aecba55de689c1f672a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しが一致。ダンプ・ブルドーザ・標尺付き層厚・プレートコンパクタの構造は実在機械として成り立ち、巻出し・締固めの説明と整合。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "close",
+          "inputSha256": "4cb7a744a8edbda43301c8dc2a9849a4aa3dc821201a660773c8c43ec6934ac9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『結びは、品質を確保できたこと』。 図に入れる文字: 『所定の品質（規格値）を確保』 『端的に一、二行で』 『規格値は仕様書で確認』。 この場面の説明（文字にしない）: 結びは評価です。品質管理なら、所定の品質、つまり規格値を確保できたことを端的に書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-close.e295adb2.png",
+              "sha256": "e295adb284bd4cb4476021fda421e30ca2d46a68327b7ba90828fa48f44fdcdd"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/close-diagram.3a91a3ee.png",
+            "sha256": "3a91a3ee7745ead1c1ec68ecee5532c11c46a57f37287069a2c0fe420ab14d29",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e295adb284bd4cb4476021fda421e30ca2d46a68327b7ba90828fa48f44fdcdd"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと『所定の品質（規格値）を確保』『規格値は仕様書で確認』『端的に一、二行で』が指示と一致、文字崩れなし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "facts",
+          "inputSha256": "94ebd234515fa202b9063e50ddd5d7622a19e8f24661b540a3e5f0ab1265922d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『事実は、自分の現場から』。 図に入れる文字: 『例の文をそのまま写さない』 『課題・検討・処置は実際のもの』 『測定結果は自分の記録で』。 この場面の説明（文字にしない）: 例の文は写しません。実際の課題、検討、処置、測定結果だけを、自分の記録から書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-facts.27c356b4.png",
+              "sha256": "27c356b43e46e104c323ba70d68c8eac070f8e442b595f0747aba91f2bd18d5d"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/facts-diagram.1c89cc28.png",
+            "sha256": "1c89cc28b19630445530de8e3330a2bca8734bb08c60774da9b5af2f91223dbb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "27c356b43e46e104c323ba70d68c8eac070f8e442b595f0747aba91f2bd18d5d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3枠の文字が指示と一字一句一致。写さない×印・実際の記録・測定グラフの図も説明と整合。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "check",
+          "inputSha256": "c2140b883b6463c8a44e403042c48537492df57d84a95364ce07a63db0a49e8e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『品質管理の見直し3点』。 図に入れる文字: 『観点が課題に合っている』 『検討と処置が重なっていない』 『結びが品質の確保になっている』。 この場面の説明（文字にしない）: 見直しは3点です。観点が課題に合っているか。検討と処置が重なっていないか。結びが品質の確保になっているか。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-check.a1e7bb73.png",
+              "sha256": "a1e7bb73e82e3d29b594aec65bac946d7f988b5379d9f3ecb482c8b6c18abe5e"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/check-diagram.1126f7d6.png",
+            "sha256": "1126f7d6cddff4238c7be7b1ebb1c9ef146c0d0b890480973e163d46ffb94905",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a1e7bb73e82e3d29b594aec65bac946d7f988b5379d9f3ecb482c8b6c18abe5e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『品質管理の見直し3点』と3つの確認文が指示と一致し、3点の図も整合。誤字なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "10e5921cdb07df94a66751d98ff33a92ade97f85ef532fe3971d533006b51ff1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『品質管理は、観点を選んで書く』。 図に入れる文字: 『検討：観点を選び理由つき』 『処置：行った方法を具体的に』 『評価：品質を確保できた』。 この場面の説明（文字にしない）: まとめです。品質管理の検討は、観点から課題に合うものを選び、処置と評価は自分の事実で書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-summary.f3ef06c3.png",
+              "sha256": "f3ef06c305fd72b838dd96894384a628406c4ae1919178b805c6984ae4da92db"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/summary-diagram.b8bd82cd.png",
+            "sha256": "b8bd82cd3ee96b1473c43359ba35d04b0a96215b1b7732aac8631ce54e905a6c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f3ef06c305fd72b838dd96894384a628406c4ae1919178b805c6984ae4da92db"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと『検討：観点を選び理由つき』『処置：行った方法を具体的に』『評価：品質を確保できた』が指示と一致、崩れなし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "019c09e79a5228c4f1e61cd013a7a60ad972fd2898fa1e62f0f57e196ff166e8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『観点ごとの答案を、確かめる』。 図に入れる文字: 『2級土木 施工経験記述 完成答案集』 『安全・品質・工程の答案＋置換ガイド』 『概要欄のnoteマガジンへ』。 この場面の説明（文字にしない）: 観点ごとの答案は完成答案集で確かめられます。安全・品質・工程の答案と置換ガイドは、概要欄のリンクへ。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/factory/raw-cta.b29109a4.png",
+              "sha256": "b29109a413c94a5698a7257514b23912d97828e67e72299366ffd7e30a68879a"
+            },
+            "generatedAt": "2026-11-11T03:39:31.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/work/cta-diagram.aac274cd.png",
+            "sha256": "aac274cd0fda039d0131780c8775a6497f4b5b4662c4275dfbd5bb8cc3b290b4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b29109a413c94a5698a7257514b23912d97828e67e72299366ffd7e30a68879a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:39:31.813Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・『2級土木 施工経験記述 完成答案集』『安全・品質・工程の答案＋置換ガイド』『概要欄のnoteマガジンへ』が一致。URL・価格など余計な文字なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

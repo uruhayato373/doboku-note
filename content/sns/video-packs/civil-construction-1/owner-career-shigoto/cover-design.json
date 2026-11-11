@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "civil-1",
       "headline": [
@@ -10,15 +14,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
+        "variant": "explain",
         "authority": "元発注者が解説"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/cover-pop.5fb0a447.png",
+        "sha256": "5fb0a4473a7d9358674455bd99f411ab254798f30c6f35308f86e1b43f974100",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "535388fa25dda21e1dd18e65b820f4be2be9aede64464c4a7c5d8b4149bcd057"
+      }
     }
   }
 }

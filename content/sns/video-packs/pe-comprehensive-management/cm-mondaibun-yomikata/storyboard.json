@@ -1,0 +1,314 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "総監の記述式の問題文を、どう読み分けるか。四つの要素に分ける読み方を紹介します。",
+      "caption": "記述式の問題文の読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監 記述\n問題文の読み方",
+        "items": [
+          "技術士 総合技術監理部門・記述式"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "narration": "問題文が長くて、どこから読めばよいか分からない。この動画では、総監の記述式の問題文を、四つの要素に分けて読む手順を紹介します。",
+      "caption": "長い問題文を四つの要素に分けて読む",
+      "visual": {
+        "kind": "points",
+        "heading": "問題文は四つに分けて読む",
+        "items": [
+          "テーマ",
+          "設定条件",
+          "要求事項",
+          "評価項目"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "前文の四要素は元記事の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 8,
+      "end": 22
+    },
+    {
+      "sceneId": "misread",
+      "narration": "誤解しやすいのは、問題文を頭から通して読み、思いついた題材で書き始めることです。問題文の中には、毎年繰り返される文章と、その年だけのヒントが混ざっています。切り分けないと、骨組みがずれます。",
+      "caption": "通して読んで書き始めるとずれる",
+      "visual": {
+        "kind": "points",
+        "heading": "頭から読んで書き始めない",
+        "items": [
+          "毎年繰り返される文章\n定型文",
+          "その年だけのヒント\n条件と要求"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "二種類を切り分けて読む"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 22,
+      "end": 40
+    },
+    {
+      "sceneId": "theme",
+      "narration": "一つめはテーマです。論文の中心になる言葉を、まず一つ押さえます。データ、脱炭素、少子高齢化のような言葉が入る位置です。ここを外すと、後の施策がすべて的外れになります。",
+      "caption": "一つめ　論文の中心になる言葉",
+      "visual": {
+        "kind": "points",
+        "heading": "要素1　テーマ",
+        "items": [
+          "論文の中心になる概念",
+          "まず一語で押さえる",
+          "外すと施策が的外れ"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "前文分析の読み取り順序の一つめ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 40,
+      "end": 55
+    },
+    {
+      "sceneId": "condition",
+      "narration": "二つめは設定条件です。解答の前提や制約になる事項を拾います。担当範囲、立場、対象の事業などです。答案の前半で置く条件は、ここから出ます。",
+      "caption": "二つめ　前提と制約を拾う",
+      "visual": {
+        "kind": "points",
+        "heading": "要素2　設定条件",
+        "items": [
+          "解答の前提や制約",
+          "担当範囲・立場・対象事業",
+          "前半で置く条件の出どころ"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "前文分析の読み取り順序の二つめ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 55,
+      "end": 69
+    },
+    {
+      "sceneId": "request",
+      "narration": "三つめは要求事項です。何を答えればよいかが書かれた部分です。設問ごとに、いくつ答えるか、枚数はどうか、範囲はどこまでかを確かめます。指定の数は、その年の問題文が優先です。",
+      "caption": "三つめ　何を答えるかを確かめる",
+      "visual": {
+        "kind": "points",
+        "heading": "要素3　要求事項",
+        "items": [
+          "何を答えるか",
+          "設問ごとの数と枚数",
+          "範囲は問題文で確認"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "数や範囲は当年の問題文に従う"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 69,
+      "end": 87
+    },
+    {
+      "sceneId": "criteria",
+      "narration": "四つめは評価項目です。採点の基準になる観点が書かれています。管理全体を見渡すことや、説明の筋道を示すことは、毎年似た言い回しで出てきます。見慣れた表現でも、省略せず、その年の条件と照らして読みます。",
+      "caption": "四つめ　採点の観点を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "要素4　評価項目",
+        "items": [
+          "採点の基準になる観点",
+          "見慣れた表現も読む",
+          "当年の条件と照らす"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "定型文も当年度の条件と照合"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 87,
+      "end": 106
+    },
+    {
+      "sceneId": "order",
+      "narration": "読む順序は、テーマ、設定条件、要求事項の順です。中心概念を押さえ、前提と制約を確かめ、何を書くかを特定する。評価項目は、骨子ができた後の点検にも使えます。",
+      "caption": "テーマ、条件、要求の順に読む",
+      "visual": {
+        "kind": "points",
+        "heading": "読む順序",
+        "items": [
+          "1　テーマで中心をつかむ",
+          "2　設定条件で前提を確かめる",
+          "3　要求事項で書く内容を特定",
+          "評価項目は骨子の点検にも"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "順序は元記事の図の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 106,
+      "end": 121
+    },
+    {
+      "sceneId": "hint",
+      "narration": "問題文には、その年固有のヒントが三種類あります。要求事項を書いた部分。事業場の例を並べた部分。事業やプロジェクトのイメージを挙げた部分です。例が並ぶ部分の、等の含みを、自分の業務に近い例で解釈します。",
+      "caption": "ヒントは三種類ある",
+      "visual": {
+        "kind": "points",
+        "heading": "三種類のヒント",
+        "items": [
+          "要求事項を書いた部分\n外してはいけない観点",
+          "事業場の例を並べた部分\n等の含みを自分の業務で読む",
+          "事業のイメージを挙げた部分\n経験につながる例を探す"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "元記事のヒントの整理を要約"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 121,
+      "end": 140
+    },
+    {
+      "sceneId": "swap",
+      "narration": "ヒントの専門用語は、自分の知っている業務に置き換えて読みます。置き換えられないなら、その年の自分とは相性が悪い、という合図です。無理に合わせず、別の題材や切り口を探します。",
+      "caption": "専門用語は自分の業務に置き換える",
+      "visual": {
+        "kind": "points",
+        "heading": "置き換えて読む",
+        "items": [
+          "用語を自分の業務へ置き換える",
+          "置き換えられないなら合図",
+          "別の題材や切り口を探す"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "元記事の考え方を要約"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 140,
+      "end": 155
+    },
+    {
+      "sceneId": "example",
+      "narration": "仮の例で確かめます。問題文に、人手不足を前提に、組織が取る施策を求める、という文があったとします。テーマは人手不足への対応。設定条件は、自分の組織の人員。要求事項は、施策と、その課題。これは読み方の例で、出題の予想ではありません。",
+      "caption": "仮の一文を四つに分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例",
+        "items": [
+          "テーマ\n人手不足への対応",
+          "設定条件\n自分の組織の人員",
+          "要求事項\n施策と、その課題",
+          "出題の予想ではありません"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "手順を見せるための仮の例"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 155,
+      "end": 177
+    },
+    {
+      "sceneId": "avoid",
+      "narration": "避けたいのは三つです。見慣れた定型文を、読まずに飛ばすこと。例の並びの、等の意味を、読み流すこと。指定された数や枚数を、前の年の記憶で決めること。年度ごとの指定は、受検年度の問題と公式情報で確認します。",
+      "caption": "定型文や指定を前年の記憶で読まない",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたい三つ",
+        "items": [
+          "定型文を読まずに飛ばす",
+          "例の並びの「等」を読み流す",
+          "数や枚数を前年の記憶で決める"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "指定は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 177,
+      "end": 196
+    },
+    {
+      "sceneId": "recap",
+      "narration": "まとめです。問題文は、テーマ、設定条件、要求事項、評価項目の四つに分けて読みます。順序はテーマ、条件、要求。ヒントは自分の業務に置き換え、数や範囲はその年の指定に従います。",
+      "caption": "四つに分け、順に読む",
+      "visual": {
+        "kind": "points",
+        "heading": "問題文の読み方のまとめ",
+        "items": [
+          "四つの要素に分ける",
+          "テーマ、条件、要求の順",
+          "ヒントは自分の業務に置き換える"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画のまとめ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 196,
+      "end": 211
+    },
+    {
+      "sceneId": "cta",
+      "narration": "読み取った条件を、答案の型と施策の弾薬、演習へつなげたい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "答案の型と演習の教材案内は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "問題文から、答案の型へ",
+        "items": [
+          "問題文を四つに分けて読む",
+          "型・施策・演習へつなぐ",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "記述対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "start": 211,
+      "end": 223
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

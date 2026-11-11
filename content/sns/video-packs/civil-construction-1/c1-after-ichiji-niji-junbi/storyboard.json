@@ -1,0 +1,291 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "一次のあと、二次の準備は何から始める？",
+      "caption": "一次のあと、二次の準備は何から",
+      "visual": {
+        "kind": "cover",
+        "heading": "一次のあと、二次は何から？",
+        "items": [
+          "1級土木施工管理｜二次の準備"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 4,
+      "end": 34,
+      "narration": "1級土木の第一次検定が終わって、第二次検定の準備を何から始めればよいか分からない。そんな方に向けて、最初にやることを、題材を決める、書く順番を決める、二つの管理項目に備える、の三つに絞ってお話しします。日程や制度の細かい条件は、受検する年の公式の案内で確かめる前提です。",
+      "caption": "最初にやることは三つに絞る",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "最初に、書く工事を1つ決める",
+          "書く順番を決める",
+          "2つの管理項目に備える"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／二次の準備",
+          "note": "準備の入口"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 34,
+      "end": 58,
+      "narration": "一次と同じ感覚で、まず参考書を読み進めたくなります。けれど二次は、知識を思い出せば解ける試験ではありません。自分が担当した工事を材料に文章を組み立てる問題があり、暗記の一夜漬けが効きにくい。だから、読む前に、何を書くかを決めるのが先です。",
+      "caption": "参考書より先に、書く工事を決める",
+      "visual": {
+        "kind": "points",
+        "heading": "よくある誤解",
+        "items": [
+          "まず参考書を読み進める\n→ 書く材料が決まらない",
+          "工事の題材を先に決める\n→ 読む内容が絞れる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／二次の準備",
+          "note": "順番を逆にしない"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 58,
+      "end": 88,
+      "narration": "第二次検定は、大きく二つです。一つは施工経験記述。受検者が実際に担当した土木工事について、現場でどんな施工管理をしたかを書く必須の問題で、記事では合否を左右する中心と整理しています。もう一つは学科記述で、土工やコンクリート工、品質管理などの専門知識を、穴埋めや短文で問います。",
+      "caption": "二次は経験記述と学科記述の二本立て",
+      "visual": {
+        "kind": "points",
+        "heading": "二次の全体像",
+        "items": [
+          "施工経験記述\n自分の担当工事を書く\n必須の問題",
+          "学科記述\n穴埋めや短文で\n専門知識を問う"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／二次の準備",
+          "note": "二つの問題"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "first-week",
+      "start": 88,
+      "end": 123,
+      "narration": "最初に決めるのは、書く工事を一つです。選ぶ基準は、工事の規模や派手さではありません。品質、安全、工程のどれについても、課題、検討したこと、実際にやったことを、具体的に語れる工事かどうか。自分が当事者として判断し、動いた場面をはっきり思い出せる工事を選びます。",
+      "caption": "基準は規模でなく、語れる場面があるか",
+      "visual": {
+        "kind": "points",
+        "heading": "題材を1つ決める",
+        "items": [
+          "規模や派手さは問われない",
+          "課題・検討・対応を語れるか",
+          "自分が判断して動いた場面があるか"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "土木施工管理／二次の準備",
+          "note": "題材選びの基準"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "build-order",
+      "start": 123,
+      "end": 158,
+      "narration": "題材が決まったら、四つの順で肉付けします。一、工事名、発注者、工期、工事内容、自分の立場を正確に書き出す。二、品質、安全、工程のそれぞれで、現場で生じた課題を一つずつ挙げる。三、課題ごとに、なぜそう考えたかという検討と、実際にしたことの対応を分ける。四、解答欄の字数に収まるよう、要点を絞る。",
+      "caption": "概要→課題→検討と対応→字数の順",
+      "visual": {
+        "kind": "points",
+        "heading": "書く順番",
+        "items": [
+          "① 工事概要を正確に書き出す",
+          "② 管理ごとに課題を1つずつ挙げる",
+          "③ 検討と対応を分けて書く",
+          "④ 解答欄の字数に収める"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／二次の準備",
+          "note": "肉付けの四段階"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "two-themes",
+      "start": 158,
+      "end": 193,
+      "narration": "問われ方も押さえておきます。サイト記事によると、令和6年度から、品質、安全、工程、施工計画、環境対策の五つの管理項目のうち二つが指定され、同じ工事について両方を答える形になりました。しかも二つの答えを同じ内容にはできません。どの二つが来ても書けるよう、一つの工事を複数の切り口で準備します。",
+      "caption": "二つの管理項目に、同じ内容は使えない",
+      "visual": {
+        "kind": "points",
+        "heading": "令和6年度からの問われ方",
+        "items": [
+          "五つの管理項目から二つ指定",
+          "同じ工事で両方を答える",
+          "二つを同じ内容にはできない"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／二次の準備",
+          "note": "5管理のうち2つ"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "reason",
+      "start": 193,
+      "end": 228,
+      "narration": "ここからは、本動画の整理です。書けた下書きを読み返すとき、読む人の立場で一つだけ確かめます。結果だけでなく、なぜその対応にしたのかという判断の理由が書いてあるか。課題と対応は書けても、検討が抜けやすい。理由が一文あるだけで、現場で何を見て決めたかが読む人に伝わります。",
+      "caption": "結果だけでなく、判断の理由を一文入れる",
+      "visual": {
+        "kind": "points",
+        "heading": "読み返しの確認",
+        "items": [
+          "課題は書けているか",
+          "なぜその対応にしたか、書いたか",
+          "結果だけの文になっていないか"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "土木施工管理／二次の準備",
+          "note": "検討の抜けを探す"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "fail",
+      "start": 228,
+      "end": 258,
+      "narration": "やりがちな失敗も先に知っておきましょう。題材を決めずに参考書を読み進めて、書き始められない。模範答案を一本だけ丸暗記して、問われ方が変わると対応できない。工事概要があいまいで、後の記述と数字や工種がかみ合わない。解答欄の字数を考えずに書いて、本番で入りきらない。",
+      "caption": "四つの失敗は、準備の早い段階で防げる",
+      "visual": {
+        "kind": "points",
+        "heading": "やりがちな失敗",
+        "items": [
+          "題材を決めずに読み進める",
+          "模範答案を1本だけ暗記する",
+          "工事概要があいまい",
+          "字数を意識せずに書く"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／二次の準備",
+          "note": "先に知っておく"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "schedule",
+      "start": 258,
+      "end": 288,
+      "narration": "時間の使い方です。サイト記事は、令和8年度を例に、一次の合格発表から二次の本番まで七週間ほどと整理しています。その最初の一週間を、題材を決めるために使うという考え方です。ただ、日程は年度ごとに決まります。受検する年の日程は、全国建設研修センターの公式の案内で確認してください。",
+      "caption": "最初の1週間は、題材を決めるために使う",
+      "visual": {
+        "kind": "points",
+        "heading": "時間の使い方",
+        "items": [
+          "令和8年度の例では七週間ほど",
+          "最初の1週間で題材を決める",
+          "日程は受検年度の公式で確認"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／二次の準備",
+          "note": "日程は年度ごとに確認"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "limit",
+      "start": 288,
+      "end": 308,
+      "narration": "この進め方は、合格を保証するものではありません。受検資格や出題の形式、手続きは、年度の手引で変わることがあります。動画の内容よりも、受検する年に公表された最新の手引と公式の案内を優先してください。",
+      "caption": "この進め方は一つの案。公式が優先",
+      "visual": {
+        "kind": "points",
+        "heading": "この動画の限界",
+        "items": [
+          "合格を保証するものではない",
+          "出題の形式や手続きは変わりうる",
+          "最新の手引と公式の案内が優先"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／二次の準備",
+          "note": "公式の確認が先"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 308,
+      "end": 333,
+      "narration": "まとめます。一、一次のあとは、参考書の前に、書く工事を一つ決める。二、概要、課題、検討と対応、字数の順で肉付けする。三、五つの管理項目のうち二つが問われるので、切り口を複数用意する。四、日程は年度ごとなので、公式で確認する。",
+      "caption": "工事を決める・順に肉付け・複数の切り口・公式確認",
+      "visual": {
+        "kind": "points",
+        "heading": "今日のまとめ",
+        "items": [
+          "書く工事を1つ決める",
+          "概要→課題→検討と対応→字数",
+          "2つの管理項目に備える",
+          "日程は受検年度の公式で確認"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／二次の準備",
+          "note": "本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 333,
+      "end": 345,
+      "narration": "二次をまるごと対策する教材の案内を、概要欄に置いています。",
+      "caption": "二次をまるごと対策する教材は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "二次の対策をまとめて進めるなら",
+        "items": [
+          "経験記述と学科記述の両方を扱う",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／二次の準備",
+          "note": "1級土木 二次検定まるごとパック"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

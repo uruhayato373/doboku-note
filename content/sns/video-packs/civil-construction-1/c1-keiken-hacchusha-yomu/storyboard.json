@@ -1,0 +1,356 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 11,
+      "narration": "発注者は、経験記述のどこを読むのか。書き終えた答案を、発注者側の技術者の目線で点検する五つの見どころを示します。",
+      "caption": "発注者の目線で、答案のどこを見るか",
+      "visual": {
+        "kind": "cover",
+        "heading": "経験記述、発注者はどこを読む？",
+        "items": [
+          "1級土木施工管理｜第二次検定"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 11,
+      "end": 31,
+      "narration": "経験記述を書いてみたけれど、一般論になっていないか分からない。そんな方に向けて、書き終えた答案を点検する五つの見どころを整理します。発注者側の技術者が工事の書類を読む目線に立つ、本動画の一つの整理です。",
+      "caption": "一般論か不安なときの、五つの見どころ",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "書き終えた答案の点検に使う",
+          "見どころは五つ",
+          "発注者側の目線に立つ一案"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／経験記述",
+          "note": "採点基準の解説ではない"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 31,
+      "end": 53,
+      "narration": "手続きを並べれば伝わる、と思いがちです。しかし、関係機関と協議した、施工計画書を作成した、という手続きの記述は、どの現場でも成り立ちます。何を測り、何と比べ、どの工法や材料を選んだか。技術で書くと、その現場の答案になります。",
+      "caption": "手続きではなく、技術で書く",
+      "visual": {
+        "kind": "compare",
+        "heading": "何を書くと伝わるか",
+        "ngLabel": "思われがち",
+        "okLabel": "実際",
+        "rows": [
+          {
+            "label": "中身",
+            "ng": "協議した、計画書を作った",
+            "ok": "何を測り、何と比べたか"
+          },
+          {
+            "label": "選択",
+            "ng": "手続きを並べる",
+            "ok": "工法や材料を選んだ理由"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "手続きはどの現場でも成り立つ"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "look1",
+      "start": 53,
+      "end": 77,
+      "narration": "一つ目は、工事概要の組合せです。発注者名と立場が合っているかを見ます。監督員は発注者側の呼称です。請負者の技術者が立場に監督員と書くと、組合せが合いません。請負者なら、現場代理人や主任技術者のような語を使います。欄ごとの書き方は、別の回で扱います。",
+      "caption": "一つ目：発注者名と立場の組合せ",
+      "visual": {
+        "kind": "points",
+        "heading": "見どころ1｜工事概要",
+        "items": [
+          "監督員は発注者側の呼称",
+          "請負者なら現場代理人や主任技術者",
+          "発注者名と立場の組合せを見る"
+        ],
+        "reveal": 3,
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／経験記述",
+          "note": "受検年度の手引と問題の注意で確認"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "look2",
+      "start": 77,
+      "end": 98,
+      "narration": "二つ目は、課題が一つに絞れているかです。範囲を広げるほど、検討と対応処置の対応が崩れます。安全管理なら、安全パトロールのような通常の活動ではなく、作業床の高さや重機との近接のような、その現場に固有の危険から課題を立てます。",
+      "caption": "二つ目：課題は一つに絞れているか",
+      "visual": {
+        "kind": "compare",
+        "heading": "課題の立て方",
+        "ngLabel": "薄くなる",
+        "okLabel": "立つ",
+        "rows": [
+          {
+            "label": "範囲",
+            "ng": "課題を広く取る",
+            "ok": "課題を一つに絞る"
+          },
+          {
+            "label": "安全の例",
+            "ng": "通常の安全活動",
+            "ok": "その現場に固有の危険"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "一つの課題に一本の線"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "look3",
+      "start": 98,
+      "end": 116,
+      "narration": "三つ目は、状況が数値で書かれているかです。暑かった、ではなく打込み時のコンクリート温度。軟弱だった、ではなく地盤のN値。そして課題は、状況の最後の一文を原因として受け、一文で言い切ります。",
+      "caption": "三つ目：状況を数値で、課題は一文で",
+      "visual": {
+        "kind": "compare",
+        "heading": "状況の書き方",
+        "ngLabel": "伝わりにくい",
+        "okLabel": "伝わる",
+        "rows": [
+          {
+            "label": "暑さ",
+            "ng": "暑かった",
+            "ok": "打込み時の温度"
+          },
+          {
+            "label": "地盤",
+            "ng": "軟弱だった",
+            "ok": "地盤のN値"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "測れる条件で書く"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "look4",
+      "start": 116,
+      "end": 136,
+      "narration": "四つ目は、検討が比べた形になっているかです。項目ごとに、確保したいもの、その項目を挙げた理由、長所と短所の順にそろえます。長所だけを並べると比べたことになりません。短所に触れておくと、選んだ根拠が立ちます。",
+      "caption": "四つ目：検討は長所と短所を並べる",
+      "visual": {
+        "kind": "points",
+        "heading": "見どころ4｜検討",
+        "items": [
+          "確保したいもの",
+          "その項目を挙げた理由",
+          "長所と短所の両方"
+        ],
+        "reveal": 3,
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／経験記述",
+          "note": "結論と根拠まで書く"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "look5",
+      "start": 136,
+      "end": 157,
+      "narration": "五つ目は、対応処置と評価です。対応処置には具体的な数値を入れます。品質管理なら、土台になる管理基準を示し、工法、機械、材料、管理方法を具体的に書きます。評価は、施工した結果に対応させて、最後の三、四行で端的に書きます。",
+      "caption": "五つ目：処置に数値、評価は結果に対応",
+      "visual": {
+        "kind": "points",
+        "heading": "見どころ5｜対応処置と評価",
+        "items": [
+          "処置に具体的な数値を入れる",
+          "管理基準と工法・機械・材料・管理方法",
+          "評価は結果に対応させて端的に"
+        ],
+        "reveal": 3,
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／経験記述",
+          "note": "評価は最後の3〜4行"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "line",
+      "start": 157,
+      "end": 178,
+      "narration": "五つの見どころは、バラバラに見るものではありません。状況、課題、検討、対応処置、評価が、一本の線でつながっているかを確かめます。検討で比べた内容と、実際の処置が食い違っていないか。ここが、読み手が最後に見る点です。",
+      "caption": "五つは、一本の線でつながっているか",
+      "visual": {
+        "kind": "points",
+        "heading": "一本の線で読む",
+        "items": [
+          "状況",
+          "課題",
+          "検討",
+          "対応処置と評価"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／経験記述",
+          "note": "検討と処置が食い違っていないか"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "honest",
+      "start": 178,
+      "end": 202,
+      "narration": "数値は、出どころを示せるものだけを書きます。試験成績や日報で裏づけられる数値と、その因果で書き、根拠を示せない最大級の表現は削ります。問題の注意書きには、経験した工事でないと判明した場合は失格、とあります。確かめられない誇張は、得になりません。",
+      "caption": "数値は、出どころを示せるものだけ",
+      "visual": {
+        "kind": "points",
+        "heading": "誇張はしない",
+        "items": [
+          "出どころを示せる数値だけ",
+          "裏づけのない最大級の表現は削る",
+          "経験した工事でないと失格"
+        ],
+        "reveal": 3,
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／経験記述",
+          "note": "問題の注意書きで確認"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "use",
+      "start": 202,
+      "end": 225,
+      "narration": "使い方です。書き終えた答案に、五つの問いを順に当てます。さらに、読み手を替えてみてください。同じ工種を知る人には技術の誤りを、別の工種の人には専門用語で説明を飛ばした箇所を、工事に詳しくない人には、状況から課題への筋が追えるかを頼みます。",
+      "caption": "読み手を替えて、確かめてもらう",
+      "visual": {
+        "kind": "points",
+        "heading": "読み手ごとに頼む",
+        "items": [
+          "同じ工種の人：技術の誤り",
+          "別の工種の人：説明の飛び",
+          "詳しくない人：状況から課題への筋"
+        ],
+        "reveal": 3,
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／経験記述",
+          "note": "誤字や論理の飛びも見つかる"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "limit",
+      "start": 225,
+      "end": 249,
+      "narration": "この整理の限界です。実際の採点の基準は公表されておらず、これは採点を保証するものではありません。合格も保証しません。出題の形式や解答欄の区切りは、受検年度の公式の手引と問題で確認してください。令和6年度から形式が見直されている点にも注意が必要です。",
+      "caption": "採点基準は非公表。最新の公式情報を確認",
+      "visual": {
+        "kind": "compare",
+        "heading": "この整理の限界",
+        "ngLabel": "言えない",
+        "okLabel": "確認先",
+        "rows": [
+          {
+            "label": "採点",
+            "ng": "採点基準は非公表",
+            "ok": "一つの読み方の案"
+          },
+          {
+            "label": "形式",
+            "ng": "年度で変わりうる",
+            "ok": "受検年度の公式情報"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "合格を保証しない"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 249,
+      "end": 270,
+      "narration": "まとめます。一、手続きでなく技術で書く。二、工事概要は、発注者名と立場の組合せを見る。三、課題は一つに絞り、状況は数値で書く。四、検討は長所と短所を並べ、処置は数値で書く。五、全体が一本の線でつながっているかを確かめる。",
+      "caption": "五つの見どころと、一本の線",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ",
+        "items": [
+          "工事概要の組合せ",
+          "課題は一つ、状況は数値",
+          "検討は長所と短所",
+          "処置は数値、評価は結果に"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／経験記述",
+          "note": "一本の線でつなぐ"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 270,
+      "end": 280,
+      "narration": "自分の現場に置き換えて書くための完成答案を、五つの管理別にまとめたノートを、概要欄に置いています。",
+      "caption": "5管理別の完成答案ノートは概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "答案づくりの材料に",
+        "items": [
+          "5管理別の完成答案と置換ガイド",
+          "採点のポイントを収録",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／経験記述",
+          "note": "1級土木 施工経験記述 完成答案集"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

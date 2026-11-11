@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "トンネル",
+        "出題の",
+        "読み方"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/cover-pop.e3384364.png",
+        "sha256": "e3384364442624084a52e37395b21581fdea1faf5474ef9b797a1ccb5e87e955",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "25ea0e05a2b8527d47b5261a75eb956dac79f9ff68434e57499726a2776b51a3"
+      }
+    }
+  }
+}

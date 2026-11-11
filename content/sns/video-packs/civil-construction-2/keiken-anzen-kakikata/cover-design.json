@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "2級土木",
+        "安全管理",
+        "欄ごとに"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/cover-pop.20815983.png",
+        "sha256": "20815983707d9ed4b91e74d537f7dec0d07b307e4f5f7f1fac47f0c190ad0f0d",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "f6926fe3bfe7a61b862e15bf541f8e61cc90643b8ef281d73992a31d7d5e1665"
+      }
+    }
+  }
+}

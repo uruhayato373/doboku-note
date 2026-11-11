@@ -35,6 +35,7 @@ const TARGET_EXAMS = [
   'civil-construction-1', 'civil-construction-2',
   'concrete-engineer', 'concrete-chief-engineer', 'pe-first-stage',
   'pe-construction', 'pe-comprehensive-management',
+  'rccm', 'concrete-diagnostician',
 ] as const;
 
 type TargetExam = (typeof TARGET_EXAMS)[number];
@@ -307,6 +308,8 @@ const EXTRA_KEYWORD: Record<TargetExam, string> = {
   'pe-first-stage': '技術士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
   'pe-construction': '技術士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
   'pe-comprehensive-management': '技術士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  rccm: '建設コンサルタント', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'concrete-diagnostician': 'コンクリート', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
 };
 function examMeta(exam: TargetExam) {
   const label = qualificationShortLabel(REGISTRY, exam);

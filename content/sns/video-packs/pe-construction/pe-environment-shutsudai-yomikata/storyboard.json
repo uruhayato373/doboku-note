@@ -1,0 +1,273 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "建設環境の選択科目は、何がどう問われるのでしょうか。",
+      "caption": "建設環境の出題は、どう読む？",
+      "visual": {
+        "kind": "cover",
+        "heading": "建設環境の出題を、読む",
+        "items": [
+          "技術士 建設部門・建設環境"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/environment-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 23,
+      "narration": "過去問を開いても、環境影響評価、自然環境、低炭素と、テーマが幅広くて、どこに気を付けて読めばいいのか分からない。今日は技術士建設部門の建設環境を、令和元年度から8年度の出題テーマをもとに、II-1、II-2、IIIの問われ方に分けて読み方を整理します。",
+      "caption": "過去問の前に、出題の読み方が要る",
+      "visual": {
+        "kind": "points",
+        "heading": "過去問の前に、読み方を決める",
+        "items": [
+          "令和元年度〜8年度の出題テーマ",
+          "II-1・II-2・IIIの問われ方",
+          "「複数」「3つ以上」と除外条件"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 建設環境",
+          "note": "出題テーマはdoboku-noteの要約。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/environment-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "myth",
+      "start": 23,
+      "end": 43,
+      "narration": "よくある誤解は、出題テーマの名前を覚えれば書ける、という考えです。実際の問題文は、挙げる数、体系的に述べる指定、除外する調整方策まで決めています。テーマ名は入口で、条件の読み取りが答案の出来を分けます。",
+      "caption": "テーマ名を知るだけでは答案にならない",
+      "visual": {
+        "kind": "compare",
+        "heading": "テーマ名と、問題文の条件",
+        "ngLabel": "テーマ名だけ",
+        "okLabel": "条件まで読む",
+        "rows": [
+          {
+            "label": "読む範囲",
+            "ng": "テーマの名前を覚える",
+            "ok": "数・指定・除外を読む"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 建設環境",
+          "note": "問題文の条件はテーマ名に含まれない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/environment-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "forms",
+      "start": 43,
+      "end": 65,
+      "narration": "まず区分です。令和8年度の形式では、II-1は4設問から1設問を選び、答案用紙は1枚。II-2は2設問から1設問を選び、2枚。IIIは2問題から1問題を選び、3枚です。形式は受検年度の公式情報で確認してください。",
+      "caption": "II-1・II-2・IIIで、選び方と枚数が違う",
+      "visual": {
+        "kind": "points",
+        "heading": "令和8年度の形式（例）",
+        "items": [
+          "II-1\n4設問から1つ・1枚",
+          "II-2\n2設問から1つ・2枚",
+          "III\n2問題から1つ・3枚"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 建設環境",
+          "note": "令和8年度の形式。受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/environment-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "ii1",
+      "start": 65,
+      "end": 89,
+      "narration": "II-1は、令和8年度は順応的管理、公園や街路樹の高木の点検、河川の外来植物、仮想的市場評価法の4設問でした。山岳や開削のように分野が分かれるのではなく、設問ごとに題材が大きく違います。自分が説明できる題材を選ぶことが最初の判断です。",
+      "caption": "II-1は、4つの題材から1つ選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1は、設問ごとに題材が違う",
+        "items": [
+          "R08 II-1-1\n順応的管理",
+          "R08 II-1-2\n公園・街路樹の点検",
+          "R08 II-1-3\n河川の外来植物",
+          "R08 II-1-4\nCVMによる非市場財評価"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "選択科目対策／建設部門 建設環境",
+          "note": "令和8年度の出題テーマ。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/environment-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "ii1cond",
+      "start": 89,
+      "end": 111,
+      "narration": "指定の例です。令和8年度の外来植物では、外来種、侵略的外来種、特定外来生物の定義を体系的に述べ、対策が必要な理由を3つ以上挙げる指定でした。ほかの設問も、検討事項や留意点を複数挙げる形です。複数や3つ以上は、数の条件です。",
+      "caption": "数と述べ方の指定を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1の指定（R08）",
+        "items": [
+          "外来植物\n理由を3つ以上挙げる",
+          "外来種などの定義を\n体系的に述べる",
+          "点検・CVM\n留意点や項目を複数挙げる"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 建設環境",
+          "note": "令和8年度の問題文より。公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-environment/article.mdx"
+    },
+    {
+      "sceneId": "ii2",
+      "start": 111,
+      "end": 135,
+      "narration": "II-2は、令和8年度で、立地適正化計画の策定と、地下鉄道事業の環境影響評価の2択でした。どちらも、1で調査や検討すべき事項を挙げ、2で手順ごとの留意点や工夫を述べ、3で関係者との調整方策を述べる三つの設問でした。",
+      "caption": "II-2は、挙げる・手順・調整の三つ",
+      "visual": {
+        "kind": "points",
+        "heading": "II-2は、三つの設問に分かれる",
+        "items": [
+          "（1）調査・検討すべき事項",
+          "（2）手順ごとの留意点",
+          "（3）関係者との調整方策"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 建設環境",
+          "note": "令和8年度II-2-1・II-2-2の構成。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-environment/article.mdx"
+    },
+    {
+      "sceneId": "ii2cond",
+      "start": 135,
+      "end": 161,
+      "narration": "II-2にも指定があります。令和8年度の立地適正化計画では、調整方策に、学識者や専門家の助言と委員会等の設置は含めない指定でした。手順も、目標値の設定より前、方法書から準備書までと、範囲が決まっています。範囲外は問われていない部分なので、指定の範囲に絞って書きます。",
+      "caption": "II-2は、除外と手順の範囲を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "II-2の指定（R08）",
+        "items": [
+          "II-2-1（3）\n学識の助言・委員会設置以外の調整方策",
+          "II-2-1（2）\n定量的な目標値設定より前の手順",
+          "II-2-2（2）\n方法書の作成から準備書の作成まで"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 建設環境",
+          "note": "令和8年度の問題文より。公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-environment/article.mdx"
+    },
+    {
+      "sceneId": "iii",
+      "start": 161,
+      "end": 187,
+      "narration": "IIIは、令和8年度は生態系ネットワークの構築と維持、循環資源の利用拡大でした。どちらも、課題を観点を明記して複数抽出し、最も重要な課題に複数の解決策を示し、すべて実行しても新たに生じるリスクと対策まで答える構成です。課題数は、3つではなく複数でした。",
+      "caption": "IIIは、リスクと対策まで答える",
+      "visual": {
+        "kind": "points",
+        "heading": "IIIは、課題から解決策、リスク",
+        "items": [
+          "（1）必要な理由と技術課題を複数・観点を明記",
+          "（2）最も重要な課題の解決策を複数",
+          "（3）解決策を実行しても生じうるリスクと対策"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 建設環境",
+          "note": "令和8年度の構成。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-environment/article.mdx"
+    },
+    {
+      "sceneId": "steps",
+      "start": 187,
+      "end": 209,
+      "narration": "読み方を三つの手順にまとめます。一つ、区分を見て、選ぶ数と枚数を確かめる。二つ、複数、3つ以上といった数と、除外の条件に線を引く。三つ、設問が一から三まで並ぶときは、その順に答える。この手順は、この動画の整理です。",
+      "caption": "読み方は、3つの手順",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の3手順",
+        "items": [
+          "区分を見て、選ぶ数と枚数を確かめる",
+          "複数・3つ以上・除外に線を引く",
+          "設問が並ぶ順に答える"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 建設環境",
+          "note": "本動画の独自の整理。公式の手順ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/environment-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 209,
+      "end": 234,
+      "narration": "まとめます。建設環境の出題は、II-1、II-2、IIIで問われ方が違います。II-1は題材を選んで数の指定を守り、II-2は挙げる、手順、調整の三つ、IIIは課題からリスクまでです。そして、テーマ名より、問題文の条件を読むこと。受検年度の問題と日程は、公式の情報で確認してください。",
+      "caption": "建設環境の出題は、条件を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "建設環境の出題は、条件を読む",
+        "items": [
+          "II-1：題材を選び、数の指定",
+          "II-2：挙げる・手順・調整",
+          "III：課題・解決策・リスク",
+          "条件を読む"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 建設環境",
+          "note": "本動画の独自の整理。受検年度は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/environment-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 234,
+      "end": 255,
+      "narration": "読み方の次は、書き方です。建設環境の令和3年度から8年度の設問を、すべての選択肢で解答した模範解答集がnoteにあります。この動画は読み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "建設環境の模範解答集は、noteへ",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の次は、書き方",
+        "items": [
+          "建設環境 選択科目の模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "選択科目対策／建設部門 建設環境"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/environment-exam-themes/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

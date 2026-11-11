@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "総監 記述",
+        "5管理の",
+        "トレードオフ"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/cover-pop.e9ce9b69.png",
+        "sha256": "e9ce9b698a0d557025777cf2af8d35eb6c9a0bb90054bcb97222d388a3b641b0",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "390186f825f7086333789b2155af6d3668899cbd1a89f4806689aea9c3a512f5"
+      }
+    }
+  }
+}

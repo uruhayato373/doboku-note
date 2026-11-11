@@ -49,7 +49,9 @@
   2. **直す**: `npm run report-search-opportunities -- --json` の `fileable[]`（直してよい候補。`lastResult` は前回の判定）を表示の多い順に `config.cycle.improvePerWeek` 件、develop で直して commit・push する（title・seoTitle・description・冒頭の答え・見出し・内部リンク。MDX の規約と refresh-indexes に従う。前回が効果なしのページは同じ直し方を繰り返さない。新規ページは作らない。冒頭に答えの段落を足すと「〜ます。」の 3 文連続〔content-quality 15-1〕に掛かりやすいので、常体へ逃げず、です・ます の中で文末を変える。サブエージェントに任せるときもこれを指示に入れる）。
   3. **記録する**: 直したページごとに `npm run search-improvement -- record --page <path> --change "何を直したか" --commit`（commit は develop に入ったもの。`--commit` の後は `git pull --ff-only` で取り込む）
   4. **週次の処置（全件）**: `npm run search-improvement -- triage --weekly` の要処置をすべて片付ける。判定待ちは `close --id EXP-### --result <success|partial|no-effect|negative> --learning "…" --commit`。本番に入らない改善は commit の所在を確かめる。受け皿外は `decide --cluster <id> --page <接頭辞> --accept --reason "…" --commit`（受け皿に加える）か `--route-to <狙いのページ>`（受け皿外のページから狙いのページへ内部リンクを足して commit してから記録）。旧 URL は表示どおりに処置する（転送・転送先の公開・サイト内リンクの張り替え。期限切れは `npm run gsc-indexing:request -- --urls <正規 URL> --commit`＝Google への送信なので運営者の承認を得てから。送信は indexing-history に残り、次の週から観察に戻る）。誘導の期限切れは判断をやり直す
-  5. **完了条件**: `npm run search-improvement -- triage --check --weekly` が exit 0（要処置 0 件・今週の改善が `improvePerWeek` 件以上か候補が尽きた）。観察中のものは期限まで待つ
+  5. **上位なのにクリック率が低い検索語と平常値**: 同じ `--json` の `topLowCtr[]`（3 位以内・表示があるのにクリック率が `config.topLowCtr.maxCtr` 以下の検索語をページ単位に束ねたもの）と `baseline`（日別の集計の 1 日あたりクリックの中央値と直前の窓）を読む。`topLowCtr` は定義を聞く検索語が AI による概要などで答えが済んでいる疑いで、題名の実験の判定（表示でなくクリックで見る）と次の実験の向きの材料にする（gsc-management.md 2026-11-11・DN-1113）。週の検索の伸びは 28 日合計でなく `baseline.medianClicks` と `baseline.previous.medianClicks` で書く（試験日の 1 日の山で合計が 8 倍に見えた）
+  6. **試験日・合格発表日の当日ページ**: `npm run check-exam-day-pages` で今後 21 日の試験日・合格発表日ごとの準備（準備済み・起票済み・未作成・未判断）を読む。未判断は `config/exam-day-pages.json` に page・card・skip のどれかを書き、記事が無い・非公開はその週に直すか起票する
+  7. **完了条件**: `npm run search-improvement -- triage --check --weekly` が exit 0（要処置 0 件・今週の改善が `improvePerWeek` 件以上か候補が尽きた）。観察中のものは期限まで待つ
 - **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
   これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
   NO_BASELINE をそのまま列挙する。改善を打って再計測されていない実験は学びが台帳に入らず

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-ii1-kakikata",
+  "exam": "pe-construction",
+  "title": "建設部門｜Ⅱ-1 の書き方 — 600字を設問に沿って組み立てる",
+  "audience": "技術士第二次試験 建設部門の選択科目Ⅱ-1（専門知識・600字）の答案の書き方が定まらない受験者",
+  "pain": "Ⅱ-1の知識はあるのに、600字にまとめると散らかり、何をどの順に何字で書けばよいか決められない",
+  "promise": "設問を問いに分け、600字を前置き・本論・結びに割り振り、書き出しと結びの置き方まで分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/r08-road/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-road-magazine",
+    "campaign": "pe-ii1-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

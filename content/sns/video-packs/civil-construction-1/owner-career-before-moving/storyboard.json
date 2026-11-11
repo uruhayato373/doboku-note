@@ -1,0 +1,380 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "受注者から発注者へ移る前に、何を知っておけばいい？",
+      "caption": "受注者から発注者へ移る前に知ること",
+      "visual": {
+        "kind": "cover",
+        "heading": "発注者側へ移る前に\n知ること",
+        "items": [
+          "1級土木施工管理｜元発注者の見方"
+        ]
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "answer",
+      "start": 4,
+      "end": 20,
+      "narration": "答えを先に言います。知っておくことは三つ。立ち位置が変わること、仕事が管理と事業の二つに分かれること、そして最初の週に確かめる三つの日付です。",
+      "caption": "知ることは三つ：立ち位置・管理と事業・三つの日付",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "立ち位置が変わる",
+          "仕事は管理と事業",
+          "最初の週に三つの日付"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "scope",
+      "start": 20,
+      "end": 33,
+      "narration": "待遇や採用試験の話はしません。扱うのは仕事の中身だけです。元発注者の立場で整理します。制度は自治体で異なります。",
+      "caption": "扱うのは仕事の中身だけ。制度は自治体で異なる",
+      "visual": {
+        "kind": "points",
+        "heading": "この動画の範囲",
+        "items": [
+          "仕事の中身の話",
+          "待遇・採用は扱わない",
+          "制度は自治体で異なる"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "自治体の資料で確かめる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/municipal-civil-engineer-work/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 33,
+      "end": 45,
+      "narration": "発注者は、現場で施工のやり方を決める人と思われがちです。契約では、施工方法は受注者が決めるのが基本です。",
+      "caption": "施工方法を決めるのは、基本は受注者",
+      "visual": {
+        "kind": "compare",
+        "heading": "発注者は施工を決める人？",
+        "ngLabel": "思われがち",
+        "okLabel": "契約の基本",
+        "rows": [
+          {
+            "label": "施工方法",
+            "ng": "発注者が決める",
+            "ok": "受注者が責任で決める"
+          },
+          {
+            "label": "発注者の役目",
+            "ng": "現場を指示する",
+            "ok": "履行を確かめる"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "契約書は団体ごとに確かめる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/owner-safety-responsibility/article.mdx"
+    },
+    {
+      "sceneId": "role1",
+      "start": 45,
+      "end": 60,
+      "narration": "受注者は、工事を完成させる手段を自分で組み立てます。発注者になると、契約どおりに履行されているかを確かめ、完成を確認する側に回ります。",
+      "caption": "手段を決める側から、履行を確かめる側へ",
+      "visual": {
+        "kind": "points",
+        "heading": "立ち位置の変化",
+        "items": [
+          "受注者：完成させる手段を決める",
+          "発注者：履行を確かめる",
+          "発注者：給付の完了を確認する"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "約款は団体の契約書で確かめる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "role2",
+      "start": 60,
+      "end": 76,
+      "narration": "安全も同じ向きです。第一次の責任は受注者ですが、発注者には、安全を損なう条件を付けない配慮が残ります。工期や施工条件を決める側になる、ということです。",
+      "caption": "安全の第一次責任は受注者。発注者は条件づくりに配慮",
+      "visual": {
+        "kind": "points",
+        "heading": "条件を決める側になる",
+        "items": [
+          "安全の第一次責任は受注者",
+          "発注者は条件に配慮が残る",
+          "工期・施工条件が対象"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/owner-safety-responsibility/article.mdx"
+    },
+    {
+      "sceneId": "split",
+      "start": 76,
+      "end": 93,
+      "narration": "仕事は、管理と事業の二つで見ると整理できます。管理は、預かっている施設を使える状態に保つ仕事。事業は、予算を組み、契約して、できた施設を引き取る仕事です。",
+      "caption": "仕事は「管理」と「事業」の二つで見る",
+      "visual": {
+        "kind": "points",
+        "heading": "仕事の二つの柱",
+        "items": [
+          "管理：施設を使える状態に保つ",
+          "事業：予算・契約・引き取り"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "見渡すための区分。担当課は自治体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/municipal-civil-engineer-work/article.mdx"
+    },
+    {
+      "sceneId": "manage",
+      "start": 93,
+      "end": 111,
+      "narration": "管理の最初の問いは、この施設の管理者は誰か、です。市町村道は市町村が管理し、道路全体の距離のおよそ84パーセントを占めます。川は、一級と二級と準用で管理者が違います。",
+      "caption": "管理の最初の問い：この施設の管理者は誰か",
+      "visual": {
+        "kind": "points",
+        "heading": "管理の最初の問い",
+        "items": [
+          "市町村道：市町村が管理",
+          "一級河川：国土交通大臣",
+          "二級河川：都道府県知事",
+          "準用河川：市町村長"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "市町村道の約84%は令和5年3月末の実延長"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/municipal-civil-engineer-work/article.mdx"
+    },
+    {
+      "sceneId": "project",
+      "start": 111,
+      "end": 128,
+      "narration": "事業は、予算を組み、契約し、検査して引き取る流れです。一定の規模に達する工事契約は、議会の議決が要ります。ただし二つの仕事の線は、案件の途中で引き直されます。",
+      "caption": "事業は予算から検査まで。管理との線は途中で動く",
+      "visual": {
+        "kind": "points",
+        "heading": "事業の流れ",
+        "items": [
+          "予算を組む",
+          "契約（規模により議決）",
+          "検査して引き取る",
+          "完成後は管理へ戻る"
+        ],
+        "art": {
+          "type": "timeline",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "議決の基準額は自治体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "ex",
+      "start": 128,
+      "end": 146,
+      "narration": "仮の例です。橋の定期点検で、修繕が必要と診断されます。これは管理の仕事です。その結果が予算要求になり、契約と検査へ進むと事業になり、完成するとまた管理へ戻ります。",
+      "caption": "仮の例：点検（管理）→予算・契約（事業）→管理へ戻る",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例｜橋の修繕",
+        "items": [
+          "定期点検で修繕が必要と診断（管理）",
+          "翌年度の予算要求に載せる（事業）",
+          "発注・監督・検査（事業）",
+          "完成して維持管理へ（管理）"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "years",
+      "start": 146,
+      "end": 163,
+      "narration": "机の上には、三つの年度の仕事が同時に載ります。今年度の工事の監督と検査、来年度の予算要求、前年度の決算の資料です。小さな自治体ほど、同じ人が同じ週に扱います。",
+      "caption": "机には今年度・来年度・前年度の仕事が同時に載る",
+      "visual": {
+        "kind": "points",
+        "heading": "秋の机の上",
+        "items": [
+          "今年度：工事の監督と検査",
+          "来年度：予算要求",
+          "前年度：決算の資料"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "目安。団体の日程は資料で確かめる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "busy",
+      "start": 163,
+      "end": 181,
+      "narration": "受注者の側にいると、3月に工期が集まって忙しいと感じるかもしれません。発注者の側では、同じ時期に検査、繰越し、議決が重なります。3月と、4月から5月が、いちばん混みます。",
+      "caption": "3月と4〜5月は、前年度の締めと新年度の立ち上げが重なる",
+      "visual": {
+        "kind": "points",
+        "heading": "混み合う時期（目安）",
+        "items": [
+          "2〜3月：議決・完成検査・繰越し",
+          "4〜5月：新年度の発注と前年度の整理"
+        ],
+        "art": {
+          "type": "timeline",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "時期は目安。自治体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "dates",
+      "start": 181,
+      "end": 200,
+      "narration": "最初の週に確かめる三つの日付です。一つ、予算編成の日程。二つ、出水期の期間と、河川内の工事の扱い。三つ、議会の会期。議決が要る契約や補正予算の出し方は、会期から逆算して決まります。",
+      "caption": "最初の週に確かめる：予算の日程・出水期・議会の会期",
+      "visual": {
+        "kind": "points",
+        "heading": "最初の週に確かめる三つ",
+        "items": [
+          "予算編成の日程",
+          "出水期の期間と河川内工事の扱い",
+          "議会の会期"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "自治体で異なる。団体の資料で確かめる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "cal",
+      "start": 200,
+      "end": 221,
+      "narration": "この三つを自分用のカレンダーに書き込み、契約中の工事の工期の終わりと、補助事業の実績報告の期限を重ねます。山が重なる月が見えれば、発注の時期を前に倒すか、繰越しを検討するかを早く決められます。",
+      "caption": "三つの日付に工期の終わりを重ねて、山の月を見る",
+      "visual": {
+        "kind": "points",
+        "heading": "自分用カレンダー",
+        "items": [
+          "三つの日付を書き込む",
+          "工期の終わりを重ねる",
+          "実績報告の期限を重ねる",
+          "山の月を先に見つける"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "before",
+      "start": 221,
+      "end": 240,
+      "narration": "移る前にできることもあります。今の現場の契約書と設計図書を開いて、誰が何を決めているかを読み直すこと。気になる自治体の予算編成の流れが公開されているか、探してみることです。",
+      "caption": "移る前に：契約書で誰が何を決めるか読み直す",
+      "visual": {
+        "kind": "points",
+        "heading": "移る前にできること",
+        "items": [
+          "契約書と設計図書で役割を読み直す",
+          "自治体の予算編成の公開資料を探す"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "公開の有無は自治体で異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/owner-safety-responsibility/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 240,
+      "end": 259,
+      "narration": "まとめます。発注者側では、手段を決める立場から、履行を確かめ、条件を決める立場に変わります。仕事は管理と事業の二つ。最初の週に、予算、出水期、議会の三つの日付を確かめます。",
+      "caption": "手段を決める側から、確かめ条件を決める側へ",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ",
+        "items": [
+          "立ち位置：確かめ、条件を決める",
+          "仕事：管理と事業",
+          "最初の週：三つの日付"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 259,
+      "end": 270,
+      "narration": "暦に沿った全体の見取り図は、サイトの記事で整理しています。概要欄のリンクから確認してください。",
+      "caption": "詳しくはサイトの記事で（概要欄）",
+      "visual": {
+        "kind": "points",
+        "heading": "詳しくはサイトの記事で",
+        "items": [
+          "土木担当の1年を暦で読む",
+          "リンクは概要欄に"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／発注者側へ移る前に",
+          "note": "本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

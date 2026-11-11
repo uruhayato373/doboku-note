@@ -1,0 +1,292 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "総監の業務経歴票の書き方を、選び方から欄の書き方まで順に紹介します。",
+      "caption": "総監の業務経歴票の書き方",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監\n業務経歴の書き方",
+        "items": [
+          "技術士 総合技術監理部門・出願"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 8,
+      "end": 24,
+      "narration": "総監の業務経歴票を前に、何を書けば通るのか分からず手が止まる。この動画では、五つの業務の選び方、並べ方、欄の書き方までを、順に紹介します。",
+      "caption": "業務経歴票は、五つの業務を選んで並べる",
+      "visual": {
+        "kind": "points",
+        "heading": "手が止まる前に",
+        "items": [
+          "業務を選ぶ",
+          "順に並べる",
+          "欄に書き移す"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "出願対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "why",
+      "start": 24,
+      "end": 42,
+      "narration": "業務経歴と業務内容の詳細は、筆記の記述式の骨子になり、口頭試験では質問のもとになります。出願の書類ですが、後の試験まで続く準備の入口です。",
+      "caption": "経歴票は、記述式と口頭試験の土台になる",
+      "visual": {
+        "kind": "points",
+        "heading": "経歴票は後の試験の土台",
+        "items": [
+          "出願書類",
+          "筆記試験の骨子",
+          "口頭試験の質問のもと"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "出願対策／総監",
+          "note": "出願と試験の関連"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "diff",
+      "start": 42,
+      "end": 60,
+      "narration": "一般部門の経歴票をそのまま流用すると、総監の視点が抜けます。技術の深さを見せる書類ではなく、五つの管理を管理者の立場で扱えることを見せる書類です。",
+      "caption": "一般部門の感覚で、技術の成果だけを並べない",
+      "visual": {
+        "kind": "points",
+        "heading": "一般部門との違い",
+        "items": [
+          "一般部門\n専門技術の深さ",
+          "総監部門\n五つの管理を俯瞰して扱う力"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "出願対策／総監",
+          "note": "アピールの軸が違う"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "steps",
+      "start": 60,
+      "end": 78,
+      "narration": "いきなり仕上げるのは難しいので、手順を分けます。経験した業務を書き出し、五つの管理で整理し、対立する管理を見つけて、最後に五つの業務へ絞ります。",
+      "caption": "いきなり仕上げず、書き出しから絞り込みへ",
+      "visual": {
+        "kind": "points",
+        "heading": "整理の手順",
+        "items": [
+          "業務を書き出す",
+          "五つの管理で整理",
+          "トレードオフを見つける",
+          "五つの業務に絞る"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "出願対策／総監",
+          "note": "元記事の五段階を要約"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "pick",
+      "start": 78,
+      "end": 98,
+      "narration": "絞り込みの基準です。五つの管理がかたよらないこと。似た業務を並べないこと。管理者の立場がはっきりしていること。管理どうしの対立を経験していること。口頭で説明できること。",
+      "caption": "五つの管理が偏らない並びで選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "業務を選ぶ基準",
+        "items": [
+          "管理分野がかたよらない",
+          "似た業務を並べない",
+          "立場と対立が明確",
+          "口頭で説明できる"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "出願対策／総監",
+          "note": "元記事の選定基準を再構成"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "growth",
+      "start": 98,
+      "end": 118,
+      "narration": "並べ方にも意味があります。前半の一つから三つは、一般部門の視点で書いて構いません。後半で、複数の管理の対立を調整する立場に移っていく流れが見えると、成長の筋が伝わります。",
+      "caption": "前半は一般の視点でよい。後半で総監の視点を示す",
+      "visual": {
+        "kind": "points",
+        "heading": "並べ方は成長の流れ",
+        "items": [
+          "前半 初期から中堅\n担当として成果を出す",
+          "後半 管理者期\n管理どうしの対立を調整する"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "出願対策／総監",
+          "note": "成長の流れが読み取れる並び"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "row",
+      "start": 118,
+      "end": 140,
+      "narration": "整理したメモは、そのままでは出せません。決められた様式の欄に書き直す作業が残っています。一行が一件の業務で、行数や字数は様式で決まります。年度ごとに変わることがあるので、受検年度の案内と様式で確認してください。",
+      "caption": "整理メモは、そのままでは出せない",
+      "visual": {
+        "kind": "points",
+        "heading": "申込書の欄に書き移す",
+        "items": [
+          "一行が一件の業務",
+          "メモは別紙で出せない",
+          "様式は受検年度の案内で確認"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "出願対策／総監",
+          "note": "欄ごとの記入例は元図を参照"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/img/figure-career-row-fields.svg"
+    },
+    {
+      "sceneId": "tips",
+      "start": 140,
+      "end": 164,
+      "narration": "迷いやすい点を三つ挙げます。業務内容欄は、後半の業務に、異なる二つの管理の調整を一言添える。六件以上あるときは、削る前に近い業務を束ねて期間をつなぐ。期間の数え方と丸を付ける行は、案内の決まりに従う。",
+      "caption": "業務内容欄・束ね方・期間の数え方",
+      "visual": {
+        "kind": "points",
+        "heading": "迷いやすい三つ",
+        "items": [
+          "業務内容欄\n後半は調整を一言添える",
+          "六件以上\n削る前に束ねる",
+          "期間と丸\n案内の決まりに従う"
+        ],
+        "art": {
+          "type": "mapping",
+          "section": "出願対策／総監",
+          "note": "詳細は元記事と受検年度の案内"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "detail",
+      "start": 164,
+      "end": 186,
+      "narration": "業務内容の詳細は、一つの業務に絞って書きます。読む順は概要から成果ですが、書くときは逆です。成果を決め、施策を数え、課題に戻り、最後に概要を削って整える。こうするとずれません。",
+      "caption": "成果、施策、課題、概要の順に決める",
+      "visual": {
+        "kind": "points",
+        "heading": "詳細は成果から逆算",
+        "items": [
+          "成果を決める",
+          "施策を数える",
+          "課題へ戻る",
+          "概要を削る"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "出願対策／総監",
+          "note": "書く順番の逆算"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "avoid",
+      "start": 186,
+      "end": 204,
+      "narration": "避けたい失敗は四つです。技術の内容に偏ること。管理の視点が表面的なこと。立場が担当者のままで曖昧なこと。対立が同じ管理どうしになっていること。",
+      "caption": "技術に偏る、立場が曖昧、対立が曖昧",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたい失敗",
+        "items": [
+          "技術の内容に偏る",
+          "管理の視点が表面的",
+          "立場が曖昧",
+          "対立が同じ管理どうし"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "出願対策／総監",
+          "note": "元記事のよくある失敗"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 204,
+      "end": 220,
+      "narration": "まとめです。五つの管理で業務を整理して五つに絞り、成長が見える順に並べ、様式の欄に書き移す。詳細は成果から逆算します。様式は、受検年度の公式情報で必ず確認してください。",
+      "caption": "選ぶ、並べる、書き移す、の三段で進める",
+      "visual": {
+        "kind": "points",
+        "heading": "業務経歴の書き方",
+        "items": [
+          "選ぶ",
+          "並べる",
+          "書き移す"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "出願対策／総監",
+          "note": "様式は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 220,
+      "end": 234,
+      "narration": "経歴票で整理した五つの管理の視点は、記述式の答案の骨子にそのままつながります。答案の準備に進みたい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "経歴票の次は、記述式の準備へ",
+      "visual": {
+        "kind": "points",
+        "heading": "経歴票から、記述式へ",
+        "items": [
+          "経歴票で整理",
+          "記述式の骨子へ",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "出願対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

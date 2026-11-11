@@ -1,0 +1,292 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "都市及び地方計画の選択科目は、何がどう問われるのでしょうか。",
+      "caption": "都市及び地方計画の出題は、どう読む？",
+      "visual": {
+        "kind": "cover",
+        "heading": "都市計画の出題を、読む",
+        "items": [
+          "技術士 建設部門・都市及び地方計画"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/urban-planning-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 23,
+      "narration": "過去問を開いても、制度の説明なのか、業務の手順なのか、課題の抽出なのか分からない。今日は技術士建設部門の都市及び地方計画を、令和元年度から8年度の出題テーマと令和8年度の問題文をもとに、II-1、II-2、IIIの問われ方に分けて読み方を整理します。",
+      "caption": "過去問の前に、出題の読み方が要る",
+      "visual": {
+        "kind": "points",
+        "heading": "過去問の前に、読み方を決める",
+        "items": [
+          "令和元年度〜8年度の出題テーマ",
+          "II-1・II-2・IIIの問われ方",
+          "挙げる数・立場・対象範囲の指定"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "出題テーマはdoboku-noteの要約。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/urban-planning-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "myth",
+      "start": 23,
+      "end": 43,
+      "narration": "よくある誤解は、制度や計画の名前を覚えれば書ける、という考えです。実際の問題文は、挙げる数、担当責任者という立場、対象とする範囲まで決めています。テーマ名は入口で、条件の読み取りが答案の出来を分けます。",
+      "caption": "テーマ名を知るだけでは答案にならない",
+      "visual": {
+        "kind": "compare",
+        "heading": "テーマ名と、問題文の条件",
+        "ngLabel": "テーマ名だけ",
+        "okLabel": "条件まで読む",
+        "rows": [
+          {
+            "label": "読む範囲",
+            "ng": "制度の名前を覚える",
+            "ok": "数・立場・対象を読む"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "問題文の条件はテーマ名に含まれない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/urban-planning-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "forms",
+      "start": 43,
+      "end": 65,
+      "narration": "まず区分です。令和8年度の形式では、II-1は4設問から1設問を選び、答案用紙は1枚。II-2は2設問から1設問を選び、2枚。IIIは2問題から1問題を選び、3枚です。形式は受検年度の公式情報で確認してください。",
+      "caption": "II-1・II-2・IIIで、選び方と枚数が違う",
+      "visual": {
+        "kind": "points",
+        "heading": "令和8年度の形式（例）",
+        "items": [
+          "II-1\n4設問から1つ・1枚",
+          "II-2\n2設問から1つ・2枚",
+          "III\n2問題から1つ・3枚"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "令和8年度の形式。受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-urban-planning/article.mdx"
+    },
+    {
+      "sceneId": "ii1",
+      "start": 65,
+      "end": 89,
+      "narration": "II-1は、令和8年度は二地域居住、都市施設、空家等活用促進区域、緑の基本方針の4設問でした。説明するだけでなく、課題を3つ、留意事項を3つ、意義を2つと、挙げる数が指定されます。数を満たすことが、最初の条件です。",
+      "caption": "II-1は、制度の説明と挙げる数",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1は制度・施策の説明",
+        "items": [
+          "二地域居住：課題を3つ",
+          "都市施設：意義を複数",
+          "空家等活用促進区域：留意事項を3つ",
+          "緑の基本方針：意義を2つ"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "令和8年度の構成。区分の呼び方はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-urban-planning/article.mdx"
+    },
+    {
+      "sceneId": "ii1cond",
+      "start": 89,
+      "end": 111,
+      "narration": "同じ設問の中にも、説明の後ろに求めが付いています。二地域居住は、課題ごとに解決策まで。緑の基本方針は、社会的背景を踏まえた意義の後に、緑地の質を高める具体的な施策を複数。制度の説明だけで終えると、求めの半分が残ります。",
+      "caption": "制度の説明だけで終わらせない",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1の求め（R08）",
+        "items": [
+          "二地域居住\n課題ごとに解決策まで",
+          "緑の基本方針\n意義の後に、質を高める施策を複数"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "令和8年度の問題文より。公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-urban-planning/article.mdx"
+    },
+    {
+      "sceneId": "ii2",
+      "start": 111,
+      "end": 135,
+      "narration": "II-2は、令和8年度で駅前の市街地再開発と、津波に備える事前復興まちづくりの2択でした。どちらも、1で調査、検討すべき事項、2で業務の手順ごとの留意点、3で関係者との調整方策を述べる三つの設問でした。",
+      "caption": "II-2は、調査・手順・調整の三つ",
+      "visual": {
+        "kind": "points",
+        "heading": "II-2は、設問が三つに分かれる",
+        "items": [
+          "（1）調査・検討すべき事項",
+          "（2）業務手順ごとの留意点・工夫",
+          "（3）関係者との調整方策"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "令和8年度II-2-1・II-2-2の構成。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-urban-planning/article.mdx"
+    },
+    {
+      "sceneId": "ii2cond",
+      "start": 135,
+      "end": 161,
+      "narration": "II-2には、立場と背景が書かれています。市街地再開発では、建設費高騰等の背景を踏まえ、事業計画を作成する担当責任者として答えます。事前復興では、南海トラフ地震の津波被害が懸念される地方都市で、計画策定の担当責任者として答えます。一般論ではなく、この立場の答案です。",
+      "caption": "II-2は、立場と背景を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "II-2の立場と背景（R08）",
+        "items": [
+          "II-2-1\n建設費高騰等の背景・事業計画の担当責任者",
+          "II-2-2\n津波被害が懸念される地方都市・計画策定の担当責任者"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "令和8年度の問題文より。公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-urban-planning/article.mdx"
+    },
+    {
+      "sceneId": "iii",
+      "start": 161,
+      "end": 187,
+      "narration": "IIIは、令和8年度は立地適正化計画の評価と見直し、歴史的風致形成建造物に指定された古民家の活用でした。どちらも、課題を3つ抽出し、重要な一つに複数の解決策を示し、最後に懸念事項やリスクとその対策まで答える構成です。",
+      "caption": "IIIは、課題から解決策、その先まで",
+      "visual": {
+        "kind": "points",
+        "heading": "IIIは、課題から解決策、その先",
+        "items": [
+          "（1）課題を3つ抽出・観点を明記",
+          "（2）最も重要な課題の解決策",
+          "（3）懸念事項やリスクと対策"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "令和8年度の構成。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-urban-planning/article.mdx"
+    },
+    {
+      "sceneId": "iiicond",
+      "start": 187,
+      "end": 213,
+      "narration": "最後の問いは、同じ形ではありません。立地適正化計画は、見直しを位置づけようとしたとき、市民や関係者から提起されうる懸念事項と対策案。古民家は、示したすべての解決策を実行しても新たに生じうるリスクと対策です。問いの主語を読み分けます。",
+      "caption": "IIIの最後の問いは、主語を読み分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "IIIの最後の問い（R08）",
+        "items": [
+          "III-1\n市民や関係者から提起されうる懸念事項と対策案",
+          "III-2\nすべての解決策を実行しても新たに生じうるリスクと対策"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "令和8年度の問題文より。公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-urban-planning/article.mdx"
+    },
+    {
+      "sceneId": "steps",
+      "start": 213,
+      "end": 235,
+      "narration": "読み方を三つの手順にまとめます。一つ、区分を見て、選ぶ数と枚数を確かめる。二つ、挙げる数、担当責任者という立場、対象の範囲に線を引く。三つ、設問が一から三まで並ぶときは、その順に答える。この手順は、この動画の整理です。",
+      "caption": "読み方は、3つの手順",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の3手順",
+        "items": [
+          "区分を見て、選ぶ数と枚数を確かめる",
+          "挙げる数・立場・対象範囲に線を引く",
+          "設問が並ぶ順に答える"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "本動画の独自の整理。公式の手順ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/urban-planning-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 235,
+      "end": 260,
+      "narration": "まとめます。都市及び地方計画の出題は、II-1、II-2、IIIで問われ方が違います。II-1は制度の説明と挙げる数、II-2は調査、手順、調整の三つ、IIIは課題から解決策、その先の懸念やリスクまでです。そして、テーマ名より、問題文の条件を読むこと。受検年度の問題と日程は、公式の情報で確認してください。",
+      "caption": "都市及び地方計画の出題は、条件を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "都市計画の出題は、条件を読む",
+        "items": [
+          "II-1：制度の説明と挙げる数",
+          "II-2：調査・手順・調整",
+          "III：課題・解決策・その先",
+          "条件を読む"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 都市及び地方計画",
+          "note": "本動画の独自の整理。受検年度は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/urban-planning-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 260,
+      "end": 282,
+      "narration": "読み方の次は、書き方です。都市及び地方計画の令和3年度から8年度の設問を、すべての選択肢で解答した模範解答集がnoteにあります。この動画は読み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "都市計画の模範解答集は、noteへ",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の次は、書き方",
+        "items": [
+          "都市及び地方計画 選択科目の模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "選択科目対策／建設部門 都市及び地方計画"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/urban-planning-exam-themes/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

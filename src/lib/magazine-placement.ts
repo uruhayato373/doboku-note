@@ -961,6 +961,11 @@ function resolvePlacementRaw(
   if (/^concrete-engineer-guide-(books|difference-chief|eligibility-2026)$/.test(slug)) {
     return { top: slot('ce-chokuzen-pack', slug, 'top'), inline: [] };
   }
+  // 解答速報（令和8年度・DN-1111）: 試験前は直前パック、試験の翌日からは年度に依存しない暗記ノート
+  //   （自己採点のあと、来年に向けて復習する読者を受ける。技術士一次の解答速報と同じ切り替え）。
+  if (slug === 'concrete-engineer-guide-r08-answers') {
+    return { top: slot(isAfterExamDay('concrete-engineer', 'exam') ? 'ce-anki-note' : 'ce-chokuzen-pack', slug, 'top'), inline: [] };
+  }
 
   if (/^concrete-diagnostician-guide-(study-method|trends)$/.test(slug)) {
     return { top: slot('cd-marugoto-pack', slug, 'top'), inline: [] };

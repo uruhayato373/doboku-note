@@ -103,6 +103,18 @@
       }
     },
     {
+      "id": "keiken-anzen-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-anzen-kakikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "5ab04423d68a42e20dd0b7ce2bec3ea693cf6deaca88ea5270b31be3b954c3a5"
+      }
+    },
+    {
       "id": "keiken-daizai-erabi",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi",
@@ -111,6 +123,42 @@
         "blocks": 0,
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
+      }
+    },
+    {
+      "id": "keiken-hinshitsu-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "762795efc044974fe7239b40bdecd6b4d2d736003868bb246c4197becd58ad59"
+      }
+    },
+    {
+      "id": "keiken-koji-gaiyo-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-koji-gaiyo-kakikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "c413c026d296f56975427ad9ba4dd60759d59f7aea5751d9d8f938dd41639f74"
+      }
+    },
+    {
+      "id": "keiken-teishutsumae-tenken",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-teishutsumae-tenken",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "1cc3fecced8cc3296409b2efa1601bd0a1b6bfdcd0031cf47626cec78b42017a"
       }
     },
     {

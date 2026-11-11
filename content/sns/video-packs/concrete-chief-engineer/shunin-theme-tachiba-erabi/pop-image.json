@@ -1,0 +1,364 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #6E3A8C と濃色 #522A69、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『主任技士』『テーマ傾向』『立場の選び方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-cover.516825b9.png",
+          "sha256": "516825b9e6e649e12401ea61840dbf5b1b89b442fb49b7d53bd19c7744830ca9"
+        },
+        "generatedAt": "2026-11-11T04:16:30.781Z"
+      },
+      "copy": {
+        "exam": "concrete-chief-engineer",
+        "headline": [
+          "主任技士",
+          "テーマ傾向",
+          "立場の選び方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/cover-pop.3894c96b.png",
+        "sha256": "3894c96b731e9b626b56f26c5ff8a38a55d5cb01a645f3263a66f1b882c317d7",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "516825b9e6e649e12401ea61840dbf5b1b89b442fb49b7d53bd19c7744830ca9"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T04:16:30.781Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『主任技士』『テーマ傾向』『立場の選び方』『総監が制作』が指示と一字一句一致し、先生は白ヘルメット・黒縁眼鏡・ひげ・紺の作業服とネクタイ・反射帯で破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "b90e480dcb251dd1f68912968201fb2f640924c9a835534c4b82483ee018f4eb",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『誤解：全テーマを均等に準備する』。 図に入れる文字: 『全部を均等に覚える』 『得意な二、三の系統を厚くする』。 この場面の説明（文字にしない）: よくある誤解は、テーマごとに全部の知識を覚えようとすることです。サイト記事は、選択式の年が多いことから、得意な二、三の系統を厚くする準備を勧めています。均等に仕込む試験ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-premise.12621918.png",
+              "sha256": "126219181ce229ac0b0ee1fb87041f5fc0e899b209f604658fb0fee986c22bc5"
+            },
+            "generatedAt": "2026-11-11T04:16:30.781Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/premise-diagram.c7646927.png",
+            "sha256": "c7646927caf3eed9645e3019f965ad624444803f67d31fc2c2cdba59775c1185",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "126219181ce229ac0b0ee1fb87041f5fc0e899b209f604658fb0fee986c22bc5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T04:16:30.781Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと二つの図内文字が指示どおりで誤字なし。均等な細い多数の柱と、厚い三本の対比が本文と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "themes",
+          "inputSha256": "4948f8fe02975f540b817db72f76ee84d21148e79460acb239301e0346247650",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『直近三年に示されたテーマ（二次情報）』。 この場面の説明（文字にしない）: 問題文は日本コンクリート工学会から公開されていません。市販の過去問解説書と受験者の公開記事を突き合わせた二次情報で、直近三年を並べます。令和七年度は環境負荷低減と、労働人口減少下の品質向上。令和六年度は気候変動に対応した品質確保と、分野を魅力的にする方策。令和五年度は環境負荷低減と、生産性向上です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-themes.6e02f91e.png",
+              "sha256": "6e02f91ed5b8c2249750aebd087b5cb286c672d1d0ae3bff35cf9bed0280a624"
+            },
+            "generatedAt": "2026-11-11T04:16:30.781Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/themes-diagram.330cc965.png",
+            "sha256": "330cc9654f624d0091d871752d360deb48499ee7e522d7b2657b7cc7b7a1f4bb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6e02f91ed5b8c2249750aebd087b5cb286c672d1d0ae3bff35cf9bed0280a624"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T04:16:30.781Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『直近三年に示されたテーマ（二次情報）』が正確で、三つの円は環境・品質・生産性の絵で本文と矛盾せず、文字の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "systems",
+          "inputSha256": "d0acd7b3596d7fc10fdbf71cf02348d7993ecbcaa73e8994da4959c82eadb1d7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『テーマの五つの系統』。 図に入れる文字: 『環境負荷低減』 『耐久性・維持管理』 『生産性・DX』 『気候変動と品質確保』 『担い手不足と品質確保』。 この場面の説明（文字にしない）: 令和二年度以降は、環境負荷低減がほぼ毎年入っています。生産性向上と耐久性の向上が続き、令和六年度以降は気候変動と担い手不足の切り口が加わりました。系統は五つ。環境負荷低減、耐久性と維持管理、生産性とDX、気候変動と品質確保、担い手不足と品質確保です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-systems.282f10ba.png",
+              "sha256": "282f10ba8a90bec8236519f45fae7afd71c31194d0d6db0d7a732a91739d6c13"
+            },
+            "generatedAt": "2026-11-11T04:16:30.781Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/systems-diagram.fe8879d6.png",
+            "sha256": "fe8879d636f502216cfece89d6076dfa3b2ab5587661f28241550ec0face53f5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "282f10ba8a90bec8236519f45fae7afd71c31194d0d6db0d7a732a91739d6c13"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T04:16:30.781Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと5系統の文字が指示と一字ずつ一致し、誤字・余計な文言なし。五つの楕円と線の構造も崩れず、下端の字幕領域は空き",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "stance",
+          "inputSha256": "f50a16492169cfd62455b411babab8ebc6571a252a8c3968737f4f03e3c74f04",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『立場で書ける中身が変わる（例）』。 この場面の説明（文字にしない）: 次に立場です。同じ系統でも、書ける取り組みは立場で変わります。生コン工場は配合や出荷時の確認、発注者は要求性能や立会いの確認、維持管理は変状の調査と補修の検討。会社名が近いかではなく、自分が何を判断し、何を確認したかが近い立場を選びます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-stance.7805e051.png",
+              "sha256": "7805e051432c9f39da1d6d097908940909043ea2812c6b6bb901f2665c71a652"
+            },
+            "generatedAt": "2026-11-11T04:16:30.781Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/stance-diagram.a4447958.png",
+            "sha256": "a444795815f4a69ca2fb5014e4d072bbbe81f0523a3039b180c4b88430efb1c4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7805e051432c9f39da1d6d097908940909043ea2812c6b6bb901f2665c71a652"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T04:16:30.781Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『立場で書ける中身が変わる（例）』が正確。生コン工場・発注者の庁舎・橋の補修の三立場の絵が本文と合い、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "choose",
+          "inputSha256": "c871f8c297e437a61a86908734dd190ec0f892b3b70f13066a781627fde705ad",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『選び方の三段階』。 図に入れる文字: 『事実を言える系統を二、三選ぶ』 『五行のメモにする』 『実施・提案・協議・確認を使い分ける』。 この場面の説明（文字にしない）: 選び方は三段階です。まず、五つの系統から、自分の業務の事実を一つ言える系統を二、三選びます。次に、その事実を、担当、困ったこと、自分の判断、確認した記録、今後の改善の五行にします。最後に、実施、提案、協議、確認の動詞を使い分け、会社がしたことを自分が決めたことに変えません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-choose.70a1899a.png",
+              "sha256": "70a1899adb1e7a776bfe76c1399df6d122e95fe8d85a08fe082969e5da68e312"
+            },
+            "generatedAt": "2026-11-11T04:16:30.781Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/choose-diagram.81a3e066.png",
+            "sha256": "81a3e066e38d17eb4e5cfb188e2ab772e9cfa1a9b9d9352ea9a3feadeccb7d7b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "70a1899adb1e7a776bfe76c1399df6d122e95fe8d85a08fe082969e5da68e312"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T04:16:30.781Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと三段階の文字『事実を言える系統を二、三選ぶ』『五行のメモにする』『実施・提案・協議・確認を使い分ける』が指示と一致、五行メモの図も整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "borrow",
+          "inputSha256": "574667278d083c964d1b1222180fea3160e7ede524f3b765efc737c1104725cc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『他の立場の答案を読むとき』。 この場面の説明（文字にしない）: 別の立場の答案を読むときも、借りるのは技術の考え方です。その立場でしか行えない判断や、未経験の成果は、自分の経験として書きません。数値で確かめていなければ改善率を作らず、実際に確認した記録を書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-borrow.75647a5c.png",
+              "sha256": "75647a5c35df81a409eb891b2e775dfc2b9cc1f8320bc058edd6fe023a4f28a1"
+            },
+            "generatedAt": "2026-11-11T04:16:30.781Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/borrow-diagram.2a2db584.png",
+            "sha256": "2a2db584d3620c2dc10fad41caedf8e5362689a6add4c2d0e98d3d6ef93720f1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "75647a5c35df81a409eb891b2e775dfc2b9cc1f8320bc058edd6fe023a4f28a1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T04:16:30.781Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『他の立場の答案を読むとき』が正確で、他者の答案から考え方（電球と歯車）を借りる図が本文と矛盾せず、余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "22f4ce85da5a3be9364dc3742437cccf238381f12d5f0d13a21ed335b4991cfd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『まとめ』。 図に入れる文字: 『テーマは五つの系統で見る』 『事実が言える二、三の系統を選ぶ』 『形式と日程は受検年度の公式情報で確認』。 この場面の説明（文字にしない）: まとめます。テーマは五つの系統で見る。準備するのは、自分の事実が言える二、三の系統。立場は、判断と確認が近いものを選ぶ。年度の形式と日程は、受検年度の公式情報で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-summary.3fb2f4ac.png",
+              "sha256": "3fb2f4ac66832421fb247cf5d7bb5fe5d36e50edf47723e3050dd893ab207850"
+            },
+            "generatedAt": "2026-11-11T04:16:30.781Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/summary-diagram.a98199b2.png",
+            "sha256": "a98199b29aa97961b2bcf10c971e67e62a70672dd2c62bc5d878b6dc3d1d9d37",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3fb2f4ac66832421fb247cf5d7bb5fe5d36e50edf47723e3050dd893ab207850"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T04:16:30.781Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『まとめ』と三つの文言が指示と一字一句一致、五系統・二つ選択・公式情報確認の図が本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "33c4d2096d0bd5efd2867cadf2d1705a297293e26499317e617e7ed72d49d426",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『自分の立場の答案を探す』。 図に入れる文字: 『まるごとパックの案内（概要欄）』。 この場面の説明（文字にしない）: 自分の立場の答案を探したい方は、概要欄のまるごとパックの案内から確認できます。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-cta.b252a645.png",
+              "sha256": "b252a64583b45143ef6adce3df2658fc924f6b464fbc5253ef23c48a47aebfa9"
+            },
+            "generatedAt": "2026-11-11T04:16:30.781Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/cta-diagram.584d7b9a.png",
+            "sha256": "584d7b9a356eda2654009178cbbc5488d82c745ad3623818797177ad707e9986",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b252a64583b45143ef6adce3df2658fc924f6b464fbc5253ef23c48a47aebfa9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T04:16:30.781Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『自分の立場の答案を探す』と『まるごとパックの案内（概要欄）』が正確で、価格やURLなどの余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

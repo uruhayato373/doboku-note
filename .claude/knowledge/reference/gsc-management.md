@@ -27,7 +27,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc.page-query` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
 | **GSC の記録層（`scripts/scheduled/weekly-review.sh` の run_gsc_record）** | **土曜の Mac（収集の前段と後段の間・2026-10-25〜・DN-0849。旧 CI の `gsc-auto-review.yml`）** | **記録層の自動化**。ヘッドレスの Claude Code が `scripts/scheduled/gsc-record-prompt.md` に沿って断片を `.tmp/claude-out/gsc/` に書き、`scripts/apply-gsc-records.mjs` が検査して追記・push する（Claude は `.claude/` に書けない）。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し coverage エントリ（見出し `（coverage・自動レビュー）`・旧称 月次）を追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
-| `/gsc-review` | Skill（月次・**手動**） | 土曜の GSC の記録層の応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
+| `/gsc-review` | Skill（月次・**手動**） | 土曜の GSC の記録層の応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記。＋月 1 回の画面の実査 4 項目（メッセージ・生成 AI 機能の表示・外部リンク・クロールの統計情報） | — |
 | `/weekly-improve` | Skill（週次・**手動**） | 同上（performance 側）。metrics-analyzer 起動 | — |
 | `/google-search-growth` | Skill（月次。**取得と正規化は土曜の Mac 収集（`weekly-collect` の gsc 段）が `check-gsc-ui-due` の DUE で自動実行**・評価と承認はセッション） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
 | `check-gsc-ui-due` | Script（surfacer） | 月次 UI 取得の期限催促。**日数だけでなく完全性も見る**＝`lastComplete` の年齢（30日）／`lastAttempt.complete !== true` のいずれかで DUE。gsc-ui（必須）と ga4-ui（任意）の 2 チャネル | committed `{gsc-ui,ga4-ui}/last-run.json` → weekly-review が DUE を surface |
@@ -189,13 +189,14 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 
 > 数値は `data/gsc/index-coverage.json` を正とする。ここには「何を観測し、何を打ち手に決めたか」を記す。
 
-書き手は 4 系統（自動 2 + 手動 2）。見出しに区別を付けて同じ時系列に積む:
+書き手は 5 系統（自動 2 + 手動 3）。見出しに区別を付けて同じ時系列に積む:
 
 - `### YYYY-MM-DD（coverage・自動レビュー）`（旧称 月次）/ `### YYYY-MM-DD（週次・自動レビュー）` —
   土曜の GSC の記録層（weekly-review.sh・旧 `gsc-auto-review.yml`）の自動記録。**人間の上書き・追記は歓迎**（後から
   同日付で手動エントリを足しても良い）。エントリ長は週次 20 行 / 月次 25 行以内に収める。
   沈黙検知は `check-gsc-auto-review`（weekly-review-guard が毎週実行し DUE なら Issue 起票）
 - `### YYYY-MM-DD（月次・/gsc-review）` — coverage の観測と打ち手（手動。応急・深掘り・上書き用）
+- `### YYYY-MM-DD（月次・画面の実査）` — API と CI の記録で取れない 4 項目（メッセージ・生成 AI 機能の表示・外部リンク＝note.com・x.com 以外のリンク元サイト数・クロールの統計情報）。手順は /gsc-review の「月次の画面の実査」
 - `### YYYY-MM-DD（週次・/weekly-improve）` — performance 候補の裁定（採用→EXP-ID / 見送り→理由 /
   保留→**再浮上の条件**）。`improvements/{date}.md` は候補の生データ、ここはそれが**どう裁定されたか**の記録
 
@@ -788,3 +789,31 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   3. 新規資格 pe-water-supply・pipe-work の guide 8 件（未認識。ハブは登録済み）と `/standards/` 地方版の discovered は、次回周回まで観測する。地方版が増え続けるなら量を抑える
 - **異常フラグ**: なし
 - **注記**: 自動生成のため最終決定は人間。11-01 に観測中とした 2 ページのうち、RCCM は 8/8 が登録済みになった。コンクリ診断士 `textbook/assessment` は crawled_not_indexed のまま。gsc-management.md の判断マトリクスは本文を読まず、auditor 定義の閾値で判定した
+
+### 2026-11-11（手動・GSC の画面の全レポートの実査と方策）
+
+- **観測**（GSC の画面・データは 11-08 まで。画面でしか取れない 4 項目を含む）:
+  - 検索: 28 日クリック 8,720（前 28 日 1,040）・表示 10 万・CTR 8.7%・順位 7.7。10-25（2級土木 二次の試験日）の 1 日で 3,764 クリック、`/exam/civil-construction-2/guide/r08-secondary-answers` 1 本で 5,252（全体の 60%）。山を除く平常値は 8 月 1 日 3 前後 → 10 月上旬 40〜60 → 11 月 100〜190。直近 7 日は 980 クリック・CTR 5.8%・順位 8.5
+  - 上位なのにクリックが無い検索語（7 日）: 「循環型社会形成推進基本法」1.0 位・表示 38・クリック 0、「ブラインド訓練とは」2.6 位・31・0、「alarpの原則」2.2 位・25・0。CTR が高いのは過去問・解答例・ツール（技術士一次の年度ページ 10〜40%・コンクリート主任技士の過去問一覧 22%）
+  - 生成 AI 機能での表示（28 日・ページ別）: r08-secondary-answers 5,215、2級二次の配点 1,082、スクレーパー 619（ページ全体の表示 2,457・CTR 0.9%）、鑑定評価の三方式 345、型枠の取り外し時期 256
+  - インデックス: 登録 2,130・未登録 3,220（リダイレクト 1,253・noindex 486・404 283・canonical 134・クロール済み未登録 859・検出未登録 169・robots 21・403 5）。クロール済み未登録 859 は新しい順 500 件のうち `/standards-data/*.json` が 461、残りは主に旧 `/docs/`。記事本体は十数件
+  - メッセージ: 11-09「ページがインデックスに登録されない新しい要因」＝ robots.txt によりブロック（`/standards-data/` を止めた結果で想定どおり）。未読 21 件はほかに月次の成績とクリック数の到達の通知
+  - サイトマップ: `sitemap.xml` 成功（1,988）。`sitemap-legacy.xml` は「取得できませんでした」（本番で 404・登録だけ残っている）
+  - 外部リンク 1,129 本のうち note.com 1,127・x.com 2。**note.com・x.com 以外のリンク元サイト数 0**。リンク先の最多は `/exam/pe-construction/guide/competency-revision-r8`（419 本）で、11-01 の理由別取得では「クロール済み・未登録」
+  - クロール統計（90 日）: 4.76 万リクエスト・平均応答 186ms・200 が 73%・301 が 25%・404 は 1% 未満。手動による対策・セキュリティの問題なし。ウェブに関する主な指標は実測データなし（アクセス不足）
+- **判断**:
+  1. 試験日・合格発表日の当日ページを型にする（最優先）。事前に用意した 1 本が 1 日で 3,764 クリック。次は 11-22 技術士一次（DN-0500・EXP-063 で準備済み）、11-29 コンクリート技士・主任技士（主任は DN-0872。技士は DN-1111）、合格発表は 1-08・1-15・2-03・3-01・3-12（DN-1112）
+  2. 山の流入がどこへ進んだか（1級への導線・note・登録）は GSC では分からない。DN-0532 の枠で GA4 と販売記録を見る
+  3. 定義を聞く検索語は上位でもクリックが取れない。EXP-057（総監の title に「とは」）の判定は表示回数でなくクリック数で行い、総監キーワードの次の実験は「出題例・過去問での問われ方・似た語との違い」へ寄せる（DN-1113・DN-0422）
+  4. CTR の次の候補 6 本（総監 令和8年 二次の過去問 2.7 位・1.6%／1級土木 経験記述の書き方 7.7 位・2.1%／RCCM 問題1 5.8 位・4.4%・問題2〜4 7.0 位・4.1%／型枠の取り外し時期 6.6 位・3.4%／会計実地検査 8.6 位・3.1%）は、判定期限を過ぎた実験の判定のあとに着手（DN-1114。11-07 の週次の判断を維持）
+  5. 第三者からのリンクは 0。依頼文の下書きは DN-0418 にあり、止まっているのは運営者の送信。月次の観測に「note.com・x.com 以外のリンク元サイト数」を残す
+  6. `competency-revision-r8` の登録確認と `sitemap-legacy.xml` の登録解除（運営者の操作）は DN-1115。実務記事の検出・未登録 67 本は 11-07〜08 にクロールが始まったので DN-0984 の枠で次の URL 検査を待つ。404 は DN-0862 の範囲で、`/日以上…` `/25.0` などは Google が本文の文字列を URL と読んだもの（リンク切れではない）
+- **組み込み**: 週次に「上位なのにクリックが無い検索語」「当日ページの準備」「山を除いた平常値（7 日の中央値）」、月次に画面でしか取れない 4 項目（メッセージ・生成 AI レポート・外部リンク・クロール統計）を足す（feat/gsc-cadence）
+- **未確認**: 山の流入が売上・登録につながったか／クロール済み未登録の古い側 359 件の内訳（11-01 の記録では旧 `/docs/` が中心）／外部リンクの少なさと順位の因果。検索語別の数字は匿名化で全体の一部（7 日 980 クリックのうち検索語が見えるのは 150 前後）
+
+### 2026-11-11（手動・インデックスの打てる手の実施）
+
+- **サイトマップ**: GSC から `sitemap-legacy.xml`（本番で 404・「取得できませんでした」）の登録を削除。登録は `sitemap.xml` の 1 本（1,988 件・成功）
+- **competency-revision-r8**（被リンク最多・note から 419 本）: 11-05 の URL 検査（API）で「送信して登録されました」（最終クロール 10-27）。11-01 の画面の理由別取得の「クロール済み・未登録」は古い状態だった。対処不要
+- **総監の 9 ページで Google が旧 `/docs/` を正規に選んでいた**: サイト側（301・自己 canonical）は正しい。URL 検査から登録リクエストを送り、受理 5・上限で未確認 4（土曜の自動申請が持ち越す）。旧 URL を note・新しい原稿に書くことを `check-sns-urls` で止めた（#1532）。note の原稿の旧 URL は 9 月に張り替え済み（DN-0289）・X の既存の下書きは予約の承認 hash のため対象外
+- **クロール済み・未登録の 4 ページ**: 技術的な問題なし（index・自己 canonical・本文は描画済み）。河川法（同じテーマのページが 3 本）と中間貯蔵施設（旧い定型の題名）は直した。主任技士の製造・品質管理（12 万字）と診断士の予測・評価・判定（7 万字）は原因が絞れないので書き換えず観測を続ける

@@ -23,7 +23,10 @@ export const MAX_ATTEMPTS = 3;
 export const MAX_NO_OUTPUT = 3;
 const SUBTITLE_STDEV_MAX = 14;
 const rules = loadImageRules();
-const SUBTITLE_ZONE = rules.formats.longform.bottomZone; // 本文の下端は字幕が載る。生成指示と機械検査で同じ値を使う
+// 生成の指示は下端 18%（bottomZone）を空けさせる。機械検査は字幕が実際に載る範囲だけを見る。
+// 字幕は 28 字ごとの 1 行（longform-render の Style: 56px・下余白 56px）で、下端から約 12%。
+// 18% を検査すると、余白を 13〜15% 空けた図の枠や締めの帯を拾い、1 便 16 本中 7 本が打ち切られた（2026-11-11）
+export const SUBTITLE_CHECK_ZONE = 0.13;
 const { coverStyle: COVER_STYLE, character: CHARACTER, bodyStyle: BODY_STYLE } = rules.references;
 const COMPOSITION = {
   compare: '左右2つの枠を比べ、右を強調する構図',
@@ -134,6 +137,20 @@ export function buildPlan(root, pack, { scope = 'all', date, refs = fileRef } = 
   return plan;
 }
 
+/**
+ * 比率がわずかにずれた生成画像を、中央で切り抜いて指定の比率に揃える（2026-11-11）。Codex は 16:9 を頼んでも
+ * 1717×916（約 5% 横長）をよく返し、比率の検査で 1 項目 3 回を使い切っていた。切るのは長い辺の両端で、
+ * 片側 3% 以内（生成の指示の安全余白 6% の内側）に収まるときだけ。それより大きいずれは触らず、検査で落とす。
+ */
+export async function fitAspect(bytes, ratio, tolerance = 0.06) {
+  const meta = await sharp(bytes).metadata();
+  if (!meta.width || !meta.height) return bytes;
+  const off = meta.width / meta.height / ratio - 1;
+  if (Math.abs(off) <= 0.005 || Math.abs(off) > tolerance) return bytes;
+  const [width, height] = off > 0 ? [Math.round(meta.height * ratio), meta.height] : [meta.width, Math.round(meta.width / ratio)];
+  return sharp(bytes).extract({ left: Math.floor((meta.width - width) / 2), top: Math.floor((meta.height - height) / 2), width, height }).png().toBuffer();
+}
+
 /** 目で見る前の機械検査。比率と字幕の帯を見る。空なら合格。 */
 export async function inspectImage(bytes, kind) {
   const meta = await sharp(bytes).metadata();
@@ -145,7 +162,7 @@ export async function inspectImage(bytes, kind) {
   const stdev = async (image) => (await sharp(await image.greyscale().png().toBuffer()).stats()).channels[0].stdev;
   if (await stdev(sharp(bytes)) < 5) issues.push('全面がほぼ単色');
   if (kind === 'body') {
-    const height = Math.floor(meta.height * SUBTITLE_ZONE);
+    const height = Math.floor(meta.height * SUBTITLE_CHECK_ZONE);
     const zone = await stdev(sharp(bytes).extract({ left: 0, top: meta.height - height, width: meta.width, height }));
     if (zone > SUBTITLE_STDEV_MAX) issues.push(`字幕の帯に絵や文字がある（ばらつき ${zone.toFixed(1)}）`);
   }
@@ -159,10 +176,11 @@ const stuck = (i) => !i.raw && (i.attempts >= MAX_ATTEMPTS || (i.noOutput ?? 0) 
  * 画像が出なかった試行は回数に数えず noOutput に数える。この回に試した全項目で画像が出なければ unreachable を返す
  * （生成の経路が無い環境で回すと、品質の判定をしないまま全項目が上限に達していた・DN-1065）。
  */
-export async function generatePlan(root, pack, { concurrency = 3, generate = generateWithCodexAsync, log = () => {}, path: file = planPath(pack), inspect = inspectImage } = {}) {
+export async function generatePlan(root, pack, { concurrency = 3, generate = generateWithCodexAsync, log = () => {}, path: file = planPath(pack), inspect = inspectImage, aspect = 16 / 9, maxItems = Infinity } = {}) {
   const plan = readPlan(root, pack, file);
   if (!plan) throw new Error(`${pack}: 先に plan を作る`);
-  const todo = plan.items.filter((i) => !i.raw && !stuck(i));
+  // maxItems は 1 回の呼び出しで試す項目の上限。呼び出し 1 回を短く保ち、途中で止まっても進んだ分を残す
+  const todo = plan.items.filter((i) => !i.raw && !stuck(i)).slice(0, maxItems);
   let next = 0;
   let noOutput = 0;
   const one = async (item) => {
@@ -177,7 +195,7 @@ export async function generatePlan(root, pack, { concurrency = 3, generate = gen
     }
     item.attempts += 1;
     item.noOutput = 0;
-    const bytes = await sharp(readFileSync(out)).png().toBuffer();
+    const bytes = await fitAspect(await sharp(readFileSync(out)).png().toBuffer(), aspect);
     const issues = await inspect(bytes, item.kind);
     if (issues.length) { item.fix = issues.join('／'); item.lastError = item.fix; log(`${item.id}: ${item.fix}`); return; }
     const sha256 = hash(bytes);
@@ -188,6 +206,7 @@ export async function generatePlan(root, pack, { concurrency = 3, generate = gen
     mkdirSync(dirname(join(root, path)), { recursive: true });
     writeFileSync(join(root, path), bytes);
     Object.assign(item, { raw: { path, sha256 }, prompt, audit: null, lastError: null });
+    writeJson(root, file, plan);
     log(`${item.id}: ok`);
   };
   await Promise.all(Array.from({ length: concurrency }, async () => {

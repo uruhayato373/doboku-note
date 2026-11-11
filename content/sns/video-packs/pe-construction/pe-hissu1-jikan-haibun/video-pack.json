@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-hissu1-jikan-haibun",
+  "exam": "pe-construction",
+  "title": "建設部門 必須Ⅰ｜時間配分",
+  "audience": "技術士第二次試験 建設部門の必須科目Ⅰで、本番の2時間で構成と執筆の時間が足りるか不安な受験者",
+  "pain": "必須Ⅰの2時間で、読解・構成・記述・見直しに何分ずつ使えばよいか決められず、書き切れるか不安",
+  "promise": "2時間を読解と骨子・記述・推敲と控え・予備に割る目安と、当日の動きの順番を決められる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "pe-hissu1-jikan-haibun"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

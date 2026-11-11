@@ -1,0 +1,549 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #2A7050 と濃色 #1C5038、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『2級土木』『安全管理』『欄ごとに』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-cover.73412032.png",
+          "sha256": "73412032ed2b3979661e63d237fc6a6d4409976bc02c4f9e4791509ecc504f89"
+        },
+        "generatedAt": "2026-11-11T03:34:57.427Z"
+      },
+      "copy": {
+        "exam": "civil-construction-2",
+        "headline": [
+          "2級土木",
+          "安全管理",
+          "欄ごとに"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/cover-pop.20815983.png",
+        "sha256": "20815983707d9ed4b91e74d537f7dec0d07b307e4f5f7f1fac47f0c190ad0f0d",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "73412032ed2b3979661e63d237fc6a6d4409976bc02c4f9e4791509ecc504f89"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:34:57.427Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "指定の4文字列（総監が制作・2級土木・安全管理・欄ごとに）が一字ずつ一致し、先生キャラの白ヘルメット・黒縁眼鏡・ひげ・紺の作業服・反射帯も指示どおりで、手指の破綻も無い",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "5981728ff6fe7a28d20f6ced6d075e4cf5f4e8853a253423b1752ebfe57000d7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『安全管理は、欄ごとに役割がある』。 図に入れる文字: 『課題の欄：現場状況と危険』 『検討の欄：考えたことと理由』 『処置の欄：行ったことと評価』。 この場面の説明（文字にしない）: 安全管理の答案で、どの欄に何を書くか迷っていませんか。課題・検討・処置の仕分けで見直します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-hook.4bb7eff0.png",
+              "sha256": "4bb7eff0f25b059b241b069cd60f1e37017c4432b3573b8686dbb025ef699acd"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/hook-diagram.4fa5bd5f.png",
+            "sha256": "4fa5bd5f96ad8bb9aba811763fa804be748842c9b49f8143fed7e566400de882",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4bb7eff0f25b059b241b069cd60f1e37017c4432b3573b8686dbb025ef699acd"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つの欄ラベルが指示と一字ずつ一致し、課題・検討・処置の図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "intro",
+          "inputSha256": "3d72d4adad7098ea75263539f13c9de9d568a9c84e6583e1eb47d26d288451d0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『元発注者の目で、安全管理を見直す』。 図に入れる文字: 『総合技術監理部門の技術士』 『1級・2級土木に合格』 『安全管理の書く順序を整理』。 この場面の説明（文字にしない）: 総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、安全管理の書く順序をお伝えします。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-intro.ae36e332.png",
+              "sha256": "ae36e332c34862abfc1bfa60b3e4da43b51ba11628ca4236df177a3b81643ef0"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/intro-diagram.c210fa91.png",
+            "sha256": "c210fa91474d2a0ef65c408f698695dd5745804dcee198348e4bba9513936532",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ae36e332c34862abfc1bfa60b3e4da43b51ba11628ca4236df177a3b81643ef0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つの文言が指示と一致し、証書・答案・チェックリストの図も内容に合い崩れが無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "c87bd2da4072ff1273b30237c7f47e97b3a31ff4ef0e2c3945006a1fc4fa4cea",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『欄の形は年度で確認、書き分けは共通』。 図に入れる文字: 『欄の数や名前は年度で変わる』 『受検年度の公式情報を確認』 『書き分けの考え方に絞る』。 この場面の説明（文字にしない）: 設問の欄の数や名前は、年度で変わります。受検年度の問題で確認し、ここでは安全管理の書き分けに絞ります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-premise.99001487.png",
+              "sha256": "99001487474b112c8208f7c4ee51501b8c1bfddb7a673bf7ca973e68a61162b6"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/premise-diagram.e3d02219.png",
+            "sha256": "e3d022191951a1eb06321b327017d8bb9856ea3b29dafee13cc9bf0a01ce8aed",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "99001487474b112c8208f7c4ee51501b8c1bfddb7a673bf7ca973e68a61162b6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つのラベルが指示と一致し、欄の表・公式文書・記入欄の図も内容に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "issue",
+          "inputSha256": "650a1f86b0183adb0662a0d828418c3db728fdc3a040187098e3f164c77fa916",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『課題の欄は、危険まで』。 この場面の説明（文字にしない）: 最初は現場状況と課題です。ヤードの狭さや交通量などの条件から、何が危険かまで書き、対策はまだ書きません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-issue.ab0c5ca6.png",
+              "sha256": "ab0c5ca6ef70332ece8d37d1f4699c82918fc2a647f0336c46382de3e5555077"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/issue-diagram.99638b7a.png",
+            "sha256": "99638b7af5c5a82d0a0f32b6df6b62b0a2f3b07064f0de85deb9167344a41f68",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ab0c5ca6ef70332ece8d37d1f4699c82918fc2a647f0336c46382de3e5555077"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し「課題の欄は、危険まで」が一致し、道路沿いの工事現場でダンプと重機が接触する危険の図は本文に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "consider",
+          "inputSha256": "bfcb785302e8019d84e810ca326b8e0efdc5f2e2ddc76249014e8d865241913f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『検討の欄は、観点を選んで理由つき』。 この場面の説明（文字にしない）: 次は検討した項目です。点検と確認、安全措置、作業員への教育、安全施工サイクルなどから選び、理由も添えます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-consider.cab837b2.png",
+              "sha256": "cab837b22f03b9061e5fd4d480bfe6ffd417250cee553abbc65dad6947d8ab7f"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/consider-diagram.235b0082.png",
+            "sha256": "235b0082541501e12945ea2d08ff7faafb9f7e32137ca1d3ad20208eca0a2da8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cab837b22f03b9061e5fd4d480bfe6ffd417250cee553abbc65dad6947d8ab7f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し「検討の欄は、観点を選んで理由つき」が一致し、点検・安全措置・教育・サイクルの4観点アイコンと理由の吹き出しは本文に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "measure",
+          "inputSha256": "e1ffcb2e920f0c855881efd134f1e56a32bbbb7dde96056e96dcd0edb2571a73",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『処置の欄は、行ったことと結び』。 この場面の説明（文字にしない）: 最後は実施した処置と評価です。何をどう行ったかを具体的に書き、無事故で完了できたかを端的に結びます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-measure.d865d273.png",
+              "sha256": "d865d2738adfc84a0af426fff595dfb934b6ef1dbcf38e06820c06ddeabf72bd"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/measure-diagram.4170460c.png",
+            "sha256": "4170460cab58d46c5c8a979609dded7e3b563f5ba905fbef212a4bfeb58aaf54",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d865d2738adfc84a0af426fff595dfb934b6ef1dbcf38e06820c06ddeabf72bd"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し「処置の欄は、行ったことと結び」が一致し、管の補修から完了チェックの図は本文に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "mix",
+          "inputSha256": "788bc098c97e9091267e5d8571e90f7939d04dacf3d50c626c2cd5d353613d90",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『欄をまたいで、混ぜない』。 この場面の説明（文字にしない）: 検討に書くのは考えたこと、処置に書くのは行ったことです。同じ内容を二つの欄に重ねないようにします。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-mix.630cab54.png",
+              "sha256": "630cab54d13d6ef538384a029168e8863b42ba55daaf176e053c387607052ac7"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/mix-diagram.0336366c.png",
+            "sha256": "0336366cf477513dabdad4eca8e677ce25985603e730a967ad407e2a580d7315",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "630cab54d13d6ef538384a029168e8863b42ba55daaf176e053c387607052ac7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し「欄をまたいで、混ぜない」が一致し、検討（電球）と処置（チェック）を仕切る図は本文に合う。見出しの「欄」付近に軽微な滲みがあるが判読できる",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "a069d011c07c154ae9596ee34fbe765e5f2180c4623b9f03469804a4042e1222",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例｜道路に近い現場』。 この場面の説明（文字にしない）: 仮の例で見ます。道路に近い現場で通行者との接触が課題。検討は区分と周知、処置は柵の設置と教育、と欄ごとに分けます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-example.bb185247.png",
+              "sha256": "bb185247bd85fdfc83ad782ffa2088dfbf7c09d087ed3cd7c57c820f56a7a9b8"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/example-diagram.db199101.png",
+            "sha256": "db199101cd30909e0ddd41913bfc03c4a6da13e2ff487754f43227125be8ac2a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bb185247bd85fdfc83ad782ffa2088dfbf7c09d087ed3cd7c57c820f56a7a9b8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し「仮の例｜道路に近い現場」が一致し、道路際の現場・柵・周知・教育の図は仮の例の説明に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "guard",
+          "inputSha256": "057605998f88d7a5c131742f286ab4f0705ffc5b6975ddb9aa1a3d7c55bcc00d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『誘導員だけの対策は、避ける』。 図に入れる文字: 『年度により除外されることがある』 『標識・柵・KY活動と組み合わせる』 『問題文の指示で確認する』。 この場面の説明（文字にしない）: 誘導員の配置だけの記述は、年度により除外されることがあります。標識や柵と組み合わせ、問題文の指示を確認します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-guard.9d289794.png",
+              "sha256": "9d289794f880701ce4ba6b957c0124e8d08909a8c86f917a86cb0fed005c37ba"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/guard-diagram.eb37ae88.png",
+            "sha256": "eb37ae8815c2614002ba680de157ec669eb6fb8ab157a99325ab0396d22578e7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9d289794f880701ce4ba6b957c0124e8d08909a8c86f917a86cb0fed005c37ba"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つの文言（KY活動を含む）が指示と一字ずつ一致し、誘導員に標識・柵を組み合わせる図は本文に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "facts",
+          "inputSha256": "afc17b2d5d581468de9d8859cacc866ba1009c0c447780181ecb5af903a5f4a3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『事実は、自分の現場から』。 図に入れる文字: 『例の文をそのまま写さない』 『起きた危険は実際のもの』 『検討と処置も実際に行ったこと』。 この場面の説明（文字にしない）: 例の文は写しません。実際に起きた危険、検討したこと、行った処置だけを、自分の事実で書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-facts.bd27e376.png",
+              "sha256": "bd27e376511fe3ed749b23ac5f3fe4e17490852441804ba86c431a8a843b11db"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/facts-diagram.f76b946b.png",
+            "sha256": "f76b946beb9b14b84eb6e47c8b0befc6e588677cc464649cce9e5699638990cf",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bd27e376511fe3ed749b23ac5f3fe4e17490852441804ba86c431a8a843b11db"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つの文言が指示と一字ずつ一致し、例文の禁止・実際の危険・検討と処置の図は本文に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "check",
+          "inputSha256": "b1376dda420042bc1cee29734df3789204b1153a673e33800dc9c690b6ad3842",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『安全管理の見直し3点』。 図に入れる文字: 『課題の欄に対策が混ざっていない』 『検討と処置が重なっていない』 『結びが評価になっている』。 この場面の説明（文字にしない）: 見直しは3点です。課題に対策が混ざっていないか。検討と処置が重なっていないか。結びが評価になっているか。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-check.dacec96e.png",
+              "sha256": "dacec96e4f8efc344264cff55cee471e0980f926c1f6515018d6e126c9b90eaf"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/check-diagram.e09d9265.png",
+            "sha256": "e09d9265a4498ccc2e79a89b29067d9267042df5ca56c8349995f0313b371b14",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dacec96e4f8efc344264cff55cee471e0980f926c1f6515018d6e126c9b90eaf"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し「安全管理の見直し3点」と3つの文言が指示と一致し、図も3点の内容に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "d00bd17cb88101fe60ba161d3ea014a00db6e7851f09a4cfd61d3a90e382f2a7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『安全管理は、欄を分けて書く』。 図に入れる文字: 『課題：条件と危険まで』 『検討：考えたことと理由』 『処置：行ったことと評価』。 この場面の説明（文字にしない）: まとめです。安全管理は、課題、検討、処置と評価の順に欄を分けて書きます。自分の事実で確かめましょう。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-summary.c6246974.png",
+              "sha256": "c62469744808224658c7002383cb20184567c631bee1c763a1db2d15c398c94a"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/summary-diagram.d74b43ae.png",
+            "sha256": "d74b43aec39a7b381cfb16e773ba8464f695d139504c9af2d6d8c3a88cadb27b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c62469744808224658c7002383cb20184567c631bee1c763a1db2d15c398c94a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つのラベルが指示と一致し、課題・検討・処置の順の図は本文に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "8d14c36518a179de62282e10fb17fbe510a313f1a819f1fef9e879d3591a278a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #2A7050 と濃色 #1C5038の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『欄ごとの型を、答案で確かめる』。 図に入れる文字: 『2級土木 施工経験記述 完成答案集』 『安全・品質・工程の答案＋置換ガイド』 『概要欄のnoteマガジンへ』。 この場面の説明（文字にしない）: 欄ごとの型は完成答案集で確かめられます。安全・品質・工程の答案と置換ガイドは、概要欄のリンクへ。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 19.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/factory/raw-cta.1a3a529f.png",
+              "sha256": "1a3a529f3319566aef7e9d450393462456e46b6c5b7cacbced014014356b6821"
+            },
+            "generatedAt": "2026-11-11T03:34:57.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-anzen-kakikata/work/cta-diagram.105fe556.png",
+            "sha256": "105fe556fd864dcc6749a3d481c354278dc6be4e9d18aa689324df3585ca4c3d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1a3a529f3319566aef7e9d450393462456e46b6c5b7cacbced014014356b6821"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:34:57.427Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと書籍表紙の文言（2級土木 施工経験記述 完成答案集、安全・品質・工程の答案＋置換ガイド）、概要欄のnoteマガジンへ、が指示と一致し、価格・URLなど余計な文字も無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

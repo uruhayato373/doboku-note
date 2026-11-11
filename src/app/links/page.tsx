@@ -21,6 +21,7 @@ import { COCONALA_A8_PIXEL, coconalaAffiliateHref } from "@/config/affiliate-cre
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { withNoteUtm } from "@/lib/note-utm";
 import { qualificationLabel } from "@/lib/qualification-names";
+import { WIDE_CONTAINER } from '@/components/layout/container';
 
 
 /**
@@ -450,7 +451,7 @@ export default function LinksPage() {
 
   return (
     <PageShell variant="default" className="py-6 sm:py-14">
-        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10">
+        <div className={WIDE_CONTAINER}>
           {/* Hero band: アバター + 名乗り + キャッチ + 試験チップ（ジャンプ）+ 運営者の導線。
               SNS bio から来た人がスマホの 1 画面目で資格カードまで届くよう、スマホでも横並びの小さい版にする
               （旧: 縦積み 455px ＋ 紹介文 648px で、最初の資格リンクが 2.3 画面目だった・2026-09-24）。 */}

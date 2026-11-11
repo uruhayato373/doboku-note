@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "owner-career-before-moving",
+  "exam": "civil-construction-1",
+  "title": "発注者側へ移る前に知ること",
+  "audience": "1級土木施工管理技士を学ぶ受検者・施工管理の実務者で、受注者側から発注者側へ移ることを考えている人",
+  "pain": "受注者側から発注者側へ移ると何が変わるのか、移った後の仕事の持ち方と最初に何を確かめるかが分からない",
+  "promise": "立ち位置の変化、管理と事業の二つの仕事、最初の週に確かめる三つの日付が分かり、移る前に準備できる",
+  "intent": "career",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/municipal-civil-engineer-work/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/owner-safety-responsibility/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx",
+    "campaign": "owner-career-before-moving"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

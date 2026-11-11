@@ -1,0 +1,272 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "トンネルの選択科目は、何がどう問われるのでしょうか。",
+      "caption": "トンネルの出題は、どう読む？",
+      "visual": {
+        "kind": "cover",
+        "heading": "トンネルの出題を、読む",
+        "items": [
+          "技術士 建設部門・トンネル"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 23,
+      "narration": "過去問を開いても、山岳、開削、シールドのどこから読めばいいのか分からない。今日は技術士建設部門のトンネルを、令和元年度から8年度の出題テーマをもとに、II-1、II-2、IIIの問われ方に分けて読み方を整理します。",
+      "caption": "過去問の前に、出題の読み方が要る",
+      "visual": {
+        "kind": "points",
+        "heading": "過去問の前に、読み方を決める",
+        "items": [
+          "令和元年度〜8年度の出題テーマ",
+          "II-1・II-2・IIIの問われ方",
+          "工法の指定と除外条件"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 トンネル",
+          "note": "出題テーマはdoboku-noteの要約。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "myth",
+      "start": 23,
+      "end": 43,
+      "narration": "よくある誤解は、出題テーマの名前を覚えれば書ける、という考えです。実際の問題文は、数量、工法の指定、除外する条件まで決めています。テーマ名は入口で、条件の読み取りが答案の出来を分けます。",
+      "caption": "テーマ名を知るだけでは答案にならない",
+      "visual": {
+        "kind": "compare",
+        "heading": "テーマ名と、問題文の条件",
+        "ngLabel": "テーマ名だけ",
+        "okLabel": "条件まで読む",
+        "rows": [
+          {
+            "label": "読む範囲",
+            "ng": "テーマの名前を覚える",
+            "ok": "数量・工法の指定・除外を読む"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 トンネル",
+          "note": "問題文の条件はテーマ名に含まれない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "forms",
+      "start": 43,
+      "end": 65,
+      "narration": "まず区分です。令和8年度の形式では、II-1は4設問から1設問を選び、答案用紙は1枚。II-2は2設問から1設問を選び、2枚。IIIは2問題から1問題を選び、3枚です。形式は受検年度の公式情報で確認してください。",
+      "caption": "II-1・II-2・IIIで、選び方と枚数が違う",
+      "visual": {
+        "kind": "points",
+        "heading": "令和8年度の形式（例）",
+        "items": [
+          "II-1\n4設問から1つ・1枚",
+          "II-2\n2設問から1つ・2枚",
+          "III\n2問題から1つ・3枚"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 トンネル",
+          "note": "令和8年度の形式。受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-tunnel/article.mdx"
+    },
+    {
+      "sceneId": "ii1",
+      "start": 65,
+      "end": 89,
+      "narration": "II-1は、令和8年度は山岳が2問、開削が1問、シールドが1問でした。年度別の一覧でも、山岳、開削、シールドの問いが並びます。さらに、3つ以上、4項目以上と、挙げる数が指定されます。数を満たすことが、最初の条件です。",
+      "caption": "II-1は、3つの工法から選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1は山岳・開削・シールド",
+        "items": [
+          "山岳トンネル：2設問",
+          "開削工法：1設問",
+          "シールド工法：1設問",
+          "数量の指定（3つ以上・4項目以上）"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "選択科目対策／建設部門 トンネル",
+          "note": "令和8年度の構成。区分の呼び方はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "ii1cond",
+      "start": 89,
+      "end": 111,
+      "narration": "除外の例です。令和8年度の開削底面の安定では、リバウンドは回答の対象としないと書かれました。急曲線のシールドは、セグメントの設計に関する事項を4項目以上、内容とともに挙げる指定でした。知っている用語でも、対象外なら点になりません。",
+      "caption": "知っている用語でも、対象外は書かない",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1の除外条件（R08）",
+        "items": [
+          "開削底面の破壊現象\nリバウンドは対象外",
+          "急曲線シールド\nセグメント設計の事項を4項目以上"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 トンネル",
+          "note": "令和8年度の問題文より。公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-tunnel/article.mdx"
+    },
+    {
+      "sceneId": "ii2",
+      "start": 111,
+      "end": 135,
+      "narration": "II-2は、令和8年度で山岳トンネルの新設と、都市部トンネルの耐久性の2択でした。どちらも、1で挙げて説明し、2で業務の手順ごとの留意点を述べ、3で関係者との調整方策を述べる三つの設問でした。",
+      "caption": "II-2は、挙げる・手順・調整の三つ",
+      "visual": {
+        "kind": "points",
+        "heading": "II-2は、設問が三つに分かれる",
+        "items": [
+          "（1）挙げて説明する",
+          "（2）業務手順ごとの留意点",
+          "（3）関係者との調整方策"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 トンネル",
+          "note": "令和8年度II-2-1・II-2-2の構成。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-tunnel/article.mdx"
+    },
+    {
+      "sceneId": "ii2cond",
+      "start": 135,
+      "end": 161,
+      "narration": "II-2にも除外があります。令和8年度の膨張性地山では、路線変更と、変状が出たあとの補修などは対象外でした。都市部トンネルの耐久性では、地震や火災、衝突などの偶発作用を除き、開削かシールドかを冒頭に書く指定でした。",
+      "caption": "II-2は、除外と工法の明記を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "II-2の除外条件（R08）",
+        "items": [
+          "II-2-1\n路線変更と、変状後の補修等は対象外",
+          "II-2-2\n地震・火災・衝突等の偶発作用は除く",
+          "II-2-2\n開削かシールドかを冒頭に明記"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 トンネル",
+          "note": "令和8年度の問題文より。公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-tunnel/article.mdx"
+    },
+    {
+      "sceneId": "iii",
+      "start": 161,
+      "end": 187,
+      "narration": "IIIは、令和8年度は近接構造物がある山岳トンネルと、都市トンネル工事の周辺環境保全でした。どちらも、課題を観点を明記して3つ以上挙げ、重要な一つに解決策を示し、実行しても残るリスクまで答える構成です。後者は、開削かシールドかを明記する指定でした。",
+      "caption": "IIIは、残るリスクまで答える",
+      "visual": {
+        "kind": "points",
+        "heading": "IIIは、課題から解決策、残るリスク",
+        "items": [
+          "（1）技術課題を3つ以上・観点を明記",
+          "（2）最も重要な課題の解決策",
+          "（3）残るリスクと対応策"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 トンネル",
+          "note": "令和8年度の構成。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-tunnel/article.mdx"
+    },
+    {
+      "sceneId": "steps",
+      "start": 187,
+      "end": 209,
+      "narration": "読み方を三つの手順にまとめます。一つ、区分を見て、選ぶ数と枚数を確かめる。二つ、数量、工法の指定、除外の条件に線を引く。三つ、設問が一から三まで並ぶときは、その順に答える。この手順は、この動画の整理です。",
+      "caption": "読み方は、3つの手順",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の3手順",
+        "items": [
+          "区分を見て、選ぶ数と枚数を確かめる",
+          "数量・工法の指定・除外に線を引く",
+          "設問が並ぶ順に答える"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 トンネル",
+          "note": "本動画の独自の整理。公式の手順ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 209,
+      "end": 234,
+      "narration": "まとめます。トンネルの出題は、II-1、II-2、IIIで問われ方が違います。II-1は山岳、開削、シールドから選び、II-2は挙げる、手順、調整の三つ、IIIは課題から残るリスクまでです。そして、テーマ名より、問題文の条件を読むこと。受検年度の問題と日程は、公式の情報で確認してください。",
+      "caption": "トンネルの出題は、条件を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "トンネルの出題は、条件を読む",
+        "items": [
+          "II-1：山岳・開削・シールド",
+          "II-2：挙げる・手順・調整",
+          "III：課題・解決策・残るリスク",
+          "条件を読む"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 トンネル",
+          "note": "本動画の独自の整理。受検年度は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 234,
+      "end": 255,
+      "narration": "読み方の次は、書き方です。トンネルの令和3年度から8年度の設問を、すべての選択肢で解答した模範解答集がnoteにあります。この動画は読み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "トンネルの模範解答集は、noteへ",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の次は、書き方",
+        "items": [
+          "トンネル 選択科目の模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "選択科目対策／建設部門 トンネル"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

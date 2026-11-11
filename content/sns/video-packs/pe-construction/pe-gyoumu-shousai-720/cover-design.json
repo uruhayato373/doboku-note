@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "建設部門",
+        "業務詳細",
+        "720字の組立"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/cover-pop.7be4fef3.png",
+        "sha256": "7be4fef36e36f996ffa60849a720b4eefff8728e02aa4e66ca19f0d3ab10f783",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "a9ecc74a01ca70c879443a5982b538bf5d8c3503329de61de536653c9b7ac2b0"
+      }
+    }
+  }
+}

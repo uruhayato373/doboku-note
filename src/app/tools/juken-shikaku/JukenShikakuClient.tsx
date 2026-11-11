@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
  * 土木施工管理技士 受験資格チェッカー（クライアント）。
@@ -111,7 +112,7 @@ export default function JukenShikakuClient() {
   }
 
   return (
-    <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
+    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
       <div className="card-surface-section p-5 sm:p-6">
         {/* 級 */}
         <div className="mb-4">

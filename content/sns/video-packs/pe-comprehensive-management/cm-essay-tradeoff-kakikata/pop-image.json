@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監 記述』『5管理の』『トレードオフ』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-cover.e41c16c5.png",
+          "sha256": "e41c16c5a55973178272177a3e7c79a0dad77b1ebfd04bdd9cf03aab737935d3"
+        },
+        "generatedAt": "2026-11-11T02:27:38.670Z"
+      },
+      "copy": {
+        "exam": "pe-comprehensive-management",
+        "headline": [
+          "総監 記述",
+          "5管理の",
+          "トレードオフ"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/cover-pop.e9ce9b69.png",
+        "sha256": "e9ce9b698a0d557025777cf2af8d35eb6c9a0bb90054bcb97222d388a3b641b0",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "e41c16c5a55973178272177a3e7c79a0dad77b1ebfd04bdd9cf03aab737935d3"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T02:27:38.670Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字: 総監が制作・総監 記述・5管理の・トレードオフを指示と一字ずつ照合し一致。キャラは黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "826458266e2ec58ad9ff9d24aa27f37085a623ded583ccbe234e9cda8661a954",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『三つの問いでつくる』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『どの管理に効く施策か』 『どの管理に負担が出るか』 『どの方向で両立させるか』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 施策を書いたあとで、その裏の問題点を、管理名の対立としてどう書けばよいのか分からない。この動画では、トレードオフを三つの問いで組み立てる手順を紹介します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 35.5）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-hook.d44a5457.png",
+              "sha256": "d44a545726d07882483caf6f02502ecf84eebea493e14cc8e76275502c3fa8f5"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/hook-diagram.baa292d7.png",
+            "sha256": "baa292d7279edc442cc9e5aaf693a95e0732c6cfd3ee0573c0c6a9a5fee9c74e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d44a545726d07882483caf6f02502ecf84eebea493e14cc8e76275502c3fa8f5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・三つの円内の三文・本動画の独自の整理を一字ずつ照合し一致。段階の図と矢印も成立し崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "6a977bd56cec1026a361cf181aaba4d49a30cc4f1efc84c6dad612613b5cf33f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問題点は管理課題』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『施策を否定する書き方 コストが高く問題がある』 『管理課題の書き方 投資回収の管理が課題となる』。 図の下、下端の字幕の帯より上に『問題点は施策の否定ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 誤解しやすいのは、トレードオフを施策の否定として書くことです。コストが高く問題がある、と書くと、施策そのものを否定した文になります。問題点は、管理すべき課題として書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-misread.b9ebc07e.png",
+              "sha256": "b9ebc07e180c2810b6f847baf4e880eaa8847df29d5e68c6af26f4a1dce6e9a6"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/misread-diagram.da4f5e9a.png",
+            "sha256": "da4f5e9aa9f07e73ac067a3d8b8c64a78821bb567bb304100f9fca3ad2f19798",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b9ebc07e180c2810b6f847baf4e880eaa8847df29d5e68c6af26f4a1dce6e9a6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・左右2枠の文言・問題点は施策の否定ではないが指示と一致。右枠強調の構図も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q1",
+          "inputSha256": "1e901a4e19683984165999d6850de9a69b7d5452baa21bf4deb1d0cea0c7f902",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問い1　どの管理に効くか』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『施策を一つ決める』 『効果が出る管理を一つ選ぶ』 『5管理の名前で言い切る』。 図の下、下端の字幕の帯より上に『効果の側から始める』の全文を省かずに入れる。 この場面の説明（文字にしない）: 問い1は、施策がどの管理に効くか。施策を一つ決めたら、効果が出る管理を一つ選びます。経済性、人的資源、情報、安全、社会環境のうち、最も効くものです。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 37.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-q1.fa9de5d7.png",
+              "sha256": "fa9de5d78ae9a135e939a05f0c1edeaaaa24a84ee536e4835974f63f444fddbb"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/q1-diagram.28217300.png",
+            "sha256": "282173001da7b03f877eea7156b93d957167630cab29df5dcd86fe8b0d346619",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fa9de5d78ae9a135e939a05f0c1edeaaaa24a84ee536e4835974f63f444fddbb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 問い1見出し・3枠の文言・効果の側から始めるが指示と一致、誤字や余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q2",
+          "inputSha256": "91e61b361e3bbdf0c0737f13bf14344c394c9c98dd409a98bd7a18575216c4d5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問い2　どこに負担が出るか』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『人の手間が増えないか』 『費用や回収の管理は重くないか』 『別の管理へ負担が移っていないか』。 図の下、下端の字幕の帯より上に『負担が移る先を探す』の全文を省かずに入れる。 この場面の説明（文字にしない）: 問い2は、その施策で、どの管理に負担が出るか。効果の裏で、人の手間、費用、情報の扱い、安全、地域との関係のどこが重くなるかを見ます。ここで出た管理が、対立の相手です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 20.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-q2.f851194b.png",
+              "sha256": "f851194bb69933460b54d518925dd73b968b10808c5863205ce6433813da0a29"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/q2-diagram.7c7235b7.png",
+            "sha256": "7c7235b73612895043e2f6b7a1dd335343663d9bf2395fa2f10e3409cebdc4c8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f851194bb69933460b54d518925dd73b968b10808c5863205ce6433813da0a29"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 問い2見出し・3円の文言・負担が移る先を探すが指示と一致。アイコンの崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pair",
+          "inputSha256": "de3a56ad0fb063ad95faa20f058e9459396b41a42697604db12c7b30bfff3f38",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『組の探し方』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『経済性を片側に含む組が多い』 『安全と社会環境の組』 『人的資源と安全の組』。 図の下、下端の字幕の帯より上に『筆者の分類による傾向。年度で変わる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 対立の相手は、経済性管理から探すと見つかりやすくなります。サイト記事の整理では、経済性を片側に含む組が、記述式の出題の中で多くを占めます。ほかに、安全と社会環境、人的資源と安全も目立ちます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-pair.00d60eb9.png",
+              "sha256": "00d60eb92bfe5d7f54d175cca7d5de12dcbd581949be9000bc78d9a0137131f8"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/pair-diagram.c6bd04d4.png",
+            "sha256": "c6bd04d491803bd04270385d064fc5d95d4cb88f0adc7cf40106cc09da1d2d50",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "00d60eb92bfe5d7f54d175cca7d5de12dcbd581949be9000bc78d9a0137131f8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 組の探し方・3項目・筆者の分類による傾向。年度で変わるが指示と一致、図の分岐も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q3",
+          "inputSha256": "ced41d960585d3aa106a969a597a4464144b2fb1d1e44d4ec8e8de84c2340b03",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問い3　どの方向で両立か』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『時間軸を伸ばして評価する』 『段階的に実施して範囲を絞る』 『早い段階で合意を作る』。 図の下、下端の字幕の帯より上に『主軸は一つ、補強は一つか二つ』の全文を省かずに入れる。 この場面の説明（文字にしない）: 問い3は、どの方向で両立させるか。解決の方向は、組ごとに少数に絞れます。時間軸を伸ばして評価する、段階的に進める、早い段階で合意を作る、などです。事案に合う方向を一つ主軸にします。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-q3.09d6b6d5.png",
+              "sha256": "09d6b6d5b23752f6c953c74c54f0c60a0f07089969fddfbdd9aa3690de5e85f3"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/q3-diagram.cc28ded1.png",
+            "sha256": "cc28ded1aa3851f67b8718c129be2747a755554ee36d7d73781a3bd8ebfb6955",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "09d6b6d5b23752f6c953c74c54f0c60a0f07089969fddfbdd9aa3690de5e85f3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 問い3見出し・3円の文言・主軸は一つ、補強は一つか二つが指示と一致。握手の手指も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "25d3c4e36da40f02ee31248f2a80c08cf08b5ce48ff2d1f62722ce0df6a4336a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例で組み立てる』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『問い1　安全管理に効く』 『問い2　経済性管理に負担が出る』 『問い3　劣化の大きい箇所から段階的に』。 図の下、下端の字幕の帯より上に『出題の予想ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 仮の例です。橋の点検に、遠隔の監視を入れる施策を考えます。効くのは安全管理。負担が出るのは経済性管理で、導入費の回収の管理が課題になります。方向は、劣化の大きい箇所から段階的に入れることです。これは手順の例で、出題の予想ではありません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 39.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-example.e87e71da.png",
+              "sha256": "e87e71da48a583680f39d1d00a1d92098f25f392dcaae6b791c9ac1273484187"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/example-diagram.b7fd1d92.png",
+            "sha256": "b7fd1d928f749355f784bfd1952da039c179a302c06eefc9796f7815f7f248d8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e87e71da48a583680f39d1d00a1d92098f25f392dcaae6b791c9ac1273484187"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 仮の例で組み立てる・問い1から3の文言・出題の予想ではないが指示と一致。橋と監視機器の図も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "write",
+          "inputSha256": "2ed79df78367ffe4dcbecd576832be3aa137c47696731651addb1a037539d6f8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『効果、課題、両立の順』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『施策で何が良くなるか』 『裏でどの管理が課題か』 『どう両立させるか』。 図の下、下端の字幕の帯より上に『管理名の列挙で終えない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 書くときは、一文の形にします。施策で何が良くなるか、その裏でどの管理が課題になるか、どう両立させるか。この三つを順につなぎます。管理名は、文の中で自然に出せば足ります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-write.0b7baa02.png",
+              "sha256": "0b7baa027539cc863eea7d7420ad6b7f71122a538d374cf637862b57e9beb3db"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/write-diagram.c4efc0d1.png",
+            "sha256": "c4efc0d151c530e8d13f90c3133830d5524262397a7725cece484c966be108d6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0b7baa027539cc863eea7d7420ad6b7f71122a538d374cf637862b57e9beb3db"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 効果、課題、両立の順・3枠の文言・管理名の列挙で終えないが指示と一致、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "scope",
+          "inputSha256": "4531b72ff4b898ca07bda1e3b3fbb2ed2773b1e43c233a6e583a9c732b483e00",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『前半の条件とつなぐ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『前半で置いた担当範囲』 『前半で置いた制約』 『問題文の範囲で確かめる』。 図の下、下端の字幕の帯より上に『前半と後半を結ぶ』の全文を省かずに入れる。 この場面の説明（文字にしない）: 立場は、答案の前半で置いたものに合わせます。前半に書いていない課題を、後半で突然持ち出しても、つながりません。範囲は、問題文でも確かめます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-scope.2fa15423.png",
+              "sha256": "2fa15423d5a542fa98ed5e6af7ce7303a01a35cf4d2564ef513c1d69c8a99ac9"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/scope-diagram.51aca7f0.png",
+            "sha256": "51aca7f02abfc71207157e78275df914e0d8f957162cbe77480fcee702707c89",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2fa15423d5a542fa98ed5e6af7ce7303a01a35cf4d2564ef513c1d69c8a99ac9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 前半の条件とつなぐ・3枠の文言・前半と後半を結ぶが指示と一致、図の構成も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "avoid",
+          "inputSha256": "7ec525d82218c70176e5da04a1db65cd731bec82a695ce7ae38e968f21ba760c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『避けたい三つ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『管理名を並べて終える』 『効果だけを書く』 『形式を古い情報で決める』。 図の下、下端の字幕の帯より上に『形式は公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 避けたいのは三つです。管理名を並べるだけで終えること。効果だけを書いて、裏の負担を書かないこと。試験の形式や字数を、古い情報で決めつけること。形式や日程は、受検する年度の公式情報で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-avoid.e7060d54.png",
+              "sha256": "e7060d549f7ba104b9d62445fdf42d5f327e631d841abbea166241243479807b"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/avoid-diagram.1d5e2f87.png",
+            "sha256": "1d5e2f87f8042bff4d819954728cedf10830db5a8d5cf7720ba6864906f89801",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e7060d549f7ba104b9d62445fdf42d5f327e631d841abbea166241243479807b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 避けたい三つ・3枠の文言・形式は公式情報で確認が指示と一致、アイコン崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "c8bb220ec68e4da1900df24dbcc020ae46caf9119e343c8929d4b61f3bea0224",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『トレードオフのまとめ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『効く管理を一つ選ぶ』 『負担が出る管理を探す』 『両立の方向を一つ選ぶ』。 図の下、下端の字幕の帯より上に『本動画のまとめ』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめです。トレードオフは、効く管理、負担が出る管理、両立の方向の三つの問いで組み立てます。問題点は否定でなく管理課題として書き、前半の条件とつなぎます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 30.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-recap.24cf82ee.png",
+              "sha256": "24cf82eea8984b718f0c062bec68c6c8a0d3061a95521fbb61b9e91251c022f0"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/recap-diagram.bd3cb415.png",
+            "sha256": "bd3cb41596e2e19d6d6fac9f7fb3a4c3fd0e7f1fb383380542ee32947c6ffab7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "24cf82eea8984b718f0c062bec68c6c8a0d3061a95521fbb61b9e91251c022f0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: トレードオフのまとめ・3円の文言・本動画のまとめが指示と一致、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "2523159fb64d3d845d8bfac13dd49271a078bcfab964cafd3dcd731b55034120",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『型を確かめる』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『三層の型を押さえる』 『トレードオフを組み込む』 『教材案内は概要欄へ』。 この場面の説明（文字にしない）: 答案の型を、全体でまとめて確かめたい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 30.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-cta.ab3d12fb.png",
+              "sha256": "ab3d12fbf99aa02d045648ceb3322a67bf5be9ffec324f088b59e858394fbc85"
+            },
+            "generatedAt": "2026-11-11T02:27:38.670Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/cta-diagram.6cff9b60.png",
+            "sha256": "6cff9b6070fd2c5e6b66598ff235d5867d088b37de266b76a7905e683954af64",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ab3d12fbf99aa02d045648ceb3322a67bf5be9ffec324f088b59e858394fbc85"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:27:38.670Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 型を確かめる・三層の型を押さえる・トレードオフを組み込む・教材案内は概要欄へが指示と一致。価格とURLなし、ノート構図も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

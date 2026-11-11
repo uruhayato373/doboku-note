@@ -7,6 +7,8 @@
  * 改善候補＝改善候補の帯で表示がある検索語をページ単位に束ねたもの。実験の段階と前回の判定
  * （実験台帳の kind: search-strategy）・未着手の印を付ける（印は search-opportunities.mjs の candidateMarks）。取得はしない。
  *
+ * あわせて、上位なのにクリック率が極端に低い検索語（topLowCtr・閾値は config の topLowCtr）と、山を除いた平常値
+ * （baseline＝日別の集計の 1 日あたりクリックの中央値と直前の窓）を出す。
  * 読み手: 週次レビュー（--json の fileable の上位をその週に直して npm run search-improvement -- record・triage の要処置を 0 に）・月次レビュー（クラスター別の推移と experiments の判定）。
  *
  * 使い方:
@@ -37,6 +39,21 @@ if (process.argv.includes('--json')) {
   const d = (now, before) => (before == null || now == null ? '' : `（前 ${before}）`);
   console.log(`[report-search-opportunities] ${r.period.startDate}〜${r.period.endDate}（比較 ${r.previous ? `${r.previous.startDate}〜${r.previous.endDate}` : 'なし'}）/ クラスター ${r.clusters.length}`);
   const { top, striking } = r.bands;
+  if (r.baseline) {
+    const b = r.baseline;
+    const p = b.previous;
+    console.log(`平常値（1 日のクリックの中央値）: ${b.medianClicks}（${b.startDate}〜${b.endDate}・最大 ${b.maxClicks}）${p ? ` / 前の窓 ${p.medianClicks}（${p.startDate}〜${p.endDate}）` : ''}`);
+  }
+  if (r.topLowCtr.length) {
+    const t = r.config.topLowCtr;
+    console.log(`
+■ 上位なのにクリック率が低い検索語（${t.maxPosition}位以内・表示 ${t.minImpressions} 以上・CTR ${t.maxCtr * 100}% 以下）: ${r.topLowCtr.length} ページ`);
+    for (const p of r.topLowCtr.slice(0, 10)) {
+      console.log(`  - ${p.page}  表示 ${p.impressions}・クリック ${p.clicks}`);
+      for (const q of p.queries.slice(0, 3)) console.log(`      ${q.position}位 ${q.impressions}回 ${q.clicks}クリック  ${q.query}`);
+    }
+  }
+
   for (const c of r.clusters) {
     console.log(`\n■ ${c.label}: 検索語 ${c.queries} / 表示 ${c.impressions}${d(c.impressions, c.previous?.impressions)} / クリック ${c.clicks} / ${top} ${c.top10}${d(c.top10, c.previous?.top10)} / ${striking} ${c.striking} / 平均 ${c.avgPosition ?? '—'}位`);
     for (const p of c.candidates) {

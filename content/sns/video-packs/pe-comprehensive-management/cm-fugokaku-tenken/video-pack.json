@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "cm-fugokaku-tenken",
+  "exam": "pe-comprehensive-management",
+  "title": "総監｜落ちた原因を点検して学習を始め直す",
+  "audience": "総監の筆記または口頭で不合格となり、再受験の学習をどこから始め直すか決められない受験者",
+  "pain": "不合格の原因が分からないまま、同じ勉強を最初から繰り返してしまう",
+  "promise": "択一・記述・口頭の三つに切り分けて原因を点検し、落とした一点から始め直す手順が分かる",
+  "intent": "diagnosis",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-comprehensive-management/exam-passing-strategy/img/figure-score-balance.svg"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "essay-core-pack",
+    "campaign": "cm-fugokaku-tenken"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 2,
+      "narration": "工事概要は、具体的に。",
+      "caption": "工事概要は、具体的に。",
+      "visual": {
+        "kind": "cover",
+        "heading": "工事概要の書き方",
+        "items": [
+          "2級土木｜施工経験記述",
+          "具体さと、本文との整合"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 2,
+      "end": 10,
+      "narration": "工事概要は埋めたけれど、これで足りるのか不安ではありませんか。具体さと本文との合致で見直します。",
+      "caption": "工事概要は埋めたけれど、これで足りるのか不安ではありませんか。具体さと本文との合致で見直します。",
+      "visual": {
+        "kind": "points",
+        "heading": "工事概要は、埋めただけで終わらせない",
+        "items": [
+          "現場が特定できる具体さ",
+          "本文と食い違わない整合",
+          "事実で確かめられる記載"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "intro",
+      "start": 10,
+      "end": 20,
+      "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、概要の見直し方をお伝えします。",
+      "caption": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、概要の見直し方をお伝えします。",
+      "visual": {
+        "kind": "points",
+        "heading": "元発注者の目で、工事概要を見直す",
+        "items": [
+          "総合技術監理部門の技術士",
+          "1級・2級土木に合格",
+          "工事概要の見直し方を整理"
+        ]
+      },
+      "sourceRef": "src/config/author.ts"
+    },
+    {
+      "sceneId": "premise",
+      "start": 20,
+      "end": 31,
+      "narration": "概要は、長く書く欄ではありません。ここでは書き方の見直しに絞ります。記入項目は受検年度の問題で確認します。",
+      "caption": "概要は、長く書く欄ではありません。ここでは書き方の見直しに絞ります。記入項目は受検年度の問題で確認します。",
+      "visual": {
+        "kind": "points",
+        "heading": "長く書くより、特定できる書き方",
+        "items": [
+          "書き方の見直しに絞る",
+          "記入項目は年度の問題で確認",
+          "自分が担当した工事の事実だけ"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "name-client",
+      "start": 31,
+      "end": 43,
+      "narration": "工事名は、対象と場所と種類が分かるように。発注者名は、部門や事務所まで書きます。",
+      "caption": "工事名は、対象と場所と種類が分かるように。発注者名は、部門や事務所まで書きます。",
+      "visual": {
+        "kind": "compare",
+        "heading": "名前は、特定できるところまで",
+        "ngLabel": "足りない",
+        "okLabel": "具体的",
+        "rows": [
+          {
+            "label": "工事名",
+            "ng": "道路工事",
+            "ok": "市道〇〇号線 道路改良舗装工事"
+          },
+          {
+            "label": "発注者名",
+            "ng": "〇〇県",
+            "ok": "〇〇県〇〇土木事務所"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "place-role",
+      "start": 43,
+      "end": 55,
+      "narration": "工事場所は、町や丁目、地先まで書きます。立場は、会社の役職でなく、現場での立場を書きます。",
+      "caption": "工事場所は、町や丁目、地先まで書きます。立場は、会社の役職でなく、現場での立場を書きます。",
+      "visual": {
+        "kind": "compare",
+        "heading": "場所と立場も、現場に寄せる",
+        "ngLabel": "足りない",
+        "okLabel": "具体的",
+        "rows": [
+          {
+            "label": "工事場所",
+            "ng": "〇〇県〇〇市",
+            "ok": "〇〇県〇〇市〇〇町〇丁目地内"
+          },
+          {
+            "label": "立場",
+            "ng": "社員",
+            "ok": "実際の現場での立場"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "period-work",
+      "start": 55,
+      "end": 67,
+      "narration": "工期は年月日まで。工種は施工順に。施工量は工種に対応させ、単位を付けて書きます。",
+      "caption": "工期は年月日まで。工種は施工順に。施工量は工種に対応させ、単位を付けて書きます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "残る3欄は、数字と単位まで",
+        "sheetTitle": "工事概要を見直す6つの欄",
+        "rows": [
+          {
+            "label": "工期",
+            "value": "年月日まで正確に",
+            "state": "focus",
+            "order": 1
+          },
+          {
+            "label": "主な工種",
+            "value": "施工順に、具体的に",
+            "state": "todo",
+            "order": 2
+          },
+          {
+            "label": "施工量",
+            "value": "工種に対応、単位つき",
+            "state": "todo",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "match",
+      "start": 67,
+      "end": 79,
+      "narration": "本文で梅雨の品質管理を書くなら、工期はその季節を含めます。工種と施工量も、本文の作業と合わせます。",
+      "caption": "本文で梅雨の品質管理を書くなら、工期はその季節を含めます。工種と施工量も、本文の作業と合わせます。",
+      "visual": {
+        "kind": "points",
+        "heading": "概要と本文は、同じ現場の話にする",
+        "items": [
+          "季節は工期と合わせる",
+          "本文の作業は工種に挙げる",
+          "施工量は工種と対応させる"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 79,
+      "end": 91,
+      "narration": "仮の舗装修繕で見ます。工事名は路線と種類まで。工種と面積も書きます。数字は自分の事実で埋めます。",
+      "caption": "仮の舗装修繕で見ます。工事名は路線と種類まで。工種と面積も書きます。数字は自分の事実で埋めます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の例｜舗装修繕の概要",
+        "sheetTitle": "工事概要を見直す6つの欄",
+        "rows": [
+          {
+            "label": "工事名",
+            "value": "市道〇〇号線 舗装修繕工事",
+            "state": "ok",
+            "order": 1
+          },
+          {
+            "label": "主な工種",
+            "value": "アスファルト舗装工",
+            "state": "ok",
+            "order": 2
+          },
+          {
+            "label": "施工量",
+            "value": "舗装面積 〇〇m2（数字は自分の事実）",
+            "state": "focus",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "facts",
+      "start": 91,
+      "end": 103,
+      "narration": "思い出せない数字は、推測で埋めません。工事名は契約書や看板のとおりに。数量や日付は、資料で確かめます。",
+      "caption": "思い出せない数字は、推測で埋めません。工事名は契約書や看板のとおりに。数量や日付は、資料で確かめます。",
+      "visual": {
+        "kind": "points",
+        "heading": "迷ったら、記録で確かめる",
+        "items": [
+          "工事名は契約書・工事看板のとおり",
+          "日付や数量は資料で確認",
+          "思い出せない数字は推測で埋めない"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 103,
+      "end": 115,
+      "narration": "最後に、読み手が現場を特定できるか。立場は実際のものか。概要と本文に矛盾がないかを見直します。",
+      "caption": "最後に、読み手が現場を特定できるか。立場は実際のものか。概要と本文に矛盾がないかを見直します。",
+      "visual": {
+        "kind": "points",
+        "heading": "概要の見直し3点",
+        "items": [
+          "読み手が現場を特定できる",
+          "立場は実際の現場での立場",
+          "概要と本文に矛盾がない"
+        ],
+        "reveal": 3,
+        "focus": 2
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 115,
+      "end": 126,
+      "narration": "まとめです。工事概要は、特定できる具体さと、本文との整合で見直します。数字は自分の事実で確かめましょう。",
+      "caption": "まとめです。工事概要は、特定できる具体さと、本文との整合で見直します。数字は自分の事実で確かめましょう。",
+      "visual": {
+        "kind": "points",
+        "heading": "工事概要は、具体さと整合で見直す",
+        "items": [
+          "名前・場所・立場を具体的に",
+          "工期・工種・施工量を単位まで",
+          "本文と矛盾させない"
+        ],
+        "reveal": 3,
+        "focus": 1
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 126,
+      "end": 138,
+      "narration": "概要の次は本文です。安全・品質・工程の完成答案と置換ガイドで、型を確かめましょう。リンクは概要欄へ。",
+      "caption": "概要の次は本文です。安全・品質・工程の完成答案と置換ガイドで、型を確かめましょう。リンクは概要欄へ。",
+      "visual": {
+        "kind": "points",
+        "heading": "概要の次は、本文の型を確かめる",
+        "items": [
+          "2級土木 施工経験記述 完成答案集",
+          "安全・品質・工程の答案＋置換ガイド",
+          "概要欄のnoteマガジンへ"
+        ]
+      },
+      "sourceRef": "config/products.json"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

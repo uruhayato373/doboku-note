@@ -1,0 +1,475 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #168080 と濃色 #0F6262、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『コンクリ技士』『配合計算』『確認順で解く』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-cover.15d41427.png",
+          "sha256": "15d414275db22211ec333a232d964be86b0607c589d0a7335fd41c09dd941576"
+        },
+        "generatedAt": "2026-11-11T03:40:43.554Z"
+      },
+      "copy": {
+        "exam": "concrete-engineer",
+        "headline": [
+          "コンクリ技士",
+          "配合計算",
+          "確認順で解く"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/cover-pop.c6c61b83.png",
+        "sha256": "c6c61b83fdf1a6f687cfe5904793f1924c915f0cad744bc181b5191bc54c4419",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "15d414275db22211ec333a232d964be86b0607c589d0a7335fd41c09dd941576"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:40:43.554Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "『総監が制作』『コンクリ技士』『配合計算』『確認順で解く』が指示と1字ずつ一致し、先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指の破綻もない",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "3d2e335baaa1c9518ac8ff72765094e00d4c51eaf6e8063a7cf801a1b9f5a7f9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『ずれるのは式ではなく確認の抜け』。 図に入れる文字: 『百分率を小数に直し忘れる』 『単位や空気量をそろえ忘れる』 『受検年度の公式案内で形式を確認』。 この場面の説明（文字にしない）: 四肢択一の配合計算は、式を知っていても、百分率や単位でずれて選択肢と合わなくなります。2026年度の公式案内では、試験は四肢択一式で時間は2時間でした。問題数や日程は年度で変わるので、受検する年度の公式情報を確認してください。今日は仮の条件を一つ、確認順で通します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-premise.4c29b810.png",
+              "sha256": "4c29b81058f8b3cc89c812fcde708f2c030129310ce3f4917ac380f60b9004c2"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/premise-diagram.6108ecbe.png",
+            "sha256": "6108ecbe82c9ea0aaf154d2373ad6196cf0ee7a69c9049625eb87b61d378dde2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4c29b81058f8b3cc89c812fcde708f2c030129310ce3f4917ac380f60b9004c2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つの図内文字が指示どおりで誤字・余計な文字がなく、百分率・単位・公式案内の図も内容と合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "order",
+          "inputSha256": "d91910ffc47cc14350d8aa7daca9329c1a1401f196ee77423b62e681f4a61798",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『配合計算の確認順』。 図に入れる文字: 『基準』 『百分率』 『W/C』 『密度』 『空気量』 『表面水』 『容積』。 この場面の説明（文字にしない）: 確認順は七つです。一つ、基準は1立方メートルで、表乾か絶乾か。二つ、百分率を小数へ。三つ、水セメント比とセメント水比を逆にしない。四つ、質量を密度で割れば容積、容積に密度を掛ければ質量。五つ、空気量をリットルへ。六つ、表面水は骨材に足して、計量水から引く。七つ、容積の合計が1000リットルへ戻るか。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-order.f38596bb.png",
+              "sha256": "f38596bb95adb92427992e353a2aae4b4bc741dd5493ecabf457f55cab84e0c5"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/order-diagram.70848cb4.png",
+            "sha256": "70848cb4c304b2240b4a81f497c42d0cf03378a0636547dfcd835e6200f77912",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f38596bb95adb92427992e353a2aae4b4bc741dd5493ecabf457f55cab84e0c5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと七つの語(基準・百分率・W/C・密度・空気量・表面水・容積)が指示順に一致し、余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "conditions",
+          "inputSha256": "7cb301c433e0454fc7d24c6edfbe6a2bb646d3086647c73a48b9621b407c47c7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の条件（過去問ではありません）』。 この場面の説明（文字にしない）: 仮の条件を置きます。過去問の数値ではありません。単位水量170キログラム、単位セメント量340キログラムでセメントの密度は3.15。空気量4.5パーセント、粗骨材の絶対容積360リットル、細骨材の表乾密度2.60です。求めるのは、細骨材の表乾質量と細骨材率です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-conditions.56b7dfcc.png",
+              "sha256": "56b7dfcc0332be6977df00d4630f926f73ffb4e8b2271c590ee243bef55ee6e4"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/conditions-diagram.eca78ffa.png",
+            "sha256": "eca78ffa1b120af4c02f0306f8f2531432057c6cc14e629d8ab0ad8c3f165b11",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "56b7dfcc0332be6977df00d4630f926f73ffb4e8b2271c590ee243bef55ee6e4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『仮の条件（過去問ではありません）』が指示と一致し、図は材料から供試体への流れで余計な文字・数字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "wc",
+          "inputSha256": "bdbbcd3c50f36ddf21368e71aacde0470406d50383733261bb387fb4cb45ad26",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『水セメント比は水÷セメント』。 図に入れる文字: 『水÷セメント』 『0.50』 『逆にしない』。 この場面の説明（文字にしない）: まず水セメント比です。水を、セメントで割ります。170割る340で0.50、パーセントなら50。セメントを水で割ると2になってしまうので、分子と分母の順番を最初に確認します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-wc.8661b56c.png",
+              "sha256": "8661b56cdc34ce2f33cf723525a0f32bed4f3d5289a53ccf86e3cf0ee295bc13"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/wc-diagram.ec0bc3d0.png",
+            "sha256": "ec0bc3d087753791e8171fdef9765392744e7d71996cb0953f297216ec814899",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8661b56cdc34ce2f33cf723525a0f32bed4f3d5289a53ccf86e3cf0ee295bc13"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『水÷セメント』『0.50』『逆にしない』が指示と一致し、水が分子・セメントが分母の図で本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "volumes",
+          "inputSha256": "522709150ad246bc937dce41b8ffce62fd4eac4dfabbe69e8c30597416f0ae1f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『質量を密度で割って絶対容積に』。 この場面の説明（文字にしない）: 次に、材料を容積にそろえます。水は密度1.00なので170リットル。セメントは340を3.15で割って、約108リットル。空気は1000の4.5パーセントで45リットルです。質量を密度で割ると容積、という向きを間違えないでください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-volumes.d7bc3f7f.png",
+              "sha256": "d7bc3f7f1f737455bb231d7b54e31134e25823860731f63647c2f083ecedb08d"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/volumes-diagram.1be7bb48.png",
+            "sha256": "1be7bb482f579bfba778cf00463a2c1e1adf1411fa06f5ecbcef0a2b9169ffab",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d7bc3f7f1f737455bb231d7b54e31134e25823860731f63647c2f083ecedb08d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しが指示と一致し、質量÷密度から水・骨材・空気の容積へ向かう図で向きも本文どおり、余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "fine",
+          "inputSha256": "765699a2cdb0cbf331fc38dd0cb669057e9385f72a9a4459b52c59feb9ab672f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『残りが細骨材、質量と細骨材率へ』。 図に入れる文字: 『細骨材317L』 『824.2kg』 『s/a 約46.8%』。 この場面の説明（文字にしない）: 細骨材の絶対容積は、1000から、水、セメント、空気、粗骨材を引いた残りです。1000引く、170、108、45、360で、317リットル。表乾質量は、317に2.60を掛けて824.2キログラム。細骨材率は、317を、317と360の合計で割って、約46.8パーセントです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-fine.a9a5293f.png",
+              "sha256": "a9a5293ffbf3c1ed00372f633f85ed1a91c191a4952681c9b464f8fb2ad4a13c"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/fine-diagram.14f4cee0.png",
+            "sha256": "14f4cee05583ae3a168bcc45621b4051a2b5663d9cf4ce6567b65c123ed21ad0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a9a5293ffbf3c1ed00372f633f85ed1a91c191a4952681c9b464f8fb2ad4a13c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『細骨材317L』『824.2kg』『s/a 約46.8%』が指示と一致し、1000Lの内訳図も本文と整合する",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "surface",
+          "inputSha256": "7dcce08ee7155c965d7a3e4e20b3b3362ea769add8085f5c3bd25f298b2fd276",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『表面水は骨材へ足し、水から引く』。 図に入れる文字: 『骨材824kg』 『表面水24kg』 『水は24kg減らす』。 この場面の説明（文字にしない）: 別の例で、表面水の補正です。表乾の細骨材が800キログラム、表面水率が3.0パーセント。湿潤状態で量る質量は、800掛ける1.03で824キログラム。増えた24キログラムは表面水なので、示方配合の単位水量から24キログラムを引きます。骨材を増やしたら、必ず水を減らします。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-surface.11db1188.png",
+              "sha256": "11db118818ef3e14cf1e52051595a542b05603f0ca1c34a415e7acf57c32b775"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/surface-diagram.c0e6edd6.png",
+            "sha256": "c0e6edd6c5ade37f9fb02b7ce859b1a56bef0824ce38713ba502ed0280962f17",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "11db118818ef3e14cf1e52051595a542b05603f0ca1c34a415e7acf57c32b775"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『骨材824kg』『表面水24kg』『水は24kg減らす』と見出しが指示と一致し、骨材に足して水を減らす図で本文と合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "check",
+          "inputSha256": "151c09d4e65aa52659b99b6023f757dd65d23246336862ffffa906f8476f239d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『検算は各行を一つずつ』。 この場面の説明（文字にしない）: 最後の確認です。容積の合計が1000リットルへ戻るか見ますが、細骨材を残りで出した場合、合計は自動的に合います。だから合計だけでは安心できません。水の密度、セメントの割り算、空気量の換算、粗骨材の値を、一行ずつ見直します。選択肢とわずかに合わないときは、問題文の丸め方も確認します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-check.0925140c.png",
+              "sha256": "0925140c0e3ddd999be1a672c7eef0c93d907f46602776ffd6532064e0e12770"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/check-diagram.3ce78319.png",
+            "sha256": "3ce7831960b1d4ae028ca80d54b78b367ac94a25f8b3720556fd547806d9c883",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0925140c0e3ddd999be1a672c7eef0c93d907f46602776ffd6532064e0e12770"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『検算は各行を一つずつ』が指示と一致し、水・セメント・空気・粗骨材の各行チェック図で余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pitfalls",
+          "inputSha256": "7396d62482ffa49951e6d8eb351634f793ad3fd4f3de8feb5ffeace1baaca540",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『ずれの出どころは三つ』。 この場面の説明（文字にしない）: つまずきの型は三つです。一つ目、水セメント比を、セメント割る水で出してしまう。二つ目、空気量の4.5をそのまま引くなど、リットルへの換算を忘れる。三つ目、表面水で骨材だけ増やして、水を減らさない。どれも、確認順のどこかで止まります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-pitfalls.7fff01a6.png",
+              "sha256": "7fff01a6523d30ce9ec5de8f6a0f241808d1f94a7551f272512fa507536ccb25"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/pitfalls-diagram.46843303.png",
+            "sha256": "468433033bcb32cfce44f90d9c5f2912d769ba7b922466a04c1b4e7787b7e9de",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7fff01a6523d30ce9ec5de8f6a0f241808d1f94a7551f272512fa507536ccb25"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『ずれの出どころは三つ』が一致し、逆数・空気量換算漏れ・表面水補正漏れの三図が本文と整合する(見出し『の』付近に微小な汚れのみ)",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "c2ad5c5c47eb8f5a15cb9852de83dbd5284e4795939e8e4f450301f7d9b35bfb",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の3点』。 図に入れる文字: 『式より先に確認の順番を固定する』 『質量は密度で割って容積に、空気量もLへ』 『表面水は骨材に足し、水から引く』。 この場面の説明（文字にしない）: まとめです。一つ、式より先に、確認の順番を固定する。二つ、質量は密度で割って容積にそろえ、空気量もリットルへ。三つ、表面水は骨材に足して、水から引く。合計が合っても、各行を見直してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-summary.8669936e.png",
+              "sha256": "8669936e939c8441a941b23156195e6f4623cd723062a147fd41069e244afa4c"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/summary-diagram.12acb5af.png",
+            "sha256": "12acb5af058054f61ad524d3ed5c881c474ffd1a747c80e1a4aae083d4fb71e9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8669936e939c8441a941b23156195e6f4623cd723062a147fd41069e244afa4c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『今日の3点』と3つの文言が指示と1字ずつ一致し、図も本文の3点と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "988e020d9c2a16c9e6bd0a2dcb4b0ea1c7889d1d865115d377bfc0761f387206",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #168080 と濃色 #0F6262の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『配合計算を手で繰り返す』。 図に入れる文字: 『実戦演習12問（概要欄リンク）』 『途中式と全選択肢の解説つき』。 この場面の説明（文字にしない）: 同じ型の問題を、自分の手で繰り返してみてください。配合計算と品質のJIS判断を合わせた実戦演習12問は、途中式と全選択肢の解説つきです。概要欄からご覧ください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 67.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/factory/raw-cta.acacd329.png",
+              "sha256": "acacd329b85859582d1f11776d255d9cce83924bb49f0492e9cc1a0a7be62560"
+            },
+            "generatedAt": "2026-11-11T03:40:43.554Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/cta-diagram.88caaf13.png",
+            "sha256": "88caaf13fdf791e840f42cf745c538e5cc6044b133a985303fbbe86d31083ec8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "acacd329b85859582d1f11776d255d9cce83924bb49f0492e9cc1a0a7be62560"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:40:43.554Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・実戦演習12問（概要欄リンク）・途中式と全選択肢の解説つきが指示と一字一致し、崩れや余計な文字なし。図は書類と鉛筆の反復から冊子へ向かう構成で破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

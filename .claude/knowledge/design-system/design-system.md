@@ -161,7 +161,7 @@
 | `StandardsArticleHeader`（`standards/StandardsArticleHeader.tsx`） | `/standards` の章記事・節ページ用の記事内ヘッダー。編ラベル＋章名を見出しとし、機関名・版を13pxのメタ情報に併記する（原本のページ番号は出さない）。配列のmetaは項目の途中で折り返さない。文書名・構造説明・分冊内部名は反復しない。詳細な原本情報は末尾の出典欄に置き、逐語ページのみ閲覧方法の lead を許容する | `breadcrumb` / `label` / `title` / `lead?` / `meta?（文字列または文字列配列）` |
 | `StandardVerbatimTable`（`standards/StandardVerbatimTable.tsx`） | 章記事の逐語表を原文の空白・改行のまま表示する。背景`--paper`・文字`--ink-body`。横に続く表だけスクロール案内を表示し、キーボードでも読める | `pre`のprops |
 | `PageHeader`（`layout/PageHeader.tsx`） | 下層ページの breadcrumb + eyebrow label + h1 + lead + meta + actions | `variant`: `band`(全幅帯)/`inline`(帯なし)。`titleSize`: `default`/`lg`。`width`: `wide`(既定)/`860`/`780`/`760` |
-| `SectionBlock`（`layout/SectionBlock.tsx`） | セクション間余白・band 背景を統一 | — |
+| `SectionBlock`（`layout/SectionBlock.tsx`） | セクション間余白・band 背景を統一。幅 `wide` は `WIDE_CONTAINER`（左右の余白を内側の要素に付ける）、読み幅 `860/780/760` は余白を外側に付ける | — |
 | `SectionCard`（`ui/SectionCard/`） | カード（radius/border/shadow を token に統一・カード内カード回避） | — |
 | `ArticleHeader`（`ui/ArticleHeader/`） | docs 記事冒頭（breadcrumb + h1 + description リード + byline/meta） | — |
 | `CurriculumSections`（`category/CurriculumSections.tsx`） | カテゴリページの体系表示。試験ガイド・テキストを**カードでなく目次調リスト**で見せ、章立て・出題分野の体系を一目で伝える（`CurriculumSection` 枠 / `CurriculumList` 目次リスト / `CareerSection` 横スクロールカードレール）。編成は `src/config/category-curriculum.json`（SSOT）、解決は `src/lib/category-curriculum.ts`（resolver・silent drop 防止の `unassigned` 付き）、健全性は `check-category-curriculum`（pre-commit・`guide`/`careerFeatured`/`textbookChapters` に加え `keywordSection` の slug 実在・重複・列数一致も検査し、検査した slug 参照数を出力する＝検査 0 件の偽 PASS 防止）。過去問テーブル群（`CategorySections.tsx`）・キーワード節（`KeywordSections.tsx`）とは併存。テキスト章がある分野の**要点 guide は各章の入口**（config `textbookChapters[].introGuides`）に「要点」マーカーで内包し、分野別対策との重複を回避 | `CurriculumList`: `blocks`/`numbered`/`collapsible`（テキストは章を `<details>` アコーディオン。`collapsible` 章の summary は `[章番号(config `chapterNo`)] [章タイトル] [N記事] [右端 `DisclosureChevron`]` の 1 行＝畳めば体系一目・開いてドリルダウン。`block.intro` で章頭の要点。分冊見出しは章タイトルより一段控えめな 13px 太字＋区切り罫線）。`CareerSection`: `featured`/`rest`（注目→残りの順で 1 本の横スクロール `CardRail`（ui/CardRail・左右矢印付き）に統合＝二次セクションを全件縦積みせず畳む。カード幅 clamp(240,80%,288px) で常に次カードを覗かせ scroll-snap で吸着。レールは最大 `CAREER_RAIL_MAX`=10 枚で打ち切り、超過分は「その他のキャリア記事 N記事」の `<details>` 目次リストへ＝リンクは閉状態でも DOM に残りクロール/内部リンク維持。テールの発見は記事ページの RelatedArticles（career タグ共有で自動相互リンク）と検索が担う。全カテゴリ共通・career 記事が無い資格では非描画） |
@@ -215,7 +215,7 @@
 
 | 用途 | 基準 |
 |---|---|
-| Site shell（外枠） | `max-w-[1280px]` + `px-4 sm:px-6 lg:px-10` |
+| Site shell（外枠） | `max-w-[1280px]` + `px-4 sm:px-6 lg:px-10`（真実源 = `layout/container.ts` の `WIDE_CONTAINER`。最大幅と余白は同じ要素に付ける。手書きで分けると 1280px を超える幅で中身が左右 40px 広がる＝`npm run site-visual-review` の edge） |
 | Article shell（2カラム） | `max-w-[1280px]` + カラム間 `gap-10`(40px)。真実源 = `TwoColumnShell` |
 | Content rail（読み幅） | `max-w-[780px]`〜`860px`（PageShell `rail`） |
 | Sidebar | `316px`（`w-[316px]`＝300px バナー + 内側 padding 16px・`TwoColumnShell` 所有・≥993px でのみ表示） |

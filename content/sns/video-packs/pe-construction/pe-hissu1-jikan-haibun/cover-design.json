@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-pointing",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "必須I",
+        "2時間の",
+        "割り方"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/cover-pop.b9a03f61.png",
+        "sha256": "b9a03f61d229d5cc3438cf782bfe7e47ea28a1b3b9231a97bd88991a02770aa8",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "2997b3beb8efdf4792a838bf3cf42cf58eb1ac4119c2f645d9342a4bbcc610b7"
+      }
+    }
+  }
+}

@@ -45,15 +45,31 @@ const run = (label, phase, command) => agent(
   `次のコマンドを実行し、結果を返す。Bash は timeout 600000 で実行し、run_in_background は使わない。timeout で止まったら同じコマンドをもう一度実行する（生成済みは飛ばされる）。output の最後に、コマンドの最後の行（EXIT=数字）をそのまま書く。コマンドを変えない・他の操作をしない・git を使わない。\n( ${command} ); echo "EXIT=$?"`,
   { label, phase, schema: RUN, model: 'haiku', effort: 'low' })
   // 成否はモデルに判断させない（2026-11-05 に EXIT=0 を失敗と返した）
-  .then((r) => r && { ...r, ok: [...r.output.matchAll(/EXIT=(\d+)/g)].at(-1)?.[1] === '0' })
+  .then((r) => {
+    if (!r) return r
+    const code = [...r.output.matchAll(/EXIT=(\d+)/g)].at(-1)?.[1]
+    return { ...r, code: code === undefined ? null : Number(code), ok: code === '0' }
+  })
 
-const auditPrompt = (pack, round) => `動画 ${pack} の AI 生成画像を判定する。\`${CLI} audit-queue --pack ${pack}\` の項目を 1 枚ずつ Read で見て、定義の軸で判定する（文字の軸を必ず見る）。指示にある文字と 1 字ずつ照合する。作り直しはしない。判定できない画像は unjudged に入れて記録しない。
+// 生成は 1 回 8 分で区切る。exit 3 は時間切れで残りがあるので、同じコマンドを打ち直す（代理の Bash は 10 分で切れる・2026-11-11）
+async function generateAll(label, pack) {
+  for (let i = 0; i < 15; i++) {
+    const r = await run(`${label}#${i}`, 'Generate', `${CLI} generate --pack ${pack} --max-minutes 8`)
+    if (r?.code !== 3) return r
+  }
+  return { ok: false, output: '生成が 15 回の打ち直しで終わらない' }
+}
+
+const auditPrompt = (pack, round) => `動画 ${pack} の AI 生成画像を判定する。\`${CLI} audit-queue --pack ${pack}\` の項目を 1 枚ずつ Read で見て、定義の軸で判定する（文字の軸を必ず見る）。指示にある文字と 1 字ずつ照合する。作り直しはしない。判定できない画像は unjudged に入れて記録しない。audit-queue が空配列なら（判定待ちの画像が無い）、何も書かず記録もせず verdicts と unjudged を空で返す。
 判定は [{"figKey","verdict":"ok|fail","reason"}] の JSON を ${M}/.tmp/media/${pack}/work/factory/verdicts-${round}.json に書き、\`${CLI} record-audit --pack ${pack} --file <そのファイル> --by ai-image-fidelity-auditor\` で記録する（この記録は定義の範囲内の作業）。同じ判定を verdicts で返す。`
 
 async function produceImages({ pack, scope = 'all', rendered, from }) {
   if (rendered || from === 'review') return { ok: true }
   if (from !== 'audit') {
-    const start = await images(() => run(`plan:${pack}`, 'Generate', `${CLI} plan --pack ${pack} --scope ${scope} && ${CLI} generate --pack ${pack}`))
+    const start = await images(async () => {
+      const planned = await run(`plan:${pack}`, 'Generate', `${CLI} plan --pack ${pack} --scope ${scope}`)
+      return planned?.ok ? generateAll(`generate:${pack}`, pack) : planned
+    })
     if (!start?.ok) return { ok: false, reason: start?.output ?? '生成の段が失敗' }
   }
   for (let round = 0; round <= ROUNDS; round++) {
@@ -65,7 +81,7 @@ async function produceImages({ pack, scope = 'all', rendered, from }) {
     if (!fails.length) return { ok: true }
     log(`${pack}: 不合格 ${fails.length} 枚（${round + 1} 回目）`)
     if (round === ROUNDS) return { ok: false, reason: `作り直しの上限。残り: ${fails.map((f) => `${f.figKey}=${f.reason}`).join(' / ')}` }
-    const again = await images(() => run(`regen:${pack}#${round}`, 'Generate', `${CLI} generate --pack ${pack}`))
+    const again = await images(() => generateAll(`regen:${pack}#${round}`, pack))
     if (!again?.ok) return { ok: false, reason: again?.output ?? '作り直しが失敗' }
   }
   return { ok: false, reason: '監査が終わらない' }

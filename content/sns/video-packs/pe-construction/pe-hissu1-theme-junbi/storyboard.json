@@ -1,0 +1,291 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "必須Ⅰは、何から準備すればよいのでしょうか。",
+      "caption": "必須Ⅰ、何から準備する？",
+      "visual": {
+        "kind": "cover",
+        "heading": "必須Ⅰ、準備の順序",
+        "items": [
+          "技術士 建設部門・必須科目"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 25,
+      "narration": "過去問を並べても題が多く、どこから手を付けるか決められない。今日は技術士建設部門の必須科目Ⅰを、出題の仕組み、題の読み方、準備の順序の三つで整理します。",
+      "caption": "題が多く、手を付ける所が決まらない",
+      "visual": {
+        "kind": "points",
+        "heading": "今日整理する3つ",
+        "items": [
+          "出題の仕組み",
+          "題の読み方",
+          "準備の順序"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "必須科目対策／建設部門",
+          "note": "準備の順序はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "form",
+      "start": 25,
+      "end": 48,
+      "narration": "まず仕組みです。必須科目ⅠはⅠ-1とⅠ-2の二問から一問を選び、答案用紙3枚で解答します。形式は、受検年度の公式情報で必ず確認してください。",
+      "caption": "二問から一問を選び、3枚で解答",
+      "visual": {
+        "kind": "points",
+        "heading": "必須科目Ⅰの形式",
+        "items": [
+          "Ⅰ-1・Ⅰ-2から1問を選ぶ",
+          "答案用紙3枚",
+          "形式は受検年度の公式情報で確認"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "令和8年度までの公式問題文に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "years",
+      "start": 48,
+      "end": 80,
+      "narration": "年度ごとに題は変わります。令和1年度は人口減少と防災、令和4年度はDXとカーボンニュートラル、令和6年度は国土形成計画と大規模災害、令和8年度は新技術・DXとグリーンインフラでした。",
+      "caption": "年度ごとに題は変わる",
+      "visual": {
+        "kind": "points",
+        "heading": "題の例（各年度2問のうち）",
+        "items": [
+          "R01　人口減少・働き手不足／防災・減災",
+          "R04　技術革新・DX／カーボンニュートラル",
+          "R06　国土形成計画／大規模災害",
+          "R08　新技術・DX／グリーンインフラ"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "必須科目対策／建設部門",
+          "note": "題名はdoboku-noteによる要約。問題文は公式PDFで確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "groups",
+      "start": 80,
+      "end": 116,
+      "narration": "それでも、題に関する知識は六つの入口から集められます。社会資本整備、維持管理・更新、防災・減災、担い手とDX、国土・地域、脱炭素・環境です。この分け方は、サイトの整理です。",
+      "caption": "知識は六つの入口で集める",
+      "visual": {
+        "kind": "points",
+        "heading": "六つの知識群",
+        "items": [
+          "社会資本整備",
+          "維持管理・更新",
+          "防災・減災",
+          "担い手・DX",
+          "国土・地域",
+          "脱炭素・環境"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "必須科目対策／建設部門",
+          "note": "六つの知識群はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "read",
+      "start": 116,
+      "end": 152,
+      "narration": "ただし、題の名前だけでは足りません。令和8年度のⅠ-1は、課題より先に観点を示すことが、設問の注記で指定されていました。小問の(3)も、Ⅰ-1は解決策を実行しても生じる懸念、Ⅰ-2は解決策に関連する将来の懸念で、問いが違います。",
+      "caption": "題名より、問いの条件を読む",
+      "visual": {
+        "kind": "compare",
+        "heading": "令和8年度の小問(3)",
+        "ngLabel": "Ⅰ-1",
+        "okLabel": "Ⅰ-2",
+        "rows": [
+          {
+            "label": "題",
+            "ng": "新技術・DXによるインフラの価値向上",
+            "ok": "グリーンインフラを活かす社会づくり"
+          },
+          {
+            "label": "小問(3)",
+            "ng": "解決策を実行しても生じる懸念",
+            "ok": "解決策に関連する将来の懸念"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "必須科目対策／建設部門",
+          "note": "令和8年度の公式問題文と出題テーマ分析に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "order",
+      "start": 152,
+      "end": 184,
+      "narration": "ここから準備の順序です。これはこの動画の整理で、公式の手順ではありません。問題文を読む、題を六つの群へ振る、群ごとにノートを作る、群の関係を確かめる、答案に書く、の五つです。",
+      "caption": "準備の順序は五つ",
+      "visual": {
+        "kind": "points",
+        "heading": "準備の順序",
+        "items": [
+          "1　問題文の条件を読む",
+          "2　題を六つの群へ振る",
+          "3　群ごとにノートを作る",
+          "4　群の関係を確かめる",
+          "5　答案に書く"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "必須科目対策／建設部門",
+          "note": "順序はdoboku-noteの整理。公式の手順ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "step12",
+      "start": 184,
+      "end": 216,
+      "narration": "最初の二つです。実際の要求を確かめる基準は、想定問題ではなく、年度別の問題文です。対象、数量、除外条件を読み取ります。次に、過去問の題を六つの群へ振り分け、どの群が何度出ているかを見ます。",
+      "caption": "まず問題文、次に群へ振る",
+      "visual": {
+        "kind": "points",
+        "heading": "1と2",
+        "items": [
+          "問題文から対象・数量・除外条件を読む",
+          "過去問の題を六つの群へ振る",
+          "想定問題ではなく公式の問題文が基準"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "要求の確かめ方は出題テーマ分析の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 216,
+      "end": 244,
+      "narration": "三つ目は、群ごとのキーワードノートです。背景と課題、解決策、効果と懸念の順に文章にしておくと、答案にそのまま使える形になります。",
+      "caption": "群ごとに、文章でノートを作る",
+      "visual": {
+        "kind": "points",
+        "heading": "ノートの順",
+        "items": [
+          "背景・課題",
+          "解決策",
+          "効果と懸念"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "必須科目対策／建設部門",
+          "note": "ノートの順は出題テーマ分析の学習の進め方"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 244,
+      "end": 274,
+      "narration": "四つ目は、群の関係です。一つの群だけで答案を閉じません。維持管理とDX、防災と地域づくりのように、群の間のつながりを確かめます。たとえば解決策にDXを使えば、維持管理の担い手の話とつながります。",
+      "caption": "一つの群で答案を閉じない",
+      "visual": {
+        "kind": "compare",
+        "heading": "群の使い方",
+        "ngLabel": "一つの群で閉じる",
+        "okLabel": "群の関係まで見る",
+        "rows": [
+          {
+            "label": "例",
+            "ng": "維持管理だけを書く",
+            "ok": "維持管理とDXをつなぐ"
+          },
+          {
+            "label": "例",
+            "ng": "防災だけを書く",
+            "ok": "防災と地域づくりをつなぐ"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "必須科目対策／建設部門",
+          "note": "群の関係の確かめ方は出題テーマ分析の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 274,
+      "end": 298,
+      "narration": "まとめます。仕組みを確かめ、題を六つの群へ振り、問題文の条件を読み、群ごとにノートを作って、関係を確かめる。この順序は、この動画の整理です。年度の形式は、公式情報で確認してください。",
+      "caption": "準備は、読む・振る・つなぐ",
+      "visual": {
+        "kind": "points",
+        "heading": "準備の順序",
+        "items": [
+          "問題文の条件を読む",
+          "題を六つの群へ振る",
+          "ノートで群をつなぐ"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "必須科目対策／建設部門",
+          "note": "本動画の独自の整理。形式は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 298,
+      "end": 324,
+      "narration": "次は、実際の答案での練習です。必須科目Ⅰの模範解答集が、noteにあります。この動画は準備の順序までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "準備の次は、答案で練習",
+      "visual": {
+        "kind": "points",
+        "heading": "準備の次は、練習",
+        "items": [
+          "必須科目Ⅰ 模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "必須科目対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/required-exam-themes/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

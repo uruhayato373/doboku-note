@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "総監 記述",
+        "白書の",
+        "読む深さ"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/cover-pop.764dce43.png",
+        "sha256": "764dce43a34d1924b6c2899fa06dbaad908b1dda425120b2520a01e2f5a7c8cb",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "3aa64a8f8c34b61e9203c7d284a7c36d46a557ad0c7d70c1f3a86ce649518fdf"
+      }
+    }
+  }
+}

@@ -440,6 +440,512 @@
         "expected": 1440,
         "heard": 1396
       }
+    },
+    "civil-construction-1/owner-eye-kantokuin/youtube.longform": {
+      "videoSha256": "172f5462ff3101988665b4f5b49e83ff916e6cef74d59ebb002d8258dc690d9a",
+      "at": "2026-11-11T00:40:56.140Z",
+      "similarity": 0.963,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1977,
+        "heard": 1883
+      }
+    },
+    "civil-construction-1/owner-career-shigoto/youtube.longform": {
+      "videoSha256": "c546d698e4247ff1b5f137989639b572e29e0d2962b682e4228a503c0c9cc90d",
+      "at": "2026-11-11T01:40:13.086Z",
+      "similarity": 0.983,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1259,
+        "heard": 1197
+      }
+    },
+    "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform": {
+      "videoSha256": "5dff073b02ca6ef218f4ca8b68e434e5eccff6d0a9eb08e51248f8c0299c744a",
+      "at": "2026-11-11T01:40:44.876Z",
+      "similarity": 0.954,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1098,
+        "heard": 1062
+      }
+    },
+    "pe-construction/pe-gyoumu-shousai-720/youtube.longform": {
+      "videoSha256": "95e6ea19b90290653704b7e260f87c43889be94364f4e16b0cba5bf4eb6172db",
+      "at": "2026-11-11T01:41:15.728Z",
+      "similarity": 0.964,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1133,
+        "heard": 1091
+      }
+    },
+    "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform": {
+      "videoSha256": "4b86e9aa9baab7545ace5e439da0e5ce0b71a0316c9ac61953d709a1a28a3409",
+      "at": "2026-11-11T01:41:55.600Z",
+      "similarity": 0.968,
+      "maxVolumeDb": -1.2,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1888,
+        "heard": 1843
+      }
+    },
+    "pe-construction/pe-ii1-kakikata/youtube.longform": {
+      "videoSha256": "d4090b1bc2ee848dc721c153754952613826bfa8a9e22486349e59bdd2ab8c5f",
+      "at": "2026-11-11T01:42:27.190Z",
+      "similarity": 0.961,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1185,
+        "heard": 1138
+      }
+    },
+    "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform": {
+      "videoSha256": "62ebb85a5019f07743efadb9f8f93cdd564aaa654476f33a04debae0eb5d65a9",
+      "at": "2026-11-11T01:43:05.889Z",
+      "similarity": 0.945,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1793,
+        "heard": 1740
+      }
+    },
+    "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform": {
+      "videoSha256": "59280ab34240adf58251d31dbd96f6f5e405adff4442a76ba1163bfec961478e",
+      "at": "2026-11-11T01:43:36.375Z",
+      "similarity": 0.968,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1014,
+        "heard": 1021
+      }
+    },
+    "pe-construction/pe-iii-kakikata/youtube.longform": {
+      "videoSha256": "21135184cd6c56cd0f9c83a9be171508c6e2c0b6f5bc8126c29c7cdf94a61481",
+      "at": "2026-11-11T01:44:08.641Z",
+      "similarity": 0.965,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1259,
+        "heard": 1207
+      }
+    },
+    "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform": {
+      "videoSha256": "42f9ee9b73e4e10fa7bead4b04a4151eb925e4d6d6e37f42949ae673f512d49a",
+      "at": "2026-11-11T01:44:36.754Z",
+      "similarity": 0.959,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 994,
+        "heard": 949
+      }
+    },
+    "pe-construction/pe-ii2-kakikata/youtube.longform": {
+      "videoSha256": "8deb3264b509516a0ebd115e38cd56b52d41754a1593406bab06ee102c66a838",
+      "at": "2026-11-11T01:45:08.870Z",
+      "similarity": 0.957,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1274,
+        "heard": 1202
+      }
+    },
+    "pe-construction/pe-road-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "368f762cf33f0e4efbc339aca761737fcebc814d6fb7a646ac5ca3a89675d0f3",
+      "at": "2026-11-11T04:01:12.862Z",
+      "similarity": 0.933,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1244,
+        "heard": 1181
+      }
+    },
+    "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "6f839216bb92452599e5f64a29efa106ccfcda2ee56d977bb5ef4369692fc65b",
+      "at": "2026-11-11T04:01:44.504Z",
+      "similarity": 0.943,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1245,
+        "heard": 1167
+      }
+    },
+    "civil-construction-1/civil-license-ladder-order/youtube.longform": {
+      "videoSha256": "d1a0ffa236ecfe499d6accf44c3b3c84a94285815bd093dd5a1721690b39cbaf",
+      "at": "2026-11-11T02:45:10.624Z",
+      "similarity": 0.967,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1467,
+        "heard": 1401
+      }
+    },
+    "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform": {
+      "videoSha256": "8610b4704e6f35a69627a74288773ebcc9f18a7d2a35a168dcd77e83ea3016cc",
+      "at": "2026-11-11T02:45:40.516Z",
+      "similarity": 0.958,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1009,
+        "heard": 986
+      }
+    },
+    "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "a2a40912d1036e9096348b6dc51063b09582dc6be03ec05e697b7b23b1e9c6c5",
+      "at": "2026-11-11T02:46:11.656Z",
+      "similarity": 0.953,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1419,
+        "heard": 1340
+      }
+    },
+    "pe-construction/pe-hissu1-theme-junbi/youtube.longform": {
+      "videoSha256": "d51f44fa691ae514695a2e36c4f39d9079a814b5bb24c8549cf814bc6dbae55d",
+      "at": "2026-11-11T02:46:40.150Z",
+      "similarity": 0.981,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 987,
+        "heard": 1020
+      }
+    },
+    "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform": {
+      "videoSha256": "45315eb2509472261c5c518b9b418e44955c1556e02919eb7fe83ec0f3c310b6",
+      "at": "2026-11-11T02:47:18.065Z",
+      "similarity": 0.958,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1208,
+        "heard": 1162
+      }
+    },
+    "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "2c03250f5c9288cff2584c7ed5132a5494a98399eb1646dc091af4c5347582e1",
+      "at": "2026-11-11T02:47:50.255Z",
+      "similarity": 0.952,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1339,
+        "heard": 1261
+      }
+    },
+    "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform": {
+      "videoSha256": "c713daf1a060d0819257dccb92920caf2a3acadadf1039f38c21580713b7ef54",
+      "at": "2026-11-11T02:48:16.555Z",
+      "similarity": 0.976,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1050,
+        "heard": 995
+      }
+    },
+    "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform": {
+      "videoSha256": "6140a14d28670bd29b0ae2f882e6e86a2bc2e8cdbd5c1731de78c3c9f4772eb1",
+      "at": "2026-11-11T03:59:43.058Z",
+      "similarity": 0.979,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1029,
+        "heard": 1003
+      }
+    },
+    "civil-construction-1/owner-career-before-moving/youtube.longform": {
+      "videoSha256": "7ed85fd9f4f7d12f9b316f4bf000438df2ac6235f396a5f4fab4f619d654965b",
+      "at": "2026-11-11T03:59:16.459Z",
+      "similarity": 0.98,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1251,
+        "heard": 1201
+      }
+    },
+    "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform": {
+      "videoSha256": "1d65885c58a86715d34e84b8995e73ed9b0cb156857d4142f78d7fe513459add",
+      "at": "2026-11-11T04:03:20.475Z",
+      "similarity": 0.974,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1160,
+        "heard": 1105
+      }
+    },
+    "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "8520fd55e5c81c8ab8da5344f8be876c3ce99c39922da434be9e8b70264ab4eb",
+      "at": "2026-11-11T04:00:14.088Z",
+      "similarity": 0.947,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1323,
+        "heard": 1278
+      }
+    },
+    "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform": {
+      "videoSha256": "b89399f2cfb8d9e6f7d985bc92733bbb38e04e6beb0d342a63e758058e9a5ab7",
+      "at": "2026-11-11T04:00:42.841Z",
+      "similarity": 0.968,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1173,
+        "heard": 1121
+      }
+    },
+    "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform": {
+      "videoSha256": "f7e7533cae4a3b863069f8996f2b7954527517ba885ddba569fd9feb7eb3927b",
+      "at": "2026-11-11T04:02:50.601Z",
+      "similarity": 0.956,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1442,
+        "heard": 1381
+      }
+    },
+    "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform": {
+      "videoSha256": "8dbdca9a16f49eb03952e11cb9b2694397a85bbe6b0bae387b948b069922fa65",
+      "at": "2026-11-11T04:07:16.791Z",
+      "similarity": 0.975,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1109,
+        "heard": 1073
+      }
+    },
+    "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "83f5bdfe4f7d7df7962ddaf38b984077970016c2fb55c31d85d7a2b09904fbbb",
+      "at": "2026-11-11T04:02:16.378Z",
+      "similarity": 0.954,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1318,
+        "heard": 1243
+      }
+    },
+    "pe-construction/pe-hissu1-jikan-haibun/youtube.longform": {
+      "videoSha256": "aea9b0a3480d94b72735b70129f1bde2576b7fb01d948a4f0440e293cf5c8f56",
+      "at": "2026-11-11T04:04:09.676Z",
+      "similarity": 0.958,
+      "maxVolumeDb": -1.3,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1029,
+        "heard": 962
+      }
+    },
+    "civil-construction-1/c1-after-ichiji-niji-junbi/youtube.longform": {
+      "videoSha256": "9d5633de2b3c1c911f6ce827db9e564261bebfe4540492f6fecaee7746ac0e4f",
+      "at": "2026-11-11T04:13:57.359Z",
+      "similarity": 0.971,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1485,
+        "heard": 1427
+      }
+    },
+    "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform": {
+      "videoSha256": "de384fda73c0833cecb8992cd05ccbeef6ab91a4558af0c06b7285628fc231c7",
+      "at": "2026-11-11T04:14:35.462Z",
+      "similarity": 0.935,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1682,
+        "heard": 1597
+      }
+    },
+    "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform": {
+      "videoSha256": "7f262189c7e76fb55f07f87dc96c821aeb0a95dd72c28fe8cdb64bb0aadbd472",
+      "at": "2026-11-11T04:05:05.519Z",
+      "similarity": 0.963,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1454,
+        "heard": 1410
+      }
+    },
+    "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform": {
+      "videoSha256": "9c2ca6950134ee7ebae693ae673683727ddba25dfd328034d4d650c00f50b186",
+      "at": "2026-11-11T04:08:30.567Z",
+      "similarity": 0.905,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1349,
+        "heard": 1266
+      }
+    },
+    "civil-construction-1/c1-keiken-anzen-kakikata/youtube.longform": {
+      "videoSha256": "45308153612e5a97447a50a16935e7d841f8dd7516a3bbcef92ccd1491cf83c0",
+      "at": "2026-11-11T04:05:41.980Z",
+      "similarity": 0.973,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1837,
+        "heard": 1756
+      }
+    },
+    "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.longform": {
+      "videoSha256": "312dc3b0ed124afcd2e451369262899bcff33dc1d5e18268e898241c10769c8f",
+      "at": "2026-11-11T04:06:18.760Z",
+      "similarity": 0.951,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1873,
+        "heard": 1758
+      }
+    },
+    "civil-construction-1/c1-next-license-after-first/youtube.longform": {
+      "videoSha256": "07b0e18c18012395509bad593f3159f1c52cd2e6fd4e69ba83b8e6e2a3284e79",
+      "at": "2026-11-11T04:06:49.668Z",
+      "similarity": 0.964,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1359,
+        "heard": 1321
+      }
+    },
+    "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform": {
+      "videoSha256": "16ea3c1d22a932a24e300543a6ea0f4a65e80e2c6ec5035d2784c4b2744f06b1",
+      "at": "2026-11-11T04:08:59.936Z",
+      "similarity": 0.97,
+      "maxVolumeDb": -1.3,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1260,
+        "heard": 1211
+      }
+    },
+    "civil-construction-2/keiken-anzen-kakikata/youtube.longform": {
+      "videoSha256": "8b3f70b88f5d4fbe3234a27c38b5056197459e645d16d7228ca4107722c6249f",
+      "at": "2026-11-11T04:07:38.408Z",
+      "similarity": 0.957,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 684,
+        "heard": 654
+      }
+    },
+    "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform": {
+      "videoSha256": "17a1e018dd2a624642579f62a4e4b396d84cdce853727f40b70486afee17283a",
+      "at": "2026-11-11T04:07:59.602Z",
+      "similarity": 0.954,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 636,
+        "heard": 608
+      }
+    },
+    "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform": {
+      "videoSha256": "b118b405e7340b7924ea05f27dfb4d1543d7bd71fc4bc355d61ad62c5436d212",
+      "at": "2026-11-11T04:09:22.266Z",
+      "similarity": 0.928,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 693,
+        "heard": 659
+      }
+    },
+    "rccm/rccm-mondai1-keiken-kakikata/youtube.longform": {
+      "videoSha256": "4ae6bcda04c69fb45308c11fb81b657ad0dac253a2d354ec3305a529127c2a96",
+      "at": "2026-11-11T04:23:07.045Z",
+      "similarity": 0.959,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1362,
+        "heard": 1319
+      }
+    },
+    "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform": {
+      "videoSha256": "c147d4f1019044444eaae96475ec6acc44c1579be478095b5237d127bd710db4",
+      "at": "2026-11-11T04:23:38.662Z",
+      "similarity": 0.937,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1254,
+        "heard": 1206
+      }
+    },
+    "rccm/rccm-mondai3-ronbun-kata/youtube.longform": {
+      "videoSha256": "a21eb6bf555f60dc27d9af07636050983e4e4c33f51d1e9d7d3421c8572ecefc",
+      "at": "2026-11-11T04:24:10.383Z",
+      "similarity": 0.964,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1537,
+        "heard": 1466
+      }
+    },
+    "pe-construction/pe-hissu1-risk-kakunin/youtube.longform": {
+      "videoSha256": "17c5224beaeb024e9f46b7f66fc1ab52df6c643688afbbb580af11400fd894d8",
+      "at": "2026-11-11T04:24:41.562Z",
+      "similarity": 0.951,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1391,
+        "heard": 1348
+      }
+    },
+    "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform": {
+      "videoSha256": "a0a870915c4054ec99e8e513614bf55ee9ed3d0c32bf79a85e4fc7efcaf1f989",
+      "at": "2026-11-11T04:25:09.242Z",
+      "similarity": 0.977,
+      "maxVolumeDb": -1.3,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 930,
+        "heard": 920
+      }
+    },
+    "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform": {
+      "videoSha256": "caa610adcfb88ecdd4a7f556b94e5848bfe71cb1a142243c5ca5031b61de5cf0",
+      "at": "2026-11-11T04:25:31.579Z",
+      "similarity": 0.955,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 593,
+        "heard": 561
+      }
     }
   }
 }

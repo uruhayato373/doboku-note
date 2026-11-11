@@ -318,6 +318,41 @@ export const ConfigAffiliatePlacements = z
   })
   .meta({ title: '転職アフィリエイトの配置ルール' });
 
+/** 画面の点検（scripts/site-visual-review.mjs）が撮るページと画面幅（config/site-visual-review.json） */
+const SiteVisualExpect = z.object({ note: z.boolean().optional(), affiliate: z.boolean().optional(), coconala: z.boolean().optional() }).strict();
+export const ConfigSiteVisualReview = z
+  .object({
+    schemaVersion: z.literal(1),
+    $comment: note,
+    /** 撮影の横幅の上限（px）。超える撮影は縮めて目視に渡す */
+    shotMaxWidth: z.number().int().min(320).max(3840).optional(),
+    viewports: z
+      .array(z.object({ id: z.string().regex(/^w\d+$/), width: z.number().int().min(320).max(3840), height: z.number().int().min(480).max(2160), label: text, visual: z.boolean().optional() }).strict())
+      .min(1)
+      .refine((list) => list.some((v) => v.visual), '目視に回す幅（visual: true）が 1 つも無い')
+      .superRefine(uniqueBy('id', '画面幅の id'))
+      .superRefine(uniqueBy('width', '画面幅')),
+    targets: z
+      .array(
+        z
+          .object({
+            key: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
+            label: text,
+            pageType: text,
+            path: z.string().regex(/^\//),
+            expect: SiteVisualExpect.optional(),
+            /** 機械の検査のうち、このページでは意図どおりなので不合格にしない種類（理由は $comment か台帳の起票に残す） */
+            ignore: z.array(z.enum(['edge', 'overflow', 'image', 'cta-clip', 'cta-missing'])).optional(),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy('key', 'ページの key'))
+      .superRefine(uniqueBy('path', 'ページの path')),
+  })
+  .strict()
+  .meta({ title: '画面の点検の対象ページと画面幅' });
+
 /** A8 の広告リンク（mat）の許可リスト（config/affiliate-mats.json）。check-affiliate-mats が src・content の a8mat= をここと突き合わせる */
 export const ConfigAffiliateMats = z
   .object({
@@ -424,6 +459,14 @@ export const ConfigSearchStrategy = z
       .superRefine((s, ctx) => {
         if (s.minPosition >= s.maxPosition) flag(ctx, ['minPosition'], 'minPosition は maxPosition より小さい');
       }),
+    topLowCtr: z
+      .object({
+        maxPosition: z.number().min(1).describe('上位とみなす順位（この順位以内）'),
+        minImpressions: posInt.describe('この表示回数以上の検索語だけを見る'),
+        maxCtr: z.number().min(0).max(1).describe('クリック率がこれ以下なら出す（AI による概要などで答えが検索結果の中で済んでいる疑い）'),
+      })
+      .strict()
+      .describe('上位なのにクリック率が極端に低い検索語（週次レビューが読む。report-search-opportunities の topLowCtr）'),
     cycle: z
       .object({
         improvePerWeek: posInt.describe('週次レビューが 1 週に直して記録する改善の件数（直せる候補がこれより少なければその数）。週次の完了条件 triage --check --weekly が数える'),

@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監 記述』『白書の』『読む深さ』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-cover.34a545f6.png",
+          "sha256": "34a545f6625640e98a48b1946fdf92a14e8f329333534a0aaac6c1c658ab5336"
+        },
+        "generatedAt": "2026-11-11T01:25:55.619Z"
+      },
+      "copy": {
+        "exam": "pe-comprehensive-management",
+        "headline": [
+          "総監 記述",
+          "白書の",
+          "読む深さ"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/cover-pop.764dce43.png",
+        "sha256": "764dce43a34d1924b6c2899fa06dbaad908b1dda425120b2520a01e2f5a7c8cb",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "34a545f6625640e98a48b1946fdf92a14e8f329333534a0aaac6c1c658ab5336"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T01:25:55.619Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『総監 記述』『白書の』『読む深さ』が指示と一字一致。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺の作業服とネクタイ・反射帯で、手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "96c2720bd8e89a968bdcc417cc92104f25f30e522b6d5d9ab2a2efbcfc2b7f95",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『三段階で読み、三点で残す』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『深さを三段階に分ける』 『読んだ後は三点で残す』 『全冊を同じ深さで読まない』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 白書は何冊もあり、どこまで読めばよいか迷う。この動画では、白書ごとに読む深さを三段階に分け、読んだ後に残すメモの形まで紹介します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 25.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-hook.98b8c7e3.png",
+              "sha256": "98b8c7e319ab8b8cd24c69175fc89a93e74bad73a841e2e935bfb39485e06a72"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/hook-diagram.68d8f1bf.png",
+            "sha256": "68d8f1bfa2cf43b2e86e73d92d8e5f48ed51be35c87da193ad8158821b314e6f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "98b8c7e319ab8b8cd24c69175fc89a93e74bad73a841e2e935bfb39485e06a72"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三枠の文字・下の『本動画の独自の整理』が指示と一字一致。図の破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "9ee0283422e61df4efbe1f7d5c8b3442a018de8f8efabca933185e49a325718b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『同じ深さで読まない』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『全冊を通読 時間が足りなくなる』 『全冊を概要だけ 答案の根拠が薄くなる』。 図の下、下端の字幕の帯より上に『深さは白書ごとに変える』の全文を省かずに入れる。 この場面の説明（文字にしない）: 誤解しやすいのは、全部を同じ深さで読むことです。全冊を通読すれば時間が尽きます。全冊を概要だけで済ませると、答案の根拠が薄くなります。深さは、白書ごとに変えます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-misread.b8af9649.png",
+              "sha256": "b8af964960b09fbd65fd09621963df40f59363171b44eabea24923ed1a32a5a3"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/misread-diagram.c19a423c.png",
+            "sha256": "c19a423c5d45a2db1ced7f2aa0fb0da2fbd50f20ff1f97919a0ba8f1d662613f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b8af964960b09fbd65fd09621963df40f59363171b44eabea24923ed1a32a5a3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・左右枠の文字・『深さは白書ごとに変える』が指示と一字一致。右枠強調の構図で破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "levels",
+          "inputSha256": "1a148e472f2f3dc00ff4a730b94503774f11d6282808c8be7484740598ed91e4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読む深さは三段階』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『深さ1 通読する』 『深さ2 概要版と特集を読む』 『深さ3 主題を一文でつかむ』。 図の下、下端の字幕の帯より上に『深さ3は本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 読む深さは三段階です。深さ1は通読。深さ2は概要版と特集。深さ3は、その白書の主題を一文でつかむだけ。この三つを、白書ごとに割り振ります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 21.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-levels.32e4d69c.png",
+              "sha256": "32e4d69c47ebf65e4e6fc36044a4a3cda6e55ae83fc8e416f65ebb839d537e8c"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/levels-diagram.a0faab2d.png",
+            "sha256": "a0faab2d0a8257ac9b79322a6c0c02666fe0fd44177830cbcd7e744662bb37f6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "32e4d69c47ebf65e4e6fc36044a4a3cda6e55ae83fc8e416f65ebb839d537e8c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・深さ1〜3の文字・『深さ3は本動画の独自の整理』が指示と一字一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "level1",
+          "inputSha256": "3fede15418bb408f0564452d59ac8903ab98715b5ef15e522a9180fe638b3ecd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『深さ1：通読』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『対象 自分の業務領域に近い白書』 『読む範囲 本文を通して読む』 『狙い 現場の言葉で語れる根拠』。 図の下、下端の字幕の帯より上に『サイト記事の運用を整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 深さ1は通読です。対象は、自分の業務領域に近い白書だけです。ここは答案で、自分の言葉で語る場面が多くなります。本文を通して読む価値があります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-level1.e8f46ac4.png",
+              "sha256": "e8f46ac40f79b2e338f83533df9d5da93ec754309102ee03ac6a170db58fa8ca"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/level1-diagram.7982b509.png",
+            "sha256": "7982b509f8b6a5f363971a62970ea6d2bbdf51f14e1200c0bd579f1172137ee1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e8f46ac40f79b2e338f83533df9d5da93ec754309102ee03ac6a170db58fa8ca"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・対象/読む範囲/狙いの文字・『サイト記事の運用を整理』が指示と一字一致。余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "level2",
+          "inputSha256": "deb29801b59e2849ee7938f7caaebef8f038d9509a47d5dad6ac2ee8e13dd729",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『深さ2：概要版と特集』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『概要版を先に読む 10〜30ページ程度』 『本文は特集と第1部』 『題材になりやすい部分』。 図の下、下端の字幕の帯より上に『サイト記事の読み方を整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 深さ2は、概要版と特集です。各白書には、10から30ページ程度の概要版があります。まずそれを読み、本文は特集と第1部に絞ります。特集は、時事の題材になりやすい部分です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-level2.3a35d846.png",
+              "sha256": "3a35d846496ec9507e0bc71efd4f853b10ccc2e69150546f4dce02ce968b943f"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/level2-diagram.f4f7e841.png",
+            "sha256": "f4f7e841d549814dd7e361d5180aa5df5772f5f4a90043c8482ea4bdd5de5140",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3a35d846496ec9507e0bc71efd4f853b10ccc2e69150546f4dce02ce968b943f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三枠の文字(10〜30ページ程度含む)・『サイト記事の読み方を整理』が指示と一字一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "level3",
+          "inputSha256": "9cf02dfce81f86852cc0c075fcfcb44bba7549d3aa7dff70a491f13b55cf6bf3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『深さ3：主題の一文』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『白書の名前 何を主題にした白書か』 『一文で言えるか』 『詳しくは必要になってから』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 深さ3は、主題を一文でつかむだけです。この白書は何を主題にしているかを、一文で言えれば足ります。詳しい中身は、必要になったときに開けば間に合います。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 44.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-level3.5a51c280.png",
+              "sha256": "5a51c2803e251196d60e59ab92b5c03b6e8f59d18fecb3a31f372c5801abae7b"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/level3-diagram.837e8d52.png",
+            "sha256": "837e8d52f2a9e8d03700db7cf1c173c9c628878e77312498110c69ef1fc30993",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5a51c2803e251196d60e59ab92b5c03b6e8f59d18fecb3a31f372c5801abae7b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三円の文字・『本動画の独自の整理』が指示と一字一致。図に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "years",
+          "inputSha256": "3baaa712f4279313f8839a3ba059198145287727606eeee376fe4180c25c6022",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読む年度は直近2、3年』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『直近の2〜3年分』 『古い版は変遷を追うときだけ』 『最新版の新しい論点を見る』。 図の下、下端の字幕の帯より上に『サイト記事の読み方を整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 読む年度の幅も決めます。直近の2、3年分で足ります。古い版を開くのは、ある論点が何年でどう変わったかを追うときだけです。見るべきは、最新版で新しく加わった論点です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-years.e0af0021.png",
+              "sha256": "e0af0021459cf250bb0cb6440e04a0bb988b11e94d1d9d059bef3aafde69aaf7"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/years-diagram.f6614bb4.png",
+            "sha256": "f6614bb46d7b0c051346777be24b16bf22c977d6c77ac3299ba223861992b048",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e0af0021459cf250bb0cb6440e04a0bb988b11e94d1d9d059bef3aafde69aaf7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三枠の文字(2〜3年分含む)・『サイト記事の読み方を整理』が指示と一字一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "memo",
+          "inputSha256": "f929e5a9e382d4915df1710a4dda7a21600cb13b1a7f417b101fd7ae238c57d2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読んだ後は三点で残す』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『主題 一文で書く』 『数字 出典の名前と版を添える』 『施策 名前と狙いを書く』。 図の下、下端の字幕の帯より上に『三点メモは本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 読んだ後は、三点で残します。一つめは主題を一文で。二つめは数字。数字には、出典の名前と版を必ず添えます。三つめは施策。名前と狙いを書き留めます。答案で使うのは、このメモです。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 21.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-memo.e858ab9f.png",
+              "sha256": "e858ab9f5654a06da0a774b08f226fe40c0580104cdaea38b6c2a85fb270be4b"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/memo-diagram.90fafd18.png",
+            "sha256": "90fafd18be05b46a794181d742c36f3c31a65e77c9c2ca5c37d1ae01fc39b306",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e858ab9f5654a06da0a774b08f226fe40c0580104cdaea38b6c2a85fb270be4b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・主題/数字/施策の文字・『三点メモは本動画の独自の整理』が指示と一字一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "0edfaee91c46c268718401ff2bfef33e747a6ab5ebfb2a9027c1c3966e1b53da",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮例：建設に携わる受験者』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『国土交通白書 深さ1：通読』 『経済財政白書 深さ2：概要版と特集』 『他の白書 深さ3：主題の一文』。 図の下、下端の字幕の帯より上に『手順の仮例。出題の予想ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 仮の例です。建設に携わる受験者なら、国土交通白書は深さ1の通読。経済財政白書は深さ2で、概要版と特集。ほかの白書は、深さ3の主題の一文から始めます。これは割り振りの例で、出題の予想ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-example.e063b761.png",
+              "sha256": "e063b761dd860c2a784dc4051c1d8df87769a71e10e8f926be5079bae930e803"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/example-diagram.1662fa3a.png",
+            "sha256": "1662fa3a53d060b629c8c2db8f70bc5b8f90c1af75bac4c280a82a604c36ac79",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e063b761dd860c2a784dc4051c1d8df87769a71e10e8f926be5079bae930e803"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三枠の文字・『手順の仮例。出題の予想ではない』が指示と一字一致。右強調の構図",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "avoid",
+          "inputSha256": "c78359cf097b729f13676a87d2fd5e665e2fd72aed6f466f6a4908d687b2f6f7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『避けたい三つ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『数字の出典と版を書かない』 『古い版の数字をそのまま使う』 『読み込みで時間を使い切る』。 図の下、下端の字幕の帯より上に『数字は受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 避けたいのは三つです。数字の出典と版を書かないこと。古い版の数字を、そのまま使うこと。読み込みで時間を使い切ること。数字や日程は、受検する年度の公式情報と、最新の白書で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-avoid.34735e34.png",
+              "sha256": "34735e340d1db7cb79ff1e3c0499a267babd4bc28ba56edcdcec37684487cf7a"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/avoid-diagram.6e9ed018.png",
+            "sha256": "6e9ed018747022fd977370922afa1e30410ead08197e037a1b54ff5ddccc1676",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "34735e340d1db7cb79ff1e3c0499a267babd4bc28ba56edcdcec37684487cf7a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三円の文字・『数字は受検年度の公式情報で確認』が指示と一字一致。図に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "303722526caf95278c51adc8bce67cb6bfee48c3ec6d512a69e1509fa9c5ae58",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読む深さのまとめ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『深さを三段階に分ける』 『白書ごとに割り振る』 『主題、数字、施策の三点で残す』。 図の下、下端の字幕の帯より上に『本動画のまとめ』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめです。読む深さを、通読、概要版と特集、主題の一文の三段階に分けます。白書ごとに割り振り、直近の2、3年分を読み、読んだ後は主題、数字、施策の三点で残します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 45.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-recap.d75fc7ae.png",
+              "sha256": "d75fc7ae424df403b8593fafb265fee75dbae42a23c0f26e8364a85bf77ca5d3"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/recap-diagram.af18a8a1.png",
+            "sha256": "af18a8a1087b82c2040ba47d39d82c7c72d8c82c1a091300b226c842911811a7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d75fc7ae424df403b8593fafb265fee75dbae42a23c0f26e8364a85bf77ca5d3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三枠の文字・『本動画のまとめ』が指示と一字一致。アイコンも破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "840286b22ddf7ee2c3d2feefc08689362b7b9bbf95293d845404793af9ec9415",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『白書から、論点の整理へ』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『白書で根拠を集める』 『5管理の論点と結ぶ』 『教材案内は概要欄へ』。 この場面の説明（文字にしない）: 白書で集めた根拠を、5管理の論点と結びつけて整理したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 78.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/factory/raw-cta.819afb74.png",
+              "sha256": "819afb74a0b3355376fa9d0310f7fa97ce949de07df172bfd5f23b2c1afca57b"
+            },
+            "generatedAt": "2026-11-11T01:25:55.619Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-yomu-fukasa/work/cta-diagram.10f76c2a.png",
+            "sha256": "10f76c2a962674e9f8b6b54857cb282a0442bee6a6ccd71687bdb80a9a4dca7e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "819afb74a0b3355376fa9d0310f7fa97ce949de07df172bfd5f23b2c1afca57b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:25:55.619Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・『白書で根拠を集める』『5管理の論点と結ぶ』『教材案内は概要欄へ』が指示と一致。価格・URLなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

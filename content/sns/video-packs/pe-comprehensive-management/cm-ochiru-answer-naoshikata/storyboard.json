@@ -1,0 +1,288 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "総監の記述式で、構造が崩れた答案を、三つの箇所に分けて直す手順を紹介します。",
+      "caption": "落ちる答案を、三つの箇所で直す",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監 記述\n落ちる答案の直し方",
+        "items": [
+          "技術士 総合技術監理部門・記述式"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 8,
+      "end": 24,
+      "narration": "書く力はあるはずなのに、答案の出来に自信が持てない。この動画では、構造が崩れやすい前提条件、施策、将来のリスクの三つを、直す順に点検します。",
+      "caption": "前提、施策、リスクの順に点検",
+      "visual": {
+        "kind": "points",
+        "heading": "三つの箇所で直す",
+        "items": [
+          "前提条件の置き方",
+          "施策の具体さ",
+          "将来のリスクのつなぎ方"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 24,
+      "end": 42,
+      "narration": "誤解しやすいのは、知識が足りないから崩れると考えることです。サイト記事は、知識量が多くても構造が崩れれば届かないと整理しています。直すのは、知識ではなく構造です。",
+      "caption": "直すのは知識ではなく構造",
+      "visual": {
+        "kind": "points",
+        "heading": "知識量では直らない",
+        "items": [
+          "知識を足す",
+          "構造を確かめる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "サイト記事の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "diag",
+      "start": 42,
+      "end": 63,
+      "narration": "点検の物差しは、三層構造の三つの問いです。Ⅰを読めばⅡとⅢの方向が予想できるか。Ⅱの施策はⅠの条件で成り立つか。Ⅲの課題はⅡを進めた結果として出てくるか。一つでも否なら、骨組みを作り直します。",
+      "caption": "三つの問いで、骨組みを確かめる",
+      "visual": {
+        "kind": "points",
+        "heading": "書く前の三つの問い",
+        "items": [
+          "Ⅰを読めばⅡ・Ⅲが予想できるか",
+          "Ⅱの施策はⅠの条件で成り立つか",
+          "Ⅲの課題はⅡの結果として出るか"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "記述対策／総監",
+          "note": "三層の自己診断"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "fix1",
+      "start": 63,
+      "end": 84,
+      "narration": "直す一つめは、前提条件です。我が国の業界全体のように広く置くと、何を管理しているのか分からなくなります。自分が関わる事業や部署まで範囲を絞り、立場を示し、後段の施策が成り立つ前提を置きます。",
+      "caption": "直す1　管理対象を絞って置く",
+      "visual": {
+        "kind": "points",
+        "heading": "直す1　前提条件",
+        "items": [
+          "管理対象を限定する",
+          "立場と役割を示す",
+          "後段が成り立つ前提を置く"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "Ⅰの置き方"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "fix2",
+      "start": 84,
+      "end": 104,
+      "narration": "直す二つめは、施策の具体さです。DXを推進する、は方針であって施策ではありません。特定の業務に、どのシステムを導入するのか。誰が、何を使って、何を改善するのかまで書いて、施策にします。",
+      "caption": "直す2　方針を施策まで落とす",
+      "visual": {
+        "kind": "points",
+        "heading": "直す2　施策",
+        "items": [
+          "方針で止める",
+          "施策まで落とす"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "方針と施策の違い"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "fix3",
+      "start": 104,
+      "end": 128,
+      "narration": "直す三つめは、施策の裏です。効果だけを書いて終えると、負の側面を見抜く視点が見えません。効果に、管理上の問題点を添えます。このとき、コストが高く問題がある、と否定せず、投資回収の管理が課題となる、と管理課題として書きます。",
+      "caption": "直す3　効果に問題点を添える",
+      "visual": {
+        "kind": "points",
+        "heading": "直す3　効果と問題点",
+        "items": [
+          "効果だけで終える",
+          "問題点を管理課題で添える"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "効果と問題点のセット"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "fix4",
+      "start": 128,
+      "end": 151,
+      "narration": "直す四つめは、将来のリスクです。Ⅱで書いていない話を、Ⅲで突然持ち出すと、つながりません。施策を進めた結果、別の管理に負担が移らないか、特定の担当者が欠けたら止まらないか、対象が増えて処理し切れるか。この観点で探します。",
+      "caption": "直す4　リスクはⅡの結果から",
+      "visual": {
+        "kind": "points",
+        "heading": "直す4　将来のリスク",
+        "items": [
+          "Ⅱの結果として出る",
+          "別の管理へ負担が移る",
+          "担当者や体制の限界"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "リスクを探す観点"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "count",
+      "start": 151,
+      "end": 171,
+      "narration": "ただし、数と範囲は問題文が先です。最大のリスクを一つ求められたら、一つに絞って理由を示します。複数を求められたら、指定の数を満たします。直す順より、設問の指定を優先してください。",
+      "caption": "数と範囲は問題文に従う",
+      "visual": {
+        "kind": "points",
+        "heading": "設問の指定が先",
+        "items": [
+          "最大のリスクを一つ求める設問",
+          "複数を求める設問",
+          "対象範囲の指定"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "記述対策／総監",
+          "note": "問題文の確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 171,
+      "end": 193,
+      "narration": "仮の例です。DXを推進する、と書いた一文は、特定の業務に、あるシステムを導入する、と直します。そのうえで、導入後に増える負担を、管理課題として一文添えます。これは直し方の例で、出題の予想ではありません。",
+      "caption": "仮の例　方針を施策にする",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例で直す",
+        "items": [
+          "方針：DXを推進する",
+          "施策：特定業務にシステムを導入する",
+          "課題：導入後の負担を管理課題に"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "方針から施策へ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "avoid",
+      "start": 193,
+      "end": 214,
+      "narration": "避けたいのは三つです。書いた量で安心すること。試験の形式や字数を、古い情報で決めつけること。直す箇所を決めずに、全部を書き直すこと。形式や日程は、受検する年度の公式情報で確認してください。",
+      "caption": "直す箇所を決めてから直す",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたいこと",
+        "items": [
+          "書いた量で安心する",
+          "古い形式で決めつける",
+          "直す箇所を決めずに書き直す"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "記述対策／総監",
+          "note": "直し方の注意"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 214,
+      "end": 230,
+      "narration": "まとめです。落ちる答案は、前提条件、施策、施策の裏、将来のリスクの順に点検して直します。直す前に、三層の三つの問いで骨組みを確かめます。",
+      "caption": "四つの直し方を順に",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ",
+        "items": [
+          "前提条件を絞る",
+          "施策を具体にする",
+          "効果に問題点を添える",
+          "リスクはⅡから導く"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "記述対策／総監",
+          "note": "四つの直し方"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 230,
+      "end": 243,
+      "narration": "答案の型を、全体でまとめて確かめたい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "答案の型の教材案内は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "型を確かめる",
+        "items": [
+          "三層の型を押さえる",
+          "トレードオフを組み込む",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "記述対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

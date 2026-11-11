@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "1級土木",
+        "安全管理の",
+        "書き方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/c1-keiken-anzen-kakikata/work/cover-pop.77322178.png",
+        "sha256": "7732217876037ad013cff475f255d7b71b6e24dafe9c781f14cbcc19540d28a7",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "974ede03d9c6a0239b9164df380463e388f35b65f6aa8f974eb4e46b0c450308"
+      }
+    }
+  }
+}

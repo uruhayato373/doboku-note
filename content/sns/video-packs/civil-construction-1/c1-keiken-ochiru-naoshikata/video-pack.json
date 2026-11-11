@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-keiken-ochiru-naoshikata",
+  "exam": "civil-construction-1",
+  "title": "1級土木 経験記述｜落ちる答案の直し方",
+  "audience": "1級土木施工管理技士の第二次検定で施工経験記述を書いたが、答案が弱いと感じている受検者",
+  "pain": "経験記述を書いたが、課題に処置を書くなど欄の中身を取り違えていないか不安で、どこをどう直せばよいか分からない",
+  "promise": "弱い一文を欄の取り違えとして見つけ、課題・検討・対応処置・評価の正しい欄へ移して直す手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-experience-essay",
+    "campaign": "c1-keiken-ochiru-naoshikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

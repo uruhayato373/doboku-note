@@ -12,6 +12,7 @@ import { getStandardsComparison } from '@/lib/standards-comparison';
 import { buildStandardsDatasetStructuredData } from '@/lib/standards-structured-data';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import { getAreaLabel } from '@/lib/content-taxonomy';
+import { READING_CONTAINER } from '@/components/layout/container';
 
 export const metadata: Metadata = buildPageMetadata({
   title: '土木工事共通仕様書のJSON-LD・Markdownデータ',
@@ -215,7 +216,7 @@ export default function StandardsDataPage() {
         </p>
       </SectionBlock>
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
+      <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>
   );
 }

@@ -1,0 +1,331 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "Ⅲの3枚は、Ⅱ-1とどう書き分けるのでしょうか。",
+      "caption": "Ⅲの3枚、どう書く？",
+      "visual": {
+        "kind": "cover",
+        "heading": "Ⅲの、書き方",
+        "items": [
+          "技術士 建設部門・選択科目"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 24,
+      "narration": "3枚、75行を書き始めると、前置きが長くなり、肝心の解決策が足りなくなる。今日は技術士建設部門の選択科目Ⅲを、評価の軸、行の割り振り、解決策の遂行方策の順に整理します。",
+      "caption": "前置きが長く、解決策が足りない",
+      "visual": {
+        "kind": "points",
+        "heading": "今日整理する3つ",
+        "items": [
+          "評価の軸をⅡ-1と比べる",
+          "75行を三つに割り振る",
+          "解決策の遂行方策を組む"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 III",
+          "note": "行の割り振りはdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "axis",
+      "start": 24,
+      "end": 48,
+      "narration": "Ⅱ-1とⅢの違いは、分量だけではありません。Ⅱ-1の評価項目は専門的学識とコミュニケーションですが、Ⅲには問題解決と評価が加わります。知識を述べる答案から、課題を解いて示す答案に変わります。",
+      "caption": "Ⅱ-1は知識、Ⅲは課題を解く",
+      "visual": {
+        "kind": "compare",
+        "heading": "評価で見られるもの",
+        "ngLabel": "Ⅱ-1",
+        "okLabel": "Ⅲ",
+        "rows": [
+          {
+            "label": "評価項目",
+            "ng": "学識・コミュニケーション",
+            "ok": "学識・問題解決・評価・コミュニケーション"
+          },
+          {
+            "label": "配点",
+            "ng": "10点",
+            "ok": "30点"
+          },
+          {
+            "label": "答案の形",
+            "ng": "知識を整理して述べる",
+            "ok": "課題を抽出し、解決策を示す"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 III",
+          "note": "評価項目と配点は令和8年度の受験申込み案内に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "form",
+      "start": 48,
+      "end": 71,
+      "narration": "形式を確かめます。Ⅲは答案用紙3枚で、1枚は24字かける25行、全部で75行です。令和8年度の受験案内では、Ⅲは30点とされています。小問ごとの配点は示されていないので、行の配分は自分で決めます。形式は受検年度の公式情報で確認してください。",
+      "caption": "3枚・75行、配分は自分で決める",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅲの形式",
+        "items": [
+          "答案用紙3枚　24字×25行",
+          "合計75行",
+          "小問ごとの配点は示されていない"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 III",
+          "note": "形式は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "field",
+      "start": 71,
+      "end": 97,
+      "narration": "もう一つの違いは、論じる土俵です。必須Ⅰは建設部門全体の社会的テーマを論じますが、Ⅲは自分が選んだ専門科目の領域の中で問題解決を論じます。設問の構成は似ていても、技術的な深さが求められるのはⅢです。",
+      "caption": "必須Ⅰとは、論じる土俵が違う",
+      "visual": {
+        "kind": "compare",
+        "heading": "設問は似ていても",
+        "ngLabel": "必須Ⅰ",
+        "okLabel": "Ⅲ",
+        "rows": [
+          {
+            "label": "論じる範囲",
+            "ng": "建設部門全体のテーマ",
+            "ok": "選んだ専門科目の領域"
+          },
+          {
+            "label": "求める深さ",
+            "ng": "社会的な視野",
+            "ok": "専門技術の裏付け"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 III",
+          "note": "設問構成の違いは書き分けガイドの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "blocks",
+      "start": 97,
+      "end": 125,
+      "narration": "次に、75行を三つに分けます。設問の(1)にあたる課題の整理が前置き、(2)の解決策が本論、(3)の新たなリスクと対策が結びです。目安は前置き35%、本論45%、結び20%。公式の基準ではなく、本論をいちばん厚くするための割り振りです。",
+      "caption": "75行を三つに分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "前置き・本論・結び",
+        "items": [
+          "前置き　約35%\n(1) 課題の抽出",
+          "本論　約45%\n(2) 最重要課題と解決策",
+          "結び　約20%\n(3) 新たなリスクと対策"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 III",
+          "note": "35・45・20%はdoboku-noteの目安。公式の基準ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "lines",
+      "start": 125,
+      "end": 153,
+      "narration": "行番号でも決めておきます。3枚の答案なら、27行目までに前置きを終え、61行目から結びに入ります。前置きが38行に届いても本論に入っていなければ、長すぎます。落とすのは、背景の重ね書きからです。",
+      "caption": "27行目と61行目を決めておく",
+      "visual": {
+        "kind": "points",
+        "heading": "行番号の目安",
+        "items": [
+          "27行目までに前置きを終える",
+          "61行目から結びに入る",
+          "38行目で本論未着手なら長すぎ"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 III",
+          "note": "行数の目安はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "apply",
+      "start": 153,
+      "end": 183,
+      "narration": "令和8年度の道路Ⅲ-1の問いの構成に当てはめます。(1)は観点を明記して課題を三つ、(2)は最も重要な課題を一つ選び複数の解決策、(3)は全部実行しても新たに生じるリスクと対策。この三つの問いが、そのまま前置き、本論、結びの三つになります。",
+      "caption": "三つの問いが、三つの部分になる",
+      "visual": {
+        "kind": "points",
+        "heading": "設問を三つの部分へ",
+        "items": [
+          "(1) 観点を明記し課題を三つ　→前置き",
+          "(2) 最重要課題と複数の解決策　→本論",
+          "(3) 新たなリスクと対策　→結び"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "選択科目対策／建設部門 III",
+          "note": "令和8年度 道路の問題文の構成を要約。答案例ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-road/article.mdx"
+    },
+    {
+      "sceneId": "plan",
+      "start": 183,
+      "end": 214,
+      "narration": "本論では、解決策を挙げて終わりにしません。出題内容には、解決の手法に加えて遂行方策を示すことが含まれています。進め方は、計画、資源配分、検証、是正の四段で考えると、抜けを防げます。",
+      "caption": "解決策の次に、進め方まで書く",
+      "visual": {
+        "kind": "points",
+        "heading": "遂行方策の四段",
+        "items": [
+          "計画　段階と順序、関係者への説明",
+          "資源配分　担い手・設備・予算・情報",
+          "検証　成果を測る指標と時期",
+          "是正　基準を外れたときの切り替え"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "選択科目対策／建設部門 III",
+          "note": "四段の並びは受験申込み案内のマネジメントの定義を参考にした整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "depth",
+      "start": 214,
+      "end": 242,
+      "narration": "解決策が三つなら、本論の約34行で、1本あたり約270字です。四段を同じ深さでは書けません。主たる一本は四段を通して書き、残りは何を、誰が、どう確かめるかの三点に絞ると、先に決めておきます。",
+      "caption": "主たる一本は四段、残りは三点",
+      "visual": {
+        "kind": "compare",
+        "heading": "解決策が複数あるとき",
+        "ngLabel": "全部を同じ深さで",
+        "okLabel": "深さに差をつける",
+        "rows": [
+          {
+            "label": "主たる一本",
+            "ng": "浅く四段",
+            "ok": "四段を通して書く"
+          },
+          {
+            "label": "残りの案",
+            "ng": "四段そろえて薄くなる",
+            "ok": "何を・誰が・どう確かめる"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 III",
+          "note": "字数の配分はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "risk",
+      "start": 242,
+      "end": 270,
+      "narration": "結びの(3)は、混ぜないことが大切です。問われるのは、全部の解決策を実行しても新たに生じるリスクです。予算超過や人材不足のような実行上の障害を、解決策の側で長く書くと、(3)に回す材料が減ります。",
+      "caption": "(3)のリスクと是正を混ぜない",
+      "visual": {
+        "kind": "compare",
+        "heading": "実行上の障害は",
+        "ngLabel": "(2)で長く書く",
+        "okLabel": "是正は一文、(3)は別に",
+        "rows": [
+          {
+            "label": "(2)の是正",
+            "ng": "予算や人材の話を重ねる",
+            "ok": "切り替え先を一文"
+          },
+          {
+            "label": "(3)のリスク",
+            "ng": "同じ話の繰り返し",
+            "ok": "副作用を専門技術で述べる"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 III",
+          "note": "設問(3)の読み方は書き分けガイドの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 270,
+      "end": 294,
+      "narration": "まとめます。Ⅲは、評価の軸がⅡ-1と違い、選んだ専門科目の中で課題を解く答案です。75行を、前置き、本論、結びに割り振り、行番号で崩れに気づく。本論では解決策に、計画、資源配分、検証、是正の四段を添える。この手順は、この動画の整理です。",
+      "caption": "まとめ：分ける・割り振る・添える",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅲの組み立て",
+        "items": [
+          "75行を三つに割り振る",
+          "27行目と61行目で崩れに気づく",
+          "解決策に遂行方策の四段を添える"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 III",
+          "note": "本動画の独自の整理。受検年度の形式は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 294,
+      "end": 318,
+      "narration": "書き方の次は、実際の設問での練習です。道路の選択科目の模範解答集がnoteにあります。この動画は書き方の型までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "道路の模範解答集は、noteへ",
+      "visual": {
+        "kind": "points",
+        "heading": "書き方の次は、練習",
+        "items": [
+          "道路 選択科目の模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "選択科目対策／建設部門 III"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

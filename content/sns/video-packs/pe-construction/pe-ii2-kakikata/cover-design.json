@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "建設部門",
+        "II-2の",
+        "書き方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/cover-pop.b9f334a7.png",
+        "sha256": "b9f334a7220dfac96c8ac8f2a0fa788b44d60590b27e36469378b888b5d93b6a",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "89bccf24655f895fd962fb6f8fd6c9ef22b8891a6411dd4ad59012eb36a6553d"
+      }
+    }
+  }
+}

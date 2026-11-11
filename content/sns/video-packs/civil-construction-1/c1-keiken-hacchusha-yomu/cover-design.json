@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "1級土木",
+        "発注者は",
+        "どこを読む"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/cover-pop.7b9b7740.png",
+        "sha256": "7b9b7740f0d7a45a66ae4c444ec296ac6376eecfd9b88148d541aa72b7e2775d",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "592b38b521666ad7dc86af0d23e59c9155e4605a495d49e864dbafb2ce42deb7"
+      }
+    }
+  }
+}

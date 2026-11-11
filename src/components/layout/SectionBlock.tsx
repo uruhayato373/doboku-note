@@ -5,12 +5,15 @@
  *   <section className="…py-…"><div className="max-w-* mx-auto px-4 sm:px-6 lg:px-10">…</div></section>
  * を集約し、外枠幅・上下余白・帯背景・区切り罫線を統一する。
  *
- * - 外側要素が全幅の背景/罫線/左右padding を持ち、内側 div が max-w + mx-auto で中央寄せ。
+ * - 外側要素が全幅の背景/罫線を持ち、内側 div が max-w + mx-auto で中央寄せ。
+ * - 左右の余白は、幅 'wide' と '760' では内側（WIDE_CONTAINER・READING_CONTAINER。ツールの本体など同じ定数を使う部品と中身の端が揃う）、
+ *   読み幅（860 / 780）では外側に付ける（読み幅そのものを中身の幅にする）。
  * - `band`    : 上部ヘッダー帯（paper 背景 + 下罫線）。
  * - `divider` : セクション境界の上罫線/下罫線。
  */
 
 import type { ReactNode } from 'react';
+import { READING_CONTAINER, WIDE_CONTAINER } from './container';
 
 type SectionWidth = 'wide' | '860' | '780' | '760';
 type SectionSpace = 'sm' | 'md' | 'lg';
@@ -31,10 +34,10 @@ interface SectionBlockProps {
 }
 
 const WIDTHS: Record<SectionWidth, string> = {
-  wide: 'max-w-[1280px]',
-  '860': 'max-w-[860px]',
-  '780': 'max-w-[780px]',
-  '760': 'max-w-[760px]',
+  wide: WIDE_CONTAINER,
+  '860': 'mx-auto max-w-[860px]',
+  '780': 'mx-auto max-w-[780px]',
+  '760': READING_CONTAINER,
 };
 
 const SPACES: Record<SectionSpace, string> = {
@@ -64,14 +67,14 @@ export default function SectionBlock({
     band ? 'bg-(--paper) border-b border-(--rule-soft)' : '',
     dividerClass,
     SPACES[space],
-    'px-4 sm:px-6 lg:px-10',
+    width === 'wide' || width === '760' ? '' : 'px-4 sm:px-6 lg:px-10',
     className,
   ]
     .filter(Boolean)
     .join(' ');
 
   const inner = (
-    <div className={`${WIDTHS[width]} mx-auto`}>{children}</div>
+    <div className={WIDTHS[width]}>{children}</div>
   );
 
   if (as === 'div') {

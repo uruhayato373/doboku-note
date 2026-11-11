@@ -1,0 +1,285 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "白書の中から、答案で扱う課題を選ぶ手順を紹介します。",
+      "caption": "白書から、答案で扱う課題を選ぶ",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監 記述\n白書から課題を選ぶ",
+        "items": [
+          "技術士 総合技術監理部門・記述式"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 8,
+      "end": 24,
+      "narration": "白書を開いたものの、話題が多すぎて、どれを答案の課題にすればよいか決められない。この動画では、特集から候補を拾い、三つの問いで一つに絞る手順を紹介します。",
+      "caption": "候補を拾い、三つの問いで絞る",
+      "visual": {
+        "kind": "points",
+        "heading": "拾う、問う、絞る",
+        "items": [
+          "候補を拾う\n概要版と特集から",
+          "三つの問いで問う",
+          "課題を一つに絞る"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 24,
+      "end": 42,
+      "narration": "誤解しやすいのは、白書で目立つ話題を、そのまま課題にすることです。目立つ話題と、自分の答案で扱える課題は別です。選ぶ基準は白書の側ではなく、問題文と自分の立場の側にあります。",
+      "caption": "目立つ話題と、扱える課題は別",
+      "visual": {
+        "kind": "points",
+        "heading": "目立つ話題をそのまま選ばない",
+        "items": [
+          "白書で目立つ話題\n誌面での扱いの大きさ",
+          "答案で扱える課題\n問題文と自分の立場に合う"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "基準は白書でなく、問題文と立場にある"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "pick",
+      "start": 42,
+      "end": 57,
+      "narration": "まず候補を拾います。全冊の通読は現実的ではありません。各白書の概要版を先に読み、本文は特集と第1部に絞ります。対象は直近の2、3年分で足ります。",
+      "caption": "概要版と特集から候補を拾う",
+      "visual": {
+        "kind": "points",
+        "heading": "候補は、概要版と特集から",
+        "items": [
+          "概要版を先に読む",
+          "本文は特集・第1部",
+          "直近の2〜3年分"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "サイト記事の読み方を、候補拾いに絞って整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "map",
+      "start": 57,
+      "end": 76,
+      "narration": "次に、拾った候補を5管理に当てます。キーワードから逆引きすると速くなります。たとえばBCPなら防災白書、DXならDX動向と情報通信白書、カーボンニュートラルなら環境白書とエネルギー白書です。",
+      "caption": "候補を5管理に当てる",
+      "visual": {
+        "kind": "points",
+        "heading": "候補を、5管理に当てる",
+        "items": [],
+        "art": {
+          "type": "diagram",
+          "section": "記述対策／総監",
+          "note": "キーワードから白書を逆引きし、管理に当てる",
+          "diagram": "five-management",
+          "source": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "three",
+      "start": 76,
+      "end": 90,
+      "narration": "候補が出たら、三つの問いで絞ります。一つめ、問題文が求める範囲に入るか。二つめ、自分の立場で管理できるか。三つめ、施策に言い換えられるか。",
+      "caption": "絞る三つの問い",
+      "visual": {
+        "kind": "points",
+        "heading": "課題を絞る三つの問い",
+        "items": [
+          "問題文の範囲に入るか",
+          "自分の立場で管理できるか",
+          "施策に言い換えられるか"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "記述対策／総監",
+          "note": "本動画の独自の整理（出題の予想ではない）"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "q1",
+      "start": 90,
+      "end": 107,
+      "narration": "一つめは、問題文です。対象の範囲は問題文で確認します。自分の事業について問う設問なら、担当範囲から話を飛ばしません。日本全体の取組が指定されていれば、その範囲で考えます。",
+      "caption": "問い1 問題文が求める範囲か",
+      "visual": {
+        "kind": "points",
+        "heading": "問い1：問題文の範囲",
+        "items": [
+          "自分の事業を問う\n担当範囲から飛ばない",
+          "全体の取組を問う\n指定された範囲で考える"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "対象の範囲は、設問ごとに問題文で確認する"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "q2",
+      "start": 107,
+      "end": 122,
+      "narration": "二つめは、立場です。答案の前半で置いた担当範囲と制約の中で、実行できる課題かを見ます。前半に書いていない課題を、後半で突然解決することはできません。",
+      "caption": "問い2 自分の立場で管理できるか",
+      "visual": {
+        "kind": "points",
+        "heading": "問い2：自分の立場",
+        "items": [
+          "前半で置いた担当範囲",
+          "前半で置いた制約",
+          "後半の課題は、そこにつながる"
+        ],
+        "art": {
+          "type": "mapping",
+          "section": "記述対策／総監",
+          "note": "前半の条件と、課題をつなぐ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "q3",
+      "start": 122,
+      "end": 140,
+      "narration": "三つめは、施策です。DXを推進する、は方針であって施策ではありません。特定の業務にどのシステムを入れるか、まで言えるか。効果と、その裏で増える管理の負担も書けるかを確かめます。",
+      "caption": "問い3 施策に言い換えられるか",
+      "visual": {
+        "kind": "points",
+        "heading": "問い3：施策に言い換える",
+        "items": [
+          "方針\nDXを推進する",
+          "施策\n特定の業務に、何を、どう入れるか"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "効果と、増える管理の負担をセットで考える"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 140,
+      "end": 162,
+      "narration": "仮の例で当てはめます。労働経済の分析の令和7年版は、主題を労働力供給制約としています。候補は人手の確保。管理は人的資源管理。三つの問いに沿って、範囲、立場、施策を順に確かめます。これは手順の例で、出題の予想ではありません。",
+      "caption": "仮の例で、三つの問いに当てはめる",
+      "visual": {
+        "kind": "points",
+        "heading": "仮例：労働力供給制約",
+        "items": [
+          "候補\n人手の確保",
+          "管理\n人的資源管理",
+          "三つの問いで確かめる"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "手順の仮例。出題の予想ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "avoid",
+      "start": 162,
+      "end": 179,
+      "narration": "避けたいのは三つです。話題性だけで選ぶこと。数字を、出典と版を確かめずに使うこと。全冊を通読して時間を使い切ること。数字は、受検する年度の公式情報と最新の白書で確認します。",
+      "caption": "避けたい三つ",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたい三つ",
+        "items": [
+          "話題性だけで選ぶ",
+          "出典と版を確かめない数字",
+          "全冊の通読"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "記述対策／総監",
+          "note": "年度・日程は、受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 179,
+      "end": 193,
+      "narration": "まとめです。概要版と特集から候補を拾い、5管理に当てます。問題文の範囲、自分の立場、施策への言い換えの三つで、課題を一つに絞ります。",
+      "caption": "拾う、当てる、絞る",
+      "visual": {
+        "kind": "points",
+        "heading": "白書から課題を選ぶ手順",
+        "items": [
+          "候補を拾う",
+          "5管理に当てる",
+          "三つの問いで絞る"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "記述対策／総監",
+          "note": "本動画のまとめ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 193,
+      "end": 207,
+      "narration": "設問3で使う将来課題と、国家レベルの施策案をまとめて引き出したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "設問3の教材案内は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "課題から、施策へ",
+        "items": [
+          "課題を一つ選ぶ",
+          "施策案を引き出す",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "記述対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

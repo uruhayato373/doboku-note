@@ -81,6 +81,67 @@ export function bandLabels(striking) {
   return { top: `${from - 1}位以内`, striking: `${from}〜${striking.maxPosition}位` };
 }
 
+/**
+ * 上位なのにクリック率が極端に低い検索語をページ単位に束ねる（純関数）。rows は GSC の { keys: [page, query], clicks, impressions, position }。
+ * 定義を聞く検索語は、AI による概要などで答えが検索結果の中で済み、上位でもクリックがほとんど取れない
+ * （2026-11-11 の実査: 「ブラインド訓練とは」3 位前後・表示 131・クリック 3）。
+ * 題名の実験の判定（表示でなくクリックで見る）と、次の実験の向きを決める材料にする。
+ */
+export function topLowCtrPages(rows, { maxPosition, minImpressions, maxCtr }) {
+  // 見出しへのジャンプ（#…）の行は同じ表示を別の URL で数えている。ページと検索語で 1 つにまとめ、
+  // クリックは合計・表示は最大・順位は最良で見る（見出しの行の表示 0 クリックだけで低く見せない）
+  const merged = new Map();
+  for (const r of rows) {
+    const page = r.keys[0].replace(/^https?:\/\/[^/]+/, '').replace(/#.*$/, '');
+    const key = JSON.stringify([page, r.keys[1]]);
+    const m = merged.get(key) ?? { page, query: r.keys[1], clicks: 0, impressions: 0, position: Infinity };
+    m.clicks += r.clicks;
+    m.impressions = Math.max(m.impressions, r.impressions);
+    m.position = Math.min(m.position, r.position);
+    merged.set(key, m);
+  }
+  const byPage = new Map();
+  for (const m of merged.values()) {
+    if (m.position > maxPosition || m.impressions < minImpressions || m.clicks / m.impressions > maxCtr) continue;
+    if (!byPage.has(m.page)) byPage.set(m.page, { page: m.page, impressions: 0, clicks: 0, queries: [] });
+    const g = byPage.get(m.page);
+    g.impressions += m.impressions;
+    g.clicks += m.clicks;
+    g.queries.push({ query: m.query, impressions: m.impressions, clicks: m.clicks, position: Math.round(m.position * 10) / 10 });
+  }
+  return [...byPage.values()]
+    .map((g) => ({ ...g, queries: g.queries.sort((a, b) => b.impressions - a.impressions) }))
+    .sort((a, b) => b.impressions - a.impressions || a.page.localeCompare(b.page));
+}
+
+/** 中央値（空なら null） */
+export function median(values) {
+  const v = values.filter((x) => Number.isFinite(x)).sort((a, b) => a - b);
+  if (!v.length) return null;
+  const mid = Math.floor(v.length / 2);
+  return v.length % 2 ? v[mid] : (v[mid - 1] + v[mid]) / 2;
+}
+
+/**
+ * 山を除いた平常値（純関数）。snaps は日別の集計（gsc.date）の新しい順。最新の窓と、重ならない直前の窓の
+ * 1 日あたりクリックの中央値を返す。試験日の 1 日の山で 28 日合計が 8 倍に見えた（2026-10-25）ので、合計でなく中央値で読む。
+ */
+export function dailyBaseline(snaps) {
+  const window = (s) => {
+    const days = (s?.data?.rows ?? []).map((r) => ({ date: r.keys[0], clicks: r.clicks }));
+    if (!days.length) return null;
+    const dates = days.map((d) => d.date).sort();
+    return { startDate: dates[0], endDate: dates.at(-1), days: days.length, medianClicks: median(days.map((d) => d.clicks)), maxClicks: Math.max(...days.map((d) => d.clicks)), totalClicks: days.reduce((a, d) => a + d.clicks, 0) };
+  };
+  const latest = window(snaps[0]);
+  if (!latest) return null;
+  const prevSnap = snaps.find((s) => {
+    const w = window(s);
+    return w && w.endDate < latest.startDate;
+  });
+  return { ...latest, previous: window(prevSnap) };
+}
+
 /** 期間の異なる検索語×ページ集計の一覧（新しい順）。同じ期間の重複取得は最新の 1 本だけ。 */
 export function listPageQuerySnapshots(root) {
   const seen = new Set();
@@ -350,6 +411,8 @@ export function buildSearchOpportunities(root, { maxCandidates, asOf } = {}) {
   // 週次の改善の件数（週次レビューの完了条件 triage --check --weekly が見る）
   const quota = weeklyQuota({ rows: experiments, fileable: fileable.length, perWeek: config.cycle.improvePerWeek, today });
   const clusters = all.map(({ allCandidates, ...c }) => c);
+  const topLowCtr = topLowCtrPages(latest.data.rows, config.topLowCtr);
+  const baseline = dailyBaseline(listReports(root, 'gsc.date').filter((s) => !asOf || (s.data.meta?.endDate ?? '') < asOf));
   return {
     config,
     bands,
@@ -362,5 +425,7 @@ export function buildSearchOpportunities(root, { maxCandidates, asOf } = {}) {
     triage,
     quota,
     experiments,
+    topLowCtr,
+    baseline,
   };
 }

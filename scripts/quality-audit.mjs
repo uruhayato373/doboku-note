@@ -174,6 +174,8 @@ export const CHECKS = [
   // 2026-11-06: YouTube の再開と全面画像の標準化に合わせて復帰
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: 'ショートの本数・タイトル・UTM・公開枠、停止以外の表紙が全面生成の標準か、採用画像の描画と画面確認が今の動画に結ばれているか' },
   { id: 'youtube-funnels', npm: 'check-youtube-funnels', timeout: 60_000, ci: true, note: '公開・予約・private 通常動画の有料note商品・UTM・関連サイト経路と公開台帳の一致を全件確認する' },
+  { id: 'youtube-covers', npm: 'check-youtube-covers', timeout: 60_000, ci: true, note: 'YouTube の表紙を先生のキャラクターの POP に揃える。表紙の設計（cover-design.json）が先生の指定を欠く・投稿へ進んだ通常動画の表紙が設計の採用画像と違う、を止める（外部通信なし・2026-11-11 に図解の表紙が 1 本公開されていた）' },
+  { id: 'youtube-covers-live', cmd: ['node', 'scripts/check-youtube-covers.mjs', '--live'], timeout: 600_000, ci: false, ops: true, cadence: 'weekly', note: '公開中の動画の表紙を YouTube から取り、台帳の表紙（手元か Drive）と画素で比べる。表紙の設定の失敗・差し替えの漏れを見つける（外部通信・Drive が要るので週次の ops）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。直すのは registry replace-youtube-cover' },
   { id: 'youtube-plan', npm: 'check-youtube-plan', timeout: 60_000, ci: true, note: '通常動画の年間の枠と公開台帳を照合する。計画にない動画・枠の超過・週の上限超え・時期の外を止める（壁時計に依らない）' },
   { id: 'video-content', npm: 'check-video-content', timeout: 120_000, ci: true, note: '動画パックの原稿・storyboard・CTA・出典・置いてよいファイル（M11）。YouTube の再開に合わせて 2026-11-10 に CI へ戻した（結果はリポジトリの中身だけで決まる）' },
   { id: 'youtube-plan-due', cmd: ['node', 'scripts/check-youtube-plan.mjs', '--due'], timeout: 60_000, ci: false, ops: true, cadence: 'weekly', note: '台本待ち・内容QAで止まった通常動画の行のうち、確認期限（ready）を過ぎたもの。壁時計に依存するので週次の ops。読み手は土曜の週次レビュー（DN-1069）' },

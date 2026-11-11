@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-hissu1-konkyo-tsumikata",
+  "exam": "pe-construction",
+  "title": "建設部門 必須Ⅰ｜答案の組み立て — (2)の解決策に根拠を積む",
+  "audience": "技術士第二次試験 建設部門の必須科目Ⅰで、解決策は浮かぶのに、答案に書く根拠の材料が決まらず手が止まる受験者",
+  "pain": "必須Ⅰの(2)で解決策の名前は浮かぶのに、なぜ効くのかを支える材料を何から集めて答案のどこに置けばよいか決められない",
+  "promise": "解決策の根拠を五つの問いに分けて材料を選び、一つの解決策に使う型を絞って、(2)の答案に積む順序を決められる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/r08-required/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mlit.go.jp/hakusyo/mlit/r05/hakusho/r06/html/n2140000.html",
+      "title": "国土交通白書2024 第4節 社会資本の老朽化対策等（国土交通省）"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "pe-hissu1-konkyo-tsumikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

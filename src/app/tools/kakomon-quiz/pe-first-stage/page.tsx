@@ -13,6 +13,7 @@ import SeeAlso from "@/components/ui/SeeAlso/SeeAlso";
 import { isAfterExamDay } from "@/lib/exam-dates";
 import { toolByHref } from "@/lib/tools";
 import { quizQuestionCount, quizYearRange } from '@/lib/quiz-summary';
+import { READING_CONTAINER } from '@/components/layout/container';
 
 const tool = toolByHref("/tools/kakomon-quiz/pe-first-stage");
 
@@ -116,7 +117,7 @@ export default function PeFirstStageQuizPage() {
         }
       />
       <KakomonQuizClient config={QUIZ_CONFIG} />
-      <div className="max-w-[760px] mx-auto px-4 sm:px-6 pb-6">
+      <div className={`${READING_CONTAINER} pb-6`}>
         <SeeAlso
           href="/exam/pe-first-stage/guide/r08-answers"
           title="令和8年度 解答速報｜公式正答の確認先と自己採点の進め方"
@@ -126,7 +127,7 @@ export default function PeFirstStageQuizPage() {
       </div>
       <QuizNoteProducts products={NOTE_PRODUCTS} placement="tools-kakomon-quiz-pe-first-stage" />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
+      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>
   );
 }

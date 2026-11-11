@@ -1,0 +1,304 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "問題IIIの論文、何から手をつければよいのでしょうか。",
+      "caption": "問題IIIの論文、どう組み立てる？",
+      "visual": {
+        "kind": "cover",
+        "heading": "問題IIIの、型",
+        "items": [
+          "RCCM 管理技術力"
+        ]
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 24,
+      "narration": "指定の用語を入れるだけで字数が埋まってしまう。設問の前半と後半の配分も決まらない。今日はRCCMの問題IIIを、テーマへの備え方、用語の使い方、配分と立場の順に、書く型として整理します。",
+      "caption": "過去問の解説ではなく、書く型",
+      "visual": {
+        "kind": "points",
+        "heading": "今日整理する3つ",
+        "items": [
+          "事前公開テーマへの備え方",
+          "指定用語を因果でつなぐ",
+          "設問①から②への配分"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "RCCM／問題III 管理技術力"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "prep",
+      "start": 24,
+      "end": 56,
+      "narration": "まず備え方です。問題IIIは、テーマが事前に公開され、当日はその中から一つが指定される形で出題されてきました。自分では選べないので、完成した答案を一つだけ覚えても、別のテーマが出た瞬間に使えません。用意するのは骨子です。現状、課題、あり方、使えそうな用語。これを公開されたテーマの分だけ作ります。公開の有無とテーマの中身は年度で変わるため、受検年度の公式情報で確認してください。",
+      "caption": "テーマは選べない、骨子は全部用意",
+      "visual": {
+        "kind": "points",
+        "heading": "完成答案より、骨子",
+        "items": [
+          "テーマは当日に指定される",
+          "公開テーマ分の骨子を用意",
+          "現状・課題・あり方・使える用語"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "RCCM／問題III 管理技術力",
+          "note": "事前公開の有無と内容は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "format",
+      "start": 56,
+      "end": 86,
+      "narration": "形式も確かめます。サイトの2026年度の整理では、設問は①と②の二問で、合わせて千二百から千六百字。指定された用語のうち四つ以上を、かぎかっこで囲んで使う決まりでした。用いた用語は、①と②を通じて四つ以上あればよいとされています。この条件は年度で変わりうるので、受検年度の公式の案内で確認してください。",
+      "caption": "様式は受検年度の公式で確認",
+      "visual": {
+        "kind": "points",
+        "heading": "これまでの形式の例",
+        "items": [
+          "設問は①と②の2問構成",
+          "合計1,200〜1,600字の論述",
+          "指定用語を「」で4語以上"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "RCCM／問題III 管理技術力",
+          "note": "2026年度の記事に基づく。当年度は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "terms",
+      "start": 86,
+      "end": 124,
+      "narration": "次に、指定用語の使い方です。用語を散りばめるだけでは、知っている、という以上には評価されません。たとえば老朽化と広域連携。この二つを並べて書くより、単独では更新の体力が乏しいから、近隣と組んで発注を束ねる、と一本の筋でつなぎます。一つの用語が生む課題を、もう一つの用語での対応で受ける。これが因果でつなぐ、ということです。",
+      "caption": "用語は羅列でなく因果で",
+      "visual": {
+        "kind": "compare",
+        "heading": "用語の使い方",
+        "ngLabel": "羅列",
+        "okLabel": "因果でつなぐ",
+        "rows": [
+          {
+            "label": "書き方",
+            "ng": "老朽化が進む。広域連携が重要。",
+            "ok": "老朽化で個別更新が難しいため、広域連携で発注を束ねる"
+          },
+          {
+            "label": "用語の関係",
+            "ng": "読み手に伝わらない",
+            "ok": "課題と対応の筋が見える"
+          },
+          {
+            "label": "評価",
+            "ng": "知っているだけ",
+            "ok": "説明できている"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "RCCM／問題III 管理技術力",
+          "note": "例は説明用の架空の文"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "count",
+      "start": 124,
+      "end": 150,
+      "narration": "四語以上は最低ラインです。多く入れようとするほど、説明が羅列に近づきます。まず三、四語で無理なくつながる筋を作り、字数に余裕があれば用語を足す。この順序をおすすめします。",
+      "caption": "まず3〜4語で筋を作る",
+      "visual": {
+        "kind": "points",
+        "heading": "用語を詰め込まない",
+        "items": [
+          "4語は最低ライン",
+          "まず3〜4語で無理のない筋を作る",
+          "字数に余裕があれば足す"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "RCCM／問題III 管理技術力"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "balance",
+      "start": 150,
+      "end": 186,
+      "narration": "配分です。設問①に字数を使いすぎると、②のあり方が一般論で終わります。逆に②ばかり厚くすると、なぜその対応が必要かの裏付けが弱くなります。目安は、①が四割、②が六割。①では背景と具体的な課題を、用語を使って簡潔に整理します。②では、誰が、何を、どう進めるかまで書き込みます。これは目安で、公式の規定ではありません。",
+      "caption": "設問①と②の配分",
+      "visual": {
+        "kind": "compare",
+        "heading": "字数の配分の目安",
+        "ngLabel": "設問①",
+        "okLabel": "設問②",
+        "rows": [
+          {
+            "label": "書くこと",
+            "ng": "背景と具体的な課題",
+            "ok": "課題への取り組みのあり方"
+          },
+          {
+            "label": "配分の目安",
+            "ng": "4割",
+            "ok": "6割"
+          },
+          {
+            "label": "避けたい形",
+            "ng": "使いすぎてあり方が薄くなる",
+            "ok": "誰が何をどう進めるかが無い"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "RCCM／問題III 管理技術力",
+          "note": "配分はサイトの目安。公式の規定ではない"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "link",
+      "start": 186,
+      "end": 214,
+      "narration": "もう一つ。②は、①で挙げた課題に答える形にします。①で書いていない課題に②で答えても、筋は通りません。理念だけで終わらせず、実務で実行できる水準まで具体にします。",
+      "caption": "①の課題に②が答える",
+      "visual": {
+        "kind": "points",
+        "heading": "①と②をつなぐ",
+        "items": [
+          "①で挙げた課題に②が答える",
+          "②だけ立派な理念で終わらせない",
+          "実務で実行できる水準まで具体化"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "RCCM／問題III 管理技術力"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "role",
+      "start": 214,
+      "end": 254,
+      "narration": "書く立場にも注意します。RCCMは、建設コンサルタントの管理技術者などの資格で、問題IIIも受注者である管理技術者の視点で組み立てるのが前提です。制度の改正や予算の配分は発注者の領域で、受注者が実現するかのようには書けません。書いてよいのは、調査手法の選定、関係者の調整、成果品の品質管理体制など、管理技術者として提案し実行できる工夫です。迷ったら、これは管理技術者として実行できることか、と自問します。",
+      "caption": "受注者である管理技術者の立場",
+      "visual": {
+        "kind": "compare",
+        "heading": "立場の線引き",
+        "ngLabel": "書かない",
+        "okLabel": "書いてよい",
+        "rows": [
+          {
+            "label": "例",
+            "ng": "制度の創設、予算措置を実現する",
+            "ok": "調査手法の選定、関係者の調整、成果品の品質管理体制"
+          },
+          {
+            "label": "決める人",
+            "ng": "発注者",
+            "ok": "管理技術者として提案・実行"
+          },
+          {
+            "label": "自問",
+            "ng": "（立場の確認）",
+            "ok": "管理技術者として実行できることか"
+          }
+        ],
+        "art": {
+          "type": "decision",
+          "section": "RCCM／問題III 管理技術力"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "time",
+      "start": 254,
+      "end": 292,
+      "narration": "最後に時間です。2026年度の整理では、試験Bは百三十分で、問題IIIと択一の問題IVを解きます。CBTで、キーボードに直接入力する形でした。目安は、問題IVに四十から五十分、構成の検討に十五から二十分、入力に五十五から六十五分。構成の段階で、用語の置き場所と①②の配分まで決めておくと、入力中に迷いません。試験時間や方式は、受検年度の公式情報で確認してください。",
+      "caption": "CBTの時間配分の目安",
+      "visual": {
+        "kind": "points",
+        "heading": "試験Bの時間配分の目安",
+        "items": [
+          "択一の問題IVに40〜50分",
+          "構成の検討に15〜20分",
+          "入力に55〜65分"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "RCCM／問題III 管理技術力",
+          "note": "サイトの目安。時間・方式は年度の公式で確認"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 292,
+      "end": 316,
+      "narration": "まとめます。骨子は、公開されたテーマの数だけ用意する。用語は因果でつなぎ、字数は①と②で配分する。そして、管理技術者として実行できる範囲で書く。年度ごとの条件は、公式情報で確認してください。",
+      "caption": "筋・配分・立場の3点",
+      "visual": {
+        "kind": "points",
+        "heading": "問題IIIの型",
+        "items": [
+          "骨子はテーマの数だけ用意",
+          "用語は因果でつなぎ、配分は①と②で",
+          "管理技術者として実行できる範囲で書く"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "RCCM／問題III 管理技術力"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 316,
+      "end": 340,
+      "narration": "型がわかったら、次は実際に書いて確かめる段階です。テーマ別の模範論文は、noteのマガジンにまとめています。この動画は組み立ての型までで、模範論文の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "模範論文は、noteへ",
+      "visual": {
+        "kind": "points",
+        "heading": "書き方の次は、練習",
+        "items": [
+          "問題III 模範論文集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "RCCM／問題III 管理技術力"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

@@ -1,0 +1,329 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 2,
+      "narration": "安全管理は、欄ごとに書く。",
+      "caption": "安全管理は、欄ごとに書く。",
+      "visual": {
+        "kind": "cover",
+        "heading": "安全管理の書き方",
+        "items": [
+          "2級土木｜施工経験記述",
+          "課題・検討・処置を分ける"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 2,
+      "end": 10,
+      "narration": "安全管理の答案で、どの欄に何を書くか迷っていませんか。課題・検討・処置の仕分けで見直します。",
+      "caption": "安全管理の答案で、どの欄に何を書くか迷っていませんか。課題・検討・処置の仕分けで見直します。",
+      "visual": {
+        "kind": "points",
+        "heading": "安全管理は、欄ごとに役割がある",
+        "items": [
+          "課題の欄：現場状況と危険",
+          "検討の欄：考えたことと理由",
+          "処置の欄：行ったことと評価"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "intro",
+      "start": 10,
+      "end": 20,
+      "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、安全管理の書く順序をお伝えします。",
+      "caption": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、安全管理の書く順序をお伝えします。",
+      "visual": {
+        "kind": "points",
+        "heading": "元発注者の目で、安全管理を見直す",
+        "items": [
+          "総合技術監理部門の技術士",
+          "1級・2級土木に合格",
+          "安全管理の書く順序を整理"
+        ]
+      },
+      "sourceRef": "src/config/author.ts"
+    },
+    {
+      "sceneId": "premise",
+      "start": 20,
+      "end": 31,
+      "narration": "設問の欄の数や名前は、年度で変わります。受検年度の問題で確認し、ここでは安全管理の書き分けに絞ります。",
+      "caption": "設問の欄の数や名前は、年度で変わります。受検年度の問題で確認し、ここでは安全管理の書き分けに絞ります。",
+      "visual": {
+        "kind": "points",
+        "heading": "欄の形は年度で確認、書き分けは共通",
+        "items": [
+          "欄の数や名前は年度で変わる",
+          "受検年度の公式情報を確認",
+          "書き分けの考え方に絞る"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "issue",
+      "start": 31,
+      "end": 43,
+      "narration": "最初は現場状況と課題です。ヤードの狭さや交通量などの条件から、何が危険かまで書き、対策はまだ書きません。",
+      "caption": "最初は現場状況と課題です。ヤードの狭さや交通量などの条件から、何が危険かまで書き、対策はまだ書きません。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "課題の欄は、危険まで",
+        "sheetTitle": "安全管理の答案を分ける3つの欄",
+        "rows": [
+          {
+            "label": "課題",
+            "value": "現場条件と、そこで生じる危険",
+            "state": "focus",
+            "order": 1
+          },
+          {
+            "label": "検討",
+            "value": "考えたことと、その理由",
+            "state": "todo",
+            "order": 2
+          },
+          {
+            "label": "処置と評価",
+            "value": "行ったことと、その結果",
+            "state": "todo",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "consider",
+      "start": 43,
+      "end": 55,
+      "narration": "次は検討した項目です。点検と確認、安全措置、作業員への教育、安全施工サイクルなどから選び、理由も添えます。",
+      "caption": "次は検討した項目です。点検と確認、安全措置、作業員への教育、安全施工サイクルなどから選び、理由も添えます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "検討の欄は、観点を選んで理由つき",
+        "sheetTitle": "安全管理の答案を分ける3つの欄",
+        "rows": [
+          {
+            "label": "課題",
+            "value": "現場条件と、そこで生じる危険",
+            "state": "ok",
+            "order": 1
+          },
+          {
+            "label": "検討",
+            "value": "点検・安全措置・教育などから選ぶ",
+            "state": "focus",
+            "order": 2
+          },
+          {
+            "label": "処置と評価",
+            "value": "行ったことと、その結果",
+            "state": "todo",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "measure",
+      "start": 55,
+      "end": 67,
+      "narration": "最後は実施した処置と評価です。何をどう行ったかを具体的に書き、無事故で完了できたかを端的に結びます。",
+      "caption": "最後は実施した処置と評価です。何をどう行ったかを具体的に書き、無事故で完了できたかを端的に結びます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "処置の欄は、行ったことと結び",
+        "sheetTitle": "安全管理の答案を分ける3つの欄",
+        "rows": [
+          {
+            "label": "課題",
+            "value": "現場条件と、そこで生じる危険",
+            "state": "ok",
+            "order": 1
+          },
+          {
+            "label": "検討",
+            "value": "点検・安全措置・教育などから選ぶ",
+            "state": "ok",
+            "order": 2
+          },
+          {
+            "label": "処置と評価",
+            "value": "具体的に行ったことと、端的な評価",
+            "state": "focus",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "mix",
+      "start": 67,
+      "end": 79,
+      "narration": "検討に書くのは考えたこと、処置に書くのは行ったことです。同じ内容を二つの欄に重ねないようにします。",
+      "caption": "検討に書くのは考えたこと、処置に書くのは行ったことです。同じ内容を二つの欄に重ねないようにします。",
+      "visual": {
+        "kind": "compare",
+        "heading": "欄をまたいで、混ぜない",
+        "ngLabel": "混ざっている",
+        "okLabel": "分けている",
+        "rows": [
+          {
+            "label": "課題の欄",
+            "ng": "危険と対策を一緒に書く",
+            "ok": "危険の原因までで止める"
+          },
+          {
+            "label": "検討と処置",
+            "ng": "同じ文を二度書く",
+            "ok": "考えたことと行ったことを分ける"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 79,
+      "end": 91,
+      "narration": "仮の例で見ます。道路に近い現場で通行者との接触が課題。検討は区分と周知、処置は柵の設置と教育、と欄ごとに分けます。",
+      "caption": "仮の例で見ます。道路に近い現場で通行者との接触が課題。検討は区分と周知、処置は柵の設置と教育、と欄ごとに分けます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の例｜道路に近い現場",
+        "sheetTitle": "安全管理の答案を分ける3つの欄",
+        "rows": [
+          {
+            "label": "課題",
+            "value": "通行者と作業区域が近く、接触のおそれ",
+            "state": "ok",
+            "order": 1
+          },
+          {
+            "label": "検討",
+            "value": "区域の区分と、作業員への周知",
+            "state": "ok",
+            "order": 2
+          },
+          {
+            "label": "処置と評価",
+            "value": "柵の設置と教育を実施（内容は自分の事実で）",
+            "state": "focus",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "guard",
+      "start": 91,
+      "end": 103,
+      "narration": "誘導員の配置だけの記述は、年度により除外されることがあります。標識や柵と組み合わせ、問題文の指示を確認します。",
+      "caption": "誘導員の配置だけの記述は、年度により除外されることがあります。標識や柵と組み合わせ、問題文の指示を確認します。",
+      "visual": {
+        "kind": "points",
+        "heading": "誘導員だけの対策は、避ける",
+        "items": [
+          "年度により除外されることがある",
+          "標識・柵・KY活動と組み合わせる",
+          "問題文の指示で確認する"
+        ],
+        "reveal": 3,
+        "focus": 1
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "facts",
+      "start": 103,
+      "end": 115,
+      "narration": "例の文は写しません。実際に起きた危険、検討したこと、行った処置だけを、自分の事実で書きます。",
+      "caption": "例の文は写しません。実際に起きた危険、検討したこと、行った処置だけを、自分の事実で書きます。",
+      "visual": {
+        "kind": "points",
+        "heading": "事実は、自分の現場から",
+        "items": [
+          "例の文をそのまま写さない",
+          "起きた危険は実際のもの",
+          "検討と処置も実際に行ったこと"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 115,
+      "end": 127,
+      "narration": "見直しは3点です。課題に対策が混ざっていないか。検討と処置が重なっていないか。結びが評価になっているか。",
+      "caption": "見直しは3点です。課題に対策が混ざっていないか。検討と処置が重なっていないか。結びが評価になっているか。",
+      "visual": {
+        "kind": "points",
+        "heading": "安全管理の見直し3点",
+        "items": [
+          "課題の欄に対策が混ざっていない",
+          "検討と処置が重なっていない",
+          "結びが評価になっている"
+        ],
+        "reveal": 3,
+        "focus": 2
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 127,
+      "end": 138,
+      "narration": "まとめです。安全管理は、課題、検討、処置と評価の順に欄を分けて書きます。自分の事実で確かめましょう。",
+      "caption": "まとめです。安全管理は、課題、検討、処置と評価の順に欄を分けて書きます。自分の事実で確かめましょう。",
+      "visual": {
+        "kind": "points",
+        "heading": "安全管理は、欄を分けて書く",
+        "items": [
+          "課題：条件と危険まで",
+          "検討：考えたことと理由",
+          "処置：行ったことと評価"
+        ],
+        "reveal": 3,
+        "focus": 1
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 138,
+      "end": 150,
+      "narration": "欄ごとの型は完成答案集で確かめられます。安全・品質・工程の答案と置換ガイドは、概要欄のリンクへ。",
+      "caption": "欄ごとの型は完成答案集で確かめられます。安全・品質・工程の答案と置換ガイドは、概要欄のリンクへ。",
+      "visual": {
+        "kind": "points",
+        "heading": "欄ごとの型を、答案で確かめる",
+        "items": [
+          "2級土木 施工経験記述 完成答案集",
+          "安全・品質・工程の答案＋置換ガイド",
+          "概要欄のnoteマガジンへ"
+        ]
+      },
+      "sourceRef": "config/products.json"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

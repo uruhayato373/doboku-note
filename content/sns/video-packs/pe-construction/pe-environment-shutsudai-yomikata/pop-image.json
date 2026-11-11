@@ -1,0 +1,475 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『建設環境』『出題の』『読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-cover.1b2f7f14.png",
+          "sha256": "1b2f7f14f6b58342a6e67c22954f116b84cf334d90624d9661dd1c2d0706bb9e"
+        },
+        "generatedAt": "2026-11-11T03:12:07.235Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "建設環境",
+          "出題の",
+          "読み方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/cover-pop.39fe928f.png",
+        "sha256": "39fe928fbff178be82af1a309cfd5863c3a7f107ffbdafdc1c1e3abca526e1ce",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "1b2f7f14f6b58342a6e67c22954f116b84cf334d90624d9661dd1c2d0706bb9e"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:12:07.235Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字: 『総監が制作』『建設環境』『出題の』『読み方』が指示と一字一致、先生の外見・白ヘルメット・反射帯も指定どおりで破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "4126e2022e698d920f538ce70d47e10a08c9ba184b559ee69105946c5ddc2c55",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『過去問の前に、読み方を決める』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『令和元年度〜8年度の出題テーマ』 『II-1・II-2・IIIの問われ方』 『「複数」「3つ以上」と除外条件』。 図の下、下端の字幕の帯より上に『出題テーマはdoboku-noteの要約。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 過去問を開いても、環境影響評価、自然環境、低炭素と、テーマが幅広くて、どこに気を付けて読めばいいのか分からない。今日は技術士建設部門の建設環境を、令和元年度から8年度の出題テーマをもとに、II-1、II-2、IIIの問われ方に分けて読み方を整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-premise.583b0d0d.png",
+              "sha256": "583b0d0d0580b263a2a5823e7fc6d99bceab148c3a2743c3127aea89cfdacb3b"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/premise-diagram.bdfc7b0d.png",
+            "sha256": "bdfc7b0ddd65fe9c6c39e1b40f5c3ab9a6ec2e5f4925b92dd4150557bffdfc37",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "583b0d0d0580b263a2a5823e7fc6d99bceab148c3a2743c3127aea89cfdacb3b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3枠の文言・下の注記が指示と一字一致、図も崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "myth",
+          "inputSha256": "f53540a24e7a0033c8d688e8db3abe9bdf0c9c48735763d9e32d30101f8b7989",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『テーマ名と、問題文の条件』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『問題文の条件はテーマ名に含まれない』の全文を省かずに入れる。 この場面の説明（文字にしない）: よくある誤解は、出題テーマの名前を覚えれば書ける、という考えです。実際の問題文は、挙げる数、体系的に述べる指定、除外する調整方策まで決めています。テーマ名は入口で、条件の読み取りが答案の出来を分けます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-myth.cea7f5f6.png",
+              "sha256": "cea7f5f66458d1e091062cd3d0f95c6dce5ca06002fc5560dd76ca27849e6d93"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/myth-diagram.5e49c06c.png",
+            "sha256": "5e49c06c68b88572943c58be779eebff67418a03e58e72a992f040217b56a81c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cea7f5f66458d1e091062cd3d0f95c6dce5ca06002fc5560dd76ca27849e6d93"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと下の文言が指示と一字一致、2枠比較の図に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "forms",
+          "inputSha256": "b5e1a5056f942367107f9501d3650728b295907439fbdb4375e6576f9046bccd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『令和8年度の形式（例）』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『II-1 4設問から1つ・1枚』 『II-2 2設問から1つ・2枚』 『III 2問題から1つ・3枚』。 図の下、下端の字幕の帯より上に『令和8年度の形式。受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず区分です。令和8年度の形式では、II-1は4設問から1設問を選び、答案用紙は1枚。II-2は2設問から1設問を選び、2枚。IIIは2問題から1問題を選び、3枚です。形式は受検年度の公式情報で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-forms.546f3f91.png",
+              "sha256": "546f3f911aa4b40564eee96024ae13b52f91ed7b7ea048c5f3b2e164038070cd"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/forms-diagram.8deb8bf1.png",
+            "sha256": "8deb8bf1802212758cc2c48dfe4a503a5f2fe8f5e862110f73514cf3fc884622",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "546f3f911aa4b40564eee96024ae13b52f91ed7b7ea048c5f3b2e164038070cd"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3行の区分・注記が指示と一字一致、欄分けも明瞭",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii1",
+          "inputSha256": "5cec2edba33a9c848d2ddbc8a7b6ab9886cbf8784ae65f50e151d8d001f3c9a4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-1は、設問ごとに題材が違う』。 図に入れる文字: 『R08 II-1-1 順応的管理』 『R08 II-1-2 公園・街路樹の点検』 『R08 II-1-3 河川の外来植物』 『R08 II-1-4 CVMによる非市場財評価』。 図の下、下端の字幕の帯より上に『令和8年度の出題テーマ。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-1は、令和8年度は順応的管理、公園や街路樹の高木の点検、河川の外来植物、仮想的市場評価法の4設問でした。山岳や開削のように分野が分かれるのではなく、設問ごとに題材が大きく違います。自分が説明できる題材を選ぶことが最初の判断です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-ii1.6051696f.png",
+              "sha256": "6051696fcd3c12784380afefbaeb1cf36a9b6a586e64fc511f9558e661886cf4"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/ii1-diagram.1c7d7310.png",
+            "sha256": "1c7d731030aa4d40c4578fd4cc2a28afa029e76e21c45c33cca96abdc9320444",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6051696fcd3c12784380afefbaeb1cf36a9b6a586e64fc511f9558e661886cf4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 4設問の題材名と注記が指示と一字一致、アイコンも内容に合い破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii1cond",
+          "inputSha256": "0cf8b08e9799d333afc76dd3ac07e6ed7436fa7b7a1d58707f8ea895c2267be4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-1の指定（R08）』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『外来植物 理由を3つ以上挙げる』 『外来種などの定義を 体系的に述べる』 『点検・CVM 留意点や項目を複数挙げる』。 図の下、下端の字幕の帯より上に『令和8年度の問題文より。公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 指定の例です。令和8年度の外来植物では、外来種、侵略的外来種、特定外来生物の定義を体系的に述べ、対策が必要な理由を3つ以上挙げる指定でした。ほかの設問も、検討事項や留意点を複数挙げる形です。複数や3つ以上は、数の条件です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-ii1cond.7dce0174.png",
+              "sha256": "7dce01742379806bf8528b4858e2f2aa66d0a292661d8db1d02bf4b15c337cb5"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/ii1cond-diagram.e87a1500.png",
+            "sha256": "e87a15005e54a70ab45b0ed556c0880c02497dcd216b18665eec67c7353f922f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7dce01742379806bf8528b4858e2f2aa66d0a292661d8db1d02bf4b15c337cb5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3枠の文言・注記が指示と一字一致、番号付き枠で破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii2",
+          "inputSha256": "4994b3a39596a2b2d057c6f465600ed4b24db172747b9b7a8fa8619d574c4633",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-2は、三つの設問に分かれる』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『（1）調査・検討すべき事項』 『（2）手順ごとの留意点』 『（3）関係者との調整方策』。 図の下、下端の字幕の帯より上に『令和8年度II-2-1・II-2-2の構成。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-2は、令和8年度で、立地適正化計画の策定と、地下鉄道事業の環境影響評価の2択でした。どちらも、1で調査や検討すべき事項を挙げ、2で手順ごとの留意点や工夫を述べ、3で関係者との調整方策を述べる三つの設問でした。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-ii2.200fed55.png",
+              "sha256": "200fed55d676a4055fffba95a3b0c49989c2981d2f37c4c234f3fce500d8e136"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/ii2-diagram.86109d99.png",
+            "sha256": "86109d990b810fa14d1ea65afb65b8370f91c7b34815f10fddc6a2f76af44786",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "200fed55d676a4055fffba95a3b0c49989c2981d2f37c4c234f3fce500d8e136"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・(1)(2)(3)の文言・注記が指示と一字一致、図に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii2cond",
+          "inputSha256": "d171fb5753dc1224d346895cd63b85434c2072c936d6c44bac0b487205e01cd8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-2の指定（R08）』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『II-2-1（3） 学識の助言・委員会設置以外の調整方策』 『II-2-1（2） 定量的な目標値設定より前の手順』 『II-2-2（2） 方法書の作成から準備書の作成まで』。 図の下、下端の字幕の帯より上に『令和8年度の問題文より。公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-2にも指定があります。令和8年度の立地適正化計画では、調整方策に、学識者や専門家の助言と委員会等の設置は含めない指定でした。手順も、目標値の設定より前、方法書から準備書までと、範囲が決まっています。範囲外は問われていない部分なので、指定の範囲に絞って書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-ii2cond.044105a7.png",
+              "sha256": "044105a71048443dc5c1de1764dc9c9397e3d3dfdaf31d8f5d372f396791098b"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/ii2cond-diagram.82b6d180.png",
+            "sha256": "82b6d180278800ac0a0c76c95289ad189be0ecf1d94b0f615f6c389862ae87f5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "044105a71048443dc5c1de1764dc9c9397e3d3dfdaf31d8f5d372f396791098b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3枠の文言・注記が指示と一字一致、読めない字や余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "iii",
+          "inputSha256": "b73b05caa46a1defdc343f36cca8773ded8eae4da6932969cffc26b50263dad0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『IIIは、課題から解決策、リスク』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『（1）必要な理由と技術課題を複数・観点を明記』 『（2）最も重要な課題の解決策を複数』 『（3）解決策を実行しても生じうるリスクと対策』。 図の下、下端の字幕の帯より上に『令和8年度の構成。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: IIIは、令和8年度は生態系ネットワークの構築と維持、循環資源の利用拡大でした。どちらも、課題を観点を明記して複数抽出し、最も重要な課題に複数の解決策を示し、すべて実行しても新たに生じるリスクと対策まで答える構成です。課題数は、3つではなく複数でした。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-iii.e7ac8355.png",
+              "sha256": "e7ac83554978c2e22883db8afae87a2ed0ea2a9f8a68d60719c61320a9b1cd80"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/iii-diagram.0bdd0b5f.png",
+            "sha256": "0bdd0b5f96aa964e32132e925cdbc37743bd6983f4bbcdef85653ea7e9b92c9f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e7ac83554978c2e22883db8afae87a2ed0ea2a9f8a68d60719c61320a9b1cd80"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3円の文言・注記が指示と一字一致、矢印の流れも本文の構成と合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "steps",
+          "inputSha256": "66ea910965de6597c9370716ae4c93918447eee01d9a7de2810c34b0be7c1f0f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読み方の3手順』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『区分を見て、選ぶ数と枚数を確かめる』 『複数・3つ以上・除外に線を引く』 『設問が並ぶ順に答える』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。公式の手順ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 読み方を三つの手順にまとめます。一つ、区分を見て、選ぶ数と枚数を確かめる。二つ、複数、3つ以上といった数と、除外の条件に線を引く。三つ、設問が一から三まで並ぶときは、その順に答える。この手順は、この動画の整理です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-steps.3bf29159.png",
+              "sha256": "3bf29159fdca30993db7461e391797caeeb80531ee626d6545503d3013a680ea"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/steps-diagram.fb931e35.png",
+            "sha256": "fb931e35d57cb149903540d1e30edc2af2bbdc7d80156d5502d27d500da880f3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3bf29159fdca30993db7461e391797caeeb80531ee626d6545503d3013a680ea"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3手順・注記が指示と一字一致、整理メモの欄分けで破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "cfa8555b59df20ee224e0adf350ad8afadcd4fc6decc483d1274276b25bdd0c3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『建設環境の出題は、条件を読む』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『II-1：題材を選び、数の指定』 『II-2：挙げる・手順・調整』 『III：課題・解決策・リスク』 『条件を読む』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。受検年度は公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。建設環境の出題は、II-1、II-2、IIIで問われ方が違います。II-1は題材を選んで数の指定を守り、II-2は挙げる、手順、調整の三つ、IIIは課題からリスクまでです。そして、テーマ名より、問題文の条件を読むこと。受検年度の問題と日程は、公式の情報で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-recap.fdd19083.png",
+              "sha256": "fdd190833eef60091266b2ca9dcb23c652285aa8ccfa097fd8e6dee1d0df03e4"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/recap-diagram.c1c8d5ff.png",
+            "sha256": "c1c8d5ff764c4ec6c133f42006a708cf67738cf8634e5f3e96b44caa1fe7dcc4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fdd190833eef60091266b2ca9dcb23c652285aa8ccfa097fd8e6dee1d0df03e4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・3枠・『条件を読む』・注記が指示と一字一致、余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "4982019b6be189e224c3d5e32035a938fd8fbb2b27a3a4dcbcc842681d0f6cb8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読み方の次は、書き方』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『建設環境 選択科目の模範解答集』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 読み方の次は、書き方です。建設環境の令和3年度から8年度の設問を、すべての選択肢で解答した模範解答集がnoteにあります。この動画は読み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/factory/raw-cta.65919052.png",
+              "sha256": "65919052ebfc7b13f13fe0142b45ea57fbb5254a17c23ff68df205ba9b894eda"
+            },
+            "generatedAt": "2026-11-11T03:12:07.235Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/cta-diagram.41eb2733.png",
+            "sha256": "41eb2733cb82100764a3a2ad6f62bec935cff43e164825cb52c3512785f5d593",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "65919052ebfc7b13f13fe0142b45ea57fbb5254a17c23ff68df205ba9b894eda"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:12:07.235Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・ノート表紙の文言・『収録内容は概要欄から』が指示と一字一致、価格やURLなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

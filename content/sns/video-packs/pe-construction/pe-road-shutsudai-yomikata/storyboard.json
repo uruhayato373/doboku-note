@@ -1,0 +1,276 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "道路の選択科目は、何がどう問われるのでしょうか。",
+      "caption": "道路の出題は、どう読む？",
+      "visual": {
+        "kind": "cover",
+        "heading": "道路の出題を、読む",
+        "items": [
+          "技術士 建設部門・道路"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 23,
+      "narration": "過去問を開いても、どこから読めばいいのか分からない。今日は技術士建設部門の道路を、令和元年度から8年度の出題テーマをもとに、II-1、II-2、IIIの問われ方に分けて読み方を整理します。",
+      "caption": "過去問の前に、出題の読み方が要る",
+      "visual": {
+        "kind": "points",
+        "heading": "過去問の前に、読み方を決める",
+        "items": [
+          "令和元年度〜8年度の出題テーマ",
+          "II-1・II-2・IIIの問われ方",
+          "設問条件の読み方"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 道路",
+          "note": "出題テーマはdoboku-noteの要約。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "myth",
+      "start": 23,
+      "end": 43,
+      "narration": "よくある誤解は、出題テーマの名前を覚えれば書ける、という考えです。実際の問題文は、対象の範囲、具体例、数量、除外する条件まで指定します。テーマ名は入口で、条件の読み取りが答案の出来を分けます。",
+      "caption": "テーマ名を知るだけでは答案にならない",
+      "visual": {
+        "kind": "compare",
+        "heading": "テーマ名と、問題文の条件",
+        "ngLabel": "テーマ名だけ",
+        "okLabel": "条件まで読む",
+        "rows": [
+          {
+            "label": "読む範囲",
+            "ng": "テーマの名前を覚える",
+            "ok": "対象・具体例・数量・除外を読む"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 道路",
+          "note": "問題文の条件はテーマ名に含まれない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "forms",
+      "start": 43,
+      "end": 65,
+      "narration": "まず区分です。令和8年度の形式では、II-1は4設問から1設問を選び、答案用紙は1枚。II-2は2設問から1設問を選び、2枚。IIIは2問題から1問題を選び、3枚です。形式は受検年度の公式情報で確認してください。",
+      "caption": "II-1・II-2・IIIで、選び方と枚数が違う",
+      "visual": {
+        "kind": "points",
+        "heading": "令和8年度の形式（例）",
+        "items": [
+          "II-1\n4設問から1つ・1枚",
+          "II-2\n2設問から1つ・2枚",
+          "III\n2問題から1つ・3枚"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 道路",
+          "note": "令和8年度の形式。受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-road/article.mdx"
+    },
+    {
+      "sceneId": "ii1",
+      "start": 65,
+      "end": 89,
+      "narration": "II-1は、令和元年度から8年度まで、同じ4系統が1問ずつ並んでいます。線形や交通量など道路の設計の基本、法改正や制度、舗装、そして土工や斜面です。令和8年度なら、緩和区間、連携協力道路制度、舗装のCO2削減、土工構造物技術基準の改定でした。",
+      "caption": "II-1は、毎年4つの系統が並ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1の4系統（R01〜R08）",
+        "items": [
+          "設計の基本\n線形・交通量など",
+          "法改正・制度",
+          "舗装",
+          "土工・斜面"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "選択科目対策／建設部門 道路",
+          "note": "系統の分け方はdoboku-noteの整理。公式の区分ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "ii1law",
+      "start": 89,
+      "end": 111,
+      "narration": "制度の問いは、問題文に年が書かれます。令和8年度は、令和7年4月の道路法改正と、令和7年の技術基準の改定が明記されました。制度名だけでなく、創設された背景と概要、活用のメリットまで、問われた順に答える準備が要ります。",
+      "caption": "制度の問いは、改正の年と内容まで",
+      "visual": {
+        "kind": "points",
+        "heading": "制度の問いは、背景から効果まで",
+        "items": [
+          "改正・改定の年\n問題文に明記",
+          "背景→概要→メリット\n問われた順に答える"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 道路",
+          "note": "令和8年度II-1-2・II-1-4の例"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-road/article.mdx"
+    },
+    {
+      "sceneId": "ii2",
+      "start": 111,
+      "end": 135,
+      "narration": "II-2は、計画を立てる問いと、施工や維持管理の業務を問う問いの2択が、各年度に並びます。令和8年度なら、駅周辺の道路空間の再編計画と、臨海部の軟弱地盤上の盛土でした。どちらも、調査、手順、関係者との調整を順に問う三つの設問でした。",
+      "caption": "II-2は、計画系か施工・維持系かを選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "II-2は2択",
+        "items": [
+          "計画系\n駅周辺の道路空間（R08）",
+          "施工・維持系\n臨海部の盛土（R08）",
+          "令和8年度は\n調査→手順→調整"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 道路",
+          "note": "令和8年度の例。他年度の設問構成は問題文で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "iii",
+      "start": 135,
+      "end": 161,
+      "narration": "IIIは、社会の動きを踏まえた課題を問います。テーマは毎年変わりますが、防災に関わる問いは令和2年度、6年度、8年度に、老朽化や点検の問いは令和元年度と4年度にありました。令和8年度は、課題を三つ挙げ、一つを選んで解決策を示し、残るリスクまで答える構成でした。",
+      "caption": "IIIは社会の課題。繰り返す系統がある",
+      "visual": {
+        "kind": "points",
+        "heading": "IIIは課題→解決策→リスク（R08）",
+        "items": [
+          "課題を3つ\n観点を明記",
+          "最重要の課題へ\n複数の解決策",
+          "残るリスクと対策"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 道路",
+          "note": "令和8年度III-1・III-2の構成"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "cond",
+      "start": 161,
+      "end": 184,
+      "narration": "条件の読み落としは、致命的です。令和8年度のIII-2は、老朽化に伴う維持管理の観点を除く、と指定しました。定期点検や補修を課題の中心に置いた答案は、設問から外れます。問題文の背景を読んで、除かれた観点を先に確認しましょう。",
+      "caption": "除外条件を読み落とすと、設問から外れる",
+      "visual": {
+        "kind": "compare",
+        "heading": "III-2（R08）の除外条件",
+        "ngLabel": "設問から外れる",
+        "okLabel": "設問に沿う",
+        "rows": [
+          {
+            "label": "課題の観点",
+            "ng": "定期点検・補修が中心",
+            "ok": "老朽化以外の観点を明記して立てる"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 道路",
+          "note": "令和8年度III-2の除外条件。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-road/article.mdx"
+    },
+    {
+      "sceneId": "steps",
+      "start": 184,
+      "end": 205,
+      "narration": "読み方を三つの手順にまとめます。一つ、区分を見て、選ぶ数と枚数を確かめる。二つ、対象、数量、除外の条件に線を引く。三つ、設問が一から三まで並ぶときは、その順に答える。この手順は、この動画の整理です。",
+      "caption": "出題の読み方は3手順",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の3手順",
+        "items": [
+          "1　区分と、選ぶ数・枚数",
+          "2　対象・数量・除外に線",
+          "3　設問の順に答える"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 道路",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 205,
+      "end": 230,
+      "narration": "まとめます。道路の出題は、II-1、II-2、IIIで問われ方が違います。II-1は4系統、II-2は計画系と施工・維持系、IIIは社会の課題です。そして、テーマ名より、問題文の条件を読むこと。受検年度の問題と日程は、公式の情報で確認してください。",
+      "caption": "まとめ：区分、系統、条件",
+      "visual": {
+        "kind": "points",
+        "heading": "道路の出題は、条件を読む",
+        "items": [
+          "II-1：4系統",
+          "II-2：計画系／施工・維持系",
+          "III：社会の課題",
+          "条件を読む"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 道路",
+          "note": "本動画の独自の整理。受検年度は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 230,
+      "end": 251,
+      "narration": "読み方の次は、書き方です。道路の令和3年度から8年度の設問を、すべての選択肢で解答した模範解答集がnoteにあります。この動画は読み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "道路の模範解答集は、noteへ",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の次は、書き方",
+        "items": [
+          "道路 選択科目の模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "選択科目対策／建設部門 道路"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

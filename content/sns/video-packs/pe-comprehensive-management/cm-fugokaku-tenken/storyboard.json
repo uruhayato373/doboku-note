@@ -1,0 +1,287 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "不合格のあと、学習を始め直す前に、落ちた原因を点検する手順を紹介します。",
+      "caption": "落ちた原因を点検して、始め直す",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監\n落ちた原因を点検する",
+        "items": [
+          "技術士 総合技術監理部門・再受験"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 8,
+      "end": 25,
+      "narration": "結果を受け取ったあと、また同じ勉強を最初から始めようとしていませんか。この動画では、択一、記述、口頭の三つに切り分けて点検し、何から始め直すかを決める手順を紹介します。",
+      "caption": "三つに切り分けて点検する",
+      "visual": {
+        "kind": "points",
+        "heading": "点検して、始め直す",
+        "items": [
+          "択一を点検する",
+          "記述を点検する",
+          "口頭を点検する"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "再受験／総監",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 25,
+      "end": 43,
+      "narration": "誤解しやすいのは、不合格の理由を、勉強量が足りなかったの一言で片付けることです。敗因が曖昧なままだと、同じ勉強を繰り返してしまいます。直すのは量ではなく、落とした場所です。",
+      "caption": "敗因が曖昧だと同じ勉強になる",
+      "visual": {
+        "kind": "points",
+        "heading": "勉強量の一言で片付けない",
+        "items": [
+          "敗因が曖昧\n同じ勉強を繰り返す",
+          "敗因を切り分ける\n一点に対策を集中する"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "再受験／総監",
+          "note": "記事の再受験対策の考え方を整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "record",
+      "start": 43,
+      "end": 60,
+      "narration": "点検の材料は、再現した答案です。記述式の解答を、何を、どの順序で、どんなトレードオフで書いたかまで残していれば、敗因分析の一次資料になります。手元に無ければ、思い出せる範囲で構いません。",
+      "caption": "再現した答案が点検の材料",
+      "visual": {
+        "kind": "points",
+        "heading": "点検の材料を集める",
+        "items": [
+          "記述式の再現答案",
+          "何を、どの順序で書いたか",
+          "自己採点した択一の結果"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "再受験／総監",
+          "note": "手元に無ければ、記憶の範囲で"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "three",
+      "start": 60,
+      "end": 76,
+      "narration": "点検は三つです。一つめ、択一式はどの分野で落としたか。二つめ、記述式は骨格かトレードオフか。三つめ、口頭は経歴の語り方か、知識か。自分が落とした段階の一つから見ます。",
+      "caption": "択一・記述・口頭の三つで点検",
+      "visual": {
+        "kind": "points",
+        "heading": "点検の三つの視点",
+        "items": [
+          "択一式\nどの分野で落としたか",
+          "記述式\n骨格か、掘り下げか",
+          "口頭\n経歴の語り方か、知識か"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "再受験／総監",
+          "note": "落とした段階の一つから見る"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "q1",
+      "start": 76,
+      "end": 96,
+      "narration": "択一式は、分野別の正答率を自己採点して、どのブロックで落としたかを特定します。計算問題の失点なら、解法を定着させれば得点源に変わるので、伸びしろは大きい。社会動向の設問で崩れたなら、日頃から関係省庁の情報に目を通す習慣で地力を上げます。",
+      "caption": "択一は分野別に落とし所を探す",
+      "visual": {
+        "kind": "points",
+        "heading": "点検1：択一式",
+        "items": [
+          "計算問題の失点\n解法を定着させて得点源に",
+          "社会動向の失点\n日頃の情報収集で地力を上げる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "再受験／総監",
+          "note": "分野ごとの正答率で特定する"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "q2",
+      "start": 96,
+      "end": 119,
+      "narration": "記述式は、二つに分けて見ます。骨格は合っていて、トレードオフの掘り下げが薄いなら、どちらを優先し、なぜそう裁いたかを一段深く書く練習で届きます。5管理の枠組みが答案で機能していないなら、小手先ではなく土台の作り直しです。",
+      "caption": "骨格か、掘り下げかを見分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "点検2：記述式",
+        "items": [
+          "掘り下げが薄い\n優先と理由を一段深く書く",
+          "5管理の枠が機能しない\n土台から作り直す"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "再受験／総監",
+          "note": "惜しい不合格と、大幅な不足を分ける"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "q3",
+      "start": 119,
+      "end": 139,
+      "narration": "口頭で落ちた場合は、まず切り分けです。経歴を総監の言葉で語れていなかったのか、5管理の知識が答えられなかったのか。前者なら、業務経歴を総監の視点で整え、適用事例を用意して声に出して確かめます。",
+      "caption": "口頭は経歴か知識かを切り分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "点検3：口頭試験",
+        "items": [
+          "経歴の語り方\n総監の視点で整え直す",
+          "5管理の知識\n答えられなかった所を補う"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "再受験／総監",
+          "note": "第三者を相手にした模擬口頭で確かめる"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "balance",
+      "start": 139,
+      "end": 160,
+      "narration": "始め直す順番です。筆記は、択一式と記述式の合計で見られるので、片方に賭ける戦略は不利です。ただし択一式は努力が点数に直結するので、土台は択一から固める。捨てる分野は作りません。",
+      "caption": "合計で見られる。土台は択一から",
+      "visual": {
+        "kind": "points",
+        "heading": "始め直しの配分",
+        "items": [
+          "片方に賭けない",
+          "土台は択一式から",
+          "捨てる分野を作らない"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "再受験／総監",
+          "note": "合計での得点が必要。基準は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "plan",
+      "start": 160,
+      "end": 180,
+      "narration": "時期は、試験日から逆算します。標準的な設計では、試験の半年ほど前に全体像の把握から入り、本格学習、直前期へと進みます。来年度の申込や試験の日程は、断定せず、受検年度の公式の案内で確認してください。",
+      "caption": "日程は公式の案内で確認する",
+      "visual": {
+        "kind": "points",
+        "heading": "試験日から逆算する",
+        "items": [
+          "全体像の把握",
+          "本格学習",
+          "直前期の仕上げ",
+          "日程は受検年度の公式で確認"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "再受験／総監",
+          "note": "4つの段階の設計。日程は断定しない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "avoid",
+      "start": 180,
+      "end": 198,
+      "narration": "避けたいのは三つです。勉強量のせいにして点検を飛ばすこと。落とした一点でなく、全体をまた同じ強さで回し直すこと。試験の直前に、新しい論点へ手を広げることです。",
+      "caption": "点検を飛ばさない、手を広げない",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたい三つ",
+        "items": [
+          "勉強量のせいにして終える",
+          "全体を同じ強さで回し直す",
+          "直前に新しい論点へ手を広げる"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "再受験／総監",
+          "note": "敗因を一点に絞ってから始める"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 198,
+      "end": 212,
+      "narration": "まとめます。再現答案と自己採点を材料に、択一、記述、口頭のどこで落としたかを切り分け、落とした一点に対策を集中して始め直します。",
+      "caption": "切り分けて、一点に集中する",
+      "visual": {
+        "kind": "points",
+        "heading": "落ちた原因の点検",
+        "items": [
+          "材料を集める",
+          "三つに切り分ける",
+          "一点に集中して始め直す"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "再受験／総監",
+          "note": "点検の手順のまとめ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 212,
+      "end": 228,
+      "narration": "記述式の失点を、型から作り直したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "記述式の型の教材案内は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "点検から、作り直しへ",
+        "items": [
+          "落とした一点を見つける",
+          "記述式は型から作り直す",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "再受験／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

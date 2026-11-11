@@ -155,6 +155,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/design-review` | デザインシステム準拠レビュー（7 カテゴリ）＋ `--visual` で視覚検証 | `デザインレビュー`, `/design-review` |
+| `/site-visual-review` | サイトの代表ページを全部の画面幅（6 幅）で撮り、機械の検査（コンテナ幅の不統一・横はみ出し・商品導線の欠け）と `site-page-visual-auditor` の目視で判定 → 不合格を共通の部品で直して撮り直すサイクル（`npm run site-visual-review` の prepare→判定→record）。週次の点検の `site-visual-review:status` が赤のとき・レイアウトや導線の部品を変えたあとに | `画面幅ごとに確認`, `レスポンシブ確認`, `導線の見え方を確認`, `/site-visual-review` |
 
 ### アフィリエイト運用（ads）
 

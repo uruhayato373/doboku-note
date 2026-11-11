@@ -1,0 +1,361 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "工事概要は、どこまで書けば足りる？",
+      "caption": "工事概要は、どこまで書けば足りるのか",
+      "visual": {
+        "kind": "cover",
+        "heading": "工事概要、どこまで書く？",
+        "items": [
+          "1級土木施工管理｜経験記述"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 33,
+      "narration": "経験記述の工事概要。工事名、場所、工期、施工量。欄は埋まっても、これで足りているのか分からない、という人は多いと思います。今日は、七つの欄それぞれの書き方と、欄どうしの釣り合いを整理します。結論は、略さず、特定できる細かさで書き、七つの欄が同じ工事を指すようにそろえる、ということです。受検する年の記入要領は、公式の案内で確認してください。",
+      "caption": "七つの欄を、特定できる細かさでそろえる",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "略さず、特定できる細かさで",
+          "七つの欄が同じ工事を指すようにそろえる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "書き方の整理は本動画の再構成"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 33,
+      "end": 57,
+      "narration": "よくある思い込みは、工事概要は形式的な欄だから、短く埋めればよい、というものです。しかし、記入のしかたの解説では、略式の書き方は工事の内容が見えにくい悪い例として挙がっています。工期と施工量が釣り合わないことも、避けるべき点です。概要は、あとに続く記述の前提になる欄です。",
+      "caption": "概要は形式的な欄ではなく、記述の前提",
+      "visual": {
+        "kind": "points",
+        "heading": "よくある思い込み",
+        "items": [
+          "形式的な欄だから\n短く埋めればよい",
+          "略式は悪い例\n欄どうしの食い違いも避ける"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "サイト記事の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "seven",
+      "start": 57,
+      "end": 79,
+      "narration": "令和六年度以降の形式では、工事概要は別の欄になっています。書くのは、工事名、立場、発注者名、場所、工期、主な工種、施工量の七つです。このあと、迷いやすい欄を順に見ていきます。設問に答える記述の欄とは別なので、概要を繰り返して字数を使わないことも大切です。",
+      "caption": "工事概要の七つの欄と、設問の欄は別",
+      "visual": {
+        "kind": "sheet",
+        "heading": "工事概要の七つの欄",
+        "sheetTitle": "記入欄のイメージ",
+        "rows": [
+          {
+            "label": "工事名",
+            "value": "何の工事か分かる名前",
+            "state": "focus"
+          },
+          {
+            "label": "立場",
+            "value": "現場での職務上の立場",
+            "state": "todo"
+          },
+          {
+            "label": "発注者名",
+            "value": "自社への直接の発注者",
+            "state": "todo"
+          },
+          {
+            "label": "場所",
+            "value": "地先・丁目まで",
+            "state": "todo"
+          },
+          {
+            "label": "工期",
+            "value": "自社の請負分を年月日で",
+            "state": "todo"
+          },
+          {
+            "label": "主な工種",
+            "value": "具体的な工種名",
+            "state": "todo"
+          },
+          {
+            "label": "施工量",
+            "value": "工種に対応する数量",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "name",
+      "start": 79,
+      "end": 104,
+      "narration": "まず、工事名です。何の工事か分かるように、河川名、路線名、施設名などの目的と、場所、そして建設、補修、築造といった工事の種類を入れます。原則は契約書や工事用看板のとおりで、長いときは略称でも構いません。場所は、都道府県から市や郡、さらに地先や町名まで、特定できる細かさで書きます。",
+      "caption": "工事名は目的・場所・種類、場所は地先まで",
+      "visual": {
+        "kind": "sheet",
+        "heading": "工事名と場所",
+        "sheetTitle": "何を、どこまで書くか",
+        "rows": [
+          {
+            "label": "工事名",
+            "value": "目的・場所・工事の種類",
+            "state": "focus",
+            "order": 1
+          },
+          {
+            "label": "原則",
+            "value": "契約書・工事用看板のとおり",
+            "state": "todo",
+            "order": 2
+          },
+          {
+            "label": "場所",
+            "value": "市や郡から、地先・町名まで",
+            "state": "todo",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "orderer",
+      "start": 104,
+      "end": 130,
+      "narration": "次に、発注者名です。会社に所属する人は、自社へ直接工事を注文した相手を確かめます。元請会社なら元の発注機関、一次下請なら元請会社、二次下請なら一次下請会社です。官公庁は、国土交通省とだけ書かず、事務所の名前まで正式に書きます。県も同じで、県名だけにせず、土木事務所のような出先の機関まで書きます。",
+      "caption": "発注者は自社へ直接注文した相手を正式名称で",
+      "visual": {
+        "kind": "compare",
+        "heading": "発注者名の書き方",
+        "ngLabel": "足りない書き方",
+        "okLabel": "書き方",
+        "rows": [
+          {
+            "label": "官公庁",
+            "ng": "国土交通省",
+            "ok": "地方整備局と事務所まで"
+          },
+          {
+            "label": "県",
+            "ng": "県名だけ",
+            "ok": "土木事務所まで"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "period",
+      "start": 130,
+      "end": 156,
+      "narration": "工期は、自社が請け負った分を書きます。年号を付けて、年月日まで省略せずに書くのが基本です。月だけの書き方より、年月日まで書いた書き方のほうが、工期が具体的になります。選ぶ工事は、完成して一年から五年ほどのものが目安で、施工中の工事は避けます。二か月未満の小さな工事は、評価が下がるおそれがあります。",
+      "caption": "工期は自社の請負分を、年月日まで書く",
+      "visual": {
+        "kind": "compare",
+        "heading": "工期の書き方",
+        "ngLabel": "月だけ",
+        "okLabel": "年月日まで",
+        "rows": [
+          {
+            "label": "例",
+            "ng": "令和3年6月〜12月",
+            "ok": "令和3年6月14日〜\n令和3年12月20日"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "role",
+      "start": 156,
+      "end": 182,
+      "narration": "立場の欄には、その工事の現場で実際に担った、職務上の立場を書きます。現場代理人、主任技術者、監理技術者などです。作業主任者のように作業ごとに選ぶ役割や、持っている資格の名前は、施工管理上の立場ではありません。監督員は発注者側の呼び方なので、請負者の立場で書くときは、現場代理人などの語に直します。",
+      "caption": "立場は現場での職務上の立場。資格名は書かない",
+      "visual": {
+        "kind": "compare",
+        "heading": "立場の欄に書くもの",
+        "ngLabel": "立場ではない",
+        "okLabel": "立場として書く",
+        "rows": [
+          {
+            "label": "役割",
+            "ng": "作業主任者",
+            "ok": "現場代理人"
+          },
+          {
+            "label": "資格",
+            "ng": "保有資格の名前",
+            "ok": "主任技術者\n監理技術者"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "scope",
+      "start": 182,
+      "end": 207,
+      "narration": "主な工種と施工量は、対応させて書きます。道路工とだけ書くより、道路土工、排水構造物工のように、工事の内容がイメージできる工種名にします。施工量も、舗装工とだけ書くのではなく、アスファルト舗装の面積のように、数量まで書きます。書く数値は、あとで出どころを示せるものだけにしてください。",
+      "caption": "工種は具体的に、施工量は数量まで対応させる",
+      "visual": {
+        "kind": "compare",
+        "heading": "工種と施工量",
+        "ngLabel": "略した書き方",
+        "okLabel": "具体的な書き方",
+        "rows": [
+          {
+            "label": "主な工種",
+            "ng": "道路工",
+            "ok": "道路土工、排水構造物工"
+          },
+          {
+            "label": "施工量",
+            "ng": "舗装工",
+            "ok": "アスファルト舗装\n○○○○m2"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 207,
+      "end": 235,
+      "narration": "仮の例で、七つがそろった形を確かめます。護岸の災害復旧の工事で、現場代理人の立場とします。発注者は県の土木事務所。主な工種は、護岸工の大型ブロック張工と根固め工。施工量は、護岸ブロックの面積と延長です。工種と施工量が対応し、工期は自社の請負分、立場も現場の職務。この例は説明のための仮のもので、実在の工事ではありません。",
+      "caption": "仮の例：七つの欄が同じ工事を指している",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の例：護岸の災害復旧",
+        "sheetTitle": "七つの欄の整合の確認",
+        "rows": [
+          {
+            "label": "工事名",
+            "value": "○○地区護岸災害復旧工事",
+            "state": "done"
+          },
+          {
+            "label": "立場",
+            "value": "現場代理人",
+            "state": "done"
+          },
+          {
+            "label": "発注者名",
+            "value": "○○県○○土木事務所",
+            "state": "done"
+          },
+          {
+            "label": "工期",
+            "value": "令和○年○月○日〜令和○年○月○日",
+            "state": "done"
+          },
+          {
+            "label": "主な工種",
+            "value": "護岸工（大型ブロック張工）、根固め工",
+            "state": "focus"
+          },
+          {
+            "label": "施工量",
+            "value": "護岸ブロック○○○m2、L=○○○m",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "link",
+      "start": 235,
+      "end": 259,
+      "narration": "工事概要を整えるのは、あとの記述のためです。設問の現場状況と課題は、二百字前後の一つの区画に収めます。だから、概要で書いた内容を繰り返さず、一段目は対象部分の規模か工法を一文で示すだけにして、字数は状況と課題に回します。設問の区画は、受検する年の問題で確かめてください。",
+      "caption": "概要を整え、字数は状況と課題に回す",
+      "visual": {
+        "kind": "points",
+        "heading": "概要の次に書くこと",
+        "items": [
+          "概要は欄で完結させる",
+          "記述欄は規模か工法を一文\n字数は状況と課題へ"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／経験記述",
+          "note": "サイト記事の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 259,
+      "end": 280,
+      "narration": "まとめます。一、概要は七つの欄で、略さず特定できる細かさで書く。二、発注者名は、自社への直接の発注者を正式名称で。三、工期は自社の請負分を年月日まで、立場は職務上の立場。四、工種と施工量を対応させ、七つの欄が同じ工事を指すようにそろえる。",
+      "caption": "特定できる細かさ・直接の発注者・年月日・対応",
+      "visual": {
+        "kind": "points",
+        "heading": "今日のまとめ",
+        "items": [
+          "略さず特定できる細かさで",
+          "発注者は直接の注文者",
+          "工期は年月日まで\n立場は職務上",
+          "工種と施工量を対応"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／経験記述",
+          "note": "本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 280,
+      "end": 294,
+      "narration": "自分の現場に近い想定工事を選んで、五つの管理をどう書き分けるかを見たい人は、概要欄の完全攻略パックを確認してください。無料のサイト記事も、概要欄に載せています。",
+      "caption": "想定工事を選んで書き分けるなら概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の工事に近い例を探す",
+        "items": [
+          "想定工事から近いものを選ぶ",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／経験記述",
+          "note": "概要欄のリンク"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

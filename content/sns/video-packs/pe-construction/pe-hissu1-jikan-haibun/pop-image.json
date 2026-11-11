@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『必須I』『2時間の』『割り方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-cover.be9853ef.png",
+          "sha256": "be9853efa8ebbfd86f1ca26dc1209658c0b4e447f265b2cb61f1e17f90f0812b"
+        },
+        "generatedAt": "2026-11-11T03:18:59.828Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "必須I",
+          "2時間の",
+          "割り方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/cover-pop.b9a03f61.png",
+        "sha256": "b9a03f61d229d5cc3438cf782bfe7e47ea28a1b3b9231a97bd88991a02770aa8",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "be9853efa8ebbfd86f1ca26dc1209658c0b4e447f265b2cb61f1e17f90f0812b"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:18:59.828Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字: 必須I・2時間の・割り方・総監が制作が指示と一字一致。キャラクターは黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で、手指と赤ペンに破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "6b4cd385dcd2c8d8ff8c75e0e1753b927fabe679290b56d27594aeb4562da48d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日整理する3つ』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『試験の形式』 『時間の割り方』 『当日の動き』。 図の下、下端の字幕の帯より上に『時間の割り方はdoboku-noteの目安』の全文を省かずに入れる。 この場面の説明（文字にしない）: 知識はあるのに、時間内に書き切れない。それは知識ではなく、段取りが決まっていないことが多い、とサイトでは見ています。今日は技術士建設部門の必須科目Ⅰを、形式、時間の割り方、当日の動きの三つで整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-premise.c0ad0345.png",
+              "sha256": "c0ad034557636e15c833c7aa38e98292a3966960e92e92184df7264d1460da3c"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/premise-diagram.841b8930.png",
+            "sha256": "841b893022fc356d38261975fec790f482a4bc23a1e494c96c3bf86e95de6fcb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c0ad034557636e15c833c7aa38e98292a3966960e92e92184df7264d1460da3c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 今日整理する3つ・3枠の語・下の注記が指示と一字一致、余計な文字なし。図も本文と矛盾せず破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "form",
+          "inputSha256": "e32781b49c03d6b40db57aa083fc96088dda310ad27594a2a420e26e77f9416b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『必須科目Ⅰの形式』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『試験時間は2時間』 『答案用紙3枚（600字詰め）』 『合計1,800字』 『形式は受検年度の公式情報で確認』。 図の下、下端の字幕の帯より上に『形式の確認先は受検年度の公式情報』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず形式です。必須科目Ⅰは2時間で、答案用紙3枚、600字詰めで1,800字を書きます。形式は、受検年度の公式情報で必ず確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-form.80d6b95b.png",
+              "sha256": "80d6b95b371e271f87fa7477fade2b9227af476bdffd557ad57c9a296c50a311"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/form-diagram.eb1f6e17.png",
+            "sha256": "eb1f6e17ee9f36ea8ac53e8e4e49adb391f92eb3070cd274e06885f9a9878065",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "80d6b95b371e271f87fa7477fade2b9227af476bdffd557ad57c9a296c50a311"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 必須科目Ⅰの形式・試験時間は2時間・答案用紙3枚（600字詰め）・合計1,800字・形式は受検年度の公式情報で確認・下段注記が指示と一字一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "split",
+          "inputSha256": "c45658a147fbacd65b1b3f7e4e9136171bb0fa23331951f9a11e984fd8ce6fdb",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『2時間の目安配分』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『読解と骨子　20分』 『記述（3枚）　60分』 『推敲と控え　20分』 『予備　20分』。 図の下、下端の字幕の帯より上に『配分はdoboku-noteの目安。公式の基準ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 時間の目安は四つに分けます。読解と骨子に20分、記述に60分、推敲と控えに20分、予備に20分です。これは本サイトの目安で、公式の配分ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-split.deda7034.png",
+              "sha256": "deda7034c9a5f755f9705df286ff0ff83473ccbde4bd132667b2bd1df9c751cb"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/split-diagram.be17adf3.png",
+            "sha256": "be17adf3ff5ae7c92857e8c6127b1ef9fff05ac01d534247f5894d9acb3757ab",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "deda7034c9a5f755f9705df286ff0ff83473ccbde4bd132667b2bd1df9c751cb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・4枠の配分20/60/20/20分・注記が指示と一字一致。推敲の敲の一部が小さく潰れるが判読でき誤字ではない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pace",
+          "inputSha256": "fc9840a8c08ce4a1e56220eeb2655e2c142746c65446a2bd8ee8279c7ceee4e0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書く速さの目安』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『1枚600字を約20分』 『1文字あたり約2秒』 『消す・図を描く時間も含める』。 図の下、下端の字幕の帯より上に『目安であり、人により異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 記述の60分は、1枚20分の計算です。600字を20分、1文字あたり2秒です。ただし、消す時間や図表を描く時間も、この20分に含めて考えます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-pace.5e720b70.png",
+              "sha256": "5e720b70452451a6be0dd4d616aff9fdc391c2229e794ad8fbf3ddb66c10b536"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/pace-diagram.3aa207ea.png",
+            "sha256": "3aa207ea334fb4b2adf628bc898877a12cf7002586f481d6baf73c0383cf975a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5e720b70452451a6be0dd4d616aff9fdc391c2229e794ad8fbf3ddb66c10b536"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 書く速さの目安・1枚600字を約20分・1文字あたり約2秒・消す・図を描く時間も含める・目安であり、人により異なるが指示と一字一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "trap",
+          "inputSha256": "87194b5b2a0834d87eae90cffa5a92717c2544f6e6524e80431067ed12a92b74",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書き始めの順番』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『順番を崩さない考え方は元記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 誤解しやすいのは、早く書き始めるほど有利だという考えです。読解と骨子の時間を削ると、書きながら構成を迷い、後半で抜けに気づいて時間を失います。順番は崩さないことが大切です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-trap.f95bd3ad.png",
+              "sha256": "f95bd3ad2276ca799687976854f89b9a8c959efc5867aff110751a1100db39e5"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/trap-diagram.ea1d3f2b.png",
+            "sha256": "ea1d3f2ba9eca5274ecceef4e77cfcff3830547ee1f814c236c8c7f88b4f3b16",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f95bd3ad2276ca799687976854f89b9a8c959efc5867aff110751a1100db39e5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと注記が指示と一字一致、枠内に余計な文字なし。左の混乱した書き始めと右の読解から構成から記述への順が本文と合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "entry",
+          "inputSha256": "8b50c8240eafa2bb5a28a4e40dadfeab7f4977d9d53b8e7797092508f5d06266",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『配布直後の記入』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図の下、下端の字幕の帯より上に『記入の扱いは受検年度の受験申込み案内で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: ここから当日の動きです。配布直後は、まず受験番号と問題番号を答案用紙に記入します。未記入や不明確な記載は失格事由と案内されているので、本文より先に済ませます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-entry.50348122.png",
+              "sha256": "503481226f719dfc05408840e16a606cbba9b87b96af87183f3190e7c2f7fddb"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/entry-diagram.1321a508.png",
+            "sha256": "1321a50880bb8922cc41e211b98a0c541d39cd2e170be2600eb2b12a097f95d9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "503481226f719dfc05408840e16a606cbba9b87b96af87183f3190e7c2f7fddb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 配布直後の記入と注記が指示と一字一致。表の欄は空で指示にない文字なし、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "read",
+          "inputSha256": "45b084aef8225200cc6c4968f25a9fab965e862c8dd7a01320f4d26252b09c07",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読解の三回と配分メモ』。 図に入れる文字: 『1回目　テーマ語』 『2回目　条件と問われている項目』 『3回目　書き方の指示』 『余白に字数と終了時刻』。 図の下、下端の字幕の帯より上に『三回読みは元記事の進め方』の全文を省かずに入れる。 この場面の説明（文字にしない）: 次に問題文を三回読みます。一回目はテーマ語、二回目は条件と問われている項目、三回目は書き方の指示です。最後に、設問ごとの字数と終了予定時刻を、問題用紙の余白に書き込みます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-read.e681fab9.png",
+              "sha256": "e681fab94989955f2880954f6d97e169cf5396f794a59420265449b535d5171a"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/read-diagram.fcf06549.png",
+            "sha256": "fcf06549ac25fa2c946dee1ef42655d3bc0abed99de43561efdb91ec97259a98",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e681fab94989955f2880954f6d97e169cf5396f794a59420265449b535d5171a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 読解の三回と配分メモ・1〜3回目の語・余白に字数と終了時刻・注記が指示と一字一致、本文の三回読みと合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "stuck",
+          "inputSha256": "3d76a803ad9ecbc4f0c999e4dd7f777cb54552107e845245d28661ab96fe7276",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『時間が足りないとき』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『部分点は保証されない。拾える可能性として扱う』の全文を省かずに入れる。 この場面の説明（文字にしない）: 書き切れないと判断しても、白紙にはしません。章立てだけ、関係する知識の箇条書き、図表だけでも書きます。空欄は、加点のしようがありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-stuck.870b782d.png",
+              "sha256": "870b782d57f78cf79cd70ec0c69fb2eba65178d839dab195d8f73e0487a364f9"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/stuck-diagram.e74b3f74.png",
+            "sha256": "e74b3f74b34799dd9f0e21a7aee6b71f696204104fecc1f870b937f4dad2dd55",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "870b782d57f78cf79cd70ec0c69fb2eba65178d839dab195d8f73e0487a364f9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 時間が足りないときと注記が指示と一字一致。白紙から章立て・図表を書いた答案への図は本文と矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "review",
+          "inputSha256": "3dbfec113b3f712f66e2168cbae65c767a5153c5ef1e18a912d51cbd9d82293a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『見直しの順番』。 図に入れる文字: 『1　記入欄の抜け』 『2　設問への対応漏れ』 『3　結論の位置』 『4　誤字脱字・文体』。 図の下、下端の字幕の帯より上に『見直しの順番は元記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 残り時間の見直しにも順番があります。記入欄の抜け、設問への対応漏れ、結論の位置、最後に誤字脱字です。時間が尽きても、大きな失点になりやすい所から確認できます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-review.044f8ee9.png",
+              "sha256": "044f8ee97d9ffdd20064443d0848451b7f5c3adffdb0663cdbcca3111d2f3978"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/review-diagram.5f60815a.png",
+            "sha256": "5f60815a50ca0fcd580a0ab8427422d0c831ecb31c01f57de36bb1c5dbe7515f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "044f8ee97d9ffdd20064443d0848451b7f5c3adffdb0663cdbcca3111d2f3978"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見直しの順番・1〜4の項目名・注記が指示と一字一致、順序も本文どおり",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "copy",
+          "inputSha256": "e88e48779dd0db7d26ab5a182cfcac3f1bb9759158b2e2e7381959fce704422a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『終了までの動き』。 図に入れる文字: 『退室の扱いは受験案内で確認』 『要点だけ余白に控える』 『持ち帰った問題用紙で復元』。 図の下、下端の字幕の帯より上に『取り扱いは年度ごとに改められる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 最後に、控えです。開始後の退室は手洗い以外認められないと案内されています。控えは、終了の合図までに余白へ要点だけ書き、口頭試験に備えます。取り扱いは毎年変わるので、受検年度の案内で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-copy.3aade6aa.png",
+              "sha256": "3aade6aaa98c1d808af8be5a9ba03ebeb71ed2e95254515d0b22813e2d15d8e4"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/copy-diagram.62d72667.png",
+            "sha256": "62d7266779f0520fea0bcb4947e8e87360b5073ab1880b198a10ab28c2d1ab30",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3aade6aaa98c1d808af8be5a9ba03ebeb71ed2e95254515d0b22813e2d15d8e4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 終了までの動き・3項目の文言・注記が指示と一字一致、余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "c1790a0599125416ae4fc438d06f1670d60d3fefd1cdd71fb064ba552bb7d6d8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『形式は公式情報で確認』 『20・60・20・20分の目安』 『読解と骨子は削らない』 『見直しは順番どおり』。 この場面の説明（文字にしない）: まとめます。形式を確かめ、目安の配分を持ち、読解と骨子を削らない。記入欄、三回読み、余白のメモの順に動き、足りなければ途中まで書き、見直しは順番に行う。配分は、本サイトの目安です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-recap.7bb63317.png",
+              "sha256": "7bb63317135b4737ff0062ccece82eb0a144e663844118fee99bc98010a6f0d9"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/recap-diagram.c9ba00f3.png",
+            "sha256": "c9ba00f398d978261ce264b9c9a4570dccfa811f084586a697a6bfa19f179335",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7bb63317135b4737ff0062ccece82eb0a144e663844118fee99bc98010a6f0d9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 今日のまとめ・4項目（20・60・20・20分の目安 含む）が指示と一字一致、時計や本の図に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "8b22f71435aa318bae088122fa357b33078692f49a5cc3f269cb502a1dc5b0d9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『配分の次は、練習』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『必須科目Ⅰ 模範解答集』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 配分が決まったら、次は答案の中身です。必須科目Ⅰの模範解答集が、noteにあります。この動画は時間の割り方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/factory/raw-cta.a640504c.png",
+              "sha256": "a640504ce9ea346a217c7fb09bcd47d0a42fd0c5dc1393092098772fed3fb9d4"
+            },
+            "generatedAt": "2026-11-11T03:18:59.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-jikan-haibun/work/cta-diagram.c90736d0.png",
+            "sha256": "c90736d02f5cdb1790535eb7ba02464d057977413395d10ef0111f6172215bb1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a640504ce9ea346a217c7fb09bcd47d0a42fd0c5dc1393092098772fed3fb9d4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:18:59.828Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 配分の次は、練習・必須科目Ⅰ模範解答集・収録内容は概要欄からが指示と一字一致。価格・URLなし、ノートの形も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

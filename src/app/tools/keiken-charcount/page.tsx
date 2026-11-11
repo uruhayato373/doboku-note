@@ -10,6 +10,7 @@ import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magaz
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { toolByHref } from "@/lib/tools";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 const tool = toolByHref("/tools/keiken-charcount");
 
@@ -77,7 +78,7 @@ export default function KeikenCharcountPage() {
       />
 
       <KeikenCharcountClient limits={LIMITS} />
-      <div className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10">
+      <div className={`${READING_CONTAINER} pb-10`}>
         <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
           完成答案で書き方を確かめる（note）
         </div>

@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監 記述』『白書から』『課題を選ぶ』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-cover.02876603.png",
+          "sha256": "028766039f723cdb23424d36a3a8eabe4cfb6f5e46511ff1166b40c7167036c0"
+        },
+        "generatedAt": "2026-11-11T01:22:21.641Z"
+      },
+      "copy": {
+        "exam": "pe-comprehensive-management",
+        "headline": [
+          "総監 記述",
+          "白書から",
+          "課題を選ぶ"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/cover-pop.d9a96874.png",
+        "sha256": "d9a968740071003a65aa828c4a47204bb341a6b21102528a22eeeb52356d4e00",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "028766039f723cdb23424d36a3a8eabe4cfb6f5e46511ff1166b40c7167036c0"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T01:22:21.641Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "指定の4文字列(総監が制作・総監 記述・白書から・課題を選ぶ)が一字一句一致、先生の顔・黒縁眼鏡・ひげ・白ヘルメット・紺作業服・反射帯が揃い、手指も破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "18319b223dc47e3ef41c559284c8af07a94b494988cab31e8476df0ab65b8232",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『拾う、問う、絞る』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『候補を拾う 概要版と特集から』 『三つの問いで問う』 『課題を一つに絞る』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 白書を開いたものの、話題が多すぎて、どれを答案の課題にすればよいか決められない。この動画では、特集から候補を拾い、三つの問いで一つに絞る手順を紹介します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 62.6）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-hook.8ed063dc.png",
+              "sha256": "8ed063dccb94fc9c927fee94c3164e9c6c014098d2f8ad93c5d659e72ef67c5f"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/hook-diagram.22081885.png",
+            "sha256": "22081885dc304b33e8d6536035baec6bbc7cc82d3014a3854ce7fb2dee6c1557",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8ed063dccb94fc9c927fee94c3164e9c6c014098d2f8ad93c5d659e72ef67c5f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三つの円内文字・『本動画の独自の整理』が指示と一字ずつ一致し、余計な文字・崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "52cd54aa403dd1701442009915e97b4ce5bf3e0b3a1e4a287bbd4f2981ffd1dc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『目立つ話題をそのまま選ばない』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『白書で目立つ話題 誌面での扱いの大きさ』 『答案で扱える課題 問題文と自分の立場に合う』。 図の下、下端の字幕の帯より上に『基準は白書でなく、問題文と立場にある』の全文を省かずに入れる。 この場面の説明（文字にしない）: 誤解しやすいのは、白書で目立つ話題を、そのまま課題にすることです。目立つ話題と、自分の答案で扱える課題は別です。選ぶ基準は白書の側ではなく、問題文と自分の立場の側にあります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-misread.2fb16aa5.png",
+              "sha256": "2fb16aa511ebe1c735d4e48ab10bfb6aa31e9ea9cc961bd09c9509ea48006b34"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/misread-diagram.b4fe3ad6.png",
+            "sha256": "b4fe3ad621e43ec156c5012ac2a1f1a904b7473b2c851aeaef54e508f7c6df92",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2fb16aa511ebe1c735d4e48ab10bfb6aa31e9ea9cc961bd09c9509ea48006b34"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・左右枠の文字・下の基準文が指示と完全一致、右強調の構図で図記号も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pick",
+          "inputSha256": "df288049a5c56b1ef73ff2a554490c71dbd25aa390aa527c11ac4f97b4bd835d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『候補は、概要版と特集から』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『概要版を先に読む』 『本文は特集・第1部』 『直近の2〜3年分』。 図の下、下端の字幕の帯より上に『サイト記事の読み方を、候補拾いに絞って整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず候補を拾います。全冊の通読は現実的ではありません。各白書の概要版を先に読み、本文は特集と第1部に絞ります。対象は直近の2、3年分で足ります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 42.6）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-pick.f857c691.png",
+              "sha256": "f857c691924c2850fcef8ffdc750ff0587718f357ad5013fe00b5c32a7522f97"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/pick-diagram.4a88a673.png",
+            "sha256": "4a88a6738d2fa81a8d83cc2efc1d60f61ca8673672b4bfa39e49c2ac2a2cf203",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f857c691924c2850fcef8ffdc750ff0587718f357ad5013fe00b5c32a7522f97"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三つの枠の文字・下の文が指示と一致(特集・第1部、2〜3年分も正確)",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "map",
+          "inputSha256": "70e008014c514f59e1fecab2fa5bc1194128c5695d6448e86196e95acb5ebfc8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『候補を、5管理に当てる』。 図の下、下端の字幕の帯より上に『キーワードから白書を逆引きし、管理に当てる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 次に、拾った候補を5管理に当てます。キーワードから逆引きすると速くなります。たとえばBCPなら防災白書、DXならDX動向と情報通信白書、カーボンニュートラルなら環境白書とエネルギー白書です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-map.e90d136b.png",
+              "sha256": "e90d136b0b52f197f8ce19dc64b18a749ae1bc38c4e99d7186d6e1dd4647a701"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/map-diagram.f45db838.png",
+            "sha256": "f45db83814661be8e0a4c8a2115a07de54c8e0b498f2e6f7d8d1d83b4fdc47c7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e90d136b0b52f197f8ce19dc64b18a749ae1bc38c4e99d7186d6e1dd4647a701"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・下の文が指示と一致、5管理の5アイコンが成立し検索窓も空で余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "three",
+          "inputSha256": "17e02bbc8747b7eab24e851ea032d06f3080448597e26f6d98210cb27334f81c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『課題を絞る三つの問い』。 図に入れる文字: 『問題文の範囲に入るか』 『自分の立場で管理できるか』 『施策に言い換えられるか』。 図の下、下端の字幕の帯より上に『本動画の独自の整理（出題の予想ではない）』の全文を省かずに入れる。 この場面の説明（文字にしない）: 候補が出たら、三つの問いで絞ります。一つめ、問題文が求める範囲に入るか。二つめ、自分の立場で管理できるか。三つめ、施策に言い換えられるか。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 35.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-three.b682ddb6.png",
+              "sha256": "b682ddb67c041fe653c0caed1f34fc9e41b2140244618d9c62efb1f4ea77d442"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/three-diagram.5e2dbdd9.png",
+            "sha256": "5e2dbdd9b9e753404248365530da2cfcb3ec175cb7be0bce07a600d2120f53ca",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b682ddb67c041fe653c0caed1f34fc9e41b2140244618d9c62efb1f4ea77d442"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三つの問い・下の文(出題の予想ではない含む)が指示と一致し、図記号の破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q1",
+          "inputSha256": "1b25751588a63a8073e319b4e5d1b988ad29d646ee429362f9149ad7a94eb9e3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問い1：問題文の範囲』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『自分の事業を問う 担当範囲から飛ばない』 『全体の取組を問う 指定された範囲で考える』。 図の下、下端の字幕の帯より上に『対象の範囲は、設問ごとに問題文で確認する』の全文を省かずに入れる。 この場面の説明（文字にしない）: 一つめは、問題文です。対象の範囲は問題文で確認します。自分の事業について問う設問なら、担当範囲から話を飛ばしません。日本全体の取組が指定されていれば、その範囲で考えます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-q1.0da45f92.png",
+              "sha256": "0da45f92639d11aee6775429db088e188152002d38bc0a0f51ed2967023f73ba"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/q1-diagram.7e860545.png",
+            "sha256": "7e86054578989229c1b941915d43b0a626aa48fa0afe529f5c6ed8ca0194be8d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0da45f92639d11aee6775429db088e188152002d38bc0a0f51ed2967023f73ba"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・左右枠の文字・下の文が指示と一字ずつ一致、建物アイコンも破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q2",
+          "inputSha256": "3739aeeac8d443b847d02f532ec3f6c2684a557a53301619015da71619c37377",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問い2：自分の立場』。 構図: 左の問いから右の行動へ矢印で結ぶ対応図。 図に入れる文字: 『前半で置いた担当範囲』 『前半で置いた制約』 『後半の課題は、そこにつながる』。 図の下、下端の字幕の帯より上に『前半の条件と、課題をつなぐ』の全文を省かずに入れる。 この場面の説明（文字にしない）: 二つめは、立場です。答案の前半で置いた担当範囲と制約の中で、実行できる課題かを見ます。前半に書いていない課題を、後半で突然解決することはできません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-q2.f9a61b0b.png",
+              "sha256": "f9a61b0b524a9923c349c3842b08002fc239bd64a6bdf18ee4c8878836ea9747"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/q2-diagram.b2b108da.png",
+            "sha256": "b2b108da43745fb7e4f03492f4b2bd5a9c6a656e0fa4599cb3f9e5926eb9a2ec",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f9a61b0b524a9923c349c3842b08002fc239bd64a6bdf18ee4c8878836ea9747"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三つの枠の文字・下の文が指示と一致し、矢印が左の問いから右の課題へ結ぶ構図で成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q3",
+          "inputSha256": "6960ff94bc3ef5200daee91eb912e8c59bb9afced7f74c48535922c3be3da447",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問い3：施策に言い換える』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『方針 DXを推進する』 『施策 特定の業務に、何を、どう入れるか』。 図の下、下端の字幕の帯より上に『効果と、増える管理の負担をセットで考える』の全文を省かずに入れる。 この場面の説明（文字にしない）: 三つめは、施策です。DXを推進する、は方針であって施策ではありません。特定の業務にどのシステムを入れるか、まで言えるか。効果と、その裏で増える管理の負担も書けるかを確かめます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-q3.2672b8a9.png",
+              "sha256": "2672b8a96ee8c5f0e61f15eb5fc7d15a6c22fa6b491599120fc2e709f4a5f8bc"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/q3-diagram.5e4d66b6.png",
+            "sha256": "5e4d66b610f4a26d0c56b0c4a21434befa2911138f57f491c03052da155fa316",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2672b8a96ee8c5f0e61f15eb5fc7d15a6c22fa6b491599120fc2e709f4a5f8bc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・方針/施策の枠の文字・下の文が指示と一致、ノートPCアイコンも破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "e5c6c3f430e249be7442f7791589098663c7278319feb00b995eb5eaf4a6ad76",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮例：労働力供給制約』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『候補 人手の確保』 『管理 人的資源管理』 『三つの問いで確かめる』。 図の下、下端の字幕の帯より上に『手順の仮例。出題の予想ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 仮の例で当てはめます。労働経済の分析の令和7年版は、主題を労働力供給制約としています。候補は人手の確保。管理は人的資源管理。三つの問いに沿って、範囲、立場、施策を順に確かめます。これは手順の例で、出題の予想ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-example.3b364d5a.png",
+              "sha256": "3b364d5a2fdb39848b74e9330c8cb42a650a7e6e3fb058f201095dee68220df9"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/example-diagram.d9efa832.png",
+            "sha256": "d9efa832e792a73335da6beaa371a3721858b57ff04f1627d30497260e371c1c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3b364d5a2fdb39848b74e9330c8cb42a650a7e6e3fb058f201095dee68220df9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三つのラベル・下の文が指示と一致し、人・組織図・チェックリストの図も崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "avoid",
+          "inputSha256": "3438538845dbbd3e358d24b1082d99976c04176f410bfae8238968e1152e8012",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『避けたい三つ』。 図に入れる文字: 『話題性だけで選ぶ』 『出典と版を確かめない数字』 『全冊の通読』。 図の下、下端の字幕の帯より上に『年度・日程は、受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 避けたいのは三つです。話題性だけで選ぶこと。数字を、出典と版を確かめずに使うこと。全冊を通読して時間を使い切ること。数字は、受検する年度の公式情報と最新の白書で確認します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-avoid.47fa726d.png",
+              "sha256": "47fa726d22b613e61dbc8e78a502514e5239c9df882a0d6ae8820f52df2884d0"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/avoid-diagram.3298a7ba.png",
+            "sha256": "3298a7badb1f50411327c9093ec3df138a8b29700b64b657bd517dd9f90b4089",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "47fa726d22b613e61dbc8e78a502514e5239c9df882a0d6ae8820f52df2884d0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三つのラベル・下の文(年度・日程…公式情報で確認)が指示と一致、図記号の破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "934f9b95e00961c578a37a362c3294863b81088eda0de66d18c44a132d69efbe",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『白書から課題を選ぶ手順』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『候補を拾う』 『5管理に当てる』 『三つの問いで絞る』。 図の下、下端の字幕の帯より上に『本動画のまとめ』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめです。概要版と特集から候補を拾い、5管理に当てます。問題文の範囲、自分の立場、施策への言い換えの三つで、課題を一つに絞ります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 37.5）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-recap.e79724a6.png",
+              "sha256": "e79724a6eb1e3d00810d7d19b40fa650d3daf2a20e1a7f6bcc66e70427f74e94"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/recap-diagram.5b01151c.png",
+            "sha256": "5b01151c79215afb8594f990b40e1d426cea27df1bae4778546936910d574a0b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e79724a6eb1e3d00810d7d19b40fa650d3daf2a20e1a7f6bcc66e70427f74e94"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三つの枠の文字・本動画のまとめが指示と一致し、番号付き枠の横並びで崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "3b463d05c327021ac77d1d15aa9f96061d75264dae7c20425eb974a997bd1602",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『課題から、施策へ』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『課題を一つ選ぶ』 『施策案を引き出す』 『教材案内は概要欄へ』。 この場面の説明（文字にしない）: 設問3で使う将来課題と、国家レベルの施策案をまとめて引き出したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 50.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/factory/raw-cta.fde45c2d.png",
+              "sha256": "fde45c2d830b5511e8fd8c2b29c7786efb0245c148064d949d41dee43fbc24bb"
+            },
+            "generatedAt": "2026-11-11T01:22:21.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-kadai-erabu/work/cta-diagram.71daee65.png",
+            "sha256": "71daee6542a615889dec0f1f2ece13812af77ff0eb8e55c3ed6850364cbd7074",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fde45c2d830b5511e8fd8c2b29c7786efb0245c148064d949d41dee43fbc24bb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:22:21.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・三つの文字が指示と一致し価格・URLなし、ノート中央の構図で図記号も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

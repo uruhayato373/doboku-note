@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { getAllCategories, getCategoryHubPath } from '@/lib/categories';
 import { getAreaLabel } from '@/lib/content-taxonomy';
+import { WIDE_CONTAINER } from './container';
 
 const categories = getAllCategories().filter(category => category.visible !== false);
 const siteLinks = [
@@ -32,7 +33,7 @@ function CategoryLinks() {
 export default function Footer() {
   return (
     <footer className="mt-8 border-t border-(--rule-soft) bg-(--paper) transition-colors duration-300">
-      <div className="mx-auto max-w-[1280px] px-4 py-5 sm:px-6 sm:py-6 lg:px-10">
+      <div className={`${WIDE_CONTAINER} py-5 sm:py-6`}>
         <div className="sm:flex sm:gap-8">
           <div className="sm:w-48 sm:shrink-0">
             <Link href="/" className="focus-ring inline-flex min-h-11 items-baseline gap-2 py-2">

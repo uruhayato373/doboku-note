@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "設計変更",
+        "発注者は",
+        "何を見る"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "元発注者が解説"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/owner-eye-sekkei-henkou-hantei/work/cover-pop.21fa16cc.png",
+        "sha256": "21fa16cc3341988aa398cfd17edf19b0b97c5374637e6f5976f5d0fda8a21187",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "62c2c33f8a56d551245fe27a367ad2e5908fc095c28bab234db3c0f8e5e8f225"
+      }
+    }
+  }
+}

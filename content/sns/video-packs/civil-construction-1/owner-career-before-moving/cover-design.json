@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "発注者側へ",
+        "移る前に",
+        "知ること"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "元発注者が解説"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/owner-career-before-moving/work/cover-pop.bc21f3d0.png",
+        "sha256": "bc21f3d04be3fb395f1d099fbaf1aa0f11ebb5cb2d04f43e669571143d496372",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "0544d943233cdab965d1cee370300ecd65c82b494effc778884589b75e439d60"
+      }
+    }
+  }
+}

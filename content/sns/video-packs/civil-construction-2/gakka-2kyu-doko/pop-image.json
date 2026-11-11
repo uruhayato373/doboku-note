@@ -2451,7 +2451,7 @@
             "activationAt": "2026-10-12T04:51:10.246Z",
             "activationRunId": "38205390124",
             "receiptScope": "pop-soil-shorts-fullbleed-20261012-930320f6-final",
-            "oldDeletionPending": true,
+            "oldDeletionPending": false,
             "retiredVideos": [
               {
                 "id": "g86O04mXoVM",
@@ -2462,8 +2462,8 @@
               {
                 "id": "tMxQesShhL8",
                 "newId": "vYPjT713Hyg",
-                "phase": "activated",
-                "deletedAt": null
+                "phase": "deleted",
+                "deletedAt": "2026-11-11T04:45:00.000Z"
               }
             ],
             "checkedAt": "2026-10-12T05:05:28.680Z",
@@ -4006,9 +4006,25 @@
           }
         }
       ]
+    },
+    "cover-pop-restore-20261111": {
+      "version": "pop-poster-v3",
+      "note": "先生のキャラクターの表紙へ戻す（2026-11-11・運営者の指示）。投稿済みの表紙（台帳の素材）をそのまま採用する",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の承認済み2級土木POP章扉をデザイン参照に、別の通常動画の表紙を新規制作。横長1920×1080。漫画調の精密な建設機械、緑の放射背景、白と黄色の極太日本語、同じ黒髪・黒縁眼鏡・短いひげ・紺作業服の男性先生の同一性を保持。章扉をコピーせず資格と動画内容に合わせて作る。上に「2級土木」、中央左に最大級の「土工の頻出点」、次に「4テーマで整理」。下に4つの独立した大きいラベル「土質試験」「土量変化」「締固め」「軟弱地盤」。4つ全てを同じ可読性で。イラストは小さな土質採取器、切土とダンプ、ローラー、ドレーン断面をそれぞれラベルに対応させる。先生は右側で4テーマの地図を指示棒で案内する、元画像の掌ポーズとは違う姿勢。顔と文字・機械を重ねない。下の黄色帯に「総監が制作」。資格名と著者資格を分離。第1章や掘る運ぶ締めるの文字は引き継がない。指定文字以外の文字、価格、URL、合格保証、根拠のない順位・数字なし。四辺6％安全域、全要素大きく、360px幅でも主題と4項目が読める。参照画像の画風と色密度を保持しつつ白い余白はなくす。\n\n修正指示:\nこの画像を編集。文字・先生・4項目を保持。右下の軟弱地盤の図だけ正確な鉛直ドレーン断面に変更：地表に薄い砂の水平排水層、その下に灰褐色の均質な軟弱粘土地盤。そこに幅の細い4本の鉛直排水材を上の砂層から下向きに埋め込む。地下の青い水槽、下部砕石層、太い穴開きパイプは全て削除。軟弱粘土内の水が細い排水材へ横から入り上の砂層に上がる水色の小矢印を2本だけ描く。他の3図は変えない。全周8%は背景だけの余白にし文字・人物・図の4パネルは内側に収める。横16:9。指定以外の追加文字なし。\n最終PNGは配信寸法へ縦横比を保って正規化し、外周の安全域を追加。",
+        "promptSha256": "7c9db9cc1e377d3f30862d4b782c05b641532c299be082325d6e4bebace63f4c",
+        "generatedAt": "2026-10-11T13:02:07.721Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+        "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7",
+        "width": 1920,
+        "height": 1080
+      }
     }
   },
   "activeBodyRevision": "diagram-led-20261019",
-  "activeCoverRevision": "diagram-led-20261019-cover",
+  "activeCoverRevision": "cover-pop-restore-20261111",
   "candidateShortsRevision": "diagram-led-shorts-20261019"
 }

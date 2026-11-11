@@ -1,0 +1,307 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "配合計算は、確認する順番で解く",
+      "caption": "配合計算は、確認する順番で解く",
+      "visual": {
+        "kind": "cover",
+        "heading": "配合計算を、確認順で1問",
+        "items": [
+          "仮の条件を最後まで通す",
+          "式より先に、確認の順番を固定する"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 27,
+      "narration": "四肢択一の配合計算は、式を知っていても、百分率や単位でずれて選択肢と合わなくなります。2026年度の公式案内では、試験は四肢択一式で時間は2時間でした。問題数や日程は年度で変わるので、受検する年度の公式情報を確認してください。今日は仮の条件を一つ、確認順で通します。",
+      "caption": "式は知っていてもずれる。確認の順番を固定する",
+      "visual": {
+        "heading": "ずれるのは式ではなく確認の抜け",
+        "items": [
+          "百分率を小数に直し忘れる",
+          "単位や空気量をそろえ忘れる",
+          "受検年度の公式案内で形式を確認"
+        ]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "order",
+      "start": 27,
+      "end": 52,
+      "narration": "確認順は七つです。一つ、基準は1立方メートルで、表乾か絶乾か。二つ、百分率を小数へ。三つ、水セメント比とセメント水比を逆にしない。四つ、質量を密度で割れば容積、容積に密度を掛ければ質量。五つ、空気量をリットルへ。六つ、表面水は骨材に足して、計量水から引く。七つ、容積の合計が1000リットルへ戻るか。",
+      "caption": "確認順：基準→百分率→W/C→密度→空気量→表面水→容積",
+      "visual": {
+        "heading": "配合計算の確認順",
+        "flow": [
+          "1 基準：1m3・表乾か絶乾か",
+          "2 百分率を小数へ",
+          "3 水セメント比を逆にしない",
+          "4 質量÷密度＝容積",
+          "5 空気量をLへ",
+          "6 表面水は骨材へ足し水から引く",
+          "7 容積の合計が1,000Lへ戻るか"
+        ],
+        "items": [
+          "基準",
+          "百分率",
+          "W/C",
+          "密度",
+          "空気量",
+          "表面水",
+          "容積"
+        ]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "conditions",
+      "start": 52,
+      "end": 74,
+      "narration": "仮の条件を置きます。過去問の数値ではありません。単位水量170キログラム、単位セメント量340キログラムでセメントの密度は3.15。空気量4.5パーセント、粗骨材の絶対容積360リットル、細骨材の表乾密度2.60です。求めるのは、細骨材の表乾質量と細骨材率です。",
+      "caption": "仮の条件：水170kg・セメント340kg・空気4.5%・粗骨材360L",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の条件（過去問ではありません）",
+        "sheetTitle": "1m3あたりの与条件",
+        "rows": [
+          {
+            "label": "単位水量",
+            "value": "170kg/m3",
+            "state": "done"
+          },
+          {
+            "label": "単位セメント量",
+            "value": "340kg/m3（密度3.15kg/L）",
+            "state": "done"
+          },
+          {
+            "label": "空気量",
+            "value": "4.5%",
+            "state": "done"
+          },
+          {
+            "label": "粗骨材の絶対容積",
+            "value": "360L/m3",
+            "state": "done"
+          },
+          {
+            "label": "細骨材の表乾密度",
+            "value": "2.60kg/L",
+            "state": "done"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "wc",
+      "start": 74,
+      "end": 90,
+      "narration": "まず水セメント比です。水を、セメントで割ります。170割る340で0.50、パーセントなら50。セメントを水で割ると2になってしまうので、分子と分母の順番を最初に確認します。",
+      "caption": "水セメント比＝水÷セメント＝170÷340＝0.50（50%）",
+      "visual": {
+        "heading": "水セメント比は水÷セメント",
+        "flow": [
+          "W/C ＝ 170 ÷ 340",
+          "＝ 0.50（50%）",
+          "逆にすると 2.0（セメント水比）"
+        ],
+        "items": [
+          "水÷セメント",
+          "0.50",
+          "逆にしない"
+        ]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "volumes",
+      "start": 90,
+      "end": 116,
+      "narration": "次に、材料を容積にそろえます。水は密度1.00なので170リットル。セメントは340を3.15で割って、約108リットル。空気は1000の4.5パーセントで45リットルです。質量を密度で割ると容積、という向きを間違えないでください。",
+      "caption": "水170L・セメント340÷3.15≒108L・空気1000×0.045＝45L",
+      "visual": {
+        "kind": "sheet",
+        "heading": "質量を密度で割って絶対容積に",
+        "sheetTitle": "絶対容積",
+        "rows": [
+          {
+            "label": "水",
+            "value": "170÷1.00＝170L",
+            "state": "done"
+          },
+          {
+            "label": "セメント",
+            "value": "340÷3.15≒108L",
+            "state": "done"
+          },
+          {
+            "label": "空気",
+            "value": "1000×4.5/100＝45L",
+            "state": "done"
+          },
+          {
+            "label": "粗骨材",
+            "value": "360L（与えられた値）",
+            "state": "done"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "fine",
+      "start": 116,
+      "end": 142,
+      "narration": "細骨材の絶対容積は、1000から、水、セメント、空気、粗骨材を引いた残りです。1000引く、170、108、45、360で、317リットル。表乾質量は、317に2.60を掛けて824.2キログラム。細骨材率は、317を、317と360の合計で割って、約46.8パーセントです。",
+      "caption": "細骨材317L→824.2kg、細骨材率 約46.8%",
+      "visual": {
+        "heading": "残りが細骨材、質量と細骨材率へ",
+        "flow": [
+          "1000−(170+108+45+360)＝317L",
+          "317×2.60＝824.2kg",
+          "317÷(317+360)×100≒46.8%"
+        ],
+        "items": [
+          "細骨材317L",
+          "824.2kg",
+          "s/a 約46.8%"
+        ]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "surface",
+      "start": 142,
+      "end": 170,
+      "narration": "別の例で、表面水の補正です。表乾の細骨材が800キログラム、表面水率が3.0パーセント。湿潤状態で量る質量は、800掛ける1.03で824キログラム。増えた24キログラムは表面水なので、示方配合の単位水量から24キログラムを引きます。骨材を増やしたら、必ず水を減らします。",
+      "caption": "表面水：800×1.03＝824kg、増えた24kgを水から引く",
+      "visual": {
+        "heading": "表面水は骨材へ足し、水から引く",
+        "flow": [
+          "湿潤質量 800×(1＋0.03)＝824kg",
+          "表面水 824−800＝24kg",
+          "計量水＝示方配合の水−24kg"
+        ],
+        "items": [
+          "骨材824kg",
+          "表面水24kg",
+          "水は24kg減らす"
+        ]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 170,
+      "end": 196,
+      "narration": "最後の確認です。容積の合計が1000リットルへ戻るか見ますが、細骨材を残りで出した場合、合計は自動的に合います。だから合計だけでは安心できません。水の密度、セメントの割り算、空気量の換算、粗骨材の値を、一行ずつ見直します。選択肢とわずかに合わないときは、問題文の丸め方も確認します。",
+      "caption": "合計1,000Lは残りで出せば自動で合う。各行を見直す",
+      "visual": {
+        "kind": "sheet",
+        "heading": "検算は各行を一つずつ",
+        "sheetTitle": "見直す順番",
+        "rows": [
+          {
+            "label": "水セメント比",
+            "value": "水÷セメントの向き",
+            "state": "done"
+          },
+          {
+            "label": "セメント容積",
+            "value": "340÷3.15の割り算",
+            "state": "done"
+          },
+          {
+            "label": "空気",
+            "value": "％をLへ換算したか",
+            "state": "done"
+          },
+          {
+            "label": "丸め方",
+            "value": "問題文の指示を優先",
+            "state": "done"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "pitfalls",
+      "start": 196,
+      "end": 226,
+      "narration": "つまずきの型は三つです。一つ目、水セメント比を、セメント割る水で出してしまう。二つ目、空気量の4.5をそのまま引くなど、リットルへの換算を忘れる。三つ目、表面水で骨材だけ増やして、水を減らさない。どれも、確認順のどこかで止まります。",
+      "caption": "つまずき：W/Cの向き・空気量の換算・表面水の水の引き忘れ",
+      "visual": {
+        "kind": "compare",
+        "heading": "ずれの出どころは三つ",
+        "ngLabel": "間違い",
+        "okLabel": "正しい",
+        "rows": [
+          {
+            "label": "水セメント比",
+            "ng": "セメント÷水で出す（340÷170＝2.0）",
+            "ok": "水÷セメント（0.50＝50%）"
+          },
+          {
+            "label": "空気量",
+            "ng": "4.5をそのまま引く、入れ忘れる",
+            "ok": "1000×0.045＝45Lにして引く"
+          },
+          {
+            "label": "表面水",
+            "ng": "骨材だけ824kgに増やす",
+            "ok": "骨材824kg・水は24kg減らす"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 226,
+      "end": 246,
+      "narration": "まとめです。一つ、式より先に、確認の順番を固定する。二つ、質量は密度で割って容積にそろえ、空気量もリットルへ。三つ、表面水は骨材に足して、水から引く。合計が合っても、各行を見直してください。",
+      "caption": "順番を固定・容積にそろえる・表面水は水から引く",
+      "visual": {
+        "heading": "今日の3点",
+        "items": [
+          "式より先に確認の順番を固定する",
+          "質量は密度で割って容積に、空気量もLへ",
+          "表面水は骨材に足し、水から引く"
+        ]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 246,
+      "end": 262,
+      "narration": "同じ型の問題を、自分の手で繰り返してみてください。配合計算と品質のJIS判断を合わせた実戦演習12問は、途中式と全選択肢の解説つきです。概要欄からご覧ください。",
+      "caption": "概要欄：配合計算・JIS判断 実戦演習12問（途中式・全選択肢解説）",
+      "visual": {
+        "kind": "cover",
+        "heading": "配合計算を手で繰り返す",
+        "items": [
+          "実戦演習12問（概要欄リンク）",
+          "途中式と全選択肢の解説つき"
+        ]
+      }
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

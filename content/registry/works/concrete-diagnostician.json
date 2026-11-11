@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "exam": "concrete-diagnostician",
+  "works": [
+    {
+      "id": "cd-mondai-b-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-diagnostician/cd-mondai-b-kakikata",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "87454bcee06ed558036b86c56cc4d8efa2ff942a3f0002debfb6e89d91fee38a"
+      }
+    }
+  ]
+}

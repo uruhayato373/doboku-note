@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "必須I(3)",
+        "リスクを",
+        "4点で確認"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/work/cover-pop.e784f065.png",
+        "sha256": "e784f0655ca02f8c347ef7d82666cf92ddffe26fda8e90d7c1483bcf14db2b8e",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "8320f85d254265f49da77ab68f071df6870fa00b7167b9b95f0000404138ac3a"
+      }
+    }
+  }
+}

@@ -1,0 +1,475 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『建設部門』『業務詳細』『720字の組立』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-cover.3751ad48.png",
+          "sha256": "3751ad481ca09a0a88e45e0df8b144e2fc635dcb95cc592185925795fde9eae8"
+        },
+        "generatedAt": "2026-11-11T01:23:43.144Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "建設部門",
+          "業務詳細",
+          "720字の組立"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/cover-pop.7be4fef3.png",
+        "sha256": "7be4fef36e36f996ffa60849a720b4eefff8728e02aa4e66ca19f0d3ab10f783",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "3751ad481ca09a0a88e45e0df8b144e2fc635dcb95cc592185925795fde9eae8"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T01:23:43.144Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "『総監が制作』『建設部門』『業務詳細』『720字の組立』が指示と一字一致。先生の眼鏡・ひげ・白ヘルメット・紺作業服・ネクタイ・反射帯が成立し手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "0f75ba3cee044cc0eb966397973555bbece5890907fd4a98494f834d1ef056cc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『概要の説明で、字数を使い切らない』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『概要だけ 何の業務だったか』 『判断まで 自分は何を選んだか 何で確かめたか』。 この場面の説明（文字にしない）: 業務の概要から書き始めて、字数が尽きていませんか。業務内容の詳細で見られるのは、工事の説明ではありません。あなたが何を考え、何を判断し、どんな成果を出したかです。今日は720字を、役割ごとに組み立てる順序を整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-premise.ea59fa22.png",
+              "sha256": "ea59fa229d6e766a77511caf4a199795fd0c4ce043d1c3967655d512a8be3d79"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/premise-diagram.fe969e9a.png",
+            "sha256": "fe969e9af00fbc6539fee5c8bb8f799e227a9265a15cab9d5c2efc2a3a9d0c08",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ea59fa229d6e766a77511caf4a199795fd0c4ce043d1c3967655d512a8be3d79"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと図中の文字（概要だけ／何の業務だったか／判断まで／自分は何を選んだか／何で確かめたか）が指示と一字一致し崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "rules",
+          "inputSha256": "98b4b791c5b08b18116be886dccfe42559473ac2ea77aab639fc3b61fa61306a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『720字に入れる、4つの要素』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『目的』 『立場と役割』 『技術的内容及び課題』 『技術的成果』。 図の下、下端の字幕の帯より上に『専門とする事項を踏まえて720字以内／図表なし／半角も1字／年度の様式は公式案内で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 日本技術士会の様式では、目的、立場と役割、技術的内容及び課題、技術的成果の四つを、専門とする事項を踏まえて720字以内で整理します。図表は使えず、半角文字も一字と数えます。様式と字数は年度ごとに変わるので、受検年度の公式案内を確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-rules.6d7f727b.png",
+              "sha256": "6d7f727b019c3db963f1cd6f36d8dca37bcef000f646dc3077876f4a70cbfca7"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/rules-diagram.1361f7bf.png",
+            "sha256": "1361f7bff1af0e70967a1471f695bc250f668464e3def9340ccf9963fb340b61",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6d7f727b019c3db963f1cd6f36d8dca37bcef000f646dc3077876f4a70cbfca7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し、4要素の枠、下の全文『専門とする事項を踏まえて720字以内／図表なし／半角も1字／年度の様式は公式案内で確認』が一字一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "choose",
+          "inputSha256": "057dc12c395d5d9f661c564d3e66b779f25ac89bb8bc2bd6d4555e3c7972ad6f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『詳細に書く1件の選び方』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『専門とする事項を決める』 『関連する経歴から1件を選ぶ』 『同じ語で、詳細をつなぐ』 『提出後は加筆も訂正もできない』。 図の下、下端の字幕の帯より上に『専門とする事項→経歴の1件→詳細の課題と成果』の全文を省かずに入れる。 この場面の説明（文字にしない）: 業務経歴は複数行を書き、そのうち一件に丸を付けて、その業務の詳細を書きます。選ぶ基準は、専門とする事項に関連するかどうかです。申込書を出すと、専門とする事項も、経歴と詳細の文章も、あとから直せません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-choose.a820898e.png",
+              "sha256": "a820898ed1f66fffd93d6ce1710ee5a46be44d3ff389bcea47514736af42c86f"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/choose-diagram.df9f17fa.png",
+            "sha256": "df9f17fa882662b598ea3751fe26ac5244a01d3c1007a6d4b3248fc8064c94df",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a820898ed1f66fffd93d6ce1710ee5a46be44d3ff389bcea47514736af42c86f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3段階の文字・『提出後は加筆も訂正もできない』・下の全文が指示と一字一致。矢印の向きも左から右で正しい",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "inventory",
+          "inputSha256": "6cc8a84aedd46210d6dc1b8a24a77eba434faa2b02fd7a410681affaf8486402",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『4段階で、業務を棚卸し』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『背景と立場』 『課題の設定』 『提案と理由』 『成果の評価』。 図の下、下端の字幕の帯より上に『棚卸しのメモは、口頭試験の想定問答の骨になる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 書く前に、その業務を四つの段階に分けて棚卸しします。背景と立場、課題の設定、提案と理由、成果の評価です。この順序は口頭試験で問われる順にも重なるので、棚卸しのメモは、そのまま想定問答の骨にもなります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-inventory.1ac396ab.png",
+              "sha256": "1ac396abc8ed7156736870a80cef7069f5df1f20c3d54ad4b19f52c8e48dcbb0"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/inventory-diagram.45f99275.png",
+            "sha256": "45f992751be5ed4f6891c955eb9fffde3201768844f247e0027b9fd8411ab456",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1ac396abc8ed7156736870a80cef7069f5df1f20c3d54ad4b19f52c8e48dcbb0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し、4段階の文字、下の全文『棚卸しのメモは、口頭試験の想定問答の骨になる』が一字一致し崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "allocation",
+          "inputSha256": "1f0c70db61423a836091ee09595cc128228770eacac9b4a66d6d805008b47f91",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『720字の配分の目安』。 図に入れる文字: 『提案と判断 約270字』 『成果と評価 約170字』 『課題 約150字』 『目的と立場・役割 約130字』。 図の下、下端の字幕の帯より上に『公式の指定ではなく、判断に字数を回すための目安』の全文を省かずに入れる。 この場面の説明（文字にしない）: 字数の配分には目安があります。提案と判断に約270字、成果と評価に約170字、課題に約150字、目的と立場と役割に合わせて約130字です。公式の指定ではなく、この動画の目安です。判断の根拠に、いちばん多く字数を回します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-allocation.7bb3ec59.png",
+              "sha256": "7bb3ec59626ea548d812d6248f66192fcd7a5876b82ed4ff373f6612bc549262"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/allocation-diagram.852abe02.png",
+            "sha256": "852abe026a66158f9fad4e8b4e1a28a6af52fca192fd620bf23178a490d8059e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7bb3ec59626ea548d812d6248f66192fcd7a5876b82ed4ff373f6612bc549262"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "270/170/150/130字の配分と各ラベル、下の全文が指示と一致。枠の幅も字数に比例し本文と矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "role",
+          "inputSha256": "51f8ca4d4441e2c10377a26c9ecb3f60ab7fa9c124a46b826ecea19c8473c07c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『立場と役割の書き方』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『発注者の設計照査・積算審査の判断も書ける』の全文を省かずに入れる。 この場面の説明（文字にしない）: 最も問われるのは立場と役割です。技術士にふさわしいのは、自ら考え責任を持つ立場で、補助的な関わりでは弱いとされます。指示された、ではなく、自分が判断した、と伝わる主語で書きます。発注者の業務でも、設計の照査や積算審査の判断は書けます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-role.349d93ca.png",
+              "sha256": "349d93cac76d18d335a0f5cf4372e7c170bbf770e797b3f707790e441349538d"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/role-diagram.e3f25cda.png",
+            "sha256": "e3f25cda4b011cf769485fd0b9c8d82e071123b66de36969c1e77f2212faea6b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "349d93cac76d18d335a0f5cf4372e7c170bbf770e797b3f707790e441349538d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと下の全文『発注者の設計照査・積算審査の判断も書ける』が一字一致。左右比較の図は文字なしで、右を強調する指定どおり",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "issue",
+          "inputSha256": "cfae2fea5015ae1421cf7a9687ec06b51804d0d073f0812c42f8740a59aac6b4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『課題と提案の組み立て』。 図に入れる文字: 『課題を1つに絞る』 『なぜ選んだかを添える』 『比較した案を書く』 『採らなかった理由も書く』。 この場面の説明（文字にしない）: 課題は一つに絞り、なぜそれを選んだかを添えます。提案では、比較した案と、採らなかった理由まで書きます。たまたま良い結果が出た、と読める書き方は、計画的な判断に見えません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-issue.71f320de.png",
+              "sha256": "71f320de78a616c8a0240eb4166590c15b070a95fb666213fe9a66544ad8b4fc"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/issue-diagram.71bf25d3.png",
+            "sha256": "71bf25d3f469b5777c230b5fc52b3764082ca5bc083a9e6a1437e64a84a66aa6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "71f320de78a616c8a0240eb4166590c15b070a95fb666213fe9a66544ad8b4fc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと4つの指示文（1つに絞る・なぜ選んだか・比較した案・採らなかった理由）が一字一致。文字の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "result",
+          "inputSha256": "3e601ce844c085b5b429df6050e48953bbd182663a567b342f699f6698464e5e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『成果の見直しは、3つの面から』。 構図: 左の問いから右の行動へ矢印で結ぶ対応図。 図に入れる文字: 『技術面 基準を満たしたか』 『経済面 費用・工期・維持管理』 『社会・環境面 利用者・沿道・周辺』。 図の下、下端の字幕の帯より上に『根拠のある面だけ書く。技術面が中心』の全文を省かずに入れる。 この場面の説明（文字にしない）: 成果は、技術面を中心に書きます。基準や要求水準に対して何が満たされたかを、検査や照査の記録で示します。費用や工期、周辺環境への波及は、確かめられたものだけを一句ずつ添えます。根拠のない数値は足しません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-result.0541cb60.png",
+              "sha256": "0541cb60bc6a99aa2c090cdb874af8b3901192f77ecba263d6c82bbb9cefc658"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/result-diagram.fe7da4ca.png",
+            "sha256": "fe7da4cac60ec8a6f80c7741cd78876a7f30c9e7c483f83459288ecc18241e2b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0541cb60bc6a99aa2c090cdb874af8b3901192f77ecba263d6c82bbb9cefc658"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し、技術面・経済面・社会・環境面の文言、下の全文『根拠のある面だけ書く。技術面が中心』が一字一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ngok",
+          "inputSha256": "32e2a873b3bd17bf6c712787d1c97f57daf49315b52a85f41b531ccc0ed82426",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『文章の字数の使い方』。 構図: 左右2つの枠を比べ、右を強調する構図。 この場面の説明（文字にしない）: よくある失敗は、概要の説明が長く、自分の判断が薄くなることです。背景は最小限にして、課題、判断、理由、成果の順に、文頭の言葉で段を区切ります。図表は使えないので、文の並びで構造を見せます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-ngok.6846cdb4.png",
+              "sha256": "6846cdb497cacaeeb6bb6443450d06e21465ecb93a737084ceac0800a8d7bcf3"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/ngok-diagram.5f6e0771.png",
+            "sha256": "5f6e07719907f102d3a89fff184bb82c238d789988f502b6983ba70e4b18a7d1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6846cdb497cacaeeb6bb6443450d06e21465ecb93a737084ceac0800a8d7bcf3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『文章の字数の使い方』が一致。左は詰まった文、右は段で区切った文の比較で本文の趣旨と合い、余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "fe9bc78a2cdbfcd1f688f2a25f189f5d5609d992f9fac2de5f974fb6322331f9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『4段階で棚卸しして、枠を決める』 『主語は自分。判断の根拠を厚く』 『聞かれて答えられることだけ書く』。 この場面の説明（文字にしない）: 今日の要点です。業務を四つの段階で棚卸しし、字数の枠を先に決める。主語を自分にして、判断の根拠を厚く書く。そして、口頭試験で聞かれても答えられることだけを書く。この720字が、口頭試験の出発点になります。 前回の不合格の理由を直す: 文字: 1枠目が『4段階で棚卸ししして、』と「し」が3つになり、指示『棚卸しして』と不一致（誤字）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-summary.1bb39586.png",
+              "sha256": "1bb395861976d572fe653c8dd8b1d2d3acb68137b7e9486c061a549ba7e5222e"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/summary-diagram.f87954bd.png",
+            "sha256": "f87954bd96d46c42a3786f5a07770f16df5287f5902db0367dff91ac628235e1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1bb395861976d572fe653c8dd8b1d2d3acb68137b7e9486c061a549ba7e5222e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し今日のまとめと3枠の文言が指示と1字ずつ一致し誤字・余計な文言なし。構造: 番号1から3の枠と矢印が成立、人物や箇条書きカードなし。下端は無地",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "716532551c87751ce9172c51d9316dfe3f8dbbbce212796e5958bf9f6706bd53",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『筆記の論文の準備へ』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『必須科目I 模範解答集』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 申込のあとは、筆記の論文が待っています。必須科目Iの模範解答集を、noteに用意しています。概要欄から、収録内容を確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 78.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/factory/raw-cta.72627799.png",
+              "sha256": "726277990dc2dd7b3c5927aa52997c20c7aaab0ab34d4b5e8a5c4d439148ac4f"
+            },
+            "generatedAt": "2026-11-11T01:23:43.144Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-gyoumu-shousai-720/work/cta-diagram.9a5fdc42.png",
+            "sha256": "9a5fdc42ae7a22cc910c61f10f9a2dc2167a4903ab7777e442d0e19a4a54eee3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "726277990dc2dd7b3c5927aa52997c20c7aaab0ab34d4b5e8a5c4d439148ac4f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:23:43.144Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『筆記の論文の準備へ』、『必須科目I 模範解答集』、『収録内容は概要欄から』が一字一致。価格・URLなし、ノートの形も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

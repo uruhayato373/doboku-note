@@ -37,6 +37,7 @@ import { formatJson, readJson, readJsonIf } from './lib/json-io.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { standardsRenderTargets } from './lib/standards-render-targets.mjs';
 import { inspectInPage } from './lib/rendered-page-inspect.mjs';
+import { reviewTier, summarizeCoverage, validateVerdicts } from './lib/visual-review-ledger.mjs';
 
 const ARTICLES_ROOT = join(REPO_ROOT, 'content', 'site', 'standards-articles');
 const SOURCES_ROOT = join(REPO_ROOT, 'content', 'sources', 'standards');
@@ -113,12 +114,7 @@ export function selectTargets(candidates, ledger, { limit = 12, only = '', keys 
     const wanted = new Set(keys);
     return candidates.filter((c) => wanted.has(c.key));
   }
-  const tierOf = (c) => {
-    const prev = chapters[c.key];
-    if (!prev) return 3;
-    if (prev.outputSha256 === c.outputSha256) return null;
-    return prev.verdict === 'fail' ? 1 : 2;
-  };
+  const tierOf = (c) => reviewTier(chapters[c.key], c.outputSha256, 'outputSha256');
   return candidates
     .filter((c) => !only || c.key === only || c.key.startsWith(`${only.replace(/\/$/, '')}/`))
     .map((c) => ({ c, tier: tierOf(c) }))
@@ -133,66 +129,12 @@ export function selectTargets(candidates, ledger, { limit = 12, only = '', keys 
  * @returns {{ entries: Record<string, object>, errors: string[] }}
  */
 export function buildLedgerEntries(packet, verdicts, { now = new Date().toISOString() } = {}) {
-  const errors = [];
-  const byKey = new Map();
-  for (const v of verdicts) {
-    if (!v || typeof v.key !== 'string') {
-      errors.push(`key の無い判定: ${JSON.stringify(v).slice(0, 80)}`);
-      continue;
-    }
-    if (byKey.has(v.key)) errors.push(`${v.key}: 判定が 2 件ある`);
-    byKey.set(v.key, v);
-  }
+  const { valid, errors } = validateVerdicts({ items: packet.chapters, verdicts, hashField: 'outputSha256', findingTypes: FINDING_TYPES, noun: '章' });
   const entries = {};
-  for (const ch of packet.chapters) {
-    const v = byKey.get(ch.key);
-    byKey.delete(ch.key);
-    if (!v) {
-      errors.push(`${ch.key}: 判定が無い`);
-      continue;
-    }
-    if (v.outputSha256 !== ch.outputSha256) {
-      errors.push(`${ch.key}: 判定の outputSha256 が作業票と違う（別の回の判定を混ぜていないか）`);
-      continue;
-    }
-    if (v.verdict !== 'pass' && v.verdict !== 'fail') {
-      errors.push(`${ch.key}: verdict は pass か fail（${v.verdict}）`);
-      continue;
-    }
-    const findings = Array.isArray(v.findings) ? v.findings : null;
-    if (!findings) {
-      errors.push(`${ch.key}: findings が配列でない`);
-      continue;
-    }
-    const bad = findings.find((f) => !['major', 'minor'].includes(f?.severity) || !FINDING_TYPES.includes(f?.type) || !String(f?.detail ?? '').trim());
-    if (bad) {
-      errors.push(`${ch.key}: 指摘の形が違う（severity は major/minor・type は ${FINDING_TYPES.join('/')}・detail 必須）: ${JSON.stringify(bad).slice(0, 120)}`);
-      continue;
-    }
-    const shotFiles = new Set(ch.shots.map((s) => s.file));
-    const checked = Array.isArray(v.checkedShots) ? v.checkedShots : [];
-    const unchecked = [...shotFiles].filter((f) => !checked.includes(f));
-    if (unchecked.length) {
-      errors.push(`${ch.key}: 見ていない撮影がある（checkedShots に無い: ${unchecked.join(', ')}）`);
-      continue;
-    }
-    const hasMajor = findings.some((f) => f.severity === 'major');
-    const deterministic = ch.deterministicIssues ?? [];
-    if (v.verdict === 'pass' && hasMajor) {
-      errors.push(`${ch.key}: major の指摘があるのに pass`);
-      continue;
-    }
-    if (v.verdict === 'pass' && deterministic.length) {
-      errors.push(`${ch.key}: 描画の決定的な崩れ（${deterministic.map((d) => d.type).join('・')}）があるのに pass`);
-      continue;
-    }
-    if (v.verdict === 'fail' && !hasMajor && !deterministic.length) {
-      errors.push(`${ch.key}: fail なのに major の指摘も決定的な崩れも無い（minor だけなら pass）`);
-      continue;
-    }
+  for (const { item: ch, verdict, findings, deterministic } of valid) {
     entries[ch.key] = {
       outputSha256: ch.outputSha256,
-      verdict: v.verdict,
+      verdict,
       reviewedAt: now,
       runId: packet.runId,
       urls: ch.urls,
@@ -201,40 +143,20 @@ export function buildLedgerEntries(packet, verdicts, { now = new Date().toISOStr
       ticket: null,
     };
   }
-  for (const key of byKey.keys()) errors.push(`${key}: 作業票に無い章の判定`);
   return { entries, errors };
 }
 
 /** 台帳と現在の章から、被覆と未処理を数える */
 export function summarizeStatus(ledger, candidates, { now = new Date() } = {}) {
-  const chapters = ledger?.chapters ?? {};
-  let current = 0;
-  let changed = 0;
-  let never = 0;
-  const failsOpen = [];
-  const failsTicketed = [];
-  for (const c of candidates) {
-    const e = chapters[c.key];
-    if (!e) {
-      never += 1;
-      continue;
-    }
-    if (e.outputSha256 !== c.outputSha256) {
-      changed += 1;
-      continue;
-    }
-    current += 1;
-    if (e.verdict === 'fail') (e.ticket ? failsTicketed : failsOpen).push(c.key);
-  }
-  const lastRun = (ledger?.runs ?? []).map((r) => r.at).sort().at(-1) ?? null;
-  const ageDays = lastRun ? (now.getTime() - Date.parse(lastRun)) / 86_400_000 : null;
+  const c = summarizeCoverage({ entries: ledger?.chapters, runs: ledger?.runs, candidates, hashField: 'outputSha256', now });
+  const { changed, never, failsOpen, lastRun, ageDays } = c;
   const pending = changed + never;
   const problems = [];
   if (failsOpen.length) problems.push(`不合格のまま起票されていない章 ${failsOpen.length} 件（record --ticket で起票する）: ${failsOpen.slice(0, 5).join(', ')}`);
   if (pending > 0 && (ageDays === null || ageDays >= STALE_DAYS)) {
     problems.push(`判定待ち ${pending} 章（未判定 ${never}・中身が変わった ${changed}）があるのに、最後の実行が ${lastRun ? `${Math.floor(ageDays)} 日前` : '無い'}（${STALE_DAYS} 日以内に /standards-visual-review を回す）`);
   }
-  return { total: candidates.length, current, changed, never, failsOpen, failsTicketed, lastRun, problems };
+  return { total: c.total, current: c.current, changed, never, failsOpen, failsTicketed: c.failsTicketed, lastRun, problems };
 }
 
 // ---- 章の一覧 ------------------------------------------------------------------------------------

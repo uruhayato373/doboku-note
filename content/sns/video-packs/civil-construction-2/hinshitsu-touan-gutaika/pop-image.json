@@ -244,7 +244,7 @@
     "source": "このチャットの運営者指示「次の2級土木『品質管理』を最新ルールで制作して、予約投稿まで進めてください。台帳と管理画面にも反映してください。」",
     "scope": "品質管理の制作・YouTube予約投稿・台帳・管理画面反映"
   },
-  "activeCoverRevision": "diagram-led-20261019-cover",
+  "activeCoverRevision": "cover-pop-restore-20261111",
   "revisions": {
     "cover-safe-20261018": {
       "version": "pop-poster-v3",
@@ -1649,6 +1649,22 @@
         "at": "2026-10-18T23:27:18.829Z",
         "scope": "原寸・360px・本文/前後関係・字幕安全域",
         "reason": "資格名・品質管理経験記述・試験したから先の書き方の指定文字、管理項目・現場条件・確認方法の3図を原寸と360pxで確認。主要文字と矢印は字幕領域から離れ、装飾の先生・著者名・肩書きなし。"
+      }
+    },
+    "cover-pop-restore-20261111": {
+      "version": "pop-poster-v3",
+      "note": "先生のキャラクターの表紙へ戻す（2026-11-11・運営者の指示）。投稿済みの表紙（台帳の素材）をそのまま採用する",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Edit the supplied finished Japanese YouTube cover into the next episode, keeping the EXACT SAME adult teacher identity, green pop-poster-v3 typography and illustrated background. One 16:9 landscape image intended 1920×1080. Change the topic text 安全管理 to 品質管理. Change main red text 答案を具体化 to 試験だけで終わらない. Keep subtitle 現場条件から書く. Keep top target label 2級土木, and separate yellow two-line credentials badge 総監・元発注者 / 1級・2級土木合格者. These six strings must appear exactly once, correct Japanese, no other text. Main headline 品質管理 in giant bold dark green with white/yellow outline; red second headline 試験だけで終わらない on TWO readable lines if needed. Keep author smaller than topic, same mature male, black short hair, black rectangular glasses, light beard, plain white helmet, navy workwear, natural five-finger hands holding red pen and answer sheet. No guarantees, URL, logo, prices, invented numbers or seals. Bold lettering fully legible at width360px. Recompose rather than cram text. Face and important letters inside6% edge margins. Every text string must be FULLY above y=80% of height; bottom20% only continuous illustrated green background and teacher torso, not a blank stripe. Keep reference's energetic but readable polished composition. This is quality management answer-writing guidance, not a construction test demonstration.",
+        "promptSha256": "35463b56654a9fc07cdd29645a3a2a47661769ba154a2587e9a8c79d8a2c9984",
+        "generatedAt": "2026-10-15T22:03:16.683Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+        "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5",
+        "width": 1920,
+        "height": 1080
       }
     }
   },

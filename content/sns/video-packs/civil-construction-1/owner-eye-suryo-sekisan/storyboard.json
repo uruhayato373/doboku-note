@@ -1,0 +1,452 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 5,
+      "narration": "数量と積算、金額はどこから読めばいい？",
+      "caption": "数量と積算を、どこから読めばよいか",
+      "visual": {
+        "kind": "cover",
+        "heading": "数量と積算を\n発注者の目で見る",
+        "items": [
+          "1級土木施工管理｜元発注者の見方"
+        ]
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 5,
+      "end": 30,
+      "narration": "答えを先に言います。総額で見ずに、費目、数量の出どころ、入札用と実行予算の違い、数量の根拠の四つに分けて読むことです。積算は、数量に歩掛と単価を掛けて積み上げたもの。分けて読めば、金額の話が感覚論から検証に変わります。制度は国の工事の例で、自治体は団体ごとに違います。",
+      "caption": "費目・数量・二つの数字・根拠の四つに分けて読む",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "費目に分ける",
+          "数量の出どころを知る",
+          "入札用と実行予算を分ける",
+          "数量の根拠を残す"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／数量と積算",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "misread",
+      "start": 30,
+      "end": 46,
+      "narration": "金額の話は、総額が合っているかどうかで終わりがちです。ですが総額だけでは、どこが動いたのかを言えません。費目、数量、歩掛、単価に分ければ、動いた場所を言葉にできます。",
+      "caption": "総額だけでは、どこが動いたか言えない",
+      "visual": {
+        "kind": "compare",
+        "heading": "金額はどう読む？",
+        "ngLabel": "思われがち",
+        "okLabel": "分けて読む",
+        "rows": [
+          {
+            "label": "見る所",
+            "ng": "総額が合うかだけ",
+            "ok": "費目・数量・歩掛・単価"
+          },
+          {
+            "label": "言えること",
+            "ng": "高い・安い",
+            "ok": "どこが動いたか"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／数量と積算",
+          "note": "国の工事の例。自治体は団体ごとに異なる"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "cost1",
+      "start": 46,
+      "end": 56,
+      "narration": "まず請負代金の組み立てです。土木工事の積算基準では、請負代金額は、工事価格と消費税相当額に分かれます。",
+      "caption": "請負代金額は、工事価格と消費税相当額に分かれる",
+      "visual": {
+        "kind": "points",
+        "heading": "請負代金の組み立て",
+        "items": [
+          "工事価格",
+          "消費税相当額"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "cost2",
+      "start": 56,
+      "end": 73,
+      "narration": "費目は五つです。直接工事費は、材料費、労務費、直接経費など、目的物の施工に直接必要な費用。共通仮設費は、工事全体に共通する仮設の費用。現場管理費は、その現場を管理するための費用です。",
+      "caption": "直接工事費・共通仮設費・現場管理費",
+      "visual": {
+        "kind": "points",
+        "heading": "費目",
+        "items": [
+          "直接工事費\n材料・労務・直接経費",
+          "共通仮設費\n工事全体に共通する仮設",
+          "現場管理費\nその現場を管理する費用",
+          "一般管理費等\n本支店の経費と適正な利益"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "cost3",
+      "start": 73,
+      "end": 94,
+      "narration": "残る一般管理費等は、会社の継続運営に必要な本支店の経費で、適正な利益を含みます。直接工事費と間接工事費は現場の裁量で動かせる部分が大きく、一般管理費等は会社側で決まる部分です。どの費目の話をしているのかを、先に分けて読みます。",
+      "caption": "動かせる費目と、会社側で決まる費目",
+      "visual": {
+        "kind": "compare",
+        "heading": "どの費目の話か",
+        "ngLabel": "現場の裁量が大きい",
+        "okLabel": "会社側で決まる",
+        "rows": [
+          {
+            "label": "費目",
+            "ng": "直接工事費・共通仮設費・現場管理費",
+            "ok": "一般管理費等"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／数量と積算",
+          "note": "積算基準の費目の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "qty1",
+      "start": 94,
+      "end": 105,
+      "narration": "次に数量です。入札用の積算は、設計図書、現場説明書、質問回答書を材料に、数量へ歩掛と単価を掛けて積み上げます。",
+      "caption": "数量に、歩掛と単価を掛けて積み上げる",
+      "visual": {
+        "kind": "points",
+        "heading": "積算の積み上げ",
+        "items": [
+          "数量\n設計図書・現場説明書・質問回答書から",
+          "歩掛\n労務・材料・機械の所要量",
+          "単価"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "qty2",
+      "start": 105,
+      "end": 123,
+      "narration": "歩掛は、施工に要する労務、材料、機械などの所要量を表す値です。国土交通省の標準歩掛は、全国の施工実態調査にもとづく標準的な値で、自社の施工方法や現場の制約と合わない点は、読み替えて根拠を残します。",
+      "caption": "標準歩掛は標準値。読み替えたら根拠を残す",
+      "visual": {
+        "kind": "points",
+        "heading": "歩掛の読み方",
+        "items": [
+          "標準歩掛は\n実態調査にもとづく標準値",
+          "合わない点は読み替える",
+          "読み替えの根拠を\n施工計画に残す"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "qty3",
+      "start": 123,
+      "end": 135,
+      "narration": "では数量はどこから出るのか。道路なら、横断図です。測点ごとに中心線と直角に切った断面で、切土と盛土の断面積が記入されます。",
+      "caption": "数量は、測点ごとの横断図の断面積から出る",
+      "visual": {
+        "kind": "points",
+        "heading": "数量の出どころ（道路）",
+        "items": [
+          "測点ごとの横断図",
+          "切土・盛土の断面積",
+          "隣り合う測点の断面積から土量へ"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "qty4",
+      "start": 135,
+      "end": 149,
+      "narration": "隣り合う二つの測点の断面積から土量を求めるのが、平均断面法です。二つの断面積の平均に、測点間の距離を掛けます。切土と盛土は、別々に計算します。",
+      "caption": "土量は、断面積の平均に距離を掛ける",
+      "visual": {
+        "kind": "points",
+        "heading": "平均断面法",
+        "items": [
+          "V = (A1 + A2) ÷ 2 × L",
+          "A：断面積　L：測点間の距離",
+          "切土と盛土は別々に計算"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "qty5",
+      "start": 149,
+      "end": 167,
+      "narration": "仮の例で計算します。断面積が12平方メートルと18平方メートル、測点の間隔が20メートルなら、平均は15、これに20を掛けて、300立方メートル。説明用の数字で、実在の工事ではありません。",
+      "caption": "12と18の平均15に、20mを掛けて300立方メートル（仮の例）",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の例｜平均断面法",
+        "sheetTitle": "土量の計算（説明用）",
+        "rows": [
+          {
+            "label": "断面積A1",
+            "value": "12 m2",
+            "state": "done"
+          },
+          {
+            "label": "断面積A2",
+            "value": "18 m2",
+            "state": "done"
+          },
+          {
+            "label": "測点間隔L",
+            "value": "20 m",
+            "state": "done"
+          },
+          {
+            "label": "土量V",
+            "value": "(12+18)÷2×20 = 300 m3",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "qty6",
+      "start": 167,
+      "end": 188,
+      "narration": "ただし、この数量は、図面が現地と合っていることが前提です。地盤高は設計のために測った時点の値で、測量から着工まで間が空けば、現地の高さが変わっていることもあります。食い違いに気づいたら、直ちに監督員へ通知して、確認を求めます。",
+      "caption": "数量は、図面と現地が合っていることが前提",
+      "visual": {
+        "kind": "points",
+        "heading": "数量の前提",
+        "items": [
+          "地盤高は\n測量した時点の値",
+          "着工まで間が空くと\n現地は変わりうる",
+          "食い違いは直ちに通知\n確認を求める"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "sceneId": "two1",
+      "start": 188,
+      "end": 203,
+      "narration": "同じ積算でも、数字は二つあります。入札用の積算は、札をいくらにするかを決める数字。実行予算は、その金額で完成させるために、原価をいくらに収めるかの基準です。",
+      "caption": "入札用の積算と、実行予算は別の数字",
+      "visual": {
+        "kind": "compare",
+        "heading": "二つの数字",
+        "ngLabel": "入札用の積算",
+        "okLabel": "実行予算",
+        "rows": [
+          {
+            "label": "答える問い",
+            "ng": "札をいくらにするか",
+            "ok": "原価をいくらに収めるか"
+          },
+          {
+            "label": "材料",
+            "ng": "設計図書と現場説明",
+            "ok": "施工計画と本見積"
+          },
+          {
+            "label": "単価の根拠",
+            "ng": "見積と物価資料",
+            "ok": "契約した単価"
+          },
+          {
+            "label": "更新",
+            "ng": "入札で終わる",
+            "ok": "変更のたびに更新"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／数量と積算",
+          "note": "入札用の積算と実行予算の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "two2",
+      "start": 203,
+      "end": 223,
+      "narration": "実行予算の順番も押さえます。出発点は、契約した請負金額。ここから、会社として確保する本支店の経費と目標利益を引いて、現場に許される原価の枠を先に置きます。その枠を費目に割り振り、積み上げた原価が収まるかを確かめます。",
+      "caption": "請負金額から枠を置き、費目に割り振る",
+      "visual": {
+        "kind": "points",
+        "heading": "実行予算の順番",
+        "items": [
+          "契約した請負金額（税抜）",
+          "経費と目標利益を引いて\n原価の枠を置く",
+          "費目に割り振る",
+          "積み上げた原価が収まるか確かめる"
+        ],
+        "reveal": 4
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "floor",
+      "start": 223,
+      "end": 240,
+      "narration": "入札の側には、下限の価格もあります。低入札価格調査の基準や、最低制限価格は、予定価格の費目ごとに率を掛けて組む形が多く見られます。率は発注者や年度で動くので、入札説明書で確かめます。",
+      "caption": "下限の価格は費目ごとの率で組む例が多い",
+      "visual": {
+        "kind": "points",
+        "heading": "下限の価格",
+        "items": [
+          "低入札価格調査の基準",
+          "最低制限価格",
+          "費目ごとに率を掛けて組む形が多い",
+          "率は入札説明書で確かめる"
+        ],
+        "reveal": 4
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "pay",
+      "start": 240,
+      "end": 260,
+      "narration": "数量は、出来高の確認にも使われます。受注者が部分払を請求したとき、監督員は、出来形内訳書を審査し、既済部分出来高対照表を作成して、契約担当官等へ報告します。国の基準の整理で、自治体は団体ごとの要領によります。",
+      "caption": "部分払では、出来形内訳書を審査して報告する",
+      "visual": {
+        "kind": "points",
+        "heading": "部分払の請求を受けたら",
+        "items": [
+          "出来形内訳書を審査",
+          "既済部分出来高対照表を作成",
+          "契約担当官等へ報告"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    },
+    {
+      "sceneId": "proof",
+      "start": 260,
+      "end": 278,
+      "narration": "数量の食い違いでもめたときも、頼れるのは記録です。追加工事の代金などで認識が一致しないときは、契約書、指示や通知、数量の根拠、協議の経過を整理し、合意済みの事項と争いのある事項を分けます。",
+      "caption": "契約書・通知・数量の根拠・協議の経過を整理",
+      "visual": {
+        "kind": "points",
+        "heading": "整理しておくもの",
+        "items": [
+          "契約書",
+          "指示・通知",
+          "数量の根拠",
+          "協議の経過"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／数量と積算",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "exam",
+      "start": 278,
+      "end": 301,
+      "narration": "学習との接点を一つだけ。施工計画や経験記述で数量や費用に触れるときは、何の図面のどの数字から出したかまで言えると、具体的になります。何が出題されるかは年度によって違うので、出題を予想するものではありません。受検年度の公式情報を確認してください。",
+      "caption": "どの図面のどの数字から出したか、まで言う",
+      "visual": {
+        "kind": "points",
+        "heading": "学習との接点",
+        "items": [
+          "施工計画・経験記述で",
+          "何の図面のどの数字か",
+          "根拠まで言えると具体的",
+          "出題は受検年度の公式情報で確認"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／数量と積算",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "recap",
+      "start": 301,
+      "end": 321,
+      "narration": "まとめます。金額は、総額で見ずに費目に分ける。数量は、横断図の断面積から出て、図面が現地と合っていることが前提。入札用の積算と実行予算は、別の数字。そして、数量の根拠は、契約書、通知、協議の経過と一緒に残します。",
+      "caption": "費目・数量の出どころ・二つの数字・根拠",
+      "visual": {
+        "kind": "points",
+        "heading": "今日のまとめ",
+        "items": [
+          "総額でなく費目に分ける",
+          "数量は図面が現地と合う前提",
+          "入札用と実行予算は別の数字",
+          "数量の根拠を記録と残す"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／数量と積算",
+          "note": "本動画の独自の整理"
+        }
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 321,
+      "end": 338,
+      "narration": "費目の構成と、入札用の積算から実行予算までの流れは、サイトの記事で整理しています。入札の積算から実行予算を作る節が、記事の前半にあります。概要欄のリンクから、確認してください。",
+      "caption": "詳しくはサイトの記事で（概要欄）",
+      "visual": {
+        "kind": "points",
+        "heading": "詳しくはサイトの記事で",
+        "items": [
+          "原価と設計変更",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／数量と積算",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

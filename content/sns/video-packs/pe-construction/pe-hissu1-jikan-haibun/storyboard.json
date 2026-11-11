@@ -1,0 +1,330 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "必須科目Ⅰの2時間は、どう割ればよいのでしょうか。",
+      "caption": "必須Ⅰ、2時間をどう割る？",
+      "visual": {
+        "kind": "cover",
+        "heading": "必須Ⅰ、2時間の割り方",
+        "items": [
+          "技術士 建設部門・必須科目"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 33,
+      "narration": "知識はあるのに、時間内に書き切れない。それは知識ではなく、段取りが決まっていないことが多い、とサイトでは見ています。今日は技術士建設部門の必須科目Ⅰを、形式、時間の割り方、当日の動きの三つで整理します。",
+      "caption": "知識より、段取りで崩れる",
+      "visual": {
+        "kind": "points",
+        "heading": "今日整理する3つ",
+        "items": [
+          "試験の形式",
+          "時間の割り方",
+          "当日の動き"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "必須科目対策／建設部門",
+          "note": "時間の割り方はdoboku-noteの目安"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "form",
+      "start": 33,
+      "end": 54,
+      "narration": "まず形式です。必須科目Ⅰは2時間で、答案用紙3枚、600字詰めで1,800字を書きます。形式は、受検年度の公式情報で必ず確認してください。",
+      "caption": "2時間・3枚・1,800字",
+      "visual": {
+        "kind": "points",
+        "heading": "必須科目Ⅰの形式",
+        "items": [
+          "試験時間は2時間",
+          "答案用紙3枚（600字詰め）",
+          "合計1,800字",
+          "形式は受検年度の公式情報で確認"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "形式の確認先は受検年度の公式情報"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "split",
+      "start": 54,
+      "end": 77,
+      "narration": "時間の目安は四つに分けます。読解と骨子に20分、記述に60分、推敲と控えに20分、予備に20分です。これは本サイトの目安で、公式の配分ではありません。",
+      "caption": "目安は20分・60分・20分・20分",
+      "visual": {
+        "kind": "points",
+        "heading": "2時間の目安配分",
+        "items": [
+          "読解と骨子　20分",
+          "記述（3枚）　60分",
+          "推敲と控え　20分",
+          "予備　20分"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "必須科目対策／建設部門",
+          "note": "配分はdoboku-noteの目安。公式の基準ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "pace",
+      "start": 77,
+      "end": 98,
+      "narration": "記述の60分は、1枚20分の計算です。600字を20分、1文字あたり2秒です。ただし、消す時間や図表を描く時間も、この20分に含めて考えます。",
+      "caption": "記述の60分は、1枚20分",
+      "visual": {
+        "kind": "points",
+        "heading": "書く速さの目安",
+        "items": [
+          "1枚600字を約20分",
+          "1文字あたり約2秒",
+          "消す・図を描く時間も含める"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "目安であり、人により異なる"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "trap",
+      "start": 98,
+      "end": 124,
+      "narration": "誤解しやすいのは、早く書き始めるほど有利だという考えです。読解と骨子の時間を削ると、書きながら構成を迷い、後半で抜けに気づいて時間を失います。順番は崩さないことが大切です。",
+      "caption": "読解と骨子の20分は削らない",
+      "visual": {
+        "kind": "compare",
+        "heading": "書き始めの順番",
+        "ngLabel": "すぐ書き始める",
+        "okLabel": "骨子を決めてから書く",
+        "rows": [
+          {
+            "label": "構成",
+            "ng": "書きながら迷う",
+            "ok": "先に骨子を決める"
+          },
+          {
+            "label": "抜け",
+            "ng": "後半で気づく",
+            "ok": "書く前に字数を決める"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "必須科目対策／建設部門",
+          "note": "順番を崩さない考え方は元記事の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "entry",
+      "start": 124,
+      "end": 148,
+      "narration": "ここから当日の動きです。配布直後は、まず受験番号と問題番号を答案用紙に記入します。未記入や不明確な記載は失格事由と案内されているので、本文より先に済ませます。",
+      "caption": "最初に、受験番号と問題番号",
+      "visual": {
+        "kind": "sheet",
+        "heading": "配布直後の記入",
+        "sheetTitle": "答案用紙",
+        "rows": [
+          {
+            "label": "受験番号",
+            "state": "focus"
+          },
+          {
+            "label": "問題番号",
+            "state": "focus"
+          },
+          {
+            "label": "部門・選択科目",
+            "state": "todo"
+          },
+          {
+            "label": "頁",
+            "state": "todo"
+          }
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "記入の扱いは受検年度の受験申込み案内で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "read",
+      "start": 148,
+      "end": 174,
+      "narration": "次に問題文を三回読みます。一回目はテーマ語、二回目は条件と問われている項目、三回目は書き方の指示です。最後に、設問ごとの字数と終了予定時刻を、問題用紙の余白に書き込みます。",
+      "caption": "問題文は三回読み、時刻を書く",
+      "visual": {
+        "kind": "points",
+        "heading": "読解の三回と配分メモ",
+        "items": [
+          "1回目　テーマ語",
+          "2回目　条件と問われている項目",
+          "3回目　書き方の指示",
+          "余白に字数と終了時刻"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "必須科目対策／建設部門",
+          "note": "三回読みは元記事の進め方"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "stuck",
+      "start": 174,
+      "end": 194,
+      "narration": "書き切れないと判断しても、白紙にはしません。章立てだけ、関係する知識の箇条書き、図表だけでも書きます。空欄は、加点のしようがありません。",
+      "caption": "書き切れないときも白紙にしない",
+      "visual": {
+        "kind": "compare",
+        "heading": "時間が足りないとき",
+        "ngLabel": "白紙のまま",
+        "okLabel": "途中まで書く",
+        "rows": [
+          {
+            "label": "文",
+            "ng": "何も書かない",
+            "ok": "章立てだけでも書く"
+          },
+          {
+            "label": "知識",
+            "ng": "空欄",
+            "ok": "箇条書きで示す"
+          },
+          {
+            "label": "図",
+            "ng": "空欄",
+            "ok": "図表だけでも描く"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "必須科目対策／建設部門",
+          "note": "部分点は保証されない。拾える可能性として扱う"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "review",
+      "start": 194,
+      "end": 218,
+      "narration": "残り時間の見直しにも順番があります。記入欄の抜け、設問への対応漏れ、結論の位置、最後に誤字脱字です。時間が尽きても、大きな失点になりやすい所から確認できます。",
+      "caption": "見直しは、四つの順番で",
+      "visual": {
+        "kind": "points",
+        "heading": "見直しの順番",
+        "items": [
+          "1　記入欄の抜け",
+          "2　設問への対応漏れ",
+          "3　結論の位置",
+          "4　誤字脱字・文体"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "必須科目対策／建設部門",
+          "note": "見直しの順番は元記事の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "copy",
+      "start": 218,
+      "end": 248,
+      "narration": "最後に、控えです。開始後の退室は手洗い以外認められないと案内されています。控えは、終了の合図までに余白へ要点だけ書き、口頭試験に備えます。取り扱いは毎年変わるので、受検年度の案内で確認してください。",
+      "caption": "終わりの合図まで席にいる",
+      "visual": {
+        "kind": "points",
+        "heading": "終了までの動き",
+        "items": [
+          "退室の扱いは受験案内で確認",
+          "要点だけ余白に控える",
+          "持ち帰った問題用紙で復元"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "必須科目対策／建設部門",
+          "note": "取り扱いは年度ごとに改められる"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 248,
+      "end": 275,
+      "narration": "まとめます。形式を確かめ、目安の配分を持ち、読解と骨子を削らない。記入欄、三回読み、余白のメモの順に動き、足りなければ途中まで書き、見直しは順番に行う。配分は、本サイトの目安です。",
+      "caption": "まとめ：目安を持って順番を守る",
+      "visual": {
+        "kind": "points",
+        "heading": "今日のまとめ",
+        "items": [
+          "形式は公式情報で確認",
+          "20・60・20・20分の目安",
+          "読解と骨子は削らない",
+          "見直しは順番どおり"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "必須科目対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 275,
+      "end": 302,
+      "narration": "配分が決まったら、次は答案の中身です。必須科目Ⅰの模範解答集が、noteにあります。この動画は時間の割り方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "配分の次は、答案の中身",
+      "visual": {
+        "kind": "points",
+        "heading": "配分の次は、練習",
+        "items": [
+          "必須科目Ⅰ 模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "必須科目対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

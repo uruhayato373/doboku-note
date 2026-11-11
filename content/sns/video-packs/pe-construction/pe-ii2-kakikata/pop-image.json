@@ -1,0 +1,475 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『建設部門』『II-2の』『書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-cover.79f3feb0.png",
+          "sha256": "79f3feb0ca2c6baee7c9293e4b91e78ac58b010ddbf27e734be82f9f97ede778"
+        },
+        "generatedAt": "2026-11-11T01:32:04.586Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "建設部門",
+          "II-2の",
+          "書き方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/cover-pop.b9f334a7.png",
+        "sha256": "b9f334a7220dfac96c8ac8f2a0fa788b44d60590b27e36469378b888b5d93b6a",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "79f3feb0ca2c6baee7c9293e4b91e78ac58b010ddbf27e734be82f9f97ede778"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T01:32:04.586Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『建設部門』『II-2の』『書き方』が指示と一字一致し、先生の黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯が揃い手指も破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "172fd69de5a510d76c3da36b556cb8a305bc02d82826156ec288edfbab2dc839",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日整理する3つ』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『評価の軸をⅡ-1と比べる』 『50行を三つに割り振る』 『手順と調整方策を組む』。 図の下、下端の字幕の帯より上に『行の割り振りはdoboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 2枚、50行を書き始めると、手順が知識の列挙になり、調整方策が薄くなる。今日は技術士建設部門の選択科目Ⅱ-2を、評価の軸、行の割り振り、手順と調整方策の書き方の順に整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-premise.98be8005.png",
+              "sha256": "98be8005592edcafdb9cda575273fb724eefd8020eed1afb24f5feb35a0911e1"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/premise-diagram.9cace7e3.png",
+            "sha256": "9cace7e3ef2981d07e9811c34fff4e50b60ef3655e18048d765a411d9062333d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "98be8005592edcafdb9cda575273fb724eefd8020eed1afb24f5feb35a0911e1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3枠の文言・下の注記が指示と一字一致し、レーダー図・行割り振り・手順フローの図も内容に合い破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "axis",
+          "inputSha256": "7cbf677b36e74f7cc8a401d71eec99a4237738c2743fb0c18d4055a5185c0f15",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『評価で見られるもの』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『評価項目と配点は令和8年度の受験申込み案内に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: Ⅱ-1とⅡ-2は、評価の軸が違います。Ⅱ-1は専門的学識とコミュニケーションですが、Ⅱ-2にはマネジメントとリーダーシップが加わります。筆記でこの二つが入るのは、Ⅱ-2だけです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-axis.4239492d.png",
+              "sha256": "4239492d95bdb3c39cefab6ed4c9a179b9857dd4af98953b242157b000e86a48"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/axis-diagram.45f6c466.png",
+            "sha256": "45f6c46691f3f246285cdbed48a153194f5456fda0807c191f10f1dd76618b32",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4239492d95bdb3c39cefab6ed4c9a179b9857dd4af98953b242157b000e86a48"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと注記が一致し、左はⅡ-1(学識・対話)、右は管理・リーダーシップが加わる図で本文と矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "form",
+          "inputSha256": "2b44fbc9a6d51085d61e0a57458f55c4bd3cf38388b35c6cd5b8389b8dc1ceaa",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『Ⅱ-2の形式』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『答案用紙2枚　24字×25行』 『合計50行』 『小問ごとの配点は示されていない』。 図の下、下端の字幕の帯より上に『形式は受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 形式を確かめます。Ⅱ-2は答案用紙2枚で、1枚は24字かける25行、全部で50行です。令和8年度の受験案内では、Ⅱ-2は20点とされています。小問ごとの配点は示されていないので、行の配分は自分で決めます。形式は受検年度の公式情報で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-form.cec728e8.png",
+              "sha256": "cec728e8d4a3b087b69c46cb939146e439711a54dbc00a491d209866514a5738"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/form-diagram.d983d946.png",
+            "sha256": "d983d9467b8aa6084f99a8b1f9436bc5be187581d99ec642b48121d8204d1559",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cec728e8d4a3b087b69c46cb939146e439711a54dbc00a491d209866514a5738"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『答案用紙2枚 24字×25行』『合計50行』『小問ごとの配点は示されていない』と見出し・注記が指示どおり正確",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "blocks",
+          "inputSha256": "e51509a520dbb5c6f185f1e4799575a8ef448fa5bfbb8c93d8ca95fe07aea1eb",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『前置き・本論・結び』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『前置き　約35% (1) 調査・検討事項』 『本論　約45% (2) 手順と留意点・工夫』 『結び　約20% (3) 関係者との調整方策』。 図の下、下端の字幕の帯より上に『35・45・20%はdoboku-noteの目安。公式の基準ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 次に、50行を三つに分けます。設問の(1)にあたる調査と検討事項が前置き、(2)の手順と留意点が本論、(3)の関係者との調整方策が結びです。目安は前置き35%、本論45%、結び20%。公式の基準ではなく、本論をいちばん厚くするための割り振りです。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 40.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-blocks.79a691e1.png",
+              "sha256": "79a691e19ec017bdce4c3d126ad4965a05f969f297d7b2e0f98fe27591b6066d"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/blocks-diagram.fb6571bb.png",
+            "sha256": "fb6571bbfb06f7276784e2456fe6126ac6e0e3a0b57f1508c22c3852d8a39c09",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "79a691e19ec017bdce4c3d126ad4965a05f969f297d7b2e0f98fe27591b6066d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "前置き35%・本論45%・結び20%と各(1)(2)(3)の文言、注記が指示と一字一致し崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "lines",
+          "inputSha256": "4c0dd7b1b815ad1e1d98935fc791ca77d0d6b9a15578de4871ae7031ef0d53dc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『行番号の目安』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『18行目から本論に入る』 『41行目から結びに入る』 『25行目で本論未着手なら長すぎ』 『結びは10行を切らない』。 図の下、下端の字幕の帯より上に『行数の目安はdoboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 行番号でも決めておきます。2枚の答案なら、18行目から本論に入り、41行目から結びに入ります。前置きが25行に届いても本論に入っていなければ、長すぎます。結びは10行より短くしません。足りないときは前置きから削ります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-lines.b55eeb85.png",
+              "sha256": "b55eeb8576dd0280ec3b2db27abacea5db85de2c38fc529435536ba15cd316b7"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/lines-diagram.80cb338e.png",
+            "sha256": "80cb338eb9a0d69b487717d696743eb11e856280434a894337752c32dcbf9a90",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b55eeb8576dd0280ec3b2db27abacea5db85de2c38fc529435536ba15cd316b7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "18・41・25・10行の4項目と見出し・注記が指示どおりで誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "apply",
+          "inputSha256": "b1ac0356075e41839a603453f3ba081c88e9756fdbd8dcebc253c4c615e09d3d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『設問を三つの部分へ』。 図に入れる文字: 『(1) 調査・把握すべき事項　→前置き』 『(2) 手順と留意点・工夫　→本論』 『(3) 関係者との調整方策　→結び』。 図の下、下端の字幕の帯より上に『令和8年度 道路の問題文の構成を要約。答案例ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 令和8年度の道路Ⅱ-2-1の問いの構成に当てはめます。駅周辺の道路空間を再編する基本計画の担当責任者として、(1)は必要な調査と把握すべき事項、(2)は手順と、留意点や工夫を要する点、(3)は関係者との調整方策。この三つの問いが、そのまま前置き、本論、結びの三つになります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-apply.acf2a7b2.png",
+              "sha256": "acf2a7b2dd16df13f84dd76e654ea1da4b60faf7bd8736cd22172875e28ba2b5"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/apply-diagram.22d1cb40.png",
+            "sha256": "22d1cb40bff509a2b8297f0c3a7dd286ed93c3d8ec86edaa284d90853cbc7cc1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "acf2a7b2dd16df13f84dd76e654ea1da4b60faf7bd8736cd22172875e28ba2b5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "(1)(2)(3)と前置き・本論・結びの対応、見出し、注記『令和8年度 道路の問題文の構成を要約。答案例ではない』が正確",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "steps",
+          "inputSha256": "4bbcb478e564f6df54bc8d2e53f136b7b6922450ae28f6ac518d8bd7127fbca5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『本論の組み立て』。 図に入れる文字: 『前置きの条件を一文で受ける』 『手順を三つほどの段に分ける』 『1段は約7行・170字前後』。 図の下、下端の字幕の帯より上に『行数と字数は50行の45%からの概算。doboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 本論の(2)は、手順を挙げて終わりにしません。2枚の本論はおよそ22行です。手順を三つに分ければ、1段あたり約7行、170字前後。前置きで調べた条件を受けて、順序を決め、各段に留意点を添えます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-steps.1c6e8777.png",
+              "sha256": "1c6e8777304fcd1ced41e8e5e21aa4477e4fae631211a379ea8b91137c02339e"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/steps-diagram.6a73febe.png",
+            "sha256": "6a73febe4f73d5d016a10b86c52192680e3b8be27b704dda86946b9d25a70a8f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1c6e8777304fcd1ced41e8e5e21aa4477e4fae631211a379ea8b91137c02339e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "3つの円の文言と注記が指示どおりで、1段7行の図も本文(約7行)と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "tips",
+          "inputSha256": "aaa13692a8ce429037c2369d811b30327df104957b20c06d1ea2886690d84835",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『手順の書き方』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『出題内容は令和8年度の受験申込み案内に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: 出題内容は、手順の説明に加えて、留意点や工夫を要する点を認識しているかを問います。手順の名前を並べるだけでは足りません。各段に、ここで何に気を付け、どう工夫するかを一文ずつ添えます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 33.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-tips.917eb237.png",
+              "sha256": "917eb237a344466bae6276094ae30be88a4e288c87b3f965aa93d746d7f91bf6"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/tips-diagram.7280e525.png",
+            "sha256": "7280e5256e7d9b3c2746a812e788cf0658e40915bf1dfcca3e4fd8681bd32347",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "917eb237a344466bae6276094ae30be88a4e288c87b3f965aa93d746d7f91bf6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと注記が指示どおり、左右比較で右を強調する構図、図中の余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "coord",
+          "inputSha256": "f66fffaaa613d25f5d4f9951d8b36c12d95d699048bcbdf242dca3a5c7187ea9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『調整方策に書くこと』。 図に入れる文字: 『誰と　住民・関係機関・行政・関連部署』 『いつ　どの手順の前に置くか』 『どう　意見を計画へ反映する手順まで』。 図の下、下端の字幕の帯より上に『改訂後のコミュニケーションの定義に基づく整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 結びの(3)は、調整方策です。ここで差がつきやすいのは、住民、関係機関、行政との合意形成や法令の遵守、関連部署との総合調整といった、技術の外側の段取りです。1段落で形式的に締めず、誰と、いつ、どう調整するかを書きます。改訂版のコミュニケーションは、説明して終わりにせず、相手の意見を計画へ反映する手順まで求めます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 26.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-coord.7e3860f9.png",
+              "sha256": "7e3860f98f8e9313a1e3c627ef48437d13686909fa6c3cf1e8af5e9374c9587f"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/coord-diagram.664417c6.png",
+            "sha256": "664417c6bdfc73b8b71a27025d7b3108fee235dccb692713dccbbfe9ccbc814a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7e3860f98f8e9313a1e3c627ef48437d13686909fa6c3cf1e8af5e9374c9587f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "誰と・いつ・どうの3項目の文言と注記が指示と一字一致し、アイコンも内容に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "626aeb5e0a583286bc60fecb5e5fb76f3b72311fc4624e4f675faf02136ddbe5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『Ⅱ-2の組み立て』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『50行を三つに割り振る』 『18行目と41行目で崩れに気づく』 『手順に留意点、結びに調整方策』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。受検年度の形式は公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。Ⅱ-2は、評価の軸がⅡ-1と違い、担当責任者として業務の進め方を示す答案です。50行を前置き、本論、結びに割り振り、行番号で崩れに気づく。本論では手順に留意点と工夫を添え、結びでは調整方策を具体的に書く。この手順は、この動画の整理です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-recap.a8878961.png",
+              "sha256": "a887896132e22518a50a0ccd5dfb1d009ac7173d8b68f5da0fcd14ec1ee4872e"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/recap-diagram.de3ca844.png",
+            "sha256": "de3ca8449d5309b7d54bfa1b0ebf0e58185f8b0949e4a78eb3e2dded33a12939",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a887896132e22518a50a0ccd5dfb1d009ac7173d8b68f5da0fcd14ec1ee4872e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "3枠の文言・見出し・注記が指示と一字一致し、番号付き枠の構図で崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "e414af4a60fc06f3064ca3cb8333d333a236fc0022c3a6cdad73bc0fa42a513a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書き方の次は、練習』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『施工計画・施工設備及び積算　選択科目の模範解答集』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 書き方の次は、実際の設問での練習です。施工計画、施工設備及び積算の選択科目の模範解答集がnoteにあります。この動画は書き方の型までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/factory/raw-cta.1478b9dc.png",
+              "sha256": "1478b9dc75dd1a5fff35e8632d19e9c6223369f13698c5f7c6434b1f9bc4ce88"
+            },
+            "generatedAt": "2026-11-11T01:32:04.586Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-ii2-kakikata/work/cta-diagram.7c7dedf0.png",
+            "sha256": "7c7dedf0c7fe91a7c2d4ef8af98f4e1ecab9d8c788b195f055575ac290d82334",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1478b9dc75dd1a5fff35e8632d19e9c6223369f13698c5f7c6434b1f9bc4ce88"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:32:04.586Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し、書籍表紙の書名、吹き出し『収録内容は概要欄から』が指示どおりで、価格・URLなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

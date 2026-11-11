@@ -1,0 +1,287 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "白書の施策を、答案の解決策へつなぐ方法を紹介します。",
+      "caption": "白書の施策を、解決策へつなぐ",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監 記述\n施策を解決策へ",
+        "items": [
+          "技術士 総合技術監理部門・記述式"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 8,
+      "end": 20,
+      "narration": "白書で施策を見つけても、そのまま答案の解決策には使えません。この動画では、白書の施策を自分の解決策に変える三つの変換を紹介します。",
+      "caption": "三つの変換で、解決策にする",
+      "visual": {
+        "kind": "points",
+        "heading": "三つの変換でつなぐ",
+        "items": [
+          "主語を自分の立場に移す",
+          "手段を具体的にする",
+          "効果と負担をセットで書く"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 20,
+      "end": 33,
+      "narration": "誤解しやすいのは、白書の施策をそのまま書き写すことです。白書の施策は、国や自治体が主語です。答案で問われるのは、自分の立場で何をするかです。",
+      "caption": "丸写しでは解決策にならない",
+      "visual": {
+        "kind": "points",
+        "heading": "施策を写さない",
+        "items": [
+          "白書の施策を丸写し\n国や自治体の取組の紹介で終わる",
+          "自分の立場で語る\n実行できる解決策になる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "主語が違う"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "three",
+      "start": 33,
+      "end": 45,
+      "narration": "変換は三つです。一つめは、主語を自分の立場へ移す。二つめは、手段を具体的にする。三つめは、効果と、その裏の負担を足す。この順に進めます。",
+      "caption": "主語、手段、効果と負担の順",
+      "visual": {
+        "kind": "points",
+        "heading": "変換は三つ",
+        "items": [
+          "変換1\n主語を移す",
+          "変換2\n手段を具体にする",
+          "変換3\n効果と負担を足す"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 45,
+      "end": 58,
+      "narration": "変換1は、主語を移すことです。白書の主語は国や自治体ですが、答案の主語は自分の立場です。権限があり、関係者を動かせる範囲かどうかを確かめます。",
+      "caption": "主語を自分の立場へ移す",
+      "visual": {
+        "kind": "points",
+        "heading": "変換1 主語を移す",
+        "items": [
+          "白書の主語は国や自治体",
+          "答案の主語は自分の立場",
+          "権限の範囲で実行できるか"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "立場は答案の前半で置く"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 58,
+      "end": 74,
+      "narration": "変換2は、手段を具体的にすることです。DXを推進する、は方針です。どの業務に、どのシステムを入れるのかまで言えて、はじめて施策になります。白書の施策も、方針の形で載っていることがあります。",
+      "caption": "方針を具体的な手段にする",
+      "visual": {
+        "kind": "points",
+        "heading": "変換2 手段を具体にする",
+        "items": [
+          "方針\nDXを推進する",
+          "施策\n特定の業務にシステムを入れる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "方針では減点される"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 74,
+      "end": 88,
+      "narration": "変換3は、効果と、その裏の負担を足すことです。白書は施策の狙いを中心に書いています。答案では、効果だけで終わらせず、増える負担も管理すべき課題として書きます。",
+      "caption": "効果だけで終わらせない",
+      "visual": {
+        "kind": "points",
+        "heading": "変換3 効果と負担を足す",
+        "items": [
+          "期待できる効果",
+          "その裏で増える管理の負担",
+          "負担は管理課題として書く"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "トレードオフを書く"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "front",
+      "start": 88,
+      "end": 103,
+      "narration": "解決策は、答案の前半で置いた条件とつなぎます。担当範囲と制約から外れた施策は、白書にあっても使えません。前半に書いていない課題を、後半で突然解決することはできません。",
+      "caption": "前半の条件に直結させる",
+      "visual": {
+        "kind": "points",
+        "heading": "前半の条件とつなぐ",
+        "items": [
+          "前半で置いた担当範囲",
+          "前半で置いた制約",
+          "後半で突然別の課題を解決しない"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "前半と後半を結ぶ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "scope",
+      "start": 103,
+      "end": 119,
+      "narration": "ただし、いつも主語を移すわけではありません。設問が自分の事業を問うなら、担当範囲から話を飛ばしません。日本全体の取組を問うなら、国の施策のまま扱います。範囲は、問題文で確認します。",
+      "caption": "主語は問題文の範囲で決める",
+      "visual": {
+        "kind": "points",
+        "heading": "問題文の範囲を確かめる",
+        "items": [
+          "自分の事業を問う設問\n担当範囲から飛ばさない",
+          "国全体の取組を問う設問\n国の施策のまま扱う"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "範囲は問題文で決まる"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 119,
+      "end": 138,
+      "narration": "仮の例です。白書に、人手不足への対応として省力化が挙がっているとします。自分の立場なら、特定の業務にシステムを入れる。効果の裏で、新しい操作を覚える教育の負荷が管理課題になります。これは手順の例で、出題の予想ではありません。",
+      "caption": "仮の例で、三つの変換を当てる",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例で変換する",
+        "items": [
+          "白書の施策\n人手不足に省力化",
+          "自分の立場\n特定の業務にシステム導入",
+          "裏の負担\n教育の負荷を管理する"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "出題の予想ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "avoid",
+      "start": 138,
+      "end": 155,
+      "narration": "避けたいのは三つです。白書の施策を丸写しすること。数字の出典と版を確かめずに使うこと。方針のままで、手段を書かないこと。数字や日程は、受検する年度の公式情報と、最新の白書で確認してください。",
+      "caption": "丸写し、出典なし、方針止まり",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたい三つ",
+        "items": [
+          "白書の施策を丸写しする",
+          "数字の出典と版を確かめない",
+          "方針のまま、手段を書かない"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "数字は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 155,
+      "end": 169,
+      "narration": "まとめです。白書の施策は、主語を自分の立場に移し、手段を具体にし、効果と負担をセットで書いて、解決策にします。前半の条件とつなぎ、範囲は問題文で確かめます。",
+      "caption": "三つの変換で解決策にする",
+      "visual": {
+        "kind": "points",
+        "heading": "施策を解決策へのまとめ",
+        "items": [
+          "主語を自分の立場に移す",
+          "手段を具体にする",
+          "効果と負担をセットで書く"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画のまとめ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 169,
+      "end": 181,
+      "narration": "設問3で使う将来課題と、国家レベルの施策案をまとめて引き出したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "国家施策の教材案内は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "施策から、設問3へ",
+        "items": [
+          "国家レベルの施策を集める",
+          "将来課題と結ぶ",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "記述対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

@@ -1,0 +1,289 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 9,
+      "narration": "白書で読んだ論点を、答案の骨組みへどうつなぐか。仮の例で、手順を順に見せます。",
+      "caption": "白書の論点を、答案へつなぐ実演",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監 記述\n白書から答案へ",
+        "items": [
+          "技術士 総合技術監理部門・記述式"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 9,
+      "end": 25,
+      "narration": "白書を読んでも、答案に書く段になると手が止まる。この動画では、白書の一つの論点を、前提条件、施策、リスクの三つへ順に置き直す実演をします。",
+      "caption": "一つの論点を、三つへ置き直す",
+      "visual": {
+        "kind": "points",
+        "heading": "論点を三つへ置き直す",
+        "items": [
+          "白書の論点を一文にする",
+          "前提条件、施策、リスクへ置く",
+          "最後に三つの問いで確かめる"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画の実演"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 25,
+      "end": 44,
+      "narration": "誤解しやすいのは、白書の内容を答案にそのまま並べることです。白書は、事業の条件や施策を選ぶ理由を支える材料です。答案の中心は、自分の担当範囲での考え方です。",
+      "caption": "白書は材料、中心は自分の考え方",
+      "visual": {
+        "kind": "points",
+        "heading": "白書は材料、中心は自分",
+        "items": [
+          "白書の内容を並べる\n自分の担当範囲が見えない",
+          "白書を理由として使う\n条件と施策を支える"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "setup",
+      "start": 44,
+      "end": 72,
+      "narration": "仮の例を置きます。建設会社の一事業部で、現場の管理を担う立場です。白書は、労働経済の分析の主題を借ります。サイト記事によると、令和7年版の主題は、労働力供給制約の下での持続的な経済成長です。最新版は受検年度の公式情報で確認してください。",
+      "caption": "仮の立場と、借りる白書の主題",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例の設定",
+        "items": [
+          "立場\n建設会社の一事業部の現場管理",
+          "借りる白書\n労働経済の分析",
+          "主題は受検年度の最新版で確認"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "仮の例で、出題の予想ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "memo",
+      "start": 72,
+      "end": 94,
+      "narration": "まず、白書の論点を一文のメモにします。例では、人手が限られる中で、生産性を上げる必要がある、の一文です。数字を残すときは、出典の名前と版を必ず添えます。この実演では数字は使いません。",
+      "caption": "論点は一文、数字は出典と版つき",
+      "visual": {
+        "kind": "points",
+        "heading": "論点を一文にする",
+        "items": [
+          "白書の論点を一文にする",
+          "数字は出典の名前と版を添える",
+          "この実演では数字を使わない"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "白書の読み方と同じ流れ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "layer1",
+      "start": 94,
+      "end": 117,
+      "narration": "次に、Ⅰの管理対象と前提条件へ置きます。管理対象は自社の一事業部に限ります。立場は現場の管理者です。前提条件として、人手が限られている、と置きます。白書の論点は、この前提条件を置く理由になります。",
+      "caption": "Ⅰ 論点は前提条件を置く理由になる",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅰ 管理対象と前提条件",
+        "items": [
+          "管理対象は一事業部に限る",
+          "立場は現場の管理者",
+          "前提条件は人手が限られること"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "三層構造のⅠ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer2",
+      "start": 117,
+      "end": 142,
+      "narration": "続いて、Ⅱの施策です。生産性を上げる、は方針で、施策ではありません。例では、点検記録の作成を、特定の工程に限って電子化する、と対象を絞ります。Ⅰで置いた人手の制約があるから、この施策が成り立つ、とつなげます。",
+      "caption": "Ⅱ 方針を、対象を絞った施策にする",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅱ 方針でなく施策",
+        "items": [
+          "方針\n生産性を上げる",
+          "施策\n点検記録を特定の工程で電子化する",
+          "Ⅰの人手の制約から導く"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "三層構造のⅡ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "tradeoff",
+      "start": 142,
+      "end": 167,
+      "narration": "施策には、効果と、その裏の負担をセットで書きます。記録の電子化は、転記の手間を減らせます。一方で、端末の費用と、使い方の教育が新たに必要になります。経済性と人的資源の間で負担が動く、と管理の課題として書きます。",
+      "caption": "効果と負担を、管理の課題として書く",
+      "visual": {
+        "kind": "points",
+        "heading": "効果と、裏の負担",
+        "items": [
+          "効果\n転記の手間を減らす",
+          "負担\n端末の費用と教育",
+          "施策の否定でなく管理の課題"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "経済性と人的資源の間で動く"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer3",
+      "start": 167,
+      "end": 194,
+      "narration": "Ⅲのリスクです。施策を進めた先で、別の管理に負担が移っていないかを探します。例では、利用者が増えると、情報の確認や権限の管理が特定の担当者に集まる、と置けます。克服策は、負担を受ける担当、決め直す手順、点検する時期まで書きます。",
+      "caption": "Ⅲ 別の管理へ移る負担を探す",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅲ 進めた先のリスク",
+        "items": [
+          "別の管理に負担が移らないか",
+          "特定の担当者に集中しないか",
+          "担当、手順、時期まで書く"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "三層構造のⅢ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 194,
+      "end": 216,
+      "narration": "最後に、書き始める前の三つの問いで、つながりを確かめます。Ⅰを読めば、Ⅱ、Ⅲの方向が予想できるか。Ⅱの施策は、Ⅰの条件があるから成り立つか。Ⅲの課題は、Ⅱを進めた結果として出てくるか。",
+      "caption": "三つの問いで、つながりを確かめる",
+      "visual": {
+        "kind": "points",
+        "heading": "書き始める前の三問",
+        "items": [
+          "Ⅰから、Ⅱ、Ⅲの方向が見えるか",
+          "Ⅱは、Ⅰの条件で成り立つか",
+          "Ⅲは、Ⅱを進めた結果か"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "一つでも崩れたら骨組みを直す"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "caution",
+      "start": 216,
+      "end": 239,
+      "narration": "注意点です。これは型の実演で、模範答案ではありません。設問の区分、答える範囲、挙げる項目数は、その年度の問題文を優先します。白書の数字や特集は、受検年度の公式情報と最新版で確認してください。",
+      "caption": "問題文を優先し、数字は最新版で確認",
+      "visual": {
+        "kind": "points",
+        "heading": "使うときの注意",
+        "items": [
+          "実演であり、模範答案ではない",
+          "設問の範囲と項目数は問題文を優先",
+          "数字と特集は最新版で確認"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "受検年度の公式情報を確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 239,
+      "end": 260,
+      "narration": "まとめです。白書の論点を一文にし、Ⅰで前提条件の理由に置きます。Ⅱで方針を施策にして、効果と負担を書き、Ⅲで進めた先の負担を探します。最後に三つの問いでつながりを確かめます。",
+      "caption": "論点を一文にし、三層へ置いて確かめる",
+      "visual": {
+        "kind": "points",
+        "heading": "白書から答案へのまとめ",
+        "items": [
+          "論点を一文にする",
+          "Ⅰ前提、Ⅱ施策、Ⅲリスクへ置く",
+          "三つの問いで確かめる"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画のまとめ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 260,
+      "end": 274,
+      "narration": "この型を、自分の分野の答案に当てはめて練習したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "練習用の教材案内は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の分野で練習する",
+        "items": [
+          "白書の論点を一文にする",
+          "三層へ置いて確かめる",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "記述対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

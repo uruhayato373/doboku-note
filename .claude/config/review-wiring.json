@@ -68,6 +68,12 @@
           "role": "点検"
         },
         {
+          "command": "site-visual-review:status",
+          "label": "サイトの代表ページの全画面幅の点検（未判定があるのに回していない・未起票の不合格・28 日以上回していない）",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
           "command": "quality:audit:weekly",
           "label": "週次の点検（期日が週・月の単位の点検と、結果がリポジトリの中身だけで決まる点検。毎日は回さない・DN-0847）",
           "stage": "基盤の点検",
@@ -124,6 +130,12 @@
         {
           "command": "report-search-opportunities",
           "label": "検索キーワード戦略の改善候補（起票）",
+          "stage": "検索",
+          "role": "判断"
+        },
+        {
+          "command": "check-exam-day-pages",
+          "label": "試験日・合格発表日の当日ページの準備（今後 21 日・未判断と記事が無いものを要対応）",
           "stage": "検索",
           "role": "判断"
         },
@@ -380,6 +392,10 @@
         {
           "command": "standards-visual-review:status",
           "label": "基準書の章ページの画面の目視判定"
+        },
+        {
+          "command": "site-visual-review:status",
+          "label": "サイトの代表ページの全画面幅の点検"
         },
         {
           "command": "quality:audit:weekly",

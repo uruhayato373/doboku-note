@@ -70,6 +70,9 @@ test('機械検査: 比率と字幕の帯を止める', async () => {
   assert.match((await inspectImage(await png(1536, 1024), 'body'))[0], /16:9/);
   assert.match((await inspectImage(await noisyBottom(1920, 1080), 'body'))[0], /字幕/);
   assert.deepEqual(await inspectImage(await noisyBottom(1920, 1080), 'cover'), [], '表紙は字幕の帯を見ない');
+  // 字幕が載らない下端 13〜18% の図は通す（生成の指示の余白は 18% のまま）
+  const aboveBand = await sharp(await png(1920, 1080)).composite([{ input: { create: { width: 1800, height: 40, channels: 3, background: '#000000' } }, left: 60, top: 1080 - Math.floor(1080 * 0.17) }]).png().toBuffer();
+  assert.deepEqual(await inspectImage(aboveBand, 'body'), []);
   const flat = await sharp({ create: { width: 1920, height: 1080, channels: 3, background: '#fff' } }).png().toBuffer();
   assert.match((await inspectImage(flat, 'body'))[0], /単色/);
 });
@@ -438,4 +441,15 @@ test('preflight: 画像の前に公開行・年間の枠・主CTA・表紙の設
   assert.match(one({ cta: { kind: 'site-article', targetPath: 'content/site/missing/x/article.mdx' } })[0], /解決できない/);
   assert.match(one({ cta: { kind: 'links-hub' } })[0], /links-hub/);
   assert.match(one({ cta: { kind: 'note-magazine', targetId: 'm' }, cover: null })[0], /cover-design/);
+});
+
+test('わずかに比率がずれた生成画像は中央で切り抜いて揃え、大きなずれは触らない', async () => {
+  const { fitAspect } = await import('../scripts/lib/video-factory.mjs');
+  const sharp = (await import('sharp')).default;
+  const img = (w, h) => sharp({ create: { width: w, height: h, channels: 3, background: '#336699' } }).png().toBuffer();
+  const size = async (b) => { const m = await sharp(b).metadata(); return [m.width, m.height]; };
+  assert.deepEqual(await size(await fitAspect(await img(1717, 916), 16 / 9)), [1628, 916]);
+  assert.deepEqual(await size(await fitAspect(await img(916, 1717), 9 / 16)), [916, 1628]);
+  assert.deepEqual(await size(await fitAspect(await img(1920, 1080), 16 / 9)), [1920, 1080]);
+  assert.deepEqual(await size(await fitAspect(await img(1536, 1024), 16 / 9)), [1536, 1024]);
 });

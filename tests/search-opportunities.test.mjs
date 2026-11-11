@@ -154,3 +154,34 @@ test('候補の表示の下限は計測の型（cycle.measure.minVolume）だけ
   const rows = [row('/standards/a', 'a 共通仕様書', 12, s.minImpressions - 1), row('/standards/b', 'b 共通仕様書', 12, s.minImpressions)];
   assert.deepEqual(summarizeCluster(cluster, rows, s).candidates.map((c) => c.page), ['/standards/b']);
 });
+
+test('topLowCtrPages: 上位なのにクリック率が低い検索語を、見出しへのジャンプの行をまとめてページ単位に束ねる', async () => {
+  const { topLowCtrPages } = await import('../scripts/lib/search-opportunities.mjs');
+  const cfg = { maxPosition: 3, minImpressions: 20, maxCtr: 0.03 };
+  const rows = [
+    row('/k/blind-drill', 'ブラインド訓練とは', 3.5, 131, 3),
+    row('/k/blind-drill#a', 'ブラインド訓練とは', 2.7, 65, 0), // 同じ表示を見出しの URL で数えた行
+    row('/k/blind-drill#b', 'ブラインド訓練とは', 2.7, 65, 0),
+    row('/g/answers', '解答例', 4.2, 2698, 600), // 順位が圏外
+    row('/g/answers#top', '解答例 令和8年', 3, 64, 0),
+    row('/g/answers', '解答例 令和8年', 3, 50, 20), // ページ本体にクリックがある
+    row('/k/source', '源流対策原則', 2.4, 20, 0),
+    row('/k/few', '少ない語', 1, 19, 0), // 表示不足
+  ];
+  const got = topLowCtrPages(rows, cfg);
+  assert.deepEqual(got.map((p) => p.page), ['/k/blind-drill', '/k/source']);
+  assert.deepEqual(got[0].queries, [{ query: 'ブラインド訓練とは', impressions: 131, clicks: 3, position: 2.7 }]);
+});
+
+test('dailyBaseline: 最新の窓と、重ならない直前の窓の 1 日あたりクリックの中央値（試験日の山に引っ張られない）', async () => {
+  const { dailyBaseline, median } = await import('../scripts/lib/search-opportunities.mjs');
+  assert.equal(median([3, 1, 2]), 2);
+  assert.equal(median([1, 2, 3, 4]), 2.5);
+  assert.equal(median([]), null);
+  const snap = (start, clicks) => ({ data: { rows: clicks.map((c, i) => ({ keys: [`2026-10-${String(start + i).padStart(2, '0')}`], clicks: c })) } });
+  const b = dailyBaseline([snap(29 - 7, [247, 214, 245, 3764, 688, 236, 218]), snap(29 - 7 - 3, [1, 1, 1, 1, 1, 1, 1]), snap(29 - 14, [100, 110, 120, 130, 140, 150, 160])]);
+  assert.equal(b.medianClicks, 245);
+  assert.equal(b.maxClicks, 3764);
+  assert.equal(b.previous.medianClicks, 130, '重なる窓（3 日ずれ）は飛ばして、重ならない直前の窓を比べる');
+  assert.equal(dailyBaseline([]), null);
+});

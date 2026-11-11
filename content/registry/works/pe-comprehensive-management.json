@@ -15,6 +15,126 @@
       "legacyKey": "098-cem-textbook-diagrams"
     },
     {
+      "id": "cm-essay-tradeoff-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-essay-tradeoff-kakikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "a1464ce26cf452cd2172531c76c95a5a8b9c3daa28ca622fbda3000f93d7da53"
+      }
+    },
+    {
+      "id": "cm-fugokaku-tenken",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken",
+      "qa": {
+        "avg": 2.17,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "214dde458fb0b81b4686281cd5b7c9b13f69551d652166f839c5b20579f16426"
+      }
+    },
+    {
+      "id": "cm-mondaibun-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "2f54854d37706be833400ad8f4ece5a1eb7701b6405fc8f2b6773ed803a1ffe3"
+      }
+    },
+    {
+      "id": "cm-ochiru-answer-naoshikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "277887c4980b13b2669c3ff021faf69cec92a8064451aea2f792d92bcd190afa"
+      }
+    },
+    {
+      "id": "cm-setsumon3-risk-kokufuku",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-setsumon3-risk-kokufuku",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "fe306d0cc2c2e4362d630e82f69f8438209507c4495d5859c21937de2268749e"
+      }
+    },
+    {
+      "id": "gyoumu-keireki-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "2b2cff3f3f501eb241b7d1efc36f19d520fe3ffc2220a1bfce2c540f862acea9"
+      }
+    },
+    {
+      "id": "hakusho-kadai-erabu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "e10905397e11a80757f45c31327a98dd6657e0449dbf42e33829c4ef8c20c046"
+      }
+    },
+    {
+      "id": "hakusho-shisaku-kaiketsu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "f99f81be173e0ce84f58165368ea6fc3dff6e6b69eef89abc8bb98a45bdb8244"
+      }
+    },
+    {
+      "id": "hakusho-tsunagu-jitsuen",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "20c2ee5ca2dc9c9c42603a8632214501cca5182f2eefc5215760ed5f33ef4de0"
+      }
+    },
+    {
+      "id": "hakusho-yomu-fukasa",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "1e816da1af0346e7b809259629c587fb22e635b7dfd5b84c97eed44dcc2dc53f"
+      }
+    },
+    {
       "id": "pe-comprehensive-countdown-w1",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/061-pe-comprehensive-countdown-w1",

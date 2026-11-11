@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gyoumu-keireki-kakikata",
+  "exam": "pe-comprehensive-management",
+  "title": "総監｜業務経歴の書き方",
+  "audience": "総監の受験申込を控え、業務経歴票の書き方に迷っている受験者",
+  "pain": "業務経歴票で何を書けば通るのか分からず、手が止まる",
+  "promise": "業務の選び方・並べ方・欄への書き移し方の三段で、経歴票の型が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-comprehensive-management/exam-application-guide/img/figure-career-row-fields.svg"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "essay-complete-pack",
+    "campaign": "gyoumu-keireki-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

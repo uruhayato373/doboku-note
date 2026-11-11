@@ -1,0 +1,293 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "その720字、何から書きますか。",
+      "caption": "720字、何から書く？",
+      "visual": {
+        "kind": "cover",
+        "heading": "720字、何から書く？",
+        "items": [
+          "技術士 建設部門・業務内容の詳細"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 21,
+      "narration": "業務の概要から書き始めて、字数が尽きていませんか。業務内容の詳細で見られるのは、工事の説明ではありません。あなたが何を考え、何を判断し、どんな成果を出したかです。今日は720字を、役割ごとに組み立てる順序を整理します。",
+      "caption": "概要から、自分の判断へ",
+      "visual": {
+        "kind": "points",
+        "heading": "概要の説明で、字数を使い切らない",
+        "items": [
+          "概要だけ\n何の業務だったか",
+          "判断まで\n自分は何を選んだか\n何で確かめたか"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "業務内容の詳細／建設部門",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "rules",
+      "start": 21,
+      "end": 41,
+      "narration": "日本技術士会の様式では、目的、立場と役割、技術的内容及び課題、技術的成果の四つを、専門とする事項を踏まえて720字以内で整理します。図表は使えず、半角文字も一字と数えます。様式と字数は年度ごとに変わるので、受検年度の公式案内を確認してください。",
+      "caption": "様式の決まりは、この4つ",
+      "visual": {
+        "kind": "points",
+        "heading": "720字に入れる、4つの要素",
+        "items": [
+          "目的",
+          "立場と役割",
+          "技術的内容及び課題",
+          "技術的成果"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "業務内容の詳細／建設部門",
+          "note": "専門とする事項を踏まえて720字以内／図表なし／半角も1字／年度の様式は公式案内で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "choose",
+      "start": 41,
+      "end": 61,
+      "narration": "業務経歴は複数行を書き、そのうち一件に丸を付けて、その業務の詳細を書きます。選ぶ基準は、専門とする事項に関連するかどうかです。申込書を出すと、専門とする事項も、経歴と詳細の文章も、あとから直せません。",
+      "caption": "詳細に書く1件は、事項から選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "詳細に書く1件の選び方",
+        "items": [
+          "専門とする事項を決める",
+          "関連する経歴から1件を選ぶ",
+          "同じ語で、詳細をつなぐ",
+          "提出後は加筆も訂正もできない"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "業務内容の詳細／建設部門",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-specialty-thread.svg",
+          "note": "専門とする事項→経歴の1件→詳細の課題と成果"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "inventory",
+      "start": 61,
+      "end": 81,
+      "narration": "書く前に、その業務を四つの段階に分けて棚卸しします。背景と立場、課題の設定、提案と理由、成果の評価です。この順序は口頭試験で問われる順にも重なるので、棚卸しのメモは、そのまま想定問答の骨にもなります。",
+      "caption": "書く前に、4段階で棚卸し",
+      "visual": {
+        "kind": "points",
+        "heading": "4段階で、業務を棚卸し",
+        "items": [
+          "背景と立場",
+          "課題の設定",
+          "提案と理由",
+          "成果の評価"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "業務内容の詳細／建設部門",
+          "note": "棚卸しのメモは、口頭試験の想定問答の骨になる"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "allocation",
+      "start": 81,
+      "end": 101,
+      "narration": "字数の配分には目安があります。提案と判断に約270字、成果と評価に約170字、課題に約150字、目的と立場と役割に合わせて約130字です。公式の指定ではなく、この動画の目安です。判断の根拠に、いちばん多く字数を回します。",
+      "caption": "提案と判断に、字数を厚く",
+      "visual": {
+        "kind": "points",
+        "heading": "720字の配分の目安",
+        "items": [
+          "提案と判断\n約270字",
+          "成果と評価\n約170字",
+          "課題\n約150字",
+          "目的と立場・役割\n約130字"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "業務内容の詳細／建設部門",
+          "diagram": "decision",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-detail-720-allocation.svg",
+          "note": "公式の指定ではなく、判断に字数を回すための目安"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "role",
+      "start": 101,
+      "end": 121,
+      "narration": "最も問われるのは立場と役割です。技術士にふさわしいのは、自ら考え責任を持つ立場で、補助的な関わりでは弱いとされます。指示された、ではなく、自分が判断した、と伝わる主語で書きます。発注者の業務でも、設計の照査や積算審査の判断は書けます。",
+      "caption": "主語は、「自分が判断した」",
+      "visual": {
+        "kind": "compare",
+        "heading": "立場と役割の書き方",
+        "ngLabel": "弱い書き方",
+        "okLabel": "伝わる書き方",
+        "rows": [
+          {
+            "label": "主語",
+            "ng": "指示を受けて対応した",
+            "ok": "自分が比較して判断した"
+          },
+          {
+            "label": "関わり",
+            "ng": "補助として参加した",
+            "ok": "責任を持って決定した"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "業務内容の詳細／建設部門",
+          "note": "発注者の設計照査・積算審査の判断も書ける"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "issue",
+      "start": 121,
+      "end": 141,
+      "narration": "課題は一つに絞り、なぜそれを選んだかを添えます。提案では、比較した案と、採らなかった理由まで書きます。たまたま良い結果が出た、と読める書き方は、計画的な判断に見えません。",
+      "caption": "課題は1つ。案の比較も書く",
+      "visual": {
+        "kind": "points",
+        "heading": "課題と提案の組み立て",
+        "items": [
+          "課題を1つに絞る",
+          "なぜ選んだかを添える",
+          "比較した案を書く",
+          "採らなかった理由も書く"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "業務内容の詳細／建設部門",
+          "diagram": "decision",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "result",
+      "start": 141,
+      "end": 161,
+      "narration": "成果は、技術面を中心に書きます。基準や要求水準に対して何が満たされたかを、検査や照査の記録で示します。費用や工期、周辺環境への波及は、確かめられたものだけを一句ずつ添えます。根拠のない数値は足しません。",
+      "caption": "成果は、記録で確かめた事実",
+      "visual": {
+        "kind": "points",
+        "heading": "成果の見直しは、3つの面から",
+        "items": [
+          "技術面\n基準を満たしたか",
+          "経済面\n費用・工期・維持管理",
+          "社会・環境面\n利用者・沿道・周辺"
+        ],
+        "reveal": 3,
+        "art": {
+          "type": "mapping",
+          "section": "業務内容の詳細／建設部門",
+          "note": "根拠のある面だけ書く。技術面が中心"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "ngok",
+      "start": 161,
+      "end": 181,
+      "narration": "よくある失敗は、概要の説明が長く、自分の判断が薄くなることです。背景は最小限にして、課題、判断、理由、成果の順に、文頭の言葉で段を区切ります。図表は使えないので、文の並びで構造を見せます。",
+      "caption": "背景は短く、判断を厚く",
+      "visual": {
+        "kind": "compare",
+        "heading": "文章の字数の使い方",
+        "ngLabel": "よくある失敗",
+        "okLabel": "組み替えた書き方",
+        "rows": [
+          {
+            "label": "前半",
+            "ng": "業務の概要と背景が長い",
+            "ok": "背景は最小限にとどめる"
+          },
+          {
+            "label": "後半",
+            "ng": "判断と成果が薄い",
+            "ok": "課題→判断→理由→成果"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "業務内容の詳細／建設部門",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-detail-720-allocation.svg"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 181,
+      "end": 200,
+      "narration": "今日の要点です。業務を四つの段階で棚卸しし、字数の枠を先に決める。主語を自分にして、判断の根拠を厚く書く。そして、口頭試験で聞かれても答えられることだけを書く。この720字が、口頭試験の出発点になります。",
+      "caption": "今日のまとめ",
+      "visual": {
+        "kind": "points",
+        "heading": "今日のまとめ",
+        "items": [
+          "4段階で棚卸しして、枠を決める",
+          "主語は自分。判断の根拠を厚く",
+          "聞かれて答えられることだけ書く"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "業務内容の詳細／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 200,
+      "end": 214,
+      "narration": "申込のあとは、筆記の論文が待っています。必須科目Iの模範解答集を、noteに用意しています。概要欄から、収録内容を確認してください。",
+      "caption": "論文の準備は、概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "筆記の論文の準備へ",
+        "items": [
+          "必須科目I 模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "業務内容の詳細／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

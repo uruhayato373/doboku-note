@@ -3,6 +3,18 @@
   "exam": "concrete-engineer",
   "works": [
     {
+      "id": "ce-haigou-kakunin-jun",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/ce-haigou-kakunin-jun",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "2459b3aaff12d7b4e3099fca8470c4945f695bdd73bc6056634c9857703b2b5b"
+      }
+    },
+    {
       "id": "ig-concrete-route",
       "kind": "ig-pack",
       "definition": "content/sns/instagram/profile-pinned/concrete-route"

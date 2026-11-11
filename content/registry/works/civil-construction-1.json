@@ -3,6 +3,18 @@
   "exam": "civil-construction-1",
   "works": [
     {
+      "id": "c1-after-ichiji-niji-junbi",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-after-ichiji-niji-junbi",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "03cc629917f5b47a3585e29849e691d872cffde0dee72ee94e2f126dd6ddaccc"
+      }
+    },
+    {
       "id": "c1-juken-junjo-2027",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/c1-juken-junjo-2027",
@@ -13,6 +25,78 @@
         "at": "2026-11-10",
         "by": "Claude Code video-content-qa",
         "inputSha256": "3853e8c0cb77e1f177e94f03139e7dfc9dd0fe04c6d783676e553e7dda418e5a"
+      }
+    },
+    {
+      "id": "c1-keiken-anzen-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-anzen-kakikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "571d311f42f09abc39fed8c9bb798c735aa6ce34b7a28796d7f689fb86922e7c"
+      }
+    },
+    {
+      "id": "c1-keiken-hacchusha-yomu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-hacchusha-yomu",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "81eea87128141b81d005c2cfc53070dd418b887b4593af6f094d1dc09906821e"
+      }
+    },
+    {
+      "id": "c1-keiken-hinshitsu-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-hinshitsu-kakikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "7a6ee0cf5fbf04a3e0614982f92e194e1b6c931088cc294f4c61a94c1ac412e0"
+      }
+    },
+    {
+      "id": "c1-keiken-kouji-gaiyou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-kouji-gaiyou",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "2b03eaddbe26995de9be12ad21e25be02182cdd531b1ffcdcaab3d8666c4098f"
+      }
+    },
+    {
+      "id": "c1-keiken-ochiru-naoshikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "3070dcd0d4e46cde6965e552562f47317cfb403604a02d2c48f358356a070c3f"
+      }
+    },
+    {
+      "id": "c1-next-license-after-first",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-next-license-after-first",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "33ec4fac7c47c47acfa65eeb6d97b19b807dc259c226a531d4771ba4b3ebacc0"
       }
     },
     {
@@ -32,6 +116,18 @@
       "kind": "x-thread",
       "definition": "content/sns/x/draft/092-civil-2026-09-c",
       "legacyKey": "092-civil-2026-09-c"
+    },
+    {
+      "id": "civil-license-ladder-order",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "b3a678f8e27e934a04763c2d89530c424224b2eeeafa490daaaf234608a8c651"
+      }
     },
     {
       "id": "civil-textbook-diagrams",
@@ -94,14 +190,40 @@
       "legacyKey": "044-civil1-shiken-campaign"
     },
     {
+      "id": "owner-career-before-moving",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-career-before-moving",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "2c3d591d60eac0536c68a7015e3a719f1c6469900d3f5681fba3c1f6f9caf8d3"
+      }
+    },
+    {
       "id": "owner-career-shigoto",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/owner-career-shigoto"
+      "definition": "content/sns/video-packs/civil-construction-1/owner-career-shigoto",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "f87860dabf3c9018eb2911e1768a1fec06eabe80b8774fb1831be3911159307c"
+      }
     },
     {
       "id": "owner-eye-kantokuin",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-kantokuin"
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-kantokuin",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "875915aab66f8d4a9e1d8ad14fb623619b3e158199c9f8991652c69f9198e92b"
+      }
     },
     {
       "id": "owner-eye-kouji-kensa",
@@ -116,6 +238,18 @@
       }
     },
     {
+      "id": "owner-eye-sekkei-henkou-hantei",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-henkou-hantei",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "c3ae5d308856955bbf6f534f92f9c0ca560a6cc7d351bd8786a7cd89fc6d6c41"
+      }
+    },
+    {
       "id": "owner-eye-sekkei-tosho",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-tosho",
@@ -125,6 +259,18 @@
         "at": "2026-11-10",
         "by": "Claude Code video-content-qa",
         "inputSha256": "b854987dde6bf876bd22cdc2d209eb2e3dab3df1ab45e29543b1591d7d165595"
+      }
+    },
+    {
+      "id": "owner-eye-suryo-sekisan",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-suryo-sekisan",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "b328632fac18ebe4f561ce40199bed9d61867e0932d252a5944c2963b4e52407"
       }
     },
     {

@@ -1,0 +1,475 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『必須I』『解決策に』『根拠を積む』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-cover.7e762b7a.png",
+          "sha256": "7e762b7ab1bc9a8107f672d1ac3400b16a863c2b5bf2a9a16ff725b3448e8e11"
+        },
+        "generatedAt": "2026-11-11T03:13:48.382Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "必須I",
+          "解決策に",
+          "根拠を積む"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/cover-pop.0b7d09b7.png",
+        "sha256": "0b7d09b7feec2f52f1626eb19cc9d15554385085522544174069865a7d0b4dd4",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "7e762b7ab1bc9a8107f672d1ac3400b16a863c2b5bf2a9a16ff725b3448e8e11"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:13:48.382Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『必須I』『解決策に』『根拠を積む』が指示と一字ずつ一致。先生の黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺の作業服とネクタイ・反射帯が揃い、手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "d0b5d34fc1c30aeae86c5d1a92a4980aa4b50cd3c3e103b680e5d3edad1b2ab3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日整理すること』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『設問(2)の位置』 『根拠の五つの問い』 『型の絞り方』。 図の下、下端の字幕の帯より上に『根拠の分け方はdoboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 解決策の名前は浮かぶのに、なぜ効くのかを示す材料が手元にない。今日は必須科目Ⅰの設問の2で、解決策に根拠を積む順序を、五つの問いと、型の絞り方で整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-premise.7c4aa84c.png",
+              "sha256": "7c4aa84c7d555448c88a4c333c83dab68c6f73b1c85570d14688055bd7baebe6"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/premise-diagram.30bc3ac0.png",
+            "sha256": "30bc3ac0de8cc4001055f806a89ae893e1857034af8a7d8182c0388ae4048d7a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7c4aa84c7d555448c88a4c333c83dab68c6f73b1c85570d14688055bd7baebe6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3枠の文字・下の注記『根拠の分け方はdoboku-noteの整理』が指示と一致し、崩れた字や余計な文言なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "where",
+          "inputSha256": "c81243a2fa5d523ac7ee7eeb13d21136eff1ce22354f44ed292fd829b8ff435c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『設問(2)の求め』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『最も重要な課題を1つ選ぶ』 『その課題への複数の解決策』 『形式は受検年度の公式情報で確認』。 図の下、下端の字幕の帯より上に『令和7・8年度の公式問題文に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず位置です。令和7年度と令和8年度の必須科目Ⅰは、設問の2で、最も重要な課題を一つ選び、その課題への複数の解決策を示す形でした。課題を一つに絞るので、根拠も一つの課題の周りに積めます。形式は受検年度の公式情報で確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 26.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-where.7a875d64.png",
+              "sha256": "7a875d643f15be069de36612fa14eb52dda7e04e6eb0c8cc16286347e3eb1254"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/where-diagram.d0eb3314.png",
+            "sha256": "d0eb33146c30ad05992e0df1650dee51a16b7385ed6c4624d222adf898ae9013",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7a875d643f15be069de36612fa14eb52dda7e04e6eb0c8cc16286347e3eb1254"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3行の文字・注記『令和7・8年度の公式問題文に基づく』が指示と一致。「整理メモ」の札は指示外だが意味は誤らない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "five",
+          "inputSha256": "2515cd7a9ae8c576be6052f003ad91996fa6e70c5f4d719ff75516e327c29dae",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読み手の五つの問い』。 図に入れる文字: 『国の方向と合っているか』 『技術として確かか』 『どれほど効くのか』 『自分の現場で回るのか』 『他の立場は受け入れるか』。 図の下、下端の字幕の帯より上に『五つの問いはdoboku-noteの整理。公式の基準ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 根拠は、思いついた順に積まず、読み手が解決策に向ける問いごとに用意します。国の方向と合っているか、技術として確かか、どれほど効くのか、自分の現場で回るのか、他の立場は受け入れるか、の五つです。この分け方は、サイトの整理で、公式の基準ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-five.749294ec.png",
+              "sha256": "749294ecbec4b8056f38b25e749072ce3f265ce60a827ac7594c09f03c6783b8"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/five-diagram.3325453f.png",
+            "sha256": "3325453fdce3ee88fb6678ffefd25d3110eff70c2b2e881d8f2d785e087668b0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "749294ecbec4b8056f38b25e749072ce3f265ce60a827ac7594c09f03c6783b8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "五つの問いの文字と注記『五つの問いはdoboku-noteの整理。公式の基準ではない』が指示と一致し、破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q1",
+          "inputSha256": "7998e56dd6de315b89f92a6b54dc9e929dc2cbb6c94fad163f3244ccfd01cee1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『国の方向』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『材料は計画・ガイドライン・白書』 『問題文が挙げた計画は議論の足場』 『計画名で終わらず、方針の具体化まで書く』 『年次を付け、最新の版を確かめる』。 図の下、下端の字幕の帯より上に『令和8年度Ⅰ-1の問題文と出題テーマ分析に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: 一つ目は、国の方向です。材料は、計画やガイドライン、白書です。令和8年度のⅠ-1は、令和8年1月に定められた第6次社会資本整備重点計画を背景に置いていました。問題文が名前を挙げた計画は、出題者が示した足場です。計画名を並べて終わらず、そのどの方針を解決策が具体化するのかまで書きます。年次を付け、使う前に最新の版を確かめます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-q1.b1095226.png",
+              "sha256": "b10952261be5aba2e1658aa1a0e6e43068cb892b41a0fcda70bb072239f3ed32"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/q1-diagram.92d06f67.png",
+            "sha256": "92d06f67ca8d71cbcfafe3b1f2174eca16adbc913434509652b9f16a2cf72f65",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b10952261be5aba2e1658aa1a0e6e43068cb892b41a0fcda70bb072239f3ed32"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『国の方向』・4行・注記『令和8年度Ⅰ-1の問題文と出題テーマ分析に基づく』が指示と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q2",
+          "inputSha256": "85c31c75c58bb4bf10f0e32056b169c0ffa433bcb2c8274bd7e53c8134e4ca19",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『技術の確かさ』。 図に入れる文字: 『材料は基準・指針・学会の知見』 『標準の手法か、途上の手法かを見分ける』 『途上なら、その懸念は(3)へ送る』。 図の下、下端の字幕の帯より上に『書き分けはdoboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 二つ目は、技術の確かさです。材料は、技術基準や指針、学会の知見です。手段が基準に載った標準的な手法なのか、試行の途中にある新しい手法なのかを見分けます。後者なら、確立の途上であることを書き、そこから生じる懸念は設問の3へ送ります。すると、2の根拠と3のリスクが、同じ事実の表と裏になります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 20.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-q2.4df6586a.png",
+              "sha256": "4df6586aa8437b2b95c65af3a381fe579e4ebbda8e3bf704012871710c461119"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/q2-diagram.fdaa8631.png",
+            "sha256": "fdaa8631b33f982c645033417cb242b915c6bb993681c8ec19873220d5ec4269",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4df6586aa8437b2b95c65af3a381fe579e4ebbda8e3bf704012871710c461119"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3枠の文字・注記『書き分けはdoboku-noteの整理』が指示と一致し、誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q3",
+          "inputSha256": "4b8700f117e54dc8ce9f7b53792d1240377ab974fff08edd9dc6415e2d67cf0f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『効き方の書き方』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『国土交通白書2024（国土交通省）と書き方ガイドの整理に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: 三つ目は、効き方です。材料は、数値と実例です。たとえば橋梁などの老朽化では、国土交通白書2024が、平成30年の推計として、事後保全から予防保全へ転換すると、今後30年間の累計で維持管理と更新の費用を約3割縮減できる見込みを示しています。現状を割合で示したなら、効果も割合で示すと比べられます。口頭試験で出典を説明できる数値と実例だけを使います。 前回の不合格の理由を直す: 文字: 見出しが『』は描かない指示なのに「効き方の書き方」と鉤括弧つきで描かれている（指示にない文字）。注記と橋の図解自体は指示どおり",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-q3.1bfd6378.png",
+              "sha256": "1bfd6378793adfcf2b008585bb808fd79d0907012689f64d1bf96b6179b93760"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/q3-diagram.78c06162.png",
+            "sha256": "78c0616217d2f1f2f74b5c043711e7de5fbad81cb578d74c0100c69832af2fd1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1bfd6378793adfcf2b008585bb808fd79d0907012689f64d1bf96b6179b93760"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『効き方の書き方』と出典文『国土交通白書2024（国土交通省）と書き方ガイドの整理に基づく』が指示と一字一句一致し、ひび割れ橋＋高いコイン積み対 予防補修橋＋低いコインの比較で本文の約3割縮減と矛盾しない。橋の構造や字幕帯の余白にも破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q4",
+          "inputSha256": "bd640c97e5668fbea3033de179e98f2d223ede5f96de9f64256c6d5616256932",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『自分の現場』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『人員・予算・手続の制約を書く』 『固有名詞は避け、一般化する』 『実際の業務と違うことは書かない』。 図の下、下端の字幕の帯より上に『記述の注意はdoboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 四つ目は、自分の現場で回るかです。材料は、自分の業務で見てきた人員、予算、手続の制約です。一般論の施策に、具体性が出る所です。案件や取引先が分かる固有名詞は避け、実際の業務と違うことは書きません。口頭試験は、筆記の答案と業務経歴を踏まえて行われます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-q4.9ca58595.png",
+              "sha256": "9ca5859548f3ff67340d4b2a66167abeea66c4b6a042339a89f953995abbc03c"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/q4-diagram.b67d2900.png",
+            "sha256": "b67d2900ff81a4130fbd892ae6677336b34ca92bbd2e9572be1f4f83c05afc22",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9ca5859548f3ff67340d4b2a66167abeea66c4b6a042339a89f953995abbc03c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『自分の現場』・3行・注記『記述の注意はdoboku-noteの整理』が指示と一致し、破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q5",
+          "inputSha256": "bfbcb0fa4a611b6e0fe22774b032d5487c249cf18d46d92760c69d5e88d1ddcb",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『他の立場』。 図に入れる文字: 『影響を受ける立場を1〜2つ選ぶ』 『予想される懸念と応え方を書く』 『実行後の副作用は(3)で書く』。 図の下、下端の字幕の帯より上に『役割の分け方はdoboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 五つ目は、他の立場です。解決策の影響を受けるのは、利用者だけではありません。費用を負担する人、運用する人でも、見え方は違います。影響の大きい立場を一つか二つ選び、予想される懸念と、解決策の応え方を書きます。実行した後の副作用を書く設問の3とは、役割を分けます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-q5.be8f561e.png",
+              "sha256": "be8f561e3d89e511960b366824d0ed5f49faabffcf61d5b8e0a783a0291fd342"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/q5-diagram.68eb8873.png",
+            "sha256": "68eb8873af2e6c7eef9cd213f299a37feeb3f3285837f28641b30a25087e4a3f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "be8f561e3d89e511960b366824d0ed5f49faabffcf61d5b8e0a783a0291fd342"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3つの文言（1〜2つ、(3)）・注記『役割の分け方はdoboku-noteの整理』が指示と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "budget",
+          "inputSha256": "6b0fa6473e5fddd4875ccd54e1d7ab99c59e0d23bec6707adb719be05eb05982",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『根拠の割り振り』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『字数は書き方ガイドの目安。公式の指定ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: ただし、一本の解決策で五つすべてに答えようとすると、字数が持ちません。サイトの目安では、設問の2に1枚強を使い、解決策を2から3本立てると、1本は200から350字ほどで、根拠に回せるのは100から150字ほどです。公式の指定ではない目安です。だから、型は解決策ごとに一つか二つに絞り、残りは別の解決策へ割り振ります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-budget.ffcf719e.png",
+              "sha256": "ffcf719e6b19f4d250d2c333a9bb66e877422f940ada30dd973f43cea67b3f32"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/budget-diagram.736f0797.png",
+            "sha256": "736f0797e06e083b2dd4a0a0e55cbad9a808700b40311ac07643d32ae227201a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ffcf719e6b19f4d250d2c333a9bb66e877422f940ada30dd973f43cea67b3f32"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『根拠の割り振り』と注記『字数は書き方ガイドの目安。公式の指定ではない』が指示と一致。左右の図は本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "52e63b80d5436ba2d3cb46409f28a349a1828ce62925effa77e4ce8fe264186c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『(2)の根拠の積み方』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『五つの問いで材料を選ぶ』 『1本に使う型は一つか二つ』 『文の頭で、何の根拠かを示す』。 図の下、下端の字幕の帯より上に『本動画の整理。形式は受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。設問の2は、課題を一つに絞って、複数の解決策を示します。根拠は五つの問いごとに材料を選び、一本の解決策には一つか二つの型を使います。文の頭で、計画か、基準か、数値かを分かるようにします。この整理は、この動画のものです。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 59.5）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-recap.a6c79699.png",
+              "sha256": "a6c79699bd8036b54a29cf63ae1c44ec37d0d9e98aeb7f8955a3cd0ba8943113"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/recap-diagram.5ac4e7ce.png",
+            "sha256": "5ac4e7ce8497b8ef3104835a1a29e3274dd422b0aa47380d6d42e8b0e2e6d2b7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a6c79699bd8036b54a29cf63ae1c44ec37d0d9e98aeb7f8955a3cd0ba8943113"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『(2)の根拠の積み方』・3枠の文言・注記『本動画の整理。形式は受検年度の公式情報で確認』が指示と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "aad33ea4b95efa300327d7133db4cf066bfe6a7270ad91bcd2c01c89298459be",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『次は、答案で試す』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『必須科目Ⅰ 模範解答集』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 次は、実際の答案で試す番です。必須科目Ⅰの模範解答集が、noteにあります。この動画は根拠の積み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 47.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/factory/raw-cta.adc2cd62.png",
+              "sha256": "adc2cd628cc83759e880f8c6a7324ee7b61af205fb08df4697b6d028aa19791a"
+            },
+            "generatedAt": "2026-11-11T03:13:48.382Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/cta-diagram.7170d56e.png",
+            "sha256": "7170d56eea28351f7136b9d6ba9c94bb50248f1f8b246f9da7fa6ef0d23e0c4d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "adc2cd628cc83759e880f8c6a7324ee7b61af205fb08df4697b6d028aa19791a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:13:48.382Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『次は、答案で試す』・本の表紙『必須科目Ⅰ 模範解答集』・『収録内容は概要欄から』が指示と一致。価格・URLなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

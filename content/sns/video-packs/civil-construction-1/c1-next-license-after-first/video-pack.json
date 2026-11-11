@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-next-license-after-first",
+  "exam": "civil-construction-1",
+  "title": "1級の次に取る資格",
+  "audience": "1級土木施工管理技士を持つ人、または取る見込みで、次に何を取るか迷っている人",
+  "pain": "1級を取ったあと、技術士・RCCM・コンクリート診断士のどれを次に取るか、基準が分からず決められない",
+  "promise": "名前を出したい業務の資格欄を基準に、三つの候補から次に取る一つを絞り、取らない選択も含めて判断できる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/rccm/guide-career-value/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/rccm/guide-difference-pe/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/civil-construction-1/guide-career-path/article.mdx",
+    "campaign": "c1-next-license-after-first"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

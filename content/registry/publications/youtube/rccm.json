@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "channel": "youtube",
+  "exam": "rccm",
+  "publications": [
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform",
+      "work": "rccm-mondai1-keiken-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed",
+      "media": {
+        "cover": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/cover",
+        "scene-001": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-001",
+        "scene-002": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-002",
+        "scene-003": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-003",
+        "scene-004": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-004",
+        "scene-005": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-005",
+        "scene-006": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-006",
+        "scene-007": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-007",
+        "scene-008": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-008",
+        "scene-009": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-009",
+        "scene-010": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-010",
+        "scene-011": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-011",
+        "scene-012": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-012",
+        "scene-013": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-013",
+        "video": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/video",
+        "subtitles": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/rccm/rccm-mondai1-keiken-kakikata/youtube.json#longform"
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform",
+      "work": "rccm-mondai3-ronbun-kata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed",
+      "media": {
+        "cover": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/cover",
+        "scene-001": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-001",
+        "scene-002": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-002",
+        "scene-003": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-003",
+        "scene-004": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-004",
+        "scene-005": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-005",
+        "scene-006": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-006",
+        "scene-007": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-007",
+        "scene-008": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-008",
+        "scene-009": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-009",
+        "scene-010": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-010",
+        "scene-011": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-011",
+        "scene-012": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-012",
+        "video": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/video",
+        "subtitles": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata/youtube.json#longform"
+    }
+  ]
+}

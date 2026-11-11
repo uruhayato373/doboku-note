@@ -1,0 +1,225 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "小論文のテーマは、傾向を五つの系統に分けると準備できます。選ぶ基準は、自分の立場で書ける事実があるかどうかです。",
+      "caption": "テーマは五つの系統、基準は自分の事実",
+      "visual": {
+        "kind": "cover",
+        "heading": "テーマの傾向と立場の選び方",
+        "items": [
+          "コンクリート主任技士・小論文対策"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 35,
+      "narration": "よくある誤解は、テーマごとに全部の知識を覚えようとすることです。サイト記事は、選択式の年が多いことから、得意な二、三の系統を厚くする準備を勧めています。均等に仕込む試験ではありません。",
+      "caption": "全部を均等ではなく、二、三の系統を厚く",
+      "visual": {
+        "kind": "points",
+        "heading": "誤解：全テーマを均等に準備する",
+        "items": [
+          "全部を均等に覚える",
+          "得意な二、三の系統を厚くする"
+        ],
+        "flow": [
+          "五つの系統",
+          "二、三を選ぶ",
+          "厚く準備"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "themes",
+      "start": 35,
+      "end": 72,
+      "narration": "問題文は日本コンクリート工学会から公開されていません。市販の過去問解説書と受験者の公開記事を突き合わせた二次情報で、直近三年を並べます。令和七年度は環境負荷低減と、労働人口減少下の品質向上。令和六年度は気候変動に対応した品質確保と、分野を魅力的にする方策。令和五年度は環境負荷低減と、生産性向上です。",
+      "caption": "直近三年のテーマ（二次情報の整理）",
+      "visual": {
+        "kind": "sheet",
+        "heading": "直近三年に示されたテーマ（二次情報）",
+        "sheetTitle": "令和5〜7年度（選択式）",
+        "rows": [
+          {
+            "label": "令和7年度",
+            "value": "環境負荷低減",
+            "state": "done"
+          },
+          {
+            "label": "令和7年度",
+            "value": "労働人口減少下の品質向上",
+            "state": "done"
+          },
+          {
+            "label": "令和6年度",
+            "value": "気候変動に対応した品質確保",
+            "state": "done"
+          },
+          {
+            "label": "令和6年度",
+            "value": "分野を魅力的にする方策",
+            "state": "done"
+          },
+          {
+            "label": "令和5年度",
+            "value": "環境負荷低減",
+            "state": "done"
+          },
+          {
+            "label": "令和5年度",
+            "value": "生産性向上（DX・i-Construction）",
+            "state": "done"
+          }
+        ]
+      },
+      "sourceRef": "config/cce-essay-history.json"
+    },
+    {
+      "sceneId": "systems",
+      "start": 72,
+      "end": 104,
+      "narration": "令和二年度以降は、環境負荷低減がほぼ毎年入っています。生産性向上と耐久性の向上が続き、令和六年度以降は気候変動と担い手不足の切り口が加わりました。系統は五つ。環境負荷低減、耐久性と維持管理、生産性とDX、気候変動と品質確保、担い手不足と品質確保です。",
+      "caption": "テーマは五つの系統に分けられる",
+      "visual": {
+        "kind": "points",
+        "heading": "テーマの五つの系統",
+        "items": [
+          "環境負荷低減",
+          "耐久性・維持管理",
+          "生産性・DX",
+          "気候変動と品質確保",
+          "担い手不足と品質確保"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "stance",
+      "start": 104,
+      "end": 140,
+      "narration": "次に立場です。同じ系統でも、書ける取り組みは立場で変わります。生コン工場は配合や出荷時の確認、発注者は要求性能や立会いの確認、維持管理は変状の調査と補修の検討。会社名が近いかではなく、自分が何を判断し、何を確認したかが近い立場を選びます。",
+      "caption": "判断と確認が近い立場を選ぶ",
+      "visual": {
+        "kind": "sheet",
+        "heading": "立場で書ける中身が変わる（例）",
+        "sheetTitle": "同じ系統でも立場で入口が違う",
+        "rows": [
+          {
+            "label": "生コン工場",
+            "value": "配合・出荷時の確認",
+            "state": "focus"
+          },
+          {
+            "label": "発注者",
+            "value": "要求性能・立会いの確認",
+            "state": "focus"
+          },
+          {
+            "label": "維持管理",
+            "value": "変状の調査・補修の検討",
+            "state": "focus"
+          },
+          {
+            "label": "選ぶ基準",
+            "value": "自分が判断し確認した事実",
+            "state": "ok"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "choose",
+      "start": 140,
+      "end": 172,
+      "narration": "選び方は三段階です。まず、五つの系統から、自分の業務の事実を一つ言える系統を二、三選びます。次に、その事実を、担当、困ったこと、自分の判断、確認した記録、今後の改善の五行にします。最後に、実施、提案、協議、確認の動詞を使い分け、会社がしたことを自分が決めたことに変えません。",
+      "caption": "系統を選び、五行にし、動詞を使い分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "選び方の三段階",
+        "items": [
+          "事実を言える系統を二、三選ぶ",
+          "五行のメモにする",
+          "実施・提案・協議・確認を使い分ける"
+        ],
+        "flow": [
+          "系統を選ぶ",
+          "五行にする",
+          "動詞を分ける"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "borrow",
+      "start": 172,
+      "end": 200,
+      "narration": "別の立場の答案を読むときも、借りるのは技術の考え方です。その立場でしか行えない判断や、未経験の成果は、自分の経験として書きません。数値で確かめていなければ改善率を作らず、実際に確認した記録を書きます。",
+      "caption": "借りるのは考え方、経験は借りない",
+      "visual": {
+        "kind": "compare",
+        "heading": "他の立場の答案を読むとき",
+        "ngLabel": "避ける",
+        "okLabel": "借りる",
+        "rows": [
+          {
+            "label": "判断",
+            "ng": "他の立場の判断を自分の経験にする",
+            "ok": "技術の考え方だけ借りる"
+          },
+          {
+            "label": "成果",
+            "ng": "確認していない改善率を書く",
+            "ok": "実際に確認した記録を書く"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 200,
+      "end": 220,
+      "narration": "まとめます。テーマは五つの系統で見る。準備するのは、自分の事実が言える二、三の系統。立場は、判断と確認が近いものを選ぶ。年度の形式と日程は、受検年度の公式情報で確認してください。",
+      "caption": "五つの系統で見て、二、三を選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ",
+        "items": [
+          "テーマは五つの系統で見る",
+          "事実が言える二、三の系統を選ぶ",
+          "形式と日程は受検年度の公式情報で確認"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 220,
+      "end": 230,
+      "narration": "自分の立場の答案を探したい方は、概要欄のまるごとパックの案内から確認できます。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のまるごとパックの案内から",
+      "visual": {
+        "kind": "cover",
+        "heading": "自分の立場の答案を探す",
+        "items": [
+          "まるごとパックの案内（概要欄）"
+        ]
+      }
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

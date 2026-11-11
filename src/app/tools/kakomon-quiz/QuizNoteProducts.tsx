@@ -1,6 +1,7 @@
 import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
 import { noteCtaImage } from "@/lib/note-cta-images";
 import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magazines";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 // 演習画面は結果表示後にしか note 導線が出ず、SSR の HTML には導線が無い（2026-09-27 配線監査 DN-0364・
 // 1級は 2026-10-29 の DN-0890）。演習の下に静的な note 商品カードを置く。未公開の商品は出さない。
@@ -14,7 +15,7 @@ export default function QuizNoteProducts({
   heading?: string;
 }) {
   return (
-    <div className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10">
+    <div className={`${READING_CONTAINER} pb-10`}>
       <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
         {heading}
       </div>

@@ -4,7 +4,7 @@
  *
  *   npm run video-factory -- status [--exam <exam>] [--json] [--all]   全パックの次の工程と、台本待ちの企画（--all で全部）
  *   npm run video-factory -- plan --pack <exam>/<work> [--scope all|cover] [--date YYYYMMDD] [--retry <項目 id,…|all>]
- *   npm run video-factory -- generate --pack <exam>/<work> [--concurrency 3]
+ *   npm run video-factory -- generate --pack <exam>/<work> [--concurrency 3] [--max-minutes 8]   # 時間切れは exit 3（打ち直すと続きから）
  *   npm run video-factory -- audit-queue --pack <exam>/<work>             監査へ渡す項目
  *   npm run video-factory -- record-audit --pack <exam>/<work> --file <verdicts.json> --by <担当>
  *   npm run video-factory -- adopt --pack <exam>/<work>                   ok が揃ったら採用
@@ -39,6 +39,7 @@ import { upsertPublications, upsertWorks } from './lib/content-registry-write.mj
 import { readDataset } from './lib/dataset-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 import { requirePopDiagramStandard } from './lib/longform-pop-images.mjs';
 import { ensureVoicevox, readingOf } from './lib/voicevox-engine.mjs';
 import { approvalState, reviewIsCurrent } from './lib/media-review.mjs';
@@ -57,7 +58,7 @@ const { values: args, positionals } = parseArgs({
   options: {
     stock: { type: 'boolean' }, retry: { type: 'string' }, all: { type: 'boolean' },
     pack: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' },
-    concurrency: { type: 'string' }, packs: { type: 'string' }, 'publish-at': { type: 'string' }, file: { type: 'string' }, by: { type: 'string' }, avg: { type: 'string' }, blocks: { type: 'string' },
+    concurrency: { type: 'string' }, 'max-minutes': { type: 'string' }, packs: { type: 'string' }, 'publish-at': { type: 'string' }, file: { type: 'string' }, by: { type: 'string' }, avg: { type: 'string' }, blocks: { type: 'string' },
   },
 });
 const [command] = positionals;
@@ -225,7 +226,11 @@ function preflight() {
 function save() {
   const pack = requirePack();
   const exam = pack.split('/')[0];
-  const paths = [packDirOf(pack), ...['registry.works', 'registry.youtube'].map((id) => datasetPath(id, { name: `${exam}.json` }))].filter((p) => existsSync(join(ROOT, p)));
+  // 原稿が指す素材を Drive の台帳へ載せてから残す。載せずに commit すると check-media-references が赤になる（2026-11-11）
+  // 素材がまだ無い（内容QAで止まった）パックは写すものが無く、sync は対象 0 件を検査不成立で止めるので呼ばない
+  const media = listFiles(join(ROOT, '.tmp/media', pack), { match: (_path, name) => /\.[0-9a-f]{8}\.[a-z0-9]+$/.test(name), allowMissing: true });
+  if (media.length) execFileSync('npm', ['run', '-s', 'media', '--', 'sync', '--work', pack, '--commit'], { cwd: ROOT, stdio: 'inherit' });
+  const paths = [packDirOf(pack), datasetPath('state.drive-manifest'), ...['registry.works', 'registry.youtube'].map((id) => datasetPath(id, { name: `${exam}.json` }))].filter((p) => existsSync(join(ROOT, p)));
   execFileSync('git', ['add', '--', ...paths], { cwd: ROOT, stdio: 'inherit' });
   const staged = spawnSync('git', ['diff', '--cached', '--quiet', '--', ...paths], { cwd: ROOT });
   if (staged.status === 0) { console.log(JSON.stringify({ pack, saved: false })); return; }
@@ -529,12 +534,17 @@ const commands = {
   },
   generate: async () => {
     // 機械検査で落ちた分は上限まで作り直す。上限に達するか、画像が出ずに止まった項目が残れば失敗で返す
+    // --max-minutes は 1 回の実行の時間の目安。超えたら残りがあっても exit 3 で返し、同じコマンドを打ち直すと続きから進む
+    // （Workflow の代理の Bash は 10 分で切れ、長い生成を裏へ回して終わりを見失った・2026-11-11）
+    const concurrency = Number(args.concurrency ?? 3);
+    const deadline = args['max-minutes'] ? Date.now() + Number(args['max-minutes']) * 60_000 : Infinity;
     let result;
     do {
-      result = await generatePlan(ROOT, requirePack(), { concurrency: Number(args.concurrency ?? 3), log: console.log });
+      result = await generatePlan(ROOT, requirePack(), { concurrency, log: console.log, maxItems: Number.isFinite(deadline) ? concurrency : Infinity });
       if (result.unreachable) break;
-    } while (result.missing > result.exhausted.length + result.stalled.length);
+    } while (result.missing > result.exhausted.length + result.stalled.length && Date.now() < deadline);
     console.log(JSON.stringify(result));
+    if (!result.unreachable && result.missing > result.exhausted.length + result.stalled.length) { console.error('時間切れ: 残りがある。同じ generate を打ち直すと続きから進む'); process.exit(3); }
     // 1 枚も出ないのは画像の品質ではなく生成の経路の問題。回数は使っていないので、経路を直して同じ generate を打ち直す
     if (result.unreachable) { console.error('検査不成立: 試した項目すべてで画像が出なかった（生成の経路を確かめる。回数は使っていない）'); process.exit(2); }
     if (result.missing) process.exit(1);

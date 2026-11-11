@@ -1,0 +1,285 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "Ⅱ-1の600字は、どう書けばよいのでしょうか。",
+      "caption": "II-1の600字、どう書く？",
+      "visual": {
+        "kind": "cover",
+        "heading": "II-1の、書き方",
+        "items": [
+          "技術士 建設部門・選択科目"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 23,
+      "narration": "知っている用語なのに、600字にまとめると散らかってしまう。今日は技術士建設部門の選択科目II-1を、設問の分け方、字数の割り振り、書き出しと結びの順に整理します。",
+      "caption": "知識があっても、600字が散らかる",
+      "visual": {
+        "kind": "points",
+        "heading": "今日整理する3つ",
+        "items": [
+          "設問を問いに分ける",
+          "600字を三つに割り振る",
+          "書き出しと結びの置き方"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 II-1",
+          "note": "字数の割り振りはdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "myth",
+      "start": 23,
+      "end": 45,
+      "narration": "よくある誤解は、II-1は知識を多く並べるほど点が取れる、という考えです。II-1の評価項目は専門的学識とコミュニケーションです。正しい知識を、1枚で読み手に伝わる形に整理するところまでが評価の対象です。",
+      "caption": "知識の量より、整理して伝える",
+      "visual": {
+        "kind": "compare",
+        "heading": "II-1で見られるもの",
+        "ngLabel": "知識を並べる",
+        "okLabel": "整理して伝える",
+        "rows": [
+          {
+            "label": "1枚の使い方",
+            "ng": "思い出した順に詰める",
+            "ok": "問いに沿って区切る"
+          },
+          {
+            "label": "評価項目",
+            "ng": "専門的学識だけ",
+            "ok": "学識とコミュニケーション"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 II-1",
+          "note": "評価項目は令和8年度の受験申込み案内に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "form",
+      "start": 45,
+      "end": 67,
+      "narration": "形式を確かめます。II-1は答案用紙1枚、24字かける25行の600字です。令和8年度の受験案内では、II-1は10点とされています。小問ごとの配点は示されていないので、字数の配分は自分で決めます。形式は受検年度の公式情報で確認してください。",
+      "caption": "1枚・600字・25行",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1の形式（令和8年度の例）",
+        "items": [
+          "答案用紙 1枚",
+          "24字 × 25行 ＝ 600字",
+          "配点 10点（小問ごとの配点は非公表）"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 II-1",
+          "note": "形式は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "split",
+      "start": 67,
+      "end": 93,
+      "narration": "最初に、設問を問いに分けます。令和8年度の道路II-1-2は、連携協力道路制度が創設された社会的背景、制度の概要、活用のメリットの三つを求めています。一文の設問でも、答える項目は三つ。この数を数えてから書き始めます。",
+      "caption": "まず、設問の問いを数える",
+      "visual": {
+        "kind": "points",
+        "heading": "例　道路 II-1-2 の問い",
+        "items": [
+          "1　創設された社会的背景",
+          "2　制度の概要",
+          "3　活用のメリット"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "選択科目対策／建設部門 II-1",
+          "note": "令和8年度 道路の問題文を要約。答案例ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-road/article.mdx"
+    },
+    {
+      "sceneId": "blocks",
+      "start": 93,
+      "end": 120,
+      "narration": "次に、600字を三つに分けます。条件や背景を述べる前置き、特徴や要点を述べる本論、最後の問いに応える結びです。目安は前置き35%、本論45%、結び20%。これは公式の基準ではなく、本論をいちばん厚くするための割り振りです。",
+      "caption": "600字を三つに分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "前置き・本論・結び",
+        "items": [
+          "前置き　約35%\n定義と背景",
+          "本論　約45%\n特徴と要点",
+          "結び　約20%\n最後の問いに応える"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 II-1",
+          "note": "35・45・20%はdoboku-noteの目安。公式の基準ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "lines",
+      "start": 120,
+      "end": 146,
+      "narration": "字数は、行番号で決めておきます。25行の答案なら、10行目までに前置きを終え、21行目から結びに入ります。前置きが13行に届いても本論に入っていなければ長すぎます。削るのは、背景の重ね書きからです。",
+      "caption": "行番号で、崩れに気づく",
+      "visual": {
+        "kind": "points",
+        "heading": "1枚（25行）の目安",
+        "items": [
+          "1〜9行目　前置き",
+          "10〜20行目　本論",
+          "21〜25行目　結び"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 II-1",
+          "note": "行数の目安はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "assign",
+      "start": 146,
+      "end": 172,
+      "narration": "道路II-1-2に当てはめます。前置きは社会的背景、本論は制度の概要、結びは活用のメリットです。結びは、設問の最後の問いに合わせます。技術の説明なら適用上の留意点、制度の説明なら活用のメリットが入ります。",
+      "caption": "設問の順に、三つへ当てはめる",
+      "visual": {
+        "kind": "points",
+        "heading": "設問を三つの部分へ",
+        "items": [
+          "前置き　社会的背景",
+          "本論　制度の概要",
+          "結び　活用のメリット"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "選択科目対策／建設部門 II-1",
+          "note": "当てはめ方はdoboku-noteの整理。模範解答ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-road/article.mdx"
+    },
+    {
+      "sceneId": "opening",
+      "start": 172,
+      "end": 198,
+      "narration": "各部分は、書き出しの一、二行で答えを言い切ります。小見出しも、題目で止めず、答えの形にします。そして結びは、答えの繰り返しではなく、効果や留意点のような新しい情報で終えます。再掲を省いた字数が、結びの中身になります。",
+      "caption": "書き出しで言い切り、結びで足す",
+      "visual": {
+        "kind": "compare",
+        "heading": "書き出しと結び",
+        "ngLabel": "題目で止める",
+        "okLabel": "答えの形で書く",
+        "rows": [
+          {
+            "label": "小見出し",
+            "ng": "社会的背景",
+            "ok": "背景は〇〇と考える"
+          },
+          {
+            "label": "結び",
+            "ng": "答えの繰り返し",
+            "ok": "効果・留意点を足す"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 II-1",
+          "note": "書き方の型はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "concrete",
+      "start": 198,
+      "end": 224,
+      "narration": "もう一つ、一般論で終わらせないことです。誰が、何を、どの基準で行うのかまで踏み込んだ一文があると説得力が変わります。一文一義で、主語を明確に。比較したいときは、短い段落で長所と短所を対比させると、限られた字数でも論点が立ちます。",
+      "caption": "誰が・何を・どの基準で",
+      "visual": {
+        "kind": "points",
+        "heading": "一般論で終わらせない",
+        "items": [
+          "誰が・何を・どの基準で",
+          "一文一義・主語を明確に",
+          "比較は短い段落で対比"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 II-1",
+          "note": "文章の作法は答案ガイドの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/pe-secondary-essay-guide/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 224,
+      "end": 247,
+      "narration": "まとめます。II-1は、設問を問いに分け、600字を前置き、本論、結びに割り振り、行番号で崩れに気づく。書き出しで言い切り、結びで新しい情報を足す。この手順は、この動画の整理です。受検年度の形式は、公式の情報で確認してください。",
+      "caption": "まとめ：分ける・割り振る・言い切る",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1の書き方 3つ",
+        "items": [
+          "設問を問いに分ける",
+          "600字を三つに割り振る",
+          "書き出しで言い切る"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 II-1",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 247,
+      "end": 270,
+      "narration": "書き方の次は、実際の設問での練習です。道路の選択科目の模範解答集がnoteにあります。この動画は書き方の型までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "道路の模範解答集は、noteへ",
+      "visual": {
+        "kind": "points",
+        "heading": "書き方の次は、練習",
+        "items": [
+          "道路 選択科目の模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "選択科目対策／建設部門 II-1"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

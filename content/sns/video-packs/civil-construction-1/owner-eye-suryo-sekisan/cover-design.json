@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "数量と積算",
+        "発注者の",
+        "目で見る"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "元発注者が解説"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/cover-pop.609be5c0.png",
+        "sha256": "609be5c0ad85347d5ccc7590d6406ac0947e71921fffd9c3f337829acb782e8f",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "5efcb78437d1dc95e2ddd4cb6166140bd1a89ec40c733c7c86937d7ec13c2dd1"
+      }
+    }
+  }
+}

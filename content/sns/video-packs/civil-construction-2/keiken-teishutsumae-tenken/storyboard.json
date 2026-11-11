@@ -1,0 +1,328 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 2,
+      "narration": "提出前は、5点で見直す。",
+      "caption": "提出前は、5点で見直す。",
+      "visual": {
+        "kind": "cover",
+        "heading": "提出前の点検",
+        "items": [
+          "2級土木｜施工経験記述",
+          "書き上げた答案を5点で見直す"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 2,
+      "end": 10,
+      "narration": "書き上げた答案、これで出して大丈夫か不安ではありませんか。提出前に見る5点を順に確かめます。",
+      "caption": "書き上げた答案、これで出して大丈夫か不安ではありませんか。提出前に見る5点を順に確かめます。",
+      "visual": {
+        "kind": "points",
+        "heading": "書いたあとに、見直す順番がある",
+        "items": [
+          "設問に答えているか",
+          "工事概要と本文が合っているか",
+          "文体・字数・読みやすさ",
+          "具体さ",
+          "自分の事実か"
+        ],
+        "reveal": 5
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "intro",
+      "start": 10,
+      "end": 20,
+      "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、採点側の目線で点検の順序をお伝えします。",
+      "caption": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、採点側の目線で点検の順序をお伝えします。",
+      "visual": {
+        "kind": "points",
+        "heading": "元発注者の目で、答案を点検する",
+        "items": [
+          "総合技術監理部門の技術士",
+          "1級・2級土木に合格",
+          "点検の順序を整理"
+        ]
+      },
+      "sourceRef": "src/config/author.ts"
+    },
+    {
+      "sceneId": "premise",
+      "start": 20,
+      "end": 31,
+      "narration": "設問の形式や欄の数は、年度で変わります。受検年度の問題と公式の案内を確認し、ここでは点検の考え方に絞ります。",
+      "caption": "設問の形式や欄の数は、年度で変わります。受検年度の問題と公式の案内を確認し、ここでは点検の考え方に絞ります。",
+      "visual": {
+        "kind": "points",
+        "heading": "設問の形は年度で確認、点検の観点は共通",
+        "items": [
+          "設問の形式は年度で変わる",
+          "受検年度の公式情報を確認",
+          "点検の考え方に絞る"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "q1",
+      "start": 31,
+      "end": 43,
+      "narration": "1点目は設問への答えです。聞かれた管理項目について、課題、検討、処置と評価の流れで書けているかを見ます。",
+      "caption": "1点目は設問への答えです。聞かれた管理項目について、課題、検討、処置と評価の流れで書けているかを見ます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "1点目｜設問に答えているか",
+        "sheetTitle": "提出前の点検5点",
+        "rows": [
+          {
+            "label": "1 設問",
+            "value": "聞かれた管理項目に答えている",
+            "state": "focus",
+            "order": 1
+          },
+          {
+            "label": "2 整合",
+            "value": "工事概要と本文が合っている",
+            "state": "todo",
+            "order": 2
+          },
+          {
+            "label": "3 体裁",
+            "value": "文体・字数・読みやすさ",
+            "state": "todo",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "q2",
+      "start": 43,
+      "end": 55,
+      "narration": "2点目は整合です。工事場所、工期、主な工種、施工量が、本文の季節や工種と食い違っていないかを確かめます。",
+      "caption": "2点目は整合です。工事場所、工期、主な工種、施工量が、本文の季節や工種と食い違っていないかを確かめます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "2点目｜工事概要と本文の整合",
+        "sheetTitle": "提出前の点検5点",
+        "rows": [
+          {
+            "label": "1 設問",
+            "value": "聞かれた管理項目に答えている",
+            "state": "ok",
+            "order": 1
+          },
+          {
+            "label": "2 整合",
+            "value": "工期・工種・施工量が本文と合う",
+            "state": "focus",
+            "order": 2
+          },
+          {
+            "label": "3 体裁",
+            "value": "文体・字数・読みやすさ",
+            "state": "todo",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "q3",
+      "start": 55,
+      "end": 67,
+      "narration": "3点目は体裁です。文末を統一し、解答欄の8割以上を適切な分量で埋め、丁寧な字で書けているかを見ます。",
+      "caption": "3点目は体裁です。文末を統一し、解答欄の8割以上を適切な分量で埋め、丁寧な字で書けているかを見ます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "3点目｜文体・字数・読みやすさ",
+        "sheetTitle": "提出前の点検5点",
+        "rows": [
+          {
+            "label": "1 設問",
+            "value": "聞かれた管理項目に答えている",
+            "state": "ok",
+            "order": 1
+          },
+          {
+            "label": "2 整合",
+            "value": "工期・工種・施工量が本文と合う",
+            "state": "ok",
+            "order": 2
+          },
+          {
+            "label": "3 体裁",
+            "value": "文末の統一・欄の8割以上・丁寧な字",
+            "state": "focus",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "q4",
+      "start": 67,
+      "end": 79,
+      "narration": "4点目は具体さです。何を、どのようにしたかが対で書かれているか。結果だけで終わっていないかを見ます。",
+      "caption": "4点目は具体さです。何を、どのようにしたかが対で書かれているか。結果だけで終わっていないかを見ます。",
+      "visual": {
+        "kind": "compare",
+        "heading": "4点目｜何をどのように、を対で書く",
+        "ngLabel": "結果だけ",
+        "okLabel": "対で書いている",
+        "rows": [
+          {
+            "label": "処置",
+            "ng": "対策を実施した",
+            "ok": "何を、どのような方法で行ったか"
+          },
+          {
+            "label": "管理",
+            "ng": "十分に管理した",
+            "ok": "数値・工法・管理方法を添える"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "q5",
+      "start": 79,
+      "end": 91,
+      "narration": "5点目は自分の事実です。例を写した文になっていないか。起きた課題、検討、処置が、実際の経験どおりかを確かめます。",
+      "caption": "5点目は自分の事実です。例を写した文になっていないか。起きた課題、検討、処置が、実際の経験どおりかを確かめます。",
+      "visual": {
+        "kind": "points",
+        "heading": "5点目｜自分の事実か",
+        "items": [
+          "例の文を写していない",
+          "課題は実際に起きたこと",
+          "検討と処置も実際に行ったこと"
+        ],
+        "reveal": 3,
+        "focus": 1
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "lens",
+      "start": 91,
+      "end": 103,
+      "narration": "採点は人が読んで行います。現場の様子が思い浮かぶか、何を伝えたいかが分かるかを、第三者の目で読み返します。",
+      "caption": "採点は人が読んで行います。現場の様子が思い浮かぶか、何を伝えたいかが分かるかを、第三者の目で読み返します。",
+      "visual": {
+        "kind": "points",
+        "heading": "第三者の目で、読み返す",
+        "items": [
+          "現場がイメージできるか",
+          "言いたいことが分かるか",
+          "専門用語の誤字がないか"
+        ],
+        "reveal": 3,
+        "focus": 1
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 103,
+      "end": 115,
+      "narration": "仮の例です。施工量の単位が抜けている、工期の季節と本文の季節が違う。こうした食い違いを、提出前に拾います。",
+      "caption": "仮の例です。施工量の単位が抜けている、工期の季節と本文の季節が違う。こうした食い違いを、提出前に拾います。",
+      "visual": {
+        "kind": "compare",
+        "heading": "仮の例｜食い違いを拾う",
+        "ngLabel": "食い違い",
+        "okLabel": "合っている",
+        "rows": [
+          {
+            "label": "施工量",
+            "ng": "単位がない",
+            "ok": "単位つきで、主な工種に対応"
+          },
+          {
+            "label": "時期",
+            "ng": "工期と本文の季節が違う",
+            "ok": "工期と本文の時期が合う"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "time",
+      "start": 115,
+      "end": 127,
+      "narration": "点検の時間も本番の時間のうちです。書き終えてから見直す時間を、あらかじめ配分に入れて練習しておきます。",
+      "caption": "点検の時間も本番の時間のうちです。書き終えてから見直す時間を、あらかじめ配分に入れて練習しておきます。",
+      "visual": {
+        "kind": "points",
+        "heading": "見直す時間を、先に確保する",
+        "items": [
+          "書き終えたあとに点検の時間",
+          "練習で5点を回す",
+          "受検年度の時間配分を確認"
+        ],
+        "reveal": 3,
+        "focus": 1
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 127,
+      "end": 138,
+      "narration": "まとめです。設問、整合、体裁、具体さ、自分の事実の5点で、提出前に答案を見直します。",
+      "caption": "まとめです。設問、整合、体裁、具体さ、自分の事実の5点で、提出前に答案を見直します。",
+      "visual": {
+        "kind": "points",
+        "heading": "提出前の点検は、5点",
+        "items": [
+          "設問に答えている",
+          "整合している",
+          "体裁が整っている",
+          "具体的である",
+          "自分の事実である"
+        ],
+        "reveal": 5,
+        "focus": 1
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 138,
+      "end": 150,
+      "narration": "見直しの基準になる完成答案は、完成答案集で確かめられます。安全・品質・工程の答案と置換ガイドは、概要欄のリンクへ。",
+      "caption": "見直しの基準になる完成答案は、完成答案集で確かめられます。安全・品質・工程の答案と置換ガイドは、概要欄のリンクへ。",
+      "visual": {
+        "kind": "points",
+        "heading": "見直しの基準を、答案で確かめる",
+        "items": [
+          "2級土木 施工経験記述 完成答案集",
+          "安全・品質・工程の答案＋置換ガイド",
+          "概要欄のnoteマガジンへ"
+        ]
+      },
+      "sourceRef": "config/products.json"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

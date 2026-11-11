@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "建設部門 道路",
+        "出題の",
+        "読み方"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/cover-pop.a54c5afd.png",
+        "sha256": "a54c5afd376fc7e2bea433c27d8b36a13e075f2418a36e5aec7f5225ea20f299",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "0089daf2db7a8c68274924f1f1ad06318f637815913e128c3676ad2f22dfa1e1"
+      }
+    }
+  }
+}

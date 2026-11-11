@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "建設部門",
+        "IIIの",
+        "書き方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-iii-kakikata/work/cover-pop.23ac3537.png",
+        "sha256": "23ac353748c73b2094ef395b4bee699fde77224289a45476290878af1522acf4",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "fe2ff9e25df3b56dafe82f3cf1c860aed691573a3cc71300bdae42a79442ddab"
+      }
+    }
+  }
+}

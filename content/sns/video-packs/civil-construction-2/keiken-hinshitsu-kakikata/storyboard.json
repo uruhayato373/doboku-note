@@ -1,0 +1,314 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 2,
+      "narration": "品質管理は、観点から選ぶ。",
+      "caption": "品質管理は、観点から選ぶ。",
+      "visual": {
+        "kind": "cover",
+        "heading": "品質管理の書き方",
+        "items": [
+          "2級土木｜施工経験記述",
+          "検討は観点から選ぶ"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 2,
+      "end": 10,
+      "narration": "品質管理の答案で、何を検討に書くか迷っていませんか。観点から選ぶ方法を整理します。",
+      "caption": "品質管理の答案で、何を検討に書くか迷っていませんか。観点から選ぶ方法を整理します。",
+      "visual": {
+        "kind": "points",
+        "heading": "品質管理の検討は、観点から選ぶ",
+        "items": [
+          "計画・材料・施工",
+          "養生・検査",
+          "作業員への周知"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "intro",
+      "start": 10,
+      "end": 20,
+      "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、品質管理の検討の選び方をお伝えします。",
+      "caption": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、品質管理の検討の選び方をお伝えします。",
+      "visual": {
+        "kind": "points",
+        "heading": "元発注者の目で、品質管理を見直す",
+        "items": [
+          "総合技術監理部門の技術士",
+          "1級・2級土木に合格",
+          "検討の選び方を整理"
+        ]
+      },
+      "sourceRef": "src/config/author.ts"
+    },
+    {
+      "sceneId": "premise",
+      "start": 20,
+      "end": 31,
+      "narration": "設問の項目数や指示は、年度で変わります。受検年度の問題を確認し、ここでは品質管理の検討に絞ります。",
+      "caption": "設問の項目数や指示は、年度で変わります。受検年度の問題を確認し、ここでは品質管理の検討に絞ります。",
+      "visual": {
+        "kind": "points",
+        "heading": "項目数は年度で確認、選び方は共通",
+        "items": [
+          "項目数や指示は年度で変わる",
+          "受検年度の公式情報を確認",
+          "検討の選び方に絞る"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "views",
+      "start": 31,
+      "end": 43,
+      "narration": "検討の観点は、計画、材料、施工、養生、検査、作業員への周知です。この中から課題に合うものを選びます。",
+      "caption": "検討の観点は、計画、材料、施工、養生、検査、作業員への周知です。この中から課題に合うものを選びます。",
+      "visual": {
+        "kind": "points",
+        "heading": "品質管理の検討6観点",
+        "items": [
+          "計画・材料・施工",
+          "養生・検査",
+          "作業員への周知"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "choose",
+      "start": 43,
+      "end": 55,
+      "narration": "全部は書きません。問題文の項目数に合わせ、課題の原因に効く観点を選び、理由と内容をセットで書きます。",
+      "caption": "全部は書きません。問題文の項目数に合わせ、課題の原因に効く観点を選び、理由と内容をセットで書きます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "課題の原因に効く観点を選ぶ",
+        "sheetTitle": "品質管理の検討を選ぶ3つの手順",
+        "rows": [
+          {
+            "label": "課題",
+            "value": "現場条件と、そこで生じる品質上の課題",
+            "state": "ok",
+            "order": 1
+          },
+          {
+            "label": "検討",
+            "value": "観点を選び、理由と内容をセットで",
+            "state": "focus",
+            "order": 2
+          },
+          {
+            "label": "処置と評価",
+            "value": "行ったことと、その結果",
+            "state": "todo",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "mix",
+      "start": 55,
+      "end": 67,
+      "narration": "検討に書くのは考えたこと、処置に書くのは行ったことです。結果は処置と評価の側に置きます。",
+      "caption": "検討に書くのは考えたこと、処置に書くのは行ったことです。結果は処置と評価の側に置きます。",
+      "visual": {
+        "kind": "compare",
+        "heading": "検討と処置を、混ぜない",
+        "ngLabel": "混ざっている",
+        "okLabel": "分けている",
+        "rows": [
+          {
+            "label": "検討の欄",
+            "ng": "実施した結果まで書く",
+            "ok": "観点を選んだ理由と内容まで"
+          },
+          {
+            "label": "処置の欄",
+            "ng": "検討と同じ文を重ねる",
+            "ok": "行った方法と結果を書く"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 67,
+      "end": 79,
+      "narration": "仮の例です。盛土の締固め不足が課題なら、検討は施工の層厚と、検査の測定方法に分けて考えられます。",
+      "caption": "仮の例です。盛土の締固め不足が課題なら、検討は施工の層厚と、検査の測定方法に分けて考えられます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の例｜盛土の締固め不足",
+        "sheetTitle": "品質管理の検討を選ぶ3つの手順",
+        "rows": [
+          {
+            "label": "課題",
+            "value": "締固め不足のおそれ",
+            "state": "ok",
+            "order": 1
+          },
+          {
+            "label": "検討",
+            "value": "施工（層厚）と検査（測定方法）",
+            "state": "focus",
+            "order": 2
+          },
+          {
+            "label": "処置と評価",
+            "value": "自分が行った内容と結び",
+            "state": "todo",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "measure",
+      "start": 79,
+      "end": 91,
+      "narration": "処置では、巻出し厚の明示や締固め度の測定など、実際に行った方法を具体的に書きます。",
+      "caption": "処置では、巻出し厚の明示や締固め度の測定など、実際に行った方法を具体的に書きます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "処置は、行った方法を具体的に",
+        "sheetTitle": "品質管理の検討を選ぶ3つの手順",
+        "rows": [
+          {
+            "label": "課題",
+            "value": "締固め不足のおそれ",
+            "state": "ok",
+            "order": 1
+          },
+          {
+            "label": "検討",
+            "value": "施工（層厚）と検査（測定方法）",
+            "state": "ok",
+            "order": 2
+          },
+          {
+            "label": "処置と評価",
+            "value": "実際に行った方法を具体的に",
+            "state": "focus",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "close",
+      "start": 91,
+      "end": 103,
+      "narration": "結びは評価です。品質管理なら、所定の品質、つまり規格値を確保できたことを端的に書きます。",
+      "caption": "結びは評価です。品質管理なら、所定の品質、つまり規格値を確保できたことを端的に書きます。",
+      "visual": {
+        "kind": "points",
+        "heading": "結びは、品質を確保できたこと",
+        "items": [
+          "所定の品質（規格値）を確保",
+          "端的に一、二行で",
+          "規格値は仕様書で確認"
+        ],
+        "reveal": 3,
+        "focus": 1
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "facts",
+      "start": 103,
+      "end": 115,
+      "narration": "例の文は写しません。実際の課題、検討、処置、測定結果だけを、自分の記録から書きます。",
+      "caption": "例の文は写しません。実際の課題、検討、処置、測定結果だけを、自分の記録から書きます。",
+      "visual": {
+        "kind": "points",
+        "heading": "事実は、自分の現場から",
+        "items": [
+          "例の文をそのまま写さない",
+          "課題・検討・処置は実際のもの",
+          "測定結果は自分の記録で"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 115,
+      "end": 127,
+      "narration": "見直しは3点です。観点が課題に合っているか。検討と処置が重なっていないか。結びが品質の確保になっているか。",
+      "caption": "見直しは3点です。観点が課題に合っているか。検討と処置が重なっていないか。結びが品質の確保になっているか。",
+      "visual": {
+        "kind": "points",
+        "heading": "品質管理の見直し3点",
+        "items": [
+          "観点が課題に合っている",
+          "検討と処置が重なっていない",
+          "結びが品質の確保になっている"
+        ],
+        "reveal": 3,
+        "focus": 2
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 127,
+      "end": 138,
+      "narration": "まとめです。品質管理の検討は、観点から課題に合うものを選び、処置と評価は自分の事実で書きます。",
+      "caption": "まとめです。品質管理の検討は、観点から課題に合うものを選び、処置と評価は自分の事実で書きます。",
+      "visual": {
+        "kind": "points",
+        "heading": "品質管理は、観点を選んで書く",
+        "items": [
+          "検討：観点を選び理由つき",
+          "処置：行った方法を具体的に",
+          "評価：品質を確保できた"
+        ],
+        "reveal": 3,
+        "focus": 1
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 138,
+      "end": 150,
+      "narration": "観点ごとの答案は完成答案集で確かめられます。安全・品質・工程の答案と置換ガイドは、概要欄のリンクへ。",
+      "caption": "観点ごとの答案は完成答案集で確かめられます。安全・品質・工程の答案と置換ガイドは、概要欄のリンクへ。",
+      "visual": {
+        "kind": "points",
+        "heading": "観点ごとの答案を、確かめる",
+        "items": [
+          "2級土木 施工経験記述 完成答案集",
+          "安全・品質・工程の答案＋置換ガイド",
+          "概要欄のnoteマガジンへ"
+        ]
+      },
+      "sourceRef": "config/products.json"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
+}

@@ -30,9 +30,9 @@ export function validateCoverSpec(spec) {
   if (!Number.isInteger(spec.accentLine) || spec.accentLine < 0 || spec.accentLine >= spec.headline.length) throw new Error('accentLine が範囲外');
   if (typeof spec.subtitle !== 'string' || [...spec.subtitle].length > 24 || /[\r\n]/.test(spec.subtitle)) throw new Error('subtitle は24文字以内の1行');
   if (/[\u2160-\u217f]/.test(spec.headline.join('') + spec.subtitle)) throw new Error('表紙の科目番号は ASCII の I / II / III で記載してください（使用フォントにローマ数字記号の字形がありません）');
-  const diagramImage = spec.layout === 'diagram-led' && spec.design === 'pop-poster-v3' &&
-    spec.approvedImage?.normalization?.mode === 'full-frame-v1';
-  if (!diagramImage && (!spec.character?.pose || !spec.character?.frame)) throw new Error('character の pose / frame が必要');
+  // 表紙は先生のキャラクターの POP に揃える。図解だけの表紙を例外で通していた（2026-10-19 の 2級の改訂）ため、
+  // 図解の表紙が 1 本公開された（2026-11-11・運営者の指示で揃えた）
+  if (!spec.character?.pose || !spec.character?.frame) throw new Error('character の pose / frame が必要（表紙は先生のキャラクターの POP。図解だけの表紙にしない）');
   if (!EXAM_KEYS.includes(spec.exam)) throw new Error('cover exam は試験パレットの正規キーを指定してください');
   if (spec.design !== undefined && !['pop-v2', 'pop-poster-v3'].includes(spec.design)) throw new Error('未知の表紙デザインです');
   if (spec.design === 'pop-poster-v3' && !spec.approvedImage) throw new Error('pop-poster-v3 は採用PNGが必要です');

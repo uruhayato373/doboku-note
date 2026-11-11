@@ -3269,8 +3269,10 @@
         "first"
       ],
       "primaryCta": {
-        "kind": "links-hub",
-        "targets": []
+        "kind": "site-article",
+        "targets": [
+          "content/site/civil-construction-1/guide-career-path/article.mdx"
+        ]
       },
       "count": 2,
       "reuse": "new",
@@ -3735,6 +3737,7 @@
     {
       "id": "y27-cm-restart-1",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform",
       "title": "総監｜落ちた原因を点検して学習を始め直す",
       "action": "new",
       "slot": "cm-restart-2027",
@@ -3759,6 +3762,7 @@
     {
       "id": "y27-next-license-1",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/civil-license-ladder-order/youtube.longform",
       "title": "2級から1級、技術士へ進む順序",
       "action": "new",
       "slot": "next-license-2027",
@@ -3771,6 +3775,7 @@
     {
       "id": "y27-pc-application-1",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-gyoumu-shousai-720/youtube.longform",
       "title": "建設部門｜業務内容の詳細 720 字の組み立て",
       "action": "new",
       "slot": "pc-application-2027",
@@ -3783,7 +3788,8 @@
     {
       "id": "y27-pc-sentaku-1",
       "exam": "pe-construction",
-      "title": "建設部門 道路｜出題の読み方と書き方",
+      "publicationId": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
+      "title": "建設部門 道路｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-02-02",
@@ -3795,6 +3801,7 @@
     {
       "id": "y27-owner-eye-4",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform",
       "title": "設計変更を発注者はどう判断するか",
       "action": "new",
       "slot": "owner-eye-2027",
@@ -3807,6 +3814,7 @@
     {
       "id": "y27-cm-application-1",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform",
       "title": "総監｜業務経歴の書き方",
       "action": "new",
       "slot": "cm-application-2027",
@@ -3819,6 +3827,7 @@
     {
       "id": "y27-pc-split-1",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-ii1-kakikata/youtube.longform",
       "title": "建設部門｜Ⅱ-1 の書き方",
       "action": "new",
       "slot": "pc-split-2027",
@@ -3831,6 +3840,7 @@
     {
       "id": "y27-owner-eye-5",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform",
       "title": "数量と積算を発注者の目で見る",
       "action": "new",
       "slot": "owner-eye-2027",
@@ -3855,6 +3865,7 @@
     {
       "id": "y27-cm-hakusho-1",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform",
       "title": "総監 記述｜白書から課題を選ぶ",
       "action": "new",
       "slot": "cm-hakusho-2027",
@@ -3867,6 +3878,7 @@
     {
       "id": "y27-pc-split-2",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-iii-kakikata/youtube.longform",
       "title": "建設部門｜Ⅲ の書き方",
       "action": "new",
       "slot": "pc-split-2027",
@@ -3879,6 +3891,7 @@
     {
       "id": "y27-owner-career-2",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/owner-career-before-moving/youtube.longform",
       "title": "発注者側へ移る前に知ること",
       "action": "new",
       "slot": "owner-career-2027",
@@ -3891,6 +3904,7 @@
     {
       "id": "y27-cm-hakusho-2",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform",
       "title": "総監 記述｜白書の読み方と読む深さ",
       "action": "new",
       "slot": "cm-hakusho-2027",
@@ -3903,6 +3917,7 @@
     {
       "id": "y27-pc-split-3",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-ii2-kakikata/youtube.longform",
       "title": "建設部門｜Ⅱ-2 の書き方",
       "action": "new",
       "slot": "pc-split-2027",
@@ -3915,7 +3930,8 @@
     {
       "id": "y27-pc-sentaku-2",
       "exam": "pe-construction",
-      "title": "建設部門 トンネル｜出題の読み方と書き方",
+      "publicationId": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
+      "title": "建設部門 トンネル｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-03-16",
@@ -3939,6 +3955,7 @@
     {
       "id": "y27-cm-hakusho-3",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform",
       "title": "総監 記述｜白書の論点を答案へつなぐ実演",
       "action": "new",
       "slot": "cm-hakusho-2027",
@@ -3963,7 +3980,8 @@
     {
       "id": "y27-pc-sentaku-3",
       "exam": "pe-construction",
-      "title": "建設部門 土質及び基礎｜出題の読み方と書き方",
+      "publicationId": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
+      "title": "建設部門 土質及び基礎｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-04-03",
@@ -3975,6 +3993,7 @@
     {
       "id": "y27-cm-hakusho-4",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform",
       "title": "総監 記述｜白書の施策を解決策へつなぐ",
       "action": "new",
       "slot": "cm-hakusho-2027",
@@ -3987,6 +4006,7 @@
     {
       "id": "y27-cm-essay-1",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
       "title": "総監 記述｜問題文の読み方",
       "action": "new",
       "slot": "cm-essay-2027",
@@ -3999,7 +4019,8 @@
     {
       "id": "y27-pc-sentaku-4",
       "exam": "pe-construction",
-      "title": "建設部門 都市及び地方計画｜出題の読み方と書き方",
+      "publicationId": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
+      "title": "建設部門 都市及び地方計画｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-04-13",
@@ -4011,6 +4032,7 @@
     {
       "id": "y27-pc-hissu-1",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
       "title": "建設部門 必須Ⅰ｜テーマの読み方と準備の順序",
       "action": "new",
       "slot": "pc-hissu-2027",
@@ -4035,6 +4057,7 @@
     {
       "id": "y27-cm-essay-2",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform",
       "title": "総監 記述｜設問3の将来のリスクと克服策",
       "action": "new",
       "slot": "cm-essay-2027",
@@ -4047,7 +4070,8 @@
     {
       "id": "y27-pc-sentaku-5",
       "exam": "pe-construction",
-      "title": "建設部門 河川、砂防及び海岸・海洋｜出題の読み方と書き方",
+      "publicationId": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform",
+      "title": "建設部門 河川、砂防及び海岸・海洋｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-04-30",
@@ -4071,6 +4095,7 @@
     {
       "id": "y27-cm-essay-3",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform",
       "title": "総監 記述｜5管理のトレードオフを答案に書く",
       "action": "new",
       "slot": "cm-essay-2027",
@@ -4083,7 +4108,8 @@
     {
       "id": "y27-pc-sentaku-6",
       "exam": "pe-construction",
-      "title": "建設部門 建設環境｜出題の読み方と書き方",
+      "publicationId": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform",
+      "title": "建設部門 建設環境｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-05-14",
@@ -4095,6 +4121,7 @@
     {
       "id": "y27-pc-hissu-2",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform",
       "title": "建設部門 必須Ⅰ｜答案の組み立て",
       "action": "new",
       "slot": "pc-hissu-2027",
@@ -4119,6 +4146,7 @@
     {
       "id": "y27-cm-essay-4",
       "exam": "pe-comprehensive-management",
+      "publicationId": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform",
       "title": "総監 記述｜落ちる答案の直し方",
       "action": "new",
       "slot": "cm-essay-2027",
@@ -4143,6 +4171,7 @@
     {
       "id": "y27-rc-1",
       "exam": "rccm",
+      "publicationId": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform",
       "title": "RCCM｜問題Ⅰの業務経験の書き方",
       "action": "new",
       "slot": "rc-2027",
@@ -4155,6 +4184,7 @@
     {
       "id": "y27-cd-1",
       "exam": "concrete-diagnostician",
+      "publicationId": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform",
       "title": "コンクリート診断士｜問題Bの書き方",
       "action": "new",
       "slot": "cd-2027",
@@ -4167,6 +4197,7 @@
     {
       "id": "y27-pc-final-1",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform",
       "title": "建設部門 必須Ⅰ｜時間配分",
       "action": "new",
       "slot": "pc-final-2027",
@@ -4179,6 +4210,7 @@
     {
       "id": "y27-c1-bridge-1",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-after-ichiji-niji-junbi/youtube.longform",
       "title": "1級土木｜第一次検定のあとにやる二次の準備",
       "action": "new",
       "slot": "c1-bridge-2027",
@@ -4191,6 +4223,7 @@
     {
       "id": "y27-c1-keiken-1",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform",
       "title": "1級土木 経験記述｜工事概要の書き方",
       "action": "new",
       "slot": "c1-keiken-2027",
@@ -4215,6 +4248,7 @@
     {
       "id": "y27-c1-keiken-2",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform",
       "title": "1級土木 経験記述｜発注者はどこを読むか",
       "action": "new",
       "slot": "c1-keiken-2027",
@@ -4227,6 +4261,7 @@
     {
       "id": "y27-ce-1",
       "exam": "concrete-engineer",
+      "publicationId": "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform",
       "title": "コンクリート技士｜令和形式の配合計算",
       "action": "new",
       "slot": "ce-2027",
@@ -4239,6 +4274,7 @@
     {
       "id": "y27-pc-final-2",
       "exam": "pe-construction",
+      "publicationId": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform",
       "title": "建設部門｜答案のリスクの確認",
       "action": "new",
       "slot": "pc-final-2027",
@@ -4251,6 +4287,7 @@
     {
       "id": "y27-c1-keiken-3",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-keiken-anzen-kakikata/youtube.longform",
       "title": "1級土木 経験記述｜安全管理の書き方",
       "action": "new",
       "slot": "c1-keiken-2027",
@@ -4299,6 +4336,7 @@
     {
       "id": "y27-c1-keiken-4",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.longform",
       "title": "1級土木 経験記述｜品質管理の書き方",
       "action": "new",
       "slot": "c1-keiken-2027",
@@ -4311,6 +4349,7 @@
     {
       "id": "y27-next-license-2",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-next-license-after-first/youtube.longform",
       "title": "1級の次に取る資格",
       "action": "new",
       "slot": "next-license-2027",
@@ -4323,6 +4362,7 @@
     {
       "id": "y27-c2-keiken-2",
       "exam": "civil-construction-2",
+      "publicationId": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform",
       "title": "2級土木 経験記述｜工事概要の書き方",
       "action": "new",
       "slot": "c2-keiken-2027",
@@ -4335,6 +4375,7 @@
     {
       "id": "y27-rc-2",
       "exam": "rccm",
+      "publicationId": "rccm/rccm-mondai3-ronbun-kata/youtube.longform",
       "title": "RCCM｜問題Ⅲの論文の型",
       "action": "new",
       "slot": "rc-2027",
@@ -4347,6 +4388,7 @@
     {
       "id": "y27-c1-keiken-5",
       "exam": "civil-construction-1",
+      "publicationId": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform",
       "title": "1級土木 経験記述｜落ちる答案の直し方",
       "action": "new",
       "slot": "c1-keiken-2027",
@@ -4359,6 +4401,7 @@
     {
       "id": "y27-c2-keiken-3",
       "exam": "civil-construction-2",
+      "publicationId": "civil-construction-2/keiken-anzen-kakikata/youtube.longform",
       "title": "2級土木 経験記述｜安全管理の書き方",
       "action": "new",
       "slot": "c2-keiken-2027",
@@ -4371,6 +4414,7 @@
     {
       "id": "y27-cc-2",
       "exam": "concrete-chief-engineer",
+      "publicationId": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform",
       "title": "主任技士 小論文｜テーマの傾向と立場の選び方",
       "action": "new",
       "slot": "cc-2027",
@@ -4407,6 +4451,7 @@
     {
       "id": "y27-c2-keiken-4",
       "exam": "civil-construction-2",
+      "publicationId": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform",
       "title": "2級土木 経験記述｜品質管理の書き方",
       "action": "new",
       "slot": "c2-keiken-2027",
@@ -4431,6 +4476,7 @@
     {
       "id": "y27-c2-keiken-5",
       "exam": "civil-construction-2",
+      "publicationId": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform",
       "title": "2級土木 経験記述｜提出前の点検",
       "action": "new",
       "slot": "c2-keiken-2027",
