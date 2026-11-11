@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-anzen-kakikata",
+  "exam": "civil-construction-2",
+  "title": "安全管理の書き方｜課題・検討・処置を欄ごとに分ける",
+  "audience": "2級土木の施工経験記述で、安全管理の欄に何を書くか迷う受検者",
+  "pain": "安全管理の答案で、課題に対策まで書いたり、検討と処置が重なったりして、欄の役割が分からない",
+  "promise": "安全管理を課題・検討・処置と評価の欄に分け、何をどこに書くか見直せる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "keiken-anzen-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": 0,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
