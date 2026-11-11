@@ -565,6 +565,12 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1138] PR の E2E の再ビルドをやめる（主要 3 本を ci.yml の build ジョブで回す）
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-12]
+
+e2e.yml は PR で自前の npm run build（187〜236 秒）をしてから主要 3 本の spec を回すが、テスト本体は 8〜10 秒（2026-11-11 の 3 回の実測）。ci.yml の build ジョブが同じ out/ を作っているので、PR の主要 3 本を build ジョブの後段で回せば PR 1 本あたりの full build が 1 回減る（PR の待ち時間は ci 約 3.7 分に対し e2e 約 5.6 分で、e2e が律速）。Chromium の導入は通常 17〜24 秒（apt 側で 209 秒かかった回あり）。夜間の全件と a11y は e2e.yml に残す。automerge.yml の workflow_run と tests/e2e-paths.test.mjs・tests/e2e-execution.test.mjs を合わせる
+
+
 ### [DN-1137] refresh-indexes の手動義務をなくす（生成物を git から外して build 時に作る）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-12]
 
