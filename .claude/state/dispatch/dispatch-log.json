@@ -7280,6 +7280,19 @@
       "commit": "f1ff0ebc3a1d",
       "verification": "GSC のサイトマップ一覧が sitemap.xml の 1 本・data/gsc/url-inspection/2026-11-05 で competency-revision-r8 が送信して登録されました",
       "note": "GSC で sitemap-legacy.xml の登録を削除。competency-revision-r8 は 11-05 の URL 検査で登録済み（対処不要）。gsc-management.md 2026-11-11 に記録"
+    },
+    {
+      "id": "DN-1112",
+      "at": "2026-11-11",
+      "task": "試験日・合格発表日の当日ページの型を文書にし、2027-01〜03 の 5 つの日付の扱いを決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8649554935b2",
+      "verification": "npm run check-exam-day-pages（未判断 0）・check-domains・check-doc-refs・check-datasets exit 0",
+      "note": "型を docs/editorial/試験日・合格発表日の当日ページの型.md に書き、2027-01〜03 の合格発表日 7 件（5 つの日付）を対応表に page・card・skip で記録。合格発表の検索の実績はほぼ無いので新しいページは作らない"
     }
   ]
 }
