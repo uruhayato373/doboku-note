@@ -6,6 +6,7 @@ import ThemeToggle from "../ui/ThemeToggle/ThemeToggle";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef, getCategoryHubPath } from "@/lib/categories";
 import { getAreaLabel } from '@/lib/content-taxonomy';
+import { WIDE_CONTAINER } from './container';
 
 const categories = (categoriesData as CategoryDef[]).filter(c => c.visible !== false);
 
@@ -211,7 +212,7 @@ export default function Header() {
       <header
         className="bg-(--paper) border-b border-(--rule-soft) transition-colors duration-300"
       >
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className={WIDE_CONTAINER}>
           <div className="flex justify-between items-center h-16 sm:h-[72px]">
             <div className="flex items-center">
               <Link

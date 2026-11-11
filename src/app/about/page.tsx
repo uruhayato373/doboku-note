@@ -16,6 +16,7 @@ import SectionCard from "@/components/ui/SectionCard/SectionCard";
 import AuthorProfile from "@/components/ui/AuthorProfile/AuthorProfile";
 import { DEFAULT_OG_IMAGE, SITE_TITLE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import { WIDE_CONTAINER } from '@/components/layout/container';
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" を重ねない
@@ -135,7 +136,7 @@ export default function AboutPage() {
 
       {/* Content Categories Section */}
       <section className="py-16 bg-(--paper) border-y border-(--rule-soft)">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={WIDE_CONTAINER}>
           <h2 className="text-2xl font-bold text-(--ink) text-center mb-2">
             対応試験
           </h2>

@@ -29,7 +29,7 @@ developer_instructions = """
 実装時に必ず守る（詳細は SSOT 各節）:
 
 - **レイアウト体系（§3）**: 新規/改修は `PageShell`（variant `default`/`content`/`article`・rail `780`/`820`/`860`）+ `PageHeader`（band/inline）+ `SectionCard` に乗せる。各ページで chrome を手書きしない。
-- **幅（§3.2）**: 外枠 `max-w-[1280px]` + `px-4 sm:px-6 lg:px-10`。読み幅は content rail（780〜860）で制御。`max-w-5xl` 等の独自混在をしない。
+- **幅（§3.2）**: 外枠は `WIDE_CONTAINER`（`src/components/layout/container.ts`＝`max-w-[1280px]` + `px-4 sm:px-6 lg:px-10` を同じ要素に付ける）か `SectionBlock` を使い、手書きしない。読み幅は content rail（780〜860）で制御。`max-w-5xl` 等の独自混在をしない。
 - **Hero/PageHeader（§3.3）**: Hero はトップ専用。下層は `PageHeader`。下層に大型 Hero を増やさない。
 - **右サイドバー（§3.4）**: `/docs/[slug]` と `/category/[slug]` のみ。`/links`/`/search`/`/about`/`/privacy`/`/terms`/`/tools` には追加しない。`/docs` は 2 ブロック構成（通常フロー=転職ピクセル→note→著者／sticky クラスタ=TOC+ナビを列末尾に配置し追従）。広告・著者は追従させない。sticky クラスタの下に非 sticky を置かない。
 - **トークン（§2）**: 色・角丸・影・フォントサイズは生値で書かず CSS 変数 / Tailwind トークンを使う。ページ/prose chrome は editorial（`var(--accent)`/`--paper`/`--ink`/`--rule`）、意味色は Tailwind semantic（`brand`/`positive`/`warn`/`danger`）。カードは `rounded-card-*` / `shadow-card-*`。

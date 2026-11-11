@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { WIDE_CONTAINER } from '@/components/layout/container';
 
 // トップ最下部の「note有料教材」CTA ヒーロー。ブランド背景（cta-bg/note-hero.webp・左空き/右にモチーフ）＋
 // 左の余白に HTML 文字（濃色＋白グロー＋薄い白スクリムで可読）。文字は焼き込まない（brand-image-system.md）。
@@ -12,7 +13,7 @@ const HALO = {
 
 export default function PremiumNoteHero() {
   return (
-    <section className="mx-auto max-w-[1280px] px-4 py-8 sm:px-6 sm:py-10 lg:px-10">
+    <section className={`${WIDE_CONTAINER} py-8 sm:py-10`}>
       <Link
         href="/links"
         data-cta="note"
