@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-11-11T06-08-50Z",
-  "collectedAt": "2026-11-11T06:08:50.886Z",
+  "runId": "2026-11-11T06-20-51Z",
+  "collectedAt": "2026-11-11T06:20:51.717Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "0a9cf89f4",
+  "scriptVersion": "b273c3da1",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 3,
+  "targetCount": 4,
   "items": [
     {
-      "slug": "/exam/concrete-engineer/guide/r08-answers",
-      "url": "https://doboku-note.com/exam/concrete-engineer/guide/r08-answers",
+      "slug": "/exam/pe-comprehensive-management/keywords/competency-hr",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/competency-hr",
       "inspected": {
         "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/09/27 23:09:23",
         "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
+        "crawlAllowed": true,
+        "indexingAllowed": true
       },
       "request": {
         "requested": true,
@@ -30,45 +30,64 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/textbook/river-act",
-      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/river-act",
+      "slug": "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/key-performance-indicators",
       "inspected": {
-        "state": "indexed",
-        "reason": null,
-        "lastCrawl": null,
+        "state": "not-indexed",
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/08/30 18:56:43",
         "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
+        "crawlAllowed": true,
+        "indexingAllowed": true
       },
       "request": {
         "requested": false,
-        "status": "already-indexed"
+        "status": "unconfirmed",
+        "detail": "受理文言を読めなかった（送信された可能性はある）"
       },
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-comprehensive-management/keywords/interim-storage-facility",
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/interim-storage-facility",
+      "slug": "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/pollution-control-manager",
       "inspected": {
-        "state": "indexed",
-        "reason": null,
-        "lastCrawl": null,
+        "state": "not-indexed",
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/08/30 18:46:46",
         "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/past-exams/h21-secondary",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h21-secondary",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/09/01 9:49:16",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
       },
       "request": {
         "requested": false,
-        "status": "already-indexed"
+        "status": "unconfirmed",
+        "detail": "受理文言を読めなかった（送信された可能性はある）"
       },
       "reachedVerdict": true
     }
   ],
   "status": "ok",
   "summary": {
-    "inspected": 3,
-    "accepted": 1,
-    "alreadyIndexed": 2,
+    "inspected": 4,
+    "accepted": 2,
+    "alreadyIndexed": 0,
     "unreadable": 0
   }
 }
