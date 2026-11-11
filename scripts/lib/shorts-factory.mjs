@@ -139,6 +139,8 @@ export function typeProblems(design, ctx) {
     const n = design.beats?.length ?? 0;
     if (n < type.beats.min || n > type.beats.max) issues.push(`${type.label} の beats は ${type.beats.min}〜${type.beats.max} 個`);
   }
+  // 紙を描く型は、紙に書く文字が決まっていること。無いと見出しの繰り返しや作り話の文字が入った（2026-11-12）
+  if (['before-after', 'one-question'].includes(design.type) && !paperText(design)) issues.push('coverPaper が要る（表紙の紙に書く悪い例・問題文の一文。sources の場面の語だけ）');
   const gestures = ctx.formats.gestures ?? [];
   if (gestures.length && !design.gesture) issues.push('gesture が無い（台帳の gestures から先生の仕草を 1 つ選ぶ）');
   else if (design.gesture && !gestures.some((g) => g.id === design.gesture)) issues.push(`gesture が台帳に無い: ${design.gesture}`);
@@ -201,6 +203,8 @@ const bodyPrompt = (beat, index, label, palette) => [
 const TEXT_BOX = '見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。';
 /** 表紙の紙に書く悪い例・問題文。見出しの『』か、冒頭の「」『』から取る */
 export function paperText(design) {
+  // 台本に紙の文字（coverPaper）があればそれ。無ければ見出しの『』か冒頭の「」『』から取る
+  if (String(design.coverPaper ?? '').trim()) return String(design.coverPaper).trim();
   const headline = (design.headline ?? []).join('');
   return headline.match(/『([^』]+)』/u)?.[1] ?? String(design.hook ?? '').match(/[「『]([^」』]+)[」』]/u)?.[1] ?? null;
 }
@@ -231,7 +235,7 @@ export function assertInSlot(root, pack, key) {
 
 // 型のあるショート（2026-11-11 以降）は、型の表紙の図と語りに合わせた締めの文字が画像に入るので入力に型を足す。型の無い既存のショートの入力は変えない
 // 仕草（gesture）を持つショートは ✕ と肩書きの帯をやめた表紙（2026-11-11）。入力を変えて作り直させる
-const coverInput = (spec, design) => inputOf(design.gesture ? [spec.headline, design.hook, design.pose, design.type, design.gesture, 'cover-no-badge'] : design.type ? [spec.headline, design.hook, design.pose, design.type] : [spec.headline, design.hook, design.pose]);
+const coverInput = (spec, design) => inputOf(design.gesture ? [spec.headline, design.hook, design.pose, design.type, design.gesture, 'cover-no-badge', ...(design.coverPaper ? [design.coverPaper] : [])] : design.type ? [spec.headline, design.hook, design.pose, design.type] : [spec.headline, design.hook, design.pose]);
 const gestureOf = (root, design) => (design.gesture ? readDataset(root, 'config.youtube-shorts-formats').gestures?.find((g) => g.id === design.gesture) ?? null : null);
 const ctaInput = (cta, design) => inputOf(design.type ? [cta, 'cta-honpen'] : [cta]);
 const typeOf = (root, design) => (design.type ? readDataset(root, 'config.youtube-shorts-formats').types.find((t) => t.id === design.type) ?? null : null);

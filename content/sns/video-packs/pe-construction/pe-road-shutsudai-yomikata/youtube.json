@@ -35,7 +35,9 @@
         "doboku-note",
         "Shorts"
       ],
-      "categoryId": "27"
+      "categoryId": "27",
+      "sha256": "9ba12f622ca2da2e6a71192d34470b144dd72cdc6c3e4f36076b3de9b9ba4df7",
+      "thumbnailSha256": "6a9e5ec82610e70043ddc4f7ba9ffbe3c60a71880599b1ba40d60e5a02196958"
     },
     {
       "key": "point-jogai-2",
@@ -51,8 +53,8 @@
         "Shorts"
       ],
       "categoryId": "27",
-      "sha256": "90b480b52683575ad20ecef1c45d699ae947496036811c0024ff2e0545b808f5",
-      "thumbnailSha256": "d4ce82671d22aa63d338da2bdcd4b75f21a13a37208a68bfce641a4c1bda670c"
+      "sha256": "8340fb80c32754085a4e5f62af0104656f16c0d5fdea6882f3c039da9c45c1b7",
+      "thumbnailSha256": "22b40711b532364dbd0251b3f8e8a41d5cbf195b9a2d4d4da9be387c86c00dd8"
     }
   ]
 }

@@ -72,8 +72,9 @@ test('型の台帳とコピーの技法で台本を止める（2026-11-11）', a
   const { typeProblems, narrationProblems } = await import('../scripts/lib/shorts-factory.mjs');
   const formats = { rules: { hookMaxChars: 40 }, types: [{ id: 'before-after', label: 'ビフォーアフター', beats: { min: 2, max: 3 } }, { id: 'n-check', label: 'N 点チェック', beats: { min: 2, max: 4 } }], copy: [{ id: 'assertion' }, { id: 'odd-number' }, { id: 'barnum' }], gestures: [{ id: 'red-pen' }, { id: 'tilt-head' }] };
   const ctx = { formats, slotTypes: ['before-after'], sceneIds: new Set(['s1', 's2']) };
-  const good = { type: 'before-after', gesture: 'red-pen', copy: ['barnum'], hook: '工事概要と本文がずれていませんか。', beats: [{}, {}], cta: '残りの直し方は本編で。' };
+  const good = { type: 'before-after', gesture: 'red-pen', coverPaper: '暑い時期だった', copy: ['barnum'], hook: '工事概要と本文がずれていませんか。', beats: [{}, {}], cta: '残りの直し方は本編で。' };
   assert.match(typeProblems({ ...good, gesture: undefined }, ctx).join(), /gesture が無い/);
+  assert.match(typeProblems({ ...good, coverPaper: undefined }, ctx).join(), /coverPaper が要る/);
   assert.match(typeProblems({ ...good, gesture: 'dance' }, ctx).join(), /gesture が台帳に無い/);
   assert.deepEqual(typeProblems(good, ctx), []);
   assert.match(typeProblems({ ...good, type: undefined }, ctx).join(), /type が無い/);

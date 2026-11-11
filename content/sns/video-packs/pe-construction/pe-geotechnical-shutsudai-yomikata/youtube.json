@@ -35,7 +35,9 @@
         "doboku-note",
         "Shorts"
       ],
-      "categoryId": "27"
+      "categoryId": "27",
+      "sha256": "459053e6ccdf40b1f1262790cfe634ad53a7bda09e06c3afe812aa386d32dfe3",
+      "thumbnailSha256": "1b2915e0fbb114a0dde5fe759b4fa5ac975d1360c5f7f9d670366fd31531a064"
     },
     {
       "key": "point-risk-2",
@@ -51,7 +53,7 @@
         "Shorts"
       ],
       "categoryId": "27",
-      "sha256": "1d9eb89ab826b4b4ff2b73247a2d2bb1c7f78cea77fd9cc78189c2a05bb574ed",
+      "sha256": "727574ca654c72aed6f84cf6a7c5f70a1cd70368397795d964cd6522de89ce46",
       "thumbnailSha256": "b6a873fac41e7ac9c6b5fd100ea3443d4e330ca4b439590225a42ea450eb2d54"
     }
   ]
