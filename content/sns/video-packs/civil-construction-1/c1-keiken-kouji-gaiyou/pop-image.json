@@ -763,11 +763,11 @@
       "images": [
         {
           "role": "cover",
-          "inputSha256": "1d3ccab15fa7eae66b3b3a64f5079d7d17d5c2cc6a18481ce70beda3886c5950",
+          "inputSha256": "8f7b83f1dbb90741580e14bda5ef790f2f4da125d00c1c7cb9893aa92d6f98f8",
           "narration": "工事概要は、短く埋めればよいと思っていませんか。",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『『概要は』『短くて』『いい』？』、小さな黄色帯に『総監が制作』。 表紙の型は「誤解を壊す」。見出しの思い込みの語の横（右か左の余白）に大きな赤い✕印を置く。✕は見出しの文字に 1 画も重ねない（2026-11-11・✕が文字を隠して読めなかった）。先生は手のひらを前に出して止める仕草。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は手のひらを前に向けて胸の高さに出し、5本の指をそろえて伸ばして止める仕草をする。左手（画面右側）は何も持たず腰に当てる。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『『概要は』『短くて』『いい』？』。肩書きの帯や制作者名は書かない。 表紙の型は「誤解を壊す」。見出しは思い込みの一言の引用と「？」だけで問う。✕は描かない。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「手のひらで止める」: 片手の手のひらを前に向けて胸の高さに出し、5 本の指を開く。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は手のひらを前に向けて胸の高さに出し、5本の指を開いて止める仕草をする。左手（画面右側）は何も持たず腰に当てる。見出しは画面の左右8%の内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -775,26 +775,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-cover.b7741707.png",
-              "sha256": "b77417072df1b3ef28b79a8c606ee5e56ea0b3795e570f95f879661bfd081fe7"
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-cover.9c1767d1.png",
+              "sha256": "9c1767d1c62d936c815ab217f3ad04925bf6f8c262bc20e05de46c7ad356323a"
             },
-            "generatedAt": "2026-11-11T09:40:26.607Z"
+            "generatedAt": "2026-11-11T11:02:10.082Z"
           },
           "output": {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/cover.3d8738ce.png",
-            "sha256": "3d8738ce472149dd78443a103960db337e9fa1f517360692af8561245b43be62",
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/cover.0e46b692.png",
+            "sha256": "0e46b692636854547ba798f042cbbfa95037b018b34253b6753ba73e29f491c8",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "b77417072df1b3ef28b79a8c606ee5e56ea0b3795e570f95f879661bfd081fe7"
+            "sourceSha256": "9c1767d1c62d936c815ab217f3ad04925bf6f8c262bc20e05de46c7ad356323a"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T09:40:26.607Z",
+            "checkedAt": "2026-11-11T11:02:10.082Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "文字は指示と一字ずつ一致(1級土木・概要は短くていい？・総監が制作)し欠けなし。赤✕は文字に重ならず、先生は手のひらを前に出し5本指で止める型、左手は腰、胴体は下端まで続く。誤解を壊す型に合う"
+            "reason": "文字『1級土木』『「概要は」「短くて」「いい」？』が指示と一字一致し左右8%の内側で欠けなし。✕や肩書き帯なしで誤解を壊す型。先生は黒縁眼鏡・白ヘルメットで右手の5本指の手のひらを前に出し左手は腰、胴体は下端まで続き手指の崩れなし"
           }
         },
         {
@@ -814,7 +814,7 @@
               "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-scene-001.7c892b5b.png",
               "sha256": "7c892b5b17965d1c304fd8857004e5493c0c26240e0e257e13a44ac42ab2cb99"
             },
-            "generatedAt": "2026-11-11T09:40:26.607Z"
+            "generatedAt": "2026-11-11T11:02:10.082Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/scene-001.3939703f.png",
@@ -828,7 +828,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T09:40:26.607Z",
+            "checkedAt": "2026-11-11T11:02:10.082Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 1級土木・1・短く埋めればよい？・工事概要・吹き出しの短く埋めればよい？が指示と一字ずつ一致し誤字・余計な文字なし。用紙は横線2本のみ、人物なく手指の崩れなし。見出し右端と吹き出し右縁が右余白にやや寄るが読める範囲"
           }
@@ -850,7 +850,7 @@
               "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-scene-002.9d7365c5.png",
               "sha256": "9d7365c5b4087696024b4bf80797d58bc3a9272bb93a592bd4d9dbea8d8c894b"
             },
-            "generatedAt": "2026-11-11T09:40:26.607Z"
+            "generatedAt": "2026-11-11T11:02:10.082Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/scene-002.124988ac.png",
@@ -864,7 +864,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T09:40:26.607Z",
+            "checkedAt": "2026-11-11T11:02:10.082Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『略式の書き方』『内容が見えにくい』『工期』『施工量』『釣り合わない』と見出しが指示と一致し、矢印と赤いバツも指定どおりで崩れなし"
           }
@@ -886,7 +886,7 @@
               "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-scene-003.4bbc4d26.png",
               "sha256": "4bbc4d26f3e77ab159c4dcc8b82183cb9d24b1a4ea2cf8638c0ab425869acede"
             },
-            "generatedAt": "2026-11-11T09:40:26.607Z"
+            "generatedAt": "2026-11-11T11:02:10.082Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/scene-003.3317f695.png",
@@ -900,7 +900,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T09:40:26.607Z",
+            "checkedAt": "2026-11-11T11:02:10.082Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『略さず、特定できる細かさで』『同じ工事』と見出しが一致し、四角7つから7本の矢印が黄色の箱に集まる構成で指示どおり"
           }
@@ -922,7 +922,7 @@
               "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-cta.d3a2a383.png",
               "sha256": "d3a2a383e9be334b7b8e6bc42357897738e773d11a4c6da1dc51827be0781d5a"
             },
-            "generatedAt": "2026-11-11T09:40:26.607Z"
+            "generatedAt": "2026-11-11T11:02:10.082Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/cta.9f5972e2.png",
@@ -936,14 +936,14 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T09:40:26.607Z",
+            "checkedAt": "2026-11-11T11:02:10.082Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 七つの欄の書き方は・本編で・関連動画からが指示と一致し切れなし、下向き矢印あり。先生は手のひらで矢印を示し、指5本で自然、左手は腰、胴体は下端まで続く。資格名なし"
           }
         }
       ],
       "render": {
-        "videoSha256": "37a232acec8019b2e0fc10457ffc9dfa6a485d534abcd214fce91624a7d3719d",
+        "videoSha256": "a515dfaf39673bb8fcfe12f4648fae4820111139e779144b502d29ccbd079cd4",
         "durationSeconds": 32.224,
         "speaker": 13,
         "sceneCount": 5
@@ -951,24 +951,24 @@
       "screenReview": {
         "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "5軸の平均は4.4で、全軸が3以上。尺と画角は実測で32.2秒・1080x1920・音声あり。youtube.json の sha が mp4 と一致した。型 myth-buster、コピーの線 barnum、冒頭、単体の価値、本編への引きにも問題はなく、ライブ確認だけが未了。",
-        "videoSha256": "37a232acec8019b2e0fc10457ffc9dfa6a485d534abcd214fce91624a7d3719d",
-        "checkedAt": "2026-11-11T09:41:32.087Z"
+        "reason": "平均4.6で全軸3以上。実測は1080x1920・32.2秒・音声あり。sha は youtube.json と pop-image の render で一致し、5/5場面を確認した。型・コピー・導入・本編への引きにも問題はない。",
+        "videoSha256": "a515dfaf39673bb8fcfe12f4648fae4820111139e779144b502d29ccbd079cd4",
+        "checkedAt": "2026-11-11T11:03:13.019Z"
       },
       "audio": {
-        "videoSha256": "37a232acec8019b2e0fc10457ffc9dfa6a485d534abcd214fce91624a7d3719d",
+        "videoSha256": "a515dfaf39673bb8fcfe12f4648fae4820111139e779144b502d29ccbd079cd4",
         "similarity": 0.93,
         "maxVolumeDb": -7.2,
         "durationGapSec": 0
       },
       "stock": {
         "video": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/video.37a232ac.mp4",
-          "sha256": "37a232acec8019b2e0fc10457ffc9dfa6a485d534abcd214fce91624a7d3719d"
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/video.a515dfaf.mp4",
+          "sha256": "a515dfaf39673bb8fcfe12f4648fae4820111139e779144b502d29ccbd079cd4"
         },
         "frames": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/frames.9dd6017d.png",
-          "sha256": "9dd6017d37ea575032d247f8a2864071d9968e1f9d29af9694b30ddab1a418a2"
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/frames.1a5df6f6.png",
+          "sha256": "1a5df6f65adcde1f07c846821075acd88495e73e6eda96fd96ffeb82bdb543b2"
         },
         "subtitles": {
           "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/subtitles.5ca14077.ass",
@@ -976,8 +976,8 @@
         },
         "originals": [
           {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-cover.b7741707.png",
-            "sha256": "b77417072df1b3ef28b79a8c606ee5e56ea0b3795e570f95f879661bfd081fe7"
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-cover.9c1767d1.png",
+            "sha256": "9c1767d1c62d936c815ab217f3ad04925bf6f8c262bc20e05de46c7ad356323a"
           },
           {
             "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-scene-001.7c892b5b.png",
@@ -997,10 +997,10 @@
           }
         ],
         "thumbnail": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/cover.3d8738ce.png",
-          "sha256": "3d8738ce472149dd78443a103960db337e9fa1f517360692af8561245b43be62"
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/cover.0e46b692.png",
+          "sha256": "0e46b692636854547ba798f042cbbfa95037b018b34253b6753ba73e29f491c8"
         },
-        "savedAt": "2026-11-11T09:41:46.496Z",
+        "savedAt": "2026-11-11T11:03:29.452Z",
         "cloudVerified": true
       }
     }
