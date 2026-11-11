@@ -205,7 +205,7 @@ description: >
 ### 作り始める前に
 
 - [ ] 2〜3 個の具体的な use case を定義した
-- [ ] 既存スキルとの重複を確認した（`.claude/knowledge/reference/skills-registry.md` を grep）
+- [ ] 既存スキルとの重複を確認した（`.claude/knowledge/reference/skills-guide.md` を grep）
 - [ ] guide.pdf の該当 Pattern（1〜5）と照合した
 - [ ] 必要なツール（built-in / MCP / script）を洗い出した
 
@@ -224,8 +224,7 @@ description: >
 
 ### 作成後
 
-- [ ] `.claude/knowledge/reference/skills-guide.md` の該当カテゴリに追記（一覧・トリガー）
-- [ ] `.claude/knowledge/reference/skills-registry.md` のカテゴリ構造のスキル数を更新
+- [ ] `npm run build-capability-index` を回した（一覧は frontmatter からの生成物・手で直さない）
 - [ ] 関連スキルの `参照` セクションを更新
 - [ ] 実際に 1〜2 件の use case で試してみた
 
@@ -233,23 +232,18 @@ description: >
 
 ## 7. Skills Registry への登録ルール
 
-**2 ファイルへの更新が必要**:
+一覧は `npm run build-capability-index` が `SKILL.md` の frontmatter（name・category・domain・description）から生成する。手で行を足さない。
 
-| ファイル | 何を追記するか |
-|---|---|
-| `.claude/knowledge/reference/skills-guide.md` | 該当カテゴリのテーブルに行を追加（スキル / 一言説明 / 呼ぶとき） |
-| `.claude/knowledge/reference/skills-registry.md` | カテゴリ構造のスキル数を更新 |
 
-Phase 2 の未実装スキルは `skills-guide.md` の「Phase 2 待機スキル」セクションに分離し、アクティブな一覧と混在させない。退役スキルは `skills-registry.md` の「退役記録」に追記する。
+Phase 2 の未実装スキルは `skills-guide.md` の「Phase 2 待機スキル」セクションに分離し、アクティブな一覧と混在させない。退役の記録は git の履歴が持つ（理由は commit メッセージに書く）。
 
 ---
 
 ## 8. スキル削除時のルール
 
 - `git rm` で削除
-- `.claude/knowledge/reference/skills-registry.md` に「退役」として削除日と理由を記載
+- 削除の理由と代替スキルは commit メッセージに書く（退役の記録は git の履歴）。`npm run build-capability-index` を回して一覧から消す
 - 参照元（他スキル・エージェント・ドキュメント）を grep で洗い出して更新
-- 代替スキルへのポインタを退役記録に明記
 
 ---
 
@@ -257,7 +251,6 @@ Phase 2 の未実装スキルは `skills-guide.md` の「Phase 2 待機スキル
 
 - **原典 PDF**: `.claude/pdfs/guide.pdf`（The Complete Guide to Building Skills for Claude）
 - **スキル早引き**: `.claude/knowledge/reference/skills-guide.md`
-- **ガバナンス記録**: `.claude/knowledge/reference/skills-registry.md`
 - **Agents Registry**: `.claude/knowledge/reference/agents-registry.md`
 - **プロジェクト設計原則**: `CLAUDE.md` の「ハーネス設計原則」セクション
 

@@ -49,7 +49,6 @@ title: .claude/knowledge/reference/ 索引
 | [.claude/knowledge/reference/content-angle-policy.md](./content-angle-policy.md) | SNS コンテンツ角度の真実源（6 切り口=結論/理由/体験/反論/数字/ハウツー・既存 note/サイト資産マッピング・`angle` パラメータ分業設計・層別優先・Red Line・パイロット計画）。各 SNS Generator/Evaluator が共通参照 | 過去問以外の角度で SNS 投稿を企画・執筆・採点するとき／既存 note 記事を多媒体展開するとき |
 | [.claude/knowledge/reference/exam-content-policy.md](./exam-content-policy.md) | 試験別コンテンツ整備方針＋コンテンツ別レビュー視点＋新資格追加手順 | PDF→MDX 変換・品質レビュー時 |
 | [.claude/knowledge/reference/skills-guide.md](./skills-guide.md) | アクティブスキル カテゴリ別早引き＋用途別ガイド（今やること別スキル推奨組み合わせ） | 使えるスキルを素早く探すとき |
-| [.claude/knowledge/reference/skills-registry.md](./skills-registry.md) | スキルのガバナンス記録（退役ログ・カテゴリ変更履歴・テンプレート駆動設計） | 退役スキル確認・設計変更履歴・新スキル重複チェック |
 | [.claude/knowledge/reference/agents-registry.md](./agents-registry.md) | エージェント詳細表＋スキル→エージェント呼出マップ＋Generator/Evaluator 分離原則 | サブエージェント呼出時の担当範囲確認・連携設計時 |
 | [.claude/knowledge/reference/skills-design-guide.md](./skills-design-guide.md) | Skills 設計チェックリスト（frontmatter 必須要件・description 形式・progressive disclosure・`.claude/pdfs/guide.pdf` 準拠） | 新規スキル・エージェント作成時 / 既存 description レビュー時 |
 | [.claude/knowledge/reference/workflows.md](./workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・ブランチ詳細・Phase 別ロードマップ | 週次 PDCA・変換作業・ブランチ運用詳細確認時 |
@@ -120,7 +119,7 @@ title: .claude/knowledge/reference/ 索引
 
 ## 更新ルール
 
-- **新スキル追加時** → `skills-registry.md` と `skills-guide.md` を更新、必要なら `workflows.md` も
+- **新スキル・新エージェント追加時** → `npm run build-capability-index`（一覧は生成物）、必要なら `workflows.md` も
 - **新エージェント追加時** → `agents-registry.md`「エージェント一覧」を更新（CLAUDE.md に per-agent の表は無い。model の既定は CLAUDE.md §5）
 - **新資格追加時** → `exam-content-policy.md` の整備方針差分表・レビュー視点表の両方に列を追加
 - **コンテンツ品質ルール変更時** → `.claude/knowledge/reference/content-principles.md`（真実源）をまず更新し、`content-authoring.md` は参照として揃える

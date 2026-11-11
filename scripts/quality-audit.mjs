@@ -135,6 +135,7 @@ function unzipMissing() {
 export const CHECKS = [
   { id: 'content-expansion', npm: 'check-content-expansion', timeout: 30_000, ci: true, note: '全教材の母数・記事/図/SNS対応表の整合。未確認・原典待ち・成果物変更を別表示し、構造PASSで制作完了とはしない' },
   { id: 'domains', npm: 'check-domains', timeout: 30_000, ci: true, note: '領域の正本（domains.json）と、スキル/エージェントの frontmatter domain・文書の割り当ての整合' },
+  { id: 'capability-index', npm: 'check-doc-coupling', timeout: 30_000, ci: true, note: 'スキル・エージェントの一覧（skills-guide.md・agents-registry.md の生成区間）が frontmatter と一致。ずれたら npm run build-capability-index（2026-11-11 まで手書きの台帳で、pre-commit の staged だけが見ていた・DN-1131）' },
   { id: 'issue-map', npm: 'check-issue-map', timeout: 30_000, ci: true, note: '事業イシューマップの指標・DN・競合の参照が実在するか。結果は PR の diff だけで決まる（更新の番は週次が --due で読む）' },
   { id: 'affiliate-placements', timeout: 90_000, ci: true, note: '転職アフィリエイトの配置ルール・案件と広告リンクの配線・広告リンクの許可リストを 1 検査で回す（配線と許可リストは 2026-10-27 まで pre-commit の staged だけで、CI では誰も見ていなかった）', steps: [
     { label: 'placements', npm: 'check-affiliate-placements', timeout: 60_000, note: '転職アフィリエイトの配置ルール（台帳 config.affiliate-placements）が案件（catalog の active・Red Line でない）・広告リンクの有無・面の語彙・カテゴリ・実験と整合し、同じ面に 2 ルールが重ならないか。MDX の手書き <CareerAffiliate> のカテゴリがルールに覆われているか（2026-10-07）。広告リンクの期限は壁時計依存なので affiliate-placements-upcoming（ops）が見る（2026-10-11）' },
