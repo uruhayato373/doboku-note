@@ -101,7 +101,7 @@ export function addCard(current, { title, tier, kind, domain, category, when, du
     allowedCategories: new Set([...CANONICAL_CATEGORIES, ...Object.keys(baseline.categories ?? {})]),
     domainLabels: new Set(loadDomains(root).domains.map((d) => d.label)),
   };
-  const r = nextId(current, backlogGitLog({ cwd: root }));
+  const r = nextId(current, backlogGitLog({ cwd: root, text: current }));
   if (r.degraded) throw new Error('git の履歴を読めず採番できない（削除済みの番号と衝突しうるので止める）');
   const cardLines = buildCard({ id: r.next, title: title.trim(), kind, domain, category, when, due, verify, today, body });
   const text = insertCard(current, tierEmoji, cardLines);

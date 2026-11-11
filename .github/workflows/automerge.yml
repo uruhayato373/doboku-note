@@ -60,7 +60,7 @@ jobs:
           pending=$(printf '%s\n' "$runs" | awk -F'\t' '$2 != "completed"' | grep -c . || true)
           bad=$(printf '%s\n' "$runs" | awk -F'\t' '$2 == "completed" && $3 != "success" && $3 != "skipped" && $3 != "neutral"' | grep -c . || true)
           echo "check-runs ${total} 件 / 未完了 ${pending} / 失敗 ${bad}"
-          for need in audit build; do
+          for need in audit test build; do
             if ! printf '%s\n' "$runs" | awk -F'\t' -v n="$need" '$1 == n && $3 == "success"' | grep -q .; then
               echo "${need} がまだ success でない → 待つ"
               exit 0

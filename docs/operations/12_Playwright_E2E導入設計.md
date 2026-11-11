@@ -212,9 +212,8 @@ CTA期待値をspecへ大量に直書きしない。既存の`src/lib/note-magaz
 2. Node 20セットアップ
 3. `npm ci --legacy-peer-deps --ignore-scripts`
 4. `npx playwright install --with-deps chromium`
-5. `npm run type-check`
-6. `npm run test:e2e`
-7. 失敗時に`playwright-report/`と`test-results/`をartifact保存
+5. `npm run test:e2e`（type-check は ci.yml の audit が同じ commit で回すので、ここでは回さない）
+6. 失敗時に`playwright-report/`と`test-results/`をartifact保存
 
 CI時間を抑えるため、E2E workflow内で全量の`npm run build`や既存監査を重複実行しない。ビルドは既存CIまたは別ジョブの責務とする。
 
