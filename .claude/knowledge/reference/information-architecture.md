@@ -193,7 +193,7 @@ content/
 > ダッシュボード・週次レビューがリポジトリ内に 1 つも無かった。develop の Pre-merge check が
 > 24 連続赤でも 2 日気づかれず、発見は毎回偶然だった。`uptime-ping.yml` は doc だけが
 > automation-failure と書いており、実体は廃止済み `task-queue.json` への append で**どこにも届いていなかった**。
-> branch protection は採用しない（CI bot が develop へ直 push する設計と main の ff 昇格を壊すため）。
+> branch protection は採用しない（CI bot が develop へ直 push する設計と deploy:main の昇格を壊すため）。
 > 代わりに ①失敗時の即時起票 ②週次 watchdog（`check-workflow-health`＝最後の success からの経過日数と
 > 連続失敗数）の 2 段で担保する。
 

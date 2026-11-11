@@ -1,7 +1,7 @@
 // deploy-main の判定の意図: 検査を通った commit だけを昇格し、失敗を見逃さない。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { blockingNightlyIssues, findDeployRun, pickGateTarget, pushRejectedAsStale, unverifiedPrCommits } from '../scripts/lib/deploy-main.mjs';
+import { blockingNightlyIssues, findDeployRun, GATE_WAIT_LIMIT_MS, gateWaitExpired, pickGateTarget, pushRejectedAsStale, ssrVerdict, stepConclusion, unverifiedPrCommits } from '../scripts/lib/deploy-main.mjs';
 
 const run = (headSha, status, conclusion, databaseId = 1) => ({ headSha, status, conclusion, databaseId });
 
@@ -29,6 +29,28 @@ test('pickGateTarget: 検査が 1 件も無ければ検査不成立', () => {
 test('pushRejectedAsStale: main が先に進んだ失敗だけを作り直しの対象にする', () => {
   assert.equal(pushRejectedAsStale('! [rejected] main -> main (non-fast-forward)'), true);
   assert.equal(pushRejectedAsStale('fatal: the remote end hung up unexpectedly'), false);
+});
+
+test('gateWaitExpired: 30 分までは待ち、超えたら止める', () => {
+  assert.equal(gateWaitExpired(0, GATE_WAIT_LIMIT_MS), false);
+  assert.equal(gateWaitExpired(0, GATE_WAIT_LIMIT_MS + 1), true);
+});
+
+test('stepConclusion: ステップの conclusion を返し、無ければ null', () => {
+  const view = { jobs: [{ steps: [{ name: 'Build', conclusion: 'success' }, { name: 'Verify production SSR', conclusion: 'failure' }] }] };
+  assert.equal(stepConclusion(view, 'Verify production SSR'), 'failure');
+  assert.equal(stepConclusion(view, 'Missing'), null);
+  assert.equal(stepConclusion({ jobs: [] }, 'Build'), null);
+  assert.equal(stepConclusion({}, 'Build'), null);
+});
+
+test('ssrVerdict: 手元 exit 2 はデプロイ run の検査が success のときだけ 0、壊れている exit 1 は 1', () => {
+  assert.deepEqual(ssrVerdict(0, null), { code: 0, via: 'local' });
+  assert.equal(ssrVerdict(1, 'success').code, 1);
+  assert.deepEqual(ssrVerdict(2, 'success'), { code: 0, via: 'deploy-run' });
+  assert.equal(ssrVerdict(2, 'failure').code, 2);
+  assert.equal(ssrVerdict(2, 'skipped').code, 2);
+  assert.equal(ssrVerdict(2, null).code, 2);
 });
 
 test('findDeployRun: 今 push した commit の run だけを見る', () => {
