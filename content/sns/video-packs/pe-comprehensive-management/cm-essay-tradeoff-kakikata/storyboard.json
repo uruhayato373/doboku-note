@@ -1,0 +1,282 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "総監の記述式で、5管理のトレードオフを答案に書く手順を紹介します。",
+      "caption": "5管理のトレードオフを、答案に書く",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監 記述\n5管理のトレードオフ",
+        "items": [
+          "技術士 総合技術監理部門・記述式"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 8,
+      "end": 22,
+      "narration": "施策を書いたあとで、その裏の問題点を、管理名の対立としてどう書けばよいのか分からない。この動画では、トレードオフを三つの問いで組み立てる手順を紹介します。",
+      "caption": "三つの問いで、対立を組み立てる",
+      "visual": {
+        "kind": "points",
+        "heading": "三つの問いでつくる",
+        "items": [
+          "どの管理に効く施策か",
+          "どの管理に負担が出るか",
+          "どの方向で両立させるか"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 22,
+      "end": 36,
+      "narration": "誤解しやすいのは、トレードオフを施策の否定として書くことです。コストが高く問題がある、と書くと、施策そのものを否定した文になります。問題点は、管理すべき課題として書きます。",
+      "caption": "否定ではなく、管理課題として書く",
+      "visual": {
+        "kind": "points",
+        "heading": "問題点は管理課題",
+        "items": [
+          "施策を否定する書き方\nコストが高く問題がある",
+          "管理課題の書き方\n投資回収の管理が課題となる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "問題点は施策の否定ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "q1",
+      "start": 36,
+      "end": 50,
+      "narration": "問い1は、施策がどの管理に効くか。施策を一つ決めたら、効果が出る管理を一つ選びます。経済性、人的資源、情報、安全、社会環境のうち、最も効くものです。",
+      "caption": "問い1　効く管理を一つ選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "問い1　どの管理に効くか",
+        "items": [
+          "施策を一つ決める",
+          "効果が出る管理を一つ選ぶ",
+          "5管理の名前で言い切る"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "効果の側から始める"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "q2",
+      "start": 50,
+      "end": 66,
+      "narration": "問い2は、その施策で、どの管理に負担が出るか。効果の裏で、人の手間、費用、情報の扱い、安全、地域との関係のどこが重くなるかを見ます。ここで出た管理が、対立の相手です。",
+      "caption": "問い2　負担が出る管理を探す",
+      "visual": {
+        "kind": "points",
+        "heading": "問い2　どこに負担が出るか",
+        "items": [
+          "人の手間が増えないか",
+          "費用や回収の管理は重くないか",
+          "別の管理へ負担が移っていないか"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "負担が移る先を探す"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "pair",
+      "start": 66,
+      "end": 84,
+      "narration": "対立の相手は、経済性管理から探すと見つかりやすくなります。サイト記事の整理では、経済性を片側に含む組が、記述式の出題の中で多くを占めます。ほかに、安全と社会環境、人的資源と安全も目立ちます。",
+      "caption": "相手探しは経済性管理から",
+      "visual": {
+        "kind": "points",
+        "heading": "組の探し方",
+        "items": [
+          "経済性を片側に含む組が多い",
+          "安全と社会環境の組",
+          "人的資源と安全の組"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "筆者の分類による傾向。年度で変わる"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "q3",
+      "start": 84,
+      "end": 102,
+      "narration": "問い3は、どの方向で両立させるか。解決の方向は、組ごとに少数に絞れます。時間軸を伸ばして評価する、段階的に進める、早い段階で合意を作る、などです。事案に合う方向を一つ主軸にします。",
+      "caption": "問い3　両立の方向を一つ選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "問い3　どの方向で両立か",
+        "items": [
+          "時間軸を伸ばして評価する",
+          "段階的に実施して範囲を絞る",
+          "早い段階で合意を作る"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "主軸は一つ、補強は一つか二つ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 102,
+      "end": 124,
+      "narration": "仮の例です。橋の点検に、遠隔の監視を入れる施策を考えます。効くのは安全管理。負担が出るのは経済性管理で、導入費の回収の管理が課題になります。方向は、劣化の大きい箇所から段階的に入れることです。これは手順の例で、出題の予想ではありません。",
+      "caption": "仮の例で、三つの問いに当てはめる",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例で組み立てる",
+        "items": [
+          "問い1　安全管理に効く",
+          "問い2　経済性管理に負担が出る",
+          "問い3　劣化の大きい箇所から段階的に"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "出題の予想ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "sceneId": "write",
+      "start": 124,
+      "end": 142,
+      "narration": "書くときは、一文の形にします。施策で何が良くなるか、その裏でどの管理が課題になるか、どう両立させるか。この三つを順につなぎます。管理名は、文の中で自然に出せば足ります。",
+      "caption": "一文の形にして書く",
+      "visual": {
+        "kind": "points",
+        "heading": "効果、課題、両立の順",
+        "items": [
+          "施策で何が良くなるか",
+          "裏でどの管理が課題か",
+          "どう両立させるか"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "管理名の列挙で終えない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "scope",
+      "start": 142,
+      "end": 158,
+      "narration": "立場は、答案の前半で置いたものに合わせます。前半に書いていない課題を、後半で突然持ち出しても、つながりません。範囲は、問題文でも確かめます。",
+      "caption": "前半の条件とつなぐ",
+      "visual": {
+        "kind": "points",
+        "heading": "前半の条件とつなぐ",
+        "items": [
+          "前半で置いた担当範囲",
+          "前半で置いた制約",
+          "問題文の範囲で確かめる"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "前半と後半を結ぶ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "avoid",
+      "start": 158,
+      "end": 174,
+      "narration": "避けたいのは三つです。管理名を並べるだけで終えること。効果だけを書いて、裏の負担を書かないこと。試験の形式や字数を、古い情報で決めつけること。形式や日程は、受検する年度の公式情報で確認してください。",
+      "caption": "管理名の列挙、効果だけ、古い情報",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたい三つ",
+        "items": [
+          "管理名を並べて終える",
+          "効果だけを書く",
+          "形式を古い情報で決める"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "形式は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 174,
+      "end": 188,
+      "narration": "まとめです。トレードオフは、効く管理、負担が出る管理、両立の方向の三つの問いで組み立てます。問題点は否定でなく管理課題として書き、前半の条件とつなぎます。",
+      "caption": "三つの問いで、トレードオフを書く",
+      "visual": {
+        "kind": "points",
+        "heading": "トレードオフのまとめ",
+        "items": [
+          "効く管理を一つ選ぶ",
+          "負担が出る管理を探す",
+          "両立の方向を一つ選ぶ"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画のまとめ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 188,
+      "end": 200,
+      "narration": "答案の型を、全体でまとめて確かめたい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "答案の型の教材案内は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "型を確かめる",
+        "items": [
+          "三層の型を押さえる",
+          "トレードオフを組み込む",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "記述対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
+  ]
+}
