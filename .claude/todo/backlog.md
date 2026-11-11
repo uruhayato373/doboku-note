@@ -544,14 +544,6 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 **完了条件**: 2 本それぞれのクリックの山と、その後の行き先が gsc-management.md に記録され、DN-1112 の型の文書に「効いた・効かなかった点」が書いてある。
 
 
-### [DN-1115] 被リンク最多の competency-revision-r8 の登録を確かめ、sitemap-legacy.xml を GSC の登録から外す
-タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-11]
-
-**起点**: 2026-11-11 の GSC の実査。(1) 外部リンクが最も多いページ `/exam/pe-construction/guide/competency-revision-r8`（note から 419 本）が、11-01 の理由別取得（`data/gsc/ui-urls.json`）で「クロール済み・未登録」（最後のクロール 10-25）。(2) GSC のサイトマップに `sitemap-legacy.xml` が「取得できませんでした」で残っている。本番では 404 で、robots.txt の `Sitemap:` 行からも外れている（`data/gsc/sitemaps.json` の robotsSitemaps は sitemap.xml だけ）。
-
-**やること**: (1) `npm run gsc-indexing:check` か URL 検査で `competency-revision-r8` の今の登録状況を確かめる。未登録のままなら、本文の独自性・重複（建設部門のほかのガイドとの重なり）を見て、直すか登録を申請するかを決める。(2) `sitemap-legacy.xml` を GSC の登録から外す（GSC の画面の操作。運営者が行うか、`scripts/gsc-sitemaps.mjs` が期限切れの登録を消せるならそれで行う）。
-
-**完了条件**: `competency-revision-r8` の登録状況と判断が gsc-management.md にあり、GSC のサイトマップ一覧に `sitemap-legacy.xml` が無い（`data/gsc/sitemaps.json` で確かめる）。
 
 
 ### [DN-1114] 順位の割に CTR が低い 6 ページの題名・冒頭を、判定待ちの消化後に 1 本ずつ直す
@@ -585,7 +577,7 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 
 ### [DN-1110] 画面の点検（site-visual-review）を develop に入れ、本番ビルドで全ページを回して 3 幅・縮小の設定を検証する
-タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-11]
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [検証:site-visual-review] [起票:2026-11-11]
 
 **起点**: 2026-11-11 に画面の点検の仕組み（`/site-visual-review`・`npm run site-visual-review`）をブランチ feat/site-visual-review に作った。代表 15 ページ × 6 幅を一度判定し、合格 12・不合格 3（DN-1107・DN-1108・DN-1109）を起票済み。その後、トークンを減らすために目視に回す撮影を 3 幅（375・768・1440）に絞り、1440px 幅の撮影を 960px に縮めたが、この設定ではまだ判定を回していない。
 
@@ -599,44 +591,10 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 **完了条件**: `npm run site-visual-review -- status` が exit 0 で、本番ビルドに対する判定が台帳に記録されている。3 幅・縮小の設定を続けるか戻すかを、見落としの比較とトークンの実測で決めてスキルに書いてある。
 
 
-### [DN-1109] past-exam（/exam/civil-construction-1/secondary/r06）が画面の点検で不合格（edge・layout）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
-
-**起点**: 2026-11-11 の画面の点検（`npm run site-visual-review`・作業票 20261111T021035Z）で、past-exam（/exam/civil-construction-1/secondary/r06）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude\state\quality\site-visual-review.json。
-
-- 機械 [w375] edge: main-01「1級土木施工管理技士 › 第2次検定 令和6年度」の中身がヘッダーの端より外に出ている（左余白 0px・右余白 0px / ヘッダー 左 16px・右 16px）: article.bg-(--paper).border.border-(--rule-soft).rounded-card-section
-- 機械 [w375] edge: main-06「この記事に関連するサービス ココナラ PR 過去」の中身がヘッダーの端より外に出ている（左余白 0px・右余白 0px / ヘッダー 左 16px・右 16px）: div.not-prose.mt-8
-- layout [w375]: スマホ幅で「この記事に関連するサービス」の見出し文字が画面左端に 0px で張り付き、ココナラの薄青の枠も画面の端から端まで伸びている。直前の教材カードや直後の「よくある質問」は左右 25px 内側にあり、区画の端が揃っていない（main-06 の左右余白 0px の edge と同じ）。（w375-cta-02.png）
-
-**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
-
-**完了条件**: `npm run site-visual-review -- prepare --keys past-exam` で撮り直して判定し、record で pass と台帳に記録される。
 
 
-### [DN-1108] tools（/tools/keiken-charcount）が画面の点検で不合格（layout）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
-
-**起点**: 2026-11-11 の画面の点検（`npm run site-visual-review`・作業票 20261111T005344Z）で、tools（/tools/keiken-charcount）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude\state\quality\site-visual-review.json。
-
-- layout [w1024]: ページ見出し・パンくず・説明（左端 132px）が、すぐ下の入力カード（左端 156px）より左に 24px はみ出し、区画の左端が揃っていない。w1280（260px と 284px）・w1440（340px と 364px）でも同じ 24px のずれが出る。（w1024-01.png）
-
-**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
-
-**完了条件**: `npm run site-visual-review -- prepare --keys tools` で撮り直して判定し、record で pass と台帳に記録される。
 
 
-### [DN-1107] topics（/topics/safety-laws）が画面の点検で不合格（layout）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
-
-**起点**: 2026-11-11 の画面の点検（`npm run site-visual-review`・作業票 20261111T005344Z）で、topics（/topics/safety-laws）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude\state\quality\site-visual-review.json。
-
-- layout [w1024]: ページ末尾の PR 導線（ビルドジョブ）の箱が 760px 幅で左に寄り、右が約 184px 空いて、上の「関連するテーマ」カード列や下のフッターの右端（944px）と揃っていない。（w1024-06.png）
-- layout [w1280]: 末尾の PR 導線の箱が 760px 幅で左寄せのまま、同じ区画の他の部品（1200px 幅のカード列・フッター）の右端と 440px ずれ、右側が大きく空いて見える。（w1280-06.png）
-- layout [w1440]: 末尾の PR 導線の箱が 760px 幅で左寄せで、1200px 幅の「関連するテーマ」カード列・フッターの右端と 440px ずれ、右半分が空白になる。（w1440-06.png）
-
-**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
-
-**完了条件**: `npm run site-visual-review -- prepare --keys topics` で撮り直して判定し、record で pass と台帳に記録される。
 
 
 ### [DN-1104] 総監の合格戦略記事の口頭試験の配点（60点・40点）を一次資料と照合して直す

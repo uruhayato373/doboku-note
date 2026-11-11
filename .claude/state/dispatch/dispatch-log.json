@@ -7216,6 +7216,70 @@
       "commit": "300366beefc4",
       "verification": "check-home-exam-coverage・check-guide-length・guide-fact-checker",
       "note": "PR #1521（300366beef）でガイド 4 本・pe-fisheries の active 化・入口の配線を develop へ。事実は別の担当が照合し誤り 0、科目別の統計は日本技術士会の統計 PDF で一致を確認。develop 由来の赤（media-references・video-content）の中で運営者の判断によりマージ"
+    },
+    {
+      "id": "DN-1107",
+      "at": "2026-11-11",
+      "task": "topics（/topics/safety-laws）が画面の点検で不合格（layout）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "site-visual-review"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f1ff0ebc3a1d",
+      "verification": "npm run site-visual-review -- prepare --keys home,tools,topics,past-exam（機械で決まる崩れ 0）＋ site-page-visual-auditor で 4 ページ pass・台帳の status exit 0",
+      "note": "テーマの PR 枠の max-w-[760px] を外し区画の幅に合わせた（#1534）"
+    },
+    {
+      "id": "DN-1108",
+      "at": "2026-11-11",
+      "task": "tools（/tools/keiken-charcount）が画面の点検で不合格（layout）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "site-visual-review"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f1ff0ebc3a1d",
+      "verification": "npm run site-visual-review -- prepare --keys home,tools,topics,past-exam（機械で決まる崩れ 0）＋ site-page-visual-auditor で 4 ページ pass・台帳の status exit 0",
+      "note": "読み幅 760 を READING_CONTAINER にまとめ、SectionBlock とツール 11 本・基準書 2 ページの 29 か所が使う（#1534）"
+    },
+    {
+      "id": "DN-1109",
+      "at": "2026-11-11",
+      "task": "past-exam（/exam/civil-construction-1/secondary/r06）が画面の点検で不合格（edge・layout）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "site-visual-review"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f1ff0ebc3a1d",
+      "verification": "npm run site-visual-review -- prepare --keys home,tools,topics,past-exam（機械で決まる崩れ 0）＋ site-page-visual-auditor で 4 ページ pass・台帳の status exit 0",
+      "note": "記事の下の関連サービスにスマホ幅の記事の余白を付けた（#1534）"
+    },
+    {
+      "id": "DN-1115",
+      "at": "2026-11-11",
+      "task": "被リンク最多の competency-revision-r8 の登録を確かめ、sitemap-legacy.xml を GSC の登録から外す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f1ff0ebc3a1d",
+      "verification": "GSC のサイトマップ一覧が sitemap.xml の 1 本・data/gsc/url-inspection/2026-11-05 で competency-revision-r8 が送信して登録されました",
+      "note": "GSC で sitemap-legacy.xml の登録を削除。competency-revision-r8 は 11-05 の URL 検査で登録済み（対処不要）。gsc-management.md 2026-11-11 に記録"
     }
   ]
 }
