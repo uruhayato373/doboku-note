@@ -3,16 +3,65 @@
   "$comment": "試験日・合格発表日の当日ページの対応表（npm run check-exam-day-pages・週次レビューが読む）。exam-calendar.json の試験日・合格発表日のうち、サイトに資格のページがあるものは、近づいたら必ずどれかを決める: page（当日ページの記事。content/site からの相対）・card（作ると決めて起票済み）・skip（作らない理由）。2026-10-25 に事前に用意した 2級土木 二次の当日ページが 1 日で 3,764 クリックを取った（gsc-management.md 2026-11-11）。その年の事実がある日だけ作り、資格を機械的に横展開しない。",
   "windowDays": 21,
   "entries": [
-    { "qualification": "civil-construction-2", "event": "second", "page": "civil-construction-2/guide-r08-secondary-answers" },
-    { "qualification": "pe-first-stage", "event": "exam", "page": "pe-first-stage/guide-r08-answers" },
-    { "qualification": "concrete-engineer", "event": "exam", "card": "DN-1111" },
-    { "qualification": "concrete-chief-engineer", "event": "exam", "card": "DN-0872" },
-    { "qualification": "civil-construction-1", "event": "secondResult", "card": "DN-1112" },
-    { "qualification": "concrete-engineer", "event": "result", "card": "DN-1112" },
-    { "qualification": "concrete-chief-engineer", "event": "result", "card": "DN-1112" },
-    { "qualification": "civil-construction-2", "event": "secondResult", "card": "DN-1112" },
-    { "qualification": "rccm", "event": "result", "card": "DN-1112" },
-    { "qualification": "pe-comprehensive-management", "event": "finalResult", "card": "DN-1112" },
-    { "qualification": "pe-construction", "event": "finalResult", "card": "DN-1112" }
+    {
+      "qualification": "civil-construction-2",
+      "event": "second",
+      "page": "civil-construction-2/guide-r08-secondary-answers"
+    },
+    {
+      "qualification": "pe-first-stage",
+      "event": "exam",
+      "page": "pe-first-stage/guide-r08-answers"
+    },
+    {
+      "qualification": "concrete-engineer",
+      "event": "exam",
+      "card": "DN-1111"
+    },
+    {
+      "qualification": "concrete-chief-engineer",
+      "event": "exam",
+      "card": "DN-0872"
+    },
+    {
+      "qualification": "civil-construction-1",
+      "event": "secondResult",
+      "card": "DN-1112"
+    },
+    {
+      "qualification": "concrete-engineer",
+      "event": "result",
+      "card": "DN-1112"
+    },
+    {
+      "qualification": "concrete-chief-engineer",
+      "event": "result",
+      "card": "DN-1112"
+    },
+    {
+      "qualification": "civil-construction-2",
+      "event": "secondResult",
+      "card": "DN-1112"
+    },
+    {
+      "qualification": "rccm",
+      "event": "result",
+      "card": "DN-1112"
+    },
+    {
+      "qualification": "pe-comprehensive-management",
+      "event": "finalResult",
+      "card": "DN-1112"
+    },
+    {
+      "qualification": "pe-construction",
+      "event": "finalResult",
+      "card": "DN-1112"
+    },
+    {
+      "qualification": "civil-construction-2",
+      "event": "firstLateResult",
+      "skip": "一次後期の合格発表の検索は観測されていない（2026-11-11 の GSC 28 日）。後期の検索は「後期 解答」（表示 20 前後）で、年度の過去問ページ（primary-r08-kouki・公式の問題の公開後に作る）で受ける"
+    }
   ]
 }
