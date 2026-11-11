@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getCategoryHubPath } from '@/lib/categories';
+import { WIDE_CONTAINER } from '@/components/layout/container';
 
 
 export interface ExamData {
@@ -50,7 +51,7 @@ export function ExamCard({ e }: { e: ExamData }) {
 }
 export default function ExamCards({ exams }: ExamCardsProps) {
   return (
-    <section id="exams" className="scroll-mt-24 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
+    <section id="exams" className={`scroll-mt-24 ${WIDE_CONTAINER} py-8 sm:py-10`}>
       <div className="mb-6 sm:mb-8">
         <h2 className="font-serif text-2xl sm:text-3xl font-black text-(--ink)">
           <Link href="/exam" className="focus-ring rounded-card-inline hover:text-(--accent) transition-colors">

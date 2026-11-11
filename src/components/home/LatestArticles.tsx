@@ -3,6 +3,7 @@ import ContentThumbnail from "@/components/ui/ContentThumbnail";
 import { ArrowRight, Hash } from "lucide-react";
 import { getPublicDocPath } from '@/lib/content-routes';
 import { formatDotDate } from "@/lib/display-date";
+import { WIDE_CONTAINER } from '@/components/layout/container';
 
 export interface LatestArticle {
   slug: string;
@@ -23,7 +24,7 @@ const formatDate = (iso?: string): string | null => formatDotDate(iso);
 export default function LatestArticles({ articles }: LatestArticlesProps) {
   if (!articles || articles.length === 0) return null;
   return (
-    <section id="latest" className="scroll-mt-24 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
+    <section id="latest" className={`scroll-mt-24 ${WIDE_CONTAINER} py-8 sm:py-10`}>
       <div className="flex items-end justify-between mb-6 sm:mb-8 gap-4">
         <div>
           <h2 className="font-serif text-2xl sm:text-3xl font-black text-(--ink)">最新の記事</h2>
