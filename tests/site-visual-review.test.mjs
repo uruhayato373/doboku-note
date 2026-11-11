@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildLedgerEntries, judgeCtas, layoutSha, planTiles, selectTargets, summarizeStatus, STALE_DAYS } from '../scripts/site-visual-review.mjs';
+import { buildLedgerEntries, judgeCtas, layoutSha, planTiles, selectTargets, shotScale, shouldShoot, summarizeStatus, STALE_DAYS } from '../scripts/site-visual-review.mjs';
 import { ConfigSiteVisualReview } from '../scripts/lib/dataset-schemas.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
@@ -19,6 +19,19 @@ test('planTiles: 短いページは 1 枚、上限を超えるページは最初
   assert.equal(long.tiles[0].y, 0);
   assert.equal(long.tiles.at(-1).y, 14400);
   assert.equal(long.skipped, 6);
+});
+
+test('shouldShoot: 目視に回す幅と、機械で決まる崩れが出た幅だけを撮る', () => {
+  assert.equal(shouldShoot({ visual: true }, []), true);
+  assert.equal(shouldShoot({}, []), false);
+  assert.equal(shouldShoot({}, [{ type: 'edge' }]), true);
+});
+
+test('shotScale: 上限より広い撮影だけを縮める', () => {
+  assert.equal(shotScale(375, 960), 1);
+  assert.equal(shotScale(960, 960), 1);
+  assert.equal(shotScale(1440, 960), 0.667);
+  assert.equal(shotScale(1440, undefined), 1);
 });
 
 test('layoutSha: 骨組みか見えている導線が変わると変わり、隠れた導線・導線の並び順では変わらない', () => {
@@ -101,6 +114,9 @@ test('設定: 型を通り、Tailwind の区切り（640・768・1024・1280）�
   assert.equal(ConfigSiteVisualReview.safeParse(config).success, true);
   const widths = config.viewports.map((v) => v.width);
   for (const w of [640, 768, 1024, 1280]) assert.ok(widths.includes(w), `${w}px が無い`);
+  assert.equal(config.viewports.length, 6, '機械の検査の幅を減らさない（減らすのは撮影だけ）');
   assert.ok(Math.min(...widths) <= 390, 'スマホ幅が無い');
   assert.ok(Math.max(...widths) > 1280, 'コンテナの最大幅（1280px）を超える幅が無い');
+  const visual = config.viewports.filter((v) => v.visual).map((v) => v.width);
+  assert.ok(Math.min(...visual) <= 390 && Math.max(...visual) > 1280, '目視に回す幅に、スマホ幅とコンテナの最大幅を超える幅が入っていない');
 });

@@ -7,6 +7,9 @@
  *   2 区画が左右 40px 広いのを人が見つけた）。画面幅を 1 つしか見ない確認は、ほかの幅の崩れを通す。
  *
  * 対象と画面幅は config/site-visual-review.json（ページの種類ごとの代表 URL・期待する商品導線・画面幅）。
+ * 機械の検査は全部の幅で測る。撮影して目視に回すのは visual: true の幅と、機械で決まる崩れが出た幅だけ
+ * （判定のトークンの大半は画像。2026-11-11 の初回は 6 幅 × 15 ページ・約 450 枚で約 190 万トークン）。
+ * shotMaxWidth より広い撮影は縮めて渡す。
  *
  * 流れ（手順は /site-visual-review）:
  *   prepare  判定待ちのページ（未判定・骨組みが変わった）を全部の画面幅で撮り、作業票（packet.json）を作る。
@@ -65,6 +68,17 @@ export function planTiles(docHeight, { tileHeight = TILE_HEIGHT, maxTiles = 6 } 
   const picked = new Set();
   for (let i = 0; i < maxTiles; i += 1) picked.add(Math.round((i * (count - 1)) / (maxTiles - 1)));
   return { tiles: all.filter((_, i) => picked.has(i)), skipped: count - picked.size };
+}
+
+/** その幅を撮るか。目視に回す幅（visual）と、機械で決まる崩れが出た幅だけを撮る（判定のトークンの大半は画像） */
+export function shouldShoot(viewport, issuesAtViewport) {
+  return Boolean(viewport.visual) || issuesAtViewport.length > 0;
+}
+
+/** 撮影を縮める倍率。上限より広い撮影だけを縮める（1 = そのまま） */
+export function shotScale(width, maxWidth) {
+  if (!maxWidth || width <= maxWidth) return 1;
+  return Math.round((maxWidth / width) * 1000) / 1000;
 }
 
 /** 全画面幅の骨組みと、見えている商品導線から、判定を結ぶハッシュを作る */
@@ -205,7 +219,15 @@ function outIsStale(base) {
 
 // ---- prepare -------------------------------------------------------------------------------------
 
-async function shootPage({ browser, base, target, viewports, dir, maxTiles }) {
+/** 撮った PNG を上限の横幅まで縮めて上書きする */
+async function shrinkShot(path, scale, width) {
+  if (scale === 1) return;
+  const { default: sharp } = await import('sharp');
+  const buffer = await sharp(path).resize({ width: Math.round(width * scale) }).png().toBuffer();
+  writeFileSync(path, buffer);
+}
+
+async function shootPage({ browser, base, target, viewports, dir, maxTiles, shotMaxWidth }) {
   const measures = [];
   const shots = [];
   const deterministicIssues = [];
@@ -245,6 +267,7 @@ async function shootPage({ browser, base, target, viewports, dir, maxTiles }) {
       const generic = await page.evaluate(inspectInPage);
       const layout = await page.evaluate(inspectLayoutInPage);
       const ignore = new Set(target.ignore ?? []);
+      const before = deterministicIssues.length;
       for (const issue of [...generic, ...layout.issues]) {
         if (ignore.has(issue.type)) continue;
         // 自分で止めた計測ピクセルは「読めない画像」に数えない
@@ -253,12 +276,15 @@ async function shootPage({ browser, base, target, viewports, dir, maxTiles }) {
       }
       measures.push({ viewport: vp.id, width: vp.width, docHeight: layout.docHeight, blocks: layout.blocks, hints: layout.hints, ctas: layout.ctas, skeleton: layout.skeleton });
 
+      if (!shouldShoot(vp, deterministicIssues.slice(before))) continue;
+      const scale = shotScale(vp.width, shotMaxWidth);
       const { tiles, skipped } = planTiles(layout.docHeight, { maxTiles });
       if (skipped) notes.push(`${vp.id}: 高さ ${layout.docHeight}px を ${tiles.length} 枚に間引いた（${skipped} 区切りは撮っていない）`);
       for (const [i, tile] of tiles.entries()) {
         const file = `${vp.id}-${String(i + 1).padStart(2, '0')}.png`;
         await page.screenshot({ path: join(dir, file), fullPage: true, clip: { x: 0, y: tile.y, width: vp.width, height: Math.max(1, tile.height) } });
-        shots.push({ file, viewport: vp.id, width: vp.width, from: tile.y, to: tile.y + tile.height });
+        await shrinkShot(join(dir, file), scale, vp.width);
+        shots.push({ file, viewport: vp.id, width: vp.width, scale, from: tile.y, to: tile.y + tile.height });
       }
       // 間引いた区切りに入った商品導線は、まわりごと別に撮る（1 つの幅で 3 枚まで）
       const covered = (top) => tiles.some((t) => top >= t.y && top < t.y + t.height);
@@ -268,7 +294,8 @@ async function shootPage({ browser, base, target, viewports, dir, maxTiles }) {
         const y = Math.max(0, cta.top - 300);
         const height = Math.min(layout.docHeight - y, cta.height + 600);
         await page.screenshot({ path: join(dir, file), fullPage: true, clip: { x: 0, y, width: vp.width, height: Math.max(1, height) } });
-        shots.push({ file, viewport: vp.id, width: vp.width, from: y, to: y + height, cta: `${cta.kind}:${cta.placement ?? cta.label}` });
+        await shrinkShot(join(dir, file), scale, vp.width);
+        shots.push({ file, viewport: vp.id, width: vp.width, scale, from: y, to: y + height, cta: `${cta.kind}:${cta.placement ?? cta.label}` });
       }
     } finally {
       await context.close();
@@ -311,7 +338,7 @@ async function prepare(opts) {
       const dir = join(runDir, target.key);
       mkdirSync(dir, { recursive: true });
       try {
-        const shot = await shootPage({ browser, base: opts.base, target, viewports: config.viewports, dir, maxTiles: opts.maxTiles });
+        const shot = await shootPage({ browser, base: opts.base, target, viewports: config.viewports, dir, maxTiles: opts.maxTiles, shotMaxWidth: config.shotMaxWidth });
         const tier = reviewTier(ledger.pages[target.key], shot.layoutSha256, 'layoutSha256');
         if (tier === null && !opts.keys.length) {
           // 骨組みが前の判定と同じ。判定は生きているので作業票に載せない
@@ -334,7 +361,7 @@ async function prepare(opts) {
           shots: shot.shots,
           notes: shot.notes,
         });
-        console.log(`  ${target.key}: 撮影 ${shot.shots.length} 枚（${config.viewports.length} 幅）・機械で決まる崩れ ${shot.deterministicIssues.length}・目視の材料 ${shot.measures.reduce((a, m) => a + m.hints.length, 0) + shot.crossHints.length}`);
+        console.log(`  ${target.key}: 撮影 ${shot.shots.length} 枚（測定 ${config.viewports.length} 幅・撮影 ${new Set(shot.shots.map((s) => s.viewport)).size} 幅）・機械で決まる崩れ ${shot.deterministicIssues.length}・目視の材料 ${shot.measures.reduce((a, m) => a + m.hints.length, 0) + shot.crossHints.length}`);
       } catch (error) {
         failures.push(`${target.key}: ${String(error.message).split('\n')[0]}`);
       }

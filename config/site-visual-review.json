@@ -1,12 +1,14 @@
 {
   "schemaVersion": 1,
-  "$comment": "画面の点検（npm run site-visual-review）が撮るページと画面幅。targets はページの種類ごとの代表 1 つ。expect は必ず見えているべき商品導線（true）・出さない導線（false）。書かない種類は観測だけする。viewports は Tailwind の区切り（sm 640・md 768・lg 1024・xl 1280）にスマホ幅と、コンテナの最大幅（1280px）を超える幅を足したもの。",
+  "$comment": "画面の点検（npm run site-visual-review）が撮るページと画面幅。targets はページの種類ごとの代表 1 つ。expect は必ず見えているべき商品導線（true）・出さない導線（false）。書かない種類は観測だけする。viewports は Tailwind の区切り（sm 640・md 768・lg 1024・xl 1280）にスマホ幅と、コンテナの最大幅（1280px）を超える幅を足したもの。 visual: true の幅だけ撮影して目視に回す（機械の検査は全部の幅。機械で決まる崩れが出た幅は visual でなくても撮る）。shotMaxWidth は撮影の横幅の上限で、超える撮影は縮めて渡す（判定のトークンは画像の画素数で決まる）。",
+  "shotMaxWidth": 960,
   "viewports": [
     {
       "id": "w375",
       "width": 375,
       "height": 812,
-      "label": "スマホ"
+      "label": "スマホ",
+      "visual": true
     },
     {
       "id": "w640",
@@ -18,7 +20,8 @@
       "id": "w768",
       "width": 768,
       "height": 1024,
-      "label": "md・タブレット"
+      "label": "md・タブレット",
+      "visual": true
     },
     {
       "id": "w1024",
@@ -36,7 +39,8 @@
       "id": "w1440",
       "width": 1440,
       "height": 900,
-      "label": "コンテナの最大幅を超える幅"
+      "label": "コンテナの最大幅を超える幅",
+      "visual": true
     }
   ],
   "targets": [

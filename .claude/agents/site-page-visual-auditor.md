@@ -26,7 +26,7 @@ domain: site
 
 作業票のページごとの欄:
 
-- `shots[]` — 撮影（`file`・`viewport`・`from`〜`to` は画面の上からの位置 px）。`<viewport>-NN.png` はページを上から縦に区切ったもの、`<viewport>-cta-NN.png` は間引いた区切りに入った商品導線のまわり。パスは `dir` からの相対。画像は Read で開く
+- `shots[]` — 撮影（`file`・`viewport`・`from`〜`to` は画面の上からの位置 px）。**撮影があるのは目視に回す幅（スマホ・タブレット・コンテナを超える幅）と、機械で決まる崩れが出た幅だけ**。ほかの幅は `viewports[]` の測定だけで見る。`scale` が 1 未満の撮影は縮めてある（文字の大きさは画像でなく `hints` の `small-text` で判断する）。`<viewport>-NN.png` はページを上から縦に区切ったもの、`<viewport>-cta-NN.png` は間引いた区切りに入った商品導線のまわり。パスは `dir` からの相対。画像は Read で開く
 - `viewports[]` — 画面幅ごとの測定。`blocks`（区画ごとの左右の余白）・`hints`（目視で判断する材料: `clip` 文字が…で切れる・`orphan` 最後の行が 1 文字・`small-text` 12px 未満・`tap` スマホ幅で押しにくい・`edge-step` 上下に続く区画の左端が少しずれている）・`ctas`（商品導線の種類・置き場・見えているか・`firstView` 最初の画面にあるか・`depthPct` ページの上から何 % の位置か）
 - `crossViewportHints[]` — 画面幅をまたいだ材料（ある幅でだけ消える導線・設定では出さない導線）
 - `deterministicIssues[]` — 機械で決まる崩れ。**1 件でもあれば fail が確定**（record が pass を受け付けない）。画面で確かめて指摘に書き写す

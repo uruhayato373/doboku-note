@@ -324,9 +324,12 @@ export const ConfigSiteVisualReview = z
   .object({
     schemaVersion: z.literal(1),
     $comment: note,
+    /** 撮影の横幅の上限（px）。超える撮影は縮めて目視に渡す */
+    shotMaxWidth: z.number().int().min(320).max(3840).optional(),
     viewports: z
-      .array(z.object({ id: z.string().regex(/^w\d+$/), width: z.number().int().min(320).max(3840), height: z.number().int().min(480).max(2160), label: text }).strict())
+      .array(z.object({ id: z.string().regex(/^w\d+$/), width: z.number().int().min(320).max(3840), height: z.number().int().min(480).max(2160), label: text, visual: z.boolean().optional() }).strict())
       .min(1)
+      .refine((list) => list.some((v) => v.visual), '目視に回す幅（visual: true）が 1 つも無い')
       .superRefine(uniqueBy('id', '画面幅の id'))
       .superRefine(uniqueBy('width', '画面幅')),
     targets: z

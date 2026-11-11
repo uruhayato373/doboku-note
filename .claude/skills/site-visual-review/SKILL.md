@@ -16,7 +16,7 @@ domain: site
 撮影・対象の選定・機械の検査・判定の検証・記録・起票は `scripts/site-visual-review.mjs` が決める。
 エージェント `site-page-visual-auditor`（sonnet・audit-only）は撮影を見て判定を書くだけ。直すのは親（またはページの UI を組む `page-design-builder`）。
 
-- 対象と画面幅: `config/site-visual-review.json`（ページの種類ごとの代表 URL・必ず出す導線 `expect`・画面幅）
+- 対象と画面幅: `config/site-visual-review.json`（ページの種類ごとの代表 URL・必ず出す導線 `expect`・画面幅）。機械の検査は全部の幅、撮影して目視に回すのは `visual: true` の幅（375・768・1440）と機械で決まる崩れが出た幅だけ。`shotMaxWidth`（960px）より広い撮影は縮めて渡す（判定のトークンの大半は画像）
 - 台帳: `.claude/state/quality/site-visual-review.json`（判定はページの骨組みのハッシュに結ぶ。部品やレイアウトを変えると判定待ちに戻る）
 
 ## いつ回すか
