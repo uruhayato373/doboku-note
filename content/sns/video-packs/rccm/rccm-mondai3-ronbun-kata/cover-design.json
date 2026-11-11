@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "rccm",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/work/cover-pop.81b5d604.png",
+        "sha256": "81b5d604902fa77d527bcfb19c3123636bfb203d87b7108f0a6b6ee75b9e81a5",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "9efbd895b346d550cf3e9b89db72523ca06335d106ba7ea53a3a8d0c8cd83a21"
+      }
     }
   }
 }
