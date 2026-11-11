@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #1E73C8 と濃色 #155293、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『1級土木』『一次のあと』『二次の準備』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-cover.278ad9ef.png",
+          "sha256": "278ad9ef383085fce849db3cb279a7ae6f87cfbd8036fddf58abe61fc3265114"
+        },
+        "generatedAt": "2026-11-11T03:17:09.963Z"
+      },
+      "copy": {
+        "exam": "civil-construction-1",
+        "headline": [
+          "1級土木",
+          "一次のあと",
+          "二次の準備"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/cover-pop.2bc1cc49.png",
+        "sha256": "2bc1cc49a4b3e27d7333337982325df72a757b267f4485552cbfda9008aded06",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "278ad9ef383085fce849db3cb279a7ae6f87cfbd8036fddf58abe61fc3265114"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:17:09.963Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "表紙文字『総監が制作』『1級土木』『一次のあと』『二次の準備』が指示と一字一句一致、キャラの眼鏡・ひげ・白ヘルメット・紺作業服・反射帯も崩れなし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "50257d512014f757b6a5d2796747c095a4ddc182401ca73ca395e0c7ddb28566",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の答え』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『最初に、書く工事を1つ決める』 『書く順番を決める』 『2つの管理項目に備える』。 図の下、下端の字幕の帯より上に『準備の入口』の全文を省かずに入れる。 この場面の説明（文字にしない）: 1級土木の第一次検定が終わって、第二次検定の準備を何から始めればよいか分からない。そんな方に向けて、最初にやることを、題材を決める、書く順番を決める、二つの管理項目に備える、の三つに絞ってお話しします。日程や制度の細かい条件は、受検する年の公式の案内で確かめる前提です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-premise.64e323c5.png",
+              "sha256": "64e323c55b41c28e5bde49ec4c139eab2db2e756fa6a26664acfea5b7db5ac84"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/premise-diagram.6888078a.png",
+            "sha256": "6888078ac2db31b5b2fc97819c3fddd884695671860cb44f1b61e7a7f2544ce8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "64e323c55b41c28e5bde49ec4c139eab2db2e756fa6a26664acfea5b7db5ac84"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3つの文言・下端『準備の入口』が指示と一致、重機・橋・トンネルの絵も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "67d1493a59cddec73ac4e2534362ededab840382acb784ca9d89530613c7d66e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『よくある誤解』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『まず参考書を読み進める → 書く材料が決まらない』 『工事の題材を先に決める → 読む内容が絞れる』。 図の下、下端の字幕の帯より上に『順番を逆にしない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 一次と同じ感覚で、まず参考書を読み進めたくなります。けれど二次は、知識を思い出せば解ける試験ではありません。自分が担当した工事を材料に文章を組み立てる問題があり、暗記の一夜漬けが効きにくい。だから、読む前に、何を書くかを決めるのが先です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-misread.084fdb72.png",
+              "sha256": "084fdb72f7ac141f3270274971bff245028fceaa9edc2ce7ab4d1fe02d9e1396"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/misread-diagram.00f864c7.png",
+            "sha256": "00f864c71ba76bb3df83f1ae5f63f916e4f2ef641c8d1d1e3a3bab8284abb237",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "084fdb72f7ac141f3270274971bff245028fceaa9edc2ce7ab4d1fe02d9e1396"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『よくある誤解』と左右の枠の文言・『順番を逆にしない』が指示と一致、誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "overview",
+          "inputSha256": "e4c9147726e70b484abe21c8f43f2926c7914c2ef4ca97931ec49378c8f50be7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『二次の全体像』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『施工経験記述 自分の担当工事を書く 必須の問題』 『学科記述 穴埋めや短文で 専門知識を問う』。 図の下、下端の字幕の帯より上に『二つの問題』の全文を省かずに入れる。 この場面の説明（文字にしない）: 第二次検定は、大きく二つです。一つは施工経験記述。受検者が実際に担当した土木工事について、現場でどんな施工管理をしたかを書く必須の問題で、記事では合否を左右する中心と整理しています。もう一つは学科記述で、土工やコンクリート工、品質管理などの専門知識を、穴埋めや短文で問います。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-overview.08cdcfb2.png",
+              "sha256": "08cdcfb2ad0084df09275b80c9c102d71d2eb7ead721ea4a62ccab0265a0911b"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/overview-diagram.5e8cf5f1.png",
+            "sha256": "5e8cf5f1dd1ab408cc777789c38439dd2826af68b9040ccac37e60f6dde8d186",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "08cdcfb2ad0084df09275b80c9c102d71d2eb7ead721ea4a62ccab0265a0911b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『二次の全体像』『施工経験記述』『学科記述』と各説明・『二つの問題』が指示と一致、誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "first-week",
+          "inputSha256": "aa5c464f272a2e09d6c403047cce12b659d746c488d92f551b13ec1f3a7b1b16",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『題材を1つ決める』。 図に入れる文字: 『規模や派手さは問われない』 『課題・検討・対応を語れるか』 『自分が判断して動いた場面があるか』。 図の下、下端の字幕の帯より上に『題材選びの基準』の全文を省かずに入れる。 この場面の説明（文字にしない）: 最初に決めるのは、書く工事を一つです。選ぶ基準は、工事の規模や派手さではありません。品質、安全、工程のどれについても、課題、検討したこと、実際にやったことを、具体的に語れる工事かどうか。自分が当事者として判断し、動いた場面をはっきり思い出せる工事を選びます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-first-week.c7bfc061.png",
+              "sha256": "c7bfc061961a348580d20fa27e2f85afaa62cc0f801d61e710775ae30ab6ac58"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/first-week-diagram.91835407.png",
+            "sha256": "9183540780bb6d1c7402f9ca11b6474224d91db0301491a188058f982505b042",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c7bfc061961a348580d20fa27e2f85afaa62cc0f801d61e710775ae30ab6ac58"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『題材を1つ決める』と3文言・『題材選びの基準』が指示と一致、クレーン等の図も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "build-order",
+          "inputSha256": "939ef94b3b52c995f70d88507d42c18f44c89ca4db0a3a9a71e2a79ac6341c0a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書く順番』。 図に入れる文字: 『① 工事概要を正確に書き出す』 『② 管理ごとに課題を1つずつ挙げる』 『③ 検討と対応を分けて書く』 『④ 解答欄の字数に収める』。 図の下、下端の字幕の帯より上に『肉付けの四段階』の全文を省かずに入れる。 この場面の説明（文字にしない）: 題材が決まったら、四つの順で肉付けします。一、工事名、発注者、工期、工事内容、自分の立場を正確に書き出す。二、品質、安全、工程のそれぞれで、現場で生じた課題を一つずつ挙げる。三、課題ごとに、なぜそう考えたかという検討と、実際にしたことの対応を分ける。四、解答欄の字数に収まるよう、要点を絞る。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-build-order.46e1bf69.png",
+              "sha256": "46e1bf6946ff2cf9e65594066152e77ae9348f0ae489e1255fbf268308033f97"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/build-order-diagram.64df00c8.png",
+            "sha256": "64df00c8b992f064391010256824445a4c2881d72d9906278ea5972405f535f3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "46e1bf6946ff2cf9e65594066152e77ae9348f0ae489e1255fbf268308033f97"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『書く順番』と4段階の文言・『肉付けの四段階』が指示と一致、アイコンも破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "two-themes",
+          "inputSha256": "816251483ba1b6cf617c230abf1e6874b24c8b85ad7f5f06aecbd8455ed5c79c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『令和6年度からの問われ方』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『五つの管理項目から二つ指定』 『同じ工事で両方を答える』 『二つを同じ内容にはできない』。 図の下、下端の字幕の帯より上に『5管理のうち2つ』の全文を省かずに入れる。 この場面の説明（文字にしない）: 問われ方も押さえておきます。サイト記事によると、令和6年度から、品質、安全、工程、施工計画、環境対策の五つの管理項目のうち二つが指定され、同じ工事について両方を答える形になりました。しかも二つの答えを同じ内容にはできません。どの二つが来ても書けるよう、一つの工事を複数の切り口で準備します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-two-themes.4f9e99a8.png",
+              "sha256": "4f9e99a8093efd03341f155bc666cc0df18d0f05a72880100f4dce3e4b314cec"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/two-themes-diagram.e7f624bd.png",
+            "sha256": "e7f624bd2537997a5352825d40c5ab5441c6154726351fc1e8302d944840ed1c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4f9e99a8093efd03341f155bc666cc0df18d0f05a72880100f4dce3e4b314cec"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『令和6年度からの問われ方』と3文言・『5管理のうち2つ』が指示と一致、図の破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "reason",
+          "inputSha256": "553507ecdacf00e787e84811600ea2528a6daa2b136fc7dd4eb6f318edbf53e4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読み返しの確認』。 図に入れる文字: 『課題は書けているか』 『なぜその対応にしたか、書いたか』 『結果だけの文になっていないか』。 図の下、下端の字幕の帯より上に『検討の抜けを探す』の全文を省かずに入れる。 この場面の説明（文字にしない）: ここからは、本動画の整理です。書けた下書きを読み返すとき、読む人の立場で一つだけ確かめます。結果だけでなく、なぜその対応にしたのかという判断の理由が書いてあるか。課題と対応は書けても、検討が抜けやすい。理由が一文あるだけで、現場で何を見て決めたかが読む人に伝わります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-reason.2731b02c.png",
+              "sha256": "2731b02c0b43b4afe44318ec87a16334be93c531e1207f85cf5d11cff793bed2"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/reason-diagram.a2173722.png",
+            "sha256": "a21737226342cae65c530a18fbab2226d7284e766e5791fafa150c555663cc95",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2731b02c0b43b4afe44318ec87a16334be93c531e1207f85cf5d11cff793bed2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『読み返しの確認』と3文言・『検討の抜けを探す』が指示と一致、誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "fail",
+          "inputSha256": "478b7b1ced26be9e0d964a847c25f6ef0caf1a13991069ab8d20b6e714d750ef",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『やりがちな失敗』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『題材を決めずに読み進める』 『模範答案を1本だけ暗記する』 『工事概要があいまい』 『字数を意識せずに書く』。 図の下、下端の字幕の帯より上に『先に知っておく』の全文を省かずに入れる。 この場面の説明（文字にしない）: やりがちな失敗も先に知っておきましょう。題材を決めずに参考書を読み進めて、書き始められない。模範答案を一本だけ丸暗記して、問われ方が変わると対応できない。工事概要があいまいで、後の記述と数字や工種がかみ合わない。解答欄の字数を考えずに書いて、本番で入りきらない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-fail.36f5db12.png",
+              "sha256": "36f5db12913521d4b38f78246354b37ca1377b1cd50a07ebea4ff6e423cd1f5c"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/fail-diagram.8ff60281.png",
+            "sha256": "8ff602818c1a71b8c5ff981b331892b867f2117e6c27912d727dff08bd7cd219",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "36f5db12913521d4b38f78246354b37ca1377b1cd50a07ebea4ff6e423cd1f5c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『やりがちな失敗』と4文言・『先に知っておく』が指示と一致、重機・本のアイコンも破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "schedule",
+          "inputSha256": "79e52f627e7752c5dd376a336bd35f1a89b7850894cff5cbe7b4ea410625e399",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『時間の使い方』。 図に入れる文字: 『令和8年度の例では七週間ほど』 『最初の1週間で題材を決める』 『日程は受検年度の公式で確認』。 図の下、下端の字幕の帯より上に『日程は年度ごとに確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 時間の使い方です。サイト記事は、令和8年度を例に、一次の合格発表から二次の本番まで七週間ほどと整理しています。その最初の一週間を、題材を決めるために使うという考え方です。ただ、日程は年度ごとに決まります。受検する年の日程は、全国建設研修センターの公式の案内で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-schedule.62ad76c2.png",
+              "sha256": "62ad76c2f5fe91d69b498b14adf8527392027b4160d8ab864f94ac2b5a1705fd"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/schedule-diagram.91dc7e55.png",
+            "sha256": "91dc7e558a97d89080157766c826a822b7109a92ba1d97240f42f47c0f10de39",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "62ad76c2f5fe91d69b498b14adf8527392027b4160d8ab864f94ac2b5a1705fd"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『時間の使い方』と3文言・『日程は年度ごとに確認』が指示と一致、7週の枠も本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "limit",
+          "inputSha256": "85c0df27b5e9fec9bb9d9c7da0535277cf6517652106b0ab60072896747a1d7d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『この動画の限界』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『合格を保証するものではない』 『出題の形式や手続きは変わりうる』 『最新の手引と公式の案内が優先』。 図の下、下端の字幕の帯より上に『公式の確認が先』の全文を省かずに入れる。 この場面の説明（文字にしない）: この進め方は、合格を保証するものではありません。受検資格や出題の形式、手続きは、年度の手引で変わることがあります。動画の内容よりも、受検する年に公表された最新の手引と公式の案内を優先してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-limit.fdc7a1e4.png",
+              "sha256": "fdc7a1e48d8abd6504dbe71f8682a0668be5f79256ef91eb2b41b146b5946abc"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/limit-diagram.47ff3271.png",
+            "sha256": "47ff32715c8dc3ebd231e2f51dfa09237e927c41298db9c423ae605c28f6c6aa",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fdc7a1e48d8abd6504dbe71f8682a0668be5f79256ef91eb2b41b146b5946abc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『この動画の限界』と3文言・『公式の確認が先』が指示と一致、誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "d56d7bd2c0cf7cecddfd299e835935e3a33e537f890bb8b2410ddb55fb408baa",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『書く工事を1つ決める』 『概要→課題→検討と対応→字数』 『2つの管理項目に備える』 『日程は受検年度の公式で確認』。 図の下、下端の字幕の帯より上に『本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。一、一次のあとは、参考書の前に、書く工事を一つ決める。二、概要、課題、検討と対応、字数の順で肉付けする。三、五つの管理項目のうち二つが問われるので、切り口を複数用意する。四、日程は年度ごとなので、公式で確認する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-recap.2a5f5989.png",
+              "sha256": "2a5f59899788222b2ccd7c6b2a08c33c7cd118da49bf7a4fcbaa578d104692c5"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/recap-diagram.b65faa55.png",
+            "sha256": "b65faa5574078d4cc870ab2b948e6ae9e7979df745146b20c3267882f2eca340",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2a5f59899788222b2ccd7c6b2a08c33c7cd118da49bf7a4fcbaa578d104692c5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『今日のまとめ』と4文言・『本動画の整理』が指示と一致、誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "538b895360490555bafb4342da2d415bd1ce3e6b4a28e4602675bf3809ea074f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『二次の対策をまとめて進めるなら』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『経験記述と学科記述の両方を扱う』 『リンクは概要欄から』。 図の下、下端の字幕の帯より上に『1級土木 二次検定まるごとパック』の全文を省かずに入れる。 この場面の説明（文字にしない）: 二次をまるごと対策する教材の案内を、概要欄に置いています。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/factory/raw-cta.8682a199.png",
+              "sha256": "8682a1995c4e8b629108e6fb82cce90fbf13fb64738068a1c79364bb3c2e8841"
+            },
+            "generatedAt": "2026-11-11T03:17:09.963Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/cta-diagram.fc68bbb8.png",
+            "sha256": "fc68bbb84a89461dc1a1af1b296c555d5a43fb8f001cf6aa363bdc7cedc97183",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8682a1995c4e8b629108e6fb82cce90fbf13fb64738068a1c79364bb3c2e8841"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:17:09.963Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・『経験記述と学科記述の両方を扱う』『リンクは概要欄から』・『1級土木 二次検定まるごとパック』が一致、価格・URLなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

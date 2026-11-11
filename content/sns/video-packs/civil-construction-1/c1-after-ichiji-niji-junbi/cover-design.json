@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "civil-1",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 2,
       "subtitle": "",
-      "character": {
-        "pose": "checklist-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "plan",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/c1-after-ichiji-niji-junbi/work/cover-pop.2bc1cc49.png",
+        "sha256": "2bc1cc49a4b3e27d7333337982325df72a757b267f4485552cbfda9008aded06",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "dec058b996328e3ca9dd7a3deef7212ab1a12cf55216954f6803207de0b1b169"
+      }
     }
   }
 }
