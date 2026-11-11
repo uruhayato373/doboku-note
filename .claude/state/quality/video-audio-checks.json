@@ -564,7 +564,7 @@
     },
     "pe-construction/pe-road-shutsudai-yomikata/youtube.longform": {
       "videoSha256": "368f762cf33f0e4efbc339aca761737fcebc814d6fb7a646ac5ca3a89675d0f3",
-      "at": "2026-11-11T02:44:23.979Z",
+      "at": "2026-11-11T03:51:02.936Z",
       "similarity": 0.933,
       "maxVolumeDb": -1.4,
       "durationGapSec": 0,
@@ -575,7 +575,7 @@
     },
     "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform": {
       "videoSha256": "6f839216bb92452599e5f64a29efa106ccfcda2ee56d977bb5ef4369692fc65b",
-      "at": "2026-11-11T02:44:46.795Z",
+      "at": "2026-11-11T03:51:31.186Z",
       "similarity": 0.943,
       "maxVolumeDb": -1.4,
       "durationGapSec": 0,
@@ -659,6 +659,226 @@
       "chars": {
         "expected": 1050,
         "heard": 995
+      }
+    },
+    "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform": {
+      "videoSha256": "6140a14d28670bd29b0ae2f882e6e86a2bc2e8cdbd5c1731de78c3c9f4772eb1",
+      "at": "2026-11-11T03:47:26.077Z",
+      "similarity": 0.979,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1029,
+        "heard": 1003
+      }
+    },
+    "civil-construction-1/owner-career-before-moving/youtube.longform": {
+      "videoSha256": "7ed85fd9f4f7d12f9b316f4bf000438df2ac6235f396a5f4fab4f619d654965b",
+      "at": "2026-11-11T03:59:16.459Z",
+      "similarity": 0.98,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1251,
+        "heard": 1201
+      }
+    },
+    "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform": {
+      "videoSha256": "1d65885c58a86715d34e84b8995e73ed9b0cb156857d4142f78d7fe513459add",
+      "at": "2026-11-11T03:48:25.662Z",
+      "similarity": 0.974,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1160,
+        "heard": 1105
+      }
+    },
+    "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "8520fd55e5c81c8ab8da5344f8be876c3ce99c39922da434be9e8b70264ab4eb",
+      "at": "2026-11-11T03:48:57.553Z",
+      "similarity": 0.947,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1323,
+        "heard": 1278
+      }
+    },
+    "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform": {
+      "videoSha256": "b89399f2cfb8d9e6f7d985bc92733bbb38e04e6beb0d342a63e758058e9a5ab7",
+      "at": "2026-11-11T03:49:27.567Z",
+      "similarity": 0.968,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1173,
+        "heard": 1121
+      }
+    },
+    "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform": {
+      "videoSha256": "f7e7533cae4a3b863069f8996f2b7954527517ba885ddba569fd9feb7eb3927b",
+      "at": "2026-11-11T03:50:00.801Z",
+      "similarity": 0.956,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1442,
+        "heard": 1381
+      }
+    },
+    "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform": {
+      "videoSha256": "8dbdca9a16f49eb03952e11cb9b2694397a85bbe6b0bae387b948b069922fa65",
+      "at": "2026-11-11T03:50:31.033Z",
+      "similarity": 0.975,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1109,
+        "heard": 1073
+      }
+    },
+    "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "83f5bdfe4f7d7df7962ddaf38b984077970016c2fb55c31d85d7a2b09904fbbb",
+      "at": "2026-11-11T03:52:01.564Z",
+      "similarity": 0.954,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1318,
+        "heard": 1243
+      }
+    },
+    "pe-construction/pe-hissu1-jikan-haibun/youtube.longform": {
+      "videoSha256": "aea9b0a3480d94b72735b70129f1bde2576b7fb01d948a4f0440e293cf5c8f56",
+      "at": "2026-11-11T03:52:27.760Z",
+      "similarity": 0.958,
+      "maxVolumeDb": -1.3,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1029,
+        "heard": 962
+      }
+    },
+    "civil-construction-1/c1-after-ichiji-niji-junbi/youtube.longform": {
+      "videoSha256": "9d5633de2b3c1c911f6ce827db9e564261bebfe4540492f6fecaee7746ac0e4f",
+      "at": "2026-11-11T03:53:00.076Z",
+      "similarity": 0.971,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1485,
+        "heard": 1427
+      }
+    },
+    "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform": {
+      "videoSha256": "de384fda73c0833cecb8992cd05ccbeef6ab91a4558af0c06b7285628fc231c7",
+      "at": "2026-11-11T03:53:29.519Z",
+      "similarity": 0.935,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1682,
+        "heard": 1597
+      }
+    },
+    "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform": {
+      "videoSha256": "7f262189c7e76fb55f07f87dc96c821aeb0a95dd72c28fe8cdb64bb0aadbd472",
+      "at": "2026-11-11T03:53:58.404Z",
+      "similarity": 0.963,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1454,
+        "heard": 1410
+      }
+    },
+    "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform": {
+      "videoSha256": "9c2ca6950134ee7ebae693ae673683727ddba25dfd328034d4d650c00f50b186",
+      "at": "2026-11-11T03:54:31.245Z",
+      "similarity": 0.905,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1349,
+        "heard": 1266
+      }
+    },
+    "civil-construction-1/c1-keiken-anzen-kakikata/youtube.longform": {
+      "videoSha256": "45308153612e5a97447a50a16935e7d841f8dd7516a3bbcef92ccd1491cf83c0",
+      "at": "2026-11-11T03:55:09.199Z",
+      "similarity": 0.973,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1837,
+        "heard": 1756
+      }
+    },
+    "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.longform": {
+      "videoSha256": "312dc3b0ed124afcd2e451369262899bcff33dc1d5e18268e898241c10769c8f",
+      "at": "2026-11-11T03:55:49.847Z",
+      "similarity": 0.951,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1873,
+        "heard": 1758
+      }
+    },
+    "civil-construction-1/c1-next-license-after-first/youtube.longform": {
+      "videoSha256": "07b0e18c18012395509bad593f3159f1c52cd2e6fd4e69ba83b8e6e2a3284e79",
+      "at": "2026-11-11T03:56:28.431Z",
+      "similarity": 0.964,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1359,
+        "heard": 1321
+      }
+    },
+    "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform": {
+      "videoSha256": "16ea3c1d22a932a24e300543a6ea0f4a65e80e2c6ec5035d2784c4b2744f06b1",
+      "at": "2026-11-11T03:57:09.461Z",
+      "similarity": 0.97,
+      "maxVolumeDb": -1.3,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1260,
+        "heard": 1211
+      }
+    },
+    "civil-construction-2/keiken-anzen-kakikata/youtube.longform": {
+      "videoSha256": "8b3f70b88f5d4fbe3234a27c38b5056197459e645d16d7228ca4107722c6249f",
+      "at": "2026-11-11T03:57:37.288Z",
+      "similarity": 0.957,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 684,
+        "heard": 654
+      }
+    },
+    "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform": {
+      "videoSha256": "17a1e018dd2a624642579f62a4e4b396d84cdce853727f40b70486afee17283a",
+      "at": "2026-11-11T03:58:00.895Z",
+      "similarity": 0.954,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 636,
+        "heard": 608
+      }
+    },
+    "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform": {
+      "videoSha256": "b118b405e7340b7924ea05f27dfb4d1543d7bd71fc4bc355d61ad62c5436d212",
+      "at": "2026-11-11T03:58:23.890Z",
+      "similarity": 0.928,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 693,
+        "heard": 659
       }
     }
   }

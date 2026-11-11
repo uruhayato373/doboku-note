@@ -5,7 +5,14 @@
     {
       "id": "c1-after-ichiji-niji-junbi",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/c1-after-ichiji-niji-junbi"
+      "definition": "content/sns/video-packs/civil-construction-1/c1-after-ichiji-niji-junbi",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "03cc629917f5b47a3585e29849e691d872cffde0dee72ee94e2f126dd6ddaccc"
+      }
     },
     {
       "id": "c1-juken-junjo-2027",
@@ -23,32 +30,74 @@
     {
       "id": "c1-keiken-anzen-kakikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-anzen-kakikata"
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-anzen-kakikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "571d311f42f09abc39fed8c9bb798c735aa6ce34b7a28796d7f689fb86922e7c"
+      }
     },
     {
       "id": "c1-keiken-hacchusha-yomu",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-hacchusha-yomu"
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-hacchusha-yomu",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "81eea87128141b81d005c2cfc53070dd418b887b4593af6f094d1dc09906821e"
+      }
     },
     {
       "id": "c1-keiken-hinshitsu-kakikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-hinshitsu-kakikata"
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-hinshitsu-kakikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "7a6ee0cf5fbf04a3e0614982f92e194e1b6c931088cc294f4c61a94c1ac412e0"
+      }
     },
     {
       "id": "c1-keiken-kouji-gaiyou",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-kouji-gaiyou"
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-kouji-gaiyou",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "2b03eaddbe26995de9be12ad21e25be02182cdd531b1ffcdcaab3d8666c4098f"
+      }
     },
     {
       "id": "c1-keiken-ochiru-naoshikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata"
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "3070dcd0d4e46cde6965e552562f47317cfb403604a02d2c48f358356a070c3f"
+      }
     },
     {
       "id": "c1-next-license-after-first",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/c1-next-license-after-first"
+      "definition": "content/sns/video-packs/civil-construction-1/c1-next-license-after-first",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "33ec4fac7c47c47acfa65eeb6d97b19b807dc259c226a531d4771ba4b3ebacc0"
+      }
     },
     {
       "id": "civil-09-a",
