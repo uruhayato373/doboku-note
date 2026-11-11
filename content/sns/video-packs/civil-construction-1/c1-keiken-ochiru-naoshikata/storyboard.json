@@ -346,5 +346,12 @@
       },
       "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
 }

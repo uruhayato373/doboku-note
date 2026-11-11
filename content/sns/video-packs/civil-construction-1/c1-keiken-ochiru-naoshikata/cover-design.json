@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "civil-1",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "checklist-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/work/cover-pop.80061c12.png",
+        "sha256": "80061c12b1cd54a5f4f7002fa46a96ddf9c970fee69aa92d45a22b3cb2df9442",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "0af089853dfd15771b4422cf601b62946336737d59178b8ab7fdb668d00b158e"
+      }
     }
   }
 }
