@@ -31,7 +31,7 @@ const LEGACY = [
   ['scripts/check-note-charlimits.mjs', ['--staged'], 'always'],
   ['scripts/keiken-charcount.mjs', ['--staged', '--strict'], 'always'],
   ['scripts/check-magazine-wiring.mjs', ['--staged'], 'always'],
-  ['scripts/check-magazine-cta-reachability.ts', ['--ci'], { staged: /^src\/lib\/(note-magazines|magazine-placement|hub-cta)\.ts$/ }],
+  ['scripts/check-magazine-cta-reachability.ts', ['--ci'], { staged: /^src\/lib\/(note-magazines|magazine-placement|hub-cta)\.ts$/, orAddedArticle: true }],
   ['scripts/check-note-price-consistency.mjs', ['--staged'], 'always'],
   ['scripts/check-magazine-membership.mjs', ['--staged'], 'always'],
   ['scripts/check-relative-links.mjs', ['--staged'], 'always'],
@@ -127,7 +127,7 @@ function legacyPlan(ctx, { gated = false } = {}) {
         if (mode === 'eq1' ? v === '1' : v !== undefined && v !== '') continue;
       }
       if (cond.file && !ctx.exists(script)) continue;
-      if (cond.staged && !ctx.staged.some((f) => cond.staged.test(f))) continue;
+      if (cond.staged && !ctx.staged.some((f) => cond.staged.test(f)) && !(cond.orAddedArticle && ctx.entries.some((e) => e.status === 'A' && /^content\/site\/.+\/article\.mdx$/.test(e.path)))) continue;
       if (cond.docsOrBacklog && !ctx.staged.some((f) => f.startsWith('docs/') || f === '.claude/todo/backlog.md')) continue;
       if (cond.contentQuality && ctx.contentQualityFiles.length === 0) continue;
     }
@@ -159,6 +159,7 @@ test('全量を走査する 2 検査を除き、どの staged でも旧フック
     ['何も staged していない', makeCtx()],
     ['記事 1 本（published: true）', makeCtx({ staged: [mdx], contentQualityFiles: [mdx] })],
     ['記事 1 本（下書き）', makeCtx({ staged: [mdx] })],
+    ['記事を新規追加（status A）', makeCtx({ staged: [mdx], status: 'A', contentQualityFiles: [mdx] })],
     ['記事 3 本', makeCtx({ staged: [mdx, 'content/site/a/b/article.mdx', 'content/site/a/c/article.mdx'], contentQualityFiles: [mdx, 'content/site/a/b/article.mdx'] })],
     ['マガジンの CTA 配線（note-magazines.ts）', makeCtx({ staged: ['src/lib/note-magazines.ts'] })],
     ['magazine-placement.ts', makeCtx({ staged: ['src/lib/magazine-placement.ts'] })],

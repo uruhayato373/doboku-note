@@ -20,7 +20,8 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
   assert.equal(katex.files.length, 2);
   assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/audit-katex-warnings.mjs', '--strict']);
   // SNS の検査は SNS の保留に合わせて 2026-10-25 に CI と pre-commit の速い検査から外した（再開するときに作り直す）
-  assert.deepEqual(planGates(['content/sns/x/review.json']).map((g) => g.id), []);
+  // content/sns の json・md・txt は素材の参照の検査（media-references）だけ回す（下のテスト）
+  assert.deepEqual(planGates(['content/sns/x/review.json']).map((g) => g.id), ['media-references']);
   assert.deepEqual(only(['config/note-funnel.json']), ['note-paid-cta']);
   assert.deepEqual(planGates(['docs/README.md']).map((g) => g.id), ['unit-tests', 'domains'], 'docs は領域の割り当て（check-domains）と backlog 参照のテスト');
   assert.deepEqual(planGates(['README.md']), []);
@@ -142,4 +143,14 @@ test('failureLines: 落ちたテストの行と理由だけを抜き出す（末
   assert.deepEqual(failureLines(out), ['not ok 2 - b', '  error: x', '  expected: true', '  actual: false', '  ...']);
   assert.ok(!out.split('\n').slice(-25).includes('not ok 2 - b'), '末尾 25 行には落ちた行が残らない例');
   assert.deepEqual(failureLines('ok 1 - a\nok 2 - b'), []);
+});
+
+test('content/sns の文書を stage したら素材の参照（check-media-references）を先に回す', () => {
+  // content/sns/video-packs/**/pop-image.json の .tmp/media/ 参照の欠けは、CI の media-references でしか落ちなかった
+  const ids = (files) => planGates(files).map((g) => g.id);
+  assert.ok(ids(['content/sns/video-packs/x/pop-image.json']).includes('media-references'));
+  assert.ok(ids(['content/sns/x/y.md']).includes('media-references'));
+  assert.ok(!ids(['content/sns/x/y.png']).includes('media-references'), '走査対象は json・md・txt だけ');
+  assert.ok(!ids(['content/site/a/b/article.mdx']).includes('media-references'));
+  assert.deepEqual(GATES.find((g) => g.id === 'media-references').cmd([]), ['node', 'scripts/check-media-references.mjs']);
 });
