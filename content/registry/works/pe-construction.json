@@ -109,7 +109,14 @@
       "id": "pe-gyoumu-shousai-720",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-gyoumu-shousai-720",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "92f7a1e2a09f5e32772a541949398666b107b8e2af0258fc8bab632fa153d14a"
+      }
     },
     {
       "id": "pe-hissu1-jikan-haibun",
@@ -134,17 +141,38 @@
     {
       "id": "pe-ii1-kakikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-ii1-kakikata"
+      "definition": "content/sns/video-packs/pe-construction/pe-ii1-kakikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "d354ea04dc1f95317e44ec7a1ca77d516098330f3917134dfa34a60afe46329c"
+      }
     },
     {
       "id": "pe-ii2-kakikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-ii2-kakikata"
+      "definition": "content/sns/video-packs/pe-construction/pe-ii2-kakikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "0d99be0421e6ff84bf2cd38221720866bb0eef70505bcd8a7962848ab5236b61"
+      }
     },
     {
       "id": "pe-iii-kakikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-iii-kakikata"
+      "definition": "content/sns/video-packs/pe-construction/pe-iii-kakikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "9cb2586910fcfbe599bfc311071639f260f94bdd9207053c777443ee9c64c4bb"
+      }
     },
     {
       "id": "pe-kojutsu-fukabori",
@@ -189,12 +217,26 @@
     {
       "id": "pe-road-shutsudai-yomikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata"
+      "definition": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "c423b6a67bdf8e050d27f8069fe369edd2c057ed4c6fa7099023ba281d7b12e6"
+      }
     },
     {
       "id": "pe-tunnel-shutsudai-yomikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata"
+      "definition": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "5099cf944ee20181b5bbfed82ecd02f2991477b21a198a4381289709797c806e"
+      }
     },
     {
       "id": "pe-urban-planning-shutsudai-yomikata",
