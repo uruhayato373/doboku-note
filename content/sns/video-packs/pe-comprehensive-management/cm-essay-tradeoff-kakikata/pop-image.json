@@ -955,12 +955,213 @@
         "savedAt": "2026-11-11T10:18:08.805Z",
         "cloudVerified": true
       }
+    },
+    "shorts-pop-point-rekkyo-2-20261112": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.short.point-rekkyo-2",
+      "key": "point-rekkyo-2",
+      "sceneId": "avoid",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "657725d208e3cf815fcdebfa029c312fa072dd7b9df683c9152c2afd8d1fc302",
+          "narration": "トレードオフの裏の問題点、管理名を並べれば書けるでしょうか？",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 黄色と白の極太文字。 上部に『技術士 総監』。最も大きく見出しを 2 行で書く: 1 行目〈『管理名を〉、2 行目〈並べれば』？〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「誤解を壊す」。見出しは思い込みの一言の引用と「？」だけで問う。✕は描かない。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「答案を見て考える」: 両手で答案用紙を胸の前に持ち、紙を見下ろして考える顔。指は紙の縁にかかって 5 本見える。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生は両手で答案用紙を1枚胸の前に持ち、紙を見下ろして考える顔をする。指は紙の縁にかかって左右とも5本見える。紙の中は短い横線（文字ではなく線）だけにする。見出しの周りに記号は置かない。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-cover.6b4850d2.png",
+              "sha256": "6b4850d2b619ed75ec1418c214e97f87c76dfdfe9b2bb57b622f0a8d75d69b4c"
+            },
+            "generatedAt": "2026-11-11T22:31:23.016Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.short.point-rekkyo-2/cover.cba6ef1b.png",
+            "sha256": "cba6ef1b1b170e98906a60fed1c15004d40e7253220b531cf0db1d3511ab8df9",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6b4850d2b619ed75ec1418c214e97f87c76dfdfe9b2bb57b622f0a8d75d69b4c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:31:23.016Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は「技術士 総監」「『管理名を」「並べれば』？」と指示どおりで誤字なく、左右余白は約7%以上で切れなし。✕・下線・余計な記号なし、紙は横線のみ、先生は同一性・両手5本指・胴体が下端まで続く。誤解を壊す型の問う見出しに合う"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "ab80eb7111013cb6b141d183fd651709386cfccf27e2904da9d1b31297091254",
+          "narration": "裏の問題点を書く場面で、管理名を並べるだけで終える。これは、避けたい書き方の一つです。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 総監』。大きな番号『1』と見出し『管理名を並べて終える』。 図: 中央に大きな答案用紙を1枚描き、紙の中に『管理名を並べて終える』の1行。その1行の右に大きな赤い✕印を1つ、文字に重ねずに置く。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-scene-001.d2377caa.png",
+              "sha256": "d2377caa4724b6cad599424e232680d6f564fc0bb3352bab6ea32e7d0d624a0f"
+            },
+            "generatedAt": "2026-11-11T22:31:23.016Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.short.point-rekkyo-2/scene-001.5e89a5e3.png",
+            "sha256": "5e89a5e39d2ce5da616cb6e9310ff1cb6ba148f7cac9bde848e777bf47e584ce",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d2377caa4724b6cad599424e232680d6f564fc0bb3352bab6ea32e7d0d624a0f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:31:23.016Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "技術士 総監・1・管理名を並べて終える・紙の中の1行が指示と一致し、✕は文字に重ならず欠けも無い。見出し右端が画面端に近いが切れてはいない"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "84507112e08dc9c87bda12e0223bdf3e443df0814ae8043ea5134eec58a8b936",
+          "narration": "名前を並べただけでは、一文の形になりません。施策で何が良くなり、裏で何が課題になるのかが、答案に残らないからです。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 総監』。大きな番号『2』と見出し『一文になっていない』。 図: 左右に2つの大きな角丸の箱を並べる。左の箱に『管理名の列挙』、右の箱は空のまま点線の枠にして『一文の形』。右の箱の横に大きな『？』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-scene-002.04075085.png",
+              "sha256": "040750854fe371b95b0b8b1a36b89a3fa70cda4c15e6a6ed56ed446980f40d6d"
+            },
+            "generatedAt": "2026-11-11T22:31:23.016Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.short.point-rekkyo-2/scene-002.e50ac846.png",
+            "sha256": "e50ac8464da8f400d681d70c0cb880ee923cd74de747800970a23503bb52679e",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "040750854fe371b95b0b8b1a36b89a3fa70cda4c15e6a6ed56ed446980f40d6d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:31:23.016Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "技術士 総監・2・一文になっていない・管理名の列挙・一文の形・？が指示と一致。右の箱は点線の空枠で、文字の欠けや余計な文字は無い"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "19d825fcf94584420b3d84074c3388522abae90e8d15a8b96bbe1c6770f5377a",
+          "narration": "代わりに、答案は一文の形にして書きます。管理名は、その文の中で自然に出せば足ります。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 総監』。大きな番号『3』と見出し『管理名は文の中で』。 図: 左右に2つの大きな角丸の箱を並べ、左から右へ太い矢印を1本。左の箱に『管理名の列挙』、右の箱に『文の中で管理名を出す』。右の箱を黄色で強調する。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-scene-003.2fca747d.png",
+              "sha256": "2fca747d0e68e5e42c174c5735905e578d5221d306caf3a248cda74e027bfd7b"
+            },
+            "generatedAt": "2026-11-11T22:31:23.016Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.short.point-rekkyo-2/scene-003.77832a37.png",
+            "sha256": "77832a373c6dc88cde625d1c80c11e16a46c0f4325c7a9d12512a04c182582e3",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2fca747d0e68e5e42c174c5735905e578d5221d306caf3a248cda74e027bfd7b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:31:23.016Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "技術士 総監・3・管理名は文の中で・管理名の列挙・文の中で管理名を出す が一致。矢印は左から右へ1本、右の箱は黄色で強調、文字の欠けは無い"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "1418ea1b9efdef79800720ba719d80d4cd4d0282409ddf684bf448670214e435",
+          "narration": "一文に入れる三つの順は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 大きく『一文に入れる三つの順は』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『技術士 総監』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/work/factory/raw-cta.bfe3d6d6.png",
+              "sha256": "bfe3d6d6bcf39f915ee40d185fdec58de54d09ae3c535900b33f8f43286ae61e"
+            },
+            "generatedAt": "2026-11-11T22:31:23.016Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.short.point-rekkyo-2/cta.7711fe2a.png",
+            "sha256": "7711fe2a0291e7da32e8a83f923a699a57c80d6e0e31fee68e81908a3111d499",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bfe3d6d6bcf39f915ee40d185fdec58de54d09ae3c535900b33f8f43286ae61e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:31:23.016Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "一文に入れる三つの順は・本編で・関連動画から と下向き矢印が指示と一致し、資格名は無い。先生は手5本で崩れず胴体は下端まで続く。見出しは左右の端に近いが切れてはいない"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "f035a1498f2fa1c7da90b6c5332b2436457ee1328cf2b8e7f7179b287680de41",
+        "durationSeconds": 30.784,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "fail",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "軸5（画面品質）が2点。締めの画面の冒頭行「一文に入れる三つの順は」の左右の余白が約3%で、合否の線の5%を下回る。表紙の見出しも約4.6%で線に届かない。平均は3.8で合格線の4.0に届かない。",
+        "videoSha256": "f035a1498f2fa1c7da90b6c5332b2436457ee1328cf2b8e7f7179b287680de41",
+        "checkedAt": "2026-11-11T22:39:48.952Z"
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261111",
   "activeBodyRevision": "body-diagram-20261111",
   "activeShorts": {
     "point-kanrikadai-1": "shorts-pop-point-kanrikadai-1-20261111",
-    "point-rekkyo-2": "shorts-pop-point-rekkyo-2-20261111"
+    "point-rekkyo-2": "shorts-pop-point-rekkyo-2-20261112"
   }
 }
