@@ -468,8 +468,212 @@
           }
         }
       ]
+    },
+    "shorts-pop-point-risk-2-20261111": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2",
+      "key": "point-risk-2",
+      "sceneId": "iii",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "50ffc63ad7a7ece6bc44bd4eec09e5e1f61b762d3a17f0b254e952b239ed99b3",
+          "narration": "土質及び基礎のIII、解決策の後に何を答えますか？",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『IIIは』『最後に』『何を書く？』、小さな黄色帯に『総監が制作』。 表紙の型は「1 問で確かめる」。見出しの下に問題文の紙を 1 枚置き、大きな『？』を添える。先生は紙を指さす。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指を伸ばして見出しの下の問題用紙を指さし、左手（画面右側）は腰に当てる。指は5本で、伸ばすのは人差し指だけ。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-cover.a24f054a.png",
+              "sha256": "a24f054aea7986e95c470ed5f4fdd6eef12854a71b9402052ef2e005fd3e7b78"
+            },
+            "generatedAt": "2026-11-11T10:10:55.317Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2/cover.ea71f5a1.png",
+            "sha256": "ea71f5a147669092f3e8a46e8e534831a2520d1f8d7fe351700ca80612d3136f",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a24f054aea7986e95c470ed5f4fdd6eef12854a71b9402052ef2e005fd3e7b78"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:10:55.317Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示文字を1字ずつ照合し誤字・欠けなし、型は問題用紙と大きな？を先生が人差し指で指す形、指5本・左手は腰・胴体は下端まで連続。見出しは左右端に近いが切れてはいない"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "39b7457a8f0582d4883af6d27c035c37f9c69300bda9a5ac32d8652b6f5f17eb",
+          "narration": "令和8年度のIIIは、技術課題を観点を明記して3つ以上挙げ、重要な一つに解決策を示す構成でした。では、その次に何を答えるでしょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『1』と見出し『解決策の次は？』。 図: 中央に大きな問題用紙を1枚描き、縦に3つの帯を並べる。上から『（1）技術課題を3つ以上・観点を明記』『（2）最も重要な課題の解決策』『（3）』。3つ目の帯の中は空けて大きな『？』を置く。上端に小さく『令和8年度 III』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-scene-001.89c9ba0f.png",
+              "sha256": "89c9ba0f7246ea799a856a707b804167c4fa70468e3ebf8213dfa81877af85be"
+            },
+            "generatedAt": "2026-11-11T10:10:55.317Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2/scene-001.fdafb50f.png",
+            "sha256": "fdafb50f897b6321f604341ac9c4a1eb485b05dc0373b0702a1abe54c18b333f",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "89c9ba0f7246ea799a856a707b804167c4fa70468e3ebf8213dfa81877af85be"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:10:55.317Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "技術士 建設部門・1・解決策の次は？・令和8年度 III・(1)(2)(3)の帯と？を指示どおり正確に描画、文字の欠け・余計な文字なし"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "29f88e8b2d09413ee2cefe56aa663c731b7dccf6a3c9a73301445d4eeb2c8dd4",
+          "narration": "答えは、解決策を実行しても残るリスクです。ここまで答える構成でした。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『2』と見出し『残るリスクまで』。 図: 上から下へ3つの大きな箱を太い矢印でつなぐ。上から『技術課題』『解決策』『残るリスク』。一番下の『残るリスク』の箱を黄色で強調する。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-scene-002.369fe279.png",
+              "sha256": "369fe2799c40d2ee168e1a93d1e8fbe0348121af3022e364f8126862a405ecdb"
+            },
+            "generatedAt": "2026-11-11T10:10:55.317Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2/scene-002.ced7db89.png",
+            "sha256": "ced7db8917cd3bd18ee93e444f003f63b7f10d4790457acfd7efb2c0b6ff03cd",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "369fe2799c40d2ee168e1a93d1e8fbe0348121af3022e364f8126862a405ecdb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:10:55.317Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "技術課題→解決策→残るリスクの3箱と矢印、最下段が黄色強調、見出し・ラベルの文字は誤字・欠けなし"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "7e134ce948699d4185103034174439b221f0592196ea3427168968db68ce5e4d",
+          "narration": "設問が一から三まで並ぶときは、その順に答えます。盛土の問題では、対象とする盛土を先に述べる指定もありました。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『3』と見出し『並ぶ順に答える』。 図: 左に縦に並んだ番号『1』『2』『3』、それぞれから右へ短い矢印を引き、右に答案用紙を1枚。答案用紙の一番上の行に赤ペンの線と『対象の盛土を先に』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-scene-003.cf45e565.png",
+              "sha256": "cf45e565a761ea6df528cfb51f9b0e1d0abd4c17a5011151267dc17664fd1028"
+            },
+            "generatedAt": "2026-11-11T10:10:55.317Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2/scene-003.a861f0cc.png",
+            "sha256": "a861f0cc1cee7cad4fa55a160023a61e53e935b245c0aa252fa371cb114b454a",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cf45e565a761ea6df528cfb51f9b0e1d0abd4c17a5011151267dc17664fd1028"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:10:55.317Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "番号1〜3と矢印、答案用紙の最上行に赤線と対象の盛土を先に、見出し並ぶ順に答えるも誤字・欠けなし"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "b3194d29d2fe279dfd4fa26c5e1dab9a0b9b397c4a69cf2647725942f4dec23b",
+          "narration": "II-1とII-2の読み方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 大きく『II-1とII-2の読み方は』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『技術士 建設部門』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/work/factory/raw-cta.bff31cbf.png",
+              "sha256": "bff31cbfbde1fbae2e9780927ee8a7b3c30d416abe1932f0ca179aea9b3ca725"
+            },
+            "generatedAt": "2026-11-11T10:10:55.317Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2/cta.c3889c8a.png",
+            "sha256": "c3889c8acbee03bd9f836e8dafbba550cd22ce6c384c87439c772d8a75ba8e0d",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bff31cbfbde1fbae2e9780927ee8a7b3c30d416abe1932f0ca179aea9b3ca725"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:10:55.317Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "II-1とII-2の読み方は／本編で／関連動画から＋下向き矢印の文字が正確で欠けなし、先生は掌で矢印を示し右手は拳、指は自然、胴体は下端まで連続"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "193a2a50839e2838c6511e5f1ba9597021307d2510cda318b0e4e2f3ceb6a51c",
+        "durationSeconds": 32.821333,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "fail",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "表紙の上端の小見出し「技術士 建設部門」が画面の上端で文字の上部が切れており、軸5は2点以下で不合格。ほかの軸は合格水準。",
+        "videoSha256": "193a2a50839e2838c6511e5f1ba9597021307d2510cda318b0e4e2f3ceb6a51c",
+        "checkedAt": "2026-11-11T10:12:30.600Z"
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261111",
-  "activeBodyRevision": "body-diagram-20261111"
+  "activeBodyRevision": "body-diagram-20261111",
+  "activeShorts": {
+    "point-risk-2": "shorts-pop-point-risk-2-20261111"
+  }
 }
