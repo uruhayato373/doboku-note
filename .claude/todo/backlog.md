@@ -566,7 +566,7 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 ## 🟡 中 — 重要度が中くらい
 
 ### [DN-1133] 並行セッション対応: push 時に develop の赤を知らせ、git stash と git add -A をフックで止める
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11]
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11] [進行中]
 
 develop の赤を知らせるのはセッション開始時の 1 回だけで、長いセッションは赤の上に push し続ける（2026-11-11 に DN-1001 の赤が 4 時間以上続いた）。共有チェックアウトで禁止の git stash・git add -A は CLAUDE.md と記憶メモの散文だけでフックは止めていない。(1) develop への git push のとき最新の検査結果を 1 行出す (2) git stash（list・show 以外）と git add -A / --all / . を BLOCK する (3) ci.yml の失敗 Issue に「最後の緑..今回」の commit の件名を載せる。完了条件: tests/agent-hooks.test.mjs に足したテストが通る／check-workflow-hygiene・check-codex-compat が通る
 
