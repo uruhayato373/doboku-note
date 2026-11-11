@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **65**（更新: 2026-11-11）
+パック数: **66**（更新: 2026-11-11）
 
 ## 1級土木施工管理技士（9）
 
@@ -68,11 +68,12 @@
 | `pe-tunnel-shutsudai-yomikata` | 技術士建設部門 トンネル｜出題の読み方と書き方 | トンネルの過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、山岳・開削・シールドの条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-tunnel-magazine` |
 | `toan-kousei-template` | 答案構成のテンプレート — 課題抽出から効果・リスクまで | 書き始めてから構成が崩れ時間内に論文がまとまらない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 
-## 技術士（総合技術監理部門）（10）
+## 技術士（総合技術監理部門）（11）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `cm-fugokaku-tenken` | 総監｜落ちた原因を点検して学習を始め直す | 不合格の原因が分からないまま、同じ勉強を最初から繰り返してしまう | diagnosis | 未登録 | 台本/構成 | `essay-core-pack` |
+| `cm-mondaibun-yomikata` | 総監 記述｜問題文の読み方 | 問題文が長く、どこを拾って答案の条件にすればよいか分からない | howto | 未登録 | 台本/構成 | `essay-core-pack` |
 | `gyoumu-keireki-kakikata` | 総監｜業務経歴の書き方 | 業務経歴票で何を書けば通るのか分からず、手が止まる | howto | 未登録 | 台本/構成 | `essay-complete-pack` |
 | `hakusho-kadai-erabu` | 総監 記述｜白書から課題を選ぶ | 白書をどこまで読み、どの課題を答案に使えばよいか分からない | howto | 未登録 | 台本/構成 | `setsumon3-policy-bank` |
 | `hakusho-shisaku-kaiketsu` | 総監 記述｜白書の施策を解決策へつなぐ | 白書で施策を見つけても、答案の解決策にどう書き換えればよいか分からない | howto | 未登録 | 台本/構成 | `setsumon3-policy-bank` |

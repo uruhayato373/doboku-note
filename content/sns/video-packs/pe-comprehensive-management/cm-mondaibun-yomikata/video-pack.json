@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "cm-mondaibun-yomikata",
+  "exam": "pe-comprehensive-management",
+  "title": "総監 記述｜問題文の読み方",
+  "audience": "総監の記述式に向けて、問題文の読み方から固めたい受験者",
+  "pain": "問題文が長く、どこを拾って答案の条件にすればよいか分からない",
+  "promise": "問題文を四つの要素に分け、順に読んで答案の条件に変える手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/img/figure-4-02.svg"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "essay-core-pack",
+    "campaign": "cm-mondaibun-yomikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
