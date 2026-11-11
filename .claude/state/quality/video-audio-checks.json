@@ -539,6 +539,17 @@
         "expected": 1259,
         "heard": 1207
       }
+    },
+    "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform": {
+      "videoSha256": "42f9ee9b73e4e10fa7bead4b04a4151eb925e4d6d6e37f42949ae673f512d49a",
+      "at": "2026-11-11T01:44:36.754Z",
+      "similarity": 0.959,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 994,
+        "heard": 949
+      }
     }
   }
 }
