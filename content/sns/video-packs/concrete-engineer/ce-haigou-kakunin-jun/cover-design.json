@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "concrete-engineer",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 2,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "plan",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/work/cover-pop.c6c61b83.png",
+        "sha256": "c6c61b83fdf1a6f687cfe5904793f1924c915f0cad744bc181b5191bc54c4419",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "5c629f6e4a85f74390de442fa0d0af65beccb917503cc4d5e87442a247407e67"
+      }
     }
   }
 }
