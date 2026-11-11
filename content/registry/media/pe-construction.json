@@ -3583,6 +3583,309 @@
       "durationSec": 252.4
     },
     {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "e784f0655ca02f8c347ef7d82666cf92ddffe26fda8e90d7c1483bcf14db2b8e",
+      "bytes": 700635,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/cover.e784f065.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『必須I(3)』『リスクを』『4点で確認』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "638b1674da6bd9d63c96157e665816d5741a9ea095ebc355a8f81d3d01578dce",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/work/cover-pop.e784f065.png"
+      ]
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "e784f0655ca02f8c347ef7d82666cf92ddffe26fda8e90d7c1483bcf14db2b8e",
+      "bytes": 700635,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-001.e784f065.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『必須I(3)』『リスクを』『4点で確認』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "638b1674da6bd9d63c96157e665816d5741a9ea095ebc355a8f81d3d01578dce",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "3ecba2fb12477ee9fc3b541ee4c7b86b8e08a804f838e5686233cd2f15b44242",
+      "bytes": 1332248,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-002.3ecba2fb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日整理すること』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『設問(3)の求め』 『四つの点検』 『字数の目安』。 図の下、下端の字幕の帯より上に『点検の分け方はdoboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 解決策は書けたのに、設問の3に書いた懸念と対策が、これでよいのか自信がない。今日は必須科目Ⅰの設問の3を書いたあとに、答案のリスクを確かめる四つの点検と、字数の目安を整理します。",
+        "promptSha256": "f2bc16752c4dda1f4a5b01d834342e1b0d90b656999a937daf1ac8eade0a4a20",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "fead5d1f507dd5280dda4b41f00a156e0f3ed943ff64eba1c103c14b1727217a",
+      "bytes": 1502194,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-003.fead5d1f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『(3)に書くもの』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『書き方ガイドとテンプレート記事の整理に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: 設問の3は、一般的なリスクを挙げる場所だと思われがちです。地震や豪雨のような災害を書きたくなります。しかし書き方ガイドは、最も多い失点を、前問と無関係な新しい課題を持ち出すことと整理しています。問われているのは、自分の解決策を実行したから生じる副作用です。",
+        "promptSha256": "a3afd752b4e0a03b98c6f1186c6afef2273be2f3ba15c306d63e48c049f5ab91",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "f1170317fa991c1a56c796b4cf83182f05056c1acea574ce80d09eeeea0634b1",
+      "bytes": 1643319,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-004.f1170317.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『令和8年度の設問(3)』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『I-1：すべての解決策を実行しても生じうる懸念』 『I-2：解決策に関連して浮かぶ将来的な懸念』 『どちらも専門技術を踏まえて示す』 『形式は受検年度の公式情報で確認』。 図の下、下端の字幕の帯より上に『令和8年度の公式問題文に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: 令和8年度の必須科目Ⅰは、両問とも小問の3で、懸念事項と、その対応策か対策を、専門技術を踏まえて示す形でした。I-1は、すべての解決策を実行しても新たに生じうる懸念、I-2は、解決策に関連して新たに浮かび上がる将来的な懸念です。型を当てはめる前に、問いの違いを読みます。形式は受検年度の公式情報で確認してください。",
+        "promptSha256": "d2c7f73ec9370b24a771387df31fd10bd0ceb1843fb2e44959756017d644f1b6",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "45f02cfc164792cef02b63eacaca1c433a4547211e6aaae17d3bc88d258e6fe1",
+      "bytes": 1667287,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-005.45f02cfc.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『点検1　懸念の出どころ』。 図に入れる文字: 『懸念ごとに、元の解決策を指でたどる』 『たどれなければ、無関係な新課題かも』 『例：省人化 → 初期投資・習得の遅れ・属人化』。 図の下、下端の字幕の帯より上に『例はテンプレート記事の記述。実際の答案は自分の解決策で書く』の全文を省かずに入れる。 この場面の説明（文字にしない）: 一つ目は、懸念の出どころです。書いた懸念ごとに、設問の2のどの解決策から出たのかを、指でたどります。たどれない懸念は、解決策と関係のない新しい課題かもしれません。たとえば新技術で省人化する解決策なら、初期投資の増大、技術者の習得の遅れ、品質確認の属人化が、副作用の例です。",
+        "promptSha256": "741ec5f367f8c3bef235e792f2c2ac54ced4a35e02fc831d4043206d9b034f5c",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "2fe6bc5ce0059f17eac038d1f4fbf8166e5f6798a78502435809f9aac9c71fb5",
+      "bytes": 1519682,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-006.2fe6bc5c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『懸念と対策』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『例はテンプレート記事の記述。書き方ガイドの整理に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: 二つ目は、対策です。予算がかかる、で止めると、副作用を挙げただけです。書き方ガイドは、懸念と対策を一対一で対応させると、採点者に伝わりやすいと整理しています。先の例なら、初期投資には段階導入、習得の遅れには研修、品質確認の属人化にはチェック体制を添えます。",
+        "promptSha256": "9546e8cb65bec525a0e340f2861c2c1b1ee754c8b9af269dc305d976172cc005",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "a246219c9f69a949305307b3f4b02e68dde89f4f2bfbb133d683b9270c762368",
+      "bytes": 1496068,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-007.a246219c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『点検3　(2)との整合』。 図に入れる文字: 『途上の手法なら、その懸念を(3)へ送る』 『(2)の他の立場の見方を、(3)で繰り返さない』 『(2)は実行前、(3)は実行後』。 図の下、下端の字幕の帯より上に『役割の分け方はテンプレート記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 三つ目は、設問の2との整合です。2で、手法が確立の途上にあると認めていたなら、そこから生じる懸念を3に書くと、根拠とリスクが同じ事実の表と裏としてつながります。逆に、2で応えた他の立場の見方を、3で繰り返さないようにします。2は実行する前に受け入れられるか、3は実行したあとの副作用と、役割を分けます。",
+        "promptSha256": "9edbf86a1ee0899564ea09a89b9ebb5fbf22c96b1f9dcd1f1c9e3f0899145fcd",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "b571ff19bc4b573d750262c424f576c499aa8ab32bf2a0c968bdfb8f957813ae",
+      "bytes": 1632149,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-008.b571ff19.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『点検4　設問の指示語』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『専門技術を踏まえた対策になっているか』 『I-1：一部の解決策だけで終わっていないか』 『I-2：将来的な懸念になっているか』。 図の下、下端の字幕の帯より上に『令和8年度の問題文を読んだdoboku-noteの整理。公式の基準ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 四つ目は、設問の指示語です。令和8年度は両問とも、専門技術を踏まえた考えを求めていました。対策が、自分の専門の中身を持っているかを確かめます。I-1は、すべての解決策を実行しても、と置いているので、一部の解決策の懸念だけで終わっていないかも見ます。この読み方は、この動画の整理です。",
+        "promptSha256": "195b278b188914a786a8ccfe33e4daed9de6baaab8f73a8b04f4acd77cb24ee6",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "3c261be409473baa862c118ad55f03196918c344e4252d59719d10f7a253328f",
+      "bytes": 1535737,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-009.3c261be4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『(3)の字数の目安』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『懸念2〜3点と、それぞれの対策』 『350〜400字ほど』 『公式の指定ではない目安』。 図の下、下端の字幕の帯より上に『字数は書き方ガイドの目安。公式の指定ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 字数の目安です。書き方ガイドでは、設問の3は350から400字ほどで、懸念を二つか三つ、対策とセットで書くと整理しています。答案全体の、およそ4分の1弱です。ただし公式の指定ではありません。設問の2で書きすぎて、3に字数が残らない形を避けます。",
+        "promptSha256": "5473d3e4a355e3fc269921fcf2099950043815c1423332f53ee9e10273454d33",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "be5da7b14f849fa5c8456f482b357f0eec250db04bf05b2098f3775d977c2706",
+      "bytes": 1574781,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-010.be5da7b1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『(3)から(4)へ』。 図に入れる文字: 『(4)は(1)〜(3)の内容に結びつける』 『(3)の懸念が、(4)で引く材料になる』 『一般論だけでは終わらせない』。 図の下、下端の字幕の帯より上に『書き方ガイドの整理に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: 書いた懸念は、設問の4にもつながります。書き方ガイドの例では、4は、1から3で論じた課題・解決策・懸念に直接結びつけた、倫理や持続性の要件を書くと整理しています。3の懸念がはっきりしていると、4で引ける材料になります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 37.2）",
+        "promptSha256": "eee0907fd9a8f49fd08d4725c4f86b37c471ac27ca0d35835b39d46fda060eca",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "c2cb821439d7365c519241c9c46fe8e28238886a935907b467ecb23abb287d02",
+      "bytes": 1795264,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-011.c2cb8214.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『(3)のリスクの確かめ方』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『出どころ：懸念は(2)の解決策から出たか』 『対策：懸念ごとに添えたか』 『整合：(2)の根拠と表と裏か』 『指示語：設問に応えたか』。 図の下、下端の字幕の帯より上に『点検の分け方は本動画の整理。形式は受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。設問の3は、自分の解決策の副作用を書く所です。書いたあとに、懸念の出どころ、懸念ごとの対策、2との表と裏、設問の指示語の四つを確かめます。字数は350から400字が目安です。点検の分け方は、この動画の整理です。",
+        "promptSha256": "f6e449f1bea2096c8ca0dccc20581e1f064cd7663cc6fbf617a952e0d8996036",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "180a2437e576a7c1d7b64caef2b2360347d1110c4e02949f42104ad70b90d24d",
+      "bytes": 1390266,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-012.180a2437.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『次は、答案で試す』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『必須科目Ⅰ 模範解答集』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 次は、実際の答案で試す番です。必須科目Ⅰの模範解答集が、noteにあります。この動画は点検の仕方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+        "promptSha256": "ef8d85a22201005c061652cefba84f820f11c9a92c811a0203635ee546a8fdc3",
+        "generatedAt": "2026-11-11T04:18:31.989Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "9c51a3c7623a35461e128a00b9cf2e44579aea245b86c31f31488e3169c186e3",
+      "bytes": 7869,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/subtitles.9c51a3c7.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "17c5224beaeb024e9f46b7f66fc1ab52df6c643688afbbb580af11400fd894d8",
+      "bytes": 23732923,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-hissu1-risk-kakunin/youtube.longform/video.17c5224b.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin/storyboard.json",
+        "specSha256": "4626d82598a621dc241580f007c768d2c91095d300be4dccd227a135bfadbe2a",
+        "renderInputSha256": "52a8115a40427be06d2d6cd326552e2305fe4be16593c1c08f79afaa633eeb22",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 237.9
+    },
+    {
       "id": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",

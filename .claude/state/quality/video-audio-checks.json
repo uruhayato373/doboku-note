@@ -913,6 +913,17 @@
         "expected": 1537,
         "heard": 1466
       }
+    },
+    "pe-construction/pe-hissu1-risk-kakunin/youtube.longform": {
+      "videoSha256": "17c5224beaeb024e9f46b7f66fc1ab52df6c643688afbbb580af11400fd894d8",
+      "at": "2026-11-11T04:24:41.562Z",
+      "similarity": 0.951,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1391,
+        "heard": 1348
+      }
     }
   }
 }

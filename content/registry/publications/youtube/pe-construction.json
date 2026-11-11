@@ -859,7 +859,25 @@
       "work": "pe-hissu1-risk-kakunin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/cover",
+        "scene-001": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-001",
+        "scene-002": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-002",
+        "scene-003": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-003",
+        "scene-004": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-004",
+        "scene-005": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-005",
+        "scene-006": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-006",
+        "scene-007": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-007",
+        "scene-008": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-008",
+        "scene-009": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-009",
+        "scene-010": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-010",
+        "scene-011": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-011",
+        "scene-012": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/scene-012",
+        "video": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/video",
+        "subtitles": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin/youtube.json#longform"
     },
     {
       "id": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
