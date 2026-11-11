@@ -575,7 +575,7 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 
 ### [DN-1110] 画面の点検（site-visual-review）を develop に入れ、本番ビルドで全ページを回して 3 幅・縮小の設定を検証する
-タグ: [領域:サイト] [時期:2026-11] [種類:改善] [検証:site-visual-review] [起票:2026-11-11]
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-11]
 
 **起点**: 2026-11-11 に画面の点検の仕組み（`/site-visual-review`・`npm run site-visual-review`）をブランチ feat/site-visual-review に作った。代表 15 ページ × 6 幅を一度判定し、合格 12・不合格 3（DN-1107・DN-1108・DN-1109）を起票済み。その後、トークンを減らすために目視に回す撮影を 3 幅（375・768・1440）に絞り、1440px 幅の撮影を 960px に縮めたが、この設定ではまだ判定を回していない。
 
@@ -590,7 +590,7 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 
 ### [DN-1109] past-exam（/exam/civil-construction-1/secondary/r06）が画面の点検で不合格（edge・layout）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-11]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
 
 **起点**: 2026-11-11 の画面の点検（`npm run site-visual-review`・作業票 20261111T021035Z）で、past-exam（/exam/civil-construction-1/secondary/r06）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude\state\quality\site-visual-review.json。
 
@@ -604,7 +604,7 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 
 ### [DN-1108] tools（/tools/keiken-charcount）が画面の点検で不合格（layout）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-11]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
 
 **起点**: 2026-11-11 の画面の点検（`npm run site-visual-review`・作業票 20261111T005344Z）で、tools（/tools/keiken-charcount）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude\state\quality\site-visual-review.json。
 
@@ -616,7 +616,7 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 
 ### [DN-1107] topics（/topics/safety-laws）が画面の点検で不合格（layout）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-11]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
 
 **起点**: 2026-11-11 の画面の点検（`npm run site-visual-review`・作業票 20261111T005344Z）で、topics（/topics/safety-laws）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude\state\quality\site-visual-review.json。
 
