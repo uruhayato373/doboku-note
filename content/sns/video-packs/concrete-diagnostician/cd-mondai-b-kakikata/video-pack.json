@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "cd-mondai-b-kakikata",
+  "exam": "concrete-diagnostician",
+  "title": "診断士｜問題Bの書き方 — 変状から対策まで一本道で組む",
+  "audience": "コンクリート診断士試験の記述式（構造物の診断の問題）の答案をどう組み立てるか決まらない受験者",
+  "pain": "劣化した構造物の写真を前に、変状から原因、調査、対策へどうつなげて書けばよいか分からず、手が止まる",
+  "promise": "題の選び方、変状から留意点までの一本道、構成メモの手順、対策の目的の置き方まで、答案の組み立てを順に整理できる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cd-marugoto-pack",
+    "campaign": "cd-mondai-b-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

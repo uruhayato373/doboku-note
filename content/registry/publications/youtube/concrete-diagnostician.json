@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "channel": "youtube",
+  "exam": "concrete-diagnostician",
+  "publications": [
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform",
+      "work": "cd-mondai-b-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    }
+  ]
+}
