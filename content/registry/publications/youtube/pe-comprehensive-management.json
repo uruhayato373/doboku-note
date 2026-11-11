@@ -4,6 +4,13 @@
   "exam": "pe-comprehensive-management",
   "publications": [
     {
+      "id": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform",
+      "work": "hakusho-kadai-erabu",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
       "id": "pe-comprehensive-management/sanso-kozo/youtube.longform",
       "work": "sanso-kozo",
       "account": "youtube:main",

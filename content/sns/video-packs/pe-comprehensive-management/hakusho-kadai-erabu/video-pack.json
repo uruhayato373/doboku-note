@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "hakusho-kadai-erabu",
+  "exam": "pe-comprehensive-management",
+  "title": "総監 記述｜白書から課題を選ぶ",
+  "audience": "総監の記述式に向けて白書を読み始めた受験者",
+  "pain": "白書をどこまで読み、どの課題を答案に使えばよいか分からない",
+  "promise": "白書から課題の候補を拾い、三つの問いで一つに絞る手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "setsumon3-policy-bank",
+    "campaign": "hakusho-kadai-erabu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
