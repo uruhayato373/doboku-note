@@ -561,6 +561,105 @@
         "expected": 1274,
         "heard": 1202
       }
+    },
+    "pe-construction/pe-road-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "368f762cf33f0e4efbc339aca761737fcebc814d6fb7a646ac5ca3a89675d0f3",
+      "at": "2026-11-11T02:44:23.979Z",
+      "similarity": 0.933,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1244,
+        "heard": 1181
+      }
+    },
+    "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "6f839216bb92452599e5f64a29efa106ccfcda2ee56d977bb5ef4369692fc65b",
+      "at": "2026-11-11T02:44:46.795Z",
+      "similarity": 0.943,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1245,
+        "heard": 1167
+      }
+    },
+    "civil-construction-1/civil-license-ladder-order/youtube.longform": {
+      "videoSha256": "d1a0ffa236ecfe499d6accf44c3b3c84a94285815bd093dd5a1721690b39cbaf",
+      "at": "2026-11-11T02:45:10.624Z",
+      "similarity": 0.967,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1467,
+        "heard": 1401
+      }
+    },
+    "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform": {
+      "videoSha256": "8610b4704e6f35a69627a74288773ebcc9f18a7d2a35a168dcd77e83ea3016cc",
+      "at": "2026-11-11T02:40:26.043Z",
+      "similarity": 0.958,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1009,
+        "heard": 986
+      }
+    },
+    "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "a2a40912d1036e9096348b6dc51063b09582dc6be03ec05e697b7b23b1e9c6c5",
+      "at": "2026-11-11T02:40:59.025Z",
+      "similarity": 0.953,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1419,
+        "heard": 1340
+      }
+    },
+    "pe-construction/pe-hissu1-theme-junbi/youtube.longform": {
+      "videoSha256": "d51f44fa691ae514695a2e36c4f39d9079a814b5bb24c8549cf814bc6dbae55d",
+      "at": "2026-11-11T02:41:31.648Z",
+      "similarity": 0.981,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 987,
+        "heard": 1020
+      }
+    },
+    "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform": {
+      "videoSha256": "45315eb2509472261c5c518b9b418e44955c1556e02919eb7fe83ec0f3c310b6",
+      "at": "2026-11-11T02:42:08.168Z",
+      "similarity": 0.958,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1208,
+        "heard": 1162
+      }
+    },
+    "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform": {
+      "videoSha256": "2c03250f5c9288cff2584c7ed5132a5494a98399eb1646dc091af4c5347582e1",
+      "at": "2026-11-11T02:42:44.926Z",
+      "similarity": 0.952,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1339,
+        "heard": 1261
+      }
+    },
+    "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform": {
+      "videoSha256": "c713daf1a060d0819257dccb92920caf2a3acadadf1039f38c21580713b7ef54",
+      "at": "2026-11-11T02:43:18.805Z",
+      "similarity": 0.976,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1050,
+        "heard": 995
+      }
     }
   }
 }

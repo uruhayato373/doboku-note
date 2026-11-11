@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "civil-1",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 2,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "plan",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/cover-pop.7f4cd3fc.png",
+        "sha256": "7f4cd3fc388ea5730b4411a02c0bfc260b9a7d15f858ca569ee41d4d6060867b",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "6d5bbb38111228d93f53ff1ce0c742aa980ea2535cb5ed22833e2236c97bef54"
+      }
     }
   }
 }

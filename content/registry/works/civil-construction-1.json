@@ -71,7 +71,14 @@
     {
       "id": "civil-license-ladder-order",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order"
+      "definition": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "b3a678f8e27e934a04763c2d89530c424224b2eeeafa490daaaf234608a8c651"
+      }
     },
     {
       "id": "civil-textbook-diagrams",

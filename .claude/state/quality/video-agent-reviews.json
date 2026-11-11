@@ -472,12 +472,12 @@
       "contentDigest": "7c8c60a17bf74060d01ace0f67a15e3fcffb36315b6294c9c8f529beba7db934"
     },
     "pe-construction/pe-road-shutsudai-yomikata/youtube.longform": {
-      "verdict": "fail",
-      "note": "表紙・全12場面は文字の切れ・重なり無く、場面順も台本と一致。ただしYouTube題名と概要欄の「出題の読み方と書き方」「答案の書き方」タグは、本編が書き方を扱わずnoteへ送るだけの内容と合わない（表紙は読み方のみ）。題名とタグを読み方に直せば再確認。音声は未確認。",
-      "at": "2026-11-11T01:01:24.157Z",
+      "verdict": "pass",
+      "note": "表紙・題名と全12場面が台本の順序と一致。文字の切れ・重なり・誤字は一覧上で見当たらない。主CTAはnote道路模範解答集の1つ、年度・形式は令和8年度の例と明示し日程は断定せず。独自整理は注記済み。一覧画像は縮小のため最小の注記文字の可読性は個別未確認。音声は確認していない。",
+      "at": "2026-11-11T01:49:39.409Z",
       "visualDigest": "242693dae35de8049bc13d6bcb1c8f0bf447c3d10208d8ea26ff1257378f2df7",
-      "finalDigest": "d956b0a683b1939becad40e983b958d2450da3512a54b7f765f016f84d50f83a",
-      "contentDigest": "d956b0a683b1939becad40e983b958d2450da3512a54b7f765f016f84d50f83a"
+      "finalDigest": "b98653606ed4d536fed1ab6ef9e181a74f0b4a74259d7fb9a3d25fa5c66f03dd",
+      "contentDigest": "b98653606ed4d536fed1ab6ef9e181a74f0b4a74259d7fb9a3d25fa5c66f03dd"
     },
     "pe-construction/pe-ii1-kakikata/youtube.longform": {
       "verdict": "pass",
@@ -544,12 +544,68 @@
       "contentDigest": "3a56e2226719946e1e6785b9f2a8949d152e31335ae9197fd0f5ee27fc9a18c3"
     },
     "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform": {
-      "verdict": "fail",
-      "note": "動画の題名「出題の読み方と書き方」が中身と合わない。台本は書き方（模範解答）を扱わず読み方までで、noteへ送る構成。表紙は「読み方」のみで不一致。題名に「技術士建設部門」が重複している。タグ「答案の書き方」も同様。題名を「出題の読み方」に直せば再確認する。表紙・場面12枚（順序は台本どおり、文字の切れ・重なりなし）、日程の断定なし、CTA1つは問題なし。音声は未確認。",
-      "at": "2026-11-11T01:39:13.551Z",
+      "verdict": "pass",
+      "note": "全12場面シートと表紙を確認。表紙・題名は中身と一致、文字の切れ・重なり・誤字なし、場面順は台本どおり。主CTAはnote1つ、リンク先は建設部門トンネルで適切。試験日は断定せず公式確認を案内、R8の形式記述は台本出典どおり。音声は未確認。",
+      "at": "2026-11-11T01:49:40.055Z",
       "visualDigest": "6553510af478ce2cad383b8b06aa0bc2952b585b3fe38b2814599a1bf0e495be",
-      "finalDigest": "d06bd88e8e5626c0ad48ba913533f412f83a3c8006a44f7136e23c7e167d8c95",
-      "contentDigest": "d06bd88e8e5626c0ad48ba913533f412f83a3c8006a44f7136e23c7e167d8c95"
+      "finalDigest": "615a291041efadfa8d424bec7bcd9e47b36cce2a850db6d38cf33e6ed24f903b",
+      "contentDigest": "615a291041efadfa8d424bec7bcd9e47b36cce2a850db6d38cf33e6ed24f903b"
+    },
+    "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と題名は中身に合致。全13場面の順序は台本どおりで、文字の切れ・重なり・誤字なし。CTAは設問3の国家施策バンク1つで、無料のサイト解説は関連リンクとして併記。数値や日程の断定なし、仮例は出題予想でないと明記。音声は未確認。",
+      "at": "2026-11-11T01:59:42.878Z",
+      "visualDigest": "18fb95e6561c43911ad6966c47d9fc3bb3f060a530797eff37552a10d89b3a73",
+      "finalDigest": "011ab34ac152bb0a1c0176b75ec74a9891cb9cb2ff0ffc82353f5255a674f2e5",
+      "contentDigest": "011ab34ac152bb0a1c0176b75ec74a9891cb9cb2ff0ffc82353f5255a674f2e5"
+    },
+    "civil-construction-1/civil-license-ladder-order/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と全13場面の画像を目視確認。題名と中身が一致し、文字の切れ・重なり・誤字なし。場面順は台本と一致。概要欄のCTAは1つ（キャリアパス記事）。年数・区分は手引の範囲で、日程は断定せず、合格や年収の保証もなし。音声は未確認。",
+      "at": "2026-11-11T02:07:00.821Z",
+      "visualDigest": "757873620858b43356954a9152f7a28e177e62972f70215d72c94f3b8c71f1b9",
+      "finalDigest": "defe7fc3ca08e450343bd1e53fd82adddc69ff97a0d68ab90fed28f679be7b95",
+      "contentDigest": "defe7fc3ca08e450343bd1e53fd82adddc69ff97a0d68ab90fed28f679be7b95"
+    },
+    "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・全13場面シートを目視。題名と中身が一致、文字切れ・重なり・誤字なし、場面順は台本どおり。主CTAはnote模範解答集1つ（関連の無料記事リンクは補助）。試験日の断定なし、受検年度の公式確認を案内。音声は未確認。",
+      "at": "2026-11-11T02:15:24.372Z",
+      "visualDigest": "bfb3614009b3eae51ea62838070bb93179af1bf10f38af98a0ce261c8b7f1b90",
+      "finalDigest": "1d1f08555218cf9208ccc5674b4e96a6d338013506bf68234305e31deab66e3a",
+      "contentDigest": "1d1f08555218cf9208ccc5674b4e96a6d338013506bf68234305e31deab66e3a"
+    },
+    "pe-construction/pe-hissu1-theme-junbi/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名と12場面の順序は台本と一致。切れ・重なり・誤字なし。概要欄のCTAはnote1つ、無料リンクは関連解説として別枠。形式・年度は公式情報確認の注記あり、日程の断定・合格の約束なし。場面4の題の例は小さめだが判読可。音声は未確認。完成動画の確認ではなく描画後の画面確認（場面シートと表紙のみ）。",
+      "at": "2026-11-11T02:19:59.982Z",
+      "visualDigest": "261bd07edf925f30747385c0061072ce6a5fd1f9fa65cec1eae298702e915775",
+      "finalDigest": "215d719c8e228dca0d8cfa5138e2e66f2f9f8ef7c1577be3bdb9ebfb1b8ce390",
+      "contentDigest": "215d719c8e228dca0d8cfa5138e2e66f2f9f8ef7c1577be3bdb9ebfb1b8ce390"
+    },
+    "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名は中身と一致。全13場面の順序は台本どおりで、文字の切れ・重なり・誤字なし。CTAは概要欄のnoteマガジン1つ、無料のサイトリンクは関連解説。試験日の記述なし、合格の約束や断定数値なし、仮の例は出題予想ではないと明記。音声は未確認。",
+      "at": "2026-11-11T02:21:33.926Z",
+      "visualDigest": "e0fb31736088434cf547b9796b772542c5cc3a320f4bed39ec8c4a19a056cee2",
+      "finalDigest": "d8683e7eb52d77e14827620c9d0ecaec8f87b9112e88b6b3211803f0be078ad8",
+      "contentDigest": "d8683e7eb52d77e14827620c9d0ecaec8f87b9112e88b6b3211803f0be078ad8"
+    },
+    "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "全12場面シートと表紙を目視。表紙題名は中身と一致、場面順は台本と一致、文字の切れ・重なり・誤字なし。主CTAはnoteマガジン1つ、無料サイトは関連リンクで年度断定なし、日程は公式確認と案内。令和8年度の形式は台本・出典記事どおり。場面5の領域キャプションは小さいが読める。音声は未確認。出典記事との再照合は台本の出典欄までで原典は未開封。",
+      "at": "2026-11-11T02:27:51.544Z",
+      "visualDigest": "c7787c56e500fa2ea30125ef521d9a0311c532b50cf3defc02869066dd68024c",
+      "finalDigest": "736800f0a7bf286491a497520e80d05c2a6c058ff109bf6ba8da42bfcb8af9be",
+      "contentDigest": "736800f0a7bf286491a497520e80d05c2a6c058ff109bf6ba8da42bfcb8af9be"
+    },
+    "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名と中身が一致。全13場面の画像で文字切れ・重なり・誤字なし、順序は台本どおり。説明文のCTAはnote記述式コアパック1つ、無料記事リンクは関連枠。日程・形式は断定せず公式確認を促す。割合は断定せず傾向表記、合格の約束なし。音声は未確認（聞けない）。",
+      "at": "2026-11-11T02:29:50.716Z",
+      "visualDigest": "4666e40f68da0b50d861a77d695684b98129863375f63512be62f2e766440f98",
+      "finalDigest": "47908c8bc24293887c663f170fb871ba791c0a91ea4a3fca40a3d8ba4dacb893",
+      "contentDigest": "47908c8bc24293887c663f170fb871ba791c0a91ea4a3fca40a3d8ba4dacb893"
     }
   }
 }

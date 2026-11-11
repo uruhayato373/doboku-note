@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #1E73C8 と濃色 #155293、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『2級→1級』『→技術士』『進む順序』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-cover.0a1df07d.png",
+          "sha256": "0a1df07d7b1b2bb270c5c6684caacf1312061cff86ea1d9fa140a28bbaeef7fe"
+        },
+        "generatedAt": "2026-11-11T02:05:04.501Z"
+      },
+      "copy": {
+        "exam": "civil-construction-1",
+        "headline": [
+          "2級→1級",
+          "→技術士",
+          "進む順序"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/cover-pop.7f4cd3fc.png",
+        "sha256": "7f4cd3fc388ea5730b4411a02c0bfc260b9a7d15f858ca569ee41d4d6060867b",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "0a1df07d7b1b2bb270c5c6684caacf1312061cff86ea1d9fa140a28bbaeef7fe"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T02:05:04.501Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字軸: 総監が制作・2級→1級・→技術士・進む順序が指示と一字一致。先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で、手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "5115415df2d821a7b8cd33dcb9efbe19d728d4f8d4e3fff88841ec6422ce53ec",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の答え』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『三つの資格は役割が違う』 『受験の起点は合格や年数で決まる』 『順序は三つの問いで決める』。 図の下、下端の字幕の帯より上に『順序の決め方の一案』の全文を省かずに入れる。 この場面の説明（文字にしない）: 2級を持っている、または目指していて、次は1級か技術士かで迷っていませんか。この動画では、三つの資格の役割と受験の起点を確かめて、どの順に進むかを決める見方を一つの案として示します。日程や年度の細かい条件は、受検する年の公式の案内で確認する前提です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 18.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-premise.c9900d0a.png",
+              "sha256": "c9900d0a592c8b93eb374c77a9fe35d544e46a25e9aee6247dfcf03f75418f09"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/premise-diagram.5a015ef9.png",
+            "sha256": "5a015ef9ff93a64433a7524ddf703e96b591c4975fbfe88bb6916fad69c4c288",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c9900d0a592c8b93eb374c77a9fe35d544e46a25e9aee6247dfcf03f75418f09"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "5f159c7878080678a6f0f6b0ad78994eee4eb176de868bf00fc302865e2ee665",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『よくある思い込み』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『全部を階段のように順に取る → 根拠法と役割が違う』 『技術士は施工管理技士の上位 → 別の領域の資格』。 図の下、下端の字幕の帯より上に『建設業法と技術士法』の全文を省かずに入れる。 この場面の説明（文字にしない）: よくある思い込みは、2級、1級、技術士の順に、全部を階段のように取るもの、というものです。実際は、施工管理技士は建設業法の配置技術者の資格、技術士は技術士法の高度専門技術者の資格で、根拠も役割も違います。どちらが上かではなく、別の領域です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 15.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-misread.3ad69cb6.png",
+              "sha256": "3ad69cb67a164f28eab2c2c680baef4103a6cb9469053c7535974ac4c8756eef"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/misread-diagram.f02d911b.png",
+            "sha256": "f02d911ba44c12dbae6f95a09565ccf57af45803d7f105f9cd02014db14e6bfd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3ad69cb67a164f28eab2c2c680baef4103a6cb9469053c7535974ac4c8756eef"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "roles",
+          "inputSha256": "9ab7f7b4214ae9adb798ce105fbbe4361f571770a0dc0ae41187c97b384c6ec4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『三つの資格の役割』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『2級 主任技術者』 『1級 監理技術者・専任技術者』 『技術士 高度な技術判断・計画・監理』。 図の下、下端の字幕の帯より上に『法律上の役割で見る』の全文を省かずに入れる。 この場面の説明（文字にしない）: 役割を並べます。2級土木施工管理技士は、工事現場の主任技術者になれます。1級は、それに加えて監理技術者と、特定建設業の営業所の専任技術者になれます。技術士は、建設部門や総合技術監理部門で、計画や監理など高度な技術判断を担う資格です。順序を考える前に、どの役割が欲しいかを先に決めます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 27.6）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-roles.e4bd742b.png",
+              "sha256": "e4bd742b12e9f416c232acb4bc376983819d67ef5fea3f14c1ef5b5a92d05d1b"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/roles-diagram.48fbc8de.png",
+            "sha256": "48fbc8ded80a1145f234cdbccdc9c2a78c7027b2ac3400ad1c5f47560d9446a6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e4bd742b12e9f416c232acb4bc376983819d67ef5fea3f14c1ef5b5a92d05d1b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "first",
+          "inputSha256": "85df83fd856a3ba8cec4969fd7acc449059c67513fac5500c0981340be721c06",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『1級の第一次検定』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『年度末に満19歳以上 （現行の手引）』 『実務経験は問わない』 『2級の取得は条件でない』。 図の下、下端の字幕の帯より上に『受検の年の手引で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 1級の第一次検定は、現行の手引では、その年度末に満19歳以上であれば、実務経験を問わず受けられます。つまり、2級を取ってからでないと1級に進めない、という決まりではありません。自分が当てはまる区分は、申込の年の最新の受検の手引で確かめてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-first.28d13263.png",
+              "sha256": "28d1326383f3ca93a3652cbfc29d056842703ac9823e29a988eabe798b3cef99"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/first-diagram.c74e0127.png",
+            "sha256": "c74e01279852d2bc7c2716b8e4b8b97a9710c9098a7f6578dc3f375d4bd2bd3e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "28d1326383f3ca93a3652cbfc29d056842703ac9823e29a988eabe798b3cef99"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "second",
+          "inputSha256": "9e260c203d35b769666c209847f743805ec09ff1f4277d69b47392cddac777bc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『1級の第二次検定の起点』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『1級第一次の合格 5年以上・特定実務経験込みで3年以上』 『監理技術者補佐 1年以上の枠もある』 『2級第二次・技術士の合格も起点になりうる』。 図の下、下端の字幕の帯より上に『年数は手引で必ず照合』の全文を省かずに入れる。 この場面の説明（文字にしない）: 1級の第二次検定は、ある合格を起点にした実務経験で決まります。起点が1級第一次検定の合格なら、合格後の経験が五年以上、特定実務経験を含めば三年以上です。監理技術者補佐として一年以上、という枠もあります。起点には、2級の第二次検定や技術士の第二次試験の合格も使えます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-second.814bb5b5.png",
+              "sha256": "814bb5b5ff7ebc978b8d804c6067b257f35aad45e1caa33df7a4267500078d6e"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/second-diagram.d284b35a.png",
+            "sha256": "d284b35adbc39aaac39811734ee65fba65e26fe0aa7322a57088fc7205c8e3d3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "814bb5b5ff7ebc978b8d804c6067b257f35aad45e1caa33df7a4267500078d6e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "detour",
+          "inputSha256": "3ccd056aa4831ccc8b6b43bb6a20e90385c1119287bd140c2b7afa44af8ece45",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『順序が前後する例』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『技術士の合格者 → 1級は第二次から入れる区分』 『1級第一次の合格者 → 2級の第二次を受けられる場合』。 図の下、下端の字幕の帯より上に『区分は手引で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 順序は、前後することもあります。技術士の第二次試験に合格している人は、1級の第一次検定を受けずに、第二次検定から入る区分があります。逆に、2級の第二次検定は、1級第一次検定の合格後一年以上でも受けられます。道は一本ではなく、持っている合格で入口が変わります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 39.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-detour.473750d0.png",
+              "sha256": "473750d03a7246a4a2522f906fa68dfb3683ca991f0ce7566649a69cb45fb8db"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/detour-diagram.944d7265.png",
+            "sha256": "944d7265c2c918d20c6895f0e51960f24c42ada55e459a6d23ed874d1c1d94ba",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "473750d03a7246a4a2522f906fa68dfb3683ca991f0ce7566649a69cb45fb8db"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "order",
+          "inputSha256": "b04ac72ead0248aeeee70dde986e5e0ef423edea3f5ef0e19a5f8419d4fa7339",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『順序を決める三つの問い』。 図に入れる文字: 『1 いまの実務で足りない権限は』 『2 かけられる年数は』 『3 評価される場はどこか』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: ここからは、この動画の独自の整理です。進む順序は、三つの問いで決めます。一、いまの実務で足りない権限は何か。二、取得にかけられる年数はどれだけか。三、その資格が評価される場はどこか。この三つに答えると、次の一手が絞れます。公式の区分ではなく、考え方の一案です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-order.8fc4648a.png",
+              "sha256": "8fc4648a99740b5bfe398e729042c42aaf93231166283e6228a9b2c1a04848ac"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/order-diagram.f0a99029.png",
+            "sha256": "f0a99029e4004339fcffd6ec64c052f0a832b2a5e92bed4bcebfcc0ae6fc70e6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8fc4648a99740b5bfe398e729042c42aaf93231166283e6228a9b2c1a04848ac"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cases",
+          "inputSha256": "24ef32b92881ce2a1fcad041b36f956a288c6cac763a34c3e0a8dfafdeeca3dd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問いの答えと次の資格』。 図に入れる文字: 『監理技術者の権限が足りない → 1級が候補』 『監理まで担えている → 技術士が視野に入る』。 図の下、下端の字幕の帯より上に『資格は役割に就ける権利』の全文を省かずに入れる。 この場面の説明（文字にしない）: 問いの答えで、道は分かれます。主任技術者までで、監理技術者の権限が足りないなら、1級が候補です。1級で監理技術者まで担えているなら、計画や監理まで踏み込める技術士が視野に入ります。評価される場も違い、1級は会社の入札力に、技術士は計画や発注者支援の場に効きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-cases.d06d4c22.png",
+              "sha256": "d06d4c22e235bb90bb9381e2c1e3fe52ce4f62bb52882dff3b6c4f982513999c"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/cases-diagram.4e413f1c.png",
+            "sha256": "4e413f1cecd4b0819f9352c0fd9ee64e922ab5071d93dca6ab23d7ddb4d55e4c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d06d4c22e235bb90bb9381e2c1e3fe52ce4f62bb52882dff3b6c4f982513999c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pe",
+          "inputSha256": "0d8fdfd05f980048c1a822153e0e80bf5fc528f10541911bc6abea1e87cf7b8f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『技術士に進むときは』。 図に入れる文字: 『問われる力が別（論述が中心）』 『受験資格・内容は公式で確認』 『この動画では数字を扱わない』。 図の下、下端の字幕の帯より上に『受験する年の公式の案内を確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 技術士は、試験の性質も違います。計画や設計、評価の論述が中心で、難しい易しいというより、別の力を問う試験です。受験資格や試験の内容は、この動画では数字を扱いません。技術士会などの公式の案内で、受験する年の条件を確かめてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-pe.06ae926f.png",
+              "sha256": "06ae926fb7d6ab54de712836fb8a4905658b33abebd4c38712bb7be68d4e21e5"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/pe-diagram.0fcf788c.png",
+            "sha256": "0fcf788c1617e89ec031576218c3709c4d5f39a756b67c8b7ee59b5a12aade8e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "06ae926fb7d6ab54de712836fb8a4905658b33abebd4c38712bb7be68d4e21e5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "limits",
+          "inputSha256": "00c807631de839f53252ca761b45eedef57f79c116679b3362915411c125b2a2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『この順序の限界』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『合格や年収の上昇は保証しない』 『配置は勤務先と実務経験しだい』 『受検する年の公式の案内が優先』。 図の下、下端の字幕の帯より上に『手引で毎年確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: この整理は、合格や年収の上昇を保証するものではありません。資格は役割に就ける権利で、実際に配置されるかは勤務先と実務の経験次第です。受検資格や日程は年度の手引で変わるので、動画の内容より、受検する年の公式の案内が優先です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 23.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-limits.f9cf3ef1.png",
+              "sha256": "f9cf3ef134bf0cd42ff8bc1c5fc68d4b4eef4c16449a3c093c4878e7a34ea7ff"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/limits-diagram.d108ed8d.png",
+            "sha256": "d108ed8d34ab1d2b1c6da0cb73bf999378444de6ba952aae963c30085b752c45",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f9cf3ef134bf0cd42ff8bc1c5fc68d4b4eef4c16449a3c093c4878e7a34ea7ff"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "05d438130e6b4ed081a3fea27ce70fdbc3e23d3f1bba822f3db2babff4763855",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『まとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『三つは役割の違う資格』 『入口は合格と年数で決まる』 『三つの問いで順序を決める』 『条件は受検する年の公式で確認』。 図の下、下端の字幕の帯より上に『2級・1級・技術士』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。一、三つの資格は階段ではなく、役割の違う資格。二、受験の入口は、持っている合格と年数で決まる。三、順序は、足りない権限、かけられる年数、評価される場の三つの問いで決める。四、条件は受検する年の公式で確認する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-recap.adeff318.png",
+              "sha256": "adeff3182d2db573e3f0c63c6c47c5d444102da3d52d68ee546c846e39342003"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/recap-diagram.62840a63.png",
+            "sha256": "62840a63bb2d126707ab1091ef784e5559fb2479caf9a096bd0303b833fa4ab3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "adeff3182d2db573e3f0c63c6c47c5d444102da3d52d68ee546c846e39342003"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "4139b30707ba40b8a8a0e8adbf3c81ebf769c02f2fa25aabf847ce3a08d31492",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『次の資格を決める前に』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『資格ごとの道筋は記事に』 『リンクは概要欄から』。 図の下、下端の字幕の帯より上に『概要欄の記事』の全文を省かずに入れる。 この場面の説明（文字にしない）: 資格ごとの道筋は、概要欄の記事「土木施工管理技士のキャリアパス」にまとめています。次に取る資格を決める前に、読んでみてください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 31.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/factory/raw-cta.dddf34fd.png",
+              "sha256": "dddf34fdc9a8e0734cfe3d4827e96615df19b30e7956a476b11773d65dd440e2"
+            },
+            "generatedAt": "2026-11-11T02:05:04.501Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/civil-license-ladder-order/work/cta-diagram.c74a5910.png",
+            "sha256": "c74a59102ea6bbd418bbea9305b718e10e08bac278c82ca919332cd9e7f4ad16",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dddf34fdc9a8e0734cfe3d4827e96615df19b30e7956a476b11773d65dd440e2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:05:04.501Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字軸: 見出し・図内文字・下部の一文が指示と一字ずつ一致し、誤字・余計な文言・崩れた字がなく、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}
