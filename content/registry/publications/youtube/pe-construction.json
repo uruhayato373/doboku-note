@@ -253,7 +253,17 @@
         "marker": "dn-single-8f6864744b40128dc32576ced41581605ca33314",
         "uploadRequestedAt": "2026-11-10T21:59:33.935Z",
         "videoId": "Da1c1w3CT2c",
-        "processedAt": "2026-11-10T22:04:29.820Z"
+        "processedAt": "2026-11-10T22:04:29.820Z",
+        "thumbnailRequestedAt": "2026-11-11T04:37:59.580Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/default.jpg?sqp=CPTgz9cG&rs=AOn4CLAFPGd_JM4B9bHWKyNBJk5BuXXsKQ",
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/mqdefault.jpg?sqp=CPTgz9cG&rs=AOn4CLCUL87hpnMvxZZa1SnLcmJB-gHc9Q",
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/hqdefault.jpg?sqp=CPTgz9cG&rs=AOn4CLBsgGDwD4kn1Gy8IK8X6iL3WriDDg",
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/sddefault.jpg?sqp=CPTgz9cG&rs=AOn4CLC_xV65FDfmCV1oQxKPmIUOqEIPKg",
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/maxresdefault.jpg?sqp=CPTgz9cG&rs=AOn4CLDr6mVYhOTnlz-sUV6Z4g_JWNEixQ",
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/sardefault.jpg?sqp=CPTgz9cG&rs=AOn4CLBgdFUwk1EOugSfcZoFg_5Ue5yDuw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-11T04:38:02.951Z"
       },
       "platform": {
         "id": "Da1c1w3CT2c",
@@ -263,6 +273,10 @@
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-funding-2"
         }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-11T04:38:02.951Z"
       }
     },
     {
