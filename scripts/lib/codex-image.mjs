@@ -68,10 +68,18 @@ export function spawnCodex(args) {
   });
 }
 
-/** generateWithCodex の並列用。出た最初の画像のパスを返す（出なければ null） */
+/** Codex の利用上限の応答（ChatGPT のプランの上限）。画像が出ないだけと区別して止める */
+export function usageLimitMessage(stdout) {
+  return String(stdout ?? '').match(/"message"\s*:\s*"([^"]*usage limit[^"]*)"/i)?.[1] ?? null;
+}
+
+/** generateWithCodex の並列用。出た最初の画像のパスを返す（出なければ null）。利用上限なら投げる（2026-11-11・上限の空振りを「画像が出なかった」と数えて作り直しを繰り返した） */
 export async function generateWithCodexAsync(fullPrompt, model, { run = spawnCodex, tmp = tmpdir(), images = [], imagesRoot } = {}) {
   const dir = mkdtempSync(join(tmp, 'gen-article-photo-'));
-  return takeOwnImage(await run(codexArgs(dir, fullPrompt, model, images), dir), dir, imagesRoot);
+  const stdout = await run(codexArgs(dir, fullPrompt, model, images), dir);
+  const limit = usageLimitMessage(stdout);
+  if (limit) throw new Error(`Codex の利用上限: ${limit}`);
+  return takeOwnImage(stdout, dir, imagesRoot);
 }
 
 /** codex --json の出力から最後の応答文を取り出す */

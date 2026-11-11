@@ -50,3 +50,11 @@ test('codexArgs: 添付の画像は -i で渡し、直後にフラグを置い�
   assert.ok(a.at(-1).includes('PROMPT'), '指示文は最後');
   assert.ok(!codexArgs('/d', 'P', null).includes('-i'), '画像が無ければ -i を付けない');
 });
+
+test('Codex の利用上限の応答は「画像が出なかった」と分けて投げる（2026-11-11）', async () => {
+  const { generateWithCodexAsync, usageLimitMessage } = await import('../scripts/lib/codex-image.mjs');
+  const stdout = '{"type":"error","message":"You’ve hit your usage limit. Visit https://chatgpt.com/settings/usage to purchase more credits or try again at 9:27 PM."}';
+  assert.match(usageLimitMessage(stdout), /usage limit/);
+  assert.equal(usageLimitMessage('{"type":"thread.started","thread_id":"x"}'), null);
+  await assert.rejects(generateWithCodexAsync('p', null, { run: async () => stdout }), /利用上限/);
+});
