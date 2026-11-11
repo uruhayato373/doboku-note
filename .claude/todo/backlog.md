@@ -1249,7 +1249,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **次にやること**:
 1. 運営者: 親の通常動画が公開されたら、Studio でショートの「関連動画」に親を設定する（API では設定できない）
 2. 設定したら `npm run registry -- record-related --pub <ショート> --video-id <親>` で記録し、youtube-single-publish の publish をもう一度流すと予約する（`expect` は `publish-youtube --phase upload` の dry-run の digest）。purpose-1 は 11/13 14:30 より前に済ませる
-3. point-funding-2 は表紙の設定（`thumbnails.set`）が応答なしで「thumbnail結果不明」で止まっている。割当は余っていた（GCP の実測: アップロード 10/100・クエリ 1,066/10,000）ので超過ではなく、原因は未確認。同じ画像なので送り直しは無害。台帳と R2 の実行記録から `thumbnailRequestedAt` を外して流し直す
 3a. 運営者が YouTube の本人確認を登録中（2026-11-11）。Studio で関連動画を開くと「チャンネル履歴が十分ではないため、上級者向け機能にアクセスできません」と出て設定できなかった。確認が通ったら、内部ブラウザの Studio（編集画面の「関連動画」＝`ytcp-shorts-content-links-picker`）でエージェントが設定し、画面で読み戻してから record-related で記録して予約する。手順が安定したらスクリプトにする
 3b. 1 日の投稿の本数の上限（`config/video-auto-publish.json` の `maxUploadsPerDay`・4）を撤廃する（2026-11-11・運営者の決定・未着手）。GCP の実測でアップロードは別枠の 100 本/日。外すのは設定・型（`dataset-schemas-config-media.mjs`）・`video-publish-gate.mjs` の `uploadsLeft`・`video-factory publish` の検査・そのテスト・`video-factory.md` の記述・DN-1101 の「1 日 4 本まで」
 4. 公開 28 日後に、ショートから通常動画へ移った数を見て、`shortsRule` の上限と枠ごとの本数を見直す（2026-12-15）
@@ -3415,7 +3414,7 @@ Windows の PowerShell で repo 直下から順に:
 **著作権**: 切り出した画像は分析後に削除し、07c には要旨だけを書く。
 **完了条件**: 07c §3 の todo を消し、自社の旧形式・図解版と同じ物差し（10秒ごとの比較で直前と同じ画面の割合）で競合6本の値を表に入れる。
 
-### [DN-0600] YouTube の再開でやること（移行の読み戻し不整合の解消・総まとめと図解版の公開判断と 28 日比較・新形式の動画パック）
+### [DN-0600] YouTube の再開でやること（総まとめと図解版の公開判断と 28 日比較・新形式の動画パック）
 タグ: [領域:SNS] [種類:制作] [起票:2026-10-08]
 
 **起点**: 建設資格データ研究所が VOICEVOX の読み上げで一問一答を作り、90分・24,735回再生。日建学院の「一問一答」10本は再生中央値51,500回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1・§2）。自社は VOICEVOX と過去問の記事を両方持つ。`config/youtube-formats.json` の `quiz-tts`（proposed）。
@@ -3451,18 +3450,6 @@ Windows の PowerShell で repo 直下から順に:
 **判断（週次レビュー 2026-10-10・運営者）**: 2026 年（10/25 の 2 級二次を含む）はやらない。2027 年の 1 級一次から、公式の正答公表前は「速報・暫定」と明示し訂正の出し方を決めた形で始める。config/youtube-formats.json の exam-sokuho は paused にした。
 
 **完了条件（改）**: 2027 年の 1 級一次の前に、形（ライブか当日夜の録画か）・正答の確かめ方・当日の制作手順が決まり、exam-sokuho が trial になっている。
-
-**統合（2026-10-26 棚卸し）: 旧 DN-0698「YouTube移行の読み戻し不整合と旧プレビューの残存を解消」**
-
-**再開（2026-11-04）**: 運営者の指示で YouTube の保留を解除した。X・Instagram など他の SNS の保留は別に確認する。
-
-起点: 土工Shortsの画像差し替えで、YouTube APIの直後の応答と後続実査が一致せず、動画処理・登録情報・削除の確認が繰り返し停止した。新版 uNCBD0A9zpw / vYPjT713Hyg は非公開で採用・実表示確認済み。旧3本は削除確認済み。残る不採用プレビュー tMxQesShhL8 はタグ欠落/復帰を含む読み戻し不一致が再発し、削除前の照合で停止中。
-
-やること: scripts/lib/youtube-migration-finalize.mjs の確認未成立を保存済み意図から安全に再照合できるようにし、不完全応答・反映遅延・実際の他者変更を区別する。新規アップロードを重複させず、凍結計画や削除ゲートを緩めない。旧プレビューは最新の実体を再確認してから整理する。
-
-根拠: actions/runs/38206187919 では旧情報の一致を確認し activated、その次の actions/runs/38206257559 で Old video metadata drift。前者直前にも同じ不一致が再発。作業ブランチ codex/youtube-pop-thumbnails。凍結計画SHA c68ac386ee38c75bf564cf9dc55045041f6d8707f887d213c8bf64aeacadb149、private receipt scope pop-soil-shorts-fullbleed-20261012-930320f6-final。制作物・旧新対応は土工パックの pop-image.json と素材台帳を参照。
-
-完了条件: 読み戻しの遅延/欠落と本当のメタデータ変更の回帰テストを通し、後者では削除しない。新版2本・音声・字幕・非公開設定を保持し、旧プレビューの不存在をAPIで確認して台帳を更新する。
 
 **統合（2026-10-26 棚卸し）: 旧 DN-0599「2級直前総まとめの公開判断と公開後28日比較」**
 

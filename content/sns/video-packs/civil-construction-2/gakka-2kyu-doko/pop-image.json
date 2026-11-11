@@ -2451,7 +2451,7 @@
             "activationAt": "2026-10-12T04:51:10.246Z",
             "activationRunId": "38205390124",
             "receiptScope": "pop-soil-shorts-fullbleed-20261012-930320f6-final",
-            "oldDeletionPending": true,
+            "oldDeletionPending": false,
             "retiredVideos": [
               {
                 "id": "g86O04mXoVM",
@@ -2462,8 +2462,8 @@
               {
                 "id": "tMxQesShhL8",
                 "newId": "vYPjT713Hyg",
-                "phase": "activated",
-                "deletedAt": null
+                "phase": "deleted",
+                "deletedAt": "2026-11-11T04:45:00.000Z"
               }
             ],
             "checkedAt": "2026-10-12T05:05:28.680Z",
