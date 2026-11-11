@@ -60,7 +60,7 @@ async function generateAll(label, pack) {
   return { ok: false, output: '生成が 15 回の打ち直しで終わらない' }
 }
 
-const auditPrompt = (pack, round) => `動画 ${pack} の AI 生成画像を判定する。\`${CLI} audit-queue --pack ${pack}\` の項目を 1 枚ずつ Read で見て、定義の軸で判定する（文字の軸を必ず見る）。指示にある文字と 1 字ずつ照合する。作り直しはしない。判定できない画像は unjudged に入れて記録しない。
+const auditPrompt = (pack, round) => `動画 ${pack} の AI 生成画像を判定する。\`${CLI} audit-queue --pack ${pack}\` の項目を 1 枚ずつ Read で見て、定義の軸で判定する（文字の軸を必ず見る）。指示にある文字と 1 字ずつ照合する。作り直しはしない。判定できない画像は unjudged に入れて記録しない。audit-queue が空配列なら（判定待ちの画像が無い）、何も書かず記録もせず verdicts と unjudged を空で返す。
 判定は [{"figKey","verdict":"ok|fail","reason"}] の JSON を ${M}/.tmp/media/${pack}/work/factory/verdicts-${round}.json に書き、\`${CLI} record-audit --pack ${pack} --file <そのファイル> --by ai-image-fidelity-auditor\` で記録する（この記録は定義の範囲内の作業）。同じ判定を verdicts で返す。`
 
 async function produceImages({ pack, scope = 'all', rendered, from }) {
