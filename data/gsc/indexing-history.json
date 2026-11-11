@@ -2061,6 +2061,28 @@
         "/exam/pe-comprehensive-management/keywords/sexual-harassment",
         "/exam/pe-comprehensive-management/past-exams/h24-secondary"
       ]
+    },
+    {
+      "runId": "2026-11-11T06-08-50Z",
+      "collectedAt": "2026-11-11T06:08:50.886Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 3,
+      "accepted": 1,
+      "alreadyIndexed": 2,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/concrete-engineer/guide/r08-answers",
+        "/exam/civil-construction-1/textbook/river-act",
+        "/exam/pe-comprehensive-management/keywords/interim-storage-facility"
+      ],
+      "acceptedSlugs": [
+        "/exam/concrete-engineer/guide/r08-answers"
+      ]
     }
   ]
 }
