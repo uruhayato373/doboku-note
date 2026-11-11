@@ -41,6 +41,7 @@ import { execFileSync } from 'node:child_process';
 import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
 import { classifySitePath, loadSiteRoutes, rewriteLegacySiteLinks, siteLinkRegex } from './lib/site-links.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { isLegacyPath } from './lib/legacy-routes.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
@@ -112,7 +113,7 @@ for (const f of files) {
     if (forbidsLegacy(f)) {
       // 張り替え表は fix-legacy-site-links・note の同期（canonBodyHash）と同じ rewriteLegacySiteLinks。転送先が無いものは下の実在検査に任せる
       const { text, replaced } = rewriteLegacySiteLinks(line, routes);
-      if (replaced) problems.push(`${f}:${i + 1}  旧 /docs の URL ${replaced} 件  → ${[...text.matchAll(siteLinkRegex())].map((m) => m[1]).filter((p) => !p.startsWith('/docs/')).join(' ')}`);
+      if (replaced) problems.push(`${f}:${i + 1}  旧 /docs の URL ${replaced} 件  → ${[...text.matchAll(siteLinkRegex())].map((m) => m[1]).filter((p) => !isLegacyPath(p)).join(' ')}`);
     }
     // テンプレ行（プレースホルダ変数）はスキップ: <year> / {年度} / ｛...｝
     if (/[<>{}｛｝]/.test(line)) return;
