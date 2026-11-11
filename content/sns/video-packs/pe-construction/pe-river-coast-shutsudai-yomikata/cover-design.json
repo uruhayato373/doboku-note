@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 2,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/cover-pop.29078ad4.png",
+        "sha256": "29078ad4224edcb3838b2bc3b98c54b3a024f3ced3c5811619e0861fa411b43f",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "9e463f8237fd2f6265073a26e2490deb22c867111b49c32477f2ba45c6b5a468"
+      }
     }
   }
 }

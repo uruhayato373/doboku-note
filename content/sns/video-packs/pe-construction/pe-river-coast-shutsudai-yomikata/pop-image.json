@@ -1,0 +1,475 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『河川砂防』『海岸・海洋』『出題の読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-cover.2ae1d685.png",
+          "sha256": "2ae1d6853d953a959b0f2f753e0231ef3ee9473882a7f16802c61c0a1dbfc265"
+        },
+        "generatedAt": "2026-11-11T02:25:34.494Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "河川砂防",
+          "海岸・海洋",
+          "出題の読み方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/cover-pop.29078ad4.png",
+        "sha256": "29078ad4224edcb3838b2bc3b98c54b3a024f3ced3c5811619e0861fa411b43f",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "2ae1d6853d953a959b0f2f753e0231ef3ee9473882a7f16802c61c0a1dbfc265"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T02:25:34.494Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "指定4文字列（総監が制作・河川砂防・海岸・海洋・出題の読み方）が誤字なく、先生の顔・黒縁眼鏡・白ヘルメット・紺作業服と反射帯が崩れていない",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "793baaac49590f3bee1e7a44ff8c2c34872d7cbf0318b340acc3fd4103fc3990",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『過去問の前に、読み方を決める』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『令和元年度〜8年度の出題テーマ』 『II-1・II-2・IIIの問われ方』 『対象の選択と観点の限定』。 図の下、下端の字幕の帯より上に『出題テーマはdoboku-noteの要約。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 過去問を開いても、河川、ダム、砂防、海岸のどこから読めばいいのか分からない。今日は技術士建設部門の河川、砂防及び海岸・海洋を、令和元年度から8年度の出題テーマをもとに、II-1、II-2、IIIの問われ方に分けて読み方を整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-premise.7433fcc3.png",
+              "sha256": "7433fcc3a05a2badde7974e552e83fa5dce6720d6e6b5b6a7a0363dc9ae7a54d"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/premise-diagram.c0a58bc6.png",
+            "sha256": "c0a58bc68cfc5791db281f0e624ddc2b8ef54da6f9395a1f9fb0c5510cc79ae2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7433fcc3a05a2badde7974e552e83fa5dce6720d6e6b5b6a7a0363dc9ae7a54d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3枠の文字・下の注記が指示と1字ずつ一致し、図も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "myth",
+          "inputSha256": "0bbae5b0cebd9193e5c172fa7431d60fb4bc7264a06f0a03e433960a7b319134",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『テーマ名と、問題文の条件』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『問題文の条件はテーマ名に含まれない』の全文を省かずに入れる。 この場面の説明（文字にしない）: よくある誤解は、出題テーマの名前を覚えれば書ける、という考えです。実際の問題文は、複数挙げる、対象を一つ選ぶ、津波を除く、観点を限定する、といった条件まで決めています。テーマ名は入口で、条件の読み取りが答案の出来を分けます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-myth.e5fc0c59.png",
+              "sha256": "e5fc0c5921321dcda9b8e4abc1d1a32b2f21a94ae201155235435ef4345b81c0"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/myth-diagram.ee5083a2.png",
+            "sha256": "ee5083a2eb9f5f3d2ce50a565e1880908241674a692a7da5f247b827d2d69cee",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e5fc0c5921321dcda9b8e4abc1d1a32b2f21a94ae201155235435ef4345b81c0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと注記が指示どおりで、左右比較の図に誤字・崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "forms",
+          "inputSha256": "b879a8254725c552b303c92aaa288858991920fbb1ae845db93c085119cdc042",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『令和8年度の形式（例）』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『II-1 4設問から1つ・1枚』 『II-2 2設問から1つ・2枚』 『III 2問題から1つ・3枚』。 図の下、下端の字幕の帯より上に『令和8年度の形式。受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず区分です。令和8年度の形式では、II-1は4設問から1設問を選び、答案用紙は1枚。II-2は2設問から1設問を選び、2枚。IIIは2問題から1問題を選び、3枚です。形式は受検年度の公式情報で確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 46.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-forms.aba42927.png",
+              "sha256": "aba42927eb2e9255fafaeda5b03f698166ea15dd38c51dd7a34594abd81c4f07"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/forms-diagram.fb4d21cd.png",
+            "sha256": "fb4d21cd80da09730cb479ee3e7a5a6e3342f923cfd7fdf179b74d3a11d3b055",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "aba42927eb2e9255fafaeda5b03f698166ea15dd38c51dd7a34594abd81c4f07"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "II-1/II-2/IIIの3行と注記が指示と一致、数字・枚数も正確",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii1",
+          "inputSha256": "31065dade90419f80eae8d72baafb59d5f8624b92d62ce40aa95bd926d5b45a9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-1は河道・ダム・砂防・海岸』。 図に入れる文字: 『II-1-1 河道の縦断形の設定と維持』 『II-1-2 ダム貯水池の堆砂対策』 『II-1-3 レベル4土砂災害危険警報』 『II-1-4 海岸堤防の必要高・設計潮位』。 図の下、下端の字幕の帯より上に『令和8年度の構成。領域の呼び方はdoboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-1は、令和8年度は河道の縦断形、ダム貯水池の堆砂対策、レベル4土砂災害危険警報、海岸堤防の4領域でした。年度別の一覧でも、河川、ダム、砂防、海岸にまたがる問いが並びます。どれも、説明したうえで、複数挙げる形が基本です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 17.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-ii1.9ee223b7.png",
+              "sha256": "9ee223b7026b93dc21dcf04fd5640a402ba637ef6b1b0f4623adf4f2c66229ef"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/ii1-diagram.7ae21dc6.png",
+            "sha256": "7ae21dc63208228d797e82edef6b00dae547281872da1f2308e4bbb139788a63",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9ee223b7026b93dc21dcf04fd5640a402ba637ef6b1b0f4623adf4f2c66229ef"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "4領域の見出し・キャプション・注記が指示と一致し、河道・ダム堆砂・土砂災害・海岸堤防の図も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii1cond",
+          "inputSha256": "1db65496571f2c1817f90b30431198abce366d58ee93a9d985ed83c86d73be1e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-1の指定（R08）』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『海岸堤防 必要高の算定手法を2つ（津波を除く）』 『ダム堆砂対策 目的を複数・留意点を複数、それぞれ説明』。 図の下、下端の字幕の帯より上に『令和8年度の問題文より。公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 条件の例です。令和8年度の海岸堤防は、設計波に対する必要高の算定手法を2つ、ただし津波は除くと書かれました。ダムの堆砂対策は、目的を複数述べ、工法を選ぶ留意点を複数挙げて、それぞれ説明する指定でした。数と範囲を外すと、点になりません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 42.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-ii1cond.e83e4169.png",
+              "sha256": "e83e4169870405cde6ea678da99cd2a5fd8b688425d0380b214ccd509e90330e"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/ii1cond-diagram.a18c3bc4.png",
+            "sha256": "a18c3bc49951ab1820ffca0bec2334267dfcb4c2877523a66273eadfe144a53d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e83e4169870405cde6ea678da99cd2a5fd8b688425d0380b214ccd509e90330e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "2枠の文字と注記が指示の内容と一致、誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii2",
+          "inputSha256": "b9b9505341366ca4ab9501d5e7aa0def29139de4fa1c2f0c657894810911abfc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-2は、設問が三つに分かれる』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『（1）調査・検討すべき事項』 『（2）業務手順ごとの留意点』 『（3）関係者との調整方策』。 図の下、下端の字幕の帯より上に『令和8年度II-2-1・II-2-2の構成。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-2は、令和8年度で気候変動を踏まえた計画の策定・変更と、地区防災計画の策定支援の2択でした。どちらも、1で調査、検討すべき事項、2で業務の手順ごとの留意点、3で関係者との調整方策を述べる、三つの設問でした。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-ii2.8781fe28.png",
+              "sha256": "8781fe284fa720c3a1e9892e19479c9f921cc078695f15c00e6b0221414abd96"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/ii2-diagram.02bb42dc.png",
+            "sha256": "02bb42dcde9152b088875264bb96d8467c94f8b4f3daf18226dce902ed527bfd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8781fe284fa720c3a1e9892e19479c9f921cc078695f15c00e6b0221414abd96"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "(1)(2)(3)の設問文字と注記が指示と一致、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii2cond",
+          "inputSha256": "b4ed91a72533be953d671b0d74f657cc710c89d3738455e3b753e6f97964a218",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-2の指定（R08）』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『II-2-1 3つの計画から、いずれか1つを選ぶ』 『II-2-2 調整が必要な関係者を列記し、連携・調整方策を述べる』。 図の下、下端の字幕の帯より上に『令和8年度の問題文より。公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-2の指定も読みます。令和8年度の計画の策定・変更は、河川整備基本方針、土砂・洪水氾濫対策計画、海岸保全基本計画のいずれか1つを選んで解答する指定でした。地区防災計画の問題は、調整が必要な関係者を列記して、それぞれとの連携を述べる形でした。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-ii2cond.0403c6b9.png",
+              "sha256": "0403c6b9027c59ddde063e509a81948037dc6a3957acd726a1989e3087d9cfd8"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/ii2cond-diagram.8a7bfae3.png",
+            "sha256": "8a7bfae3ab55dfb5a7a972a0f10e3b075e110bf967ec341a57cb55fe3038ac91",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0403c6b9027c59ddde063e509a81948037dc6a3957acd726a1989e3087d9cfd8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "II-2-1・II-2-2の文字と注記が指示と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "iii",
+          "inputSha256": "f035e2837194f5b13deab78021dd7cb242b16ea40773d6d6bbf6a18ea12be9c7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『IIIは、課題から解決策、新たなリスク』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『（1）観点を述べ、技術課題を3つ』 『（2）最も重要な課題の解決策』 『（3）新たに生じうるリスクと対策』。 図の下、下端の字幕の帯より上に『令和8年度の構成。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: IIIは、令和8年度は複合災害の応急対応と、水災害の事業評価でした。どちらも、観点を先に述べて技術課題を3つ抽出し、重要な一つに複数の解決策を示し、すべて実行しても新たに生じうるリスクと対策まで答える構成です。観点は、設問ごとに限定されています。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-iii.e5171966.png",
+              "sha256": "e5171966fb18a0efd8284df100a81eb97e05bf043fc2173a3a1acc98e11eaac9"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/iii-diagram.3a0029fa.png",
+            "sha256": "3a0029fa28ee63b449cc3c69666fd3279ae2f99baeb60e0a735f40778fc28a91",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e5171966fb18a0efd8284df100a81eb97e05bf043fc2173a3a1acc98e11eaac9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・(1)〜(3)の文字・注記が指示と一致、アイコンも破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "steps",
+          "inputSha256": "0e073ff5fdc13cb298a5d19370f2038f8ebbdc7cdfb3ab1530aa8d4eae89cfc5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読み方の3手順』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『区分を見て、選ぶ数と枚数を確かめる』 『数・対象の選択・除外・観点に線を引く』 『設問が並ぶ順に答える』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。公式の手順ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 読み方を三つの手順にまとめます。一つ、区分を見て、選ぶ数と枚数を確かめる。二つ、複数や3つなどの数、選ぶ対象、津波を除くなどの除外、限定された観点に線を引く。三つ、設問が一から三まで並ぶときは、その順に答える。この手順は、この動画の整理です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-steps.41cab271.png",
+              "sha256": "41cab2712be20a223240eb4e13586de87a8dfd2a0e4d07e5a519a38d29c5ad8d"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/steps-diagram.cf9bde91.png",
+            "sha256": "cf9bde91359c53a4319224d43cb880ed9b101587c0a7b8e7e9c5d5d0434d9772",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "41cab2712be20a223240eb4e13586de87a8dfd2a0e4d07e5a519a38d29c5ad8d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3行・注記が指示と一致、誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "d9cfaa1f5e137353014a9f3315705c073b8f07359b26fc9792505289188869bc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『河川砂防海岸の出題は、条件を読む』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『II-1：河道・ダム・砂防・海岸』 『II-2：調査・手順・調整』 『III：観点・解決策・新たなリスク』 『条件を読む』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。受検年度は公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。河川、砂防及び海岸・海洋の出題は、II-1、II-2、IIIで問われ方が違います。II-1は4領域から選び、II-2は調査、手順、調整の三つ、IIIは観点から新たなリスクまでです。そして、テーマ名より、問題文の条件を読むこと。受検年度の問題と日程は、公式の情報で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-recap.a2dd4da3.png",
+              "sha256": "a2dd4da30ac7e1a4ab1e6c50715dd97bf22c4970cab4ad03a2c33bbf8f21ce42"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/recap-diagram.b25d4583.png",
+            "sha256": "b25d4583d1b13b9c7792d0b1cd9dc66334a310d498a373a41d10e63fb0272389",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a2dd4da30ac7e1a4ab1e6c50715dd97bf22c4970cab4ad03a2c33bbf8f21ce42"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3枠・条件を読む・注記が指示と一致、トータルステーション等の絵も成立",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "4944a4430b61508ecc9aac70b1c0da3a7bee5ec5b95b7abd09c4e058c884ba40",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読み方の次は、書き方』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『河川、砂防及び海岸・海洋 選択科目の模範解答集』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 読み方の次は、書き方です。河川、砂防及び海岸・海洋の令和3年度から8年度の設問を、すべての選択肢で解答した模範解答集がnoteにあります。この動画は読み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 30.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/factory/raw-cta.0f1cdf87.png",
+              "sha256": "0f1cdf87972f7aa50aff45c74b0551cc726045c59888b696702e1cea72fa43ae"
+            },
+            "generatedAt": "2026-11-11T02:25:34.494Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-river-coast-shutsudai-yomikata/work/cta-diagram.97e84dd5.png",
+            "sha256": "97e84dd5fcbfabbc584e793891c6c7dfd2c4186c2053f505fd934939f9af82e2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0f1cdf87972f7aa50aff45c74b0551cc726045c59888b696702e1cea72fa43ae"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T02:25:34.494Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・書名・収録内容の文字が指示と一致、価格・URLなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}
