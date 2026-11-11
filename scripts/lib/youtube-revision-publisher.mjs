@@ -301,7 +301,8 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
       pub.delivery.thumbnailRequestedAt = at(); await journalSave(); save();
       let response;
         try { response = await youtube.thumbnails.set({ videoId: pub.delivery.videoId, media: { mimeType: thumbnail.mimeType, body: Readable.from([thumbnail.bytes]) } }, { retry: false }); }
-      catch { throw new Error('thumbnail結果不明。intentを保持して停止'); }
+      // 理由を残す（2026-11-10 の 1 件は理由が分からず、割当の超過と誤って推定した）
+      catch (error) { throw new Error(`thumbnail結果不明。intentを保持して停止: ${error?.response?.status ?? ''} ${error?.message ?? error}`); }
       summary.externalActions++;
       pub.delivery.thumbnailUrls = (response.data?.items ?? []).flatMap(urls);
       if (!pub.delivery.thumbnailUrls.length) throw new Error('thumbnail応答を確認できない。再送しない');
