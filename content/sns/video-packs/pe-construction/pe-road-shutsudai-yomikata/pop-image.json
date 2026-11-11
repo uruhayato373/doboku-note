@@ -468,8 +468,260 @@
           }
         }
       ]
+    },
+    "shorts-pop-point-jogai-2-20261111": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2",
+      "key": "point-jogai-2",
+      "sceneId": "cond",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "0b93c6ee6d193b9bfd573cf801473e2cc5ab0173c0208457f9e8f970449091ee",
+          "narration": "道路のIII-2、問題文のどこに線を引きますか？",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『どこに』『線を引く？』、小さな黄色帯に『総監が制作』。 表紙の型は「1 問で確かめる」。見出しの下に問題文の紙を 1 枚置き、大きな『？』を添える。先生は紙を指さす。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指で見出しの下の問題用紙を指さし、左手（画面右側）は赤ペンを持って胸の高さに上げる。指は5本で、指さすのは人差し指だけ。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字・配置: 見出し『線を引く？』の左端が画面幅の約6%で指定の8%内側に入らず、見出しの塊の幅も約83%で80%上限を超える。右端18%域（右手・赤ペン）にも人物が入る。型（問題用紙を指さす）と文字の綴りは合っている",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/raw-cover.e8738b97.png",
+              "sha256": "e8738b97f09aa20468bd8c91890b6cc35e803ee22e208f57a6ff816b31cdd423"
+            },
+            "generatedAt": "2026-11-11T10:26:28.856Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/cover.d4ce8267.png",
+            "sha256": "d4ce82671d22aa63d338da2bdcd4b75f21a13a37208a68bfce641a4c1bda670c",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e8738b97f09aa20468bd8c91890b6cc35e803ee22e208f57a6ff816b31cdd423"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:26:28.856Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "表紙の型「1問で確かめる」どおり、見出し『どこに/線を引く？』の下に問題用紙と『？』、先生が人差し指で指さし赤ペンを持つ。文字は指定と一字一致し端で切れず、手の指は5本で胴体は下端まで続く"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "485dbc5872b15111e3e3ee9651d93c5b528c8add87f29ee09844760d44311f31",
+          "narration": "令和8年度のIII-2です。問題文の背景を読んで、課題を立てる前に確かめる条件を探してください。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『1』と見出し『令和8年度のIII-2』。 図: 中央に大きな問題用紙を1枚描き、上部に『III-2（R08）』。本文は文字ではなく横線で描く。用紙の右に大きな『？』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/raw-scene-001.a3aec6c8.png",
+              "sha256": "a3aec6c88a6a36cf9f0ca677d659e988c611a26fd8ac727300d4d868c222ff86"
+            },
+            "generatedAt": "2026-11-11T10:26:28.856Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/scene-001.ee945bff.png",
+            "sha256": "ee945bff5fbb2428f43720a95317b100590d27f478a0a22533b4f1c4a07676a4",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a3aec6c88a6a36cf9f0ca677d659e988c611a26fd8ac727300d4d868c222ff86"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:26:28.856Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指定文字『技術士 建設部門』『1』『令和8年度のIII-2』『III-2（R08）』『？』が誤字なく読め、端で切れず、問題用紙の図も指示どおり"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "e87beeffdfa9454657e15e0cacccfac42a69b17c077ebc4d5cb0fc13d072747b",
+          "narration": "線を引くのは、老朽化に伴う維持管理の観点を除く、という指定です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『2』と見出し『除く観点に線』。 図: 中央に大きな問題用紙を1枚描き、横線の本文の中に1行だけ『老朽化に伴う維持管理の観点を除く』と書き、その1行に赤ペンの太い下線。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 用紙の1行が『老朽化に伴う維持管理の観点を絲く』で、指示の『除く』が『絲』に化けている。上部ラベルにも指示にない『』括弧が付いている",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/raw-scene-002.765cf200.png",
+              "sha256": "765cf200f91dbd8e2a6dc24c80df4b7f76f7a2a2e07b30863b37d47fd5652e44"
+            },
+            "generatedAt": "2026-11-11T10:26:28.856Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/scene-002.d5245600.png",
+            "sha256": "d5245600d6c96bb4af3f1237f8c55be60d1a5dfaca7abf2fc28a9521373a7048",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "765cf200f91dbd8e2a6dc24c80df4b7f76f7a2a2e07b30863b37d47fd5652e44"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:26:28.856Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『技術士 建設部門』『2』『除く観点に線』『老朽化に伴う維持管理の観点を除く』が指示と一字一致し、その1行にだけ赤下線。文字は画面端で切れず崩れも無い（見出しの右端は94%まで伸びるが切れてはいない）"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "35c941309eabd1708387e4505ffc70033c2ab671fc88357dfc86bc4d11320eb5",
+          "narration": "定期点検や補修を課題の中心に置いた答案は、設問から外れます。除かれた観点を先に確認しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『3』と見出し『読み落とすと外れる』。 図: 左右に2枚の答案用紙を並べる。左の用紙に『定期点検・補修が中心』と書き、上に赤い大きな✕と『設問から外れる』。右の用紙に『老朽化以外の観点を明記』と書き、上に緑の丸と『設問に沿う』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/raw-scene-003.8632e7ab.png",
+              "sha256": "8632e7abc97708437adc5a1704628d10778964c8b8024dd1da48d425b1129599"
+            },
+            "generatedAt": "2026-11-11T10:26:28.856Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/scene-003.c4b462ab.png",
+            "sha256": "c4b462abaf47c53fcbdd0872caefcd0e5d79453e203d2e9f0c5f01313d086ce3",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8632e7abc97708437adc5a1704628d10778964c8b8024dd1da48d425b1129599"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:26:28.856Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『読み落とすと外れる』『設問から外れる』『設問に沿う』『定期点検・補修が中心』『老朽化以外の観点を明記』が1字ずつ指示と一致し、✕と緑の丸も配置どおりで端切れなし"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "49fd578aed6f1fcd025b0de118751d70c65f550ea34ef1689c64803aab352fcb",
+          "narration": "ほかの区分の読み方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 大きく『ほかの区分の読み方は』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『技術士 建設部門』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/raw-cta.b87ab0b4.png",
+              "sha256": "b87ab0b4340ad8189eafda30aa2e516b7600217614ee6aabb0ec64bda51eec8f"
+            },
+            "generatedAt": "2026-11-11T10:26:28.856Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/cta.c4266283.png",
+            "sha256": "c426628312d4a43f2558429acb536ad5a69ae0bc62d547825495b9b202cde197",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b87ab0b4340ad8189eafda30aa2e516b7600217614ee6aabb0ec64bda51eec8f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:26:28.856Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『ほかの区分の読み方は』『本編で』『関連動画から』が指示と一致して左右の内側に収まり、先生は同一キャラクターで手のひらが矢印を示し、胴体は下端まで続き指も破綻なし"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "90b480b52683575ad20ecef1c45d699ae947496036811c0024ff2e0545b808f5",
+        "durationSeconds": 27.066667,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "平均4.4、全軸3以上。1080x1920・27.07秒・音声あり、shorts.mp4のsha(90b480b5…)がyoutube.jsonとpop-imageのrender.videoShaに一致、場面5/5。型one-questionの形、コピー(loss-aversion)の線、語りと図もstoryboardのcond場面の範囲に収まる。",
+        "videoSha256": "90b480b52683575ad20ecef1c45d699ae947496036811c0024ff2e0545b808f5",
+        "checkedAt": "2026-11-11T10:27:35.764Z"
+      },
+      "audio": {
+        "videoSha256": "90b480b52683575ad20ecef1c45d699ae947496036811c0024ff2e0545b808f5",
+        "similarity": 0.956,
+        "maxVolumeDb": -5.4,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/video.90b480b5.mp4",
+          "sha256": "90b480b52683575ad20ecef1c45d699ae947496036811c0024ff2e0545b808f5"
+        },
+        "frames": {
+          "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/frames.a268dae6.png",
+          "sha256": "a268dae6f2c8737d2260d08cbd0ffbdb3ccc91a5354b2c9deafba1a940face06"
+        },
+        "subtitles": {
+          "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/subtitles.a6e56f58.ass",
+          "sha256": "a6e56f5876d154940a73e90cbc0e404b8705276cda77d243cabe5bdf58862d80"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/raw-cover.e8738b97.png",
+            "sha256": "e8738b97f09aa20468bd8c91890b6cc35e803ee22e208f57a6ff816b31cdd423"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/raw-scene-001.a3aec6c8.png",
+            "sha256": "a3aec6c88a6a36cf9f0ca677d659e988c611a26fd8ac727300d4d868c222ff86"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/raw-scene-002.765cf200.png",
+            "sha256": "765cf200f91dbd8e2a6dc24c80df4b7f76f7a2a2e07b30863b37d47fd5652e44"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/raw-scene-003.8632e7ab.png",
+            "sha256": "8632e7abc97708437adc5a1704628d10778964c8b8024dd1da48d425b1129599"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/raw-cta.b87ab0b4.png",
+            "sha256": "b87ab0b4340ad8189eafda30aa2e516b7600217614ee6aabb0ec64bda51eec8f"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/cover.d4ce8267.png",
+          "sha256": "d4ce82671d22aa63d338da2bdcd4b75f21a13a37208a68bfce641a4c1bda670c"
+        },
+        "savedAt": "2026-11-11T10:33:01.970Z",
+        "cloudVerified": true
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261111",
-  "activeBodyRevision": "body-diagram-20261111"
+  "activeBodyRevision": "body-diagram-20261111",
+  "activeShorts": {
+    "point-jogai-2": "shorts-pop-point-jogai-2-20261111"
+  }
 }
