@@ -101,6 +101,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | 資格トップ（`civil-construction-1`／`civil-construction-2`） | 級別の添削＋指導 |
 | 文字数チェッカー（`tools-keiken-charcount`） | `coconala-tensaku-4theme`＋`coconala-2kyu-tensaku-3theme` |
 | コンクリート主任技士（資格トップ／`guide-essay`／`guide-trends`） | `coconala-cce-essay-tensaku` |
+| 技術士 建設部門の口頭試験ガイド（`pe-construction-koutou-shiken`） | `coconala-pe-oral-qa`（口頭試験の日付が試験暦に無いので期限なし。休止で非表示） |
 
 総監 記述系は分析 PDF（`coconala-sokan-bunseki-pdf`）が retired のためルールごと外した（2026-09-30）。ルールが retired の出品を指すと `tests/offsite-cta.test.mjs` が落とす（absence は復帰するので許す）。`coconala-2kyu-tensaku`（absence）は 3 テーマ版と同じ添削なので載せない。
 

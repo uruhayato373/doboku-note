@@ -124,6 +124,14 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
     coconalaCatch: withTensakuDeadline('concrete-chief-engineer', 'exam', '小論文を人の目で確かめたい方・骨子から一緒に組み立てたい方へ。'),
   },
   {
+    // 技術士 建設部門の口頭試験ガイド: 筆記合格者が「業務経歴をコンピテンシーの言葉で説明できない」と迷うページ（2026-11-12 運営者指示）。
+    // note の口頭試験対策は magazine-placement が出す。こちらは本人の経歴から想定質問を作るテキスト完結のサービス。
+    // 口頭試験の日付は exam-calendar に無いので until は付けない（出品を休止すれば listed から外れて消える）。
+    test: /^pe-construction-koutou-shiken$/,
+    coconala: ['coconala-pe-oral-qa'],
+    coconalaCatch: '自分の業務経歴をコンピテンシーの言葉で説明できる形に、人の手で整理したい方へ。',
+  },
+  {
     // コンクリート主任技士: 択一の過去問・教科書（流入は資格トップに次いで多い）。択一と小論文は同じ日に受けるので、
     // 本試験の当日までだけ小論文の添削へ送る（2026-11-02 運営者承認・docs/strategy/22 §5 の打ち手 1）。
     test: /^concrete-chief-engineer-(primary|textbook)-/,
