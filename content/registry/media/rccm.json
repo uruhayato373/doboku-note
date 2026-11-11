@@ -1,0 +1,632 @@
+{
+  "schemaVersion": 1,
+  "scope": "rccm",
+  "media": [
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "6772e9d82152f647c2269f4a9e3ae1bb2fb883812a637c605ef0e64e13ea3c51",
+      "bytes": 745615,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/cover.6772e9d8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #9C3D1E と濃色 #742D15、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『RCCM』『問題Iの』『経験の書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "3ac2a296c478c390e8f245700222e8b66f16fbb933fa3f19e8f0a227565d2cab",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/cover-pop.6772e9d8.png"
+      ]
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "6772e9d82152f647c2269f4a9e3ae1bb2fb883812a637c605ef0e64e13ea3c51",
+      "bytes": 745615,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-001.6772e9d8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #9C3D1E と濃色 #742D15、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『RCCM』『問題Iの』『経験の書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "3ac2a296c478c390e8f245700222e8b66f16fbb933fa3f19e8f0a227565d2cab",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "5499e6cd9752a249fcd4c0e86996adb9199f80bbe3f394025cc6540858c0c570",
+      "bytes": 1441181,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-002.5499e6cd.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日整理する3つ』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『業務の選び方』 『技術上と業務上の書き分け』 『落ちる型と見分け方』。 この場面の説明（文字にしない）: 業務を並べて説明するだけで、字数が終わってしまう。技術上と業務上の問題点の違いも、あいまいなまま。今日はRCCMの問題Iを、業務の選び方、問題点の書き分け、落ちる型の順に整理します。",
+        "promptSha256": "52f997d9f6aca0086adcb0f8136bab054e34c671c669f37ca9ce037eda2d5639",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "9adf9955697eed15541043d481d14a193002202f6da52b8022a0bb8d6bddc2b5",
+      "bytes": 1692076,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-003.9adf9955.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『業務実績証明書との整合』。 図に入れる文字: 『書く業務は証明書の業務から選ぶ』 『業務番号の対応を自分で確かめる』 『減点の例は受験対策サイトの情報』。 図の下、下端の字幕の帯より上に『減点の話は一次情報で確認できていない』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず前提です。問題Iで書く業務は、申込時に出した業務実績証明書の業務から選ぶ形です。証明書の業務番号と、論文の業務の対応が食い違うと、大きく減点された例があると案内されています。ただ、一次情報での確証は取れていません。申込書類を作る段階から、自分で対応を確かめてください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 24.3）",
+        "promptSha256": "6b61468377e6fbd4e48ac41d88eee71e5e53192a4f907390e671c0d6b2dcbe67",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "6a5f6eff9addd8fc2260843c3a4f90f460aaa9a6bca773a2051dee244d223935",
+      "bytes": 1819243,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-004.6a5f6eff.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『2,400字の使いどころ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『業務その1・その2　基本情報（各約400字）』 『業務その3　問題点と対応・評価（約1,600字）』 『当年度の様式は受験の手引で確認』。 図の下、下端の字幕の帯より上に『受験対策サイトで共有されている情報。公式の確定ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 字数の配分も確かめます。受験対策サイトでは、業務その1からその3まで三件を書き、その1とその2は基本情報を各400字程度、その3に残りの大半を使う形が共有されています。これは受験対策情報で、公式に確定したものではありません。当年度の解答様式は、受験の手引で確認してください。",
+        "promptSha256": "f21275f9e6b51c6bb75990a8e5e69f85d42e6f1cbfbfe5fcbbc073144471c4a1",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "215101f1c05d711a00648838b9834f95c8661c8e52842fb5ca5d8a3a32de9b06",
+      "bytes": 1609200,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-005.215101f1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『業務を選ぶ基準』。 図に入れる文字: 『技術上の問題点を語れる場面がある』 『業務上の問題点を語れる場面がある』 『両方思い出せる業務が最有力』。 この場面の説明（文字にしない）: 得点を左右するのは、業務その3とされています。だから業務は、有名な案件かどうかではなく、技術上で語れる場面と業務上で語れる場面の両方があるかで選びます。両方とも具体的に思い出せる業務が、最有力候補です。",
+        "promptSha256": "a641d7834e0d33bf114062426e9706863ff43d00c0f3f144a81114532490c2f4",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "8836ad505e969d38936c066da1572dd1cbca577a1395f64a4deeda650a3be413",
+      "bytes": 1448539,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-006.8836ad50.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『二つの問題点の違い』。 構図: 左右2つの枠を比べ、右を強調する構図。 この場面の説明（文字にしない）: 次に、問題点の書き分けです。技術上は、設計条件や現地条件の制約に対して、工法の比較や照査などをどう判断したか。業務上は、工程、品質、コスト、安全、発注者や関係機関との調整など、管理面でどう動いたか。同じ出来事を、両方の欄に重ねて書かないことが大切です。",
+        "promptSha256": "8a9739ce9ef230fddb3b8943aa381403c9523ebf55da9310a5a3195c89a9d9ef",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "966197db028af500d48fe273bdd0c09adf862c29a885da24fa841382e253d7ff",
+      "bytes": 1252550,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-007.966197db.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『迷ったときの自問』。 図に入れる文字: 『専門技術者としての判断なら　技術上』 『管理者としての判断なら　業務上』。 この場面の説明（文字にしない）: 迷ったら自問します。その判断を下したのは、専門技術者としてか、管理者としてか。基準や計算にもとづく判断は技術上、関係者の調整や工程と予算の組み替えは業務上に振り分けます。",
+        "promptSha256": "87dbe254ee24130a5d4a22025372809c2248ccf4cd24e82924f4b061284e1e05",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "ec900a29d3aad4f27e515ce4ffe6089501f1080d82af3d650650dd3a1bf0f1e1",
+      "bytes": 1109679,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-008.ec900a29.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『主語のある書き方へ』。 構図: 左右2つの枠を比べ、右を強調する構図。 この場面の説明（文字にしない）: 立場の書き方も評価を分けます。実施された、決定された、という主語のない受け身では、あなたが何を判断し、どう動いたのかが読めません。管理技術者か担当技術者か、立場を先に示し、私は比較した上で提案した、のように主体的に書きます。",
+        "promptSha256": "af2dcb97bfa6ffd17157592e21ee4fc98cd16dc752db102bf91c69ad2088f67a",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "ced02aacd2a3dba67700b3168252ff876ebb6a7924532765483efb26f2a07dd0",
+      "bytes": 1803778,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-009.ced02aac.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『評価を落としやすい型』。 図に入れる文字: 『説明だけで終わる』 『一般論で終わる』 『成果を誇張する』。 図の下、下端の字幕の帯より上に『例はいずれも架空』の全文を省かずに入れる。 この場面の説明（文字にしない）: 落ちる型は三つです。一つ目は、目的や規模の説明で字数を使い、判断が出てこない型。二つ目は、予算が厳しい中で協力して完了した、のように一般論で終わる型。三つ目は、地域の防災力が飛躍的に向上した、のように、自分の業務の範囲を超えた成果を断定する型です。いずれも架空の例です。",
+        "promptSha256": "5bf3ce8dd4e1963f0807180e890881f98d454ed05fffae7a2b08b3c8ebdf4787",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "761099500d262b988b507129b4e3b931b47b7e3bfb40ad0b9d5cb6e7a3af6180",
+      "bytes": 1304079,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-010.76109950.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書き終えた後の点検』。 図に入れる文字: 『各段落で「私は」を主語にした一文を探す』 『抜き出せなければ、説明で止まっている』。 この場面の説明（文字にしない）: 三つに共通するのは、あなた自身の判断が主役になっていないことです。書き終えたら、各段落から、私は、を主語にした一文を抜き出せるか確かめます。抜き出せなければ、説明で止まっています。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 42.6）",
+        "promptSha256": "4100aba745771d131c9eb82ccea6de7e947f9c7a38a8995f6fe3490fef5e98d5",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "e6807303e65a62f7b0c5b950f71ebad397d3164675d544ce560247edbcf4132a",
+      "bytes": 1760764,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-011.e6807303.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『棚卸しの手順』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『証明書の業務を一覧にする』 『技術上の場面の有無を書き出す』 『業務上の場面の有無を書き出す』。 この場面の説明（文字にしない）: 業務が決まらないときは、棚卸しです。証明書の業務を一覧にして、技術上の場面があったか、業務上の場面があったかを書き出します。この作業は、技術士の業務経歴票づくりとも共通する部分が多く、将来の下準備にもなります。",
+        "promptSha256": "804485cdf046ebd9f6b21a708b0fb31595930db2f193d9729ed8d95bcf83e3aa",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "4a22ebcb84216483dfa38cb443d2d6e3ce101e72eba8023993135dcf6c0952ee",
+      "bytes": 1587737,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-012.4a22ebcb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の整理』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『両方語れる業務を選ぶ』 『技術上と業務上を別の場面で書く』 『立場を示し「私は」で書く』。 この場面の説明（文字にしない）: まとめます。業務は証明書の中から、両方語れるものを選ぶ。技術上と業務上は別の場面で書き分ける。立場を示し、私は、で書く。字数配分と様式は、受検年度の公式情報、つまり受験の手引で確認してください。",
+        "promptSha256": "17d08a50ea04bb3aa90360470e7efff348c869d1186abbd5d766b17c3190fb82",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "13a5ba8ebfa07b43f3a664a35db153f48ab5c57ba7aca43f0375e7eccc6025c1",
+      "bytes": 1672366,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-013.13a5ba8e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書き方の次は、練習』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『問題I 業務経験論文テンプレ』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 書き方の次は、実際に2,400字を組み立てる練習です。字数ごとのテンプレートと部門別の記入例が、noteのマガジンにあります。この動画は書き方の型までで、記入例の全文は含みません。収録内容は、概要欄から確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 23.8）",
+        "promptSha256": "9042e3f478f7a1c20f9efb3875f0b5615e06c99bb695d67a904602143e8441df",
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "e9745f95c987a518c2c13c27f9a7e0861ef17851114324409c2c6187b50ce9d4",
+      "bytes": 7784,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/subtitles.e9745f95.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/rccm/rccm-mondai1-keiken-kakikata/storyboard.json"
+      }
+    },
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "4ae6bcda04c69fb45308c11fb81b657ad0dac253a2d354ec3305a529127c2a96",
+      "bytes": 23860125,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/youtube.longform/video.4ae6bcda.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/rccm/rccm-mondai1-keiken-kakikata/storyboard.json",
+        "specSha256": "c16b7f6b475f6f7da222c3753f4e437e9550aed2a14e0525baf6b38de4dfc610",
+        "renderInputSha256": "73376c43c71a26d24e1aa9a71a6b4f0b2d11aa698e2d9c8ab6df74dc4e2513cf",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 235.1
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "81b5d604902fa77d527bcfb19c3123636bfb203d87b7108f0a6b6ee75b9e81a5",
+      "bytes": 725950,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/cover.81b5d604.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #9C3D1E と濃色 #742D15、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『RCCM』『問題IIIの』『論文の型』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "05fbc6cc828af417697e713adc250363fb08d88c37f550dba0b9271fe2f35de9",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/rccm/rccm-mondai3-ronbun-kata/work/cover-pop.81b5d604.png"
+      ]
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "81b5d604902fa77d527bcfb19c3123636bfb203d87b7108f0a6b6ee75b9e81a5",
+      "bytes": 725950,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-001.81b5d604.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #9C3D1E と濃色 #742D15、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『RCCM』『問題IIIの』『論文の型』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "05fbc6cc828af417697e713adc250363fb08d88c37f550dba0b9271fe2f35de9",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "b42293273987ade2f1b3b043cac4b1d3d5dcf3e9f6e0ef8df8b479df31d15017",
+      "bytes": 1722282,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-002.b4229327.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日整理する3つ』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『事前公開テーマへの備え方』 『指定用語を因果でつなぐ』 『設問①から②への配分』。 この場面の説明（文字にしない）: 指定の用語を入れるだけで字数が埋まってしまう。設問の前半と後半の配分も決まらない。今日はRCCMの問題IIIを、テーマへの備え方、用語の使い方、配分と立場の順に、書く型として整理します。",
+        "promptSha256": "f46da13e45a927678af79754514ff36a3710eb0373e0b05df02d391491ef8fd4",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "27bd1cf678d0deafdaab40fe7e857f81f913600ac9ceb56b43a00bfb060f896e",
+      "bytes": 1754719,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-003.27bd1cf6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『完成答案より、骨子』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『テーマは当日に指定される』 『公開テーマ分の骨子を用意』 『現状・課題・あり方・使える用語』。 図の下、下端の字幕の帯より上に『事前公開の有無と内容は受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず備え方です。問題IIIは、テーマが事前に公開され、当日はその中から一つが指定される形で出題されてきました。自分では選べないので、完成した答案を一つだけ覚えても、別のテーマが出た瞬間に使えません。用意するのは骨子です。現状、課題、あり方、使えそうな用語。これを公開されたテーマの分だけ作ります。公開の有無とテーマの中身は年度で変わるため、受検年度の公式情報で確認してください。",
+        "promptSha256": "a489f3cb386fb73068d03f3286a64327396d0b75fb5f36f312f3affbc5982149",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "037c195293ede1826a2d0c847e873a94f1aebb5be82b0b0ae836ec45381deace",
+      "bytes": 1811926,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-004.037c1952.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『これまでの形式の例』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『設問は①と②の2問構成』 『合計1,200〜1,600字の論述』 『指定用語を「」で4語以上』。 図の下、下端の字幕の帯より上に『2026年度の記事に基づく。当年度は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 形式も確かめます。サイトの2026年度の整理では、設問は①と②の二問で、合わせて千二百から千六百字。指定された用語のうち四つ以上を、かぎかっこで囲んで使う決まりでした。用いた用語は、①と②を通じて四つ以上あればよいとされています。この条件は年度で変わりうるので、受検年度の公式の案内で確認してください。 前回の不合格の理由を直す: 文字: 下の注記が指示『2026年度の記事に基づく。当年度は公式で確認』なのに、末尾に指示にない句点『。』が付いている（他の文字は一致）。作り直しで末尾の句点を除く",
+        "promptSha256": "ad71efd0f0ec7bab2d27684863e1d176fc1c6c02ebeab5fc473ba85bbcca4610",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "75141887c8037e23ea1956f2edaab7792b7acbc1119264bc46361ee097a06ed0",
+      "bytes": 1211005,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-005.75141887.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『用語の使い方』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『例は説明用の架空の文』の全文を省かずに入れる。 この場面の説明（文字にしない）: 次に、指定用語の使い方です。用語を散りばめるだけでは、知っている、という以上には評価されません。たとえば老朽化と広域連携。この二つを並べて書くより、単独では更新の体力が乏しいから、近隣と組んで発注を束ねる、と一本の筋でつなぎます。一つの用語が生む課題を、もう一つの用語での対応で受ける。これが因果でつなぐ、ということです。",
+        "promptSha256": "db14fc3e6d2c26624e3301c1a8638e9b07a95b688ac023846188d44302e295af",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "8fa0a0a6ef5ef3aee1f8fcf32b56ac0fd6978ce2db3c5bb719833d227c397d20",
+      "bytes": 1630561,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-006.8fa0a0a6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『用語を詰め込まない』。 図に入れる文字: 『4語は最低ライン』 『まず3〜4語で無理のない筋を作る』 『字数に余裕があれば足す』。 この場面の説明（文字にしない）: 四語以上は最低ラインです。多く入れようとするほど、説明が羅列に近づきます。まず三、四語で無理なくつながる筋を作り、字数に余裕があれば用語を足す。この順序をおすすめします。",
+        "promptSha256": "011df369bc98d3063c64e572f04e37c85d88e4b1ba277cee220a5116401f0bce",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "d17d50871e19801c2ab67bb12509420e655f93219c4f77edfbf8c967b5232ba0",
+      "bytes": 1159895,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-007.d17d5087.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『字数の配分の目安』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『配分はサイトの目安。公式の規定ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 配分です。設問①に字数を使いすぎると、②のあり方が一般論で終わります。逆に②ばかり厚くすると、なぜその対応が必要かの裏付けが弱くなります。目安は、①が四割、②が六割。①では背景と具体的な課題を、用語を使って簡潔に整理します。②では、誰が、何を、どう進めるかまで書き込みます。これは目安で、公式の規定ではありません。",
+        "promptSha256": "37834a9599b2ceb171e2cccdfef64008b4d88761363abfd8c90a600988d18749",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "a050163e01a91167edffba87cced87555754c2a9843e7e35c6f7ee202a85ef04",
+      "bytes": 1699543,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-008.a050163e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『①と②をつなぐ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『①で挙げた課題に②が答える』 『②だけ立派な理念で終わらせない』 『実務で実行できる水準まで具体化』。 この場面の説明（文字にしない）: もう一つ。②は、①で挙げた課題に答える形にします。①で書いていない課題に②で答えても、筋は通りません。理念だけで終わらせず、実務で実行できる水準まで具体にします。",
+        "promptSha256": "68d034ec96cb4769814a749792dd954ebb962eef293da7077b59c50e88517c32",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "cb235df453db7f762c75b8d088e706eaab5c29b67df4f69441b104441e3d11c5",
+      "bytes": 1510720,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-009.cb235df4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『立場の線引き』。 この場面の説明（文字にしない）: 書く立場にも注意します。RCCMは、建設コンサルタントの管理技術者などの資格で、問題IIIも受注者である管理技術者の視点で組み立てるのが前提です。制度の改正や予算の配分は発注者の領域で、受注者が実現するかのようには書けません。書いてよいのは、調査手法の選定、関係者の調整、成果品の品質管理体制など、管理技術者として提案し実行できる工夫です。迷ったら、これは管理技術者として実行できることか、と自問します。",
+        "promptSha256": "03b582299fb7acfd9260b6b77b172b93e8d740cff66f093456266d1b6ed37098",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "7128c863f484585589468ab57a382f8342cef2aa970847f88ebdfb285a8c1f88",
+      "bytes": 2029620,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-010.7128c863.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『試験Bの時間配分の目安』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『択一の問題IVに40〜50分』 『構成の検討に15〜20分』 『入力に55〜65分』。 図の下、下端の字幕の帯より上に『サイトの目安。時間・方式は年度の公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 最後に時間です。2026年度の整理では、試験Bは百三十分で、問題IIIと択一の問題IVを解きます。CBTで、キーボードに直接入力する形でした。目安は、問題IVに四十から五十分、構成の検討に十五から二十分、入力に五十五から六十五分。構成の段階で、用語の置き場所と①②の配分まで決めておくと、入力中に迷いません。試験時間や方式は、受検年度の公式情報で確認してください。 前回の不合格の理由を直す: 文字: 左枠の『択一の問題IVに』が『択一の間題IVに』と描かれ、『問』が『間』に化けている（拡大で確認）。他の文字・数字は一致。作り直しが必要",
+        "promptSha256": "11adbc9e96c7e690542db1017b73bccc034f7a8ac6860c671159a80033fe85ca",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "c6256628f58810885600e9f8cd17082b5cb34f520318f31c033af8d9b8704f3c",
+      "bytes": 1505572,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-011.c6256628.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問題IIIの型』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『骨子はテーマの数だけ用意』 『用語は因果でつなぎ、配分は①と②で』 『管理技術者として実行できる範囲で書く』。 この場面の説明（文字にしない）: まとめます。骨子は、公開されたテーマの数だけ用意する。用語は因果でつなぎ、字数は①と②で配分する。そして、管理技術者として実行できる範囲で書く。年度ごとの条件は、公式情報で確認してください。",
+        "promptSha256": "f3b135c519ae00e8a269a3160e6ae46df046d881d4c5da119ab4a9d7281666ee",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "ae64dd87a15d48d08d54c6cb60a4fe8064bdd9f128f108323cbe67c84447dbba",
+      "bytes": 1739572,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-012.ae64dd87.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書き方の次は、練習』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『問題III 模範論文集』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 型がわかったら、次は実際に書いて確かめる段階です。テーマ別の模範論文は、noteのマガジンにまとめています。この動画は組み立ての型までで、模範論文の全文は含みません。収録内容は、概要欄から確認してください。",
+        "promptSha256": "2701814b73e4762571a56e0ec69b37285da55be8bf7e6a3a486ace52343ec972",
+        "generatedAt": "2026-11-11T03:42:22.597Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "84552ebac0486a45101c689b475138ef64fa9cf8264a7a2a0f586d0b6676ad59",
+      "bytes": 8480,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/subtitles.84552eba.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata/storyboard.json"
+      }
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "a21eb6bf555f60dc27d9af07636050983e4e4c33f51d1e9d7d3421c8572ecefc",
+      "bytes": 27476413,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/rccm/rccm-mondai3-ronbun-kata/youtube.longform/video.a21eb6bf.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata/storyboard.json",
+        "specSha256": "48e2c46a158361c044256c548d8cea6d4b1defdc7895b8fa54b465a5cba17fe7",
+        "renderInputSha256": "b03a7478e38449decd7e7c9648ae986c297ef3759e6a0c16521b1eb2d5353aa7",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 260.8
+    }
+  ]
+}

@@ -880,6 +880,17 @@
         "expected": 693,
         "heard": 659
       }
+    },
+    "rccm/rccm-mondai1-keiken-kakikata/youtube.longform": {
+      "videoSha256": "4ae6bcda04c69fb45308c11fb81b657ad0dac253a2d354ec3305a529127c2a96",
+      "at": "2026-11-11T04:23:07.045Z",
+      "similarity": 0.959,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1362,
+        "heard": 1319
+      }
     }
   }
 }

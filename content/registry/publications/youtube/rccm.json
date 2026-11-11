@@ -26,7 +26,8 @@
         "scene-013": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/scene-013",
         "video": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/video",
         "subtitles": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform/subtitles"
-      }
+      },
+      "copy": "content/sns/video-packs/rccm/rccm-mondai1-keiken-kakikata/youtube.json#longform"
     },
     {
       "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform",
@@ -50,7 +51,8 @@
         "scene-012": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/scene-012",
         "video": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/video",
         "subtitles": "rccm/rccm-mondai3-ronbun-kata/youtube.longform/subtitles"
-      }
+      },
+      "copy": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata/youtube.json#longform"
     }
   ]
 }

@@ -766,6 +766,54 @@
       "visualDigest": "3198ae9d136d8a8b36c9ec94953334b02a42479fcfe6f1bb028ce68811e6db5e",
       "finalDigest": "126b3a108be35326e99c9cf257e0ae5c3910f8e17182689949bd9f5162aec0b5",
       "contentDigest": "126b3a108be35326e99c9cf257e0ae5c3910f8e17182689949bd9f5162aec0b5"
+    },
+    "rccm/rccm-mondai1-keiken-kakikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と全13場面シートを目視。場面順は台本13節と一致し、文字の切れ・重なり・誤字なし。説明文のCTAはnote1つ（無料サイトは関連リンク）。試験日・字数配分は断定せず、受験の手引で確認と案内しており exam-calendar と矛盾なし。減点例・字数配分は一次情報で未確認と明記済み。合格の約束なし。音声は未確認。シート縮小表示のため場面3・4の小さい注記の読みやすさは実寸で未確認。",
+      "at": "2026-11-11T04:15:48.443Z",
+      "visualDigest": "44b76bf46aca3028f0294ac5b146c98b8df455c8733ed20ac59a764a61d0b326",
+      "finalDigest": "785e256a5e061e4b28f6cdb4405703e3471aa735909c92a9a0e471ddca176e93",
+      "contentDigest": "785e256a5e061e4b28f6cdb4405703e3471aa735909c92a9a0e471ddca176e93"
+    },
+    "rccm/rccm-mondai3-ronbun-kata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・全12場面シートと台本を照合。題名と中身が一致、場面順は台本どおり、文字切れ・重なり・誤字なし。CTAはnoteマガジン1つ(無料サイト解説は関連リンク)。形式・時間は2026年度の例と明記し年度は公式確認と案内、exam-calendarと矛盾なし。合格の約束・断定数値なし。音声は未確認。",
+      "at": "2026-11-11T04:15:53.817Z",
+      "visualDigest": "5c9050d277cbc04bc80e42ed211c1c05b2ff236ca8696e56971156133ddb4982",
+      "finalDigest": "4d776134fdab3aaa8d0c0e66c72dc155aaea32d6bd90627ed313bfdb1e8e2b2b",
+      "contentDigest": "4d776134fdab3aaa8d0c0e66c72dc155aaea32d6bd90627ed313bfdb1e8e2b2b"
+    },
+    "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・全11場面シートを目視。文字の切れ・重なり・誤字なし、場面順は台本と一致。CTAはnote1つ(cd-marugoto-pack)、試験日・年度は断定せず公式確認を案内、3時間・2019年度・問題A廃止は site 記事と一致。減点の記述は site 記事に根拠あり。音声と遷移は未確認。",
+      "at": "2026-11-11T04:15:54.912Z",
+      "visualDigest": "5476793f913e440f38699290206d2a1e201eb68531e343374f7f0779312de8b3",
+      "finalDigest": "31e2f9f55237e24027834bd2d2276b278f11fc573dd4f0a3d38906f0897023c9",
+      "contentDigest": "31e2f9f55237e24027834bd2d2276b278f11fc573dd4f0a3d38906f0897023c9"
+    },
+    "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名と中身が一致。全9場面の順序は台本どおり、文字の切れ・重なり・誤字なし。説明文CTAは主CTA1つ(まるごとパック)と関連無料リンクで資格・時期に合致。試験日の断定なし、直近3年テーマは二次情報と明示し予想せず、合格の約束なし。音声は未確認。",
+      "at": "2026-11-11T04:18:01.404Z",
+      "visualDigest": "2cd672e01769d0c54c68febd6e1a102197e2d6f36573feb909b41cbe5b425fa8",
+      "finalDigest": "45a7729cb2c1f64ad5362d5459641facada209874e328d6be0db997c8d04f491",
+      "contentDigest": "45a7729cb2c1f64ad5362d5459641facada209874e328d6be0db997c8d04f491"
+    },
+    "pe-construction/pe-hissu1-risk-kakunin/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名は中身と一致。12場面の順序は台本どおり、欠け0。文字の切れ・重なり・誤字なし（点検4の注記は小さいが読める）。CTAはnote1件、無料サイトは関連リンクで資格と合致。日程は断定せず公式確認と案内、字数は公式指定でない旨を明記。音声は未確認。",
+      "at": "2026-11-11T04:20:21.571Z",
+      "visualDigest": "077e5730ae853acadcad2dbdc03349c3cf8e9062e1ca715e8972c2a62a7fefba",
+      "finalDigest": "13e082fd2c5418ca0effe0b2b74138921e8f0b40a2b1987ea21100bfe3e783a5",
+      "contentDigest": "13e082fd2c5418ca0effe0b2b74138921e8f0b40a2b1987ea21100bfe3e783a5"
+    },
+    "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・場面13枚(欠け0)を目視。題名と中身が一致、文字の切れ・重なり・誤字なし、場面順は台本と一致。主CTAはnoteマガジン1つ(関連の無料解説リンクは別枠)、試験日・年度の記述なし、断定的な数値・合格の約束なし。音声は未確認。",
+      "at": "2026-11-11T04:22:40.753Z",
+      "visualDigest": "dd40abe76a3bf8cad5fa3911f16efd49ddfb3bc26011a0fc31a97e534eefdfc0",
+      "finalDigest": "dc25ee1c60879c91c879e59a8c2cbdffe8f00cd480cb7c463458f7ac3b2d7cdb",
+      "contentDigest": "dc25ee1c60879c91c879e59a8c2cbdffe8f00cd480cb7c463458f7ac3b2d7cdb"
     }
   }
 }
