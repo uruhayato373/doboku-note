@@ -111,7 +111,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 - **提案・推奨の前に現物を確認する**: 「〜が無い／されていない」と断定する前に実物（`article.md`・frontmatter・既存 CTA・`note-magazines.ts`・公開状態）を Read し **file:line で裏取り**する。売上・計測データは「何が」起きたかは示すが「なぜ」は示さない。裏取りできないなら「未確認」と明示。計測の有無は `npm run metric-status` で確認
 - **情報の置き場（6 領域）**: `docs/`＝人が読む恒久判断／`content/`＝制作物と入力／`config/`＝事業の正本・設定／`data/`＝事業の記録／`.claude/`＝エージェント運用／`src/ tools/ scripts/`＝実装。タスクは `.claude/todo/backlog.md`（ID `DN-####`）、**GitHub Issue は使わない**。判断フロー → information-architecture.md
 - **SSOT 参照規律**: doc を移動・改名・統廃合したら参照を同一 commit で全更新（`check-doc-refs` / `check-relative-links` が止める）。スキル・エージェントを変えたら `npm run build-capability-index`（`check-doc-coupling`）。資格名・並び順は `qualification-registry.json` のみ（`check-qualification-ssot`）
-- **ドキュメント同期**: `src/** scripts/** .claude/skills/** .claude/agents/** package.json` 等を変更したタスクは**コミット前に `/doc-sync` を 1 回回す**。純コンテンツ編集では回さない
+- **ドキュメント同期**: 参照・一覧・案内は機械検査（`check-doc-refs`・`check-doc-coupling`・`check-command-guidance`）が見る。`/doc-sync` は仕様を大きく変えたときに任意
 - MDX を追加・編集する前に content-authoring.md を Read する。`/schedule` で定期エージェントを作る前に `/routines` で重複・cron 衝突を確認する
 
 ### 9. テストは挙動だけでなく意図を検証する
