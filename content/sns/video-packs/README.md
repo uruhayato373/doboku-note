@@ -4,9 +4,9 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **56**（更新: 2026-11-11）
+パック数: **58**（更新: 2026-11-11）
 
-## 1級土木施工管理技士（7）
+## 1級土木施工管理技士（8）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
@@ -17,6 +17,7 @@
 | `owner-eye-kouji-kensa` | 工事検査で発注者が見るところ | 発注者の工事検査で何を見られるのか分からず、書類と出来形・品質の準備が後手になる | howto | レビュー | 台本/構成 | `site-article` |
 | `owner-eye-sekkei-henkou-hantei` | 設計変更を発注者はどう判断するか | 設計変更を申し出ても、発注者が何を見て判断するのか分からず、通る申出の組み立てが分からない | howto | 未登録 | 台本/構成 | `site-article` |
 | `owner-eye-sekkei-tosho` | 発注者の目で読む設計図書 | 設計図書のどこを先に読み、発注者が何を前提に書いているかが分からず、着工前の照査や食い違いの確認が後手になる | howto | レビュー | 台本/構成 | `site-article` |
+| `owner-eye-suryo-sekisan` | 数量と積算を発注者の目で見る | 積算や数量の話が総額でしか読めず、どの費目や数量が動いたのか、何を根拠に言えばよいかが分からない | howto | 未登録 | 台本/構成 | `site-article` |
 
 ## 2級土木施工管理技士（6）
 
@@ -46,7 +47,7 @@
 | `pe1-tekisei-3shiten` | 技術士一次 適性科目の正誤判定で見る3つの視点 | 適性科目で、覚えたはずの内容でも選択肢の正誤判定に迷う | exam-point | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 
-## 技術士（建設部門）（11）
+## 技術士（建設部門）（12）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
@@ -56,6 +57,7 @@
 | `pe-fugoukaku-toan` | 技術士建設部門 不合格の答案はどこで落ちるか — 評価項目に照らして点検する | 筆記試験の答案がどこで点を落としたのか分からず、来年度の学習をどこから直せばよいか決められない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-gyoumu-shousai-720` | 建設部門｜業務内容の詳細 720 字の組み立て | 業務内容の詳細720字に何を書き、字数をどう配分すればよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-ii1-kakikata` | 建設部門｜Ⅱ-1 の書き方 — 600字を設問に沿って組み立てる | Ⅱ-1の知識はあるのに、600字にまとめると散らかり、何をどの順に何字で書けばよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
+| `pe-iii-kakikata` | 建設部門｜Ⅲ の書き方 — 3枚75行を設問に沿って組み立てる | Ⅲは3枚75行も書くのに、前置きが長くなって解決策が薄くなり、どこに何行使えばよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
 | `pe-kojutsu-fukabori` | 技術士建設部門の口頭対策 — 深掘りの質問に事実で答える | 業務経歴の説明はできても、なぜそう判断したのかなどの深掘りに、事実ではなく一般論や言い訳で答えてしまう | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |
 | `pe-kojutsu-kaitei-competency` | 建設部門 口頭｜改訂コンピテンシーで変わる質問 | コンピテンシー改訂で何が変わり、口頭試験の質問にどう影響するのか分からない | exam-point | レビュー | 台本/構成 | `pe-construction-oral-guide` |
 | `pe-kojutsu-keireki` | 技術士建設部門の口頭対策 — 業務経歴とコンピテンシーを結ぶ | 業務経歴は説明できても、自分の判断と成果をコンピテンシーにつなげて語れない | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |

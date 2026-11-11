@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "owner-eye-suryo-sekisan",
+  "exam": "civil-construction-1",
+  "title": "数量と積算を発注者の目で見る",
+  "audience": "施工管理の現場で働き、1級土木施工管理技士を学ぶ受検者",
+  "pain": "積算や数量の話が総額でしか読めず、どの費目や数量が動いたのか、何を根拠に言えばよいかが分からない",
+  "promise": "費目の構成、数量の出どころ、入札用の積算と実行予算の違い、数量の根拠の残し方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/reading-civil-drawings/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/construction-inspection-types/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/civil-practice/cost-and-design-change/article.mdx",
+    "campaign": "owner-eye-suryo-sekisan"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
