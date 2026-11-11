@@ -211,7 +211,8 @@ export function ctaLines(cta) {
 }
 const typedCtaPrompt = (label, palette, cta) => [
   `添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。${FRAME}`,
-  pop(palette), `大きく${ctaLines(cta).map((l) => `『${l}』`).join('')}、その下に小さく『関連動画から』と下向きの矢印。${TEXT_BOX}先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。`,
+  // 何が分かるか（語りの前半）は字幕で出る。画面の大きな文字は語りの結び『本編で』だけにする（長い行が端まで広がって 4 本が落ちた・2026-11-12）
+  pop(palette), `大きく『本編で』、その下に小さく『関連動画から』と下向きの矢印。${TEXT_BOX}先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。`,
   TEACHER, `資格名『${label}』は書かない。下端に無地帯を作らない。`, BANS,
 ].join(' ');
 const ctaPrompt = (label, palette) => [
@@ -232,7 +233,7 @@ export function assertInSlot(root, pack, key) {
 // 仕草（gesture）を持つショートは ✕ と肩書きの帯をやめた表紙（2026-11-11）。入力を変えて作り直させる
 const coverInput = (spec, design) => inputOf(design.gesture ? [spec.headline, design.hook, design.pose, design.type, design.gesture, 'cover-no-badge'] : design.type ? [spec.headline, design.hook, design.pose, design.type] : [spec.headline, design.hook, design.pose]);
 const gestureOf = (root, design) => (design.gesture ? readDataset(root, 'config.youtube-shorts-formats').gestures?.find((g) => g.id === design.gesture) ?? null : null);
-const ctaInput = (cta, design) => inputOf(design.type ? [cta, 'cta-lines'] : [cta]);
+const ctaInput = (cta, design) => inputOf(design.type ? [cta, 'cta-honpen'] : [cta]);
 const typeOf = (root, design) => (design.type ? readDataset(root, 'config.youtube-shorts-formats').types.find((t) => t.id === design.type) ?? null : null);
 
 /** 作業の計画を作る。入力が同じ項目は生成済みの画像と判定を引き継ぐ。 */
