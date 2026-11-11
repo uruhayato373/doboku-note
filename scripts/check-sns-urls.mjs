@@ -28,13 +28,20 @@
 // markdownリンク（](/docs/{slug})）の両形式を使うため両正規表現を適用する。note.com プレースホルダーは
 // どちらにも非マッチで自動スキップされる。`--staged` が staged の content/note/*.md も検査するよう拡張、
 // 全件は `--note`。
+//
+// 注（2026-11-11）: note の原稿と、これから commit する SNS の原稿（--staged）に旧 `/docs/` の URL を書くことを禁止した
+// （実在していても 1 件ずつ止める）。301 で転送はされるが、Google が旧 URL を正規ページに選び続ける原因になる
+// （総監の 9 ページで実測・gsc-management.md 2026-11-11）。直すのは `npm run fix-legacy-site-links -- --write`（note の原稿を張り替える既存の道具・DN-0289）。
+// SNS の既存の下書きは対象外: 予約済みの投稿は承認時の本文の hash を持ち、本文を変えると予約が止まる（DN-0288）。
+// 投稿済みの記録（/published/）と `_` 接頭辞の保管庫も対象外。MDX 本文の相対 /docs は描画時に張り替えるので従来どおり許す。
 
 import { readFileSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
-import { classifySitePath, loadSiteRoutes, siteLinkRegex } from './lib/site-links.mjs';
+import { classifySitePath, loadSiteRoutes, rewriteLegacySiteLinks, siteLinkRegex } from './lib/site-links.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { isLegacyPath } from './lib/legacy-routes.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
@@ -92,12 +99,22 @@ const routes = loadSiteRoutes();
 const modern = { checked: 0, unverified: 0 };
 // 新 URL（絶対 URL）を見るのは note・SNS だけ。MDX 本文は相対 /docs を描画時に張り替える。
 const checksModern = (f) => !(MDX || f.startsWith('content/site/'));
+// 旧 /docs の URL を禁止する原稿: note は全件、SNS はこれから commit する原稿（--staged）だけ。
+// SNS の既存の下書きは予約済みの投稿が承認時の本文の hash を持ち、本文を変えると予約が止まる（check-x-utm の注・DN-0288）。
+// 投稿済みの記録（/published/）と `_` 接頭辞の保管庫（凍結アカウントの隔離）は触らない
+const isFrozen = (f) => /\/published\//.test(f) || f.split(/[\\/]/).some((seg) => seg.startsWith('_'));
+const forbidsLegacy = (f) => checksModern(f) && !isFrozen(f) && (f.startsWith('content/note/') || STAGED);
 
 for (const f of files) {
   const raw = readFileSync(join(REPO_ROOT, f), 'utf8');
   const lines = raw.split(/\r?\n/);
   const slugRes = reListFor(f);
   lines.forEach((line, i) => {
+    if (forbidsLegacy(f)) {
+      // 張り替え表は fix-legacy-site-links・note の同期（canonBodyHash）と同じ rewriteLegacySiteLinks。転送先が無いものは下の実在検査に任せる
+      const { text, replaced } = rewriteLegacySiteLinks(line, routes);
+      if (replaced) problems.push(`${f}:${i + 1}  旧 /docs の URL ${replaced} 件  → ${[...text.matchAll(siteLinkRegex())].map((m) => m[1]).filter((p) => !isLegacyPath(p)).join(' ')}`);
+    }
     // テンプレ行（プレースホルダ変数）はスキップ: <year> / {年度} / ｛...｝
     if (/[<>{}｛｝]/.test(line)) return;
     for (const slugRe of slugRes) {
@@ -132,9 +149,9 @@ if (!routes.loaded && modern.checked > 0) {
 }
 
 if (problems.length) {
-  console.error(`[check-sns-urls] ✗ 本番に存在しないサイトリンク ${problems.length} 件:`);
+  console.error(`[check-sns-urls] ✗ 本番に存在しない・旧 URL のサイトリンク ${problems.length} 件:`);
   for (const p of problems) console.error('  ' + p);
-  console.error('\n対処: note・SNS のリンクは新 URL（https://doboku-note.com/exam/{資格}/{種別}/{slug}）で書く。');
+  console.error('\n対処: note・SNS のリンクは新 URL（https://doboku-note.com/exam/{資格}/{種別}/{slug}）で書く。note の原稿の旧 URL は npm run fix-legacy-site-links -- --write で張り替える。');
   console.error('旧 /docs/ は「カテゴリ-ディレクトリ」のフラット slug（例: pe-construction-r07-required）。MDX 本文は /docs/{slug} のまま');
   __exit(1);
 }

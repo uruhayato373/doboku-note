@@ -180,7 +180,7 @@ content/sns/x/
   - 例: `https://doboku-note.com/exam/civil-construction-2/primary/r03-kouki`（旧 `/docs/civil-construction-2-primary-r03-kouki`）
   - 例: `https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026`（総監と土木で分岐する共通名は資格を確定する）
   - 新旧の対応の真実源は `public/_redirects`。資格以降をハイフンでつなぐ（`/exam/<資格>/primary-r03-kouki`）と 404 になる。
-- **検証の仕組み化（2026-06-08 新設・2026-09-24 新 URL 対応）**: `node scripts/check-sns-urls.mjs` が `content/sns/**` の新 URL を `public/_redirects` の転送先と、旧 `/docs/` を doc-meta-index と突合し、本番に無いものを検出する（打ち間違いには正しい URL を提案する）。pre-commit に `--staged` で組込済み（broken があるとコミット不可）。旧 `/docs/` は `check-x-utm` が警告で数える（予約済み投稿の承認 hash を壊さないため落とさない）。背景: 2026-06 に X 投稿 149 件のリンク切れ（560+ impressions ロス）が発生 → 接頭辞欠落が原因。
+- **検証の仕組み化（2026-06-08 新設・2026-09-24 新 URL 対応）**: `node scripts/check-sns-urls.mjs` が `content/sns/**` の新 URL を `public/_redirects` の転送先と、旧 `/docs/` を doc-meta-index と突合し、本番に無いものを検出する（打ち間違いには正しい URL を提案する）。pre-commit に `--staged` で組込済み（broken があるとコミット不可）。旧 `/docs/` は既存の下書きでは `check-x-utm` が警告で数える（予約済み投稿の承認 hash を壊さないため落とさない）。**これから commit する原稿（`--staged`）と note の原稿は旧 `/docs/` 自体を不可**（2026-11-11〜。旧 URL へのリンクが Google に旧 URL を正規と選ばせ続ける）。背景: 2026-06 に X 投稿 149 件のリンク切れ（560+ impressions ロス）が発生 → 接頭辞欠落が原因。
 
 ## 7. サマリカード画像（scripts/gen-x-card.mjs）
 
