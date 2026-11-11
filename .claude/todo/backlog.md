@@ -541,7 +541,7 @@ develop の CI が赤くなった 3 種（magazine-cta-reachability / media-refe
 
 
 ### [DN-1117] デプロイ手順を deploy:main 1 本に寄せ、古い文書・記憶を削る
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11]
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11] [進行中]
 
 deploy-main: 手元 SSR が exit 2 のときデプロイ run の Verify production SSR ステップで補う／緑待ち 30 分上限。deploy SKILL.md を入口だけに、古い昇格手順の記憶メモを削除。
 
