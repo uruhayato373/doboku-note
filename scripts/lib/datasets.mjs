@@ -91,6 +91,7 @@ export const DATASETS = [
   d('config.business-direction', 'config/business-direction.json', 'master', 'strategy', '重点資格・KPI の定義・レビュー周期', { schema: 'ConfigBusinessDirection', refs: [{ at: 'qualifications[].id', to: 'qualification' }, { at: 'metrics[].appliesTo', to: 'qualification', ignore: ['all'] }] }),
   d('config.qualification-registry', 'config/qualification-registry.json', 'master', 'strategy', '資格の一覧・名前・並び順・展開状態', { schema: 'QualificationRegistry' }),
   d('config.exam-calendar', 'config/exam-calendar.json', 'config', 'strategy', '試験日程', { schema: 'ExamCalendar' }),
+  d('config.exam-day-pages', 'config/exam-day-pages.json', 'config', 'site', '試験日・合格発表日の当日ページの対応表（page・card・skip のどれか。check-exam-day-pages が近づいた日を点検する）', { schema: 'ConfigExamDayPages', refs: [{ at: 'entries[].qualification', to: 'qualification' }] }),
   d('config.revenue-calendar', 'config/revenue-calendar.json', 'config', 'plan', '収益カレンダー（資格ごとに、試験の何週前に制作を始め・CTA を切り替え・販売の山を迎え、何日後に判定するか）', { schema: 'ConfigRevenueCalendar', refs: [{ at: 'targets[].qualification', to: 'qualification' }] }),
   d('config.exam-formats', 'config/exam-formats.json', 'config', 'strategy', '試験区分・出題形式・過去問の公開範囲', { schema: 'ConfigExamFormats' }),
   d('config.exam-stats', 'config/exam-stats.json', 'config', 'strategy', '受験者数・合格率', { schema: 'ConfigExamStats' }),

@@ -188,6 +188,7 @@
     "check-google-ui-ssot": "node scripts/check-google-ui-ssot.mjs",
     "check-gsc-auto-review": "node scripts/check-gsc-auto-review.mjs",
     "gsc-records:apply": "node scripts/apply-gsc-records.mjs",
+    "check-exam-day-pages": "node scripts/check-exam-day-pages.mjs",
     "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",
     "check-guide-length": "node scripts/check-guide-length.mjs",
     "page-quality-inventory": "node scripts/page-quality-inventory.mjs",

@@ -314,6 +314,7 @@ npm run check-note-sync-freshness # 土曜の収集の note-sync 段の停止を
 ```bash
 npm run google-console:login   # GSC/GA4 用 Chrome プロファイルを headed で開き人間ログイン（ローカル専用・/google-search-growth の前提）
 npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突合して修正計画を再生成（オフライン・approval gate）
+npm run check-exam-day-pages  # 今後 21 日の試験日・合格発表日（exam-calendar・サイトに資格のページがあるもの）ごとに当日ページの準備を出す（対応表 config/exam-day-pages.json の page・card・skip。準備済み・記事が無い・起票済み・作らない・未判断）。--check は記事が無い・未判断があれば exit 1。読み手＝週次（検索）
 npm run check-gsc-ui-due       # GSC/GA4 UI 取得の月次期限＋前回の完全性を判定（surfacer・weekly-review が読む）
 npm run check-google-ui-ssot   # UI CSV 情報の追跡 SSOT の整合ゲート（marker↔history↔urls・検査ゼロを FAIL）
 npm run ga4-admin:check        # GA4 管理画面の設定を desired state と突合（dry-run／:apply で不足カスタムディメンションを作成）
@@ -391,7 +392,7 @@ npm run check-search-triage # 検索改善の週次の処置が残っていな�
 npm run check-search-improvements # 検索改善の実験とカードの双方向の ID・起点が検索キーワード戦略のカードの実験の行（CI ゲート・pre-commit で backlog / experiments.json / 設定 / dispatch-log を触ったとき）
 npm run report-demand-map # 悩みと商品候補（config/demand-map.json）の月次の読み物。判定日が今月末までの商品候補・打ち手、運営者の判断待ち、類似／差別の実売、悩みの言い方を含む GSC の検索語（最新の query レポート）、四半期の外の調査の期限と次の資格。`-- --json` は機械可読、`-- --check` は完走だけ（quality-audit ci）。台帳が型を満たさないか打ち手の悩みが参照切れなら exit 1。読み手＝月次レビュー
 npm run report-taxonomy-wiring # 分類と回遊の配線の点検（content-taxonomy.md §6-4）。要対応（テーマ所属なし・行き先の無い主題タグ・昇格できる育成中テーマ・基準を下回る公開ハブ・一次資料で確かめてから 180 日を超えた計画・施策・法令の節が出ない公開ハブ）、テーマの軸・状態・三方向、取りこぼし（関連記事のどこからも選ばれない記事・記事の多い noTopic のタグ）、回遊の質（他の資格の割合・同じ法令の記事）、法令ページの本数と次の候補・計画・施策の台帳、internal_nav_click のラベル別と GSC のテーマページ。`-- --actions`（＝`npm run check-taxonomy-wiring`）は要対応で exit 1（週次の点検）、`-- --check` は完走だけ（quality-audit ci）。索引（git 管理外の doc-meta-index）が MDX の公開記事と食い違えば exit 2（検査不成立。pull の後は先に refresh-indexes）。読み手＝週次（点検）・月次（判断）
-npm run report-search-opportunities # 検索キーワード戦略（config/search-strategy.json）のクラスター別の表示・上位の帯と改善候補の帯の件数（帯の境目は striking）と重ならない直前の期間との差、改善候補（帯の検索語をページ単位に束ねたもの・観察中/実験の段階/前回の判定/旧URL/未起票の印）。--json の fileable＝起票してよい候補、experiments＝検索改善の実験の段階。GSC の検索語×ページ集計を読むだけ。読み手＝週次（起票）・月次（推移と判定）。exit 2＝集計が無い
+npm run report-search-opportunities # 検索キーワード戦略（config/search-strategy.json）のクラスター別の表示・上位の帯と改善候補の帯の件数（帯の境目は striking）と重ならない直前の期間との差、改善候補（帯の検索語をページ単位に束ねたもの・観察中/実験の段階/前回の判定/旧URL/未起票の印）。--json の fileable＝起票してよい候補、experiments＝検索改善の実験の段階、topLowCtr＝上位なのにクリック率が低い検索語（閾値は config の topLowCtr）、baseline＝1 日あたりクリックの中央値と直前の窓（試験日の山に引っ張られない平常値）。GSC の検索語×ページ集計を読むだけ。読み手＝週次（起票）・月次（推移と判定）。exit 2＝集計が無い
 npm run report-web-vitals     # 実ユーザー計測の最新記録を読み、手を打つ組（不良・要改善で件数 30 以上）を先に出す。読み手＝週次レビュー（不良が出たら改善カードを起票）。exit 2＝記録が無い・10 日超・カスタムディメンション未登録
 npm run x-profile-sync    # X の自己紹介を正本 config/x-account.json の profile.bio に合わせる。既定 dry-run（差分表示）、`-- --commit` で書き換えて表示の一致を確認。ログイン中が handle 以外なら ABORT（exit 2・別アカウントは書き換えない）。上限は limits.bio
 npm run check-review-wiring # 週次・月次レビューのスキルが実行するコマンドと配線の正本（.claude/config/review-wiring.json・stage と role）の一致。週次の点検 `quality:audit:weekly`（pre-commit でも見る）。スキルにコマンドを足したら正本にも stage・role 付きで足す。管理画面 戦略 ＞ レビュー の配線図の元

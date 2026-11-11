@@ -7,6 +7,11 @@
     "maxPosition": 30,
     "maxCandidatesPerCluster": 5
   },
+  "topLowCtr": {
+    "maxPosition": 3,
+    "minImpressions": 20,
+    "maxCtr": 0.03
+  },
   "cycle": {
     "improvePerWeek": 3,
     "legacyGraceDays": 28,
