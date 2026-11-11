@@ -571,10 +571,6 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 skills-registry.md（133KB）・agents-registry.md（102KB）・skills-guide.md（49KB）は 14 日で計 50 回変更。一覧は SKILL.md と agents の frontmatter の手書きの写しで、追加・削除・description 変更のたびに check-doc-coupling が同一 commit での更新を要求する。一覧と呼出マップを frontmatter とスキル本文から生成し（npm run build-capability-index）、check-doc-coupling は生成物の一致の検査に置き換える。skills-registry.md は日付つきの変更記録（git 履歴が持つ）なので削除する。完了条件: スキルの description を変えると検査が落ち、再生成で通る／check-doc-refs・check-domains が通る
 
 
-### [DN-1130] commands.md を廃止し、コマンドの用途を npm run cmd で原本から引く
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11] [進行中]
-
-.claude/knowledge/reference/commands.md（144KB・14 日で 62 回変更）は package.json の scripts の用途と罠を手で写した一覧で、コード変更のたびに同時修正が要る。用途と罠を各スクリプトの冒頭コメントへ移し、npm run cmd -- <語> が package.json と冒頭コメントから引く形にして commands.md を消す。check-command-guidance は「script が起動するファイルに冒頭コメントがある」を検査する。完了条件: npm run cmd -- deploy が deploy:main の用途を返す／commands.md への参照が履歴の記録以外で 0 件／check-command-guidance・check-doc-refs が通る
 
 
 ### [DN-1127] CI の構成変更（PR #1540）の 1 週間後の計測を取り直す

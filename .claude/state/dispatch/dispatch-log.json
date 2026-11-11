@@ -7332,6 +7332,19 @@
       "commit": "3ebcc566e25d",
       "verification": "PRE_COMMIT_TIMING=1 sh .git/hooks/pre-commit（何も stage せず・62 検査 43.8 秒）／tests/pre-commit-dispatch.test.mjs",
       "note": "PR #1541 を develop へマージ（3ebcc566e）。何も stage していない状態の pre-commit が会社 PC で 152.9 秒 → 43.8 秒（完了条件 60 秒以下）。残り 44 秒の上位は check-business-direction 7.5 秒・pre-commit-mdx 4.6 秒・check-exam-calendar 4.0 秒"
+    },
+    {
+      "id": "DN-1130",
+      "at": "2026-11-11",
+      "task": "commands.md を廃止し、コマンドの用途を npm run cmd で原本から引く",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bf87ea763cff",
+      "verification": "npm run cmd -- ci:stats が用途を返す／npm run check-command-guidance（起動ファイル 537 本・冒頭コメントなし 32 本＝基準どおり）／tests/cmd-help.test.mjs",
+      "note": "PR #1542 を develop へマージ（bf87ea763）。commands.md（144KB）を削除し、npm run cmd が package.json と冒頭コメントから引く。説明つき 330 行のうち 146 行を 133 ファイルの冒頭コメントへ移設。PR の CI は develop 由来の 2 件（youtube-shorts・loadVideoState）だけが赤"
     }
   ]
 }
