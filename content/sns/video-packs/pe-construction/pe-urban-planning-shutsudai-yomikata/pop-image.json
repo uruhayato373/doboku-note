@@ -955,12 +955,462 @@
         "videoSha256": "446599e00e4d90ceed60eb24dc8748c7bd6f81df5b6c6c1ecfa9f1a090196f6a",
         "checkedAt": "2026-11-11T10:25:57.434Z"
       }
+    },
+    "shorts-pop-point-setsumei-1-20261112": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1",
+      "key": "point-setsumei-1",
+      "sceneId": "ii1",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "bf9bba95993bace42f52a4b057fe949acfb2cba28589fafe5c28e46b4dfe649a",
+          "narration": "都市計画のII-1、制度を説明すれば足りると思っていませんか。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』。最も大きく見出しを 3 行で書く: 1 行目〈『制度を〉、2 行目〈説明すれば〉、3 行目〈いい』？〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「誤解を壊す」。見出しは思い込みの一言の引用と「？」だけで問う。✕は描かない。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「手のひらで止める」: 片手の手のひらを前に向けて胸の高さに出し、5 本の指を開く。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は手のひらを前に向けて胸の高さに出し、5 本の指を開いて止める。左手（画面右側）は腰に当てる。手のひらは正面を向き、指は 5 本見える。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 見出し「説明すれば」の行が画面幅の約87%に広がり、左右の余白が約6%で指定の8%・幅80%以内に収まらない。字の欠けや誤字は無く、手は5本指で型（手のひらで止める）は合う",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/raw-cover.22238fa1.png",
+              "sha256": "22238fa1319086cc6180c956bebffebe432b9218d508ff4268b3d44bdeee282e"
+            },
+            "generatedAt": "2026-11-11T22:53:32.883Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/cover.bbd08092.png",
+            "sha256": "bbd080922aee85717f83c49c7813ccd41c8b17c259d238452fc1fe8934d9a402",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "22238fa1319086cc6180c956bebffebe432b9218d508ff4268b3d44bdeee282e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:53:32.883Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『制度を／説明すれば／いい』？が指示どおり3行で誤字なく、左右余白5%以上、記号の重なり無し。肩書き帯無し、先生は手のひら5本指で止める仕草・胴体は下端まで続く。紙の文字は字幕帯に入らない"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "8f91689b812df21d3b48f03a53665510d554959a90908aa7431297f68eca10e5",
+          "narration": "II-1は、制度の説明が中心の設問です。ただ令和8年度は、課題を3つ、留意事項を3つ、意義を2つと、挙げる数が指定されていました。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『1』と見出し『挙げる数が決まる』。 図: 上部に小さく『II-1（令和8年度）』。その下に横に3つの大きな角丸のカードを並べる。左から『課題』と大きな『3つ』、『留意事項』と大きな『3つ』、『意義』と大きな『2つ』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/raw-scene-001.7263bdee.png",
+              "sha256": "7263bdee9389f09315003fc7ddaad7ab0883dfbd5eada13ed77a905528105587"
+            },
+            "generatedAt": "2026-11-11T22:53:32.883Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/scene-001.9f7ab551.png",
+            "sha256": "9f7ab5516824050f20888edac7b2effeac6da855e9554b8e7abc0ff796247987",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7263bdee9389f09315003fc7ddaad7ab0883dfbd5eada13ed77a905528105587"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:53:32.883Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "技術士 建設部門・1・挙げる数が決まる・II-1（令和8年度）・課題3つ/留意事項3つ/意義2つを指示と照合、誤字・欠け・端切れなし"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "0f7395c6c521487397e82f02572b6da745a52a5c086f6f8f8633950b13a521d9",
+          "narration": "さらに説明の後ろに求めが付きます。二地域居住は、課題ごとに解決策まで。緑の基本方針は、意義の後に、緑地の質を高める具体的な施策を複数。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『2』と見出し『説明の後ろに求め』。 図: 上下2段の帯。上の帯は左に『二地域居住』、右へ太い矢印で『課題ごとに解決策』。下の帯は左に『緑の基本方針』、右へ太い矢印で『意義の後に施策を複数』。矢印の先の箱を黄色で強調する。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/raw-scene-002.751016c2.png",
+              "sha256": "751016c23339b5595d342ffc806c9be510870f6a18bdaa2085a1703236dfcb84"
+            },
+            "generatedAt": "2026-11-11T22:53:32.883Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/scene-002.3239ebb6.png",
+            "sha256": "3239ebb6f0e810dc7672b554c9e1d19572ba8c714f6c49fbb470f818fce65577",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "751016c23339b5595d342ffc806c9be510870f6a18bdaa2085a1703236dfcb84"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:53:32.883Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "説明の後ろに求め・二地域居住→課題ごとに解決策・緑の基本方針→意義の後に施策を複数が指示どおり、誤字・端切れなし、黄色強調あり"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "a9fbdc85509ebaa5141310f1428e82e86a3ab22034e680681aef9fabbbff6921",
+          "narration": "制度の説明だけで終えると、求めの半分が残ります。挙げる数、立場、対象の範囲に、先に線を引きます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。見出しの左上に、丸で囲んだ小さな番号『3』を見出しと離して置き、その下に見出し『求めの半分が残る』。 図: 中央に大きな問題文の紙を1枚描き、本文は文字ではなく横線で表す。そのうち3本の線に赤ペンの太い下線を引き、下線の横に『挙げる数』『立場』『対象範囲』の札を付ける。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字・配置: 指定の長方形（左8%〜右80%）を超え、見出し「求めの半分が残る」が左6%〜右94%、札「対象範囲」が右86%に達し、操作ボタン帯に重なる。文字は誤字・欠け無し",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/raw-scene-003.ed145512.png",
+              "sha256": "ed145512b8128fd01c313e9a6fe71fe64682f13d29c5b8eb66524ae1c70a06a1"
+            },
+            "generatedAt": "2026-11-11T22:53:32.883Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/scene-003.7d16df7b.png",
+            "sha256": "7d16df7b3515da589da10e37cd6693e69e2a9162632bcde8ec41af724db5e3e5",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ed145512b8128fd01c313e9a6fe71fe64682f13d29c5b8eb66524ae1c70a06a1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:53:32.883Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "ラベル・番号3・見出し『求めの半分が残る』・札『挙げる数』『立場』『対象範囲』が指示と一字ずつ一致し、赤下線3本、文字の切れ無し、左余白5%以上"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "c97f97eecfe69092d5c0839d2b10a887d45e3b0ca3da5b9210e920cea8fb9526",
+          "narration": "II-2とIIIの読み方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 大きく『本編で』、その下に小さく『関連動画から』と下向きの矢印。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『技術士 建設部門』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/raw-cta.a386457e.png",
+              "sha256": "a386457e6a97db3f5641d8c19862e84cbc50659f62461cd3cf19d732bdc296c1"
+            },
+            "generatedAt": "2026-11-11T22:53:32.883Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/cta.70d720db.png",
+            "sha256": "70d720db788704134d0a73704c744ed175a4379aebd61249aae62d61c1bc3954",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a386457e6a97db3f5641d8c19862e84cbc50659f62461cd3cf19d732bdc296c1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:53:32.883Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "大きく『本編で』・小さく『関連動画から』と下向き矢印、誤字無し、左右5%以上の余白、先生の手は5本指で胴体は下端まで続く"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "aeeef4f4e589c82da492afd1bd6b1dce3074b0615f87348b259b08e02638edfa",
+        "durationSeconds": 39.818667,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "実測 1080x1920・39.8秒・音声あり。動画 sha は youtube.json と pop-image.json の render.videoSha256 と一致し、場面数 5/5 も一致した。5 軸は 5・4・4・4・4 で平均 4.2、全軸 3 以上。型・コピー・冒頭・本編への引きにも問題なし。",
+        "videoSha256": "aeeef4f4e589c82da492afd1bd6b1dce3074b0615f87348b259b08e02638edfa",
+        "checkedAt": "2026-11-11T23:00:54.228Z"
+      },
+      "audio": {
+        "videoSha256": "aeeef4f4e589c82da492afd1bd6b1dce3074b0615f87348b259b08e02638edfa",
+        "similarity": 0.987,
+        "maxVolumeDb": -5.3,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/video.aeeef4f4.mp4",
+          "sha256": "aeeef4f4e589c82da492afd1bd6b1dce3074b0615f87348b259b08e02638edfa"
+        },
+        "frames": {
+          "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/frames.54f14398.png",
+          "sha256": "54f143988f5bdf58130cd9e7cdf215887b6b6de9061df8c16f25dc3dc3046748"
+        },
+        "subtitles": {
+          "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/subtitles.c352af2e.ass",
+          "sha256": "c352af2eae868aebb22c04663d7eb357c77cdfcc55a9b4cda2174f12cc2033eb"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/raw-cover.22238fa1.png",
+            "sha256": "22238fa1319086cc6180c956bebffebe432b9218d508ff4268b3d44bdeee282e"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/raw-scene-001.7263bdee.png",
+            "sha256": "7263bdee9389f09315003fc7ddaad7ab0883dfbd5eada13ed77a905528105587"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/raw-scene-002.751016c2.png",
+            "sha256": "751016c23339b5595d342ffc806c9be510870f6a18bdaa2085a1703236dfcb84"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/raw-scene-003.ed145512.png",
+            "sha256": "ed145512b8128fd01c313e9a6fe71fe64682f13d29c5b8eb66524ae1c70a06a1"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/raw-cta.a386457e.png",
+            "sha256": "a386457e6a97db3f5641d8c19862e84cbc50659f62461cd3cf19d732bdc296c1"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1/cover.bbd08092.png",
+          "sha256": "bbd080922aee85717f83c49c7813ccd41c8b17c259d238452fc1fe8934d9a402"
+        },
+        "savedAt": "2026-11-11T23:01:00.848Z",
+        "cloudVerified": true
+      }
+    },
+    "shorts-pop-point-shugo-2-20261112": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2",
+      "key": "point-shugo-2",
+      "sceneId": "iii",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "36a06e76219c756dcd87ea9c72e4e4b4e2e89bf4607b43f0a4f50ffd2e41e9e5",
+          "narration": "都市計画のIII、最後の問いは2題で何が違うでしょう？",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』。最も大きく見出しを 2 行で書く: 1 行目〈最後の問い〉、2 行目〈何が違う？〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「1 問で確かめる」。見出しの下に、その問いの問題文の一文を書いた紙を 1 枚置き、大きな『？』を添える。紙には台本の場面にある問題文の語だけを書き、図や構造物を描かない。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「首をかしげる」: 首を少しかしげ、片手をあごに当てて考える顔。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生は首を少しかしげ、右手（画面左側）をあごに当てて考える顔をする。左手（画面右側）は腰に当てる。見出しの下に問題文の紙を 1 枚置き、紙は手に持たせない。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字の余白: 見出し『最後の問い』『何が違う？』が左右とも画面端から約3〜4%しか空かず、5%未満（指示の枠110〜970pxを超えている）。文字の綴りは指示どおり",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-cover.ade17f39.png",
+              "sha256": "ade17f39517e68666e8e9a09f80a2533d0e0a325852b7a70ee7c304265eb749b"
+            },
+            "generatedAt": "2026-11-11T23:04:40.022Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/cover.1dd6a9e4.png",
+            "sha256": "1dd6a9e4cb6b2f87bf0b44fb26dfeed061771c6abde807692475bc031608df09",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ade17f39517e68666e8e9a09f80a2533d0e0a325852b7a70ee7c304265eb749b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:04:40.022Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字（技術士 建設部門・最後の問い・何が違う？）が一字も誤りなく、左右6%以上の余白で収まり、肩書き帯・記号の重なりなし。首をかしげ手をあごに当てる先生は指5本で胴体も下端まで続き、字幕帯に紙の文字なし"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "c4939ef4b00bc532690d7605f30396abe35dce31f0cc0e9b4eed14ebbe40e421",
+          "narration": "令和8年度のIIIは、2題とも最後に対策まで答えます。何に対する対策か、2題で比べてみてください。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。見出しの左上に、丸で囲んだ小さな番号『1』を見出しと離して置き、その下に見出し『何に対する対策？』。 図: 左右に2枚の問題文の紙を並べる。左の紙の上部に『III-1 立地適正化計画』、右の紙の上部に『III-2 古民家の活用』。本文は文字ではなく横線で表す。2枚の間に大きな『？』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-scene-001.cec06cc3.png",
+              "sha256": "cec06cc3422fde6421763cc69c8d29d49076f09ab76f6586bf75fc77d6a24c1b"
+            },
+            "generatedAt": "2026-11-11T23:04:40.022Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/scene-001.65fae99a.png",
+            "sha256": "65fae99ad605cd82cdda902e9a61d0ce1f4ed1ace9c59eb900060107406ad2ae",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cec06cc3422fde6421763cc69c8d29d49076f09ab76f6586bf75fc77d6a24c1b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:04:40.022Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は『技術士 建設部門』『何に対する対策？』『III-1 立地適正化計画』『III-2 古民家の活用』が指示どおりで、番号①・？も正しく、切れや崩れも記号の重なりも無い"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "f5137a2504068ca1df0f88c24122c1d76c234eb42eeda44e8c9e5bdb8d7bcf66",
+          "narration": "立地適正化計画は、見直しを位置づけようとしたとき、市民や関係者から提起されうる懸念事項と対策案です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。見出しの左上に、丸で囲んだ小さな番号『2』を見出しと離して置き、その下に見出し『III-1は市民や関係者』。 図: 上部に『III-1』。図の全部を画面の上から 3 分の 2 までに収め、下の 3 割（字幕の位置）には何も描かない。上寄りに複数の人の形を並べ、その上に吹き出しを1つ描いて中に『懸念事項』。人の形の右に太い矢印で『対策案』の箱を横に並べる。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字の余白: 見出し『III-1は市民や関係者』の右端『者』が画面端から約3%、番号②の丸も左端から約3%で5%未満。綴り・図（懸念事項・対策案）は正しい",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-scene-002.b5b0cbf4.png",
+              "sha256": "b5b0cbf452d6ce4b0ac971cd0a56045e66ca5300eb62a5d970a7a52533621476"
+            },
+            "generatedAt": "2026-11-11T23:04:40.022Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/scene-002.b0cd9fe1.png",
+            "sha256": "b0cd9fe1d021712f99fd2d9d18113c23e915e259f297db16bd7c04832cec7694",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b5b0cbf452d6ce4b0ac971cd0a56045e66ca5300eb62a5d970a7a52533621476"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:04:40.022Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "技術士 建設部門・②・III-1は市民や関係者・懸念事項・対策案の文字が指示と一致し、左右6%以上の余白。人の形→矢印→対策案の図で、下の3割は空き。見出し下の赤線は文字に重ならない背景装飾"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "dc0a56f824c431afd19f37791843504bef2db85e23c16664df92f23f07dfcdb3",
+          "narration": "古民家は、示したすべての解決策を実行しても新たに生じうるリスクと対策です。II-1とII-2の読み方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。見出しの左上に、丸で囲んだ小さな番号『3』を見出しと離して置き、その下に見出し『III-2は新たなリスク』。 図: 上部に『III-2』。上から下へ3つの大きな箱を太い矢印でつなぐ。上から『すべての解決策を実行』『新たに生じうるリスク』『対策』。真ん中の箱を黄色で強調する。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-scene-003.aefd03de.png",
+              "sha256": "aefd03de50e54d124b7b4ee5ddd4b8a2c7cc9cb577b0f7a0190a4a3cf0073b9a"
+            },
+            "generatedAt": "2026-11-11T23:04:40.022Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/scene-003.8415bb58.png",
+            "sha256": "8415bb58cc5987cf82b1aa739ac715a309334d64cfafcea6f347d337be21623d",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "aefd03de50e54d124b7b4ee5ddd4b8a2c7cc9cb577b0f7a0190a4a3cf0073b9a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:04:40.022Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『III-2は新たなリスク』『すべての解決策を実行』『新たに生じうるリスク』『対策』が指示どおりに読め、左右の余白も5%以上で、中央の箱の黄色強調も合っている"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "c1042316905fc3ee60f5f6cc11645a684794a645a75d97a419f426d987059a84",
+          "narration": "II-1とII-2の読み方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 大きく『本編で』、その下に小さく『関連動画から』と下向きの矢印。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『技術士 建設部門』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-cta.33042424.png",
+              "sha256": "33042424bfe85e6cb8223cd74b1601c8f163911bc406b40a9c9c53b96c195a4e"
+            },
+            "generatedAt": "2026-11-11T23:04:40.022Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/cta.7126da67.png",
+            "sha256": "7126da6724c1dd3370d0fcb80e11213ca6d4fd2327f5083313cc17f0bd3cfae7",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "33042424bfe85e6cb8223cd74b1601c8f163911bc406b40a9c9c53b96c195a4e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:04:40.022Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "大きく『本編で』、小さく『関連動画から』と下向き矢印で、綴り正しく左右の余白5%以上。先生の手は5本指で崩れず、胴体は下端まで続き、資格名・肩書きの帯も無い"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "2bafa32f78863c079317f692084283b926b3597f5f9825620413fca3434bfe35",
+        "durationSeconds": 30.826667,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "fail",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "尺・導線・題名は基準を満たす。ただし表紙が型 one-question の図になっておらず、締めの語りが同じ一文の繰り返しになっているため fail。",
+        "videoSha256": "2bafa32f78863c079317f692084283b926b3597f5f9825620413fca3434bfe35",
+        "checkedAt": "2026-11-11T23:19:12.631Z"
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261111",
   "activeBodyRevision": "body-diagram-20261111",
   "activeShorts": {
-    "point-setsumei-1": "shorts-pop-point-setsumei-1-20261111",
-    "point-shugo-2": "shorts-pop-point-shugo-2-20261111"
+    "point-setsumei-1": "shorts-pop-point-setsumei-1-20261112",
+    "point-shugo-2": "shorts-pop-point-shugo-2-20261112"
   }
 }
