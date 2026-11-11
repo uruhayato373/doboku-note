@@ -2003,6 +2003,64 @@
         "/standards/kinki/common/chapters/3-2/sections/2",
         "/standards/kinki/common/chapters/3-2/sections/3"
       ]
+    },
+    {
+      "runId": "2026-11-11T03-44-39Z",
+      "collectedAt": "2026-11-11T03:44:39.532Z",
+      "mode": "dry-run",
+      "status": "dry-ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 9,
+      "accepted": 0,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/authenticity",
+        "/exam/pe-comprehensive-management/keywords/competency-hr",
+        "/exam/pe-comprehensive-management/keywords/initial-investment",
+        "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
+        "/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
+        "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+        "/exam/pe-comprehensive-management/keywords/sexual-harassment",
+        "/exam/pe-comprehensive-management/past-exams/h21-secondary",
+        "/exam/pe-comprehensive-management/past-exams/h24-secondary"
+      ],
+      "acceptedSlugs": []
+    },
+    {
+      "runId": "2026-11-11T03-45-48Z",
+      "collectedAt": "2026-11-11T03:45:48.425Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 9,
+      "accepted": 5,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/authenticity",
+        "/exam/pe-comprehensive-management/keywords/competency-hr",
+        "/exam/pe-comprehensive-management/keywords/initial-investment",
+        "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
+        "/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
+        "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+        "/exam/pe-comprehensive-management/keywords/sexual-harassment",
+        "/exam/pe-comprehensive-management/past-exams/h21-secondary",
+        "/exam/pe-comprehensive-management/past-exams/h24-secondary"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-comprehensive-management/keywords/authenticity",
+        "/exam/pe-comprehensive-management/keywords/initial-investment",
+        "/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
+        "/exam/pe-comprehensive-management/keywords/sexual-harassment",
+        "/exam/pe-comprehensive-management/past-exams/h24-secondary"
+      ]
     }
   ]
 }
