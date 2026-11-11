@@ -924,6 +924,17 @@
         "expected": 1391,
         "heard": 1348
       }
+    },
+    "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform": {
+      "videoSha256": "a0a870915c4054ec99e8e513614bf55ee9ed3d0c32bf79a85e4fc7efcaf1f989",
+      "at": "2026-11-11T04:25:09.242Z",
+      "similarity": 0.977,
+      "maxVolumeDb": -1.3,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 930,
+        "heard": 920
+      }
     }
   }
 }

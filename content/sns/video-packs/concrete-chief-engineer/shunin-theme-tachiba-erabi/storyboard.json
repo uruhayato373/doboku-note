@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "テーマの傾向と立場の選び方",
-        "items": ["コンクリート主任技士・小論文対策"]
+        "items": [
+          "コンクリート主任技士・小論文対策"
+        ]
       }
     },
     {
@@ -22,8 +24,15 @@
       "visual": {
         "kind": "points",
         "heading": "誤解：全テーマを均等に準備する",
-        "items": ["全部を均等に覚える", "得意な二、三の系統を厚くする"],
-        "flow": ["五つの系統", "二、三を選ぶ", "厚く準備"]
+        "items": [
+          "全部を均等に覚える",
+          "得意な二、三の系統を厚くする"
+        ],
+        "flow": [
+          "五つの系統",
+          "二、三を選ぶ",
+          "厚く準備"
+        ]
       },
       "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
     },
@@ -38,12 +47,36 @@
         "heading": "直近三年に示されたテーマ（二次情報）",
         "sheetTitle": "令和5〜7年度（選択式）",
         "rows": [
-          { "label": "令和7年度", "value": "環境負荷低減", "state": "done" },
-          { "label": "令和7年度", "value": "労働人口減少下の品質向上", "state": "done" },
-          { "label": "令和6年度", "value": "気候変動に対応した品質確保", "state": "done" },
-          { "label": "令和6年度", "value": "分野を魅力的にする方策", "state": "done" },
-          { "label": "令和5年度", "value": "環境負荷低減", "state": "done" },
-          { "label": "令和5年度", "value": "生産性向上（DX・i-Construction）", "state": "done" }
+          {
+            "label": "令和7年度",
+            "value": "環境負荷低減",
+            "state": "done"
+          },
+          {
+            "label": "令和7年度",
+            "value": "労働人口減少下の品質向上",
+            "state": "done"
+          },
+          {
+            "label": "令和6年度",
+            "value": "気候変動に対応した品質確保",
+            "state": "done"
+          },
+          {
+            "label": "令和6年度",
+            "value": "分野を魅力的にする方策",
+            "state": "done"
+          },
+          {
+            "label": "令和5年度",
+            "value": "環境負荷低減",
+            "state": "done"
+          },
+          {
+            "label": "令和5年度",
+            "value": "生産性向上（DX・i-Construction）",
+            "state": "done"
+          }
         ]
       },
       "sourceRef": "config/cce-essay-history.json"
@@ -78,10 +111,26 @@
         "heading": "立場で書ける中身が変わる（例）",
         "sheetTitle": "同じ系統でも立場で入口が違う",
         "rows": [
-          { "label": "生コン工場", "value": "配合・出荷時の確認", "state": "focus" },
-          { "label": "発注者", "value": "要求性能・立会いの確認", "state": "focus" },
-          { "label": "維持管理", "value": "変状の調査・補修の検討", "state": "focus" },
-          { "label": "選ぶ基準", "value": "自分が判断し確認した事実", "state": "ok" }
+          {
+            "label": "生コン工場",
+            "value": "配合・出荷時の確認",
+            "state": "focus"
+          },
+          {
+            "label": "発注者",
+            "value": "要求性能・立会いの確認",
+            "state": "focus"
+          },
+          {
+            "label": "維持管理",
+            "value": "変状の調査・補修の検討",
+            "state": "focus"
+          },
+          {
+            "label": "選ぶ基準",
+            "value": "自分が判断し確認した事実",
+            "state": "ok"
+          }
         ]
       },
       "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
@@ -100,7 +149,11 @@
           "五行のメモにする",
           "実施・提案・協議・確認を使い分ける"
         ],
-        "flow": ["系統を選ぶ", "五行にする", "動詞を分ける"]
+        "flow": [
+          "系統を選ぶ",
+          "五行にする",
+          "動詞を分ける"
+        ]
       },
       "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
     },
@@ -116,8 +169,16 @@
         "ngLabel": "避ける",
         "okLabel": "借りる",
         "rows": [
-          { "label": "判断", "ng": "他の立場の判断を自分の経験にする", "ok": "技術の考え方だけ借りる" },
-          { "label": "成果", "ng": "確認していない改善率を書く", "ok": "実際に確認した記録を書く" }
+          {
+            "label": "判断",
+            "ng": "他の立場の判断を自分の経験にする",
+            "ok": "技術の考え方だけ借りる"
+          },
+          {
+            "label": "成果",
+            "ng": "確認していない改善率を書く",
+            "ok": "実際に確認した記録を書く"
+          }
         ]
       },
       "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
@@ -148,8 +209,17 @@
       "visual": {
         "kind": "cover",
         "heading": "自分の立場の答案を探す",
-        "items": ["まるごとパックの案内（概要欄）"]
+        "items": [
+          "まるごとパックの案内（概要欄）"
+        ]
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
 }

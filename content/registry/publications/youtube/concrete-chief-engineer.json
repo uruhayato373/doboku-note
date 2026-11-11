@@ -1723,7 +1723,22 @@
       "work": "shunin-theme-tachiba-erabi",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/cover",
+        "scene-001": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-008",
+        "scene-009": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-009",
+        "video": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/video",
+        "subtitles": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.json#longform"
     }
   ]
 }
