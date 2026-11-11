@@ -565,10 +565,6 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1131] skills / agents の台帳を frontmatter から生成し、手書きの更新義務をなくす
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11] [進行中]
-
-skills-registry.md（133KB）・agents-registry.md（102KB）・skills-guide.md（49KB）は 14 日で計 50 回変更。一覧は SKILL.md と agents の frontmatter の手書きの写しで、追加・削除・description 変更のたびに check-doc-coupling が同一 commit での更新を要求する。一覧と呼出マップを frontmatter とスキル本文から生成し（npm run build-capability-index）、check-doc-coupling は生成物の一致の検査に置き換える。skills-registry.md は日付つきの変更記録（git 履歴が持つ）なので削除する。完了条件: スキルの description を変えると検査が落ち、再生成で通る／check-doc-refs・check-domains が通る
 
 
 

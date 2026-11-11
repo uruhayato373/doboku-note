@@ -7345,6 +7345,19 @@
       "commit": "bf87ea763cff",
       "verification": "npm run cmd -- ci:stats が用途を返す／npm run check-command-guidance（起動ファイル 537 本・冒頭コメントなし 32 本＝基準どおり）／tests/cmd-help.test.mjs",
       "note": "PR #1542 を develop へマージ（bf87ea763）。commands.md（144KB）を削除し、npm run cmd が package.json と冒頭コメントから引く。説明つき 330 行のうち 146 行を 133 ファイルの冒頭コメントへ移設。PR の CI は develop 由来の 2 件（youtube-shorts・loadVideoState）だけが赤"
+    },
+    {
+      "id": "DN-1131",
+      "at": "2026-11-11",
+      "task": "skills / agents の台帳を frontmatter から生成し、手書きの更新義務をなくす",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "4a6b30423b7e",
+      "verification": "npm run check-doc-coupling（スキル 99・エージェント 82 と一致）／tests/capability-index.test.mjs",
+      "note": "PR #1543 を develop へマージ（4a6b30423）。skills-guide.md と agents-registry.md の一覧・呼出マップを frontmatter から生成（npm run build-capability-index）。skills-registry.md（133KB）を削除し、3 本 284KB → 2 本 85KB。check-doc-coupling は生成物の一致の検査に変更し、CI でも毎回見る。PR の CI は develop 由来の 2 件だけが赤"
     }
   ]
 }
