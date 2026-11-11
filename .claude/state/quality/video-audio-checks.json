@@ -473,6 +473,17 @@
         "expected": 1098,
         "heard": 1062
       }
+    },
+    "pe-construction/pe-gyoumu-shousai-720/youtube.longform": {
+      "videoSha256": "95e6ea19b90290653704b7e260f87c43889be94364f4e16b0cba5bf4eb6172db",
+      "at": "2026-11-11T01:41:15.728Z",
+      "similarity": 0.964,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1133,
+        "heard": 1091
+      }
     }
   }
 }
