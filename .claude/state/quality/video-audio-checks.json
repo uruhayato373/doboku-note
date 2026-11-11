@@ -517,6 +517,17 @@
         "expected": 1793,
         "heard": 1740
       }
+    },
+    "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform": {
+      "videoSha256": "59280ab34240adf58251d31dbd96f6f5e405adff4442a76ba1163bfec961478e",
+      "at": "2026-11-11T01:43:36.375Z",
+      "similarity": 0.968,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1014,
+        "heard": 1021
+      }
     }
   }
 }
