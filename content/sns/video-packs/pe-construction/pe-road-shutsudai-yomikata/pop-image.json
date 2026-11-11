@@ -22,7 +22,7 @@
           "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-cover.4f0e5c9a.png",
           "sha256": "4f0e5c9ac7218a0bc979c738cae89442d738690c842c219e4efbedcd490f0adc"
         },
-        "generatedAt": "2026-11-11T00:59:10.088Z"
+        "generatedAt": "2026-11-11T03:09:01.241Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -45,7 +45,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-11T00:59:10.088Z",
+        "checkedAt": "2026-11-11T03:09:01.241Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字『総監が制作』『建設部門 道路』『出題の』『読み方』が指示と一字一致。先生は黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・黄白反射帯で、手指の崩れなし",
         "userImageReview": "pending"
@@ -76,7 +76,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-premise.8377fb7f.png",
               "sha256": "8377fb7fa480c5520c726582742a8d8abbfe0dae2fb8d8fc729c3896d8288eed"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/premise-diagram.0150f644.png",
@@ -90,7 +90,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3枠の文字・下部の全文が指示と一字一致し、カレンダー・書類・本の図に崩れなし",
             "userReview": "pending",
@@ -113,7 +113,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-myth.50a8b3ab.png",
               "sha256": "50a8b3ab9fec59830145adc42c2fb31ac149780acf2b72997acce8306b89ca9a"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/myth-diagram.40cad47d.png",
@@ -127,7 +127,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと下部の『問題文の条件はテーマ名に含まれない』が一致。左右2枠で右を強調する構図で余計な文字なし",
             "userReview": "pending",
@@ -150,7 +150,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-forms.dd29add1.png",
               "sha256": "dd29add1ebab39158386286a2fe8da43cbcfbd2dc53eec9956816816be185c3c"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/forms-diagram.f1a1d4f2.png",
@@ -164,7 +164,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3行の欄（II-1 4設問から1つ・1枚 等）・下部文が指示と一字一致し、数字の矛盾なし",
             "userReview": "pending",
@@ -187,7 +187,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-ii1.be950a0c.png",
               "sha256": "be950a0c94ded4305e27556e981f9f1cb6034353ca2c1ff144435c499f0e810b"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/ii1-diagram.cb5f10b2.png",
@@ -201,7 +201,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・4系統の文字・下部文が指示と一致。道路・法・舗装断面・斜面と油圧ショベルの図も成立している",
             "userReview": "pending",
@@ -224,7 +224,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-ii1law.fcb330c8.png",
               "sha256": "fcb330c842f02610e759aac373c5b6215a124f10b7e4e138efeb2c39a2b7c106"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/ii1law-diagram.1830f8ef.png",
@@ -238,7 +238,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・2枠の文字・『令和8年度II-1-2・II-1-4の例』が指示と一致し、余計な文字や崩れなし",
             "userReview": "pending",
@@ -261,7 +261,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-ii2.e2277cbd.png",
               "sha256": "e2277cbd1128cad7e8239e39c3cbe0f801ba4ca87493d71548bf0f9b5ce278c4"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/ii2-diagram.86de80f8.png",
@@ -275,7 +275,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・2枠・『令和8年度は 調査→手順→調整』・下部文が指示と一字一致し、左右比較で右を強調",
             "userReview": "pending",
@@ -298,7 +298,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-iii.cb6b5537.png",
               "sha256": "cb6b55370fe13c0442e211192f292839e0689741892224fef1c207258e0dab47"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/iii-diagram.a35fe0bd.png",
@@ -312,7 +312,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3枠の文字・下部文が指示と一致。虫眼鏡・階層図・盾の図も崩れなし",
             "userReview": "pending",
@@ -335,7 +335,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-cond.526632da.png",
               "sha256": "526632da7fcdb74198bec65880d0854b07ab01319898f5a8aa23bba95b690805"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/cond-diagram.89e55c55.png",
@@ -349,7 +349,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと下部文が指示と一致。橋と補修工具の図に斜線を重ね、維持管理の観点を除くという本文と矛盾しない",
             "userReview": "pending",
@@ -372,7 +372,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-steps.5214cca6.png",
               "sha256": "5214cca62b7994dee1d89bf74341e00f55d59d94b90af56eff25b4a613111dba"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/steps-diagram.edf30cc8.png",
@@ -386,7 +386,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3手順の文字・『本動画の独自の整理』が指示と一字一致し、崩れなし",
             "userReview": "pending",
@@ -409,7 +409,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-recap.b8b0acbf.png",
               "sha256": "b8b0acbf5735ca977746fd95f41f9ed8564ceb5b04b5513f98ff2181f8de5f6b"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/recap-diagram.3105f2cb.png",
@@ -423,7 +423,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3枠・『条件を読む』・下部文が指示と一字一致し、構成も本文と整合",
             "userReview": "pending",
@@ -446,7 +446,7 @@
               "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/factory/raw-cta.a6791b4f.png",
               "sha256": "a6791b4f615f57e727b4b6a7b3d709dd1f8d0025405f1c788951d8cd45b12961"
             },
-            "generatedAt": "2026-11-11T00:59:10.088Z"
+            "generatedAt": "2026-11-11T03:09:01.241Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/work/cta-diagram.f0940ddc.png",
@@ -460,7 +460,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:59:10.088Z",
+            "checkedAt": "2026-11-11T03:09:01.241Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・ノートの表紙『道路 選択科目の模範解答集』・『収録内容は概要欄から』が一致。価格・URLは描かれていない",
             "userReview": "pending",
