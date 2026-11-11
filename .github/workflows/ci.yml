@@ -272,6 +272,11 @@ jobs:
     if: always() && github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    # actions: read は、最後に成功した run の commit を読むため（赤を入れた範囲を Issue に載せる）
+    permissions:
+      contents: read
+      issues: write
+      actions: read
 
     steps:
       - name: Checkout
@@ -290,6 +295,14 @@ jobs:
             echo
             echo "どのゲートが落ちたかは run のログ（Quality audit / Unit tests / Build / SEO）を見る。"
             echo "ローカル再現: \`npm run quality:audit:ci\`"
+            # 赤を入れた範囲: 最後に成功した run の commit から今回まで。並行セッションのどの変更かを件名で見分ける（DN-1133）。
+            # checkout は浅いので compare API で読む。取れなくても起票は続ける。
+            BASE=$(gh run list --workflow ci.yml --branch develop --status success --limit 1 --json headSha --jq '.[0].headSha // ""' || true)
+            if [ -n "$BASE" ]; then
+              echo
+              echo "最後の緑（\`${BASE:0:9}\`）から今回までの commit（新しい 20 件まで）:"
+              gh api "repos/${{ github.repository }}/compare/${BASE}...${{ github.sha }}" --jq '.commits[-20:][] | "- `\(.sha[0:9])` \(.commit.message | split("\n")[0])"' || echo "- （取得できなかった）"
+            fi
           } > /tmp/ci-body.md
           node scripts/report-automation-failure.mjs \
             --channel pre-merge \

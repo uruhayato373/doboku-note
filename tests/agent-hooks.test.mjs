@@ -13,6 +13,9 @@ import {
   classifyStaged,
   decisionDocsChanged,
   directMainPush,
+  forbiddenGitOps,
+  pushesToDevelop,
+  shellTrapMessage,
   docSyncMessages,
   finalAssistantText,
   hasReplacementChar,
@@ -245,6 +248,29 @@ test('check-agent-network hook: figure-crop-worker の curl は exit 2、親の 
 test('zshModifierTrap: 値を壊す $VAR:x だけを見つけ、守られた書き方は通す', () => {
   for (const c of ['git push url $C:refs/heads/main', 'echo "$A:foo"', 'curl http://$HOST:port/']) assert.ok(zshModifierTrap(c), c);
   for (const c of ['git push url "${C}:refs/heads/main"', "echo '$C:refs'", 'echo $A:1', "cat <<'E'\n$C:refs\nE\n", 'echo $A: b']) assert.equal(zshModifierTrap(c), '', c);
+});
+
+test('forbiddenGitOps: 共有チェックアウトで禁止の stash と add -A / --all / . を止め、読むだけの操作と明示の add は通す（DN-1133）', () => {
+  const stash = (c) => forbiddenGitOps(c).stash;
+  for (const c of ['git stash', 'git stash push -m x', 'git stash pop', 'cd a && git stash -u', 'git -C /repo stash apply', 'git -c core.x=y stash drop']) assert.equal(stash(c), true, c);
+  for (const c of ['git stash list', 'git stash show -p', 'git log --grep stash', 'git commit -m "git stash を止める"', "echo 'git stash'", 'git show origin/develop:scripts/stash.mjs']) assert.equal(stash(c), false, c);
+
+  const addAll = (c) => forbiddenGitOps(c).addAll;
+  for (const c of ['git add -A', 'git add --all', 'git add .', 'git add -- .', 'git -C /repo add -A', 'npm test && git add . && git commit -m x', 'git add -v .']) assert.equal(addAll(c), true, c);
+  for (const c of ['git add -- scripts/a.mjs', 'git add .gitignore', 'git add ./scripts/a.mjs', 'git add -u', 'git add --pathspec-from-file=list.txt', 'git commit -m "git add -A を止める"', 'git diff --stat .']) assert.equal(addAll(c), false, c);
+});
+
+test('pushesToDevelop: develop への push だけ（feature ブランチ・main・読むだけの操作は対象外）', () => {
+  for (const c of ['git push origin develop', 'git push origin HEAD:develop', 'git -C /repo push -u origin develop', 'git pull --rebase origin develop && git push origin develop']) assert.equal(pushesToDevelop(c), true, c);
+  for (const c of ['git push -u origin feat/develop-tools', 'git push origin feat/x', 'git log origin/develop..HEAD', 'git pull origin develop', 'git push origin main']) assert.equal(pushesToDevelop(c), false, c);
+});
+
+test('shellTrapMessage: 止めた操作ごとに、代わりの書き方を 1 行ずつ返す', () => {
+  const lines = shellTrapMessage({ stash: true, addAll: true });
+  assert.equal(lines.length, 2);
+  assert.match(lines[0], /git show origin\/develop:<path>/);
+  assert.match(lines[1], /git add -- <path>/);
+  assert.deepEqual(shellTrapMessage({}), []);
 });
 
 test('directMainPush: main への push だけを止める', () => {
