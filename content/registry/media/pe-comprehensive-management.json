@@ -649,6 +649,672 @@
       "durationSec": 188
     },
     {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "e15340735e4d3dcf69d2fe514e7035395d0d7e1c77244d9ae113f66fb7e9a0fe",
+      "bytes": 703840,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/cover.e1534073.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監 記述』『問題文の』『読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "0706b3044aebcd5a96091edab92ca0c7cd73b733e82b46b5ced9c6d73d86978f",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/work/cover-pop.e1534073.png"
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "e15340735e4d3dcf69d2fe514e7035395d0d7e1c77244d9ae113f66fb7e9a0fe",
+      "bytes": 703840,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-001.e1534073.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監 記述』『問題文の』『読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "0706b3044aebcd5a96091edab92ca0c7cd73b733e82b46b5ced9c6d73d86978f",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "7d53331d7c227d3e3519576c608c70129059814960ec19f2aadd224a0d6a22e2",
+      "bytes": 1912252,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-002.7d53331d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問題文は四つに分けて読む』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『テーマ』 『設定条件』 『要求事項』 『評価項目』。 図の下、下端の字幕の帯より上に『前文の四要素は元記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 問題文が長くて、どこから読めばよいか分からない。この動画では、総監の記述式の問題文を、四つの要素に分けて読む手順を紹介します。",
+        "promptSha256": "f06aa7caf40800f693fdca04f0d20a14cf8d76cc19483e8c93997a45a1b979bb",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "aecf3fafd579b14f52ae36b1cbf2d6afe1e08565c57fffcb353195cb16daa953",
+      "bytes": 1499986,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-003.aecf3faf.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『頭から読んで書き始めない』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『毎年繰り返される文章 定型文』 『その年だけのヒント 条件と要求』。 図の下、下端の字幕の帯より上に『二種類を切り分けて読む』の全文を省かずに入れる。 この場面の説明（文字にしない）: 誤解しやすいのは、問題文を頭から通して読み、思いついた題材で書き始めることです。問題文の中には、毎年繰り返される文章と、その年だけのヒントが混ざっています。切り分けないと、骨組みがずれます。",
+        "promptSha256": "8a59606521669690750ac5c46cd600e72272155967cbc322a5318e941a4e9b6e",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "f27cad9a1d39e4ef93e71a61bb718aa268245b5e03a7ee96c931db60914ec827",
+      "bytes": 1562314,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-004.f27cad9a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『要素1　テーマ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『論文の中心になる概念』 『まず一語で押さえる』 『外すと施策が的外れ』。 図の下、下端の字幕の帯より上に『前文分析の読み取り順序の一つめ』の全文を省かずに入れる。 この場面の説明（文字にしない）: 一つめはテーマです。論文の中心になる言葉を、まず一つ押さえます。データ、脱炭素、少子高齢化のような言葉が入る位置です。ここを外すと、後の施策がすべて的外れになります。",
+        "promptSha256": "68b9bd7c8d197605c79456d296f2ea1c871edf9415650ce0e86a2d1df50ce667",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "03e5f3da0fdea71e2f1b894770a18dde268897611c9eec11476e8a4bff768cb7",
+      "bytes": 1629385,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-005.03e5f3da.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『要素2　設定条件』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『解答の前提や制約』 『担当範囲・立場・対象事業』 『前半で置く条件の出どころ』。 図の下、下端の字幕の帯より上に『前文分析の読み取り順序の二つめ』の全文を省かずに入れる。 この場面の説明（文字にしない）: 二つめは設定条件です。解答の前提や制約になる事項を拾います。担当範囲、立場、対象の事業などです。答案の前半で置く条件は、ここから出ます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 56.2）",
+        "promptSha256": "772c7cc1cc15a10384727820433815508e42364349f1c9120b181ccfec6a5aa1",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "c1acfc80263c5ad7941ee8930cbd63ea45d6040543f91db1ae84760bfa89ee0a",
+      "bytes": 1627485,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-006.c1acfc80.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『要素3　要求事項』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『何を答えるか』 『設問ごとの数と枚数』 『範囲は問題文で確認』。 図の下、下端の字幕の帯より上に『数や範囲は当年の問題文に従う』の全文を省かずに入れる。 この場面の説明（文字にしない）: 三つめは要求事項です。何を答えればよいかが書かれた部分です。設問ごとに、いくつ答えるか、枚数はどうか、範囲はどこまでかを確かめます。指定の数は、その年の問題文が優先です。",
+        "promptSha256": "23a6954d1b323e7580af8232c74cc7b4410def34aa0944434cd14892b401dbe7",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "6f75b963a461c9ceb14b35387aacfb62a8fded50396816e2cf98ffa84831593b",
+      "bytes": 1632020,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-007.6f75b963.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『要素4　評価項目』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『採点の基準になる観点』 『見慣れた表現も読む』 『当年の条件と照らす』。 図の下、下端の字幕の帯より上に『定型文も当年度の条件と照合』の全文を省かずに入れる。 この場面の説明（文字にしない）: 四つめは評価項目です。採点の基準になる観点が書かれています。管理全体を見渡すことや、説明の筋道を示すことは、毎年似た言い回しで出てきます。見慣れた表現でも、省略せず、その年の条件と照らして読みます。",
+        "promptSha256": "106ee6c2cc236b504f40ec868d97777fb6b9f94666123f1e5ab4fd29b175645a",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "8d63565aeb26ddda8bab06139c30bbc239ef0a34a8c21e39c42afee53e611342",
+      "bytes": 2140106,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-008.8d63565a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読む順序』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『1　テーマで中心をつかむ』 『2　設定条件で前提を確かめる』 『3　要求事項で書く内容を特定』 『評価項目は骨子の点検にも』。 図の下、下端の字幕の帯より上に『順序は元記事の図の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 読む順序は、テーマ、設定条件、要求事項の順です。中心概念を押さえ、前提と制約を確かめ、何を書くかを特定する。評価項目は、骨子ができた後の点検にも使えます。",
+        "promptSha256": "6f4c17cef4792edbe2f27128b393984195bb2b62bba82fdc3ff6bcc96b3ee60c",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "4c354d739acc7d33d8fc2ae4f61b208c1b22897f40aace34be46dc739b38d4c7",
+      "bytes": 1872145,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-009.4c354d73.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『三種類のヒント』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『要求事項を書いた部分 外してはいけない観点』 『事業場の例を並べた部分 等の含みを自分の業務で読む』 『事業のイメージを挙げた部分 経験につながる例を探す』。 図の下、下端の字幕の帯より上に『元記事のヒントの整理を要約』の全文を省かずに入れる。 この場面の説明（文字にしない）: 問題文には、その年固有のヒントが三種類あります。要求事項を書いた部分。事業場の例を並べた部分。事業やプロジェクトのイメージを挙げた部分です。例が並ぶ部分の、等の含みを、自分の業務に近い例で解釈します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 30.8）",
+        "promptSha256": "294944252137ef8c217f0656935c30ad58c02cb4560390ea77d685cb84a2076b",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "9e102ee10e415ce9bf4fa16f52e37bcdb18c3cd839aba8acbe67d290774391a9",
+      "bytes": 1663389,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-010.9e102ee1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『置き換えて読む』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『用語を自分の業務へ置き換える』 『置き換えられないなら合図』 『別の題材や切り口を探す』。 図の下、下端の字幕の帯より上に『元記事の考え方を要約』の全文を省かずに入れる。 この場面の説明（文字にしない）: ヒントの専門用語は、自分の知っている業務に置き換えて読みます。置き換えられないなら、その年の自分とは相性が悪い、という合図です。無理に合わせず、別の題材や切り口を探します。",
+        "promptSha256": "d683f51d729e57a0bb4c8801e256637bdea75ba5c2b90bed85415e2d9a1d7d80",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "c33e99dd0c8b5d9dd658528a3871b9c32fb8fb2a87dabeaa69aff29bf95ce4c9",
+      "bytes": 1448724,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-011.c33e99dd.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『テーマ 人手不足への対応』 『設定条件 自分の組織の人員』 『要求事項 施策と、その課題』 『出題の予想ではありません』。 図の下、下端の字幕の帯より上に『手順を見せるための仮の例』の全文を省かずに入れる。 この場面の説明（文字にしない）: 仮の例で確かめます。問題文に、人手不足を前提に、組織が取る施策を求める、という文があったとします。テーマは人手不足への対応。設定条件は、自分の組織の人員。要求事項は、施策と、その課題。これは読み方の例で、出題の予想ではありません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 42.4）",
+        "promptSha256": "c5c045048783fec38ed56d693777a9d6f255e3b25645f1476f8cb6bc9755e092",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "9f7afcd2640b61414c52863290a08367384dae75ffd8c9adaade3597fbc48349",
+      "bytes": 1970968,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-012.9f7afcd2.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『避けたい三つ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『定型文を読まずに飛ばす』 『例の並びの「等」を読み流す』 『数や枚数を前年の記憶で決める』。 図の下、下端の字幕の帯より上に『指定は受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 避けたいのは三つです。見慣れた定型文を、読まずに飛ばすこと。例の並びの、等の意味を、読み流すこと。指定された数や枚数を、前の年の記憶で決めること。年度ごとの指定は、受検年度の問題と公式情報で確認します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 53.3）",
+        "promptSha256": "634c52241c82310690493d0632475d78959854da907fc30bce0e9d98b47bda1f",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "f518ffedc5c6e4480673c67497aa98a4d9e7ea0f7bb917c77c001eefd536aa8b",
+      "bytes": 1775793,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-013.f518ffed.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問題文の読み方のまとめ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『四つの要素に分ける』 『テーマ、条件、要求の順』 『ヒントは自分の業務に置き換える』。 図の下、下端の字幕の帯より上に『本動画のまとめ』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめです。問題文は、テーマ、設定条件、要求事項、評価項目の四つに分けて読みます。順序はテーマ、条件、要求。ヒントは自分の業務に置き換え、数や範囲はその年の指定に従います。",
+        "promptSha256": "258f9b04e4f25820164de141d263d3d9a80779dd3c56cab2c3d62b51c396809f",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-014",
+      "role": "scene-014",
+      "type": "image/png",
+      "sha256": "8cf04f0a7ff0306815929fdf45479a20d2e25f11d234d8aa87d2765f8241f72a",
+      "bytes": 1569555,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-014.8cf04f0a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問題文から、答案の型へ』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『問題文を四つに分けて読む』 『型・施策・演習へつなぐ』 『教材案内は概要欄へ』。 この場面の説明（文字にしない）: 読み取った条件を、答案の型と施策の弾薬、演習へつなげたい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 34.0）",
+        "promptSha256": "44fe5df17d863f4b6c70bee5e3da5c6d48f7709cdff3267b8a22383afbc9ae7e",
+        "generatedAt": "2026-11-11T03:07:31.020Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "0a6b9ade2e01d83f7906a5ba6fb18b902703c3472a3ac05f0bd96cbbe724b242",
+      "bytes": 7009,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/subtitles.0a6b9ade.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "b89399f2cfb8d9e6f7d985bc92733bbb38e04e6beb0d342a63e758058e9a5ab7",
+      "bytes": 25710646,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/video.b89399f2.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/storyboard.json",
+        "specSha256": "f4a2b071894d2e2b1c6b867bdd24ac50fc72778a300c6ec2a5553b417f1f4a53",
+        "renderInputSha256": "afac2a70d72553cff65a8e396a34c52f0582310e086e7ace18a66ddea690674c",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 205.4
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "95e4e850ed2290449b2f404c049caa70f8acac0313324dad33c2a793b33dfcf9",
+      "bytes": 675101,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/cover.95e4e850.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監 記述』『落ちる答案』『直し方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "f9135b9aefe70d40d67cb8d2170c54bfe69551a37606e32f1822af738060a1e3",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/work/cover-pop.95e4e850.png"
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "95e4e850ed2290449b2f404c049caa70f8acac0313324dad33c2a793b33dfcf9",
+      "bytes": 675101,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-001.95e4e850.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監 記述』『落ちる答案』『直し方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "f9135b9aefe70d40d67cb8d2170c54bfe69551a37606e32f1822af738060a1e3",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "d74f6cc7c601a17172b359100ac2f6669298317dbfdec61b1e7369938f681f6a",
+      "bytes": 1418975,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-002.d74f6cc7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『三つの箇所で直す』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『前提条件の置き方』 『施策の具体さ』 『将来のリスクのつなぎ方』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 書く力はあるはずなのに、答案の出来に自信が持てない。この動画では、構造が崩れやすい前提条件、施策、将来のリスクの三つを、直す順に点検します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 26.7）",
+        "promptSha256": "5cd3d72aea01835e6dc66fad7fa7a55fca03e7ae7045733e9d51b9c37bca71bd",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "a237dbd79bf11bdbf99a4f47c0c912b7f31b3d22a16b56cf1555c8c88d310a9c",
+      "bytes": 1394853,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-003.a237dbd7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『知識量では直らない』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『知識を足す』 『構造を確かめる』。 図の下、下端の字幕の帯より上に『サイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 誤解しやすいのは、知識が足りないから崩れると考えることです。サイト記事は、知識量が多くても構造が崩れれば届かないと整理しています。直すのは、知識ではなく構造です。",
+        "promptSha256": "887a967bb4adfc9e876c9e84522155dd27ee25dc310fe9ce0b1d29f5fb58d35e",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "06558219c979c0eb98a241cfb52242ef1533a2751d9ca6818727297f5fe96dfe",
+      "bytes": 1823282,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-004.06558219.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書く前の三つの問い』。 図に入れる文字: 『Ⅰを読めばⅡ・Ⅲが予想できるか』 『Ⅱの施策はⅠの条件で成り立つか』 『Ⅲの課題はⅡの結果として出るか』。 図の下、下端の字幕の帯より上に『三層の自己診断』の全文を省かずに入れる。 この場面の説明（文字にしない）: 点検の物差しは、三層構造の三つの問いです。Ⅰを読めばⅡとⅢの方向が予想できるか。Ⅱの施策はⅠの条件で成り立つか。Ⅲの課題はⅡを進めた結果として出てくるか。一つでも否なら、骨組みを作り直します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 40.9）",
+        "promptSha256": "791d9540a3971e18f7b44ca9ee872484dd4b0b13878eb47dedb2ea3ac0ed1690",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "73a4384cf6ee969cdf64315e4ef9978a30c6574ef9e8ec0a50353e5cda468605",
+      "bytes": 1394423,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-005.73a4384c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『直す1　前提条件』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『管理対象を限定する』 『立場と役割を示す』 『後段が成り立つ前提を置く』。 図の下、下端の字幕の帯より上に『Ⅰの置き方』の全文を省かずに入れる。 この場面の説明（文字にしない）: 直す一つめは、前提条件です。我が国の業界全体のように広く置くと、何を管理しているのか分からなくなります。自分が関わる事業や部署まで範囲を絞り、立場を示し、後段の施策が成り立つ前提を置きます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 24.1）",
+        "promptSha256": "530b9a93f73275bfd860b0c1f6d446b362dffc3d1348dc43c1ebb6d117aed910",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "cb3150b419ee1a4c790c66477b67b678ccbe41801a9c56266cd696e255f3f063",
+      "bytes": 1383317,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-006.cb3150b4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『直す2　施策』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『方針で止める』 『施策まで落とす』。 図の下、下端の字幕の帯より上に『方針と施策の違い』の全文を省かずに入れる。 この場面の説明（文字にしない）: 直す二つめは、施策の具体さです。DXを推進する、は方針であって施策ではありません。特定の業務に、どのシステムを導入するのか。誰が、何を使って、何を改善するのかまで書いて、施策にします。",
+        "promptSha256": "a7cfc7bb873b97db6fbff40309b3586bb39ce4758ed1c2318250c78a5f048b59",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "df0555c16bcfba451eb5d6122629176e10c80886ed6dc25d007c40b781158ac0",
+      "bytes": 1459720,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-007.df0555c1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『直す3　効果と問題点』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『効果だけで終える』 『問題点を管理課題で添える』。 図の下、下端の字幕の帯より上に『効果と問題点のセット』の全文を省かずに入れる。 この場面の説明（文字にしない）: 直す三つめは、施策の裏です。効果だけを書いて終えると、負の側面を見抜く視点が見えません。効果に、管理上の問題点を添えます。このとき、コストが高く問題がある、と否定せず、投資回収の管理が課題となる、と管理課題として書きます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 42.2）",
+        "promptSha256": "92e7f16673c88cb1890849c7dd0daf6326de81d082ddf3d582438c214a3fa654",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "49ae65ca55692a0c993444dfbc79f6d13bce6573455fc1c1c8ce09d4d13f25e3",
+      "bytes": 1558352,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-008.49ae65ca.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『直す4　将来のリスク』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『Ⅱの結果として出る』 『別の管理へ負担が移る』 『担当者や体制の限界』。 図の下、下端の字幕の帯より上に『リスクを探す観点』の全文を省かずに入れる。 この場面の説明（文字にしない）: 直す四つめは、将来のリスクです。Ⅱで書いていない話を、Ⅲで突然持ち出すと、つながりません。施策を進めた結果、別の管理に負担が移らないか、特定の担当者が欠けたら止まらないか、対象が増えて処理し切れるか。この観点で探します。",
+        "promptSha256": "69029334f00f65e618a86b0345d26a518d2cb7b1721d2f2df194d74f77872ef6",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "a54fc9a782022b702c5203ff8b0acb2dc5562f029d954811f825dce3704fe70d",
+      "bytes": 1738102,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-009.a54fc9a7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『設問の指定が先』。 図に入れる文字: 『最大のリスクを一つ求める設問』 『複数を求める設問』 『対象範囲の指定』。 図の下、下端の字幕の帯より上に『問題文の確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: ただし、数と範囲は問題文が先です。最大のリスクを一つ求められたら、一つに絞って理由を示します。複数を求められたら、指定の数を満たします。直す順より、設問の指定を優先してください。",
+        "promptSha256": "99ec3ae44989a689e04d59b0416d4ee5c3e317eea854662919842dd430958a80",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "af1a6a4488566fcc7909d569042362a6ca4d9bd6ee18504c586a1c357c3d5ca0",
+      "bytes": 1666585,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-010.af1a6a44.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例で直す』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『方針：DXを推進する』 『施策：特定業務にシステムを導入する』 『課題：導入後の負担を管理課題に』。 図の下、下端の字幕の帯より上に『方針から施策へ』の全文を省かずに入れる。 この場面の説明（文字にしない）: 仮の例です。DXを推進する、と書いた一文は、特定の業務に、あるシステムを導入する、と直します。そのうえで、導入後に増える負担を、管理課題として一文添えます。これは直し方の例で、出題の予想ではありません。",
+        "promptSha256": "8a4fcd7c5d29ce8c93c3d29784564b66b86b466feb281a3e9de4687b57b1fc6b",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "38d2acc8cc0941fbb5bf385bfa63100edd20ba2514f958f9b823dca365e9e53d",
+      "bytes": 1838432,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-011.38d2acc8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『避けたいこと』。 図に入れる文字: 『書いた量で安心する』 『古い形式で決めつける』 『直す箇所を決めずに書き直す』。 図の下、下端の字幕の帯より上に『直し方の注意』の全文を省かずに入れる。 この場面の説明（文字にしない）: 避けたいのは三つです。書いた量で安心すること。試験の形式や字数を、古い情報で決めつけること。直す箇所を決めずに、全部を書き直すこと。形式や日程は、受検する年度の公式情報で確認してください。 前回の不合格の理由を直す: 文字: 三項目と見出しの字は正確だが、指示の「直し方の注意」の全文（形式や日程は受検年度の公式情報で確認する旨）が無く見出し語だけ。配置: 見出しが上端約3%、左右の項目文字が左右約3%まで寄り、左右5%・上5%の安全域を超える",
+        "promptSha256": "9996322336a3facc37e0c928034a2bd9357b4514b8796fef556e05f39dde77b8",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "491eb32e8326069d99e0f023b35136ed787bdf3891b6ec53b902d63d0bbb6299",
+      "bytes": 1372532,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-012.491eb32e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『まとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『前提条件を絞る』 『施策を具体にする』 『効果に問題点を添える』 『リスクはⅡから導く』。 図の下、下端の字幕の帯より上に『四つの直し方』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめです。落ちる答案は、前提条件、施策、施策の裏、将来のリスクの順に点検して直します。直す前に、三層の三つの問いで骨組みを確かめます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 40.9）",
+        "promptSha256": "69fde295cbd43624b53596fdf6c8b1bbd203875ec31ea420c7244262223d6578",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "39f9cd978badc2e01451fb7aaeb4655424b91c4c9daee6f79ba52709ef54ce1a",
+      "bytes": 1635315,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-013.39f9cd97.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『型を確かめる』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『三層の型を押さえる』 『トレードオフを組み込む』 『教材案内は概要欄へ』。 この場面の説明（文字にしない）: 答案の型を、全体でまとめて確かめたい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 52.1）",
+        "promptSha256": "0251e08a474a4d9b0fcb8aff6ef369307142762b11c29ddfb127e26501088db5",
+        "generatedAt": "2026-11-11T03:33:00.253Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "6479e0a88046e9b930a779b5e226c8db0b1bc0d393d090f5095237023b8aefee",
+      "bytes": 6506,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/subtitles.6479e0a8.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "8dbdca9a16f49eb03952e11cb9b2694397a85bbe6b0bae387b948b069922fa65",
+      "bytes": 21590198,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/video.8dbdca9a.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata/storyboard.json",
+        "specSha256": "7540abb63b47cf9c6d3cea2f572b7e64e19f085817e2af518414adb015d11027",
+        "renderInputSha256": "bdb915d4c97d2ccc7f1a241df489f9aa4a734913d17215a666c1017e00a7c7fe",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 191.1
+    },
+    {
       "id": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
@@ -970,6 +1636,329 @@
         }
       },
       "durationSec": 207.2
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "d0084e53b5742833d0a672eaa214b54a9ee15737b7a1953fac7566fd63fdde7b",
+      "bytes": 699092,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/cover.d0084e53.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監』『業務経歴の』『書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "7447e5ac770a2c55d364b5cb623c686e9d64af67340edb85b8d85377e5116955",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/work/cover-pop.d0084e53.png"
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "d0084e53b5742833d0a672eaa214b54a9ee15737b7a1953fac7566fd63fdde7b",
+      "bytes": 699092,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-001.d0084e53.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監』『業務経歴の』『書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "7447e5ac770a2c55d364b5cb623c686e9d64af67340edb85b8d85377e5116955",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "b00c7c2f65ca0bc24500fd122b84ae2cfa4a2e18e0e01e7b266a630de547dfbd",
+      "bytes": 1615357,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-002.b00c7c2f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『手が止まる前に』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『業務を選ぶ』 『順に並べる』 『欄に書き移す』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 総監の業務経歴票を前に、何を書けば通るのか分からず手が止まる。この動画では、五つの業務の選び方、並べ方、欄の書き方までを、順に紹介します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 14.0）",
+        "promptSha256": "45748ce4a210f7b8010311a735225ba37c342f3c1cd3b6fd16346bb0e06b3930",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "aad5860e0e34efbec21f25c3d733faaaf0c4a2c17db5dc32385432f020d47305",
+      "bytes": 1592188,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-003.aad5860e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『経歴票は後の試験の土台』。 図に入れる文字: 『出願書類』 『筆記試験の骨子』 『口頭試験の質問のもと』。 図の下、下端の字幕の帯より上に『出願と試験の関連』の全文を省かずに入れる。 この場面の説明（文字にしない）: 業務経歴と業務内容の詳細は、筆記の記述式の骨子になり、口頭試験では質問のもとになります。出願の書類ですが、後の試験まで続く準備の入口です。",
+        "promptSha256": "fae7e9d7127b9daea9e0569b3106c74bf27f845eac0a38f5d92b3919600ee17a",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "a2c74c075ac4b8c4acaaaa25ee268501b29021688674fac26cc483899632f91e",
+      "bytes": 1735100,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-004.a2c74c07.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『一般部門との違い』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『一般部門 専門技術の深さ』 『総監部門 五つの管理を俯瞰して扱う力』。 図の下、下端の字幕の帯より上に『アピールの軸が違う』の全文を省かずに入れる。 この場面の説明（文字にしない）: 一般部門の経歴票をそのまま流用すると、総監の視点が抜けます。技術の深さを見せる書類ではなく、五つの管理を管理者の立場で扱えることを見せる書類です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 41.8）",
+        "promptSha256": "0d3db7d55c4392657a46c785c2c461c3d6f8f294bddbc8f6de3182f282241b47",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "c0772784e32c151d12c0f6922bf7b3c4b5772b3a647669c171146fd1275c7c73",
+      "bytes": 1865419,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-005.c0772784.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『整理の手順』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『業務を書き出す』 『五つの管理で整理』 『トレードオフを見つける』 『五つの業務に絞る』。 図の下、下端の字幕の帯より上に『元記事の五段階を要約』の全文を省かずに入れる。 この場面の説明（文字にしない）: いきなり仕上げるのは難しいので、手順を分けます。経験した業務を書き出し、五つの管理で整理し、対立する管理を見つけて、最後に五つの業務へ絞ります。",
+        "promptSha256": "59627cc179c1fa37b556790398391638ff0b0c2ee9ba938b086b699db7a6c98a",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "307c141357770d277f525b219ed5ec88e0fabdc9ed7eba8388eea95d109bdaff",
+      "bytes": 1671863,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-006.307c1413.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『業務を選ぶ基準』。 図に入れる文字: 『管理分野がかたよらない』 『似た業務を並べない』 『立場と対立が明確』 『口頭で説明できる』。 図の下、下端の字幕の帯より上に『元記事の選定基準を再構成』の全文を省かずに入れる。 この場面の説明（文字にしない）: 絞り込みの基準です。五つの管理がかたよらないこと。似た業務を並べないこと。管理者の立場がはっきりしていること。管理どうしの対立を経験していること。口頭で説明できること。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 45.8）",
+        "promptSha256": "38a800c29900f2a0aa9f8c77daabeabba4bfe04cceec0e5a9b948a49e68c9d01",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "76e3bb1a0adbae8899c181f42cae85647bb95b1742a5472d438181fe23363ad7",
+      "bytes": 1703966,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-007.76e3bb1a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『並べ方は成長の流れ』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『前半 初期から中堅 担当として成果を出す』 『後半 管理者期 管理どうしの対立を調整する』。 図の下、下端の字幕の帯より上に『成長の流れが読み取れる並び』の全文を省かずに入れる。 この場面の説明（文字にしない）: 並べ方にも意味があります。前半の一つから三つは、一般部門の視点で書いて構いません。後半で、複数の管理の対立を調整する立場に移っていく流れが見えると、成長の筋が伝わります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 28.9）",
+        "promptSha256": "25cd62ddbb4b85323c3e36cc1f95d001137687bfb9164aac2b838299fd4751de",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "f7e510e8fd551e92ce18fa07094d0bda77685251570d48646368bf026947d85e",
+      "bytes": 1638762,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-008.f7e510e8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『申込書の欄に書き移す』。 図に入れる文字: 『一行が一件の業務』 『メモは別紙で出せない』 『様式は受検年度の案内で確認』。 図の下、下端の字幕の帯より上に『欄ごとの記入例は元図を参照』の全文を省かずに入れる。 この場面の説明（文字にしない）: 整理したメモは、そのままでは出せません。決められた様式の欄に書き直す作業が残っています。一行が一件の業務で、行数や字数は様式で決まります。年度ごとに変わることがあるので、受検年度の案内と様式で確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 21.3）",
+        "promptSha256": "5e8d1e92046ad6114276c5d78b3b95d5ee10169d14eb9e561539fdcc2cdf8e99",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "30a356642d22a50bcf462ec77f81bc6ffa2bffb1769fa9c11b329117326d2623",
+      "bytes": 1615479,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-009.30a35664.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『迷いやすい三つ』。 構図: 左の問いから右の行動へ矢印で結ぶ対応図。 図に入れる文字: 『業務内容欄 後半は調整を一言添える』 『六件以上 削る前に束ねる』 『期間と丸 案内の決まりに従う』。 図の下、下端の字幕の帯より上に『詳細は元記事と受検年度の案内』の全文を省かずに入れる。 この場面の説明（文字にしない）: 迷いやすい点を三つ挙げます。業務内容欄は、後半の業務に、異なる二つの管理の調整を一言添える。六件以上あるときは、削る前に近い業務を束ねて期間をつなぐ。期間の数え方と丸を付ける行は、案内の決まりに従う。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 69.7）",
+        "promptSha256": "4d57ce4668f54262ac06ed6f7fa92b9d81bb89b3883142b25e717c0235bf0e2e",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "cbb42f00d8ea8fa8c51714b8762ee824b550d202a5de4bc7621e5e188ffd126b",
+      "bytes": 1538733,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-010.cbb42f00.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『詳細は成果から逆算』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『成果を決める』 『施策を数える』 『課題へ戻る』 『概要を削る』。 図の下、下端の字幕の帯より上に『書く順番の逆算』の全文を省かずに入れる。 この場面の説明（文字にしない）: 業務内容の詳細は、一つの業務に絞って書きます。読む順は概要から成果ですが、書くときは逆です。成果を決め、施策を数え、課題に戻り、最後に概要を削って整える。こうするとずれません。",
+        "promptSha256": "050d3cf2ce9062eb9a5dab47ea9736543cfb9e654ec60704a26e2da5a3ba74ff",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "213a47d55c26798e63502031145a6956d5b0344d2f863d1ac3dde6604f32d1b0",
+      "bytes": 1484970,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-011.213a47d5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『避けたい失敗』。 図に入れる文字: 『技術の内容に偏る』 『管理の視点が表面的』 『立場が曖昧』 『対立が同じ管理どうし』。 図の下、下端の字幕の帯より上に『元記事のよくある失敗』の全文を省かずに入れる。 この場面の説明（文字にしない）: 避けたい失敗は四つです。技術の内容に偏ること。管理の視点が表面的なこと。立場が担当者のままで曖昧なこと。対立が同じ管理どうしになっていること。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 51.6）",
+        "promptSha256": "d6653a73d62e0a00b172eecdae44aa5ab96891a318166363dda9e53086c8cbfb",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "44faac4b88521c4eba3e6152583f14f7e0824b66902a4e6e7203d0bb76172365",
+      "bytes": 1705462,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-012.44faac4b.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『業務経歴の書き方』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『選ぶ』 『並べる』 『書き移す』。 図の下、下端の字幕の帯より上に『様式は受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめです。五つの管理で業務を整理して五つに絞り、成長が見える順に並べ、様式の欄に書き移す。詳細は成果から逆算します。様式は、受検年度の公式情報で必ず確認してください。",
+        "promptSha256": "ddbaaa201f247c249322532e74a5f7072751bef6a69b1094ee0de4bf3ce36782",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "7b8b376d821643c820168e43d7f60b063f7a4bd598b201d3fc4d640cb5f6a6a9",
+      "bytes": 1515372,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-013.7b8b376d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『経歴票から、記述式へ』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『経歴票で整理』 『記述式の骨子へ』 『教材案内は概要欄へ』。 この場面の説明（文字にしない）: 経歴票で整理した五つの管理の視点は、記述式の答案の骨子にそのままつながります。答案の準備に進みたい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 24.2）",
+        "promptSha256": "af316acc27d36255a6ac523abdd61f2042103f8e7578fa09f236c8485389bbf1",
+        "generatedAt": "2026-11-11T03:02:24.003Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "38d27707a939562ddb5071cfda51dca85558f8137de1d393d13187670808825b",
+      "bytes": 6121,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/subtitles.38d27707.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "6140a14d28670bd29b0ae2f882e6e86a2bc2e8cdbd5c1731de78c3c9f4772eb1",
+      "bytes": 20042144,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/video.6140a14d.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata/storyboard.json",
+        "specSha256": "5b96ce190abb7d715e0045f44780941835e5629b70fbcfbad1ac486425668902",
+        "renderInputSha256": "16e93fe68d31e85a8062603060cea6d7664038e00455b26cc9a066fa8edce69e",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 171.9
     },
     {
       "id": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/cover",
@@ -1616,6 +2605,329 @@
         }
       },
       "durationSec": 169.7
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "cb909e83b5e7b5f7b043c85f587a2d93e245b038beb076cb4fb4b5f99bbc139c",
+      "bytes": 706299,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/cover.cb909e83.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監 記述』『白書から』『答案へ』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "3062510ec60970dbbc04c277cd026d5f7f5a67d65d28a8d366a25fdb2bace7f9",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/work/cover-pop.cb909e83.png"
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "cb909e83b5e7b5f7b043c85f587a2d93e245b038beb076cb4fb4b5f99bbc139c",
+      "bytes": 706299,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-001.cb909e83.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #16365C と濃色 #0E2645、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『総監 記述』『白書から』『答案へ』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "3062510ec60970dbbc04c277cd026d5f7f5a67d65d28a8d366a25fdb2bace7f9",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "00b7fadb5687cfcb721aef9a24255d6d93f2bcff33183aec09513e7ecec1c5e9",
+      "bytes": 1456652,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-002.00b7fadb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『論点を三つへ置き直す』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『白書の論点を一文にする』 『前提条件、施策、リスクへ置く』 『最後に三つの問いで確かめる』。 図の下、下端の字幕の帯より上に『本動画の実演』の全文を省かずに入れる。 この場面の説明（文字にしない）: 白書を読んでも、答案に書く段になると手が止まる。この動画では、白書の一つの論点を、前提条件、施策、リスクの三つへ順に置き直す実演をします。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 19.6）",
+        "promptSha256": "b68fa2a5cf3ff4bff121d782e02266c9484b24de375dc51b130f54ae8e1db6e2",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "c8a32de787b24d4f6b12e62c936b6be21b331f916ca2b4362a0f34fcfdd78d92",
+      "bytes": 1970469,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-003.c8a32de7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『白書は材料、中心は自分』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『白書の内容を並べる 自分の担当範囲が見えない』 『白書を理由として使う 条件と施策を支える』。 図の下、下端の字幕の帯より上に『本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 誤解しやすいのは、白書の内容を答案にそのまま並べることです。白書は、事業の条件や施策を選ぶ理由を支える材料です。答案の中心は、自分の担当範囲での考え方です。",
+        "promptSha256": "2e35f26ceb7b334b2e9772f350cd3e286e400e77e96e395fb4b1e15220de0ae6",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "67551ae75a1fcb597c899d102600deeb9c38b509d6532869c3b0375ee376bf7c",
+      "bytes": 1540654,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-004.67551ae7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例の設定』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『立場 建設会社の一事業部の現場管理』 『借りる白書 労働経済の分析』 『主題は受検年度の最新版で確認』。 図の下、下端の字幕の帯より上に『仮の例で、出題の予想ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 仮の例を置きます。建設会社の一事業部で、現場の管理を担う立場です。白書は、労働経済の分析の主題を借ります。サイト記事によると、令和7年版の主題は、労働力供給制約の下での持続的な経済成長です。最新版は受検年度の公式情報で確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 40.5）",
+        "promptSha256": "f56199e8f8031c2a7ee5ef90865f3c41e3826925c1ea26b6a16422264a7c29b3",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "a83066a16e11f181284ad35c265322c463c79167fccfaace7c9f5c86a523d3be",
+      "bytes": 1453104,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-005.a83066a1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『論点を一文にする』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『白書の論点を一文にする』 『数字は出典の名前と版を添える』 『この実演では数字を使わない』。 図の下、下端の字幕の帯より上に『白書の読み方と同じ流れ』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず、白書の論点を一文のメモにします。例では、人手が限られる中で、生産性を上げる必要がある、の一文です。数字を残すときは、出典の名前と版を必ず添えます。この実演では数字は使いません。 前回の不合格の理由を直す: 文字: 指示は余計な数字を足さないとあるが、3枠目の禁止マーク内に指示にない数字『123』が描かれている。他の文言は一致",
+        "promptSha256": "8b2c00ac18637e823c2207ad3b53b14de38020953f57689a3316686881abf1db",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "2ca46ff8409ac29df791f66452f228f325ffa782307bfa5194d589b25cba0a1a",
+      "bytes": 1675313,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-006.2ca46ff8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『Ⅰ 管理対象と前提条件』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『管理対象は一事業部に限る』 『立場は現場の管理者』 『前提条件は人手が限られること』。 図の下、下端の字幕の帯より上に『三層構造のⅠ』の全文を省かずに入れる。 この場面の説明（文字にしない）: 次に、Ⅰの管理対象と前提条件へ置きます。管理対象は自社の一事業部に限ります。立場は現場の管理者です。前提条件として、人手が限られている、と置きます。白書の論点は、この前提条件を置く理由になります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 15.9）",
+        "promptSha256": "70cba9a149660db19b7411eca6285297a8e8dd1875532f29fec4a77f21219f67",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "6c18a317ab58888e8226c755b93a644824aa46b78f1146430f4b425d528a64ef",
+      "bytes": 1514882,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-007.6c18a317.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『Ⅱ 方針でなく施策』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『方針 生産性を上げる』 『施策 点検記録を特定の工程で電子化する』 『Ⅰの人手の制約から導く』。 図の下、下端の字幕の帯より上に『三層構造のⅡ』の全文を省かずに入れる。 この場面の説明（文字にしない）: 続いて、Ⅱの施策です。生産性を上げる、は方針で、施策ではありません。例では、点検記録の作成を、特定の工程に限って電子化する、と対象を絞ります。Ⅰで置いた人手の制約があるから、この施策が成り立つ、とつなげます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 41.0）",
+        "promptSha256": "c9ac261e15d3ee6a9030e16715d8053217f59a9839d11727e3b853ed0926df1d",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "8d5b575bdef96b9bc4e01db76729902ed53606bd995e22f5f6eb78b164b70517",
+      "bytes": 1565862,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-008.8d5b575b.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『効果と、裏の負担』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『効果 転記の手間を減らす』 『負担 端末の費用と教育』 『施策の否定でなく管理の課題』。 図の下、下端の字幕の帯より上に『経済性と人的資源の間で動く』の全文を省かずに入れる。 この場面の説明（文字にしない）: 施策には、効果と、その裏の負担をセットで書きます。記録の電子化は、転記の手間を減らせます。一方で、端末の費用と、使い方の教育が新たに必要になります。経済性と人的資源の間で負担が動く、と管理の課題として書きます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 35.7）",
+        "promptSha256": "ccb59687bc6c74375275085b1ffa0677cf6650ea4dc53bc17cd6492df949db6f",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "69cb2ca7d5824ab96b0946745763bc6952fd9cf529245fe6e19b9c2a6e04f8cb",
+      "bytes": 1491864,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-009.69cb2ca7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『Ⅲ 進めた先のリスク』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『別の管理に負担が移らないか』 『特定の担当者に集中しないか』 『担当、手順、時期まで書く』。 図の下、下端の字幕の帯より上に『三層構造のⅢ』の全文を省かずに入れる。 この場面の説明（文字にしない）: Ⅲのリスクです。施策を進めた先で、別の管理に負担が移っていないかを探します。例では、利用者が増えると、情報の確認や権限の管理が特定の担当者に集まる、と置けます。克服策は、負担を受ける担当、決め直す手順、点検する時期まで書きます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 23.3）",
+        "promptSha256": "f5323c70c60caa4359d1a5d62a7d820e15cdf5e136175b601c750d3cefcb8a53",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "9f4d871caf3fec76766c2266f455e8bbc4cad7dd5ab2a415c18372f5a5c7542a",
+      "bytes": 1589679,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-010.9f4d871c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書き始める前の三問』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『Ⅰから、Ⅱ、Ⅲの方向が見えるか』 『Ⅱは、Ⅰの条件で成り立つか』 『Ⅲは、Ⅱを進めた結果か』。 図の下、下端の字幕の帯より上に『一つでも崩れたら骨組みを直す』の全文を省かずに入れる。 この場面の説明（文字にしない）: 最後に、書き始める前の三つの問いで、つながりを確かめます。Ⅰを読めば、Ⅱ、Ⅲの方向が予想できるか。Ⅱの施策は、Ⅰの条件があるから成り立つか。Ⅲの課題は、Ⅱを進めた結果として出てくるか。",
+        "promptSha256": "4e19eb1daedd51d572d2be57fcb36ce6c54353acd61d04b76fad10fe9a846499",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "9a576f3e3184d666584b4fc2b8741877557231285cfac1a8af6d414830019955",
+      "bytes": 1890312,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-011.9a576f3e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『使うときの注意』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『実演であり、模範答案ではない』 『設問の範囲と項目数は問題文を優先』 『数字と特集は最新版で確認』。 図の下、下端の字幕の帯より上に『受検年度の公式情報を確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 注意点です。これは型の実演で、模範答案ではありません。設問の区分、答える範囲、挙げる項目数は、その年度の問題文を優先します。白書の数字や特集は、受検年度の公式情報と最新版で確認してください。",
+        "promptSha256": "f74e5eee043a1e8ae09ee5e0e53e89875a544ae06069c5b5f653c02e4d140f6a",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "80631adf2265f0adfd4405de1d84c3478111c6a25eafc25dff9ba91f845bd632",
+      "bytes": 1591845,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-012.80631adf.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『白書から答案へのまとめ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『論点を一文にする』 『Ⅰ前提、Ⅱ施策、Ⅲリスクへ置く』 『三つの問いで確かめる』。 図の下、下端の字幕の帯より上に『本動画のまとめ』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめです。白書の論点を一文にし、Ⅰで前提条件の理由に置きます。Ⅱで方針を施策にして、効果と負担を書き、Ⅲで進めた先の負担を探します。最後に三つの問いでつながりを確かめます。",
+        "promptSha256": "7bcd7da606313a5a614b1738fc7cf05560551c653e2d065b4b544f4999a0254d",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "5133737004772c887877dee6bf3b4ac17b29051bb400f4bcd5f88d2fd052de7d",
+      "bytes": 1725527,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/scene-013.51337370.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #16365C と濃色 #0E2645の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『自分の分野で練習する』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『白書の論点を一文にする』 『三層へ置いて確かめる』 『教材案内は概要欄へ』。 この場面の説明（文字にしない）: この型を、自分の分野の答案に当てはめて練習したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+        "promptSha256": "3c983bc083fd8be0cd7f1da6d5eb98c7d819b12ababf18cd7c32a766b4f6883d",
+        "generatedAt": "2026-11-11T03:15:38.833Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "102309eb15ed08f32917f23b32ea04af6fb8c5d94a93bfd7f115162d0bd95179",
+      "bytes": 6869,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/subtitles.102309eb.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "1d65885c58a86715d34e84b8995e73ed9b0cb156857d4142f78d7fe513459add",
+      "bytes": 22795794,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform/video.1d65885c.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/storyboard.json",
+        "specSha256": "d5376c322268d8571d448492dd1849bf7f48fde7d393701d15b14f3650e21747",
+        "renderInputSha256": "3e6999ae0c6551261537d1e9636bf272eac8051a9aac3c14bd5d4b81bd97b6df",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 203.8
     },
     {
       "id": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/cover",
