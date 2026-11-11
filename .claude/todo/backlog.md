@@ -565,6 +565,12 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1137] refresh-indexes の手動義務をなくす（生成物を git から外して build 時に作る）
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-12]
+
+MDX を変えるたびに npm run refresh-indexes（npm と node 約 30 プロセス・MDX 全体の走査を数回）を手で回して生成物を commit する義務がある（CLAUDE.md §4・rules/content-site.md）。build も同じ処理を回し、CI の generated-indexes も実際に回して照合している。生成物を git 管理から外し build 時に作る形（src/config/doc-meta-index.json と同じ）にすれば、手動の義務と CI の generated-indexes（llms の件数ずれの赤の元）が消える。先に調べる: 追跡している生成物の一覧と、build 以外の読み手（管理画面・スクリプト・テスト・pre-commit）。content の commit は 1 日 100 件を超えるので効果が大きい
+
+
 ### [DN-1135] 検査の失敗メッセージに直し方を足し、規則文書をさらに縮める
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-12]
 
