@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "concrete-diagnosis",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/cover-pop.0fced9c0.png",
+        "sha256": "0fced9c063234cfff7ea816e097e1fb68be6f16a4476ad20046ef1463bc89b05",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "08c433d6c754e8d12bd174da001df58ef45e274ae3f511bd2c0375d97c47ae82"
+      }
     }
   }
 }

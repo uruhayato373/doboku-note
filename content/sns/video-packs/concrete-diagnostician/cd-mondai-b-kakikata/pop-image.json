@@ -1,0 +1,438 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #6E3A8C と濃色 #522A69、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『診断士』『問題Bの』『書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-cover.e60ced9d.png",
+          "sha256": "e60ced9d3ec683338db61b11289307a0abd9a6e7bed94cf9de8a52f7384fad0e"
+        },
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "copy": {
+        "exam": "concrete-diagnostician",
+        "headline": [
+          "診断士",
+          "問題Bの",
+          "書き方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/cover-pop.0fced9c0.png",
+        "sha256": "0fced9c063234cfff7ea816e097e1fb68be6f16a4476ad20046ef1463bc89b05",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "e60ced9d3ec683338db61b11289307a0abd9a6e7bed94cf9de8a52f7384fad0e"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:29:26.115Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "『診断士』『問題Bの』『書き方』『総監が制作』が指示と一字一句一致し、キャラクターの眼鏡・ひげ・白ヘルメット・紺作業服・反射帯と手指に破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "5ab6b212c065e72a3926d0a44f77e86cad0bdb2d18da24fde0ba75dbec575af2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日整理する4つ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『1題の選び方』 『変状から対策への一本道』 『構成メモの手順』 『対策の目的の置き方』。 図の下、下端の字幕の帯より上に『本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 劣化した構造物の写真を前にして、原因から対策へどうつなげるか手が止まる。今日はコンクリート診断士の記述式を、題の選び方、一本道の骨格、構成メモ、対策の目的の置き方の順に整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-premise.e7aa9ab0.png",
+              "sha256": "e7aa9ab00e6b8e35b93fe8b0949652c3f3a607c92b9a8c07f8f18db204ab1ada"
+            },
+            "generatedAt": "2026-11-11T03:29:26.115Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/premise-diagram.6e4ae4de.png",
+            "sha256": "6e4ae4de5b492e45d9160a660137bf72eb66dfbaf814ac0cf129b1eed4309bf8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e7aa9ab00e6b8e35b93fe8b0949652c3f3a607c92b9a8c07f8f18db204ab1ada"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:29:26.115Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・4つの図の文字・『本動画の整理』が指示と一致し誤字・余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "form",
+          "inputSha256": "8ce22ed5638b05fe4e1f4e69506fe69400c7e9b3b63a2988f7de08433cf57c4a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『記述式の形式』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『構造物の診断に関する問題』 『建築物・土木構造物から1題を選ぶ』 『問題Aは2018年度で廃止』 『字数・配点は受検年度の公式情報で確認』。 図の下、下端の字幕の帯より上に『受検年度の公式情報を確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず形式です。記述式は2019年度から、構造物の診断に関する問題だけになりました。建築物と土木構造物の問題から1つを選びます。問題Aは2018年度で廃止されたので、古い教材では、問題Aの対策に時間を使いません。字数や配点は、受検年度の公式情報で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-form.8e5f36af.png",
+              "sha256": "8e5f36afc7196d08b93ef72ced7ae0aa87a79f795763da9275cf100f4de7d6d2"
+            },
+            "generatedAt": "2026-11-11T03:29:26.115Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/form-diagram.d097443c.png",
+            "sha256": "d097443c5c80c42272fd1de9b1fe85a9902651b447622cf952e0ef5b7cd203c8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8e5f36afc7196d08b93ef72ced7ae0aa87a79f795763da9275cf100f4de7d6d2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:29:26.115Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・4行の文字・『受検年度の公式情報を確認』が指示と一字一句一致、2018年度の数字も正しい",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "choose",
+          "inputSha256": "ce309d1317933673ec9f037d56e7b8d72095de7c5750872cf6b72b76b11741c9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『題を選ぶ基準』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『題の選び方はサイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: どちらの題を選ぶか。日頃扱う構造物だけで決めないでください。決め手は、問題文の写真、図、数値だけで、劣化機構を絞り込めるかどうかです。得意な分野でも、情報が乏しければ根拠が書けません。択一を終えたら最初に両題を見比べ、そこで選ぶ題を固定します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 25.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-choose.0a75f75a.png",
+              "sha256": "0a75f75a86e1d352645f668a0cc7bc24757ca7e3a1e60b3ceec61a45c2568368"
+            },
+            "generatedAt": "2026-11-11T03:29:26.115Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/choose-diagram.9bc93d7e.png",
+            "sha256": "9bc93d7e205d32c5cd8b553240ac8f340bb9970586e8ea0ab3b91cd182e69ca1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0a75f75a86e1d352645f668a0cc7bc24757ca7e3a1e60b3ceec61a45c2568368"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:29:26.115Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『題を選ぶ基準』『題の選び方はサイト記事の整理』が一致、左右比較で右を強調する構図も指示どおり",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "flow",
+          "inputSha256": "c6eb8311dbd253b81d097f01ab9cd5624ff72be98b339884c80840960d4d19f3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『答案の一本道』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『1 変状の把握』 『2 劣化機構の推定』 『3 必要な調査の選定』 『4 診断・健全度の評価』 『5 対策の提案』 『6 留意点』。 図の下、下端の字幕の帯より上に『流れは記述式対策ガイドの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 答案の骨格は、一本道で考えます。変状の把握、劣化機構の推定、必要な調査の選定、診断と健全度の評価、対策の提案、最後に留意点。設問の問い方が変わっても、この流れを崩さなければ論旨を保てます。調査を飛ばして対策だけ書く答案は、大きく減点されます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-flow.b756731f.png",
+              "sha256": "b756731f903cf75c43b0ccc6a6611bbbb8a5c3095445d7da737586a1381eaa18"
+            },
+            "generatedAt": "2026-11-11T03:29:26.115Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/flow-diagram.72a69f16.png",
+            "sha256": "72a69f163f538a9766f20583a0e7221b75152b9b04ef5c0bad1e560f6575a176",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b756731f903cf75c43b0ccc6a6611bbbb8a5c3095445d7da737586a1381eaa18"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:29:26.115Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "6段階の文字(1変状の把握〜6留意点)と見出し・下段文言が指示と一致し崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "material",
+          "inputSha256": "23401dea9e8e265774112cc84606582ed07b4027af54fba286bb0076a3738c66",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問題文を根拠に変える』。 構図: 左の問いから右の行動へ矢印で結ぶ対応図。 図に入れる文字: 『写真：向き・位置・広がりを所見の言葉に』 『図：寸法・配筋から部位を特定』 『数値：単位まで写して比較に使う』。 図の下、下端の字幕の帯より上に『素材の使い方はサイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 問題文の素材は、答案の根拠に変えます。写真は、ひび割れの向きや錆汁の位置を所見の言葉に直します。図は、寸法や配筋から、どの部位の話かを特定します。数値は単位まで正確に写し、基準との比較に使います。推定を書くときは、根拠が問題文のどこかを示します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-material.4c92aaa3.png",
+              "sha256": "4c92aaa3e8dc6844ea47203a13fefd4a0d133fa567318513af43f4803d587d0f"
+            },
+            "generatedAt": "2026-11-11T03:29:26.115Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/material-diagram.d45a198f.png",
+            "sha256": "d45a198fee25b4624238322260cf2832a8c96c97f2e8deb2b10b24cbd33147ed",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4c92aaa3e8dc6844ea47203a13fefd4a0d133fa567318513af43f4803d587d0f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:29:26.115Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3行の対応文・『素材の使い方はサイト記事の整理』が指示と一致、文字の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "memo",
+          "inputSha256": "b0bd1ac8cced871a70c16870312aa7174a2c783d8e52798ae0d45a0d9c905d84",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『構成メモの4手順』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『拾う：構造物・環境・調査値・設問の動詞』 『補う：無い情報は調査の欄へ』 『枠を切る：結論1行・根拠1〜2点・字数』 『順を決める：依存の向きに合わせる』。 図の下、下端の字幕の帯より上に『手順はサイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 書き出す前に、構成メモをつくります。手順は四つ。問題文から構造物、環境、調査値、設問の動詞を拾う。無い情報は調査の欄に回して補う。設問ごとに結論を一行、根拠を一、二点、字数の目安を書く。前の答えを後の設問が使うなら、その向きで順を決める。迷う設問は結論を仮置きして先へ進みます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-memo.71fa12e2.png",
+              "sha256": "71fa12e26d1922653175487195fe27e1b65d772831e8abd5f8e326760a344f3c"
+            },
+            "generatedAt": "2026-11-11T03:29:26.115Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/memo-diagram.9b11e805.png",
+            "sha256": "9b11e805cc0ec66932c3269c3045fab0bf8ce0726e0c46769be0b8a91d2a9274",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "71fa12e26d1922653175487195fe27e1b65d772831e8abd5f8e326760a344f3c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:29:26.115Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "4手順の文字は指示と一致(①〜④の通し番号は順序表示のみで内容を誤らせない)、下段文言も一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "purpose",
+          "inputSha256": "4dd43ee8ccd0474f0ec884092007dadbef8f90f8318f06d533ce4640dfddb7d8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『所見から目的へ』。 図に入れる文字: 『耐荷力の低下が疑われる：安全性』 『劣化が進み続けている：耐久性』 『落下の恐れ：第三者への影響』 『設問が問うた性能を先に置く』。 図の下、下端の字幕の帯より上に『性能の整理はサイト記事に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: 対策の設問では、所見から損なわれている性能を判定し、その性能から対策の目的を決めます。耐荷力の低下が疑われるなら、安全性。劣化が進み続けているなら、耐久性。落下の恐れがあるなら、第三者への影響です。一つの所見が複数の性能にかかわるときは、設問が問うた性能を先に置きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-purpose.67c4dfee.png",
+              "sha256": "67c4dfee3406afea484f4cd0a6fd5d2a675d664c529723aecc545cae12ad0c37"
+            },
+            "generatedAt": "2026-11-11T03:29:26.115Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/purpose-diagram.87a61a0f.png",
+            "sha256": "87a61a0f7b662894f60b5b9b431495744e620a83791b72037ad35866ca24f820",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "67c4dfee3406afea484f4cd0a6fd5d2a675d664c529723aecc545cae12ad0c37"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:29:26.115Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "3組の所見と性能、『設問が問うた性能を先に置く』『性能の整理はサイト記事に基づく』が指示と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "time",
+          "inputSha256": "289e78e5e81746a56a665b70a281cc7bbb676adb37e95b8c01787a1c6adf903a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『時間と字数の考え方』。 図に入れる文字: 『メモの段階で設問ごとの字数を切る』 『対策の行数を先に確保する』 『見直しは調査と対策の整合・誤字』 『試験時間は受検年度の公式情報で確認』。 図の下、下端の字幕の帯より上に『2026年度の案内に基づく例』の全文を省かずに入れる。 この場面の説明（文字にしない）: 時間の使い方も決めておきます。2026年度の案内では試験時間は3時間で、択一と記述式を合わせて収めます。最後の設問に字数が残らない失敗は、書き出す前にほぼ決まります。メモの段階で設問ごとの字数の目安を切り、対策に最低限の行数を確保します。見直しでは、調査と対策のちぐはぐと誤字を拾います。年度ごとの時間は公式情報で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-time.7070f241.png",
+              "sha256": "7070f2413126e51116a6d96a10cce3da43433fe92a3316bb96c5289ef0655d28"
+            },
+            "generatedAt": "2026-11-11T03:29:26.115Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/time-diagram.31e79530.png",
+            "sha256": "31e79530292d28d24c63efa8f95028a4921f31baf7d14f47419399f714517d51",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7070f2413126e51116a6d96a10cce3da43433fe92a3316bb96c5289ef0655d28"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:29:26.115Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・4枠の文字・『2026年度の案内に基づく例』が指示と一致し誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "861312d71f6b1985f2d312e3de5fd9df728cd3aae4dcff25f1a8edd26d9598c1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『題：機構を絞れるかで選ぶ』 『骨格：変状から留意点まで一本道』 『メモ：問題文から拾って枠を切る』 『対策：性能から目的を決める』。 図の下、下端の字幕の帯より上に『公式の採点基準ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。題は、問題文だけで機構を絞れるかで選ぶ。骨格は変状から留意点までの一本道。書く前に、問題文から構成メモをつくる。対策は、損なわれている性能から目的を決める。この順序は、この動画の整理で、公式の採点基準ではありません。 前回の不合格の理由を直す: 文字: 各枠に指示にない丸数字1〜4が付き『1.』と二重表記になっている。破綻: 左端の枠と右端の枠が画像の端で切れ、安全域も守れていない。他の文字は一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-recap.b027da8d.png",
+              "sha256": "b027da8dc52a4473043c3d33d8cc528b5f1f4e166f1c68dcb856ffad4856f2b2"
+            },
+            "generatedAt": "2026-11-11T03:29:26.115Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/recap-diagram.05e19c43.png",
+            "sha256": "05e19c4337e742edaf2eea925d30909ac77027496658a07e5fe750cad3523679",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b027da8dc52a4473043c3d33d8cc528b5f1f4e166f1c68dcb856ffad4856f2b2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:29:26.115Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は見出し・4枠・下の注記とも指示と1字ずつ一致し、誤字や余計な文言なし。図記号も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "abccd2711e20b7e1eee4f9d9454394ed4207b949c1eb530f5a5c69d4ce5251f5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書き方の次は、練習』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『診断士 択一・記述式 まるごとパック』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 書き方の次は、実際の設問での練習です。択一と記述式をまとめたパックがnoteにあります。この動画は型までで、答案の全文は含みません。収録内容は、概要欄から確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 39.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/factory/raw-cta.1786baee.png",
+              "sha256": "1786baeee73ec581619ee59b4b4da14f87e3e933ff1d787e4aa402f6cc8d19d3"
+            },
+            "generatedAt": "2026-11-11T03:29:26.115Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/cta-diagram.25b8dc21.png",
+            "sha256": "25b8dc2118bef8694179c19591c225bed768cb2905037fbc9097c5b9f9b106cb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1786baeee73ec581619ee59b4b4da14f87e3e933ff1d787e4aa402f6cc8d19d3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:29:26.115Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『書き方の次は、練習』『診断士 択一・記述式 まるごとパック』『収録内容は概要欄から』が一致、価格・URLなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}
