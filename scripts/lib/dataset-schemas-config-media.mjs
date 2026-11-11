@@ -1345,6 +1345,11 @@ export const ConfigYoutubeShortsFormats = z
       .min(1)
       .superRefine(uniqueBy('id', 'id'))
       .describe('冒頭の一文の形。上から順に当てて最初に合った形とする。同じ枠で半分を超えて同じ形にしない'),
+    gestures: z
+      .array(z.object({ id: z.string().regex(/^[a-z0-9-]+$/), label: z.string().min(1), pose: z.string().min(1).describe('表紙の生成指示に入れる先生の手と体の形') }).strict())
+      .min(2)
+      .superRefine(uniqueBy('id', 'id'))
+      .describe('表紙の先生の仕草。各ショートが gesture で 1 つ選び、同じ枠で半分を超えて同じにしない'),
     copy: z
       .array(z.object({ id: z.string().regex(/^[a-z0-9-]+$/), label: z.string().min(1), allowed: z.string().min(1), forbidden: z.string().min(1) }).strict())
       .min(1)

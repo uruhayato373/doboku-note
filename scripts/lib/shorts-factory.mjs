@@ -100,7 +100,7 @@ export function designContext(root, pack, board, key = null) {
   // 同じ枠のほかのショート。冒頭の形とコピーの技法が偏らないかを見る
   const siblings = slot ? listShortDesigns(root).filter((d) => slotOf(d.pack) === slot.id && !(d.pack === pack && d.key === key)).map((d) => {
     const design = readJson(root, `${packDirOf(d.pack)}/${DESIGN_FILE}`).shorts?.[d.key] ?? {};
-    return { hook: design.hook, copy: design.copy ?? [] };
+    return { hook: design.hook, copy: design.copy ?? [], gesture: design.gesture };
   }) : [];
   return { formats: readDataset(root, 'config.youtube-shorts-formats'), slotTypes: slot?.shorts?.types ?? null, sceneIds: new Set(board.scenes.map((s) => s.sceneId)), siblings };
 }
@@ -110,13 +110,17 @@ export const hookForm = (hook, forms) => forms.find((f) => new RegExp(f.pattern,
 
 /** 同じ枠で、冒頭の形とコピーの技法がそれぞれ半分を超えて同じにならないか（3 本以上の枠だけ見る） */
 export function varietyProblems(design, ctx) {
-  const all = [{ hook: design.hook, copy: design.copy ?? [] }, ...(ctx.siblings ?? [])];
+  const all = [{ hook: design.hook, copy: design.copy ?? [], gesture: design.gesture }, ...(ctx.siblings ?? [])];
   if (all.length < 3) return [];
   const max = Math.ceil(all.length / 2);
   const issues = [];
   const form = hookForm(design.hook, ctx.formats.hookForms ?? []);
   const sameForm = all.filter((x) => hookForm(x.hook, ctx.formats.hookForms ?? []) === form).length;
   if (form !== 'other' && sameForm > max) issues.push(`冒頭の形「${ctx.formats.hookForms.find((f) => f.id === form)?.label ?? form}」が枠の ${all.length} 本中 ${sameForm} 本（半分まで）`);
+  if (design.gesture) {
+    const n = all.filter((x) => x.gesture === design.gesture).length;
+    if (n > max) issues.push(`先生の仕草 ${design.gesture} が枠の ${all.length} 本中 ${n} 本（半分まで）`);
+  }
   for (const id of design.copy ?? []) {
     const n = all.filter((x) => x.copy.includes(id)).length;
     if (n > max) issues.push(`コピーの技法 ${id} が枠の ${all.length} 本中 ${n} 本（半分まで）`);
@@ -135,6 +139,9 @@ export function typeProblems(design, ctx) {
     const n = design.beats?.length ?? 0;
     if (n < type.beats.min || n > type.beats.max) issues.push(`${type.label} の beats は ${type.beats.min}〜${type.beats.max} 個`);
   }
+  const gestures = ctx.formats.gestures ?? [];
+  if (gestures.length && !design.gesture) issues.push('gesture が無い（台帳の gestures から先生の仕草を 1 つ選ぶ）');
+  else if (design.gesture && !gestures.some((g) => g.id === design.gesture)) issues.push(`gesture が台帳に無い: ${design.gesture}`);
   const copy = design.copy ?? [];
   if (!Array.isArray(copy) || copy.length > 2) issues.push('copy はコピーの技法の id の配列で 2 つまで');
   else for (const id of copy.filter((x) => !ctx.formats.copy.some((c) => c.id === x))) issues.push(`copy が台帳に無い: ${id}`);
@@ -172,13 +179,14 @@ export function recordScriptQa(root, pack, key, { verdict, by, reason, now }) {
   return file.shorts[key].qa;
 }
 
-const coverPrompt = (design, spec, label, palette, type = null) => [
+const coverPrompt = (design, spec, label, palette, type = null, gesture = null) => [
   `添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。${FRAME}`,
   pop(palette), '黄色と白の極太文字。',
-  `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}、小さな黄色帯に『${spec.pop?.authority ?? '総監が制作'}』。`,
+  // 型のあるショートは肩書きの帯を入れない（概要欄の制作表記で伝える・2026-11-11 運営者の決定）
+  type ? `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}。肩書きの帯や制作者名は書かない。` : `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}、小さな黄色帯に『${spec.pop?.authority ?? '総監が制作'}』。`,
   // 型ごとの表紙の図（台帳 config.youtube-shorts-formats の types[].cover・2026-11-11）。見出しは端で切らない（2 枚が右端で切れた）
   ...(type ? [`表紙の型は「${type.label}」。${type.cover.visual}。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。`] : []),
-  `先生を大きく（腰から上、顔が画面の幅の2割以上）描く。${design.pose}`, TEACHER, BANS,
+  `先生を大きく（腰から上、顔が画面の幅の2割以上）描く。${gesture ? `仕草は「${gesture.label}」: ${gesture.pose}。` : ''}${design.pose}`, TEACHER, BANS,
 ].join(' ');
 const bodyPrompt = (beat, index, label, palette) => [
   `添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。${FRAME}`,
@@ -211,7 +219,9 @@ export function assertInSlot(root, pack, key) {
 }
 
 // 型のあるショート（2026-11-11 以降）は、型の表紙の図と語りに合わせた締めの文字が画像に入るので入力に型を足す。型の無い既存のショートの入力は変えない
-const coverInput = (spec, design) => inputOf(design.type ? [spec.headline, design.hook, design.pose, design.type] : [spec.headline, design.hook, design.pose]);
+// 仕草（gesture）を持つショートは ✕ と肩書きの帯をやめた表紙（2026-11-11）。入力を変えて作り直させる
+const coverInput = (spec, design) => inputOf(design.gesture ? [spec.headline, design.hook, design.pose, design.type, design.gesture, 'cover-no-badge'] : design.type ? [spec.headline, design.hook, design.pose, design.type] : [spec.headline, design.hook, design.pose]);
+const gestureOf = (root, design) => (design.gesture ? readDataset(root, 'config.youtube-shorts-formats').gestures?.find((g) => g.id === design.gesture) ?? null : null);
 const ctaInput = (cta, design) => inputOf(design.type ? [cta, 'cta-lines'] : [cta]);
 const typeOf = (root, design) => (design.type ? readDataset(root, 'config.youtube-shorts-formats').types.find((t) => t.id === design.type) ?? null : null);
 
@@ -233,7 +243,7 @@ export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   const people = [refs(root, CHARACTER), ...(spec.approvedImage?.path && existsSync(join(root, spec.approvedImage.path)) ? [refs(root, spec.approvedImage.path)] : [])];
   const base = { attempts: 0, raw: null, audit: null };
   const items = [
-    keep({ ...base, id: 'cover', kind: 'cover', narration: design.hook, inputSha256: coverInput(spec, design), basePrompt: coverPrompt(design, spec, label, palette, typeOf(root, design)), references: people }),
+    keep({ ...base, id: 'cover', kind: 'cover', narration: design.hook, inputSha256: coverInput(spec, design), basePrompt: coverPrompt(design, spec, label, palette, typeOf(root, design), gestureOf(root, design)), references: people }),
     ...design.beats.map((beat, i) => keep({ ...base, id: `scene-${String(i + 1).padStart(3, '0')}`, kind: 'body', narration: beat.narration, inputSha256: inputOf([beat.narration, beat.heading, beat.diagram]), basePrompt: bodyPrompt(beat, i, label, palette), references: [refs(root, CHARACTER)] })),
     keep({ ...base, id: 'cta', kind: 'cta', narration: cta, inputSha256: ctaInput(cta, design), basePrompt: design.type ? typedCtaPrompt(label, palette, cta) : ctaPrompt(label, palette), references: people }),
   ];

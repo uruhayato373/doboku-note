@@ -70,9 +70,11 @@ test('クラウドの同期を待って照合し直し、通らなければ止�
 
 test('型の台帳とコピーの技法で台本を止める（2026-11-11）', async () => {
   const { typeProblems, narrationProblems } = await import('../scripts/lib/shorts-factory.mjs');
-  const formats = { rules: { hookMaxChars: 40 }, types: [{ id: 'before-after', label: 'ビフォーアフター', beats: { min: 2, max: 3 } }, { id: 'n-check', label: 'N 点チェック', beats: { min: 2, max: 4 } }], copy: [{ id: 'assertion' }, { id: 'odd-number' }, { id: 'barnum' }] };
+  const formats = { rules: { hookMaxChars: 40 }, types: [{ id: 'before-after', label: 'ビフォーアフター', beats: { min: 2, max: 3 } }, { id: 'n-check', label: 'N 点チェック', beats: { min: 2, max: 4 } }], copy: [{ id: 'assertion' }, { id: 'odd-number' }, { id: 'barnum' }], gestures: [{ id: 'red-pen' }, { id: 'tilt-head' }] };
   const ctx = { formats, slotTypes: ['before-after'], sceneIds: new Set(['s1', 's2']) };
-  const good = { type: 'before-after', copy: ['barnum'], hook: '工事概要と本文がずれていませんか。', beats: [{}, {}], cta: '残りの直し方は本編で。' };
+  const good = { type: 'before-after', gesture: 'red-pen', copy: ['barnum'], hook: '工事概要と本文がずれていませんか。', beats: [{}, {}], cta: '残りの直し方は本編で。' };
+  assert.match(typeProblems({ ...good, gesture: undefined }, ctx).join(), /gesture が無い/);
+  assert.match(typeProblems({ ...good, gesture: 'dance' }, ctx).join(), /gesture が台帳に無い/);
   assert.deepEqual(typeProblems(good, ctx), []);
   assert.match(typeProblems({ ...good, type: undefined }, ctx).join(), /type が無い/);
   assert.match(typeProblems({ ...good, type: 'n-check' }, ctx).join(), /この枠で使わない/);
@@ -103,4 +105,12 @@ test('締めの画面の文字を語りに合わせる', async () => {
   const { ctaLines } = await import('../scripts/lib/shorts-factory.mjs');
   assert.deepEqual(ctaLines('残りの直し方は本編で。'), ['残りの直し方は', '本編で']);
   assert.deepEqual(ctaLines('本編で。'), ['本編で']);
+});
+
+test('同じ枠で先生の仕草が半分を超えて同じなら止める（2026-11-11・全部の表紙が手のひらで止める仕草だった）', async () => {
+  const { varietyProblems } = await import('../scripts/lib/shorts-factory.mjs');
+  const formats = { hookForms: [] };
+  const siblings = [{ hook: 'a', copy: [], gesture: 'stop-hand' }, { hook: 'b', copy: [], gesture: 'stop-hand' }, { hook: 'c', copy: [], gesture: 'red-pen' }];
+  assert.match(varietyProblems({ hook: 'd', copy: [], gesture: 'stop-hand' }, { formats, siblings }).join(), /仕草 stop-hand/);
+  assert.deepEqual(varietyProblems({ hook: 'd', copy: [], gesture: 'tilt-head' }, { formats, siblings }), []);
 });
