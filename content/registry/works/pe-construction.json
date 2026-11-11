@@ -96,6 +96,12 @@
       }
     },
     {
+      "id": "pe-gyoumu-shousai-720",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/pe-gyoumu-shousai-720",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-kojutsu-fukabori",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori",
