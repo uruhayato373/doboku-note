@@ -7319,6 +7319,19 @@
       "commit": "74bab8dcec26",
       "verification": "tests/deploy-main.test.mjs",
       "note": "PR #1537 を develop へマージ（72439c5ce）。deploy SKILL.md は入口だけ、古い昇格手順の記憶メモは削除。PR の audit は develop 由来の 2 件だけが赤"
+    },
+    {
+      "id": "DN-1126",
+      "at": "2026-11-11",
+      "task": "pre-commit の固定費 153 秒を削る（何も stage していなくても全件を読む検査）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3ebcc566e25d",
+      "verification": "PRE_COMMIT_TIMING=1 sh .git/hooks/pre-commit（何も stage せず・62 検査 43.8 秒）／tests/pre-commit-dispatch.test.mjs",
+      "note": "PR #1541 を develop へマージ（3ebcc566e）。何も stage していない状態の pre-commit が会社 PC で 152.9 秒 → 43.8 秒（完了条件 60 秒以下）。残り 44 秒の上位は check-business-direction 7.5 秒・pre-commit-mdx 4.6 秒・check-exam-calendar 4.0 秒"
     }
   ]
 }
