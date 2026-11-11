@@ -1,0 +1,844 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #1E73C8 と濃色 #155293、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『発注者の仕事』『1年の流れ』を大きく配置。上部の黄色帯に小さく『元発注者が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-cover.7ed463b2.png",
+          "sha256": "7ed463b2f8335c9335bf2740144b76c89d1e799220a3c60ef79603df24aafc79"
+        },
+        "generatedAt": "2026-11-11T00:33:59.220Z"
+      },
+      "copy": {
+        "exam": "civil-construction-1",
+        "headline": [
+          "発注者の仕事",
+          "1年の流れ"
+        ],
+        "authority": "元発注者が解説"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/cover-pop.5fb0a447.png",
+        "sha256": "5fb0a4473a7d9358674455bd99f411ab254798f30c6f35308f86e1b43f974100",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "7ed463b2f8335c9335bf2740144b76c89d1e799220a3c60ef79603df24aafc79"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T00:33:59.220Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字は元発注者が解説・発注者の仕事・1年の流れと一字一致、先生キャラの指定要素あり、手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "36e3247514bcdf2fd8e3eed446cbef274f5b4d0fcc8d08e302a961f33e6c4bdf",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の答え』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『予算』 『設計・積算』 『発注・契約』 『監督・検査』 『維持管理』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 答えを先に言います。発注者の仕事は、予算、設計と積算、発注と契約、監督と検査、維持管理。この一本の流れです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-answer.6b338dee.png",
+              "sha256": "6b338dee4db95cf0080e3d32cd34713e42b55a3254d90747e3cc1a5d78ce2081"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/answer-diagram.b9e649b3.png",
+            "sha256": "b9e649b3ca44b459aab91e5b606badc88a6425ff36f218e0729957fe2dea4f2a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6b338dee4db95cf0080e3d32cd34713e42b55a3254d90747e3cc1a5d78ce2081"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "answer2",
+          "inputSha256": "204d577e69a052f40fc0614b79eb46a53110bf61277538eaa8fcdba9db077305",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『1年の見方』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『今年度の工事』 『来年度の予算』 『前年度の締め』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: そして1年では、今年度の工事、来年度の予算、前年度の締めが同時に走ります。元発注者の立場で整理します。制度は自治体で異なります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 37.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-answer2.f52ea241.png",
+              "sha256": "f52ea241268b155caa903727cf73bc99d7acacd07bf67c7da4f2df88b6736009"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/answer2-diagram.b7989418.png",
+            "sha256": "b79894187bf57844d0fbd5b92c8c01c22ba056928907542055f33162bb3dd916",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f52ea241268b155caa903727cf73bc99d7acacd07bf67c7da4f2df88b6736009"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "8e641cbd942a67555d06fc7b1b688e8174ca65de81e9e8d6c076f7075321721c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『発注者は検査する人？』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 発注者は、工事を出して検査する人と思われがちです。実際は、予算づくりから維持管理まで続きます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 42.6）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-misread.9b0aa622.png",
+              "sha256": "9b0aa622c3e2fdede0d83d9519a70fcc482a70284958de4e98d1a6d1fd6005a7"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/misread-diagram.b185a343.png",
+            "sha256": "b185a343b6c0723d4cb3ef3b6669bd1b6c7d5ec640f74d17af0715e169188480",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9b0aa622c3e2fdede0d83d9519a70fcc482a70284958de4e98d1a6d1fd6005a7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "loop1",
+          "inputSha256": "2f26aea0c40309c8a963947266b7e0f4f16ea2aeea6b4519cc8087be4e144e79",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『発注者の仕事の流れ』。 図に入れる文字: 『予算』 『設計から契約』 『監督・検査』 『維持管理』。 図の中央に『① 予算』。 図の下、下端の字幕の帯より上に『本動画の整理。団体で異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず予算。地元の要望や点検の結果を整理して、来年度に要求する事業を決め、議会の議決を受けます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 14.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-loop1.1d830cd5.png",
+              "sha256": "1d830cd5faee1ba742dacc8a4d83efaab6ad4444323df7dad543f04f084aba98"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/loop1-diagram.3d65e904.png",
+            "sha256": "3d65e904b31c6e8b4bd8fc9deab5e53a261df17405c9fd7d2eb1a7b62cca7d93",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1d830cd5faee1ba742dacc8a4d83efaab6ad4444323df7dad543f04f084aba98"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "loop2",
+          "inputSha256": "5fbe5f5240c0c64d3e791d46559e29a4a0df6d42bb5f0ec7a874d2f92675fbb9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『発注者の仕事の流れ』。 図に入れる文字: 『予算』 『設計から契約』 『監督・検査』 『維持管理』。 図の中央に『② 設計から契約』。 図の下、下端の字幕の帯より上に『本動画の整理。団体で異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 次が設計から契約。設計図書と予定価格をつくり、工期や安全の費用も決めます。見通しを公表して入札し、契約します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-loop2.21072442.png",
+              "sha256": "21072442b997eb1006812fcad1f37f052491e0eed26aa5b12668cc7bf59603fc"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/loop2-diagram.970758f0.png",
+            "sha256": "970758f001712fa45ec950932f2e0e8ccf105315b543efe9e5ec964d767bd7d4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "21072442b997eb1006812fcad1f37f052491e0eed26aa5b12668cc7bf59603fc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "loop3",
+          "inputSha256": "5901b0775c7e0444fbe8c822ba22564474115febbe0ac2e6acd2ecd1bbf2d222",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『発注者の仕事の流れ』。 図に入れる文字: 『予算』 『設計から契約』 『監督・検査』 『維持管理』。 図の中央に『③ 監督と検査』。 図の下、下端の字幕の帯より上に『本動画の整理。団体で異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 契約したら、監督と検査です。途中で契約どおりに進んでいるかを確かめ、完成したら給付の完了を確認します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 24.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-loop3.8c6eb314.png",
+              "sha256": "8c6eb31497f93694dae0580f41c882edcfb1adb87f8f771570b0b42ecf33a114"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/loop3-diagram.db4ebfa2.png",
+            "sha256": "db4ebfa2f863e2487eb9f90515bf758b13288f2e2df1556c7092d60d02e26392",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8c6eb31497f93694dae0580f41c882edcfb1adb87f8f771570b0b42ecf33a114"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "loop4",
+          "inputSha256": "a0c7c3e22a7fde3673890d2e8e9e346a6c92621839a0c9126808949317e2e943",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『発注者の仕事の流れ』。 図に入れる文字: 『予算』 『設計から契約』 『監督・検査』 『維持管理』。 図の中央に『④ 次の予算へ』。 図の下、下端の字幕の帯より上に『本動画の整理。団体で異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 完成した施設は維持管理へ。点検して直し、その結果が次の予算の材料になります。流れは輪になっています。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 40.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-loop4.92366cc1.png",
+              "sha256": "92366cc1487f4c9189380b28b9cd286bd08df84fdf7f05d000c81090448c0fc6"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/loop4-diagram.e37b8bc8.png",
+            "sha256": "e37b8bc8e14d4109f72dd6174d9878593d13a9977022d0ae514bd473eb36246b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "92366cc1487f4c9189380b28b9cd286bd08df84fdf7f05d000c81090448c0fc6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "years1",
+          "inputSha256": "f28a85da27ee4ccfe9adb577af3cab258c78232cf4b272fa45b4513c489ebe73",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『会計年度』。 図に入れる文字: 『4月から翌年3月まで』 『整理は翌年度の5月末まで』 『決算は、その後』。 図の下、下端の字幕の帯より上に『一般的な流れ。団体の日程は資料で確かめる』の全文を省かずに入れる。 この場面の説明（文字にしない）: ここから1年の動きです。会計年度は4月から翌年3月ですが、仕事は3月で切れません。整理は翌年度の5月末まで続き、決算もその後です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-years1.67beafb9.png",
+              "sha256": "67beafb9a6b25852d0d549ae3e3d7aa549b3a285829dcfaf6ab68443953480c9"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/years1-diagram.5f266ee9.png",
+            "sha256": "5f266ee9c8cefbfad5ce792d37403fa75de2b30f5ec99c2747e0fa80d2b519c5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "67beafb9a6b25852d0d549ae3e3d7aa549b3a285829dcfaf6ab68443953480c9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "years2",
+          "inputSha256": "33d2849515d67c31a608c1ed048faa420998f2aaaa748bf57e921b2647f23fad",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『秋の机の上』。 図に入れる文字: 『今年度 契約済みの工事の監督と検査』 『来年度 予算要求と、発注の見通しの下書き』 『前年度 決算の説明資料と、検査への備え』。 図の下、下端の字幕の帯より上に『自治体で異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: だから秋の机には、今年度の工事、来年度の予算要求、前年度の決算資料が同時に載ります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 54.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-years2.5cfc6fb4.png",
+              "sha256": "5cfc6fb47cdff4daa7c909ebc442f259d4d2e2cd946eb459c0139df0a3bbb744"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/years2-diagram.9300dffd.png",
+            "sha256": "9300dffddd11d8d820e9d472bf22cc26db93d60ad9cebeb5cf27cd5e5987b42d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5cfc6fb47cdff4daa7c909ebc442f259d4d2e2cd946eb459c0139df0a3bbb744"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "calA",
+          "inputSha256": "42745b48bac7de38cd002780589c39831748bc67deb5c1298956333bdd8e3fdd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『1年の山（目安）』。 図に入れる文字: 『4〜5月 新年度の発注 前年度の整理』 『梅雨〜秋 出水期の備え 災害への対応』 『夏〜秋 決算の審査 監査・検査』。 図の下、下端の字幕の帯より上に『時期は目安。自治体で異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 4月から5月は新年度の発注が始まり、前年度の整理も並びます。梅雨から秋は出水期。夏から秋は決算と監査です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-calA.15894ce4.png",
+              "sha256": "15894ce4fa6caa6ac7336316977726cd4f5405429fa75822df222b62bcf68519"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/calA-diagram.1d41d689.png",
+            "sha256": "1d41d6891fc91bc0512bd7727afef170f39373ed776a8674e8588985c4375b59",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "15894ce4fa6caa6ac7336316977726cd4f5405429fa75822df222b62bcf68519"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "calB",
+          "inputSha256": "e78680f0646f00e7949c03dd95763aa231a3f7b86f8a73bfc37774fec733ce28",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『1年の山（目安）』。 図に入れる文字: 『秋〜冬 来年度の 予算要求と査定』 『2〜3月 議決・完成検査 繰越し』 『最も混む時期 3月と 4〜5月』。 図の下、下端の字幕の帯より上に『時期は目安。自治体で異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 秋から冬は、来年度の予算要求と査定。2月から3月は、議決、完成検査、繰越しが重なります。3月と、4月から5月が、1年でいちばん混み合います。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-calB.d21e81b6.png",
+              "sha256": "d21e81b6fe278cdfbda1c04d2fd924d15581ae6e9c91db6b916265d02f1dd464"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/calB-diagram.dafc44d9.png",
+            "sha256": "dafc44d9cd3147d903002077efa2f05590824f6b83d313c64e82af2d693d738c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d21e81b6fe278cdfbda1c04d2fd924d15581ae6e9c91db6b916265d02f1dd464"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "reason1",
+          "inputSha256": "476b70d7c0d567fcecb7af34ff70c5db63462d73951b88625fb4dc0a6e297baa",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『発注の時期』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『発注の平準化は国が自治体に求めている取組』の全文を省かずに入れる。 この場面の説明（文字にしない）: 受注者から見える動きにも理由があります。発注が後半に偏ると、工期の終わりが3月に集まり、検査と繰越しが重なります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-reason1.828606c6.png",
+              "sha256": "828606c6b74b5ddcc9036929c90dfd7bf5c0b346e6e315c0e66fe6b87f01bc6b"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/reason1-diagram.c9c1a8e3.png",
+            "sha256": "c9c1a8e301f94ea3a2ac3a85c8894419cb2c9dea866fb2ebad130cf20d97e5ba",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "828606c6b74b5ddcc9036929c90dfd7bf5c0b346e6e315c0e66fe6b87f01bc6b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "reason2",
+          "inputSha256": "a545fdcf06e85280f07c73bc0611828c144a93e7ea5a87e633085e9b6596149e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『時期を散らす工夫』。 図に入れる文字: 『発注の見通しを公表する』 『債務負担行為を使う』 『適切な工期を設定する』。 図の下、下端の字幕の帯より上に『国土交通省の資料の例』の全文を省かずに入れる。 この場面の説明（文字にしない）: そこで発注者は、発注の見通しの公表や債務負担行為などで、時期を年間に散らします。国も自治体に求めている取組です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-reason2.4c31d1a4.png",
+              "sha256": "4c31d1a462bf67a350cc8bf9a17a794e97ca9a04469b1e39a46e955244df85fe"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/reason2-diagram.78f18e91.png",
+            "sha256": "78f18e91f7129a8b998992fc44b970258c7c867b2901230c202a84ba5367be7e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4c31d1a462bf67a350cc8bf9a17a794e97ca9a04469b1e39a46e955244df85fe"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "flood",
+          "inputSha256": "2f519687caf70cbec81d2d253c6912273d71d91fc91431c710207309ce6d9d36",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『出水期という山』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『河川工事に制約がかかる』 『国の川と県・市の川で扱いが違う』 『管理者の資料で確かめる』。 図の下、下端の字幕の帯より上に『団体で異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 出水期は、河川工事の暦を決める山です。国の川と県や市の川で扱いが違うため、管理者の資料で確かめます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 44.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-flood.b8bd6354.png",
+              "sha256": "b8bd63542d185f6c268aa20f36329f0eae66811d2601fbaa265c35e3a679ce41"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/flood-diagram.a3e4b839.png",
+            "sha256": "a3e4b839991a15dd3d8645f0490919aca29c4db9efa16f9acb98b2d9bc8502de",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b8bd63542d185f6c268aa20f36329f0eae66811d2601fbaa265c35e3a679ce41"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "safety",
+          "inputSha256": "bf273f348d092a7782598661d42257e924e33e26276a2b1b4011b8a956b0a083",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『発注者の安全：条件づくり』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『安全を損なう条件を付けない』 『費用と時間を契約に入れる』 『危険の情報を設計図書で伝える』。 図の下、下端の字幕の帯より上に『詳しくは記事（owner-safety-responsibility）』の全文を省かずに入れる。 この場面の説明（文字にしない）: 安全の第一次の責任は受注者ですが、発注者にも、安全を損なう条件を付けない配慮が求められます。費用と時間と危険の情報を、契約と設計図書に入れる仕事です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 27.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-safety.cbc2fc65.png",
+              "sha256": "cbc2fc65ba966b7dcd2e4b6e5950c61610e1cbf2b5cbeac2756bc5989a8f0fad"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/safety-diagram.a62594c1.png",
+            "sha256": "a62594c1349c2c4e280eb190c5401fca928d3480d9b497afcdde91dd2088d5cc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cbc2fc65ba966b7dcd2e4b6e5950c61610e1cbf2b5cbeac2756bc5989a8f0fad"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "read",
+          "inputSha256": "ea810a3cd5d278159bc23a40ddf46c5995d4b0c443e21aa87c60fc6cd5a92f00",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『発注者の動きの読み方』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『発注の見通しは、手配の材料』 『3月は検査と繰越しで混む』 『河川は管理者の条件を確認』 『遅く見える判断には、制約がある』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 受注者の側からは、こう読めます。発注の見通しは手配の材料。3月は混む。河川は管理者の条件を確認。判断が遅く見えるときは、予算や議決、年度の制約があるかもしれません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 37.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-read.fbb73d3a.png",
+              "sha256": "fbb73d3aca9a3c364ed22c8b622a53f7648e979e00d912bc774c1ee9917447c5"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/read-diagram.47ed2d0c.png",
+            "sha256": "47ed2d0cd9612891f5d8a34405b0a499b84230496ac7810311eb93ac34d9c4e8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fbb73d3aca9a3c364ed22c8b622a53f7648e979e00d912bc774c1ee9917447c5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ex1",
+          "inputSha256": "3a3038be47c69e7ab78d8616d552a36aafdb2d58d1e2ff1192e832147faf6fb3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例｜橋の修繕が工事になるまで』。 図に入れる文字: 『定期点検で、修繕が必要と診断される』 『秋：翌年度の予算要求に載せる』 『冬〜春：査定を経て、議会が議決する』 『翌年度：発注、監督、検査。そして維持管理へ』。 この場面の説明（文字にしない）: 仮の例です。ある市の橋で、定期点検の結果、修繕が必要と診断されたとします。これが秋の予算要求の材料になります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-ex1.2d015b73.png",
+              "sha256": "2d015b734750cf2ad8c72da9ae1097b49c425532d440243bf9c7497e54351b77"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/ex1-diagram.7e7edd9f.png",
+            "sha256": "7e7edd9fe80d551ff9a3af9f040187753b7baa5bc1b61435672798b76620f049",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2d015b734750cf2ad8c72da9ae1097b49c425532d440243bf9c7497e54351b77"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ex2",
+          "inputSha256": "94cc590f904d2f3b1903efbbe40acaf56008bdd7740b8335dfbcade808c30224",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例｜橋の修繕が工事になるまで』。 図に入れる文字: 『定期点検で、修繕が必要と診断される』 『秋：翌年度の予算要求に載せる』 『冬〜春：査定を経て、議会が議決する』 『翌年度：発注、監督、検査。そして維持管理へ』。 この場面の説明（文字にしない）: 冬の査定を経て議会が議決し、翌年度に発注。監督と検査を経て完成し、維持管理に戻ります。この例は説明のための仮のもので、実在の事業ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-ex2.5679b2e3.png",
+              "sha256": "5679b2e355bdfd68dd193eec5edd92cc2db574df98c5252806b1ae2d1075a79f"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/ex2-diagram.cae69f15.png",
+            "sha256": "cae69f15f1b17e99e25fa1604cfc5cfbb18c7df50884fbb77736b57a7aa89767",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5679b2e355bdfd68dd193eec5edd92cc2db574df98c5252806b1ae2d1075a79f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "check",
+          "inputSha256": "3b4d594931d190eaeab9059e2c572b782cac21d64878463aa071dd488cd8eef3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『団体の資料で確かめる三つ』。 図に入れる文字: 『予算編成の日程』 『出水期の扱い』 『議会の会期』。 図の下、下端の字幕の帯より上に『自治体で異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 最後に、自治体ごとに違う所です。予算編成の日程、出水期の扱い、議会の会期。この三つは団体の資料で確かめます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-check.e6bb011c.png",
+              "sha256": "e6bb011c5f378a09f0cc36f58649dc234f10ef170e3735f60bc83f00e7fb9907"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/check-diagram.b873f9d2.png",
+            "sha256": "b873f9d288987cf6b850453904b378a69d27c8bb9eb3e08a6afc19bfa5ac99e7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e6bb011c5f378a09f0cc36f58649dc234f10ef170e3735f60bc83f00e7fb9907"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "946aa6993aaf2860ec8c52cc7172946ae8a25c040994973c71a092416209b077",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『予算から維持管理までの流れ』 『三つの年度が同時に走る』 『3月と4〜5月が混み合う』 『安全は条件づくり』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。発注者の仕事は、予算から維持管理までの流れ。1年は三つの年度が同時に走り、3月と4月から5月が混む。安全は、条件づくりです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-recap.762659d5.png",
+              "sha256": "762659d563b297849a3c1491e0ebee8c243144c37650e4d760fe4caedd9d9dca"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/recap-diagram.ebb3b668.png",
+            "sha256": "ebb3b668582967ee7c37b91a563d31a7d2f8956c66c9cf3aa883ce899aab52bc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "762659d563b297849a3c1491e0ebee8c243144c37650e4d760fe4caedd9d9dca"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "90b7c6cee3a18f744fbf11052b92399e0c5124007bb1cdf4c0f3f99de21728f6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『詳しくはサイトの記事で』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『土木担当の1年を暦で読む』 『リンクは概要欄に』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 1年の動きの全体は、サイトの記事で、暦に沿って詳しく整理しています。概要欄のリンクから確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-cta.9e790ed7.png",
+              "sha256": "9e790ed7a075d8ca97369d7fa24d0102c4156ea59f16d8d907e9303c47a416c4"
+            },
+            "generatedAt": "2026-11-11T00:33:59.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/cta-diagram.c2d719c1.png",
+            "sha256": "c2d719c13122c63ebf831fe28d208ea12a367424c16556e61d76eab382e002d7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9e790ed7a075d8ca97369d7fa24d0102c4156ea59f16d8d907e9303c47a416c4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}
