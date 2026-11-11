@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 2,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-shisaku-kaiketsu/work/cover-pop.2bf4eb66.png",
+        "sha256": "2bf4eb6648d77356b8adb7baaa334742bf57c8dc5d159576f74eed1c1a937dc6",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "abf484cbd94ed21b185087d48befab7263f1f649febec3705c3021913ee431b4"
+      }
     }
   }
 }

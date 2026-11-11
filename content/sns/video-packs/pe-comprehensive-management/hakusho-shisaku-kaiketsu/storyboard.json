@@ -276,5 +276,12 @@
       },
       "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
 }

@@ -17,7 +17,14 @@
     {
       "id": "cm-essay-tradeoff-kakikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-essay-tradeoff-kakikata"
+      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-essay-tradeoff-kakikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "a1464ce26cf452cd2172531c76c95a5a8b9c3daa28ca622fbda3000f93d7da53"
+      }
     },
     {
       "id": "cm-fugokaku-tenken",
@@ -34,17 +41,38 @@
     {
       "id": "cm-mondaibun-yomikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata"
+      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "2f54854d37706be833400ad8f4ece5a1eb7701b6405fc8f2b6773ed803a1ffe3"
+      }
     },
     {
       "id": "cm-ochiru-answer-naoshikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata"
+      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "277887c4980b13b2669c3ff021faf69cec92a8064451aea2f792d92bcd190afa"
+      }
     },
     {
       "id": "cm-setsumon3-risk-kokufuku",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-setsumon3-risk-kokufuku"
+      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-setsumon3-risk-kokufuku",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "fe306d0cc2c2e4362d630e82f69f8438209507c4495d5859c21937de2268749e"
+      }
     },
     {
       "id": "gyoumu-keireki-kakikata",
@@ -73,12 +101,26 @@
     {
       "id": "hakusho-shisaku-kaiketsu",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu"
+      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "f99f81be173e0ce84f58165368ea6fc3dff6e6b69eef89abc8bb98a45bdb8244"
+      }
     },
     {
       "id": "hakusho-tsunagu-jitsuen",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen"
+      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "20c2ee5ca2dc9c9c42603a8632214501cca5182f2eefc5215760ed5f33ef4de0"
+      }
     },
     {
       "id": "hakusho-yomu-fukasa",
