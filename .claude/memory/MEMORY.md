@@ -69,6 +69,7 @@
 - [X返信の言い方](feedback_x_reply_peer_tone.md) — 横に並ぶ・評価語と指図を書かない
 - [X返信は趣味垢でも送る](feedback_x_reply_hobby_account_not_skip.md) — 見るのは本人の受験の投稿か
 - [X凍結ガードレール](feedback_x_suspension_guardrail.md) — 重複・連投・同時刻回避
+- [X返信の同時送信](feedback_x_reply_parallel_session_send.md) — 送る前に返信タブの時刻・.tmp の一覧は読み直す
 - [knip裏取りとworktree npm](feedback_knip_grep_scope_and_worktree_npm.md) — repo全体grep・symlink実体化
 - [売り場から外す線引き](feedback_shelving_unsold_products.md) — 試験日で判定・唯一のCTAは残す・無料は数値
 
