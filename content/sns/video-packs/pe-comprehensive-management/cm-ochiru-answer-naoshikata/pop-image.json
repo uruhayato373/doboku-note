@@ -505,8 +505,260 @@
           }
         }
       ]
+    },
+    "shorts-pop-point-kouzou-1-20261111": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1",
+      "key": "point-kouzou-1",
+      "sceneId": "misread",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "712728bb6fe48aa177bcf3e57f8b2cad3a65a8ed14c6309271554e2e06a28900",
+          "narration": "答案が崩れるのは知識が足りないから、と思っていませんか。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 黄色と白の極太文字。 上部に『技術士 総監』、最も大きく『『知識が』『足りない』？』、小さな黄色帯に『総監が制作』。 表紙の型は「誤解を壊す」。見出しの思い込みの語の横（右か左の余白）に大きな赤い✕印を置く。✕は見出しの文字に 1 画も重ねない（2026-11-11・✕が文字を隠して読めなかった）。先生は手のひらを前に出して止める仕草。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は手のひらを前に出して止める仕草で胸の高さに上げ、左手（画面右側）は答案用紙を1枚、胸の前で持つ。5本の指が紙の縁にかかって見える。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/raw-cover.b361a69a.png",
+              "sha256": "b361a69a26da9b736ae6a1be325a56a5d07db144f1949772f58c4691c140b5ba"
+            },
+            "generatedAt": "2026-11-11T10:20:20.733Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/cover.252609e5.png",
+            "sha256": "252609e561cfc0dd82883c338cea956dc301b4511efffe7661fc6c42028a1d6b",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b361a69a26da9b736ae6a1be325a56a5d07db144f1949772f58c4691c140b5ba"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:20:20.733Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字『技術士 総監』『知識が』『足りない』？『総監が制作』が指示どおり欠けず、✕は見出しに重ならず右余白、先生は手のひらを前に出し5本指で答案用紙を持ち、誤解を壊す型に合う"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "36a14f6ec264e6a317183d8a2025e9f57adc5ebf106de15847a21d460045a3be",
+          "narration": "誤解しやすいのは、知識が足りないから答案が崩れる、と考えることです。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 総監』。大きな番号『1』と見出し『知識を足せば直る？』。 図: 中央に大きな答案用紙を1枚描き、その横に分厚い本を何冊も積み上げ、本から答案用紙へ太い矢印を1本。本の上に『知識を足す』、答案用紙の上に『崩れた答案』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/raw-scene-001.fdee4f3d.png",
+              "sha256": "fdee4f3d7e81a15fdab958f87c2f614b751900e6aa8be339e5784ba91392e30d"
+            },
+            "generatedAt": "2026-11-11T10:20:20.733Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/scene-001.54e71995.png",
+            "sha256": "54e71995dcfc9a36021236dc437df147aadae91bc232a9e77e9b84ea63341ad3",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fdee4f3d7e81a15fdab958f87c2f614b751900e6aa8be339e5784ba91392e30d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:20:20.733Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "番号1・見出し『知識を足せば直る？』・『知識を足す』『崩れた答案』が指示と一致し、本から答案用紙への矢印もあり文字の欠けや崩れなし"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "8766e89bef97cdbc4ce36fce3d6c1bf96f56fb4295a7f8efccf1bb4ea36a4148",
+          "narration": "知識量が多くても、構造が崩れれば届きません。直すのは、知識ではなく構造です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 総監』。大きな番号『2』と見出し『直すのは構造』。 図: 左右に2つの大きな角丸の箱を並べる。左の箱に『知識を足す』、右の箱に『構造を確かめる』。右の箱を黄色で強調し、左から右へ太い矢印を1本。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/raw-scene-002.35b04f4d.png",
+              "sha256": "35b04f4dd9dc2e7fefad88df4aeabef990c51faf0287d02c5932b0b983d6da24"
+            },
+            "generatedAt": "2026-11-11T10:20:20.733Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/scene-002.c3fb224f.png",
+            "sha256": "c3fb224f8204b4243926d3fd0f7233bfe051237d1f7d793441851faae5503615",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "35b04f4dd9dc2e7fefad88df4aeabef990c51faf0287d02c5932b0b983d6da24"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:20:20.733Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "番号2・『直すのは構造』・左『知識を足す』右『構造を確かめる』(黄強調)と矢印1本が指示どおりで、文字は誤字なく全て収まる"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "d10aa8ffc5e9d0ca89e4e2c2edf6b0d888f5803c89c491be79d6b40619332299",
+          "narration": "物差しは三層構造の三つの問いです。Ⅰを読めばⅡとⅢの方向が予想できるか。Ⅱの施策はⅠの条件で成り立つか。Ⅲの課題はⅡの結果として出るか。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 総監』。大きな番号『3』と見出し『三つの問い』。 図: 上から下へ3つの大きな角丸の箱を縦に並べ、各箱の左に空のチェック欄。上から『Ⅰを読めばⅡ・Ⅲが予想できるか』『Ⅱの施策はⅠの条件で成り立つか』『Ⅲの課題はⅡの結果として出るか』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/raw-scene-003.bec1a028.png",
+              "sha256": "bec1a0285d4622a2a34f649ce99aa57db78b51b82a9a71068bad51d4418428ea"
+            },
+            "generatedAt": "2026-11-11T10:20:20.733Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/scene-003.1fe20339.png",
+            "sha256": "1fe20339ab09865891c458ee00e92913d19b1e63e3b09d8d326836bdec852cc8",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bec1a0285d4622a2a34f649ce99aa57db78b51b82a9a71068bad51d4418428ea"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:20:20.733Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "番号3・『三つの問い』と3つの箱の文言（Ⅰ・Ⅱ・Ⅲ含む）が指示と1字ずつ一致し、空のチェック欄もあり欠けなし"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "82508bfdf64b59d56a071ebfe57805843882539e29767c3cf28390f7275b2ddc",
+          "narration": "四つの直し方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 大きく『四つの直し方は』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『技術士 総監』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字の軸: 見出し『四つの直し方は』が左右とも端から約4%まで広がり、指示の左右8%以内・安全域6%を外れ、UI上で端が切れる恐れがある。文言の誤字と先生の手は問題なし",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/raw-cta.d7a93149.png",
+              "sha256": "d7a931490baa7e0b6bbf8755fc2cb6a3bd6e77a017583b55bbc317cb08f2f336"
+            },
+            "generatedAt": "2026-11-11T10:20:20.733Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/cta.965a0551.png",
+            "sha256": "965a055147a4f550fbe7709156aaee90197d83575d74f6b084d45873652c2e07",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d7a931490baa7e0b6bbf8755fc2cb6a3bd6e77a017583b55bbc317cb08f2f336"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:20:20.733Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字『四つの直し方は』『本編で』『関連動画から』が指示と1字ずつ一致し欠けなく、左右6%以上内側。先生は同一人物像で手は5本指、胴体は下端まで連続、下向き矢印あり、禁止文字なし"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "616383634de3e33a5c6594cda704a20c5f3172a02fd32260a5bd2467ee496c6c",
+        "durationSeconds": 28.885333,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "実測 1080x1920・28.9 秒・音声あり。mp4 の sha は youtube.json の shorts sha と一致。全 5 場面（表紙・3 本文・締め）を確認し、平均約 4.2、全軸 3 以上。誤字・手指の崩れ・無地帯・切れた文字はなし。型 myth-buster・コピー assertion・冒頭・単体の価値・本編への引きも台本の監査の観点で問題なし。ライブ未確認の項目あり。",
+        "videoSha256": "616383634de3e33a5c6594cda704a20c5f3172a02fd32260a5bd2467ee496c6c",
+        "checkedAt": "2026-11-11T10:21:56.953Z"
+      },
+      "audio": {
+        "videoSha256": "616383634de3e33a5c6594cda704a20c5f3172a02fd32260a5bd2467ee496c6c",
+        "similarity": 0.974,
+        "maxVolumeDb": -6.4,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/video.61638363.mp4",
+          "sha256": "616383634de3e33a5c6594cda704a20c5f3172a02fd32260a5bd2467ee496c6c"
+        },
+        "frames": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/frames.c960b8d3.png",
+          "sha256": "c960b8d36039a0277d98b5e8017c1a088d5d04fa0da30ff46d3bf3e24cec1ab4"
+        },
+        "subtitles": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/subtitles.510a556f.ass",
+          "sha256": "510a556fc54c8155f32570e3f6a872ccc2cfb8efbba64ade2403d0a9095e74c4"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/raw-cover.b361a69a.png",
+            "sha256": "b361a69a26da9b736ae6a1be325a56a5d07db144f1949772f58c4691c140b5ba"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/raw-scene-001.fdee4f3d.png",
+            "sha256": "fdee4f3d7e81a15fdab958f87c2f614b751900e6aa8be339e5784ba91392e30d"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/raw-scene-002.35b04f4d.png",
+            "sha256": "35b04f4dd9dc2e7fefad88df4aeabef990c51faf0287d02c5932b0b983d6da24"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/raw-scene-003.bec1a028.png",
+            "sha256": "bec1a0285d4622a2a34f649ce99aa57db78b51b82a9a71068bad51d4418428ea"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/raw-cta.d7a93149.png",
+            "sha256": "d7a931490baa7e0b6bbf8755fc2cb6a3bd6e77a017583b55bbc317cb08f2f336"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1/cover.252609e5.png",
+          "sha256": "252609e561cfc0dd82883c338cea956dc301b4511efffe7661fc6c42028a1d6b"
+        },
+        "savedAt": "2026-11-11T10:22:12.598Z",
+        "cloudVerified": true
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261111",
-  "activeBodyRevision": "body-diagram-20261111"
+  "activeBodyRevision": "body-diagram-20261111",
+  "activeShorts": {
+    "point-kouzou-1": "shorts-pop-point-kouzou-1-20261111"
+  }
 }
