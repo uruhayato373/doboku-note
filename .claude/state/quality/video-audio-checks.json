@@ -550,6 +550,17 @@
         "expected": 994,
         "heard": 949
       }
+    },
+    "pe-construction/pe-ii2-kakikata/youtube.longform": {
+      "videoSha256": "8deb3264b509516a0ebd115e38cd56b52d41754a1593406bab06ee102c66a838",
+      "at": "2026-11-11T01:45:08.870Z",
+      "similarity": 0.957,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1274,
+        "heard": 1202
+      }
     }
   }
 }
