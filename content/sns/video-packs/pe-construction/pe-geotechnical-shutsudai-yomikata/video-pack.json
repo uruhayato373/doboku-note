@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-geotechnical-shutsudai-yomikata",
+  "exam": "pe-construction",
+  "title": "技術士建設部門 土質及び基礎｜出題の読み方と書き方",
+  "audience": "技術士第二次試験 建設部門で選択科目に土質及び基礎を選ぶ、または検討している受験者",
+  "pain": "土質及び基礎の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、数や図の条件をどこに気を付けて読めばよいか分からない",
+  "promise": "II-1・II-2・IIIの問われ方を年度のテーマから整理し、指定された数、図から読む条件、観点の明記を読み落とさない手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/geotechnical-exam-themes/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/r08-geotechnical/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/soil-foundation-ronbun-keyword/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-geotechnical-magazine",
+    "campaign": "pe-geotechnical-shutsudai-yomikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

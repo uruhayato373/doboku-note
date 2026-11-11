@@ -1,0 +1,267 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "土質及び基礎の選択科目は、何がどう問われるのでしょうか。",
+      "caption": "土質及び基礎の出題は、どう読む？",
+      "visual": {
+        "kind": "cover",
+        "heading": "土質及び基礎の出題を、読む",
+        "items": [
+          "技術士 建設部門・土質及び基礎"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/geotechnical-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 23,
+      "narration": "過去問を開いても、浸透、支持力、液状化のどこから読めばいいのか分からない。今日は技術士建設部門の土質及び基礎を、令和元年度から8年度の出題テーマをもとに、II-1、II-2、IIIの問われ方に分けて読み方を整理します。",
+      "caption": "過去問の前に、出題の読み方が要る",
+      "visual": {
+        "kind": "points",
+        "heading": "過去問の前に、読み方を決める",
+        "items": [
+          "令和元年度〜8年度の出題テーマ",
+          "II-1・II-2・IIIの問われ方",
+          "指定された数と図の条件"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 土質及び基礎",
+          "note": "出題テーマはdoboku-noteの要約。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/geotechnical-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "myth",
+      "start": 23,
+      "end": 43,
+      "narration": "よくある誤解は、液状化や支持力といったテーマ名と公式を覚えれば書ける、という考えです。実際の問題文は、挙げる数、図に描かれた条件、観点の明記まで決めています。テーマ名は入口で、条件の読み取りが答案の出来を分けます。",
+      "caption": "テーマ名を知るだけでは答案にならない",
+      "visual": {
+        "kind": "compare",
+        "heading": "テーマ名と、問題文の条件",
+        "ngLabel": "テーマ名だけ",
+        "okLabel": "条件まで読む",
+        "rows": [
+          {
+            "label": "読む範囲",
+            "ng": "テーマの名前を覚える",
+            "ok": "数・図・観点の指定を読む"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 土質及び基礎",
+          "note": "問題文の条件はテーマ名に含まれない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-geotechnical/article.mdx"
+    },
+    {
+      "sceneId": "forms",
+      "start": 43,
+      "end": 65,
+      "narration": "まず区分です。令和8年度の形式では、II-1は4設問から1設問を選び、答案用紙は1枚。II-2は2設問から1設問を選び、2枚。IIIは2問題から1問題を選び、3枚です。形式は受検年度の公式情報で確認してください。",
+      "caption": "II-1・II-2・IIIで、選び方と枚数が違う",
+      "visual": {
+        "kind": "points",
+        "heading": "令和8年度の形式（例）",
+        "items": [
+          "II-1\n4設問から1つ・1枚",
+          "II-2\n2設問から1つ・2枚",
+          "III\n2問題から1つ・3枚"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 土質及び基礎",
+          "note": "令和8年度の形式。受検年度は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/geotechnical-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "ii1",
+      "start": 65,
+      "end": 89,
+      "narration": "II-1は、令和8年度は河川堤防の浸透、杭の支持力、盛土の締固め、斜面補強の4設問でした。どれも原理や公式の説明に加えて、メカニズムを2つ、試験種別が異なる手法を2つ以上、管理基準を2つ以上と、挙げる数が指定されます。数を満たすことが、最初の条件です。",
+      "caption": "II-1は、原理を数の指定つきで問う",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1は原理と評価方法",
+        "items": [
+          "河川堤防の浸透：メカニズム2つ",
+          "杭の支持力：押込みと引抜き",
+          "盛土の締固め：管理基準2つ以上",
+          "斜面補強：3工法から1つを選ぶ"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "選択科目対策／建設部門 土質及び基礎",
+          "note": "令和8年度の構成。区分の呼び方はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-geotechnical/article.mdx"
+    },
+    {
+      "sceneId": "ii1cond",
+      "start": 89,
+      "end": 111,
+      "narration": "同じ設問の中にも、読み落としやすい指定があります。令和8年度の斜面補強は、地山補強土工、グラウンドアンカー工、抑止杭工の原理と適用範囲を述べたうえで、1つの工法を選んで設計と施工の留意点を答える構成でした。選ぶ数を読み違えると、点になりません。",
+      "caption": "1つ選ぶのか、すべてか、を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "II-1の指定の例（R08）",
+        "items": [
+          "堤防の浸透\nメカニズムを2つ説明",
+          "盛土の締固め\n管理基準を2つ以上",
+          "斜面補強\n3工法を比べ、1つの工法で留意点"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 土質及び基礎",
+          "note": "令和8年度の問題文より。公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-geotechnical/article.mdx"
+    },
+    {
+      "sceneId": "ii2",
+      "start": 111,
+      "end": 135,
+      "narration": "II-2は、令和8年度で地下水に配慮する開削道路トンネルと、住宅48戸と道路の一体的な液状化対策の2択でした。どちらも、1で複数の段階の検討事項、2で手順ごとの留意点、3で関係者との調整方策を述べる三つの設問でした。",
+      "caption": "II-2は、検討・手順・調整の三つ",
+      "visual": {
+        "kind": "points",
+        "heading": "II-2は、設問が三つに分かれる",
+        "items": [
+          "（1）2つ以上の段階の検討事項",
+          "（2）手順ごとの留意点",
+          "（3）関係者との調整方策"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 土質及び基礎",
+          "note": "令和8年度II-2-1・II-2-2の構成。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-geotechnical/article.mdx"
+    },
+    {
+      "sceneId": "ii2cond",
+      "start": 135,
+      "end": 161,
+      "narration": "II-2は、図に描かれた条件を読みます。開削道路トンネルでは、近くに住宅と共同溝があり、ボーリング調査は1箇所のみで、地下水は右から左へ流れると想定されていました。液状化対策では、地下水位低下か格子状地中壁のどちらかを計画し、土質データは近傍の調査からの推定値でした。",
+      "caption": "II-2は、図と前提の条件を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "II-2の前提条件（R08）",
+        "items": [
+          "II-2-1\n住宅と共同溝が近接",
+          "II-2-1\nボーリングは1箇所・地下水は右から左",
+          "II-2-2\n地下水位低下か格子状地中壁",
+          "II-2-2\n土質データは近傍調査からの推定"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 土質及び基礎",
+          "note": "令和8年度の問題文と図より。公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-geotechnical/article.mdx"
+    },
+    {
+      "sceneId": "iii",
+      "start": 161,
+      "end": 187,
+      "narration": "IIIは、令和8年度は地震と豪雨が重なる複合災害に備える盛土と、地下インフラの維持管理と地盤リスクでした。どちらも、技術課題を観点を明記して3つ以上挙げ、重要な一つに解決策を示し、実行しても残るリスクまで答える構成です。前者は、対象とする盛土を先に述べる指定でした。",
+      "caption": "IIIは、残るリスクまで答える",
+      "visual": {
+        "kind": "points",
+        "heading": "IIIは、課題から解決策、残るリスク",
+        "items": [
+          "（1）技術課題を3つ以上・観点を明記",
+          "（2）最も重要な課題の解決策",
+          "（3）残るリスクと対策"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 土質及び基礎",
+          "note": "令和8年度の構成。問題文は公式で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-geotechnical/article.mdx"
+    },
+    {
+      "sceneId": "steps",
+      "start": 187,
+      "end": 209,
+      "narration": "読み方を三つの手順にまとめます。一つ、区分を見て、選ぶ数と枚数を確かめる。二つ、挙げる数、図の条件、観点の明記に線を引く。三つ、設問が一から三まで並ぶときは、その順に答える。この手順は、この動画の整理です。",
+      "caption": "読み方は、3つの手順",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の3手順",
+        "items": [
+          "区分を見て、選ぶ数と枚数を確かめる",
+          "数・図の条件・観点の明記に線を引く",
+          "設問が並ぶ順に答える"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 土質及び基礎",
+          "note": "本動画の独自の整理。公式の手順ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/geotechnical-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 209,
+      "end": 234,
+      "narration": "まとめます。土質及び基礎の出題は、II-1、II-2、IIIで問われ方が違います。II-1は原理を数の指定つきで、II-2は検討、手順、調整の三つ、IIIは課題から残るリスクまでです。そして、テーマ名より、問題文と図の条件を読むこと。受検年度の問題と日程は、公式の情報で確認してください。",
+      "caption": "土質及び基礎の出題は、条件を読む",
+      "visual": {
+        "kind": "points",
+        "heading": "土質及び基礎の出題は、条件を読む",
+        "items": [
+          "II-1：原理と数の指定",
+          "II-2：検討・手順・調整",
+          "III：課題・解決策・残るリスク",
+          "条件を読む"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 土質及び基礎",
+          "note": "本動画の独自の整理。受検年度は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/geotechnical-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 234,
+      "end": 255,
+      "narration": "読み方の次は、書き方です。土質及び基礎の過去年度の設問を解答した模範解答集がnoteにあります。この動画は読み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "土質及び基礎の模範解答集は、noteへ",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の次は、書き方",
+        "items": [
+          "土質及び基礎 選択科目の模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "選択科目対策／建設部門 土質及び基礎"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/geotechnical-exam-themes/article.mdx"
+    }
+  ]
+}
