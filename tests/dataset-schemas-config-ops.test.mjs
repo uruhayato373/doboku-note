@@ -75,6 +75,8 @@ check('ConfigSearchStrategy', 'config.search-strategy', [
   [(d) => { d.clusters[0].queryPattern = '(['; }, /queryPattern/],
   [(d) => { d.clusters.push(d.clusters[0]); }, /クラスタ id「/],
   [(d) => { d.clusters[0].pagePrefixes = ['exam/']; }, /pagePrefixes/],
+  [(d) => { d.topLowCtr.maxCtr = 2; }, /topLowCtr/],
+  [(d) => { delete d.topLowCtr; }, /topLowCtr/],
 ]);
 
 check('ConfigSeoMeta', 'config.seo-meta-config', [

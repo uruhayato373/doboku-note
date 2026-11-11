@@ -424,6 +424,14 @@ export const ConfigSearchStrategy = z
       .superRefine((s, ctx) => {
         if (s.minPosition >= s.maxPosition) flag(ctx, ['minPosition'], 'minPosition は maxPosition より小さい');
       }),
+    topLowCtr: z
+      .object({
+        maxPosition: z.number().min(1).describe('上位とみなす順位（この順位以内）'),
+        minImpressions: posInt.describe('この表示回数以上の検索語だけを見る'),
+        maxCtr: z.number().min(0).max(1).describe('クリック率がこれ以下なら出す（AI による概要などで答えが検索結果の中で済んでいる疑い）'),
+      })
+      .strict()
+      .describe('上位なのにクリック率が極端に低い検索語（週次レビューが読む。report-search-opportunities の topLowCtr）'),
     cycle: z
       .object({
         improvePerWeek: posInt.describe('週次レビューが 1 週に直して記録する改善の件数（直せる候補がこれより少なければその数）。週次の完了条件 triage --check --weekly が数える'),
