@@ -767,7 +767,7 @@
           "narration": "課題の欄に「実施した工法」。何が足りないでしょう。",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『課題の欄に』『『実施した工法』』『何が足りない？』、小さな黄色帯に『総監が制作』。 表紙の型は「ビフォーアフター」。見出しの下に、悪い例の一言を書いた答案の紙を斜めに置き、その一言に赤ペンの波線と小さな『？』。先生は赤ペンを持つ。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収め、収まらなければ字を小さくして折り返す。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを1本握って胸の高さに上げ、ペン先を見出しの下の答案の紙へ向ける。指は5本でペンを握る。左手（画面右側）は何も持たず腰に当てる。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『課題の欄に』『『実施した工法』』『何が足りない？』、小さな黄色帯に『総監が制作』。 表紙の型は「ビフォーアフター」。見出しの下に、悪い例の一言を書いた答案の紙を斜めに置き、その一言に赤ペンの波線と小さな『？』。先生は赤ペンを持つ。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを1本握って胸の高さに上げ、ペン先を見出しの下の答案の紙へ向ける。指は5本でペンを握る。左手（画面右側）は何も持たず腰に当てる。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 見出し2行目『実施した工法』の塊が幅約88%で、左の『が約5.8%、右の』が約5.4%と左右8%の内側・幅80%以内の指定を超え端に接近している。文字自体は指示と一字一致し誤字なし。先生・赤ペン・答案の波線と？の型、手指は問題なし",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -775,26 +775,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/work/factory/raw-cover.0ea46f51.png",
-              "sha256": "0ea46f511ad1b841b43c566f0018b96307883acc9ad567db4a00ae95394afd6e"
+              "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/raw-cover.b284c45f.png",
+              "sha256": "b284c45f17443de3904f0c07708a39e72592f71d097387dfa4d366c95b2d8ad0"
             },
-            "generatedAt": "2026-11-11T08:20:49.031Z"
+            "generatedAt": "2026-11-11T08:51:36.213Z"
           },
           "output": {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/cover.747a4aa2.png",
-            "sha256": "747a4aa288c55e017822ea897b243d40c78c99729f648eca651937c66f415bdb",
+            "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/cover.55d40007.png",
+            "sha256": "55d40007fa9539bb5bbdc7730fd8e7c63b974c7a99afffffa704e7e31714dc9a",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "0ea46f511ad1b841b43c566f0018b96307883acc9ad567db4a00ae95394afd6e"
+            "sourceSha256": "b284c45f17443de3904f0c07708a39e72592f71d097387dfa4d366c95b2d8ad0"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:20:49.031Z",
+            "checkedAt": "2026-11-11T08:51:36.213Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "型ビフォーアフター: 見出し下に悪い例『実施した工法』の答案紙、赤波線と『？』、先生が赤ペン(指5本)を答案へ向け左手は腰。文字は指示と1字ずつ一致し欠け無し、胴体は下端まで続く。ただし見出しの左右余白は約4%で指示の8%より狭く、切れてはいない"
+            "reason": "文字: 1級土木・課題の欄に・『実施した工法』・何が足りない？・総監が制作が指示どおり誤字なく全て収まる。型: 答案の紙に赤ペンの波線と？があり、先生が赤ペンを5本指で握り紙へ向け、左手は腰、胴体は下端まで続く。見出し幅は画面の約8割で端に接しない"
           }
         },
         {
@@ -811,10 +811,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/work/factory/raw-scene-001.389ba31a.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/raw-scene-001.389ba31a.png",
               "sha256": "389ba31aaacfea50a6a7438f1623793dc6b6afafb36e7660ebabe72b8a6ab682"
             },
-            "generatedAt": "2026-11-11T08:20:49.031Z"
+            "generatedAt": "2026-11-11T08:51:36.213Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/scene-001.7b619e0c.png",
@@ -828,7 +828,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:20:49.031Z",
+            "checkedAt": "2026-11-11T08:51:36.213Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『1級土木』『課題の欄に工法を書く』『仮の例』『課題の欄』『実施した工法』が一字一致、赤波線あり、人物なしで破綻なし"
           }
@@ -847,10 +847,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/work/factory/raw-scene-002.76b4d008.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/raw-scene-002.76b4d008.png",
               "sha256": "76b4d00895b8ad30f5328b53bd728d8e77b45ad53cc807d26f17ad09eed3fbc5"
             },
-            "generatedAt": "2026-11-11T08:20:49.031Z"
+            "generatedAt": "2026-11-11T08:51:36.213Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/scene-002.bfd7df6e.png",
@@ -864,7 +864,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:20:49.031Z",
+            "checkedAt": "2026-11-11T08:51:36.213Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『現場の状況と原因』『課題』『対処策』と赤バツ、下向き矢印、番号2と見出しが指示どおりで誤字なし"
           }
@@ -883,10 +883,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/work/factory/raw-scene-003.5f1eaae8.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/raw-scene-003.5f1eaae8.png",
               "sha256": "5f1eaae8e560dbd703290949bf0ebfc769390ca3715507b296c7d0ffc35aaf37"
             },
-            "generatedAt": "2026-11-11T08:20:49.031Z"
+            "generatedAt": "2026-11-11T08:51:36.213Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/scene-003.00bf8e1b.png",
@@ -900,7 +900,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:20:49.031Z",
+            "checkedAt": "2026-11-11T08:51:36.213Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『仮の例』『直した例』『課題の欄』『何を確保するかを一文で』『対応処置の欄』『実施した工法』が一字一致、矢印1本で破綻なし"
           }
@@ -919,10 +919,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/work/factory/raw-cta.cb0a276e.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/raw-cta.cb0a276e.png",
               "sha256": "cb0a276e5aada796c0a89deb8cb12b78eea08f138d03ffe9c56be2928113967c"
             },
-            "generatedAt": "2026-11-11T08:20:49.031Z"
+            "generatedAt": "2026-11-11T08:51:36.213Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/cta.0c62412d.png",
@@ -936,24 +936,72 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:20:49.031Z",
+            "checkedAt": "2026-11-11T08:51:36.213Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『ほかの4つの直し方は』『本編で』『関連動画から』と下向き矢印が指示どおりで誤字・欠け無し。先生は手のひらで矢印を示し指5本、胴体は下端まで続く。上段の文字の左右余白は約3%と狭いが切れてはいない"
           }
         }
       ],
       "render": {
-        "videoSha256": "27b26364cd6b3e6acf3441f3e3019f5bb35c818552c90b76dce491b7bf7a9098",
+        "videoSha256": "d357262326123cb556577a6fec031674f738d51343c65af11a0641077bc9e43c",
         "durationSeconds": 31.8,
         "speaker": 13,
         "sceneCount": 5
       },
       "screenReview": {
-        "verdict": "fail",
+        "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "5軸の平均は4.4で全軸3以上だが、表紙の見出しが台帳の左右8%の内側に収まっておらず、締め画面の文字も端に接しているため fail にする。表紙の型の形は守れている。",
-        "videoSha256": "27b26364cd6b3e6acf3441f3e3019f5bb35c818552c90b76dce491b7bf7a9098",
-        "checkedAt": "2026-11-11T08:25:34.948Z"
+        "reason": "5 軸の平均 4.4・全軸 3 以上。sha 一致、5 場面を確認。型 before-after と台本の観点も問題なし。ライブの操作 UI は未確認です。",
+        "videoSha256": "d357262326123cb556577a6fec031674f738d51343c65af11a0641077bc9e43c",
+        "checkedAt": "2026-11-11T08:52:36.638Z"
+      },
+      "audio": {
+        "videoSha256": "d357262326123cb556577a6fec031674f738d51343c65af11a0641077bc9e43c",
+        "similarity": 0.957,
+        "maxVolumeDb": -6.4,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/video.d3572623.mp4",
+          "sha256": "d357262326123cb556577a6fec031674f738d51343c65af11a0641077bc9e43c"
+        },
+        "frames": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/frames.2a141208.png",
+          "sha256": "2a1412082533411d2bbb3acf03f462f826b4941a7f5eba4da312491e925ec58e"
+        },
+        "subtitles": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/subtitles.bfc941bd.ass",
+          "sha256": "bfc941bd8e6570ddadd2361afa6bd19fe2c28733453460e4eff9263fdd94f4f6"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/raw-cover.b284c45f.png",
+            "sha256": "b284c45f17443de3904f0c07708a39e72592f71d097387dfa4d366c95b2d8ad0"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/raw-scene-001.389ba31a.png",
+            "sha256": "389ba31aaacfea50a6a7438f1623793dc6b6afafb36e7660ebabe72b8a6ab682"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/raw-scene-002.76b4d008.png",
+            "sha256": "76b4d00895b8ad30f5328b53bd728d8e77b45ad53cc807d26f17ad09eed3fbc5"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/raw-scene-003.5f1eaae8.png",
+            "sha256": "5f1eaae8e560dbd703290949bf0ebfc769390ca3715507b296c7d0ffc35aaf37"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/raw-cta.cb0a276e.png",
+            "sha256": "cb0a276e5aada796c0a89deb8cb12b78eea08f138d03ffe9c56be2928113967c"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1/cover.55d40007.png",
+          "sha256": "55d40007fa9539bb5bbdc7730fd8e7c63b974c7a99afffffa704e7e31714dc9a"
+        },
+        "savedAt": "2026-11-11T08:52:49.804Z",
+        "cloudVerified": true
       }
     }
   },
