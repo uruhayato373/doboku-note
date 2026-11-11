@@ -462,6 +462,17 @@
         "expected": 1259,
         "heard": 1197
       }
+    },
+    "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform": {
+      "videoSha256": "5dff073b02ca6ef218f4ca8b68e434e5eccff6d0a9eb08e51248f8c0299c744a",
+      "at": "2026-11-11T01:40:44.876Z",
+      "similarity": 0.954,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1098,
+        "heard": 1062
+      }
     }
   }
 }

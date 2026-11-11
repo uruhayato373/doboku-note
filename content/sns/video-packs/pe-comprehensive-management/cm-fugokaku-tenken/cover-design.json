@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/cm-fugokaku-tenken/work/cover-pop.a319212f.png",
+        "sha256": "a319212f1b0d7701f700f42974a4cd798390fe7896ab52dcd640d5822cc473e0",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "a023c63f4f1d8bd25c24321d5f32390535c2524d16e6eb72e126355753c55863"
+      }
     }
   }
 }
