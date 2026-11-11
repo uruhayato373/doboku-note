@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **71**（更新: 2026-11-11）
+パック数: **72**（更新: 2026-11-11）
 
 ## 1級土木施工管理技士（9）
 
@@ -48,13 +48,14 @@
 | `pe1-tekisei-3shiten` | 技術士一次 適性科目の正誤判定で見る3つの視点 | 適性科目で、覚えたはずの内容でも選択肢の正誤判定に迷う | exam-point | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 
-## 技術士（建設部門）（18）
+## 技術士（建設部門）（19）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `hissu1-infra-roukyuuka` | インフラ老朽化と予防保全 — 維持管理テーマの論点整理 | 老朽化対策の施策が多くどれを軸に論文を組むか決められない | exam-point | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 | `hissu1-kensetsu-dx` | 建設DX・i-Construction — 施策の全体像と論点 | DX施策の名前は知っていても論文で使える形になっていない | exam-point | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 | `kaitourei-tsukaikata` | 模範解答の正しい使い方 — 写経では受からない | 解答例を読んでも自分の答案がよくならない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
+| `pe-environment-shutsudai-yomikata` | 技術士建設部門 建設環境｜出題の読み方と書き方 | 建設環境の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、題材が幅広い中で数の指定や除外の条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-environment-magazine` |
 | `pe-fugoukaku-toan` | 技術士建設部門 不合格の答案はどこで落ちるか — 評価項目に照らして点検する | 筆記試験の答案がどこで点を落としたのか分からず、来年度の学習をどこから直せばよいか決められない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-geotechnical-shutsudai-yomikata` | 技術士建設部門 土質及び基礎｜出題の読み方と書き方 | 土質及び基礎の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、数や図の条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-geotechnical-magazine` |
 | `pe-gyoumu-shousai-720` | 建設部門｜業務内容の詳細 720 字の組み立て | 業務内容の詳細720字に何を書き、字数をどう配分すればよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
