@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-ii1-kakikata/work/cover-pop.0b507907.png",
+        "sha256": "0b5079075766569a0b3eefc03fb50e33e0f01dc654cde1f7a6525700faeaa21d",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "45159b9875b782297f94310a218acf21284b6cf2fc1c433a14f212e643045e01"
+      }
     }
   }
 }
