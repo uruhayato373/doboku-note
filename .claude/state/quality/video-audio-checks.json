@@ -451,6 +451,17 @@
         "expected": 1977,
         "heard": 1883
       }
+    },
+    "civil-construction-1/owner-career-shigoto/youtube.longform": {
+      "videoSha256": "c546d698e4247ff1b5f137989639b572e29e0d2962b682e4228a503c0c9cc90d",
+      "at": "2026-11-11T01:40:13.086Z",
+      "similarity": 0.983,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1259,
+        "heard": 1197
+      }
     }
   }
 }

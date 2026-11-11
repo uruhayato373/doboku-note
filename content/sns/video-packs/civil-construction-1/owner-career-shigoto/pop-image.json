@@ -22,7 +22,7 @@
           "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-cover.7ed463b2.png",
           "sha256": "7ed463b2f8335c9335bf2740144b76c89d1e799220a3c60ef79603df24aafc79"
         },
-        "generatedAt": "2026-11-11T00:33:59.220Z"
+        "generatedAt": "2026-11-11T00:55:23.951Z"
       },
       "copy": {
         "exam": "civil-construction-1",
@@ -44,7 +44,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-11T00:33:59.220Z",
+        "checkedAt": "2026-11-11T00:55:23.951Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字は元発注者が解説・発注者の仕事・1年の流れと一字一致、先生キャラの指定要素あり、手指の破綻なし",
         "userImageReview": "pending"
@@ -75,7 +75,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-answer.6b338dee.png",
               "sha256": "6b338dee4db95cf0080e3d32cd34713e42b55a3254d90747e3cc1a5d78ce2081"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/answer-diagram.b9e649b3.png",
@@ -89,7 +89,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -112,7 +112,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-answer2.f52ea241.png",
               "sha256": "f52ea241268b155caa903727cf73bc99d7acacd07bf67c7da4f2df88b6736009"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/answer2-diagram.b7989418.png",
@@ -126,7 +126,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -149,7 +149,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-misread.9b0aa622.png",
               "sha256": "9b0aa622c3e2fdede0d83d9519a70fcc482a70284958de4e98d1a6d1fd6005a7"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/misread-diagram.b185a343.png",
@@ -163,7 +163,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -186,7 +186,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-loop1.1d830cd5.png",
               "sha256": "1d830cd5faee1ba742dacc8a4d83efaab6ad4444323df7dad543f04f084aba98"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/loop1-diagram.3d65e904.png",
@@ -200,7 +200,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -223,7 +223,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-loop2.21072442.png",
               "sha256": "21072442b997eb1006812fcad1f37f052491e0eed26aa5b12668cc7bf59603fc"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/loop2-diagram.970758f0.png",
@@ -237,7 +237,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -260,7 +260,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-loop3.8c6eb314.png",
               "sha256": "8c6eb31497f93694dae0580f41c882edcfb1adb87f8f771570b0b42ecf33a114"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/loop3-diagram.db4ebfa2.png",
@@ -274,7 +274,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -297,7 +297,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-loop4.92366cc1.png",
               "sha256": "92366cc1487f4c9189380b28b9cd286bd08df84fdf7f05d000c81090448c0fc6"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/loop4-diagram.e37b8bc8.png",
@@ -311,7 +311,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -334,7 +334,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-years1.67beafb9.png",
               "sha256": "67beafb9a6b25852d0d549ae3e3d7aa549b3a285829dcfaf6ab68443953480c9"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/years1-diagram.5f266ee9.png",
@@ -348,7 +348,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -371,7 +371,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-years2.5cfc6fb4.png",
               "sha256": "5cfc6fb47cdff4daa7c909ebc442f259d4d2e2cd946eb459c0139df0a3bbb744"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/years2-diagram.9300dffd.png",
@@ -385,7 +385,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -408,7 +408,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-calA.15894ce4.png",
               "sha256": "15894ce4fa6caa6ac7336316977726cd4f5405429fa75822df222b62bcf68519"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/calA-diagram.1d41d689.png",
@@ -422,7 +422,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -445,7 +445,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-calB.d21e81b6.png",
               "sha256": "d21e81b6fe278cdfbda1c04d2fd924d15581ae6e9c91db6b916265d02f1dd464"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/calB-diagram.dafc44d9.png",
@@ -459,7 +459,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -482,7 +482,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-reason1.828606c6.png",
               "sha256": "828606c6b74b5ddcc9036929c90dfd7bf5c0b346e6e315c0e66fe6b87f01bc6b"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/reason1-diagram.c9c1a8e3.png",
@@ -496,7 +496,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -519,7 +519,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-reason2.4c31d1a4.png",
               "sha256": "4c31d1a462bf67a350cc8bf9a17a794e97ca9a04469b1e39a46e955244df85fe"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/reason2-diagram.78f18e91.png",
@@ -533,7 +533,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -556,7 +556,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-flood.b8bd6354.png",
               "sha256": "b8bd63542d185f6c268aa20f36329f0eae66811d2601fbaa265c35e3a679ce41"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/flood-diagram.a3e4b839.png",
@@ -570,7 +570,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -593,7 +593,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-safety.cbc2fc65.png",
               "sha256": "cbc2fc65ba966b7dcd2e4b6e5950c61610e1cbf2b5cbeac2756bc5989a8f0fad"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/safety-diagram.a62594c1.png",
@@ -607,7 +607,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -630,7 +630,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-read.fbb73d3a.png",
               "sha256": "fbb73d3aca9a3c364ed22c8b622a53f7648e979e00d912bc774c1ee9917447c5"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/read-diagram.47ed2d0c.png",
@@ -644,7 +644,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -667,7 +667,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-ex1.2d015b73.png",
               "sha256": "2d015b734750cf2ad8c72da9ae1097b49c425532d440243bf9c7497e54351b77"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/ex1-diagram.7e7edd9f.png",
@@ -681,7 +681,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -704,7 +704,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-ex2.5679b2e3.png",
               "sha256": "5679b2e355bdfd68dd193eec5edd92cc2db574df98c5252806b1ae2d1075a79f"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/ex2-diagram.cae69f15.png",
@@ -718,7 +718,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -741,7 +741,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-check.e6bb011c.png",
               "sha256": "e6bb011c5f378a09f0cc36f58649dc234f10ef170e3735f60bc83f00e7fb9907"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/check-diagram.b873f9d2.png",
@@ -755,7 +755,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -778,7 +778,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-recap.762659d5.png",
               "sha256": "762659d563b297849a3c1491e0ebee8c243144c37650e4d760fe4caedd9d9dca"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/recap-diagram.ebb3b668.png",
@@ -792,7 +792,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",
@@ -815,7 +815,7 @@
               "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/factory/raw-cta.9e790ed7.png",
               "sha256": "9e790ed7a075d8ca97369d7fa24d0102c4156ea59f16d8d907e9303c47a416c4"
             },
-            "generatedAt": "2026-11-11T00:33:59.220Z"
+            "generatedAt": "2026-11-11T00:55:23.951Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/owner-career-shigoto/work/cta-diagram.c2d719c1.png",
@@ -829,7 +829,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T00:33:59.220Z",
+            "checkedAt": "2026-11-11T00:55:23.951Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の見出し・図の文字と一字ずつ一致し、誤字・擬似文字・余計な文字がなく、図の内容が説明と矛盾しない",
             "userReview": "pending",

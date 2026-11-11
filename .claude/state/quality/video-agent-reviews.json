@@ -454,6 +454,102 @@
       "visualDigest": "5322e1e4265c7b28b1e7279a30c7ac466c71e88c906d87dc8b09ce0c4b042313",
       "finalDigest": "c5baff882f4935d828344c82f653b3d66304d21b194a66c674c8ebaa59afa07d",
       "contentDigest": "c5baff882f4935d828344c82f653b3d66304d21b194a66c674c8ebaa59afa07d"
+    },
+    "civil-construction-1/owner-career-shigoto/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名と22場面の順序が台本と一致、文字の切れ重なりなし。CTAはサイト記事1つで資格・内容に合う。時期は目安・自治体で異なると明記、断定数値や合格の約束なし。場面20の小さい英字slugは縮小シートでの確認で許容。音声は未確認。出水期・予算の制度記述は台本の注記どおり一次資料と未突合のため公開前に人が確認。",
+      "at": "2026-11-11T00:57:26.125Z",
+      "visualDigest": "1db9fb978d33d7106e8d6f996435d4c076c943835dbe52406f12b7936b9de904",
+      "finalDigest": "4e253db4ea8e9d4d0fb4ea317534263ecc59fbd7708cf816240da76fdd7ccd0f",
+      "contentDigest": "4e253db4ea8e9d4d0fb4ea317534263ecc59fbd7708cf816240da76fdd7ccd0f"
+    },
+    "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名は中身と一致。全13場面の順序は台本と一致し、文字の切れ・重なり・誤字なし。CTAは記述式コアパックの1つで、無料サイトのリンクは補足。日程の断定なし、合格の約束なし。音声は未確認。軽微な指摘としてタグの施工経験記述は総監に合わないので見直し推奨。",
+      "at": "2026-11-11T00:58:52.069Z",
+      "visualDigest": "d05df1158e5d1a7e2d0b82dbc4e2fa1ef3d025dd9cf662aa7be88e5c0837312e",
+      "finalDigest": "7c8c60a17bf74060d01ace0f67a15e3fcffb36315b6294c9c8f529beba7db934",
+      "contentDigest": "7c8c60a17bf74060d01ace0f67a15e3fcffb36315b6294c9c8f529beba7db934"
+    },
+    "pe-construction/pe-road-shutsudai-yomikata/youtube.longform": {
+      "verdict": "fail",
+      "note": "表紙・全12場面は文字の切れ・重なり無く、場面順も台本と一致。ただしYouTube題名と概要欄の「出題の読み方と書き方」「答案の書き方」タグは、本編が書き方を扱わずnoteへ送るだけの内容と合わない（表紙は読み方のみ）。題名とタグを読み方に直せば再確認。音声は未確認。",
+      "at": "2026-11-11T01:01:24.157Z",
+      "visualDigest": "242693dae35de8049bc13d6bcb1c8f0bf447c3d10208d8ea26ff1257378f2df7",
+      "finalDigest": "d956b0a683b1939becad40e983b958d2450da3512a54b7f765f016f84d50f83a",
+      "contentDigest": "d956b0a683b1939becad40e983b958d2450da3512a54b7f765f016f84d50f83a"
+    },
+    "pe-construction/pe-ii1-kakikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名・全12場面（欠け0）を画像で確認。場面順は台本と一致、文字の切れ・重なり・誤字なし。35/45/20%等はdoboku-note独自整理と明記、合格の約束なし。CTAはnote道路模範解答集1つ（無料解説リンクは補助）。令和8年度の記述は暦と矛盾なし。音声は未確認。完成動画の最終確認ではなく、画面（表紙・場面）の確認に基づく判定。",
+      "at": "2026-11-11T01:12:47.605Z",
+      "visualDigest": "07e65e8aff901af589fefff31d21270a10f5d50711f99e6cb142cef34f381701",
+      "finalDigest": "49503fd49e971072cf8418eb25883b2f20bc34fcfcaaecd7df3d34a0beb6c409",
+      "contentDigest": "49503fd49e971072cf8418eb25883b2f20bc34fcfcaaecd7df3d34a0beb6c409"
+    },
+    "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名は中身と一致。全20場面を一覧で確認し、順序は台本と一致、切れ・重なり・誤字なし。説明文のCTAは1つで記事 cost-and-design-change へ。試験日の記述なし、断定的な数値や合格の約束なし。小さな文字は一覧の縮小画像では細部まで読めていない。音声は未確認。",
+      "at": "2026-11-11T01:17:30.748Z",
+      "visualDigest": "d812b4e2775bd6a6ab343c54092a3fbfa938a2239848ba73ab517149aca1b951",
+      "finalDigest": "596e0b41c02d0f6b5c562e594144e6aac66ab6faf9c1139e0b6ebeaaa22932e7",
+      "contentDigest": "596e0b41c02d0f6b5c562e594144e6aac66ab6faf9c1139e0b6ebeaaa22932e7"
+    },
+    "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名と全13場面の順序が台本と一致。文字の切れ・重なり・誤字なし。CTAは概要欄に1つ(設問3の教材)、日程の断定なし、仮例は出題予想でないと明記。音声は未確認。",
+      "at": "2026-11-11T01:23:55.780Z",
+      "visualDigest": "817ba31bd6d1728d219806c0906ce307e25527f907cea1cc05348066df7e4874",
+      "finalDigest": "abc40e9bda0e2f232842d2fd17250f44b117071812d91252bb58740dae11e1fe",
+      "contentDigest": "abc40e9bda0e2f232842d2fd17250f44b117071812d91252bb58740dae11e1fe"
+    },
+    "pe-construction/pe-gyoumu-shousai-720/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名・全12場面を目視。場面順は台本と一致、切れ・重なり・誤字なし。説明文の主CTAはnote 1本(関連の無料記事リンクは別)、試験日・年度の断定なし、配分字数は目安と明記。場面3下部の注記は小さめだが可読。音声は未確認。",
+      "at": "2026-11-11T01:25:28.767Z",
+      "visualDigest": "046e6ca3a13e42c3ae82257ba05353e751c4c5aeb20233de96c90f6f9a513b7d",
+      "finalDigest": "0a6da10f8984a08db2c70c37cf5a4af9bfde1393bda047dc90eab17f5788cd31",
+      "contentDigest": "0a6da10f8984a08db2c70c37cf5a4af9bfde1393bda047dc90eab17f5788cd31"
+    },
+    "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名は中身と一致、13場面の順序は台本どおりで文字の切れ・重なり・誤字なし。CTAはnote教材1つ（関連無料記事は参考リンク）、数値や日程の断定なし、仮の立場は出題予想でないと明記。音声は未確認。",
+      "at": "2026-11-11T01:27:31.025Z",
+      "visualDigest": "d586f4f8cabce16573bc879305e6c78983a5a70133e6255ad747e165ecc572fa",
+      "finalDigest": "9a44240e21f26cd611bcd4ab4e69b899773a28a4e5e2efbcf2f68fabf7e2e9e8",
+      "contentDigest": "9a44240e21f26cd611bcd4ab4e69b899773a28a4e5e2efbcf2f68fabf7e2e9e8"
+    },
+    "pe-construction/pe-ii2-kakikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名と中身が一致。12場面の順序は台本どおり、文字の切れ・重なり・誤字なし。50行/24字x25行、35・45・20%、18・41行目、約7行170字は整合し、独自整理は画面に明記。説明文のCTAはnote1つ、無料サイトは関連リンク。日付の断定なし。音声は未確認。",
+      "at": "2026-11-11T01:33:55.037Z",
+      "visualDigest": "b5cf3c46cb7f459d6a5ff409ffc1476e32727e32fcab608e109dfe240a619b3b",
+      "finalDigest": "19ff29035a8b7b09d9685b98863d9efec9c2e1f842a50f4d9de4f5ed1bdec8b9",
+      "contentDigest": "19ff29035a8b7b09d9685b98863d9efec9c2e1f842a50f4d9de4f5ed1bdec8b9"
+    },
+    "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・題名は中身と一致、場面14枚は欠け無く台本の順序どおり、文字の切れ・重なり・誤字なし。概要欄CTAはサイト記事1つ(practice/cost-and-design-change)で資格と合致。日付・試験日の記述なし、三割・14日・概算額は国の例/参考値と限定明記、合格の約束なし。場面6と8の一部の小さい文字は一覧上で小さいが読める範囲。音声は未確認(聞けない)。",
+      "at": "2026-11-11T01:36:06.730Z",
+      "visualDigest": "66cbcc63cc3189c99bc7752d336df1d2b4e8a07415720dc5f8d740fd19735111",
+      "finalDigest": "949dd508464fb5f30f90e5c5fa6e92555fa4660c25eaf1351a6139e622018147",
+      "contentDigest": "949dd508464fb5f30f90e5c5fa6e92555fa4660c25eaf1351a6139e622018147"
+    },
+    "pe-construction/pe-iii-kakikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と題名は中身に合致。全13場面シートで切れ・重なり・誤字なし、順序は台本どおり。主CTAはnote1つ、試験日断定なし、独自整理の注記あり。音声は未確認。",
+      "at": "2026-11-11T01:37:42.020Z",
+      "visualDigest": "0f116d276a64c921968cdc20112744e41487d825423f054242e2432a8d623f5b",
+      "finalDigest": "3a56e2226719946e1e6785b9f2a8949d152e31335ae9197fd0f5ee27fc9a18c3",
+      "contentDigest": "3a56e2226719946e1e6785b9f2a8949d152e31335ae9197fd0f5ee27fc9a18c3"
+    },
+    "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform": {
+      "verdict": "fail",
+      "note": "動画の題名「出題の読み方と書き方」が中身と合わない。台本は書き方（模範解答）を扱わず読み方までで、noteへ送る構成。表紙は「読み方」のみで不一致。題名に「技術士建設部門」が重複している。タグ「答案の書き方」も同様。題名を「出題の読み方」に直せば再確認する。表紙・場面12枚（順序は台本どおり、文字の切れ・重なりなし）、日程の断定なし、CTA1つは問題なし。音声は未確認。",
+      "at": "2026-11-11T01:39:13.551Z",
+      "visualDigest": "6553510af478ce2cad383b8b06aa0bc2952b585b3fe38b2814599a1bf0e495be",
+      "finalDigest": "d06bd88e8e5626c0ad48ba913533f412f83a3c8006a44f7136e23c7e167d8c95",
+      "contentDigest": "d06bd88e8e5626c0ad48ba913533f412f83a3c8006a44f7136e23c7e167d8c95"
     }
   }
 }
