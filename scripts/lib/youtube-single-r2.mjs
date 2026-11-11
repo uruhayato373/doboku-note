@@ -129,6 +129,20 @@ export async function hydrateSinglePublish(root, pubId) {
   console.log(`初回投稿の転送実体を実検査: ${checked}/2`);
 }
 
+/** 1 つの実体を private R2 に置き、読み戻して SHA を確かめる（表紙の差し替え・youtube-cover-replace） */
+export async function putVerified(key, body, expected) {
+  if (sha(body) !== expected) throw new Error(`${key}: 置く前の SHA が不一致`);
+  const s3 = client();
+  await s3.send(new PutObjectCommand({ Bucket: BUCKET, Key: key, Body: body }));
+  if (sha(await bytes((await s3.send(new GetObjectCommand({ Bucket: BUCKET, Key: key }))).Body)) !== expected) throw new Error(`${key}: R2 の読み戻しが不一致`);
+}
+
+export async function getVerified(key, expected) {
+  const body = await bytes((await client().send(new GetObjectCommand({ Bucket: BUCKET, Key: key }))).Body);
+  if (sha(body) !== expected) throw new Error(`${key}: R2 から取った実体の SHA が不一致`);
+  return body;
+}
+
 export function singlePublishJournal(pubId) {
   const s3 = client(), key = `youtube-single-intents/${sha(pubId).slice(0, 40)}.json`;
   return {

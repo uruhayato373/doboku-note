@@ -8,9 +8,13 @@ on:
         required: false
         default: publish
         type: choice
-        options: [publish, sync-funnel, audit-funnel, reconcile, unschedule, purge-shorts-audit, purge-shorts]
+        options: [publish, sync-funnel, audit-funnel, reconcile, unschedule, purge-shorts-audit, purge-shorts, replace-cover]
       publication:
         description: '承認済みの通常動画の公開ID（初回または個別改訂版）か、初回のショートの公開ID'
+        required: false
+        type: string
+      cover:
+        description: 'replace-cover の差し替え先の表紙（台帳の素材 ID）'
         required: false
         type: string
       expect:
@@ -91,6 +95,47 @@ jobs:
             git config user.name 'doboku-note-bot'
             git config user.email 'bot@doboku-note.com'
             git commit -m "Record verified YouTube publication state"
+            git pull --rebase origin develop
+            git push origin HEAD:develop
+          fi
+  replace-cover:
+    # 投稿済みの動画の表紙だけを台帳の表紙に差し替える（2026-11-11）。手元で registry replace-youtube-cover --stage-r2 を済ませてから流す
+    if: inputs.mode == 'replace-cover'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PUB_ID: ${{ inputs.publication }}
+      COVER: ${{ inputs.cover }}
+      EXPECT: ${{ inputs.expect }}
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+      CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Replace the cover and verify it by reading it back
+        run: |
+          [[ "$PUB_ID" =~ ^[a-z0-9-]+/[a-z0-9-]+/youtube\.(longform(\.[a-z0-9-]+)?|short\.[a-z0-9-]+)$ ]]
+          [[ "$COVER" =~ ^[a-z0-9-]+/[a-z0-9-]+/[a-z0-9./-]+$ ]]
+          [[ "$EXPECT" =~ ^[a-f0-9]{64}$ ]]
+          npm run registry -- replace-youtube-cover --pub "$PUB_ID" --cover "$COVER" --commit --expect "$EXPECT"
+      - name: Record the verified cover on develop
+        run: |
+          exam="${PUB_ID%%/*}"
+          git add "content/registry/publications/youtube/${exam}.json"
+          if ! git diff --cached --quiet; then
+            git config user.name 'doboku-note-bot'
+            git config user.email 'bot@doboku-note.com'
+            git commit -m "Record replaced YouTube cover"
             git pull --rebase origin develop
             git push origin HEAD:develop
           fi

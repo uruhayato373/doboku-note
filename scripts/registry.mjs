@@ -26,6 +26,7 @@
  *   npm run registry -- prepare-short --pub <ショートの公開 ID> --publish-at <日時> [--commit]  # 在庫のショートの素材・関連動画・公開日時を台帳に入れる（承認の前）
  *   npm run registry -- stage-youtube --pub <公開 ID> [--commit]   # 初回の投稿の動画と表紙を CI へ渡す private R2 に置く
  *   npm run registry -- record-related --pub <ショートの公開 ID> --video-id <親の動画 ID>  # Studio で設定した関連動画を記録する（予約の前提）
+ *   npm run registry -- replace-youtube-cover --pub <公開 ID> --cover <素材 ID> [--stage-r2 | --commit --expect <digest>]  # 投稿済みの動画の表紙だけを台帳の表紙に差し替える（--stage-r2 は手元で R2 に置く・--commit は CI が送って読み戻す）
  *
  * 取り込み（import）は既定で dry-run。approve は --expect（画面で見た版の digest）が今の中身と一致したときだけ書く。
  * approve・stop は運営者の判断なので、エージェント（Claude Code の Bash＝環境変数 CLAUDECODE=1）からは実行できない。
@@ -55,7 +56,7 @@ const { values: args, positionals } = parseArgs({
     pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
     variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
     phase: { type: 'string' }, copy: { type: 'string' }, 'refresh-draft': { type: 'boolean' },
-    avg: { type: 'string' }, blocks: { type: 'string' },
+    avg: { type: 'string' }, blocks: { type: 'string' }, cover: { type: 'string' }, 'stage-r2': { type: 'boolean' },
   },
 });
 const [command, target] = positionals;
@@ -559,7 +560,22 @@ async function publishYoutube() {
   console.log(JSON.stringify(await publishYoutubePublication(ROOT, { ...options, commit: true }, { youtube, journal: singlePublishJournal(args.pub) }), null, 2));
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule, reschedule, 'prepare-short': prepareShort, 'record-related': recordRelated, 'stage-youtube': stageYoutube };
+/** 投稿済みの動画の表紙だけを差し替える（2026-11-11・youtube-cover-replace.mjs） */
+async function replaceYoutubeCover() {
+  const { applyCoverReplace, coverReplacePlan, stageCoverReplace } = await import('./lib/youtube-cover-replace.mjs');
+  const plan = coverReplacePlan(ROOT, args.pub, args.cover);
+  if (args['stage-r2']) { console.log(JSON.stringify({ ...(await stageCoverReplace(ROOT, plan)), digest: plan.digest })); return; }
+  if (!args.commit) { console.log(JSON.stringify({ pub: plan.pub.id, videoId: plan.videoId, cover: plan.media.id, r2Key: plan.r2Key, digest: plan.digest }, null, 2)); return; }
+  if (args.expect !== plan.digest) throw new Error('--expect が計画の digest と一致しない');
+  const required = ['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN'];
+  if (required.some((key) => !process.env[key])) throw new Error('YouTube環境変数が未設定');
+  const { google } = await import('googleapis');
+  const auth = new google.auth.OAuth2(process.env.YOUTUBE_CLIENT_ID, process.env.YOUTUBE_CLIENT_SECRET);
+  auth.setCredentials({ refresh_token: process.env.YOUTUBE_REFRESH_TOKEN });
+  console.log(JSON.stringify(await applyCoverReplace(ROOT, plan, google.youtube({ version: 'v3', auth, retry: false })), null, 2));
+}
+
+const commands = { 'replace-youtube-cover': replaceYoutubeCover, list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule, reschedule, 'prepare-short': prepareShort, 'record-related': recordRelated, 'stage-youtube': stageYoutube };
 if (!commands[command]) {
   console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule|reschedule|prepare-short|record-related|stage-youtube …');
   process.exit(2);
