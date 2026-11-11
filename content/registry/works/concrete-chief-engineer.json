@@ -166,7 +166,14 @@
     {
       "id": "shunin-theme-tachiba-erabi",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-theme-tachiba-erabi"
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-theme-tachiba-erabi",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "58d945617f9326e2af8fcf7a9cfa67d23d0f1e8e2b0713b78fd4269f5d2e6abc"
+      }
     }
   ]
 }
