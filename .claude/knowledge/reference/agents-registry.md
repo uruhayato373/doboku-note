@@ -91,7 +91,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 ## エージェント一覧
 
 <!-- generated:agents:start（npm run build-capability-index が書く。手で直さない） -->
-エージェント 82 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
+エージェント 83 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
 
 | エージェント | 種別 | model | 領域 | 説明 | 呼び出すスキル |
 |---|---|---|---|---|---|
@@ -115,6 +115,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `civil-keiken-tensaku-qa` | 監査のみ | sonnet | product | 添削・診断・骨子の返信文を事実忠実性・指摘の正確性など5軸で検証する Evaluator。修正・送信はしない。Use when [添削返信の検証]. | `/coconala-order` `/keiken-tensaku` |
 | `civil-secondary-exam-writer` | 編集可 | sonnet | site | 1級土木 二次過去問の解答・ポイント・設問解説を補完する Generator。 | `/civil-keiken-magazine` |
 | `civil-textbook-rewriter` | 編集可 | sonnet | site | 1級土木施工管理技士 textbook/guide ページのバルクリライトを担当するGeneratorエージェント。 | `/quality-cycle` |
+| `cli-runner` | 監査のみ | haiku | ops | Workflow の機械の段で、渡されたコマンドを 1 回だけ実行し、終了コードと出力の末尾を返す。判断・修正・検証はしない。 | — |
 | `coconala-blog-qa` | 監査のみ | sonnet | product | ココナラブログ記事を5軸（0〜3）で採点する Evaluator。外部リンクゼロ等のハードゲートは check-coconala-blog で確認。修正はしない。 | `/coconala-blog` |
 | `coconala-blog-writer` | 編集可 | sonnet | product | ココナラブログ記事を執筆する Generator。自出品へ送客し、外部リンクゼロ・カニバリ境界を守る。素材は書き直す（逐語転載しない）。 | `/coconala-blog` |
 | `coconala-operator` | 編集可 | sonnet | product | ココナラの受注照合・出品編集・価格/状態・KPI を既存スクリプトで運用する。送信は運営者。Use when [ココナラ受注, /coconala-order]. | `/coconala-order` `/coconala-publish` `/coconala-status` |

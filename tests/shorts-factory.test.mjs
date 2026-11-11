@@ -114,3 +114,10 @@ test('同じ枠で先生の仕草が半分を超えて同じなら止める（20
   assert.match(varietyProblems({ hook: 'd', copy: [], gesture: 'stop-hand' }, { formats, siblings }).join(), /仕草 stop-hand/);
   assert.deepEqual(varietyProblems({ hook: 'd', copy: [], gesture: 'tilt-head' }, { formats, siblings }), []);
 });
+
+test('表紙の紙に書く悪い例を見出しの『』か冒頭の「」から取る（2026-11-11・紙に作り話の文字が入った）', async () => {
+  const { paperText } = await import('../scripts/lib/shorts-factory.mjs');
+  assert.equal(paperText({ headline: ['『暑い時期', 'だった』', '何が足りない？'] }), '暑い時期だった');
+  assert.equal(paperText({ headline: ['令和3年', '6月〜12月'], hook: '「令和3年6月〜12月」、この工期で足りますか。' }), '令和3年6月〜12月');
+  assert.equal(paperText({ headline: ['順序は', '権限で'], hook: '順序は権限で決めます。' }), null);
+});

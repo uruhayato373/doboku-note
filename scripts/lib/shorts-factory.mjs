@@ -185,15 +185,24 @@ const coverPrompt = (design, spec, label, palette, type = null, gesture = null) 
   // 型のあるショートは肩書きの帯を入れない（概要欄の制作表記で伝える・2026-11-11 運営者の決定）
   type ? `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}。肩書きの帯や制作者名は書かない。` : `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}、小さな黄色帯に『${spec.pop?.authority ?? '総監が制作'}』。`,
   // 型ごとの表紙の図（台帳 config.youtube-shorts-formats の types[].cover・2026-11-11）。見出しは端で切らない（2 枚が右端で切れた）
-  ...(type ? [`表紙の型は「${type.label}」。${type.cover.visual}。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。`] : []),
+  // 描くものだけを書く（禁止の語を書くと生成がその記号を描きがち・2026-11-11）。置き場所は数字で書く（割合では端まで広げた）
+  ...(type ? [`表紙の型は「${type.label}」。${type.cover.visual}。${paperText(design) && ['before-after', 'one-question'].includes(type.id) ? `紙には『${paperText(design)}』とだけ書き、紙の上はその文字のほかは白い紙のまま。` : ''}${TEXT_BOX}見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。`] : []),
   `先生を大きく（腰から上、顔が画面の幅の2割以上）描く。${gesture ? `仕草は「${gesture.label}」: ${gesture.pose}。` : ''}${design.pose}`, TEACHER, BANS,
 ].join(' ');
 const bodyPrompt = (beat, index, label, palette) => [
   `添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。${FRAME}`,
   pop(palette), `図を画面の主役にする。${BODY_FRAME} 白いカードの箇条書きにしない。人物なし。`,
-  `一番上に資格名の小さなラベル『${label}』。大きな番号『${index + 1}』と見出し『${beat.heading}』。`,
+  // 番号が見出しに続いて読めた（『1』『月だけの工期』→「1月だけ」・2026-11-11）。番号は丸で囲んで見出しと離す
+  `一番上に資格名の小さなラベル『${label}』。見出しの左上に、丸で囲んだ小さな番号『${index + 1}』を見出しと離して置き、その下に見出し『${beat.heading}』。`,
   `図: ${beat.diagram}`, BANS,
 ].join(' ');
+// 文字の置き場所（1080×1920 の座標）。見出しは横 110〜970px の枠に中央揃えで入れ、入らなければ字を小さくする
+const TEXT_BOX = '見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。';
+/** 表紙の紙に書く悪い例・問題文。見出しの『』か、冒頭の「」『』から取る */
+export function paperText(design) {
+  const headline = (design.headline ?? []).join('');
+  return headline.match(/『([^』]+)』/u)?.[1] ?? String(design.hook ?? '').match(/[「『]([^」』]+)[」』]/u)?.[1] ?? null;
+}
 /** 締めの画面の文字。型のあるショートは締めの語りに合わせる（「残りの直し方は本編で。」→『残りの直し方は』『本編で』・2026-11-11） */
 export function ctaLines(cta) {
   const topic = String(cta ?? '').replace(/[。．]$/u, '').replace(/は?本編で$/u, '').trim();
@@ -201,7 +210,7 @@ export function ctaLines(cta) {
 }
 const typedCtaPrompt = (label, palette, cta) => [
   `添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。${FRAME}`,
-  pop(palette), `大きく${ctaLines(cta).map((l) => `『${l}』`).join('')}、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。`,
+  pop(palette), `大きく${ctaLines(cta).map((l) => `『${l}』`).join('')}、その下に小さく『関連動画から』と下向きの矢印。${TEXT_BOX}先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。`,
   TEACHER, `資格名『${label}』は書かない。下端に無地帯を作らない。`, BANS,
 ].join(' ');
 const ctaPrompt = (label, palette) => [
