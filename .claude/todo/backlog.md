@@ -534,6 +534,12 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1118] pre-commit の穴 3 つをふさぐ（CTA 到達性・素材参照・台帳の検証 script）
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11]
+
+develop の CI が赤くなった 3 種（magazine-cta-reachability / media-references / backlog-schema）が pre-commit を素通りしていた。記事の新規追加・content/sns の文書・origin/develop の package.json で先に止める。
+
+
 ### [DN-1117] デプロイ手順を deploy:main 1 本に寄せ、古い文書・記憶を削る
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11]
 
