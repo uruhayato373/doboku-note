@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #1E73C8 と濃色 #155293、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『1級土木』『工事概要』『どこまで書く』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-cover.96632113.png",
+          "sha256": "96632113ef3d17d38d019810e0771c6fb0416a4bcea74539e87b43e32cc55c6a"
+        },
+        "generatedAt": "2026-11-11T03:20:25.238Z"
+      },
+      "copy": {
+        "exam": "civil-construction-1",
+        "headline": [
+          "1級土木",
+          "工事概要",
+          "どこまで書く"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/cover-pop.0dcb6db8.png",
+        "sha256": "0dcb6db882a172c0b0d0340857558ed1c261942b29c9ba2a35b452965e809b80",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "96632113ef3d17d38d019810e0771c6fb0416a4bcea74539e87b43e32cc55c6a"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:20:25.238Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "表紙の文字『総監が制作』『1級土木』『工事概要』『どこまで書く』が指示と一字一句一致し、先生キャラの黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服・反射帯も崩れが無い",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "0f005fef6e546ef03084c722bfeaf6127e771e08aeca9bfadb77a4e3e3022387",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の答え』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『略さず、特定できる細かさで』 『七つの欄が同じ工事を指すようにそろえる』。 図の下、下端の字幕の帯より上に『書き方の整理は本動画の再構成』の全文を省かずに入れる。 この場面の説明（文字にしない）: 経験記述の工事概要。工事名、場所、工期、施工量。欄は埋まっても、これで足りているのか分からない、という人は多いと思います。今日は、七つの欄それぞれの書き方と、欄どうしの釣り合いを整理します。結論は、略さず、特定できる細かさで書き、七つの欄が同じ工事を指すようにそろえる、ということです。受検する年の記入要領は、公式の案内で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-premise.105197cc.png",
+              "sha256": "105197cc88dafe4c143c0c86f4b0ed3c02e235ebf4f38566f12b8adbce3568c9"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/premise-diagram.28cfaaaf.png",
+            "sha256": "28cfaaaf94ade3baaa095aa6874203dd10c439af08a9621c734bf6919c2f40bb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "105197cc88dafe4c143c0c86f4b0ed3c02e235ebf4f38566f12b8adbce3568c9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・二つの枠の文言・下部の『書き方の整理は本動画の再構成』が指示と一致し、油圧ショベルの図も崩れていない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "a87cb40c11dbbdf0b3fc37268e6f0fc7f8ecfc52e5a014e88cef4f018ab5046a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『よくある思い込み』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『形式的な欄だから 短く埋めればよい』 『略式は悪い例 欄どうしの食い違いも避ける』。 図の下、下端の字幕の帯より上に『サイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: よくある思い込みは、工事概要は形式的な欄だから、短く埋めればよい、というものです。しかし、記入のしかたの解説では、略式の書き方は工事の内容が見えにくい悪い例として挙がっています。工期と施工量が釣り合わないことも、避けるべき点です。概要は、あとに続く記述の前提になる欄です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-misread.b50b70b2.png",
+              "sha256": "b50b70b21fd4f63bdbbaf02bed713fd08068596c551e2da03ee77b52f0c4358c"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/misread-diagram.94b45681.png",
+            "sha256": "94b456819b9dcadf6a41b75911bc03ce005695f89ae214b13a9d45fec795de4d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b50b70b21fd4f63bdbbaf02bed713fd08068596c551e2da03ee77b52f0c4358c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・左右の枠の文言・『サイト記事の整理』が指示と一字一句一致し、図の崩れが無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "seven",
+          "inputSha256": "9aaaec743f7961e2c5c53af68355ca73ca1d6a07dd42834ac1b3c19c472a78a0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『工事概要の七つの欄』。 この場面の説明（文字にしない）: 令和六年度以降の形式では、工事概要は別の欄になっています。書くのは、工事名、立場、発注者名、場所、工期、主な工種、施工量の七つです。このあと、迷いやすい欄を順に見ていきます。設問に答える記述の欄とは別なので、概要を繰り返して字数を使わないことも大切です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-seven.df210d98.png",
+              "sha256": "df210d9812e21ef91d1260c97872d2b66b9223277663b840c1a93ef51e536360"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/seven-diagram.4b1bbb5d.png",
+            "sha256": "4b1bbb5dc5ab117e172049500ca47b047052292cd8a78e12cd321e41a940c0b3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "df210d9812e21ef91d1260c97872d2b66b9223277663b840c1a93ef51e536360"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『工事概要の七つの欄』が正しく、七つのアイコン（書類・立場・発注者・場所・工期・工種・施工量）が揃い余計な文字が無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "name",
+          "inputSha256": "08efbcdad77749f106b8a7caf53872113f395d27c0bdbd7386e8b094ccc0edd5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『工事名と場所』。 この場面の説明（文字にしない）: まず、工事名です。何の工事か分かるように、河川名、路線名、施設名などの目的と、場所、そして建設、補修、築造といった工事の種類を入れます。原則は契約書や工事用看板のとおりで、長いときは略称でも構いません。場所は、都道府県から市や郡、さらに地先や町名まで、特定できる細かさで書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-name.4a4a0447.png",
+              "sha256": "4a4a044710442ad408e18d47de63e47fb4fe3e316a0d7a7f3511ba2eb9b545b5"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/name-diagram.e2bd91f5.png",
+            "sha256": "e2bd91f570c47675aecfeb6e38a097deaa9c8833cebea999f12e5da0804f6d61",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4a4a044710442ad408e18d47de63e47fb4fe3e316a0d7a7f3511ba2eb9b545b5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『工事名と場所』が正しく、看板・地図・工具の図に誤字や余計な文字が無い（上端の小さな欠片は意味を損なわない）",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "orderer",
+          "inputSha256": "7cc89f7418584e3fa794cfce68e5cade750511704a64ca4210027bd78836a4dc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『発注者名の書き方』。 この場面の説明（文字にしない）: 次に、発注者名です。会社に所属する人は、自社へ直接工事を注文した相手を確かめます。元請会社なら元の発注機関、一次下請なら元請会社、二次下請なら一次下請会社です。官公庁は、国土交通省とだけ書かず、事務所の名前まで正式に書きます。県も同じで、県名だけにせず、土木事務所のような出先の機関まで書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-orderer.7eb6fef7.png",
+              "sha256": "7eb6fef79256513456f8fa272159862a5f721d82e47c71212a90c38a7c6e7985"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/orderer-diagram.d204b724.png",
+            "sha256": "d204b724a6697ef294d09ca6fd0c4a7446faaafe594a648690ebfb4504dbabc5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7eb6fef79256513456f8fa272159862a5f721d82e47c71212a90c38a7c6e7985"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『発注者名の書き方』が正しく、官公庁から下請への流れの建物の図に崩れ・余計な文字が無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "period",
+          "inputSha256": "8c0a36066c028fa7a15726f90d93c175925b4a8a9b9e003631129ebacef750c8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『工期の書き方』。 この場面の説明（文字にしない）: 工期は、自社が請け負った分を書きます。年号を付けて、年月日まで省略せずに書くのが基本です。月だけの書き方より、年月日まで書いた書き方のほうが、工期が具体的になります。選ぶ工事は、完成して一年から五年ほどのものが目安で、施工中の工事は避けます。二か月未満の小さな工事は、評価が下がるおそれがあります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-period.7323bb45.png",
+              "sha256": "7323bb45832eeecb342deb7ec6f132e4fd1a050e37e997749f96f8e777399c68"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/period-diagram.5867f9ad.png",
+            "sha256": "5867f9ad0b3a97a2ab1163fde1ac48569ffacd387fb1a7e48e5bef74fc111bab",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7323bb45832eeecb342deb7ec6f132e4fd1a050e37e997749f96f8e777399c68"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『工期の書き方』が正しく、開始日と終了日のカレンダーと期間の図に崩れ・余計な文字が無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "role",
+          "inputSha256": "1384d2d8a761460d89ee032842b4626e911110f69a1a27bfbb88df34894f8234",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『立場の欄に書くもの』。 この場面の説明（文字にしない）: 立場の欄には、その工事の現場で実際に担った、職務上の立場を書きます。現場代理人、主任技術者、監理技術者などです。作業主任者のように作業ごとに選ぶ役割や、持っている資格の名前は、施工管理上の立場ではありません。監督員は発注者側の呼び方なので、請負者の立場で書くときは、現場代理人などの語に直します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-role.10eb6506.png",
+              "sha256": "10eb6506eb14bd544518a7aeb637a927ea594de082f124bfd8236eb9a7403f73"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/role-diagram.42901c22.png",
+            "sha256": "42901c221002ccb4605ccec7368aab85b9949307eb59aa8591e1bb27d093d51c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "10eb6506eb14bd544518a7aeb637a927ea594de082f124bfd8236eb9a7403f73"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『立場の欄に書くもの』が正しく、正しい立場と×の例の図に崩れ・余計な文字が無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "scope",
+          "inputSha256": "77cf8491816d78f96ec983ee5df3d4f5fff2fc60a0c04e73077129ab995a5dc5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『工種と施工量』。 この場面の説明（文字にしない）: 主な工種と施工量は、対応させて書きます。道路工とだけ書くより、道路土工、排水構造物工のように、工事の内容がイメージできる工種名にします。施工量も、舗装工とだけ書くのではなく、アスファルト舗装の面積のように、数量まで書きます。書く数値は、あとで出どころを示せるものだけにしてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-scope.32f9c0f8.png",
+              "sha256": "32f9c0f8a7c146e4cc3fb79663ecaeaf319cbd1f10494f348f219e4cee379250"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/scope-diagram.974265d6.png",
+            "sha256": "974265d6efe9101498fb05b69d5472fe8f60499539e10553f1083b7072efa8dc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "32f9c0f8a7c146e4cc3fb79663ecaeaf319cbd1f10494f348f219e4cee379250"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『工種と施工量』が正しく、道路断面と面積の図に崩れ・余計な文字が無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "dfc360bbeb44fb542ef3fe644c1e1ea8fedb9ce1a910637216997efc2181042f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例：護岸の災害復旧』。 この場面の説明（文字にしない）: 仮の例で、七つがそろった形を確かめます。護岸の災害復旧の工事で、現場代理人の立場とします。発注者は県の土木事務所。主な工種は、護岸工の大型ブロック張工と根固め工。施工量は、護岸ブロックの面積と延長です。工種と施工量が対応し、工期は自社の請負分、立場も現場の職務。この例は説明のための仮のもので、実在の工事ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-example.b3edd1a2.png",
+              "sha256": "b3edd1a2b47b71d6436c7f93e11c744ac39b8ef67da45711e15d32c043f450b7"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/example-diagram.54003aaf.png",
+            "sha256": "54003aaf5fedcbed7a04c893bb0ad4dd88c3a1fb0430de06435177d09ad95628",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b3edd1a2b47b71d6436c7f93e11c744ac39b8ef67da45711e15d32c043f450b7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『仮の例：護岸の災害復旧』が正しく、護岸ブロックと七つの欄の図が内容に合い崩れが無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "link",
+          "inputSha256": "a94b96b26cd954fd9c5e7d5dc68f80e8e75488ef760905857741af6bdac49517",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『概要の次に書くこと』。 図に入れる文字: 『概要は欄で完結させる』 『記述欄は規模か工法を一文 字数は状況と課題へ』。 図の下、下端の字幕の帯より上に『サイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 工事概要を整えるのは、あとの記述のためです。設問の現場状況と課題は、二百字前後の一つの区画に収めます。だから、概要で書いた内容を繰り返さず、一段目は対象部分の規模か工法を一文で示すだけにして、字数は状況と課題に回します。設問の区画は、受検する年の問題で確かめてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-link.2179a35e.png",
+              "sha256": "2179a35e4b3522f433416f9dd32bba8a62721ed7d511fa2efdc1ff7e16f7ad98"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/link-diagram.da7ef0cd.png",
+            "sha256": "da7ef0cdc8daa237058930f6d5be2bfffd41b19c71b7dd7ccbf4bb0723879826",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2179a35e4b3522f433416f9dd32bba8a62721ed7d511fa2efdc1ff7e16f7ad98"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・二つの枠の文言・『サイト記事の整理』が指示と一字一句一致し、図の崩れが無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "a12966c75d07b67258337dd3db6ca3e5ebbeb5eaa5164e54590c9afebfc152cc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『略さず特定できる細かさで』 『発注者は直接の注文者』 『工期は年月日まで 立場は職務上』 『工種と施工量を対応』。 図の下、下端の字幕の帯より上に『本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。一、概要は七つの欄で、略さず特定できる細かさで書く。二、発注者名は、自社への直接の発注者を正式名称で。三、工期は自社の請負分を年月日まで、立場は職務上の立場。四、工種と施工量を対応させ、七つの欄が同じ工事を指すようにそろえる。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-recap.82ae7622.png",
+              "sha256": "82ae7622f4da62bd5ababbf33b2f0c07c421cde6167560f58d203ede828ea0e1"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/recap-diagram.f6e78216.png",
+            "sha256": "f6e78216df6e2d260b947f17f92f4dcd0f63ee381df530c648b3377823b7cb0b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "82ae7622f4da62bd5ababbf33b2f0c07c421cde6167560f58d203ede828ea0e1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・四つの枠の文言・『本動画の整理』が指示と一字一句一致し、図の崩れが無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "3dc4bc73ed4f28034926b08dfa81551cdcf59891a1eede5bc0138f4d5858d432",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『自分の工事に近い例を探す』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『想定工事から近いものを選ぶ』 『リンクは概要欄から』。 図の下、下端の字幕の帯より上に『概要欄のリンク』の全文を省かずに入れる。 この場面の説明（文字にしない）: 自分の現場に近い想定工事を選んで、五つの管理をどう書き分けるかを見たい人は、概要欄の完全攻略パックを確認してください。無料のサイト記事も、概要欄に載せています。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 31.5）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-cta.30d44871.png",
+              "sha256": "30d448718cb958742277c14aa147f1af5e32865068e29ff2deb7af40c1678293"
+            },
+            "generatedAt": "2026-11-11T03:20:25.238Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/cta-diagram.82b881a0.png",
+            "sha256": "82b881a0011f7d7fbab0b4bab8ebf8934213f3275512a11c22fa5cca63a164b4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "30d448718cb958742277c14aa147f1af5e32865068e29ff2deb7af40c1678293"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:20:25.238Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・『想定工事から近いものを選ぶ』『リンクは概要欄から』『概要欄のリンク』が一致し、価格・URLも無く崩れが無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}
