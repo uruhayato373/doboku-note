@@ -3144,6 +3144,12 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1132] agent-hooks の cdScopeViolation のテストが Windows でだけ落ちる
+タグ: [領域:管理] [種類:不具合] [起票:2026-11-11]
+
+tests/agent-hooks.test.mjs の「cdScopeViolation: worktree とプロジェクトの下の階層は止め、直下とリポジトリの外は通す」が Windows の手元で失敗する（2026-11-11・develop の本体でも pass 17 / fail 1。Linux の CI では通る）。フィクスチャが /Users/me/… の POSIX のパスで、scripts/lib/agent-hooks.mjs の cdScopeViolation が pathResolve（Windows ではドライブ文字つき）で解決するため。テストのパスを実行環境に合わせて組むか、判定を POSIX のパスで行う
+
+
 ### [DN-1129] E2E 導入設計の文書が e2e.yml と食い違う（実行順の節を消す）
 タグ: [領域:管理] [種類:改善] [起票:2026-11-11]
 
