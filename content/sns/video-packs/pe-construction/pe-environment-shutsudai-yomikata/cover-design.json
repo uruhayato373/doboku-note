@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 2,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-environment-shutsudai-yomikata/work/cover-pop.39fe928f.png",
+        "sha256": "39fe928fbff178be82af1a309cfd5863c3a7f107ffbdafdc1c1e3abca526e1ce",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "c9087145fa5826cec0d21497825152deba55345423be844385f06fca32c67daa"
+      }
     }
   }
 }
