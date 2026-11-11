@@ -225,7 +225,9 @@ function preflight() {
 function save() {
   const pack = requirePack();
   const exam = pack.split('/')[0];
-  const paths = [packDirOf(pack), ...['registry.works', 'registry.youtube'].map((id) => datasetPath(id, { name: `${exam}.json` }))].filter((p) => existsSync(join(ROOT, p)));
+  // 原稿が指す素材を Drive の台帳へ載せてから残す。載せずに commit すると check-media-references が赤になる（2026-11-11）
+  execFileSync('npm', ['run', '-s', 'media', '--', 'sync', '--work', pack, '--commit'], { cwd: ROOT, stdio: 'inherit' });
+  const paths = [packDirOf(pack), datasetPath('state.drive-manifest'), ...['registry.works', 'registry.youtube'].map((id) => datasetPath(id, { name: `${exam}.json` }))].filter((p) => existsSync(join(ROOT, p)));
   execFileSync('git', ['add', '--', ...paths], { cwd: ROOT, stdio: 'inherit' });
   const staged = spawnSync('git', ['diff', '--cached', '--quiet', '--', ...paths], { cwd: ROOT });
   if (staged.status === 0) { console.log(JSON.stringify({ pack, saved: false })); return; }
