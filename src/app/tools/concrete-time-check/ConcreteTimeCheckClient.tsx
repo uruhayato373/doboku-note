@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
  * コンクリート打込み 時間管理チェッカー（クライアント）。
@@ -132,7 +133,7 @@ export default function ConcreteTimeCheckClient() {
     "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
 
   return (
-    <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
+    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
       {/* 入力 */}
       <div className="card-surface-section p-5 sm:p-6">
         <div className="grid gap-4 sm:grid-cols-3">

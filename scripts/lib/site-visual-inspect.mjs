@@ -66,9 +66,24 @@ export function inspectLayoutInPage() {
       const tag = leaf.tagName;
       if ((tag === 'SPAN' || tag === 'DIV') && !hasOwnText(leaf)) continue;
       if (!isShown(leaf) || outOfFlow(leaf, el)) continue;
-      const r = leaf.getBoundingClientRect();
-      left = Math.min(left, r.left);
-      right = Math.max(right, r.right);
+      // 文字は文字そのものの端で測る（要素の箱で測ると、スマホ幅で画面いっぱいに広げる設問カードなど
+      // 意図した全幅の箱が「端が 0px」と出る・2026-11-11 の過去問ページ）。画像・入力欄・ボタンだけは箱で測り、
+      // 文字の無い段落・リンク（中身は子要素で測る）は測らない（空の <p> が全幅に出ていた）
+      const rects = [];
+      if (hasOwnText(leaf)) {
+        for (const node of leaf.childNodes) {
+          if (node.nodeType !== 3 || !node.textContent.trim()) continue;
+          const range = document.createRange();
+          range.selectNodeContents(node);
+          for (const t of range.getClientRects()) if (t.width >= 1) rects.push(t);
+        }
+      } else if (tag === 'IMG' || tag === 'INPUT' || tag === 'BUTTON') {
+        rects.push(leaf.getBoundingClientRect());
+      }
+      for (const r of rects) {
+        left = Math.min(left, r.left);
+        right = Math.max(right, r.right);
+      }
     }
     if (!Number.isFinite(left)) continue;
     const r = el.getBoundingClientRect();

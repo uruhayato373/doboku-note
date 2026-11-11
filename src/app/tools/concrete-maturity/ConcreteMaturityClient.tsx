@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
  * コンクリート 積算温度（マチュリティ）計算ツール（クライアント）。
@@ -44,7 +45,7 @@ export default function ConcreteMaturityClient() {
     "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
 
   return (
-    <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
+    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
       {/* 入力 */}
       <div className="card-surface-section p-5 sm:p-6">
         <div className="grid gap-4 sm:grid-cols-3">

@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { countAnswerChars } from "@/lib/keiken-charcount.mjs";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
  * 施工経験記述 文字数チェッカー（クライアント）。
@@ -116,7 +117,7 @@ export default function KeikenCharcountClient({ limits }: { limits: KeikenLimits
     "border-(--rule-soft) text-(--ink-body) hover:border-(--accent)";
 
   return (
-    <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
+    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
       {/* コントロール */}
       <div className="card-surface-section p-5 sm:p-6">
         <div className="flex flex-col gap-4">

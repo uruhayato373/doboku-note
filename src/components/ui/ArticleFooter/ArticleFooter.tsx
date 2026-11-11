@@ -211,7 +211,10 @@ export default function ArticleFooter({
 
       {/* 外部チャネル（ココナラ添削）CTA。施工経験記述・総監記述系の高適合ページのみ。
           note もくじ（フル教材）とは別種の「個別添削」「自作キット」導線として並置。listed 商品のみ描画。 */}
-      <OffsiteCta items={offsiteCta} />
+      {/* カード型でない区画なので、記事が画面いっぱいになるスマホ幅（≤576px）では記事と同じ余白を付ける（site-visual-review の DN-1109） */}
+      <div className="max-zenn-sp:px-(--article-gutter-sp)">
+        <OffsiteCta items={offsiteCta} />
+      </div>
 
       {/* Civil 2級 guide（キャリア記事）: 記事末 CTA なし（GKS はサイドバー上部に集約＝1 ページ 1 GKS ピクセル）。
           本文インライン CareerAffiliate（href のみ）は MDX 側で維持。 */}

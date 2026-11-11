@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
  * 溝掘削 法令チェッカー（クライアント）。
@@ -61,7 +62,7 @@ export default function TrenchLegalCheckClient() {
     "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
 
   return (
-    <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
+    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
       {/* 常設の警告 */}
       <div className="rounded-card-content border-l-4 border-(--color-danger) bg-(--bg) p-4 text-sm leading-6 text-(--ink-body)">
         労働安全衛生規則第361条は、地山の崩壊または土石の落下により労働者に危険を及ぼす<strong className="text-(--ink)">おそれがあるとき</strong>、深さにかかわらず土止め支保工の設置を義務づけています。

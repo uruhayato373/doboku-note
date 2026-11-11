@@ -40,6 +40,14 @@
       "pages": 1,
       "pass": 0,
       "fail": 1
+    },
+    {
+      "runId": "20261111T044200Z",
+      "at": "2026-11-11T04:51:37.785Z",
+      "base": "http://localhost:3020",
+      "pages": 4,
+      "pass": 4,
+      "fail": 0
     }
   ],
   "pages": {
@@ -224,52 +232,24 @@
       "ticket": null
     },
     "home": {
-      "layoutSha256": "f0dad4e83b12f6a6351913ac7b7a187878906523c098a5365b80aa13dc6027a0",
+      "layoutSha256": "3285f3db68f897d49efe45d663a3527c728789f0fac4592fb8c1485b29bd3959",
       "verdict": "pass",
-      "reviewedAt": "2026-11-11T01:01:30.138Z",
-      "runId": "20261111T005344Z",
+      "reviewedAt": "2026-11-11T04:51:37.762Z",
+      "runId": "20261111T044200Z",
       "path": "/",
       "findings": [
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "資格カードの 2 列が狭く、「1級土木施工管理技士」「2級土木施工管理技士」「コンクリート主任技士」などが最後の 1 文字（士・者）だけ次の行に折り返され、名前が読みにくい。",
+          "detail": "資格カードの題名が「1級土木施工管理技」「士」のように最後の1文字だけで折り返している。",
           "viewport": "w375",
           "shot": "w375-01.png"
         },
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "note 有料教材のバナー見出しが「土木・建設系資格」「の」「note 有料教材」と 3 行に割れ、「の」だけが 1 行になる。",
-          "viewport": "w640",
-          "shot": "w640-03.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "運営者の紹介文が 1 行 60 字前後まで伸び、文字も小さく薄いため行を追いにくい（w1280・w1440 でも同様で、1 行が約 1000px になる）。",
-          "viewport": "w1024",
-          "shot": "w1024-02.png"
-        },
-        {
-          "severity": "minor",
-          "type": "consistency",
-          "detail": "最初の画面のヒーロー画像の左端が四角い境目として見え、背景の白とつながらない（w1280・w1440 では境目がより目立つ）。",
-          "viewport": "w1024",
-          "shot": "w1024-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "「PRACTICE」「STANDARDS」「TOPICS」などの補助ラベルや運営者欄の見出しが 10px 前後で小さく、薄い灰色で読みにくい。",
+          "detail": "PRACTICE・STANDARDS・TOPICS のラベルが10pxで小さい。",
           "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "note 有料教材の導線がページの上から約 79%、ビルドジョブが約 85% の位置で、スマホ幅では運営者の長い紹介文を読み通した先にあり、そこまでに離れる読者が出る。",
-          "viewport": "w375",
-          "shot": "w375-03.png"
         }
       ],
       "deterministic": [],
@@ -345,67 +325,29 @@
       "ticket": null
     },
     "past-exam": {
-      "layoutSha256": "bf295ec478c13b854b0309225d80c1eb1adf513f6dc4b8c0e4e0e58d9fbc97b8",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-11T02:13:20.742Z",
-      "runId": "20261111T021035Z",
+      "layoutSha256": "1c7d16f26e9b136ce700399d46e09b14077c66d522cfa1ca231c76704fb72dec",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-11T04:51:37.762Z",
+      "runId": "20261111T044200Z",
       "path": "/exam/civil-construction-1/secondary/r06",
       "findings": [
         {
-          "severity": "major",
-          "type": "layout",
-          "detail": "スマホ幅で「この記事に関連するサービス」の見出し文字が画面左端に 0px で張り付き、ココナラの薄青の枠も画面の端から端まで伸びている。直前の教材カードや直後の「よくある質問」は左右 25px 内側にあり、区画の端が揃っていない（main-06 の左右余白 0px の edge と同じ）。",
-          "viewport": "w375",
-          "shot": "w375-cta-02.png"
-        },
-        {
           "severity": "minor",
           "type": "layout",
-          "detail": "本文の枠（main-01）は左右 0px の全幅だが、文字は 16px 内側に収まっていて画面の端に張り付いてはいない。ただし下の区画（25px 内側）とは端が揃わず段差が見える。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "w640 以上で「この記事に関連するサービス」のココナラ枠が幅の半分ほどしかなく、すぐ上下の全幅カードと幅が揃わず左に寄って見える（w768〜w1440 でも同様）。",
-          "viewport": "w640",
-          "shot": "w640-cta-02.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "w1280・w1440 で記事末の「1級土木 教材パック」画像が本文幅いっぱいにならず左寄りで右に空きができる。",
-          "viewport": "w1280",
-          "shot": "w1280-05.png"
+          "detail": "768px と 1440px でココナラの枠が本文幅の半分ほどで左に寄り、上のバナー（中央寄せ）や下の全幅の区画と幅・位置が揃っていない。",
+          "viewport": "w768",
+          "shot": "w768-cta-02.png"
         },
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "パンくず・更新日などの補助文字が 11px で小さく、スマホ幅では押せるリンクも 17〜27px 高と小さい。",
+          "detail": "パンくず・更新日などの補助文字が 11px と小さい。",
           "viewport": "w375",
           "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "1級土木の教材パックのバナーが記事上部・問題 7 の後・記事末に繰り返し出る。間隔は空いており読めなくはないが、同じ見た目の導線が多い。",
-          "shot": "w375-cta-01.png"
         }
       ],
-      "deterministic": [
-        {
-          "type": "edge",
-          "viewport": "w375",
-          "detail": "main-01「1級土木施工管理技士 › 第2次検定 令和6年度」の中身がヘッダーの端より外に出ている（左余白 0px・右余白 0px / ヘッダー 左 16px・右 16px）: article.bg-(--paper).border.border-(--rule-soft).rounded-card-section"
-        },
-        {
-          "type": "edge",
-          "viewport": "w375",
-          "detail": "main-06「この記事に関連するサービス ココナラ PR 過去」の中身がヘッダーの端より外に出ている（左余白 0px・右余白 0px / ヘッダー 左 16px・右 16px）: div.not-prose.mt-8"
-        }
-      ],
-      "ticket": "DN-1109"
+      "deterministic": [],
+      "ticket": null
     },
     "pillar": {
       "layoutSha256": "633d7648567aa43d2260588ee4e50fb0320a44934dea073ca1000caca9884ae0",
@@ -588,115 +530,54 @@
       "ticket": null
     },
     "tools": {
-      "layoutSha256": "33bb11e0a16ed93d8d874659683719ae1b0b09d9d3bf12d406891aadff998e81",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-11T01:01:30.138Z",
-      "runId": "20261111T005344Z",
+      "layoutSha256": "8670ddb71d46b8bbe9fb1670cc24facca0652d2d007aacdd734e9a2145b2c7e2",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-11T04:51:37.762Z",
+      "runId": "20261111T044200Z",
       "path": "/tools/keiken-charcount",
       "findings": [
         {
-          "severity": "major",
-          "type": "layout",
-          "detail": "ページ見出し・パンくず・説明（左端 132px）が、すぐ下の入力カード（左端 156px）より左に 24px はみ出し、区画の左端が揃っていない。w1280（260px と 284px）・w1440（340px と 364px）でも同じ 24px のずれが出る。",
-          "viewport": "w1024",
-          "shot": "w1024-01.png"
-        },
-        {
           "severity": "minor",
           "type": "layout",
-          "detail": "ココナラの添削の案内が 2 列の格子の左半分だけを占め、右半分が空いたまま次の区画へ続く（w768 以上も同様）。隣のカード行と幅が合わない。",
-          "viewport": "w640",
-          "shot": "w640-02.png"
+          "detail": "ココナラの導線カードが半分の幅で、右側に空きが残る（w1440でも同様）。",
+          "viewport": "w768",
+          "shot": "w768-02.png"
         },
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "ページ見出し「施工経験記述 文字数チェッカー」が最後の 1 文字（ー）だけ次の行に折り返される。",
+          "detail": "題名「施工経験記述 文字数チェッカー」の最後の行が「ー」1文字になる。",
           "viewport": "w375",
           "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "パンくず・「無料ツール」のラベルが 11px、入力欄の案内文が薄い灰色で、読みにくい。",
-          "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "note の完成答案集・ココナラ・ビルドジョブの導線がページ下部（上から約 65〜72% 以降）にまとまり、スマホ幅では字数チェックの下の長い解説を読み切るまで見えない。",
-          "viewport": "w375",
-          "shot": "w375-02.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1108"
+      "ticket": null
     },
     "topics": {
-      "layoutSha256": "a851cf1888eeaf9ac2550934e23c619eacaedf0d95e433f7748883deed1088f4",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-11T01:01:30.138Z",
-      "runId": "20261111T005344Z",
+      "layoutSha256": "60e7ff68d6ff41c199b8b0ca92fa876a098dc465433715398e05a07254dc1b6f",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-11T04:51:37.762Z",
+      "runId": "20261111T044200Z",
       "path": "/topics/safety-laws",
       "findings": [
         {
-          "severity": "major",
-          "type": "layout",
-          "detail": "ページ末尾の PR 導線（ビルドジョブ）の箱が 760px 幅で左に寄り、右が約 184px 空いて、上の「関連するテーマ」カード列や下のフッターの右端（944px）と揃っていない。",
-          "viewport": "w1024",
-          "shot": "w1024-06.png"
-        },
-        {
-          "severity": "major",
-          "type": "layout",
-          "detail": "末尾の PR 導線の箱が 760px 幅で左寄せのまま、同じ区画の他の部品（1200px 幅のカード列・フッター）の右端と 440px ずれ、右側が大きく空いて見える。",
-          "viewport": "w1280",
-          "shot": "w1280-06.png"
-        },
-        {
-          "severity": "major",
-          "type": "layout",
-          "detail": "末尾の PR 導線の箱が 760px 幅で左寄せで、1200px 幅の「関連するテーマ」カード列・フッターの右端と 440px ずれ、右半分が空白になる。",
-          "viewport": "w1440",
-          "shot": "w1440-06.png"
-        },
-        {
-          "severity": "minor",
-          "type": "hierarchy",
-          "detail": "「法令と分野の対応」が約 6000px（スマホ幅で約 6900px）続く法令の羅列で、その後ろの「関連する公的基準・マニュアル」「関連するテーマ」と PR 導線までたどり着きにくい。",
-          "shot": "w640-04.png"
-        },
-        {
           "severity": "minor",
           "type": "cta",
-          "detail": "商品導線は PR 導線 1 つだけでページの下端（depthPct 93〜96%）にあり、スマホ幅では 15,000px 近く読み進めないと出会えない。",
+          "detail": "ビルドジョブの PR 枠がページ末尾（深さ 96%）にあり、長い法令一覧を読み切った人にしか届かない。PR 表記と導線自体は見えている。",
           "viewport": "w375",
           "shot": "w375-06.png"
         },
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "パンくず・件数表記が 11px 前後で小さく、「法令（25件）→」などの下線リンクが折り返して行ごとに長さがばらつき、押す範囲も小さい（押せる要素 163 箇所が 32px 未満）。",
+          "detail": "パンくずが 11px と小さく薄い。補助の文字のため読者は困らない。",
           "viewport": "w375",
           "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "consistency",
-          "detail": "フッター下段の「© 2026 doboku-note」が右端に揃わず中途半端な位置に浮いている（w1024 以上でも同様）。",
-          "viewport": "w768",
-          "shot": "w768-06.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "長い法令名で「e-Gov ／ 記事 3件」が折り返し、「記事 3」と「件」が別の行に分かれる箇所がある。",
-          "viewport": "w375",
-          "shot": "w375-05.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1107"
+      "ticket": null
     }
   }
 }
