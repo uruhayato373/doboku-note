@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-koji-gaiyo-kakikata",
+  "exam": "civil-construction-2",
+  "title": "工事概要の書き方｜具体さと本文との整合",
+  "audience": "2級土木の施工経験記述で、工事概要を書いたものの、具体さが足りているか、本文と合っているか分からない受検者",
+  "pain": "施工経験記述の工事概要は埋めたが、採点者に現場が伝わる具体さか、本文と食い違っていないかが分からない",
+  "promise": "工事概要の各項目を、特定できる具体さと本文との整合の2点で見直せる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jctc.jp/exam/guide/dbk-2/",
+      "title": "全国建設研修センター 2級土木施工管理技術検定のご案内・受検の手引"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "keiken-koji-gaiyo-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
