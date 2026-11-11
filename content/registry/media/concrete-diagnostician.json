@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 1,
+  "scope": "concrete-diagnostician",
+  "media": [
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "0fced9c063234cfff7ea816e097e1fb68be6f16a4476ad20046ef1463bc89b05",
+      "bytes": 729532,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/cover.0fced9c0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #6E3A8C と濃色 #522A69、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『診断士』『問題Bの』『書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "43fac26d5ce353defdac64ff9478c51eec7783a7646f73e77596b2cac282946d",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/work/cover-pop.0fced9c0.png"
+      ]
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "0fced9c063234cfff7ea816e097e1fb68be6f16a4476ad20046ef1463bc89b05",
+      "bytes": 729532,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-001.0fced9c0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #6E3A8C と濃色 #522A69、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『診断士』『問題Bの』『書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "43fac26d5ce353defdac64ff9478c51eec7783a7646f73e77596b2cac282946d",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "6e4ae4de5b492e45d9160a660137bf72eb66dfbaf814ac0cf129b1eed4309bf8",
+      "bytes": 1655460,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-002.6e4ae4de.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日整理する4つ』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『1題の選び方』 『変状から対策への一本道』 『構成メモの手順』 『対策の目的の置き方』。 図の下、下端の字幕の帯より上に『本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 劣化した構造物の写真を前にして、原因から対策へどうつなげるか手が止まる。今日はコンクリート診断士の記述式を、題の選び方、一本道の骨格、構成メモ、対策の目的の置き方の順に整理します。",
+        "promptSha256": "d6cd356afa9fab0533615f7ac40aadf1de2283b8e3a7393878a696122f5d3b0b",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "d097443c5c80c42272fd1de9b1fe85a9902651b447622cf952e0ef5b7cd203c8",
+      "bytes": 1812799,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-003.d097443c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『記述式の形式』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『構造物の診断に関する問題』 『建築物・土木構造物から1題を選ぶ』 『問題Aは2018年度で廃止』 『字数・配点は受検年度の公式情報で確認』。 図の下、下端の字幕の帯より上に『受検年度の公式情報を確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず形式です。記述式は2019年度から、構造物の診断に関する問題だけになりました。建築物と土木構造物の問題から1つを選びます。問題Aは2018年度で廃止されたので、古い教材では、問題Aの対策に時間を使いません。字数や配点は、受検年度の公式情報で確認してください。",
+        "promptSha256": "d2200c7ee6ecaac2d3d4adb9e02cdfe61def4c100c2f7b509b11528e17756b73",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "9bc93d7e205d32c5cd8b553240ac8f340bb9970586e8ea0ab3b91cd182e69ca1",
+      "bytes": 1318638,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-004.9bc93d7e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『題を選ぶ基準』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『題の選び方はサイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: どちらの題を選ぶか。日頃扱う構造物だけで決めないでください。決め手は、問題文の写真、図、数値だけで、劣化機構を絞り込めるかどうかです。得意な分野でも、情報が乏しければ根拠が書けません。択一を終えたら最初に両題を見比べ、そこで選ぶ題を固定します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 25.0）",
+        "promptSha256": "ebe23fd32c83989e5d9087a29a65bba2fba5c43fe85126fda825b6c435e1e74c",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "72a69f163f538a9766f20583a0e7221b75152b9b04ef5c0bad1e560f6575a176",
+      "bytes": 1913358,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-005.72a69f16.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『答案の一本道』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『1 変状の把握』 『2 劣化機構の推定』 『3 必要な調査の選定』 『4 診断・健全度の評価』 『5 対策の提案』 『6 留意点』。 図の下、下端の字幕の帯より上に『流れは記述式対策ガイドの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 答案の骨格は、一本道で考えます。変状の把握、劣化機構の推定、必要な調査の選定、診断と健全度の評価、対策の提案、最後に留意点。設問の問い方が変わっても、この流れを崩さなければ論旨を保てます。調査を飛ばして対策だけ書く答案は、大きく減点されます。",
+        "promptSha256": "286a2434ae7228952793a0fdfff58189ec4e779c1d131c2562e30d850810b1c9",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "d45a198fee25b4624238322260cf2832a8c96c97f2e8deb2b10b24cbd33147ed",
+      "bytes": 1883754,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-006.d45a198f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『問題文を根拠に変える』。 構図: 左の問いから右の行動へ矢印で結ぶ対応図。 図に入れる文字: 『写真：向き・位置・広がりを所見の言葉に』 『図：寸法・配筋から部位を特定』 『数値：単位まで写して比較に使う』。 図の下、下端の字幕の帯より上に『素材の使い方はサイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 問題文の素材は、答案の根拠に変えます。写真は、ひび割れの向きや錆汁の位置を所見の言葉に直します。図は、寸法や配筋から、どの部位の話かを特定します。数値は単位まで正確に写し、基準との比較に使います。推定を書くときは、根拠が問題文のどこかを示します。",
+        "promptSha256": "b69482eb21b811c2faaa9b77037c7ac2bbbdee05068d44e9f2850a8bebcb8ffe",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "9b11e805cc0ec66932c3269c3045fab0bf8ce0726e0c46769be0b8a91d2a9274",
+      "bytes": 1913139,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-007.9b11e805.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『構成メモの4手順』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『拾う：構造物・環境・調査値・設問の動詞』 『補う：無い情報は調査の欄へ』 『枠を切る：結論1行・根拠1〜2点・字数』 『順を決める：依存の向きに合わせる』。 図の下、下端の字幕の帯より上に『手順はサイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 書き出す前に、構成メモをつくります。手順は四つ。問題文から構造物、環境、調査値、設問の動詞を拾う。無い情報は調査の欄に回して補う。設問ごとに結論を一行、根拠を一、二点、字数の目安を書く。前の答えを後の設問が使うなら、その向きで順を決める。迷う設問は結論を仮置きして先へ進みます。",
+        "promptSha256": "e3ba568822a80fa3ac319dc2832290b1e6d8e6f013fa6d521e2bfc722b43aace",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "87a61a0f7b662894f60b5b9b431495744e620a83791b72037ad35866ca24f820",
+      "bytes": 1728537,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-008.87a61a0f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『所見から目的へ』。 図に入れる文字: 『耐荷力の低下が疑われる：安全性』 『劣化が進み続けている：耐久性』 『落下の恐れ：第三者への影響』 『設問が問うた性能を先に置く』。 図の下、下端の字幕の帯より上に『性能の整理はサイト記事に基づく』の全文を省かずに入れる。 この場面の説明（文字にしない）: 対策の設問では、所見から損なわれている性能を判定し、その性能から対策の目的を決めます。耐荷力の低下が疑われるなら、安全性。劣化が進み続けているなら、耐久性。落下の恐れがあるなら、第三者への影響です。一つの所見が複数の性能にかかわるときは、設問が問うた性能を先に置きます。",
+        "promptSha256": "bee88f49eae8891e3fd7f1d01d7eeef8fe4e9951771095c72be50221c376c034",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "31e79530292d28d24c63efa8f95028a4921f31baf7d14f47419399f714517d51",
+      "bytes": 1971227,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-009.31e79530.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『時間と字数の考え方』。 図に入れる文字: 『メモの段階で設問ごとの字数を切る』 『対策の行数を先に確保する』 『見直しは調査と対策の整合・誤字』 『試験時間は受検年度の公式情報で確認』。 図の下、下端の字幕の帯より上に『2026年度の案内に基づく例』の全文を省かずに入れる。 この場面の説明（文字にしない）: 時間の使い方も決めておきます。2026年度の案内では試験時間は3時間で、択一と記述式を合わせて収めます。最後の設問に字数が残らない失敗は、書き出す前にほぼ決まります。メモの段階で設問ごとの字数の目安を切り、対策に最低限の行数を確保します。見直しでは、調査と対策のちぐはぐと誤字を拾います。年度ごとの時間は公式情報で確認してください。",
+        "promptSha256": "913f74bf3db74f443d458746fd539becc48d390e380eb9dd07309b24997efb5b",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "05e19c4337e742edaf2eea925d30909ac77027496658a07e5fe750cad3523679",
+      "bytes": 1775414,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-010.05e19c43.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『題：機構を絞れるかで選ぶ』 『骨格：変状から留意点まで一本道』 『メモ：問題文から拾って枠を切る』 『対策：性能から目的を決める』。 図の下、下端の字幕の帯より上に『公式の採点基準ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。題は、問題文だけで機構を絞れるかで選ぶ。骨格は変状から留意点までの一本道。書く前に、問題文から構成メモをつくる。対策は、損なわれている性能から目的を決める。この順序は、この動画の整理で、公式の採点基準ではありません。 前回の不合格の理由を直す: 文字: 各枠に指示にない丸数字1〜4が付き『1.』と二重表記になっている。破綻: 左端の枠と右端の枠が画像の端で切れ、安全域も守れていない。他の文字は一致",
+        "promptSha256": "1c0fa5bbf61ae59b971971b6f4dd41a1b82455ca1914d159b7170481af606d52",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "25b8dc2118bef8694179c19591c225bed768cb2905037fbc9097c5b9f9b106cb",
+      "bytes": 1544518,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-011.25b8dc21.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #6E3A8C と濃色 #522A69の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書き方の次は、練習』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『診断士 択一・記述式 まるごとパック』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 書き方の次は、実際の設問での練習です。択一と記述式をまとめたパックがnoteにあります。この動画は型までで、答案の全文は含みません。収録内容は、概要欄から確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 39.7）",
+        "promptSha256": "4b274f833d33ea410b6b386dfef277941839337275f0dd37fcaf2169777c174a",
+        "generatedAt": "2026-11-11T03:29:26.115Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "d9ae5c29273d867056c63d9f870612c6db46a8e01a61363aecbf26f65c919b86",
+      "bytes": 7219,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/subtitles.d9ae5c29.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-diagnostician/cd-mondai-b-kakikata/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "c147d4f1019044444eaae96475ec6acc44c1579be478095b5237d127bd710db4",
+      "bytes": 25719695,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/video.c147d4f1.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-diagnostician/cd-mondai-b-kakikata/storyboard.json",
+        "specSha256": "6ec02d361b637c26551897ce274cc6ec2a6554243fd435e302017c84e9f0eb2f",
+        "renderInputSha256": "5a13e3390143cbd8d1f14f816fc1e56036444b2c2e18b82b790fe92b75168919",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 223.1
+    }
+  ]
+}

@@ -891,6 +891,17 @@
         "expected": 1362,
         "heard": 1319
       }
+    },
+    "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform": {
+      "videoSha256": "c147d4f1019044444eaae96475ec6acc44c1579be478095b5237d127bd710db4",
+      "at": "2026-11-11T04:23:38.662Z",
+      "similarity": 0.937,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1254,
+        "heard": 1206
+      }
     }
   }
 }

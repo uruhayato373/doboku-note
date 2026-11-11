@@ -24,7 +24,8 @@
         "scene-011": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/scene-011",
         "video": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/video",
         "subtitles": "concrete-diagnostician/cd-mondai-b-kakikata/youtube.longform/subtitles"
-      }
+      },
+      "copy": "content/sns/video-packs/concrete-diagnostician/cd-mondai-b-kakikata/youtube.json#longform"
     }
   ]
 }
