@@ -524,6 +524,20 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1109] past-exam（/exam/civil-construction-1/secondary/r06）が画面の点検で不合格（edge・layout）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-11]
+
+**起点**: 2026-11-11 の画面の点検（`npm run site-visual-review`・作業票 20261111T021035Z）で、past-exam（/exam/civil-construction-1/secondary/r06）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude\state\quality\site-visual-review.json。
+
+- 機械 [w375] edge: main-01「1級土木施工管理技士 › 第2次検定 令和6年度」の中身がヘッダーの端より外に出ている（左余白 0px・右余白 0px / ヘッダー 左 16px・右 16px）: article.bg-(--paper).border.border-(--rule-soft).rounded-card-section
+- 機械 [w375] edge: main-06「この記事に関連するサービス ココナラ PR 過去」の中身がヘッダーの端より外に出ている（左余白 0px・右余白 0px / ヘッダー 左 16px・右 16px）: div.not-prose.mt-8
+- layout [w375]: スマホ幅で「この記事に関連するサービス」の見出し文字が画面左端に 0px で張り付き、ココナラの薄青の枠も画面の端から端まで伸びている。直前の教材カードや直後の「よくある質問」は左右 25px 内側にあり、区画の端が揃っていない（main-06 の左右余白 0px の edge と同じ）。（w375-cta-02.png）
+
+**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
+
+**完了条件**: `npm run site-visual-review -- prepare --keys past-exam` で撮り直して判定し、record で pass と台帳に記録される。
+
+
 ### [DN-1108] tools（/tools/keiken-charcount）が画面の点検で不合格（layout）
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-11]
 
