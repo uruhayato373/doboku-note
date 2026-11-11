@@ -31,7 +31,11 @@ const longformSlot = z.object({
   anchors: z.array(z.string().min(1)).min(1).describe('台帳 config.exam-calendar の events・periods のキー。日付は写さない'),
   primaryCta: z.object({ kind: z.enum(['note-magazine', 'coconala-service', 'site-article', 'links-hub']), targets: z.array(z.string().min(1)) }).strict(),
   count: z.number().int().positive().describe('この枠で公開してよい本数の上限'),
-  shorts: z.object({ count: z.number().int().positive().describe('この枠の通常動画を親にするショートの上限'), note: z.string().min(1).optional() }).strict().optional().describe('枠のショート。無ければこの枠の親からショートを作らない'),
+  shorts: z.object({
+    count: z.number().int().positive().describe('この枠の通常動画を親にするショートの上限'),
+    types: z.array(z.string().regex(/^[a-z0-9-]+$/)).min(1).optional().describe('この枠で使うショートの型（台帳 config.youtube-shorts-formats の types の id）'),
+    note: z.string().min(1).optional(),
+  }).strict().optional().describe('枠のショート。無ければこの枠の親からショートを作らない'),
   stance: z.string().min(1).describe('取る立ち位置。台帳 config.competitor-positions の stances の id'),
   materials: slotMaterials,
   reuse: z.enum(['stock', 'revise', 'bundle', 'new']).describe('stock＝完成済み・revise＝既存を改訂・bundle＝既存パックを束ねる・new＝新規'),
@@ -120,6 +124,7 @@ export const ConfigChannelAnnualPlan = z.object({
   reviewRule: z.string().min(1),
   shortsRule: z.object({
     parentStatus: z.array(z.enum(['published', 'scheduled'])).min(1).describe('親の通常動画がこの状態になってからショートを作る（通常動画の展開に合わせる）'),
+    stockParentStatus: z.array(z.enum(['qa_passed', 'approved', 'scheduled', 'published'])).min(1).optional().describe('ショートを在庫まで作ってよい親の状態。公開は parentStatus に進んでから（2026-11-11）'),
     perLongform: z.number().int().positive().describe('通常動画 1 本を親にするショートの上限'),
     trial: z.object({
       max: z.number().int().positive().describe('枠にショートの割り当てが無い親から作るショートの合計の上限'),

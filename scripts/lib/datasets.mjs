@@ -163,6 +163,7 @@ export const DATASETS = [
   d('config.youtube-delivery', 'config/youtube-delivery.json', 'config', 'sns', 'YouTube 配信の設定', { schema: 'ConfigYoutubeDelivery' }),
   d('config.youtube-production-disclosure', 'config/youtube-production-disclosure.json', 'config', 'sns', 'YouTube の制作の開示（合成メディア）', { schema: 'ConfigYoutubeProductionDisclosure' }),
   d('config.youtube-formats', 'config/youtube-formats.json', 'config', 'sns', 'YouTube の動画の型と採否（商品展開）・自社チャンネル', { schema: 'ConfigYoutubeFormats' }),
+  d('config.youtube-shorts-formats', 'config/youtube-shorts-formats.json', 'config', 'sns', 'YouTube ショートの型と、表紙・題名・冒頭のコピーで使ってよい線', { schema: 'ConfigYoutubeShortsFormats' }),
   d('config.video-auto-publish', 'config/video-auto-publish.json', 'config', 'sns', '通常動画を人の承認なしで予約へ進める方針と関門の閾値', { schema: 'ConfigVideoAutoPublish' }),
   d('config.content-registry', 'config/content-registry.json', 'config', 'sns', 'コンテンツ台帳の設定（チャネル×形式・ID 規則・状態の語彙と遷移・切り替え済みのチャネル）', { schema: 'ConfigContentRegistry' }),
   // コンテンツ台帳（content/registry）。資格ごとの 1 ファイル。設計は content-registry.md

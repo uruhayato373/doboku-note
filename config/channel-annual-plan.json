@@ -61,6 +61,12 @@
       "published",
       "scheduled"
     ],
+    "stockParentStatus": [
+      "qa_passed",
+      "approved",
+      "scheduled",
+      "published"
+    ],
     "perLongform": 2,
     "trial": {
       "max": 6,
@@ -1948,7 +1954,11 @@
         "next": "書き分けの動画が検索から再生されるかを見る"
       },
       "shorts": {
-        "count": 5
+        "count": 5,
+        "types": [
+          "myth-buster",
+          "n-check"
+        ]
       }
     },
     {
@@ -1995,7 +2005,11 @@
         "next": "3 か月後に総監の平均視聴率を他資格と比べる"
       },
       "shorts": {
-        "count": 5
+        "count": 5,
+        "types": [
+          "myth-buster",
+          "n-check"
+        ]
       }
     },
     {
@@ -2163,7 +2177,12 @@
         "next": "動画の公開後に該当商品の販売が動くかを note の販売記録で見る"
       },
       "shorts": {
-        "count": 10
+        "count": 10,
+        "types": [
+          "one-question",
+          "myth-buster",
+          "before-after"
+        ]
       }
     },
     {
@@ -2398,7 +2417,11 @@
         "next": "科目ごとにマガジンの販売が動くかを note の販売記録で見る"
       },
       "shorts": {
-        "count": 8
+        "count": 8,
+        "types": [
+          "one-question",
+          "myth-buster"
+        ]
       }
     },
     {
@@ -2442,7 +2465,12 @@
         "next": "必須マガジンの販売と動画の公開を比べる"
       },
       "shorts": {
-        "count": 7
+        "count": 7,
+        "types": [
+          "n-check",
+          "before-after",
+          "one-line-conclusion"
+        ]
       }
     },
     {
@@ -2611,7 +2639,11 @@
         "next": "最初の 1 本で平均視聴時間を見て残りを決める"
       },
       "shorts": {
-        "count": 5
+        "count": 5,
+        "types": [
+          "one-line-conclusion",
+          "n-check"
+        ]
       }
     },
     {
@@ -2821,7 +2853,12 @@
         "next": "再生ではなくココナラと note への遷移で判断する"
       },
       "shorts": {
-        "count": 10
+        "count": 10,
+        "types": [
+          "before-after",
+          "myth-buster",
+          "n-check"
+        ]
       }
     },
     {
@@ -2949,6 +2986,10 @@
       },
       "shorts": {
         "count": 5,
+        "types": [
+          "before-after",
+          "n-check"
+        ],
         "note": "2級土木は図解主体。shorts-factory の POP 工程の対象外なので、作るときは diagram-led の経路を足す"
       }
     },
@@ -2993,7 +3034,11 @@
         "next": "2026 年の 28 日の視聴維持を見る"
       },
       "shorts": {
-        "count": 3
+        "count": 3,
+        "types": [
+          "myth-buster",
+          "one-line-conclusion"
+        ]
       }
     },
     {
@@ -3037,7 +3082,11 @@
         "next": "検索からの再生を見る"
       },
       "shorts": {
-        "count": 2
+        "count": 2,
+        "types": [
+          "one-question",
+          "n-check"
+        ]
       }
     },
     {

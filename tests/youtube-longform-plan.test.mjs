@@ -211,7 +211,10 @@ test('ショートの決まり: 親が公開・予約に進んでから、1 本�
   assert.deepEqual(ok.errors, []);
   assert.equal(ok.trial, 3);
   assert.deepEqual(ok.fill, { a: 1 });
-  assert.match(shortsSlotFill(plan, [{ pack: 'x/draft', key: 'k1' }], pubs).errors.join(), /公開・予約されていない/);
+  assert.match(shortsSlotFill(plan, [{ pack: 'x/draft', key: 'k1' }], pubs).errors.join(), /在庫に進んでいない/);
+  // 在庫まで作ってよい親の状態（stockParentStatus）を決めれば、内容QAの合格の親から在庫を作れる（公開は liveParents が止める・2026-11-11）
+  const stockPlan = { ...plan, shortsRule: { ...plan.shortsRule, stockParentStatus: ['qa_passed', 'approved', 'scheduled', 'published'] } };
+  assert.deepEqual(shortsSlotFill(stockPlan, [{ pack: 'x/draft', key: 'k1' }], pubs).errors, []);
   assert.match(shortsSlotFill(plan, [1, 2, 3].map((n) => ({ pack: 'x/live', key: `k${n}` })), pubs).errors.join(), /1 本あたりのショートの超過/);
   assert.match(shortsSlotFill(plan, [{ pack: 'x/live', key: 'k1' }, { pack: 'x/live', key: 'k2' }, { pack: 'x/rev', key: 'k1' }, { pack: 'x/rev', key: 'k2' }], pubs).errors.join(), /試行の超過/);
   assert.match(shortsSlotFill(plan, [{ pack: 'x/slotted', key: 'k1' }, { pack: 'x/slotted', key: 'k2' }], pubs).errors.join(), /枠の超過/);

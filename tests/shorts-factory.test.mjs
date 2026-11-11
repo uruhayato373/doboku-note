@@ -35,7 +35,7 @@ test('論点ごとの語りは台本の場面と一致しなければ止める',
 
 test('字幕は大きな文字で、切り分けても音声の時間を超えない', () => {
   const ass = buildAss([{ text: '水セメント比W/Cとセメント水比C/Wを逆にしない。', start: 1, duration: 4 }]);
-  assert.match(ass, /Noto Sans JP,74,/);
+  assert.match(ass, /Noto Sans JP,80,/);
   const ends = [...ass.matchAll(/Dialogue: 0,[^,]+,0:00:(\d+\.\d+)/g)].map((m) => Number(m[1]));
   assert.ok(ends.length >= 2);
   assert.equal(ends.at(-1), 5);
@@ -66,4 +66,22 @@ test('クラウドの同期を待って照合し直し、通らなければ止�
   await verifyInCloud('.', 'a/b', { wait: async () => {}, verify: () => { calls += 1; if (calls < 3) throw new Error('未同期'); } });
   assert.equal(calls, 3);
   await assert.rejects(verifyInCloud('.', 'a/b', { wait: async () => {}, verify: () => { throw new Error('未同期'); } }), /手元は消していない/);
+});
+
+test('型の台帳とコピーの技法で台本を止める（2026-11-11）', async () => {
+  const { typeProblems, narrationProblems } = await import('../scripts/lib/shorts-factory.mjs');
+  const formats = { rules: { hookMaxChars: 40 }, types: [{ id: 'before-after', label: 'ビフォーアフター', beats: { min: 2, max: 3 } }, { id: 'n-check', label: 'N 点チェック', beats: { min: 2, max: 4 } }], copy: [{ id: 'assertion' }, { id: 'odd-number' }, { id: 'barnum' }] };
+  const ctx = { formats, slotTypes: ['before-after'], sceneIds: new Set(['s1', 's2']) };
+  const good = { type: 'before-after', copy: ['barnum'], hook: '工事概要と本文がずれていませんか。', beats: [{}, {}], cta: '残りの直し方は本編で。' };
+  assert.deepEqual(typeProblems(good, ctx), []);
+  assert.match(typeProblems({ ...good, type: undefined }, ctx).join(), /type が無い/);
+  assert.match(typeProblems({ ...good, type: 'n-check' }, ctx).join(), /この枠で使わない/);
+  assert.match(typeProblems({ ...good, beats: [{}, {}, {}, {}] }, ctx).join(), /2〜3 個/);
+  assert.match(typeProblems({ ...good, copy: ['assertion', 'odd-number', 'barnum'] }, ctx).join(), /2 つまで/);
+  assert.match(typeProblems({ ...good, copy: ['fear'] }, ctx).join(), /台帳に無い/);
+  assert.match(typeProblems({ ...good, cta: '詳しい解説は関連動画へ。' }, ctx).join(), /本編/);
+  // 書き直した語りは台本の場面 id を出典に持つ
+  const scene = { narration: '元の語り。' };
+  assert.deepEqual(narrationProblems({ hook: '問い', sources: ['s1'], beats: [{ narration: '書き直した語り。' }] }, scene, ctx), []);
+  assert.match(narrationProblems({ hook: '問い', sources: ['x9'], beats: [{ narration: '書き直した語り。' }] }, scene, ctx).join(), /台本に無い場面/);
 });

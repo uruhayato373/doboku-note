@@ -36,8 +36,8 @@ export const MAX_SECONDS = 60;
 const rules = loadImageRules();
 const { width: W, height: H, minWidth: MIN_WIDTH, bottomZone: BOTTOM_ZONE, frame: FRAME, bodyFrame: BODY_FRAME } = rules.formats.shorts;
 const BOTTOM_STDEV_MIN = 3;
-const SUBTITLE_SIZE = 74;
-const SUBTITLE_CHARS = 14;
+const SUBTITLE_SIZE = 80; // 74 では小さかった（2026-11-11・画面確認）。11 字×80px で左右の余白の内側に 1 行で収める
+const SUBTITLE_CHARS = 11;
 const SUBTITLE_MARGIN = 420; // 操作ボタンと重ならない高さ（動画ポリシーの Shorts の字幕位置）
 const SPEAKER = 13;
 const BANS = rules.textRule;
@@ -77,18 +77,51 @@ function packContext(root, pack, key) {
 /** 台本の版。監査の記録を除いた中身の sha で、書き換えると監査は無効になる */
 export const designDigest = ({ qa, ...design }) => inputOf(design);
 
-/** 語りの切り方の検査。論点ごとの語りをつなぐと承認済みの台本の場面に一致すること。 */
-export function narrationProblems(design, scene) {
+/**
+ * 語りの切り方の検査。sources が無ければ、論点ごとの語りをつなぐと承認済みの台本の場面に一致すること。
+ * sources（台本の場面 id）があればショート用に書き直した語りで、事実が台本のその場面の中にあるかは台本の監査が見る（2026-11-11）
+ */
+export function narrationProblems(design, scene, ctx = null) {
   const issues = [];
   if (!String(design.hook ?? '').trim()) issues.push('hook が無い');
   if (!Array.isArray(design.beats) || !design.beats.length) issues.push('beats が空');
-  else if (words(design.beats.map((b) => b.narration).join('')) !== words(scene.narration)) issues.push('beats の語りが台本の場面と一致しない');
+  else if (design.sources !== undefined) {
+    if (!Array.isArray(design.sources) || !design.sources.length) issues.push('sources は台本の場面 id の配列');
+    else if (ctx) for (const id of design.sources.filter((x) => !ctx.sceneIds.has(x))) issues.push(`sources: 台本に無い場面 ${id}`);
+  } else if (words(design.beats.map((b) => b.narration).join('')) !== words(scene.narration)) issues.push('beats の語りが台本の場面と一致しない');
   return issues;
 }
 
-/** 画像の生成前に止める台本の機械検査。語りの一致に加え、1 本に載せられる形かを見る */
-export function designProblems(design, scene) {
-  const issues = narrationProblems(design, scene);
+/** 型の台帳（config.youtube-shorts-formats）と、親の枠で使える型。設計の検査に渡す */
+export function designContext(root, pack, board) {
+  const plan = readDataset(root, 'config.channel-annual-plan');
+  const entry = plan.entries.find((e) => e.publicationId === `${pack}/youtube.longform` && e.action !== 'reuse');
+  const slot = plan.slots.find((s) => s.id === entry?.slot);
+  return { formats: readDataset(root, 'config.youtube-shorts-formats'), slotTypes: slot?.shorts?.types ?? null, sceneIds: new Set(board.scenes.map((s) => s.sceneId)) };
+}
+
+/** 型とコピーの技法の検査（2026-11-11・運営者の決定）。型は枠で使えるものだけ、技法は 2 つまで、締めは本編で分かることを言う */
+export function typeProblems(design, ctx) {
+  const issues = [];
+  const type = ctx.formats.types.find((t) => t.id === design.type);
+  if (!design.type) issues.push('type が無い（台帳 config.youtube-shorts-formats の型）');
+  else if (!type) issues.push(`type が台帳に無い: ${design.type}`);
+  else {
+    if (ctx.slotTypes && !ctx.slotTypes.includes(type.id)) issues.push(`type ${type.id} はこの枠で使わない（枠の型: ${ctx.slotTypes.join('・')}）`);
+    const n = design.beats?.length ?? 0;
+    if (n < type.beats.min || n > type.beats.max) issues.push(`${type.label} の beats は ${type.beats.min}〜${type.beats.max} 個`);
+  }
+  const copy = design.copy ?? [];
+  if (!Array.isArray(copy) || copy.length > 2) issues.push('copy はコピーの技法の id の配列で 2 つまで');
+  else for (const id of copy.filter((x) => !ctx.formats.copy.some((c) => c.id === x))) issues.push(`copy が台帳に無い: ${id}`);
+  if ([...String(design.hook ?? '')].length > ctx.formats.rules.hookMaxChars) issues.push(`hook が ${ctx.formats.rules.hookMaxChars} 字を超える`);
+  if (design.cta !== undefined && !String(design.cta).includes('本編')) issues.push('cta は本編で何が分かるかを言う（例: 残りの 2 つは本編で）');
+  return issues;
+}
+
+/** 画像の生成前に止める台本の機械検査。語りの一致に加え、1 本に載せられる形かを見る。ctx があれば型も見る */
+export function designProblems(design, scene, ctx = null) {
+  const issues = [...narrationProblems(design, scene, ctx), ...(ctx ? typeProblems(design, ctx) : [])];
   if ([...String(design.hook ?? '')].length > 40) issues.push('hook が 40 字を超える');
   if (!String(design.pose ?? '').trim()) issues.push('pose が無い');
   if (design.headline !== undefined && (!Array.isArray(design.headline) || design.headline.length < 1 || design.headline.length > 3 || design.headline.some((l) => [...String(l ?? '')].length < 2 || [...String(l)].length > 10))) issues.push('headline は 1〜3 行・各 2〜10 字');
@@ -105,8 +138,8 @@ export function designProblems(design, scene) {
 /** 台本の監査の判定を、今の台本の中身に付ける */
 export function recordScriptQa(root, pack, key, { verdict, by, reason, now }) {
   if (!['pass', 'fail'].includes(verdict) || !by || String(reason ?? '').length < 8) throw new Error('判定は pass/fail・担当・8 字以上の理由が要る');
-  const { dir, design, scene } = packContext(root, pack, key);
-  const problems = designProblems(design, scene);
+  const { dir, design, scene, board } = packContext(root, pack, key);
+  const problems = designProblems(design, scene, designContext(root, pack, board));
   if (verdict === 'pass' && problems.length) throw new Error(`${key}: 機械検査が先に通らない: ${problems.join('・')}`);
   const file = readJson(root, `${dir}/${DESIGN_FILE}`);
   file.shorts[key].qa = { verdict, by, reason, digest: designDigest(design), checkedAt: now };
@@ -143,10 +176,11 @@ export function assertInSlot(root, pack, key) {
 /** 作業の計画を作る。入力が同じ項目は生成済みの画像と判定を引き継ぐ。 */
 export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   if (!/^\d{8}$/.test(date ?? '')) throw new Error('date は YYYYMMDD');
-  const { exam, design, scene, spec, cta } = packContext(root, pack, key);
+  const { exam, design, scene, spec, cta, board } = packContext(root, pack, key);
   if (usesDiagramLed(exam, root)) throw new Error(`${exam}: POP のショート工程の対象外（diagram-led の手順を使う）`);
   const palette = examPalette(exam, root);
-  const problems = designProblems(design, scene);
+  // 型が入る前（2026-11-11 より前）に台本の監査を通したショートは、型を求めずに作り直せる
+  const problems = designProblems(design, scene, design.type || !design.qa ? designContext(root, pack, board) : null);
   if (problems.length) throw new Error(`${key}: ${problems.join('・')}`);
   if (design.qa?.verdict !== 'pass' || design.qa.digest !== designDigest(design)) throw new Error(`${key}: 今の台本の監査 pass が無い。record-script-qa を先に行う`);
   assertInSlot(root, pack, key);

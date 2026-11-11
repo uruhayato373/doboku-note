@@ -55,3 +55,12 @@ test('列挙の中黒を次の字幕の先頭に残さない', () => {
   assert.equal(chunks.join(''), text);
   assert.ok(chunks.every(chunk => !chunk.startsWith('・')));
 });
+
+test('漢字の続く語（6 字まで）と数字の助数詞を字幕の途中で切らない（2026-11-11・ショートの画面確認）', async () => {
+  const { subtitleChunks } = await import('../scripts/lib/video-subtitles.mjs');
+  const join = (t) => subtitleChunks(t, 14).join(' / ');
+  assert.match(join('新たなリスクで多い失敗は、地震や豪雨といった一般論を書いてしまうこと。'), /一般論/);
+  assert.match(join('(4)技術者倫理・持続可能性の4つ。'), /持続可能性/);
+  assert.match(join('人手不足を補いながら精度と頻度を高める方向も解決策になります。'), /解決策/);
+  assert.match(join('2.0は2040年度までに省人化3割、生産性1.5倍を掲げており、'), /2040年度/);
+});

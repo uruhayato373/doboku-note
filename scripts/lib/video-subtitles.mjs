@@ -16,7 +16,12 @@ export function subtitleChunks(value, maxUnits = 15) {
     // ひらがなだけの語（助詞・送り仮名・活用）は前の語につなぎ、「深|さ」「書|いても」「施工性|は」で切らない（2026-10-08）
     const katakana = /^[ァ-ヺー]+$/u.test(token) && /[ァ-ヺー]$/u.test(prev ?? '') && units((prev ?? '') + token) <= maxUnits;
     const suffix = /^[ぁ-ゖー]+$/u.test(token) && !/[、。，．！？：；]$/u.test(prev ?? '') && units((prev ?? '') + token) <= maxUnits * 0.6;
-    if (tokens.length && (/^[、。，．！？：；・）］」』]/u.test(token) || /[（［「『]$/u.test(prev) || suffix || katakana)) tokens[tokens.length - 1] += token;
+    // 漢字の続く語は 6 字まで切らない。「一般|論」「持続|可能性」「省|人化」「解決|策」で切れていた（2026-11-11・ショートの画面確認）
+    const kanjiRun = /^\p{Script=Han}/u.test(token) && /\p{Script=Han}$/u.test(prev ?? '') &&
+      ((prev ?? '').match(/\p{Script=Han}+$/u)[0].length + token.match(/^\p{Script=Han}+/u)[0].length) <= 6 && units((prev ?? '') + token) <= maxUnits;
+    // 数字と助数詞（「2040|年度」「3|割」）も切らない
+    const counter = /[0-9０-９]$/u.test(prev ?? '') && /^\p{Script=Han}{1,2}$/u.test(token) && units((prev ?? '') + token) <= maxUnits;
+    if (tokens.length && (/^[、。，．！？：；・）］」』]/u.test(token) || /[（［「『]$/u.test(prev) || suffix || katakana || kanjiRun || counter)) tokens[tokens.length - 1] += token;
     else tokens.push(token);
   }
   if (tokens.some(token => units(token) > maxUnits)) throw new Error('字幕の数値・用語が1行を超えています。表記を短くしてください。');

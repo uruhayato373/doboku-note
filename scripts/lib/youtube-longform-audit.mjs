@@ -86,9 +86,11 @@ export function shortsSlotFill(plan, designs, publications = []) {
     const parentId = `${pack}/youtube.longform`;
     const report = (message) => (stocked ? warnings : errors).push(message);
     if (rule) {
-      // ショートは通常動画の展開に合わせる。親（改訂版を含む）が公開・予約に進む前は作らない
-      const live = publications.some((p) => (p.id === parentId || p.revisionOf === parentId) && rule.parentStatus.includes(p.status));
-      if (!live) { report(`親の通常動画が公開・予約されていない: ${pack}/${key}`); continue; }
+      // ショートは通常動画の展開に合わせる。在庫まで作ってよいのは親が stockParentStatus（内容QAの合格以降）に進んでから。
+      // 公開は親が予約・公開に進んでから（shorts-release の liveParents が止める・2026-11-11）
+      const allowed = rule.stockParentStatus ?? rule.parentStatus;
+      const live = publications.some((p) => (p.id === parentId || p.revisionOf === parentId) && allowed.includes(p.status));
+      if (!live) { report(`親の通常動画が在庫に進んでいない: ${pack}/${key}`); continue; }
       perParent.set(pack, (perParent.get(pack) ?? 0) + 1);
     }
     const entry = plan.entries.find((e) => e.publicationId === parentId && e.action !== 'reuse');

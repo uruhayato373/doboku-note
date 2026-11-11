@@ -1310,6 +1310,44 @@ export const ConfigYoutubeFormats = z
   .strict()
   .meta({ title: 'YouTube の動画の型' });
 
+/** ショートの型と、表紙・題名・冒頭のコピーで使ってよい線（config/youtube-shorts-formats.json・2026-11-11）。読み手は shorts-factory・yt-shorts-publisher-qa */
+const SHORT_ANGLES = ['conclusion', 'reason', 'experience', 'counter', 'number', 'howto'];
+export const ConfigYoutubeShortsFormats = z
+  .object({
+    _doc: doc(),
+    schemaVersion: schemaVersion1,
+    updated: jstDate('最終更新日'),
+    description: doc(),
+    roles: z.object({ longform: z.string().min(1), short: z.string().min(1) }).strict().describe('通常動画とショートの役割の分担'),
+    rules: z
+      .object({
+        hookMaxChars: z.number().int().positive(), hook: z.string().min(1), end: z.string().min(1),
+        narration: z.string().min(1), oneShort: z.string().min(1),
+      })
+      .strict()
+      .describe('全部の型に共通の決まり'),
+    types: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^[a-z0-9-]+$/), label: z.string().min(1),
+            angle: z.enum(SHORT_ANGLES).describe('content-angle-policy の切り口'),
+            fits: z.string().min(1).describe('向く通常動画'), hook: z.string().min(1), body: z.string().min(1), end: z.string().min(1),
+            beats: z.object({ min: z.number().int().min(1), max: z.number().int().min(1) }).strict(),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy('id', 'id')),
+    copy: z
+      .array(z.object({ id: z.string().regex(/^[a-z0-9-]+$/), label: z.string().min(1), allowed: z.string().min(1), forbidden: z.string().min(1) }).strict())
+      .min(1)
+      .superRefine(uniqueBy('id', 'id'))
+      .describe('コピーの技法と使ってよい線'),
+  })
+  .strict()
+  .meta({ title: 'YouTube ショートの型' });
+
 // ---- e-Gov の法令（config/egov-laws.json） -------------------------------------------------------------------
 
 export const ConfigEgovLaws = z
