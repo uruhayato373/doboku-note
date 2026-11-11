@@ -902,6 +902,17 @@
         "expected": 1254,
         "heard": 1206
       }
+    },
+    "rccm/rccm-mondai3-ronbun-kata/youtube.longform": {
+      "videoSha256": "a21eb6bf555f60dc27d9af07636050983e4e4c33f51d1e9d7d3421c8572ecefc",
+      "at": "2026-11-11T04:24:10.383Z",
+      "similarity": 0.964,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1537,
+        "heard": 1466
+      }
     }
   }
 }
