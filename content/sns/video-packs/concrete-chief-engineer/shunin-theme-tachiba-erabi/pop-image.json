@@ -357,8 +357,414 @@
           }
         }
       ]
+    },
+    "shorts-pop-point-keitou-1-20261111": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-keitou-1",
+      "key": "point-keitou-1",
+      "sceneId": "premise",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "734f9f4d76a4720f1ffeb651b28d435cf8a234d8cdfcc11a92114b34b7d58bc2",
+          "narration": "小論文のテーマ、全部を均等に準備していませんか。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #6E3A8C と濃色 #522A69。 黄色と白の極太文字。 上部に『コンクリート主任技士』、最も大きく『『全部を』『均等に』？』、小さな黄色帯に『総監が制作』。 表紙の型は「誤解を壊す」。見出しの思い込みの語の横（右か左の余白）に大きな赤い✕印を置く。✕は見出しの文字に 1 画も重ねない（2026-11-11・✕が文字を隠して読めなかった）。先生は手のひらを前に出して止める仕草。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は手のひらを前に出して止める仕草で胸の高さに上げ、左手（画面右側）は体の横に下ろす。手のひらは5本の指を開いて見せる。見出しは右端から18%より内側で折り返し、赤い✕は見出しの文字に重ねない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-cover.6dddc657.png",
+              "sha256": "6dddc657537b2d76672467316ff48ab1d127c254b39b2e945bbcfd010a232a16"
+            },
+            "generatedAt": "2026-11-11T10:12:10.131Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-keitou-1/cover.7a69f3a5.png",
+            "sha256": "7a69f3a52a48f182066462631213ba342266da1907d65ce44b7783df0243f78d",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6dddc657537b2d76672467316ff48ab1d127c254b39b2e945bbcfd010a232a16"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:12:10.131Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指定文字を1字ずつ照合し誤字・欠けなし。赤い✕は見出しに重ならず右余白、先生は手のひら5本指で止める仕草、胴体は下端まで続き誤解を壊す型に合致"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "5fb730d5c26fdeb8d97a5bdf6d2aed545e3c3db323d00c7817c77d0621f1d3f9",
+          "narration": "よくある誤解は、テーマごとに全部の知識を均等に覚えようとすることです。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #6E3A8C と濃色 #522A69。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート主任技士』。大きな番号『1』と見出し『全部を均等に？』。 図: 横に5本の同じ高さの棒を並べ、棒の上に『全部を均等に』。棒の群れの右の余白に大きな赤い✕。棒には文字を書かない。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-scene-001.dab7f070.png",
+              "sha256": "dab7f07075769c044f16b8dd9da77371b1f764416ce3020c1a23b483a176fd95"
+            },
+            "generatedAt": "2026-11-11T10:12:10.131Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-keitou-1/scene-001.52b4ec20.png",
+            "sha256": "52b4ec202f2c9dbde1cc3a7ea8228f22555dd920c158bdcca8c30fd9a8ceb209",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dab7f07075769c044f16b8dd9da77371b1f764416ce3020c1a23b483a176fd95"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:12:10.131Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "資格名・番号1・見出し・棒の上の文字が指示どおりで欠けなし。同じ高さの5本の棒と右の赤い✕が描かれ、棒に文字なし"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "f31ff1b01dedd3163b0d982a17581d1d094cd58205c0152fdab4c6a4bdb6e62a",
+          "narration": "小論文は選択式の年が多く、全部を均等に仕込む試験ではありません。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #6E3A8C と濃色 #522A69。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート主任技士』。大きな番号『2』と見出し『選択式の年が多い』。 図: 中央に大きな問題用紙を1枚描き、用紙の上に大きく『選択式』。用紙の中は文字ではなく短い横線だけ。ほかの文字や数字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-scene-002.51a4160f.png",
+              "sha256": "51a4160f44e50e7eadd43649da70f9f1a82c6763b7bb96339553b5b515bd8776"
+            },
+            "generatedAt": "2026-11-11T10:12:10.131Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-keitou-1/scene-002.0fe290dd.png",
+            "sha256": "0fe290ddd1fd9fc737a5ac48bbcb799e7df470d04f047381d0f37006c817e241",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "51a4160f44e50e7eadd43649da70f9f1a82c6763b7bb96339553b5b515bd8776"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:12:10.131Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "資格名・番号2・見出し・用紙上の選択式が指示どおりで欠けなし。用紙内は横線のみで余計な文字なし"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "1db918645edb770d34c5b1a16374b2c05a29519b888020374b4e553ea5f4ed33",
+          "narration": "テーマを五つの系統に分け、得意な二、三の系統を厚く準備します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #6E3A8C と濃色 #522A69。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート主任技士』。大きな番号『3』と見出し『二、三を厚く』。 図: 上から下へ3つの大きな箱を太い矢印でつなぐ。上から『五つの系統』『二、三を選ぶ』『厚く準備』。一番下の『厚く準備』の箱を黄色で強調する。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-scene-003.a58a7aa6.png",
+              "sha256": "a58a7aa65e2d16999603108fb57e0bf43feecebcdc3a8f46ab71d2becdb5b7e7"
+            },
+            "generatedAt": "2026-11-11T10:12:10.131Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-keitou-1/scene-003.ef744b17.png",
+            "sha256": "ef744b179e49bf3d57cf77869307623ab261a3c963f07331c54ce9e64de12d51",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a58a7aa65e2d16999603108fb57e0bf43feecebcdc3a8f46ab71d2becdb5b7e7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:12:10.131Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "番号3・見出し・3つの箱の文字が指示どおりで欠けなし。矢印でつながり最下段の厚く準備が黄色強調"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "c3465800898b2a2dee189af0111b1bd0d8aacad26825c6afb2771d498019ec52",
+          "narration": "系統の選び方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #6E3A8C と濃色 #522A69。 大きく『系統の選び方は』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『コンクリート主任技士』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-cta.3354c4e7.png",
+              "sha256": "3354c4e7a59d37c859f6e835b690db6f241408ff337dde73f696cad95a7a2139"
+            },
+            "generatedAt": "2026-11-11T10:12:10.131Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-keitou-1/cta.180d4c10.png",
+            "sha256": "180d4c102ccf3e1d3bcc4664d2b887a2d49d3d5d99ccc3513a5c3a4b7a22cfb8",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3354c4e7a59d37c859f6e835b690db6f241408ff337dde73f696cad95a7a2139"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:12:10.131Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "系統の選び方は・本編で・関連動画からが誤字なく端で切れず、下向き矢印を手のひらで示す。手は5本指で胴体は下端まで続く"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "27d111178304e1f76d0796ee13364de9849c4d6797570d995f8d80534af47317",
+        "durationSeconds": 22.133333,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "fail",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "採点は平均4.4・全軸3以上で数値上は合格圏だが、表紙・締め・本文1の文字が台帳の左右8%の安全域を破っているため、迷うなら fail の方針で不合格とする。",
+        "videoSha256": "27d111178304e1f76d0796ee13364de9849c4d6797570d995f8d80534af47317",
+        "checkedAt": "2026-11-11T10:15:44.046Z"
+      }
+    },
+    "shorts-pop-point-tachiba-2-20261111": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-tachiba-2",
+      "key": "point-tachiba-2",
+      "sceneId": "stance",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "619ba91094140eb74e536e219aa3497c24d4a9fd59fccfa5bf3d3f163995fb71",
+          "narration": "小論文の立場、会社名で選ぶと書く中身がずれます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #6E3A8C と濃色 #522A69。 黄色と白の極太文字。 上部に『コンクリート主任技士』、最も大きく『立場は』『会社名で』『選ばない』、小さな黄色帯に『総監が制作』。 表紙の型は「結論の一言」。結論の語を最も大きく、先生は人差し指を 1 本立てる。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指を1本立てて顔の横に上げ、左手（画面右側）は腰に当てる。指は5本で、立てるのは人差し指だけ。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-cover.129861c1.png",
+              "sha256": "129861c199dc4194e491551e38e27ffe80652f90d61c0b3666052f72ddc4fd3a"
+            },
+            "generatedAt": "2026-11-11T10:36:23.046Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-tachiba-2/cover.d1325302.png",
+            "sha256": "d13253025167ac01ac169244b7bb6ab1b5f7c5accd7f15fed802e60ec0db2a5e",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "129861c199dc4194e491551e38e27ffe80652f90d61c0b3666052f72ddc4fd3a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:36:23.046Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "結論の一言の型。見出し・帯の文字は指示と一字一句一致し欠けなし。先生は人差し指1本で左手は腰、指5本、胴体は下端まで続く。"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "21742f92c87025ef6cc9002fd6ec93f8e2fcc12b49129d002d5af324c7877a29",
+          "narration": "同じ系統のテーマでも、書ける取り組みは立場で変わります。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #6E3A8C と濃色 #522A69。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート主任技士』。大きな番号『1』と見出し『立場で中身が変わる』。 図: 上に『同じ系統』と書いた大きな箱を1つ、そこから下へ3本の太い矢印が分かれ、それぞれの先に箱を3つ並べる。3つの箱には左から『生コン工場』『発注者』『維持管理』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-scene-001.8a8fbfbc.png",
+              "sha256": "8a8fbfbc3c3bac99dd39b4c94693600bc629d507d757807ec24de003d41bee7f"
+            },
+            "generatedAt": "2026-11-11T10:36:23.046Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-tachiba-2/scene-001.d10682cd.png",
+            "sha256": "d10682cd9395b52c85ebfbd40464b50ba001afd6aeb2d8c83062b3bc1767535e",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8a8fbfbc3c3bac99dd39b4c94693600bc629d507d757807ec24de003d41bee7f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:36:23.046Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "資格名・番号1・見出し『立場で中身が変わる』・『同じ系統』から3本の矢印で『生コン工場』『発注者』『維持管理』の図が指示どおり。誤字・欠けなし。"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "abf0a767f6742d9b9919d36fdc6f03b6d3b637584314e37b510015b6a8ca0614",
+          "narration": "たとえば生コン工場は配合や出荷時の確認、発注者は要求性能や立会いの確認、維持管理は変状の調査と補修の検討です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #6E3A8C と濃色 #522A69。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート主任技士』。大きな番号『2』と見出し『立場ごとの入口』。 図: 縦に3段の大きな帯を積む。上から順に、左に『生コン工場』と右に『配合・出荷時の確認』、左に『発注者』と右に『要求性能・立会いの確認』、左に『維持管理』と右に『変状の調査・補修の検討』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 資格名ラベルが『コンクリート主任技士』と指示にない括弧『』付きで描かれている。破綻: 画面全体に黒い長方形の枠線が出て背景が分断され、3段の帯が左端(約1%)に接している。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-scene-002.23d7f2ba.png",
+              "sha256": "23d7f2baa0ee58ace76f7db964b6d7df6a8dba8591ef4d1f2417eed2a12cd83a"
+            },
+            "generatedAt": "2026-11-11T10:36:23.046Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-tachiba-2/scene-002.6d34d622.png",
+            "sha256": "6d34d62210edbc88fa9c3030a27ad03c5b7671a8c2f0db6544721eb1439a964c",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "23d7f2baa0ee58ace76f7db964b6d7df6a8dba8591ef4d1f2417eed2a12cd83a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:36:23.046Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "資格名ラベル・番号2・見出し・3段の帯の全文字が指示と一字ずつ一致し、端で切れず、人物なしで破綻もない"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "d9ddd8bc0c142b84cebc095c888164728ca3cd008678caaa933bd4dc0e8d3c11",
+          "narration": "だから会社名が近いかではなく、自分が何を判断し、何を確認したかが近い立場を選びます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #6E3A8C と濃色 #522A69。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート主任技士』。大きな番号『3』と見出し『判断と確認で選ぶ』。 図: 左に『会社名』と書いた札を1枚、右に『判断』と『確認』と書いた札を縦に2枚。左の札の横の余白に赤い✕を置き、文字には重ねない。右の2枚を黄色で強調する。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-scene-003.0a0603ea.png",
+              "sha256": "0a0603ea587ca79ffec29872556101c2ce0fbf2db41def845e3fef277c85d490"
+            },
+            "generatedAt": "2026-11-11T10:36:23.046Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-tachiba-2/scene-003.f5997dff.png",
+            "sha256": "f5997dff257fa2f7e82ee926e0a66e03ee3c20211daec953469e05c17972b2d2",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0a0603ea587ca79ffec29872556101c2ce0fbf2db41def845e3fef277c85d490"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:36:23.046Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『会社名』札と赤✕(文字に重ならない)、黄色の『判断』『確認』札、見出し『判断と確認で選ぶ』が指示どおり。誤字・欠けなし。"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "9b943e89fcf0afa4a2615b47f552508ead31aada5ea2e4c3b8fa14771faac693",
+          "narration": "選び方の三段階は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #6E3A8C と濃色 #522A69。 大きく『選び方の三段階は』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『コンクリート主任技士』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/work/factory/raw-cta.285948c9.png",
+              "sha256": "285948c9aa5fd847af6b01758c7f8f6bfdc8adf675cb64dd92e7231dac459941"
+            },
+            "generatedAt": "2026-11-11T10:36:23.046Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-tachiba-2/cta.812716f4.png",
+            "sha256": "812716f45def241a32c46bae5f183bbd1051bf970c93a2a95980d5747d400d04",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "285948c9aa5fd847af6b01758c7f8f6bfdc8adf675cb64dd92e7231dac459941"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T10:36:23.046Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『選び方の三段階は』『本編で』『関連動画から』と下向き矢印が指示どおりで欠けなし。先生は手のひらで矢印を示し指5本、胴体は下端まで続く。"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "27c6497cf032a10ac053821c2bb9d1aa810aeb35e604845500f51fff8d1e50c5",
+        "durationSeconds": 27.333333,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "fail",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "採点は平均約4.6で全軸3以上だが、締めの「選び方の三段階」が sources の stance 場面に無く、choose 場面だけにある事実なので書き直しの出典の線に当たる。台本の監査の観点で fail。",
+        "videoSha256": "27c6497cf032a10ac053821c2bb9d1aa810aeb35e604845500f51fff8d1e50c5",
+        "checkedAt": "2026-11-11T10:42:22.322Z"
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261111",
-  "activeBodyRevision": "body-diagram-20261111"
+  "activeBodyRevision": "body-diagram-20261111",
+  "activeShorts": {
+    "point-keitou-1": "shorts-pop-point-keitou-1-20261111",
+    "point-tachiba-2": "shorts-pop-point-tachiba-2-20261111"
+  }
 }
