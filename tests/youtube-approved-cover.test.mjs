@@ -32,10 +32,9 @@ test('pop-poster-v3 requires adopted artwork rather than silently falling back t
   assert.doesNotThrow(()=>validateCoverSpec({...spec,approvedImage:{path:'checked.png'}}));
 });
 
-test('図解主体の採用原本は装飾キャラクターを必須にしない', async () => {
+test('表紙は図解主体の採用原本でも先生のキャラクターを必須にする（2026-11-11・図解の表紙が 1 本公開された）', async () => {
   const {validateCoverSpec}=await import('../scripts/lib/youtube-cover.mjs');
   const spec={format:'longform',exam:'civil-2',headline:['題材選び','自分の経験'],accentLine:1,subtitle:'条件と対応を整理',design:'pop-poster-v3',layout:'diagram-led',approvedImage:{normalization:{mode:'full-frame-v1'}}};
-  assert.doesNotThrow(()=>validateCoverSpec(spec));
-  assert.throws(()=>validateCoverSpec({...spec,approvedImage:undefined}),/character/);
-  assert.throws(()=>validateCoverSpec({...spec,layout:undefined}),/character/);
+  assert.throws(()=>validateCoverSpec(spec),/character/);
+  assert.doesNotThrow(()=>validateCoverSpec({...spec,character:{pose:'checklist-pen',frame:'waist'}}));
 });

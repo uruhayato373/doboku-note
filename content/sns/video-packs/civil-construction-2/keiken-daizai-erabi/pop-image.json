@@ -206,7 +206,7 @@
       "at": "2026-10-15T23:07:28.108Z"
     }
   },
-  "activeCoverRevision": "diagram-led-20261019-cover",
+  "activeCoverRevision": "cover-pop-restore-20261111",
   "revisions": {
     "cover-safe-20261018": {
       "version": "pop-poster-v3",
@@ -1699,6 +1699,22 @@
         "at": "2026-10-18T23:14:52.594Z",
         "scope": "原寸・360px・本文/前後関係・字幕安全域",
         "reason": "資格ラベル・題材選びの主題・工事規模より自分の担当内容の指定文言、条件→判断行動→記録の3図を原寸・360pxで確認。著者名・肩書き・装飾人物なし。"
+      }
+    },
+    "cover-pop-restore-20261111": {
+      "version": "pop-poster-v3",
+      "note": "先生のキャラクターの表紙へ戻す（2026-11-11・運営者の指示）。投稿済みの表紙（台帳の素材）をそのまま採用する",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create ONE landscape16:9 Japanese emerald-green POP YouTube thumbnail intended1920×1080. Supplied image is STYLE and CHARACTER REFERENCE ONLY, not text to copy. Same mature Japanese male teacher: short black hair, black rectangular glasses, light beard, plain white helmet, navy workwear, yellow straps. EXACTLY TWO arms and TWO hands, anatomically natural. Continuous illustrated green construction background to all edges. Huge target label「2級土木」upper left. Smaller yellow author badge「総監・元発注者」「1級・2級土木合格者」in a separate region. Huge outlined dark-green topic text, red secondary headline. Keep ALL text in TOP THREE-QUARTERS of canvas, subtitle at y=70%. Bottom25% is continuous green illustration and teacher torso with NO TEXT, not blank. Face and text never clipped. Bold Japanese lettering readable at width360px. No extra words, URL, logo, price, dates, scores, guarantee. Topic「題材選び」. Red two-line headline「規模より」「自分の経験」. Subtitle「担当した管理を探す」. Pose: one hand holding an unlettered notebook, other hand holding a red pen at the notebook. Only TWO hands, neither hand touches face.",
+        "promptSha256": "52b899e99c4bd8cb4b903bfc943aca5280eb2855ebf6b3249217d3611b5dcc0a",
+        "generatedAt": "2026-10-15T22:48:23.344Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/youtube.longform/cover.88c9abd2.png",
+        "sha256": "88c9abd2531fa9bd1014e8062c6945491141d5c0151a4de1e17bd565b5223981",
+        "width": 1920,
+        "height": 1080
       }
     }
   },

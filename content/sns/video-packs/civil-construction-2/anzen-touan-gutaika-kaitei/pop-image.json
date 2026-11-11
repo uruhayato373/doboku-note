@@ -230,7 +230,7 @@
     "source": "このチャットの運営者指示「やって　予約投稿まで」",
     "scope": "改訂版の制作・画面確認・YouTube予約投稿と台帳更新を委任。旧版は維持。"
   },
-  "activeCoverRevision": "diagram-led-20261019-cover",
+  "activeCoverRevision": "cover-pop-restore-20261111",
   "revisions": {
     "cover-safe-20261018": {
       "version": "pop-poster-v3",
@@ -1301,6 +1301,22 @@
         "at": "2026-10-18T23:37:36.876Z",
         "scope": "原寸・360px・本文/前後関係・字幕安全域",
         "reason": "資格・主題・学べる関係が原稿に一致し、指定文字・人物/機械の簡略図・原寸と360pxの主題判読を確認。"
+      }
+    },
+    "cover-pop-restore-20261111": {
+      "version": "pop-poster-v3",
+      "note": "先生のキャラクターの表紙へ戻す（2026-11-11・運営者の指示）。投稿済みの表紙（台帳の素材）をそのまま採用する",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Edit the attached 16:9 landscape YouTube cover. Keep the same teacher identity, natural hands holding red pen and answer sheet, plain white helmet, black glasses, beard, navy workwear and green pop-poster-v3 visual style. Preserve these four Japanese text strings exactly: 「2級土木」「安全管理」「答案を具体化」「現場条件から書く」. Replace 「総監が解説」 with a clearly separated TWO-LINE yellow author-credentials badge: first line 「総監・元発注者」, second line 「1級・2級土木合格者」. These are the author's real credentials, not the target qualification: the largest target label must remain 「2級土木」. Recompose the top-left and top-center areas enough that both credential lines are legible; do not squeeze the new text into a one-line tiny band. The main topic remains the visual priority and the teacher stays on the right. All six specified text strings occur exactly once with correct Japanese glyphs; remove the old 「総監が解説」. No added words, logo, URL, numbers, price, guarantee or certification seals. Use generous bold glyphs without colliding strokes. Important letters and face entirely inside margins, all text above 82% image height; bottom 18% contains only continuous illustrated green background/teacher torso, not a blank stripe. Deliver one polished landscape image, intended 1920×1080, same visual density and character as reference.",
+        "promptSha256": "0cb866db21659e7413340de65a66adf723421e5d4af3a5f15dc916a90a4dcc04",
+        "generatedAt": "2026-10-15T12:17:20.522Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover.ba16defd.png",
+        "sha256": "ba16defd11a2f6732515f7540d635169e8ad52ae62366aa6be5268a8056e7032",
+        "width": 1920,
+        "height": 1080
       }
     }
   },

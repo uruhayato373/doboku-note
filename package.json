@@ -319,6 +319,7 @@
     "check-channel-plan": "node scripts/check-channel-plan.mjs",
     "metric-status": "node scripts/report-metric-status.mjs",
     "check-youtube-plan": "node scripts/check-youtube-plan.mjs",
+    "check-youtube-covers": "node scripts/check-youtube-covers.mjs",
     "check-video-publication": "node scripts/check-video-publication.mjs",
     "verify-video-publication": "node scripts/verify-video-publication.mjs",
     "render-longform": "node scripts/render-longform.mjs",

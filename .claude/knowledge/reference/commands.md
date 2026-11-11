@@ -277,6 +277,7 @@ npm run check-content-registry # コンテンツ台帳の検査 R01〜R13（0 �
 npm run check-youtube-funnels # 現行通常動画の公開中note商品・動画別UTM・関連無料サイト記事を全件検査（主CTAが site-article なら概要欄の先頭がその記事の公開 URL か。補助の無料記事は note の主CTAのときだけ）。FAIL で CI を止める。youtube-funnel-audit.yml（SNS 保留中は手動のみ）でも実行
 npm run metric-status         # 指標が今計測できているかを実データから出す（計測中・該当の行なし・取得が停止・データなし・未計測）。正本は business-direction.json の dataSource。「計測できない」と書く前に見る
 npm run check-channel-plan    # X・Instagram の年間の枠（config/channel-annual-plan.json の channels）と月次計画・公開台帳を照合。計画にない投稿・枠と販売の超過・週の上限超えで exit 1、枠 0 件は exit 2。判断待ちは exit に効かない
+npm run check-youtube-covers  # YouTube の表紙が先生のキャラクターの POP に揃っているか。表紙の設計の先生の指定の欠け・投稿へ進んだ通常動画の表紙と設計の採用画像の食い違いで exit 1（CI）。--live は公開中の表紙を YouTube から取って台帳の表紙と画素で比べる（週次・手元か Drive の表紙が要る）。直すのは npm run registry -- replace-youtube-cover（手元で --stage-r2 → youtube-single-publish の replace-cover）
 npm run check-youtube-plan    # 通常動画の年間の枠（config/channel-annual-plan.json）と公開台帳を照合。計画にない動画・枠の超過・週の上限超えで exit 1、対象 0 件は exit 2。--inventory で資格×型×状態の棚卸しを出す（予約済みは scheduled だけ・approved は在庫）。--due は台本待ち・QA 停止の確認期限の超過で exit 1（週次の ops）。site-article の主CTAは targetPath で枠と照合する。要対応と採否待ちは exit に効かない
 node scripts/youtube-sync-funnel.mjs --plan <content/sns/youtube/metadata-plans/計画.json> # 既存動画の概要欄同期のdry-run。--commit は運営者が変更版の最終承認を記録した後、youtube-single-publish.yml の mode=sync-funnel から実行。旧/新SHA・公開範囲・動画IDを照合し、API更新後に読み戻す
 node scripts/youtube-audit-live-funnels.mjs # YouTube API で現行通常動画の概要欄全文・自社リンク・公開範囲を読取照合。認証はCI供給。youtube-funnel-audit.yml（SNS 保留中は手動のみ）と手動 mode=audit-funnel から実行

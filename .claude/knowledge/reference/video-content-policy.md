@@ -100,6 +100,8 @@ title: 動画コンテンツ運用ポリシー
 
 **今後予約する16:9通常動画の標準は「POP表紙＋全本文のシンプルな図解」**。2026-10-26に採用した[技術士第一次試験の表紙・全13場面](../../../content/sns/video-packs/pe-first-stage/pe1-zentaizou/pop-image.json)を意匠の基準にする。表紙は `pop-poster-v3` の大きな主題・資格名・資格色を使い、本文と締めは白〜淡色の背景に大きな比較・手順・因果図を置く。本文を表紙のような広告画面や旧式の箇条書きカードで反復しない。2級土木の本文は従来どおり控えめな緑の図解とし、表紙の人物も主題に応じて省ける。
 
+表紙はどの資格・改訂でも先生のキャラクターの POP にする（`cover-design.json` の `character` 必須。図解だけの表紙は作らない）。2026-10-19 の 2級土木の改訂が図解だけの表紙を例外で通し、1 本公開された（2026-11-11 に揃えた）。`npm run check-youtube-covers` が表紙の設計と、投稿へ進んだ通常動画の表紙の食い違いを CI で止め、`--live` が公開中の表紙を YouTube から取って週次で比べる。投稿済みの表紙の差し替えは `npm run registry -- replace-youtube-cover`（手元で `--stage-r2` → youtube-single-publish の `replace-cover`）。
+
 新規予約・改訂予約の入口は、`storyboard.imageDesign` の `mode=codex-pop`・`scope=all-body`・`layout=diagram-led`・`coverRevision`、`pop-image.json` の全場面記録、`cover-design.json` の `pop-poster-v3` 採用画像が一致しなければ停止する。過去の公開済み動画をこの条件だけで再投稿しない。画像制作中は原稿と生成履歴を保存し、完成PNGの実体SHA・字幕入り完成映像・全場面シートを見てから承認へ渡す。
 
 - 16:9通常動画: 1920×1080
