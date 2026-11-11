@@ -528,6 +528,17 @@
         "expected": 1014,
         "heard": 1021
       }
+    },
+    "pe-construction/pe-iii-kakikata/youtube.longform": {
+      "videoSha256": "21135184cd6c56cd0f9c83a9be171508c6e2c0b6f5bc8126c29c7cdf94a61481",
+      "at": "2026-11-11T01:44:08.641Z",
+      "similarity": 0.965,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1259,
+        "heard": 1207
+      }
     }
   }
 }
