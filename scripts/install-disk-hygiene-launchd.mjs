@@ -15,6 +15,8 @@
  *
  * exit: 0 成功 / 1 失敗 / 2 検査不成立（macOS 以外＝launchd が無い）
  * ---------------------------------------------------------------------------
+ *
+ * npm run disk-hygiene:install — macOS: launchd 日次掃除＋Git maintenance登録（-- --status / --run-now / --uninstall）
  */
 import { spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';

@@ -9,6 +9,8 @@
  * --scope single --pack-id ID --publish-at ISO: QA済み通常動画1本のmetadataを作る（承認状態は変えない）。
  *   civil/concrete の予約（DN-0110 の承認済み112本）には総まとめを混ぜない。
  *   承認前の --metadata は youtube.json だけを書き、state（approvedBy・rendered）は変えない。
+ *
+ * npm run youtube-longform:prepare -- --metadata --scope single --pack-id <ID> --publish-at <ISO日時> — 単発の通常動画の文面を生成。承認・状態は変更しない（--schedule は不可）。編集済みの公開題名・概要欄は再生成前に保持する
  */
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';

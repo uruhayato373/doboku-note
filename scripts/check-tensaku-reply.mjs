@@ -14,6 +14,8 @@
  *
  * exit: 0=問題なし / 1=要修正 / 2=検査不成立（ファイルが読めない・--source なし）
  * ---------------------------------------------------------------------------
+ *
+ * npm run check-tensaku-reply -- <返信文> --source <提出原稿> --grade 1 — 添削・診断・作成の顧客返信文を送信前に検査（3000字・外部誘導・合格保証・下書き注記・書き換え例の（N字）表記と解答欄・原稿に無い工事の数値）。--source なしは exit 2（未検査を緑にしない）。意味の評価は civil-keiken-tensaku-qa
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';

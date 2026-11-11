@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// npm run business-review — 資格別KPI・週次/月次レビュー期日の確認（-- report --monthly で前月）
+
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { buildReport, reviewPeriod, saveRecord, snapshot } from './lib/business-direction.mjs';

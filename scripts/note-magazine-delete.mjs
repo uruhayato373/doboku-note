@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// npm run note-magazine-delete -- --keys m1,m2 [--commit] — note マガジンを削除する（既定 PROBE・収録記事は消えない・削除後に公開 API の 404 を確認）。記事の削除は `node scripts/note-delete-note.mjs --notes k1,k2 --commit`（一覧を下へ読み進めて古い記事も探す）。
+
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-delete.mjs

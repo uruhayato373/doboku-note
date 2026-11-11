@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /** Audit every uploaded/published longform against the product and site route catalogs. */
+// npm run check-youtube-funnels — 現行通常動画の公開中note商品・動画別UTM・関連無料サイト記事を全件検査（主CTAが site-article なら概要欄の先頭がその記事の公開 URL か。補助の無料記事は note の主CTAのときだけ）。FAIL で CI を止める。youtube-funnel-audit.yml（SNS 保留中は手動のみ）でも実行
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadRegistry, resolveCopy } from './lib/content-registry.mjs';

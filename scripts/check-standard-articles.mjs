@@ -15,6 +15,8 @@
  * 後者は事故を隠す。各検査は必ず「何件検査したか」を出力し、対象ゼロは PASS と呼ばない。
  *
  * この検査器は生成物・パーサーを一切書き換えない（read-only）。
+ *
+ * npm run check-standard-articles — 上の 20 検査（本文の取りこぼし0・全ページ割当・条番号整合・見出しレベル・SHA-256 一致・重複 indexable・**catalog 72 文書の被覆と除外理由の実データ検証**・表の可逆性・**章ごとの OGP 被覆**・節ページの切り出し・**読める形（版面のまま残った表は文書別の verbatimTables 基準以下・文の途中の改行・表から外れた断片は基準以下／壊れた表 0）**・**図の SourceRef と、表の領域・組み直した表の中に出た図のキャプション（太字で図の番号を持つもの・DN-0881）ごとに原本から切り出した画像（台帳 content/sources/standards/{agency}/{document}/figures.json・scripts/lib/standards-figures.mjs・DN-0865）**。exit 2=検査不成立）
  */
 
 import { createHash } from 'node:crypto';

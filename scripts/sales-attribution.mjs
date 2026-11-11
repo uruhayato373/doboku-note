@@ -2,6 +2,8 @@
 /**
  * sales-attribution.mjs — 期間の販売を資格・型へ帰属させた件数と、公開中で販売 0 の note 商品を資格別に出す（DN-0930）。
  * 使い方: node scripts/sales-attribution.mjs [--from 2026-05-01] [--to 2026-10-31] [--json]
+ *
+ * npm run sales-attribution — note 販売の資格・型への帰属（商品の正本に結合／規則で帰属／未帰属）と、公開中で単独の販売 0 の商品を資格別に出す（DN-0930・パック内の単品は含有側に数えない。無料＝価格の欄が無い・¥0・会員、売り場から外した＝catalog.shelvedAt は KPI に数えない）
  */
 import { parseArgs } from 'node:util';
 import { loadLineupConfig } from './lib/product-lineup.mjs';

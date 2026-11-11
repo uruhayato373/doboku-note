@@ -6,6 +6,8 @@
  *
  * 使い方: node scripts/upload-standards-data-r2.mjs [--dry-run]
  * exit: 0 成功 / 1 送信失敗 / 2 検査不成立（対象 0 件・認証情報なし）
+ *
+ * node scripts/upload-standards-data-r2.mjs — 公的基準の章データ（.md・.jsonld）を R2 へ送る。変わった分だけ。cloudflare-deploy.yml が Pages への配信の前に実行する。`--dry-run` で件数だけ見る
  */
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';

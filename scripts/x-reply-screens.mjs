@@ -10,6 +10,8 @@
  *   npm run x-reply-screens -- --list                   # 読む画面（id・URL・スクロール回数）
  *   npm run x-reply-screens -- --js <id>                # その画面の javascript_tool に渡すスクリプト
  *   npm run x-reply-screens -- --save <id> < result.json  # スクリプトの返り値（JSON）を保存する
+ *
+ * npm run x-reply-screens — X の返信候補を内蔵ブラウザで読む画面（xScreens＝フォロー中・おすすめ、xSearch＝話題ごとの検索（最新））を --list で出し、--js <id> で javascript_tool に渡す取り出しのスクリプトを出し、返り値を --save <id> の標準入力で .tmp/x-outreach/x-posts/ に保存する。読んだ投稿 0 件は exit 1（ログイン切れ・構造の変化）。読むだけ・投稿用アカウントの Playwright プロファイルは使わない（x-post-policy §11.7）
  */
 import fs from 'node:fs';
 import path from 'node:path';

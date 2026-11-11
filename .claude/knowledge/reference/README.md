@@ -13,7 +13,6 @@ title: .claude/knowledge/reference/ 索引
 | 参照先 | 内容 | いつ読むか |
 |---|---|---|
 | [business-review.md](./business-review.md) | 事業計測とレビューの記録の置き場と手順（判断理由の正典はプロダクト戦略・機械設定は `config/business-direction.json`） | 週次・月次レビューで計測・目標・判断を記録するとき |
-| [commands.md](./commands.md) | 頻用コマンド全一覧（用途別・各コマンドの理由と罠。CLAUDE.md から移設） | `npm run` で何を叩くか探すとき／新 script を package.json に足したとき |
 | [.claude/knowledge/reference/content-authoring.md](./content-authoring.md) | MDX コンポーネント・過去問構造・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき |
 | [.claude/knowledge/reference/content-expansion.md](./content-expansion.md) | 全教材の論点→記事・図解・SNSの対応表と、未確認・原典待ち・変更後の再確認を管理する手順 | 教材展開・図解整備・週次/月次レビュー時 |
 | [.claude/knowledge/reference/content-taxonomy.md](./content-taxonomy.md) | コンテンツ分類の SSOT（領域×資格×記事型×テーマ×タグの語彙と規則・テーマの軸・状態・所属と記事末の回遊の配線・週次と月次の点検（§6）・タグの正規表記＝日本語名と別名・原本 class → 展開先の加工ルール表と commercial-book の brief 方式・新規記事のチェックリスト）。値は `src/config/{content-taxonomy,categories,tags,topics}.json`、検査は `npm run check-content-taxonomy` | frontmatter（category/group/tags/topics）を決めるとき・新資格/新タグ/新テーマを足すとき・原本から記事を起こすとき |

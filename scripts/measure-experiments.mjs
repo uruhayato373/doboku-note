@@ -15,6 +15,8 @@
  *   node scripts/measure-experiments.mjs --commit   # 台帳へ追記
  *
  * exit: 0 成功（対象 0 件を含む・件数を出力）/ 1 取得失敗あり / 2 検査不成立（API が要るのに認証なし・仕様不正）
+ *
+ * npm run measure-experiments — measure仕様の前後比較と、measurementPlan.kind=affiliate-designの案別実測を追記。後者は保存済みga4.affiliate-experimentを使用し、未取得・打切り・同じ取得は追記しない。既定dry-run、--commitで台帳へ書く。CIはfetch-metricsのpublish内。売上は窓にかかる全月が確定・検算されるまで途中扱い
  */
 import { readFileSync } from 'node:fs';
 import dotenv from 'dotenv';

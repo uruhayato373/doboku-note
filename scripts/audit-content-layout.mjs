@@ -14,6 +14,8 @@
  *   node scripts/audit-content-layout.mjs --refs          旧パスへの参照件数も数える（遅い）
  *
  * exit: 0 観測成功（二重 SSOT が無い）/ 1 二重 SSOT を検出 / 2 検査不成立
+ *
+ * npm run check-content-layout — content/ の 6 チャネルに実体があるかを観測（件数・容量。空チャネル＝移行の取りこぼしで fail）
  */
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, statSync, writeSync } from 'node:fs';

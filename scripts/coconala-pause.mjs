@@ -39,6 +39,8 @@
  * exit: 0=成功/skip / 1=ガード違反・検証失敗 / 2=ログイン/アカウント不一致
  * 真実源: .claude/knowledge/reference/coconala-operations.md §8
  * ---------------------------------------------------------------------------
+ *
+ * npm run coconala-pause — ココナラ出品の受付休止/再開/アーカイブ（--resume --absence で不在明け一括復帰・既定 dry-run）
  */
 import { join } from 'node:path';
 import {

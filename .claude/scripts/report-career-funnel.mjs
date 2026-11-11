@@ -23,6 +23,8 @@
  * 設定（語彙・柱の分類規則）: config/career-funnel.json
  * 方針の真実源: .claude/knowledge/reference/affiliate-operations.md「キャリアの計測は 2 つの窓を混ぜない」
  * 評価サイクル: data/business/experiments.json の EXP-008（凍結した基線と deploy+28 日で比較する）
+ *
+ * npm run report-career-funnel — キャリアファネル（流入→回遊→CTA→成果）→data/analysis/career-funnel.{json,md}（fetch-metrics が週次で生成・GA4 の窓は配置別の 28 日窓・配置の名前と撤去は config/cta-placements.json。`--freeze` で基線凍結＝**既存があれば exit 1 で中止**し latest も書かない。撮り直しは `--refreeze`。`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";

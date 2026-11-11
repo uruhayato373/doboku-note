@@ -18,6 +18,8 @@
 //   npm run check-ig-insights-freshness
 //
 // exit: 0=OK/WARN, 1=FAIL
+//
+// npm run check-ig-insights-freshness — IG 週次取得の停止とトークン失効 7 日前を検知（quality-audit の ops 区分・snapshot 0 件は FAIL）
 
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';

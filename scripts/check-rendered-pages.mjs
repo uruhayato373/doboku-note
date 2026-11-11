@@ -28,6 +28,8 @@
  * exit 0 = 全件 OK / 1 = 問題あり / 2 = 検査不成立（対象 0 件・接続失敗が 5% 超）
  * §9: 対象数・実検査数・種類別件数を必ず出す。
  * ---------------------------------------------------------------------------
+ *
+ * npm run check-rendered-pages — out/ の全ページを Chrome でスマホ幅に描画し、横のはみ出し・記法の残り（[題](URL)・**・### ・表・$$・<Tag>）・console エラー・画像切れ・KaTeX エラーを拾う（先に `npm run serve`。全件 約 55 分なので `-- --prefix /exam/…` で絞る。Git Bash では MSYS_NO_PATHCONV=1 を付ける）。部品・生成器・記事の一括変更の後、deploy 前に人が回す。結果は .tmp/rendered-pages/。exit 1=問題あり / 2=検査不成立
  */
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';

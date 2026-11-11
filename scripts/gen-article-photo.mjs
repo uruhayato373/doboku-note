@@ -21,6 +21,8 @@
  *   出所（vault: のパス）を書く。仕様に basedOn があれば --based-on を省いても同じ元で描き直す（vault のマウントが要る）。
  *
  * 終了コード: 0 = 配置した / 1 = 入力・仕様の不備 / 3 = 生成に失敗（画像が出てこない）
+ *
+ * npm run gen-article-photo -- --fig <資格/記事/img/名前> [--prompt "…"] [--model <codex のモデル>] [--from <画像>] — 記事の写真を codex exec の画像生成で作り、中央で 4:3 に切って 960×720 の webp で配置し、記事の src・寸法と実績の台帳（sha・promptSha）を更新する。--from は生成済みの画像を配置だけ。罠: codex の既定モデルが ChatGPT アカウントで使えないと 400 で何も出ない（2026-10-07 は --model gpt-6-astra で動いた）。同じ名前の古い jpg/png は消さずに警告だけ出す
  */
 import { existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';

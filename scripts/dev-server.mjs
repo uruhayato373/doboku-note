@@ -1,3 +1,5 @@
+// npm run dev — 開発サーバー（ポート 3020）
+
 import { spawn } from 'node:child_process';
 import { resolve } from 'node:path';
 import { REPO_ROOT as repoRoot } from './lib/repository-paths.mjs';

@@ -8,6 +8,8 @@
  *
  * 使い方: npm run report-web-vitals [-- --json]
  * 終了コード: 0＝読めた（手を打つ組の有無に関係なく）/ 2＝検査不成立（記録が無い・古い・取得できていない）
+ *
+ * npm run report-web-vitals — 実ユーザー計測の最新記録を読み、手を打つ組（不良・要改善で件数 30 以上）を先に出す。読み手＝週次レビュー（不良が出たら改善カードを起票）。exit 2＝記録が無い・10 日超・カスタムディメンション未登録
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';

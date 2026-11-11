@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// npm run build-standards-comparison — 近畿版を基準に各地方整備局版の本文差分を章・行単位で生成（`content/site/standards-articles/comparison.json`）
+
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { datasetPath } from './lib/datasets.mjs';

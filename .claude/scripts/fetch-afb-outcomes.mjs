@@ -27,6 +27,8 @@
  *   node .claude/scripts/fetch-afb-outcomes.mjs --commit --now 2026-09-22T00:00:00Z   # テスト・再現用
  *
  * spec: config/affiliate-asp.json asps.afb.api.specUrl（specUpdated 時点の仕様）
+ *
+ * npm run fetch-afb-outcomes — afb 公式 conversion API で成果（pending/approved/rejected・報酬額）を取得→data/afb/outcomes/（日付別の最新）（`--commit` 必須で書き込み・CI 週次 fetch-metrics.yml。AFB_API_KEY 必須・提携状態スキャンとは別系統）
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';

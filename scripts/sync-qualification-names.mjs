@@ -7,6 +7,8 @@
  *   npm run sync-qualification-names -- --check # 食い違いがあれば exit 1（書かない）
  *
  * 書き込み先と照合の実装は scripts/lib/qualification-ssot.mjs の DERIVED_FILES / syncDerivedNames（check-qualification-ssot と同じ）。
+ *
+ * npm run sync-qualification-names — registry の正式名（categories.json・home-exam-cards.json は並び順 order も）を src/config の categories.json・home-exam-cards.json・tags.json の資格の項目へ書く（`-- --check` は食い違いで exit 1）。slug が registry の id と違う項目は `qualification:` で資格 id か group id を指す。registry の名前を変えたら実行してコミット
  */
 
 import { DERIVED_FILES, syncDerivedNames } from './lib/qualification-ssot.mjs';

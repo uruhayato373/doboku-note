@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /** Read-only audit of every YouTube video ID in the active registry. */
+// node scripts/youtube-audit-live-funnels.mjs — YouTube API で現行通常動画の概要欄全文・自社リンク・公開範囲を読取照合。認証はCI供給。youtube-funnel-audit.yml（SNS 保留中は手動のみ）と手動 mode=audit-funnel から実行
 import { createHash } from 'node:crypto';
 import { google } from 'googleapis';
 import { loadRegistry, resolveCopy } from './lib/content-registry.mjs';

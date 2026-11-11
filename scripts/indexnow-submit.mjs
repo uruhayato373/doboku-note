@@ -20,6 +20,8 @@
  *   node scripts/indexnow-submit.mjs --dry-run       # 対象 URL を出すだけ
  *   node scripts/indexnow-submit.mjs --days 3        # 窓を変える（既定は config.windowDays）
  * ---------------------------------------------------------------------------
+ *
+ * npm run indexnow:submit — sitemap の lastmod が直近 7 日の URL を IndexNow（Bing 等・Google 非対応）へ通知。CI は deploy 成功後に自動（cloudflare-deploy.yml の indexnow ジョブ）。`-- --dry-run` で対象だけ。会社 PC は Node fetch がプロキシを通らず exit 2
  */
 import { readFileSync, existsSync } from "node:fs";
 import { buildPayload, classifyResponse, parseSitemap, selectRecentlyModified } from "./lib/indexnow.mjs";

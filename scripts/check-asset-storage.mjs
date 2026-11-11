@@ -23,6 +23,8 @@
 //   node scripts/check-asset-storage.mjs --json
 //
 // exit 0 = 整合 / exit 1 = 不整合 or 検査不成立
+//
+// npm run check-asset-storage — 退避台帳の整合（公開バケット誤配置・r2Key 衝突・復元不能・秘密混入）。R2 非アクセスでオフライン完結・quality:audit に同梱
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';

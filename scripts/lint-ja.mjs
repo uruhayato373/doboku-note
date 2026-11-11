@@ -14,6 +14,12 @@
 //   node scripts/lint-ja.mjs --staged   # pre-commit / CI 用（staged の content/site/**/*.mdx のみ・違反で exit 1）
 //   node scripts/lint-ja.mjs --all      # 全件 report（content/site/**/*.mdx・違反があっても exit 0）
 //   node scripts/lint-ja.mjs --files a.mdx b.mdx  # 指定した MDX だけ（staged と同じ判定・違反で exit 1。コミット前に作業中の記事を確かめる）
+//
+// npm run lint:ja — 日本語校正（textlint + prh）。staged の content/site/**\/*.mdx だけの表記ゆれ・全角英数を検出（pre-commit と quality:audit:ci に同梱・DN-0239）。辞書は prh.yml、ルール定義は .textlintrc.json。過去問（技術士一次・建設部門・総監・土木の第1次/第2次検定・1級土木 二次の分野別過去問・測量士）の公式問題の逐語と、解説で選択肢の原文を引いた部分は対象外（`scripts/lib/official-question-text.mjs`。lint-mdx-mobile の 15-x と同じ判定）
+//
+// npm run lint:ja:all — 全件 report（1,280 ファイルを 100 件ずつバッチ実行・OOM 回避。ゲートしない。件数を減らしたいときは辞書 prh.yml に語を足す）
+//
+// node scripts/lint-ja.mjs --files <a.mdx> … — 指定した MDX だけを staged と同じ判定で検査（違反で exit 1）。コミット前・サブエージェントの自己確認用（stage できない担当でも pre-commit と同じ結果を見られる）
 
 import { execFileSync, spawnSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync } from 'node:fs';

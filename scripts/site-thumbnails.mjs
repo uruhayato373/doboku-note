@@ -10,6 +10,8 @@
  * --fix-fails: Codex が fail とした絵の指示へ指摘を足して作り直す（Claude を使わない修正）
  * --record <JSON>: 二次監査の結果 [{key, verdict, reason}] を台帳へ書き、一次監査だけの ok も確定する
  * exit: 0 完了 / 1 失敗 / 2 検査不成立（全件の判定が返らない）
+ *
+ * npm run site-thumbs -- --exam <資格> — サイト内サムネイルの三段の分担（Codex の台帳→生成→機械検査→Codex 一次監査→Claude の確認リスト）。途中で止まっても再実行で続きから動く。--fix-fails は Codex の不合格を指摘つきで作り直す、--record <JSON> は二次監査の結果を台帳へ書く。設計は docs/operations/画像運用設計.md。長時間なのでセッションから切り離して動かす
  */
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';

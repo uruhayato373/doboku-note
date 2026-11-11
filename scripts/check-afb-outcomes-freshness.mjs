@@ -13,6 +13,8 @@
 //   npm run check-afb-outcomes-freshness
 //
 // exit: 0=OK, 1=FAIL, 2=検査不成立（ディレクトリ読み取り不能）
+//
+// npm run check-afb-outcomes-freshness — afb 成果取得の停止を検知（quality-audit の ops 区分・10 日超で FAIL）
 
 import { readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';

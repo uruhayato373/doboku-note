@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// npm run check-standards-data — 公開用データ全章の形式・条数・出典/加工主体分離・noindex/CORSヘッダーを検査（build-standards-dataが自動実行。CI auditでも事前生成して必須検査、生成漏れはskipせず失敗）
+
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';

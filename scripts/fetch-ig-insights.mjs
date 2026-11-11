@@ -22,6 +22,8 @@
 //
 // exit code: 0 = 正常（ドリフトがあっても 0）/ 1 = 認証・ネットワーク・レート（何も書かない）/
 //   2 = 検査不成立（mediaListed === 0 または daysReturned === 0・何も書かない）。
+//
+// npm run fetch-ig-insights — Instagram Graph API で media+insights+SoT 照合を取得→data/instagram/insights/・.claude/state/ig-reconcile/snapshot.json（手動のみ。Meta 利用制限で Graph API は使えず、定期実行の workflow は無い。0 件取得は exit 2＝成果物を書かない）
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';

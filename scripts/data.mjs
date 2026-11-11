@@ -9,6 +9,8 @@
  *                                                 # 行（配列の要素・対応表の項目）を絞る。欄!=値・欄~値（含む）も使える
  *
  * exit 0 = 出力した / 1 = 該当なし・読めない / 2 = 引数の不備
+ *
+ * npm run data -- list [<id>] | get <id> | query <id> --where <欄=値> — 台帳 scripts/lib/datasets.mjs の id でデータを一覧・取得・絞り込む（DB の SELECT 相当。置き場が config/・data/・.claude/state/・Drive の写しのどこでも同じ。行は配列の要素か対応表の項目で、欄!=値・欄~値（含む）・入れ子の欄 a.b も使える。Drive にしか無いものは取り戻し方を案内）。管理画面 /ops/store の詳細でも同じ関数で絞れる（DN-0585）
  */
 
 import { DATASETS, datasetFiles } from './lib/datasets.mjs';

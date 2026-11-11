@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /** Calendar-period aggregates. Credentials and user identifiers never enter stored records. */
+// npm run fetch-business-metrics — GSC/GA4の資格別・完了週/月の集計取得（--commitで追記）。GSC確定前（終了日から4日未満）の期間だけskipし確定済みは取得、明示 --monthly が未確定なら exit 2
 import { BetaAnalyticsDataClient } from '@google-analytics/data';
 import { google } from 'googleapis';
 import { readFileSync } from 'node:fs';

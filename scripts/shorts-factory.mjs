@@ -8,6 +8,8 @@
  *   npm run shorts-factory -- record-audit --pack … --key … --file <判定の JSON> --by ai-image-fidelity-auditor
  *   npm run shorts-factory -- record-review --pack … --key … --verdict pass|fail --by <担当> --reason "…"
  * 投稿の入口は既存の youtube-shorts:stage と publish-video-pack。承認と公開はここに無い。
+ *
+ * npm run shorts-factory -- status|record-script-qa|plan|generate|audit-queue|record-audit|adopt|render|record-review|audio-check|stock|restore --pack <exam>/<work> --key <key> — ショートの標準工程（台本QA・全面画像・Drive 在庫）
  */
 import { readFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';

@@ -15,6 +15,8 @@
  *
  * 出力: data/bing/snapshots/YYYY-MM-DD.json（直近 12 週のバケットだけを残す）
  * exit: 0 全取得 / 1 取得失敗あり（取れた分は書く）/ 2 検査不成立（キー未設定＝ファイルは書かない・0 と記録しない）
+ *
+ * npm run fetch-bing-webmaster — Bing Webmaster API（query/page/日次traffic・直近12週）→ metrics/bing/。要 BING_WEBMASTER_API_KEY（無ければ exit 2・0と記録しない）
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';

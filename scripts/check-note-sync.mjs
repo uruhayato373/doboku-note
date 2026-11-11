@@ -16,6 +16,8 @@
  * exit 0 = 全部反映済み / 1 = 反映待ちか止まっている記事がある（止まっている分は管理画面 /content/note-sync に理由と直し方）
  *      2 = 検査不成立（記事が下限未満・API 取得失敗が 20% 超・マガジン一覧が取れない＝CLAUDE.md §9）
  * ---------------------------------------------------------------------------
+ *
+ * npm run check-note-sync — 上の計画に note の公開 API で読んだ今のカバー（消えた・別の画像になった）とマガジンのカバーを足し、全部反映済みかを判定する（読み取りだけ・約 900 回 API を読むので 5〜8 分）。exit 1＝反映待ちか止まっている記事あり／2＝検査不成立。土曜の収集の後段（`note-sync-check` 段）が回す。
  */
 import { loadNoteCoverInventory } from './lib/note-cover-inventory.mjs';
 import { designVersions, fetchLiveArticles, fetchLiveMagazines, planCoverWork, readLedger, summarize } from './lib/note-cover-live.mjs';

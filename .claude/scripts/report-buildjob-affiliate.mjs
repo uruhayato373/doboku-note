@@ -21,6 +21,8 @@
  *
  * 注: 計測は本番でのみ発火し、デプロイ後にクリックが蓄積してから値が入る（導入直後 0 件は正常）。
  *     GA4 by-label が未登録で全ラベル "(not set)" のときは面別内訳が出せない旨を明示して継続する。
+ *
+ * npm run report-buildjob-affiliate — BuildJob クリック×A8 成果の EPC レポート→data/analysis/buildjob-report.md（月次レビューが読む。`-- --check` は書かずに完走だけ＝quality-audit ci）
  */
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";

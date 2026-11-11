@@ -9,6 +9,8 @@
  * 生成時刻だけの再生成は scripts/lib/write-generated.mjs が書かないので差分にならない。
  *
  * 実行前から手元で変更中のファイルは判定できないので「未判定」と出す（CI はきれいな checkout）。
+ *
+ * npm run check-generated-indexes — refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）。実行中にcommit/rebaseでHEADが変わったらexit 2で再実行
  */
 import { execFileSync, spawnSync } from 'node:child_process';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';

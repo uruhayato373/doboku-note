@@ -16,6 +16,8 @@
 //
 // 使い方: node scripts/check-claude-md-size.mjs [--root <dir>] [--json]
 // exit 0 = 健全 / 1 = 違反あり・検査不成立（CLAUDE.md が読めない）
+//
+// npm run check-claude-md-size — CLAUDE.md（毎ターン再送される核）が 150 行 / 20KB 以下か・12 原則の見出し・.claude/rules の paths: 必須（pre-commit で CLAUDE.md / rules を stage したとき ＋ quality:audit）
 
 import { existsSync, readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';

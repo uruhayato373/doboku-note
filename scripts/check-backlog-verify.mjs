@@ -37,6 +37,8 @@
  * exit: 0 常に（surfacer であってゲートではない）/ 2 検査不成立（backlog 不読・対象 0）
  * 状態: .claude/state/backlog/verify-status.json（コマンド → 前回の status）
  * ---------------------------------------------------------------------------
+ *
+ * npm run check-backlog-verify — 時期到来・期日超過・時期未設定のカードの検証を実走する。将来開始のカードはIDと理由付きnot-dueとして対象外に記録し、対象／実走／対象外の数を照合する。timeout・認証不足は未検査として残し、全文ログと失敗テスト名を保存する。
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync, writeSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';

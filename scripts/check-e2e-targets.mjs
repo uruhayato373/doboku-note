@@ -22,6 +22,8 @@
  *
  * Usage:
  *   node scripts/check-e2e-targets.mjs [--json]
+ *
+ * npm run check-e2e-targets — E2E が叩くサイト内 URL が out/ に実在するか（`_redirects` の転送元を叩くと dev で必ず 404 になり、検査が成立しないまま赤が放置される）。**要 `npm run build`** なので quality:audit ではなく ci.yml / e2e.yml の build 後に置く。exit 2=検査不成立
  */
 
 import fs from 'node:fs';

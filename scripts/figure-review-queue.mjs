@@ -17,6 +17,8 @@
  *   node scripts/figure-review-queue.mjs record <verdicts.json>           # 判定を台帳へ、出典を config/figure-sources.json の provenance へ記録し、直した図は MDX の寸法を合わせる
  *
  * 終了コード: 0 = 完走（判定待ちが残っていても 0）/ 1 = record の入力が不正 / 2 = 検査不成立（走査 0 枚・画素検査の失敗が支配的）
+ *
+ * npm run figure-review-queue — 記事図クロップの品質ループ（/figure-quality-loop）の判定待ち。公開記事の図を毎回その場で画素検査（EDGE_CUT/STRAY_*・長辺が image-limits の figureMinLongSide 未満の LOW_RES）し OCR の needs と合わせ、判定台帳 .claude/state/quality/figure-review-ledger.json に今の画像のハッシュで記録がある図を除く。`--next N [--stage reextract] --json`＝次の一括（--json は標準出力が JSON だけ）・`record --from-results <results.json> --pass <figKey...>`＝figure-crop-batch が `.tmp/figure-loop/results-<runId>.json` に残した結果から判定を作って記録（書き換えた図・suspect は `--pass` が無ければ記録しない）・`record <verdicts.json>`＝判定を台帳へ（verdict=ok の図は png・webp どちらかに STRAY_SLIVER があれば拒む）、出典を config/figure-sources.json の provenance へ書き、直した図の MDX 寸法を合わせる。reextract の項目は記録済みの出典（recordedSource）と記事の sources から引いた原典候補（sourceCandidates）を持ち、試験ページでない記事で流用不可の書籍しか原典が無い図は切り出し直しに回さない。exit 2＝検査不成立。罠: 画像を差し替えると記録は効かなくなり兆候があれば判定待ちへ戻る。manual_needs の目視判定はハッシュを持たないので日付に関係なく確認済み扱い（git 履歴は 2026-08-22 に切り詰め済みでコミット日は使えない）
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve, sep } from 'node:path';

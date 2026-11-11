@@ -32,6 +32,10 @@
  * 認証は fetch-ga4-data.mjs と同じサービスアカウント鍵（.env.local）。
  * 計測は本番（NODE_ENV=production）でのみ発火するため、デプロイ後に
  * ユーザークリックが蓄積してから値が入る（導入直後は 0 件が正常）。
+ *
+ * npm run fetch-ga4-cta-clicks -- --by-product — 商品への送客（product_impression / product_click）を販売先 × 販売先の商品 ID × cta_placement で取り、商品（note・Kindle）からサイトへ戻ったセッション（source note/kindle × campaign × term × content）を inbound に入れる。枠 product-referrals。カスタムディメンション未登録は手順を出して exit 0、0 行は awaiting-data（DN-0947）
+ *
+ * npm run fetch-ga4-cta-clicks -- --by-experiment — 実行中のアフィリ意匠実験（`src/lib/affiliate-experiment.mjs` の ID・2026-10-24 から EXP-043）の案×案件×面×ページ×端末×日を取得。ga4.affiliate-experimentへ保存、既存のevent_labelを使用。0行はawaiting-data、打切り・しきい値制限はexit 1。週次のmeasure-experimentsが台帳へ追記する
  */
 import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";

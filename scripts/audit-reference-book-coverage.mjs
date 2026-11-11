@@ -39,6 +39,8 @@
  *     その記事を変えたコミットで埋める（展開のコミットには必ず trailer を書く）
  * quality-audit には登録しない: 文字起こしが Drive 由来の手元複製で CI に無く、読むのは書籍→サイト展開の着手時だけ（定期に読む人がいない）。
  * exit 0 = 出力した / 1 = 検査不成立（文字起こしが手元に無い・節が 0・サイトの記事が 0）/ 2 = 引数・依存の不足
+ *
+ * npm run audit-reference-book-coverage -- --briefs [--source-id <id>|--shelf <棚>] [--alias <json>] — 判定の計画を記事ごとの brief と workflow 用の items.json に束ねて .tmp/book-coverage/briefs/ へ（新規案の重複を「要確認」で出す）。続けて Workflow book-coverage-expand → book-coverage-photos（args に root）。手順は book-coverage-expansion.md §0
  */
 
 import fs from 'node:fs';

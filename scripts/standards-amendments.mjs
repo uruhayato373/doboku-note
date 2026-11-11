@@ -12,6 +12,10 @@
  *   npm run check-standards-amendments（= standards-amendments check）
  *       設定 documents.*.amendments の全文書について、【…関係】の全ページが承認済みで文字が一致し、
  *       組み直した行が漏れなく章記事に差し込まれていることを検査する（quality:audit・CI）
+ *
+ * npm run standards-amendments -- sheets|validate|review — 地方の訂正・追加表（中国地方整備局版の 5 列の表）をページ画像から 1 ページ 1 JSON に組み直す道具（content/sources/standards/amendments/・形は scripts/lib/standards-amendments.mjs）。版面と JSON の文字は多重集合で一致させる（順序は照合しないので QA が画像で見る）。全ページ承認済みになると build-standard-articles が中国版の章記事の条ごとに差し込む
+ *
+ * npm run check-standards-amendments — 上の照合（全ページ承認済み・文字一致・章記事への差し込み漏れなし。quality:audit に同梱）
  */
 
 import { mkdirSync, readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs';

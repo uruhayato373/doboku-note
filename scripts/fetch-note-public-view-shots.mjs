@@ -10,6 +10,8 @@
  *
  * 使い方: node scripts/fetch-note-public-view-shots.mjs [--json] [--from <撮影の置き場>]
  * 終了コード: 0 = 全ページ×画面幅がそろっている / 2 = 撮影が無い・古い（8 日超）・撮影に欠けがある（未確認として扱う）
+ *
+ * npm run fetch-note-public-view-shots — 土曜の収集の note-public-view 段が手元の置き場（~/Library/Caches/doboku-note/note-public-view）に撮った目視確認用の画像（代表ページ × 画面幅）を .tmp/note-public-view-review/<撮影日>/ へ写す（/weekly-review でエージェントが見る）。exit 2 は未確認（撮影なし・8 日より古い・ページ×画面幅の画像欠け）。撮影成立数/予定数を実ファイルで検算する。`-- --from <dir>` で置き場を指定
  */
 import { cpSync, existsSync, readFileSync, readdirSync, rmSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';

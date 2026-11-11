@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// npm run youtube-covers -- --all — 停止済みを除くYouTube表紙を処理（pop-v2は従来組版で生成、pop-poster-v3は採用PNGを保持。v3の新規制作は /create-pop-image）。--exam / --pub で絞り、--commit で原稿・素材台帳へ採用。確認一覧 .tmp/youtube-covers/pop-all/index.html。単体見本は --spec PATH（音声・字幕・公開状態は変更しない）
+
 import { readFileSync, mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';

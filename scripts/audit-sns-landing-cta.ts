@@ -15,6 +15,8 @@
  *   npx tsx scripts/audit-sns-landing-cta.ts        # レポート（exit 0）
  *   npx tsx scripts/audit-sns-landing-cta.ts --ci   # 未配線があれば exit 1、検査ゼロも exit 1
  * ---------------------------------------------------------------------------
+ *
+ * npm run audit-sns-landing-cta — SNS原稿・X予約のリンク先（転職・practice除く）に note 導線が冒頭側にあるか（ソース静的判定・quality:audit に同梱・DN-0364）
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';

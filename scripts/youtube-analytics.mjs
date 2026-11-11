@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /** 公開台帳の現役動画を YouTube Analytics API で計測する。認証が無ければ記録を書かず exit 2。 */
+// npm run youtube-analytics -- --check — 公開台帳の計測対象数を外部通信なしで確認。通常実行は YouTube Analytics API から28日窓の視聴回数・平均視聴時間・平均視聴率・流入元を取得し、型検証後 data/youtube/analytics/YYYY-MM-DD.json へ保存（CIのOAuth認証が必要・不足時 exit 2）。サムネイルのインプレッション/CTRはAPIの対象外
 import { readDataset } from './lib/dataset-io.mjs';
 import { fileURLToPath } from 'node:url';
 import { writeDataset } from './lib/dataset-write.mjs';

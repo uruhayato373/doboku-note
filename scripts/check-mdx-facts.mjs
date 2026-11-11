@@ -12,6 +12,8 @@
 //   - 「」『』で括った語の出現回数（計画名・法令名・引用の取りこぼしを拾う）
 // 減ったものがあれば exit 1。増えたもの（補った接続語・見出し語の繰り返し）は表示だけ。
 // 減ったものが説明できる（表の行番号を落とした等）なら、その説明を commit に書いて進めてよい。
+//
+// npm run check-mdx-facts -- <file...> [--base <rev>] — 構造だけを変えた編集（表→箇条書き・長文の分割・入れ子の平坦化）で、数値と「」『』の語が比較元（既定 HEAD）より減っていないか。減少で exit 1（説明できる減少なら commit に理由を書く）。frontmatter と全角・半角の差は見ない。サブエージェントに整形を任せたときの受入れにも使う
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';

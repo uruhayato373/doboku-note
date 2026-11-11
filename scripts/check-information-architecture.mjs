@@ -24,6 +24,8 @@
  * 緊急回避: SKIP_INFORMATION_ARCHITECTURE=1
  *
  * 真実源: .claude/knowledge/reference/information-architecture.md
+ *
+ * npm run check-information-architecture — 4 領域（docs/content/.claude/実装）への逆戻り検知（廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT。pre-commit --staged ＋ quality:audit）
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, statSync, writeSync } from 'node:fs';

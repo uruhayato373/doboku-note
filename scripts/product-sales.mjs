@@ -12,6 +12,8 @@
  *   npm run product-sales -- --month 2026-10
  *   npm run product-sales -- --all            # 入力に記録がある全月
  *   npm run product-sales -- --check          # 書かずに作れるかだけ確かめる（入力の破損は exit 2）
+ *
+ * npm run product-sales — 暦月×商品の販売台帳→data/business/product-sales/YYYY-MM.json（既定は前月と当月・`--month`・`--all`・`--check`）。note・KDP（doboku-note の ASIN だけ。stats47 の本は excluded）・ココナラ・A8（案件別の単月レポート。a8mat → 案件は config/affiliate-mats.json・金額は確定報酬、発生額と承認待ちは別欄）を販売先ごとの coverage つきで並べ、measured の月だけ「行が無い＝0 件」と読む。読み手は scripts/lib/product-sales.mjs の salesOf。土曜の収集の product-sales 段が回す（DN-0947）
  */
 import { buildProductSales } from './lib/product-sales.mjs';
 import { datasetPath } from './lib/datasets.mjs';

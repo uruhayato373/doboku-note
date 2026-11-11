@@ -5,6 +5,8 @@
  * exit: 0 違反なし / 1 違反あり / 2 検査不成立（対象 0 件）
  * --inventory で資格×型×状態の棚卸しを出す。--json で結果をそのまま出す。
  * --due は台本待ち・内容QAで止まった行の確認期限（ready）の超過だけを見て、あれば exit 1（週次の ops・DN-1069）。
+ *
+ * npm run check-youtube-plan — 通常動画の年間の枠（config/channel-annual-plan.json）と公開台帳を照合。計画にない動画・枠の超過・週の上限超えで exit 1、対象 0 件は exit 2。--inventory で資格×型×状態の棚卸しを出す（予約済みは scheduled だけ・approved は在庫）。--due は台本待ち・QA 停止の確認期限の超過で exit 1（週次の ops）。site-article の主CTAは targetPath で枠と照合する。要対応と採否待ちは exit に効かない
  */
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { todayJst } from './lib/jst-date.mjs';

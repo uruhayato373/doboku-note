@@ -2,6 +2,8 @@
 /**
  * 施工経験記述の現行2区画を全販売・発信チャネルで検査する。
  * exit 0=違反なし / 1=A〜E違反 / 2=必須範囲を走査できず検査不成立
+ *
+ * npm run check-keiken-answer-split — 施工経験記述の解答欄の割り振りが級と合っているか（1級=(1)に検討項目/(2)対応処置・評価、2級=(1)課題/(2)検討項目と対応処置。2級式を1級教材へ使うと(2)に3要素が乗り1区画約200字に収まらない。**note 原稿だけでなく退避される模試の生成 markdown も走査**）
  */
 import process from 'node:process';
 import { analyzeDocuments, collectDocuments, loadLimits } from './lib/keiken-answer-split.mjs';

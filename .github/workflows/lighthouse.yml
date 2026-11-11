@@ -5,7 +5,6 @@ name: Lighthouse CI
 # ここでは build 成果物（npm run serve・e2e.yml と同じ静的配信）に対し代表4ページで
 # lighthouserc.json の閾値を強制する。しきい値は lighthouserc.json が SSOT で、
 # psi-config.json（本番 field 監視・閾値は別の目的で別の値）とは二重管理しない。
-# 役割の違いは .claude/knowledge/reference/commands.md を参照。
 
 # 毎晩 develop を測る。PR ごとの 8 分の待ちをやめ、失敗は Issue にする。deploy:main は未解決の Issue があると止まる。
 # schedule はデフォルトブランチ（main）版の workflow で動くが、checkout は develop に向ける。

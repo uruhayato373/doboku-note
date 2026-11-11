@@ -21,6 +21,8 @@
 //   2. `node <path>.mjs` の <path> が実在するか
 //   3. drive-vault-sync の `--pull` の案内が `--commit`（書く）か `--dry-run`（見るだけ）を同じ行に持つか（DN-0631）
 //      --pull は既定で dry-run になったので、--commit の無い案内どおりに叩くと何も取り戻さない
+//   4. package.json の script が起動するファイルに冒頭コメントがあるか（DN-1130）。コマンドの用途と罠は一覧の文書に写さず、
+//      cmd-help が冒頭コメントから引く。既存の無いファイルは NO_HEADER_BASELINE に並べ、増やさない
 //
 // 走査の範囲（2026-10-11・DN-0686 で広げた）:
 //   - スクリプト: scripts/ と .claude/scripts/ の .mjs（1・2 とも見る）
@@ -41,6 +43,60 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { AREAS } from './lib/datasets.mjs';
+import { scriptsWithoutHeader } from './lib/cmd-help.mjs';
+
+/**
+ * 冒頭コメントの無い既存のファイル（2026-11-11 時点の 32 本）。**増やさない**。冒頭コメントを書いたらここから消す
+ * （書いたのに残っていると検査が落ちる）。新しい script の起動ファイルは、冒頭コメントに用途と罠を書く。
+ */
+export const NO_HEADER_BASELINE = [
+  '.claude/shared-policy/sync.mjs',
+  'scripts/build-note-text-partial-specs.mjs',
+  'scripts/build-public-route-redirects.ts',
+  'scripts/build-standards-library.mjs',
+  'scripts/check-exam-calendar.mjs',
+  'scripts/check-instagram-profile-funnel.mjs',
+  'scripts/check-note-link-cards.mjs',
+  'scripts/check-note-membership.mjs',
+  'scripts/check-topic-wiring.mjs',
+  'scripts/check-x-review.mjs',
+  'scripts/check-youtube-cover-handoff.mjs',
+  'scripts/ensure-local-media.mjs',
+  'scripts/local-resource-audit.mjs',
+  'scripts/local-resource-clean.mjs',
+  'scripts/local-resource-run.mjs',
+  'scripts/note-account-name.mjs',
+  'scripts/note-append-cta.mjs',
+  'scripts/note-append-list-links.mjs',
+  'scripts/note-attach-file.mjs',
+  'scripts/note-comment-reply.mjs',
+  'scripts/note-delete-note.mjs',
+  'scripts/note-edit-magazine.mjs',
+  'scripts/note-edit-session.mjs',
+  'scripts/note-magazine-add-articles.mjs',
+  'scripts/note-magazine-cover.mjs',
+  'scripts/note-membership-plan-create.mjs',
+  'scripts/note-membership-plan-edit.mjs',
+  'scripts/note-membership-plan-status.mjs',
+  'scripts/note-sync-tags.mjs',
+  'scripts/note-update-partial.mjs',
+  'scripts/x-review-server.mjs',
+  'tests/local-resources.test.mjs',
+];
+
+/**
+ * 冒頭コメントの検査の結果を、基準（baseline）と突き合わせる。純関数。
+ *   added   … 基準に無いのに冒頭コメントが無い（新しく足した script の起動ファイル）
+ *   cleared … 基準にあるのに冒頭コメントがある・起動ファイルでなくなった（基準から消す）
+ */
+export function compareHeaderBaseline(missingFiles, baseline = NO_HEADER_BASELINE) {
+  const missing = new Set(missingFiles);
+  const base = new Set(baseline);
+  return {
+    added: [...missing].filter((f) => !base.has(f)).sort(),
+    cleared: [...base].filter((f) => !missing.has(f)).sort(),
+  };
+}
 
 const NPM_RUN_RE = /npm run ([a-z0-9][a-z0-9:-]*)/g;
 const NODE_PATH_RE = /node ((?:scripts|\.claude\/scripts)\/[A-Za-z0-9._/-]+\.mjs)/g;
@@ -150,21 +206,35 @@ function main() {
     broken.push({ file: file + ':' + lineNo, kind: 'pull', ref: PULL_FLAG + ' に --commit が無い（既定は dry-run で何も取り戻さない）' });
   }
 
+  // 4. package.json の script が起動するファイルの冒頭コメント。用途と罠の一覧の文書は持たず、cmd-help がここから引く。
+  const readOrNull = (f) => { try { return read(f); } catch { return null; } };
+  const headers = scriptsWithoutHeader({ scripts: pkgScripts, readFile: readOrNull });
+  const headerDiff = compareHeaderBaseline(headers.missing.map((m) => m.file));
+  for (const f of headerDiff.added) {
+    const name = headers.missing.find((m) => m.file === f)?.name;
+    broken.push({ file: f, kind: 'header', ref: '冒頭コメントが無い（' + name + ' が起動する）。用途と罠をファイルの先頭のコメントに書く（cmd-help がそこから引く）' });
+  }
+  for (const f of headerDiff.cleared) {
+    broken.push({ file: 'scripts/check-command-guidance.mjs', kind: 'header-baseline', ref: 'NO_HEADER_BASELINE から ' + f + ' を消す（冒頭コメントが付いた・起動ファイルでなくなった）' });
+  }
+
   const result = {
+    headerFiles: headers.checked, headerMissing: headers.missing.length,
     files: files.length, docFiles: docFiles.length, workflowFiles: workflowFiles.length,
     scopes: { docs: ['CLAUDE.md', 'AGENTS.md', ...DOC_SCOPES], workflows: WORKFLOW_SCOPE },
     refNpm, refPath, refDoc, refWorkflow, refPull, broken,
   };
   // 検査ゼロを PASS と呼ばない（CLAUDE.md §9）
   const inconclusive = files.length < 100 || refNpm + refPath < 100 || docFiles.length < 100 || refDoc < 20
-    || workflowFiles.length < 10 || refWorkflow < 20 || refPull < 10;
+    || workflowFiles.length < 10 || refWorkflow < 20 || refPull < 10 || headers.checked < 100;
   if (JSON_OUT) {
     console.log(JSON.stringify({ ...result, inconclusive }, null, 2));
   } else {
     console.log('[check-command-guidance] ' + files.length + ' スクリプト + ' + docFiles.length
       + ' 正典・手順書 + ' + workflowFiles.length + ' ワークフローを実検査 / 案内 ' + (refNpm + refPath + refDoc + refWorkflow)
       + ' 件（npm run ' + refNpm + ' / node パス ' + refPath + ' / doc の npm run ' + refDoc + ' / workflow ' + refWorkflow
-      + '）/ drive-vault-sync の取り戻しの案内 ' + refPull + ' 件');
+      + '）/ drive-vault-sync の取り戻しの案内 ' + refPull + ' 件 / script の起動ファイル ' + headers.checked
+      + ' 本の冒頭コメント（無い ' + headers.missing.length + ' 本・基準 ' + NO_HEADER_BASELINE.length + ' 本）');
     if (inconclusive) console.error('✗ 走査結果が異常に少ない＝抽出が壊れている疑い（検査不成立）');
     for (const b of broken.slice(0, 25)) console.error('  [壊れ] ' + b.file + ': ' + b.ref);
     if (broken.length > 25) console.error('  ... ほか ' + (broken.length - 25) + ' 件');
