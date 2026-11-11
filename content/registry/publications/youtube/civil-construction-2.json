@@ -435,7 +435,27 @@
       "work": "keiken-anzen-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "qa_passed",
+      "media": {
+        "cover": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/cover",
+        "scene-001": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-013",
+        "scene-014": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/scene-014",
+        "video": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/video",
+        "subtitles": "civil-construction-2/keiken-anzen-kakikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-anzen-kakikata/youtube.json#longform"
     },
     {
       "id": "civil-construction-2/keiken-daizai-erabi/youtube.longform",
@@ -591,21 +611,61 @@
       "work": "keiken-hinshitsu-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "qa_passed",
+      "media": {
+        "cover": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover",
+        "scene-001": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-013",
+        "scene-014": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/scene-014",
+        "video": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/video",
+        "subtitles": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#longform"
     },
     {
       "id": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform",
       "work": "keiken-koji-gaiyo-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "qa_blocked"
     },
     {
       "id": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform",
       "work": "keiken-teishutsumae-tenken",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "qa_passed",
+      "media": {
+        "cover": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/cover",
+        "scene-001": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-013",
+        "scene-014": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/scene-014",
+        "video": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/video",
+        "subtitles": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-teishutsumae-tenken/youtube.json#longform"
     }
   ]
 }
