@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-hissu1-risk-kakunin",
+  "exam": "pe-construction",
+  "title": "建設部門 必須Ⅰ｜答案のリスクの確認 — (3)を四つの点で点検する",
+  "audience": "技術士第二次試験 建設部門の必須科目Ⅰで、設問(3)の懸念と対策を書いたものの、これでよいのか自信がない受験者",
+  "pain": "必須Ⅰの設問(3)に懸念と対策を書いても、(2)の解決策から出たリスクになっているか、対策が足りているか確かめ方が分からない",
+  "promise": "書いた懸念と対策を、出どころ・対策・(2)との整合・設問の指示語の四つで点検し、直す箇所を決められる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/guide-required-essay/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/r08-required/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/suikou-checklist/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "pe-hissu1-risk-kakunin"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

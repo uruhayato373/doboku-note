@@ -1,0 +1,285 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "必須Ⅰの設問の3、書いたリスクは確認しましたか。",
+      "caption": "(3)のリスク、確認した？",
+      "visual": {
+        "kind": "cover",
+        "heading": "必須Ⅰ(3)、リスクの確認",
+        "items": [
+          "技術士 建設部門・必須科目"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 25,
+      "narration": "解決策は書けたのに、設問の3に書いた懸念と対策が、これでよいのか自信がない。今日は必須科目Ⅰの設問の3を書いたあとに、答案のリスクを確かめる四つの点検と、字数の目安を整理します。",
+      "caption": "解決策は書けたのに、(3)に自信がない",
+      "visual": {
+        "kind": "points",
+        "heading": "今日整理すること",
+        "items": [
+          "設問(3)の求め",
+          "四つの点検",
+          "字数の目安"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "必須科目対策／建設部門",
+          "note": "点検の分け方はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 25,
+      "end": 53,
+      "narration": "設問の3は、一般的なリスクを挙げる場所だと思われがちです。地震や豪雨のような災害を書きたくなります。しかし書き方ガイドは、最も多い失点を、前問と無関係な新しい課題を持ち出すことと整理しています。問われているのは、自分の解決策を実行したから生じる副作用です。",
+      "caption": "(3)は、解決策の副作用を書く",
+      "visual": {
+        "kind": "compare",
+        "heading": "(3)に書くもの",
+        "ngLabel": "書きがち",
+        "okLabel": "書くもの",
+        "rows": [
+          {
+            "label": "リスク",
+            "ng": "地震や豪雨などの一般的なリスク",
+            "ok": "自分の解決策を実行して生じる副作用"
+          },
+          {
+            "label": "つながり",
+            "ng": "(2)と無関係な新しい課題",
+            "ok": "(2)の解決策から出た懸念"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "必須科目対策／建設部門",
+          "note": "書き方ガイドとテンプレート記事の整理に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/guide-required-essay/article.mdx"
+    },
+    {
+      "sceneId": "wording",
+      "start": 53,
+      "end": 86,
+      "narration": "令和8年度の必須科目Ⅰは、両問とも小問の3で、懸念事項と、その対応策か対策を、専門技術を踏まえて示す形でした。I-1は、すべての解決策を実行しても新たに生じうる懸念、I-2は、解決策に関連して新たに浮かび上がる将来的な懸念です。型を当てはめる前に、問いの違いを読みます。形式は受検年度の公式情報で確認してください。",
+      "caption": "令和8年度は、問いの言い方が違う",
+      "visual": {
+        "kind": "points",
+        "heading": "令和8年度の設問(3)",
+        "items": [
+          "I-1：すべての解決策を実行しても生じうる懸念",
+          "I-2：解決策に関連して浮かぶ将来的な懸念",
+          "どちらも専門技術を踏まえて示す",
+          "形式は受検年度の公式情報で確認"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "令和8年度の公式問題文に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-required/article.mdx"
+    },
+    {
+      "sceneId": "check1",
+      "start": 86,
+      "end": 120,
+      "narration": "一つ目は、懸念の出どころです。書いた懸念ごとに、設問の2のどの解決策から出たのかを、指でたどります。たどれない懸念は、解決策と関係のない新しい課題かもしれません。たとえば新技術で省人化する解決策なら、初期投資の増大、技術者の習得の遅れ、品質確認の属人化が、副作用の例です。",
+      "caption": "点検1：懸念は(2)から出ているか",
+      "visual": {
+        "kind": "points",
+        "heading": "点検1　懸念の出どころ",
+        "items": [
+          "懸念ごとに、元の解決策を指でたどる",
+          "たどれなければ、無関係な新課題かも",
+          "例：省人化 → 初期投資・習得の遅れ・属人化"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "必須科目対策／建設部門",
+          "note": "例はテンプレート記事の記述。実際の答案は自分の解決策で書く"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/suikou-checklist/article.mdx"
+    },
+    {
+      "sceneId": "check2",
+      "start": 120,
+      "end": 152,
+      "narration": "二つ目は、対策です。予算がかかる、で止めると、副作用を挙げただけです。書き方ガイドは、懸念と対策を一対一で対応させると、採点者に伝わりやすいと整理しています。先の例なら、初期投資には段階導入、習得の遅れには研修、品質確認の属人化にはチェック体制を添えます。",
+      "caption": "点検2：懸念ごとに対策を添える",
+      "visual": {
+        "kind": "compare",
+        "heading": "懸念と対策",
+        "ngLabel": "懸念で止める",
+        "okLabel": "懸念と対策を1対1",
+        "rows": [
+          {
+            "label": "初期投資",
+            "ng": "予算がかかる",
+            "ok": "初期投資の増大 → 段階導入"
+          },
+          {
+            "label": "習得",
+            "ng": "技術者が慣れない",
+            "ok": "習得の遅れ → 研修"
+          },
+          {
+            "label": "品質",
+            "ng": "確認が人に偏る",
+            "ok": "属人化 → チェック体制"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "必須科目対策／建設部門",
+          "note": "例はテンプレート記事の記述。書き方ガイドの整理に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "check3",
+      "start": 152,
+      "end": 190,
+      "narration": "三つ目は、設問の2との整合です。2で、手法が確立の途上にあると認めていたなら、そこから生じる懸念を3に書くと、根拠とリスクが同じ事実の表と裏としてつながります。逆に、2で応えた他の立場の見方を、3で繰り返さないようにします。2は実行する前に受け入れられるか、3は実行したあとの副作用と、役割を分けます。",
+      "caption": "点検3：(2)の根拠と表と裏",
+      "visual": {
+        "kind": "points",
+        "heading": "点検3　(2)との整合",
+        "items": [
+          "途上の手法なら、その懸念を(3)へ送る",
+          "(2)の他の立場の見方を、(3)で繰り返さない",
+          "(2)は実行前、(3)は実行後"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "必須科目対策／建設部門",
+          "note": "役割の分け方はテンプレート記事の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "check4",
+      "start": 190,
+      "end": 224,
+      "narration": "四つ目は、設問の指示語です。令和8年度は両問とも、専門技術を踏まえた考えを求めていました。対策が、自分の専門の中身を持っているかを確かめます。I-1は、すべての解決策を実行しても、と置いているので、一部の解決策の懸念だけで終わっていないかも見ます。この読み方は、この動画の整理です。",
+      "caption": "点検4：設問の指示語に応えたか",
+      "visual": {
+        "kind": "points",
+        "heading": "点検4　設問の指示語",
+        "items": [
+          "専門技術を踏まえた対策になっているか",
+          "I-1：一部の解決策だけで終わっていないか",
+          "I-2：将来的な懸念になっているか"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "令和8年度の問題文を読んだdoboku-noteの整理。公式の基準ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-required/article.mdx"
+    },
+    {
+      "sceneId": "amount",
+      "start": 224,
+      "end": 254,
+      "narration": "字数の目安です。書き方ガイドでは、設問の3は350から400字ほどで、懸念を二つか三つ、対策とセットで書くと整理しています。答案全体の、およそ4分の1弱です。ただし公式の指定ではありません。設問の2で書きすぎて、3に字数が残らない形を避けます。",
+      "caption": "(3)は350〜400字が目安",
+      "visual": {
+        "kind": "points",
+        "heading": "(3)の字数の目安",
+        "items": [
+          "懸念2〜3点と、それぞれの対策",
+          "350〜400字ほど",
+          "公式の指定ではない目安"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "字数は書き方ガイドの目安。公式の指定ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/guide-required-essay/article.mdx"
+    },
+    {
+      "sceneId": "link4",
+      "start": 254,
+      "end": 280,
+      "narration": "書いた懸念は、設問の4にもつながります。書き方ガイドの例では、4は、1から3で論じた課題・解決策・懸念に直接結びつけた、倫理や持続性の要件を書くと整理しています。3の懸念がはっきりしていると、4で引ける材料になります。",
+      "caption": "(3)の懸念は(4)の材料になる",
+      "visual": {
+        "kind": "points",
+        "heading": "(3)から(4)へ",
+        "items": [
+          "(4)は(1)〜(3)の内容に結びつける",
+          "(3)の懸念が、(4)で引く材料になる",
+          "一般論だけでは終わらせない"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "必須科目対策／建設部門",
+          "note": "書き方ガイドの整理に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/guide-required-essay/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 280,
+      "end": 304,
+      "narration": "まとめます。設問の3は、自分の解決策の副作用を書く所です。書いたあとに、懸念の出どころ、懸念ごとの対策、2との表と裏、設問の指示語の四つを確かめます。字数は350から400字が目安です。点検の分け方は、この動画の整理です。",
+      "caption": "(3)の点検は、四つ",
+      "visual": {
+        "kind": "points",
+        "heading": "(3)のリスクの確かめ方",
+        "items": [
+          "出どころ：懸念は(2)の解決策から出たか",
+          "対策：懸念ごとに添えたか",
+          "整合：(2)の根拠と表と裏か",
+          "指示語：設問に応えたか"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "必須科目対策／建設部門",
+          "note": "点検の分け方は本動画の整理。形式は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 304,
+      "end": 330,
+      "narration": "次は、実際の答案で試す番です。必須科目Ⅰの模範解答集が、noteにあります。この動画は点検の仕方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "点検の次は、答案で試す",
+      "visual": {
+        "kind": "points",
+        "heading": "次は、答案で試す",
+        "items": [
+          "必須科目Ⅰ 模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "必須科目対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    }
+  ]
+}
