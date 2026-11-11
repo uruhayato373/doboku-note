@@ -551,11 +551,11 @@
       "images": [
         {
           "role": "cover",
-          "inputSha256": "91150c2a4e2be1a581edd2165f87aafa5d0ecd85d9fb83e302c3746e7d2f492d",
+          "inputSha256": "44d0b8963b5025f8f1d5a38dcc70567583dda80eb6200dbd0b7f8018fbf6d9ed",
           "narration": "どこで点を落としたか分からない答案は、三つの手順で点検できます。",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『答案の』『点検は』『3手順』、小さな黄色帯に『総監が制作』。 表紙の型は「N 点チェック」。数字を見出しの中で最も大きく、チェック欄の空の四角を数だけ縦に並べる。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指を1本立てて顔の横に上げ、左手（画面右側）はチェック欄のある紙を胸の前で持つ。指は5本で、立てるのは人差し指だけ。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』、最も大きく『答案の』『点検は』『3手順』。肩書きの帯や制作者名は書かない。 表紙の型は「N 点チェック」。数字を見出しの中で最も大きく、チェック欄の空の四角を数だけ縦に並べる。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「答案を見て考える」: 両手で答案用紙を胸の前に持ち、紙を見下ろして考える顔。指は紙の縁にかかって 5 本見える。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の両手で答案用紙を胸の前に持ち、紙を見下ろして考える顔。指は紙の縁にかかって5本見える。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 指示は『技術士 建設部門』の括弧を引用符として使っただけなのに、画像に鉤括弧『』を字として描いている(指示にない文字)。その右の』は右端から約5%で、左右6%内側の規定に入らない。見出し3行と3つの空チェック欄、先生の手指・胴体の切れは問題なし",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -563,26 +563,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/raw-cover.f956bcc7.png",
-              "sha256": "f956bcc7ed7be0893373d91a1e1f5ca6ae408e46c9ffdaaa2e9c7d5c3caff9f8"
+              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/raw-cover.b4fd7966.png",
+              "sha256": "b4fd7966ae0e8013869d2790388f89ad89344c1e069eda5b8dd7f04bb963ef86"
             },
-            "generatedAt": "2026-11-11T10:34:58.719Z"
+            "generatedAt": "2026-11-11T11:34:48.093Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/cover.00f6ae4a.png",
-            "sha256": "00f6ae4a7afdfb2f2e1245fed27e3de662f776896c761365f7dacab96e59d644",
+            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/cover.afb46ce2.png",
+            "sha256": "afb46ce2ecc20bfbe9ba5f10820994c0e9479e9a286a9c75c03394e591f78e97",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "f956bcc7ed7be0893373d91a1e1f5ca6ae408e46c9ffdaaa2e9c7d5c3caff9f8"
+            "sourceSha256": "b4fd7966ae0e8013869d2790388f89ad89344c1e069eda5b8dd7f04bb963ef86"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T10:34:58.719Z",
+            "checkedAt": "2026-11-11T11:34:48.093Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "文字: 技術士 建設部門・答案の・点検は・3手順・総監が制作が指示と一字一句一致し端で切れず、3が最大でチェック欄3つが縦に並ぶN点チェック型。先生の手は左右1本ずつで指5本、胴体は下端まで続く"
+            "reason": "文字: 技術士 建設部門・答案の・点検は・3手順が指示どおり1字も欠けず、見出しの塊は幅約67%で左右余白あり。型: 空のチェック欄3つを縦に並べ数字3が最大。先生: 黒髪・眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯、両手で答案を持ち指5本、胴体は下端まで続く。記号の重なり・誤字なし"
           }
         },
         {
@@ -602,7 +602,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/raw-scene-001.bf842e3e.png",
               "sha256": "bf842e3e2d3327a4284a543d9b2fb2e87b8e5097cfd817767239d7019ce8b5ee"
             },
-            "generatedAt": "2026-11-11T10:34:58.719Z"
+            "generatedAt": "2026-11-11T11:34:48.093Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/scene-001.af18ba0f.png",
@@ -616,7 +616,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T10:34:58.719Z",
+            "checkedAt": "2026-11-11T11:34:48.093Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 技術士 建設部門・1・設問に印を付ける・設問・答案が指示どおりで欠けなし。設問4部品から答案段落へ矢印と赤丸があり、指示の図と一致。擬似文字や崩れなし"
           }
@@ -638,7 +638,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/raw-scene-002.1ec77ee5.png",
               "sha256": "1ec77ee54b406fa16377e3cb9f14b09836708b3454685c2d63752915ef2f05a4"
             },
-            "generatedAt": "2026-11-11T10:34:58.719Z"
+            "generatedAt": "2026-11-11T11:34:48.093Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/scene-002.fa662424.png",
@@ -652,7 +652,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T10:34:58.719Z",
+            "checkedAt": "2026-11-11T11:34:48.093Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 技術士 建設部門・2・段落の一文目を読む・一文目が指示どおりで欠けなし。3つの段落の1行目だけ黄色マーカーで矢印付き、本文は線で描かれ指示と一致"
           }
@@ -674,7 +674,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/raw-scene-003.291f8b7a.png",
               "sha256": "291f8b7a97e892fdabb81cc849e2719ab838f41515f0332db0f4b38ebaa16007"
             },
-            "generatedAt": "2026-11-11T10:34:58.719Z"
+            "generatedAt": "2026-11-11T11:34:48.093Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/scene-003.bbb2ee71.png",
@@ -688,7 +688,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T10:34:58.719Z",
+            "checkedAt": "2026-11-11T11:34:48.093Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "指示の文字（技術士 建設部門・3・偏りを確かめる・専門知識/解決策/段取り）が誤字なく描かれ、答案用紙・縦3付箋・天秤が指定の配置で、文字は端で切れていない"
           }
@@ -710,7 +710,7 @@
               "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/raw-cta.094ea47e.png",
               "sha256": "094ea47eafaed39c87fe7ff4a8345e1e4d72625780646bac027b1e25fbf16713"
             },
-            "generatedAt": "2026-11-11T10:34:58.719Z"
+            "generatedAt": "2026-11-11T11:34:48.093Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/cta.6df9d820.png",
@@ -724,14 +724,14 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T10:34:58.719Z",
+            "checkedAt": "2026-11-11T11:34:48.093Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "点検で見つかる型の実例は／本編で／関連動画から と下向き矢印が誤字なく読め端で切れず、先生は同一の顔・装備で手指は左右1本ずつ5本、胴体は下端まで続く"
           }
         }
       ],
       "render": {
-        "videoSha256": "42c59f9b8c11722c3ae3dfea2a9af79606bfa435ce21d661e6438dd5f22118f3",
+        "videoSha256": "219b661b8543b4f2215fa9d66661674ed05630c1e414895bec152285027eb2a2",
         "durationSeconds": 28.693333,
         "speaker": 13,
         "sceneCount": 5
@@ -739,24 +739,24 @@
       "screenReview": {
         "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "全軸 3 以上で平均 4.4。実測は 1080×1920・28.67 秒・音声あり、sha は youtube.json と pop-image の render.videoSha256 に一致、場面は 5/5。台本は n-check の型の形に沿い、語りの事実は storyboard の check・types と合う。ライブの操作 UI は未確認。",
-        "videoSha256": "42c59f9b8c11722c3ae3dfea2a9af79606bfa435ce21d661e6438dd5f22118f3",
-        "checkedAt": "2026-11-11T10:42:05.476Z"
+        "reason": "実測 1080x1920・28.7秒・音声あり。youtube.json と pop-image.json の sha が実ファイルと一致し、5/5場面が揃う。平均4.4で全軸3以上。型 n-check の形に沿い、事実は sources の check 場面の範囲内。ライブの操作UIは未確認。",
+        "videoSha256": "219b661b8543b4f2215fa9d66661674ed05630c1e414895bec152285027eb2a2",
+        "checkedAt": "2026-11-11T11:36:01.487Z"
       },
       "audio": {
-        "videoSha256": "42c59f9b8c11722c3ae3dfea2a9af79606bfa435ce21d661e6438dd5f22118f3",
+        "videoSha256": "219b661b8543b4f2215fa9d66661674ed05630c1e414895bec152285027eb2a2",
         "similarity": 0.93,
         "maxVolumeDb": -6.6,
         "durationGapSec": 0
       },
       "stock": {
         "video": {
-          "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/video.42c59f9b.mp4",
-          "sha256": "42c59f9b8c11722c3ae3dfea2a9af79606bfa435ce21d661e6438dd5f22118f3"
+          "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/video.219b661b.mp4",
+          "sha256": "219b661b8543b4f2215fa9d66661674ed05630c1e414895bec152285027eb2a2"
         },
         "frames": {
-          "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/frames.d45e362c.png",
-          "sha256": "d45e362cae5ec1e48db2f5ad2b12503015c48d616bdf1e969bf2e09ca37c3f80"
+          "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/frames.7b0ccff4.png",
+          "sha256": "7b0ccff4f7d8965498e619bc717f98dffdefc65611de4069a384c1cdd2911b71"
         },
         "subtitles": {
           "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/subtitles.f7d7d5fe.ass",
@@ -764,8 +764,8 @@
         },
         "originals": [
           {
-            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/raw-cover.f956bcc7.png",
-            "sha256": "f956bcc7ed7be0893373d91a1e1f5ca6ae408e46c9ffdaaa2e9c7d5c3caff9f8"
+            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/raw-cover.b4fd7966.png",
+            "sha256": "b4fd7966ae0e8013869d2790388f89ad89344c1e069eda5b8dd7f04bb963ef86"
           },
           {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/raw-scene-001.bf842e3e.png",
@@ -785,10 +785,10 @@
           }
         ],
         "thumbnail": {
-          "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/cover.00f6ae4a.png",
-          "sha256": "00f6ae4a7afdfb2f2e1245fed27e3de662f776896c761365f7dacab96e59d644"
+          "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2/cover.afb46ce2.png",
+          "sha256": "afb46ce2ecc20bfbe9ba5f10820994c0e9479e9a286a9c75c03394e591f78e97"
         },
-        "savedAt": "2026-11-11T10:42:27.185Z",
+        "savedAt": "2026-11-11T11:36:21.100Z",
         "cloudVerified": true
       }
     },
