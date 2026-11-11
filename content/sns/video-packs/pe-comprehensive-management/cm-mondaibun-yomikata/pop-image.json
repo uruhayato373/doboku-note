@@ -992,12 +992,261 @@
         "savedAt": "2026-11-11T10:27:45.982Z",
         "cloudVerified": true
       }
+    },
+    "shorts-pop-point-toshiyomi-1-20261112": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1",
+      "key": "point-toshiyomi-1",
+      "sceneId": "misread",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "cee66d7d1cdbfb7705358fbf73c3c1597fa348b1f19089417d1693955932a20b",
+          "narration": "問題文が長く、どこを拾うか迷って頭から通して読んでいませんか。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 黄色と白の極太文字。 上部に『技術士 総監』。最も大きく見出しを 2 行で書く: 1 行目〈『通して〉、2 行目〈読む』？〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「誤解を壊す」。見出しは思い込みの一言の引用と「？」だけで問う。✕は描かない。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「手のひらで止める」: 片手の手のひらを前に向けて胸の高さに出し、5 本の指を開く。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は手のひらを前に向けて胸の高さに出し、5本の指を開いて止める仕草をする。左手（画面右側）は腰に当てる。紙や記号は持たない。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 配置: 見出し『通して』『読む』？の塊が左端約5%から右端約95%まで広がり、指示の左右8%内側・幅80%以内を超えて画面端に近接している。文字は欠けず誤字なし、先生の手指(5本)・胴体・手のひらで止める仕草は型どおり",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/raw-cover.a987a81a.png",
+              "sha256": "a987a81a58764f58d309706195cd956c3553a7cf40e591a0bdae0863553fb259"
+            },
+            "generatedAt": "2026-11-11T22:21:43.892Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/cover.b4a53a8a.png",
+            "sha256": "b4a53a8a719e5ca19668caba63a8b45185309307e02115d52ce5072bc901828f",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a987a81a58764f58d309706195cd956c3553a7cf40e591a0bdae0863553fb259"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:21:43.892Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 技術士 総監と『通して／読む』？が指示どおりで誤字・崩れなし、左右余白5%以上で切れなし。型: 誤解を壊す型で✕・矢印・下線なし。先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服で、手のひらを前に5本指で止め、もう片方は腰、胴体は下端まで続く。紙の文字は見出しのみ、肩書き帯なし、下30%に紙の文字なし"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "fd31314f7bb99aa582669cf9f5ac00a9e17702a8cf33af7fcffa8f0f1a8d3f60",
+          "narration": "問題文を頭から通して読み、思いついた題材で書き始める。誤解しやすい読み方です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 総監』。大きな番号『1』と見出し『通して読んで書き出す』。 図: 左に縦長の問題文の紙を1枚描き、上から下へ太い矢印を1本なぞらせ、その矢印がそのまま右の答案用紙へ向かう。問題文の紙の上に『頭から通して読む』、答案用紙の上に『思いついた題材』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/raw-scene-001.c769de18.png",
+              "sha256": "c769de1888d55a22561837dab3d36a82f9a1b1fccbe46ba8cc142c86d2f428b8"
+            },
+            "generatedAt": "2026-11-11T22:21:43.892Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/scene-001.b809d2e7.png",
+            "sha256": "b809d2e73db89ecd7a5587e0d4784a35888e287da88874f18695285c989b7f0f",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c769de1888d55a22561837dab3d36a82f9a1b1fccbe46ba8cc142c86d2f428b8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:21:43.892Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "番号1・見出し・「頭から通して読む」「思いついた題材」が指示と一字一致し欠けなし。問題文の紙から矢印が答案用紙へ向かう図で本文と矛盾せず破綻もない"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "d176a95fdec7ea8738613da6bb2c94d06b9f2ea984125576a9c5a6189c750abc",
+          "narration": "問題文には、毎年繰り返される文章と、その年だけのヒントが混ざっています。切り分けないと、骨組みがずれます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 総監』。大きな番号『2』と見出し『二種類が混ざっている』。 図: 上下に2つの大きな角丸の箱を置く。上の箱に『毎年繰り返される文章』、下の箱に『その年だけのヒント』。2つの箱の間に太い点線を横に1本引き、点線の右端に『切り分ける』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 資格名ラベルに指示にない括弧『』が描かれている。配置: 図の2つの箱と『切り分ける』が画面の右端約95%まで伸び、図を左8%〜80%に収める指定と、下半分で右端18%に文字を置かない指定に反れ、操作ボタンに重なる。各文言の字自体は指示どおり",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/raw-scene-002.ddaafeec.png",
+              "sha256": "ddaafeec40a62f8bb67ab66ed4d1c94f902611d046b01a1ddcb9ce46be0bbe66"
+            },
+            "generatedAt": "2026-11-11T22:21:43.892Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/scene-002.0aa5da50.png",
+            "sha256": "0aa5da5099ce5c55a25357665cf30d45d7c64eacb73d02e3ffa4706c733e3a56",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ddaafeec40a62f8bb67ab66ed4d1c94f902611d046b01a1ddcb9ce46be0bbe66"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:21:43.892Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は指示と1字ずつ一致し切れ・誤字なし。上下2つの角丸箱の間に点線と切り分けるがあり、領域内に収まり右端も空いている"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "079960de9a2332ddb1313097508a4e90935b4aa930f0137ee19d1a140d15ced8",
+          "narration": "代わりに、問題文を四つの要素に分けて読みます。読む順序はテーマ、設定条件、要求事項の三つ。四つめの評価項目は、骨子ができた後の点検に使います。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 総監』。大きな番号『3』と見出し『要素に分けて読む』。 図: 左側に、上から下へ3つの大きな箱を太い矢印でつなぐ。上から『テーマ』『設定条件』『要求事項』。箱の左に番号『1』『2』『3』。右側に4つめの箱『評価項目』を点線の枠で置き、3つめの箱『要求事項』から右へ点線の矢印を1本引く。点線の箱の上に『骨子の点検』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字は指示と一致し誤字なし、箱と矢印の構造も正しい。ただし見出し『3 要素に分けて読む』が左端約5%から右端約94%まで広がり、点線の箱『評価項目』も右へ約86%まで出て、指定の8〜80%の長方形と右18%の操作ボタン域を侵している",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/raw-scene-003.fcdca023.png",
+              "sha256": "fcdca023d30227425d89170de84a3a95131e7d4e288e08985af5eb51249d8150"
+            },
+            "generatedAt": "2026-11-11T22:21:43.892Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/scene-003.5de17d81.png",
+            "sha256": "5de17d81f682d4cd110e766364b6094681ce5980bb4b293b5776cd8228e94f0b",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fcdca023d30227425d89170de84a3a95131e7d4e288e08985af5eb51249d8150"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:21:43.892Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 技術士 総監・3・要素に分けて読む・テーマ/設定条件/要求事項・1〜3・評価項目・骨子の点検が指示と一字一致し切れなし。3つの箱の矢印と要求事項から評価項目への点線矢印、図の範囲も指示どおり"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "feedd7e6a6b4d8007d7130dd992d79ae866de1a990a01a9ae046e0c92b4004c9",
+          "narration": "評価項目の使い方と拾い方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 大きく『評価項目の使い方と拾い方は』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『技術士 総監』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/raw-cta.02ec46ed.png",
+              "sha256": "02ec46edd47295f584e5df95c6778486d225404a5fc86c8b5d8f5a470fcb3435"
+            },
+            "generatedAt": "2026-11-11T22:21:43.892Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/cta.1f0aef20.png",
+            "sha256": "1f0aef2066c5b429f8689de14a937d4f17d261418aaec48c68e2b50a52a3622f",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "02ec46edd47295f584e5df95c6778486d225404a5fc86c8b5d8f5a470fcb3435"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:21:43.892Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『評価項目の使い方と拾い方は』『本編で』『関連動画から』と下向き矢印が誤字なく収まり、先生の手は5本指で胴体も下端まで続き、資格名も書かれていない"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "0727200282c0c6f69910e1e73f09638005a26888fffeeba3dff38e675b4c9e31",
+        "durationSeconds": 36.362667,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "実測で 36.3 秒・1080×1920・音声あり。sha は youtube.json と pop-image.json の render.videoSha256 が一致し、場面数も 5/5 で一致。5 軸の平均は約 4.4 で全軸 3 以上。型 myth-buster の形で、コピーは barnum のみで台帳に適合し、事実は sources の範囲内。",
+        "videoSha256": "0727200282c0c6f69910e1e73f09638005a26888fffeeba3dff38e675b4c9e31",
+        "checkedAt": "2026-11-11T22:23:02.335Z"
+      },
+      "audio": {
+        "videoSha256": "0727200282c0c6f69910e1e73f09638005a26888fffeeba3dff38e675b4c9e31",
+        "similarity": 0.977,
+        "maxVolumeDb": -5.7,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/video.07272002.mp4",
+          "sha256": "0727200282c0c6f69910e1e73f09638005a26888fffeeba3dff38e675b4c9e31"
+        },
+        "frames": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/frames.5c003943.png",
+          "sha256": "5c003943767d9ababea6decd41502a3dcae20d9f511d8d4639538754922057f4"
+        },
+        "subtitles": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/subtitles.b3fc3f20.ass",
+          "sha256": "b3fc3f2082c7d83fe99411ec2288cbf8c3ae837cba8618cff20953988adc22fb"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/raw-cover.a987a81a.png",
+            "sha256": "a987a81a58764f58d309706195cd956c3553a7cf40e591a0bdae0863553fb259"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/raw-scene-001.c769de18.png",
+            "sha256": "c769de1888d55a22561837dab3d36a82f9a1b1fccbe46ba8cc142c86d2f428b8"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/raw-scene-002.ddaafeec.png",
+            "sha256": "ddaafeec40a62f8bb67ab66ed4d1c94f902611d046b01a1ddcb9ce46be0bbe66"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/raw-scene-003.fcdca023.png",
+            "sha256": "fcdca023d30227425d89170de84a3a95131e7d4e288e08985af5eb51249d8150"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/raw-cta.02ec46ed.png",
+            "sha256": "02ec46edd47295f584e5df95c6778486d225404a5fc86c8b5d8f5a470fcb3435"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1/cover.b4a53a8a.png",
+          "sha256": "b4a53a8a719e5ca19668caba63a8b45185309307e02115d52ce5072bc901828f"
+        },
+        "savedAt": "2026-11-11T22:23:08.454Z",
+        "cloudVerified": true
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261111",
   "activeBodyRevision": "body-diagram-20261111",
   "activeShorts": {
     "point-youso-2": "shorts-pop-point-youso-2-20261111",
-    "point-toshiyomi-1": "shorts-pop-point-toshiyomi-1-20261111"
+    "point-toshiyomi-1": "shorts-pop-point-toshiyomi-1-20261112"
   }
 }

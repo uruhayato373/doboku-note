@@ -937,10 +937,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-cover.ef525543.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-cover.ef525543.png",
               "sha256": "ef525543c29fab4940f25fc747dc853e67b66e3710f4701b836fb2e1da12777d"
             },
-            "generatedAt": "2026-11-11T22:00:27.641Z"
+            "generatedAt": "2026-11-11T22:26:30.802Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/cover.6b947c3b.png",
@@ -954,7 +954,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T22:00:27.641Z",
+            "checkedAt": "2026-11-11T22:26:30.802Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し3行は指示どおり一字も崩れず左右5%以上の余白、紙は『軟弱だった』のみで下30%に文字なし、記号の追加や肩書き帯なし、人差し指1本で紙を指し反対の手は腰、胴体は下端まで続く"
           }
@@ -973,10 +973,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-scene-001.6b41825f.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-scene-001.6b41825f.png",
               "sha256": "6b41825f687290b2b6c3863d8acc68984948cc5320e885144e015b634fdabf91"
             },
-            "generatedAt": "2026-11-11T22:00:27.641Z"
+            "generatedAt": "2026-11-11T22:26:30.802Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/scene-001.d0538a67.png",
@@ -990,7 +990,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T22:00:27.641Z",
+            "checkedAt": "2026-11-11T22:26:30.802Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字『1級土木』『暑かった、は伝わりにくい』『仮の例』『暑かった』『軟弱だった』が指示と一致し、2行に赤い波線。余計な文字なし、崩れなし"
           }
@@ -1009,10 +1009,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-scene-002.b85dd134.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-scene-002.b85dd134.png",
               "sha256": "b85dd134a8132e58badbd3e11c3047402c7206c00bfc916c1811016864171368"
             },
-            "generatedAt": "2026-11-11T22:00:27.641Z"
+            "generatedAt": "2026-11-11T22:26:30.802Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/scene-002.9de38273.png",
@@ -1026,7 +1026,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T22:00:27.641Z",
+            "checkedAt": "2026-11-11T22:26:30.802Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字『足りないのは測れる条件』『暑かった→打込み時の温度』『軟弱だった→地盤のN値』が指示と一致。右向き矢印・黄色の右箱も指示どおり、数値なし"
           }
@@ -1037,7 +1037,7 @@
           "narration": "残りの4つの見どころは本編で。",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 大きく『残りの4つの見どころは』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『1級土木』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 大きく『残りの4つの見どころは』『本編で』、その下に小さく『関連動画から』と下向きの矢印。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『1級土木』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 締めの『関連動画から』の左の余白が約4%で5%未満（画面確認）",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -1045,41 +1045,85 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-cta.2cb6f23c.png",
-              "sha256": "2cb6f23c22d25d73b254faa2326c7d23abdf4c618e75f7be92311f41876ccdca"
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-cta.ad714b2f.png",
+              "sha256": "ad714b2f6b01c20d7609cba12b2bfb565a52cd18656f388eed601e2e04aee57e"
             },
-            "generatedAt": "2026-11-11T22:00:27.641Z"
+            "generatedAt": "2026-11-11T22:26:30.802Z"
           },
           "output": {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/cta.3d51a10b.png",
-            "sha256": "3d51a10b84e0a6519073ff6a783b6866d080a40d46538a5beb75ce90f3f29166",
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/cta.e1544098.png",
+            "sha256": "e1544098c44628176f53206a7272d3f9f2b198f5db15657558b7c236a84086b5",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "2cb6f23c22d25d73b254faa2326c7d23abdf4c618e75f7be92311f41876ccdca"
+            "sourceSha256": "ad714b2f6b01c20d7609cba12b2bfb565a52cd18656f388eed601e2e04aee57e"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T22:00:27.641Z",
+            "checkedAt": "2026-11-11T22:26:30.802Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "『残りの4つの見どころは』『本編で』『関連動画から』と下向き矢印が誤字・欠けなく、先生は手のひらで矢印を示し、手は左右1本ずつで指も自然、胴体は下端まで続く。"
+            "reason": "文字『残りの4つの見どころは』『本編で』『関連動画から』が指示と一字ずつ一致し、左右余白は約7%以上で切れ無し。下向き矢印は指示どおり、不要な記号・資格名・URLは無い。先生は黒縁眼鏡・ひげ・白ヘルメット・紺作業服で左手の指5本は自然、胴体は下端まで続く。"
           }
         }
       ],
       "render": {
-        "videoSha256": "4e5f162b5cde0bb321754a8f7d78a98abdc6ae2125fe13461cfcc79d5957685a",
+        "videoSha256": "54497b7c1414b41b688fa0d8a68fc9784e19e0593c79606da4f9cfdbef1ad40d",
         "durationSeconds": 25,
         "speaker": 13,
         "sceneCount": 4
       },
       "screenReview": {
-        "verdict": "fail",
+        "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "軸5が2点。締め場面の「関連動画から」の左端が画面の約4%で、合否の線の左右5%に届かない。ほかの軸は基準を満たす。",
-        "videoSha256": "4e5f162b5cde0bb321754a8f7d78a98abdc6ae2125fe13461cfcc79d5957685a",
-        "checkedAt": "2026-11-11T22:01:25.718Z"
+        "reason": "実測 25 秒・1080x1920・音声あり、sha が一致し 4/4 場面を確認した。軸 1〜5 の平均は約 4.4 で全軸 3 以上。台本監査の観点（型・コピー・導入・単体の価値・本編への引き）にも問題なし。ライブ未確認。",
+        "videoSha256": "54497b7c1414b41b688fa0d8a68fc9784e19e0593c79606da4f9cfdbef1ad40d",
+        "checkedAt": "2026-11-11T22:32:07.111Z"
+      },
+      "audio": {
+        "videoSha256": "54497b7c1414b41b688fa0d8a68fc9784e19e0593c79606da4f9cfdbef1ad40d",
+        "similarity": 1,
+        "maxVolumeDb": -5.8,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/video.54497b7c.mp4",
+          "sha256": "54497b7c1414b41b688fa0d8a68fc9784e19e0593c79606da4f9cfdbef1ad40d"
+        },
+        "frames": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/frames.d3e6389f.png",
+          "sha256": "d3e6389fa534bebd8c294c4dac93b815040c2afa801584e498ec23b67fa41b3c"
+        },
+        "subtitles": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/subtitles.2cbc824b.ass",
+          "sha256": "2cbc824be12c0d252da33d4c9e7cac9cb4ba2f9d606fac40cf3515c8ffdfb8e1"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-cover.ef525543.png",
+            "sha256": "ef525543c29fab4940f25fc747dc853e67b66e3710f4701b836fb2e1da12777d"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-scene-001.6b41825f.png",
+            "sha256": "6b41825f687290b2b6c3863d8acc68984948cc5320e885144e015b634fdabf91"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-scene-002.b85dd134.png",
+            "sha256": "b85dd134a8132e58badbd3e11c3047402c7206c00bfc916c1811016864171368"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-cta.ad714b2f.png",
+            "sha256": "ad714b2f6b01c20d7609cba12b2bfb565a52cd18656f388eed601e2e04aee57e"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/cover.6b947c3b.png",
+          "sha256": "6b947c3b144ea3d9313a24b722624cfaff8aadd9e39f2faa5465733e9fea93c6"
+        },
+        "savedAt": "2026-11-11T22:32:13.021Z",
+        "cloudVerified": true
       }
     }
   },

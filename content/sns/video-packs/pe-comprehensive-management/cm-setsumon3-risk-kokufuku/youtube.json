@@ -35,7 +35,9 @@
         "doboku-note",
         "Shorts"
       ],
-      "categoryId": "27"
+      "categoryId": "27",
+      "sha256": "b207850bb2d45d12972234735233266b736922385b35b3066a6c047ff6676414",
+      "thumbnailSha256": "7b9ca0ea72e3e791f1ec474854c53b7436a2a3972039f095ca16b48ddda8c938"
     },
     {
       "key": "point-kokufuku-2",
@@ -51,8 +53,8 @@
         "Shorts"
       ],
       "categoryId": "27",
-      "sha256": "9d0ddf4892d33f6899a06ac313deae3749c75e5fa37786eb44430c48a34a72a0",
-      "thumbnailSha256": "f7a6bdb9e5c9cd114c7665502f81439b2c010b47186f72d33b65ffe5b5b35c99"
+      "sha256": "170d08c462e55dd3ee08e2159e24d2e8ac521a9d5131ed4e712b0d21697d8d0b",
+      "thumbnailSha256": "db0af75e5ac166b2f260d7058c4a4872f6f2821ad044b33fc5ac0d4fdd51aac0"
     }
   ]
 }
