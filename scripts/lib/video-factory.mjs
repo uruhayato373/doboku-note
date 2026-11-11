@@ -23,7 +23,10 @@ export const MAX_ATTEMPTS = 3;
 export const MAX_NO_OUTPUT = 3;
 const SUBTITLE_STDEV_MAX = 14;
 const rules = loadImageRules();
-const SUBTITLE_ZONE = rules.formats.longform.bottomZone; // 本文の下端は字幕が載る。生成指示と機械検査で同じ値を使う
+// 生成の指示は下端 18%（bottomZone）を空けさせる。機械検査は字幕が実際に載る範囲だけを見る。
+// 字幕は 28 字ごとの 1 行（longform-render の Style: 56px・下余白 56px）で、下端から約 12%。
+// 18% を検査すると、余白を 13〜15% 空けた図の枠や締めの帯を拾い、1 便 16 本中 7 本が打ち切られた（2026-11-11）
+export const SUBTITLE_CHECK_ZONE = 0.13;
 const { coverStyle: COVER_STYLE, character: CHARACTER, bodyStyle: BODY_STYLE } = rules.references;
 const COMPOSITION = {
   compare: '左右2つの枠を比べ、右を強調する構図',
@@ -159,7 +162,7 @@ export async function inspectImage(bytes, kind) {
   const stdev = async (image) => (await sharp(await image.greyscale().png().toBuffer()).stats()).channels[0].stdev;
   if (await stdev(sharp(bytes)) < 5) issues.push('全面がほぼ単色');
   if (kind === 'body') {
-    const height = Math.floor(meta.height * SUBTITLE_ZONE);
+    const height = Math.floor(meta.height * SUBTITLE_CHECK_ZONE);
     const zone = await stdev(sharp(bytes).extract({ left: 0, top: meta.height - height, width: meta.width, height }));
     if (zone > SUBTITLE_STDEV_MAX) issues.push(`字幕の帯に絵や文字がある（ばらつき ${zone.toFixed(1)}）`);
   }

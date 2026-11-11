@@ -70,6 +70,9 @@ test('機械検査: 比率と字幕の帯を止める', async () => {
   assert.match((await inspectImage(await png(1536, 1024), 'body'))[0], /16:9/);
   assert.match((await inspectImage(await noisyBottom(1920, 1080), 'body'))[0], /字幕/);
   assert.deepEqual(await inspectImage(await noisyBottom(1920, 1080), 'cover'), [], '表紙は字幕の帯を見ない');
+  // 字幕が載らない下端 13〜18% の図は通す（生成の指示の余白は 18% のまま）
+  const aboveBand = await sharp(await png(1920, 1080)).composite([{ input: { create: { width: 1800, height: 40, channels: 3, background: '#000000' } }, left: 60, top: 1080 - Math.floor(1080 * 0.17) }]).png().toBuffer();
+  assert.deepEqual(await inspectImage(aboveBand, 'body'), []);
   const flat = await sharp({ create: { width: 1920, height: 1080, channels: 3, background: '#fff' } }).png().toBuffer();
   assert.match((await inspectImage(flat, 'body'))[0], /単色/);
 });
