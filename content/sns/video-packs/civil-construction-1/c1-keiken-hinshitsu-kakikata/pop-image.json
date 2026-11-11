@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #1E73C8 と濃色 #155293、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『1級土木』『品質管理の』『書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-cover.27f776a3.png",
+          "sha256": "27f776a38f759bb7a42c578edc6eddd9e1446134a0fb6eb45dd50c9fdd50c4fd"
+        },
+        "generatedAt": "2026-11-11T03:26:50.221Z"
+      },
+      "copy": {
+        "exam": "civil-construction-1",
+        "headline": [
+          "1級土木",
+          "品質管理の",
+          "書き方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/cover-pop.f529b493.png",
+        "sha256": "f529b4935fc7dfe3bfcfc63fd507c563c0cf76e556e8417ea5c2bf75dc9f162b",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "27f776a38f759bb7a42c578edc6eddd9e1446134a0fb6eb45dd50c9fdd50c4fd"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:26:50.221Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "指定の『総監が制作』『1級土木』『品質管理の』『書き方』を一字ずつ照合して一致。先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で、手指も破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "68927a1011a0a5df3418d12e58ca02cab8701e2394d69c6f6f99fd10237621ff",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の答え』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『品質に留意した、で止めず』 『焦点を当てる品質項目を一つ選び 基準と測り方まで書く』。 図の下、下端の字幕の帯より上に『書き方の整理は本動画の再構成』の全文を省かずに入れる。 この場面の説明（文字にしない）: 経験記述で品質管理が指定されたとき、品質に留意して施工した、までは書けても、その先が続かない。そんな人は多いと思います。今日は、品質管理の答案を、どこから組み立てるかを整理します。結論は、品質に留意した、で止めず、どの品質項目に焦点を当てたかを一つ選び、基準と測り方まで書く、ということです。受検する年の問題は、公式の案内で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-premise.5b601826.png",
+              "sha256": "5b6018269ead7b412396318886e94589ec55f7889fedec3dd1a267763c6f4e81"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/premise-diagram.7b61d814.png",
+            "sha256": "7b61d814af278e51f1073a35a74297e42101a56fbdd8f160ff507b6e35e51608",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5b6018269ead7b412396318886e94589ec55f7889fedec3dd1a267763c6f4e81"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『今日の答え』、左右2枠の文言、図下の『書き方の整理は本動画の再構成』が指示と一字一致し、誤字・余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "65087fd8825f40b91f0d4945233097b8024aec35c7ba4108afe08e4bd26b5c19",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『よくある思い込み』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『「品質に留意した」 「試験で確認した」と書けばよい』 『どの分野に焦点を当てたかまで 書くのが求められる』。 図の下、下端の字幕の帯より上に『サイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: よくある思い込みは、品質に留意した、試験を行って確認した、と書けば品質管理の答案になる、というものです。しかし、サイト記事では、品質管理というテーマの、どの分野に焦点を合わせたのかまで踏み込んで書くことが求められています。何を確かめたのかが見えないと、読む側には、一般的な話に見えてしまいます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-misread.fa5dab98.png",
+              "sha256": "fa5dab9832df7b2ba3bd2254a9b077fe4a77a0e7ef19dd2508495ff4fb998fd5"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/misread-diagram.d86f15dc.png",
+            "sha256": "d86f15dc879111f97dde649e4cbf513871220f361dfe9eefe3e16ccfb71878b5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fa5dab9832df7b2ba3bd2254a9b077fe4a77a0e7ef19dd2508495ff4fb998fd5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『よくある思い込み』、左右枠の文言、図下『サイト記事の整理』が指示どおりで、文字の崩れ・誤字なし。図も意味に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "concept",
+          "inputSha256": "6a7baed7e74529e2141edf6792f71329b4c8979a367a45820c7dd8270406958c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『品質管理で書くこと』。 この場面の説明（文字にしない）: まず、品質管理とは何かです。設計図書に基づいて施工し、工事目的物の所定の品質を確保して、さらに品質の向上を図ることです。記述では、主要な品質の管理項目をどう設定し、どんな方法で管理したかを書きます。評価されやすいのは、品質を保証するための計画と、その技術的な背景が見える答案です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-concept.2c3222af.png",
+              "sha256": "2c3222af5264190fb1ac77952a5ce2d443fae8aaa5d978b367eb13ddcbca9b30"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/concept-diagram.ccff8d34.png",
+            "sha256": "ccff8d3434c4fe147778c80e0d6a05195e5a4bd86eedebd85c679ed9d86fd9bd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2c3222af5264190fb1ac77952a5ce2d443fae8aaa5d978b367eb13ddcbca9b30"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『品質管理で書くこと』が正確。設計図書・施工・完成品質の確保と向上の流れを示す図で、余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "item",
+          "inputSha256": "9bb804211fd2397b9917b9c40d4230b0eb566140be5ff12fa13384a6112ade48",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『焦点を当てる品質項目』。 この場面の説明（文字にしない）: 課題の立て方です。品質項目を、一つ選びます。記事が挙げている例は、盛土や路盤の締固めの、密度と含水比、コンクリートの、スランプ、空気量、圧縮強度、打設温度、養生です。舗装なら、敷均しの温度や締固め度があります。自分の現場で、ここの品質が一番心配だった、という点を一つ選びます。工程短縮の話と混ざらないように、品質の話に絞ります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-item.0d19e325.png",
+              "sha256": "0d19e32541c95a8e70eae828eab5bc5b59d555489838267acd4a19a8ea90874a"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/item-diagram.e6dcd8a8.png",
+            "sha256": "e6dcd8a84f3f52b1295cc523ed2a16234f2c3ce49a100208577d3535ff3d0662",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0d19e32541c95a8e70eae828eab5bc5b59d555489838267acd4a19a8ea90874a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『焦点を当てる品質項目』が正確。締固め・圧縮強度・温度の図で本文の例と合い、余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "state",
+          "inputSha256": "4fe19d8d7c0d3d3b9d53d6dbd85fa97ff431973ac9cd192a08397ab40cf392b9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『状況の書き方』。 この場面の説明（文字にしない）: 次に、状況の書き方です。品質に影響した条件を、数値で書きます。暑かった、ではなく打込み時のコンクリート温度、運搬に時間がかかった、ではなく練り混ぜから打設までの時間のように、測れる条件で示します。気象、現場、作業のどの条件が原因かも、はっきりさせます。ここで対処の方法まで書くと、あとの欄が書けなくなるので、原因までで止めます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 42.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-state.9246d634.png",
+              "sha256": "9246d6349531773c94118a5b8786e4cc1da603fb8834c31719990c3e5ae59688"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/state-diagram.20e52058.png",
+            "sha256": "20e52058bb0f5a6643eee9085486766effc55d31d1174cd40efae4047469bab5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9246d6349531773c94118a5b8786e4cc1da603fb8834c31719990c3e5ae59688"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『状況の書き方』が正確。気温・時間・ミキサー車の打設の図で、本文の測れる条件と合い、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "issue",
+          "inputSha256": "8e9ab0d9116ca183c959adbc9c080915973ddc7150291fe4b27ec7f3ade3637b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『課題の一文』。 図に入れる文字: 『〇〇であったため 〇〇のおそれがあり』 『〇〇の確保が課題であった』 『課題の文は短く 字数は理由と中身へ』。 図の下、下端の字幕の帯より上に『サイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 状況の最後の一文を原因として受け、課題を一文で言い切ります。形は、何々であったため、何々のおそれがあり、何々の確保が課題であった、です。品質管理なら、ひび割れや強度不足のような、起こりうる不具合を入れます。何を確保するのかを、はっきり書きます。設問の区画は限られているので、課題の文は短くして、理由と中身に字数を回します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-issue.0ab4eebb.png",
+              "sha256": "0ab4eebb4581a37dfbf94b3fb8e461f5af3c2d4aae6a37181c5a9e891c3d9ebb"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/issue-diagram.740254f7.png",
+            "sha256": "740254f78a17c9abeadf3a3641a1c10bd6713de90c089c92bdde7122b493f367",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0ab4eebb4581a37dfbf94b3fb8e461f5af3c2d4aae6a37181c5a9e891c3d9ebb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『課題の一文』、3枠の文言、図下『サイト記事の整理』が指示と一字一致（〇〇は指示どおり）。誤字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "study",
+          "inputSha256": "31853596cae5be1baec831c0982184e454fb393c525c53e74cdca2add02313b9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『検討の項目のそろえ方』。 この場面の説明（文字にしない）: 検討した項目は、項目ごとに形をそろえます。確保したい品質、その項目を挙げた理由、長所と短所の順です。長所だけだと、比べた形にならないので、短所にも触れておくと、選んだ根拠が立ちます。令和六年度以降の形式では、検討した項目は、一つ目の区画の後半に入ります。残りの字数は少ないので、理由は項目ごとに短く絞り、実施した数値は処置に回します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-study.cde825c4.png",
+              "sha256": "cde825c41f81dda9161aef8bb9dc3424ef9ab326a8ff6c9a5e68281690035aad"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/study-diagram.c1d25467.png",
+            "sha256": "c1d2546701b8c337c2e5fe5b88f67dea6528522961bb18e6081c12f94fd299dc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cde825c41f81dda9161aef8bb9dc3424ef9ab326a8ff6c9a5e68281690035aad"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『検討の項目のそろえ方』が正確。項目・品質確保・理由・長所短所を並べた記号図で、余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "action",
+          "inputSha256": "cbbce9af9b71c0374aea66f997218f2e20a67f77a09b05a12e7507f2e7158229",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『対応処置の書き方』。 この場面の説明（文字にしない）: 対応処置は、検討の結果にもとづいて、どう対処したかを書きます。品質管理では、処置のもとになる管理基準を、先にはっきり示します。そのうえで、工法、機械、材料、管理方法を、具体的な数値つきで書きます。結果だけにならないよう、理由と留意点を添えます。評価は、残りがわずかなので、結論めいた一文で端的に書きます。数値は、あとで出どころを示せるものだけにします。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-action.b5699c6f.png",
+              "sha256": "b5699c6f51dff97c96103b802b948e7db1c2f99bad0f3f9cabee49c329522c44"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/action-diagram.2647115c.png",
+            "sha256": "2647115c7e5b024f7ab44c8253a8f5e996e93fc9eeb8d302887e9989de6d225f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b5699c6f51dff97c96103b802b948e7db1c2f99bad0f3f9cabee49c329522c44"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『対応処置の書き方』が正確。基準・処置・結果の流れの図で、文字の崩れ・余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "fdb8f5bd74a16a1ec2ffc7f3832cdaa19de3f96cf97b5fc221425dcd9441a1c9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例：夏期のコンクリート打設』。 この場面の説明（文字にしない）: 仮の例で、流れを確かめます。夏期のコンクリート打設で、運搬に時間がかかり、打込み温度が上がって、ひび割れのおそれがあった、という想定です。検討では、練り混ぜ温度の抑制、打設後の湿潤養生などを、確保したい品質と理由、長所と短所で比べます。処置では、管理する温度の基準と測る頻度を、数値を入れて書きます。これは説明のための仮の例で、実在の工事ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-example.411654e4.png",
+              "sha256": "411654e4df6531c9b046206220f88013399d365830657e0b3124c188da889902"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/example-diagram.27498d2c.png",
+            "sha256": "27498d2cd5c0166b360bbfa2049ae323a676c5a47779e3695841be3a679c7a39",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "411654e4df6531c9b046206220f88013399d365830657e0b3124c188da889902"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『仮の例：夏期のコンクリート打設』が正確。ミキサー車・打設・温度上昇・ひび割れ・冷却・湿潤養生の図が本文と一致し、ミキサー車の構造も妥当",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pair",
+          "inputSha256": "077e80e88f5ff9aabb86f00a3782d1ae0f59144cdee0015d2f18df62e1a26989",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『二テーマ必答の注意』。 図に入れる文字: 『同じ工事で、二つの管理を書く』 『解答は同一内容にできない』 『五つの管理で一つの工事を整理』。 図の下、下端の字幕の帯より上に『サイト記事の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 令和六年度以降の形式では、五つの管理から二つが指定されて、同じ工事について両方を書きます。二つの解答は、同じ内容にはできません。品質管理が指定されても、もう一つの管理とは、課題と対策を書き分けます。だから、一つの工事を、五つの管理の視点で整理しておくと、どの組み合わせにも対応できます。設問の指定は、受検する年の問題で確かめてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-pair.74df35ef.png",
+              "sha256": "74df35ef54fc20c4e6308c1266ef87e7ba0081c00bfc2b433533277d25ae6365"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/pair-diagram.2e23427d.png",
+            "sha256": "2e23427de85fd5ca39431ece540dbaadddac4779ddf1498b77a49964c8addbe8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "74df35ef54fc20c4e6308c1266ef87e7ba0081c00bfc2b433533277d25ae6365"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『二テーマ必答の注意』（拡大で二の字形を確認）、各枠の文言、図下『サイト記事の整理』が指示と一致。五つの管理の図も妥当",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "5cf2cf1ae836ae93254443cdcd9ae90f8738e75845644f175ee1e5a6b8c279cd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『品質項目を一つ選ぶ』 『状況は測れる条件で 課題は一文で』 『検討は理由と長所短所を そろえる』 『処置は基準と数値で 評価は端的に』。 図の下、下端の字幕の帯より上に『本動画の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。一、品質に留意した、で止めず、焦点を当てる品質項目を一つ選ぶ。二、状況は測れる条件で書き、課題は一文で言い切る。三、検討は、確保したい品質、理由、長所と短所の順にそろえる。四、処置は管理基準と数値、評価は端的に。二つの管理を書き分けることも忘れずに。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-recap.040b5ffe.png",
+              "sha256": "040b5ffe6b7e67ff4001663ab586dd6b66e3d05210006171ee3d409a6cb51097"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/recap-diagram.0fe56748.png",
+            "sha256": "0fe5674881a7253f5ad1507b487697246b800d65a8658311e28ac00cee7b619f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "040b5ffe6b7e67ff4001663ab586dd6b66e3d05210006171ee3d409a6cb51097"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『今日のまとめ』、番号1〜4の4枠の文言、図下『本動画の整理』が指示と一字一致。誤字・崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "8aa5b429c8a5032aa3bfdecfeb746f01491e31c1fc2072359a260ee7578164a3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『自分の現場に置き換える』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『五つの管理の完成答案を見る』 『リンクは概要欄から』。 図の下、下端の字幕の帯より上に『概要欄のリンク』の全文を省かずに入れる。 この場面の説明（文字にしない）: 安全、工程などを含めた五つの管理の完成答案を見て、自分の現場に置き換えたい人は、概要欄の完成答案集を確認してください。無料のサイト記事も、概要欄に載せています。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 55.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-cta.b1b07c5e.png",
+              "sha256": "b1b07c5e2ce2feab324d03a436e8290dfabae19b0cea321db4ad88d114ac026d"
+            },
+            "generatedAt": "2026-11-11T03:26:50.221Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/cta-diagram.a9811adb.png",
+            "sha256": "a9811adb768ae6a8db656c71d6e421ddd5a9f3c61a767d07850b9a662e8d9369",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b1b07c5e2ce2feab324d03a436e8290dfabae19b0cea321db4ad88d114ac026d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:26:50.221Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『自分の現場に置き換える』、『五つの管理の完成答案を見る』『リンクは概要欄から』『概要欄のリンク』が一致。価格・URLなし、ノートの図も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}
