@@ -1,0 +1,475 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #33356B と濃色 #24264F、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『トンネル』『出題の』『読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-cover.d255a5ea.png",
+          "sha256": "d255a5eab873a78b875f1b63a8b48fafce591ee2f462c6b52c94f717d3c6d9c1"
+        },
+        "generatedAt": "2026-11-11T01:37:31.045Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "トンネル",
+          "出題の",
+          "読み方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/cover-pop.e3384364.png",
+        "sha256": "e3384364442624084a52e37395b21581fdea1faf5474ef9b797a1ccb5e87e955",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "d255a5eab873a78b875f1b63a8b48fafce591ee2f462c6b52c94f717d3c6d9c1"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T01:37:31.045Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『トンネル』『出題の』『読み方』が指示と一字一致。先生は黒髪・黒縁眼鏡・軽いひげ・無地白ヘルメット・紺作業服とネクタイ・黄白反射帯で、手指の破綻なし。",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "cf6af43329fb8c50aacf7846bdc36dd70b1781227210b15e7e643206edc74fa1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『過去問の前に、読み方を決める』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『令和元年度〜8年度の出題テーマ』 『II-1・II-2・IIIの問われ方』 『工法の指定と除外条件』。 図の下、下端の字幕の帯より上に『出題テーマはdoboku-noteの要約。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 過去問を開いても、山岳、開削、シールドのどこから読めばいいのか分からない。今日は技術士建設部門のトンネルを、令和元年度から8年度の出題テーマをもとに、II-1、II-2、IIIの問われ方に分けて読み方を整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-premise.198c5342.png",
+              "sha256": "198c5342b0df19ae7fc1623f1e340ca62054b4f25f026c728d87c4b1832e9002"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/premise-diagram.dfcb3ff5.png",
+            "sha256": "dfcb3ff5d6c68acd977c7b09f1d922db99cbfb4587cab49e92f3a59ab19cbe25",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "198c5342b0df19ae7fc1623f1e340ca62054b4f25f026c728d87c4b1832e9002"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3枠・下の注記が指示文字と一字一致し、崩れ字や余計な文言なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "myth",
+          "inputSha256": "d62b4b5817747e873753eb58934edee07ad3104d4cde1f095b804ef0b6cfaf54",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『テーマ名と、問題文の条件』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『問題文の条件はテーマ名に含まれない』の全文を省かずに入れる。 この場面の説明（文字にしない）: よくある誤解は、出題テーマの名前を覚えれば書ける、という考えです。実際の問題文は、数量、工法の指定、除外する条件まで決めています。テーマ名は入口で、条件の読み取りが答案の出来を分けます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-myth.023ba46f.png",
+              "sha256": "023ba46f3be0f31d3d903eba103b26b9749527a3feab5d7d21871136da96c54c"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/myth-diagram.aab405c2.png",
+            "sha256": "aab405c265f5e56b586f07a584e6a7a33c41d0fb9c505031e46b8a6b967083fd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "023ba46f3be0f31d3d903eba103b26b9749527a3feab5d7d21871136da96c54c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと下の全文が指示と一致。左右比較で右を強調する構図、アイコンに誤字・破綻なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "forms",
+          "inputSha256": "a8a9d774b1fae289f536fdf9e83f5b02fdc6775710c0d9ef0af0f165c600722f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『令和8年度の形式（例）』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『II-1 4設問から1つ・1枚』 『II-2 2設問から1つ・2枚』 『III 2問題から1つ・3枚』。 図の下、下端の字幕の帯より上に『令和8年度の形式。受検年度の公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず区分です。令和8年度の形式では、II-1は4設問から1設問を選び、答案用紙は1枚。II-2は2設問から1設問を選び、2枚。IIIは2問題から1問題を選び、3枚です。形式は受検年度の公式情報で確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 43.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-forms.1b2492d7.png",
+              "sha256": "1b2492d755c6caf04663475270d2aa8c87698b9f349f464558144693392d9c8b"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/forms-diagram.23ef17e4.png",
+            "sha256": "23ef17e455c6a8e267320dbf807671f494933f0ac070584956b69d45e421e774",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1b2492d755c6caf04663475270d2aa8c87698b9f349f464558144693392d9c8b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3行の欄・注記が指示と一字一致し、本文の4設問1枚・2設問2枚・2問題3枚とも矛盾しない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii1",
+          "inputSha256": "b91ba25d91a20b09bdc14ab3d653079d766628f536c2109876a2696512687403",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-1は山岳・開削・シールド』。 図に入れる文字: 『山岳トンネル：2設問』 『開削工法：1設問』 『シールド工法：1設問』 『数量の指定（3つ以上・4項目以上）』。 図の下、下端の字幕の帯より上に『令和8年度の構成。区分の呼び方はdoboku-noteの整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-1は、令和8年度は山岳が2問、開削が1問、シールドが1問でした。年度別の一覧でも、山岳、開削、シールドの問いが並びます。さらに、3つ以上、4項目以上と、挙げる数が指定されます。数を満たすことが、最初の条件です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 24.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-ii1.d15b4095.png",
+              "sha256": "d15b40951b06c24508f8d52ea5618532ce1f1781b0b4562e09789651d472bf53"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/ii1-diagram.e44a1316.png",
+            "sha256": "e44a131669104616bcfce90e7bee11b49da3db78ab9913926d9ccf6481440229",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d15b40951b06c24508f8d52ea5618532ce1f1781b0b4562e09789651d472bf53"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3工法のラベル・数量指定・注記が一字一致。山岳・開削(切梁)・シールド(カッタ付き掘進機とセグメント)の絵も種別として成り立つ。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii1cond",
+          "inputSha256": "e934d7cdcc7570537595cda709c6cb3f7fb4df9e02c64ae50f5c0c77edd0cb42",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-1の除外条件（R08）』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『開削底面の破壊現象 リバウンドは対象外』 『急曲線シールド セグメント設計の事項を4項目以上』。 図の下、下端の字幕の帯より上に『令和8年度の問題文より。公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: 除外の例です。令和8年度の開削底面の安定では、リバウンドは回答の対象としないと書かれました。急曲線のシールドは、セグメントの設計に関する事項を4項目以上、内容とともに挙げる指定でした。知っている用語でも、対象外なら点になりません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 42.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-ii1cond.69b88474.png",
+              "sha256": "69b88474b29c31ec2cdebed8bc89cdfcfe3bef93546fa811617d22e3d619681a"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/ii1cond-diagram.5ebc23fd.png",
+            "sha256": "5ebc23fd557ddc8612e1454ff69cbd5d63e1231dd78788a9d00212afc657e346",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "69b88474b29c31ec2cdebed8bc89cdfcfe3bef93546fa811617d22e3d619681a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・2枠の文言・注記が指示と一致。切梁式開削と曲線セグメントトンネルの図は破綻なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii2",
+          "inputSha256": "37e788580bc3fff6e9edb1bfe5660a8a61cc0d0eeabbc1c5fe81430c79dc3bbe",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-2は、設問が三つに分かれる』。 構図: 左右2つの枠を比べ、右を強調する構図。 図に入れる文字: 『（1）挙げて説明する』 『（2）業務手順ごとの留意点』 『（3）関係者との調整方策』。 図の下、下端の字幕の帯より上に『令和8年度II-2-1・II-2-2の構成。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-2は、令和8年度で山岳トンネルの新設と、都市部トンネルの耐久性の2択でした。どちらも、1で挙げて説明し、2で業務の手順ごとの留意点を述べ、3で関係者との調整方策を述べる三つの設問でした。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-ii2.f01f9a4f.png",
+              "sha256": "f01f9a4f57bb0f49dd585250b330411b2779ab3860a73882fff5996f9594795e"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/ii2-diagram.8aeaadc2.png",
+            "sha256": "8aeaadc2e24c05c4eec7d1bc28fa3a5e51cea761b8e27f82a8fed6146c511f70",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f01f9a4f57bb0f49dd585250b330411b2779ab3860a73882fff5996f9594795e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・(1)(2)(3)の文言・注記が指示と一字一致し、本文の三設問構成と矛盾しない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ii2cond",
+          "inputSha256": "634b2b6ced095362e0168e717f27735dc470e748e91e1580b916d29c66455263",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『II-2の除外条件（R08）』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『II-2-1 路線変更と、変状後の補修等は対象外』 『II-2-2 地震・火災・衝突等の偶発作用は除く』 『II-2-2 開削かシールドかを冒頭に明記』。 図の下、下端の字幕の帯より上に『令和8年度の問題文より。公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: II-2にも除外があります。令和8年度の膨張性地山では、路線変更と、変状が出たあとの補修などは対象外でした。都市部トンネルの耐久性では、地震や火災、衝突などの偶発作用を除き、開削かシールドかを冒頭に書く指定でした。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 21.5）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-ii2cond.b4598636.png",
+              "sha256": "b45986360b1819b22279246a87e9cb72bbcef5cb4c17a08e5bdcfa8c38886d1c"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/ii2cond-diagram.7c47fde7.png",
+            "sha256": "7c47fde72082ea8987b157eb49a0837e0e097a7a2bbf9893f8d453999374c333",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b45986360b1819b22279246a87e9cb72bbcef5cb4c17a08e5bdcfa8c38886d1c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3枠の文言・注記が指示と一致。路線変更・補修、地震火災衝突、開削とシールド断面の図に破綻なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "iii",
+          "inputSha256": "96e906abe769bcfe10a80ff42c5575863415279f0147e425d5594c5f89f216c9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『IIIは、課題から解決策、残るリスク』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『（1）技術課題を3つ以上・観点を明記』 『（2）最も重要な課題の解決策』 『（3）残るリスクと対応策』。 図の下、下端の字幕の帯より上に『令和8年度の構成。問題文は公式で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: IIIは、令和8年度は近接構造物がある山岳トンネルと、都市トンネル工事の周辺環境保全でした。どちらも、課題を観点を明記して3つ以上挙げ、重要な一つに解決策を示し、実行しても残るリスクまで答える構成です。後者は、開削かシールドかを明記する指定でした。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-iii.f3813638.png",
+              "sha256": "f3813638ca27179ed7b54cb134ef8e3f96db3875aab862ed62abbd709c4940ea"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/iii-diagram.a9086303.png",
+            "sha256": "a90863036e7231b89fe3ea7d34f815bd9295a5dcb6c60a43c9c4814367c36bd7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f3813638ca27179ed7b54cb134ef8e3f96db3875aab862ed62abbd709c4940ea"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3円の文言・注記が指示と一字一致し、課題から解決策、残るリスクの流れが本文と合う。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "steps",
+          "inputSha256": "3e05fd93a491ae75066b6255451b31f25b7b7ae003aa9133c5e532def1dd2822",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読み方の3手順』。 構図: 整理メモの用紙を描き、行ごとに欄を分ける構図。 図に入れる文字: 『区分を見て、選ぶ数と枚数を確かめる』 『数量・工法の指定・除外に線を引く』 『設問が並ぶ順に答える』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。公式の手順ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 読み方を三つの手順にまとめます。一つ、区分を見て、選ぶ数と枚数を確かめる。二つ、数量、工法の指定、除外の条件に線を引く。三つ、設問が一から三まで並ぶときは、その順に答える。この手順は、この動画の整理です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 23.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-steps.0d6e455a.png",
+              "sha256": "0d6e455aec0ea95150d54e2c63511baedbf83ea3c9f9d04de131b39d2ddc48b4"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/steps-diagram.e650cb93.png",
+            "sha256": "e650cb935d0dbb174aebac7d7bf178f4f4203b3faabd6b4fcd0cebaa9d180e07",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0d6e455aec0ea95150d54e2c63511baedbf83ea3c9f9d04de131b39d2ddc48b4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3手順・注記が指示と一字一致し、崩れ字や余計な文言なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "49859b54ce30bc8cff48fa617110058a73db6c7813ffd16d404b4a34121dd090",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『トンネルの出題は、条件を読む』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『II-1：山岳・開削・シールド』 『II-2：挙げる・手順・調整』 『III：課題・解決策・残るリスク』 『条件を読む』。 図の下、下端の字幕の帯より上に『本動画の独自の整理。受検年度は公式情報で確認』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。トンネルの出題は、II-1、II-2、IIIで問われ方が違います。II-1は山岳、開削、シールドから選び、II-2は挙げる、手順、調整の三つ、IIIは課題から残るリスクまでです。そして、テーマ名より、問題文の条件を読むこと。受検年度の問題と日程は、公式の情報で確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 38.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-recap.914f60d1.png",
+              "sha256": "914f60d14ece01bf87f135be958cf75f9145e09f00474416e71a5ccd7437e7e6"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/recap-diagram.ceda9dcb.png",
+            "sha256": "ceda9dcb7c651b4cc8486330cbe46517f477f194ec23e866646809b6ac8d86c0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "914f60d14ece01bf87f135be958cf75f9145e09f00474416e71a5ccd7437e7e6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3枠・『条件を読む』・注記が指示と一字一致。余計な文字なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "08418ed35f5d4a49ff37d7b66bc0eb619c5504d6456d6d051cf3b0ae7cfc56dd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #33356B と濃色 #24264Fの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『読み方の次は、書き方』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『トンネル 選択科目の模範解答集』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 読み方の次は、書き方です。トンネルの令和3年度から8年度の設問を、すべての選択肢で解答した模範解答集がnoteにあります。この動画は読み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-cta.31d7641c.png",
+              "sha256": "31d7641c856e5f78245878be3b0501408720c8ed786f298c27a6230c92b9b1ec"
+            },
+            "generatedAt": "2026-11-11T01:37:31.045Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/cta-diagram.a8c717d1.png",
+            "sha256": "a8c717d10dbf6501d831be2bae38047d0884dd9184822f2f948be0efc2035567",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "31d7641c856e5f78245878be3b0501408720c8ed786f298c27a6230c92b9b1ec"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・ノート内の書名・『収録内容は概要欄から』が一字一致。価格とURLなし、ノートと鉛筆の描写も破綻なし。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}
