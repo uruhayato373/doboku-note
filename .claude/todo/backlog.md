@@ -21,6 +21,12 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1126] pre-commit の固定費 153 秒を削る（何も stage していなくても全件を読む検査）
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11]
+
+2026-11-11 に会社 PC の worktree で実測（PRE_COMMIT_TIMING=1・何も stage せず）: 67 検査で 152.9 秒。遅い順は check-orphan-figures 27.1 秒、check-kindle-epub-leak 25.0 秒、check-table-references 20.8 秒、check-published-vs-redirects 7.0 秒、pre-commit-mdx 7.0 秒、check-exam-calendar 5.8 秒、check-business-direction 5.8 秒、check-figure-embed-dims 5.6 秒。コード 16 ファイルの commit は 277 秒、json 1 ファイルの commit は 79 秒だった。上位の検査を、関係するファイルを stage したときだけ走る形（scripts/lib/pre-commit-steps.mjs の when）か staged だけを見る形にする。完了条件: 何も stage していない状態の PRE_COMMIT_TIMING=1 が 60 秒以下
+
+
 ### [DN-1123] OGP Supply が develop への push で毎回 Cap check で失敗している
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
 
