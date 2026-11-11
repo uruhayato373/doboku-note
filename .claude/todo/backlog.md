@@ -524,6 +524,18 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1108] tools（/tools/keiken-charcount）が画面の点検で不合格（layout）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-11]
+
+**起点**: 2026-11-11 の画面の点検（`npm run site-visual-review`・作業票 20261111T005344Z）で、tools（/tools/keiken-charcount）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude\state\quality\site-visual-review.json。
+
+- layout [w1024]: ページ見出し・パンくず・説明（左端 132px）が、すぐ下の入力カード（左端 156px）より左に 24px はみ出し、区画の左端が揃っていない。w1280（260px と 284px）・w1440（340px と 364px）でも同じ 24px のずれが出る。（w1024-01.png）
+
+**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
+
+**完了条件**: `npm run site-visual-review -- prepare --keys tools` で撮り直して判定し、record で pass と台帳に記録される。
+
+
 ### [DN-1107] topics（/topics/safety-laws）が画面の点検で不合格（layout）
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-11]
 
