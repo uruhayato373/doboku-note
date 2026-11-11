@@ -760,11 +760,11 @@
       "images": [
         {
           "role": "cover",
-          "inputSha256": "ed9ee0137a0e8a36314a39a487364959e5b3f17f96558477200e09b4c64592b1",
+          "inputSha256": "43c1485cac629252c67f053b045da314a8f753382a53b7e9503d4b2c316782a0",
           "narration": "状況の欄に「軟弱だった」。この一言には足りないものがある。",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『状況に』『『軟弱だった』』『何が足りない？』、小さな黄色帯に『総監が制作』。 表紙の型は「ビフォーアフター」。見出しの下に、悪い例の一言を書いた答案の紙を斜めに置き、その一言に赤ペンの波線と小さな『？』。先生は赤ペンを持つ。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを1本握って胸の高さに上げ、ペン先を見出しの下の答案の紙へ向ける。指は5本でペンを握る。左手（画面右側）は何も持たず腰に当てる。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『状況に』『『軟弱だった』』『何が足りない？』。肩書きの帯や制作者名は書かない。 表紙の型は「ビフォーアフター」。見出しの下に、悪い例の一言を書いた答案の紙を斜めに置く。紙の文字は全部読めるようにし、記号を重ねない。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「紙を指さす」: 片手の人差し指で見出しの下の紙を指さす。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指1本で見出しの下の答案用紙を指さす。左手（画面右側）は何も持たず腰に当てる。見出しは画面の左右8%の内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 見出し「『軟弱だった』」の左右の余白が約4%（左約35px・右約36px／幅941px）で5%未満、幅も約92%で目標の80%を大きく超え、「何が足りない？」も左端が約4.8%。指定の文字列自体は誤字なし。型・先生の顔と手指・胴体は問題なし",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -772,26 +772,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-cover.0b732850.png",
-              "sha256": "0b732850fe1a0929b1827333c3446c865579030436c796addfc4893ad62ac679"
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-cover.6fbbdb91.png",
+              "sha256": "6fbbdb911bc72ca56b23235b5d9b53037fe33c3746377a4422780d4a9f77b910"
             },
-            "generatedAt": "2026-11-11T08:41:21.310Z"
+            "generatedAt": "2026-11-11T12:50:16.787Z"
           },
           "output": {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/cover.8ebb490f.png",
-            "sha256": "8ebb490f26a309afcf2e7ecf0cfc625235c36abec0aa52daa9dde5678eac214f",
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/cover.aba82ec7.png",
+            "sha256": "aba82ec7fd47fad8c31c70b44d7f3d506b1a1df41079651b28ceabef3e6de33d",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "0b732850fe1a0929b1827333c3446c865579030436c796addfc4893ad62ac679"
+            "sourceSha256": "6fbbdb911bc72ca56b23235b5d9b53037fe33c3746377a4422780d4a9f77b910"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:41:21.310Z",
+            "checkedAt": "2026-11-11T12:50:16.787Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "文字は『1級土木』『状況に』『軟弱だった』『何が足りない？』『総監が制作』『軟弱だった？』を1字ずつ照合し誤字・欠けなし。型はビフォーアフターで答案に赤ペン波線と？、先生は5本指で赤ペンを握り左手は腰、胴体は下端まで続く。"
+            "reason": "文字は指示どおり『1級土木』『状況に』『軟弱だった』『何が足りない？』で誤字なく、見出しの左右余白は約6.5%で5%以上、切れなし。答案の紙の「軟弱だった」も読め、先生は指さしと腰に手で指5本・胴体は下端まで続き、ビフォーアフターの型に合う。"
           }
         },
         {
@@ -808,10 +808,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-scene-001.6b41825f.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-scene-001.6b41825f.png",
               "sha256": "6b41825f687290b2b6c3863d8acc68984948cc5320e885144e015b634fdabf91"
             },
-            "generatedAt": "2026-11-11T08:41:21.310Z"
+            "generatedAt": "2026-11-11T12:50:16.787Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/scene-001.d0538a67.png",
@@ -825,7 +825,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:41:21.310Z",
+            "checkedAt": "2026-11-11T12:50:16.787Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字『1級土木』『暑かった、は伝わりにくい』『仮の例』『暑かった』『軟弱だった』が指示と一致し、2行に赤い波線。余計な文字なし、崩れなし"
           }
@@ -844,10 +844,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-scene-002.b85dd134.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-scene-002.b85dd134.png",
               "sha256": "b85dd134a8132e58badbd3e11c3047402c7206c00bfc916c1811016864171368"
             },
-            "generatedAt": "2026-11-11T08:41:21.310Z"
+            "generatedAt": "2026-11-11T12:50:16.787Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/scene-002.9de38273.png",
@@ -861,7 +861,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:41:21.310Z",
+            "checkedAt": "2026-11-11T12:50:16.787Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字『足りないのは測れる条件』『暑かった→打込み時の温度』『軟弱だった→地盤のN値』が指示と一致。右向き矢印・黄色の右箱も指示どおり、数値なし"
           }
@@ -880,10 +880,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-cta.2cb6f23c.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-cta.2cb6f23c.png",
               "sha256": "2cb6f23c22d25d73b254faa2326c7d23abdf4c618e75f7be92311f41876ccdca"
             },
-            "generatedAt": "2026-11-11T08:41:21.310Z"
+            "generatedAt": "2026-11-11T12:50:16.787Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/cta.3d51a10b.png",
@@ -897,68 +897,189 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:41:21.310Z",
+            "checkedAt": "2026-11-11T12:50:16.787Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『残りの4つの見どころは』『本編で』『関連動画から』と下向き矢印が誤字・欠けなく、先生は手のひらで矢印を示し、手は左右1本ずつで指も自然、胴体は下端まで続く。"
           }
         }
       ],
       "render": {
-        "videoSha256": "f1dc5706d4b357ec41e27dcd94a189fba1a283d921998a589df709d8beee456b",
+        "videoSha256": "ea03950345b1952d95e5ad3bb7aec1c04b38f4c7ee55097ee420b2c7530e3650",
         "durationSeconds": 25,
         "speaker": 13,
         "sceneCount": 4
       },
       "screenReview": {
-        "verdict": "pass",
+        "verdict": "fail",
         "by": "yt-shorts-publisher-qa",
-        "reason": "実測 25 秒・1080×1920・音声あり、sha は youtube.json と pop-image.json の render で一致、4/4 場面確認。5 軸は 5・4・5・4・4 の平均 4.4 で全軸 3 以上。台本の観点も、型 before-after、冒頭の一文と悩み、本編への引きに問題なし。",
-        "videoSha256": "f1dc5706d4b357ec41e27dcd94a189fba1a283d921998a589df709d8beee456b",
-        "checkedAt": "2026-11-11T08:44:45.317Z"
-      },
-      "audio": {
-        "videoSha256": "f1dc5706d4b357ec41e27dcd94a189fba1a283d921998a589df709d8beee456b",
-        "similarity": 1,
-        "maxVolumeDb": -5.8,
-        "durationGapSec": 0
-      },
-      "stock": {
-        "video": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/video.f1dc5706.mp4",
-          "sha256": "f1dc5706d4b357ec41e27dcd94a189fba1a283d921998a589df709d8beee456b"
-        },
-        "frames": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/frames.60bc5bb9.png",
-          "sha256": "60bc5bb9da723bd5f8dbc2805150d6e9f31a15803f4e597dffcb7438e2f1bff9"
-        },
-        "subtitles": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/subtitles.2cbc824b.ass",
-          "sha256": "2cbc824be12c0d252da33d4c9e7cac9cb4ba2f9d606fac40cf3515c8ffdfb8e1"
-        },
-        "originals": [
-          {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-cover.0b732850.png",
-            "sha256": "0b732850fe1a0929b1827333c3446c865579030436c796addfc4893ad62ac679"
+        "reason": "表紙の答案用紙に赤い ✕・赤い矢印・赤い下線があり、台帳の cover ルール（記号を足さない）に反する。軸5は2点で不合格。",
+        "videoSha256": "ea03950345b1952d95e5ad3bb7aec1c04b38f4c7ee55097ee420b2c7530e3650",
+        "checkedAt": "2026-11-11T12:56:03.887Z"
+      }
+    },
+    "shorts-pop-point-joukyou-1-20261112": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1",
+      "key": "point-joukyou-1",
+      "sceneId": "look3",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "43c1485cac629252c67f053b045da314a8f753382a53b7e9503d4b2c316782a0",
+          "narration": "状況の欄に「軟弱だった」。この一言には足りないものがある。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『状況に』『『軟弱だった』』『何が足りない？』。肩書きの帯や制作者名は書かない。 表紙の型は「ビフォーアフター」。見出しの下に、悪い例の一言を書いた答案の紙を斜めに置く。紙の文字は全部読めるようにし、記号を重ねない。紙には『軟弱だった』とだけ書き、紙の上はその文字のほかは白い紙のまま。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「紙を指さす」: 片手の人差し指で見出しの下の紙を指さす。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指1本で見出しの下の答案用紙を指さす。左手（画面右側）は何も持たず腰に当てる。見出しは画面の左右8%の内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-cover.ef525543.png",
+              "sha256": "ef525543c29fab4940f25fc747dc853e67b66e3710f4701b836fb2e1da12777d"
+            },
+            "generatedAt": "2026-11-11T22:00:27.641Z"
           },
-          {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-scene-001.6b41825f.png",
-            "sha256": "6b41825f687290b2b6c3863d8acc68984948cc5320e885144e015b634fdabf91"
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/cover.6b947c3b.png",
+            "sha256": "6b947c3b144ea3d9313a24b722624cfaff8aadd9e39f2faa5465733e9fea93c6",
+            "width": 1080,
+            "height": 1920
           },
-          {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-scene-002.b85dd134.png",
-            "sha256": "b85dd134a8132e58badbd3e11c3047402c7206c00bfc916c1811016864171368"
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ef525543c29fab4940f25fc747dc853e67b66e3710f4701b836fb2e1da12777d"
           },
-          {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/raw-cta.2cb6f23c.png",
-            "sha256": "2cb6f23c22d25d73b254faa2326c7d23abdf4c618e75f7be92311f41876ccdca"
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:00:27.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し3行は指示どおり一字も崩れず左右5%以上の余白、紙は『軟弱だった』のみで下30%に文字なし、記号の追加や肩書き帯なし、人差し指1本で紙を指し反対の手は腰、胴体は下端まで続く"
           }
-        ],
-        "thumbnail": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/cover.8ebb490f.png",
-          "sha256": "8ebb490f26a309afcf2e7ecf0cfc625235c36abec0aa52daa9dde5678eac214f"
         },
-        "savedAt": "2026-11-11T08:44:58.418Z",
-        "cloudVerified": true
+        {
+          "role": "scene-001",
+          "inputSha256": "55a5d57343ab41304273c5fd987efdb9e49cd2c2c7b018a64d10ad3790f79c1f",
+          "narration": "仮の例です。状況に、暑かった、軟弱だった、とだけ書く。これでは読み手に伝わりにくい書き方です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『1』と見出し『暑かった、は伝わりにくい』。 図: 中央に大きな答案用紙を1枚描き、左上に小さな札『仮の例』。用紙の中に2行で『暑かった』『軟弱だった』と書き、2行に赤い波線を引く。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-scene-001.6b41825f.png",
+              "sha256": "6b41825f687290b2b6c3863d8acc68984948cc5320e885144e015b634fdabf91"
+            },
+            "generatedAt": "2026-11-11T22:00:27.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/scene-001.d0538a67.png",
+            "sha256": "d0538a672740cba7c5e9b01f4f0581976b78cda9d1a39695e5fca38e5252e221",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6b41825f687290b2b6c3863d8acc68984948cc5320e885144e015b634fdabf91"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:00:27.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字『1級土木』『暑かった、は伝わりにくい』『仮の例』『暑かった』『軟弱だった』が指示と一致し、2行に赤い波線。余計な文字なし、崩れなし"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "001f6b760ea3fcac46c5e6ab799cb4c3c10072b9aa33747dbd2e1cc141998c5e",
+          "narration": "足りないのは、測れる条件です。暑かった、ではなく打込み時のコンクリート温度。軟弱だった、ではなく地盤のN値で書きます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『2』と見出し『足りないのは測れる条件』。 図: 左右2列の対比を2段積む。上の段は左に『暑かった』、太い右向き矢印、右に『打込み時の温度』。下の段は左に『軟弱だった』、太い右向き矢印、右に『地盤のN値』。右側の箱を黄色で強調する。具体的な数値は描かない。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-scene-002.b85dd134.png",
+              "sha256": "b85dd134a8132e58badbd3e11c3047402c7206c00bfc916c1811016864171368"
+            },
+            "generatedAt": "2026-11-11T22:00:27.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/scene-002.9de38273.png",
+            "sha256": "9de382730ce4763f4bf75b3de9c31d57322ce1b9e12a3e178d13fa8002a2159e",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b85dd134a8132e58badbd3e11c3047402c7206c00bfc916c1811016864171368"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:00:27.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字『足りないのは測れる条件』『暑かった→打込み時の温度』『軟弱だった→地盤のN値』が指示と一致。右向き矢印・黄色の右箱も指示どおり、数値なし"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "cf7ffa51425a485a07bed6c010e3fd2a35325f78ddcbed74b5a943720eb055c1",
+          "narration": "残りの4つの見どころは本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 大きく『残りの4つの見どころは』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『1級土木』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/work/factory/raw-cta.2cb6f23c.png",
+              "sha256": "2cb6f23c22d25d73b254faa2326c7d23abdf4c618e75f7be92311f41876ccdca"
+            },
+            "generatedAt": "2026-11-11T22:00:27.641Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1/cta.3d51a10b.png",
+            "sha256": "3d51a10b84e0a6519073ff6a783b6866d080a40d46538a5beb75ce90f3f29166",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2cb6f23c22d25d73b254faa2326c7d23abdf4c618e75f7be92311f41876ccdca"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:00:27.641Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『残りの4つの見どころは』『本編で』『関連動画から』と下向き矢印が誤字・欠けなく、先生は手のひらで矢印を示し、手は左右1本ずつで指も自然、胴体は下端まで続く。"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "4e5f162b5cde0bb321754a8f7d78a98abdc6ae2125fe13461cfcc79d5957685a",
+        "durationSeconds": 25,
+        "speaker": 13,
+        "sceneCount": 4
+      },
+      "screenReview": {
+        "verdict": "fail",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "軸5が2点。締め場面の「関連動画から」の左端が画面の約4%で、合否の線の左右5%に届かない。ほかの軸は基準を満たす。",
+        "videoSha256": "4e5f162b5cde0bb321754a8f7d78a98abdc6ae2125fe13461cfcc79d5957685a",
+        "checkedAt": "2026-11-11T22:01:25.718Z"
       }
     }
   },
@@ -966,6 +1087,6 @@
   "activeBodyRevision": "body-diagram-20261111",
   "activeShorts": {
     "point-tetsuzuki-2": "shorts-pop-point-tetsuzuki-2-20261111",
-    "point-joukyou-1": "shorts-pop-point-joukyou-1-20261111"
+    "point-joukyou-1": "shorts-pop-point-joukyou-1-20261112"
   }
 }

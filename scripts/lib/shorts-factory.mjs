@@ -183,7 +183,8 @@ const coverPrompt = (design, spec, label, palette, type = null, gesture = null) 
   `添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。${FRAME}`,
   pop(palette), '黄色と白の極太文字。',
   // 型のあるショートは肩書きの帯を入れない（概要欄の制作表記で伝える・2026-11-11 運営者の決定）
-  type ? `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}。肩書きの帯や制作者名は書かない。` : `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}、小さな黄色帯に『${spec.pop?.authority ?? '総監が制作'}』。`,
+  // 見出しの行に『』の引用が入ると区切りの『』と混ざり、引用が行ごとに割れた（2026-11-11）。型のある表紙は行を〈〉で区切る（〈〉は描かない）
+  type ? `上部に『${label}』。最も大きく見出しを ${spec.headline.length} 行で書く: ${spec.headline.map((l, i) => `${i + 1} 行目〈${l}〉`).join('、')}（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。` : `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}、小さな黄色帯に『${spec.pop?.authority ?? '総監が制作'}』。`,
   // 型ごとの表紙の図（台帳 config.youtube-shorts-formats の types[].cover・2026-11-11）。見出しは端で切らない（2 枚が右端で切れた）
   // 描くものだけを書く（禁止の語を書くと生成がその記号を描きがち・2026-11-11）。置き場所は数字で書く（割合では端まで広げた）
   ...(type ? [`表紙の型は「${type.label}」。${type.cover.visual}。${paperText(design) && ['before-after', 'one-question'].includes(type.id) ? `紙には『${paperText(design)}』とだけ書き、紙の上はその文字のほかは白い紙のまま。` : ''}${TEXT_BOX}見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。`] : []),

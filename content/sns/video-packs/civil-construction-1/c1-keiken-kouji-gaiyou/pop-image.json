@@ -514,11 +514,11 @@
       "images": [
         {
           "role": "cover",
-          "inputSha256": "b681c56333ecf7bbed2e39c16e1b6046485a6c7220e6621bd7435364f6f90f92",
+          "inputSha256": "936add38e22e6a7c11988e13b688fe71aec1c1ec2fac996d5be69006b8b0327a",
           "narration": "工期に「令和3年6月〜12月」。何が足りないでしょう。",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『『令和3年』『6月〜12月』』『何が足りない？』、小さな黄色帯に『総監が制作』。 表紙の型は「ビフォーアフター」。見出しの下に、悪い例の一言を書いた答案の紙を斜めに置き、その一言に赤ペンの波線と小さな『？』。先生は赤ペンを持つ。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収め、収まらなければ字を小さくして折り返す。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを1本握って胸の高さに上げ、ペン先を見出しの下の答案の紙へ向ける。指は5本でペンを握る。左手（画面右側）は何も持たず腰に当てる。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『『令和3年』『6月〜12月』』『何が足りない？』。肩書きの帯や制作者名は書かない。 表紙の型は「ビフォーアフター」。見出しの下に、悪い例の一言を書いた答案の紙を斜めに置く。紙の文字は全部読めるようにし、記号を重ねない。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「赤ペンを持つ」: 片手で赤ペンを胸の高さに持ち、もう片方の手で答案用紙を持つ。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを1本握って胸の高さに持ち、指は5本でペンを握る。左手（画面右側）は見出しの下の答案用紙の端を持つ。見出しは画面の左右8%の内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -526,26 +526,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-cover.eb2314f1.png",
-              "sha256": "eb2314f1ad70a72b135aec8703ffd0cec8df39b469078ac88af46010f5c18087"
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-cover.11b680ec.png",
+              "sha256": "11b680eca999c437860a1b198e7b8b3940e7228b4ae382c09873e88ac7ea0c76"
             },
-            "generatedAt": "2026-11-11T08:19:35.122Z"
+            "generatedAt": "2026-11-11T12:43:31.182Z"
           },
           "output": {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/cover.347e9702.png",
-            "sha256": "347e9702e46787559f2096de830ad0c9a7932cd853ec4b2babeff72b55560bbb",
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/cover.2fce0b10.png",
+            "sha256": "2fce0b10849803a1570ccba3768abe81f07f7ab0a29ff9570b7007f905bf524f",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "eb2314f1ad70a72b135aec8703ffd0cec8df39b469078ac88af46010f5c18087"
+            "sourceSha256": "11b680eca999c437860a1b198e7b8b3940e7228b4ae382c09873e88ac7ea0c76"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:19:35.122Z",
+            "checkedAt": "2026-11-11T12:43:31.182Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "文字: 1級土木・令和3年・6月〜12月・何が足りない？・総監が制作が指示どおり1字も欠けず誤字なし。型: ビフォーアフター、悪い例『令和3年』に赤波線と『？』の答案を斜めに置き、先生が右手(画面左)で赤ペンを5本指で握り紙へ向け、左手は腰。胴体は下端まで続く。注意: 総監が制作の帯が下32%の字幕域に、6月〜12月の左余白が約7%と8%指定よりやや狭いが切れはない"
+            "reason": "文字: 1級土木・令和3年・6月〜12月・何が足りない？が指示どおり1字も欠けず、左右余白は約6.6%以上で5%を満たす。型: 見出しの下に悪い例「頑張ります」の答案を持つビフォーアフター表紙。先生は赤ペンと答案を各手5本指で持ち、胴体は下端まで続き、見出しに記号の重なりなし。"
           }
         },
         {
@@ -562,10 +562,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-001.74597a83.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-scene-001.74597a83.png",
               "sha256": "74597a83188c4641f6f55ffdf194aa4988b494c7ffe133c44cbfe9ab9b36f732"
             },
-            "generatedAt": "2026-11-11T08:19:35.122Z"
+            "generatedAt": "2026-11-11T12:43:31.182Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/scene-001.26e2ce76.png",
@@ -579,7 +579,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:19:35.122Z",
+            "checkedAt": "2026-11-11T12:43:31.182Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『1級土木』『1』『月だけの工期』『例』『工期』『令和3年6月〜12月』と赤い『？』が指示どおりで誤字・余計な文字なし。記入欄の図も成り立つ"
           }
@@ -598,10 +598,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-002.0bfc6152.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-scene-002.0bfc6152.png",
               "sha256": "0bfc6152b669250da5e462d140afe8001fe01c701030d35a565d415758b9c877"
             },
-            "generatedAt": "2026-11-11T08:19:35.122Z"
+            "generatedAt": "2026-11-11T12:43:31.182Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/scene-002.8f4a3ae2.png",
@@ -615,7 +615,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:19:35.122Z",
+            "checkedAt": "2026-11-11T12:43:31.182Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『2』『足りないのは日付』『自社の請負分』『年号＋年月日』が指示と一致。上下2箱を矢印でつなぎ下の箱が黄色で、崩れた字・余計な文字なし"
           }
@@ -634,10 +634,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-003.d65dfccc.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-scene-003.d65dfccc.png",
               "sha256": "d65dfcccbf5628f99165e1ae25df4debb9d69056fe770d1e6db23ff8bef0c12b"
             },
-            "generatedAt": "2026-11-11T08:19:35.122Z"
+            "generatedAt": "2026-11-11T12:43:31.182Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/scene-003.4a1af02d.png",
@@ -651,7 +651,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:19:35.122Z",
+            "checkedAt": "2026-11-11T12:43:31.182Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『月だけ』『令和3年6月〜12月』『年月日まで』『令和3年6月14日〜』『令和3年12月20日』が指示と一字一致。灰色欄から黄枠欄への矢印も正しい"
           }
@@ -670,10 +670,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-cta.c868f802.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-cta.c868f802.png",
               "sha256": "c868f802686e457384afdb97b3a4fec77490010c73010be7aaf3990361d004c6"
             },
-            "generatedAt": "2026-11-11T08:19:35.122Z"
+            "generatedAt": "2026-11-11T12:43:31.182Z"
           },
           "output": {
             "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/cta.5cc1f06b.png",
@@ -687,72 +687,24 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T08:19:35.122Z",
+            "checkedAt": "2026-11-11T12:43:31.182Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 発注者名と立場の書き方は／本編で／関連動画から が指示どおり欠け・誤字なし。赤の下向き矢印があり、先生が手のひらで矢印を示す。両手とも指5本で自然、胴体は下端まで続く、資格名は無い。注意: 立場の左余白が約6%と8%指定よりやや狭いが切れはない"
           }
         }
       ],
       "render": {
-        "videoSha256": "2174f3a87561b263de56bba9a7a75ca0310e6aa60086df5d51d6f60ed94f7ff1",
+        "videoSha256": "61987e6e10972aee9392cb9d45ab5a8a62e976b9f97c77e07b654260982c5ffa",
         "durationSeconds": 30,
         "speaker": 13,
         "sceneCount": 5
       },
       "screenReview": {
-        "verdict": "pass",
+        "verdict": "fail",
         "by": "yt-shorts-publisher-qa",
-        "reason": "実測 1080x1920・30秒・音声ありで、youtube.json と pop-image.json の sha が一致し、場面数 5/5 も一致した。5 軸は 5・4・5・4・4 で平均 4.4、全軸 3 以上。型・コピーの線・冒頭・単体の価値・本編への引きも通る。ライブの操作ボタンとの重なりは未確認。",
-        "videoSha256": "2174f3a87561b263de56bba9a7a75ca0310e6aa60086df5d51d6f60ed94f7ff1",
-        "checkedAt": "2026-11-11T08:20:42.181Z"
-      },
-      "audio": {
-        "videoSha256": "2174f3a87561b263de56bba9a7a75ca0310e6aa60086df5d51d6f60ed94f7ff1",
-        "similarity": 0.991,
-        "maxVolumeDb": -4.2,
-        "durationGapSec": 0
-      },
-      "stock": {
-        "video": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/video.2174f3a8.mp4",
-          "sha256": "2174f3a87561b263de56bba9a7a75ca0310e6aa60086df5d51d6f60ed94f7ff1"
-        },
-        "frames": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/frames.2227984e.png",
-          "sha256": "2227984e337b99a3e15f4349f0e38da30d9cbe168c2756992781ffd848e617a6"
-        },
-        "subtitles": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/subtitles.b34a35cf.ass",
-          "sha256": "b34a35cf98f7002b5e9207745d8b992674d7a802556652993c4f869d75b2c4b5"
-        },
-        "originals": [
-          {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-cover.eb2314f1.png",
-            "sha256": "eb2314f1ad70a72b135aec8703ffd0cec8df39b469078ac88af46010f5c18087"
-          },
-          {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-001.74597a83.png",
-            "sha256": "74597a83188c4641f6f55ffdf194aa4988b494c7ffe133c44cbfe9ab9b36f732"
-          },
-          {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-002.0bfc6152.png",
-            "sha256": "0bfc6152b669250da5e462d140afe8001fe01c701030d35a565d415758b9c877"
-          },
-          {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-003.d65dfccc.png",
-            "sha256": "d65dfcccbf5628f99165e1ae25df4debb9d69056fe770d1e6db23ff8bef0c12b"
-          },
-          {
-            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-cta.c868f802.png",
-            "sha256": "c868f802686e457384afdb97b3a4fec77490010c73010be7aaf3990361d004c6"
-          }
-        ],
-        "thumbnail": {
-          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/cover.347e9702.png",
-          "sha256": "347e9702e46787559f2096de830ad0c9a7932cd853ec4b2babeff72b55560bbb"
-        },
-        "savedAt": "2026-11-11T08:21:38.983Z",
-        "cloudVerified": true
+        "reason": "尺30秒・1080x1920・音声あり、sha一致、場面5/5は確認できた。ただし表紙の紙は「頑張ります」と書かれ、✕の記号が重なっている。工期の悪い例と合わない。本文の「1月だけの工期」「3年月日まで書く」は番号が見出しと読めてしまう。軸5は2点。",
+        "videoSha256": "61987e6e10972aee9392cb9d45ab5a8a62e976b9f97c77e07b654260982c5ffa",
+        "checkedAt": "2026-11-11T12:44:45.429Z"
       }
     },
     "shorts-pop-point-ryakushiki-2-20261111": {
@@ -1003,12 +955,261 @@
         "savedAt": "2026-11-11T12:00:03.925Z",
         "cloudVerified": true
       }
+    },
+    "shorts-pop-point-period-1-20261112": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1",
+      "key": "point-period-1",
+      "sceneId": "period",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "936add38e22e6a7c11988e13b688fe71aec1c1ec2fac996d5be69006b8b0327a",
+          "narration": "工期に「令和3年6月〜12月」。何が足りないでしょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『『令和3年』『6月〜12月』』『何が足りない？』。肩書きの帯や制作者名は書かない。 表紙の型は「ビフォーアフター」。見出しの下に、悪い例の一言を書いた答案の紙を斜めに置く。紙の文字は全部読めるようにし、記号を重ねない。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「赤ペンを持つ」: 片手で赤ペンを胸の高さに持ち、もう片方の手で答案用紙を持つ。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを1本握って胸の高さに持ち、指は5本でペンを握る。左手（画面右側）は見出しの下の答案用紙の端を持つ。見出しは画面の左右8%の内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 字幕の帯: 先生が持つ答案用紙の文字『令和3年6月〜12月』が画面の高さ約77〜80%の位置にあり、下から30%の字幕帯に入っている。見出し・左右余白(約6%)・手指・記号なし・肩書き帯なしは問題なし",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-cover.878e96e8.png",
+              "sha256": "878e96e86d40d30d787c3c46699ea5909af27811c04c13c620fa90d7a412abfc"
+            },
+            "generatedAt": "2026-11-11T22:02:24.197Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/cover.fbc80fd3.png",
+            "sha256": "fbc80fd394de2aba71f5fcf900f5c8f975526fdaf846d9dde5da15d5fbb43c5f",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "878e96e86d40d30d787c3c46699ea5909af27811c04c13c620fa90d7a412abfc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:02:24.197Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は指示と一字ずつ一致し、左右余白は約7%と約10%で5%以上。ビフォーアフター型の答案の紙は悪い例と同文で記号の重なりも肩書き帯も無く、紙は字幕帯の上。先生は赤ペンと紙を持ち、指は自然で胴体は下端まで続く"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "30de3992ab8e35fda86e38e47e2e3c9a2cb31e547420bc2505b886d858d15929",
+          "narration": "工期を、月だけで書いていませんか。たとえば、令和3年6月から12月。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『1』と見出し『月だけの工期』。 図: 画面の中央に横長の大きな記入欄を1つ描く。欄の左端の見出しに『工期』、欄の中に『令和3年6月〜12月』。欄の上に小さな札で『例』。欄の右下に大きな赤い『？』を1つ。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 見出しの番号1が見出しの文字と同じ大きさで続き『1月だけの工期』と読める。番号を小さく離す（画面確認）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-001.d764fa4e.png",
+              "sha256": "d764fa4eec8f414cff6516cd91b25c6c0c21dea8c5662ee8b1df55599ef759e1"
+            },
+            "generatedAt": "2026-11-11T22:02:24.197Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/scene-001.f0b0b3e2.png",
+            "sha256": "f0b0b3e2d08c973e776083db64a92ba0bcdbeae55b8e81191d6ea2335c6a1168",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d764fa4eec8f414cff6516cd91b25c6c0c21dea8c5662ee8b1df55599ef759e1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:02:24.197Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は指示と一字ずつ一致し(1級土木・1・月だけの工期・工期・令和3年6月〜12月・例・？)、左右余白は約6%以上、記号の混入や破綻なし"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "c8d0da06871dee315f5ab558ed8303ecea2f38e7fb91667fd43e2bea35d86e4f",
+          "narration": "工期は、自社が請け負った分を書きます。年号を付けて、年月日まで省略せずに書くのが基本です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『2』と見出し『足りないのは日付』。 図: 上から下へ2つの大きな角丸の箱を太い矢印でつなぐ。上の箱に『自社の請負分』、下の箱に『年号＋年月日』。下の箱を黄色で強調する。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-002.0bfc6152.png",
+              "sha256": "0bfc6152b669250da5e462d140afe8001fe01c701030d35a565d415758b9c877"
+            },
+            "generatedAt": "2026-11-11T22:02:24.197Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/scene-002.8f4a3ae2.png",
+            "sha256": "8f4a3ae2ffcd1dc990278aa68c13438e0922cf2a013c4a415fa24980f8723962",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0bfc6152b669250da5e462d140afe8001fe01c701030d35a565d415758b9c877"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:02:24.197Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『2』『足りないのは日付』『自社の請負分』『年号＋年月日』が指示と一致。上下2箱を矢印でつなぎ下の箱が黄色で、崩れた字・余計な文字なし"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "ad40c12702c910813f2dc65852067d1d0dbec24af4525c25d94eeaf6ee777f11",
+          "narration": "直すと、令和3年6月14日から、令和3年12月20日。年月日まで書くと、工期が具体的になります。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『3』と見出し『年月日まで書く』。 図: 上下に2つの横長の記入欄を並べる。上の欄は灰色で、左に『月だけ』、中に『令和3年6月〜12月』。下の欄は黄色の枠で、左に『年月日まで』、中に2行で『令和3年6月14日〜』『令和3年12月20日』。上の欄から下の欄へ太い下向きの矢印。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 番号3が見出しに続き『3年月日まで書く』と読める。番号を小さく離す（画面確認）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-003.294a9bb5.png",
+              "sha256": "294a9bb582bab0d8d8dcc72aadacd0483b6b1a6333e8ad6970b868854c5dec2b"
+            },
+            "generatedAt": "2026-11-11T22:02:24.197Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/scene-003.400b10b3.png",
+            "sha256": "400b10b3a9b30c839432732339c9e16f4282f0b06dc3adfd2c9043b40506c23a",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "294a9bb582bab0d8d8dcc72aadacd0483b6b1a6333e8ad6970b868854c5dec2b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:02:24.197Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は指示と一致(年月日まで書く・月だけ・年月日まで・令和3年6月14日〜/令和3年12月20日)、下向き矢印は指示どおり、文字の左右余白は5%以上で切れなし"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "ecf1180d38d52fc530085dafc20ea604c7fd6086897c0dfb5a1590011ebdea89",
+          "narration": "発注者名と立場の書き方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 大きく『発注者名と立場の書き方は』『本編で』、その下に小さく『関連動画から』と下向きの矢印。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『1級土木』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 記号: 「本編で」の下に指示にない黄色の下線が描かれている（締めの下線は不可）。文字は指定どおりで誤字なく左右6%以上の余白あり、先生の手指・胴体も切れていない",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-cta.e2b026b4.png",
+              "sha256": "e2b026b40c51b8cfb1a60348b00aa498ac6fdd4c81ca2e7ea184041bcec46464"
+            },
+            "generatedAt": "2026-11-11T22:02:24.197Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/cta.a5c5cdc6.png",
+            "sha256": "a5c5cdc60e4ace10ff0d69e305cacf16f5259204b8462ecd8d1bc573437a9959",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e2b026b40c51b8cfb1a60348b00aa498ac6fdd4c81ca2e7ea184041bcec46464"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T22:02:24.197Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字『発注者名と』『立場の書き方は』『本編で』『関連動画から』が指示と一字一致し、左右余白は5%以上で切れなし。先生の顔・白ヘルメット・眼鏡・ひげ・紺作業服が揃い、手は指5本で崩れず、胴体は下端まで続く。✕や下線は無く、指示どおりの下向き矢印のみ。"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "00089e97ca1cb26544e28bc745824a6b7107cc1a93bafb33c125e1de4a64c54b",
+        "durationSeconds": 30,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "平均4.2、全軸3以上。30秒・1080x1920・音声あり、youtube.jsonとpop-image.jsonのsha(00089e97...)が一致し、5場面は5場面と一致。型before-afterの形と表紙の型に合い、導入は2秒で止まり、締めは本編へ引いている。",
+        "videoSha256": "00089e97ca1cb26544e28bc745824a6b7107cc1a93bafb33c125e1de4a64c54b",
+        "checkedAt": "2026-11-11T22:09:42.090Z"
+      },
+      "audio": {
+        "videoSha256": "00089e97ca1cb26544e28bc745824a6b7107cc1a93bafb33c125e1de4a64c54b",
+        "similarity": 0.991,
+        "maxVolumeDb": -4.2,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/video.00089e97.mp4",
+          "sha256": "00089e97ca1cb26544e28bc745824a6b7107cc1a93bafb33c125e1de4a64c54b"
+        },
+        "frames": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/frames.32e571b2.png",
+          "sha256": "32e571b262caa8a674746fc1ff94b6868feb8726dd018138db55535039d52a26"
+        },
+        "subtitles": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/subtitles.b34a35cf.ass",
+          "sha256": "b34a35cf98f7002b5e9207745d8b992674d7a802556652993c4f869d75b2c4b5"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-cover.878e96e8.png",
+            "sha256": "878e96e86d40d30d787c3c46699ea5909af27811c04c13c620fa90d7a412abfc"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-001.d764fa4e.png",
+            "sha256": "d764fa4eec8f414cff6516cd91b25c6c0c21dea8c5662ee8b1df55599ef759e1"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-002.0bfc6152.png",
+            "sha256": "0bfc6152b669250da5e462d140afe8001fe01c701030d35a565d415758b9c877"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-scene-003.294a9bb5.png",
+            "sha256": "294a9bb582bab0d8d8dcc72aadacd0483b6b1a6333e8ad6970b868854c5dec2b"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/raw-cta.e2b026b4.png",
+            "sha256": "e2b026b40c51b8cfb1a60348b00aa498ac6fdd4c81ca2e7ea184041bcec46464"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1/cover.fbc80fd3.png",
+          "sha256": "fbc80fd394de2aba71f5fcf900f5c8f975526fdaf846d9dde5da15d5fbb43c5f"
+        },
+        "savedAt": "2026-11-11T22:09:47.321Z",
+        "cloudVerified": true
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261111",
   "activeBodyRevision": "body-diagram-20261111",
   "activeShorts": {
-    "point-period-1": "shorts-pop-point-period-1-20261111",
+    "point-period-1": "shorts-pop-point-period-1-20261112",
     "point-ryakushiki-2": "shorts-pop-point-ryakushiki-2-20261111"
   }
 }
