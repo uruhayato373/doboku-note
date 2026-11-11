@@ -228,6 +228,8 @@ async function shootPage({ browser, base, target, viewports, dir, maxTiles }) {
       const resp = await page.goto(`${base}${target.path}`, { waitUntil: 'load', timeout: 90_000 });
       if (!resp || resp.status() !== 200) throw new Error(`${vp.id}: HTTP ${resp?.status() ?? '応答なし'}`);
       await page.evaluate(() => document.fonts.ready);
+      // 画面外の段落を描画から外す設定（globals.css の content-visibility: auto）は、全体を撮ると空白になる。撮影の間だけ外す
+      await page.addStyleTag({ content: '*{content-visibility:visible!important}' });
       // 遅延読み込みの画像を出すために末尾まで送り、先頭へ戻す
       await page.evaluate(async () => {
         const step = window.innerHeight;

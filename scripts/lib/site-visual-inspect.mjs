@@ -7,7 +7,7 @@
  * 返すもの:
  *   blocks  ヘッダー・main の直下の区画・フッターごとの、中身の左端と右端（絶対配置の飾りは除く）
  *   issues  機械で決まる崩れ（1 件でもあれば不合格が確定）
- *             edge      区画の中身が、ほかの区画の基準より左右に広く出ている（コンテナ幅の不統一）
+ *             edge      区画の中身が、ヘッダーの中身の端（サイトの外枠）より左右の外に出ている（コンテナ幅の不統一）
  *             cta-clip  商品導線が画面の右へはみ出している
  *   hints   目視で判断する材料（不合格は確定しない）
  *             clip（題名が…で切れている）・orphan（最後の行が 1 文字）・small-text（12px 未満）・tap（スマホ幅で押しにくい）
@@ -78,23 +78,16 @@ export function inspectLayoutInPage() {
   }
 
   const issues = [];
-  const mode = (values) => {
-    const count = new Map();
-    for (const v of values) count.set(v, (count.get(v) ?? 0) + 1);
-    const [value, n] = [...count.entries()].sort((a, b) => b[1] - a[1] || a[0] - b[0])[0] ?? [null, 0];
-    return { value, n };
-  };
-  if (blocks.length >= 3) {
-    const refLeft = mode(blocks.map((b) => b.left));
-    const refRight = mode(blocks.map((b) => b.right));
-    // 基準は「同じ値の区画が 2 つ以上」あるときだけ立てる（区画ごとにばらばらなら基準が無い）
+  // 基準はヘッダーの中身の端（サイトの外枠）。本文の区画は外枠より狭くてよいが、外へは出ない。
+  // 多数派を基準にすると、記事ページでは本文の中の区画が多数派になり、ヘッダーとフッターが「広い」と誤って出る（2026-11-11）。
+  const shell = blocks.find((b) => b.id === 'header');
+  if (shell) {
     for (const b of blocks) {
-      const wideLeft = refLeft.n >= 2 && b.left < refLeft.value - TOL;
-      const wideRight = refRight.n >= 2 && b.right < refRight.value - TOL;
-      if (wideLeft || wideRight) {
+      if (b === shell) continue;
+      if (b.left < shell.left - TOL || b.right < shell.right - TOL) {
         issues.push({
           type: 'edge',
-          detail: `${b.id}「${b.label}」の中身が基準より広い（左余白 ${b.left}px・右余白 ${b.right}px / 基準 左 ${refLeft.value}px・右 ${refRight.value}px）: ${b.tag}.${b.cls.split(/\s+/).slice(0, 4).join('.')}`,
+          detail: `${b.id}「${b.label}」の中身がヘッダーの端より外に出ている（左余白 ${b.left}px・右余白 ${b.right}px / ヘッダー 左 ${shell.left}px・右 ${shell.right}px）: ${b.tag}.${b.cls.split(/\s+/).slice(0, 4).join('.')}`,
         });
       }
     }
