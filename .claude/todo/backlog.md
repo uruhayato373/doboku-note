@@ -617,16 +617,8 @@ quality-audit.mjs の lint-ja（ci:true）は npm run lint:ja = scripts/lint-ja.
 **完了条件**: 入口記事が本番に出て sitemap に入り、シリーズ 2 章と 2級・1級土木のページとの導線が双方向でつながっている。公開から 28 日と 84 日の表示・クリック・検索語を gsc-management.md に記録し、事業者向けの語で表示が出たかを判定して、広げる／受験者向けの入口（資格手当・取るメリット）に絞るを決めた。
 
 
-### [DN-1118] pre-commit の穴 3 つをふさぐ（CTA 到達性・素材参照・台帳の検証 script）
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11] [進行中]
-
-develop の CI が赤くなった 3 種（magazine-cta-reachability / media-references / backlog-schema）が pre-commit を素通りしていた。記事の新規追加・content/sns の文書・origin/develop の package.json で先に止める。
 
 
-### [DN-1117] デプロイ手順を deploy:main 1 本に寄せ、古い文書・記憶を削る
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11] [進行中]
-
-deploy-main: 手元 SSR が exit 2 のときデプロイ run の Verify production SSR ステップで補う／緑待ち 30 分上限。deploy SKILL.md を入口だけに、古い昇格手順の記憶メモを削除。
 
 
 ### [DN-1116] 試験日の翌週に、技術士一次（11/22）とコンクリート技士（11/29）の当日ページの山と行き先を記録する

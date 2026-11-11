@@ -7293,6 +7293,32 @@
       "commit": "8649554935b2",
       "verification": "npm run check-exam-day-pages（未判断 0）・check-domains・check-doc-refs・check-datasets exit 0",
       "note": "型を docs/editorial/試験日・合格発表日の当日ページの型.md に書き、2027-01〜03 の合格発表日 7 件（5 つの日付）を対応表に page・card・skip で記録。合格発表の検索の実績はほぼ無いので新しいページは作らない"
+    },
+    {
+      "id": "DN-1118",
+      "at": "2026-11-11",
+      "task": "pre-commit の穴 3 つをふさぐ（CTA 到達性・素材参照・台帳の検証 script）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "74bab8dcec26",
+      "verification": "tests/pre-commit-ci-gates.test.mjs・tests/backlog-schema-check.test.mjs・tests/pre-commit-dispatch.test.mjs",
+      "note": "PR #1539 を develop へマージ（c8a7a837d）。3 つの穴それぞれに回帰テストあり。PR の audit は develop 由来の 2 件（youtube-shorts・loadVideoState）だけが赤で、ほか 131 検査は通過"
+    },
+    {
+      "id": "DN-1117",
+      "at": "2026-11-11",
+      "task": "デプロイ手順を deploy:main 1 本に寄せ、古い文書・記憶を削る",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "74bab8dcec26",
+      "verification": "tests/deploy-main.test.mjs",
+      "note": "PR #1537 を develop へマージ（72439c5ce）。deploy SKILL.md は入口だけ、古い昇格手順の記憶メモは削除。PR の audit は develop 由来の 2 件だけが赤"
     }
   ]
 }
