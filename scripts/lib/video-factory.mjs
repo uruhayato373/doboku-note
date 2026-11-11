@@ -134,6 +134,20 @@ export function buildPlan(root, pack, { scope = 'all', date, refs = fileRef } = 
   return plan;
 }
 
+/**
+ * 比率がわずかにずれた生成画像を、中央で切り抜いて指定の比率に揃える（2026-11-11）。Codex は 16:9 を頼んでも
+ * 1717×916（約 5% 横長）をよく返し、比率の検査で 1 項目 3 回を使い切っていた。切るのは長い辺の両端で、
+ * 片側 3% 以内（生成の指示の安全余白 6% の内側）に収まるときだけ。それより大きいずれは触らず、検査で落とす。
+ */
+export async function fitAspect(bytes, ratio, tolerance = 0.06) {
+  const meta = await sharp(bytes).metadata();
+  if (!meta.width || !meta.height) return bytes;
+  const off = meta.width / meta.height / ratio - 1;
+  if (Math.abs(off) <= 0.005 || Math.abs(off) > tolerance) return bytes;
+  const [width, height] = off > 0 ? [Math.round(meta.height * ratio), meta.height] : [meta.width, Math.round(meta.width / ratio)];
+  return sharp(bytes).extract({ left: Math.floor((meta.width - width) / 2), top: Math.floor((meta.height - height) / 2), width, height }).png().toBuffer();
+}
+
 /** 目で見る前の機械検査。比率と字幕の帯を見る。空なら合格。 */
 export async function inspectImage(bytes, kind) {
   const meta = await sharp(bytes).metadata();
@@ -159,10 +173,11 @@ const stuck = (i) => !i.raw && (i.attempts >= MAX_ATTEMPTS || (i.noOutput ?? 0) 
  * 画像が出なかった試行は回数に数えず noOutput に数える。この回に試した全項目で画像が出なければ unreachable を返す
  * （生成の経路が無い環境で回すと、品質の判定をしないまま全項目が上限に達していた・DN-1065）。
  */
-export async function generatePlan(root, pack, { concurrency = 3, generate = generateWithCodexAsync, log = () => {}, path: file = planPath(pack), inspect = inspectImage } = {}) {
+export async function generatePlan(root, pack, { concurrency = 3, generate = generateWithCodexAsync, log = () => {}, path: file = planPath(pack), inspect = inspectImage, aspect = 16 / 9, maxItems = Infinity } = {}) {
   const plan = readPlan(root, pack, file);
   if (!plan) throw new Error(`${pack}: 先に plan を作る`);
-  const todo = plan.items.filter((i) => !i.raw && !stuck(i));
+  // maxItems は 1 回の呼び出しで試す項目の上限。呼び出し 1 回を短く保ち、途中で止まっても進んだ分を残す
+  const todo = plan.items.filter((i) => !i.raw && !stuck(i)).slice(0, maxItems);
   let next = 0;
   let noOutput = 0;
   const one = async (item) => {
@@ -177,7 +192,7 @@ export async function generatePlan(root, pack, { concurrency = 3, generate = gen
     }
     item.attempts += 1;
     item.noOutput = 0;
-    const bytes = await sharp(readFileSync(out)).png().toBuffer();
+    const bytes = await fitAspect(await sharp(readFileSync(out)).png().toBuffer(), aspect);
     const issues = await inspect(bytes, item.kind);
     if (issues.length) { item.fix = issues.join('／'); item.lastError = item.fix; log(`${item.id}: ${item.fix}`); return; }
     const sha256 = hash(bytes);
@@ -188,6 +203,7 @@ export async function generatePlan(root, pack, { concurrency = 3, generate = gen
     mkdirSync(dirname(join(root, path)), { recursive: true });
     writeFileSync(join(root, path), bytes);
     Object.assign(item, { raw: { path, sha256 }, prompt, audit: null, lastError: null });
+    writeJson(root, file, plan);
     log(`${item.id}: ok`);
   };
   await Promise.all(Array.from({ length: concurrency }, async () => {

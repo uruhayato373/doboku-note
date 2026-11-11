@@ -49,7 +49,7 @@ const commands = {
     const plan = buildShortPlan(ROOT, pack, key, { date: todayJst().replaceAll('-', '') });
     print({ revision: plan.revision, items: plan.items.map((i) => i.id) });
   },
-  generate: async () => print(await generatePlan(ROOT, pack, { path, inspect: inspectShortImage, log: console.log })),
+  generate: async () => print(await generatePlan(ROOT, pack, { path, inspect: inspectShortImage, aspect: 9 / 16, log: console.log })),
   'audit-queue': () => print(auditQueue(ROOT, pack, { path, label: (i) => `${pack} のショート ${key} の${{ cover: '表紙', cta: '締め' }[i.kind] ?? `本文 ${i.id}`}。語りは「${i.narration}」` })),
   'record-audit': () => print(recordAudit(ROOT, pack, JSON.parse(readFileSync(args.file, 'utf8')), { by: args.by, path })),
   adopt: async () => print(await adoptShort(ROOT, pack, key, { now })),
