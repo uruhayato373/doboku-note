@@ -1,0 +1,281 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "必須Ⅰの解決策、根拠は何を積みますか。",
+      "caption": "解決策の根拠、何を積む？",
+      "visual": {
+        "kind": "cover",
+        "heading": "必須Ⅰ、解決策の根拠",
+        "items": [
+          "技術士 建設部門・必須科目"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 25,
+      "narration": "解決策の名前は浮かぶのに、なぜ効くのかを示す材料が手元にない。今日は必須科目Ⅰの設問の2で、解決策に根拠を積む順序を、五つの問いと、型の絞り方で整理します。",
+      "caption": "解決策の名前は浮かぶのに、材料がない",
+      "visual": {
+        "kind": "points",
+        "heading": "今日整理すること",
+        "items": [
+          "設問(2)の位置",
+          "根拠の五つの問い",
+          "型の絞り方"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "必須科目対策／建設部門",
+          "note": "根拠の分け方はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "where",
+      "start": 25,
+      "end": 50,
+      "narration": "まず位置です。令和7年度と令和8年度の必須科目Ⅰは、設問の2で、最も重要な課題を一つ選び、その課題への複数の解決策を示す形でした。課題を一つに絞るので、根拠も一つの課題の周りに積めます。形式は受検年度の公式情報で確認してください。",
+      "caption": "(2)は一つの課題に複数の解決策",
+      "visual": {
+        "kind": "points",
+        "heading": "設問(2)の求め",
+        "items": [
+          "最も重要な課題を1つ選ぶ",
+          "その課題への複数の解決策",
+          "形式は受検年度の公式情報で確認"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "令和7・8年度の公式問題文に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "five",
+      "start": 50,
+      "end": 84,
+      "narration": "根拠は、思いついた順に積まず、読み手が解決策に向ける問いごとに用意します。国の方向と合っているか、技術として確かか、どれほど効くのか、自分の現場で回るのか、他の立場は受け入れるか、の五つです。この分け方は、サイトの整理で、公式の基準ではありません。",
+      "caption": "根拠は五つの問いごとに用意する",
+      "visual": {
+        "kind": "points",
+        "heading": "読み手の五つの問い",
+        "items": [
+          "国の方向と合っているか",
+          "技術として確かか",
+          "どれほど効くのか",
+          "自分の現場で回るのか",
+          "他の立場は受け入れるか"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "必須科目対策／建設部門",
+          "note": "五つの問いはdoboku-noteの整理。公式の基準ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "q1",
+      "start": 84,
+      "end": 122,
+      "narration": "一つ目は、国の方向です。材料は、計画やガイドライン、白書です。令和8年度のⅠ-1は、令和8年1月に定められた第6次社会資本整備重点計画を背景に置いていました。問題文が名前を挙げた計画は、出題者が示した足場です。計画名を並べて終わらず、そのどの方針を解決策が具体化するのかまで書きます。年次を付け、使う前に最新の版を確かめます。",
+      "caption": "一つ目：国の方向を、計画で示す",
+      "visual": {
+        "kind": "points",
+        "heading": "国の方向",
+        "items": [
+          "材料は計画・ガイドライン・白書",
+          "問題文が挙げた計画は議論の足場",
+          "計画名で終わらず、方針の具体化まで書く",
+          "年次を付け、最新の版を確かめる"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "令和8年度Ⅰ-1の問題文と出題テーマ分析に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-required/article.mdx"
+    },
+    {
+      "sceneId": "q2",
+      "start": 122,
+      "end": 150,
+      "narration": "二つ目は、技術の確かさです。材料は、技術基準や指針、学会の知見です。手段が基準に載った標準的な手法なのか、試行の途中にある新しい手法なのかを見分けます。後者なら、確立の途上であることを書き、そこから生じる懸念は設問の3へ送ります。すると、2の根拠と3のリスクが、同じ事実の表と裏になります。",
+      "caption": "二つ目：技術の確かさ、途上なら(3)へ",
+      "visual": {
+        "kind": "points",
+        "heading": "技術の確かさ",
+        "items": [
+          "材料は基準・指針・学会の知見",
+          "標準の手法か、途上の手法かを見分ける",
+          "途上なら、その懸念は(3)へ送る"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "必須科目対策／建設部門",
+          "note": "書き分けはdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "q3",
+      "start": 150,
+      "end": 192,
+      "narration": "三つ目は、効き方です。材料は、数値と実例です。たとえば橋梁などの老朽化では、国土交通白書2024が、平成30年の推計として、事後保全から予防保全へ転換すると、今後30年間の累計で維持管理と更新の費用を約3割縮減できる見込みを示しています。現状を割合で示したなら、効果も割合で示すと比べられます。口頭試験で出典を説明できる数値と実例だけを使います。",
+      "caption": "三つ目：数値と実例で、効き方を示す",
+      "visual": {
+        "kind": "compare",
+        "heading": "効き方の書き方",
+        "ngLabel": "出所なし",
+        "okLabel": "出所つき",
+        "rows": [
+          {
+            "label": "言い方",
+            "ng": "予防保全が重要とされている",
+            "ok": "国土交通白書2024は、平成30年の推計で30年累計の約3割縮減の見込みを示す"
+          },
+          {
+            "label": "読み手",
+            "ng": "誰が述べたか分からない",
+            "ok": "年次と出典で確かめられる"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "必須科目対策／建設部門",
+          "note": "国土交通白書2024（国土交通省）と書き方ガイドの整理に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "q4",
+      "start": 192,
+      "end": 218,
+      "narration": "四つ目は、自分の現場で回るかです。材料は、自分の業務で見てきた人員、予算、手続の制約です。一般論の施策に、具体性が出る所です。案件や取引先が分かる固有名詞は避け、実際の業務と違うことは書きません。口頭試験は、筆記の答案と業務経歴を踏まえて行われます。",
+      "caption": "四つ目：自分の現場で回るか",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の現場",
+        "items": [
+          "人員・予算・手続の制約を書く",
+          "固有名詞は避け、一般化する",
+          "実際の業務と違うことは書かない"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "必須科目対策／建設部門",
+          "note": "記述の注意はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "q5",
+      "start": 218,
+      "end": 242,
+      "narration": "五つ目は、他の立場です。解決策の影響を受けるのは、利用者だけではありません。費用を負担する人、運用する人でも、見え方は違います。影響の大きい立場を一つか二つ選び、予想される懸念と、解決策の応え方を書きます。実行した後の副作用を書く設問の3とは、役割を分けます。",
+      "caption": "五つ目：他の立場は受け入れるか",
+      "visual": {
+        "kind": "points",
+        "heading": "他の立場",
+        "items": [
+          "影響を受ける立場を1〜2つ選ぶ",
+          "予想される懸念と応え方を書く",
+          "実行後の副作用は(3)で書く"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "必須科目対策／建設部門",
+          "note": "役割の分け方はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "budget",
+      "start": 242,
+      "end": 280,
+      "narration": "ただし、一本の解決策で五つすべてに答えようとすると、字数が持ちません。サイトの目安では、設問の2に1枚強を使い、解決策を2から3本立てると、1本は200から350字ほどで、根拠に回せるのは100から150字ほどです。公式の指定ではない目安です。だから、型は解決策ごとに一つか二つに絞り、残りは別の解決策へ割り振ります。",
+      "caption": "1本の解決策に、型は一つか二つ",
+      "visual": {
+        "kind": "compare",
+        "heading": "根拠の割り振り",
+        "ngLabel": "全部を1本に",
+        "okLabel": "型を絞って割り振る",
+        "rows": [
+          {
+            "label": "解決策A",
+            "ng": "五つの型を全部入れる",
+            "ok": "国の方向と数値"
+          },
+          {
+            "label": "解決策B",
+            "ng": "字数が足りず浅くなる",
+            "ok": "技術の確かさと現場の事情"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "必須科目対策／建設部門",
+          "note": "字数は書き方ガイドの目安。公式の指定ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 280,
+      "end": 302,
+      "narration": "まとめます。設問の2は、課題を一つに絞って、複数の解決策を示します。根拠は五つの問いごとに材料を選び、一本の解決策には一つか二つの型を使います。文の頭で、計画か、基準か、数値かを分かるようにします。この整理は、この動画のものです。",
+      "caption": "根拠は、問いごとに選んで絞る",
+      "visual": {
+        "kind": "points",
+        "heading": "(2)の根拠の積み方",
+        "items": [
+          "五つの問いで材料を選ぶ",
+          "1本に使う型は一つか二つ",
+          "文の頭で、何の根拠かを示す"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "必須科目対策／建設部門",
+          "note": "本動画の整理。形式は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 302,
+      "end": 328,
+      "narration": "次は、実際の答案で試す番です。必須科目Ⅰの模範解答集が、noteにあります。この動画は根拠の積み方までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "根拠の次は、答案で試す",
+      "visual": {
+        "kind": "points",
+        "heading": "次は、答案で試す",
+        "items": [
+          "必須科目Ⅰ 模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "必須科目対策／建設部門"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    }
+  ]
+}

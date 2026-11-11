@@ -112,6 +112,11 @@
       "idException": "imported-before-cutover"
     },
     {
+      "id": "pe-hissu1-konkyo-tsumikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata"
+    },
+    {
       "id": "pe-ii1-kakikata",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-ii1-kakikata"
