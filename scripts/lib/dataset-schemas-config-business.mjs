@@ -605,6 +605,34 @@ export const ConfigAnnualRoadmap = z
   })
   .meta({ title: '年間ロードマップの設定' });
 
+/** 試験日・合格発表日の当日ページの対応表（config/exam-day-pages.json）。events の実在と記事の実在は check-exam-day-pages が見る */
+export const ConfigExamDayPages = z
+  .object({
+    schemaVersion: z.literal(1),
+    $comment: text,
+    windowDays: positiveInt.describe('今日から何日先までの試験日・合格発表日を点検するか'),
+    entries: z
+      .array(
+        z
+          .object({
+            qualification: QID.describe('資格 id（exam-calendar.json の exams の id）'),
+            event: text.describe('exam-calendar.json の events の id'),
+            page: z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/, '<資格>/<slug>（content/site からの相対）').optional().describe('当日ページの記事'),
+            card: dnRef.optional().describe('作ると決めて起票したカード'),
+            skip: text.optional().describe('作らない理由'),
+          })
+          .strict()
+          .superRefine((e, ctx) => {
+            const set = ['page', 'card', 'skip'].filter((k) => e[k] !== undefined);
+            if (!set.length) flag(ctx, [], 'page・card・skip のどれかが要る');
+            if (e.skip !== undefined && set.length > 1) flag(ctx, ['skip'], 'skip は page・card と同時に書かない');
+          }),
+      )
+      .superRefine(uniqueBy((e) => `${e.qualification}/${e.event}`, '資格×日付')),
+  })
+  .strict()
+  .meta({ title: '試験日・合格発表日の当日ページの対応表' });
+
 /** 収益カレンダーの設定（試験日からの週数・日数）。資格 id の実在と examEvent の実在は mapRevenueCalendar（revenue-calendar.mjs）が見る */
 export const ConfigRevenueCalendar = z
   .object({

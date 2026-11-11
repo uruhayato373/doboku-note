@@ -27,7 +27,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc.page-query` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
 | **GSC の記録層（`scripts/scheduled/weekly-review.sh` の run_gsc_record）** | **土曜の Mac（収集の前段と後段の間・2026-10-25〜・DN-0849。旧 CI の `gsc-auto-review.yml`）** | **記録層の自動化**。ヘッドレスの Claude Code が `scripts/scheduled/gsc-record-prompt.md` に沿って断片を `.tmp/claude-out/gsc/` に書き、`scripts/apply-gsc-records.mjs` が検査して追記・push する（Claude は `.claude/` に書けない）。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し coverage エントリ（見出し `（coverage・自動レビュー）`・旧称 月次）を追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
-| `/gsc-review` | Skill（月次・**手動**） | 土曜の GSC の記録層の応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
+| `/gsc-review` | Skill（月次・**手動**） | 土曜の GSC の記録層の応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記。＋月 1 回の画面の実査 4 項目（メッセージ・生成 AI 機能の表示・外部リンク・クロールの統計情報） | — |
 | `/weekly-improve` | Skill（週次・**手動**） | 同上（performance 側）。metrics-analyzer 起動 | — |
 | `/google-search-growth` | Skill（月次。**取得と正規化は土曜の Mac 収集（`weekly-collect` の gsc 段）が `check-gsc-ui-due` の DUE で自動実行**・評価と承認はセッション） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
 | `check-gsc-ui-due` | Script（surfacer） | 月次 UI 取得の期限催促。**日数だけでなく完全性も見る**＝`lastComplete` の年齢（30日）／`lastAttempt.complete !== true` のいずれかで DUE。gsc-ui（必須）と ga4-ui（任意）の 2 チャネル | committed `{gsc-ui,ga4-ui}/last-run.json` → weekly-review が DUE を surface |
@@ -189,13 +189,14 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 
 > 数値は `data/gsc/index-coverage.json` を正とする。ここには「何を観測し、何を打ち手に決めたか」を記す。
 
-書き手は 4 系統（自動 2 + 手動 2）。見出しに区別を付けて同じ時系列に積む:
+書き手は 5 系統（自動 2 + 手動 3）。見出しに区別を付けて同じ時系列に積む:
 
 - `### YYYY-MM-DD（coverage・自動レビュー）`（旧称 月次）/ `### YYYY-MM-DD（週次・自動レビュー）` —
   土曜の GSC の記録層（weekly-review.sh・旧 `gsc-auto-review.yml`）の自動記録。**人間の上書き・追記は歓迎**（後から
   同日付で手動エントリを足しても良い）。エントリ長は週次 20 行 / 月次 25 行以内に収める。
   沈黙検知は `check-gsc-auto-review`（weekly-review-guard が毎週実行し DUE なら Issue 起票）
 - `### YYYY-MM-DD（月次・/gsc-review）` — coverage の観測と打ち手（手動。応急・深掘り・上書き用）
+- `### YYYY-MM-DD（月次・画面の実査）` — API と CI の記録で取れない 4 項目（メッセージ・生成 AI 機能の表示・外部リンク＝note.com・x.com 以外のリンク元サイト数・クロールの統計情報）。手順は /gsc-review の「月次の画面の実査」
 - `### YYYY-MM-DD（週次・/weekly-improve）` — performance 候補の裁定（採用→EXP-ID / 見送り→理由 /
   保留→**再浮上の条件**）。`improvements/{date}.md` は候補の生データ、ここはそれが**どう裁定されたか**の記録
 
