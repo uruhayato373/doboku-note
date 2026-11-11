@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "owner-eye-sekkei-henkou-hantei",
+  "exam": "civil-construction-1",
+  "title": "設計変更を発注者はどう判断するか",
+  "audience": "施工管理の現場で働き、1級土木施工管理技士を学ぶ受検者",
+  "pain": "設計変更を申し出ても、発注者が何を見て判断するのか分からず、通る申出の組み立てが分からない",
+  "promise": "申出を受けた発注者が見る四つ（どの条に当たるか・事実の確認・書面の指示・契約と予算）が分かり、金額だけで決まらないことが分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/civil-practice/cost-and-design-change/article.mdx",
+    "campaign": "owner-eye-sekkei-henkou-hantei"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

@@ -96,12 +96,26 @@
     {
       "id": "owner-career-shigoto",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/owner-career-shigoto"
+      "definition": "content/sns/video-packs/civil-construction-1/owner-career-shigoto",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "f87860dabf3c9018eb2911e1768a1fec06eabe80b8774fb1831be3911159307c"
+      }
     },
     {
       "id": "owner-eye-kantokuin",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-kantokuin"
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-kantokuin",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "875915aab66f8d4a9e1d8ad14fb623619b3e158199c9f8991652c69f9198e92b"
+      }
     },
     {
       "id": "owner-eye-kouji-kensa",
@@ -114,6 +128,11 @@
         "by": "Claude Code video-content-qa",
         "inputSha256": "135d8ea3e71beaf06770c322ed0d88591aaa6632ff0c223275d8129ee5e00595"
       }
+    },
+    {
+      "id": "owner-eye-sekkei-henkou-hantei",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-henkou-hantei"
     },
     {
       "id": "owner-eye-sekkei-tosho",

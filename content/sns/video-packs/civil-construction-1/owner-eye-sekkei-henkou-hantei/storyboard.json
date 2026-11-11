@@ -1,0 +1,317 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "設計変更、発注者は何を見て判断する？",
+      "caption": "設計変更を、発注者は何を見て判断するか",
+      "visual": {
+        "kind": "cover",
+        "heading": "設計変更を\n発注者はどう判断するか",
+        "items": [
+          "1級土木施工管理｜元発注者の見方"
+        ]
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 4,
+      "end": 31,
+      "narration": "設計変更を申し出たのに、何が決め手で通るのか分からない。そんな悩みはありませんか。今日は、発注者の側にいた立場から、申出を受けた発注者が何を見て判断するのかを整理します。答えを先に言います。見るのは四つです。どの条に当たるか、事実の確認、書面の指示、そして契約と予算の手当てです。制度は国の工事の例で、自治体は団体ごとに違います。",
+      "caption": "判断の四つの見どころを先に示す",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "どの条に当たるか",
+          "事実の確認（調査）",
+          "書面の指示",
+          "契約と予算の手当て"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／設計変更の判断",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 31,
+      "end": 55,
+      "narration": "変更の金額が大きいと、それだけで断られる。交渉が強い方が通る。そう思われがちですが、そうではありません。国の地方整備局のガイドラインの例では、変更見込金額が請負代金額の三割を超えたことだけで、設計変更に応じないことはあってはならない、とされています。ただし、これは国の運用で、法令の定めではありません。",
+      "caption": "金額や交渉の強さだけでは決まらない",
+      "visual": {
+        "kind": "compare",
+        "heading": "何で決まる？",
+        "ngLabel": "思われがち",
+        "okLabel": "実際",
+        "rows": [
+          {
+            "label": "決め手",
+            "ng": "金額の大きさ\n交渉の強さ",
+            "ok": "当たる条と\n確認された事実"
+          },
+          {
+            "label": "国の例",
+            "ng": "三割を超えたから断る",
+            "ok": "それだけで断るのは不可"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／設計変更の判断",
+          "note": "国の地方整備局の運用の例。法令の定めではない"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 81,
+      "narration": "一つ目は、申出がどの条に当たるかです。公共工事標準請負契約約款の例では、設計図書どうしの食い違いや誤りは、第十八条の一号から三号で、発注者が訂正します。設計図書の条件と現場が違う、予期できない状態が出た、は四号と五号で、調査して設計図書を変更します。発注者が内容を変えたいときは第十九条で、変更内容を通知して変更します。",
+      "caption": "申出の種類で、発注者の動きが変わる",
+      "visual": {
+        "kind": "points",
+        "heading": "申出の三つの型",
+        "items": [
+          "食い違い・誤り\n発注者が訂正する",
+          "現場条件の相違\n調査して変更する",
+          "発注者の都合\n通知して変更する"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "divide",
+      "start": 81,
+      "end": 100,
+      "narration": "ここで言葉を分けます。設計変更とは、契約変更の手続の前に、変更の内容をあらかじめ受注者に指示することです。国の通達の定義の例です。指示を出した時点では、金額も工期も、まだ確定していません。金額と工期を定めるのは、そのあとの契約変更です。",
+      "caption": "設計変更は指示、契約変更は金額と工期の確定",
+      "visual": {
+        "kind": "compare",
+        "heading": "二つの手続",
+        "ngLabel": "設計変更",
+        "okLabel": "契約変更",
+        "rows": [
+          {
+            "label": "中身",
+            "ng": "変更の内容を\n先に指示する",
+            "ok": "金額と工期を\n定めて結ぶ"
+          },
+          {
+            "label": "時点",
+            "ng": "金額も工期も\n未確定",
+            "ok": "指示のあとに行う"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／設計変更の判断",
+          "note": "国の通達の定義の例"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 100,
+      "end": 123,
+      "narration": "二つ目は、事実の確認です。受注者から確認の請求を受けたら、監督員は、受注者の立会いのうえで、直ちに調査します。調査が終わったら、受注者の意見を聴いて結果をとりまとめ、期限内に通知します。国の契約書の例は、調査の終了後十四日以内です。この日数は約款では空欄で、契約書ごとに違います。",
+      "caption": "立会い調査、結果の通知、期限は契約書で",
+      "visual": {
+        "kind": "points",
+        "heading": "事実の確認",
+        "items": [
+          "立会いのうえで直ちに調査",
+          "受注者の意見を聴いて結果をまとめる",
+          "期限内に通知\n国の例は14日以内"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 123,
+      "end": 148,
+      "narration": "仮の例で流れを見ます。擁壁の基礎の掘削で、設計図書に示された条件と、現場の地盤が違うと分かりました。受注者が監督員に通知し、確認を求めます。監督員が立会いで調査し、結果を通知します。事実が確認され、目的物の変更を伴うなら、発注者が設計図書を変更します。この例は説明のための仮の例で、実在の工事ではありません。",
+      "caption": "申出から調査、通知、変更までの流れ",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例の流れ",
+        "items": [
+          "現場が設計図書と違うと分かる",
+          "受注者が通知して確認を求める",
+          "立会い調査、結果を通知",
+          "目的物の変更なら発注者が変更"
+        ],
+        "reveal": 4,
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／設計変更の判断",
+          "note": "説明のための仮の例。実在の工事ではない"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 148,
+      "end": 173,
+      "narration": "三つ目は、書面の指示です。指示は書面で行うのが基本で、約款第九条第四項も、監督員の指示と承諾は原則書面としています。契約変更の前に作業を先に行わせるときは、指示書に変更見込みの概算額を書きます。この概算額は参考値で、契約変更の額を縛りません。算出の条件を明らかにし、算定に時間がかかるなら、後日通知すると添えます。",
+      "caption": "指示は書面、先行指示には概算額を添える",
+      "visual": {
+        "kind": "points",
+        "heading": "書面の指示",
+        "items": [
+          "指示は原則として書面",
+          "先行指示には概算額を添える",
+          "概算額は参考値\n契約変更額を縛らない"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 173,
+      "end": 199,
+      "narration": "金額が膨らんでも、金額だけで断ってはいけません。法令の側でも、品確法が、必要があると認めるときの設計図書、請負代金額、工期の適切な変更を、発注者の責務としています。一方で、変更で足すものか、別に発注するものかの見分けも欠かせません。ガイドラインは、指示にあたって規格の妥当性と、別途発注ではないかを明確にするよう求めています。",
+      "caption": "金額だけで断らない。別途発注かは見分ける",
+      "visual": {
+        "kind": "compare",
+        "heading": "発注者が確かめること",
+        "ngLabel": "してはいけない",
+        "okLabel": "確かめる",
+        "rows": [
+          {
+            "label": "金額",
+            "ng": "大きいから断る",
+            "ok": "必要な変更かを見る"
+          },
+          {
+            "label": "範囲",
+            "ng": "何でも変更に足す",
+            "ok": "別途発注ではないか"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／設計変更の判断",
+          "note": "ガイドラインは国の地方整備局の例"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "pause",
+      "start": 199,
+      "end": 223,
+      "narration": "現場が進められないときの判断もあります。用地が確保できない、地元や管理者との調整が済んでいないなど、受注者の責めによらない事由で施工できないと認められるときは、発注者は工事を一時中止させなければなりません。約款第二十条第一項で、義務です。中止させないと、工期や代金が変わらず、負担が受注者に残ります。",
+      "caption": "受注者の責めによらず施工できないなら中止",
+      "visual": {
+        "kind": "points",
+        "heading": "一時中止は義務",
+        "items": [
+          "用地が確保できない",
+          "地元や管理者との調整が未了",
+          "直ちに中止の内容を通知する"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "step5",
+      "start": 223,
+      "end": 247,
+      "narration": "四つ目は、契約と予算の手当てです。変更契約も書面で結びます。指示書だけでは、金額も工期も決まりません。代金が増えるなら財源が要るので、足りなければ補正予算などで手当てします。議会の議決が再び要るかは、自治体の条例で決まり、見る指標も上限も団体ごとに違います。自治体の例規集で確かめてください。",
+      "caption": "変更契約は書面。財源と議決は自治体ごと",
+      "visual": {
+        "kind": "points",
+        "heading": "契約と予算",
+        "items": [
+          "変更契約は書面で結ぶ",
+          "増額には財源を手当てする",
+          "議決の要否は条例で確かめる"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "reverse",
+      "start": 247,
+      "end": 272,
+      "narration": "これを受注者の側に置き換えます。通知には、どの条に当たると考えるか、何が違うかの事実、図面名や測点、期限を書きます。そうすると、発注者は、今日の四つの順に判断できます。この組み立ては本動画の整理で、制度の公式の様式ではありません。協議が整わなくても、そのことを理由に不利益に扱うことは、約款で禁じられています。",
+      "caption": "通知に条・事実・図面名・期限を書く",
+      "visual": {
+        "kind": "points",
+        "heading": "通知に書くこと",
+        "items": [
+          "当たると考える条",
+          "何が違うかの事実",
+          "図面名・測点",
+          "回答の期限"
+        ],
+        "reveal": 4,
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／設計変更の判断",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 272,
+      "end": 292,
+      "narration": "まとめます。設計変更で、発注者が見るのは四つです。どの条に当たるか。立会いで確かめた事実。書面の指示。契約と予算の手当て。金額の大きさだけでは決まりません。制度は国の工事の例なので、受検の年度に合わせた公式の情報と、自治体の契約書で確かめてください。",
+      "caption": "四つの見どころと、確かめ先",
+      "visual": {
+        "kind": "points",
+        "heading": "発注者が見る四つ",
+        "items": [
+          "どの条に当たるか",
+          "事実の確認",
+          "書面の指示",
+          "契約と予算"
+        ],
+        "reveal": 4,
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／設計変更の判断"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 292,
+      "end": 304,
+      "narration": "設計変更の協議を成立させる記録の残し方や、申出を受けた発注者の進め方は、サイトの記事で詳しく整理しています。概要欄のリンクから、確認してください。",
+      "caption": "詳しくはサイトの記事で（概要欄）",
+      "visual": {
+        "kind": "points",
+        "heading": "詳しくはサイトの記事で",
+        "items": [
+          "原価と設計変更",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／設計変更の判断"
+        }
+      },
+      "sourceRef": "content/site/civil-practice/cost-and-design-change/article.mdx"
+    }
+  ]
+}

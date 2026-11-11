@@ -48,14 +48,14 @@
       "work": "owner-career-shigoto",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "qa_passed"
     },
     {
       "id": "civil-construction-1/owner-eye-kantokuin/youtube.longform",
       "work": "owner-eye-kantokuin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "qa_passed"
     },
     {
       "id": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform",
@@ -97,6 +97,13 @@
         "at": "2026-11-10T12:44:41.508Z",
         "contentSha256": "cbe65e517d1bace1854b872e6fd835bc801e4b61554f5f92539c04f7c519792b"
       }
+    },
+    {
+      "id": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform",
+      "work": "owner-eye-sekkei-henkou-hantei",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
     },
     {
       "id": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform",
