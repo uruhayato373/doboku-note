@@ -9,6 +9,7 @@ import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { quizQuestionCount, quizYearCount, quizYearRange } from "@/lib/quiz-summary";
 import { toolByHref } from "@/lib/tools";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 const tool = toolByHref("/tools/kakomon-quiz");
 
@@ -58,7 +59,7 @@ export default function KakomonQuizPage() {
       <KakomonQuizClient />
       <QuizNoteProducts products={NOTE_PRODUCTS} placement="tools-kakomon-quiz" />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
+      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>
   );
 }

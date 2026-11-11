@@ -5,6 +5,7 @@ import JukenShikakuClient from "./JukenShikakuClient";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 export const metadata: Metadata = {
   title: "土木施工管理技士 受験資格チェッカー｜1級・2級 新受検資格を年齢・実務経験で判定",
@@ -48,7 +49,7 @@ export default function JukenShikakuPage() {
 
       <JukenShikakuClient />
       {/* 転職の案内（結果の下に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-inline" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
+      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-inline" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>
   );
 }

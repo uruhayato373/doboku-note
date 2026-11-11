@@ -14,6 +14,7 @@ import {
 } from "@/lib/quiz/funnel";
 import { withNoteUtm } from "@/lib/note-utm";
 import { quizQuestionCount, quizYearCount, quizYearRange } from "@/lib/quiz-summary";
+import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
  * 1級土木 第一次検定 過去問 フル演習エンジン（v1・オンライン先行）。
@@ -296,7 +297,7 @@ function MenuScreen({
 }) {
   const totalPct = tally.answered > 0 ? Math.round((tally.correct / tally.answered) * 100) : null;
   return (
-    <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
+    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
       <p className="text-[14px] sm:text-[15px] leading-[1.9] text-(--ink-body) mb-6">
         {config.intro}
       </p>
@@ -512,7 +513,7 @@ function QuizRunner({
   if (finished) {
     const pct = scoredAnswered > 0 ? Math.round((score / scoredAnswered) * 100) : 0;
     return (
-      <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10">
+      <div className={`${READING_CONTAINER} py-10`}>
         <div className="card-surface-section p-6 text-center">
           <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
             結果 — {title}
@@ -542,7 +543,7 @@ function QuizRunner({
   }
 
   return (
-    <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
+    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
       <div className="flex items-center justify-between text-[12px] text-(--ink-muted) mb-3">
         <button type="button" onClick={onExit} className="focus-ring font-bold hover:text-(--accent)">
           ← モード選択
