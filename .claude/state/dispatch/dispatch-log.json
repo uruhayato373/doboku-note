@@ -7358,6 +7358,53 @@
       "commit": "4a6b30423b7e",
       "verification": "npm run check-doc-coupling（スキル 99・エージェント 82 と一致）／tests/capability-index.test.mjs",
       "note": "PR #1543 を develop へマージ（4a6b30423）。skills-guide.md と agents-registry.md の一覧・呼出マップを frontmatter から生成（npm run build-capability-index）。skills-registry.md（133KB）を削除し、3 本 284KB → 2 本 85KB。check-doc-coupling は生成物の一致の検査に変更し、CI でも毎回見る。PR の CI は develop 由来の 2 件だけが赤"
+    },
+    {
+      "id": "DN-1133",
+      "at": "2026-11-11",
+      "task": "並行セッション対応: push 時に develop の赤を知らせ、git stash と git add -A をフックで止める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "83aa32747556",
+      "verification": "tests/agent-hooks.test.mjs・tests/check-git-sync-develop-ci.test.mjs・tests/ci-push-scope.test.mjs（31 件通過）",
+      "note": "PR #1544 を develop へマージ（a4db16a59）。develop への push の直前に最新の検査結果を 1 行出す・stash と一括 add を BLOCK・失敗 Issue に最後の緑からの commit を載せる。失敗 Issue への記載は develop が赤い push で初めて実行される（未確認）"
+    },
+    {
+      "id": "DN-1134",
+      "at": "2026-11-11",
+      "task": "検査と重複する規則の散文を削り、/doc-sync の一律の義務を外す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "文書の圧縮で、再発を止める対象がない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "83aa32747556",
+      "verification": "check-claude-md-size・check-doc-refs・check-command-guidance・check-codex-compat・check-doc-coupling が exit 0",
+      "note": "PR #1545 を develop へマージ（83aa32747）。/doc-sync の一律の義務を外し、規則文書 9 本を 61,433 → 59,058 bytes に。検査の失敗メッセージが直し方を出さないため縮みは約 4% にとどまった"
+    },
+    {
+      "id": "DN-1132",
+      "at": "2026-11-11",
+      "task": "agent-hooks の cdScopeViolation のテストが Windows でだけ落ちる",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/agent-hooks.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "83aa32747556",
+      "verification": "tests/agent-hooks.test.mjs（Windows で pass 21 / fail 0）",
+      "note": "PR #1544 で修正（a4db16a59）。原因はテストではなく本体で、Windows では path.resolve が \\ 区切りを返すため「プロジェクトの下の階層」の比較が一度も成立していなかった。区切りとドライブ文字をそろえ、Git Bash の /c/… も読み替えた"
     }
   ]
 }

@@ -565,16 +565,8 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1134] 検査と重複する規則の散文を削り、/doc-sync の一律の義務を外す
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11] [進行中]
-
-.claude/rules/*.md（9 本・59KB。code.md だけで 20KB）は、該当ファイルを開くたびに読み込まれる。検査・テスト・フックが既に止めている規則を散文で重ねて書き、経緯の日付や事故の記録も抱えている。機械ゲートが止める規則は「何を・どのコマンドが止めるか」の 1 行に縮め、経緯は git の履歴と measurement-incidents.md に任せる。あわせて、コード変更のたびに LLM で文書を点検する一律の義務（CLAUDE.md §8・rules/code.md・rules/skills-agents.md の「コミット前に /doc-sync を 1 回」）を外し、機械検査（check-doc-refs・check-relative-links・check-doc-coupling・check-command-guidance）に任せる。完了条件: rules の合計サイズの前後を記録／check-claude-md-size・check-doc-refs・check-codex-compat が通る
 
 
-### [DN-1133] 並行セッション対応: push 時に develop の赤を知らせ、git stash と git add -A をフックで止める
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-11] [進行中]
-
-develop の赤を知らせるのはセッション開始時の 1 回だけで、長いセッションは赤の上に push し続ける（2026-11-11 に DN-1001 の赤が 4 時間以上続いた）。共有チェックアウトで禁止の git stash・git add -A は CLAUDE.md と記憶メモの散文だけでフックは止めていない。(1) develop への git push のとき最新の検査結果を 1 行出す (2) git stash（list・show 以外）と git add -A / --all / . を BLOCK する (3) ci.yml の失敗 Issue に「最後の緑..今回」の commit の件名を載せる。完了条件: tests/agent-hooks.test.mjs に足したテストが通る／check-workflow-hygiene・check-codex-compat が通る
 
 
 
@@ -3148,10 +3140,6 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
-### [DN-1132] agent-hooks の cdScopeViolation のテストが Windows でだけ落ちる
-タグ: [領域:管理] [種類:不具合] [起票:2026-11-11]
-
-tests/agent-hooks.test.mjs の「cdScopeViolation: worktree とプロジェクトの下の階層は止め、直下とリポジトリの外は通す」が Windows の手元で失敗する（2026-11-11・develop の本体でも pass 17 / fail 1。Linux の CI では通る）。フィクスチャが /Users/me/… の POSIX のパスで、scripts/lib/agent-hooks.mjs の cdScopeViolation が pathResolve（Windows ではドライブ文字つき）で解決するため。テストのパスを実行環境に合わせて組むか、判定を POSIX のパスで行う
 
 
 ### [DN-1129] E2E 導入設計の文書が e2e.yml と食い違う（実行順の節を消す）
