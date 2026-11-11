@@ -269,7 +269,7 @@
       "work": "sanso-kozo",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-comprehensive-management/sanso-kozo/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sanso-kozo/youtube.longform/scene-001",
@@ -342,11 +342,12 @@
       "platform": {
         "id": "MMRMmDWtyWo",
         "url": "https://www.youtube.com/watch?v=MMRMmDWtyWo",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-11T03:00:15.244Z"
+        },
+        "publishedAt": "2026-11-06T11:30:17.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -387,7 +388,7 @@
       "format": "longform",
       "variant": "diagram-led",
       "revisionOf": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.revision-diagram-led.json",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-cover",
@@ -448,11 +449,12 @@
       "platform": {
         "id": "p-S-fsV6Kbw",
         "url": "https://www.youtube.com/watch?v=p-S-fsV6Kbw",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.revision-diagram-led.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-11T03:00:15.244Z"
+        },
+        "publishedAt": "2026-11-07T11:30:33.000Z"
       },
       "times": {
         "uploaded": "2026-11-04T22:04:20.328Z",

@@ -169,7 +169,7 @@
       "work": "pe1-kiso-gradient-length",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-001",
@@ -234,11 +234,12 @@
       "platform": {
         "id": "yOODuwkPXGk",
         "url": "https://www.youtube.com/watch?v=yOODuwkPXGk",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-11T03:00:15.244Z"
+        },
+        "publishedAt": "2026-11-04T23:30:19.000Z"
       },
       "thumbnail": {
         "status": "set",
