@@ -4,7 +4,8 @@
 // 旧フックは「どの staged パスで・どの検査を・どの引数で・どの順に・どの失敗で止めるか」を `node scripts/x.mjs` の行と
 // `if … grep` で持っていた。LEGACY はそれを写した表（2026-10-12 の旧フックから機械で抜き、条件を手で付けた）。
 // 各検査を偽物（exec）に差し替えて、呼ばれる検査と引数の列が LEGACY から導いた期待と一致することを見る。
-// 旧フックより**狭くした所は 3 つだけ**（GATED）。全量を走査する検査で、staged の変更がその入力に当たらないと飛ばす。
+// 旧フックより**狭くした所は GATE_INPUTS に並べた検査だけ**。全量を走査する 2 本（GATED）と、入力が content/site だけの 5 本
+// （SITE_GATED・DN-1126）で、staged の変更がその入力に当たらないと飛ばす。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
@@ -105,7 +106,17 @@ const GATED = new Set(['scripts/check-datasets.mjs', 'scripts/check-qualificatio
 const GATE_INPUTS = {
   'scripts/check-datasets.mjs': { prefixes: ['config/', 'data/', '.claude/', 'scripts/', 'tools/', 'src/', '.github/workflows/', 'content/registry/'], files: ['package.json'], fileSet: true },
   'scripts/check-qualification-ssot.mjs': { prefixes: ['config/', '.claude/config/', '.claude/knowledge/', 'src/', 'scripts/', '.claude/scripts/', 'tools/admin-app/src/'], files: [], fileSet: false },
+  'scripts/check-published-vs-redirects.mjs': { prefixes: ['content/site/'], files: ['public/_redirects'], fileSet: false },
+  'scripts/check-orphan-figures.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
+  'scripts/check-table-references.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
+  'scripts/check-figure-embed-dims.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
+  'scripts/check-kindle-epub-leak.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
 };
+/**
+ * 入力が content/site の記事と図だけの検査（DN-1126）。--staged でも先に content/site の全ファイルを列挙するので、
+ * 何も stage していない commit で 5 本合わせて 86 秒かかっていた（会社 PC・2026-11-11）。content/site に触れない commit では飛ばす。
+ */
+const SITE_GATED = ['scripts/check-published-vs-redirects.mjs', 'scripts/check-orphan-figures.mjs', 'scripts/check-table-references.mjs', 'scripts/check-figure-embed-dims.mjs', 'scripts/check-kindle-epub-leak.mjs'];
 /** その commit で旧フックより狭くなる（飛ばす）検査 */
 function gatedOut(ctx) {
   const skipped = new Set();
@@ -153,7 +164,7 @@ test('LEGACY の表と STEPS が同じ件数・同じ順（旧フックの node 
   assert.deepEqual(STEPS.map((s) => s.script), LEGACY.map(([s]) => s));
 });
 
-test('全量を走査する 2 検査を除き、どの staged でも旧フックと同じ検査が同じ引数・同じ順で呼ばれる', () => {
+test('絞り込みのある検査（GATE_INPUTS）を除き、どの staged でも旧フックと同じ検査が同じ引数・同じ順で呼ばれる', () => {
   const mdx = 'content/site/building-construction/guide-x/article.mdx';
   const scenarios = [
     ['何も staged していない', makeCtx()],
@@ -181,9 +192,26 @@ test('全量を走査する 2 検査を除き、どの staged でも旧フック
   for (const [label, ctx] of scenarios) {
     assert.deepEqual(planned(ctx), legacyPlan(ctx, { gated: true }), label);
   }
-  // 2 検査が走る scenario と飛ぶ scenario の両方を含む（片方だけだと絞り込みの検査にならない）
+  // 絞り込みのある検査が全部飛ぶ scenario と、一部が走る scenario の両方を含む（片方だけだと絞り込みの検査にならない）
+  const all = Object.keys(GATE_INPUTS).length;
   const skippedCounts = scenarios.map(([, ctx]) => gatedOut(ctx).size);
-  assert.ok(skippedCounts.some((n) => n === 2) && skippedCounts.some((n) => n < 2));
+  assert.ok(skippedCounts.some((n) => n === all) && skippedCounts.some((n) => n < all));
+});
+
+test('content/site だけを読む 5 検査は、content/site に触れない commit では飛ばし、触れる commit では回す（DN-1126）', () => {
+  const ran = (ctx) => new Set(planned(ctx).map(([s]) => s));
+  for (const staged of [[], ['scripts/x.mjs'], ['docs/README.md', '.claude/todo/backlog.md'], ['content/note/x/y/article.md'], ['content/sites/x.mdx']]) {
+    const r = ran(makeCtx({ staged }));
+    for (const g of SITE_GATED) assert.ok(!r.has(g), `${g} が ${staged.join(',') || '空の commit'} で回っている`);
+  }
+  for (const [staged, status] of [[['content/site/a/b/article.mdx'], 'M'], [['content/site/a/b/img/figure-1.svg'], 'A'], [['content/site/a/b/article.mdx'], 'D']]) {
+    const r = ran(makeCtx({ staged, status }));
+    for (const g of SITE_GATED) assert.ok(r.has(g), `${g} が ${staged[0]}（${status}）で回らない`);
+  }
+  // 転送元の一覧（public/_redirects）だけを変えた commit でも、公開記事との突合は回す
+  const r = ran(makeCtx({ staged: ['public/_redirects'] }));
+  assert.ok(r.has('scripts/check-published-vs-redirects.mjs'));
+  assert.ok(!r.has('scripts/check-orphan-figures.mjs'));
 });
 
 test('全量を走査する 2 検査は、入力に当たる変更があれば旧フックと同じく回る（コード・設定・データ・台帳の置き場）', () => {
@@ -203,12 +231,12 @@ test('全量を走査する 2 検査は、入力に当たる変更があれば�
   }
 });
 
-test('全量を走査する 2 検査は、記事の編集（M）だけの commit では飛ばす＝旧フックより狭いのはここだけ', () => {
+test('全量を走査する 2 検査は、記事の編集（M）だけの commit では飛ばす', () => {
   const ctx = makeCtx({ staged: ['content/site/building-construction/guide-x/article.mdx', 'content/note/x/y/article.md', 'docs/README.md'], status: 'M' });
   const ran = new Set(planned(ctx).map(([s]) => s));
   for (const g of GATED) assert.ok(!ran.has(g), `${g} が記事の編集で回っている`);
   assert.equal(gatedOut(ctx).size, 2);
-  // 飛ばすのは GATED の 2 本だけ。ほかは旧フックのまま
+  // この commit で飛ばすのは GATED の 2 本だけ（content/site に触れているので SITE_GATED の 5 本は回る）。ほかは旧フックのまま
   assert.deepEqual(planned(ctx), legacyPlan(ctx, { gated: true }));
 });
 
