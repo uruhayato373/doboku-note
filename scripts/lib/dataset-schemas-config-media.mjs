@@ -1322,7 +1322,7 @@ export const ConfigYoutubeShortsFormats = z
     rules: z
       .object({
         hookMaxChars: z.number().int().positive(), hook: z.string().min(1), end: z.string().min(1),
-        narration: z.string().min(1), oneShort: z.string().min(1),
+        narration: z.string().min(1), oneShort: z.string().min(1), cover: z.string().min(1), variety: z.string().min(1), cta: z.string().min(1),
       })
       .strict()
       .describe('全部の型に共通の決まり'),
@@ -1334,11 +1334,17 @@ export const ConfigYoutubeShortsFormats = z
             angle: z.enum(SHORT_ANGLES).describe('content-angle-policy の切り口'),
             fits: z.string().min(1).describe('向く通常動画'), hook: z.string().min(1), body: z.string().min(1), end: z.string().min(1),
             beats: z.object({ min: z.number().int().min(1), max: z.number().int().min(1) }).strict(),
+            cover: z.object({ headline: z.string().min(1).describe('表紙の見出しの形'), visual: z.string().min(1).describe('表紙の生成指示に入れる図の形') }).strict(),
           })
           .strict(),
       )
       .min(1)
       .superRefine(uniqueBy('id', 'id')),
+    hookForms: z
+      .array(z.object({ id: z.string().regex(/^[a-z0-9-]+$/), label: z.string().min(1), pattern: z.string().min(1).describe('冒頭の一文の末尾を見分ける正規表現') }).strict())
+      .min(1)
+      .superRefine(uniqueBy('id', 'id'))
+      .describe('冒頭の一文の形。上から順に当てて最初に合った形とする。同じ枠で半分を超えて同じ形にしない'),
     copy: z
       .array(z.object({ id: z.string().regex(/^[a-z0-9-]+$/), label: z.string().min(1), allowed: z.string().min(1), forbidden: z.string().min(1) }).strict())
       .min(1)

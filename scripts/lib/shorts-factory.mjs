@@ -93,11 +93,35 @@ export function narrationProblems(design, scene, ctx = null) {
 }
 
 /** 型の台帳（config.youtube-shorts-formats）と、親の枠で使える型。設計の検査に渡す */
-export function designContext(root, pack, board) {
+export function designContext(root, pack, board, key = null) {
   const plan = readDataset(root, 'config.channel-annual-plan');
-  const entry = plan.entries.find((e) => e.publicationId === `${pack}/youtube.longform` && e.action !== 'reuse');
-  const slot = plan.slots.find((s) => s.id === entry?.slot);
-  return { formats: readDataset(root, 'config.youtube-shorts-formats'), slotTypes: slot?.shorts?.types ?? null, sceneIds: new Set(board.scenes.map((s) => s.sceneId)) };
+  const slotOf = (p) => plan.entries.find((e) => e.publicationId === `${p}/youtube.longform` && e.action !== 'reuse')?.slot;
+  const slot = plan.slots.find((s) => s.id === slotOf(pack));
+  // 同じ枠のほかのショート。冒頭の形とコピーの技法が偏らないかを見る
+  const siblings = slot ? listShortDesigns(root).filter((d) => slotOf(d.pack) === slot.id && !(d.pack === pack && d.key === key)).map((d) => {
+    const design = readJson(root, `${packDirOf(d.pack)}/${DESIGN_FILE}`).shorts?.[d.key] ?? {};
+    return { hook: design.hook, copy: design.copy ?? [] };
+  }) : [];
+  return { formats: readDataset(root, 'config.youtube-shorts-formats'), slotTypes: slot?.shorts?.types ?? null, sceneIds: new Set(board.scenes.map((s) => s.sceneId)), siblings };
+}
+
+/** 冒頭の一文の形（台帳の hookForms を上から当てる） */
+export const hookForm = (hook, forms) => forms.find((f) => new RegExp(f.pattern, 'u').test(String(hook ?? '').trim()))?.id ?? 'other';
+
+/** 同じ枠で、冒頭の形とコピーの技法がそれぞれ半分を超えて同じにならないか（3 本以上の枠だけ見る） */
+export function varietyProblems(design, ctx) {
+  const all = [{ hook: design.hook, copy: design.copy ?? [] }, ...(ctx.siblings ?? [])];
+  if (all.length < 3) return [];
+  const max = Math.ceil(all.length / 2);
+  const issues = [];
+  const form = hookForm(design.hook, ctx.formats.hookForms ?? []);
+  const sameForm = all.filter((x) => hookForm(x.hook, ctx.formats.hookForms ?? []) === form).length;
+  if (form !== 'other' && sameForm > max) issues.push(`冒頭の形「${ctx.formats.hookForms.find((f) => f.id === form)?.label ?? form}」が枠の ${all.length} 本中 ${sameForm} 本（半分まで）`);
+  for (const id of design.copy ?? []) {
+    const n = all.filter((x) => x.copy.includes(id)).length;
+    if (n > max) issues.push(`コピーの技法 ${id} が枠の ${all.length} 本中 ${n} 本（半分まで）`);
+  }
+  return issues;
 }
 
 /** 型とコピーの技法の検査（2026-11-11・運営者の決定）。型は枠で使えるものだけ、技法は 2 つまで、締めは本編で分かることを言う */
@@ -116,6 +140,7 @@ export function typeProblems(design, ctx) {
   else for (const id of copy.filter((x) => !ctx.formats.copy.some((c) => c.id === x))) issues.push(`copy が台帳に無い: ${id}`);
   if ([...String(design.hook ?? '')].length > ctx.formats.rules.hookMaxChars) issues.push(`hook が ${ctx.formats.rules.hookMaxChars} 字を超える`);
   if (design.cta !== undefined && !String(design.cta).includes('本編')) issues.push('cta は本編で何が分かるかを言う（例: 残りの 2 つは本編で）');
+  issues.push(...varietyProblems(design, ctx));
   return issues;
 }
 
@@ -139,7 +164,7 @@ export function designProblems(design, scene, ctx = null) {
 export function recordScriptQa(root, pack, key, { verdict, by, reason, now }) {
   if (!['pass', 'fail'].includes(verdict) || !by || String(reason ?? '').length < 8) throw new Error('判定は pass/fail・担当・8 字以上の理由が要る');
   const { dir, design, scene, board } = packContext(root, pack, key);
-  const problems = designProblems(design, scene, designContext(root, pack, board));
+  const problems = designProblems(design, scene, designContext(root, pack, board, key));
   if (verdict === 'pass' && problems.length) throw new Error(`${key}: 機械検査が先に通らない: ${problems.join('・')}`);
   const file = readJson(root, `${dir}/${DESIGN_FILE}`);
   file.shorts[key].qa = { verdict, by, reason, digest: designDigest(design), checkedAt: now };
@@ -147,10 +172,12 @@ export function recordScriptQa(root, pack, key, { verdict, by, reason, now }) {
   return file.shorts[key].qa;
 }
 
-const coverPrompt = (design, spec, label, palette) => [
+const coverPrompt = (design, spec, label, palette, type = null) => [
   `添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。${FRAME}`,
   pop(palette), '黄色と白の極太文字。',
   `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}、小さな黄色帯に『${spec.pop?.authority ?? '総監が制作'}』。`,
+  // 型ごとの表紙の図（台帳 config.youtube-shorts-formats の types[].cover・2026-11-11）。見出しは端で切らない（2 枚が右端で切れた）
+  ...(type ? [`表紙の型は「${type.label}」。${type.cover.visual}。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収め、収まらなければ字を小さくして折り返す。`] : []),
   `先生を大きく（腰から上、顔が画面の幅の2割以上）描く。${design.pose}`, TEACHER, BANS,
 ].join(' ');
 const bodyPrompt = (beat, index, label, palette) => [
@@ -158,6 +185,16 @@ const bodyPrompt = (beat, index, label, palette) => [
   pop(palette), `図を画面の主役にする。${BODY_FRAME} 白いカードの箇条書きにしない。人物なし。`,
   `一番上に資格名の小さなラベル『${label}』。大きな番号『${index + 1}』と見出し『${beat.heading}』。`,
   `図: ${beat.diagram}`, BANS,
+].join(' ');
+/** 締めの画面の文字。型のあるショートは締めの語りに合わせる（「残りの直し方は本編で。」→『残りの直し方は』『本編で』・2026-11-11） */
+export function ctaLines(cta) {
+  const topic = String(cta ?? '').replace(/[。．]$/u, '').replace(/は?本編で$/u, '').trim();
+  return topic ? [`${topic}は`, '本編で'] : ['本編で'];
+}
+const typedCtaPrompt = (label, palette, cta) => [
+  `添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。${FRAME}`,
+  pop(palette), `大きく${ctaLines(cta).map((l) => `『${l}』`).join('')}、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。`,
+  TEACHER, `資格名『${label}』は書かない。下端に無地帯を作らない。`, BANS,
 ].join(' ');
 const ctaPrompt = (label, palette) => [
   `添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。${FRAME}`,
@@ -173,6 +210,11 @@ export function assertInSlot(root, pack, key) {
   if (errors.length) throw new Error(errors.join(' / '));
 }
 
+// 型のあるショート（2026-11-11 以降）は、型の表紙の図と語りに合わせた締めの文字が画像に入るので入力に型を足す。型の無い既存のショートの入力は変えない
+const coverInput = (spec, design) => inputOf(design.type ? [spec.headline, design.hook, design.pose, design.type] : [spec.headline, design.hook, design.pose]);
+const ctaInput = (cta, design) => inputOf(design.type ? [cta, 'cta-lines'] : [cta]);
+const typeOf = (root, design) => (design.type ? readDataset(root, 'config.youtube-shorts-formats').types.find((t) => t.id === design.type) ?? null : null);
+
 /** 作業の計画を作る。入力が同じ項目は生成済みの画像と判定を引き継ぐ。 */
 export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   if (!/^\d{8}$/.test(date ?? '')) throw new Error('date は YYYYMMDD');
@@ -180,7 +222,7 @@ export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   if (usesDiagramLed(exam, root)) throw new Error(`${exam}: POP のショート工程の対象外（diagram-led の手順を使う）`);
   const palette = examPalette(exam, root);
   // 型が入る前（2026-11-11 より前）に台本の監査を通したショートは、型を求めずに作り直せる
-  const problems = designProblems(design, scene, design.type || !design.qa ? designContext(root, pack, board) : null);
+  const problems = designProblems(design, scene, design.type || !design.qa ? designContext(root, pack, board, key) : null);
   if (problems.length) throw new Error(`${key}: ${problems.join('・')}`);
   if (design.qa?.verdict !== 'pass' || design.qa.digest !== designDigest(design)) throw new Error(`${key}: 今の台本の監査 pass が無い。record-script-qa を先に行う`);
   assertInSlot(root, pack, key);
@@ -191,9 +233,9 @@ export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   const people = [refs(root, CHARACTER), ...(spec.approvedImage?.path && existsSync(join(root, spec.approvedImage.path)) ? [refs(root, spec.approvedImage.path)] : [])];
   const base = { attempts: 0, raw: null, audit: null };
   const items = [
-    keep({ ...base, id: 'cover', kind: 'cover', narration: design.hook, inputSha256: inputOf([spec.headline, design.hook, design.pose]), basePrompt: coverPrompt(design, spec, label, palette), references: people }),
+    keep({ ...base, id: 'cover', kind: 'cover', narration: design.hook, inputSha256: coverInput(spec, design), basePrompt: coverPrompt(design, spec, label, palette, typeOf(root, design)), references: people }),
     ...design.beats.map((beat, i) => keep({ ...base, id: `scene-${String(i + 1).padStart(3, '0')}`, kind: 'body', narration: beat.narration, inputSha256: inputOf([beat.narration, beat.heading, beat.diagram]), basePrompt: bodyPrompt(beat, i, label, palette), references: [refs(root, CHARACTER)] })),
-    keep({ ...base, id: 'cta', kind: 'cta', narration: cta, inputSha256: inputOf([cta]), basePrompt: ctaPrompt(label, palette), references: people }),
+    keep({ ...base, id: 'cta', kind: 'cta', narration: cta, inputSha256: ctaInput(cta, design), basePrompt: design.type ? typedCtaPrompt(label, palette, cta) : ctaPrompt(label, palette), references: people }),
   ];
   const plan = { schemaVersion: 1, pack, key, revision: `shorts-pop-${key}-${date}`, items };
   writeJson(root, shortsPlanPath(pack, key), plan);
@@ -262,9 +304,9 @@ export async function adoptShort(root, pack, key, { now }) {
 function buildShortPlanInputs(root, pack, key) {
   const { design, spec, cta } = packContext(root, pack, key);
   return new Map([
-    ['cover', inputOf([spec.headline, design.hook, design.pose])],
+    ['cover', coverInput(spec, design)],
     ...design.beats.map((b, i) => [`scene-${String(i + 1).padStart(3, '0')}`, inputOf([b.narration, b.heading, b.diagram])]),
-    ['cta', inputOf([cta])],
+    ['cta', ctaInput(cta, design)],
   ]);
 }
 

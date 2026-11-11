@@ -85,3 +85,22 @@ test('型の台帳とコピーの技法で台本を止める（2026-11-11）', a
   assert.deepEqual(narrationProblems({ hook: '問い', sources: ['s1'], beats: [{ narration: '書き直した語り。' }] }, scene, ctx), []);
   assert.match(narrationProblems({ hook: '問い', sources: ['x9'], beats: [{ narration: '書き直した語り。' }] }, scene, ctx).join(), /台本に無い場面/);
 });
+
+test('同じ枠で冒頭の形とコピーの技法が半分を超えて同じなら止める（2026-11-11・10 本中 6 本が「〜ませんか」）', async () => {
+  const { varietyProblems, hookForm } = await import('../scripts/lib/shorts-factory.mjs');
+  const formats = { hookForms: [{ id: 'check', label: '確認の問い', pattern: 'ませんか[。？?]?$' }, { id: 'quiz', label: 'クイズ', pattern: 'でしょうか?[。？?]?$|[？?]$' }, { id: 'statement', label: '言い切り', pattern: '。$' }] };
+  assert.equal(hookForm('並べていませんか。', formats.hookForms), 'check');
+  assert.equal(hookForm('何が足りないでしょう。', formats.hookForms), 'quiz');
+  assert.equal(hookForm('順序は権限で決めます。', formats.hookForms), 'statement');
+  const siblings = [{ hook: 'Aしていませんか。', copy: ['barnum'] }, { hook: 'Bしていませんか。', copy: ['barnum'] }, { hook: '何が足りないでしょう。', copy: [] }];
+  assert.match(varietyProblems({ hook: 'Cしていませんか。', copy: ['barnum'] }, { formats, siblings }).join(), /確認の問い.*4 本中 3 本/);
+  assert.match(varietyProblems({ hook: '順序は権限で決めます。', copy: ['barnum'] }, { formats, siblings }).join(), /barnum/);
+  assert.deepEqual(varietyProblems({ hook: '順序は権限で決めます。', copy: ['assertion'] }, { formats, siblings }), []);
+  assert.deepEqual(varietyProblems({ hook: 'Cしていませんか。', copy: [] }, { formats, siblings: siblings.slice(0, 1) }), [], '2 本以下の枠は見ない');
+});
+
+test('締めの画面の文字を語りに合わせる', async () => {
+  const { ctaLines } = await import('../scripts/lib/shorts-factory.mjs');
+  assert.deepEqual(ctaLines('残りの直し方は本編で。'), ['残りの直し方は', '本編で']);
+  assert.deepEqual(ctaLines('本編で。'), ['本編で']);
+});
