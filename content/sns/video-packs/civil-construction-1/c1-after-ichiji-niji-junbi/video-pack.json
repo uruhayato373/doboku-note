@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-after-ichiji-niji-junbi",
+  "exam": "civil-construction-1",
+  "title": "1級土木｜第一次検定のあとにやる二次の準備",
+  "audience": "1級土木施工管理技士の第一次検定を終えた、または終える見込みで、第二次検定の準備を始める人",
+  "pain": "第一次検定のあと、第二次検定の準備を何から始めればよいか分からず、参考書を読み進めて書く材料が決まらない",
+  "promise": "書く工事を1つ決め、概要から字数までの順に肉付けし、2つの管理項目に備える、二次の準備の入口が分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-niji-marugoto-pack",
+    "campaign": "c1-after-ichiji-niji-junbi"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
