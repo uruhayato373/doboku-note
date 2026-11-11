@@ -3269,8 +3269,10 @@
         "first"
       ],
       "primaryCta": {
-        "kind": "links-hub",
-        "targets": []
+        "kind": "site-article",
+        "targets": [
+          "content/site/civil-construction-1/guide-career-path/article.mdx"
+        ]
       },
       "count": 2,
       "reuse": "new",
@@ -3787,7 +3789,7 @@
       "id": "y27-pc-sentaku-1",
       "exam": "pe-construction",
       "publicationId": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
-      "title": "建設部門 道路｜出題の読み方と書き方",
+      "title": "建設部門 道路｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-02-02",
@@ -3929,7 +3931,7 @@
       "id": "y27-pc-sentaku-2",
       "exam": "pe-construction",
       "publicationId": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
-      "title": "建設部門 トンネル｜出題の読み方と書き方",
+      "title": "建設部門 トンネル｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-03-16",
@@ -3979,7 +3981,7 @@
       "id": "y27-pc-sentaku-3",
       "exam": "pe-construction",
       "publicationId": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
-      "title": "建設部門 土質及び基礎｜出題の読み方と書き方",
+      "title": "建設部門 土質及び基礎｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-04-03",
@@ -4018,7 +4020,7 @@
       "id": "y27-pc-sentaku-4",
       "exam": "pe-construction",
       "publicationId": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
-      "title": "建設部門 都市及び地方計画｜出題の読み方と書き方",
+      "title": "建設部門 都市及び地方計画｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-04-13",
@@ -4069,7 +4071,7 @@
       "id": "y27-pc-sentaku-5",
       "exam": "pe-construction",
       "publicationId": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform",
-      "title": "建設部門 河川、砂防及び海岸・海洋｜出題の読み方と書き方",
+      "title": "建設部門 河川、砂防及び海岸・海洋｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-04-30",
@@ -4107,7 +4109,7 @@
       "id": "y27-pc-sentaku-6",
       "exam": "pe-construction",
       "publicationId": "pe-construction/pe-environment-shutsudai-yomikata/youtube.longform",
-      "title": "建設部門 建設環境｜出題の読み方と書き方",
+      "title": "建設部門 建設環境｜出題の読み方",
       "action": "new",
       "slot": "pc-sentaku-2027",
       "start": "2027-05-14",

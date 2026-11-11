@@ -65,9 +65,9 @@
 | `hissu1-infra-roukyuuka` | インフラ老朽化と予防保全 — 維持管理テーマの論点整理 | 老朽化対策の施策が多くどれを軸に論文を組むか決められない | exam-point | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 | `hissu1-kensetsu-dx` | 建設DX・i-Construction — 施策の全体像と論点 | DX施策の名前は知っていても論文で使える形になっていない | exam-point | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 | `kaitourei-tsukaikata` | 模範解答の正しい使い方 — 写経では受からない | 解答例を読んでも自分の答案がよくならない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
-| `pe-environment-shutsudai-yomikata` | 技術士建設部門 建設環境｜出題の読み方と書き方 | 建設環境の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、題材が幅広い中で数の指定や除外の条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-environment-magazine` |
+| `pe-environment-shutsudai-yomikata` | 建設部門 建設環境｜出題の読み方 | 建設環境の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、題材が幅広い中で数の指定や除外の条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-environment-magazine` |
 | `pe-fugoukaku-toan` | 技術士建設部門 不合格の答案はどこで落ちるか — 評価項目に照らして点検する | 筆記試験の答案がどこで点を落としたのか分からず、来年度の学習をどこから直せばよいか決められない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
-| `pe-geotechnical-shutsudai-yomikata` | 技術士建設部門 土質及び基礎｜出題の読み方と書き方 | 土質及び基礎の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、数や図の条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-geotechnical-magazine` |
+| `pe-geotechnical-shutsudai-yomikata` | 建設部門 土質及び基礎｜出題の読み方 | 土質及び基礎の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、数や図の条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-geotechnical-magazine` |
 | `pe-gyoumu-shousai-720` | 建設部門｜業務内容の詳細 720 字の組み立て | 業務内容の詳細720字に何を書き、字数をどう配分すればよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-hissu1-jikan-haibun` | 建設部門 必須Ⅰ｜時間配分 | 必須Ⅰの2時間で、読解・構成・記述・見直しに何分ずつ使えばよいか決められず、書き切れるか不安 | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-hissu1-konkyo-tsumikata` | 建設部門 必須Ⅰ｜答案の組み立て — (2)の解決策に根拠を積む | 必須Ⅰの(2)で解決策の名前は浮かぶのに、なぜ効くのかを支える材料を何から集めて答案のどこに置けばよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
@@ -79,10 +79,10 @@
 | `pe-kojutsu-fukabori` | 技術士建設部門の口頭対策 — 深掘りの質問に事実で答える | 業務経歴の説明はできても、なぜそう判断したのかなどの深掘りに、事実ではなく一般論や言い訳で答えてしまう | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |
 | `pe-kojutsu-kaitei-competency` | 建設部門 口頭｜改訂コンピテンシーで変わる質問 | コンピテンシー改訂で何が変わり、口頭試験の質問にどう影響するのか分からない | exam-point | レビュー | 台本/構成 | `pe-construction-oral-guide` |
 | `pe-kojutsu-keireki` | 技術士建設部門の口頭対策 — 業務経歴とコンピテンシーを結ぶ | 業務経歴は説明できても、自分の判断と成果をコンピテンシーにつなげて語れない | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |
-| `pe-river-coast-shutsudai-yomikata` | 技術士建設部門 河川、砂防及び海岸・海洋｜出題の読み方と書き方 | 河川、砂防及び海岸・海洋の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、河川・ダム・砂防・海岸のどこに気を付けて問題文を読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-river-coast-magazine` |
-| `pe-road-shutsudai-yomikata` | 技術士建設部門 道路｜出題の読み方と書き方 | 道路の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、どこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
-| `pe-tunnel-shutsudai-yomikata` | 技術士建設部門 トンネル｜出題の読み方と書き方 | トンネルの過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、山岳・開削・シールドの条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-tunnel-magazine` |
-| `pe-urban-planning-shutsudai-yomikata` | 技術士建設部門 都市及び地方計画｜出題の読み方と書き方 | 都市及び地方計画の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、制度の説明と課題の抽出でどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-urban-planning-magazine` |
+| `pe-river-coast-shutsudai-yomikata` | 建設部門 河川、砂防及び海岸・海洋｜出題の読み方 | 河川、砂防及び海岸・海洋の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、河川・ダム・砂防・海岸のどこに気を付けて問題文を読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-river-coast-magazine` |
+| `pe-road-shutsudai-yomikata` | 建設部門 道路｜出題の読み方 | 道路の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、どこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
+| `pe-tunnel-shutsudai-yomikata` | 建設部門 トンネル｜出題の読み方 | トンネルの過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、山岳・開削・シールドの条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-tunnel-magazine` |
+| `pe-urban-planning-shutsudai-yomikata` | 建設部門 都市及び地方計画｜出題の読み方 | 都市及び地方計画の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、制度の説明と課題の抽出でどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-urban-planning-magazine` |
 | `toan-kousei-template` | 答案構成のテンプレート — 課題抽出から効果・リスクまで | 書き始めてから構成が崩れ時間内に論文がまとまらない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 
 ## 技術士（総合技術監理部門）（14）

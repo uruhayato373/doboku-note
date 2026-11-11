@@ -260,19 +260,19 @@
       "sceneId": "cta",
       "start": 339,
       "end": 351,
-      "narration": "資格ごとの教材は、概要欄のリンク集にまとめています。次に取る資格に合うものを、そこから選んでください。",
-      "caption": "資格ごとの教材は概要欄のリンク集から",
+      "narration": "資格ごとの道筋は、概要欄の記事「土木施工管理技士のキャリアパス」にまとめています。次に取る資格を決める前に、読んでみてください。",
+      "caption": "資格ごとの道筋は概要欄の記事で",
       "visual": {
         "kind": "points",
-        "heading": "次の資格の教材を探す",
+        "heading": "次の資格を決める前に",
         "items": [
-          "資格ごとの教材はリンク集に",
+          "資格ごとの道筋は記事に",
           "リンクは概要欄から"
         ],
         "art": {
           "type": "closing",
           "section": "土木施工管理／資格の順序",
-          "note": "概要欄のリンク集"
+          "note": "概要欄の記事"
         }
       },
       "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
