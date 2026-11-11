@@ -146,8 +146,8 @@ const THUMB_COPY = {
   },
   'coconala-pe-oral-qa': {
     eyebrow: '技術士第二次試験 ／ 口頭試験',
-    title: ['口頭試験', '想定質問を作成'],
-    hook: '業務内容の詳細720字から\n想定質問20問と回答の骨子',
+    title: ['口頭試験', '経歴を整理'],
+    hook: '業務経歴をコンピテンシーで\n想定質問20問と回答の骨子に',
     priceLabel: 'テキスト完結',
   },
   'coconala-sokan-bunseki-pdf': {
