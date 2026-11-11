@@ -440,6 +440,17 @@
         "expected": 1440,
         "heard": 1396
       }
+    },
+    "civil-construction-1/owner-eye-kantokuin/youtube.longform": {
+      "videoSha256": "172f5462ff3101988665b4f5b49e83ff916e6cef74d59ebb002d8258dc690d9a",
+      "at": "2026-11-11T00:40:56.140Z",
+      "similarity": 0.963,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1977,
+        "heard": 1883
+      }
     }
   }
 }

@@ -1,0 +1,919 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #1E73C8 と濃色 #155293、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『監督員との』『やり取りで』『押さえる所』を大きく配置。上部の黄色帯に小さく『元発注者が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-cover.fe9bfebf.png",
+          "sha256": "fe9bfebfe7a16f916b4abcbed141914b38995f6497ffdd1093dc0b627c5ac283"
+        },
+        "generatedAt": "2026-11-11T00:36:46.309Z"
+      },
+      "copy": {
+        "exam": "civil-construction-1",
+        "headline": [
+          "監督員との",
+          "やり取りで",
+          "押さえる所"
+        ],
+        "authority": "元発注者が解説"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/cover-pop.94e08cf9.png",
+        "sha256": "94e08cf925349391bac49121ddcc8a12e6279875d9aec15c7d47306107886d68",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "fe9bfebfe7a16f916b4abcbed141914b38995f6497ffdd1093dc0b627c5ac283"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T00:36:46.309Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『元発注者が解説』『監督員との』『やり取りで』『押さえる所』が指示と1字ずつ一致し、余計な文字なし。先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指も破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "e6193c1dce8cd9b82e863b42d3dbd8003d2c7a4dbd8df8e77e44ec836b7e2a25",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の答え』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『言葉を使い分ける』 『書面で残す』 『通知は具体的に』 『回答の期限まで書く』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 答えを先に言います。言葉の使い分け、書面、具体的な通知、回答の期限。この四つです。指示をもらった、承諾をもらった。そのつもりでも、後で、言った、言わないで揉めたことはありませんか。今日は、発注者の側にいた立場から整理します。制度は国の工事の例で、自治体は団体ごとに違います。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-premise.4236a66b.png",
+              "sha256": "4236a66b007706b7845687cb6e98d6ea39f4ec42339d23c0b029e2968743c3c8"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/premise-diagram.4ec97b7f.png",
+            "sha256": "4ec97b7f0c5a864000dfc2bd883ec13f545a6fc198e19ae4a71cdb164d34f918",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4236a66b007706b7845687cb6e98d6ea39f4ec42339d23c0b029e2968743c3c8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "618b29f214573aec4959c132f6f9d1a60bc12cd6b5b1a4f6e834735cfe523314",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『その場の了解で足りる？』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『国の工事の例。自治体は団体ごとに異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 現場で伝えて、その場で了解をもらえたから大丈夫。そう思われがちですが、指示と承諾は、原則として書面で行うものです。口頭で済ませた部分は、あとで変更の話になっても、根拠として弱くなります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-misread.08527697.png",
+              "sha256": "08527697750eb67b7ba07bd0e63fbf04b5c654a65c191e072fdf5d7acb012535"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/misread-diagram.a31155e4.png",
+            "sha256": "a31155e424d95d39883abb3d88e195b3591341a98af10e18e2959b4139969ffb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "08527697750eb67b7ba07bd0e63fbf04b5c654a65c191e072fdf5d7acb012535"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "words1",
+          "inputSha256": "a6126d238d419f9ff982f4320881908f7650086449b3036d1d61b75f05a7662b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『4つの言葉』。 図に入れる文字: 『指示 監督職員が書面で示し実施させる』 『承諾 受注者の申出に書面で同意する』 『協議 対等の立場で書面により合議する』 『通知 監督職員が書面で知らせる』。 この場面の説明（文字にしない）: まず言葉です。国の土木工事監督技術基準の例では、指示は、監督職員が書面で示して実施させること。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-words1.20bf126f.png",
+              "sha256": "20bf126fa0f18c4ffd36ea6558057896123c3e28826fbdf220eee6dec7082059"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/words1-diagram.4d4c7ac9.png",
+            "sha256": "4d4c7ac964c8b517e5332da5c99c82cd04fbdb251b8180af91e4c14c838e3722",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "20bf126fa0f18c4ffd36ea6558057896123c3e28826fbdf220eee6dec7082059"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "words2",
+          "inputSha256": "c3473e68e946d222ef88106d1f4078c96a9f0532cfc24e507430c4db79863060",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『4つの言葉』。 図に入れる文字: 『指示 監督職員が書面で示し実施させる』 『承諾 受注者の申出に書面で同意する』 『協議 対等の立場で書面により合議する』 『通知 監督職員が書面で知らせる』。 この場面の説明（文字にしない）: 承諾は、受注者が書面で申し出たことに、監督職員が書面で同意すること。たとえば、仮置き場所を変えたいと書面で申し出て、書面で同意されれば、それが承諾です。説明用の例です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 22.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-words2.c70850a1.png",
+              "sha256": "c70850a1444fc313563ae6f57c699a6c6d5d004c3fa73cba90708dfd910ca953"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/words2-diagram.cdfba517.png",
+            "sha256": "cdfba517fb6787497b13c6a073560d27f65a466dd45ef810a6bf3c2c0fe0c6c6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c70850a1444fc313563ae6f57c699a6c6d5d004c3fa73cba90708dfd910ca953"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "words3",
+          "inputSha256": "953ca563cdd2d1488691f7879993b4b8049c2b36afd0549d5f2e77e2257fff26",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『4つの言葉』。 図に入れる文字: 『指示 監督職員が書面で示し実施させる』 『承諾 受注者の申出に書面で同意する』 『協議 対等の立場で書面により合議する』 『通知 監督職員が書面で知らせる』。 この場面の説明（文字にしない）: 協議は、発注者と受注者が対等に、書面で合議して結論を出すことです。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 42.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-words3.21fa5595.png",
+              "sha256": "21fa5595676a82c69e2f267028b035d5d4ee0d7bce965b7fe29f78bf02c79e99"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/words3-diagram.a8554a05.png",
+            "sha256": "a8554a057d7fb6147b3a52161ea1cb1dc74b857e6e0262b6affb55e3841e3ad7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "21fa5595676a82c69e2f267028b035d5d4ee0d7bce965b7fe29f78bf02c79e99"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "words4",
+          "inputSha256": "63bd20c481a686113db9f290c271ea512de38d4129ae829253f33d0a6ffcca91",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『4つの言葉』。 図に入れる文字: 『指示 監督職員が書面で示し実施させる』 『承諾 受注者の申出に書面で同意する』 『協議 対等の立場で書面により合議する』 『通知 監督職員が書面で知らせる』。 この場面の説明（文字にしない）: 通知は、この基準では監督職員が書面で知らせること。ただし約款には、受注者から監督員へ知らせる通知もあり、向きが二つあります。自治体は、使っている県や市の基準を確かめてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-words4.1caf4046.png",
+              "sha256": "1caf4046a3a04023213445c15e21d484b85ccc3f5c84108d66f936043384a2bd"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/words4-diagram.973d3f4e.png",
+            "sha256": "973d3f4e0036a45b23d08f89ed72a8bcec3c94ba3144bd928df6a1c392a63fc8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1caf4046a3a04023213445c15e21d484b85ccc3f5c84108d66f936043384a2bd"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "receive",
+          "inputSha256": "34dc4fbc70665a8e3986a37efd98473a37fd451be00f183e2613bf8b36c1b581",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『受理と承諾の違い』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『国の基準の例。自治体は団体ごとに異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 似た言葉の境目も一つ。受理は、書面を受け取って内容をつかむだけで、同意ではありません。施工計画書が受理されても、進め方に了解が出たとは限りません。了解を返すのは承諾です。受理を、進めてよい、と読み替えないことです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-receive.69a26e17.png",
+              "sha256": "69a26e17d1c82c769a0070f6018f9bacf820e35c22a0c5b90dc78c311b1e1ff6"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/receive-diagram.c22a761d.png",
+            "sha256": "c22a761d9d94ac0c11e3706755d030e563c2aa46caf40367d88f628b98c4cd38",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "69a26e17d1c82c769a0070f6018f9bacf820e35c22a0c5b90dc78c311b1e1ff6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "who1",
+          "inputSha256": "304a8d7e6ff36322f570c1f26316a5b63c4c9384e55ffd3962e150681971c69f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『誰に出し、誰が決めるか』。 図に入れる文字: 『まず監督員へ 届いた日が発注者への到達日』 『工期・代金の変更は 発注者の手続き』 『権限は通知された 内容で確かめる』。 この場面の説明（文字にしない）: 次に、誰に出すかです。約款では、発注者が監督員を置いたら、氏名を受注者に通知します。権限を分けたときも通知します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-who1.6c0364ca.png",
+              "sha256": "6c0364ca77b3f03ab9ac70a42ce070b83630231044d591318d2af438e5b7840a"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/who1-diagram.94124f74.png",
+            "sha256": "94124f744813457e054317192f57c50c20bf0617183762d65dbc11bc94af79af",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6c0364ca77b3f03ab9ac70a42ce070b83630231044d591318d2af438e5b7840a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "who2",
+          "inputSha256": "cbafa46b680299609ea56f2b678858133acae13f1cbcd1a07d472d598506066f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『誰に出し、誰が決めるか』。 図に入れる文字: 『まず監督員へ 届いた日が発注者への到達日』 『工期・代金の変更は 発注者の手続き』 『権限は通知された 内容で確かめる』。 この場面の説明（文字にしない）: 催告や請求、通知、報告、申出などは、設計図書に定めがなければ監督員を経由し、監督員に届いた日が、発注者に届いた日とみなされます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 27.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-who2.e46b3523.png",
+              "sha256": "e46b3523947264b696e712ef56c44c415a87f04d1a5d226c68349aa22cc9f84a"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/who2-diagram.c7d1237a.png",
+            "sha256": "c7d1237a921b1ff2afeb30bd15f949fc7194805518e9282afba2db5b77d09044",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e46b3523947264b696e712ef56c44c415a87f04d1a5d226c68349aa22cc9f84a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "who3",
+          "inputSha256": "110540674b6ac3a1d726189d48195e4a73dd0ceda04a346257cc705ddf75b122",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『誰に出し、誰が決めるか』。 図に入れる文字: 『まず監督員へ 届いた日が発注者への到達日』 『工期・代金の変更は 発注者の手続き』 『権限は通知された 内容で確かめる』。 この場面の説明（文字にしない）: 一方、工期や請負代金を変えるのは発注者の手続きです。監督員にその権限があるかは、通知された権限で確かめます。 前回の不合格の理由を直す: 文字: 指示にない『監督員』『発注者』の建物ラベルが追加されている。指定文言自体は正確だが、指示外の文字を足さない条件に反する",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-who3.6f289242.png",
+              "sha256": "6f2892428838de99b7f2e73b91310ec62e99dd79eecac3f826ead2fa0881b83b"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/who3-diagram.f24749f7.png",
+            "sha256": "f24749f70782d1f6442f23d4653b1da3347175138dcd5d3c6168e577b871bbc4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6f2892428838de99b7f2e73b91310ec62e99dd79eecac3f826ead2fa0881b83b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『誰に出し、誰が決めるか』と3つの図中文言が指示と1字ずつ一致し、図(文書→人物、カレンダーと硬貨、チェックと虫眼鏡)も本文の内容と矛盾せず破綻なし。左端の文言が左5%よりやや外に寄る点のみ軽微",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "notice",
+          "inputSha256": "18bec98f2b719f4ea0b33859b76275e321c7503f948865548d4b1337bf1ef932",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『通知の書き方』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『約款の通知の流れ（国の工事の例）』の全文を省かずに入れる。 この場面の説明（文字にしない）: 図面と現場が食い違っていたら、直ちに監督員へ書面で通知して、確認を求めます。これは受注者から監督員への通知で、約款の流れです。縦断図と合わない、の一言だと、受け取る側は、まず何が合わないのかを聞き返すことになります。図面名、測点、数値。この三つを入れれば、調査に入りやすくなります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-notice.8518521c.png",
+              "sha256": "8518521c54d97380bf03b3bbc52890d7a5f6516f6a3f8ec273a1a42801d68e2c"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/notice-diagram.1d01b7c1.png",
+            "sha256": "1d01b7c16088db95b08324c385462e8f8ca4b210a78a63ca01c324f04ec0e14c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8518521c54d97380bf03b3bbc52890d7a5f6516f6a3f8ec273a1a42801d68e2c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "record",
+          "inputSha256": "de23ecc06003727ea5331f0722411877d4275a2da524185180095aca39af9233",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『残すもの』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『いつ・誰に・何を通知したか』 『根拠資料 写真・測量・対比図』 『通知日と回答日』 『文書かメールで、写しを共有』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 残すのは、まず事実関係です。いつ、誰に、何を伝えたか。次に裏づけで、現場写真や測量データ、図面と現況の対比。申し入れは文書かメールにして、関係者に写しを回します。最後に日付。通知した日と回答が来た日が、工程への影響を説明する土台になります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-record.e12c37bf.png",
+              "sha256": "e12c37bfcefa589be7ad4513802e9f9504c75fd0241c2b0e4ff2ef41a67fdc26"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/record-diagram.61102fff.png",
+            "sha256": "61102fff98eb4515d4852a1726cfdb32499c6deff64ea1b8e02291cde85640f3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e12c37bfcefa589be7ad4513802e9f9504c75fd0241c2b0e4ff2ef41a67fdc26"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "deadline1",
+          "inputSha256": "bfa89624a41c8612c397ad099173cd0bd86085862e4748d1b87120cdf966fb75",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『回答を待つあいだ』。 図に入れる文字: 『関東地方整備局の手引き ワンデーレスポンス』 『確実に答えられないときは 期限を先に知らせる』 『実施の有無・期限は 発注者ごとに違う』。 この場面の説明（文字にしない）: 回答が来るまで、現場は止めるか、見切りで進めるかを迫られます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 38.6）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-deadline1.7f4e281b.png",
+              "sha256": "7f4e281b92d33421a26bfac48274934cf0074e0371e14619d67affa79c998dd1"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/deadline1-diagram.3317bd32.png",
+            "sha256": "3317bd32e37313d901ec00b38f6d5812fc79f4ff4f7dfe66457849670938ec7a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7f4e281b92d33421a26bfac48274934cf0074e0371e14619d67affa79c998dd1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "deadline2",
+          "inputSha256": "a508aefdc844e89214dc51a1683a2866ea171c9cc43f9fca49833f5ebd9ed911",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『回答を待つあいだ』。 図に入れる文字: 『関東地方整備局の手引き ワンデーレスポンス』 『確実に答えられないときは 期限を先に知らせる』 『実施の有無・期限は 発注者ごとに違う』。 この場面の説明（文字にしない）: 関東地方整備局の手引きでは、ワンデーレスポンスという取組で、受注者の質問や協議にその日のうちに指示や通知を行うのを原則としています。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 30.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-deadline2.e519253f.png",
+              "sha256": "e519253fb5009de59d45090a07899ecd296a66992303445ae9a55d2a45f94558"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/deadline2-diagram.1cf9397f.png",
+            "sha256": "1cf9397f1bac2198cb00500dde79c942501ca025c1390ee9e6883f53021030c9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e519253fb5009de59d45090a07899ecd296a66992303445ae9a55d2a45f94558"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "deadline3",
+          "inputSha256": "2aed88374f7ce846db02580a7f371f3450a760afe005fa901927eaa7a9b5d85f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『回答を待つあいだ』。 図に入れる文字: 『関東地方整備局の手引き ワンデーレスポンス』 『確実に答えられないときは 期限を先に知らせる』 『実施の有無・期限は 発注者ごとに違う』。 この場面の説明（文字にしない）: ただし、全件を一日で答える制度ではなく、確実に答えられないときは、いつまでに答えるかを先に知らせます。実施の有無や期限の数え方は、発注者ごとに違います。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-deadline3.6cf8eb07.png",
+              "sha256": "6cf8eb07ca5ad599b3b0f8c3733814bdaf3b757cb11d1c0b730cc9d799fc7ca6"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/deadline3-diagram.20652735.png",
+            "sha256": "206527356af751d299781f145200b14758ddf06f66729d7b29814f1143bd605f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6cf8eb07ca5ad599b3b0f8c3733814bdaf3b757cb11d1c0b730cc9d799fc7ca6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ask",
+          "inputSha256": "7355d4e6bd46376fdda64e88d0ddaf7b9c1568adb7b3ea92c634ce10582a7914",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『協議書に書く二つ』。 図に入れる文字: 『いつまでに 回答がほしいか』 『回答がないと 止まる作業は何か』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 受注者の側でできるのは、協議書に二つ書くことです。書式の名前は発注者ごとに違い、協議打合せ簿と呼ぶ例もあります。いつまでに回答がほしいか。回答がないと止まる作業は何か。優先順位と必要な時期が分からなければ、発注者は期限を決めようがありません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 29.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-ask.3f6112ce.png",
+              "sha256": "3f6112ce0d24bba12d5bd4c28252aac9e371deed4656724046d4f66fbb33b681"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/ask-diagram.43cafb82.png",
+            "sha256": "43cafb82e561674448843e0d7e54f05ed72baf01f05ad00296c613414d428870",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3f6112ce0d24bba12d5bd4c28252aac9e371deed4656724046d4f66fbb33b681"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "trouble",
+          "inputSha256": "0c510054980637a357242bf613465d9e4b3471fc9ec8184b08bc6d89049309c6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『変更の扱い』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『国の設計変更ガイドラインの例。自治体は団体ごとに異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 揉めやすい典型も押さえます。国の設計変更ガイドラインの例では、書面による指示を経ず、口頭の指示だけで進めた部分は、原則として設計変更の対象になりません。設計図書に条件明示のない事項を、協議を経ずに受注者の判断だけで施工した部分も同じです。逆に、書面の指示や協議があれば、変更の対象になりうるということです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-trouble.3faa1ee7.png",
+              "sha256": "3faa1ee71be385e6465d91acf3d2f08c1ba55ed0ffe56df01284ee0ff17c9b19"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/trouble-diagram.a6230714.png",
+            "sha256": "a6230714b59ce130d99ec614f368f03879a74c08d94fd1d6bb45c5e04a97588f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3faa1ee71be385e6465d91acf3d2f08c1ba55ed0ffe56df01284ee0ff17c9b19"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example1",
+          "inputSha256": "a0a655f5088061580eaec520798972df31bf3ad76f62c0c9c198e2e079a06869",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例｜掘削で違う土が出た』。 図に入れる文字: 『口頭だけでは 経過を示せない』 『測点・深さ・写真を添えて通知』 『受注者の立会いで 監督員が調査』 『発注者から 結果の通知を受け取る』。 この場面の説明（文字にしない）: 仮の例で考えます。掘削中に、設計図書に示された地層と違う土が出たとします。口頭で伝えただけで掘り進めたら、あとから、いつ、誰が、何を了解したのかを示せません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-example1.d9937136.png",
+              "sha256": "d9937136b87fb4aac9d87186c35c8310b7c581ef6d84eb82609f278ce72ba46e"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/example1-diagram.e3015bf1.png",
+            "sha256": "e3015bf1a8c6caa8d2ea1070cbea32883aa5a2702f036b71e04a7b2597467058",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d9937136b87fb4aac9d87186c35c8310b7c581ef6d84eb82609f278ce72ba46e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example2",
+          "inputSha256": "6e54b2f7400682b7c3afd77b36710966da52297a3696dcab649b50e43198c753",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例｜掘削で違う土が出た』。 図に入れる文字: 『口頭だけでは 経過を示せない』 『測点・深さ・写真を添えて通知』 『受注者の立会いで 監督員が調査』 『発注者から 結果の通知を受け取る』。 この場面の説明（文字にしない）: 測点と深さ、写真を添えた通知を出す。監督員が、受注者の立会いのもとで調査する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-example2.ebbd9300.png",
+              "sha256": "ebbd9300fa0719b60b7fbea2198a98fc583866e9e07adf546db8f402f39ea6d4"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/example2-diagram.6aace9c8.png",
+            "sha256": "6aace9c8ea6d84fc729f3834a9c150182d08b6b8b68c22d685579737df0b0421",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ebbd9300fa0719b60b7fbea2198a98fc583866e9e07adf546db8f402f39ea6d4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example3",
+          "inputSha256": "8d661562e44730b4b959c7309740434bfab66a9349edd2bf56b04c19a475a1e3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例｜掘削で違う土が出た』。 図に入れる文字: 『口頭だけでは 経過を示せない』 『測点・深さ・写真を添えて通知』 『受注者の立会いで 監督員が調査』 『発注者から 結果の通知を受け取る』。 この場面の説明（文字にしない）: 発注者から結果の通知を受け取る。この順なら、日付つきで経過が残ります。この例は説明のための仮のもので、実在の工事ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-example3.f563f826.png",
+              "sha256": "f563f826ca0d8ccb6992df2c88fd51939985436ef40fb2569aef10d95c2159a4"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/example3-diagram.b5d347ec.png",
+            "sha256": "b5d347ec4c3e8c290bd11e8c9fdc3b53b0c19fe9656eed9a73204e40ef696b93",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f563f826ca0d8ccb6992df2c88fd51939985436ef40fb2569aef10d95c2159a4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "exam",
+          "inputSha256": "46423b4f1c8b6dad37901e6c87d70098397bfba384b637efd799b3a68a423ec0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『学習との接点』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『施工経験記述・施工計画で』 『何を・いつ・どの方法で』 『どう確かめたかまで書く』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 学習との接点を一つだけ。施工経験記述や施工計画で、発注者との調整を書くときは、何を、いつ、どの方法で伝え、どう確かめたかまで書けると具体的になります。何が出題されるかは年度によって違うので、出題を予想するものではありません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 36.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-exam.58097ad1.png",
+              "sha256": "58097ad120d4a550aa12972350aa6077367bf682278406b880d394d44333ebfa"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/exam-diagram.05c939d1.png",
+            "sha256": "05c939d1083714bfadde83555805498d3664aca97520e057d8edd7dbef1374a2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "58097ad120d4a550aa12972350aa6077367bf682278406b880d394d44333ebfa"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "6d378b68a9f4af0476c32d2e7611c96939f28f3768bcbf49ad5a0dbbf02ef9b8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『言葉を使い分ける』 『通知は図面名・測点・数値』 『記録は日付と根拠資料』 『協議書に期限を書く』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。指示、承諾、協議、通知は、言葉を使い分ける。受理は同意ではない。通知は、図面名、測点、数値で書く。記録は、日付と根拠資料。そして、協議書には、回答の期限と、止まる作業まで書く。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-recap.be3c23de.png",
+              "sha256": "be3c23debb78d8844f2898a07e8d18d328dbf48d8d8e7921795db7f7be4d72e9"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/recap-diagram.05200682.png",
+            "sha256": "052006821d5dd80795031b260135dc584439f6b6b613c77213159f45dfd7c928",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "be3c23debb78d8844f2898a07e8d18d328dbf48d8d8e7921795db7f7be4d72e9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "4c6ce37d9fe6929f74990065732d437e119126fdf58e4ac34d5ffd12170cf783",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『詳しくはサイトの記事で』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『原価と設計変更』 『リンクは概要欄から』。 この場面の説明（文字にしない）: 協議を成立させる記録の残し方は、サイトの記事で詳しく整理しています。記事の中ほどに、協議の記録の節があります。概要欄のリンクから、確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 25.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/factory/raw-cta.f2e03b76.png",
+              "sha256": "f2e03b76a001a4d217c6928498ce2c459dafdbbb2015b705d714dca4069fe9d8"
+            },
+            "generatedAt": "2026-11-11T00:36:46.309Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-kantokuin/work/cta-diagram.93f37407.png",
+            "sha256": "93f37407565edb140a44d8fe39c3ae8fc997ee14e8e38f17848719a0082df72d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f2e03b76a001a4d217c6928498ce2c459dafdbbb2015b705d714dca4069fe9d8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T00:36:46.309Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "指示の文字列と1字ずつ照合して誤字・余計な文字・崩れが無く、図解も内容と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}
