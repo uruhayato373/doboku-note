@@ -86,7 +86,14 @@
     {
       "id": "pe-environment-shutsudai-yomikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-environment-shutsudai-yomikata"
+      "definition": "content/sns/video-packs/pe-construction/pe-environment-shutsudai-yomikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 1,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "0c32bb95151868d30fbf65f6d61e1386e1803d933c6a7d371a623844b98eb007"
+      }
     },
     {
       "id": "pe-fugoukaku-toan",
@@ -103,7 +110,14 @@
     {
       "id": "pe-geotechnical-shutsudai-yomikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata"
+      "definition": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "79d481c2c6f0bd3c172ec3e8e651006e052da469b3bd79e6bc3a7d26edb8b9c4"
+      }
     },
     {
       "id": "pe-gyoumu-shousai-720",
@@ -126,7 +140,14 @@
     {
       "id": "pe-hissu1-konkyo-tsumikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata"
+      "definition": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "0ccfa803b713438af7cd9140aa96e198bbfda7c43bdeced882392e04d09b0fb0"
+      }
     },
     {
       "id": "pe-hissu1-risk-kakunin",
@@ -136,7 +157,14 @@
     {
       "id": "pe-hissu1-theme-junbi",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi"
+      "definition": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "0fd51947a391b7406a9e231587f753207d028771d9612859b79d56146a06b145"
+      }
     },
     {
       "id": "pe-ii1-kakikata",
@@ -212,7 +240,14 @@
     {
       "id": "pe-river-coast-shutsudai-yomikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-river-coast-shutsudai-yomikata"
+      "definition": "content/sns/video-packs/pe-construction/pe-river-coast-shutsudai-yomikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "59c7134ac150dd9aee1e22b3c0988cdb83da89337fd122ec70f79edba3bd9458"
+      }
     },
     {
       "id": "pe-road-shutsudai-yomikata",
@@ -241,7 +276,14 @@
     {
       "id": "pe-urban-planning-shutsudai-yomikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata"
+      "definition": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "a691006804be3387bda5825b79a35fb67a195bc4478d8e01e5c6109e9d5290bf"
+      }
     },
     {
       "id": "toan-kousei-template",
