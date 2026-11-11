@@ -512,7 +512,7 @@
       "format": "longform",
       "variant": "diagram-led",
       "revisionOf": "civil-construction-2/keiken-daizai-erabi/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi/youtube.revision-diagram-led.json",
       "media": {
         "cover": "civil-construction-2/keiken-daizai-erabi/work/candidate-cover",
@@ -571,11 +571,12 @@
       "platform": {
         "id": "ftCIz94eEgk",
         "url": "https://www.youtube.com/watch?v=ftCIz94eEgk",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi/youtube.revision-diagram-led.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-11T03:00:15.244Z"
+        },
+        "publishedAt": "2026-11-10T11:30:26.000Z"
       },
       "times": {
         "uploaded": "2026-11-05T08:29:04.538Z",

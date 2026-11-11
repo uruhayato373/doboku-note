@@ -1,25 +1,19 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-04T22:08:38.290Z",
+  "checkedAt": "2026-11-11T03:00:15.244Z",
   "channel": "youtube",
-  "targets": 37,
-  "checked": 37,
-  "observed": 37,
+  "targets": 48,
+  "checked": 48,
+  "observed": 48,
   "advanced": [
-    "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform",
-    "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform",
-    "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform",
-    "concrete-chief-engineer/shunin-rekka-taio/youtube.longform",
-    "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform",
-    "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform",
-    "pe-first-stage/pe1-kiso-2s-complement/youtube.longform",
-    "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform",
-    "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform",
-    "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
-    "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform",
-    "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform",
-    "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform",
-    "pe-first-stage/pe1-tekisei-3shiten/youtube.longform"
+    "civil-construction-2/keiken-daizai-erabi/youtube.longform.diagram-led",
+    "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform",
+    "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform",
+    "pe-comprehensive-management/sanso-kozo/youtube.longform",
+    "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led",
+    "pe-construction/kaitourei-tsukaikata/youtube.longform.reading-fix",
+    "pe-construction/pe-kojutsu-keireki/youtube.longform",
+    "pe-first-stage/pe1-kiso-gradient-length/youtube.longform"
   ],
   "findings": []
 }

@@ -93,7 +93,7 @@
       "work": "shunin-chinka-hibiware-genin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-001",
@@ -158,11 +158,12 @@
       "platform": {
         "id": "XxATevSq-KE",
         "url": "https://www.youtube.com/watch?v=XxATevSq-KE",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-11T03:00:15.244Z"
+        },
+        "publishedAt": "2026-11-05T05:30:24.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -733,7 +734,7 @@
       "work": "shunin-kyoudo-hantei-2jouken",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-001",
@@ -797,11 +798,12 @@
       "platform": {
         "id": "C2Pyi5TE3UY",
         "url": "https://www.youtube.com/watch?v=C2Pyi5TE3UY",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-11T03:00:15.244Z"
+        },
+        "publishedAt": "2026-11-05T11:30:19.000Z"
       },
       "thumbnail": {
         "status": "set",
