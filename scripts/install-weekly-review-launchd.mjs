@@ -17,6 +17,8 @@
  *
  * exit: 0 成功 / 1 失敗 / 2 検査不成立（macOS 以外＝launchd が無い）
  * ---------------------------------------------------------------------------
+ *
+ * npm run weekly-review:install — Mac の launchd に土曜 9:30 の収集と GSC の記録層を入れる（`scripts/scheduled/weekly-review.sh`・名前は登録済みの launchd に合わせて残している）。自動実行用の worktree（`.claude/worktrees/weekly-collect`・lock 済み・毎日の GSC の登録と共用）で、土曜の収集の前段（下の `weekly-collect`）・GSC の記録層（`run_gsc_record`・失敗は Issue channel gsc-auto-review・DN-0849）・後段を回す。週次・月次レビューは回さない（2026-11-08〜・運営者の指示で対話セッションが `/weekly-review` を実行）。永続bootstrapからorigin/developのrunnerを起動する。収集の失敗は Issue（channel: weekly-collect）。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は Claude Code と gh にログイン済み。罠: `--run-now` は引数を渡せない（収集は前後とも回る）。
  */
 
 import { spawnSync } from 'node:child_process';

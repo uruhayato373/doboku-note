@@ -20,6 +20,8 @@
  * 出力: data/analysis/growth/pack-YYYY-Www.json
  * exit: 0 全区画取得 / 1 取得失敗あり（取れた区画は書く・失敗は sections[*].error）/
  *       2 検査不成立（認証なし・週が GSC 確定前）
+ *
+ * npm run fetch-growth-pack — 成長パック: 前の完了週（月〜日・JST）＋直前28日基線で GA4（landing×流入元・page×イベント）と GSC（page・page×query）のAPIが返す明細を取得 → data/analysis/growth/pack-YYYY-Www.json。GSC明細は部分集計、全体は別取得の無次元byProperty totals。--week で過去週。罠: GSC確定前の週は exit 2（取得しない）
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';

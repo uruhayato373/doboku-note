@@ -32,5 +32,5 @@ CLAUDE.md §2/§3/§11 の記事規約の詳細。真実源は [content-authorin
 - 1 記事の修正が完了したら即 commit（`git add` は変更したファイルだけ明示）
 - 統合済み記事を再公開しない: `published: true` なのに `_redirects` の転送元になっているとページは在るのに別ページへ飛ぶ（`npm run check-published-vs-redirects`）
 - 太字・GFM テーブルが実際に描画されるか（`npm run check-bold-rendering` / `npm run check-table-rendering`、機械修正は `npm run fix-bold-rendering`）。本文が指す「表N.M」のキャプション実在（`npm run check-table-references`）
-- 公的基準の章記事 `content/site/standards-articles/` は `npm run build-standard-articles` の生成物。検査は `npm run check-standard-articles`（コマンドの全一覧 → [commands.md](../knowledge/reference/commands.md)）
+- 公的基準の章記事 `content/site/standards-articles/` は `npm run build-standard-articles` の生成物。検査は `npm run check-standard-articles`（関連コマンドは `npm run cmd -- standard` で探す）
 - 公開ページが GSC 404/リダイレクト URL を指していないか（`npm run check-internal-links-vs-gsc`）

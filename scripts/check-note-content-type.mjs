@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// npm run check-note-content-type — note記事の役割5分類（product/index/learning/career/editorial）の必須・語彙・総合案内/career UTM整合を全件検査（quality:audit ci）
+
 import { readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import matter from 'gray-matter';

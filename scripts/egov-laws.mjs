@@ -11,6 +11,8 @@
  *            改正を記事に反映したら --sync で写しを進める
  *
  * exit: 0 違反なし / 1 違反あり・改正あり / 2 検査不成立（記事 0 本・取得失敗が支配的）
+ *
+ * npm run egov-laws [-- --sync | --drift] — 記事の e-Gov 法令検索へのリンク（法令 ID・条 #Mp-At_32_2）と参考文献の台帳の法令の egov.lawId を、e-Gov 法令 API の写し config/egov-laws.json と照合（既定は通信しない・CI）。--sync で写しを取り直す（新しい法令にリンクしたら回す。写しに残るのは記事のリンク・法令ページの lawId と lawFamily・参考文献の台帳の egov.lawId・計画・施策の台帳の basisLaws が指す法令だけで、どこからも指されない法令は消える。API は続けて取ると止まるので間を空けて 3 回まで取り直す）、--drift で写しより後に施行された改正とリンクする記事を出す（ops）。e-Gov の画面は無い ID でも 200 を返すので、手で ID を書かず写しか e-Gov の API（api/2/laws?law_title=）で引く
  */
 import { relative } from 'node:path';
 import { parseCliArgs } from './lib/cli-args.mjs';

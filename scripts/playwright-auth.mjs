@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 /** Windows・Mac共通のPlaywright認証profile診断・login・status・安全移行CLI。 */
+// npm run auth:migrate — 旧置き場のプロファイルを新 root へコピー（既定 dry-run・--commit。Cookie が最新の候補を選び、キャッシュは運ばない）
+// npm run auth:doctor — Playwright auth root の診断（Windows は旧 %LOCALAPPDATA% と Codex(MSIX) サンドボックスの取り残しも警告）
 import {
   accessSync,
   constants,

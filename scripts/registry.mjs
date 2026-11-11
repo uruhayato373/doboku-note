@@ -30,6 +30,14 @@
  *
  * 取り込み（import）は既定で dry-run。approve は --expect（画面で見た版の digest）が今の中身と一致したときだけ書く。
  * approve・stop は運営者の判断なので、エージェント（Claude Code の Bash＝環境変数 CLAUDECODE=1）からは実行できない。
+ *
+ * npm run registry -- prepare-youtube --pub <公開ID> --publish-at <ISO日時> — 同じ日時の youtube.json を確認し、未承認の通常動画へ文面と予定を結線する。既定 dry-run、--commit で台帳へ書く。承認・状態は変更しない
+ *
+ * npm run registry -- publish-youtube --pub <公開ID> --phase upload — 初回通常動画のAPI予約。既定は外部通信なしで入力digestを出す。GitHub Actionsの youtube-single-publish.yml に公開IDとdigestを渡す。手動workflowはprivate R2のintentとAPI実査で重複投入を止める
+ *
+ * npm run registry -- prepare-youtube-revision --pub <元公開ID> --variant <新版名> — 新候補を別公開IDの下書きへ結線。既定ローカル検査、--commit --expect <digest>で保存。別文面は --copy <同作品内のJSON#fragment>（文面もdigest対象）。--refresh-draft は未承認のdraft/qa_passed/qa_blocked入力を履歴保存付きで更新し、変更時はdraftに戻す（初回不可）。旧入力・外部ID・承認を保持
+ *
+ * npm run registry -- publish-youtube-revision --pub <新公開ID> --phase upload — 個別改訂版。upload/schedule/verify、既定は外部通信なし。--commit --expect <digest>でのみ実行。結果不明は再送せずverify、承認・日時・Shorts関連先条件と停止後の扱いはcontent-registry.md参照。制作担当が実行前に結果を読む
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';

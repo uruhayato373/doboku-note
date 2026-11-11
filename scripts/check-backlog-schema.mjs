@@ -33,6 +33,8 @@
  * 緊急回避: SKIP_BACKLOG_SCHEMA=1 または git commit --no-verify
  *
  * 真実源: .claude/todo/backlog.md 冒頭の凡例 ／ .claude/knowledge/reference/information-architecture.md
+ *
+ * npm run check-backlog-schema — backlog タグ行の語彙・[検証:]の実在・ID(DN-####)必須/重複・完了 prose の混入（pre-commit --staged ＋ quality:audit）
  */
 import { readFileSync, existsSync, readdirSync, writeSync } from 'node:fs';
 import { join, relative } from 'node:path';

@@ -18,6 +18,8 @@
  * 記録: .claude/state/quality/gemini-trial.json（台帳 state.gemini-trial）。過去問は対象にしない（past-exam-qa の軸の名前が採点ファイルと
  * 違い、今回の比較の外に置く）。
  * 終了コード: 0 = 成功 / 1 = 失敗（API の拒否・読めない応答が多い） / 2 = 対象 0 件・材料が無い（検査不成立）
+ *
+ * npm run gemini-scoring-trial -- select|run|record|compare — Gemini（無料枠・公開記事だけ）の一次採点と Claude の評価役の採点の一致率を試す（DN-0939）。run は 1 件に数分かかり、回数の上限で止まったら次回続きから。キーは .env.local の GEMINI_API_KEY（課金の無いプロジェクトの無料枠）
  */
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, relative, sep, dirname } from 'node:path';

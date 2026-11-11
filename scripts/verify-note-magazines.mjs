@@ -25,6 +25,8 @@
  *   npm run verify-note-magazines -- --contents   # 各マガジンの収録記事も取得
  *   npm run verify-note-magazines -- --json       # スナップショットを JSON 保存
  * ---------------------------------------------------------------------------
+ *
+ * npm run verify-note-magazines — note の公開状態を正本と照合する（読み取りだけ・公開 API）。マガジン一覧（題名・価格・配線）を `note-magazines.ts` と、単品（`config/products.json` の channel=note・tier=single）の価格・公開状態を記事単位で正本と照合する（DN-0704）。`-- --contents` で収録記事、`-- --vs-txt` で `note掲載文.txt`、`-- --json` で `data/note/magazines.json`（`--contents --json` をセットで）。exit 0＝ズレなし／1＝検査不成立（一覧が取れない・収録記事か単品の取得失敗が支配的）／2＝ズレあり。土曜の Mac の収集の note-audit 段（weekly-collect・公開 API）が週次で `--vs-txt --contents --json` を回す（DN-0847）。詳細は [note-api-verification.md](note-api-verification.md)
  */
 
 import { readFileSync, mkdirSync, writeFileSync, readdirSync } from 'node:fs';

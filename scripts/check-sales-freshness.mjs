@@ -30,6 +30,8 @@
 //   npm run check-sales-freshness
 //
 // 真実源: .claude/knowledge/reference/sales-tracking.md「取得と検算」
+//
+// npm run check-sales-freshness — data/note/sales.json の転記停止（updatedAt）と、毎月5日以降に前月noteアクセス取得・月次売上表示との金額一致、ココナラの売上履歴（coconala.revenue）の取得停止を検査（土曜の収集の note-sales 段の検算＝quality-audit の cadence collect・落ちると段が failed で Issue channel weekly-collect・DN-0847。取得自体は認証が要るのでローカル専用）
 
 import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { datasetPath, freshnessDays } from './lib/datasets.mjs';

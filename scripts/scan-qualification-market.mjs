@@ -28,6 +28,8 @@
  *   npm run scan-qualification-market -- --dry-run                      # 取得する語を表示するだけ
  * 取得した語が 1 件も無く、失敗が 1 件以上なら exit 1（検査不成立）。
  * ---------------------------------------------------------------------------
+ *
+ * npm run scan-qualification-market — 資格キーワードで YouTube（yt-dlp 検索）・note（公開検索 API）を取り data/analysis/qualification-market/YYYY-MM-DD.json へ（同日の再実行は取得済みの語を飛ばす・`--force` で取り直し）。`--coconala` でココナラも（coconala-research.mjs・Playwright・四半期 1 回）。`--qualification <id>`／`--channel youtube|note|coconala`／`--dry-run`。罠: note は JSON 以外（403）が返った時点で打ち切る＝連打しない。ココナラは空きメモリが足りないと Playwright ガードで起動しない
  */
 import { spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';

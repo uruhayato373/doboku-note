@@ -27,6 +27,10 @@
  *   npm run video-factory -- cleanup --packs <a,b>                       予約済みの転送用ファイルを消す（要 R2 の環境変数）
  *
  * 運営者の approve・stop は別の入口。auto-approve は config/video-auto-publish.json の方針で動き、関門の全項目を通ったときだけ書く。
+ *
+ * npm run video-factory -- status — 全動画パックの次の工程を出す。末尾に台本待ちの企画を確認期限の順に出す（--all で全部）。制作の入口（手順 → video-factory.md。承認・公開はしない）
+ *
+ * npm run video-factory -- preflight|qa-check|save|unapprove --pack <exam>/<work> — 画像の前の無料の検査・台帳の QA が今の原稿で合格か・止まったパックの記録の commit・予約へ進んでいない承認を外す。record-qa は --file <採点 JSON> で平均と件数をコマンドが数え、原稿の digest を付ける。plan --retry <項目|all> で上限の回数を戻す
  */
 import { execFileSync, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';

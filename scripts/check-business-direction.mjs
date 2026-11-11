@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// npm run check-business-direction — 事業方針・指標・履歴・追記専用の検査
+
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';

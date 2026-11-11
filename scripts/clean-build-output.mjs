@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// npm run build — 本番ビルド
+
 import { rmSync } from 'node:fs';
 import { resolve, sep } from 'node:path';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';

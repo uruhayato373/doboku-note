@@ -13,6 +13,8 @@
  *   公式掲載中なのに未取得 / うち最古年度は次の更新で消える見込み / 取得済みだが Drive 未退避 /
  *   試験日＋掲載までの日数を過ぎたのに今年度の行が無い
  * exit 2 = 検査不成立（台帳が読めない・対象 0 件）
+ *
+ * npm run check-past-exam-inventory — 過去問の年度在庫台帳（data/pastexams/inventory.json）と Drive 台帳の整合。FAIL＝台帳の不整合のみ（資格 id・textbook-source-pdf に当たらないパス・取得済みなのに実体無し）。WARN＝掲載中の未取得・最古年度の消失見込み（windowYears があるとき）・Drive 未退避・試験日＋publishLagDays 経過で今年度の行が無い。月次レビューが読む。罠: CI は手元の PDF を見ないので「Drive 台帳に未登録」は WARN 止まり
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join, posix } from 'node:path';

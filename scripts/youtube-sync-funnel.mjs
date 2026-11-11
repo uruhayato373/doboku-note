@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /** Sync approved metadata repairs with exact before/after hashes and live state checks. */
+// node scripts/youtube-sync-funnel.mjs --plan <content/sns/youtube/metadata-plans/計画.json> — 既存動画の概要欄同期のdry-run。--commit は運営者が変更版の最終承認を記録した後、youtube-single-publish.yml の mode=sync-funnel から実行。旧/新SHA・公開範囲・動画IDを照合し、API更新後に読み戻す
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';

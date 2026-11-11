@@ -6,6 +6,8 @@
  *   npm run check-content-registry [-- --base <git ref>] [--json] [--verbose]
  *
  * exit: 0 合格（WARN・INFO はあってよい）/ 1 FAIL あり（台帳が 0 件も FAIL＝検査不成立を合格と呼ばない）
+ *
+ * npm run check-content-registry — コンテンツ台帳の検査 R01〜R13（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・AI 素材の判定・別作品IDの通常動画の台本重複・完成動画/改訂入力の結線・YouTube の概要欄の VOICEVOX クレジット〔対象・照合・文面なしの行数を出す〕）。FAIL で exit 1
  */
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

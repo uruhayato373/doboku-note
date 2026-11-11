@@ -21,6 +21,8 @@
 // 注意: fetch ではなく curl を使う。会社 PC では Node の fetch がプロキシを使えず
 //   全滅する（measurement-incidents.md）。`--noproxy` は**付けない**——付けると
 //   このスクリプト自身が上の事故を再現する。
+//
+// npm run check-production-ssr — deploy 後の本番 SSR 検証（exit 0=正常 / 1=壊れている / **2=検査不成立＝接続できていない**。会社PCの HTTP 000／プロキシのブロック HTML をサイト障害と誤読しない・手打ち curl で代用しない）。/deploy と cloudflare-deploy.yml の公開後に実行。社内回線から接続できない場合は同workflowの verify_only=true で再デプロイせず外部検査。
 
 import { execFileSync } from 'node:child_process';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';

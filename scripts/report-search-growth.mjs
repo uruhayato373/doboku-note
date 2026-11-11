@@ -23,6 +23,8 @@
  * usage:
  *   node scripts/report-search-growth.mjs
  *   node scripts/report-search-growth.mjs --live-http   # 各 URL に live HEAD/GET（proxy 環境では省略推奨）
+ *
+ * npm run search-growth:report — GSC UI 正規化 ∪ API データを URL 突合して修正計画を再生成（オフライン・approval gate）
  */
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";

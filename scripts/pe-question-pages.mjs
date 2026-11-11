@@ -9,6 +9,8 @@
 // 骨組みは問題文の節（年度ページの逐語）・frontmatter・答案用紙の配分の枠・他年度へのリンクまで。
 // 論点の解説・問われていること・観点・失点は担当が書き、書き終えたら published: true にする。
 // exit 0 = 成功（check は全件一致） / 1 = 不一致・年度ページが読めない・対象 0 件（検査不成立）
+//
+// npm run check-pe-question-pages — 設問ページの問題文の節が、年度×科目のページから作った節と一字一句同じか（quality:audit の ci）
 import { existsSync, mkdirSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';

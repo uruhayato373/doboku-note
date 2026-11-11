@@ -11,6 +11,8 @@
  *   npm run note-unpublished -- --json
  *
  * exit 0: 走査が成立した / exit 1: 記事 0 本、読めない frontmatter、公開状態の食い違いがある
+ *
+ * npm run note-unpublished — note で未公開の記事と、公開の前に足りないもの（表紙の指定・hashtags・有料の価格と境界・書きかけのマガジン URL・「**この記事でわかること**」の節＝公開すると pre-commit の check-note-intro-benefit が止める）を一覧にする。公開状態は frontmatter の noteId・noteStatus が正本（content/registry/ は note を持たない）。「公開できるものは？」に答える前に使い、frontmatter を手で書いた正規表現で読まない（2026-10-28 に CRLF の 692 本を未公開と数えた）。読めない記事・状態の食い違いは exit 1
  */
 import { existsSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';

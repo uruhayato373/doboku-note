@@ -18,6 +18,8 @@
  * 出力（既定 .tmp/ios-bundle/<app>/。iOS リポジトリの Resources を --out に渡す）:
  *   manifest.json・<試験>.json・images/・katex/・quiz-content.css・quiz-tokens.css
  * exit 0 = 書き出し成功 / exit 1 = ID 検査・画像取得の失敗、または対象 0 件
+ *
+ * npm run build-ios-quiz-bundle -- --app pe|doboku [--out <iOS リポジトリの Resources>] — iOS 択一アプリ（pe＝技術士 第一次・総監／doboku＝土木施工管理技士 1級・2級）に同梱する問題 JSON・記事画像・KaTeX・問題文と解説の見た目（src/styles/quiz-content.css と、globals.css の色トークンの写し quiz-tokens.css。サイトの演習と同じ CSS）を書き出す（既定 .tmp/ios-bundle/<app>/。docs/products/07）。前回の manifest.json から問題 ID が消えると止まる（学習履歴が消えるため。意図したときだけ --allow-removed 試験/ID）。問題台帳（data/pastexams/questions）で転記の照合が済んでいない問題・公式正答と違う問題があっても止まる（npm run check-past-exam-ledger で確かめる。試しの書き出しだけ --allow-unverified・正答の不一致は通らない）。アプリが並べられない年度コード（APP_YEAR_CODE 以外。足すときは iOS の QuizEngine の yearRank と同時に）でも止まる。画像は書き出す HTML（Markdown しか無い土木の問題は変換した HTML）の参照から集め、記事の img/ にあればそれを使い、無ければ R2 から取る（R2 にも無ければ失敗）。参照先が images/ に揃わなければ止まる。色トークン（scripts/lib/quiz-style.mjs の QUIZ_TOKENS）が globals.css から消えると止まる。読むのは iOS リポジトリのビルド（このリポジトリの CI には載せない）
  */
 import { spawnSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';

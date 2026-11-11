@@ -10,6 +10,8 @@
  *   npm run x-reply-log -- --add --user <screenName> --target <statusId> --reply <statusId> --kind ask|pass|fail|study|answer --topic <資格の id> --text "<送った文面>"
  *   npm run x-reply-log -- --skip --user <screenName> --reason situation|offtopic|supplier|not-self|other  # 見送りを記録
  *   npm run x-reply-log -- --report                        # 件数の集計（種類別・資格別）
+ *
+ * npm run x-reply-log — 送信前の門番 --check --user <id>（開始日より前・間隔・同じ相手・見送り済み。返信した相手からの質問に答えるときは --answer）。--add で送信を記録（--text に送った文面、--topic に資格の id が必須）、--skip で見送りを記録、--report で種類別・資格別に集計
  */
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { readDataset, readDatasetIf } from './lib/dataset-io.mjs';

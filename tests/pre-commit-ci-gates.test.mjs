@@ -73,7 +73,7 @@ test('台帳・配線の検査は、その正本か読む側を stage したと�
     ['scripts/quality-audit.mjs', 'gate-parity'],
     ['config/domains.json', 'domains'],
     ['.claude/agents/guide-qa.md', 'domains'],
-    ['.claude/knowledge/reference/commands.md', 'domains'],
+    ['.claude/knowledge/reference/workflows.md', 'domains'],
     ['tools/admin-app/src/app/todo/page.tsx', 'domains'],
     ['content/site/standards-articles/chubu/special/manifest.json', 'orphan-ogp'],
   ];

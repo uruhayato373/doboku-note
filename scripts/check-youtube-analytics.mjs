@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /** 最新の YouTube Analytics 記録と公開台帳を照合する（外部通信なし）。 */
+// npm run check-youtube-analytics — 最新のYouTube Analytics記録を公開台帳のID・対象数・鮮度と照合。未取得は0件成功にせず exit 1
 import { readDataset, readLatest } from './lib/dataset-io.mjs';
 import { fileURLToPath } from 'node:url';
 import { schemaOf } from './lib/dataset-validate.mjs';

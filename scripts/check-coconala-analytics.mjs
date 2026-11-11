@@ -20,6 +20,8 @@
  * 使い方: node scripts/check-coconala-analytics.mjs [--max-age-days N]
  * exit: 0=OK（WARN のみ含む） / 1=FAIL
  * ---------------------------------------------------------------------------
+ *
+ * npm run check-coconala-analytics — 上記の鮮度・欠測・マスク値（0000は0でない）・kpi.json 整合をオフライン検査
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';

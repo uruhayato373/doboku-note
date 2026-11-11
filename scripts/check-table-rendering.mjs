@@ -15,6 +15,8 @@
  *   node scripts/check-table-rendering.mjs            # 全量
  *   node scripts/check-table-rendering.mjs --staged   # staged のみ（pre-commit 用）
  *   node scripts/check-table-rendering.mjs --json     # 機械可読
+ *
+ * npm run check-table-rendering — GFM テーブルが実際に table になるか（remark 実パースでデリミタ行が text に残る＝生パイプ表示を検出。原因〔改行 \r\r\n 破損／ヘッダとデリミタのセル数不一致〕を問わず症状で拾う・pre-commit --staged ＋ quality:audit）
  */
 
 import { readFileSync, writeSync } from "node:fs";

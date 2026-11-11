@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 // 制作担当が再利用前に実行するローカル検査。CIはDrive原本を持たないためquality-audit対象外。
+//
+// npm run youtube-shorts:restore -- --pack-dir <動画パック> — 全場面差し替え版の現在の動画SHAに対応するレシピ・全PNG・元動画・ASS・完成MP4を照合（--key で限定）。欠落素材は --restore でDriveから復元。既存SHA不一致・対象0件は停止。制作担当が再利用前に読むローカル検査、Drive依存のためquality-auditには登録しない。旧テンプレート再生成は差し替え版を停止する
 import { resolve } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';

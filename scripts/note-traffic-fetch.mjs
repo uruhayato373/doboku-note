@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// npm run note-traffic-fetch — note ダッシュボード「アクセス状況」を read-only 取得→data/note/{referrers,articles-pv}/YYYY-MM.json（--month は今月/先月、--from YYYY-MM-DD --to YYYY-MM-DD は任意期間を note.traffic-period に直接取得・全記事の展開を確認・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
+
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-traffic-fetch.mjs

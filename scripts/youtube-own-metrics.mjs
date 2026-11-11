@@ -13,6 +13,8 @@
  *   npm run youtube-own-metrics -- --limit 600  # 一覧から取る本数の上限（既定 500・タブごと）
  * 取得に失敗したら何も書かず exit 1。動画はあるのに再生数が 1 本も取れないタブがあれば、検査不成立として書かず exit 2
  * （2026-10-10 に通常動画 73 本すべてが再生数なしで、合計 0 回として残った・DN-0697）。
+ *
+ * npm run youtube-own-metrics — 自社 YouTube の動画ごとの再生数・尺を一覧（yt-dlp）から取り data/youtube/own-videos/YYYY-MM-DD.json へ（月次・動画パックと型を videoId で照合・`--dry-run`）。視聴維持率・クリック率は取れない（Analytics が要る）。罠: 日本語表示の一覧は「万」の再生数を null にするので英語表示と結合している
  */
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

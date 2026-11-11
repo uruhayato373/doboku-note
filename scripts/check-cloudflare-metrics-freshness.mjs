@@ -16,6 +16,8 @@
 //   npm run check-cloudflare-metrics-freshness
 //
 // exit: 0=OK/WARN, 1=FAIL
+//
+// npm run check-cloudflare-metrics-freshness — Cloudflare 日次/月次取得の停止を検知（quality-audit の ops 区分・zone snapshot 3 日超／config 10 日超で FAIL）
 
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';

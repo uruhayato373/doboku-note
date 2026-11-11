@@ -8,6 +8,8 @@
  *   node scripts/check-youtube-covers.mjs --live   # 公開中の表紙を YouTube から取り、台帳の表紙と画素で比べる（週次・手元か Drive の表紙）
  *
  * exit: 0 違反なし / 1 違反あり / 2 検査不成立（対象 0 件・取得の失敗が支配的）
+ *
+ * npm run check-youtube-covers — YouTube の表紙が先生のキャラクターの POP に揃っているか。表紙の設計の先生の指定の欠け・投稿へ進んだ通常動画の表紙と設計の採用画像の食い違いで exit 1（CI）。--live は公開中の表紙を YouTube から取って台帳の表紙と画素で比べる（週次・手元か Drive の表紙が要る）。直すのは npm run registry -- replace-youtube-cover（手元で --stage-r2 → youtube-single-publish の replace-cover）
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';

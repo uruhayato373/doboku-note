@@ -26,6 +26,8 @@
  * 真実源: .claude/knowledge/reference/coconala-operations.md（運用・スキーマ）
  *        content/note/1級・2級土木/ココナラ展開キット.md（戦略・出品文面）
  * ---------------------------------------------------------------------------
+ *
+ * npm run check-coconala-wiring — カタログ↔listings↔商品画像↔受注/KPI/売上の整合と、PDF の価格ルール（note 基準×1.1 以上）を検査（pre-commit --staged＋CI）
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';

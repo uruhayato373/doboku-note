@@ -25,6 +25,8 @@
  *   node scripts/x-own-metrics.mjs --report       # 採取せず、保存済みデータで集計表だけ出す
  *   node scripts/x-own-metrics.mjs -n 100         # 取得件数（既定 60）
  * ---------------------------------------------------------------------------
+ *
+ * npm run x-own-metrics — 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x/own-posts/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
  */
 import { spawnSync } from 'node:child_process';
 import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';

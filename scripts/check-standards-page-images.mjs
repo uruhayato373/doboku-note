@@ -15,6 +15,8 @@
  *   6. alias（sameAs）の指す先が実在するか
  *
  * 使い方: node scripts/check-standards-page-images.mjs [--role common|all] [--deep]
+ *
+ * npm run check-standards-page-images — 上の provenance 整合（catalog↔manifest の原本 sha256・ページ 1..N の被覆・part 範囲・画像 sha256 のサンプル照合。実体が無い端末では manifest のみ検査しその旨を明示。Drive の読み取りが ETIMEDOUT・EIO などで失敗した文書・画像は照合せず件数を WARN で出す・quality:audit に同梱）
  */
 import { createHash } from 'node:crypto'
 import fs from 'node:fs'

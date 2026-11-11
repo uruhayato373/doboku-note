@@ -8,6 +8,10 @@
  *   node scripts/check-reference-sources.mjs --deep
  *
  * exit 0 = 整合 / exit 1 = 違反 / exit 2 = 検査不成立
+ *
+ * npm run check-reference-sources — 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェット・図の原典（vaultCopies が Drive 台帳にあるか・図の出典の書籍が記事の sources にあるか・流用不可の書籍の図 figureReuseDebt）を検査（--staged は pre-commit）
+ *
+ * npm run check-reference-sources:deep — Drive の文字起こし frontmatter↔原本台帳と、市販書籍由来記事の40文字以上の逐語一致0を実体照合（Mac・Driveマウント要）
  */
 
 import { execFileSync } from 'node:child_process';

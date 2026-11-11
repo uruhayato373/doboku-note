@@ -14,6 +14,8 @@
  *
  * exit: 0=問題なし / 1=要修正 / 2=検査不成立（ファイルが読めない・--source なし）
  * ---------------------------------------------------------------------------
+ *
+ * npm run check-kosshi-sheet -- <骨子シート> --source <ヒアリングシート> — S3 指導の骨子シートを送信前に検査（「」引用と数値がヒアリングシートに実在・引用の外の地の文は1行60字以内で句点なし＝答案の文章を書かない・各テーマに（1）（2）の区画・1引用30字以内・外部誘導/合格保証/下書き注記）。exit 0/1/2（2=--source なし）。civil-keiken-tensaku-qa が mode=kosshi で実行
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { checkKosshiSheet, MESSAGE_MAX_CHARS, OWN_TEXT_MAX } from './lib/kosshi-sheet-guards.mjs';

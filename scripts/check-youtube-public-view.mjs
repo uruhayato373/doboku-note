@@ -12,6 +12,8 @@
  * 使い方: node scripts/check-youtube-public-view.mjs [--review] [--out <path>]
  * 終了コード: 0 = 異常なし / 1 = 異常あり、または oEmbed で判定できないものが 20% を超えた（検査不成立）
  * 撮影: CI では YouTube が bot 確認でプレーヤー部分を隠すことがある。タイトル・説明・周辺のレイアウトを見る。
+ *
+ * npm run check-youtube-public-view — YouTube の台帳で公開の動画のpublished・public・公開日時到来済みの動画のoEmbed公開到達性を確認（動画の再生動作自体は未確認）（公開状態の API 照合は verify-video-publication）。`-- --review` で代表動画（Shorts・通常ごと 1 本）を YouTube のブレイクポイントの帯ごとの画面幅で撮影。週次 note-public-view.yml に同居していたが、SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す（手元で回すのは可）
  */
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';

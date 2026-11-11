@@ -3,6 +3,8 @@
  * X・Instagram の年間の枠と実体を照合する（外部通信なし）。YouTube は check-youtube-plan。
  * 計画にない投稿・枠の超過・販売の超過・週の上限超え・時期の外を止める。
  * exit: 0 違反なし / 1 違反あり / 2 検査不成立（枠 0 件）
+ *
+ * npm run check-channel-plan — X・Instagram の年間の枠（config/channel-annual-plan.json の channels）と月次計画・公開台帳を照合。計画にない投稿・枠と販売の超過・週の上限超えで exit 1、枠 0 件は exit 2。判断待ちは exit に効かない
  */
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { loadChannelPlanAudit } from './lib/channel-plan.mjs';

@@ -19,6 +19,8 @@
  * `<!-- growth-digest:YYYY-Www -->` を出し、check-growth-triage がレビュー本文への反映を検査する。
  *
  * exit: 0 成功 / 2 検査不成立（パックが無い）
+ *
+ * npm run growth-digest — 機会ダイジェスト: 成長パック×収益カバレッジ×Bing×実験台帳×triage-log から週次トリアージ対象を安定ID付きで抽出 → growth/digest-YYYY-Www.json。--print で週次レビュー埋め込み用 Markdown（書かない）、--week で指定週、--check は書かずに完走確認。罠: パックが無ければ exit 2
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';

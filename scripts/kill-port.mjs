@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// npm run admin — 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO/**プロジェクト**\/**ライフサイクル横断 `/content/lifecycle`**\/**動画パック `/content/video`**・tools/admin-app）
+
 import { execSync } from 'child_process';
 import { platform } from 'os';
 

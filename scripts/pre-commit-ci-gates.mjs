@@ -12,6 +12,8 @@
  * 下書きの追加で作り直しを忘れ、develop を 2 回赤くした）。
  *
  * 検査の id は scripts/quality-audit.mjs の CHECKS と同じ名前にする（CI で同じものが全量で走る）。
+ *
+ * npm run pre-commit:ci-gates — CI（quality:audit:ci）の速い検査を staged の範囲で先に回す（katex-warnings＝staged の MDX だけ・note-paid-cta・x-review・products〔商品の正本と記事・掲載文・生成物〕は該当パスを stage したときだけ全量）。note の原稿・note-magazines.ts・収録の期待値を stage したときは generated-indexes のうち note 記事カタログだけを回す（`build-note-published-index.mjs --check --staged`＝作り直し漏れと stage 漏れ）。pre-commit では pre-commit-mdx.mjs の先頭が呼ぶ（フック本体を変えると共有フックの入れ直しが要るため相乗り）。develop 直 push で CI を赤くしてきた検査を手元で止めるためのもので、unit-tests と generated-indexes の残り（refresh-indexes 全体）は遅いので CI に残す
  */
 import { execFileSync, spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';

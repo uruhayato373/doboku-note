@@ -12,6 +12,8 @@
  *   npm run check-r2-orphans -- --write     # 削除候補を .tmp/r2-orphans.txt（削除リストの書式）へ書く
  *
  * exit: 0 孤児・削除待ち 0 件 / 1 孤児か削除待ちあり（削除リストへ回す・参照ありはリポジトリへ戻す・削除を実行する）/ 2 検査不成立（認証なし・一覧 0 件）
+ *
+ * npm run check-r2-orphans — 公開バケットの孤児（台帳・git 管理の画像・OGP 縮小のどれでもないキー）を数える。月次点検。--write で .tmp/r2-orphans.txt へ候補。exit 1＝孤児か削除待ちあり・2＝認証なし
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';

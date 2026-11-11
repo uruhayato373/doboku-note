@@ -16,6 +16,8 @@
  * console.log 直後の process.exit はパイプで出力を切り詰めることがあるため、
  * ここでは process.exit() を呼ばず process.exitCode だけを設定する。
  * ---------------------------------------------------------------------------
+ *
+ * npm run schedule-view — 予約・計画・期日の横断ビュー（読み取り専用・JST。exam-calendar/x-campaigns/x-status/ig-status/コンテンツ台帳の旧Shorts/backlogを集約。DN-0131のような超過を横断で surface する） ／ 収益カレンダー（config/revenue-calendar.json × exam-calendar の試験日から制作開始・CTA 切替・販売の山・判定と、coconalaServices のある試験はココナラの再開・休止を channel=revenue で出す。試験日が過去の起点は「次回未発表」に一覧し日付を推測しない。DN-0931）
  */
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { collectScheduleEvents, groupByDay, summarize, weekdayLabel } from './lib/schedule-events.mjs';

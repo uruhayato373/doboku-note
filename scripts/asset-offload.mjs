@@ -27,6 +27,8 @@
 // exit 0 = 成功（dry-run 含む） / exit 1 = 検証失敗・設定不備・対象ゼロで意図不明
 //
 // 設定: config/asset-storage.json / 台帳: .claude/state/assets/manifest.json
+//
+// npm run asset-offload — 追跡アセットを R2 へ退避（既定 dry-run・--commit で実行。upload 後に bytes と sha256 を R2 から読み直して検証してから manifest へ記録。ローカル削除と untrack はしない。**--verify** で追跡解除前の全件照合〔ローカル実体・manifest・R2 の 3 者一致〕を行い、--out に untrack できる一覧を書く。1 件でも欠ければ exit 1。**--only-new** は manifest に無いものだけを対象にし、中身が変わった既存の控えを上書きしない＝check-asset-storage の not-offloaded だけを直すとき）
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, writeFileSync } from 'node:fs';

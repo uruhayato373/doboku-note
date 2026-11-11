@@ -18,6 +18,8 @@
 //
 // 真実源: frontmatter `tags: [career]`（唯一の実データ）。述語は src/lib/doc-classifier.ts の isCareerDoc。
 // 関連ゲート: check-category-curriculum.mjs（curriculum config の整合。守備範囲が別）。
+//
+// npm run check-career-separation:built — 学習系ナビ（data-nav-list="exam-guide"）に career 記事が混ざっていないかを out/ の HTML で見る。**要 `npm run build`** で ci.yml の build 後に置く。走査先は out/{exam,practice,standards,laws,topics}（2026-09 の URL 分割前は out/docs だった）。ナビ一覧 0 箇所は検査不成立＝exit 1
 
 import fs from 'node:fs';
 import path from 'node:path';

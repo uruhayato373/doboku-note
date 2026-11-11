@@ -41,6 +41,8 @@
  *   npx tsx scripts/check-magazine-cta-reachability.ts        # レポート（exit 0）
  *   npx tsx scripts/check-magazine-cta-reachability.ts --ci   # 到達 0 面のマガジン・CTA ゼロのページがあれば exit 1
  * ---------------------------------------------------------------------------
+ *
+ * npm run check-magazine-cta — 公開 note 商品の到達面＋教材のある12資格の公開学習記事の商品導線ゼロを検査（下書き・career を除外。参考資料抽出後のカード、自動中間・末尾、サイドバーを描画と同じ resolver で判定し、もくじタイルは数えない。実務・法令は理由付きで対象外、どちらにも無いカテゴリは検査不成立。:ci は baseline 外ゼロで失敗、対象数を出力・quality:audit に同梱）
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
