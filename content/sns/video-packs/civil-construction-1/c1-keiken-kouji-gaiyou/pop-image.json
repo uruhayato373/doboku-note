@@ -775,7 +775,7 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-cover.3be0a534.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-cover.3be0a534.png",
               "sha256": "3be0a5345ef559b3f6bec65f54aaa29a2ab7a5a8436be0b23d77115db8e1e035"
             },
             "generatedAt": "2026-11-11T08:20:05.518Z"
@@ -811,7 +811,7 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-scene-001.7c892b5b.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-scene-001.7c892b5b.png",
               "sha256": "7c892b5b17965d1c304fd8857004e5493c0c26240e0e257e13a44ac42ab2cb99"
             },
             "generatedAt": "2026-11-11T08:20:05.518Z"
@@ -847,7 +847,7 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-scene-002.9d7365c5.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-scene-002.9d7365c5.png",
               "sha256": "9d7365c5b4087696024b4bf80797d58bc3a9272bb93a592bd4d9dbea8d8c894b"
             },
             "generatedAt": "2026-11-11T08:20:05.518Z"
@@ -883,7 +883,7 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-scene-003.4bbc4d26.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-scene-003.4bbc4d26.png",
               "sha256": "4bbc4d26f3e77ab159c4dcc8b82183cb9d24b1a4ea2cf8638c0ab425869acede"
             },
             "generatedAt": "2026-11-11T08:20:05.518Z"
@@ -919,7 +919,7 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/work/factory/raw-cta.d3a2a383.png",
+              "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-cta.d3a2a383.png",
               "sha256": "d3a2a383e9be334b7b8e6bc42357897738e773d11a4c6da1dc51827be0781d5a"
             },
             "generatedAt": "2026-11-11T08:20:05.518Z"
@@ -953,6 +953,55 @@
         "similarity": 0.93,
         "maxVolumeDb": -7.2,
         "durationGapSec": 0
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "5 軸平均 4.6 で全軸 3 以上。sha 一致・場面 5/5。表紙は型 myth-buster の指定どおり。語りは sources(misread・premise)の範囲内。ライブの操作 UI は未確認",
+        "videoSha256": "e3128db06d166a212d28d04a0710d9d4eb3cabeb4f353347f6f39f504898c92f",
+        "checkedAt": "2026-11-11T08:33:29.371Z"
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/video.e3128db0.mp4",
+          "sha256": "e3128db06d166a212d28d04a0710d9d4eb3cabeb4f353347f6f39f504898c92f"
+        },
+        "frames": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/frames.ef64600f.png",
+          "sha256": "ef64600f5ca26cce1548f5197a8e9cc23765b1ada8f84f868786990ee581abd1"
+        },
+        "subtitles": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/subtitles.5ca14077.ass",
+          "sha256": "5ca14077e63d9fac2fb9b6659e93ef83ad29d270fef27c12475439535c11335b"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-cover.3be0a534.png",
+            "sha256": "3be0a5345ef559b3f6bec65f54aaa29a2ab7a5a8436be0b23d77115db8e1e035"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-scene-001.7c892b5b.png",
+            "sha256": "7c892b5b17965d1c304fd8857004e5493c0c26240e0e257e13a44ac42ab2cb99"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-scene-002.9d7365c5.png",
+            "sha256": "9d7365c5b4087696024b4bf80797d58bc3a9272bb93a592bd4d9dbea8d8c894b"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-scene-003.4bbc4d26.png",
+            "sha256": "4bbc4d26f3e77ab159c4dcc8b82183cb9d24b1a4ea2cf8638c0ab425869acede"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/raw-cta.d3a2a383.png",
+            "sha256": "d3a2a383e9be334b7b8e6bc42357897738e773d11a4c6da1dc51827be0781d5a"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2/cover.05028bf0.png",
+          "sha256": "05028bf0dafd97002f458c5e5f093247b223bbef53c231357eef561bdefde6c8"
+        },
+        "savedAt": "2026-11-11T08:33:34.341Z",
+        "cloudVerified": true
       }
     }
   },

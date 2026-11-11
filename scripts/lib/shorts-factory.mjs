@@ -177,7 +177,7 @@ const coverPrompt = (design, spec, label, palette, type = null) => [
   pop(palette), '黄色と白の極太文字。',
   `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}、小さな黄色帯に『${spec.pop?.authority ?? '総監が制作'}』。`,
   // 型ごとの表紙の図（台帳 config.youtube-shorts-formats の types[].cover・2026-11-11）。見出しは端で切らない（2 枚が右端で切れた）
-  ...(type ? [`表紙の型は「${type.label}」。${type.cover.visual}。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収め、収まらなければ字を小さくして折り返す。`] : []),
+  ...(type ? [`表紙の型は「${type.label}」。${type.cover.visual}。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。`] : []),
   `先生を大きく（腰から上、顔が画面の幅の2割以上）描く。${design.pose}`, TEACHER, BANS,
 ].join(' ');
 const bodyPrompt = (beat, index, label, palette) => [
