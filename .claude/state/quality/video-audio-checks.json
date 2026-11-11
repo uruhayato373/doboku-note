@@ -484,6 +484,17 @@
         "expected": 1133,
         "heard": 1091
       }
+    },
+    "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform": {
+      "videoSha256": "4b86e9aa9baab7545ace5e439da0e5ce0b71a0316c9ac61953d709a1a28a3409",
+      "at": "2026-11-11T01:41:55.600Z",
+      "similarity": 0.968,
+      "maxVolumeDb": -1.2,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1888,
+        "heard": 1843
+      }
     }
   }
 }
