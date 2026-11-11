@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-ii2-kakikata",
+  "exam": "pe-construction",
+  "title": "建設部門｜Ⅱ-2 の書き方 — 2枚50行を設問に沿って組み立てる",
+  "audience": "技術士第二次試験 建設部門の選択科目Ⅱ-2（応用能力・答案用紙2枚）の書き方が定まらない受験者",
+  "pain": "Ⅱ-2は手順を書くうちに知識の列挙になり、調整方策が薄くなって、50行をどう割り振ればよいか決められない",
+  "promise": "Ⅱ-1との評価の違いを押さえ、50行を前置き・本論・結びに割り振り、手順の留意点と調整方策まで組める",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/r08-road/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-construction-planning-magazine",
+    "campaign": "pe-ii2-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

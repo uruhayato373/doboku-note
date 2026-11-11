@@ -1,0 +1,284 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "Ⅱ-2の2枚は、知識を並べる答案ではありません。",
+      "caption": "Ⅱ-2の2枚、どう書く？",
+      "visual": {
+        "kind": "cover",
+        "heading": "Ⅱ-2の、書き方",
+        "items": [
+          "技術士 建設部門・選択科目"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 24,
+      "narration": "2枚、50行を書き始めると、手順が知識の列挙になり、調整方策が薄くなる。今日は技術士建設部門の選択科目Ⅱ-2を、評価の軸、行の割り振り、手順と調整方策の書き方の順に整理します。",
+      "caption": "手順が列挙になり、調整が薄くなる",
+      "visual": {
+        "kind": "points",
+        "heading": "今日整理する3つ",
+        "items": [
+          "評価の軸をⅡ-1と比べる",
+          "50行を三つに割り振る",
+          "手順と調整方策を組む"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "選択科目対策／建設部門 II-2",
+          "note": "行の割り振りはdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "axis",
+      "start": 24,
+      "end": 48,
+      "narration": "Ⅱ-1とⅡ-2は、評価の軸が違います。Ⅱ-1は専門的学識とコミュニケーションですが、Ⅱ-2にはマネジメントとリーダーシップが加わります。筆記でこの二つが入るのは、Ⅱ-2だけです。",
+      "caption": "Ⅱ-1は知識、Ⅱ-2は進め方",
+      "visual": {
+        "kind": "compare",
+        "heading": "評価で見られるもの",
+        "ngLabel": "Ⅱ-1",
+        "okLabel": "Ⅱ-2",
+        "rows": [
+          {
+            "label": "評価項目",
+            "ng": "学識・コミュニケーション",
+            "ok": "学識・マネジメント・リーダーシップ・コミュニケーション"
+          },
+          {
+            "label": "配点",
+            "ng": "10点",
+            "ok": "20点"
+          },
+          {
+            "label": "答案の形",
+            "ng": "知識を整理して述べる",
+            "ok": "担当責任者として進め方を述べる"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 II-2",
+          "note": "評価項目と配点は令和8年度の受験申込み案内に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "form",
+      "start": 48,
+      "end": 71,
+      "narration": "形式を確かめます。Ⅱ-2は答案用紙2枚で、1枚は24字かける25行、全部で50行です。令和8年度の受験案内では、Ⅱ-2は20点とされています。小問ごとの配点は示されていないので、行の配分は自分で決めます。形式は受検年度の公式情報で確認してください。",
+      "caption": "2枚・50行、配分は自分で決める",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅱ-2の形式",
+        "items": [
+          "答案用紙2枚　24字×25行",
+          "合計50行",
+          "小問ごとの配点は示されていない"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 II-2",
+          "note": "形式は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "blocks",
+      "start": 71,
+      "end": 101,
+      "narration": "次に、50行を三つに分けます。設問の(1)にあたる調査と検討事項が前置き、(2)の手順と留意点が本論、(3)の関係者との調整方策が結びです。目安は前置き35%、本論45%、結び20%。公式の基準ではなく、本論をいちばん厚くするための割り振りです。",
+      "caption": "前置き・本論・結びに分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "前置き・本論・結び",
+        "items": [
+          "前置き　約35%\n(1) 調査・検討事項",
+          "本論　約45%\n(2) 手順と留意点・工夫",
+          "結び　約20%\n(3) 関係者との調整方策"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 II-2",
+          "note": "35・45・20%はdoboku-noteの目安。公式の基準ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "lines",
+      "start": 101,
+      "end": 129,
+      "narration": "行番号でも決めておきます。2枚の答案なら、18行目から本論に入り、41行目から結びに入ります。前置きが25行に届いても本論に入っていなければ、長すぎます。結びは10行より短くしません。足りないときは前置きから削ります。",
+      "caption": "18行目と41行目を決めておく",
+      "visual": {
+        "kind": "points",
+        "heading": "行番号の目安",
+        "items": [
+          "18行目から本論に入る",
+          "41行目から結びに入る",
+          "25行目で本論未着手なら長すぎ",
+          "結びは10行を切らない"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "選択科目対策／建設部門 II-2",
+          "note": "行数の目安はdoboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "apply",
+      "start": 129,
+      "end": 161,
+      "narration": "令和8年度の道路Ⅱ-2-1の問いの構成に当てはめます。駅周辺の道路空間を再編する基本計画の担当責任者として、(1)は必要な調査と把握すべき事項、(2)は手順と、留意点や工夫を要する点、(3)は関係者との調整方策。この三つの問いが、そのまま前置き、本論、結びの三つになります。",
+      "caption": "三つの問いが、三つの部分になる",
+      "visual": {
+        "kind": "points",
+        "heading": "設問を三つの部分へ",
+        "items": [
+          "(1) 調査・把握すべき事項　→前置き",
+          "(2) 手順と留意点・工夫　→本論",
+          "(3) 関係者との調整方策　→結び"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "選択科目対策／建設部門 II-2",
+          "note": "令和8年度 道路の問題文の構成を要約。答案例ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/r08-road/article.mdx"
+    },
+    {
+      "sceneId": "steps",
+      "start": 161,
+      "end": 193,
+      "narration": "本論の(2)は、手順を挙げて終わりにしません。2枚の本論はおよそ22行です。手順を三つに分ければ、1段あたり約7行、170字前後。前置きで調べた条件を受けて、順序を決め、各段に留意点を添えます。",
+      "caption": "本論は手順を三つに分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "本論の組み立て",
+        "items": [
+          "前置きの条件を一文で受ける",
+          "手順を三つほどの段に分ける",
+          "1段は約7行・170字前後"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "選択科目対策／建設部門 II-2",
+          "note": "行数と字数は50行の45%からの概算。doboku-noteの整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "tips",
+      "start": 193,
+      "end": 224,
+      "narration": "出題内容は、手順の説明に加えて、留意点や工夫を要する点を認識しているかを問います。手順の名前を並べるだけでは足りません。各段に、ここで何に気を付け、どう工夫するかを一文ずつ添えます。",
+      "caption": "手順に、留意点と工夫を添える",
+      "visual": {
+        "kind": "compare",
+        "heading": "手順の書き方",
+        "ngLabel": "手順だけ",
+        "okLabel": "留意点・工夫つき",
+        "rows": [
+          {
+            "label": "各段",
+            "ng": "手順の名前を並べる",
+            "ok": "気を付ける点と工夫を一文ずつ添える"
+          },
+          {
+            "label": "読み手",
+            "ng": "知識の列挙に見える",
+            "ok": "担当責任者の判断が見える"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "選択科目対策／建設部門 II-2",
+          "note": "出題内容は令和8年度の受験申込み案内に基づく"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "coord",
+      "start": 224,
+      "end": 260,
+      "narration": "結びの(3)は、調整方策です。ここで差がつきやすいのは、住民、関係機関、行政との合意形成や法令の遵守、関連部署との総合調整といった、技術の外側の段取りです。1段落で形式的に締めず、誰と、いつ、どう調整するかを書きます。改訂版のコミュニケーションは、説明して終わりにせず、相手の意見を計画へ反映する手順まで求めます。",
+      "caption": "調整方策は、誰と・いつ・どう",
+      "visual": {
+        "kind": "points",
+        "heading": "調整方策に書くこと",
+        "items": [
+          "誰と　住民・関係機関・行政・関連部署",
+          "いつ　どの手順の前に置くか",
+          "どう　意見を計画へ反映する手順まで"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "選択科目対策／建設部門 II-2",
+          "note": "改訂後のコミュニケーションの定義に基づく整理"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 260,
+      "end": 284,
+      "narration": "まとめます。Ⅱ-2は、評価の軸がⅡ-1と違い、担当責任者として業務の進め方を示す答案です。50行を前置き、本論、結びに割り振り、行番号で崩れに気づく。本論では手順に留意点と工夫を添え、結びでは調整方策を具体的に書く。この手順は、この動画の整理です。",
+      "caption": "まとめ：分ける・割り振る・添える",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅱ-2の組み立て",
+        "items": [
+          "50行を三つに割り振る",
+          "18行目と41行目で崩れに気づく",
+          "手順に留意点、結びに調整方策"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "選択科目対策／建設部門 II-2",
+          "note": "本動画の独自の整理。受検年度の形式は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 284,
+      "end": 308,
+      "narration": "書き方の次は、実際の設問での練習です。施工計画、施工設備及び積算の選択科目の模範解答集がnoteにあります。この動画は書き方の型までで、答案の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "施工計画の模範解答集は、noteへ",
+      "visual": {
+        "kind": "points",
+        "heading": "書き方の次は、練習",
+        "items": [
+          "施工計画・施工設備及び積算　選択科目の模範解答集",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "選択科目対策／建設部門 II-2"
+        }
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    }
+  ]
+}
