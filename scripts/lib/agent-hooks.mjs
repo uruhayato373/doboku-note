@@ -50,7 +50,7 @@ export function strayAtRoot(lines) {
 // ---- check-doc-sync（git commit 前）-------------------------------------------------------------
 
 const RE_SKILLS = /^\.claude\/(skills|agents)\//;
-const RE_REGISTRY = /^\.claude\/knowledge\/reference\/(skills-guide|skills-registry|agents-registry)\.md$/;
+const RE_REGISTRY = /^\.claude\/knowledge\/reference\/(skills-guide|agents-registry)\.md$/;
 const RE_DECISION = /決定.*\.md$|ADR.*\.md$|^\.claude\/knowledge\/reference\/|noteコンテンツ計画\.md$|^\.claude\/skills\/.*\/SKILL\.md$/;
 const RE_NEW_TOOL = /^scripts\/.*\.(mjs|mts|js|ts|cjs)$/;
 
@@ -91,7 +91,7 @@ export function docSyncMessages({ skillsChanged, registryChanged, decisionChange
   if (skillsChanged.length && !registryChanged.length) {
     out.push(
       'WARNING: .claude/skills/ or .claude/agents/ が変更されましたが docs が未更新です。',
-      '  .claude/knowledge/reference/skills-guide.md（一覧）または skills-registry.md（退役ログ）または agents-registry.md を同一 commit に含めてください。',
+      '  npm run build-capability-index を回し、書き換わった skills-guide.md / agents-registry.md を同一 commit に含めてください（一覧は生成物）。',
       '変更されたファイル:',
       ...skillsChanged.map((p) => `  ${p}`),
     );

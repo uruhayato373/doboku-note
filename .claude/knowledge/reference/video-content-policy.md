@@ -364,8 +364,7 @@ ThreadsはX本文の機械的な複製先にしない。packから「質問」�
 ## 12. 変更時の同期先
 
 - schema/状態/ゲート変更: 本書、fixture、checker、管理画面parser
-- 新agent: `agents-registry.md` とcoupling gate
-- 新skill: `skills-registry.md` とskills guide
+- 新agent・新skill: `npm run build-capability-index`（一覧は生成物）
 - 新チャネル派生: `content/sns/README.md` と各channel policy
 - 戦略・KPI変更: `docs/marketing/06_動画コンテンツ運用設計.md`
 
