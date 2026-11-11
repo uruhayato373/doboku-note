@@ -1715,6 +1715,13 @@
         "cta": "brand/bridge-notebook-a/cta-shorts"
       },
       "stopReason": "user-decision"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform",
+      "work": "shunin-theme-tachiba-erabi",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
     }
   ]
 }

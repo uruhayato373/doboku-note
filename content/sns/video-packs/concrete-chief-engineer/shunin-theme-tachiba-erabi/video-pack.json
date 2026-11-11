@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-theme-tachiba-erabi",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士 小論文｜テーマの傾向と立場の選び方",
+  "audience": "コンクリート主任技士の小論文で、どのテーマを準備し、どの立場の経験で書くか決められない受験者",
+  "pain": "小論文は選択式のテーマが多いのに、どの系統を準備し、どの立場の経験で書くか決められない",
+  "promise": "直近の出題テーマを5つの系統に分け、自分の業務の事実で書ける系統と立場を選ぶ手順が分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-marugoto-pack",
+    "campaign": "shunin-theme-tachiba-erabi"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
