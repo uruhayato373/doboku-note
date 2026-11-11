@@ -22,7 +22,14 @@
     {
       "id": "cm-fugokaku-tenken",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken"
+      "definition": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken",
+      "qa": {
+        "avg": 2.17,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "214dde458fb0b81b4686281cd5b7c9b13f69551d652166f839c5b20579f16426"
+      }
     },
     {
       "id": "cm-mondaibun-yomikata",
@@ -42,12 +49,26 @@
     {
       "id": "gyoumu-keireki-kakikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata"
+      "definition": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "2b2cff3f3f501eb241b7d1efc36f19d520fe3ffc2220a1bfce2c540f862acea9"
+      }
     },
     {
       "id": "hakusho-kadai-erabu",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu"
+      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "e10905397e11a80757f45c31327a98dd6657e0449dbf42e33829c4ef8c20c046"
+      }
     },
     {
       "id": "hakusho-shisaku-kaiketsu",
@@ -62,7 +83,14 @@
     {
       "id": "hakusho-yomu-fukasa",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa"
+      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "1e816da1af0346e7b809259629c587fb22e635b7dfd5b84c97eed44dcc2dc53f"
+      }
     },
     {
       "id": "pe-comprehensive-countdown-w1",
