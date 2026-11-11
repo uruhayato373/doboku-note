@@ -5,12 +5,26 @@
     {
       "id": "rccm-mondai1-keiken-kakikata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/rccm/rccm-mondai1-keiken-kakikata"
+      "definition": "content/sns/video-packs/rccm/rccm-mondai1-keiken-kakikata",
+      "qa": {
+        "avg": 2.17,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "c0fd43eb24bb08678cbdc89c93695bdd31b91ee7f74a3b32ee1dd51d8fd38fb9"
+      }
     },
     {
       "id": "rccm-mondai3-ronbun-kata",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata"
+      "definition": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-11",
+        "by": "Claude Code video-content-qa",
+        "inputSha256": "9abb9b8e1231a70a127b3c2952f125c0300a0686b3ae1d4c6287fe698282265d"
+      }
     },
     {
       "id": "rccm10",

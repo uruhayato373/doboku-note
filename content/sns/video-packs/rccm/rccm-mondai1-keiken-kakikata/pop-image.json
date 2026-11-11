@@ -1,0 +1,512 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #9C3D1E と濃色 #742D15、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『RCCM』『問題Iの』『経験の書き方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-cover.a1d519e4.png",
+          "sha256": "a1d519e4ed9829389b7f18e8a7d2046202d2ef19033f31e196278bc740e97df2"
+        },
+        "generatedAt": "2026-11-11T03:10:25.051Z"
+      },
+      "copy": {
+        "exam": "rccm",
+        "headline": [
+          "RCCM",
+          "問題Iの",
+          "経験の書き方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/cover-pop.6772e9d8.png",
+        "sha256": "6772e9d82152f647c2269f4a9e3ae1bb2fb883812a637c605ef0e64e13ea3c51",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "a1d519e4ed9829389b7f18e8a7d2046202d2ef19033f31e196278bc740e97df2"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T03:10:25.051Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "表紙の文字RCCM・問題Iの・経験の書き方・総監が制作が指示と1字一致し、先生の顔・ヘルメット・服装・ペンの手指も崩れ無し",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "64476ec05305055277340c6bb7280ca7c34069b34a3d30f3084294720b47aded",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日整理する3つ』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『業務の選び方』 『技術上と業務上の書き分け』 『落ちる型と見分け方』。 この場面の説明（文字にしない）: 業務を並べて説明するだけで、字数が終わってしまう。技術上と業務上の問題点の違いも、あいまいなまま。今日はRCCMの問題Iを、業務の選び方、問題点の書き分け、落ちる型の順に整理します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-premise.5ca18208.png",
+              "sha256": "5ca182085672d0eabe17f495c9ae5ceac41e9a1d385b079889abb1af159c7658"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/premise-diagram.5499e6cd.png",
+            "sha256": "5499e6cd9752a249fcd4c0e86996adb9199f80bbe3f394025cc6540858c0c570",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5ca182085672d0eabe17f495c9ae5ceac41e9a1d385b079889abb1af159c7658"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3枠の文字が指示と一致し、図記号も破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "tie",
+          "inputSha256": "8762e2212dac13a1acc85fba03d9e910ed54efd6c3496ad8a346cf83712bd33a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『業務実績証明書との整合』。 図に入れる文字: 『書く業務は証明書の業務から選ぶ』 『業務番号の対応を自分で確かめる』 『減点の例は受験対策サイトの情報』。 図の下、下端の字幕の帯より上に『減点の話は一次情報で確認できていない』の全文を省かずに入れる。 この場面の説明（文字にしない）: まず前提です。問題Iで書く業務は、申込時に出した業務実績証明書の業務から選ぶ形です。証明書の業務番号と、論文の業務の対応が食い違うと、大きく減点された例があると案内されています。ただ、一次情報での確証は取れていません。申込書類を作る段階から、自分で対応を確かめてください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 24.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-tie.7c8ff6e1.png",
+              "sha256": "7c8ff6e1ff2dd04ceffc2cffb9e7645a26bdf7eb46c353b46c20483ed1b75911"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/tie-diagram.9adf9955.png",
+            "sha256": "9adf9955697eed15541043d481d14a193002202f6da52b8022a0bb8d6bddc2b5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7c8ff6e1ff2dd04ceffc2cffb9e7645a26bdf7eb46c353b46c20483ed1b75911"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3つの図内文字・下部の全文が指示と一字一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layout",
+          "inputSha256": "8d1404118b9cf65243c248d1c5acc1a56caf7a4042ff265e91f382d6b08f8113",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『2,400字の使いどころ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『業務その1・その2　基本情報（各約400字）』 『業務その3　問題点と対応・評価（約1,600字）』 『当年度の様式は受験の手引で確認』。 図の下、下端の字幕の帯より上に『受験対策サイトで共有されている情報。公式の確定ではない』の全文を省かずに入れる。 この場面の説明（文字にしない）: 字数の配分も確かめます。受験対策サイトでは、業務その1からその3まで三件を書き、その1とその2は基本情報を各400字程度、その3に残りの大半を使う形が共有されています。これは受験対策情報で、公式に確定したものではありません。当年度の解答様式は、受験の手引で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-layout.358c8bf1.png",
+              "sha256": "358c8bf1cf89a4d05879d8a79f91d6d1965ced566f9fafe66680c8f6deda5083"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/layout-diagram.6a5f6eff.png",
+            "sha256": "6a5f6eff9addd8fc2260843c3a4f90f460aaa9a6bca773a2051dee244d223935",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "358c8bf1cf89a4d05879d8a79f91d6d1965ced566f9fafe66680c8f6deda5083"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・各枠の文字・下部の注記全文が指示と一致し字数配分も本文どおり",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pick",
+          "inputSha256": "45bb4159347aa73c3421ea1e3fad594147de9891126659eea9eafc2119e169c3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『業務を選ぶ基準』。 図に入れる文字: 『技術上の問題点を語れる場面がある』 『業務上の問題点を語れる場面がある』 『両方思い出せる業務が最有力』。 この場面の説明（文字にしない）: 得点を左右するのは、業務その3とされています。だから業務は、有名な案件かどうかではなく、技術上で語れる場面と業務上で語れる場面の両方があるかで選びます。両方とも具体的に思い出せる業務が、最有力候補です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-pick.2a2d944a.png",
+              "sha256": "2a2d944a13511edeb696a5cd7ee8420338b31e1d15b0784eaf4bf42ec95a8500"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/pick-diagram.215101f1.png",
+            "sha256": "215101f1c05d711a00648838b9834f95c8661c8e52842fb5ca5d8a3a32de9b06",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2a2d944a13511edeb696a5cd7ee8420338b31e1d15b0784eaf4bf42ec95a8500"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つの文字列が指示と一致し矢印の構造も整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "split",
+          "inputSha256": "0c99b9453b7d0e100f7eb4844dfec3b1bba75d65dcdc381c01ec0f7a970441fd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『二つの問題点の違い』。 構図: 左右2つの枠を比べ、右を強調する構図。 この場面の説明（文字にしない）: 次に、問題点の書き分けです。技術上は、設計条件や現地条件の制約に対して、工法の比較や照査などをどう判断したか。業務上は、工程、品質、コスト、安全、発注者や関係機関との調整など、管理面でどう動いたか。同じ出来事を、両方の欄に重ねて書かないことが大切です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-split.3f068e80.png",
+              "sha256": "3f068e8015cd751525c75da9ceb531211e6628bd33967c2303572ed21b84a8b2"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/split-diagram.8836ad50.png",
+            "sha256": "8836ad505e969d38936c066da1572dd1cbca577a1395f64a4deeda650a3be413",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3f068e8015cd751525c75da9ceb531211e6628bd33967c2303572ed21b84a8b2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しのみ文字があり一致。左が技術上、右が管理面の図解で本文と矛盾せず右が強調",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "judge",
+          "inputSha256": "816b464345aab8b00fd56729b41545175c79a4a3066f8e7950cde058a854b690",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『迷ったときの自問』。 図に入れる文字: 『専門技術者としての判断なら　技術上』 『管理者としての判断なら　業務上』。 この場面の説明（文字にしない）: 迷ったら自問します。その判断を下したのは、専門技術者としてか、管理者としてか。基準や計算にもとづく判断は技術上、関係者の調整や工程と予算の組み替えは業務上に振り分けます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-judge.29de931d.png",
+              "sha256": "29de931dc03abfdb27feac1f3b2c5906ef5005c0ee556a822cc64b1c2fb6111f"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/judge-diagram.966197db.png",
+            "sha256": "966197db028af500d48fe273bdd0c09adf862c29a885da24fa841382e253d7ff",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "29de931dc03abfdb27feac1f3b2c5906ef5005c0ee556a822cc64b1c2fb6111f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと分岐2枠の文字が指示と一致し構造も整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "role",
+          "inputSha256": "c9434f4421f4c8cb50fdfdc5b145f258d44eda63d64281c3873ed0288151f260",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『主語のある書き方へ』。 構図: 左右2つの枠を比べ、右を強調する構図。 この場面の説明（文字にしない）: 立場の書き方も評価を分けます。実施された、決定された、という主語のない受け身では、あなたが何を判断し、どう動いたのかが読めません。管理技術者か担当技術者か、立場を先に示し、私は比較した上で提案した、のように主体的に書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-role.90851a14.png",
+              "sha256": "90851a149c704ab11ee90d68a1c8f6e5887c8116db61c7424dd434af32d21c52"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/role-diagram.ec900a29.png",
+            "sha256": "ec900a29d3aad4f27e515ce4ffe6089501f1080d82af3d650650dd3a1bf0f1e1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "90851a149c704ab11ee90d68a1c8f6e5887c8116db61c7424dd434af32d21c52"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しが一致し、左の不鮮明な受け身と右の主体的な書き方の対比が本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ng",
+          "inputSha256": "cdc39949b7f273d4f418277410f2d1adff6d20d4a3cda55924afbdacadf925ad",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『評価を落としやすい型』。 図に入れる文字: 『説明だけで終わる』 『一般論で終わる』 『成果を誇張する』。 図の下、下端の字幕の帯より上に『例はいずれも架空』の全文を省かずに入れる。 この場面の説明（文字にしない）: 落ちる型は三つです。一つ目は、目的や規模の説明で字数を使い、判断が出てこない型。二つ目は、予算が厳しい中で協力して完了した、のように一般論で終わる型。三つ目は、地域の防災力が飛躍的に向上した、のように、自分の業務の範囲を超えた成果を断定する型です。いずれも架空の例です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-ng.7c7d681b.png",
+              "sha256": "7c7d681b26e683c1c3c71c805ebf014100db1c1f96d6b9da09a078df0691a022"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/ng-diagram.ced02aac.png",
+            "sha256": "ced02aacd2a3dba67700b3168252ff876ebb6a7924532765483efb26f2a07dd0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7c7d681b26e683c1c3c71c805ebf014100db1c1f96d6b9da09a078df0691a022"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・3型・下部の例はいずれも架空が一字一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "check",
+          "inputSha256": "deeb651ab64b6ba02c52fa56c5b4717ce526643a9c33768c8c1b29dfb829c825",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書き終えた後の点検』。 図に入れる文字: 『各段落で「私は」を主語にした一文を探す』 『抜き出せなければ、説明で止まっている』。 この場面の説明（文字にしない）: 三つに共通するのは、あなた自身の判断が主役になっていないことです。書き終えたら、各段落から、私は、を主語にした一文を抜き出せるか確かめます。抜き出せなければ、説明で止まっています。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 42.6）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-check.8309a60b.png",
+              "sha256": "8309a60bd6160ef37b9ddd879e5683dfb0110dda9d93dd93d988e2e6dd2009c1"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/check-diagram.76109950.png",
+            "sha256": "761099500d262b988b507129b4e3b931b47b7e3bfb40ad0b9d5cb6e7a3af6180",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8309a60bd6160ef37b9ddd879e5683dfb0110dda9d93dd93d988e2e6dd2009c1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの文字列、私はの強調が指示と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "inventory",
+          "inputSha256": "d9a3bf080ff79ac250728f4b4c3e4a02c82613ae626a83f0c36ef4c208a10b16",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『棚卸しの手順』。 構図: 左から右へ進む段階の図。 図に入れる文字: 『証明書の業務を一覧にする』 『技術上の場面の有無を書き出す』 『業務上の場面の有無を書き出す』。 この場面の説明（文字にしない）: 業務が決まらないときは、棚卸しです。証明書の業務を一覧にして、技術上の場面があったか、業務上の場面があったかを書き出します。この作業は、技術士の業務経歴票づくりとも共通する部分が多く、将来の下準備にもなります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-inventory.08df480d.png",
+              "sha256": "08df480d9f11b020e923db9cc3afb19c913bb27a62a10114b52fe06b297b4c11"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/inventory-diagram.e6807303.png",
+            "sha256": "e6807303e65a62f7b0c5b950f71ebad397d3164675d544ce560247edbcf4132a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "08df480d9f11b020e923db9cc3afb19c913bb27a62a10114b52fe06b297b4c11"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3工程の文字が指示と一致し順序も整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "5c1a5155d9d750e840ca01e1e39f85e3f3e178df437bbfa5fd5a14536bda4a3d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の整理』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『両方語れる業務を選ぶ』 『技術上と業務上を別の場面で書く』 『立場を示し「私は」で書く』。 この場面の説明（文字にしない）: まとめます。業務は証明書の中から、両方語れるものを選ぶ。技術上と業務上は別の場面で書き分ける。立場を示し、私は、で書く。字数配分と様式は、受検年度の公式情報、つまり受験の手引で確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-recap.d6d8f701.png",
+              "sha256": "d6d8f701daf15b6b75a02b9a4132cde804e99e1d2d641a66009e10db3e626c2b"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/recap-diagram.4a22ebcb.png",
+            "sha256": "4a22ebcb84216483dfa38cb443d2d6e3ce101e72eba8023993135dcf6c0952ee",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d6d8f701daf15b6b75a02b9a4132cde804e99e1d2d641a66009e10db3e626c2b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと番号付き3枠の文字が指示と一致",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "9ff8e4a58918e0710d90a11eebab8fa4ec39bc0d80b6cae73bf9e213d1974cd4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #9C3D1E と濃色 #742D15の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『書き方の次は、練習』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『問題I 業務経験論文テンプレ』 『収録内容は概要欄から』。 この場面の説明（文字にしない）: 書き方の次は、実際に2,400字を組み立てる練習です。字数ごとのテンプレートと部門別の記入例が、noteのマガジンにあります。この動画は書き方の型までで、記入例の全文は含みません。収録内容は、概要欄から確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 23.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/factory/raw-cta.f445ec49.png",
+              "sha256": "f445ec496a04d5dfe9ca72e126492d2dcc72750e48478f34cc6fe6500dbff00b"
+            },
+            "generatedAt": "2026-11-11T03:10:25.051Z"
+          },
+          "output": {
+            "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/cta-diagram.13a5ba8e.png",
+            "sha256": "13a5ba8ebfa07b43f3a664a35db153f48ab5c57ba7aca43f0375e7eccc6025c1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f445ec496a04d5dfe9ca72e126492d2dcc72750e48478f34cc6fe6500dbff00b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T03:10:25.051Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・書名・概要欄の文言が一致し価格とURLも無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}

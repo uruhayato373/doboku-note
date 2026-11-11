@@ -291,5 +291,12 @@
       },
       "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261111",
+    "coverRevision": "cover-pop-20261111",
+    "layout": "diagram-led"
+  }
 }

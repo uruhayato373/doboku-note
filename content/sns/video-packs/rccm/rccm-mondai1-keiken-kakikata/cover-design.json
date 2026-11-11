@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "rccm",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/rccm/rccm-mondai1-keiken-kakikata/work/cover-pop.6772e9d8.png",
+        "sha256": "6772e9d82152f647c2269f4a9e3ae1bb2fb883812a637c605ef0e64e13ea3c51",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "24d4978a34c49602d2f22c7d128f994ecac9fb359045c6a136f33edcb97d7eae"
+      }
     }
   }
 }
