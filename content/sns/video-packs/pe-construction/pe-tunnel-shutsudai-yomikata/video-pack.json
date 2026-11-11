@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-tunnel-shutsudai-yomikata",
+  "exam": "pe-construction",
+  "title": "技術士建設部門 トンネル｜出題の読み方と書き方",
+  "audience": "技術士第二次試験 建設部門で選択科目にトンネルを選ぶ、または検討している受験者",
+  "pain": "トンネルの過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、山岳・開削・シールドの条件をどこに気を付けて読めばよいか分からない",
+  "promise": "II-1・II-2・IIIの問われ方を年度のテーマから整理し、数量・工法の指定・除外の条件を読み落とさない手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/r08-tunnel/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/tunnel-ronbun-keyword/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-tunnel-magazine",
+    "campaign": "pe-tunnel-shutsudai-yomikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
