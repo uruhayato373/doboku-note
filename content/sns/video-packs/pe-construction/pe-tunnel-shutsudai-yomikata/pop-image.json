@@ -22,7 +22,7 @@
           "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-cover.d255a5ea.png",
           "sha256": "d255a5eab873a78b875f1b63a8b48fafce591ee2f462c6b52c94f717d3c6d9c1"
         },
-        "generatedAt": "2026-11-11T01:37:31.045Z"
+        "generatedAt": "2026-11-11T03:09:41.459Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -45,7 +45,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-11T01:37:31.045Z",
+        "checkedAt": "2026-11-11T03:09:41.459Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字『総監が制作』『トンネル』『出題の』『読み方』が指示と一字一致。先生は黒髪・黒縁眼鏡・軽いひげ・無地白ヘルメット・紺作業服とネクタイ・黄白反射帯で、手指の破綻なし。",
         "userImageReview": "pending"
@@ -76,7 +76,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-premise.198c5342.png",
               "sha256": "198c5342b0df19ae7fc1623f1e340ca62054b4f25f026c728d87c4b1832e9002"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/premise-diagram.dfcb3ff5.png",
@@ -90,7 +90,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3枠・下の注記が指示文字と一字一致し、崩れ字や余計な文言なし。",
             "userReview": "pending",
@@ -113,7 +113,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-myth.023ba46f.png",
               "sha256": "023ba46f3be0f31d3d903eba103b26b9749527a3feab5d7d21871136da96c54c"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/myth-diagram.aab405c2.png",
@@ -127,7 +127,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと下の全文が指示と一致。左右比較で右を強調する構図、アイコンに誤字・破綻なし。",
             "userReview": "pending",
@@ -150,7 +150,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-forms.1b2492d7.png",
               "sha256": "1b2492d755c6caf04663475270d2aa8c87698b9f349f464558144693392d9c8b"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/forms-diagram.23ef17e4.png",
@@ -164,7 +164,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3行の欄・注記が指示と一字一致し、本文の4設問1枚・2設問2枚・2問題3枚とも矛盾しない。",
             "userReview": "pending",
@@ -187,7 +187,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-ii1.d15b4095.png",
               "sha256": "d15b40951b06c24508f8d52ea5618532ce1f1781b0b4562e09789651d472bf53"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/ii1-diagram.e44a1316.png",
@@ -201,7 +201,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3工法のラベル・数量指定・注記が一字一致。山岳・開削(切梁)・シールド(カッタ付き掘進機とセグメント)の絵も種別として成り立つ。",
             "userReview": "pending",
@@ -224,7 +224,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-ii1cond.69b88474.png",
               "sha256": "69b88474b29c31ec2cdebed8bc89cdfcfe3bef93546fa811617d22e3d619681a"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/ii1cond-diagram.5ebc23fd.png",
@@ -238,7 +238,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・2枠の文言・注記が指示と一致。切梁式開削と曲線セグメントトンネルの図は破綻なし。",
             "userReview": "pending",
@@ -261,7 +261,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-ii2.f01f9a4f.png",
               "sha256": "f01f9a4f57bb0f49dd585250b330411b2779ab3860a73882fff5996f9594795e"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/ii2-diagram.8aeaadc2.png",
@@ -275,7 +275,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・(1)(2)(3)の文言・注記が指示と一字一致し、本文の三設問構成と矛盾しない。",
             "userReview": "pending",
@@ -298,7 +298,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-ii2cond.b4598636.png",
               "sha256": "b45986360b1819b22279246a87e9cb72bbcef5cb4c17a08e5bdcfa8c38886d1c"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/ii2cond-diagram.7c47fde7.png",
@@ -312,7 +312,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3枠の文言・注記が指示と一致。路線変更・補修、地震火災衝突、開削とシールド断面の図に破綻なし。",
             "userReview": "pending",
@@ -335,7 +335,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-iii.f3813638.png",
               "sha256": "f3813638ca27179ed7b54cb134ef8e3f96db3875aab862ed62abbd709c4940ea"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/iii-diagram.a9086303.png",
@@ -349,7 +349,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3円の文言・注記が指示と一字一致し、課題から解決策、残るリスクの流れが本文と合う。",
             "userReview": "pending",
@@ -372,7 +372,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-steps.0d6e455a.png",
               "sha256": "0d6e455aec0ea95150d54e2c63511baedbf83ea3c9f9d04de131b39d2ddc48b4"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/steps-diagram.e650cb93.png",
@@ -386,7 +386,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3手順・注記が指示と一字一致し、崩れ字や余計な文言なし。",
             "userReview": "pending",
@@ -409,7 +409,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-recap.914f60d1.png",
               "sha256": "914f60d14ece01bf87f135be958cf75f9145e09f00474416e71a5ccd7437e7e6"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/recap-diagram.ceda9dcb.png",
@@ -423,7 +423,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3枠・『条件を読む』・注記が指示と一字一致。余計な文字なし。",
             "userReview": "pending",
@@ -446,7 +446,7 @@
               "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/factory/raw-cta.31d7641c.png",
               "sha256": "31d7641c856e5f78245878be3b0501408720c8ed786f298c27a6230c92b9b1ec"
             },
-            "generatedAt": "2026-11-11T01:37:31.045Z"
+            "generatedAt": "2026-11-11T03:09:41.459Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-tunnel-shutsudai-yomikata/work/cta-diagram.a8c717d1.png",
@@ -460,7 +460,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T01:37:31.045Z",
+            "checkedAt": "2026-11-11T03:09:41.459Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・ノート内の書名・『収録内容は概要欄から』が一字一致。価格とURLなし、ノートと鉛筆の描写も破綻なし。",
             "userReview": "pending",
