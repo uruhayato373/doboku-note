@@ -439,3 +439,14 @@ test('preflight: 画像の前に公開行・年間の枠・主CTA・表紙の設
   assert.match(one({ cta: { kind: 'links-hub' } })[0], /links-hub/);
   assert.match(one({ cta: { kind: 'note-magazine', targetId: 'm' }, cover: null })[0], /cover-design/);
 });
+
+test('わずかに比率がずれた生成画像は中央で切り抜いて揃え、大きなずれは触らない', async () => {
+  const { fitAspect } = await import('../scripts/lib/video-factory.mjs');
+  const sharp = (await import('sharp')).default;
+  const img = (w, h) => sharp({ create: { width: w, height: h, channels: 3, background: '#336699' } }).png().toBuffer();
+  const size = async (b) => { const m = await sharp(b).metadata(); return [m.width, m.height]; };
+  assert.deepEqual(await size(await fitAspect(await img(1717, 916), 16 / 9)), [1628, 916]);
+  assert.deepEqual(await size(await fitAspect(await img(916, 1717), 9 / 16)), [916, 1628]);
+  assert.deepEqual(await size(await fitAspect(await img(1920, 1080), 16 / 9)), [1920, 1080]);
+  assert.deepEqual(await size(await fitAspect(await img(1536, 1024), 16 / 9)), [1536, 1024]);
+});
