@@ -32,6 +32,16 @@ test('unit-tests は audit から外した分を test ジョブが回し、合�
   assert.match(readFileSync(join(ROOT, '.github/workflows/automerge.yml'), 'utf8'), /for need in audit test build; do/);
 });
 
+test('失敗 Issue に「最後の緑から今回まで」の commit を載せ、そのための読み取り権限を report ジョブに持たせる（DN-1133）', () => {
+  const report = lines.join('\n').split('\n  report:\n')[1] ?? '';
+  assert.match(report, /permissions:\n\s+contents: read\n\s+issues: write\n\s+actions: read\n/);
+  assert.match(report, /gh run list --workflow ci\.yml --branch develop --status success --limit 1 --json headSha/);
+  assert.match(report, /compare\/\$\{BASE\}\.\.\.\$\{\{ github\.sha \}\}/);
+  // 取れなくても起票を止めない
+  assert.match(report, /\|\| true\)/);
+  assert.match(report, /\|\| echo "- （取得できなかった）"/);
+});
+
 test('develop の実行は途中で取り消さず、PR だけ取り消す', () => {
   assert.ok(lines.some((l) => l.trim() === "cancel-in-progress: ${{ github.event_name == 'pull_request' }}"));
 });

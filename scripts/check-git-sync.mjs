@@ -23,6 +23,7 @@ import { execFileSync } from 'node:child_process';
 import { statSync } from 'node:fs';
 import { join } from 'node:path';
 import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { developCiStatus, formatDevelopCi } from './lib/develop-ci-status.mjs';
 
 /** 未コミットの変更がこれより古ければ警告する（時間）。数時間の作業の途中は鳴らさない */
 export const STALE_WIP_HOURS = 6;
@@ -77,30 +78,8 @@ function gitSafe(args, opts = {}) {
   }
 }
 
-/**
- * develop の最新 CI run（gh run list --json の配列）から表示行を決める。何も出さないときは null。
- * @param {{ok: boolean, runs?: Array<{status?: string, conclusion?: string, url?: string, createdAt?: string, headSha?: string}>}} res
- */
-export function formatDevelopCi(res) {
-  if (!res || !res.ok) return '[git-sync] develop の CI 状態は未取得（gh が使えない・取得に失敗）。赤かどうかは不明';
-  const latest = (res.runs || [])[0];
-  if (!latest) return '[git-sync] develop の CI 状態は未取得（run が 0 件）。赤かどうかは不明';
-  if (latest.status !== 'completed') return null; // 実行中・待機中はまだ判定しない
-  if (latest.conclusion === 'success') return null;
-  const when = (latest.createdAt || '').replace('T', ' ').slice(0, 16);
-  const sha = (latest.headSha || '').slice(0, 9);
-  return `[git-sync] ✗ develop の最新 Pre-merge check が ${latest.conclusion || '失敗'}（${when}Z ${sha}）。着手前に直す: ${latest.url || ''}`;
-}
-
-function developCiStatus() {
-  try {
-    const raw = execFileSync('gh', ['run', 'list', '--branch', 'develop', '--workflow', 'ci.yml', '--limit', '1',
-      '--json', 'status,conclusion,url,createdAt,headSha'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout: 15_000 });
-    return { ok: true, runs: JSON.parse(raw) };
-  } catch {
-    return { ok: false };
-  }
-}
+// develop の CI の判定は scripts/lib/develop-ci-status.mjs（push の直前のフックと同じ判定を使う）
+export { formatDevelopCi };
 
 export async function run({ quiet = false } = {}) {
   const out = createOutput({ quiet });
