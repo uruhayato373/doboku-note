@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-pointing",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 2,
       "subtitle": "",
-      "character": {
-        "pose": "pop-pointing",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "plan",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/work/cover-pop.a55cd283.png",
+        "sha256": "a55cd283b6b5441665dbd1c56e04ec9f59896ab966fdc442c8314dcbc9068080",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "58b52fc6d6fa2d977157b815a04e30c211a8f29d870a321ab1642d1c515c610e"
+      }
     }
   }
 }
