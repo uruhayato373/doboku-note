@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 2,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-hissu1-konkyo-tsumikata/work/cover-pop.0b7d09b7.png",
+        "sha256": "0b7d09b7feec2f52f1626eb19cc9d15554385085522544174069865a7d0b4dd4",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "d15a4f403bebdceb595a2e367fc8bb776c10fc43d63830f689b0b5cf478d3ca2"
+      }
     }
   }
 }
