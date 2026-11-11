@@ -506,6 +506,17 @@
         "expected": 1185,
         "heard": 1138
       }
+    },
+    "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform": {
+      "videoSha256": "62ebb85a5019f07743efadb9f8f93cdd564aaa654476f33a04debae0eb5d65a9",
+      "at": "2026-11-11T01:43:05.889Z",
+      "similarity": 0.945,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1793,
+        "heard": 1740
+      }
     }
   }
 }

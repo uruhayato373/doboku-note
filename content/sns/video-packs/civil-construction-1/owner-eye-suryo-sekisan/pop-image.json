@@ -1,0 +1,771 @@
+{
+  "revisions": {
+    "cover-pop-20261111": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。主色 #1E73C8 と濃色 #155293、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『数量と積算』『発注者の』『目で見る』を大きく配置。上部の黄色帯に小さく『元発注者が解説』。 『』は描く文字の区切りで、括弧そのものは描かない。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-cover.5ada5894.png",
+          "sha256": "5ada58947f098e0fab4565effde4f5757e8c60bd79f107fb2c06056d1735acaf"
+        },
+        "generatedAt": "2026-11-11T01:14:58.889Z"
+      },
+      "copy": {
+        "exam": "civil-construction-1",
+        "headline": [
+          "数量と積算",
+          "発注者の",
+          "目で見る"
+        ],
+        "authority": "元発注者が解説"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/cover-pop.609be5c0.png",
+        "sha256": "609be5c0ad85347d5ccc7590d6406ac0947e71921fffd9c3f337829acb782e8f",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "5ada58947f098e0fab4565effde4f5757e8c60bd79f107fb2c06056d1735acaf"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-11T01:14:58.889Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字の軸: 指定の4句を一字ずつ照合し誤字なし、人物の顔・ヘルメット・服装・手指に破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261111": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "ea85af09fe50d3e43ced57cec90d58399983ea9a6904dbd672a8f2b4535e8a7d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日の答え』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『費目に分ける』 『数量の出どころを知る』 『入札用と実行予算を分ける』 『数量の根拠を残す』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 答えを先に言います。総額で見ずに、費目、数量の出どころ、入札用と実行予算の違い、数量の根拠の四つに分けて読むことです。積算は、数量に歩掛と単価を掛けて積み上げたもの。分けて読めば、金額の話が感覚論から検証に変わります。制度は国の工事の例で、自治体は団体ごとに違います。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 22.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-premise.f10c3aad.png",
+              "sha256": "f10c3aadf0aa64e75c0c6641b08a37ac57d2608a7194db0e32a359118a84b4e4"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/premise-diagram.50ae55b6.png",
+            "sha256": "50ae55b6a9d4ae808cf5da941becb48527c810f5b80d07b1a64bbf0684a387bf",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f10c3aadf0aa64e75c0c6641b08a37ac57d2608a7194db0e32a359118a84b4e4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "17f4a7b6c56b1a2e23dbf3dbd71770855287ea3d357b4e0d2f4651bdc24f3caa",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『金額はどう読む？』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『国の工事の例。自治体は団体ごとに異なる』の全文を省かずに入れる。 この場面の説明（文字にしない）: 金額の話は、総額が合っているかどうかで終わりがちです。ですが総額だけでは、どこが動いたのかを言えません。費目、数量、歩掛、単価に分ければ、動いた場所を言葉にできます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-misread.196d1166.png",
+              "sha256": "196d116609ec61473720901cb8d53f9c29a5ec7239cfccfeffe61c604eed10c2"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/misread-diagram.223bf2f2.png",
+            "sha256": "223bf2f2085239d3298fdfbe6e66e221e612d696241fe41199233794cc8040cf",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "196d116609ec61473720901cb8d53f9c29a5ec7239cfccfeffe61c604eed10c2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cost1",
+          "inputSha256": "eda6d9872e88cae5bef508b8ce5e2e6c395031880585c88ff2b7270c4b812a42",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『請負代金の組み立て』。 図に入れる文字: 『工事価格』 『消費税相当額』。 この場面の説明（文字にしない）: まず請負代金の組み立てです。土木工事の積算基準では、請負代金額は、工事価格と消費税相当額に分かれます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-cost1.7b94f709.png",
+              "sha256": "7b94f709fc32eb031cd45ddd0291b99b6182cb76c0dd7325e19a60d81618971a"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/cost1-diagram.187efa19.png",
+            "sha256": "187efa1995826c61da5f6c6c41e7291c1910e93c5d68a89b4012ca546743c97d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7b94f709fc32eb031cd45ddd0291b99b6182cb76c0dd7325e19a60d81618971a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cost2",
+          "inputSha256": "b9f35c0bcd6a88c0f918caadfe61503ce46dd9627db60493bc1add4319063741",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『費目』。 図に入れる文字: 『直接工事費 材料・労務・直接経費』 『共通仮設費 工事全体に共通する仮設』 『現場管理費 その現場を管理する費用』 『一般管理費等 本支店の経費と適正な利益』。 この場面の説明（文字にしない）: 費目は五つです。直接工事費は、材料費、労務費、直接経費など、目的物の施工に直接必要な費用。共通仮設費は、工事全体に共通する仮設の費用。現場管理費は、その現場を管理するための費用です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-cost2.1ddd5913.png",
+              "sha256": "1ddd5913fbe63029502f08bcff2c8673fb25168f7c349543721f9222ad72142e"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/cost2-diagram.f7b7bb48.png",
+            "sha256": "f7b7bb484a65ad97dd3d5b78a98d4a348526a758e83922d8426f870f34923ca5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1ddd5913fbe63029502f08bcff2c8673fb25168f7c349543721f9222ad72142e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cost3",
+          "inputSha256": "5e72007129de0313cf6d3b57c53ef1208a14dc2a868183565545a6b49e3eafa5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『どの費目の話か』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『積算基準の費目の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 残る一般管理費等は、会社の継続運営に必要な本支店の経費で、適正な利益を含みます。直接工事費と間接工事費は現場の裁量で動かせる部分が大きく、一般管理費等は会社側で決まる部分です。どの費目の話をしているのかを、先に分けて読みます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 47.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-cost3.5fb69240.png",
+              "sha256": "5fb69240522920dcf5d3c156f367f1a1ce4120648a7f7fb8568802441ba5ff63"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/cost3-diagram.c534ba87.png",
+            "sha256": "c534ba87b0106d25cfab3741a4ecf3673b59722c5b815a2dfa493c6e23d81480",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5fb69240522920dcf5d3c156f367f1a1ce4120648a7f7fb8568802441ba5ff63"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "qty1",
+          "inputSha256": "3ed019652d631fbfc3d7f8a45b98f3be9c14cec0cf1e3f255e1474601ef29fed",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『積算の積み上げ』。 図に入れる文字: 『数量 設計図書・現場説明書・質問回答書から』 『歩掛 労務・材料・機械の所要量』 『単価』。 この場面の説明（文字にしない）: 次に数量です。入札用の積算は、設計図書、現場説明書、質問回答書を材料に、数量へ歩掛と単価を掛けて積み上げます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-qty1.7c7078ac.png",
+              "sha256": "7c7078ac5e94ed5fe4eca099c31b1c6dd6c0e29b71c96c494d59379af862c498"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/qty1-diagram.6dc8d795.png",
+            "sha256": "6dc8d795175f1c1d0eec60f79e910acc08f6b8258e3cc8dc45dce52c54138ce4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7c7078ac5e94ed5fe4eca099c31b1c6dd6c0e29b71c96c494d59379af862c498"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "qty2",
+          "inputSha256": "cdfc3ffcab47610b01c88dcef6b67604dffee1fe22e4823204a1822005f81dd7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『歩掛の読み方』。 図に入れる文字: 『標準歩掛は 実態調査にもとづく標準値』 『合わない点は読み替える』 『読み替えの根拠を 施工計画に残す』。 この場面の説明（文字にしない）: 歩掛は、施工に要する労務、材料、機械などの所要量を表す値です。国土交通省の標準歩掛は、全国の施工実態調査にもとづく標準的な値で、自社の施工方法や現場の制約と合わない点は、読み替えて根拠を残します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 38.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-qty2.3c85f8ab.png",
+              "sha256": "3c85f8abd1350ed469edb6f668679841d71b75d8504ae3ddb9510095f3211231"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/qty2-diagram.cb74cb93.png",
+            "sha256": "cb74cb938a084ad0a92488b89bd2bd9e75b047b5e3a25d727cc7e4b3e81e6156",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3c85f8abd1350ed469edb6f668679841d71b75d8504ae3ddb9510095f3211231"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "qty3",
+          "inputSha256": "a71ba9b014d4c3e62ab016a85110ddba6e853c57ae76ae75f8a531209a31bfd4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『数量の出どころ（道路）』。 図に入れる文字: 『測点ごとの横断図』 『切土・盛土の断面積』 『隣り合う測点の断面積から土量へ』。 この場面の説明（文字にしない）: では数量はどこから出るのか。道路なら、横断図です。測点ごとに中心線と直角に切った断面で、切土と盛土の断面積が記入されます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-qty3.9e291c0d.png",
+              "sha256": "9e291c0d7d142ed7506b91f0021cad514734e84806feab5422ac527bfaaf7f8a"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/qty3-diagram.70573e98.png",
+            "sha256": "70573e98ace0cce56726e8446b72881a7de487c088ab86e8ec56a43beef8e42f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9e291c0d7d142ed7506b91f0021cad514734e84806feab5422ac527bfaaf7f8a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "qty4",
+          "inputSha256": "251bee99e4937296fc34518ae73ab629c9e470d608ca0d57be9f96abe19a529d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『平均断面法』。 図に入れる文字: 『V = (A1 + A2) ÷ 2 × L』 『A：断面積　L：測点間の距離』 『切土と盛土は別々に計算』。 この場面の説明（文字にしない）: 隣り合う二つの測点の断面積から土量を求めるのが、平均断面法です。二つの断面積の平均に、測点間の距離を掛けます。切土と盛土は、別々に計算します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-qty4.f02d4d90.png",
+              "sha256": "f02d4d90d47394e384e17bb8bf4c27cab36f29d6d08b7dc029e542cc0a5e63e7"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/qty4-diagram.40315fd6.png",
+            "sha256": "40315fd6c4968ec0676582c41f80008bcc71088c5df53add92bb58a069f0083e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f02d4d90d47394e384e17bb8bf4c27cab36f29d6d08b7dc029e542cc0a5e63e7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "qty5",
+          "inputSha256": "3d4f59356c190ab3281afb28ec3b3299f2eb9c73810471317beb3a346a797a68",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『仮の例｜平均断面法』。 この場面の説明（文字にしない）: 仮の例で計算します。断面積が12平方メートルと18平方メートル、測点の間隔が20メートルなら、平均は15、これに20を掛けて、300立方メートル。説明用の数字で、実在の工事ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-qty5.29316bbe.png",
+              "sha256": "29316bbe68cb898b088a242017f55b847b82163c693635d9e6c659b0043d3abe"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/qty5-diagram.eebce13d.png",
+            "sha256": "eebce13d2cf09ecac90f3bfd7ac202b1faa233acbf4d331ff4ae281b00d3b5c0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "29316bbe68cb898b088a242017f55b847b82163c693635d9e6c659b0043d3abe"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "qty6",
+          "inputSha256": "129af9413760969456030cc69c61dd002a7617066b95d451891d830ea64f5da2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『数量の前提』。 図に入れる文字: 『地盤高は 測量した時点の値』 『着工まで間が空くと 現地は変わりうる』 『食い違いは直ちに通知 確認を求める』。 この場面の説明（文字にしない）: ただし、この数量は、図面が現地と合っていることが前提です。地盤高は設計のために測った時点の値で、測量から着工まで間が空けば、現地の高さが変わっていることもあります。食い違いに気づいたら、直ちに監督員へ通知して、確認を求めます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-qty6.6457e9ab.png",
+              "sha256": "6457e9abc1b6b919ce570deea27409f085a9948980048b809749ba2579fc1f11"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/qty6-diagram.f9a1dad6.png",
+            "sha256": "f9a1dad67f36b9eb5ff3e61d2c9679d4a3348b936062f3f60fa4613b1a369360",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6457e9abc1b6b919ce570deea27409f085a9948980048b809749ba2579fc1f11"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "two1",
+          "inputSha256": "ffd2557621b336f134140c541185f869fb6dba30011b8afcb5f1d69c0680fa7f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『二つの数字』。 構図: 左右2つの枠を比べ、右を強調する構図。 図の下、下端の字幕の帯より上に『入札用の積算と実行予算の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 同じ積算でも、数字は二つあります。入札用の積算は、札をいくらにするかを決める数字。実行予算は、その金額で完成させるために、原価をいくらに収めるかの基準です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 37.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-two1.5e4f3d50.png",
+              "sha256": "5e4f3d50f74060aec7b9ef791d565ed975fa9f1d12065d6eb00cad2acce1a3b9"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/two1-diagram.4ad2a64b.png",
+            "sha256": "4ad2a64bb1bf9a6dfd6229f98411abfa76e209ca7ecc96dc63204bfd06e24b9f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5e4f3d50f74060aec7b9ef791d565ed975fa9f1d12065d6eb00cad2acce1a3b9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "two2",
+          "inputSha256": "f0d69f6b12e21feb1dfc212a2e1aeecd2e11249572f5e95a098944470fd35816",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『実行予算の順番』。 図に入れる文字: 『契約した請負金額（税抜）』 『経費と目標利益を引いて 原価の枠を置く』 『費目に割り振る』 『積み上げた原価が収まるか確かめる』。 この場面の説明（文字にしない）: 実行予算の順番も押さえます。出発点は、契約した請負金額。ここから、会社として確保する本支店の経費と目標利益を引いて、現場に許される原価の枠を先に置きます。その枠を費目に割り振り、積み上げた原価が収まるかを確かめます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-two2.e6adf969.png",
+              "sha256": "e6adf9694ac7e6b7eda93bdf49f9810f8b7bd2cd664369ebf420e0a61ee354c5"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/two2-diagram.26145308.png",
+            "sha256": "26145308420f680cafb3079950e44e7b60773fac7345dd28d6f6993a6717f580",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e6adf9694ac7e6b7eda93bdf49f9810f8b7bd2cd664369ebf420e0a61ee354c5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "floor",
+          "inputSha256": "9f836a5787e4f8beae9e82c206a1c6e34884b4821c2ee0e4e1de0486e39b1965",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『下限の価格』。 図に入れる文字: 『低入札価格調査の基準』 『最低制限価格』 『費目ごとに率を掛けて組む形が多い』 『率は入札説明書で確かめる』。 この場面の説明（文字にしない）: 入札の側には、下限の価格もあります。低入札価格調査の基準や、最低制限価格は、予定価格の費目ごとに率を掛けて組む形が多く見られます。率は発注者や年度で動くので、入札説明書で確かめます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-floor.591a23b9.png",
+              "sha256": "591a23b981c608ef71797e7e298c08a7acccfa0bf65675cf7fb7cc80e1c18068"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/floor-diagram.10183386.png",
+            "sha256": "10183386baee62a205abbdc93b3845e8ce957ec8fe1c69c2ea9ea2e2a2803eed",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "591a23b981c608ef71797e7e298c08a7acccfa0bf65675cf7fb7cc80e1c18068"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pay",
+          "inputSha256": "201ed38b0eb4b1bd5ac5c4781cc4bfdca25f9121f661c7716249bbbb4332325b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『部分払の請求を受けたら』。 図に入れる文字: 『出来形内訳書を審査』 『既済部分出来高対照表を作成』 『契約担当官等へ報告』。 この場面の説明（文字にしない）: 数量は、出来高の確認にも使われます。受注者が部分払を請求したとき、監督員は、出来形内訳書を審査し、既済部分出来高対照表を作成して、契約担当官等へ報告します。国の基準の整理で、自治体は団体ごとの要領によります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-pay.f47e0c6b.png",
+              "sha256": "f47e0c6bc5df833d06c2dc6cd48aa03b1901f99f9d892e0e2e51d2eb1b581d24"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/pay-diagram.e296c905.png",
+            "sha256": "e296c9055102b1c5a50ac162b6c78720929c2a8c5c5cfc4d3aaa3b1edc40df89",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f47e0c6bc5df833d06c2dc6cd48aa03b1901f99f9d892e0e2e51d2eb1b581d24"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "proof",
+          "inputSha256": "b90ca586fc5b014018630817455cde43d47cc692cbcc2e793829ae761e4cc3f5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『整理しておくもの』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『契約書』 『指示・通知』 『数量の根拠』 『協議の経過』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 数量の食い違いでもめたときも、頼れるのは記録です。追加工事の代金などで認識が一致しないときは、契約書、指示や通知、数量の根拠、協議の経過を整理し、合意済みの事項と争いのある事項を分けます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-proof.8f43c579.png",
+              "sha256": "8f43c5798ee7419809a54c5785ca503cae768543fd6a59616a4d22bd2aec6062"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/proof-diagram.33bc607b.png",
+            "sha256": "33bc607bfa7f47c0da70534c9a282253686f1913d33ee024bba06973a6fb1272",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8f43c5798ee7419809a54c5785ca503cae768543fd6a59616a4d22bd2aec6062"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "exam",
+          "inputSha256": "6e443c23ad8b3a8b891ea7c1d79e994c60308bd9a74f5676b188be654f153242",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『学習との接点』。 構図: 同じ大きさの枠を並べる構図。 図に入れる文字: 『施工計画・経験記述で』 『何の図面のどの数字か』 『根拠まで言えると具体的』 『出題は受検年度の公式情報で確認』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 学習との接点を一つだけ。施工計画や経験記述で数量や費用に触れるときは、何の図面のどの数字から出したかまで言えると、具体的になります。何が出題されるかは年度によって違うので、出題を予想するものではありません。受検年度の公式情報を確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 18.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-exam.9f6ca62a.png",
+              "sha256": "9f6ca62ae20931de968f0fc939a2b3e0ba78edb7ed2d6d9559de7bc04abe48cb"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/exam-diagram.c481b98b.png",
+            "sha256": "c481b98b5fc6cad85f40a432555c842c148148b3f188377f992eeff223cb6f31",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9f6ca62ae20931de968f0fc939a2b3e0ba78edb7ed2d6d9559de7bc04abe48cb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "recap",
+          "inputSha256": "d9e3ee5ab884fee21ea2c1eef5a9aca6ae8dd11218e2c93b24965b38ca0dd5d3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『今日のまとめ』。 構図: 番号付きの大きな枠を横に並べる構図。 図に入れる文字: 『総額でなく費目に分ける』 『数量は図面が現地と合う前提』 『入札用と実行予算は別の数字』 『数量の根拠を記録と残す』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: まとめます。金額は、総額で見ずに費目に分ける。数量は、横断図の断面積から出て、図面が現地と合っていることが前提。入札用の積算と実行予算は、別の数字。そして、数量の根拠は、契約書、通知、協議の経過と一緒に残します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 16.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-recap.4e826188.png",
+              "sha256": "4e82618845d9c6319206af5cde0fd341c19213e6b96a043d737054d53c30b2b1"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/recap-diagram.6b541dfa.png",
+            "sha256": "6b541dfa4d13ebda1a387563f858e7a1c6eb79a554060a2683eb2ac7948982a3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4e82618845d9c6319206af5cde0fd341c19213e6b96a043d737054d53c30b2b1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "b389e056c16e61974051b0ff66c39e9df2e2dae5d1b8468ef0ecca8b98f033f1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、主色 #1E73C8 と濃色 #155293の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 『』は描く文字の区切りで、括弧そのものは描かない。 見出し『詳しくはサイトの記事で』。 構図: 教材のノートを中央に置く構図。価格とURLは描かない。 図に入れる文字: 『原価と設計変更』 『リンクは概要欄から』。 図の下、下端の字幕の帯より上に『本動画の独自の整理』の全文を省かずに入れる。 この場面の説明（文字にしない）: 費目の構成と、入札用の積算から実行予算までの流れは、サイトの記事で整理しています。入札の積算から実行予算を作る節が、記事の前半にあります。概要欄のリンクから、確認してください。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 20.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/factory/raw-cta.1fde242b.png",
+              "sha256": "1fde242b70b15fce11208cc9532fce7e0b0fbe2ba6b29ee1c2b94b06ee624acb"
+            },
+            "generatedAt": "2026-11-11T01:14:58.889Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/owner-eye-suryo-sekisan/work/cta-diagram.f9572544.png",
+            "sha256": "f9572544f32f3b71dd8815d05633ec60cacd955951008799da423f111cb97a9f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1fde242b70b15fce11208cc9532fce7e0b0fbe2ba6b29ee1c2b94b06ee624acb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T01:14:58.889Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字の軸: 指定文言を一字ずつ照合し誤字・余計な文字なし、図解の構造に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261111",
+  "activeBodyRevision": "body-diagram-20261111"
+}
