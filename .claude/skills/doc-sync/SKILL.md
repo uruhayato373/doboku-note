@@ -18,7 +18,7 @@ domain: ops
 
 ## いつ回すか（発火規律）
 
-**回す**: `src/**` `scripts/**` `.claude/skills/**` `.claude/agents/**` `package.json` `src/config/**` `src/styles/**` 等「**ドキュメント化された面**」を変更したタスクの**完了時 / コミット前**。
+**回す（任意）**: 仕様を大きく変えたとき（コマンドの引数・既定値・閾値・手順の変更、スクリプトの改名・統廃合）に 1 回。一律の義務ではない（2026-11-11 に外した。参照の実在・一覧・コマンドの案内は、機械検査 `check-doc-refs`・`check-relative-links`・`check-doc-coupling`・`check-command-guidance` が pre-commit と CI で毎回見る）。
 **回さない**: 純コンテンツ編集（`content/site/**` の MDX 記事、`content/note/**` `content/sns/**` の素材、画像）。これらは reference doc を陳腐化させないのでトークンの無駄。
 
 ## 手順（親が実行）
