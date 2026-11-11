@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "channel": "youtube",
+  "exam": "rccm",
+  "publications": [
+    {
+      "id": "rccm/rccm-mondai1-keiken-kakikata/youtube.longform",
+      "work": "rccm-mondai1-keiken-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "rccm/rccm-mondai3-ronbun-kata/youtube.longform",
+      "work": "rccm-mondai3-ronbun-kata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-keiken-kouji-gaiyou",
+  "exam": "civil-construction-1",
+  "title": "1級土木 経験記述｜工事概要の書き方",
+  "audience": "1級土木施工管理技士の第二次検定で施工経験記述を準備している受検者",
+  "pain": "経験記述の工事概要の七つの欄を埋めても、どこまで細かく書けば足りるのか、欄どうしが合っているのか分からない",
+  "promise": "七つの欄の書き方と、発注者名・工期・立場・工種と施工量の迷いどころが分かり、欄どうしをそろえて工事概要を仕上げられる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-keiken-complete-pack",
+    "campaign": "c1-keiken-kouji-gaiyou"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

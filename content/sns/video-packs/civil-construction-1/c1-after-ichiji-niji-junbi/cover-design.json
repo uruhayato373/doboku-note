@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "1級土木",
+        "一次のあと",
+        "二次の準備"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
+      "layout": "diagram-led"
+    }
+  }
+}

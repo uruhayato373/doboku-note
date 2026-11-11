@@ -3,6 +3,16 @@
   "exam": "rccm",
   "works": [
     {
+      "id": "rccm-mondai1-keiken-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/rccm/rccm-mondai1-keiken-kakikata"
+    },
+    {
+      "id": "rccm-mondai3-ronbun-kata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/rccm/rccm-mondai3-ronbun-kata"
+    },
+    {
       "id": "rccm10",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/104-rccm-2026-10",

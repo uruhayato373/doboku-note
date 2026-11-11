@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "packId": "civil-license-ladder-order",
+  "exam": "civil-construction-1",
+  "title": "2級から1級、技術士へ進む順序",
+  "audience": "2級土木施工管理技士を持つ人、または目指していて、次に1級か技術士かで迷っている人",
+  "pain": "2級の次に1級を取るか技術士に進むか迷い、三つの資格の役割と受験の起点の違いが分からず、進む順序を決められない",
+  "promise": "三つの資格の役割と受験の起点を確かめ、足りない権限・かけられる年数・評価される場の三つの問いで進む順序を決められる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "civil-license-ladder-order"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

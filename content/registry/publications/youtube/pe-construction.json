@@ -770,6 +770,13 @@
       "status": "draft"
     },
     {
+      "id": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
+      "work": "pe-hissu1-theme-junbi",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
       "id": "pe-construction/pe-ii1-kakikata/youtube.longform",
       "work": "pe-ii1-kakikata",
       "account": "youtube:main",
@@ -779,6 +786,13 @@
     {
       "id": "pe-construction/pe-ii2-kakikata/youtube.longform",
       "work": "pe-ii2-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "pe-construction/pe-iii-kakikata/youtube.longform",
+      "work": "pe-iii-kakikata",
       "account": "youtube:main",
       "format": "longform",
       "status": "draft"

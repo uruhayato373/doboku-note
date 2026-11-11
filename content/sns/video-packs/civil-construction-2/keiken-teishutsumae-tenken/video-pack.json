@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-teishutsumae-tenken",
+  "exam": "civil-construction-2",
+  "title": "提出前の点検｜経験記述を5点で見直す",
+  "audience": "2級土木の施工経験記述を書き上げたが、提出前に何を見直せばよいか分からない受検者",
+  "pain": "書き上げた経験記述の答案を、どの観点でどの順に見直せばよいか分からず、不安なまま仕上げてしまう",
+  "promise": "設問・整合・体裁・具体さ・自分の事実の5点で、書き上げた答案を提出前に見直せる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "keiken-teishutsumae-tenken"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": 0,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

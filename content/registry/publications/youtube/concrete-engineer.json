@@ -2,5 +2,13 @@
   "schemaVersion": 1,
   "channel": "youtube",
   "exam": "concrete-engineer",
-  "publications": []
+  "publications": [
+    {
+      "id": "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform",
+      "work": "ce-haigou-kakunin-jun",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    }
+  ]
 }

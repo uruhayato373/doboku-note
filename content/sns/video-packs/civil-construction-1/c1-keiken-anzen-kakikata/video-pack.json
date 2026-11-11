@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-keiken-anzen-kakikata",
+  "exam": "civil-construction-1",
+  "title": "1級土木 経験記述｜安全管理の書き方",
+  "audience": "1級土木施工管理技士の第二次検定で施工経験記述を準備している受検者",
+  "pain": "経験記述で安全管理が出たとき、危険予知活動や安全パトロールしか浮かばず、何を課題にして書けばよいか分からない",
+  "promise": "その現場に固有の危険から課題を立て、状況・課題・検討・対応処置と評価を安全管理でどう組むかが分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-experience-essay",
+    "campaign": "c1-keiken-anzen-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

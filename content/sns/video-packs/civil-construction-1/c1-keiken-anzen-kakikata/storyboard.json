@@ -1,0 +1,357 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "安全管理の経験記述、何を書く？",
+      "caption": "安全管理の経験記述、何を書くのか",
+      "visual": {
+        "kind": "cover",
+        "heading": "安全管理、何を書く？",
+        "items": [
+          "1級土木施工管理｜経験記述"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 31,
+      "narration": "経験記述で安全管理が指定されたとき、危険予知活動や安全パトロールくらいしか思い浮かばない。そんな人は多いと思います。今日は、安全管理の答案を、どこから組み立てるかを整理します。結論は、どの現場でも行う安全活動ではなく、その現場に固有の危険から課題を立てる、ということです。受検する年の問題は、公式の案内で確認してください。",
+      "caption": "安全管理は、その現場に固有の危険から課題を立てる",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "どの現場でもやる活動ではなく",
+          "その現場に固有の危険から課題を立てる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "書き方の整理は本動画の再構成"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 31,
+      "end": 57,
+      "narration": "よくある思い込みは、危険予知活動、安全パトロール、新規入場者教育を並べれば、安全管理の答案になる、というものです。しかし、これらは、どの現場でも行う通常の安全活動です。そのため、課題になりにくいと、サイト記事では整理されています。活動の名前を並べるだけでは、その現場で何が危なかったのかが見えません。",
+      "caption": "通常の安全活動を並べても、課題にならない",
+      "visual": {
+        "kind": "points",
+        "heading": "よくある思い込み",
+        "items": [
+          "危険予知・パトロール・入場者教育を\n並べれば安全管理になる",
+          "どの現場でも行う活動は\n課題になりにくい"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "サイト記事の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "concept",
+      "start": 57,
+      "end": 84,
+      "narration": "まず、安全管理とは何かです。施工に従事する人と、現場周辺の住民の安全を守り、労働災害を防ぐことです。記述では、工事の内容に合った工種ごとの危険に対して、具体的な対策を書きます。評価されやすいのは、安全の考え方が見える答案です。そのために、安全確保のために何が必要かを、事前に検討したことが伝わる書き方をします。",
+      "caption": "安全管理は、工種ごとの危険への具体策",
+      "visual": {
+        "kind": "sheet",
+        "heading": "安全管理の守る範囲",
+        "sheetTitle": "記述の前提",
+        "rows": [
+          {
+            "label": "守る相手",
+            "value": "作業する人と、周辺の住民",
+            "state": "focus"
+          },
+          {
+            "label": "防ぐもの",
+            "value": "労働災害と、公衆災害",
+            "state": "todo"
+          },
+          {
+            "label": "書く中身",
+            "value": "工種ごとの危険への具体策",
+            "state": "todo"
+          },
+          {
+            "label": "見せるもの",
+            "value": "事前に検討したという考え方",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "danger",
+      "start": 84,
+      "end": 112,
+      "narration": "課題の立て方です。その現場に固有の危険を探します。記事が挙げているのは、作業床の高さ、重機と作業員が近いこと、第三者や交通が近いことです。急な法面や、足場の上での作業も、工種ごとの危険の例です。自分の現場で、ここだけは他と違った、という点を一つ選びます。課題は一つに絞るほど、検討から評価までが一本の線でつながります。",
+      "caption": "作業床・重機・第三者など、現場固有の危険を選ぶ",
+      "visual": {
+        "kind": "sheet",
+        "heading": "課題の種になる固有の危険",
+        "sheetTitle": "探す観点",
+        "rows": [
+          {
+            "label": "高さ",
+            "value": "作業床の高さ",
+            "state": "focus"
+          },
+          {
+            "label": "近接",
+            "value": "重機と作業員の近さ",
+            "state": "focus"
+          },
+          {
+            "label": "第三者",
+            "value": "第三者や交通との近さ",
+            "state": "focus"
+          },
+          {
+            "label": "一つに絞る",
+            "value": "課題は一つにして線でつなぐ",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "state",
+      "start": 112,
+      "end": 138,
+      "narration": "次に、状況の書き方です。危険の原因になった条件を、数値で書きます。危ない場所があった、ではなく、作業床の高さや、近接している距離のように、測れる条件で示します。現場条件、作業条件のどれが原因かも、はっきりさせます。ここで対処の方法まで書いてしまうと、あとの欄が書けなくなるので、原因までで止めます。",
+      "caption": "状況は、測れる条件で書き、対処は書かない",
+      "visual": {
+        "kind": "compare",
+        "heading": "状況の書き方",
+        "ngLabel": "伝わりにくい書き方",
+        "okLabel": "書き方",
+        "rows": [
+          {
+            "label": "高さ",
+            "ng": "高い所で作業した",
+            "ok": "作業床の高さを数値で"
+          },
+          {
+            "label": "近接",
+            "ng": "重機が近くにいた",
+            "ok": "近接している距離で"
+          },
+          {
+            "label": "対処",
+            "ng": "状況に対策まで書く",
+            "ok": "原因までで止める"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "issue",
+      "start": 138,
+      "end": 166,
+      "narration": "状況の最後の一文を原因として受けて、課題を一文で言い切ります。形は、何々であったため、何々のおそれがあり、何々の確保が課題であった、です。安全管理なら、墜落や接触のような、起こりうる災害を入れます。何を確保するのかを、はっきり書きます。設問の区画は限られているので、課題の文は短くして、理由と中身に字数を回します。",
+      "caption": "課題は一文で。何を確保するのかを言い切る",
+      "visual": {
+        "kind": "points",
+        "heading": "課題の一文",
+        "items": [
+          "〇〇であったため\n〇〇のおそれがあり",
+          "〇〇の確保が課題であった",
+          "課題の文は短く\n字数は理由と中身へ"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／経験記述",
+          "note": "サイト記事の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "study",
+      "start": 166,
+      "end": 193,
+      "narration": "検討した項目は、項目ごとに形をそろえます。確保したいもの、その項目を挙げた理由、長所と短所の順です。長所だけだと、比べた形にならないので、短所にも触れておくと、選んだ根拠が立ちます。令和六年度以降の形式では、検討した項目は、一つ目の区画の後半に入ります。残りの字数は少ないので、理由は項目ごとに短く絞ります。",
+      "caption": "検討は、確保したいもの・理由・長所と短所",
+      "visual": {
+        "kind": "sheet",
+        "heading": "検討の項目のそろえ方",
+        "sheetTitle": "項目ごとの順序",
+        "rows": [
+          {
+            "label": "一",
+            "value": "確保したいもの",
+            "state": "focus"
+          },
+          {
+            "label": "二",
+            "value": "その項目を挙げた理由",
+            "state": "todo"
+          },
+          {
+            "label": "三",
+            "value": "長所と短所",
+            "state": "todo"
+          },
+          {
+            "label": "結論",
+            "value": "何が有効と判断したか、根拠つき",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "action",
+      "start": 193,
+      "end": 223,
+      "narration": "対応処置は、検討の結果にもとづいて、どう対処したかを書きます。ここには、具体的な数値を入れます。工法、機械、材料、管理方法を、できるだけ具体的に書きます。検討結果が、地盤改良とした、のように結果だけにならないよう、理由を添えます。評価は、残りがわずかなので、結論めいた一文で端的に書きます。数値は、あとで出どころを示せるものだけにします。",
+      "caption": "処置は数値と具体策、評価は端的な一文",
+      "visual": {
+        "kind": "compare",
+        "heading": "対応処置の書き方",
+        "ngLabel": "足りない書き方",
+        "okLabel": "書き方",
+        "rows": [
+          {
+            "label": "処置",
+            "ng": "対策を実施した",
+            "ok": "工法・機械・材料・管理方法を数値つきで"
+          },
+          {
+            "label": "理由",
+            "ng": "結果だけ",
+            "ok": "理由と留意点を添える"
+          },
+          {
+            "label": "評価",
+            "ng": "長い感想",
+            "ok": "結論めいた一文で端的に"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 223,
+      "end": 254,
+      "narration": "仮の例で、流れを確かめます。切土の法面で、急な勾配のため、作業員の墜落や転落が課題になった、という想定です。検討では、ハーネス型の安全帯の使用、親綱の設置、防護ネットの設置を、確保したいものと理由、長所と短所で比べます。処置では、条件を超える法面に親綱と防護ネットを設けたと、数値を入れて書きます。これは説明のための仮の例で、実在の工事ではありません。",
+      "caption": "仮の例：急な法面で、墜落・転落を課題にする",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の例：切土の急な法面",
+        "sheetTitle": "安全管理の流れ（説明用の仮の例）",
+        "rows": [
+          {
+            "label": "状況",
+            "value": "法面の勾配 〇〇、高さ 〇〇m",
+            "state": "done"
+          },
+          {
+            "label": "課題",
+            "value": "作業員の墜落・転落の防止",
+            "state": "focus"
+          },
+          {
+            "label": "検討",
+            "value": "安全帯・親綱・防護ネットを比べる",
+            "state": "done"
+          },
+          {
+            "label": "処置",
+            "value": "〇〇mを超える法面に親綱と防護ネット",
+            "state": "done"
+          },
+          {
+            "label": "評価",
+            "value": "無事故で完了（実際の結果を書く）",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "pair",
+      "start": 254,
+      "end": 283,
+      "narration": "令和六年度以降の形式では、五つの管理から二つが指定されて、同じ工事について両方を書きます。二つの解答は、同じ内容にはできません。安全管理が指定されても、もう一つの管理とは、課題と対策を書き分けます。だから、一つの工事を、五つの管理の視点で整理しておくと、どの組み合わせにも対応できます。設問の指定は、受検する年の問題で確かめてください。",
+      "caption": "二つの管理は、同じ工事の別の側面で書き分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "二テーマ必答の注意",
+        "items": [
+          "同じ工事で、二つの管理を書く",
+          "解答は同一内容にできない",
+          "五つの管理で一つの工事を整理"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／経験記述",
+          "note": "サイト記事の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 283,
+      "end": 306,
+      "narration": "まとめます。一、通常の安全活動を並べず、その現場に固有の危険から課題を立てる。二、状況は測れる条件で書き、課題は一文で言い切る。三、検討は、確保したいもの、理由、長所と短所の順にそろえる。四、処置は数値と具体策、評価は端的に。二つの管理を書き分けることも忘れずに。",
+      "caption": "固有の危険・測れる状況・検討の順序・数値の処置",
+      "visual": {
+        "kind": "points",
+        "heading": "今日のまとめ",
+        "items": [
+          "固有の危険から課題を立てる",
+          "状況は測れる条件で\n課題は一文で",
+          "検討は理由と長所短所を\nそろえる",
+          "処置は数値で\n評価は端的に"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／経験記述",
+          "note": "本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 306,
+      "end": 320,
+      "narration": "品質、工程などを含めた五つの管理の完成答案を見て、自分の現場に置き換えたい人は、概要欄の完成答案集を確認してください。無料のサイト記事も、概要欄に載せています。",
+      "caption": "五つの管理の完成答案を見るなら概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の現場に置き換える",
+        "items": [
+          "五つの管理の完成答案を見る",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／経験記述",
+          "note": "概要欄のリンク"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ]
+}

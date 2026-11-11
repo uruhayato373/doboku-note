@@ -1,0 +1,357 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "品質管理の経験記述、何を書く？",
+      "caption": "品質管理の経験記述、何を書くのか",
+      "visual": {
+        "kind": "cover",
+        "heading": "品質管理、何を書く？",
+        "items": [
+          "1級土木施工管理｜経験記述"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 31,
+      "narration": "経験記述で品質管理が指定されたとき、品質に留意して施工した、までは書けても、その先が続かない。そんな人は多いと思います。今日は、品質管理の答案を、どこから組み立てるかを整理します。結論は、品質に留意した、で止めず、どの品質項目に焦点を当てたかを一つ選び、基準と測り方まで書く、ということです。受検する年の問題は、公式の案内で確認してください。",
+      "caption": "品質管理は、焦点を当てる品質項目を一つ選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "品質に留意した、で止めず",
+          "焦点を当てる品質項目を一つ選び\n基準と測り方まで書く"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "書き方の整理は本動画の再構成"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 31,
+      "end": 57,
+      "narration": "よくある思い込みは、品質に留意した、試験を行って確認した、と書けば品質管理の答案になる、というものです。しかし、サイト記事では、品質管理というテーマの、どの分野に焦点を合わせたのかまで踏み込んで書くことが求められています。何を確かめたのかが見えないと、読む側には、一般的な話に見えてしまいます。",
+      "caption": "「留意した」だけでは、焦点が見えない",
+      "visual": {
+        "kind": "points",
+        "heading": "よくある思い込み",
+        "items": [
+          "「品質に留意した」\n「試験で確認した」と書けばよい",
+          "どの分野に焦点を当てたかまで\n書くのが求められる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "サイト記事の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "concept",
+      "start": 57,
+      "end": 84,
+      "narration": "まず、品質管理とは何かです。設計図書に基づいて施工し、工事目的物の所定の品質を確保して、さらに品質の向上を図ることです。記述では、主要な品質の管理項目をどう設定し、どんな方法で管理したかを書きます。評価されやすいのは、品質を保証するための計画と、その技術的な背景が見える答案です。",
+      "caption": "品質管理は、管理項目と管理方法を書く",
+      "visual": {
+        "kind": "sheet",
+        "heading": "品質管理で書くこと",
+        "sheetTitle": "記述の前提",
+        "rows": [
+          {
+            "label": "守るもの",
+            "value": "設計図書の品質、形状、寸法",
+            "state": "focus"
+          },
+          {
+            "label": "書く中身",
+            "value": "管理項目の設定と管理の方法",
+            "state": "todo"
+          },
+          {
+            "label": "見せるもの",
+            "value": "品質を保証する計画と技術的背景",
+            "state": "todo"
+          },
+          {
+            "label": "外すもの",
+            "value": "工程の短縮だけの話",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "item",
+      "start": 84,
+      "end": 112,
+      "narration": "課題の立て方です。品質項目を、一つ選びます。記事が挙げている例は、盛土や路盤の締固めの、密度と含水比、コンクリートの、スランプ、空気量、圧縮強度、打設温度、養生です。舗装なら、敷均しの温度や締固め度があります。自分の現場で、ここの品質が一番心配だった、という点を一つ選びます。工程短縮の話と混ざらないように、品質の話に絞ります。",
+      "caption": "課題の種は、品質項目を一つ選ぶこと",
+      "visual": {
+        "kind": "sheet",
+        "heading": "焦点を当てる品質項目",
+        "sheetTitle": "選ぶ観点の例",
+        "rows": [
+          {
+            "label": "盛土・路盤",
+            "value": "締固め度、含水比、支持力",
+            "state": "focus"
+          },
+          {
+            "label": "コンクリート",
+            "value": "スランプ、空気量、強度、温度、養生",
+            "state": "focus"
+          },
+          {
+            "label": "舗装",
+            "value": "敷均しの温度、締固め度",
+            "state": "focus"
+          },
+          {
+            "label": "一つに絞る",
+            "value": "工程の話と混ぜない",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "state",
+      "start": 112,
+      "end": 138,
+      "narration": "次に、状況の書き方です。品質に影響した条件を、数値で書きます。暑かった、ではなく打込み時のコンクリート温度、運搬に時間がかかった、ではなく練り混ぜから打設までの時間のように、測れる条件で示します。気象、現場、作業のどの条件が原因かも、はっきりさせます。ここで対処の方法まで書くと、あとの欄が書けなくなるので、原因までで止めます。",
+      "caption": "状況は、測れる条件で書き、原因で止める",
+      "visual": {
+        "kind": "compare",
+        "heading": "状況の書き方",
+        "ngLabel": "伝わりにくい書き方",
+        "okLabel": "書き方",
+        "rows": [
+          {
+            "label": "温度",
+            "ng": "暑い時期だった",
+            "ok": "打込み時の温度を数値で"
+          },
+          {
+            "label": "時間",
+            "ng": "運搬に時間がかかった",
+            "ok": "練混ぜから打設までの時間で"
+          },
+          {
+            "label": "対処",
+            "ng": "状況に対策まで書く",
+            "ok": "原因までで止める"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "issue",
+      "start": 138,
+      "end": 166,
+      "narration": "状況の最後の一文を原因として受け、課題を一文で言い切ります。形は、何々であったため、何々のおそれがあり、何々の確保が課題であった、です。品質管理なら、ひび割れや強度不足のような、起こりうる不具合を入れます。何を確保するのかを、はっきり書きます。設問の区画は限られているので、課題の文は短くして、理由と中身に字数を回します。",
+      "caption": "課題は、原因を受けて一文で言い切る",
+      "visual": {
+        "kind": "points",
+        "heading": "課題の一文",
+        "items": [
+          "〇〇であったため\n〇〇のおそれがあり",
+          "〇〇の確保が課題であった",
+          "課題の文は短く\n字数は理由と中身へ"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／経験記述",
+          "note": "サイト記事の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "study",
+      "start": 166,
+      "end": 193,
+      "narration": "検討した項目は、項目ごとに形をそろえます。確保したい品質、その項目を挙げた理由、長所と短所の順です。長所だけだと、比べた形にならないので、短所にも触れておくと、選んだ根拠が立ちます。令和六年度以降の形式では、検討した項目は、一つ目の区画の後半に入ります。残りの字数は少ないので、理由は項目ごとに短く絞り、実施した数値は処置に回します。",
+      "caption": "検討は、品質・理由・長所短所の順にそろえる",
+      "visual": {
+        "kind": "sheet",
+        "heading": "検討の項目のそろえ方",
+        "sheetTitle": "項目ごとの順序",
+        "rows": [
+          {
+            "label": "一",
+            "value": "確保したい品質",
+            "state": "focus"
+          },
+          {
+            "label": "二",
+            "value": "その項目を挙げた理由",
+            "state": "todo"
+          },
+          {
+            "label": "三",
+            "value": "長所と短所",
+            "state": "todo"
+          },
+          {
+            "label": "結論",
+            "value": "何が有効と判断したか、根拠つき",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "action",
+      "start": 193,
+      "end": 223,
+      "narration": "対応処置は、検討の結果にもとづいて、どう対処したかを書きます。品質管理では、処置のもとになる管理基準を、先にはっきり示します。そのうえで、工法、機械、材料、管理方法を、具体的な数値つきで書きます。結果だけにならないよう、理由と留意点を添えます。評価は、残りがわずかなので、結論めいた一文で端的に書きます。数値は、あとで出どころを示せるものだけにします。",
+      "caption": "処置は、管理基準を示して具体的に書く",
+      "visual": {
+        "kind": "compare",
+        "heading": "対応処置の書き方",
+        "ngLabel": "足りない書き方",
+        "okLabel": "書き方",
+        "rows": [
+          {
+            "label": "基準",
+            "ng": "基準を示さない",
+            "ok": "管理基準を先に明示"
+          },
+          {
+            "label": "処置",
+            "ng": "対策を実施した",
+            "ok": "工法・機械・材料・管理方法を数値つきで"
+          },
+          {
+            "label": "評価",
+            "ng": "長い感想",
+            "ok": "結論めいた一文で端的に"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 223,
+      "end": 254,
+      "narration": "仮の例で、流れを確かめます。夏期のコンクリート打設で、運搬に時間がかかり、打込み温度が上がって、ひび割れのおそれがあった、という想定です。検討では、練り混ぜ温度の抑制、打設後の湿潤養生などを、確保したい品質と理由、長所と短所で比べます。処置では、管理する温度の基準と測る頻度を、数値を入れて書きます。これは説明のための仮の例で、実在の工事ではありません。",
+      "caption": "仮の例：夏期の打設で、温度を課題にする",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の例：夏期のコンクリート打設",
+        "sheetTitle": "品質管理の流れ（説明用の仮の例）",
+        "rows": [
+          {
+            "label": "状況",
+            "value": "運搬時間 〇〇分、打込み温度 〇〇度",
+            "state": "done"
+          },
+          {
+            "label": "課題",
+            "value": "ひび割れを防ぐ温度の確保",
+            "state": "focus"
+          },
+          {
+            "label": "検討",
+            "value": "練混ぜ温度の抑制と湿潤養生を比べる",
+            "state": "done"
+          },
+          {
+            "label": "処置",
+            "value": "温度の管理基準と測定頻度を数値で",
+            "state": "done"
+          },
+          {
+            "label": "評価",
+            "value": "不具合なく完了（実際の結果を書く）",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "pair",
+      "start": 254,
+      "end": 283,
+      "narration": "令和六年度以降の形式では、五つの管理から二つが指定されて、同じ工事について両方を書きます。二つの解答は、同じ内容にはできません。品質管理が指定されても、もう一つの管理とは、課題と対策を書き分けます。だから、一つの工事を、五つの管理の視点で整理しておくと、どの組み合わせにも対応できます。設問の指定は、受検する年の問題で確かめてください。",
+      "caption": "二つの管理は、同じ内容にせず書き分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "二テーマ必答の注意",
+        "items": [
+          "同じ工事で、二つの管理を書く",
+          "解答は同一内容にできない",
+          "五つの管理で一つの工事を整理"
+        ],
+        "art": {
+          "type": "learning-loop",
+          "section": "土木施工管理／経験記述",
+          "note": "サイト記事の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 283,
+      "end": 306,
+      "narration": "まとめます。一、品質に留意した、で止めず、焦点を当てる品質項目を一つ選ぶ。二、状況は測れる条件で書き、課題は一文で言い切る。三、検討は、確保したい品質、理由、長所と短所の順にそろえる。四、処置は管理基準と数値、評価は端的に。二つの管理を書き分けることも忘れずに。",
+      "caption": "品質項目を選び、基準と数値で書く",
+      "visual": {
+        "kind": "points",
+        "heading": "今日のまとめ",
+        "items": [
+          "品質項目を一つ選ぶ",
+          "状況は測れる条件で\n課題は一文で",
+          "検討は理由と長所短所を\nそろえる",
+          "処置は基準と数値で\n評価は端的に"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／経験記述",
+          "note": "本動画の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 306,
+      "end": 320,
+      "narration": "安全、工程などを含めた五つの管理の完成答案を見て、自分の現場に置き換えたい人は、概要欄の完成答案集を確認してください。無料のサイト記事も、概要欄に載せています。",
+      "caption": "五つの管理の完成答案を見るなら概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の現場に置き換える",
+        "items": [
+          "五つの管理の完成答案を見る",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／経験記述",
+          "note": "概要欄のリンク"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ]
+}

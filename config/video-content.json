@@ -31,7 +31,8 @@
       "pe-first-stage",
       "concrete-chief-engineer",
       "concrete-diagnostician",
-      "concrete-engineer"
+      "concrete-engineer",
+      "rccm"
     ],
     "intentEnum": ["exam-point", "howto", "diagnosis", "roadmap", "career"],
     "outputsKeys": [

@@ -1,0 +1,283 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "1級の次に取る資格。何を基準に選びますか。",
+      "caption": "1級の次に取る資格",
+      "visual": {
+        "kind": "cover",
+        "heading": "1級の次に取る資格 名前を出す欄で選ぶ",
+        "items": [
+          "土木施工管理｜1級のあと"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 4,
+      "end": 34,
+      "narration": "1級土木施工管理技士を取ったあと、次に何を取るか迷っていませんか。この動画では、技術士、RCCM、コンクリート診断士の三つについて、どの業務の資格欄に名前を出したいかを基準に、次の一つを絞る見方を一つの案として示します。条件は受検する年の公式の案内で確認する前提です。",
+      "caption": "名前を出したい欄で、次の一つを絞る",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "候補は技術士・RCCM・診断士",
+          "基準は名前を出したい業務の欄",
+          "条件は受検する年の公式で確認"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "本動画の整理の一案"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 34,
+      "end": 64,
+      "narration": "よくある思い込みは、1級の次は技術士、難しい資格ほど価値が高い、というものです。実際は、資格ごとに名前を出せる書類と業務が違います。発注者として資格欄を見ていた立場では、難しさより先に、その業務の欄に載る資格かどうかを確かめていました。",
+      "caption": "難しさより、その業務の欄に載るか",
+      "visual": {
+        "kind": "points",
+        "heading": "よくある思い込み",
+        "items": [
+          "1級の次は技術士と決めつける\n→ 効く書類が資格ごとに違う",
+          "難しい資格ほど価値が高い\n→ 業務の欄に載るかが先"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "発注者の資格欄の見方"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-career-value/article.mdx"
+    },
+    {
+      "sceneId": "start",
+      "start": 64,
+      "end": 99,
+      "narration": "まず出発点です。1級は監理技術者と、特定建設業の営業所の専任技術者になれる資格で、施工側の配置の欄は埋まります。次に取る資格は、この欄とは別の書類で効くものを選ぶことになります。",
+      "caption": "1級の欄は埋まる。次は別の書類",
+      "visual": {
+        "kind": "points",
+        "heading": "出発点は1級",
+        "items": [
+          "1級\n監理技術者・専任技術者",
+          "施工側の配置の欄は埋まる",
+          "次は別の書類で効く資格を選ぶ"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "建設業法上の役割"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "three",
+      "start": 99,
+      "end": 134,
+      "narration": "候補は三つです。技術士は、建設部門などで計画や設計、監理、発注者支援まで関わる高度な技術判断の資格です。RCCMは、設計業務で管理技術者の資格として仕様書に並ぶ資格です。コンクリート診断士は、日本コンクリート工学会が認定する、既設構造物の診断の資格です。",
+      "caption": "三つの役割は別",
+      "visual": {
+        "kind": "points",
+        "heading": "次の候補は三つ",
+        "items": [
+          "技術士\n計画・設計・監理・発注者支援",
+          "RCCM\n設計業務の管理技術者の資格",
+          "コンクリート診断士\n既設構造物の調査・診断"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "役割で見る三つ"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "pe",
+      "start": 134,
+      "end": 169,
+      "narration": "技術士の特徴は、問われる力が施工の管理と別なことです。論述中心で、何をしたかより、なぜその判断をしたかを書きます。1級の施工経験は材料になりますが、そのままでは足りません。受験資格の年数は経路で違うので、日本技術士会の最新の案内で確認してください。",
+      "caption": "技術士は論述の力。年数は公式で確認",
+      "visual": {
+        "kind": "points",
+        "heading": "技術士に進むなら",
+        "items": [
+          "問われる力が別（論述が中心）",
+          "施工経験は材料になる",
+          "受験資格の年数は経路で違う"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "日本技術士会の案内を確認"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "rccm",
+      "start": 169,
+      "end": 204,
+      "narration": "RCCMは、国土交通省の土木設計業務等共通仕様書が、管理技術者の資格として技術士などと並べて挙げています。受験資格は、建設コンサルタント等の業務に従事した年数で決まります。施工管理の経験がそのまま算入されるかは、建設コンサルタンツ協会の受験の手引で確かめてください。",
+      "caption": "RCCMは設計業務の管理技術者の欄",
+      "visual": {
+        "kind": "points",
+        "heading": "RCCMを選ぶなら",
+        "items": [
+          "仕様書が管理技術者の資格に並べる",
+          "受験は業務に従事した年数で決まる",
+          "施工の経験の算入は手引で確認"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "建設コンサルタンツ協会の手引"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-career-value/article.mdx"
+    },
+    {
+      "sceneId": "diag",
+      "start": 204,
+      "end": 239,
+      "narration": "コンクリート診断士は、国土交通省の登録資格の一覧に、橋梁やトンネルなどの点検と診断の区分で載っています。ただし登録の区分は更新で変わり、加点の有無や配点も発注機関と業務ごとに違います。最新の一覧と入札公告の評価項目で確かめてから決めてください。",
+      "caption": "診断士は点検・診断業務の欄",
+      "visual": {
+        "kind": "points",
+        "heading": "コンクリート診断士を選ぶなら",
+        "items": [
+          "点検・診断の区分で登録資格に載る",
+          "登録区分は更新で変わる",
+          "加点は発注機関と業務ごとに違う"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "最新の一覧と公告で確認"
+        }
+      },
+      "sourceRef": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "question",
+      "start": 239,
+      "end": 274,
+      "narration": "選び方は一つの問いです。次の一年で、どの書類の資格欄に自分の名前を載せたいか。設計業務の管理技術者の欄ならRCCMか技術士、計画や発注者支援まで踏み込む判断なら技術士、点検と診断の業務ならコンクリート診断士です。これは本動画の整理で、公式の区分ではありません。",
+      "caption": "名前を載せたい欄で選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "選ぶための一つの問い",
+        "items": [
+          "設計業務の管理技術者の欄\n→ RCCM・技術士",
+          "計画・発注者支援の判断\n→ 技術士",
+          "点検・診断の業務\n→ コンクリート診断士"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-difference-pe/article.mdx"
+    },
+    {
+      "sceneId": "stay",
+      "start": 274,
+      "end": 304,
+      "narration": "今は取らない選択もあります。資格欄が整っていても、発注者は業務経歴が今回の業務と近いかも確認します。資格は経験を置き換えません。1級での実績を積むほうが先になる人もいます。",
+      "caption": "資格は経験を置き換えない",
+      "visual": {
+        "kind": "points",
+        "heading": "取らない選択もある",
+        "items": [
+          "資格欄が整っても経歴も見られる",
+          "資格は経験を置き換えない",
+          "1級の実績を先に積む選択もある"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "発注者が確認していたこと"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-career-value/article.mdx"
+    },
+    {
+      "sceneId": "limits",
+      "start": 304,
+      "end": 329,
+      "narration": "この整理の限界です。合格や年収の上昇を保証するものではありません。資格は役割に就ける権利で、配置されるかは勤務先と実務しだいです。受験資格、試験の内容、日程は年度で変わるので、受検する年の公式の案内を優先してください。",
+      "caption": "保証はしない。公式の案内が優先",
+      "visual": {
+        "kind": "points",
+        "heading": "この整理の限界",
+        "items": [
+          "合格や年収の上昇は保証しない",
+          "配置は勤務先と実務しだい",
+          "条件は受検する年の公式が優先"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "手引と公式の案内で毎年確認"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 329,
+      "end": 354,
+      "narration": "まとめます。一、1級の次の候補は技術士、RCCM、コンクリート診断士の三つ。二、基準は、名前を出したい業務の資格欄。三、取らない選択もある。四、条件は受検する年の公式で確認します。",
+      "caption": "基準は名前を出したい業務の欄",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ",
+        "items": [
+          "候補は三つ",
+          "基準は名前を出したい欄",
+          "取らない選択もある",
+          "条件は受検する年の公式で確認"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "1級のあとの資格"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 354,
+      "end": 366,
+      "narration": "資格ごとの教材は、概要欄のリンク集にまとめています。次に取る資格に合うものを、そこから選んでください。",
+      "caption": "資格ごとの教材はリンク集に",
+      "visual": {
+        "kind": "points",
+        "heading": "次の資格の教材を探す",
+        "items": [
+          "資格ごとの教材はリンク集に",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／1級の次の資格",
+          "note": "概要欄のリンク集"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    }
+  ]
+}

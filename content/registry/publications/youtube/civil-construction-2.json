@@ -587,8 +587,22 @@
       }
     },
     {
+      "id": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform",
+      "work": "keiken-hinshitsu-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
       "id": "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform",
       "work": "keiken-koji-gaiyo-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/keiken-teishutsumae-tenken/youtube.longform",
+      "work": "keiken-teishutsumae-tenken",
       "account": "youtube:main",
       "format": "longform",
       "status": "draft"

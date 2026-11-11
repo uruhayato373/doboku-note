@@ -1,0 +1,295 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "問題Iの業務経験、何をどう書けばよいのでしょうか。",
+      "caption": "問題Iの業務経験、どう書く？",
+      "visual": {
+        "kind": "cover",
+        "heading": "問題Iの、書き方",
+        "items": [
+          "RCCM 業務経験論文"
+        ]
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 24,
+      "narration": "業務を並べて説明するだけで、字数が終わってしまう。技術上と業務上の問題点の違いも、あいまいなまま。今日はRCCMの問題Iを、業務の選び方、問題点の書き分け、落ちる型の順に整理します。",
+      "caption": "説明で終わらせない整理",
+      "visual": {
+        "kind": "points",
+        "heading": "今日整理する3つ",
+        "items": [
+          "業務の選び方",
+          "技術上と業務上の書き分け",
+          "落ちる型と見分け方"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "RCCM／問題I 業務経験論文"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "tie",
+      "start": 24,
+      "end": 52,
+      "narration": "まず前提です。問題Iで書く業務は、申込時に出した業務実績証明書の業務から選ぶ形です。証明書の業務番号と、論文の業務の対応が食い違うと、大きく減点された例があると案内されています。ただ、一次情報での確証は取れていません。申込書類を作る段階から、自分で対応を確かめてください。",
+      "caption": "業務は証明書の中から選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "業務実績証明書との整合",
+        "items": [
+          "書く業務は証明書の業務から選ぶ",
+          "業務番号の対応を自分で確かめる",
+          "減点の例は受験対策サイトの情報"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "RCCM／問題I 業務経験論文",
+          "note": "減点の話は一次情報で確認できていない"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "layout",
+      "start": 52,
+      "end": 80,
+      "narration": "字数の配分も確かめます。受験対策サイトでは、業務その1からその3まで三件を書き、その1とその2は基本情報を各400字程度、その3に残りの大半を使う形が共有されています。これは受験対策情報で、公式に確定したものではありません。当年度の解答様式は、受験の手引で確認してください。",
+      "caption": "配分は受験の手引で確認",
+      "visual": {
+        "kind": "points",
+        "heading": "2,400字の使いどころ",
+        "items": [
+          "業務その1・その2　基本情報（各約400字）",
+          "業務その3　問題点と対応・評価（約1,600字）",
+          "当年度の様式は受験の手引で確認"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "RCCM／問題I 業務経験論文",
+          "note": "受験対策サイトで共有されている情報。公式の確定ではない"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "pick",
+      "start": 80,
+      "end": 108,
+      "narration": "得点を左右するのは、業務その3とされています。だから業務は、有名な案件かどうかではなく、技術上で語れる場面と業務上で語れる場面の両方があるかで選びます。両方とも具体的に思い出せる業務が、最有力候補です。",
+      "caption": "両方語れる業務を選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "業務を選ぶ基準",
+        "items": [
+          "技術上の問題点を語れる場面がある",
+          "業務上の問題点を語れる場面がある",
+          "両方思い出せる業務が最有力"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "RCCM／問題I 業務経験論文"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "split",
+      "start": 108,
+      "end": 142,
+      "narration": "次に、問題点の書き分けです。技術上は、設計条件や現地条件の制約に対して、工法の比較や照査などをどう判断したか。業務上は、工程、品質、コスト、安全、発注者や関係機関との調整など、管理面でどう動いたか。同じ出来事を、両方の欄に重ねて書かないことが大切です。",
+      "caption": "技術上と業務上は別の場面で",
+      "visual": {
+        "kind": "compare",
+        "heading": "二つの問題点の違い",
+        "ngLabel": "技術上",
+        "okLabel": "業務上",
+        "rows": [
+          {
+            "label": "中身",
+            "ng": "工法の比較・照査・計算",
+            "ok": "工程・品質・コスト・安全・調整"
+          },
+          {
+            "label": "判断する立場",
+            "ng": "専門技術者として",
+            "ok": "管理者として"
+          },
+          {
+            "label": "書く場面",
+            "ng": "技術的な判断が問われた場面",
+            "ok": "人と資源を動かした場面"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "RCCM／問題I 業務経験論文"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "judge",
+      "start": 142,
+      "end": 168,
+      "narration": "迷ったら自問します。その判断を下したのは、専門技術者としてか、管理者としてか。基準や計算にもとづく判断は技術上、関係者の調整や工程と予算の組み替えは業務上に振り分けます。",
+      "caption": "判断した立場で振り分ける",
+      "visual": {
+        "kind": "points",
+        "heading": "迷ったときの自問",
+        "items": [
+          "専門技術者としての判断なら　技術上",
+          "管理者としての判断なら　業務上"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "RCCM／問題I 業務経験論文"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "role",
+      "start": 168,
+      "end": 198,
+      "narration": "立場の書き方も評価を分けます。実施された、決定された、という主語のない受け身では、あなたが何を判断し、どう動いたのかが読めません。管理技術者か担当技術者か、立場を先に示し、私は比較した上で提案した、のように主体的に書きます。",
+      "caption": "受け身をやめ、立場を示す",
+      "visual": {
+        "kind": "compare",
+        "heading": "主語のある書き方へ",
+        "ngLabel": "避ける",
+        "okLabel": "目指す",
+        "rows": [
+          {
+            "label": "立場",
+            "ng": "書かない",
+            "ok": "管理技術者か担当技術者かを先に示す"
+          },
+          {
+            "label": "文末",
+            "ng": "〜が決定された",
+            "ok": "私は比較した上で提案した"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "RCCM／問題I 業務経験論文"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "ng",
+      "start": 198,
+      "end": 240,
+      "narration": "落ちる型は三つです。一つ目は、目的や規模の説明で字数を使い、判断が出てこない型。二つ目は、予算が厳しい中で協力して完了した、のように一般論で終わる型。三つ目は、地域の防災力が飛躍的に向上した、のように、自分の業務の範囲を超えた成果を断定する型です。いずれも架空の例です。",
+      "caption": "落ちる三つの型",
+      "visual": {
+        "kind": "points",
+        "heading": "評価を落としやすい型",
+        "items": [
+          "説明だけで終わる",
+          "一般論で終わる",
+          "成果を誇張する"
+        ],
+        "art": {
+          "type": "cards",
+          "section": "RCCM／問題I 業務経験論文",
+          "note": "例はいずれも架空"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 240,
+      "end": 266,
+      "narration": "三つに共通するのは、あなた自身の判断が主役になっていないことです。書き終えたら、各段落から、私は、を主語にした一文を抜き出せるか確かめます。抜き出せなければ、説明で止まっています。",
+      "caption": "「私は」の一文を抜き出す",
+      "visual": {
+        "kind": "points",
+        "heading": "書き終えた後の点検",
+        "items": [
+          "各段落で「私は」を主語にした一文を探す",
+          "抜き出せなければ、説明で止まっている"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "RCCM／問題I 業務経験論文"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "inventory",
+      "start": 266,
+      "end": 292,
+      "narration": "業務が決まらないときは、棚卸しです。証明書の業務を一覧にして、技術上の場面があったか、業務上の場面があったかを書き出します。この作業は、技術士の業務経歴票づくりとも共通する部分が多く、将来の下準備にもなります。",
+      "caption": "まず業務を棚卸しする",
+      "visual": {
+        "kind": "points",
+        "heading": "棚卸しの手順",
+        "items": [
+          "証明書の業務を一覧にする",
+          "技術上の場面の有無を書き出す",
+          "業務上の場面の有無を書き出す"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "RCCM／問題I 業務経験論文"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 292,
+      "end": 316,
+      "narration": "まとめます。業務は証明書の中から、両方語れるものを選ぶ。技術上と業務上は別の場面で書き分ける。立場を示し、私は、で書く。字数配分と様式は、受検年度の公式情報、つまり受験の手引で確認してください。",
+      "caption": "選ぶ・分ける・主語を立てる",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の整理",
+        "items": [
+          "両方語れる業務を選ぶ",
+          "技術上と業務上を別の場面で書く",
+          "立場を示し「私は」で書く"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "RCCM／問題I 業務経験論文"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 316,
+      "end": 340,
+      "narration": "書き方の次は、実際に2,400字を組み立てる練習です。字数ごとのテンプレートと部門別の記入例が、noteのマガジンにあります。この動画は書き方の型までで、記入例の全文は含みません。収録内容は、概要欄から確認してください。",
+      "caption": "テンプレートと記入例は、noteへ",
+      "visual": {
+        "kind": "points",
+        "heading": "書き方の次は、練習",
+        "items": [
+          "問題I 業務経験論文テンプレ",
+          "収録内容は概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "RCCM／問題I 業務経験論文"
+        }
+      },
+      "sourceRef": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    }
+  ]
+}

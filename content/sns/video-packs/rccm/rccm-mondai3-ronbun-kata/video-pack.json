@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "rccm-mondai3-ronbun-kata",
+  "exam": "rccm",
+  "title": "RCCM｜問題Ⅲの論文の型 — 骨子・用語の因果・配分・立場",
+  "audience": "RCCM 試験B 問題Ⅲ（管理技術力）の論述で、何を準備しどう組み立てるか決められない受験者",
+  "pain": "問題Ⅲで、テーマが選べない中の備え方と、指定用語の使い方、設問①②の配分が分からず、用語を並べるだけの答案になる",
+  "promise": "骨子の用意、用語を因果でつなぐ書き方、①と②の配分、管理技術者としての立場の線引きで、問題Ⅲの論文を組み立てる型がつかめる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/rccm/guide-mondai3-themes-2026/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "rccm-mondai3-magazine",
+    "campaign": "rccm-mondai3-ronbun-kata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

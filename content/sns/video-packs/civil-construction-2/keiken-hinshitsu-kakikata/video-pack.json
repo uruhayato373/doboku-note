@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-hinshitsu-kakikata",
+  "exam": "civil-construction-2",
+  "title": "品質管理の書き方｜検討は観点から選ぶ",
+  "audience": "2級土木の施工経験記述で、品質管理の検討に何を書くか迷う受検者",
+  "pain": "品質管理の答案で、検討に何を書けばよいか分からず、処置と同じ内容を重ねたり、観点が課題に合わなかったりする",
+  "promise": "検討の観点から課題に合うものを選び、検討と処置と評価を分けて書き方を見直せる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "keiken-hinshitsu-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": 0,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

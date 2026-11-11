@@ -127,6 +127,11 @@
       "definition": "content/sns/video-packs/pe-construction/pe-hissu1-risk-kakunin"
     },
     {
+      "id": "pe-hissu1-theme-junbi",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi"
+    },
+    {
       "id": "pe-ii1-kakikata",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-ii1-kakikata"
@@ -135,6 +140,11 @@
       "id": "pe-ii2-kakikata",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/pe-ii2-kakikata"
+    },
+    {
+      "id": "pe-iii-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/pe-iii-kakikata"
     },
     {
       "id": "pe-kojutsu-fukabori",

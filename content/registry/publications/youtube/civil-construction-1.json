@@ -51,8 +51,50 @@
       }
     },
     {
+      "id": "civil-construction-1/c1-keiken-anzen-kakikata/youtube.longform",
+      "work": "c1-keiken-anzen-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
       "id": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform",
       "work": "c1-keiken-hacchusha-yomu",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.longform",
+      "work": "c1-keiken-hinshitsu-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform",
+      "work": "c1-keiken-kouji-gaiyou",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform",
+      "work": "c1-keiken-ochiru-naoshikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-1/c1-next-license-after-first/youtube.longform",
+      "work": "c1-next-license-after-first",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-1/civil-license-ladder-order/youtube.longform",
+      "work": "civil-license-ladder-order",
       "account": "youtube:main",
       "format": "longform",
       "status": "draft"

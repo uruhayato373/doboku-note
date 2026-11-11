@@ -119,9 +119,19 @@
       }
     },
     {
+      "id": "keiken-hinshitsu-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata"
+    },
+    {
       "id": "keiken-koji-gaiyo-kakikata",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-2/keiken-koji-gaiyo-kakikata"
+    },
+    {
+      "id": "keiken-teishutsumae-tenken",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-teishutsumae-tenken"
     },
     {
       "id": "x043-civil2-r05z",

@@ -21,9 +21,34 @@
       }
     },
     {
+      "id": "c1-keiken-anzen-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-anzen-kakikata"
+    },
+    {
       "id": "c1-keiken-hacchusha-yomu",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-hacchusha-yomu"
+    },
+    {
+      "id": "c1-keiken-hinshitsu-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-hinshitsu-kakikata"
+    },
+    {
+      "id": "c1-keiken-kouji-gaiyou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-kouji-gaiyou"
+    },
+    {
+      "id": "c1-keiken-ochiru-naoshikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata"
+    },
+    {
+      "id": "c1-next-license-after-first",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/c1-next-license-after-first"
     },
     {
       "id": "civil-09-a",
@@ -42,6 +67,11 @@
       "kind": "x-thread",
       "definition": "content/sns/x/draft/092-civil-2026-09-c",
       "legacyKey": "092-civil-2026-09-c"
+    },
+    {
+      "id": "civil-license-ladder-order",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order"
     },
     {
       "id": "civil-textbook-diagrams",

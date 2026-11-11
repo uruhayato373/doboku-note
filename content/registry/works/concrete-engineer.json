@@ -3,6 +3,11 @@
   "exam": "concrete-engineer",
   "works": [
     {
+      "id": "ce-haigou-kakunin-jun",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/ce-haigou-kakunin-jun"
+    },
+    {
       "id": "ig-concrete-route",
       "kind": "ig-pack",
       "definition": "content/sns/instagram/profile-pinned/concrete-route"

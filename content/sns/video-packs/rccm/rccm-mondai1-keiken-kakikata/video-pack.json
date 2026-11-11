@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "rccm-mondai1-keiken-kakikata",
+  "exam": "rccm",
+  "title": "RCCM｜問題Ⅰの業務経験の書き方 — 証明書と整合させ、判断を主語に書く",
+  "audience": "RCCM 試験A 問題Ⅰ（業務経験論文）で、どの業務をどう書けばよいか決められない受験者",
+  "pain": "問題Ⅰで業務の選び方と、技術上・業務上の問題点の書き分けが分からず、業務の説明だけで字数が終わる",
+  "promise": "業務実績証明書との整合、二つの問題点の書き分け、落ちる3型と「私は」の点検で、判断が主役の経験論文を組める",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "rccm-mondai1-template",
+    "campaign": "rccm-mondai1-keiken-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

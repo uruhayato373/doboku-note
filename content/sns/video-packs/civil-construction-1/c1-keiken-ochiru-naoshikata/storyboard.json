@@ -1,0 +1,350 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 14,
+      "narration": "経験記述の答案が不安なとき、全部を書き直す必要はありません。欄の取り違えを見つけて、正しい欄へ移す直し方を示します。",
+      "caption": "経験記述、落ちる答案の直し方を示す",
+      "visual": {
+        "kind": "cover",
+        "heading": "落ちる答案の直し方",
+        "items": [
+          "1級土木施工管理｜第二次検定"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 14,
+      "end": 35,
+      "narration": "書いた答案が弱く見える原因は、内容の不足だけではありません。課題の欄に処置を書いた、検討の欄に実施した数値を書いた、といった欄の取り違えがあります。見つけて正しい欄へ移す。本動画の一つの整理です。",
+      "caption": "不安な答案は、欄の取り違えを探す",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "内容より先に置き場を見る",
+          "取り違えを見つけて移す",
+          "本動画の一つの整理"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／経験記述",
+          "note": "採点基準の解説ではない"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 35,
+      "end": 54,
+      "narration": "直すと聞くと、言葉や数値を足すことだと思いがちです。しかし、書いてあるのに欄が違うために、読み手に伝わらないことがあります。足す前に、その一文がどの欄の中身かを確かめます。",
+      "caption": "足すより先に、置き場を確かめる",
+      "visual": {
+        "kind": "compare",
+        "heading": "直す前に確かめること",
+        "ngLabel": "思われがち",
+        "okLabel": "実際",
+        "rows": [
+          {
+            "label": "直し方",
+            "ng": "言葉を足す",
+            "ok": "欄の置き場を見る"
+          },
+          {
+            "label": "順序",
+            "ng": "足してから",
+            "ok": "移してから足す"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "足す前に置き場"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "issue",
+      "start": 54,
+      "end": 80,
+      "narration": "一つ目は、課題の欄です。ここには現場の状況と、その原因から生じる課題を書き、対処策まで書かないことになっています。解決のために実施した工法を書いてしまったら、対応処置の欄へ移します。課題の側は、何を確保することが課題か、を一文で言い切ります。",
+      "caption": "課題の欄に、処置を書かない",
+      "visual": {
+        "kind": "compare",
+        "heading": "課題の欄の取り違え",
+        "ngLabel": "課題の欄に",
+        "okLabel": "移す先",
+        "rows": [
+          {
+            "label": "実施した工法",
+            "ng": "課題の欄に書く",
+            "ok": "対応処置の欄へ"
+          },
+          {
+            "label": "課題の文",
+            "ng": "範囲が広い",
+            "ok": "一つに絞り一文で"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "課題に対処策は書かない"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "scope",
+      "start": 80,
+      "end": 102,
+      "narration": "二つ目は、分野の取り違えです。品質管理を書くつもりが、読むと工程管理の話にも見える。工程短縮と品質管理を一緒にしていないか。品質なら、品質管理のどの分野に焦点を合わせたかまで、課題の範囲と合わせて書きます。",
+      "caption": "品質か工程か、焦点を一つに",
+      "visual": {
+        "kind": "compare",
+        "heading": "分野の取り違え",
+        "ngLabel": "混ざる",
+        "okLabel": "絞る",
+        "rows": [
+          {
+            "label": "テーマ",
+            "ng": "品質と工程が混在",
+            "ok": "出題の管理項目に絞る"
+          },
+          {
+            "label": "焦点",
+            "ng": "品質管理に留意した",
+            "ok": "どの分野かまで書く"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "焦点と課題の範囲"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "review",
+      "start": 102,
+      "end": 126,
+      "narration": "三つ目は、検討の欄です。地盤改良工法とした、と結論だけで止めると、比べた形になりません。確保したいもの、挙げた理由、長所と短所の順にそろえ、結論と根拠を書きます。実施した工法や数値は、検討ではなく対応処置の欄に回します。",
+      "caption": "検討の欄は、結論と根拠まで",
+      "visual": {
+        "kind": "compare",
+        "heading": "検討の欄の取り違え",
+        "ngLabel": "弱い",
+        "okLabel": "直した形",
+        "rows": [
+          {
+            "label": "結論",
+            "ng": "地盤改良工法とした",
+            "ok": "理由を添え、留意点も書く"
+          },
+          {
+            "label": "数値や工法",
+            "ng": "検討の欄に書く",
+            "ok": "対応処置の欄へ移す"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "検討は結論と根拠"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "action",
+      "start": 126,
+      "end": 149,
+      "narration": "四つ目は、対応処置の欄です。協議した、計画書を作成した、という手続きだけでは、どの現場でも成り立ちます。数値を入れ、品質管理なら対応処置の土台になる管理基準を示して、工法、機械、材料、管理方法を具体的に書きます。",
+      "caption": "対応処置は、数値と管理基準",
+      "visual": {
+        "kind": "compare",
+        "heading": "対応処置の欄",
+        "ngLabel": "手続きだけ",
+        "okLabel": "具体的",
+        "rows": [
+          {
+            "label": "書く中身",
+            "ng": "協議した、計画書を作った",
+            "ok": "工法、機械、材料、管理方法"
+          },
+          {
+            "label": "数値",
+            "ng": "入っていない",
+            "ok": "管理基準と数値を入れる"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "対応処置は具体的に"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "result",
+      "start": 149,
+      "end": 173,
+      "narration": "五つ目は、評価の欄です。評価は施工した結果に対する評価で、残りの余白はわずかです。処置の言い直しを重ねず、結論めいた形で、最後の三、四行に端的に書きます。この結果、品質が確保され、工期内に工事を完了できた、という形です。",
+      "caption": "評価は、結果に対応させて端的に",
+      "visual": {
+        "kind": "compare",
+        "heading": "評価の欄",
+        "ngLabel": "弱い",
+        "okLabel": "直した形",
+        "rows": [
+          {
+            "label": "中身",
+            "ng": "処置をもう一度書く",
+            "ok": "施工した結果に対応させる"
+          },
+          {
+            "label": "長さ",
+            "ng": "長く書く",
+            "ok": "最後の三、四行で端的に"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "評価は結果に対応"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "style",
+      "start": 173,
+      "end": 192,
+      "narration": "欄を直したら、文体と誤字を見ます。段落の文は、です、ます調を使わず、である、であった、で書きます。誤字や脱字に気をつけ、文字は丁寧に、少し下手でもなるべく大きく書きます。",
+      "caption": "文体と誤字も、最後に直す",
+      "visual": {
+        "kind": "points",
+        "heading": "最後に見る文体と誤字",
+        "items": [
+          "である、であった、で書く",
+          "誤字、脱字を確かめる",
+          "文字は丁寧に、大きく"
+        ],
+        "reveal": 3,
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／経験記述",
+          "note": "である調で書く"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "honest",
+      "start": 192,
+      "end": 216,
+      "narration": "移した後に数値を足すときは、試験成績や日報で裏づけられるものだけを使います。足りない数値を想像で補うと、問題の注意書きにある、経験した工事でないと判明した場合は失格、に触れかねません。確かめられない誇張は、得になりません。",
+      "caption": "移した後に足す数値は、出どころで",
+      "visual": {
+        "kind": "points",
+        "heading": "足してよい数値",
+        "items": [
+          "試験成績や日報で裏づく",
+          "根拠を示せない最大級は削る",
+          "注意書き：経験した工事でない場合は失格"
+        ],
+        "reveal": 3,
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／経験記述",
+          "note": "出どころを示せる数値"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "limit",
+      "start": 216,
+      "end": 240,
+      "narration": "この整理の限界です。実際の採点の基準は公表されておらず、これは採点を保証するものではありません。合格も保証しません。令和6年度から出題の形式が見直されているため、欄の区切りは、受検年度の公式の手引と問題で確認してください。",
+      "caption": "整理の限界と、確認先",
+      "visual": {
+        "kind": "compare",
+        "heading": "この整理の限界",
+        "ngLabel": "言えない",
+        "okLabel": "確認先",
+        "rows": [
+          {
+            "label": "採点",
+            "ng": "採点基準は非公表",
+            "ok": "一つの直し方の案"
+          },
+          {
+            "label": "欄の区切り",
+            "ng": "年度で変わりうる",
+            "ok": "受検年度の公式情報"
+          }
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／経験記述",
+          "note": "合格を保証しない"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 240,
+      "end": 262,
+      "narration": "まとめます。一、足す前に、その一文がどの欄の中身かを確かめる。二、課題に処置を書かず、分野は一つに絞る。三、検討は結論と根拠、処置は数値と管理基準、評価は結果に対応させる。四、最後に文体と誤字を直す。",
+      "caption": "まとめ：置き場、中身、最後に文体",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ",
+        "items": [
+          "まず欄の取り違えを探す",
+          "課題に処置を書かない",
+          "検討は根拠、処置は数値",
+          "評価は結果に、最後に文体"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／経験記述",
+          "note": "置き場を確かめてから足す"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 262,
+      "end": 274,
+      "narration": "自分の現場に置き換えて書くための完成答案を、五つの管理別にまとめたノートを、概要欄に置いています。",
+      "caption": "答案づくりの材料は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "答案づくりの材料に",
+        "items": [
+          "5管理別の完成答案と置換ガイド",
+          "減点回避の添削例を収録",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／経験記述",
+          "note": "1級土木 施工経験記述 完成答案集"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ]
+}

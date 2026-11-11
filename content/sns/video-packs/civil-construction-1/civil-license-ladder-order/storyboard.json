@@ -1,0 +1,281 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "2級から1級、技術士へ。順序は一本道ではない？",
+      "caption": "2級から1級、技術士へ進む順序",
+      "visual": {
+        "kind": "cover",
+        "heading": "2級から1級、技術士へ 順序は一本道？",
+        "items": [
+          "土木施工管理｜資格の順序"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "premise",
+      "start": 4,
+      "end": 34,
+      "narration": "2級を持っている、または目指していて、次は1級か技術士かで迷っていませんか。この動画では、三つの資格の役割と受験の起点を確かめて、どの順に進むかを決める見方を一つの案として示します。日程や年度の細かい条件は、受検する年の公式の案内で確認する前提です。",
+      "caption": "役割と起点を見て、進む順序を決める",
+      "visual": {
+        "kind": "points",
+        "heading": "今日の答え",
+        "items": [
+          "三つの資格は役割が違う",
+          "受験の起点は合格や年数で決まる",
+          "順序は三つの問いで決める"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／資格の順序",
+          "note": "順序の決め方の一案"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 34,
+      "end": 64,
+      "narration": "よくある思い込みは、2級、1級、技術士の順に、全部を階段のように取るもの、というものです。実際は、施工管理技士は建設業法の配置技術者の資格、技術士は技術士法の高度専門技術者の資格で、根拠も役割も違います。どちらが上かではなく、別の領域です。",
+      "caption": "三つは階段ではなく、役割の違う資格",
+      "visual": {
+        "kind": "points",
+        "heading": "よくある思い込み",
+        "items": [
+          "全部を階段のように順に取る\n→ 根拠法と役割が違う",
+          "技術士は施工管理技士の上位\n→ 別の領域の資格"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／資格の順序",
+          "note": "建設業法と技術士法"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "roles",
+      "start": 64,
+      "end": 99,
+      "narration": "役割を並べます。2級土木施工管理技士は、工事現場の主任技術者になれます。1級は、それに加えて監理技術者と、特定建設業の営業所の専任技術者になれます。技術士は、建設部門や総合技術監理部門で、計画や監理など高度な技術判断を担う資格です。順序を考える前に、どの役割が欲しいかを先に決めます。",
+      "caption": "2級は主任、1級は監理、技術士は高度判断",
+      "visual": {
+        "kind": "points",
+        "heading": "三つの資格の役割",
+        "items": [
+          "2級\n主任技術者",
+          "1級\n監理技術者・専任技術者",
+          "技術士\n高度な技術判断・計画・監理"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "土木施工管理／資格の順序",
+          "note": "法律上の役割で見る"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "first",
+      "start": 99,
+      "end": 129,
+      "narration": "1級の第一次検定は、現行の手引では、その年度末に満19歳以上であれば、実務経験を問わず受けられます。つまり、2級を取ってからでないと1級に進めない、という決まりではありません。自分が当てはまる区分は、申込の年の最新の受検の手引で確かめてください。",
+      "caption": "1級の第一次は年齢要件。2級は必須でない",
+      "visual": {
+        "kind": "points",
+        "heading": "1級の第一次検定",
+        "items": [
+          "年度末に満19歳以上\n（現行の手引）",
+          "実務経験は問わない",
+          "2級の取得は条件でない"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／資格の順序",
+          "note": "受検の年の手引で確認"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "sceneId": "second",
+      "start": 129,
+      "end": 164,
+      "narration": "1級の第二次検定は、ある合格を起点にした実務経験で決まります。起点が1級第一次検定の合格なら、合格後の経験が五年以上、特定実務経験を含めば三年以上です。監理技術者補佐として一年以上、という枠もあります。起点には、2級の第二次検定や技術士の第二次試験の合格も使えます。",
+      "caption": "1級の第二次は、起点の合格後の年数で決まる",
+      "visual": {
+        "kind": "points",
+        "heading": "1級の第二次検定の起点",
+        "items": [
+          "1級第一次の合格\n5年以上・特定実務経験込みで3年以上",
+          "監理技術者補佐\n1年以上の枠もある",
+          "2級第二次・技術士の合格も起点になりうる"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "土木施工管理／資格の順序",
+          "note": "年数は手引で必ず照合"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "sceneId": "detour",
+      "start": 164,
+      "end": 194,
+      "narration": "順序は、前後することもあります。技術士の第二次試験に合格している人は、1級の第一次検定を受けずに、第二次検定から入る区分があります。逆に、2級の第二次検定は、1級第一次検定の合格後一年以上でも受けられます。道は一本ではなく、持っている合格で入口が変わります。",
+      "caption": "持っている合格で入口が変わる",
+      "visual": {
+        "kind": "points",
+        "heading": "順序が前後する例",
+        "items": [
+          "技術士の合格者\n→ 1級は第二次から入れる区分",
+          "1級第一次の合格者\n→ 2級の第二次を受けられる場合"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／資格の順序",
+          "note": "区分は手引で確認"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "sceneId": "order",
+      "start": 194,
+      "end": 229,
+      "narration": "ここからは、この動画の独自の整理です。進む順序は、三つの問いで決めます。一、いまの実務で足りない権限は何か。二、取得にかけられる年数はどれだけか。三、その資格が評価される場はどこか。この三つに答えると、次の一手が絞れます。公式の区分ではなく、考え方の一案です。",
+      "caption": "三つの問いで次の一手を絞る",
+      "visual": {
+        "kind": "points",
+        "heading": "順序を決める三つの問い",
+        "items": [
+          "1 いまの実務で足りない権限は",
+          "2 かけられる年数は",
+          "3 評価される場はどこか"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "土木施工管理／資格の順序",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "cases",
+      "start": 229,
+      "end": 264,
+      "narration": "問いの答えで、道は分かれます。主任技術者までで、監理技術者の権限が足りないなら、1級が候補です。1級で監理技術者まで担えているなら、計画や監理まで踏み込める技術士が視野に入ります。評価される場も違い、1級は会社の入札力に、技術士は計画や発注者支援の場に効きます。",
+      "caption": "足りない権限と評価される場で選ぶ",
+      "visual": {
+        "kind": "points",
+        "heading": "問いの答えと次の資格",
+        "items": [
+          "監理技術者の権限が足りない\n→ 1級が候補",
+          "監理まで担えている\n→ 技術士が視野に入る"
+        ],
+        "art": {
+          "type": "decision",
+          "section": "土木施工管理／資格の順序",
+          "note": "資格は役割に就ける権利"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "pe",
+      "start": 264,
+      "end": 289,
+      "narration": "技術士は、試験の性質も違います。計画や設計、評価の論述が中心で、難しい易しいというより、別の力を問う試験です。受験資格や試験の内容は、この動画では数字を扱いません。技術士会などの公式の案内で、受験する年の条件を確かめてください。",
+      "caption": "技術士は論述中心。条件は公式で確認",
+      "visual": {
+        "kind": "points",
+        "heading": "技術士に進むときは",
+        "items": [
+          "問われる力が別（論述が中心）",
+          "受験資格・内容は公式で確認",
+          "この動画では数字を扱わない"
+        ],
+        "art": {
+          "type": "checklist",
+          "section": "土木施工管理／資格の順序",
+          "note": "受験する年の公式の案内を確認"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-vs-pe/article.mdx"
+    },
+    {
+      "sceneId": "limits",
+      "start": 289,
+      "end": 314,
+      "narration": "この整理は、合格や年収の上昇を保証するものではありません。資格は役割に就ける権利で、実際に配置されるかは勤務先と実務の経験次第です。受検資格や日程は年度の手引で変わるので、動画の内容より、受検する年の公式の案内が優先です。",
+      "caption": "保証ではない。最新の公式の案内が優先",
+      "visual": {
+        "kind": "points",
+        "heading": "この順序の限界",
+        "items": [
+          "合格や年収の上昇は保証しない",
+          "配置は勤務先と実務経験しだい",
+          "受検する年の公式の案内が優先"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "土木施工管理／資格の順序",
+          "note": "手引で毎年確認"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 314,
+      "end": 339,
+      "narration": "まとめます。一、三つの資格は階段ではなく、役割の違う資格。二、受験の入口は、持っている合格と年数で決まる。三、順序は、足りない権限、かけられる年数、評価される場の三つの問いで決める。四、条件は受検する年の公式で確認する。",
+      "caption": "三つの問いで決め、条件は公式で確認",
+      "visual": {
+        "kind": "points",
+        "heading": "まとめ",
+        "items": [
+          "三つは役割の違う資格",
+          "入口は合格と年数で決まる",
+          "三つの問いで順序を決める",
+          "条件は受検する年の公式で確認"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "土木施工管理／資格の順序",
+          "note": "2級・1級・技術士"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 339,
+      "end": 351,
+      "narration": "資格ごとの教材は、概要欄のリンク集にまとめています。次に取る資格に合うものを、そこから選んでください。",
+      "caption": "資格ごとの教材は概要欄のリンク集から",
+      "visual": {
+        "kind": "points",
+        "heading": "次の資格の教材を探す",
+        "items": [
+          "資格ごとの教材はリンク集に",
+          "リンクは概要欄から"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "土木施工管理／資格の順序",
+          "note": "概要欄のリンク集"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-path/article.mdx"
+    }
+  ]
+}

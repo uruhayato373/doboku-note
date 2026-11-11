@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "c1-keiken-hinshitsu-kakikata",
+  "exam": "civil-construction-1",
+  "title": "1級土木 経験記述｜品質管理の書き方",
+  "audience": "1級土木施工管理技士の第二次検定で施工経験記述を準備している受検者",
+  "pain": "経験記述で品質管理が出たとき、品質に留意して施工した、までしか書けず、どの品質項目を課題にして、基準や測り方をどう書けばよいか分からない",
+  "promise": "焦点を当てる品質項目を一つ選び、状況・課題・検討・対応処置と評価を、管理基準と数値を軸に品質管理でどう組むかが分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-experience-essay",
+    "campaign": "c1-keiken-hinshitsu-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
