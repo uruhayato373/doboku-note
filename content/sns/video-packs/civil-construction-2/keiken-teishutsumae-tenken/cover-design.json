@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "civil-2",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 2,
       "subtitle": "",
-      "character": {
-        "pose": "checklist-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-2/keiken-teishutsumae-tenken/work/cover-pop.4cf9f1aa.png",
+        "sha256": "4cf9f1aa1380826b77ea1e79cf56510debb946a6c5637ac9ac9635956fed09c5",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "5636183d64536543b1811d5beefaaf8ff793a1389e816c09997361162dad2757"
+      }
     }
   }
 }
