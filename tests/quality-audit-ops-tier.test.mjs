@@ -88,6 +88,19 @@ test('selectsCheck: --ci / --ops / --weekly / --report-only の対象が排他�
   assert.deepEqual(all.map((c) => selectsCheck(c, {})), [true, true, true, true, true, true]);
 });
 
+test('selectsCheck: --only / --except はモードが選んだ検査を id で絞り、CHECKS に無い id は拾う', async () => {
+  const { selectsCheck, unknownCheckIds } = await import('../scripts/quality-audit.mjs');
+  const a = { id: 'a', ci: true };
+  const b = { id: 'b', ci: true };
+  const report = { id: 'r', ci: false };
+  const all = [a, b, report];
+  assert.deepEqual(all.map((c) => selectsCheck(c, { ci: true, except: ['a'] })), [false, true, false]);
+  assert.deepEqual(all.map((c) => selectsCheck(c, { ci: true, only: ['a', 'r'] })), [true, false, false], '--only は ci:false を ci に引き込まない');
+  assert.deepEqual(unknownCheckIds(['a', 'zzz'], all), ['zzz']);
+  // ci.yml が名指しする id。改名したら ci.yml の --except / --only も直す（黙って 0 件にならないよう実行時は exit 2）。
+  assert.deepEqual(unknownCheckIds(['unit-tests']), []);
+});
+
 test('cadence は ops:true にだけ weekly か collect で付き、毎日の ops に週 1 回しか変わらない検算を残さない（DN-0847）', () => {
   const bad = CHECKS.filter((c) => c.cadence !== undefined && (!c.ops || !['weekly', 'collect'].includes(c.cadence)));
   assert.deepEqual(bad.map((c) => c.id), []);

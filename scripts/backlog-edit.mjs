@@ -94,16 +94,39 @@ export function nextId(text, gitLogText) {
  * ローカルの全ブランチ・リモート追跡ブランチ・stash まで見る。他人の未 fetch の push は見えないので、
  * 採番の直前に `git fetch` しておく。
  */
-export function backlogGitLog({ timeout = 30_000, cwd = REPO_ROOT } = {}) {
-  try {
-    return execFileSync(
-      'git',
-      ['log', '--all', '-p', '--format=%H', '--', BACKLOG_PATHSPEC, 'docs/todo/backlog.md'],
-      { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, timeout, cwd, stdio: ['ignore', 'pipe', 'ignore'] },
-    );
-  } catch {
-    return null;
+export function backlogGitLog({ timeout = 120_000, cwd = REPO_ROOT, text = null } = {}) {
+  const read = (since, ms) => {
+    try {
+      return execFileSync(
+        'git',
+        ['log', '--all', '-p', '--format=%H', ...(since ? [`--since=${since}`] : []), '--', BACKLOG_PATHSPEC, 'docs/todo/backlog.md'],
+        { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, timeout: ms, cwd, stdio: ['ignore', 'pipe', 'ignore'] },
+      );
+    } catch {
+      return null;
+    }
+  };
+  // 全履歴の差分は 1,979 commit で 51 秒かかり、30 秒の上限に当たって起票できなかった（2026-11-11・会社 PC）。
+  // 現在の backlog（text）を渡されたら直近の窓を先に読み（14 日で 7 秒）、窓で足りないときだけ全履歴を読む。
+  if (text != null) {
+    const recent = read(RECENT_WINDOW, timeout);
+    if (recent != null && logCoversMax(text, recent)) return recent;
   }
+  return read(null, timeout);
+}
+
+const RECENT_WINDOW = '14 days ago';
+
+/**
+ * 窓で読んだ履歴（gitLogText）が採番に足りるか。純関数。
+ * 番号は「それまでの最大 + 1」で作るので、現在の backlog の最大の番号より大きい番号は、その最大の番号より後に作られている。
+ * 最大の番号の見出しを足した行（`+### [DN-####]`）が窓の中にあれば、それより大きい番号（削除済み・別ブランチを含む）も窓の中にある。
+ */
+export function logCoversMax(text, gitLogText) {
+  const ids = [...String(text).matchAll(/DN-(\d{4})/g)].map((m) => Number(m[1]));
+  if (!ids.length) return false;
+  const max = `DN-${String(Math.max(...ids)).padStart(4, '0')}`;
+  return String(gitLogText).includes(`\n+### [${max}]`);
 }
 
 // ── CLI ──────────────────────────────────────────────────────────────────
@@ -125,7 +148,7 @@ if (isMain) {
 
   if (NEXT_ID) {
     // git が無い／遅い環境では現在の backlog.md だけで判定する（黙って劣化させない・§9）
-    const gitLogText = backlogGitLog();
+    const gitLogText = backlogGitLog({ text: raw });
     const r = nextId(raw, gitLogText);
     if (r.degraded) console.error(`[${NAME}] 警告: git 履歴を読めず現在の backlog.md だけで判定した（削除済み ID との衝突リスクが残る）`);
     console.log(r.next);
