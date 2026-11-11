@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "civil-2",
       "headline": [
@@ -11,16 +15,19 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
-      "layout": "diagram-led"
+      "layout": "diagram-led",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-2/keiken-koji-gaiyo-kakikata/work/cover-pop.9ffc470f.png",
+        "sha256": "9ffc470f47ac7048e3083dc36cbe5445c61559b1668bb81d2b4ed911e791c3b5",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "55ec95ef54d46deb92ca73738aa56da98e524302272170df848f575ec02fae4f"
+      }
     }
   }
 }

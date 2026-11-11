@@ -935,6 +935,17 @@
         "expected": 930,
         "heard": 920
       }
+    },
+    "civil-construction-2/keiken-koji-gaiyo-kakikata/youtube.longform": {
+      "videoSha256": "caa610adcfb88ecdd4a7f556b94e5848bfe71cb1a142243c5ca5031b61de5cf0",
+      "at": "2026-11-11T04:25:31.579Z",
+      "similarity": 0.955,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 593,
+        "heard": 561
+      }
     }
   }
 }
