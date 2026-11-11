@@ -1,0 +1,282 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "白書を、どこまで深く読めばよいか。答案に使うための読む深さを紹介します。",
+      "caption": "白書の読み方と、読む深さ",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監 記述\n白書の読む深さ",
+        "items": [
+          "技術士 総合技術監理部門・記述式"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 8,
+      "end": 20,
+      "narration": "白書は何冊もあり、どこまで読めばよいか迷う。この動画では、白書ごとに読む深さを三段階に分け、読んだ後に残すメモの形まで紹介します。",
+      "caption": "深さを三段階に分け、メモで残す",
+      "visual": {
+        "kind": "points",
+        "heading": "三段階で読み、三点で残す",
+        "items": [
+          "深さを三段階に分ける",
+          "読んだ後は三点で残す",
+          "全冊を同じ深さで読まない"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 20,
+      "end": 36,
+      "narration": "誤解しやすいのは、全部を同じ深さで読むことです。全冊を通読すれば時間が尽きます。全冊を概要だけで済ませると、答案の根拠が薄くなります。深さは、白書ごとに変えます。",
+      "caption": "全冊を同じ深さで読むのは誤り",
+      "visual": {
+        "kind": "points",
+        "heading": "同じ深さで読まない",
+        "items": [
+          "全冊を通読\n時間が足りなくなる",
+          "全冊を概要だけ\n答案の根拠が薄くなる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "深さは白書ごとに変える"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "levels",
+      "start": 36,
+      "end": 49,
+      "narration": "読む深さは三段階です。深さ1は通読。深さ2は概要版と特集。深さ3は、その白書の主題を一文でつかむだけ。この三つを、白書ごとに割り振ります。",
+      "caption": "通読、概要と特集、主題の一文",
+      "visual": {
+        "kind": "points",
+        "heading": "読む深さは三段階",
+        "items": [
+          "深さ1\n通読する",
+          "深さ2\n概要版と特集を読む",
+          "深さ3\n主題を一文でつかむ"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "深さ3は本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "level1",
+      "start": 49,
+      "end": 63,
+      "narration": "深さ1は通読です。対象は、自分の業務領域に近い白書だけです。ここは答案で、自分の言葉で語る場面が多くなります。本文を通して読む価値があります。",
+      "caption": "自分の業務領域に近い白書は通読",
+      "visual": {
+        "kind": "points",
+        "heading": "深さ1：通読",
+        "items": [
+          "対象\n自分の業務領域に近い白書",
+          "読む範囲\n本文を通して読む",
+          "狙い\n現場の言葉で語れる根拠"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "サイト記事の運用を整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "level2",
+      "start": 63,
+      "end": 79,
+      "narration": "深さ2は、概要版と特集です。各白書には、10から30ページ程度の概要版があります。まずそれを読み、本文は特集と第1部に絞ります。特集は、時事の題材になりやすい部分です。",
+      "caption": "他の白書は概要版と特集",
+      "visual": {
+        "kind": "points",
+        "heading": "深さ2：概要版と特集",
+        "items": [
+          "概要版を先に読む\n10〜30ページ程度",
+          "本文は特集と第1部",
+          "題材になりやすい部分"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "サイト記事の読み方を整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "level3",
+      "start": 79,
+      "end": 93,
+      "narration": "深さ3は、主題を一文でつかむだけです。この白書は何を主題にしているかを、一文で言えれば足ります。詳しい中身は、必要になったときに開けば間に合います。",
+      "caption": "残りは主題の一文だけでも持つ",
+      "visual": {
+        "kind": "points",
+        "heading": "深さ3：主題の一文",
+        "items": [
+          "白書の名前\n何を主題にした白書か",
+          "一文で言えるか",
+          "詳しくは必要になってから"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "years",
+      "start": 93,
+      "end": 109,
+      "narration": "読む年度の幅も決めます。直近の2、3年分で足ります。古い版を開くのは、ある論点が何年でどう変わったかを追うときだけです。見るべきは、最新版で新しく加わった論点です。",
+      "caption": "直近の2、3年分で足りる",
+      "visual": {
+        "kind": "points",
+        "heading": "読む年度は直近2、3年",
+        "items": [
+          "直近の2〜3年分",
+          "古い版は変遷を追うときだけ",
+          "最新版の新しい論点を見る"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "サイト記事の読み方を整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "memo",
+      "start": 109,
+      "end": 126,
+      "narration": "読んだ後は、三点で残します。一つめは主題を一文で。二つめは数字。数字には、出典の名前と版を必ず添えます。三つめは施策。名前と狙いを書き留めます。答案で使うのは、このメモです。",
+      "caption": "主題、数字と出典、施策の三点",
+      "visual": {
+        "kind": "points",
+        "heading": "読んだ後は三点で残す",
+        "items": [
+          "主題\n一文で書く",
+          "数字\n出典の名前と版を添える",
+          "施策\n名前と狙いを書く"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "三点メモは本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 126,
+      "end": 145,
+      "narration": "仮の例です。建設に携わる受験者なら、国土交通白書は深さ1の通読。経済財政白書は深さ2で、概要版と特集。ほかの白書は、深さ3の主題の一文から始めます。これは割り振りの例で、出題の予想ではありません。",
+      "caption": "建設の立場なら国土交通白書を通読",
+      "visual": {
+        "kind": "points",
+        "heading": "仮例：建設に携わる受験者",
+        "items": [
+          "国土交通白書\n深さ1：通読",
+          "経済財政白書\n深さ2：概要版と特集",
+          "他の白書\n深さ3：主題の一文"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "手順の仮例。出題の予想ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "avoid",
+      "start": 145,
+      "end": 163,
+      "narration": "避けたいのは三つです。数字の出典と版を書かないこと。古い版の数字を、そのまま使うこと。読み込みで時間を使い切ること。数字や日程は、受検する年度の公式情報と、最新の白書で確認してください。",
+      "caption": "版を確かめない数字などを避ける",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたい三つ",
+        "items": [
+          "数字の出典と版を書かない",
+          "古い版の数字をそのまま使う",
+          "読み込みで時間を使い切る"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "数字は受検年度の公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 163,
+      "end": 179,
+      "narration": "まとめです。読む深さを、通読、概要版と特集、主題の一文の三段階に分けます。白書ごとに割り振り、直近の2、3年分を読み、読んだ後は主題、数字、施策の三点で残します。",
+      "caption": "深さを割り振り、三点で残す",
+      "visual": {
+        "kind": "points",
+        "heading": "読む深さのまとめ",
+        "items": [
+          "深さを三段階に分ける",
+          "白書ごとに割り振る",
+          "主題、数字、施策の三点で残す"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画のまとめ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 179,
+      "end": 191,
+      "narration": "白書で集めた根拠を、5管理の論点と結びつけて整理したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "5管理の教材案内は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "白書から、論点の整理へ",
+        "items": [
+          "白書で根拠を集める",
+          "5管理の論点と結ぶ",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "記述対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    }
+  ]
+}

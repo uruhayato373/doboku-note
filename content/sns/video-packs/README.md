@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **59**（更新: 2026-11-11）
+パック数: **61**（更新: 2026-11-11）
 
 ## 1級土木施工管理技士（9）
 
@@ -48,7 +48,7 @@
 | `pe1-tekisei-3shiten` | 技術士一次 適性科目の正誤判定で見る3つの視点 | 適性科目で、覚えたはずの内容でも選択肢の正誤判定に迷う | exam-point | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 
-## 技術士（建設部門）（12）
+## 技術士（建設部門）（13）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
@@ -58,6 +58,7 @@
 | `pe-fugoukaku-toan` | 技術士建設部門 不合格の答案はどこで落ちるか — 評価項目に照らして点検する | 筆記試験の答案がどこで点を落としたのか分からず、来年度の学習をどこから直せばよいか決められない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-gyoumu-shousai-720` | 建設部門｜業務内容の詳細 720 字の組み立て | 業務内容の詳細720字に何を書き、字数をどう配分すればよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-required-magazine` |
 | `pe-ii1-kakikata` | 建設部門｜Ⅱ-1 の書き方 — 600字を設問に沿って組み立てる | Ⅱ-1の知識はあるのに、600字にまとめると散らかり、何をどの順に何字で書けばよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
+| `pe-ii2-kakikata` | 建設部門｜Ⅱ-2 の書き方 — 2枚50行を設問に沿って組み立てる | Ⅱ-2は手順を書くうちに知識の列挙になり、調整方策が薄くなって、50行をどう割り振ればよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-construction-planning-magazine` |
 | `pe-iii-kakikata` | 建設部門｜Ⅲ の書き方 — 3枚75行を設問に沿って組み立てる | Ⅲは3枚75行も書くのに、前置きが長くなって解決策が薄くなり、どこに何行使えばよいか決められない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
 | `pe-kojutsu-fukabori` | 技術士建設部門の口頭対策 — 深掘りの質問に事実で答える | 業務経歴の説明はできても、なぜそう判断したのかなどの深掘りに、事実ではなく一般論や言い訳で答えてしまう | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |
 | `pe-kojutsu-kaitei-competency` | 建設部門 口頭｜改訂コンピテンシーで変わる質問 | コンピテンシー改訂で何が変わり、口頭試験の質問にどう影響するのか分からない | exam-point | レビュー | 台本/構成 | `pe-construction-oral-guide` |
@@ -65,13 +66,14 @@
 | `pe-road-shutsudai-yomikata` | 技術士建設部門 道路｜出題の読み方と書き方 | 道路の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、どこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
 | `toan-kousei-template` | 答案構成のテンプレート — 課題抽出から効果・リスクまで | 書き始めてから構成が崩れ時間内に論文がまとまらない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 
-## 技術士（総合技術監理部門）（7）
+## 技術士（総合技術監理部門）（8）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `cm-fugokaku-tenken` | 総監｜落ちた原因を点検して学習を始め直す | 不合格の原因が分からないまま、同じ勉強を最初から繰り返してしまう | diagnosis | 未登録 | 台本/構成 | `essay-core-pack` |
 | `gyoumu-keireki-kakikata` | 総監｜業務経歴の書き方 | 業務経歴票で何を書けば通るのか分からず、手が止まる | howto | 未登録 | 台本/構成 | `essay-complete-pack` |
 | `hakusho-kadai-erabu` | 総監 記述｜白書から課題を選ぶ | 白書をどこまで読み、どの課題を答案に使えばよいか分からない | howto | 未登録 | 台本/構成 | `setsumon3-policy-bank` |
+| `hakusho-yomu-fukasa` | 総監 記述｜白書の読み方と読む深さ | 白書が多く、どの白書をどこまで深く読めばよいか分からない | howto | 未登録 | 台本/構成 | `tankan-reading-guide` |
 | `sanso-kozo` | 合否を分ける三層構造 — 前提・施策・最大リスク | 設問ごとに何を書くべきかの役割分担が分からない | exam-point | 予約 | 台本/構成 | `essay-complete-pack` |
 | `sokan-kojutsu-kangaekata` | 口頭試験の考え方 — 経歴を総監の言葉で語る | 口頭試験で自分の経歴や業務をどう総監らしく語ればよいか分からない | howto | 停止 | 台本/構成 | `tankan-oral-complete` |
 | `sokan-kojutsu-tachiba` | 総監 口頭｜立場ごとに聞かれることと答え方 | 立場によって口頭で聞かれることが違うと聞くが、自分の立場ではどこを準備すればよいか分からない | howto | レビュー | 台本/構成 | `tankan-oral-complete` |
