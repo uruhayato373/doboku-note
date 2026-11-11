@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "packId": "cm-setsumon3-risk-kokufuku",
+  "exam": "pe-comprehensive-management",
+  "title": "総監 記述｜設問3の将来のリスクと克服策",
+  "audience": "総監の記述式で設問3の障害と克服策の書き方を探す受験者",
+  "pain": "設問3で施策を書いたあと、最も重大な障害をどう選び、克服策をどこまで具体に書けばよいか分からない",
+  "promise": "障害の候補を出して影響で一つに絞り、克服策を部署・手順・点検時期で具体にする三つの手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/r06-secondary/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/r07-secondary/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/r08-secondary/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "setsumon3-policy-bank",
+    "campaign": "cm-setsumon3-risk-kokufuku"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

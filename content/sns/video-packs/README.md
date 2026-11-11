@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **68**（更新: 2026-11-11）
+パック数: **71**（更新: 2026-11-11）
 
 ## 1級土木施工管理技士（9）
 
@@ -48,7 +48,7 @@
 | `pe1-tekisei-3shiten` | 技術士一次 適性科目の正誤判定で見る3つの視点 | 適性科目で、覚えたはずの内容でも選択肢の正誤判定に迷う | exam-point | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 
-## 技術士（建設部門）（17）
+## 技術士（建設部門）（18）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
@@ -65,17 +65,20 @@
 | `pe-kojutsu-fukabori` | 技術士建設部門の口頭対策 — 深掘りの質問に事実で答える | 業務経歴の説明はできても、なぜそう判断したのかなどの深掘りに、事実ではなく一般論や言い訳で答えてしまう | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |
 | `pe-kojutsu-kaitei-competency` | 建設部門 口頭｜改訂コンピテンシーで変わる質問 | コンピテンシー改訂で何が変わり、口頭試験の質問にどう影響するのか分からない | exam-point | レビュー | 台本/構成 | `pe-construction-oral-guide` |
 | `pe-kojutsu-keireki` | 技術士建設部門の口頭対策 — 業務経歴とコンピテンシーを結ぶ | 業務経歴は説明できても、自分の判断と成果をコンピテンシーにつなげて語れない | howto | 予約 | 台本/構成 | `pe-construction-oral-guide` |
+| `pe-river-coast-shutsudai-yomikata` | 技術士建設部門 河川、砂防及び海岸・海洋｜出題の読み方と書き方 | 河川、砂防及び海岸・海洋の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、河川・ダム・砂防・海岸のどこに気を付けて問題文を読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-river-coast-magazine` |
 | `pe-road-shutsudai-yomikata` | 技術士建設部門 道路｜出題の読み方と書き方 | 道路の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、どこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-road-magazine` |
 | `pe-tunnel-shutsudai-yomikata` | 技術士建設部門 トンネル｜出題の読み方と書き方 | トンネルの過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、山岳・開削・シールドの条件をどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-tunnel-magazine` |
 | `pe-urban-planning-shutsudai-yomikata` | 技術士建設部門 都市及び地方計画｜出題の読み方と書き方 | 都市及び地方計画の過去問を開いても、II-1・II-2・IIIで何がどう問われるのか、制度の説明と課題の抽出でどこに気を付けて読めばよいか分からない | howto | 未登録 | 台本/構成 | `pe-construction-urban-planning-magazine` |
 | `toan-kousei-template` | 答案構成のテンプレート — 課題抽出から効果・リスクまで | 書き始めてから構成が崩れ時間内に論文がまとまらない | howto | 予約 | 台本/構成 | `pe-construction-required-magazine` |
 
-## 技術士（総合技術監理部門）（11）
+## 技術士（総合技術監理部門）（13）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
+| `cm-essay-tradeoff-kakikata` | 総監 記述｜5管理のトレードオフを答案に書く | 施策を書いたあと、その裏の問題点を5管理のトレードオフとしてどう書けばよいか分からない | howto | 未登録 | 台本/構成 | `essay-core-pack` |
 | `cm-fugokaku-tenken` | 総監｜落ちた原因を点検して学習を始め直す | 不合格の原因が分からないまま、同じ勉強を最初から繰り返してしまう | diagnosis | 未登録 | 台本/構成 | `essay-core-pack` |
 | `cm-mondaibun-yomikata` | 総監 記述｜問題文の読み方 | 問題文が長く、どこを拾って答案の条件にすればよいか分からない | howto | 未登録 | 台本/構成 | `essay-core-pack` |
+| `cm-setsumon3-risk-kokufuku` | 総監 記述｜設問3の将来のリスクと克服策 | 設問3で施策を書いたあと、最も重大な障害をどう選び、克服策をどこまで具体に書けばよいか分からない | howto | 未登録 | 台本/構成 | `setsumon3-policy-bank` |
 | `gyoumu-keireki-kakikata` | 総監｜業務経歴の書き方 | 業務経歴票で何を書けば通るのか分からず、手が止まる | howto | 未登録 | 台本/構成 | `essay-complete-pack` |
 | `hakusho-kadai-erabu` | 総監 記述｜白書から課題を選ぶ | 白書をどこまで読み、どの課題を答案に使えばよいか分からない | howto | 未登録 | 台本/構成 | `setsumon3-policy-bank` |
 | `hakusho-shisaku-kaiketsu` | 総監 記述｜白書の施策を解決策へつなぐ | 白書で施策を見つけても、答案の解決策にどう書き換えればよいか分からない | howto | 未登録 | 台本/構成 | `setsumon3-policy-bank` |

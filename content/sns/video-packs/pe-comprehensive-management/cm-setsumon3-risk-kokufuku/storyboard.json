@@ -1,0 +1,281 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 8,
+      "narration": "設問3の障害と克服策を、どう書くか。その手順を紹介します。",
+      "caption": "設問3の障害と克服策の書き方",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監 記述\n設問3の克服策",
+        "items": [
+          "技術士 総合技術監理部門・記述式"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "hook",
+      "start": 8,
+      "end": 22,
+      "narration": "施策を書いたあと、障害と克服策で手が止まることがあります。この動画では、障害を一つに絞り、克服策を具体にする三つの手順を紹介します。",
+      "caption": "障害を絞り、克服策を具体にする",
+      "visual": {
+        "kind": "points",
+        "heading": "三つの手順でつなぐ",
+        "items": [
+          "障害の候補を出す",
+          "影響の大きさで一つに絞る",
+          "克服策を具体にする"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画の独自の整理"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 22,
+      "end": 36,
+      "narration": "誤解しやすいのは、障害を思いつくだけ並べることです。設問が最も重大な障害を問うなら、答案に要るのは網羅ではありません。選んだ理由と、それに合う克服策です。",
+      "caption": "並べるだけでは答えにならない",
+      "visual": {
+        "kind": "points",
+        "heading": "障害は並べない",
+        "items": [
+          "思いつくだけ並べる\n選んだ理由が見えない",
+          "一つに絞って理由を添える\n克服策につながる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "問われるのは最も重大な障害"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "three",
+      "start": 36,
+      "end": 48,
+      "narration": "手順は三つです。一つめは、障害の候補を出す。二つめは、影響の大きさで一つに絞る。三つめは、克服策を、部署、手順、点検時期で具体にする。",
+      "caption": "出す、絞る、具体にする",
+      "visual": {
+        "kind": "points",
+        "heading": "手順は三つ",
+        "items": [
+          "1 候補を出す",
+          "2 一つに絞る",
+          "3 克服策を具体にする"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "この順に進める"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 48,
+      "end": 64,
+      "narration": "手順1は、候補を出すことです。施策の効果の裏で、何が増えるかを見ます。一つの管理を良くして、別の管理へ負担が移らないか。特定の担当者や協力先が欠けたら、続けられるか。対象が増えたとき、今の体制で処理できるか。この三つの問いで探します。",
+      "caption": "三つの問いで候補を出す",
+      "visual": {
+        "kind": "points",
+        "heading": "手順1 候補を出す",
+        "items": [
+          "別の管理へ負担が移らないか",
+          "担当者や協力先が欠けても続くか",
+          "対象が増えても処理できるか"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "施策の裏を見る"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 64,
+      "end": 80,
+      "narration": "手順2は、一つに絞ることです。候補を並べて、事業への影響が最も大きいものを比べます。選んだら、なぜそれが最も重大かを一文で添えます。問題文が複数を求めているなら、指定された数に従います。",
+      "caption": "影響で比べ、理由を一文で添える",
+      "visual": {
+        "kind": "points",
+        "heading": "手順2 一つに絞る",
+        "items": [
+          "候補を並べる",
+          "影響の大きさを比べる",
+          "選んだ理由を一文で添える"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "数は設問の指定に従う"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 80,
+      "end": 98,
+      "narration": "手順3は、克服策を具体にすることです。体制を整える、だけでは方針止まりです。負担を受ける部署はどこか。どの手順を決め直すのか。いつ点検するのか。ここまで書きます。さらに、その対策が別の遅延や負担を生まないかも確かめます。",
+      "caption": "部署、手順、点検時期まで書く",
+      "visual": {
+        "kind": "points",
+        "heading": "手順3 克服策を具体にする",
+        "items": [
+          "負担を受ける部署",
+          "決め直す手順",
+          "点検する時期"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "対策の副作用も確かめる"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "view",
+      "start": 98,
+      "end": 114,
+      "narration": "設問が求める視点も確認します。令和6年度から8年度の過去問ページでは、設問3の障害の問いに、総合技術監理の視点に限らず、我が国が直面する重要課題等の視点を含めてよい、という注記があります。当年度の問題文で、求められる視点を確かめてください。",
+      "caption": "視点は当年度の問題文で確かめる",
+      "visual": {
+        "kind": "points",
+        "heading": "視点を確かめる",
+        "items": [
+          "問題文の視点の指定を読む",
+          "注記があれば広い視点も使える",
+          "当年度の問題文が優先"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "過去問ページで確認できる記述"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/r07-secondary/article.mdx"
+    },
+    {
+      "sceneId": "scope",
+      "start": 114,
+      "end": 128,
+      "narration": "範囲も問題文で決まります。令和6年度から8年度の設問3は、事業や組織の枠を超えて、我が国として取るべき施策を問う形でした。設問3だから自分の事業だけ、と決めつけず、指定された範囲で障害を選びます。",
+      "caption": "範囲は問題文で決まる",
+      "visual": {
+        "kind": "points",
+        "heading": "範囲を確かめる",
+        "items": [
+          "自分の事業を問う設問\n担当範囲から飛ばない",
+          "我が国の取組を問う設問\n国の範囲で障害を選ぶ"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "決めつけず問題文で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/r06-secondary/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 128,
+      "end": 150,
+      "narration": "仮の例です。国の施策として、橋やトンネルの点検記録を、共通の様式で集めるとします。候補は、自治体ごとの人員差で入力が遅れること、確認が一部の担当に集中すること、対象が増えて確認が追い付かなくなることです。確認の集中を選んだなら、負担を受ける担当課、確認の分担を決め直す手順、導入後の点検時期まで書きます。これは手順の例で、出題の予想ではありません。",
+      "caption": "仮の例で絞って具体にする",
+      "visual": {
+        "kind": "points",
+        "heading": "仮の例で通す",
+        "items": [
+          "候補は三つ\n入力の遅れ、確認の集中、対象の増加",
+          "一つに絞る\n確認の集中",
+          "克服策\n担当課、分担の手順、点検時期"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "記述対策／総監",
+          "note": "出題の予想ではない"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "avoid",
+      "start": 150,
+      "end": 166,
+      "narration": "避けたいのは三つです。障害を並べるだけで、絞らないこと。克服策が方針のままで、部署も手順も時期も無いこと。対策が別の管理に新しい負担を生むのに、触れないこと。数字や日程は、受検する年度の公式情報で確認してください。",
+      "caption": "並べる、方針止まり、副作用の無視",
+      "visual": {
+        "kind": "points",
+        "heading": "避けたい三つ",
+        "items": [
+          "障害を並べるだけで絞らない",
+          "克服策に部署も手順も時期も無い",
+          "対策の副作用に触れない"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "数字は公式情報で確認"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "recap",
+      "start": 166,
+      "end": 180,
+      "narration": "まとめです。障害の候補を出し、影響で一つに絞り、理由を添えます。克服策は、部署、手順、点検時期まで具体にします。視点と範囲は、当年度の問題文で確かめます。",
+      "caption": "絞って、具体にして、問題文で確かめる",
+      "visual": {
+        "kind": "points",
+        "heading": "障害と克服策のまとめ",
+        "items": [
+          "候補を出して、一つに絞る",
+          "部署、手順、点検時期まで書く",
+          "視点と範囲は問題文で確かめる"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "記述対策／総監",
+          "note": "本動画のまとめ"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 180,
+      "end": 192,
+      "narration": "設問3で使う、国家レベルの施策案をまとめて引き出したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
+      "caption": "国家施策の教材案内は概要欄から",
+      "visual": {
+        "kind": "points",
+        "heading": "施策から、障害と克服策へ",
+        "items": [
+          "国家レベルの施策を集める",
+          "障害と克服策を結ぶ",
+          "教材案内は概要欄へ"
+        ],
+        "art": {
+          "type": "closing",
+          "section": "記述対策／総監"
+        }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
+  ]
+}
