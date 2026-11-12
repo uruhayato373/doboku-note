@@ -746,7 +746,7 @@
       "work": "pe-fugoukaku-toan",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-fugoukaku-toan/youtube.longform/cover",
         "scene-001": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-001",
@@ -767,7 +767,20 @@
         "subtitles": "pe-construction/pe-fugoukaku-toan/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#longform",
-      "publishAt": "2026-12-22T11:30:00Z"
+      "publishAt": "2026-11-15T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T21:38:31.299Z",
+          "digest": "7c94c5d486028319506a8fd18bd2a66e4b4331cfa5d68193c544293a6a83e0ae"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T21:38:31.299Z",
+        "contentSha256": "96eaf6bf0bce4cfc87f1c859a5d08e5eb80fedf979bd9e485285c642e6e25a8d"
+      }
     },
     {
       "id": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1",
@@ -1573,7 +1586,7 @@
       "work": "pe-urban-planning-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1592,7 +1605,21 @@
         "video": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#longform",
+      "publishAt": "2026-11-16T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T21:38:34.655Z",
+          "digest": "bfb3614009b3eae51ea62838070bb93179af1bf10f38af98a0ce261c8b7f1b90"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T21:38:34.655Z",
+        "contentSha256": "36ae37b4c2402560aaa46d890c8eb2d5702bef486331945503f3f0e4086fdf8b"
+      }
     },
     {
       "id": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1",
