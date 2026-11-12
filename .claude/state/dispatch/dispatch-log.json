@@ -7560,6 +7560,32 @@
       "commit": "40879463b65a",
       "verification": "jctc.jp/exam/doboku-2/ と受検の手引 PDF の本文",
       "note": "全国建設研修センターの令和8年度 受検の手引は「令和８年度中における年齢が１７歳以上の者」で台本の「その年度に十七歳以上」と一致。第二次は台本が令和8年度を例と断っている。直す所なし"
+    },
+    {
+      "id": "DN-0988",
+      "at": "2026-11-12",
+      "task": "video-factory の量産を広げる前に、文面・改訂版・トークンの 3 点を直す",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ac198a4336c8",
+      "verification": "台帳の status scheduled（4 本・2026-11-12 の YouTube の読み戻し）",
+      "note": "完了条件の『3〜5 本が人の手なしで予約まで通る』は 2026-11-12 に毎日の予約（youtube-daily）で通常動画 4 本が関門→方針の承認→予約まで通った（トンネル・道路・土質・総監 不合格点検）。① 文面は wire が描画の実体から youtube.json を作る、② 改訂版の日時は wireRevision が関門の中で決める。③ トークンは DN-1072、④ 読み間違いの検出は DN-1071 が持つ"
+    },
+    {
+      "id": "DN-1004",
+      "at": "2026-11-12",
+      "task": "YouTube 年間の枠の未決定の論点を運営者が決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ac198a4336c8",
+      "verification": "npm run check-youtube-plan（違反 0・要対応 0・採否待ち 1 枠）",
+      "note": "運営者の決定（2026-11-12）: 1 頻度は在庫を 1 日 2 本で 12 月上旬まで前倒し（frontLoad 〜12/15）、その後は週 2 本・山場 3 本 2 exam-sokuho・moshi-free は止めたまま（枠 c1-moshi-2027 は DN-0600 の判断まで採否待ち） 3 主 CTA は check-youtube-plan の要対応 0・check-youtube-funnels PASS で関門を通る 4 1級土木の在庫 16 本は前倒しの期間に出る 5 完成済みの選択科目も前倒しで出す 6 ショートは 1 本につき 2 本のまま（12/15 の見直し）"
     }
   ]
 }
