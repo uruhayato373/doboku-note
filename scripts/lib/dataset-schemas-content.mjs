@@ -402,7 +402,8 @@ export const RegistryPublications = z
 // ---- 素材（content/registry/media/{exam}.json・brand.json） ---------------------------------------------
 
 const Provenance = z.discriminatedUnion('kind', [
-  z.object({ kind: z.literal('render'), by: z.string().describe('描いたスクリプト'), spec: z.string().optional(), specSha256: sha256.optional(), renderInputSha256: sha256.optional(), tts: z.object({ engine: z.string(), speaker: z.number().int(), credit: z.string() }).strict().optional() }).strict(),
+  z.object({ kind: z.literal('render'), by: z.string().describe('描いたスクリプト'), spec: z.string().optional(), specSha256: sha256.optional(), renderInputSha256: sha256.optional(), tts: z.object({ engine: z.string(), speaker: z.number().int(), credit: z.string() }).strict().optional(),
+    reanchored: z.object({ reason: z.literal('cover-only'), commit: z.string().regex(/^[0-9a-f]{40}$/), specSha256: sha256, renderInputSha256: sha256, at: z.string() }).strict().optional().describe('表紙だけの変更の後に今の制作入力へ結び直した記録（registry reanchor-render・DN-1146）。前の値と描いた入力の commit') }).strict(),
   z.object({ kind: z.literal('template'), by: z.string(), spec: z.string().optional(), specSha256: sha256.optional() }).strict(),
   z.object({ kind: z.literal('ai-generated'), tool: z.string(), model: z.string().optional(), prompt: z.string().min(1), promptSha256: sha256, generatedAt: utcTime('生成した時刻') }).strict(),
   z.object({ kind: z.literal('photo'), source: z.string() }).strict(),
