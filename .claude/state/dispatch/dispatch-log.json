@@ -7706,6 +7706,19 @@
       "commit": "fd4a7bc86b17",
       "verification": ".claude/state/quality/standards-visual-review.json kinki/common/3-2 verdict=pass",
       "note": "棚卸し: kinki/common/3-2 は 2026-11-09T04:32 に目視判定 pass で台帳に記録済み"
+    },
+    {
+      "id": "DN-0422",
+      "at": "2026-11-12",
+      "task": "総監キーワードのうち登録済みなのに検索表示 0 の 62 ページの題名・リードを検索語に合わせる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "246ce8c3b0a5",
+      "verification": "data/business/experiments.json EXP-057 running・DN-1113 本文へ検証結果を移した",
+      "note": "棚卸し: DN-1113 へ統合。一括修正は 2026-11-04 の検証で取りやめ（EXP-057 で 30 ページを試す）、残る判断は DN-1113 の『次の実験の向き』と同じ"
     }
   ]
 }
