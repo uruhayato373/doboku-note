@@ -59,6 +59,13 @@ import matter from 'gray-matter';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { loadManifest, loadManifestRaw, writeManifestAtomic } from './lib/asset-storage.mjs';
 import { computeOgpSrcHash } from './lib/ogp-srchash.mjs';
+import { availablePhotoVersion } from './lib/site-photo.mjs';
+
+/** content/site/<資格>/<記事>/ogp.png から、背景に敷く写真の版を引く（資格の総合ページなど写真の無いものは null） */
+function photoVersionFor(ogpRel) {
+  const m = String(ogpRel).replace(/\\/g, '/').match(/content\/site\/([^/]+)\/([^/]+)\/ogp\.png$/);
+  return m ? availablePhotoVersion(m[1], m[2]) : null;
+}
 import { siteSlugFromParts } from '../src/lib/site-slug.mjs';
 
 const POSTS_DIR = SITE_CONTENT_ROOT;
@@ -161,7 +168,7 @@ function runCheck(args) {
   for (const t of targets) {
     checked++;
     const { data } = matter(fs.readFileSync(t.full, 'utf8'));
-    const computed = computeOgpSrcHash(data);
+    const computed = computeOgpSrcHash(data, { photoVersion: photoVersionFor(t.ogpRel) });
     const entry = entries[t.ogpRel];
     if (!entry || entry.group !== 'site-ogp-png') {
       untracked.push({ slug: t.slug, ogp: t.ogpRel });
@@ -273,7 +280,7 @@ function runWrite(args) {
       continue;
     }
     const { data } = matter(fs.readFileSync(t.full, 'utf8'));
-    entry.srcHash = computeOgpSrcHash(data);
+    entry.srcHash = computeOgpSrcHash(data, { photoVersion: photoVersionFor(t.ogpRel) });
     updated++;
   }
 

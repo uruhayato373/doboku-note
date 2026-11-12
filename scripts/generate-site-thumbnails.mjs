@@ -2,7 +2,9 @@
 /**
  * サイト内サムネイルのページ別の絵を Codex で作る。通常は scripts/site-thumbnails.mjs から呼ばれる。設計は docs/operations/画像運用設計.md。
  *   node scripts/generate-site-thumbnails.mjs --exam civil-construction-1 --pages [--only <ページ>] [--model <m>]
- * 出力: 記事の隣の site-thumb.webp（640×245）。来歴は ai-image-review-ledger.json、版は config/site-thumbnails.json。
+ * 出力: 記事の隣の site-photo.webp（1200×630・OGP の背景に使う原寸）と site-thumb.webp（640×245・カード用）。
+ *   同じ Codex の出力から 2 枚を切るので、版（version = site-thumb の sha の先頭 8 字）は両方を指す。
+ *   来歴は ai-image-review-ledger.json、版は config/site-thumbnails.json。
  */
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -39,8 +41,11 @@ for (let i = 0; i < keys.length; i += concurrency) {
     const rawSha = sha(source);
     if (seen.has(rawSha)) { failed += 1; console.error(`同じ画像: ${key} と ${seen.get(rawSha)}`); return; }
     seen.set(rawSha, key);
+    const dir = join(ROOT, 'content/site', args.exam, key);
+    const photo = await sharp(source).resize(1200, 630, { fit: 'cover' }).webp({ quality: 80 }).toBuffer();
     const webp = await sharp(source).resize(640, 245, { fit: 'cover' }).webp({ quality: 82 }).toBuffer();
-    writeFileSync(join(ROOT, 'content/site', args.exam, key, thumbs.imageFile), webp);
+    writeFileSync(join(dir, thumbs.photoFile), photo);
+    writeFileSync(join(dir, thumbs.imageFile), webp);
     const digest = sha(webp);
     pages[key].version = digest.slice(0, 8);
     ledger.figures[recordKey(args.exam, key)] = { sha: digest.slice(0, 16), promptSha: promptSha(prompt), tool: 'Codex', generatedAt: new Date().toISOString(), styleVersion: thumbs.styleVersion };

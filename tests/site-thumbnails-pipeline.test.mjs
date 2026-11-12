@@ -64,6 +64,7 @@ test('公開の台帳: 全ページの版が AI 台帳の sha と一致し、判
     const entry = ledger.figures[recordKey(exam, key)];
     assert.equal(entry?.sha?.slice(0, 8), page.version, `${exam}/${key} の版が台帳と違う`);
     assert.equal(entry?.verdict, 'ok', `${exam}/${key} が未判定か不合格`);
-    assert.equal(entry?.styleVersion, config.styleVersion, `${exam}/${key} の画風の版が古い`);
+    // 画風の版が古い絵は、作り直すまで表示してよい（版上げのたびに全ページを一度に消さない）。作り直しの対象は stalePages が拾う
+    assert.ok(Number.isInteger(entry?.styleVersion) && entry.styleVersion <= config.styleVersion, `${exam}/${key} の画風の版が無いか、正本より新しい`);
   }
 });

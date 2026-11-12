@@ -23,6 +23,8 @@ import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { wrapTitle, pickFontSize } from '../.claude/skills/ogp-create/scripts/lib/ogp-text.mjs';
+import { PHOTO_TITLE_WIDTH } from '../.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs';
+import { availablePhotoVersion } from './lib/site-photo.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
@@ -65,11 +67,13 @@ function deriveMain(rawTitle, examLabel) {
   return segs[0];
 }
 
-async function mainFontOf(data, cat) {
+// 写真のあるページは photo-scrim（文字は左 PHOTO_TITLE_WIDTH に収める）、無いページは mono-tag の幅
+async function mainFontOf(data, cat, local) {
+  const width = availablePhotoVersion(cat, local) ? PHOTO_TITLE_WIDTH : SAFE_W;
   let lines;
   if (data.ogp?.title) lines = await wrapTitle(data.ogp.title, EXPLICIT_WRAP);
   else lines = await wrapTitle(deriveMain(data.title || '', catLabel.get(cat) || ''), NEW_WRAP_CFG);
-  return { font: pickFontSize(lines, { fontSizeTable: MAIN_FONT_TABLE, safetyWidth: SAFE_W }), lines };
+  return { font: pickFontSize(lines, { fontSizeTable: MAIN_FONT_TABLE, safetyWidth: width }), lines };
 }
 
 function stagedMdx() {
@@ -86,7 +90,7 @@ for (const fp of files) {
   const rel = relative(ROOT, fp).split('\\').join('/');
   const slug = rel.replace(/\/article\.mdx$/, '').replace(/\.mdx$/, '');
   const cat = rel.split('/')[0];
-  const { font, lines } = await mainFontOf(data, cat);
+  const { font, lines } = await mainFontOf(data, cat, rel.split('/')[1]);
   rows.push({ slug, font, manual: !!data.ogp?.title, preview: lines.join(' / ') });
 }
 const ng = rows.filter((r) => r.font < FLOOR).sort((a, b) => a.font - b.font);
