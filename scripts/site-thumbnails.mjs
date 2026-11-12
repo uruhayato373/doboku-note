@@ -22,6 +22,7 @@ import sharp from 'sharp';
 import { askCodexAboutImages } from './lib/codex-image.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { checkLedger, claudeQueue, loadLedger, recordKey, recordVerdicts, saveLedger, similarScenes, stalePages } from './lib/site-thumbnails-pipeline.mjs';
+import { nearDuplicates } from './lib/site-thumbnail-metrics.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const { values: args } = parseArgs({ options: { exam: { type: 'string' }, label: { type: 'string' }, model: { type: 'string' }, 'fix-fails': { type: 'boolean' }, record: { type: 'string' } } });
@@ -142,8 +143,27 @@ for (const row of rows) {
   digests.set(digest, row.key);
 }
 const similarPairs = similarScenes(rows, config.review.similarScene);
-console.log(`機械検査: ${rows.length} 件 / 同一の画像 ${sameImages.length} 組 / 似た題材 ${similarPairs.length} 組`);
+// 寸法と容量（spec）。原寸とカード用が規格どおりか
+const sizeErrors = [];
+for (const row of rows) {
+  for (const [file, want] of [[config.photoFile, config.spec.photo], [config.imageFile, config.spec.card]]) {
+    const path = join(ROOT, 'content/site', exam, row.key, file);
+    if (!existsSync(path)) { sizeErrors.push(`${row.key}/${file}: 無い`); continue; }
+    const meta = await sharp(path).metadata();
+    const kb = readFileSync(path).length / 1024;
+    if (meta.width !== want.width || meta.height !== want.height || kb > want.maxKB) sizeErrors.push(`${row.key}/${file}: ${meta.width}×${meta.height}・${Math.round(kb)}KB`);
+  }
+}
+// 似た画像（dHash）。同じ資格の中だけでなく、台帳にある全資格の写真と比べる
+const ledgerNow = loadLedger(ROOT);
+const hashes = Object.entries(ledgerNow.figures).filter(([id, entry]) => id.startsWith('site-thumb:') && entry.metrics?.dhash)
+  .map(([id, entry]) => ({ key: id.slice('site-thumb:'.length), dhash: entry.metrics.dhash }));
+const nearPairs = nearDuplicates(hashes, config.spec.nearDuplicateMaxDistance)
+  .filter((pair) => pair.some((id) => id.startsWith(`${exam}/`)))
+  .map((pair) => pair.map((id) => (id.startsWith(`${exam}/`) ? id.slice(exam.length + 1) : id)));
+console.log(`機械検査: ${rows.length} 件 / 同一の画像 ${sameImages.length} 組 / 似た題材 ${similarPairs.length} 組 / 似た画像 ${nearPairs.length} 組 / 寸法・容量の違反 ${sizeErrors.length} 件`);
 if (sameImages.length) { console.error(`同一の画像: ${JSON.stringify(sameImages)}`); process.exit(1); }
+if (sizeErrors.length) { console.error(`寸法・容量の違反（generate-site-thumbnails --rederive で作り直す）: ${sizeErrors.slice(0, 10).join(' / ')}`); process.exit(1); }
 
 // 4. 一次監査
 const ledger = loadLedger(ROOT);
@@ -168,9 +188,9 @@ if (todo.length) {
 
 // 5. Claude の確認リスト
 const target = unreviewed.map((row) => ({ key: row.key, image: join(work, 'png', `${row.key}.png`), text: row.text, scene: row.scene, title: row.title, subtitle: row.subtitle, group: row.group }));
-const queue = claudeQueue(target, [...reviewed.values()], similarPairs, config.review);
+const queue = claudeQueue(target, [...reviewed.values()], similarPairs, config.review, nearPairs);
 saveJson(join(work, 'claude-queue.json'), queue);
 const missing = target.filter((row) => !reviewed.has(row.key)).length;
 const count = (reason) => queue.filter((row) => row.reasons.some((item) => item.startsWith(reason))).length;
-console.log(`一次監査 ${target.length - missing} / ${target.length} 件 / Claude の確認 ${queue.length} 件（Codex ${count('codex')}・高リスク ${count('risk')}・似た題材 ${count('similar')}・抜き取り ${count('sample')}）`);
+console.log(`一次監査 ${target.length - missing} / ${target.length} 件 / Claude の確認 ${queue.length} 件（Codex ${count('codex')}・高リスク ${count('risk')}・似た題材 ${count('similar')}・似た画像 ${count('near')}・抜き取り ${count('sample')}）`);
 process.exit(missing ? 2 : 0);
