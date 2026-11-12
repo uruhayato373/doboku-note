@@ -1,4 +1,4 @@
-import { createHash } from 'node:crypto';
+import { aiProvenance } from './image-origin.mjs';
 import { readJson } from './json-io.mjs';
 import { verifyImageReproduction } from './video-image-reproduction.mjs';
 
@@ -15,7 +15,7 @@ export async function shortsCandidateSources(root, work, pub) {
     const image = record.images.find(i => i.role === scene.role && i.output.sha256 === scene.sha256);
     if (!image?.generation?.prompt || image.generation.tool !== 'image_gen') throw new Error('Shortsの場面とCodex生成記録が一致しません');
     return { role: `${record.key}-${/^scene-/.test(scene.role) ? 'body' : scene.role}`, from: scene.path, expectSha: scene.sha256,
-      provenance: { kind: 'ai-generated', tool: 'codex', prompt: image.generation.prompt, promptSha256: createHash('sha256').update(image.generation.prompt).digest('hex'), generatedAt: image.generation.generatedAt } };
+      provenance: aiProvenance({ prompt: image.generation.prompt, generatedAt: image.generation.generatedAt }) };
   });
   sources.push({role:`${record.key}-video`,from:recipe.verifiedOutput.path,expectSha:recipe.verifiedOutput.sha256,durationSec:recipe.totalFrames/recipe.fps,
     provenance:{kind:'render',by:'shorts-image-replacement',spec:`${work.definition}/pop-image.json#${pop.candidateShortsRevision}`}});

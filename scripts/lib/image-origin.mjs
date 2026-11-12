@@ -93,6 +93,25 @@ export function promptSha(prompt) {
 }
 
 /**
+ * 公開の台帳（content/registry）に書く AI 画像の来歴（DN-1013・書き手はこの 1 か所）。
+ * promptSha256 は指示文の全文（trim しない・全 64 桁）で、台帳の型（dataset-schemas-content）が全長を求める。
+ * AI 画像の台帳（ai-image-review-ledger）の promptSha は promptSha()（trim・先頭 16 桁）で別物。
+ */
+export function aiProvenance({ prompt, generatedAt, model = null, tool = 'codex' }) {
+  return { kind: 'ai-generated', tool, ...(model ? { model } : {}), prompt, promptSha256: createHash('sha256').update(prompt).digest('hex'), generatedAt };
+}
+
+/**
+ * AI 画像の台帳（ledger.figures）へ 1 枚を記録して、鍵の順に並べ直す（DN-1013・書き手はこの 1 か所）。
+ * sha は画像の sha256（先頭 16 桁で持つ）、prompt は指示文の全文（promptSha() で持つ）。判定（verdict）は消さずに残す。
+ */
+export function recordAiImage(ledger, key, { sha, prompt, generatedAt, tool = 'codex', ...extra }) {
+  ledger.figures[key] = { sha: String(sha).slice(0, 16), promptSha: promptSha(prompt), tool, generatedAt, ...extra };
+  ledger.figures = Object.fromEntries(Object.entries(ledger.figures).sort(([a], [b]) => a.localeCompare(b)));
+  return ledger.figures[key];
+}
+
+/**
  * AI 画像の状態（仕様＝provenance と実績＝AI 画像の台帳から導く。手で「済」と書く欄は持たない）。
  *   not-generated … 仕様に指示があるのに、今の画像がその指示から作られた記録が無い（指示を変えた・手で差し替えた）
  *   unreviewed    … 指示から作って配置したが、実物どおりかの判定が無い

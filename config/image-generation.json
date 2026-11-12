@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "codexModel": null,
   "teacher": {
     "identity": "先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。",
     "body": "手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。"
@@ -102,13 +103,6 @@
       "audit": "ai-image-fidelity-auditor"
     },
     {
-      "id": "guide-covers",
-      "label": "ガイドのカバー写真",
-      "kind": "script",
-      "entry": "scripts/generate-guide-covers.mjs",
-      "audit": "none"
-    },
-    {
       "id": "ogp-backgrounds",
       "label": "OGP の背景",
       "kind": "script",
@@ -136,5 +130,48 @@
       "entry": "scripts/character-extract.mjs",
       "audit": "none"
     }
-  ]
+  ],
+  "prompts": {
+    "articlePhoto": {
+      "style": "Create ONE photorealistic documentary photograph, landscape 4:3 aspect ratio (for example 1448x1086). Outdoor civil engineering construction site in Japan, daylight, natural colours, sharp focus. The whole subject is fully visible with some margin on all sides, three-quarter side view at eye level unless stated otherwise. It must look like a real, currently manufactured machine or instrument of the stated type - correct number of wheels/drums/tracks and correct placement of parts. No text, no logos, no brand names, no readable signage, labels or license plates. No people unless stated; an operator may appear only small inside the cab.",
+      "redraw": "The attached image is a reference photograph from a published book. Use it ONLY to understand what the subject is and which visible features matter (type, parts, damage pattern). Do NOT copy its composition, camera angle, framing, background, lighting or arrangement of objects: choose a clearly different viewpoint and a different setting so the result is an original photograph, not a copy or trace of the reference. Do not reproduce any text, labels, figure numbers, arrows, scale bars, annotations or watermarks from the reference."
+    },
+    "ogpBackground": {
+      "lines": [
+        "An abstract, professional background image for a blog OGP card about \"{label}\" (a Japanese civil-engineering certification).",
+        "Motif: {motif}.",
+        "CRITICAL — the overall field must be LIGHT, pale and high-key: like a faint technical blueprint printed on near-white / off-white paper. Dark title text will be placed on top, so it must stay bright and airy.",
+        "Use the accent color {color} ONLY for thin line work and subtle geometric motifs — NEVER as a background fill. No dark areas, no saturated color blocks, no heavy shading.",
+        "Style: calm, minimal, very low-contrast, soft. Keep the left-center area especially quiet and almost empty (title text sits there); place the faint motif toward the upper-right.",
+        "Absolutely NO text, NO letters, NO numbers, NO logos, NO watermarks, NO people, NO photographs of real signage.",
+        "Wide 16:9 landscape, flat vector-like illustration, high resolution."
+      ],
+      "motifs": [
+        {
+          "palette": "pe-comprehensive",
+          "motif": "俯瞰的なマネジメント／5つの管理を象徴する幾何的な格子と等高線"
+        },
+        {
+          "palette": "civil-1",
+          "motif": "土木構造物の輪郭線・施工現場の図面的なライン"
+        },
+        {
+          "palette": "civil-2",
+          "motif": "造成・基礎工事を思わせる地形のレイヤー"
+        },
+        {
+          "palette": "concrete-chief",
+          "motif": "コンクリート配合・骨材の抽象テクスチャ"
+        },
+        {
+          "palette": "concrete-diagnosis",
+          "motif": "構造物の劣化診断・断面のグラフィカルな抽象"
+        },
+        {
+          "palette": "pe-construction",
+          "motif": "橋梁・河川・道路インフラの俯瞰的な抽象ライン"
+        }
+      ]
+    }
+  }
 }

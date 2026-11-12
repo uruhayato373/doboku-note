@@ -13,7 +13,7 @@ import { parseArgs } from 'node:util';
 import sharp from 'sharp';
 import { generateWithCodexAsync } from './lib/codex-image.mjs';
 import { datasetPath } from './lib/datasets.mjs';
-import { promptSha } from './lib/image-origin.mjs';
+import { recordAiImage } from './lib/image-origin.mjs';
 import { recordKey, stalePages, loadLedger, saveLedger } from './lib/site-thumbnails-pipeline.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
@@ -48,7 +48,7 @@ for (let i = 0; i < keys.length; i += concurrency) {
     writeFileSync(join(dir, thumbs.imageFile), webp);
     const digest = sha(webp);
     pages[key].version = digest.slice(0, 8);
-    ledger.figures[recordKey(args.exam, key)] = { sha: digest.slice(0, 16), promptSha: promptSha(prompt), tool: 'Codex', generatedAt: new Date().toISOString(), styleVersion: thumbs.styleVersion };
+    recordAiImage(ledger, recordKey(args.exam, key), { sha: digest, prompt, generatedAt: new Date().toISOString(), tool: 'Codex', styleVersion: thumbs.styleVersion });
     console.log(`OK ${key}`);
   }));
   writeFileSync(configPath, `${JSON.stringify(thumbs, null, 2)}\n`);

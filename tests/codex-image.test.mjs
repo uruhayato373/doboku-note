@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { askCodexAboutImages, codexArgs, forgetCodexRun, generateWithCodex, generateWithCodexAsync } from '../scripts/lib/codex-image.mjs';
+import { askCodexAboutImages, codexArgs, codexLaunch, CodexLaunchError, forgetCodexRun, generateWithCodex, generateWithCodexAsync, runCodex, spawnCodex } from '../scripts/lib/codex-image.mjs';
+import { EventEmitter } from 'node:events';
 
 test('codexArgs: 作業フォルダ・モデル・指示文を渡す', () => {
   const a = codexArgs('/d', 'PROMPT', 'm1');
@@ -106,4 +107,29 @@ test('画像を作らない問い合わせは会話記録を残さない（--eph
   let seen = [];
   await askCodexAboutImages('q', ['/i.png'], { run: async (args) => { seen = args; return ''; } });
   assert.ok(seen.includes('--ephemeral'));
+});
+
+test('codexLaunch: Windows は codex.cmd の隣の codex.js を node で起動する（DN-0991）', () => {
+  assert.deepEqual(codexLaunch({ platform: 'darwin' }), { command: 'codex', prefix: [] });
+  const npm = '/npm';
+  const files = new Set([join(npm, 'codex.cmd'), join(npm, 'node_modules', '@openai', 'codex', 'bin', 'codex.js')]);
+  const win = codexLaunch({ platform: 'win32', path: `/other;${npm}`, separator: ';', exists: (f) => files.has(f) });
+  assert.equal(win.command, process.execPath);
+  assert.deepEqual(win.prefix, [join(npm, 'node_modules', '@openai', 'codex', 'bin', 'codex.js')]);
+  assert.equal(codexLaunch({ platform: 'win32', path: '', exists: () => false }).command, 'codex.exe');
+});
+
+test('runCodex: 起動できないときは CodexLaunchError、起動後の失敗は出力を返す（DN-0991）', () => {
+  const launch = { command: 'codex', prefix: [] };
+  const enoent = Object.assign(new Error('spawn codex ENOENT'), { code: 'ENOENT' });
+  assert.throws(() => runCodex(['exec'], { launch, exec: () => { throw enoent; } }), CodexLaunchError);
+  const exited = Object.assign(new Error('exit 1'), { status: 1, stdout: 'partial' });
+  assert.equal(runCodex(['exec'], { launch, exec: () => { throw exited; } }), 'partial');
+});
+
+test('spawnCodex: 起動の失敗は reject し、終了は出力で resolve する（DN-0991）', async () => {
+  const fake = (emit) => () => { const child = new EventEmitter(); child.stdout = new EventEmitter(); setImmediate(() => emit(child)); return child; };
+  const launch = { command: 'codex', prefix: [] };
+  await assert.rejects(spawnCodex(['exec'], '/d', { launch, start: fake((c) => c.emit('error', Object.assign(new Error('x'), { code: 'ENOENT' }))) }), CodexLaunchError);
+  assert.equal(await spawnCodex(['exec'], '/d', { launch, start: fake((c) => { c.stdout.emit('data', 'out'); c.emit('close', 0); }) }), 'out');
 });

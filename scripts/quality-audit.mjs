@@ -246,6 +246,7 @@ export const CHECKS = [
   { id: 'kdp-category-coverage', npm: 'check-kdp-category-coverage', timeout: 30_000, ci: true, note: '新刊(buildSpec持ち)の id 接頭辞が categoryAssign に明示登録されているか（2026-08-28・g-01実測: 未登録は警告なく既定「技術士」へ入稿される）' },
   { id: 'kindle-prices', npm: 'check-kindle-prices', timeout: 30_000, ci: true, note: 'spec.price と catalog.priceJpy の一致・royalty 0.7 の本が 70% 帯（¥250〜¥1,650）内か（2026-09-23: 価格改定で片側だけ直すと --set-price が旧値へ戻す／台帳が実売と食い違う）' },
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
+  { id: 'unreachable-cli', npm: 'check-unreachable-cli', timeout: 60_000, ci: true, note: 'scripts/ と .claude/scripts/ の直下の CLI で、package.json・workflow・スキル・docs・ほかのスクリプトのどこからも呼ばれないものが baseline から増えていないか（DN-1017・knip は scripts/** を全部 entry にするので拾えない）' },
   { id: 'image-rules', npm: 'check-image-rules', timeout: 30_000, ci: true, note: 'AI 画像の経路が全部共通ルールの設定にあるか、先生の特徴をコードへ書いていないか' },
   { id: 'image-origin', npm: 'check-image-origin', timeout: 180_000, ci: true, note: '公開記事のラスター画像すべてに出所（provenance の kind）があり、写真（AI 生成画像のみ）は 4:3・仕様の指示から生成・実物どおりの判定まで済んでいるか（2026-10-07・DN-0574/0578: 出所なし 56 枚・CC 実写の AI 描き直しで実在しない器械）' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },

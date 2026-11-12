@@ -33,3 +33,16 @@ test('図解主体の資格は設定で分かれる', () => {
   assert.equal(usesDiagramLed('concrete-engineer'), false);
   assert.ok(loadImageRules().routes.some((route) => route.id === 'shorts'));
 });
+
+test('routeViolations: codex-image.mjs を通さない codex の直接起動を止める（DN-1015）', () => {
+  const routes = [{ id: 'a', entry: 'a.mjs' }];
+  for (const text of [
+    "spawn('codex', ['exec'])",
+    'execFileSync("codex", args)',
+    'execSync(`codex exec --json ${p}`)',
+    "spawnSync('codex.cmd', [])",
+  ]) {
+    assert.match(routeViolations(['a.mjs'], () => text, routes, () => true).errors.join(), /直接起動/, text);
+  }
+  assert.equal(routeViolations(['a.mjs'], () => "spawn('codexer', [])", routes, () => true).errors.length, 0, '別名は止めない');
+});

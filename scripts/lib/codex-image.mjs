@@ -7,10 +7,12 @@
  * 1,407 件・9GB たまり、空きが 12GB まで落ちた。画像は呼び出し側が自分の置き場へ写すので、取り出したあとに forgetCodexRun で消す。
  * 調べたいときは DOBOKU_CODEX_KEEP_RUNS=1 で残す。画像を作らない問い合わせ（askCodexAboutImages）は --ephemeral で記録を作らない。
  */
-import { copyFileSync, existsSync, mkdtempSync, readdirSync, rmSync, statSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync } from 'node:fs';
 import { execFileSync, spawn } from 'node:child_process';
 import { homedir, tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { delimiter, dirname, join } from 'node:path';
+import { datasetPath } from './datasets.mjs';
+import { REPO_ROOT } from './repository-paths.mjs';
 
 export const CODEX_TIMEOUT_MS = 15 * 60 * 1000;
 
@@ -43,11 +45,54 @@ export function forgetCodexRun(stdout, { imagesRoot = codexImagesRoot(), session
   return removed;
 }
 
-/** 既定の実行: codex を同期で呼び、--json の出力を返す。失敗しても投げない（画像が出たかで判断する） */
-export function runCodex(args) {
+/**
+ * codex を起動できなかった（実行ファイルが無い・起動できない）。「起動したが画像が出なかった」とは別に投げる（DN-0991）。
+ * 以前は起動の失敗も空の出力として返し、呼び出し側が「生成なし」と数えて作り直しを繰り返していた。
+ */
+export class CodexLaunchError extends Error {
+  constructor(cause) {
+    super(`codex を起動できない（${cause?.code ?? cause?.message ?? cause}）。codex CLI が PATH にあるか確かめる（Windows は npm の codex.cmd の隣の node_modules/@openai/codex を探す）`);
+    this.name = 'CodexLaunchError';
+    this.code = cause?.code;
+  }
+}
+
+const LAUNCH_ERRORS = new Set(['ENOENT', 'EINVAL', 'EACCES', 'EPERM']);
+/** 子プロセスの誤りが「起動できなかった」ものか（終了コードの誤りや時間切れは含めない） */
+export const isLaunchError = (error) => LAUNCH_ERRORS.has(error?.code) && error?.status == null;
+
+/**
+ * codex の起動方法。macOS・Linux は PATH の codex。Windows の npm は codex.cmd を置き、Node 20 以降は .cmd を
+ * shell なしで起動できない（EINVAL）うえ、shell 経由では日本語の指示文の引用が崩れる。そこで codex.cmd の隣の
+ * node_modules/@openai/codex/bin/codex.js を node で直接起動する（DN-0991）。
+ */
+export function codexLaunch({ platform = process.platform, path = process.env.PATH ?? '', exists = existsSync, separator = delimiter } = {}) {
+  if (platform !== 'win32') return { command: 'codex', prefix: [] };
+  for (const dir of path.split(separator).filter(Boolean)) {
+    if (!exists(join(dir, 'codex.cmd'))) continue;
+    const script = join(dir, 'node_modules', '@openai', 'codex', 'bin', 'codex.js');
+    if (exists(script)) return { command: process.execPath, prefix: [script] };
+  }
+  return { command: 'codex.exe', prefix: [] };
+}
+
+let defaultModel;
+/** 既定のモデル。config/image-generation.json の codexModel（null なら codex の設定に任せる・-m を付けない） */
+export function defaultCodexModel() {
+  if (defaultModel === undefined) {
+    try { defaultModel = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.image-generation')), 'utf8')).codexModel ?? null; } catch { defaultModel = null; }
+  }
+  return defaultModel;
+}
+
+/** 既定の実行: codex を同期で呼び、--json の出力を返す。起動できなければ CodexLaunchError、それ以外の失敗は出力を返す（画像が出たかで判断する） */
+export function runCodex(args, { launch = codexLaunch(), exec = execFileSync } = {}) {
   try {
-    return execFileSync('codex', args, { stdio: ['ignore', 'pipe', 'inherit'], timeout: CODEX_TIMEOUT_MS, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
-  } catch (error) { return String(error?.stdout ?? ''); }
+    return exec(launch.command, [...launch.prefix, ...args], { stdio: ['ignore', 'pipe', 'inherit'], timeout: CODEX_TIMEOUT_MS, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  } catch (error) {
+    if (isLaunchError(error)) throw new CodexLaunchError(error);
+    return String(error?.stdout ?? '');
+  }
 }
 
 /**
@@ -72,6 +117,7 @@ export function takeOwnImage(stdout, dir, imagesRoot = codexImagesRoot()) {
  * -i は続けて複数の画像を受けるので、直後にフラグ（--sandbox）を置いて指示文が画像として読まれないようにする。
  */
 export function codexArgs(dir, fullPrompt, model, images = []) {
+  model = model ?? defaultCodexModel();
   return ['exec', '--json', '--skip-git-repo-check', ...images.flatMap((image) => ['-i', image]), '--sandbox', 'workspace-write', '-C', dir, ...(model ? ['-m', model] : []),
     `Use your image generation tool. ${fullPrompt} Generate exactly one image. Do not search for or copy image files. Reply with only: done.`];
 }
@@ -90,14 +136,28 @@ export function generateWithCodex(fullPrompt, model, { run = (args) => runCodex(
   return image;
 }
 
+/**
+ * 生成の一時フォルダ（generateWithCodex が os.tmpdir() に作る gen-article-photo-*）を、画像を写し終えたあとに消す（DN-1013）。
+ * 呼び出し側が置き場の形を知らなくてよいように、ここだけが判定する。対象外のパスには触らない。
+ */
+export function discardGenerated(image, tmp = tmpdir()) {
+  if (!image) return false;
+  const dir = dirname(image);
+  if (!dir.startsWith(tmp) || !/[\\/]gen-article-photo-[^\\/]+$/.test(dir)) return false;
+  rmSync(dir, { recursive: true, force: true });
+  return true;
+}
+
 /** 既定の非同期実行。標準入力は必ず閉じる（開いたままだと codex exec が入力を待ち続けて止まる・2026-11-04） */
-export function spawnCodex(args) {
-  return new Promise((done) => {
-    const child = spawn('codex', args, { stdio: ['ignore', 'pipe', 'ignore'], timeout: CODEX_TIMEOUT_MS });
+export function spawnCodex(args, _dir, { launch = codexLaunch(), start = spawn } = {}) {
+  return new Promise((done, fail) => {
+    const child = start(launch.command, [...launch.prefix, ...args], { stdio: ['ignore', 'pipe', 'ignore'], timeout: CODEX_TIMEOUT_MS });
     let stdout = '';
-    child.stdout.on('data', (chunk) => { stdout += chunk; });
-    child.on('error', () => done(stdout));
-    child.on('close', () => done(stdout));
+    let settled = false;
+    child.stdout?.on('data', (chunk) => { stdout += chunk; });
+    // 起動できなかったときは error だけが来る（close も来ることがある）。出力が空の「画像なし」と区別して投げる
+    child.on('error', (error) => { if (settled) return; settled = true; if (LAUNCH_ERRORS.has(error?.code)) fail(new CodexLaunchError(error)); else done(stdout); });
+    child.on('close', () => { if (settled) return; settled = true; done(stdout); });
   });
 }
 
@@ -132,6 +192,7 @@ export function agentMessage(stdout) {
 export async function askCodexAboutImages(prompt, images, { run = spawnCodex, model = null, tmp = tmpdir() } = {}) {
   const dir = mkdtempSync(join(tmp, 'codex-review-'));
   // 文章で答えるだけなので会話記録を残さない（--ephemeral。添付画像を埋め込んだ記録が 1 件数 MB になる）
-  const args = ['exec', '--json', '--ephemeral', '--skip-git-repo-check', ...images.flatMap((image) => ['-i', image]), '--sandbox', 'read-only', '-C', dir, ...(model ? ['-m', model] : []), prompt];
+  const chosen = model ?? defaultCodexModel();
+  const args = ['exec', '--json', '--ephemeral', '--skip-git-repo-check', ...images.flatMap((image) => ['-i', image]), '--sandbox', 'read-only', '-C', dir, ...(chosen ? ['-m', chosen] : []), prompt];
   return agentMessage(await run(args, dir));
 }

@@ -7,15 +7,14 @@
  * - 関連動画（Shorts → 通常動画）は、同じ作品の通常動画のうち予約済みか公開済みの行（読み修正などの改訂版を含む）
  * - 公開日時は、親の公開より後・予約の関門の余裕（minLeadHours）より先・同じ時刻に別の動画が無い・1 日の上限（maxPublishPerDay）まで
  */
-import { createHash } from 'node:crypto';
 import { loadRegistry } from './content-registry.mjs';
 import { loadDriveManifest } from './drive-vault.mjs';
 import { readJson } from './json-io.mjs';
 import { audioProblems, readPolicy } from './video-publish-gate.mjs';
 import { jstDayOf } from './jst-date.mjs';
+import { aiProvenance } from './image-origin.mjs';
 
 const VIDEO_ID = /^[\w-]{11}$/;
-const sha = (text) => createHash('sha256').update(text).digest('hex');
 
 /** 同じ作品の、関連動画にできる通常動画（予約済みか公開済み・外部 ID あり）。改訂版も含む */
 export function liveParents(publications, exam, work) {
@@ -92,7 +91,7 @@ export function prepareShortPlan(root, { pubId, publishAt, now = Date.now() }) {
     { id: `${pub.id}/video`, role: 'video', type: 'video/mp4', sha256: stock.video.sha256, bytes: v.bytes, store: { tier: 'drive', path: stock.video.path },
       provenance: rendered, durationSec: Math.round(revision.render.durationSeconds * 1000) / 1000 },
     { id: `${pub.id}/cover`, role: 'cover', type: 'image/png', sha256: stock.thumbnail.sha256, bytes: c.bytes, store: { tier: 'drive', path: stock.thumbnail.path },
-      provenance: { kind: 'ai-generated', tool: 'codex', prompt: cover.generation.prompt, promptSha256: sha(cover.generation.prompt), generatedAt: cover.generation.generatedAt },
+      provenance: aiProvenance({ prompt: cover.generation.prompt, generatedAt: cover.generation.generatedAt }),
       width: c.width, height: c.height },
     { id: `${pub.id}/contact-sheet`, role: 'contact-sheet', type: 'image/png', sha256: stock.frames.sha256, bytes: f.bytes, store: { tier: 'drive', path: stock.frames.path },
       provenance: rendered, ...(f.width ? { width: f.width, height: f.height } : {}) },
