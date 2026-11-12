@@ -126,6 +126,8 @@ function run() {
       const rows = JSON.parse(node('scripts/video-factory.mjs', 'schedule', '--packs', packs));
       for (const r of rows.filter((x) => !x.ok)) failed.push({ kind: 'longform-gate', id: r.pack, error: r.failed });
       const ok = rows.filter((x) => x.ok).map((x) => x.pack);
+      // 投稿の digest は手元の動画（.tmp/media）を読む。専用の worktree には無いので Drive から戻す
+      for (const pack of ok) node('scripts/media.mjs', 'pull', '--work', pack, '--commit');
       if (ok.length) node('scripts/video-factory.mjs', 'publish', '--packs', ok.join(','));
     });
   }
