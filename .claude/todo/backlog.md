@@ -444,17 +444,6 @@ uptime-ping.yml の sweep が 2026-11-10・11-11 のデプロイ後に 2 回と�
 
 **完了条件**: テーマが本番で表示され、`npm run check-topic-wiring` が通り、positions の consultant-engineer が live になっている。
 
-### [DN-1159] X の再開に合わせて SNS 保留の扱いを直し、X とコンテンツ台帳の検査を CI に戻す（あわせて check-jst-date に src/ を足す）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-12]
-
-**起点**: 2026-11-12、運営者が X の年間の枠を決め、config/channel-annual-plan.json の X の operation を active にした（旧 DN-1007）。同日、検査の経路の判断（旧 DN-0886）も決まった: (1) X を再開したので X キャンペーンとコンテンツ台帳の検査を CI に戻す (2) 台帳の参照を日付で warn と error に分ける欄は作らない (3) `check-jst-date` の対象に `src/` を足す。Instagram は保留を続ける。
-
-**やること**:
-1. 土曜の収集の `scripts/scheduled/weekly-review.sh` の `export DOBOKU_SNS_PAUSED=1` と、`scripts/session-start.mjs` の x-sync の飛ばし方を、X は動かし Instagram だけ止める形に直す
-2. `check-x-campaign-plan` と `check-content-registry` を CI（quality-audit）に戻す。結果が PR の diff だけで決まらない部分は ci:true にせず ops に置く（.claude/rules/code.md）
-3. `check-jst-date` の対象に `src/` を足す（`display-date.ts` に集約済み。getMonth()+1 の直書きはテストで止めている）
-
-**完了条件**: 3 点が feature ブランチの PR で develop に入り、`npm run quality:audit:ci` が通る。
 
 ### [DN-1160] 総監キーワード 3〜5 ページで、題名と冒頭に「出題例・過去問での問われ方・似た語との違い」を出す形を試し、クリック数で判定する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-12..2027-02] [種類:改善] [起票:2026-11-12]
@@ -2729,6 +2718,15 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1163] 2級土木 二次（2027-10）の解答ページを年度なしの固定 URL で作り、2026 年の公開直後のクリックと比べる
+タグ: [収益化] [領域:サイト] [時期:2027-07..2027-11] [種類:制作] [起票:2026-11-12]
+
+**起点**: 旧 DN-0967。2026-11-12 に運営者が「1 資格で試す」と決めた。転送は使わない: 固定 URL（例 `/exam/civil-construction-2/guide/secondary-answers`）を毎年その年の内容に書き換え、2026 年の `civil-construction-2/guide-r08-secondary-answers` は記録として残して固定 URL から張る。2026 年は 10-25 に 1 日で 3,764 クリックを取った（gsc-management.md 2026-11-11）。効果は推測で、Google の公式資料では確かめていない。
+
+**やること**: (1) 試験の 3 か月前（2027-07）までに固定 URL のページを作る。題名・description は年度を入れて毎年書き換える手順を `docs/editorial/試験日・合格発表日の当日ページの型.md` に足す。(2) `config/exam-day-pages.json` の page を固定 URL にし、`src/config` の参照（category-curriculum・civil-exam-textbook-index-2・popular-pages）を見直す。(3) 公開直後の 1 週間のクリックを 2026 年と比べ、他の資格へ広げるかを決める。
+
+**完了条件**: 比較の結果と、広げるかどうかが gsc-management.md に書かれている。
+
 ### [DN-1154] 建築施工管理の無料ガイド 3 本の検索需要を 12 月と 2 月に GSC で測り、DN-0974 の制作の順番に反映する
 タグ: [収益化] [領域:商品] [時期:2026-12..2027-02] [種類:改善] [起票:2026-11-12] [期日:2027-02-28]
 
@@ -3470,22 +3468,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 
 
-### [DN-0967] 解答ページを年度なしの固定 URL にするか決める（案: 次の試験から 1 資格で試し、今年のページは転送せず残す）
-タグ: [収益化] [領域:サイト] [時期:2026-12..2027-02] [種類:意思決定] [起票:2026-11-04]
-
-**起点**: docs/reviews/critical/2026-11-04-notebooklm-strategy-trial.md。競合（スタディング・TAC・アガルート）の解答速報は年度の無い URL。評価の持ち越しの効果は推測で、Google の公式資料では確かめていない。2026-11-12 に運営者が「先に影響を調べてから決める」とした。
-
-**調べたこと（2026-11-12）**:
-- 今の解答ページは 3 本（`civil-construction-2/guide-r08-secondary-answers`・`pe-first-stage/guide-r08-answers`・`concrete-engineer/guide-r08-answers`）。URL は `/exam/<資格>/guide/r08-...`。2級二次は 2026-10-25 に 1 日で 3,764 クリックを取った（gsc-management.md 2026-11-11）
-- 年度入りの URL を参照しているのは `config/exam-day-pages.json`・`src/config` の 3 ファイル（category-curriculum・civil-exam-textbook-index-2・popular-pages）・技術士一次の過去問クイズのページ・テスト 1 本。`public/_redirects` には旧 `/docs/` からの転送だけがある
-- 固定 URL にしても転送は要らない作り方がある: 固定 URL（例 `/exam/<資格>/guide/answers`）を毎年その年の内容に書き換え、前年の内容は年度入りの URL（今の `guide-r08-...`）にそのまま残して固定 URL から張る。前年のページは消さないので、被リンクとブックマークは切れない
-- 変える必要があるもの: 当日ページの対応表（page を固定 URL に）・題名と description を毎年書き換える手順（`docs/editorial/試験日・合格発表日の当日ページの型.md`）・`src/config` の 3 ファイルの参照先
-
-**案**: 次の試験から固定 URL を 1 本ずつ作り、今年の年度入りのページは前年の記録として残す（転送しない）。効果は推測なので、まず 1 資格（2級土木 二次・2027-10）で試し、翌年の公開直後のクリックを 2026 年と比べる。
-
-**決めること（運営者）**: 案どおり 1 資格で試すか／年度ごとのページのまま続けるか。期限は最初に当たる試験の 3 か月前（2級二次なら 2027-07）。
-
-**完了条件**: 採否と理由がこのカードに書かれ、試すなら対象ページと手順のカードがある。
 
 ### [DN-1062] 2027 年に AI で効率化した技術士論文の添削を出すかを、集客・入口の添削・作業時間の 3 条件で決める
 タグ: [領域:商品] [時期:2027-02] [種類:意思決定] [起票:2026-11-10]
