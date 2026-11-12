@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      YTDLP_VERSION: "2026.06.09"
+      YTDLP_VERSION: "2026.10.26" # 2026.06.09 は一覧の再生数を読めない（DN-1032）。2026.10.26 で読めることを手元で確かめた
     steps:
       - name: Checkout develop
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
