@@ -690,10 +690,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/work/factory/raw-cover.2e6bd506.png",
+              "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/raw-cover.2e6bd506.png",
               "sha256": "2e6bd506afacbf79bafc72e9c9a9a1242cf7c95bb72019c93672413ed259678b"
             },
-            "generatedAt": "2026-11-11T23:44:51.643Z"
+            "generatedAt": "2026-11-12T00:26:11.275Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/cover.0adab663.png",
@@ -707,7 +707,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:44:51.643Z",
+            "checkedAt": "2026-11-12T00:26:11.275Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字『技術士 建設部門』『題名より』『条件を』『読む』が指示どおり1字も欠けず左右の余白内。先生は人差し指1本を立て反対の手は腰、指5本で胴体は下端まで続く。結論の一言の型に合う"
           }
@@ -718,7 +718,7 @@
           "narration": "題の名前だけでは足りません。実際の要求を確かめる基準は、想定問題ではなく、年度別の問題文です。",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『1』と見出し『題名だけでは足りない』。 図: 左に小さな札を描き『題名』、右に大きな問題文の紙を描き『問題文』。札から紙へ太い矢印を1本向け、紙の方を大きく強調する。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。見出しの左上に、丸で囲んだ小さな番号『1』を見出しと離して置き、その下に見出し『題名だけでは足りない』。 図: 左に小さな札を描き『題名』、右に大きな問題文の紙を描き『問題文』。札から紙へ太い矢印を1本向け、紙の方を大きく強調する。ほかの文字は書かない。 画面に描くのは、この図の指示にあるものと見出し・ラベルだけ。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 文字列は指示と一字一致するが、見出し『題名だけでは足りない』が左端約4%・右端約3%まで広がり左右5%未満の余白。見出し下に黄色の下線状の記号も入る",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -726,26 +726,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/work/factory/raw-scene-001.b8f931e9.png",
-              "sha256": "b8f931e9be380ea28f0449866db8eca35ca382670e7fc9ed94dced8d7d058c03"
+              "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/raw-scene-001.4709337a.png",
+              "sha256": "4709337a2afb679da33aa0c20bb15d6ec2eae2e7aa9079191acdf8f954389380"
             },
-            "generatedAt": "2026-11-11T23:44:51.643Z"
+            "generatedAt": "2026-11-12T00:26:11.275Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/scene-001.8531f910.png",
-            "sha256": "8531f91068e0dd9822ccdbe74c75b8eb95e33b20bfacb0dbae3764c916276b7c",
+            "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/scene-001.a95416b3.png",
+            "sha256": "a95416b329e398b60e0a3e111b61e6041c585d6fd71eeb3c372342883324ae16",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "b8f931e9be380ea28f0449866db8eca35ca382670e7fc9ed94dced8d7d058c03"
+            "sourceSha256": "4709337a2afb679da33aa0c20bb15d6ec2eae2e7aa9079191acdf8f954389380"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:44:51.643Z",
+            "checkedAt": "2026-11-12T00:26:11.275Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "『技術士 建設部門』『1』『題名だけでは足りない』『題名』『問題文』が指示どおりで誤字・欠けなし。札から紙への矢印1本で図が主役"
+            "reason": "文字の軸: 技術士 建設部門・1・題名だけでは足りない・題名・問題文が指示どおり1字ずつ一致し、記号の重なりなし。左右余白は約8%で切れなし。矢印は題名の札から問題文の紙へ1本で、紙が大きく強調されている"
           }
         },
         {
@@ -762,10 +762,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/work/factory/raw-scene-002.479593a6.png",
+              "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/raw-scene-002.479593a6.png",
               "sha256": "479593a617e00549cbf93cae059ebd5dc263ac449ec4dda9d31d5df8b92668ac"
             },
-            "generatedAt": "2026-11-11T23:44:51.643Z"
+            "generatedAt": "2026-11-12T00:26:11.275Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/scene-002.acf2a3fd.png",
@@ -779,7 +779,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:44:51.643Z",
+            "checkedAt": "2026-11-12T00:26:11.275Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『技術士 建設部門』『2』『注記が順序を決める』『令和8年度 Ⅰ-1』『注記』『観点』『課題』が指示と一致し誤字・欠けなし。観点→課題の矢印図も指示どおり。箱の枠は左が端寄りだが文字は切れていない"
           }
@@ -798,10 +798,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/work/factory/raw-scene-003.22902c08.png",
+              "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/raw-scene-003.22902c08.png",
               "sha256": "22902c08418da1a7b0155d6d7c26aa81ea04351e9c17fe3997f469c886c0b877"
             },
-            "generatedAt": "2026-11-11T23:44:51.643Z"
+            "generatedAt": "2026-11-12T00:26:11.275Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/scene-003.9df6dc74.png",
@@ -815,7 +815,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:44:51.643Z",
+            "checkedAt": "2026-11-12T00:26:11.275Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『小問(3)も問いが違う』『小問(3)』『Ⅰ-1』『Ⅰ-2』と2つの箱の文が指示と一字一致し、≠も描かれ欠けなし"
           }
@@ -834,10 +834,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/work/factory/raw-cta.12ea8737.png",
+              "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/raw-cta.12ea8737.png",
               "sha256": "12ea8737fb55b4a601a7a6c7c69e6509794f1366d6904291b61851a27e6934f1"
             },
-            "generatedAt": "2026-11-11T23:44:51.643Z"
+            "generatedAt": "2026-11-12T00:26:11.275Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/cta.a2a12254.png",
@@ -851,24 +851,72 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:44:51.643Z",
+            "checkedAt": "2026-11-12T00:26:11.275Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "締めの文字『本編で』『関連動画から』が指示と一字一句一致し、左右の余白は約7%で切れなし。下向き矢印あり、先生は手指が自然で胴体が下端まで続き、記号の重なりや肩書きの帯なし"
           }
         }
       ],
       "render": {
-        "videoSha256": "72235734d8f90a61c0744974e45d94244d4c8f47c77e52119699da5235ea8506",
+        "videoSha256": "b8bb0c443886e8b29eb27463f483991fae1813a2c24731aa82f2a528ffcc92d6",
         "durationSeconds": 31.456,
         "speaker": 13,
         "sceneCount": 5
       },
       "screenReview": {
-        "verdict": "fail",
+        "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "軸5が2点で平均3.8（4.0未満）。場面1に AI が描いた再生・早送り・巻き戻しのボタンが右下に残り、「1」が左端1%未満で余白5%を割る。",
-        "videoSha256": "72235734d8f90a61c0744974e45d94244d4c8f47c77e52119699da5235ea8506",
-        "checkedAt": "2026-11-11T23:59:51.883Z"
+        "reason": "sha一致・場面5/5・31.5秒1080x1920。軸1:5 軸2:5 軸3:5 軸4:4 軸5:4、平均4.6で全軸3以上。型・コピー・導入・単体の価値・本編への引きも問題なし。ライブ未確認。",
+        "videoSha256": "b8bb0c443886e8b29eb27463f483991fae1813a2c24731aa82f2a528ffcc92d6",
+        "checkedAt": "2026-11-12T00:34:51.337Z"
+      },
+      "audio": {
+        "videoSha256": "b8bb0c443886e8b29eb27463f483991fae1813a2c24731aa82f2a528ffcc92d6",
+        "similarity": 0.941,
+        "maxVolumeDb": -6.6,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/video.b8bb0c44.mp4",
+          "sha256": "b8bb0c443886e8b29eb27463f483991fae1813a2c24731aa82f2a528ffcc92d6"
+        },
+        "frames": {
+          "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/frames.79935167.png",
+          "sha256": "79935167cb2dae965999b83cf1d2eaccd536f4a435c9121496ae8351d1312a18"
+        },
+        "subtitles": {
+          "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/subtitles.2cfad7c3.ass",
+          "sha256": "2cfad7c3326d1f9904cbeaecee70442299c132afa022cbdc77b6c53e4f064787"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/raw-cover.2e6bd506.png",
+            "sha256": "2e6bd506afacbf79bafc72e9c9a9a1242cf7c95bb72019c93672413ed259678b"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/raw-scene-001.4709337a.png",
+            "sha256": "4709337a2afb679da33aa0c20bb15d6ec2eae2e7aa9079191acdf8f954389380"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/raw-scene-002.479593a6.png",
+            "sha256": "479593a617e00549cbf93cae059ebd5dc263ac449ec4dda9d31d5df8b92668ac"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/raw-scene-003.22902c08.png",
+            "sha256": "22902c08418da1a7b0155d6d7c26aa81ea04351e9c17fe3997f469c886c0b877"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/raw-cta.12ea8737.png",
+            "sha256": "12ea8737fb55b4a601a7a6c7c69e6509794f1366d6904291b61851a27e6934f1"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2/cover.0adab663.png",
+          "sha256": "0adab663d7ca3af64a5a0f96bd94d0884603ae9e5c42ab4d46fcdc5a0419a731"
+        },
+        "savedAt": "2026-11-12T00:35:00.417Z",
+        "cloudVerified": true
       }
     },
     "shorts-pop-point-junban-1-20261112": {

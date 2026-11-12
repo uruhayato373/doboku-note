@@ -77,7 +77,14 @@
           "diagram": "上に大きな札で『リバウンド』、その下に赤い太字で『回答の対象としない』。2つの札を下向きの太い矢印でつなぐ。ほかの文字は書かない。"
         }
       ],
-      "coverPaper": "開削底面の安定　〇〇〇〇〇は回答の対象としない"
+      "coverPaper": "開削底面の安定　〇〇〇〇〇は回答の対象としない",
+      "qa": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "事実は sources の ii1cond の場面にあるものだけで、型 one-question の形と表紙の見出し、締めの cta も台帳に合う。copy の loss-aversion も台帳の forbidden に当たらない。",
+        "digest": "73d7da57727c574d0235e06d0da3ef8d74cd61408df4b0b130fa61f226908cb0",
+        "checkedAt": "2026-11-12T00:17:20.683Z"
+      }
     }
   }
 }

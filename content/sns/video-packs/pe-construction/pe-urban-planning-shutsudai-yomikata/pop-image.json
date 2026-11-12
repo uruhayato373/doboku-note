@@ -1225,10 +1225,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-cover.9c0566dd.png",
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/raw-cover.9c0566dd.png",
               "sha256": "9c0566dd45616abc26491edbbe1e89ea5adc0f91bfd84f49e508f4488a3a06ab"
             },
-            "generatedAt": "2026-11-11T23:47:15.690Z"
+            "generatedAt": "2026-11-12T00:24:59.753Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/cover.0af5c850.png",
@@ -1242,7 +1242,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:47:15.690Z",
+            "checkedAt": "2026-11-12T00:24:59.753Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し2行と紙の文字が指示と一字一致し左右余白5%以上、肩書き帯・記号の重なり無し、紙は上60%以内で字幕帯に文字無し、先生は片手あご・片手腰で指5本・胴体は下端まで続き、1問で確かめる型の図になっている"
           }
@@ -1261,10 +1261,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-scene-001.cec06cc3.png",
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/raw-scene-001.cec06cc3.png",
               "sha256": "cec06cc3422fde6421763cc69c8d29d49076f09ab76f6586bf75fc77d6a24c1b"
             },
-            "generatedAt": "2026-11-11T23:47:15.690Z"
+            "generatedAt": "2026-11-12T00:24:59.753Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/scene-001.65fae99a.png",
@@ -1278,7 +1278,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:47:15.690Z",
+            "checkedAt": "2026-11-12T00:24:59.753Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字は『技術士 建設部門』『何に対する対策？』『III-1 立地適正化計画』『III-2 古民家の活用』が指示どおりで、番号①・？も正しく、切れや崩れも記号の重なりも無い"
           }
@@ -1297,10 +1297,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-scene-002.b5b0cbf4.png",
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/raw-scene-002.b5b0cbf4.png",
               "sha256": "b5b0cbf452d6ce4b0ac971cd0a56045e66ca5300eb62a5d970a7a52533621476"
             },
-            "generatedAt": "2026-11-11T23:47:15.690Z"
+            "generatedAt": "2026-11-12T00:24:59.753Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/scene-002.b0cd9fe1.png",
@@ -1314,18 +1314,18 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:47:15.690Z",
+            "checkedAt": "2026-11-12T00:24:59.753Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "技術士 建設部門・②・III-1は市民や関係者・懸念事項・対策案の文字が指示と一致し、左右6%以上の余白。人の形→矢印→対策案の図で、下の3割は空き。見出し下の赤線は文字に重ならない背景装飾"
           }
         },
         {
           "role": "scene-003",
-          "inputSha256": "dc0a56f824c431afd19f37791843504bef2db85e23c16664df92f23f07dfcdb3",
-          "narration": "古民家は、示したすべての解決策を実行しても新たに生じうるリスクと対策です。II-1とII-2の読み方は本編で。",
+          "inputSha256": "f8085b6ab6224902ff8748e2955cb16477e5e6021c1666a942ccd07a8dc7c264",
+          "narration": "古民家は、示したすべての解決策を実行しても新たに生じうるリスクと対策です。",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。見出しの左上に、丸で囲んだ小さな番号『3』を見出しと離して置き、その下に見出し『III-2は新たなリスク』。 図: 上部に『III-2』。上から下へ3つの大きな箱を太い矢印でつなぐ。上から『すべての解決策を実行』『新たに生じうるリスク』『対策』。真ん中の箱を黄色で強調する。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。見出しの左上に、丸で囲んだ小さな番号『3』を見出しと離して置き、その下に見出し『III-2は新たなリスク』。 図: 上部に『III-2』。上から下へ3つの大きな箱を太い矢印でつなぐ。上から『すべての解決策を実行』『新たに生じうるリスク』『対策』。真ん中の箱を黄色で強調する。ほかの文字は書かない。 画面に描くのは、この図の指示にあるものと見出し・ラベルだけ。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -1333,26 +1333,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-scene-003.aefd03de.png",
-              "sha256": "aefd03de50e54d124b7b4ee5ddd4b8a2c7cc9cb577b0f7a0190a4a3cf0073b9a"
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/raw-scene-003.d07d61be.png",
+              "sha256": "d07d61be7e93700673072d33fe370275fa6307bc02e43fa532a3bfdc8d462378"
             },
-            "generatedAt": "2026-11-11T23:47:15.690Z"
+            "generatedAt": "2026-11-12T00:24:59.753Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/scene-003.8415bb58.png",
-            "sha256": "8415bb58cc5987cf82b1aa739ac715a309334d64cfafcea6f347d337be21623d",
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/scene-003.eff736a9.png",
+            "sha256": "eff736a9ccc330d3e8f7263ebb3b901754d7c291cc4e7dcba81f1c47f525d690",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "aefd03de50e54d124b7b4ee5ddd4b8a2c7cc9cb577b0f7a0190a4a3cf0073b9a"
+            "sourceSha256": "d07d61be7e93700673072d33fe370275fa6307bc02e43fa532a3bfdc8d462378"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:47:15.690Z",
+            "checkedAt": "2026-11-12T00:24:59.753Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "『III-2は新たなリスク』『すべての解決策を実行』『新たに生じうるリスク』『対策』が指示どおりに読め、左右の余白も5%以上で、中央の箱の黄色強調も合っている"
+            "reason": "文字: ラベル・見出し・図の3箱と上部III-2が指示と一字ずつ一致し、誤字・余計な文字なし。左右余白は約6%以上で切れなし。真ん中の箱が黄色、矢印は箱間をつなぐ指示どおり。人物なし。"
           }
         },
         {
@@ -1369,10 +1369,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-cta.33042424.png",
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/raw-cta.33042424.png",
               "sha256": "33042424bfe85e6cb8223cd74b1601c8f163911bc406b40a9c9c53b96c195a4e"
             },
-            "generatedAt": "2026-11-11T23:47:15.690Z"
+            "generatedAt": "2026-11-12T00:24:59.753Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/cta.7126da67.png",
@@ -1386,24 +1386,72 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:47:15.690Z",
+            "checkedAt": "2026-11-12T00:24:59.753Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "大きく『本編で』、小さく『関連動画から』と下向き矢印で、綴り正しく左右の余白5%以上。先生の手は5本指で崩れず、胴体は下端まで続き、資格名・肩書きの帯も無い"
           }
         }
       ],
       "render": {
-        "videoSha256": "da9e963508e0aed3daf3edaaf86540d94fb0223ee474503f07a8244d9f7ea7da",
-        "durationSeconds": 30.826667,
+        "videoSha256": "2ce84f23af685ab91b77a3a1e2884fb630cbfa7719a188bf96f8e556998b5c1a",
+        "durationSeconds": 28.166667,
         "speaker": 13,
         "sceneCount": 5
       },
       "screenReview": {
-        "verdict": "fail",
+        "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "5軸は平均4.4で全軸3以上だが、締めの一文「II-1とII-2の読み方は本編で。」が語りで2回続けて読まれる（27.2秒と29.7秒）。台本の締めが重複しているため fail。",
-        "videoSha256": "da9e963508e0aed3daf3edaaf86540d94fb0223ee474503f07a8244d9f7ea7da",
-        "checkedAt": "2026-11-12T00:12:49.006Z"
+        "reason": "実測 1080x1920・28.2秒・音声あり。動画 sha は youtube.json と pop-image.json の render.videoSha256 と一致し、場面数 5/5 も一致した。5 軸は 5・4・4・4・4 で平均 4.2、全軸 3 以上。型・コピー・冒頭・本編への引きにも問題なし。",
+        "videoSha256": "2ce84f23af685ab91b77a3a1e2884fb630cbfa7719a188bf96f8e556998b5c1a",
+        "checkedAt": "2026-11-12T00:27:35.274Z"
+      },
+      "audio": {
+        "videoSha256": "2ce84f23af685ab91b77a3a1e2884fb630cbfa7719a188bf96f8e556998b5c1a",
+        "similarity": 0.954,
+        "maxVolumeDb": -6.5,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/video.2ce84f23.mp4",
+          "sha256": "2ce84f23af685ab91b77a3a1e2884fb630cbfa7719a188bf96f8e556998b5c1a"
+        },
+        "frames": {
+          "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/frames.b4e22d16.png",
+          "sha256": "b4e22d16ab5fb6766104b4a44f459091c7f1ba53c6b3ffe519c830805905688f"
+        },
+        "subtitles": {
+          "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/subtitles.cc4b4e62.ass",
+          "sha256": "cc4b4e625c99022eacac4bee384c5f2a4d6f9c47fe9829d346410c637eaad4a3"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/raw-cover.9c0566dd.png",
+            "sha256": "9c0566dd45616abc26491edbbe1e89ea5adc0f91bfd84f49e508f4488a3a06ab"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/raw-scene-001.cec06cc3.png",
+            "sha256": "cec06cc3422fde6421763cc69c8d29d49076f09ab76f6586bf75fc77d6a24c1b"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/raw-scene-002.b5b0cbf4.png",
+            "sha256": "b5b0cbf452d6ce4b0ac971cd0a56045e66ca5300eb62a5d970a7a52533621476"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/raw-scene-003.d07d61be.png",
+            "sha256": "d07d61be7e93700673072d33fe370275fa6307bc02e43fa532a3bfdc8d462378"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/raw-cta.33042424.png",
+            "sha256": "33042424bfe85e6cb8223cd74b1601c8f163911bc406b40a9c9c53b96c195a4e"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/cover.0af5c850.png",
+          "sha256": "0af5c8502a3cb5d693b42ad5a099aaedab0115d2f6e4978b571f53581c9c2bd4"
+        },
+        "savedAt": "2026-11-12T00:27:40.322Z",
+        "cloudVerified": true
       }
     }
   },

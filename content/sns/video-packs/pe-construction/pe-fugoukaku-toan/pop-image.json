@@ -1006,10 +1006,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-cover.6c4e1ead.png",
+              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/raw-cover.6c4e1ead.png",
               "sha256": "6c4e1ead3b120c442edabcdc3593e38ea65f605f3440c32bfe401519011364df"
             },
-            "generatedAt": "2026-11-11T23:46:30.221Z"
+            "generatedAt": "2026-11-12T00:27:08.690Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/cover.302e69ef.png",
@@ -1023,7 +1023,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:46:30.221Z",
+            "checkedAt": "2026-11-12T00:27:08.690Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字『様々な/課題』で/いい？と上部『技術士 建設部門』が指示と1字ずつ一致し、左右余白は約10%以上で切れ無し。紙の文字は上60%内、字幕帯に文字無し、肩書き帯・✕・重なる記号無し。先生は首をかしげ片手あご・片手腰で指5本、胴体は下端まで続く。誤解を壊す型の引用+？の見出しで、？横の赤い小さな強調線は重ならない意匠として許容"
           }
@@ -1042,10 +1042,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-scene-001.72640e04.png",
+              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/raw-scene-001.72640e04.png",
               "sha256": "72640e04961c829107dd4df6372a59dee38d6966c90fb21ef7e49c0d907d9a8b"
             },
-            "generatedAt": "2026-11-11T23:46:30.221Z"
+            "generatedAt": "2026-11-12T00:27:08.690Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/scene-001.ff887752.png",
@@ -1059,18 +1059,18 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:46:30.221Z",
+            "checkedAt": "2026-11-12T00:27:08.690Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『技術士 建設部門』『1』『よくある一文』『様々な課題があり、早急な対応が望まれる』『仮の例』を指示と1字ずつ照合して一致、赤波線あり、端で切れた字なし"
           }
         },
         {
           "role": "scene-002",
-          "inputSha256": "47e609dbebc001b0b55a27d4125f4c3a9356962749746adc5c1dd81faf51913a",
-          "narration": "これは誰が読んでも異論のない一般論で、何が、どうなっているかが確定しません。設問が専門技術を踏まえると指示していれば、一般論で終えた答案は指示と対応せず、読まれません。",
+          "inputSha256": "3f19209fbf4c8e1a3de6106e6e4974834839219c1086ac52156739c1c117a5cf",
+          "narration": "これは誰が読んでも異論のない一般論です。設問文には、専門技術を踏まえる、といった指示語が埋め込まれています。内容が合っていても、指示と答案が対応していないと読まれません。",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『2』と見出し『指示と対応しない』。 図: 左に縦長の紙を描き、中に『専門技術を踏まえる』。右に縦長の紙を描き、中に『一般論』。2枚の紙を1本の線でつなぎ、線の真ん中を途切れさせる。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 見出し『対応しない』が右端から約5%、2枚目の紙も右端付近まで広がり、左右6%以上内側の指定に反して端に接する。文字自体は『専門技術を踏まえる』『一般論』ほか指示と一致し、線の中央も途切れている",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。見出しの左上に、丸で囲んだ小さな番号『2』を見出しと離して置き、その下に見出し『指示と対応しない』。 図: 左に縦長の紙を描き、中に『専門技術を踏まえる』。右に縦長の紙を描き、中に『一般論』。2枚の紙を1本の線でつなぎ、線の真ん中を途切れさせる。ほかの文字は書かない。 画面に描くのは、この図の指示にあるものと見出し・ラベルだけ。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字は指示どおり(技術士 建設部門・2・指示と対応しない・専門技術を踏まえる・一般論)で誤字なし。ただし左の紙の左端が画面左端から約2%まで寄り、左右余白5%未満。紙の下部も左に張り出している",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -1078,35 +1078,35 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-scene-002.9cea2c11.png",
-              "sha256": "9cea2c11db0f06dffbf365c28fe191555d81ecdc111464193a867bce3957ca27"
+              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/raw-scene-002.d2651dd5.png",
+              "sha256": "d2651dd5eea1a5f681c866f1fa8d3d8d3996cf1ae9e3615fa73126c55d2227cb"
             },
-            "generatedAt": "2026-11-11T23:46:30.221Z"
+            "generatedAt": "2026-11-12T00:27:08.690Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/scene-002.8711d6ba.png",
-            "sha256": "8711d6ba86dca93014f4b86b032d37658a88e69ae96a4883249782adfdaa2d17",
+            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/scene-002.2bf2b424.png",
+            "sha256": "2bf2b424ba7be435bbce9cf8f04bf6006b6ccd3163d26db9511836cbdb25cb99",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "9cea2c11db0f06dffbf365c28fe191555d81ecdc111464193a867bce3957ca27"
+            "sourceSha256": "d2651dd5eea1a5f681c866f1fa8d3d8d3996cf1ae9e3615fa73126c55d2227cb"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:46:30.221Z",
+            "checkedAt": "2026-11-12T00:27:08.690Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "『技術士 建設部門』『2』『指示と対応しない』『専門技術を踏まえる』『一般論』が指示と一字一致し切れなし。2枚の紙を中央が途切れた線でつなぐ図が指示どおり"
+            "reason": "文字は指示と一字ずつ一致（技術士 建設部門・②・指示と対応しない・専門技術を踏まえる・一般論）、左右余白5%以上で切れなし、2枚の紙を中断した線でつなぐ図も指示どおり、不要な記号なし"
           }
         },
         {
           "role": "scene-003",
-          "inputSha256": "f2a12c588677604fd0d0bae7e42ab7c1f1ffaa7603bb97f55f19976d5a2d3ee1",
-          "narration": "高度経済成長期に集中的に整備した橋梁が一斉に更新期を迎え、点検と修繕の予算が不足している。こう書けば、何が、どうなっているかが確定します。答案の点検の手順と残りの型は本編で。",
+          "inputSha256": "8579ae4d275d02a1190445a76a66c3c9fb49599edaf3014a19b0490ac1ab5732",
+          "narration": "高度経済成長期に集中的に整備した橋梁が一斉に更新期を迎え、点検と修繕の予算が不足している。こう書けば、何が、どうなっているかが確定します。",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。大きな番号『3』と見出し『何がどうなるかを書く』。 図: 左右に2つの大きな角丸の箱を並べ、矢印や線ではつながない。左の箱の上に見出し『状況』、箱の中に『橋梁が一斉に更新期』。右の箱の上に見出し『原因』、箱の中に『点検と修繕の予算が不足』。画面の右上に小さく『仮の例』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『技術士 建設部門』。見出しの左上に、丸で囲んだ小さな番号『3』を見出しと離して置き、その下に見出し『何がどうなるかを書く』。 図: 左右に2つの大きな角丸の箱を並べ、矢印や線ではつながない。左の箱の中に『橋梁が一斉に更新期』。右の箱の中に『点検と修繕の予算が不足』。画面の右上に小さく『仮の例』。ほかの文字は書かない。 画面に描くのは、この図の指示にあるものと見出し・ラベルだけ。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -1114,26 +1114,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-scene-003.2e1d9422.png",
-              "sha256": "2e1d9422b1ef37952b16b9c3d38d5a838d3552d92b8a4af137a63e336cac8ecf"
+              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/raw-scene-003.4a3c5486.png",
+              "sha256": "4a3c5486c0ac58383bd2e3cf68d9cd4d2fa5c3122d57e6446afda29c05db5744"
             },
-            "generatedAt": "2026-11-11T23:46:30.221Z"
+            "generatedAt": "2026-11-12T00:27:08.690Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/scene-003.99e27ae1.png",
-            "sha256": "99e27ae13384bfc85abdf47b31b65d7afc8417b791dc60137369dc45b7fe38ec",
+            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/scene-003.4f9c8b3e.png",
+            "sha256": "4f9c8b3e4ddb6391f614cf246ae64b7e59e6eabb3546b48358bb60371601ad01",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "2e1d9422b1ef37952b16b9c3d38d5a838d3552d92b8a4af137a63e336cac8ecf"
+            "sourceSha256": "4a3c5486c0ac58383bd2e3cf68d9cd4d2fa5c3122d57e6446afda29c05db5744"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:46:30.221Z",
+            "checkedAt": "2026-11-12T00:27:08.690Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "『3』『何がどうなるかを書く』『状況/橋梁が一斉に更新期』『原因/点検と修繕の予算が不足』『仮の例』が指示と一致、2箱は線でつながず、文字の欠けなし"
+            "reason": "指定の日本語（資格名・番号3・見出し・2つの箱の文字・仮の例）が1字ずつ一致し、左右5%以上の余白があり、記号の重なりも無い"
           }
         },
         {
@@ -1150,10 +1150,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/work/factory/raw-cta.b702dc29.png",
+              "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/raw-cta.b702dc29.png",
               "sha256": "b702dc297f528dd9154fdd081268dd099b84732324eb4aa776554bcc98c70613"
             },
-            "generatedAt": "2026-11-11T23:46:30.221Z"
+            "generatedAt": "2026-11-12T00:27:08.690Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/cta.a48c8a57.png",
@@ -1167,24 +1167,72 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:46:30.221Z",
+            "checkedAt": "2026-11-12T00:27:08.690Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『本編で』『関連動画から』が指示どおり1字も欠けず左右5%以上の余白。下向き矢印と手のひら、5本指、胴体は下端まで続き、肩書きの帯・余計な記号なし"
           }
         }
       ],
       "render": {
-        "videoSha256": "3a60d685a46f425b8e0776196978c4eebecdf2bc11e556e7fa53870f01fb2e9f",
-        "durationSeconds": 45.621333,
+        "videoSha256": "73d4e90e28aea59a73e7c94acf33806e550165fe29fdf93cd0318155958bf322",
+        "durationSeconds": 42.026667,
         "speaker": 13,
         "sceneCount": 5
       },
       "screenReview": {
-        "verdict": "fail",
+        "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "採点は平均4.4で全軸3以上だが、台本の監査の観点で締めの一文が語りに2回入り、本編への引きが重なるため fail にする。",
-        "videoSha256": "3a60d685a46f425b8e0776196978c4eebecdf2bc11e556e7fa53870f01fb2e9f",
-        "checkedAt": "2026-11-12T00:08:29.888Z"
+        "reason": "平均 4.2・全軸 3 以上。実測 1080x1920・42.0 秒・音声あり。sha 一致、5/5 場面確認。型・コピー・引きも台帳に沿う。ライブ操作 UI は未確認。",
+        "videoSha256": "73d4e90e28aea59a73e7c94acf33806e550165fe29fdf93cd0318155958bf322",
+        "checkedAt": "2026-11-12T00:37:56.615Z"
+      },
+      "audio": {
+        "videoSha256": "73d4e90e28aea59a73e7c94acf33806e550165fe29fdf93cd0318155958bf322",
+        "similarity": 0.935,
+        "maxVolumeDb": -6.3,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/video.73d4e90e.mp4",
+          "sha256": "73d4e90e28aea59a73e7c94acf33806e550165fe29fdf93cd0318155958bf322"
+        },
+        "frames": {
+          "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/frames.ebf5a063.png",
+          "sha256": "ebf5a0637da5d54d80fbc229ae724616c23ad30a69a384c58b086e83405a5130"
+        },
+        "subtitles": {
+          "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/subtitles.b59513b8.ass",
+          "sha256": "b59513b81c68b3f3ac50109bf940069265d6c1483a1d3b18f7259740f86e66ba"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/raw-cover.6c4e1ead.png",
+            "sha256": "6c4e1ead3b120c442edabcdc3593e38ea65f605f3440c32bfe401519011364df"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/raw-scene-001.72640e04.png",
+            "sha256": "72640e04961c829107dd4df6372a59dee38d6966c90fb21ef7e49c0d907d9a8b"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/raw-scene-002.d2651dd5.png",
+            "sha256": "d2651dd5eea1a5f681c866f1fa8d3d8d3996cf1ae9e3615fa73126c55d2227cb"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/raw-scene-003.4a3c5486.png",
+            "sha256": "4a3c5486c0ac58383bd2e3cf68d9cd4d2fa5c3122d57e6446afda29c05db5744"
+          },
+          {
+            "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/raw-cta.b702dc29.png",
+            "sha256": "b702dc297f528dd9154fdd081268dd099b84732324eb4aa776554bcc98c70613"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1/cover.302e69ef.png",
+          "sha256": "302e69ef5b5404d48f7b9ae282255263a778770b7e2f118747ea20fbb006217f"
+        },
+        "savedAt": "2026-11-12T00:38:06.028Z",
+        "cloudVerified": true
       }
     }
   },
