@@ -53,6 +53,7 @@ npm run video-factory -- plan --pack <資格>/<作品>
 npm run video-factory -- generate --pack <資格>/<作品>
 npm run video-factory -- plan --pack <資格>/<作品> --retry <項目 id|all>   # 上限・停止の項目を原稿を変えずにやり直す
 npm run video-factory -- audit-queue --pack <資格>/<作品>
+npm run video-factory -- audit-verify --pack <資格>/<作品>   # 監査の直後。未判定・画像なしが 1 件でもあれば exit 1（workflow は不合格 0 として通さない）
 npm run video-factory -- record-audit --pack <資格>/<作品> --file <判定の JSON> --by ai-image-fidelity-auditor
 npm run video-factory -- adopt --pack <資格>/<作品>
 npm run video-factory -- render --pack <資格>/<作品>
@@ -166,6 +167,8 @@ npm run youtube-daily -- run     # 関連動画を記録したショートの予
 - 予約後に概要欄を直すと digest が変わり、承認が無効になる。承認の前に関門で導線を見る（2026-11-05）。
 - `whisper-cli` に全編を渡すと途中を飛ばす。`-mc 0` でも安定しない。一定秒数で切っても文の途中で飛ぶので、文の間で 12 秒以上ごとに切る（2026-11-05 に 0.62 の誤判定を確認。実際は 0.8 台）。
 - `youtube-single-publish.yml` の同時実行グループは待機を 1 本しか持たない。まとめて流すと途中が取り消されるので `publish` は 1 本ずつ待つ（2026-11-05）。
+- `publish` の順序（DN-1103・DN-1072）: 最初に追跡中ファイルの未コミットを検査し（あれば転送・commit の前に止まる）、`git pull --rebase` を割当（`uploadsLeft`）の計算の前に行う。pull で `drive-manifest.json` だけが競合したときは、両側が足したキーを両方残して続ける（`scripts/lib/publish-sync.mjs`。同じキーが別の値なら解かずに止まる）。ワークフローは dispatch の前の最新 run id を控え、それより新しい run を待つ（`youtube-daily-release` も同じ `dispatchAndWatch`）。
+- 画像の入力ハッシュは `caption` と `visual` だけ。語り（narration）・出典だけの変更は画像を残して判定を取り消し、再監査にする（`narrationSha256`）。旧形式のハッシュ（語り・出典を含む）の記録も同じ入力として受け入れる（`popSceneHashMatches`）。
 - YouTube API は投稿 1 本 1,600 ユニット・日次 10,000。`publish` は太平洋時間の 0 時からの投稿を数え、1 日 4 本までに止める。割当の超過は結果不明になり再送できない（2026-11-05）。
 - エージェントの `npm run` はセッションの場所で動く。worktree で回すときは `( cd <root> && … )` を指示しないと、判定がメインのチェックアウトへ書かれる（2026-11-05）。
 - 件数をモデルに申告させない。監査で 2 枚の不合格を 0 件と返した例がある。判定の中身から数える（2026-11-05）。

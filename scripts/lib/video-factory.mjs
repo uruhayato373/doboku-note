@@ -14,7 +14,7 @@ import { generateWithCodexAsync } from './codex-image.mjs';
 import { resolveVaultRoot, vaultAbsFor } from './drive-vault.mjs';
 import { readJson, writeJson } from './json-io.mjs';
 import { normalizeLearningFrame } from './learning-frame.mjs';
-import { popSceneHash, requirePopDiagramStandard } from './longform-pop-images.mjs';
+import { popNarrationHash, popSceneHash, popSceneHashMatches, requirePopDiagramStandard } from './longform-pop-images.mjs';
 import { coverInputDigest } from './youtube-approved-cover.mjs';
 import { examPalette, loadImageRules } from './image-rules.mjs';
 
@@ -112,11 +112,20 @@ export function buildPlan(root, pack, { scope = 'all', date, refs = fileRef } = 
   const spec = readJson(root, `${dir}/cover-design.json`).covers?.longform;
   if (!spec) throw new Error(`${pack}: cover-design.json に longform が無い`);
   const prior = new Map((readPlan(root, pack)?.items ?? []).map((i) => [i.id, i]));
-  const keep = (item) => {
+  const keep = (item, scene) => {
     const old = prior.get(item.id);
-    if (!old || old.inputSha256 !== item.inputSha256) return item;
+    if (!old) return item;
+    // 本文は旧形式のハッシュ（語り・出典を含む）の記録も同じ入力として引き継ぐ。表紙は一致のみ
+    const matches = scene ? popSceneHashMatches(scene, old.inputSha256) : old.inputSha256 === item.inputSha256;
+    if (!matches) return item;
     // 合格済みの画像は、指示を改善しても作り直さない。未合格の項目は新しい指示で回数を数え直す
-    if (old.audit?.verdict === 'ok' || old.basePrompt === item.basePrompt) return { ...item, ...old };
+    if (old.audit?.verdict === 'ok' || old.basePrompt === item.basePrompt) {
+      const kept = { ...item, ...old, inputSha256: item.inputSha256 };
+      // 語りだけが変わったときは画像を残し、判定だけを取り消して再監査にする（旧形式の記録は語りが同じ）
+      if (scene && old.narrationSha256 && old.narrationSha256 !== item.narrationSha256) kept.audit = null;
+      if (scene) kept.narrationSha256 = item.narrationSha256;
+      return kept;
+    }
     return item;
   };
   const items = [keep({
@@ -127,9 +136,9 @@ export function buildPlan(root, pack, { scope = 'all', date, refs = fileRef } = 
   if (scope === 'all') {
     for (const scene of board.scenes.slice(1)) {
       items.push(keep({
-        id: scene.sceneId, kind: 'body', inputSha256: popSceneHash(scene), basePrompt: buildBodyPrompt(scene, exam),
+        id: scene.sceneId, kind: 'body', inputSha256: popSceneHash(scene), narrationSha256: popNarrationHash(scene), basePrompt: buildBodyPrompt(scene, exam),
         references: [refs(root, BODY_STYLE)], attempts: 0, raw: null, audit: null,
-      }));
+      }, scene));
     }
   }
   const plan = { schemaVersion: 1, pack, scope, revision: `body-diagram-${date}`, coverRevision: `cover-pop-${date}`, items };
@@ -288,7 +297,7 @@ export async function adoptPlan(root, pack, { now }) {
   const stale = [], unaudited = [];
   for (const item of plan.items) {
     const current = item.kind === 'cover' ? coverInput(design.covers.longform) : scenes.has(item.id) ? popSceneHash(scenes.get(item.id)) : null;
-    if (current !== item.inputSha256) stale.push(item.id);
+    if (current !== item.inputSha256 && !(scenes.has(item.id) && popSceneHashMatches(scenes.get(item.id), item.inputSha256))) stale.push(item.id);
     if (!item.raw || item.audit?.verdict !== 'ok' || item.audit.sha !== item.raw.sha256) unaudited.push(item.id);
   }
   if (stale.length) throw new Error(`原稿が変わった項目がある（作り直す）: ${stale.join(', ')}`);
