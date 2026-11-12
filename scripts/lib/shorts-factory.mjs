@@ -149,6 +149,8 @@ export function typeProblems(design, ctx) {
   else for (const id of copy.filter((x) => !ctx.formats.copy.some((c) => c.id === x))) issues.push(`copy が台帳に無い: ${id}`);
   if ([...String(design.hook ?? '')].length > ctx.formats.rules.hookMaxChars) issues.push(`hook が ${ctx.formats.rules.hookMaxChars} 字を超える`);
   if (design.cta !== undefined && !String(design.cta).includes('本編')) issues.push('cta は本編で何が分かるかを言う（例: 残りの 2 つは本編で）');
+  // 本文の最後の語りにも「〜は本編で」を入れると、締めと 2 回続けて読まれる（2026-11-12・2 本）
+  if (/本編で/u.test(design.beats?.at(-1)?.narration ?? '')) issues.push('本文の最後の語りに「本編で」を入れない（締めの cta と重なって 2 回読まれる）');
   issues.push(...varietyProblems(design, ctx));
   return issues;
 }
@@ -197,7 +199,8 @@ const bodyPrompt = (beat, index, label, palette) => [
   pop(palette), `図を画面の主役にする。${BODY_FRAME} 白いカードの箇条書きにしない。人物なし。`,
   // 番号が見出しに続いて読めた（『1』『月だけの工期』→「1月だけ」・2026-11-11）。番号は丸で囲んで見出しと離す
   `一番上に資格名の小さなラベル『${label}』。見出しの左上に、丸で囲んだ小さな番号『${index + 1}』を見出しと離して置き、その下に見出し『${beat.heading}』。`,
-  `図: ${beat.diagram}`, BANS,
+  // 図に書いていない部品（動画プレーヤーのボタンなど）を足した（2026-11-12）。描くものを図の指示だけに絞る
+  `図: ${beat.diagram} 画面に描くのは、この図の指示にあるものと見出し・ラベルだけ。`, BANS,
 ].join(' ');
 // 文字の置き場所（1080×1920 の座標）。見出しは横 110〜970px の枠に中央揃えで入れ、入らなければ字を小さくする
 const TEXT_BOX = '見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。';

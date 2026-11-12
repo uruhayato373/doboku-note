@@ -55,7 +55,7 @@
         "選ばない"
       ],
       "pose": "先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。見出しは画面の左右8%の内側、右端から18%より内側で折り返し、文字を端で切らない。立てた指は見出しの文字に重ねない。",
-      "cta": "自分の事実の五行メモの作り方は本編で。",
+      "cta": "立場の選び方の続きは本編で。",
       "sources": [
         "stance"
       ],
@@ -79,9 +79,9 @@
       "qa": {
         "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "事実は sources の stance 場面と一致し、型 one-line-conclusion・コピー assertion・表紙見出しも台帳の線内。軽微な注意はあるが fail にする根拠はない。",
-        "digest": "eb695f2d5fb4f0ee660d44f0fa7ba34446925026b801b31d11ca3d2b76c1844f",
-        "checkedAt": "2026-11-11T10:00:46.204Z"
+        "reason": "事実は sources の stance 場面と一致し、型 one-line-conclusion・コピー assertion・表紙見出しは台帳の線内で、台本に無い事実の追加もないため合格とする。",
+        "digest": "25096a4220d212e776f1b9d486481ff0be090d81991e6beed8c74765959a2bb7",
+        "checkedAt": "2026-11-11T23:30:36.748Z"
       },
       "gesture": "point-up"
     }

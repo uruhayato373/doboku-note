@@ -669,11 +669,261 @@
         "videoSha256": "accf2bf8c25c49526c1f4f8cc2b898c5237a7751bfd9d3edfa11d75b51fc5f74",
         "checkedAt": "2026-11-11T10:17:03.966Z"
       }
+    },
+    "shorts-pop-point-pitfalls-2-20261112": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2",
+      "key": "point-pitfalls-2",
+      "sceneId": "pitfalls",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "21c3a87ec66a91518d6e1dbcf3a7bc7263cf8806dc208357e7637fa0302f9ee9",
+          "narration": "配合計算が選択肢と合わないとき、見直す所は3つ。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #168080 と濃色 #0F6262。 黄色と白の極太文字。 上部に『コンクリート技士』。最も大きく見出しを 2 行で書く: 1 行目〈ずれたら〉、2 行目〈見る3点〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「N 点チェック」。数字を見出しの中で最も大きく、チェック欄の空の四角を数だけ縦に並べる。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「赤ペンを持つ」: 片手で赤ペンを胸の高さに持ち、もう片方の手で答案用紙を持つ。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。見出しは画面の左右8%の内側、右端から18%より内側で折り返し、文字を端で切らない。片手で赤ペンを胸の高さに持ち、もう片方の手で答案用紙を持つ。赤ペンと答案用紙は見出しの文字に重ねない。答案用紙には文字を書かず、短い横線だけにする。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 見出し『見る3点』の塊が左端約4%から右約89%まで広がり幅約85%で、指示の左右8%内側・幅80%以内を超え、左の余白が足りない。文字自体は誤字なく、型(3つの空チェック欄)・先生・赤ペンと答案は合っている",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/raw-cover.59b8e12c.png",
+              "sha256": "59b8e12cb070e3b8f676ccec8831791bd38337ede2395ce3ac7caeabb6be3d22"
+            },
+            "generatedAt": "2026-11-11T23:38:50.667Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/cover.bdcd64fd.png",
+            "sha256": "bdcd64fd3d2af7ebf814763b036891912caf5c2748a5b77420dd83b5e97d8587",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "59b8e12cb070e3b8f676ccec8831791bd38337ede2395ce3ac7caeabb6be3d22"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:38:50.667Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『ずれたら／見る3点』と『コンクリート技士』は指示どおりで左右5%以上の余白があり、空の四角3つの紙と赤ペン・答案の先生も崩れなし。肩書き帯なし"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "1d4baa89ba9791d267ce8219cacd429908bc6f72cddae5f7dded19eeadf4cda3",
+          "narration": "一つ目、水セメント比の向き。水をセメントで割ります。逆に340を170で割ると、2.0になってしまいます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #168080 と濃色 #0F6262。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート技士』。大きな番号『1』と見出し『1 水セメント比の向き』。 図: 左にチェック欄の四角と大きな数字『1』。右上に『仮の例』の小さな札。右に大きな箱『水÷セメント』。その下に小さく薄い色で『340÷170＝2.0』を書き、その右の余白に赤い✕を文字に重ねずに置く。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/raw-scene-001.faed983c.png",
+              "sha256": "faed983cba0951984b28b404e5934b6502c0974cb73cc7f2eb622ddfef205ddc"
+            },
+            "generatedAt": "2026-11-11T23:38:50.667Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/scene-001.ce4b0d48.png",
+            "sha256": "ce4b0d48398d4eb0bda8f086c95504af82aa06e6f8d65ee93b2e37de5e874204",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "faed983cba0951984b28b404e5934b6502c0974cb73cc7f2eb622ddfef205ddc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:38:50.667Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『コンクリート技士』『1 水セメント比の向き』『仮の例』『水÷セメント』『340÷170＝2.0』を1字ずつ照合し誤字なし、✕は文字に重ならず端切れなし"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "a9ebc93e52c386335a38a1efb5c0f5d94a7418332bcb498ec41eec9e533c4756",
+          "narration": "二つ目、空気量。4.5をそのまま引かず、1000掛ける0.045で45リットルにしてから引きます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #168080 と濃色 #0F6262。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート技士』。見出しの左上に、丸で囲んだ小さな番号『2』を見出しと離して置き、その下に見出し『2 空気量はLへ』。 図: 左にチェック欄の四角と大きな数字『2』。右に『4.5%』の箱から太い矢印で『1000×0.045＝45L』の箱へつなぐ。右上に『仮の例』の小さな札。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 見出し『2 空気量はLへ』が左端約3%から右約97%まで広がり、指示の左右6%内側の安全域を外れ画面端に接する。文字内容は『4.5%』『1000×0.045＝45L』含め正しい",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/raw-scene-002.bba875af.png",
+              "sha256": "bba875af7d4f5919155c68d5ca5e82aac57c963a245b93037992cc37ae0cc9d3"
+            },
+            "generatedAt": "2026-11-11T23:38:50.667Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/scene-002.14b0ca4d.png",
+            "sha256": "14b0ca4dc0d0e541d4cd2f6b77596c734638f5a4fdc6ede23cd0c4d538723b88",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bba875af7d4f5919155c68d5ca5e82aac57c963a245b93037992cc37ae0cc9d3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:38:50.667Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『2 空気量はL へ』『4.5%』『1000×0.045＝45L』『仮の例』の文字が指示と一致し、左右余白も5%以上で枠内に収まり、記号の重なりなし"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "edba0180100487ffb3a1942cc4fd91e42f1af0f7295d8c5e3c2aa73c066a0b22",
+          "narration": "三つ目、表面水。骨材だけ増やして、水を減らさない。ここもずれの出どころです。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #168080 と濃色 #0F6262。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『コンクリート技士』。大きな番号『3』と見出し『3 表面水は水から引く』。 図: 左にチェック欄の四角と大きな数字『3』。右に上下2つの箱。上の箱は『骨材』と上向きの矢印、下の箱は『水』と下向きの矢印。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/raw-scene-003.a972381f.png",
+              "sha256": "a972381fe7f269dc29c772df1eac8a5098c11be55c55c78e3174942349753e50"
+            },
+            "generatedAt": "2026-11-11T23:38:50.667Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/scene-003.ee0b3f26.png",
+            "sha256": "ee0b3f26098f15b6b6dbd70e557cc6816b883f03e834d6242fa43cd1645fdcd7",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a972381fe7f269dc29c772df1eac8a5098c11be55c55c78e3174942349753e50"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:38:50.667Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『表面水は水から引く』『骨材↑』『水↓』『3』を照合し誤字なし、矢印の向きも本文と一致し端切れなし"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "75592e7128deb9e7411032650956aa5e36215d38e17d7665492f094d9dd447c2",
+          "narration": "仮の1問の通し方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #168080 と濃色 #0F6262。 大きく『本編で』、その下に小さく『関連動画から』と下向きの矢印。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『コンクリート技士』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/raw-cta.0e7e6864.png",
+              "sha256": "0e7e6864a3577ac4904c8d21aaae990badc141d97b358dbc131a6b0a93a2726d"
+            },
+            "generatedAt": "2026-11-11T23:38:50.667Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/cta.7fb2e79e.png",
+            "sha256": "7fb2e79e641d394033791001a572b4d21573b4e8680db8fb52abcc97dc5d88ff",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0e7e6864a3577ac4904c8d21aaae990badc141d97b358dbc131a6b0a93a2726d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:38:50.667Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『本編で』『関連動画から』と下向き矢印が指示どおり、文字の右余白は約5.4%で5%以上、先生の手指も自然で胴体は下端まで続く"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "508f6288ef54aa2c180d3464957f0fa445b0219e27d27d083fccd14487890a6b",
+        "durationSeconds": 30.633333,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "平均 4.6・全軸 3 以上。sha 一致、5/5 場面、30.6 秒・1080×1920・音声あり。型 n-check の形に合い、事実は台本の範囲内。軽微な指摘あり、ライブ未確認。",
+        "videoSha256": "508f6288ef54aa2c180d3464957f0fa445b0219e27d27d083fccd14487890a6b",
+        "checkedAt": "2026-11-11T23:47:36.763Z"
+      },
+      "audio": {
+        "videoSha256": "508f6288ef54aa2c180d3464957f0fa445b0219e27d27d083fccd14487890a6b",
+        "similarity": 0.979,
+        "maxVolumeDb": -6.7,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/video.508f6288.mp4",
+          "sha256": "508f6288ef54aa2c180d3464957f0fa445b0219e27d27d083fccd14487890a6b"
+        },
+        "frames": {
+          "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/frames.3e1880e4.png",
+          "sha256": "3e1880e42f1e045af47d8463bae8ac3cf802521660ab80e14e88cad27663baf5"
+        },
+        "subtitles": {
+          "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/subtitles.3650a869.ass",
+          "sha256": "3650a869e2c112e44ca28f7c08548b99fc7b1fae45b79632c603382dc72e99cf"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/raw-cover.59b8e12c.png",
+            "sha256": "59b8e12cb070e3b8f676ccec8831791bd38337ede2395ce3ac7caeabb6be3d22"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/raw-scene-001.faed983c.png",
+            "sha256": "faed983cba0951984b28b404e5934b6502c0974cb73cc7f2eb622ddfef205ddc"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/raw-scene-002.bba875af.png",
+            "sha256": "bba875af7d4f5919155c68d5ca5e82aac57c963a245b93037992cc37ae0cc9d3"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/raw-scene-003.a972381f.png",
+            "sha256": "a972381fe7f269dc29c772df1eac8a5098c11be55c55c78e3174942349753e50"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/raw-cta.0e7e6864.png",
+            "sha256": "0e7e6864a3577ac4904c8d21aaae990badc141d97b358dbc131a6b0a93a2726d"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2/cover.bdcd64fd.png",
+          "sha256": "bdcd64fd3d2af7ebf814763b036891912caf5c2748a5b77420dd83b5e97d8587"
+        },
+        "savedAt": "2026-11-11T23:47:41.479Z",
+        "cloudVerified": true
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261111",
   "activeBodyRevision": "body-diagram-20261111",
   "activeShorts": {
-    "point-wc-1": "shorts-pop-point-wc-1-20261111"
+    "point-wc-1": "shorts-pop-point-wc-1-20261111",
+    "point-pitfalls-2": "shorts-pop-point-pitfalls-2-20261112"
   }
 }
