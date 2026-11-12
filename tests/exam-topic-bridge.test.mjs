@@ -33,3 +33,10 @@ test('年度の過去問ページの見出しの id と、リンクの #問題-n
 test('未登録の記事は null', () => {
   assert.equal(resolveExamTopicQuestion('civil-practice-not-registered'), null);
 });
+
+test('解説のタグを外して中の文字だけ残し、山括弧を残さない', async () => {
+  const { stripTags } = await loadTsModule('src/lib/exam-topic-bridge.ts');
+  assert.equal(stripTags('正しい。<ExamPoint>要点</ExamPoint>'), '正しい。要点');
+  assert.equal(stripTags('<<script>script>alert(1)<</script>/script>'), 'scriptalert(1)/script');
+  assert.ok(!/[<>]/.test(stripTags('a <b <c> d> e < f')));
+});

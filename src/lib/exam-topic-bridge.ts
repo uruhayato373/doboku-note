@@ -40,6 +40,22 @@ const UNRENDERABLE = /[$<|]|!\[|&#x/;
 const yearRank = (y: string) => (y.startsWith('r') ? 100 : 0) + Number(y.slice(1));
 const yearLabel = (y: string) => (y.startsWith('r') ? `令和${Number(y.slice(1)) === 1 ? '元' : Number(y.slice(1))}年度` : `平成${Number(y.slice(1))}年度`);
 
+/**
+ * 解説の中のタグ（<ExamPoint>・<p>・<img> など）を外して中の文字だけ残す。正規表現の置換を 1 回かけるだけだと
+ * 取り残しが出る形（CodeQL の incomplete multi-character sanitization）になるので、1 文字ずつ「< から > まで」を落とす。
+ * 結果は React のテキストとして描画し、HTML としては出さない。
+ */
+export function stripTags(text: string): string {
+  let out = '';
+  let inTag = false;
+  for (const ch of text) {
+    if (ch === '<') inTag = true;
+    else if (ch === '>') inTag = false;
+    else if (!inTag) out += ch;
+  }
+  return out;
+}
+
 let flat: (Question & { year: string })[] | null = null;
 function allQuestions() {
   flat ??= YEARS.flatMap((y) => y.questions.map((q) => ({ ...q, year: y.year })))
@@ -58,7 +74,7 @@ export function resolveExamTopicQuestion(slug: string): ExamTopicQuestion | null
   if (!q) return null;
   const examSlug = `primary-${q.year}-${q.part.toLowerCase()}`;
   const tb = Q2T[examSlug]?.[`問題-${q.no}`]?.[0];
-  const explanation = (q.optionExplanations?.find((e) => e.num === q.correct)?.text ?? '').replace(/<[^>]*>/g, '').replace(/[<>]/g, '').trim(); // タグ（<ExamPoint> など）を外し、残った < > も消す（React のテキストとして出すが、文字列に山括弧を残さない）
+  const explanation = stripTags(q.optionExplanations?.find((e) => e.num === q.correct)?.text ?? '').trim();
   return {
     label: `${yearLabel(q.year)} 第1次検定 No.${q.no}`,
     body: q.body,
