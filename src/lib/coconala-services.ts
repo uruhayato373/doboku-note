@@ -570,8 +570,9 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 20,
     listedAt: '2026-08-05',
-    pauseReason: 'absence',
+    pauseReason: 'retired',
     resumeOn: '2027-07-01',
+    archivedAt: '2026-11-12',
   },
   // C11: 2級 二次 教材フルパック（C3+C5+C7+C9 全部入り・PDF 19冊）。C10 の2級版。
   //   価格 ¥7,000（1級 ¥10,000 の 0.7＝級差を保つ・500円刻み適合）。
@@ -593,9 +594,10 @@ const SERVICES_RAW = {
     notePriceBasis: 'civil-2-niji-marugoto-pack | civil-2-chokuzen-pack + civil-2-experience-essay + civil-2-pastexam-essay + civil-2-gakka-kijutsu',
     examScope: ['civil-2'],
     weeklyCapacity: 20,
-    pauseReason: 'absence',
+    pauseReason: 'retired',
     resumeOn: '2027-07-01',
     listedAt: '2026-08-05',
+    archivedAt: '2026-11-12',
   },
   // C12: 1級 二次 プレミアム（教材フルパック22冊 ＋ 経験記述 添削2テーマ）。2026-08-05 新設。
   //   なぜ作るか: 純教材の価格天井は実測で ¥10,000（一級建築士製図ノート ¥10,000×31件が最上位。
