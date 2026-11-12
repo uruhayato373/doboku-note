@@ -301,25 +301,13 @@ uptime-ping.yml の sweep が 2026-11-10・11-11 のデプロイ後に 2 回と�
 
 **判断理由（共通事業方針）**: 読者の課題＝合格に必要な教材をどれで買うか決めたい受験者（A: 資格）。提供価値＝無料の過去問・解説から、足りない練習を有料教材で補う。需要の証拠＝note の販売 347 件（2026-05〜10）はあるが、どの案内が見られ・押され・売れたかを同じ商品 ID でつないだ記録は無い（未検証）。次の検証＝EXP-052 で、売れている 1 商品について表示→クリック→販売を 6 週記録する。KGI は月の確定収益。PV は目標にしない。アトリビューション分析はしない（広告費を使っていない。クリックした人が買ったかは分からない）。
 
-**やったこと（2026-11-03・develop）**:
-1. GA4 `product_impression`（リンクの 50% 以上が 1 秒）／`product_click`（販売先へのクリック。キーイベントの定義に追加）。パラメータは `product_destination`（note / coconala / amazon / a8 / moshimo）・`product_id`（販売先の ID: note キー・サービス番号・ASIN・a8mat・p_id）・登録済みの `cta_placement`。href から読むので data-cta の無いリンクも拾う。既存の note_cta_click などは時系列を切らないため並行して送る（足し合わせない）。src/lib/product-referral.mjs・AnalyticsProvider
-2. 週次の取得 `npm run fetch-ga4-cta-clicks -- --by-product`（ga4 レポートの product-referrals。逆向きのセッションも inbound に入る）を fetch-metrics.yml に追加
-3. 販売台帳 `npm run product-sales` → data/business/product-sales/{月}.json。販売先ごとの coverage（measured＝行が無ければ計測済み・0 件／partial・account-only・unmeasured＝未計測）。KDP は doboku-note の ASIN（config/products.json）に当たる本だけを数え、書籍 ID の付かない行（stats47 の本）は excluded に件数と金額だけ残す。土曜の収集（weekly-collect の product-sales 段）で前月と当月を作り直す
-4. 逆向きの UTM: Kindle は utm_campaign＝書籍 ID の小文字・utm_content＝置き場所（next / author。build-takuitsu-reconstruct）。note の本文リンクは utm_term＝記事の note キー（add-note-utm。utm_content はリンクの種類に使っているので触らない）。規約は config/utm-templates.json の _ebook_note・_inbound_note
+**済み（2026-11-12 棚卸しで確認）**: GA4 の product_impression / product_click・カスタムディメンション・キーイベント・週次の `--by-product` 取得・販売台帳 `npm run product-sales`・逆向きの UTM の規約は入り、本番デプロイ（main e5e10a6f1）と EXP-052 の開始（6 週・〜2026-12-15）も済んだ。`npm run report-product-funnel` は exit 0 で行を出している。経緯は git 履歴。
 
-**人の作業（手順）**:
-1. ~~GA4 の定義~~ 済み（2026-11-03）: カスタムディメンション product_destination・product_id を管理画面で作成（最初の product_destination はパラメータ名の入力を誤り、アーカイブして作り直した）。product_click のキーイベントは Admin API（`node scripts/ga4-admin-api.mjs apply --commit`・サービスアカウントは編集者）で作成し、check で不足 0 を確認。取得の問い合わせ（--by-product）も本番の GA4 で通ることを確認（未デプロイなので 0 行・awaiting-data）
-2. ~~本番デプロイ~~ 済み（2026-11-03・main e5e10a6f1・check-production-ssr exit 0）。本番で product_click・product_impression が正しい販売先・ID・置き場所で出ることを確認。EXP-052 を開始（6 週・2026-12-15 まで）
-3. note の本文の utm_term: 記事を直すときに `node scripts/add-note-utm.mjs <slug>` を回す（全記事の一括書き換えはしない）。EXP-052 の対象記事（直前3週間の過ごし方）は 2026-11-03 に入れた。note への反映は土曜の note-sync 段
-4. Kindle の UTM: A 系を次に再出版するとき `build-takuitsu-reconstruct` で作り直す（出版済みの EPUB は旧い campaign takuitsu-<論点> のまま）
+**読み方**: `npm run report-product-funnel`（`--product <販売先 ID か商品 ID>`）。DN-0912（ハブ経由の購入の測り方）と DN-0410（チャネル別の送客）はこのイベントを読む。
 
-**関係**: DN-0912（ハブ経由の購入を何で測るか）は、商品 ID つきのクリックをこのカードのイベントで読める。note の販売に流入元が無い点は DN-0912 が決める。DN-0410（チャネル別の送客ダッシュボード）は product-referrals の inbound を使える。KDP の展開判断は stats47 の KDP-EXPANSION-01・月次レビュー 2026-10 の振り分け DN-0920 と同じ口座の数字を使うので、ASIN で分けた excluded を見る。
+**残り**: ① 土曜の収集の product-sales 段が当月（2026-11）の販売台帳を作ること（2026-11-12 時点で data/business/product-sales/ は 2026-10 まで） ② EXP-052 の 6 週の記録（〜2026-12-15） ③ 運用の約束: Kindle の戻りの UTM は A 系の本を次に再出版するとき `build-takuitsu-reconstruct` で作り直す（再出版は運営者）。note の記事の utm_term は公開済みの記事を直すとき `node scripts/add-note-utm.mjs '<記事のフォルダ>'`（pre-commit の check-note-site-utm が求める）
 
-**読み方**: `npm run report-product-funnel`（最新の product-referrals × 窓の月の販売台帳を販売先の ID で 1 行に並べる。`--product <販売先 ID か商品 ID>`）。
-
-**残りの確認（2026-11-03 時点）**: ① 次の週次の fetch-metrics の後に `npm run report-product-funnel` が exit 0 で行を出し、product-referrals が available になっていること（なっていなければ GA4 のカスタムディメンションの反映待ちか送信の不具合を切り分ける）② 販売台帳は土曜の収集の product-sales 段が前月・当月を作り直すこと ③ Kindle の戻りの UTM は A 系の本を次に再出版するとき（KDP への再出版は運営者）④ note の記事の utm_term は、公開済みの記事を直すと pre-commit の check-note-site-utm（[utm-term]）が求める。直し方は `node scripts/add-note-utm.mjs '<記事のフォルダ>'`（改行コードを変えない）
-
-**完了条件**: 本番の GA4 に product_impression / product_click が届き、product-referrals のレポートが available で書かれている（次の週次の fetch-metrics で確かめる）。EXP-052 の 6 週の記録が終わったらこのカードを削除する。
+**完了条件**: 2026-11 の販売台帳が土曜の収集で作られ、EXP-052 の 6 週の記録が終わっている。
 
 
 
@@ -1054,11 +1042,9 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 ### [DN-1001] 新しい通常動画からショートを派生させる試行（通常動画 3 本 × ショート 2 本）
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-06] [期日:2026-11-21]
+タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-06] [期日:2026-12-15]
 
 **方針（2026-11-10・運営者の決定）**: 旧工程のショートは品質が低いので消し、新しい通常動画の派生として企画し直す。古い 224 本の設計（pop-v2）を作り直す案はやめる。型の定義は `config/youtube-formats.json` の `pack-shorts`（外部リンクではなく関連動画で通常動画へ送る）のまま。
-
-**現状（2026-11-10）**: YouTube 上の旧ショートは 0 本（残っていた 2級土工の 2 本を削除・PR #1515・run 42806142170）。`npm run shorts-factory -- status` は 12 本すべて no-design。新工程の試作は concrete-engineer/gishi-haigou-keisan の point-step1-1 の 1 本だけで、完成動画は未確認。
 
 **旧ショートの欠点（繰り返さない）**: 30 秒のうち約 18 秒が締めの同じ画面だった。場面ごとに人物の見た目（ヘルメット・髪型）が変わった。字幕が小さく、人物や図に重なった。
 
@@ -1072,22 +1058,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **完了条件**: 6 本が完成動画で画面確認を通り、関連動画つきで予約されている。28 日後の判断が `data/business/records/` に残っている。
 
-**着手して分かったこと（2026-11-10）**: 今の仕組みのままでは、公開済みの通常動画からショートを作れない。
-- 年間計画の関門（`shorts-factory plan` の `assertInSlot`）: ショートの割り当てがあるのは 2027 年の枠だけ。公開済み・予約済みの通常動画は 1 本も枠に入っていないので、設計の段で「親の枠にショートの割り当てが無い」と止まる。試行するなら、年間計画に試行の割り当てを足す判断が要る
-- 旧い定義: `shorts-factory status` に出る主任技士 12 本は、`youtube.json` の `sceneId`（kanten・kousei など）が今の台本（premise・items・mapping …）に無い。論点の定義から作り直す
-- 表紙の見出しと締めの語りは `cover-design.json`・`cta-design.json` にある。この 2 つは通常動画の入力ハッシュ（`longformInputHash`）に入るので、書き換えると公開済みの通常動画の照合が崩れる。`shorts-design.json` 側に見出しと締めの語りを持てるようにする
-- 締めの語りは今 46 字（約 8〜9 秒）。3 秒程度にするなら短い文へ変える
-- 候補の選び方: 主任技士は試験が 2026-11-29 で、承認と関連動画の設定を待つと間に合わない。来期まで使える建設部門（必須Ⅰ・答案構成）が向く
-
-**進捗（2026-11-10 夜）**:
-- 決まりを入れた（PR #1518）。`config/channel-annual-plan.json` の `shortsRule`: 親の通常動画が公開・予約に進んでから作る／1 本につき 2 本／枠の外の公開済みの親では合計 6 本まで試す／見直し 2026-12-15。表紙の見出しと締めの語り（6〜20 字）は `shorts-design.json` に持てる
-- 元にする通常動画は建設部門の 3 本に変えた（toan-kousei-template・hissu1-kensetsu-dx・hissu1-infra-roukyuuka）。主任技士は試験が 2026-11-29 で間に合わない
-- 台本 6 本は `yt-shorts-publisher-qa` の監査で 4 本を直し、全部 pass を記録した
-- 1 本目（toan-kousei-template の point-skeleton-1）は画像 5 枚中 4 枚が監査 ok。本文 2 枚目（4 つの箱の図）だけが通らない。誤字や順番の誤りは一度も無く、落ちた理由は毎回、左右 6% の余白・右端の操作ボタンの範囲・字幕の範囲のどれか。図の形を 横並び → 縦 4 段 → 2 行 2 列 と変え、計 7 枚作った。最後の 1 枚は右下の『リスク』が操作ボタンの範囲に入っていて未監査
-
-**完成（2026-11-10 夜・PR #1524）**: 6 本とも、台本の監査・画像の監査・音声の検査・画面確認を通して Drive の在庫に入れた。尺は 23〜38 秒、締めは約 2 秒。台帳の行は draft のまま。
-- 画像は計 30 枚の採用に、作り直しを含めて約 60 回の生成。落ちた理由は、9:16 から外れた出力（916×1717）・字幕と操作ボタンの範囲・締めの先生が腰で切れる、の 3 つがほとんどで、誤字は 1 回だけ（ラベルの鉤括弧）
-- 図を収める範囲（PR #1523）と、締めの「胴体を下端まで続ける」（PR #1524）を共通の指示に入れた
+**経緯（2026-11-10〜11）**: 公開済みの通常動画から作るための決まり（`shortsRule`・PR #1518）を入れ、元を建設部門の 3 本に変え、6 本を台本・画像・音声・画面の確認を通して作った（PR #1524）。経緯は git 履歴。
 
 **承認・アップロード（2026-11-11・PR #1526〜#1528）**: 6 本を承認し、非公開でアップロードした。公開日時は 11/13〜11/18 の 14:30 JST に 1 日 1 本。投稿の経路（`registry -- prepare-short`・`stage-youtube`・`record-related`、youtube-single-publish の publish）は DN-1002 で作った。
 
@@ -1105,7 +1076,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 2. 設定したら `npm run registry -- record-related --pub <ショート> --video-id <親>` で記録し、youtube-single-publish の publish をもう一度流すと予約する（`expect` は `publish-youtube --phase upload` の dry-run の digest）。purpose-1 は 11/13 14:30 より前に済ませる
 3a. 運営者が YouTube の本人確認を登録中（2026-11-11）。Studio で関連動画を開くと「チャンネル履歴が十分ではないため、上級者向け機能にアクセスできません」と出て設定できなかった。確認が通ったら、内部ブラウザの Studio（編集画面の「関連動画」＝`ytcp-shorts-content-links-picker`）でエージェントが設定し、画面で読み戻してから record-related で記録して予約する。手順が安定したらスクリプトにする
 3b. 1 日の投稿の本数の上限（`config/video-auto-publish.json` の `maxUploadsPerDay`・4）を撤廃する（2026-11-11・運営者の決定・未着手）。GCP の実測でアップロードは別枠の 100 本/日。外すのは設定・型（`dataset-schemas-config-media.mjs`）・`video-publish-gate.mjs` の `uploadsLeft`・`video-factory publish` の検査・そのテスト・`video-factory.md` の記述・DN-1101 の「1 日 4 本まで」
-3c. 型のあるショート 38 本のうち `pe-comprehensive-management/cm-mondaibun-yomikata` の `point-youso-2` だけ在庫に入っていない（2026-11-12）。表紙の紙の右上の大きな『？』が毎回右端 3% まで寄り、作り直しの上限に達する。型 one-question の `cover.visual` から『？』を外すか紙の位置を座標で指定してから `npm run shorts-factory -- plan --retry all` で流し直す
 4. 公開 28 日後に、ショートから通常動画へ移った数を見て、`shortsRule` の上限と枠ごとの本数を見直す（2026-12-15）
 5. 画面確認で出た改善点（止め条件にはしていない）: 字幕の改行が語の途中で切れる（`video-subtitles.mjs` の `subtitleChunks` は通常動画と共通）、字幕の文字を 80〜84px に上げるか、point-koukarisk-2 は画面に「リスク」の語が出ず題名の論点が弱い、point-means-2 の 2 枚目の絵が階層に見えにくい
 6. YouTube の実画面で、右端の余白が 3〜4% の見出しが欠けないかを確かめる
@@ -2399,23 +2369,13 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 - OPP-abef5fbc86 `/exam/civil-construction-1/guide/exam-overview` の CTA クリック率 0.28%（サイト平均 0.7%）
 - OPP-3061b036bb `/exam/pe-comprehensive-management/past-exams/r08-primary` の CTA クリック率 0.32%
 
-**やること**: (1) scraper は seoTitle とリード文を検索語に合わせる。(2) 中国地方整備局は親ページを正にし、part-01 の題名を章名へ寄せて役割を分ける。(3) サイドバーの CTA は外すか本文内へ移すかを決める（DN-0364 の配線方針と合わせる）。(4) CTA の低い 2 ページは、冒頭近くに資格の主力商品への導線を置く。
+**済み（2026-09-27）**: (1) scraper の seoTitle・リード（018751c39）、(2) 中国地方整備局 part-01/02 の題名（PR #680）、(4) CTA の低い 2 ページの導線（5fc9bd35b・221a1f98e）、旧 DN-0338 のネットワーク式工程表の seoTitle・description・リード（29cbf89f2）。経緯は git 履歴。
 
-**完了条件**: 5 件それぞれ対応したか「やらない」と決め、反映から 28 日後の週次まとめで同じ候補が再掲されないことを確認したら、このカードを削除する。
+**残り**:
+1. 9/27 の変更 4 対象とネットワーク式工程表の CTR を再計測する（反映 28 日後＝10/25 以降はいつでも可）。比べる基準: 「インターフェアリングフロートとは」変更前 CTR 0.16%（平均 7.6 位・35 日で表示 1,215）。「スクレープドーザ」と「スクレーパとは」は別クエリで併記する
+2. 記事サイドバーの note もくじ／SidebarProduct（`ArticleSidebar.tsx` の article-sidebar・W41 は 15,037 表示・CTR 0.11%・28 日）を、note ラベル別の用途と CTR を見て残す／文言変更／位置変更のどれにするか決める（DN-0364 の配線方針と合わせる）。OPP-e15816beb4・OPP-927fd9bd18 もここで扱う
 
-**進捗（2026-09-27）**: (a) スクレーパの seoTitle・リードを「スクレープドーザとは」へ（018751c39）。(c) 1級 exam-overview のリード直後に 1級二次まるごとパック、(d) 総監 r08-primary に択一 過去問PDF（令和）のカードを置いた（5fc9bd35b・221a1f98e）。(b) 中国地方整備局の分冊 part-01/02 の題名を章名始まりにした（PR #680）。サイドバーの CTA は DN-0364 の配線方針と合わせて決めるため未着手。残りは反映 28 日後の再掲確認。
-
-**訂正・残作業（2026-10-17）**: EXP-008で撤去したのは転職広告。現行ArticleSidebar.tsx:75〜78のnoteもくじ/SidebarProductはarticle-sidebarとして存続し、「枠ごと撤去済み」は誤りだった。W41は同配置15,037表示・CTR0.11%（28日）。noteラベル別の用途とCTRを確認して残す/文言変更/位置変更を判断する。9/27変更の4対象は10/25前後に再計測し、スクレープドーザと今回のスクレーパとはを別クエリで併記する。OPP-e15816beb4・OPP-927fd9bd18を本カードへ束ねる。
-
-**統合（2026-10-26 棚卸し）: 旧 DN-0338「1級土木「ネットワーク式工程表」のtitle・descriptionを「インターフェアリングフロートとは」の検索意図に合わせる」**
-
-**起点**: 週次トリアージ（data/analysis/growth/digest-2026-W38.json）の OPP-2ee0d7aa00: 「インターフェアリングフロートとは」は平均 7.6 位なのに CTR 0.16%（期待 3%）（期待効果 6.9 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-network-schedule/article.mdx`
-
-**やること**: GSC で「インターフェアリングフロートとは」（35日 表示1,215・クリック2・平均7.6位・旧URLを含む）の着地ページと表示中のタイトルを確認し、textbook-network-schedule の seoTitle・description・リード文にフロート4種（トータル/フリー/インターフェアリング/ディペンデント）の定義と試験での問われ方を入れる。本文に無い定義は足さず、既存の図 figure-3-21-23 と整合させる。変更後は refresh-indexes。
-
-**完了条件**: seoTitle・description・リードが検索語の定義に答える形で公開され、公開日から28日後の同クエリの CTR を変更前（0.16%）と比べた記録が business review か本カードの完了記録にある。
-
-**進捗（2026-09-27）**: seoTitle を「インターフェアリングフロートとは｜IF＝TF−FF…」に、description とリードを定義と試験での問われ方（IF を求める計算・TF＝FF＋IF の空欄補充）に直して develop へ反映（29cbf89f2）。残りは 28 日後（10/25 前後）の CTR 比較だけ。
+**完了条件**: 1 の比較が記録され、2 の扱いが決まって反映されている。
 
 
 
@@ -2677,9 +2637,7 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: 2026年10月分の費用が記録され、管理画面で受取額 − 費用が出る。
 
-**判断（2026-11-05・運営者）**: 作業時間の記録は無理なのでやめる。下の 2026-10-10 の判断のうち作業時間の分を取り消す。資格の比較は 1 商品あたりの受取で代える（`/strategy/issues` の地図）。
-
-**判断（月次レビュー 2026-09・2026-10-10・運営者）**: 費用・作業時間の両方を記録する。費用は固定費（サーバー・AI 利用料・ドメイン・ツール）を月 1 回、作業時間は週 1 回の自己申告（概算）で記録する。DN-0303（同じ題材・2026-09-25 起票）はこのカードへまとめて消した。受取額（netReceipts）の記録は DN-0367・DN-0643。
+**判断（運営者）**: 費用は固定費（サーバー・AI 利用料・ドメイン・ツール）を月 1 回記録する（2026-10-10）。作業時間の記録はやめ、資格の比較は 1 商品あたりの受取で代える（2026-11-05）。受取額（netReceipts）の記録は DN-0367・DN-0643。
 
 
 
