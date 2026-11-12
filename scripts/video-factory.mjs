@@ -6,6 +6,7 @@
  *   npm run video-factory -- plan --pack <exam>/<work> [--scope all|cover] [--date YYYYMMDD] [--retry <項目 id,…|all>]
  *   npm run video-factory -- generate --pack <exam>/<work> [--concurrency 3] [--max-minutes 8]   # 時間切れは exit 3（打ち直すと続きから）
  *   npm run video-factory -- audit-queue --pack <exam>/<work>             監査へ渡す項目
+ *   npm run video-factory -- audit-verify --pack <exam>/<work>             監査の直後に未判定・画像なしが 0 件か（exit 1 で止める）
  *   npm run video-factory -- record-audit --pack <exam>/<work> --file <verdicts.json> --by <担当>
  *   npm run video-factory -- adopt --pack <exam>/<work>                   ok が揃ったら採用
  *   npm run video-factory -- render --pack <exam>/<work>                  音声・動画・照合・取り込み
@@ -52,6 +53,7 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
 import { stagedRenderWorks } from './lib/youtube-single-r2.mjs';
+import { assertCleanTree, dispatchAndWatch, pullRebaseResolvingManifest } from './lib/publish-sync.mjs';
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, readingRiskTokens, sceneSimilarity, speechSimilarity, tokenMisreads, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { scriptQueue, slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
 import { loadPlanAudit } from './lib/youtube-longform-plan.mjs';
@@ -499,6 +501,9 @@ const lastJson = (text) => JSON.parse(text.slice(text.lastIndexOf('\n{') + 1));
 /** 承認済みを転送し、台帳を develop へ出してから予約のワークフローを流す */
 function publish() {
   const jobs = [];
+  // 転送や commit の前に、未コミットで止まる条件を見る。割当は pull 後の台帳で数える（DN-1103・DN-1072）
+  assertCleanTree(ROOT);
+  pullRebaseResolvingManifest(ROOT);
   const packs = requirePacks();
   const left = uploadsLeft(loadRegistry(ROOT).publications, readPolicy(ROOT));
   if (packs.length > left) throw new Error(`今日の投稿の残りは ${left} 本。${packs.length} 本は割当を超える（超過は結果不明になり再送できない）`);
@@ -523,14 +528,12 @@ function publish() {
   const paths = [...new Set(jobs.map((j) => datasetPath('registry.youtube', { name: `${j.pub.split('/')[0]}.json` })))];
   const dirty = execFileSync('git', ['status', '--porcelain', '--', ...paths], { cwd: ROOT, encoding: 'utf8' }).trim();
   if (dirty) execFileSync('git', ['commit', '-m', 'content(video): 関門を通った動画を予約へ進める', '--', ...paths], { cwd: ROOT, stdio: 'inherit' });
-  execFileSync('git', ['pull', '--rebase', 'origin', 'develop'], { cwd: ROOT, stdio: 'inherit' });
+  pullRebaseResolvingManifest(ROOT);
   execFileSync('git', ['push', 'origin', 'HEAD:develop'], { cwd: ROOT, stdio: 'inherit' });
   // 同時実行のグループは待機を 1 本しか持たず、3 本目以降は取り消される。1 本ずつ完了を待つ
   for (const j of jobs) {
-    execFileSync('gh', ['workflow', 'run', 'youtube-single-publish.yml', '--ref', 'develop', '-f', 'mode=publish', '-f', `publication=${j.pub}`, '-f', `expect=${j.digest}`], { cwd: ROOT, stdio: 'inherit' });
-    spawnSync('sleep', ['8']);
-    const run = execFileSync('gh', ['run', 'list', '--workflow', 'youtube-single-publish.yml', '--limit', '1', '--json', 'databaseId', '--jq', '.[0].databaseId'], { cwd: ROOT, encoding: 'utf8' }).trim();
-    execFileSync('gh', ['run', 'watch', run, '--exit-status', '--interval', '15'], { cwd: ROOT, stdio: 'ignore' });
+    const { run, status } = dispatchAndWatch(ROOT, { pub: j.pub, digest: j.digest });
+    if (status !== 0) throw new Error(`${j.pub}: 投稿のワークフローが失敗（run ${run}）`);
   }
   console.log(JSON.stringify(jobs, null, 2));
 }
@@ -583,6 +586,12 @@ const commands = {
     if (result.missing) process.exit(1);
   },
   'audit-queue': () => console.log(JSON.stringify(auditQueue(ROOT, requirePack()), null, 2)),
+  // 監査の直後に未判定が 0 件かを確かめる。判定が漏れた項目を不合格 0 として次へ進めない（DN-1072）
+  'audit-verify': () => {
+    const summary = summarize(readPlan(ROOT, requirePack()));
+    console.log(JSON.stringify(summary));
+    if (summary.unaudited > 0 || summary.missing > 0) { console.error(`未判定 ${summary.unaudited} 件・画像なし ${summary.missing} 件`); process.exit(1); }
+  },
   'record-audit': () => console.log(JSON.stringify(recordAudit(ROOT, requirePack(), JSON.parse(readFileSync(args.file, 'utf8')), { by: args.by }))),
   adopt: async () => console.log(JSON.stringify(await adoptPlan(ROOT, requirePack(), { now: new Date().toISOString() }))),
   render,
@@ -610,5 +619,5 @@ const commands = {
   publish,
   cleanup,
 };
-if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|qa-check|preflight|save|commit|audio-check|wire|gate|auto-approve|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
+if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|audit-verify|record-audit|adopt|render|ledger|record-qa|qa-check|preflight|save|commit|audio-check|wire|gate|auto-approve|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
 await commands[command]();
