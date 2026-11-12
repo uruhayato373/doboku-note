@@ -75,7 +75,18 @@ if (args.record) {
   recordVerdicts(ledger, exam, claude, 'codex+ai-image-fidelity-auditor', now);
   recordVerdicts(ledger, exam, reviewed.filter((row) => !seen.has(row.key) && row.verdict === 'ok' && ledger.figures[recordKey(exam, row.key)]?.verdict == null), 'codex', now);
   saveLedger(ROOT, ledger);
-  console.log(`記録: 二次 ${claude.length} 件`);
+  // 二次監査の不合格は、指摘を題材へ足して版を外し、次の実行で作り直す（--fix-fails の Claude 版）
+  const fails = claude.filter((row) => row.verdict === 'fail');
+  if (fails.length) {
+    const config = readConfig();
+    for (const row of fails) {
+      const page = config.pages[exam][row.key];
+      page.scene = `${page.scene.split(' 前回の問題:')[0]} 前回の問題: ${row.reason}。これを避ける。`;
+      delete page.version;
+    }
+    saveJson(configPath, config);
+  }
+  console.log(`記録: 二次 ${claude.length} 件（不合格 ${fails.length} 件は作り直しの対象にした）`);
   process.exit(0);
 }
 

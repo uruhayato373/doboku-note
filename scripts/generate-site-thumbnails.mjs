@@ -29,10 +29,25 @@ const keys = only ?? stalePages(pages, ledger, args.exam, thumbs.styleVersion);
 if (!keys.length) { console.log('未生成 0 件'); process.exit(0); }
 
 const sha = (value) => createHash('sha256').update(value).digest('hex');
+
+/**
+ * 1 回分の結果を台帳へ書く。読み込んだ時点の全体を書き戻すと、生成中に別の処理（二次監査の --record など）が
+ * 書いた行を消すので、書く直前に読み直して、この回で作ったページの行だけを差し込む（2026-11-13）。
+ */
+function commitBatch(done) {
+  if (!done.length) return;
+  const current = JSON.parse(readFileSync(configPath, 'utf8'));
+  for (const row of done) current.pages[args.exam][row.key].version = row.version;
+  writeFileSync(configPath, `${JSON.stringify(current, null, 2)}\n`);
+  const fresh = loadLedger(ROOT);
+  for (const row of done) recordAiImage(fresh, recordKey(args.exam, row.key), row.record);
+  saveLedger(ROOT, fresh);
+}
 const seen = new Map();
 let failed = 0;
 const concurrency = 3;
 for (let i = 0; i < keys.length; i += concurrency) {
+  const done = [];
   await Promise.all(keys.slice(i, i + concurrency).map(async (key) => {
     const prompt = `${thumbs.style}${rules.antiAi.real}${rules.antiAi.avoid}題材: ${pages[key].scene}`;
     const raw = await generateWithCodexAsync(prompt, args.model ?? null);
@@ -47,12 +62,10 @@ for (let i = 0; i < keys.length; i += concurrency) {
     writeFileSync(join(dir, thumbs.photoFile), photo);
     writeFileSync(join(dir, thumbs.imageFile), webp);
     const digest = sha(webp);
-    pages[key].version = digest.slice(0, 8);
-    recordAiImage(ledger, recordKey(args.exam, key), { sha: digest, prompt, generatedAt: new Date().toISOString(), tool: 'Codex', styleVersion: thumbs.styleVersion });
+    done.push({ key, version: digest.slice(0, 8), record: { sha: digest, prompt, generatedAt: new Date().toISOString(), tool: 'Codex', styleVersion: thumbs.styleVersion } });
     console.log(`OK ${key}`);
   }));
-  writeFileSync(configPath, `${JSON.stringify(thumbs, null, 2)}\n`);
-  saveLedger(ROOT, ledger);
+  commitBatch(done);
 }
 console.log(`対象 ${keys.length} 件 / 失敗 ${failed} 件`);
 process.exit(failed ? 1 : 0);
