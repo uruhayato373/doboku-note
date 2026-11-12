@@ -7891,6 +7891,32 @@
       "commit": "fc934776c664",
       "verification": "node --test tests/drive-vault.test.mjs tests/video-cache-prune.test.mjs（22 pass）・check-command-guidance 緑・du content/sns/x 60M",
       "note": "棚卸し: 待っていた前提（通常動画 112 本・Shorts 224 本の照合）は PR #1441 で台帳から外れて消えた。X のカード画像は content/sns/x 60MB で 100MiB 未満なので KEEP_LOCAL を確定。legacy の YouTube thumbnail はリポジトリに残っていない。content/sns 全体は 85MB で再開条件の 500MiB に遠い。check-drive-vault の FAIL 12 件は note のカバー（DN-0525 の範囲）で、SNS の行は 0"
+    },
+    {
+      "id": "DN-1143",
+      "at": "2026-11-12",
+      "task": "X の予約ゲートが 11/13〜15 の 4 本/日で赤のまま（口頭試験の予約と上限 3 本が食い違う）",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0171a0fa24f1",
+      "verification": "x.com の予約済み一覧を再読込して全 52 本・どの日も 3 本以下を確認。x-schedule-guard の BLOCK 0",
+      "note": "運営者の決定（2026-11-12）: 上限 3 本は変えず、予約を別の日へ動かす。X の予約済みの画面で 3 本を動かした（11/13 17:25→11/26 17:25・11/14 08:30→11/25 12:30・11/15 20:20→11/30 12:20）。手元の status.json・tweets.md も合わせた"
+    },
+    {
+      "id": "DN-0425",
+      "at": "2026-11-12",
+      "task": "`/blog/`（時事解説・運営記事）を開くかを決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0171a0fa24f1",
+      "verification": "docs/strategy/05_情報アーキテクチャ.md の /blog/ の行",
+      "note": "運営者の決定（2026-11-12）: /blog/ は開かない（A）。時事の内容はテーマの中で扱う。05_情報アーキテクチャ.md の表に記録"
     }
   ]
 }
