@@ -27,6 +27,7 @@
     "decidedBy": "運営者（2026-11-12 のチャット）。通常動画を 1 日 2 本・ショートを 1 日 2 本、時刻をばらけて、在庫をできるだけ短期間に全部出す。画面確認・音声・画像の判定・在庫を通ったショートは方針で承認する"
   },
   "maxPublishPerDay": 4,
+  "uploadPriority": "longform",
   "audio": {
     "model": "~/.cache/whisper/ggml-small.bin",
     "language": "ja",
