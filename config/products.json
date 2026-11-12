@@ -39,8 +39,9 @@
         ],
         "weeklyCapacity": 20,
         "listedAt": "2026-08-05",
-        "pauseReason": "absence",
-        "resumeOn": "2027-07-01"
+        "pauseReason": "retired",
+        "resumeOn": "2027-07-01",
+        "archivedAt": "2026-11-12"
       },
       "members": [],
       "includes": [],
@@ -249,9 +250,10 @@
           "civil-2"
         ],
         "weeklyCapacity": 20,
-        "pauseReason": "absence",
+        "pauseReason": "retired",
         "resumeOn": "2027-07-01",
-        "listedAt": "2026-08-05"
+        "listedAt": "2026-08-05",
+        "archivedAt": "2026-11-12"
       },
       "members": [],
       "includes": [],

@@ -46,6 +46,7 @@ interface OffsiteRule {
 // 試験後まで一時休止（pauseReason:'absence'）の PDF はルールに残し、復帰したら自動で出す。総監 記述系は分析 PDF が retired でルールごと外した。
 // coconala-2kyu-tensaku（absence）は 3 テーマ版と同じ添削なので載せない（復帰時に添削が 2 枚並ぶ）。
 // 2026-10-26: 経験記述の添削・作成を 1級・2級とも coconala-tensaku-4theme（services/4418735）の 1 本へ集約した（DN-0538）。
+// 2026-11-12: 1級・2級の教材フルパック（4341188・4341191）を販売実績 0・評価なしのままアーカイブした（retired）。来季は新しく出品し直す。
 // 級・テーマ数・骨子の相談はオプションで選ぶ。予想模試 PDF 2 本はアーカイブし、模試は note の予想模試へ一本化した（DN-0442）。
 const OFFSITE_RULES: readonly OffsiteRule[] = [
   {
@@ -63,20 +64,14 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
   {
     // 1級 二次 年度別過去問（secondary-r03〜r09）: 模範答案を読んだあとに自分の答案を見てもらう。
     test: /^civil-construction-1-secondary-r0[3-9]$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-1kyu-full-pdf'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: '過去問の模範答案を読んだら、次は自分の答案を見てもらう番です。',
   },
   {
     // 2級 二次 年度別過去問。
     test: /^civil-construction-2-secondary-r0[3-9]$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-2kyu-full-pdf'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: '過去問の模範答案を読んだら、次は自分の答案を見てもらう番です。',
-  },
-  {
-    // 1級 二次 学科記述の分野別ページ。フルパック PDF は試験後まで一時休止（absence）で、復帰すれば出る。
-    test: /^civil-construction-1-secondary-(concrete|construction-plan|earthwork|quality-management)-(basics|past-problems)$/,
-    coconala: ['coconala-1kyu-full-pdf'],
-    coconalaCatch: '学科記述の攻略PDF入り 全部入りパックで仕上げたい方へ。',
   },
   {
     // 1級 二次 入門・直前対策。
