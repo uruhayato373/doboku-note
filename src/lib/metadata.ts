@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import seoMeta from "../../config/seo-meta-config.json";
+import pageSeoOverrides from "@/config/page-seo-overrides.json";
 
 /** ページ個別の og:image を持たないページの既定画像（絶対 URL） */
 export const DEFAULT_OG_IMAGE = `${SITE_ORIGIN}/images/og-default.png`;
@@ -38,8 +39,8 @@ export function normalizeMetaDescription(description: string): string {
  * @param absoluteTitle true のとき title テンプレート（"%s | doboku-note"）を回避する。
  */
 export function buildPageMetadata({
-  title,
-  description,
+  title: baseTitle,
+  description: baseDescription,
   path,
   noindex = false,
   absoluteTitle = false,
@@ -50,6 +51,10 @@ export function buildPageMetadata({
   noindex?: boolean;
   absoluteTitle?: boolean;
 }): Metadata {
+  // 生成ページの検索語に合わせた上書き（src/config/page-seo-overrides.json）。記事 MDX は frontmatter で直す
+  const override = (pageSeoOverrides.pages as Record<string, { title?: string; description?: string }>)[path];
+  const title = override?.title ?? baseTitle;
+  const description = override?.description ?? baseDescription;
   const normalizedDescription = description !== undefined ? normalizeMetaDescription(description) : undefined;
   return {
     title: absoluteTitle ? { absolute: title } : title,

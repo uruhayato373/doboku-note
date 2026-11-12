@@ -1,0 +1,27 @@
+{
+  "$comment": "生成ページ（記事 MDX を持たない基準書の機関・文書・章のページ）の title・description を、検索語に合わせて path ごとに上書きする（src/lib/metadata.ts の buildPageMetadata が読む）。記事は frontmatter の seoTitle・description を直す。title は title template（| doboku-note）を含めない。根拠は GSC の page×query（2026-10-08〜11-04・平均 6〜9 位）。tests/page-seo-overrides.test.mjs が path の実在と長さを検査する。",
+  "pages": {
+    "/standards/hokuriku": {
+      "description": "北陸地方整備局の土木工事共通仕様書（令和8年3月）と土木工事必携を、編・章・節ごとに読める全文で収録。章ごとに条文を確認できます。原典の版と出典を明示しています。"
+    },
+    "/standards/kyushu": {
+      "description": "九州地方整備局の土木工事共通仕様書（令和8年3月）と、土木工事施工管理の手引き・土木請負工事必携などを、章・節ごとに読める全文で収録。原典の版と出典を明示しています。"
+    },
+    "/standards/kyushu/management-manual": {
+      "title": "土木工事施工管理の手引き（九州地方整備局・令和6年12月）章別全文",
+      "description": "九州地方整備局「土木工事施工管理の手引き」（令和6年12月）の全30章を、編・章・節の構造で読める全文で収録。施工管理の手順と書類を章ごとに確認できます。"
+    },
+    "/standards/kyushu/hikkei-common-10": {
+      "title": "建設工事公衆災害防止対策要綱（土木工事編）の全文｜九州地方整備局 土木請負工事必携",
+      "description": "建設工事公衆災害防止対策要綱（土木工事編）を、全37章・節ごとに読める全文で収録（九州地方整備局 土木請負工事必携 共通編）。原典の版と出典を明示しています。"
+    },
+    "/standards/kinki/hikkei/chapters/21-1": {
+      "title": "薬液注入工法による建設工事の施工に関する暫定指針（通達・別表の全文）",
+      "description": "「薬液注入工法による建設工事の施工に関する暫定指針」の通達と別表を全文で収録（近畿地方整備局 土木請負工事必携 令和6年8月）。原典の版と出典を明示しています。"
+    },
+    "/standards/tohoku/reference/chapters/34-1": {
+      "title": "レディーミクストコンクリート標準仕様基準（国土交通省）の全文",
+      "description": "国土交通省の「レディーミクストコンクリート標準仕様基準」を全文で収録（東北地方整備局 土木工事共通仕様書 参考資料 令和8年度版）。原典の版と出典を明示しています。"
+    }
+  }
+}
