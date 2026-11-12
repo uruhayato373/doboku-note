@@ -69,6 +69,54 @@
 
 
 
+### [DN-1157] 建設部門の合格者向けに「総監に進むか（手当・就ける役・受け方の順番）」の無料記事を 1 本書き、総監の既存商品へつなぐ（PC-008）
+タグ: [収益化] [領域:サイト] [時期:2026-12..2027-02] [種類:制作] [起票:2026-11-12]
+
+**起点**: 2026-11-12、運営者が商品候補 PC-008（config/demand-map.json・旧 DN-0903）を「無料記事だけ作る」と決めた。単品の商品は作らない。読者の課題は、建設部門に受かった後に総監まで取る意味（給料・役職）があるかが分からないこと。建設部門と総監の両方を持つ運営者が、総監で就ける役・会社の評価・受け方（択一と記述の準備期間）を書ける。
+
+**やること**: サイトの無料記事を 1 本書き（3,000 字以上・事実は一次資料で照合）、総監の既存商品（note の完全パックなど）へ導線を張る。合格発表（2027 年 3 月）の前に公開する。公開したら demand-map.json の PC-008 を live にする。
+
+**完了条件**: 記事が公開され、`npm run refresh-indexes` が通り、PC-008 の status が live になっている。
+
+### [DN-1158] 立場のテーマ「建設コンサル会社の技術者」を作り、テーマ（topics.json の audience）として公開する
+タグ: [収益化] [領域:サイト] [時期:2027-01..2027-03] [種類:制作] [起票:2026-11-12]
+
+**起点**: 2026-11-12、運営者が最初に作る立場のテーマを「建設コンサル会社の技術者」と決めた（config/demand-map.json の positions・旧 DN-0903）。公開済みの立場は自治体の土木職（municipal-civil-engineer）だけで、技術士の受験者が多いこの立場は建設部門・総監の商品に近い。購入者の立場は記録していないので、立場から売れ方を推すのは仮説。
+
+**やること**: 自治体の土木職のテーマ（/topics/municipal-civil-engineers）と同じ形で、この立場の悩み（demand-map.json の pains）に合う記事を集めてテーマを作り、topics.json に audience として足す。足りない記事は個別に起票する。公開したら positions の status を live にし、topic を書く。
+
+**完了条件**: テーマが本番で表示され、`npm run check-topic-wiring` が通り、positions の consultant-engineer が live になっている。
+
+### [DN-1159] X の再開に合わせて SNS 保留の扱いを直し、X とコンテンツ台帳の検査を CI に戻す（あわせて check-jst-date に src/ を足す）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-12]
+
+**起点**: 2026-11-12、運営者が X の年間の枠を決め、config/channel-annual-plan.json の X の operation を active にした（旧 DN-1007）。同日、検査の経路の判断（旧 DN-0886）も決まった: (1) X を再開したので X キャンペーンとコンテンツ台帳の検査を CI に戻す (2) 台帳の参照を日付で warn と error に分ける欄は作らない (3) `check-jst-date` の対象に `src/` を足す。Instagram は保留を続ける。
+
+**やること**:
+1. 土曜の収集の `scripts/scheduled/weekly-review.sh` の `export DOBOKU_SNS_PAUSED=1` と、`scripts/session-start.mjs` の x-sync の飛ばし方を、X は動かし Instagram だけ止める形に直す
+2. `check-x-campaign-plan` と `check-content-registry` を CI（quality-audit）に戻す。結果が PR の diff だけで決まらない部分は ci:true にせず ops に置く（.claude/rules/code.md）
+3. `check-jst-date` の対象に `src/` を足す（`display-date.ts` に集約済み。getMonth()+1 の直書きはテストで止めている）
+
+**完了条件**: 3 点が feature ブランチの PR で develop に入り、`npm run quality:audit:ci` が通る。
+
+### [DN-1160] 総監キーワード 3〜5 ページで、題名と冒頭に「出題例・過去問での問われ方・似た語との違い」を出す形を試し、クリック数で判定する
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-12..2027-02] [種類:改善] [起票:2026-11-12]
+
+**起点**: 2026-11-12、運営者が総監キーワードの次の実験の向きを「試験での問われ方を出す形を試す」に決めた（旧 DN-1113・判断と理由は gsc-management.md の 2026-11-12）。定義を聞く検索語は 1〜2 位でもクリックが 0 で、定義だけでは検索結果の中で答えが済む。
+
+**やること**: EXP-057 の対象と重ならない総監キーワードから、表示があってクリックの少ない 3〜5 ページを選び、題名と冒頭に出題例・過去問での問われ方・似た語との違いを出す。experiments.json に実験として登録し（主の指標はクリック数）、判定日を書く。
+
+**完了条件**: 対象ページが本番に出て、実験が台帳にあり、判定日の結果が gsc-management.md に書かれている。
+
+### [DN-1161] 運営者紹介（src/config/author.ts）に在職年数（道路・港湾の計画設計と工事監督 20 年以上）を載せる
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-12]
+
+**起点**: 2026-11-12、運営者が在職年数を運営者紹介に載せてよいと決めた（旧 DN-0903 の 4 点目）。差別商品の訴求に使う前に正本へ入れる。今の bio は「道路・河川等の公共インフラの計画・設計・発注・工事監督・維持管理」で年数が無い。
+
+**やること**: author.ts の bio に年数を足す。分野の書き方（道路・港湾か、道路・河川等か）は今の bio と食い違わないよう運営者に確かめてから書く。author.ts を読むページ（運営者紹介・記事の著者欄）の表示を確かめる。
+
+**完了条件**: 本番の運営者紹介に年数が出ている（`curl` で `<main>` と文言を確認）。
+
 ### [DN-1123] OGP Supply が develop への push で毎回 Cap check で失敗している
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
 
@@ -922,7 +970,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 ### [DN-1034] twitter CLI の認証先が投稿用の @doboku373 になっていて、X ポリシー §11.7 と違う
 タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
 
-**決定（2026-11-08・運営者）**: CLI の認証先を読み取り用のアカウントへ戻し、§11.7 は改めない。X の再開（DN-1007）の前提として直す。
+**決定（2026-11-08・運営者）**: CLI の認証先を読み取り用のアカウントへ戻し、§11.7 は改めない。X の再開（2026-11-12 に決定・配線は DN-1159）の前提として直す。
 
 **起点**: 2026-11-06、X の調査で `twitter status` を実行すると、認証先が投稿用の @doboku373 だった。`.claude/knowledge/reference/x-post-policy.md` §11.7 は「取得は運営者個人 uruhayato373 の CLI。投稿アカウントに read 自動化の足跡を足さない」と定めていて、実体と違う。`scout-x-competitors` も同じ CLI を使うので、次の四半期の取得で投稿用アカウントから読むことになる。
 
@@ -1183,7 +1231,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **判定**: 対象ページの 1 セッションあたりのページ数と internal_nav_click を、同じ試験の時期の前年と比べる。季節で読み違えないよう、月次の比較はしない。
 
-**進捗（2026-11-04）**: 過去問の年度ナビと 4 本の次の行き先を PR #1388 で入れ、EXP-056 に記録した。関連記事の出ない 129 本は過去問 92 本とキャリア記事 37 本で、前者は年度ナビ、後者は CareerNextStepNav が受ける。選ばれない 48 本の多くは総監のキーワードで、DN-1113 と一緒に見る。
+**進捗（2026-11-04）**: 過去問の年度ナビと 4 本の次の行き先を PR #1388 で入れ、EXP-056 に記録した。関連記事の出ない 129 本は過去問 92 本とキャリア記事 37 本で、前者は年度ナビ、後者は CareerNextStepNav が受ける。選ばれない 48 本の多くは総監のキーワードで、DN-1160 と一緒に見る。
 
 **完了条件**: 上位 30 ページの変更が本番に出て、判定日が実験台帳に入っている。
 
@@ -2941,7 +2989,7 @@ docs/operations/12_Playwright_E2E導入設計.md の「実行順」は Node 20�
 ### [DN-0889] Windows の手元で npm test が 46〜47 件落ちる原因を分けて直す（CI では通る）
 タグ: [領域:管理] [種類:不具合] [起票:2026-10-27]
 
-**起点**: 2026-10-27、Windows の手元で `npm test` を全量で回すと 3,637 件中 46〜47 件が落ちた（PR #1281 の作業中）。同じ変更で CI（Linux）の audit（unit-tests を含む）は通ったので、手元の環境に固有の失敗と見ている。落ちたのは 28 ファイル: admin-document-store・admin-figure-sns-board・agent-hooks・check-execution・check-mdx-images・client-chunk-size・disk-hygiene・e2e-execution・instagram-campaign・longform-pop-images・merge-dispatch-log・post-exam-cta・pre-commit-hook・pre-commit-install-guard・prh-verb-forms・product-note-derive（掲載文の改行コード CRLF/LF）・quality-audit-ops-tier（DN-0886 の 2）・replay-onto-develop・report-automation-failure・standard-articles-platform・standards-figures・video-cache-prune・video-scene-sheet・weekly-review-launchd・write-all-sync・youtube-analytics・youtube-revision-publisher・youtube-single-publisher。
+**起点**: 2026-10-27、Windows の手元で `npm test` を全量で回すと 3,637 件中 46〜47 件が落ちた（PR #1281 の作業中）。同じ変更で CI（Linux）の audit（unit-tests を含む）は通ったので、手元の環境に固有の失敗と見ている。落ちたのは 28 ファイル: admin-document-store・admin-figure-sns-board・agent-hooks・check-execution・check-mdx-images・client-chunk-size・disk-hygiene・e2e-execution・instagram-campaign・longform-pop-images・merge-dispatch-log・post-exam-cta・pre-commit-hook・pre-commit-install-guard・prh-verb-forms・product-note-derive（掲載文の改行コード CRLF/LF）・quality-audit-ops-tier（旧 DN-0886 の 2）・replay-onto-develop・report-automation-failure・standard-articles-platform・standards-figures・video-cache-prune・video-scene-sheet・weekly-review-launchd・write-all-sync・youtube-analytics・youtube-revision-publisher・youtube-single-publisher。
 
 **統合（2026-11-12 棚卸し）: 旧 DN-0582**（2026-10-08 に Windows で 11 件落ちた同じ母集団）から 2 点を引き継ぐ: content-expansion のテストも対象に含める。prh は現行 API の一次情報と使用箇所を確かめ、実装と同じ文字列を照合するだけの検査に置き換えない。
 
@@ -3434,27 +3482,8 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
-### [DN-0886] データ配線の検査経路の判断: SNS 系検査の CI 復帰・Windows で落ちる束のテスト・refs の日付での warn 分け・src の日本時間検査
-タグ: [領域:管理] [種類:意思決定] [起票:2026-10-27]
-
-**起点**: 2026-10-27 のデータ配線の監査で、検査の経路について判断を保留したもの。
-
-**やること**:
-1. コンテンツ台帳（`check-content-registry`）と X キャンペーン（`check-x-campaign-plan`）の検査を CI に戻すか決める。2026-10-25 に SNS の保留に合わせて CI から外れ、今は手で叩いたときと pre-commit（X キャンペーンのみ）しか走らない。今回は SNS 再開まで戻さない判断にした。SNS を再開する日にこのカードで戻す
-2. 台帳の参照（refs）で「過去の記録は warn・新しい記録は error」を日付で分ける欄（例 `legacy: { dateAt, before }`）が要るかを決める。今回は severity を宣言ごとに持たせただけ（生成索引の過去分は warn）
-3. `check-jst-date` の対象に `src/` を足すか決める（Windows で落ちる quality-audit-ops-tier のテストは DN-0889 が持つ）（今回は src の日付整形を `display-date.ts` に集約し、getMonth()+1 の直書きだけをテストで止めた）
-
-**完了条件**: 3 点それぞれに、やる・やらないとその理由が書かれ、やるものは検査が CI で動いている。
 
 
-### [DN-1113] EXP-057 の判定をクリック数で行い、総監キーワードの次の実験の向きを決める（上位でもクリック 0 の検索語）
-タグ: [領域:サイト] [時期:2026-11] [種類:意思決定] [起票:2026-11-11]
-
-**起点**: 2026-11-11 の GSC の実査で、定義を聞く検索語は上位でもクリックが無かった（7 日: 「循環型社会形成推進基本法」1.0 位・表示 38・クリック 0、「ブラインド訓練とは」2.6 位・31・0、「alarpの原則」2.2 位・25・0）。生成 AI 機能での表示はスクレーパー 619・鑑定評価の三方式 345。進行中の EXP-057 は総監キーワード 30 ページの title に「とは」を入れる実験で、表示は増えてもクリックが増えない恐れがある。
-
-**やること**: (1) EXP-057 の判定を表示回数でなくクリック数（とクリックの取れた検索語）で行うと実験台帳の記録に書く。(2) 総監キーワードの次の実験の向きを決める: 題名と冒頭に「出題例・過去問での問われ方・似た語との違い」を出す形を 3〜5 ページで試すか、定義語の順位取りをやめるか。旧 DN-0422 の検証（2026-11-04）も踏まえる: 表示のある 417 ページと表示 0 の 269 ページ（登録済み）は title の形もリードの書き方も同じで、リードは定義から始まっている。検索語の 98% は総監を含まない一般語。10 月は閑散期で季節の分を含むので、山の前（12 月）に始める。週次の `report-search-opportunities --json` の `zeroClick`（上位なのにクリックが無い検索語）を根拠に使う。
-
-**完了条件**: EXP-057 の判定基準が台帳にあり、総監キーワードの次の実験の向き（試す・やめる）が gsc-management.md に理由つきで書いてある。
 
 
 
@@ -3486,20 +3515,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 商品が公開され、`c1-moshi-2027` の `primaryCta` に入る。作らない判断なら、立ち位置 `civil-moshi` の文を直す。
 
 
-### [DN-1007] X・Instagram の年間の枠の未決定の論点を運営者が決める
-タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-06]
-
-**起点**: 2026-11-06 に X・Instagram の年間の枠を `config/channel-annual-plan.json` の `channels` へ入れた。本数と型は案で、次は運営者が決める。一覧は `npm run check-channel-plan` の「判断待ち」と、管理画面 `/plan/roadmap?tab=channels`。
-
-**やること**: 残る 4 点（2〜5）を決める。
-
-1. （決定済み・2026-11-08 W45）保留の解除は X だけ。Instagram は保留を続ける。下の 2・3・5 が決まったら X の `operation.status` を `active` にし、土曜の収集の `DOBOKU_SNS_PAUSED=1`（scripts/scheduled/weekly-review.sh）と SessionStart の X 照合の扱いを合わせて直す
-2. X の本数: 平常 週 7 本・山場 週 14 本、年 354 本でよいか。今の上限（1 日 3 本）より少ない。フォロワーは 8/13 の 91 から 9/14 の 100 で、note の流入元の X の行は 16 と 0 だった
-3. X の技術士の配分: 反応の中央値は総監・建設部門とも 0 だが、受取は技術士の筆記期に集中する。今の案は 4〜7 月に 56 本
-4. Instagram の試行: 12〜1 月に 1級の図解 4 本から始めるか。保存数は Graph API を使わない判断のため取れない。Business Suite の画面から取るかも決める
-5. X の解答速報 `x-instant`: 採るか。YouTube の `exam-sokuho` と同じ判断でよいか
-
-**完了条件**: 2〜5 が決まり、`channels` の `operation`・`weeklyMax`・`formats[].status` が判断どおりで、`check-channel-plan` の判断待ちが減っている。判断が `data/business/records/` に残っている。
 
 
 ### [DN-0992] 1 級二次の経験記述を、シーズン一括の伴走（題数の上限・各題 A 判定まで・不合格なら翌年割引）で試すか決める
@@ -3547,21 +3562,14 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 
 
-### [DN-0903] 悩みの軸・立場・商品候補の AI 案から、作るものを運営者が決める（demand-map.json の idea を decided/stopped に）
+### [DN-0903] 悩みのハブ（施工管理から発注者側へ・技術士で給料を上げたい）を作るかを運営者が決める
 タグ: [領域:戦略] [種類:意思決定] [起票:2026-10-28]
 
-**起点**: 2026-10-28 の調査で、悩み（6）・立場（5）・商品候補（9）・打ち手（EXP-044〜047）を AI が候補として出した（config/demand-map.json・管理画面 戦略＞資格と市場＞悩みと商品候補）。配線の判断は実務経験が要るので運営者が決める。
+**起点**: 2026-10-28 の調査で、悩み（6）・立場（5）・商品候補（9）を AI が候補として出した（config/demand-map.json・管理画面 戦略＞資格と市場＞悩みと商品候補）。2026-11-12 に運営者が、最初の立場のテーマ（建設コンサル会社の技術者・DN-1158）、PC-008（無料記事だけ・DN-1157）、運営者紹介の在職年数（DN-1161）を決めた。PC-002・PC-005 は live、PC-006・007・009 は hold で決着している。
 
-**やること**: 運営者が次を決め、demand-map.json の status（idea → decided／stopped）と hubs の status に書く。
-1. 最初に作る立場のテーマ（ゼネコン・コンサル・若手・転職を考える人のどれか。EXP-046）
-2. 悩みのハブを作るか（施工管理から発注者側へ＝EXP-045、技術士で給料を上げたい＝raise-pay のハブ）と見出し
-3. 商品候補 PC-002（ココナラ口頭の再出品。2026-09-25 にアーカイブした理由が記録に無い）・PC-005（論文添削の稼働）・PC-006・PC-007・PC-008 を作るか
-4. 運営者の在職年数（道路・港湾の計画設計と工事監督 20 年以上）を src/config/author.ts に載せてよいか（差別商品の訴求に使う前に正本へ）
+**残る判断**: 悩みのハブを作るか（施工管理から発注者側へ＝EXP-045、技術士で給料を上げたい＝raise-pay）と、作るなら見出し。
 
-**完了条件**: 4 点の判断が demand-map.json（または author.ts）に反映され、決めなかった候補は stopped と理由が書かれている。
-
-**決定（2026-11-01・運営者・週次レビュー（2026-10-19〜2026-10-25）の諮問）**: 運営者が管理画面（戦略＞資格と市場＞悩みと商品候補）で決める。それまで判断待ちのまま。
-
+**完了条件**: ハブを作るかが demand-map.json の pains（各悩みの hubs）に書かれ、作るなら制作のカードがある。
 
 ### [DN-0844] EXP-012 の判定（11/26）を受けて、自治体の土木担当・コンクリートの両シリーズの改善（導線と次の章の優先）を決める
 タグ: [領域:サイト] [時期:2026-11] [種類:意思決定] [起票:2026-10-24] [期日:2026-11-27]
