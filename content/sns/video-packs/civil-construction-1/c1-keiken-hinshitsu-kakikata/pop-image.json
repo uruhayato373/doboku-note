@@ -505,8 +505,711 @@
           }
         }
       ]
+    },
+    "shorts-pop-point-ryuui-1-20261111": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1",
+      "key": "point-ryuui-1",
+      "sceneId": "misread",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "9570d9067a56b573dda123b65ef0017dd870532508b02d638dc7651649384bd2",
+          "narration": "「品質に留意した」と書けば十分、は思い込みです。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『『品質に』『留意した』で』『十分？』。肩書きの帯や制作者名は書かない。 表紙の型は「誤解を壊す」。見出しは思い込みの一言の引用と「？」だけで問う。✕は描かない。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「人差し指を立てる」: 片手の人差し指を 1 本だけ顔の横に立てる。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指を1本だけ顔の横に立てる。左手（画面右側）は何も持たず腰に当てる。見出しは画面の左右8%の内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 見出しの字は指示どおり欠けなく読めるが、2行目「留意した』で」の塊が左約7%から右約93%で幅が画面の約85%あり、指示の80%以内・左右8%内側を超えて端に近い。先生の手指・仕草・胴体は問題なし",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/raw-cover.2bd46a8d.png",
+              "sha256": "2bd46a8df876ff2bff90688cfee3592ad8cec1ce453fce29291018c5aae2a592"
+            },
+            "generatedAt": "2026-11-11T12:44:21.366Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/cover.a09768ff.png",
+            "sha256": "a09768ff9f3ebaba6379fcbfe8cdce974e2325ea8a710842acca845cc7b23be5",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2bd46a8df876ff2bff90688cfee3592ad8cec1ce453fce29291018c5aae2a592"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T12:44:21.366Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は指示と一字ずつ一致し左右9%以上の余白で切れなし。先生は人差し指1本を立て反対の手は腰、指5本、胴体は下端まで続き、誤解を壊す型の引用と？の見出しになっている"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "4447c8af253ded5fc7895df761184f82236b63b8db4a96eabfabaa3ef007af68",
+          "narration": "よくある思い込みは、品質に留意した、試験を行って確認した、と書けば品質管理の答案になる、というものです。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『1』と見出し『よくある思い込み』。 図: 中央に大きな答案用紙を1枚描き、用紙の中に2行で『品質に留意した』『試験で確認した』。用紙の上に『思い込み』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/raw-scene-001.3d14e1aa.png",
+              "sha256": "3d14e1aa702c1cc13538ec1ef0a5f889c9f1c8623fb9399787c45dcea928d699"
+            },
+            "generatedAt": "2026-11-11T12:44:21.366Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/scene-001.e7c706a2.png",
+            "sha256": "e7c706a2bf27101e5c402d63ab60a313e3b82b9d51c7182825a0a576c5f32a87",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3d14e1aa702c1cc13538ec1ef0a5f889c9f1c8623fb9399787c45dcea928d699"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T12:44:21.366Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『1級土木』『1』『よくある思い込み』『思い込み』『品質に留意した』『試験で確認した』が指示と一致し誤字なし。答案用紙の構造も成立。用紙の左端が画面端で少し切れるが教材として誤解は生じない。"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "e4a0303b8759417e979d4d7ddd9f832e195730e5db840b8a1b2b6a3dad3c184b",
+          "narration": "これでは、何を確かめたのかが見えません。読む側には、一般的な話に見えてしまいます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『2』と見出し『何を確かめたか 見えない』。 図: 左に答案用紙、右に読む人の横顔を描き、用紙から横顔へ太い矢印を1本。横顔の上の吹き出しに『一般的な話に見える』。用紙の中には文字を書かず、横線だけを引く。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/raw-scene-002.c4ae882b.png",
+              "sha256": "c4ae882be493ce17c49b43568f2bf0b89d9ecb65d5a43c83e25f50eb92d0d9be"
+            },
+            "generatedAt": "2026-11-11T12:44:21.366Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/scene-002.34ca622a.png",
+            "sha256": "34ca622acc6be27e24dc2a4d4b9d920a9f8e0a86070133df4eebcdd1222b8dcb",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c4ae882be493ce17c49b43568f2bf0b89d9ecb65d5a43c83e25f50eb92d0d9be"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T12:44:21.366Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『2』『何を確かめたか 見えない』『一般的な話に見える』が一字一致。用紙は横線のみ、用紙から横顔への矢印1本、横顔の破綻なし。"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "b26b97015335f07d45da92d09dea29def2090ba7bf26fd7a3b643339708b8960",
+          "narration": "代わりに、焦点を当てる品質項目を一つ選びます。コンクリートなら、スランプ、空気量、強度、温度、養生から一つ。そのうえで、基準と測り方まで書きます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『3』と見出し『品質項目を 一つ選ぶ』。 図: 上の段に横並びで5つの小さな札『スランプ』『空気量』『強度』『温度』『養生』。そのうち『温度』の札だけを黄色で強調し、そこから下へ太い矢印。下の段に2つの大きな箱『基準』『測り方』を並べる。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/raw-scene-003.f8b3dd83.png",
+              "sha256": "f8b3dd835852ed4ee1d33d4c21477437cbd4d8a9d0dd7be553dff1631a0fb372"
+            },
+            "generatedAt": "2026-11-11T12:44:21.366Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/scene-003.a81e8845.png",
+            "sha256": "a81e884522c1cf443316d138e3a14a2557829a3df67ad6fc5787caff36369066",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f8b3dd835852ed4ee1d33d4c21477437cbd4d8a9d0dd7be553dff1631a0fb372"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T12:44:21.366Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『3』『品質項目を 一つ選ぶ』と5つの札『スランプ』『空気量』『強度』『温度』『養生』、箱『基準』『測り方』が一字一致。『温度』だけ黄色で下へ矢印。文字の崩れなし。"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "50a770bae2bf373683778438c125556e32ce6698c62fdb09fb68c83140fc83fa",
+          "narration": "状況から評価までの組み方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 大きく『状況から評価までの組み方は』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『1級土木』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/raw-cta.00a88c2c.png",
+              "sha256": "00a88c2c58418eeeb68f5c1a32cd7fe2812a26f174c172458cd6ba237449132a"
+            },
+            "generatedAt": "2026-11-11T12:44:21.366Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/cta.71ac24ea.png",
+            "sha256": "71ac24eaeb38410640e8472e886ba2d620360d62c7b0778886049bc6fac30b48",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "00a88c2c58418eeeb68f5c1a32cd7fe2812a26f174c172458cd6ba237449132a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T12:44:21.366Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『状況から評価までの組み方は』『本編で』『関連動画から』と下向き矢印が指示と1字ずつ一致し端で切れず、資格名なし。先生は手のひらで矢印を示し、指5本で胴体も下端まで続く"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "19f440b08b240080f7ed48de7030c77ead3367729348ce6e49ce0e7a7e8c45f5",
+        "durationSeconds": 35.933333,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "実測 1080x1920・35.9秒・音声あり、sha が youtube.json と pop-image.json で一致し、5/5 場面を確認。軸1=5、軸2=5、軸3=5、軸4=4、軸5=3、平均4.4で全軸3以上。型 myth-buster の形で、冒頭・単体の価値・本編への引きも台帳に沿う。締めの右余白は線ぎりぎり。",
+        "videoSha256": "19f440b08b240080f7ed48de7030c77ead3367729348ce6e49ce0e7a7e8c45f5",
+        "checkedAt": "2026-11-11T12:45:28.161Z"
+      },
+      "audio": {
+        "videoSha256": "19f440b08b240080f7ed48de7030c77ead3367729348ce6e49ce0e7a7e8c45f5",
+        "similarity": 0.992,
+        "maxVolumeDb": -5.5,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/video.19f440b0.mp4",
+          "sha256": "19f440b08b240080f7ed48de7030c77ead3367729348ce6e49ce0e7a7e8c45f5"
+        },
+        "frames": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/frames.4383cda5.png",
+          "sha256": "4383cda5ce21105fa8103dc688d62cdb6c22683d703e8b3585a72dedd09f1571"
+        },
+        "subtitles": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/subtitles.46220cd6.ass",
+          "sha256": "46220cd66dc0543cbde598a9fa277e105dc715f936897179d535ca0d844f7c4e"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/raw-cover.2bd46a8d.png",
+            "sha256": "2bd46a8df876ff2bff90688cfee3592ad8cec1ce453fce29291018c5aae2a592"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/raw-scene-001.3d14e1aa.png",
+            "sha256": "3d14e1aa702c1cc13538ec1ef0a5f889c9f1c8623fb9399787c45dcea928d699"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/raw-scene-002.c4ae882b.png",
+            "sha256": "c4ae882be493ce17c49b43568f2bf0b89d9ecb65d5a43c83e25f50eb92d0d9be"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/raw-scene-003.f8b3dd83.png",
+            "sha256": "f8b3dd835852ed4ee1d33d4c21477437cbd4d8a9d0dd7be553dff1631a0fb372"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/raw-cta.00a88c2c.png",
+            "sha256": "00a88c2c58418eeeb68f5c1a32cd7fe2812a26f174c172458cd6ba237449132a"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1/cover.a09768ff.png",
+          "sha256": "a09768ff9f3ebaba6379fcbfe8cdce974e2325ea8a710842acca845cc7b23be5"
+        },
+        "savedAt": "2026-11-11T12:46:00.143Z",
+        "cloudVerified": true
+      }
+    },
+    "shorts-pop-point-joukyou-2-20261111": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2",
+      "key": "point-joukyou-2",
+      "sceneId": "state",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "159f9c47d3cdf2307d1d678fb81aaf2743bf9b7b9c834cd9273e7b3b683f104f",
+          "narration": "状況の欄に「暑い時期だった」、何が足りないでしょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』、最も大きく『『暑い時期』『だった』』『何が足りない？』。肩書きの帯や制作者名は書かない。 表紙の型は「ビフォーアフター」。見出しの下に、悪い例の一言を書いた答案の紙を斜めに置く。紙の文字は全部読めるようにし、記号を重ねない。見出しの文字は 1 字も欠けずに画面の左右 8% の内側に収める。見出しの文字の塊の幅は画面の幅の 80% までにし、左右には背景だけの余白を残す（画面いっぱいに広げない・2026-11-11 に 3 枚が端に接した）。収まらなければ字を小さくして折り返す。✕・下線・矢印などの記号は見出しの文字に 1 画も重ねない（文字は全部読めること）。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「赤ペンを持つ」: 片手で赤ペンを胸の高さに持ち、もう片方の手で答案用紙を持つ。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを1本握って胸の高さに持ち、指は5本でペンを握る。左手（画面右側）は見出しの下の答案用紙の端を持つ。見出しは画面の左右8%の内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 見出し3行目「何が足りない？」の左端が画面左端から約4%（5%未満）で、右も約5%と余白が足りず、塊の幅も約9割で80%目標を大きく超える。他の文字は誤字なし。先生の手・胴体は切れておらず型（赤ペンと悪い例の答案）は合っている",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-cover.8a6b59e1.png",
+              "sha256": "8a6b59e12bb952f31b3591c7bb058b89c1d21ddf0399ad2dc0343d6340fb8500"
+            },
+            "generatedAt": "2026-11-11T12:50:59.656Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/cover.186d2e0d.png",
+            "sha256": "186d2e0daf26f4a58b9f5cdd7b34c4876546563ad149dc7f7918e3591da12824",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8a6b59e12bb952f31b3591c7bb058b89c1d21ddf0399ad2dc0343d6340fb8500"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T12:50:59.656Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は指示と一字ずつ一致し欠けなし、見出しの左右余白は約6%で5%以上。ビフォーアフター型で答案の紙に悪い例、先生は赤ペンと答案を持ち、手指5本で胴体は下端まで続き、✕は見出しに重ならない"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "f8d416ce3016d1f74db72228fc53dcd4d15a0e07baad12f0fc4ee7f4a005f5f6",
+          "narration": "状況の欄で、暑い時期だった、運搬に時間がかかった、と書く。これでは、品質に影響した条件が測れません。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『1』と見出し『悪い例』。 図: 中央に大きな答案用紙を1枚描き、用紙の中に2行で『暑い時期だった』『運搬に時間がかかった』。用紙の上に『悪い例』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字・内容は指示と一字一句一致し破綻なし。ただし用紙2行目『運搬に時間がかかった』が右端約85%まで伸び、画面の右18%（操作ボタン域）に入り、用紙も右端92%まで出て指定の長方形（左8〜80%）を超える。語尾が隠れるため配置の指定違反",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-scene-001.efee8499.png",
+              "sha256": "efee84995a74dbaac7d842657f6766e138670eb82dcab04e69ee6305259f94fa"
+            },
+            "generatedAt": "2026-11-11T12:50:59.656Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/scene-001.7bb2b043.png",
+            "sha256": "7bb2b04308fd590c2c59758f9cbb484666cce3b0b692411239bd819b73991518",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "efee84995a74dbaac7d842657f6766e138670eb82dcab04e69ee6305259f94fa"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T12:50:59.656Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 1級土木・1・悪い例（見出しと用紙上）・暑い時期だった・運搬に時間がかかった を指示と1字ずつ照合して一致。余計な文字なし。用紙1枚が左8%〜80%・上8%〜64%内に収まり、人物なしで手や胴体の崩れもない"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "d19086c19f8cbba37ba5cf5dd4cc85f7be76303ecbbbd7a2dc6008db6fb77ab4",
+          "narration": "足りないのは、測れる条件です。気象、現場、作業の条件を、数値で書きます。そのうえで、どれが原因かをはっきりさせます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『2』と見出し『足りないのは 測れる条件』。 図: 横に3つの大きな丸を並べ、左から『気象』『現場』『作業』。3つの丸の下に横長の帯『数値で書く』を置く。矢印は描かない。数値は描かない。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-scene-002.7292dc61.png",
+              "sha256": "7292dc616b392a7c4827b21df9462ae25051c12bbff49d7b6a21cd82cd0f01f8"
+            },
+            "generatedAt": "2026-11-11T12:50:59.656Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/scene-002.32ce8def.png",
+            "sha256": "32ce8def5c040d0c95c0e08200d4d8e9c5e090eaeab480bcb56c935799f8a2d8",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7292dc616b392a7c4827b21df9462ae25051c12bbff49d7b6a21cd82cd0f01f8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T12:50:59.656Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は1級土木・2・足りないのは測れる条件・気象・現場・作業・数値で書くが指示と一字一致。3つの丸と帯の構成、矢印・数値なしで本文と矛盾なし"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "a5bd593b64fb504d6f7cfeff4adc0ca426f139dc2155e7033229b4485d92f0da",
+          "narration": "直すと、打込み時のコンクリート温度は〇〇度、練り混ぜから打設までの時間は〇〇分、のように書きます。これは説明用の仮の例です。対処は書かず、原因までで止めます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『3』と見出し『直した例』。 図: 中央に大きな答案用紙を1枚描き、用紙の右上に赤い札『仮の例』。用紙の中に2行で『打込み時の温度 〇〇度』『練混ぜから打設まで 〇〇分』。用紙の下に黄色の帯『原因までで止める』。〇〇は伏せ字のまま描き、数字は描かない。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-scene-003.031e172e.png",
+              "sha256": "031e172e67f416dedb166864eddf27c25f6e13ad1146c68827ae7ebcfe7e153a"
+            },
+            "generatedAt": "2026-11-11T12:50:59.656Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/scene-003.61b329f7.png",
+            "sha256": "61b329f70174a9763b127f5d1da187f63c650dceb419dfaf315ea1fb603c5f0b",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "031e172e67f416dedb166864eddf27c25f6e13ad1146c68827ae7ebcfe7e153a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T12:50:59.656Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は1級土木・3・直した例・仮の例・打込み時の温度〇〇度・練混ぜから打設まで〇〇分・原因までで止めるが一致。伏せ字のまま数字なしで崩れなし"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "435504a3d0b5bbe6c811a941df1563832e524d5dd85f6d025ce5699bc84a235e",
+          "narration": "課題から評価までの書き方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 大きく『課題から評価までの書き方は』『本編で』、その下に小さく『関連動画から』と下向きの矢印。文字は 1 字も欠けずに画面の左右 8% の内側に収める。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『1級土木』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/work/factory/raw-cta.8cef9164.png",
+              "sha256": "8cef916401e89d8ffda72cbcc042eef595b44266b7b43a333d371b3279c81025"
+            },
+            "generatedAt": "2026-11-11T12:50:59.656Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/cta.2c5cd2bd.png",
+            "sha256": "2c5cd2bd3d01a47916057ddce01157e3ed591430ab69e7a40ccffde69cfe0d47",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8cef916401e89d8ffda72cbcc042eef595b44266b7b43a333d371b3279c81025"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T12:50:59.656Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『課題から』『評価までの』『書き方は』『本編で』『関連動画から』と下向き矢印が指示と一字一致し欠けなし。先生は手のひらで矢印側を示し指5本、胴体は下端まで続く。『1級土木』の混入なし、破綻なし。"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "4e168eba06c930191697228025b66cc592a2cc5fc1b9c284767be29a700dc335",
+        "durationSeconds": 40.766667,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "fail",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "表紙に赤い✕を重ねており、台帳の before-after の cover.visual（記号を重ねない）に反する。表紙の紙の文字が字幕の帯で隠れる。軸5は2点で不合格。",
+        "videoSha256": "4e168eba06c930191697228025b66cc592a2cc5fc1b9c284767be29a700dc335",
+        "checkedAt": "2026-11-11T12:56:14.613Z"
+      }
+    },
+    "shorts-pop-point-joukyou-2-20261112": {
+      "version": "pop-poster-v3-shorts",
+      "publicationId": "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2",
+      "key": "point-joukyou-2",
+      "sceneId": "state",
+      "images": [
+        {
+          "role": "cover",
+          "inputSha256": "159f9c47d3cdf2307d1d678fb81aaf2743bf9b7b9c834cd9273e7b3b683f104f",
+          "narration": "状況の欄に「暑い時期だった」、何が足りないでしょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 黄色と白の極太文字。 上部に『1級土木』。最も大きく見出しを 3 行で書く: 1 行目〈『暑い時期〉、2 行目〈だった』〉、3 行目〈何が足りない？〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「ビフォーアフター」。見出しの下に、悪い例の一言を書いた答案の紙を斜めに置く。紙の文字は全部読めるようにし、記号を重ねない。紙には『暑い時期だった』とだけ書き、紙の上はその文字のほかは白い紙のまま。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「赤ペンを持つ」: 片手で赤ペンを胸の高さに持ち、もう片方の手で答案用紙を持つ。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は赤ペンを1本握って胸の高さに持ち、指は5本でペンを握る。左手（画面右側）は見出しの下の答案用紙の端を持つ。見出しは画面の左右8%の内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 3行目『何が足りない？』の左端が画面左から約4%しか空いておらず、左右5%未満の余白基準を満たさない（見出しの中央80%の枠からもはみ出す）。他の文字・紙の『暑い時期だった』・先生の手指・型は問題なし",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/raw-cover.c9ff829e.png",
+              "sha256": "c9ff829e2e30703602973a4b646b53211dc7242876c4d96c0bf8bc23f02e43b1"
+            },
+            "generatedAt": "2026-11-11T23:18:09.392Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/cover.9df4f0a3.png",
+            "sha256": "9df4f0a3d5e1872a0c94c51aad097484e3b4ca8d8498a278a81a52dc28775483",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c9ff829e2e30703602973a4b646b53211dc7242876c4d96c0bf8bc23f02e43b1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:18:09.392Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し3行と紙の『暑い時期だった』が指示と一字一致、左右余白7%以上で切れ無し、記号の重なり無し、肩書き帯無し、ビフォーアフター型の紙と赤ペンの手は5本指で破綻無し、紙の文字は字幕帯の上"
+          }
+        },
+        {
+          "role": "scene-001",
+          "inputSha256": "f8d416ce3016d1f74db72228fc53dcd4d15a0e07baad12f0fc4ee7f4a005f5f6",
+          "narration": "状況の欄で、暑い時期だった、運搬に時間がかかった、と書く。これでは、品質に影響した条件が測れません。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『1』と見出し『悪い例』。 図: 中央に大きな答案用紙を1枚描き、用紙の中に2行で『暑い時期だった』『運搬に時間がかかった』。用紙の上に『悪い例』。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字・内容は指示と一字一句一致し破綻なし。ただし用紙2行目『運搬に時間がかかった』が右端約85%まで伸び、画面の右18%（操作ボタン域）に入り、用紙も右端92%まで出て指定の長方形（左8〜80%）を超える。語尾が隠れるため配置の指定違反",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/raw-scene-001.efee8499.png",
+              "sha256": "efee84995a74dbaac7d842657f6766e138670eb82dcab04e69ee6305259f94fa"
+            },
+            "generatedAt": "2026-11-11T23:18:09.392Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/scene-001.7bb2b043.png",
+            "sha256": "7bb2b04308fd590c2c59758f9cbb484666cce3b0b692411239bd819b73991518",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "efee84995a74dbaac7d842657f6766e138670eb82dcab04e69ee6305259f94fa"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:18:09.392Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 1級土木・1・悪い例（見出しと用紙上）・暑い時期だった・運搬に時間がかかった を指示と1字ずつ照合して一致。余計な文字なし。用紙1枚が左8%〜80%・上8%〜64%内に収まり、人物なしで手や胴体の崩れもない"
+          }
+        },
+        {
+          "role": "scene-002",
+          "inputSha256": "d19086c19f8cbba37ba5cf5dd4cc85f7be76303ecbbbd7a2dc6008db6fb77ab4",
+          "narration": "足りないのは、測れる条件です。気象、現場、作業の条件を、数値で書きます。そのうえで、どれが原因かをはっきりさせます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『2』と見出し『足りないのは 測れる条件』。 図: 横に3つの大きな丸を並べ、左から『気象』『現場』『作業』。3つの丸の下に横長の帯『数値で書く』を置く。矢印は描かない。数値は描かない。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/raw-scene-002.7292dc61.png",
+              "sha256": "7292dc616b392a7c4827b21df9462ae25051c12bbff49d7b6a21cd82cd0f01f8"
+            },
+            "generatedAt": "2026-11-11T23:18:09.392Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/scene-002.32ce8def.png",
+            "sha256": "32ce8def5c040d0c95c0e08200d4d8e9c5e090eaeab480bcb56c935799f8a2d8",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7292dc616b392a7c4827b21df9462ae25051c12bbff49d7b6a21cd82cd0f01f8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:18:09.392Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は1級土木・2・足りないのは測れる条件・気象・現場・作業・数値で書くが指示と一字一致。3つの丸と帯の構成、矢印・数値なしで本文と矛盾なし"
+          }
+        },
+        {
+          "role": "scene-003",
+          "inputSha256": "a5bd593b64fb504d6f7cfeff4adc0ca426f139dc2155e7033229b4485d92f0da",
+          "narration": "直すと、打込み時のコンクリート温度は〇〇度、練り混ぜから打設までの時間は〇〇分、のように書きます。これは説明用の仮の例です。対処は書かず、原因までで止めます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 図を画面の主役にする。ラベル・番号・見出し・図のすべてを、画面の左から8%〜80%、上から8%〜64%の長方形の中に収める。図はその長方形の下側を使って大きく描く。長方形の外（左端の8%、右端の20%、下の36%）には文字も図の部品も置かず、背景の模様だけを続ける。 白いカードの箇条書きにしない。人物なし。 一番上に資格名の小さなラベル『1級土木』。大きな番号『3』と見出し『直した例』。 図: 中央に大きな答案用紙を1枚描き、用紙の右上に赤い札『仮の例』。用紙の中に2行で『打込み時の温度 〇〇度』『練混ぜから打設まで 〇〇分』。用紙の下に黄色の帯『原因までで止める』。〇〇は伏せ字のまま描き、数字は描かない。ほかの文字は書かない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/raw-scene-003.031e172e.png",
+              "sha256": "031e172e67f416dedb166864eddf27c25f6e13ad1146c68827ae7ebcfe7e153a"
+            },
+            "generatedAt": "2026-11-11T23:18:09.392Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/scene-003.61b329f7.png",
+            "sha256": "61b329f70174a9763b127f5d1da187f63c650dceb419dfaf315ea1fb603c5f0b",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "031e172e67f416dedb166864eddf27c25f6e13ad1146c68827ae7ebcfe7e153a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:18:09.392Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字は1級土木・3・直した例・仮の例・打込み時の温度〇〇度・練混ぜから打設まで〇〇分・原因までで止めるが一致。伏せ字のまま数字なしで崩れなし"
+          }
+        },
+        {
+          "role": "cta",
+          "inputSha256": "25e45a3b201c54329a18b23a442b3ad47069076a9938fb60dcdaf88795937317",
+          "narration": "課題から評価までの書き方は本編で。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #1E73C8 と濃色 #155293。 大きく『本編で』、その下に小さく『関連動画から』と下向きの矢印。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 資格名『1級土木』は書かない。下端に無地帯を作らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+                "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/raw-cta.c8608193.png",
+              "sha256": "c860819380b97e000df8061f1635d925a2d6107b2c18fbd6207418f57270230d"
+            },
+            "generatedAt": "2026-11-11T23:18:09.392Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/cta.91c55928.png",
+            "sha256": "91c5592891f80e8298c0f83e6d1ab502d0d85da1b339c62523dcb518c1e15bb6",
+            "width": 1080,
+            "height": 1920
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c860819380b97e000df8061f1635d925a2d6107b2c18fbd6207418f57270230d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-11T23:18:09.392Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "大きく『本編で』・小さく『関連動画から』・下向き矢印が指示どおりで誤字なし。文字の左右余白は約8%で5%以上、先生は腰から上で下端まで続き、手のひらは指5本で崩れなし、資格名や不要な文字も無い"
+          }
+        }
+      ],
+      "render": {
+        "videoSha256": "4f0685ffac980cdb4bd4ff619ae0ea0907838245b02b0b725ec035ce668264a7",
+        "durationSeconds": 40.766667,
+        "speaker": 13,
+        "sceneCount": 5
+      },
+      "screenReview": {
+        "verdict": "pass",
+        "by": "yt-shorts-publisher-qa",
+        "reason": "実測 1080x1920・40.8秒・音声あり。動画 sha が youtube.json と pop-image.json で一致し、場面 5/5 を確認した。平均4.4・全軸3以上で、型 before-after・コピーの線・2秒で止まるか・単体の価値・本編への引きも問題なし。",
+        "videoSha256": "4f0685ffac980cdb4bd4ff619ae0ea0907838245b02b0b725ec035ce668264a7",
+        "checkedAt": "2026-11-11T23:19:25.793Z"
+      },
+      "audio": {
+        "videoSha256": "4f0685ffac980cdb4bd4ff619ae0ea0907838245b02b0b725ec035ce668264a7",
+        "similarity": 0.974,
+        "maxVolumeDb": -6.7,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/video.4f0685ff.mp4",
+          "sha256": "4f0685ffac980cdb4bd4ff619ae0ea0907838245b02b0b725ec035ce668264a7"
+        },
+        "frames": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/frames.13009fc4.png",
+          "sha256": "13009fc4c7a5029b8c64053c9086b977e7081aede56c7cfbfed83171aa66146e"
+        },
+        "subtitles": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/subtitles.92b09765.ass",
+          "sha256": "92b09765d7d2c4c157b543b4faaaef350a1333873fbc2938b0dd37026d236d70"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/raw-cover.c9ff829e.png",
+            "sha256": "c9ff829e2e30703602973a4b646b53211dc7242876c4d96c0bf8bc23f02e43b1"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/raw-scene-001.efee8499.png",
+            "sha256": "efee84995a74dbaac7d842657f6766e138670eb82dcab04e69ee6305259f94fa"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/raw-scene-002.7292dc61.png",
+            "sha256": "7292dc616b392a7c4827b21df9462ae25051c12bbff49d7b6a21cd82cd0f01f8"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/raw-scene-003.031e172e.png",
+            "sha256": "031e172e67f416dedb166864eddf27c25f6e13ad1146c68827ae7ebcfe7e153a"
+          },
+          {
+            "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/raw-cta.c8608193.png",
+            "sha256": "c860819380b97e000df8061f1635d925a2d6107b2c18fbd6207418f57270230d"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2/cover.9df4f0a3.png",
+          "sha256": "9df4f0a3d5e1872a0c94c51aad097484e3b4ca8d8498a278a81a52dc28775483"
+        },
+        "savedAt": "2026-11-11T23:19:31.459Z",
+        "cloudVerified": true
+      }
     }
   },
   "activeCoverRevision": "cover-pop-20261111",
-  "activeBodyRevision": "body-diagram-20261111"
+  "activeBodyRevision": "body-diagram-20261111",
+  "activeShorts": {
+    "point-ryuui-1": "shorts-pop-point-ryuui-1-20261111",
+    "point-joukyou-2": "shorts-pop-point-joukyou-2-20261112"
+  }
 }

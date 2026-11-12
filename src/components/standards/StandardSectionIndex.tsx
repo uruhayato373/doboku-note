@@ -19,9 +19,6 @@ export default function StandardSectionIndex({
   return (
     <section aria-labelledby="chapter-sections" data-standards-section-index={chapter.chapterId}>
       <h2 id="chapter-sections" className="text-2xl font-bold text-(--ink)">節から読む</h2>
-      <p className="mt-2 text-[14px] leading-[1.8] text-(--ink-muted)">
-        この章は原本 {chapter.firstPage}–{chapter.lastPage} ページと長いため、{chapter.sections.length}節に分けて掲載しています。読みたい節・条を選んでください。
-      </p>
       <ol className="mt-5 space-y-4">
         {chapter.sections.map((section) => {
           const href = standardSectionPath(document, chapter, section.number);

@@ -39,6 +39,7 @@ export type CoconalaExamScope =
   | 'civil-2'
   | 'pe-construction'
   | 'pe-comprehensive-management'
+  | 'pe-water-supply'
   | 'rccm'
   | 'concrete-chief-engineer';
 
@@ -570,8 +571,9 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 20,
     listedAt: '2026-08-05',
-    pauseReason: 'absence',
+    pauseReason: 'retired',
     resumeOn: '2027-07-01',
+    archivedAt: '2026-11-12',
   },
   // C11: 2級 二次 教材フルパック（C3+C5+C7+C9 全部入り・PDF 19冊）。C10 の2級版。
   //   価格 ¥7,000（1級 ¥10,000 の 0.7＝級差を保つ・500円刻み適合）。
@@ -593,9 +595,10 @@ const SERVICES_RAW = {
     notePriceBasis: 'civil-2-niji-marugoto-pack | civil-2-chokuzen-pack + civil-2-experience-essay + civil-2-pastexam-essay + civil-2-gakka-kijutsu',
     examScope: ['civil-2'],
     weeklyCapacity: 20,
-    pauseReason: 'absence',
+    pauseReason: 'retired',
     resumeOn: '2027-07-01',
     listedAt: '2026-08-05',
+    archivedAt: '2026-11-12',
   },
   // C12: 1級 二次 プレミアム（教材フルパック22冊 ＋ 経験記述 添削2テーマ）。2026-08-05 新設。
   //   なぜ作るか: 純教材の価格天井は実測で ¥10,000（一級建築士製図ノート ¥10,000×31件が最上位。
@@ -797,14 +800,21 @@ const SERVICES_RAW = {
     id: 'coconala-pe-oral-qa',
     status: 'listed',
     serviceUrl: 'https://coconala.com/services/4486050',
-    title: '技術士口頭試験の想定質問を経歴から作ります',
+    title: '技術士口頭試験｜経歴をコンピテンシーで整理します',
     shortTitle: '技術士 口頭試験 想定質問作成',
-    description: '受験申込書の「業務内容の詳細」（720字以内）と業務経歴をもとに、口頭試験で聞かれやすい想定質問20問と、ご本人の事実から組み立てた回答の骨子を返すテキスト完結のサービス。ビデオ面接ではない。経験していない業務の創作はせず、事実が足りない箇所は確認事項として返す。建設部門・総合技術監理部門に対応。合格を保証するものではない。',
-    priceYen: 5000,
+    description: '受験申込書の「業務内容の詳細」（720字以内）と業務経歴をもとに、口頭試験で聞かれやすい想定質問20問と、ご本人の事実から組み立てた回答の骨子を返すテキスト完結のサービス。ビデオ面接ではない。経験していない業務の創作はせず、事実が足りない箇所は確認事項として返す。建設部門・上下水道部門・総合技術監理部門に対応。合格を保証するものではない。',
+    priceYen: 2000,
     priceNote: '想定質問20問＋回答骨子',
-    examScope: ['pe-comprehensive-management', 'pe-construction'],
+    examScope: ['pe-comprehensive-management', 'pe-construction', 'pe-water-supply'],
     weeklyCapacity: 2,
     listedAt: '2026-11-04',
+    priceHistory: [{
+      priceYen: 5000,
+      until: '2026-11-12',
+    }, {
+      priceYen: 4000,
+      until: '2026-11-12',
+    }],
   },
   // ---- コンクリート主任技士（2026-09-23・試験出品）----
   // 本試験 2026-11-29。ココナラの出品は1件・レビュー0で、空白か需要不在かを判別できない（09 §D7）。
@@ -903,6 +913,62 @@ const SERVICES_RAW = {
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 3,
     listedAt: '2026-11-03',
+  },
+  // ---- 技術士 3 部門の出品計画（2026-11-12・content/coconala/出品計画_技術士_2026-11.md）----
+  'coconala-pe-gyomu-tensaku': {
+    id: 'coconala-pe-gyomu-tensaku',
+    status: 'listed',
+    title: '技術士の業務内容の詳細720字を添削します',
+    shortTitle: '技術士 業務内容の詳細 添削',
+    description: '技術士第二次試験の受験申込書「業務内容の詳細」（720字以内）を、元発注者の技術士がテキストで添削する。立場と役割・課題・技術的提案・成果と評価のつながりを見て、口頭試験で聞かれやすい箇所も指摘する。建設部門・上下水道部門・総合技術監理部門に対応。代筆と経験していない業務の創作はしない。合格を保証するものではない。',
+    priceYen: 3000,
+    priceNote: '720字1本・3日',
+    examScope: ['pe-construction', 'pe-comprehensive-management', 'pe-water-supply'],
+    weeklyCapacity: 3,
+    listedAt: '2026-11-12',
+    serviceUrl: 'https://coconala.com/services/4502273',
+  },
+  // ---- 技術士 3 部門の出品計画（2026-11-12・content/coconala/出品計画_技術士_2026-11.md）----
+  'coconala-pe-construction-tensaku': {
+    id: 'coconala-pe-construction-tensaku',
+    status: 'listed',
+    title: '技術士 建設部門の論文を元発注者が添削します',
+    shortTitle: '技術士 建設部門 論文添削',
+    description: '技術士第二次試験 建設部門の筆記試験の答案（必須科目I・選択科目II・IIIのうち1問）を、元発注者の技術士がテキストで添削する。題意とのずれ・課題の立て方・解決策の具体性・リスクと対策を見て、総評と直す順番を返す。作成代行はしない。合格を保証するものではない。',
+    priceYen: 3000,
+    priceNote: '1問・3日',
+    examScope: ['pe-construction'],
+    weeklyCapacity: 3,
+    listedAt: '2026-11-12',
+    serviceUrl: 'https://coconala.com/services/4502256',
+  },
+  // ---- 技術士 3 部門の出品計画（2026-11-12・content/coconala/出品計画_技術士_2026-11.md）----
+  'coconala-pe-sokan-tensaku': {
+    id: 'coconala-pe-sokan-tensaku',
+    status: 'listed',
+    title: '技術士 総監の記述式論文を添削します',
+    shortTitle: '技術士 総監 記述式添削',
+    description: '技術士第二次試験 総合技術監理部門の筆記試験（記述式）の答案1問分を、総監の技術士がテキストで添削する。題意とのずれ・管理の視点・施策の具体性・管理間のトレードオフを見て、総評と直す順番を返す。作成代行はしない。合格を保証するものではない。',
+    priceYen: 3500,
+    priceNote: '記述式1問・3日',
+    examScope: ['pe-comprehensive-management'],
+    weeklyCapacity: 2,
+    listedAt: '2026-11-12',
+    serviceUrl: 'https://coconala.com/services/4502262',
+  },
+  // ---- 技術士 3 部門の出品計画（2026-11-12・content/coconala/出品計画_技術士_2026-11.md）----
+  'coconala-pe-water-tensaku': {
+    id: 'coconala-pe-water-tensaku',
+    status: 'listed',
+    title: '技術士 上下水道部門の論文を添削します',
+    shortTitle: '技術士 上下水道部門 論文添削',
+    description: '技術士第二次試験 上下水道部門（上水道及び工業用水道・下水道）の筆記試験の答案1問分を、上下水道部門の技術士がテキストで添削する。題意とのずれ・課題の立て方・解決策の具体性・リスクと対策を見て、総評と直す順番を返す。作成代行はしない。合格を保証するものではない。',
+    priceYen: 4000,
+    priceNote: '1問・3日',
+    examScope: ['pe-water-supply'],
+    weeklyCapacity: 2,
+    listedAt: '2026-11-12',
+    serviceUrl: 'https://coconala.com/services/4502267',
   },
   // </generated:products coconala>
 } as const satisfies Record<string, Omit<CoconalaService, 'price'>>;

@@ -25,11 +25,21 @@
  *   npm run registry -- reschedule --pub <公開 ID>   # 外した予約の公開日時を戻す（承認した文面の publishAt だけ。YouTube への予約は youtube-single-publish の publish）
  *   npm run registry -- prepare-short --pub <ショートの公開 ID> --publish-at <日時> [--commit]  # 在庫のショートの素材・関連動画・公開日時を台帳に入れる（承認の前）
  *   npm run registry -- stage-youtube --pub <公開 ID> [--commit]   # 初回の投稿の動画と表紙を CI へ渡す private R2 に置く
+ *   npm run registry -- reanchor-render --media <素材の ID> [--commit]                  # 表紙だけを変えた後に完成動画の記録を今の制作入力へ結び直す（DN-1146）
+ *   npm run registry -- auto-approve-short --pub <ショートの公開 ID>                     # prepare-short の判定を通し直して方針で承認する（shorts.autoApprove）
  *   npm run registry -- record-related --pub <ショートの公開 ID> --video-id <親の動画 ID>  # Studio で設定した関連動画を記録する（予約の前提）
  *   npm run registry -- replace-youtube-cover --pub <公開 ID> --cover <素材 ID> [--stage-r2 | --commit --expect <digest>]  # 投稿済みの動画の表紙だけを台帳の表紙に差し替える（--stage-r2 は手元で R2 に置く・--commit は CI が送って読み戻す）
  *
  * 取り込み（import）は既定で dry-run。approve は --expect（画面で見た版の digest）が今の中身と一致したときだけ書く。
  * approve・stop は運営者の判断なので、エージェント（Claude Code の Bash＝環境変数 CLAUDECODE=1）からは実行できない。
+ *
+ * npm run registry -- prepare-youtube --pub <公開ID> --publish-at <ISO日時> — 同じ日時の youtube.json を確認し、未承認の通常動画へ文面と予定を結線する。既定 dry-run、--commit で台帳へ書く。承認・状態は変更しない
+ *
+ * npm run registry -- publish-youtube --pub <公開ID> --phase upload — 初回通常動画のAPI予約。既定は外部通信なしで入力digestを出す。GitHub Actionsの youtube-single-publish.yml に公開IDとdigestを渡す。手動workflowはprivate R2のintentとAPI実査で重複投入を止める
+ *
+ * npm run registry -- prepare-youtube-revision --pub <元公開ID> --variant <新版名> — 新候補を別公開IDの下書きへ結線。既定ローカル検査、--commit --expect <digest>で保存。別文面は --copy <同作品内のJSON#fragment>（文面もdigest対象）。--refresh-draft は未承認のdraft/qa_passed/qa_blocked入力を履歴保存付きで更新し、変更時はdraftに戻す（初回不可）。旧入力・外部ID・承認を保持
+ *
+ * npm run registry -- publish-youtube-revision --pub <新公開ID> --phase upload — 個別改訂版。upload/schedule/verify、既定は外部通信なし。--commit --expect <digest>でのみ実行。結果不明は再送せずverify、承認・日時・Shorts関連先条件と停止後の扱いはcontent-registry.md参照。制作担当が実行前に結果を読む
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
@@ -53,7 +63,7 @@ const { values: args, positionals } = parseArgs({
   options: {
     channel: { type: 'string' }, exam: { type: 'string' }, status: { type: 'string' },
     'pack-dir': { type: 'string' }, 'video-id': { type: 'string' }, 'only-new': { type: 'boolean' }, folder: { type: 'string' }, slot: { type: 'string' }, commit: { type: 'boolean' }, delete: { type: 'boolean' },
-    pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
+    pub: { type: 'string' }, media: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
     variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
     phase: { type: 'string' }, copy: { type: 'string' }, 'refresh-draft': { type: 'boolean' },
     avg: { type: 'string' }, blocks: { type: 'string' }, cover: { type: 'string' }, 'stage-r2': { type: 'boolean' },
@@ -339,6 +349,54 @@ async function prepareShort() {
 }
 
 /**
+ * 表紙だけを変えた後に、完成動画の記録を今の制作入力へ結び直す（DN-1146）。
+ * git の履歴から描いた入力を特定し、今との差が表紙の欄だけのときに限って書く（判定は lib/render-reanchor.mjs）
+ */
+async function reanchorRender() {
+  const { reanchorPlan } = await import('./lib/render-reanchor.mjs');
+  if (!args.media) throw new Error('reanchor-render には --media <素材の ID> が要る');
+  const reg = loadRegistry(ROOT);
+  const media = reg.media.find((m) => m.id === args.media);
+  if (!media) throw new Error(`台帳に無い素材: ${args.media}`);
+  const [exam, workId] = media.id.split('/');
+  const work = reg.works.find((w) => w.exam === exam && w.id === workId);
+  if (!work?.definition) throw new Error(`${media.id}: 作品の定義が無い`);
+  const row = reanchorPlan(ROOT, media, work.definition);
+  console.log(JSON.stringify({ media: row.id, ...row.provenance.reanchored, now: { specSha256: row.provenance.specSha256, renderInputSha256: row.provenance.renderInputSha256 } }, null, 2));
+  if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
+  upsertMedia(ROOT, exam, [Object.fromEntries(Object.entries(row).filter(([k]) => !['file', 'exam'].includes(k)))]);
+  console.log(`結び直した: ${row.id}（表紙だけの変更・根拠 ${row.provenance.reanchored.commit.slice(0, 9)}）`);
+}
+
+/**
+ * 方針でショートを承認する（2026-11-12・運営者の決定。台帳 config.video-auto-publish の shorts.autoApprove）。
+ * prepare-short の判定（画面確認・音声・在庫・関連動画・公開日時）を今の行でもう一度通し、AI 生成の表紙の判定 ok を確かめてから、
+ * 画面確認と最終の承認を by=policy で今の digest に書く。中身が変わると承認は無効になる
+ */
+async function autoApproveShort() {
+  const { prepareShortPlan } = await import('./lib/shorts-release.mjs');
+  if (!readPolicy(ROOT).shorts?.autoApprove) throw new Error('ショートの方針の承認が無効（台帳 config.video-auto-publish の shorts.autoApprove）');
+  const reg = loadRegistry(ROOT);
+  const pub = reg.publications.find((p) => p.id === args.pub);
+  if (!pub || pub.format !== 'short' || pub.revisionOf || pub.status !== 'qa_passed' || !pub.relatedTo || !pub.publishAt) throw new Error(`prepare-short の済んだ初回のショートではない: ${args.pub}`);
+  prepareShortPlan(ROOT, { pubId: pub.id, publishAt: pub.publishAt });
+  const mediaById = new Map(reg.media.map((m) => [m.id, m]));
+  const ledger = readJsonIf(ROOT, datasetPath('state.ai-image-review-ledger'));
+  const bad = Object.values(pub.media ?? {}).map((id) => mediaById.get(id)).filter((m) => m?.provenance?.kind === 'ai-generated')
+    .filter((m) => { const r = ledger?.figures?.[`media:${m.id}`]; return !(r?.verdict === 'ok' && String(m.sha256).startsWith(r.sha ?? '-')); });
+  if (bad.length) throw new Error(`AI 生成の素材に今の画像の判定 ok が無い: ${bad.map((m) => m.id).join(', ')}`);
+  const state = approvalState(ROOT, pub, mediaById);
+  if (!state.visual.current || !state.final.current) throw new Error(`${pub.id}: 承認の digest を作れない（素材か文面が台帳に無い）`);
+  const at = new Date().toISOString();
+  writePublication(pub, {
+    status: 'approved',
+    review: { ...(pub.review ?? {}), visual: { status: 'approved', by: 'policy', at, digest: state.visual.current } },
+    approval: { by: 'policy', at, contentSha256: state.final.current },
+  });
+  console.log(`方針の承認を書いた: ${pub.id}（digest ${state.final.current.slice(0, 12)}…）`);
+}
+
+/**
  * Studio で設定した関連動画を記録する（ショートの予約の前提・API では設定できない）。運営者が Studio で確かめてから打つ。
  * 予約の段（publish-youtube --phase schedule）は、この記録と親の動画 ID の一致を求め、親が視聴できるかを API で確かめる。
  */
@@ -575,9 +633,9 @@ async function replaceYoutubeCover() {
   console.log(JSON.stringify(await applyCoverReplace(ROOT, plan, google.youtube({ version: 'v3', auth, retry: false })), null, 2));
 }
 
-const commands = { 'replace-youtube-cover': replaceYoutubeCover, list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule, reschedule, 'prepare-short': prepareShort, 'record-related': recordRelated, 'stage-youtube': stageYoutube };
+const commands = { 'replace-youtube-cover': replaceYoutubeCover, list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule, reschedule, 'prepare-short': prepareShort, 'auto-approve-short': autoApproveShort, 'reanchor-render': reanchorRender, 'record-related': recordRelated, 'stage-youtube': stageYoutube };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule|reschedule|prepare-short|record-related|stage-youtube …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule|reschedule|prepare-short|auto-approve-short|reanchor-render|record-related|stage-youtube …');
   process.exit(2);
 }
 await commands[command]();

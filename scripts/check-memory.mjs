@@ -13,6 +13,8 @@
 //     リンクが無い（または空の）ときだけ自動で張る。worktree のセッションは cwd が違うのでキーも別になり、
 //     放っておくと Claude Code が新しい実ディレクトリを作って記憶が再び分裂する。中身のある実ディレクトリは触らない
 // exit 0 = 問題なし / 1 = 違反あり / 2 = 検査不成立（記憶 0 件・ディレクトリ無し）
+//
+// npm run check-memory — エージェントの記憶（.claude/memory）の frontmatter・名前重複・索引の網羅・MEMORY.md の読み込み上限（200 行 / 25KB。超えた分は黙って読まれない）。`-- --local` でこの PC のリンク（~/.claude/projects/<key>/memory → .claude/memory）と別同期フックも見る。SessionStart は `--session`（worktree のキーにリンクが無ければ自動で張る）。記憶だけの develop push は CI を走らせない（ci.yml paths-ignore）ので pre-commit が唯一のゲート
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, lstatSync, readdirSync, readFileSync, realpathSync } from 'node:fs';

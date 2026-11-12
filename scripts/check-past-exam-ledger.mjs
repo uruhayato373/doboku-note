@@ -14,6 +14,8 @@
  *   - 原典が無いのに転記を照合済みと記録している
  * 件数（照合の進み具合）は FAIL にしない。資格ごとに対象数・検査数・照合済み・未照合・原典なしを出す。
  * exit 0 = FAIL 0 / exit 1 = FAIL あり、または検査した問題が 0 件（検査不成立）
+ *
+ * npm run check-past-exam-ledger — 過去問の問題台帳（data/pastexams/questions/{資格}.json）の配線（問題 ID の過不足・記事・原典の実在）と、演習データの正答と公式正答の一致を FAIL。転記の照合率は件数だけ出す（--json は管理画面向け）。罠: civil-1・civil-2 は src/config の JSON を読むので、記事の MDX だけ直しても演習データが古いと不一致が残る。演習データの無い測量士・測量士補・コンクリート主任技士は記事の MDX の見出しと「正答：N」を直接読む（主任技士の正答は公式の表が手元に無く、過去問解説書の「出題当時」の正解で照合した。DN-1085）
  */
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { LEDGER_EXAMS, enumerateQuestions, evaluateLedger, readInventory, readLedger } from './lib/past-exam-ledger.mjs';

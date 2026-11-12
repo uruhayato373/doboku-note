@@ -5,7 +5,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { deleteCard, findCard, detectEol, nextId, backlogGitLog } from '../scripts/backlog-edit.mjs';
+import { deleteCard, findCard, detectEol, nextId, backlogGitLog, logCoversMax } from '../scripts/backlog-edit.mjs';
 
 // 実カードの最小形（タグ行込み・parseBacklog が要求する構造）を CRLF で組む。
 const CRLF = '\r\n';
@@ -101,6 +101,15 @@ test('nextId: gitLogTextがnullならdegraded:trueを立てる', () => {
   const md = fixture([{ id: 'DN-0001', title: 'A' }]);
   assert.equal(nextId(md, null).degraded, true);
   assert.equal(nextId(md, '').degraded, false); // 空文字は「取得できた（0件）」であってnullではない
+});
+
+test('logCoversMax: 現在の最大の番号を足した行が窓の履歴にあるときだけ、窓で採番してよい', () => {
+  // 全履歴の差分は 51 秒かかり、30 秒の上限で起票が止まっていた（2026-11-11）。窓で足りる条件を固定する。
+  const md = fixture([{ id: 'DN-0003', title: 'A' }, { id: 'DN-0007', title: 'B' }]);
+  assert.equal(logCoversMax(md, 'abc\n+### [DN-0007] B\n+### [DN-0009] 後から作って消した\n'), true);
+  assert.equal(logCoversMax(md, 'abc\n+### [DN-0009] 最大の番号が窓より前に作られている\n'), false, '窓が最大の番号の作成より新しいと、間の番号を見落とす');
+  assert.equal(logCoversMax(md, 'abc\n-### [DN-0007] B\n'), false, '削除の行は作成の証拠にならない');
+  assert.equal(logCoversMax('## 🔴 高\n', '+### [DN-0001] A\n'), false, 'カードが無ければ全履歴を読む');
 });
 
 test('backlogGitLog: 別ブランチでだけ使われて消えた ID も採番から避ける（DN-0340）', () => {

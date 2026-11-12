@@ -10,9 +10,6 @@ export default function StandardReferenceLinks({ documents }: { documents: Stand
       <h2 id="standard-referenced-documents" className="text-lg font-bold text-(--ink)">
         この章が参照する基準
       </h2>
-      <p className="mt-1 text-[13px] leading-[1.7] text-(--ink-muted)">
-        本文で言及している基準です。
-      </p>
       <ul className="mt-3 space-y-2">
         {documents.map((document) => (
           <li key={`${document.agencyId}/${document.documentId}`}>

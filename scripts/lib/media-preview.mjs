@@ -149,6 +149,14 @@ export function buildMetricsDoc({ packId, pubId = null, manifest, scenes, visual
   };
 }
 
+/**
+ * 無音プレビューの ffconcat。最後の画像は duration を持たせず再掲する（そうしないと最終場面の尺が落ちる）。
+ * ただし再掲した最後の画像は直前と同じ尺だけ続いて終端に最終場面が重複する（DN-0898）ので、呼び出し側が -t で場面秒数の合計に切る。
+ */
+export function previewConcat(scenes) {
+  return [...scenes.map((s) => `file ../img/${s.png}\nduration ${Number(s.actualSec ?? s.designSec)}`), `file ../img/${scenes.at(-1).png}`].join('\n');
+}
+
 /** 無音プレビュー mp4 とコンタクトシートを作る（ffmpeg が要る）。シートの { role, file } を返す */
 function buildPreviewMedia(root, { renderDir, manifest, scenes, visualCheck, designTotal }) {
   const outRel = `${renderDir}/preview`;
@@ -156,13 +164,12 @@ function buildPreviewMedia(root, { renderDir, manifest, scenes, visualCheck, des
   mkdirSync(outAbs, { recursive: true });
 
   // 無音プレビュー: 実尺（未合成なら設計尺）で並べ、render の字幕と同期する
-  const concat = [...scenes.map((s) => `file ../img/${s.png}\nduration ${Number(s.actualSec ?? s.designSec)}`), `file ../img/${scenes.at(-1).png}`].join('\n');
-  writeFileSync(join(outAbs, 'preview.txt'), `${concat}\n`);
+  writeFileSync(join(outAbs, 'preview.txt'), `${previewConcat(scenes)}\n`);
   const assRel = `${renderDir}/subtitles.ass`;
   const vf = ['fps=' + visualCheck.previewFps];
   if (manifest.subtitles !== false && existsSync(join(root, assRel))) vf.push(`ass=${assRel}:fontsdir=${FONTS_DIR}`);
   vf.push('format=yuv420p');
-  runFfmpeg(root, ['-f', 'concat', '-safe', '0', '-i', `${outRel}/preview.txt`, '-vf', vf.join(','), '-an', '-movflags', '+faststart', `${outRel}/preview.mp4`]);
+  runFfmpeg(root, ['-f', 'concat', '-safe', '0', '-i', `${outRel}/preview.txt`, '-vf', vf.join(','), '-t', String(round3(designTotal)), '-an', '-movflags', '+faststart', `${outRel}/preview.mp4`]);
 
   // コンタクトシート: contactSheetEverySec 秒ごとに 1 コマ、cols×rows コマで 1 枚。長尺は複数枚
   const every = visualCheck.contactSheetEverySec;

@@ -5,10 +5,18 @@ import { createHash } from 'node:crypto';
 const hash = (value) => createHash('sha256').update(value).digest('hex');
 const digest = /^[a-f0-9]{64}$/;
 
-// 語り・コピー・出典の変更後に、以前の画像を使い回さない。
+// 画像の入力は図の文字（visual）と字幕（caption）。語り（narration）の直しだけでは画像を作り直さない（再監査にする・DN-1072）。
 export function popSceneHash(scene) {
-  return hash(JSON.stringify({ narration: scene.narration, caption: scene.caption, visual: scene.visual, sourceRef: scene.sourceRef }));
+  return hash(JSON.stringify({ caption: scene.caption, visual: scene.visual }));
 }
+
+/** 語りの変更を見る別のハッシュ。画像は引き継ぎ、監査だけやり直す判定に使う */
+export const popNarrationHash = (scene) => hash(JSON.stringify({ narration: scene.narration, sourceRef: scene.sourceRef }));
+
+/** 2026-11-12 より前に記録された入力ハッシュ（語り・出典を含む）。採用済みの記録を無効にしないために受け入れる */
+export const popSceneHashLegacy = (scene) => hash(JSON.stringify({ narration: scene.narration, caption: scene.caption, visual: scene.visual, sourceRef: scene.sourceRef }));
+
+export const popSceneHashMatches = (scene, recorded) => recorded === popSceneHash(scene) || recorded === popSceneHashLegacy(scene);
 
 function inside(root, path) {
   if (typeof path !== 'string' || !path || isAbsolute(path)) throw new Error('POP画像はリポジトリ相対パスで指定してください');
@@ -65,7 +73,7 @@ export function readLongformPopImages(root, packDir, storyboard, { local = false
     if (diagramLed && (image.normalization?.mode !== 'full-frame-v1' || image.normalization.sourceSha256 !== image.generation?.output?.sha256)) {
       throw new Error(`${scene.sceneId}: 図解の全面採用記録が必要です（追加余白は禁止）`);
     }
-    if (image.inputSha256 !== popSceneHash(scene)) throw new Error(`${scene.sceneId}: POP画像の原稿が古い`);
+    if (!popSceneHashMatches(scene, image.inputSha256)) throw new Error(`${scene.sceneId}: POP画像の原稿が古い`);
     if (image.generation?.tool !== 'image_gen' || !image.generation.prompt?.trim() || !image.generation.references?.length) {
       throw new Error(`${scene.sceneId}: Codex画像生成の指示・参照記録が必要です`);
     }

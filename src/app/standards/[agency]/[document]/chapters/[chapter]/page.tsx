@@ -15,8 +15,8 @@ import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardReferenceLinks from '@/components/standards/StandardReferenceLinks';
+import StandardChapterPager from '@/components/standards/StandardChapterPager';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
-import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
@@ -65,8 +65,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: `${target.title}｜${entry.title}`,
     description:
       `${entry.agencyName}「${entry.title}」${target.title}の全文。` +
-      `${target.sections.length}節・${target.stats.articles ?? 0}条を編・章・節の構造で読めます` +
-      `${sectionNames ? `（${sectionNames} ほか）` : ''}。`,
+      // 節・条の無い章（通達・別表など）で「0節・0条」と出さない
+      (target.sections.length > 0
+        ? `${target.sections.length}節${target.stats.articles ? `・${target.stats.articles}条` : ''}を編・章・節の構造で読めます` +
+          `${sectionNames ? `（${sectionNames} ほか）` : ''}。`
+        : '原典の版と出典を明示しています。'),
     path: standardChapterPath(entry, target),
   });
   // 章ごとの OGP（機関名 + 第N編 + 第M章）。buildPageMetadata の既定は og-default.png で、
@@ -180,8 +183,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           )}
 
           {/* 原本ページ（逐語文字起こし）への案内は出さない（2026-10-26 に公開をやめた。照合はエージェントが文字起こしで行う） */}
-          <div className="mt-10 border-t border-(--rule-soft) pt-2">
-            <StandardDataLinks document={entry} chapter={target} />
+          <div className="mt-8">
+            <StandardChapterPager document={entry} chapter={target} />
           </div>
 
           <StandardReferenceLinks documents={referencedDocuments} />
@@ -190,8 +193,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           <div className="mt-10">
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
-          {/* 転職の案内は本文の外の末尾に 1 枠（右のナビ欄には置かない＝StandardsNavigation は閲覧ナビ専用）。案件は配置ルール */}
-          <AffiliateSlot page={{ pageKind: 'standards' }} slot="standards-end" className="mt-6" />
+          <StandardDataLinks document={entry} chapter={target} />
           <StandardsAttribution document={entry} item={target.item} />
         </SectionCard>
       </TwoColumnShell>

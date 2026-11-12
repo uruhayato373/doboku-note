@@ -42,7 +42,7 @@ GitHub Actions の **scheduled（cron）workflow はデフォルトブランチ 
 - 逆に `on: push`/`pull_request` トリガーの workflow はブランチ版で走るので deploy 不要。scheduled/`workflow_dispatch` 既定は main。
 - **新規 workflow は develop 段階では手動実行すらできない**（2026-07-28 実測）: ファイルが既定ブランチに無いと `gh workflow run <name>.yml --ref develop` も `HTTP 404: not found on the default branch` になる。`--ref` を付けても既定ブランチにその workflow が存在することが前提。つまり「develop で dispatch して動作確認 → 問題なければ main へ」という順序は取れず、**main へマージしてから初めて検証できる**。未実証の前提（外部 API への到達性など）を含む workflow を入れるときは、マージ直後に手動実行して確認する手順を backlog へ残すこと。
 
-関連: [[feedback_deploy_discipline]]（develop→main ff 昇格の安全手順）・[[feedback_metrics_cicd_supplied]]（計測は CI/CD 供給）。
+関連: [[feedback_deploy_discipline]]（デプロイ運用の規律）・[[feedback_metrics_cicd_supplied]]（計測は CI/CD 供給）。
 
 ---
 

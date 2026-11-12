@@ -16,12 +16,14 @@ on:
       - '.claude/todo/**'
       - '.claude/state/todo-claims.json'
 
-# 同じブランチ／PR に新しい push が来たら、古い実行は結果を待つ意味が無いので止める。
-# develop への直 push が 1 日 50 回を超え、古い実行が最後まで走って後続を待たせていた（2026-09-30）。
-# 失敗 Issue の起票・解消は最新の実行が担うので、途中で止めた実行が Issue を残すことはない。
+# PR は新しい push が来たら古い実行を止める（結果を待つ意味が無い）。
+# develop は止めない（2026-11-11）。実行中の 1 本は最後まで走り、待ちは最新の 1 本だけ残る（古い待ちは GitHub が取り消す）。
+# 止めていた間は push が続くと結果が出ず、2026-11-10〜11 の 9 時間で 36 回のうち 18 回を取り消し（うち 6 回は 4〜6 分走った後）、
+# 赤い develop に気づくのも昇格（deploy:main は緑を待つ）も遅れていた。最新の push の結果は最長で 2 周待つ。
+# 失敗 Issue の起票・解消は実行の順に起きるので、最後に終わった実行の結果が残る。
 concurrency:
   group: pre-merge-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
@@ -31,6 +33,8 @@ permissions:
 jobs:
   # 品質検査とビルドは互いの出力を使わないので、別ジョブで並行に走らせる（2026-09-30）。
   # 1 ジョブで直列だと 品質検査 156s + ビルド 148s + SEO 55s が積み上がっていた。
+  # unit-tests も別ジョブ（test）に分けた（2026-11-11）。audit の中では並列分が終わった後に 1 本で約 2 分走り、
+  # audit 6.9 分のうち 123 秒を占めていた。
   audit:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -83,8 +87,45 @@ jobs:
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
         run: node scripts/asset-hydrate.mjs --group kindle-dist
 
+      # unit-tests は test ジョブが回す。手元の npm run quality:audit:ci は全部回す。
       - name: Quality audit (ci gate)
-        run: npm run quality:audit:ci
+        run: npm run quality:audit:ci -- --except unit-tests
+
+  # unit-tests（tests/*.test.mjs・3,000 件超）。quality-audit 経由で回し、失敗行の抜き出し・timeout・検査不成立の扱いを audit と揃える。
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci --legacy-peer-deps
+
+      # テストが読む git 管理外の生成物を、audit の中で走っていたときと同じにそろえる
+      # （doc-meta-index・Kindle の配布物・refresh-indexes が書く public/quiz と public/standards-data）。
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
+      - name: Hydrate Kindle dist (private R2)
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: node scripts/asset-hydrate.mjs --group kindle-dist
+
+      - name: Refresh generated indexes
+        run: npm run refresh-indexes
+
+      - name: Unit tests
+        run: npm run quality:audit:ci -- --only unit-tests
 
 
   build:
@@ -134,6 +175,10 @@ jobs:
       - name: Check build-time SEO (out/)
         id: seo_build
         run: npm run check-seo-build:ci -- --summary-out "$RUNNER_TEMP/seo-build-run.json"
+
+      # /standards が説明文を増やし一覧のリンク密度を落としていないか（config/standards-page-density.json）。
+      - name: Check standards page density (out/)
+        run: npm run check-standards-density
 
       # error で落ちた run の件数も履歴に要る。check の成否にかかわらず上げる（無ければ publish 側が何もしない）。
       - name: Upload SEO build summary
@@ -225,19 +270,24 @@ jobs:
           git rebase origin/develop
           git push origin HEAD:develop
 
-  # 失敗 Issue の起票と解消は、両ジョブの結果を見て 1 か所で行う。
+  # 失敗 Issue の起票と解消は、3 ジョブの結果を見て 1 か所で行う。
   report:
-    needs: [audit, build]
+    needs: [audit, test, build]
     if: always() && github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    # actions: read は、最後に成功した run の commit を読むため（赤を入れた範囲を Issue に載せる）
+    permissions:
+      contents: read
+      issues: write
+      actions: read
 
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Report failure (automation-failure Issue)
-        if: github.event_name == 'push' && (needs.audit.result == 'failure' || needs.build.result == 'failure')
+        if: github.event_name == 'push' && (needs.audit.result == 'failure' || needs.test.result == 'failure' || needs.build.result == 'failure')
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -247,8 +297,16 @@ jobs:
             echo "- branch: \`${{ github.ref_name }}\` / sha: \`${{ github.sha }}\`"
             echo "- trigger: ${{ github.event_name }}"
             echo
-            echo "どのゲートが落ちたかは run のログ（Quality audit / Build / SEO）を見る。"
+            echo "どのゲートが落ちたかは run のログ（Quality audit / Unit tests / Build / SEO）を見る。"
             echo "ローカル再現: \`npm run quality:audit:ci\`"
+            # 赤を入れた範囲: 最後に成功した run の commit から今回まで。並行セッションのどの変更かを件名で見分ける（DN-1133）。
+            # checkout は浅いので compare API で読む。取れなくても起票は続ける。
+            BASE=$(gh run list --workflow ci.yml --branch develop --status success --limit 1 --json headSha --jq '.[0].headSha // ""' || true)
+            if [ -n "$BASE" ]; then
+              echo
+              echo "最後の緑（\`${BASE:0:9}\`）から今回までの commit（新しい 20 件まで）:"
+              gh api "repos/${{ github.repository }}/compare/${BASE}...${{ github.sha }}" --jq '.commits[-20:][] | "- `\(.sha[0:9])` \(.commit.message | split("\n")[0])"' || echo "- （取得できなかった）"
+            fi
           } > /tmp/ci-body.md
           node scripts/report-automation-failure.mjs \
             --channel pre-merge \
@@ -258,7 +316,7 @@ jobs:
       # develop への push が緑になったら pre-merge channel の open Issue を自動クローズする。
       # PR の成功では閉じない（PR が緑でも develop 本体が赤いままのことがある）。
       - name: Resolve pre-merge Issue (develop が緑)
-        if: github.event_name == 'push' && github.ref_name == 'develop' && needs.audit.result == 'success' && needs.build.result == 'success'
+        if: github.event_name == 'push' && github.ref_name == 'develop' && needs.audit.result == 'success' && needs.test.result == 'success' && needs.build.result == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

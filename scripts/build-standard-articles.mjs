@@ -18,6 +18,8 @@
  *   node scripts/build-standard-articles.mjs                # 設定 build.documents を生成
  *   node scripts/build-standard-articles.mjs chubu/common   # 対象を明示
  *   node scripts/build-standard-articles.mjs --check        # 生成せず解析だけ回して統計を出す
+ *
+ * npm run build-standard-articles — 公的基準の逐語文字起こし→編・章・節の構造化章記事を生成（`content/site/standards-articles/`。章は PDF 分冊でなく原本の柱・本文中の見出し・設定の目次（`chapterSource`）で編・章に切る。対象と canonical 機関は config/standards-structure.json）
  */
 
 import { createHash } from 'node:crypto';

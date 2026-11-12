@@ -1310,6 +1310,55 @@ export const ConfigYoutubeFormats = z
   .strict()
   .meta({ title: 'YouTube の動画の型' });
 
+/** ショートの型と、表紙・題名・冒頭のコピーで使ってよい線（config/youtube-shorts-formats.json・2026-11-11）。読み手は shorts-factory・yt-shorts-publisher-qa */
+const SHORT_ANGLES = ['conclusion', 'reason', 'experience', 'counter', 'number', 'howto'];
+export const ConfigYoutubeShortsFormats = z
+  .object({
+    _doc: doc(),
+    schemaVersion: schemaVersion1,
+    updated: jstDate('最終更新日'),
+    description: doc(),
+    roles: z.object({ longform: z.string().min(1), short: z.string().min(1) }).strict().describe('通常動画とショートの役割の分担'),
+    rules: z
+      .object({
+        hookMaxChars: z.number().int().positive(), hook: z.string().min(1), end: z.string().min(1),
+        narration: z.string().min(1), oneShort: z.string().min(1), cover: z.string().min(1), variety: z.string().min(1), cta: z.string().min(1),
+      })
+      .strict()
+      .describe('全部の型に共通の決まり'),
+    types: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^[a-z0-9-]+$/), label: z.string().min(1),
+            angle: z.enum(SHORT_ANGLES).describe('content-angle-policy の切り口'),
+            fits: z.string().min(1).describe('向く通常動画'), hook: z.string().min(1), body: z.string().min(1), end: z.string().min(1),
+            beats: z.object({ min: z.number().int().min(1), max: z.number().int().min(1) }).strict(),
+            cover: z.object({ headline: z.string().min(1).describe('表紙の見出しの形'), visual: z.string().min(1).describe('表紙の生成指示に入れる図の形') }).strict(),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy('id', 'id')),
+    hookForms: z
+      .array(z.object({ id: z.string().regex(/^[a-z0-9-]+$/), label: z.string().min(1), pattern: z.string().min(1).describe('冒頭の一文の末尾を見分ける正規表現') }).strict())
+      .min(1)
+      .superRefine(uniqueBy('id', 'id'))
+      .describe('冒頭の一文の形。上から順に当てて最初に合った形とする。同じ枠で半分を超えて同じ形にしない'),
+    gestures: z
+      .array(z.object({ id: z.string().regex(/^[a-z0-9-]+$/), label: z.string().min(1), pose: z.string().min(1).describe('表紙の生成指示に入れる先生の手と体の形') }).strict())
+      .min(2)
+      .superRefine(uniqueBy('id', 'id'))
+      .describe('表紙の先生の仕草。各ショートが gesture で 1 つ選び、同じ枠で半分を超えて同じにしない'),
+    copy: z
+      .array(z.object({ id: z.string().regex(/^[a-z0-9-]+$/), label: z.string().min(1), allowed: z.string().min(1), forbidden: z.string().min(1) }).strict())
+      .min(1)
+      .superRefine(uniqueBy('id', 'id'))
+      .describe('コピーの技法と使ってよい線'),
+  })
+  .strict()
+  .meta({ title: 'YouTube ショートの型' });
+
 // ---- e-Gov の法令（config/egov-laws.json） -------------------------------------------------------------------
 
 export const ConfigEgovLaws = z
@@ -1375,6 +1424,16 @@ export const ConfigVideoAutoPublish = z.object({
   maxBlocks: z.number().int(),
   minLeadHours: z.number(),
   maxUploadsPerDay: z.number().int().positive().describe('YouTube Data API の日次割当の範囲（1 本 1,600 ユニット・10,000/日）'),
-  slot: z.object({ timeJst: z.string().regex(/^\d{2}:\d{2}$/), maxPerDay: z.number().int().positive() }).strict(),
-  audio: z.object({ model: z.string().min(1), language: z.string().min(1), minSimilarity: z.number(), minMaxVolumeDb: z.number(), maxMaxVolumeDb: z.number(), maxDurationGapSec: z.number() }).strict(),
+  slot: z.object({ timesJst: z.array(z.string().regex(/^\d{2}:\d{2}$/)).min(1).describe('通常動画の公開の時刻（JST・早い順）'), maxPerDay: z.number().int().positive() }).strict()
+    .refine((x) => x.maxPerDay <= x.timesJst.length, '1 日の本数が時刻の数を超える'),
+  shorts: z.object({
+    autoApprove: z.boolean().describe('関門（画面確認・音声・画像の判定・在庫）を通ったショートを方針で承認する'),
+    timesJst: z.array(z.string().regex(/^\d{2}:\d{2}$/)).min(1).describe('ショートの公開の時刻（JST・早い順）'),
+    maxPerDay: z.number().int().positive(),
+    decidedBy: z.string().min(1),
+  }).strict(),
+  maxPublishPerDay: z.number().int().positive().describe('通常動画とショートを合わせた 1 日の公開の上限'),
+  hold: z.array(z.object({ pack: z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/), reason: z.string().min(1), card: z.string().regex(/^DN-\d{4}$/) }).strict()).describe('毎日の予約で出さない作品（直すまでの保留）。直したら行を消す'),
+  uploadPriority: z.enum(['longform', 'balanced']).describe('投稿の割当の配り方。longform＝在庫の通常動画が尽きるまで割当を全部通常動画に使う（先の日付の予約を早く埋める・2026-11-12 運営者の決定）、balanced＝通常動画は 1 日 slot.maxPerDay 本まで'),
+  audio: z.object({ model: z.string().min(1), language: z.string().min(1), minSimilarity: z.number(), minSceneSimilarity: z.number(), maxTokenMisreads: z.number().int().min(0).nullable(), minMaxVolumeDb: z.number(), maxMaxVolumeDb: z.number(), maxDurationGapSec: z.number() }).strict(),
 }).strict();

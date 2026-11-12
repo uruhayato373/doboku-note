@@ -36,8 +36,8 @@ export const MAX_SECONDS = 60;
 const rules = loadImageRules();
 const { width: W, height: H, minWidth: MIN_WIDTH, bottomZone: BOTTOM_ZONE, frame: FRAME, bodyFrame: BODY_FRAME } = rules.formats.shorts;
 const BOTTOM_STDEV_MIN = 3;
-const SUBTITLE_SIZE = 74;
-const SUBTITLE_CHARS = 14;
+const SUBTITLE_SIZE = 80; // 74 では小さかった（2026-11-11・画面確認）。11 字×80px で左右の余白の内側に 1 行で収める
+const SUBTITLE_CHARS = 11;
 const SUBTITLE_MARGIN = 420; // 操作ボタンと重ならない高さ（動画ポリシーの Shorts の字幕位置）
 const SPEAKER = 13;
 const BANS = rules.textRule;
@@ -77,18 +77,89 @@ function packContext(root, pack, key) {
 /** 台本の版。監査の記録を除いた中身の sha で、書き換えると監査は無効になる */
 export const designDigest = ({ qa, ...design }) => inputOf(design);
 
-/** 語りの切り方の検査。論点ごとの語りをつなぐと承認済みの台本の場面に一致すること。 */
-export function narrationProblems(design, scene) {
+/**
+ * 語りの切り方の検査。sources が無ければ、論点ごとの語りをつなぐと承認済みの台本の場面に一致すること。
+ * sources（台本の場面 id）があればショート用に書き直した語りで、事実が台本のその場面の中にあるかは台本の監査が見る（2026-11-11）
+ */
+export function narrationProblems(design, scene, ctx = null) {
   const issues = [];
   if (!String(design.hook ?? '').trim()) issues.push('hook が無い');
   if (!Array.isArray(design.beats) || !design.beats.length) issues.push('beats が空');
-  else if (words(design.beats.map((b) => b.narration).join('')) !== words(scene.narration)) issues.push('beats の語りが台本の場面と一致しない');
+  else if (design.sources !== undefined) {
+    if (!Array.isArray(design.sources) || !design.sources.length) issues.push('sources は台本の場面 id の配列');
+    else if (ctx) for (const id of design.sources.filter((x) => !ctx.sceneIds.has(x))) issues.push(`sources: 台本に無い場面 ${id}`);
+  } else if (words(design.beats.map((b) => b.narration).join('')) !== words(scene.narration)) issues.push('beats の語りが台本の場面と一致しない');
   return issues;
 }
 
-/** 画像の生成前に止める台本の機械検査。語りの一致に加え、1 本に載せられる形かを見る */
-export function designProblems(design, scene) {
-  const issues = narrationProblems(design, scene);
+/** 型の台帳（config.youtube-shorts-formats）と、親の枠で使える型。設計の検査に渡す */
+export function designContext(root, pack, board, key = null) {
+  const plan = readDataset(root, 'config.channel-annual-plan');
+  const slotOf = (p) => plan.entries.find((e) => e.publicationId === `${p}/youtube.longform` && e.action !== 'reuse')?.slot;
+  const slot = plan.slots.find((s) => s.id === slotOf(pack));
+  // 同じ枠のほかのショート。冒頭の形とコピーの技法が偏らないかを見る
+  const siblings = slot ? listShortDesigns(root).filter((d) => slotOf(d.pack) === slot.id && !(d.pack === pack && d.key === key)).map((d) => {
+    const design = readJson(root, `${packDirOf(d.pack)}/${DESIGN_FILE}`).shorts?.[d.key] ?? {};
+    return { hook: design.hook, copy: design.copy ?? [], gesture: design.gesture };
+  }) : [];
+  return { formats: readDataset(root, 'config.youtube-shorts-formats'), slotTypes: slot?.shorts?.types ?? null, sceneIds: new Set(board.scenes.map((s) => s.sceneId)), siblings };
+}
+
+/** 冒頭の一文の形（台帳の hookForms を上から当てる） */
+export const hookForm = (hook, forms) => forms.find((f) => new RegExp(f.pattern, 'u').test(String(hook ?? '').trim()))?.id ?? 'other';
+
+/** 同じ枠で、冒頭の形とコピーの技法がそれぞれ半分を超えて同じにならないか（3 本以上の枠だけ見る） */
+export function varietyProblems(design, ctx) {
+  const all = [{ hook: design.hook, copy: design.copy ?? [], gesture: design.gesture }, ...(ctx.siblings ?? [])];
+  if (all.length < 3) return [];
+  const max = Math.ceil(all.length / 2);
+  const issues = [];
+  const form = hookForm(design.hook, ctx.formats.hookForms ?? []);
+  const sameForm = all.filter((x) => hookForm(x.hook, ctx.formats.hookForms ?? []) === form).length;
+  if (form !== 'other' && sameForm > max) issues.push(`冒頭の形「${ctx.formats.hookForms.find((f) => f.id === form)?.label ?? form}」が枠の ${all.length} 本中 ${sameForm} 本（半分まで）`);
+  if (design.gesture) {
+    const n = all.filter((x) => x.gesture === design.gesture).length;
+    if (n > max) issues.push(`先生の仕草 ${design.gesture} が枠の ${all.length} 本中 ${n} 本（半分まで）`);
+  }
+  for (const id of design.copy ?? []) {
+    const n = all.filter((x) => x.copy.includes(id)).length;
+    if (n > max) issues.push(`コピーの技法 ${id} が枠の ${all.length} 本中 ${n} 本（半分まで）`);
+  }
+  return issues;
+}
+
+/** 型とコピーの技法の検査（2026-11-11・運営者の決定）。型は枠で使えるものだけ、技法は 2 つまで、締めは本編で分かることを言う */
+export function typeProblems(design, ctx) {
+  const issues = [];
+  const type = ctx.formats.types.find((t) => t.id === design.type);
+  if (!design.type) issues.push('type が無い（台帳 config.youtube-shorts-formats の型）');
+  else if (!type) issues.push(`type が台帳に無い: ${design.type}`);
+  else {
+    if (ctx.slotTypes && !ctx.slotTypes.includes(type.id)) issues.push(`type ${type.id} はこの枠で使わない（枠の型: ${ctx.slotTypes.join('・')}）`);
+    const n = design.beats?.length ?? 0;
+    if (n < type.beats.min || n > type.beats.max) issues.push(`${type.label} の beats は ${type.beats.min}〜${type.beats.max} 個`);
+  }
+  // 紙を描く型は、紙に書く文字が決まっていること。無いと見出しの繰り返しや作り話の文字が入った（2026-11-12）
+  // 1 問で確かめる型の問いは見出しの「？」で示し、表紙の紙に『？』の記号を足さない（2026-11-12・pose の『？』が台帳と食い違い、画面確認で落ちた）
+  if (design.type === 'one-question' && /[？?]/.test(design.pose ?? '')) issues.push('pose に『？』がある（one-question の表紙は紙のまわりに『？』を足さない・cover.visual）');
+  if (['before-after', 'one-question'].includes(design.type) && !paperText(design)) issues.push('coverPaper が要る（表紙の紙に書く悪い例・問題文の一文。sources の場面の語だけ）');
+  const gestures = ctx.formats.gestures ?? [];
+  if (gestures.length && !design.gesture) issues.push('gesture が無い（台帳の gestures から先生の仕草を 1 つ選ぶ）');
+  else if (design.gesture && !gestures.some((g) => g.id === design.gesture)) issues.push(`gesture が台帳に無い: ${design.gesture}`);
+  const copy = design.copy ?? [];
+  if (!Array.isArray(copy) || copy.length > 2) issues.push('copy はコピーの技法の id の配列で 2 つまで');
+  else for (const id of copy.filter((x) => !ctx.formats.copy.some((c) => c.id === x))) issues.push(`copy が台帳に無い: ${id}`);
+  if ([...String(design.hook ?? '')].length > ctx.formats.rules.hookMaxChars) issues.push(`hook が ${ctx.formats.rules.hookMaxChars} 字を超える`);
+  if (design.cta !== undefined && !String(design.cta).includes('本編')) issues.push('cta は本編で何が分かるかを言う（例: 残りの 2 つは本編で）');
+  // 本文の最後の語りにも「〜は本編で」を入れると、締めと 2 回続けて読まれる（2026-11-12・2 本）
+  if (/本編で/u.test(design.beats?.at(-1)?.narration ?? '')) issues.push('本文の最後の語りに「本編で」を入れない（締めの cta と重なって 2 回読まれる）');
+  issues.push(...varietyProblems(design, ctx));
+  return issues;
+}
+
+/** 画像の生成前に止める台本の機械検査。語りの一致に加え、1 本に載せられる形かを見る。ctx があれば型も見る */
+export function designProblems(design, scene, ctx = null) {
+  const issues = [...narrationProblems(design, scene, ctx), ...(ctx ? typeProblems(design, ctx) : [])];
   if ([...String(design.hook ?? '')].length > 40) issues.push('hook が 40 字を超える');
   if (!String(design.pose ?? '').trim()) issues.push('pose が無い');
   if (design.headline !== undefined && (!Array.isArray(design.headline) || design.headline.length < 1 || design.headline.length > 3 || design.headline.some((l) => [...String(l ?? '')].length < 2 || [...String(l)].length > 10))) issues.push('headline は 1〜3 行・各 2〜10 字');
@@ -105,8 +176,8 @@ export function designProblems(design, scene) {
 /** 台本の監査の判定を、今の台本の中身に付ける */
 export function recordScriptQa(root, pack, key, { verdict, by, reason, now }) {
   if (!['pass', 'fail'].includes(verdict) || !by || String(reason ?? '').length < 8) throw new Error('判定は pass/fail・担当・8 字以上の理由が要る');
-  const { dir, design, scene } = packContext(root, pack, key);
-  const problems = designProblems(design, scene);
+  const { dir, design, scene, board } = packContext(root, pack, key);
+  const problems = designProblems(design, scene, designContext(root, pack, board, key));
   if (verdict === 'pass' && problems.length) throw new Error(`${key}: 機械検査が先に通らない: ${problems.join('・')}`);
   const file = readJson(root, `${dir}/${DESIGN_FILE}`);
   file.shorts[key].qa = { verdict, by, reason, digest: designDigest(design), checkedAt: now };
@@ -114,17 +185,44 @@ export function recordScriptQa(root, pack, key, { verdict, by, reason, now }) {
   return file.shorts[key].qa;
 }
 
-const coverPrompt = (design, spec, label, palette) => [
+const coverPrompt = (design, spec, label, palette, type = null, gesture = null) => [
   `添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。${FRAME}`,
   pop(palette), '黄色と白の極太文字。',
-  `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}、小さな黄色帯に『${spec.pop?.authority ?? '総監が制作'}』。`,
-  `先生を大きく（腰から上、顔が画面の幅の2割以上）描く。${design.pose}`, TEACHER, BANS,
+  // 型のあるショートは肩書きの帯を入れない（概要欄の制作表記で伝える・2026-11-11 運営者の決定）
+  // 見出しの行に『』の引用が入ると区切りの『』と混ざり、引用が行ごとに割れた（2026-11-11）。型のある表紙は行を〈〉で区切る（〈〉は描かない）
+  type ? `上部に『${label}』。最も大きく見出しを ${spec.headline.length} 行で書く: ${spec.headline.map((l, i) => `${i + 1} 行目〈${l}〉`).join('、')}（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。` : `上部に『${label}』、最も大きく${spec.headline.map((l) => `『${l}』`).join('')}、小さな黄色帯に『${spec.pop?.authority ?? '総監が制作'}』。`,
+  // 型ごとの表紙の図（台帳 config.youtube-shorts-formats の types[].cover・2026-11-11）。見出しは端で切らない（2 枚が右端で切れた）
+  // 描くものだけを書く（禁止の語を書くと生成がその記号を描きがち・2026-11-11）。置き場所は数字で書く（割合では端まで広げた）
+  ...(type ? [`表紙の型は「${type.label}」。${type.cover.visual}。${paperText(design) && ['before-after', 'one-question'].includes(type.id) ? `紙には『${paperText(design)}』とだけ書き、紙の上はその文字のほかは白い紙のまま。` : ''}${TEXT_BOX}見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。`] : []),
+  `先生を大きく（腰から上、顔が画面の幅の2割以上）描く。${gesture ? `仕草は「${gesture.label}」: ${gesture.pose}。` : ''}${design.pose}`, TEACHER, BANS,
 ].join(' ');
 const bodyPrompt = (beat, index, label, palette) => [
   `添付は意匠の参照のみ（構図と文字はまねない）。新規の縦長学習画面。${FRAME}`,
   pop(palette), `図を画面の主役にする。${BODY_FRAME} 白いカードの箇条書きにしない。人物なし。`,
-  `一番上に資格名の小さなラベル『${label}』。大きな番号『${index + 1}』と見出し『${beat.heading}』。`,
-  `図: ${beat.diagram}`, BANS,
+  // 番号が見出しに続いて読めた（『1』『月だけの工期』→「1月だけ」・2026-11-11）。番号は丸で囲んで見出しと離す
+  `一番上に資格名の小さなラベル『${label}』。見出しの左上に、丸で囲んだ小さな番号『${index + 1}』を見出しと離して置き、その下に見出し『${beat.heading}』。`,
+  // 図に書いていない部品（動画プレーヤーのボタンなど）を足した（2026-11-12）。描くものを図の指示だけに絞る
+  `図: ${beat.diagram} 画面に描くのは、この図の指示にあるものと見出し・ラベルだけ。`, BANS,
+].join(' ');
+// 文字の置き場所（1080×1920 の座標）。見出しは横 110〜970px の枠に中央揃えで入れ、入らなければ字を小さくする
+const TEXT_BOX = '見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。';
+/** 表紙の紙に書く悪い例・問題文。見出しの『』か、冒頭の「」『』から取る */
+export function paperText(design) {
+  // 台本に紙の文字（coverPaper）があればそれ。無ければ見出しの『』か冒頭の「」『』から取る
+  if (String(design.coverPaper ?? '').trim()) return String(design.coverPaper).trim();
+  const headline = (design.headline ?? []).join('');
+  return headline.match(/『([^』]+)』/u)?.[1] ?? String(design.hook ?? '').match(/[「『]([^」』]+)[」』]/u)?.[1] ?? null;
+}
+/** 締めの画面の文字。型のあるショートは締めの語りに合わせる（「残りの直し方は本編で。」→『残りの直し方は』『本編で』・2026-11-11） */
+export function ctaLines(cta) {
+  const topic = String(cta ?? '').replace(/[。．]$/u, '').replace(/は?本編で$/u, '').trim();
+  return topic ? [`${topic}は`, '本編で'] : ['本編で'];
+}
+const typedCtaPrompt = (label, palette, cta) => [
+  `添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。${FRAME}`,
+  // 何が分かるか（語りの前半）は字幕で出る。画面の大きな文字は語りの結び『本編で』だけにする（長い行が端まで広がって 4 本が落ちた・2026-11-12）
+  pop(palette), `大きく『本編で』、その下に小さく『関連動画から』と下向きの矢印。${TEXT_BOX}先生が大きく腰から上で、手のひらで矢印を示す。先生の胴体は画面の下端まで途切れず続け、途中で水平に切って下に背景を見せない。`,
+  TEACHER, `資格名『${label}』は書かない。下端に無地帯を作らない。`, BANS,
 ].join(' ');
 const ctaPrompt = (label, palette) => [
   `添付は全面POPの意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts締め画面。${FRAME}`,
@@ -140,13 +238,21 @@ export function assertInSlot(root, pack, key) {
   if (errors.length) throw new Error(errors.join(' / '));
 }
 
+// 型のあるショート（2026-11-11 以降）は、型の表紙の図と語りに合わせた締めの文字が画像に入るので入力に型を足す。型の無い既存のショートの入力は変えない
+// 仕草（gesture）を持つショートは ✕ と肩書きの帯をやめた表紙（2026-11-11）。入力を変えて作り直させる
+const coverInput = (spec, design) => inputOf(design.gesture ? [spec.headline, design.hook, design.pose, design.type, design.gesture, 'cover-no-badge', ...(design.coverPaper ? [design.coverPaper] : [])] : design.type ? [spec.headline, design.hook, design.pose, design.type] : [spec.headline, design.hook, design.pose]);
+const gestureOf = (root, design) => (design.gesture ? readDataset(root, 'config.youtube-shorts-formats').gestures?.find((g) => g.id === design.gesture) ?? null : null);
+const ctaInput = (cta, design) => inputOf(design.type ? [cta, 'cta-honpen'] : [cta]);
+const typeOf = (root, design) => (design.type ? readDataset(root, 'config.youtube-shorts-formats').types.find((t) => t.id === design.type) ?? null : null);
+
 /** 作業の計画を作る。入力が同じ項目は生成済みの画像と判定を引き継ぐ。 */
 export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   if (!/^\d{8}$/.test(date ?? '')) throw new Error('date は YYYYMMDD');
-  const { exam, design, scene, spec, cta } = packContext(root, pack, key);
+  const { exam, design, scene, spec, cta, board } = packContext(root, pack, key);
   if (usesDiagramLed(exam, root)) throw new Error(`${exam}: POP のショート工程の対象外（diagram-led の手順を使う）`);
   const palette = examPalette(exam, root);
-  const problems = designProblems(design, scene);
+  // 型が入る前（2026-11-11 より前）に台本の監査を通したショートは、型を求めずに作り直せる
+  const problems = designProblems(design, scene, design.type || !design.qa ? designContext(root, pack, board, key) : null);
   if (problems.length) throw new Error(`${key}: ${problems.join('・')}`);
   if (design.qa?.verdict !== 'pass' || design.qa.digest !== designDigest(design)) throw new Error(`${key}: 今の台本の監査 pass が無い。record-script-qa を先に行う`);
   assertInSlot(root, pack, key);
@@ -157,9 +263,9 @@ export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   const people = [refs(root, CHARACTER), ...(spec.approvedImage?.path && existsSync(join(root, spec.approvedImage.path)) ? [refs(root, spec.approvedImage.path)] : [])];
   const base = { attempts: 0, raw: null, audit: null };
   const items = [
-    keep({ ...base, id: 'cover', kind: 'cover', narration: design.hook, inputSha256: inputOf([spec.headline, design.hook, design.pose]), basePrompt: coverPrompt(design, spec, label, palette), references: people }),
+    keep({ ...base, id: 'cover', kind: 'cover', narration: design.hook, inputSha256: coverInput(spec, design), basePrompt: coverPrompt(design, spec, label, palette, typeOf(root, design), gestureOf(root, design)), references: people }),
     ...design.beats.map((beat, i) => keep({ ...base, id: `scene-${String(i + 1).padStart(3, '0')}`, kind: 'body', narration: beat.narration, inputSha256: inputOf([beat.narration, beat.heading, beat.diagram]), basePrompt: bodyPrompt(beat, i, label, palette), references: [refs(root, CHARACTER)] })),
-    keep({ ...base, id: 'cta', kind: 'cta', narration: cta, inputSha256: inputOf([cta]), basePrompt: ctaPrompt(label, palette), references: people }),
+    keep({ ...base, id: 'cta', kind: 'cta', narration: cta, inputSha256: ctaInput(cta, design), basePrompt: design.type ? typedCtaPrompt(label, palette, cta) : ctaPrompt(label, palette), references: people }),
   ];
   const plan = { schemaVersion: 1, pack, key, revision: `shorts-pop-${key}-${date}`, items };
   writeJson(root, shortsPlanPath(pack, key), plan);
@@ -228,9 +334,9 @@ export async function adoptShort(root, pack, key, { now }) {
 function buildShortPlanInputs(root, pack, key) {
   const { design, spec, cta } = packContext(root, pack, key);
   return new Map([
-    ['cover', inputOf([spec.headline, design.hook, design.pose])],
+    ['cover', coverInput(spec, design)],
     ...design.beats.map((b, i) => [`scene-${String(i + 1).padStart(3, '0')}`, inputOf([b.narration, b.heading, b.diagram])]),
-    ['cta', inputOf([cta])],
+    ['cta', ctaInput(cta, design)],
   ]);
 }
 
@@ -307,6 +413,9 @@ export async function renderShort(root, pack, key, { refs = fileRef, log = () =>
   }, null, 2)}\n`);
   item.sha256 = videoSha;
   item.thumbnailSha256 = thumbnailSha;
+  // CI へ渡す private R2 の置き場（stage-youtube が使う・check-youtube-shorts が形を見る）。描画の段で決める（2026-11-12・型の台帳のショートに無く CI が赤だった）
+  item.r2Key = `video/render/${pack.split('/')[1]}/shorts/${key}/shorts.mp4`;
+  item.thumbnailR2Key = `video/render/${pack.split('/')[1]}/shorts/${key}/thumbnail.png`;
   writeJson(root, `${dir}/youtube.json`, youtube);
   revision.render = { videoSha256: videoSha, durationSeconds, speaker: SPEAKER, sceneCount: segments.length };
   delete revision.screenReview; // 動画が変わったら画面確認・音声の検査・在庫はやり直す

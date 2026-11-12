@@ -19,7 +19,48 @@
     "r2Key": "video/render/pe-tunnel-shutsudai-yomikata/video.mp4",
     "thumbnailR2Key": "video/render/pe-tunnel-shutsudai-yomikata/img/00-cover.png",
     "sha256": "6f839216bb92452599e5f64a29efa106ccfcda2ee56d977bb5ef4369692fc65b",
-    "thumbnailSha256": "e3384364442624084a52e37395b21581fdea1faf5474ef9b797a1ccb5e87e955"
+    "thumbnailSha256": "e3384364442624084a52e37395b21581fdea1faf5474ef9b797a1ccb5e87e955",
+    "publishAt": "2026-11-13T03:15:00Z"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-themename-1",
+      "sceneId": "myth",
+      "title": "技術士 建設部門｜トンネルはテーマ名より条件を読む #Shorts",
+      "description": "トンネルの出題、テーマ名を覚えれば書けると思っていませんか。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 建設部門2次｜トンネル 模範解答集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m5da4b560d8be?utm_source=youtube&utm_medium=video&utm_campaign=pe-tunnel-shutsudai-yomikata&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#技術士建設部門 #技術士 #Shorts",
+      "tags": [
+        "技術士（建設部門）",
+        "技術士 建設部門",
+        "勉強法",
+        "出題傾向",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "sha256": "8f5e86a621dfa6c66c673b4268e659b8a94aed20e06e84fd2523396da238876d",
+      "thumbnailSha256": "d4c120f912f7bb575cc2c278fc15a1036ae27845de7aa1c312a1917994af1651",
+      "r2Key": "video/render/pe-tunnel-shutsudai-yomikata/shorts/point-themename-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-tunnel-shutsudai-yomikata/shorts/point-themename-1/thumbnail.png"
+    },
+    {
+      "key": "point-jogai-2",
+      "sceneId": "ii1cond",
+      "title": "技術士 建設部門｜トンネル開削底面で書かない用語 #Shorts",
+      "description": "開削底面の安定の問題、書かない用語はどれでしょう？詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 建設部門2次｜トンネル 模範解答集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m5da4b560d8be?utm_source=youtube&utm_medium=video&utm_campaign=pe-tunnel-shutsudai-yomikata&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#技術士建設部門 #技術士 #Shorts",
+      "tags": [
+        "技術士（建設部門）",
+        "技術士 建設部門",
+        "勉強法",
+        "出題傾向",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "sha256": "b0ecbb1378870b2eac0cbd0b0ba2bb8da26c4a752b1830570cc4139653166d75",
+      "thumbnailSha256": "5dff0f3d2c1a28857537ea7634c00904a16560261ff98cd2ca01a530c5327001",
+      "r2Key": "video/render/pe-tunnel-shutsudai-yomikata/shorts/point-jogai-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-tunnel-shutsudai-yomikata/shorts/point-jogai-2/thumbnail.png",
+      "publishAt": "2026-11-13T22:30:00Z"
+    }
+  ]
 }

@@ -76,7 +76,7 @@
       "format": "longform",
       "variant": "diagram-led",
       "revisionOf": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform",
-      "status": "qa_passed",
+      "status": "stopped",
       "copy": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.revision-diagram-led.json",
       "media": {
         "cover": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-cover",
@@ -94,14 +94,15 @@
         "scene-011": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-011",
         "subtitles": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-subtitles",
         "video": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-video"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-2/c2-juken-junjo-2027/youtube.longform",
       "work": "c2-juken-junjo-2027",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "qa_passed",
       "media": {
         "cover": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/cover",
         "scene-001": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-001",
@@ -121,20 +122,7 @@
         "subtitles": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-2/c2-juken-junjo-2027/youtube.json#longform",
-      "publishAt": "2027-01-12T11:30:00Z",
-      "review": {
-        "visual": {
-          "status": "approved",
-          "by": "policy",
-          "at": "2026-11-10T12:46:39.894Z",
-          "digest": "1ff03871e685c711f9826bc5b0637e5ee08abf92f517b39cb0d49938eac734fc"
-        }
-      },
-      "approval": {
-        "by": "policy",
-        "at": "2026-11-10T12:46:39.894Z",
-        "contentSha256": "beab9016472427402f7e0ecf55fc0a14831b2d113a7fcdb58a30a30062f5aab3"
-      }
+      "publishAt": "2027-01-12T11:30:00Z"
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
@@ -198,7 +186,7 @@
       "format": "longform",
       "variant": "diagram-led",
       "revisionOf": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
-      "status": "qa_passed",
+      "status": "stopped",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.revision-diagram-led.json",
       "media": {
         "cover": "civil-construction-2/gakka-2kyu-doko/work/candidate-cover",
@@ -214,7 +202,8 @@
         "scene-009": "civil-construction-2/gakka-2kyu-doko/work/candidate-scene-009",
         "subtitles": "civil-construction-2/gakka-2kyu-doko/work/candidate-subtitles",
         "video": "civil-construction-2/gakka-2kyu-doko/work/candidate-video"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
@@ -408,7 +397,7 @@
       "format": "longform",
       "variant": "diagram-led",
       "revisionOf": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform",
-      "status": "qa_passed",
+      "status": "stopped",
       "copy": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/youtube.revision-diagram-led.json",
       "media": {
         "cover": "civil-construction-2/hinshitsu-touan-gutaika/work/candidate-cover",
@@ -428,7 +417,8 @@
         "scene-013": "civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-013",
         "subtitles": "civil-construction-2/hinshitsu-touan-gutaika/work/candidate-subtitles",
         "video": "civil-construction-2/hinshitsu-touan-gutaika/work/candidate-video"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-2/keiken-anzen-kakikata/youtube.longform",
@@ -497,13 +487,13 @@
       "platform": {
         "id": "oC4x6TOAoa8",
         "url": "https://www.youtube.com/watch?v=oC4x6TOAoa8",
-        "privacy": "private",
+        "privacy": "gone",
         "evidence": {
           "kind": "youtube-studio",
           "ref": "https://studio.youtube.com/video/oC4x6TOAoa8/edit — 予約完了画面で 2026-10-25T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/keiken-daizai-erabi/youtube-scheduled.png"
         }
       },
-      "status": "uploaded_private",
+      "status": "stopped",
       "times": {
         "rendered": "2026-10-15T22:53:18.035Z",
         "uploaded": "2026-10-15T22:59:23.712Z",
@@ -523,7 +513,8 @@
         "by": "user",
         "at": "2026-10-31T04:32:26.729Z",
         "contentSha256": "f0321af646c0a9dbccea27b3445493d7b3c643413c95f1381fe97dd05633f17a"
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-2/keiken-daizai-erabi/youtube.longform.diagram-led",

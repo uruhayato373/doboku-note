@@ -5,7 +5,7 @@ title: スキル ナビゲーションガイド
 # スキル ナビゲーションガイド
 
 アクティブなスキルを **用途別** に素早く探すための早引き。  
-設計原則・退役ログ → `skills-registry.md` / 作成手順 → `skills-design-guide.md`
+作成手順 → `skills-design-guide.md`。下の「カテゴリ別クイックリファレンス」は `npm run build-capability-index` の生成物（手で直さない。変更の経緯は git の履歴）
 
 SKILL.md の frontmatter description は毎セッションの一覧に常駐するため、1 文＋Use when（目安 120 字）に絞る（DN-0933）。担当外・安全弁の詳細は本文に置く。
 
@@ -17,156 +17,158 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 ## カテゴリ別クイックリファレンス
 
+<!-- generated:skills:start（npm run build-capability-index が書く。手で直さない） -->
+スキル 99 本（`.claude/skills/*/SKILL.md` の frontmatter から生成）。
+
 ### コンテンツ制作（authoring）
 
-| スキル | 一言説明 | 呼ぶとき |
+| スキル | 領域 | 説明 |
 |---|---|---|
-| `/keyword-page` | 総合技術監理キーワードページ作成・校正 | `キーワード作成`, `ページ更新`, `/keyword-page` |
-| `/create-svg` | MDX 記事用 SVG 図版作成。**`figure-*.svg`（記事+SNS両用）は固定キャンバス必須**（feed 4:5 `400×500`／`--wide` 16:9 `640×360`・概念名タイトル禁止。真実源 figure-canvas-policy.md、ガード `npm run check-figure-canvas`、再レイアウトは `svg-canvas-fitter`）。一括目視 QA は `npm run svg-gallery`（site/note タブ＋資格別フィルタ・audit 重大度＋canvas 適合バッジ） | `図版を作りたい`, `SVG 作成`, `/create-svg` |
-| `/illustrate-concept` | Web 画像検索→SVG 一括生成→MDX 挿入 | `コンセプト図`, `イラスト挿入`, `/illustrate-concept` |
-| `/improve-article` | 単一記事の対話的改善（PDF 照合 QA も可） | `記事を改善`, `校正して`, `/improve-article` |
-| `/notebooklm-research` | NotebookLM で総監キーワードを深掘り調査 | `NotebookLM調査`, `引用付き根拠強化`, `/notebooklm-research` |
-| `/visual-research` | NotebookLM×参照URL → SVG 概念図生成 | `概念図をSVGで`, `URL直接渡す図版`, `/visual-research` |
-| `/civil-keiken-magazine` | 1級・2級土木 施工経験記述 note有料マガジンのフル模範答案を生成・採点（Generator→Evaluator、過去問年度別/テーマ別/予想の3種） | `施工経験記述マガジン`, `模範答案を作成`, `予想問題集を作る`, `/civil-keiken-magazine` |
-| `/pe-secondary-yosou` | 技術士建設部門2次 選択科目の R8予想を1科目分まるごと公開可能品質まで仕上げる統括（生成→**外部事実照合**→6軸採点→梱包→SoT→commit）。**予想はテーマ別の独立記事（テーマ網羅型・1記事1ディレクトリ）**で作る（年度ミラー/区分1ファイルでなく）。記事内は h2 ブロック構成（予想問題→なぜ出るか→論述の骨子→フル模範解答→採点ポイント）。過去問は区分1ファイル据え置き。**クラウド実行前提**（factcheck は WebSearch 必須） | `建設部門の予想問題を仕上げて`, `BK-0Xの予想`, `{科目}の予想問題集`, `/pe-secondary-yosou` |
-| `pe-secondary-exam-writer` エージェント | 技術士建設部門 2次試験 note有料マガジン用 模範解答を生成（全11専門分野・科目種別I/II-1/II-2/III。元公務員発注者視点注入、合格3科目=合格者訴求・残8科目=発注者監修訴求。過去問＋forecast予想モード） | `建設部門note模範解答`, `技術士2次マガジン`, `pe-secondary-exam-writer` |
-| `pe-secondary-exam-factcheck` エージェント | 建設部門2次 模範解答の技術的事実を WebSearch で外部一次情報に照合（合格科目外の専門ハルシネーション捕捉。QA=構造／note-fact-checker=内部 を補完） | `予想の事実確認`, `技術的事実の照合`, `pe-secondary-exam-factcheck` |
-| `cem-essay-writer` / `cem-essay-qa` エージェント | 技術士総監 記述式 note有料マガジンの模範論文/模範解答を生成・採点（4タイプ＝persona模範論文〔R03-R07＋R8予想2記事〕/R8予想問題集/設問3国家施策バンク/5管理クロストレードオフ。各施策600字・5軸採点。ランブック＝`note-essay-review-checklist.md`。**サイトの r0X-essay は `/pe-essay-draft` で別物**） | `総監note模範論文`, `総監記述式マガジン`, `cem-essay-writer` |
+| `/cce-essay-cycle` | product | コンクリート主任技士 小論文の出題履歴・傾向記事・令和形式の模範答案・PDF/ココナラ展開を、history / draft / product の各工程へ振り分ける統括。Use when user asks to [主任技士 小論文, 小論文テーマ別答案, 新年度追記, /cce-essay-cycle]. |
+| `/civil-keiken-magazine` | product | 1級・2級土木 施工経験記述の note 有料マガジン用フル模範答案を writer→qa で生成・採点する（年度別・テーマ別・予想問題）。Use when user asks to [施工経験記述マガジン, 模範答案を作成, /civil-keiken-magazine]. |
+| `/create-svg` | site | MDX記事に埋め込むSVG図版を作成する。モバイル視認性を最優先にした デザイントークン・レイアウトパターン・viewBox制約を適用。 Use when user asks to [SVGを作成, 図を作成, フロー図を作成, /create-svg]. |
+| `/illustrate-concept` | site | MDX 記事の概念図を、Web 画像検索で素材の有無を先に調べ、合意を得た概念だけ複数 SVG で一括生成する。Use when user asks to [概念図の検討, 図の着想, SVGの素案作成, /illustrate-concept]. |
+| `/improve-article` | site | 単一記事を QA の5軸評価→修正方針の提示と承認→修正→再評価で合格ラインまで回すオーケストレータ（--mode verify で PDF 照合 QA）。Use when user asks to [品質を高めて, 記事を改善, QA通して直して, PDF検証, /improve-article]. |
+| `/keyword-page` | site | 総合技術監理キーワードページの作成・校正。既存の空ページを試験対策コンテンツとして仕上げる。 Use when user asks to [キーワードページ作成, キーワード記事, keyword page, /keyword-page]. |
+| `/notebooklm-research` | material | NotebookLM CLI の横断クエリで総監キーワードページを引用根拠つきに深掘りしてリライトする。Use when user asks to [NotebookLMで調べて, 深掘り調査, 引用根拠でリライト, /notebooklm-research]. |
+| `/pe-essay-cycle` | product | 技術士総合技術監理部門 記述式（模範論文・記述式ページ・note 有料記事・年度予想）の作成→添削→修正→企画→公開を各スキルへ振り分ける統括。Use when user asks to [総監記述式の作業, 模範論文を作りたい, 模範論文の添削, 記述式の予想問題, /pe-essay-cycle]. |
+| `/pe-essay-draft` | product | 技術士総監 記述式の模範論文を年度・属性・設問からドラフトする（--mode revise で添削レポートを反映）。Use when user asks to [模範論文を作成, 記述式答案を書く, /pe-essay-draft]. |
+| `/pe-secondary-yosou` | product | 技術士第二次試験 建設部門 選択科目の予想問題＋フル模範解答を1科目分、生成→事実照合→構造採点→梱包→登録→commit まで仕上げる統括。Use when user asks to [建設部門の予想問題を仕上げて, {科目}の予想問題集, /pe-secondary-yosou]. |
+| `/visual-research` | material | NotebookLM と参照URL（--ref）から概念構造と視覚パターンを得て、SVG 概念図を生成し MDX に挿入する。Use when user asks to [参照URL から SVG, NotebookLM で図を作成, 概念図を深掘り生成, /visual-research]. |
 
 ### 変換（conversion）
 
-動画のシナリオ・台本と内容QAは Claude Code の `video-script-writer` / `video-content-qa`、新規画像の生成は Codex ImageGen が担当する。台本のあとの量産は [video-factory.md](./video-factory.md)。動画表紙の `/create-pop-image` は通常動画・Shortsの承認見本と内容別ポーズを参照し、Drive原本＋SHAで復元する。今後予約する通常動画は技術士第一次試験「全体像」のPOP表紙＋シンプルな全場面図解を標準とし、`storyboard.imageDesign` で採用版を固定し、SHA付きの `scene-sheet` で表紙を含む全場面を確認する。2級土木の本文は `diagram-led` の控えめな図解と全面採用を優先し、装飾の先生・著者名は置かない。Shortsは全面背景と文字・顔のUI安全域を分け、全場面の字幕入りフレームを確認する。画像QAは既存の `ai-image-fidelity-auditor` / `yt-shorts-publisher-qa`、全場面差し替え版の復元は `youtube-shorts:restore` を使う。
-
-| スキル | 一言説明 | 呼ぶとき |
+| スキル | 領域 | 説明 |
 |---|---|---|
-| `/pdf-to-mdx` | PDF/画像 → MDX 変換（試験別テンプレート）。`--scanned` でテキスト層なしスキャン書籍を機械 OCR（`book_ocr_machine.py`。Claude は本文を書き写さない）→ 内部リファレンス .md ＋図クロップ | `PDF変換`, `MDX化`, `スキャン教材の文字起こし`, `書籍OCR`, `/pdf-to-mdx --exam {cem\|civil-construction-1\|general}`, `/pdf-to-mdx --scanned` |
-| `/exam-questions-import` | 過去問集 PDF → MDX（解答追加も可） | `過去問取込`, `/exam-questions-import --exam {civil-primary\|civil-secondary\|pe-primary\|pe-first-stage}` |
-| `/past-exam-archive` | 公式過去問の原本 PDF を年度在庫台帳に沿って公式から取得 → Drive `原資料PDF/過去問/` へ退避 → 全バイト照合 → 台帳登録（会社PCは Playwright＋Drive MCP・`drive-browser-transfer`）。新年度・新資格の在庫追加も | `過去問の取得`, `過去問PDFの保存`, `新年度の過去問`, `/past-exam-archive` |
-| `/standards-table-rebuild` | 共通仕様書の章記事で版面のまま残った表を、原本のページ画像と照合して表に組み直す（台帳→ページ画像（Drive vault／無い PC は原本から render）→作業票→`standards-table-writer`→`standards-table-qa`→生成・検査）。原本の改訂・新文書の追加・表の断片の修正に | `表を組み直す`, `共通仕様書の表`, `原本照合で表を直す`, `/standards-table-rebuild` |
-| `/standards-visual-review` | 基準書（/standards）の章ページを読者の画面のまま撮り、原本のページ画像と見比べる目視判定を `standards-page-visual-auditor` に回して台帳へ記録し、不合格を文書ごとに起票（`npm run standards-visual-review` の prepare→判定→record --ticket）。週次の点検の `standards-visual-review:status` が赤のとき・生成器や表を直したあとに | `基準書の画面を確認`, `共通仕様書の目視`, `スクショで確認`, `/standards-visual-review` |
-| `/create-pop-image` | 承認済みPOP意匠でnote・SNS・ココナラ画像を制作し、原稿・プロンプト・原本を管理（Kindle の表紙は `npm run kindle-pop-cover`） | `POP画像`, `この感じで画像を作る`, `/create-pop-image` |
-| `/ogp-create` | サイト OGP（mono-tag・全幅＋資格別テーマ色外枠）生成。note記事・マガジンカバーは本スキル外のV5文字優先POP（`generate-note-covers.mjs` / `generate-magazine-covers.mjs`・SSOT `.claude/knowledge/design-system/note-cover-character-v5.md`）で、本スキルはフォントだけを共有する。全件確認用はDrive group `note-cover-pop-preview`。デザインSSOTは`.claude/knowledge/reference/ogp-prompts.md`（OGP）、一括目視QAは`npm run ogp-gallery` / `npm run note-cover-gallery` | `OGP画像`, `noteカバー`, `/ogp-create` |
-| `/ogp-design-explore` | OGP 意匠の**新方向を aidesigner / Canva の MCP で素案として試作**し、採用案を `/ogp-create` の satori テンプレに落として量産につなぐ。試作専用（量産・per-article 生成は `/ogp-create`）。MCP は外部クレジット消費 | `OGPデザイン検討`, `OGP素案`, `OGPリデザイン試作`, `/ogp-design-explore` |
-| `/magazine-to-pdf` | note マガジンの article.md →「問題文＋解答」中心の紙用 PDF（spec 駆動・A/B案両収録） | `マガジンをPDF`, `記事を紙で`, `模範論文PDF`, `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` |
-| `/kindle-build` | Kindle(KDP)入稿用 EPUB を書籍IDから生成→epubcheck＋check-kindle-format→`kindle-book-qa` 5軸監査まで一気通貫。択一系（A=1級土木論点別 / B=総監・D=技術士一次・E=2級土木 は build-pe1-kindle）と記述式 essay 系（C=建設二次模範解答・F=総監記述式 は build-essay-kindle）に対応。構成未定義は `kindle-book-composer` へ委譲。非公開原稿は `content/kindle/`、全書籍の状態は catalog.json、配布物は kindle-dist/（実体は private R2・git 追跡しない） | `Kindle本を作って`, `EPUBを生成`, `KDP入稿ファイル`, `essay模範解答本`, `/kindle-build {A-01\|E-01\|c-01}` |
-| `/kdp-publish` | ビルド済み EPUB＋表紙を Amazon KDP へ入稿し下書き保存→（承認後）出版する Playwright パブリッシャ（`scripts/kdp-publish.mjs`・永続プロファイルでログイン保存）。詳細→カテゴリー→原稿/表紙アップロード→原稿処理完了待ち→AI申告→アクセシビリティ→価格→出版。重複突合(`--sync-status`)・メタ生成・提出後の catalog/戦略doc/README 記録は `kdp-operator` へ委譲。真実源 config/kdp-memo.json（defaults）。/kindle-build の後工程 | `KDP出版`, `KDP提出`, `kindleを出版`, `KDPドラフト削除`, `/kdp-publish {id}`（`--commit-publish` で出版） |
+| `/exam-questions-import` | site | 過去問集 PDF を MDX に変換する（--exam で試験別テンプレ。問題番号・選択肢・解説・正解の構造化）。Use when user asks to [過去問インポート, 問題集変換, 過去問取込, /exam-questions-import]. |
+| `/kdp-publish` | product | ビルド済み Kindle 本（EPUB＋表紙）を Amazon KDP へ入稿して下書き保存し、承認後に出版する（kdp-operator が本棚突合と catalog 更新）。Use when user asks to [KDP出版, KDP提出, KDP公開, KDP状態同期, /kdp-publish]. |
+| `/kindle-build` | product | Kindle(KDP) 入稿用 EPUB を書籍IDから生成し、epubcheck と kindle-book-qa で検証する（表紙・KDP 入稿は対象外）。Use when user asks to [Kindle本を作って, EPUBを生成, KDP入稿ファイル, /kindle-build]. |
+| `/magazine-to-pdf` | product | note マガジンの article.md を「問題文＋解答」中心の A4 PDF に変換する（note 専用 CTA 等は除外）。Use when user asks to [マガジンをPDF, 模範論文PDF, 解答をPDF, /magazine-to-pdf]. |
+| `/ogp-create` | site | doboku-note サイト OGP 画像（1200×630 PNG）を共通テンプレ T06 で生成する。Use when user asks to [OGP作成, OGP生成, サムネ作成, /ogp-create]. |
+| `/ogp-design-explore` | site | OGP 画像の新しいデザイン方向を aidesigner / Canva MCP で試作する意匠の試作専用スキル（量産は /ogp-create・クレジット消費のため都度判断）。Use when user asks to [OGPデザイン検討, OGP意匠の素案, /ogp-design-explore]. |
+| `/past-exam-archive` | material | 公式過去問の原本 PDF を年度在庫台帳に沿って取得し、Drive vault へ退避・全バイト照合・登録する。Use when user asks to [過去問の取得, 過去問PDFの保存, 新年度の過去問, /past-exam-archive]. |
+| `/pdf-to-mdx` | material | PDF / 画像から MDX を生成する統合変換（--exam で試験別テンプレ、--scanned でスキャン書籍の機械 OCR）。Use when user asks to [PDFをMDXに, PDF変換, 過去問取込, 書籍OCR, /pdf-to-mdx]. |
+| `/standards-table-rebuild` | site | 共通仕様書の章記事で版面のまま残った表を、原本ページ画像と照合して表の JSON に組み直す（writer で組み直し→qa で承認）。Use when user asks to [表を組み直す, 共通仕様書の表, 原本照合で表を直す, /standards-table-rebuild]. |
 
 ### 品質管理（quality）
 
-| スキル | 一言説明 | 呼ぶとき |
+| スキル | 領域 | 説明 |
 |---|---|---|
-| `/check-mdx` | MDX 品質検査の統合 Evaluator（10 ルール） | `MDX検査`, `lint`, `構文チェック`, `/check-mdx --rules <rule>` |
-| `/quality-cycle` | 品質サイクル（スコア→リライト→検証→レビュー） | `品質サイクル`, `cem品質上げ`, `/quality-cycle --profile {cem\|civil-textbook}` |
-| `/exam-backlinks` | 過去問⇔キーワード紐付け確認・再生成 | `バックリンク確認`, `/exam-backlinks` |
-| `/audit-pe-first-stage`（`quality/pe-first-stage-audit`） | 技術士第一次試験の全 21 ページの原典視覚突合・正答照合・構造検査。監査記録は `.claude/state/pe-first-stage-audit/` | `pe-first-stage監査`, `技術士第一次試験QA`, `/audit-pe-first-stage` |
-| `/audit-exam-mapping` | 過去問⇔キーワード紐づけマップの精度監査 | `紐づけ監査`, `/audit-exam-mapping` |
-| `/build-exam-notebook` | 過去問 MDX を NotebookLM notebook に投入 | `NotebookLM投入`, `/build-exam-notebook` |
-| `/verify-exam-coverage` | キーワードが過去問論点をカバーしているか検証 | `論点カバレッジ確認`, `/verify-exam-coverage` |
-| `/review-mobile` | モバイル視認性・可読性レビュー | `モバイルチェック`, `スマホで見て`, `/review-mobile` |
-| `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `重複スラグ統合`, `/consolidate-duplicate-keyword` |
-| `/note-prepublish-review` | note 公開前の統合品質ゲート | `note公開前チェック`, `公開準備`, `/note-prepublish-review` |
-| `/check-seo-meta` | out/ の正規 URL（sitemap + 公開記事 + 静的ルート）の title/description/self canonical/self og:url/robots/JSON-LD/SSR を検査。旧 `/docs/` は転送対応表から正規 URL へ解決（seo-checks 共有・母集合ガード） | `SEOメタ検査`, `OGP確認`, `/check-seo-meta` |
-| `/pe-essay-cycle` | 総監記述式の統括（draft/review/revise/plan/publish/page へルーティング）。`forecast` モードで年度ごとの予想（テーマ予測 3 軸スコア → 予想問題 → 固定 3 ペルソナ模範解答）を回す。手順は `references/forecast-flow.md` | `総監記述式の作業`, `記述式の予想問題`, `R9 予想`, `/pe-essay-cycle forecast --year R9` |
-| `/cce-essay-cycle` | コンクリート主任技士 小論文の統括（history＝新年度の出題を SSOT へ追記して出題履歴ブロックを再生成／draft＝cce-essay-writer→qa でテーマ別・立場別の模範答案／product＝PDF・ココナラ・配線） | `主任技士 小論文`, `小論文テーマ別答案`, `/cce-essay-cycle --mode history` |
-| `/pe-essay-review` | 総監記述式模範論文を 3 視点で採点（**サイト** r0X-essay ページ。note 有料マガジンは `cem-essay-qa`） | `記述式採点`, `模範論文レビュー`, `/pe-essay-review` |
-| `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
-| `/keiken-tensaku` | 経験記述の顧客対応ドラフト生成（`civil-keiken-tensaku-drafter`）→ 返信文を `civil-keiken-tensaku-qa`＋`check-tensaku-reply` で PASS まで検証。①添削（既定・提出原稿→赤入れ）②骨子（`--mode kosshi`・ココナラ S3 指導・ヒアリング→骨子シート・答案の文章なし・`check-kosshi-sheet`）③診断（`--mode shindan`・ココナラ S1・A/B/C＋ワースト3・書き換え文なし）。捏造禁止（回答にない事実を作らない） | `経験記述を添削`, `添削下書きを作成`, `骨子シートを作成`, `ヒアリングから骨子`, `経験記述を診断`, `/keiken-tensaku` |
-| `/coconala-publish` | ココナラ出品サービスを Playwright で新規出品・内容修正・価格反映・**棚の出し入れ（受付休止/再開/アーカイブ）**（`coconala-operator`。カタログ（正本 `config/products.json`・生成物 `coconala-services.ts`）＋listings SoT→フォーム充填。既存出品の編集は FAQ・有料オプションも反映し、入力警告時は更新中止。account assert＋draft-first＋`--commit` gate。公開成功でカタログ書き戻し。休止系は `coconala-pause`＝`pauseReason` で恒久廃止と長期不在を区別・対象選択は `coconala-guards` でテスト固定） | `ココナラに出品`, `ココナラ出品を修正`, `ココナラ価格反映`, `ココナラを休止`, `出品を再開`, `/coconala-publish` |
-| `/coconala-order` | ココナラ受注1件のE2E（`coconala-operator`。土木はシート検証→`/keiken-tensaku`、PDF 商品は部門確認と特典同梱、技術士口頭 想定質問は運用テンプレ→納品文面ドラフト→orders.json 追記。最終赤入れ・送信は運営者） | `ココナラで受注した`, `ココナラの納品文面`, `/coconala-order` |
-| `/coconala-status` | ココナラ 受注実体（土曜の Mac 収集が取得した snapshot）の読み取り＋orders.json 突合（`check-coconala-orders`＝記録漏れ・金額ズレ・返信期限・納品滞留）＋KPI 週次記録（`/coconala-analytics`）＋カタログ↔state↔sales 照合＋撤退ライン判定（read-only・是正はしない） | `ココナラの状態を確認`, `ココナラKPIを記録`, `/coconala-status` |
-| `/coconala-analytics` | ココナラ「サービス・ブログ分析」の記録（土曜の Mac 収集が Playwright で read-only 取得し `data/coconala/kpi.json` へ週次 upsert）を読んで報告（`check-coconala-analytics`）。セッションはログインせず、古ければ「未取得」。全体累計＋サービス別（listed 全件を URL 直打ち）＋ブログ別閲覧数。**数値は30日ローリング累計で週次増分ではない**・**`0000` はマスクで 0 ではない**（null 記録）・partial は exit 2。書き込みなし | `ココナラの数字を見る`, `ココナラ分析の記録を確認`, `閲覧数を確認`, `/coconala-analytics` |
-| `/coconala-blog` | ココナラブログ（記事型）の企画〜公開（`coconala-blog-writer`→`coconala-blog-qa`→`coconala-blog-publish`）。ココナラ内 SEO/回遊から自出品へ送客。**外部リンク禁止**・送客は `service:<id>` のサービスカード・draft-first＋`--commit` gate・公開後はログアウト状態でライブ実査（G6） | `ココナラブログを書く`, `ココナラブログを公開`, `ブログで送客`, `/coconala-blog` |
-| `/civil-figure-rework` | 1級土木 過去問1次の図クロップ品質ループ（extractor → auditor 最大3反復、1ページ単位 commit） | `過去問図再抽出`, `テキスト写り込み修正`, `/civil-figure-rework {exam-slug\|--all}` |
-| `/figure-recrop` | 既存の記事図クロップ（`content/site/**/img/`）を**タイト再クロップ**して写り込み（答え/本文/問題文）を除去。provenance の needs=recrop を対象・視覚で切り位置を決め `scripts/figure-recrop.mjs`（crop+webp+MDX+OCR）で機械適用。画質不足(ボケ)は対象外＝rescan。**大量処理（並列 workflow）モード**＝`figure-crop-worker`（Generator）を図ごとに spawn し親が最終目視QA→MDX/台帳を直列適用（png/webp両対応・2026-07-09 確立）。civil-figure-rework(問題PDF抽出)とは別 | `図の写り込みを除く`, `図を再クロップ`, `大量の図をまとめて再クロップ`, `/figure-recrop` |
-| `/figure-quality-loop` | 記事図クロップの品質ループ（1 周＝最大 8 枚）。`npm run figure-review-queue` が画素検査（EDGE_CUT/STRAY_*/LOW_RES）＋OCR の needs から判定待ちを作り、`figure-crop-worker` が並列で目視判定→写り込みの切り直し／縁で切れた図は元 PDF のページから切り出し直し→親が QA→判定台帳に画像のハッシュつきで記録（判定済みは二度と上がらない・差し替えると再判定）。`/loop /figure-quality-loop` で判定待ち 0 まで自走 | `図クロップの品質ループ`, `図の品質チェックと改善`, `切れた図を直す`, `/figure-quality-loop` |
-| `/audit-pe-first-stage` | 技術士第一次試験全21ページの正答照合・原典視覚突合・構造検査（3軸監査） | `pe-first-stage監査`, `技術士第一次試験QA`, `/audit-pe-first-stage [--year R07] [--sub aptitude]` |
+| `/audit-exam-mapping` | site | 総監の過去問⇄キーワード紐づけを exam-keyword-mapping-auditor で設問ごとに semantic 監査し、集約・段階反映する。Use when user asks to [過去問紐づけ監査, exam-keyword 精度向上, /audit-exam-mapping]. |
+| `/build-exam-notebook` | material | 総監の1次択一過去問 MDX を NotebookLM の専用 notebook に source として投入する（変換→作成→upload→検証）。Use when user asks to [過去問 notebook 構築, NotebookLM 過去問投入, /build-exam-notebook]. |
+| `/check-mdx` | site | MDX の構文・frontmatter・リンク・SVG・法令引用・関連キーワード・過去問解説等を10 rule で検査する（pre-commit でも使用）。Use when user asks to [MDX検査, lint MDX, 構文チェック, リンクチェック, /check-mdx]. |
+| `/check-seo-meta` | site | build 済み out/ の全正規 URL の title・description・canonical・og:url・robots・JSON-LD・SSR の欠落/不一致を検査する。Use when user asks to [SEO meta 監査, OGP 検証, /check-seo-meta]. |
+| `/civil-figure-rework` | site | 1級土木 過去問1次ページの図クロップを extractor→auditor のループで再生成する（1ページ単位で commit）。Use when user asks to [過去問図再抽出, 図クロップ改善, テキスト写り込み修正, /civil-figure-rework]. |
+| `/consolidate-duplicate-keyword` | site | 総監キーワード集で同一概念が複数スラグにあるものを、1ページへ統合する7フェーズの作業書。Use when user asks to [重複キーワード 統合, 統合手順, /consolidate-duplicate-keyword]. |
+| `/exam-backlinks` | site | 過去問⇔キーワードの紐付け状態の確認・再生成・品質改善（カバー率レポート・JSON再ビルド）。Use when user asks to [過去問 キーワード 紐付け, バックリンク確認, カバー率, /exam-backlinks]. |
+| `/figure-quality-loop` | site | 記事図クロップの品質を、機械検出→目視判定→再クロップ→再検査→台帳記録で1周回すループ（/loop 向け）。単発は /figure-recrop。Use when user asks to [図クロップの品質ループ, 切れた図を直す, /figure-quality-loop]. |
+| `/figure-recrop` | site | 記事に埋め込み済みの図画像を目視でタイト再クロップし、写り込んだ答え・本文テキストを除く（provenance の needs=recrop が対象）。Use when user asks to [図の写り込みを除く, 図を再クロップ, 答え漏らし図の是正, /figure-recrop]. |
+| `/keiken-charcount` | product | 1級・2級土木 施工経験記述マガジン模範答案の各設問を、解答欄の字数しきい値で機械チェックして OVER を出す。Use when user asks to [経験記述の字数確認, 解答欄に収まるか, 字数オーバー検出, /keiken-charcount]. |
+| `/keiken-tensaku` | product | 1級・2級土木 施工経験記述の顧客対応ドラフト（添削・骨子 --mode kosshi・診断 --mode shindan）を作り、返信文を QA で PASS させて運営者へ渡す。事実は捏造せず骨子・診断は文章を書き換えない。Use when user asks to [経験記述を添削, 骨子シートを作成, /keiken-tensaku]. |
+| `/note-prepublish-review` | product | note 公開用ドラフトを公開前に、inline 検査と3並列エージェント（link-injector / figure-auditor / fact-checker）で統合チェックする。Use when user asks to [note 公開前レビュー, /note-prepublish-review]. |
+| `/pe-essay-review` | product | 総監記述式の模範論文を、採点者・技術士OB・予備校講師の3視点で1〜10点評価し、致命的問題と修正提案を出す。Use when user asks to [模範論文レビュー, 論文評価, /pe-essay-review]. |
+| `/pe-first-stage-audit` | site | 技術士第一次試験 pe-first-stage 全21ページの原典突合・正答照合・構造検査を行い、監査記録を state に書く。Use when user asks to [pe-first-stage監査, 技術士第一次試験QA, /audit-pe-first-stage]. |
+| `/quality-cycle` | site | キーワードページ・教科書 MDX の品質サイクル（スコアリング→リライト→検証→人間レビュー）。--profile {cem\|civil-textbook} で切替。Use when user asks to [品質サイクル, スコアリング, リライト, /quality-cycle]. |
+| `/review-mobile` | site | MDXコンテンツのモバイル視認性・可読性をレビューする。表の不適切な使用、数式の可読性、解説の冗長さを検出し修正案を提示する。 Use when user asks to [モバイルレビュー, 表示確認, 可読性チェック, /review-mobile]. |
+| `/standards-visual-review` | site | 基準書（/standards）の章ページを撮影し、原本のページ画像と見比べる目視判定をエージェントに回して、台帳に記録し不合格を起票する。週次の点検で「判定待ち」が出たとき・章記事の生成器や表を直したあとに使う。 Use when user asks to [基準書の画面を確認, 共通仕様書の目視, スクショで確認, /standards-visual-review]. |
+| `/verify-exam-coverage` | site | キーワードページに対し、登場する全過去問の論点が解説で足りているかを検証し、未カバー論点を提示して承認後に補強する。Use when user asks to [過去問カバー確認, 解説として十分か, /verify-exam-coverage]. |
 
 ### SNS 運用（social）
 
-| スキル | 一言説明 | 呼ぶとき |
+| スキル | 領域 | 説明 |
 |---|---|---|
-| `/social-post` | note / X 投稿テキスト生成の統合スキル | `note投稿文`, `X投稿テキスト`, `/social-post --platform {note\|x}` |
-| `/pe-note-plan` | 技術士総監 記述式 note 有料記事・magazine の**編集ロードマップ**を提案する企画スキル（本文は書かない）。段階投下方針・magazine 在庫・価格・過去問カバレッジを突合し「次に何を・どの順で・いくらで出すか」を優先度付きで提示 | `noteの次の一手`, `magazine企画`, `記述式コンテンツの投下計画`, `/pe-note-plan [--horizon {next\|quarter}]` |
-| `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
-| `/ig-figure-pack` | サイトSVGを総監・1級土木・技術士建設部門・技術士一次の4枚図解カルーセル下書きへ展開。元図・資格ラベルを照合し、公開状態は既存SNS台帳で管理 | `図をInstagramへ`, `/ig-figure-pack` |
-| `/ig-figure-pack` | 総監・1級土木・建設部門のサイトSVGを4枚カルーセル下書きへ展開。資格別ラベル・白背景・元図参照・各枚の目視確認と既存公開台帳への引継ぎ | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
-| `/publish-x` | Playwright で X 投稿を自動化（即時・予約）。**予約運用は再開（2026-07-07・@doboku373）**。凍結実因＝連続/重複予約を潰すため **ガード付きフロー必須**: writer→`x-schedule-guard`緑→`--dry-run`→`--queue`緑→本番→`x-sync-status`（policy §11.5）。ガード赤なら予約しない・1 週間分ずつ・1 日 3 本上限・自動エンゲージ禁止。**スレッド（`[thread]`）は予約非対応のためヘッドのみ予約→配信後 `npm run x-thread-replies -- --run` でリプライをぶら下げる（policy §5.2.1）** | `X投稿`, `自動投稿`, `/publish-x` |
-| `/publish-note` | browser-use CLI で note.com/dobokunote に投稿。(1) 模範論文マガジン記事（有料・`<persona> <RXX>`）または (2) 建設部門 無料ファネル記事（入口/キーワード・`--free <dir>`）を下書き/予約/即時公開（stats47 由来を適応）。本文paste・カバー・タグ自動／有料境界・PDF添付・リンクカードは半手動。**実行は Mac 推奨**（会社PCプロキシ制約）。既存記事のカード削除・リンク更新は `note-update-partial`（添付・公開範囲保持） | `note投稿`, `note公開`, `note下書き作成`, `/publish-note <persona> <RXX>`, `/publish-note --free <dir>` |
-| `/audit-note-funnel` | note 導線（資格別 3 層モデル＝L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）のドリフトを監査・修復。**ソース D1-D4**（CTA 欠落・L2 未収録・L1 未リンク／`npm run audit-note-funnel`・CI=`check-note-funnel`）＋ **`--live` で D5 ライブ反映**（配線後に再投稿せず live が死ぬドリフトを note API で検出）。修復は `wire-note-funnel-cta`（ソース配線）／**`note-append-cta`（公開済み記事へ live 反映・Windows 可・通知いいえ）**。意味監査は `note-funnel-auditor`。真実源 `.claude/knowledge/reference/note-funnel-architecture.md` | `note導線の見直し`, `もくじ整備`, `CTA配線`, `ファネル監査`, `/audit-note-funnel [--exam {key}] [--apply\|--semantic\|--live]` |
-| `/note-edit-magazine` | note 有料マガジン設定（タイトル/説明/アピール/価格）と収録記事の単品価格を **`note掲載文.txt`（単一SoT）駆動**で自動編集→保存（Playwright × システム Chrome）。文字数制限ガード（タイトル30/説明400/アピール250・超過 abort）・読み戻し照合・保存後 API 検証。dry-run 必須。文字数ゲートは `npm run note-meta-lint`、読取照合は `npm run verify-note-magazines`、入口は `npm run note-edit-session` | `noteマガジン編集`, `note価格変更`, `noteタイトル変更`, `/note-edit-magazine --key {key} --dir {magazineDir}` |
-| `/note-magazine-add` | 既存 note 記事を別マガジンへ**収録（追加）**するブラウザ CLI（Playwright × システム Chrome）。追加対象は note 公開 API の**差分で自動算出**（手動列挙なし・冪等）。**既定 dry-run・実追加は `--commit`**・`--probe` で実DOMダンプ・追加後 API で収録実体検証。**Windows(会社PC)動作確認済（2026-06-15・channel:chrome＋ignoreHTTPSErrorsでプロキシ越え）・Mac可**。`note-edit-magazine`（設定/価格）とは別操作 | `マガジンに記事を追加`, `完全パックに収録`, `パックへ記事を入れる`, `ブラウザcliでマガジンに記事追加`, `/note-magazine-add --target {key} --from {k1,k2}` |
-| `/note-magazine-create` | note 有料マガジンを **`note掲載文.txt` 駆動**で新規作成（`/magazines/new`・有料単体・カテゴリ=キャリア）。`note-edit-magazine`(編集)・`note-magazine-add`(収録)と役割分離。**既定 probe・実作成は `--commit`**・同名マガジンがあれば作らず止める・作成前に fill 読み戻し検証・key 取得。Windows可（channel:chrome＋ignoreHTTPSErrors） | `noteマガジン作成`, `note有料マガジンを作る`, `/note-magazine-create --dir {magazineDir}` |
-| `/note-publish` | note 有料記事を Playwright × システム Chrome で**下書き作成→公開**（`publish-note`=browser-use の Windows 決定的版）。account=dobokunote ゲート・**既定 draft / `--commit` で公開**・カバー/タイトル/本文(markdown)/価格(`#price`)/タグ/**有料境界を「試験問題・予想問題」直前に自動設定＋公開前に `boundaryBeforeExam` 検証**まで自動。**リンクカード化は共有実装 `scripts/lib/note-cardify.mjs` で自動**（type 方式＝note の埋め込み検出は keyboard.type で起動・synthetic paste不可。URL が見出しに化けたら修復し、残存すれば保存/公開せず中断（exit 3）・公開後は public API で URL 見出しを自動検証。2026-07-14 レース根治・横断検知は `npm run check-note-live-headings`）。Windows(会社PC)動作（channel:chrome＋ignoreHTTPSErrors）。**予約投稿対応**=`--schedule "YYYY-MM-DDTHH:MM"`（無料記事も可・画面の表示日時が指定日時と一致しなければ下書き退避・exit 3・再試行は `--use-draft <noteId>`）、バッチ時間ずらしは `note-publish-magazine --list <manifest> --schedule-start ... --interval-hours N` | `note記事公開`, `note有料記事を投稿`, `note自動公開`, `/note-publish --article {path} [--commit] [--schedule YYYY-MM-DDTHH:MM]` |
-| `/note-membership` | note メンバーシップ「土木セコカン合格ラボ」の会員限定記事配信・週次お題の特典マガジン収録・プラン設定を `note-membership-operator` へ委譲する運用入口。account assert、draft/dry-run既定、`notePricing: membership` の公開範囲 fail-closed、公開後 `is_limited=true` の API 検証を必須化 | `メンバーシップ運用`, `会員特典記事を配信`, `予想問題ドリップ`, `/note-membership` |
-| `/note-magazine-cover` | note 有料マガジンの**見出し画像（cover）**を `_cover.png`（1280×670）から設定（Playwright × システム Chrome）。`note-magazine-create` が作成時に付けない systematic 欠落を補う＝**マガジン作成パイプラインの一工程**。**既定 probe・実保存は `--commit`**・「この画像を使う」→更新・保存後 API で `cover`/`coverRectangle`（`eyecatch` でない）が実カバー（未設定時 cloudfront `default_magazine_header`＝デフォルト判定）かを検証。Windows可 | `noteマガジンのカバー設定`, `マガジン見出し画像`, `マガジン画像が未登録`, `/note-magazine-cover --key {key} --dir {magazineDir}` |
-| `/note-attach-pdf` | note 記事の**本文末尾（有料記事は有料エリア内）に印刷用 PDF をダウンロードカードとして添付**（Playwright × システム Chrome）。`note-publish` が扱わない「ファイル添付」（従来半手動）を自動化。1記事=`note-attach-file.mjs`／1マガジン直列バッチ=`note-attach-magazine-pdfs.mjs`（noteId↔PDF 突合・done-log 再開・最大2回試行）。**既定 dry/probe、`--draft-only` は下書きへ実添付→下書き保存/一時保存→再読込で要求ファイル名の添付を検証、`--commit` は公開/更新→ライブ添付を実測**（両者は排他）。有料境界を**非破壊検証**（出典URLの `.pdf` は添付に数えない。既定=試験問題直前を維持・**別型は `--boundary-regex "<H2先頭一致>"` で上書き**、例 暗記ノート=`コンクリート工`／`2. コンクリート工`・崩れたら中断）。**PDF挿入は既定で本文末尾へJSで caret 移動**（旧 Control+End は Windows専用でMac無効→冒頭挿入=無料流出だった・2026-07-04是正）。**`note-attach-file --anchor "<段落テキスト>"` で指定段落の直後に挿入も可**（未検出は ABORT・複数は `--force` 併用）。Windows/Mac可 | `note記事にPDF添付`, `印刷用PDFを記事末尾に`, `下書きにPDF添付`, `/note-attach-pdf --dir {magazineDir} [--commit] [--boundary-regex "<H2>"]`, `note-attach-file --note {key} --file {pdf} [--commit\|--draft-only]` |
-| `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `--now`（Graph API 経路は 2026-06-17 全廃＝IG 投稿は本スキルに一本化） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
-| `/x-reply` | 技術士・土木施工管理・コンクリートなど資格横断で返信候補を集め（Yahoo!リアルタイム検索を 120 時間分さかのぼり、X のフォロー中・おすすめ・検索を内蔵ブラウザで読む）、`x-reply-drafter` の仕分けと下書きを人が 1 件ずつ承認して送る（EXP-059・DN-1037）。無人では送らない | `X返信`, `リプライ候補`, `/x-reply` |
-| `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
-| `/video-content` | 動画パック（悩み・出典付き台本・storyboard・CTA）の薄い入口。既存パック重複確認→`video-script-writer` 生成→`check-video-content`→`video-content-qa` 独立採点→PASS 後は台帳へ載せて `record-qa --file` で QA を原稿の digest つきで記録し、`video-factory -- status` に従う（BLOCK は指摘だけ Generator へ返す・最大2回）。レンダリング・投稿・承認は担当外（初回通常動画の投稿は `registry -- publish-youtube`）。契約 `video-content-policy.md` §7 | `動画パックを作る`, `動画台本を作る`, `パックの台本をQA`, `/video-content <exam> <packId>` |
+| `/audit-note-funnel` | product | note 導線の3層（L1 サイトマップ / L2 もくじ / L3 記事内 CTA）のドリフトをソース・ライブ両面で監査し、配線コマンドで修復する。Use when user says "note導線の見直し", "もくじ整備", "CTA配線", "ファネル監査". |
+| `/create-pop-image` | product | 承認済みのキャラクターPOP意匠で、ココナラ商品画像・note表紙・SNSサムネイルを制作する（Kindle の表紙は担当外＝npm run kindle-pop-cover）。Use when user asks to [POP画像, キャッチーなサムネイル, 画像を展開, /create-pop-image]. |
+| `/ig-carousel-restyle` | sns | 退役した Instagram 旧過去問パックの一括再生成手順。現行の新規投稿には使わない。 |
+| `/ig-figure-pack` | sns | サイトSVGを、総監・1級土木・技術士建設部門・技術士一次の図解カルーセル下書き（表紙/図/要点/CTA）へ展開する。資格別ラベル・白背景・元図参照・各スライド目視を必須とし、投稿状態は既存SNS台帳で管理する。過去問クイズはig-post-createを使う。 |
+| `/ig-post-create` | sns | 退役したInstagram旧A/B過去問パックの生成仕様。現行の新規投稿には使わず、content/sns/instagram/README.md の個別登録を使う。 |
+| `/note-attach-pdf` | product | note 記事の本文末尾（有料記事は有料エリア内）に印刷用 PDF を添付するブラウザ CLI（既定 dry/probe・更新は --commit）。Use when user says "note記事にPDFを添付", "マガジンのPDFが未添付", "/note-attach-pdf". |
+| `/note-edit-magazine` | product | note 有料マガジンの設定と収録記事の単品価格を、note掲載文.txt（単一SoT）の値へ反映するブラウザ CLI（初回は --dry-run・保存後に API 検証）。Use when user says "note マガジン編集", "note 価格変更", "マガジン設定更新". |
+| `/note-hashtags` | product | note 公開用ドラフトからハッシュタグ（上限99個）を生成し hashtags.txt に保存する。Use when user asks to [note ハッシュタグ生成, note タグ作成, /note-hashtags]. |
+| `/note-magazine-add` | product | 既存の note 記事を有料マガジンへ収録するブラウザ CLI（差分は API から自動算出・既定 dry-run・実追加は --commit）。Use when user says "マガジンに記事を追加", "完全パックに収録", "マガジン収録". |
+| `/note-magazine-cover` | product | note 有料マガジンの見出し画像を _cover.png から設定するブラウザ CLI（既定 probe・保存は --commit）。Use when user says "noteマガジンのカバーを設定", "マガジン画像が未登録", "/note-magazine-cover". |
+| `/note-magazine-create` | product | note 有料マガジンを note掲載文.txt 駆動で新規作成する（編集は note-edit-magazine）。Use when user says [noteマガジン作成, note有料マガジンを作る, /note-magazine-create]. |
+| `/note-membership` | product | note メンバーシップ「土木セコカン合格ラボ」の会員限定配信・特典マガジン収録・プラン設定を note-membership-operator で実行する。Use when user asks to [メンバーシップ運用, 会員特典記事を配信, 会員プラン設定編集, /note-membership]. |
+| `/note-publish` | product | note.com の有料記事を Playwright で下書き作成→境界検証→公開する Windows 決定的パブリッシャ。Use when user says "note記事公開", "note有料記事を投稿", "note自動公開". |
+| `/pe-note-plan` | product | 技術士総監 記述式の note 有料記事・magazine の編集ロードマップ（次に出す記事・順序・価格・バンドル）を提案する企画スキル。Use when user asks to [note 有料記事の企画, note の次の一手, magazine の企画, /pe-note-plan]. |
+| `/publish-ig-bs` | sns | Meta Business Suite を Playwright で操作し、Instagram カルーセル/リールを1パックずつ予約・即時投稿する（IG の唯一の経路・初回は --dry-run）。Use when user says "IG予約投稿", "リール予約". |
+| `/publish-note` | product | browser-use CLI で note エディタを操作し、総監模範論文（有料）または建設部門の無料ファネル記事（--free）を下書き・予約・公開する。Use when user says "note投稿", "note公開", "note下書き作成". |
+| `/publish-x` | sns | Playwright で content/sns/x/draft の tweets.md を1件ずつ X に投稿する（即時/予約・初回は --dry-run）。Use when user says "X投稿", "X予約投稿", "ツイート投稿". |
+| `/social-post` | sns | 既存 MDX（過去問・キーワード）から note / X 向け投稿テキストを生成する。Use when user asks to [note 記事, note ドラフト, X 投稿, ツイート生成, /social-post]. |
+| `/video-content` | sns | 動画パック（悩み・出典付き台本・storyboard・CTA）を video-script-writer で作り、機械ゲートと video-content-qa の採点後、承認待ちで止める。Use when user asks to [動画パックを作る, 動画台本を作る, /video-content]. |
+| `/x-reply` | sns | 技術士・土木施工管理・コンクリートなど資格横断で X の返信候補を集め（Yahoo!リアルタイム検索を 120 時間分さかのぼり、X のフォロー中・おすすめ・検索を内蔵ブラウザで読む）、相手の最新の投稿を確認して下書きを作り、人が 1 件ずつ承認したものを送る（EXP-059・DN-1037）。Use when user says "返信候補", "X の返信", "次の返信". 無人では送らない。 |
+| `/x-repost` | sns | X の高エンゲージな技術士・土木ツイートを検索し、x-repost-curator で選別・コメント生成して引用リポストする（discover→curate→exec）。Use when user says "Xリポスト", "引用リポスト", "x-repost". |
 
 ### 開発（dev）
 
-| スキル | 一言説明 | 呼ぶとき |
+| スキル | 領域 | 説明 |
 |---|---|---|
-| `/deploy` | Cloudflare Pages へデプロイ・公開後SSR検査（社内回線遮断時はCIで再検査） | `デプロイ`, `本番反映`, `/deploy` |
-| `/review` | 対象ファイル種別を自動判定しレビュースキルを実行 | `レビューして`, `/review` |
-| `/simplify` | 変更 diff を点検し最小差分で修正→lint→PR チェーン | `diff確認`, `最小修正`, `/simplify` |
-| `/create-skill` | スキル作成ガイド | `スキルを作りたい`, `/create-skill` |
-| `/playwright-auth` | Windows/Mac各PCのPlaywright認証profileを共通CLIで保存先確認・offline診断・手動login・read-only status・安全copy移行。CIはログインしない（土曜のMac収集だけ）。自動削除/kill/PC間同期なし | `Playwrightログイン`, `認証profile診断`, `auth status`, `/playwright-auth doctor` |
-| `/sync-r2-images` | R2 画像のローカル同期 | `R2同期`, `/sync-r2-images` |
-| `/diff-r2` | ローカル（`content/site/`）↔ R2（prefix `posts/`）の双方向差分検出 | `R2差分`, `/diff-r2` |
-| `/asset-route` | Git の外に置くアセットの置き場を「誰が使うか」で決める決定木＋コマンド（サイト配信→public R2 / CI→private R2 / 人・手元→Google Drive vault）。新 group 追加・R2→Drive 移行の必須順序・マウント無し/プレースホルダサイズの罠。真実源 `asset-storage-policy.md` §1 | `アセットの置き場`, `R2かDriveか`, `/asset-route` |
-| `npm run drive-vault-sync -- --group sns-archived-media` + `sns-archive-auditor` エージェント | content/sns の reels wav/mp4・YouTube Shorts mp4 を Google Drive vault へ退避（容量削減・2026-09-05 DN-0170 で旧 `upload-sns-r2`＝R2 系統を廃止）。`sns-archive-auditor` が SoT 無傷＝再生成可否で OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK を判定→`--purge-local` は R2 バイト一致検証後のみ削除。真実源 `sns-archive-policy.md` | `SNS容量削減`, `wav/mp4退避`, `投稿済みパック退避` |
-| `/monitor` | バックグラウンド監視 | `監視`, `/monitor` |
-| `/doc-sync` | コード/設定変更 diff × 候補 doc を `doc-sync-auditor` で突合し prose 陳腐化を検出→適用（機械ガード check-doc-refs/coupling の意味的な補完） | `ドキュメント同期`, `doc同期`, `仕様ズレ確認`, `/doc-sync` |
-| `/doc-declutter` | doc の肥大化棚卸し（完了 handoff の抽出→削除/古い行 trim/重複統廃合・記録は git 履歴＝2026-07-11 archive 廃止）。機械 surfacer `check-doc-lifecycle` で候補→外部実体を検証→`doc-curator` が処分判定→削除/参照更新/memory 同期まで適用 | `ドキュメント棚卸し`, `handoff 整理`, `doc 肥大化`, `/doc-declutter` |
+| `/asset-route` | ops | Git 外アセットの置き場を「誰が使うか」で決める（サイト配信→public R2・CI→private R2・人/手元→Drive vault）。Use when user asks to [アセットの置き場, R2 か Drive か, 退避先を決める, asset-route]. |
+| `/create-skill` | ops | 新しいスキルの作成ガイドを提供する。Use when user asks to [スキルを作りたい, 新しいスキル, /create-skill]. |
+| `/deploy` | ops | develop→mainブランチ経由でCloudflare Pagesにデプロイする。Use when user asks to [デプロイ, 本番反映, /deploy]. |
+| `/diff-r2` | ops | ローカル `content/site/` と Cloudflare R2 バケット `doboku-note`（prefix `posts/`）の 差分を双方向でレポートする。Use when user asks to [r2の差分, r2とローカルの比較, diff r2, r2 同期確認]. |
+| `/doc-declutter` | ops | ドキュメント肥大化を外部実体の確認後に棚卸しする（完了 handoff 抽出削除・trim・統廃合。判定は doc-curator）。Use when user asks to [ドキュメント棚卸し, handoff 整理, /doc-declutter]. |
+| `/doc-sync` | ops | コード・スキル・設定の変更 diff を起点に、関連ドキュメントの旧仕様化を doc-sync-auditor で監査し、承認後に直す。Use when user asks to [ドキュメント同期, 仕様ズレ確認, ドキュメント更新もれ, /doc-sync]. |
+| `/monitor` | ops | Monitor toolでバックグラウンド監視を起動する（dev/mojibake/ci/build/r2/frontmatter/health/mdx-validation）。 Use when user asks to [監視, モニター, monitor, /monitor]. |
+| `/playwright-auth` | ops | Windows・MacのPlaywright認証profileを診断・初回ログイン・状態確認・安全移行する |
+| `/review` | ops | 対象ファイルの種類を判定し、適切なレビュースキルを実行して結果を集約する統一入口。Use when user asks to [レビュー, /review, レビューして, 確認して, チェックして]. |
+| `/simplify` | ops | 変更中のコード（git diff）の再利用漏れ・過剰設計・無関係な編集・非効率を列挙し、承認の上で最小差分で直す。Use when user asks to [シンプル化, リファクタ, 冗長を削って, /simplify]. |
+| `/sync-r2-images` | ops | R2上の画像をローカルに同期する。Use when user asks to [画像が見えない, R2画像を同期, /sync-r2-images]. |
 
 ### 分析（analytics）
 
-| スキル | 一言説明 | 呼ぶとき |
+| スキル | 領域 | 説明 |
 |---|---|---|
-| `/fetch-gsc-data` | Google Search Console データ取得（単一/複数ディメンション・page×query・25,000 件ページング） | `GSCデータ`, `検索データ取得`, `page×query`, `/fetch-gsc-data` |
-| `/psi-audit` | PSI で代表ページ日次計測、CWV しきい値違反を surface | `PSI計測`, `Core Web Vitals`, `/psi-audit` |
-| `/record-sales` | note 販売履歴を SSOT（data/note/sales.json）に記録・集計 | `売上記録`, `販売履歴を記録`, `note売上`, `/record-sales` |
+| `/fetch-gsc-data` | site | Google Search Console の検索パフォーマンスデータを取得する（複数ディメンション・ページング対応）。Use when user asks to [GSCデータ取得, 検索クエリ分析, page×query, /fetch-gsc-data]. |
+| `/psi-audit` | site | PageSpeed Insights で代表ページを計測し、Core Web Vitals のしきい値違反を performance-auditor に出させる。Use when user asks to [PSI 計測, 速度監査, /psi-audit]. |
+
+### 計測（metrics）
+
+| スキル | 領域 | 説明 |
+|---|---|---|
+| `/record-sales` | product | note 販売履歴テキストを sales-recorder で正規化して data/note/sales.json に記録し、月次集計を表示する。Use when user asks to [売上記録, 販売履歴を記録, note 売上, /record-sales]. |
 
 ### 戦略・管理（management）
 
-| スキル | 一言説明 | 呼ぶとき |
+| スキル | 領域 | 説明 |
 |---|---|---|
-| `/plan-weekly` | `[時期:]` が今月を含むカードから今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
-| `/backlog-sweep` | backlog から1〜2件を選定→実査→実行→検証→**セクション削除**で台帳を減らす1サイクル（実査で既に完了なら掃除として削除）。`/loop` で自走。**`--audit` は台帳そのものの棚卸し**（`backlog-curator` を同時3体で起動し、1枚単位の sweep では見えない台帳全体を KEEP/RETAG/TRIM/MERGE/DELETE/RESEED/SPLIT に分類）。※計画を書く /plan-weekly とは別物 | `バックログを消化して`, `backlog を減らして`, `sweep を回して`, `バックログを棚卸しして`, `/backlog-sweep`, `/backlog-sweep --audit` |
-| `/weekly-improve` | 計測→改善候補→実験登録（検索順位の改善は `/weekly-review` の search-improvement が唯一の経路） | `今週の改善`, `PDCA`, `/weekly-improve` |
-| `/gsc-review` | 月次 GSC index coverage レビュー（古い記録は run の保存成否を確認→診断→判断ログ追記） | `GSC月次レビュー`, `インデックス率`, `index coverage`, `/gsc-review` |
-| `/seo-growth-review` | SEO 4面（技術/coverage/performance/意図）の Evaluator を束ねる（機械検出→意味評価→統合・修正なし） | `SEO総合レビュー`, `技術SEO監査`, `SEOグロース`, `/seo-growth-review` |
-| `/google-search-growth` | GSC/GA4 の UI CSV の記録（土曜の Mac 収集が取得）→既存 API と URL 突合→修正候補分類（approval gate で停止・セッションはログインせず記録と最終取得日を読む） | `検索流入改善`, `GSC CSV の記録確認`, `GSC/GA4 統合診断`, `/google-search-growth` |
-| `/monthly-review` | 前月の資格別KPI・販売・運営負担から重点と目標、次の改善を記録 | `月次レビュー`, `前月の振り返り`, `/monthly-review` |
-| `/weekly-review` | 同期間note計測とGSC全体値を使い、5種証跡で完了を判定。資格別KPI・判断を週次履歴へ記録し、次の改善へ接続。収益導線はURL照合数と同期間の商品売上を確認する。Xは投入済みの最終予約記録と未投入計画を区別する。申し送りは各項目を backlog 起票／定常／Issue／実験へ振り分ける（旧週削除時の抽出もれは pre-commit が止める） | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
-| `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `実験登録`, `NSM実験`, `/nsm-experiment` |
-| `/monetization-strategy` | 収益化戦略のブレインストーム | `収益化`, `月X万円達成するには`, `/monetization-strategy` |
-| `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ/YouTube・`--platform`）で四半期再取得（scout＋時系列drift＋資格キーワードの市場スキャン `scan-qualification-market`）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |
-| `/knowledge` | 過去の失敗・教訓を参照・追記 | `ナレッジ参照`, `失敗から学ぶ`, `/knowledge` |
-| `/critical-review` | 批判的レビュー | `批判的に見て`, `/critical-review` |
-| `/distill-proofread-learnings` | 校正作業から新規ルール・ユーザー嗜好を抽出し、承認を待たずに規約へ反映 | `校正から学ぶ`, `新ルール抽出`, `/distill-proofread-learnings` |
-| `/routines` | クラウドルーティン（/schedule）を一覧・監査（重複・残骸・平文トークン・cron 衝突検出）。**新規作成前の重複チェック必須** | `ルーティン一覧`, `ルーティン監査`, `/routines` |
+| `/backlog-sweep` | plan | backlog.md からタスクを1〜2件選んで実査・実行・検証し、完了したら削除する1サイクル（--audit は backlog-curator による台帳監査）。Use when user asks to [バックログを消化して, sweep を回して, バックログを棚卸しして, /backlog-sweep]. |
+| `/coconala-analytics` | product | ココナラ「サービス・ブログ分析」の収集済み記録（kpi.json・analytics.json）を読んで報告し、鮮度・欠測を検査する（読み取り専用・数値は累計）。Use when user asks to [ココナラの数字を見る, 閲覧数を確認, /coconala-analytics]. |
+| `/coconala-blog` | product | ココナラブログ記事の企画・執筆（coconala-blog-writer）・採点（coconala-blog-qa）・下書き投入・ライブ実査を回す。Use when user asks to [ココナラブログを書く, ココナラブログを公開, ブログで送客, /coconala-blog]. |
+| `/coconala-order` | product | ココナラ受注1件を受領から納品文面ドラフトまで通す（coconala-operator。土木は /keiken-tensaku、PDF は送付文）。送信は運営者。Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, /coconala-order]. |
+| `/coconala-publish` | product | ココナラ出品の新規出品・内容修正・受付休止/再開/アーカイブを Playwright で行う（既定は下書き・実公開は --commit）。Use when user asks to [ココナラに出品, ココナラ出品を修正, ココナラを休止, 出品を再開, /coconala-publish]. |
+| `/coconala-status` | product | ココナラ出品の状態を読み取り専用で照合し（受注 orders.json・カタログ・sales.json・KPI のドリフト）、撤退ラインを判定する。Use when user asks to [ココナラの状態を確認, ココナラKPIを記録, 撤退ライン判定, /coconala-status]. |
+| `/competitor-review` | strategy | note / X / Instagram / ココナラの競合を四半期に再取得し、ドリフト検出→competitor-analyst の評価→承認後に SSOT へ反映する。Use when user asks to [競合を再調査, 競合レビュー, 競合分析を更新, /competitor-review]. |
+| `/critical-review` | strategy | 設計書・計画書・戦略文書を批判的に評価して改善点を提示する。Use when user asks to [批判的レビュー, クリティカルレビュー, /critical-review]. |
+| `/distill-proofread-learnings` | ops | 直近の校正作業の差分と指示から、content-principles・スキル・memory に反映すべき新ルールを抽出し、承認を待たずに反映するメタスキル。Use when user asks to [校正スキル改善, 校正ルール更新, 校正の学習, /distill-proofread-learnings]. |
+| `/google-search-growth` | site | GSC/GA4 の収集済み CSV・API データ・sitemap・生成 HTML を URL 単位で突合し、index coverage・検索 performance・技術 SEO を統合診断する。Use when user asks to [検索流入改善, /google-search-growth]. |
+| `/gsc-review` | site | 週次 GSC index coverage を gsc-index-auditor で診断し、gsc-management.md の観測・判断ログへ判断つきで追記する。Use when user asks to [GSC月次レビュー, index coverage確認, インデックス率, /gsc-review]. |
+| `/knowledge` | ops | 過去の失敗・設計判断・バグ解決の教訓をナレッジベースに参照・追記する。 Use when user asks to [ナレッジ参照, 失敗から学ぶ, 教訓を記録, 過去の判断を調べる, /knowledge, ナレッジを追加]. |
+| `/monetization-strategy` | product | 収益化戦略のブレインストーミングと施策ロードマップを生成する。 Use when user asks to [収益化, マネタイズ戦略, /monetization-strategy, 稼ぎ方を考えたい, 月X万円達成するには, AdSense以外の収益源, 有料記事戦略]. |
+| `/monthly-review` | strategy | 資格別の集客・学習・note/ココナラ販売・運営負担を前月実測で振り返り、重点と目標、次の改善を記録する。Use when user asks to [月次レビュー, 前月の振り返り, 月次事業レビュー, /monthly-review]. |
+| `/nsm-experiment` | strategy | NSM 改善の実験ライフサイクル（propose→start→measure→close）を experiments.json で管理する。Use when user asks to [NSM 実験, 仮説検証, 実験提案, 効果測定, 残作業確認, /nsm-experiment]. |
+| `/plan-weekly` | plan | todo の annual/monthly/weekly と git log から今週のタスクを優先順位付きで決め、weekly.md を更新する（todo-planner を1回起動）。Use when user asks to [今週のタスクを決めて, 今週何をすべきか, /plan-weekly]. |
+| `/routines` | ops | クラウドルーティンを一覧・監査する（重複・残骸 one-shot・平文シークレット・cron 衝突・無効）。新規作成前の重複確認にも使う。Use when user asks to [ルーティン一覧, ルーティン監査, routine 重複チェック, /routines]. |
+| `/seo-growth-review` | site | SEO を技術・index coverage・performance・検索意図の4面で束ね、機械結果を audit-only Evaluator へ配って統合レポートにする（修正はしない）。Use when user asks to [SEO総合レビュー, /seo-growth-review]. |
+| `/weekly-improve` | strategy | 週次の計測→改善サイクル（GSC/GA4 取得→metrics-analyzer→/nsm-experiment→pending 再計測）を1コマンドで回す軽量オーケストレータ。Use when user asks to [週次改善, 改善ループ, 今週の改善候補, /weekly-improve]. |
+| `/weekly-review` | strategy | 前週の成果・KPI・学びを振り返るレビューを生成する。Use when user asks to [週次レビュー, 先週の振り返り, /weekly-review]. |
 
 ### UI/UX（ui）
 
-| スキル | 一言説明 | 呼ぶとき |
+| スキル | 領域 | 説明 |
 |---|---|---|
-| `/design-review` | デザインシステム準拠レビュー（7 カテゴリ）＋ `--visual` で視覚検証 | `デザインレビュー`, `/design-review` |
-| `/site-visual-review` | サイトの代表ページを全部の画面幅（6 幅）で撮り、機械の検査（コンテナ幅の不統一・横はみ出し・商品導線の欠け）と `site-page-visual-auditor` の目視で判定 → 不合格を共通の部品で直して撮り直すサイクル（`npm run site-visual-review` の prepare→判定→record）。週次の点検の `site-visual-review:status` が赤のとき・レイアウトや導線の部品を変えたあとに | `画面幅ごとに確認`, `レスポンシブ確認`, `導線の見え方を確認`, `/site-visual-review` |
+| `/design-review` | site | デザインシステム準拠を7カテゴリで統合レビューする（.tsx は --visual で Playwright 視覚検証も実行）。Use when user asks to [デザインレビュー, UI確認, 視覚検証, /design-review]. |
+| `/site-visual-review` | site | サイトの代表ページを全部の画面幅で撮り、レイアウト・読みやすさ・商品導線（note・アフィリエイト・ココナラ）を機械の検査とエージェントの目視で判定し、不合格を直して撮り直すサイクル。 Use when user asks to [画面幅ごとに確認, スクショで UI を点検, レスポンシブ確認, 導線の見え方を確認, /site-visual-review]. |
 
 ### アフィリエイト運用（ads）
 
-| スキル | 一言説明 | 呼ぶとき |
+| スキル | 領域 | 説明 |
 |---|---|---|
-| `/scout-asp` | A8.net を Playwright で操作（転職一本スコープ・複数サイト口座は**申請/コード取得とも doboku-note を選択**）。`list`=承認確認（主用途・口座横断）／`search`=ニッチ語で未提携案件を狙い撃ち検索／`import-partnered`=提携取込／`scout`+`apply`=開拓・週次上限申請／`check-approval`=承認昇格／`harvest`=広告コード→配置候補出力。**初回は `list --dry-run --headed`**。**出力は candidate 以外（blocked/dup/vertical未解決/閾値未満）も必ず表示＝「candidate 0 件」を「該当なし」と誤読しない**（2026-07-27 修正）。正典 `.claude/knowledge/reference/a8-affiliate-pipeline.md` | `A8確認`, `アフィリエイト承認確認`, `申請済みアフィリを見る`, `A8案件を探す`, `A8提携状況`, `/scout-asp` |
-| `/a8-report` | A8 の**成果レポート**（土曜の Mac 収集が取得・正規化して SSOT `data/a8/report-log.json` へ upsert。サイト別/プログラム別詳細/期間別 月別・日別）を読んで検証・分析する。セッションはログインせず最終取得日を読む。月次の成果（月×案件）は持たず、読み手が単月の期間から導く。EPC 判定の分母を供給し `report-buildjob-affiliate` を動かす。**stats47 と口座共用で A8 にサイト切替は無い**ため、口座 assert＋「サイト別レポートだけが doboku 分離の真実源・他は allowlist 抽出＋検算」で運用。提携運用の `/scout-asp` とは別（あちらは申請/素材） | `A8レポート`, `アフィリ成果を確認`, `A8の成果を読む`, `EPCを更新`, `/a8-report` |
-| `/affiliate-status` | **A8 / もしも / afb の 3 ASP 横断**でカタログと最終照合日（`verifiedAt`）から提携状態を報告（read-only）。実機照合は運営者が端末で行い、セッションはログインしない。**3 ASP とも doboku-note と stats47 が同一口座に同居し既定は stats47 側**のため、サイト帰属 assert（不一致は例外で停止）を通してから読む。**取得できなかった ASP を「提携なし」と混同しない**（`unknown` と `none` を分ける）。運用 SSOT `.claude/knowledge/reference/affiliate-operations.md` | `アフィリ提携状況`, `提携状態を確認`, `ASP 横断で確認`, `/affiliate-status` |
-| `/affiliate-apply` | もしも / afb で**提携申請**（dry-run 既定・`--commit` gate）。規約同意を伴う不可逆操作なので `--commit` は毎回ユーザーの明示許可を取る。サイト帰属 assert・申請フォームのサイト select 検証・**「一括提携申請へ」の除外**・Red Line 案件の拒否を機械で強制。A8 の申請は `/scout-asp` が担当 | `提携申請`, `アフィリを申請`, `もしもで申請`, `/affiliate-apply` |
-
----
+| `/a8-report` | affiliate | A8.net 成果レポートの収集済み記録を読み、doboku-note 分のサイト別・プログラム別・期間別から EPC 判定の分母を分析する。Use when user says "A8レポート", "EPCを更新", "a8-report". |
+| `/affiliate-apply` | affiliate | もしも / afb で提携申請を実行する（dry-run 既定・--commit は毎回ユーザーの明示許可）。A8 は /scout-asp の担当。Use when user says "提携申請", "アフィリを申請", "もしもで申請", "affiliate-apply". |
+| `/affiliate-status` | affiliate | A8 / もしも / afb の提携状態をカタログと最終照合日から読み取り専用で報告する（取得できなかった ASP は「提携なし」でなく unknown）。Use when user says "アフィリ提携状況", "提携状態を確認", "affiliate-status". |
+| `/scout-asp` | affiliate | A8.net の提携状況確認・未提携案件の検索・申請・承認昇格・広告コード取得を Playwright で行う（転職スコープ）。Use when user says "A8確認", "申請済みアフィリを見る", "A8案件を探す", "A8提携状況", "scout-asp". |
+<!-- generated:skills:end -->
 
 ## 用途別ガイド（今やること別）
 

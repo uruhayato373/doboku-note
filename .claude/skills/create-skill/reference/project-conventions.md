@@ -22,11 +22,7 @@
 
 ## スキルレジストリへの登録
 
-スキル作成後、`.claude/knowledge/reference/skills-registry.md` の該当カテゴリ表に追加する:
-
-```markdown
-| `/skill-name` | 用途の説明 | `.claude/skills/<name>/SKILL.md` |
-```
+スキル作成後、`npm run build-capability-index` を回す。一覧（`.claude/knowledge/reference/skills-guide.md`）は `SKILL.md` の frontmatter からの生成物で、手で行を足さない（`check-doc-coupling` が一致を見る）。
 
 CLAUDE.md 本体には索引表のみ置いており、個別スキル一覧は持たないので、CLAUDE.md の編集は不要。
 

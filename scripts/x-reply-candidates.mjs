@@ -12,6 +12,8 @@
  * exit: 0 検索できた（候補 0 件も含む） / 1 取得失敗が支配的で検査不成立
  *
  * Usage: npm run x-reply-candidates [-- --x-posts <dir>] [-- --all]（--all は話題ごと・全体の上限を外して全部出す）
+ *
+ * npm run x-reply-candidates — X の返信候補を、資格ごとの話題（config/x-reply-trial.json の topics）で集めて .tmp/x-outreach/candidates.json へ書く（読むだけ・送信しない）。Yahoo!リアルタイム検索（1 ページ目のあと続きを lookbackHours までたどる・上限 limits.yahooMaxPages・2 分ほど）と、内蔵ブラウザで保存した X のタイムライン・検索の投稿（.tmp/x-outreach/x-posts/*.json・-- --x-posts <dir>）をまとめ、`-- --all` で話題ごと・全体の上限を外し、外した投稿は理由つきで .tmp/x-outreach/excluded.json に書く（語の調整に読む・配慮の投稿は本文を残さない）。本文に資格の語がある投稿か、表示名に資格の語があり本文が試験の話（nameContextWords）の投稿を話題に振り分ける。配慮が要る投稿は件数だけ数える。手順は /x-reply
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';

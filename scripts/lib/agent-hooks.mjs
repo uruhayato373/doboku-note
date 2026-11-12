@@ -50,7 +50,7 @@ export function strayAtRoot(lines) {
 // ---- check-doc-sync（git commit 前）-------------------------------------------------------------
 
 const RE_SKILLS = /^\.claude\/(skills|agents)\//;
-const RE_REGISTRY = /^\.claude\/knowledge\/reference\/(skills-guide|skills-registry|agents-registry)\.md$/;
+const RE_REGISTRY = /^\.claude\/knowledge\/reference\/(skills-guide|agents-registry)\.md$/;
 const RE_DECISION = /決定.*\.md$|ADR.*\.md$|^\.claude\/knowledge\/reference\/|noteコンテンツ計画\.md$|^\.claude\/skills\/.*\/SKILL\.md$/;
 const RE_NEW_TOOL = /^scripts\/.*\.(mjs|mts|js|ts|cjs)$/;
 
@@ -91,7 +91,7 @@ export function docSyncMessages({ skillsChanged, registryChanged, decisionChange
   if (skillsChanged.length && !registryChanged.length) {
     out.push(
       'WARNING: .claude/skills/ or .claude/agents/ が変更されましたが docs が未更新です。',
-      '  .claude/knowledge/reference/skills-guide.md（一覧）または skills-registry.md（退役ログ）または agents-registry.md を同一 commit に含めてください。',
+      '  npm run build-capability-index を回し、書き換わった skills-guide.md / agents-registry.md を同一 commit に含めてください（一覧は生成物）。',
       '変更されたファイル:',
       ...skillsChanged.map((p) => `  ${p}`),
     );
@@ -254,7 +254,14 @@ export function topLevelCdTargets(command) {
 }
 
 const WORKTREE_DIR_RE = /[\\/]\.(?:claude|codex)[\\/]worktrees[\\/]/;
-const trimSlash = (p) => p.replace(/[\\/]+$/, '');
+/**
+ * 比較用のパス: 区切りを / にそろえ、末尾の / を落とし、Windows のドライブ文字を大文字にする。
+ * Windows では path.resolve が \ 区切りを返すので、そのまま `startsWith(project + '/')` で比べると「プロジェクトの下の階層」が
+ * 一度も成立しなかった（2026-11-11 まで Windows ではこの判定が効いておらず、テストも Windows でだけ落ちていた・DN-1132）。
+ */
+const comparablePath = (p) => p.replace(/\\/g, '/').replace(/\/+$/, '').replace(/^([a-z]):/, (m, d) => `${d.toUpperCase()}:`);
+/** Git Bash の /c/Users/… を C:/Users/… に読み替える（Windows だけ。ほかの OS では /c は普通のディレクトリ） */
+const fromMsysPath = (p, platform = process.platform) => (platform === 'win32' ? p.replace(/^\/([A-Za-z])(?=\/|$)/, (m, d) => `${d.toUpperCase()}:`) : p);
 
 /**
  * cd の行き先がセッションの作業ディレクトリを移してはいけない場所なら理由を返す（通すなら null）。
@@ -268,8 +275,8 @@ export function cdScopeViolation(target, { cwd, projectDir, home = '', vars = {}
   if (/[$`*?]/.test(substituted)) return null;      // 解決できない変数・展開は判定しない
   const expanded = substituted === '~' ? home : substituted.startsWith('~/') ? home + substituted.slice(1) : substituted;
   if (!expanded) return null;
-  const abs = trimSlash(pathResolve(cwd || projectDir, expanded));
-  const project = trimSlash(pathResolve(projectDir));
+  const abs = comparablePath(pathResolve(fromMsysPath(cwd || projectDir), fromMsysPath(expanded)));
+  const project = comparablePath(pathResolve(fromMsysPath(projectDir)));
   if (abs === project) return null;
   if (WORKTREE_DIR_RE.test(abs + '/') && !(abs + '/').startsWith(project + '/')) return `worktree の中（${abs}）`;
   if ((abs + '/').startsWith(project + '/')) return `プロジェクトの下の階層（${abs}）`;
@@ -295,11 +302,38 @@ export function directMainPush(command) {
   return text.split(/&&|\|\||;|\n/).some((part) => /\bgit\b.*\bpush\b/.test(part) && /(?:^|[\s:/])(?:refs\/heads\/)?main(?:\s|$)/.test(part));
 }
 
+/** シェルが解釈する部分を、コマンドの区切り（&& || ; | 改行）で分ける。 */
+const shellParts = (command) => shellActiveText(command).split(/&&|\|\||[;|\n]/);
+/** `git` の後ろの大域オプション（-C <dir>・-c k=v・--no-pager など）を読み飛ばして、サブコマンドの手前までに一致する。 */
+const GIT_HEAD = String.raw`\bgit\b(?:\s+-[cC]\s+\S+|\s+--?[A-Za-z][\w-]*(?:=\S+)?)*\s+`;
+
+/**
+ * 共有チェックアウトで禁止している git の操作（CLAUDE.md §3・§10）。並行セッションが同じ作業ツリーと stash を使うので、
+ * 散文の規則だけでは 2026-06-11 の事故（他セッションの未 push コミットを壊した）を防げなかった。
+ *   stash  … 共有の stash を他セッションが pop する。list / show は読むだけなので通す
+ *   addAll … git add -A / --all / . は並行セッションの変更を巻き込む
+ */
+export function forbiddenGitOps(command) {
+  // commit メッセージなど二重引用符の中の「git stash」は操作ではないので、中身を落としてから見る
+  const parts = shellParts(String(command ?? '').replace(/"(?:[^"\\]|\\.)*"/g, '""'));
+  return {
+    stash: parts.some((p) => new RegExp(`${GIT_HEAD}stash\\b(?!\\s+(?:list|show)\\b)`).test(p)),
+    addAll: parts.some((p) => new RegExp(`${GIT_HEAD}add\\b(?:\\s+\\S+)*\\s+(?:-A|--all|\\.)(?=\\s|$)`).test(p)),
+  };
+}
+
+/** develop への push（main への push は directMainPush が止める）。 */
+export function pushesToDevelop(command) {
+  return shellParts(command).some((p) => new RegExp(`${GIT_HEAD}push\\b`).test(p) && /(?:^|[\s:/])(?:refs\/heads\/)?develop(?:\s|$)/.test(p));
+}
+
 /** モデルへ返す止めた理由と、代わりの書き方。 */
-export function shellTrapMessage({ trap, mainPush }) {
+export function shellTrapMessage({ trap, mainPush, stash, addAll }) {
   const lines = [];
   if (trap) lines.push(`BLOCK: ${trap} は zsh の修飾子として読まれ、値が壊れる。\${変数} と波括弧で書く。`);
   if (mainPush) lines.push('BLOCK: main へは直接 push しない。npm run deploy:main を使う（検査待ち・push の実体確認・デプロイ待ち・本番確認まで、失敗で止まる）。');
+  if (stash) lines.push('BLOCK: git stash は使わない（stash は全セッション共有で、他のセッションが pop して変更を失う）。変更前の版を見るなら git show origin/develop:<path>、退避するならブランチを切って commit する（git switch -c <名前>）。git stash list / show は通す。');
+  if (addAll) lines.push('BLOCK: git add -A / --all / . は使わない（並行セッションの変更を巻き込む）。変更したファイルを明示する（git add -- <path> …）。件数が多いときは git add --pathspec-from-file=<一覧>。');
   return lines;
 }
 

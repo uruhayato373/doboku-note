@@ -14,6 +14,8 @@
 //   - 解答は改ページせず問題直後に配置（紙面演習用。EPUB のネタバレ防止改ページは不要）
 //   - MDX→XHTML 変換ロジック（preprocess/mdToXhtml/ExamPoint/年度スコープ画像/sanitizeMathml）は
 //     build-pe1-kindle.mjs から複製（共通 lib 化は前回 mdToXhtml 統合で回帰したため意図的に避ける）
+//
+// npm run build-takuitsu-pdf — 択一MDXをnote配布用A4 PDFへ変換（`-- --spec <json> [--out <pdf>]`）。spec必須=`bookId/title/subtitle/sources`、自作問題は任意`creditText`で出典説明を上書き。MDXコメント除去・Callout箱化・system Chrome描画。`--split` で `<out>-問題冊子.pdf`（解答・要点を除く）と `<out>-解答解説.pdf` を出す（両者の問題数不一致は停止）
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { resolve, basename, dirname } from 'node:path'

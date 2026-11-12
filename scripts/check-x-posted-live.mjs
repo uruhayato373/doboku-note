@@ -16,6 +16,8 @@
 //   0 = 404（gone）0件・取得失敗率 20% 以下
 //   1 = 404 検出、または取得失敗率 20% 超（判定材料不足）
 //   2 = 投稿済みエントリを1件も検査できない（入力不備）
+//
+// npm run check-x-posted-live — 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・quality-audit の report 区分＝weekly-review-guard が週次で読む）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
 import { writeFileSync, mkdirSync, renameSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { spawnSync } from 'node:child_process';

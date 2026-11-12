@@ -21,5 +21,44 @@
     "sha256": "9c2ca6950134ee7ebae693ae673683727ddba25dfd328034d4d650c00f50b186",
     "thumbnailSha256": "c6c61b83fdf1a6f687cfe5904793f1924c915f0cad744bc181b5191bc54c4419"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-wc-1",
+      "sceneId": "wc",
+      "title": "コンクリート技士｜配合計算の水セメント比、どう割る？ #Shorts",
+      "description": "水170kg、セメント340kg。水セメント比はいくつ？詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ コンクリート技士 計算・JIS判断12問を見る（note有料教材）\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=ce-haigou-kakunin-jun&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#コンクリート技士 #コンクリート #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "sha256": "42f0b5b59b97732447fca264e127700d1a45fcf8f9eabca6430a304d961fe356",
+      "thumbnailSha256": "7a9235dfa951c7656e304e597fc1b97cadc85c180f7b0f00217a16056ad52fa3",
+      "r2Key": "video/render/ce-haigou-kakunin-jun/shorts/point-wc-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/ce-haigou-kakunin-jun/shorts/point-wc-1/thumbnail.png"
+    },
+    {
+      "key": "point-pitfalls-2",
+      "sceneId": "pitfalls",
+      "title": "コンクリート技士｜配合計算がずれたら見る3点 #Shorts",
+      "description": "配合計算が選択肢と合わないとき、見直す所は3つ。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ コンクリート技士 計算・JIS判断12問を見る（note有料教材）\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=ce-haigou-kakunin-jun&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#コンクリート技士 #コンクリート #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "sha256": "508f6288ef54aa2c180d3464957f0fa445b0219e27d27d083fccd14487890a6b",
+      "thumbnailSha256": "bdcd64fd3d2af7ebf814763b036891912caf5c2748a5b77420dd83b5e97d8587",
+      "r2Key": "video/render/ce-haigou-kakunin-jun/shorts/point-pitfalls-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/ce-haigou-kakunin-jun/shorts/point-pitfalls-2/thumbnail.png"
+    }
+  ]
 }

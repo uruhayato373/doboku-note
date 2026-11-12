@@ -14,6 +14,8 @@
  *
  * 使い方: `npm run serve`（既定 3025。`PORT=xxxx npm run serve` で変更）
  * 事前に `npm run build` が要る。out/ が無ければ理由を明示して exit 1 にする（黙って空を配らない）。
+ *
+ * npm run serve — out/ をローカル配信（既定 3025・`_redirects` の 301 も適用・テキストは本番と同じく br/gzip 圧縮。無圧縮だと lhci が大きいページだけ本番より低く測る＝DN-0735）。**E2E の既定ターゲット**でもある（dev だとルートの初回コンパイルでテストが実行ごとにランダムに落ち、旧 /category/ /docs/ は dev に存在せず検査できない）。要 `npm run build`
  */
 
 import { createServer } from 'node:http';

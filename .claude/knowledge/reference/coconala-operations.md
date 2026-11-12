@@ -95,12 +95,16 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 |---|---|
 | 経験記述（1級 `secondary-experience-writing-{guide,examples}`） | `coconala-tensaku-4theme`＋`coconala-sakusei-4theme` |
 | 経験記述（2級 `secondary-experience-writing-{guide,examples,by-theme}`） | `coconala-2kyu-tensaku-3theme`＋`coconala-2kyu-sakusei-3theme` |
-| 二次 年度別過去問（`secondary-r0[3-9]`） | 級別の添削＋指導（上と同じ）＋`{1kyu,2kyu}-full-pdf`（試験後まで absence 休止・復帰で表示） |
-| 二次 学科分野別（1級 `secondary-(concrete\|construction-plan\|earthwork\|quality-management)-(basics\|past-problems)`） | `coconala-1kyu-full-pdf`（absence 休止中は非表示） |
+| 二次 年度別過去問（`secondary-r0[3-9]`） | 級別の添削＋指導（上と同じ）。教材フルパックは 2026-11-12 にアーカイブ（retired）したので外した |
 | 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`、2級 `secondary-{getting-started,last-two-weeks-plan}`） | 級別の添削＋指導＋`{1kyu,2kyu}-moshi-pdf`（absence 休止中は非表示） |
 | 資格トップ（`civil-construction-1`／`civil-construction-2`） | 級別の添削＋指導 |
 | 文字数チェッカー（`tools-keiken-charcount`） | `coconala-tensaku-4theme`＋`coconala-2kyu-tensaku-3theme` |
 | コンクリート主任技士（資格トップ／`guide-essay`／`guide-trends`） | `coconala-cce-essay-tensaku` |
+| 技術士 建設部門の口頭試験ガイド（`pe-construction-koutou-shiken`） | `coconala-pe-oral-qa`（口頭試験の日付が試験暦に無いので期限なし。休止で非表示） |
+| 技術士 建設部門の論文の入口（`guide-required-essay`・`hissu-kamoku-kaitourei`・`pe-secondary-essay-guide`・`sentaku-kamoku-kakiwake`・`*-ronbun-keyword`） | `coconala-pe-construction-tensaku` |
+| 技術士 総監の記述式（`essay-exam-strategy`・`essay-persona-guide`・`essay-pattern-cross-year-application`・年度別とパターンの `*-essay-*`） | `coconala-pe-sokan-tensaku` |
+| 技術士 総監の出願（`exam-application-guide`） | `coconala-pe-gyomu-tensaku` |
+| 技術士 上下水道部門（`guide-hissu-kamoku`・`guide-sentaku-kamoku`） | `coconala-pe-water-tensaku` |
 
 総監 記述系は分析 PDF（`coconala-sokan-bunseki-pdf`）が retired のためルールごと外した（2026-09-30）。ルールが retired の出品を指すと `tests/offsite-cta.test.mjs` が落とす（absence は復帰するので許す）。`coconala-2kyu-tensaku`（absence）は 3 テーマ版と同じ添削なので載せない。
 

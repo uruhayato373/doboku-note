@@ -15,6 +15,8 @@
  *   npm run fetch-cloudflare-analytics
  * exit code: 0=取得・書き込み成功／1=認証・ネットワーク失敗／2=daysReturned 0（検査不成立・成果物は書かない）
  * ---------------------------------------------------------------------------
+ *
+ * npm run fetch-cloudflare-analytics — Cloudflare GraphQL Analytics でゾーン別日次集計を取得→data/cloudflare/zone/（CI 日次 cloudflare-metrics.yml。0 件は exit 2）
  */
 
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';

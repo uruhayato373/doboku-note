@@ -21,5 +21,44 @@
     "sha256": "16ea3c1d22a932a24e300543a6ea0f4a65e80e2c6ec5035d2784c4b2744f06b1",
     "thumbnailSha256": "80061c12b1cd54a5f4f7002fa46a96ddf9c970fee69aa92d45a22b3cb2df9442"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-kadai-1",
+      "sceneId": "issue",
+      "title": "1級土木｜経験記述の課題の欄に処置を書かない #Shorts",
+      "description": "経験記述の課題の欄に、実施した工法を書いていませんか。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 1級土木 施工経験記述 完成答案集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=c1-keiken-ochiru-naoshikata&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#1級土木 #土木施工管理技士 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "sha256": "355623786f7f372afbc2c2c78d7ec203df4f67253d5dae813a41b68454ffe967",
+      "thumbnailSha256": "bdde4d4e80956b08633b7475ff361ea41666abdb0453cfb51b4d4af7aeacb33b",
+      "r2Key": "video/render/c1-keiken-ochiru-naoshikata/shorts/point-kadai-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-ochiru-naoshikata/shorts/point-kadai-1/thumbnail.png"
+    },
+    {
+      "key": "point-okiba-2",
+      "sceneId": "misread",
+      "title": "1級土木｜経験記述は足す前に欄を確かめる #Shorts",
+      "description": "答案を直すとは、言葉を足すこと、と思っていませんか。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 1級土木 施工経験記述 完成答案集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=c1-keiken-ochiru-naoshikata&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#1級土木 #土木施工管理技士 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "sha256": "48427175be7e42677a0843fb12a4d0bfa8413324e6f39b0e8b24ec9c1623e259",
+      "thumbnailSha256": "f6cefe5dc90539dd543e550a9c5154208c5c309a6257821341e3ccd0a609e76c",
+      "r2Key": "video/render/c1-keiken-ochiru-naoshikata/shorts/point-okiba-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-ochiru-naoshikata/shorts/point-okiba-2/thumbnail.png"
+    }
+  ]
 }

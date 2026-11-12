@@ -22,6 +22,8 @@
 //   node scripts/verify-note-status.mjs --fix     # ライブ published に合わせ既存 noteStatus 行を是正
 //   node scripts/verify-note-status.mjs --json     # 結果を JSON で stdout 出力
 //   node scripts/verify-note-status.mjs --ci       # ドリフト/検査不成立で exit 1（GitHub Actions 用）
+//
+// npm run verify-note-status — frontmatter noteStatus ↔ note ライブ公開状態の照合（read-only・土曜の収集の note-audit 段が週次で `--ci --json --snapshot`）。`-- --fix` はライブ published に合わせ既存 noteStatus 行だけ是正し、実際に書き換わった本数を「是正」と数える（CRLF 記事で 1 バイトも変わらず是正済みと数えた偽成功が 2026-09-19 にあり・書き換え不能は UNFIXED で exit 1）
 
 import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
 import { setNoteStatus } from './lib/note-status.mjs';

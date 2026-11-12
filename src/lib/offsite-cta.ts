@@ -46,6 +46,7 @@ interface OffsiteRule {
 // 試験後まで一時休止（pauseReason:'absence'）の PDF はルールに残し、復帰したら自動で出す。総監 記述系は分析 PDF が retired でルールごと外した。
 // coconala-2kyu-tensaku（absence）は 3 テーマ版と同じ添削なので載せない（復帰時に添削が 2 枚並ぶ）。
 // 2026-10-26: 経験記述の添削・作成を 1級・2級とも coconala-tensaku-4theme（services/4418735）の 1 本へ集約した（DN-0538）。
+// 2026-11-12: 1級・2級の教材フルパック（4341188・4341191）を販売実績 0・評価なしのままアーカイブした（retired）。来季は新しく出品し直す。
 // 級・テーマ数・骨子の相談はオプションで選ぶ。予想模試 PDF 2 本はアーカイブし、模試は note の予想模試へ一本化した（DN-0442）。
 const OFFSITE_RULES: readonly OffsiteRule[] = [
   {
@@ -63,20 +64,14 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
   {
     // 1級 二次 年度別過去問（secondary-r03〜r09）: 模範答案を読んだあとに自分の答案を見てもらう。
     test: /^civil-construction-1-secondary-r0[3-9]$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-1kyu-full-pdf'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: '過去問の模範答案を読んだら、次は自分の答案を見てもらう番です。',
   },
   {
     // 2級 二次 年度別過去問。
     test: /^civil-construction-2-secondary-r0[3-9]$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-2kyu-full-pdf'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: '過去問の模範答案を読んだら、次は自分の答案を見てもらう番です。',
-  },
-  {
-    // 1級 二次 学科記述の分野別ページ。フルパック PDF は試験後まで一時休止（absence）で、復帰すれば出る。
-    test: /^civil-construction-1-secondary-(concrete|construction-plan|earthwork|quality-management)-(basics|past-problems)$/,
-    coconala: ['coconala-1kyu-full-pdf'],
-    coconalaCatch: '学科記述の攻略PDF入り 全部入りパックで仕上げたい方へ。',
   },
   {
     // 1級 二次 入門・直前対策。
@@ -122,6 +117,38 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
     test: /^concrete-chief-engineer(-guide-(essay|overview))?$/,
     coconala: ['coconala-cce-essay-tensaku'],
     coconalaCatch: withTensakuDeadline('concrete-chief-engineer', 'exam', '小論文を人の目で確かめたい方・骨子から一緒に組み立てたい方へ。'),
+  },
+  {
+    // 技術士 建設部門の口頭試験ガイド: 筆記合格者が「業務経歴をコンピテンシーの言葉で説明できない」と迷うページ（2026-11-12 運営者指示）。
+    // note の口頭試験対策は magazine-placement が出す。こちらは本人の経歴から想定質問を作るテキスト完結のサービス。
+    // 口頭試験の日付は exam-calendar に無いので until は付けない（出品を休止すれば listed から外れて消える）。
+    test: /^pe-construction-koutou-shiken$/,
+    coconala: ['coconala-pe-oral-qa'],
+    coconalaCatch: '自分の業務経歴をコンピテンシーの言葉で説明できる形に、人の手で整理したい方へ。',
+  },
+  {
+    // 技術士 建設部門の論文の入口（必須Iの解答例・論文の書き方・選択科目の書き分け・論点キーワード）: 自分の答案を直してほしい読者（2026-11-12 出品）。
+    test: /^pe-construction-(guide-required-essay|hissu-kamoku-kaitourei|pe-secondary-essay-guide|sentaku-kamoku-kakiwake|[a-z-]+-ronbun-keyword)$/,
+    coconala: ['coconala-pe-construction-tensaku'],
+    coconalaCatch: '読んだ型で自分の答案を書いたら、発注者の目で1問ずつ赤入れします。',
+  },
+  {
+    // 技術士 総監の記述式（戦略・ペルソナ・年度別とパターンの模範論文）。
+    test: /^pe-comprehensive-management-(essay-exam-strategy|essay-persona-guide|essay-pattern-cross-year-application|(?:h\d{2}|r\d{2}|pattern)-essay-[a-z-]+)$/,
+    coconala: ['coconala-pe-sokan-tensaku'],
+    coconalaCatch: '模範論文を読んだら、自分の記述式を管理の視点とトレードオフまで添削します。',
+  },
+  {
+    // 技術士 総監の出願（業務経歴票）。業務内容の詳細の添削は建設・上下水道・総監に対応。
+    test: /^pe-comprehensive-management-exam-application-guide$/,
+    coconala: ['coconala-pe-gyomu-tensaku'],
+    coconalaCatch: '業務内容の詳細720字を、課題と成果のつながりまで添削します。',
+  },
+  {
+    // 技術士 上下水道部門の必須科目・選択科目のガイド。
+    test: /^pe-water-supply-guide-(hissu-kamoku|sentaku-kamoku)$/,
+    coconala: ['coconala-pe-water-tensaku'],
+    coconalaCatch: '上水道・下水道の答案を、1問ずつ添削します。',
   },
   {
     // コンクリート主任技士: 択一の過去問・教科書（流入は資格トップに次いで多い）。択一と小論文は同じ日に受けるので、

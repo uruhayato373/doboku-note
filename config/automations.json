@@ -550,6 +550,31 @@
         "issue:workflow-health",
         "issue:report-checks"
       ]
+    },
+    {
+      "id": "youtube-own-metrics",
+      "runner": "github-actions",
+      "source": ".github/workflows/youtube-own-metrics.yml",
+      "title": "自社 YouTube の再生数・尺の月次取得",
+      "group": "metrics",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "0 0 1 * *"
+      ],
+      "scheduleJst": "毎月 1 日 09:00",
+      "login": [],
+      "purpose": "自社チャンネルの動画ごとの再生数と尺を yt-dlp の一覧から取り、data/youtube/own-videos へ書き戻す（手元の yt-dlp が古いと再生数が欠けるので CI へ移した・DN-0596・DN-1032）。probe_competitors は競合の一覧が取れるかを確かめるだけで書かない",
+      "readers": [
+        "quality-audit:own-videos-freshness",
+        "issue:youtube-own-metrics",
+        "skill:monthly-review"
+      ],
+      "writes": [
+        "youtube.own-videos"
+      ]
     }
   ]
 }

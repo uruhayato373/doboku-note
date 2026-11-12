@@ -13,7 +13,8 @@
 //   touches(ctx)          **全量を見る検査**（引数に --staged が無く、リポジトリ全体を走査するもの）の絞り込み。staged の変更が
 //                         その検査の入力に当たらないとき false を返して飛ばす（記事 1 本の編集で 2.5 秒の全量走査を回さない）。
 //                         入力の宣言は検査自身が走査する根（export した定数）から引き、投げたら走らせる側に倒す。
-//                         旧フックは毎回走らせていた＝**ここだけ旧フックより狭い**（tests/pre-commit-dispatch.test.mjs が宣言する）
+//                         旧フックは毎回走らせていた＝**ここだけ旧フックより狭い**（tests/pre-commit-dispatch.test.mjs が宣言する）。
+//                         --staged を受け取る検査でも、絞る前に入力の置き場を全部列挙するものには付ける（touchesSite・DN-1126）
 //   skipEnv               { name, mode } 環境変数による緊急回避。mode 'eq1'＝値が "1" のとき、'nonempty'＝空でないとき
 //   requireFile           旧フックの `if [ -f scripts/… ]`（ファイルが無い古いツリーでは飛ばす）
 //   failOnlyCode          指定した終了コードのときだけ止める（旧フックの `[ $? -eq 1 ]`。他の非 0 は通す）
@@ -30,6 +31,12 @@ const hasStaged = (ctx, re) => ctx.staged.some((f) => re.test(f));
 const touchesPrefix = (ctx, prefixes) => ctx.entries.some((e) => prefixes.some((p) => e.path === p || (p.endsWith('/') && e.path.startsWith(p))));
 /** 追加・削除・型変更（＝追跡ファイルの集合が変わる変更）が 1 つでもあるか。M だけの commit では false */
 const changesFileSet = (ctx) => ctx.entries.some((e) => e.status !== 'M');
+/**
+ * 入力が content/site の記事と図だけの検査の絞り込み。これらは --staged でも先に content/site の全ファイルを列挙してから絞るので、
+ * 何も stage していない commit でも 1 本 6〜27 秒かかっていた（会社 PC の実測・2026-11-11・5 本で 86 秒・DN-1126）。
+ * content/site に触れない commit では結果が変わらないので飛ばす。
+ */
+const touchesSite = (ctx) => touchesPrefix(ctx, ['content/site/']);
 
 /** 旧フックで `node <検査のスクリプト> --staged` の形だった検査を作る */
 const s = (name, args = ['--staged'], extra = {}) => ({ id: name, script: `scripts/${name}.mjs`, args, inProcess: true, ...extra });
@@ -80,13 +87,17 @@ export const STEPS = [
   // 公開したマガジンがサイトで CTA として実際に出るか（published:true にしただけで売り場に出ていない事故の再発防止・
   // 2026-08-13）。ゲート自体は 2026-07-31 に作られていたが quality:audit にしか配線されておらず、公開の瞬間に誰も
   // 走らせていなかったため cce-essay-magazine が CTA 0 面のまま公開された。**作ったゲートは走らせて初めてゲート**。
-  // note-magazines.ts / magazine-placement.ts / hub-cta.ts が staged のときだけ走る（重いので）。
+  // note-magazines.ts / magazine-placement.ts / hub-cta.ts が staged のとき、または content/site の記事を新規追加（status A）
+  // したときだけ走る（重いので）。記事の追加は 2026-11 に note の CTA が 1 つも無い公開記事（concrete-engineer-guide-r08-answers）で
+  // CI だけが赤くなった。修正は記事に note への導線を配線するか、published を false にする。
   {
     id: 'check-magazine-cta-reachability',
     bin: 'npx tsx',
     script: 'scripts/check-magazine-cta-reachability.ts',
     args: ['--ci'],
-    when: (ctx) => hasStaged(ctx, /^src\/lib\/(note-magazines|magazine-placement|hub-cta)\.ts$/),
+    when: (ctx) =>
+      hasStaged(ctx, /^src\/lib\/(note-magazines|magazine-placement|hub-cta)\.ts$/) ||
+      ctx.entries.some((e) => e.status === 'A' && /^content\/site\/.+\/article\.mdx$/.test(e.path)),
   },
   // note 単品価格がマガジン内・宣言済みシリーズ内で一貫しているか（値上げの当て漏れ・値崩れの再発防止・2026-07-28）
   s('check-note-price-consistency'),
@@ -109,7 +120,8 @@ export const STEPS = [
   },
   // 統合済み（_redirects で 301 の転送元）の記事を published: true にして「再公開」してしまう事故を止める。
   // 統合の記録は frontmatter ではなく _redirects にしか無いことがあり、目視では気づけない（2026-08-22 実事故）
-  s('check-published-vs-redirects'),
+  // 転送元は public/_redirects にもあるので、その変更でも回す
+  s('check-published-vs-redirects', ['--staged'], { touches: (ctx) => touchesPrefix(ctx, ['content/site/', 'public/_redirects']) }),
   // Git に何を追跡してよいか（生成物・著作権物・巨大 blob・拡張子偽装・同一原本の二重生成）。
   // HEAD 4.16GiB / remote 11GB でランナーが落ちるところまで来ているので、まず増加を止める。
   // 既存違反は baseline で猶予され、増加だけが FAIL になる。SKIP_GIT_BINARY_POLICY=1 で回避
@@ -243,12 +255,12 @@ export const STEPS = [
   // 図版 SVG の固定キャンバス標準（figure-N.svg=4:5 400x500 / --wide=16:9 640x360）逸脱検出（figure-canvas-policy）
   s('check-figure-canvas'),
   // 孤立 figure（img/figure-*.svg が同記事の本文から未参照＝サイト非表示）検出（結線もれの再発防止）
-  s('check-orphan-figures'),
+  s('check-orphan-figures', ['--staged'], { touches: touchesSite }),
   // 本文が指す「表N.M」のキャプションが実在するか（転記由来の宙に浮いた参照）
-  s('check-table-references'),
+  s('check-table-references', ['--staged'], { touches: touchesSite }),
   // MDX の <ArticleImage> width/height が SVG の実 viewBox と一致するか（キャンバス移行で埋込寸法が
   // 旧値のまま取り残される穴。check-figure-canvas は SVG 側しか見ない・2026-08-03 に 26 箇所を是正）
-  s('check-figure-embed-dims'),
+  s('check-figure-embed-dims', ['--staged'], { touches: touchesSite }),
   // 太字が描画されるか（閉じ/開き ** が flanking を満たさないとアスタリスクが本文に出る）。
   // 規則を再実装せず remark で実パースし、text ノードに ** が残るかで判定する。
   s('check-bold-rendering'),
@@ -259,7 +271,7 @@ export const STEPS = [
   // MDX の BOM（U+FEFF）。先頭に付くと frontmatter の ^--- が外れ、Kindle ビルダが title を
   // 拾えず章名が article.mdx になり YAML が本文に印字される（2026-08-12・審査中の e-02 で発生）。
   // 目視できない事故なので機械で止める。EPUB 展開は重いので commit 時は --bom-only。
-  s('check-kindle-epub-leak', ['--bom-only'], {}),
+  s('check-kindle-epub-leak', ['--bom-only'], { touches: touchesSite }),
   // note→サイト送客リンクの UTM 規約（生URL単独行=カード化でUTM消失 / inline は utm_source=note 必須）。SKIP_NOTE_UTM=1 で回避
   s('check-note-site-utm'),
   // X→サイト送客リンクの UTM 規約（utm_source=x / utm_medium=social 必須・_archive は対象外）。SKIP_X_UTM=1 で回避

@@ -29,6 +29,11 @@ import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import RelatedTools from '@/components/ui/RelatedTools';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import { shouldShowQualificationBridge } from '@/config/qualification-bridge';
+import ExamStepBridge from '@/components/ui/ExamStepBridge/ExamStepBridge';
+import NextInSeries from '@/components/ui/NextInSeries/NextInSeries';
+import ExamTopicBridge from '@/components/ui/ExamTopicBridge/ExamTopicBridge';
+import { resolveExamTopicQuestion } from '@/lib/exam-topic-bridge';
+import { resolveExamStepBridge } from '@/lib/exam-step-bridge';
 import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { isCivilConstructionCategory } from '@/lib/qualification-names';
@@ -90,6 +95,8 @@ export default function ArticleFooter({
   // pixelSrc は DocPage が渡すときだけ付ける（本文に転職広告が無いページで唯一の発火源＝1 ページ 1 ピクセル）。
   // キャリア記事の記事末は内部導線（CareerNextStepNav）に置き換える（2026-08-21・記事末 975 表示 0 クリック）。
   const isCareer = isCareerDoc(meta);
+  const examStep = resolveExamStepBridge(category, docGroup, slugStr);
+  const examTopic = category === 'civil-practice' ? resolveExamTopicQuestion(slugStr) : null;
   // 記事末の回遊（content-taxonomy.md §6-3）。法令 → テーマ → 関連記事の順に出し、先に出した記事は後ろから外す
   const { lawSiblings, lawTopics, lawPageLinks, lawPage, topicLinks, shownSlugs } = resolveArticleEnd(meta, laws.map((law) => law.lawId), relatedArticles);
   const endBanner = endBannerAd ? (
@@ -114,6 +121,12 @@ export default function ArticleFooter({
   return (
     <>
       {slugStr && <ExamYearNav currentSlug={slugStr} categoryArticles={categoryArticles} />}
+      {/* 前の記事・次に読む 1 本（資格ページと同じ並び＝category-curriculum.json）。教科書・過去問は上の前後ナビが担う */}
+      {slugStr && !isCareer && docGroup !== 'textbook' && (
+        <div className="mt-8">
+          <NextInSeries category={category} currentSlug={slugStr} categoryArticles={categoryArticles} />
+        </div>
+      )}
       {lawPage && <LawPageSections data={lawPage} />}
       {!isCareer && category && <RelatedTools category={category} slug={slugStr} />}
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
@@ -133,6 +146,12 @@ export default function ArticleFooter({
       {shouldShowQualificationBridge(category, slugStr) && (
         <div className="mt-8">
           <QualificationBridge placement="practice-footer" audience={meta.tags?.includes('地方公共団体') ? 'municipal' : undefined} />
+        </div>
+      )}
+      {/* 実務記事: 読んだ論点が出る 1級土木の過去問を 1 問（exam-topic-bridge.ts）。EXP-012 の橋渡しの下に並べる（2026-11-12〜） */}
+      {examTopic && (
+        <div className="mt-8">
+          <ExamTopicBridge question={examTopic} />
         </div>
       )}
 
@@ -173,6 +192,13 @@ export default function ArticleFooter({
             <RelatedTextbooks currentMeta={meta} categoryArticles={categoryArticles} />
           </div>
         )}
+
+      {/* 技術士第一次試験の過去問: 一次の次は二次（記述式）の入口へ。科目の部門ごとに行き先を分ける（exam-step-bridge.ts）。 */}
+      {examStep && (
+        <div className="mt-8">
+          <ExamStepBridge data={examStep} />
+        </div>
+      )}
 
       {/* note 有料マガジン CTA（記事末尾）。全 HUB 資格で「もくじ（L2 索引）」タイル 1 枚に統一（2026-07 統一）。
           個別マガジンタイル（旧・最大 3 誌）は廃止し、個別導線は冒頭/中間 CTA・MDX 内 MagazineCard に一本化。

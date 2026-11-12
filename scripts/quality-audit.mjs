@@ -16,6 +16,7 @@
  *   node scripts/quality-audit.mjs --ops   # ops:true（運用アラート）のうち毎日の分のみ・fail で exit 1・0 件実行で exit 2（ops-audit.yml が日次で回す）
  *   node scripts/quality-audit.mjs --weekly # ops:true の cadence:'weekly' のみ（土曜の週次レビューが review-checks の quality:audit:weekly で回す・DN-0847）
  *   node scripts/quality-audit.mjs --json  # 結果 JSON を stdout に出す（レポートファイルも書く）
+ *   node scripts/quality-audit.mjs --ci --except unit-tests  # id で外す（--only a,b は id で絞る）。ci.yml が unit-tests を別ジョブへ分けるのに使う
  *
  * 設計:
  *   - 各チェックは独立プロセスで最大 CONCURRENCY 本並列に実行（serial:true は並列分の後に直列）。timeout 到達で SIGTERM → status='timeout'（ハング対策完結）。
@@ -41,6 +42,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import net from 'node:net';
+import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -84,6 +86,16 @@ if (WEEKLY && (CI || REPORT_ONLY || OPS)) {
   process.exit(2);
 }
 const EMIT_JSON = argv.includes('--json');
+/**
+ * --only a,b / --except a,b: モードが選んだ検査を id でさらに絞る。CI が unit-tests（並列分の後に約 2 分直列で走る）を
+ * 別ジョブへ分けるために使う（audit ジョブ = --ci --except unit-tests、test ジョブ = --ci --only unit-tests）。
+ * 手元の quality:audit:ci は絞らず全部回す。CHECKS に無い id は検査不成立（exit 2）＝ id を変えたとき黙って 0 件にしない。
+ */
+const idArgs = parseCliArgs({ only: { type: 'string' }, except: { type: 'string' } }, argv);
+// フラグがあるのに値が無いとき（--only だけ）は空の配列にする。null（絞らない）にすると全検査が走る。
+const idList = (flag, value) => (argv.some((a) => a === flag || a.startsWith(`${flag}=`)) ? String(value ?? '').split(',').map((s) => s.trim()).filter(Boolean) : null);
+const ONLY = idList('--only', idArgs.only);
+const EXCEPT = idList('--except', idArgs.except);
 
 // 壊れていても落とさず fallback を返す（best-effort。壊れたら落とすなら json-io の readJson）
 function readJsonOr(p, fallback) {
@@ -123,6 +135,7 @@ function unzipMissing() {
 export const CHECKS = [
   { id: 'content-expansion', npm: 'check-content-expansion', timeout: 30_000, ci: true, note: '全教材の母数・記事/図/SNS対応表の整合。未確認・原典待ち・成果物変更を別表示し、構造PASSで制作完了とはしない' },
   { id: 'domains', npm: 'check-domains', timeout: 30_000, ci: true, note: '領域の正本（domains.json）と、スキル/エージェントの frontmatter domain・文書の割り当ての整合' },
+  { id: 'capability-index', npm: 'check-doc-coupling', timeout: 30_000, ci: true, note: 'スキル・エージェントの一覧（skills-guide.md・agents-registry.md の生成区間）が frontmatter と一致。ずれたら npm run build-capability-index（2026-11-11 まで手書きの台帳で、pre-commit の staged だけが見ていた・DN-1131）' },
   { id: 'issue-map', npm: 'check-issue-map', timeout: 30_000, ci: true, note: '事業イシューマップの指標・DN・競合の参照が実在するか。結果は PR の diff だけで決まる（更新の番は週次が --due で読む）' },
   { id: 'affiliate-placements', timeout: 90_000, ci: true, note: '転職アフィリエイトの配置ルール・案件と広告リンクの配線・広告リンクの許可リストを 1 検査で回す（配線と許可リストは 2026-10-27 まで pre-commit の staged だけで、CI では誰も見ていなかった）', steps: [
     { label: 'placements', npm: 'check-affiliate-placements', timeout: 60_000, note: '転職アフィリエイトの配置ルール（台帳 config.affiliate-placements）が案件（catalog の active・Red Line でない）・広告リンクの有無・面の語彙・カテゴリ・実験と整合し、同じ面に 2 ルールが重ならないか。MDX の手書き <CareerAffiliate> のカテゴリがルールに覆われているか（2026-10-07）。広告リンクの期限は壁時計依存なので affiliate-placements-upcoming（ops）が見る（2026-10-11）' },
@@ -258,6 +271,7 @@ export const CHECKS = [
   { id: 'gsc-sitemaps-due', cmd: ['node', 'scripts/check-gsc-sitemaps.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, note: 'sitemap の送信・Google の読み込み（fetch-metrics.yml が書く sitemaps-latest.json）の異常と記録の古さ。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
   { id: 'monthly-review-due', cmd: ['node', 'scripts/check-monthly-review-due.mjs'], timeout: 30_000, ci: false, ops: true, cadence: 'weekly', note: '毎月の期日以降に前月の月次レビュー記録が無いと exit 1（SessionStart でも出る）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
   { id: 'ga4-dimensions', npm: 'check-ga4-dimensions', timeout: 30_000, ci: false, ops: true, cadence: 'weekly', note: 'GA4 カスタムディメンションの不足（望む状態 ga4-admin-desired-state.json と取得済み inventory の突合）。赤なら ga4-admin:apply（ローカル・要ログイン）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
+  { id: 'own-videos-freshness', npm: 'check-youtube-own-freshness', timeout: 30_000, ci: false, ops: true, note: '自社 YouTube の動画別の再生数（台帳 youtube.own-videos・月次）の最新の記録が freshness.warnDays（35 日）を超えていないか。取得は youtube-own-metrics.yml（毎月 1 日 JST）で、止まると前回比が切れる（DN-0596）。読み手＝ops-audit.yml（日次 --ops）の automation-failure Issue' },
   { id: 'cloudflare-metrics-freshness', npm: 'check-cloudflare-metrics-freshness', timeout: 30_000, ci: false, ops: true, note: 'Cloudflare zone analytics 日次取得と zone 設定監査（どちらも cloudflare-metrics.yml・設定の監査は金曜）の停止を検知する。ドリフト自体は channel cloudflare-config が持つ。読み手＝ops-audit.yml（日次 --ops）' },
   { id: 'note-sync-freshness', npm: 'check-note-sync-freshness', timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: '土曜の Mac の収集（weekly-collect の note-sync 段）が止まっていないか。同期の記録（台帳 note.sync-log）の最新の startedAt が freshness.failDays 超前なら FAIL。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）。反映待ちの記事の判定は check-note-sync（同じ収集の note-sync-check 段）の担当' },
   { id: 'weekly-collect', npm: 'check-weekly-collect:alive', timeout: 30_000, ci: false, ops: true, note: '土曜の Mac の収集（ログインが要る取得と書き込み・weekly-collect）の死活。直近の pre と post が台帳 state.weekly-collect の failDays 以内に回ったかだけを見る（Mac が寝ていた・launchd が外れた）。段ごとの合否は土曜に Issue channel weekly-collect と週次レビュー（check-weekly-collect）が読み、毎日は繰り返さない（DN-0847）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）（DN-0819）' },
@@ -499,11 +513,27 @@ export const CADENCES = ['weekly', 'collect'];
  *   full       … すべて
  */
 export function selectsCheck(check, mode) {
+  if (mode.only && !mode.only.includes(check.id)) return false;
+  if (mode.except && mode.except.includes(check.id)) return false;
   if (mode.ci) return Boolean(check.ci);
   if (mode.ops) return Boolean(check.ops) && !check.cadence;
   if (mode.weekly) return Boolean(check.ops) && check.cadence === 'weekly';
   if (mode.reportOnly) return !check.ci && !check.ops && check.digest !== false;
   return true;
+}
+
+/** --only / --except の id のうち CHECKS に無いもの。純関数（テストが import する）。 */
+export function unknownCheckIds(ids, checks = CHECKS) {
+  const known = new Set(checks.map((c) => c.id));
+  return (ids ?? []).filter((id) => !known.has(id));
+}
+{
+  const unknown = unknownCheckIds([...(ONLY ?? []), ...(EXCEPT ?? [])]);
+  const empty = (ONLY && !ONLY.length) || (EXCEPT && !EXCEPT.length);
+  if (unknown.length || empty) {
+    process.stderr.write(`[quality-audit] ✗ 検査不成立: --only / --except の id が${empty ? '空' : ` CHECKS に無い: ${unknown.join(', ')}`}\n`);
+    process.exit(2);
+  }
 }
 
 // expectedFail は ci:true には付けられない。ゲートに「失敗が正常」を認めると Pre-merge の
@@ -583,7 +613,7 @@ async function runCheck(check) {
   // digest:false は「常に非ゼロで判定に使えない情報出力」なので週次 Issue の対象からも外す
   // （毎週飛ぶ通知は読まれなくなる）。ops は日次の別チャネル（ops-audit.yml）が読むので
   // 週次 digest からも外す（同じ FAIL が 2 つの Issue に出ると片方が読まれなくなる）。
-  if (!selectsCheck(check, { ci: CI, ops: OPS, weekly: WEEKLY, reportOnly: REPORT_ONLY })) return null;
+  if (!selectsCheck(check, { ci: CI, ops: OPS, weekly: WEEKLY, reportOnly: REPORT_ONLY, only: ONLY, except: EXCEPT })) return null;
   if (check.skip) {
     const reason = await check.skip();
     if (reason) return { id: check.id, ci: check.ci, ops: Boolean(check.ops), status: 'skip', skipReason: reason, durationMs: 0, note: check.note, expectedFail: check.expectedFail ?? null };
@@ -774,6 +804,13 @@ async function main() {
     }
     process.stderr.write(`[quality-audit] ${WEEKLY ? 'weekly' : 'ops'} 区分の失敗: ${failed.map((f) => f.id).join(', ')}\n`);
     process.exitCode = 1;
+  }
+
+  if (EXCEPT) process.stderr.write(`[quality-audit] --except で外した検査: ${EXCEPT.join(', ')}（別ジョブが回す）\n`);
+  // 検査ゼロを PASS と呼ばない: --only で絞った結果 1 件も走らなければ、モードと id の組み合わせが誤り。
+  if (CI && results.length === 0) {
+    process.stderr.write('[quality-audit] ✗ 検査不成立: ci:true の検査が 1 件も実行されなかった\n');
+    process.exitCode = 2;
   }
 
   if (CI && failed.length) {

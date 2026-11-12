@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// npm run note-magazine-remove -- --target <mキー> --notes k1,k2 [--commit] — 記事を note マガジンの収録から外す（既定 dry-run・記事は消えない/非公開にならない・実行後に公開 API で収録から消えたことを確認。逆は note-magazine-add。DN-0527）。
+
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-remove-articles.mjs

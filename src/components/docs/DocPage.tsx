@@ -268,12 +268,14 @@ export async function renderDocPage(slugStr: string) {
   // resolveHubCta は非 HUB 資格（一次・concrete・reference）に null を返すため、それらは自然に非表示。
   // career タグ記事は転職一本方針を継承し note もくじを出さない（転職テキスト CTA と二重化させない）。
   const showMokuji = Boolean(category) && !isCareerDoc(doc.meta);
+  // 1級土木の教科書・一次過去問は第1次検定の学習中の読者なので、もくじタイルを一次の見出しにする（hub-cta.ts mokujiFirstStage）
+  const hubStage = category === 'civil-construction-1' && (docGroup === 'textbook' || docGroup === 'primary') ? 'first' as const : undefined;
   const footerMokuji =
-    showMokuji && category ? resolveHubCta(category, { utmSuffix: 'footer' }) : null;
+    showMokuji && category ? resolveHubCta(category, { utmSuffix: 'footer', stage: hubStage }) : null;
   // 読書中サイドバー（PC）にも同じもくじを併掲（utm -docs-sb で面分離）。2026-07-06 に一旦撤去したが、
   // 全ページ統一の一環で復活し、カテゴリ hub（sidebar -sb + mobile -mob）と同じ二面構成に揃える。
   const sidebarMokuji =
-    showMokuji && category ? resolveHubCta(category, { utmSuffix: 'docs-sb' }) : null;
+    showMokuji && category ? resolveHubCta(category, { utmSuffix: 'docs-sb', stage: hubStage }) : null;
   // 外部チャネル（ココナラ添削）CTA。施工経験記述・総監記述系の高適合ページのみ非空。
   // 商品の listed 状態は offsite-cta.ts 側で判定（未 listed は自動非表示）。
   const offsiteCta = resolveOffsiteCta(slugStr);

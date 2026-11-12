@@ -204,7 +204,7 @@ CTA期待値をspecへ大量に直書きしない。既存の`src/lib/note-magaz
 
 - `pull_request`で`src/**`、`package.json`、`playwright.config.ts`、`e2e/**`変更時。実行は desktop の `smoke`・`navigation`・`cta` だけ（待ち時間を約 5 分に抑える）
 - `workflow_dispatch`
-- `schedule`（毎日 JST 03:00・checkout は develop）。コンテンツは develop へ直 push され PR 経路を通らないため、MDX コンポーネント誤用による画面崩れを夜間に拾う。失敗は `automation-failure` Issue（channel `e2e-nightly`）。全 spec は夜間と手動で回し、`deploy:main` は未解決の夜間 Issue があると止まる。夜間と手動は `STANDARDS_RENDER_SCOPE=all` で公的基準の全文書を描画するので timeout を 60 分に取る（DN-0853）
+- `schedule`（毎日 JST 03:00・checkout は develop）。コンテンツは develop へ直 push され PR 経路を通らないため、MDX コンポーネント誤用による画面崩れを夜間に拾う。失敗は `automation-failure` Issue（channel `e2e-nightly`）。全 spec は夜間と手動で回し、`deploy:main` は未解決の夜間 Issue があると止まる。夜間と手動は `STANDARDS_RENDER_SCOPE=all` で公的基準の全文書を描画するので timeout を 60 分に取る
 
 実行順。
 
@@ -212,9 +212,8 @@ CTA期待値をspecへ大量に直書きしない。既存の`src/lib/note-magaz
 2. Node 20セットアップ
 3. `npm ci --legacy-peer-deps --ignore-scripts`
 4. `npx playwright install --with-deps chromium`
-5. `npm run type-check`
-6. `npm run test:e2e`
-7. 失敗時に`playwright-report/`と`test-results/`をartifact保存
+5. `npm run test:e2e`（type-check は ci.yml の audit が同じ commit で回すので、ここでは回さない）
+6. 失敗時に`playwright-report/`と`test-results/`をartifact保存
 
 CI時間を抑えるため、E2E workflow内で全量の`npm run build`や既存監査を重複実行しない。ビルドは既存CIまたは別ジョブの責務とする。
 

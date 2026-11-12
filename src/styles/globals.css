@@ -629,16 +629,21 @@
      たびにページ全体のスタイル・レイアウト・描画が走って応答が遅れていた（GA4 のスマホ INP 良好率 52%）。
      画面外の段落・選択肢・解説を content-visibility: auto で描画から外し、操作のたびの描画を画面付近に限る。
      対象は中の余白が外へ相殺しない要素だけに絞る（figure・独自コンポーネントは外す）。ol/ul は封じ込めで
-     先頭・末尾の li の余白が相殺しなくなり 12px 伸びるため、その余白を 0 にして従来の高さに揃える。 */
-  &[data-offscreen-render='skip'] > :is(p, h2, h3, h4, ol, ul, details, blockquote, .katex-display, .table-scroll) {
-    content-visibility: auto;
-    contain-intrinsic-block-size: auto 200px;
-  }
-  &[data-offscreen-render='skip'] > :is(ol, ul) > li:first-child {
-    margin-top: 0;
-  }
-  &[data-offscreen-render='skip'] > :is(ol, ul) > li:last-child {
-    margin-bottom: 0;
+     先頭・末尾の li の余白が相殺しなくなり 12px 伸びるため、その余白を 0 にして従来の高さに揃える。
+     幅 1024px 未満だけに効かせる（2026-11-12）: 未描画の要素は 200px の仮の高さで並ぶので、検索結果の文字列ジャンプ（#:~:text）や
+     目次・#問題-noN で途中に着地すると、周りが実寸に置き換わって画面が大きくずれる（本番の実測で CLS 0.98。RUM ではデスクトップの
+     2級一次の過去問の良好率 71%）。応答の遅れはスマホの問題で、PC は描画を省かなくても INP が良好なので、PC は実寸で並べる。 */
+  @media (max-width: 1023px) {
+    &[data-offscreen-render='skip'] > :is(p, h2, h3, h4, ol, ul, details, blockquote, .katex-display, .table-scroll) {
+      content-visibility: auto;
+      contain-intrinsic-block-size: auto 200px;
+    }
+    &[data-offscreen-render='skip'] > :is(ol, ul) > li:first-child {
+      margin-top: 0;
+    }
+    &[data-offscreen-render='skip'] > :is(ol, ul) > li:last-child {
+      margin-bottom: 0;
+    }
   }
 
   /* ===== blockquote: editorial soft rule ===== */

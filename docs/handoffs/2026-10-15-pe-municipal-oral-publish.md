@@ -29,7 +29,7 @@
 
 - 公開した記事の noteUrl を記録する（`config/products.json`／frontmatter。`npm run product` 経由）。
 - 無料 2 本の URL を、建設部門もくじ・L1・口頭試験対策 2 本へ配線する（URL 単独行。`npm run check-note-funnel` で確認）。
-- 業務経歴票の書き方（上下水道）は、上下水道部門のもくじ（DN-0355）と口頭試験対策へ配線する。
+- 業務経歴票の書き方（上下水道）は、上下水道部門のもくじ（/exam/pe-water-supply・入口は公開済み）と口頭試験対策へ配線する。
 - 有料の追記が note に出ているかを note API で確認する（`npm run verify-note-magazines`）。
 
 ## 採点で残した判断

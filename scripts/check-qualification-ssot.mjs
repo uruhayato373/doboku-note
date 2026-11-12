@@ -8,6 +8,8 @@
  * 設定（config・.claude/config・.claude/knowledge・src/config の JSON）の写し、書き込み先（DERIVED_FILES）と registry の食い違い、
  * コードの資格 id（または別名）→ 日本語の対応表を 1 件でも見つけたら止める。判定は scripts/lib/qualification-ssot.mjs。
  * 検査した件数を必ず出し、0 件なら検査不成立（exit 1）にする（CLAUDE.md §9）。
+ *
+ * npm run check-qualification-ssot — 資格の名前（正式名・短い名前・ごく短い名前）・まとまり（groups）・並び順が qualification-registry.json だけにあるか。設定（.claude/config・.claude/knowledge・src/config の JSON）の写し、書き込み先（categories・home-exam-cards・tags）と registry の食い違い、コード（scripts・.claude/scripts・tools/admin-app/src・src）の資格 id（またはカバー/導線の別名キー）→ 日本語の対応表を 1 件でも止める。CI ゲート＋pre-commit。管理画面 管理＞設定 で qualification-registry.json を開くと同じ結果が出る（`-- --json`）。罠: 試験の正式名など資格名と別の属性は qualification-ssot-allow.json に理由つきで登録、コードの誤検出（名前でない日本語）は行末か直前の行に `qualification-ssot: allow <理由>`。名前は scripts/lib/qualification-names.mjs（サイトは src/lib/qualification-names.ts）で引く
  */
 
 import { auditQualificationSsot, ALLOW_PATH, ALLOW_MARKER } from './lib/qualification-ssot.mjs';

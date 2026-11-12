@@ -82,7 +82,10 @@ for (const exam of EXAMS) {
     const expected = manifest.outputs?.shorts;
     if (!Number.isInteger(expected) || expected < 0) errors.push(`${packId}: outputs.shorts が非負の整数ではない (${expected})`);
     // ショートは年間の枠で選んで作る。未着手のパックは企画の希望本数があっても失敗にしない
-    if (shorts.length && shorts.length !== expected) errors.push(`${packId}: shorts=${shorts.length} (期待値${expected})`);
+    // 型の台帳（shorts-design.json）で作ったショートの本数は年間計画の shortsRule と枠が持ち、check-youtube-plan が見る。
+    // video-pack.json は内容QAの digest に入るので、ショートを足すたびに書き換えない（2026-11-12）
+    const designed = existsSync(join(dir, 'shorts-design.json'));
+    if (shorts.length && shorts.length !== expected && !designed) errors.push(`${packId}: shorts=${shorts.length} (期待値${expected})`);
     if (!youtube.longform) errors.push(`${packId}: longform メタデータなし`);
     else publicationSlot(packId, 'longform', youtube.longform);
 

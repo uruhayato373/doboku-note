@@ -39,8 +39,9 @@
         ],
         "weeklyCapacity": 20,
         "listedAt": "2026-08-05",
-        "pauseReason": "absence",
-        "resumeOn": "2027-07-01"
+        "pauseReason": "retired",
+        "resumeOn": "2027-07-01",
+        "archivedAt": "2026-11-12"
       },
       "members": [],
       "includes": [],
@@ -249,9 +250,10 @@
           "civil-2"
         ],
         "weeklyCapacity": 20,
-        "pauseReason": "absence",
+        "pauseReason": "retired",
         "resumeOn": "2027-07-01",
-        "listedAt": "2026-08-05"
+        "listedAt": "2026-08-05",
+        "archivedAt": "2026-11-12"
       },
       "members": [],
       "includes": [],
@@ -848,6 +850,68 @@
       ]
     },
     {
+      "id": "coconala-pe-construction-tensaku",
+      "channel": "coconala",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "service",
+      "persona": null,
+      "order": 36,
+      "catalog": {
+        "id": "coconala-pe-construction-tensaku",
+        "status": "listed",
+        "title": "技術士 建設部門の論文を元発注者が添削します",
+        "shortTitle": "技術士 建設部門 論文添削",
+        "description": "技術士第二次試験 建設部門の筆記試験の答案（必須科目I・選択科目II・IIIのうち1問）を、元発注者の技術士がテキストで添削する。題意とのずれ・課題の立て方・解決策の具体性・リスクと対策を見て、総評と直す順番を返す。作成代行はしない。合格を保証するものではない。",
+        "priceYen": 3000,
+        "priceNote": "1問・3日",
+        "examScope": [
+          "pe-construction"
+        ],
+        "weeklyCapacity": 3,
+        "listedAt": "2026-11-12",
+        "serviceUrl": "https://coconala.com/services/4502256"
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "---- 技術士 3 部門の出品計画（2026-11-12・content/coconala/出品計画_技術士_2026-11.md）----"
+      ]
+    },
+    {
+      "id": "coconala-pe-gyomu-tensaku",
+      "channel": "coconala",
+      "qualification": "pe-construction",
+      "stage": "written",
+      "series": "other",
+      "tier": "service",
+      "persona": null,
+      "order": 35,
+      "catalog": {
+        "id": "coconala-pe-gyomu-tensaku",
+        "status": "listed",
+        "title": "技術士の業務内容の詳細720字を添削します",
+        "shortTitle": "技術士 業務内容の詳細 添削",
+        "description": "技術士第二次試験の受験申込書「業務内容の詳細」（720字以内）を、元発注者の技術士がテキストで添削する。立場と役割・課題・技術的提案・成果と評価のつながりを見て、口頭試験で聞かれやすい箇所も指摘する。建設部門・上下水道部門・総合技術監理部門に対応。代筆と経験していない業務の創作はしない。合格を保証するものではない。",
+        "priceYen": 3000,
+        "priceNote": "720字1本・3日",
+        "examScope": [
+          "pe-construction",
+          "pe-comprehensive-management",
+          "pe-water-supply"
+        ],
+        "weeklyCapacity": 3,
+        "listedAt": "2026-11-12",
+        "serviceUrl": "https://coconala.com/services/4502273"
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "---- 技術士 3 部門の出品計画（2026-11-12・content/coconala/出品計画_技術士_2026-11.md）----"
+      ]
+    },
+    {
       "id": "coconala-pe-oral-pdf",
       "channel": "coconala",
       "qualification": "pe-comprehensive-management",
@@ -901,21 +965,92 @@
         "id": "coconala-pe-oral-qa",
         "status": "listed",
         "serviceUrl": "https://coconala.com/services/4486050",
-        "title": "技術士口頭試験の想定質問を経歴から作ります",
+        "title": "技術士口頭試験｜経歴をコンピテンシーで整理します",
         "shortTitle": "技術士 口頭試験 想定質問作成",
-        "description": "受験申込書の「業務内容の詳細」（720字以内）と業務経歴をもとに、口頭試験で聞かれやすい想定質問20問と、ご本人の事実から組み立てた回答の骨子を返すテキスト完結のサービス。ビデオ面接ではない。経験していない業務の創作はせず、事実が足りない箇所は確認事項として返す。建設部門・総合技術監理部門に対応。合格を保証するものではない。",
-        "priceYen": 5000,
+        "description": "受験申込書の「業務内容の詳細」（720字以内）と業務経歴をもとに、口頭試験で聞かれやすい想定質問20問と、ご本人の事実から組み立てた回答の骨子を返すテキスト完結のサービス。ビデオ面接ではない。経験していない業務の創作はせず、事実が足りない箇所は確認事項として返す。建設部門・上下水道部門・総合技術監理部門に対応。合格を保証するものではない。",
+        "priceYen": 2000,
         "priceNote": "想定質問20問＋回答骨子",
         "examScope": [
           "pe-comprehensive-management",
-          "pe-construction"
+          "pe-construction",
+          "pe-water-supply"
         ],
         "weeklyCapacity": 2,
-        "listedAt": "2026-11-04"
+        "listedAt": "2026-11-04",
+        "priceHistory": [
+          {
+            "priceYen": 5000,
+            "until": "2026-11-12"
+          },
+          {
+            "priceYen": 4000,
+            "until": "2026-11-12"
+          }
+        ]
       },
       "members": [],
       "includes": [],
       "memo": []
+    },
+    {
+      "id": "coconala-pe-sokan-tensaku",
+      "channel": "coconala",
+      "qualification": "pe-comprehensive-management",
+      "stage": "written",
+      "series": "other",
+      "tier": "service",
+      "persona": null,
+      "order": 37,
+      "catalog": {
+        "id": "coconala-pe-sokan-tensaku",
+        "status": "listed",
+        "title": "技術士 総監の記述式論文を添削します",
+        "shortTitle": "技術士 総監 記述式添削",
+        "description": "技術士第二次試験 総合技術監理部門の筆記試験（記述式）の答案1問分を、総監の技術士がテキストで添削する。題意とのずれ・管理の視点・施策の具体性・管理間のトレードオフを見て、総評と直す順番を返す。作成代行はしない。合格を保証するものではない。",
+        "priceYen": 3500,
+        "priceNote": "記述式1問・3日",
+        "examScope": [
+          "pe-comprehensive-management"
+        ],
+        "weeklyCapacity": 2,
+        "listedAt": "2026-11-12",
+        "serviceUrl": "https://coconala.com/services/4502262"
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "---- 技術士 3 部門の出品計画（2026-11-12・content/coconala/出品計画_技術士_2026-11.md）----"
+      ]
+    },
+    {
+      "id": "coconala-pe-water-tensaku",
+      "channel": "coconala",
+      "qualification": "pe-water-supply",
+      "stage": "written",
+      "series": "other",
+      "tier": "service",
+      "persona": null,
+      "order": 38,
+      "catalog": {
+        "id": "coconala-pe-water-tensaku",
+        "status": "listed",
+        "title": "技術士 上下水道部門の論文を添削します",
+        "shortTitle": "技術士 上下水道部門 論文添削",
+        "description": "技術士第二次試験 上下水道部門（上水道及び工業用水道・下水道）の筆記試験の答案1問分を、上下水道部門の技術士がテキストで添削する。題意とのずれ・課題の立て方・解決策の具体性・リスクと対策を見て、総評と直す順番を返す。作成代行はしない。合格を保証するものではない。",
+        "priceYen": 4000,
+        "priceNote": "1問・3日",
+        "examScope": [
+          "pe-water-supply"
+        ],
+        "weeklyCapacity": 2,
+        "listedAt": "2026-11-12",
+        "serviceUrl": "https://coconala.com/services/4502267"
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "---- 技術士 3 部門の出品計画（2026-11-12・content/coconala/出品計画_技術士_2026-11.md）----"
+      ]
     },
     {
       "id": "coconala-rccm-mondai1-pdf",

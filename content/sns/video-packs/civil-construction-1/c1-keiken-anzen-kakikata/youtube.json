@@ -21,5 +21,44 @@
     "sha256": "45308153612e5a97447a50a16935e7d841f8dd7516a3bbcef92ccd1491cf83c0",
     "thumbnailSha256": "7732217876037ad013cff475f255d7b71b6e24dafe9c781f14cbcc19540d28a7"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-katsudou-1",
+      "sceneId": "misread",
+      "title": "1級土木｜安全管理は固有の危険から課題を立てる #Shorts",
+      "description": "安全管理の経験記述、危険予知とパトロールを並べていませんか。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 1級土木 施工経験記述 完成答案集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=c1-keiken-anzen-kakikata&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#1級土木 #土木施工管理技士 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "sha256": "04c2aa84aca69577e92f5893da8bfef865461030e3e5e9de0dba350e8cb29118",
+      "thumbnailSha256": "bb31eb82eea95c1acc3db2cd0a2c99f8bfe2538ea90478cc8b62299249aa4375",
+      "r2Key": "video/render/c1-keiken-anzen-kakikata/shorts/point-katsudou-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-anzen-kakikata/shorts/point-katsudou-1/thumbnail.png"
+    },
+    {
+      "key": "point-joukyou-2",
+      "sceneId": "state",
+      "title": "1級土木｜安全管理の状況は測れる条件で書く #Shorts",
+      "description": "「高い所で作業した」この状況の書き方、何が足りないでしょう。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 1級土木 施工経験記述 完成答案集を見る（note有料教材）\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=c1-keiken-anzen-kakikata&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#1級土木 #土木施工管理技士 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "sha256": "1ceb2bfec696d17da635cb7b49922864f69a60a5e878867a3ebce07ad9582054",
+      "thumbnailSha256": "9e0691b09397a3ddbf1b2c37fd1b948b2f455943317693d2116c5594ae873a07",
+      "r2Key": "video/render/c1-keiken-anzen-kakikata/shorts/point-joukyou-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-anzen-kakikata/shorts/point-joukyou-2/thumbnail.png"
+    }
+  ]
 }

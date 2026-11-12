@@ -29,6 +29,8 @@
 // 射程外（黙って通さないため明示する）:
 //   経験記述 W1〜W11 の表には公開予定日の列が無く、日程は README の散文にしかないため
 //   この検査では扱えない。表へ日付列を足せば同じ仕組みで見られる。
+//
+// npm run check-membership-drip — 会員配信ドリップの遅れ・実体欠落（真実源＝メンバーシップ/README.md の配信表。予定日を1日以上過ぎた未配信は赤。日付をカードへ複製すると必ずずれるので複製しない・quality:audit の **ops 区分**＝PR は赤くせず ops-audit.yml が日次で Issue へ。2026-09-18 まで ci 区分に居て 30 日に 13 回 Pre-merge を落としていた）
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';

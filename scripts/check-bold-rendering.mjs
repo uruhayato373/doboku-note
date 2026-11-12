@@ -15,6 +15,8 @@
  *   node scripts/check-bold-rendering.mjs            # 全量
  *   node scripts/check-bold-rendering.mjs --staged   # staged のみ（pre-commit 用）
  *   node scripts/check-bold-rendering.mjs --json     # 機械可読（fixer が読む）
+ *
+ * npm run check-bold-rendering — 太字が実際に描画されるか（remark で実パースし text に ** が残る＝崩壊を検出・サイト MDX は remark-mdx で読み <Callout> など JSX の中も見る・note 記事も対象・quality:audit に同梱）
  */
 
 import { readFileSync } from 'node:fs';

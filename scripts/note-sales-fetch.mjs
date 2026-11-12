@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// npm run note-sales-fetch — note 売上履歴を read-only 取得→検算OKでdata/note/sales.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）。パスワード再確認は資格情報 `doboku-note-auth-note`（CI は Secrets）で 1 回だけ自動で通す。`--no-auto-reauth` で人が通す。失敗印 `metadata/note.reauth-failed` は確認後に人が消す。前月の売上は note が翌月 2 日に確定するまで集計中で、その間は exit 8（PENDING・書き込みなし）
+
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-sales-fetch.mjs

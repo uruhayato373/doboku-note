@@ -18,6 +18,9 @@ type HubCtaSpec = {
    *  タイル内の 3 箇所が同じ「一覧がある」を言い換えるだけでクリック動機が無かった）。
    *  一覧であることは CTA ボタンの「教材一覧を見る」が担う。 */
   mokuji: { title1: string; title2: string };
+  /** 第1次検定の学習ページ（教科書・一次過去問）での見出し。二次の直前切替（seasonal・afterResult）もそこでは出さない。
+   *  リンク先は同じもくじ（帰属は hub-mokuji のまま）。一次の商品への直リンクは記事末の商品カード（magazine-placement の end）が担う。 */
+  mokujiFirstStage?: { title1: string; title2: string };
   /** もくじ（note ファネル L2）を引く資格キー。もくじ記事の URL は config/note-funnel.json（src/lib/note-mokuji.ts）が正本で、ここに書かない。 */
   examKey: ExamKey;
   /** title: 商品の shortTitle が長く資格名と重複するときの短縮表示（qual 行に資格名が出るため）。 */
@@ -36,6 +39,7 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     themeVar: '--exam-civil-1',
     examKey: 'civil-1',
     mokuji: { title1: '施工経験記述', title2: '学科記述・暗記' },
+    mokujiFirstStage: { title1: '第1次検定', title2: '出る順ノート・精読' },
     seasonal: {
       switchUtcMs: examDayEndUtcMs('civil-construction-1', 'second'),
       // 2026-09-27: 暗記ノート単品（¥580）→ 暗記ノートを含む直前総仕上げパック（模試3回＋暗記ノート＋出題分析）
@@ -98,14 +102,16 @@ export type ResolvedHubCta = {
  * 試験後の決まった期間=その時期の商品の直リンク（afterResult）を返す。
  * @param opts.utmSuffix 面識別子（"sb" / "docs-sb" / "footer" 等）。trackLabel/utm_content 末尾に
  *   付与し GA4 で面分離する。
+ * @param opts.stage 'first' は第1次検定の学習ページ。mokujiFirstStage がある資格は、二次の直前切替をせず一次の見出しのもくじを返す。
  */
 export function resolveHubCta(
   category: string,
-  opts: { utmSuffix?: string } = {},
+  opts: { utmSuffix?: string; stage?: 'first' | undefined } = {},
 ): ResolvedHubCta | null {
   const spec = HUB[category];
   if (!spec) return null;
   const suffix = opts.utmSuffix ? `-${opts.utmSuffix}` : '';
+  const firstStage = opts.stage === 'first' ? spec.mokujiFirstStage : undefined;
 
   // 直前期（試験の 6 週間前〜試験日）と試験後の決まった期間（afterResult）だけ特定商品へ直リンク。それ以外はもくじへ集約。
   // utm の hub-seasonal・hub-after-result は売上の帰属（scripts/lib/site-to-sales.mjs）が商品へ結ぶ。
@@ -136,6 +142,7 @@ export function resolveHubCta(
     };
   };
   if (
+    !firstStage &&
     spec.seasonal &&
     now >= spec.seasonal.switchUtcMs - PRE_EXAM_WINDOW_MS &&
     now < spec.seasonal.switchUtcMs
@@ -143,7 +150,7 @@ export function resolveHubCta(
     const tile = productTile(spec.seasonal, 'seasonal');
     if (tile) return tile;
   }
-  if (spec.afterResult?.active(now)) {
+  if (!firstStage && spec.afterResult?.active(now)) {
     const tile = productTile(spec.afterResult, 'after-result');
     if (tile) return tile;
   }
@@ -158,8 +165,8 @@ export function resolveHubCta(
     bg: spec.bg,
     themeVar: spec.themeVar,
     qual: qualificationShortLabel(category),
-    title1: spec.mokuji.title1,
-    title2: spec.mokuji.title2,
+    title1: (firstStage ?? spec.mokuji).title1,
+    title2: (firstStage ?? spec.mokuji).title2,
     sub: MOKUJI_SUB,
     cta: '教材一覧を見る',
     url: withNoteUtm(mokuji.noteUrl, 'magazine', { content: utm }),

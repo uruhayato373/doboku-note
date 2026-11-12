@@ -12,6 +12,8 @@
  * 下書きの追加で作り直しを忘れ、develop を 2 回赤くした）。
  *
  * 検査の id は scripts/quality-audit.mjs の CHECKS と同じ名前にする（CI で同じものが全量で走る）。
+ *
+ * npm run pre-commit:ci-gates — CI（quality:audit:ci）の速い検査を staged の範囲で先に回す（katex-warnings＝staged の MDX だけ・note-paid-cta・x-review・products〔商品の正本と記事・掲載文・生成物〕は該当パスを stage したときだけ全量）。note の原稿・note-magazines.ts・収録の期待値を stage したときは generated-indexes のうち note 記事カタログだけを回す（`build-note-published-index.mjs --check --staged`＝作り直し漏れと stage 漏れ）。pre-commit では pre-commit-mdx.mjs の先頭が呼ぶ（フック本体を変えると共有フックの入れ直しが要るため相乗り）。develop 直 push で CI を赤くしてきた検査を手元で止めるためのもので、unit-tests と generated-indexes の残り（refresh-indexes 全体）は遅いので CI に残す
  */
 import { execFileSync, spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
@@ -126,6 +128,12 @@ export const GATES = [
     // テストは一時リポジトリで git を走らせる。commit 中の GIT_INDEX_FILE を引き継ぐと、テストの git add が
     // commit 用の index を書き換える（2026-10-27・todo-add.test.mjs で 17,802 件が 2 件に置き換わった）
     isolateGit: true,
+  },
+  {
+    id: 'media-references',
+    // content/sns の文書（json・md・txt）が指す .tmp/media/ の素材が Drive の台帳にあるか。CI にだけあり、pop-image.json の参照の欠けで赤くなった。全量で手元 1 秒前後
+    match: (f) => /^content\/sns\/.+\.(json|md|txt)$/.test(f),
+    cmd: () => ['node', 'scripts/check-media-references.mjs'],
   },
   {
     id: 'admin-pages',

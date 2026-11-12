@@ -555,6 +555,40 @@ export const ConfigSeoMeta = z
   .strict()
   .meta({ title: 'SEO meta 監査の設定' });
 
+// ---- config.standards-page-density -------------------------------------------------------------
+
+/** /standards の密度ゲート（config/standards-page-density.json）。読み手は scripts/lib/standards-density.mjs */
+export const ConfigStandardsPageDensity = z
+  .object({
+    schemaVersion: z.literal(1),
+    description: note,
+    proseBeforeContent: z
+      .object({
+        description: note,
+        maxChars: z
+          .object({ top: nonNeg, agency: nonNeg, document: nonNeg, chapter: nonNeg, section: nonNeg })
+          .strict()
+          .describe('テンプレートごとの上限（キーの集合が検査対象のテンプレート）'),
+      })
+      .strict(),
+    minListLinks: z
+      .object({
+        description: note,
+        top: z.object({ agencies: posInt, major: posInt }).strict(),
+        agency: z.object({ documents: posInt }).strict(),
+        document: z.object({ chapters: posInt }).strict(),
+      })
+      .strict(),
+    attribution: z
+      .object({ description: note, count: posInt, maxVisibleChars: nonNeg })
+      .strict(),
+    affiliate: z
+      .object({ description: note, max: nonNeg, hostPatterns: strings })
+      .strict(),
+  })
+  .strict()
+  .meta({ title: '/standards 密度ゲートの設定' });
+
 // ---- config.growth-cycle -----------------------------------------------------------------------
 
 const ratio = z.number().min(0).max(1);

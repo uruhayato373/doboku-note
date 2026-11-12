@@ -19,14 +19,14 @@ paths:
 
 ## note（content/note/**）
 
-- 索引と戦略の入口 → `content/note/README.md`（試験別構造・戦略 SSOT 体系）。戦略・Red Line・価格企画の真実源は各試験の `noteコンテンツ計画.md`、**実価格・noteUrl は `src/lib/note-magazines.ts`**（2級土木は `config/products.json` が正本で `npm run product` で書き換える・DN-0492。サイト側 CTA の配線は `src/lib/magazine-placement.ts`）
+- 索引と戦略の入口 → `content/note/README.md`（試験別構造・戦略 SSOT 体系）。戦略・Red Line・価格企画の真実源は各試験の `noteコンテンツ計画.md`、**実価格・noteUrl は `src/lib/note-magazines.ts`**（2級土木は `config/products.json` が正本で `npm run product` で書き換える。サイト側 CTA の配線は `src/lib/magazine-placement.ts`）
 - 記事を公開レベルへ引き上げる 10 工程（網羅性照合／過去問配置／図版／カバー／e-gov リンク／段落分割／検証） → [note-publish-enhancement.md](../knowledge/reference/note-publish-enhancement.md)
 - 記事**内部**の構成テンプレ（売れる 9 型＋5 ステップ骨格） → [note-selling-structures.md](../knowledge/reference/note-selling-structures.md)
 - 記事**間**の導線（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA） → [note-funnel-architecture.md](../knowledge/reference/note-funnel-architecture.md)。機械可読は `config/note-funnel.json`、監査は `audit-note-funnel` スキル／`npm run check-note-funnel`／`note-funnel-auditor`
 - 総監 記述式の模範論文レビュー（字数→散文性→監理可能性→専門度→白書根拠の 9 ステップ、各施策 600 字以内が最優先） → [note-essay-review-checklist.md](../knowledge/reference/note-essay-review-checklist.md)
 - 公開状態の照合（`npm run verify-note-magazines`・note public API・会社 PC プロキシは `curl --ssl-no-revoke`） → [note-api-verification.md](../knowledge/reference/note-api-verification.md)
 - 図解 SVG/PNG（`content/note/**/img/figure-*`） → [note-svg-policy.md](../knowledge/reference/note-svg-policy.md)。カバー画像は [note-cover.md](../knowledge/design-system/note-cover.md)
-- 施工経験記述の解答欄の割り振り（1 級=(1)検討項目/(2)対応処置・評価、2 級=(1)課題/(2)検討項目と対応処置） → `npm run check-keiken-answer-split`（note 原稿と模試の生成 markdown を走査）
+- 施工経験記述の解答欄の割り振り（1 級=(1)検討項目/(2)対応処置・評価、2 級=(1)課題/(2)検討項目と対応処置） → `npm run check-keiken-answer-split` が止める
 - note 記事の走査は `/^article(-[^/\\]+)?\.md$/`（型別 `article-*.md` を落とさない）。note は HTML 非対応。販売履歴のある有料記事を下書きへ戻さない（差し替えは新規＋入替）
 - 売上の記録 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)（`/record-sales`・`npm run note-sales-fetch`）。会員配信ドリップの真実源は `メンバーシップ/README.md` の配信表（`npm run check-membership-drip`。日付をカードへ複製しない）
 
@@ -39,7 +39,7 @@ paths:
 - YouTube Shorts は動画パックから制作し、UTM・文面・画像・完成レンダーを照合する → [video-content-policy.md](../knowledge/reference/video-content-policy.md)
 - マスコット「doboku-note 先生」素材 → [character-asset-policy.md](../knowledge/reference/character-asset-policy.md)。`/links` リンクハブ（SNS bio 用・UTM 設計） → [links-hub.md](../knowledge/reference/links-hub.md)
 - 投稿済みバイナリ（reels wav/mp4・Shorts mp4）の退避 → [sns-archive-policy.md](../knowledge/reference/sns-archive-policy.md)（Google Drive vault・`drive-vault-sync --group sns-archived-media`）
-- 動画パック（DN-0110） → [video-content-policy.md](../knowledge/reference/video-content-policy.md)。ゲート `npm run check-video-content`、レンダー `npm run render-longform`、公開実体の照合 `npm run check-video-publication`
+- 動画パック → [video-content-policy.md](../knowledge/reference/video-content-policy.md)。ゲート `npm run check-video-content`、レンダー `npm run render-longform`、公開実体の照合 `npm run check-video-publication`
 - 投稿 URL がローカル doc-meta-index と一致するか `check-sns-urls`（公開＋refresh 済みなら deploy 前でも結線可）
 
 ## Kindle（content/kindle/**）

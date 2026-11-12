@@ -35,7 +35,7 @@ test('論点ごとの語りは台本の場面と一致しなければ止める',
 
 test('字幕は大きな文字で、切り分けても音声の時間を超えない', () => {
   const ass = buildAss([{ text: '水セメント比W/Cとセメント水比C/Wを逆にしない。', start: 1, duration: 4 }]);
-  assert.match(ass, /Noto Sans JP,74,/);
+  assert.match(ass, /Noto Sans JP,80,/);
   const ends = [...ass.matchAll(/Dialogue: 0,[^,]+,0:00:(\d+\.\d+)/g)].map((m) => Number(m[1]));
   assert.ok(ends.length >= 2);
   assert.equal(ends.at(-1), 5);
@@ -67,3 +67,69 @@ test('クラウドの同期を待って照合し直し、通らなければ止�
   assert.equal(calls, 3);
   await assert.rejects(verifyInCloud('.', 'a/b', { wait: async () => {}, verify: () => { throw new Error('未同期'); } }), /手元は消していない/);
 });
+
+test('型の台帳とコピーの技法で台本を止める（2026-11-11）', async () => {
+  const { typeProblems, narrationProblems } = await import('../scripts/lib/shorts-factory.mjs');
+  const formats = { rules: { hookMaxChars: 40 }, types: [{ id: 'before-after', label: 'ビフォーアフター', beats: { min: 2, max: 3 } }, { id: 'n-check', label: 'N 点チェック', beats: { min: 2, max: 4 } }], copy: [{ id: 'assertion' }, { id: 'odd-number' }, { id: 'barnum' }], gestures: [{ id: 'red-pen' }, { id: 'tilt-head' }] };
+  const ctx = { formats, slotTypes: ['before-after'], sceneIds: new Set(['s1', 's2']) };
+  const good = { type: 'before-after', gesture: 'red-pen', coverPaper: '暑い時期だった', copy: ['barnum'], hook: '工事概要と本文がずれていませんか。', beats: [{}, {}], cta: '残りの直し方は本編で。' };
+  assert.match(typeProblems({ ...good, gesture: undefined }, ctx).join(), /gesture が無い/);
+  assert.match(typeProblems({ ...good, coverPaper: undefined }, ctx).join(), /coverPaper が要る/);
+  assert.match(typeProblems({ ...good, beats: [{}, { narration: '直した例です。残りは本編で。' }] }, ctx).join(), /2 回読まれる/);
+  assert.match(typeProblems({ ...good, gesture: 'dance' }, ctx).join(), /gesture が台帳に無い/);
+  assert.deepEqual(typeProblems(good, ctx), []);
+  assert.match(typeProblems({ ...good, type: undefined }, ctx).join(), /type が無い/);
+  assert.match(typeProblems({ ...good, type: 'n-check' }, ctx).join(), /この枠で使わない/);
+  assert.match(typeProblems({ ...good, beats: [{}, {}, {}, {}] }, ctx).join(), /2〜3 個/);
+  assert.match(typeProblems({ ...good, copy: ['assertion', 'odd-number', 'barnum'] }, ctx).join(), /2 つまで/);
+  assert.match(typeProblems({ ...good, copy: ['fear'] }, ctx).join(), /台帳に無い/);
+  assert.match(typeProblems({ ...good, cta: '詳しい解説は関連動画へ。' }, ctx).join(), /本編/);
+  // 書き直した語りは台本の場面 id を出典に持つ
+  const scene = { narration: '元の語り。' };
+  assert.deepEqual(narrationProblems({ hook: '問い', sources: ['s1'], beats: [{ narration: '書き直した語り。' }] }, scene, ctx), []);
+  assert.match(narrationProblems({ hook: '問い', sources: ['x9'], beats: [{ narration: '書き直した語り。' }] }, scene, ctx).join(), /台本に無い場面/);
+});
+
+test('同じ枠で冒頭の形とコピーの技法が半分を超えて同じなら止める（2026-11-11・10 本中 6 本が「〜ませんか」）', async () => {
+  const { varietyProblems, hookForm } = await import('../scripts/lib/shorts-factory.mjs');
+  const formats = { hookForms: [{ id: 'check', label: '確認の問い', pattern: 'ませんか[。？?]?$' }, { id: 'quiz', label: 'クイズ', pattern: 'でしょうか?[。？?]?$|[？?]$' }, { id: 'statement', label: '言い切り', pattern: '。$' }] };
+  assert.equal(hookForm('並べていませんか。', formats.hookForms), 'check');
+  assert.equal(hookForm('何が足りないでしょう。', formats.hookForms), 'quiz');
+  assert.equal(hookForm('順序は権限で決めます。', formats.hookForms), 'statement');
+  const siblings = [{ hook: 'Aしていませんか。', copy: ['barnum'] }, { hook: 'Bしていませんか。', copy: ['barnum'] }, { hook: '何が足りないでしょう。', copy: [] }];
+  assert.match(varietyProblems({ hook: 'Cしていませんか。', copy: ['barnum'] }, { formats, siblings }).join(), /確認の問い.*4 本中 3 本/);
+  assert.match(varietyProblems({ hook: '順序は権限で決めます。', copy: ['barnum'] }, { formats, siblings }).join(), /barnum/);
+  assert.deepEqual(varietyProblems({ hook: '順序は権限で決めます。', copy: ['assertion'] }, { formats, siblings }), []);
+  assert.deepEqual(varietyProblems({ hook: 'Cしていませんか。', copy: [] }, { formats, siblings: siblings.slice(0, 1) }), [], '2 本以下の枠は見ない');
+});
+
+test('締めの画面の文字を語りに合わせる', async () => {
+  const { ctaLines } = await import('../scripts/lib/shorts-factory.mjs');
+  assert.deepEqual(ctaLines('残りの直し方は本編で。'), ['残りの直し方は', '本編で']);
+  assert.deepEqual(ctaLines('本編で。'), ['本編で']);
+});
+
+test('同じ枠で先生の仕草が半分を超えて同じなら止める（2026-11-11・全部の表紙が手のひらで止める仕草だった）', async () => {
+  const { varietyProblems } = await import('../scripts/lib/shorts-factory.mjs');
+  const formats = { hookForms: [] };
+  const siblings = [{ hook: 'a', copy: [], gesture: 'stop-hand' }, { hook: 'b', copy: [], gesture: 'stop-hand' }, { hook: 'c', copy: [], gesture: 'red-pen' }];
+  assert.match(varietyProblems({ hook: 'd', copy: [], gesture: 'stop-hand' }, { formats, siblings }).join(), /仕草 stop-hand/);
+  assert.deepEqual(varietyProblems({ hook: 'd', copy: [], gesture: 'tilt-head' }, { formats, siblings }), []);
+});
+
+test('表紙の紙に書く悪い例を見出しの『』か冒頭の「」から取る（2026-11-11・紙に作り話の文字が入った）', async () => {
+  const { paperText } = await import('../scripts/lib/shorts-factory.mjs');
+  assert.equal(paperText({ headline: ['『暑い時期', 'だった』', '何が足りない？'] }), '暑い時期だった');
+  assert.equal(paperText({ headline: ['令和3年', '6月〜12月'], hook: '「令和3年6月〜12月」、この工期で足りますか。' }), '令和3年6月〜12月');
+  assert.equal(paperText({ headline: ['順序は', '権限で'], hook: '順序は権限で決めます。' }), null);
+});
+
+test('1 問で確かめる型の pose に『？』を書かない（2026-11-12）', async () => {
+  const { typeProblems } = await import('../scripts/lib/shorts-factory.mjs');
+  const formats = { rules: { hookMaxChars: 40 }, types: [{ id: 'one-question', label: '1 問', beats: { min: 2, max: 3 } }], copy: [], gestures: [{ id: 'point-sheet' }] };
+  const ctx = { formats, slotTypes: ['one-question'], sceneIds: new Set(['s1']) };
+  const good = { type: 'one-question', gesture: 'point-sheet', coverPaper: '問題文', copy: [], hook: 'どれでしょう？', beats: [{}, {}], cta: '残りは本編で。', pose: '紙を指さす。' };
+  assert.deepEqual(typeProblems(good, ctx), []);
+  assert.match(typeProblems({ ...good, pose: '紙の右上に大きな『？』を添える。' }, ctx).join(), /pose に『？』/);
+});
+

@@ -72,6 +72,8 @@ pid で ps のフルコマンドと lsof の cwd を突き合わせ、「その�
 Codex の会話履歴・アーカイブ・生成画像、Claude の `.jsonl`、stats47 のキャッシュ。
 `reportOnly` に並べてあり、容量だけを表に出す。棚卸しは人が判断する。
 
+スクリプトから呼ぶ `codex exec`（画像生成・画像の監査）は `scripts/lib/codex-image.mjs` が後片付けする: 生成は画像を取り出したあとに、その実行の `~/.codex/sessions/**/rollout-*-<thread_id>.jsonl` と `~/.codex/generated_images/<thread_id>` を消し（調べるときは `DOBOKU_CODEX_KEEP_RUNS=1`）、監査は `--ephemeral` で記録を作らない（2026-11-12・動画の一括生成の 2 日で 1,407 件・9GB たまった）。
+
 Codex の `~/.codex/archived_sessions` は保持期間 1 週間（2026-10-15 運営者判断）。月に 1 回、`find ~/.codex/archived_sessions -type f -mtime +7` で 7 日を超えた件数と容量を出し、人が消す（エージェントは消さない）。Mac・Git Bash は `find ~/.codex/archived_sessions -type f -mtime +7 -delete`、Windows の PowerShell は `Get-ChildItem "$env:USERPROFILE\.codex\archived_sessions" -File | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-8) } | Remove-Item`（PowerShell の `find` は別物の find.exe で動かない）。1 件 30〜40MB の大きな会話があるので、直近 1 週間分だけで数百 MB 残るのは正常。2026-10-15 の Windows 実測は 32 件・1.2GB で、7 日超は 22 件・約 530MB。
 
 `warnBytes` を持つ項目は、超えたときだけ WARN にする（削除 action は付けない）。2026-09-17 に Claude デスクトップアプリの `vm_bundles`（Cowork のフル VM サンドボックス。`rootfs.img.zst` 1.1GB を展開すると 10GB）が 12GB に膨らんで空きを 26→5.5GB に落としたのに「報告のみ」で埋もれた再発防止。vm_bundles は 3GB。

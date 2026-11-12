@@ -245,3 +245,7 @@ https://note.com/dobokunote/n/n1fcaf65dc75b
 上下水道部門のほかの記事・科目別の模範解答は「上下水道部門もくじ」から一覧できます。
 
 https://note.com/dobokunote/n/n1f06f66b158e
+
+自分の業務内容の詳細と経歴から、聞かれそうな質問と回答の骨子を人の手で作ってほしい方には、ココナラで想定質問の作成を受けています（テキスト完結・週2件まで）。
+
+https://coconala.com/services/4486050

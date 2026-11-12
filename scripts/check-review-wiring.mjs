@@ -5,6 +5,8 @@
  * スキルにコマンドを足したのに正本へ書かない（管理画面の配線図に出ない）・正本だけ残る、を止める。
  * 終了コード: 0 = 一致 / 1 = 食い違い / 2 = 正本かスキルを読めない（検査不成立）
  * ---------------------------------------------------------------------------
+ *
+ * npm run check-review-wiring — 週次・月次レビューのスキルが実行するコマンドと配線の正本（.claude/config/review-wiring.json・stage と role）の一致。週次の点検 `quality:audit:weekly`（pre-commit でも見る）。スキルにコマンドを足したら正本にも stage・role 付きで足す。管理画面 戦略 ＞ レビュー の配線図の元
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';

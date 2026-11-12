@@ -584,20 +584,6 @@
       "note": "RCCM の資格トップ（抜けていた枠・EXP-017）。 2026-10-30 に閉じた（RCCM を技術士・総監と同じハイクラス案件へ替えるため。訴求設計 §12.1・運営者指示）"
     },
     {
-      "id": "PL-0032",
-      "program": "buildjob",
-      "slot": "standards-end",
-      "target": {
-        "pageKind": "standards"
-      },
-      "period": {
-        "from": "2026-10-07T17:00:00+09:00",
-        "until": null
-      },
-      "experiment": "EXP-017",
-      "note": "公的基準の章ページの本文末（右のナビ欄には置かない・EXP-017）。"
-    },
-    {
       "id": "PL-0033",
       "program": "buildjob",
       "slot": "home-section",
@@ -624,20 +610,6 @@
       },
       "experiment": "EXP-017",
       "note": "ツールの結果の下（字数チェック・受験資格チェック・EXP-017）。"
-    },
-    {
-      "id": "PL-0035",
-      "program": "buildjob",
-      "slot": "standards-list-end",
-      "target": {
-        "pageKind": "standards-list"
-      },
-      "period": {
-        "from": "2026-10-07T20:00:00+09:00",
-        "until": null
-      },
-      "experiment": "EXP-018",
-      "note": "公的基準の章以外（一覧・地域・文書・分冊・比較・データ）の本文末（EXP-018）。章ページは PL-0032（EXP-017）。"
     },
     {
       "id": "PL-0036",

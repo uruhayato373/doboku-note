@@ -7,6 +7,8 @@
  *
  * Usage: node scripts/record-seo-build-summary.mjs <run.json>
  * exit: 0 記録した／変化なしで書かなかった / 2 入力が読めない・形が違う（検査不成立。偽の成功にしない）
+ *
+ * npm run record-seo-build-summary -- <run.json> — `check-seo-build --summary-out <run.json>` の 1 回分の結果を `data/analysis/seo-build-summary.json`（台帳 `analysis.seo-build-summary`）の日ごとの履歴へ足す。CI の `Publish SEO build summary`（ci.yml・develop の push のみ）が呼び、週次レビューの下書きが件数と前週比を出す。入力が壊れている・検査 0 件は exit 2（履歴に積まない）。罠: ローカルで回すと自分の out/ の結果が履歴に入るので、コミットしない。
  */
 import { readFileSync } from 'node:fs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';

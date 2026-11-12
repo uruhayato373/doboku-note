@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseBacklog, findOrphanHeadings, KINDS, CANONICAL_CATEGORIES } from '../scripts/lib/backlog-lib.mjs';
-import { validateCards, validateStagedLines } from '../scripts/check-backlog-schema.mjs';
+import { validateCards, validateStagedLines, resolveScriptNames } from '../scripts/check-backlog-schema.mjs';
 import { signatureTokens, duplicateCandidates } from '../scripts/check-backlog-health.mjs';
 
 /**
@@ -213,4 +213,19 @@ test('消えたカードは完了の記録が無いものを数え、上限を�
   assert.equal(bad.length, 1);
   assert.equal(bad[0].rule, 'removed-cards');
   assert.match(bad[0].msg, /4 枚/);
+});
+
+test('[検証:] の照合先は origin/develop の package.json（未マージの feature の script で通さない）', () => {
+  // 未マージの feature ブランチの package.json で pre-commit が通り、台帳だけ先に develop へ入って CI が赤くなった
+  const pkg = (...names) => JSON.stringify({ scripts: Object.fromEntries(names.map((n) => [n, 'x'])) });
+  const r = resolveScriptNames({ readDevelop: () => pkg('a'), readWorktree: () => pkg('a', 'only-on-feature') });
+  assert.equal(r.source, 'origin/develop');
+  assert.equal(r.notice, null);
+  assert.deepEqual(rules('[収益化] [検証:only-on-feature]', { ...OPTS, npmScripts: r.names }), ['verify']);
+  assert.deepEqual(rules('[収益化] [検証:a]', { ...OPTS, npmScripts: r.names }), []);
+  // origin/develop を読めないときは作業ツリーへ戻し、その旨を出す
+  const fb = resolveScriptNames({ readDevelop: () => { throw new Error('no ref'); }, readWorktree: () => pkg('a', 'only-on-feature') });
+  assert.equal(fb.source, 'worktree');
+  assert.ok(fb.names.has('only-on-feature'));
+  assert.match(fb.notice, /origin\/develop/);
 });

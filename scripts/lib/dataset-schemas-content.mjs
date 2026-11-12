@@ -31,7 +31,11 @@ const longformSlot = z.object({
   anchors: z.array(z.string().min(1)).min(1).describe('台帳 config.exam-calendar の events・periods のキー。日付は写さない'),
   primaryCta: z.object({ kind: z.enum(['note-magazine', 'coconala-service', 'site-article', 'links-hub']), targets: z.array(z.string().min(1)) }).strict(),
   count: z.number().int().positive().describe('この枠で公開してよい本数の上限'),
-  shorts: z.object({ count: z.number().int().positive().describe('この枠の通常動画を親にするショートの上限'), note: z.string().min(1).optional() }).strict().optional().describe('枠のショート。無ければこの枠の親からショートを作らない'),
+  shorts: z.object({
+    count: z.number().int().positive().describe('この枠の通常動画を親にするショートの上限'),
+    types: z.array(z.string().regex(/^[a-z0-9-]+$/)).min(1).optional().describe('この枠で使うショートの型（台帳 config.youtube-shorts-formats の types の id）'),
+    note: z.string().min(1).optional(),
+  }).strict().optional().describe('枠のショート。無ければこの枠の親からショートを作らない'),
   stance: z.string().min(1).describe('取る立ち位置。台帳 config.competitor-positions の stances の id'),
   materials: slotMaterials,
   reuse: z.enum(['stock', 'revise', 'bundle', 'new']).describe('stock＝完成済み・revise＝既存を改訂・bundle＝既存パックを束ねる・new＝新規'),
@@ -108,6 +112,11 @@ export const ConfigChannelAnnualPlan = z.object({
     peaks: z.array(z.object({ window: planWindow, why: z.string().min(1) }).strict()),
     calendarBasis: z.string().min(1).describe('2027 年度の月をどう置いたか。公式発表前は確定しない'),
     rebuildUntil: jstDate('計画の作り直しの期限。この日までは動画の行が 0 本でも検査不成立にしない').optional(),
+    frontLoad: z.object({
+      from: jstDate('在庫の前倒しを始める日'), to: jstDate('前倒しを終える日'),
+      weeklyMax: z.number().int().positive().describe('前倒しの間の週の上限（通常動画）'),
+      why: z.string().min(1), decidedAt: jstDate('運営者が決めた日'),
+    }).strict().optional().describe('在庫の前倒しの期間。この間は枠の時期を問わず公開し、週の上限を weeklyMax にする'),
   }).strict(),
   metrics: z.object({
     primary: z.array(z.string().min(1)).length(2).describe('成功指標の id（config.business-direction）。定義と計測の状態はそちらから引き、ここに書かない。登録者数・再生数・本数は入れない'),
@@ -120,6 +129,7 @@ export const ConfigChannelAnnualPlan = z.object({
   reviewRule: z.string().min(1),
   shortsRule: z.object({
     parentStatus: z.array(z.enum(['published', 'scheduled'])).min(1).describe('親の通常動画がこの状態になってからショートを作る（通常動画の展開に合わせる）'),
+    stockParentStatus: z.array(z.enum(['qa_passed', 'approved', 'scheduled', 'published'])).min(1).optional().describe('ショートを在庫まで作ってよい親の状態。公開は parentStatus に進んでから（2026-11-11）'),
     perLongform: z.number().int().positive().describe('通常動画 1 本を親にするショートの上限'),
     trial: z.object({
       max: z.number().int().positive().describe('枠にショートの割り当てが無い親から作るショートの合計の上限'),
@@ -392,7 +402,8 @@ export const RegistryPublications = z
 // ---- 素材（content/registry/media/{exam}.json・brand.json） ---------------------------------------------
 
 const Provenance = z.discriminatedUnion('kind', [
-  z.object({ kind: z.literal('render'), by: z.string().describe('描いたスクリプト'), spec: z.string().optional(), specSha256: sha256.optional(), renderInputSha256: sha256.optional(), tts: z.object({ engine: z.string(), speaker: z.number().int(), credit: z.string() }).strict().optional() }).strict(),
+  z.object({ kind: z.literal('render'), by: z.string().describe('描いたスクリプト'), spec: z.string().optional(), specSha256: sha256.optional(), renderInputSha256: sha256.optional(), tts: z.object({ engine: z.string(), speaker: z.number().int(), credit: z.string() }).strict().optional(),
+    reanchored: z.object({ reason: z.literal('cover-only'), commit: z.string().regex(/^[0-9a-f]{40}$/), specSha256: sha256, renderInputSha256: sha256, at: z.string() }).strict().optional().describe('表紙だけの変更の後に今の制作入力へ結び直した記録（registry reanchor-render・DN-1146）。前の値と描いた入力の commit') }).strict(),
   z.object({ kind: z.literal('template'), by: z.string(), spec: z.string().optional(), specSha256: sha256.optional() }).strict(),
   z.object({ kind: z.literal('ai-generated'), tool: z.string(), model: z.string().optional(), prompt: z.string().min(1), promptSha256: sha256, generatedAt: utcTime('生成した時刻') }).strict(),
   z.object({ kind: z.literal('photo'), source: z.string() }).strict(),

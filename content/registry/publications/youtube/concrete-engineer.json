@@ -27,6 +27,28 @@
         "subtitles": "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/concrete-engineer/ce-haigou-kakunin-jun/youtube.json#longform"
+    },
+    {
+      "id": "concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2",
+      "work": "ce-haigou-kakunin-jun",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-pitfalls-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/concrete-engineer/ce-haigou-kakunin-jun/youtube.json#shorts/point-pitfalls-2",
+      "relatedTo": "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-wc-1",
+      "work": "ce-haigou-kakunin-jun",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-wc-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/concrete-engineer/ce-haigou-kakunin-jun/youtube.json#shorts/point-wc-1",
+      "relatedTo": "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform",
+      "idException": "imported-before-cutover"
     }
   ]
 }

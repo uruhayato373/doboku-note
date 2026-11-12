@@ -135,6 +135,7 @@ export const DATASETS = [
   d('config.site-visual-review', 'config/site-visual-review.json', 'config', 'site', '画面の点検（site-visual-review）が撮る代表ページ・期待する商品導線・画面幅', { schema: 'ConfigSiteVisualReview' }),
   d('config.search-strategy', 'config/search-strategy.json', 'config', 'site', '検索キーワード戦略のクラスタ', { schema: 'ConfigSearchStrategy' }),
   d('config.seo-meta-config', 'config/seo-meta-config.json', 'config', 'site', 'SEO meta 監査の対象と巡回の設定', { schema: 'ConfigSeoMeta' }),
+  d('config.standards-page-density', 'config/standards-page-density.json', 'config', 'site', '/standards ページの密度ゲート（説明文の量・一覧のリンク数・出典表示・アフィリエイト）の閾値', { schema: 'ConfigStandardsPageDensity' }),
   d('config.growth-cycle', 'config/growth-cycle.json', 'config', 'site', '成長サイクル（計測ダイジェスト）の設定', { schema: 'ConfigGrowthCycle' }),
   d('config.indexnow', 'config/indexnow.json', 'config', 'site', 'IndexNow の更新通知の設定', { schema: 'ConfigIndexnow' }),
   d('config.google-console-automation', 'config/google-console-automation.json', 'config', 'site', 'GSC・GA4 の画面取得の設定', { schema: 'ConfigGoogleConsoleAutomation' }),
@@ -163,6 +164,7 @@ export const DATASETS = [
   d('config.youtube-delivery', 'config/youtube-delivery.json', 'config', 'sns', 'YouTube 配信の設定', { schema: 'ConfigYoutubeDelivery' }),
   d('config.youtube-production-disclosure', 'config/youtube-production-disclosure.json', 'config', 'sns', 'YouTube の制作の開示（合成メディア）', { schema: 'ConfigYoutubeProductionDisclosure' }),
   d('config.youtube-formats', 'config/youtube-formats.json', 'config', 'sns', 'YouTube の動画の型と採否（商品展開）・自社チャンネル', { schema: 'ConfigYoutubeFormats' }),
+  d('config.youtube-shorts-formats', 'config/youtube-shorts-formats.json', 'config', 'sns', 'YouTube ショートの型と、表紙・題名・冒頭のコピーで使ってよい線', { schema: 'ConfigYoutubeShortsFormats' }),
   d('config.video-auto-publish', 'config/video-auto-publish.json', 'config', 'sns', '通常動画を人の承認なしで予約へ進める方針と関門の閾値', { schema: 'ConfigVideoAutoPublish' }),
   d('config.content-registry', 'config/content-registry.json', 'config', 'sns', 'コンテンツ台帳の設定（チャネル×形式・ID 規則・状態の語彙と遷移・切り替え済みのチャネル）', { schema: 'ConfigContentRegistry' }),
   // コンテンツ台帳（content/registry）。資格ごとの 1 ファイル。設計は content-registry.md

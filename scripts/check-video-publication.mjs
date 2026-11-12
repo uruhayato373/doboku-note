@@ -25,6 +25,8 @@
  *
  * exit: 0 合格（対象0件も明示して 0）/ 1 違反あり
  *   「対象0件」と「異常0件」を必ず区別して出力する（CLAUDE.md §9）。
+ *
+ * npm run check-video-publication — 公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト。記録の古さ（V03）と実査のドリフト（V05）は `--freshness`）。実査本体は verify-video-publication で creds 必須・**対象0件は明示してPASS**。quality-audit・registry-reconcile.yml からはSNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';

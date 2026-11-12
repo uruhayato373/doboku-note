@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// npm run build-standards-data — 構造化章記事から公開用 Markdown / JSON-LD / 索引JSONを `public/standards-data/` へ生成（派生物・Git追跡外・本番build同梱）
+
 import {
   existsSync,
   mkdirSync,

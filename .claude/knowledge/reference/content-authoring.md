@@ -304,7 +304,7 @@ sources: ["registry-id#detail"]      # 参考文献台帳の ID。#detail は条
 | `title` | 記事 H1・パンくず・OGP 文字・関連記事 | 概念名。資格名の繰り返しは避ける |
 | `shortTitle` | **サイドバー / モバイル記事末ナビ**・カテゴリカード・人気記事 | 10 字前後。`title` が長い記事ほど効く |
 | `subtitle` | 同上の**2 行目**（小さく・muted・2 行で打ち切り） | 30 字程度。`title` の「—」「｜」以降が概ねそのまま使える |
-| `seoTitle` | `<title>`（検索結果）のみ | 資格名・接尾辞を保持した完全形。`｜` 区切りが慣例 |
+| `seoTitle` | `<title>`（検索結果）のみ | 資格名・接尾辞を保持した完全形。`｜` 区切りが慣例。検索語に合わせた一括の書換えは `npm run seo:targets`（候補の表）→ `npm run seo:apply-meta`（seoTitle・description の行だけを置換）。MDX を持たない生成ページ（基準書）は `src/config/page-seo-overrides.json` |
 
 > `shortTitle`/`subtitle` を省くとナビが `title` にフォールバックし、
 > 「2級土木施工管理技士とは — 難易度・合格率・試験内容」のような長い行が並んで一覧が読めなくなる。

@@ -12,7 +12,7 @@
 - [自動化の置き場](feedback_cloud_routines_minimized.md) — ルーティン0・CIはIssue通知
 - [マガジン再収録](feedback_magazine_atomic_recollection.md) — 1答案1記事・切り口を消さない
 - [記事構成規約](feedback_content_structure.md) — 図・太字・3000字・価格直書き禁止
-- [デプロイ規律](feedback_deploy_discipline.md) — 性質別ブランチ・PRはエージェントで見張り緑ならsquash（既定）・昇格手順・3点commit・PRの向き先・squash判定・準備ブランチはdraft PR
+- [デプロイ規律](feedback_deploy_discipline.md) — 性質別ブランチ・PRはエージェントで見張り緑ならsquash（既定）・3点commit・PRの向き先・squash判定・準備ブランチはdraft PR
 - [直pushもCIゲート](feedback_direct_push_ci_gate.md) — スキル・config・追跡解除は audit:ci 後
 - [総監論文執筆規約](feedback_essay_char_limit.md) — 600字・散文・一般レベル
 - [総監ペルソナ採否](feedback_essay_persona_authentic_seat.md) — 経験座限定・ADRが真実源
@@ -67,7 +67,10 @@
 - [決定済みの確認](feedback_existing_decision_before_strategy_answer.md) — 方針の問いは先に台帳と判断記録を引く
 - [Xタグ個数](feedback_x_hashtag_count.md) — #技術士 #総監+種別
 - [X返信の言い方](feedback_x_reply_peer_tone.md) — 横に並ぶ・評価語と指図を書かない
+- [X返信は趣味垢でも送る](feedback_x_reply_hobby_account_not_skip.md) — 見るのは本人の受験の投稿か
 - [X凍結ガードレール](feedback_x_suspension_guardrail.md) — 重複・連投・同時刻回避
+- [X返信の同時送信](feedback_x_reply_parallel_session_send.md) — 送る前に返信タブの時刻・.tmp の一覧は読み直す
+- [内部ブラウザの確認窓](reference_inapp_browser_confirm_dialog.md) — confirm は出ず自動キャンセル・対象を限って差し替え
 - [knip裏取りとworktree npm](feedback_knip_grep_scope_and_worktree_npm.md) — repo全体grep・symlink実体化
 - [売り場から外す線引き](feedback_shelving_unsold_products.md) — 試験日で判定・唯一のCTAは残す・無料は数値
 

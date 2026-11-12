@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// npm run check-content-expansion — 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /materials・週次/月次で確認）
+//
+// npm run check-content-expansion:linked — backlogIds を持つ論点に要作業・原典待ち・再確認が残れば exit 1（backlog の [検証:] 用・無印は常に緑）
+
 import { expansionReport } from './lib/content-expansion.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 const LINKED = process.argv.includes('--linked');

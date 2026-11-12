@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /** E2E CI の JSON report を読み、対象0・未実行・スキップを成功扱いしない。 */
+// npm run check-e2e-execution -- --report .tmp/e2e-report.json — E2E CIのJSON結果から対象/実行/未実行/skipを確認。対象0・未実行・skip・失敗・集計不一致でexit 1（E2E後にalwaysで実行）
 import { pathToFileURL } from 'node:url';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { readJson } from './lib/json-io.mjs';

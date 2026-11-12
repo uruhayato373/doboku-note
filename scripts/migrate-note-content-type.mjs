@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// npm run migrate-note-content-type:write — 未分類の既存note記事を5分類へ初回移行（確認だけは末尾`:write`なし。移行後はfrontmatterがSSOT）
+
 import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';

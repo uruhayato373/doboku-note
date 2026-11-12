@@ -2061,6 +2061,52 @@
         "/exam/pe-comprehensive-management/keywords/sexual-harassment",
         "/exam/pe-comprehensive-management/past-exams/h24-secondary"
       ]
+    },
+    {
+      "runId": "2026-11-11T06-08-50Z",
+      "collectedAt": "2026-11-11T06:08:50.886Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 3,
+      "accepted": 1,
+      "alreadyIndexed": 2,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/concrete-engineer/guide/r08-answers",
+        "/exam/civil-construction-1/textbook/river-act",
+        "/exam/pe-comprehensive-management/keywords/interim-storage-facility"
+      ],
+      "acceptedSlugs": [
+        "/exam/concrete-engineer/guide/r08-answers"
+      ]
+    },
+    {
+      "runId": "2026-11-11T06-20-51Z",
+      "collectedAt": "2026-11-11T06:20:51.717Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 4,
+      "accepted": 2,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/competency-hr",
+        "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
+        "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+        "/exam/pe-comprehensive-management/past-exams/h21-secondary"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-comprehensive-management/keywords/competency-hr",
+        "/exam/pe-comprehensive-management/keywords/pollution-control-manager"
+      ]
     }
   ]
 }

@@ -156,8 +156,7 @@ content/
 `.claude/skills/` または `.claude/agents/` を追加・修正・削除した場合は、  
 **同一 commit** で以下を更新すること：
 
-- スキル変更 → `.claude/knowledge/reference/skills-registry.md`
-- エージェント変更 → `.claude/knowledge/reference/agents-registry.md`
+- スキル・エージェントの追加・削除・description 変更 → `npm run build-capability-index`（一覧の `skills-guide.md`・`agents-registry.md` は生成物）
 
 自動チェック: `node scripts/hooks/agent-hook.mjs check-doc-sync`（`.claude/settings.json` の PreToolUse と、そこから生成される `.codex/hooks.json` に登録済み。判定は `scripts/lib/agent-hooks.mjs`）
 
@@ -193,7 +192,7 @@ content/
 > ダッシュボード・週次レビューがリポジトリ内に 1 つも無かった。develop の Pre-merge check が
 > 24 連続赤でも 2 日気づかれず、発見は毎回偶然だった。`uptime-ping.yml` は doc だけが
 > automation-failure と書いており、実体は廃止済み `task-queue.json` への append で**どこにも届いていなかった**。
-> branch protection は採用しない（CI bot が develop へ直 push する設計と main の ff 昇格を壊すため）。
+> branch protection は採用しない（CI bot が develop へ直 push する設計と deploy:main の昇格を壊すため）。
 > 代わりに ①失敗時の即時起票 ②週次 watchdog（`check-workflow-health`＝最後の success からの経過日数と
 > 連続失敗数）の 2 段で担保する。
 
@@ -290,7 +289,7 @@ content/
 - pre-commit: staged の `.claude/skills/` `.claude/agents/` `.claude/rules/` `docs/` `CLAUDE.md` を自動検査（`scripts/lib/pre-commit-steps.mjs` に登録済み）
 - 対象外（実在しなくても正当）: `.claude/state/**`（生成物）・`.claude/plans/**`（一時）・`.claude/memory/**`（Claude Code の auto-memory。2026-09-14 から repo 管理し `node scripts/setup-memory-link.mjs` が両 PC の `~/.claude/projects/<key>/memory` を junction/symlink でここへ向ける。個人知見なので当時のパスを残す。**正本はここ 1 本**で、別リポジトリへの同期フックは置かない（2026-10-02 に Mac だけ実ディレクトリ＋別リポジトリ同期のまま 188 件 vs 143 件に分裂していた）。`npm run check-memory` が frontmatter・索引の網羅と読み込み上限（200 行 / 25KB）を pre-commit と quality:audit で、`--session` が SessionStart でリンクと別同期フックを検査し、worktree のキーにリンクが無ければ自動で張る）・`docs/handoffs/**`・`docs/reviews/**`・`content/sns/**`（point-in-time 記録）。コード参照（`src/*.tsx` 等）は build/type-check/lint が担う別系統
 
-**台帳ガード**（`check-doc-coupling.mjs`・2026-06-12 新設）: skills SKILL.md の追加/削除/description 変更には `skills-guide.md`＋`skills-registry.md`、agents `.md` の同種変更には `agents-registry.md` が同一コミットに staged されているかを検証。違反でコミット停止。正当に不要なら `SKIP_DOC_COUPLING=1`。CLAUDE.md §8 の文章ルールに強制力を与える。
+**台帳ガード**（`check-doc-coupling.mjs`・2026-11-11 に生成物の照合へ変更）: スキル・エージェントの一覧（`skills-guide.md`・`agents-registry.md` の生成区間）が frontmatter と一致するかを検証。ずれていればコミット停止（`npm run build-capability-index` で直す）。正当に不要なら `SKIP_DOC_COUPLING=1`。CLAUDE.md §8 の文章ルールに強制力を与える。
 
 **クラスタガード**（`check-policy-anchors.mjs`・2026-06-16 新設）: 1 つの決定が複数文書に散在するクラスタ（台帳 `.claude/config/policy-anchors.json`）で、1 ファイルを staged すると同クラスタの全ファイルを「整合を確認せよ」と決定的に提示する（advisory・exit 0）。`files`/`anchor` の実在も検証し、移動・改名で台帳が腐ると exit 1（registry rot）。**意味照合はしない**（それは意味ガード `/doc-sync` の領分）＝「片方だけ更新した」横展開もれを surface する forcing function。あわせて `check-doc-sync.sh`（PreToolUse on git commit）が決定/ポリシー文書の変更時に `/doc-sync` を促し、`decision-doc-checkpoint.sh`（`PreCompact`/`SessionEnd` フック）がセッションの節目・終了時に未コミットの決定文書を締め切りチェックする。台帳の更新は決定クラスタを増減したときに行う。背景: 2026-06-16 per-persona R8 決定の横展開が 3 往復かかった再発防止（[[feedback_content_deprecation_cross_lineage]]）。
 

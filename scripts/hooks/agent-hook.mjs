@@ -4,7 +4,7 @@
 //   node scripts/hooks/agent-hook.mjs <name>
 //     check-doc-sync           PreToolUse(Bash)   `git commit` のとき台帳/決定文書/新ツールの同期を促す＋check-policy-anchors --staged
 //     check-cd-scope           PreToolUse(Bash)   括弧の外の cd で worktree・プロジェクトの下の階層へ移るなら exit 2（Claude Code だけ）
-//     check-shell-traps        PreToolUse(Bash)   zsh の修飾子の罠（$C:refs）と main への直接 push を止める
+//     check-shell-traps        PreToolUse(Bash)   zsh の修飾子の罠・main への直接 push・git stash・git add -A を止め、develop への push では最新の検査結果を 1 行出す
 //     check-agent-network      PreToolUse(Bash)   ネット取得禁止のサブエージェント（agent_type）が curl 等で取得するなら exit 2
 //     check-mojibake           PostToolUse(Write|Edit)  .mdx に U+FFFD があれば exit 2（stderr がモデルへ返る）
 //     check-stray-files        Stop               リポジトリ直下の一時ファイルを警告
@@ -38,12 +38,14 @@ import {
   directMainPush,
   docSyncMessages,
   finalAssistantText,
+  forbiddenGitOps,
   hasReplacementChar,
   isGitCommitCommand,
   isMdxPath,
   needsCapture,
   parseHookInput,
   parseNameStatus,
+  pushesToDevelop,
   shellAssignments,
   shellTrapMessage,
   strayAtRoot,
@@ -52,6 +54,7 @@ import {
   usageRecord,
   zshModifierTrap,
 } from '../lib/agent-hooks.mjs';
+import { developCiStatus, formatDevelopCi } from '../lib/develop-ci-status.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 
 function readStdin() {
@@ -112,9 +115,17 @@ const HANDLERS = {
   'check-shell-traps'({ command }) {
     const trap = zshModifierTrap(command);
     const mainPush = directMainPush(command);
-    if (!trap && !mainPush) return 0;
-    err(shellTrapMessage({ trap, mainPush }));
-    return 2;
+    const { stash, addAll } = forbiddenGitOps(command);
+    if (trap || mainPush || stash || addAll) {
+      err(shellTrapMessage({ trap, mainPush, stash, addAll }));
+      return 2;
+    }
+    // develop へ push する直前に、最新の検査結果を 1 行出す（止めない）。赤い develop の上に積み続けるのを防ぐ
+    if (pushesToDevelop(command)) {
+      const line = formatDevelopCi(developCiStatus({ timeout: 8_000 }), { prefix: '[push]', advice: 'この push は赤の上に積む。自分の変更が原因でないかを run で確かめる' });
+      if (line) process.stdout.write('\n' + line + '\n\n');
+    }
+    return 0;
   },
 
   'check-agent-network'({ json, command }) {

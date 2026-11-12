@@ -14,6 +14,8 @@
  *   node scripts/render-longform.mjs --pack-dir content/sns/video-packs/{exam}/{slug} [--skip-tts] [--speaker <VOICEVOX ID>] [--loudnorm]
  *
  * 前提（mp4 まで作る場合）: VOICEVOX エンジン起動中、ffmpeg が PATH に存在
+ *
+ * npm run render-longform — 本文POP指定(imageDesign)は全場面の生成記録・採用PNGのSHA/実寸を検査し欠落時停止。動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。任意の --loudnorm で音量補正。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
  */
 
 import satori from 'satori';
@@ -25,7 +27,7 @@ import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import {
-  LONGFORM_W, LONGFORM_H, buildLongformAss, buildSceneNode, planLongformRender,
+  LONGFORM_W, LONGFORM_H, SUBTITLE_VERSION, buildLongformAss, buildSceneNode, planLongformRender,
 } from './lib/longform-render.mjs';
 import { narrationInput, reusableNarration, sha256 } from './lib/video-narration-cache.mjs';
 import { readLongformPopImages } from './lib/longform-pop-images.mjs';
@@ -257,7 +259,7 @@ async function main() {
     mp4: mp4Path ? basename(mp4Path) : null,
     totalSec,
     ...(mp4Path ? { integrity: {
-      schemaVersion: 1, inputSha256,
+      schemaVersion: 1, inputSha256, subtitleVersion: SUBTITLE_VERSION,
       subtitlesSha256: sha256(readFileSync(assPath)),
       mp4Sha256: sha256(readFileSync(mp4Path)),
     } } : {}),

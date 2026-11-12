@@ -15,6 +15,12 @@
  *   npm run media -- adopt-render --pub <公開 ID> --role <役割> --input <生成PNG> --spec <描画元SVG> [--commit]
  *
  * promote・sync・pull は既定で dry-run。置いた素材は書き換えない（描き直したものは別名で置く）。
+ *
+ * npm run media -- plate --pub <公開ID> --role <役割> --prompt-file <生成指示> --input <生成済み画像> --commit — 選択画像を再生成せず採用、AI来歴と未判定の監査行を登録。欠けた入力は停止。判定記録は content-registry.md 参照
+ *
+ * npm run media -- verify-render --work <資格>/<作品> — 現行台本・採用指定・全場面PNG/音声入力/WAV・字幕・MP4を照合。旧レンダーは音声付き再生成が必要。promoteも通常動画には同じ検査を実行する。Shortsの改訂候補はpop-image.jsonのcandidateShortsRevisionを選び、再現レシピの素材SHA・寸法・場面・尺を照合する
+ *
+ * npm run media -- promote --pub <公開ID> --candidate --commit — 公開・予約済み動画の修正版を保存（YouTubeと既存承認を変更せず、作品詳細に未反映の改訂版を表示）
  */
 import { spawnSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readFileSync } from 'node:fs';

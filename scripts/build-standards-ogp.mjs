@@ -24,6 +24,8 @@
  * スキップの判定（2026-10-11）: ローカルに ogp.png があるか、退避台帳の entry に現在の入力から計算した
  * srcHash が載っていれば生成しない。CI の checkout には ogp.png が無いので前者だけでは毎 run 全 344 章を
  * 再生成・再 upload していた（develop の bot commit の 64%・DN-0683）。
+ *
+ * npm run build-standards-ogp — 章記事ごとの OGP 画像を生成（章は MDX でないため `npm run ogp` の射程外。描画は ogp-create の lib を再利用し見た目をサイトと揃える。R2 供給は ogp-supply.yml が代行） `--write-srchash` は章の srcHash を退避台帳へ書く。CI は実体の有無でなく台帳の srcHash 一致で再生成を飛ばす（2026-10-11・DN-0683）
  */
 
 import fs from 'node:fs';

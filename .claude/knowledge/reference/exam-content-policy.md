@@ -234,6 +234,8 @@ figure-canvas 標準で別途作図する。構成を独自編集へ転換した
 
 **資格への橋渡し（2026-09-25〜・EXP-012）**: 本文に試験文脈を入れない規約は維持したまま、記事末に
 `QualificationBridge`（立場 3 択: 発注者／施工会社／迷っている）を `ArticleFooter` が自動で出す。
+その下に、読んだ論点が出る 1級土木の過去問を 1 問出す `ExamTopicBridge` を併設する（2026-11-12〜・対象の記事と論点の語は `src/config/exam-topic-bridge.json`。登録の無い記事には出さない）。
+ほかに `ArticleFooter` は、資格ページと同じ並びの「前の記事・次に読む」（`NextInSeries`）と、技術士第一次試験の過去問から二次の入口へのカード（`ExamStepBridge`・`src/lib/exam-step-bridge.ts`）を出す。
 共通仕様書の章記事にも同じカードを置く。本文へ同じ訴求を書き足さない。対象・文言・遷移先の真実源は
 `src/config/qualification-bridge.ts`、方針と判定基準は
 [13_土木公務員SEO戦略2026-08.md](../../../docs/strategy/13_土木公務員SEO戦略2026-08.md)「非受験層を受験者へ育てる導線」。

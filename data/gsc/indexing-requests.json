@@ -1,34 +1,17 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-11-11T03-45-48Z",
-  "collectedAt": "2026-11-11T03:45:48.425Z",
+  "runId": "2026-11-11T06-20-51Z",
+  "collectedAt": "2026-11-11T06:20:51.717Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "112a60563",
+  "scriptVersion": "b273c3da1",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 9,
+  "targetCount": 4,
   "items": [
-    {
-      "slug": "/exam/pe-comprehensive-management/keywords/authenticity",
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/authenticity",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-        "lastCrawl": "2026/09/27 23:09:22",
-        "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
     {
       "slug": "/exam/pe-comprehensive-management/keywords/competency-hr",
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/competency-hr",
@@ -36,24 +19,6 @@
         "state": "not-indexed",
         "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
         "lastCrawl": "2026/09/27 23:09:23",
-        "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
-      },
-      "request": {
-        "requested": false,
-        "status": "unconfirmed",
-        "detail": "受理文言を読めなかった（送信された可能性はある）"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-comprehensive-management/keywords/initial-investment",
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/initial-investment",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-        "lastCrawl": "2026/10/07 10:32:08",
         "discoveredVia": "sitemap",
         "crawlAllowed": true,
         "indexingAllowed": true
@@ -83,47 +48,12 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-        "lastCrawl": "2026/08/30 19:18:45",
-        "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
       "slug": "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/pollution-control-manager",
       "inspected": {
         "state": "not-indexed",
         "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
         "lastCrawl": "2026/08/30 18:46:46",
-        "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
-      },
-      "request": {
-        "requested": false,
-        "status": "unconfirmed",
-        "detail": "受理文言を読めなかった（送信された可能性はある）"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-comprehensive-management/keywords/sexual-harassment",
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/sexual-harassment",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-        "lastCrawl": "2026/08/30 19:17:39",
         "discoveredVia": "sitemap",
         "crawlAllowed": true,
         "indexingAllowed": true
@@ -151,29 +81,12 @@
         "detail": "受理文言を読めなかった（送信された可能性はある）"
       },
       "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-comprehensive-management/past-exams/h24-secondary",
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h24-secondary",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-        "lastCrawl": "2026/09/01 9:49:20",
-        "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
     }
   ],
   "status": "ok",
   "summary": {
-    "inspected": 9,
-    "accepted": 5,
+    "inspected": 4,
+    "accepted": 2,
     "alreadyIndexed": 0,
     "unreadable": 0
   }

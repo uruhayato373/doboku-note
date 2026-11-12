@@ -14,6 +14,8 @@
  * 使い方:
  *   node scripts/check-weekly-review-due.mjs          # exit 0 = 催促なし / 1 = DUE
  *   node scripts/check-weekly-review-due.mjs --json
+ *
+ * npm run check-weekly-review-due — 週次レビューの未作成を知らせる（土曜 09:00 JST 以降に今週分、月〜金は先週分の *-review.md が無ければ exit 1・SessionStart フックが呼ぶ唯一の知らせ。レビューは運営者の指示で実行し、抜けた週は後日でよい。最新レビューに <!-- weekly-review:pending-questions --> があれば諮問待ちとして 1 行）
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';

@@ -18,6 +18,8 @@
  *   node scripts/stage-ig-media-r2.mjs --pack cem/keyword-packs/pfi --format carousel --dry-run
  *   node scripts/stage-ig-media-r2.mjs --pack cem/keyword-packs/pfi --format carousel --cleanup
  * ---------------------------------------------------------------------------
+ *
+ * npm run stage-ig-media-r2 -- --pack <pack> --format carousel --cleanup — ig-graph-publish が使う一時公開/削除の単体実行（--dry-run で URL 計算だけ）
  */
 import { existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
