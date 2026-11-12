@@ -63,6 +63,13 @@
       "maxAgeDays": 9,
       "maxConsecutiveFailures": 2,
       "_note": "週次（月 11:17 JST）。この watchdog を動かしている guard 自身なので、月曜の実行では自分の沈黙を拾えない。日次の ops-audit.yml が --only で本行だけを見る（相互監視）。週次の全体検査は --exclude で本行を外し、同じ原因の二重 Issue を防ぐ（DN-0935）"
+    },
+    {
+      "workflow": "ogp-supply.yml",
+      "branch": "develop",
+      "maxAgeDays": 10,
+      "maxConsecutiveFailures": 3,
+      "_note": "OGP の供給（develop への push と週次の日曜）。2026-11-10〜12 に Cap check（上限 50）で 19 回連続で落ち、新しい記事 95 本の og:image が本番で 404 のまま 2 日気づかれなかった（DN-1123）。3 連続で落ちたら知らせる"
     }
   ]
 }
