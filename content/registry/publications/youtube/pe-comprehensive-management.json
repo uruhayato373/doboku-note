@@ -56,7 +56,7 @@
       "work": "cm-fugokaku-tenken",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform/scene-001",
@@ -76,9 +76,22 @@
         "subtitles": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#longform",
-      "publishAt": "2027-01-26T03:15:00Z",
+      "publishAt": "2026-11-15T03:15:00Z",
       "times": {
         "rendered": "2026-11-12T02:45:23.955Z"
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T02:54:56.431Z",
+          "digest": "d05df1158e5d1a7e2d0b82dbc4e2fa1ef3d025dd9cf662aa7be88e5c0837312e"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T02:54:56.431Z",
+        "contentSha256": "863dcd29784cae3e1337d1fa9b0f6fc4a672ef2f4a4a7bb1eaca3a3974d95f4f"
       }
     },
     {
