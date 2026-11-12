@@ -30,6 +30,7 @@ import RelatedTools from '@/components/ui/RelatedTools';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import { shouldShowQualificationBridge } from '@/config/qualification-bridge';
 import ExamStepBridge from '@/components/ui/ExamStepBridge/ExamStepBridge';
+import NextInSeries from '@/components/ui/NextInSeries/NextInSeries';
 import { resolveExamStepBridge } from '@/lib/exam-step-bridge';
 import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
@@ -117,6 +118,12 @@ export default function ArticleFooter({
   return (
     <>
       {slugStr && <ExamYearNav currentSlug={slugStr} categoryArticles={categoryArticles} />}
+      {/* 前の記事・次に読む 1 本（資格ページと同じ並び＝category-curriculum.json）。教科書・過去問は上の前後ナビが担う */}
+      {slugStr && !isCareer && docGroup !== 'textbook' && (
+        <div className="mt-8">
+          <NextInSeries category={category} currentSlug={slugStr} categoryArticles={categoryArticles} />
+        </div>
+      )}
       {lawPage && <LawPageSections data={lawPage} />}
       {!isCareer && category && <RelatedTools category={category} slug={slugStr} />}
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
