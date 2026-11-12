@@ -1624,7 +1624,7 @@
       "work": "pe-urban-planning-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1659,7 +1659,42 @@
         "contentSha256": "36ae37b4c2402560aaa46d890c8eb2d5702bef486331945503f3f0e4086fdf8b"
       },
       "times": {
-        "rendered": "2026-11-12T22:01:43.988Z"
+        "rendered": "2026-11-12T22:01:43.988Z",
+        "uploaded": "2026-11-12T22:07:41.618Z",
+        "scheduled": "2026-11-12T22:07:50.187Z"
+      },
+      "delivery": {
+        "inputSha256": "2cc55530bcca9b111e2bbffe44e85d4f25cd5f0193bf2de706aacc1abd53a8bf",
+        "marker": "dn-single-bde3683500915fae46e5f4e7798b6cdc2a2fa186",
+        "uploadRequestedAt": "2026-11-12T22:06:51.732Z",
+        "videoId": "pFA-tQYJQTs",
+        "processedAt": "2026-11-12T22:07:41.000Z",
+        "thumbnailRequestedAt": "2026-11-12T22:07:41.670Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/pFA-tQYJQTs/default.jpg?sqp=CIzw2NcG&rs=AOn4CLAU5MvEdIZSH9zN-0c7TCq78EOe4w",
+          "https://i9.ytimg.com/vi/pFA-tQYJQTs/mqdefault.jpg?sqp=CIzw2NcG&rs=AOn4CLBEbWCR2eeIAQ9Nc1vaG48gcacc_w",
+          "https://i9.ytimg.com/vi/pFA-tQYJQTs/hqdefault.jpg?sqp=CIzw2NcG&rs=AOn4CLA08CxtZq_djzzKECBUDesRrCg4hA",
+          "https://i9.ytimg.com/vi/pFA-tQYJQTs/sddefault.jpg?sqp=CIzw2NcG&rs=AOn4CLDaDpTsAyzCZhqhOWXm-PSH6EGUnA",
+          "https://i9.ytimg.com/vi/pFA-tQYJQTs/maxresdefault.jpg?sqp=CIzw2NcG&rs=AOn4CLAZBFNrvXSgB6baJiEzj4XC0wdKvQ",
+          "https://i9.ytimg.com/vi/pFA-tQYJQTs/fhddefault.jpg?sqp=CIzw2NcG&rs=AOn4CLAUqaYK-VkYHf8r-m8cXfEMp2cVgA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-12T22:07:45.262Z",
+        "scheduleRequestedAt": "2026-11-12T22:07:46.505Z",
+        "scheduleAt": "2026-11-16T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-12T22:07:50.187Z"
+      },
+      "platform": {
+        "id": "pFA-tQYJQTs",
+        "url": "https://www.youtube.com/watch?v=pFA-tQYJQTs",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-12T22:07:45.262Z"
       }
     },
     {
