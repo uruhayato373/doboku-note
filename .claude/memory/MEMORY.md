@@ -53,6 +53,7 @@
 - [X予約偽成功](feedback_publish_x_false_success.md) — キュー実体検証
 - [X返信の表示遅れ](reference_x_reply_send_lag.md) — 押し直さず入力欄で判定
 - [レビュー申し送り台帳](feedback_review_tasks_to_backlog.md) — DN起票・backlog罠
+- [カードの閉じ方](feedback_backlog_close_via_todo_complete.md) — 手で消さずclaim→complete
 - [検証タグは develop の script](feedback_backlog_verify_tag_unmerged_script.md) — 未マージの script を書くと CI 赤
 - [週次の遅れ取り戻し](feedback_weekly_review_late_catchup.md) — 旧週削除のリンク・対応済み照合・publish型停止
 - [着手前git同期](feedback_session_start_git_sync.md) — fetch・PR squash巻込み
