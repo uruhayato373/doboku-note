@@ -70,10 +70,10 @@ test('測量士・舗装・建築は 2026-10-07 20:00 から本文中間・記�
 
 test('公的基準の章以外・トピック・ツールのページ末は BuildJob（EXP-018）。章ページ・字数チェック等の面とは別の面', async () => {
   const { resolvePlacements } = await load();
-  assert.equal(resolvePlacements({ pageKind: 'standards-list' }, NOW)['standards-list-end']?.program, 'buildjob');
+  assert.equal(resolvePlacements({ pageKind: 'standards-list' }, NOW)['standards-list-end'], undefined, '基準書の面は 2026-11-12 に外した');
   assert.equal(resolvePlacements({ pageKind: 'topic' }, NOW)['topic-end']?.program, 'buildjob');
   assert.equal(resolvePlacements({ pageKind: 'tool' }, NOW)['tool-end']?.program, 'buildjob');
-  assert.equal(resolvePlacements({ pageKind: 'standards' }, NOW)['standards-list-end'], undefined);
+  assert.deepEqual(resolvePlacements({ pageKind: 'standards' }, NOW), {}, '基準書の章も面を外した');
 });
 
 test('法令は 2026-10-24 から解説の本文中間と一覧の末尾に BuildJob（PL-0042・PL-0043）、それより前は出さない', async () => {
@@ -122,9 +122,9 @@ test('実務（civil-practice）: 記事は本文中間と記事末（キャリ�
   assert.deepEqual(programs(resolvePlacements({ pageKind: 'doc', category: 'civil-practice' }, BEFORE_EXP017)), {}, '広げる前は何も出ていない');
 });
 
-test('公的基準の章末・トップ・ツールは 1 枠ずつで、その枠がピクセルの発火源', async () => {
+test('トップ・ツールは 1 枠ずつで、その枠がピクセルの発火源', async () => {
   const { resolvePlacements, pixelFor } = await load();
-  for (const [pageKind, slot] of [['standards', 'standards-end'], ['home', 'home-section'], ['tool', 'tool-inline']]) {
+  for (const [pageKind, slot] of [['home', 'home-section'], ['tool', 'tool-inline']]) {
     const r = resolvePlacements({ pageKind }, NOW);
     assert.equal(r[slot]?.program, 'buildjob', `${pageKind} ${slot}`);
     assert.equal(pixelFor(r, [slot])?.slot, slot, `${pageKind}: 1 枠なのでこの枠が発火源`);

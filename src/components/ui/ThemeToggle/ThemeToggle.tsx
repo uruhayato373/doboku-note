@@ -19,13 +19,17 @@ export default function ThemeToggle() {
     () => false,
   );
 
+  // 読込み前の枠は、読込み後のボタンと同じ大きさにする（PC は文字の行のぶん高い。44px 角の枠だとヘッダーが 20px 伸びて CLS になる）
   if (!mounted) {
     return (
       <button
-        className="h-11 w-11 animate-pulse rounded-card-inline bg-(--rule-soft)"
+        className="flex min-h-11 min-w-11 flex-col items-center justify-center space-y-1 rounded-card-inline px-3 py-2"
         disabled
         aria-label="読み込み中..."
-      />
+      >
+        <span className="block h-5 w-5 animate-pulse rounded-card-inline bg-(--rule-soft)" />
+        <span className="invisible hidden md:block text-xs font-medium" aria-hidden="true">light</span>
+      </button>
     );
   }
 

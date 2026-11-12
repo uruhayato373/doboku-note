@@ -799,15 +799,16 @@ function resolvePlacementRaw(
     return EMPTY;
   }
 
-  // 12. 1級土木 textbook（一次テキスト学習）→ 会員（伴走）lead＋完成答案集の軽め CTA（2026-07-01）。
-  //     一次学習中の上流読者なので、二次単品より低コミットの伴走会員へ回遊（会員は launch で自動発火・
-  //     launch 前は完成答案集が live）。
+  // 12. 1級土木 textbook（一次テキスト学習）→ 一次の教材だけを出す（2026-11-12・SEO 計画 §3）。
+  //     読者は第1次検定の学習中で、二次の経験記述（旧 inline-3）は段階が合わず note 送客率 0.28% だった。
+  //     無料の精読ガイド → 一次の出る順ノートの順に並べ、記事末にも出る順ノートを 1 枚出す（手書きカードが無い記事だけ）。
   if (docGroup === 'textbook' && slug.startsWith('civil-construction-1-')) {
     return {
       inline: [
         slot('civil-1-reading-guide', slug, 'inline-1'), // 無料 精読ガイド（一次・出題頻度順の読み方・2026-09-16 公開）
-        slot('civil-1-experience-essay', slug, 'inline-3'),
+        slot('civil-1-ichiji-ronten', slug, 'inline-3'), // 一次の出る順 合格ノート
       ],
+      end: slot('civil-1-ichiji-ronten', slug, 'end'),
     };
   }
 

@@ -15,7 +15,6 @@ import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardReferenceLinks from '@/components/standards/StandardReferenceLinks';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
-import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
@@ -176,10 +175,12 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             <SafeMdx source={markdown} components={components} options={mdxOptions} />
           </div>
 
-          <nav aria-label="前後の節" className="mt-10 grid gap-3 border-t border-(--rule-soft) pt-6 sm:grid-cols-2">
+          <nav aria-label="前後の節" className="mt-8 grid gap-3 border-t border-(--rule-soft) pt-6 sm:grid-cols-2">
             {previous ? (
               <Link
                 href={standardSectionPath(entry, chapter, previous.number)}
+                data-cta="nav"
+                data-cta-label="standards-section-nav"
                 className="focus-ring flex min-h-14 flex-col justify-center border border-(--rule-soft) px-4 py-3 transition-colors hover:bg-(--accent-fill) dark:border-(--rule-soft)"
               >
                 <span className="text-[11px] text-(--ink-muted)">← 前の節</span>
@@ -189,6 +190,8 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             {next && (
               <Link
                 href={standardSectionPath(entry, chapter, next.number)}
+                data-cta="nav"
+                data-cta-label="standards-section-nav"
                 className="focus-ring flex min-h-14 flex-col justify-center border border-(--rule-soft) px-4 py-3 text-right transition-colors hover:bg-(--accent-fill) dark:border-(--rule-soft)"
               >
                 <span className="text-[11px] text-(--ink-muted)">次の節 →</span>
@@ -199,10 +202,9 @@ export default async function StandardSectionPage({ params }: { params: Promise<
 
           <StandardReferenceLinks documents={referencedDocuments} />
           <StandardTopicLinks topics={relatedTopics} />
-          <div className="mt-10">
+          <div className="mt-8">
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
-          <AffiliateSlot page={{ pageKind: 'standards' }} slot="standards-end" className="mt-6" />
           <StandardsAttribution document={entry} item={chapter.item} />
         </SectionCard>
       </TwoColumnShell>

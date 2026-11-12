@@ -176,6 +176,10 @@ jobs:
         id: seo_build
         run: npm run check-seo-build:ci -- --summary-out "$RUNNER_TEMP/seo-build-run.json"
 
+      # /standards が説明文を増やし一覧のリンク密度を落としていないか（config/standards-page-density.json）。
+      - name: Check standards page density (out/)
+        run: npm run check-standards-density
+
       # error で落ちた run の件数も履歴に要る。check の成否にかかわらず上げる（無ければ publish 側が何もしない）。
       - name: Upload SEO build summary
         if: always()
