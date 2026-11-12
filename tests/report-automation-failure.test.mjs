@@ -105,3 +105,23 @@ test('channelOfTitle: 題名の [auto] <channel>: から channel を取る（iss
   assert.equal(channelOfTitle('依存の脆弱性 next'), null);
   assert.equal(channelOfTitle(undefined), null);
 });
+
+test('根本原因の鍵: 同じ鍵の Issue へ channel をまたいで追記し、鍵の Issue は鍵でだけ閉じる（DN-0935）', async () => {
+  const { findExisting, findByKey, keyMarker } = await import('../scripts/report-automation-failure.mjs');
+  const marker = keyMarker('saturday-mac-run');
+  const list = [
+    { number: 1, title: '[auto] gsc-auto-review: 記録層の沈黙', body: 'x' },
+    { number: 2, title: '[auto] weekly-collect: 土曜の収集が完了しない', body: `y\n${marker}` },
+  ];
+  assert.equal(findExisting(list, 'gsc-auto-review', 'saturday-mac-run')?.number, 2, '鍵が一致する Issue を先に取る');
+  assert.equal(findExisting(list, 'gsc-auto-review')?.number, 1, '鍵が無ければ従来どおり channel');
+  assert.equal(findExisting(list, 'ops', 'other-key'), null);
+  assert.deepEqual(findByKey(list, 'saturday-mac-run').map((i) => i.number), [2]);
+  assert.throws(() => keyMarker('Bad Key'), /鍵の形/);
+});
+
+test('--dry-run: 鍵を本文の目印として書く（DN-0935）', () => {
+  const r = spawnSync(process.execPath, [SCRIPT, '--channel', 'x', '--key', 'saturday-mac-run', '--title', 't', '--body', 'b', '--dry-run', '--no-assignee'], { encoding: 'utf8' });
+  assert.equal(r.status, 0, r.stderr);
+  assert.match(r.stdout, /<!-- automation-key: saturday-mac-run -->/);
+});
