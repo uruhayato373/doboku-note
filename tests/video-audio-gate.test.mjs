@@ -75,3 +75,12 @@ test('欄が無い従来の記録（在庫の既存分）は新しい 2 項目�
   assert.equal(audioProblems({ ...old, sceneSimilarityMin: 0.2, sceneSimilarityMinScene: 1 }, 's', POLICY).length, 1);
   assert.equal(audioProblems({ ...old, tokenMisreads: [{ scene: 0, token: '1', expected: 'いち' }] }, 's', POLICY).length, 1);
 });
+
+test('maxTokenMisreads が null の間は数字の外れを記録だけにして落とさない（2026-11-12・実機で 7 件の誤検出）', async () => {
+  const { audioProblems } = await import('../scripts/lib/video-publish-gate.mjs');
+  const sha = 'a'.repeat(64);
+  const check = { videoSha256: sha, similarity: 0.93, sceneSimilarityMin: 0.9, tokenMisreads: [{ scene: 3, token: '1設', expected: 'イチシツラエ' }], maxVolumeDb: -1.4, durationGapSec: 0 };
+  const audio = { ...POLICY.audio, maxTokenMisreads: null };
+  assert.deepEqual(audioProblems(check, sha, { audio }), []);
+  assert.match(audioProblems(check, sha, POLICY).join(), /誤読/);
+});

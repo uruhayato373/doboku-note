@@ -34,7 +34,7 @@
     "language": "ja",
     "minSimilarity": 0.85,
     "minSceneSimilarity": 0.6,
-    "maxTokenMisreads": 0,
+    "maxTokenMisreads": null,
     "minMaxVolumeDb": -12,
     "maxMaxVolumeDb": -0.1,
     "maxDurationGapSec": 2

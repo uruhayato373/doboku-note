@@ -101,7 +101,8 @@ export function audioProblems(check, videoSha, policy) {
   if (check.sceneSimilarityMin !== undefined && a.minSceneSimilarity !== undefined && !(check.sceneSimilarityMin >= a.minSceneSimilarity)) {
     out.push(`場面の欠落の疑い（場面 ${check.sceneSimilarityMinScene ?? '?'} の一致 ${check.sceneSimilarityMin}）`);
   }
-  if (check.tokenMisreads !== undefined && check.tokenMisreads.length > (a.maxTokenMisreads ?? 0)) {
+  // maxTokenMisreads が null の間は記録だけで落とさない。実機（pe-road-shutsudai-yomikata）で「1設問」「4系統」を 1 と設・4 と系に分け、促音（イッ）も外れとして 7 件を誤って数えた（2026-11-12）
+  if (check.tokenMisreads !== undefined && a.maxTokenMisreads != null && check.tokenMisreads.length > a.maxTokenMisreads) {
     out.push(`数字・英字の誤読の疑い（${check.tokenMisreads.slice(0, 3).map((m) => `場面 ${m.scene} の ${m.token}`).join('、')}${check.tokenMisreads.length > 3 ? ` ほか ${check.tokenMisreads.length - 3} 件` : ''}）`);
   }
   if (!(check.durationGapSec <= a.maxDurationGapSec)) out.push(`尺が台本と合わない（差 ${check.durationGapSec} 秒）`);
