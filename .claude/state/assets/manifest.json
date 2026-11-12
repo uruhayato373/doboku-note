@@ -74505,6 +74505,19 @@
       "width": 1200,
       "height": 630,
       "srcHash": "95e0f1704a9c318d"
+    },
+    "content/site/concrete-chief-engineer/guide-r08-answers/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/concrete-chief-engineer/guide-r08-answers/ogp.png",
+      "sha256": "14539b96f3c7c00b7230bc6555e9b56e7495d707769a98ef9368d1fbf2e69c2d",
+      "bytes": 541842,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-12T11:41:20.359Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "ce9266da435267e3"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
