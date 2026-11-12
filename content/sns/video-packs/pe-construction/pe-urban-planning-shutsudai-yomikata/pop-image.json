@@ -1213,11 +1213,11 @@
       "images": [
         {
           "role": "cover",
-          "inputSha256": "36a06e76219c756dcd87ea9c72e4e4b4e2e89bf4607b43f0a4f50ffd2e41e9e5",
+          "inputSha256": "800bcf6d0c16c4b051f35dd3532a5850cac92f96bf75f321c533c2bec8021bd3",
           "narration": "都市計画のIII、最後の問いは2題で何が違うでしょう？",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』。最も大きく見出しを 2 行で書く: 1 行目〈最後の問い〉、2 行目〈何が違う？〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「1 問で確かめる」。見出しの下に、その問いの問題文の一文を書いた紙を 1 枚置き、大きな『？』を添える。紙には台本の場面にある問題文の語だけを書き、図や構造物を描かない。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「首をかしげる」: 首を少しかしげ、片手をあごに当てて考える顔。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生は首を少しかしげ、右手（画面左側）をあごに当てて考える顔をする。左手（画面右側）は腰に当てる。見出しの下に問題文の紙を 1 枚置き、紙は手に持たせない。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字の余白: 見出し『最後の問い』『何が違う？』が左右とも画面端から約3〜4%しか空かず、5%未満（指示の枠110〜970pxを超えている）。文字の綴りは指示どおり",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』。最も大きく見出しを 2 行で書く: 1 行目〈最後の問い〉、2 行目〈何が違う？〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「1 問で確かめる」。見出しの下に、その問いの問題文の一文を書いた紙を 1 枚置き、大きな『？』を添える。紙には台本の場面にある問題文の語だけを書き、図や構造物を描かない。紙には『III-1 立地適正化計画／III-2 古民家の活用』とだけ書き、紙の上はその文字のほかは白い紙のまま。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「首をかしげる」: 首を少しかしげ、片手をあごに当てて考える顔。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生は首を少しかしげ、右手（画面左側）をあごに当てて考える顔をする。左手（画面右側）は腰に当てる。見出しの下に問題文の紙を 1 枚置き、紙は手に持たせない。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 見出し2行目『何が違う？』の右端の？が画面右端から約4%しか空いておらず、左右5%未満の余白に違反し、指示の中央80%枠(110〜970px)も超える。文字は指示と一致し、紙の文面・先生の仕草・手指・胴体は問題なし",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -1225,26 +1225,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-cover.ade17f39.png",
-              "sha256": "ade17f39517e68666e8e9a09f80a2533d0e0a325852b7a70ee7c304265eb749b"
+              "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-cover.9c0566dd.png",
+              "sha256": "9c0566dd45616abc26491edbbe1e89ea5adc0f91bfd84f49e508f4488a3a06ab"
             },
-            "generatedAt": "2026-11-11T23:04:40.022Z"
+            "generatedAt": "2026-11-11T23:47:15.690Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/cover.1dd6a9e4.png",
-            "sha256": "1dd6a9e4cb6b2f87bf0b44fb26dfeed061771c6abde807692475bc031608df09",
+            "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/cover.0af5c850.png",
+            "sha256": "0af5c8502a3cb5d693b42ad5a099aaedab0115d2f6e4978b571f53581c9c2bd4",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "ade17f39517e68666e8e9a09f80a2533d0e0a325852b7a70ee7c304265eb749b"
+            "sourceSha256": "9c0566dd45616abc26491edbbe1e89ea5adc0f91bfd84f49e508f4488a3a06ab"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:04:40.022Z",
+            "checkedAt": "2026-11-11T23:47:15.690Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "指示の文字（技術士 建設部門・最後の問い・何が違う？）が一字も誤りなく、左右6%以上の余白で収まり、肩書き帯・記号の重なりなし。首をかしげ手をあごに当てる先生は指5本で胴体も下端まで続き、字幕帯に紙の文字なし"
+            "reason": "見出し2行と紙の文字が指示と一字一致し左右余白5%以上、肩書き帯・記号の重なり無し、紙は上60%以内で字幕帯に文字無し、先生は片手あご・片手腰で指5本・胴体は下端まで続き、1問で確かめる型の図になっている"
           }
         },
         {
@@ -1264,7 +1264,7 @@
               "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-scene-001.cec06cc3.png",
               "sha256": "cec06cc3422fde6421763cc69c8d29d49076f09ab76f6586bf75fc77d6a24c1b"
             },
-            "generatedAt": "2026-11-11T23:04:40.022Z"
+            "generatedAt": "2026-11-11T23:47:15.690Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/scene-001.65fae99a.png",
@@ -1278,7 +1278,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:04:40.022Z",
+            "checkedAt": "2026-11-11T23:47:15.690Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字は『技術士 建設部門』『何に対する対策？』『III-1 立地適正化計画』『III-2 古民家の活用』が指示どおりで、番号①・？も正しく、切れや崩れも記号の重なりも無い"
           }
@@ -1300,7 +1300,7 @@
               "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-scene-002.b5b0cbf4.png",
               "sha256": "b5b0cbf452d6ce4b0ac971cd0a56045e66ca5300eb62a5d970a7a52533621476"
             },
-            "generatedAt": "2026-11-11T23:04:40.022Z"
+            "generatedAt": "2026-11-11T23:47:15.690Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/scene-002.b0cd9fe1.png",
@@ -1314,7 +1314,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:04:40.022Z",
+            "checkedAt": "2026-11-11T23:47:15.690Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "技術士 建設部門・②・III-1は市民や関係者・懸念事項・対策案の文字が指示と一致し、左右6%以上の余白。人の形→矢印→対策案の図で、下の3割は空き。見出し下の赤線は文字に重ならない背景装飾"
           }
@@ -1336,7 +1336,7 @@
               "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-scene-003.aefd03de.png",
               "sha256": "aefd03de50e54d124b7b4ee5ddd4b8a2c7cc9cb577b0f7a0190a4a3cf0073b9a"
             },
-            "generatedAt": "2026-11-11T23:04:40.022Z"
+            "generatedAt": "2026-11-11T23:47:15.690Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/scene-003.8415bb58.png",
@@ -1350,7 +1350,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:04:40.022Z",
+            "checkedAt": "2026-11-11T23:47:15.690Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『III-2は新たなリスク』『すべての解決策を実行』『新たに生じうるリスク』『対策』が指示どおりに読め、左右の余白も5%以上で、中央の箱の黄色強調も合っている"
           }
@@ -1372,7 +1372,7 @@
               "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/work/factory/raw-cta.33042424.png",
               "sha256": "33042424bfe85e6cb8223cd74b1601c8f163911bc406b40a9c9c53b96c195a4e"
             },
-            "generatedAt": "2026-11-11T23:04:40.022Z"
+            "generatedAt": "2026-11-11T23:47:15.690Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2/cta.7126da67.png",
@@ -1386,14 +1386,14 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-11T23:04:40.022Z",
+            "checkedAt": "2026-11-11T23:47:15.690Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "大きく『本編で』、小さく『関連動画から』と下向き矢印で、綴り正しく左右の余白5%以上。先生の手は5本指で崩れず、胴体は下端まで続き、資格名・肩書きの帯も無い"
           }
         }
       ],
       "render": {
-        "videoSha256": "2bafa32f78863c079317f692084283b926b3597f5f9825620413fca3434bfe35",
+        "videoSha256": "da9e963508e0aed3daf3edaaf86540d94fb0223ee474503f07a8244d9f7ea7da",
         "durationSeconds": 30.826667,
         "speaker": 13,
         "sceneCount": 5
@@ -1401,9 +1401,9 @@
       "screenReview": {
         "verdict": "fail",
         "by": "yt-shorts-publisher-qa",
-        "reason": "尺・導線・題名は基準を満たす。ただし表紙が型 one-question の図になっておらず、締めの語りが同じ一文の繰り返しになっているため fail。",
-        "videoSha256": "2bafa32f78863c079317f692084283b926b3597f5f9825620413fca3434bfe35",
-        "checkedAt": "2026-11-11T23:19:12.631Z"
+        "reason": "5軸は平均4.4で全軸3以上だが、締めの一文「II-1とII-2の読み方は本編で。」が語りで2回続けて読まれる（27.2秒と29.7秒）。台本の締めが重複しているため fail。",
+        "videoSha256": "da9e963508e0aed3daf3edaaf86540d94fb0223ee474503f07a8244d9f7ea7da",
+        "checkedAt": "2026-11-12T00:12:49.006Z"
       }
     }
   },
