@@ -2730,8 +2730,8 @@ Windows の PowerShell で repo 直下から順に:
 **残り**:
 1. 運営者: Apple Developer Program の登録（個人か法人か）、App Store Connect の有料アプリ契約・銀行口座・税務情報と小規模事業者プログラムの申請（07 §5）。iOS リポジトリは GitHub の非公開リポジトリを運営者の了承を得て作り、push する。
 2. 審査に出す前に、日本技術士会・全国建設研修センターの両機関へ書面で許諾を求める（両機関とも過去問の利用条件を示しておらず、App Store 審査ガイドライン 5.2.1 は許可の無い第三者の著作物を禁じる。運営者が送る。文案は 07 §5）。返事が来るまでは TestFlight の内部テストまで。
-3. 買い切りの確かめ: StoreKit のテスト構成（.storekit）と TestFlight の Sandbox で行う。App Store Connect に `com.doboku-note.gijutsushi.full.pe-first-stage`（非消耗型・¥1,480）を作る。サイトのメール登録ページ（DN-0632）ができたら `AppConfig.mailSignupURL` に入れる。
-4. TestFlight の内部テストで運営者が実機確認し、2026-11-08 までに審査へ提出できれば技術士アプリ（第一次試験のみ）を App Store で公開する（無料ダウンロード＋全年度 ¥1,480）。有料アプリ契約が間に合わなければ無料版（最新年度）だけで先に出す。過ぎたら TestFlight 止まりにする（07 §7）。
+3. 買い切りの確かめ: StoreKit のテスト構成（.storekit）と TestFlight の Sandbox で行う。App Store Connect に `com.doboku-note.gijutsushi.full.pe-first-stage`（非消耗型・¥1,480）を作る。サイトのメール登録ページ（DN-0632）の URL が決まったら `AppConfig.mailSignupURL` に入れる。
+4. 再開したら、TestFlight の内部テストで運営者が実機確認し、審査へ出すかを決める（2026-11-08 までに出す予定は保留で見送り、今は TestFlight 止まり・07 §7）。有料アプリ契約が間に合わなければ無料版（最新年度）だけで先に出す
 
 **完了条件**: 技術士アプリ（第一次試験）が TestFlight で動き、総監が試験設定とデータだけで載り、土木施工管理技士アプリを作る手順が記録されている。
 
