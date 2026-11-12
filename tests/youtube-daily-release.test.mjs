@@ -37,3 +37,12 @@ test('日時だけ付いて承認の前で止まった通常動画は続きか�
   const q = releaseQueue({ publications: [lf('a', { publishAt: '2026-11-14T03:15:00Z' }), lf('b', { publishAt: '2026-11-11T03:15:00Z' })], stocked: [], plan, uploadsLeft: 4, longformPerDay: 4, now: NOW });
   assert.deepEqual(q.longforms.map((l) => l.pack), ['e/a']);
 });
+
+test('準備まで済んだショートは通常動画より先に割当を取る（日時を過ぎないように）', () => {
+  const parent = lf('a', { status: 'scheduled', publishAt: '2026-11-13T03:15:00Z', platform: { id: 'AAAAAAAAAAA' } });
+  const prepared = short('a', 'k1', { status: 'rendered', publishAt: '2026-11-13T22:30:00Z' });
+  const q = releaseQueue({ publications: [parent, prepared, lf('b'), lf('c')], stocked: [{ pack: 'e/a', key: 'k1' }, { pack: 'e/a', key: 'k2' }], plan, uploadsLeft: 2, longformPerDay: Infinity, now: NOW });
+  assert.deepEqual(q.shorts.map((s) => s.pub), ['e/a/youtube.short.k1']);
+  assert.deepEqual(q.longforms.map((l) => l.pack), ['e/b']);
+});
+

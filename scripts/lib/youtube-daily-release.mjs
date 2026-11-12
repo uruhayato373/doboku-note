@@ -35,7 +35,6 @@ export function releaseQueue({ publications, stocked, plan, uploadsLeft, longfor
   const longformStock = yt.filter((p) => p.format === 'longform' && !p.revisionOf && p.status === 'qa_passed' && p.media?.video && !(Date.parse(p.publishAt) <= now))
     .map((p) => ({ pack: `${p.exam}/${p.work}`, pub: p.id, shorts: waitingShorts.get(`${p.exam}/${p.work}`) ?? 0, target: targetOf.get(p.id) ?? '9999-12-31' }))
     .sort((a, b) => (b.shorts > 0) - (a.shorts > 0) || a.target.localeCompare(b.target) || a.pack.localeCompare(b.pack));
-  const longforms = longformStock.slice(0, Math.min(longformPerDay, uploadsLeft));
 
   // 親が予約・公開に進んだ在庫のショート（台帳の行がまだ下書きのもの）
   const shortCandidates = [];
@@ -49,7 +48,11 @@ export function releaseQueue({ publications, stocked, plan, uploadsLeft, longfor
     shortCandidates.push({ pack: s.pack, key: s.key, pub: `${s.pack}/youtube.short.${s.key}`, status: row?.status ?? null, publishAt: row?.publishAt ?? null, parent: parents[0].id, notBefore: new Date(Date.parse(parentAt) + SHORT_AFTER_PARENT_HOURS * 3_600_000).toISOString() });
   }
   shortCandidates.sort((a, b) => a.notBefore.localeCompare(b.notBefore) || a.pub.localeCompare(b.pub));
-  const shorts = shortCandidates.slice(0, Math.max(0, uploadsLeft - longforms.length));
+  // 準備（公開日時と方針の承認）まで済んだショートは日時が決まっているので、通常動画より先に割当を取る（後回しにすると日時を過ぎる）
+  const prepared = shortCandidates.filter((s) => ['approved', 'rendered'].includes(s.status));
+  const longforms = longformStock.slice(0, Math.max(0, Math.min(longformPerDay, uploadsLeft - prepared.length)));
+  const rest = Math.max(0, uploadsLeft - longforms.length - prepared.length);
+  const shorts = [...prepared, ...shortCandidates.filter((s) => !prepared.includes(s)).slice(0, rest)].slice(0, Math.max(0, uploadsLeft - longforms.length));
 
   // 投稿済みのショートで、親が公開されていて関連動画が未記録のもの（ブラウザで Studio に設定する）
   const parentPublic = (p) => {
