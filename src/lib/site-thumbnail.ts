@@ -1,6 +1,6 @@
 import config from '../../config/site-thumbnails.json';
 import tokens from '../../.claude/knowledge/design-system/note-cover-tokens.json';
-import { getPostAssetDisplayUrl } from '@/lib/r2-image-loader';
+import { getOgpDisplayUrl, getPostAssetDisplayUrl } from '@/lib/r2-image-loader';
 
 export interface SiteThumbnail {
   readonly src: string;
@@ -31,4 +31,15 @@ export function getSiteThumbnail(doc: ThumbnailDoc): SiteThumbnail | null {
   const color = bandColor(category);
   if (!page?.version || !color) return null;
   return { src: `${getPostAssetDisplayUrl(`${category}/${key}/${config.imageFile}`)}?v=${page.version}`, text: page.text, color };
+}
+
+/** カードに出す画像。写真サムネイルがあればそれ（帯つき）、無ければ OGP の縮小。client へ渡すときはこの形で渡す（台帳を client に読ませない） */
+export interface CardImage {
+  readonly src: string;
+  readonly band: SiteThumbnail | null;
+}
+
+export function getCardImage(doc: ThumbnailDoc): CardImage {
+  const band = getSiteThumbnail(doc);
+  return { src: band?.src ?? getOgpDisplayUrl(doc.slug), band };
 }

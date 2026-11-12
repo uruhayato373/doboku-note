@@ -4,9 +4,10 @@ import Link from "next/link";
 import ContentThumbnail from "@/components/ui/ContentThumbnail";
 import { getCategoryLabel } from "@/lib/categories";
 import { type SearchResult } from "@/lib/search/search-client";
+import type { CardImage } from "@/lib/site-thumbnail";
 
 interface SearchResultsProps {
-  images?: Record<string, string>;
+  images?: Record<string, CardImage>;
   results: SearchResult;
   isLoading: boolean;
   error?: string | null;
@@ -75,17 +76,17 @@ export function SearchResults({
         </p>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid gap-4" data-cta="nav" data-cta-label="search-results">
         {results.posts.map((post) => (
           <article
             key={post.id}
             className="card-surface-section flex gap-4 p-4 sm:p-6 transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-card-hover"
           >
-            {images[post.path.replace(/\/$/, "")] && <div className="aspect-1200/630 w-[100px] sm:w-[168px] shrink-0 self-start"><ContentThumbnail src={images[post.path.replace(/\/$/, "")]!} sizes="(max-width:640px) 100px,168px" /></div>}
+            {images[post.path.replace(/\/$/, "")] && <div className="aspect-1200/630 w-[100px] sm:w-[168px] shrink-0 self-start"><ContentThumbnail src={images[post.path.replace(/\/$/, "")]!.src} band={images[post.path.replace(/\/$/, "")]!.band} sizes="(max-width:640px) 100px,168px" /></div>}
             <div className="flex-1 min-w-0">
               <p className="mb-2 text-xs text-(--ink-muted)">{getCategoryLabel(post.category)} · {post.category === 'concrete-engineer' && post.path.includes('/primary/') ? '演習' : post.path.includes("/guide/") ? "受験ガイド" : post.path.startsWith("/practice/") ? "実務" : post.path.startsWith("/laws/") ? "法令の解説" : /\/(primary|secondary|past-exam)\//.test(post.path) ? "過去問" : post.path.startsWith("/standards/") ? "基準資料" : "解説・学習"}</p>
               <h3 className="text-lg font-bold text-(--ink) mb-2 hover:text-(--accent) transition-colors">
-                <Link href={post.path} className="focus-ring rounded-card-inline">
+                <Link href={post.path} data-thumb={images[post.path.replace(/\/$/, "")] ? (images[post.path.replace(/\/$/, "")]!.band ? 'photo' : 'ogp') : undefined} className="focus-ring rounded-card-inline">
                   {post.title}
                 </Link>
               </h3>

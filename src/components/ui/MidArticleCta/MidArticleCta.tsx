@@ -48,7 +48,7 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
     return <CareerAffiliate {...props.card} placement="article-mid" emphasis secondary={props.secondary} />;
   }
   return (
-    <div className="not-prose my-8 max-w-2xl">
+    <div className="not-prose my-8 max-w-2xl" data-cta="nav" data-cta-label="article-mid-related">
       <div className="mb-2 text-sm font-semibold text-(--ink-muted)">この続きに読みたい</div>
       <RelatedArticleCard doc={props.doc} />
     </div>

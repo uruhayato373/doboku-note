@@ -109,7 +109,8 @@ export default function AnalyticsProvider() {
         // qualification-bridge 用。リンクにラベルが無い既存の面は従来どおり root → href）。
         label: anchor.dataset.ctaLabel || el.dataset.ctaLabel || anchor.getAttribute("href") || "(unknown)",
         params: {
-          cta_placement: el.dataset.ctaPlacement || "(unknown)",
+          // 回遊カードは、写真サムネイルか OGP の縮小かをカード（<a data-thumb>）が持つ（DN-1040）。面の placement が無ければそれを使う
+          cta_placement: el.dataset.ctaPlacement || (kind === "nav" && anchor.dataset.thumb ? `thumb-${anchor.dataset.thumb}` : "(unknown)"),
         },
       });
       const arm = kind === "note" ? noteBodyArmOf(el) : undefined;
@@ -242,13 +243,46 @@ export default function AnalyticsProvider() {
       });
     };
 
-    observeRevenueCtas();
-    const mutationObserver = new MutationObserver(observeRevenueCtas);
+    // 回遊カードの表示回数（DN-1040）。nav の面は縦に長く 50% 見えないことが多いので、面ではなくサムネイルのある
+    // カード（<a data-thumb>）を 1 枚ずつ見て、50% 見えたら 1 回送る。label は面（data-cta-label）、placement は
+    // thumb-photo / thumb-ogp。internal_nav_click の同じ label × placement と割って、写真と OGP のクリック率を比べる。
+    const navSent = new WeakSet<Element>();
+    const navObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting || entry.intersectionRatio < 0.5) continue;
+          const card = entry.target as HTMLElement;
+          if (navSent.has(card)) continue;
+          navSent.add(card);
+          navObserver.unobserve(card);
+          const root = card.closest<HTMLElement>('[data-cta="nav"]');
+          gtag.event({
+            action: "internal_nav_impression",
+            category: "internal-nav",
+            label: root?.dataset.ctaLabel || "(unknown)",
+            params: { cta_placement: root?.dataset.ctaPlacement || `thumb-${card.dataset.thumb}` },
+          });
+        }
+      },
+      { threshold: 0.5 },
+    );
+    const observeNavCards = () => {
+      document.querySelectorAll('[data-cta="nav"] a[data-thumb]').forEach((card) => {
+        if (observed.has(card)) return;
+        observed.add(card);
+        navObserver.observe(card);
+      });
+    };
+
+    const observeAll = () => { observeRevenueCtas(); observeNavCards(); };
+    observeAll();
+    const mutationObserver = new MutationObserver(observeAll);
     mutationObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-cta-variant"] });
 
     return () => {
       mutationObserver.disconnect();
       observer.disconnect();
+      navObserver.disconnect();
     };
   }, [pathname]);
 

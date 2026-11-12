@@ -4,7 +4,7 @@ import PageShell from "@/components/layout/PageShell";
 import { Hero, ExamCards, LatestArticles, AboutSection, PremiumNoteHero } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getAllDocsMeta, type DocMeta } from "@/lib/docs";
-import { getOgpDisplayUrl } from "@/lib/r2-image-loader";
+import { getCardImage } from "@/lib/site-thumbnail";
 import { buildExamCards } from "@/lib/home-exam-cards";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
@@ -56,7 +56,7 @@ function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
       categoryLabel: meta.category ? labelByCategory.get(meta.category) : undefined,
       date: meta.updatedAt || meta.dateModified || meta.publishedAt || meta.created,
       tags: (meta.tags || []).filter((t) => !isStructuralTag(t)),
-      image: getOgpDisplayUrl(meta.slug),
+      image: getCardImage(meta),
     }));
 }
 
