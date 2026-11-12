@@ -75,6 +75,7 @@ test('型の台帳とコピーの技法で台本を止める（2026-11-11）', a
   const good = { type: 'before-after', gesture: 'red-pen', coverPaper: '暑い時期だった', copy: ['barnum'], hook: '工事概要と本文がずれていませんか。', beats: [{}, {}], cta: '残りの直し方は本編で。' };
   assert.match(typeProblems({ ...good, gesture: undefined }, ctx).join(), /gesture が無い/);
   assert.match(typeProblems({ ...good, coverPaper: undefined }, ctx).join(), /coverPaper が要る/);
+  assert.match(typeProblems({ ...good, beats: [{}, { narration: '直した例です。残りは本編で。' }] }, ctx).join(), /2 回読まれる/);
   assert.match(typeProblems({ ...good, gesture: 'dance' }, ctx).join(), /gesture が台帳に無い/);
   assert.deepEqual(typeProblems(good, ctx), []);
   assert.match(typeProblems({ ...good, type: undefined }, ctx).join(), /type が無い/);

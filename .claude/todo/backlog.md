@@ -565,6 +565,16 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1143] X の予約ゲートが 11/13〜15 の 4 本/日で赤のまま（口頭試験の予約と上限 3 本が食い違う）
+タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-12]
+
+2026-11-12、`npm run x-schedule-guard -- --queue` が実キューを読んで BLOCK を 3 件出した: 11/13・11/14・11/15 がそれぞれ 4 本（上限 3）。どれも 2026-11-07 に組み直した技術士二次の口頭試験の予約（content/sns/x/draft/117・118。計画の注記は「リンクなしは 1 日 4 本まで」）で、ガードの上限 3 本（x-post-policy §11.6 の S2）と食い違っている。
+
+- 影響: 予約前ゲートが赤のままになり、新しい予約を足すたびに無関係の BLOCK を読み飛ばすことになる（11/12 の 119 番の予約がそうだった）。
+- 決めること: (a) 11/13〜15 の予約を 1 本ずつ別の日へ動かす、(b) 口頭試験の時期だけ上限を 4 本にする設定を足す、のどちらか。上限は凍結対策（x-post-policy §11）なので運営者が決める。
+- 完了条件: `npm run x-schedule-guard -- --queue` が BLOCK 0 件。
+
+
 ### [DN-1142] ココナラの商品画像の差し替えが、既存の画像を消さずに 2 枚目へ足し、ok:true を返す
 タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-12]
 
@@ -1330,6 +1340,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 2. 設定したら `npm run registry -- record-related --pub <ショート> --video-id <親>` で記録し、youtube-single-publish の publish をもう一度流すと予約する（`expect` は `publish-youtube --phase upload` の dry-run の digest）。purpose-1 は 11/13 14:30 より前に済ませる
 3a. 運営者が YouTube の本人確認を登録中（2026-11-11）。Studio で関連動画を開くと「チャンネル履歴が十分ではないため、上級者向け機能にアクセスできません」と出て設定できなかった。確認が通ったら、内部ブラウザの Studio（編集画面の「関連動画」＝`ytcp-shorts-content-links-picker`）でエージェントが設定し、画面で読み戻してから record-related で記録して予約する。手順が安定したらスクリプトにする
 3b. 1 日の投稿の本数の上限（`config/video-auto-publish.json` の `maxUploadsPerDay`・4）を撤廃する（2026-11-11・運営者の決定・未着手）。GCP の実測でアップロードは別枠の 100 本/日。外すのは設定・型（`dataset-schemas-config-media.mjs`）・`video-publish-gate.mjs` の `uploadsLeft`・`video-factory publish` の検査・そのテスト・`video-factory.md` の記述・DN-1101 の「1 日 4 本まで」
+3c. 型のあるショート 38 本のうち `pe-comprehensive-management/cm-mondaibun-yomikata` の `point-youso-2` だけ在庫に入っていない（2026-11-12）。表紙の紙の右上の大きな『？』が毎回右端 3% まで寄り、作り直しの上限に達する。型 one-question の `cover.visual` から『？』を外すか紙の位置を座標で指定してから `npm run shorts-factory -- plan --retry all` で流し直す
 4. 公開 28 日後に、ショートから通常動画へ移った数を見て、`shortsRule` の上限と枠ごとの本数を見直す（2026-12-15）
 5. 画面確認で出た改善点（止め条件にはしていない）: 字幕の改行が語の途中で切れる（`video-subtitles.mjs` の `subtitleChunks` は通常動画と共通）、字幕の文字を 80〜84px に上げるか、point-koukarisk-2 は画面に「リスク」の語が出ず題名の論点が弱い、point-means-2 の 2 枚目の絵が階層に見えにくい
 6. YouTube の実画面で、右端の余白が 3〜4% の見出しが欠けないかを確かめる
