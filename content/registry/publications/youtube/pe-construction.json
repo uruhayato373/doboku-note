@@ -1788,7 +1788,9 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-koukarisk-2"
-        }
+        },
+        "relatedVideoId": "ywemm49EBPA",
+        "desiredRelatedVideoId": "ywemm49EBPA"
       },
       "thumbnail": {
         "status": "set",
@@ -1853,7 +1855,9 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-skeleton-1"
-        }
+        },
+        "relatedVideoId": "ywemm49EBPA",
+        "desiredRelatedVideoId": "ywemm49EBPA"
       },
       "thumbnail": {
         "status": "set",
