@@ -126,6 +126,8 @@ function run() {
       const rows = JSON.parse(node('scripts/video-factory.mjs', 'schedule', '--packs', packs));
       for (const r of rows.filter((x) => !x.ok)) failed.push({ kind: 'longform-gate', id: r.pack, error: r.failed });
       const ok = rows.filter((x) => x.ok).map((x) => x.pack);
+      // wire が書いた文面（youtube.json）を先に出す。publish は台帳だけを commit して pull するので、残ると止まる
+      pushRegistry('content(video): 前倒しの予約で通常動画の公開日時を決め、方針で承認する');
       // 投稿の digest は手元の動画（.tmp/media）を読む。専用の worktree には無いので Drive から戻す
       for (const pack of ok) node('scripts/media.mjs', 'pull', '--work', pack, '--commit');
       if (ok.length) node('scripts/video-factory.mjs', 'publish', '--packs', ok.join(','));
