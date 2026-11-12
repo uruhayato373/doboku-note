@@ -60,15 +60,17 @@
     },
     "standards-end": {
       "label": "公的基準 章末",
-      "status": "active",
+      "status": "retired",
+      "retiredAt": "2026-11-12",
       "pageKind": "standards",
-      "pixelPriority": 1
+      "pixelPriority": null
     },
     "standards-list-end": {
       "label": "公的基準 一覧・文書の末尾",
-      "status": "active",
+      "status": "retired",
+      "retiredAt": "2026-11-12",
       "pageKind": "standards-list",
-      "pixelPriority": 1
+      "pixelPriority": null
     },
     "topic-end": {
       "label": "トピック 末尾",
