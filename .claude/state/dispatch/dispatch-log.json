@@ -7956,6 +7956,19 @@
       "commit": "bdf6133abf80",
       "verification": "data/business/experiments.json EXP-057 target_metric・gsc-management.md 2026-11-12",
       "note": "運営者の決定（2026-11-12）: 試験での問われ方を出す形を 3〜5 ページで試す（DN-1160）。EXP-057 の主の指標はクリック数で台帳に入っている。向きと理由を gsc-management.md の 2026-11-12 に記録"
+    },
+    {
+      "id": "DN-1090",
+      "at": "2026-11-12",
+      "task": "重大な教材不備（qualityDefects）を機械で出せるか調べ、出せれば自動で記録し、出せなければ指標を外す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9a8bab59c5e5",
+      "verification": "config/business-direction.json qualityDefects supply=none・check-datasets 緑",
+      "note": "調べた結果、月ごとの重大不備の件数と実検査数を一緒に出す記録が無い（.claude/state/quality/history.jsonl は 2026-07-13、census-history は 2026-09-29 で止まり、qualityDefects を書くコードは無い）。運営者の決定どおり指標を外し、business-direction.json の supply を none にした。引き継ぎ docs/handoffs/2026-11-10-metric-gap-wiring.md は残務が全てカードにあり PR 4 本も merged なので削除"
     }
   ]
 }
