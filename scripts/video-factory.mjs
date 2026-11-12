@@ -52,7 +52,7 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
 import { stagedRenderWorks } from './lib/youtube-single-r2.mjs';
-import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
+import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, readingRiskTokens, sceneSimilarity, speechSimilarity, tokenMisreads, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { scriptQueue, slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
 import { loadPlanAudit } from './lib/youtube-longform-plan.mjs';
 import { loadSiteRoutes, siteArticleUrl } from './lib/site-links.mjs';
@@ -305,10 +305,28 @@ async function audioCheck() {
   const streams = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,duration', '-of', 'json', abs], { encoding: 'utf8' })).streams;
   const seconds = (type) => Number(streams.find((x) => x.codec_type === type)?.duration);
   const engine = await ensureVoicevox();
-  const similarity = await Promise.all([readingOf(applyReadingDict(expected)), readingOf(heard)])
-    .then(([a, b]) => Number(speechSimilarity(a, b).toFixed(3))).finally(() => engine?.kill());
+  const toReading = (text) => readingOf(applyReadingDict(text));
+  let similarity, scene, misreads;
+  try {
+    const heardReading = await readingOf(heard);
+    similarity = Number(speechSimilarity(await toReading(expected), heardReading).toFixed(3));
+    // 場面ごとの欠落と、数字・英字・ローマ数字の読み（DN-1071）。期待の読みは合成と同じ読み辞書を通す
+    const narrations = board.scenes.map((s) => s.narration ?? '');
+    scene = sceneSimilarity(await Promise.all(narrations.map(toReading)), heardReading);
+    misreads = [];
+    for (const [sceneIndex, text] of narrations.entries()) {
+      for (const sentence of text.split(/(?<=[。？！])/).filter((x) => x.trim())) {
+        const tokens = readingRiskTokens(sentence);
+        if (!tokens.length) continue;
+        const sentenceReading = await toReading(sentence);
+        const items = await Promise.all(tokens.map(async (token) => ({ scene: sceneIndex, token, sentenceReading, tokenReading: await toReading(token) })));
+        misreads.push(...tokenMisreads(items, heardReading));
+      }
+    }
+  } finally { engine?.kill(); }
   const row = {
     videoSha256: video.sha256, at: new Date().toISOString(), similarity,
+    sceneSimilarityMin: scene.min, sceneSimilarityMinScene: scene.minScene, sceneCount: scene.counted, tokenMisreads: misreads,
     maxVolumeDb, durationGapSec: Number(Math.abs(seconds('video') - seconds('audio')).toFixed(1)), chars: { expected: expected.length, heard: heard.length },
   };
   const store = readAudio();
