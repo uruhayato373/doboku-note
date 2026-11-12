@@ -8093,6 +8093,23 @@
       "commit": "2f071a3fc0e4",
       "verification": "check-note-site-utm 違反 0・note 公開 API の本文のサイトリンクに utm_term",
       "note": "add-note-utm で 3 本の原稿に utm_term を足し（7・1・1 件）、note-update-body --sync --commit でライブへ反映（3 本とも API 実体検証 OK）。公開 API の本文で見えるサイト送客リンクはすべて utm_term つき（有料部分は API で見えない）。check-note-site-utm は 1110 ファイル・違反 0"
+    },
+    {
+      "id": "DN-1124",
+      "at": "2026-11-12",
+      "task": "lint-ja が CI では 0 ファイル検査で緑になる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/lint-ja-ci-scope.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d3ba5da80454",
+      "verification": "PR #1571 の CI 緑・tests/lint-ja-ci-scope.test.mjs pass 2",
+      "note": "PR #1571 を develop へマージ。CI（CI=true）では REGISTRY_BASE と HEAD の差分の MDX を検査し、比較元が無ければ検査不成立（exit 2）。PR の CI で REGISTRY_BASE=origin/develop が渡ることを確認"
     }
   ]
 }

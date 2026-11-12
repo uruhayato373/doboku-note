@@ -522,10 +522,6 @@ MDX を変えるたびに npm run refresh-indexes（npm と node 約 30 プロ�
 psi-audit.yml の schedule 実行が 2026-11-10 22:01Z に failure（run 42910643947）。失敗の理由をログで確かめ、automation-failure Issue が立っているか・読まれているかも確かめる
 
 
-### [DN-1124] lint-ja が CI では 0 ファイル検査で緑になる
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
-
-quality-audit.mjs の lint-ja（ci:true）は npm run lint:ja = scripts/lint-ja.mjs --staged を呼ぶ。CI の checkout には staged が無いので毎回 0 件を検査して PASS（2026-11-11 の run で 0.3 秒）。検査ゼロを PASS と呼ばない（CLAUDE.md §9）に反する。CI では PR の diff の MDX を対象にするか、ci から外して pre-commit だけにする
 
 
 ### [DN-1121] 経審の技術職員の点数を計算するツールを作り、経営者の検索から施工管理の教材へつなぐ
