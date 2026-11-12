@@ -7982,6 +7982,19 @@
       "commit": "5e728e3615bc",
       "verification": "PR #1565 の CI 緑（SUCCESS 9）・手元で quality-audit-ops-tier と check-jst-date のテスト pass 22",
       "note": "PR #1565 を develop へマージ。x-campaign-plan と content-registry を CI に戻し（台帳の比較元の段も復帰）、土曜の収集の DOBOKU_SNS_PAUSED を外し、check-jst-date に src/ を足した"
+    },
+    {
+      "id": "DN-1161",
+      "at": "2026-11-12",
+      "task": "運営者紹介（src/config/author.ts）に在職年数（道路・港湾の計画設計と工事監督 20 年以上）を載せる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "795b8b34d1c9",
+      "verification": "src/config/author.ts の bio",
+      "note": "PR #1567 を develop へマージ（運営者の指定どおり今の文に「20 年以上」を足した）。本番は次の deploy:main で出る"
     }
   ]
 }
