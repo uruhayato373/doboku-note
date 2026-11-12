@@ -474,3 +474,45 @@ test('予約の後の段: 公開日時を過ぎて照合されていない行は
   assert.equal(nextStage({ status: 'published', r2Staged: true }), 'cleanup-pending');
   assert.equal(nextStage({ status: 'published', r2Staged: false }), 'done');
 });
+
+test('語りだけの変更は画像を作り直さず、判定を取り消して再監査にする（DN-1072）', () => {
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261112', refs });
+    const plan = readPlan(f.root, PACK);
+    for (const i of plan.items) Object.assign(i, { raw: { path: `r-${i.id}.png`, sha256: i.id.padEnd(64, '0') }, audit: { verdict: 'ok', reason: '原稿どおり', by: 'a', sha: i.id.padEnd(64, '0') } });
+    writeFileSync(join(f.root, planPath(PACK)), JSON.stringify(plan));
+    const boardPath = join(f.dir, 'storyboard.json');
+    const board = JSON.parse(readFileSync(boardPath, 'utf8'));
+    board.scenes[1].narration = '語りの語句だけを直した';
+    writeFileSync(boardPath, JSON.stringify(board));
+    const next = buildPlan(f.root, PACK, { date: '20261112', refs });
+    const a = next.items.find((i) => i.id === 'a');
+    assert.ok(a.raw, '画像は残る');
+    assert.equal(a.audit, null, '判定は取り消される');
+    assert.equal(a.inputSha256, plan.items.find((i) => i.id === 'a').inputSha256, '入力ハッシュは変わらない');
+    assert.ok(next.items.find((i) => i.id === 'b').audit, '他の場面の判定は残る');
+    assert.deepEqual(auditQueue(f.root, PACK).map((q) => q.figKey), ['a'], '監査へ渡すのは作り直した項目だけ');
+    // 図の文字を直したときは画像も作り直す
+    board.scenes[1].caption = '字幕を直した';
+    writeFileSync(boardPath, JSON.stringify(board));
+    assert.equal(buildPlan(f.root, PACK, { date: '20261112', refs }).items.find((i) => i.id === 'a').raw, null);
+  } finally { f.done(); }
+});
+
+test('旧形式（語り・出典を含む）の入力ハッシュの記録は同じ入力として引き継ぐ', async () => {
+  const { popSceneHashLegacy, popSceneHash } = await import('../scripts/lib/longform-pop-images.mjs');
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261112', refs });
+    const board = JSON.parse(readFileSync(join(f.dir, 'storyboard.json'), 'utf8'));
+    const plan = readPlan(f.root, PACK);
+    const a = plan.items.find((i) => i.id === 'a');
+    assert.notEqual(popSceneHashLegacy(board.scenes[1]), popSceneHash(board.scenes[1]));
+    Object.assign(a, { inputSha256: popSceneHashLegacy(board.scenes[1]), narrationSha256: undefined, raw: { path: 'r.png', sha256: 'f'.repeat(64) }, audit: { verdict: 'ok', reason: '原稿どおり', by: 'x', sha: 'f'.repeat(64) } });
+    writeFileSync(join(f.root, planPath(PACK)), JSON.stringify(plan));
+    const kept = buildPlan(f.root, PACK, { date: '20261112', refs }).items.find((i) => i.id === 'a');
+    assert.ok(kept.raw && kept.audit, '画像も判定も残る');
+    assert.equal(kept.inputSha256, popSceneHash(board.scenes[1]), '新形式に更新される');
+  } finally { f.done(); }
+});

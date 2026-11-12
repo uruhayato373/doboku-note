@@ -18,6 +18,7 @@ import { loadRegistry } from './lib/content-registry.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { shortsStatus } from './lib/shorts-factory.mjs';
+import { dispatchAndWatch } from './lib/publish-sync.mjs';
 import { nextSlot, readPolicy, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { releaseQueue } from './lib/youtube-daily-release.mjs';
 import { datasetPath } from './lib/datasets.mjs';
@@ -57,12 +58,9 @@ function pushRegistry(message) {
 
 /** youtube-single-publish の publish を 1 本流して完了を待つ（同時実行のグループは待機を 1 本しか持たない） */
 function runPublishWorkflow(pub, digest) {
-  execFileSync('gh', ['workflow', 'run', 'youtube-single-publish.yml', '--ref', 'develop', '-f', 'mode=publish', '-f', `publication=${pub}`, '-f', `expect=${digest}`], { cwd: ROOT, stdio: 'inherit' });
-  spawnSync('sleep', ['8']);
-  const run = execFileSync('gh', ['run', 'list', '--workflow', 'youtube-single-publish.yml', '--limit', '1', '--json', 'databaseId', '--jq', '.[0].databaseId'], { cwd: ROOT, encoding: 'utf8' }).trim();
-  const watched = spawnSync('gh', ['run', 'watch', run, '--exit-status', '--interval', '15'], { cwd: ROOT, stdio: 'ignore' });
+  const { run, status } = dispatchAndWatch(ROOT, { pub, digest });
   git('pull', '--rebase', 'origin', 'develop');
-  if (watched.status !== 0) throw new Error(`${pub}: 投稿のワークフローが失敗（run ${run}）`);
+  if (status !== 0) throw new Error(`${pub}: 投稿のワークフローが失敗（run ${run}）`);
 }
 
 /**
