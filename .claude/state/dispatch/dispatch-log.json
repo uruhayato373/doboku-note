@@ -7646,6 +7646,66 @@
       "commit": "706fec161621",
       "verification": "tests/media-preview.test.mjs（実 ffmpeg で ffprobe の長さが previewSec と 1 フレーム以内）",
       "note": "PR #1562: ffconcat の末尾に再掲した最後の画像が直前と同じ尺だけ続いていた（9.3 秒の想定が 13.3 秒）。-t に場面秒数の合計を渡して切る。既存の予約行のプレビューと承認は差し替えていない"
+    },
+    {
+      "id": "DN-1037",
+      "at": "2026-11-12",
+      "task": "X の返信候補を毎日用意し、人が承認して送る仕組みを 2 週間試す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fd4a7bc86b17",
+      "verification": "data/business/experiments.json EXP-059 status=done closed_at=2026-11-11",
+      "note": "棚卸し: EXP-059 を 2026-11-11 に継続運用で閉じた。仕組みは PR #1514/#1519/#1525 で develop 入り"
+    },
+    {
+      "id": "DN-0932",
+      "at": "2026-11-12",
+      "task": "技術士 R9 の筆記対策（予想問題・必須 I・選択科目のパック）の制作計画を立て、4 月末までに揃える段取りを決める",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fd4a7bc86b17",
+      "verification": "docs/strategy/23_技術士R9商品計画2026-11.md L3「運営者が承認」",
+      "note": "棚卸し: R9 商品計画 docs/strategy/23 が 2026-11-04 に運営者承認済み・制作カード DN-0968/0969 に分割済み"
+    },
+    {
+      "id": "DN-1059",
+      "at": "2026-11-12",
+      "task": "X 返信候補の収集で結果報告の言い方と「添削」を含む受験者の投稿を取りこぼす",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/x-reply-candidates.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fd4a7bc86b17",
+      "verification": "node --test tests/x-reply-candidates.test.mjs pass 17 fail 0",
+      "note": "棚卸し: 完了条件4点が PR #1476（f384a05db）で入っていた。再判定で戻る投稿0件。カード末尾に紛れていた旧 DN-1056 の尾部（36-1 は DN-1053 が持つ）も同時に除去"
+    },
+    {
+      "id": "DN-1052",
+      "at": "2026-11-12",
+      "task": "基準書 kinki/common の 1 章が画面の目視判定で不合格（3-2）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "standards-visual-review"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fd4a7bc86b17",
+      "verification": ".claude/state/quality/standards-visual-review.json kinki/common/3-2 verdict=pass",
+      "note": "棚卸し: kinki/common/3-2 は 2026-11-09T04:32 に目視判定 pass で台帳に記録済み"
     }
   ]
 }
