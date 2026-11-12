@@ -44,7 +44,7 @@ title: 動画の量産工程（通常動画・ショート）
 - 音声の照合（文字起こしと台本の一致、音量、尺。動画の sha に結ぶ）
 - 公開まで 24 時間以上ある。人が止める猶予として残す
 
-音声の照合は、台本と文字起こしを VOICEVOX の読み仮名で比べる。表記で比べると `whisper` の同音の誤変換（圧密→厚密）で正常な音声が落ち、`II-1` を「アイアイ」と読む誤りも見逃す（2026-11-06）。基準は 0.85。公開までの 24 時間で運営者が抜き打ちで聞く。方針の承認は `approval.by: 'policy'` で記録し、受け付けるのは YouTube の通常動画だけ（`acceptedApproval`）。他のチャネルは運営者の承認のまま。トークンを節約するため、機械の検査を先に通し、LLM は内容QAと画面確認だけに使う。白書の数値の照合が要る動画は `notebooklm-cross-query.mjs` で引く。
+音声の照合は、台本と文字起こしを VOICEVOX の読み仮名で比べる。表記で比べると `whisper` の同音の誤変換（圧密→厚密）で正常な音声が落ち、`II-1` を「アイアイ」と読む誤りも見逃す（2026-11-06）。基準は全体 0.85。全体の一致度は 1 場面の欠落や数字 1 か所の誤読では下がらないので、場面ごとの一致度の最小値（`minSceneSimilarity`・読みが 6 文字未満の場面は数えない）と、数字・英字・ローマ数字を含む文の読みの完全一致（期待の読みが whisper の該当区間に含まれる。`maxTokenMisreads` 件まで）も見る（DN-1071）。数字の外れは `maxTokenMisreads: null` の間は記録だけで落とさない。実機の 1 本（pe-road-shutsudai-yomikata）で「1設問」「4系統」を数字と次の漢字 1 字に分け、促音（イッ）も外れとして 7 件を誤って数えた（場面ごとの最小は 0.895 で正常・2026-11-12）。語の切り方と促音を直してから件数の上限を入れる。この 2 項目は `audio-check` が記録に書く欄で、欄が無い従来の記録は判定しない（在庫の既存分を落とさない。再検査すれば付く）。運営者の抜き打ちの試聴は手順に入れない（管理画面に記録の場が無く、記録も通知も無いまま手順書だけにあったため外した）。方針の承認は `approval.by: 'policy'` で記録し、受け付けるのは YouTube の通常動画だけ（`acceptedApproval`）。他のチャネルは運営者の承認のまま。トークンを節約するため、機械の検査を先に通し、LLM は内容QAと画面確認だけに使う。白書の数値の照合が要る動画は `notebooklm-cross-query.mjs` で引く。
 
 ## 手で回す
 
@@ -53,6 +53,7 @@ npm run video-factory -- plan --pack <資格>/<作品>
 npm run video-factory -- generate --pack <資格>/<作品>
 npm run video-factory -- plan --pack <資格>/<作品> --retry <項目 id|all>   # 上限・停止の項目を原稿を変えずにやり直す
 npm run video-factory -- audit-queue --pack <資格>/<作品>
+npm run video-factory -- audit-verify --pack <資格>/<作品>   # 監査の直後。未判定・画像なしが 1 件でもあれば exit 1（workflow は不合格 0 として通さない）
 npm run video-factory -- record-audit --pack <資格>/<作品> --file <判定の JSON> --by ai-image-fidelity-auditor
 npm run video-factory -- adopt --pack <資格>/<作品>
 npm run video-factory -- render --pack <資格>/<作品>
@@ -166,6 +167,8 @@ npm run youtube-daily -- run     # 関連動画を記録したショートの予
 - 予約後に概要欄を直すと digest が変わり、承認が無効になる。承認の前に関門で導線を見る（2026-11-05）。
 - `whisper-cli` に全編を渡すと途中を飛ばす。`-mc 0` でも安定しない。一定秒数で切っても文の途中で飛ぶので、文の間で 12 秒以上ごとに切る（2026-11-05 に 0.62 の誤判定を確認。実際は 0.8 台）。
 - `youtube-single-publish.yml` の同時実行グループは待機を 1 本しか持たない。まとめて流すと途中が取り消されるので `publish` は 1 本ずつ待つ（2026-11-05）。
+- `publish` の順序（DN-1103・DN-1072）: 最初に追跡中ファイルの未コミットを検査し（あれば転送・commit の前に止まる）、`git pull --rebase` を割当（`uploadsLeft`）の計算の前に行う。pull で `drive-manifest.json` だけが競合したときは、両側が足したキーを両方残して続ける（`scripts/lib/publish-sync.mjs`。同じキーが別の値なら解かずに止まる）。ワークフローは dispatch の前の最新 run id を控え、それより新しい run を待つ（`youtube-daily-release` も同じ `dispatchAndWatch`）。
+- 画像の入力ハッシュは `caption` と `visual` だけ。語り（narration）・出典だけの変更は画像を残して判定を取り消し、再監査にする（`narrationSha256`）。旧形式のハッシュ（語り・出典を含む）の記録も同じ入力として受け入れる（`popSceneHashMatches`）。
 - YouTube API は投稿 1 本 1,600 ユニット・日次 10,000。`publish` は太平洋時間の 0 時からの投稿を数え、1 日 4 本までに止める。割当の超過は結果不明になり再送できない（2026-11-05）。
 - エージェントの `npm run` はセッションの場所で動く。worktree で回すときは `( cd <root> && … )` を指示しないと、判定がメインのチェックアウトへ書かれる（2026-11-05）。
 - 件数をモデルに申告させない。監査で 2 枚の不合格を 0 件と返した例がある。判定の中身から数える（2026-11-05）。

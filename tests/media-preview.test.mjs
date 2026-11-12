@@ -5,7 +5,8 @@ import { join, resolve } from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { approvalHash, approvalParts } from '../scripts/lib/content-registry.mjs';
-import { finalApprovalGate, partitionByFinalApproval, previewMetrics, runPackPreview, runPreview, writePreviewPublication } from '../scripts/lib/media-preview.mjs';
+import { spawnSync } from 'node:child_process';
+import { finalApprovalGate, findFfmpeg, partitionByFinalApproval, previewConcat, previewMetrics, runPackPreview, runPreview, writePreviewPublication } from '../scripts/lib/media-preview.mjs';
 
 const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const VC = { maxOpeningCoverSec: 3, maxRepeatFrameRatio: 0.3, longStaticSec: 20 };
@@ -206,4 +207,33 @@ test('runPackPreview: 描画していない・PNG が欠けていれば exit 1�
     assert.equal(r.code, 1);
     assert.match(r.message, /場面の PNG が無い/);
   } finally { console.error = err; }
+});
+
+test('previewConcat: 最後の画像は duration なしで再掲する（尺の切り詰めは -t が受け持つ）', () => {
+  const t = previewConcat([{ png: 'a.png', actualSec: 2 }, { png: 'b.png', designSec: 3.5 }]);
+  assert.equal(t, 'file ../img/a.png\nduration 2\nfile ../img/b.png\nduration 3.5\nfile ../img/b.png');
+});
+
+test('runPackPreview: preview.mp4 の長さが場面秒数の合計と 1 フレーム以内で一致し、最終場面が重複しない（DN-0898）', async (t) => {
+  const bin = findFfmpeg();
+  if (!bin) { t.skip('ffmpeg が無い'); return; }
+  const sharp = (await import('sharp')).default;
+  const scenes = [
+    { sceneId: 'a', png: 'a.png', designSec: 2, actualSec: 2 },
+    { sceneId: 'b', png: 'b.png', designSec: 3, actualSec: 3.3 },
+    { sceneId: 'c', png: 'c.png', designSec: 4, actualSec: 4 },
+  ];
+  const root = packRoot(scenes, { withPng: false });
+  const colors = { a: '#f00', b: '#00f', c: '#0a0' };
+  for (const s of scenes) await sharp({ create: { width: 320, height: 180, channels: 3, background: colors[s.sceneId] } }).png().toFile(join(root, '.tmp/video-render/p/img', s.png));
+  const log = console.log;
+  console.log = () => {};
+  let r;
+  try { r = runPackPreview(root, { packId: 'p', ffmpeg: bin }); } finally { console.log = log; }
+  assert.equal(r.code, 0);
+  const probe = (args) => spawnSync('ffprobe', ['-v', 'error', ...args], { encoding: 'utf8' }).stdout.trim();
+  const dir = join(root, '.tmp/video-render/p/preview');
+  const sec = Number(probe(['-show_entries', 'format=duration', '-of', 'csv=p=0', join(dir, 'preview.mp4')]));
+  assert.ok(Math.abs(sec - r.metricsDoc.previewSec) <= 1 / 10, `長さ ${sec} と previewSec ${r.metricsDoc.previewSec} が 1 フレーム（previewFps 10）を超えてずれる`);
+  assert.equal(r.metricsDoc.previewSec, 9.3);
 });

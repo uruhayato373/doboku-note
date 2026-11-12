@@ -78,7 +78,11 @@ async function produceImages({ pack, scope = 'all', rendered, from }) {
     if (judged.unjudged.length) return { ok: false, reason: `判定できない画像: ${judged.unjudged.join(', ')}` }
     // 件数はモデルの申告を使わず、判定の中身から数える（2026-11-05 に 2 枚の不合格を 0 件と返した）
     const fails = judged.verdicts.filter((v) => v.verdict === 'fail')
-    if (!fails.length) return { ok: true }
+    if (!fails.length) {
+      // 判定が漏れた項目を不合格 0 として通さない。モデルの申告でなく、計画の実体で未判定 0 件を確かめる（DN-1072）
+      const verified = await run(`audit-verify:${pack}`, 'Audit', `${CLI} audit-verify --pack ${pack}`)
+      return verified?.ok ? { ok: true } : { ok: false, reason: `監査後に未判定の項目が残る（${verified?.output ?? '確認の段が失敗'}）` }
+    }
     log(`${pack}: 不合格 ${fails.length} 枚（${round + 1} 回目）`)
     if (round === ROUNDS) return { ok: false, reason: `作り直しの上限。残り: ${fails.map((f) => `${f.figKey}=${f.reason}`).join(' / ')}` }
     const again = await images(() => generateAll(`regen:${pack}#${round}`, pack))

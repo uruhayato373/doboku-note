@@ -7599,6 +7599,53 @@
       "commit": "b0a713aad9f9",
       "verification": "台帳の approval.at と publishAt の照合（45 本中 10 本・理由 2 種）",
       "note": "① 運営者の決定（2026-11-12）: 主任技士の公開中 3 本は試験後も概要欄を含めてそのまま残す（R8 予想の残り 2 本は既に停止）。② 承認が公開日時より後の 10 本のうち 9 本は 2026-10-31 04:32 の一括の承認で、同日の概要欄の修復（332f1d43d・legacy funnel と VOICEVOX のクレジット）が公開済みの動画の変更版の最終承認を求めたため。残る 1 本（2級 安全管理）は 2026-10-18 の改訂の差し替え（DN-0764）の承認。どちらも公開後の文面変更の承認で、誤りではない"
+    },
+    {
+      "id": "DN-1072",
+      "at": "2026-11-12",
+      "task": "動画の制作のトークンと画像の費用の無駄を減らし、publish と監査の取りこぼしを直す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "706fec161621",
+      "verification": "node --test（publish-sync・video-factory・longform-pop-images・youtube-daily-release 58/58）",
+      "note": "PR #1563: popSceneHash を caption と visual に絞り、語り・出典だけの変更は画像を残して再監査にした（旧形式のハッシュの採用済み画像は引き継ぐ・在庫 49 本の判定は変わらないことを確かめた）。publish と毎日の予約は dispatch の前の run id より新しい run を待つ（dispatchAndWatch）。pull を割当の計算の前へ移した。監査の直後に audit-verify で未判定 0 を確かめる。作り直しの監査に不合格の項目だけを渡すのは auditQueue が元から満たす（テストで固定）"
+    },
+    {
+      "id": "DN-1103",
+      "at": "2026-11-12",
+      "task": "video-factory publish が未コミットの変更と drive-manifest の競合で途中で止まらないようにする",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/publish-sync.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "706fec161621",
+      "verification": "node --test tests/publish-sync.test.mjs（実 git で競合を作る 7 件）",
+      "note": "PR #1563: publish は最初に追跡中ファイルの未コミットを検査し、転送や commit の前に止まる。drive-manifest.json の rebase の競合は、両側が項目を足しただけなら両方を残して解く（scripts/lib/publish-sync.mjs・同じキーの値の違いは止める）"
+    },
+    {
+      "id": "DN-0898",
+      "at": "2026-11-12",
+      "task": "YouTube無音プレビューの終端に最終場面の尺が重複する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/media-preview.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "706fec161621",
+      "verification": "tests/media-preview.test.mjs（実 ffmpeg で ffprobe の長さが previewSec と 1 フレーム以内）",
+      "note": "PR #1562: ffconcat の末尾に再掲した最後の画像が直前と同じ尺だけ続いていた（9.3 秒の想定が 13.3 秒）。-t に場面秒数の合計を渡して切る。既存の予約行のプレビューと承認は差し替えていない"
     }
   ]
 }
