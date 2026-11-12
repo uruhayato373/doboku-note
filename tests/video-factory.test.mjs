@@ -467,3 +467,10 @@ test('わずかに比率がずれた生成画像は中央で切り抜いて揃�
   assert.deepEqual(await size(await fitAspect(await img(1920, 1080), 16 / 9)), [1920, 1080]);
   assert.deepEqual(await size(await fitAspect(await img(1536, 1024), 16 / 9)), [1536, 1024]);
 });
+
+test('予約の後の段: 公開日時を過ぎて照合されていない行は verify、R2 に転送ファイルが残る行は cleanup-pending（DN-1070）', () => {
+  assert.equal(nextStage({ status: 'scheduled', pastPublishAt: true }), 'verify');
+  assert.equal(nextStage({ status: 'scheduled', pastPublishAt: false, r2Staged: true }), 'cleanup-pending');
+  assert.equal(nextStage({ status: 'published', r2Staged: true }), 'cleanup-pending');
+  assert.equal(nextStage({ status: 'published', r2Staged: false }), 'done');
+});

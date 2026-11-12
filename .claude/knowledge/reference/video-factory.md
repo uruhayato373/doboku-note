@@ -153,6 +153,7 @@ npm run youtube-daily -- run     # 関連動画を記録したショートの予
 - ショートの公開は親の公開の 10 時間後以降の枠（`SHORT_AFTER_PARENT_HOURS`）。親が公開されてから、その夜の実行で関連動画を設定して予約できる間を空ける。
 - `run` は develop へ commit・push する。他のセッションと作業ツリーを共有しない専用の worktree で回す（未コミットの変更があると止まる）。
 - `expired` は関連動画を設定できないまま公開日時を過ぎたショート。日時を付け直す。
+- 予約の後の段は `node --env-file=.env.local scripts/video-factory.mjs status --r2` で見る。`verify` は公開日時を過ぎても毎朝の照合（reconcile）で published になっていない行、`cleanup-pending` は R2 の転送ファイル（video/render/<作品>/）が残る行で、予約を実体で確かめてから `video-factory cleanup --packs …` で消す（DN-1070）。
 - 直すまで出さない作品は `config/video-auto-publish.json` の `hold`（作品・理由・カード）に書く。通常動画・ショート・承認の付け直しのどれも出さない。直したら行を消す。
 - 前倒しの間は、前倒しより前に承認して未投稿の通常動画（`toReplace`）の承認を `run` が外し、空き枠から日時を付け直して同じ流れに乗せる（承認は予約の前に関門で書き直す）。改訂版（diagram-led）は DN-0670 の判断待ちで対象外。
 
