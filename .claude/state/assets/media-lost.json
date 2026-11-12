@@ -1,0 +1,406 @@
+{
+  "_doc": "content/sns の文書が指すのに、手元にも Drive にも無く、取り戻せない素材の記録（DN-1038・2026-11-13）。check-media-references はここに無い欠けを止める。取り戻したら行を消す",
+  "recordedAt": "2026-11-13",
+  "lost": [
+    {
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-subtitles.4352c6ef.ass",
+      "referencedBy": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.revision-diagram-led.json",
+      "reason": "止めた改訂（台帳の公開の行が stopped）の候補の字幕・動画。Drive へ登録される前に失われた。公開しないので作り直さない"
+    },
+    {
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-video.0e83115f.mp4",
+      "referencedBy": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.revision-diagram-led.json",
+      "reason": "止めた改訂（台帳の公開の行が stopped）の候補の字幕・動画。Drive へ登録される前に失われた。公開しないので作り直さない"
+    },
+    {
+      "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/candidate-subtitles.171f50bf.ass",
+      "referencedBy": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/youtube.revision-diagram-led.json",
+      "reason": "止めた改訂（台帳の公開の行が stopped）の候補の字幕・動画。Drive へ登録される前に失われた。公開しないので作り直さない"
+    },
+    {
+      "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/candidate-video.67863290.mp4",
+      "referencedBy": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/youtube.revision-diagram-led.json",
+      "reason": "止めた改訂（台帳の公開の行が stopped）の候補の字幕・動画。Drive へ登録される前に失われた。公開しないので作り直さない"
+    },
+    {
+      "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/caseA-diagram.c3db53b0.png",
+      "referencedBy": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/pop-image.json",
+      "reason": "採用した場面の画像。Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。公開済みの動画は Drive にある。この動画を作り直すときは、この場面を作り直す"
+    },
+    {
+      "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/caseB-diagram.9e6a9978.png",
+      "referencedBy": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/pop-image.json",
+      "reason": "採用した場面の画像。Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。公開済みの動画は Drive にある。この動画を作り直すときは、この場面を作り直す"
+    },
+    {
+      "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-caseA-diagram.8dfc8245.png",
+      "referencedBy": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-caseB-diagram.4d6ed9ab.png",
+      "referencedBy": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-consistency-first.6b3894d9.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-consistency-revise.939111fd.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-consistency-second.1bcdefeb.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-consistency-third.9106c035.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-cover.39406f73.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-cta-pack.618fb8c5.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-cta.59d4bf9a.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-intro.6a50da0b.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer1-role.8ec1c9b3.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer1-target.cac72823.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer1.992e2e38.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer2-effect.7331b7ea.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer2-feasible.8dcf8dfd.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer2-resources.047d9548.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer2.c5beaef6.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer3-management.bf38dc7c.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer3-scope.30921f1d.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer3-tradeoff.1c69ff0c.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer3-weakness.21b97e9f.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer3.64bc6c26.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-premise-cause.de33de83.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-premise.48ff19b2.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-summary-check.b16e78dc.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-summary.713b32d2.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/factory/raw-cover.7adab848.png",
+      "referencedBy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-breakdown.745a027d.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-cover.b56a0f1c.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-cta.26c71dc5.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-frequency.5ea901a7.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-funding.b0f6a0b4.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-premise.2cb9c6d6.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-prevention.8fe00e51.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-risk.b2d9bc2b.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-summary.d312e8e5.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-cover.244a6331.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-cta.1697b535.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-history.9c1fec56.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-means.16f016b0.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-premise.b851fc04.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-purpose.4729f1fa.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-risk.33009c02.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-summary.9e2b94ac.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/factory/raw-competency.d3072db9.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/factory/raw-compress.e518eb78.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/factory/raw-cover.49735138.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/factory/raw-cta.bd6248e1.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/factory/raw-fiveyears.f54f1576.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/factory/raw-layers.1822627b.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/factory/raw-premise.7bcb65f1.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/factory/raw-stuck.7cbc0fc0.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/factory/raw-summary.134547d8.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-answer-example.7dca8a9d.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-communication.004a7538.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-cover.1cb61738.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-cpd.ccc914ed.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-criteria.9da7135b.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-cta.a3134627.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-ethics.bd3e1160.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-evaluation.6edc718b.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-fact-sheet.ecc746d9.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-management.852a3a19.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-premise.ae2204a1.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/work/factory/raw-summary.42c02d2c.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-cover.4aa75eb0.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/toan-kousei-template/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-cta.b941ea5e.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/toan-kousei-template/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-koukarisk.b7f92e3b.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/toan-kousei-template/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-premise.6f78ec07.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/toan-kousei-template/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-rinri.f772f3b1.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/toan-kousei-template/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-saijuuyou.12354c0a.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/toan-kousei-template/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-skeleton.0bc19737.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/toan-kousei-template/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-summary.2d1e74d0.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/toan-kousei-template/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    },
+    {
+      "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-tahenteki.6ba927bb.png",
+      "referencedBy": "content/sns/video-packs/pe-construction/toan-kousei-template/pop-image.json",
+      "reason": "図解の全面採用の原本（Codex の生の出力）。生成後に作業場から消え、Drive へ登録される前に失われた（2026-11-07 の在庫確認で判明）。採用した画像と公開済みの動画は Drive にある。この動画を作り直すときは、場面の画像を作り直す（verifyLearningFrame が原本を読む）"
+    }
+  ]
+}

@@ -181,7 +181,7 @@ export const CHECKS = [
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
   // SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査は、SNS の保留に合わせて 2026-10-25 に CI から外した
   //（video-content・content-registry・registry-due・instagram-reels・video-publication・x-length・x-utm・
-  // x-campaign-plan・x-review・x-card-render・x-posted-live・youtube-cover-handoff・sns-landing-cta）。スクリプトは手元の道具として残す。
+  // x-campaign-plan・x-review・x-card-render・x-posted-live・sns-landing-cta。youtube-cover-handoff は 2026-11-13 に欠けを 0 にして ci へ戻した・DN-1038）。スクリプトは手元の道具として残す。
   // SNS を再開するときに必要なものを作り直す（運営者の判断）。
   // 2026-10-31: 予約済み動画の商品・無料記事への導線漏れを実際に起こしたため、この1ゲートだけ復帰。
   // 2026-11-06: YouTube の再開と全面画像の標準化に合わせて復帰
@@ -190,6 +190,7 @@ export const CHECKS = [
   { id: 'content-registry', npm: 'check-content-registry', timeout: 60_000, ci: true, note: 'コンテンツ台帳（content/registry）の検査。比較元は ci.yml の Fetch registry comparison base が REGISTRY_BASE に用意する（取れなければ比べない）' },
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: 'ショートの本数・タイトル・UTM・公開枠、停止以外の表紙が全面生成の標準か、採用画像の描画と画面確認が今の動画に結ばれているか' },
   { id: 'youtube-funnels', npm: 'check-youtube-funnels', timeout: 60_000, ci: true, note: '公開・予約・private 通常動画の有料note商品・UTM・関連サイト経路と公開台帳の一致を全件確認する' },
+  { id: 'youtube-cover-handoff', npm: 'check-youtube-cover-handoff', timeout: 30_000, ci: true, note: '採用した YouTube の表紙が Drive の台帳にあり、読み戻しの検証（Drive のファイル ID と verifiedAt）が済み、採用後に表紙の設計が変わっていないか（DN-1038・2026-11-13 に欠け 89 件を 0 にして戻した）。台帳だけを見る（外部通信なし）' },
   { id: 'youtube-covers', npm: 'check-youtube-covers', timeout: 60_000, ci: true, note: 'YouTube の表紙を先生のキャラクターの POP に揃える。表紙の設計（cover-design.json）が先生の指定を欠く・投稿へ進んだ通常動画の表紙が設計の採用画像と違う、を止める（外部通信なし・2026-11-11 に図解の表紙が 1 本公開されていた）' },
   { id: 'youtube-covers-live', cmd: ['node', 'scripts/check-youtube-covers.mjs', '--live'], timeout: 600_000, ci: false, ops: true, cadence: 'weekly', note: '公開中の動画の表紙を YouTube から取り、台帳の表紙（手元か Drive）と画素で比べる。表紙の設定の失敗・差し替えの漏れを見つける（外部通信・Drive が要るので週次の ops）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。直すのは registry replace-youtube-cover' },
   { id: 'youtube-plan', npm: 'check-youtube-plan', timeout: 60_000, ci: true, note: '通常動画の年間の枠と公開台帳を照合する。計画にない動画・枠の超過・週の上限超え・時期の外を止める（壁時計に依らない）' },
