@@ -156,7 +156,7 @@
       "work": "cm-mondaibun-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-001",
@@ -190,6 +190,9 @@
         "by": "policy",
         "at": "2026-11-12T21:38:32.787Z",
         "contentSha256": "b8cfde63d5c7778dfd57d0b360638639624fcc0491161a04ebe4ca277d38609e"
+      },
+      "times": {
+        "rendered": "2026-11-12T22:01:38.817Z"
       }
     },
     {
