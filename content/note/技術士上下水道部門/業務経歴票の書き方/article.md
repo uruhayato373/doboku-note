@@ -204,3 +204,7 @@ https://note.com/dobokunote/n/n1fcaf65dc75b
 上下水道部門のほかの記事・科目別の模範解答は「上下水道部門もくじ」から一覧できます。
 
 https://note.com/dobokunote/n/n1f06f66b158e
+
+書いた「業務内容の詳細」を合格者に見てほしい方には、ココナラで720字の添削を受けています（建設・上下水道・総監に対応・テキスト完結）。
+
+https://coconala.com/services/4502273
