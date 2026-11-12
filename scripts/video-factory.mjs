@@ -49,7 +49,7 @@ import { ensureVoicevox, readingOf } from './lib/voicevox-engine.mjs';
 import { approvalState, reviewIsCurrent } from './lib/media-review.mjs';
 import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
-import { jstDayOf, todayJst } from './lib/jst-date.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { scriptQueue, slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
@@ -325,8 +325,8 @@ function wire() {
   const target = pub ? slotProblems(plan, pub).entry?.target ?? null : null;
   // 前倒しの期間の中か、これから始まる（今日より後に終わる）なら目標日を待たない。始まる前日に 2027 年の目標日へ置いた（2026-11-12）
   const frontLoadAhead = Boolean(plan.cycle.frontLoad && todayJst() <= plan.cycle.frontLoad.to);
-  // 付けてあった日時は残す。ただし前倒しの間に、期間の後ろへ置いた日時は付け直す
-  const keep = Date.parse(pub?.publishAt) > Date.now() && !(frontLoadAhead && jstDayOf(pub.publishAt) > plan.cycle.frontLoad.to);
+  // 付けてあった日時は残す。ただし前倒しの間は、承認の前の行の日時を空き枠から付け直す（目標日に置いた日時が期間の中に残った・2026-11-12）
+  const keep = Date.parse(pub?.publishAt) > Date.now() && !frontLoadAhead;
   const publishAt = args['publish-at'] ?? (keep ? pub.publishAt : nextSlot(future.filter((p) => p.format === 'longform').map((p) => p.publishAt), policy.slot, Date.now(), {
     weekLimit: (monday) => weekLimit(plan.cycle, monday), notBefore: frontLoadAhead ? null : target,
     leadHours: policy.minLeadHours, allTaken: future.map((p) => p.publishAt), dayTotal: policy.maxPublishPerDay,
