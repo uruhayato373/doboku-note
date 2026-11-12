@@ -8,7 +8,7 @@
       "work": "hissu1-infra-roukyuuka",
       "account": "youtube:main",
       "format": "longform",
-      "status": "uploaded_private",
+      "status": "stopped",
       "media": {
         "cover": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/cover",
         "scene-001": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/scene-001",
@@ -62,7 +62,7 @@
       "platform": {
         "id": "1EAPnQVwARE",
         "url": "https://www.youtube.com/watch?v=1EAPnQVwARE",
-        "privacy": "private",
+        "privacy": "gone",
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#longform"
@@ -72,7 +72,8 @@
         "status": "set",
         "setAt": "2026-11-05T20:45:39.441Z"
       },
-      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-13T11:30:00Z）"
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-13T11:30:00Z）",
+      "stopReason": "gone"
     },
     {
       "id": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
@@ -284,7 +285,7 @@
       "work": "hissu1-kensetsu-dx",
       "account": "youtube:main",
       "format": "longform",
-      "status": "uploaded_private",
+      "status": "stopped",
       "media": {
         "cover": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover",
         "scene-001": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-001",
@@ -337,7 +338,7 @@
       "platform": {
         "id": "SvV8zXamMvo",
         "url": "https://www.youtube.com/watch?v=SvV8zXamMvo",
-        "privacy": "private",
+        "privacy": "gone",
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#longform"
@@ -347,7 +348,8 @@
         "status": "set",
         "setAt": "2026-11-05T01:13:09.228Z"
       },
-      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-11T11:30:00Z）"
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-11T11:30:00Z）",
+      "stopReason": "gone"
     },
     {
       "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
@@ -570,7 +572,7 @@
       "work": "kaitourei-tsukaikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "uploaded_private",
+      "status": "stopped",
       "media": {
         "cover": "pe-construction/kaitourei-tsukaikata/youtube.longform/cover",
         "scene-001": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-001",
@@ -624,7 +626,7 @@
       "platform": {
         "id": "Gdyygcq0mmY",
         "url": "https://www.youtube.com/watch?v=Gdyygcq0mmY",
-        "privacy": "private",
+        "privacy": "gone",
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/youtube.json#longform"
@@ -634,7 +636,8 @@
         "status": "set",
         "setAt": "2026-11-05T01:10:47.054Z"
       },
-      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-09T11:30:00Z）"
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-09T11:30:00Z）",
+      "stopReason": "gone"
     },
     {
       "id": "pe-construction/kaitourei-tsukaikata/youtube.longform.reading-fix",
