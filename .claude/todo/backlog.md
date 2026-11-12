@@ -74,16 +74,8 @@
 
 
 
-### [DN-1123] OGP Supply が develop への push で毎回 Cap check で失敗している
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
-
-ogp-supply.yml の supply ジョブが 2026-11-10 22:26Z・11-11 05:03Z・05:31Z の 3 回とも Cap check ステップで failure（run 42966340548 ほか）。新しい記事の OGP が R2 へ供給されず、本番の og:image が 200 でない（Production check の赤・DN-1122）ことにつながっている疑い。Cap check の条件と失敗の理由をログで確かめて直す
 
 
-### [DN-1122] デプロイ後の全 URL 検査（Production check）が赤のまま昇格が止まらない
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
-
-uptime-ping.yml の sweep が 2026-11-10・11-11 のデプロイ後に 2 回とも failure（og:image 1997 件中 非 200 が 95 件・Issue #1498）。deploy:main の止める条件は e2e と lighthouse の夜間 Issue だけ（scripts/lib/deploy-main.mjs の blockingNightlyIssues）。先に 95 件の og:image が 200 でない原因（OGP の供給が本番デプロイ時点で揃っていない疑い・OGP Supply の失敗と同根か）を確かめて直す。そのうえで sweep の赤を昇格の止める条件に入れるか、読み手を決める
 
 
 ### [DN-1119] 55歳までの方向「発注者の目で配線した土木の情報拠点」を戦略文書に反映する

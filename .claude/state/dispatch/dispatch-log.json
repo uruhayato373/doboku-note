@@ -7995,6 +7995,40 @@
       "commit": "795b8b34d1c9",
       "verification": "src/config/author.ts の bio",
       "note": "PR #1567 を develop へマージ（運営者の指定どおり今の文に「20 年以上」を足した）。本番は次の deploy:main で出る"
+    },
+    {
+      "id": "DN-1123",
+      "at": "2026-11-12",
+      "task": "OGP Supply が develop への push で毎回 Cap check で失敗している",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-workflow-health"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6ddbdf8e132f",
+      "verification": "run 43206480218 success（生成 96・失敗 0）・npm run check-workflow-health で ogp-supply 健全",
+      "note": "原因: ogp-supply.yml の Cap check（生成対象の上限 50）。11/10〜12 に新しい記事 95 本（建設部門 R07・R08 の設問 70・水産部門 18・測量士 午前 5 ほか）を一括公開し、対象が 96 件になって 19 回連続で落ちていた。一覧で正規の公開と確かめ、workflow_dispatch（max=120）で 96 件を生成・R2 へ供給（run 43206480218）。再発の検出として ogp-supply.yml を workflow の見張り（config/workflow-health.json・PR #1569）に足した"
+    },
+    {
+      "id": "DN-1122",
+      "at": "2026-11-12",
+      "task": "デプロイ後の全 URL 検査（Production check）が赤のまま昇格が止まらない",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-workflow-health"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6ddbdf8e132f",
+      "verification": "uptime-ping run 43207675077: 2102 URL 200・og:image 1997 件 200",
+      "note": "非 200 の og:image 95 件は DN-1123（OGP の供給が Cap check で止まっていた）と同根。供給後に全 URL 検査を手動で回し、og:image 1997 件すべて 200（run 43207675077）。Issue #1498 を復旧クローズ。sweep の赤を deploy:main の止める条件には入れない: sweep はデプロイの後に走るので止めても出たものは戻らず、根本の OGP の供給の失敗は workflow の見張り（PR #1569）が 3 連続で知らせる。sweep の赤の読み手は Issue（automation-failure の production-sweep）のまま"
     }
   ]
 }
