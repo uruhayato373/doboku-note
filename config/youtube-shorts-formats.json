@@ -1,7 +1,7 @@
 {
   "_doc": ".claude/knowledge/reference/video-factory.md",
   "schemaVersion": 1,
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "description": "YouTube ショートの型と、表紙・題名・冒頭のコピーで使ってよい線（2026-11-11 運営者の決定）。通常動画の型は config/youtube-formats.json と年間計画の枠、ショートの型はこの台帳。枠ごとに使うショートの型は config/channel-annual-plan.json の slots[].shorts.types が持つ。shorts-design.json の各ショートは type と、使ったコピーの技法 copy を書き、shorts-factory と yt-shorts-publisher-qa がこの台帳で検査する",
   "roles": {
     "longform": "検索で来た人の悩みに、図解で答えを出す。答えの根拠と手順まで見せ、note・ココナラ・記事へ送る",
@@ -49,7 +49,7 @@
       },
       "cover": {
         "headline": "問いそのもの。答えは書かない（例: どこに線を引く？）",
-        "visual": "見出しの下に、その問いの問題文の一文を書いた紙を 1 枚置き、大きな『？』を添える。紙には台本の場面にある問題文の語だけを書き、図や構造物を描かない"
+        "visual": "見出しの下に、その問いの問題文の一文を書いた紙を 1 枚置く。問いは見出しの「？」で示し、紙のまわりに『？』の記号を足さない（2026-11-12・大きな『？』が毎回右端へ寄って作り直しの上限に達した）。紙には台本の場面にある問題文の語だけを書き、図や構造物を描かない"
       }
     },
     {
