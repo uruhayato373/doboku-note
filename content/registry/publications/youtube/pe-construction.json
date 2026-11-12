@@ -1580,7 +1580,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-jogai-2",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-jogai-2",
       "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1605,13 +1605,38 @@
         "contentSha256": "ad94b33819b65dbc863a78b8b03633ca400ebc013b2ad0187910127675925acd"
       },
       "times": {
-        "rendered": "2026-11-12T02:57:26.257Z"
+        "rendered": "2026-11-12T02:57:26.257Z",
+        "uploaded": "2026-11-12T22:14:50.301Z"
       },
       "delivery": {
         "inputSha256": "0b8b547610dd0bd8160498f9257162afa38815bc07389c844a85dee48c12f1c8",
         "marker": "dn-single-193a64555ade13863e7d38a9125442bf4df21b21",
         "uploadRequestedAt": "2026-11-12T22:08:56.094Z",
-        "videoId": "nOml4YwNQJw"
+        "videoId": "nOml4YwNQJw",
+        "processedAt": "2026-11-12T22:14:49.416Z",
+        "thumbnailRequestedAt": "2026-11-12T22:14:50.330Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/default.jpg?sqp=CLjy2NcG&rs=AOn4CLBApDKaTAFRxoeWoE17LkVmkrF2tQ",
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/mqdefault.jpg?sqp=CLjy2NcG&rs=AOn4CLB7r1TDiX1d4zz2FtKe0Cw-Sods8Q",
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/hqdefault.jpg?sqp=CLjy2NcG&rs=AOn4CLDMGv3gwovQdY8LWtrlO9qAYUif9A",
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/sddefault.jpg?sqp=CLjy2NcG&rs=AOn4CLBSDgdOu12liTGuDVU1JgQ8XVbEXQ",
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/maxresdefault.jpg?sqp=CLjy2NcG&rs=AOn4CLCTcNY35RIgu12PNFZlCyTJ_oP4zA",
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/sardefault.jpg?sqp=CLjy2NcG&rs=AOn4CLCfGINxc5k16Ha35tgH_HyNhuK2nQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-12T22:14:56.710Z"
+      },
+      "platform": {
+        "id": "nOml4YwNQJw",
+        "url": "https://www.youtube.com/watch?v=nOml4YwNQJw",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-jogai-2"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-12T22:14:56.710Z"
       }
     },
     {
