@@ -8,8 +8,8 @@ import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog } from '@/lib/standards';
-import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import { standardsAgencyPath } from '@/lib/route-paths';
+import { getStandardChapters } from '@/lib/standards-articles';
 import { getAreaLabel } from '@/lib/content-taxonomy';
 
 type Params = { agency: string };
@@ -56,7 +56,6 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
   const documents = getStandardDocuments(agency);
   const commonDoc = documents.find((document) => document.role === 'common') ?? null;
   const edition = commonDoc ? extractEdition(commonDoc.title) : null;
-  const leadDoc = commonDoc ?? documents[0] ?? null;
 
   return (
     <PageShell variant="default">
@@ -72,30 +71,24 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         className="border-b border-(--rule-soft) py-6 sm:py-8"
         breadcrumb={[{ label: 'ホーム', href: '/' }, { label: getAreaLabel('standards'), href: '/standards' }, { label: entry.agencyName }]}
         title={commonDoc ? `${entry.agencyName} 土木工事共通仕様書${edition ? `（${edition}）` : ''}` : agencyHeading(entry.agencyName, documents)}
-        lead={leadDoc
-          ? `${entry.agencyName}が公表する最新版「${leadDoc.title}」（全${leadDoc.pages.toLocaleString('ja-JP')}ページ）を含む${entry.documentCount}文書を収録しています。下の一覧から文書を選ぶと、版・章ごとに読めます。原本PDFと発行元ページへのリンクはページ末尾の出典欄にあります。`
-          : undefined}
         meta={<span className="text-sm">{entry.documentCount}文書 · {entry.pages.toLocaleString('ja-JP')}ページ</span>}
       />
         <div className="pt-5">
         <section aria-labelledby="agency-documents">
-          <div className="mb-3">
-            <h2 id="agency-documents" className="text-2xl font-bold text-(--ink)">収録文書</h2>
-            <p className="mt-2 text-[14px] leading-[1.8] text-(--ink-muted)">
-              読みたい文書を選んでください。
-            </p>
-          </div>
-          <div className="grid gap-x-5 sm:grid-cols-2">
-            {documents.map((document) => <StandardDocumentCard key={document.documentId} document={document} variant="row" />)}
-          </div>
+          <h2 id="agency-documents" className="mb-2 text-2xl font-bold text-(--ink)">収録文書</h2>
+          <ul className="grid gap-x-5 sm:grid-cols-2" data-standards-list="documents">
+            {documents.map((document) => (
+              <li key={document.documentId}>
+                <StandardDocumentCard document={document} variant="row" chapterCount={getStandardChapters(agency, document.documentId).length} />
+              </li>
+            ))}
+          </ul>
         </section>
         </div>
         </div>
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsNavigation agencyId={agency} variant="mobile" />
         </div>
-        {/* 転職の案内は本文の外の末尾に 1 枠（章ページ以外の公的基準・右のナビ欄には置かない）。案件は配置ルール */}
-        <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className="mt-6" />
         {commonDoc ? <StandardsAttribution document={commonDoc} /> : <StandardsAttribution />}
       </TwoColumnShell>
     </PageShell>

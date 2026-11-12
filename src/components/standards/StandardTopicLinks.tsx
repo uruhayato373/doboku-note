@@ -8,11 +8,8 @@ export default function StandardTopicLinks({ topics }: { topics: Topic[] }) {
   return (
     <aside className="mt-8 border-y border-(--rule-soft) py-5" aria-labelledby="standard-related-topics">
       <h2 id="standard-related-topics" className="text-lg font-bold text-(--ink)">
-        資格試験・施工実務の関連テーマ
+        関連テーマ
       </h2>
-      <p className="mt-1 text-[13px] leading-[1.7] text-(--ink-muted)">
-        この仕様書と共通する論点を、試験解説・現場ガイドと横断して確認できます。
-      </p>
       <div className="mt-3 flex flex-wrap gap-2">
         {topics.map((topic) => (
           <Link
