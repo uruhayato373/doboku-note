@@ -805,7 +805,7 @@
       "work": "pe-geotechnical-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-001",
@@ -839,7 +839,42 @@
         "contentSha256": "8a003c13e564e7f5433ac990c48ff622b7b31818bd6c0aac47da00f879ebed30"
       },
       "times": {
-        "rendered": "2026-11-12T02:46:02.708Z"
+        "rendered": "2026-11-12T02:46:02.708Z",
+        "uploaded": "2026-11-12T02:53:19.498Z",
+        "scheduled": "2026-11-12T02:53:27.715Z"
+      },
+      "delivery": {
+        "inputSha256": "36bd1cc811afb4a8783e288d70cc243686360f6be1fb4c640d7377eb08475ad4",
+        "marker": "dn-single-d749c7df8912d54167c6e13acb2c44a705dc6f27",
+        "uploadRequestedAt": "2026-11-12T02:52:57.464Z",
+        "videoId": "vn-RKeML8Ik",
+        "processedAt": "2026-11-12T02:53:18.907Z",
+        "thumbnailRequestedAt": "2026-11-12T02:53:19.552Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/default.jpg?sqp=CNjS1NcG&rs=AOn4CLAruS46RGY9VKrz2ufskwWvBhqiQA",
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/mqdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLDFrs8ZLNgT4HGmp_50bcoo3B4QFg",
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/hqdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLAoIWcNEFpRNoaSuFBQdLXVBDJFvw",
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/sddefault.jpg?sqp=CNjS1NcG&rs=AOn4CLD-ZS2Z-yYHn4wcgInR8xAoZORG3A",
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/maxresdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLBE3pm9cKesyeAFJBzOckd9jRYbPw",
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/fhddefault.jpg?sqp=CNjS1NcG&rs=AOn4CLCc_tsu0jj4rkbTpNta8_dxJATMyg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-12T02:53:23.022Z",
+        "scheduleRequestedAt": "2026-11-12T02:53:24.121Z",
+        "scheduleAt": "2026-11-14T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-12T02:53:27.715Z"
+      },
+      "platform": {
+        "id": "vn-RKeML8Ik",
+        "url": "https://www.youtube.com/watch?v=vn-RKeML8Ik",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-12T02:53:23.022Z"
       }
     },
     {
