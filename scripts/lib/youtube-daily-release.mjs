@@ -19,7 +19,8 @@ export const SHORT_AFTER_PARENT_HOURS = 10;
  * 今日の作業の一覧を作る。
  * @param {{ publications: object[], stocked: { pack: string, key: string }[], plan: object, uploadsLeft: number, longformPerDay: number, now?: number }} input
  */
-export function releaseQueue({ publications, stocked, plan, uploadsLeft, longformPerDay, now = Date.now() }) {
+export function releaseQueue({ publications, stocked, plan, uploadsLeft, longformPerDay, now = Date.now(), today = null }) {
+  const frontLoadActive = Boolean(plan.cycle?.frontLoad && today && today <= plan.cycle.frontLoad.to);
   const yt = publications.filter((p) => p.channel === 'youtube');
   const byId = new Map(yt.map((p) => [p.id, p]));
   const targetOf = new Map(plan.entries.filter((e) => e.publicationId && e.action !== 'reuse').map((e) => [e.publicationId, e.target]));
@@ -67,5 +68,8 @@ export function releaseQueue({ publications, stocked, plan, uploadsLeft, longfor
   // 関連動画を設定できないまま公開日時を過ぎたショート（日時を付け直す）
   const expired = uploaded.filter((p) => Date.parse(p.publishAt) <= now + 10 * 60_000).map((p) => p.id);
 
-  return { uploadsLeft, longforms, shorts, needRelated, toSchedule, expired, remaining: { longforms: longformStock.length, shorts: shortCandidates.length } };
+  // 前倒しより前に承認して、まだ投稿していない通常動画。承認を外して空き枠から日時を付け直す（承認は予約の前に関門でもう一度書く）
+  const toReplace = frontLoadActive ? yt.filter((p) => p.format === 'longform' && !p.revisionOf && p.status === 'approved' && !p.delivery && !p.platform?.id).map((p) => `${p.exam}/${p.work}`) : [];
+
+  return { uploadsLeft, toReplace, longforms, shorts, needRelated, toSchedule, expired, remaining: { longforms: longformStock.length, shorts: shortCandidates.length } };
 }

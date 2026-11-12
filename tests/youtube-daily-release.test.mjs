@@ -46,3 +46,10 @@ test('準備まで済んだショートは通常動画より先に割当を取�
   assert.deepEqual(q.longforms.map((l) => l.pack), ['e/b']);
 });
 
+test('前倒しの間は、承認済みで未投稿の通常動画を付け直しの対象にする', () => {
+  const pubs = [lf('a', { status: 'approved', publishAt: '2027-01-01T11:30:00Z' }), lf('b', { status: 'approved', publishAt: '2026-12-01T11:30:00Z', delivery: { uploadRequestedAt: 'x' } })];
+  const fl = { ...plan, cycle: { frontLoad: { from: '2026-11-13', to: '2027-01-31' } } };
+  assert.deepEqual(releaseQueue({ publications: pubs, stocked: [], plan: fl, uploadsLeft: 4, longformPerDay: 2, now: NOW, today: '2026-11-12' }).toReplace, ['e/a']);
+  assert.deepEqual(releaseQueue({ publications: pubs, stocked: [], plan: fl, uploadsLeft: 4, longformPerDay: 2, now: NOW, today: '2027-02-01' }).toReplace, []);
+});
+
