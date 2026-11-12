@@ -56,7 +56,7 @@
       "work": "cm-fugokaku-tenken",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform/scene-001",
@@ -78,7 +78,9 @@
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#longform",
       "publishAt": "2026-11-15T03:15:00Z",
       "times": {
-        "rendered": "2026-11-12T02:55:13.125Z"
+        "rendered": "2026-11-12T02:55:13.125Z",
+        "uploaded": "2026-11-12T02:56:55.631Z",
+        "scheduled": "2026-11-12T02:57:11.749Z"
       },
       "review": {
         "visual": {
@@ -92,6 +94,39 @@
         "by": "policy",
         "at": "2026-11-12T02:54:56.431Z",
         "contentSha256": "863dcd29784cae3e1337d1fa9b0f6fc4a672ef2f4a4a7bb1eaca3a3974d95f4f"
+      },
+      "delivery": {
+        "inputSha256": "b1704554fb4ae187310b71247abf46146d4e6fe62c69252df15a8a26b8dd8977",
+        "marker": "dn-single-b01e4311a1c2101a766b259648603ff9e1152ccf",
+        "uploadRequestedAt": "2026-11-12T02:56:21.037Z",
+        "videoId": "JDMeEBkcX5U",
+        "processedAt": "2026-11-12T02:56:54.739Z",
+        "thumbnailRequestedAt": "2026-11-12T02:56:55.697Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/JDMeEBkcX5U/default.jpg?sqp=CITV1NcG&rs=AOn4CLBHRqwqS7j8TSvl-maquFu9TkZAtg",
+          "https://i9.ytimg.com/vi/JDMeEBkcX5U/mqdefault.jpg?sqp=CITV1NcG&rs=AOn4CLDsoWggaY9Mbv0Wg0b8szQcb446UQ",
+          "https://i9.ytimg.com/vi/JDMeEBkcX5U/hqdefault.jpg?sqp=CITV1NcG&rs=AOn4CLCNK45gI3T0pKLf5O1b6_B0tR3uQg",
+          "https://i9.ytimg.com/vi/JDMeEBkcX5U/sddefault.jpg?sqp=CITV1NcG&rs=AOn4CLA6c1ecuWwkwcPPpGWE_nDwtf6-Tw",
+          "https://i9.ytimg.com/vi/JDMeEBkcX5U/maxresdefault.jpg?sqp=CITV1NcG&rs=AOn4CLAdNaDBgvh3YbEo_ZM-GYWGmhfa8Q",
+          "https://i9.ytimg.com/vi/JDMeEBkcX5U/fhddefault.jpg?sqp=CITV1NcG&rs=AOn4CLAt6-k9BW_DBA_s1Kj6A_XNePxbSg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-12T02:57:02.735Z",
+        "scheduleRequestedAt": "2026-11-12T02:57:08.064Z",
+        "scheduleAt": "2026-11-15T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-12T02:57:11.749Z"
+      },
+      "platform": {
+        "id": "JDMeEBkcX5U",
+        "url": "https://www.youtube.com/watch?v=JDMeEBkcX5U",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-12T02:57:02.735Z"
       }
     },
     {
