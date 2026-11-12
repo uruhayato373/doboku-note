@@ -32,3 +32,8 @@ test('投稿済みのショートは、親が公開されたら関連動画の�
   assert.deepEqual(q.toSchedule, [s2.id]);
   assert.deepEqual(q.expired, [s3.id]);
 });
+
+test('日時だけ付いて承認の前で止まった通常動画は続きから進め、日時を過ぎた行は出さない', () => {
+  const q = releaseQueue({ publications: [lf('a', { publishAt: '2026-11-14T03:15:00Z' }), lf('b', { publishAt: '2026-11-11T03:15:00Z' })], stocked: [], plan, uploadsLeft: 4, longformPerDay: 4, now: NOW });
+  assert.deepEqual(q.longforms.map((l) => l.pack), ['e/a']);
+});

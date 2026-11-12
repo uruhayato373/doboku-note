@@ -31,7 +31,8 @@ export function releaseQueue({ publications, stocked, plan, uploadsLeft, longfor
   const waitingShorts = new Map();
   for (const s of stocked) if (!released(shortRow(s.pack, s.key))) waitingShorts.set(s.pack, (waitingShorts.get(s.pack) ?? 0) + 1);
 
-  const longformStock = yt.filter((p) => p.format === 'longform' && !p.revisionOf && p.status === 'qa_passed' && p.media?.video && !p.publishAt)
+  // 日時だけ付いて承認の前で止まった行（wire の後に関門で落ちた）も続きから進める
+  const longformStock = yt.filter((p) => p.format === 'longform' && !p.revisionOf && p.status === 'qa_passed' && p.media?.video && !(Date.parse(p.publishAt) <= now))
     .map((p) => ({ pack: `${p.exam}/${p.work}`, pub: p.id, shorts: waitingShorts.get(`${p.exam}/${p.work}`) ?? 0, target: targetOf.get(p.id) ?? '9999-12-31' }))
     .sort((a, b) => (b.shorts > 0) - (a.shorts > 0) || a.target.localeCompare(b.target) || a.pack.localeCompare(b.pack));
   const longforms = longformStock.slice(0, Math.min(longformPerDay, uploadsLeft));
