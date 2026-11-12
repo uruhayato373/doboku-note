@@ -734,8 +734,7 @@ quality-audit.mjs の lint-ja（ci:true）は npm run lint:ja = scripts/lint-ja.
 
 **完了条件**: 金曜の CI（`fetch-metrics.yml`）のあと、直近の完了した週のセルに X からの教材クリックが値で入る。`youtubeCampaignClicks` は 0 行の理由が記録されている（UTM の不一致なら直す）。GA4 の API は会社 PC から叩けないので、確かめるのは CI の実行結果。
 
-
-
+**進捗（2026-11-12・PR #1564）**: 1 は実装した（`note_cta_click` を `sessionCampaignName` 別に取り、完了した週・月の `values.xCampaignClicks`・`values.youtubeCampaignClicks` に入れる。該当行の無い週は 0 にせず値なし）。2 の 0 行の理由: UTM は 91 本とも正しい。GA4 の campaign にパック id は 27 本出るが、各 2〜4 セッション・エンゲージ 0・2〜6 秒で、`youtube / video` 全体も 53 セッション・直帰 1・平均 4 秒。サイトの CTA まで届かずに離れている（概要欄の先頭のリンクは note へ直行で GA4 から見えない）。記録は measurement-incidents.md の 2026-11-12。残りは、金曜の CI の取得で値が入ることの確認
 
 ### [DN-1083] 不動産投資のアフィリを入口記事 1 本で 8 週試す（公務員・技術士の兼業規制の切り口）
 タグ: [収益化] [領域:アフィリエイト] [時期:2026-11] [種類:制作] [起票:2026-11-10]
@@ -831,6 +830,7 @@ quality-audit.mjs の lint-ja（ci:true）は npm run lint:ja = scripts/lint-ja.
 
 **完了条件**: CI の取得で維持率曲線が記録され、`check-youtube-analytics` が対象数と取得数を出して通る。基準に届いた動画では、場面ごとの離脱の要約が出る。Writer と QA の定義が、その要約を読む手順を持っている。
 
+**進捗（2026-11-12・PR #1564）**: 1・2 は実装した（youtube-analytics が動画ごとの維持率曲線を記録し、check-youtube-analytics が対象数・取得数・無行・失敗を出す。`npm run youtube-retention-summary` が storyboard の場面の秒数に重ねる。video-script-writer と video-content-qa が読む）。判定は再生 50 回以上の動画だけで、今は最大 40 回なので全部「判定できない」。残りは、金曜の CI で曲線が取れることの確認と、再生が 50 回を超えてからの読み方の確認
 
 ### [DN-1060] add-note-utm が article-II1.md などの分割原稿を扱えず、check-note-site-utm の案内どおりに直せない
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-10]
@@ -2247,8 +2247,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **罠**: 日本語表示の一覧は「1.2万回」を null にするので英語表示と動画 ID で結合している（`scripts/lib/youtube-listing.mjs`）。ランナーの IP で一覧まで止まるなら手動に戻し、理由を measurement-incidents.md に書く。
 **完了条件**: 両方の workflow が2回続けて成功し、`data/youtube/own-videos/`・`data/youtube/competitors/` に日付つきの記録が増える。`npm run check-competitor-scan-due -- --platform youtube` が ci として OK。
 
-
-
+**進捗（2026-11-12・PR #1564）**: 自社は実装した（`.github/workflows/youtube-own-metrics.yml`・毎月 1 日 09:00 JST・yt-dlp 2026.10.26 を固定・ci-data で data/youtube/own-videos へ書き戻す・失敗は automation-failure Issue・鮮度は own-videos-freshness）。競合は未着手: competitor-scan.yml は DN-0852 で無くなっていたので、同じ workflow の手動入力 `probe_competitors`（1 チャンネル 10 本を一覧するだけで書かない）を足した。残りは、probe を 2 回通してから四半期の競合の取得を足すことと、12/1 の初回の自社取得の成功の確認
 
 ### [DN-0582] Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す
 タグ: [領域:管理] [時期:2026-12] [種類:不具合] [検証:test] [起票:2026-10-08]
