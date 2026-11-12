@@ -132,6 +132,30 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
     coconalaCatch: '自分の業務経歴をコンピテンシーの言葉で説明できる形に、人の手で整理したい方へ。',
   },
   {
+    // 技術士 建設部門の論文の入口（必須Iの解答例・論文の書き方・選択科目の書き分け・論点キーワード）: 自分の答案を直してほしい読者（2026-11-12 出品）。
+    test: /^pe-construction-(guide-required-essay|hissu-kamoku-kaitourei|pe-secondary-essay-guide|sentaku-kamoku-kakiwake|[a-z-]+-ronbun-keyword)$/,
+    coconala: ['coconala-pe-construction-tensaku'],
+    coconalaCatch: '読んだ型で自分の答案を書いたら、発注者の目で1問ずつ赤入れします。',
+  },
+  {
+    // 技術士 総監の記述式（戦略・ペルソナ・年度別とパターンの模範論文）。
+    test: /^pe-comprehensive-management-(essay-exam-strategy|essay-persona-guide|essay-pattern-cross-year-application|(?:h\d{2}|r\d{2}|pattern)-essay-[a-z-]+)$/,
+    coconala: ['coconala-pe-sokan-tensaku'],
+    coconalaCatch: '模範論文を読んだら、自分の記述式を管理の視点とトレードオフまで添削します。',
+  },
+  {
+    // 技術士 総監の出願（業務経歴票）。業務内容の詳細の添削は建設・上下水道・総監に対応。
+    test: /^pe-comprehensive-management-exam-application-guide$/,
+    coconala: ['coconala-pe-gyomu-tensaku'],
+    coconalaCatch: '業務内容の詳細720字を、課題と成果のつながりまで添削します。',
+  },
+  {
+    // 技術士 上下水道部門の必須科目・選択科目のガイド。
+    test: /^pe-water-supply-guide-(hissu-kamoku|sentaku-kamoku)$/,
+    coconala: ['coconala-pe-water-tensaku'],
+    coconalaCatch: '上水道・下水道の答案を、1問ずつ添削します。',
+  },
+  {
     // コンクリート主任技士: 択一の過去問・教科書（流入は資格トップに次いで多い）。択一と小論文は同じ日に受けるので、
     // 本試験の当日までだけ小論文の添削へ送る（2026-11-02 運営者承認・docs/strategy/22 §5 の打ち手 1）。
     test: /^concrete-chief-engineer-(primary|textbook)-/,
