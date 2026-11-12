@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "04c2aa84aca69577e92f5893da8bfef865461030e3e5e9de0dba350e8cb29118",
-      "thumbnailSha256": "bb31eb82eea95c1acc3db2cd0a2c99f8bfe2538ea90478cc8b62299249aa4375"
+      "thumbnailSha256": "bb31eb82eea95c1acc3db2cd0a2c99f8bfe2538ea90478cc8b62299249aa4375",
+      "r2Key": "video/render/c1-keiken-anzen-kakikata/shorts/point-katsudou-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-anzen-kakikata/shorts/point-katsudou-1/thumbnail.png"
     },
     {
       "key": "point-joukyou-2",
@@ -54,7 +56,9 @@
       ],
       "categoryId": "27",
       "sha256": "1ceb2bfec696d17da635cb7b49922864f69a60a5e878867a3ebce07ad9582054",
-      "thumbnailSha256": "9e0691b09397a3ddbf1b2c37fd1b948b2f455943317693d2116c5594ae873a07"
+      "thumbnailSha256": "9e0691b09397a3ddbf1b2c37fd1b948b2f455943317693d2116c5594ae873a07",
+      "r2Key": "video/render/c1-keiken-anzen-kakikata/shorts/point-joukyou-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-anzen-kakikata/shorts/point-joukyou-2/thumbnail.png"
     }
   ]
 }

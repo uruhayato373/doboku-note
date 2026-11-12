@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "00089e97ca1cb26544e28bc745824a6b7107cc1a93bafb33c125e1de4a64c54b",
-      "thumbnailSha256": "fbc80fd394de2aba71f5fcf900f5c8f975526fdaf846d9dde5da15d5fbb43c5f"
+      "thumbnailSha256": "fbc80fd394de2aba71f5fcf900f5c8f975526fdaf846d9dde5da15d5fbb43c5f",
+      "r2Key": "video/render/c1-keiken-kouji-gaiyou/shorts/point-period-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-kouji-gaiyou/shorts/point-period-1/thumbnail.png"
     },
     {
       "key": "point-ryakushiki-2",
@@ -54,7 +56,9 @@
       ],
       "categoryId": "27",
       "sha256": "2cbc27ed513cfe27bfa84b115bca78ed386ae85352741cbc98390e2faba90957",
-      "thumbnailSha256": "0e46b692636854547ba798f042cbbfa95037b018b34253b6753ba73e29f491c8"
+      "thumbnailSha256": "0e46b692636854547ba798f042cbbfa95037b018b34253b6753ba73e29f491c8",
+      "r2Key": "video/render/c1-keiken-kouji-gaiyou/shorts/point-ryakushiki-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-kouji-gaiyou/shorts/point-ryakushiki-2/thumbnail.png"
     }
   ]
 }

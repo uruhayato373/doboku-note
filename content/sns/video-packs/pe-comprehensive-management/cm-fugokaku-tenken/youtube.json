@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "d47a142aa90041ee4a137bfbd2108e2b06c3bc7dfe8b6d71ebad8c97d5c049fd",
-      "thumbnailSha256": "6ed7e6a4b7e438d19884a96e56cad2af6ab818d62b78e0a3439e5bac995aa3db"
+      "thumbnailSha256": "6ed7e6a4b7e438d19884a96e56cad2af6ab818d62b78e0a3439e5bac995aa3db",
+      "r2Key": "video/render/cm-fugokaku-tenken/shorts/point-haiin-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/cm-fugokaku-tenken/shorts/point-haiin-1/thumbnail.png"
     },
     {
       "key": "point-tenken-2",
@@ -54,7 +56,9 @@
       ],
       "categoryId": "27",
       "sha256": "f011320d6c55fdbe087cf3e1b515070050a19877a0040a478690428cec6ee1c2",
-      "thumbnailSha256": "d94f212a50e53679d4613ada04b8764b6bb162ab258ae861e142242cb4284df8"
+      "thumbnailSha256": "d94f212a50e53679d4613ada04b8764b6bb162ab258ae861e142242cb4284df8",
+      "r2Key": "video/render/cm-fugokaku-tenken/shorts/point-tenken-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/cm-fugokaku-tenken/shorts/point-tenken-2/thumbnail.png"
     }
   ]
 }

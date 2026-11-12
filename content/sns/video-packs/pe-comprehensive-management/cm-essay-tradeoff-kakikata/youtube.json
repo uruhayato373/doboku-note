@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "f671191f3c8e9e3a50dfebe30ab2d059eaa46f5af571670f05fa55f5ad801091",
-      "thumbnailSha256": "60c9ab3193046da7eef45047691219e13272f2b1e50a60f586511605396aa52a"
+      "thumbnailSha256": "60c9ab3193046da7eef45047691219e13272f2b1e50a60f586511605396aa52a",
+      "r2Key": "video/render/cm-essay-tradeoff-kakikata/shorts/point-kanrikadai-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/cm-essay-tradeoff-kakikata/shorts/point-kanrikadai-1/thumbnail.png"
     },
     {
       "key": "point-rekkyo-2",
@@ -54,7 +56,9 @@
       ],
       "categoryId": "27",
       "sha256": "441afab977c1852c7b3c3117cc766670ad29277cd6ab029ded5154a9a5db3527",
-      "thumbnailSha256": "fce4eede183c2dd4b56d8d527f9bfc784a7fca35c531da5060679f61b1948b94"
+      "thumbnailSha256": "fce4eede183c2dd4b56d8d527f9bfc784a7fca35c531da5060679f61b1948b94",
+      "r2Key": "video/render/cm-essay-tradeoff-kakikata/shorts/point-rekkyo-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/cm-essay-tradeoff-kakikata/shorts/point-rekkyo-2/thumbnail.png"
     }
   ]
 }
