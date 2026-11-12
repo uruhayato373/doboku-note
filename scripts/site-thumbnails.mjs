@@ -31,6 +31,8 @@ if (!exam) throw new Error('--exam が要る');
 if (JSON.parse(readFileSync(join(ROOT, datasetPath('config.site-thumbnails')), 'utf8')).excluded?.some((row) => row.qualification === exam)) { console.error(`${exam} は写真にしないと決めた資格（config の excluded）`); process.exit(1); }
 const configPath = join(ROOT, datasetPath('config.site-thumbnails'));
 const imagePath = (key) => join(ROOT, 'content/site', exam, key, readConfig().imageFile);
+/** 監査に見せる画像は原寸（OGP と同じ 1.91:1）。カード用の縮小では細部が潰れる */
+const photoPath = (key) => join(ROOT, 'content/site', exam, key, readConfig().photoFile);
 const work = join(ROOT, '.tmp/site-thumbs', exam);
 mkdirSync(join(work, 'png'), { recursive: true });
 const readConfig = () => JSON.parse(readFileSync(configPath, 'utf8'));
@@ -69,8 +71,14 @@ async function writeLedger(rows, rules) {
 }
 
 if (args.record) {
-  const reviewed = JSON.parse(readFileSync(join(work, 'codex-review.json'), 'utf8'));
-  const claude = JSON.parse(readFileSync(args.record, 'utf8'));
+  // 判定は、確認リストを作ったときの版と今の版が同じ写真にだけ書く（作り直した写真に前の判定を書かない）
+  const current = readConfig().pages[exam];
+  const queued = new Map(JSON.parse(readFileSync(join(work, 'claude-queue.json'), 'utf8')).map((row) => [row.key, row.version]));
+  const sameVersion = (row) => row.version && current[row.key]?.version === row.version;
+  const reviewed = JSON.parse(readFileSync(join(work, 'codex-review.json'), 'utf8')).filter(sameVersion);
+  const given = JSON.parse(readFileSync(args.record, 'utf8')).filter((row) => !row.exam || row.exam === exam);
+  const claude = given.filter((row) => sameVersion({ key: row.key, version: queued.get(row.key) }));
+  if (claude.length !== given.length) console.log(`版が変わっていて書かない判定 ${given.length - claude.length} 件（確認リストを作り直して判定し直す）`);
   const seen = new Set(claude.map((row) => row.key));
   const ledger = loadLedger(ROOT);
   const now = new Date().toISOString();
@@ -171,24 +179,26 @@ const ledger = loadLedger(ROOT);
 const unreviewed = rows.filter((row) => ledger.figures[recordKey(exam, row.key)]?.verdict == null);
 const reviewPath = join(work, 'codex-review.json');
 const known = existsSync(reviewPath) ? JSON.parse(readFileSync(reviewPath, 'utf8')) : [];
-const reviewed = new Map(known.map((row) => [row.key, row]));
+// 一次監査の結果は版（写真の sha）ごとに持つ。作り直した写真に、前の写真の判定を流用しない（2026-11-13 に流用が起きた）
+const versionOf = new Map(rows.map((row) => [row.key, row.version]));
+const reviewed = new Map(known.filter((row) => row.version && row.version === versionOf.get(row.key)).map((row) => [row.key, row]));
 const todo = unreviewed.filter((row) => !reviewed.has(row.key));
 if (todo.length) {
   const input = await Promise.all(todo.map(async (row) => {
     const image = join(work, 'png', `${row.key}.png`);
-    await sharp(imagePath(row.key)).png().toFile(image);
+    await sharp(photoPath(row.key)).png().toFile(image);
     return { key: row.key, image, text: row.text, scene: row.scene, title: row.title };
   }));
   const inputPath = join(work, 'codex-input.json');
   const outPath = join(work, 'codex-out.json');
   saveJson(inputPath, input);
   spawnSync(process.execPath, [join(ROOT, 'scripts/review-site-thumbnails.mjs'), '--input', inputPath, '--out', outPath], { stdio: 'inherit' });
-  for (const row of existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) : []) reviewed.set(row.key, row);
+  for (const row of existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) : []) reviewed.set(row.key, { ...row, version: versionOf.get(row.key) });
   saveJson(reviewPath, [...reviewed.values()]);
 }
 
 // 5. Claude の確認リスト
-const target = unreviewed.map((row) => ({ key: row.key, image: join(work, 'png', `${row.key}.png`), text: row.text, scene: row.scene, title: row.title, subtitle: row.subtitle, group: row.group }));
+const target = unreviewed.map((row) => ({ key: row.key, version: row.version, image: join(work, 'png', `${row.key}.png`), text: row.text, scene: row.scene, title: row.title, subtitle: row.subtitle, group: row.group }));
 const queue = claudeQueue(target, [...reviewed.values()], similarPairs, config.review, nearPairs);
 saveJson(join(work, 'claude-queue.json'), queue);
 const missing = target.filter((row) => !reviewed.has(row.key)).length;
