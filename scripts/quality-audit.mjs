@@ -176,7 +176,7 @@ export const CHECKS = [
   { id: 'svg-audit', npm: 'audit-svg:ci', timeout: 180_000, ci: true, note: 'svg-audit.json を上書き' },
   { id: 'image-assets', npm: 'check-image-assets:ci', timeout: 120_000, ci: true },
   { id: 'callout-types', npm: 'check-callout-types', timeout: 60_000, ci: true, note: '<Callout type="..."> の未知 type 検出（ランタイムが黙って note へフォールバックして typo を隠す回帰を防止）。2026-08-30 に既存 type="important" 11 件を意味に合う正式 type へ移行し、CI ゲートへ昇格' },
-  { id: 'lint-ja', npm: 'lint:ja', timeout: 120_000, ci: true, note: '日本語校正（textlint + prh）。staged の content/site/**/*.mdx だけの表記ゆれ（送り仮名違い・全角英数）ラチェット（DN-0239）。全件は lint:ja:all で report' },
+  { id: 'lint-ja', npm: 'lint:ja', timeout: 120_000, ci: true, note: '日本語校正（textlint + prh）。staged（CI では比較元 REGISTRY_BASE との差分・DN-1124）の content/site/**/*.mdx だけの表記ゆれ（送り仮名違い・全角英数）ラチェット（DN-0239）。全件は lint:ja:all で report' },
   { id: 'orphan-figures', npm: 'check-orphan-figures', timeout: 90_000, ci: true },
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
   // SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査は、SNS の保留に合わせて 2026-10-25 に CI から外した
