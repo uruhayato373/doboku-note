@@ -573,6 +573,12 @@ DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちら
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1146] 2級土木 題材選びの完成動画の記録を、表紙だけの変更の後の制作入力に結び直す（R12）
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [検証:check-content-registry] [起票:2026-11-12]
+
+check-content-registry の R12 が 2 件残る（civil-construction-2/keiken-daizai-erabi の youtube.longform.diagram-led と work/candidate-video）。原因は 2026-11-11 の表紙の差し替え（9a71f2f13）で storyboard.json の popImage.coverRevision だけを変え、完成動画の provenance.specSha256 と一致しなくなったこと。動画の本文は変わっていない（表紙は replace-youtube-cover で YouTube に送り読み戻し済み）。この FAIL は youtube-single-publish の sync-funnel（概要欄の同期）の前の検査で止まるので、DN-0670 の概要欄のクレジットの同期もここで止まる。直し方の案: 表紙だけの変更を区別する（R12 の照合から表紙の欄を外す、または replace-youtube-cover が表紙だけの変更のとき完成動画の記録を今の制作入力へ結び直す。旧の storyboard を git から取り、差が表紙の欄だけであることを確かめてから書く）。
+
+
 ### [DN-1143] X の予約ゲートが 11/13〜15 の 4 本/日で赤のまま（口頭試験の予約と上限 3 本が食い違う）
 タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-12]
 
