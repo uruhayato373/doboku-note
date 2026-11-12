@@ -154,7 +154,7 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 | past-exam・secondary | 可（模範論文・経験記述例は note 有料） | noteコンテンツ計画.md の Red Line |
 | keyword・textbook・primary | 不可（site 専有） | 同上 |
 
-CTA の配線は `src/lib/magazine-placement.ts`（slug と group で決める）。到達性は `npm run check-magazine-cta`。
+CTA の配線は `src/lib/magazine-placement.ts`（slug と group で決める）。到達性は `npm run check-magazine-cta`。1級土木の教科書は第1次検定の教材だけを出す（精読ガイド → 一次の出る順ノート・記事末も出る順ノート。もくじタイルも一次の見出し＝`src/lib/hub-cta.ts` の `mokujiFirstStage`・2026-11-12）。
 
 ## 9. 新規コンテンツのチェックリスト
 
