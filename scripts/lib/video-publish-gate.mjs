@@ -13,11 +13,11 @@ export function planProblems(root, pub) {
   return slotProblems(readDataset(root, 'config.channel-annual-plan'), pub, Date.parse(pub.publishAt) > Date.now() ? jstDayOf(pub.publishAt) : null).problems;
 }
 
-/** 公開行の承認を今の予約経路が受け付けるか。方針の承認は YouTube の通常動画だけ */
+/** 公開行の承認を今の予約経路が受け付けるか。方針の承認は YouTube の通常動画と初回のショート（2026-11-12 から） */
 export function acceptedApproval(pub) {
   const by = pub?.approval?.by;
   if (by === 'user') return true;
-  return by === 'policy' && pub.channel === 'youtube' && pub.format === 'longform';
+  return by === 'policy' && pub.channel === 'youtube' && (pub.format === 'longform' || (pub.format === 'short' && !pub.revisionOf));
 }
 
 /** 発話の比較用。記号と空白を落とし、英数字を半角へ寄せる */
@@ -77,25 +77,33 @@ export function evaluateGate(facts, policy, now = Date.now(), { stock = false } 
 
 /**
  * 予約の空き枠。同じ日の上限と週の上限を超えない、猶予を満たす最初の枠を JST で返す。
- * weekLimit は月曜の日付から週の上限を返す関数。notBefore（JST の日付）は計画の目標日で、それより前に置かない
+ * slot は { timesJst, maxPerDay }。taken は同じ種類（通常動画かショート）の予約済みの日時で、同じ時刻は使わない。
+ * weekLimit は月曜の日付から週の上限を返す関数。notBefore（JST の日付か ISO の日時）より前に置かない。dayTotal は日ごとの全種類の本数の上限
  */
-export function nextSlot(taken, policy, now = Date.now(), { weekLimit = null, notBefore = null } = {}) {
-  const [h, m] = policy.slot.timeJst.split(':').map(Number);
-  const earliest = now + policy.minLeadHours * 3_600_000;
-  const perDay = new Map();
-  const perWeek = new Map();
+export function nextSlot(taken, slot, now = Date.now(), { weekLimit = null, notBefore = null, leadHours = 24, allTaken = taken, dayTotal = Infinity } = {}) {
+  const earliest = Math.max(now + leadHours * 3_600_000, notBefore && notBefore.length > 10 ? Date.parse(notBefore) + 1 : 0);
+  const notBeforeDay = notBefore ? notBefore.slice(0, 10) : null;
   const dayOf = (ms) => jstDayOf(new Date(ms));
-  for (const at of taken) {
-    const d = dayOf(Date.parse(at));
-    perDay.set(d, (perDay.get(d) ?? 0) + 1);
-    perWeek.set(mondayOf(d), (perWeek.get(mondayOf(d)) ?? 0) + 1);
-  }
+  const count = (list) => {
+    const perDay = new Map(), perWeek = new Map(), at = new Set();
+    for (const t of list) {
+      const ms = Date.parse(t), d = dayOf(ms);
+      at.add(ms);
+      perDay.set(d, (perDay.get(d) ?? 0) + 1);
+      perWeek.set(mondayOf(d), (perWeek.get(mondayOf(d)) ?? 0) + 1);
+    }
+    return { perDay, perWeek, at };
+  };
+  const own = count(taken), all = count(allTaken);
   for (let i = 0; i < 400; i += 1) {
     const day = dayOf(now + i * 86_400_000);
-    const at = Date.parse(`${day}T${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:00+09:00`);
-    if (notBefore && day < notBefore) continue;
-    if (weekLimit && (perWeek.get(mondayOf(day)) ?? 0) >= weekLimit(mondayOf(day))) continue;
-    if (at >= earliest && (perDay.get(day) ?? 0) < policy.slot.maxPerDay) return new Date(at).toISOString().replace('.000Z', 'Z');
+    if (notBeforeDay && day < notBeforeDay) continue;
+    if (weekLimit && (own.perWeek.get(mondayOf(day)) ?? 0) >= weekLimit(mondayOf(day))) continue;
+    if ((own.perDay.get(day) ?? 0) >= slot.maxPerDay || (all.perDay.get(day) ?? 0) >= dayTotal) continue;
+    for (const time of slot.timesJst) {
+      const at = Date.parse(`${day}T${time}:00+09:00`);
+      if (at >= earliest && !all.at.has(at)) return new Date(at).toISOString().replace('.000Z', 'Z');
+    }
   }
   throw new Error('空き枠が見つからない');
 }

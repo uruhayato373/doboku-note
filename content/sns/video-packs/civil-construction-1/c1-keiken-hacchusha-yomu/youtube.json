@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "54497b7c1414b41b688fa0d8a68fc9784e19e0593c79606da4f9cfdbef1ad40d",
-      "thumbnailSha256": "6b947c3b144ea3d9313a24b722624cfaff8aadd9e39f2faa5465733e9fea93c6"
+      "thumbnailSha256": "6b947c3b144ea3d9313a24b722624cfaff8aadd9e39f2faa5465733e9fea93c6",
+      "r2Key": "video/render/c1-keiken-hacchusha-yomu/shorts/point-joukyou-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-hacchusha-yomu/shorts/point-joukyou-1/thumbnail.png"
     },
     {
       "key": "point-tetsuzuki-2",
@@ -54,7 +56,9 @@
       ],
       "categoryId": "27",
       "sha256": "64995be77e40070959e8d75cec415858f807bacd8fbbe84473c7f57eb1491efc",
-      "thumbnailSha256": "8c959c833e37cffbaef8061a1a15f7193ff97229eb18c9ad7d3b05f9164a57bc"
+      "thumbnailSha256": "8c959c833e37cffbaef8061a1a15f7193ff97229eb18c9ad7d3b05f9164a57bc",
+      "r2Key": "video/render/c1-keiken-hacchusha-yomu/shorts/point-tetsuzuki-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-hacchusha-yomu/shorts/point-tetsuzuki-2/thumbnail.png"
     }
   ]
 }

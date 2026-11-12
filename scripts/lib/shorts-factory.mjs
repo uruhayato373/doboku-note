@@ -411,6 +411,9 @@ export async function renderShort(root, pack, key, { refs = fileRef, log = () =>
   }, null, 2)}\n`);
   item.sha256 = videoSha;
   item.thumbnailSha256 = thumbnailSha;
+  // CI へ渡す private R2 の置き場（stage-youtube が使う・check-youtube-shorts が形を見る）。描画の段で決める（2026-11-12・型の台帳のショートに無く CI が赤だった）
+  item.r2Key = `video/render/${pack.split('/')[1]}/shorts/${key}/shorts.mp4`;
+  item.thumbnailR2Key = `video/render/${pack.split('/')[1]}/shorts/${key}/thumbnail.png`;
   writeJson(root, `${dir}/youtube.json`, youtube);
   revision.render = { videoSha256: videoSha, durationSeconds, speaker: SPEAKER, sceneCount: segments.length };
   delete revision.screenReview; // 動画が変わったら画面確認・音声の検査・在庫はやり直す

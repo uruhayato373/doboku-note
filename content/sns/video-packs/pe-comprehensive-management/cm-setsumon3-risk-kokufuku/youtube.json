@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "b207850bb2d45d12972234735233266b736922385b35b3066a6c047ff6676414",
-      "thumbnailSha256": "7b9ca0ea72e3e791f1ec474854c53b7436a2a3972039f095ca16b48ddda8c938"
+      "thumbnailSha256": "7b9ca0ea72e3e791f1ec474854c53b7436a2a3972039f095ca16b48ddda8c938",
+      "r2Key": "video/render/cm-setsumon3-risk-kokufuku/shorts/point-shibori-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/cm-setsumon3-risk-kokufuku/shorts/point-shibori-1/thumbnail.png"
     },
     {
       "key": "point-kokufuku-2",
@@ -54,7 +56,9 @@
       ],
       "categoryId": "27",
       "sha256": "eca49d750f4b0ec2305b093b349ed18145ba53c96b1870ca893b10c6a85888c1",
-      "thumbnailSha256": "db0af75e5ac166b2f260d7058c4a4872f6f2821ad044b33fc5ac0d4fdd51aac0"
+      "thumbnailSha256": "db0af75e5ac166b2f260d7058c4a4872f6f2821ad044b33fc5ac0d4fdd51aac0",
+      "r2Key": "video/render/cm-setsumon3-risk-kokufuku/shorts/point-kokufuku-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/cm-setsumon3-risk-kokufuku/shorts/point-kokufuku-2/thumbnail.png"
     }
   ]
 }

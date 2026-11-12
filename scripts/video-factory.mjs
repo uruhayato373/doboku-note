@@ -52,7 +52,7 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
-import { scriptQueue, slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
+import { inFrontLoad, scriptQueue, slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
 import { loadPlanAudit } from './lib/youtube-longform-plan.mjs';
 import { loadSiteRoutes, siteArticleUrl } from './lib/site-links.mjs';
 import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, qaInputDigest, qaState, preflightProblems, recordAudit, retryItems, summarize, unapprovedRow } from './lib/video-factory.mjs';
@@ -319,11 +319,13 @@ function wire() {
   const policy = readPolicy(ROOT);
   const reg = loadRegistry(ROOT);
   const pub = targetPub(reg, exam, work);
-  const taken = reg.publications.filter((p) => p.channel === 'youtube' && p.publishAt && p.status !== 'stopped' && p.id !== pub?.id && Date.parse(p.publishAt) > Date.now()).map((p) => p.publishAt);
-  // 空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない
+  const future = reg.publications.filter((p) => p.channel === 'youtube' && p.publishAt && p.status !== 'stopped' && p.id !== pub?.id && Date.parse(p.publishAt) > Date.now());
+  // 空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない。前倒しの期間（cycle.frontLoad）は目標日を待たない
   const plan = readDataset(ROOT, 'config.channel-annual-plan');
-  const publishAt = args['publish-at'] ?? (Date.parse(pub?.publishAt) > Date.now() ? pub.publishAt : nextSlot(taken, policy, Date.now(), {
-    weekLimit: (monday) => weekLimit(plan.cycle, monday), notBefore: pub ? slotProblems(plan, pub).entry?.target ?? null : null,
+  const target = pub ? slotProblems(plan, pub).entry?.target ?? null : null;
+  const publishAt = args['publish-at'] ?? (Date.parse(pub?.publishAt) > Date.now() ? pub.publishAt : nextSlot(future.filter((p) => p.format === 'longform').map((p) => p.publishAt), policy.slot, Date.now(), {
+    weekLimit: (monday) => weekLimit(plan.cycle, monday), notBefore: inFrontLoad(plan.cycle, todayJst()) ? null : target,
+    leadHours: policy.minLeadHours, allTaken: future.map((p) => p.publishAt), dayTotal: policy.maxPublishPerDay,
   }));
   if (pub?.revisionOf) {
     if (args.stock) throw new Error(`${pub.id}: 改訂版は在庫にしない。予約のときに結線する`);

@@ -131,18 +131,33 @@ npm run shorts-factory -- restore --pack <資格>/<作品> --key <key>       # �
 - `stock` はクラウドの照合が通ってから手元の画像と動画を消す。確認用の一覧は `.tmp/shorts-stock/` に残す。在庫の判断材料はこの一覧で見る。
 - 予約は別の判断。`restore` は `youtube-shorts:stage` が自動で行う分と同じで、手動の確認に使う。
 - 再開する公開行は `check-youtube-shorts` が `pop-poster-v3`・描画の記録・画面確認の pass を要求する。停止中の行は数えるだけで検査しない。
-- 投稿と予約は通常動画と同じ CI（youtube-single-publish の mode=publish）で行う（2026-11-11・DN-1002）。方針の自動承認の対象は通常動画だけで、ショートは運営者が承認する。順番は次のとおり。
+- 投稿と予約は通常動画と同じ CI（youtube-single-publish の mode=publish）で行う（2026-11-11・DN-1002）。2026-11-12 からショートも方針で承認する（`config/video-auto-publish.json` の `shorts.autoApprove`・`npm run registry -- auto-approve-short` が prepare-short の判定と表紙の画像の判定を通し直して書く）。ふだんは次の「毎日の予約」が下の順番をまとめて回す。順番は次のとおり。
   1. `npm run registry -- prepare-short --pub <ショートの公開 ID> --publish-at <時差つきの日時> --commit` — 在庫の素材（動画・表紙・画面の一覧・字幕）を台帳に結び、関連動画（同じ作品の予約済みか公開済みの通常動画・改訂版を含む）と公開日時を入れる。日時は親の公開より後・24 時間以上先・同時刻なし・1 日 3 本まで
-  2. 運営者が `npm run registry -- approve --stage visual` → `--stage final`（表紙の画像の判定は shorts-factory の監査を写してある）
+  2. `npm run registry -- auto-approve-short --pub …`（運営者が承認するときは `approve --stage visual` → `--stage final`。表紙の画像の判定は shorts-factory の監査を写してある）
   3. `npm run shorts-factory -- restore` で手元に戻し、`npm run registry -- stage-youtube --pub … --commit` で CI へ渡す R2 に置く。`npm run registry -- publish-youtube --pub … --phase upload` の digest を `expect` にして publish を流すと、非公開でアップロードして止まる
   4. 運営者が Studio でショートの関連動画に親の通常動画を設定し、`npm run registry -- record-related --pub … --video-id <親の動画 ID>` で記録する（API では設定できない。親が公開されてから）
   5. もう一度 publish を流すと予約する
 - 2級土木は `diagram-led` を優先するので対象外。Instagram リールの描画はまだこの工程に載っていない。
 
+## 毎日の予約
+
+在庫を前倒しで出す（2026-11-12・運営者の決定）。通常動画は 1 日 2 本（12:15・20:30）、ショートは 1 日 2 本（7:30・17:30）、合わせて 1 日 4 本まで。時刻と本数は `config/video-auto-publish.json`（`slot`・`shorts`・`maxPublishPerDay`）、前倒しの期間は `config/channel-annual-plan.json` の `cycle.frontLoad`（この間は枠の時期を問わず、週の上限を `weeklyMax` にする）。
+
+```bash
+npm run youtube-daily -- queue   # 今日の作業（通常動画・ショートの候補、関連動画の設定待ち、予約待ち）。書かない
+npm run youtube-daily -- run     # 関連動画を記録したショートの予約 → 通常動画の予約 → ショートの非公開の投稿
+```
+
+- 毎晩、親の 20:30 の公開の後に回す。先に `queue` の `needRelated` を Studio で設定し（ショートの編集画面の「関連動画」で親を選んで保存し、画面を読み直して親が出ていることを確かめる）、`npm run registry -- record-related --pub … --video-id <親の動画 ID>` で記録してから `run` を流す。
+- 投稿は太平洋時間の 1 日の割当（`maxUploadsPerDay` 4 本）の範囲。`uploadPriority: longform`（2026-11-12 の決定）の間は、在庫の通常動画が尽きるまで割当を全部通常動画に使い、先の日付の予約を早く埋める（公開は 1 日 2 本のまま）。ショートの投稿はその後に回る。ショートの在庫がある作品の通常動画を先に出す。
+- ショートの公開は親の公開の 10 時間後以降の枠（`SHORT_AFTER_PARENT_HOURS`）。親が公開されてから、その夜の実行で関連動画を設定して予約できる間を空ける。
+- `run` は develop へ commit・push する。他のセッションと作業ツリーを共有しない専用の worktree で回す（未コミットの変更があると止まる）。
+- `expired` は関連動画を設定できないまま公開日時を過ぎたショート。日時を付け直す。
+
 ## 罠
 
 - 会社の Windows PC では画像の工程が通らない（2026-11-10）。参照画像は Drive の `制作物/コンテンツ/` にあり、Google ドライブのアプリが起動していないと `plan` が「参照画像が無い」で止まる。Codex はプロキシを越えて届くが、`~/.codex/config.toml` の既定のモデル（`gpt-6.1-sol`）は ChatGPT アカウントでは使えず、画像が出ない（`generate` は回数を使わず exit 2）。会社 PC は台本・QA・台帳まで、画像から先は Mac で回す。
-- `wire` の空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない。在庫を前倒しするときは計画の枠と目標日を先に直す（2026-11-06）。
+- `wire` の空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない。在庫を前倒しするときは `cycle.frontLoad` に期間を書く（この間は目標日を待たない・2026-11-06、2026-11-12）。
 
 - 予約の検査に要る `channel`・`r2Key`・`thumbnailR2Key` は `wire` が入れる。手で足さない（2026-11-05）。
 - 予約後に概要欄を直すと digest が変わり、承認が無効になる。承認の前に関門で導線を見る（2026-11-05）。

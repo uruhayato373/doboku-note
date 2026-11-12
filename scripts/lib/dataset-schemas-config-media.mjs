@@ -1424,6 +1424,15 @@ export const ConfigVideoAutoPublish = z.object({
   maxBlocks: z.number().int(),
   minLeadHours: z.number(),
   maxUploadsPerDay: z.number().int().positive().describe('YouTube Data API の日次割当の範囲（1 本 1,600 ユニット・10,000/日）'),
-  slot: z.object({ timeJst: z.string().regex(/^\d{2}:\d{2}$/), maxPerDay: z.number().int().positive() }).strict(),
+  slot: z.object({ timesJst: z.array(z.string().regex(/^\d{2}:\d{2}$/)).min(1).describe('通常動画の公開の時刻（JST・早い順）'), maxPerDay: z.number().int().positive() }).strict()
+    .refine((x) => x.maxPerDay <= x.timesJst.length, '1 日の本数が時刻の数を超える'),
+  shorts: z.object({
+    autoApprove: z.boolean().describe('関門（画面確認・音声・画像の判定・在庫）を通ったショートを方針で承認する'),
+    timesJst: z.array(z.string().regex(/^\d{2}:\d{2}$/)).min(1).describe('ショートの公開の時刻（JST・早い順）'),
+    maxPerDay: z.number().int().positive(),
+    decidedBy: z.string().min(1),
+  }).strict(),
+  maxPublishPerDay: z.number().int().positive().describe('通常動画とショートを合わせた 1 日の公開の上限'),
+  uploadPriority: z.enum(['longform', 'balanced']).describe('投稿の割当の配り方。longform＝在庫の通常動画が尽きるまで割当を全部通常動画に使う（先の日付の予約を早く埋める・2026-11-12 運営者の決定）、balanced＝通常動画は 1 日 slot.maxPerDay 本まで'),
   audio: z.object({ model: z.string().min(1), language: z.string().min(1), minSimilarity: z.number(), minMaxVolumeDb: z.number(), maxMaxVolumeDb: z.number(), maxDurationGapSec: z.number() }).strict(),
 }).strict();
