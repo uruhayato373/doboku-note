@@ -29,7 +29,7 @@ export function judgeMetric(metric, evidence, today) {
 const sum = (rows, field) => rows.reduce((n, r) => n + (Number(r[field]) || 0), 0);
 
 /** 動画は utm_campaign が動画パックの id、X は投稿の宛先の utm_campaign */
-function campaignNames(root, kind) {
+export function campaignNames(root, kind) {
   if (kind === 'video-packs') {
     const base = join(root, 'content/sns/video-packs');
     if (!existsSync(base)) return new Set();
@@ -46,6 +46,22 @@ function campaignNames(root, kind) {
     }
   }
   return names;
+}
+
+/**
+ * 暦の週・月の GA4 レポート（sessionCampaignName 別の note_cta_click）から、X・動画のキャンペーンの合計を出す。
+ * 絞り込みの集合は evidenceOf と同じ campaignNames（2 か所に書かない・DN-1086）。
+ * 該当の行が 1 つも無いキャンペーンの種類は 0 とは読まず、キーごと載せない（取得できていて本当に 0 かは区別できない）。
+ * rows は { campaign, eventCount }。
+ */
+export function campaignClickTotals(root, rows) {
+  const out = {};
+  for (const [metric, kind] of [['xCampaignClicks', 'x-campaigns'], ['youtubeCampaignClicks', 'video-packs']]) {
+    const names = campaignNames(root, kind);
+    const hit = rows.filter((r) => names.has(r.campaign));
+    if (hit.length) out[metric] = sum(hit, 'eventCount');
+  }
+  return out;
 }
 
 /**

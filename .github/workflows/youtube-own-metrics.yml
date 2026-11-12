@@ -1,0 +1,147 @@
+name: YouTube own-channel metrics (monthly)
+
+# 自社 YouTube の動画別の再生数・尺（台帳 youtube.own-videos）を毎月 1 日に取り、前回比が取り忘れで切れないようにする（DN-0596）。
+# 実装: scripts/youtube-own-metrics.mjs（yt-dlp のチャンネル一覧を読むだけ。動画の再生用 API と映像は使わない）。
+# exit: 0 取得成功 / 1 取得失敗 / 2 検査不成立（動画はあるのに再生数が 1 本も取れない。記録は書かない）。Issue channel: youtube-own-metrics
+# 鮮度の検査: scripts/check-youtube-own-freshness.mjs（quality-audit の ops・日次の ops-audit が読む）。
+#
+# probe_competitors: 競合チャンネルの一覧を GitHub Actions のランナーから yt-dlp で取れるかの確認（DN-0596 手順 1）。
+#   1 チャンネル・10 本だけ取って結果をログに出す。記録（data/）には何も書かず、develop へも push しない。
+#   2 回続けて取れたら、競合の四半期取得（scout-youtube-competitors）をこの workflow の schedule に足す。
+#   ランナーの IP で一覧まで止まるなら手動のままにして、理由を measurement-incidents.md に書く。
+#
+# 前提: Secrets は不要（公開の一覧だけ読む）。
+
+on:
+  schedule:
+    - cron: "0 0 1 * *" # 毎月 1 日 JST 09:00（UTC 00:00）
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "取得して要約だけ表示する（記録も push もしない）"
+        type: boolean
+        default: false
+      probe_competitors:
+        description: "競合 1 チャンネルの一覧がランナーから取れるかを確かめる（自社の取得はしない・記録しない）"
+        type: boolean
+        default: false
+
+# develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ（DN-0109）。
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write # automation-failure Issue の起票・自動クローズ（限定例外）
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      YTDLP_VERSION: "2026.06.09"
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      # 記録の型の検査（zod）と書き込みの部品が要る。prepare のフックは入れない
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      # 日本語表示の一覧は「1.2万回」を null にするので、英語表示との結合を前提にした版（scripts/lib/youtube-listing.mjs）を固定する
+      - name: Install yt-dlp
+        run: |
+          python3 -m venv "$RUNNER_TEMP/ytdlp"
+          "$RUNNER_TEMP/ytdlp/bin/pip" install --quiet "yt-dlp==$YTDLP_VERSION"
+          echo "YTDLP_BIN=$RUNNER_TEMP/ytdlp/bin/yt-dlp" >> "$GITHUB_ENV"
+          "$RUNNER_TEMP/ytdlp/bin/yt-dlp" --version
+
+      - name: Probe competitor listing (no record)
+        if: ${{ inputs.probe_competitors }}
+        run: |
+          handle=$(node --input-type=module -e 'import { readDataset } from "./scripts/lib/dataset-io.mjs"; const c = readDataset(process.cwd(), "config.competitors").youtube; console.log(c[0].handle)')
+          echo "probe 対象: $handle"
+          node scripts/scout-youtube-competitors.mjs --handle "$handle" --limit 10
+
+      - name: Fetch own-channel metrics
+        id: fetch
+        if: ${{ !inputs.probe_competitors }}
+        continue-on-error: true
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -o pipefail
+          # bash -e のままだと非 0 で step が終わり exit_code が出力されない
+          set +e
+          args=""
+          if [ "$DRY_RUN" = "true" ]; then args="--dry-run"; fi
+          node scripts/youtube-own-metrics.mjs $args 2>&1 | tee "$RUNNER_TEMP/yt-own.log"
+          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      # 取得が失敗した run では書いたファイルが無い。ci-data は無いパスを飛ばすので「取得失敗」が「publish 失敗」に見えない
+      - name: Publish to develop (data/youtube/own-videos/)
+        if: ${{ !inputs.probe_competitors && !inputs.dry_run && steps.fetch.outputs.exit_code == '0' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          node scripts/ci-data.mjs add --datasets youtube.own-videos
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+          git commit -m "chore(metrics): youtube own-videos monthly $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git pull --rebase origin develop
+          git push origin develop
+
+      - name: Build failure body (rc=2 は検査不成立と明記)
+        if: ${{ !inputs.probe_competitors && !inputs.dry_run && steps.fetch.outputs.exit_code != '0' }}
+        run: |
+          {
+            echo "youtube-own-metrics.mjs が失敗しました（rc=${{ steps.fetch.outputs.exit_code }}）。"
+            echo ""
+            if [ "${{ steps.fetch.outputs.exit_code }}" = "2" ]; then
+              echo "rc=2 は**検査不成立**（動画はあるのに再生数が 1 本も取れない。記録は書いていません）です。yt-dlp の版と英語表示の一覧の view_count を確かめてください。"
+            else
+              echo "rc=1 は一覧の取得失敗です（ランナーの IP での遮断を含む）。遮断なら手元の npm run youtube-own-metrics に戻し、理由を measurement-incidents.md に書いてください。"
+            fi
+            echo ""
+            echo '```'
+            tail -n 40 "$RUNNER_TEMP/yt-own.log" 2>/dev/null || true
+            echo '```'
+          } > "$RUNNER_TEMP/yt-own-body.md"
+
+      - name: Report - fetch failure (automation-failure Issue)
+        if: ${{ !inputs.probe_competitors && !inputs.dry_run && steps.fetch.outputs.exit_code != '0' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          node scripts/report-automation-failure.mjs \
+            --channel youtube-own-metrics \
+            --title "自社 YouTube の月次取得に失敗（rc=${{ steps.fetch.outputs.exit_code }}）" \
+            --body-file "$RUNNER_TEMP/yt-own-body.md"
+
+      - name: Resolve - close youtube-own-metrics Issue on recovery
+        if: ${{ !inputs.probe_competitors && !inputs.dry_run && steps.fetch.outputs.exit_code == '0' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel youtube-own-metrics \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Fail on fetch error
+        if: ${{ !inputs.probe_competitors && steps.fetch.outputs.exit_code != '0' }}
+        run: |
+          echo "::error::youtube-own-metrics.mjs が失敗しました（rc=${{ steps.fetch.outputs.exit_code }}）。automation-failure Issue（channel: youtube-own-metrics）を参照。"
+          exit 1
