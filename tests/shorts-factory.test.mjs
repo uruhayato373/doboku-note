@@ -123,3 +123,13 @@ test('表紙の紙に書く悪い例を見出しの『』か冒頭の「」か�
   assert.equal(paperText({ headline: ['令和3年', '6月〜12月'], hook: '「令和3年6月〜12月」、この工期で足りますか。' }), '令和3年6月〜12月');
   assert.equal(paperText({ headline: ['順序は', '権限で'], hook: '順序は権限で決めます。' }), null);
 });
+
+test('1 問で確かめる型の pose に『？』を書かない（2026-11-12）', async () => {
+  const { typeProblems } = await import('../scripts/lib/shorts-factory.mjs');
+  const formats = { rules: { hookMaxChars: 40 }, types: [{ id: 'one-question', label: '1 問', beats: { min: 2, max: 3 } }], copy: [], gestures: [{ id: 'point-sheet' }] };
+  const ctx = { formats, slotTypes: ['one-question'], sceneIds: new Set(['s1']) };
+  const good = { type: 'one-question', gesture: 'point-sheet', coverPaper: '問題文', copy: [], hook: 'どれでしょう？', beats: [{}, {}], cta: '残りは本編で。', pose: '紙を指さす。' };
+  assert.deepEqual(typeProblems(good, ctx), []);
+  assert.match(typeProblems({ ...good, pose: '紙の右上に大きな『？』を添える。' }, ctx).join(), /pose に『？』/);
+});
+

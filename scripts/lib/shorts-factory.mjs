@@ -140,6 +140,8 @@ export function typeProblems(design, ctx) {
     if (n < type.beats.min || n > type.beats.max) issues.push(`${type.label} の beats は ${type.beats.min}〜${type.beats.max} 個`);
   }
   // 紙を描く型は、紙に書く文字が決まっていること。無いと見出しの繰り返しや作り話の文字が入った（2026-11-12）
+  // 1 問で確かめる型の問いは見出しの「？」で示し、表紙の紙に『？』の記号を足さない（2026-11-12・pose の『？』が台帳と食い違い、画面確認で落ちた）
+  if (design.type === 'one-question' && /[？?]/.test(design.pose ?? '')) issues.push('pose に『？』がある（one-question の表紙は紙のまわりに『？』を足さない・cover.visual）');
   if (['before-after', 'one-question'].includes(design.type) && !paperText(design)) issues.push('coverPaper が要る（表紙の紙に書く悪い例・問題文の一文。sources の場面の語だけ）');
   const gestures = ctx.formats.gestures ?? [];
   if (gestures.length && !design.gesture) issues.push('gesture が無い（台帳の gestures から先生の仕草を 1 つ選ぶ）');
