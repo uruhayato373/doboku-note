@@ -1339,7 +1339,7 @@
       "work": "pe-road-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1373,7 +1373,42 @@
         "contentSha256": "f017437b31439c2c5d1638371f22639d95d0715c9ade9972c977a712b5688c97"
       },
       "times": {
-        "rendered": "2026-11-12T02:45:50.668Z"
+        "rendered": "2026-11-12T02:45:50.668Z",
+        "uploaded": "2026-11-12T02:51:30.397Z",
+        "scheduled": "2026-11-12T02:51:38.544Z"
+      },
+      "delivery": {
+        "inputSha256": "02156b93126e7e35410167c839c8fcb0ef228d87045b38450424ebf6aad3e0a3",
+        "marker": "dn-single-45f686fba26d45df2e4f18863e3c20e260c61cc7",
+        "uploadRequestedAt": "2026-11-12T02:50:41.196Z",
+        "videoId": "8PgWfKBlFaE",
+        "processedAt": "2026-11-12T02:51:29.597Z",
+        "thumbnailRequestedAt": "2026-11-12T02:51:30.431Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/default.jpg?sqp=CNjS1NcG&rs=AOn4CLD563vGHLsJX6xElWXieEsfzM66YQ",
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/mqdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLDLcT1x3Eq37R4wTcOCOS3qBAlftg",
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/hqdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLDJOj5xW8y3ihWh_E9IPjyNYXzLeg",
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/sddefault.jpg?sqp=CNjS1NcG&rs=AOn4CLAF9_Ms1J25zscMtMQeFFALvuoQFA",
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/maxresdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLAukdlEAMAmXcwwuFwm1L9w9ZuPfA",
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/fhddefault.jpg?sqp=CNjS1NcG&rs=AOn4CLB3LKPv3Vx1XRr0HDM3FpoQ7R-cMA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-12T02:51:34.053Z",
+        "scheduleRequestedAt": "2026-11-12T02:51:35.000Z",
+        "scheduleAt": "2026-11-14T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-12T02:51:38.544Z"
+      },
+      "platform": {
+        "id": "8PgWfKBlFaE",
+        "url": "https://www.youtube.com/watch?v=8PgWfKBlFaE",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-12T02:51:34.053Z"
       }
     },
     {
