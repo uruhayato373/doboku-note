@@ -1443,16 +1443,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **完了条件**: 2027 年の主要 5 資格の制作開始・切り替え・判定の日付が schedule-view に出て、週間計画がそれを読んでいる。
 
-### [DN-0928] 依存の脆弱性 minimatch（globparts の DoS・moderate）を 11.0.1 以上へ上げる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-11-01]
-
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Dependabot alert #118（package-lock.json の minimatch・moderate・修正版 11.0.1）。Dependabot の PR は開いていない。
-
-**残り**: 10.x を使う 4 依存（eslint・@eslint/config-array・@typescript-eslint/typescript-estree・glob 13）は PR #1351 で 11.0.3 にした。残るのはルートの minimatch 3.1.5 で、eslint-plugin-react と rimraf 内の glob 7 が `require('minimatch')(…)` と関数として呼ぶため 11 へ上げると lint が壊れる。開発時の lint だけで使い、公開サイトには入らない。
-
-**やること**: eslint-plugin-react が minimatch 11 対応の版を出したら上げる（`npm view eslint-plugin-react dependencies.minimatch`）。出るまでの間、alert を「開発依存・入力は自前の設定だけ」として dismiss するかを運営者が決める。
-
-**完了条件**: Dependabot alert #118 が fixed か、理由つきで dismiss されている。
 
 
 

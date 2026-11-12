@@ -8059,6 +8059,23 @@
       "commit": "fc070dcf5a31",
       "verification": "pdftotext で実施大綱 PDF を読み、口頭試験の配点の表を確認・MEXT の合否決定基準ページで 60% 以上を確認",
       "note": "記事の配点（60点・40点）は技術士第二次試験実施大綱の口頭試験の配点（総監・必須科目に対応: 経歴及び応用能力 60点満点・体系的専門知識 40点満点）と一致していた。実施大綱の URL と令和8年度の合否決定基準（試問事項ごとに 60% 以上）を本文に添えた"
+    },
+    {
+      "id": "DN-0928",
+      "at": "2026-11-12",
+      "task": "依存の脆弱性 minimatch（globparts の DoS・moderate）を 11.0.1 以上へ上げる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "勧告の取り下げで解消・依存は変えていない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "07f17fdf84a2",
+      "verification": "gh api repos/.../dependabot/alerts/118 → 410 withdrawn・state=open の警告 0 件",
+      "note": "Dependabot alert #118 は GitHub が勧告を取り下げた（API が HTTP 410「Alert number 118 has been withdrawn」）。開いている Dependabot の警告は 0 件。ルートの minimatch 3.1.5 は eslint-plugin-react と glob 7 が関数として呼ぶので上げない"
     }
   ]
 }
