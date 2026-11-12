@@ -358,7 +358,7 @@
       "format": "longform",
       "variant": "reading-fix",
       "revisionOf": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.revision-reading-fix.json",
       "media": {
         "cover": "pe-construction/hissu1-kensetsu-dx/work/candidate-cover",
@@ -410,11 +410,12 @@
       "platform": {
         "id": "AWiTjuOa1U4",
         "url": "https://www.youtube.com/watch?v=AWiTjuOa1U4",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.revision-reading-fix.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-12T04:15:12.812Z"
+        },
+        "publishedAt": "2026-11-11T11:30:11.000Z"
       },
       "times": {
         "uploaded": "2026-11-10T10:08:24.975Z",

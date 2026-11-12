@@ -1,19 +1,12 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-11T03:00:15.244Z",
+  "checkedAt": "2026-11-12T04:15:12.812Z",
   "channel": "youtube",
   "targets": 48,
   "checked": 48,
   "observed": 48,
   "advanced": [
-    "civil-construction-2/keiken-daizai-erabi/youtube.longform.diagram-led",
-    "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform",
-    "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform",
-    "pe-comprehensive-management/sanso-kozo/youtube.longform",
-    "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led",
-    "pe-construction/kaitourei-tsukaikata/youtube.longform.reading-fix",
-    "pe-construction/pe-kojutsu-keireki/youtube.longform",
-    "pe-first-stage/pe1-kiso-gradient-length/youtube.longform"
+    "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix"
   ],
   "findings": []
 }
