@@ -169,6 +169,7 @@ npm run youtube-daily -- run     # 関連動画を記録したショートの予
 - 件数をモデルに申告させない。監査で 2 枚の不合格を 0 件と返した例がある。判定の中身から数える（2026-11-05）。
 - 改訂版の `wire` は `--refresh-draft` で日時を変え、文面と素材が同じなので同じ QA を記録し直す（2026-11-05）。
 - `wire` は `youtube.json` が無ければ描画の実体から作る。主 CTA が `links-hub` のパックは新規公開の導線の検査で止まるので、商品か関連記事を決めてから流す（2026-11-05）。`site-article` は集客の枠の主 CTA として通り、概要欄の先頭のリンクが `targetPath` の公開 URL であることを検査する（targetPath はリポジトリのパスで、`siteArticleUrl` が公開 URL に直す・2026-11-10）。
+- 表紙だけを差し替えて storyboard の `imageDesign.coverRevision`・cover-design.json・表紙の採用を変えると、完成動画の記録（specSha256・renderInputSha256）が今の制作入力と食い違い、`check-content-registry` の R12 が止める（概要欄の同期の前にも走る）。本文が同じなら `npm run registry -- reanchor-render --media <素材の ID> --commit` で結び直す。git の履歴から描いた入力を特定し、差が表紙の欄だけのときに限って書く（2026-11-12・DN-1146）。
 - `registry-reconcile` は公開範囲だけを見て、予約日時は比べない。日時の実体は `mode=audit-funnel` で読み戻す（2026-11-05）。
 - `codex exec` は標準入力を閉じないと入力を待って止まる（2026-11-04）。`spawnCodex` は閉じている。
 - 表紙だけ作り直すときの本文の画像は Drive にしか無い。`render` が先に揃える（2026-11-04）。
