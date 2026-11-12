@@ -70,10 +70,13 @@ if (args.rederive) {
     writeFileSync(join(dirOf(key), thumbs.imageFile), card);
     const digest = sha(photo);
     const entry = ledger.figures[recordKey(args.exam, key)] ?? {};
-    rows.push({ key, version: digest.slice(0, 8), keep: { sha: digest.slice(0, 16), metrics, ...(entry.rawSize ? {} : { rawSize: 'unrecorded' }) } });
+    const keep = { sha: digest.slice(0, 16), metrics, ...(entry.rawSize ? {} : { rawSize: 'unrecorded' }) };
+    // 測り直して規格を外れた写真は、指摘を題材へ足して版を外す（次の生成で作り直す）。生の寸法が未記録なのは移行前の写真なので問わない
+    const problems = metricViolations({ rawSize: '1536x1024', metrics }, spec);
+    rows.push(problems.length ? { key, keep, sceneNote: problems.join('・') } : { key, version: digest.slice(0, 8), keep });
   }
   commitBatch(rows);
-  console.log(`作り直し ${rows.length} 件 / 原寸が手元に無い ${missing} 件`);
+  console.log(`作り直し ${rows.length} 件（規格を外れて作り直しへ回した ${rows.filter((row) => row.sceneNote).length} 件）/ 原寸が手元に無い ${missing} 件`);
   process.exit(rows.length ? 0 : 2);
 }
 
