@@ -26,8 +26,8 @@ export LANG="ja_JP.UTF-8"
 export LC_ALL="ja_JP.UTF-8"
 export DOBOKU_PW_MIN_FREE_MB="${DOBOKU_PW_MIN_FREE_MB:-1024}"
 unset DOBOKU_PW_ALLOW_PARALLEL
-# User hold also applies to the SessionStart hook, before the agent reads its prompt.
-export DOBOKU_SNS_PAUSED=1
+# X was resumed on 2026-11-12 (DN-1159), so the SessionStart x-sync runs again. Instagram stays on hold
+# but has no SessionStart check. To hold SNS again, export DOBOKU_SNS_PAUSED=1 here.
 
 REPO="${DOBOKU_WEEKLY_REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
 REPO="$(cd "$REPO" && pwd -P)"

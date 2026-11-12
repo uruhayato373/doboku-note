@@ -62,7 +62,7 @@ test('allowlist: 全件に理由があり、検出の型は既知で、実在す
   }
 });
 
-test('リポジトリ全体（scripts・.claude・tools）が通り、実検査したファイル数を出す', () => {
+test('リポジトリ全体（scripts・.claude・tools・src）が通り、実検査したファイル数を出す', () => {
   const r = spawnSync(process.execPath, ['scripts/check-jst-date.mjs'], { cwd: ROOT, encoding: 'utf8' });
   assert.equal(r.status, 0, `${r.stdout}\n${r.stderr}`);
   const n = Number(/(\d+) ファイルを実検査/.exec(r.stdout)?.[1]);

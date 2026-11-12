@@ -11,7 +11,7 @@
  *   同じ理由で、`+ 9 * 3600 * 1000` の自前計算（34 ファイルに散っていた）と、実行環境のタイムゾーンで年月日を組む
  *   `getFullYear()/getMonth()/getDate()`（CI は UTC）も、JST の日付の出し方としては 1 か所（scripts/lib/jst-date.mjs）に寄せる。
  *
- * 検査（scripts/・.claude/・tools/ の .mjs .cjs .js .mts .ts .tsx。コメントだけの行は見ない）:
+ * 検査（scripts/・.claude/・tools/・src/ の .mjs .cjs .js .mts .ts .tsx。コメントだけの行は見ない）:
  *   utc-date   `new Date().toISOString().slice(0, 10)` ＝ UTC の今日
  *   plus9      `9 * 60 * 60 * 1000` などの +9 時間の自前計算（`32400000` も）
  *   local-ymd  `getFullYear()` と `getMonth()`・`getDate()` が近くにある ＝ 実行環境のタイムゾーンで年月日を組んでいる
@@ -32,7 +32,7 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-export const ROOTS = ['scripts', '.claude', 'tools'];
+export const ROOTS = ['scripts', '.claude', 'tools', 'src'];
 const SKIP_DIRS = new Set(['node_modules', '.next', '.git', 'out', 'worktrees']);
 const CODE_FILE = /\.(mjs|cjs|js|mts|ts|tsx)$/;
 
