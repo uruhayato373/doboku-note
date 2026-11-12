@@ -7839,6 +7839,32 @@
       "commit": "b3cda0587b20",
       "verification": "gh run list --workflow cloudflare-metrics.yml（2026-10-30T18:52Z success）・gh issue view 1180 CLOSED",
       "note": "棚卸し: cloudflare-metrics.yml の 10/30 金曜の定期実行が success、Issue #1180 は 2026-11-05 に CLOSED"
+    },
+    {
+      "id": "DN-0271",
+      "at": "2026-11-12",
+      "task": "総監 設問3国家施策バンクの序章（¥100・有料境界が末尾）の冒頭に「この記事でわかること」を反映する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "63765b2e7c27",
+      "verification": "curl https://note.com/api/v3/notes/n3eb135ebdff7（price 0・冒頭の確認）",
+      "note": "棚卸し: 9aa5329f5（9/29）で序章を無料に戻し同期済み。ライブは price 0・冒頭に「この記事でわかること」・** の残り無し。check-note-republish の drift 0"
+    },
+    {
+      "id": "DN-0721",
+      "at": "2026-11-12",
+      "task": "共通仕様書の既存回遊導線の反応を確認し、直接リンク追加の要否を判断する",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "63765b2e7c27",
+      "verification": "DN-0305 本文に旧 DN-0721 の段落",
+      "note": "棚卸し: DN-0305 へ統合（同じ 11/26 の EXP-012 判定で閉じる）。2026-10-17 の決定と判定の手順を DN-0305 へ移した"
     }
   ]
 }
