@@ -496,7 +496,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-purpose-1",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1",
       "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -522,7 +522,8 @@
       },
       "times": {
         "rendered": "2026-11-10T21:28:04.619Z",
-        "uploaded": "2026-11-10T22:01:00.495Z"
+        "uploaded": "2026-11-10T22:01:00.495Z",
+        "scheduled": "2026-11-12T01:47:40.004Z"
       },
       "delivery": {
         "inputSha256": "c5ef7c0290bc9fd91b62cf2a4baf93b318fa79352b12fcda0b4b3e147e109b57",
@@ -530,16 +531,19 @@
         "uploadRequestedAt": "2026-11-10T21:51:53.234Z",
         "videoId": "OdKCHkNllG4",
         "processedAt": "2026-11-10T22:00:59.916Z",
-        "thumbnailRequestedAt": "2026-11-10T22:01:00.547Z",
+        "thumbnailRequestedAt": "2026-11-12T01:47:27.534Z",
         "thumbnailUrls": [
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/default.jpg?sqp=COCnztcG&rs=AOn4CLBnV_O1KemfesA67uK5R-4qXI7JKA",
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/mqdefault.jpg?sqp=COCnztcG&rs=AOn4CLCH8nH15kHqYAWHrS8qd96LA_1BBw",
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/hqdefault.jpg?sqp=COCnztcG&rs=AOn4CLDfP3L6krLBBX-KwhqHVq3w22hArg",
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/sddefault.jpg?sqp=COCnztcG&rs=AOn4CLC-Vb24Yic8RndIv2k2XzatofYefA",
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/maxresdefault.jpg?sqp=COCnztcG&rs=AOn4CLB3x_0gqSvg-ydgyy529mFi2ocJag",
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/sardefault.jpg?sqp=COCnztcG&rs=AOn4CLBOYTTDp6rrk2Iwa4fhV1d-SN9PcA"
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/default.jpg?sqp=CJy01NcG&rs=AOn4CLD9n8dX53iyHnrdFI895xq6dF1fpA",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/mqdefault.jpg?sqp=CJy01NcG&rs=AOn4CLDgl3bUKTymRihvt8Znw0Gzpgz9sg",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/hqdefault.jpg?sqp=CJy01NcG&rs=AOn4CLCSu8I50-Rpb2OUSAIp48a8o0zQbg",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/sddefault.jpg?sqp=CJy01NcG&rs=AOn4CLBIBybC9t4zq-xi7hJODjzXkoL_1g",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/maxresdefault.jpg?sqp=CJy01NcG&rs=AOn4CLB01c8Ni6xtmrCo4IJZlK5w72d7NA",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/sardefault.jpg?sqp=CJy01NcG&rs=AOn4CLCVZtlXSsny5YoV8iGg1AEVVkW2Rg"
         ],
-        "thumbnailAcceptedAt": "2026-11-10T22:01:04.381Z"
+        "thumbnailAcceptedAt": "2026-11-12T01:47:31.285Z",
+        "scheduleRequestedAt": "2026-11-12T01:47:36.171Z",
+        "scheduleAt": "2026-11-13T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-11-12T01:47:40.004Z"
       },
       "platform": {
         "id": "OdKCHkNllG4",
@@ -554,7 +558,7 @@
       },
       "thumbnail": {
         "status": "set",
-        "setAt": "2026-11-10T22:01:04.381Z"
+        "setAt": "2026-11-12T01:47:31.285Z"
       }
     },
     {
