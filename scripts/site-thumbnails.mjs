@@ -28,6 +28,7 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 const { values: args } = parseArgs({ options: { exam: { type: 'string' }, label: { type: 'string' }, model: { type: 'string' }, 'fix-fails': { type: 'boolean' }, record: { type: 'string' } } });
 const exam = args.exam;
 if (!exam) throw new Error('--exam が要る');
+if (JSON.parse(readFileSync(join(ROOT, datasetPath('config.site-thumbnails')), 'utf8')).excluded?.some((row) => row.qualification === exam)) { console.error(`${exam} は写真にしないと決めた資格（config の excluded）`); process.exit(1); }
 const configPath = join(ROOT, datasetPath('config.site-thumbnails'));
 const imagePath = (key) => join(ROOT, 'content/site', exam, key, readConfig().imageFile);
 const work = join(ROOT, '.tmp/site-thumbs', exam);

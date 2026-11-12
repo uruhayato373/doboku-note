@@ -922,6 +922,7 @@ export const ConfigSiteThumbnails = z
       sampleRate: z.number().min(0).max(1), similarScene: z.number().min(0).max(1), riskWords: z.array(z.string().min(1)),
       criteria: z.array(z.object({ id: z.string().min(1), text: z.string().min(1) }).strict()).min(1).describe('目の監査の基準（Codex の一次監査と Claude の二次監査が同じ文を使う）'),
     }).strict().describe('二次監査の絞り込みの基準と、目の監査の基準'),
+    excluded: z.array(z.object({ qualification: z.string().min(1), reason: z.string().min(1) }).strict()).describe('写真にしない資格（カテゴリの slug）と、決めた日・理由（site-thumbs はこの資格を作らない）'),
     pages: z.record(z.string().min(1), z.record(z.string().min(1), z.object({ text: z.string().min(1), scene: z.string().min(1), version: z.string().min(1).optional() }).strict())).describe('資格ごと、ページごとの帯の文字と絵の題材'),
   })
   .strict()

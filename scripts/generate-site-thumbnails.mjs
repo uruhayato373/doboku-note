@@ -26,6 +26,7 @@ const configPath = join(ROOT, datasetPath('config.site-thumbnails'));
 const rules = JSON.parse(readFileSync(join(ROOT, datasetPath('config.image-generation')), 'utf8'));
 const thumbs = JSON.parse(readFileSync(configPath, 'utf8'));
 const { spec } = thumbs;
+if (thumbs.excluded?.some((row) => row.qualification === args.exam)) throw new Error(`${args.exam} は写真にしないと決めた資格（config の excluded）`);
 const pages = thumbs.pages[args.exam] ?? {};
 const dirOf = (key) => join(SITE_CONTENT_ROOT, args.exam, key);
 const sha = (value) => createHash('sha256').update(value).digest('hex');
