@@ -8029,6 +8029,19 @@
       "commit": "6ddbdf8e132f",
       "verification": "uptime-ping run 43207675077: 2102 URL 200・og:image 1997 件 200",
       "note": "非 200 の og:image 95 件は DN-1123（OGP の供給が Cap check で止まっていた）と同根。供給後に全 URL 検査を手動で回し、og:image 1997 件すべて 200（run 43207675077）。Issue #1498 を復旧クローズ。sweep の赤を deploy:main の止める条件には入れない: sweep はデプロイの後に走るので止めても出たものは戻らず、根本の OGP の供給の失敗は workflow の見張り（PR #1569）が 3 連続で知らせる。sweep の赤の読み手は Issue（automation-failure の production-sweep）のまま"
+    },
+    {
+      "id": "DN-1008",
+      "at": "2026-11-12",
+      "task": "PR #1423 のマージ後に台帳だけの push で CI が走らないことを確かめる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "046b719415ee",
+      "verification": "gh run list --workflow ci.yml --commit fdfca2980 → 0 件",
+      "note": "台帳だけの push（fdfca2980・fd4a7bc86）で Pre-merge check が 0 件、台帳以外の push（7ebf16682・046b71941 ほか）では今までどおり走っている。.claude/worktrees/ci-push-scope は無い"
     }
   ]
 }
