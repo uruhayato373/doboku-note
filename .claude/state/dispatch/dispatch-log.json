@@ -7865,6 +7865,19 @@
       "commit": "63765b2e7c27",
       "verification": "DN-0305 本文に旧 DN-0721 の段落",
       "note": "棚卸し: DN-0305 へ統合（同じ 11/26 の EXP-012 判定で閉じる）。2026-10-17 の決定と判定の手順を DN-0305 へ移した"
+    },
+    {
+      "id": "DN-1024",
+      "at": "2026-11-12",
+      "task": "管理画面が CLI の check スクリプトを import している箇所を確かめる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "876c5742baaf",
+      "verification": "scripts/check-workflow-health.mjs:203・report-automation-failure.mjs:216・check-youtube-analytics.mjs:55・youtube-analytics.mjs:61 の main ガード",
+      "note": "棚卸し: 管理画面が import する 4 本（check-workflow-health・report-automation-failure・check-youtube-analytics・youtube-analytics）はどれも process.argv[1] で main を守っていて、import しても CLI は走らない。移さずに残す"
     }
   ]
 }

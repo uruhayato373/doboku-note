@@ -1782,18 +1782,15 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **完了条件**: 11/30 以降の deploy で両資格の試験後の CTA が本番に出ていて、`check-production-ssr` が exit 0。
 
 
-### [DN-0854] 基準類の右の目次（編・章・節）の試作を本番 build で確かめて全文書へ広げる
-タグ: [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-26]
+### [DN-1151] 基準類の右の目次（編・章・節）で、節ページの重さの増分とスマホ幅の表示を確かめて記録する
+タグ: [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-11-12]
 
-基準類（/standards）の右の欄を 編 → 章 → 節 の 1 本の目次にする試作を、近畿の共通仕様書（kinki/common）だけに入れた（ブランチ feature/standards-tree-nav・未 push）。他の章の節は toc.json（46KB）から開いたときに読む。
+**起点**: 旧 DN-0854 を 2026-11-12 の棚卸しで起こし直した。編 → 章 → 節 の 1 本の目次は #1244（50a734f86）で develop に入り、`src/lib/standards-tree-nav.ts` の `treeNavDocumentKeys()` が章を構造化した全文書を対象にしている（build 後の `out/standards/*/*/toc.json` は 24 本）。試作の時点で、dev では節ページが 400KB → 463KB に増えていた。
 
-残り:
-- `npm run build` で本番の節ページの重さを測る（dev では元 400KB → 463KB）。out/standards/kinki/common/toc.json が書き出されるかも確かめる
-- スマホ幅（「資料内を移動」の中の目次）の表示を確かめる
-- 章の境目をまたぐ「次の節」
-- 問題なければ他の 8 文書へ広げ（src/lib/standards-tree-nav.ts の TREE_NAV_DOCUMENTS）、/doc-sync を回して PR（base = develop）
+**やること**: (1) `npm run build` の後、本番の節ページの重さを目次の有無で比べて増分を記録する。(2) スマホ幅（「資料内を移動」の中の目次）の表示を確かめる。(3) 章の境目をまたぐ「次の節」の動きを確かめる。基準書の画面を直す PR #1559 が開いているので、それと重ならないかを先に見る。
 
-完了条件: build 後の out/ に toc.json があり、節ページの重さの増分を記録したうえで、対象文書を広げた PR が develop に入る。
+**完了条件**: 増分とスマホ幅の確認結果がこのカードか `docs/` に書かれ、直すものがあれば起票されている。
+
 
 
 
@@ -2927,14 +2924,6 @@ docs/operations/12_Playwright_E2E導入設計.md の「実行順」は Node 20�
 **完了条件**: 未評価の範囲について、直すものが起票され、直さないものは理由が書かれている。
 
 
-### [DN-1024] 管理画面が CLI の check スクリプトを import している箇所を確かめる
-タグ: [エージェント・SSOT] [領域:管理] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。Codex の報告では `tools/admin-app/src/lib/automations.ts:5` と `video-outcomes.ts:10` が `check-*.mjs` や実行スクリプトの関数を import している。この報告は実コードで未確認。
-
-**やること**: 実際の import を確かめ、該当すれば判定を `scripts/lib` の副作用のない関数へ移す。
-
-**完了条件**: 管理画面が CLI の入口を import していないか、残す理由が書かれている。
 
 
 ### [DN-1023] カテゴリと標準ページの重複部品を抽出する
