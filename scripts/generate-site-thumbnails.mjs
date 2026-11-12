@@ -53,6 +53,9 @@ for (let i = 0; i < keys.length; i += concurrency) {
     const raw = await generateWithCodexAsync(prompt, args.model ?? null);
     if (!raw) { failed += 1; console.error(`生成なし: ${key}`); return; }
     const source = readFileSync(raw);
+    // 生の出力の寸法を確かめる。横長（幅÷高さ 1.4 以上）でないと、1200×630・640×245 へ切るときに主題の上下が大きく欠ける
+    const { width: rawWidth, height: rawHeight } = await sharp(source).metadata();
+    if (!rawWidth || !rawHeight || rawWidth / rawHeight < 1.4) { failed += 1; console.error(`横長でない: ${key}（${rawWidth}×${rawHeight}）。次の実行で作り直す`); return; }
     const rawSha = sha(source);
     if (seen.has(rawSha)) { failed += 1; console.error(`同じ画像: ${key} と ${seen.get(rawSha)}`); return; }
     seen.set(rawSha, key);
@@ -62,7 +65,7 @@ for (let i = 0; i < keys.length; i += concurrency) {
     writeFileSync(join(dir, thumbs.photoFile), photo);
     writeFileSync(join(dir, thumbs.imageFile), webp);
     const digest = sha(webp);
-    done.push({ key, version: digest.slice(0, 8), record: { sha: digest, prompt, generatedAt: new Date().toISOString(), tool: 'Codex', styleVersion: thumbs.styleVersion } });
+    done.push({ key, version: digest.slice(0, 8), record: { sha: digest, prompt, generatedAt: new Date().toISOString(), tool: 'Codex', styleVersion: thumbs.styleVersion, rawSize: `${rawWidth}x${rawHeight}` } });
     console.log(`OK ${key}`);
   }));
   commitBatch(done);
