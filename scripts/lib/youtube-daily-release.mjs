@@ -19,7 +19,9 @@ export const SHORT_AFTER_PARENT_HOURS = 10;
  * 今日の作業の一覧を作る。
  * @param {{ publications: object[], stocked: { pack: string, key: string }[], plan: object, uploadsLeft: number, longformPerDay: number, now?: number }} input
  */
-export function releaseQueue({ publications, stocked, plan, uploadsLeft, longformPerDay, now = Date.now(), today = null }) {
+export function releaseQueue({ publications, stocked, plan, uploadsLeft, longformPerDay, now = Date.now(), today = null, hold = [] }) {
+  // 保留（config.video-auto-publish の hold）の作品は、通常動画もショートも付け直しも出さない
+  const held = new Set(hold.map((h) => h.pack));
   const frontLoadActive = Boolean(plan.cycle?.frontLoad && today && today <= plan.cycle.frontLoad.to);
   const yt = publications.filter((p) => p.channel === 'youtube');
   const byId = new Map(yt.map((p) => [p.id, p]));
@@ -33,7 +35,7 @@ export function releaseQueue({ publications, stocked, plan, uploadsLeft, longfor
   for (const s of stocked) if (!released(shortRow(s.pack, s.key))) waitingShorts.set(s.pack, (waitingShorts.get(s.pack) ?? 0) + 1);
 
   // 日時だけ付いて承認の前で止まった行（wire の後に関門で落ちた）も続きから進める
-  const longformStock = yt.filter((p) => p.format === 'longform' && !p.revisionOf && p.status === 'qa_passed' && p.media?.video && !(Date.parse(p.publishAt) <= now))
+  const longformStock = yt.filter((p) => p.format === 'longform' && !p.revisionOf && !held.has(`${p.exam}/${p.work}`) && p.status === 'qa_passed' && p.media?.video && !(Date.parse(p.publishAt) <= now))
     .map((p) => ({ pack: `${p.exam}/${p.work}`, pub: p.id, shorts: waitingShorts.get(`${p.exam}/${p.work}`) ?? 0, target: targetOf.get(p.id) ?? '9999-12-31' }))
     .sort((a, b) => (b.shorts > 0) - (a.shorts > 0) || a.target.localeCompare(b.target) || a.pack.localeCompare(b.pack));
 
@@ -41,7 +43,7 @@ export function releaseQueue({ publications, stocked, plan, uploadsLeft, longfor
   const shortCandidates = [];
   for (const s of stocked) {
     const row = shortRow(s.pack, s.key);
-    if (released(row)) continue;
+    if (released(row) || held.has(s.pack)) continue;
     const [exam, work] = s.pack.split('/');
     const parents = liveParents(yt, exam, work);
     if (parents.length !== 1) continue;
@@ -69,7 +71,7 @@ export function releaseQueue({ publications, stocked, plan, uploadsLeft, longfor
   const expired = uploaded.filter((p) => Date.parse(p.publishAt) <= now + 10 * 60_000).map((p) => p.id);
 
   // 前倒しより前に承認して、まだ投稿していない通常動画。承認を外して空き枠から日時を付け直す（承認は予約の前に関門でもう一度書く）
-  const toReplace = frontLoadActive ? yt.filter((p) => p.format === 'longform' && !p.revisionOf && p.status === 'approved' && !p.delivery && !p.platform?.id).map((p) => `${p.exam}/${p.work}`) : [];
+  const toReplace = frontLoadActive ? yt.filter((p) => p.format === 'longform' && !p.revisionOf && p.status === 'approved' && !p.delivery && !p.platform?.id && !held.has(`${p.exam}/${p.work}`)).map((p) => `${p.exam}/${p.work}`) : [];
 
-  return { uploadsLeft, toReplace, longforms, shorts, needRelated, toSchedule, expired, remaining: { longforms: longformStock.length, shorts: shortCandidates.length } };
+  return { uploadsLeft, held: [...held], toReplace, longforms, shorts, needRelated, toSchedule, expired, remaining: { longforms: longformStock.length, shorts: shortCandidates.length } };
 }

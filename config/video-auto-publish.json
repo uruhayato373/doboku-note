@@ -28,6 +28,7 @@
   },
   "maxPublishPerDay": 4,
   "uploadPriority": "longform",
+  "hold": [],
   "audio": {
     "model": "~/.cache/whisper/ggml-small.bin",
     "language": "ja",
