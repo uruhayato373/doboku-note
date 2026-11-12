@@ -332,6 +332,7 @@
     "registry": "node scripts/registry.mjs",
     "video-review": "node scripts/video-agent-review.mjs",
     "video-factory": "node scripts/video-factory.mjs",
+    "youtube-daily": "node scripts/youtube-daily-release.mjs",
     "shorts-factory": "node scripts/shorts-factory.mjs",
     "image-rules": "node scripts/image-rules.mjs",
     "check-image-rules": "node scripts/check-image-rules.mjs",

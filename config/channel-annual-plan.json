@@ -35,7 +35,8 @@
         "why": "1級二次の直前で、経験記述の販売が最も近い"
       }
     ],
-    "calendarBasis": "2027 年度の日程は公式発表前で確定しない。window の月は config/exam-calendar.json の 2026 年度の実績を目安にした仮の月で、anchors の行事が公式に出たら改める。試験日はこの設定へ写さない"
+    "calendarBasis": "2027 年度の日程は公式発表前で確定しない。window の月は config/exam-calendar.json の 2026 年度の実績を目安にした仮の月で、anchors の行事が公式に出たら改める。試験日はこの設定へ写さない",
+    "frontLoad": {"from": "2026-11-13", "to": "2027-01-31", "weeklyMax": 14, "why": "在庫の通常動画とショートをできるだけ短期間に全部出し、空いた枠は作って埋める（運営者の決定）。この間は枠の時期を問わず、通常動画を 1 日 2 本まで出す。時刻と 1 日の本数は config/video-auto-publish.json", "decidedAt": "2026-11-12"}
   },
   "metrics": {
     "primary": [

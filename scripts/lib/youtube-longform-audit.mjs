@@ -18,8 +18,18 @@ export function mondayOf(day) {
 
 const inWindow = (month, w) => month >= w.from && month <= w.to;
 
+/**
+ * 在庫の前倒しの期間か（2026-11-12・運営者の決定）。この間は枠の時期を問わず在庫を出し、週の上限は frontLoad.weeklyMax にする。
+ * 計画の行（枠）は残すので、何をどの枠のために作ったかは消えない
+ */
+export function inFrontLoad(cycle, day) {
+  const f = cycle?.frontLoad;
+  return Boolean(f && day && day >= f.from && day <= f.to);
+}
+
 /** 月曜で表す週の公開上限。山場は月曜の月で判定する */
 export function weekLimit(cycle, monday) {
+  if (inFrontLoad(cycle, monday) || inFrontLoad(cycle, dayAfter(monday, 6))) return cycle.frontLoad.weeklyMax;
   return cycle.peaks.some((p) => inWindow(monday.slice(0, 7), p.window)) ? cycle.peakWeeklyMax : cycle.weeklyMax;
 }
 
@@ -68,7 +78,7 @@ export function slotProblems(plan, pub, day = null) {
   const slot = plan.slots.find((s) => s.id === entry.slot);
   if (!slot && when < plan.cycle.enforceFrom) return { entry, slot: null, problems: [] };
   if (!slot) return { entry, slot: null, problems: [`枠に入っていない: ${entry.id}`] };
-  const problems = inWindow(when.slice(0, 7), slot.window) ? [] : [`枠の時期の外: ${entry.id} ${when}（${slot.id} ${slot.window.from}〜${slot.window.to}）`];
+  const problems = inWindow(when.slice(0, 7), slot.window) || inFrontLoad(plan.cycle, when) ? [] : [`枠の時期の外: ${entry.id} ${when}（${slot.id} ${slot.window.from}〜${slot.window.to}）`];
   return { entry, slot, problems };
 }
 
@@ -171,7 +181,7 @@ export function auditLongformPlan({ plan, publications, revisions = [], formats,
     if (!slot) { errors.push(`枠に入っていない: ${e.id}`); continue; }
     checked += 1;
     if (slot.exam !== e.exam) errors.push(`枠と資格が違う: ${e.id}（${slot.id}）`);
-    if (!inWindow(day.slice(0, 7), slot.window)) errors.push(`枠の時期の外: ${e.id} ${day}（${slot.id} ${slot.window.from}〜${slot.window.to}）`);
+    if (!inWindow(day.slice(0, 7), slot.window) && !inFrontLoad(cycle, day)) errors.push(`枠の時期の外: ${e.id} ${day}（${slot.id} ${slot.window.from}〜${slot.window.to}）`);
     if (!actual && p?.status !== 'published' && e.ready < today) warnings.push(`確認期限の超過: ${e.id} ${e.ready}`);
     fill.set(slot.id, fill.get(slot.id) + 1);
     countWeek(day, e.id);

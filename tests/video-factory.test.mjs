@@ -355,26 +355,40 @@ test('音声の判定は動画の sha に結び、作り直すと無効になる
   assert.ok(speechSimilarity('業務の判断を語る', '全く別の発話です') < 0.2);
 });
 
-test('方針の承認は YouTube の通常動画だけで受け付ける', () => {
+test('方針の承認は YouTube の通常動画と初回のショートだけで受け付ける（2026-11-12）', () => {
   assert.equal(acceptedApproval({ channel: 'youtube', format: 'longform', approval: { by: 'policy' } }), true);
-  assert.equal(acceptedApproval({ channel: 'youtube', format: 'short', approval: { by: 'policy' } }), false);
+  assert.equal(acceptedApproval({ channel: 'youtube', format: 'short', approval: { by: 'policy' } }), true);
+  assert.equal(acceptedApproval({ channel: 'youtube', format: 'short', revisionOf: 'a/b/youtube.short.x', approval: { by: 'policy' } }), false);
   assert.equal(acceptedApproval({ channel: 'instagram', format: 'carousel', approval: { by: 'policy' } }), false);
   assert.equal(acceptedApproval({ channel: 'instagram', format: 'carousel', approval: { by: 'user' } }), true);
 });
 
 test('空き枠は週の上限と計画の目標日を守る', () => {
-  const policy = { minLeadHours: 24, slot: { timeJst: '20:30', maxPerDay: 1 } };
+  const slot = { timesJst: ['20:30'], maxPerDay: 1 };
   const now = Date.parse('2026-11-16T00:00:00Z'); // JST の月曜
   const taken = ['2026-11-17T11:30:00Z', '2026-11-18T11:30:00Z'];
-  assert.equal(nextSlot(taken, policy, now), '2026-11-19T11:30:00Z');
-  assert.equal(nextSlot(taken, policy, now, { weekLimit: () => 2 }), '2026-11-23T11:30:00Z');
-  assert.equal(nextSlot([], policy, now, { notBefore: '2026-12-01' }), '2026-12-01T11:30:00Z');
+  assert.equal(nextSlot(taken, slot, now), '2026-11-19T11:30:00Z');
+  assert.equal(nextSlot(taken, slot, now, { weekLimit: () => 2 }), '2026-11-23T11:30:00Z');
+  assert.equal(nextSlot([], slot, now, { notBefore: '2026-12-01' }), '2026-12-01T11:30:00Z');
 });
 
 test('空き枠は猶予と 1 日の上限を守る', () => {
-  const policy = { minLeadHours: 24, slot: { timeJst: '20:30', maxPerDay: 1 } };
+  const slot = { timesJst: ['20:30'], maxPerDay: 1 };
   const now = Date.parse('2026-11-05T00:00:00Z');
-  assert.equal(nextSlot(['2026-11-06T11:30:00Z'], policy, now), '2026-11-07T11:30:00Z');
+  assert.equal(nextSlot(['2026-11-06T11:30:00Z'], slot, now), '2026-11-07T11:30:00Z');
+});
+
+test('1 日 2 本の枠は時刻を順に埋め、ほかの種類と同じ時刻・日の合計の上限を避ける（2026-11-12）', () => {
+  const slot = { timesJst: ['12:15', '20:30'], maxPerDay: 2 };
+  const now = Date.parse('2026-11-12T00:00:00Z');
+  assert.equal(nextSlot([], slot, now), '2026-11-13T03:15:00Z');
+  assert.equal(nextSlot(['2026-11-13T03:15:00Z'], slot, now), '2026-11-13T11:30:00Z');
+  assert.equal(nextSlot(['2026-11-13T03:15:00Z', '2026-11-13T11:30:00Z'], slot, now), '2026-11-14T03:15:00Z');
+  // 別の種類が同じ時刻にあれば次の時刻へ、日の合計が上限なら翌日へ
+  assert.equal(nextSlot([], slot, now, { allTaken: ['2026-11-13T03:15:00Z'] }), '2026-11-13T11:30:00Z');
+  assert.equal(nextSlot([], slot, now, { allTaken: ['2026-11-12T22:30:00Z', '2026-11-13T08:30:00Z'], dayTotal: 2 }), '2026-11-14T03:15:00Z');
+  // 日時の notBefore はその時刻より後（ショートは親の公開の後）
+  assert.equal(nextSlot([], { timesJst: ['07:30', '17:30'], maxPerDay: 2 }, now, { notBefore: '2026-11-13T12:15:00+09:00' }), '2026-11-13T08:30:00Z');
 });
 
 test('投稿の残りは太平洋時間の 0 時からの本数で決まる', () => {

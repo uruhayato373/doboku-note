@@ -5,7 +5,7 @@
  * 決まり:
  * - 在庫（Drive）の動画・表紙・画面の一覧・字幕を、公開行の素材として台帳に結ぶ（sha と大きさは Drive の台帳から取る）
  * - 関連動画（Shorts → 通常動画）は、同じ作品の通常動画のうち予約済みか公開済みの行（読み修正などの改訂版を含む）
- * - 公開日時は、親の公開より後・予約の関門の余裕（minLeadHours）より先・同じ時刻に別の動画が無い・1 日 3 本まで
+ * - 公開日時は、親の公開より後・予約の関門の余裕（minLeadHours）より先・同じ時刻に別の動画が無い・1 日の上限（maxPublishPerDay）まで
  */
 import { createHash } from 'node:crypto';
 import { loadRegistry } from './content-registry.mjs';
@@ -15,7 +15,6 @@ import { audioProblems, readPolicy } from './video-publish-gate.mjs';
 import { jstDayOf } from './jst-date.mjs';
 
 const VIDEO_ID = /^[\w-]{11}$/;
-const DAILY_MAX = 3;
 const sha = (text) => createHash('sha256').update(text).digest('hex');
 
 /** 同じ作品の、関連動画にできる通常動画（予約済みか公開済み・外部 ID あり）。改訂版も含む */
@@ -26,7 +25,7 @@ export function liveParents(publications, exam, work) {
 }
 
 /** 公開日時の問題。空なら予約してよい */
-export function slotProblems(publications, pub, publishAt, parent, { now = Date.now(), leadHours = 24 } = {}) {
+export function slotProblems(publications, pub, publishAt, parent, { now = Date.now(), leadHours = 24, dailyMax = 3 } = {}) {
   const at = Date.parse(publishAt ?? '');
   if (!Number.isFinite(at) || !/(Z|[+-]\d\d:\d\d)$/.test(publishAt)) return ['公開日時は時差つきの ISO 8601 で書く'];
   const problems = [];
@@ -37,7 +36,7 @@ export function slotProblems(publications, pub, publishAt, parent, { now = Date.
   if (clash) problems.push(`同じ公開日時に別の動画がある: ${clash.id}`);
   const day = jstDayOf(publishAt);
   const sameDay = others.filter((p) => jstDayOf(p.publishAt) === day).length;
-  if (sameDay + 1 > DAILY_MAX) problems.push(`${day} は既に ${sameDay} 本（1 日 ${DAILY_MAX} 本まで）`);
+  if (sameDay + 1 > dailyMax) problems.push(`${day} は既に ${sameDay} 本（1 日 ${dailyMax} 本まで）`);
   return problems;
 }
 
@@ -74,7 +73,8 @@ export function prepareShortPlan(root, { pubId, publishAt, now = Date.now() }) {
   const parents = liveParents(reg.publications, pub.exam, pub.work);
   if (parents.length !== 1) throw new Error(`${pub.id}: 関連動画にできる通常動画が ${parents.length} 本（予約済みか公開済みの 1 本が要る）`);
   const parent = parents[0];
-  const problems = slotProblems(reg.publications, pub, publishAt, parent, { now, leadHours: readPolicy(root).minLeadHours ?? 24 });
+  const policy = readPolicy(root);
+  const problems = slotProblems(reg.publications, pub, publishAt, parent, { now, leadHours: policy.minLeadHours ?? 24, dailyMax: policy.maxPublishPerDay });
   if (problems.length) throw new Error(`${pub.id}: ${problems.join('・')}`);
 
   const { entries } = loadDriveManifest();
