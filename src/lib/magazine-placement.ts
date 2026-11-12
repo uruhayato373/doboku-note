@@ -964,6 +964,11 @@ function resolvePlacementRaw(
   }
   // 解答速報（令和8年度・DN-1111）: 試験前は直前パック、試験の翌日からは年度に依存しない暗記ノート
   //   （自己採点のあと、来年に向けて復習する読者を受ける。技術士一次の解答速報と同じ切り替え）。
+  // 解答速報（令和8年度・主任技士・DN-0872）: 試験前は択一の直前パック、試験の翌日からは年度に依らない小論文の
+  //   令和形式テーマ別（概要・傾向と同じ切り替え。小論文は模範解答が出ないので、振り返りのあと書き直す読者を受ける）。
+  if (slug === 'concrete-chief-engineer-guide-r08-answers') {
+    return { top: slot(cceAfterExam ? 'cce-essay-reiwa-pack' : 'cce-takuitsu-chokuzen-pack', slug, 'top'), inline: [] };
+  }
   if (slug === 'concrete-engineer-guide-r08-answers') {
     return { top: slot(isAfterExamDay('concrete-engineer', 'exam') ? 'ce-anki-note' : 'ce-chokuzen-pack', slug, 'top'), inline: [] };
   }

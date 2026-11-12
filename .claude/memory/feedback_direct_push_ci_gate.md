@@ -16,3 +16,5 @@ develop へ直 push する変更でも、quality:audit の ci ゲートが読む
 **台帳だけの push は CI が走らない（2026-11-06）**: `.claude/todo/**` と `.claude/state/todo-claims.json` だけの push は `ci.yml` の `paths-ignore` で飛ばす。push の 37% がこれだった。ゲートは pre-commit と `todo:add`。文書だけの push のビルドは残した（300 回中 8 回で、ジョブの分岐を足すほどの効果が無い）。
 
 **PR に出す変更は手元で全件を回さない（2026-11-06）**: `quality:audit:ci` は `unit-tests`（`npm test`）を含み、PR の CI が同じものを回す。手元は変更に関係するテストと検査だけにして、全件は CI に任せる。上の手元の全件は develop へ直 push する変更と、他セッションの未コミット作業を拾うときだけ。**Why:** 同じ全件を手元と CI で二重に回し、手元の分は結果を待つ時間の分だけ作業が止まった。
+
+**config の 1 値でも同じ・赤の PR を merge した（2026-11-12）**: 棚卸しの続きで `config/business-direction.json` の `qualityDefects` を `supply: none` に変え、audit:ci を回さずに develop へ直 push した。`tests/business-direction.test.mjs` が実 config の supply を期待値に持っていて赤になり、次の PR（#1567）の CI で初めて見えた。さらに `gh pr checks --watch` の終了だけを見て `gh pr merge --squash` を叩き、FAILURE 1 件のまま #1567 を merge した（`gh pr merge` は赤でも止めない）。**How to apply:** merge の前に `gh pr view <n> --json statusCheckRollup` で FAILURE が 0 件か必ず読む（watch の終了は緑の意味ではない）。`config/` の値を変える直 push は、値を期待値に持つテストを `git grep '<id>' tests` で探して回してから。

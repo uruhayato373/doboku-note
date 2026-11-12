@@ -185,6 +185,9 @@ export const CHECKS = [
   // SNS を再開するときに必要なものを作り直す（運営者の判断）。
   // 2026-10-31: 予約済み動画の商品・無料記事への導線漏れを実際に起こしたため、この1ゲートだけ復帰。
   // 2026-11-06: YouTube の再開と全面画像の標準化に合わせて復帰
+  // 2026-11-12: X の再開（運営者の決定・DN-1159）に合わせて、X の月次計画とコンテンツ台帳の 2 本を復帰
+  { id: 'x-campaign-plan', npm: 'check-x-campaign-plan', timeout: 30_000, ci: true, note: 'X月間計画の日付・導線・URL・販売投稿間隔を検査' },
+  { id: 'content-registry', npm: 'check-content-registry', timeout: 60_000, ci: true, note: 'コンテンツ台帳（content/registry）の検査。比較元は ci.yml の Fetch registry comparison base が REGISTRY_BASE に用意する（取れなければ比べない）' },
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: 'ショートの本数・タイトル・UTM・公開枠、停止以外の表紙が全面生成の標準か、採用画像の描画と画面確認が今の動画に結ばれているか' },
   { id: 'youtube-funnels', npm: 'check-youtube-funnels', timeout: 60_000, ci: true, note: '公開・予約・private 通常動画の有料note商品・UTM・関連サイト経路と公開台帳の一致を全件確認する' },
   { id: 'youtube-covers', npm: 'check-youtube-covers', timeout: 60_000, ci: true, note: 'YouTube の表紙を先生のキャラクターの POP に揃える。表紙の設計（cover-design.json）が先生の指定を欠く・投稿へ進んだ通常動画の表紙が設計の採用画像と違う、を止める（外部通信なし・2026-11-11 に図解の表紙が 1 本公開されていた）' },
@@ -323,7 +326,7 @@ export const CHECKS = [
   { id: 'task-plan-links', npm: 'check-task-plan-links', timeout: 30_000, ci: true, note: '.claude/plans/ の実装計画とbacklogカードの結線（存在・相互参照・1task=1plan・ID重複・孤児plan）。DN-0093 処方箋2' },
   { id: 'dispatch-log', npm: 'check-dispatch-log', timeout: 30_000, ci: true, note: 'dispatch-log.json の id 必須化・at キー・outcome 語彙整合（_schema=date/実データ=at/読み手=e.date の三つ巴不一致で weekly-review 集計が常に0件だった再発防止）。DN-0093 順4' },
   { id: 'dead-handles', npm: 'check-dead-handles', timeout: 60_000, ci: true, note: '退役ハンドル（404 note旧名・凍結X旧アカ）への参照と、コードが現行の識別子（サイト origin・note クリエイター・GSC プロパティ・R2 ホスト・X/IG ハンドル）を定数として書き写していないか' },
-  { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTC・実行環境のタイムゾーン・+9時間の自前計算で出ていないか（scripts・.claude・tools を走査。JST は scripts/lib/jst-date.mjs だけ）' },
+  { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTC・実行環境のタイムゾーン・+9時間の自前計算で出ていないか（scripts・.claude・tools・src を走査。JST は scripts/lib/jst-date.mjs だけ）' },
   { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査。資格台帳・日程・統計・出題形式（exam-formats）の id と照合記録の整合も見る' },
   { id: 'qualification-ssot', npm: 'check-qualification-ssot', timeout: 60_000, ci: true, note: '資格の名前・並び順が qualification-registry.json だけにあるか。設定の写しと、コードの資格 id→日本語対応表の基準超えを止める（2026-10-02: メニューごとに名前・順がずれた）' },
   { id: 'past-exam-inventory', npm: 'check-past-exam-inventory', timeout: 30_000, ci: true, note: '過去問の年度在庫台帳（台帳 id pastexams.inventory）と Drive 台帳の整合。FAIL は台帳の不整合だけで壁時計に依存しない。WARN（掲載中の未取得・最古年度の消失見込み・Drive 未退避・新年度の掲載見込み）の読み手＝/monthly-review 手順4' },
