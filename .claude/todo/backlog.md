@@ -416,6 +416,23 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1164] ショートを親 15 本から 30 本作る Workflow を、止めた所（設計 10 本・ブランチ wip/shorts-batch-2026-11-13）から再開する
+タグ: [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-11-13] [期日:2026-11-21]
+
+**起点**: 2026-11-13、運営者の決定でショートの試行の上限を 6 → 36 に広げ（`config/channel-annual-plan.json` の `shortsRule.trial.max`・DN-1001）、画像生成のプランを下げる 11/22 の前に、枠の割り当ての無い親 15 本から 30 本を作る Workflow（`shorts-factory`）を流した。運営者の指示で途中で止め、後でやることにした。
+
+**止めた時点**: 口頭試験 5 本・総監 5 本の親（10 本）で、2 本ずつの設計（`shorts-design.json`）と `youtube.json` の公開行まで書いた。台本 QA・画像・描画は未着手。20 ファイルはブランチ `wip/shorts-batch-2026-11-13` に積んである（台本 QA 前なので develop には入れていない）。残りの 5 本（`pe-construction/pe-gyoumu-shousai-720`・`pe-ii1-kakikata`・`pe-ii2-kakikata`・`pe-iii-kakikata`・`rccm/rccm-mondai3-ronbun-kata`）は設計も未着手。
+
+**やること**:
+1. ブランチ `wip/shorts-batch-2026-11-13` を develop の最新に載せ直し、その上で再開する
+2. Workflow の下書き（`.tmp/shorts-factory-workflow-draft.js`・git 管理外。消えていたら設計→台本QA（yt-shorts-publisher-qa）→plan・generate→監査（ai-image-fidelity-auditor）→adopt・render→画面確認→audio-check・stock の順で組み直す）を、設計済みの 10 本は設計の段を飛ばして台本 QA から流す。担当は判断の段が Sonnet、コマンドだけの段は Haiku・low。画像の並行は 2 本まで、描画と在庫入れは直列、エージェントに git を使わせない
+3. 在庫に入ったパックごとに commit し、develop へ PR で入れる。Workflow を正式に置くなら `.claude/workflows/` に足して registry を更新する
+
+**注意**: 画像生成のプランを 2026-11-22 に下げるので、画像の段はそれより前に回すのが安い（DN-1001）。`prepare-video-pack-shorts`（旧い公開行の一括生成）は今の動画パックで止まるので使わない。
+
+**完了条件**: 対象の親 15 本のショートが在庫に入り（`npm run shorts-factory -- status` で stocked）、develop に入っている。
+
+
 
 
 ### [DN-1157] 建設部門の合格者向けに「総監に進むか（手当・就ける役・受け方の順番）」の無料記事を 1 本書き、総監の既存商品へつなぐ（PC-008）
