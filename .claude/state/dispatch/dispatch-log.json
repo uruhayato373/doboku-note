@@ -7878,6 +7878,19 @@
       "commit": "876c5742baaf",
       "verification": "scripts/check-workflow-health.mjs:203・report-automation-failure.mjs:216・check-youtube-analytics.mjs:55・youtube-analytics.mjs:61 の main ガード",
       "note": "棚卸し: 管理画面が import する 4 本（check-workflow-health・report-automation-failure・check-youtube-analytics・youtube-analytics）はどれも process.argv[1] で main を守っていて、import しても CLI は走らない。移さずに残す"
+    },
+    {
+      "id": "DN-0175",
+      "at": "2026-11-12",
+      "task": "SNS残存画像を公開完了後に再監査する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fc934776c664",
+      "verification": "node --test tests/drive-vault.test.mjs tests/video-cache-prune.test.mjs（22 pass）・check-command-guidance 緑・du content/sns/x 60M",
+      "note": "棚卸し: 待っていた前提（通常動画 112 本・Shorts 224 本の照合）は PR #1441 で台帳から外れて消えた。X のカード画像は content/sns/x 60MB で 100MiB 未満なので KEEP_LOCAL を確定。legacy の YouTube thumbnail はリポジトリに残っていない。content/sns 全体は 85MB で再開条件の 500MiB に遠い。check-drive-vault の FAIL 12 件は note のカバー（DN-0525 の範囲）で、SNS の行は 0"
     }
   ]
 }
