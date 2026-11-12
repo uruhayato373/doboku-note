@@ -34,7 +34,7 @@
       "work": "c1-juken-junjo-2027",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "qa_passed",
       "media": {
         "cover": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/cover",
         "scene-001": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-001",
@@ -54,20 +54,7 @@
         "subtitles": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/c1-juken-junjo-2027/youtube.json#longform",
-      "publishAt": "2027-01-01T11:30:00Z",
-      "review": {
-        "visual": {
-          "status": "approved",
-          "by": "policy",
-          "at": "2026-11-10T12:43:05.273Z",
-          "digest": "0a1594392bb2c754aa604ee14cc1ea6a4b099ef528d68721703c7f981b26d8d9"
-        }
-      },
-      "approval": {
-        "by": "policy",
-        "at": "2026-11-10T12:43:05.273Z",
-        "contentSha256": "782e356a76ade69503ae01290f115b651fa0bc75458c9117b0e2428608c7e3a4"
-      }
+      "publishAt": "2027-01-01T11:30:00Z"
     },
     {
       "id": "civil-construction-1/c1-keiken-anzen-kakikata/youtube.longform",
@@ -469,7 +456,7 @@
       "work": "owner-eye-kouji-kensa",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "qa_passed",
       "media": {
         "cover": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-001",
@@ -490,20 +477,7 @@
         "subtitles": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/owner-eye-kouji-kensa/youtube.json#longform",
-      "publishAt": "2026-12-01T11:30:00Z",
-      "review": {
-        "visual": {
-          "status": "approved",
-          "by": "policy",
-          "at": "2026-11-10T12:44:41.508Z",
-          "digest": "a04638923010905ecbf0b70c8ecd1eb400992fe8888e920ff8463852a62d66c2"
-        }
-      },
-      "approval": {
-        "by": "policy",
-        "at": "2026-11-10T12:44:41.508Z",
-        "contentSha256": "cbe65e517d1bace1854b872e6fd835bc801e4b61554f5f92539c04f7c519792b"
-      }
+      "publishAt": "2026-12-01T11:30:00Z"
     },
     {
       "id": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform",
@@ -537,7 +511,7 @@
       "work": "owner-eye-sekkei-tosho",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "qa_passed",
       "media": {
         "cover": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-001",
@@ -572,20 +546,7 @@
         "subtitles": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-tosho/youtube.json#longform",
-      "publishAt": "2027-01-15T11:30:00Z",
-      "review": {
-        "visual": {
-          "status": "approved",
-          "by": "policy",
-          "at": "2026-11-10T12:43:53.647Z",
-          "digest": "6b4a774c990c4f874a55ac8e2789cdca04e602c85ad43af67de799d970b03316"
-        }
-      },
-      "approval": {
-        "by": "policy",
-        "at": "2026-11-10T12:43:53.647Z",
-        "contentSha256": "df34e47ed1e97fba2255de43ef1db6d9269ae317bac71cc8a71eac9231412bb4"
-      }
+      "publishAt": "2027-01-15T11:30:00Z"
     },
     {
       "id": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform",

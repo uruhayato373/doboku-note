@@ -101,7 +101,7 @@
       "work": "c2-juken-junjo-2027",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "qa_passed",
       "media": {
         "cover": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/cover",
         "scene-001": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/scene-001",
@@ -121,20 +121,7 @@
         "subtitles": "civil-construction-2/c2-juken-junjo-2027/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-2/c2-juken-junjo-2027/youtube.json#longform",
-      "publishAt": "2027-01-12T11:30:00Z",
-      "review": {
-        "visual": {
-          "status": "approved",
-          "by": "policy",
-          "at": "2026-11-10T12:46:39.894Z",
-          "digest": "1ff03871e685c711f9826bc5b0637e5ee08abf92f517b39cb0d49938eac734fc"
-        }
-      },
-      "approval": {
-        "by": "policy",
-        "at": "2026-11-10T12:46:39.894Z",
-        "contentSha256": "beab9016472427402f7e0ecf55fc0a14831b2d113a7fcdb58a30a30062f5aab3"
-      }
+      "publishAt": "2027-01-12T11:30:00Z"
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
