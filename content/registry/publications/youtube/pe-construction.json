@@ -481,7 +481,9 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-means-2"
-        }
+        },
+        "relatedVideoId": "AWiTjuOa1U4",
+        "desiredRelatedVideoId": "AWiTjuOa1U4"
       },
       "thumbnail": {
         "status": "set",
@@ -546,7 +548,9 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1"
-        }
+        },
+        "relatedVideoId": "AWiTjuOa1U4",
+        "desiredRelatedVideoId": "AWiTjuOa1U4"
       },
       "thumbnail": {
         "status": "set",
