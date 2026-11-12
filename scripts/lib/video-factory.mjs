@@ -386,7 +386,8 @@ export function ledgerVerdicts(root, pack, media) {
  * 方針が書いた画面確認の承認も外し、運営者の確認は残す。
  */
 export function unapprovedRow(pub) {
-  if (pub.status !== 'approved' || !pub.approval) throw new Error(`${pub.id}: ${pub.status} は承認済みの行ではない`);
+  // rendered は承認の後に手元で完成動画を検査しただけの段（投稿の前）。同じく戻せる（2026-11-12）
+  if (!['approved', 'rendered'].includes(pub.status) || !pub.approval) throw new Error(`${pub.id}: ${pub.status} は承認済みの行ではない`);
   if (pub.delivery?.uploadRequestedAt) throw new Error(`${pub.id}: 予約の段へ進んでいる（delivery あり）。registry-reconcile で実体を確かめる`);
   const { approval: _approval, review, ...rest } = pub;
   const keep = review?.visual && review.visual.by !== 'policy' ? { review } : {};
