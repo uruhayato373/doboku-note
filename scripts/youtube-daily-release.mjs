@@ -12,7 +12,8 @@
  * run は他のセッションと作業ツリーを共有しない専用の worktree で回す（develop へ commit・push する）。
  */
 import { execFileSync, spawnSync } from 'node:child_process';
-import { join } from 'node:path';
+import { cpSync, existsSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
 import { loadRegistry } from './lib/content-registry.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -59,6 +60,19 @@ function runPublishWorkflow(pub, digest) {
   const watched = spawnSync('gh', ['run', 'watch', run, '--exit-status', '--interval', '15'], { cwd: ROOT, stdio: 'ignore' });
   git('pull', '--rebase', 'origin', 'develop');
   if (watched.status !== 0) throw new Error(`${pub}: 投稿のワークフローが失敗（run ${run}）`);
+}
+
+/**
+ * 関門の「完成動画の照合」（media verify-render）は描画の作業場 .tmp/video-render/<作品> を読む。描画した checkout（メインの作業ツリー）にしか無く、
+ * Drive の在庫にも入らないので、専用の worktree に無ければメインの作業ツリーから複製する（2026-11-12・初回の実行が 4 本とも関門で落ちた）
+ */
+function ensureRenderWorkspace(work) {
+  const here = join(ROOT, '.tmp/video-render', work);
+  if (existsSync(join(here, 'render-manifest.json'))) return;
+  const main = dirname(resolve(ROOT, git('rev-parse', '--git-common-dir').trim()));
+  const source = join(main, '.tmp/video-render', work);
+  if (main === ROOT || !existsSync(join(source, 'render-manifest.json'))) throw new Error(`${work}: 描画の作業場（.tmp/video-render）が無い`);
+  cpSync(source, here, { recursive: true });
 }
 
 /** 在庫のショート 1 本を、準備 → 方針の承認 → 完成の検査 → R2 → 非公開の投稿まで進める */
@@ -108,6 +122,7 @@ function run() {
   if (q.longforms.length) {
     const packs = q.longforms.map((l) => l.pack).join(',');
     attempt('longform', packs, () => {
+      for (const l of q.longforms) ensureRenderWorkspace(l.pack.split('/')[1]);
       const rows = JSON.parse(node('scripts/video-factory.mjs', 'schedule', '--packs', packs));
       for (const r of rows.filter((x) => !x.ok)) failed.push({ kind: 'longform-gate', id: r.pack, error: r.failed });
       const ok = rows.filter((x) => x.ok).map((x) => x.pack);
