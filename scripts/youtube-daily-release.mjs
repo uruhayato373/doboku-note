@@ -23,6 +23,8 @@ import { releaseQueue } from './lib/youtube-daily-release.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 
 const command = process.argv[2] ?? 'queue';
+// R2 への配置（registry stage-youtube・stage-youtube-renders-r2）は環境変数の資格情報を読む。子の工程へ引き継ぐため最初に読み込む
+if (existsSync(join(ROOT, '.env.local'))) process.loadEnvFile(join(ROOT, '.env.local'));
 
 function queue({ longformPerDay } = {}) {
   const policy = readPolicy(ROOT);
@@ -134,6 +136,8 @@ function run() {
     });
   }
   // 通常動画の予約で親が増えたので、ショートの候補を数え直す
+  // 投稿の時刻（times.uploaded）は CI が develop に書く。取り込んでから割当の残りを数える（数え漏れでショートを割当の外へ流しかけた・2026-11-12）
+  git('pull', '--rebase', 'origin', 'develop');
   // 通常動画は済んだので、割当の残りを全部ショートに回す
   for (const item of queue({ longformPerDay: 0 }).shorts) attempt('short', item.pub, () => releaseShort(item, policy));
   const after = queue();
