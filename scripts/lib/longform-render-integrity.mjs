@@ -44,7 +44,7 @@ export function verifyLongformRender(packDir, renderDir) {
     durations.push(row.actualSec);
   }
   const subtitles = readFileSync(join(renderDir, 'subtitles.ass'));
-  if (sha256(subtitles) !== manifest.integrity.subtitlesSha256 || subtitles.toString('utf8') !== buildLongformAss(board.scenes, durations)) {
+  if (sha256(subtitles) !== manifest.integrity.subtitlesSha256 || subtitles.toString('utf8') !== buildLongformAss(board.scenes, durations, { subtitleVersion: manifest.integrity.subtitleVersion ?? 1 })) {
     throw new Error('字幕が現行台本・音声実尺と一致しません');
   }
   if (sha256(artifact(renderDir, manifest.mp4)) !== manifest.integrity.mp4Sha256) throw new Error('完成MP4のSHA不一致');

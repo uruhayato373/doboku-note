@@ -51,7 +51,9 @@ function assTime(sec) {
  * @param {Array} scenes storyboard.scenes
  * @param {number[]} [durations] 各 scene の実尺（wav 実測）。省略時は storyboard の end-start
  */
-export function buildLongformAss(scenes, durations) {
+/** subtitleVersion 1 は 2026-11-11 より前の字幕の区切り（render-manifest の integrity.subtitleVersion が無い描画） */
+export const SUBTITLE_VERSION = 2;
+export function buildLongformAss(scenes, durations, { subtitleVersion = SUBTITLE_VERSION } = {}) {
   const header = `[Script Info]
 ScriptType: v4.00+
 PlayResX: ${LONGFORM_W}
@@ -74,7 +76,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text`
       throw new Error(`${scene.sceneId}: subtitleMarginV は 1〜${LONGFORM_H - 56} の整数で指定してください`);
     }
     // 語の途中・句読点の前で切らない（DN-0592）。Shorts・Reels と同じ区切り
-    const chunks = subtitleChunks(scene.narration ?? '', 28);
+    const chunks = subtitleChunks(scene.narration ?? '', 28, { legacy: subtitleVersion < 2 });
     let chunkStart = t;
     chunks.forEach((text, chunkIndex) => {
       const chunkEnd = chunkIndex === chunks.length - 1
