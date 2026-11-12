@@ -12,7 +12,7 @@
  * run は他のセッションと作業ツリーを共有しない専用の worktree で回す（develop へ commit・push する）。
  */
 import { execFileSync, spawnSync } from 'node:child_process';
-import { cpSync, existsSync } from 'node:fs';
+import { cpSync, existsSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { loadRegistry } from './lib/content-registry.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
@@ -76,7 +76,11 @@ function ensureRenderWorkspace(work) {
   const source = join(main, '.tmp/video-render', work);
   if (main === ROOT || !existsSync(join(source, 'render-manifest.json'))) throw new Error(`${work}: 描画の作業場（.tmp/video-render）が無い`);
   cpSync(source, here, { recursive: true });
+  copiedRenders.push(here);
 }
+
+// 複製した描画の作業場は投稿の後に消す。残すと check-drive-vault が「手元にしか無い」と数える（正本はメインの作業ツリー・2026-11-12）
+const copiedRenders = [];
 
 /** 在庫のショート 1 本を、準備 → 方針の承認 → 完成の検査 → R2 → 非公開の投稿まで進める */
 function releaseShort(item, policy) {
@@ -142,6 +146,7 @@ function run() {
     });
   }
   // 通常動画の予約で親が増えたので、ショートの候補を数え直す
+  for (const dir of copiedRenders.splice(0)) rmSync(dir, { recursive: true, force: true });
   // 投稿の時刻（times.uploaded）は CI が develop に書く。取り込んでから割当の残りを数える（数え漏れでショートを割当の外へ流しかけた・2026-11-12）
   git('pull', '--rebase', 'origin', 'develop');
   // 通常動画は済んだので、割当の残りを全部ショートに回す
