@@ -8076,6 +8076,23 @@
       "commit": "07f17fdf84a2",
       "verification": "gh api repos/.../dependabot/alerts/118 → 410 withdrawn・state=open の警告 0 件",
       "note": "Dependabot alert #118 は GitHub が勧告を取り下げた（API が HTTP 410「Alert number 118 has been withdrawn」）。開いている Dependabot の警告は 0 件。ルートの minimatch 3.1.5 は eslint-plugin-react と glob 7 が関数として呼ぶので上げない"
+    },
+    {
+      "id": "DN-1144",
+      "at": "2026-11-12",
+      "task": "総監の note 3 本のサイト送客リンクに utm_term が無い（原稿とライブの両方を直す）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-note-site-utm"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2f071a3fc0e4",
+      "verification": "check-note-site-utm 違反 0・note 公開 API の本文のサイトリンクに utm_term",
+      "note": "add-note-utm で 3 本の原稿に utm_term を足し（7・1・1 件）、note-update-body --sync --commit でライブへ反映（3 本とも API 実体検証 OK）。公開 API の本文で見えるサイト送客リンクはすべて utm_term つき（有料部分は API で見えない）。check-note-site-utm は 1110 ファイル・違反 0"
     }
   ]
 }
