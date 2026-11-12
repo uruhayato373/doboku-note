@@ -805,7 +805,7 @@
       "work": "pe-geotechnical-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-001",
@@ -824,7 +824,23 @@
         "subtitles": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#longform",
-      "publishAt": "2027-04-13T03:15:00Z"
+      "publishAt": "2026-11-14T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T02:35:55.421Z",
+          "digest": "a12c193435c274ab88878cb112cc3f7c4e2ac709627b669d9fcbc5c83be5af4b"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T02:35:55.421Z",
+        "contentSha256": "8a003c13e564e7f5433ac990c48ff622b7b31818bd6c0aac47da00f879ebed30"
+      },
+      "times": {
+        "rendered": "2026-11-12T02:46:02.708Z"
+      }
     },
     {
       "id": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-kazu-1",
@@ -1323,7 +1339,7 @@
       "work": "pe-road-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1342,7 +1358,23 @@
         "subtitles": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#longform",
-      "publishAt": "2027-02-12T03:15:00Z"
+      "publishAt": "2026-11-14T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T02:35:53.087Z",
+          "digest": "242693dae35de8049bc13d6bcb1c8f0bf447c3d10208d8ea26ff1257378f2df7"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T02:35:53.087Z",
+        "contentSha256": "f017437b31439c2c5d1638371f22639d95d0715c9ade9972c977a712b5688c97"
+      },
+      "times": {
+        "rendered": "2026-11-12T02:45:50.668Z"
+      }
     },
     {
       "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2",
@@ -1371,7 +1403,7 @@
       "work": "pe-tunnel-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1390,7 +1422,23 @@
         "subtitles": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#longform",
-      "publishAt": "2026-11-13T03:15:00Z"
+      "publishAt": "2026-11-13T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T02:35:54.216Z",
+          "digest": "6553510af478ce2cad383b8b06aa0bc2952b585b3fe38b2814599a1bf0e495be"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T02:35:54.216Z",
+        "contentSha256": "fd9e5f6d7125fdb112eacb75749c8937088e13a54d6d73ff6364741d529825b2"
+      },
+      "times": {
+        "rendered": "2026-11-12T02:45:57.975Z"
+      }
     },
     {
       "id": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-jogai-2",
