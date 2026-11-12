@@ -667,20 +667,6 @@ quality-audit.mjs の lint-ja（ci:true）は npm run lint:ja = scripts/lint-ja.
 **完了条件**: 記事の口頭試験の配点と合格基準の記述が、一次資料の URL と一致する。
 
 
-### [DN-1103] video-factory publish が未コミットの変更と drive-manifest の競合で途中で止まらないようにする
-タグ: [領域:SNS] [時期:2026-12] [種類:不具合] [起票:2026-11-11]
-
-**起点**: 2026-11-11 の `video-factory publish` が 2 回止まった。
-1. 作業ツリーに未コミットの変更（別セッションの memory、PR に出した scripts）があり、`git pull --rebase origin develop`（`scripts/video-factory.mjs:488`）が「unstaged changes」で拒否された。`rebase.autoStash=true` は効いていなかった。止まったのは mark-rendered・R2 転送・台帳の commit の後で、push と dispatch の前
-2. 同期で `.claude/state/assets/drive-manifest.json` が競合し、rebase の途中で止まった。両側が項目を足しただけで、両方を残せば解ける
-
-DN-1072 の 3（割当の計算の前に pull）とは別の論点。
-
-**やること**:
-1. publish の最初に作業ツリーを検査し、未コミットがあれば何もしないうちに止める（転送や commit の後で止めない）
-2. drive-manifest.json の競合は、同じキーで値が違わない限り両側を残して解く処理を lib に置き、`git pull` の競合時に使う（または .gitattributes の merge driver）
-
-**完了条件**: 未コミットの変更がある状態で publish を打つと、転送も commit もせずに止まるテストがある。両側が項目を足した drive-manifest.json の競合が手で直さずに解ける。
 
 
 
@@ -1054,10 +1040,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **統合（2026-11-10 整理）: 旧 DN-0737「通常動画の再生数が yt-dlp の一覧で取れなくなった原因を確かめて直す」**
 同じ原因（手元の yt-dlp が古い）なので 1 枚にまとめた。記録は 10/08 が 70/70 本、10/10 が 0/73 本、10/12 が 5/74 本。`brew upgrade yt-dlp` は Command Line Tools for Xcode の更新待ちで止まっている（2026-10-26）。運営者が CLT を更新してから進める。完了条件に「`npm run youtube-own-metrics -- --dry-run` が通常動画の再生数を取れて exit 0」を足す。
 
-
-
-
-
+**進捗（2026-11-12）**: 2 は既に入っていた（youtube-own-metrics は再生数の全滅で保存しない。手元の 2026.06.09 で 34/34 本が取れず、保存が止まることを確かめた）。1 の `brew upgrade yt-dlp` は Command Line Tools for Xcode 27.0 の更新（sudo）待ちで止まる。月次の自社取得は CI（youtube-own-metrics.yml・yt-dlp 2026.10.26 を固定・DN-0596）へ移したので、CI が初回に成功すれば手元の版は月次に関係しない。手元に残る用途は scout-youtube-competitors の手動実行だけ
 
 ### [DN-1025] note スクリプトの起動と確認を note-browser へ移す
 タグ: [インフラ・計測] [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-11-06]
@@ -1824,14 +1807,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 
-### [DN-0898] YouTube無音プレビューの終端に最終場面の尺が重複する
-タグ: [領域:商品] [時期:2026-12] [種類:不具合] [起票:2026-10-27]
-
-**起点**: 2026-10-27 の通常動画プレビューで、レンダー済み MP4 と無音プレビューの尺が一致しない。shunin-ochiru-shouronbun は 119.861 秒対 136.000 秒、shunin-r8-juuten は 115.392 秒対 130.600 秒（ffprobe）。preview-metrics.json は実尺を報告するため、確認用動画の終端だけが余分に続く。
-
-**やること**: scripts/lib/media-preview.mjs の ffconcat 末尾重複画像の処理を修正し、無音プレビューの実尺を場面秒数の合計に合わせる。既存の確定済み予約行のプレビュー素材・承認を暗黙に差し替えない。
-
-**完了条件**: 最終 CTA 場面が余分に繰り返されず、ffprobe で得る preview.mp4 の長さが preview-metrics.json の previewSec と 1 フレーム以内で一致する回帰検査を追加する。
 
 
 
@@ -3133,22 +3108,6 @@ docs/operations/12_Playwright_E2E導入設計.md の「実行順」は Node 20�
 **完了条件**: catalog に案件の有無と条件（または検索した範囲）が記録され、配置するかどうかの判断が運営者に渡っている。
 
 
-### [DN-1072] 動画の制作のトークンと画像の費用の無駄を減らし、publish と監査の取りこぼしを直す
-タグ: [領域:SNS] [時期:2026-12..2027-01] [種類:改善] [起票:2026-11-10]
-
-**起点**: 2026-11-10 の制作サイクルの設計レビュー（Fable）。
-- 場面の画像の入力ハッシュは narration を含む（`scripts/lib/longform-pop-images.mjs:10`）ので、語りの語句を直すだけで、図の文字が同じでも再生成と再監査になる
-- 監査は回ごとに新しいエージェントを起動し（`.claude/workflows/video-factory.js:59-60`）、作り直した 1〜2 枚のために約 8 万トークンを払う
-- `publish` は dispatch の 8 秒後に `gh run list --limit 1` で run を取る（`scripts/video-factory.mjs:412-415`）。登録が遅れると直前の完了済みの run を見て次を流す。日次の割当は `git pull` の前のローカル台帳で数える（同 :385 と :408）
-- 監査で判定が漏れた項目は不合格 0 として次へ進み（workflow :62-65）、`adopt` で別の理由に化けて止まる
-
-**やること**:
-1. 画像の入力ハッシュを `visual` と `caption` に絞り、narration だけの変更は既存画像の再監査にする
-2. 作り直しの監査には不合格だった項目だけを渡す
-3. `publish` は dispatch の前の最新の run id を控え、それより新しい run を待つ。`git pull` を割当の計算の前に移す
-4. 監査の直後に未判定が 0 件であることをコマンドで確かめる
-
-**完了条件**: narration だけの修正で画像が再生成されない。publish が別の run を待たない。未判定の項目が監査の段で止まる。
 
 
 ### [DN-1071] 音声の関門で場面の欠落と数字の誤読を見られるようにする
@@ -3163,6 +3122,7 @@ docs/operations/12_Playwright_E2E導入設計.md の「実行順」は Node 20�
 
 **完了条件**: 1 場面を欠いた音声と、数字を誤読した音声が関門で落ちるテストがある。
 
+**進捗（2026-11-12・PR #1562）**: 1 は済んだ（場面ごとの一致度の最小 `sceneSimilarityMin` を記録し、`audio.minSceneSimilarity` 0.6 未満で落とす。実機の pe-road-shutsudai-yomikata で 0.895）。3 は手順から外した。2 の数字・英字の読みの照合は実装したが、実機の 1 本で 7 件を誤って数えた（「1設問」「4系統」を数字と次の漢字 1 字に分ける・促音のイッを外れとする）ため、`audio.maxTokenMisreads: null`（記録だけ）にした。残りは、語の切り方（数字＋助数詞・語の単位）と促音・連濁を吸収してから、上限の件数を決めて関門に入れること
 
 ### [DN-1041] note カバーの V3 と V4 の文書を統合して廃止する
 タグ: [領域:管理] [種類:改善] [起票:2026-11-07]
