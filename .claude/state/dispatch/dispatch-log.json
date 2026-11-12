@@ -8042,6 +8042,23 @@
       "commit": "046b719415ee",
       "verification": "gh run list --workflow ci.yml --commit fdfca2980 → 0 件",
       "note": "台帳だけの push（fdfca2980・fd4a7bc86）で Pre-merge check が 0 件、台帳以外の push（7ebf16682・046b71941 ほか）では今までどおり走っている。.claude/worktrees/ci-push-scope は無い"
+    },
+    {
+      "id": "DN-1104",
+      "at": "2026-11-12",
+      "task": "総監の合格戦略記事の口頭試験の配点（60点・40点）を一次資料と照合して直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "記事は正しく、出典の欠落だけだった"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fc070dcf5a31",
+      "verification": "pdftotext で実施大綱 PDF を読み、口頭試験の配点の表を確認・MEXT の合否決定基準ページで 60% 以上を確認",
+      "note": "記事の配点（60点・40点）は技術士第二次試験実施大綱の口頭試験の配点（総監・必須科目に対応: 経歴及び応用能力 60点満点・体系的専門知識 40点満点）と一致していた。実施大綱の URL と令和8年度の合否決定基準（試問事項ごとに 60% 以上）を本文に添えた"
     }
   ]
 }
