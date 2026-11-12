@@ -824,6 +824,25 @@ export const YoutubeOwnVideos = z
   })
   .meta({ title: '自社 YouTube の動画' });
 
+/** 動画 1 本の維持率曲線。measured は elapsedVideoTimeRatio 昇順の点、no-data（API の空行）と error（API の失敗）は点なし */
+const YoutubeRetention = z
+  .object({
+    state: z.enum(['measured', 'no-data', 'error']).describe('API の維持率の行の有無。失敗は error'),
+    points: z.array(z.object({
+      ratio: z.number().min(0).max(1).describe('動画の経過割合（elapsedVideoTimeRatio）'),
+      audienceWatchRatio: z.number().min(0).describe('その地点を見ている視聴者の割合。再視聴で 1 を超えうる'),
+      relativeRetentionPerformance: z.number().min(0).describe('同じ長さの動画の中での相対的な維持（公式の範囲は 0〜1）'),
+    }).strict()),
+    error: z.string().optional().describe('error のときの理由（先頭 200 字）'),
+  })
+  .strict()
+  .superRefine((r, ctx) => {
+    if ((r.state === 'measured') !== (r.points.length > 0)) flag(ctx, ['points'], 'measured と点の有無が合わない');
+    if (r.state === 'error' && !r.error) flag(ctx, ['error'], 'error には理由が要る');
+    if (r.state !== 'error' && r.error) flag(ctx, ['error'], 'error 以外に理由は付けない');
+    r.points.forEach((p, i) => { if (i && p.ratio <= r.points[i - 1].ratio) flag(ctx, ['points', i, 'ratio'], 'ratio が昇順でない'); });
+  });
+
 /** 公開台帳の videoId で結んだ YouTube Analytics API の28日窓。空の API 行は 0 にせず no-data として残す。 */
 export const YoutubeAnalytics = z
   .object({
@@ -832,7 +851,11 @@ export const YoutubeAnalytics = z
     source: z.literal('youtube-analytics-api-v2'),
     channelId: z.string().min(1).describe('認証済みの対象チャンネル ID'),
     period: z.object({ startDate: jstDate('対象期間の開始日'), endDate: jstDate('対象期間の終了日') }).strict(),
-    coverage: z.object({ targets: count('公開台帳で対象になった動画数'), measured: count('基本指標の API 行があった動画数'), noData: count('基本指標の API 行が無かった動画数') }).strict(),
+    coverage: z.object({
+      targets: count('公開台帳で対象になった動画数'), measured: count('基本指標の API 行があった動画数'), noData: count('基本指標の API 行が無かった動画数'),
+      retention: z.object({ targets: count('維持率曲線の対象になった動画数'), measured: count('維持率曲線を取れた動画数'), noData: count('維持率曲線の API 行が無かった動画数（基本指標が無い動画を含む）'), failed: count('維持率曲線の API が失敗した動画数') }).strict()
+        .optional().describe('維持率曲線（DN-1063）を取った記録だけ。古い記録には無い'),
+    }).strict(),
     videos: z.array(z.object({
       publicationId: z.string().min(1).describe('コンテンツ台帳の公開 ID'),
       videoId: z.string().min(1).describe('YouTube 動画 ID'),
@@ -843,6 +866,7 @@ export const YoutubeAnalytics = z
       averageViewDurationSec: orNull(z.number().min(0).describe('平均視聴時間（秒）'), 'API 行なしは null'),
       averageViewPercentage: orNull(z.number().min(0).describe('平均視聴率（%）'), 'API 行なしは null。再視聴で100%を超えうる'),
       trafficSources: z.array(z.object({ type: z.string().min(1), views: count('期間内の流入元別視聴回数') }).strict()).superRefine(uniqueBy('type', '流入元')).describe('insightTrafficSourceType。API に行が無ければ空配列'),
+      retention: YoutubeRetention.optional().describe('動画ごとの維持率曲線（DN-1063）。取り始める前の記録には無い'),
     }).strict()).superRefine(uniqueBy('videoId', '動画 ID')),
   })
   .strict()
@@ -856,7 +880,16 @@ export const YoutubeAnalytics = z
       if (v.state === 'no-data' && values.some((x) => x !== null)) flag(ctx, ['videos', i], 'no-data の指標は null');
       if (v.state === 'measured' && values.some((x) => x === null)) flag(ctx, ['videos', i], 'measured の指標は数値');
       if (v.state === 'no-data' && v.trafficSources.length) flag(ctx, ['videos', i, 'trafficSources'], '基本指標が無いのに流入元の行がある');
+      if (v.state === 'no-data' && v.retention && v.retention.state !== 'no-data') flag(ctx, ['videos', i, 'retention'], '基本指標が無いのに維持率の行がある');
     });
+    if (s.coverage.retention) {
+      const states = s.videos.map((v) => v.retention?.state);
+      const r = s.coverage.retention;
+      if (states.some((x) => x === undefined)) flag(ctx, ['coverage', 'retention'], '維持率を取った記録なのに維持率の無い動画がある');
+      else if (r.targets !== s.videos.length || r.measured !== states.filter((x) => x === 'measured').length || r.noData !== states.filter((x) => x === 'no-data').length || r.failed !== states.filter((x) => x === 'error').length) {
+        flag(ctx, ['coverage', 'retention'], '維持率の取得数が動画行と合わない');
+      }
+    } else if (s.videos.some((v) => v.retention)) flag(ctx, ['coverage', 'retention'], '維持率の行があるのに取得数の集計が無い');
   })
   .meta({ title: 'YouTube Analytics の動画別指標' });
 

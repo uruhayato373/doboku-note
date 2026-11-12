@@ -580,6 +580,8 @@
     "youtube-own-metrics": "node scripts/youtube-own-metrics.mjs",
     "youtube-analytics": "node scripts/youtube-analytics.mjs",
     "check-youtube-analytics": "node scripts/check-youtube-analytics.mjs",
+    "youtube-retention-summary": "node scripts/youtube-retention-summary.mjs",
+    "check-youtube-own-freshness": "node scripts/check-youtube-own-freshness.mjs",
     "x-article:prepare": "node scripts/prepare-x-article-teaser.mjs",
     "x-article:publish": "node scripts/x-article-publish.mjs",
     "x-queue-surfacer": "node scripts/x-queue-surfacer.mjs",

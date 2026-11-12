@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { auditPlanMetrics, judgeMetric, loadMetricStatuses } from '../scripts/lib/metric-status.mjs';
+import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { auditPlanMetrics, campaignClickTotals, judgeMetric, loadMetricStatuses } from '../scripts/lib/metric-status.mjs';
 import { ConfigChannelAnnualPlan } from '../scripts/lib/dataset-schemas-content.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 import { REPO_ROOT as root } from '../scripts/lib/repository-paths.mjs';
@@ -50,4 +53,15 @@ test('実データで読める: SNS のサイト流入は未計測にならな�
     assert.notEqual(statuses.get(id).state, 'unmeasured', id);
     assert.notEqual(statuses.get(id).state, 'missing', id);
   }
+});
+
+test('暦の週・月の教材クリックは X と動画のキャンペーンの集合だけを合計し、該当の行が無い種類は 0 にせず載せない（DN-1086）', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'campaign-totals-'));
+  mkdirSync(join(dir, 'content/sns/video-packs/civil-construction-1/pack-a'), { recursive: true });
+  mkdirSync(join(dir, 'content/sns/x/campaigns'), { recursive: true });
+  writeFileSync(join(dir, 'content/sns/x/campaigns/a.json'), JSON.stringify({ posts: [{ target: 'https://doboku-note.com/exam/?utm_source=x&utm_campaign=x-a' }, { target: 'https://doboku-note.com/' }] }));
+  const rows = [{ campaign: 'x-a', eventCount: 3 }, { campaign: 'pack-a', eventCount: 2 }, { campaign: 'pack-a ', eventCount: 7 }, { campaign: '(organic)', eventCount: 600 }];
+  assert.deepEqual(campaignClickTotals(dir, rows), { xCampaignClicks: 3, youtubeCampaignClicks: 2 });
+  assert.deepEqual(campaignClickTotals(dir, [{ campaign: '(organic)', eventCount: 9 }]), {});
+  assert.deepEqual(campaignClickTotals(dir, []), {});
 });
