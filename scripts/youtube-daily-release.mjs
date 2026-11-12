@@ -21,6 +21,7 @@ import { shortsStatus } from './lib/shorts-factory.mjs';
 import { nextSlot, readPolicy, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { releaseQueue } from './lib/youtube-daily-release.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const command = process.argv[2] ?? 'queue';
 // R2 への配置（registry stage-youtube・stage-youtube-renders-r2）は環境変数の資格情報を読む。子の工程へ引き継ぐため最初に読み込む
@@ -32,7 +33,7 @@ function queue({ longformPerDay } = {}) {
   const stocked = shortsStatus(ROOT).filter((s) => s.stage === 'stocked');
   return releaseQueue({
     publications: reg.publications, stocked, plan: readDataset(ROOT, 'config.channel-annual-plan'),
-    uploadsLeft: uploadsLeft(reg.publications, policy), longformPerDay: longformPerDay ?? (policy.uploadPriority === 'longform' ? Infinity : policy.slot.maxPerDay),
+    uploadsLeft: uploadsLeft(reg.publications, policy), today: todayJst(), longformPerDay: longformPerDay ?? (policy.uploadPriority === 'longform' ? Infinity : policy.slot.maxPerDay),
   });
 }
 
@@ -117,6 +118,11 @@ function run() {
   if (git('status', '--porcelain', '--untracked-files=no').trim()) throw new Error('作業ツリーに未コミットの変更がある。専用の worktree で回す');
   git('pull', '--rebase', 'origin', 'develop');
   const policy = readPolicy(ROOT);
+  const replaced = queue().toReplace;
+  if (replaced.length) {
+    for (const pack of replaced) node('scripts/video-factory.mjs', 'unapprove', '--pack', pack);
+    pushRegistry(`content(video): 前倒しの前に承認した通常動画 ${replaced.length} 本の承認を外し、空き枠から日時を付け直す`);
+  }
   const q = queue();
   const done = [], failed = [];
   const attempt = (kind, id, fn) => { try { fn(); done.push(`${kind} ${id}`); } catch (e) { failed.push({ kind, id, error: e.message.slice(0, 800) }); } };
