@@ -21,10 +21,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-1145] YouTube の在庫を前倒しの公開ペースに追いつかせる制作計画を決めて回す
-タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-12] [期日:2026-11-20]
-
-2026-11-12 に通常動画 1 日 2 本・ショート 1 日 2 本で在庫を前倒しで出すと決めた（npm run youtube-daily・毎晩 21:40 の予定タスク）。在庫の通常動画 46 本は 2026-12-07 ごろに尽き、年間計画の台本未着手 16 本を足しても 12 月中旬まで。前倒しの期間（cycle.frontLoad・2027-01-31 まで）を 1 日 2 本で埋めるには約 160 本が要り、枠の合計 71 本では足りない。決めること: (1) 1 月末まで 1 日 2 本を続けるか、在庫が尽きたら 1 日 1 本へ落とすか (2) 足りない分の新しい枠（資格×型）を年間計画に足す (3) 量産の枠（Workflow の週の上限・トークン）を見て、週に作る本数を決める。ショートは通常動画 1 本につき 2 本（shortsRule.perLongform）で、在庫 43 本は親の予約に合わせて出る。
 
 
 
@@ -240,18 +236,6 @@ uptime-ping.yml の sweep が 2026-11-10・11-11 のデプロイ後に 2 回と�
 **完了条件**: 実験の判定が記録され、登録の特典を続けるか、広げるかが決まっている。
 
 
-### [DN-0980] video-review で fail の動画 15 本を直すか取り下げる
-タグ: [SNS・マーケ] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-04]
-
-- **起点**: 2026-11-04 に `video-review` で承認待ち 43 本を確認し、fail が 15 本あった。判定と理由は `npm run -s video-review -- summary` と台帳 `.claude/state/quality/video-agent-reviews.json` にある
-- **やること**: 誤字、表紙の切れ、令和8年度予想の扱い、本人の合格経験の記述、計画や出題回数の古さ、総監の矛盾と択一の解説、完成動画の素材と文面の不足を直す。経験の事実は運営者が確かめる
-- **進捗（2026-11-04）**: 台本を直せる 8 本は修正した。再確認で 8 本とも pass（道路は再修正のあと）。sanso-kozo は youtube.json を補って pass。hissu1-theme-map は台本・storyboard・video-pack.json を R01〜R08 の 16 問の数え方（防災 4・国土形成 3・残り 4 系統は各 2・未分類 1）に組み直したが、表紙が「7年分」のままで fail。**残り**: ②hissu1-theme-map は表紙の作り直し（見出しの 2 行目を「8年分を地図に」に変える。cover-design.json と pop-image.json も同じ文言にする。Drive の cover.aa3fda1a.png は「Ⅰ」が化けて 7 年分のままなので使わない）。youtube.json はまだ無い ③monbun-yomikata は場面の画像の作り直し ⑤sentaku-steel-concrete-yomikata は表紙の作り直し ⑥R8 予想の 3 本（kata-oudan-ryuyo・r8-yosou-theme・r8-yosou-dashikata）は取り下げと運営者が決めた（2026-11-04）。stop は運営者だけが実行できる
-- **進捗（2026-11-05）**: `sanso-kozo` は画像から作り直し、関門を通して予約した（`MMRMmDWtyWo`、11/6 20:30）。残りは ②hissu1-theme-map の表紙、③monbun-yomikata の場面画像、⑤sentaku-steel-concrete-yomikata の表紙、⑥R8 予想 3 本の stop
-- **運営者の作業（後で行う）**: 次の 3 つをターミナルで実行する（エージェントからは実行できない）。3 本とも未公開の qa_passed
-  - `npm run registry -- stop --pub pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform --reason user-decision`
-  - `npm run registry -- stop --pub pe-comprehensive-management/r8-yosou-theme/youtube.longform --reason user-decision`
-  - `npm run registry -- stop --pub pe-construction/r8-yosou-dashikata/youtube.longform --reason user-decision`
-- **完了条件**: 直した動画を再確認して pass か取り下げかが決まっている
 
 
 ### [DN-0969] 総監の完全パック・コアパックを R8 本試験と R9 予想の収録へ更新する
@@ -710,19 +694,6 @@ DN-1072 の 3（割当の計算の前に pull）とは別の論点。
 **完了条件**: 未コミットの変更がある状態で publish を打つと、転送も commit もせずに止まるテストがある。両側が項目を足した drive-manifest.json の競合が手で直さずに解ける。
 
 
-### [DN-1102] 動画の合成出力が Drive に退避されず check-drive-vault が FAIL 356 件になっている分を片づける
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-11]
-
-**起点**: 2026-11-11 に手元で `npm run check-drive-vault` を回すと FAIL 356 件・WARN 86 件。中身は `.tmp/video-render/<パック>/` の合成出力（img・wav・mp4 など）が Drive に退避されていない `unsynced`。同日の通常動画 9 本の制作で増えた分を含む。台帳（drive-manifest.json）の競合解消による破損ではない（JSON は読める）。
-
-**未確認**: 予約後の `audit-funnel` と `cleanup`（video-factory.md「Workflow で回す」）を回せば消える分なのか、制作済みの古いパックの取り残しが混ざっているのか。
-
-**やること**:
-1. FAIL をパック別に数え、予約済み・承認済み・制作途中に分ける
-2. 予約済みのパックは `audit-funnel` で実体を確かめてから `cleanup` を回す
-3. それでも残る分は、退避するか消すかを決める
-
-**完了条件**: `check-drive-vault` の unsynced が、制作途中のパックの分だけになる。
 
 
 
@@ -1333,6 +1304,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 - **やること**: ① 主任技士の「令和8年度予想」を含む動画（公開済み `shunin-hinshutsu-yusen`・`shunin-r8-juuten`、予約済み `shunin-chinka-hibiware-genin`・`shunin-rekka-taio`・`shunin-shoki-3kyokusen`）の、2026-11-29 の試験後の扱いを決める ② 公開予定日がある 28 本のうち 10 本は承認の記録時刻が公開予定より後なので、理由を台帳の履歴で確かめる
 - **完了条件**: ① の扱いが決まり、② の理由が分かっている
 
+**運営者の決定（2026-11-12）**: ① の公開中 3 本（沈下ひび割れ・劣化機構・初期材齢の 3 曲線）は、11/29 の試験の後も概要欄を含めてそのまま残す。残りは ② の承認時刻の理由の確認だけ。
 
 ### [DN-0982] 管工事の工程表ガイドに遅延の再計算とダミーの例題と図を足す
 タグ: [領域:サイト] [時期:2027-05..2027-08] [種類:改善] [起票:2026-11-04]
@@ -4188,6 +4160,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **追加（2026-11-10）**: 6. ショートの本数。年間計画は枠ごとに 5 本前後（10 枠・計 60 本）を置いている。試行（DN-1001・通常動画 1 本につき 2 本）の結果が出るまで、枠の本数を下げるかを決める。旧 DN-0726（通常動画 38 本の仮配分の見直し）は、対象の 38 本を 2026-11-07 に計画から外したので、このカードにまとめた。
 
+**運営者の決定（2026-11-12）**: 1. 頻度は、在庫を 12 月上旬まで 1 日 2 本で前倒しし（cycle.frontLoad・〜2026-12-15）、その後は週 2 本・山場 3 本に戻す 2. exam-sokuho・moshi-free は止めたまま（枠 c1-moshi-2027 は採否待ちのまま残る・DN-0600） 5. 完成済みの選択科目は前倒しの期間に出す 6. ショートは通常動画 1 本につき 2 本のまま（12/15 の見直しで決める）。残りは 3（主 CTA が links-hub・site-article の商品・check-youtube-plan の要対応は 0）と 4（1級土木の入口）の確認。
 
 ### [DN-1006] YouTube・X・Instagram の年間計画を 3 か月の実測で見直す
 タグ: [領域:SNS] [時期:2027-02] [種類:意思決定] [起票:2026-11-06] [期日:2027-02-05]

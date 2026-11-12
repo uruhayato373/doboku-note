@@ -7478,6 +7478,45 @@
       "commit": "9a7ad2c9c84e",
       "verification": "Studio の概要欄の読み取り（2026-11-12）・check-content-registry FAIL 0",
       "note": "公開中の lNI2f_SjCTk の概要欄に「音声：VOICEVOX:青山龍星」が入っていることを Studio で確かめた（2026-10-31 の legacy-funnels の同期で反映済み）。改訂版 3 本は 2026-11-12 に user-decision で停止"
+    },
+    {
+      "id": "DN-0980",
+      "at": "2026-11-12",
+      "task": "video-review で fail の動画 15 本を直すか取り下げる",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3f19510a79b8",
+      "verification": "content/registry と content/sns/video-packs に該当の作品が無い（grep 0 件）",
+      "note": "残りの対象（hissu1-theme-map・monbun-yomikata・sentaku-steel-concrete-yomikata・R8 予想 3 本）は 2026-11-06 の #1441 で在庫と年間計画から消えていて、台帳にも動画パックにも無い。直す対象が無くなったので閉じる"
+    },
+    {
+      "id": "DN-1102",
+      "at": "2026-11-12",
+      "task": "動画の合成出力が Drive に退避されず check-drive-vault が FAIL 356 件になっている分を片づける",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3f19510a79b8",
+      "verification": "npm run check-drive-vault（FAIL 0）",
+      "note": "メインの作業ツリーの .tmp/video-render（64 パック・1,997 件）を drive-vault-sync の video-render-artifact で Drive へ退避した（コピー 1,827・変更なし 170・失敗 0・vault の読み直しで sha256 全件一致）。消してはいない"
+    },
+    {
+      "id": "DN-1145",
+      "at": "2026-11-12",
+      "task": "YouTube の在庫を前倒しの公開ペースに追いつかせる制作計画を決めて回す",
+      "tier": "high",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3f19510a79b8",
+      "verification": "npm run check-youtube-plan（違反 0）",
+      "note": "運営者の決定（2026-11-12）: 在庫 49 本は 1 日 2 本で 12 月上旬まで前倒し、尽きたら元の週 2 本・山場 3 本に戻す。frontLoad.to を 2026-12-15 に縮めた。週 2〜3 本なら年間計画の枠 71 本で足り、新しい枠は足さない。制作は年間計画の台本未着手 16 本から順に進める"
     }
   ]
 }
