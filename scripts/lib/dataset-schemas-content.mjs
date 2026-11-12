@@ -112,6 +112,11 @@ export const ConfigChannelAnnualPlan = z.object({
     peaks: z.array(z.object({ window: planWindow, why: z.string().min(1) }).strict()),
     calendarBasis: z.string().min(1).describe('2027 年度の月をどう置いたか。公式発表前は確定しない'),
     rebuildUntil: jstDate('計画の作り直しの期限。この日までは動画の行が 0 本でも検査不成立にしない').optional(),
+    frontLoad: z.object({
+      from: jstDate('在庫の前倒しを始める日'), to: jstDate('前倒しを終える日'),
+      weeklyMax: z.number().int().positive().describe('前倒しの間の週の上限（通常動画）'),
+      why: z.string().min(1), decidedAt: jstDate('運営者が決めた日'),
+    }).strict().optional().describe('在庫の前倒しの期間。この間は枠の時期を問わず公開し、週の上限を weeklyMax にする'),
   }).strict(),
   metrics: z.object({
     primary: z.array(z.string().min(1)).length(2).describe('成功指標の id（config.business-direction）。定義と計測の状態はそちらから引き、ここに書かない。登録者数・再生数・本数は入れない'),
@@ -397,7 +402,8 @@ export const RegistryPublications = z
 // ---- 素材（content/registry/media/{exam}.json・brand.json） ---------------------------------------------
 
 const Provenance = z.discriminatedUnion('kind', [
-  z.object({ kind: z.literal('render'), by: z.string().describe('描いたスクリプト'), spec: z.string().optional(), specSha256: sha256.optional(), renderInputSha256: sha256.optional(), tts: z.object({ engine: z.string(), speaker: z.number().int(), credit: z.string() }).strict().optional() }).strict(),
+  z.object({ kind: z.literal('render'), by: z.string().describe('描いたスクリプト'), spec: z.string().optional(), specSha256: sha256.optional(), renderInputSha256: sha256.optional(), tts: z.object({ engine: z.string(), speaker: z.number().int(), credit: z.string() }).strict().optional(),
+    reanchored: z.object({ reason: z.literal('cover-only'), commit: z.string().regex(/^[0-9a-f]{40}$/), specSha256: sha256, renderInputSha256: sha256, at: z.string() }).strict().optional().describe('表紙だけの変更の後に今の制作入力へ結び直した記録（registry reanchor-render・DN-1146）。前の値と描いた入力の commit') }).strict(),
   z.object({ kind: z.literal('template'), by: z.string(), spec: z.string().optional(), specSha256: sha256.optional() }).strict(),
   z.object({ kind: z.literal('ai-generated'), tool: z.string(), model: z.string().optional(), prompt: z.string().min(1), promptSha256: sha256, generatedAt: utcTime('生成した時刻') }).strict(),
   z.object({ kind: z.literal('photo'), source: z.string() }).strict(),

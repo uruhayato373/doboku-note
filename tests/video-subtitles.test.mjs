@@ -64,3 +64,10 @@ test('漢字の続く語（6 字まで）と数字の助数詞を字幕の途中
   assert.match(join('人手不足を補いながら精度と頻度を高める方向も解決策になります。'), /解決策/);
   assert.match(join('2.0は2040年度までに省人化3割、生産性1.5倍を掲げており、'), /2040年度/);
 });
+
+test('2026-11-11 より前の区切り（legacy）は漢字の続く語・数字と助数詞をつながない（旧描画の字幕の照合用）', async () => {
+  const { subtitleChunks } = await import('../scripts/lib/video-subtitles.mjs');
+  const text = 'IIIは、社会の動きを踏まえた課題を問います。テーマは毎年変わりますが、防災に関わる問いは令和2年度、6年度、8年度に、老朽化や点検の問いは令和元年度と4年度にありました。令和8年度は、課題を三つ挙げ、一つを選んで解決策を示し、残るリスクまで答える構成でした。';
+  assert.ok(subtitleChunks(text, 28).some((row) => row.startsWith('4年度')));
+  assert.ok(subtitleChunks(text, 28, { legacy: true }).some((row) => row.endsWith('令和元年度と4')));
+});

@@ -6,6 +6,7 @@
  *   npm run video-factory -- plan --pack <exam>/<work> [--scope all|cover] [--date YYYYMMDD] [--retry <項目 id,…|all>]
  *   npm run video-factory -- generate --pack <exam>/<work> [--concurrency 3] [--max-minutes 8]   # 時間切れは exit 3（打ち直すと続きから）
  *   npm run video-factory -- audit-queue --pack <exam>/<work>             監査へ渡す項目
+ *   npm run video-factory -- audit-verify --pack <exam>/<work>             監査の直後に未判定・画像なしが 0 件か（exit 1 で止める）
  *   npm run video-factory -- record-audit --pack <exam>/<work> --file <verdicts.json> --by <担当>
  *   npm run video-factory -- adopt --pack <exam>/<work>                   ok が揃ったら採用
  *   npm run video-factory -- render --pack <exam>/<work>                  音声・動画・照合・取り込み
@@ -51,7 +52,9 @@ import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
-import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
+import { stagedRenderWorks } from './lib/youtube-single-r2.mjs';
+import { assertCleanTree, dispatchAndWatch, pullRebaseResolvingManifest } from './lib/publish-sync.mjs';
+import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, readingRiskTokens, sceneSimilarity, speechSimilarity, tokenMisreads, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { scriptQueue, slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
 import { loadPlanAudit } from './lib/youtube-longform-plan.mjs';
 import { loadSiteRoutes, siteArticleUrl } from './lib/site-links.mjs';
@@ -61,7 +64,7 @@ const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     stock: { type: 'boolean' }, retry: { type: 'string' }, all: { type: 'boolean' },
-    pack: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' },
+    pack: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' }, r2: { type: 'boolean' },
     concurrency: { type: 'string' }, 'max-minutes': { type: 'string' }, packs: { type: 'string' }, 'publish-at': { type: 'string' }, file: { type: 'string' }, by: { type: 'string' }, avg: { type: 'string' }, blocks: { type: 'string' },
   },
 });
@@ -79,7 +82,7 @@ function targetPub(reg, exam, work) {
   return rows.find((p) => p.revisionOf) ?? rows[0] ?? null;
 }
 
-function factsOf(reg, pack, reviews, mediaById) {
+function factsOf(reg, pack, reviews, mediaById, staged = null) {
   const [exam, work] = pack.split('/');
   const pub = targetPub(reg, exam, work);
   if (!pub) return null;
@@ -96,6 +99,8 @@ function factsOf(reg, pack, reviews, mediaById) {
   const leadMs = (readPolicy(ROOT).minLeadHours ?? 24) * 3_600_000;
   return {
     delivering: Boolean(pub.delivery?.uploadRequestedAt),
+    pastPublishAt: Boolean(pub.publishAt) && Date.parse(pub.publishAt) < Date.now(),
+    r2Staged: staged?.has(work) ?? false,
     slotExpired: !pub.publishAt || Date.parse(pub.publishAt) - Date.now() < leadMs,
     pub: pub.id, status: pub.status, standard, plan: readPlan(ROOT, pack) ? summarize(readPlan(ROOT, pack)) : null,
     rendered: video?.provenance?.specSha256 === boardSha,
@@ -104,7 +109,9 @@ function factsOf(reg, pack, reviews, mediaById) {
   };
 }
 
-function status() {
+async function status() {
+  // --r2 は R2 に置いたままの転送ファイル（cleanup の待ち）も見る。資格情報が要るので既定では見ない
+  const staged = args.r2 ? await stagedRenderWorks() : null;
   const reg = loadRegistry(ROOT);
   const mediaById = new Map(reg.media.map((m) => [m.id, m]));
   const reviews = readJsonIf(ROOT, datasetPath('state.video-agent-reviews'))?.reviews ?? {};
@@ -117,7 +124,7 @@ function status() {
       if (!entry.isDirectory() || !existsSync(join(root, exam, entry.name, 'storyboard.json'))) continue;
       scanned += 1;
       const pack = `${exam}/${entry.name}`;
-      const facts = factsOf(reg, pack, reviews, mediaById);
+      const facts = factsOf(reg, pack, reviews, mediaById, staged);
       // 台帳に行が無いパックも 1 本ずつ出す。数だけ出して名前を落とすと、台本だけある動画が工程の一覧から消える
       rows.push(facts ? { pack, stage: nextStage(facts), ...facts } : { pack, stage: 'unregistered' });
     }
@@ -300,10 +307,28 @@ async function audioCheck() {
   const streams = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,duration', '-of', 'json', abs], { encoding: 'utf8' })).streams;
   const seconds = (type) => Number(streams.find((x) => x.codec_type === type)?.duration);
   const engine = await ensureVoicevox();
-  const similarity = await Promise.all([readingOf(applyReadingDict(expected)), readingOf(heard)])
-    .then(([a, b]) => Number(speechSimilarity(a, b).toFixed(3))).finally(() => engine?.kill());
+  const toReading = (text) => readingOf(applyReadingDict(text));
+  let similarity, scene, misreads;
+  try {
+    const heardReading = await readingOf(heard);
+    similarity = Number(speechSimilarity(await toReading(expected), heardReading).toFixed(3));
+    // 場面ごとの欠落と、数字・英字・ローマ数字の読み（DN-1071）。期待の読みは合成と同じ読み辞書を通す
+    const narrations = board.scenes.map((s) => s.narration ?? '');
+    scene = sceneSimilarity(await Promise.all(narrations.map(toReading)), heardReading);
+    misreads = [];
+    for (const [sceneIndex, text] of narrations.entries()) {
+      for (const sentence of text.split(/(?<=[。？！])/).filter((x) => x.trim())) {
+        const tokens = readingRiskTokens(sentence);
+        if (!tokens.length) continue;
+        const sentenceReading = await toReading(sentence);
+        const items = await Promise.all(tokens.map(async (token) => ({ scene: sceneIndex, token, sentenceReading, tokenReading: await toReading(token) })));
+        misreads.push(...tokenMisreads(items, heardReading));
+      }
+    }
+  } finally { engine?.kill(); }
   const row = {
     videoSha256: video.sha256, at: new Date().toISOString(), similarity,
+    sceneSimilarityMin: scene.min, sceneSimilarityMinScene: scene.minScene, sceneCount: scene.counted, tokenMisreads: misreads,
     maxVolumeDb, durationGapSec: Number(Math.abs(seconds('video') - seconds('audio')).toFixed(1)), chars: { expected: expected.length, heard: heard.length },
   };
   const store = readAudio();
@@ -319,11 +344,17 @@ function wire() {
   const policy = readPolicy(ROOT);
   const reg = loadRegistry(ROOT);
   const pub = targetPub(reg, exam, work);
-  const taken = reg.publications.filter((p) => p.channel === 'youtube' && p.publishAt && p.status !== 'stopped' && p.id !== pub?.id && Date.parse(p.publishAt) > Date.now()).map((p) => p.publishAt);
-  // 空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない
+  const future = reg.publications.filter((p) => p.channel === 'youtube' && p.publishAt && p.status !== 'stopped' && p.id !== pub?.id && Date.parse(p.publishAt) > Date.now());
+  // 空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない。前倒しの期間（cycle.frontLoad）は目標日を待たない
   const plan = readDataset(ROOT, 'config.channel-annual-plan');
-  const publishAt = args['publish-at'] ?? (Date.parse(pub?.publishAt) > Date.now() ? pub.publishAt : nextSlot(taken, policy, Date.now(), {
-    weekLimit: (monday) => weekLimit(plan.cycle, monday), notBefore: pub ? slotProblems(plan, pub).entry?.target ?? null : null,
+  const target = pub ? slotProblems(plan, pub).entry?.target ?? null : null;
+  // 前倒しの期間の中か、これから始まる（今日より後に終わる）なら目標日を待たない。始まる前日に 2027 年の目標日へ置いた（2026-11-12）
+  const frontLoadAhead = Boolean(plan.cycle.frontLoad && todayJst() <= plan.cycle.frontLoad.to);
+  // 付けてあった日時は残す。ただし前倒しの間は、承認の前の行の日時を空き枠から付け直す（目標日に置いた日時が期間の中に残った・2026-11-12）
+  const keep = Date.parse(pub?.publishAt) > Date.now() && !frontLoadAhead;
+  const publishAt = args['publish-at'] ?? (keep ? pub.publishAt : nextSlot(future.filter((p) => p.format === 'longform').map((p) => p.publishAt), policy.slot, Date.now(), {
+    weekLimit: (monday) => weekLimit(plan.cycle, monday), notBefore: frontLoadAhead ? null : target,
+    leadHours: policy.minLeadHours, allTaken: future.map((p) => p.publishAt), dayTotal: policy.maxPublishPerDay,
   }));
   if (pub?.revisionOf) {
     if (args.stock) throw new Error(`${pub.id}: 改訂版は在庫にしない。予約のときに結線する`);
@@ -470,6 +501,9 @@ const lastJson = (text) => JSON.parse(text.slice(text.lastIndexOf('\n{') + 1));
 /** 承認済みを転送し、台帳を develop へ出してから予約のワークフローを流す */
 function publish() {
   const jobs = [];
+  // 転送や commit の前に、未コミットで止まる条件を見る。割当は pull 後の台帳で数える（DN-1103・DN-1072）
+  assertCleanTree(ROOT);
+  pullRebaseResolvingManifest(ROOT);
   const packs = requirePacks();
   const left = uploadsLeft(loadRegistry(ROOT).publications, readPolicy(ROOT));
   if (packs.length > left) throw new Error(`今日の投稿の残りは ${left} 本。${packs.length} 本は割当を超える（超過は結果不明になり再送できない）`);
@@ -494,14 +528,12 @@ function publish() {
   const paths = [...new Set(jobs.map((j) => datasetPath('registry.youtube', { name: `${j.pub.split('/')[0]}.json` })))];
   const dirty = execFileSync('git', ['status', '--porcelain', '--', ...paths], { cwd: ROOT, encoding: 'utf8' }).trim();
   if (dirty) execFileSync('git', ['commit', '-m', 'content(video): 関門を通った動画を予約へ進める', '--', ...paths], { cwd: ROOT, stdio: 'inherit' });
-  execFileSync('git', ['pull', '--rebase', 'origin', 'develop'], { cwd: ROOT, stdio: 'inherit' });
+  pullRebaseResolvingManifest(ROOT);
   execFileSync('git', ['push', 'origin', 'HEAD:develop'], { cwd: ROOT, stdio: 'inherit' });
   // 同時実行のグループは待機を 1 本しか持たず、3 本目以降は取り消される。1 本ずつ完了を待つ
   for (const j of jobs) {
-    execFileSync('gh', ['workflow', 'run', 'youtube-single-publish.yml', '--ref', 'develop', '-f', 'mode=publish', '-f', `publication=${j.pub}`, '-f', `expect=${j.digest}`], { cwd: ROOT, stdio: 'inherit' });
-    spawnSync('sleep', ['8']);
-    const run = execFileSync('gh', ['run', 'list', '--workflow', 'youtube-single-publish.yml', '--limit', '1', '--json', 'databaseId', '--jq', '.[0].databaseId'], { cwd: ROOT, encoding: 'utf8' }).trim();
-    execFileSync('gh', ['run', 'watch', run, '--exit-status', '--interval', '15'], { cwd: ROOT, stdio: 'ignore' });
+    const { run, status } = dispatchAndWatch(ROOT, { pub: j.pub, digest: j.digest });
+    if (status !== 0) throw new Error(`${j.pub}: 投稿のワークフローが失敗（run ${run}）`);
   }
   console.log(JSON.stringify(jobs, null, 2));
 }
@@ -554,6 +586,12 @@ const commands = {
     if (result.missing) process.exit(1);
   },
   'audit-queue': () => console.log(JSON.stringify(auditQueue(ROOT, requirePack()), null, 2)),
+  // 監査の直後に未判定が 0 件かを確かめる。判定が漏れた項目を不合格 0 として次へ進めない（DN-1072）
+  'audit-verify': () => {
+    const summary = summarize(readPlan(ROOT, requirePack()));
+    console.log(JSON.stringify(summary));
+    if (summary.unaudited > 0 || summary.missing > 0) { console.error(`未判定 ${summary.unaudited} 件・画像なし ${summary.missing} 件`); process.exit(1); }
+  },
   'record-audit': () => console.log(JSON.stringify(recordAudit(ROOT, requirePack(), JSON.parse(readFileSync(args.file, 'utf8')), { by: args.by }))),
   adopt: async () => console.log(JSON.stringify(await adoptPlan(ROOT, requirePack(), { now: new Date().toISOString() }))),
   render,
@@ -581,5 +619,5 @@ const commands = {
   publish,
   cleanup,
 };
-if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|qa-check|preflight|save|commit|audio-check|wire|gate|auto-approve|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
+if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|audit-verify|record-audit|adopt|render|ledger|record-qa|qa-check|preflight|save|commit|audio-check|wire|gate|auto-approve|unapprove|produce|finish|schedule|publish|cleanup'); process.exit(2); }
 await commands[command]();

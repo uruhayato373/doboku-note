@@ -8,6 +8,18 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-11-12 — 動画の教材クリックが 0 行なのは UTM の不一致ではなく、概要欄のリンクを開いたのが人でなかった（DN-1086）
+
+**現象**: `youtubeCampaignClicks`（GA4 `campaign-note-cta` の動画パックのキャンペーン）が該当の行 0 件で、計測漏れか本当に 0 かが分からなかった。
+
+**確かめたこと（`data/ga4/reports/2026-11-08.json`・窓 2026-10-10〜11-06、`content/sns/video-packs/*/*/youtube.json`）**: (1) 91 パックの `youtube.json` の `utm_campaign` は全件が `packId` と一致し、`utm_source=youtube`・`utm_medium=video` も `config/utm-templates.json` の `youtube.*` どおり（不一致 0 件、サイトのリンクが無い 6 件を除く）。(2) 同じ窓の `campaign` レポートに 27 パックの `packId` が行として出ていて、1 パックあたり 2〜4 セッション・エンゲージメント率 0・平均セッション 2〜6 秒・1 ページ。`sourceMedium-sns` の `youtube / video` も 53 セッション・直帰率 1・平均 4 秒。(3) 概要欄の 1 本目のリンクは `note.com` への直リンクで、サイトを通らないので `note_cta_click` にならない。
+
+**原因**: UTM と GA4 のディメンション（`sessionCampaignName`）は正しい。サイトへ来ているのは動画ごとに 2〜4 回・数秒だけの訪問（リンクのプレビュー・巡回に見える）で、サイト内の教材 CTA を押す人がいない。よって 0 行は「計測漏れ」でも UTM の誤りでもなく、概要欄経由で教材まで進んだ人が観測できなかった、が正しい読み。人の訪問か巡回かは GA4 の画面だけでは断定できない（未確認）。
+
+**対策**: 暦の週・月の `values.youtubeCampaignClicks` は `scripts/fetch-business-metrics.mjs` が `sessionCampaignName` 別の `note_cta_click` から合計して載せる。該当の行が無い週・月は 0 とせず値を載せない（欠測のまま）。概要欄から note への直リンクのクリックは YouTube 側でも取れない（定義に既記）。
+
+**教訓**: 「0 行」を見たら、UTM の一致と、その窓の `campaign` レポートに該当の行があるか、その行のエンゲージメントを先に見る。
+
 ## 2026-11-06 — 台帳の手書きの「未計測」を信じ、測れている指標のために転送ページを作りかけた
 
 **起きたこと**: X・Instagram のサイト流入を年間計画に「未計測」と書き、動画の note クリックを取るために転送ページを実装した。実際には UTM で `sourceMedium-sns`（X は 7 日で 9 人）・`campaign`・`campaign-note-cta` が取れていて、動画の再生も 28 日で 94 回だった。運営者の問いで止まった。

@@ -10,6 +10,10 @@ import { direction, duePeriods, weekPeriod, addDays, GSC_FINAL_LAG_DAYS, jst, re
 import { GSC_PROPERTY, SITE_ORIGIN } from './lib/site-identity.mjs';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
+import { campaignClickTotals } from './lib/metric-status.mjs';
+
+/** sessionCampaignName 別の note_cta_click の行の上限。これに届いたら打ち切りの疑いで値を載せない */
+const CAMPAIGN_ROW_LIMIT = 10000;
 const args = process.argv.slice(2);
 dotenv.config({ path: '.env.local', quiet: true });
 /** 正規表現のメタ文字をすべてエスケープする（GSC の includingRegex に渡す） */
@@ -52,8 +56,16 @@ async function run() {
         values[metric] = Number(report.rows?.[0]?.metricValues?.[0]?.value ?? 0);
         social.push(report);
       }
-      const limited = users.metadata?.subjectToThresholding || events.metadata?.subjectToThresholding || social.some((r) => r.metadata?.subjectToThresholding) || users.metadata?.samplingMetadatas?.length || events.metadata?.samplingMetadatas?.length || social.some((r) => r.metadata?.samplingMetadatas?.length);
-      pending.push({ kind: 'measurement', qualification, period, channel: 'GA4', subject: 'aggregate', coverage: limited ? 'partial' : 'complete', source: 'GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。', values });
+      // X・動画（utm_campaign）からの教材クリック（DN-1086）。キャンペーン別に取り、集合は metric-status と共有する。資格別には割らない
+      let campaignLimited = false;
+      if (qualification === 'all') {
+        const [byCampaign] = await ga.runReport({ property: `properties/${id}`, dateRanges: [period], dimensions: [{ name: 'sessionCampaignName' }], metrics: [{ name: 'eventCount' }], limit: CAMPAIGN_ROW_LIMIT, dimensionFilter: { andGroup: { expressions: [field('country', 'Japan'), field('eventName', 'note_cta_click')] } } });
+        const rows = (byCampaign.rows ?? []).map((r) => ({ campaign: r.dimensionValues?.[0]?.value, eventCount: Number(r.metricValues?.[0]?.value ?? 0) }));
+        campaignLimited = (byCampaign.rowCount ?? rows.length) > rows.length || byCampaign.metadata?.subjectToThresholding || byCampaign.metadata?.samplingMetadatas?.length;
+        if ((byCampaign.rowCount ?? rows.length) <= rows.length) Object.assign(values, campaignClickTotals(root, rows));
+      }
+      const limited = campaignLimited || users.metadata?.subjectToThresholding || events.metadata?.subjectToThresholding || social.some((r) => r.metadata?.subjectToThresholding) || users.metadata?.samplingMetadatas?.length || events.metadata?.samplingMetadatas?.length || social.some((r) => r.metadata?.samplingMetadatas?.length);
+      pending.push({ kind: 'measurement', qualification, period, channel: 'GA4', subject: 'aggregate', coverage: limited ? 'partial' : 'complete', source: 'GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。X・動画の教材クリックは全体のみ（sessionCampaignName 別の note_cta_click を campaignNames の集合で合計・該当の行が無ければ値を載せない）。', values });
       const filters = [{ dimension: 'country', operator: 'equals', expression: 'jpn' }];
       if (qualification !== 'all') filters.push({ dimension: 'page', operator: 'includingRegex', expression: `^${escapeRegExp(SITE_ORIGIN)}/exam/${qualification}/` });
       const aggregationType = qualification === 'all' ? 'byProperty' : 'auto';

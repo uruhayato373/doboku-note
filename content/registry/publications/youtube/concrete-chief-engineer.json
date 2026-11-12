@@ -1739,6 +1739,28 @@
         "subtitles": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.json#longform"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-keitou-1",
+      "work": "shunin-theme-tachiba-erabi",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-keitou-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.json#shorts/point-keitou-1",
+      "relatedTo": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-tachiba-2",
+      "work": "shunin-theme-tachiba-erabi",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-tachiba-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.json#shorts/point-tachiba-2",
+      "relatedTo": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform",
+      "idException": "imported-before-cutover"
     }
   ]
 }

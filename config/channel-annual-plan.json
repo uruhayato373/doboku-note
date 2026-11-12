@@ -35,7 +35,8 @@
         "why": "1級二次の直前で、経験記述の販売が最も近い"
       }
     ],
-    "calendarBasis": "2027 年度の日程は公式発表前で確定しない。window の月は config/exam-calendar.json の 2026 年度の実績を目安にした仮の月で、anchors の行事が公式に出たら改める。試験日はこの設定へ写さない"
+    "calendarBasis": "2027 年度の日程は公式発表前で確定しない。window の月は config/exam-calendar.json の 2026 年度の実績を目安にした仮の月で、anchors の行事が公式に出たら改める。試験日はこの設定へ写さない",
+    "frontLoad": {"from": "2026-11-13", "to": "2026-12-15", "weeklyMax": 14, "why": "在庫の通常動画とショートをできるだけ短期間に全部出す（運営者の決定・2026-11-12）。この間は枠の時期を問わず、通常動画を 1 日 2 本まで出す。在庫が尽きる 12 月上旬の後は、元の週 2 本（山場 3 本）に戻す（同日の決定・DN-1145）。時刻と 1 日の本数は config/video-auto-publish.json", "decidedAt": "2026-11-12"}
   },
   "metrics": {
     "primary": [
@@ -79,9 +80,9 @@
       "label": "X",
       "role": "受験生との信頼づくりと、試験の時期に合わせた教材への案内",
       "operation": {
-        "status": "hold",
-        "since": "2026-10-17",
-        "note": "年間の枠は作るが、保留の解除は運営者の判断を待つ。枠は 2026-12-01 以降の投稿にだけ効く。11 月の予約はこの枠の対象外。2026-11-07 に運営者の判断で、技術士二次の 25 本の予約と、返信の 2 週間の試行（EXP-059）だけ例外として動かした"
+        "status": "active",
+        "since": "2026-11-12",
+        "note": "2026-11-08 の W45 で X だけ再開と決め、2026-11-12 に運営者が本数（平常 週 7・山場 週 14・技術士 4〜7 月 56 本）と解答速報（x-instant）の採用を決めた（DN-1007）。Instagram は保留を続ける"
       },
       "enforceFrom": "2026-12-01",
       "weeklyMax": 7,
@@ -239,7 +240,7 @@
         {
           "id": "x-instant",
           "label": "解答速報と投票",
-          "status": "proposed",
+          "status": "active",
           "role": "attract",
           "ctaKinds": [
             "site-article"
@@ -250,8 +251,7 @@
           ],
           "evidence": [
             "docs/reviews/competitors/2026-07_SNS.md:15"
-          ],
-          "decision": "DN-1007"
+          ]
         }
       ],
       "slots": [
@@ -1423,7 +1423,7 @@
           "evidence": [
             "docs/reviews/competitors/2026-07_SNS.md:15"
           ],
-          "decision": "DN-1007"
+          "decision": "DN-1006"
         },
         {
           "id": "ig-reel-from-shorts",
@@ -1437,7 +1437,7 @@
           "evidence": [
             "docs/marketing/06_動画コンテンツ運用設計.md"
           ],
-          "decision": "DN-1007"
+          "decision": "DN-1006"
         }
       ],
       "slots": [

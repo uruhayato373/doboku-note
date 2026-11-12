@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "710de916109ed49bb0386244dbe94e64908788255045ca084baf56d8da5315cc",
-      "thumbnailSha256": "873bec4526aaf32605071fcc62904b2183d49cb0010c5a9793ade885941751b1"
+      "thumbnailSha256": "873bec4526aaf32605071fcc62904b2183d49cb0010c5a9793ade885941751b1",
+      "r2Key": "video/render/pe-hissu1-konkyo-tsumikata/shorts/point-shusho-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-hissu1-konkyo-tsumikata/shorts/point-shusho-1/thumbnail.png"
     },
     {
       "key": "point-wariburi-2",
@@ -54,7 +56,9 @@
       ],
       "categoryId": "27",
       "sha256": "1a20ed3ee390addce6fed39d4769e3dac0b8b936b9dc80c228265697c914ed54",
-      "thumbnailSha256": "6ea80c6e85712b019a314efe7b9567be4ee641f289a1bae4eb17b344de1ed23c"
+      "thumbnailSha256": "6ea80c6e85712b019a314efe7b9567be4ee641f289a1bae4eb17b344de1ed23c",
+      "r2Key": "video/render/pe-hissu1-konkyo-tsumikata/shorts/point-wariburi-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-hissu1-konkyo-tsumikata/shorts/point-wariburi-2/thumbnail.png"
     }
   ]
 }

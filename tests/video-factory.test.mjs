@@ -355,26 +355,40 @@ test('音声の判定は動画の sha に結び、作り直すと無効になる
   assert.ok(speechSimilarity('業務の判断を語る', '全く別の発話です') < 0.2);
 });
 
-test('方針の承認は YouTube の通常動画だけで受け付ける', () => {
+test('方針の承認は YouTube の通常動画と初回のショートだけで受け付ける（2026-11-12）', () => {
   assert.equal(acceptedApproval({ channel: 'youtube', format: 'longform', approval: { by: 'policy' } }), true);
-  assert.equal(acceptedApproval({ channel: 'youtube', format: 'short', approval: { by: 'policy' } }), false);
+  assert.equal(acceptedApproval({ channel: 'youtube', format: 'short', approval: { by: 'policy' } }), true);
+  assert.equal(acceptedApproval({ channel: 'youtube', format: 'short', revisionOf: 'a/b/youtube.short.x', approval: { by: 'policy' } }), false);
   assert.equal(acceptedApproval({ channel: 'instagram', format: 'carousel', approval: { by: 'policy' } }), false);
   assert.equal(acceptedApproval({ channel: 'instagram', format: 'carousel', approval: { by: 'user' } }), true);
 });
 
 test('空き枠は週の上限と計画の目標日を守る', () => {
-  const policy = { minLeadHours: 24, slot: { timeJst: '20:30', maxPerDay: 1 } };
+  const slot = { timesJst: ['20:30'], maxPerDay: 1 };
   const now = Date.parse('2026-11-16T00:00:00Z'); // JST の月曜
   const taken = ['2026-11-17T11:30:00Z', '2026-11-18T11:30:00Z'];
-  assert.equal(nextSlot(taken, policy, now), '2026-11-19T11:30:00Z');
-  assert.equal(nextSlot(taken, policy, now, { weekLimit: () => 2 }), '2026-11-23T11:30:00Z');
-  assert.equal(nextSlot([], policy, now, { notBefore: '2026-12-01' }), '2026-12-01T11:30:00Z');
+  assert.equal(nextSlot(taken, slot, now), '2026-11-19T11:30:00Z');
+  assert.equal(nextSlot(taken, slot, now, { weekLimit: () => 2 }), '2026-11-23T11:30:00Z');
+  assert.equal(nextSlot([], slot, now, { notBefore: '2026-12-01' }), '2026-12-01T11:30:00Z');
 });
 
 test('空き枠は猶予と 1 日の上限を守る', () => {
-  const policy = { minLeadHours: 24, slot: { timeJst: '20:30', maxPerDay: 1 } };
+  const slot = { timesJst: ['20:30'], maxPerDay: 1 };
   const now = Date.parse('2026-11-05T00:00:00Z');
-  assert.equal(nextSlot(['2026-11-06T11:30:00Z'], policy, now), '2026-11-07T11:30:00Z');
+  assert.equal(nextSlot(['2026-11-06T11:30:00Z'], slot, now), '2026-11-07T11:30:00Z');
+});
+
+test('1 日 2 本の枠は時刻を順に埋め、ほかの種類と同じ時刻・日の合計の上限を避ける（2026-11-12）', () => {
+  const slot = { timesJst: ['12:15', '20:30'], maxPerDay: 2 };
+  const now = Date.parse('2026-11-12T00:00:00Z');
+  assert.equal(nextSlot([], slot, now), '2026-11-13T03:15:00Z');
+  assert.equal(nextSlot(['2026-11-13T03:15:00Z'], slot, now), '2026-11-13T11:30:00Z');
+  assert.equal(nextSlot(['2026-11-13T03:15:00Z', '2026-11-13T11:30:00Z'], slot, now), '2026-11-14T03:15:00Z');
+  // 別の種類が同じ時刻にあれば次の時刻へ、日の合計が上限なら翌日へ
+  assert.equal(nextSlot([], slot, now, { allTaken: ['2026-11-13T03:15:00Z'] }), '2026-11-13T11:30:00Z');
+  assert.equal(nextSlot([], slot, now, { allTaken: ['2026-11-12T22:30:00Z', '2026-11-13T08:30:00Z'], dayTotal: 2 }), '2026-11-14T03:15:00Z');
+  // 日時の notBefore はその時刻より後（ショートは親の公開の後）
+  assert.equal(nextSlot([], { timesJst: ['07:30', '17:30'], maxPerDay: 2 }, now, { notBefore: '2026-11-13T12:15:00+09:00' }), '2026-11-13T08:30:00Z');
 });
 
 test('投稿の残りは太平洋時間の 0 時からの本数で決まる', () => {
@@ -452,4 +466,53 @@ test('わずかに比率がずれた生成画像は中央で切り抜いて揃�
   assert.deepEqual(await size(await fitAspect(await img(916, 1717), 9 / 16)), [916, 1628]);
   assert.deepEqual(await size(await fitAspect(await img(1920, 1080), 16 / 9)), [1920, 1080]);
   assert.deepEqual(await size(await fitAspect(await img(1536, 1024), 16 / 9)), [1536, 1024]);
+});
+
+test('予約の後の段: 公開日時を過ぎて照合されていない行は verify、R2 に転送ファイルが残る行は cleanup-pending（DN-1070）', () => {
+  assert.equal(nextStage({ status: 'scheduled', pastPublishAt: true }), 'verify');
+  assert.equal(nextStage({ status: 'scheduled', pastPublishAt: false, r2Staged: true }), 'cleanup-pending');
+  assert.equal(nextStage({ status: 'published', r2Staged: true }), 'cleanup-pending');
+  assert.equal(nextStage({ status: 'published', r2Staged: false }), 'done');
+});
+
+test('語りだけの変更は画像を作り直さず、判定を取り消して再監査にする（DN-1072）', () => {
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261112', refs });
+    const plan = readPlan(f.root, PACK);
+    for (const i of plan.items) Object.assign(i, { raw: { path: `r-${i.id}.png`, sha256: i.id.padEnd(64, '0') }, audit: { verdict: 'ok', reason: '原稿どおり', by: 'a', sha: i.id.padEnd(64, '0') } });
+    writeFileSync(join(f.root, planPath(PACK)), JSON.stringify(plan));
+    const boardPath = join(f.dir, 'storyboard.json');
+    const board = JSON.parse(readFileSync(boardPath, 'utf8'));
+    board.scenes[1].narration = '語りの語句だけを直した';
+    writeFileSync(boardPath, JSON.stringify(board));
+    const next = buildPlan(f.root, PACK, { date: '20261112', refs });
+    const a = next.items.find((i) => i.id === 'a');
+    assert.ok(a.raw, '画像は残る');
+    assert.equal(a.audit, null, '判定は取り消される');
+    assert.equal(a.inputSha256, plan.items.find((i) => i.id === 'a').inputSha256, '入力ハッシュは変わらない');
+    assert.ok(next.items.find((i) => i.id === 'b').audit, '他の場面の判定は残る');
+    assert.deepEqual(auditQueue(f.root, PACK).map((q) => q.figKey), ['a'], '監査へ渡すのは作り直した項目だけ');
+    // 図の文字を直したときは画像も作り直す
+    board.scenes[1].caption = '字幕を直した';
+    writeFileSync(boardPath, JSON.stringify(board));
+    assert.equal(buildPlan(f.root, PACK, { date: '20261112', refs }).items.find((i) => i.id === 'a').raw, null);
+  } finally { f.done(); }
+});
+
+test('旧形式（語り・出典を含む）の入力ハッシュの記録は同じ入力として引き継ぐ', async () => {
+  const { popSceneHashLegacy, popSceneHash } = await import('../scripts/lib/longform-pop-images.mjs');
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261112', refs });
+    const board = JSON.parse(readFileSync(join(f.dir, 'storyboard.json'), 'utf8'));
+    const plan = readPlan(f.root, PACK);
+    const a = plan.items.find((i) => i.id === 'a');
+    assert.notEqual(popSceneHashLegacy(board.scenes[1]), popSceneHash(board.scenes[1]));
+    Object.assign(a, { inputSha256: popSceneHashLegacy(board.scenes[1]), narrationSha256: undefined, raw: { path: 'r.png', sha256: 'f'.repeat(64) }, audit: { verdict: 'ok', reason: '原稿どおり', by: 'x', sha: 'f'.repeat(64) } });
+    writeFileSync(join(f.root, planPath(PACK)), JSON.stringify(plan));
+    const kept = buildPlan(f.root, PACK, { date: '20261112', refs }).items.find((i) => i.id === 'a');
+    assert.ok(kept.raw && kept.audit, '画像も判定も残る');
+    assert.equal(kept.inputSha256, popSceneHash(board.scenes[1]), '新形式に更新される');
+  } finally { f.done(); }
 });

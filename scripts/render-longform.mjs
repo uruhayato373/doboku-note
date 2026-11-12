@@ -27,7 +27,7 @@ import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import {
-  LONGFORM_W, LONGFORM_H, buildLongformAss, buildSceneNode, planLongformRender,
+  LONGFORM_W, LONGFORM_H, SUBTITLE_VERSION, buildLongformAss, buildSceneNode, planLongformRender,
 } from './lib/longform-render.mjs';
 import { narrationInput, reusableNarration, sha256 } from './lib/video-narration-cache.mjs';
 import { readLongformPopImages } from './lib/longform-pop-images.mjs';
@@ -259,7 +259,7 @@ async function main() {
     mp4: mp4Path ? basename(mp4Path) : null,
     totalSec,
     ...(mp4Path ? { integrity: {
-      schemaVersion: 1, inputSha256,
+      schemaVersion: 1, inputSha256, subtitleVersion: SUBTITLE_VERSION,
       subtitlesSha256: sha256(readFileSync(assPath)),
       mp4Sha256: sha256(readFileSync(mp4Path)),
     } } : {}),

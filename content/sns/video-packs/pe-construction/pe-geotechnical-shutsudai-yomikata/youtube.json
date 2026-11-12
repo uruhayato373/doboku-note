@@ -19,7 +19,8 @@
     "r2Key": "video/render/pe-geotechnical-shutsudai-yomikata/video.mp4",
     "thumbnailR2Key": "video/render/pe-geotechnical-shutsudai-yomikata/img/00-cover.png",
     "sha256": "8520fd55e5c81c8ab8da5344f8be876c3ce99c39922da434be9e8b70264ab4eb",
-    "thumbnailSha256": "a843f12abd64ab22730ae1610778bc92832b8715179e2eafeb014c06b336cd2f"
+    "thumbnailSha256": "a843f12abd64ab22730ae1610778bc92832b8715179e2eafeb014c06b336cd2f",
+    "publishAt": "2026-11-14T11:30:00Z"
   },
   "shorts": [
     {
@@ -37,7 +38,9 @@
       ],
       "categoryId": "27",
       "sha256": "e3cfd00a6ca576447df5d75f15346f1fe2053dfc5fdc06f6d582d0270b206299",
-      "thumbnailSha256": "0d86826a2368f8c4e44ec2afe55bb229f2cab1c719b48b28af078dedb74bb660"
+      "thumbnailSha256": "0d86826a2368f8c4e44ec2afe55bb229f2cab1c719b48b28af078dedb74bb660",
+      "r2Key": "video/render/pe-geotechnical-shutsudai-yomikata/shorts/point-kazu-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-geotechnical-shutsudai-yomikata/shorts/point-kazu-1/thumbnail.png"
     },
     {
       "key": "point-risk-2",
@@ -54,7 +57,9 @@
       ],
       "categoryId": "27",
       "sha256": "777b455518fc37eb28d6a3966c35fcb7c2564b756127429a28bfd392a4c6e796",
-      "thumbnailSha256": "56c372905d264575431715476240814d15451c5dbe6c66a02176e6267e8de87d"
+      "thumbnailSha256": "56c372905d264575431715476240814d15451c5dbe6c66a02176e6267e8de87d",
+      "r2Key": "video/render/pe-geotechnical-shutsudai-yomikata/shorts/point-risk-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-geotechnical-shutsudai-yomikata/shorts/point-risk-2/thumbnail.png"
     }
   ]
 }

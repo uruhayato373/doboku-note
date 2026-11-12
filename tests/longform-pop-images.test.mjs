@@ -41,11 +41,15 @@ test('生成記録・全場面が揃わなければテンプレートへ戻さ�
   rmSync(join(f.dir,'pop-image.json'));
   assert.throws(() => readLongformPopImages(f.root,f.dir,f.board), /読めません/);
 });
-test('コピー・語り・出典変更後の古い画像を拒否', async t => {
+test('コピー・図の文字の変更後の古い画像を拒否（語り・出典だけの変更は通す・DN-1072）', async t => {
   const f = await fixture(t);
-  for (const key of ['caption','narration','sourceRef','visual']) {
+  for (const key of ['caption','visual']) {
     const changed=structuredClone(f.board); changed.scenes[1][key] = key === 'visual' ? {heading:'新版'} : '新版';
     assert.throws(() => readLongformPopImages(f.root,f.dir,changed), /原稿が古い/);
+  }
+  for (const key of ['narration','sourceRef']) {
+    const changed=structuredClone(f.board); changed.scenes[1][key] = '新版';
+    assert.doesNotThrow(() => readLongformPopImages(f.root,f.dir,changed));
   }
 });
 test('別場面で件数だけ埋めても欠落を拒否', async t => {

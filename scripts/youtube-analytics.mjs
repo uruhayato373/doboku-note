@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** 公開台帳の現役動画を YouTube Analytics API で計測する。認証が無ければ記録を書かず exit 2。 */
-// npm run youtube-analytics -- --check — 公開台帳の計測対象数を外部通信なしで確認。通常実行は YouTube Analytics API から28日窓の視聴回数・平均視聴時間・平均視聴率・流入元を取得し、型検証後 data/youtube/analytics/YYYY-MM-DD.json へ保存（CIのOAuth認証が必要・不足時 exit 2）。サムネイルのインプレッション/CTRはAPIの対象外
+// npm run youtube-analytics -- --check — 公開台帳の計測対象数を外部通信なしで確認。通常実行は YouTube Analytics API から28日窓の視聴回数・平均視聴時間・平均視聴率・流入元・維持率曲線（elapsedVideoTimeRatio 別・DN-1063）を取得し、型検証後 data/youtube/analytics/YYYY-MM-DD.json へ保存（CIのOAuth認証が必要・不足時 exit 2）。サムネイルのインプレッション/CTRはAPIの対象外
 import { readDataset } from './lib/dataset-io.mjs';
 import { fileURLToPath } from 'node:url';
 import { writeDataset } from './lib/dataset-write.mjs';
@@ -49,6 +49,9 @@ async function main() {
   }
   const snapshot = analyticsSnapshot({ channelId, period, fetchedAt: new Date(startedAt).toISOString(), videos });
   console.log(`[youtube-analytics] API照合 ${videos.length}/${targets.length} 本 / 指標行 ${snapshot.coverage.measured} 本 / 行なし ${snapshot.coverage.noData} 本`);
+  const r = snapshot.coverage.retention;
+  console.log(`[youtube-analytics] 維持率曲線 取得 ${r.measured}/${targets.length} 本 / 行なし ${r.noData} 本 / API失敗 ${r.failed} 本`);
+  for (const v of videos.filter((x) => x.retention?.state === 'error')) console.warn(`[youtube-analytics] 維持率の取得失敗 ${v.videoId}: ${v.retention.error}`);
   if (!snapshot.coverage.measured) { console.error('[youtube-analytics] 全動画で指標行なし。取得不成立として記録しない'); process.exitCode = 2; return; }
   if (dry) return;
   const { file } = writeDataset(REPO_ROOT, 'youtube.analytics', snapshot, { values: { date: jstDayOf(startedAt) } });

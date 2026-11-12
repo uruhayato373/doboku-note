@@ -4,7 +4,10 @@ const compounds = /(置換ガイド|管理計画|締固め度|大型構造物|�
 const segmenter = new Intl.Segmenter('ja', { granularity: 'word' });
 
 /** Keep numbers, decimals, Latin terms and Katakana compounds together in a one-line subtitle. */
-export function subtitleChunks(value, maxUnits = 15) {
+/**
+ * legacy は 2026-11-11 より前の区切り（漢字の続く語・数字と助数詞をつながない）。それより前に描画した通常動画の字幕の照合に使う
+ */
+export function subtitleChunks(value, maxUnits = 15, { legacy = false } = {}) {
   const text = String(value ?? '');
   if (!text) return [];
   if (!Number.isFinite(maxUnits) || maxUnits <= 0) throw new Error('字幕の行幅が不正です');
@@ -17,10 +20,10 @@ export function subtitleChunks(value, maxUnits = 15) {
     const katakana = /^[ァ-ヺー]+$/u.test(token) && /[ァ-ヺー]$/u.test(prev ?? '') && units((prev ?? '') + token) <= maxUnits;
     const suffix = /^[ぁ-ゖー]+$/u.test(token) && !/[、。，．！？：；]$/u.test(prev ?? '') && units((prev ?? '') + token) <= maxUnits * 0.6;
     // 漢字の続く語は 6 字まで切らない。「一般|論」「持続|可能性」「省|人化」「解決|策」で切れていた（2026-11-11・ショートの画面確認）
-    const kanjiRun = /^\p{Script=Han}/u.test(token) && /\p{Script=Han}$/u.test(prev ?? '') &&
+    const kanjiRun = !legacy && /^\p{Script=Han}/u.test(token) && /\p{Script=Han}$/u.test(prev ?? '') &&
       ((prev ?? '').match(/\p{Script=Han}+$/u)[0].length + token.match(/^\p{Script=Han}+/u)[0].length) <= 6 && units((prev ?? '') + token) <= maxUnits;
     // 数字と助数詞（「2040|年度」「3|割」）も切らない
-    const counter = /[0-9０-９]$/u.test(prev ?? '') && /^\p{Script=Han}{1,2}$/u.test(token) && units((prev ?? '') + token) <= maxUnits;
+    const counter = !legacy && /[0-9０-９]$/u.test(prev ?? '') && /^\p{Script=Han}{1,2}$/u.test(token) && units((prev ?? '') + token) <= maxUnits;
     if (tokens.length && (/^[、。，．！？：；・）］」』]/u.test(token) || /[（［「『]$/u.test(prev) || suffix || katakana || kanjiRun || counter)) tokens[tokens.length - 1] += token;
     else tokens.push(token);
   }

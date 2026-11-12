@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "aeeef4f4e589c82da492afd1bd6b1dce3074b0615f87348b259b08e02638edfa",
-      "thumbnailSha256": "bbd080922aee85717f83c49c7813ccd41c8b17c259d238452fc1fe8934d9a402"
+      "thumbnailSha256": "bbd080922aee85717f83c49c7813ccd41c8b17c259d238452fc1fe8934d9a402",
+      "r2Key": "video/render/pe-urban-planning-shutsudai-yomikata/shorts/point-setsumei-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-urban-planning-shutsudai-yomikata/shorts/point-setsumei-1/thumbnail.png"
     },
     {
       "key": "point-shugo-2",
@@ -54,7 +56,9 @@
       ],
       "categoryId": "27",
       "sha256": "2ce84f23af685ab91b77a3a1e2884fb630cbfa7719a188bf96f8e556998b5c1a",
-      "thumbnailSha256": "0af5c8502a3cb5d693b42ad5a099aaedab0115d2f6e4978b571f53581c9c2bd4"
+      "thumbnailSha256": "0af5c8502a3cb5d693b42ad5a099aaedab0115d2f6e4978b571f53581c9c2bd4",
+      "r2Key": "video/render/pe-urban-planning-shutsudai-yomikata/shorts/point-shugo-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-urban-planning-shutsudai-yomikata/shorts/point-shugo-2/thumbnail.png"
     }
   ]
 }

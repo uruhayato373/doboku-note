@@ -19,7 +19,8 @@
     "r2Key": "video/render/pe-tunnel-shutsudai-yomikata/video.mp4",
     "thumbnailR2Key": "video/render/pe-tunnel-shutsudai-yomikata/img/00-cover.png",
     "sha256": "6f839216bb92452599e5f64a29efa106ccfcda2ee56d977bb5ef4369692fc65b",
-    "thumbnailSha256": "e3384364442624084a52e37395b21581fdea1faf5474ef9b797a1ccb5e87e955"
+    "thumbnailSha256": "e3384364442624084a52e37395b21581fdea1faf5474ef9b797a1ccb5e87e955",
+    "publishAt": "2026-11-13T03:15:00Z"
   },
   "shorts": [
     {
@@ -37,7 +38,9 @@
       ],
       "categoryId": "27",
       "sha256": "8f5e86a621dfa6c66c673b4268e659b8a94aed20e06e84fd2523396da238876d",
-      "thumbnailSha256": "d4c120f912f7bb575cc2c278fc15a1036ae27845de7aa1c312a1917994af1651"
+      "thumbnailSha256": "d4c120f912f7bb575cc2c278fc15a1036ae27845de7aa1c312a1917994af1651",
+      "r2Key": "video/render/pe-tunnel-shutsudai-yomikata/shorts/point-themename-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-tunnel-shutsudai-yomikata/shorts/point-themename-1/thumbnail.png"
     },
     {
       "key": "point-jogai-2",
@@ -54,7 +57,10 @@
       ],
       "categoryId": "27",
       "sha256": "b0ecbb1378870b2eac0cbd0b0ba2bb8da26c4a752b1830570cc4139653166d75",
-      "thumbnailSha256": "5dff0f3d2c1a28857537ea7634c00904a16560261ff98cd2ca01a530c5327001"
+      "thumbnailSha256": "5dff0f3d2c1a28857537ea7634c00904a16560261ff98cd2ca01a530c5327001",
+      "r2Key": "video/render/pe-tunnel-shutsudai-yomikata/shorts/point-jogai-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-tunnel-shutsudai-yomikata/shorts/point-jogai-2/thumbnail.png",
+      "publishAt": "2026-11-13T22:30:00Z"
     }
   ]
 }

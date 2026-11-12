@@ -2,7 +2,7 @@
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { DeleteObjectCommand, GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { DeleteObjectCommand, GetObjectCommand, ListObjectsV2Command, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { loadRegistry } from './content-registry.mjs';
 import { readJson } from './json-io.mjs';
 
@@ -155,4 +155,19 @@ export function singlePublishJournal(pubId) {
       await s3.send(new PutObjectCommand({ Bucket: BUCKET, Key: key, Body: JSON.stringify(record), ContentType: 'application/json' }));
     },
   };
+}
+
+/**
+ * 通常動画の転送用に R2 へ置いたまま（video/render/<作品>/）の作品の一覧。予約を確かめた後の cleanup の待ちを status が出す（DN-1070）
+ */
+export async function stagedRenderWorks() {
+  const s3 = client();
+  const works = new Set();
+  let token;
+  do {
+    const page = await s3.send(new ListObjectsV2Command({ Bucket: BUCKET, Prefix: 'video/render/', Delimiter: '/', ContinuationToken: token }));
+    for (const p of page.CommonPrefixes ?? []) works.add(p.Prefix.split('/')[2]);
+    token = page.IsTruncated ? page.NextContinuationToken : undefined;
+  } while (token);
+  return works;
 }
