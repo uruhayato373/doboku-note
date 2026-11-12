@@ -96,6 +96,28 @@
       "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-anzen-kakikata/youtube.json#longform"
     },
     {
+      "id": "civil-construction-1/c1-keiken-anzen-kakikata/youtube.short.point-joukyou-2",
+      "work": "c1-keiken-anzen-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-joukyou-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-anzen-kakikata/youtube.json#shorts/point-joukyou-2",
+      "relatedTo": "civil-construction-1/c1-keiken-anzen-kakikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-anzen-kakikata/youtube.short.point-katsudou-1",
+      "work": "c1-keiken-anzen-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-katsudou-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-anzen-kakikata/youtube.json#shorts/point-katsudou-1",
+      "relatedTo": "civil-construction-1/c1-keiken-anzen-kakikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform",
       "work": "c1-keiken-hacchusha-yomu",
       "account": "youtube:main",
@@ -121,6 +143,28 @@
         "subtitles": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.json#longform"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1",
+      "work": "c1-keiken-hacchusha-yomu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-joukyou-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.json#shorts/point-joukyou-1",
+      "relatedTo": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-tetsuzuki-2",
+      "work": "c1-keiken-hacchusha-yomu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-tetsuzuki-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.json#shorts/point-tetsuzuki-2",
+      "relatedTo": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.longform",
@@ -149,6 +193,28 @@
       "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.json#longform"
     },
     {
+      "id": "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-joukyou-2",
+      "work": "c1-keiken-hinshitsu-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-joukyou-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.json#shorts/point-joukyou-2",
+      "relatedTo": "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.short.point-ryuui-1",
+      "work": "c1-keiken-hinshitsu-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-ryuui-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.json#shorts/point-ryuui-1",
+      "relatedTo": "civil-construction-1/c1-keiken-hinshitsu-kakikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform",
       "work": "c1-keiken-kouji-gaiyou",
       "account": "youtube:main",
@@ -175,6 +241,28 @@
       "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.json#longform"
     },
     {
+      "id": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1",
+      "work": "c1-keiken-kouji-gaiyou",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-period-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.json#shorts/point-period-1",
+      "relatedTo": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-ryakushiki-2",
+      "work": "c1-keiken-kouji-gaiyou",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-ryakushiki-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.json#shorts/point-ryakushiki-2",
+      "relatedTo": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform",
       "work": "c1-keiken-ochiru-naoshikata",
       "account": "youtube:main",
@@ -199,6 +287,28 @@
         "subtitles": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.json#longform"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1",
+      "work": "c1-keiken-ochiru-naoshikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kadai-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.json#shorts/point-kadai-1",
+      "relatedTo": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-okiba-2",
+      "work": "c1-keiken-ochiru-naoshikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-okiba-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.json#shorts/point-okiba-2",
+      "relatedTo": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "civil-construction-1/c1-next-license-after-first/youtube.longform",

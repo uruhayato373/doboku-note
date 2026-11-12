@@ -779,6 +779,28 @@
       }
     },
     {
+      "id": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1",
+      "work": "pe-fugoukaku-toan",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-ippanron-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-ippanron-1",
+      "relatedTo": "pe-construction/pe-fugoukaku-toan/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2",
+      "work": "pe-fugoukaku-toan",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-tejun-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-tejun-2",
+      "relatedTo": "pe-construction/pe-fugoukaku-toan/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
       "work": "pe-geotechnical-shutsudai-yomikata",
       "account": "youtube:main",
@@ -802,6 +824,28 @@
         "subtitles": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#longform"
+    },
+    {
+      "id": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-kazu-1",
+      "work": "pe-geotechnical-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kazu-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#shorts/point-kazu-1",
+      "relatedTo": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2",
+      "work": "pe-geotechnical-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-risk-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#shorts/point-risk-2",
+      "relatedTo": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/pe-gyoumu-shousai-720/youtube.longform",
@@ -880,6 +924,28 @@
       "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#longform"
     },
     {
+      "id": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.short.point-shusho-1",
+      "work": "pe-hissu1-konkyo-tsumikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-shusho-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#shorts/point-shusho-1",
+      "relatedTo": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.short.point-wariburi-2",
+      "work": "pe-hissu1-konkyo-tsumikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-wariburi-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#shorts/point-wariburi-2",
+      "relatedTo": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform",
       "work": "pe-hissu1-risk-kakunin",
       "account": "youtube:main",
@@ -928,6 +994,28 @@
         "subtitles": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#longform"
+    },
+    {
+      "id": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2",
+      "work": "pe-hissu1-theme-junbi",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-joken-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#shorts/point-joken-2",
+      "relatedTo": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-junban-1",
+      "work": "pe-hissu1-theme-junbi",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-junban-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#shorts/point-junban-1",
+      "relatedTo": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/pe-ii1-kakikata/youtube.longform",
@@ -1255,6 +1343,28 @@
       "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#longform"
     },
     {
+      "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2",
+      "work": "pe-road-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-jogai-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-jogai-2",
+      "relatedTo": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-themename-1",
+      "work": "pe-road-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-themename-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
+      "relatedTo": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
       "work": "pe-tunnel-shutsudai-yomikata",
       "account": "youtube:main",
@@ -1278,6 +1388,28 @@
         "subtitles": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#longform"
+    },
+    {
+      "id": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-jogai-2",
+      "work": "pe-tunnel-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-jogai-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-jogai-2",
+      "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1",
+      "work": "pe-tunnel-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-themename-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
+      "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
@@ -1304,6 +1436,28 @@
         "subtitles": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#longform"
+    },
+    {
+      "id": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1",
+      "work": "pe-urban-planning-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-setsumei-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#shorts/point-setsumei-1",
+      "relatedTo": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2",
+      "work": "pe-urban-planning-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-shugo-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#shorts/point-shugo-2",
+      "relatedTo": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/toan-kousei-template/youtube.longform",

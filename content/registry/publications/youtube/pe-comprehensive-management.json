@@ -30,6 +30,28 @@
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.json#longform"
     },
     {
+      "id": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.short.point-kanrikadai-1",
+      "work": "cm-essay-tradeoff-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kanrikadai-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.json#shorts/point-kanrikadai-1",
+      "relatedTo": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.short.point-rekkyo-2",
+      "work": "cm-essay-tradeoff-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-rekkyo-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.json#shorts/point-rekkyo-2",
+      "relatedTo": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform",
       "work": "cm-fugokaku-tenken",
       "account": "youtube:main",
@@ -54,6 +76,28 @@
         "subtitles": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#longform"
+    },
+    {
+      "id": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-haiin-1",
+      "work": "cm-fugokaku-tenken",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-haiin-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#shorts/point-haiin-1",
+      "relatedTo": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-tenken-2",
+      "work": "cm-fugokaku-tenken",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-tenken-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#shorts/point-tenken-2",
+      "relatedTo": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
@@ -83,6 +127,28 @@
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#longform"
     },
     {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1",
+      "work": "cm-mondaibun-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-toshiyomi-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-toshiyomi-1",
+      "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2",
+      "work": "cm-mondaibun-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-youso-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#shorts/point-youso-2",
+      "relatedTo": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform",
       "work": "cm-ochiru-answer-naoshikata",
       "account": "youtube:main",
@@ -109,6 +175,28 @@
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.json#longform"
     },
     {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1",
+      "work": "cm-ochiru-answer-naoshikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kouzou-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.json#shorts/point-kouzou-1",
+      "relatedTo": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-shisaku-2",
+      "work": "cm-ochiru-answer-naoshikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-shisaku-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.json#shorts/point-shisaku-2",
+      "relatedTo": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform",
       "work": "cm-setsumon3-risk-kokufuku",
       "account": "youtube:main",
@@ -133,6 +221,28 @@
         "subtitles": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.json#longform"
+    },
+    {
+      "id": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-kokufuku-2",
+      "work": "cm-setsumon3-risk-kokufuku",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kokufuku-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.json#shorts/point-kokufuku-2",
+      "relatedTo": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.short.point-shibori-1",
+      "work": "cm-setsumon3-risk-kokufuku",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-shibori-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.json#shorts/point-shibori-1",
+      "relatedTo": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform",
