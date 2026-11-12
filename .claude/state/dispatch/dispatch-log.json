@@ -7461,6 +7461,23 @@
       "commit": "06fb7e104bc7",
       "verification": "台帳の status scheduled（hissu1-kensetsu-dx のショート 2 本）",
       "note": "Drive 在庫のショートを非公開で投稿し、Studio で関連動画を設定して record-related、publish で予約し台帳の読み戻しで確かめた（建設DX 2 本）。毎日の予約に組み込んだ"
+    },
+    {
+      "id": "DN-0670",
+      "at": "2026-11-12",
+      "task": "2級土木の動画の残り（公開中 1 本の概要欄のクレジット）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-youtube-public-view"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9a7ad2c9c84e",
+      "verification": "Studio の概要欄の読み取り（2026-11-12）・check-content-registry FAIL 0",
+      "note": "公開中の lNI2f_SjCTk の概要欄に「音声：VOICEVOX:青山龍星」が入っていることを Studio で確かめた（2026-10-31 の legacy-funnels の同期で反映済み）。改訂版 3 本は 2026-11-12 に user-decision で停止"
     }
   ]
 }

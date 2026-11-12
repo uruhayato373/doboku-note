@@ -430,27 +430,6 @@ uptime-ping.yml の sweep が 2026-11-10・11-11 のデプロイ後に 2 回と�
 
 
 
-### [DN-0670] 2級土木の動画の残り（公開中 1 本の概要欄のクレジット）
-タグ: [領域:商品] [時期:2026-10..2026-11] [種類:不具合] [検証:check-video-content] [起票:2026-10-11]
-
-**起点**: 2級土木の既存動画の技術表現の訂正（締固め度の現場乾燥密度・配合とスランプ・原因別ひび割れ対策・工事選定条件の断定回避・2026-10-11）と、VOICEVOX の利用条件（話者13 青山龍星は「VOICEVOX:青山龍星」のクレジット記載・2026-10-08 に確認）。
-
-**2026-11-10 の変更**: 非公開のショート 2 本（point-block1-2・point-overview-1）は YouTube から削除した（旧ショートを消す運営者の決定・PR #1515）。ショートの改訂 2 本（draft）は作らない。新しいショートは DN-1001 で企画する。
-
-**分かったこと（2026-11-10）**:
-- 改訂版（diagram-led）の通常動画は、keiken-daizai-erabi が予約済み。gakka-2kyu-doko・anzen-touan-gutaika-kaitei・hinshitsu-touan-gutaika の 3 本は qa_passed で止まっている
-- この 3 本は、台帳が指す完成動画（candidate-video）が Drive に無い。出すなら描き直しが要る
-- 改訂版の表紙は図解の画面で、公開中の全面 POP の表紙より弱い。差し替えるなら表紙は POP で作り直す
-- gakka-2kyu-doko は年間計画（`config/channel-annual-plan.json`）に元の動画の行が無く、`video-factory preflight` と関門（`auto-approve`）が「計画にない動画」で止まる（旧 DN-1078 を統合）
-
-**2026-11-12 の変更**: 運営者の指示で、改訂版（diagram-led）3 本は出さずに user-decision で止めた。改訂版の公開済み・予約済みの元の非公開版 4 本（keiken-daizai-erabi・hissu1-infra-roukyuuka・hissu1-kensetsu-dx・kaitourei-tsukaikata）は Studio で完全に削除し gone で止めた。残りは下の 3 だけ。
-
-**運営者が決める・実行する**（承認と停止はエージェントからは実行できない）:
-1. 消したショートの台帳の行（2 本は gone、作らない改訂 2 行は superseded）は、運営者の承認を受けて 2026-11-10 に停止した（e266c33ba3）
-2. 改訂版 3 本を出すか止めるかを決める。出すなら、表紙を POP で作り直し、描き直して承認する（gakka は年間計画に元の動画の行を足す）。止めるなら `registry -- stop --reason user-decision`
-3. 公開中の lNI2f_SjCTk（gakka-2kyu-doko）の概要欄に「VOICEVOX:青山龍星」を metadata の同期で入れる（改訂版を出さない場合も要る）
-
-**完了条件**: 公開中の動画の概要欄に「VOICEVOX:青山龍星」がある。改訂版 3 本は、差し替え済みか停止のどちらかになっている。台帳と YouTube の実体が一致している。
 
 ### [DN-0440] コンクリート主任技士の小論文添削を、直前期（11月）の受注に応えられる状態にする
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-29] [期日:2026-11-29]
