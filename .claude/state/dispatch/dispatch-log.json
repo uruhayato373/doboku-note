@@ -7405,6 +7405,62 @@
       "commit": "83aa32747556",
       "verification": "tests/agent-hooks.test.mjs（Windows で pass 21 / fail 0）",
       "note": "PR #1544 で修正（a4db16a59）。原因はテストではなく本体で、Windows では path.resolve が \\ 区切りを返すため「プロジェクトの下の階層」の比較が一度も成立していなかった。区切りとドライブ文字をそろえ、Git Bash の /c/… も読み替えた"
+    },
+    {
+      "id": "DN-1101",
+      "at": "2026-11-12",
+      "task": "承認済みの通常動画 7 本を公開日の近い順に予約する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "06fb7e104bc7",
+      "verification": "npm run youtube-daily -- queue（在庫 49 本）",
+      "note": "承認済み 7 本は毎日の予約（youtube-daily）が承認を外して空き枠から付け直す（PR #1553）。今夜から順に予約"
+    },
+    {
+      "id": "DN-1096",
+      "at": "2026-11-12",
+      "task": "建設部門の読み修正の後始末（使われていない改訂の行を止める・旧版 2 本の扱いを決める）",
+      "tier": "mid",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "06fb7e104bc7",
+      "verification": "check-content-registry FAIL 0",
+      "note": "旧版 2 本は 2026-11-12 に Studio で完全に削除し gone で停止。公開の照合の確認は DN-1070 へ移した"
+    },
+    {
+      "id": "DN-1106",
+      "at": "2026-11-12",
+      "task": "動画の量産工程が pop-image.json に作業用の画像の参照を残し、develop の CI（media-references）が赤になる",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-media-references"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "06fb7e104bc7",
+      "verification": "npm run check-media-references（exit 0）",
+      "note": "check-media-references は欠け 213 → 80（既知の上限内・残りは DN-1038）、Issue #1522 は閉じている"
+    },
+    {
+      "id": "DN-1002",
+      "at": "2026-11-12",
+      "task": "ショートの在庫運用を作る（台本QA・Drive 在庫・予約の分離）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "06fb7e104bc7",
+      "verification": "台帳の status scheduled（hissu1-kensetsu-dx のショート 2 本）",
+      "note": "Drive 在庫のショートを非公開で投稿し、Studio で関連動画を設定して record-related、publish で予約し台帳の読み戻しで確かめた（建設DX 2 本）。毎日の予約に組み込んだ"
     }
   ]
 }

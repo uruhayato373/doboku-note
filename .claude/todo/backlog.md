@@ -68,31 +68,8 @@ uptime-ping.yml の sweep が 2026-11-10・11-11 のデプロイ後に 2 回と�
 **完了条件**: ページが本番に出て sitemap に入り、`npm run gsc-indexing:check` で登録を確かめた。試験日の翌週の週次で、このページのクリックと検索語を gsc-management.md に記録した。
 
 
-### [DN-1106] 動画の量産工程が pop-image.json に作業用の画像の参照を残し、develop の CI（media-references）が赤になる
-タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
-
-**起点**: 2026-11-11、PR #1525（X の返信の設定・手順書）の CI で `quality:audit:ci` の `media-references` だけが落ちた（残り 131 本と build は合格）。develop 自体も同じ理由で赤で、Issue #1522 が開いている。
-
-**原因**: 2026-11-10 21:44〜21:49 に develop へ入った動画の量産工程のコミット（`content(video): … を量産工程で制作する`）で、`content/sns/video-packs/<資格>/<pack>/pop-image.json` が Git に入らない作業用の画像（`.tmp/media/<資格>/<pack>/work/factory/raw-*.png`）を参照している。`check-media-references` は「文書 597 / 参照 2211 / 欠け 213」で exit 1。例: `civil-construction-1/c1-juken-junjo-2027`（13 件）・`civil-construction-1/owner-eye-kouji-kensa`（7 件）。
-
-DN-1038（Drive の台帳に無い素材 80 件）とは別の原因。こちらは量産工程が作業用の画像のパスを pop-image.json に書き残すことで増える。
-
-**やること**: 量産工程（`scripts/lib/video-factory.mjs` まわり）が pop-image.json に残す参照を、Drive に登録した素材か、参照を残さない形にする。すでに入った分の pop-image.json を直す。動画を作っているセッションの領域なので、そのセッションで直す。
-
-**完了条件**: `npm run quality:audit:ci` の `media-references` が develop で合格し、Issue #1522 が自動で閉じる。量産工程で 1 パック作っても欠けが増えない。
 
 
-### [DN-1101] 承認済みの通常動画 7 本を公開日の近い順に予約する
-タグ: [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-11-11] [期日:2026-11-14]
-
-**起点**: 2026-11-10〜11 の通常動画 9 本の量産で、全 9 本が関門と方針の承認まで通った。11-11 に `sokan-kojutsu-tradeoff`（11/18）と `pe-kojutsu-fukabori`（11/25）を予約した。残り 7 本は投稿の割当（1 日 4 本・日本時間 17 時に戻る）を使い切って未予約。
-
-**やること**: 公開日の近い順に、割当が戻ってから `node --env-file=.env.local scripts/video-factory.mjs publish --packs <a,b>` を回す。1 日 4 本まで。
-- 1 回目: civil-construction-1/owner-eye-kouji-kensa（12/1）、pe-construction/pe-kojutsu-kaitei-competency（12/8）、pe-comprehensive-management/sokan-kojutsu-tachiba（12/15）、pe-construction/pe-fugoukaku-toan（12/22）
-- 2 回目: civil-construction-1/c1-juken-junjo-2027（2027-01-01）、civil-construction-2/c2-juken-junjo-2027（01-12）、civil-construction-1/owner-eye-sekkei-tosho（01-15）
-- 実行前に作業ツリーの未コミットの変更を片づける（publish は内部で `git pull --rebase` を行い、未コミットがあると止まる）
-
-**完了条件**: 7 本の公開行が台帳で `scheduled` になり、`youtube-single-publish.yml` の実行がすべて success。
 
 
 ### [DN-1089] 土曜の収集の business-records の段が受取額を記録するか確かめる（11/14・11/21）
@@ -775,17 +752,6 @@ DN-1072 の 3（割当の計算の前に pull）とは別の論点。
 
 
 
-### [DN-1096] 建設部門の読み修正の後始末（使われていない改訂の行を止める・旧版 2 本の扱いを決める）
-タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-10]
-
-**起点**: DN-1064 で建設部門の読み修正版 3 本を予約した（2026-11-10）。hissu1-kensetsu-dx・hissu1-infra-roukyuuka は改訂版を新しい動画として予約したので、読み間違いのある旧版（SvV8zXamMvo・1EAPnQVwARE）が非公開のまま残っている。toan-kousei-template は改訂版が旧版と同じ動画だったため、旧版 ywemm49EBPA をそのまま 11/12 に予約し直した（PR #1512・#1513）。そのため改訂の行は `approved` のまま使われていない。
-
-**やること**:
-1. 使われていない改訂の行（toan-kousei-template の reading-fix）は、運営者の承認を受けて 2026-11-10 に停止した（e266c33ba3）
-2. 旧版 2 本（`pe-construction/hissu1-kensetsu-dx/youtube.longform`・`pe-construction/hissu1-infra-roukyuuka/youtube.longform`）は、非公開で残すか止めるかを決める。止めるなら `registry -- stop --reason superseded`
-3. 予約した 3 本の公開後、毎朝の照合で `published` になったことを確かめる
-
-**完了条件**: toan-kousei-template の改訂の行が `stopped` になっている。旧版 2 本の扱いが台帳に記録されている。3 本が `published` で YouTube の実体と一致している。
 
 
 ### [DN-1095] 技術士一次の情報工学部門の専門科目の過去問 16 回分を作る
@@ -918,6 +884,8 @@ DN-1072 の 3（割当の計算の前に pull）とは別の論点。
 **やること**:
 1. main へ昇格した翌朝、youtube-single-publish の schedule の run が成功し、`npm run check-registry-due` の超過が 0 本になったことを確かめる
 2. `video-factory status` に `verify`（予約済みで実体未確認）と `cleanup-pending`（R2 の転送ファイルの後始末待ち）を足す
+
+**追加（2026-11-12・旧 DN-1096 の残り）**: 建設部門の読み修正版 3 本（hissu1-kensetsu-dx 11/11・toan-kousei-template 11/12・hissu1-infra-roukyuuka 11/13）が照合で `published` になったことも確かめる。
 
 **完了条件**: 公開日時を過ぎた行が翌日までに `published` へ照合され、超過が日次の検査で赤になる。status に予約後の 2 段が出る。
 
@@ -1265,21 +1233,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **完了条件**: 台帳の公開状態と API の実体の不一致が 0 件で、検査した件数が出力される。
 
 
-### [DN-1002] ショートの在庫運用を作る（台本QA・Drive 在庫・予約の分離）
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の運営者の検討依頼。ショートも「台本の監査 → 画像 → Drive に在庫 → 予約は別の判断」で回し、手元には残さない運用を比べた。通常動画は内容QA・`--stock`・`schedule`・`publish`・`cleanup` がある。
-
-**ショート側の不足**:
-1. `shorts-design.json` の監査の工程がなく、画像の生成より前に止められない
-2. `shorts-factory` に在庫の工程がない。見本の新しい mp4 は Drive に未保存で、台帳には同じパスの旧動画の sha が残る。手元を消すと `youtube-shorts:stage` が止まる
-3. 投稿は手元の `publish-video-pack.cjs` で、通常動画の `youtube-single-publish.yml` のような CI の経路がない
-4. 関連動画は Studio の手作業で API がない。通常動画が非公開や予約中のときに設定できるかは未確認
-5. 投稿の前に通常動画の videoId が要る
-
-**やること**: 運営者の判断（在庫の本数・予約の単位・承認の形）を受けて設計を確定し、台本QA → 在庫 → 予約の順で実装する。
-
-**完了条件**: 手元の画像と動画を消した状態で、Drive の在庫からショート 1 本を非公開でアップロードし、関連動画の設定と予約まで進み、`videos.list` で実体を確認できる。
 
 
 ### [DN-1001] 新しい通常動画からショートを派生させる試行（通常動画 3 本 × ショート 2 本）
