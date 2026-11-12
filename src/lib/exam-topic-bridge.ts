@@ -58,7 +58,7 @@ export function resolveExamTopicQuestion(slug: string): ExamTopicQuestion | null
   if (!q) return null;
   const examSlug = `primary-${q.year}-${q.part.toLowerCase()}`;
   const tb = Q2T[examSlug]?.[`問題-${q.no}`]?.[0];
-  const explanation = (q.optionExplanations?.find((e) => e.num === q.correct)?.text ?? '').replace(/<[^>]+>/g, '').trim();
+  const explanation = (q.optionExplanations?.find((e) => e.num === q.correct)?.text ?? '').replace(/<[^>]*>/g, '').replace(/[<>]/g, '').trim(); // タグ（<ExamPoint> など）を外し、残った < > も消す（React のテキストとして出すが、文字列に山括弧を残さない）
   return {
     label: `${yearLabel(q.year)} 第1次検定 No.${q.no}`,
     body: q.body,
