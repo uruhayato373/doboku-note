@@ -39,6 +39,7 @@ export type CoconalaExamScope =
   | 'civil-2'
   | 'pe-construction'
   | 'pe-comprehensive-management'
+  | 'pe-water-supply'
   | 'rccm'
   | 'concrete-chief-engineer';
 
