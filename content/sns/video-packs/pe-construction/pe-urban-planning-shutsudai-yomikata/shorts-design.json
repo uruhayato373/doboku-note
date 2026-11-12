@@ -82,9 +82,9 @@
       "qa": {
         "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "事実は sources の iii・iiicond の範囲に収まる。型 one-question の形、コピー assertion、表紙と冒頭の整合、本編への引きも満たす。fail の条件に当たる点は見当たらない。",
-        "digest": "4716eb81ab344acd141cf14211d82b534063c9c838b23b9f48c78b0c2fe627ec",
-        "checkedAt": "2026-11-11T23:31:31.655Z"
+        "reason": "事実は sources の iii・iiicond の範囲内で、型 one-question の形と本編への引きを満たし、fail 条件に当たる点は見つからなかった。",
+        "digest": "8dacaaf49267715008f83a2d04c58e69e9cef5c84bc81d061b41eb931618f70f",
+        "checkedAt": "2026-11-12T00:17:32.540Z"
       },
       "coverPaper": "III-1 立地適正化計画／III-2 古民家の活用"
     }
