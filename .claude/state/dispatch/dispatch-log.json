@@ -7719,6 +7719,126 @@
       "commit": "246ce8c3b0a5",
       "verification": "data/business/experiments.json EXP-057 running・DN-1113 本文へ検証結果を移した",
       "note": "棚卸し: DN-1113 へ統合。一括修正は 2026-11-04 の検証で取りやめ（EXP-057 で 30 ページを試す）、残る判断は DN-1113 の『次の実験の向き』と同じ"
+    },
+    {
+      "id": "DN-0343",
+      "at": "2026-11-12",
+      "task": "土木二次の売上が市場の大きさに比べて小さい原因を切り分け、来季の打ち手を決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b3cda0587b20",
+      "verification": "docs/strategy/06_多資格展開戦略.md L57 の 2026-11-04 の判断記録",
+      "note": "棚卸し: 原因と来季の打ち手を docs/strategy/06 の判断記録（2026-11-04）に書き、打ち手は DN-0970・0972・0971・0959・0632 に起票済み"
+    },
+    {
+      "id": "DN-0922",
+      "at": "2026-11-12",
+      "task": "GSC URL検査の全件結果を履歴へ保存して確認する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "週次 index-coverage.yml が全件検査を履歴へ保存する形で動いている"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b3cda0587b20",
+      "verification": "data/gsc/index-coverage.json 最終 entry inspected=sitemap_urls=1982",
+      "note": "棚卸し: data/gsc/index-coverage.json の 2026-11-05 の記録が sitemap 1982 件・検査 1982 件で一致（周回 2 回で全件）"
+    },
+    {
+      "id": "DN-0916",
+      "at": "2026-11-12",
+      "task": "基準書の画像から起こしたページの GFM の表が、記法の文字のまま画面に出る（近畿の必携 約 10 章）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-standard-articles"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b3cda0587b20",
+      "verification": "npm run check-standard-articles exit 0（FAIL 0）",
+      "note": "棚卸し: PR #1470（bb6d16981）で画像起こしページの GFM 表を表として出すよう直した。check-standard-articles 480 PASS。34-2 の ||||--- はコードブロック内の文字で別件"
+    },
+    {
+      "id": "DN-0921",
+      "at": "2026-11-12",
+      "task": "affiliate:status の A8・もしもの一覧が 0 件になり、afb のサイト切替が通らない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/asp-list-readers.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b3cda0587b20",
+      "verification": "data/affiliate/catalog.json verifiedAt=2026-11-03・scripts/lib/asp-browser.mjs の form.submit フォールバック",
+      "note": "棚卸し: PR #1315（c9c04b602・10/30）で A8・もしもの 0 件と afb のサイト切替を直し、11/03 に affiliate:status が完走して catalog を更新（verifiedAt 2026-11-03）"
+    },
+    {
+      "id": "DN-0514",
+      "at": "2026-11-12",
+      "task": "2級土木の note 商品ラインナップを試験後に整理する（販売 0 の 18 商品の見せ方・工種別パックを工事バンクの入口に）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b3cda0587b20",
+      "verification": "DN-0971 の起点・完了条件に扱いと記録先を移したことを backlog で確認",
+      "note": "棚卸し: 販売 0 商品の扱いは 2026-11-04 の分析で決まり、実装は DN-0971。判断理由を EXP-011 の learnings に残す条件は DN-0971 の完了条件へ移した"
+    },
+    {
+      "id": "DN-0789",
+      "at": "2026-11-12",
+      "task": "Skill・Agent・スラッシュコマンドの呼び出しを 4 週間の期限付きで記録する hook を置く（拡張性・第0波）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b3cda0587b20",
+      "verification": "~/.claude/usage-log/doboku-note-2026-10.jsonl・2026-11.jsonl が実在",
+      "note": "棚卸し: hook は agent-hook.mjs record-usage で入り、~/.claude/usage-log/ に 2026-10-21 からの記録がある。4 週後に外す条件は DN-0798 が持つ（参照を日付に直した）"
+    },
+    {
+      "id": "DN-0582",
+      "at": "2026-11-12",
+      "task": "Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "DN-0889 で引き続き扱う"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b3cda0587b20",
+      "verification": "DN-0889 本文に旧 DN-0582 の統合節",
+      "note": "棚卸し: DN-0889（Windows の手元で 46〜47 件落ちる）に統合。対象ファイルは同じ母集団で、content-expansion と prh の注意を DN-0889 へ移した"
+    },
+    {
+      "id": "DN-0853",
+      "at": "2026-11-12",
+      "task": "CI 再編と全文書化の初回の定期実行（10/27〜10/30）を確かめる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0853-ci-consolidate-overlaps.md",
+      "commit": "b3cda0587b20",
+      "verification": "gh run list --workflow cloudflare-metrics.yml（2026-10-30T18:52Z success）・gh issue view 1180 CLOSED",
+      "note": "棚卸し: cloudflare-metrics.yml の 10/30 金曜の定期実行が success、Issue #1180 は 2026-11-05 に CLOSED"
     }
   ]
 }
