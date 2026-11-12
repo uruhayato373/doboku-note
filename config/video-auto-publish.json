@@ -28,6 +28,10 @@
   },
   "maxPublishPerDay": 4,
   "uploadPriority": "longform",
+  "hold": [
+    { "pack": "civil-construction-1/owner-eye-kouji-kensa", "reason": "台本の 2 点（会計法第29条の11 第2項・監督と検査の職員の兼務）を一次資料で確かめるまで出さない", "card": "DN-1077" },
+    { "pack": "civil-construction-2/c2-juken-junjo-2027", "reason": "受検資格の年齢と第二次の時期の言い方を受検の手引に揃えるまで出さない", "card": "DN-1105" }
+  ],
   "audio": {
     "model": "~/.cache/whisper/ggml-small.bin",
     "language": "ja",

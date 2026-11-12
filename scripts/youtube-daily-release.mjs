@@ -33,7 +33,7 @@ function queue({ longformPerDay } = {}) {
   const stocked = shortsStatus(ROOT).filter((s) => s.stage === 'stocked');
   return releaseQueue({
     publications: reg.publications, stocked, plan: readDataset(ROOT, 'config.channel-annual-plan'),
-    uploadsLeft: uploadsLeft(reg.publications, policy), today: todayJst(), longformPerDay: longformPerDay ?? (policy.uploadPriority === 'longform' ? Infinity : policy.slot.maxPerDay),
+    uploadsLeft: uploadsLeft(reg.publications, policy), today: todayJst(), hold: policy.hold, longformPerDay: longformPerDay ?? (policy.uploadPriority === 'longform' ? Infinity : policy.slot.maxPerDay),
   });
 }
 

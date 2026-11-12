@@ -53,3 +53,10 @@ test('前倒しの間は、承認済みで未投稿の通常動画を付け直�
   assert.deepEqual(releaseQueue({ publications: pubs, stocked: [], plan: fl, uploadsLeft: 4, longformPerDay: 2, now: NOW, today: '2027-02-01' }).toReplace, []);
 });
 
+test('保留の作品は通常動画もショートも出さない', () => {
+  const parent = lf('a', { status: 'scheduled', publishAt: '2026-11-13T03:15:00Z', platform: { id: 'AAAAAAAAAAA' } });
+  const q = releaseQueue({ publications: [parent, lf('b'), lf('c')], stocked: [{ pack: 'e/a', key: 'k1' }], plan, uploadsLeft: 4, longformPerDay: 4, now: NOW, hold: [{ pack: 'e/a' }, { pack: 'e/b' }] });
+  assert.deepEqual(q.longforms.map((l) => l.pack), ['e/c']);
+  assert.deepEqual(q.shorts, []);
+});
+

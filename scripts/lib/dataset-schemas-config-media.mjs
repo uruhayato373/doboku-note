@@ -1433,6 +1433,7 @@ export const ConfigVideoAutoPublish = z.object({
     decidedBy: z.string().min(1),
   }).strict(),
   maxPublishPerDay: z.number().int().positive().describe('通常動画とショートを合わせた 1 日の公開の上限'),
+  hold: z.array(z.object({ pack: z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/), reason: z.string().min(1), card: z.string().regex(/^DN-\d{4}$/) }).strict()).describe('毎日の予約で出さない作品（直すまでの保留）。直したら行を消す'),
   uploadPriority: z.enum(['longform', 'balanced']).describe('投稿の割当の配り方。longform＝在庫の通常動画が尽きるまで割当を全部通常動画に使う（先の日付の予約を早く埋める・2026-11-12 運営者の決定）、balanced＝通常動画は 1 日 slot.maxPerDay 本まで'),
   audio: z.object({ model: z.string().min(1), language: z.string().min(1), minSimilarity: z.number(), minMaxVolumeDb: z.number(), maxMaxVolumeDb: z.number(), maxDurationGapSec: z.number() }).strict(),
 }).strict();
