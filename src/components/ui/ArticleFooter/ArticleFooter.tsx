@@ -31,6 +31,8 @@ import QualificationBridge from '@/components/ui/QualificationBridge/Qualificati
 import { shouldShowQualificationBridge } from '@/config/qualification-bridge';
 import ExamStepBridge from '@/components/ui/ExamStepBridge/ExamStepBridge';
 import NextInSeries from '@/components/ui/NextInSeries/NextInSeries';
+import ExamTopicBridge from '@/components/ui/ExamTopicBridge/ExamTopicBridge';
+import { resolveExamTopicQuestion } from '@/lib/exam-topic-bridge';
 import { resolveExamStepBridge } from '@/lib/exam-step-bridge';
 import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
@@ -94,6 +96,7 @@ export default function ArticleFooter({
   // キャリア記事の記事末は内部導線（CareerNextStepNav）に置き換える（2026-08-21・記事末 975 表示 0 クリック）。
   const isCareer = isCareerDoc(meta);
   const examStep = resolveExamStepBridge(category, docGroup, slugStr);
+  const examTopic = category === 'civil-practice' ? resolveExamTopicQuestion(slugStr) : null;
   // 記事末の回遊（content-taxonomy.md §6-3）。法令 → テーマ → 関連記事の順に出し、先に出した記事は後ろから外す
   const { lawSiblings, lawTopics, lawPageLinks, lawPage, topicLinks, shownSlugs } = resolveArticleEnd(meta, laws.map((law) => law.lawId), relatedArticles);
   const endBanner = endBannerAd ? (
@@ -143,6 +146,12 @@ export default function ArticleFooter({
       {shouldShowQualificationBridge(category, slugStr) && (
         <div className="mt-8">
           <QualificationBridge placement="practice-footer" audience={meta.tags?.includes('地方公共団体') ? 'municipal' : undefined} />
+        </div>
+      )}
+      {/* 実務記事: 読んだ論点が出る 1級土木の過去問を 1 問（exam-topic-bridge.ts）。EXP-012 の橋渡しの下に並べる（2026-11-12〜） */}
+      {examTopic && (
+        <div className="mt-8">
+          <ExamTopicBridge question={examTopic} />
         </div>
       )}
 

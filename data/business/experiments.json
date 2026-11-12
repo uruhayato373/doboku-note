@@ -2036,6 +2036,11 @@
           "at": "2026-10-23T03:43:33.338Z",
           "event": "measure-interim",
           "note": "4 週の途中値 1,026 表示・13 クリック（1.27%）。判定は 11/26"
+        },
+        {
+          "at": "2026-11-12T00:00:00.000Z",
+          "event": "note",
+          "note": "本番反映から実務記事 19 本の記事末に ExamTopicBridge（論点が出る 1級土木の過去問 1 問）を橋渡しカードの下に併設（運営者の決定 2026-11-12）。判定ではカードのクリック（qualification_bridge_click）だけを比べ、併設後の期間は exam-topic（internal_nav_click）・answer_reveal と分けて読む"
         }
       ]
     },

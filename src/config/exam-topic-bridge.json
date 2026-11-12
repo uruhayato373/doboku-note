@@ -1,0 +1,24 @@
+{
+  "$comment": "実務記事の記事末に「この論点が出る 1級土木の過去問」を 1 問出すための論点の語（src/lib/exam-topic-bridge.ts）。キーは記事の slug。語は特定の論点に絞り、先に書いた語ほど優先する。問題文に語を含む問題を新しい年度から選ぶ（表・図・数式・特殊記号を含む問題は除く）。対応が取れない記事は書かない（tests/exam-topic-bridge.test.mjs が全件の解決を検査する）。EXP-012（資格の橋渡し）と並べて 2026-11-12 から表示。",
+  "pages": {
+    "civil-practice-formwork-removal-timing": ["型枠・支保工", "型枠及び支保工", "型枠の", "支保工の取外し"],
+    "civil-practice-rebar-splice-selection": ["鉄筋の継手", "ガス圧接", "機械式継手", "鉄筋の加工"],
+    "civil-practice-asphalt-pavement-control": ["アスファルト舗装の施工", "加熱アスファルト混合物の", "表層・基層の施工"],
+    "civil-practice-excavation-bottom-failure": ["ヒービング", "盤ぶくれ", "ボイリング", "掘削底面"],
+    "civil-practice-asphalt-materials-types": ["アスファルト混合物", "ストレートアスファルト", "改質アスファルト"],
+    "civil-practice-embankment-quality-control": ["工法規定方式", "品質規定方式", "盛土の締固め"],
+    "civil-practice-subbase-subgrade-control": ["路床", "下層路盤", "上層路盤"],
+    "civil-practice-river-area-permits": ["河川区域", "河川管理者の許可"],
+    "civil-practice-trench-excavation-safety": ["土止め支保工", "明り掘削"],
+    "civil-practice-pile-concrete-head-treatment": ["杭頭処理", "場所打ち杭"],
+    "civil-practice-earth-retaining-displacement": ["土留め工", "土留め壁"],
+    "civil-practice-owner-safety-responsibility": ["特定元方事業者", "元方事業者"],
+    "civil-practice-backfill-river-excavation": ["埋戻し"],
+    "civil-practice-pile-bearing-verification": ["既製杭", "打込み杭", "杭の支持力"],
+    "civil-practice-excavation-pre-survey": ["架空線", "地下埋設物", "埋設物"],
+    "civil-practice-concrete-repair-leakage": ["コンクリート構造物の補修", "断面修復", "補強工法", "表面被覆"],
+    "civil-practice-flood-season-river-work": ["河川区域内"],
+    "civil-practice-ict-construction-workflow": ["情報化施工", "ICT"],
+    "civil-practice-concrete-crack-causes": ["ひび割れ", "アルカリシリカ反応", "乾燥収縮"]
+  }
+}
