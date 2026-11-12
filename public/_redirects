@@ -121,9 +121,6 @@
 /docs/civil-construction-2-secondary-grading-and-partial-credit /exam/civil-construction-2/guide/secondary-grading-and-partial-credit 301
 /docs/civil-construction-2-secondary-last-two-weeks-plan /exam/civil-construction-2/guide/secondary-last-two-weeks-plan 301
 /docs/civil-construction-2-secondary-written-questions-guide /exam/civil-construction-2/guide/secondary-written-questions-guide 301
-/docs/concrete-chief-engineer-guide-essay /exam/concrete-chief-engineer/guide/essay 301
-/docs/concrete-chief-engineer-guide-overview /exam/concrete-chief-engineer/guide/overview 301
-/docs/concrete-chief-engineer-guide-trends /exam/concrete-chief-engineer/guide/trends 301
 /docs/pe-comprehensive-management-course-selection-guide /exam/pe-comprehensive-management/guide/course-selection-guide 301
 /docs/pe-comprehensive-management-essay-exam-strategy /exam/pe-comprehensive-management/guide/essay-exam-strategy 301
 /docs/pe-comprehensive-management-essay-pattern-cross-year-application /exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application 301
@@ -489,6 +486,10 @@
 # route /docs/civil-construction-2-secondary-r06 /exam/civil-construction-2/secondary/r06
 # route /docs/civil-construction-2-secondary-r07 /exam/civil-construction-2/secondary/r07
 # route /docs/civil-construction-2-secondary-r08 /exam/civil-construction-2/secondary/r08
+# route /docs/concrete-chief-engineer-guide-essay /exam/concrete-chief-engineer/guide/essay
+# route /docs/concrete-chief-engineer-guide-overview /exam/concrete-chief-engineer/guide/overview
+# route /docs/concrete-chief-engineer-guide-r08-answers /exam/concrete-chief-engineer/guide/r08-answers
+# route /docs/concrete-chief-engineer-guide-trends /exam/concrete-chief-engineer/guide/trends
 # route /docs/concrete-chief-engineer-primary-construction /exam/concrete-chief-engineer/primary/construction
 # route /docs/concrete-chief-engineer-primary-durability /exam/concrete-chief-engineer/primary/durability
 # route /docs/concrete-chief-engineer-primary-materials /exam/concrete-chief-engineer/primary/materials
@@ -2032,6 +2033,7 @@
 /docs/civil-construction-2-secondary-* /exam/civil-construction-2/secondary/:splat 301
 /docs/concrete-diagnostician-primary-* /exam/concrete-diagnostician/primary/:splat 301
 /docs/civil-construction-1-textbook-* /exam/civil-construction-1/textbook/:splat 301
+/docs/concrete-chief-engineer-guide-* /exam/concrete-chief-engineer/guide/:splat 301
 /docs/civil-construction-1-primary-* /exam/civil-construction-1/primary/:splat 301
 /docs/civil-construction-2-primary-* /exam/civil-construction-2/primary/:splat 301
 /docs/concrete-diagnostician-guide-* /exam/concrete-diagnostician/guide/:splat 301
