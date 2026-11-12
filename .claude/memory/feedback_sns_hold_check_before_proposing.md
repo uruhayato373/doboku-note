@@ -17,3 +17,5 @@ metadata:
 2026-10-25、ユーザーは「SNS の CI は全部削除し、必要になったら作ればいい」と判断した。保留の印（paused）で残す案は退けられた。YouTube・Instagram・X の workflow（registry-reconcile・youtube-unschedule・sync-yt-descriptions・note-public-view の YouTube 段）と quality-audit の SNS 検査 15 本を CI から外した（スクリプトは手元に残す）。SNS 系の自動化を足す・戻す提案は、再開の指示が出るまでしない。
 
 **更新（2026-11-04）**: YouTube の保留は運営者の指示で解除した。X・Instagram の扱いは別に確認する。
+
+**更新（2026-11-12）**: X も再開した（本数は年間の枠の案どおり・解答速報を採る）。X の月次計画（check-x-campaign-plan）とコンテンツ台帳（check-content-registry）の検査を CI に戻し、土曜の収集の DOBOKU_SNS_PAUSED を外した（DN-1159）。Instagram は保留を続ける。
