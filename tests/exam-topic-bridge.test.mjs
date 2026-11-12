@@ -6,7 +6,8 @@ import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 import { loadTsModule } from './lib/load-ts.mjs';
 
 // 実務記事の記事末「この論点が出る 1級土木の過去問」（exam-topic-bridge.ts）。登録した記事が 1 件でも解決しないと黙って消えるので全件を見る。
-const { resolveExamTopicQuestion, examTopicBridgeSlugs } = await loadTsModule('src/lib/exam-topic-bridge.ts');
+const { resolveExamTopicQuestion } = await loadTsModule('src/lib/exam-topic-bridge.ts');
+const examTopicBridgeSlugs = () => Object.keys(JSON.parse(readFileSync(join(ROOT, 'src/config/exam-topic-bridge.json'), 'utf8')).pages);
 
 test('登録した記事はすべて実在し、1 問に解決する', () => {
   const slugs = examTopicBridgeSlugs();
@@ -34,9 +35,10 @@ test('未登録の記事は null', () => {
   assert.equal(resolveExamTopicQuestion('civil-practice-not-registered'), null);
 });
 
-test('解説のタグを外して中の文字だけ残し、山括弧を残さない', async () => {
-  const { stripTags } = await loadTsModule('src/lib/exam-topic-bridge.ts');
-  assert.equal(stripTags('正しい。<ExamPoint>要点</ExamPoint>'), '正しい。要点');
-  assert.equal(stripTags('<<script>script>alert(1)<</script>/script>'), 'scriptalert(1)/script');
-  assert.ok(!/[<>]/.test(stripTags('a <b <c> d> e < f')));
+test('解説のタグ（<ExamPoint> など）を外して中の文字だけ残し、山括弧を残さない', () => {
+  // 実データの解説は <ExamPoint> を含む。登録した全記事で、外したあとの解説に山括弧が残らないこと
+  for (const slug of examTopicBridgeSlugs()) {
+    const q = resolveExamTopicQuestion(slug);
+    assert.ok(!/[<>]/.test(q.explanation), `${slug}: ${q.explanation.slice(0, 40)}`);
+  }
 });

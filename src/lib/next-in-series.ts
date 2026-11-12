@@ -10,7 +10,7 @@ import { getCategoryCurriculum } from '@/config/category-curriculum';
  *   教科書の章（TextbookNav）・過去問の年度（ExamYearNav）は既存の前後ナビがあるので、ここでは扱わない。
  */
 
-export interface SeriesItem {
+interface SeriesItem {
   readonly slug: string;
   readonly title: string;
 }

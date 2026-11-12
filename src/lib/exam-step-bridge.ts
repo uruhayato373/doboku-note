@@ -10,7 +10,7 @@ import { getPublicDocPath } from '@/lib/content-routes';
  * 計測: ExamStepBridge の MetaCard trackNav="exam-step"（internal_nav_click・label=exam-step）。
  */
 
-export interface ExamStepLink {
+interface ExamStepLink {
   readonly href: string;
   readonly label: string;
   readonly hint: string;

@@ -45,7 +45,7 @@ const yearLabel = (y: string) => (y.startsWith('r') ? `令和${Number(y.slice(1)
  * 取り残しが出る形（CodeQL の incomplete multi-character sanitization）になるので、1 文字ずつ「< から > まで」を落とす。
  * 結果は React のテキストとして描画し、HTML としては出さない。
  */
-export function stripTags(text: string): string {
+function stripTags(text: string): string {
   let out = '';
   let inTag = false;
   for (const ch of text) {
@@ -84,9 +84,4 @@ export function resolveExamTopicQuestion(slug: string): ExamTopicQuestion | null
     examHref: `${getPublicDocPath(`civil-construction-1-${examSlug}`)}#問題-no${q.no}`,
     textbook: tb ? { href: getPublicDocPath(`civil-construction-1-${tb.slug}`), title: tb.title } : null,
   };
-}
-
-/** 検査用: 登録された記事の slug */
-export function examTopicBridgeSlugs(): string[] {
-  return Object.keys(PAGES);
 }
