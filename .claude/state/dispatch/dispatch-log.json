@@ -7517,6 +7517,49 @@
       "commit": "3f19510a79b8",
       "verification": "npm run check-youtube-plan（違反 0）",
       "note": "運営者の決定（2026-11-12）: 在庫 49 本は 1 日 2 本で 12 月上旬まで前倒し、尽きたら元の週 2 本・山場 3 本に戻す。frontLoad.to を 2026-12-15 に縮めた。週 2〜3 本なら年間計画の枠 71 本で足り、新しい枠は足さない。制作は年間計画の台本未着手 16 本から順に進める"
+    },
+    {
+      "id": "DN-1146",
+      "at": "2026-11-12",
+      "task": "2級土木 題材選びの完成動画の記録を、表紙だけの変更の後の制作入力に結び直す（R12）",
+      "tier": "hold",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-content-registry"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "40879463b65a",
+      "verification": "npm run check-content-registry（FAIL 0）",
+      "note": "registry reanchor-render を足し、題材選びの完成動画の記録を表紙だけの変更の後の制作入力へ結び直した（根拠 4142e02ad・PR #1557）"
+    },
+    {
+      "id": "DN-1077",
+      "at": "2026-11-12",
+      "task": "工事検査の動画の台本で、一次資料の本文で確かめていない 2 点を公開前に確かめる",
+      "tier": "hold",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "40879463b65a",
+      "verification": "e-Gov 法令 API（322AC0000000035・322IO0000000165）の条文",
+      "note": "e-Gov API で会計法第29条の11 第2項（給付の完了の確認・既済部分を含む検査）と予算決算及び会計令第101条の7（監督と検査の職務の兼職禁止・特別の必要がある場合を除く）を確かめ、台本どおりだった。直す所なし"
+    },
+    {
+      "id": "DN-1105",
+      "at": "2026-11-12",
+      "task": "2級土木の受検の順序の動画で受検資格の年齢と第二次の時期の言い方を手引に揃える",
+      "tier": "hold",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "40879463b65a",
+      "verification": "jctc.jp/exam/doboku-2/ と受検の手引 PDF の本文",
+      "note": "全国建設研修センターの令和8年度 受検の手引は「令和８年度中における年齢が１７歳以上の者」で台本の「その年度に十七歳以上」と一致。第二次は台本が令和8年度を例と断っている。直す所なし"
     }
   ]
 }

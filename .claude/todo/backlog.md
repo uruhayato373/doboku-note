@@ -4171,3 +4171,5 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: `config/channel-annual-plan.json` の `cycle.reviewAt` と `metrics.target` が更新され、判断が `data/business/records/` に残っている。
 
+
+
