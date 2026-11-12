@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "description": "/standards の build 済み HTML（out/standards/**）に対する密度ゲートの閾値。説明文を増やさず、一覧のリンクを主役に保つ。判定は scripts/lib/standards-density.mjs、実行は npm run check-standards-density。マーカー data-standards-list / data-standards-attribution / data-cta は各ページのテンプレートが出す。",
+  "proseBeforeContent": {
+    "description": "main 内で最初の一覧（data-standards-list）または本文（data-standards-chapter / data-standards-section-index）より前にある p の文字数の上限。nav・サイドバー・h1・パンくずは数えない。キーの集合が検査するテンプレートの集合。",
+    "maxChars": { "top": 60, "agency": 60, "document": 60, "chapter": 60, "section": 60 }
+  },
+  "minListLinks": {
+    "description": "一覧ごとの最小リンク数。document の chapters は一覧がある文書だけに課す（章を持たない文書には一覧が無い）。",
+    "top": { "agencies": 11, "major": 3 },
+    "agency": { "documents": 1 },
+    "document": { "chapters": 1 }
+  },
+  "attribution": {
+    "description": "出典表示ブロック（data-standards-attribution）はページに 1 つだけ。details の外に見える文字数の上限。",
+    "count": 1,
+    "maxVisibleChars": 160
+  },
+  "affiliate": {
+    "description": "標準仕様書のページには転職アフィリエイトのカードを置かない。data-cta=affiliate の数と、下のホストへのリンクの数の合計の上限。",
+    "max": 0,
+    "hostPatterns": ["px.a8.net", "moshimo.com", "afi-b.com"]
+  }
+}
