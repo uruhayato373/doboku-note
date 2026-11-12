@@ -746,7 +746,7 @@
       "work": "pe-fugoukaku-toan",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-fugoukaku-toan/youtube.longform/cover",
         "scene-001": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-001",
@@ -782,7 +782,42 @@
         "contentSha256": "96eaf6bf0bce4cfc87f1c859a5d08e5eb80fedf979bd9e485285c642e6e25a8d"
       },
       "times": {
-        "rendered": "2026-11-12T22:01:29.498Z"
+        "rendered": "2026-11-12T22:01:29.498Z",
+        "uploaded": "2026-11-12T22:03:31.819Z",
+        "scheduled": "2026-11-12T22:03:41.699Z"
+      },
+      "delivery": {
+        "inputSha256": "f79fa4dcfbd2e780dc98c3d4711fa65b3b99eee0961cd0dfeb4dec42969f2be8",
+        "marker": "dn-single-94620c686eb7583d849387c4f60397401980013a",
+        "uploadRequestedAt": "2026-11-12T22:02:42.307Z",
+        "videoId": "VQ0OLSQQCgc",
+        "processedAt": "2026-11-12T22:03:31.132Z",
+        "thumbnailRequestedAt": "2026-11-12T22:03:31.859Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/VQ0OLSQQCgc/default.jpg?sqp=CODt2NcG&rs=AOn4CLAZdAzf8gk59551yzmvLsGR0-7qJA",
+          "https://i9.ytimg.com/vi/VQ0OLSQQCgc/mqdefault.jpg?sqp=CODt2NcG&rs=AOn4CLDyz1NxlXVkW_qIr8-QvJuNrJ-sHQ",
+          "https://i9.ytimg.com/vi/VQ0OLSQQCgc/hqdefault.jpg?sqp=CODt2NcG&rs=AOn4CLDXP2rMO5wgmJt6MKscNWDjorDg6g",
+          "https://i9.ytimg.com/vi/VQ0OLSQQCgc/sddefault.jpg?sqp=CODt2NcG&rs=AOn4CLA_364-zzkyYIXhhJOIJiX4n8giEQ",
+          "https://i9.ytimg.com/vi/VQ0OLSQQCgc/maxresdefault.jpg?sqp=CODt2NcG&rs=AOn4CLAvuyBjunkwp_cB2s1eppveJI3HVw",
+          "https://i9.ytimg.com/vi/VQ0OLSQQCgc/fhddefault.jpg?sqp=CODt2NcG&rs=AOn4CLBdvzs1NTPfTb-_70ixLpQSUYCXsQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-12T22:03:36.485Z",
+        "scheduleRequestedAt": "2026-11-12T22:03:38.116Z",
+        "scheduleAt": "2026-11-15T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-12T22:03:41.698Z"
+      },
+      "platform": {
+        "id": "VQ0OLSQQCgc",
+        "url": "https://www.youtube.com/watch?v=VQ0OLSQQCgc",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-12T22:03:36.485Z"
       }
     },
     {
