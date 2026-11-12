@@ -51,6 +51,7 @@ import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
+import { stagedRenderWorks } from './lib/youtube-single-r2.mjs';
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { scriptQueue, slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
 import { loadPlanAudit } from './lib/youtube-longform-plan.mjs';
@@ -61,7 +62,7 @@ const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     stock: { type: 'boolean' }, retry: { type: 'string' }, all: { type: 'boolean' },
-    pack: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' },
+    pack: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' }, r2: { type: 'boolean' },
     concurrency: { type: 'string' }, 'max-minutes': { type: 'string' }, packs: { type: 'string' }, 'publish-at': { type: 'string' }, file: { type: 'string' }, by: { type: 'string' }, avg: { type: 'string' }, blocks: { type: 'string' },
   },
 });
@@ -79,7 +80,7 @@ function targetPub(reg, exam, work) {
   return rows.find((p) => p.revisionOf) ?? rows[0] ?? null;
 }
 
-function factsOf(reg, pack, reviews, mediaById) {
+function factsOf(reg, pack, reviews, mediaById, staged = null) {
   const [exam, work] = pack.split('/');
   const pub = targetPub(reg, exam, work);
   if (!pub) return null;
@@ -96,6 +97,8 @@ function factsOf(reg, pack, reviews, mediaById) {
   const leadMs = (readPolicy(ROOT).minLeadHours ?? 24) * 3_600_000;
   return {
     delivering: Boolean(pub.delivery?.uploadRequestedAt),
+    pastPublishAt: Boolean(pub.publishAt) && Date.parse(pub.publishAt) < Date.now(),
+    r2Staged: staged?.has(work) ?? false,
     slotExpired: !pub.publishAt || Date.parse(pub.publishAt) - Date.now() < leadMs,
     pub: pub.id, status: pub.status, standard, plan: readPlan(ROOT, pack) ? summarize(readPlan(ROOT, pack)) : null,
     rendered: video?.provenance?.specSha256 === boardSha,
@@ -104,7 +107,9 @@ function factsOf(reg, pack, reviews, mediaById) {
   };
 }
 
-function status() {
+async function status() {
+  // --r2 は R2 に置いたままの転送ファイル（cleanup の待ち）も見る。資格情報が要るので既定では見ない
+  const staged = args.r2 ? await stagedRenderWorks() : null;
   const reg = loadRegistry(ROOT);
   const mediaById = new Map(reg.media.map((m) => [m.id, m]));
   const reviews = readJsonIf(ROOT, datasetPath('state.video-agent-reviews'))?.reviews ?? {};
@@ -117,7 +122,7 @@ function status() {
       if (!entry.isDirectory() || !existsSync(join(root, exam, entry.name, 'storyboard.json'))) continue;
       scanned += 1;
       const pack = `${exam}/${entry.name}`;
-      const facts = factsOf(reg, pack, reviews, mediaById);
+      const facts = factsOf(reg, pack, reviews, mediaById, staged);
       // 台帳に行が無いパックも 1 本ずつ出す。数だけ出して名前を落とすと、台本だけある動画が工程の一覧から消える
       rows.push(facts ? { pack, stage: nextStage(facts), ...facts } : { pack, stage: 'unregistered' });
     }

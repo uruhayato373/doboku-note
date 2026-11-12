@@ -419,6 +419,9 @@ export function qaState(qa, digest) {
 export function nextStage(f) {
   // 承認しただけで予約の段へ進んでいない行は done にしない。公開の枠を落としても緑に見えていた（DN-1066）
   if (['approved', 'rendered'].includes(f.status) && f.delivering === false) return f.slotExpired ? 'slot-expired' : 'publish-pending';
+  // 予約の後: 公開日時を過ぎても照合（reconcile）されていない行と、R2 の転送ファイルを消していない行（DN-1070）
+  if (f.status === 'scheduled' && f.pastPublishAt) return 'verify';
+  if (['scheduled', 'published'].includes(f.status) && f.r2Staged) return 'cleanup-pending';
   if (['approved', 'rendered', 'uploaded_private', 'scheduled', 'published'].includes(f.status)) return 'done';
   if (f.status === 'stopped') return 'stopped';
   if (f.qa === 'blocked') return 'fix-script';
