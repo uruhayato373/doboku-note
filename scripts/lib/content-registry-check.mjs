@@ -178,6 +178,8 @@ export function checkRegistry(root, opts = {}) {
       const got = pubs.filter((p) => p.format === format).length;
       // Shorts は作る段（youtube.json の shorts に鍵を決めたとき）で行ができる。まだ 1 本も無いのは未作成
       if (format === 'short' && got === 0 && n > 0) { issues.push(issue('INFO', 'R05', w.id, `Shorts ${n} 本は未作成`)); continue; }
+      // 型の台帳（shorts-design.json）のショートの本数は年間計画の shortsRule と枠が持つ（check-youtube-plan）。video-pack.json は内容QAの digest に入るので書き換えない（2026-11-12）
+      if (format === 'short' && existsSync(join(root, pack.dir, 'shorts-design.json'))) continue;
       if (got !== n) issues.push(issue(cutover.has('youtube') ? 'FAIL' : 'WARN', 'R05', w.id, `youtube.${format} が ${got} 件（outputs では ${n} 件）`));
     }
   }
@@ -198,7 +200,8 @@ export function checkRegistry(root, opts = {}) {
     if (requiresApproval(cfg, p.status) && !acceptedApproval(p)) issues.push(issue('FAIL', 'R07', p.id, `${p.status} には運営者の承認（approval.by=user）か、通常動画の方針の承認（by=policy）が要る`));
     if (p.status === 'stopped' && !cfg.status.stopReasons.includes(p.stopReason)) issues.push(issue('FAIL', 'R07', p.id, 'stopped には語彙の stopReason が要る'));
     if (p.status === 'published' && !p.platform?.evidence) issues.push(issue('FAIL', 'R07', p.id, 'published には公開を確かめた証拠（platform.evidence）が要る'));
-    if (p.approval?.contentSha256) {
+    // 止めた行は投稿も予約もしない。承認の中身との食い違いは見ない（2026-11-12・削除した旧版で FAIL が残った）
+    if (p.approval?.contentSha256 && p.status !== 'stopped') {
       const now = approvalHash(approvalParts(root, p, mediaById));
       if (now !== p.approval.contentSha256) {
         const published = p.status === 'published';
@@ -264,8 +267,12 @@ export function checkRegistry(root, opts = {}) {
   }
   const currentVideos = reg.publications.filter(p => p.channel === 'youtube' && p.format === 'longform' && p.status !== 'stopped')
     .map(p => ({ id: p.id, exam: p.exam, work: p.work, video: reg.media.find(m => m.id === p.media?.video) }));
+  // 改訂の候補の動画は、その改訂の公開行が止まっていれば照合しない（出さないと決めた候補・2026-11-12）
+  const stoppedRevisionWorks = new Set(reg.publications.filter(p => p.revisionOf && p.status === 'stopped').map(p => `${p.exam}/${p.work}`));
+  const liveRevisionWorks = new Set(reg.publications.filter(p => p.revisionOf && p.status !== 'stopped').map(p => `${p.exam}/${p.work}`));
   for (const m of reg.media.filter(m => m.role === 'candidate-video')) {
     const [exam, work] = m.id.split('/');
+    if (stoppedRevisionWorks.has(`${exam}/${work}`) && !liveRevisionWorks.has(`${exam}/${work}`)) continue;
     currentVideos.push({ id: m.id, exam, work, video: m });
   }
   for (const { id, exam, work: workId, video } of currentVideos) {

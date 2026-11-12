@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "0727200282c0c6f69910e1e73f09638005a26888fffeeba3dff38e675b4c9e31",
-      "thumbnailSha256": "b4a53a8a719e5ca19668caba63a8b45185309307e02115d52ce5072bc901828f"
+      "thumbnailSha256": "b4a53a8a719e5ca19668caba63a8b45185309307e02115d52ce5072bc901828f",
+      "r2Key": "video/render/cm-mondaibun-yomikata/shorts/point-toshiyomi-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/cm-mondaibun-yomikata/shorts/point-toshiyomi-1/thumbnail.png"
     },
     {
       "key": "point-youso-2",
@@ -53,8 +55,10 @@
         "Shorts"
       ],
       "categoryId": "27",
-      "sha256": "3dacababe8190b724828f80cced95ab1ce6ebd3c3945ededfc6046625242bab2",
-      "thumbnailSha256": "d06b10b68e76adc06576cb3d378dd40fa8bdcc7ee73bfe431754e5e3c731c4e0"
+      "sha256": "68e621b0c66d61a8f1e8b89022f0f0e572b08da1bd8b21cbe0310f11c311a130",
+      "thumbnailSha256": "373e4d98c1e7c209ded4448438114b92af471589ed9562981f4a072a305a91f5",
+      "r2Key": "video/render/cm-mondaibun-yomikata/shorts/point-youso-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/cm-mondaibun-yomikata/shorts/point-youso-2/thumbnail.png"
     }
   ]
 }

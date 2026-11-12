@@ -170,3 +170,7 @@ https://note.com/dobokunote/n/n3d73729e6cc7
 総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
 
 https://note.com/dobokunote/n/n3ed4c77ceed6
+
+書いた記述式を、管理の視点とトレードオフまで見てほしい方には、ココナラで総監の記述式を1問ずつ添削しています（テキスト完結）。
+
+https://coconala.com/services/4502262

@@ -13609,6 +13609,12 @@
       "reason": "画風・題材・人物を確認",
       "reviewer": "codex+ai-image-fidelity-auditor",
       "reviewedAt": "2026-11-06T23:59:52Z"
+    },
+    "media:pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-jogai-2/cover": {
+      "sha": "5dff0f3d2c1a2885",
+      "verdict": "ok",
+      "reason": "見出し『書かない／用語は／どれ？』と紙の『開削底面の安定 ○○○○○ は回答の対象としない』が指示と一字一致。左右余白は約9%、記号の重なり・肩書き帯なし、字幕帯に紙の文字なし、手指5本で胴体は下端まで続く",
+      "reviewedAt": "2026-11-12T00:19:06.487Z"
     }
   }
 }

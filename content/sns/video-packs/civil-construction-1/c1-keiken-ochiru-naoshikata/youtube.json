@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "355623786f7f372afbc2c2c78d7ec203df4f67253d5dae813a41b68454ffe967",
-      "thumbnailSha256": "bdde4d4e80956b08633b7475ff361ea41666abdb0453cfb51b4d4af7aeacb33b"
+      "thumbnailSha256": "bdde4d4e80956b08633b7475ff361ea41666abdb0453cfb51b4d4af7aeacb33b",
+      "r2Key": "video/render/c1-keiken-ochiru-naoshikata/shorts/point-kadai-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-ochiru-naoshikata/shorts/point-kadai-1/thumbnail.png"
     },
     {
       "key": "point-okiba-2",
@@ -54,7 +56,9 @@
       ],
       "categoryId": "27",
       "sha256": "48427175be7e42677a0843fb12a4d0bfa8413324e6f39b0e8b24ec9c1623e259",
-      "thumbnailSha256": "f6cefe5dc90539dd543e550a9c5154208c5c309a6257821341e3ccd0a609e76c"
+      "thumbnailSha256": "f6cefe5dc90539dd543e550a9c5154208c5c309a6257821341e3ccd0a609e76c",
+      "r2Key": "video/render/c1-keiken-ochiru-naoshikata/shorts/point-okiba-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/c1-keiken-ochiru-naoshikata/shorts/point-okiba-2/thumbnail.png"
     }
   ]
 }

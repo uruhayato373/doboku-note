@@ -38,7 +38,9 @@
       ],
       "categoryId": "27",
       "sha256": "73d4e90e28aea59a73e7c94acf33806e550165fe29fdf93cd0318155958bf322",
-      "thumbnailSha256": "302e69ef5b5404d48f7b9ae282255263a778770b7e2f118747ea20fbb006217f"
+      "thumbnailSha256": "302e69ef5b5404d48f7b9ae282255263a778770b7e2f118747ea20fbb006217f",
+      "r2Key": "video/render/pe-fugoukaku-toan/shorts/point-ippanron-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-fugoukaku-toan/shorts/point-ippanron-1/thumbnail.png"
     },
     {
       "key": "point-tejun-2",
@@ -55,7 +57,9 @@
       ],
       "categoryId": "27",
       "sha256": "219b661b8543b4f2215fa9d66661674ed05630c1e414895bec152285027eb2a2",
-      "thumbnailSha256": "afb46ce2ecc20bfbe9ba5f10820994c0e9479e9a286a9c75c03394e591f78e97"
+      "thumbnailSha256": "afb46ce2ecc20bfbe9ba5f10820994c0e9479e9a286a9c75c03394e591f78e97",
+      "r2Key": "video/render/pe-fugoukaku-toan/shorts/point-tejun-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/pe-fugoukaku-toan/shorts/point-tejun-2/thumbnail.png"
     }
   ]
 }

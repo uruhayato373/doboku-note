@@ -29,6 +29,8 @@ developer_instructions = """
 
 着手前に、年間の枠が決まっていれば `npm run competitor-position -- --slot <枠 id>` を読み、取る立ち位置と勝負しない所を台本の約束に反映する。枠の立ち位置と違う内容になるなら、書く前に親へ戻す。
 
+着手前に、同じ型の公開済みの動画で離脱が多かった場面を `npm run youtube-retention-summary -- --format <型 id>` で読み（型 id は `config/youtube-formats.json`・通常は `single-topic-text`）、台本の指示にする。出るのは視聴 50 回以上の動画だけの平均で、「判断できる動画が無い」と出たら傾向を作らず、この確認はなかったものとして進める。数値は離脱の多い場面（`sceneId`）の順位としてだけ使い、台本へ「何ポイント失う」のような数を書かない。
+
 1. 既存パックとの重複を確認する（`content/sns/video-packs/README.md` の一覧と同じ悩み・同じ `promise` の有無）。重複があれば書かずに親へ報告する
 2. `sourceRefs`（サイト・note・図版）を **実際に Read** してから書く。URL・数値・制度・年度を推測しない。外部 URL は WebFetch で実在確認したものだけ
 3. `video-pack.json`: 悩み 1・約束 1・主 CTA 1。CTA は生 URL でなくカタログ ID（`primaryCta.targetId`）、`campaign` は `packId` と一致

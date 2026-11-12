@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** 最新の YouTube Analytics 記録と公開台帳を照合する（外部通信なし）。 */
-// npm run check-youtube-analytics — 最新のYouTube Analytics記録を公開台帳のID・対象数・鮮度と照合。未取得は0件成功にせず exit 1
+// npm run check-youtube-analytics — 最新のYouTube Analytics記録を公開台帳のID・対象数・鮮度と照合（維持率曲線の対象数と取得数も出す）。未取得は0件成功にせず exit 1
 import { readDataset, readLatest } from './lib/dataset-io.mjs';
 import { fileURLToPath } from 'node:url';
 import { schemaOf } from './lib/dataset-validate.mjs';
@@ -11,10 +11,10 @@ import { analyticsTargets, reportPeriod } from './youtube-analytics.mjs';
 
 export function checkAnalyticsSnapshot(snapshot, targets, { channelId, now = Date.now(), maxAgeDays = freshnessDays('youtube.analytics', 'warnDays') }) {
   const errors = [];
-  if (!snapshot) return { targets: targets.length, checked: 0, measured: 0, errors: ['計測記録が未取得'] };
+  if (!snapshot) return { targets: targets.length, checked: 0, measured: 0, retention: null, errors: ['計測記録が未取得'] };
   const schema = schemaOf(resolveDataset('youtube.analytics'));
   const parsed = schema.safeParse(snapshot);
-  if (!parsed.success) return { targets: targets.length, checked: 0, measured: 0, errors: parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`) };
+  if (!parsed.success) return { targets: targets.length, checked: 0, measured: 0, retention: null, errors: parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`) };
   if (snapshot.channelId !== channelId) errors.push(`チャンネルが違う: ${snapshot.channelId}`);
   const ageDays = Math.floor((now - Date.parse(snapshot.fetchedAt)) / 86_400_000);
   if (ageDays < 0 || ageDays > maxAgeDays) errors.push(`取得記録が古いか未来: ${ageDays} 日`);
@@ -31,7 +31,15 @@ export function checkAnalyticsSnapshot(snapshot, targets, { channelId, now = Dat
     for (const field of ['publicationId', 'packId', 'kind']) if (row[field] !== target[field]) errors.push(`${row.videoId}: ${field} が公開台帳と違う`);
   }
   if (snapshot.coverage.measured === 0) errors.push('指標行を得た動画が0件');
-  return { targets: targets.length, checked: snapshot.videos.length, measured: snapshot.coverage.measured, errors };
+  // 維持率曲線（DN-1063）: 取り始める前の記録（coverage.retention なし）は照合の対象外として数を出す。あるなら対象数と一致し、API の失敗が無いこと
+  const retention = snapshot.coverage.retention ?? null;
+  if (retention) {
+    if (retention.targets !== targets.length) errors.push(`維持率曲線の対象数 ${retention.targets} が現役の公開動画 ${targets.length} 本と違う`);
+    if (retention.failed > 0) errors.push(`維持率曲線の API が ${retention.failed} 本で失敗`);
+    // 基本指標の行がある動画は維持率の行も期待する。行が無い（no-data）は動画が短い・視聴が少ないときに起きるので、全部が行なしのときだけ止める
+    if (snapshot.coverage.measured > 0 && retention.measured === 0) errors.push('基本指標のある動画の維持率曲線が1本も取れていない');
+  }
+  return { targets: targets.length, checked: snapshot.videos.length, measured: snapshot.coverage.measured, retention, errors };
 }
 
 function main() {
@@ -39,7 +47,7 @@ function main() {
   const snapshot = readLatest(REPO_ROOT, 'youtube.analytics')?.data ?? null;
   const channelId = readDataset(REPO_ROOT, 'config.youtube-formats').channel.id;
   const result = checkAnalyticsSnapshot(snapshot, targets, { channelId });
-  console.log(`check-youtube-analytics: 対象 ${result.targets} 本 / 記録 ${result.checked} 本 / 指標行 ${result.measured} 本 / 不一致 ${result.errors.length} 件`);
+  console.log(`check-youtube-analytics: 対象 ${result.targets} 本 / 記録 ${result.checked} 本 / 指標行 ${result.measured} 本 / ${result.retention ? `維持率曲線 取得 ${result.retention.measured}・行なし ${result.retention.noData}・失敗 ${result.retention.failed}（対象 ${result.retention.targets}）` : '維持率曲線 未取得（取り始める前の記録）'} / 不一致 ${result.errors.length} 件`);
   for (const error of result.errors) console.error(`  ${error}`);
   if (result.errors.length || result.targets === 0) process.exitCode = 1;
 }

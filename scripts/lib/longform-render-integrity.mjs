@@ -5,11 +5,17 @@ import { narrationInput, sha256 } from './video-narration-cache.mjs';
 
 /** Capture the production inputs, not the publication schedule or remote status. */
 export function longformInputHash(packDir) {
+  return longformInputHashOf((name) => (existsSync(join(packDir, name)) ? readFileSync(join(packDir, name)) : null));
+}
+
+/** 制作入力の hash。read(name) はファイルの中身（無ければ null）を返す。git の過去の版からも同じ式で計算できるように分けた */
+export function longformInputHashOf(read) {
   const files = ['video-pack.json', 'storyboard.json', 'cover-design.json', 'cta-design.json']
-    .filter(name => existsSync(join(packDir, name)))
-    .map(name => [name, sha256(readFileSync(join(packDir, name)))]);
-  if (existsSync(join(packDir, 'pop-image.json'))) {
-    const pop = JSON.parse(readFileSync(join(packDir, 'pop-image.json'), 'utf8'));
+    .map(name => [name, read(name)]).filter(([, body]) => body != null)
+    .map(([name, body]) => [name, sha256(body)]);
+  const popText = read('pop-image.json');
+  if (popText != null) {
+    const pop = JSON.parse(String(popText));
     // Review notes can be appended after rendering; adoption changes require a new MP4.
     files.push(['pop-images', {
       body: pop.activeBodyRevision ?? null, cover: pop.activeCoverRevision ?? null,
@@ -44,7 +50,7 @@ export function verifyLongformRender(packDir, renderDir) {
     durations.push(row.actualSec);
   }
   const subtitles = readFileSync(join(renderDir, 'subtitles.ass'));
-  if (sha256(subtitles) !== manifest.integrity.subtitlesSha256 || subtitles.toString('utf8') !== buildLongformAss(board.scenes, durations)) {
+  if (sha256(subtitles) !== manifest.integrity.subtitlesSha256 || subtitles.toString('utf8') !== buildLongformAss(board.scenes, durations, { subtitleVersion: manifest.integrity.subtitleVersion ?? 1 })) {
     throw new Error('字幕が現行台本・音声実尺と一致しません');
   }
   if (sha256(artifact(renderDir, manifest.mp4)) !== manifest.integrity.mp4Sha256) throw new Error('完成MP4のSHA不一致');

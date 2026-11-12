@@ -37,7 +37,9 @@
       ],
       "categoryId": "27",
       "sha256": "d29120dd8eb76b6ca52eee4533560a08e91ba1a5e083973f8ec5cc0d8eba162e",
-      "thumbnailSha256": "b159dcefb8ac52ac62be99f18fc421bf21290f694b3460f37eedb16409a03183"
+      "thumbnailSha256": "b159dcefb8ac52ac62be99f18fc421bf21290f694b3460f37eedb16409a03183",
+      "r2Key": "video/render/shunin-theme-tachiba-erabi/shorts/point-keitou-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-theme-tachiba-erabi/shorts/point-keitou-1/thumbnail.png"
     },
     {
       "key": "point-tachiba-2",
@@ -54,7 +56,9 @@
       ],
       "categoryId": "27",
       "sha256": "e4b97816c17758e9ddccbee03b64d98606f8038092a7f9317dbb41c6676378f4",
-      "thumbnailSha256": "3b8e71f9fa4cb8aff6716e96a80fb093df3adf3465d8bbebef7048621337d62a"
+      "thumbnailSha256": "3b8e71f9fa4cb8aff6716e96a80fb093df3adf3465d8bbebef7048621337d62a",
+      "r2Key": "video/render/shunin-theme-tachiba-erabi/shorts/point-tachiba-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-theme-tachiba-erabi/shorts/point-tachiba-2/thumbnail.png"
     }
   ]
 }

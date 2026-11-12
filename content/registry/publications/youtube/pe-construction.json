@@ -8,7 +8,7 @@
       "work": "hissu1-infra-roukyuuka",
       "account": "youtube:main",
       "format": "longform",
-      "status": "uploaded_private",
+      "status": "stopped",
       "media": {
         "cover": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/cover",
         "scene-001": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/scene-001",
@@ -62,7 +62,7 @@
       "platform": {
         "id": "1EAPnQVwARE",
         "url": "https://www.youtube.com/watch?v=1EAPnQVwARE",
-        "privacy": "private",
+        "privacy": "gone",
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#longform"
@@ -72,7 +72,8 @@
         "status": "set",
         "setAt": "2026-11-05T20:45:39.441Z"
       },
-      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-13T11:30:00Z）"
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-13T11:30:00Z）",
+      "stopReason": "gone"
     },
     {
       "id": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
@@ -284,7 +285,7 @@
       "work": "hissu1-kensetsu-dx",
       "account": "youtube:main",
       "format": "longform",
-      "status": "uploaded_private",
+      "status": "stopped",
       "media": {
         "cover": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover",
         "scene-001": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-001",
@@ -337,7 +338,7 @@
       "platform": {
         "id": "SvV8zXamMvo",
         "url": "https://www.youtube.com/watch?v=SvV8zXamMvo",
-        "privacy": "private",
+        "privacy": "gone",
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#longform"
@@ -347,7 +348,8 @@
         "status": "set",
         "setAt": "2026-11-05T01:13:09.228Z"
       },
-      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-11T11:30:00Z）"
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-11T11:30:00Z）",
+      "stopReason": "gone"
     },
     {
       "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
@@ -356,7 +358,7 @@
       "format": "longform",
       "variant": "reading-fix",
       "revisionOf": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.revision-reading-fix.json",
       "media": {
         "cover": "pe-construction/hissu1-kensetsu-dx/work/candidate-cover",
@@ -408,11 +410,12 @@
       "platform": {
         "id": "AWiTjuOa1U4",
         "url": "https://www.youtube.com/watch?v=AWiTjuOa1U4",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.revision-reading-fix.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-12T04:15:12.812Z"
+        },
+        "publishedAt": "2026-11-11T11:30:11.000Z"
       },
       "times": {
         "uploaded": "2026-11-10T10:08:24.975Z",
@@ -429,7 +432,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-means-2",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-means-2",
       "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -455,7 +458,8 @@
       },
       "times": {
         "rendered": "2026-11-10T21:28:04.796Z",
-        "uploaded": "2026-11-10T22:02:07.374Z"
+        "uploaded": "2026-11-10T22:02:07.374Z",
+        "scheduled": "2026-11-12T01:48:43.030Z"
       },
       "delivery": {
         "inputSha256": "acefa6d1798d199398868212f8beb2157d14b360894503ec1a2fe5880e1a61a5",
@@ -463,16 +467,19 @@
         "uploadRequestedAt": "2026-11-10T21:53:21.807Z",
         "videoId": "c5R1Y1Z87fs",
         "processedAt": "2026-11-10T22:02:06.620Z",
-        "thumbnailRequestedAt": "2026-11-10T22:02:07.401Z",
+        "thumbnailRequestedAt": "2026-11-12T01:48:30.469Z",
         "thumbnailUrls": [
-          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/default.jpg?sqp=COCnztcG&rs=AOn4CLAomNvVYmm9M96AweDXUygmyIt7bQ",
-          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/mqdefault.jpg?sqp=COCnztcG&rs=AOn4CLD8JmB6SyBxFkEW7xZ47jtOLzRQlw",
-          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/hqdefault.jpg?sqp=COCnztcG&rs=AOn4CLB3gRBrT7MP94Km9-Ck4xvbfaV5TA",
-          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/sddefault.jpg?sqp=COCnztcG&rs=AOn4CLAh-9q9znrpgbeU10ALiBY7luZJwg",
-          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/maxresdefault.jpg?sqp=COCnztcG&rs=AOn4CLDauGMkLefbrqSaQYbrZnbvgHaWLA",
-          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/sardefault.jpg?sqp=COCnztcG&rs=AOn4CLA6WvuaYeTut-TQIfXhuzOnDrdVtw"
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/default.jpg?sqp=CJy01NcG&rs=AOn4CLA4YMG98_hcfvjY4BCoYWSi8Z6qTw",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/mqdefault.jpg?sqp=CJy01NcG&rs=AOn4CLCtJSEquZjwhsX6ZfXGnzoXDaXzfQ",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/hqdefault.jpg?sqp=CJy01NcG&rs=AOn4CLCVeiVVaSl-RdHxidqHk0gS_f9V2w",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/sddefault.jpg?sqp=CJy01NcG&rs=AOn4CLBFfYLUUooxsNbzA5Hfahomd6Fiwg",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/maxresdefault.jpg?sqp=CJy01NcG&rs=AOn4CLABEQPMzsA7-suYsEsWjSili4T4UA",
+          "https://i9.ytimg.com/vi/c5R1Y1Z87fs/sardefault.jpg?sqp=CJy01NcG&rs=AOn4CLDjqsxS6l3VBg7Ky05od0lMxdB96A"
         ],
-        "thumbnailAcceptedAt": "2026-11-10T22:02:13.736Z"
+        "thumbnailAcceptedAt": "2026-11-12T01:48:36.258Z",
+        "scheduleRequestedAt": "2026-11-12T01:48:39.551Z",
+        "scheduleAt": "2026-11-14T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-11-12T01:48:43.030Z"
       },
       "platform": {
         "id": "c5R1Y1Z87fs",
@@ -481,11 +488,13 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-means-2"
-        }
+        },
+        "relatedVideoId": "AWiTjuOa1U4",
+        "desiredRelatedVideoId": "AWiTjuOa1U4"
       },
       "thumbnail": {
         "status": "set",
-        "setAt": "2026-11-10T22:02:13.736Z"
+        "setAt": "2026-11-12T01:48:36.258Z"
       }
     },
     {
@@ -494,7 +503,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-purpose-1",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1",
       "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -520,7 +529,8 @@
       },
       "times": {
         "rendered": "2026-11-10T21:28:04.619Z",
-        "uploaded": "2026-11-10T22:01:00.495Z"
+        "uploaded": "2026-11-10T22:01:00.495Z",
+        "scheduled": "2026-11-12T01:47:40.004Z"
       },
       "delivery": {
         "inputSha256": "c5ef7c0290bc9fd91b62cf2a4baf93b318fa79352b12fcda0b4b3e147e109b57",
@@ -528,16 +538,19 @@
         "uploadRequestedAt": "2026-11-10T21:51:53.234Z",
         "videoId": "OdKCHkNllG4",
         "processedAt": "2026-11-10T22:00:59.916Z",
-        "thumbnailRequestedAt": "2026-11-10T22:01:00.547Z",
+        "thumbnailRequestedAt": "2026-11-12T01:47:27.534Z",
         "thumbnailUrls": [
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/default.jpg?sqp=COCnztcG&rs=AOn4CLBnV_O1KemfesA67uK5R-4qXI7JKA",
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/mqdefault.jpg?sqp=COCnztcG&rs=AOn4CLCH8nH15kHqYAWHrS8qd96LA_1BBw",
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/hqdefault.jpg?sqp=COCnztcG&rs=AOn4CLDfP3L6krLBBX-KwhqHVq3w22hArg",
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/sddefault.jpg?sqp=COCnztcG&rs=AOn4CLC-Vb24Yic8RndIv2k2XzatofYefA",
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/maxresdefault.jpg?sqp=COCnztcG&rs=AOn4CLB3x_0gqSvg-ydgyy529mFi2ocJag",
-          "https://i9.ytimg.com/vi/OdKCHkNllG4/sardefault.jpg?sqp=COCnztcG&rs=AOn4CLBOYTTDp6rrk2Iwa4fhV1d-SN9PcA"
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/default.jpg?sqp=CJy01NcG&rs=AOn4CLD9n8dX53iyHnrdFI895xq6dF1fpA",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/mqdefault.jpg?sqp=CJy01NcG&rs=AOn4CLDgl3bUKTymRihvt8Znw0Gzpgz9sg",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/hqdefault.jpg?sqp=CJy01NcG&rs=AOn4CLCSu8I50-Rpb2OUSAIp48a8o0zQbg",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/sddefault.jpg?sqp=CJy01NcG&rs=AOn4CLBIBybC9t4zq-xi7hJODjzXkoL_1g",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/maxresdefault.jpg?sqp=CJy01NcG&rs=AOn4CLB01c8Ni6xtmrCo4IJZlK5w72d7NA",
+          "https://i9.ytimg.com/vi/OdKCHkNllG4/sardefault.jpg?sqp=CJy01NcG&rs=AOn4CLCVZtlXSsny5YoV8iGg1AEVVkW2Rg"
         ],
-        "thumbnailAcceptedAt": "2026-11-10T22:01:04.381Z"
+        "thumbnailAcceptedAt": "2026-11-12T01:47:31.285Z",
+        "scheduleRequestedAt": "2026-11-12T01:47:36.171Z",
+        "scheduleAt": "2026-11-13T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-11-12T01:47:40.004Z"
       },
       "platform": {
         "id": "OdKCHkNllG4",
@@ -546,11 +559,13 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1"
-        }
+        },
+        "relatedVideoId": "AWiTjuOa1U4",
+        "desiredRelatedVideoId": "AWiTjuOa1U4"
       },
       "thumbnail": {
         "status": "set",
-        "setAt": "2026-11-10T22:01:04.381Z"
+        "setAt": "2026-11-12T01:47:31.285Z"
       }
     },
     {
@@ -558,7 +573,7 @@
       "work": "kaitourei-tsukaikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "uploaded_private",
+      "status": "stopped",
       "media": {
         "cover": "pe-construction/kaitourei-tsukaikata/youtube.longform/cover",
         "scene-001": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-001",
@@ -612,7 +627,7 @@
       "platform": {
         "id": "Gdyygcq0mmY",
         "url": "https://www.youtube.com/watch?v=Gdyygcq0mmY",
-        "privacy": "private",
+        "privacy": "gone",
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/youtube.json#longform"
@@ -622,7 +637,8 @@
         "status": "set",
         "setAt": "2026-11-05T01:10:47.054Z"
       },
-      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-09T11:30:00Z）"
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-09T11:30:00Z）",
+      "stopReason": "gone"
     },
     {
       "id": "pe-construction/kaitourei-tsukaikata/youtube.longform.reading-fix",
@@ -730,7 +746,7 @@
       "work": "pe-fugoukaku-toan",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "qa_passed",
       "media": {
         "cover": "pe-construction/pe-fugoukaku-toan/youtube.longform/cover",
         "scene-001": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-001",
@@ -751,27 +767,36 @@
         "subtitles": "pe-construction/pe-fugoukaku-toan/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#longform",
-      "publishAt": "2026-12-22T11:30:00Z",
-      "review": {
-        "visual": {
-          "status": "approved",
-          "by": "policy",
-          "at": "2026-11-10T12:51:37.123Z",
-          "digest": "7c94c5d486028319506a8fd18bd2a66e4b4331cfa5d68193c544293a6a83e0ae"
-        }
-      },
-      "approval": {
-        "by": "policy",
-        "at": "2026-11-10T12:51:37.123Z",
-        "contentSha256": "d732c4d8ff642489e82e09377e21ec42f4b261087fe974b6dde59d7c80e33597"
-      }
+      "publishAt": "2026-12-22T11:30:00Z"
+    },
+    {
+      "id": "pe-construction/pe-fugoukaku-toan/youtube.short.point-ippanron-1",
+      "work": "pe-fugoukaku-toan",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-ippanron-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-ippanron-1",
+      "relatedTo": "pe-construction/pe-fugoukaku-toan/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-fugoukaku-toan/youtube.short.point-tejun-2",
+      "work": "pe-fugoukaku-toan",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-tejun-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#shorts/point-tejun-2",
+      "relatedTo": "pe-construction/pe-fugoukaku-toan/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
       "work": "pe-geotechnical-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-001",
@@ -789,7 +814,81 @@
         "video": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#longform",
+      "publishAt": "2026-11-14T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T02:35:55.421Z",
+          "digest": "a12c193435c274ab88878cb112cc3f7c4e2ac709627b669d9fcbc5c83be5af4b"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T02:35:55.421Z",
+        "contentSha256": "8a003c13e564e7f5433ac990c48ff622b7b31818bd6c0aac47da00f879ebed30"
+      },
+      "times": {
+        "rendered": "2026-11-12T02:46:02.708Z",
+        "uploaded": "2026-11-12T02:53:19.498Z",
+        "scheduled": "2026-11-12T02:53:27.715Z"
+      },
+      "delivery": {
+        "inputSha256": "36bd1cc811afb4a8783e288d70cc243686360f6be1fb4c640d7377eb08475ad4",
+        "marker": "dn-single-d749c7df8912d54167c6e13acb2c44a705dc6f27",
+        "uploadRequestedAt": "2026-11-12T02:52:57.464Z",
+        "videoId": "vn-RKeML8Ik",
+        "processedAt": "2026-11-12T02:53:18.907Z",
+        "thumbnailRequestedAt": "2026-11-12T02:53:19.552Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/default.jpg?sqp=CNjS1NcG&rs=AOn4CLAruS46RGY9VKrz2ufskwWvBhqiQA",
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/mqdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLDFrs8ZLNgT4HGmp_50bcoo3B4QFg",
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/hqdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLAoIWcNEFpRNoaSuFBQdLXVBDJFvw",
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/sddefault.jpg?sqp=CNjS1NcG&rs=AOn4CLD-ZS2Z-yYHn4wcgInR8xAoZORG3A",
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/maxresdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLBE3pm9cKesyeAFJBzOckd9jRYbPw",
+          "https://i9.ytimg.com/vi/vn-RKeML8Ik/fhddefault.jpg?sqp=CNjS1NcG&rs=AOn4CLCc_tsu0jj4rkbTpNta8_dxJATMyg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-12T02:53:23.022Z",
+        "scheduleRequestedAt": "2026-11-12T02:53:24.121Z",
+        "scheduleAt": "2026-11-14T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-12T02:53:27.715Z"
+      },
+      "platform": {
+        "id": "vn-RKeML8Ik",
+        "url": "https://www.youtube.com/watch?v=vn-RKeML8Ik",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-12T02:53:23.022Z"
+      }
+    },
+    {
+      "id": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-kazu-1",
+      "work": "pe-geotechnical-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kazu-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#shorts/point-kazu-1",
+      "relatedTo": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-risk-2",
+      "work": "pe-geotechnical-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-risk-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#shorts/point-risk-2",
+      "relatedTo": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/pe-gyoumu-shousai-720/youtube.longform",
@@ -868,6 +967,28 @@
       "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#longform"
     },
     {
+      "id": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.short.point-shusho-1",
+      "work": "pe-hissu1-konkyo-tsumikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-shusho-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#shorts/point-shusho-1",
+      "relatedTo": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.short.point-wariburi-2",
+      "work": "pe-hissu1-konkyo-tsumikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-wariburi-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#shorts/point-wariburi-2",
+      "relatedTo": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-construction/pe-hissu1-risk-kakunin/youtube.longform",
       "work": "pe-hissu1-risk-kakunin",
       "account": "youtube:main",
@@ -916,6 +1037,28 @@
         "subtitles": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#longform"
+    },
+    {
+      "id": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2",
+      "work": "pe-hissu1-theme-junbi",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-joken-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#shorts/point-joken-2",
+      "relatedTo": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-junban-1",
+      "work": "pe-hissu1-theme-junbi",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-junban-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#shorts/point-junban-1",
+      "relatedTo": "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/pe-ii1-kakikata/youtube.longform",
@@ -1075,7 +1218,7 @@
       "work": "pe-kojutsu-kaitei-competency",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "qa_passed",
       "media": {
         "cover": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/cover",
         "scene-001": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/scene-001",
@@ -1095,20 +1238,7 @@
         "subtitles": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-kaitei-competency/youtube.json#longform",
-      "publishAt": "2026-12-08T11:30:00Z",
-      "review": {
-        "visual": {
-          "status": "approved",
-          "by": "policy",
-          "at": "2026-11-10T12:45:58.534Z",
-          "digest": "6b0292926d70eb1ed2b6c15d0ea78ddbaba15eac0d76d1de35ddd0be99ccaa5d"
-        }
-      },
-      "approval": {
-        "by": "policy",
-        "at": "2026-11-10T12:45:58.534Z",
-        "contentSha256": "367a227b125599a61406816150909ca3cd3cba55c6eb9b7abc764b1bb3fe4d78"
-      }
+      "publishAt": "2026-12-08T11:30:00Z"
     },
     {
       "id": "pe-construction/pe-kojutsu-keireki/youtube.longform",
@@ -1222,7 +1352,7 @@
       "work": "pe-road-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1240,14 +1370,88 @@
         "video": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#longform",
+      "publishAt": "2026-11-14T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T02:35:53.087Z",
+          "digest": "242693dae35de8049bc13d6bcb1c8f0bf447c3d10208d8ea26ff1257378f2df7"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T02:35:53.087Z",
+        "contentSha256": "f017437b31439c2c5d1638371f22639d95d0715c9ade9972c977a712b5688c97"
+      },
+      "times": {
+        "rendered": "2026-11-12T02:45:50.668Z",
+        "uploaded": "2026-11-12T02:51:30.397Z",
+        "scheduled": "2026-11-12T02:51:38.544Z"
+      },
+      "delivery": {
+        "inputSha256": "02156b93126e7e35410167c839c8fcb0ef228d87045b38450424ebf6aad3e0a3",
+        "marker": "dn-single-45f686fba26d45df2e4f18863e3c20e260c61cc7",
+        "uploadRequestedAt": "2026-11-12T02:50:41.196Z",
+        "videoId": "8PgWfKBlFaE",
+        "processedAt": "2026-11-12T02:51:29.597Z",
+        "thumbnailRequestedAt": "2026-11-12T02:51:30.431Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/default.jpg?sqp=CNjS1NcG&rs=AOn4CLD563vGHLsJX6xElWXieEsfzM66YQ",
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/mqdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLDLcT1x3Eq37R4wTcOCOS3qBAlftg",
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/hqdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLDJOj5xW8y3ihWh_E9IPjyNYXzLeg",
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/sddefault.jpg?sqp=CNjS1NcG&rs=AOn4CLAF9_Ms1J25zscMtMQeFFALvuoQFA",
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/maxresdefault.jpg?sqp=CNjS1NcG&rs=AOn4CLAukdlEAMAmXcwwuFwm1L9w9ZuPfA",
+          "https://i9.ytimg.com/vi/8PgWfKBlFaE/fhddefault.jpg?sqp=CNjS1NcG&rs=AOn4CLB3LKPv3Vx1XRr0HDM3FpoQ7R-cMA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-12T02:51:34.053Z",
+        "scheduleRequestedAt": "2026-11-12T02:51:35.000Z",
+        "scheduleAt": "2026-11-14T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-12T02:51:38.544Z"
+      },
+      "platform": {
+        "id": "8PgWfKBlFaE",
+        "url": "https://www.youtube.com/watch?v=8PgWfKBlFaE",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-12T02:51:34.053Z"
+      }
+    },
+    {
+      "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2",
+      "work": "pe-road-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-jogai-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-jogai-2",
+      "relatedTo": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-themename-1",
+      "work": "pe-road-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-themename-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
+      "relatedTo": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
       "work": "pe-tunnel-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1265,7 +1469,104 @@
         "video": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#longform",
+      "publishAt": "2026-11-13T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T02:35:54.216Z",
+          "digest": "6553510af478ce2cad383b8b06aa0bc2952b585b3fe38b2814599a1bf0e495be"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T02:35:54.216Z",
+        "contentSha256": "fd9e5f6d7125fdb112eacb75749c8937088e13a54d6d73ff6364741d529825b2"
+      },
+      "times": {
+        "rendered": "2026-11-12T02:45:57.975Z",
+        "uploaded": "2026-11-12T02:49:43.129Z",
+        "scheduled": "2026-11-12T02:49:51.926Z"
+      },
+      "delivery": {
+        "inputSha256": "6c1534f347f8657a735a3874dbdae2cae09bce251c7ee4dcf68170e7ce62b684",
+        "marker": "dn-single-bac8ca51dee414b5918f7381cfc8fbcde413406d",
+        "uploadRequestedAt": "2026-11-12T02:48:59.655Z",
+        "videoId": "IrhUBYTTpQI",
+        "processedAt": "2026-11-12T02:49:42.314Z",
+        "thumbnailRequestedAt": "2026-11-12T02:49:43.165Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/IrhUBYTTpQI/default.jpg?sqp=CKzQ1NcG&rs=AOn4CLCozTq1urLGTH1EYbn-NJtlkUu5bg",
+          "https://i9.ytimg.com/vi/IrhUBYTTpQI/mqdefault.jpg?sqp=CKzQ1NcG&rs=AOn4CLArLEpMw4rGbz1BXLsQesHWUuj3AA",
+          "https://i9.ytimg.com/vi/IrhUBYTTpQI/hqdefault.jpg?sqp=CKzQ1NcG&rs=AOn4CLD0U5D72Vi5lHeX5H11Be7ija4yHw",
+          "https://i9.ytimg.com/vi/IrhUBYTTpQI/sddefault.jpg?sqp=CKzQ1NcG&rs=AOn4CLCkp-V1trzPbbIkcoD8donquEtXDA",
+          "https://i9.ytimg.com/vi/IrhUBYTTpQI/maxresdefault.jpg?sqp=CKzQ1NcG&rs=AOn4CLDOsk7zVP-2_losXTf7RbGMY--J4A",
+          "https://i9.ytimg.com/vi/IrhUBYTTpQI/fhddefault.jpg?sqp=CKzQ1NcG&rs=AOn4CLBpXVJAcPa9H7oNd1IuCIX69LzdMQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-12T02:49:47.091Z",
+        "scheduleRequestedAt": "2026-11-12T02:49:48.209Z",
+        "scheduleAt": "2026-11-13T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-12T02:49:51.926Z"
+      },
+      "platform": {
+        "id": "IrhUBYTTpQI",
+        "url": "https://www.youtube.com/watch?v=IrhUBYTTpQI",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-12T02:49:47.091Z"
+      }
+    },
+    {
+      "id": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-jogai-2",
+      "work": "pe-tunnel-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-jogai-2",
+      "status": "rendered",
+      "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-jogai-2",
+      "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-jogai-2/video",
+        "cover": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-jogai-2/cover",
+        "contact-sheet": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-jogai-2/contact-sheet",
+        "subtitles": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-jogai-2/subtitles"
+      },
+      "publishAt": "2026-11-13T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T02:57:25.942Z",
+          "digest": "01d5c1b52acf82c2d6ed920352416d0e4ed17cc966656f7e090dd68586110869"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T02:57:25.942Z",
+        "contentSha256": "ad94b33819b65dbc863a78b8b03633ca400ebc013b2ad0187910127675925acd"
+      },
+      "times": {
+        "rendered": "2026-11-12T02:57:26.257Z"
+      }
+    },
+    {
+      "id": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1",
+      "work": "pe-tunnel-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-themename-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
+      "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
@@ -1292,6 +1593,28 @@
         "subtitles": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#longform"
+    },
+    {
+      "id": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-setsumei-1",
+      "work": "pe-urban-planning-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-setsumei-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#shorts/point-setsumei-1",
+      "relatedTo": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.short.point-shugo-2",
+      "work": "pe-urban-planning-shutsudai-yomikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-shugo-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.json#shorts/point-shugo-2",
+      "relatedTo": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/toan-kousei-template/youtube.longform",

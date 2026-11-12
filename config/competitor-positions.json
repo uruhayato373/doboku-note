@@ -333,7 +333,7 @@
       "exams": [
         "pe-comprehensive-management"
       ],
-      "reviewedOn": "2026-11-06",
+      "reviewedOn": "2026-11-12",
       "read": [
         "docs/reviews/competitors/2026-04_技術士総監.md",
         "docs/reviews/competitors/2026-07_SNS.md",
@@ -564,6 +564,23 @@
             "docs/strategy/22_チャネル別商品設計2026-11.md"
           ],
           "probes": []
+        },
+        {
+          "id": "cm-essay-tensaku",
+          "stage": "筆記",
+          "text": "記述式の答案を、管理の視点とトレードオフまで添削する（ココナラ）。模範論文の note とサイトから送る",
+          "why": "総監の添削の売り手は少なく、価格は低価格と高額の指導に分かれている。立場別の模範論文の資産から送れる",
+          "state": "inferred",
+          "channels": [
+            "coconala",
+            "note",
+            "site"
+          ],
+          "evidence": [
+            "data/coconala/market-research.json",
+            "content/coconala/出品計画_技術士_2026-11.md"
+          ],
+          "probes": []
         }
       ],
       "limits": [
@@ -581,7 +598,7 @@
       "exams": [
         "pe-construction"
       ],
-      "reviewedOn": "2026-11-06",
+      "reviewedOn": "2026-11-12",
       "read": [
         "docs/reviews/competitors/2026-05_技術士建設.md",
         "docs/reviews/competitors/2026-07_SNS.md",
@@ -713,8 +730,8 @@
       "avoid": [
         {
           "id": "pc-cheap-tensaku",
-          "text": "低価格の添削",
-          "why": "実績のある売り手が多く、note の教材と役割を分ける",
+          "text": "最安帯で件数を取る添削",
+          "why": "最安帯は実績の多い売り手が占める。自社は中央値に合わせ、発注者の視点と部門で選ばれる形にする（2026-11-12 に添削の出品へ方針を改めた）",
           "rivals": [
             {
               "channel": "coconala",
@@ -746,7 +763,8 @@
           "channels": [
             "youtube",
             "x",
-            "note"
+            "note",
+            "coconala"
           ],
           "evidence": [
             "docs/strategy/22_チャネル別商品設計2026-11.md"
@@ -843,6 +861,24 @@
             "note"
           ],
           "evidence": [],
+          "probes": []
+        },
+        {
+          "id": "pc-coconala-tensaku",
+          "stage": "筆記・申込",
+          "text": "論文と業務内容の詳細を、発注者の目の添削としてココナラで受ける。note・サイトの論文の入口から送る",
+          "why": "ココナラの技術士の添削は売り手が多く、部門を名乗る出品が選ばれている。自社は建設部門と発注者の経歴を名乗って選ばれる形にする",
+          "state": "inferred",
+          "channels": [
+            "coconala",
+            "note",
+            "site",
+            "x"
+          ],
+          "evidence": [
+            "data/coconala/market-research.json",
+            "content/coconala/出品計画_技術士_2026-11.md"
+          ],
           "probes": []
         }
       ],
@@ -1420,7 +1456,7 @@
       "exams": [
         "pe-water-supply"
       ],
-      "reviewedOn": "2026-11-06",
+      "reviewedOn": "2026-11-12",
       "read": [
         "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md",
         "data/analysis/qualification-market/2026-11-06.json"
@@ -1472,6 +1508,23 @@
             "note"
           ],
           "evidence": [],
+          "probes": []
+        },
+        {
+          "id": "pw-coconala-tensaku",
+          "stage": "筆記",
+          "text": "上下水道部門の論文添削をココナラで受け、部門の名前で選ばれる。note の答案構成・選択科目の記事ともくじから送る",
+          "why": "部門に絞った論文添削は高い価格でも件数が付いている。運営者は上下水道部門の技術士で、部門を名乗れる",
+          "state": "inferred",
+          "channels": [
+            "coconala",
+            "note",
+            "site"
+          ],
+          "evidence": [
+            "data/coconala/market-research.json",
+            "content/coconala/出品計画_技術士_2026-11.md"
+          ],
           "probes": []
         }
       ],

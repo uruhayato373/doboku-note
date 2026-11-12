@@ -253,3 +253,7 @@ https://note.com/dobokunote/n/n7279ca0d926f
 建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。
 
 https://note.com/dobokunote/n/n7279ca0d926f
+
+自分の業務内容の詳細と経歴から、聞かれそうな質問と回答の骨子を人の手で作ってほしい方には、ココナラで想定質問の作成を受けています（テキスト完結・週2件まで）。
+
+https://coconala.com/services/4486050

@@ -37,14 +37,14 @@
 https://note.com/dobokunote/n/n6992933e3caf?utm_source=x&utm_medium=social&utm_campaign=pe-oral-2026-11&utm_content=2026-11-13-C
 #技術士 #総監
 
-## Tweet 06: 11/14 08:30 pe-construction / ハウツー / linkless
+## Tweet 06: 11/25 12:30 pe-construction / ハウツー / linkless
 
 継続研さんの問いは、直近の具体例があると答えやすい。
 研修、学会、自己学習を、時期と内容がわかる形で書き出しておく。一般論より、何を学び業務にどう使ったかを話せるように。
 
 #技術士 #口頭試験
 
-## Tweet 07: 11/15 20:20 pe-construction / 教材案内 / note
+## Tweet 07: 11/30 12:20 pe-construction / 教材案内 / note
 
 720字の業務内容を、口頭で要点だけ話せますか。
 建設部門の想定問答33問と週次の進め方に、2分で説明する練習と落ちる回答の型5つをまとめました。問いは独自に作成したもので、実際の出題の再現ではありません。

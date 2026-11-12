@@ -27,6 +27,8 @@ test('slotProblems: 親の公開より後・余裕 24 時間・同時刻なし�
   assert.match(slotProblems(pubs, pub, '2026-11-13T20:30:00+09:00', parent, { now: NOW }).join(), /別の動画/);
   assert.match(slotProblems(pubs, pub, '2026-11-13T22:30:00+09:00', parent, { now: NOW }).join(), /3 本まで/);
   assert.match(slotProblems(pubs, pub, '2026-11-14 14:30', parent, { now: NOW }).join(), /時差つき/);
+  // 1 日 4 本（通常動画 2・ショート 2）の方針では 4 本目まで入る（2026-11-12）
+  assert.deepEqual(slotProblems(pubs, pub, '2026-11-13T22:30:00+09:00', parent, { now: NOW, dailyMax: 4 }), []);
 });
 
 test('qualityProblems: 描画・画面確認・在庫が今の動画のものでなければ止める', () => {

@@ -140,6 +140,8 @@ export function typeProblems(design, ctx) {
     if (n < type.beats.min || n > type.beats.max) issues.push(`${type.label} の beats は ${type.beats.min}〜${type.beats.max} 個`);
   }
   // 紙を描く型は、紙に書く文字が決まっていること。無いと見出しの繰り返しや作り話の文字が入った（2026-11-12）
+  // 1 問で確かめる型の問いは見出しの「？」で示し、表紙の紙に『？』の記号を足さない（2026-11-12・pose の『？』が台帳と食い違い、画面確認で落ちた）
+  if (design.type === 'one-question' && /[？?]/.test(design.pose ?? '')) issues.push('pose に『？』がある（one-question の表紙は紙のまわりに『？』を足さない・cover.visual）');
   if (['before-after', 'one-question'].includes(design.type) && !paperText(design)) issues.push('coverPaper が要る（表紙の紙に書く悪い例・問題文の一文。sources の場面の語だけ）');
   const gestures = ctx.formats.gestures ?? [];
   if (gestures.length && !design.gesture) issues.push('gesture が無い（台帳の gestures から先生の仕草を 1 つ選ぶ）');
@@ -411,6 +413,9 @@ export async function renderShort(root, pack, key, { refs = fileRef, log = () =>
   }, null, 2)}\n`);
   item.sha256 = videoSha;
   item.thumbnailSha256 = thumbnailSha;
+  // CI へ渡す private R2 の置き場（stage-youtube が使う・check-youtube-shorts が形を見る）。描画の段で決める（2026-11-12・型の台帳のショートに無く CI が赤だった）
+  item.r2Key = `video/render/${pack.split('/')[1]}/shorts/${key}/shorts.mp4`;
+  item.thumbnailR2Key = `video/render/${pack.split('/')[1]}/shorts/${key}/thumbnail.png`;
   writeJson(root, `${dir}/youtube.json`, youtube);
   revision.render = { videoSha256: videoSha, durationSeconds, speaker: SPEAKER, sceneCount: segments.length };
   delete revision.screenReview; // 動画が変わったら画面確認・音声の検査・在庫はやり直す
