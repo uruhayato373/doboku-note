@@ -1250,11 +1250,11 @@
       "images": [
         {
           "role": "cover",
-          "inputSha256": "1128d67f0a825cbbe797aebd74b5cac513b5f7898d5d1598093ecda457357fb2",
+          "inputSha256": "6876f5c67d88c6556eba1eec239d9252d75407bdfb0dbb06998ff37232691259",
           "narration": "この一文、テーマ・条件・要求はどれでしょう？",
           "generation": {
             "tool": "image_gen",
-            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 黄色と白の極太文字。 上部に『技術士 総監』。最も大きく見出しを 3 行で書く: 1 行目〈テーマ〉、2 行目〈条件・要求〉、3 行目〈どれ？〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「1 問で確かめる」。見出しの下に、その問いの問題文の一文を書いた紙を 1 枚置く。問いは見出しの「？」で示し、紙のまわりに『？』の記号を足さない（2026-11-12・大きな『？』が毎回右端へ寄って作り直しの上限に達した）。紙には台本の場面にある問題文の語だけを書き、図や構造物を描かない。紙には『人手不足を前提に／組織が取る施策を求める』とだけ書き、紙の上はその文字のほかは白い紙のまま。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「紙を指さす」: 片手の人差し指で見出しの下の紙を指さす。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。見出しの下、先生の左肩の横（画面右側）に問題文の紙を1枚置き、紙には2行で『人手不足を前提に』『組織が取る施策を求める』とだけ書く。紙に図・表は描かない。紙の右上に大きな『？』を1つ添える。紙は画面の高さの上から35〜60%の間に置く。先生の左手（画面右側・紙と同じ側）は人差し指を1本だけ伸ばして、腕を体の前で横切らせずにすぐ横の紙を指さし、右手（画面左側）は腰に当てる。紙は先生が持たず、手と重ねない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字: 紙の2行目『組織が取る施策を求める』の右端が画面右端から約3%（5%未満）で、紙自体も右端に約2%まで寄っている。文言は指示と一致し、見出し3行・人物・指差しは崩れていないが、右余白の不足で不合格",
+            "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #16365C と濃色 #0E2645。 黄色と白の極太文字。 上部に『技術士 総監』。最も大きく見出しを 3 行で書く: 1 行目〈テーマ〉、2 行目〈条件〉、3 行目〈要求は？〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「1 問で確かめる」。見出しの下に、その問いの問題文の一文を書いた紙を 1 枚置く。問いは見出しの「？」で示し、紙のまわりに『？』の記号を足さない（2026-11-12・大きな『？』が毎回右端へ寄って作り直しの上限に達した）。紙には台本の場面にある問題文の語だけを書き、図や構造物を描かない。紙には『人手不足を前提に／組織が取る施策を求める』とだけ書き、紙の上はその文字のほかは白い紙のまま。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「紙を指さす」: 片手の人差し指で見出しの下の紙を指さす。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。見出しの下、先生の左肩の横（画面右側）に問題文の紙を1枚置き、紙には2行で『人手不足を前提に』『組織が取る施策を求める』とだけ書く。紙に図・表は描かない。紙のまわりに記号を足さない。紙は画面の高さの上から35〜60%の間に置く。先生の左手（画面右側・紙と同じ側）は人差し指を1本だけ伸ばして、腕を体の前で横切らせずにすぐ横の紙を指さし、右手（画面左側）は腰に当てる。紙は先生が持たず、手と重ねない。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
@@ -1262,26 +1262,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/work/factory/raw-cover.27adc364.png",
-              "sha256": "27adc3646859036691072788a26fd6ece678720a347950a2bfc1a741b600e5fe"
+              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/raw-cover.e5b15e9a.png",
+              "sha256": "e5b15e9a7784d9f448a5c3917d178de476c7fd1d20f3777947237a73b402fd2f"
             },
-            "generatedAt": "2026-11-12T04:42:53.424Z"
+            "generatedAt": "2026-11-12T04:52:12.464Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/cover.722f20d3.png",
-            "sha256": "722f20d3b9266b912d2c8e8f83e6233463d52074c05bcbf48b8f821290782cab",
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/cover.373e4d98.png",
+            "sha256": "373e4d98c1e7c209ded4448438114b92af471589ed9562981f4a072a305a91f5",
             "width": 1080,
             "height": 1920
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "27adc3646859036691072788a26fd6ece678720a347950a2bfc1a741b600e5fe"
+            "sourceSha256": "e5b15e9a7784d9f448a5c3917d178de476c7fd1d20f3777947237a73b402fd2f"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-12T04:42:53.424Z",
+            "checkedAt": "2026-11-12T04:52:12.464Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し3行（技術士 総監／テーマ・条件・要求・どれ？）と紙の2行が指示どおりで誤字なし。左右余白は見出し約8%、紙の文字右端は約5%。肩書き帯・記号の重なり無し。先生は指1本で紙を指し反対の手は腰、胴体は下端まで続き、字幕帯に文字なし。"
+            "reason": "文字: 技術士 総監・テーマ/条件/要求は？・紙の2行を指示と1字ずつ照合し誤字なし、左右余白5%以上。型: 見出し下に問題文の紙1枚。先生は同一の顔・装備で右手の人差し指1本で紙を指し左手は腰、指5本で破綻なく胴体は下端まで続く。肩書き帯・余計な記号なし、字幕帯に紙の文字なし"
           }
         },
         {
@@ -1298,10 +1298,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/work/factory/raw-scene-001.e2b60a03.png",
+              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/raw-scene-001.e2b60a03.png",
               "sha256": "e2b60a037221e7d75cbb72d9f49b67e555cfc7d049ea05b6ddefcdbd0f7c279c"
             },
-            "generatedAt": "2026-11-12T04:42:53.424Z"
+            "generatedAt": "2026-11-12T04:52:12.464Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/scene-001.02d5c458.png",
@@ -1315,7 +1315,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-12T04:42:53.424Z",
+            "checkedAt": "2026-11-12T04:52:12.464Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『技術士 総監』『1』『この一文を読む』『仮の例』『人手不足を前提に』『組織が取る施策を求める』『？』が指示と一字ずつ一致し、端で切れず誤字なし。人物なし"
           }
@@ -1334,10 +1334,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/work/factory/raw-scene-002.53dd5211.png",
+              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/raw-scene-002.53dd5211.png",
               "sha256": "53dd521183bf98c971df9311e5467caac88d49cffcd9de164721f800c84f6ca8"
             },
-            "generatedAt": "2026-11-12T04:42:53.424Z"
+            "generatedAt": "2026-11-12T04:52:12.464Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/scene-002.4364cdbb.png",
@@ -1351,7 +1351,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-12T04:42:53.424Z",
+            "checkedAt": "2026-11-12T04:52:12.464Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『技術士 総監』『三つの手がかり』『テーマ』『設定条件』『要求事項』と各箱の『？』を指示と一字ずつ照合して一致、余白は左右5%以上、記号の重なりなし"
           }
@@ -1370,10 +1370,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/work/factory/raw-scene-003.476cfb70.png",
+              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/raw-scene-003.476cfb70.png",
               "sha256": "476cfb70e4daa77a3fe0a2673a5b020550aa8fbee63a19e2ea388ed9a83ac293"
             },
-            "generatedAt": "2026-11-12T04:42:53.424Z"
+            "generatedAt": "2026-11-12T04:52:12.464Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/scene-003.5b8831cb.png",
@@ -1387,7 +1387,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-12T04:42:53.424Z",
+            "checkedAt": "2026-11-12T04:52:12.464Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『仮の例』『人手不足への対応』『自分の組織の人員』『施策と、その課題』『出題の予想ではありません』など全文字が指示と一致し、切れ・崩れ・余白不足なし"
           }
@@ -1406,10 +1406,10 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/work/factory/raw-cta.83ad15e2.png",
+              "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/raw-cta.83ad15e2.png",
               "sha256": "83ad15e21d8d6cc7bf17a610337cc0b96209e04949216059602522d60ab793e1"
             },
-            "generatedAt": "2026-11-12T04:42:53.424Z"
+            "generatedAt": "2026-11-12T04:52:12.464Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/cta.5116afa5.png",
@@ -1423,24 +1423,72 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-12T04:42:53.424Z",
+            "checkedAt": "2026-11-12T04:52:12.464Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "大きく『本編で』、小さく『関連動画から』と下向き矢印で、左右5%以上の余白あり。先生の手指は自然で胴体は下端まで続き、資格名や余計な文字なし"
           }
         }
       ],
       "render": {
-        "videoSha256": "2ecdd9081bb82966c84d5d873c64c6fade7ee97953a68f530b52d22db15b84e1",
+        "videoSha256": "68e621b0c66d61a8f1e8b89022f0f0e572b08da1bd8b21cbe0310f11c311a130",
         "durationSeconds": 40.330667,
         "speaker": 13,
         "sceneCount": 5
       },
       "screenReview": {
-        "verdict": "fail",
+        "verdict": "pass",
         "by": "yt-shorts-publisher-qa",
-        "reason": "表紙の紙の右上に大きな赤い『？』があり、型 one-question の cover.visual（紙のまわりに『？』を足さない）に反する。台本の pose が『？』を指示しているため、台本側の修正が要る。他の 5 軸は基準を満たす。",
-        "videoSha256": "2ecdd9081bb82966c84d5d873c64c6fade7ee97953a68f530b52d22db15b84e1",
-        "checkedAt": "2026-11-12T04:43:53.552Z"
+        "reason": "実測 1080x1920・40.3秒・音声あり、sha 一致、5/5 場面確認。5軸平均 4.6、全軸 4 以上。台本観点も型・冒頭・単体の価値・本編への引きで問題なし。",
+        "videoSha256": "68e621b0c66d61a8f1e8b89022f0f0e572b08da1bd8b21cbe0310f11c311a130",
+        "checkedAt": "2026-11-12T04:53:31.625Z"
+      },
+      "audio": {
+        "videoSha256": "68e621b0c66d61a8f1e8b89022f0f0e572b08da1bd8b21cbe0310f11c311a130",
+        "similarity": 1,
+        "maxVolumeDb": -5.3,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/video.68e621b0.mp4",
+          "sha256": "68e621b0c66d61a8f1e8b89022f0f0e572b08da1bd8b21cbe0310f11c311a130"
+        },
+        "frames": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/frames.d92935f2.png",
+          "sha256": "d92935f206d156abba8aa3b0c3d13ad5de8f71aba7c1a906ae881be1979d806e"
+        },
+        "subtitles": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/subtitles.7fb149fe.ass",
+          "sha256": "7fb149fe38315f2cd892501848106c77de6019cecf40841e0d842e124a98221d"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/raw-cover.e5b15e9a.png",
+            "sha256": "e5b15e9a7784d9f448a5c3917d178de476c7fd1d20f3777947237a73b402fd2f"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/raw-scene-001.e2b60a03.png",
+            "sha256": "e2b60a037221e7d75cbb72d9f49b67e555cfc7d049ea05b6ddefcdbd0f7c279c"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/raw-scene-002.53dd5211.png",
+            "sha256": "53dd521183bf98c971df9311e5467caac88d49cffcd9de164721f800c84f6ca8"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/raw-scene-003.476cfb70.png",
+            "sha256": "476cfb70e4daa77a3fe0a2673a5b020550aa8fbee63a19e2ea388ed9a83ac293"
+          },
+          {
+            "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/raw-cta.83ad15e2.png",
+            "sha256": "83ad15e21d8d6cc7bf17a610337cc0b96209e04949216059602522d60ab793e1"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-youso-2/cover.373e4d98.png",
+          "sha256": "373e4d98c1e7c209ded4448438114b92af471589ed9562981f4a072a305a91f5"
+        },
+        "savedAt": "2026-11-12T04:53:37.435Z",
+        "cloudVerified": true
       }
     }
   },
