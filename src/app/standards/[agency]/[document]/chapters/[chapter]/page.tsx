@@ -17,7 +17,6 @@ import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardReferenceLinks from '@/components/standards/StandardReferenceLinks';
 import StandardChapterPager from '@/components/standards/StandardChapterPager';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
-import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
@@ -184,11 +183,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           )}
 
           {/* 原本ページ（逐語文字起こし）への案内は出さない（2026-10-26 に公開をやめた。照合はエージェントが文字起こしで行う） */}
-          <div className="mt-10">
+          <div className="mt-8">
             <StandardChapterPager document={entry} chapter={target} />
-          </div>
-          <div className="mt-10 border-t border-(--rule-soft) pt-2">
-            <StandardDataLinks document={entry} chapter={target} />
           </div>
 
           <StandardReferenceLinks documents={referencedDocuments} />
@@ -197,8 +193,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           <div className="mt-10">
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
-          {/* 転職の案内は本文の外の末尾に 1 枠（右のナビ欄には置かない＝StandardsNavigation は閲覧ナビ専用）。案件は配置ルール */}
-          <AffiliateSlot page={{ pageKind: 'standards' }} slot="standards-end" className="mt-6" />
+          <StandardDataLinks document={entry} chapter={target} />
           <StandardsAttribution document={entry} item={target.item} />
         </SectionCard>
       </TwoColumnShell>

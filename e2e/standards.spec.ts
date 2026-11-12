@@ -5,7 +5,7 @@ test('全11機関（地方 10＋本省）を選択し、共通仕様書一覧へ
 
   const agencies = page.locator('#agencies');
   await expect(agencies).toBeVisible();
-  await expect(agencies.locator('a[href^="/standards/"]')).toHaveCount(11);
+  await expect(agencies.locator('a[data-cta-label="standards-agency"]')).toHaveCount(11);
   await agencies.getByRole('link', { name: /中部地方整備局/ }).click();
 
   await expect(page).toHaveURL(/\/standards\/chubu$/);

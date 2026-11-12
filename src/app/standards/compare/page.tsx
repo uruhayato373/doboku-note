@@ -9,10 +9,8 @@ import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardsComparison, inferStandardEdition } from '@/lib/standards-comparison';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
-import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import { standardsChapterPath, standardsDocumentPath } from '@/lib/route-paths';
 import { getAreaLabel } from '@/lib/content-taxonomy';
-import { READING_CONTAINER } from '@/components/layout/container';
 
 export const metadata: Metadata = buildPageMetadata({
   title: '地方整備局別 土木工事共通仕様書の差分比較',
@@ -233,8 +231,6 @@ export default function StandardsComparePage() {
           </div>
         </SectionCard>
       </SectionBlock>
-      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>
   );
 }

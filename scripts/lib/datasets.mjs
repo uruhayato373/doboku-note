@@ -135,6 +135,7 @@ export const DATASETS = [
   d('config.site-visual-review', 'config/site-visual-review.json', 'config', 'site', '画面の点検（site-visual-review）が撮る代表ページ・期待する商品導線・画面幅', { schema: 'ConfigSiteVisualReview' }),
   d('config.search-strategy', 'config/search-strategy.json', 'config', 'site', '検索キーワード戦略のクラスタ', { schema: 'ConfigSearchStrategy' }),
   d('config.seo-meta-config', 'config/seo-meta-config.json', 'config', 'site', 'SEO meta 監査の対象と巡回の設定', { schema: 'ConfigSeoMeta' }),
+  d('config.standards-page-density', 'config/standards-page-density.json', 'config', 'site', '/standards ページの密度ゲート（説明文の量・一覧のリンク数・出典表示・アフィリエイト）の閾値', { schema: 'ConfigStandardsPageDensity' }),
   d('config.growth-cycle', 'config/growth-cycle.json', 'config', 'site', '成長サイクル（計測ダイジェスト）の設定', { schema: 'ConfigGrowthCycle' }),
   d('config.indexnow', 'config/indexnow.json', 'config', 'site', 'IndexNow の更新通知の設定', { schema: 'ConfigIndexnow' }),
   d('config.google-console-automation', 'config/google-console-automation.json', 'config', 'site', 'GSC・GA4 の画面取得の設定', { schema: 'ConfigGoogleConsoleAutomation' }),

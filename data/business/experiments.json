@@ -8649,6 +8649,11 @@
           "at": "2026-10-31T00:00:00.000Z",
           "event": "start",
           "note": "配信のコード（src/lib/affiliate-experiment.mjs）を EXP-048 に切り替える PR #1318 と同時に running にした（台帳とコードを同じ PR でそろえる・tests/data-wiring.test.mjs）。本番への反映は deploy の日。"
+        },
+        {
+          "at": "2026-11-12T00:00:00.000Z",
+          "event": "note",
+          "note": "基準書（/standards の 4 テンプレート）の面を外した。28 日で約 760 表示・0 クリック（運営者の決定 2026-11-12）。両案に同じく効くので比較は残りの面で続ける"
         }
       ],
       "started_at": "2026-10-31T00:00:00.000Z",

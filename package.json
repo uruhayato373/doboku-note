@@ -366,6 +366,7 @@
     "check-seo-build:ci": "node scripts/check-seo-build.mjs --ci",
     "record-seo-build-summary": "node scripts/record-seo-build-summary.mjs",
     "check-client-chunk-size": "node scripts/check-client-chunk-size.mjs",
+    "check-standards-density": "node scripts/check-standards-density.mjs",
     "check-seo-meta": "node .claude/skills/check-seo-meta/scripts/check-seo-meta.mjs",
     "check-seo-meta:check": "node .claude/skills/check-seo-meta/scripts/seo-meta-threshold-check.mjs",
     "check-ssot-consumers": "node scripts/check-ssot-consumers.mjs",

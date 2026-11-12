@@ -24,7 +24,6 @@ import {
 } from '@/lib/standards-articles';
 import { getTopicsForStandardDocument } from '@/lib/topics';
 import { buildStandardDocumentStructuredData } from '@/lib/standards-structured-data';
-import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import { standardsAgencyPath } from '@/lib/route-paths';
 import { getAreaLabel } from '@/lib/content-taxonomy';
 
@@ -92,39 +91,32 @@ export default async function StandardDocumentPage({ params }: { params: Promise
           { label: entry.agencyName, href: standardsAgencyPath(entry.agencyId) },
         ]}
         title={entry.title}
-        lead={chapters.length > 0
-          ? `${entry.agencyName}が公表する「${entry.title}」全${chapters.length}章を編・章ごとに読めます。`
-          : `${entry.agencyName}が公表する「${entry.title}」です。章ごとの本文はまだ掲載していません。発行元のページはページ末尾の出典欄にあります。`}
         meta={<span className="text-sm">{entry.edition} · {chapters.length > 0 ? `${chapters.length}章 · ` : ''}{entry.pages.toLocaleString('ja-JP')}ページ</span>}
       />
         <div className="pt-5">
         {books.length > 0 && (
           <section aria-labelledby="chapters" className="mb-8">
             <h2 id="chapters" className="text-2xl font-bold text-(--ink)">章から読む</h2>
-            <p className="mt-2 text-[14px] leading-[1.8] text-(--ink-muted)">
-              {isStandardChapterMerged(agency, document)
-                ? '読みたい編・章を選んでください。この文書の本文は近畿地方整備局版と同じなので、章は近畿版のページで表示します。'
-                : '読みたい編・章を選んでください。'}
-            </p>
+            {isStandardChapterMerged(agency, document) && (
+              <p className="mt-2 text-[13px] text-(--ink-muted)">章は近畿地方整備局版のページで表示します（本文は同一）。</p>
+            )}
             {books.map((book) => (
               <div key={book.bookNumber} className="mt-5">
                 <h3 className="text-lg font-bold text-(--ink)">
                   {book.bookLabel}
                 </h3>
-                <ol className="mt-3 divide-y divide-(--rule-soft) border-y border-(--rule-soft) bg-(--paper)">
+                <ol data-standards-list="chapters" className="mt-2 divide-y divide-(--rule-soft) border-y border-(--rule-soft) bg-(--paper)">
                   {book.chapters.map((chapter) => (
                     <li key={chapter.chapterId}>
                       <Link
                         href={standardChapterPath(entry, chapter)}
-                        className="focus-ring flex min-h-14 items-center justify-between gap-4 px-4 py-3 transition-colors hover:bg-(--accent-fill)"
+                        data-cta="nav"
+                        data-cta-label="standards-chapter"
+                        className="focus-ring flex min-h-11 items-center justify-between gap-4 px-4 py-2 transition-colors hover:bg-(--accent-fill)"
                       >
                         <span className="min-w-0 flex-1">
-                          <span className="block font-medium text-(--ink)">
-                            {standardChapterHeading(chapter)}
-                          </span>
-                          <span className="mt-1 block font-mono text-[11px] text-(--ink-muted)">
-                            {chapter.sections.length}節
-                          </span>
+                          <span className="font-medium text-(--ink)">{standardChapterHeading(chapter)}</span>
+                          <span className="ml-2 font-mono text-[11px] text-(--ink-muted)">{chapter.sections.length}節</span>
                         </span>
                         <span className="shrink-0 font-mono text-[11px] text-(--ink-muted)">→</span>
                       </Link>
@@ -137,16 +129,13 @@ export default async function StandardDocumentPage({ params }: { params: Promise
         )}
 
 
-        {books.length > 0 && <StandardDataLinks document={entry} />}
-
         <StandardTopicLinks topics={relatedTopics} />
         </div>
         </div>
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsNavigation agencyId={agency} currentDocument={entry} variant="mobile" />
         </div>
-        {/* 転職の案内は本文の外の末尾に 1 枠（章ページ以外の公的基準・右のナビ欄には置かない）。案件は配置ルール */}
-        <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className="mt-6" />
+        {books.length > 0 && <StandardDataLinks document={entry} />}
         <StandardsAttribution document={entry} />
       </TwoColumnShell>
     </PageShell>

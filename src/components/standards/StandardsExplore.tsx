@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
-import { ClipboardList, Mountain, FlaskConical } from 'lucide-react';
 import { getDocsMetaByCategory } from '@/lib/docs';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { resolveNavTitle } from '@/lib/doc-title';
@@ -9,26 +8,22 @@ import { topicPath } from '@/lib/route-paths';
 
 // 基準書の規定を実務へつなぐ入口。表示名・公開状態は既存の索引から解決する。
 const topicSlugs = ['quality-management', 'construction-management', 'concrete', 'earthwork-foundations', 'safety-laws', 'roads'];
-const practiceEntries = [
-  { slug: 'construction-plan-document', Icon: ClipboardList },
-  { slug: 'embankment-quality-control', Icon: Mountain },
-  { slug: 'concrete-mix-acceptance', Icon: FlaskConical },
-];
+const practiceSlugs = ['construction-plan-document', 'embankment-quality-control', 'concrete-mix-acceptance'];
 
 export default function StandardsExplore() {
   const topics = getAllTopics();
   const practiceDocs = getDocsMetaByCategory('civil-practice').filter(doc => doc.published !== false && !doc.hideFromCategory);
-  const selectedDocs = practiceEntries.flatMap(({ slug, Icon }) => {
+  const selectedDocs = practiceSlugs.flatMap(slug => {
     const doc = practiceDocs.find(item => item.slug === `civil-practice-${slug}`);
-    return doc ? [{ doc, Icon }] : [];
+    return doc ? [doc] : [];
   });
+  const small = 'focus-ring inline-flex min-h-11 items-center text-[13px] text-(--accent) underline underline-offset-4';
 
   return (
     <div className="space-y-4" data-standards-explore>
       <SectionCard padding="compact">
-        <h2 className="text-lg font-bold text-(--ink)">テーマから理解を深める</h2>
-        <p className="mt-2 text-sm leading-relaxed text-(--ink-body)">基準・実務・試験解説をまとめて読む</p>
-        <nav aria-label="基準と関連する技術テーマ" className="mt-3 divide-y divide-(--rule-soft)">
+        <h2 className="text-lg font-bold text-(--ink)">テーマから読む</h2>
+        <nav aria-label="基準と関連する技術テーマ" className="mt-2 divide-y divide-(--rule-soft)">
           {topicSlugs.flatMap(slug => {
             const topic = topics.find(item => item.slug === slug);
             return topic ? [
@@ -39,42 +34,17 @@ export default function StandardsExplore() {
             ] : [];
           })}
         </nav>
-        <Link href="/topics" className="focus-ring mt-2 flex min-h-11 items-center justify-end text-sm text-(--accent) underline underline-offset-4">すべてのテーマへ →</Link>
+        <Link href="/topics" className="focus-ring mt-1 flex min-h-11 items-center justify-end text-sm text-(--accent) underline underline-offset-4">すべてのテーマ →</Link>
       </SectionCard>
 
-      <SectionCard padding="compact">
-        <h2 className="text-lg font-bold text-(--ink)">基準を現場で使う</h2>
-        {selectedDocs.length > 0 && (
-          <ul className="mt-2 divide-y divide-(--rule-soft)">
-            {selectedDocs.map(({ doc, Icon }) => (
-              <li key={doc.slug}>
-                <Link href={getPublicDocPath(doc.slug)} data-cta="nav" data-cta-label="standards-practice"
-                  className="focus-ring group flex min-h-12 items-center gap-3 py-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-card-inline bg-(--accent-fill) text-(--accent)">
-                    <Icon size={22} aria-hidden="true" />
-                  </span>
-                  <span className="text-sm font-bold leading-relaxed text-(--ink) group-hover:text-(--accent)">{resolveNavTitle(doc).main}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-        <Link href="/practice" className="focus-ring mt-2 flex min-h-11 items-center justify-between border-t border-(--rule-soft) pt-3 text-sm font-bold text-(--accent)">土木施工の実務ノートへ<span aria-hidden="true">→</span></Link>
-      </SectionCard>
-
-      <SectionCard padding="compact">
-        <h2 className="text-lg font-bold text-(--ink)">比較・データ利用</h2>
-        <nav aria-label="基準類の活用" className="mt-2 divide-y divide-(--rule-soft)">
-          {([
-            ['/standards/compare', '地方整備局別の違い', '近畿版を基準に比較'],
-            ['/standards/data', '基準本文のデータ', 'JSON-LD・Markdown'],
-          ] as const).map(([href, title, sub]) => (
-            <Link key={href} href={href} className="focus-ring flex min-h-12 items-center justify-between gap-2 py-3 text-(--accent)">
-              <span><span className="block text-sm font-bold">{title}</span><span className="mt-1 block text-sm text-(--ink-body)">{sub}</span></span><span aria-hidden="true">→</span>
-            </Link>
-          ))}
-        </nav>
-      </SectionCard>
+      <nav aria-label="実務・比較・データ" className="flex flex-wrap gap-x-4 px-1">
+        {selectedDocs.map(doc => (
+          <Link key={doc.slug} href={getPublicDocPath(doc.slug)} data-cta="nav" data-cta-label="standards-practice" className={small}>{resolveNavTitle(doc).main}</Link>
+        ))}
+        <Link href="/practice" className={small}>土木施工の実務ノート</Link>
+        <Link href="/standards/compare" className={small}>地方整備局別の違い</Link>
+        <Link href="/standards/data" className={small}>基準本文のデータ</Link>
+      </nav>
     </div>
   );
 }

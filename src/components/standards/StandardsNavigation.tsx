@@ -157,7 +157,7 @@ function DocumentTreeNav({
   const tocUrl = standardTreeTocPath(document);
 
   return (
-    <nav aria-label="目次" className="border border-(--rule-soft) bg-(--paper) py-2 dark:border-(--rule-soft)">
+    <nav aria-label="目次" data-cta="nav" data-cta-label="standards-tree" className="border border-(--rule-soft) bg-(--paper) py-2 dark:border-(--rule-soft)">
       <Link
         href={standardDocumentPath(document)}
         className="focus-ring block px-4 pb-2 pt-1 text-[12px] font-bold text-(--ink-muted) hover:text-(--accent)"
