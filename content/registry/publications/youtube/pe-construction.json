@@ -1001,7 +1001,7 @@
       "work": "pe-hissu1-konkyo-tsumikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-001",
@@ -1019,7 +1019,21 @@
         "video": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#longform",
+      "publishAt": "2026-11-19T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-13T12:56:05.489Z",
+          "digest": "afbc91dfb8679602f27ef413a4958bfa1040051b7da7b648892f7c15b5114e71"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-13T12:56:05.489Z",
+        "contentSha256": "64b43df636ac24992551d04242b8214ade0996f75bdf77c82731b3680ac1e3ad"
+      }
     },
     {
       "id": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.short.point-shusho-1",
@@ -1073,7 +1087,7 @@
       "work": "pe-hissu1-theme-junbi",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/scene-001",
@@ -1091,7 +1105,21 @@
         "video": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/video",
         "subtitles": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#longform",
+      "publishAt": "2026-11-17T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-13T12:56:02.871Z",
+          "digest": "261bd07edf925f30747385c0061072ce6a5fd1f9fa65cec1eae298702e915775"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-13T12:56:02.871Z",
+        "contentSha256": "d036f1cb1c65abcc9bf11296fa3e4da88520b77079809e3b9af9dc1cabe9cfc7"
+      }
     },
     {
       "id": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2",
