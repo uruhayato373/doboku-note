@@ -2749,6 +2749,16 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1172] worktree の pre-commit でだけ check-affiliate-wiring が出す WARN 1 件の中身を確かめる
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
+
+起点: 2026-11-13、PR uruhayato373/doboku-note#1574 の worktree（.claude/worktrees/standards-sidebar）で commit すると、pre-commit の `check-affiliate-wiring` が WARN 1 件を出した。本体の checkout で `npm run check-affiliate-wiring` を直接回すと WARN 0。中身は見ていない。
+
+やること: worktree で `node scripts/check-affiliate-wiring.mjs` を回して WARN の中身を見る。worktree に無い gitignore の生成物や `.local/` を読んでいるなら、環境の差として検査側で「読めない」と「ずれている」を分ける。本当のずれなら直す。
+
+完了条件: WARN の原因が分かり、直したか、環境の差なら検査が欠測として出すようになっている。
+
+
 ### [DN-1170] プレックスジョブ（A8）が参加中にも申込中にも無い理由（否認か取消か）を確かめ、再申請を判断する
 タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
 
