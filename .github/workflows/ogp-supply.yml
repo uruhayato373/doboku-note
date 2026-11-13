@@ -214,7 +214,14 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: node scripts/asset-hydrate.mjs --group site-photos
+        # 写真がまだ 1 件も R2 に無いとき（台帳に site-photos の行が無いとき）は取り戻すものが無いので飛ばす
+        #（asset-hydrate は対象 0 件を失敗にする・2026-11-13 に写真の公開前の push で落ちた）
+        run: |
+          if node -e "const m=require('./.claude/state/assets/manifest.json');process.exit(Object.values(m.entries).some(e=>e.group==='site-photos')?0:1)"; then
+            node scripts/asset-hydrate.mjs --group site-photos
+          else
+            echo "site-photos の台帳の行が 0 件。取り戻すものが無いので飛ばす"
+          fi
 
       # 失敗した slug は隔離して継続する（1 件の生成失敗で全体を止めない）。
       # 全滅（成功 0 件）のときだけ異常として止める。
