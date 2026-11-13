@@ -1430,18 +1430,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 
-### [DN-0935] SNS 保留中の定期実行（youtube 系の cron）を止め、全敗している OGP Supply を直すか止め、見張りの 4 層を 1 つの日次ヘルスにまとめる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-01] [進行中]
-
-**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。OGP Supply は直近 11 回すべて失敗、youtube-funnel-audit などの youtube 系 cron は SNS 保留中で読み手がいない。workflow-health・workflow-health-guard・weekly-review-guard・report-checks が同じ原因で別々の Issue を立てる（11/1 時点で 3〜4 件）。
-
-**残り**: youtube-funnel-audit の schedule 停止・OGP Supply の上限超過の解消（max=120 で手動実行し成功）・weekly-review-guard の二重の見張りの解消は PR #1357 で入った（見張りの変更は main への deploy 後に効く）。
-
-**やること**: report-checks・gsc-auto-review・weekly-collect・weekly-review-local など channel ごとに立つ Issue を、根本原因のキーで 1 Issue にまとめる（同じキーの open Issue にはコメントを追記・PR #1357 本文の案）。OGP Supply は生成対象が 50 件を超えたら再発するので、上限の扱い（定期で分割して生成するか）を決める。
-
-**済み（2026-11-13）**: report-automation-failure に根本原因の鍵（--key）を足し、土曜の Mac の回と月曜の記録層の見張りを鍵 saturday-mac-run でまとめた（#1572）。OGP Supply は上限を超えた分を次回へ持ち越して exit 0 で終える。bot の commit で lint-ja が止まる不具合も直した（#1581）。
-
-**完了条件**（2026-11-13 に運営者の決定で置き換え）: 直した後に、上限（200 件）を超えた件数で OGP Supply が 1 回成功する（持ち越しつき）。その後の 4 週は workflow-health が見張る。
 
 ### [DN-0933] スキル・エージェントの description を短くし、weekly-review の SKILL.md を骨子と references に分けてトークンを減らす
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-01]

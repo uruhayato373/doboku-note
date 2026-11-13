@@ -8222,6 +8222,19 @@
       "commit": "1ee81a6d9141",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0935",
+      "at": "2026-11-13",
+      "task": "SNS 保留中の定期実行（youtube 系の cron）を止め、全敗している OGP Supply を直すか止め、見張りの 4 層を 1 つの日次ヘルスにまとめる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d8eb3ec21ede",
+      "verification": "OGP Supply run 43391997387: 対象 859 件 / 上限 700 件 / 持ち越し 159 件で success（2026-11-13）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
