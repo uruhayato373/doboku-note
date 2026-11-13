@@ -214,9 +214,9 @@
 
 **起点**: 2026-11-05、運営者が「CI が遅い」と指摘し、優先度を高くして起票するよう依頼した。note 商品の公開 1 回で、PR の CI と develop のゲートとデプロイを待つのに 20 分以上かかり、失敗すると繰り返す。
 
-**実測（2026-11-05）**: PR の CI は約 10〜11 分（e2e 10 分 26 秒、lighthouse 7 分 21 秒、audit 6 分 36 秒、build 5 分 20 秒）。merge 後の develop の Pre-merge check は 5.9〜7.2 分（直近 7 回）。main のデプロイの所要時間は未計測。同日の PR #1407・#1409・#1410 は、速い検査の失敗が commit か CI の段階で続いた。
+**実測（2026-11-05）**: PR の CI は約 10〜11 分（e2e 10 分 26 秒、lighthouse 7 分 21 秒、audit 6 分 36 秒、build 5 分 20 秒）。merge 後の develop の Pre-merge check は 5.9〜7.2 分（直近 7 回）。main のデプロイは中央値 6.4 分（2026-11-13 の実測。npm ci 21 秒・build 232 秒・Pages へのアップロード 79 秒。作り直しをやめる案は DN-1184）。同じ日の実測で PR は ci 5.5 分・E2E 4.7 分、develop の push は 6.1 分、develop が赤だった時間は直近 32 時間の約 36%（DN-1182）。同日の PR #1407・#1409・#1410 は、速い検査の失敗が commit か CI の段階で続いた。
 
-**やること**: (1) main のデプロイを含めた全段階の所要時間と、検査ごとの内訳を計測する。(2) PR と develop で重複している audit と build を減らせるか判断する。本番の手前の守りを弱めないことを条件にする。(3) note-funnel など速い検査を commit 前に回し、CI でのやり直しを減らす。(4) e2e を縮小する。運営者の方針（2026-11-05）は「サイトの構築途中なので、e2e を厚くやる必要はない」。PR は smoke など短い検査だけにする。visual・standards-render・a11y は、運営者の判断（2026-11-05）でサイトがある程度完成するまで止める。夜間（JST 3:00）の実行も対象に含める。再開の条件をカードか workflow の注記に残す。直近 100 回の e2e は 18 回失敗し、抽出した 12 回の多くは visual と standards-render だった。失敗が実際の不具合か、スナップショットの更新待ちかは切り分ける。lighthouse も省けるか判断する。(5) CI の成功時に、作業中のセッションが次へ進める方法を確かめる。
+**やること**: (1) 上の実測を基準に、PR の作成から本番確認までの目標値を決める。(2) PR と develop で重複している audit と build を減らせるか判断する。本番の手前の守りを弱めないことを条件にする。(3) note-funnel など速い検査を commit 前に回し、CI でのやり直しを減らす。(4) e2e を縮小する。運営者の方針（2026-11-05）は「サイトの構築途中なので、e2e を厚くやる必要はない」。PR は smoke など短い検査だけにする。visual・standards-render・a11y は、運営者の判断（2026-11-05）でサイトがある程度完成するまで止める。夜間（JST 3:00）の実行も対象に含める。再開の条件をカードか workflow の注記に残す。直近 100 回の e2e は 18 回失敗し、抽出した 12 回の多くは visual と standards-render だった。失敗が実際の不具合か、スナップショットの更新待ちかは切り分ける。lighthouse も省けるか判断する。(5) CI の成功時に、作業中のセッションが次へ進める方法を確かめる。
 
 **完了条件**: 計測の結果が残り、PR の作成から本番確認までの標準の所要時間が目標値まで短くなっている。目標値は計測の後に決める。検査の範囲を減らす場合は、その理由が記録されている。
 
@@ -620,13 +620,13 @@
 ### [DN-1138] PR の E2E の再ビルドをやめる（主要 3 本を ci.yml の build ジョブで回す）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-12]
 
-e2e.yml は PR で自前の npm run build（187〜236 秒）をしてから主要 3 本の spec を回すが、テスト本体は 8〜10 秒（2026-11-11 の 3 回の実測）。ci.yml の build ジョブが同じ out/ を作っているので、PR の主要 3 本を build ジョブの後段で回せば PR 1 本あたりの full build が 1 回減る（PR の待ち時間は ci 約 3.7 分に対し e2e 約 5.6 分で、e2e が律速）。Chromium の導入は通常 17〜24 秒（apt 側で 209 秒かかった回あり）。夜間の全件と a11y は e2e.yml に残す。automerge.yml の workflow_run と tests/e2e-paths.test.mjs・tests/e2e-execution.test.mjs を合わせる
+e2e.yml は PR で自前の npm run build（187〜236 秒）をしてから主要 3 本の spec を回すが、テスト本体は 8〜10 秒（2026-11-11 の 3 回の実測）。ci.yml の build ジョブが同じ out/ を作っているので、PR の主要 3 本を build ジョブの後段で回せば PR 1 本あたりの full build が 1 回減る（PR の待ち時間は ci 約 3.7 分に対し e2e 約 5.6 分で、e2e が律速）。Chromium の導入は通常 17〜24 秒（apt 側で 209 秒かかった回あり）。夜間の全件と a11y は e2e.yml に残す。automerge.yml の workflow_run と tests/e2e-paths.test.mjs・tests/e2e-execution.test.mjs を合わせる。**2026-11-13 の実測で前提が変わった**: PR の待ち時間は ci 5.5 分（中央値・53 回）に対し e2e 4.7 分（33 回）で、律速は ci の build ジョブに入れ替わっている。統合しても PR の待ち時間は縮まず、減るのはランナーの実行時間だけ（公開リポジトリで課金なし）。着手の前に、やる理由が残っているかを決める
 
 
 ### [DN-1137] refresh-indexes の手動義務をなくす（生成物を git から外して build 時に作る）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-12]
 
-MDX を変えるたびに npm run refresh-indexes（npm と node 約 30 プロセス・MDX 全体の走査を数回）を手で回して生成物を commit する義務がある（CLAUDE.md §4・rules/content-site.md）。build も同じ処理を回し、CI の generated-indexes も実際に回して照合している。生成物を git 管理から外し build 時に作る形（src/config/doc-meta-index.json と同じ）にすれば、手動の義務と CI の generated-indexes（llms の件数ずれの赤の元）が消える。先に調べる: 追跡している生成物の一覧と、build 以外の読み手（管理画面・スクリプト・テスト・pre-commit）。content の commit は 1 日 100 件を超えるので効果が大きい
+MDX を変えるたびに npm run refresh-indexes（npm と node 約 30 プロセス・MDX 全体の走査を数回）を手で回して生成物を commit する義務がある（CLAUDE.md §4・rules/content-site.md）。build も同じ処理を回し、CI の generated-indexes も実際に回して照合している。生成物を git 管理から外し build 時に作る形（src/config/doc-meta-index.json と同じ）にすれば、手動の義務と CI の generated-indexes（llms の件数ずれの赤の元）が消える。先に調べる: 追跡している生成物の一覧と、build 以外の読み手（管理画面・スクリプト・テスト・pre-commit）。content の commit は 1 日 100 件を超えるので効果が大きい。CI でも 1 回の run で 3 回走っている（test ジョブの Refresh generated indexes・audit の generated-indexes・build の npm run build。2026-11-13 に確認）
 
 
 ### [DN-1135] 検査の失敗メッセージに直し方を足し、規則文書をさらに縮める
@@ -2937,7 +2937,7 @@ npm run cmd はコマンドの用途を、起動するスクリプトの冒頭�
 ### [DN-1139] publish-seo-summary の待ちで CI の run が完了しない構造を外す
 タグ: [領域:管理] [種類:改善] [起票:2026-11-12]
 
-ci.yml の publish-seo-summary ジョブは concurrency グループ develop-git-write（index-coverage は timeout 240 分・psi-audit・fetch-metrics・ogp-supply・cloudflare-metrics と共有）に入っている。ほかの書き込みジョブが走っている間は待つので、audit・test・build が終わっても run 全体が完了せず、deploy:main（run の完了を待つ）が待たされる構造。2026-11-11 の 9 時間では未観測。記録の書き戻しを workflow_run で起動する別 workflow に分け、ゲートの run は 3 ジョブと report で完了するようにする
+ci.yml の publish-seo-summary ジョブは concurrency グループ develop-git-write（index-coverage は timeout 240 分・psi-audit・fetch-metrics・ogp-supply・cloudflare-metrics と共有）に入っている。ほかの書き込みジョブが走っている間は待つので、audit・test・build が終わっても run 全体が完了せず、deploy:main（run の完了を待つ）が待たされる構造。2026-11-13 に 3 回観測した（run の所要時間 16.6 分・34.0 分・36.9 分。run 43390653131 は 3 ジョブの終了から書き戻しの開始まで 18 分。develop の push は実行を取り消さないので、次の push の検査もその間始まらなかった）。記録の書き戻しを workflow_run で起動する別 workflow に分け、ゲートの run は 3 ジョブと report で完了するようにする
 
 
 ### [DN-1136] 記憶メモを棚卸しする（機械ゲートと重複するもの・古い手順）
