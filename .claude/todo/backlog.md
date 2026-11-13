@@ -416,6 +416,18 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1187] 毎晩の YouTube 予約で、worktree に素材が無いショートの予約が失敗する
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-13]
+
+毎晩の YouTube 予約（scheduled task `doboku-youtube-daily-release`）は専用 worktree `.claude/worktrees/yt-release` で `npm run youtube-daily -- run` を流す。投稿済みショートの予約（`registry.mjs publish-youtube`）は `.tmp/media/<資格>/<作品>/<pub>/video.<hash>.mp4` を読むが、`.tmp/media` は Git 管理外で、メインの作業ツリーで作った素材は worktree に無い。
+
+2026-11-13 の実行で、老朽化のショート 2 本（`pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1`・`point-funding-2`）の schedule-short がファイル無しで失敗した。メイン側の同じハッシュの実体を手でコピーして再実行し、予約できた。
+
+直す候補: (a) worktree の `.tmp/media` をメイン側へのリンクにする（.env.local と同じ扱い） (b) youtube-daily が無い素材をメイン側から取り寄せる (c) 予約だけなら動画ファイルを読まないようにする。どれにするか決めて、scheduled task の手順か実装へ反映する。
+
+完了条件: メイン側だけに素材があるショートが、worktree からの `youtube-daily -- run` で手作業なしに予約される。
+
+
 ### [DN-1183] ビルドの入力に触れない push で build ジョブを飛ばせるか決める
 タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-13]
 
