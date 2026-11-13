@@ -79,7 +79,9 @@ function allMdxFiles(dir) {
   return results;
 }
 
-const inCi = mode === 'staged' && process.env.CI === 'true';
+// pre-commit の中（CI の bot の commit を含む）は staged を見る。CI の比較元との差分を見るのは quality-audit から呼ばれたときだけ
+//（2026-11-13: OGP Supply の台帳の commit が「比較元が無い」で止まった）
+const inCi = mode === 'staged' && process.env.CI === 'true' && process.env.DOBOKU_PRE_COMMIT !== '1';
 if (inCi && !process.env.REGISTRY_BASE) {
   console.error(`[lint-ja --${mode}] 検査不成立: CI で比較元（REGISTRY_BASE）が無く、変更した MDX を決められない`);
   __exit(2);
