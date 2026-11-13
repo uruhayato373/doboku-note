@@ -1502,7 +1502,7 @@
       "work": "pe-tunnel-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1563,11 +1563,12 @@
       "platform": {
         "id": "IrhUBYTTpQI",
         "url": "https://www.youtube.com/watch?v=IrhUBYTTpQI",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-13T03:36:14.699Z"
+        },
+        "publishedAt": "2026-11-13T03:15:06.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -1755,7 +1756,7 @@
       "work": "toan-kousei-template",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-construction/toan-kousei-template/youtube.longform/cover",
         "scene-001": "pe-construction/toan-kousei-template/youtube.longform/scene-001",
@@ -1812,17 +1813,17 @@
       "platform": {
         "id": "ywemm49EBPA",
         "url": "https://www.youtube.com/watch?v=ywemm49EBPA",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-13T03:36:14.699Z"
+        },
+        "publishedAt": "2026-11-12T11:30:08.000Z"
       },
       "thumbnail": {
         "status": "set",
         "setAt": "2026-11-10T10:50:43.191Z"
       },
-      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-12T11:30:00Z）",
       "publishAt": "2026-11-12T11:30:00Z"
     },
     {
