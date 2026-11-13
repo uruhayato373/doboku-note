@@ -416,6 +416,19 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1165] 基準書以外の面も面ごとのサイズの決まりで台帳の素材から画像バナーを選ぶ（記事・カテゴリ・トップ・ツール・トピック・法令）
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
+
+起点: 2026-11-13 のセッション（PR uruhayato373/doboku-note#1574）で、基準書（/standards）の面だけ「面ごとのサイズの決まり」で台帳の素材から画像バナーを選ぶ形にした。ほかの面は今も `src/config/affiliate-creatives.ts` の 300×250（と小型カード）だけ。
+
+やること:
+- 記事（article-mid・article-inline）・カテゴリ（category-sidebar・category-mobile）・トップ（home-section）・ツール（tool-end・tool-inline）・トピック（topic-end）・法令の一覧（laws-list-end）の各面に、`config/cta-placements.json` の `sizes`（PC・スマホ別・先頭ほど優先）を足す。実測の幅は PC 本文 754px・PC 右の欄 308px・スマホ本文 343px（2026-11-13）
+- 描画を `src/lib/affiliate-slot-creatives.ts`（`slotCreatives`）経由にする。基準書の `src/components/standards/StandardsAffiliateBanners.tsx` の `ResponsiveBanner`（PC 用・スマホ用の出し分け・同じ素材なら 1 枚・ピクセルは 1 ページ 1 案件 1 発）を共通の部品へ出す
+- 本文中の小型カード（EXP-043 で採用・EXP-048 の B/B2）は消さない。画像に替えるのは横長の素材がある案件・面だけにし、実験中の面（pairs・splits）は実験の判定を待つ
+
+完了条件: 上の面で決めたサイズの素材が出る（`tests/affiliate-creative-pick.test.mjs` の実データの検査を全面に広げて通る）、`check-affiliate-placements`・`check-cta-density` が通る、PC とスマホの画面で横スクロールが無い。
+
+
 ### [DN-1164] ショートを親 15 本から 30 本作る Workflow を、止めた所（設計 10 本・ブランチ wip/shorts-batch-2026-11-13）から再開する
 タグ: [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-11-13] [期日:2026-11-21]
 
