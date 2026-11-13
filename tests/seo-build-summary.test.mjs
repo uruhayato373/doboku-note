@@ -91,6 +91,12 @@ test('週次レビューの下書きがこの節を出し、CI が結果を渡�
   assert.match(draft, /analysis\.seo-build-summary/);
   const ci = readFileSync(join(REPO_ROOT, '.github/workflows/ci.yml'), 'utf8');
   assert.match(ci, /check-seo-build:ci -- --summary-out/);
-  assert.match(ci, /record-seo-build-summary\.mjs/);
-  assert.match(ci, /ci-data\.mjs add --datasets analysis\.seo-build-summary/);
+  assert.match(ci, /name: seo-build-run\r?\n/);
+  // 書き戻しはゲートの run の外に置く（DN-1139）。ci.yml に戻すと develop-git-write の空き待ちで run が完了しなくなる
+  assert.doesNotMatch(ci, /group: develop-git-write|contents: write/);
+  const publish = readFileSync(join(REPO_ROOT, '.github/workflows/seo-build-summary.yml'), 'utf8');
+  assert.match(publish, /github\.event\.workflow_run\.event == 'push' &&\r?\n\s+github\.event\.workflow_run\.head_branch == 'develop'/);
+  assert.match(publish, /name: seo-build-run\r?\n[\s\S]*?run-id: \$\{\{ github\.event\.workflow_run\.id \}\}/);
+  assert.match(publish, /record-seo-build-summary\.mjs/);
+  assert.match(publish, /ci-data\.mjs add --datasets analysis\.seo-build-summary/);
 });

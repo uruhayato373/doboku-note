@@ -10,7 +10,7 @@ name: Lighthouse CI
 # schedule はデフォルトブランチ（main）版の workflow で動くが、checkout は develop に向ける。
 on:
   schedule:
-    - cron: "30 18 * * *" # UTC 18:30 = JST 03:30
+    - cron: "47 14 * * *" # UTC 14:47 = JST 23:47（e2e.yml と同じ理由で毎時 0・30 分と JST 03 時台を外した・2026-11-13）
   workflow_dispatch:
 
 permissions:
