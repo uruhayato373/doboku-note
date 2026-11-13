@@ -8,7 +8,7 @@
       "work": "cm-essay-tradeoff-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform/scene-001",
@@ -43,7 +43,42 @@
         "contentSha256": "c61535269b37051dc3f7023fd633caf6a98cf80e331076cbacf3a1d9f43409fb"
       },
       "times": {
-        "rendered": "2026-11-13T13:07:10.102Z"
+        "rendered": "2026-11-13T13:07:10.102Z",
+        "uploaded": "2026-11-13T13:13:37.529Z",
+        "scheduled": "2026-11-13T13:13:49.397Z"
+      },
+      "delivery": {
+        "inputSha256": "2a72e673b241424c69abf33ac8ee25bfc4626b63402350709fb232c9dca255cd",
+        "marker": "dn-single-99aec28a93cf46d230703259ab9d3ba7a9f0690f",
+        "uploadRequestedAt": "2026-11-13T13:12:47.082Z",
+        "videoId": "ILYznk3YH84",
+        "processedAt": "2026-11-13T13:13:36.070Z",
+        "thumbnailRequestedAt": "2026-11-13T13:13:37.575Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/ILYznk3YH84/default.jpg?sqp=CKiY3NcG&rs=AOn4CLCTd-9-ixFcAx5WjRSkfJ1akunRkg",
+          "https://i9.ytimg.com/vi/ILYznk3YH84/mqdefault.jpg?sqp=CKiY3NcG&rs=AOn4CLDn5ced6lKGvdFA2YPpdO7j2y07Bg",
+          "https://i9.ytimg.com/vi/ILYznk3YH84/hqdefault.jpg?sqp=CKiY3NcG&rs=AOn4CLD7yI5Lh7_ZJkIAqmIPRbsMz2G1CQ",
+          "https://i9.ytimg.com/vi/ILYznk3YH84/sddefault.jpg?sqp=CKiY3NcG&rs=AOn4CLDzX43efIYYF4KGO2beSc0y0wpVVA",
+          "https://i9.ytimg.com/vi/ILYznk3YH84/maxresdefault.jpg?sqp=CKiY3NcG&rs=AOn4CLBVnGNwtcKm7V4OrPnCeVwIrOPHgg",
+          "https://i9.ytimg.com/vi/ILYznk3YH84/fhddefault.jpg?sqp=CKiY3NcG&rs=AOn4CLCaCKvOoWNshbCcpzB304J3Q5D0bg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-13T13:13:41.494Z",
+        "scheduleRequestedAt": "2026-11-13T13:13:45.679Z",
+        "scheduleAt": "2026-11-18T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-13T13:13:49.397Z"
+      },
+      "platform": {
+        "id": "ILYznk3YH84",
+        "url": "https://www.youtube.com/watch?v=ILYznk3YH84",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-13T13:13:41.494Z"
       }
     },
     {
