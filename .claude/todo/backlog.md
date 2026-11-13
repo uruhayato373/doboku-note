@@ -2688,6 +2688,18 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1180] Dependabot #119（basic-ftp の DoS）を解消する
+タグ: [領域:管理] [種類:改善] [起票:2026-11-13]
+
+**起点**: 11/13 の X 返信の台帳を push したとき、GitHub が Dependabot の警告 1 件（#119・moderate）を出した。`basic-ftp` 5.3.1 の MLSD パーサーが `__proto__` という fact 名で例外を投げ、`Client.list()` が落ちる（DoS）。
+
+**現況**: `scope: development` の推移依存（`get-uri` ^5.0.2 ← proxy-agent 系）。`package-lock.json` には残っているが `npm ls basic-ftp` は空で、手元の node_modules には入っていない。サイトの配信コードからは呼ばれない。
+
+**やること**: `npm audit` / `npm update` で `basic-ftp` を修正版へ上げるか、依存元ごと剪定できるか見る。影響がなければ警告を取り下げる。
+
+**完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts --jq '.[] | select(.state=="open")'` が 0 件。
+
+
 ### [DN-1176] note リンクの属性と資格別背景を CTA の共通部品にする
 タグ: [UI・UX] [領域:サイト] [種類:改善] [起票:2026-11-13]
 
