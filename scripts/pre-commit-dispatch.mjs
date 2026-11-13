@@ -191,6 +191,8 @@ export async function dispatch(ctx, { steps = STEPS, exec = defaultExec, log = c
 
 async function main() {
   process.chdir(REPO_ROOT);
+  // pre-commit の中であることを各検査へ伝える。CI（CI=true）の中の bot の commit でも、見るのは staged の変更（lint-ja など・2026-11-13）
+  process.env.DOBOKU_PRE_COMMIT = '1';
   const t0 = Date.now();
   const r = await dispatch(collectContext());
   console.log(summarize(r, ((Date.now() - t0) / 1000).toFixed(1)));
