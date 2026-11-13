@@ -116,6 +116,30 @@
       "definedIn": "src/config/affiliate-creatives.ts (CONSTWORK_CAREER_AD・PROGRAM_ASSETS.constwork)",
       "expiresAt": null,
       "note": "2026-10-31 もしもの原稿取得（shop_site_id=672381＝doboku-note・a_id 5716837。stats47 は未提携）で 300×250 の pl_id 80122 を写した。成果は無料会員登録 ¥5,384、承認は求人の電話面談の完了。2 枚並べの 2 枚目（小型カード）だけで使う。"
+    },
+    {
+      "mat": "4BEPQ0+BRB8NU+4PCE+65EOH",
+      "program": "rsg-kensetsu",
+      "label": "RSG建設転職（建設業界専門の転職支援）",
+      "surfaces": [
+        "sidebar",
+        "article-end"
+      ],
+      "definedIn": "src/config/affiliate-creatives.ts (RSG_KENSETSU_CAREER_AD・PROGRAM_ASSETS.rsg-kensetsu)",
+      "expiresAt": null,
+      "note": "2026-11-13 A8 の広告リンク作成で doboku-note（websiteId=002）・素材ID 033（300×250）を写した。「No.1」「第1位」表示の素材（006・034・036）は使わない。基準書の右の欄に使う。"
+    },
+    {
+      "mat": "4AZCG4+8FN42I+3Y6M+66H9D",
+      "program": "dainishinsotsu-agent-neo",
+      "label": "第二新卒エージェントneo（第二新卒・既卒の就職・転職支援）",
+      "surfaces": [
+        "sidebar",
+        "article-end"
+      ],
+      "definedIn": "src/config/affiliate-creatives.ts (DAINISHINSOTSU_NEO_CAREER_AD・PROGRAM_ASSETS.dainishinsotsu-agent-neo)",
+      "expiresAt": null,
+      "note": "2026-11-13 A8 の広告リンク作成で doboku-note（websiteId=002）・素材ID 038（300×250）を写した。「No.1」表示の素材（008）は使わない。基準書の右の欄に使う（20代の公務員・第二新卒の読者向け）。"
     }
   ]
 }

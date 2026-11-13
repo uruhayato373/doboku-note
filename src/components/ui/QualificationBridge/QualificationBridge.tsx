@@ -12,16 +12,28 @@ import { MUNICIPAL_HUB, resolveQualificationBridge, type QualificationBridgeAudi
  * 各リンクの data-cta-label（orderer / contractor / qualification-map）がクリックのラベルになる。
  * 真実源: src/config/qualification-bridge.ts
  */
-export default function QualificationBridge({ placement, audience }: { placement: QualificationBridgeSurface; audience?: QualificationBridgeAudience | undefined }) {
+export default function QualificationBridge({
+  placement,
+  audience,
+  layout = 'card',
+}: {
+  placement: QualificationBridgeSurface;
+  audience?: QualificationBridgeAudience | undefined;
+  /** sidebar＝右の欄の幅（316px）に合わせて 1 列・説明を短く */
+  layout?: 'card' | 'sidebar';
+}) {
   const options = resolveQualificationBridge(audience);
+  const sidebar = layout === 'sidebar';
   return (
     <div data-cta="qualification-bridge" data-cta-label="card" data-cta-placement={placement}>
-      <MetaCard ariaLabel="この業務経験を資格につなげる">
+      <MetaCard ariaLabel="この業務経験を資格につなげる" padding={sidebar ? 'compact' : 'default'}>
         <h2 className="text-lg font-bold text-(--ink) mb-1">この業務経験を資格につなげる</h2>
-        <p className="text-sm text-(--ink-muted) mb-4">
-          いま担当している仕事の知識と経験は、土木系資格の受検や学習に使えます。立場に近いものを 1 つ選んでください。
+        <p className={`text-sm text-(--ink-muted) ${sidebar ? 'mb-3' : 'mb-4'}`}>
+          {sidebar
+            ? '担当している仕事の経験は、土木系資格の受検に使えます。'
+            : 'いま担当している仕事の知識と経験は、土木系資格の受検や学習に使えます。立場に近いものを 1 つ選んでください。'}
         </p>
-        <ul className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+        <ul className={sidebar ? 'grid grid-cols-1 gap-2' : 'grid grid-cols-1 gap-2 sm:grid-cols-3'}>
           {options.map((option) => (
             <li key={option.key}>
               <Link
@@ -30,7 +42,7 @@ export default function QualificationBridge({ placement, audience }: { placement
                 className="focus-ring block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-brand dark:border-(--rule-soft)"
               >
                 <span className="block text-[15px] font-medium text-(--ink)">{option.title}</span>
-                <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{option.reason}</span>
+                {!sidebar && <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{option.reason}</span>}
               </Link>
             </li>
           ))}

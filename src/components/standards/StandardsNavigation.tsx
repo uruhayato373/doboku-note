@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { StandardPracticeLinks } from '@/components/ui/SidebarDiscovery';
+import { StandardChapterDiscovery, StandardEntryChapters, StandardTopicDiscovery } from '@/components/standards/StandardsSidebarDiscovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import StandardsTreeActiveScroll from '@/components/standards/StandardsTreeActiveScroll';
 import StandardsTreeChapter from '@/components/standards/StandardsTreeChapter';
@@ -18,6 +18,9 @@ import {
 } from '@/lib/standards-articles';
 import { generateHeadingId } from '@/lib/toc';
 import { standardsAgencyPath } from '@/lib/route-paths';
+import { getTopicsForStandardDocument } from '@/lib/topics';
+import { getStandardDefaultTopics } from '@/lib/standards-discovery';
+import { StandardsSidebarBanners } from '@/components/standards/StandardsAffiliateBanners';
 
 type StandardsNavigationProps = {
   agencyId: string;
@@ -148,10 +151,13 @@ function DocumentTreeNav({
   document,
   currentChapter,
   currentSection,
+  scroll,
 }: {
   document: StandardDocument;
   currentChapter?: StandardChapter | undefined;
   currentSection?: number | undefined;
+  /** 右の欄では目次だけを高さで区切って中をスクロールさせ、下の回遊の枠を画面に残す */
+  scroll: boolean;
 }) {
   const books = groupChaptersByBook(getStandardChapters(document.agencyId, document.documentId));
   const tocUrl = standardTreeTocPath(document);
@@ -165,7 +171,11 @@ function DocumentTreeNav({
       >
         {document.role === 'common' ? '土木工事共通仕様書' : document.title}・目次
       </Link>
-      <div className="standards-tree" data-standards-nav="tree">
+      <div
+        className={scroll ? 'standards-tree max-h-[52vh] overflow-y-auto' : 'standards-tree'}
+        data-standards-nav="tree"
+        data-standards-tree-scroll={scroll ? '' : undefined}
+      >
         {books.map((book) => {
           const activeBook = book.chapters.some((chapter) => chapter.chapterId === currentChapter?.chapterId);
           return (
@@ -244,8 +254,17 @@ function NavigationContents({
   currentDocument,
   currentChapter,
   currentSection,
-}: Omit<StandardsNavigationProps, 'variant'>) {
-  if (!currentDocument) return <AgencyNav currentAgency={agencyId} />;
+  variant,
+}: StandardsNavigationProps) {
+  // 機関のページの読み手はその機関の仕様書を探しに来ているので、機関の切り替えより先に章の入口を出す
+  if (!currentDocument) {
+    return (
+      <>
+        <StandardEntryChapters agencyId={agencyId} />
+        <AgencyNav currentAgency={agencyId} />
+      </>
+    );
+  }
 
   // 章を構造化した文書は 編 → 章 → 節 の目次 1 本。章の無い文書は同じ機関の文書一覧だけ
   // （原本の逐語ページ＝分冊は 2026-10-26 に公開をやめた）。
@@ -253,12 +272,33 @@ function NavigationContents({
     return (
       <>
         {!currentChapter && <DocumentNav currentDocument={currentDocument} />}
-        <DocumentTreeNav document={currentDocument} currentChapter={currentChapter} currentSection={currentSection} />
+        <DocumentTreeNav document={currentDocument} currentChapter={currentChapter} currentSection={currentSection} scroll={variant === 'sidebar'} />
       </>
     );
   }
 
   return <DocumentNav currentDocument={currentDocument} />;
+}
+
+/** 右の欄の目次の下に置く回遊。章・節 → 関連記事と他地域の同じ章、文書 → 文書のテーマ、機関 → 施工計画・品質管理のテーマ（入口の章は目次の位置に出す） */
+function StandardsDiscovery({
+  agencyId,
+  currentDocument,
+  currentChapter,
+  withBridge,
+}: {
+  agencyId: string;
+  currentDocument?: StandardDocument | undefined;
+  currentChapter?: StandardChapter | undefined;
+  withBridge: boolean;
+}) {
+  if (currentDocument && currentChapter) {
+    return <StandardChapterDiscovery document={currentDocument} chapter={currentChapter} withBridge={withBridge} />;
+  }
+  if (currentDocument) {
+    return <StandardTopicDiscovery topics={getTopicsForStandardDocument(currentDocument)} heading="この資料を実務・試験で深める" withBridge={withBridge} />;
+  }
+  return <StandardTopicDiscovery topics={getStandardDefaultTopics()} heading="基準を実務・試験で深める" withBridge={withBridge} />;
 }
 
 export default function StandardsNavigation({
@@ -298,6 +338,16 @@ export default function StandardsNavigation({
       currentDocument={currentDocument}
       currentChapter={currentChapter}
       currentSection={currentSection}
+      variant={variant}
+    />
+  );
+  // 目次の下に置く回遊の枠。モバイルは本文の末尾に資格の橋渡しがあるので、ここでは出さない
+  const discovery = (
+    <StandardsDiscovery
+      agencyId={agencyId}
+      currentDocument={currentDocument}
+      currentChapter={currentChapter}
+      withBridge={variant === 'sidebar'}
     />
   );
 
@@ -322,7 +372,7 @@ export default function StandardsNavigation({
             ← {parentLabel}
           </Link>
           {contents}
-          {currentChapter && <StandardPracticeLinks title={currentChapter.title} />}
+          {discovery}
         </div>
       </Disclosure>
     );
@@ -342,7 +392,8 @@ export default function StandardsNavigation({
         </Link>
       </div>}
       {contents}
-      {currentChapter && <StandardPracticeLinks title={currentChapter.title} />}
+      {discovery}
+      <StandardsSidebarBanners pageKind={currentChapter ? 'standards' : 'standards-list'} />
     </div>
   );
 }

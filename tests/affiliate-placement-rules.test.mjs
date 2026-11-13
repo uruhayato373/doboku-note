@@ -70,10 +70,21 @@ test('測量士・舗装・建築は 2026-10-07 20:00 から本文中間・記�
 
 test('公的基準の章以外・トピック・ツールのページ末は BuildJob（EXP-018）。章ページ・字数チェック等の面とは別の面', async () => {
   const { resolvePlacements } = await load();
-  assert.equal(resolvePlacements({ pageKind: 'standards-list' }, NOW)['standards-list-end'], undefined, '基準書の面は 2026-11-12 に外した');
   assert.equal(resolvePlacements({ pageKind: 'topic' }, NOW)['topic-end']?.program, 'buildjob');
   assert.equal(resolvePlacements({ pageKind: 'tool' }, NOW)['tool-end']?.program, 'buildjob');
-  assert.deepEqual(resolvePlacements({ pageKind: 'standards' }, NOW), {}, '基準書の章も面を外した');
+});
+
+test('基準書は 2026-11-12 に外し、11-13 から右の欄 3 枠（3 案件）・章の本文中（横長）・本文末に画像バナーを戻した（運営者指示。建設系と第二新卒に絞り DX・コンサルは出さない）', async () => {
+  const { resolvePlacements } = await load();
+  const removed = Date.parse('2026-11-12T12:00:00+09:00');
+  const after = Date.parse('2026-11-14T12:00:00+09:00');
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'standards' }, removed)), {});
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'standards' }, after)), {
+    'standards-sidebar': 'buildjob', 'standards-sidebar-2': 'rsg-kensetsu', 'standards-sidebar-3': 'kensetsu-jobs', 'standards-end': 'buildjob', 'standards-inline': 'rsg-kensetsu',
+  });
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'standards-list' }, after)), {
+    'standards-list-sidebar': 'buildjob', 'standards-list-sidebar-2': 'dainishinsotsu-agent-neo', 'standards-list-sidebar-3': 'rsg-kensetsu', 'standards-list-end': 'dainishinsotsu-agent-neo',
+  });
 });
 
 test('法令は 2026-10-24 から解説の本文中間と一覧の末尾に BuildJob（PL-0042・PL-0043）、それより前は出さない', async () => {

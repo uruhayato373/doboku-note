@@ -8,7 +8,9 @@ import { useEffect } from 'react';
  */
 export default function StandardsTreeActiveScroll() {
   useEffect(() => {
-    const container = document.querySelector<HTMLElement>('[data-standards-sidebar]');
+    // 右の欄では目次そのものが高さで区切られてスクロールする（data-standards-tree-scroll）。無ければ欄全体
+    const sidebar = document.querySelector<HTMLElement>('[data-standards-sidebar]');
+    const container = sidebar?.querySelector<HTMLElement>('[data-standards-tree-scroll]') ?? sidebar;
     const active = container?.querySelector<HTMLElement>('[data-standards-nav="tree"] [aria-current="page"]');
     if (!container || !active) return;
     const offset = active.getBoundingClientRect().top - container.getBoundingClientRect().top;

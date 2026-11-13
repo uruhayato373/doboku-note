@@ -390,9 +390,17 @@ const CtaPlacement = z
     pageKind: z.enum(['doc', 'category', 'tool', 'standards', 'standards-list', 'topic', 'laws-list', 'home', 'links']).describe('配置のあるページの種類'),
     pixelPriority: z.number().int().min(1).nullable().describe('1 ページ 1 ピクセルの発火源の優先順（小さいほど優先・null は発火源にならない）'),
     program: z.string().regex(/^[a-z][a-z0-9-]*$/).optional().describe('この配置に出す案件が決まっているとき（affiliate.catalog の id）'),
+    sizes: z
+      .strictObject({
+        pc: z.array(z.string().regex(/^\d+x\d+$/)).describe('PC（幅 993px 以上）で使うバナーのサイズ。先頭ほど優先'),
+        mobile: z.array(z.string().regex(/^\d+x\d+$/)).describe('スマホ・タブレットで使うバナーのサイズ。空＝その幅では出さない'),
+      })
+      .optional()
+      .describe('画像バナーの面で使うサイズ（affiliate.catalog の creatives から、案件ごとにこの順で最初に見つかった素材を出す）'),
   })
   .strict()
   .superRefine((v, ctx) => {
+    if (v.sizes && v.sizes.pc.length + v.sizes.mobile.length === 0) flag(ctx, ['sizes'], 'サイズが 1 つも無い（出さない面は sizes を書かない）');
     if (v.retiredAt && v.status !== 'retired') flag(ctx, ['retiredAt'], 'retiredAt があるのに status が retired でない');
     if (v.status === 'retired' && v.pixelPriority !== null) flag(ctx, ['pixelPriority'], '撤去済みの配置は発火源にならない（null にする）');
   });

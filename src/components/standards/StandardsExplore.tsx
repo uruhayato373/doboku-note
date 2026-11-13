@@ -5,6 +5,8 @@ import { getPublicDocPath } from '@/lib/content-routes';
 import { resolveNavTitle } from '@/lib/doc-title';
 import { getAllTopics } from '@/lib/topics';
 import { topicPath } from '@/lib/route-paths';
+import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
+import { StandardEntryChapters } from '@/components/standards/StandardsSidebarDiscovery';
 
 // 基準書の規定を実務へつなぐ入口。表示名・公開状態は既存の索引から解決する。
 const topicSlugs = ['quality-management', 'construction-management', 'concrete', 'earthwork-foundations', 'safety-laws', 'roads'];
@@ -21,6 +23,8 @@ export default function StandardsExplore() {
 
   return (
     <div className="space-y-4" data-standards-explore>
+      {/* 全国版（近畿版にまとめた共通の本文）の入口の章。トップから章へ 1 クリックで入れる */}
+      <StandardEntryChapters agencyId="kinki" heading="共通仕様書を章から読む" />
       <SectionCard padding="compact">
         <h2 className="text-lg font-bold text-(--ink)">テーマから読む</h2>
         <nav aria-label="基準と関連する技術テーマ" className="mt-2 divide-y divide-(--rule-soft)">
@@ -45,6 +49,8 @@ export default function StandardsExplore() {
         <Link href="/standards/compare" className={small}>地方整備局別の違い</Link>
         <Link href="/standards/data" className={small}>基準本文のデータ</Link>
       </nav>
+
+      <QualificationBridge placement="standards-bridge-sidebar" layout="sidebar" />
     </div>
   );
 }

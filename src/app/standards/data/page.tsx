@@ -4,6 +4,7 @@ import { Braces, Download, FileText, GitCompare, ShieldCheck } from 'lucide-reac
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
+import { StandardsEndBanner } from '@/components/standards/StandardsAffiliateBanners';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog } from '@/lib/standards';
@@ -212,6 +213,7 @@ export default function StandardsDataPage() {
         <p className="mt-5 text-[12px] leading-[1.8] text-(--ink-muted)">
           本データは各発行機関の公式サービスではありません。出典資料をdoboku-noteが加工した二次利用物です。公共データ利用規約（第1.0版）に基づき、出典と加工内容を表示しています。
         </p>
+        <StandardsEndBanner pageKind="standards-list" />
       </SectionBlock>
     </PageShell>
   );

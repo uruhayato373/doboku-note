@@ -60,17 +60,131 @@
     },
     "standards-end": {
       "label": "公的基準 章末",
-      "status": "retired",
-      "retiredAt": "2026-11-12",
+      "status": "active",
       "pageKind": "standards",
-      "pixelPriority": null
+      "pixelPriority": 2,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "336x280"
+        ],
+        "mobile": [
+          "300x250",
+          "336x280"
+        ]
+      }
+    },
+    "standards-inline": {
+      "label": "公的基準 章の本文中（横長）",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 5,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
+    },
+    "standards-sidebar": {
+      "label": "公的基準 章のサイドバー 1枠目",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 1,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "standards-sidebar-2": {
+      "label": "公的基準 章のサイドバー 2枠目",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 3,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "standards-sidebar-3": {
+      "label": "公的基準 章のサイドバー 3枠目",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 4,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
     },
     "standards-list-end": {
       "label": "公的基準 一覧・文書の末尾",
-      "status": "retired",
-      "retiredAt": "2026-11-12",
+      "status": "active",
       "pageKind": "standards-list",
-      "pixelPriority": null
+      "pixelPriority": 2,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60",
+          "300x250"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50",
+          "300x250"
+        ]
+      }
+    },
+    "standards-list-sidebar": {
+      "label": "公的基準 一覧・文書のサイドバー 1枠目",
+      "status": "active",
+      "pageKind": "standards-list",
+      "pixelPriority": 1,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "standards-list-sidebar-2": {
+      "label": "公的基準 一覧・文書のサイドバー 2枠目",
+      "status": "active",
+      "pageKind": "standards-list",
+      "pixelPriority": 3,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "standards-list-sidebar-3": {
+      "label": "公的基準 一覧・文書のサイドバー 3枠目",
+      "status": "active",
+      "pageKind": "standards-list",
+      "pixelPriority": 4,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
     },
     "topic-end": {
       "label": "トピック 末尾",
