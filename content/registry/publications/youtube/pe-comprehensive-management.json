@@ -8,7 +8,7 @@
       "work": "cm-essay-tradeoff-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform/scene-001",
@@ -41,6 +41,9 @@
         "by": "policy",
         "at": "2026-11-13T12:56:04.614Z",
         "contentSha256": "c61535269b37051dc3f7023fd633caf6a98cf80e331076cbacf3a1d9f43409fb"
+      },
+      "times": {
+        "rendered": "2026-11-13T13:07:10.102Z"
       }
     },
     {
@@ -319,7 +322,7 @@
       "work": "cm-setsumon3-risk-kokufuku",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform/scene-001",
@@ -352,6 +355,9 @@
         "by": "policy",
         "at": "2026-11-13T12:56:03.750Z",
         "contentSha256": "c9ce0cab5d6b379d0674710faabab91b72a261350c4822c01d420193475b1cbf"
+      },
+      "times": {
+        "rendered": "2026-11-13T13:07:02.264Z"
       }
     },
     {
