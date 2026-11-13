@@ -1271,6 +1271,28 @@ const aspEntry = z.looseObject({
   verifiedAt: jstDate('実機で確かめた日').optional(),
 });
 
+/**
+ * 案件の広告素材 1 件（ASP の「広告リンク作成」・もしもの「原稿取得」から写す）。どの面でどのサイズを使うかを選ぶための一覧。
+ * doboku-note の素材であることを型で止める: A8 のバナーは画像 URL の wid=002（001 は stats47 の素材＝成果が別サイトに付く）。
+ */
+const affiliateCreative = z
+  .strictObject({
+    asp: z.enum(['a8', 'moshimo', 'afb']),
+    materialId: z.string().regex(/^\d+$/).describe('ASP 側の素材 ID（A8 は 3 桁の素材ID・もしもは pl_id）'),
+    kind: z.enum(['banner', 'text']),
+    width: z.number().int().positive().optional().describe('バナーの幅（px）'),
+    height: z.number().int().positive().optional().describe('バナーの高さ（px）'),
+    href: z.string().url().describe('広告リンク'),
+    imageSrc: z.string().url().optional().describe('バナー画像（配信ホストは ASP が振り分けるので写した時点の値）'),
+    pixelSrc: z.string().url().optional().describe('計測ピクセル（A8 の 0.gif・もしもの impression）'),
+    avoid: z.string().min(1).optional().describe('使わない理由（「No.1」表示・訴求が読み手に合わない など）。書いた素材は配置に選ばない'),
+  })
+  .superRefine((c, ctx) => {
+    if (c.kind === 'banner' && (!c.width || !c.height || !c.imageSrc)) flag(ctx, ['kind'], 'バナーは width・height・imageSrc が要る');
+    if (c.kind === 'text' && (c.width || c.height || c.imageSrc)) flag(ctx, ['kind'], 'テキスト素材にサイズ・画像は無い');
+    if (c.asp === 'a8' && c.imageSrc && !/[?&]wid=002(&|$)/.test(c.imageSrc)) flag(ctx, ['imageSrc'], 'A8 の素材が doboku-note（wid=002）でない');
+  });
+
 /** 3 ASP（A8・もしも・afb）の提携案件（data/affiliate/catalog.json）。ASP の画面と照合して更新する（affiliate-status・affiliate-apply）。読み手が使う欄だけ型を持ち、案件ごとの記録欄は自由 */
 export const AffiliateCatalog = z
   .looseObject({
@@ -1288,6 +1310,17 @@ export const AffiliateCatalog = z
         redLine: z.boolean().optional().describe('講座・教材など配置してはいけない案件'),
         ctaLabels: z.array(z.string().min(1)).optional().describe('GA4 の data-cta-label のうちこの案件のもの（面ごとの trackLabel と本文カードの service 名）。対応の唯一の正本（scripts/lib/affiliate-labels.mjs が読む）'),
         asps: z.strictObject({ a8: aspEntry.optional(), moshimo: aspEntry.optional(), afb: aspEntry.optional() }),
+        creativesCollectedAt: jstDate('素材の一覧を ASP の画面から写した日').optional(),
+        creatives: z.array(affiliateCreative).optional().describe('広告素材の一覧（ASP の画面から写す）。サイト・note の配置はここから選ぶ'),
+      }).superRefine((p, ctx) => {
+        const seen = new Set();
+        for (const [i, c] of (p.creatives ?? []).entries()) {
+          const key = `${c.asp}:${c.materialId}`;
+          if (seen.has(key)) flag(ctx, ['creatives', i, 'materialId'], `素材 ${key} が重複`);
+          seen.add(key);
+          if (!p.asps[c.asp] || p.asps[c.asp].status !== 'approved') flag(ctx, ['creatives', i, 'asp'], `${c.asp} で提携していない（approved でない）案件の素材`);
+        }
+        if (p.creatives?.length && !p.creativesCollectedAt) flag(ctx, ['creativesCollectedAt'], '素材の一覧には写した日が要る');
       }),
     ),
   })

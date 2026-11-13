@@ -9,7 +9,7 @@
     "unavailable": "その ASP に案件自体が無い",
     "unknown": "未確認（調べていない。none と区別する）"
   },
-  "updatedAt": "2026-11-13T05:00:00.000Z",
+  "updatedAt": "2026-11-13T07:00:00.000Z",
   "verifiedAt": "2026-11-13",
   "_verifiedNote": "2026-09-08部分照合: A8は口座a25050375786の案件詳細、BuildJobは広告作成websiteId002/既存mat一致まで確認。もしも4案件はshop_site_id672381とselectedOption=doboku-noteを実機確認。afbは今回未確認、旧値保持。各ASPのverifiedAt/verificationScopeを参照。",
   "programs": {
@@ -50,7 +50,74 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "a8",
+          "materialId": "001",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY"
+        },
+        {
+          "asp": "a8",
+          "materialId": "002",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ",
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ"
+        },
+        {
+          "asp": "a8",
+          "materialId": "003",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH",
+          "imageSrc": "https://www27.a8.net/svt/bgt?aid=260605733026&wid=002&eno=01&mid=s00000024757004003000&mc=1",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "81734",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81734",
+          "imageSrc": "https://image.moshimo.com/af-img/5666/000000081734.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81734"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "81735",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81735",
+          "imageSrc": "https://image.moshimo.com/af-img/5666/000000081735.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81735"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "81736",
+          "kind": "banner",
+          "width": 728,
+          "height": 90,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81736",
+          "imageSrc": "https://image.moshimo.com/af-img/5666/000000081736.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81736"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "81737",
+          "kind": "banner",
+          "width": 320,
+          "height": 100,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81737",
+          "imageSrc": "https://image.moshimo.com/af-img/5666/000000081737.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81737"
+        }
+      ]
     },
     "gks": {
       "label": "GKSキャリア（施工管理 転職エージェント）",
@@ -109,7 +176,69 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "a8",
+          "materialId": "001",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BWVTE",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BWVTE"
+        },
+        {
+          "asp": "a8",
+          "materialId": "002",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BX3J6",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BX3J6"
+        },
+        {
+          "asp": "a8",
+          "materialId": "003",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=260529673996&wid=002&eno=01&mid=s00000023057002003000&mc=1",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X"
+        },
+        {
+          "asp": "a8",
+          "materialId": "006",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BXYEA",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BXYEA"
+        },
+        {
+          "asp": "a8",
+          "materialId": "007",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BY642",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BY642"
+        },
+        {
+          "asp": "a8",
+          "materialId": "008",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BYDTU",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BYDTU"
+        },
+        {
+          "asp": "a8",
+          "materialId": "009",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BYLJM",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BYLJM"
+        },
+        {
+          "asp": "a8",
+          "materialId": "010",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BYT9E",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BYT9E"
+        }
+      ]
     },
     "dx-consulting": {
       "label": "ハイクラス DX・コンサル転職（技術士/総監 シニア層向け）",
@@ -136,7 +265,44 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "a8",
+          "materialId": "001",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTDQY+4SXU+NTJWY",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4B5OO5+NTDQY+4SXU+NTJWY"
+        },
+        {
+          "asp": "a8",
+          "materialId": "002",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTDQY+4SXU+NTRMQ",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4B5OO5+NTDQY+4SXU+NTRMQ"
+        },
+        {
+          "asp": "a8",
+          "materialId": "005",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTDQY+4SXU+NUES1",
+          "imageSrc": "https://www22.a8.net/svt/bgt?aid=260605733040&wid=002&eno=01&mid=s00000022413004005000&mc=1",
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4B5OO5+NTDQY+4SXU+NUES1"
+        },
+        {
+          "asp": "a8",
+          "materialId": "006",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTDQY+4SXU+NUMHT",
+          "imageSrc": "https://www26.a8.net/svt/bgt?aid=260605733040&wid=002&eno=01&mid=s00000022413004006000&mc=1",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4B5OO5+NTDQY+4SXU+NUMHT"
+        }
+      ]
     },
     "constwork": {
       "label": "コンストワーク（施工管理の転職サポート）",
@@ -163,7 +329,111 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "80116",
+          "kind": "banner",
+          "width": 100,
+          "height": 100,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80116",
+          "imageSrc": "https://image.moshimo.com/af-img/5909/000000080116.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80116"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "80117",
+          "kind": "banner",
+          "width": 100,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80117",
+          "imageSrc": "https://image.moshimo.com/af-img/5909/000000080117.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80117"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "80118",
+          "kind": "banner",
+          "width": 120,
+          "height": 600,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80118",
+          "imageSrc": "https://image.moshimo.com/af-img/5909/000000080118.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80118"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "80119",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80119",
+          "imageSrc": "https://image.moshimo.com/af-img/5909/000000080119.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80119"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "80120",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80120",
+          "imageSrc": "https://image.moshimo.com/af-img/5909/000000080120.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80120"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "80121",
+          "kind": "banner",
+          "width": 234,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80121",
+          "imageSrc": "https://image.moshimo.com/af-img/5909/000000080121.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80121"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "80122",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80122",
+          "imageSrc": "https://image.moshimo.com/af-img/5909/000000080122.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80122",
+          "avoid": "「未経験募集」を前面に出す絵柄で、有資格の施工管理の読者に合わない（2026-10-31 の判断）"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "80123",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80123",
+          "imageSrc": "https://image.moshimo.com/af-img/5909/000000080123.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80123"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "80124",
+          "kind": "banner",
+          "width": 728,
+          "height": 90,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80124",
+          "imageSrc": "https://image.moshimo.com/af-img/5909/000000080124.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80124"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "80125",
+          "kind": "banner",
+          "width": 200,
+          "height": 200,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80125",
+          "imageSrc": "https://image.moshimo.com/af-img/5909/000000080125.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80125"
+        }
+      ]
     },
     "kensetsu-career-plus": {
       "label": "建設キャリアプラス（電気設備・通信工事・電気設備管理）",
@@ -239,6 +509,417 @@
         "RsgKensetsu-sidebar",
         "RsgKensetsu-endbanner",
         "RSG建設転職"
+      ],
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "a8",
+          "materialId": "001",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+5YJRM",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5YJRM"
+        },
+        {
+          "asp": "a8",
+          "materialId": "002",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+5YRHE",
+          "pixelSrc": "https://www16.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5YRHE"
+        },
+        {
+          "asp": "a8",
+          "materialId": "004",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+5Z6WX",
+          "imageSrc": "https://www25.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001004000&mc=1",
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5Z6WX"
+        },
+        {
+          "asp": "a8",
+          "materialId": "005",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+5ZEMP",
+          "imageSrc": "https://www25.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001005000&mc=1",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5ZEMP"
+        },
+        {
+          "asp": "a8",
+          "materialId": "006",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+5ZMCH",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001006000&mc=1",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5ZMCH",
+          "avoid": "「No.1」表示（転職サポート充実度・コンサルタント信頼度）。根拠の調査が古い"
+        },
+        {
+          "asp": "a8",
+          "materialId": "010",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+60H7M",
+          "pixelSrc": "https://www16.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+60H7M"
+        },
+        {
+          "asp": "a8",
+          "materialId": "011",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+60OXE",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+60OXE"
+        },
+        {
+          "asp": "a8",
+          "materialId": "012",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+60WN6",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+60WN6"
+        },
+        {
+          "asp": "a8",
+          "materialId": "013",
+          "kind": "banner",
+          "width": 728,
+          "height": 90,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+614CX",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001013000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+614CX"
+        },
+        {
+          "asp": "a8",
+          "materialId": "014",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+61C2P",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001014000&mc=1",
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61C2P"
+        },
+        {
+          "asp": "a8",
+          "materialId": "015",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+61JSH",
+          "imageSrc": "https://www28.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001015000&mc=1",
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61JSH"
+        },
+        {
+          "asp": "a8",
+          "materialId": "016",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+61RI9",
+          "imageSrc": "https://www26.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001016000&mc=1",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61RI9"
+        },
+        {
+          "asp": "a8",
+          "materialId": "017",
+          "kind": "banner",
+          "width": 160,
+          "height": 600,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+61Z81",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001017000&mc=1",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61Z81"
+        },
+        {
+          "asp": "a8",
+          "materialId": "018",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+626XT",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001018000&mc=1",
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+626XT"
+        },
+        {
+          "asp": "a8",
+          "materialId": "019",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+62ENL",
+          "imageSrc": "https://www23.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001019000&mc=1",
+          "pixelSrc": "https://www16.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+62ENL"
+        },
+        {
+          "asp": "a8",
+          "materialId": "024",
+          "kind": "banner",
+          "width": 160,
+          "height": 600,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+63H8H",
+          "imageSrc": "https://www20.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001024000&mc=1",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+63H8H"
+        },
+        {
+          "asp": "a8",
+          "materialId": "025",
+          "kind": "banner",
+          "width": 728,
+          "height": 90,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+63OY9",
+          "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001025000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+63OY9"
+        },
+        {
+          "asp": "a8",
+          "materialId": "026",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+63WO1",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001026000&mc=1",
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+63WO1"
+        },
+        {
+          "asp": "a8",
+          "materialId": "027",
+          "kind": "banner",
+          "width": 160,
+          "height": 600,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+644DT",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001027000&mc=1",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+644DT"
+        },
+        {
+          "asp": "a8",
+          "materialId": "028",
+          "kind": "banner",
+          "width": 160,
+          "height": 600,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+64C3L",
+          "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001028000&mc=1",
+          "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64C3L"
+        },
+        {
+          "asp": "a8",
+          "materialId": "029",
+          "kind": "banner",
+          "width": 160,
+          "height": 600,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+64JTD",
+          "imageSrc": "https://www22.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001029000&mc=1",
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64JTD"
+        },
+        {
+          "asp": "a8",
+          "materialId": "030",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+64RJ5",
+          "imageSrc": "https://www20.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001030000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64RJ5"
+        },
+        {
+          "asp": "a8",
+          "materialId": "031",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+64Z8X",
+          "imageSrc": "https://www28.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001031000&mc=1",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64Z8X"
+        },
+        {
+          "asp": "a8",
+          "materialId": "032",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+656YP",
+          "imageSrc": "https://www27.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001032000&mc=1",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+656YP"
+        },
+        {
+          "asp": "a8",
+          "materialId": "033",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+65EOH",
+          "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001033000&mc=1",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65EOH"
+        },
+        {
+          "asp": "a8",
+          "materialId": "034",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+65ME9",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001034000&mc=1",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65ME9",
+          "avoid": "「No.1」表示。根拠の調査が古い"
+        },
+        {
+          "asp": "a8",
+          "materialId": "035",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+65U41",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001035000&mc=1",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65U41"
+        },
+        {
+          "asp": "a8",
+          "materialId": "036",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+661TT",
+          "imageSrc": "https://www22.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001036000&mc=1",
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+661TT",
+          "avoid": "「No.1」「第1位」表示（2021 年の調査）。根拠の調査が古い"
+        },
+        {
+          "asp": "a8",
+          "materialId": "037",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+669JL",
+          "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001037000&mc=1",
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+669JL"
+        },
+        {
+          "asp": "a8",
+          "materialId": "038",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+66H9D",
+          "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001038000&mc=1",
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+66H9D"
+        },
+        {
+          "asp": "a8",
+          "materialId": "039",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+66OZ5",
+          "imageSrc": "https://www28.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001039000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+66OZ5"
+        },
+        {
+          "asp": "a8",
+          "materialId": "040",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+66WOX",
+          "imageSrc": "https://www22.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001040000&mc=1",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+66WOX"
+        },
+        {
+          "asp": "a8",
+          "materialId": "041",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+674EP",
+          "imageSrc": "https://www28.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001041000&mc=1",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+674EP"
+        },
+        {
+          "asp": "a8",
+          "materialId": "042",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+67C4H",
+          "imageSrc": "https://www25.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001042000&mc=1",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67C4H"
+        },
+        {
+          "asp": "a8",
+          "materialId": "043",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+67JU9",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001043000&mc=1",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67JU9"
+        },
+        {
+          "asp": "a8",
+          "materialId": "044",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+67RK1",
+          "imageSrc": "https://www27.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001044000&mc=1",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67RK1"
+        },
+        {
+          "asp": "a8",
+          "materialId": "045",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+67Z9T",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001045000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67Z9T"
+        },
+        {
+          "asp": "a8",
+          "materialId": "046",
+          "kind": "banner",
+          "width": 728,
+          "height": 90,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+686ZL",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001046000&mc=1",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+686ZL"
+        },
+        {
+          "asp": "a8",
+          "materialId": "047",
+          "kind": "banner",
+          "width": 728,
+          "height": 90,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+68EPD",
+          "imageSrc": "https://www26.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001047000&mc=1",
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+68EPD"
+        },
+        {
+          "asp": "a8",
+          "materialId": "048",
+          "kind": "banner",
+          "width": 728,
+          "height": 90,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+68MF5",
+          "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001048000&mc=1",
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+68MF5"
+        },
+        {
+          "asp": "a8",
+          "materialId": "049",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+68U4X",
+          "imageSrc": "https://www26.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001049000&mc=1",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+68U4X"
+        },
+        {
+          "asp": "a8",
+          "materialId": "050",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+691UP",
+          "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001050000&mc=1",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+691UP"
+        }
       ]
     },
     "sekokan-juken-taisaku": {
@@ -392,7 +1073,160 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "57936",
+          "kind": "banner",
+          "width": 320,
+          "height": 100,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57936",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057936.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57936"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57937",
+          "kind": "banner",
+          "width": 320,
+          "height": 100,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57937",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057937.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57937"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57938",
+          "kind": "banner",
+          "width": 320,
+          "height": 100,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57938",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057938.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57938"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57939",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57939",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057939.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57939"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57940",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57940",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057940.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57940"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57941",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57941",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057941.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57941"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57942",
+          "kind": "banner",
+          "width": 236,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57942",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057942.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57942"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57943",
+          "kind": "banner",
+          "width": 236,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57943",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057943.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57943"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57944",
+          "kind": "banner",
+          "width": 236,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57944",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057944.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57944"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57822",
+          "kind": "banner",
+          "width": 728,
+          "height": 90,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57822",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057822.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57822"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57821",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57821",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057821.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57821"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57819",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57819",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057819.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57819"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57817",
+          "kind": "banner",
+          "width": 672,
+          "height": 560,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57817",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057817.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57817"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57813",
+          "kind": "banner",
+          "width": 120,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57813",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057813.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57813"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57814",
+          "kind": "banner",
+          "width": 300,
+          "height": 300,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57814",
+          "imageSrc": "https://image.moshimo.com/af-img/3713/000000057814.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57814"
+        }
+      ]
     },
     "recruit-direct-scout": {
       "label": "リクルートダイレクトスカウト（ハイクラス向けスカウト型）",
@@ -510,7 +1344,50 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "97090",
+          "kind": "banner",
+          "width": 300,
+          "height": 300,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97090",
+          "imageSrc": "https://image.moshimo.com/af-img/5666/000000097090.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97090"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97091",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97091",
+          "imageSrc": "https://image.moshimo.com/af-img/5666/000000097091.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97091"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97092",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97092",
+          "imageSrc": "https://image.moshimo.com/af-img/5666/000000097092.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97092"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97093",
+          "kind": "banner",
+          "width": 300,
+          "height": 300,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97093",
+          "imageSrc": "https://image.moshimo.com/af-img/5666/000000097093.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97093"
+        }
+      ]
     },
     "axis-agent": {
       "label": "AXIS Agent（コンサル・IT のハイクラス転職）",
@@ -581,7 +1458,88 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "a8",
+          "materialId": "001",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5N41+6TW2E2+5BJK+5YJRM",
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+5YJRM"
+        },
+        {
+          "asp": "a8",
+          "materialId": "002",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5N41+6TW2E2+5BJK+5YRHE",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+5YRHE"
+        },
+        {
+          "asp": "a8",
+          "materialId": "003",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5N41+6TW2E2+5BJK+5YZ76",
+          "pixelSrc": "https://www16.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+5YZ76"
+        },
+        {
+          "asp": "a8",
+          "materialId": "004",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5N41+6TW2E2+5BJK+5Z6WY",
+          "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+5Z6WY"
+        },
+        {
+          "asp": "a8",
+          "materialId": "005",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5N41+6TW2E2+5BJK+5ZEMP",
+          "imageSrc": "https://www22.a8.net/svt/bgt?aid=260603713413&wid=002&eno=01&mid=s00000024824001005000&mc=1",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+5ZEMP"
+        },
+        {
+          "asp": "a8",
+          "materialId": "009",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5N41+6TW2E2+5BJK+609HT",
+          "imageSrc": "https://www23.a8.net/svt/bgt?aid=260603713413&wid=002&eno=01&mid=s00000024824001009000&mc=1",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+609HT"
+        },
+        {
+          "asp": "a8",
+          "materialId": "010",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B5N41+6TW2E2+5BJK+60H7L",
+          "imageSrc": "https://www28.a8.net/svt/bgt?aid=260603713413&wid=002&eno=01&mid=s00000024824001010000&mc=1",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+60H7L"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "71461",
+          "kind": "banner",
+          "width": 1080,
+          "height": 1080,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71461",
+          "imageSrc": "https://image.moshimo.com/af-img/5218/000000071461.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71461"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "71462",
+          "kind": "banner",
+          "width": 1200,
+          "height": 628,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71462",
+          "imageSrc": "https://image.moshimo.com/af-img/5218/000000071462.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71462"
+        }
+      ]
     },
     "newma": {
       "label": "NewMA（DX・戦略・AI コンサル転職支援）",
@@ -601,7 +1559,20 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "93944",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93944",
+          "imageSrc": "https://image.moshimo.com/af-img/5856/000000093944.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93944"
+        }
+      ]
     },
     "type-agent": {
       "label": "type転職エージェント",
@@ -621,7 +1592,20 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "94548",
+          "kind": "banner",
+          "width": 600,
+          "height": 600,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718001&p_id=7540&pc_id=21772&pl_id=94548",
+          "imageSrc": "https://image.moshimo.com/af-img/6249/000000094548.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718001&p_id=7540&pc_id=21772&pl_id=94548"
+        }
+      ]
     },
     "samurai-job": {
       "label": "Samurai Job（外資・グローバルのハイクラス転職）",
@@ -641,7 +1625,50 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "29926",
+          "kind": "banner",
+          "width": 120,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29926",
+          "imageSrc": "https://image.moshimo.com/af-img/1287/000000029926.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29926"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "30143",
+          "kind": "banner",
+          "width": 234,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718040&p_id=2228&pc_id=4739&pl_id=30143",
+          "imageSrc": "https://image.moshimo.com/af-img/1287/000000030143.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=30143"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "29927",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29927",
+          "imageSrc": "https://image.moshimo.com/af-img/1287/000000029927.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29927"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "29928",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29928",
+          "imageSrc": "https://image.moshimo.com/af-img/1287/000000029928.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29928"
+        }
+      ]
     },
     "assign-agent": {
       "label": "ASSIGN AGENT（若手ハイエンド特化の転職エージェント）",
@@ -661,7 +1688,175 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "a8",
+          "materialId": "001",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BWVTE",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BWVTE"
+        },
+        {
+          "asp": "a8",
+          "materialId": "002",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BX3J6",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BX3J6"
+        },
+        {
+          "asp": "a8",
+          "materialId": "004",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BXIYP",
+          "imageSrc": "https://www27.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002004000&mc=1",
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BXIYP"
+        },
+        {
+          "asp": "a8",
+          "materialId": "005",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BXQOH",
+          "imageSrc": "https://www27.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002005000&mc=1",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BXQOH"
+        },
+        {
+          "asp": "a8",
+          "materialId": "006",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BXYE9",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002006000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BXYE9"
+        },
+        {
+          "asp": "a8",
+          "materialId": "007",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BY641",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002007000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BY641"
+        },
+        {
+          "asp": "a8",
+          "materialId": "008",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BYDTT",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002008000&mc=1",
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BYDTT"
+        },
+        {
+          "asp": "a8",
+          "materialId": "009",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BYLJL",
+          "imageSrc": "https://www29.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002009000&mc=1",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BYLJL"
+        },
+        {
+          "asp": "a8",
+          "materialId": "010",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BYT9D",
+          "imageSrc": "https://www23.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002010000&mc=1",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BYT9D"
+        },
+        {
+          "asp": "a8",
+          "materialId": "011",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BZ0Z5",
+          "imageSrc": "https://www25.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002011000&mc=1",
+          "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZ0Z5"
+        },
+        {
+          "asp": "a8",
+          "materialId": "012",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BZ8OX",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002012000&mc=1",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZ8OX"
+        },
+        {
+          "asp": "a8",
+          "materialId": "013",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BZGEP",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002013000&mc=1",
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZGEP"
+        },
+        {
+          "asp": "a8",
+          "materialId": "014",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BZO4H",
+          "imageSrc": "https://www21.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002014000&mc=1",
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZO4H"
+        },
+        {
+          "asp": "a8",
+          "materialId": "015",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BZVU9",
+          "imageSrc": "https://www27.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002015000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZVU9"
+        },
+        {
+          "asp": "a8",
+          "materialId": "028",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+C2O5E",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+C2O5E"
+        },
+        {
+          "asp": "a8",
+          "materialId": "029",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+C2VV6",
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+C2VV6"
+        },
+        {
+          "asp": "a8",
+          "materialId": "030",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+C33KY",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+C33KY"
+        },
+        {
+          "asp": "a8",
+          "materialId": "043",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+C5VW1",
+          "imageSrc": "https://www28.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002043000&mc=1",
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+C5VW1"
+        }
+      ]
     },
     "dainishinsotsu-agent-neo": {
       "label": "第二新卒エージェントneo（第二新卒・既卒の就職・転職支援）",
@@ -686,6 +1881,186 @@
         "DainishinsotsuNeo-sidebar",
         "DainishinsotsuNeo-endbanner",
         "第二新卒エージェントneo"
+      ],
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "a8",
+          "materialId": "001",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+5YJRM",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+5YJRM"
+        },
+        {
+          "asp": "a8",
+          "materialId": "002",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+5YRHE",
+          "pixelSrc": "https://www16.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+5YRHE"
+        },
+        {
+          "asp": "a8",
+          "materialId": "004",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+5Z6WX",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001004000&mc=1",
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+5Z6WX"
+        },
+        {
+          "asp": "a8",
+          "materialId": "005",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+5ZEMP",
+          "imageSrc": "https://www26.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001005000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+5ZEMP"
+        },
+        {
+          "asp": "a8",
+          "materialId": "007",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+5ZU29",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001007000&mc=1",
+          "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+5ZU29"
+        },
+        {
+          "asp": "a8",
+          "materialId": "008",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+601S1",
+          "imageSrc": "https://www25.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001008000&mc=1",
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+601S1",
+          "avoid": "「20代の支持率No.1」表示。根拠の調査が古い"
+        },
+        {
+          "asp": "a8",
+          "materialId": "016",
+          "kind": "banner",
+          "width": 320,
+          "height": 50,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+61RI9",
+          "imageSrc": "https://www27.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001016000&mc=1",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+61RI9"
+        },
+        {
+          "asp": "a8",
+          "materialId": "017",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+61Z81",
+          "imageSrc": "https://www23.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001017000&mc=1",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+61Z81"
+        },
+        {
+          "asp": "a8",
+          "materialId": "022",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+631SY",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+631SY"
+        },
+        {
+          "asp": "a8",
+          "materialId": "023",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+639IQ",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+639IQ"
+        },
+        {
+          "asp": "a8",
+          "materialId": "024",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+63H8I",
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+63H8I"
+        },
+        {
+          "asp": "a8",
+          "materialId": "025",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+63OYA",
+          "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+63OYA"
+        },
+        {
+          "asp": "a8",
+          "materialId": "034",
+          "kind": "banner",
+          "width": 160,
+          "height": 600,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+65ME9",
+          "imageSrc": "https://www27.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001034000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+65ME9"
+        },
+        {
+          "asp": "a8",
+          "materialId": "036",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+661TT",
+          "imageSrc": "https://www20.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001036000&mc=1",
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+661TT"
+        },
+        {
+          "asp": "a8",
+          "materialId": "037",
+          "kind": "banner",
+          "width": 468,
+          "height": 60,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+669JL",
+          "imageSrc": "https://www24.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001037000&mc=1",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+669JL"
+        },
+        {
+          "asp": "a8",
+          "materialId": "038",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+66H9D",
+          "imageSrc": "https://www20.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001038000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66H9D"
+        },
+        {
+          "asp": "a8",
+          "materialId": "039",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+66OZ5",
+          "imageSrc": "https://www25.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001039000&mc=1",
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66OZ5"
+        },
+        {
+          "asp": "a8",
+          "materialId": "040",
+          "kind": "banner",
+          "width": 728,
+          "height": 90,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+66WOX",
+          "imageSrc": "https://www25.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001040000&mc=1",
+          "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66WOX"
+        },
+        {
+          "asp": "a8",
+          "materialId": "043",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+67JUA",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+67JUA"
+        },
+        {
+          "asp": "a8",
+          "materialId": "044",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+67RK2",
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+67RK2"
+        }
       ]
     },
     "onecareer-tenshoku": {
@@ -706,7 +2081,58 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "a8",
+          "materialId": "001",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B614K+GC8B8A+5O7E+BWVTE",
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4B614K+GC8B8A+5O7E+BWVTE"
+        },
+        {
+          "asp": "a8",
+          "materialId": "002",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B614K+GC8B8A+5O7E+BX3J6",
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4B614K+GC8B8A+5O7E+BX3J6"
+        },
+        {
+          "asp": "a8",
+          "materialId": "003",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B614K+GC8B8A+5O7E+BXB8X",
+          "imageSrc": "https://www20.a8.net/svt/bgt?aid=260621876988&wid=002&eno=01&mid=s00000026465002003000&mc=1",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4B614K+GC8B8A+5O7E+BXB8X"
+        },
+        {
+          "asp": "a8",
+          "materialId": "006",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B614K+GC8B8A+5O7E+BXYE9",
+          "imageSrc": "https://www23.a8.net/svt/bgt?aid=260621876988&wid=002&eno=01&mid=s00000026465002006000&mc=1",
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4B614K+GC8B8A+5O7E+BXYE9"
+        },
+        {
+          "asp": "a8",
+          "materialId": "007",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B614K+GC8B8A+5O7E+BY642",
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4B614K+GC8B8A+5O7E+BY642"
+        },
+        {
+          "asp": "a8",
+          "materialId": "013",
+          "kind": "text",
+          "href": "https://px.a8.net/svt/ejp?a8mat=4B614K+GC8B8A+5O7E+BZGEQ",
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4B614K+GC8B8A+5O7E+BZGEQ"
+        }
+      ]
     },
     "nekonote-agent": {
       "label": "猫の手AGENT（20代特化の転職エージェント）",
@@ -726,7 +2152,40 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "94960",
+          "kind": "banner",
+          "width": 608,
+          "height": 1080,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94960",
+          "imageSrc": "https://image.moshimo.com/af-img/7386/000000094960.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94960"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94961",
+          "kind": "banner",
+          "width": 1080,
+          "height": 565,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94961",
+          "imageSrc": "https://image.moshimo.com/af-img/7386/000000094961.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94961"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94962",
+          "kind": "banner",
+          "width": 720,
+          "height": 720,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94962",
+          "imageSrc": "https://image.moshimo.com/af-img/7386/000000094962.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94962"
+        }
+      ]
     },
     "beshine": {
       "label": "ビーシャイン（20代特化の就職・転職支援）",
@@ -746,7 +2205,90 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "92172",
+          "kind": "banner",
+          "width": 250,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92172",
+          "imageSrc": "https://image.moshimo.com/af-img/5160/000000092172.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92172"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92173",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92173",
+          "imageSrc": "https://image.moshimo.com/af-img/5160/000000092173.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92173"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92174",
+          "kind": "banner",
+          "width": 300,
+          "height": 300,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92174",
+          "imageSrc": "https://image.moshimo.com/af-img/5160/000000092174.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92174"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92175",
+          "kind": "banner",
+          "width": 320,
+          "height": 100,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92175",
+          "imageSrc": "https://image.moshimo.com/af-img/5160/000000092175.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92175"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92176",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92176",
+          "imageSrc": "https://image.moshimo.com/af-img/5160/000000092176.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92176"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92177",
+          "kind": "banner",
+          "width": 728,
+          "height": 90,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92177",
+          "imageSrc": "https://image.moshimo.com/af-img/5160/000000092177.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92177"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92178",
+          "kind": "banner",
+          "width": 120,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92178",
+          "imageSrc": "https://image.moshimo.com/af-img/5160/000000092178.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92178"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92179",
+          "kind": "banner",
+          "width": 300,
+          "height": 300,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92179",
+          "imageSrc": "https://image.moshimo.com/af-img/5160/000000092179.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92179"
+        }
+      ]
     },
     "michinori-career": {
       "label": "Michinori for career（キャリアコーチング型転職エージェント）",
@@ -766,7 +2308,80 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "94939",
+          "kind": "banner",
+          "width": 1080,
+          "height": 533,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94939",
+          "imageSrc": "https://image.moshimo.com/af-img/7318/000000094939.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94939"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94940",
+          "kind": "banner",
+          "width": 1080,
+          "height": 900,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94940",
+          "imageSrc": "https://image.moshimo.com/af-img/7318/000000094940.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94940"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94941",
+          "kind": "banner",
+          "width": 1080,
+          "height": 133,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94941",
+          "imageSrc": "https://image.moshimo.com/af-img/7318/000000094941.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94941"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94942",
+          "kind": "banner",
+          "width": 1080,
+          "height": 540,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94942",
+          "imageSrc": "https://image.moshimo.com/af-img/7318/000000094942.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94942"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94943",
+          "kind": "banner",
+          "width": 1080,
+          "height": 1080,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94943",
+          "imageSrc": "https://image.moshimo.com/af-img/7318/000000094943.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94943"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94944",
+          "kind": "banner",
+          "width": 1080,
+          "height": 900,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94944",
+          "imageSrc": "https://image.moshimo.com/af-img/7318/000000094944.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94944"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94945",
+          "kind": "banner",
+          "width": 1080,
+          "height": 1080,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94945",
+          "imageSrc": "https://image.moshimo.com/af-img/7318/000000094945.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94945"
+        }
+      ]
     },
     "remoful": {
       "label": "Remoful（リモートワーク求人に特化した転職支援）",
@@ -786,7 +2401,80 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-13",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "75329",
+          "kind": "banner",
+          "width": 504,
+          "height": 504,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75329",
+          "imageSrc": "https://image.moshimo.com/af-img/1052/000000075329.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75329"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "75330",
+          "kind": "banner",
+          "width": 500,
+          "height": 500,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75330",
+          "imageSrc": "https://image.moshimo.com/af-img/1052/000000075330.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75330"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "75331",
+          "kind": "banner",
+          "width": 560,
+          "height": 467,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75331",
+          "imageSrc": "https://image.moshimo.com/af-img/1052/000000075331.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75331"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "75332",
+          "kind": "banner",
+          "width": 1820,
+          "height": 225,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75332",
+          "imageSrc": "https://image.moshimo.com/af-img/1052/000000075332.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75332"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "75333",
+          "kind": "banner",
+          "width": 542,
+          "height": 452,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75333",
+          "imageSrc": "https://image.moshimo.com/af-img/1052/000000075333.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75333"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "75334",
+          "kind": "banner",
+          "width": 1156,
+          "height": 362,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75334",
+          "imageSrc": "https://image.moshimo.com/af-img/1052/000000075334.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75334"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "75335",
+          "kind": "banner",
+          "width": 834,
+          "height": 417,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75335",
+          "imageSrc": "https://image.moshimo.com/af-img/1052/000000075335.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75335"
+        }
+      ]
     },
     "shushoku-college": {
       "label": "就職カレッジ（フリーター・未経験・既卒向けの就職支援）",
