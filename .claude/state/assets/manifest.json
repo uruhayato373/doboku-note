@@ -71922,12 +71922,12 @@
     "content/site/civil-construction-1/textbook-building-standards/site-thumb.webp": {
       "bucket": "public",
       "r2Key": "posts/civil-construction-1/textbook-building-standards/site-thumb.webp",
-      "sha256": "c72b319fafda0a63d5e6158b21804f9c8d9ce58ce1d192a1f17981655215a518",
-      "bytes": 37958,
+      "sha256": "05f61d9fb4ad810409696075bc0d9039b172b4aaf63f6a62be322bdbbd9fc763",
+      "bytes": 57128,
       "visibility": "public",
       "regenerable": false,
       "group": "site-thumbnails",
-      "verifiedAt": "2026-11-07T05:39:09.620Z"
+      "verifiedAt": "2026-11-13T08:00:40.469Z"
     },
     "content/site/civil-construction-1/textbook-coast-port/site-thumb.webp": {
       "bucket": "public",
@@ -89518,6 +89518,356 @@
       "regenerable": false,
       "group": "site-thumbnails",
       "verifiedAt": "2026-11-13T05:25:32.026Z"
+    },
+    "content/site/civil-construction-1/textbook-building-standards/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-1/textbook-building-standards/site-photo.webp",
+      "sha256": "e2d499f0c3cd4fa2c9ab00e7c56e175a93d4a9518b36be4ceacfbe72d5ca2408",
+      "bytes": 210904,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:37.897Z"
+    },
+    "content/site/civil-practice/monitoring-sensor-selection/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/monitoring-sensor-selection/site-photo.webp",
+      "sha256": "9c559a2351224c5331f4e91e295e2478518082ab901c99850d0380a4df8f99a0",
+      "bytes": 220074,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:37.937Z"
+    },
+    "content/site/civil-practice/concrete-compaction-numbers/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-compaction-numbers/site-photo.webp",
+      "sha256": "015c50230dbe29c804e20690eedd42b6f768c5a41028f5d4c6d39dbcee3d7fc0",
+      "bytes": 205304,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.068Z"
+    },
+    "content/site/civil-practice/concrete-roles-overview/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-roles-overview/site-photo.webp",
+      "sha256": "fdc92999e866b0b93a53e1e7427000f7d1f790abde9768775e272e709f70d7fb",
+      "bytes": 182598,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.136Z"
+    },
+    "content/site/civil-practice/concrete-hydration-basics/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-hydration-basics/site-photo.webp",
+      "sha256": "b11245ced8b33462dcd5300eb238fe0bb5624191a955404c1ed79c3febcd2265",
+      "bytes": 182552,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.150Z"
+    },
+    "content/site/civil-construction-2/guide-study-method/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-2/guide-study-method/site-photo.webp",
+      "sha256": "ca35669acbd4667c143ade0881dc0ed786af45fba90b0011bafa48d063af9f2b",
+      "bytes": 63534,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.244Z"
+    },
+    "content/site/civil-practice/rebar-splice-selection/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/rebar-splice-selection/site-photo.webp",
+      "sha256": "b6b0f3471a65c0b1a2b8a6193c7fdc09e42b82d82ee4e3e77d6e6088a2bb32e0",
+      "bytes": 224022,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.358Z"
+    },
+    "content/site/civil-construction-2/guide-exam-overview/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-2/guide-exam-overview/site-photo.webp",
+      "sha256": "cc654134fcc9fa5f4a930f0628a7c91d8d03ba65de332ef673e546048794b7fe",
+      "bytes": 203396,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.461Z"
+    },
+    "content/site/pavement/guide-keiken-kijutsu/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/pavement/guide-keiken-kijutsu/site-photo.webp",
+      "sha256": "370206f4586bfd9a8056fb37b247cc5efac2939d149faeaaa0fd9ae846bb89d6",
+      "bytes": 159722,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.823Z"
+    },
+    "content/site/concrete-engineer/primary-properties-testing/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/concrete-engineer/primary-properties-testing/site-photo.webp",
+      "sha256": "08756ad48739af07b3495c62b3f8d8d3e3f338313abeb762eeba149c12bbc26b",
+      "bytes": 166870,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.887Z"
+    },
+    "content/site/laws/public-works-bidding-fairness-act/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/laws/public-works-bidding-fairness-act/site-photo.webp",
+      "sha256": "6cbfab39770b7ef85b0afd80f1ed943bc13ce01877ae0a06fba3194526302b60",
+      "bytes": 167244,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.948Z"
+    },
+    "content/site/pe-construction/r08-river-coast-ii-1-4/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/pe-construction/r08-river-coast-ii-1-4/site-photo.webp",
+      "sha256": "6dc72dbb8c343f204a3bd3eecc7ce5aa2d560b018797c36fea58ad2e5d89ed14",
+      "bytes": 162078,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.984Z"
+    },
+    "content/site/laws/survey-act/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/laws/survey-act/site-photo.webp",
+      "sha256": "536808212cb15c5d1e373c52f8614745d3dc1d38ae8cae08e58ac382c5107653",
+      "bytes": 229116,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:38.996Z"
+    },
+    "content/site/pe-construction/r05-construction-planning/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/pe-construction/r05-construction-planning/site-photo.webp",
+      "sha256": "747c1cb0e09818c1777190caf50aebd0faeb8545dac96d2cd7b7cdd2479e7d9f",
+      "bytes": 178326,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:39.119Z"
+    },
+    "content/site/concrete-engineer/textbook-materials/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/concrete-engineer/textbook-materials/site-photo.webp",
+      "sha256": "dfc6d3dac07507963bb901aa1fc4d5998008b5a249e4d86f291d481566d8a11e",
+      "bytes": 72270,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:39.159Z"
+    },
+    "content/site/concrete-diagnostician/primary-exercise-04/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/concrete-diagnostician/primary-exercise-04/site-photo.webp",
+      "sha256": "c11221bd9255b358e3064a847f1b82cbb346627aa1d154a719f37db7a27322f7",
+      "bytes": 194608,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:39.200Z"
+    },
+    "content/site/pe-first-stage/guide-calculus-numerical-calculation/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/pe-first-stage/guide-calculus-numerical-calculation/site-photo.webp",
+      "sha256": "7a8eade6c97253c211da6aed32b87383f9473daaff7432c398482e301d2ae9c6",
+      "bytes": 206720,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:39.382Z"
+    },
+    "content/site/pe-first-stage/h30-aptitude/site-photo.webp": {
+      "bucket": "public",
+      "r2Key": "posts/pe-first-stage/h30-aptitude/site-photo.webp",
+      "sha256": "66cba65c2cbd153ce613dfe60f799b7201198c74c91ed2829c73ae06a894244a",
+      "bytes": 113672,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-photos",
+      "verifiedAt": "2026-11-13T08:00:39.543Z"
+    },
+    "content/site/civil-construction-2/guide-exam-overview/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-2/guide-exam-overview/site-thumb.webp",
+      "sha256": "77e684ecd905ac61f19787f94b49161dd80dd7b8cc94d3ece204fa3a5b3ac709",
+      "bytes": 65508,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:40.483Z"
+    },
+    "content/site/civil-practice/rebar-splice-selection/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/rebar-splice-selection/site-thumb.webp",
+      "sha256": "d0ce7441f4a6549e984a82dec039a3ab0d2af8ca2af60f73c32d2d6343489898",
+      "bytes": 66664,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:40.551Z"
+    },
+    "content/site/civil-practice/monitoring-sensor-selection/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/monitoring-sensor-selection/site-thumb.webp",
+      "sha256": "d81bcda8fdeb55642c7bbc316d7a79d2d44ce619b5bffb6e90489794dea64a14",
+      "bytes": 62586,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:40.600Z"
+    },
+    "content/site/civil-practice/concrete-roles-overview/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-roles-overview/site-thumb.webp",
+      "sha256": "868d4a05dab5d17546e6469034a67cd429898bf3defe690527444ee1e764a56b",
+      "bytes": 53688,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:40.702Z"
+    },
+    "content/site/civil-practice/concrete-hydration-basics/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-hydration-basics/site-thumb.webp",
+      "sha256": "ed1d0b2444c6bf0a707eb3652126d4be6658ff0c9d87665deb3e577c2a5593a9",
+      "bytes": 57094,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:40.703Z"
+    },
+    "content/site/civil-construction-2/guide-study-method/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-2/guide-study-method/site-thumb.webp",
+      "sha256": "c1db34f3bab46fd039aed186cfcefe0bd8da964434ea72c2e0e3bb02eadc678e",
+      "bytes": 22512,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:40.802Z"
+    },
+    "content/site/concrete-diagnostician/primary-exercise-04/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/concrete-diagnostician/primary-exercise-04/site-thumb.webp",
+      "sha256": "676a42737c76cba61872636dc9ef345103e1e9b13393395ac7465558b5af7080",
+      "bytes": 57416,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.058Z"
+    },
+    "content/site/civil-practice/concrete-compaction-numbers/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-compaction-numbers/site-thumb.webp",
+      "sha256": "48bd5b4d545dd94a5b1c39f9c623c478d445d6c5d83220e1fc6f72fd9ca6f2a1",
+      "bytes": 63380,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.079Z"
+    },
+    "content/site/concrete-engineer/textbook-materials/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/concrete-engineer/textbook-materials/site-thumb.webp",
+      "sha256": "817e2da9215320d31e7cd9190146ba93fa876b20372b6bedb08b170d3223908e",
+      "bytes": 29684,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.088Z"
+    },
+    "content/site/concrete-engineer/primary-properties-testing/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/concrete-engineer/primary-properties-testing/site-thumb.webp",
+      "sha256": "56d87877dc7e548abe152a3e9f50b8ddee1dbda6d2965c7d3ffa8bb9213e1d64",
+      "bytes": 57006,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.127Z"
+    },
+    "content/site/laws/public-works-bidding-fairness-act/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/laws/public-works-bidding-fairness-act/site-thumb.webp",
+      "sha256": "8eef9109a0a808c1a2b91714b40b2743aa5a8ef90f7c9e696f56c71d3ef7cb33",
+      "bytes": 52734,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.130Z"
+    },
+    "content/site/laws/survey-act/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/laws/survey-act/site-thumb.webp",
+      "sha256": "86b0e02c38c81212a181789ea12766cf06b2042e5a02a2f4f2453bfe66ebe3c6",
+      "bytes": 63506,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.278Z"
+    },
+    "content/site/pavement/guide-keiken-kijutsu/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/pavement/guide-keiken-kijutsu/site-thumb.webp",
+      "sha256": "8a781ea2550c5cd2bb2a1b8ec5c8e59528f95ceb7bcfe381c81a29494c4f004f",
+      "bytes": 53604,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.309Z"
+    },
+    "content/site/pe-construction/r08-river-coast-ii-1-4/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/pe-construction/r08-river-coast-ii-1-4/site-thumb.webp",
+      "sha256": "1639bf710e702822ab0ff208dc9bbbba2c65b657f6cf0b9f9acd9b18cca79f45",
+      "bytes": 45426,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.552Z"
+    },
+    "content/site/pe-first-stage/h30-aptitude/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/pe-first-stage/h30-aptitude/site-thumb.webp",
+      "sha256": "55ef06521371e49cce6d5d6e7ac8b49f9981588781c661f13b1eddb877a53065",
+      "bytes": 42548,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.633Z"
+    },
+    "content/site/pe-first-stage/guide-calculus-numerical-calculation/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/pe-first-stage/guide-calculus-numerical-calculation/site-thumb.webp",
+      "sha256": "8d76f047c220a3bb0d686e6f60e47ca0e723e60a0084c3ce558fc0a08f684b4d",
+      "bytes": 64188,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.692Z"
+    },
+    "content/site/pe-construction/r05-construction-planning/site-thumb.webp": {
+      "bucket": "public",
+      "r2Key": "posts/pe-construction/r05-construction-planning/site-thumb.webp",
+      "sha256": "de0a280df92a5ce44d6cc427e31765e243572322bb790ece36943a985a40f5f7",
+      "bytes": 55588,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-thumbnails",
+      "verifiedAt": "2026-11-13T08:00:41.770Z"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

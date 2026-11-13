@@ -13692,22 +13692,22 @@
       "reviewedAt": "2026-11-13T03:56:42.421Z"
     },
     "site-thumb:civil-construction-1/textbook-building-standards": {
-      "sha": "fe70c48bd5af67fb",
-      "promptSha": "9607c1bdd77214d7",
+      "sha": "e2d499f0c3cd4fa2",
+      "promptSha": "bc936cc80083d0bd",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T05:13:56.146Z",
+      "generatedAt": "2026-11-13T05:35:25.911Z",
       "styleVersion": 3,
       "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 12.2,
-        "mean": 132.3,
-        "bright": 0.135,
-        "dhash": "62c449c94db4490b"
+        "bottomStd": 10.8,
+        "mean": 115.6,
+        "bright": 0.005,
+        "dhash": "1a0caf8c6b1d1521"
       },
-      "verdict": "fail",
-      "reason": "brightness: 仮設事務所の明るい灰色の壁が画面の約3割を占めるので、事務所を小さく遠景にするか暗い面を増やして作り直す。",
+      "verdict": "ok",
+      "reason": "仮設事務所は遠景で小さく、明るい面は3割未満で人物・題材とも合っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.344Z"
+      "reviewedAt": "2026-11-13T07:55:58.369Z"
     },
     "site-thumb:civil-construction-1/textbook-byproduct-guideline": {
       "sha": "a14056fd95a83d4e",
@@ -15132,22 +15132,22 @@
       "rawSize": "unrecorded"
     },
     "site-thumb:civil-construction-2/guide-exam-overview": {
-      "sha": "b13749d353b5531f",
-      "promptSha": "ff0a0e1710f634be",
+      "sha": "cc654134fcc9fa5f",
+      "promptSha": "50d9ac3921ca45f6",
       "tool": "Codex",
-      "generatedAt": "2026-11-12T22:42:29.439Z",
+      "generatedAt": "2026-11-13T05:23:56.389Z",
       "styleVersion": 3,
       "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 14.8,
-        "mean": 109.8,
-        "bright": 0.042,
-        "dhash": "03d81919574c1270"
+        "bottomStd": 12.5,
+        "mean": 142.8,
+        "bright": 0.212,
+        "dhash": "dad9d9945666e318"
       },
-      "verdict": "fail",
-      "reason": "safety: 現場で作業員がヘルメットを外して書類を読んでいるので、ヘルメットを着用させ、置いたヘルメットは描かずに作り直す。",
+      "verdict": "ok",
+      "reason": "ヘルメットを着用した作業員が測量器具の脇で線だけの書類を確認しており、前回の安全指摘は直っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.442Z"
+      "reviewedAt": "2026-11-13T07:55:58.466Z"
     },
     "site-thumb:civil-construction-2/guide-foundation-key-points": {
       "sha": "e3ad7f088767d9e9",
@@ -15420,22 +15420,22 @@
       "rawSize": "unrecorded"
     },
     "site-thumb:civil-construction-2/guide-study-method": {
-      "sha": "20324afe293c77d5",
-      "promptSha": "f4e1a484166cdbf0",
+      "sha": "ca35669acbd4667c",
+      "promptSha": "23124e1758f3088b",
       "tool": "Codex",
-      "generatedAt": "2026-11-12T22:43:54.687Z",
+      "generatedAt": "2026-11-13T05:23:54.230Z",
       "styleVersion": 3,
       "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 16.5,
-        "mean": 107.2,
-        "bright": 0.092,
-        "dhash": "618153531f8b0120"
+        "bottomStd": 9.6,
+        "mean": 86.3,
+        "bright": 0.053,
+        "dhash": "c78f4f256030754f"
       },
-      "verdict": "fail",
-      "reason": "people: 人物の頭が画面外で切れているので、頭まで入れるか胴体を写さず手元と机だけの構図で作り直す。",
+      "verdict": "ok",
+      "reason": "頭まで画面内に入った受験者が机で線だけの書類を整理しており、人物の欠けは直っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.442Z"
+      "reviewedAt": "2026-11-13T07:55:58.466Z"
     },
     "site-thumb:civil-construction-2/guide-study-plan": {
       "sha": "ba1de6c07fb71771",
@@ -16392,22 +16392,22 @@
       "reviewedAt": "2026-11-13T05:22:42.540Z"
     },
     "site-thumb:civil-practice/concrete-compaction-numbers": {
-      "sha": "a3cdc48671a3822e",
-      "promptSha": "3d7e49d19e0fb39a",
+      "sha": "015c50230dbe29c8",
+      "promptSha": "019e6cc2fc76ffe7",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T03:57:55.423Z",
+      "generatedAt": "2026-11-13T05:25:11.624Z",
       "styleVersion": 3,
-      "rawSize": "1734x907",
+      "rawSize": "1733x907",
       "metrics": {
-        "bottomStd": 13,
-        "mean": 129.8,
-        "bright": 0.049,
-        "dhash": "874342424b0f3333"
+        "bottomStd": 11.4,
+        "mean": 126.2,
+        "bright": 0.019,
+        "dhash": "331a5dcdad3e7739"
       },
-      "verdict": "fail",
-      "reason": "text: 左作業員のヘルメットの帯に文字状の印字が読み取れるので、ヘルメットを無地にして作り直す。",
+      "verdict": "ok",
+      "reason": "ヘルメットは無地で、振動機は鉛直に差し込まれ打込み面と型枠上端も見えている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.540Z"
+      "reviewedAt": "2026-11-13T07:55:58.562Z"
     },
     "site-thumb:civil-practice/concrete-crack-causes": {
       "sha": "ef6ccabc6e8798ab",
@@ -16464,22 +16464,22 @@
       "reviewedAt": "2026-11-12T23:26:23.013Z"
     },
     "site-thumb:civil-practice/concrete-hydration-basics": {
-      "sha": "159428b849f509c9",
-      "promptSha": "a11151baf0c13d40",
+      "sha": "b11245ced8b33462",
+      "promptSha": "65a621eb29f89793",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T03:59:09.134Z",
+      "generatedAt": "2026-11-13T05:25:09.084Z",
       "styleVersion": 3,
-      "rawSize": "1734x907",
+      "rawSize": "1733x908",
       "metrics": {
-        "bottomStd": 19.1,
-        "mean": 123.8,
-        "bright": 0.032,
-        "dhash": "3e8f36b633390124"
+        "bottomStd": 17.3,
+        "mean": 99.6,
+        "bright": 0.012,
+        "dhash": "8e6766e6b5940303"
       },
-      "verdict": "fail",
-      "reason": "brightness: 明るい半透明の養生シートが画面の4割前後を占めるので、シートを部分的にして暗い型枠や地面を広く入れて作り直す。",
+      "verdict": "ok",
+      "reason": "養生シートは壁の一部だけで暗い型枠と地面が広く、明るさの問題は直っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.540Z"
+      "reviewedAt": "2026-11-13T07:55:58.562Z"
     },
     "site-thumb:civil-practice/concrete-labor-saving-technology": {
       "sha": "d627865c9167a97a",
@@ -16608,22 +16608,22 @@
       "reviewedAt": "2026-11-13T03:02:17.248Z"
     },
     "site-thumb:civil-practice/concrete-roles-overview": {
-      "sha": "8f1cb7fd4138f1ad",
-      "promptSha": "18a9081f6a3d2db1",
+      "sha": "fdc92999e866b0b9",
+      "promptSha": "52d06e9c17256aca",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:00:31.018Z",
+      "generatedAt": "2026-11-13T05:25:16.863Z",
       "styleVersion": 3,
       "rawSize": "1734x907",
       "metrics": {
         "bottomStd": 12.1,
-        "mean": 120.4,
-        "bright": 0.061,
-        "dhash": "a3644a4aa2d78b53"
+        "mean": 115.6,
+        "bright": 0.084,
+        "dhash": "212024f666e6c7a5"
       },
-      "verdict": "fail",
-      "reason": "civil: ミキサ車の後部（排出側）がポンプ車ホッパと反対向きで荷卸しが成り立たず、前面グリルのエンブレムも見えるので、ミキサ車の後部をホッパへ向け前面を写さない構図で作り直す。",
+      "verdict": "ok",
+      "reason": "ミキサ車の排出シュートがポンプ車ホッパへ向き、エンブレムも写らず荷卸しが成り立っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.540Z"
+      "reviewedAt": "2026-11-13T07:55:58.562Z"
     },
     "site-thumb:civil-practice/concrete-standards-history": {
       "sha": "54b3108baae6e8aa",
@@ -17544,22 +17544,22 @@
       "reviewedAt": "2026-11-13T03:02:17.248Z"
     },
     "site-thumb:civil-practice/monitoring-sensor-selection": {
-      "sha": "ca12168536443239",
-      "promptSha": "e4383700eceabc4b",
+      "sha": "9c559a2351224c53",
+      "promptSha": "a333735911a67823",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:06:04.342Z",
+      "generatedAt": "2026-11-13T05:26:07.812Z",
       "styleVersion": 3,
       "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 22.6,
-        "mean": 106.8,
-        "bright": 0.027,
-        "dhash": "c2ec696bebbbb93e"
+        "bottomStd": 17.2,
+        "mean": 114.1,
+        "bright": 0.01,
+        "dhash": "b62635776172070f"
       },
-      "verdict": "fail",
-      "reason": "civil: 変位計も固定点も同じ擁壁面に付いていて変位を測る構成にならないので、固定点を壁の外（杭や地山側）に置くか目地をまたぐ形にして作り直す。",
+      "verdict": "ok",
+      "reason": "変位計が壁面にあり、ワイヤの先の固定点が壁外の支柱に置かれ変位を測る構成になっている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.540Z"
+      "reviewedAt": "2026-11-13T07:55:58.562Z"
     },
     "site-thumb:civil-practice/municipal-civil-engineer-work": {
       "sha": "eccc1e0d30671a51",
@@ -18120,22 +18120,22 @@
       "reviewedAt": "2026-11-13T05:22:42.540Z"
     },
     "site-thumb:civil-practice/rebar-splice-selection": {
-      "sha": "ac68f40ff954d6ee",
-      "promptSha": "850605aea0488822",
+      "sha": "b6b0f3471a65c0b1",
+      "promptSha": "571eff070dde7719",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:09:26.278Z",
+      "generatedAt": "2026-11-13T05:26:09.380Z",
       "styleVersion": 3,
       "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 13.5,
-        "mean": 123.7,
-        "bright": 0.042,
-        "dhash": "4b19731756536d07"
+        "bottomStd": 13.4,
+        "mean": 125.4,
+        "bright": 0.055,
+        "dhash": "39532b6b6c479b13"
       },
-      "verdict": "fail",
-      "reason": "subject: 機械式継手のスリーブ付き鉄筋だけで、題材の重ね合わせた鉄筋が見えない。重ね継手の鉄筋を並べて、そばにスリーブ継手を置いて作り直す。",
+      "verdict": "ok",
+      "reason": "重ね合わせた鉄筋の束とそばのスリーブ継手の両方が見え、題材と合っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.540Z"
+      "reviewedAt": "2026-11-13T07:55:58.562Z"
     },
     "site-thumb:civil-practice/reference-values": {
       "sha": "3bfe61927914cf02",
@@ -19488,22 +19488,22 @@
       "reviewedAt": "2026-11-13T03:10:08.115Z"
     },
     "site-thumb:concrete-diagnostician/primary-exercise-04": {
-      "sha": "b41e08633a373778",
-      "promptSha": "ed9e6541868e80b2",
+      "sha": "c11221bd9255b358",
+      "promptSha": "8a4f27ff2f398d46",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:44:50.069Z",
+      "generatedAt": "2026-11-13T07:57:16.851Z",
       "styleVersion": 3,
       "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 20.8,
-        "mean": 125.5,
-        "bright": 0.047,
-        "dhash": "931a1b9bb025c471"
+        "bottomStd": 10.5,
+        "mean": 115.7,
+        "bright": 0.01,
+        "dhash": "9a9f2a9daded4d56"
       },
-      "verdict": "fail",
-      "reason": "civil: 探触子が壁の隣り合う面（広い面と小口面）に当たっており表裏の対向面でない。壁全体を正面から見せ、壁の表と裏に同じ高さで探触子を向かい合わせて当てる。",
+      "verdict": "ok",
+      "reason": "civil: 探触子を壁の表と裏の同じ高さに当てていて、前回の指摘が直っている",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.931Z"
+      "reviewedAt": "2026-11-13T08:00:20.471Z"
     },
     "site-thumb:concrete-diagnostician/primary-exercise-05": {
       "sha": "81dfd74a39175825",
@@ -19884,22 +19884,22 @@
       "reviewedAt": "2026-11-13T05:22:43.027Z"
     },
     "site-thumb:concrete-engineer/primary-properties-testing": {
-      "sha": "a40cf3a3855e87ac",
-      "promptSha": "27447e18026bb460",
+      "sha": "08756ad48739af07",
+      "promptSha": "27796ba311e3c944",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:49:37.592Z",
+      "generatedAt": "2026-11-13T05:32:02.195Z",
       "styleVersion": 3,
-      "rawSize": "1733x907",
+      "rawSize": "1732x908",
       "metrics": {
-        "bottomStd": 16.2,
-        "mean": 132.9,
-        "bright": 0.094,
-        "dhash": "8e929bcda9a43426"
+        "bottomStd": 17,
+        "mean": 127.6,
+        "bright": 0.066,
+        "dhash": "60a55c967b9ba126"
       },
-      "verdict": "fail",
-      "reason": "people: 左の作業員のヘルメット上端が画面上端に接して欠け、ヘルメット側面に小さな文字風のマークがある。人物を小さくして頭の上に余白を取り、無地のヘルメットにする。",
+      "verdict": "ok",
+      "reason": "人物の頭上に余白があり、ヘルメットは無地で、スランプコーンを垂直に引き上げている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:43.027Z"
+      "reviewedAt": "2026-11-13T07:55:58.950Z"
     },
     "site-thumb:concrete-engineer/textbook-construction": {
       "sha": "b70fba9b6eec8403",
@@ -19938,22 +19938,22 @@
       "reviewedAt": "2026-11-13T05:22:43.027Z"
     },
     "site-thumb:concrete-engineer/textbook-materials": {
-      "sha": "399737fbbe0208af",
-      "promptSha": "f1efc65e0224c25d",
+      "sha": "dfc6d3dac0750796",
+      "promptSha": "7780c7ea55ef9ba2",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:49:26.474Z",
+      "generatedAt": "2026-11-13T07:58:34.574Z",
       "styleVersion": 3,
-      "rawSize": "1733x908",
+      "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 28.4,
-        "mean": 126.5,
-        "bright": 0.126,
-        "dhash": "ee7276454d95bbf1"
+        "bottomStd": 16.6,
+        "mean": 115.7,
+        "bright": 0.053,
+        "dhash": "6e7a565cc92e2965"
       },
-      "verdict": "fail",
-      "reason": "people: 作業員のヘルメット上端が画面上端で欠けており、ヘルメット側面に文字風の印もあり、試料皿の下端も帯にかかる。人物と机を下げず上に余白を取り、皿を帯より上に置き、無地のヘルメットにする。",
+      "verdict": "ok",
+      "reason": "crop: 試料皿は下端の帯より上にあり、前回の指摘が直っている",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:43.027Z"
+      "reviewedAt": "2026-11-13T08:00:20.566Z"
     },
     "site-thumb:concrete-engineer/textbook-mix-design": {
       "sha": "3920f0470afe3c25",
@@ -20298,22 +20298,22 @@
       "reviewedAt": "2026-11-13T03:10:08.516Z"
     },
     "site-thumb:laws/public-works-bidding-fairness-act": {
-      "sha": "2bd81035579c71ad",
-      "promptSha": "3d4697ca44871255",
+      "sha": "6cbfab39770b7ef8",
+      "promptSha": "ed326dfa1b0d0d97",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:55:17.958Z",
+      "generatedAt": "2026-11-13T05:33:16.354Z",
       "styleVersion": 3,
-      "rawSize": "1719x915",
+      "rawSize": "1732x908",
       "metrics": {
-        "bottomStd": 13.4,
-        "mean": 117.1,
-        "bright": 0.011,
-        "dhash": "6330323a29cd458f"
+        "bottomStd": 9.4,
+        "mean": 128.2,
+        "bright": 0.062,
+        "dhash": "1f31345b32334e44"
       },
-      "verdict": "fail",
-      "reason": "safety: 監督員3人が油圧ショベルのバケット直近（作業範囲）に立っている。ショベルを遠景に離すか停止・退避した位置に描き、人を作業範囲の外に置く。",
+      "verdict": "ok",
+      "reason": "油圧ショベルは遠景で、監督員たちは柵の手前や離れた位置にいて作業範囲に人はいない。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:43.315Z"
+      "reviewedAt": "2026-11-13T07:55:59.047Z"
     },
     "site-thumb:laws/public-works-quality-act": {
       "sha": "ed694e83e13c7908",
@@ -20460,40 +20460,40 @@
       "reviewedAt": "2026-11-13T03:10:08.516Z"
     },
     "site-thumb:laws/survey-act": {
-      "sha": "b44663bd82768c4e",
-      "promptSha": "6f98b974b825466b",
+      "sha": "536808212cb15c5d",
+      "promptSha": "a7c7b052b4f36bd6",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:56:26.947Z",
+      "generatedAt": "2026-11-13T05:33:16.415Z",
       "styleVersion": 3,
       "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 14.8,
-        "mean": 132.1,
-        "bright": 0.034,
-        "dhash": "b4b7212c23c04904"
+        "bottomStd": 11.8,
+        "mean": 118,
+        "bright": 0.012,
+        "dhash": "98bea32313556c49"
       },
-      "verdict": "fail",
-      "reason": "crop: 主題の測量標が画面下端の帯（約15%）にかかっている。測量標を測量員の足元の帯より上（画面の6〜7割の高さ）に置き直す。",
+      "verdict": "ok",
+      "reason": "測量標が足元の帯より上（約490px）に小さく写り、トータルステーションと観測の構図も合っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:43.315Z"
+      "reviewedAt": "2026-11-13T07:55:59.047Z"
     },
     "site-thumb:pavement/guide-keiken-kijutsu": {
-      "sha": "76170ed3492e8c63",
-      "promptSha": "8ea954dffb927f87",
+      "sha": "370206f4586bfd9a",
+      "promptSha": "b931866399599f4e",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:59:52.664Z",
+      "generatedAt": "2026-11-13T07:59:46.940Z",
       "styleVersion": 3,
       "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 12.6,
-        "mean": 107.8,
-        "bright": 0.055,
-        "dhash": "8466604280d838e0"
+        "bottomStd": 7,
+        "mean": 118.6,
+        "bright": 0.064,
+        "dhash": "d6999deeecc00e89"
       },
-      "verdict": "fail",
-      "reason": "civil: 直定規が路面に接さず腰の高さで宙に浮いている。直定規を舗装面に直接当てて置く姿にする。",
+      "verdict": "ok",
+      "reason": "text: ローラは無地で、直定規を舗装面に当てている",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:43.510Z"
+      "reviewedAt": "2026-11-13T08:00:20.660Z"
     },
     "site-thumb:pavement/guide-overview": {
       "sha": "f9c58ac95c1d6f1c",
@@ -22026,22 +22026,22 @@
       "reviewedAt": "2026-11-13T03:06:23.243Z"
     },
     "site-thumb:pe-construction/r05-construction-planning": {
-      "sha": "042eb51cac0c5bfe",
-      "promptSha": "49036be6f918edf8",
+      "sha": "747c1cb0e09818c1",
+      "promptSha": "319954e1390356b9",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:21:54.638Z",
+      "generatedAt": "2026-11-13T05:28:07.596Z",
       "styleVersion": 3,
-      "rawSize": "1734x907",
+      "rawSize": "1733x907",
       "metrics": {
-        "bottomStd": 14.9,
-        "mean": 106.7,
-        "bright": 0.042,
-        "dhash": "44193172c38fc544"
+        "bottomStd": 12.3,
+        "mean": 118,
+        "bright": 0.07,
+        "dhash": "c431604dcce662c5"
       },
-      "verdict": "fail",
-      "reason": "text: ポンプ車のグリルとドアに小さなエンブレム・ロゴ状の表示が写る。無地の車体にして作り直す。",
+      "verdict": "ok",
+      "reason": "ポンプ車に文字やロゴは無く、ブームと配管が型枠へ延びる構成も実物として成り立っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.638Z"
+      "reviewedAt": "2026-11-13T07:55:58.660Z"
     },
     "site-thumb:pe-construction/r05-environment": {
       "sha": "583c99186bd3fb28",
@@ -23952,22 +23952,22 @@
       "reviewedAt": "2026-11-13T05:22:42.638Z"
     },
     "site-thumb:pe-construction/r08-river-coast-ii-1-4": {
-      "sha": "b24954b17263272a",
-      "promptSha": "77b268d18242176a",
+      "sha": "6dc72dbb8c343f20",
+      "promptSha": "df6719d33732b175",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:30:45.757Z",
+      "generatedAt": "2026-11-13T05:27:20.674Z",
       "styleVersion": 3,
       "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 16.2,
-        "mean": 130.1,
-        "bright": 0.133,
-        "dhash": "600246e0ba5e8623"
+        "bottomStd": 10,
+        "mean": 109.9,
+        "bright": 0.064,
+        "dhash": "802fa0333c4f2127"
       },
-      "verdict": "fail",
-      "reason": "safety: 標尺を持つ作業員が手すりも墜落防止具も無い護岸天端の波側に立つ。天端に手すりを付けるか堤防の内側へ移して作り直す。",
+      "verdict": "ok",
+      "reason": "標尺と測量員は手すり付きの堤防の内側におり、波側に立つ人はいないので安全指摘は直っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.638Z"
+      "reviewedAt": "2026-11-13T07:55:58.660Z"
     },
     "site-thumb:pe-construction/r08-river-coast-ii-2-1": {
       "sha": "bc863781bbd8fed5",
@@ -24870,22 +24870,22 @@
       "reviewedAt": "2026-11-13T03:06:23.340Z"
     },
     "site-thumb:pe-first-stage/guide-calculus-numerical-calculation": {
-      "sha": "0b19a391f5ae3814",
-      "promptSha": "a79cb7ddd2bfd701",
+      "sha": "7a8eade6c97253c2",
+      "promptSha": "51dcaac0f6d2a251",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:38:02.613Z",
+      "generatedAt": "2026-11-13T05:29:23.539Z",
       "styleVersion": 3,
-      "rawSize": "1733x908",
+      "rawSize": "1732x908",
       "metrics": {
-        "bottomStd": 18.6,
-        "mean": 123,
-        "bright": 0.024,
-        "dhash": "0c1b7be9c2101147"
+        "bottomStd": 30,
+        "mean": 128,
+        "bright": 0.131,
+        "dhash": "46694b63d86cb7bb"
       },
-      "verdict": "fail",
-      "reason": "civil: 流速計の測定棒の先が水路の外の格子上にあり、流れを測っていない。棒の先を水の中に入れて作り直す。",
+      "verdict": "ok",
+      "reason": "流速計の棒の先が水路の水中に入り、手すり付きの通路から測っていて直っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.736Z"
+      "reviewedAt": "2026-11-13T07:55:58.755Z"
     },
     "site-thumb:pe-first-stage/guide-construction-subject": {
       "sha": "6905a4fea670568a",
@@ -25644,22 +25644,22 @@
       "reviewedAt": "2026-11-13T03:06:23.340Z"
     },
     "site-thumb:pe-first-stage/h30-aptitude": {
-      "sha": "207aff26b78c02cb",
-      "promptSha": "9b6c6574a656691a",
+      "sha": "66cba65c2cbd153c",
+      "promptSha": "88837212a8741bb7",
       "tool": "Codex",
-      "generatedAt": "2026-11-13T04:41:07.091Z",
+      "generatedAt": "2026-11-13T05:29:14.376Z",
       "styleVersion": 3,
-      "rawSize": "1733x907",
+      "rawSize": "1734x907",
       "metrics": {
-        "bottomStd": 7.5,
-        "mean": 141.7,
-        "bright": 0.079,
-        "dhash": "8696a6127372e365"
+        "bottomStd": 13.4,
+        "mean": 125.4,
+        "bright": 0.1,
+        "dhash": "d3d3d7f99b717962"
       },
-      "verdict": "fail",
-      "reason": "text: カッターのエンジンにロゴ風の丸いバッジと文字のラベル、タンクにステッカーが写る。無地の機械にして作り直す。",
+      "verdict": "ok",
+      "reason": "カッターのエンジンとタンクは無地でロゴやラベルが無く、直っている。",
       "reviewer": "codex+ai-image-fidelity-auditor",
-      "reviewedAt": "2026-11-13T05:22:42.736Z"
+      "reviewedAt": "2026-11-13T07:55:58.755Z"
     },
     "site-thumb:pe-first-stage/h30-basic": {
       "sha": "44d9d4710ea708b2",
