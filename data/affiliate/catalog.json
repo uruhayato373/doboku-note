@@ -777,6 +777,186 @@
           "status": "unknown"
         }
       }
+    },
+    "shushoku-college": {
+      "label": "就職カレッジ（フリーター・未経験・既卒向けの就職支援）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7267",
+          "status": "applying",
+          "rewardYen": 16000,
+          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料相談（新規面談申込完了）"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "myvision-consulting": {
+      "label": "MyVisionコンサルティング（コンサル転職エージェント）",
+      "vertical": "pe-career",
+      "placement": "none",
+      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "5922",
+          "status": "applying",
+          "rewardYen": 18000,
+          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料キャリア面談"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "reflame": {
+      "label": "REFLAME（20代ハイクラス向けの無料キャリア相談）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7790",
+          "status": "applying",
+          "rewardYen": 15000,
+          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=面談完了"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "amecari": {
+      "label": "アメキャリ（第二新卒に特化した就職・転職支援）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "5923",
+          "status": "applying",
+          "rewardYen": 10000,
+          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料相談"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "yorisoi-career": {
+      "label": "よりそいキャリア（若手向け転職支援）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "6135",
+          "status": "applying",
+          "rewardYen": 8000,
+          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=新規会員登録"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "each-career": {
+      "label": "イーチキャリア（未経験に特化した転職エージェント）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7032",
+          "status": "applying",
+          "rewardYen": 5000,
+          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=会員登録"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "tsunaguba": {
+      "label": "ツナグバ（第二新卒に特化した転職求人）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "5663",
+          "status": "applying",
+          "rewardYen": 4231,
+          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=新規会員登録"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "rework": {
+      "label": "Re:WORK（未経験・既卒・第二新卒・フリーター向けの転職支援）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7383",
+          "status": "applying",
+          "rewardYen": 3000,
+          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果の条件は未確認"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "miracari-job": {
+      "label": "ミラキャリJob（20代のデスクワーク転職）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7416",
+          "status": "applying",
+          "rewardYen": 3000,
+          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料転職相談の予約申込み"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
     }
   },
   "_openQuestions": [
