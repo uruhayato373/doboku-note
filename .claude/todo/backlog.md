@@ -2753,7 +2753,7 @@ Windows の PowerShell で repo 直下から順に:
 ### [DN-1184] 本番デプロイでビルドを作り直さず、検査済みの out/ を使えるか決める
 タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-13]
 
-**起点**: 2026-11-13 の実測。本番デプロイは中央値 6.4 分で、内訳は npm ci 21 秒・build 232 秒・Pages へのアップロード 79 秒。build は develop の Pre-merge check が同じ tree で作ったもの（158 秒）の作り直し。.next/cache を足した後の秒数は次のデプロイで確かめる。
+**起点**: 2026-11-13 の実測。本番デプロイは中央値 6.4 分で、内訳は npm ci 21 秒・build 232 秒・Pages へのアップロード 79 秒。build は develop の Pre-merge check が同じ tree で作ったもの（158 秒）の作り直し。.next/cache を足した後の初回（2026-11-14・run 43519490080）は build 239 秒で、キャッシュは復元できたが縮んだのはコンパイルの 9.9 秒 → 5.8 秒だけ。build の大半は静的生成 2,462 ページの 120 秒と Pagefind（DN-1185）で、キャッシュでは縮まない。
 
 **やること**: ci.yml の build ジョブの out/ を artifact にして、昇格時はアップロードだけにできるかを決める。先に確かめること: (1) deploy:main が作る main の commit の tree が、検査済みの develop の commit の tree と同じになる条件。(2) デプロイ側だけが渡している NEXT_PUBLIC_GA_ID と MAIL_SENDER_ADDRESS を CI のビルドへ渡してよいか（公開リポジトリの artifact は誰でも取れる。MAIL_SENDER_ADDRESS は公開リポジトリに書かない方針）。(3) artifact の大きさ（12,529 ファイル）と上げ下ろしの秒数、保持日数。
 
@@ -2934,10 +2934,10 @@ Windows の PowerShell で repo 直下から順に:
 
 
 
-### [DN-1141] pre-commit の固定費の残り 44 秒を削る
+### [DN-1141] pre-commit の固定費の残りを削る（事業方針の検査・日本語校正・最長の検査）
 タグ: [領域:管理] [種類:改善] [起票:2026-11-12]
 
-何も stage していない状態の pre-commit は 153 秒 → 44 秒になった（PR #1541）。残りの上位は check-business-direction 7.5 秒・pre-commit-mdx 4.6 秒（MDX が無くても MDX コンパイラ一式を import）・check-exam-calendar 4.0 秒・check-note-attachments 3.1 秒。入力の置き場が広い検査は touches の宣言を検査側の走査の根から引く。ほかに、53 本の検査が各自 git diff --cached を呼び直している（ディスパッチャの ctx を渡せば 1 回で済む）、Bash 1 回ごとに agent-hook を node 4 プロセス起動している（.claude/settings.json）。PRE_COMMIT_TIMING=1 で前後を測る
+会社 PC の暖機後で、何も stage しない pre-commit は約 20 秒、記事 MDX 1 本は 38〜55 秒（PR #1585 の後）。残りは次のとおり。(1) check-business-direction が毎回 3〜4 秒（冷えた状態で 7.5 秒）。入力は config/・data/・.claude/state・Kindle の catalog・スナップショットが指す出典のファイルと広く、touches を付けるには検査側が入力の根を定数で export する形に直す必要がある。(2) lint-ja（textlint）が記事 1 本で約 8 秒。(3) staged に当たる CI の検査は並行 4 で回るので、律速は最長の 1 本: affiliate-placements 6.1 秒・keiken-answer-split 5.6 秒（どちらも全量走査）。(4) 約 53 本の検査が各自 git diff --cached を呼び直している（ディスパッチャの ctx を渡せば 1 回で済む）。(5) Bash 1 回ごとに agent-hook を node 4 プロセス起動している（.claude/settings.json）。pre-commit-mdx の検証器の遅延 import は効かない（後続の検査が同じモジュールを読むので、読み込みが後ろへ移るだけ）。前後は 3 場面（何も stage しない・docs 1 本・記事 1 本）を PRE_COMMIT_TIMING=1 で測り、検査ごとの秒数で比べる（合計は 1 回ごとに数秒〜十数秒ぶれる）
 
 
 ### [DN-1140] 冒頭コメントの無い起動ファイル 32 本に用途を書く
