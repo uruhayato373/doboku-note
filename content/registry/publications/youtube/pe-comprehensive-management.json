@@ -322,7 +322,7 @@
       "work": "cm-setsumon3-risk-kokufuku",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform/scene-001",
@@ -357,7 +357,42 @@
         "contentSha256": "c9ce0cab5d6b379d0674710faabab91b72a261350c4822c01d420193475b1cbf"
       },
       "times": {
-        "rendered": "2026-11-13T13:07:02.264Z"
+        "rendered": "2026-11-13T13:07:02.264Z",
+        "uploaded": "2026-11-13T13:11:45.984Z",
+        "scheduled": "2026-11-13T13:11:57.243Z"
+      },
+      "delivery": {
+        "inputSha256": "5063250c122de050504b2f5562805f56f71b5f0b842c62a867b447f63c493dbd",
+        "marker": "dn-single-35672a96a380ab7a58be3e419db187c19379e1d3",
+        "uploadRequestedAt": "2026-11-13T13:11:02.122Z",
+        "videoId": "kkPWgzz_buQ",
+        "processedAt": "2026-11-13T13:11:45.033Z",
+        "thumbnailRequestedAt": "2026-11-13T13:11:46.028Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/kkPWgzz_buQ/default.jpg?sqp=CKiY3NcG&rs=AOn4CLDC-HdhG4_-xf7qdjhtTqxHB2aQYQ",
+          "https://i9.ytimg.com/vi/kkPWgzz_buQ/mqdefault.jpg?sqp=CKiY3NcG&rs=AOn4CLBKNsUDfq3vdZQGWfXd6z-owS55dg",
+          "https://i9.ytimg.com/vi/kkPWgzz_buQ/hqdefault.jpg?sqp=CKiY3NcG&rs=AOn4CLAyCmjs37wRQE4g74cJZgg5WA_hwg",
+          "https://i9.ytimg.com/vi/kkPWgzz_buQ/sddefault.jpg?sqp=CKiY3NcG&rs=AOn4CLDNk4K4B_EFyPtoGVJq_04YYF5LRA",
+          "https://i9.ytimg.com/vi/kkPWgzz_buQ/maxresdefault.jpg?sqp=CKiY3NcG&rs=AOn4CLBbeT7Hmo0OZxkg6--O1O5uopm9XA",
+          "https://i9.ytimg.com/vi/kkPWgzz_buQ/fhddefault.jpg?sqp=CKiY3NcG&rs=AOn4CLAnaeWUByxI5zEaoiD5bF4dLyteSA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-13T13:11:52.124Z",
+        "scheduleRequestedAt": "2026-11-13T13:11:53.315Z",
+        "scheduleAt": "2026-11-17T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-13T13:11:57.243Z"
+      },
+      "platform": {
+        "id": "kkPWgzz_buQ",
+        "url": "https://www.youtube.com/watch?v=kkPWgzz_buQ",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-13T13:11:52.124Z"
       }
     },
     {
