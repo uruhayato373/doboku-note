@@ -2,7 +2,7 @@
 
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { extname, join, relative } from "node:path";
-import { FORBIDDEN, findForbidden } from "./lib/exam-calendar-guards.mjs";
+import { FORBIDDEN, SCAN_ROOTS, findForbidden } from "./lib/exam-calendar-guards.mjs";
 import { activeIds, validateQualificationRegistry } from "./lib/qualification-registry.mjs";
 import { datasetPath } from "./lib/datasets.mjs";
 import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
@@ -246,24 +246,7 @@ for (const examId of activeIds(registry)) {
   }
 }
 
-const scanRoots = [
-  "content/sns/x/draft",
-  "docs/strategy",
-  "docs/editorial",
-  "docs/marketing",
-  "docs/operations",
-  "docs/products",
-  "content/note/1級・2級土木",
-  ".claude/agents",
-  ".claude/skills",
-  // 2026-09-26: 年間計画（annual.md）の日付表の誤りが走査外で素通りしたため追加
-  ".claude/todo",
-  "src/config",
-  "src/lib",
-  "content/site/concrete-chief-engineer",
-  "content/site/concrete-engineer",
-  "content/site/concrete-diagnostician",
-];
+const scanRoots = SCAN_ROOTS;
 const textExtensions = new Set([".md", ".mdx", ".json", ".ts", ".mjs"]);
 // 除外の前提（実体が在ること）が崩れたら落とす。除外は「実在するから誤記でない」という
 // 主張なので、実在しなくなった瞬間に除外自体が誤りになる。
