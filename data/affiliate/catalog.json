@@ -9,8 +9,8 @@
     "unavailable": "その ASP に案件自体が無い",
     "unknown": "未確認（調べていない。none と区別する）"
   },
-  "updatedAt": "2026-11-03T09:52:36.335Z",
-  "verifiedAt": "2026-11-03",
+  "updatedAt": "2026-11-13T05:00:00.000Z",
+  "verifiedAt": "2026-11-13",
   "_verifiedNote": "2026-09-08部分照合: A8は口座a25050375786の案件詳細、BuildJobは広告作成websiteId002/既存mat一致まで確認。もしも4案件はshop_site_id672381とselectedOption=doboku-noteを実機確認。afbは今回未確認、旧値保持。各ASPのverifiedAt/verificationScopeを参照。",
   "programs": {
     "buildjob": {
@@ -42,7 +42,7 @@
           "rewardYen": 13847,
           "epcYen": null,
           "confirmRatePct": null,
-          "note": "承認率・EPC は もしも が非公開。運用は A8 側。",
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。もしもの報酬 13,847円。承認率・EPC は もしも が非公開。運用は A8 側",
           "verifiedAt": "2026-09-08",
           "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
           "approvalConditions": "60歳未満、WEB申込後30日以内の無料面談完了。"
@@ -180,7 +180,8 @@
           "rewardYen": 15000,
           "verifiedAt": "2026-09-08",
           "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
-          "approvalConditions": "有資格者15,000円/29歳以下3,500円の2条件。電気資格が中心。本人確認必須。50歳以下という募集説明と50歳以上否認の境界矛盾あり要照会。"
+          "approvalConditions": "有資格者15,000円/29歳以下3,500円の2条件。電気資格が中心。本人確認必須。50歳以下という募集説明と50歳以上否認の境界矛盾あり要照会。",
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中"
         },
         "afb": {
           "status": "unknown"
@@ -202,7 +203,8 @@
           "rewardYen": 5000,
           "verifiedAt": "2026-09-08",
           "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
-          "approvalConditions": "新規会員登録。18歳未満・66歳以上、いたずら・重複・連絡不可能は否認。"
+          "approvalConditions": "新規会員登録。18歳未満・66歳以上、いたずら・重複・連絡不可能は否認。",
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中"
         },
         "afb": {
           "status": "unknown"
@@ -230,7 +232,7 @@
           "status": "approved",
           "rewardYen": 3000,
           "category": "専門転職（その他）",
-          "note": "2026-07-27 実測。A8 は ¥2,930 / EPC 0 で scout 閾値未満だった。afb も同水準なので見送り判断は変わらない。"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。doboku-note で提携中。2026-07-27 実測。A8 は ¥2,930 / EPC 0 で scout 閾値未満だった。afb も同水準なので見送り判断は変わらない"
         }
       }
     },
@@ -349,9 +351,9 @@
       "asps": {
         "a8": {
           "programId": "s00000027873001",
-          "status": "applying",
+          "status": "none",
           "rewardYen": 7519,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。成果=WEB無料キャリア相談申込後30日以内の電話確認"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。参加中・申込中のどちらにも無い（否認か取消。どちらかは未確認）。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。成果=WEB無料キャリア相談申込後30日以内の電話確認"
         },
         "moshimo": {
           "status": "unknown"
@@ -399,7 +401,7 @@
           "rewardYen": 1730,
           "epcYen": 174.25,
           "confirmRatePct": 40.74,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申込中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）"
         },
         "moshimo": {
           "status": "unknown"
@@ -424,7 +426,7 @@
           "rewardYen": 2000,
           "epcYen": 277.06,
           "confirmRatePct": 44.62,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申込中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）"
         },
         "moshimo": {
           "promotionId": "3802",
@@ -451,7 +453,7 @@
           "status": "applying",
           "rewardYen": 1700,
           "epcYen": 0.44,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申込中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）"
         },
         "moshimo": {
           "status": "unknown"
@@ -481,7 +483,7 @@
           "pid": "6340",
           "status": "applying",
           "rewardYen": 5922,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中（2026-10-27 に申請中一覧で確認）"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中（クローズド表示）。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中（2026-10-27 に申請中一覧で確認）"
         }
       }
     },
@@ -496,9 +498,9 @@
         },
         "moshimo": {
           "promotionId": "7797",
-          "status": "applying",
+          "status": "approved",
           "rewardYen": 18000,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。提携中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
         },
         "afb": {
           "status": "unknown"
@@ -540,16 +542,119 @@
           "programId": "s00000027373001",
           "status": "applying",
           "rewardYen": 2000,
-          "note": "2026-10-27 以前から申請中（申請元のサイトは未確認）"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申込中。2026-10-27 以前から申請中（申請元のサイトは未確認）"
         },
         "moshimo": {
           "status": "unknown"
         },
         "afb": {
           "pid": "9055",
-          "status": "applying",
+          "status": "unknown",
           "rewardYen": 3383,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中（2026-10-27 に申請中一覧で確認）"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。doboku-note の申請中一覧に無い（stats47 側の申請か否認かは未確認）。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中（2026-10-27 に申請中一覧で確認）"
+        }
+      }
+    },
+    "tenshoku-agent-navi": {
+      "label": "転職エージェントナビ（転職AGENT Navi・転職のマッチング）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加。業界を問わない総合型。配置は未定。",
+      "asps": {
+        "a8": {
+          "programId": "s00000024824001",
+          "status": "approved",
+          "rewardYen": 8000,
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。提携日 2026/06/12・新規無料相談登録"
+        },
+        "moshimo": {
+          "promotionId": "5537",
+          "status": "approved",
+          "rewardYen": 8000,
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。新規会員登録"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "newma": {
+      "label": "NewMA（DX・戦略・AI コンサル転職支援）",
+      "vertical": "pe-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加。技術士・総監のハイクラス層の候補。配置は未定。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7487",
+          "status": "approved",
+          "rewardYen": 27000,
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。新規会員登録"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "type-agent": {
+      "label": "type転職エージェント",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加。総合型。配置は未定。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7540",
+          "status": "approved",
+          "rewardYen": 11000,
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。面談実施"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "samurai-job": {
+      "label": "Samurai Job（外資・グローバルのハイクラス転職）",
+      "vertical": "pe-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加。外資・英語寄りで読者との適合は未確認。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "2228",
+          "status": "approved",
+          "rewardYen": 10000,
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。無料会員登録"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "assign-agent": {
+      "label": "ASSIGN AGENT（若手ハイエンド特化の転職エージェント）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加。若手のコンサル・事業会社寄りで、土木の読者との適合は未確認。",
+      "asps": {
+        "a8": {
+          "programId": "s00000019900002",
+          "status": "approved",
+          "rewardYen": 7875,
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。提携日 2026/10/01・新規相談申込"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
         }
       }
     }
