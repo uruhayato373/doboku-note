@@ -1001,7 +1001,7 @@
       "work": "pe-hissu1-konkyo-tsumikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-001",
@@ -1035,7 +1035,42 @@
         "contentSha256": "64b43df636ac24992551d04242b8214ade0996f75bdf77c82731b3680ac1e3ad"
       },
       "times": {
-        "rendered": "2026-11-13T13:07:14.450Z"
+        "rendered": "2026-11-13T13:07:14.450Z",
+        "uploaded": "2026-11-13T13:15:42.455Z",
+        "scheduled": "2026-11-13T13:15:50.452Z"
+      },
+      "delivery": {
+        "inputSha256": "556e1236160b915a313ddf21d09bfbde2838b38898b9ae2ff419ced3872684e0",
+        "marker": "dn-single-809a38c1340ace88d3990f5368aea4f7fe6581f8",
+        "uploadRequestedAt": "2026-11-13T13:14:57.755Z",
+        "videoId": "sa2okjtyLl4",
+        "processedAt": "2026-11-13T13:15:41.793Z",
+        "thumbnailRequestedAt": "2026-11-13T13:15:42.516Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/default.jpg?sqp=CNSa3NcG&rs=AOn4CLBf6HZ-onQKhVzxlm2f6pVj3LS6TQ",
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/mqdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLAV1RdFsdSxhhE-I1B3G5lpwHEfrQ",
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/hqdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLDubKhhZmsAnajwC90At9b1voUSKA",
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/sddefault.jpg?sqp=CNSa3NcG&rs=AOn4CLCy2iuRLpQDvjp6xb_F2jSOfMS1Lg",
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/maxresdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLA5EZYa80czuTj_58rQ1laNuWBYyQ",
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/fhddefault.jpg?sqp=CNSa3NcG&rs=AOn4CLDEFpG-9rl-eUpa-eIqREWAuZLqKQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-13T13:15:45.974Z",
+        "scheduleRequestedAt": "2026-11-13T13:15:46.954Z",
+        "scheduleAt": "2026-11-19T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-13T13:15:50.452Z"
+      },
+      "platform": {
+        "id": "sa2okjtyLl4",
+        "url": "https://www.youtube.com/watch?v=sa2okjtyLl4",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-13T13:15:45.974Z"
       }
     },
     {
