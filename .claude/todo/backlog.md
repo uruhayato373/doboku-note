@@ -2759,6 +2759,16 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1175] 資格・記事種別ごとの分岐を lib の対応表へ寄せる
+タグ: [エージェント・SSOT] [領域:サイト] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の構成・SSOT 監査。`category === '資格 id'` の形の比較が `src/` に約 90 か所ある（検索の概数）。`src/lib/magazine-placement.ts` は 1,099 行で `startsWith('civil-construction-…')` が 7 か所、`src/lib/law-wiring.ts`・`src/components/ui/PastExamNav/exam-nav-utils.ts` に各 3 か所、`ArticleFooter.tsx` に 4 か所。`src/app/topics/[slug]/page.tsx:139` は記事種別のラベル（受験ガイド・テキスト・用語・過去問）を入れ子の三項演算子で直書きしている。`MagazineTopBanner.tsx` は 2級土木の記事ラベル 3 件を条件に直書きしている。日付整形は `MetaRow.tsx:17`・`LatestArticles.tsx:23` が `display-date.ts` を包むだけの同名関数を持つ。資格を足すたびに複数のファイルを直すことになる。`getRelatedTools` の if 連鎖は PR #1577 で対応表にした。
+
+**やること**: 分岐の多いファイルから、資格 id をキーにした対応表（設定か lib）へ移す。記事種別のラベルは `doc-classifier.ts` の読み口へ寄せる。包むだけの日付関数は消して直接 import する。資格別のレイアウトの違い（DN-1023 の対象）は残す。
+
+**完了条件**: 上に挙げたファイルの資格 id の比較が表の参照になり、表示が変更前と一致する。資格を 1 つ足すときに直すファイルが一覧で言える。
+
+
 ### [DN-1174] 過去問 JSON 3 種（総監・1級土木・2級土木）の形を 1 つにそろえる
 タグ: [エージェント・SSOT] [領域:サイト] [種類:改善] [起票:2026-11-13]
 
