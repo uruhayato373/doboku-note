@@ -214,8 +214,8 @@
     "rsg-kensetsu": {
       "label": "RSG建設転職（建設業界専門の転職支援）",
       "vertical": "civil-career",
-      "placement": "none",
-      "decision": "**afb で提携済み・A8 では未提携**。A8 側は ¥2,930 / EPC 0 で scout の閾値（0.35）未満だった。afb 側の単価・確定率は未取得。配置するかは afb 側の条件を確認してから。",
+      "placement": "active",
+      "decision": "**afb で提携済み・A8 では未提携**。A8 側は ¥2,930 / EPC 0 で scout の閾値（0.35）未満だった。afb 側の単価・確定率は未取得。配置するかは afb 側の条件を確認してから。 2026-11-13: 基準書の右の欄（章・節は 2 枠目、章以外は 3 枠目）に 300×250 で配置（運営者指示「基準書は建設系と第二新卒」）。",
       "asps": {
         "a8": {
           "programId": "s00000021947001",
@@ -234,7 +234,12 @@
           "category": "専門転職（その他）",
           "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。doboku-note で提携中。2026-07-27 実測。A8 は ¥2,930 / EPC 0 で scout 閾値未満だった。afb も同水準なので見送り判断は変わらない"
         }
-      }
+      },
+      "ctaLabels": [
+        "RsgKensetsu-sidebar",
+        "RsgKensetsu-endbanner",
+        "RSG建設転職"
+      ]
     },
     "sekokan-juken-taisaku": {
       "label": "施工管理技士 受験対策シリーズ",
@@ -661,8 +666,8 @@
     "dainishinsotsu-agent-neo": {
       "label": "第二新卒エージェントneo（第二新卒・既卒の就職・転職支援）",
       "vertical": "general-career",
-      "placement": "none",
-      "decision": "2026-11-13 提携済みを確認して台帳に追加（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。配置は未定。",
+      "placement": "active",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。配置は未定。 2026-11-13: 基準書の章以外のページの右の欄 2 枠目に 300×250 で配置（運営者指示「基準書は建設系と第二新卒」）。",
       "asps": {
         "a8": {
           "programId": "s00000018427001",
@@ -676,7 +681,12 @@
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "ctaLabels": [
+        "DainishinsotsuNeo-sidebar",
+        "DainishinsotsuNeo-endbanner",
+        "第二新卒エージェントneo"
+      ]
     },
     "onecareer-tenshoku": {
       "label": "ワンキャリア転職（次のキャリアが見える転職サービス）",

@@ -74,16 +74,16 @@ test('公的基準の章以外・トピック・ツールのページ末は Buil
   assert.equal(resolvePlacements({ pageKind: 'tool' }, NOW)['tool-end']?.program, 'buildjob');
 });
 
-test('基準書は 2026-11-12 に外し、11-13 から右の欄 3 枠（3 案件）と本文末に画像バナーを戻した（運営者指示）', async () => {
+test('基準書は 2026-11-12 に外し、11-13 から右の欄 3 枠（3 案件）と本文末に画像バナーを戻した（運営者指示。建設系と第二新卒に絞り DX・コンサルは出さない）', async () => {
   const { resolvePlacements } = await load();
   const removed = Date.parse('2026-11-12T12:00:00+09:00');
   const after = Date.parse('2026-11-14T12:00:00+09:00');
   assert.deepEqual(programs(resolvePlacements({ pageKind: 'standards' }, removed)), {});
   assert.deepEqual(programs(resolvePlacements({ pageKind: 'standards' }, after)), {
-    'standards-sidebar': 'buildjob', 'standards-sidebar-2': 'dx-consulting', 'standards-sidebar-3': 'kensetsu-jobs', 'standards-end': 'buildjob',
+    'standards-sidebar': 'buildjob', 'standards-sidebar-2': 'rsg-kensetsu', 'standards-sidebar-3': 'kensetsu-jobs', 'standards-end': 'buildjob',
   });
   assert.deepEqual(programs(resolvePlacements({ pageKind: 'standards-list' }, after)), {
-    'standards-list-sidebar': 'buildjob', 'standards-list-sidebar-2': 'dx-consulting', 'standards-list-sidebar-3': 'kensetsu-jobs', 'standards-list-end': 'buildjob',
+    'standards-list-sidebar': 'buildjob', 'standards-list-sidebar-2': 'dainishinsotsu-agent-neo', 'standards-list-sidebar-3': 'rsg-kensetsu', 'standards-list-end': 'buildjob',
   });
 });
 
