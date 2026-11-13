@@ -124,9 +124,11 @@ if (!all.length) { console.error('対象 0 件'); process.exit(2); }
   const pending = all.filter((row) => !pages[row.key]);
   if (pending.length) {
     const rows = await writeLedger(pending, config.ledgerRules);
-    for (const row of rows) pages[row.key] = { text: row.text, scene: row.scene };
-    config.pages[exam] = pages;
-    saveJson(configPath, config);
+    // Codex が台帳を書く間（数分）に別の処理が config を書くので、書く直前に読み直して、この資格の新しい行だけを足す（2026-11-13 に二次監査の記録を上書きした）
+    const fresh = readConfig();
+    fresh.pages[exam] ??= {};
+    for (const row of rows) if (!fresh.pages[exam][row.key]) fresh.pages[exam][row.key] = { text: row.text, scene: row.scene };
+    saveJson(configPath, fresh);
     console.log(`台帳 ${rows.length} / ${pending.length} 件`);
     if (rows.length !== pending.length) { console.error('台帳が書けなかった行がある'); process.exit(1); }
   }
