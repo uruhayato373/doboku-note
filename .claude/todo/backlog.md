@@ -2759,6 +2759,16 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1174] 過去問 JSON 3 種（総監・1級土木・2級土木）の形を 1 つにそろえる
+タグ: [エージェント・SSOT] [領域:サイト] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の構成・SSOT 監査。`src/config/exam-questions.json`・`civil-1-exam-questions.json`・`civil-2-exam-questions.json` はフィールド名が資格ごとに違う（`correct` と `correctNum`、`body` と `question`、`optionExplanations` と `explanations`。`src/lib/quiz/types.ts:2-5` に明記）。`scripts/build-quiz-data.mjs` が毎回共通形へ寄せて吸収している。3 ファイルで約 9.4MB あり、設定ではなくデータなのに `src/config/` にある。問題台帳 `data/pastexams/questions/` は別系統で型と refs を持つ。
+
+**やること**: 生成元のスクリプトが出す形を共通形に合わせ、`build-quiz-data.mjs` の正規化を薄くする。置き場を `data/` 側へ移すかは、サイトのバンドルが読む経路を確かめてから決める。資格を足すときに 4 つ目の形を作らない。
+
+**完了条件**: 3 ファイルが同じ欄の名前を持ち、型が 1 つで検査できる。演習ページの問題数と正答が変更前と一致する。
+
+
 ### [DN-1172] worktree の pre-commit でだけ check-affiliate-wiring が出す WARN 1 件の中身を確かめる
 タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
 
