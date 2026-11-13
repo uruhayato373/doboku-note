@@ -44,12 +44,14 @@ test('追加した技術士2資格で検索結果を絞り込める', async ({ p
 
 test('OGP派生画像の取得失敗時も原本画像へ戻る', async ({ page }) => {
   await page.route('**/ogp-thumb-*.webp', route => route.fulfill({ status: 404, body: '' }));
-  await page.goto('/exam/concrete-engineer');
-  const image = page.locator('#sec-guide img').first();
+  // 写真サムネイルのある資格のカードは OGP の派生を使わない（2026-11-13）。OGP の縮小を出し続ける総監（写真にしないと決めた）で確かめる
+  await page.goto('/exam/pe-comprehensive-management');
+  const card = page.locator('#sec-guide a[data-thumb="ogp"]').first();
+  const image = card.locator('img');
   await image.scrollIntoViewIfNeeded();
   await expect(image).toHaveAttribute('src', /\/ogp\.png$/);
   await expect(image).not.toHaveAttribute('srcset', /webp/);
-  await expect(page.locator('#sec-guide a').first()).toHaveAttribute('href', /^\/exam\/concrete-engineer\//);
+  await expect(card).toHaveAttribute('href', /^\/exam\/pe-comprehensive-management\//);
 });
 
 test('記事末から同じテーマ・同じ法令の他の資格・実務へ移動できる', async ({ page }) => {
