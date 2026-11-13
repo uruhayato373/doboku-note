@@ -1090,7 +1090,7 @@
       "work": "pe-hissu1-theme-junbi",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/scene-001",
@@ -1124,7 +1124,42 @@
         "contentSha256": "d036f1cb1c65abcc9bf11296fa3e4da88520b77079809e3b9af9dc1cabe9cfc7"
       },
       "times": {
-        "rendered": "2026-11-13T13:06:56.580Z"
+        "rendered": "2026-11-13T13:06:56.580Z",
+        "uploaded": "2026-11-13T13:09:47.996Z",
+        "scheduled": "2026-11-13T13:09:59.571Z"
+      },
+      "delivery": {
+        "inputSha256": "b0e1bfb588a0c076b20929cf6441aae884db8ededa8d23518236c1208be58bcd",
+        "marker": "dn-single-cebc307e6fd0db428e6e81a30d88ba206e2ee8d8",
+        "uploadRequestedAt": "2026-11-13T13:08:58.217Z",
+        "videoId": "C9D3ksRLEVE",
+        "processedAt": "2026-11-13T13:09:47.127Z",
+        "thumbnailRequestedAt": "2026-11-13T13:09:48.057Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/default.jpg?sqp=CPyV3NcG&rs=AOn4CLAvFKvT4Uaf5O2eT6bLYTai6peQKw",
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/mqdefault.jpg?sqp=CPyV3NcG&rs=AOn4CLBf4ctz6s0DfJxVn_QyHB34it0m5w",
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/hqdefault.jpg?sqp=CPyV3NcG&rs=AOn4CLBzjPwJpKjpUHAsXwm-CFGUd49Phg",
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/sddefault.jpg?sqp=CPyV3NcG&rs=AOn4CLA0iyMOgZwJutfwDHckqCTMnWSopg",
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/maxresdefault.jpg?sqp=CPyV3NcG&rs=AOn4CLB6eibwJHlHEURbnzEXEGVa1L7bkg",
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/fhddefault.jpg?sqp=CPyV3NcG&rs=AOn4CLCUx3ug4Gu_Xn_R2vK7c8vQpmCHnA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-13T13:09:51.502Z",
+        "scheduleRequestedAt": "2026-11-13T13:09:56.165Z",
+        "scheduleAt": "2026-11-17T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-13T13:09:59.571Z"
+      },
+      "platform": {
+        "id": "C9D3ksRLEVE",
+        "url": "https://www.youtube.com/watch?v=C9D3ksRLEVE",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-13T13:09:51.502Z"
       }
     },
     {
