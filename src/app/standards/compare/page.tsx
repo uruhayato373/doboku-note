@@ -4,6 +4,7 @@ import { GitCompare, ShieldCheck } from 'lucide-react';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
+import { StandardsEndBanner } from '@/components/standards/StandardsAffiliateBanners';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { buildPageMetadata } from '@/lib/metadata';
@@ -230,6 +231,7 @@ export default function StandardsComparePage() {
             </a>
           </div>
         </SectionCard>
+        <StandardsEndBanner pageKind="standards-list" />
       </SectionBlock>
     </PageShell>
   );

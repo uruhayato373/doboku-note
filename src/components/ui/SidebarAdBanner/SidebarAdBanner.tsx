@@ -13,6 +13,8 @@ interface SidebarAdBannerProps {
   readonly trackLabel?: string;
   /** GA4 の表示位置。category-mobile など呼び出し側で面を分離する。 */
   readonly placement?: string;
+  /** 登録済みの案件でも小型カードに替えず、支給の画像バナーのまま出す（基準書の面・2026-11-13 運営者指示） */
+  readonly forceImage?: boolean;
 }
 
 /**
@@ -36,8 +38,9 @@ export default function SidebarAdBanner({
   pixelSrc,
   trackLabel,
   placement = "sidebar",
+  forceImage = false,
 }: SidebarAdBannerProps) {
-  const experiment = programAssetForHref(href);
+  const experiment = forceImage ? null : programAssetForHref(href);
   if (experiment) return (
     <div className="not-prose">
       <CareerAffiliateExperiment card={experiment.asset.card()} program={experiment.program} trackLabel={trackLabel ?? experiment.asset.trackLabel} placement={placement} banner={experiment.asset.banner} textHref={experiment.asset.textHref} textPixelSrc={experiment.asset.textPixelSrc} pixelSrc={pixelSrc} />

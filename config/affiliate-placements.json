@@ -954,6 +954,118 @@
       },
       "experiment": "EXP-018",
       "note": "建築施工管理の読者は建築の施工管理・建築士で、建築に特化した建築転職（面談 ¥16,000）が合う。A8 には無く、もしもの素材（moshimo:4183:57940）。案件の勝敗は確定 3 件まで決めない（2026-10-30 運営者指示）"
+    },
+    {
+      "id": "PL-0056",
+      "program": "buildjob",
+      "slot": "standards-sidebar",
+      "target": {
+        "pageKind": "standards"
+      },
+      "period": {
+        "from": "2026-11-13T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "基準書（/standards）に画像バナーを戻す（2026-11-13 運営者指示「アフィリエイトのバナー画像をできるだけ多く」。11/12 に 28 日で約 760 表示・0 クリックで外した判断を取り消す）。支給の画像バナーをそのまま出す（小型カードにしない）。1 ページ・1 案件・1 ピクセル"
+    },
+    {
+      "id": "PL-0057",
+      "program": "dx-consulting",
+      "slot": "standards-sidebar-2",
+      "target": {
+        "pageKind": "standards"
+      },
+      "period": {
+        "from": "2026-11-13T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "基準書（/standards）に画像バナーを戻す（2026-11-13 運営者指示「アフィリエイトのバナー画像をできるだけ多く」。11/12 に 28 日で約 760 表示・0 クリックで外した判断を取り消す）。支給の画像バナーをそのまま出す（小型カードにしない）。1 ページ・1 案件・1 ピクセル"
+    },
+    {
+      "id": "PL-0058",
+      "program": "kensetsu-jobs",
+      "slot": "standards-sidebar-3",
+      "target": {
+        "pageKind": "standards"
+      },
+      "period": {
+        "from": "2026-11-13T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "基準書（/standards）に画像バナーを戻す（2026-11-13 運営者指示「アフィリエイトのバナー画像をできるだけ多く」。11/12 に 28 日で約 760 表示・0 クリックで外した判断を取り消す）。支給の画像バナーをそのまま出す（小型カードにしない）。1 ページ・1 案件・1 ピクセル"
+    },
+    {
+      "id": "PL-0059",
+      "program": "buildjob",
+      "slot": "standards-end",
+      "target": {
+        "pageKind": "standards"
+      },
+      "period": {
+        "from": "2026-11-13T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "基準書（/standards）に画像バナーを戻す（2026-11-13 運営者指示「アフィリエイトのバナー画像をできるだけ多く」。11/12 に 28 日で約 760 表示・0 クリックで外した判断を取り消す）。支給の画像バナーをそのまま出す（小型カードにしない）。1 ページ・1 案件・1 ピクセル"
+    },
+    {
+      "id": "PL-0060",
+      "program": "buildjob",
+      "slot": "standards-list-sidebar",
+      "target": {
+        "pageKind": "standards-list"
+      },
+      "period": {
+        "from": "2026-11-13T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "基準書（/standards）に画像バナーを戻す（2026-11-13 運営者指示「アフィリエイトのバナー画像をできるだけ多く」。11/12 に 28 日で約 760 表示・0 クリックで外した判断を取り消す）。支給の画像バナーをそのまま出す（小型カードにしない）。1 ページ・1 案件・1 ピクセル"
+    },
+    {
+      "id": "PL-0061",
+      "program": "dx-consulting",
+      "slot": "standards-list-sidebar-2",
+      "target": {
+        "pageKind": "standards-list"
+      },
+      "period": {
+        "from": "2026-11-13T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "基準書（/standards）に画像バナーを戻す（2026-11-13 運営者指示「アフィリエイトのバナー画像をできるだけ多く」。11/12 に 28 日で約 760 表示・0 クリックで外した判断を取り消す）。支給の画像バナーをそのまま出す（小型カードにしない）。1 ページ・1 案件・1 ピクセル"
+    },
+    {
+      "id": "PL-0062",
+      "program": "kensetsu-jobs",
+      "slot": "standards-list-sidebar-3",
+      "target": {
+        "pageKind": "standards-list"
+      },
+      "period": {
+        "from": "2026-11-13T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "基準書（/standards）に画像バナーを戻す（2026-11-13 運営者指示「アフィリエイトのバナー画像をできるだけ多く」。11/12 に 28 日で約 760 表示・0 クリックで外した判断を取り消す）。支給の画像バナーをそのまま出す（小型カードにしない）。1 ページ・1 案件・1 ピクセル"
+    },
+    {
+      "id": "PL-0063",
+      "program": "buildjob",
+      "slot": "standards-list-end",
+      "target": {
+        "pageKind": "standards-list"
+      },
+      "period": {
+        "from": "2026-11-13T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "基準書（/standards）に画像バナーを戻す（2026-11-13 運営者指示「アフィリエイトのバナー画像をできるだけ多く」。11/12 に 28 日で約 760 表示・0 クリックで外した判断を取り消す）。支給の画像バナーをそのまま出す（小型カードにしない）。1 ページ・1 案件・1 ピクセル"
     }
   ],
   "pairs": [

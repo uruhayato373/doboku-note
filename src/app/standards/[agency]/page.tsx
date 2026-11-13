@@ -6,6 +6,7 @@ import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
+import { StandardsEndBanner } from '@/components/standards/StandardsAffiliateBanners';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog } from '@/lib/standards';
 import { standardsAgencyPath } from '@/lib/route-paths';
@@ -89,6 +90,7 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsNavigation agencyId={agency} variant="mobile" />
         </div>
+        <StandardsEndBanner pageKind="standards-list" />
         {commonDoc ? <StandardsAttribution document={commonDoc} /> : <StandardsAttribution />}
       </TwoColumnShell>
     </PageShell>

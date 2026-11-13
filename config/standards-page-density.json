@@ -17,8 +17,8 @@
     "maxVisibleChars": 160
   },
   "affiliate": {
-    "description": "標準仕様書のページには転職アフィリエイトのカードを置かない。data-cta=affiliate の数と、下のホストへのリンクの数の合計の上限。",
-    "max": 0,
+    "description": "転職アフィリエイトの画像バナーの上限（2026-11-13 運営者指示でバナーを戻した。右の欄 3 枠＋本文末 1 枠＋モバイルだけの本文末 2 枠＝HTML 上 6 枚、1 枚につき data-cta=affiliate 1 件と下のホストへのリンク 1 件で 12）。data-cta=affiliate の数と、下のホストへのリンクの数の合計の上限。",
+    "max": 12,
     "hostPatterns": ["px.a8.net", "moshimo.com", "afi-b.com"]
   }
 }

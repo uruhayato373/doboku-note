@@ -20,6 +20,7 @@ import { generateHeadingId } from '@/lib/toc';
 import { standardsAgencyPath } from '@/lib/route-paths';
 import { getTopicsForStandardDocument } from '@/lib/topics';
 import { getStandardDefaultTopics } from '@/lib/standards-discovery';
+import { StandardsSidebarBanners } from '@/components/standards/StandardsAffiliateBanners';
 
 type StandardsNavigationProps = {
   agencyId: string;
@@ -392,6 +393,7 @@ export default function StandardsNavigation({
       </div>}
       {contents}
       {discovery}
+      <StandardsSidebarBanners pageKind={currentChapter ? 'standards' : 'standards-list'} />
     </div>
   );
 }

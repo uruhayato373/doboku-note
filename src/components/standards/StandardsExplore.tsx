@@ -50,7 +50,7 @@ export default function StandardsExplore() {
         <Link href="/standards/data" className={small}>基準本文のデータ</Link>
       </nav>
 
-      <QualificationBridge placement="standards-sidebar" layout="sidebar" />
+      <QualificationBridge placement="standards-bridge-sidebar" layout="sidebar" />
     </div>
   );
 }

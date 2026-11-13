@@ -60,17 +60,51 @@
     },
     "standards-end": {
       "label": "公的基準 章末",
-      "status": "retired",
-      "retiredAt": "2026-11-12",
+      "status": "active",
       "pageKind": "standards",
-      "pixelPriority": null
+      "pixelPriority": 2
+    },
+    "standards-sidebar": {
+      "label": "公的基準 章のサイドバー 1枠目",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 1
+    },
+    "standards-sidebar-2": {
+      "label": "公的基準 章のサイドバー 2枠目",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 3
+    },
+    "standards-sidebar-3": {
+      "label": "公的基準 章のサイドバー 3枠目",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 4
     },
     "standards-list-end": {
       "label": "公的基準 一覧・文書の末尾",
-      "status": "retired",
-      "retiredAt": "2026-11-12",
+      "status": "active",
       "pageKind": "standards-list",
-      "pixelPriority": null
+      "pixelPriority": 2
+    },
+    "standards-list-sidebar": {
+      "label": "公的基準 一覧・文書のサイドバー 1枠目",
+      "status": "active",
+      "pageKind": "standards-list",
+      "pixelPriority": 1
+    },
+    "standards-list-sidebar-2": {
+      "label": "公的基準 一覧・文書のサイドバー 2枠目",
+      "status": "active",
+      "pageKind": "standards-list",
+      "pixelPriority": 3
+    },
+    "standards-list-sidebar-3": {
+      "label": "公的基準 一覧・文書のサイドバー 3枠目",
+      "status": "active",
+      "pageKind": "standards-list",
+      "pixelPriority": 4
     },
     "topic-end": {
       "label": "トピック 末尾",

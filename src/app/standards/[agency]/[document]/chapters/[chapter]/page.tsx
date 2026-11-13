@@ -17,6 +17,7 @@ import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardReferenceLinks from '@/components/standards/StandardReferenceLinks';
 import StandardChapterPager from '@/components/standards/StandardChapterPager';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
+import { StandardsEndBanner } from '@/components/standards/StandardsAffiliateBanners';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
@@ -193,6 +194,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           <div className="mt-10">
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
+          <StandardsEndBanner pageKind="standards" />
           <StandardDataLinks document={entry} chapter={target} />
           <StandardsAttribution document={entry} item={target.item} />
         </SectionCard>

@@ -19,7 +19,7 @@ import {
 /**
  * 基準書ページの右の欄（モバイルは「資料内を移動」の中）に置く回遊の部品。
  * 何を出すかの判定は src/lib/standards-discovery.ts に集約し、ここは見た目だけ持つ。
- * クリックは MetaCard の trackNav（internal_nav_click）、資格の橋渡しは qualification-bridge（placement=standards-sidebar）で計る。
+ * クリックは MetaCard の trackNav（internal_nav_click）、資格の橋渡しは qualification-bridge（placement=standards-bridge-sidebar）で計る。
  */
 
 const LIST_LINK = 'focus-ring flex min-h-11 flex-col justify-center py-2 text-sm text-(--accent) hover:underline';
@@ -121,7 +121,7 @@ export function StandardChapterDiscovery({ document, chapter, withBridge }: { do
     <>
       <RelatedReading topics={topics} heading="この章を実務・試験で深める" />
       <RegionalVersions document={document} chapter={chapter} />
-      {withBridge && <QualificationBridge placement="standards-sidebar" layout="sidebar" />}
+      {withBridge && <QualificationBridge placement="standards-bridge-sidebar" layout="sidebar" />}
     </>
   );
 }
@@ -155,7 +155,7 @@ export function StandardTopicDiscovery({ topics, heading, withBridge }: { topics
   return (
     <>
       {topics.length > 0 && <RelatedReading topics={topics.slice(0, 2)} heading={heading} />}
-      {withBridge && <QualificationBridge placement="standards-sidebar" layout="sidebar" />}
+      {withBridge && <QualificationBridge placement="standards-bridge-sidebar" layout="sidebar" />}
     </>
   );
 }
