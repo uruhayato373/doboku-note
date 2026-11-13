@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { releaseQueue } from '../scripts/lib/youtube-daily-release.mjs';
+import { releaseQueue, shortRestoreArgs } from '../scripts/lib/youtube-daily-release.mjs';
 
 const NOW = Date.parse('2026-11-12T12:30:00Z'); // JST 21:30
 const lf = (work, extra = {}) => ({ id: `e/${work}/youtube.longform`, channel: 'youtube', format: 'longform', exam: 'e', work, status: 'qa_passed', media: { video: 'v' }, ...extra });
@@ -60,3 +60,9 @@ test('保留の作品は通常動画もショートも出さない', () => {
   assert.deepEqual(q.shorts, []);
 });
 
+
+test('予約の前に素材を戻すため、ショートの公開 ID から restore の pack と key を出す', () => {
+  assert.deepEqual(shortRestoreArgs('pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2'), { pack: 'pe-construction/toan-kousei-template', key: 'point-koukarisk-2' });
+  assert.throws(() => shortRestoreArgs('pe-construction/toan-kousei-template/youtube.longform'), /ショート/);
+  assert.throws(() => shortRestoreArgs('not-an-id'), /ショート/);
+});

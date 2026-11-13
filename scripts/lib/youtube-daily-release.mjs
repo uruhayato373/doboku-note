@@ -8,9 +8,17 @@
  *   （関連動画は親が公開されてから Studio で設定するので、毎晩の実行で設定してから予約できる間を空ける）
  * - 投稿（アップロード）は太平洋時間の 1 日の割当（maxUploadsPerDay）の範囲。通常動画を先に取り、残りをショートに回す
  */
+import { parsePubId } from './content-registry.mjs';
 import { liveParents } from './shorts-release.mjs';
 
 const VIDEO_ID = /^[\w-]{11}$/;
+
+/** ショートの公開 ID から shorts-factory restore の --pack・--key を出す。ショートでなければ投げる */
+export function shortRestoreArgs(pubId) {
+  const p = parsePubId(pubId);
+  if (!p || p.channel !== 'youtube' || p.format !== 'short' || !p.variant) throw new Error(`${pubId}: YouTube のショートの公開 ID ではない`);
+  return { pack: `${p.exam}/${p.work}`, key: p.variant };
+}
 
 /** ショートの公開を親の公開から何時間空けるか。毎晩の実行（親の 20:30 の公開の後）で関連動画を設定できる間 */
 export const SHORT_AFTER_PARENT_HOURS = 10;
