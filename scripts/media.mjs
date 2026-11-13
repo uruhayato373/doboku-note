@@ -35,6 +35,7 @@ import { readJson, readJsonIf } from './lib/json-io.mjs';
 import { voicevoxCredit } from './lib/voicevox-credit.mjs';
 import { verifyLongformRender } from './lib/longform-render-integrity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { aiProvenance as aiImageProvenance } from './lib/image-origin.mjs';
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
@@ -52,7 +53,7 @@ function longformSources(work, reg) {
   const integrity = manifest?.mp4 ? verifyLongformRender(join(ROOT, packDir), join(ROOT, render)) : null;
   const pop = readJsonIf(ROOT, `${packDir}/pop-image.json`);
   const generated = new Map((pop?.revisions?.[pop.activeBodyRevision]?.images ?? []).map(image => [image.sceneId, image]));
-  const aiProvenance = image => ({ kind: 'ai-generated', tool: 'codex', prompt: image.generation.prompt, promptSha256: createHash('sha256').update(image.generation.prompt).digest('hex'), generatedAt: image.generation.generatedAt ?? manifest.renderedAt });
+  const aiProvenance = image => aiImageProvenance({ prompt: image.generation.prompt, generatedAt: image.generation.generatedAt ?? manifest.renderedAt });
   const generatedCover = pop?.revisions?.[pop.activeCoverRevision];
   const originalCover = reg.media.find(m => m.id === `${work.exam}/${work.id}/youtube.longform/cover`)?.provenance;
   const coverProvenance = generatedCover?.generation?.tool === 'image_gen' ? aiProvenance(generatedCover)

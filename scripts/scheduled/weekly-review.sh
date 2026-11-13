@@ -53,7 +53,7 @@ if ! mkdir "$LOCK" 2>/dev/null; then
   if [ -f "$LOCK/pid" ] && kill -0 "$(cat "$LOCK/pid")" 2>/dev/null; then
     echo "[weekly-review] already running pid=$(cat "$LOCK/pid")" >> "$LOG_FILE"
     if [ -n "$(find "$LOCK" -maxdepth 0 -mmin +"$STUCK_MINUTES" 2>/dev/null)" ]; then
-      (cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-collect --title "土曜の収集が ${STUCK_MINUTES} 分を超えて動き続けている" --body "前の回（pid $(cat "$LOCK/pid")）が終わらず、この回は始められなかった。ログ: ~/Library/Logs/doboku-note/weekly-review.log") >> "$LOG_FILE" 2>&1 || true
+      (cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-collect --key saturday-mac-run --title "土曜の収集が ${STUCK_MINUTES} 分を超えて動き続けている" --body "前の回（pid $(cat "$LOCK/pid")）が終わらず、この回は始められなかった。ログ: ~/Library/Logs/doboku-note/weekly-review.log") >> "$LOG_FILE" 2>&1 || true
     fi
     exit 0
   fi
@@ -62,6 +62,10 @@ if ! mkdir "$LOCK" 2>/dev/null; then
   mkdir "$LOCK"
 fi
 echo "$$" > "$LOCK/pid"
+
+# 土曜の収集と GSC の記録層は同じ Mac の同じ回で動くので、片方が落ちると両方の見張りが赤くなりやすい。
+# 根本原因の鍵で 1 件の Issue にまとめる（DN-0935）。両方が合格した回だけ鍵の Issue を閉じる
+KEY=saturday-mac-run
 
 notify() { # channel title rc label
   local body
@@ -74,7 +78,7 @@ notify() { # channel title rc label
     tail -30 "$LOG_FILE" | sed 's/[[:cntrl:]]//g'
     echo '```'
   } > "$body"
-  (cd "$REPO" && node scripts/report-automation-failure.mjs --channel "$1" --title "$2" --body-file "$body") >> "$LOG_FILE" 2>&1 || echo "[weekly-review] failure notification also failed ($1)" >> "$LOG_FILE"
+  (cd "$REPO" && node scripts/report-automation-failure.mjs --channel "$1" --key "$KEY" --title "$2" --body-file "$body") >> "$LOG_FILE" 2>&1 || echo "[weekly-review] failure notification also failed ($1)" >> "$LOG_FILE"
   rm -f "$body"
 }
 
@@ -87,6 +91,9 @@ finish() {
   [ "$rc" -eq 0 ] || [ "$collect_rc" -ne 0 ] || [ "$gsc_rc" -ne 0 ] || collect_rc=$rc
   if [ "$collect_rc" -eq 0 ]; then
     (cd "$REPO" && node scripts/report-automation-failure.mjs --resolve --channel weekly-collect --body "復旧: $week の土曜の収集（前・後）が合格") >> "$LOG_FILE" 2>&1 || true
+    if [ "$gsc_rc" -eq 0 ]; then
+      (cd "$REPO" && node scripts/report-automation-failure.mjs --resolve --channel weekly-collect --key "$KEY" --body "復旧: $week の土曜の収集と GSC の記録層がどちらも合格") >> "$LOG_FILE" 2>&1 || true
+    fi
   else
     echo "=== $(date -Iseconds) [weekly-collect] FAILED rc=$collect_rc ===" >> "$LOG_FILE"
     notify weekly-collect "土曜の収集（ログインが要る取得と書き込み）が完了しませんでした" "$collect_rc" "土曜の収集"

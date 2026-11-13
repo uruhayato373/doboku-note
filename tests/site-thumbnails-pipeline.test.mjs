@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { checkLedger, claudeQueue, loadLedger, recordKey, recordVerdicts, similarScenes, similarity, stalePages, textWidth } from '../scripts/lib/site-thumbnails-pipeline.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
+import { contrastWithWhite, hamming, metricViolations, nearDuplicates } from '../scripts/lib/site-thumbnail-metrics.mjs';
 
 const review = { sampleRate: 0, similarScene: 0.6, riskWords: ['クレーン'] };
 
@@ -64,6 +65,62 @@ test('公開の台帳: 全ページの版が AI 台帳の sha と一致し、判
     const entry = ledger.figures[recordKey(exam, key)];
     assert.equal(entry?.sha?.slice(0, 8), page.version, `${exam}/${key} の版が台帳と違う`);
     assert.equal(entry?.verdict, 'ok', `${exam}/${key} が未判定か不合格`);
-    assert.equal(entry?.styleVersion, config.styleVersion, `${exam}/${key} の画風の版が古い`);
+    // 画風の版が古い絵は、作り直すまで表示してよい（版上げのたびに全ページを一度に消さない）。作り直しの対象は stalePages が拾う
+    assert.ok(Number.isInteger(entry?.styleVersion) && entry.styleVersion <= config.styleVersion, `${exam}/${key} の画風の版が無いか、正本より新しい`);
   }
+});
+
+// ---- 規格と機械の検査（config の spec・2026-11-13） ----
+
+const thumbsConfig = () => JSON.parse(readFileSync(join(REPO_ROOT, 'config/site-thumbnails.json'), 'utf8'));
+/** 生の寸法を残し始めた時刻。これより前の写真（2級土木・土木実務の一部）は rawSize が unrecorded でよい */
+const RAW_SIZE_SINCE = '2026-11-13T08:00:00Z';
+
+test('metricViolations: 横長でない生の出力・明るい面・平均輝度を止める', () => {
+  const { spec } = thumbsConfig();
+  const ok = { rawSize: '1536x1024', metrics: { mean: 120, bright: 0.1, dhash: '0'.repeat(16) } };
+  assert.deepEqual(metricViolations(ok, spec), []);
+  assert.match(metricViolations({ ...ok, rawSize: '1024x1024' }, spec).join(), /横長でない/);
+  assert.match(metricViolations({ ...ok, metrics: { ...ok.metrics, bright: 0.45 } }, spec).join(), /明るい面/);
+  assert.match(metricViolations({ ...ok, metrics: { ...ok.metrics, mean: 30 } }, spec).join(), /暗すぎる/);
+  assert.match(metricViolations({ rawSize: '1536x1024' }, spec).join(), /測定の記録が無い/);
+});
+
+test('nearDuplicates: dHash の距離が閾値以下の組を拾う', () => {
+  assert.equal(hamming('ffffffffffffffff', 'fffffffffffffff0'), 4);
+  assert.deepEqual(nearDuplicates([{ key: 'a', dhash: 'ffffffffffffffff' }, { key: 'b', dhash: 'fffffffffffffff0' }, { key: 'c', dhash: '0000000000000000' }], 6), [['a', 'b']]);
+});
+
+test('claudeQueue: 似た画像の組は二次監査へ回す', () => {
+  const rows = [{ key: 'a', scene: 'x' }, { key: 'b', scene: 'y' }];
+  const reviewed = [{ key: 'a', verdict: 'ok' }, { key: 'b', verdict: 'ok' }];
+  assert.deepEqual(claudeQueue(rows, reviewed, [], review, [['a', 'b']]).map((row) => row.reasons), [['near-image'], ['near-image']]);
+});
+
+test('帯: 資格の色と共通の色はすべて白文字のコントラスト比が規格以上', () => {
+  const { spec } = thumbsConfig();
+  const tokens = JSON.parse(readFileSync(join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8')).exams;
+  const colors = Object.entries(tokens).filter(([, v]) => v && typeof v === 'object' && v.base);
+  assert.ok(colors.length > 0, '検査 0 件');
+  for (const [key, v] of colors) assert.ok(contrastWithWhite(v.base) >= spec.bandContrastMin, `${key} ${v.base} は ${contrastWithWhite(v.base).toFixed(2)}`);
+});
+
+test('公開の台帳: 帯の文字は幅の上限以内で、新しい画風の写真は機械の検査の記録が規格に合う', () => {
+  const config = thumbsConfig();
+  const ledger = loadLedger(REPO_ROOT);
+  let texts = 0;
+  let measured = 0;
+  for (const [exam, pages] of Object.entries(config.pages)) {
+    for (const [key, page] of Object.entries(pages)) {
+      texts += 1;
+      assert.ok(textWidth(page.text) <= config.spec.bandTextMaxWidth, `${exam}/${key} の帯の文字が長い: ${page.text}`);
+      const entry = ledger.figures[recordKey(exam, key)];
+      if (!page.version || !(entry?.styleVersion >= 3)) continue;
+      measured += 1;
+      const rawSize = entry.rawSize === 'unrecorded' && entry.generatedAt < RAW_SIZE_SINCE ? '1536x1024' : entry.rawSize;
+      assert.deepEqual(metricViolations({ ...entry, rawSize }, config.spec), [], `${exam}/${key}`);
+    }
+  }
+  assert.ok(texts > 0, '検査 0 件');
+  console.log(`帯の文字 ${texts} 件 / 機械の検査の記録 ${measured} 件`);
 });

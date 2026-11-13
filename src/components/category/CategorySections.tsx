@@ -334,7 +334,7 @@ export function OgpThumbRow({ doc, rank, eager = false, headingLevel: Heading = 
   const thumbnail = getSiteThumbnail(doc);
   return (
     <li className="border-b border-(--rule-soft) last:border-b-0">
-      <Link href={getPublicDocPath(doc.slug)} className="focus-ring group flex gap-3 sm:gap-4 py-4">
+      <Link href={getPublicDocPath(doc.slug)} data-thumb={thumbnail ? 'photo' : 'ogp'} className="focus-ring group flex gap-3 sm:gap-4 py-4">
         {/* self-start 必須: 親 flex の align-items:stretch がサムネをテキスト列の高さに
             引き伸ばし aspect-1200/630 を無効化する（縦伸び事故の根治・2026-07-15）。 */}
         <div className="relative aspect-1200/630 w-[124px] sm:w-[168px] shrink-0 self-start overflow-hidden border border-(--rule-soft) bg-(--bg)">
@@ -378,7 +378,7 @@ export function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; 
       ) : layout === 'pe-construction-exam-table' ? (
         <PeConstructionExamTable docs={group.docs} />
       ) : layout === 'ogp-rows' ? (
-        <ul className="flex flex-col">
+        <ul className="flex flex-col" data-cta="nav" data-cta-label="category-rows">
           {group.docs.map(doc => (
             <OgpThumbRow key={doc.slug} doc={doc} />
           ))}

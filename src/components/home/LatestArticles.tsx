@@ -4,6 +4,7 @@ import { ArrowRight, Hash } from "lucide-react";
 import { getPublicDocPath } from '@/lib/content-routes';
 import { formatDotDate } from "@/lib/display-date";
 import { WIDE_CONTAINER } from '@/components/layout/container';
+import type { CardImage } from '@/lib/site-thumbnail';
 
 export interface LatestArticle {
   slug: string;
@@ -12,7 +13,7 @@ export interface LatestArticle {
   categoryLabel?: string | undefined;
   date?: string | undefined;
   tags?: string[] | undefined;
-  image?: string | undefined;
+  image?: CardImage | undefined;
 }
 
 interface LatestArticlesProps {
@@ -24,7 +25,7 @@ const formatDate = (iso?: string): string | null => formatDotDate(iso);
 export default function LatestArticles({ articles }: LatestArticlesProps) {
   if (!articles || articles.length === 0) return null;
   return (
-    <section id="latest" className={`scroll-mt-24 ${WIDE_CONTAINER} py-8 sm:py-10`}>
+    <section id="latest" className={`scroll-mt-24 ${WIDE_CONTAINER} py-8 sm:py-10`} data-cta="nav" data-cta-label="home-latest">
       <div className="flex items-end justify-between mb-6 sm:mb-8 gap-4">
         <div>
           <h2 className="font-serif text-2xl sm:text-3xl font-black text-(--ink)">最新の記事</h2>
@@ -38,13 +39,14 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
             <Link
               key={a.slug}
               href={getPublicDocPath(a.slug)}
+              data-thumb={a.image?.band ? 'photo' : 'ogp'}
               className="focus-ring card-surface-section group flex overflow-hidden transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
             >
               {/* サムネ（記事別 OGP＝1200:630・資格別テーマ色＋タグ焼き込み。RelatedArticleCard と同系統）。
                   資格別写真プール（guide-covers）は猫/場違い画像の混入により 2026-07-07 に廃止し OGP へ一本化。 */}
               <div className="relative aspect-1200/630 w-[128px] shrink-0 self-start overflow-hidden bg-(--accent-fill) sm:w-[188px] md:w-[204px]">
                 {a.image && (
-                  <ContentThumbnail src={a.image} sizes="(max-width: 640px) 128px, (max-width: 768px) 188px, 204px" />
+                  <ContentThumbnail src={a.image.src} band={a.image.band} sizes="(max-width: 640px) 128px, (max-width: 768px) 188px, 204px" />
                 )}
               </div>
               <div className="min-w-0 p-4 sm:p-5">

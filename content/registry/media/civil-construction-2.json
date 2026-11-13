@@ -3372,7 +3372,7 @@
         "by": "render-longform",
         "spec": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi/storyboard.json",
         "specSha256": "19ec8629ddace616bc477983b5004e49e36f11952626d4d0579ae17be5cc3135",
-        "renderInputSha256": "a54acb875f23cf75348ac776e9fd11d3ce98b1d4b56d71f3f0fd737a479d195d",
+        "renderInputSha256": "68fbca3d41ad374605e55abdf33826ba0095d9a4af00cde425cc365e2de8f7ab",
         "tts": {
           "engine": "VOICEVOX",
           "speaker": 13,
@@ -3380,10 +3380,10 @@
         },
         "reanchored": {
           "reason": "cover-only",
-          "commit": "4142e02ad289f271348877cd1b68180dc5a69f39",
-          "specSha256": "95aff55e39593608df7b85edd794c2838ce503931ec2b1d98d771363c7905329",
-          "renderInputSha256": "02fb46c0f8524e03a008f073c45ec6284dc0ee94b941da64a11f88e4fa41cb88",
-          "at": "2026-11-12T03:39:33.485Z"
+          "commit": "9a71f2f13bb30f41769dcad70beb18ebfc7b93c4",
+          "specSha256": "19ec8629ddace616bc477983b5004e49e36f11952626d4d0579ae17be5cc3135",
+          "renderInputSha256": "a54acb875f23cf75348ac776e9fd11d3ce98b1d4b56d71f3f0fd737a479d195d",
+          "at": "2026-11-12T22:30:11.559Z"
         }
       },
       "durationSec": 127.157

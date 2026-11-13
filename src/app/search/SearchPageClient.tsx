@@ -1,5 +1,7 @@
 "use client";
 
+import type { CardImage } from "@/lib/site-thumbnail";
+
 import { useEffect } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useSearch } from "@/hooks/useSearch";
@@ -12,7 +14,7 @@ import { getAllCategories, type CategoryDef } from "@/lib/categories";
 import { type ExamData } from "@/components/home/ExamCards";
 
 interface SearchPageClientProps {
-  images: Record<string, string>;
+  images: Record<string, CardImage>;
   examCards: ExamData[];
   otherCategories: CategoryDef[];
   popular: PopularLink[];

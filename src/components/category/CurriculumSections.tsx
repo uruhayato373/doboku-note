@@ -72,7 +72,7 @@ function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode 
 function ChapterRows({ block, numbered, thumbnails, previewFirst = false }: { block: CurriculumBlockView; numbered: boolean; thumbnails: boolean; previewFirst?: boolean }) {
   if (thumbnails) {
     return (
-      <ul>
+      <ul data-cta="nav" data-cta-label="curriculum-thumbs">
         {[...(block.intro ?? []), ...block.docs].map(doc => (
           <OgpThumbRow key={doc.slug} doc={doc} headingLevel={block.label ? 'h4' : 'h3'} />
         ))}

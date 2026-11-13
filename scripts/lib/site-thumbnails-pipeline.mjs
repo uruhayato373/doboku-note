@@ -51,9 +51,10 @@ const fraction = (key) => parseInt(createHash('sha256').update(key).digest('hex'
  * Claude が見る対象を決める。理由を持つ行だけを返す。
  * reviewed: [{ key, verdict, reason }]（Codex の判定） / rows: [{ key, scene }]
  */
-export function claudeQueue(rows, reviewed, similarPairs, review) {
+export function claudeQueue(rows, reviewed, similarPairs, review, nearPairs = []) {
   const verdicts = new Map(reviewed.map((row) => [row.key, row]));
   const similar = new Set(similarPairs.flat());
+  const near = new Set(nearPairs.flat());
   const queue = [];
   for (const row of rows) {
     const reasons = [];
@@ -62,6 +63,7 @@ export function claudeQueue(rows, reviewed, similarPairs, review) {
     else if (codex.verdict !== 'ok') reasons.push(`codex:${codex.verdict}`);
     if (review.riskWords.some((word) => row.scene.includes(word))) reasons.push('risk');
     if (similar.has(row.key)) reasons.push('similar-scene');
+    if (near.has(row.key)) reasons.push('near-image');
     if (fraction(row.key) < review.sampleRate) reasons.push('sample');
     if (reasons.length) queue.push({ ...row, reasons, codexReason: codex?.reason ?? '' });
   }

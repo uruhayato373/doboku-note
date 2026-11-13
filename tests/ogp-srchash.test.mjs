@@ -35,3 +35,10 @@ test('OGP の表示入力が変わればハッシュも変わる', () => {
   assert.notEqual(computeOgpSrcHash({ ...base, ogp: { ...base.ogp, title: '別タイトル' } }), before);
   assert.notEqual(computeOgpSrcHash({ ...base, ogp: { ...base.ogp, subtitle: '別の副題' } }), before);
 });
+
+test('背景に敷くページ写真の版が変われば、ハッシュも変わる（写真 OGP・2026-11-13）', () => {
+  const before = computeOgpSrcHash(base, { photoVersion: 'aaaa1111' });
+  assert.notEqual(computeOgpSrcHash(base, { photoVersion: 'bbbb2222' }), before);
+  assert.notEqual(computeOgpSrcHash(base), before);
+  assert.equal(computeOgpSrcHash(base, { photoVersion: 'aaaa1111' }), before);
+});

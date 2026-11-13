@@ -13,6 +13,7 @@
 //                                                                                   # R2 にしか無いものを vault へ。既に vault にある同一 sha256 は採用（adopt）
 //   node scripts/drive-vault-sync.mjs --group X --verify [--deep] [--cloud] --out .tmp/x-ok.txt
 //   node scripts/drive-vault-sync.mjs --group X --verify --deep --cloud --commit   # 3 者が一致した行に Drive のファイル ID（driveFileId）と verifiedAt を書く
+//   node scripts/drive-vault-sync.mjs --group X --verify --deep --cloud --commit --paths-file <一覧>  # 一覧（1 行 1 パス）の行だけを照合する（採用表紙だけなど・DN-1038）
 //                                                                                   # local ↔ 台帳 ↔ vault（--cloud で Drive API の md5 も）
 //   node scripts/drive-vault-sync.mjs --pull --path 'content/note/技術士総監/x/pdf/' --dry-run # 取り戻す件数と合計サイズ（--commit なしの既定）
 //   node scripts/drive-vault-sync.mjs --pull --path 'content/note/技術士総監/x/pdf/' --commit  # vault → repo
@@ -26,7 +27,7 @@
 // 設定: config/drive-vault.json / 台帳: .claude/state/assets/drive-manifest.json
 
 import { execFileSync, spawnSync } from 'node:child_process';
-import { createReadStream, createWriteStream, existsSync, mkdirSync, readdirSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
+import { createReadStream, createWriteStream, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import { setTimeout as sleep } from 'node:timers/promises';
@@ -44,6 +45,7 @@ const val = (n, d = null) => { const i = argv.indexOf(n); return i >= 0 && argv[
 
 const GROUP_ID = val('--group');
 const PATH_PREFIX = val('--path');
+const PATHS_FILE = val('--paths-file');
 const COMMIT = flag('--commit');
 const FROM_R2 = flag('--from-r2');
 const FROM_VAULT = flag('--from-vault');
@@ -384,6 +386,10 @@ async function verify(cfg, group, mount, manifest) {
   let entries = Object.entries(manifest.entries || {});
   if (group) entries = entries.filter(([, e]) => e.group === group.id);
   if (PATH_PREFIX) entries = entries.filter(([k]) => k.startsWith(toVaultRel(PATH_PREFIX)));
+  if (PATHS_FILE) {
+    const listed = new Set(readFileSync(PATHS_FILE, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean));
+    entries = entries.filter(([k]) => listed.has(k));
+  }
   if (entries.length === 0) die('台帳に該当エントリが 0 件（台帳全体 ' + Object.keys(manifest.entries || {}).length + ' 件）。検査不成立。');
   if (!mount.root) die('vault のマウントが無いので照合できない（「異常なし」ではない）。' + mount.reason);
 

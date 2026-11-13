@@ -157,7 +157,8 @@ test('SNS の再開状況に合わせたゲートだけを CI で実行する', 
   // YouTubeの商品導線とInstagram固定投稿のプロフィール導線を検査する。X は 2026-11-12 に再開し、月次計画と台帳の 2 本を戻した（DN-1159）。
   const SNS = /^(x-|instagram-|youtube-|video-|sns-landing|registry-due|content-registry)/;
   // registry-due は予約の照合の停止を見る運用アラート（ops・ci:false・DN-1070）
-  assert.deepEqual(CHECKS.filter((c) => SNS.test(c.id)).map((c) => c.id), ['x-campaign-plan', 'content-registry', 'youtube-shorts', 'youtube-funnels', 'youtube-covers', 'youtube-covers-live', 'youtube-plan', 'video-content', 'youtube-plan-due', 'registry-due', 'instagram-profile-funnel']);
+  // youtube-cover-handoff は採用表紙の Drive の読み戻しの欠けを 0 にして ci に戻した（DN-1038・2026-11-13）
+  assert.deepEqual(CHECKS.filter((c) => SNS.test(c.id)).map((c) => c.id), ['x-campaign-plan', 'content-registry', 'youtube-shorts', 'youtube-funnels', 'youtube-cover-handoff', 'youtube-covers', 'youtube-covers-live', 'youtube-plan', 'video-content', 'youtube-plan-due', 'registry-due', 'instagram-profile-funnel']);
   assert.equal(CHECKS.find((c) => c.id === 'registry-due').ci, false, '壁時計に依存するので CI のゲートにしない');
   const snsUrls = CHECKS.find((c) => c.id === 'sns-urls');
   assert.deepEqual(snsUrls.steps.map((s) => s.label), ['sns-urls-mdx', 'sns-urls-note'], 'sns-urls はサイトの MDX と note のリンクだけを見る');

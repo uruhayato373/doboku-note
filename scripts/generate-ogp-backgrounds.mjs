@@ -28,6 +28,7 @@ import { datasetDir } from './lib/datasets.mjs';
 import { generateWithCodex } from './lib/codex-image.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
+import { loadImageRules } from './lib/image-rules.mjs';
 
 const require = createRequire(import.meta.url);
 const BACKGROUNDS_DIR = path.join(ROOT, datasetDir('config.ogp-backgrounds'));
@@ -35,15 +36,11 @@ const coverTokens = require(path.join(ROOT, '.claude/knowledge/design-system/not
 
 const W = 1200, H = 630;
 
-// 資格ごとの背景モチーフ（テーマ色は note-cover-tokens.json の base を参照）。
-const EXAMS = [
-  { key: 'pe-comprehensive', motif: '俯瞰的なマネジメント／5つの管理を象徴する幾何的な格子と等高線' },
-  { key: 'civil-1',          motif: '土木構造物の輪郭線・施工現場の図面的なライン' },
-  { key: 'civil-2',          motif: '造成・基礎工事を思わせる地形のレイヤー' },
-  { key: 'concrete-chief',   motif: 'コンクリート配合・骨材の抽象テクスチャ' },
-  { key: 'concrete-diagnosis', motif: '構造物の劣化診断・断面のグラフィカルな抽象' },
-  { key: 'pe-construction',  motif: '橋梁・河川・道路インフラの俯瞰的な抽象ライン' },
-];
+// 資格ごとの背景モチーフと指示は config/image-generation.json の prompts.ogpBackground（DN-1014・コードに指示文を書かない）。
+// テーマ色は note-cover-tokens.json の base。モチーフの無い資格は背景を持たず、ogp-create はオフホワイトの地に戻す
+// （2026-11-13 からページ写真のある記事は photo-scrim を使うので、この背景は写真の無いページの mono-tag だけが使う）。
+const OGP_BACKGROUND = loadImageRules(ROOT).prompts.ogpBackground;
+const EXAMS = OGP_BACKGROUND.motifs.map(({ palette, motif }) => ({ key: palette, motif }));
 
 function parseArgs(argv) {
   const a = parseCliArgs({ all: { type: 'boolean' }, force: { type: 'boolean' }, 'dry-run': { type: 'boolean' }, exam: { type: 'string' }, model: { type: 'string' } }, argv);
@@ -52,17 +49,8 @@ function parseArgs(argv) {
 }
 
 function buildPrompt(exam) {
-  const color = coverTokens.exams?.[exam.key]?.base || '#1e3a8a';
-  const label = coverExamNames(exam.key)?.label || exam.key;
-  return [
-    `An abstract, professional background image for a blog OGP card about "${label}" (a Japanese civil-engineering certification).`,
-    `Motif: ${exam.motif}.`,
-    `CRITICAL — the overall field must be LIGHT, pale and high-key: like a faint technical blueprint printed on near-white / off-white paper. Dark title text will be placed on top, so it must stay bright and airy.`,
-    `Use the accent color ${color} ONLY for thin line work and subtle geometric motifs — NEVER as a background fill. No dark areas, no saturated color blocks, no heavy shading.`,
-    `Style: calm, minimal, very low-contrast, soft. Keep the left-center area especially quiet and almost empty (title text sits there); place the faint motif toward the upper-right.`,
-    `Absolutely NO text, NO letters, NO numbers, NO logos, NO watermarks, NO people, NO photographs of real signage.`,
-    `Wide 16:9 landscape, flat vector-like illustration, high resolution.`,
-  ].join(' ');
+  const values = { color: coverTokens.exams?.[exam.key]?.base || '#1e3a8a', label: coverExamNames(exam.key)?.label || exam.key, motif: exam.motif };
+  return OGP_BACKGROUND.lines.map((line) => line.replace(/\{(color|label|motif)\}/g, (_, k) => values[k])).join(' ');
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

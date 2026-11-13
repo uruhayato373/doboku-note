@@ -22,13 +22,17 @@ import sharp from 'sharp';
 import { askCodexAboutImages } from './lib/codex-image.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { checkLedger, claudeQueue, loadLedger, recordKey, recordVerdicts, saveLedger, similarScenes, stalePages } from './lib/site-thumbnails-pipeline.mjs';
+import { nearDuplicates } from './lib/site-thumbnail-metrics.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const { values: args } = parseArgs({ options: { exam: { type: 'string' }, label: { type: 'string' }, model: { type: 'string' }, 'fix-fails': { type: 'boolean' }, record: { type: 'string' } } });
 const exam = args.exam;
 if (!exam) throw new Error('--exam が要る');
+if (JSON.parse(readFileSync(join(ROOT, datasetPath('config.site-thumbnails')), 'utf8')).excluded?.some((row) => row.qualification === exam)) { console.error(`${exam} は写真にしないと決めた資格（config の excluded）`); process.exit(1); }
 const configPath = join(ROOT, datasetPath('config.site-thumbnails'));
 const imagePath = (key) => join(ROOT, 'content/site', exam, key, readConfig().imageFile);
+/** 監査に見せる画像は原寸（OGP と同じ 1.91:1）。カード用の縮小では細部が潰れる */
+const photoPath = (key) => join(ROOT, 'content/site', exam, key, readConfig().photoFile);
 const work = join(ROOT, '.tmp/site-thumbs', exam);
 mkdirSync(join(work, 'png'), { recursive: true });
 const readConfig = () => JSON.parse(readFileSync(configPath, 'utf8'));
@@ -67,15 +71,32 @@ async function writeLedger(rows, rules) {
 }
 
 if (args.record) {
-  const reviewed = JSON.parse(readFileSync(join(work, 'codex-review.json'), 'utf8'));
-  const claude = JSON.parse(readFileSync(args.record, 'utf8'));
+  // 判定は、確認リストを作ったときの版と今の版が同じ写真にだけ書く（作り直した写真に前の判定を書かない）
+  const current = readConfig().pages[exam];
+  const queued = new Map(JSON.parse(readFileSync(join(work, 'claude-queue.json'), 'utf8')).map((row) => [row.key, row.version]));
+  const sameVersion = (row) => row.version && current[row.key]?.version === row.version;
+  const reviewed = JSON.parse(readFileSync(join(work, 'codex-review.json'), 'utf8')).filter(sameVersion);
+  const given = JSON.parse(readFileSync(args.record, 'utf8')).filter((row) => !row.exam || row.exam === exam);
+  const claude = given.filter((row) => sameVersion({ key: row.key, version: queued.get(row.key) }));
+  if (claude.length !== given.length) console.log(`版が変わっていて書かない判定 ${given.length - claude.length} 件（確認リストを作り直して判定し直す）`);
   const seen = new Set(claude.map((row) => row.key));
   const ledger = loadLedger(ROOT);
   const now = new Date().toISOString();
   recordVerdicts(ledger, exam, claude, 'codex+ai-image-fidelity-auditor', now);
   recordVerdicts(ledger, exam, reviewed.filter((row) => !seen.has(row.key) && row.verdict === 'ok' && ledger.figures[recordKey(exam, row.key)]?.verdict == null), 'codex', now);
   saveLedger(ROOT, ledger);
-  console.log(`記録: 二次 ${claude.length} 件`);
+  // 二次監査の不合格は、指摘を題材へ足して版を外し、次の実行で作り直す（--fix-fails の Claude 版）
+  const fails = claude.filter((row) => row.verdict === 'fail');
+  if (fails.length) {
+    const config = readConfig();
+    for (const row of fails) {
+      const page = config.pages[exam][row.key];
+      page.scene = `${page.scene.split(' 前回の問題:')[0]} 前回の問題: ${row.reason}。これを避ける。`;
+      delete page.version;
+    }
+    saveJson(configPath, config);
+  }
+  console.log(`記録: 二次 ${claude.length} 件（不合格 ${fails.length} 件は作り直しの対象にした）`);
   process.exit(0);
 }
 
@@ -103,9 +124,11 @@ if (!all.length) { console.error('対象 0 件'); process.exit(2); }
   const pending = all.filter((row) => !pages[row.key]);
   if (pending.length) {
     const rows = await writeLedger(pending, config.ledgerRules);
-    for (const row of rows) pages[row.key] = { text: row.text, scene: row.scene };
-    config.pages[exam] = pages;
-    saveJson(configPath, config);
+    // Codex が台帳を書く間（数分）に別の処理が config を書くので、書く直前に読み直して、この資格の新しい行だけを足す（2026-11-13 に二次監査の記録を上書きした）
+    const fresh = readConfig();
+    fresh.pages[exam] ??= {};
+    for (const row of rows) if (!fresh.pages[exam][row.key]) fresh.pages[exam][row.key] = { text: row.text, scene: row.scene };
+    saveJson(configPath, fresh);
     console.log(`台帳 ${rows.length} / ${pending.length} 件`);
     if (rows.length !== pending.length) { console.error('台帳が書けなかった行がある'); process.exit(1); }
   }
@@ -131,35 +154,56 @@ for (const row of rows) {
   digests.set(digest, row.key);
 }
 const similarPairs = similarScenes(rows, config.review.similarScene);
-console.log(`機械検査: ${rows.length} 件 / 同一の画像 ${sameImages.length} 組 / 似た題材 ${similarPairs.length} 組`);
+// 寸法と容量（spec）。原寸とカード用が規格どおりか
+const sizeErrors = [];
+for (const row of rows) {
+  for (const [file, want] of [[config.photoFile, config.spec.photo], [config.imageFile, config.spec.card]]) {
+    const path = join(ROOT, 'content/site', exam, row.key, file);
+    if (!existsSync(path)) { sizeErrors.push(`${row.key}/${file}: 無い`); continue; }
+    const meta = await sharp(path).metadata();
+    const kb = readFileSync(path).length / 1024;
+    if (meta.width !== want.width || meta.height !== want.height || kb > want.maxKB) sizeErrors.push(`${row.key}/${file}: ${meta.width}×${meta.height}・${Math.round(kb)}KB`);
+  }
+}
+// 似た画像（dHash）。同じ資格の中だけでなく、台帳にある全資格の写真と比べる
+const ledgerNow = loadLedger(ROOT);
+const hashes = Object.entries(ledgerNow.figures).filter(([id, entry]) => id.startsWith('site-thumb:') && entry.metrics?.dhash)
+  .map(([id, entry]) => ({ key: id.slice('site-thumb:'.length), dhash: entry.metrics.dhash }));
+const nearPairs = nearDuplicates(hashes, config.spec.nearDuplicateMaxDistance)
+  .filter((pair) => pair.some((id) => id.startsWith(`${exam}/`)))
+  .map((pair) => pair.map((id) => (id.startsWith(`${exam}/`) ? id.slice(exam.length + 1) : id)));
+console.log(`機械検査: ${rows.length} 件 / 同一の画像 ${sameImages.length} 組 / 似た題材 ${similarPairs.length} 組 / 似た画像 ${nearPairs.length} 組 / 寸法・容量の違反 ${sizeErrors.length} 件`);
 if (sameImages.length) { console.error(`同一の画像: ${JSON.stringify(sameImages)}`); process.exit(1); }
+if (sizeErrors.length) { console.error(`寸法・容量の違反（generate-site-thumbnails --rederive で作り直す）: ${sizeErrors.slice(0, 10).join(' / ')}`); process.exit(1); }
 
 // 4. 一次監査
 const ledger = loadLedger(ROOT);
 const unreviewed = rows.filter((row) => ledger.figures[recordKey(exam, row.key)]?.verdict == null);
 const reviewPath = join(work, 'codex-review.json');
 const known = existsSync(reviewPath) ? JSON.parse(readFileSync(reviewPath, 'utf8')) : [];
-const reviewed = new Map(known.map((row) => [row.key, row]));
+// 一次監査の結果は版（写真の sha）ごとに持つ。作り直した写真に、前の写真の判定を流用しない（2026-11-13 に流用が起きた）
+const versionOf = new Map(rows.map((row) => [row.key, row.version]));
+const reviewed = new Map(known.filter((row) => row.version && row.version === versionOf.get(row.key)).map((row) => [row.key, row]));
 const todo = unreviewed.filter((row) => !reviewed.has(row.key));
 if (todo.length) {
   const input = await Promise.all(todo.map(async (row) => {
     const image = join(work, 'png', `${row.key}.png`);
-    await sharp(imagePath(row.key)).png().toFile(image);
+    await sharp(photoPath(row.key)).png().toFile(image);
     return { key: row.key, image, text: row.text, scene: row.scene, title: row.title };
   }));
   const inputPath = join(work, 'codex-input.json');
   const outPath = join(work, 'codex-out.json');
   saveJson(inputPath, input);
   spawnSync(process.execPath, [join(ROOT, 'scripts/review-site-thumbnails.mjs'), '--input', inputPath, '--out', outPath], { stdio: 'inherit' });
-  for (const row of existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) : []) reviewed.set(row.key, row);
+  for (const row of existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) : []) reviewed.set(row.key, { ...row, version: versionOf.get(row.key) });
   saveJson(reviewPath, [...reviewed.values()]);
 }
 
 // 5. Claude の確認リスト
-const target = unreviewed.map((row) => ({ key: row.key, image: join(work, 'png', `${row.key}.png`), text: row.text, scene: row.scene, title: row.title, subtitle: row.subtitle, group: row.group }));
-const queue = claudeQueue(target, [...reviewed.values()], similarPairs, config.review);
+const target = unreviewed.map((row) => ({ key: row.key, version: row.version, image: join(work, 'png', `${row.key}.png`), text: row.text, scene: row.scene, title: row.title, subtitle: row.subtitle, group: row.group }));
+const queue = claudeQueue(target, [...reviewed.values()], similarPairs, config.review, nearPairs);
 saveJson(join(work, 'claude-queue.json'), queue);
 const missing = target.filter((row) => !reviewed.has(row.key)).length;
 const count = (reason) => queue.filter((row) => row.reasons.some((item) => item.startsWith(reason))).length;
-console.log(`一次監査 ${target.length - missing} / ${target.length} 件 / Claude の確認 ${queue.length} 件（Codex ${count('codex')}・高リスク ${count('risk')}・似た題材 ${count('similar')}・抜き取り ${count('sample')}）`);
+console.log(`一次監査 ${target.length - missing} / ${target.length} 件 / Claude の確認 ${queue.length} 件（Codex ${count('codex')}・高リスク ${count('risk')}・似た題材 ${count('similar')}・似た画像 ${count('near')}・抜き取り ${count('sample')}）`);
 process.exit(missing ? 2 : 0);

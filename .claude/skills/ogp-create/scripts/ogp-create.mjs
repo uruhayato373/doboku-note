@@ -98,12 +98,13 @@ function deriveTitleParts(rawTitle, examLabel, typeLabel) {
   return { main: segs[0], sub: segs.slice(1).join(' ') };
 }
 
-import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
+import { renderTemplate, LAYOUT_CONSTANTS, PHOTO_TITLE_WIDTH } from './lib/ogp-templates.mjs';
 import { CATEGORY_TO_EXAM_KEY } from './lib/category-exam-key.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
 import { REPO_ROOT as PROJECT_ROOT, SITE_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
 import { datasetDir, datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { requireLocalAsset } from '../../../../scripts/lib/asset-storage.mjs';
+import { availablePhotoVersion, pagePhotoPath } from '../../../../scripts/lib/site-photo.mjs';
 import { listFiles } from '../../../../scripts/lib/fs-walk.mjs';
 import { parseCliArgs } from '../../../../scripts/lib/cli-args.mjs';
 import { siteSlugFromParts } from '../../../../src/lib/site-slug.mjs';
@@ -238,6 +239,17 @@ function resolveBackgroundImage(category) {
   return null;
 }
 
+// ページ別の写真（site-photo.webp）を JPEG の data URL にする（satori は webp を読めない）。
+// 写真の版が台帳に無いページは null＝photo-scrim を使わず mono-tag へ戻す。版があるのに手元に無ければ
+// requireLocalAsset が止める（CI は ogp-supply.yml が asset-hydrate で取り戻す）。
+async function resolvePagePhoto(category, localSlug) {
+  if (!category || !localSlug || !availablePhotoVersion(category, localSlug)) return null;
+  const abs = requireLocalAsset(pagePhotoPath(category, localSlug));
+  if (!abs) return null;
+  const jpeg = await sharp(abs).resize(1200, 630, { fit: 'cover' }).jpeg({ quality: 86 }).toBuffer();
+  return `data:image/jpeg;base64,${jpeg.toString('base64')}`;
+}
+
 // ---- 単一ページの生成処理 ----
 
 async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
@@ -253,7 +265,10 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     return;
   }
 
-  const templateId = resolveTemplate(data, args.template);
+  let templateId = resolveTemplate(data, args.template);
+  const localSlug = data.category && fullSlug.startsWith(`${data.category}-`) ? fullSlug.slice(data.category.length + 1) : null;
+  const photoImage = templateId === 'photo-scrim' && !args.debugWrap && !args.dryRun ? await resolvePagePhoto(data.category, localSlug) : null;
+  if (templateId === 'photo-scrim' && !args.debugWrap && !args.dryRun && !photoImage) templateId = 'mono-tag';
   const templateDef = templatesConfig.templates[templateId];
   if (!templateDef) {
     console.error(`[error] 未知のテンプレ ${templateId} (${fullSlug})`);
@@ -294,7 +309,7 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
 
   const categoryLabel = categories.find(c => c.slug === data.category)?.label || '';
   // 資格別共有背景を優先し、無ければテンプレ定義の静的背景にフォールバック。
-  const backgroundImage = resolveBackgroundImage(data.category) || loadBackgroundImage(templateDef);
+  const backgroundImage = templateId === 'photo-scrim' ? null : (resolveBackgroundImage(data.category) || loadBackgroundImage(templateDef));
   const accentColor = resolveAccentColor(data.category);
   const contentType = resolveContentType(data.group, data.category);
 
@@ -324,7 +339,9 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     const SUB_WRAP_CFG = { ...textConfig, breakAt: [], breakBefore: [], charCountFallback: subCharMax };
     subLines = sub ? await wrapTitle(sub, SUB_WRAP_CFG) : [];
   }
-  const mainFont = pickFontSize(mainLines, { fontSizeTable: MAIN_FONT_TABLE, safetyWidth: SAFE_W });
+  // photo-scrim は文字を左 72% に収める（右側は写真を見せる）
+  const titleWidth = templateId === 'photo-scrim' ? PHOTO_TITLE_WIDTH : SAFE_W;
+  const mainFont = pickFontSize(mainLines, { fontSizeTable: MAIN_FONT_TABLE, safetyWidth: titleWidth });
 
   const element = renderTemplate(templateId, {
     // ライト（既定・写真前面 / note カバー fallback）用。
@@ -344,6 +361,7 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     mainFont,
     // 執筆者資格クレジット（既定=表示。frontmatter ogp.credential: false で個別抑止）
     credential: data.ogp?.credential,
+    photoImage,
     debugSafety: args.debugSafety,
   });
 

@@ -22,6 +22,9 @@ export function examPalette(exam, root = REPO_ROOT) {
 export const usesDiagramLed = (exam, root = REPO_ROOT) => loadImageRules(root).diagramLedExams.includes(exam);
 
 const USES_CODEX = /from\s+['"][^'"]*codex-image\.mjs['"]/;
+// codex-image.mjs を通さずに codex を直接起動する書き方（spawn('codex', …)・execSync('codex exec …') など・DN-1015）。
+// 直接起動すると生成の入口・来歴・後片付け・起動失敗の区別（DN-0991）を素通りする。
+const DIRECT_CODEX = /\b(?:spawn|spawnSync|execFile|execFileSync|exec|execSync)\s*\(\s*['"`]codex(?:\.cmd|\.exe)?(?:['"`]|\s)/;
 const IDENTITY_WORDS = /黒縁眼鏡|黄白の反射帯/u;
 
 /** コードの一覧と経路の台帳を照らす。呼び出し元の数と違反を返す */
@@ -35,6 +38,7 @@ export function routeViolations(files, read, routes, exists) {
       callers += 1;
       if (!entries.has(file)) errors.push(`${file}: routes に無い経路が Codex を使っている`);
     }
+    if (DIRECT_CODEX.test(text)) errors.push(`${file}: codex を直接起動している。scripts/lib/codex-image.mjs の関数を使う`);
     if (IDENTITY_WORDS.test(text)) errors.push(`${file}: 先生の特徴は共通ルールの設定から読む`);
   }
   return { callers, errors };

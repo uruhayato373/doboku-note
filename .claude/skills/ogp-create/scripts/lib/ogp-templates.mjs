@@ -1488,8 +1488,106 @@ function renderNoteCoverCropSafeV4({ cover, palette, magazine, visualSrc, debugS
 
 // ---- ディスパッチ ----
 
+
+// ---- テンプレート: photo-scrim（2026-11-13・ページ別の写真 OGP）----
+//
+// 背景はそのページの写真（site-photo.webp・Codex 生成・1200×630）を端まで敷く。OGP は表示する側の画面の
+// 明暗を選べないので、白や透明の縁を作らず、文字の下に暗いグラデーションを重ねて白文字を載せる
+// （明暗のどちらの画面でも、写真の上の白文字として同じに見える）。資格は kicker の色と下端の帯で示す。
+// レイアウトは renderMonoTagDark の階層（資格名 kicker・主題・サブ・ドメイン）を流用する。
+// 設計: docs/operations/画像運用設計.md §3。
+/** photo-scrim の文字の幅（左 72%）。ogp-create の字の大きさの算出と check-ogp-title-fit が同じ値を使う */
+export const PHOTO_TITLE_WIDTH = 864;
+
+function renderPhotoScrim({ examLabel, mainLines, subLines, mainFont, contentType, accentColor, photoImage, credential: credentialProp }, { width, height }) {
+  const safeL = 64;
+  const contentTop = 70;
+  const contentBottom = 96;
+  const innerW = Math.round(PHOTO_TITLE_WIDTH * (width / DEFAULT_WIDTH));
+  const contentH = height - contentTop - contentBottom;
+  const accent = accentColor || C_INK_NAVY;
+  const accentLight = lightenHex(accent, 0.55);
+  const titleWhite = '#ffffff';
+  const subColor = 'rgba(255, 255, 255, 0.82)';
+  const shadow = '0 2px 10px rgba(0, 0, 0, 0.55)';
+  const font = '"Noto Sans JP", Inter, sans-serif';
+
+  const LH = 1.28;
+  const lines = mainLines && mainLines.length ? mainLines : [''];
+  const subs = subLines || [];
+  let mFont = mainFont || 72;
+  const subFont = Math.max(26, Math.round(mFont * 0.44));
+  const KICKER = 60;
+  const subBlockH = subs.length ? 12 + subs.length * subFont * 1.3 : 0;
+  const fitsV = (mf) => KICKER + lines.length * mf * LH + subBlockH;
+  while (mFont > 40 && fitsV(mFont) > contentH) mFont -= 2;
+  let mLines = lines;
+  const maxLines = Math.max(1, Math.floor((contentH - KICKER - subBlockH) / (mFont * LH)));
+  if (mLines.length > maxLines) {
+    mLines = mLines.slice(0, maxLines);
+    mLines[maxLines - 1] = mLines[maxLines - 1].replace(/[\s、。・　]+$/u, '') + '…';
+  }
+
+  const kicker = { type: 'div', props: { style: { display: 'flex', fontSize: '40px', fontWeight: 800, letterSpacing: '0.5px', color: accentLight, textShadow: shadow, fontFamily: font }, children: examLabel || '' } };
+  const badge = contentType
+    ? {
+        type: 'div',
+        props: {
+          style: { display: 'flex', alignItems: 'center', marginLeft: '20px', padding: '8px 20px 8px 14px', borderRadius: '999px', border: `2px solid ${accentLight}`, background: 'rgba(0,0,0,0.35)', fontFamily: font },
+          children: [
+            g2IconImg(contentType.icon, accentLight, 24, 2.4),
+            { type: 'div', props: { style: { display: 'flex', marginLeft: '8px', fontSize: '24px', fontWeight: 700, color: accentLight }, children: contentType.label } },
+          ],
+        },
+      }
+    : null;
+  const topRow = { type: 'div', props: { style: { display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '16px' }, children: [kicker, badge].filter(Boolean) } };
+  const mainEl = {
+    type: 'div',
+    props: {
+      style: { display: 'flex', flexDirection: 'column', fontFamily: font },
+      children: mLines.map((l) => ({ type: 'div', props: { style: { display: 'flex', fontSize: `${mFont}px`, fontWeight: 800, lineHeight: LH, color: titleWhite, letterSpacing: '-0.5px', textShadow: shadow }, children: l } })),
+    },
+  };
+  const subEl = subs.length
+    ? { type: 'div', props: { style: { display: 'flex', flexDirection: 'column', marginTop: '12px', fontFamily: font }, children: subs.map((l) => ({ type: 'div', props: { style: { display: 'flex', fontSize: `${subFont}px`, fontWeight: 700, lineHeight: 1.3, color: subColor, textShadow: shadow }, children: l } })) } }
+    : null;
+  const centerBlock = { type: 'div', props: { style: { display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }, children: [mainEl, subEl].filter(Boolean) } };
+  const credential = credentialProp === false ? null : (typeof credentialProp === 'string' ? credentialProp : AUTHOR_CREDENTIAL_OGP);
+  const footer = {
+    type: 'div',
+    props: {
+      style: { position: 'absolute', left: `${safeL}px`, right: `${safeL}px`, bottom: '36px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', fontFamily: font, textShadow: shadow },
+      children: [
+        { type: 'div', props: { style: { display: 'flex', fontSize: '22px', fontWeight: 700, letterSpacing: '1px', color: 'rgba(255,255,255,0.85)' }, children: SITE_DOMAIN } },
+        ...(credential ? [{ type: 'div', props: { style: { display: 'flex', fontSize: '20px', fontWeight: 700, color: 'rgba(255,255,255,0.78)' }, children: credential } }] : []),
+      ],
+    },
+  };
+  const layers = [
+    ...(photoImage ? [{ type: 'img', props: { src: photoImage, width, height, style: { position: 'absolute', left: 0, top: 0, width: `${width}px`, height: `${height}px`, objectFit: 'cover' } } }] : []),
+    // 全面を少し暗くし（写真の明るさの差を均す）、左から右へ文字側を濃くする
+    { type: 'div', props: { style: { position: 'absolute', left: 0, top: 0, width: `${width}px`, height: `${height}px`, display: 'flex', background: 'rgba(6, 10, 20, 0.28)' } } },
+    { type: 'div', props: { style: { position: 'absolute', left: 0, top: 0, width: `${width}px`, height: `${height}px`, display: 'flex', backgroundImage: 'linear-gradient(90deg, rgba(6,10,20,0.86) 0%, rgba(6,10,20,0.72) 45%, rgba(6,10,20,0.18) 85%, rgba(6,10,20,0.05) 100%)' } } },
+    { type: 'div', props: { style: { position: 'absolute', left: 0, bottom: 0, width: `${width}px`, height: '160px', display: 'flex', backgroundImage: 'linear-gradient(180deg, rgba(6,10,20,0) 0%, rgba(6,10,20,0.6) 100%)' } } },
+    { type: 'div', props: { style: { position: 'absolute', left: 0, bottom: 0, width: `${width}px`, height: '12px', display: 'flex', background: accent } } },
+  ];
+  return {
+    type: 'div',
+    props: {
+      style: { width: `${width}px`, height: `${height}px`, display: 'flex', position: 'relative', background: '#1a2233', fontFamily: font },
+      children: [
+        ...layers,
+        { type: 'div', props: { style: { position: 'absolute', left: `${safeL}px`, top: `${contentTop}px`, width: `${innerW}px`, height: `${contentH}px`, display: 'flex', flexDirection: 'column' }, children: [topRow, centerBlock] } },
+        footer,
+      ],
+    },
+  };
+}
+
 const renderers = {
   'mono-tag': renderMonoTag,
+  'photo-scrim': renderPhotoScrim,
   'magazine-banner': renderMagazineBanner,
   'note-cover-g2': renderNoteCoverG2,
 };

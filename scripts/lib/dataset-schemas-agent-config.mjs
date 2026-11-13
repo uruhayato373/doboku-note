@@ -29,6 +29,10 @@ const BacklogVocabBaseline = z
   .object({ _doc: note('説明'), _updatedAt: day, _source: text, categories: z.record(text, intCount) })
   .strict();
 
+const UnreachableCliBaseline = z
+  .object({ _doc: note('説明'), unreachable: z.array(text).describe('どこからも呼ばれない CLI の既知の一覧（check-unreachable-cli）') })
+  .strict();
+
 const CemEssayStructure = z
   .object({ _doc: note('説明'), _rule: text, pastExamOnlyPersonas: z.record(text, text) })
   .strict();
@@ -221,6 +225,7 @@ export const AGENT_CONFIG_SCHEMAS = {
   'cem-essay-structure.json': CemEssayStructure,
   'cem-textbook-mapping.json': CemTextbookMapping,
   'code-ratchet-baseline.json': CodeRatchetBaseline,
+  'unreachable-cli-baseline.json': UnreachableCliBaseline,
   'content-taxonomy-baseline.json': ContentTaxonomyBaseline,
   'gate-parity-baseline.json': GateParityBaseline,
   'information-architecture.json': InformationArchitecture,
