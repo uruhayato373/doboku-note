@@ -6,7 +6,8 @@ test('全11機関（地方 10＋本省）を選択し、共通仕様書一覧へ
   const agencies = page.locator('#agencies');
   await expect(agencies).toBeVisible();
   await expect(agencies.locator('a[data-cta-label="standards-agency"]')).toHaveCount(11);
-  await agencies.getByRole('link', { name: /中部地方整備局/ }).click();
+  // 機関の一覧の行（standards-agency）を押す。同じ枠に「中部地方整備局 土木工事特記仕様書」への文書のリンクも並ぶので、名前の部分一致では 2 件に当たる（2026-11-13）
+  await agencies.locator('a[data-cta-label="standards-agency"]').filter({ hasText: '中部地方整備局' }).click();
 
   await expect(page).toHaveURL(/\/standards\/chubu$/);
   await expect(page.getByRole('heading', { level: 1, name: /^中部地方整備局 土木工事共通仕様書/ })).toBeVisible();
