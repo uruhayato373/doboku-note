@@ -913,6 +913,7 @@ export const ConfigSiteThumbnails = z
       brightLevel: z.number().int().min(0).max(255).describe('明るい面と数える画素の輝度（0-255）'),
       brightMaxRatio: z.number().min(0).max(1).describe('明るい面の割合の上限（ダークモードで浮かない）'),
       meanLuminance: z.tuple([z.number().min(0).max(255), z.number().min(0).max(255)]).describe('平均輝度の範囲（暗すぎ・明るすぎを止める）'),
+      bottomStripMinStd: z.number().min(0).describe('写真の下端 15% の明暗のばらつきの下限。下回れば黒や無地の帯が描き込まれている'),
       nearDuplicateMaxDistance: z.number().int().min(0).max(64).describe('dHash（64 ビット）の距離がこれ以下なら似た画像として二次監査へ回す'),
       bandOverlapRatio: z.number().min(0).max(0.5).describe('カードで下端に帯が重なる割合'),
       bandTextMaxWidth: z.number().positive().describe('帯の文字の幅の上限（全角 1・半角 0.5）'),

@@ -19,7 +19,14 @@ export async function imageMetrics(buffer, { brightLevel }) {
   for (let y = 0; y < 8; y += 1) {
     for (let x = 0; x < 8; x += 1) bits = (bits << 1n) | (small[y * 9 + x] > small[y * 9 + x + 1] ? 1n : 0n);
   }
+  // 下端（カードの帯が重なる 15%）の明暗のばらつき。生成が黒や無地の帯を描き込むと 5 未満になる（地面や路面は 10 以上）
+  const strip = await sharp(buffer).resize(240, 126, { fit: 'fill' }).extract({ left: 0, top: 107, width: 240, height: 19 }).greyscale().raw().toBuffer();
+  let s1 = 0;
+  let s2 = 0;
+  for (const v of strip) { s1 += v; s2 += v * v; }
+  const stripMean = s1 / strip.length;
   return {
+    bottomStd: Math.round(Math.sqrt(Math.max(0, s2 / strip.length - stripMean * stripMean)) * 10) / 10,
     mean: Math.round((sum / grey.length) * 10) / 10,
     bright: Math.round((bright / grey.length) * 1000) / 1000,
     dhash: bits.toString(16).padStart(16, '0'),
@@ -56,6 +63,7 @@ export function metricViolations({ rawSize, metrics }, spec) {
   if (metrics.bright > spec.brightMaxRatio) out.push(`明るい面が ${Math.round(metrics.bright * 100)}%（上限 ${Math.round(spec.brightMaxRatio * 100)}%）`);
   if (metrics.mean < spec.meanLuminance[0]) out.push(`暗すぎる（平均輝度 ${metrics.mean}）`);
   if (metrics.mean > spec.meanLuminance[1]) out.push(`明るすぎる（平均輝度 ${metrics.mean}）`);
+  if (metrics.bottomStd != null && metrics.bottomStd < spec.bottomStripMinStd) out.push(`下端に黒や無地の帯が描き込まれている（ばらつき ${metrics.bottomStd}）`);
   return out;
 }
 
