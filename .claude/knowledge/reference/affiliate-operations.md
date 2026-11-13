@@ -141,7 +141,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 | `unavailable` | その ASP に案件自体が無い |
 | `unknown` | **未確認（調べていない）。`none` と区別する** |
 
-**広告素材の一覧（`creatives`・2026-11-13〜）**: 案件ごとに、ASP の「広告リンク作成」（A8）・「原稿取得」（もしも）から写した素材を持つ（`asp`・`materialId`・`kind`＝banner/text・`width`・`height`・`href`・`imageSrc`・`pixelSrc`、写した日は `creativesCollectedAt`）。面ごとにどのサイズを使うかはここから選ぶ。使わない素材は `avoid` に理由を書く（「No.1」表示・訴求が読み手に合わない）。型が止めること: A8 のバナーは画像 URL が `wid=002`（doboku-note）であること（広告リンク作成の掲載サイトの既定が stats47 で、そのまま写すと成果が別サイトに付く）、提携済み（approved）の ASP の素材だけ、素材の重複、バナーのサイズの欠け。
+**広告素材の一覧（`creatives`・2026-11-13〜）**: 案件ごとに、ASP の「広告リンク作成」（A8）・「原稿取得」（もしも）から写した素材を持つ（`asp`・`materialId`・`kind`＝banner/text・`width`・`height`・`href`・`imageSrc`・`pixelSrc`、写した日は `creativesCollectedAt`）。面ごとにどのサイズを使うかはここから選ぶ（面のサイズの決まりは `config/cta-placements.json` の `sizes`＝PC・スマホ別・先頭ほど優先。選び方は `src/lib/affiliate-creative-pick.mjs`＝サイズ順・同じサイズは a8 → moshimo・スマホは PC と同じ ASP を優先、サイトは `src/lib/affiliate-slot-creatives.ts` で引く。2026-11-13 は基準書の面だけ。ほかの面は従来どおり `affiliate-creatives.ts` の 300×250）。使わない素材は `avoid` に理由を書く（「No.1」表示・訴求が読み手に合わない）。型が止めること: A8 のバナーは画像 URL が `wid=002`（doboku-note）であること（広告リンク作成の掲載サイトの既定が stats47 で、そのまま写すと成果が別サイトに付く）、提携済み（approved）の ASP の素材だけ、素材の重複、バナーのサイズの欠け。
 
 `data/a8/catalog.json`（143 件・A8 scout の状態機械）とは**マージしない**。あちらは「A8 で何を見つけ何を申請したか」、こちらは「自社がどの案件をどの ASP で運用するか」。
 
