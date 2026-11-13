@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { existsSync } from 'node:fs';
-import { GATES, UNIT_TEST_RULES, failureLines, gateEnv, planGates, unitTestsFor } from '../scripts/pre-commit-ci-gates.mjs';
+import { GATES, GATE_CONCURRENCY, UNIT_TEST_RULES, failureLines, gateEnv, planGates, runPlan, unitTestsFor } from '../scripts/pre-commit-ci-gates.mjs';
 import { STEPS } from '../scripts/lib/pre-commit-steps.mjs';
 import { CHECKS } from '../scripts/quality-audit.mjs';
 
@@ -153,4 +153,29 @@ test('content/sns の文書を stage したら素材の参照（check-media-refe
   assert.ok(!ids(['content/sns/x/y.png']).includes('media-references'), '走査対象は json・md・txt だけ');
   assert.ok(!ids(['content/site/a/b/article.mdx']).includes('media-references'));
   assert.deepEqual(GATES.find((g) => g.id === 'media-references').cmd([]), ['node', 'scripts/check-media-references.mjs']);
+});
+
+test('runPlan: 検査を並行で回し、結果は計画の順に返す（直列だと記事 1 本の commit で所要時間が足し算になる・DN-1141）', async () => {
+  const plan = ['a', 'b', 'c', 'd', 'e', 'f'].map((id) => ({ id }));
+  let running = 0;
+  let peak = 0;
+  // 先に始めた検査ほど遅く終わるようにして、終わった順が計画の順と逆になる形で確かめる
+  const exec = async (gate) => {
+    running += 1;
+    peak = Math.max(peak, running);
+    await new Promise((r) => setTimeout(r, 30 - plan.indexOf(gate) * 4));
+    running -= 1;
+    return { status: gate.id === 'c' ? 1 : 0, out: gate.id };
+  };
+  const results = await runPlan(plan, { exec, concurrency: 3 });
+  assert.deepEqual(results.map((r) => r.out), ['a', 'b', 'c', 'd', 'e', 'f'], '結果が計画の順でない');
+  assert.deepEqual(results.map((r) => r.status), [0, 0, 1, 0, 0, 0], '失敗した検査の位置がずれている');
+  assert.equal(peak, 3, '同時に走る数が上限と違う');
+  assert.deepEqual(await runPlan([], { exec }), [], '検査 0 本でも終わる');
+  // 起動が投げた検査は失敗として数える（ほかの検査は最後まで回る）
+  const thrown = await runPlan(plan.slice(0, 2), { exec: async (gate) => { if (gate.id === 'a') throw new Error('spawn ENOENT'); return { status: 0, out: '' }; } });
+  assert.equal(thrown[0].status, 1);
+  assert.match(thrown[0].out, /spawn ENOENT/);
+  assert.equal(thrown[1].status, 0);
+  assert.ok(GATE_CONCURRENCY >= 1 && GATE_CONCURRENCY <= 4);
 });

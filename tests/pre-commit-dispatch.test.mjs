@@ -4,7 +4,7 @@
 // 旧フックは「どの staged パスで・どの検査を・どの引数で・どの順に・どの失敗で止めるか」を `node scripts/x.mjs` の行と
 // `if … grep` で持っていた。LEGACY はそれを写した表（2026-10-12 の旧フックから機械で抜き、条件を手で付けた）。
 // 各検査を偽物（exec）に差し替えて、呼ばれる検査と引数の列が LEGACY から導いた期待と一致することを見る。
-// 旧フックより**狭くした所は GATE_INPUTS に並べた検査だけ**。全量を走査する 2 本（GATED）と、入力が content/site だけの 5 本
+// 旧フックより**狭くした所は GATE_INPUTS に並べた検査だけ**。全量を走査する 3 本（GATED）と、入力が content/site だけの 5 本
 // （SITE_GATED・DN-1126）で、staged の変更がその入力に当たらないと飛ばす。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -91,7 +91,8 @@ const LEGACY = [
   ['scripts/check-figure-embed-dims.mjs', ['--staged'], 'always'],
   ['scripts/check-bold-rendering.mjs', ['--staged'], 'always'],
   ['scripts/check-table-rendering.mjs', ['--staged'], 'always'],
-  ['scripts/check-kindle-epub-leak.mjs', ['--bom-only'], 'always'],
+  // 旧フックは --bom-only だけで全 MDX を読んでいた。commit 時は staged の .mdx だけを読む（DN-1141）
+  ['scripts/check-kindle-epub-leak.mjs', ['--bom-only', '--staged'], 'always'],
   ['scripts/check-note-site-utm.mjs', ['--staged'], 'always'],
   ['scripts/check-x-utm.mjs', ['--staged'], 'always'],
   ['scripts/check-ig-cover.mjs', ['--staged'], 'always'],
@@ -100,12 +101,16 @@ const LEGACY = [
 ];
 
 /** 全量を走査する検査のうち、旧フックより狭くしたもの（staged の変更が入力に当たらないと飛ばす） */
-const GATED = new Set(['scripts/check-datasets.mjs', 'scripts/check-qualification-ssot.mjs']);
+const GATED = new Set(['scripts/check-datasets.mjs', 'scripts/check-qualification-ssot.mjs', 'scripts/check-exam-calendar.mjs']);
+/** check-exam-calendar が禁止パターンを走査する置き場（検査の SCAN_ROOTS と同じ並びをテスト側で独立に持つ） */
+const EXAM_CALENDAR_ROOTS = ['content/sns/x/draft/', 'docs/strategy/', 'docs/editorial/', 'docs/marketing/', 'docs/operations/', 'docs/products/', 'content/note/1級・2級土木/', '.claude/agents/', '.claude/skills/', '.claude/todo/', 'src/config/', 'src/lib/', 'content/site/concrete-chief-engineer/', 'content/site/concrete-engineer/', 'content/site/concrete-diagnostician/'];
 
 /** 2 検査の入力（テスト側で独立に持つ。steps の宣言とずれたら下のテストが落ちる） */
 const GATE_INPUTS = {
   'scripts/check-datasets.mjs': { prefixes: ['config/', 'data/', '.claude/', 'scripts/', 'tools/', 'src/', '.github/workflows/', 'content/registry/'], files: ['package.json'], fileSet: true },
   'scripts/check-qualification-ssot.mjs': { prefixes: ['config/', '.claude/config/', '.claude/knowledge/', 'src/', 'scripts/', '.claude/scripts/', 'tools/admin-app/src/'], files: [], fileSet: false },
+  // 走査する置き場・試験日の正本と資格の台帳（config/）・検査と部品（scripts/）。台帳と除外が指すパスの実在は追加・削除で変わる（DN-1141）
+  'scripts/check-exam-calendar.mjs': { prefixes: [...EXAM_CALENDAR_ROOTS, 'config/', 'scripts/'], files: [], fileSet: true },
   'scripts/check-published-vs-redirects.mjs': { prefixes: ['content/site/'], files: ['public/_redirects'], fileSet: false },
   'scripts/check-orphan-figures.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
   'scripts/check-table-references.mjs': { prefixes: ['content/site/'], files: [], fileSet: false },
@@ -214,29 +219,33 @@ test('content/site だけを読む 5 検査は、content/site に触れない co
   assert.ok(!r.has('scripts/check-orphan-figures.mjs'));
 });
 
-test('全量を走査する 2 検査は、入力に当たる変更があれば旧フックと同じく回る（コード・設定・データ・台帳の置き場）', () => {
+test('全量を走査する 3 検査は、入力に当たる変更があれば旧フックと同じく回る（コード・設定・データ・台帳の置き場）', () => {
   const triggers = {
     'scripts/check-datasets.mjs': ['config/exam-calendar.json', 'data/note/sales.json', '.claude/state/todo-claims.json', 'content/registry/articles.json', 'scripts/lib/datasets.mjs', 'tools/admin-app/src/x.tsx', 'src/lib/x.ts', '.github/workflows/ci.yml', 'package.json', '.claude/skills/x/SKILL.md'],
     'scripts/check-qualification-ssot.mjs': ['config/qualification-registry.json', '.claude/config/x.json', '.claude/knowledge/x.json', 'src/config/categories.json', 'scripts/x.mjs', '.claude/scripts/x.mjs', 'tools/admin-app/src/x.ts', 'src/lib/x.ts'],
   };
+  // 試験日の検査: 走査する置き場・試験日の正本・資格の台帳・検査の部品のどれかに当たれば回す
+  triggers['scripts/check-exam-calendar.mjs'] = ['config/exam-calendar.json', 'config/qualification-registry.json', 'docs/strategy/x.md', '.claude/todo/backlog.md', 'src/lib/x.ts', 'content/sns/x/draft/x.md', 'content/note/1級・2級土木/x/article.md', 'content/site/concrete-engineer/a/article.mdx', 'scripts/lib/exam-calendar-guards.mjs'];
   for (const [script, paths] of Object.entries(triggers)) {
     for (const p of paths) {
       const ctx = makeCtx({ staged: [p] });
       assert.ok(planned(ctx).some(([s]) => s === script), `${script} が ${p} の変更で回らない`);
     }
   }
-  // 追加・削除は追跡ファイルの集合を変えるので datasets だけは必ず回す（参照先の記事の実在・台帳の網羅）
+  // 追加・削除は追跡ファイルの集合を変えるので datasets と exam-calendar は必ず回す（参照先の記事の実在・台帳の網羅・除外が指すパスの実在）
   for (const status of ['A', 'D', 'T']) {
-    assert.ok(planned(makeCtx({ staged: ['content/site/a/b/article.mdx'], status })).some(([s]) => s === 'scripts/check-datasets.mjs'), status);
+    for (const script of ['scripts/check-datasets.mjs', 'scripts/check-exam-calendar.mjs']) {
+      assert.ok(planned(makeCtx({ staged: ['content/site/a/b/article.mdx'], status })).some(([s]) => s === script), `${script} ${status}`);
+    }
   }
 });
 
-test('全量を走査する 2 検査は、記事の編集（M）だけの commit では飛ばす', () => {
+test('全量を走査する 3 検査は、記事の編集（M）だけの commit では飛ばす', () => {
   const ctx = makeCtx({ staged: ['content/site/building-construction/guide-x/article.mdx', 'content/note/x/y/article.md', 'docs/README.md'], status: 'M' });
   const ran = new Set(planned(ctx).map(([s]) => s));
   for (const g of GATED) assert.ok(!ran.has(g), `${g} が記事の編集で回っている`);
-  assert.equal(gatedOut(ctx).size, 2);
-  // この commit で飛ばすのは GATED の 2 本だけ（content/site に触れているので SITE_GATED の 5 本は回る）。ほかは旧フックのまま
+  assert.equal(gatedOut(ctx).size, 3);
+  // この commit で飛ばすのは GATED の 3 本だけ（content/site に触れているので SITE_GATED の 5 本は回る）。ほかは旧フックのまま
   assert.deepEqual(planned(ctx), legacyPlan(ctx, { gated: true }));
 });
 

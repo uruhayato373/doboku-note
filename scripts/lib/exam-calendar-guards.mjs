@@ -18,6 +18,29 @@ export const PATH_LITERALS = [
   /コンクリート主任技師20/g, // content/sources/textbook/コンクリート主任技師2022|2024（ローカル PDF 名・実在）
   /09_YouTube戦略_コンクリート技士・主任技士\.md/g, // docs/marketing の実在ファイル名。版表で直後に更新日（YYYY-MM-DD）が並ぶと日付近接ルールが誤検知する
 ];
+/**
+ * 禁止パターンを走査する置き場（リポジトリ相対）。pre-commit（scripts/lib/pre-commit-steps.mjs）は、staged の変更が
+ * ここ・config/（試験日の正本と資格の台帳）・scripts/（検査と部品）に当たるか、ファイルの追加・削除があるときだけ検査を回す。
+ * 走査先を足すときはここへ足す（pre-commit の入力も同じ配列から引く）。
+ */
+export const SCAN_ROOTS = [
+  "content/sns/x/draft",
+  "docs/strategy",
+  "docs/editorial",
+  "docs/marketing",
+  "docs/operations",
+  "docs/products",
+  "content/note/1級・2級土木",
+  ".claude/agents",
+  ".claude/skills",
+  // 2026-09-26: 年間計画（annual.md）の日付表の誤りが走査外で素通りしたため追加
+  ".claude/todo",
+  "src/config",
+  "src/lib",
+  "content/site/concrete-chief-engineer",
+  "content/site/concrete-engineer",
+  "content/site/concrete-diagnostician",
+];
 export const FORBIDDEN = [
   // ISO 予約時刻（2026-10-27T21:05…）は試験日の誤記ではなく X 台帳の投稿日なので除外する（2026-09-16・RCCM 10/27 投稿で偽赤）
   // 10/27 は 2 級の試験日（10/25）の書き間違いとして止めるが、2026-10-27 当日の記録（[起票:2026-10-27]・「2026-10-27 採用」）
