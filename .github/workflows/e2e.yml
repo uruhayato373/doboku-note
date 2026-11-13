@@ -16,6 +16,7 @@ on:
       - ".claude/knowledge/design-system/note-cover-tokens.json"
       - "config/affiliate-placements.json"
       - "config/cta-placements.json"
+      - "data/affiliate/catalog.json"
       - "config/egov-laws.json"
       - "config/policy-registry.json"
       - "config/exam-calendar.json"
