@@ -156,7 +156,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-breakdown-1",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-breakdown-1",
       "relatedTo": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -182,7 +182,8 @@
       },
       "times": {
         "rendered": "2026-11-10T21:28:05.318Z",
-        "uploaded": "2026-11-10T21:58:23.529Z"
+        "uploaded": "2026-11-10T21:58:23.529Z",
+        "scheduled": "2026-11-13T13:17:29.349Z"
       },
       "delivery": {
         "inputSha256": "63b3ddb4541144795d6b06d0eb425ebbd57bce7bb4be281b24b2251086f354a6",
@@ -190,16 +191,19 @@
         "uploadRequestedAt": "2026-11-10T21:57:49.056Z",
         "videoId": "LQiIN5sPBAo",
         "processedAt": "2026-11-10T21:58:22.873Z",
-        "thumbnailRequestedAt": "2026-11-10T21:58:23.563Z",
+        "thumbnailRequestedAt": "2026-11-13T13:17:16.532Z",
         "thumbnailUrls": [
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/default.jpg?sqp=CLSlztcG&rs=AOn4CLCyWqYvY4fmSMvl5pwp_5MEKDvYvw",
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/mqdefault.jpg?sqp=CLSlztcG&rs=AOn4CLAzWx5na3d92JGul3j9EiTUjq0xhw",
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/hqdefault.jpg?sqp=CLSlztcG&rs=AOn4CLBi5AQ27oHfferaVd5jcohddRdoPQ",
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/sddefault.jpg?sqp=CLSlztcG&rs=AOn4CLD-d5UnUYa3wTd4feGxwiqYr_4a-g",
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/maxresdefault.jpg?sqp=CLSlztcG&rs=AOn4CLArMjd5Tr4jFHEsdYP_tbiVALmm_A",
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/sardefault.jpg?sqp=CLSlztcG&rs=AOn4CLCzCHibsGS97K3Wev460lNw3uCrSQ"
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/default.jpg?sqp=CNSa3NcG&rs=AOn4CLCZNI0YNxZvJ_jmCCQLN9GUznalbg",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/mqdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLBh4aPEtOyLZ2g2ARnjV5tFXTZejw",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/hqdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLCZ8fKjEKRRqaQHaeQs2T2_iYyHRA",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/sddefault.jpg?sqp=CNSa3NcG&rs=AOn4CLDpcorh9ZsI8ligzLV8vRbMkVVMOw",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/maxresdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLAai-r_F_NfuZWfnCO2jMT8r2aBzg",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/sardefault.jpg?sqp=CNSa3NcG&rs=AOn4CLCx4DuiTUZqTmt82TLohxl3fmEWEA"
         ],
-        "thumbnailAcceptedAt": "2026-11-10T21:58:27.475Z"
+        "thumbnailAcceptedAt": "2026-11-13T13:17:21.463Z",
+        "scheduleRequestedAt": "2026-11-13T13:17:25.875Z",
+        "scheduleAt": "2026-11-17T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-11-13T13:17:29.349Z"
       },
       "platform": {
         "id": "LQiIN5sPBAo",
@@ -214,7 +218,7 @@
       },
       "thumbnail": {
         "status": "set",
-        "setAt": "2026-11-10T21:58:27.475Z"
+        "setAt": "2026-11-13T13:17:21.463Z"
       }
     },
     {
