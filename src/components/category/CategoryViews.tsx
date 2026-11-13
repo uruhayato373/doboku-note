@@ -4,7 +4,7 @@ import { getGroupLabel } from '@/lib/doc-classifier';
 import { type DocGroup } from '@/lib/category-groups';
 import { DocSection } from '@/components/category/CategorySections';
 import { resolveCurriculum, resolveKeywordSection, resolveTextbookChapters } from '@/lib/category-curriculum';
-import { CurriculumSection, CurriculumList, CareerSection } from '@/components/category/CurriculumSections';
+import { CurriculumSection, CurriculumList, CareerSection, ExamGuideSection } from '@/components/category/CurriculumSections';
 import { KeywordSection } from '@/components/category/KeywordSections';
 import { quizQuestionCount, quizYearRange } from '@/lib/quiz-summary';
 
@@ -18,8 +18,6 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
 
   const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
   const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? [], guideGroup?.docs ?? []);
-  // 受験ガイド節に未割当（config 追記漏れ・新規記事）を必ず合流させ silent drop を防ぐ
-  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
   const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
   const textbookCount = chapters.reduce((n, c) => n + c.docs.length + c.intro.length, 0);
 
@@ -29,11 +27,7 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
 
   return (
     <>
-      {examGuideDocs.length > 0 && (
-        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
-          <CurriculumList blocks={[{ docs: examGuideDocs }]} thumbnails />
-        </CurriculumSection>
-      )}
+      <ExamGuideSection curriculum={curriculum} />
       {curriculum.fields && (
         <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
           <CurriculumList blocks={curriculum.fields.blocks} />
@@ -88,7 +82,6 @@ export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { group
 
   const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
   const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? [], guideGroup?.docs ?? []);
-  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
   const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
   const textbookCount = chapters.reduce((n, c) => n + c.docs.length + c.intro.length, 0);
 
@@ -97,11 +90,7 @@ export function CivilConstruction2View({ groups, mobileCareerAds = [] }: { group
 
   return (
     <>
-      {examGuideDocs.length > 0 && (
-        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
-          <CurriculumList blocks={[{ docs: examGuideDocs }]} thumbnails />
-        </CurriculumSection>
-      )}
+      <ExamGuideSection curriculum={curriculum} />
       {curriculum.fields && (
         <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
           <CurriculumList blocks={curriculum.fields.blocks} />
@@ -157,16 +146,11 @@ export function ConcreteView({ groups, mobileCareerAds = [] }: { groups: DocGrou
 
   const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
   const chapters = resolveTextbookChapters(category, textbookGroup?.docs ?? [], guideGroup?.docs ?? []);
-  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
   const textbookCount = chapters.reduce((n, c) => n + c.docs.length + c.intro.length, 0);
 
   return (
     <>
-      {examGuideDocs.length > 0 && (
-        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
-          <CurriculumList blocks={[{ docs: examGuideDocs }]} thumbnails={thumbnails} />
-        </CurriculumSection>
-      )}
+      <ExamGuideSection curriculum={curriculum} />
       {mobileCareerAds[0]}
       {chapters.length > 0 && (
         <CurriculumSection id="textbook" title={textbookGroup?.title ?? 'テキスト'} description={textbookGroup?.description} count={textbookCount}>
@@ -261,16 +245,11 @@ export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: Doc
   const guideGroup = groups.find(g => g.key === 'guide');
   const primaryGroup = groups.find(g => g.title === getGroupLabel('pe-first-stage', 'primary'));
   const curriculum = resolveCurriculum('pe-first-stage', guideGroup?.docs ?? []);
-  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
   const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
 
   return (
     <>
-      {examGuideDocs.length > 0 && (
-        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
-          <CurriculumList blocks={[{ docs: examGuideDocs }]} thumbnails />
-        </CurriculumSection>
-      )}
+      <ExamGuideSection curriculum={curriculum} />
       {curriculum.fields && fieldsCount > 0 && (
         <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
           <CurriculumList blocks={curriculum.fields.blocks} />
@@ -310,17 +289,12 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
 
   // guide をカード→受験ガイド＋論文対策のリストへ。pillar/pastExam/keyword 導線は現状維持。
   const curriculum = resolveCurriculum('pe-comprehensive-management', guideGroup?.docs ?? []);
-  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
   const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
 
   // essay-mlit-* 7 記事は 2026-05-18 撤回済み（旧分離ロジック削除）
   return (
     <>
-      {examGuideDocs.length > 0 && (
-        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
-          <CurriculumList blocks={[{ docs: examGuideDocs }]} thumbnails />
-        </CurriculumSection>
-      )}
+      <ExamGuideSection curriculum={curriculum} />
       {curriculum.fields && (
         <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
           <CurriculumList blocks={curriculum.fields.blocks} />
@@ -371,7 +345,6 @@ export function PeConstructionView({ groups, mobileCareerAds = [] }: { groups: D
   const pastExamGroup = groups.find(g => g.key === 'pastExam');
 
   const curriculum = resolveCurriculum('pe-construction', guideGroup?.docs ?? []);
-  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
   const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
   // キーワード 35 本はカードグリッド（12 行）ではなく 必須科目I ブロック＋科目×種別マトリクスで出す。
   // config（keywordSection）未定義なら null → 従来のカードグリッドへ fallback。
@@ -379,11 +352,7 @@ export function PeConstructionView({ groups, mobileCareerAds = [] }: { groups: D
 
   return (
     <>
-      {examGuideDocs.length > 0 && (
-        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
-          <CurriculumList blocks={[{ docs: examGuideDocs }]} thumbnails />
-        </CurriculumSection>
-      )}
+      <ExamGuideSection curriculum={curriculum} />
       {curriculum.fields && (
         <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
           <CurriculumList blocks={curriculum.fields.blocks} />

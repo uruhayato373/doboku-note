@@ -96,17 +96,26 @@ const ARTICLE_TOOLS: Record<string, string[]> = {
   'concrete-chief-engineer-textbook-mix-design': ['water-content'],
 };
 
+/** 資格の一覧ページに出すツール（記事ごとの対応は ARTICLE_TOOLS）。 */
+const CATEGORY_TOOLS: Record<string, string[]> = {
+  'civil-construction-1': ['kakomon-quiz', 'keiken-charcount'],
+  'civil-construction-2': ['keiken-charcount', 'juken-shikaku'],
+  'pe-first-stage': ['kakomon-quiz/pe-first-stage'],
+  'civil-practice': ['concrete-time-check', 'sling-tension'],
+  'concrete-engineer': ['water-content', 'concrete-maturity'],
+  'concrete-chief-engineer': ['water-content', 'concrete-maturity'],
+};
+
+/** 択一の過去問ページ（slug の形で見分ける）に出す演習ツール。 */
+const PAST_EXAM_TOOLS: { category: string; slug: RegExp; paths: string[] }[] = [
+  { category: 'civil-construction-1', slug: /-primary-/, paths: ['kakomon-quiz'] },
+  { category: 'pe-first-stage', slug: /^pe-first-stage-[hr]\d{2}(?:-retry)?-(basic|aptitude|construction|water-supply)$/, paths: ['kakomon-quiz/pe-first-stage'] },
+];
+
 export function getRelatedTools(category: string, slug = '') {
-  let paths: string[] = [];
-  if (slug) {
-    if (ARTICLE_TOOLS[slug]) paths = ARTICLE_TOOLS[slug];
-    else if (/-primary-/.test(slug) && category === 'civil-construction-1') paths = ['kakomon-quiz'];
-    else if (/^pe-first-stage-[hr]\d{2}(?:-retry)?-(basic|aptitude|construction|water-supply)$/.test(slug) && category === 'pe-first-stage') paths = ['kakomon-quiz/pe-first-stage'];
-  } else if (category === 'civil-construction-1') paths = ['kakomon-quiz', 'keiken-charcount'];
-  else if (category === 'civil-construction-2') paths = ['keiken-charcount', 'juken-shikaku'];
-  else if (category === 'pe-first-stage') paths = ['kakomon-quiz/pe-first-stage'];
-  else if (category === 'civil-practice') paths = ['concrete-time-check', 'sling-tension'];
-  else if (category === 'concrete-engineer' || category === 'concrete-chief-engineer') paths = ['water-content', 'concrete-maturity'];
+  const paths = slug
+    ? ARTICLE_TOOLS[slug] ?? PAST_EXAM_TOOLS.find(rule => rule.category === category && rule.slug.test(slug))?.paths ?? []
+    : CATEGORY_TOOLS[category] ?? [];
   return paths.flatMap(path => TOOLS.filter(t => t.href === `/tools/${path}`)).slice(0, 2);
 }
 
