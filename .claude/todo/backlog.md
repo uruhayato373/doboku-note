@@ -416,6 +416,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1183] ビルドの入力に触れない push で build ジョブを飛ばせるか決める
+タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の実測。直近 7 日の develop の commit 834 件のうち、ビルドの入力（src・public・content/site・config・package）にもコード（scripts・tests・tools・.github）にも触れないものが 577 件（content/sns 482・content/note 420・.claude/state 199・content/registry 144・data が中心。commit 単位の数で、bot の [skip ci] を含む）。ci.yml が飛ばすのは記憶と台帳だけの push（同じ 7 日で 203 件）。develop の push は実行を取り消さないので、走る回数が多いほど最新の結果が出るのが遅れる。
+
+**やること**: build ジョブ（最長の 4.4〜5.3 分）を、ビルドの入力に触れない push で飛ばせるかを決める。飛ばしてよい置き場は scripts/lib/build-chain.mjs でビルドの手順をたどって確かめる（content/note は note カタログ経由でビルドに入るので対象外。data/ は build-popular-pages などが読むので 1 本ずつ確かめる）。audit と test は残す。build を飛ばした run を deploy:main が「検査済み」と数えてよいかも決める（out/ を見る SEO の検査は build ジョブにしか無い）。tests/ci-push-scope.test.mjs を合わせる。
+
+**完了条件**: 飛ばす置き場とその根拠（ビルドの手順が読まないこと）がテストで固定され、1 週間の run の回数と所要時間を前後で比べた記録がある。または、飛ばさないと決めた理由が残っている。
+
+
 ### [DN-1182] develop が赤い時間を短くする（push の前に関係するテストを回す範囲を広げる）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-13]
 
