@@ -968,37 +968,10 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **完了条件**: 移行の計画（対象・順序・受け皿・計測・KDP Select の扱い）が決まり、最初の資格で解説を有料側へ移し、比べる実験が running になっている。
 
 
-### [DN-1040] サムネイルの効果を測る実験を用意する
-タグ: [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-11-07]
-
-**起点**: 2026-11-07 の画像運用設計。`internal_nav_click` は人気枠と一覧カードにあるが、関連記事カード（RelatedArticleCard）には `data-cta` が無く、カードの表示回数も無い。サムネイルの効果を比べられない。
-
-**やること**: 既存の GA4 のデータで何が見えるかを先に確かめる。足りなければ関連記事カードに `data-cta` を足す。写真サムネイルの適用前後を、資格単位で比べる実験を `experiments.json` に登録する。
-
-**完了条件**: サムネイルの効果を比べる実験が登録され、月次レビューで読める。
 
 
-### [DN-1039] サイト内サムネイルを他の資格へ広げる
-タグ: [領域:サイト] [時期:2026-12] [種類:制作] [起票:2026-11-07]
-
-**起点**: 2026-11-07 の PR #1448 で、1級土木の 183 ページをページ別の写真サムネイルにした。他の資格はまだ OGP の縮小のまま。
-
-**やること**: 2級土木から `npm run site-thumbs -- --exam <資格>` を順に動かす。長時間なので launchctl で切り離す。最初の資格で Codex が書く台帳の品質を確かめる（1級土木は Sonnet の台帳を流用したので未検証）。総監の用語ページは抽象語を写真で示せるかを少数で試し、見せ方を決める。
-
-**完了条件**: 全資格の公開ページが、写真サムネイルか、決めた別の見せ方になっている。台帳を Codex に任せてよいかの結論が出ている。
 
 
-### [DN-1038] Drive の台帳に無い素材 80 件と表紙の検証の欠け 30 件を直す
-タグ: [領域:SNS] [時期:2026-12] [種類:不具合] [起票:2026-11-07]
-
-**起点**: 2026-11-07、動画の在庫の削除の確認で、削除の前から次の 2 つが欠けていると分かった。今回の削除で増えた分は 0 件。
-
-- `content/sns` の文書が指す素材のうち 80 件が Drive の台帳に無い。`sanso-kozo` の生成の途中の画像など
-- 採用済みの表紙 60 件のうち 30 件で、台帳の読み戻しの検証が欠けている。`check-youtube-cover-handoff` はどの定期検査にも入っていない
-
-**やること**: 80 件を読み直して、要るものは Drive へ登録し、要らないものは文書から外す。表紙の検証を揃えて `check-youtube-cover-handoff` を quality-audit へ入れる。
-
-**完了条件**: `check-media-references` の既知の欠けの上限が 0 になり、表紙の検査が CI で通る。
 
 
 
@@ -1069,14 +1042,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **完了条件**: automations で台帳に欄を足すと型検査が知らせる。残りの台帳の移行範囲が決まっている。
 
 
-### [DN-1017] どこからも呼ばれない CLI を検出するレポートを足す
-タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`knip.json` は `scripts/**` を全部 entry にし、`tools/admin-app` を project に含めないので、使われなくなった CLI を検出できない。休止中の `generate-guide-covers.mjs` は `package.json:420` と routes に残るが `public/images/guide-covers` はない。knip の現状は exports 7・types 17・unlisted 4・unresolved 1。管理画面の孤立ファイルは import の簡易検査で 0 件。
-
-**やること**: npm script・workflow・skill・docs から到達しない CLI を一覧にするレポートを足し、週次で読む。`generate-guide-covers.mjs` を残すか消すかを決める。管理画面を knip の対象へ入れるかも決める。
-
-**完了条件**: 到達しない CLI の一覧が検査件数つきで出る。`generate-guide-covers.mjs` の扱いが決まっている。
 
 
 ### [DN-1016] scripts と src と .claude/scripts の依存の向きを整理する
@@ -1089,34 +1054,10 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **完了条件**: scripts から `.claude/scripts` への import が 0 件。純粋な関数の置き場が決まり、向きの検査が入っている。
 
 
-### [DN-1015] check-image-rules で codex の直接起動も検出する
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`codex exec` の起動は `scripts/lib/codex-image.mjs` の 1 か所で、現在の迂回はない。ただし `image-rules.mjs:23` は import 文だけを見るので `spawn('codex', …)` を直接書いても検査を通る。`tools/admin-app` と `src` は走査の対象外。
-
-**やること**: `codex-image.mjs` 以外の `codex` の直接起動を検出し、走査の対象を広げる。回帰テストを足す。
-
-**完了条件**: 直接起動を書いた偽のファイルで検査が落ちるテストがある。実リポジトリでは通る。
 
 
-### [DN-1014] AI 画像の生成指示の置き場を config.image-generation へ寄せる
-タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。生成指示が `config/image-generation.json`・`config/image-limits.json` の `aiPhoto`・コード内（`generate-guide-covers.mjs`・`generate-ogp-backgrounds.mjs`）の 3 か所にある。OGP 背景の `EXAMS` は 6 資格でトークンは 14 資格。背景がない資格の表示は未確認。
-
-**やること**: `aiPhoto` の指示と OGP の指示を `config.image-generation` へ寄せ、モチーフも設定へ移す。背景がない資格の表示を確かめる。
-
-**完了条件**: 共通の指示を 1 か所直すと全経路に届く。コード内に指示の文が残らない。
 
 
-### [DN-1013] AI 画像の来歴と台帳の記録を image-origin に集める
-タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。来歴を `media.mjs:49`・`shorts-candidate-sources.mjs:18`・`media-plate.mjs:63,78`・`gen-article-photo.mjs:132` が別々に書く。`media-plate` は `image-origin.mjs:92` の `promptSha`（trim する）を使わず自前で hash を作る。hash の値が実際に食い違うかは未確認。`media-plate` は `codex-image` の一時フォルダ名も知っている。
-
-**やること**: `image-origin.mjs` に `aiProvenance()` と `recordAiImage()` を置き、4 か所から呼ぶ。一時フォルダの後始末は `codex-image` へ移す。hash の食い違いがあれば既存の記録の扱いも決める。
-
-**完了条件**: 来歴の行と台帳の hash を作るコードが 1 か所。既存の台帳の照合が通る。
 
 
 
@@ -1198,18 +1139,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 
-### [DN-0991] gen-article-photo が Windows で codex を起動できず、失敗を握りつぶす
-タグ: [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-11-05]
-
-**起点**: 2026-11-05、DN-0990 の写真を `npm run gen-article-photo` で作ろうとして 2 回とも「画像が生成されなかった」で止まった。
-
-**原因**: `scripts/lib/codex-image.mjs` の `runCodex` は `execFileSync('codex', …)` を shell なしで呼ぶ。Windows では `codex` が `.cmd` のため ENOENT になり、catch が失敗を握りつぶす。別件で `~/.codex/config.toml` の既定モデル `gpt-6.1-sol` は ChatGPT アカウントで使えず、`-m gpt-6-astra` なら動く。
-
-**回避**: Bash から `codex exec -m gpt-6-astra` で生成し、`--from` で配置した。
-
-**やること**: Windows でも codex を起動できるようにし、起動の失敗を「画像が出なかった」と区別して出す。既定モデルの扱いを決める。`spawnCodex` も同じ形なので併せて直す。
-
-**完了条件**: Windows で `npm run gen-article-photo -- --fig <図キー> --prompt "…"` が生成まで通る。起動失敗の回帰テストがある。
 
 
 ### [DN-0990] 建設行政の体系の穴を埋める（新規 3 章・法令ページ 2 本・既存 5 章の補強）
@@ -1502,7 +1431,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 ### [DN-0935] SNS 保留中の定期実行（youtube 系の cron）を止め、全敗している OGP Supply を直すか止め、見張りの 4 層を 1 つの日次ヘルスにまとめる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-01]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-01] [進行中]
 
 **起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。OGP Supply は直近 11 回すべて失敗、youtube-funnel-audit などの youtube 系 cron は SNS 保留中で読み手がいない。workflow-health・workflow-health-guard・weekly-review-guard・report-checks が同じ原因で別々の Issue を立てる（11/1 時点で 3〜4 件）。
 
@@ -1510,7 +1439,9 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **やること**: report-checks・gsc-auto-review・weekly-collect・weekly-review-local など channel ごとに立つ Issue を、根本原因のキーで 1 Issue にまとめる（同じキーの open Issue にはコメントを追記・PR #1357 本文の案）。OGP Supply は生成対象が 50 件を超えたら再発するので、上限の扱い（定期で分割して生成するか）を決める。
 
-**完了条件**: 同じ原因（例: Claude の認証切れ）で立つ Issue が 1 件になり、OGP Supply が 4 週続けて成功している。
+**済み（2026-11-13）**: report-automation-failure に根本原因の鍵（--key）を足し、土曜の Mac の回と月曜の記録層の見張りを鍵 saturday-mac-run でまとめた（#1572）。OGP Supply は上限を超えた分を次回へ持ち越して exit 0 で終える。bot の commit で lint-ja が止まる不具合も直した（#1581）。
+
+**完了条件**（2026-11-13 に運営者の決定で置き換え）: 直した後に、上限（200 件）を超えた件数で OGP Supply が 1 回成功する（持ち越しつき）。その後の 4 週は workflow-health が見張る。
 
 ### [DN-0933] スキル・エージェントの description を短くし、weekly-review の SKILL.md を骨子と references に分けてトークンを減らす
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-01]

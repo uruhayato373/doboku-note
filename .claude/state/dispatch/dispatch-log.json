@@ -8110,6 +8110,118 @@
       "commit": "d3ba5da80454",
       "verification": "PR #1571 の CI 緑・tests/lint-ja-ci-scope.test.mjs pass 2",
       "note": "PR #1571 を develop へマージ。CI（CI=true）では REGISTRY_BASE と HEAD の差分の MDX を検査し、比較元が無ければ検査不成立（exit 2）。PR の CI で REGISTRY_BASE=origin/develop が渡ることを確認"
+    },
+    {
+      "id": "DN-1013",
+      "at": "2026-11-13",
+      "task": "AI 画像の来歴と台帳の記録を image-origin に集める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1ee81a6d9141",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1014",
+      "at": "2026-11-13",
+      "task": "AI 画像の生成指示の置き場を config.image-generation へ寄せる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1ee81a6d9141",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1015",
+      "at": "2026-11-13",
+      "task": "check-image-rules で codex の直接起動も検出する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1ee81a6d9141",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1017",
+      "at": "2026-11-13",
+      "task": "どこからも呼ばれない CLI を検出するレポートを足す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1ee81a6d9141",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1039",
+      "at": "2026-11-13",
+      "task": "サイト内サムネイルを他の資格へ広げる",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1ee81a6d9141",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1040",
+      "at": "2026-11-13",
+      "task": "サムネイルの効果を測る実験を用意する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1ee81a6d9141",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0991",
+      "at": "2026-11-13",
+      "task": "gen-article-photo が Windows で codex を起動できず、失敗を握りつぶす",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/codex-image.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1ee81a6d9141",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1038",
+      "at": "2026-11-13",
+      "task": "Drive の台帳に無い素材 80 件と表紙の検証の欠け 30 件を直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-media-references"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1ee81a6d9141",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
