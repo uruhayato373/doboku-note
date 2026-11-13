@@ -657,6 +657,126 @@
           "status": "unknown"
         }
       }
+    },
+    "dainishinsotsu-agent-neo": {
+      "label": "第二新卒エージェントneo（第二新卒・既卒の就職・転職支援）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。配置は未定。",
+      "asps": {
+        "a8": {
+          "programId": "s00000018427001",
+          "status": "approved",
+          "rewardYen": 15000,
+          "note": "2026-11-13 Chrome の管理画面で確認。提携日 2026/03/12・新規カウンセリング"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "onecareer-tenshoku": {
+      "label": "ワンキャリア転職（次のキャリアが見える転職サービス）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。配置は未定。",
+      "asps": {
+        "a8": {
+          "programId": "s00000026465002",
+          "status": "approved",
+          "rewardYen": 3000,
+          "note": "2026-11-13 Chrome の管理画面で確認。提携日 2026/06/30・新規会員登録"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "nekonote-agent": {
+      "label": "猫の手AGENT（20代特化の転職エージェント）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。配置は未定。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7593",
+          "status": "approved",
+          "rewardYen": 12000,
+          "note": "2026-11-13 Chrome の管理画面で確認。無料相談の申し込み"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "beshine": {
+      "label": "ビーシャイン（20代特化の就職・転職支援）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。配置は未定。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7309",
+          "status": "approved",
+          "rewardYen": 10000,
+          "note": "2026-11-13 Chrome の管理画面で確認。面談完了"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "michinori-career": {
+      "label": "Michinori for career（キャリアコーチング型転職エージェント）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。配置は未定。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7517",
+          "status": "approved",
+          "rewardYen": 8000,
+          "note": "2026-11-13 Chrome の管理画面で確認。無料相談申し込み完了"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "remoful": {
+      "label": "Remoful（リモートワーク求人に特化した転職支援）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "2026-11-13 提携済みを確認して台帳に追加（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。配置は未定。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "5870",
+          "status": "approved",
+          "rewardYen": 10000,
+          "note": "2026-11-13 Chrome の管理画面で確認。新規面談申込"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
     }
   },
   "_openQuestions": [
