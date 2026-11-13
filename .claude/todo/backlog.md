@@ -416,6 +416,24 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1166] 広告素材の正本を提携台帳の creatives に 1 本化する（affiliate-creatives.ts・affiliate-mats.json を台帳から引き、台帳から描画した a8mat が許可の検査をすり抜ける穴をふさぐ）
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
+
+起点: 2026-11-13 に提携台帳 `data/affiliate/catalog.json` へ転職 18 案件の広告素材 165 件（`creatives`）を入れたが、素材の定義は 3 か所に残っている。
+- `src/config/affiliate-creatives.ts`（PROGRAM_ASSETS のバナー・ピクセル）
+- `config/affiliate-mats.json`（A8 の mat の許可リスト）
+- `data/affiliate/catalog.json` の `creatives`（基準書の面はここから描画）
+
+穴: 基準書の面は台帳から a8mat を描画するので、ソースの `a8mat=` を許可リストと突き合わせる `check-affiliate-mats` をすり抜ける（RSG の 728×90・320×50、neo の 300×250・320×50 などは許可リストに無い）。代わりに台帳の型が wid=002（doboku-note）だけを通している。
+
+やること:
+- `PROGRAM_ASSETS` のバナー・ピクセルを台帳の `creatives` から引く（素材 ID を指す）形にする
+- 許可リストを台帳の `creatives`（avoid の無いもの）から作るか、`check-affiliate-mats` が台帳の素材も許可として読むようにする。どちらかに決めて 1 本にする
+- `check-affiliate-wiring` の 4 つの真実源の説明（affiliate-operations.md §8）を直す
+
+完了条件: 素材の URL がリポジトリの中で台帳だけに書かれている（grep で affiliate-creatives.ts に `a8mat=` が無い）、台帳から描画した素材も許可の検査に掛かる、`check-affiliate-mats`・`check-affiliate-wiring`・`check-datasets` が通る。
+
+
 ### [DN-1165] 基準書以外の面も面ごとのサイズの決まりで台帳の素材から画像バナーを選ぶ（記事・カテゴリ・トップ・ツール・トピック・法令）
 タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
 
