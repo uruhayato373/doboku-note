@@ -5,7 +5,7 @@ import SectionBlock from '@/components/layout/SectionBlock';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import { Mail, Clock, AlertCircle } from 'lucide-react';
 import { DEFAULT_OG_IMAGE, SITE_TITLE } from '@/lib/metadata';
-import { SITE_ORIGIN } from '@/config/site-identity.mjs';
+import { CONTACT_EMAIL, SITE_ORIGIN } from '@/config/site-identity.mjs';
 
 export const metadata: Metadata = {
   title: 'お問い合わせ',
@@ -56,10 +56,10 @@ export default function ContactPage() {
             </div>
           </div>
           <a
-            href="mailto:info@doboku-note.com"
+            href={`mailto:${CONTACT_EMAIL}`}
             className="inline-flex items-center gap-2 font-mono text-lg text-(--accent) hover:underline"
           >
-            info@doboku-note.com
+            {CONTACT_EMAIL}
           </a>
         </SectionCard>
 

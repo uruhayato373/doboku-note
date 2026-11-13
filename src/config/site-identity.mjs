@@ -20,6 +20,9 @@ export const SITE_ORIGIN = `https://${SITE_HOST}`;
 /** Google Search Console のプロパティ（ドメインプロパティ） */
 export const GSC_PROPERTY = `sc-domain:${SITE_HOST}`;
 
+/** 問い合わせ先のメールアドレス（お問い合わせ・プライバシーポリシー・構造化データの contactPoint） */
+export const CONTACT_EMAIL = `info@${SITE_HOST}`;
+
 /**
  * R2（公開バケット）のホスト。config/asset-storage.json の buckets.public.publicHost と同じ値で、
  * 食い違いは tests/site-identity.test.mjs が止める（サイトのバンドルに asset-storage.json を入れないため、こちらを持つ）。

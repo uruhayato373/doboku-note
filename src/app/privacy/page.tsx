@@ -18,7 +18,7 @@ import {
   Send,
 } from 'lucide-react';
 import { DEFAULT_OG_IMAGE, SITE_TITLE } from '@/lib/metadata';
-import { SITE_ORIGIN } from '@/config/site-identity.mjs';
+import { CONTACT_EMAIL, SITE_ORIGIN } from '@/config/site-identity.mjs';
 
 export const metadata: Metadata = {
   title: 'プライバシーポリシー',
@@ -232,7 +232,7 @@ export default function PrivacyPage() {
                   </>
                 )}
                 <dt className="font-semibold text-(--ink)">お問い合わせ・苦情</dt>
-                <dd>info@doboku-note.com</dd>
+                <dd>{CONTACT_EMAIL}</dd>
                 <dt className="font-semibold text-(--ink)">配信の停止</dt>
                 <dd>毎回のメールの末尾にある配信停止のリンクから、いつでも停止できます。</dd>
               </dl>
