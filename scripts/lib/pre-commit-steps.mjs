@@ -25,6 +25,7 @@
 
 import { AREAS } from './datasets.mjs';
 import { CODE_DIRS, CONFIG_DIRS } from './qualification-ssot.mjs';
+import { SCAN_ROOTS as EXAM_CALENDAR_SCAN_ROOTS } from './exam-calendar-guards.mjs';
 
 const hasStaged = (ctx, re) => ctx.staged.some((f) => re.test(f));
 /** staged の変更（削除・改名を含む）のパスが 1 つでも前方一致するか。entries は --no-renames なので改名は削除＋追加で見える */
@@ -150,7 +151,11 @@ export const STEPS = [
   // 2026-08-13 に coconala-blog の publishedAt と note-attachments の measuredAt で実発生）
   s('check-jst-date'),
   // 1級・2級土木の公式試験日SSOTと既知の誤日付を検証
-  s('check-exam-calendar', []),
+  // 入力: 走査する置き場（検査の SCAN_ROOTS）・config/（試験日の正本・資格の台帳）・scripts/（検査と部品）・
+  // 台帳と除外が指すパスの実在（追加・削除）。壁時計には依存しない。当たらない commit では結果が変わらないので飛ばす（1〜3 秒・DN-1141）
+  s('check-exam-calendar', [], {
+    touches: (ctx) => changesFileSet(ctx) || touchesPrefix(ctx, [...EXAM_CALENDAR_SCAN_ROOTS.map((d) => `${d}/`), 'config/', 'scripts/']),
+  }),
   // 資格の名前・並び順は qualification-registry.json だけ（設定の写し・コードの対応表の増加を止める）
   // 入力: registry・設定（CONFIG_DIRS）・コード（CODE_DIRS）。検査自身が走査する根をそのまま使う
   s('check-qualification-ssot', [], { touches: (ctx) => touchesPrefix(ctx, [...CONFIG_DIRS, ...CODE_DIRS].map((d) => `${d}/`)) }),
@@ -270,8 +275,8 @@ export const STEPS = [
   s('check-table-rendering'),
   // MDX の BOM（U+FEFF）。先頭に付くと frontmatter の ^--- が外れ、Kindle ビルダが title を
   // 拾えず章名が article.mdx になり YAML が本文に印字される（2026-08-12・審査中の e-02 で発生）。
-  // 目視できない事故なので機械で止める。EPUB 展開は重いので commit 時は --bom-only。
-  s('check-kindle-epub-leak', ['--bom-only'], { touches: touchesSite }),
+  // 目視できない事故なので機械で止める。EPUB 展開は重いので commit 時は --bom-only、読むのは staged の .mdx だけ（--staged）。
+  s('check-kindle-epub-leak', ['--bom-only', '--staged'], { touches: touchesSite }),
   // note→サイト送客リンクの UTM 規約（生URL単独行=カード化でUTM消失 / inline は utm_source=note 必須）。SKIP_NOTE_UTM=1 で回避
   s('check-note-site-utm'),
   // X→サイト送客リンクの UTM 規約（utm_source=x / utm_medium=social 必須・_archive は対象外）。SKIP_X_UTM=1 で回避

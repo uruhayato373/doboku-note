@@ -1,0 +1,87 @@
+name: Record build SEO summary
+
+# check-seo-build の結果（検査数・error・warn の型別件数）を data/analysis/ の履歴へ足して develop へ書き戻す（DN-0676）。
+#
+# 2026-11-13 まで ci.yml の publish-seo-summary ジョブだった。concurrency グループ develop-git-write（index-coverage・
+# psi-audit・fetch-metrics・ogp-supply などと共有）の空きを待つので、audit・test・build が 5 分で終わっても run が
+# 完了せず（同日に 16.6 分・34.0 分・36.9 分。run 43390653131 は 18 分の待ち）、develop の push は実行を取り消さない
+# ので次の push の検査もその間始まらなかった（DN-1139）。書き戻しをゲートの run の外へ出す。
+#
+# - workflow_run は既定ブランチ（main）版の workflow で動く＝main へ deploy して初めて効く
+# - workflows の名前は glob のパターンとして照合される。`+` は `\+` と書く（tests/workflow-run-filters.test.mjs・DN-0848）
+# - 記録が欠けた回は欠測のまま（0 件として足さない）。止まったことは週次レビューの下書きが拾う（最新の記録が 7 日より古いと警告・scripts/lib/seo-build-summary.mjs）
+on:
+  workflow_run:
+    workflows: ['Pre-merge check (quality audit \+ build)']
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    # develop への push の実行だけ（PR・手動起動・取り消された実行は足さない）。fork の同名ブランチも除く。
+    if: >-
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'develop' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      github.event.workflow_run.conclusion != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read # 引き金の run の artifact（seo-build-run）を取る
+    # グループはジョブに置く。workflow に置くと、PR の実行の完了で起動して何もしない回が待ちの 1 件を取り消す
+    concurrency:
+      group: develop-git-write
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+
+      # build が SEO 検査の前に落ちた回は artifact が無い。そのときは何もしない。
+      - name: Download SEO build summary
+        id: download
+        continue-on-error: true
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: seo-build-run
+          path: ${{ runner.temp }}/seo-build
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+
+      - name: Setup Node.js
+        if: steps.download.outcome == 'success'
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install Dependencies
+        if: steps.download.outcome == 'success'
+        run: npm ci --legacy-peer-deps
+
+      # npm ci が pre-commit フックを入れる。フックの検査が src/config/doc-meta-index.json（git 管理外の生成物）を読む
+      - name: Build doc meta index
+        if: steps.download.outcome == 'success'
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
+      - name: Publish SEO build summary
+        if: steps.download.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          node scripts/record-seo-build-summary.mjs "$RUNNER_TEMP/seo-build/seo-build-run.json"
+          node scripts/ci-data.mjs add --datasets analysis.seo-build-summary
+          if git diff --cached --quiet; then
+            echo "No SEO build summary changes to publish"
+            exit 0
+          fi
+          git commit -m "chore(seo): build 後 SEO スキャンの件数を記録 $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop

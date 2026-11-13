@@ -156,7 +156,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-breakdown-1",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-breakdown-1",
       "relatedTo": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -182,7 +182,8 @@
       },
       "times": {
         "rendered": "2026-11-10T21:28:05.318Z",
-        "uploaded": "2026-11-10T21:58:23.529Z"
+        "uploaded": "2026-11-10T21:58:23.529Z",
+        "scheduled": "2026-11-13T13:17:29.349Z"
       },
       "delivery": {
         "inputSha256": "63b3ddb4541144795d6b06d0eb425ebbd57bce7bb4be281b24b2251086f354a6",
@@ -190,16 +191,19 @@
         "uploadRequestedAt": "2026-11-10T21:57:49.056Z",
         "videoId": "LQiIN5sPBAo",
         "processedAt": "2026-11-10T21:58:22.873Z",
-        "thumbnailRequestedAt": "2026-11-10T21:58:23.563Z",
+        "thumbnailRequestedAt": "2026-11-13T13:17:16.532Z",
         "thumbnailUrls": [
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/default.jpg?sqp=CLSlztcG&rs=AOn4CLCyWqYvY4fmSMvl5pwp_5MEKDvYvw",
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/mqdefault.jpg?sqp=CLSlztcG&rs=AOn4CLAzWx5na3d92JGul3j9EiTUjq0xhw",
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/hqdefault.jpg?sqp=CLSlztcG&rs=AOn4CLBi5AQ27oHfferaVd5jcohddRdoPQ",
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/sddefault.jpg?sqp=CLSlztcG&rs=AOn4CLD-d5UnUYa3wTd4feGxwiqYr_4a-g",
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/maxresdefault.jpg?sqp=CLSlztcG&rs=AOn4CLArMjd5Tr4jFHEsdYP_tbiVALmm_A",
-          "https://i9.ytimg.com/vi/LQiIN5sPBAo/sardefault.jpg?sqp=CLSlztcG&rs=AOn4CLCzCHibsGS97K3Wev460lNw3uCrSQ"
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/default.jpg?sqp=CNSa3NcG&rs=AOn4CLCZNI0YNxZvJ_jmCCQLN9GUznalbg",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/mqdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLBh4aPEtOyLZ2g2ARnjV5tFXTZejw",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/hqdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLCZ8fKjEKRRqaQHaeQs2T2_iYyHRA",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/sddefault.jpg?sqp=CNSa3NcG&rs=AOn4CLDpcorh9ZsI8ligzLV8vRbMkVVMOw",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/maxresdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLAai-r_F_NfuZWfnCO2jMT8r2aBzg",
+          "https://i9.ytimg.com/vi/LQiIN5sPBAo/sardefault.jpg?sqp=CNSa3NcG&rs=AOn4CLCx4DuiTUZqTmt82TLohxl3fmEWEA"
         ],
-        "thumbnailAcceptedAt": "2026-11-10T21:58:27.475Z"
+        "thumbnailAcceptedAt": "2026-11-13T13:17:21.463Z",
+        "scheduleRequestedAt": "2026-11-13T13:17:25.875Z",
+        "scheduleAt": "2026-11-17T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-11-13T13:17:29.349Z"
       },
       "platform": {
         "id": "LQiIN5sPBAo",
@@ -208,11 +212,13 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-breakdown-1"
-        }
+        },
+        "relatedVideoId": "w5kX20cj5Yk",
+        "desiredRelatedVideoId": "w5kX20cj5Yk"
       },
       "thumbnail": {
         "status": "set",
-        "setAt": "2026-11-10T21:58:27.475Z"
+        "setAt": "2026-11-13T13:17:21.463Z"
       }
     },
     {
@@ -221,7 +227,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-funding-2",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-funding-2",
       "relatedTo": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -247,7 +253,8 @@
       },
       "times": {
         "rendered": "2026-11-10T21:28:05.492Z",
-        "uploaded": "2026-11-10T22:04:30.488Z"
+        "uploaded": "2026-11-10T22:04:30.488Z",
+        "scheduled": "2026-11-13T13:18:54.610Z"
       },
       "delivery": {
         "inputSha256": "87a0f957fd1ca853db71b4ce45283fa75a3a56fdcdb5c57d7808b2d61c39e602",
@@ -255,16 +262,19 @@
         "uploadRequestedAt": "2026-11-10T21:59:33.935Z",
         "videoId": "Da1c1w3CT2c",
         "processedAt": "2026-11-10T22:04:29.820Z",
-        "thumbnailRequestedAt": "2026-11-11T04:37:59.580Z",
+        "thumbnailRequestedAt": "2026-11-13T13:18:40.935Z",
         "thumbnailUrls": [
-          "https://i9.ytimg.com/vi/Da1c1w3CT2c/default.jpg?sqp=CPTgz9cG&rs=AOn4CLAFPGd_JM4B9bHWKyNBJk5BuXXsKQ",
-          "https://i9.ytimg.com/vi/Da1c1w3CT2c/mqdefault.jpg?sqp=CPTgz9cG&rs=AOn4CLCUL87hpnMvxZZa1SnLcmJB-gHc9Q",
-          "https://i9.ytimg.com/vi/Da1c1w3CT2c/hqdefault.jpg?sqp=CPTgz9cG&rs=AOn4CLBsgGDwD4kn1Gy8IK8X6iL3WriDDg",
-          "https://i9.ytimg.com/vi/Da1c1w3CT2c/sddefault.jpg?sqp=CPTgz9cG&rs=AOn4CLC_xV65FDfmCV1oQxKPmIUOqEIPKg",
-          "https://i9.ytimg.com/vi/Da1c1w3CT2c/maxresdefault.jpg?sqp=CPTgz9cG&rs=AOn4CLDr6mVYhOTnlz-sUV6Z4g_JWNEixQ",
-          "https://i9.ytimg.com/vi/Da1c1w3CT2c/sardefault.jpg?sqp=CPTgz9cG&rs=AOn4CLBgdFUwk1EOugSfcZoFg_5Ue5yDuw"
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/default.jpg?sqp=CNSa3NcG&rs=AOn4CLAOBdDi68IKPwfWhObC2hsyw6F5pw",
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/mqdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLCa36B8xcoEHQYO3hruNIHZcCIoAg",
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/hqdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLAFVwbdrKODcs1yAZ_S7nG6iRjO7Q",
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/sddefault.jpg?sqp=CNSa3NcG&rs=AOn4CLAf55gwXv_sCagHKl60terUYeRTpw",
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/maxresdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLBZRTLGUfvNCfbkonaBdH8opT5DVA",
+          "https://i9.ytimg.com/vi/Da1c1w3CT2c/sardefault.jpg?sqp=CNSa3NcG&rs=AOn4CLDJBX3wy7vQ8CC2L6u4pHPpnmt4tA"
         ],
-        "thumbnailAcceptedAt": "2026-11-11T04:38:02.951Z"
+        "thumbnailAcceptedAt": "2026-11-13T13:18:44.705Z",
+        "scheduleRequestedAt": "2026-11-13T13:18:50.149Z",
+        "scheduleAt": "2026-11-18T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-11-13T13:18:54.610Z"
       },
       "platform": {
         "id": "Da1c1w3CT2c",
@@ -273,11 +283,13 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-funding-2"
-        }
+        },
+        "relatedVideoId": "w5kX20cj5Yk",
+        "desiredRelatedVideoId": "w5kX20cj5Yk"
       },
       "thumbnail": {
         "status": "set",
-        "setAt": "2026-11-11T04:38:02.951Z"
+        "setAt": "2026-11-13T13:18:44.705Z"
       }
     },
     {
@@ -997,7 +1009,7 @@
       "work": "pe-hissu1-konkyo-tsumikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/scene-001",
@@ -1015,7 +1027,59 @@
         "video": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#longform",
+      "publishAt": "2026-11-19T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-13T12:56:05.489Z",
+          "digest": "afbc91dfb8679602f27ef413a4958bfa1040051b7da7b648892f7c15b5114e71"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-13T12:56:05.489Z",
+        "contentSha256": "64b43df636ac24992551d04242b8214ade0996f75bdf77c82731b3680ac1e3ad"
+      },
+      "times": {
+        "rendered": "2026-11-13T13:07:14.450Z",
+        "uploaded": "2026-11-13T13:15:42.455Z",
+        "scheduled": "2026-11-13T13:15:50.452Z"
+      },
+      "delivery": {
+        "inputSha256": "556e1236160b915a313ddf21d09bfbde2838b38898b9ae2ff419ced3872684e0",
+        "marker": "dn-single-809a38c1340ace88d3990f5368aea4f7fe6581f8",
+        "uploadRequestedAt": "2026-11-13T13:14:57.755Z",
+        "videoId": "sa2okjtyLl4",
+        "processedAt": "2026-11-13T13:15:41.793Z",
+        "thumbnailRequestedAt": "2026-11-13T13:15:42.516Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/default.jpg?sqp=CNSa3NcG&rs=AOn4CLBf6HZ-onQKhVzxlm2f6pVj3LS6TQ",
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/mqdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLAV1RdFsdSxhhE-I1B3G5lpwHEfrQ",
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/hqdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLDubKhhZmsAnajwC90At9b1voUSKA",
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/sddefault.jpg?sqp=CNSa3NcG&rs=AOn4CLCy2iuRLpQDvjp6xb_F2jSOfMS1Lg",
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/maxresdefault.jpg?sqp=CNSa3NcG&rs=AOn4CLA5EZYa80czuTj_58rQ1laNuWBYyQ",
+          "https://i9.ytimg.com/vi/sa2okjtyLl4/fhddefault.jpg?sqp=CNSa3NcG&rs=AOn4CLDEFpG-9rl-eUpa-eIqREWAuZLqKQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-13T13:15:45.974Z",
+        "scheduleRequestedAt": "2026-11-13T13:15:46.954Z",
+        "scheduleAt": "2026-11-19T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-13T13:15:50.452Z"
+      },
+      "platform": {
+        "id": "sa2okjtyLl4",
+        "url": "https://www.youtube.com/watch?v=sa2okjtyLl4",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-hissu1-konkyo-tsumikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-13T13:15:45.974Z"
+      }
     },
     {
       "id": "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.short.point-shusho-1",
@@ -1069,7 +1133,7 @@
       "work": "pe-hissu1-theme-junbi",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/cover",
         "scene-001": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/scene-001",
@@ -1087,7 +1151,59 @@
         "video": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/video",
         "subtitles": "pe-construction/pe-hissu1-theme-junbi/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#longform",
+      "publishAt": "2026-11-17T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-13T12:56:02.871Z",
+          "digest": "261bd07edf925f30747385c0061072ce6a5fd1f9fa65cec1eae298702e915775"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-13T12:56:02.871Z",
+        "contentSha256": "d036f1cb1c65abcc9bf11296fa3e4da88520b77079809e3b9af9dc1cabe9cfc7"
+      },
+      "times": {
+        "rendered": "2026-11-13T13:06:56.580Z",
+        "uploaded": "2026-11-13T13:09:47.996Z",
+        "scheduled": "2026-11-13T13:09:59.571Z"
+      },
+      "delivery": {
+        "inputSha256": "b0e1bfb588a0c076b20929cf6441aae884db8ededa8d23518236c1208be58bcd",
+        "marker": "dn-single-cebc307e6fd0db428e6e81a30d88ba206e2ee8d8",
+        "uploadRequestedAt": "2026-11-13T13:08:58.217Z",
+        "videoId": "C9D3ksRLEVE",
+        "processedAt": "2026-11-13T13:09:47.127Z",
+        "thumbnailRequestedAt": "2026-11-13T13:09:48.057Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/default.jpg?sqp=CPyV3NcG&rs=AOn4CLAvFKvT4Uaf5O2eT6bLYTai6peQKw",
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/mqdefault.jpg?sqp=CPyV3NcG&rs=AOn4CLBf4ctz6s0DfJxVn_QyHB34it0m5w",
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/hqdefault.jpg?sqp=CPyV3NcG&rs=AOn4CLBzjPwJpKjpUHAsXwm-CFGUd49Phg",
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/sddefault.jpg?sqp=CPyV3NcG&rs=AOn4CLA0iyMOgZwJutfwDHckqCTMnWSopg",
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/maxresdefault.jpg?sqp=CPyV3NcG&rs=AOn4CLB6eibwJHlHEURbnzEXEGVa1L7bkg",
+          "https://i9.ytimg.com/vi/C9D3ksRLEVE/fhddefault.jpg?sqp=CPyV3NcG&rs=AOn4CLCUx3ug4Gu_Xn_R2vK7c8vQpmCHnA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-13T13:09:51.502Z",
+        "scheduleRequestedAt": "2026-11-13T13:09:56.165Z",
+        "scheduleAt": "2026-11-17T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-13T13:09:59.571Z"
+      },
+      "platform": {
+        "id": "C9D3ksRLEVE",
+        "url": "https://www.youtube.com/watch?v=C9D3ksRLEVE",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-hissu1-theme-junbi/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-13T13:09:51.502Z"
+      }
     },
     {
       "id": "pe-construction/pe-hissu1-theme-junbi/youtube.short.point-joken-2",
@@ -1581,7 +1697,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-jogai-2",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-jogai-2",
       "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1607,7 +1723,8 @@
       },
       "times": {
         "rendered": "2026-11-12T02:57:26.257Z",
-        "uploaded": "2026-11-12T22:14:50.301Z"
+        "uploaded": "2026-11-12T22:14:50.301Z",
+        "scheduled": "2026-11-13T12:55:45.175Z"
       },
       "delivery": {
         "inputSha256": "0b8b547610dd0bd8160498f9257162afa38815bc07389c844a85dee48c12f1c8",
@@ -1615,16 +1732,19 @@
         "uploadRequestedAt": "2026-11-12T22:08:56.094Z",
         "videoId": "nOml4YwNQJw",
         "processedAt": "2026-11-12T22:14:49.416Z",
-        "thumbnailRequestedAt": "2026-11-12T22:14:50.330Z",
+        "thumbnailRequestedAt": "2026-11-13T12:55:33.549Z",
         "thumbnailUrls": [
-          "https://i9.ytimg.com/vi/nOml4YwNQJw/default.jpg?sqp=CLjy2NcG&rs=AOn4CLBApDKaTAFRxoeWoE17LkVmkrF2tQ",
-          "https://i9.ytimg.com/vi/nOml4YwNQJw/mqdefault.jpg?sqp=CLjy2NcG&rs=AOn4CLB7r1TDiX1d4zz2FtKe0Cw-Sods8Q",
-          "https://i9.ytimg.com/vi/nOml4YwNQJw/hqdefault.jpg?sqp=CLjy2NcG&rs=AOn4CLDMGv3gwovQdY8LWtrlO9qAYUif9A",
-          "https://i9.ytimg.com/vi/nOml4YwNQJw/sddefault.jpg?sqp=CLjy2NcG&rs=AOn4CLBSDgdOu12liTGuDVU1JgQ8XVbEXQ",
-          "https://i9.ytimg.com/vi/nOml4YwNQJw/maxresdefault.jpg?sqp=CLjy2NcG&rs=AOn4CLCTcNY35RIgu12PNFZlCyTJ_oP4zA",
-          "https://i9.ytimg.com/vi/nOml4YwNQJw/sardefault.jpg?sqp=CLjy2NcG&rs=AOn4CLCfGINxc5k16Ha35tgH_HyNhuK2nQ"
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/default.jpg?sqp=CKSR3NcG&rs=AOn4CLDzWry8r6zewssNTPxl8XbZScTzsA",
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/mqdefault.jpg?sqp=CKSR3NcG&rs=AOn4CLCOmKNr9CIlejjTlDMvJ-JAeeiR9Q",
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/hqdefault.jpg?sqp=CKSR3NcG&rs=AOn4CLC6xYe1eDfPM_aVW3ybvdUI9waP1g",
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/sddefault.jpg?sqp=CKSR3NcG&rs=AOn4CLBk0jxi8JYDV-GQrPmD-OTOnwcIvQ",
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/maxresdefault.jpg?sqp=CKSR3NcG&rs=AOn4CLCflv3k5o27DUY9X4U02YNPzd9X4A",
+          "https://i9.ytimg.com/vi/nOml4YwNQJw/sardefault.jpg?sqp=CKSR3NcG&rs=AOn4CLDf9UHqtHOvzRK4yekMQo2473T0lg"
         ],
-        "thumbnailAcceptedAt": "2026-11-12T22:14:56.710Z"
+        "thumbnailAcceptedAt": "2026-11-13T12:55:36.428Z",
+        "scheduleRequestedAt": "2026-11-13T12:55:40.906Z",
+        "scheduleAt": "2026-11-13T22:30:00Z",
+        "scheduledVerifiedAt": "2026-11-13T12:55:45.175Z"
       },
       "platform": {
         "id": "nOml4YwNQJw",
@@ -1633,11 +1753,13 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-jogai-2"
-        }
+        },
+        "relatedVideoId": "IrhUBYTTpQI",
+        "desiredRelatedVideoId": "IrhUBYTTpQI"
       },
       "thumbnail": {
         "status": "set",
-        "setAt": "2026-11-12T22:14:56.710Z"
+        "setAt": "2026-11-13T12:55:36.428Z"
       }
     },
     {

@@ -30,7 +30,7 @@ type QualificationBridgeKey = 'orderer' | 'contractor' | 'qualification-map' | '
 export type QualificationBridgeAudience = 'municipal';
 
 /** 表示面。GA4 の cta_placement に使う。 */
-export type QualificationBridgeSurface = 'practice-footer' | 'standards-chapter-footer';
+export type QualificationBridgeSurface = 'practice-footer' | 'standards-chapter-footer' | 'standards-bridge-sidebar';
 
 export interface QualificationBridgeOption {
   readonly key: QualificationBridgeKey;

@@ -74,12 +74,12 @@ export function renderSeoBuildSection(history, today) {
   const lines = ['## build 後 SEO スキャン（check-seo-build・CI が develop の push ごとに記録）', ''];
   const pair = history && latestAndWeekAgo(history);
   if (!pair) {
-    lines.push('- （未取得: 台帳 analysis.seo-build-summary に記録が無い。CI の「Publish SEO build summary」を確認）', '');
+    lines.push('- （未取得: 台帳 analysis.seo-build-summary に記録が無い。seo-build-summary.yml の「Publish SEO build summary」を確認）', '');
     return lines;
   }
   const { latest, previous } = pair;
   const ageDays = Math.round((Date.parse(`${today}T00:00:00Z`) - Date.parse(`${latest.date}T00:00:00Z`)) / 86_400_000);
-  lines.push(`- 最新の記録: ${latest.date}${ageDays > 7 ? `（**${ageDays} 日前**。CI の書き戻しが止まっていないか確認）` : ''}。検査 ${latest.checked} URL / sitemap ${latest.sitemapUrls} URL`);
+  lines.push(`- 最新の記録: ${latest.date}${ageDays > 7 ? `（**${ageDays} 日前**。seo-build-summary.yml の書き戻しが止まっていないか確認）` : ''}。検査 ${latest.checked} URL / sitemap ${latest.sitemapUrls} URL`);
   lines.push(`- error ${latest.errors}（前週比 ${fmtDiff(latest.errors, previous?.errors)}）/ warn ${latest.warnings}（前週比 ${fmtDiff(latest.warnings, previous?.warnings)}）`);
   lines.push(previous ? `- 前週の記録: ${previous.date}` : '- 前週の記録: なし（履歴が 7 日に満たない）');
   const codes = [...new Set([...Object.keys(latest.errorsByCode), ...Object.keys(latest.warningsByCode), ...Object.keys(previous?.errorsByCode ?? {}), ...Object.keys(previous?.warningsByCode ?? {})])];

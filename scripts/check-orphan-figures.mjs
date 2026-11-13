@@ -30,6 +30,19 @@ import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs
 import { escapeRegExp } from './lib/regexp-escape.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
+/**
+ * staged のパス（リポジトリ相対・/ 区切り）から、検査する記事ディレクトリ（リポジトリ相対）を返す。関係しないパスは null。
+ * figure-*.svg が staged ならその記事、記事（.mdx・.md）が staged ならその記事（参照を外した可能性）。
+ * 2026-11-13 まで正規表現の先頭が「バックスラッシュ＋content」（バックスラッシュ＋c＋o は制御文字）で実在のパスに
+ * 一度も一致せず、commit 時は毎回 0 枚の検査で通っていた。
+ */
+export function stagedArticleDir(path) {
+  let m = path.match(/^(content\/site\/.+?)\/img\/figure-[^/]*\.svg$/);
+  if (m) return m[1];
+  m = path.match(/^(content\/site\/.+?)\/[^/]+\.(mdx|md)$/);
+  return m && !path.includes("/img/") ? m[1] : null;
+}
+
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
 // 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
@@ -69,18 +82,8 @@ function stagedArticleDirs() {
   const dirs = new Set();
   for (const line of out.split("\n").map((l) => l.trim())) {
     if (!line) continue;
-    const norm = line.replace(/\\/g, "/");
-    // figure svg が staged → その記事ディレクトリ
-    let m = norm.match(/^(\content\/site\/.+?)\/img\/figure-[^/]*\.svg$/);
-    if (m) {
-      dirs.add(join(ROOT, m[1]).replace(/\\/g, "/"));
-      continue;
-    }
-    // 記事 mdx/md が staged → その記事ディレクトリ（参照を外した可能性）
-    m = norm.match(/^(\content\/site\/.+?)\/[^/]+\.(mdx|md)$/);
-    if (m && !/\/img\//.test(norm)) {
-      dirs.add(join(ROOT, m[1]).replace(/\\/g, "/"));
-    }
+    const dir = stagedArticleDir(line.replace(/\\/g, "/"));
+    if (dir) dirs.add(join(ROOT, dir).replace(/\\/g, "/"));
   }
   return dirs;
 }
@@ -120,9 +123,22 @@ function isReferenced(figureFull, articleText) {
   return re.test(articleText);
 }
 
-const allFigures = listAllFigures();
-let figures = allFigures;
+// staged のときは関係する記事ディレクトリの img/ だけを読む。先に content/site の全ファイル（6,000 超）を列挙しない（DN-1141）
+function figuresIn(articleDir) {
+  const img = join(articleDir, "img");
+  let names;
+  try {
+    names = readdirSync(img);
+  } catch {
+    return []; // img/ の無い記事
+  }
+  return names
+    .filter((n) => /^figure-.*\.svg$/.test(n))
+    .map((n) => join(img, n).replace(/\\/g, "/"))
+    .filter((full) => !EXAM_DIR_RE.test(full));
+}
 
+let figures;
 if (staged) {
   const dirs = stagedArticleDirs();
   if (dirs === null) {
@@ -130,7 +146,9 @@ if (staged) {
     console.log("[check-orphan-figures] staged 取得不可のためスキップ");
     __exit(0);
   }
-  figures = allFigures.filter((f) => dirs.has(articleDirOf(f).replace(/\\/g, "/")));
+  figures = [...dirs].flatMap(figuresIn);
+} else {
+  figures = listAllFigures();
 }
 
 const orphans = [];

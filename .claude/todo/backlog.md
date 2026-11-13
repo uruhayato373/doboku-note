@@ -214,9 +214,9 @@
 
 **起点**: 2026-11-05、運営者が「CI が遅い」と指摘し、優先度を高くして起票するよう依頼した。note 商品の公開 1 回で、PR の CI と develop のゲートとデプロイを待つのに 20 分以上かかり、失敗すると繰り返す。
 
-**実測（2026-11-05）**: PR の CI は約 10〜11 分（e2e 10 分 26 秒、lighthouse 7 分 21 秒、audit 6 分 36 秒、build 5 分 20 秒）。merge 後の develop の Pre-merge check は 5.9〜7.2 分（直近 7 回）。main のデプロイの所要時間は未計測。同日の PR #1407・#1409・#1410 は、速い検査の失敗が commit か CI の段階で続いた。
+**実測（2026-11-05）**: PR の CI は約 10〜11 分（e2e 10 分 26 秒、lighthouse 7 分 21 秒、audit 6 分 36 秒、build 5 分 20 秒）。merge 後の develop の Pre-merge check は 5.9〜7.2 分（直近 7 回）。main のデプロイは中央値 6.4 分（2026-11-13 の実測。npm ci 21 秒・build 232 秒・Pages へのアップロード 79 秒。作り直しをやめる案は DN-1184）。同じ日の実測で PR は ci 5.5 分・E2E 4.7 分、develop の push は 6.1 分、develop が赤だった時間は直近 32 時間の約 36%（DN-1182）。同日の PR #1407・#1409・#1410 は、速い検査の失敗が commit か CI の段階で続いた。
 
-**やること**: (1) main のデプロイを含めた全段階の所要時間と、検査ごとの内訳を計測する。(2) PR と develop で重複している audit と build を減らせるか判断する。本番の手前の守りを弱めないことを条件にする。(3) note-funnel など速い検査を commit 前に回し、CI でのやり直しを減らす。(4) e2e を縮小する。運営者の方針（2026-11-05）は「サイトの構築途中なので、e2e を厚くやる必要はない」。PR は smoke など短い検査だけにする。visual・standards-render・a11y は、運営者の判断（2026-11-05）でサイトがある程度完成するまで止める。夜間（JST 3:00）の実行も対象に含める。再開の条件をカードか workflow の注記に残す。直近 100 回の e2e は 18 回失敗し、抽出した 12 回の多くは visual と standards-render だった。失敗が実際の不具合か、スナップショットの更新待ちかは切り分ける。lighthouse も省けるか判断する。(5) CI の成功時に、作業中のセッションが次へ進める方法を確かめる。
+**やること**: (1) 上の実測を基準に、PR の作成から本番確認までの目標値を決める。(2) PR と develop で重複している audit と build を減らせるか判断する。本番の手前の守りを弱めないことを条件にする。(3) note-funnel など速い検査を commit 前に回し、CI でのやり直しを減らす。(4) e2e を縮小する。運営者の方針（2026-11-05）は「サイトの構築途中なので、e2e を厚くやる必要はない」。PR は smoke など短い検査だけにする。visual・standards-render・a11y は、運営者の判断（2026-11-05）でサイトがある程度完成するまで止める。夜間（JST 3:00）の実行も対象に含める。再開の条件をカードか workflow の注記に残す。直近 100 回の e2e は 18 回失敗し、抽出した 12 回の多くは visual と standards-render だった。失敗が実際の不具合か、スナップショットの更新待ちかは切り分ける。lighthouse も省けるか判断する。(5) CI の成功時に、作業中のセッションが次へ進める方法を確かめる。
 
 **完了条件**: 計測の結果が残り、PR の作成から本番確認までの標準の所要時間が目標値まで短くなっている。目標値は計測の後に決める。検査の範囲を減らす場合は、その理由が記録されている。
 
@@ -416,6 +416,48 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1187] 毎晩の YouTube 予約で、worktree に素材が無いショートの予約が失敗する
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-13]
+
+毎晩の YouTube 予約（scheduled task `doboku-youtube-daily-release`）は専用 worktree `.claude/worktrees/yt-release` で `npm run youtube-daily -- run` を流す。投稿済みショートの予約（`registry.mjs publish-youtube`）は `.tmp/media/<資格>/<作品>/<pub>/video.<hash>.mp4` を読むが、`.tmp/media` は Git 管理外で、メインの作業ツリーで作った素材は worktree に無い。
+
+2026-11-13 の実行で、老朽化のショート 2 本（`pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1`・`point-funding-2`）の schedule-short がファイル無しで失敗した。メイン側の同じハッシュの実体を手でコピーして再実行し、予約できた。
+
+直す候補: (a) worktree の `.tmp/media` をメイン側へのリンクにする（.env.local と同じ扱い） (b) youtube-daily が無い素材をメイン側から取り寄せる (c) 予約だけなら動画ファイルを読まないようにする。どれにするか決めて、scheduled task の手順か実装へ反映する。
+
+完了条件: メイン側だけに素材があるショートが、worktree からの `youtube-daily -- run` で手作業なしに予約される。
+
+
+### [DN-1183] ビルドの入力に触れない push で build ジョブを飛ばせるか決める
+タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の実測。直近 7 日の develop の commit 834 件のうち、ビルドの入力（src・public・content/site・config・package）にもコード（scripts・tests・tools・.github）にも触れないものが 577 件（content/sns 482・content/note 420・.claude/state 199・content/registry 144・data が中心。commit 単位の数で、bot の [skip ci] を含む）。ci.yml が飛ばすのは記憶と台帳だけの push（同じ 7 日で 203 件）。develop の push は実行を取り消さないので、走る回数が多いほど最新の結果が出るのが遅れる。
+
+**やること**: build ジョブ（最長の 4.4〜5.3 分）を、ビルドの入力に触れない push で飛ばせるかを決める。飛ばしてよい置き場は scripts/lib/build-chain.mjs でビルドの手順をたどって確かめる（content/note は note カタログ経由でビルドに入るので対象外。data/ は build-popular-pages などが読むので 1 本ずつ確かめる）。audit と test は残す。build を飛ばした run を deploy:main が「検査済み」と数えてよいかも決める（out/ を見る SEO の検査は build ジョブにしか無い）。tests/ci-push-scope.test.mjs を合わせる。
+
+**完了条件**: 飛ばす置き場とその根拠（ビルドの手順が読まないこと）がテストで固定され、1 週間の run の回数と所要時間を前後で比べた記録がある。または、飛ばさないと決めた理由が残っている。
+
+
+### [DN-1182] develop が赤い時間を短くする（push の前に関係するテストを回す範囲を広げる）
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の実測。develop のゲートは直近 32 時間で 62 回（成功 41・取消 11・失敗 10）、赤だった時間は 683 分（約 36%）。失敗は同じ 1 件のテスト（tests/business-direction.test.mjs）が直るまで、無関係な push 4 本が続けて赤になる形が 2 回あった（11/12 10:28〜10:46Z・21:38〜22:02Z）。赤の間は deploy:main が止まる。赤を入れた commit を知らせる経路はある（Pre-merge の失敗 Issue に「最後の緑から今回まで」を載せる）。足りないのは push 前の検出で、pre-commit が先に回すテストは UNIT_TEST_RULES（scripts/pre-commit-ci-gates.mjs）の十数本だけ。
+
+**やること**: (1) staged の scripts/**/X.mjs・scripts/lib/X.mjs に対し tests/X.test.mjs があれば回す、という名前の対応を UNIT_TEST_RULES に足せるかを、直近 30 日に develop を赤くしたテストで何件拾えたかで確かめる。(2) 拾えない分（名前が対応しないテスト）の扱いを決める。手元の全量は Windows で 46〜49 件落ちるので（Windows の手元のテストのカード）、それが直るまで手元の全量は判定に使えない。
+
+**完了条件**: 直近 30 日の赤のうち push 前に拾える割合が数字で出ていて、拾えるものは pre-commit で回っている。`npm run ci:stats -- --limit 500 --failures` の「develop が赤だった時間」を前後で比べた記録がある。
+
+
+### [DN-1181] 正規表現の「バックスラッシュ＋content」の書き損じの残り 2 か所を直し、同じ書き損じを機械で止める
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-13]
+
+**起点**: 2026-11-13 に pre-commit を速くする作業で見つけた。正規表現の先頭を「バックスラッシュ＋content」と書くと、バックスラッシュ＋c＋o が制御文字（U+000F）として読まれ、実在のパスに一致しない。scripts/check-table-references.mjs と scripts/check-orphan-figures.mjs の --staged がこれで、commit 時は毎回 0 件の検査で OK を出していた（全量は CI で回っていた。2 本は同じ PR で直し、tests/staged-site-paths.test.mjs で固定した）。同じ書き方が .claude/skills/check-mdx/scripts/rules/svg/build-gallery-comment.mjs の 64 行と 69 行に残っている（資格とスラグをパスから取る 2 か所で、一致しないので取れていないはず）。
+
+**やること**: build-gallery-comment.mjs の 2 か所を直し、直す前後で出力がどう変わるかを確かめる。正規表現の中のバックスラッシュ＋英字の書き損じ（\c・\p など意図しないエスケープ）を scripts・.claude/scripts・.claude/skills から探す検査を、決まった合格条件で書けるなら tests に足す。
+
+**完了条件**: 残り 2 か所が直り、同じ書き損じが 0 件であることを機械で確かめられる。
+
+
 ### [DN-1177] 記事本文に手書きした試験日・合格率を正本と突き合わせる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2027-01] [種類:改善] [起票:2026-11-13]
 
@@ -590,13 +632,13 @@
 ### [DN-1138] PR の E2E の再ビルドをやめる（主要 3 本を ci.yml の build ジョブで回す）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-12]
 
-e2e.yml は PR で自前の npm run build（187〜236 秒）をしてから主要 3 本の spec を回すが、テスト本体は 8〜10 秒（2026-11-11 の 3 回の実測）。ci.yml の build ジョブが同じ out/ を作っているので、PR の主要 3 本を build ジョブの後段で回せば PR 1 本あたりの full build が 1 回減る（PR の待ち時間は ci 約 3.7 分に対し e2e 約 5.6 分で、e2e が律速）。Chromium の導入は通常 17〜24 秒（apt 側で 209 秒かかった回あり）。夜間の全件と a11y は e2e.yml に残す。automerge.yml の workflow_run と tests/e2e-paths.test.mjs・tests/e2e-execution.test.mjs を合わせる
+e2e.yml は PR で自前の npm run build（187〜236 秒）をしてから主要 3 本の spec を回すが、テスト本体は 8〜10 秒（2026-11-11 の 3 回の実測）。ci.yml の build ジョブが同じ out/ を作っているので、PR の主要 3 本を build ジョブの後段で回せば PR 1 本あたりの full build が 1 回減る（PR の待ち時間は ci 約 3.7 分に対し e2e 約 5.6 分で、e2e が律速）。Chromium の導入は通常 17〜24 秒（apt 側で 209 秒かかった回あり）。夜間の全件と a11y は e2e.yml に残す。automerge.yml の workflow_run と tests/e2e-paths.test.mjs・tests/e2e-execution.test.mjs を合わせる。**2026-11-13 の実測で前提が変わった**: PR の待ち時間は ci 5.5 分（中央値・53 回）に対し e2e 4.7 分（33 回）で、律速は ci の build ジョブに入れ替わっている。統合しても PR の待ち時間は縮まず、減るのはランナーの実行時間だけ（公開リポジトリで課金なし）。着手の前に、やる理由が残っているかを決める
 
 
 ### [DN-1137] refresh-indexes の手動義務をなくす（生成物を git から外して build 時に作る）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-12]
 
-MDX を変えるたびに npm run refresh-indexes（npm と node 約 30 プロセス・MDX 全体の走査を数回）を手で回して生成物を commit する義務がある（CLAUDE.md §4・rules/content-site.md）。build も同じ処理を回し、CI の generated-indexes も実際に回して照合している。生成物を git 管理から外し build 時に作る形（src/config/doc-meta-index.json と同じ）にすれば、手動の義務と CI の generated-indexes（llms の件数ずれの赤の元）が消える。先に調べる: 追跡している生成物の一覧と、build 以外の読み手（管理画面・スクリプト・テスト・pre-commit）。content の commit は 1 日 100 件を超えるので効果が大きい
+MDX を変えるたびに npm run refresh-indexes（npm と node 約 30 プロセス・MDX 全体の走査を数回）を手で回して生成物を commit する義務がある（CLAUDE.md §4・rules/content-site.md）。build も同じ処理を回し、CI の generated-indexes も実際に回して照合している。生成物を git 管理から外し build 時に作る形（src/config/doc-meta-index.json と同じ）にすれば、手動の義務と CI の generated-indexes（llms の件数ずれの赤の元）が消える。先に調べる: 追跡している生成物の一覧と、build 以外の読み手（管理画面・スクリプト・テスト・pre-commit）。content の commit は 1 日 100 件を超えるので効果が大きい。CI でも 1 回の run で 3 回走っている（test ジョブの Refresh generated indexes・audit の generated-indexes・build の npm run build。2026-11-13 に確認）
 
 
 ### [DN-1135] 検査の失敗メッセージに直し方を足し、規則文書をさらに縮める
@@ -2688,6 +2730,48 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1186] 静的生成で 1 ページごとに全記事を走査している分を測り、大きければ直す
+タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の調査。src/lib/content-routes.ts の findLegacySlugForPublicRoute が、記事 1 ページごとに全記事を線形に走査して getPublicDocRoute を計算し直す（exam・laws・practice の page.tsx が generateMetadata と本体から 1 ページ 2 回呼ぶ）。DocPage.tsx・ArticleFooter.tsx・topics.ts も、ページごとに全記事の一覧を作り直して採点・ソートする。静的生成は 2,462 ページで 83〜126 秒（CI）。このうち上の計算が占める割合は測っていない。
+
+**やること**: 先に測る（静的生成の所要時間のうち、全記事の走査が占める秒数）。占める割合が小さければ閉じる。大きければ、公開 URL → slug の対応を 1 回だけ作って引く形にする（同じ判定を複数箇所に実装しない）。
+
+**完了条件**: 計測の数字が残り、直した場合は build の秒数の前後と、out/ の HTML が変わらないこと（件数と代表ページの canonical）が確かめてある。
+
+
+### [DN-1185] Pagefind の索引作成（ビルドのうち 53〜61 秒）を速くできるか調べる
+タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の実測。build のうち Pagefind の索引作成が 53〜61 秒で、next build の静的生成（83〜126 秒）の半分ほど。scripts/build-search-index.mjs は out/ の HTML 2,435 件を 1 件ずつ読み、noindex でないものを順に addHTMLFile している。Pre-merge check・E2E・夜間・デプロイのどのビルドでも走る。
+
+**やること**: noindex のページを索引に入れない現在の結果を変えずに速くできるかを調べる（Pagefind の Node API の一次情報を読む。ディレクトリ単位の追加と除外の指定・並行の追加など）。索引の件数（現在は「HTML n 件を検査 / 索引 m 件 / noindex で除外 k 件」を出力）が前後で同じことを確かめる。
+
+**完了条件**: 索引の件数が同じで、CI の build ジョブの「Build」の秒数を前後で比べた記録がある。または、速くできない理由が残っている。
+
+
+### [DN-1184] 本番デプロイでビルドを作り直さず、検査済みの out/ を使えるか決める
+タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の実測。本番デプロイは中央値 6.4 分で、内訳は npm ci 21 秒・build 232 秒・Pages へのアップロード 79 秒。build は develop の Pre-merge check が同じ tree で作ったもの（158 秒）の作り直し。.next/cache を足した後の秒数は次のデプロイで確かめる。
+
+**やること**: ci.yml の build ジョブの out/ を artifact にして、昇格時はアップロードだけにできるかを決める。先に確かめること: (1) deploy:main が作る main の commit の tree が、検査済みの develop の commit の tree と同じになる条件。(2) デプロイ側だけが渡している NEXT_PUBLIC_GA_ID と MAIL_SENDER_ADDRESS を CI のビルドへ渡してよいか（公開リポジトリの artifact は誰でも取れる。MAIL_SENDER_ADDRESS は公開リポジトリに書かない方針）。(3) artifact の大きさ（12,529 ファイル）と上げ下ろしの秒数、保持日数。
+
+**完了条件**: デプロイの run の所要時間が前後で比べられている。または、やらないと決めた理由（秘密の扱い・tree の不一致など）が残っている。
+
+
+### [DN-1180] Dependabot #119（basic-ftp の DoS）を解消する
+タグ: [領域:管理] [種類:改善] [起票:2026-11-13]
+
+**起点**: 11/13 の X 返信の台帳を push したとき、GitHub が Dependabot の警告 1 件（#119・moderate）を出した。`basic-ftp` 5.3.1 の MLSD パーサーが `__proto__` という fact 名で例外を投げ、`Client.list()` が落ちる（DoS）。
+
+**現況**: `scope: development` の推移依存（`get-uri` ^5.0.2 ← proxy-agent 系）。`package-lock.json` には残っているが `npm ls basic-ftp` は空で、手元の node_modules には入っていない。サイトの配信コードからは呼ばれない。
+
+**やること**: `npm audit` / `npm update` で `basic-ftp` を修正版へ上げるか、依存元ごと剪定できるか見る。影響がなければ警告を取り下げる。
+
+**完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts --jq '.[] | select(.state=="open")'` が 0 件。
+
+
 ### [DN-1176] note リンクの属性と資格別背景を CTA の共通部品にする
 タグ: [UI・UX] [領域:サイト] [種類:改善] [起票:2026-11-13]
 
@@ -2865,7 +2949,7 @@ npm run cmd はコマンドの用途を、起動するスクリプトの冒頭�
 ### [DN-1139] publish-seo-summary の待ちで CI の run が完了しない構造を外す
 タグ: [領域:管理] [種類:改善] [起票:2026-11-12]
 
-ci.yml の publish-seo-summary ジョブは concurrency グループ develop-git-write（index-coverage は timeout 240 分・psi-audit・fetch-metrics・ogp-supply・cloudflare-metrics と共有）に入っている。ほかの書き込みジョブが走っている間は待つので、audit・test・build が終わっても run 全体が完了せず、deploy:main（run の完了を待つ）が待たされる構造。2026-11-11 の 9 時間では未観測。記録の書き戻しを workflow_run で起動する別 workflow に分け、ゲートの run は 3 ジョブと report で完了するようにする
+ci.yml の publish-seo-summary ジョブは concurrency グループ develop-git-write（index-coverage は timeout 240 分・psi-audit・fetch-metrics・ogp-supply・cloudflare-metrics と共有）に入っている。ほかの書き込みジョブが走っている間は待つので、audit・test・build が終わっても run 全体が完了せず、deploy:main（run の完了を待つ）が待たされる構造。2026-11-13 に 3 回観測した（run の所要時間 16.6 分・34.0 分・36.9 分。run 43390653131 は 3 ジョブの終了から書き戻しの開始まで 18 分。develop の push は実行を取り消さないので、次の push の検査もその間始まらなかった）。記録の書き戻しを workflow_run で起動する別 workflow に分け、ゲートの run は 3 ジョブと report で完了するようにする
 
 
 ### [DN-1136] 記憶メモを棚卸しする（機械ゲートと重複するもの・古い手順）

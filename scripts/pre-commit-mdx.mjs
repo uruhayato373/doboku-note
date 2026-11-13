@@ -183,7 +183,7 @@ function checkBrokenTables(file, content) {
 
 async function main() {
   // CI の速い ci:true 検査を staged の範囲で先に回す（MDX が無い commit でも note・X は見る）
-  if (runGates().length > 0) __exit(1);
+  if ((await runGates()).length > 0) __exit(1);
 
   const files = getStagedMdxFiles();
   const svgFiles = getStagedSvgFiles();

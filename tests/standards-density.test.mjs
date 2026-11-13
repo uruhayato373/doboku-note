@@ -46,7 +46,7 @@ test('出典ブロックが 2 つだと attribution', () => {
   assert.deepEqual(rulesOf(fixture('two-attribution'), 'agency'), ['attribution']);
 });
 
-test('アフィリエイトのカード・リンクがあると affiliate', () => {
+test('アフィリエイトのカード・リンクが上限（16 件）を超えると affiliate', () => {
   assert.deepEqual(rulesOf(fixture('affiliate'), 'agency'), ['affiliate']);
 });
 

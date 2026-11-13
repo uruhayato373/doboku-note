@@ -105,6 +105,8 @@
       "_note": "**プログラムID 基準**（2026-07-27 実機で確定）。プログラムID↔自社 mat の照合は **a8mat の第2トークン**で行える。ただし第2トークンは**サイト×プログラムの提携ごと**に違う（2026-10-17 実測: DX の s00000022413004 は stats47 で `4B5OO5+NTCZ6+…`、doboku-note で `4B5OO5+NTDQY+…`）。第3トークンがプログラム、第4トークンは素材で、どちらもサイトをまたいで同じ値になるので帰属の判定に使えない。どのサイトの提携かは画像 URL の wid（001=stats47・002=doboku-note）で分かる。プログラム名は A8 側の都合で変わるが ID は不変。名前でも部分一致で拾えるよう別名も残す。語彙は config/affiliate-mats.json と data/affiliate/catalog.json（案件 id・GA4 のラベルは ctaLabels）と一致させる。ここに無い ID は記録に写さず unmapped として報告する（取りこぼしを黙って捨てない）。",
       "s00000024757004": "buildjob",
       "s00000023057002": "kensetsu-jobs",
+      "s00000021947001": "rsg-kensetsu",
+      "s00000018427001": "dainishinsotsu-agent-neo",
       "s00000022176005": "gks",
       "s00000022413004": "dx-consulting",
       "s00000012624009": "coconala",

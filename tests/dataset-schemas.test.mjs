@@ -811,6 +811,17 @@ test('affiliate.catalog: 時刻・状態・配置の語彙の誤りを止める�
   assertOk(C, mutateLatest('affiliate.catalog', (r) => { r.programs.buildjob.newField = { anything: 1 }; }));
 });
 
+test('affiliate.catalog: 広告素材の一覧は doboku-note の素材・提携済みの ASP・重複なし・バナーのサイズを型で止める', () => {
+  const C = SCHEMAS.AffiliateCatalog;
+  const a8Banner = (r) => r.programs.buildjob.creatives.find((c) => c.asp === 'a8' && c.kind === 'banner');
+  // stats47 の素材（wid=001）を写すと成果が別サイトに付く（2026-11-13 に広告リンク作成の既定が stats47 だった）
+  assertFails(C, mutateLatest('affiliate.catalog', (r) => { const c = a8Banner(r); c.imageSrc = c.imageSrc.replace('wid=002', 'wid=001'); }), /creatives\.\d+\.imageSrc: .*wid=002/);
+  assertFails(C, mutateLatest('affiliate.catalog', (r) => { delete a8Banner(r).width; }), /creatives\.\d+\.kind: バナーは/);
+  assertFails(C, mutateLatest('affiliate.catalog', (r) => { r.programs.buildjob.creatives.push({ ...a8Banner(r) }); }), /creatives\.\d+\.materialId: 素材 a8:\d+ が重複/);
+  assertFails(C, mutateLatest('affiliate.catalog', (r) => { r.programs.buildjob.asps.a8.status = 'applying'; }), /creatives\.\d+\.asp: a8 で提携していない/);
+  assertFails(C, mutateLatest('affiliate.catalog', (r) => { delete r.programs.buildjob.creativesCollectedAt; }), /creativesCollectedAt/);
+});
+
 // ---- 設定（config/）----------------------------------------------------------------------
 
 test('config.qualification-registry: 欄の誤記・資格 id の重複・展開状態なしを止める（id の照合は check-exam-calendar）', () => {

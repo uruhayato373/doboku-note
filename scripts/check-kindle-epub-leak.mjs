@@ -18,7 +18,8 @@
  *
  * 使い方:
  *   node scripts/check-kindle-epub-leak.mjs            # EPUB + ソース BOM
- *   node scripts/check-kindle-epub-leak.mjs --bom-only # BOM だけ（pre-commit 用・展開しないので速い）
+ *   node scripts/check-kindle-epub-leak.mjs --bom-only # BOM だけ（展開しないので速い）
+ *   node scripts/check-kindle-epub-leak.mjs --bom-only --staged # staged の .mdx の BOM だけ（pre-commit 用）
  * exit: 0=健全 / 1=漏れ or BOM or 検査不成立
  * ---------------------------------------------------------------------------
  */
@@ -48,11 +49,17 @@ const LEAKS = [
 const errors = [];
 
 // --- 1. ソース MDX の BOM ---
-const mdx = listFiles('content/site', { ext: '.mdx', allowMissing: true });
-if (mdx.length === 0) errors.push('MDX 走査が 0 件（検査不成立）');
+// --staged（pre-commit）は staged の .mdx だけを読む。全 MDX（1,600 本超）を毎回開かない（DN-1141）。全量は CI が見る。
+// staged に .mdx が無い commit（図だけの変更など）は 0 件で、検査不成立ではない。
+const STAGED = __argv.includes('--staged');
+const mdx = STAGED
+  ? execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '-z', '--diff-filter=ACMR', '--', 'content/site'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+    .split('\0').filter((f) => f.endsWith('.mdx') && existsSync(f))
+  : listFiles('content/site', { ext: '.mdx', allowMissing: true });
+if (!STAGED && mdx.length === 0) errors.push('MDX 走査が 0 件（検査不成立）');
 const bom = mdx.filter((f) => readFileSync(f).subarray(0, 3).equals(BOM));
 for (const f of bom) errors.push(`BOM 付き MDX（frontmatter が壊れる）: ${f}`);
-console.log(`[check-kindle-epub-leak] MDX ${mdx.length} 件を実検査 / BOM ${bom.length} 件`);
+console.log(`[check-kindle-epub-leak] MDX ${mdx.length} 件を実検査${STAGED ? '（staged）' : ''} / BOM ${bom.length} 件`);
 
 // --- 2. 配布 EPUB の漏れ ---
 let notHydrated = false;

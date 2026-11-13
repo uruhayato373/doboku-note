@@ -59,6 +59,39 @@ const KENSETSU_JOBS_CAREER_AD = {
 } as const;
 
 /**
+ * RSG建設転職（株式会社RSG・建設業界専門の転職支援・A8.net）。300×250 + pixel。
+ * 成果は新規面談完了 ¥2,930（A8・2026-11-13 の参加中一覧）。afb でも提携済み（PID 14065・¥3,000）。
+ * 素材は 2026-11-13 に A8 の広告リンク作成で掲載サイト doboku-note（websiteId=002）・素材ID 033 を写した。
+ * 「No.1」「第1位」の表示がある素材（006・034・036）は根拠の調査が古いので使わない（建築転職と同じ扱い）。
+ * 728×90（素材ID 025）・320×50（素材ID 005）もあり、横長の面を作るときに使える。
+ */
+const RSG_KENSETSU_CAREER_AD = {
+  href: "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+65EOH",
+  imageSrc:
+    "https://www25.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001033000&mc=1",
+  pixelSrc: "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65EOH",
+  alt: "RSG建設転職 建設業界専門の転職支援",
+  width: 300,
+  height: 250,
+} as const;
+
+/**
+ * 第二新卒エージェントneo（株式会社ネオキャリア・第二新卒・既卒・フリーター・中退・高卒の就職・転職支援・A8.net）。300×250 + pixel。
+ * 成果は新規カウンセリング ¥15,000（A8・2026-11-13 の参加中一覧）。20代の公務員・第二新卒・他職種への転職の読者向け（2026-11-13 運営者指示）。
+ * 素材は 2026-11-13 に A8 の広告リンク作成で掲載サイト doboku-note（websiteId=002）・素材ID 038 を写した。
+ * 「No.1」の表示がある素材（008）は使わない。
+ */
+const DAINISHINSOTSU_NEO_CAREER_AD = {
+  href: "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+66H9D",
+  imageSrc:
+    "https://www29.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001038000&mc=1",
+  pixelSrc: "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66H9D",
+  alt: "第二新卒エージェントneo 第二新卒・既卒の就職・転職支援",
+  width: 300,
+  height: 250,
+} as const;
+
+/**
  * 建築転職（トップリフォーム・建築系技術者に特化した転職エージェント・もしもアフィリエイト）。250×250 + インプレッション。
  * A8 には無い（2026-10-30 に検索で確認）。成果は面談実施 ¥16,000（電話かオンライン・審査なし・承認期限 45 日）。
  * 素材はもしもの原稿取得（shop_site_id=672381＝doboku-note・a_id 5868364）の 250×250（pl_id 57940）。
@@ -305,6 +338,32 @@ function resolveKenchikuTenshokuCopy(slug?: string, need?: CareerNeed | null): C
   };
 }
 
+/** RSG建設転職の本文カードの文言。A8 のプログラム名（建設業界専門の転職支援・面談）の範囲に限る。 */
+function resolveRsgKensetsuCopy(slug?: string, need?: CareerNeed | null): CareerArticleEndCard {
+  return {
+    service: "RSG建設転職",
+    category: "建設業界専門の転職支援",
+    description: "建設業界に専門を絞った転職支援サービスです。面談で経験と希望条件を確かめてから求人の紹介へ進みます。",
+    href: RSG_KENSETSU_CAREER_AD.href,
+    points: ["建設業界の求人に専門を絞った転職支援", "面談で経験と希望条件を確認"],
+    cta: resolveNeedCta(slug, "consultation", "建設業界の転職を相談する", need),
+    brief: "建設業界専門の転職支援。面談で希望条件を確認。",
+  };
+}
+
+/** 第二新卒エージェントneo の本文カードの文言。A8 のプログラム名（第二新卒・既卒・フリーター・中退・高卒の就職・転職支援）の範囲に限る。 */
+function resolveDainishinsotsuNeoCopy(slug?: string, need?: CareerNeed | null): CareerArticleEndCard {
+  return {
+    service: "第二新卒エージェントneo",
+    category: "第二新卒・既卒の就職・転職支援",
+    description: "第二新卒・既卒の方向けの就職・転職支援サービスです。カウンセリングで経験と希望を確かめてから求人の紹介へ進みます。",
+    href: DAINISHINSOTSU_NEO_CAREER_AD.href,
+    points: ["第二新卒・既卒向けの就職・転職支援", "カウンセリングで経験と希望を確認"],
+    cta: resolveNeedCta(slug, "consultation", "第二新卒の転職を相談する", need),
+    brief: "第二新卒・既卒向けの就職・転職支援。",
+  };
+}
+
 /** コンストワークの本文カードの文言。広告主の公表内容（施工管理の転職サポート・土日休みや残業少なめの求人・アドバイザーの面接対策）に限る。 */
 function resolveConstworkCopy(slug?: string, need?: CareerNeed | null): CareerArticleEndCard {
   return {
@@ -373,6 +432,8 @@ export const PROGRAM_ASSETS: Readonly<Record<string, ProgramAsset>> = {
   constwork: { banner: CONSTWORK_CAREER_AD, trackLabel: "Constwork-sidebar", card: (slug, need) => resolveConstworkCopy(slug, need) },
   "kenchiku-tenshoku": { banner: KENCHIKU_TENSHOKU_CAREER_AD, trackLabel: "KenchikuTenshoku-sidebar", card: (slug, need) => resolveKenchikuTenshokuCopy(slug, need) },
   "kensetsu-jobs": { banner: KENSETSU_JOBS_CAREER_AD, trackLabel: "KensetsuJobs-sidebar", card: (slug, need) => resolveKensetsuJobsCopy(slug, need) },
+  "rsg-kensetsu": { banner: RSG_KENSETSU_CAREER_AD, trackLabel: "RsgKensetsu-sidebar", card: (slug, need) => resolveRsgKensetsuCopy(slug, need) },
+  "dainishinsotsu-agent-neo": { banner: DAINISHINSOTSU_NEO_CAREER_AD, trackLabel: "DainishinsotsuNeo-sidebar", card: (slug, need) => resolveDainishinsotsuNeoCopy(slug, need) },
 };
 
 /** 既存の許可済みリンクに対応する案件だけを意匠実験へ渡す。 */

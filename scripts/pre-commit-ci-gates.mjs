@@ -15,10 +15,12 @@
  *
  * npm run pre-commit:ci-gates — CI（quality:audit:ci）の速い検査を staged の範囲で先に回す（katex-warnings＝staged の MDX だけ・note-paid-cta・x-review・products〔商品の正本と記事・掲載文・生成物〕は該当パスを stage したときだけ全量）。note の原稿・note-magazines.ts・収録の期待値を stage したときは generated-indexes のうち note 記事カタログだけを回す（`build-note-published-index.mjs --check --staged`＝作り直し漏れと stage 漏れ）。pre-commit では pre-commit-mdx.mjs の先頭が呼ぶ（フック本体を変えると共有フックの入れ直しが要るため相乗り）。develop 直 push で CI を赤くしてきた検査を手元で止めるためのもので、unit-tests と generated-indexes の残り（refresh-indexes 全体）は遅いので CI に残す
  */
-import { execFileSync, spawnSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
+import { availableParallelism } from 'node:os';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
+import { runPool } from './lib/worker-pool.mjs';
 
 /** スクリプト・ワークフロー・スキル・管理画面のコード（サイトの src/ は CI の全量に任せる） */
 const CODE_FILE = /^(scripts|tools|\.claude\/(scripts|workflows|skills|hooks))\/.+\.(mjs|cjs|js|ts|tsx)$/;
@@ -253,15 +255,44 @@ export function failureLines(output, context = 4) {
   return picked;
 }
 
-export function runGates(staged = stagedFiles()) {
+/** 同時に走らせる検査の数。上限は quality-audit（scripts/quality-audit.mjs）と同じ 4 */
+export const GATE_CONCURRENCY = Math.min(4, availableParallelism());
+
+/** 検査を 1 本起動し、終了コードと出力（stdout と stderr）を返す。起動できなければ失敗として返す */
+function spawnGate(gate) {
+  const [bin, ...args] = gate.cmd(gate.files);
+  return new Promise((done) => {
+    const child = spawn(bin, args, { shell: false, env: gateEnv(gate) });
+    let out = '';
+    for (const stream of [child.stdout, child.stderr]) {
+      stream.setEncoding('utf8');
+      stream.on('data', (chunk) => { out += chunk; });
+    }
+    child.on('error', (e) => done({ status: 1, out: `${out}${e.message}\n` }));
+    child.on('close', (status) => done({ status: status ?? 1, out }));
+  });
+}
+
+/**
+ * 並行で回して、計画の順に結果を返す（並行の実行は scripts/lib/worker-pool.mjs。exec を差し替えてテストできる）。
+ * 検査は互いの出力を使わず、どれもリポジトリを読むだけ。直列だと所要時間が足し算になる
+ * （記事 1 本の commit で 6 検査・合計 18.2 秒、最長の 1 本は 6.1 秒。会社 PC・2026-11-13・DN-1141）。
+ */
+export async function runPlan(plan, { exec = spawnGate, concurrency = GATE_CONCURRENCY } = {}) {
+  const settled = await runPool(plan, concurrency, exec);
+  // 起動が投げた検査も失敗として数える（通ったことにしない）
+  return settled.map((r) => (r.ok ? r.value : { status: 1, out: `${r.error?.stack ?? r.error}\n` }));
+}
+
+export async function runGates(staged = stagedFiles()) {
   const plan = planGates(staged);
+  const results = await runPlan(plan);
   const failed = [];
-  for (const g of plan) {
-    const [bin, ...args] = g.cmd(g.files);
-    const r = spawnSync(bin, args, { encoding: 'utf8', shell: false, env: gateEnv(g) });
-    if (r.status !== 0) {
+  // 出力は計画の順に出す（並行で終わった順に混ぜない）
+  for (const [i, g] of plan.entries()) {
+    const { status, out } = results[i];
+    if (status !== 0) {
       failed.push(g.id);
-      const out = `${r.stdout ?? ''}${r.stderr ?? ''}`;
       const failures = failureLines(out);
       if (failures.length) process.stdout.write(`[pre-commit-ci-gates] ${g.id} の落ちたテスト:\n${failures.join('\n')}\n`);
       process.stdout.write(out.split('\n').slice(-25).join('\n') + '\n');
@@ -279,7 +310,7 @@ export function runGates(staged = stagedFiles()) {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const staged = stagedFiles();
-  const failed = runGates(staged);
+  const failed = await runGates(staged);
   if (planGates(staged).length === 0) console.log(`[pre-commit-ci-gates] staged ${staged.length} ファイル / 該当する検査なし`);
   process.exitCode = failed.length ? 1 : 0;
 }

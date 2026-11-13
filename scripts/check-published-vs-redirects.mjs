@@ -91,10 +91,18 @@ function stagedMdx() {
 }
 
 const redirects = redirectSources();
-let targets = walk(CONTENT);
+// staged のときは staged の .mdx だけに slug を付ける。先に content/site の全 .mdx を列挙しない（DN-1141）
+let targets;
 if (STAGED) {
-  const staged = new Set(stagedMdx());
-  targets = targets.filter((t) => staged.has(relative(ROOT, t.file).split('\\').join('/')));
+  targets = [];
+  for (const rel of stagedMdx()) {
+    const file = join(ROOT, rel);
+    if (!existsSync(file)) continue;
+    const slug = siteSlugFromRel(relative(CONTENT, file));
+    if (slug) targets.push({ file, slug });
+  }
+} else {
+  targets = walk(CONTENT);
 }
 
 let inspected = 0;

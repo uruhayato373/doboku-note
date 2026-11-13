@@ -5,6 +5,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import StandardsExplore from '@/components/standards/StandardsExplore';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
+import { StandardsEndBanner, StandardsSidebarBanners } from '@/components/standards/StandardsAffiliateBanners';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog, standardDocumentPath } from '@/lib/standards';
 import { standardsAgencyPath, standardsDocumentPath } from '@/lib/route-paths';
@@ -35,7 +36,12 @@ export default function StandardsPage() {
     <PageShell variant="default">
       <TwoColumnShell
         as="div"
-        aside={<StandardsExplore />}
+        aside={(
+          <div className="space-y-4">
+            <StandardsExplore />
+            <StandardsSidebarBanners pageKind="standards-list" />
+          </div>
+        )}
       >
         <div className="card-surface-section px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
           <PageHeader
@@ -95,6 +101,7 @@ export default function StandardsPage() {
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsExplore />
         </div>
+        <StandardsEndBanner pageKind="standards-list" />
         <StandardsAttribution />
       </TwoColumnShell>
     </PageShell>

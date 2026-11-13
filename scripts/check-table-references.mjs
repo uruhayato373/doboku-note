@@ -25,6 +25,15 @@ import { execFileSync } from "node:child_process";
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
+/**
+ * staged のパス（リポジトリ相対・/ 区切り）が、この検査の対象の記事か。対象の決め方は全量の listArticles と同じ。
+ * 2026-11-13 まで正規表現の先頭が「バックスラッシュ＋content」（バックスラッシュ＋c＋o は制御文字）で実在のパスに
+ * 一度も一致せず、commit 時は毎回 0 件の検査で通っていた。
+ */
+export function isStagedArticlePath(path) {
+  return /^content\/site\/.+\/[^/]+\.(mdx|md)$/.test(path) && !path.includes("/img/") && !path.startsWith("content/site/standards-library/") && !path.startsWith("content/site/standards-articles/");
+}
+
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
 // 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
@@ -67,19 +76,21 @@ function stagedArticles() {
   return out
     .split("\n")
     .map((l) => l.trim().replace(/\\/g, "/"))
-    .filter((l) => /^\content\/site\/.+\.(mdx|md)$/.test(l) && !l.includes("/img/") && !l.includes("/standards-library/") && !l.includes("/standards-articles/"))
+    .filter(isStagedArticlePath)
     .map((l) => join(ROOT, l));
 }
 
-let articles = listArticles();
+// staged のときは staged の記事だけを読む。先に content/site の全ファイル（6,000 超）を列挙しない（DN-1141）
+let articles;
 if (staged) {
   const s = stagedArticles();
   if (s === null) {
     console.log("[check-table-references] staged 取得不可のためスキップ");
     __exit(0);
   }
-  const want = new Set(s.map((p) => p.replace(/\\/g, "/")));
-  articles = articles.filter((p) => want.has(p.replace(/\\/g, "/")));
+  articles = s.filter((p) => existsSync(p));
+} else {
+  articles = listArticles();
 }
 
 const dangling = [];

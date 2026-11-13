@@ -8,6 +8,7 @@ import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
+import { StandardsEndBanner } from '@/components/standards/StandardsAffiliateBanners';
 import { buildPageMetadata } from '@/lib/metadata';
 import {
   getStandardDocument,
@@ -135,6 +136,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsNavigation agencyId={agency} currentDocument={entry} variant="mobile" />
         </div>
+        <StandardsEndBanner pageKind="standards-list" />
         {books.length > 0 && <StandardDataLinks document={entry} />}
         <StandardsAttribution document={entry} />
       </TwoColumnShell>

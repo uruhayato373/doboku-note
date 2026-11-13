@@ -155,6 +155,11 @@ test('章記事のナビが現在章を強調し、モバイルでは折りた�
   const href = await firstSection.getAttribute('href');
   expect(href).toBeTruthy();
   await expect(page.locator(`[data-standards-chapter="1-3"] ${href}`)).toBeVisible();
+  // 目次の下の回遊（関連記事・他の地方整備局の同じ章）。目次は高さで区切るので、関連記事の枠が最初の画面に入る。
+  const related = sidebar.getByRole('heading', { name: 'この章を実務・試験で深める' });
+  await expect(related).toBeInViewport();
+  await expect(sidebar.locator('[data-standards-nav="regions"] [aria-current="page"]')).toContainText('近畿');
+  await expect(sidebar.locator('[data-standards-nav="regions"] a')).not.toHaveCount(0);
 });
 
 test('章記事が light / dark どちらでも本文と罫線を判別できる', async ({ page }) => {
