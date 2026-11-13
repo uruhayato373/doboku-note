@@ -68,6 +68,8 @@ const EVENT_NAMES = [
   "note_article_click",
   // サイト内回遊（カテゴリ目次・関連記事・次のステップ）。アクセス改善の主要評価指標。
   "internal_nav_click",
+  // 回遊カードの表示（2026-11-13・DN-1040）。--by-placement で写真（thumb-photo）と OGP（thumb-ogp）に分かれ、internal_nav_click と割ってクリック率を出す。
+  "internal_nav_impression",
   // キャリア hub / 診断ツールで読者が悩みを選んだイベント（2026-08-21 新設）。
   // これが無いと hub→柱 の遷移が測れず Phase 06 の評価が成立しない。
   "career_need_select",

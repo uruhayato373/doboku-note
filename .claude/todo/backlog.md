@@ -416,6 +416,109 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1177] 記事本文に手書きした試験日・合格率を正本と突き合わせる
+タグ: [コンテンツ品質] [領域:サイト] [時期:2027-01] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の構成・SSOT 監査。試験日の正本は `config/exam-calendar.json`、合格率は `config/exam-stats.json` だが、記事本文は手書きで、正本から値を引く MDX 部品は無い。正本の試験日から逆引きすると、本文への直書きは 1級土木が 3 記事 6 か所、2級土木が 4 記事 16 か所（技術士系は 0）。合格率の数値は 19 記事 37 か所。試験日の検査 `scripts/lib/exam-calendar-guards.mjs` は既知の誤記の形を止める方式で、正本と違う日付を一般には検出しない。合格率を本文と照らす検査は無い。`scripts/check-exam-calendar.mjs` は期待値として同じ日付をスクリプトの中にも持ち、年度の更新で JSON とスクリプトの 2 か所を直すことになる。令和9年度の日程が出たときに、古い日付の記事が残る。
+
+**やること**: 本文の試験日・合格率を拾い、資格の正本の値と違うものを一覧にする検査を足す（年度を明記した過去の値は対象外にする）。直書きが多い記事は、正本から値を出す部品にするかを決める。`check-exam-calendar.mjs` の期待値の二重持ちは、二重入力の照合として残すのか正本だけにするのかを決める。
+
+**完了条件**: 検査が対象の記事数と拾った値の件数を出し、正本と違う値が 0 件か、理由つきで許可されている。年度を更新する手順で直すファイルが 1 か所に決まっている。
+
+
+### [DN-1173] src/config のマスタを台帳に載せ、型と記事 slug の外部キーを付ける
+タグ: [エージェント・SSOT] [領域:サイト] [時期:2027-01] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の構成・SSOT 監査。台帳 `scripts/lib/datasets.mjs` の置き場（AREAS）は config・data・.claude/state・content/registry の 4 つで、サイトが読む `src/config/` の追跡 30 ファイルは対象外。過去問 3 種・`keyword-relations.json`・`past-exam-backlinks.json`・`popular-pages.json`・`topics.json` などに型も外部キーも無い。記事 slug を指す生成 JSON（`exam-question-keywords.json`・`past-exam-backlinks.json`・`keyword-relations.json`・`popular-pages.json`）を実在と照らす検査は見つからず、記事の削除・改名のあとに古い参照が残っても止まらない。`src/` の型は手書きで JSON を `as` で読む（`as unknown as` が 6 か所）。同じ監査で config 側の 7 データセットには refs を足した（PR #1577）。
+
+**やること**: `src/config/` を台帳の置き場に足す（サイト本体は台帳を import しない決まりなので、宣言と検査だけを scripts 側に置く）。手で書く正本と生成物を種類で分け、生成物から順に型を付ける。記事 slug を持つ欄に refs（to: article）を宣言する。`civil-relations.json` は読む側が `.claude/skills/exam-backlinks/scripts/` の 2 本だけなので、置き場が `src/config/` でよいかも決める。
+
+**完了条件**: `npm run check-datasets` が `src/config/` の全ファイルを数え、記事 slug の参照切れを検査件数つきで出す。型の無いファイルが何件残るかが台帳から分かる。
+
+
+### [DN-1171] 基準書の回遊と転職の画像バナー（PR 1574）の効果を本番反映の 28 日後に読み、枠を残すか決める
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-12..2027-01] [種類:改善] [起票:2026-11-13]
+
+起点: 2026-11-13 に PR uruhayato373/doboku-note#1574 で、基準書（/standards）に (1) 右の欄の回遊（章ごとの関連記事・他の地方整備局の同じ章・資格の橋渡し）と (2) 転職アフィリエイトの画像バナー（右の欄 3 枠・章の本文中の横長・本文末）を入れた。11/12 に「28 日で約 760 表示・0 クリック」で外した判断を運営者指示で取り消している。
+
+基線（GA4 2026-10-10〜11-06）: 基準書 2,085 セッション・エンゲージメント率 38%、章ページ 1,472 セッションで 1 セッションあたり 1.07 ページ。
+
+やること（本番反映から 28 日後に 1 回）:
+- 章ページの 1 セッションあたりページ数（基線 1.07）と、`internal_nav_click` の label standards-related・standards-region・standards-entry-chapter
+- `qualification_bridge_*` の placement standards-bridge-sidebar
+- 転職アフィリエイトの配置ルール PL-0056〜0064 ごとの表示・クリック（`npm run report-career-funnel` の byRule）と A8・もしもの成果
+- 結果で、枠の数・案件・サイズを残すか減らすかを決め、affiliate-operations.md の裁定ログに書く
+
+完了条件: 上の数値と判断が裁定ログにあり、変えるなら配置ルールに until を入れて閉じている。
+
+
+### [DN-1169] 申請中の転職案件（もしも 11 件・A8 6 件・afb 1 件）の承認を取り直し、承認分の素材を入れて 20代・第二新卒向けの配置を見直す
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
+
+起点: 2026-11-13 に、20代の公務員・第二新卒・土木職から他職種への転職の読者向けに提携を広げた（運営者指示）。承認待ちが残っている。
+
+承認待ち（2026-11-13 時点）:
+- もしも（doboku-note）で 11/13 に申請した 9 件: 就職カレッジ（7267）・MyVisionコンサルティング（5922）・REFLAME 20代ハイクラス（7790）・アメキャリ（5923）・よりそいキャリア（6135）・イーチキャリア（7032）・ツナグバ（5663）・Re:WORK（7383）・ミラキャリJob（7416）
+- もしも: ビズケン（建設特化）・建設キャリアプラス（電気設備）
+- A8: キャリアパーク就職エージェント・20代の転職相談所（11/12 申込）、リクルートダイレクトスカウト・リクルートエージェント・リクナビNEXT・マイナビジョブ20's
+- afb: ビズリーチ（クローズド表示）
+
+やること:
+- 承認状態を取り直して台帳（`data/affiliate/catalog.json`）を更新する。エージェントは `affiliate:status` を実行できない（ログインが要る収集）。2026-11-13 は運営者がログインした Chrome（Claude in Chrome）で A8 の参加中・申込中、もしもの提携中・申請中（doboku-note を選択）を読んで照合した。会社 PC の内蔵ブラウザは A8 の画面のスクリプト（S3）がプロキシで止まって一覧が出ない
+- 承認された案件の素材を集めて台帳に入れ、画像を見て avoid を付ける
+- 基準書の一覧ページ（standards-list）や 20代向けの面へ、建設系と第二新卒・20代の案件で配置を見直す（基準書に DX・コンサルは出さない＝運営者指示）
+
+完了条件: 申請中の案件すべての状態が台帳で最新になり、承認済みのものは素材が入っている。配置を変えたら `check-affiliate-placements`・`tests/affiliate-creative-pick.test.mjs` が通る。
+
+
+### [DN-1166] 広告素材の正本を提携台帳の creatives に 1 本化する（affiliate-creatives.ts・affiliate-mats.json を台帳から引き、台帳から描画した a8mat が許可の検査をすり抜ける穴をふさぐ）
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
+
+起点: 2026-11-13 に提携台帳 `data/affiliate/catalog.json` へ転職 18 案件の広告素材 165 件（`creatives`）を入れたが、素材の定義は 3 か所に残っている。
+- `src/config/affiliate-creatives.ts`（PROGRAM_ASSETS のバナー・ピクセル）
+- `config/affiliate-mats.json`（A8 の mat の許可リスト）
+- `data/affiliate/catalog.json` の `creatives`（基準書の面はここから描画）
+
+穴: 基準書の面は台帳から a8mat を描画するので、ソースの `a8mat=` を許可リストと突き合わせる `check-affiliate-mats` をすり抜ける（RSG の 728×90・320×50、neo の 300×250・320×50 などは許可リストに無い）。代わりに台帳の型が wid=002（doboku-note）だけを通している。
+
+やること:
+- `PROGRAM_ASSETS` のバナー・ピクセルを台帳の `creatives` から引く（素材 ID を指す）形にする
+- 許可リストを台帳の `creatives`（avoid の無いもの）から作るか、`check-affiliate-mats` が台帳の素材も許可として読むようにする。どちらかに決めて 1 本にする
+- `check-affiliate-wiring` の 4 つの真実源の説明（affiliate-operations.md §8）を直す
+
+完了条件: 素材の URL がリポジトリの中で台帳だけに書かれている（grep で affiliate-creatives.ts に `a8mat=` が無い）、台帳から描画した素材も許可の検査に掛かる、`check-affiliate-mats`・`check-affiliate-wiring`・`check-datasets` が通る。
+
+
+### [DN-1165] 基準書以外の面も面ごとのサイズの決まりで台帳の素材から画像バナーを選ぶ（記事・カテゴリ・トップ・ツール・トピック・法令）
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
+
+起点: 2026-11-13 のセッション（PR uruhayato373/doboku-note#1574）で、基準書（/standards）の面だけ「面ごとのサイズの決まり」で台帳の素材から画像バナーを選ぶ形にした。ほかの面は今も `src/config/affiliate-creatives.ts` の 300×250（と小型カード）だけ。
+
+やること:
+- 記事（article-mid・article-inline）・カテゴリ（category-sidebar・category-mobile）・トップ（home-section）・ツール（tool-end・tool-inline）・トピック（topic-end）・法令の一覧（laws-list-end）の各面に、`config/cta-placements.json` の `sizes`（PC・スマホ別・先頭ほど優先）を足す。実測の幅は PC 本文 754px・PC 右の欄 308px・スマホ本文 343px（2026-11-13）
+- 描画を `src/lib/affiliate-slot-creatives.ts`（`slotCreatives`）経由にする。基準書の `src/components/standards/StandardsAffiliateBanners.tsx` の `ResponsiveBanner`（PC 用・スマホ用の出し分け・同じ素材なら 1 枚・ピクセルは 1 ページ 1 案件 1 発）を共通の部品へ出す
+- 本文中の小型カード（EXP-043 で採用・EXP-048 の B/B2）は消さない。画像に替えるのは横長の素材がある案件・面だけにし、実験中の面（pairs・splits）は実験の判定を待つ
+
+完了条件: 上の面で決めたサイズの素材が出る（`tests/affiliate-creative-pick.test.mjs` の実データの検査を全面に広げて通る）、`check-affiliate-placements`・`check-cta-density` が通る、PC とスマホの画面で横スクロールが無い。
+
+
+### [DN-1164] ショートを親 15 本から 30 本作る Workflow を、止めた所（設計 10 本・ブランチ wip/shorts-batch-2026-11-13）から再開する
+タグ: [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-11-13] [期日:2026-11-21]
+
+**起点**: 2026-11-13、運営者の決定でショートの試行の上限を 6 → 36 に広げ（`config/channel-annual-plan.json` の `shortsRule.trial.max`・DN-1001）、画像生成のプランを下げる 11/22 の前に、枠の割り当ての無い親 15 本から 30 本を作る Workflow（`shorts-factory`）を流した。運営者の指示で途中で止め、後でやることにした。
+
+**止めた時点**: 口頭試験 5 本・総監 5 本の親（10 本）で、2 本ずつの設計（`shorts-design.json`）と `youtube.json` の公開行まで書いた。台本 QA・画像・描画は未着手。20 ファイルはブランチ `wip/shorts-batch-2026-11-13` に積んである（台本 QA 前なので develop には入れていない）。残りの 5 本（`pe-construction/pe-gyoumu-shousai-720`・`pe-ii1-kakikata`・`pe-ii2-kakikata`・`pe-iii-kakikata`・`rccm/rccm-mondai3-ronbun-kata`）は設計も未着手。
+
+**やること**:
+1. ブランチ `wip/shorts-batch-2026-11-13` を develop の最新に載せ直し、その上で再開する
+2. Workflow の下書き（`.tmp/shorts-factory-workflow-draft.js`・git 管理外。消えていたら設計→台本QA（yt-shorts-publisher-qa）→plan・generate→監査（ai-image-fidelity-auditor）→adopt・render→画面確認→audio-check・stock の順で組み直す）を、設計済みの 10 本は設計の段を飛ばして台本 QA から流す。担当は判断の段が Sonnet、コマンドだけの段は Haiku・low。画像の並行は 2 本まで、描画と在庫入れは直列、エージェントに git を使わせない
+3. 在庫に入ったパックごとに commit し、develop へ PR で入れる。Workflow を正式に置くなら `.claude/workflows/` に足して registry を更新する
+
+**注意**: 画像生成のプランを 2026-11-22 に下げるので、画像の段はそれより前に回すのが安い（DN-1001）。`prepare-video-pack-shorts`（旧い公開行の一括生成）は今の動画パックで止まるので使わない。
+
+**完了条件**: 対象の親 15 本のショートが在庫に入り（`npm run shorts-factory -- status` で stocked）、develop に入っている。
+
+
 
 
 ### [DN-1157] 建設部門の合格者向けに「総監に進むか（手当・就ける役・受け方の順番）」の無料記事を 1 本書き、総監の既存商品へつなぐ（PC-008）
@@ -473,14 +576,6 @@
 **完了条件**: KDP の 4 冊の価格が決めた値になり、catalog と一致している（`npm run check-kindle-prices`）。
 
 
-### [DN-1144] 総監の note 3 本のサイト送客リンクに utm_term が無い（原稿とライブの両方を直す）
-タグ: [領域:計画] [時期:2026-11] [種類:不具合] [起票:2026-11-12]
-
-2026-11-12、ココナラの案内を末尾に足した note の原稿をコミットしたとき、`check-note-site-utm --staged` が総監の 3 本で既存のサイト送客リンクの `utm_term`（記事の noteId）欠けを検出した。今回の追記（ココナラのリンク）とは無関係なので、ライブとずらさないよう `SKIP_NOTE_UTM=1` で通した。
-
-- 対象: `技術士総監/口頭試験対策`（n8ab5e6bc2970）・`技術士総監/発注者視点の記述式の組み立て`（nced3f11b7641）・`技術士総監/立場別模範論文の選び方`（na030d9cb3060）
-- やること: `node scripts/add-note-utm.mjs '<記事>'` で原稿に utm_term を足し、`note-update-body` でライブにも反映する（原稿だけ直すとライブとずれる）
-- 完了条件: 3 本で `node scripts/check-note-site-utm.mjs --staged` が違反 0、公開 API の本文のリンクに utm_term が入っている
 
 ### [DN-1142] ココナラの商品画像の差し替えが、既存の画像を消さずに 2 枚目へ足し、ok:true を返す
 タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-12]
@@ -530,10 +625,6 @@ MDX を変えるたびに npm run refresh-indexes（npm と node 約 30 プロ�
 psi-audit.yml の schedule 実行が 2026-11-10 22:01Z に failure（run 42910643947）。失敗の理由をログで確かめ、automation-failure Issue が立っているか・読まれているかも確かめる
 
 
-### [DN-1124] lint-ja が CI では 0 ファイル検査で緑になる
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
-
-quality-audit.mjs の lint-ja（ci:true）は npm run lint:ja = scripts/lint-ja.mjs --staged を呼ぶ。CI の checkout には staged が無いので毎回 0 件を検査して PASS（2026-11-11 の run で 0.3 秒）。検査ゼロを PASS と呼ばない（CLAUDE.md §9）に反する。CI では PR の diff の MDX を対象にするか、ci から外して pre-commit だけにする
 
 
 ### [DN-1121] 経審の技術職員の点数を計算するツールを作り、経営者の検索から施工管理の教材へつなぐ
@@ -616,16 +707,6 @@ quality-audit.mjs の lint-ja（ci:true）は npm run lint:ja = scripts/lint-ja.
 
 
 
-### [DN-1104] 総監の合格戦略記事の口頭試験の配点（60点・40点）を一次資料と照合して直す
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-11]
-
-**起点**: 2026-11-10 の動画 `sokan-kojutsu-tachiba` の内容QA（video-content-qa）の指摘。サイト記事 `content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx:239` は、口頭試験の試問事項を「経歴及び応用能力（60点）」「体系的専門知識（40点）」と書いている。QA が見た文部科学省の令和8年度の合否決定基準は、口頭試験を「それぞれ 60% 以上」としていて、配点の記述が無い。
-
-**未確認**: 配点（60 点・40 点）が試験の実施要領などの別の一次資料にあるかは確かめていない。
-
-**やること**: 文部科学省・日本技術士会の一次資料で口頭試験の配点と合格基準を確かめ、記事の記述を一次資料どおりに直すか、出典を添える。
-
-**完了条件**: 記事の口頭試験の配点と合格基準の記述が、一次資料の URL と一致する。
 
 
 
@@ -887,37 +968,10 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **完了条件**: 移行の計画（対象・順序・受け皿・計測・KDP Select の扱い）が決まり、最初の資格で解説を有料側へ移し、比べる実験が running になっている。
 
 
-### [DN-1040] サムネイルの効果を測る実験を用意する
-タグ: [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-11-07]
-
-**起点**: 2026-11-07 の画像運用設計。`internal_nav_click` は人気枠と一覧カードにあるが、関連記事カード（RelatedArticleCard）には `data-cta` が無く、カードの表示回数も無い。サムネイルの効果を比べられない。
-
-**やること**: 既存の GA4 のデータで何が見えるかを先に確かめる。足りなければ関連記事カードに `data-cta` を足す。写真サムネイルの適用前後を、資格単位で比べる実験を `experiments.json` に登録する。
-
-**完了条件**: サムネイルの効果を比べる実験が登録され、月次レビューで読める。
 
 
-### [DN-1039] サイト内サムネイルを他の資格へ広げる
-タグ: [領域:サイト] [時期:2026-12] [種類:制作] [起票:2026-11-07]
-
-**起点**: 2026-11-07 の PR #1448 で、1級土木の 183 ページをページ別の写真サムネイルにした。他の資格はまだ OGP の縮小のまま。
-
-**やること**: 2級土木から `npm run site-thumbs -- --exam <資格>` を順に動かす。長時間なので launchctl で切り離す。最初の資格で Codex が書く台帳の品質を確かめる（1級土木は Sonnet の台帳を流用したので未検証）。総監の用語ページは抽象語を写真で示せるかを少数で試し、見せ方を決める。
-
-**完了条件**: 全資格の公開ページが、写真サムネイルか、決めた別の見せ方になっている。台帳を Codex に任せてよいかの結論が出ている。
 
 
-### [DN-1038] Drive の台帳に無い素材 80 件と表紙の検証の欠け 30 件を直す
-タグ: [領域:SNS] [時期:2026-12] [種類:不具合] [起票:2026-11-07]
-
-**起点**: 2026-11-07、動画の在庫の削除の確認で、削除の前から次の 2 つが欠けていると分かった。今回の削除で増えた分は 0 件。
-
-- `content/sns` の文書が指す素材のうち 80 件が Drive の台帳に無い。`sanso-kozo` の生成の途中の画像など
-- 採用済みの表紙 60 件のうち 30 件で、台帳の読み戻しの検証が欠けている。`check-youtube-cover-handoff` はどの定期検査にも入っていない
-
-**やること**: 80 件を読み直して、要るものは Drive へ登録し、要らないものは文書から外す。表紙の検証を揃えて `check-youtube-cover-handoff` を quality-audit へ入れる。
-
-**完了条件**: `check-media-references` の既知の欠けの上限が 0 になり、表紙の検査が CI で通る。
 
 
 
@@ -988,14 +1042,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **完了条件**: automations で台帳に欄を足すと型検査が知らせる。残りの台帳の移行範囲が決まっている。
 
 
-### [DN-1017] どこからも呼ばれない CLI を検出するレポートを足す
-タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`knip.json` は `scripts/**` を全部 entry にし、`tools/admin-app` を project に含めないので、使われなくなった CLI を検出できない。休止中の `generate-guide-covers.mjs` は `package.json:420` と routes に残るが `public/images/guide-covers` はない。knip の現状は exports 7・types 17・unlisted 4・unresolved 1。管理画面の孤立ファイルは import の簡易検査で 0 件。
-
-**やること**: npm script・workflow・skill・docs から到達しない CLI を一覧にするレポートを足し、週次で読む。`generate-guide-covers.mjs` を残すか消すかを決める。管理画面を knip の対象へ入れるかも決める。
-
-**完了条件**: 到達しない CLI の一覧が検査件数つきで出る。`generate-guide-covers.mjs` の扱いが決まっている。
 
 
 ### [DN-1016] scripts と src と .claude/scripts の依存の向きを整理する
@@ -1008,44 +1054,12 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 **完了条件**: scripts から `.claude/scripts` への import が 0 件。純粋な関数の置き場が決まり、向きの検査が入っている。
 
 
-### [DN-1015] check-image-rules で codex の直接起動も検出する
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`codex exec` の起動は `scripts/lib/codex-image.mjs` の 1 か所で、現在の迂回はない。ただし `image-rules.mjs:23` は import 文だけを見るので `spawn('codex', …)` を直接書いても検査を通る。`tools/admin-app` と `src` は走査の対象外。
-
-**やること**: `codex-image.mjs` 以外の `codex` の直接起動を検出し、走査の対象を広げる。回帰テストを足す。
-
-**完了条件**: 直接起動を書いた偽のファイルで検査が落ちるテストがある。実リポジトリでは通る。
 
 
-### [DN-1014] AI 画像の生成指示の置き場を config.image-generation へ寄せる
-タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。生成指示が `config/image-generation.json`・`config/image-limits.json` の `aiPhoto`・コード内（`generate-guide-covers.mjs`・`generate-ogp-backgrounds.mjs`）の 3 か所にある。OGP 背景の `EXAMS` は 6 資格でトークンは 14 資格。背景がない資格の表示は未確認。
-
-**やること**: `aiPhoto` の指示と OGP の指示を `config.image-generation` へ寄せ、モチーフも設定へ移す。背景がない資格の表示を確かめる。
-
-**完了条件**: 共通の指示を 1 か所直すと全経路に届く。コード内に指示の文が残らない。
 
 
-### [DN-1013] AI 画像の来歴と台帳の記録を image-origin に集める
-タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。来歴を `media.mjs:49`・`shorts-candidate-sources.mjs:18`・`media-plate.mjs:63,78`・`gen-article-photo.mjs:132` が別々に書く。`media-plate` は `image-origin.mjs:92` の `promptSha`（trim する）を使わず自前で hash を作る。hash の値が実際に食い違うかは未確認。`media-plate` は `codex-image` の一時フォルダ名も知っている。
-
-**やること**: `image-origin.mjs` に `aiProvenance()` と `recordAiImage()` を置き、4 か所から呼ぶ。一時フォルダの後始末は `codex-image` へ移す。hash の食い違いがあれば既存の記録の扱いも決める。
-
-**完了条件**: 来歴の行と台帳の hash を作るコードが 1 か所。既存の台帳の照合が通る。
 
 
-### [DN-1008] PR #1423 のマージ後に台帳だけの push で CI が走らないことを確かめる
-タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 に PR #1423 で `ci.yml` の push の `paths-ignore` へ `.claude/todo/**` と `.claude/state/todo-claims.json` を足した。この設定は develop の push で初めて効くので、PR の CI では動きを確かめられない。
-
-**やること**: マージ後の最初の台帳だけの push について、`gh run list --workflow ci.yml --commit <sha>` で実行が無いことを確かめる。あわせて `npm run deploy:main -- --dry-run` が先端の台帳の commit で止まらないことを確かめ、`.claude/worktrees/ci-push-scope` を片付ける。
-
-**完了条件**: 台帳だけの push で Pre-merge check が 0 件で、台帳以外の push では今までどおり走っている。worktree が消えている。
 
 
 ### [DN-1003] YouTube 台帳の停止行の公開状態が実体とずれているのを直す
@@ -1105,6 +1119,8 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **進捗（2026-11-12）**: 3c は済んだ。型の台帳から one-question の大きな『？』を外し、point-youso-2 の pose の『？』の指示と、表紙の見出しの長い行（「条件・要求」→「テーマ／条件／要求は？」）を直して在庫に入れた（型のあるショート 38 本すべて在庫・PR #1561 で pose の『？』を台本の検査で止める）。試行の 6 本は、建設DX の 2 本を Studio で関連動画を設定して予約した（11/13・11/14 14:30）。残る 4 本（答案構成・インフラ老朽化）は親の公開の夜（11/12・11/13）に毎晩の予約（doboku-youtube-daily-release）が関連動画を設定して予約する。残りは 4 本の予約の確認と、28 日後（2026-12-15）の判断
 
+**決定（2026-11-13・運営者）**: 画像生成のプランを下げる 11/22 の前に在庫を増やすため、枠に割り当ての無い親での試行の上限（`shortsRule.trial.max`）を 6 から 36 へ広げた（親 1 本につき 2 本は据え置き・見直しは 2026-12-15 のまま）。作る順は、12〜1 月の口頭試験に当たる技術士の口頭の通常動画（`pe-construction/pe-kojutsu-*`・`pe-comprehensive-management/sokan-kojutsu-*`）→ 年度に依らない記述の書き方（総監・建設部門・RCCM・1級土木）。技術士一次とコンクリート主任技士は試験が過ぎて季節外れになるので後回し
+
 ### [DN-1000] コンクリート技士の試験後に出題を確かめ、2027 年度の予想問題へ改題する
 タグ: [領域:商品] [時期:2027-01..2027-09] [種類:制作] [起票:2026-11-05]
 
@@ -1123,18 +1139,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 
-### [DN-0991] gen-article-photo が Windows で codex を起動できず、失敗を握りつぶす
-タグ: [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-11-05]
-
-**起点**: 2026-11-05、DN-0990 の写真を `npm run gen-article-photo` で作ろうとして 2 回とも「画像が生成されなかった」で止まった。
-
-**原因**: `scripts/lib/codex-image.mjs` の `runCodex` は `execFileSync('codex', …)` を shell なしで呼ぶ。Windows では `codex` が `.cmd` のため ENOENT になり、catch が失敗を握りつぶす。別件で `~/.codex/config.toml` の既定モデル `gpt-6.1-sol` は ChatGPT アカウントで使えず、`-m gpt-6-astra` なら動く。
-
-**回避**: Bash から `codex exec -m gpt-6-astra` で生成し、`--from` で配置した。
-
-**やること**: Windows でも codex を起動できるようにし、起動の失敗を「画像が出なかった」と区別して出す。既定モデルの扱いを決める。`spawnCodex` も同じ形なので併せて直す。
-
-**完了条件**: Windows で `npm run gen-article-photo -- --fig <図キー> --prompt "…"` が生成まで通る。起動失敗の回帰テストがある。
 
 
 ### [DN-0990] 建設行政の体系の穴を埋める（新規 3 章・法令ページ 2 本・既存 5 章の補強）
@@ -1426,16 +1430,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 
-### [DN-0935] SNS 保留中の定期実行（youtube 系の cron）を止め、全敗している OGP Supply を直すか止め、見張りの 4 層を 1 つの日次ヘルスにまとめる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-01]
-
-**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。OGP Supply は直近 11 回すべて失敗、youtube-funnel-audit などの youtube 系 cron は SNS 保留中で読み手がいない。workflow-health・workflow-health-guard・weekly-review-guard・report-checks が同じ原因で別々の Issue を立てる（11/1 時点で 3〜4 件）。
-
-**残り**: youtube-funnel-audit の schedule 停止・OGP Supply の上限超過の解消（max=120 で手動実行し成功）・weekly-review-guard の二重の見張りの解消は PR #1357 で入った（見張りの変更は main への deploy 後に効く）。
-
-**やること**: report-checks・gsc-auto-review・weekly-collect・weekly-review-local など channel ごとに立つ Issue を、根本原因のキーで 1 Issue にまとめる（同じキーの open Issue にはコメントを追記・PR #1357 本文の案）。OGP Supply は生成対象が 50 件を超えたら再発するので、上限の扱い（定期で分割して生成するか）を決める。
-
-**完了条件**: 同じ原因（例: Claude の認証切れ）で立つ Issue が 1 件になり、OGP Supply が 4 週続けて成功している。
 
 ### [DN-0933] スキル・エージェントの description を短くし、weekly-review の SKILL.md を骨子と references に分けてトークンを減らす
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-01]
@@ -1461,16 +1455,6 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **完了条件**: 2027 年の主要 5 資格の制作開始・切り替え・判定の日付が schedule-view に出て、週間計画がそれを読んでいる。
 
-### [DN-0928] 依存の脆弱性 minimatch（globparts の DoS・moderate）を 11.0.1 以上へ上げる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-11-01]
-
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Dependabot alert #118（package-lock.json の minimatch・moderate・修正版 11.0.1）。Dependabot の PR は開いていない。
-
-**残り**: 10.x を使う 4 依存（eslint・@eslint/config-array・@typescript-eslint/typescript-estree・glob 13）は PR #1351 で 11.0.3 にした。残るのはルートの minimatch 3.1.5 で、eslint-plugin-react と rimraf 内の glob 7 が `require('minimatch')(…)` と関数として呼ぶため 11 へ上げると lint が壊れる。開発時の lint だけで使い、公開サイトには入らない。
-
-**やること**: eslint-plugin-react が minimatch 11 対応の版を出したら上げる（`npm view eslint-plugin-react dependencies.minimatch`）。出るまでの間、alert を「開発依存・入力は自前の設定だけ」として dismiss するかを運営者が決める。
-
-**完了条件**: Dependabot alert #118 が fixed か、理由つきで dismiss されている。
 
 
 
@@ -2704,6 +2688,83 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1176] note リンクの属性と資格別背景を CTA の共通部品にする
+タグ: [UI・UX] [領域:サイト] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の構成・SSOT 監査。note への導線は見た目が配置ごとに違う（本文の縦型・記事冒頭の横帯・本文の横型カード・サイドバーのタイル）ので部品の統合は要らないが、配線が重なっている。note リンクの属性一式（`target`・`rel`・`data-cta="note"`・`data-cta-label`・`data-cta-placement`）を 11 ファイル 14 か所で組み立てている。資格別背景の出し分け（`brand.ctaBg` があれば画像、無ければテーマ色）が `MagazineHeroCta`・`MagazineTopBanner`・`MagazineInlineCard` に 3 回ある。「画像があれば `NoteImageCta`、無ければ文字カード」の分岐が 5 部品にある。計測の属性を 1 か所で落とすと、その配置のクリックが GA4 に出なくなる。
+
+**やること**: note リンクの属性を返す関数を `src/lib/external-link-rel.ts` の隣に 1 つ置き、背景の出し分けを小さな部品にする。11 ファイルを一度に移す（半分だけ移して書き方を混在させない）。
+
+**完了条件**: `data-cta="note"` を直接書く箇所が共通の関数の中だけになる。各配置の HTML の属性が変更前と一致し、a11y と CTA の E2E が通る。
+
+
+### [DN-1175] 資格・記事種別ごとの分岐を lib の対応表へ寄せる
+タグ: [エージェント・SSOT] [領域:サイト] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の構成・SSOT 監査。`category === '資格 id'` の形の比較が `src/` に約 90 か所ある（検索の概数）。`src/lib/magazine-placement.ts` は 1,099 行で `startsWith('civil-construction-…')` が 7 か所、`src/lib/law-wiring.ts`・`src/components/ui/PastExamNav/exam-nav-utils.ts` に各 3 か所、`ArticleFooter.tsx` に 4 か所。`src/app/topics/[slug]/page.tsx:139` は記事種別のラベル（受験ガイド・テキスト・用語・過去問）を入れ子の三項演算子で直書きしている。`MagazineTopBanner.tsx` は 2級土木の記事ラベル 3 件を条件に直書きしている。日付整形は `MetaRow.tsx:17`・`LatestArticles.tsx:23` が `display-date.ts` を包むだけの同名関数を持つ。資格を足すたびに複数のファイルを直すことになる。`getRelatedTools` の if 連鎖は PR #1577 で対応表にした。
+
+**やること**: 分岐の多いファイルから、資格 id をキーにした対応表（設定か lib）へ移す。記事種別のラベルは `doc-classifier.ts` の読み口へ寄せる。包むだけの日付関数は消して直接 import する。資格別のレイアウトの違い（DN-1023 の対象）は残す。
+
+**完了条件**: 上に挙げたファイルの資格 id の比較が表の参照になり、表示が変更前と一致する。資格を 1 つ足すときに直すファイルが一覧で言える。
+
+
+### [DN-1174] 過去問 JSON 3 種（総監・1級土木・2級土木）の形を 1 つにそろえる
+タグ: [エージェント・SSOT] [領域:サイト] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の構成・SSOT 監査。`src/config/exam-questions.json`・`civil-1-exam-questions.json`・`civil-2-exam-questions.json` はフィールド名が資格ごとに違う（`correct` と `correctNum`、`body` と `question`、`optionExplanations` と `explanations`。`src/lib/quiz/types.ts:2-5` に明記）。`scripts/build-quiz-data.mjs` が毎回共通形へ寄せて吸収している。3 ファイルで約 9.4MB あり、設定ではなくデータなのに `src/config/` にある。問題台帳 `data/pastexams/questions/` は別系統で型と refs を持つ。
+
+**やること**: 生成元のスクリプトが出す形を共通形に合わせ、`build-quiz-data.mjs` の正規化を薄くする。置き場を `data/` 側へ移すかは、サイトのバンドルが読む経路を確かめてから決める。資格を足すときに 4 つ目の形を作らない。
+
+**完了条件**: 3 ファイルが同じ欄の名前を持ち、型が 1 つで検査できる。演習ページの問題数と正答が変更前と一致する。
+
+
+### [DN-1172] worktree の pre-commit でだけ check-affiliate-wiring が出す WARN 1 件の中身を確かめる
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
+
+起点: 2026-11-13、PR uruhayato373/doboku-note#1574 の worktree（.claude/worktrees/standards-sidebar）で commit すると、pre-commit の `check-affiliate-wiring` が WARN 1 件を出した。本体の checkout で `npm run check-affiliate-wiring` を直接回すと WARN 0。中身は見ていない。
+
+やること: worktree で `node scripts/check-affiliate-wiring.mjs` を回して WARN の中身を見る。worktree に無い gitignore の生成物や `.local/` を読んでいるなら、環境の差として検査側で「読めない」と「ずれている」を分ける。本当のずれなら直す。
+
+完了条件: WARN の原因が分かり、直したか、環境の差なら検査が欠測として出すようになっている。
+
+
+### [DN-1170] プレックスジョブ（A8）が参加中にも申込中にも無い理由（否認か取消か）を確かめ、再申請を判断する
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-13]
+
+起点: 2026-11-13 の A8 照合で、プレックスジョブ（s00000027873001・施工管理特化・成果 ¥7,519）が参加中にも申込中にも無かった。台帳は status を none にし「否認か取消か未確認」と書いた。
+
+やること: A8 の「提携の解除」「解除プログラム」・広告主からの連絡などで否認か取消かを確かめる。否認なら理由（サイトの審査基準）を記録し、再申請するかを決める。取消なら再申請の可否を判断する（施工管理特化で土木の読者に合う案件）。
+
+完了条件: 台帳の plex-job の a8 の note に理由と日付があり、再申請するなら申請日が入っている。
+
+
+### [DN-1168] afb（RSG建設転職）の広告素材ともしものテキスト素材を提携台帳に集める
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:制作] [起票:2026-11-13]
+
+起点: 2026-11-13 の素材収集は A8（8 案件）ともしも（12 案件のバナー）だけ。
+
+やること:
+- afb の RSG建設転職（PID 14065・doboku-note の partner_site_id 984453）の素材を集める。afb の管理画面のサイト切替は Chosen.js の実 UI 操作だけが効く（`config/affiliate-asp.json` の `_siteSwitchNote`）。ログインは運営者
+- もしものテキスト素材（原稿取得の「テキスト」タブ）を集める（小型カード・本文のテキストリンクに使う）
+- 台帳の `creatives` に `asp: 'afb'` の形を足す（href・imageSrc・pixelSrc の形を実物で確かめてから）
+
+完了条件: 台帳の型（`AffiliateCatalog` の creatives）が afb の素材とテキスト素材を通し、`check-datasets` が通る。
+
+
+### [DN-1167] 画像を見ていない広告素材（160×600・建築転職・コンストワークほか 10 案件）に「No.1」表示などの使わない理由を付ける
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:制作] [起票:2026-11-13]
+
+起点: 2026-11-13 に、基準書で使う 4 案件（ビルドジョブ・RSG建設転職・建設JOBs・第二新卒エージェントneo）の素材だけ画像を見て、「No.1」「第1位」表示（根拠の調査が古い）とフリーター向けの訴求に `avoid` を付けた。ほかの素材は画像を見ていない。
+
+やること（`data/affiliate/catalog.json` の `creatives`）:
+- RSG建設転職・neo の 160×600（RSG 017・024・027・028・029、neo 034）
+- 建築転職（もしも 15 件。affiliate-creatives.ts に「No.1 の表記がある素材は 2022 年の調査の表示なので使わない」とあるが、どの素材かは未特定）
+- コンストワーク（80122 以外も「未経験募集」の絵柄か）・ビーシャイン・ASSIGN AGENT・ワンキャリア転職・転職エージェントナビ・MyVision・NewMA・Samurai Job・DX・コンサル
+- 見方: 画像を並べて表示し（2026-11-13 はブラウザで fixed の div に img を並べた）、「No.1」「第1位」「満足度◯%」などの順位・調査の表示、読み手（土木の技術者・公務員）に合わない訴求に理由つきで `avoid` を書く
+
+完了条件: 配置に使いうるサイズ（300×250・336×280・250×250・728×90・468×60・320×100・320×50・160×600）の素材すべてに「見た」記録がある（avoid か、問題なし）。記録の欄が要るなら台帳の型に足す。
+
+
 ### [DN-1163] 2級土木 二次（2027-10）の解答ページを年度なしの固定 URL で作り、2026 年の公開直後のクリックと比べる
 タグ: [収益化] [領域:サイト] [時期:2027-07..2027-11] [種類:制作] [起票:2026-11-12]
 
@@ -3447,6 +3508,26 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-1179] git で追跡している大きなファイル（state・Kindle の成果物・.obsidian）の置き場を決める
+タグ: [インフラ・計測] [領域:管理] [種類:意思決定] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の構成・SSOT 監査。`git ls-files` の実測で、`.claude/state/` が 275 ファイル（約 39MB・`civil-figure-rework/failures.log` のようなログを含む）、`scripts/kindle-published/` が 60 ファイル（epub と jpg を含む。scripts 配下の画像・epub・pdf は 23 件）、`.obsidian/` が 68 ファイル（アイコンの zip を含む）。作業用 worktree の作成で 15,993 ファイルの展開に 2 分以上かかった（会社 PC は 1 ファイルごとに検査が入る）。
+
+**判断すること**: Kindle の出版済み成果物を Drive vault か private R2 へ移すか（`/asset-route` の基準）。`.claude/state/` のうちログと作り直せる出力を追跡から外すか。`.obsidian/` を追跡し続けるか。
+
+**完了条件**: 3 つそれぞれについて、移す・外す・残すが決まり、移す・外すものはカードが切られている。
+
+
+### [DN-1178] 文字サイズの任意値（text-[Npx] 約 400 件）をトークンにするか決める
+タグ: [UI・UX] [領域:サイト] [種類:意思決定] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の構成・SSOT 監査。`src/` に `text-[Npx]` の形の任意値が約 411 件ある（検索の概数）。多いのは `KakomonQuizClient.tsx` 21、`CareerCheckClient.tsx` 20、`standards/compare/page.tsx` 15、`StandardsNavigation.tsx` 14。角丸と影はトークンの遵守が高い（`rounded-card-*` 89 件に対し生の角丸 1 件）が、文字サイズには段階のトークンが無い。
+
+**判断すること**: 文字サイズの段階（例 11・12・13・14・15・16・18・22px）をトークンにして置き換えるか、いまの任意値のまま増やさないラチェットだけ置くか、何もしないか。置き換えるなら見た目が変わらない写像にする。
+
+**完了条件**: 方針が `design-system.md` に書かれ、置き換えるならカードが切られ、置かないなら理由が書かれている。
+
 
 
 

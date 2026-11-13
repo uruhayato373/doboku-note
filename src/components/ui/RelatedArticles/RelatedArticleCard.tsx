@@ -20,6 +20,7 @@ export default function RelatedArticleCard({ doc }: RelatedArticleCardProps) {
   return (
     <Link
       href={getPublicDocPath(doc.slug)}
+      data-thumb={thumbnail ? 'photo' : 'ogp'}
       className="card-interactive card-surface-content focus-ring not-prose group flex h-full flex-col overflow-hidden hover:border-brand dark:hover:border-brand"
     >
       <div className="relative aspect-1200/630 w-full overflow-hidden bg-(--bg)">

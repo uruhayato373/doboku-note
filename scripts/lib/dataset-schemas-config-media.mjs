@@ -231,11 +231,9 @@ export const ConfigImageLimits = z
         aspect: z.tuple([z.number().int().positive(), z.number().int().positive()]).describe('幅:高さ（写真はすべてこの比率）'),
         tolerance: z.number().min(0).max(0.05).describe('比率の許容差（割合）'),
         width: z.number().int().positive().describe('配信する幅（px）。gen-article-photo がこの幅に縮める'),
-        style: z.string().min(40).describe('全写真に共通する生成の指示（比率・写実・文字やロゴを入れない・実在の機種の形）。写真ごとの被写体は provenance の prompt'),
-        redraw: z.string().min(40).describe('市販書の写真を元に描き直すときに足す指示（構図・配置をなぞらない・元の文字や注記を写さない）。gen-article-photo --based-on が使う'),
       })
       .strict()
-      .describe('記事の写真（AI 生成画像）の形。check-image-origin が比率を検査する（2026-10-07・DN-0578）'),
+      .describe('記事の写真（AI 生成画像）の形。check-image-origin が比率を検査する（2026-10-07・DN-0578）。生成の指示はデータセット config.image-generation の prompts.articlePhoto（DN-1014）'),
   })
   .strict()
   .meta({ title: '画像アセットの品質ガード' });
@@ -904,10 +902,28 @@ export const ConfigSiteThumbnails = z
     _doc: z.string().min(1),
     version: z.number().int().positive().describe('台帳の版'),
     styleVersion: z.number().int().positive().describe('画風の版。上げると古い版の絵が作り直しの対象になる'),
-    imageFile: z.string().min(1).describe('記事の隣に置く画像のファイル名'),
+    imageFile: z.string().min(1).describe('記事の隣に置くカード用の画像のファイル名'),
+    photoFile: z.string().min(1).describe('記事の隣に置く原寸の写真のファイル名（1200×630・OGP の背景）'),
     style: z.string().min(1).describe('ページ別の絵の画風'),
     ledgerRules: z.string().min(1).describe('Codex が台帳を書くときの規則'),
-    review: z.object({ sampleRate: z.number().min(0).max(1), similarScene: z.number().min(0).max(1), riskWords: z.array(z.string().min(1)) }).strict().describe('二次監査の絞り込みの基準'),
+    spec: z.object({
+      photo: z.object({ width: z.number().int().positive(), height: z.number().int().positive(), quality: z.number().int().min(1).max(100), maxKB: z.number().positive() }).strict().describe('原寸の写真（OGP の背景）'),
+      card: z.object({ width: z.number().int().positive(), height: z.number().int().positive(), quality: z.number().int().min(1).max(100), maxKB: z.number().positive() }).strict().describe('カード用の縮小（原寸と同じ比率）'),
+      rawMinAspect: z.number().positive().describe('Codex の生の出力の幅÷高さの下限。下回れば採用しない'),
+      brightLevel: z.number().int().min(0).max(255).describe('明るい面と数える画素の輝度（0-255）'),
+      brightMaxRatio: z.number().min(0).max(1).describe('明るい面の割合の上限（ダークモードで浮かない）'),
+      meanLuminance: z.tuple([z.number().min(0).max(255), z.number().min(0).max(255)]).describe('平均輝度の範囲（暗すぎ・明るすぎを止める）'),
+      bottomStripMinStd: z.number().min(0).describe('写真の下端 15% の明暗のばらつきの下限。下回れば黒や無地の帯が描き込まれている'),
+      nearDuplicateMaxDistance: z.number().int().min(0).max(64).describe('dHash（64 ビット）の距離がこれ以下なら似た画像として二次監査へ回す'),
+      bandOverlapRatio: z.number().min(0).max(0.5).describe('カードで下端に帯が重なる割合'),
+      bandTextMaxWidth: z.number().positive().describe('帯の文字の幅の上限（全角 1・半角 0.5）'),
+      bandContrastMin: z.number().positive().describe('帯の白文字と帯の色のコントラスト比の下限（WCAG）'),
+    }).strict().describe('画像の規格と機械の検査の閾値。生成・機械の検査・CI のテストが同じ値を読む'),
+    review: z.object({
+      sampleRate: z.number().min(0).max(1), similarScene: z.number().min(0).max(1), riskWords: z.array(z.string().min(1)),
+      criteria: z.array(z.object({ id: z.string().min(1), text: z.string().min(1) }).strict()).min(1).describe('目の監査の基準（Codex の一次監査と Claude の二次監査が同じ文を使う）'),
+    }).strict().describe('二次監査の絞り込みの基準と、目の監査の基準'),
+    excluded: z.array(z.object({ qualification: z.string().min(1), reason: z.string().min(1) }).strict()).describe('写真にしない資格（カテゴリの slug）と、決めた日・理由（site-thumbs はこの資格を作らない）'),
     pages: z.record(z.string().min(1), z.record(z.string().min(1), z.object({ text: z.string().min(1), scene: z.string().min(1), version: z.string().min(1).optional() }).strict())).describe('資格ごと、ページごとの帯の文字と絵の題材'),
   })
   .strict()
@@ -917,6 +933,7 @@ export const ConfigImageGeneration = z
   .object({
     schemaVersion: schemaVersion1,
     policy: z.string().min(1).describe('方針の文書'),
+    codexModel: z.string().min(1).nullable().describe('codex exec に渡す既定のモデル（-m）。null なら codex の設定（~/.codex/config.toml）に任せる。設定のモデルがアカウントで使えないときだけ指定する（DN-0991）'),
     teacher: z.object({ identity: z.string().min(1), body: z.string().min(1) }).strict().describe('先生の同一性と身体の指示'),
     popStyle: z.string().min(1).describe('POP の画風'),
     textRule: z.string().min(1).describe('文字の禁止事項'),
@@ -928,6 +945,16 @@ export const ConfigImageGeneration = z
       id: z.string().min(1), label: z.string().min(1), kind: z.enum(['script', 'manual']),
       entry: z.string().min(1).describe('入口のファイル'), audit: z.string().min(1).describe('独立監査の担当。無ければ none'),
     }).strict()).min(1).describe('AI 画像を作る経路の全一覧'),
+    prompts: z.object({
+      articlePhoto: z.object({
+        style: z.string().min(40).describe('記事の写真すべてに共通する生成の指示（比率・写実・文字やロゴを入れない・実在の機種の形）。写真ごとの被写体は provenance の prompt'),
+        redraw: z.string().min(40).describe('市販書の写真を元に描き直すときに足す指示（構図・配置をなぞらない・元の文字や注記を写さない）。gen-article-photo --based-on が使う'),
+      }).strict(),
+      ogpBackground: z.object({
+        lines: z.array(z.string().min(1)).min(1).describe('OGP の資格別の背景（mono-tag の下地）の指示。{label}・{motif}・{color} を差し込む'),
+        motifs: z.array(z.object({ palette: z.string().min(1).describe('note-cover-tokens の exams のキー（色の鍵）'), motif: z.string().min(1) }).strict()).min(1).describe('色の鍵ごとの背景のモチーフ'),
+      }).strict(),
+    }).strict().describe('経路ごとの生成の指示。コードに指示文を書かない（DN-1014）'),
   })
   .strict()
   .describe('AI 画像の共通ルールと生成経路の正本');

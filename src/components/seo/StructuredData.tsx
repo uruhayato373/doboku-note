@@ -4,7 +4,7 @@ import { inlinePlainText } from "@/lib/inline-links";
 
 import categoriesData from "@/config/categories.json";
 import { AUTHOR } from "@/config/author";
-import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import { CONTACT_EMAIL, SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { getCategoryHubPath } from '@/lib/categories';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
@@ -264,7 +264,7 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
           contactPoint: {
             "@type": "ContactPoint",
             contactType: "customer service",
-            email: "info@doboku-note.com",
+            email: CONTACT_EMAIL,
           },
         };
 

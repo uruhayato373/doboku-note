@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { type DocMeta } from '@/lib/docs';
+import { type ResolvedCurriculum } from '@/lib/category-curriculum';
 import { DocCard, OgpThumbRow } from '@/components/category/CategorySections';
 import { getPublicDocPath } from '@/lib/content-routes';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
@@ -72,7 +73,7 @@ function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode 
 function ChapterRows({ block, numbered, thumbnails, previewFirst = false }: { block: CurriculumBlockView; numbered: boolean; thumbnails: boolean; previewFirst?: boolean }) {
   if (thumbnails) {
     return (
-      <ul>
+      <ul data-cta="nav" data-cta-label="curriculum-thumbs">
         {[...(block.intro ?? []), ...block.docs].map(doc => (
           <OgpThumbRow key={doc.slug} doc={doc} headingLevel={block.label ? 'h4' : 'h3'} />
         ))}
@@ -236,6 +237,20 @@ export function CareerSection({
           </div>
         </Disclosure>
       )}
+    </CurriculumSection>
+  );
+}
+
+/**
+ * 受験ガイド節（資格の一覧ビューで共通）。config に未割当の記事（追記漏れ・新規記事）も合流させ、
+ * 一覧から黙って落ちるのを防ぐ。記事が 0 件なら何も描かない。
+ */
+export function ExamGuideSection({ curriculum }: { curriculum: ResolvedCurriculum }) {
+  const docs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
+  if (docs.length === 0) return null;
+  return (
+    <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={docs.length}>
+      <CurriculumList blocks={[{ docs }]} thumbnails />
     </CurriculumSection>
   );
 }

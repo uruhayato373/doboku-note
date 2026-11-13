@@ -2,15 +2,22 @@
   "schemaVersion": 1,
   "_note": "OGP（とサイト・note カバー共通のテンプレート）の設定。rules＝テンプレートの自動選定、templates＝テンプレートの定義、text＝タイトルの改行と字の大きさ。読み手は ogp-create.mjs・check-ogp-title-fit.mjs。",
   "rules": {
-    "version": 2,
-    "description": "OGP テンプレートの自動選定ルール。T06 Mono Tag 統一以降は default のみ。カテゴリ別出し分けが必要になったら rules 配列に上から順に評価するルールを追加する。",
-    "default": "mono-tag",
+    "version": 3,
+    "description": "OGP テンプレートの自動選定ルール。2026-11-13 から既定は photo-scrim（ページ別の写真＋暗いグラデーション＋白文字）。写真がまだ無いページは ogp-create が mono-tag へ戻す。カテゴリ別出し分けが必要になったら rules 配列に上から順に評価するルールを追加する。",
+    "default": "photo-scrim",
     "rules": []
   },
   "templates": {
-    "version": 2,
+    "version": 3,
     "description": "OGP / note カバー共通テンプレレジストリ。T06 Mono Tag に統一（旧 navy-white / dark-wood / red-line / blackboard / dark-grid は撤去）。テンプレ追加時は .claude/skills/ogp-create/scripts/lib/ogp-templates.mjs に renderer を追加し、ここに定義を記載する。",
     "templates": {
+      "photo-scrim": {
+        "name": "Photo Scrim（ページ写真 OGP）",
+        "category": "サイト OGP",
+        "backgroundImage": null,
+        "promptSource": "運営者の決定 2026-11-12（docs/operations/画像運用設計.md §3）",
+        "notes": "サイト OGP（1200×630）の既定。背景はページ別の写真（site-photo.webp・Codex 生成）を端まで敷き、全面を少し暗くしたうえで左から右へ濃い暗色のグラデーションを重ね、資格名 kicker・主題・サブ・ドメイン・執筆者資格を白で載せる。下端 12px は資格の色。OGP は表示する側の明暗を選べないので、白や透明の縁を作らない。文字は左 72% に収める。写真の版は srcHash に入る。"
+      },
       "mono-tag": {
         "name": "Mono Tag（T06）",
         "category": "汎用統一",

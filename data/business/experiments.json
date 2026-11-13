@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-09T04:22:32.184Z",
+  "updated_at": "2026-11-13T08:07:19.977Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -9861,6 +9861,45 @@
           "at": "2026-11-09T04:22:32.184Z",
           "event": "implemented",
           "change": "速報ページに Brevo の登録フォーム（確認メールあり）を置き、確認後に自己採点シートの PDF と特典メールを渡す。本番反映 main 8746cbfbb"
+        }
+      ]
+    },
+    {
+      "id": "EXP-064",
+      "title": "記事カードをページ別の写真サムネイル（帯つき）にして、回遊カードのクリック率を上げる",
+      "hypothesis": "OGP を縮めた文字のサムネイルより、そのページの現場の場面が分かる写真と短い帯の文字のほうが、一覧で読む前に中身が想像でき、関連記事・分野の一覧・カリキュラム・新着・検索結果のカードが押されやすい。押されれば 1 訪問あたりの閲覧数が増え、note の教材への導線に届く読者が増える",
+      "target_metric": "回遊カードのクリック率（internal_nav_click ÷ internal_nav_impression。面のラベル × cta_placement の thumb-photo / thumb-ogp 別）と、関連記事カードのクリック数（related-articles）",
+      "target_delta": "公開から 28 日で、写真のカードのクリック率が OGP のカード（総監）より相対 20% 以上高い。関連記事カードのクリック数が基準の 28 日（377 件）より 15% 以上増える",
+      "status": "running",
+      "created_at": "2026-11-13",
+      "started_at": "2026-11-13",
+      "next_check_date": "2026-12-11",
+      "updated_at": "2026-11-13T08:07:19.977Z",
+      "businessContext": {
+        "qualification": "civil-construction-1",
+        "readerNeed": "試験の論点や実務の記事を読み終えたあと、次に読む記事を一覧の中から迷わず選びたい",
+        "verifiedGap": "カードは OGP の縮小で、資格ごとに同じ淡い背景に文字だけが並び見分けにくかった。表示回数を取っておらず、カードのクリック率を出せなかった（DN-1040）",
+        "reviewRecord": "data/business/records/review-2026-11-07T22-30-48-336Z-a9a9e6d8-390d-41d8-937b-c0a4fb0f73bf.json",
+        "metricId": "noteCtaClicks"
+      },
+      "baseline": {
+        "measured_at": "2026-11-08",
+        "source": "data/ga4/reports/2026-11-08.json の cta-clicks-by-label（2026-10-10〜11-06 の 28 日）",
+        "relatedArticlesClicks": 377,
+        "curriculumListClicks": 290,
+        "popularShowcaseClicks": 37,
+        "note": "表示回数（internal_nav_impression）は 2026-11-13 の公開から取り始めるので、クリック率の基準は無い。比べる相手は同じ期間の写真のカード（16 資格）と OGP のカード（総監は写真にしない）"
+      },
+      "pending_user_actions": [],
+      "history": [
+        {
+          "at": "2026-11-13T08:07:19.977Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-13T08:07:19.977Z",
+          "event": "implemented",
+          "change": "16 資格 859 ページを写真サムネイルにし（#1576・#1579）、カードの表示とクリックを写真・OGP 別に送る（#1572）。本番反映は main への deploy 後"
         }
       ]
     }

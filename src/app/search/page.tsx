@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getPublicDocPath } from "@/lib/content-routes";
-import { getOgpDisplayUrl } from "@/lib/r2-image-loader";
+import { getCardImage } from "@/lib/site-thumbnail";
 import type { Metadata } from "next";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
@@ -32,7 +32,7 @@ export default function SearchPage() {
   const otherCategories = getAllCategories().filter(
     (c) => c.visible !== false && !examSlugs.has(c.slug),
   );
-  const images = Object.fromEntries(getAllDocsMeta().filter(d => d.published !== false && (d.group === "guide" || d.category === "civil-practice")).map(d => [getPublicDocPath(d.slug), getOgpDisplayUrl(d.slug)]));
+  const images = Object.fromEntries(getAllDocsMeta().filter(d => d.published !== false && (d.group === "guide" || d.category === "civil-practice")).map(d => [getPublicDocPath(d.slug), getCardImage(d)]));
   // よく読まれている記事は href まで server で解決して軽い行にする（client 側で content-routes を
   // 読むと doc-meta-index が /search のチャンクへ入る・DN-0684）。
   const popular = getPopularDocs(getAllDocsMeta(), 6).map((p: PopularDoc) => ({

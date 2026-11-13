@@ -2,7 +2,7 @@ import { standardChapterHeading } from '@/lib/standards-chapter-labels';
 import type { StandardChapter, StandardChapterSection } from '@/lib/standards-articles';
 import type { StandardDocument } from '@/lib/standards';
 import { generateHeadingId } from '@/lib/toc';
-import { SITE_ORIGIN } from '@/config/site-identity.mjs';
+import { CONTACT_EMAIL, SITE_ORIGIN } from '@/config/site-identity.mjs';
 import { standardSectionPath } from '@/lib/standards-section-split.mjs';
 import { standardsChapterPath, standardsDocumentPath } from '@/lib/route-paths';
 import { getAreaLabel } from '@/lib/content-taxonomy';
@@ -30,7 +30,7 @@ function siteOrganization(): JsonLdNode {
     '@id': SITE_ORGANIZATION_ID,
     name: 'doboku-note',
     url: SITE_ORIGIN,
-    email: 'info@doboku-note.com',
+    email: CONTACT_EMAIL,
   };
 }
 

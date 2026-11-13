@@ -15,6 +15,12 @@
  * 重複防止: 同一 channel の open Issue があれば**新規作成せずコメント追記**する。
  * 毎週赤くなるたびに Issue が増える運用は、すぐ無視されるようになるため。
  *
+ * 根本原因の鍵（--key・2026-11-13・DN-0935）: 別々の見張り（channel）が同じ原因で赤くなると、channel ごとに
+ * Issue が立って 1 つの原因に 3〜4 件並んだ。--key <原因>（例: saturday-mac-run）を渡すと、本文に目印
+ * `<!-- automation-key: <原因> -->` を書き、同じ鍵の open Issue があれば channel が違ってもそこへコメントを追記する。
+ * 鍵の Issue は `--resolve --key <原因>` で閉じる（channel だけの --resolve は鍵の Issue を閉じない＝別の見張りが
+ * まだ赤いのに 1 つの復旧で閉じない）。
+ *
  * クローズ（2026-09-18 に方針転換）: 起票した自動化が次に**成功したとき同 channel の open Issue を
  * 自動クローズ**する（--resolve）。それまでは「クローズは人間」だったが、復旧しても誰も閉じず
  * open 8 件・最古 43 日が溜まり、通知チャネルとして死んでいた（W37 レビュー「消化停止」）。
@@ -54,10 +60,30 @@ export function channelOfTitle(title) {
   return /^\[auto\] ([^\s:]+):/.exec(String(title ?? ''))?.[1] ?? null;
 }
 
-/** open Issue 一覧から同 channel のものを探す（ラベルは呼び出し側で絞る）。 */
-export function findExisting(list, channel) {
+/** 根本原因の鍵の目印（Issue の本文に書く）。鍵は英小文字・数字・ハイフンだけ */
+export function keyMarker(key) {
+  if (!/^[a-z0-9][a-z0-9-]{1,63}$/.test(String(key))) throw new Error(`鍵の形が違う: ${key}（英小文字・数字・ハイフン）`);
+  return `<!-- automation-key: ${key} -->`;
+}
+
+/**
+ * open Issue 一覧から既存を探す（ラベルは呼び出し側で絞る）。鍵があれば本文の目印が一致するものを先に探し、
+ * 無ければ同 channel のもの（題名の前方一致）。鍵の Issue が無く同 channel の Issue があれば、それへ追記する。
+ */
+export function findExisting(list, channel, key = null) {
+  if (key) {
+    const marker = keyMarker(key);
+    const byKey = list.find((i) => typeof i.body === "string" && i.body.includes(marker));
+    if (byKey) return byKey;
+  }
   const prefix = issuePrefix(channel);
   return list.find((i) => typeof i.title === "string" && i.title.startsWith(prefix)) ?? null;
+}
+
+/** --resolve --key で閉じる Issue（鍵の目印が一致するものだけ） */
+export function findByKey(list, key) {
+  const marker = keyMarker(key);
+  return list.filter((i) => typeof i.body === "string" && i.body.includes(marker));
 }
 
 /**
@@ -105,6 +131,8 @@ async function main() {
   const RESOLVE = args.includes("--resolve");
 
   const channel = flag("channel");
+  const key = flag("key");
+  if (key) keyMarker(key); // 形を先に検査する
   const titleText = flag("title");
   const bodyFile = flag("body-file");
   const bodyInline = flag("body");
@@ -112,8 +140,8 @@ async function main() {
   const slackUrl = process.env.SLACK_WEBHOOK_URL || "";
 
   if (!channel || (!RESOLVE && !titleText)) {
-    console.error("usage: --channel <name> --title <text> [--body <text> | --body-file <path>] [--assignee <login> | --no-assignee] [--dry-run]");
-    console.error("       --resolve --channel <name> [--body <text> | --body-file <path>] [--dry-run]");
+    console.error("usage: --channel <name> --title <text> [--key <原因>] [--body <text> | --body-file <path>] [--assignee <login> | --no-assignee] [--dry-run]");
+    console.error("       --resolve --channel <name> [--key <原因>] [--body <text> | --body-file <path>] [--dry-run]");
     process.exit(1);
   }
 
@@ -140,8 +168,10 @@ async function main() {
     }
     let existing = null;
     try {
-      const out = gh(["issue", "list", "--label", LABEL, "--state", "open", "--limit", "50", "--json", "number,title,url"]);
-      existing = findExisting(JSON.parse(out || "[]"), channel);
+      const out = gh(["issue", "list", "--label", LABEL, "--state", "open", "--limit", "50", "--json", "number,title,url,body"]);
+      const list = JSON.parse(out || "[]");
+      // 鍵があれば鍵の Issue を閉じる。channel だけのときは題名の channel が一致するものだけ（鍵の Issue は閉じない）
+      existing = key ? (findByKey(list, key)[0] ?? null) : (list.find((i) => i.title?.startsWith(prefix) && !/<!-- automation-key: /.test(i.body ?? "")) ?? null);
     } catch (e) {
       console.error(`[report-automation-failure] Issue 一覧の取得に失敗: ${e.message}`);
       process.exit(1);
@@ -164,7 +194,7 @@ async function main() {
 
   // ── 起票 / 再発コメント ────────────────────────────────────────────────────────
   const title = `${prefix} ${titleText}`;
-  const footer = `\n\n---\n記録: ${stamp} / channel: \`${channel}\`\nこの Issue は自動起票です。起票元の自動化が次に成功したとき自動クローズします（\`--resolve\` 配線済みの channel）。配線が無い channel は復旧を確認した人がクローズしてください。`;
+  const footer = `\n\n---\n記録: ${stamp} / channel: \`${channel}\`${key ? ` / 原因の鍵: \`${key}\`\n${keyMarker(key)}` : ""}\nこの Issue は自動起票です。起票元の自動化が次に成功したとき自動クローズします（\`--resolve\` 配線済みの channel）。配線が無い channel は復旧を確認した人がクローズしてください。`;
 
   if (DRY) {
     console.log(`[dry-run] title: ${title}`);
@@ -178,9 +208,9 @@ async function main() {
   // 1) 同一 channel の open Issue を探す（ラベル + タイトル前方一致）。
   let existing = null;
   try {
-    const out = gh(["issue", "list", "--label", LABEL, "--state", "open", "--limit", "50", "--json", "number,title,url"]);
+    const out = gh(["issue", "list", "--label", LABEL, "--state", "open", "--limit", "50", "--json", "number,title,url,body"]);
     const list = JSON.parse(out || "[]");
-    existing = findExisting(list, channel);
+    existing = findExisting(list, channel, key);
     console.log(`[report-automation-failure] open な ${LABEL} Issue ${list.length} 件を走査 → ${existing ? `既存 #${existing.number}` : "同 channel の既存なし"}`);
   } catch (e) {
     // 走査に失敗したら「既存なし」と決めつけない（重複起票より、失敗を明示して止める方が安全）。
@@ -192,7 +222,8 @@ async function main() {
   let kind = existing ? "recurred" : "created";
   try {
     if (existing) {
-      gh(["issue", "comment", String(existing.number), "--body", `**再発**: ${titleText}\n\n${body}${footer}`]);
+      const head = existing.title?.startsWith(prefix) ? "**再発**" : `**同じ原因の別の見張り**（channel: \`${channel}\`）`;
+      gh(["issue", "comment", String(existing.number), "--body", `${head}: ${titleText}\n\n${body}${footer}`]);
       console.log(`[report-automation-failure] 既存 Issue #${existing.number} へコメント追記`);
     } else {
       const argv = ["issue", "create", "--label", LABEL, "--title", title, "--body", `${body}${footer}`];

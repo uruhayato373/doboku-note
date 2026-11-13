@@ -2107,6 +2107,26 @@
         "/exam/pe-comprehensive-management/keywords/competency-hr",
         "/exam/pe-comprehensive-management/keywords/pollution-control-manager"
       ]
+    },
+    {
+      "runId": "2026-11-12T11-52-40Z",
+      "collectedAt": "2026-11-12T11:52:40.421Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 1,
+      "accepted": 1,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/concrete-chief-engineer/guide/r08-answers"
+      ],
+      "acceptedSlugs": [
+        "/exam/concrete-chief-engineer/guide/r08-answers"
+      ]
     }
   ]
 }

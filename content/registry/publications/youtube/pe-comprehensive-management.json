@@ -156,7 +156,7 @@
       "work": "cm-mondaibun-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-001",
@@ -176,7 +176,59 @@
         "video": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#longform",
+      "publishAt": "2026-11-16T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-12T21:38:32.787Z",
+          "digest": "5925f34d3fb7ed7663631ae8f7b0d8d3ca22078159108375bc423a64f17cde0e"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-12T21:38:32.787Z",
+        "contentSha256": "b8cfde63d5c7778dfd57d0b360638639624fcc0491161a04ebe4ca277d38609e"
+      },
+      "times": {
+        "rendered": "2026-11-12T22:01:38.817Z",
+        "uploaded": "2026-11-12T22:05:24.397Z",
+        "scheduled": "2026-11-12T22:05:33.707Z"
+      },
+      "delivery": {
+        "inputSha256": "f15252262b006a64eb9a653de97a1fe2770da89c00be24a3b4422f194c2b8c9c",
+        "marker": "dn-single-93a5ef3b54aeea36a2e0a3f352c1a1a3d5d515b8",
+        "uploadRequestedAt": "2026-11-12T22:04:40.090Z",
+        "videoId": "AH31FCYkLKk",
+        "processedAt": "2026-11-12T22:05:23.027Z",
+        "thumbnailRequestedAt": "2026-11-12T22:05:24.433Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/AH31FCYkLKk/default.jpg?sqp=CIzw2NcG&rs=AOn4CLAxDTDpBuZYN7KUqOyaHxvJ36o6IA",
+          "https://i9.ytimg.com/vi/AH31FCYkLKk/mqdefault.jpg?sqp=CIzw2NcG&rs=AOn4CLAFr7WYsVJAvyFDjuZmEvHmZfs5Uw",
+          "https://i9.ytimg.com/vi/AH31FCYkLKk/hqdefault.jpg?sqp=CIzw2NcG&rs=AOn4CLBLZU9ryDqCqn2twjUq0Net07genw",
+          "https://i9.ytimg.com/vi/AH31FCYkLKk/sddefault.jpg?sqp=CIzw2NcG&rs=AOn4CLAFuaaYoKHc0W664bZGFJ1fH9dkiA",
+          "https://i9.ytimg.com/vi/AH31FCYkLKk/maxresdefault.jpg?sqp=CIzw2NcG&rs=AOn4CLBy0iP7RoDz5OPEAUAe_d21rFG6nw",
+          "https://i9.ytimg.com/vi/AH31FCYkLKk/fhddefault.jpg?sqp=CIzw2NcG&rs=AOn4CLDM0Kc2EoqxYdWY9YSuBuOJ8DgyGg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-12T22:05:28.671Z",
+        "scheduleRequestedAt": "2026-11-12T22:05:29.931Z",
+        "scheduleAt": "2026-11-16T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-12T22:05:33.707Z"
+      },
+      "platform": {
+        "id": "AH31FCYkLKk",
+        "url": "https://www.youtube.com/watch?v=AH31FCYkLKk",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-12T22:05:28.671Z"
+      }
     },
     {
       "id": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.short.point-toshiyomi-1",

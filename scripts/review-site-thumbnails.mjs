@@ -6,7 +6,13 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
+import { join } from 'node:path';
 import { askCodexAboutImages } from './lib/codex-image.mjs';
+import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
+
+// 目の監査の基準は config/site-thumbnails.json の review.criteria（Claude の二次監査と同じ文）
+const criteria = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.site-thumbnails')), 'utf8')).review.criteria;
 
 const { values: args } = parseArgs({ options: { input: { type: 'string' }, out: { type: 'string' }, batch: { type: 'string', default: '8' }, parallel: { type: 'string', default: '3' }, model: { type: 'string' } } });
 const items = JSON.parse(readFileSync(args.input, 'utf8'));
@@ -15,8 +21,8 @@ if (!items.length) { console.error('対象 0 件'); process.exit(2); }
 const promptOf = (part) => `添付の画像は順に次の${part.length}枚で、土木・建設系の資格試験サイトの記事カード用サムネイルです。ファイルを読まず、添付画像だけで判定してください。
 ${part.map((item, i) => `${i + 1}. key=${item.key} 記事=${item.title} 帯=${item.text} 絵の指示=${item.scene}`).join('\n')}
 
-判定基準:
-fail = 次のどれか。土木の実物や施工手順の誤り（機械の種別、部位、作業の順序、斜めシュートなど）、記事や帯と題材が合わない、人物が学生に見える、顔や手足の崩れ、文字や数字の混入、ありえない構造、絵の指示と矛盾、危険な作業姿勢や保護具の欠落。
+判定基準（どれか 1 つでも満たさなければ fail。reason の先頭に基準の id を書く）:
+${criteria.map((c) => `- ${c.id}: ${c.text}`).join('\n')}
 minor = 誤りではないが、もっと合う絵にできる。
 ok = どれにも当たらない。
 人物や機械を部位ごとに見て、それらしいだけで ok にしないでください。

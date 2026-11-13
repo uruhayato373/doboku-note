@@ -43,10 +43,11 @@ const SCAN_EXT = /\.mdx$/;
 const mode = __argv.includes('--all') ? 'all' : __argv.includes('--files') ? 'files' : 'staged';
 const listedFiles = () => __argv.slice(__argv.indexOf('--files') + 1).filter((a) => !a.startsWith('--')).map((f) => relative(ROOT, resolve(f)).split(sep).join('/'));
 
-function stagedMdxFiles() {
+// git diff --name-status の追加・変更の行から content/site の MDX だけを取り出す
+function diffMdxFiles(diffArgs) {
   const out = execFileSync(
     'git',
-    ['-c', 'core.quotepath=false', 'diff', '--cached', '--no-renames', '--name-status', '--diff-filter=ACM'],
+    ['-c', 'core.quotepath=false', 'diff', '--no-renames', '--name-status', '--diff-filter=ACM', ...diffArgs],
     { cwd: ROOT, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 },
   );
   return out
@@ -57,6 +58,12 @@ function stagedMdxFiles() {
     .filter(([, path]) => path && path.startsWith('content/site/') && SCAN_EXT.test(path))
     .map(([, path]) => path);
 }
+
+// CI の checkout には staged が無い。--staged を CI で回すと毎回 0 件を検査して緑になっていた（DN-1124）。
+// CI（CI=true）では、ci.yml の Fetch registry comparison base が用意する比較元（REGISTRY_BASE）と HEAD の差分の MDX を対象にする。
+// 比較元が無いときは検査不成立（exit 2）で、0 件の緑にしない。
+const stagedMdxFiles = () => diffMdxFiles(['--cached']);
+const changedMdxFiles = (base) => diffMdxFiles([base, 'HEAD']);
 
 function allMdxFiles(dir) {
   const results = [];
@@ -72,10 +79,18 @@ function allMdxFiles(dir) {
   return results;
 }
 
-const files = mode === 'staged' ? stagedMdxFiles() : mode === 'files' ? listedFiles() : allMdxFiles(SCAN_DIR);
+// pre-commit の中（CI の bot の commit を含む）は staged を見る。CI の比較元との差分を見るのは quality-audit から呼ばれたときだけ
+//（2026-11-13: OGP Supply の台帳の commit が「比較元が無い」で止まった）
+const inCi = mode === 'staged' && process.env.CI === 'true' && process.env.DOBOKU_PRE_COMMIT !== '1';
+if (inCi && !process.env.REGISTRY_BASE) {
+  console.error(`[lint-ja --${mode}] 検査不成立: CI で比較元（REGISTRY_BASE）が無く、変更した MDX を決められない`);
+  __exit(2);
+}
+const files = inCi ? changedMdxFiles(process.env.REGISTRY_BASE) : mode === 'staged' ? stagedMdxFiles() : mode === 'files' ? listedFiles() : allMdxFiles(SCAN_DIR);
+const scope = inCi ? `CI・${process.env.REGISTRY_BASE} との差分` : mode;
 
 if (files.length === 0) {
-  console.log(`[lint-ja --${mode}] 対象 0 件（該当する MDX の変更なし）`);
+  console.log(`[lint-ja --${mode}] 対象 0 件（${scope} に該当する MDX の変更なし）`);
   __exit(0);
 }
 

@@ -117,8 +117,11 @@ jobs:
             echo "- 応急: \`/gsc-review\`（月次）・\`/weekly-improve\`（週次）を手動実行して観測ログへ追記"
             echo "- 判定ロジック: \`scripts/check-gsc-auto-review.mjs\`"
           } > /tmp/auto-review-body.md
+          # 記録層の沈黙は土曜の Mac の回が落ちたことが原因のことが多い。同じ原因の Issue（鍵 saturday-mac-run）が
+          # 開いていればそこへ追記し、別の Issue を立てない（DN-0935）
           node scripts/report-automation-failure.mjs \
             --channel gsc-auto-review \
+            --key saturday-mac-run \
             --title "記録層の沈黙を検知（weekly-review-guard）" \
             --body-file /tmp/auto-review-body.md
 

@@ -87,7 +87,7 @@ export default function MagazineHeroCta({
         <span className="mt-3 text-balance text-[18px] font-black leading-snug text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.35)] sm:text-[22px]">
           {catchCopy}
         </span>
-        <span className="mt-2.5 rounded-[3px] bg-white/95 px-4 py-1 text-[12px] font-bold text-[#16314f] sm:text-[13px]">
+        <span className="mt-2.5 rounded-[3px] bg-white/95 px-4 py-1 text-[12px] font-bold text-(--hero-cta-sub-ink) sm:text-[13px]">
           {sub}
         </span>
         <Image

@@ -24,8 +24,7 @@
  *
  * npm run gen-article-photo -- --fig <資格/記事/img/名前> [--prompt "…"] [--model <codex のモデル>] [--from <画像>] — 記事の写真を codex exec の画像生成で作り、中央で 4:3 に切って 960×720 の webp で配置し、記事の src・寸法と実績の台帳（sha・promptSha）を更新する。--from は生成済みの画像を配置だけ。罠: codex の既定モデルが ChatGPT アカウントで使えないと 400 で何も出ない（2026-10-07 は --model gpt-6-astra で動いた）。同じ名前の古い jpg/png は消さずに警告だけ出す
  */
-import { existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import sharp from 'sharp';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
@@ -34,9 +33,10 @@ import { readJsonIf, writeJson } from './lib/json-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
 import { describeFigure, fileSha, syncImageDims } from './lib/figure-review.mjs';
-import { AI_LEDGER_FILE, emptyAiLedger, promptSha, vaultPathOf, vaultRefOf } from './lib/image-origin.mjs';
+import { AI_LEDGER_FILE, emptyAiLedger, recordAiImage, vaultPathOf, vaultRefOf } from './lib/image-origin.mjs';
 import { resolveVaultRoot } from './lib/drive-vault.mjs';
-import { generateWithCodex } from './lib/codex-image.mjs';
+import { discardGenerated, generateWithCodex } from './lib/codex-image.mjs';
+import { loadImageRules } from './lib/image-rules.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
 
@@ -84,8 +84,8 @@ export async function run(argv = process.argv.slice(2)) {
   const figKey = arg(argv, '--fig');
   if (!figKey || !/^[a-z0-9-]+\/[^/]+\/img\/[^/]+$/.test(figKey)) { console.error('--fig <資格/記事/img/名前> が要る'); return 1; }
   const limits = readJsonIf(ROOT, datasetPath('config.image-limits'));
-  const aiPhoto = limits?.aiPhoto;
-  if (!aiPhoto) { console.error('✗ image-limits の aiPhoto（写真の比率と共通の指示）が無い'); return 1; }
+  const aiPhoto = limits?.aiPhoto && { ...limits.aiPhoto, ...loadImageRules(ROOT).prompts.articlePhoto };
+  if (!aiPhoto) { console.error('✗ image-limits の aiPhoto（写真の比率）が無い'); return 1; }
   const sourcesDoc = readJsonIf(ROOT, datasetPath('config.figure-sources'));
   const fig = describeFigure({ siteRoot: SITE_CONTENT_ROOT, repoRoot: ROOT, figKey });
   if (!fig.mdx) { console.error(`✗ ${figKey}: 記事が見つからない`); return 1; }
@@ -136,14 +136,13 @@ export async function run(argv = process.argv.slice(2)) {
   writeDataset(ROOT, 'config.figure-sources', sourcesDoc);
 
   const ledger = readJsonIf(ROOT, AI_LEDGER_FILE) ?? emptyAiLedger();
-  ledger.figures[figKey] = { sha: fileSha(target), promptSha: promptSha(prompt), tool, generatedAt: new Date().toISOString() };
-  ledger.figures = Object.fromEntries(Object.entries(ledger.figures).sort(([a], [b]) => a.localeCompare(b)));
+  recordAiImage(ledger, figKey, { sha: fileSha(target), prompt, generatedAt: new Date().toISOString(), tool });
   writeJson(ROOT, AI_LEDGER_FILE, ledger);
 
   const leftovers = ['png', 'jpg', 'jpeg'].map((e) => join(SITE_CONTENT_ROOT, `${figKey}.${e}`)).filter(existsSync);
   console.log(`[gen-article-photo] ${figKey}: ${width}×${height} webp を配置・記事 ${changed} か所を更新・実績を記録（未監査）`);
   if (leftovers.length) console.log(`  ⚠ 同じ名前の古い画像が残っている（参照されないなら git rm する）: ${leftovers.map((p) => p.slice(ROOT.length + 1)).join(' ')}`);
-  if (!from && input.startsWith(tmpdir())) rmSync(resolve(input, '..'), { recursive: true, force: true });
+  if (!from) discardGenerated(input);
   console.log('  次: node scripts/check-image-origin.mjs --ai-queue --json → ai-image-fidelity-auditor → record-ai');
   return 0;
 }

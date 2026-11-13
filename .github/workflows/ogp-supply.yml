@@ -49,12 +49,16 @@ on:
       - 'scripts/build-standards-ogp.mjs'
       - 'scripts/build-ogp-thumbnails.mjs'
       - '.github/workflows/ogp-supply.yml'
+      # ページ写真の版が変わると写真 OGP が古くなる（srcHash に写真の版が入る・2026-11-13）
+      - 'config/site-thumbnails.json'
+      - 'config/ogp/settings.json'
+      - '.claude/skills/ogp-create/scripts/**'
   workflow_dispatch:
     inputs:
       max:
-        description: '生成上限の上書き（既定50）'
+        description: '1 回に作る上限の上書き（既定200。超えた分は次回へ持ち越す）'
         required: false
-        default: '50'
+        default: '200'
         type: string
   schedule:
     - cron: '0 21 * * 0'
@@ -72,7 +76,7 @@ permissions:
 jobs:
   supply:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -172,19 +176,26 @@ jobs:
             echo "count=${count}"
           } >> "$GITHUB_OUTPUT"
 
-      # 対象件数が上限を大きく超えるのは、frontmatter の一括変更や srcHash ロジックの不具合など
-      # 系統異常の疑いがある。通常のインクリメンタルな記事更新なら数件〜十数件で収まるはず。
-      - name: Cap check
+      # 1 回に作るのは上限まで。超えた分は持ち越し、次の run（push・週次・手動）が続きを作る（DN-0935）。
+      # 2026-11-12 まで上限超えは exit 1 で止めていたが、写真 OGP の一括切り替えや srcHash の版上げのような
+      # 意図した一括でも毎回赤くなり、手動の max 解除が要った。今は止めずに分けて作り、残りを出力に出す。
+      - name: Cap (carry over the rest)
+        id: cap
         if: steps.detect.outputs.count != '0'
         run: |
           set -eu
           count="${{ steps.detect.outputs.count }}"
-          max="${{ inputs.max || '50' }}"
-          echo "対象 ${count} 件 / 上限 ${max} 件"
+          max="${{ inputs.max || '200' }}"
           if [ "${count}" -gt "${max}" ]; then
-            echo "::error::生成対象 ${count} 件が上限 ${max} 件を超えている。系統異常の疑い。意図的な一括供給なら workflow_dispatch の max パラメータで明示解除すること。"
-            exit 1
+            head -n "${max}" /tmp/ogp-targets.txt > /tmp/ogp-targets-cut.txt
+            mv /tmp/ogp-targets-cut.txt /tmp/ogp-targets.txt
+            carried=$((count - max))
+            echo "::notice::生成対象 ${count} 件のうち ${max} 件を作り、${carried} 件を次回へ持ち越す"
+          else
+            carried=0
           fi
+          echo "対象 ${count} 件 / 上限 ${max} 件 / 持ち越し ${carried} 件"
+          echo "carried=${carried}" >> "$GITHUB_OUTPUT"
 
       # OGP の資格別の背景は private R2 に退避してある（2026-10-10・素材の group ogp-background・git では追跡しない）。
       # 生成の前に取り戻す。取り戻せなければ ogp-create の requireLocalAsset が止める（黙ってオフホワイトに落とさない）。
@@ -194,6 +205,23 @@ jobs:
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
         run: node scripts/asset-hydrate.mjs --group ogp-background
+
+      # 写真 OGP（photo-scrim）の背景は、ページ別の写真 site-photo.webp（public R2・素材の group site-photos）。
+      # 写真の版が台帳にあるのに手元に無いと ogp-create の requireLocalAsset が止めるので、生成の前に取り戻す。
+      - name: Hydrate page photos (public R2)
+        if: steps.detect.outputs.count != '0'
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        # 写真がまだ 1 件も R2 に無いとき（台帳に site-photos の行が無いとき）は取り戻すものが無いので飛ばす
+        #（asset-hydrate は対象 0 件を失敗にする・2026-11-13 に写真の公開前の push で落ちた）
+        run: |
+          if node -e "const m=require('./.claude/state/assets/manifest.json');process.exit(Object.values(m.entries).some(e=>e.group==='site-photos')?0:1)"; then
+            node scripts/asset-hydrate.mjs --group site-photos
+          else
+            echo "site-photos の台帳の行が 0 件。取り戻すものが無いので飛ばす"
+          fi
 
       # 失敗した slug は隔離して継続する（1 件の生成失敗で全体を止めない）。
       # 全滅（成功 0 件）のときだけ異常として止める。
@@ -316,6 +344,11 @@ jobs:
           node scripts/update-ogp-srchash.mjs --check
           srchash_exit=$?
           set -e
+          carried="${{ steps.cap.outputs.carried || '0' }}"
+          if [ "${carried}" != "0" ]; then
+            echo "::notice::${carried} 件を次回へ持ち越したので、残りの missing/stale は想定どおり（coverage exit=${coverage_exit} / srchash exit=${srchash_exit}）"
+            exit 0
+          fi
           if [ "${coverage_exit}" -ne 0 ] || [ "${srchash_exit}" -ne 0 ]; then
             echo "::error::供給後もmissing/staleが残っている（coverage exit=${coverage_exit} / srchash exit=${srchash_exit}）"
             exit 1

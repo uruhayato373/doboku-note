@@ -5,16 +5,15 @@
  *   → AI 台帳 .claude/state/quality/ai-image-review-ledger.json に 'media:<素材 ID>'（verdict はまだ無い）
  * 既定 dry-run（codex を呼ばない）。生成と書き込みは deps で差し替えられる（テスト用）。
  */
-import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { copyFileSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, extname, join, resolve } from 'node:path';
 import sharp from 'sharp';
 import { loadRegistry, mediaIdOf, parsePubId } from './content-registry.mjs';
 import { upsertMedia, upsertPublications } from './content-registry-write.mjs';
 import { mediaPath, mimeOf } from './media-paths.mjs';
-import { generateWithCodex } from './codex-image.mjs';
-import { AI_LEDGER_FILE, emptyAiLedger } from './image-origin.mjs';
+import { discardGenerated, generateWithCodex } from './codex-image.mjs';
+import { AI_LEDGER_FILE, aiProvenance, emptyAiLedger, recordAiImage } from './image-origin.mjs';
 import { readJsonIf, writeJson } from './json-io.mjs';
 
 const sha256Of = (buf) => createHash('sha256').update(buf).digest('hex');
@@ -60,7 +59,7 @@ export async function runPlate(root, o, deps = {}) {
   const row = {
     id: mediaId, role: o.role, type: mimeOf(ext), sha256, bytes: buf.length, width: meta.width, height: meta.height,
     store: { tier: 'drive', path },
-    provenance: { kind: 'ai-generated', tool: 'codex', ...(o.model ? { model: o.model } : {}), prompt, promptSha256, generatedAt },
+    provenance: aiProvenance({ prompt, generatedAt, model: o.model ?? null }),
   };
   // 同じ素材 ID の行（旧い表紙など）を置き換えるときは、旧い置き場を legacyPaths に引き継いで履歴を残す
   const prev = (reg.media ?? []).find((m) => m.id === mediaId);
@@ -69,14 +68,12 @@ export async function runPlate(root, o, deps = {}) {
     row.legacyPaths = [...new Set([...(prev.legacyPaths ?? []), prev.store?.path].filter(Boolean))];
   }
   writeMedia(root, pub.exam, [row]);
-  // 生成の一時フォルダ（codex-image.mjs が os.tmpdir() に作る gen-article-photo-* だけ）を片付ける
-  const genDir = dirname(generated);
-  if (!o.input && genDir.startsWith(tmpdir()) && /[\\/]gen-article-photo-[^\\/]+$/.test(genDir)) rmSync(genDir, { recursive: true, force: true });
+  // 生成の一時フォルダを片付ける（--input で渡した画像には触らない）
+  if (!o.input) discardGenerated(generated);
   writePubs(root, pub.channel, pub.exam, [{ ...pub, media: { ...(pub.media ?? {}), [o.role]: mediaId } }]);
 
   const ledger = readJsonIf(root, AI_LEDGER_FILE) ?? emptyAiLedger();
-  ledger.figures[`media:${mediaId}`] = { sha: sha256.slice(0, 16), promptSha: promptSha256.slice(0, 16), tool: 'codex', generatedAt };
-  ledger.figures = Object.fromEntries(Object.entries(ledger.figures).sort(([a], [b]) => a.localeCompare(b)));
+  recordAiImage(ledger, `media:${mediaId}`, { sha: sha256, prompt, generatedAt });
   writeJson(root, AI_LEDGER_FILE, ledger);
 
   log(`置いた: ${path}（${meta.width}×${meta.height}）。素材の行と公開の行 media.${o.role} を書き、AI 台帳へ記録した（判定は未）`);

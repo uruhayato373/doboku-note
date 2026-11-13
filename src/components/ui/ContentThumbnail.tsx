@@ -25,11 +25,13 @@ export default function ContentThumbnail({ src, sizes = '(max-width: 640px) 124p
     sizes={sizes} alt="" width={1200} height={630}
     loading={eager ? 'eager' : 'lazy'} decoding="async"
     onError={() => { if (!fallback) setFallback(true); }}
-    className={band ? 'min-h-0 w-full flex-1 object-cover dark:brightness-90' : 'h-full w-full object-cover'}
+    className={band ? 'h-full w-full object-cover dark:brightness-90' : 'h-full w-full object-cover'}
   />;
   if (!band) return picture;
-  return <div className="flex h-full w-full flex-col [container-type:inline-size]">
+  // 写真は OGP と同じ 1.91:1 をそのまま敷き、下端に帯を重ねる（2026-11-13）。帯の高さは枠の約 15%（config の spec.bandOverlapRatio）。
+  // 写真の指示は「下端の約 15% に主題を置かない」。帯の色は資格の色（白文字のコントラスト比 4.5 以上を CI が確かめる）
+  return <div className="relative h-full w-full [container-type:inline-size]">
     {picture}
-    <span className="flex shrink-0 items-center truncate px-[5cqw] font-bold text-white" style={{ backgroundColor: band.color, height: 'min(14cqw, 40px)', fontSize: 'clamp(10px, 8.6cqw, 18px)' }}>{band.text}</span>
+    <span className="absolute inset-x-0 bottom-0 flex items-center truncate px-[5cqw] font-bold text-white" style={{ backgroundColor: band.color, height: 'max(15%, 16px)', fontSize: 'clamp(10px, 5.6cqw, 18px)' }}>{band.text}</span>
   </div>;
 }

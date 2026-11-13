@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-12T04:15:12.812Z",
+  "checkedAt": "2026-11-13T03:36:14.699Z",
   "channel": "youtube",
-  "targets": 48,
-  "checked": 48,
-  "observed": 48,
+  "targets": 52,
+  "checked": 52,
+  "observed": 52,
   "advanced": [
-    "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix"
+    "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
+    "pe-construction/toan-kousei-template/youtube.longform"
   ],
   "findings": []
 }
