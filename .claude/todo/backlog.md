@@ -416,6 +416,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1173] src/config のマスタを台帳に載せ、型と記事 slug の外部キーを付ける
+タグ: [エージェント・SSOT] [領域:サイト] [時期:2027-01] [種類:改善] [起票:2026-11-13]
+
+**起点**: 2026-11-13 の構成・SSOT 監査。台帳 `scripts/lib/datasets.mjs` の置き場（AREAS）は config・data・.claude/state・content/registry の 4 つで、サイトが読む `src/config/` の追跡 30 ファイルは対象外。過去問 3 種・`keyword-relations.json`・`past-exam-backlinks.json`・`popular-pages.json`・`topics.json` などに型も外部キーも無い。記事 slug を指す生成 JSON（`exam-question-keywords.json`・`past-exam-backlinks.json`・`keyword-relations.json`・`popular-pages.json`）を実在と照らす検査は見つからず、記事の削除・改名のあとに古い参照が残っても止まらない。`src/` の型は手書きで JSON を `as` で読む（`as unknown as` が 6 か所）。同じ監査で config 側の 7 データセットには refs を足した（PR #1577）。
+
+**やること**: `src/config/` を台帳の置き場に足す（サイト本体は台帳を import しない決まりなので、宣言と検査だけを scripts 側に置く）。手で書く正本と生成物を種類で分け、生成物から順に型を付ける。記事 slug を持つ欄に refs（to: article）を宣言する。`civil-relations.json` は読む側が `.claude/skills/exam-backlinks/scripts/` の 2 本だけなので、置き場が `src/config/` でよいかも決める。
+
+**完了条件**: `npm run check-datasets` が `src/config/` の全ファイルを数え、記事 slug の参照切れを検査件数つきで出す。型の無いファイルが何件残るかが台帳から分かる。
+
+
 ### [DN-1171] 基準書の回遊と転職の画像バナー（PR 1574）の効果を本番反映の 28 日後に読み、枠を残すか決める
 タグ: [収益化] [領域:アフィリエイト] [時期:2026-12..2027-01] [種類:改善] [起票:2026-11-13]
 
