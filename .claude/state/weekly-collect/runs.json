@@ -707,6 +707,56 @@
       ],
       "commit": {},
       "leftover": []
+    },
+    {
+      "phase": "post",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-11-14T07:26:33.723Z",
+      "finishedAt": "2026-11-14T10:27:07.465Z",
+      "stages": [
+        {
+          "id": "note-live",
+          "title": "note の添付と会員限定のライブ照合",
+          "status": "warn",
+          "reason": "1/2 本目（check-note-attachments:live -- --api-first）: node scripts/note-attach-file.mjs --note ndf50c0266cbe --file \"content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R09-yosou-1/上下水道部門-必須科目I-R09予想-I-模範解答.pdf\" --commit",
+          "exits": [
+            1,
+            0
+          ],
+          "verify": [],
+          "durationSec": 3563
+        },
+        {
+          "id": "note-sync",
+          "title": "note の記事の同期（本文・カバー・タグ）",
+          "status": "failed",
+          "reason": "[note-sync] ✗ content/note/技術士建設部門/magazines/BK-06_施工計画/R07/article-III.md: 結果なし（連続失敗で中断された可能性）",
+          "exits": [
+            1
+          ],
+          "verify": [
+            {
+              "id": "note-sync-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 6750
+        },
+        {
+          "id": "note-sync-check",
+          "title": "note の反映の照合（公開 API）",
+          "status": "warn",
+          "reason": "[check-note-sync] ✗ 未反映 記事 512（止まっている 11）・マガジン 0。土曜の Mac の収集（weekly-collect の note-sync 段）が反映し、止まっている分は管理画面 /content/note-sync",
+          "exits": [
+            1
+          ],
+          "verify": [],
+          "durationSec": 505
+        }
+      ],
+      "commit": {},
+      "leftover": []
     }
   ]
 }
