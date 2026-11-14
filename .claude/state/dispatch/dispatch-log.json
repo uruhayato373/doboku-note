@@ -8339,6 +8339,42 @@
       "commit": "e1c8ce08a0ce",
       "verification": "check-affiliate-mats / check-affiliate-wiring / check-affiliate-placements / type-check / tests/affiliate-creative-pick.test.mjs / UI14画面 / CI build E2E",
       "note": "カテゴリ・トップ・ツール・トピック・法令と基準書のバナーを共通の台帳/サイズ選択へ統一。既存pairs/splitsは維持し、画像無しは小型カード。7ページ×375/1440pxの14画面で画像・main・主要語・横はみ出し無しを確認。GitHub build/E2E通過（43537444211/43537444207）。"
+    },
+    {
+      "id": "DN-1169",
+      "at": "2026-11-14",
+      "task": "申請中の転職案件（もしも 11 件・A8 6 件・afb 1 件）の承認を取り直し、承認分の素材を入れて 20代・第二新卒向けの配置を見直す",
+      "tier": null,
+      "executor": "codex",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": null,
+      "verification": "もしもの確認・取得は台帳に記録済み。A8・afbは未確認。",
+      "note": "2026-11-14: もしもの照合・REFLAMEの承認素材収集は完了（台帳参照）。申請中11件は承認待ち。A8・afbの確認は運営者指定で後日、ログイン後の依頼で再開する。REFLAMEは20代ハイクラス限定のため、第二新卒全般を扱う既存neo枠を置換せず、今回は配置を追加しない。"
+    },
+    {
+      "id": "DN-1168",
+      "at": "2026-11-14",
+      "task": "afb（RSG建設転職）の広告素材を提携台帳に集める",
+      "tier": null,
+      "executor": "codex",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": null,
+      "verification": "もしもの確認・取得は台帳に記録済み。A8・afbは未確認。",
+      "note": "2026-11-14: もしものテキスト21素材は取得・検査済み。残るafbの確認は運営者指定で後日、ログイン後の依頼で再開する。"
+    },
+    {
+      "id": "DN-1084",
+      "at": "2026-11-14",
+      "task": "技術士向けスポットコンサル・顧問マッチング（ビザスク型）の ASP 案件の有無と条件を確かめる",
+      "tier": null,
+      "executor": "codex",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": null,
+      "verification": "もしもの確認・取得は台帳に記録済み。A8・afbは未確認。",
+      "note": "2026-11-14: もしもはビザスク・スポットコンサル・サーキュレーション・HiPro・顧問で検索し、専門家登録の対象案件は検索範囲内で見つからなかった。検索結果はcatalogの_spotConsultResearchに記録済み。A8・afbは運営者指定で後日、ログイン後の依頼で再開する。"
     }
   ]
 }

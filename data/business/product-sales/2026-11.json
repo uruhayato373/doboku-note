@@ -704,6 +704,14 @@
     },
     {
       "destination": "note",
+      "productId": "article:cce-reiwa-civil-contractor-workforce",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1480
+    },
+    {
+      "destination": "note",
       "productId": "article:ce-r8-mc-40",
       "type": "article",
       "destinationIds": [
@@ -714,11 +722,11 @@
     },
     {
       "destination": "note",
-      "productId": "article:unknown-20261105-1",
+      "productId": "article:bk-construction-planning-r08-ii2",
       "type": "article",
       "destinationIds": [],
       "count": 1,
-      "amountYen": 1480
+      "amountYen": 780
     },
     {
       "destination": "note",
@@ -735,14 +743,6 @@
       "destinationIds": [
         "n0bbd4a5a8b57"
       ],
-      "count": 1,
-      "amountYen": 780
-    },
-    {
-      "destination": "note",
-      "productId": "article:unknown-20261113-0",
-      "type": "article",
-      "destinationIds": [],
       "count": 1,
       "amountYen": 780
     },

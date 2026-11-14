@@ -99,10 +99,12 @@ test('実データ: カタログの noteTitle はすべて自分の id に解決
     assert.equal(resolveMagazineId(m.noteTitle, catalog), canonicalizeProductId(m.id), `${m.id}: noteTitle「${m.noteTitle}」が自分の id に解決しない`);
   }
   // 10/8 の売上（土質基礎まるごと合格パック）は、2026-11-10 の改名後も取り直しと同じ経路で同じ id に確定する。
-  // note の販売履歴は売れた時点の名前で出るので、旧名は台帳の既存行（resolveKnownSaleEntry）、新名はカタログで解決する
+  // 販売履歴の再取得で旧名の行が消えても、旧名・新名とも同じ商品に解決する。
   const ledger = JSON.parse(readFileSync(datasetPath('note.sales'), 'utf8'));
   const sales = ledger.sales ?? ledger;
   const resolve = (title, date) => resolveKnownSaleEntry(title, sales) ?? resolveSaleEntry({ title, date }, catalog, 0);
+  assert.equal(resolveMagazineId('建設部門2次｜土質基礎まるごと合格パック', catalog), 'bk-geotechnical-pack');
+  assert.equal(resolveMagazineId('建設部門2次｜土質基礎まるごと合格パック', []), null);
   assert.deepEqual(resolve('建設部門2次｜土質基礎まるごと合格パック', '2026-10-08'), {
     type: 'magazine', productId: 'bk-geotechnical-pack', resolved: true,
   });
@@ -132,11 +134,15 @@ test('カタログに無い単品記事は題名の手当表で解決する。no
 test('手当表は別の商品に当てない: 似た題名（II-1・別科目・ペルソナ別論文）と空は null、規則同士は重ならない', () => {
   assert.equal(resolveSingleArticleId('技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）'), null);
   assert.equal(resolveSingleArticleId('技術士 建設部門｜鋼構造及びコンクリート R8予想 選択科目II-2 模範解答'), null);
+  assert.equal(resolveSingleArticleId('技術士 建設部門｜施工計画、施工設備及び積算 R08 選択科目II-1 模範解答'), null);
+  assert.equal(resolveSingleArticleId('コンクリート主任技士 小論文 模範答案｜ゼネコン建築施工｜担い手不足と品質確保｜令和形式'), null);
   assert.equal(resolveSingleArticleId('令和8年度 総監記述式 模範論文｜自治体 道路担当版（災害復旧・複合災害対応／R8予想④）'), null);
   assert.equal(resolveSingleArticleId(''), null);
   assert.equal(resolveSingleArticleId(undefined), null);
   // 各規則の見本題名が、その規則の id にだけ当たる（規則の語が他の規則の題名にも入って取り違えない）
   const samples = {
+    'article:bk-construction-planning-r08-ii2': '技術士 建設部門｜施工計画、施工設備及び積算 R08 選択科目II-2 模範解答（II-2-1・II-2-2）',
+    'article:cce-reiwa-civil-contractor-workforce': 'コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜担い手不足と品質確保｜令和形式',
     'article:r8-disaster-recovery-compound': '令和8年度 総監記述式 R8予想問題｜災害復旧 × 複合災害対応',
     'article:bk-01-road-r8-yosou-ii2-1': '技術士 建設部門｜道路 R8予想 選択科目II-2-1 新モビリティ対応',
     'article:bk-01-road-r8-yosou-ii2-2': '技術士 建設部門｜道路 R8予想 選択科目II-2 予想② インフラDX',
@@ -146,6 +152,7 @@ test('手当表は別の商品に当てない: 似た題名（II-1・別科目�
   };
   assert.deepEqual(Object.keys(samples).sort(), SINGLE_ARTICLE_TITLE_RULES.map((r) => r.productId).sort(), '見本題名の無い規則がある（規則を足したら見本も足す）');
   for (const [id, title] of Object.entries(samples)) {
+    assert.equal(resolveSingleArticleId(title), id);
     const hits = SINGLE_ARTICLE_TITLE_RULES.filter((r) => r.all.every((w) => title.normalize('NFKC').includes(w.normalize('NFKC'))));
     assert.deepEqual(hits.map((r) => r.productId), [id], title);
   }

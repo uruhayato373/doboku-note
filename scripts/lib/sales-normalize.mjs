@@ -70,11 +70,20 @@ const namesOf = (m) => [m.noteTitle, m.title, m.shortTitle].filter(Boolean);
  * @returns {string|null} マガジン id（canonicalize 済み）
  */
 export function resolveMagazineId(rawTitle, magazines) {
+  // 旧名は販売履歴の再取得で消えることもあるため、台帳の過去行だけに依存しない。
+  const oldTitles = new Map([
+    ['建設部門2次｜土質基礎まるごと合格パック', '技術士 建設部門｜土質基礎まるごと合格パック'],
+  ]);
   const title = String(rawTitle || '').trim();
   if (!title || !Array.isArray(magazines)) return null;
 
   for (const m of magazines) {
     if (namesOf(m).includes(title)) return canonicalizeProductId(m.id);
+  }
+  const renamed = oldTitles.get(title);
+  if (renamed) {
+    const match = magazines.find(m => namesOf(m).includes(renamed));
+    if (match) return canonicalizeProductId(match.id);
   }
   for (const m of magazines) {
     if (namesOf(m).some((name) => title.includes(name))) return canonicalizeProductId(m.id);
@@ -94,6 +103,8 @@ export function resolveMagazineId(rawTitle, magazines) {
  * 新しい単品で初出の題名が unknown になったら、確定した id をここに 1 行足す。
  */
 export const SINGLE_ARTICLE_TITLE_RULES = [
+  { all: ['技術士 建設部門｜施工計画、施工設備及び積算 R08 選択科目II-2 模範解答'], productId: 'article:bk-construction-planning-r08-ii2' },
+  { all: ['コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜担い手不足と品質確保｜令和形式'], productId: 'article:cce-reiwa-civil-contractor-workforce' },
   { all: ['R8予想問題', '災害復旧 × 複合災害対応'], productId: 'article:r8-disaster-recovery-compound' },
   { all: ['道路 R8予想', '選択科目II-2-1 '], productId: 'article:bk-01-road-r8-yosou-ii2-1' },
   { all: ['道路 R8予想', '選択科目II-2 予想② '], productId: 'article:bk-01-road-r8-yosou-ii2-2' },

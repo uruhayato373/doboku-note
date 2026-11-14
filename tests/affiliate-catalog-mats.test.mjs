@@ -56,5 +56,5 @@ test('A8 の候補重複検査は取得済みの avoid 素材も読み、もし�
   const avoided = catalog.programs['rsg-kensetsu'].creatives.find(c=>c.asp==='a8'&&c.avoid);
   assert.ok(ads.some(a=>a.htmlContent===avoided.href));
   assert.ok(ads.some(a=>a.htmlContent==='a8mat=OLD+LINK+ID+HERE'));
-  assert.ok(ads.every(a=>!a.htmlContent.includes('moshimo:')&&!a.htmlContent.includes('moshimo.com')));
+  assert.ok(ads.every(a => a.htmlContent.startsWith('a8mat=') || new URL(a.htmlContent).hostname === 'px.a8.net'));
 });
