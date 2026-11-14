@@ -432,7 +432,7 @@
 ## 🟡 中 — 重要度が中くらい
 
 ### [DN-1198] 記事ページの note 商品カードの重複を除き、面ごとの枚数と型を検査で固定する
-タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-14]
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-14] [進行中]
 
 **起点**: 2026-11-14、運営者の指摘（記事の冒頭に note 商品のリンクが重複し見えづらい）。本番 `/exam/civil-construction-1/guide/exam-overview` で見える note は 5 枚（冒頭バナー→直下の手書き `MagazineCard`→本文途中の自動カード→終盤の手書きカード→記事下のもくじタイル）。自動配置（`MagazineTopBanner`・`rehypeMidCta`・`MagazineHeroCta`）と MDX 手書きの `<MagazineCard>`（140 記事 293 箇所）が互いを見ていない（`src/lib/magazine-placement.ts:291-345`）。`scripts/check-cta-density.mjs` は手書きカードを数えず、EXP-053 の隠れた案を 2 と数えるため通っている。
 
