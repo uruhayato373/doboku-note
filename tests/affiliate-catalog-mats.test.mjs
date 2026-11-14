@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { affiliateMatEntries, validateCatalogCreatives } from '../scripts/lib/affiliate-catalog-mats.mjs';
+import { affiliateMatEntries, validateCatalogCreatives, existingA8Ads } from '../scripts/lib/affiliate-catalog-mats.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 import { loadTsModule } from './lib/load-ts.mjs';
@@ -49,4 +49,12 @@ test('表示する既定バナー・テキストの URL は台帳の素材と一
       assert.equal(asset.textPixelSrc, text.pixelSrc);
     }
   }
+});
+
+test('A8 の候補重複検査は取得済みの avoid 素材も読み、もしもを混ぜない', () => {
+  const ads = existingA8Ads(catalog, [{mat:'OLD+LINK+ID+HERE',label:'旧リンク'},{mat:'moshimo:1:2'}]);
+  const avoided = catalog.programs['rsg-kensetsu'].creatives.find(c=>c.asp==='a8'&&c.avoid);
+  assert.ok(ads.some(a=>a.htmlContent===avoided.href));
+  assert.ok(ads.some(a=>a.htmlContent==='a8mat=OLD+LINK+ID+HERE'));
+  assert.ok(ads.every(a=>!a.htmlContent.includes('moshimo:')&&!a.htmlContent.includes('moshimo.com')));
 });

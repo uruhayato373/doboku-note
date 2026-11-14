@@ -52,3 +52,12 @@ export function validateCatalogCreatives(catalog) {
   }
   return { checked, errors };
 }
+
+/** A8 の重複申請候補を除くため、配置可否にかかわらず取得済み素材を読む。 */
+export function existingA8Ads(catalog, legacy = []) {
+  const ads = Object.values(catalog?.programs ?? {}).flatMap(p => (p.creatives ?? [])
+    .filter(c => c.asp === 'a8')
+    .map(c => ({ title: p.label, htmlContent: c.href })));
+  for (const m of legacy) if (m.mat && !m.mat.startsWith('moshimo:')) ads.push({ title: m.label ?? '', htmlContent: `a8mat=${m.mat}` });
+  return ads;
+}
