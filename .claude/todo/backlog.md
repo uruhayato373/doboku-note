@@ -431,6 +431,18 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1199] textbook（/exam/civil-construction-1/textbook/network-schedule）が画面の点検で不合格（content）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-14]
+
+**起点**: 2026-11-14 の画面の点検（`npm run site-visual-review`・作業票 20261114T095559Z）で、textbook（/exam/civil-construction-1/textbook/network-schedule）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
+
+- content [w1440]: 図「LFT 計算ルール」の枠内で「手順1: 終了イベントの LFT = プロジェクト工期」の 2 行目が「手順2」の行に重なって読めない。直下の EST/LFT 併記図でも③の「16」と「12」が上下に重なっている。（w1440-03.png）
+
+**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
+
+**完了条件**: `npm run site-visual-review -- prepare --keys textbook` で撮り直して判定し、record で pass と台帳に記録される。
+
+
 ### [DN-1198] 記事ページの note 商品カードの重複を除き、面ごとの枚数と型を検査で固定する
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-14] [進行中]
 
