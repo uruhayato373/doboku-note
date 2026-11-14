@@ -520,6 +520,193 @@
       ],
       "commit": {},
       "leftover": []
+    },
+    {
+      "phase": "pre",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-11-14T00:30:36.111Z",
+      "finishedAt": "2026-11-14T02:39:47.455Z",
+      "stages": [
+        {
+          "id": "auth",
+          "title": "ログインの確認と入り直し",
+          "status": "failed",
+          "reason": "[auth-session-refresh] 対象 4 件を実検査 / ok 3 / 対象外 0",
+          "exits": [
+            1
+          ],
+          "verify": [],
+          "durationSec": 135
+        },
+        {
+          "id": "a8",
+          "title": "A8 の成果（前月と当月）",
+          "status": "warn",
+          "reason": "1/4 本目（a8-ui:fetch -- --month 2026-10 --reports site-summary,program-detail,period-monthly,result-detail --site-filter self）: manifest: data/a8/ui/2026-11-14T00-32-52Z/manifest.json / 3/4 本目（a8-ui:fetch -- --month 2026-11 --reports site-summary,program-detail,period-monthly,result-detail --site-filter self）: manifest: data/a8/ui/2026-11-14T00-36-43Z/manifest.json",
+          "exits": [
+            2,
+            0,
+            2,
+            0
+          ],
+          "verify": [
+            {
+              "id": "a8-report-due",
+              "exit": 0
+            }
+          ],
+          "durationSec": 550
+        },
+        {
+          "id": "kdp",
+          "title": "KDP のロイヤリティ",
+          "status": "failed",
+          "reason": "1/2 本目（kdp-report -- --month 2026-10）: ABORT: KDP レポートに到達できず（ログイン未完 or チャレンジ）",
+          "exits": [
+            2,
+            0
+          ],
+          "verify": [
+            {
+              "id": "kdp-report-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 536
+        },
+        {
+          "id": "note-traffic",
+          "title": "note のアクセス（月と 2026-11-02〜2026-11-08）",
+          "status": "failed",
+          "reason": "1/2 本目（note-traffic-fetch -- --commit）: note-traffic-fetch: 検査不成立: 時系列テーブルが読めない",
+          "exits": [
+            1,
+            0
+          ],
+          "verify": [],
+          "durationSec": 539
+        },
+        {
+          "id": "note-sales",
+          "title": "note の売上",
+          "status": "failed",
+          "reason": "検算 sales-freshness: [check-sales-freshness] ✗ FAIL: 2026-10 の販売明細 ¥67,680 がnote月次売上 ¥25,400 と不一致",
+          "exits": [
+            0,
+            0
+          ],
+          "verify": [
+            {
+              "id": "sales-freshness",
+              "exit": 1
+            }
+          ],
+          "durationSec": 92
+        },
+        {
+          "id": "coconala",
+          "title": "ココナラの取引・出品分析・売上履歴",
+          "status": "failed",
+          "reason": "検算 coconala-analytics: [check-coconala-analytics] FAIL snapshot の serviceId がカタログに無い: coconala-pe-gyomu-tensaku",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "coconala-analytics",
+              "exit": 1
+            }
+          ],
+          "durationSec": 830
+        },
+        {
+          "id": "product-sales",
+          "title": "商品別の月次販売の台帳（前月と当月）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [],
+          "durationSec": 1
+        },
+        {
+          "id": "business-records",
+          "title": "月の受取額と固定費の記録（前々月と前月）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "verify": [],
+          "durationSec": 3
+        },
+        {
+          "id": "gsc",
+          "title": "GSC の登録リクエスト 10 件と月次の理由別 CSV",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "gsc-ui-due",
+              "exit": 0
+            },
+            {
+              "id": "gsc-indexing-due",
+              "exit": 0
+            }
+          ],
+          "durationSec": 1125
+        },
+        {
+          "id": "note-audit",
+          "title": "note の公開状態の照合（公開 API・構造・タグ・本文・カード・状態・マガジン・導線・題名と価格）",
+          "status": "warn",
+          "reason": "3/9 本目（scripts/check-note-live-headings.mjs）: [check-note-live-headings] ✗ live 本文に不整合 1 件（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ/割れ見出し/長い見出し/切れたリンク）。修復: node scripts/note-update-body.mjs --article <path> --commit / 8/9 本目（scripts/audit-note-funnel.mjs --live --ci）: D6(除外もれ)=除外対象記事から <!-- cta:pack-top --> ブロックを手動除去（config の topCtaExcludeDirs と実体を一致させる）",
+          "exits": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "verify": [],
+          "durationSec": 3454
+        },
+        {
+          "id": "note-public-view",
+          "title": "note の公開画面の撮影と見え方の照合",
+          "status": "warn",
+          "reason": "Node.js v22.23.3",
+          "exits": [
+            1
+          ],
+          "verify": [],
+          "durationSec": 296
+        },
+        {
+          "id": "competitors",
+          "title": "競合の公開データ（四半期）",
+          "status": "skipped",
+          "reason": "今の四半期の取得が済んでいる（note 2026-11-06・ココナラ 2026-10-01）",
+          "exits": [],
+          "verify": [],
+          "durationSec": 0
+        }
+      ],
+      "commit": {},
+      "leftover": []
     }
   ]
 }
