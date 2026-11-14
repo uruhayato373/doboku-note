@@ -23,7 +23,7 @@ import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
-import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
+import ResponsiveAffiliateBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner';
 import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
 import { pixelFor, resolvePlacements } from '@/lib/affiliate-placement';
 import CategoryJumpNav from '@/components/category/CategoryJumpNav';
@@ -90,15 +90,7 @@ export default async function CategoryPage({
             alternate={mobileAd.alternate}
             placement="category-mobile"
             primary={
-              <SidebarAdBanner
-                href={mobileAd.banner.href}
-                imageSrc={mobileAd.banner.imageSrc}
-                alt={mobileAd.banner.alt}
-                width={mobileAd.banner.width}
-                height={mobileAd.banner.height}
-                trackLabel={mobileAd.trackLabel}
-                placement="category-mobile"
-              />
+              <ResponsiveAffiliateBanner placement={mobileAd} withPixel={false} only="mobile" />
             }
           />
         </div>,
@@ -128,16 +120,7 @@ export default async function CategoryPage({
           alternate={sidebarAd.alternate}
           placement="category-sidebar"
           primary={
-            <SidebarAdBanner
-              href={sidebarAd.banner.href}
-              imageSrc={sidebarAd.banner.imageSrc}
-              alt={sidebarAd.banner.alt}
-              width={sidebarAd.banner.width}
-              height={sidebarAd.banner.height}
-              pixelSrc={sidebarPixel?.slot === 'category-sidebar' ? sidebarPixel.pixelSrc : undefined}
-              trackLabel={sidebarAd.trackLabel}
-              placement="category-sidebar"
-            />
+            <ResponsiveAffiliateBanner placement={sidebarAd} withPixel={sidebarPixel?.slot === 'category-sidebar'} only="pc" />
           }
         />
       )}

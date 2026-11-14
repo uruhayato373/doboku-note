@@ -8248,6 +8248,32 @@
       "commit": "807ed4aadf98",
       "verification": "gh run view 43530018146（test・audit・build・report のみ）、gh run view 43530777863（publish success）",
       "note": "PR #1584 で publish-seo-summary を ci.yml から外し、workflow_run の seo-build-summary.yml へ移した。main 昇格後の develop の run 43530018146 は書き戻しを待たずに完了し、続く run 43530777863 が SEO 件数を記録した（807ed4aad）"
+    },
+    {
+      "id": "DN-1166",
+      "at": "2026-11-14",
+      "task": "広告素材の正本を提携台帳の creatives に 1 本化する（affiliate-creatives.ts・affiliate-mats.json を台帳から引き、台帳から描画した a8mat が許可の検査をすり抜ける穴をふさぐ）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "62174b9d8675",
+      "verification": "check-affiliate-mats; check-affiliate-wiring; check-datasets; tests/affiliate-catalog-mats.test.mjs",
+      "note": "素材 URL を catalog 参照へ集約し、174 素材のリンクとピクセルを検査。note の許可範囲を維持。"
+    },
+    {
+      "id": "DN-1167",
+      "at": "2026-11-14",
+      "task": "画像を見ていない広告素材（160×600・建築転職・コンストワークほか 10 案件）に「No.1」表示などの使わない理由を付ける",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "62174b9d8675",
+      "verification": "tests/affiliate-creative-pick.test.mjs; check-datasets",
+      "note": "候補画像 99 点を目視（GIF は全フレーム）。61 点使用可・38 点 avoid、確認日・理由・SHA-256・フレーム数を記録。"
     }
   ]
 }

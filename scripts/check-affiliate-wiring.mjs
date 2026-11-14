@@ -7,7 +7,7 @@
  * このサブシステムは 4 つの真実源が一致していて初めて意味を持つ。どれかがズレると
  * **静かに間違った EPC** が出る（取り込みは成功し数字も出るが、対象が違う）。機械で止める。
  *
- *   1. `config/affiliate-mats.json`                … サイトに実際に置いた広告（program 語彙の de-facto SSOT）
+ *   1. `data/affiliate/catalog.json` の creatives … 使用可能な広告 URL と案件（過去リンク・note 許可は affiliate-mats.json）
  *   2. `data/affiliate/catalog.json`  … 3 ASP 横断の提携カタログ
  *   3. `config/a8-report-automation.json`  … A8 成果取込の programIdMap
  *   4. `data/affiliate/catalog.json` の ctaLabels       … GA4 のラベル → 案件（EPC レポートの分類。scripts/lib/affiliate-labels.mjs）
@@ -20,6 +20,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { datasetPath } from "./lib/datasets.mjs";
 import { withSharedConnection } from "./lib/asp-config.mjs";
+import { affiliateMatEntries } from "./lib/affiliate-catalog-mats.mjs";
 import { labelProgramMap } from "./lib/affiliate-labels.mjs";
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
@@ -70,7 +71,7 @@ let matPrograms = new Set();
 let a8MatPrograms = new Set();
 if (existsSync(MATS)) {
   const raw = readJsonReporting(MATS);
-  const mats = Array.isArray(raw) ? raw : (raw?.mats ?? []);
+  const mats = affiliateMatEntries(readJsonReporting(CATALOG), Array.isArray(raw) ? raw : (raw?.mats ?? []), { activeOnly: true });
   matPrograms = new Set(mats.map((m) => m.program).filter(Boolean));
   a8MatPrograms = new Set(mats.filter((m) => !String(m.mat).startsWith("moshimo:")).map((m) => m.program).filter(Boolean));
 }

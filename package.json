@@ -624,7 +624,8 @@
     "ci-data": "node scripts/ci-data.mjs",
     "check-generated-indexes": "node scripts/check-generated-indexes.mjs",
     "standardize-civil1-note-intro": "node scripts/standardize-civil1-note-intro.mjs",
-    "note-replace-intro": "node scripts/note-replace-intro.mjs"
+    "note-replace-intro": "node scripts/note-replace-intro.mjs",
+    "moshimo-report": "node scripts/moshimo-report.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1141.0",

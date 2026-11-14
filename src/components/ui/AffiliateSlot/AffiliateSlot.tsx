@@ -1,4 +1,4 @@
-import CareerAffiliate from "@/components/ui/CareerAffiliate/CareerAffiliate";
+import ResponsiveAffiliateBanner from "@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner";
 import { pixelFor, resolvePlacements, type PlacementPage } from "@/lib/affiliate-placement";
 
 /**
@@ -22,17 +22,9 @@ export default function AffiliateSlot({
   const placement = resolved[slot];
   if (!placement) return null;
   const pixel = pixelFor(resolved, [slot]);
-  const card = placement.card();
   return (
     <div className={className}>
-      <CareerAffiliate
-        service={card.service}
-        category={card.category}
-        program="career"
-        inlineCard={placement}
-        placement={slot}
-        {...(pixel ? { trackingPixelUrl: pixel.pixelSrc } : {})}
-      />
+      <ResponsiveAffiliateBanner placement={placement} withPixel={Boolean(pixel)} />
     </div>
   );
 }

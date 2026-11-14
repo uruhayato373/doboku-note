@@ -237,6 +237,7 @@ export const DATASETS = [
   d('a8.ui-last-run', 'data/a8/ui-last-run.json', 'state', 'affiliate', 'A8 の画面取得を最後に回した記録（土曜の Mac の収集 weekly-collect が更新。週 1 回＋2 日を超えたら止まっている）', { freshness: { warnDays: 9 }, schema: 'A8UiLastRun' }),
   d('a8.ui-raw', 'data/a8/ui/{ts}/{**}', 'raw', 'affiliate', 'A8 の画面から取った CSV と正規化結果（正規化した結果は data/a8/ の台帳へ書く）', { local: true, regen: 'npm run a8-ui:fetch（画面から取り直す）' }),
   d('a8.inventory', 'data/a8/inventory.json', 'state', 'affiliate', 'A8 の画面から取った案件の在庫', { planned: true }),
+  d('moshimo.reports', 'data/moshimo/reports/{month}.json', 'ledger', 'affiliate', 'もしものサイト別・案件別月次成果（観測できた行だけ。欠けた案件は未計測）', { schema: 'MoshimoReport', planned: true }),
   d('afb.outcomes', 'data/afb/outcomes/{date}.json', 'series', 'affiliate', 'afb の成果（公式 API・日付別）', { planned: true, retain: { family: 'affiliate', keepAll: true }, freshness: { failDays: 10 } }),
   d('affiliate.layout-shots', 'data/affiliate/layout-shots/{ts}/{**}', 'raw', 'affiliate', '転職広告の配置のスクリーンショットと判定（ページの種類 × 画面幅 × 意匠の案。manifest.json が一覧。管理画面 アフィリエイト ＞ 広告配置が読む）', { local: true, regen: 'npm run affiliate:shots（npm run serve の :3025、または -- --base https://doboku-note.com で撮り直す）' }),
   d('affiliate.catalog', 'data/affiliate/catalog.json', 'master', 'affiliate', '3 ASP の提携案件と広告素材の一覧', { schema: 'AffiliateCatalog' }),

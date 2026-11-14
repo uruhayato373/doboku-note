@@ -5,7 +5,7 @@ A8 / もしも / afb の 3 ASP を横断する。
 
 - **提携カタログ（機械可読）**: `data/affiliate/catalog.json`
 - **ASP 接続設定（機械可読）**: `config/affiliate-asp.json`（A8 の URL・口座・ブラウザの共通部分は `config/a8-report-automation.json` が正本で、`scripts/lib/asp-config.mjs` が読み出し時に合成する。a8 に写しを書くと例外で止まる）
-- **mat レジストリ（機械可読）**: `config/affiliate-mats.json`。キーは A8 が a8mat の 4 トークン、もしもが `moshimo:<p_id>:<pl_id>`（2026-10-30 から。建築転職＝`moshimo:4183:57940`）。文章・HTML からキーを取るのは `scripts/lib/affiliate-link-keys.mjs` だけで、`check-affiliate-mats`（未登録）と `check-cta-density`（1 ページ 1 ピクセル）は両方の ASP を見る。A8 成果取込（programIdMap）との照合は A8 の素材だけ
+- **広告 URL の正本**: `data/affiliate/catalog.json` の `creatives`（自社ココナラへの商品リンクは `productLink`）。`src/config/affiliate-creatives.ts` は案件・ASP・素材 ID で参照する。`config/affiliate-mats.json` は過去リンクの期限・note 用の掲載許可を保持し、検査は台帳の使用可能な素材と合わせて読む。キーは A8 が a8mat の 4 トークン、もしもが `moshimo:<p_id>:<pl_id>`（2026-10-30 から。建築転職＝`moshimo:4183:57940`）。文章・HTML からキーを取るのは `scripts/lib/affiliate-link-keys.mjs` だけで、`check-affiliate-mats`（未登録）と `check-cta-density`（1 ページ 1 ピクセル）は両方の ASP を見る。A8 成果取込（programIdMap）との照合は A8 の素材だけ
 - **A8 の成果取込**: [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md)（scout ＋ report。役割が違うので分離）
 
 最終更新: 2026-10-27（§6 必須ルール 2 を「1 ページ・1 案件・1 ピクセル」に改めた）
@@ -141,7 +141,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 | `unavailable` | その ASP に案件自体が無い |
 | `unknown` | **未確認（調べていない）。`none` と区別する** |
 
-**広告素材の一覧（`creatives`・2026-11-13〜）**: 案件ごとに、ASP の「広告リンク作成」（A8）・「原稿取得」（もしも）から写した素材を持つ（`asp`・`materialId`・`kind`＝banner/text・`width`・`height`・`href`・`imageSrc`・`pixelSrc`、写した日は `creativesCollectedAt`）。面ごとにどのサイズを使うかはここから選ぶ（面のサイズの決まりは `config/cta-placements.json` の `sizes`＝PC・スマホ別・先頭ほど優先。選び方は `src/lib/affiliate-creative-pick.mjs`＝サイズ順・同じサイズは a8 → moshimo・スマホは PC と同じ ASP を優先、サイトは `src/lib/affiliate-slot-creatives.ts` で引く。2026-11-13 は基準書の面だけ。ほかの面は従来どおり `affiliate-creatives.ts` の 300×250）。使わない素材は `avoid` に理由を書く（「No.1」表示・訴求が読み手に合わない）。型が止めること: A8 のバナーは画像 URL が `wid=002`（doboku-note）であること（広告リンク作成の掲載サイトの既定が stats47 で、そのまま写すと成果が別サイトに付く）、提携済み（approved）の ASP の素材だけ、素材の重複、バナーのサイズの欠け。
+**広告素材の一覧（`creatives`・2026-11-13〜）**: 案件ごとに、ASP の「広告リンク作成」（A8）・「原稿取得」（もしも）から写した素材を持つ（`asp`・`materialId`・`kind`＝banner/text・`width`・`height`・`href`・`imageSrc`・`pixelSrc`、写した日は `creativesCollectedAt`）。面ごとにどのサイズを使うかはここから選ぶ（面のサイズの決まりは `config/cta-placements.json` の `sizes`＝PC・スマホ別・先頭ほど優先。選び方は `src/lib/affiliate-creative-pick.mjs`＝サイズ順・同じサイズは a8 → moshimo・スマホは PC と同じ ASP を優先、サイトは `src/lib/affiliate-slot-creatives.ts` で引く。基準書・カテゴリ・トップ・ツール・トピック・法令の面は共通の `ResponsiveAffiliateBanner` で選ぶ。pairs/splits の実験面と本文の小型カードは維持する。候補画像には `review`（確認日・判定・理由・SHA-256・確認したフレーム数）を記録する）。使わない素材は `avoid` に理由を書く（「No.1」表示・訴求が読み手に合わない）。型が止めること: A8 のバナーは画像 URL が `wid=002`（doboku-note）であること（広告リンク作成の掲載サイトの既定が stats47 で、そのまま写すと成果が別サイトに付く）、提携済み（approved）の ASP の素材だけ、素材の重複、バナーのサイズの欠け。
 
 `data/a8/catalog.json`（143 件・A8 scout の状態機械）とは**マージしない**。あちらは「A8 で何を見つけ何を申請したか」、こちらは「自社がどの案件をどの ASP で運用するか」。
 
@@ -363,6 +363,12 @@ npm run a8-ui:normalize -- --latest
 
 ---
 
+### もしもの月次成果
+
+土曜の収集は auth 段で moshimo を確認し、moshimo 段で前月・当月を取り、販売台帳を作る前に検算する。単独では `npm run moshimo-report -- --month 2026-11`、検算は `npm run moshimo-report -- --check`。取得はエージェント外で実行する。
+
+記録は `moshimo.reports`。サイト ID・画面の期間・案件行の数値を確かめてから保存する。空の取得・ページ送り・別サイト・読めない数値は失敗として保存しない。販売台帳と商品ファネルは観測した案件を `moshimo` として載せ、行のない案件を 0 にしない。実機取得がまだない間は未計測のまま（初回取得は DN-1046）。
+
 ## 6.5 成果ドリブンの見直し基準（判断マトリクス）
 
 > 「クリックは測れているが、成果を見て配置を変える基準が無い」状態を埋める節。
@@ -575,11 +581,11 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 | 場所 | 役割 |
 |---|---|
 | 各 ASP 管理画面 | creative・mat 値・クリック/成果レポートの真実源 |
-| `config/affiliate-mats.json` | **mat レジストリ（SSOT）**。検証 `npm run check-affiliate-mats` |
+| `config/affiliate-mats.json` | 旧リンクの期限・note 用の掲載許可。新しい素材の URL は提携台帳から引く。検証 `npm run check-affiliate-mats` |
 | `config/affiliate-placements.json` | **配置ルールの真実源**（案件 × 面 × 対象 × 期間 × 実験）。検証 `npm run check-affiliate-placements` |
 | GA4 のページ別（`fetch-ga4-cta-clicks --by-page`・週次） | アフィリエイトの表示・クリックをページ × ラベル × 面で（クリックは日付も）。`report-career-funnel` がページの文脈・面・案件・日付で配置ルールを一意に決めて `byRule` を数え、`clickLog` に日付つきのクリックを残す（2026-10-07〜）。成果ごとのページは **A8 の成果別（`report-log` の `conversions`・週次 CI）**で分かり、`report-career-funnel` が候補の配置ルールへ寄せる（`affiliateCta.conversions`・2026-10-07 20:00 JST 以降のクリック）。それ以前の成果は A8 の発生日と clickLog を突き合わせて候補を絞るしかない（A8 のサイト別・プログラム別は同じ A8 サイトの面を分けられない） |
 | `config/cta-placements.json` | 面（GA4 の `cta_placement`）の名前・撤去・1 ページ 1 ピクセルの優先順 |
-| `src/config/affiliate-creatives.ts` | 案件の素材（バナー・本文カードの文言・悩み別 CTA）。`PROGRAM_ASSETS` を案件 id で引く |
+| `src/config/affiliate-creatives.ts` | 台帳の素材 ID の参照・本文カードの文言・悩み別 CTA。`PROGRAM_ASSETS` を案件 id で引く |
 | `data/affiliate/catalog.json` | **どの案件をどの ASP で運用するか**の真実源 |
 | `data/a8/report-log.json` | **A8 成果**（`/a8-report` の取り込みと土曜の Mac 収集の a8 段が upsert）。doboku 分離は `siteSummary`。**`conversions` は成果別（1 成果 1 行・サイト列で分離・`page` がクリックしたページ）＝成果の出どころの真実源**（2026-10-07〜）。月次の成果（月×案件）は持たず、`programPeriod` の単月の期間から導く（`resultsFromReportLog`・2026-10 に `results.json` を廃止） |
 | `data/afb/outcomes/（日付別の最新）` | **afb 成果**（公式 API・`fetch-afb-outcomes.mjs --commit` が週次で上書き）。サイト分離は行ごとの `assertSiteOrThrow` |
@@ -594,8 +600,8 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 
 | コマンド | 検査内容 | 配線 |
 |---|---|---|
-| `npm run check-affiliate-wiring` | カタログ ↔ `affiliate-mats.json` ↔ `a8-report-automation.json` の programIdMap ↔ 消費側の 4 点突合。`placement=active` なのに mat が無い／`redLine:true` なのに配置されている／mats にあってカタログに無い を検知 | pre-commit・quality-audit ci（`affiliate-placements` の束・2026-10-27〜） |
-| `npm run check-affiliate-mats` | 未登録 mat=ERROR / MDX への生 mat 直書き=ERROR / A8 画像 URL の wid が 002（doboku-note）以外=ERROR（stats47 の提携の素材の誤貼り。同じ案件でも mat の第2トークンはサイトごとに違う）/ 失効 creative の配置=WARN | pre-commit・quality-audit ci（`affiliate-placements` の束・2026-10-27〜） |
+| `npm run check-affiliate-wiring` | カタログの使用可能な素材＋旧リンク許可 ↔ `a8-report-automation.json` の programIdMap ↔ 消費側の 4 点突合。`placement=active` なのに mat が無い／`redLine:true` なのに配置されている／mats にあってカタログに無い を検知 | pre-commit・quality-audit ci（`affiliate-placements` の束・2026-10-27〜） |
+| `npm run check-affiliate-mats` | 台帳全素材のリンクとピクセルの一致・提携状態・サイト帰属を検査し、台帳と旧リンク許可のどちらにも無い mat=ERROR / MDX への生 mat 直書き=ERROR / A8 画像 URL の wid が 002（doboku-note）以外=ERROR（stats47 の提携の素材の誤貼り。同じ案件でも mat の第2トークンはサイトごとに違う）/ 失効 creative の配置=WARN | pre-commit・quality-audit ci（`affiliate-placements` の束・2026-10-27〜） |
 | `npm run check-affiliate-prose` | 廃止アフィリ（講座・添削ブランド等）の本文 prose 再提案 | pre-commit ＋ `quality:audit:ci` |
 | `node --test tests/affiliate-link-referrer.test.mjs` | 広告リンクの rel とリファラ方針が対になっていること（検査 0 件は失敗）・クリック計測が中クリックを拾うこと | `npm test` |
 | `node --test tests/asp-site-guard.test.mjs` | サイト帰属 assert が不一致で throw すること | `npm test` |
