@@ -52,7 +52,7 @@ npm run audit-note-funnel -- --live  # ＋ライブ反映検証（D5）
 
 ## 見直しサイクル
 
-- 新規マガジン/記事公開時・`quality:audit:ci` のソース監査・土曜の収集の note-audit 段（週次）の D5・意味判断が必要なときの `note-funnel-auditor` オンデマンド実行。
+- 新規マガジン/記事公開時・`quality:audit:ci` のソース監査・土曜の収集の note-audit 段（月 1 回）の D5・意味判断が必要なときの `note-funnel-auditor` オンデマンド実行。
 
 ## 関連
 
