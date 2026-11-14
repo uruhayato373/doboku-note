@@ -65,6 +65,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/note-hashtags` | `note-link-injector` |
 | `/note-membership` | `note-membership-operator` |
 | `/note-prepublish-review` | `note-fact-checker` `note-link-injector` `svg-figure-auditor` |
+| `/note-visual-review` | `note-page-visual-auditor` |
 | `/notebooklm-research` | `cem-qa` |
 | `/pdf-to-mdx` | `cem-qa` `civil-construction-qa` `content-qa` `scanned-figure-crop-auditor` |
 | `/pe-essay-cycle` | `cem-essay-qa` `cem-essay-writer` |
@@ -92,7 +93,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 ## エージェント一覧
 
 <!-- generated:agents:start（npm run build-capability-index が書く。手で直さない） -->
-エージェント 83 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
+エージェント 84 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
 
 | エージェント | 種別 | model | 領域 | 説明 | 呼び出すスキル |
 |---|---|---|---|---|---|
@@ -145,6 +146,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `note-link-injector` | 編集可 | sonnet | product | note 公開用ドラフトに doboku-note キーワードページへのインラインリンクを注入する Generator。 | `/note-hashtags` `/note-prepublish-review` |
 | `note-membership-operator` | 編集可 | sonnet | product | note「土木セコカン合格ラボ」の会員配信・特典収録・プラン設定を運用する。口座と公開範囲が不一致なら公開しない。Use when [会員特典配信]. | `/note-membership` |
 | `note-operator` | 編集可 | sonnet | product | note の価格・マガジン・収録・購入者コメント返信・PDF 添付を運用する。会員プランは note-membership-operator。Use when [note 価格変更]. | — |
+| `note-page-visual-auditor` | 監査のみ | sonnet | product | note の公開ページの代表を画面幅ごとに撮った画像を見て、見た目の崩れ・カバーの切れ・図の不一致・価格の食い違い・有料エリア直前の情報不足をページごとに pass / fail で判定する Evaluator。直さない。 | `/note-visual-review` |
 | `page-design-builder` | 編集可 | sonnet | site | サイト UI・レイアウトを共通コンポーネントとトークンで実装する Generator。合否は /design-review。SVG・カバーは担当外。Use when [ページUI設計]. | `/site-visual-review` |
 | `past-exam-qa` | 監査のみ | sonnet | site | 全資格の過去問 MDX を正答・解説・ExamPoint・可読性で監査する Evaluator。修正・PDF 忠実性・図クロップは別担当。Use when [過去問品質監査]. | — |
 | `past-exam-rewriter` | 編集可 | sonnet | site | 過去問 MDX に past-exam-qa の指摘を適用する Generator。設問文・正答・KaTeX は原則保持。図処理は担当外。Use when [過去問校正]. | — |
