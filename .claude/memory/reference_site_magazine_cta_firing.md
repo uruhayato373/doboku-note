@@ -8,7 +8,7 @@ metadata:
 1 面も出ないことがある（2026-07-31 コンクリート診断士で実際に発生。handoff は「3面で発火」と
 書いていたが 2026-07 の CTA 統一より前の記述だった）。
 
-`src/app/docs/[...slug]/page.tsx` が実際に使う経路は次の 4 つだけ:
+`src/components/docs/DocPage.tsx` が実際に使う経路は次の 4 つだけ:
 
 | 経路 | 発火条件 |
 |---|---|
@@ -16,6 +16,8 @@ metadata:
 | `placement.inline`（中間 CTA） | group が guide/pillar/textbook/土木secondary **かつ h2>=5 かつ本文 8,000 字以上**。さらに下限枠ゲート（h2>=4 かつ 2,500 字）| 
 | もくじタイル（`resolveHubCta`） | **HUB 資格のみ**。concrete 系・一次・reference は null |
 | MDX 内 `<MagazineCard id=... utmContent=... />` | 置けば出る |
+
+同一商品の再掲は、冒頭バナーと本文直後（`MagazineHeroCta`）の組だけを許す。本文途中での再掲は廃止し、最初の h2 より前の手書き `MagazineCard` は冒頭バナーより優先する。
 
 **`placement.sidebar` はどこからも参照されていない**（2026-07 の統一で廃止）。配線しても出ない。
 
@@ -42,7 +44,7 @@ tsx で直接評価すると 1 コマンドで分かる。
 
 ## 1級2級土木サイトのCTA配線アーキテクチャ
 
-doboku-note サイト（/docs 記事ページ）の note 有料マガジン/メンバーシップ CTA 配線。**手書きCTAは無くソースの `src/lib/magazine-placement.ts` `resolvePlacement(slug, docGroup)` が全て決める**（2026-07-04 監査確認）。
+doboku-note サイトの記事ページの note 有料マガジン/メンバーシップ CTA 配線。自動配置は `src/lib/magazine-placement.ts` の `resolvePlacement` が決め、MDX の手書き `MagazineCard` はその配置判断に渡して重複を抑止する。
 
 **外部チャネル（ココナラ。Brainは2026-09-26撤退）の記事内 CTA は別 SoT `src/lib/offsite-cta.ts`（2026-07-23 新設）**＝note の magazine-placement.ts と直交。`resolveOffsiteCta(slug)` が高適合ページにのみ listed 商品を返し、`ArticleFooter` が note もくじ直後に `OffsiteCta` で描画。RULES 対応（1級/2級は slug prefix で PDF 出し分け・1ページ最大3枚）: 経験記述→診断+添削+Brain経験キット／二次年度別過去問(r0X)→kakomon+gakka PDF／学科分野別(1級)→gakka PDF／入門・直前(getting-started・last-minute)→moshi+bunseki PDF／総監essay・二次→sokan-bunseki PDF+Brain施策バンク。sakusei/kanseitoan/civil-keiken-kit は /links のみ（意図的・クロップ回避）。listed のみ発火・UTM 非付与・クリックは `data-cta="coconala"|"brain"`（AnalyticsProvider 登録済み）。真実源: coconala-operations.md §2.1（対応表）／brain-operations.md §4。
 

@@ -21,11 +21,12 @@ test('飛ばすのは記憶と台帳だけで、PR は全件を回す', () => {
   assert.equal(lines.filter((l) => l.trim() === 'paths-ignore:').length, 1);
 });
 
-test('unit-tests は audit から外した分を test ジョブが回し、合否の集計と automerge が 3 ジョブを見る', () => {
-  // 片方だけ消すと、unit-tests がどのジョブでも走らないまま緑になる。
+test('unit-tests と build 後の CTA 密度を別ジョブで回し、合否の集計と automerge が 3 ジョブを見る', () => {
+  // 片方だけ消すと、unit-tests または cta-density がどのジョブでも走らないまま緑になる。
   const ci = lines.join('\n');
-  assert.match(ci, /run: npm run quality:audit:ci -- --except unit-tests\n/);
+  assert.match(ci, /run: npm run quality:audit:ci -- --except unit-tests,cta-density\n/);
   assert.match(ci, /\n  test:\n[\s\S]*?run: npm run quality:audit:ci -- --only unit-tests\n/);
+  assert.match(ci, /\n  build:\n[\s\S]*?run: npm run quality:audit:ci -- --only cta-density\n/);
   assert.match(ci, /needs: \[audit, test, build\]/);
   assert.match(ci, /needs\.test\.result == 'failure'/);
   assert.match(ci, /needs\.audit\.result == 'success' && needs\.test\.result == 'success' && needs\.build\.result == 'success'/);

@@ -278,3 +278,9 @@ A 実施（2026-11-14、起点 `a7a2204e18`）。git 書き込み・claim・配�
 - `tests/magazine-placement-density.test.mjs`
 - `tests/note-product-classification.test.mjs`
 - `tests/sidebar-discovery.test.ts`
+
+## C の結果（2026-11-14）
+
+- `exam-overview`（手書き教材カードあり）を画面点検の guide 対象へ追加した。375/768/1440 の撮影・判定・record は sandbox がポートを listen できないため親が担当する。
+- `cta-density` を `ci:true` の `quality:audit:ci` ゲートへ昇格し、`out/` を持つ build ジョブで `--only cta-density` を実行するよう CI を配線した。対象 0 件は既存の回帰テストと CLI で exit 1 になることを確認した。
+- CTA 配線メモを `DocPage.tsx` の現行経路に更新し、本文直後だけの再掲・本文途中の再掲廃止・手書き優先を追記した。EXP-053・EXP-048 の描画と計測、転職面の追加はしていない。
