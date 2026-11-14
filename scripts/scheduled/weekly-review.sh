@@ -32,10 +32,15 @@ unset DOBOKU_PW_ALLOW_PARALLEL
 # （node は Unknown system error -11）で落ち、note 同期の配布 PDF とカバーの保存が毎週失敗した（2026-10-31〜11-14）。
 # 設定は子プロセスへ引き継がれるので、最初に許可へ切り替えて自分を起動し直す。python3 が無ければ切り替えずに進む。
 # あわせて /bin/bash と node の実体にフルディスクアクセスが要る（無いと open が Operation not permitted）。
-if [ -z "${DOBOKU_DATALESS_ON:-}" ] && [ -x /usr/bin/python3 ]; then
+# macOS だけで切り替える（CI の Linux には libSystem が無い）。切り替えに失敗しても、必ず元のスクリプトへ戻る。
+if [ -z "${DOBOKU_DATALESS_ON:-}" ] && [ "$(uname)" = "Darwin" ] && [ -x /usr/bin/python3 ]; then
   export DOBOKU_DATALESS_ON=1
-  exec /usr/bin/python3 -c 'import ctypes, os, sys
-ctypes.CDLL("/usr/lib/libSystem.B.dylib").setiopolicy_np(3, 0, 2)
+  exec /usr/bin/python3 -c 'import os, sys
+try:
+    import ctypes
+    ctypes.CDLL("/usr/lib/libSystem.B.dylib").setiopolicy_np(3, 0, 2)
+except Exception:
+    pass
 os.execv("/bin/bash", ["/bin/bash"] + sys.argv[1:])' "$0" "$@"
 fi
 # X was resumed on 2026-11-12 (DN-1159), so the SessionStart x-sync runs again. Instagram stays on hold
