@@ -21,14 +21,49 @@
       "at": "2026-10-24T08:10:37"
     },
     {
-      "noteId": "n858de00dcb6c",
-      "reason": "attachment-daily-limit",
-      "at": "2026-11-10T02:10:26"
-    },
-    {
       "noteId": "nfe8bc37ce88e",
       "reason": "attachment-daily-limit",
       "at": "2026-11-10T05:29:29"
+    },
+    {
+      "noteId": "n4863a5b0659b",
+      "reason": "locator.click: Timeout 8000ms exceeded.\nCall log:\n  - waiting for locator('[aria-label=\"メニューを開く\"]').last()\n    - locator",
+      "at": "2026-11-14T09:06:54"
+    },
+    {
+      "noteId": "n7b5e252a5f20",
+      "reason": "更新フローが false を返した（保存せず中断）",
+      "at": "2026-11-14T09:08:35"
+    },
+    {
+      "noteId": "n783dce3314e0",
+      "reason": "boundary",
+      "at": "2026-11-14T09:16:52"
+    },
+    {
+      "noteId": "n4c437543784a",
+      "reason": "更新フローが false を返した（保存せず中断）",
+      "at": "2026-11-14T09:18:45"
+    },
+    {
+      "noteId": "n7b703556f9f7",
+      "reason": "page.goto: net::ERR_ABORTED at https://editor.note.com/notes/n7b703556f9f7/edit\nCall log:\n  - navigating to \"https://edi",
+      "at": "2026-11-14T09:26:57"
+    },
+    {
+      "noteId": "ndfdb0800f462",
+      "reason": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n",
+      "at": "2026-11-14T09:33:59"
+    },
+    {
+      "noteId": "nddd74430c395",
+      "reason": "page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://editor.note.com/notes/nddd74430c395/edit\", wai",
+      "at": "2026-11-14T09:35:10"
+    },
+    {
+      "noteId": "n09be9089e1d9",
+      "reason": "更新フローが false を返した（保存せず中断）",
+      "at": "2026-11-14T09:36:50"
     }
   ],
   "_note": "2026-08-18: 旧形式（理由が汎用文字列）の 13 件のうち 11 件を public API でライブ実査し、published・本文 5,517〜112,841 字・画像ありで破損なしを確認したため解除した。残る 2 件は is_limited=true で未ログイン API では本文が返らず計測不能なので、--force-retry のゲートを維持する（計測不能を「無事」と読み替えない）。 2026-09-30: 手動反映の中断で止まった 6 件（ブラウザ終了・同時起動による editor 未ロード。いずれも保存前）を public API で実査し、published・無料本文 3,913〜6,595 字・is_limited=false で破損なしを確認したため解除した。"

@@ -89868,6 +89868,18 @@
       "regenerable": false,
       "group": "site-thumbnails",
       "verifiedAt": "2026-11-13T08:00:41.770Z"
+    },
+    "content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/技術士建設部門/magazines/口頭試験対策-全部門共通/img/cover.png",
+      "sha256": "b3af5e1aff4f3040d4d137b9b078f1a0ebf67dbe7f68f8e24b82f5816e1b3bc8",
+      "bytes": 474729,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-11-14T10:18:03.159Z",
+      "width": 1280,
+      "height": 670
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
