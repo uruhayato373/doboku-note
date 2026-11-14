@@ -94,7 +94,7 @@ export interface ExamBrand {
   readonly ctaBg?: string;
 }
 
-export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
+const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
   'pe-general': {
     label: qualificationShortLabel('professional-engineer'),
     themeVar: '--exam-pe',

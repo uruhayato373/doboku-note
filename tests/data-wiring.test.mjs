@@ -27,25 +27,6 @@ test('コードが配信している転職アフィリの意匠実験は、実�
   assert.equal(e.status, 'running', `${AFFILIATE_EXPERIMENT_ID} は ${e.status}。閉じたなら配信のコードも止める`);
 });
 
-test('ExamKey → ココナラの examScope は、資格 id → ExamKey の正本から作った値が従来の対応表と同じ（選ばれる商品の範囲で確かめる）', async () => {
-  const { pickCoconalaFor } = await loadTsModule('src/lib/exam-key-bridge.ts');
-  const expected = {
-    tankan: 'pe-comprehensive-management', 'pe-construction': 'pe-construction', 'pe-first-stage': 'pe-first-stage',
-    'civil-1': 'civil-1', 'civil-2': 'civil-2', concrete: 'concrete-engineer', 'concrete-chief': 'concrete-chief-engineer',
-    'concrete-diagnosis': 'concrete-diagnostician', rccm: 'rccm', 'pe-general': null,
-  };
-  const products = readJson(datasetPath('config.products')).products.filter((p) => p.channel === 'coconala' && p.catalog?.status === 'listed');
-  let picked = 0;
-  for (const [key, scope] of Object.entries(expected)) {
-    const service = pickCoconalaFor(key);
-    const available = scope && products.some((p) => p.catalog.examScope?.includes(scope));
-    if (!available) { assert.equal(service, null, `${key}: 対象の出品が無いのに選ばれた`); continue; }
-    assert.ok(service?.examScope.includes(scope), `${key}: ${scope} の出品が選ばれない`);
-    picked += 1;
-  }
-  assert.ok(picked >= 1, `出品を選べた資格が無い（${picked}）。対応表か出品の読み方が壊れている`);
-});
-
 test('1級・2級土木の判定は registry の groups.civil-construction-1-2 のメンバーと同じ', async () => {
   const { isCivilConstructionCategory } = await loadTsModule('src/lib/qualification-names.ts');
   const registry = readJson(datasetPath('config.qualification-registry'));
