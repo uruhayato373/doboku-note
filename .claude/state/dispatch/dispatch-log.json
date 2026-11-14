@@ -8375,6 +8375,23 @@
       "commit": null,
       "verification": "もしもの確認・取得は台帳に記録済み。A8・afbは未確認。",
       "note": "2026-11-14: もしもはビザスク・スポットコンサル・サーキュレーション・HiPro・顧問で検索し、専門家登録の対象案件は検索範囲内で見つからなかった。検索結果はcatalogの_spotConsultResearchに記録済み。A8・afbは運営者指定で後日、ログイン後の依頼で再開する。"
+    },
+    {
+      "id": "DN-1188",
+      "at": "2026-11-14",
+      "task": "週次の収集の後、売上の帰属テスト 2 件が develop で赤い（単品記事 2 件の未帰属と 10/8 の行の解決の変化）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/sales-normalize.test.mjs"
+      },
+      "executor": "codex/affiliate-backlog",
+      "outcome": "done",
+      "plan": null,
+      "commit": "39284863abc0",
+      "verification": "売上関連28テストPASS。PR1587 head af5098368 のPre-merge check(build/test/audit)・e2e・CodeQLすべてPASS。",
+      "note": "原稿の題名・公開URL・既存の命名規則で単品2件を確定。旧マガジン名は再取得で台帳から消えるため、明示的な旧名対応を追加。金額・件数は変更なし。93290b877で修正済み、同じ変更をPR1587でdevelopへ取り込む。"
     }
   ]
 }

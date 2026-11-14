@@ -65,17 +65,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-1188] 週次の収集の後、売上の帰属テスト 2 件が develop で赤い（単品記事 2 件の未帰属と 10/8 の行の解決の変化）
-タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-14]
-
-**起点**: 2026-11-14 10:01 の週次の収集（commit 9c0e80a94・`data/note/sales.json`）の後、develop の unit-tests が 2 件赤くなった。PR #1589 の CI でも同じ 2 件が落ちた（その PR の変更とは無関係）。
-
-- `tests/sales-attribution.test.mjs`「sales.json の全件がマスに帰属」: 未帰属の productId が 2 件。`article:unknown-20261113-0`（技術士 建設部門｜施工計画、施工設備及び積算 R08 選択科目II-2 模範解答・¥780）と `article:unknown-20261105-1`（コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜担い手不足と品質確保・¥1,480）。どちらも note の単品記事の実売上で、商品の台帳に当たる行が無い
-- `tests/sales-normalize.test.mjs`「カタログの noteTitle はすべて自分の id に解決する」: 10/8 の売上（建設部門2次｜土質基礎まるごと合格パック）が `bk-geotechnical-pack` ではなく `article:unknown-20261008-0` に解決するようになった
-
-**やること**: 収集が書いた sales.json の行と、帰属の表（単品記事をどの商品・マスに数えるか）を突き合わせ、単品記事の帰属先を決めて台帳か帰属の規則に足す。10/8 の行が unknown に変わった理由（収集の取り直しで既存行の解決が上書きされたか）を確かめ、再発するなら収集側で既存の解決を保つ。
-
-**完了条件**: `node --test tests/sales-attribution.test.mjs tests/sales-normalize.test.mjs` が通り、develop の Pre-merge check が緑に戻る。
 
 
 
