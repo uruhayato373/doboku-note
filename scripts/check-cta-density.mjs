@@ -17,6 +17,9 @@ import { parseCliArgs } from './lib/cli-args.mjs';
 import { impressionKeyCounts } from './lib/affiliate-link-keys.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 
+import { PAGE_ALLOWLIST, SURFACE_ALLOWLIST } from '../src/lib/cta-density-policy.mjs';
+export { PAGE_ALLOWLIST, SURFACE_ALLOWLIST };
+
 const attr = (node, key) => node.getAttribute(key) ?? '';
 const within = (node, parent) => {
   for (let p = node; p; p = p.parentNode) if (p === parent) return true;
@@ -57,7 +60,8 @@ function visibleNotes(dom) {
 function productUrl(node) {
   const href = attr(node, 'href');
   // もくじは商品ではなく、記事下とサイドバーへの再掲を許す。
-  if (attr(node, 'data-cta-label').includes('hub-mokuji')) return null;
+  if (['article-footer', 'article-sidebar'].includes(attr(node, 'data-cta-placement')) &&
+      /-(?:footer|docs-sb)$/.test(attr(node, 'data-cta-label'))) return null;
   try {
     const url = new URL(href);
     return url.hostname === 'note.com' ? `${url.origin}${url.pathname.replace(/\/$/, '')}` : null;
@@ -90,12 +94,20 @@ export function inspectHtml(html, slug) {
     product: productUrl(node),
     label: attr(node, 'data-cta-label'),
     placement: attr(node, 'data-cta-placement'),
-    source: prose && within(node, prose) && attr(node, 'data-cta-placement') !== 'article-mid' ? 'manual' : 'auto',
+    // article-mid は手書きにも使われる。自動挿入は resolvePlacement の枠ラベルで区別する。
+    source: prose && within(node, prose) && !(attr(node, 'data-cta-placement') === 'article-mid' &&
+      /-(?:top|inline-\d+)-mid$/.test(attr(node, 'data-cta-label'))) ? 'manual' : 'auto',
   }));
   const violations = [];
+  const exclusions = [];
+  const pageAllow = PAGE_ALLOWLIST.filter(e => e.page === slug || (e.prefix && slug.startsWith(e.prefix)));
   const evidence = ns => ns.map(({ node, ...n }) => ({ ...n, position: order.get(node) }));
-  const add = (rule, count, limit, ns = [], causes = causesOf(ns), extra = {}) =>
-    violations.push({ slug, pageType: type, rule, count, limit, causes, ...extra, ...(ns.length ? { notes: evidence(ns) } : {}) });
+  const add = (rule, count, limit, ns = [], causes = causesOf(ns), extra = {}) => {
+    const allowed = pageAllow.find(e => e.rules.includes(rule));
+    const result = { slug, pageType: type, rule, count, limit, causes, ...extra, ...(ns.length ? { notes: evidence(ns) } : {}) };
+    if (allowed) exclusions.push({ ...result, reason: allowed.reason });
+    else violations.push(result);
+  };
   if (notes.length > 30) add('note-total', notes.length, 30, notes);
   if (article) {
     const bodyNotes = notes.filter(n => within(n.node, article));
@@ -109,7 +121,13 @@ export function inspectHtml(html, slug) {
       if (!products.has(note.product)) products.set(note.product, []);
       products.get(note.product).push(note);
     }
-    for (const [product, ns] of products) if (ns.length > 1) add('note-product-dup', ns.length, 1, ns, causesOf(ns), { product });
+    for (const [product, ns] of products) {
+      // 許す再掲は記事カードの冒頭＋本文の外側にある直後CTAの2枚だけ。
+      const topEndPair = ns.length === 2 && ns.every(n => n.source === 'auto' && within(n.node, article)) &&
+        ns.some(n => n.placement === 'article-top') &&
+        ns.some(n => n.placement === 'article-end' && !within(n.node, prose) && /-end$/.test(n.label));
+      if (ns.length > 1 && !topEndPair) add('note-product-dup', ns.length, 1, ns, causesOf(ns), { product });
+    }
     for (const placement of ['article-footer', 'article-sidebar']) {
       const ns = notes.filter(n => n.placement === placement);
       if (ns.length > 1) add(`note-${placement}`, ns.length, 1, ns);
@@ -118,14 +136,19 @@ export function inspectHtml(html, slug) {
     const main = ancestor(article, n => n.tagName === 'MAIN');
     // TwoColumnShell の aside は main の兄弟。main 内だけだとサイドバーを見落とす。
     const page = main?.parentNode ?? dom;
-    const sponsored = page.querySelectorAll('[rel]').filter(n => attr(n, 'rel').split(/\s+/).includes('sponsored'));
+    const exemptSurface = node => Boolean(SURFACE_ALLOWLIST[attr(node, 'data-cta-placement')]);
+    for (const [placement, reason] of Object.entries(SURFACE_ALLOWLIST)) {
+      const count = page.querySelectorAll(`[data-cta-placement="${placement}"]`).length;
+      if (count) exclusions.push({ slug, placement, count, reason });
+    }
+    const sponsored = page.querySelectorAll('[rel]').filter(n => !exemptSurface(n)).filter(n => attr(n, 'rel').split(/\s+/).includes('sponsored'));
     const forbidden = sponsored.filter(n => !within(n, article) ||
       /(?:^|-)(?:end|footer|sidebar)(?:-|$)/.test(attr(n, 'data-cta-placement')) ||
       ancestor(n, p => p.tagName === 'ASIDE' || p.tagName === 'FOOTER'));
     if (forbidden.length) add('affiliate-forbidden-surface', forbidden.length, 0, [], ['affiliate'], {
       links: forbidden.map(n => ({ href: attr(n, 'href'), placement: attr(n, 'data-cta-placement') })),
     });
-    const affiliates = page.querySelectorAll('[data-cta="affiliate"]');
+    const affiliates = page.querySelectorAll('[data-cta="affiliate"]').filter(n => !exemptSurface(n));
     const slotOf = n => {
       // EXP-048 B2 の実 DOM は2枚が同一 grid 内。別 grid・別配置を一緒にはしない。
       if (attr(n, 'data-cta-variant') === 'B2') {
@@ -145,7 +168,7 @@ export function inspectHtml(html, slug) {
   for (const [mat, count] of Object.entries(impressionKeyCounts(dom.toString()))) {
     if (count > 1) add('affiliate-pixel-dup', count, 1, [], ['affiliate'], { mat });
   }
-  return { slug, pageType: type, article: Boolean(article), noteCount: notes.length, violations };
+  return { slug, pageType: type, article: Boolean(article), noteCount: notes.length, violations, exclusions };
 }
 
 export function auditDirectory(outRoot) {
@@ -174,6 +197,8 @@ export function auditDirectory(outRoot) {
     violationPages: pages.filter(p => p.violations.length).length, violationCount: violations.length,
     // 原因は重複しうる（3枚以上で自動×手書き・手書き同士の両方）。総数は violationCount。
     byPageTypeAndCause: [...groups.values()].map(g => ({ ...g, pages: [...g.pages] })),
+    excludedCount: pages.reduce((n, p) => n + p.exclusions.length, 0),
+    exclusions: pages.flatMap(p => p.exclusions),
     errors, violations,
   };
 }
@@ -187,6 +212,7 @@ export function main(argv = process.argv.slice(2)) {
   if (args.json) console.log(JSON.stringify(report, null, 2));
   else {
     console.log(`[check-cta-density] 対象 ${report.files} / 検査 ${report.checkedPages} ページ（記事 ${report.articlePages}）・違反 ${report.violationCount} 件 / ${report.violationPages} ページ・取得失敗 ${report.errors.length} 件`);
+    console.log(`  許可リストによる除外 ${report.excludedCount} 件（理由は JSON に記録）`);
     if (!report.files) console.error('out/ の HTML が空です。先に npm run build を実行してください。');
     for (const g of report.byPageTypeAndCause) console.log(`  ${g.pageType} × ${g.cause}: ${g.violations} 件 / ${g.pages.length} ページ`);
     for (const v of report.violations) console.error(`  ${v.slug}: ${v.rule} = ${v.count}（上限 ${v.limit}） [${v.causes.join(', ')}]`);

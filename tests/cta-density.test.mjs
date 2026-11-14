@@ -4,7 +4,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
-import { inspectHtml, auditDirectory } from '../scripts/check-cta-density.mjs';
+import { inspectHtml, auditDirectory, PAGE_ALLOWLIST, SURFACE_ALLOWLIST } from '../scripts/check-cta-density.mjs';
 
 const note = (id, placement = 'article-body', label = id) => `<a data-cta-label="${label}" href="https://note.com/test/m/${id}?utm_content=${label}" data-cta-placement="${placement}" data-cta="note">教材</a>`;
 const ab = n => `<div data-note-body-arm="image">${n}</div><div data-note-body-arm="text">${n}</div>`;
@@ -14,7 +14,7 @@ const rules = html => inspect(html).violations.map(v => v.rule);
 const affiliate = (placement = 'article-mid', extra = '') => `<a data-cta="affiliate" rel="nofollow sponsored noopener" data-cta-placement="${placement}" ${extra}>転職</a>`;
 
 test('3枚の異なる商品と別枠のもくじは違反なし、無料 note は数えない', () => {
-  const hub = p => note('contents', p, 'category-test-hub-mokuji');
+  const hub = p => note('contents', p, `category-test-hub-mokuji-${p === 'article-footer' ? 'footer' : 'docs-sb'}`);
   const r = inspect(article(`<h2>本文</h2>${note('b')}${note('c')}<a data-cta="note-article">無料</a>`, note('a', 'article-top'), `${hub('article-footer')}<aside>${hub('article-sidebar')}</aside>`));
   assert.equal(r.noteCount, 5);
   assert.deepEqual(r.violations, []);
@@ -38,6 +38,16 @@ test('同じラベルの手書き2枠もA/Bごとに保持し、手書き同士�
   const r = inspect(article(`<h2>本文</h2>${ab(note('a'))}${ab(note('a'))}`));
   assert.equal(r.noteCount, 2);
   assert.deepEqual(r.violations[0].causes, ['manual-manual']);
+});
+
+test('手書きarticle-midを自動と誤分類せず、自動枠のラベルだけを区別する', () => {
+  const end = note('a', 'article-end', 'pe1-r01-aptitude');
+  const manual = inspect(article(`<h2>本文</h2>${note('a', 'article-mid', 'pe1-r01-aptitude-mid')}${end}`));
+  assert.deepEqual(manual.violations[0].causes, ['manual-manual']);
+  for (const label of ['a:guide-top-mid', 'a:guide-inline-0-mid']) {
+    const auto = inspect(article(`<h2>本文</h2>${note('a', 'article-mid', label)}${end}`));
+    assert.deepEqual(auto.violations[0].causes, ['auto-manual']);
+  }
 });
 
 test('対応しない実験案や別の兄弟で隔てた枠を一緒にしない', () => {
@@ -120,4 +130,47 @@ test('CLIは検査0件でexit 1、違反ありで1、違反なしで0。集計�
     assert.equal(report.violationCount, 1);
     assert.equal(report.byPageTypeAndCause[0].cause, 'manual-manual');
   } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+
+test('冒頭＋本文直後の2枚だけを許可し、本文中間や手書きの再掲を許さない', () => {
+  const top = note('a', 'article-top', 'a:guide-top');
+  for (const label of ['a:guide-top-end', 'a:guide-end']) {
+    const end = note('a', 'article-end', label);
+    const html = article('<h2>本文</h2>', top).replace('</article>', `${end}</article>`);
+    assert.deepEqual(rules(html), []);
+    assert.ok(rules(article(`<h2>本文</h2>${end}`, top)).includes('note-product-dup'), '手書きendは許可しない');
+    assert.ok(rules(html.replace('</div>', `${note('a', 'article-mid')}</div>`)).includes('note-product-dup'), '3回は不可');
+  }
+  assert.ok(rules(article(`<h2>本文</h2>${note('a', 'article-mid')}`, top)).includes('note-product-dup'));
+});
+
+test('季節商品のもくじタイルもfooter・docs-sbは商品重複から除外する', () => {
+  const top = note('a', 'article-top');
+  const tiles = note('a', 'article-footer', 'seasonal-footer') + note('a', 'article-sidebar', 'seasonal-docs-sb');
+  assert.deepEqual(rules(article('<h2>本文</h2>', top, tiles)), []);
+  assert.ok(rules(article(`<h2>本文</h2>${note('a', 'article-body', 'fake-footer')}`, top)).includes('note-product-dup'));
+});
+
+test('理由つき許可リストは指定したページ・ルール・面だけを除外する', () => {
+  assert.ok(PAGE_ALLOWLIST.every(e => e.reason));
+  assert.ok(Object.values(SURFACE_ALLOWLIST).every(Boolean));
+  const listing = article(`<h2>本文</h2>${['a', 'b', 'c', 'd'].map(id => note(id)).join('')}`);
+  for (const entry of PAGE_ALLOWLIST.filter(e => e.rules.includes('note-non-footer') && e.page)) {
+    assert.deepEqual(inspectHtml(listing, entry.page).violations, []);
+    const dup = listing.replace('</article>', `${note('a', 'article-end')}</article>`);
+    assert.ok(inspectHtml(dup, entry.page).violations.some(v => v.rule === 'note-product-dup'));
+    assert.ok(inspectHtml(listing, `${entry.page}-other`).violations.length);
+  }
+  const many = Array.from({length:31}, (_,i) => note(`p${i}`)).join('');
+  assert.deepEqual(inspectHtml(many, 'links').violations, []);
+  assert.equal(inspectHtml(many, 'links-other').violations.length, 1);
+  const standards = article('<h2>本文</h2>', '', `<aside>${affiliate('standards-sidebar')}${affiliate('standards-footer')}</aside>`);
+  const r = inspectHtml(standards, 'standards/kinki/common');
+  assert.deepEqual(r.violations, []);
+  assert.ok(r.exclusions.every(e => e.reason));
+  assert.ok(inspect(standards).violations.length);
+  for (const placement of Object.keys(SURFACE_ALLOWLIST)) {
+    assert.deepEqual(rules(article(`<h2>本文</h2>${affiliate()}`, '', affiliate(placement) + affiliate(placement))), []);
+  }
 });

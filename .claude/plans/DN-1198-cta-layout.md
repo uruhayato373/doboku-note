@@ -181,3 +181,100 @@ A 実施（2026-11-14、起点 `a7a2204e18`）。git 書き込み・claim・配�
 - `npm run lint`: exit 0。`git diff --check`: 違反0。`node scripts/check-task-plan-links.mjs`: plan 3件・backlog 260件、違反0。
 - `npm run check-datasets`: 899追跡ファイル・296データセットを検査、違反1（新規JSONが未addのため追跡一覧に無い）。JSON自体は台帳照合・集計整合を別途1ファイル実検査し違反0。**親がadd後に再実行する**。別に DN-0262 の claim 参照切れの警告あり（claim操作は禁止されているため未変更）。
 - 全体 `npm run test`（git操作を含むテストがある）と `quality:audit:ci`、画面点検は未実施。今回はAの検査関連テストに限定。B以降の配置・MDX・実験描画/計測は変更していない。
+
+
+## B の結果（2026-11-14）
+
+### 変更内容
+
+- 配置ルール2の運営者決定を適用。冒頭＋本文直後の同一商品2枚だけを許可し、もくじタイルを商品重複から外した。対象外は共用の `src/lib/cta-density-policy.mjs` にページ・ルール・理由を限定して記録する。EXP-053/048 の描画・計測部品は変更していない。
+- 手書きの商品id・最初のh2との前後関係を `resolvePlacement` へ渡し、自動中間・末尾を既存の共有resolverで決める。有料 NoteLink も枚数と位置に含める。個別商品のサイドバーは記事内と重なる場合に抑止し、検査・収益化レポート・SNS着地監査も同じ配置条件に合わせた。一次で教材が占有していた唯一の中間枠は転職へ転用しない。
+- MDXは **41記事** を `writeMdxFile` 経由で修正。手書き重複40記事（当初19＋技術士一次21）から41枚を削除し、2級土木の3記事では冒頭の商品選択ブロックを関連する節へ移動した（うちR07は重複削除対象外）。問題・選択肢・解説は変更していない。
+- Aの「手書き同士19記事」は `article-mid` の手書きを自動と誤分類していたため過少だった。技術士一次R01〜R07×3科目の21記事も本文末の1枚に整理した。検査の原因分類と、旧配置を固定していたテストを新ルールへ更新した。B'もこのセッションで行う運営者指示に従った。
+- design-system.md §8.5「個別教材の自動配置」を更新。
+
+### 検証
+
+- `npm run refresh-indexes` は tsx CLI の IPC が sandbox で EPERM。Aと同じくチェーンを展開し、tsxを `node --import tsx`、Nextを `node node_modules/next/dist/bin/next build --webpack` に置換した `zsh .tmp/dn1198-build-b.sh` で索引再生成からbuild前後処理まで完走（exit 0）。共有node_modules・package.jsonは未変更。静的生成 **2,462**、HTML **2,435**、検索索引・sitemap各 **2,103**。8ページの60秒超過はNextの自動再試行で成功。ログは `.tmp/dn1198-build-b-complete.log`。
+- `node scripts/check-cta-density.mjs --record-dn1198`: 対象・実検査 **2,435ページ**（記事 **2,279**）、**違反0件・取得失敗0件**、理由つき許可リストの除外 **1,461件**。指定JSONを再生成。
+- `node --import ./.tmp/dn1198-tsx-no-ipc.mjs --test tests/{cta-density,magazine-placement-density,magazine-page-gate,monetization-coverage,note-cta-tracking,post-exam-cta,civil1-first-stage-cta,civil2-placement,cce-placement,note-body-experiment,affiliate-design-experiment,note-product-classification,affiliate-placement-pairs,affiliate-placement-rules,offsite-cta,sns-landing-cta,pe1-lead-cta-image,career-separation-built,affiliate-link-keys,script-helpers-ratchet,cli-args-ratchet,read-json-ratchet,scripts-no-undef}.test.mjs`: **23ファイル・125テスト、失敗0・skip0**。shimはtsx CLIを使う子プロセスの起動だけをNode hooksへ置換し、テスト本体のassertionはそのまま実行する。
+- `node --import tsx --test tests/sidebar-discovery.test.ts`: **1ファイル・1テスト、失敗0**（回遊556ページ・演習48経路）。上記と合わせ **24ファイル・126テスト**。
+- `node --import tsx scripts/check-magazine-cta-reachability.ts`: 公開 **129商品**・**1,589記事**を調査、ページゲート **1,353記事**を実検査、baseline外の導線ゼロ **0商品・0記事**。既存baselineの1商品・7記事は維持。
+- `npm run lint`: exit 0、エラー0・既存warning4（KakomonQuizClient 2、StandardsNavigation 1、useSearch 1）。`npm run type-check`: exit 0。`git diff --check`: 違反0。
+- `node scripts/lint-ja.mjs --files <変更MDX41本>`: **41/41記事、違反0**。textlint直実行の12件は全て公式問題の原文で、既存の正式ゲートが除外する範囲。原文を改変していない。
+- `node scripts/check-mdx-facts.mjs <変更MDX41本>`: 41/41を比較し23記事で減少を報告。全件が削除したMagazineCardのid・UTM属性の数字。カードタグを除いて同じcompareFactsで再比較したところ **41/41記事、本文の数値・引用語句の増減0、U+FFFD 0**（`.tmp/dn1198-mdx-content-check.json`）。
+- 完成HTML **2,435件**から転職リンクを作業前のA成果と照合。リンクのある **2,151ページ→2,151ページ**、placement・label・hrefの差分 **0ページ**（`.tmp/dn1198-affiliate-comparison.json`）。
+- 静的HTMLの代表3ページ（1級土木exam-overview・総監economic-management-pillar・主任技士primary/properties）は **3/3**でmain・資格キーワードを確認し、記事内noteは各2枚・違反0。単純なa要素数ではEXP-053のA/Bを二重計上するため、正式検査の実験案集約を共用した。
+
+- `npm run check-datasets`: 900ファイル・296データセットを実検査、型617・重複キー814・直書き1,758ファイル、違反0。既存のDN-0262 claim参照切れは警告として残る（claim操作禁止のため未変更）。
+- `node scripts/check-doc-refs.mjs`: 2,927ファイル、参照切れ0。`node scripts/check-task-plan-links.mjs`: plan 3件・backlog 260件、違反0。
+
+### 親・Cへの引き継ぎ
+
+- B/B'の配置・MDX修正は完了。追加の配置判断は不要。gitの書き込み（fetch/add/claim/commit/push）は一切行っていない。親が下記60ファイルを確認してcommitする。案: `fix(cta): 手書き優先の配置で教材重複を解消する`。
+- HTTPのSSR確認は `npm run serve` がsandboxのlisten EPERMで起動できず、curlも接続不可。上記の静的HTML確認を実施したが、HTTP確認の代替完了とは扱わない。親またはCで実施する。
+- 375/768/1440の視覚点検、面ごとの型とサイズの表、残る参照文書、CI登録・quality:audit:ci・PRはCの担当。全体npm testはgit操作を含むため実行せず、上記の関連テストに限定した。
+
+
+### 変更ファイル一覧（60ファイル）
+
+- `.claude/knowledge/design-system/design-system.md`
+- `.claude/plans/DN-1198-cta-layout.md`
+- `.claude/scripts/report-monetization-coverage.mts`
+- `.claude/state/quality/cta-layout-dn1198.json`
+- `content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx`
+- `content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx`
+- `content/site/civil-construction-2/secondary-r07/article.mdx`
+- `content/site/pe-comprehensive-management/management-tradeoffs/article.mdx`
+- `content/site/pe-construction/bosai-kokudo-kyoujinka/article.mdx`
+- `content/site/pe-construction/carbon-neutral-kensetsu/article.mdx`
+- `content/site/pe-construction/construction-environment-ronbun-keyword/article.mdx`
+- `content/site/pe-construction/construction-planning-ronbun-keyword/article.mdx`
+- `content/site/pe-construction/gakushuu-jikan-schedule/article.mdx`
+- `content/site/pe-construction/gyoumu-keireki-hyou/article.mdx`
+- `content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx`
+- `content/site/pe-construction/infra-roukyuuka-iji/article.mdx`
+- `content/site/pe-construction/kensetsu-dx/article.mdx`
+- `content/site/pe-construction/kokudo-keisei-chiiki/article.mdx`
+- `content/site/pe-construction/nanido-goukakuritsu/article.mdx`
+- `content/site/pe-construction/ninaite-kakuho-seisansei/article.mdx`
+- `content/site/pe-construction/port-airport-ronbun-keyword/article.mdx`
+- `content/site/pe-construction/power-civil-ronbun-keyword/article.mdx`
+- `content/site/pe-construction/secondary-study-method/article.mdx`
+- `content/site/pe-construction/toan-kousei-template/article.mdx`
+- `content/site/pe-first-stage/r01-aptitude/article.mdx`
+- `content/site/pe-first-stage/r01-basic/article.mdx`
+- `content/site/pe-first-stage/r01-construction/article.mdx`
+- `content/site/pe-first-stage/r02-aptitude/article.mdx`
+- `content/site/pe-first-stage/r02-basic/article.mdx`
+- `content/site/pe-first-stage/r02-construction/article.mdx`
+- `content/site/pe-first-stage/r03-aptitude/article.mdx`
+- `content/site/pe-first-stage/r03-basic/article.mdx`
+- `content/site/pe-first-stage/r03-construction/article.mdx`
+- `content/site/pe-first-stage/r04-aptitude/article.mdx`
+- `content/site/pe-first-stage/r04-basic/article.mdx`
+- `content/site/pe-first-stage/r04-construction/article.mdx`
+- `content/site/pe-first-stage/r05-aptitude/article.mdx`
+- `content/site/pe-first-stage/r05-basic/article.mdx`
+- `content/site/pe-first-stage/r05-construction/article.mdx`
+- `content/site/pe-first-stage/r06-aptitude/article.mdx`
+- `content/site/pe-first-stage/r06-basic/article.mdx`
+- `content/site/pe-first-stage/r06-construction/article.mdx`
+- `content/site/pe-first-stage/r07-aptitude/article.mdx`
+- `content/site/pe-first-stage/r07-basic/article.mdx`
+- `content/site/pe-first-stage/r07-construction/article.mdx`
+- `scripts/audit-sns-landing-cta.ts`
+- `scripts/check-cta-density.mjs`
+- `scripts/check-magazine-cta-reachability.ts`
+- `src/components/docs/DocPage.tsx`
+- `src/components/ui/ArticleSidebar/ArticleSidebar.tsx`
+- `src/components/ui/SidebarDiscovery.tsx`
+- `src/lib/cta-density-policy.mjs`
+- `src/lib/magazine-placement.ts`
+- `src/lib/sidebar-discovery.ts`
+- `tests/career-separation-built.test.mjs`
+- `tests/civil2-placement.test.mjs`
+- `tests/cta-density.test.mjs`
+- `tests/magazine-placement-density.test.mjs`
+- `tests/note-product-classification.test.mjs`
+- `tests/sidebar-discovery.test.ts`
