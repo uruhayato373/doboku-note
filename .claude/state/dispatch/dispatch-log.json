@@ -8235,6 +8235,19 @@
       "commit": "d8eb3ec21ede",
       "verification": "OGP Supply run 43391997387: 対象 859 件 / 上限 700 件 / 持ち越し 159 件で success（2026-11-13）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1139",
+      "at": "2026-11-14",
+      "task": "publish-seo-summary の待ちで CI の run が完了しない構造を外す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "807ed4aadf98",
+      "verification": "gh run view 43530018146（test・audit・build・report のみ）、gh run view 43530777863（publish success）",
+      "note": "PR #1584 で publish-seo-summary を ci.yml から外し、workflow_run の seo-build-summary.yml へ移した。main 昇格後の develop の run 43530018146 は書き戻しを待たずに完了し、続く run 43530777863 が SEO 件数を記録した（807ed4aad）"
     }
   ]
 }

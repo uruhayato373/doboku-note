@@ -2946,10 +2946,6 @@ Windows の PowerShell で repo 直下から順に:
 npm run cmd はコマンドの用途を、起動するスクリプトの冒頭コメントから引く（PR #1542）。冒頭コメントの無いファイルが 32 本あり（note の編集系 note-*.mjs が多い）、scripts/check-command-guidance.mjs の NO_HEADER_BASELINE に並べてある。各ファイルを読んで用途と罠を冒頭コメントに書き、基準から消す。完了条件: NO_HEADER_BASELINE が空／npm run check-command-guidance が通る
 
 
-### [DN-1139] publish-seo-summary の待ちで CI の run が完了しない構造を外す
-タグ: [領域:管理] [種類:改善] [起票:2026-11-12]
-
-ci.yml の publish-seo-summary ジョブは concurrency グループ develop-git-write（index-coverage は timeout 240 分・psi-audit・fetch-metrics・ogp-supply・cloudflare-metrics と共有）に入っている。ほかの書き込みジョブが走っている間は待つので、audit・test・build が終わっても run 全体が完了せず、deploy:main（run の完了を待つ）が待たされる構造。2026-11-13 に 3 回観測した（run の所要時間 16.6 分・34.0 分・36.9 分。run 43390653131 は 3 ジョブの終了から書き戻しの開始まで 18 分。develop の push は実行を取り消さないので、次の push の検査もその間始まらなかった）。記録の書き戻しを workflow_run で起動する別 workflow に分け、ゲートの run は 3 ジョブと report で完了するようにする
 
 
 ### [DN-1136] 記憶メモを棚卸しする（機械ゲートと重複するもの・古い手順）
