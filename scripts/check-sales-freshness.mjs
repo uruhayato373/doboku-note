@@ -31,7 +31,7 @@
 //
 // 真実源: .claude/knowledge/reference/sales-tracking.md「取得と検算」
 //
-// npm run check-sales-freshness — data/note/sales.json の転記停止（updatedAt）と、毎月5日以降に前月noteアクセス取得・月次売上表示との金額一致、ココナラの売上履歴（coconala.revenue）の取得停止を検査（土曜の収集の note-sales 段の検算＝quality-audit の cadence collect・落ちると段が failed で Issue channel weekly-collect・DN-0847。取得自体は認証が要るのでローカル専用）
+// npm run check-sales-freshness — data/note/sales.json の転記停止（updatedAt）と、毎月5日以降に前月の明細合計と「売上管理」の確定額（sales.json の months）との金額一致、ココナラの売上履歴（coconala.revenue）の取得停止を検査（土曜の収集の note-sales 段の検算＝quality-audit の cadence collect・落ちると段が failed で Issue channel weekly-collect・DN-0847。取得自体は認証が要るのでローカル専用）
 
 import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { datasetPath, freshnessDays } from './lib/datasets.mjs';
@@ -93,18 +93,27 @@ export function assessSalesLog(log, nowUtc = todayUtc) {
   return { ...base, status: 'OK', reason: null };
 }
 
-/** noteアクセス状況の月次売上表示と販売明細台帳を突合する。件数ではなく金額の完全性ゲート。 */
-export function assessSalesBenchmark(log, traffic) {
-  const month = traffic?.month;
-  const expected = traffic?.summary?.salesYen;
-  if (!/^\d{4}-\d{2}$/.test(month ?? '') || !Number.isInteger(expected) || expected < 0) {
-    return { status: 'FAIL', reason: 'note月次売上の照合値が読めない', month: month ?? null, expected: null, actual: null };
+/**
+ * 販売明細の月の合計を、note「売上管理」の確定額と突合する。件数ではなく金額の完全性ゲート。
+ * 確定額は note-sales-fetch が売上管理の月次表示と検算して一致したときだけ書く months[月]（finalized=true）。
+ * 「アクセス状況」の売上（note.referrers の summary.salesYen）は照合に使わない（2026-11-14）: 単品の一部を数えない月があり
+ * （2026-09 は単品 3 本 ¥3,240 が無い）、月の途中に取った値が月末後も残る（2026-10 は 10/10 時点の ¥25,400）ため、
+ * 明細が正しくても毎週 FAIL になっていた。
+ */
+export function assessSalesBenchmark(log, month) {
+  const rec = log?.months?.[month];
+  const expected = rec?.total;
+  if (!/^\d{4}-\d{2}$/.test(month ?? '')) {
+    return { status: 'FAIL', reason: '照合する月が読めない', month: month ?? null, expected: null, actual: null };
+  }
+  if (!rec || rec.finalized !== true || !Number.isInteger(expected) || expected < 0) {
+    return { status: 'FAIL', reason: `${month} の売上管理の確定額が未取得（months の finalized が無い）`, month, expected: null, actual: null, count: 0 };
   }
   const rows = (log?.sales ?? []).filter(sale => String(sale.date ?? '').startsWith(`${month}-`));
   const actual = rows.reduce((sum, sale) => sum + (Number(sale.price) || 0), 0);
   return {
     status: actual === expected ? 'OK' : 'FAIL',
-    reason: actual === expected ? null : `${month} の販売明細 ¥${actual.toLocaleString()} がnote月次売上 ¥${expected.toLocaleString()} と不一致`,
+    reason: actual === expected ? null : `${month} の販売明細 ¥${actual.toLocaleString()} が売上管理の確定額 ¥${expected.toLocaleString()} と不一致`,
     month,
     expected,
     actual,
@@ -159,10 +168,7 @@ if (isMain) {
 
   const freshness = assessSalesLog(log);
   const dueMonth = dueSalesMonth();
-  const dueFile = datasetPath('note.referrers', { month: dueMonth });
-  let benchmark = existsSync(dueFile)
-    ? assessSalesBenchmark(log, JSON.parse(readFileSync(dueFile, 'utf8')))
-    : { status: 'FAIL', reason: `${dueMonth} のnoteアクセス・月次売上表示が未取得`, month: dueMonth, expected: null, actual: null, count: 0 };
+  const benchmark = assessSalesBenchmark(log, dueMonth);
   const ledgers = otherLedgers();
   const worst = (a, b) => (a === 'FAIL' || b === 'FAIL' ? 'FAIL' : a === 'WARN' || b === 'WARN' ? 'WARN' : 'OK');
   const noteResult = benchmark?.status === 'FAIL' ? { ...freshness, status: 'FAIL', reason: benchmark.reason } : freshness;
@@ -180,7 +186,7 @@ if (isMain) {
 
   // 実検査数を必ず出す（緑を見たら「何件検査したか」を確認できるように）
   console.log(`${TAG} 実検査 ${r.count} 件（日付あり ${r.datedCount ?? 0} 件）／転記 ${r.updatedAt ?? '-'}（${r.updatedAge ?? '-'} 日前）／最終売上 ${r.latest ?? '-'}（${r.latestAge ?? '-'} 日前）`);
-  if (benchmark) console.log(`${TAG} 月次照合 ${benchmark.month}: 販売明細 ${benchmark.count} 件 ¥${benchmark.actual?.toLocaleString() ?? '-'} / note表示 ¥${benchmark.expected?.toLocaleString() ?? '-'}`);
+  if (benchmark) console.log(`${TAG} 月次照合 ${benchmark.month}: 販売明細 ${benchmark.count} 件 ¥${benchmark.actual?.toLocaleString() ?? '-'} / 売上管理の確定額 ¥${benchmark.expected?.toLocaleString() ?? '-'}`);
   for (const l of ledgers) console.log(`${TAG} ${l.label}: ${l.day ?? '未取得'}（${l.age ?? '-'} 日前）${l.status === 'OK' ? '' : ` ${l.status}`}`);
 
   if (r.status === 'FAIL') {
