@@ -67,7 +67,7 @@ test('resolvePlacement は career 記事へ note CTA を返さない（入口 1 
 test('note CTA を描画する呼び出し側が career 判定を渡している', () => {
   const DOCPAGE = readFileSync('src/components/docs/DocPage.tsx', 'utf8');
   assert.ok(
-    /resolvePlacement\(\s*slugStr,\s*docGroup,\s*isCareerDoc\(doc\.meta\)\s*\)/.test(DOCPAGE),
+    /resolvePlacement\(\s*slugStr,\s*docGroup,\s*isCareerDoc\(doc\.meta\)\s*,\s*manualMagazineCards\s*\)/.test(DOCPAGE),
     'DocPage が isCareerDoc を渡していない（career 記事に note CTA が出る）',
   );
   const REACH = readFileSync('scripts/check-magazine-cta-reachability.ts', 'utf8');

@@ -39,7 +39,7 @@ import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
 import { listFiles } from "../../scripts/lib/fs-walk.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { classifyDoc, isCareerDoc } from "../../src/lib/doc-classifier.ts";
-import { resolvePlacement, resolveArticleMidNoteSlot, renderedMagazineCardIds } from "../../src/lib/magazine-placement.ts";
+import { renderedNoteCards, resolvePlacement, resolveArticleMidNoteSlot, renderedMagazineCardIds } from "../../src/lib/magazine-placement.ts";
 import { getPublicDocPath } from "../../src/lib/content-routes.ts";
 import { getCategoryBySlug, getCategoryHubPath } from "../../src/lib/categories.ts";
 import { resolveHubCta } from "../../src/lib/hub-cta.ts";
@@ -279,8 +279,8 @@ for (const [slug, meta] of Object.entries(metaIndex)) {
     const sessions = t?.sessions ?? 0;
 
     const docGroup = classifyDoc({ slug, ...meta } as any);
-    const placement = resolvePlacement(slug, docGroup as any, isCareerDoc(meta as any));
     const article = bodyCards.get(slug);
+    const placement = resolvePlacement(slug, docGroup as any, isCareerDoc(meta as any), renderedNoteCards(article?.body ?? ""));
     const mid = resolveArticleMidNoteSlot(placement, docGroup, article?.body ?? "", docGroup === 'secondary' && /^civil-construction-[12]$/.test(meta.category));
     const liveInline = mid && getMagazine(mid.magazineId) ? [mid] : [];
     // 冒頭・中央・本文・サイドバーは実描画と同じ resolver で公開商品の有無を判定する。
@@ -293,7 +293,7 @@ for (const [slug, meta] of Object.entries(metaIndex)) {
     const hubTile = !isCareerDoc(meta as any) ? resolveHubCta(meta.category) : null;
     // **MDX 本文の <MagazineCard> も導線に数える**（第 3 の経路・上の indexBodyMagazineCards 参照）。
     const liveBody = article?.ids ?? [];
-    const sidebar = sidebarProduct(meta.category, { slug, ...meta } as any);
+    const sidebar = sidebarProduct(meta.category, { slug, ...meta } as any, article?.body ?? "");
     // Set は結合した**後**に取る。top/inline だけを先に dedup し liveBody を生のまま足していたため、
     // 同じ magazineId が top/inline と本文カードの両方にあるページで表示が二重化していた
     // （2026-08-25 発覚: civil-2-experience-essay 等が「+」区切りの表示に 2 回出る）。

@@ -30,7 +30,8 @@ deleteOnComplete: true
 ## 配置ルール（design-system.md §8.5 を改定）
 
 1. 記事カード内で見える note は最大 3 枚（手書きを含めて数える）。記事下のもくじタイルは別枠で 1 枚。
-2. 同じ商品は 1 ページ 1 回。
+2. 同じ商品は 1 ページ 2 回まで、許すのは「冒頭バナー＋本文直後の再掲（`MagazineHeroCta`・ラベル `-top-end`／`-end`）」の組だけ（2026-11-14 運営者決定）。本文途中（自動の `article-mid`・手書き）で冒頭や他の枠と同じ商品を出さない（一次過去問の「冒頭商品を中間にも表示」はやめる）。記事末の `HubCtaBanner`（`-footer`）と右サイドバー（`-docs-sb`）のもくじタイルは「教材一覧の枠」として重複の数に入れない。
+   - 検査の対象外（理由つきで検査コードの許可リストに書く）: 基準書 `/standards/**`（記事ページではなく別実装・広告面は配置ルールの管轄）、`/links`（商品一覧ページ）、記事末の `article-end-offsite`（ココナラ。転職アフィリエイトではない）、キャリア記事の `career-multi-register`（転職が主導線の記事・訴求設計 §12）、手書きカードが 4 枚以上ある商品一覧型の記事 7 本（集計の「B/C への引き継ぎ」の一覧。中身の構成なので枚数上限から外す。ただし同一商品の重複は直す）。
 3. 最初の h2 より前に手書きの `<MagazineCard>` がある記事は、冒頭バナーを出さない（手書きを優先）。
 4. 手書きカードが 2 枚以上ある記事は、本文途中の自動 note 枠を出さない（関連記事と転職カードの枠は残す）。
 5. 転職アフィリエイトは現行維持（2026-11-14 運営者の決定）。面を増やすかは EXP-048 の判定（12/26）の後に決める。
@@ -123,4 +124,163 @@ Codex は worktree（`~/.codex/worktrees/`）の feature ブランチ 1 本で A
 
 ## 集計
 
-（A が追記する）
+A 実施（2026-11-14、起点 `a7a2204e18`）。git 書き込み・claim・配置変更・CI 登録は未実施。明細は [.claude/state/quality/cta-layout-dn1198.json](../state/quality/cta-layout-dn1198.json)。
+
+- HTML 対象 **2435**、実検査 **2435**（記事 **2279**）、取得失敗 **0**。違反 **2796 件 / 2003 ページ**。監査は想定どおり exit 1。
+- 内訳: 同一商品重複 1,319 件、記事カード内 >3 枚 11 件、最初の h2 前 >1 枚 12 件、禁止面の sponsored 762 件、転職 >1 枠 691 件、既存の note 総数上限 1 件。ピクセル重複は 0 件。
+- A/B は隣接する image/text の同一 CTA だけを1枚に集約。商品は UTM を除いた note URL で照合。手書きは本文内かつ article-mid 以外、自動は冒頭・途中・本文外として分類する。サイドバーは main の兄弟も検査し、転職枠は 993px 境界の切替を考慮して mobile/desktop の多い方を記録。
+
+| ページ種別 × 原因 | 違反件数 | ページ数 |
+|---|---:|---:|
+| exam/guide × アフィリ | 21 | 21 |
+| exam/guide × 自動同士 | 119 | 115 |
+| exam/guide × 自動×手書き | 30 | 25 |
+| exam/guide × 手書き同士 | 14 | 13 |
+| exam/keywords × アフィリ | 17 | 17 |
+| exam/keywords × 自動同士 | 697 | 697 |
+| exam/keywords × 自動×手書き | 1 | 1 |
+| exam/keywords × 手書き同士 | 10 | 10 |
+| exam/past-exams × 自動同士 | 219 | 219 |
+| exam/past-exams × 自動×手書き | 3 | 2 |
+| exam/pillar × 自動同士 | 5 | 5 |
+| exam/pillar × 自動×手書き | 5 | 5 |
+| exam/primary × アフィリ | 8 | 8 |
+| exam/primary × 自動同士 | 137 | 137 |
+| exam/primary × 自動×手書き | 23 | 23 |
+| exam/secondary × アフィリ | 19 | 19 |
+| exam/secondary × 自動同士 | 14 | 14 |
+| exam/secondary × 自動×手書き | 9 | 4 |
+| exam/secondary × 手書き同士 | 9 | 4 |
+| exam/textbook × アフィリ | 8 | 8 |
+| exam/textbook × 自動同士 | 64 | 64 |
+| non-article × 自動同士 | 1 | 1 |
+| standards × アフィリ | 1380 | 690 |
+
+原因は重複計上あり（自動と手書き2枚以上が混在する密度超過など）。ページ数も行間で重複する。全体値は JSON の violationCount / violationPages を使う。
+
+### B/C への引き継ぎ
+
+- **手書き同士の同一商品重複は 19 記事**。20以下なので B 内で対応可能。JSON の `rule=note-product-dup` かつ `causes` に `manual-manual` を含む行が一覧（商品URL・ラベル・配置・DOM順つき）。
+- 自動枠を消しても手書きだけで3枚を超える記事は 7 本。単なる同一商品の重複除去では不足するものがある:
+  - `exam/civil-construction-2/secondary/experience-writing-examples`: 手書き 16 枚
+  - `exam/civil-construction-2/secondary/experience-writing-guide`: 手書き 6 枚
+  - `exam/civil-construction-2/secondary/r07`: 手書き 4 枚
+  - `exam/concrete-chief-engineer/guide/essay`: 手書き 18 枚
+  - `exam/concrete-diagnostician/guide/essay`: 手書き 7 枚
+  - `exam/pe-comprehensive-management/guide/essay-persona-guide`: 手書き 8 枚
+  - `exam/rccm/guide/mondai1-keiken-ronbun`: 手書き 7 枚
+- 自動同士の重複も対象。例: `exam/civil-construction-1/guide/1-vs-2` は reading-guide が article-top / article-end に各1枚。冒頭と手書きの照合だけではゼロにならない。
+- **設計と既存面の衝突があるため、B/C で扱いを判断する**。基準書690ページに standards-* の広告面があり、禁止面と複数枠で計1,380件。DocPage 以外の別実装なので今回変更していない。記事末の sponsored 72ページは `article-end-offsite` のココナラ導線。転職のみの禁止と解釈して勝手に除外せず、plan の「rel=sponsored が無い」をそのまま判定した。
+- `exam/civil-construction-1/guide/market-value-check` は既存の career-multi-register が2枠。`/links` は商品一覧138枚で既存の総数30上限に抵触する（記事カードの3枚上限とは別）。これらも削除・除外はしていない。
+
+### 実行した検証
+
+- `npm run build`: tsx CLI の IPC が sandbox で EPERM。package scripts の build チェーンを展開した後、tsx 起動を `node --import tsx`、Next を `node node_modules/next/dist/bin/next build --webpack` に置換し、同じ前後処理を完走（exit 0）。共有 node_modules・package.json は未変更。静的生成2,462ページ、最終HTML2,435件、検索索引2,103件、sitemap2,103件。コンパイルと TypeScript 検査も成功。再現コマンドと全ログ: `.tmp/dn1198-build-webpack.log`（先頭行に展開済みコマンド）。置換は再帰展開の完了後に1回だけ行う（途中で置換すると node --import が重複する）。
+- `node --test tests/{cta-density,affiliate-link-keys,note-body-experiment,affiliate-design-experiment,script-helpers-ratchet,cli-args-ratchet,read-json-ratchet,scripts-no-undef}.test.mjs`: **8ファイル・34テスト、失敗0**。新規CTA回帰14テストを含む。
+- `node scripts/check-cta-density.mjs --record-dn1198`: 上記2,435件を実検査、違反2,796件、exit 1。JSONを生成。
+- `npm run lint`: exit 0。`git diff --check`: 違反0。`node scripts/check-task-plan-links.mjs`: plan 3件・backlog 260件、違反0。
+- `npm run check-datasets`: 899追跡ファイル・296データセットを検査、違反1（新規JSONが未addのため追跡一覧に無い）。JSON自体は台帳照合・集計整合を別途1ファイル実検査し違反0。**親がadd後に再実行する**。別に DN-0262 の claim 参照切れの警告あり（claim操作は禁止されているため未変更）。
+- 全体 `npm run test`（git操作を含むテストがある）と `quality:audit:ci`、画面点検は未実施。今回はAの検査関連テストに限定。B以降の配置・MDX・実験描画/計測は変更していない。
+
+
+## B の結果（2026-11-14）
+
+### 変更内容
+
+- 配置ルール2の運営者決定を適用。冒頭＋本文直後の同一商品2枚だけを許可し、もくじタイルを商品重複から外した。対象外は共用の `src/lib/cta-density-policy.mjs` にページ・ルール・理由を限定して記録する。EXP-053/048 の描画・計測部品は変更していない。
+- 手書きの商品id・最初のh2との前後関係を `resolvePlacement` へ渡し、自動中間・末尾を既存の共有resolverで決める。有料 NoteLink も枚数と位置に含める。個別商品のサイドバーは記事内と重なる場合に抑止し、検査・収益化レポート・SNS着地監査も同じ配置条件に合わせた。一次で教材が占有していた唯一の中間枠は転職へ転用しない。
+- MDXは **41記事** を `writeMdxFile` 経由で修正。手書き重複40記事（当初19＋技術士一次21）から41枚を削除し、2級土木の3記事では冒頭の商品選択ブロックを関連する節へ移動した（うちR07は重複削除対象外）。問題・選択肢・解説は変更していない。
+- Aの「手書き同士19記事」は `article-mid` の手書きを自動と誤分類していたため過少だった。技術士一次R01〜R07×3科目の21記事も本文末の1枚に整理した。検査の原因分類と、旧配置を固定していたテストを新ルールへ更新した。B'もこのセッションで行う運営者指示に従った。
+- design-system.md §8.5「個別教材の自動配置」を更新。
+
+### 検証
+
+- `npm run refresh-indexes` は tsx CLI の IPC が sandbox で EPERM。Aと同じくチェーンを展開し、tsxを `node --import tsx`、Nextを `node node_modules/next/dist/bin/next build --webpack` に置換した `zsh .tmp/dn1198-build-b.sh` で索引再生成からbuild前後処理まで完走（exit 0）。共有node_modules・package.jsonは未変更。静的生成 **2,462**、HTML **2,435**、検索索引・sitemap各 **2,103**。8ページの60秒超過はNextの自動再試行で成功。ログは `.tmp/dn1198-build-b-complete.log`。
+- `node scripts/check-cta-density.mjs --record-dn1198`: 対象・実検査 **2,435ページ**（記事 **2,279**）、**違反0件・取得失敗0件**、理由つき許可リストの除外 **1,461件**。指定JSONを再生成。
+- `node --import ./.tmp/dn1198-tsx-no-ipc.mjs --test tests/{cta-density,magazine-placement-density,magazine-page-gate,monetization-coverage,note-cta-tracking,post-exam-cta,civil1-first-stage-cta,civil2-placement,cce-placement,note-body-experiment,affiliate-design-experiment,note-product-classification,affiliate-placement-pairs,affiliate-placement-rules,offsite-cta,sns-landing-cta,pe1-lead-cta-image,career-separation-built,affiliate-link-keys,script-helpers-ratchet,cli-args-ratchet,read-json-ratchet,scripts-no-undef}.test.mjs`: **23ファイル・125テスト、失敗0・skip0**。shimはtsx CLIを使う子プロセスの起動だけをNode hooksへ置換し、テスト本体のassertionはそのまま実行する。
+- `node --import tsx --test tests/sidebar-discovery.test.ts`: **1ファイル・1テスト、失敗0**（回遊556ページ・演習48経路）。上記と合わせ **24ファイル・126テスト**。
+- `node --import tsx scripts/check-magazine-cta-reachability.ts`: 公開 **129商品**・**1,589記事**を調査、ページゲート **1,353記事**を実検査、baseline外の導線ゼロ **0商品・0記事**。既存baselineの1商品・7記事は維持。
+- `npm run lint`: exit 0、エラー0・既存warning4（KakomonQuizClient 2、StandardsNavigation 1、useSearch 1）。`npm run type-check`: exit 0。`git diff --check`: 違反0。
+- `node scripts/lint-ja.mjs --files <変更MDX41本>`: **41/41記事、違反0**。textlint直実行の12件は全て公式問題の原文で、既存の正式ゲートが除外する範囲。原文を改変していない。
+- `node scripts/check-mdx-facts.mjs <変更MDX41本>`: 41/41を比較し23記事で減少を報告。全件が削除したMagazineCardのid・UTM属性の数字。カードタグを除いて同じcompareFactsで再比較したところ **41/41記事、本文の数値・引用語句の増減0、U+FFFD 0**（`.tmp/dn1198-mdx-content-check.json`）。
+- 完成HTML **2,435件**から転職リンクを作業前のA成果と照合。リンクのある **2,151ページ→2,151ページ**、placement・label・hrefの差分 **0ページ**（`.tmp/dn1198-affiliate-comparison.json`）。
+- 静的HTMLの代表3ページ（1級土木exam-overview・総監economic-management-pillar・主任技士primary/properties）は **3/3**でmain・資格キーワードを確認し、記事内noteは各2枚・違反0。単純なa要素数ではEXP-053のA/Bを二重計上するため、正式検査の実験案集約を共用した。
+
+- `npm run check-datasets`: 900ファイル・296データセットを実検査、型617・重複キー814・直書き1,758ファイル、違反0。既存のDN-0262 claim参照切れは警告として残る（claim操作禁止のため未変更）。
+- `node scripts/check-doc-refs.mjs`: 2,927ファイル、参照切れ0。`node scripts/check-task-plan-links.mjs`: plan 3件・backlog 260件、違反0。
+
+### 親・Cへの引き継ぎ
+
+- B/B'の配置・MDX修正は完了。追加の配置判断は不要。gitの書き込み（fetch/add/claim/commit/push）は一切行っていない。親が下記60ファイルを確認してcommitする。案: `fix(cta): 手書き優先の配置で教材重複を解消する`。
+- HTTPのSSR確認は `npm run serve` がsandboxのlisten EPERMで起動できず、curlも接続不可。上記の静的HTML確認を実施したが、HTTP確認の代替完了とは扱わない。親またはCで実施する。
+- 375/768/1440の視覚点検、面ごとの型とサイズの表、残る参照文書、CI登録・quality:audit:ci・PRはCの担当。全体npm testはgit操作を含むため実行せず、上記の関連テストに限定した。
+
+
+### 変更ファイル一覧（60ファイル）
+
+- `.claude/knowledge/design-system/design-system.md`
+- `.claude/plans/DN-1198-cta-layout.md`
+- `.claude/scripts/report-monetization-coverage.mts`
+- `.claude/state/quality/cta-layout-dn1198.json`
+- `content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx`
+- `content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx`
+- `content/site/civil-construction-2/secondary-r07/article.mdx`
+- `content/site/pe-comprehensive-management/management-tradeoffs/article.mdx`
+- `content/site/pe-construction/bosai-kokudo-kyoujinka/article.mdx`
+- `content/site/pe-construction/carbon-neutral-kensetsu/article.mdx`
+- `content/site/pe-construction/construction-environment-ronbun-keyword/article.mdx`
+- `content/site/pe-construction/construction-planning-ronbun-keyword/article.mdx`
+- `content/site/pe-construction/gakushuu-jikan-schedule/article.mdx`
+- `content/site/pe-construction/gyoumu-keireki-hyou/article.mdx`
+- `content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx`
+- `content/site/pe-construction/infra-roukyuuka-iji/article.mdx`
+- `content/site/pe-construction/kensetsu-dx/article.mdx`
+- `content/site/pe-construction/kokudo-keisei-chiiki/article.mdx`
+- `content/site/pe-construction/nanido-goukakuritsu/article.mdx`
+- `content/site/pe-construction/ninaite-kakuho-seisansei/article.mdx`
+- `content/site/pe-construction/port-airport-ronbun-keyword/article.mdx`
+- `content/site/pe-construction/power-civil-ronbun-keyword/article.mdx`
+- `content/site/pe-construction/secondary-study-method/article.mdx`
+- `content/site/pe-construction/toan-kousei-template/article.mdx`
+- `content/site/pe-first-stage/r01-aptitude/article.mdx`
+- `content/site/pe-first-stage/r01-basic/article.mdx`
+- `content/site/pe-first-stage/r01-construction/article.mdx`
+- `content/site/pe-first-stage/r02-aptitude/article.mdx`
+- `content/site/pe-first-stage/r02-basic/article.mdx`
+- `content/site/pe-first-stage/r02-construction/article.mdx`
+- `content/site/pe-first-stage/r03-aptitude/article.mdx`
+- `content/site/pe-first-stage/r03-basic/article.mdx`
+- `content/site/pe-first-stage/r03-construction/article.mdx`
+- `content/site/pe-first-stage/r04-aptitude/article.mdx`
+- `content/site/pe-first-stage/r04-basic/article.mdx`
+- `content/site/pe-first-stage/r04-construction/article.mdx`
+- `content/site/pe-first-stage/r05-aptitude/article.mdx`
+- `content/site/pe-first-stage/r05-basic/article.mdx`
+- `content/site/pe-first-stage/r05-construction/article.mdx`
+- `content/site/pe-first-stage/r06-aptitude/article.mdx`
+- `content/site/pe-first-stage/r06-basic/article.mdx`
+- `content/site/pe-first-stage/r06-construction/article.mdx`
+- `content/site/pe-first-stage/r07-aptitude/article.mdx`
+- `content/site/pe-first-stage/r07-basic/article.mdx`
+- `content/site/pe-first-stage/r07-construction/article.mdx`
+- `scripts/audit-sns-landing-cta.ts`
+- `scripts/check-cta-density.mjs`
+- `scripts/check-magazine-cta-reachability.ts`
+- `src/components/docs/DocPage.tsx`
+- `src/components/ui/ArticleSidebar/ArticleSidebar.tsx`
+- `src/components/ui/SidebarDiscovery.tsx`
+- `src/lib/cta-density-policy.mjs`
+- `src/lib/magazine-placement.ts`
+- `src/lib/sidebar-discovery.ts`
+- `tests/career-separation-built.test.mjs`
+- `tests/civil2-placement.test.mjs`
+- `tests/cta-density.test.mjs`
+- `tests/magazine-placement-density.test.mjs`
+- `tests/note-product-classification.test.mjs`
+- `tests/sidebar-discovery.test.ts`
+
+## C の結果（2026-11-14）
+
+- `exam-overview`（手書き教材カードあり）を画面点検の guide 対象へ追加した。375/768/1440 の撮影・判定・record は sandbox がポートを listen できないため親が担当する。
+- `cta-density` を `ci:true` の `quality:audit:ci` ゲートへ昇格し、`out/` を持つ build ジョブで `--only cta-density` を実行するよう CI を配線した。対象 0 件は既存の回帰テストと CLI で exit 1 になることを確認した。
+- CTA 配線メモを `DocPage.tsx` の現行経路に更新し、本文直後だけの再掲・本文途中の再掲廃止・手書き優先を追記した。EXP-053・EXP-048 の描画と計測、転職面の追加はしていない。

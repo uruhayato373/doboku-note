@@ -9,8 +9,8 @@ import { resolvePlacement } from '@/lib/magazine-placement';
 import { classifyDoc, isCareerDoc } from '@/lib/doc-classifier';
 import NoteProductCard from './NoteProductCard';
 
-export function SidebarProduct({category,doc,placement}: {category:string;doc?:DocMeta;placement:string}) {
- const product=sidebarProduct(category,doc);
+export function SidebarProduct({category,doc,placement,content}: {category:string;doc?:DocMeta;placement:string;content?:string}) {
+ const product=sidebarProduct(category,doc,content);
  if(!product)return null;
  const scopeNotice = doc ? resolvePlacement(doc.slug, classifyDoc(doc), isCareerDoc(doc)).scopeNotice : undefined;
  return <NoteProductCard product={product} category={category} placement={placement} scopeNotice={scopeNotice} />;
