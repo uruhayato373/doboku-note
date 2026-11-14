@@ -431,6 +431,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1193] 切れている外部リンクを直し、report 区分の external-links を PASS に戻す（Issue #1475）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-14]
+
+**起点**: 週次レビュー（2026-11-09〜2026-11-15）。月曜の weekly-review-guard が、quality-audit の report 区分の `external-links` を FAIL にした（Issue #1475・11/9〜）。report 区分は Pre-merge を赤くしないので、この Issue だけが読み手。切れているリンクの一覧はこの回では読んでいない（未確認）。
+
+**やること**: `node scripts/quality-audit.mjs --only external-links` で切れている外部リンクを出し、content-principles.md §12 の順（新しい URL → Wayback の保存版 → 出典名だけ）で直す。相手側の一時的な失敗（timeout・403）が支配的なら、検査不成立として扱う形に直す。
+
+**完了条件**: 次の月曜の report 区分で external-links が PASS し、Issue #1475 が閉じる。
+
+
 ### [DN-1192] sitemap-legacy.xml に出ている GSC のエラー 1 件を直す（Issue #1460）
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-14]
 
