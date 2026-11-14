@@ -18,5 +18,37 @@
     "categoryId": "27",
     "r2Key": "video/render/pe-kojutsu-keireki/video.mp4",
     "thumbnailR2Key": "video/render/pe-kojutsu-keireki/img/00-cover.png"
-  }
+  },
+  "shorts": [
+    {
+      "key": "point-hyouka-1",
+      "sceneId": "evaluation",
+      "title": "技術士 建設部門｜「無事に終了」で止める評価の説明 #Shorts",
+      "description": "業務の結果を、無事に終わりました、で止めていませんか。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 口頭試験対策の教材（note有料教材）\nhttps://note.com/dobokunote/n/n5bc0bcde96ac?utm_source=youtube&utm_medium=video&utm_campaign=pe-kojutsu-keireki&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#技術士建設部門 #技術士 #Shorts",
+      "tags": [
+        "技術士",
+        "技術士 建設部門",
+        "口頭試験",
+        "業務経歴",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27"
+    },
+    {
+      "key": "point-kata-2",
+      "sceneId": "answer-example",
+      "title": "技術士 建設部門｜「工夫して工程を守った」に足りないもの #Shorts",
+      "description": "工夫して工程を守りました、だけでは何が足りないでしょう。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 口頭試験対策の教材（note有料教材）\nhttps://note.com/dobokunote/n/n5bc0bcde96ac?utm_source=youtube&utm_medium=video&utm_campaign=pe-kojutsu-keireki&utm_content=shorts\n\n音声：VOICEVOX:青山龍星\n\n#技術士建設部門 #技術士 #Shorts",
+      "tags": [
+        "技術士",
+        "技術士 建設部門",
+        "口頭試験",
+        "業務経歴",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27"
+    }
+  ]
 }

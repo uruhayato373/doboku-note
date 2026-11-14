@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-14",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」（2026-07 以降は Playwright で read-only 取得し、月次総額をダッシュボード表示と突合）",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -2368,7 +2368,7 @@
     {
       "date": "2026-10-08",
       "productId": "bk-geotechnical-pack",
-      "title": "建設部門2次｜土質基礎まるごと合格パック",
+      "title": "技術士 建設部門｜土質基礎まるごと合格パック",
       "type": "magazine",
       "price": 4980
     },
@@ -2389,7 +2389,7 @@
     {
       "date": "2026-10-04",
       "productId": "bk-port-airport-secondary-magazine",
-      "title": "建設部門2次｜港湾空港 選択科目 模範解答集",
+      "title": "技術士 建設部門｜港湾空港 選択科目 模範解答集 R3-R8",
       "type": "magazine",
       "price": 2980
     },
@@ -2434,6 +2434,139 @@
       "title": "2級土木 施工経験記述｜工種×テーマ別 完成答案集",
       "type": "magazine",
       "price": 1980
+    },
+    {
+      "date": "2026-11-13",
+      "productId": "cce-reiwa-testing-pack",
+      "title": "主任技士 小論文｜試験・検査機関 令和形式5テーマ",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-11-13",
+      "productId": "article:unknown-20261113-0",
+      "title": "技術士 建設部門｜施工計画、施工設備及び積算 R08 選択科目II-2 模範解答（II-2-1・II-2-2）",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-11-13",
+      "productId": "article:ce-r8-mc-40",
+      "title": "コンクリート技士｜令和8年度 四肢択一 予想40問（6分野・全選択肢解説）",
+      "type": "article",
+      "price": 1480
+    },
+    {
+      "date": "2026-11-12",
+      "productId": "article:pe-construction-oral-guide",
+      "title": "技術士 建設部門｜口頭試験対策 — 令和8年度 改訂コンピテンシー対応の想定問答バンクと合格発表後の準備ロードマップ",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-11-12",
+      "productId": "cce-reiwa-design-consultant-pack",
+      "title": "主任技士 小論文｜設計コンサルタント 令和形式5テーマ",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-11-12",
+      "productId": "cce-goukaku-namacon-pack",
+      "title": "主任技士 合格パック｜生コン工場の択一＋小論文",
+      "type": "magazine",
+      "price": 3980
+    },
+    {
+      "date": "2026-11-12",
+      "productId": "pe1-chokuzen-pack",
+      "title": "技術士 第一次試験｜直前パック",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-11-10",
+      "productId": "essay-maintenance-contractor-magazine",
+      "title": "技術士 総監｜維持更新施工の記述式5年分",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-11-08",
+      "productId": "article:tankan-oral-exam",
+      "title": "総監口頭試験20分で落ちない「業務経歴」の語り方｜5管理で再構成する実演例と想定質問対策",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-11-08",
+      "productId": "bk-steel-concrete-secondary-magazine",
+      "title": "技術士 建設部門｜鋼コン 選択科目 模範解答集 R3-R8",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-11-08",
+      "productId": "bk-i-required-essay-magazine",
+      "title": "技術士 建設部門｜必須科目I 模範解答集 R3-R8",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-11-08",
+      "productId": "article:bk-tunnel-r8-yosou-ii2",
+      "title": "技術士 建設部門｜トンネル R8予想 選択科目II-2 模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-11-07",
+      "productId": "article:pe-construction-oral-guide",
+      "title": "技術士 建設部門｜口頭試験対策 — 令和8年度 改訂コンピテンシー対応の想定問答バンクと合格発表後の準備ロードマップ",
+      "type": "article",
+      "price": 1980
+    },
+    {
+      "date": "2026-11-07",
+      "productId": "article:ce-anki-note",
+      "title": "コンクリート技士｜四肢択一 直前暗記ノート（一問一答139問・6分野の数値と定義）",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-11-06",
+      "productId": "cce-goukaku-building-contractor-pack",
+      "title": "主任技士 合格パック｜ゼネコン建築施工の択一＋小論文",
+      "type": "magazine",
+      "price": 3980
+    },
+    {
+      "date": "2026-11-06",
+      "productId": "cce-goukaku-namacon-pack",
+      "title": "主任技士 合格パック｜生コン工場の択一＋小論文",
+      "type": "magazine",
+      "price": 3980
+    },
+    {
+      "date": "2026-11-05",
+      "productId": "article:unknown-20261105-1",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜担い手不足と品質確保｜令和形式",
+      "type": "article",
+      "price": 1480
+    },
+    {
+      "date": "2026-11-05",
+      "productId": "article:cce-mix-calculation-practice",
+      "title": "コンクリート主任技士｜配合計算 実戦演習12問（途中式・全選択肢解説）",
+      "type": "article",
+      "price": 1480
+    },
+    {
+      "date": "2026-11-04",
+      "productId": "article:pe-construction-oral-guide",
+      "title": "技術士 建設部門｜口頭試験対策 — 令和8年度 改訂コンピテンシー対応の想定問答バンクと合格発表後の準備ロードマップ",
+      "type": "article",
+      "price": 1980
     }
   ],
   "months": {
@@ -2446,10 +2579,12 @@
       "fee": 11011
     },
     "2026-10": {
-      "fetchedAt": "2026-10-31T00:40:31.551Z",
+      "fetchedAt": "2026-11-14T01:00:03.690Z",
       "count": 22,
       "total": 67680,
-      "finalized": false
+      "finalized": true,
+      "net": 57435,
+      "fee": 10245
     },
     "2026-09": {
       "fetchedAt": "2026-10-14T08:49:01.281Z",
@@ -2482,6 +2617,12 @@
       "finalized": true,
       "net": 230463,
       "fee": 44677
+    },
+    "2026-11": {
+      "fetchedAt": "2026-11-14T01:01:07.328Z",
+      "count": 19,
+      "total": 40540,
+      "finalized": false
     }
   }
 }
