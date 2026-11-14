@@ -443,14 +443,6 @@
 **完了条件**: `npm run site-visual-review -- prepare --keys textbook` で撮り直して判定し、record で pass と台帳に記録される。
 
 
-### [DN-1198] 記事ページの note 商品カードの重複を除き、面ごとの枚数と型を検査で固定する
-タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-14] [進行中]
-
-**起点**: 2026-11-14、運営者の指摘（記事の冒頭に note 商品のリンクが重複し見えづらい）。本番 `/exam/civil-construction-1/guide/exam-overview` で見える note は 5 枚（冒頭バナー→直下の手書き `MagazineCard`→本文途中の自動カード→終盤の手書きカード→記事下のもくじタイル）。自動配置（`MagazineTopBanner`・`rehypeMidCta`・`MagazineHeroCta`）と MDX 手書きの `<MagazineCard>`（140 記事 293 箇所）が互いを見ていない（`src/lib/magazine-placement.ts:291-345`）。`scripts/check-cta-density.mjs` は手書きカードを数えず、EXP-053 の隠れた案を 2 と数えるため通っている。
-
-**やること**: plan（`.claude/plans/` のこのカードの ID のファイル）の手順 1〜5（検査の拡張→全ページ集計→`DocPage.tsx`・`magazine-placement.ts` で除外→画面の点検→CI ゲートと design-system §8.5 改定）。転職アフィリエイトは現行維持（2026-11-14 運営者決定・EXP-048 判定 12/26 の後に再検討）。担当は Codex（モデルとエフォートは plan の表）。
-
-**完了条件**: 拡張した `check-cta-density` が全記事ページで検査ページ数 >0・違反 0 件で `quality:audit:ci` に入り、`/site-visual-review` の guide 系が 375・768・1440 で pass、`check-magazine-cta-reachability` が緑のまま develop にマージされている。
 
 
 

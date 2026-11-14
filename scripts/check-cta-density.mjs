@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * ビルド済み HTML の note 密度・商品重複・転職広告の配置とピクセルを検査する。
- * Usage: node scripts/check-cta-density.mjs [--json] [--out <dir>] [--record-dn1198]
+ * Usage: node scripts/check-cta-density.mjs [--json] [--out <dir>]
  * DN-1198 A の記録は B/C が読む。CI 登録は C。検査 0 件・読み取り失敗も exit 1。
  * DOM だけを見る（RSC は除外）。EXP-053 は隣接する image/text の同じ CTA を1枚にする。
  * 記事カード内は note 最大3枚、記事下と右側のもくじは各1枚の別枠。
@@ -15,7 +15,6 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { impressionKeyCounts } from './lib/affiliate-link-keys.mjs';
-import { writeDataset } from './lib/dataset-write.mjs';
 
 import { PAGE_ALLOWLIST, SURFACE_ALLOWLIST } from '../src/lib/cta-density-policy.mjs';
 export { PAGE_ALLOWLIST, SURFACE_ALLOWLIST };
@@ -204,11 +203,8 @@ export function auditDirectory(outRoot) {
 }
 
 export function main(argv = process.argv.slice(2)) {
-  const args = parseCliArgs({ json: { type: 'boolean' }, out: { type: 'string' }, 'record-dn1198': { type: 'boolean' } }, argv);
+  const args = parseCliArgs({ json: { type: 'boolean' }, out: { type: 'string' } }, argv);
   const report = auditDirectory(args.out ? path.resolve(args.out) : path.join(REPO_ROOT, 'out'));
-  if (args.recordDn1198) writeDataset(REPO_ROOT, 'state.cta-layout-dn1198', {
-    _doc: '.claude/plans/DN-1198-cta-layout.md', generatedAt: new Date().toISOString(), ...report,
-  });
   if (args.json) console.log(JSON.stringify(report, null, 2));
   else {
     console.log(`[check-cta-density] 対象 ${report.files} / 検査 ${report.checkedPages} ページ（記事 ${report.articlePages}）・違反 ${report.violationCount} 件 / ${report.violationPages} ページ・取得失敗 ${report.errors.length} 件`);
