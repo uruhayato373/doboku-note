@@ -6722,6 +6722,77 @@
       "durationSec": 218.1
     },
     {
+      "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/png",
+      "sha256": "2b6ba579071012f6d32cf6c55d88a49b65087fb4d6a02b3b01af26cb83f6bcd8",
+      "bytes": 1175991,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/frames.2b6ba579.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/shorts-design.json"
+      },
+      "width": 1800,
+      "height": 640
+    },
+    {
+      "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "22b40711b532364dbd0251b3f8e8a41d5cbf195b9a2d4d4da9be387c86c00dd8",
+      "bytes": 707865,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/cover.22b40711.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付は採用済みの全面POP動画表紙の意匠と先生キャラクターの同一性の参照です。新規の日本語YouTube Shorts表紙を作る。縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。 親しみやすいPOPな教材デザイン。太い黒の輪郭と斜めの面で勢いを出す。白と黄色の極太文字に、少量の赤。資格の色は主色 #33356B と濃色 #24264F。 黄色と白の極太文字。 上部に『技術士 建設部門』。最も大きく見出しを 2 行で書く: 1 行目〈どこに〉、2 行目〈線を引く？〉（〈〉は行の区切りで描かない。行の中の『』はそのまま描く）。肩書きの帯や制作者名は書かない。 表紙の型は「1 問で確かめる」。見出しの下に、その問いの問題文の一文を書いた紙を 1 枚置き、大きな『？』を添える。紙には台本の場面にある問題文の語だけを書き、図や構造物を描かない。見出しの文字は横 110〜970px（画面の中央 80%）の枠の中に中央揃えで置き、枠からはみ出す行は字を小さくするか折り返す。枠の左右（0〜110px と 970〜1080px）には文字を置かず背景だけにする。見出しと紙は画面の上から 60% までに置く（下は字幕が載る）。見出しと紙には指定した文字だけを描き、文字のほかの線・記号・図形は足さない。 先生を大きく（腰から上、顔が画面の幅の2割以上）描く。仕草は「紙を指さす」: 片手の人差し指で見出しの下の紙を指さす。もう片方の手は腰に当てる。先生を画面の中央下に大きく置き、胴体は画面の下端まで途切れず続ける。先生の右手（画面左側）は人差し指を 1 本だけ伸ばして、見出しの下に置いた問題文の紙を指さす。左手（画面右側）は腰に当てる。紙は手に持たせない。見出しは右端から18%より内側で折り返す。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。 指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。 前回の不合格の理由を直す: 文字・余白: 見出し2行目「線を引く？」の「線」と問題文の紙の左端が画面左端から約4%（5%未満）しか空いておらず、左右5%以上の余白を満たさない。加えて資格名ラベルの下に指示にない黄色の下線が付いている。先生の顔・指・服装・手は崩れておらず、字は誤字なし。",
+        "promptSha256": "31ba4d6f270c84b41a217f0ba0f5b7ff8697bb17cb53ee45d92698a3450d3184",
+        "generatedAt": "2026-11-11T23:18:54.713Z"
+      },
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "a6e56f5876d154940a73e90cbc0e404b8705276cda77d243cabe5bdf58862d80",
+      "bytes": 2064,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/subtitles.a6e56f58.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/shorts-design.json"
+      }
+    },
+    {
+      "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "8340fb80c32754085a4e5f62af0104656f16c0d5fdea6882f3c039da9c45c1b7",
+      "bytes": 5362628,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/video.8340fb80.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "shorts-factory",
+        "spec": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/shorts-design.json"
+      },
+      "durationSec": 27.067
+    },
+    {
       "id": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
