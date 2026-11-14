@@ -1,6 +1,6 @@
 ---
 name: reference_book_sources_drive_vault
-description: "Google Drive vault。書籍文字起こしの移設先と構造・ストリーミングマウントの罠(stat 16MiB・アップロード中ECANCELED)・Drive MCP でバイナリ送信不可"
+description: "Google Drive vault。書籍文字起こしの移設先と構造・ストリーミングマウントの罠(stat 16MiB・アップロード中ECANCELED)・Drive MCP でバイナリ送信不可・launchd からは読めない(-11)"
 metadata:
   type: reference
 ---
@@ -36,6 +36,15 @@ doboku-note/
 - 各サブディレクトリの `README.md` だけは git 追跡を継続（案内用）
 - git 履歴には旧コミットの内容がまだ残っている（force-push は複数セッション並行環境で危険なため未実施）
 - 構造の SSOT は [[reference_civil_pdfs]] が併記する asset-storage-policy.md §1-1。土木奥義（基準類696本）は移動せず現位置
+
+---
+
+## launchd から起動した処理は Drive の中身を読めない（2026-11-14 実測）
+
+土曜の収集（launchd `com.doboku-note.weekly-review`・`/bin/bash` 起動）の note 同期が、10/31・11/8・11/14 と毎週 RCCM の配布 PDF で `Unknown system error -11`（node）を出し、Drive を再起動しても直らず、PDF の要る記事を全部翌週へ回していた。マガジンのカバーを Drive へ書く処理も同じ理由で落ちている。
+- **原因は macOS のプライバシー保護**: `launchctl submit` で同じ PDF を読ませると、`sh` は `Operation not permitted`、node は `-11`。対話セッション（Claude アプリ・ターミナル）からは同じファイルを読める（`ls -lO` が `dataless` でも読むと取り寄せる）。stat だけは通るので「ファイルはある・読めない」になる。
+- **Drive の停止ではない**: `note-sync-routine.mjs` の「3 件続けて失敗したら Google Drive を再起動」はこの原因には効かない。
+- **How to apply:** launchd の処理で Drive を読み書きして失敗したら、まずこの許可を疑う。確かめ方は `launchctl submit -l <label> -- /bin/sh <読むだけのスクリプト>` で 1 ファイル読ませ、`launchctl remove <label>`。Drive を読む処理は、許可を持つ Claude アプリのスケジュール済みタスクか対話セッションで回す。
 
 ---
 
