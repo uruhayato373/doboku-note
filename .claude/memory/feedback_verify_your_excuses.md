@@ -68,3 +68,7 @@ metadata:
 ## macOS 専用の処理は、Linux の CI で落ちない形で最初から書く（2026-11-14）
 収集スクリプトに macOS の libSystem を呼ぶ処理を足して PR を出し、CI（Linux）の unit tests を 2 件赤にした（#1591・修正 1 回）。
 - **How to apply:** macOS 専用の呼び出しは `uname` が Darwin のときだけ通し、失敗しても元の処理へ戻る形にしてから push する。
+
+## この Mac（メモリ 8GB）で重い検査を重ねない（2026-11-14）
+土曜の収集の最中に `quality:audit:ci` を重ね、午後には管理画面の tsc を重複して走らせた。11:15 にメモリ不足の強制終了（JetsamEvent）、11:59 と 15:16 に正常終了の記録が無い再起動（15:16 は forceReset）が起き、収集の後段が途中で消えた。時刻は 2 回とも私の重い検査と一致する（因果は未確定）。
+- **How to apply:** 重い検査（`quality:audit:ci`・tsc・テスト全件・build）は同時に 1 本まで。土曜 9:30 からの収集の最中は回さない（`~/Library/Logs/doboku-note/weekly-review.lock/pid` のプロセスが生きているかで確かめる）。時間切れで background に回ったコマンドを、終わる前に打ち直さない。
