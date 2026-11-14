@@ -23,6 +23,7 @@ on:
       - "config/keiken-answer-sheet-limits.json"
       - "config/note-funnel.json"
       - "config/product-lineup.json"
+      - "config/products.json"
       - "config/qualification-registry.json"
       - "config/seo-meta-config.json"
       - "config/standards-structure.json"

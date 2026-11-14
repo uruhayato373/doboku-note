@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, BookOpen } from 'lucide-react';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import { WIDE_CONTAINER } from '@/components/layout/container';
-import DisclosureChevron from '@/components/ui/DisclosureChevron';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from '@/components/ui/AffiliateParts';
 import { COCONALA_A8_PIXEL } from '@/config/affiliate-creatives';
 import { buildLearningCatalog, type LearningProduct, type LearningQualification } from '@/lib/learning-catalog';
@@ -74,14 +74,13 @@ function QualificationCard({ exam }: { exam: LearningQualification }) {
         {exam.support.map((product) => <ProductRow key={product.id} product={product} />)}
       </div>
       {remaining.length > 0 && (
-        <details className="border-t border-(--rule-soft) dark:border-(--rule-soft)">
-          <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-3 text-sm text-(--accent) transition-colors hover:bg-(--accent-fill) [&::-webkit-details-marker]:hidden">
-            <DisclosureChevron />ほかの教材（{remaining.length}件）
-          </summary>
+        <Disclosure variant="plain" chevron="start" className="border-t border-(--rule-soft) dark:border-(--rule-soft)"
+          summaryClassName="px-4 py-3 text-sm text-(--accent) transition-colors hover:bg-(--accent-fill)"
+          summary={`ほかの教材（${remaining.length}件）`}>
           <div className="divide-y divide-(--rule-soft) border-t border-(--rule-soft) dark:border-(--rule-soft)">
             {remaining.map((product) => <ProductRow key={product.id} product={product} />)}
           </div>
-        </details>
+        </Disclosure>
       )}
     </section>
   );
