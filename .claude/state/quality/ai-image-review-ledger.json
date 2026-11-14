@@ -27064,6 +27064,12 @@
       "reason": "8項目すべてを確認し、題材・実物・安全・人物・文字・AI感・切れ・明るさに問題がない（codexの指摘は当たらない、または許容範囲）",
       "reviewer": "codex+ai-image-fidelity-auditor",
       "reviewedAt": "2026-11-13T03:10:08.314Z"
+    },
+    "media:pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/cover": {
+      "sha": "d4c120f912f7bb57",
+      "verdict": "ok",
+      "reason": "見出し『テーマ名を/覚えれば/書ける』？と上部の資格名が指示と一字一句一致し左右余白5%以上、記号の重なり・肩書き帯なし、首かしげ・あごに手・腰に手で指5本、胴体は下端まで続く",
+      "reviewedAt": "2026-11-11T22:53:07.332Z"
     }
   }
 }

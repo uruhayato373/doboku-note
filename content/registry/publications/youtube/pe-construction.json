@@ -1838,10 +1838,33 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-themename-1",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
       "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/video",
+        "cover": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/cover",
+        "contact-sheet": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/contact-sheet",
+        "subtitles": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/subtitles"
+      },
+      "publishAt": "2026-11-15T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-14T13:09:12.545Z",
+          "digest": "85dffd37248d6d4fc9e86726ecacc5c0c439ed94f2473f89e8421e19c954f364"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-14T13:09:12.545Z",
+        "contentSha256": "0061dfd35951d38c8fcae116b14510db0a47f0539e9703283354da8c8abc5425"
+      },
+      "times": {
+        "rendered": "2026-11-14T13:09:12.733Z"
+      }
     },
     {
       "id": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
