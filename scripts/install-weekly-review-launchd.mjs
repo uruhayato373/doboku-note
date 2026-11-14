@@ -62,6 +62,9 @@ if (argv.includes('--status')) {
   if (existsSync(PLIST_PATH)) rmSync(PLIST_PATH);
   console.log(`${TAG} 解除した（${PLIST_PATH} を削除）。土曜の収集と GSC の記録層は止まる。`);
 } else if (argv.includes('--run-now')) {
+  // 収集スクリプトは土日以外・今週の収集が済んだ後は何もしない。印を置くと曜日を問わず最初から回す
+  mkdirSync(join(HOME, 'Library', 'Logs', 'doboku-note'), { recursive: true });
+  writeFileSync(join(HOME, 'Library', 'Logs', 'doboku-note', 'weekly-review.force'), `${new Date().toISOString()}\n`);
   const r = launchctl('kickstart', `${domain}/${LABEL}`);
   if (r.status !== 0) {
     console.error(`${TAG} ✗ 実行できない（未登録？）: ${(r.stderr || '').trim()}`);
