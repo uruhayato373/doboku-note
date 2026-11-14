@@ -19,7 +19,7 @@ title: 推奨ワークフロー
 2. 収集の前段（weekly-collect --phase pre）<- ログインが要る取得と、その検算・note の公開状態の照合
 3. GSC の記録層（run_gsc_record・旧 gsc-auto-review.yml）<- ダイジェストの OPP に意味の判断を足す（失敗は channel gsc-auto-review）
 4. 収集の後段（weekly-collect --phase post）<- note のライブ照合・同期
-運営者の指示で（土曜以降いつでも・抜けた週は後日まとめて）:
+土曜 13:10 JST（デスクトップアプリのスケジュール済みタスク doboku-weekly-review。落ちた週は運営者の指示で後日）:
 5. /weekly-review                       <- 実績を振り返る（計測ダイジェストを埋め込み、全件トリアージで backlog/実験へ起票）
 6. /plan-weekly                         <- 来週の計画を .claude/todo/weekly.md に書く（[時期:] が今月を含むカードと申し送りの DN から選定）
 月曜:
@@ -30,7 +30,9 @@ title: 推奨ワークフロー
 
 詳細は `.claude/skills/weekly-review/SKILL.md` と `.claude/skills/plan-weekly/SKILL.md` を参照。
 
-**実行主体（2026-11-08〜）**: 週次・月次レビューは**運営者の指示で対話セッションが実行する**（`/weekly-review`・`/plan-weekly`・`/monthly-review`）。土曜の launchd は収集と GSC の記録層だけを回し、レビューを回さない。画面のないレビューは落ちても気づかれず（2026-W45 は収集の失敗で止まり、下書きだけが worktree に残った）、抜けた週は後日まとめて回せば足りるため。未作成の週は SessionStart の `check-weekly-review-due` が 1 行で知らせるだけで、月曜の guard の赤落ち（「Check last week's review exists」）も外した。自動実行用の worktree は `.claude/worktrees/weekly-collect` の 1 本で、毎日の GSC の登録（`gsc-indexing-daily.sh`）も同じものを使う（土曜の収集の実行中は譲る）。
+**実行主体（2026-11-14〜）**: 週次レビューと週次計画は**デスクトップアプリのスケジュール済みタスク `doboku-weekly-review`（土曜 13:10・専用 worktree `.claude/worktrees/weekly-review`）が実行する**。実行はアプリのセッションとして残り、報告を読んでそのまま続きを指示できる。親は判断と本文だけを担当し、材料の収集（general-purpose・sonnet）と計画（todo-planner）の 2 体だけを起動する。アプリが開いていて Mac が起きていることが前提で、落ちた週は運営者の指示で対話セッションが回す。月次レビュー（`/monthly-review`）は運営者の指示のまま。土曜の launchd は収集と GSC の記録層だけを回し、レビューを回さない。
+
+**以前の実行主体（2026-11-08〜11-13）**: 週次レビューも運営者の指示で対話セッションが実行していた。ヘッドレスのレビューは落ちても気づかれなかったため（2026-W45 は収集の失敗で止まり、下書きだけが worktree に残った）自動実行をやめたが、手動では W45 が未完・W46 が未作成のまま滞った。未作成の週は SessionStart の `check-weekly-review-due` が 1 行で知らせるだけで、月曜の guard の赤落ち（「Check last week's review exists」）も外した。自動実行用の worktree は `.claude/worktrees/weekly-collect` の 1 本で、毎日の GSC の登録（`gsc-indexing-daily.sh`）も同じものを使う（土曜の収集の実行中は譲る）。
 
 **以前の実行主体（2026-10-10〜11-07・3 段）**: (1) 金曜の CI の下書き（`weekly-review-draft.yml`）は土曜に作り直すので使われておらず、2026-10-25 に外した（DN-0849）。下書き（`.claude/state/weekly-review/draft.json`）は土曜の Mac が収集の後に作る。(2) 土曜 9:30 に Mac の launchd `com.doboku-note.weekly-review`（`scripts/scheduled/weekly-review.sh`・導入は `npm run weekly-review:install`）が、まず収集用 worktree でログインが要る取得（`weekly-collect --phase pre`：ログイン確認・A8・KDP・note・ココナラ・GSC・note の公開状態の照合〔note-audit〕。各段は取った記録の検算つき。2026-10-24〜、DN-0817）を回し、専用 worktree で GSC の記録層（`run_gsc_record`・ヘッドレスの Claude が観測ログの断片を書き `apply-gsc-records` が追記・失敗は channel gsc-auto-review・DN-0849）を回したあと、ヘッドレスの Claude Code に `/weekly-review` と `/plan-weekly` を回させ develop へ push し、最後に後段（`--phase post`：note のライブ照合・同期）を回す。レビューは記録と最終取得日を読み、ログインして取りに行かない。収集の失敗は別の Issue（channel: weekly-collect）、日々の死活は `npm run check-weekly-collect:alive`、段ごとの合否は `npm run check-weekly-collect`（週次レビューが読む・DN-0847）。develop に今週分が入らなければ Issue（channel: weekly-review-local）。(3) 判断待ちの諮問はヘッドレスでは聞けないので、レビューの印 `<!-- weekly-review:pending-questions -->` を SessionStart の `check-weekly-review-due` が知らせ、対話セッションで諮る。月曜の guard は従来どおり先週分の実在を見る。経緯: 2026-W40 が抜けた（土曜に対話セッションを開かないと何も始まらず、fetch-metrics の書き戻しが止まっていたことにも気づかなかった）。
 

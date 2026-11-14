@@ -2,7 +2,7 @@
 /**
  * check-weekly-review-due.mjs — 週次レビュー（ローカル実行）の催促 surfacer（SessionStart 用）
  * ---------------------------------------------------------------------------
- * 週次レビューは運営者の指示で対話セッションが実行する（2026-11-08 に土曜の自動実行をやめた）。
+ * 週次レビューは土曜 13:10 のスケジュール済みタスク doboku-weekly-review が実行する（2026-11-14〜。落ちた週は運営者の指示で対話セッションが回す）。
  * 抜けた週は月曜以降に回せば足りるので赤落ちはさせず、土曜 09:00 JST を過ぎて
  * docs/reviews/weekly/YYYY-Www-review.md が無ければセッション開始時に 1 行で知らせるだけにする（唯一の知らせ）。
  *
@@ -15,7 +15,7 @@
  *   node scripts/check-weekly-review-due.mjs          # exit 0 = 催促なし / 1 = DUE
  *   node scripts/check-weekly-review-due.mjs --json
  *
- * npm run check-weekly-review-due — 週次レビューの未作成を知らせる（土曜 09:00 JST 以降に今週分、月〜金は先週分の *-review.md が無ければ exit 1・SessionStart フックが呼ぶ唯一の知らせ。レビューは運営者の指示で実行し、抜けた週は後日でよい。最新レビューに <!-- weekly-review:pending-questions --> があれば諮問待ちとして 1 行）
+ * npm run check-weekly-review-due — 週次レビューの未作成を知らせる（土曜 09:00 JST 以降に今週分、月〜金は先週分の *-review.md が無ければ exit 1・SessionStart フックが呼ぶ唯一の知らせ。レビューは土曜 13:10 のスケジュール済みタスクが実行し、落ちた週は運営者の指示で後日回す。最新レビューに <!-- weekly-review:pending-questions --> があれば諮問待ちとして 1 行）
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -64,7 +64,7 @@ export async function run({ argv = [], quiet = false } = {}) {
   const exists = (w) => existsSync(join(ROOT, 'docs', 'reviews', 'weekly', `${w}-review.md`));
   const due = dueWeek(Date.now(), exists);
   if (json) { out.log(JSON.stringify({ due, checkedAt: new Date().toISOString() })); }
-  else if (due) { out.log(`[weekly-review-due] ${due} の週次レビューが未作成（土曜 09:00 JST 以降）。運営者の指示で /weekly-review を実行する（後日でよい・完了後 /plan-weekly で weekly.md を更新）`); }
+  else if (due) { out.log(`[weekly-review-due] ${due} の週次レビューが未作成（土曜 09:00 JST 以降）。土曜 13:10 のスケジュール済みタスク doboku-weekly-review が回す。落ちていたら運営者の指示で /weekly-review を実行する（後日でよい・完了後 /plan-weekly で weekly.md を更新）`); }
   // 以前のヘッドレスの週次レビューが残した判断待ちの印。印が残っている間は対話セッションで諮る
   const pending = pendingQuestionsReview(join(ROOT, 'docs', 'reviews', 'weekly'));
   if (!json && pending) out.log(`[weekly-review-due] ${pending} に諮問待ちがある（週次レビューが残した判断待ち）。「## バックログの関門」の候補を運営者に諮り、台帳を直して印（${PENDING_MARK}）を消す`);

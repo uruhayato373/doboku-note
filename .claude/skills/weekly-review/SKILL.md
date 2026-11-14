@@ -26,10 +26,10 @@ domain: strategy
 
 **配線の正本**: このスキル（本ファイルと `references/`）が実行するコマンドは `.claude/config/review-wiring.json` の weekly に段（KPI ツリー）と役割（判断／点検）付きで載せる（check-review-wiring が食い違いを止める）。**起票したカードの本文の起点は「週次レビュー（開始日〜終了日）」で始める**（管理画面がレビュー由来のカードを数える）。
 
-## 実行主体（2026-11-08〜）
+## 実行主体（2026-11-14〜）
 
 1. **土曜 9:30・Mac の launchd**（`scripts/scheduled/weekly-review.sh`・`npm run weekly-review:install`）が、ログインが要る取得を土曜の収集（`scripts/weekly-collect.mjs --phase pre`／`post`）で回し、GSC の記録層を回す。レビューは回さない。
-2. **運営者の指示で対話セッションが**本スキルと `/plan-weekly` を実行する（土曜以降いつでも。抜けた週は後日まとめて回してよい）。未作成の週は SessionStart の `check-weekly-review-due` が知らせる。
+2. **デスクトップアプリのスケジュール済みタスク `doboku-weekly-review`（土曜 13:10・専用 worktree `.claude/worktrees/weekly-review`）が**本スキルと `/plan-weekly` を実行し、develop へ記録して「運営者の入力が要るもの」を報告する（収集が実行中なら見送る。判断待ちは既定で「見送り・承認待ち」）。アプリが閉じていた週・落ちた週は、運営者の指示で対話セッションが回す（後日まとめてよい）。未作成の週は SessionStart の `check-weekly-review-due` が知らせる。
 3. 実行の最初に `npm run weekly-review:draft` で機械の節（`draft.json`）を作り直す。Claude の中ではログインしない（直前の収集の記録と `runs.json`・`npm run check-weekly-collect` を読み、失敗・skipped の段は理由とともに未取得と書く）。外部への公開・投稿・送信・購入はしない。運用の詳細 → [operations.md](references/operations.md)。
 
 ## 手順と読む reference
