@@ -8392,6 +8392,23 @@
       "commit": "39284863abc0",
       "verification": "売上関連28テストPASS。PR1587 head af5098368 のPre-merge check(build/test/audit)・e2e・CodeQLすべてPASS。",
       "note": "原稿の題名・公開URL・既存の命名規則で単品2件を確定。旧マガジン名は再取得で台帳から消えるため、明示的な旧名対応を追加。金額・件数は変更なし。93290b877で修正済み、同じ変更をPR1587でdevelopへ取り込む。"
+    },
+    {
+      "id": "DN-1197",
+      "at": "2026-11-14",
+      "task": "土曜の収集の launchd を入れ直し、再起動の後の回し直しを有効にする",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "入れ直しは 1 回きりの操作。plist の雛形の RunAtLoad は tests/weekly-review-launchd.test.mjs の筋書きが前提にしている"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8200bcbb9cfb",
+      "verification": "grep -A1 RunAtLoad ~/Library/LaunchAgents/com.doboku-note.weekly-review.plist が <true/>",
+      "note": "2026-11-14 16:26 に develop の先端（8200bcbb9）から npm run weekly-review:install で入れ直した。plist の RunAtLoad は true。読み込み時に起動し、今週の範囲 post（note-live → note-sync → note-sync-check）を回し始めたことをログで確認"
     }
   ]
 }
