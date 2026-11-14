@@ -352,6 +352,7 @@ export const DATASETS = [
   d('state.cloudflare-zone-config', '.claude/state/cloudflare/zone-config-{name}.json', 'state', 'ops', 'Cloudflare のゾーン設定の基準線・最新・ドリフト（cloudflare-metrics.yml の金曜の設定の監査が develop へ書く）'),
   d('state.svg-catalog', '.claude/state/svg-catalog.json', 'state', 'site', 'SVG の一覧（生成索引）'),
   // 品質ゲートの基準と採点（quality/）
+  d('state.cta-layout-dn1198', '.claude/state/quality/cta-layout-dn1198.json', 'state', 'site', 'DN-1198 A の全 HTML CTA 配置監査。B/C が修正対象を読む'),
   d('state.quality-baselines', '.claude/state/quality/{name}-baseline.json', 'config', 'ops', '品質ゲートの基準線（lint・knip・画像・git バイナリ・図のクロップ・エージェントの説明）'),
   d('state.quality-scores-by-qualification', '.claude/state/quality/{name}-scores.json', 'state', 'site', '資格ごとの採点（1級土木一次・2級土木・コンクリート主任技士・建設部門・第一次試験・総監その他）'),
   d('state.quality-history', '.claude/state/quality/history.jsonl', 'ledger', 'ops', 'quality:audit の結果の推移'),

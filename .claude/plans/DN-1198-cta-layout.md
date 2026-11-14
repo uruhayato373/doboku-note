@@ -30,7 +30,8 @@ deleteOnComplete: true
 ## 配置ルール（design-system.md §8.5 を改定）
 
 1. 記事カード内で見える note は最大 3 枚（手書きを含めて数える）。記事下のもくじタイルは別枠で 1 枚。
-2. 同じ商品は 1 ページ 1 回。
+2. 同じ商品は 1 ページ 2 回まで、許すのは「冒頭バナー＋本文直後の再掲（`MagazineHeroCta`・ラベル `-top-end`／`-end`）」の組だけ（2026-11-14 運営者決定）。本文途中（自動の `article-mid`・手書き）で冒頭や他の枠と同じ商品を出さない（一次過去問の「冒頭商品を中間にも表示」はやめる）。記事末の `HubCtaBanner`（`-footer`）と右サイドバー（`-docs-sb`）のもくじタイルは「教材一覧の枠」として重複の数に入れない。
+   - 検査の対象外（理由つきで検査コードの許可リストに書く）: 基準書 `/standards/**`（記事ページではなく別実装・広告面は配置ルールの管轄）、`/links`（商品一覧ページ）、記事末の `article-end-offsite`（ココナラ。転職アフィリエイトではない）、キャリア記事の `career-multi-register`（転職が主導線の記事・訴求設計 §12）、手書きカードが 4 枚以上ある商品一覧型の記事 7 本（集計の「B/C への引き継ぎ」の一覧。中身の構成なので枚数上限から外す。ただし同一商品の重複は直す）。
 3. 最初の h2 より前に手書きの `<MagazineCard>` がある記事は、冒頭バナーを出さない（手書きを優先）。
 4. 手書きカードが 2 枚以上ある記事は、本文途中の自動 note 枠を出さない（関連記事と転職カードの枠は残す）。
 5. 転職アフィリエイトは現行維持（2026-11-14 運営者の決定）。面を増やすかは EXP-048 の判定（12/26）の後に決める。
@@ -123,4 +124,60 @@ Codex は worktree（`~/.codex/worktrees/`）の feature ブランチ 1 本で A
 
 ## 集計
 
-（A が追記する）
+A 実施（2026-11-14、起点 `a7a2204e18`）。git 書き込み・claim・配置変更・CI 登録は未実施。明細は [.claude/state/quality/cta-layout-dn1198.json](../state/quality/cta-layout-dn1198.json)。
+
+- HTML 対象 **2435**、実検査 **2435**（記事 **2279**）、取得失敗 **0**。違反 **2796 件 / 2003 ページ**。監査は想定どおり exit 1。
+- 内訳: 同一商品重複 1,319 件、記事カード内 >3 枚 11 件、最初の h2 前 >1 枚 12 件、禁止面の sponsored 762 件、転職 >1 枠 691 件、既存の note 総数上限 1 件。ピクセル重複は 0 件。
+- A/B は隣接する image/text の同一 CTA だけを1枚に集約。商品は UTM を除いた note URL で照合。手書きは本文内かつ article-mid 以外、自動は冒頭・途中・本文外として分類する。サイドバーは main の兄弟も検査し、転職枠は 993px 境界の切替を考慮して mobile/desktop の多い方を記録。
+
+| ページ種別 × 原因 | 違反件数 | ページ数 |
+|---|---:|---:|
+| exam/guide × アフィリ | 21 | 21 |
+| exam/guide × 自動同士 | 119 | 115 |
+| exam/guide × 自動×手書き | 30 | 25 |
+| exam/guide × 手書き同士 | 14 | 13 |
+| exam/keywords × アフィリ | 17 | 17 |
+| exam/keywords × 自動同士 | 697 | 697 |
+| exam/keywords × 自動×手書き | 1 | 1 |
+| exam/keywords × 手書き同士 | 10 | 10 |
+| exam/past-exams × 自動同士 | 219 | 219 |
+| exam/past-exams × 自動×手書き | 3 | 2 |
+| exam/pillar × 自動同士 | 5 | 5 |
+| exam/pillar × 自動×手書き | 5 | 5 |
+| exam/primary × アフィリ | 8 | 8 |
+| exam/primary × 自動同士 | 137 | 137 |
+| exam/primary × 自動×手書き | 23 | 23 |
+| exam/secondary × アフィリ | 19 | 19 |
+| exam/secondary × 自動同士 | 14 | 14 |
+| exam/secondary × 自動×手書き | 9 | 4 |
+| exam/secondary × 手書き同士 | 9 | 4 |
+| exam/textbook × アフィリ | 8 | 8 |
+| exam/textbook × 自動同士 | 64 | 64 |
+| non-article × 自動同士 | 1 | 1 |
+| standards × アフィリ | 1380 | 690 |
+
+原因は重複計上あり（自動と手書き2枚以上が混在する密度超過など）。ページ数も行間で重複する。全体値は JSON の violationCount / violationPages を使う。
+
+### B/C への引き継ぎ
+
+- **手書き同士の同一商品重複は 19 記事**。20以下なので B 内で対応可能。JSON の `rule=note-product-dup` かつ `causes` に `manual-manual` を含む行が一覧（商品URL・ラベル・配置・DOM順つき）。
+- 自動枠を消しても手書きだけで3枚を超える記事は 7 本。単なる同一商品の重複除去では不足するものがある:
+  - `exam/civil-construction-2/secondary/experience-writing-examples`: 手書き 16 枚
+  - `exam/civil-construction-2/secondary/experience-writing-guide`: 手書き 6 枚
+  - `exam/civil-construction-2/secondary/r07`: 手書き 4 枚
+  - `exam/concrete-chief-engineer/guide/essay`: 手書き 18 枚
+  - `exam/concrete-diagnostician/guide/essay`: 手書き 7 枚
+  - `exam/pe-comprehensive-management/guide/essay-persona-guide`: 手書き 8 枚
+  - `exam/rccm/guide/mondai1-keiken-ronbun`: 手書き 7 枚
+- 自動同士の重複も対象。例: `exam/civil-construction-1/guide/1-vs-2` は reading-guide が article-top / article-end に各1枚。冒頭と手書きの照合だけではゼロにならない。
+- **設計と既存面の衝突があるため、B/C で扱いを判断する**。基準書690ページに standards-* の広告面があり、禁止面と複数枠で計1,380件。DocPage 以外の別実装なので今回変更していない。記事末の sponsored 72ページは `article-end-offsite` のココナラ導線。転職のみの禁止と解釈して勝手に除外せず、plan の「rel=sponsored が無い」をそのまま判定した。
+- `exam/civil-construction-1/guide/market-value-check` は既存の career-multi-register が2枠。`/links` は商品一覧138枚で既存の総数30上限に抵触する（記事カードの3枚上限とは別）。これらも削除・除外はしていない。
+
+### 実行した検証
+
+- `npm run build`: tsx CLI の IPC が sandbox で EPERM。package scripts の build チェーンを展開した後、tsx 起動を `node --import tsx`、Next を `node node_modules/next/dist/bin/next build --webpack` に置換し、同じ前後処理を完走（exit 0）。共有 node_modules・package.json は未変更。静的生成2,462ページ、最終HTML2,435件、検索索引2,103件、sitemap2,103件。コンパイルと TypeScript 検査も成功。再現コマンドと全ログ: `.tmp/dn1198-build-webpack.log`（先頭行に展開済みコマンド）。置換は再帰展開の完了後に1回だけ行う（途中で置換すると node --import が重複する）。
+- `node --test tests/{cta-density,affiliate-link-keys,note-body-experiment,affiliate-design-experiment,script-helpers-ratchet,cli-args-ratchet,read-json-ratchet,scripts-no-undef}.test.mjs`: **8ファイル・34テスト、失敗0**。新規CTA回帰14テストを含む。
+- `node scripts/check-cta-density.mjs --record-dn1198`: 上記2,435件を実検査、違反2,796件、exit 1。JSONを生成。
+- `npm run lint`: exit 0。`git diff --check`: 違反0。`node scripts/check-task-plan-links.mjs`: plan 3件・backlog 260件、違反0。
+- `npm run check-datasets`: 899追跡ファイル・296データセットを検査、違反1（新規JSONが未addのため追跡一覧に無い）。JSON自体は台帳照合・集計整合を別途1ファイル実検査し違反0。**親がadd後に再実行する**。別に DN-0262 の claim 参照切れの警告あり（claim操作は禁止されているため未変更）。
+- 全体 `npm run test`（git操作を含むテストがある）と `quality:audit:ci`、画面点検は未実施。今回はAの検査関連テストに限定。B以降の配置・MDX・実験描画/計測は変更していない。
