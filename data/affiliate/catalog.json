@@ -9,7 +9,7 @@
     "unavailable": "その ASP に案件自体が無い",
     "unknown": "未確認（調べていない。none と区別する）"
   },
-  "updatedAt": "2026-11-14T01:08:42.653Z",
+  "updatedAt": "2026-11-14T01:18:28.549Z",
   "verifiedAt": "2026-11-13",
   "_verifiedNote": "2026-09-08部分照合: A8は口座a25050375786の案件詳細、BuildJobは広告作成websiteId002/既存mat一致まで確認。もしも4案件はshop_site_id672381とselectedOption=doboku-noteを実機確認。afbは今回未確認、旧値保持。各ASPのverifiedAt/verificationScopeを参照。",
   "programs": {
@@ -3648,5 +3648,40 @@
     "afb: 検索 5 語のうち「建設」「現場」が回線タイムアウトで取得できず。**『afb に建設案件が無い』ではなく『検索できた範囲には無かった』**。回線が落ち着いたら `npm run afb:scan -- --query 建設,現場` で補完する",
     "afb: 成果レポートの実数は未取得（フォーム送信が自動化で通らない）。サイトに afb リンクが 0 本なので構造上ゼロのはずだが『ゼロと確認した』ではない",
     "もしもの Amazon.co.jp商品購入 / 楽天市場は旧台帳で『提携済』だが doboku-note の提携中一覧に出ない。解除か『かんたんリンク』が別枠かは未確認（書籍アフィリ自体は 2026-06-25 廃止済みなので実害なし）"
-  ]
+  ],
+  "_spotConsultResearch": {
+    "checkedAt": "2026-11-14",
+    "scope": "技術士個人の経験を提供するスポットコンサル・顧問登録。全ASPでの不存在を断定しない。",
+    "results": [
+      {
+        "asp": "moshimo",
+        "siteId": "672381",
+        "queries": [
+          {
+            "term": "ビザスク",
+            "hits": 0
+          },
+          {
+            "term": "スポットコンサル",
+            "hits": 0
+          },
+          {
+            "term": "サーキュレーション",
+            "hits": 0
+          },
+          {
+            "term": "HiPro",
+            "hits": 0
+          },
+          {
+            "term": "顧問",
+            "hits": 11,
+            "checked": 11
+          }
+        ],
+        "source": "https://af.moshimo.com/af/shop/promotion/search?words=%E9%A1%A7%E5%95%8F&shop_site_id=672381&limit=100",
+        "finding": "顧問11件は税務・労務・融資・スクール・Web運用等。イグジッターは企業側の相談申込（成果30,000円）で個人の知見提供登録ではない。検索した範囲で対象案件は見つからなかった。"
+      }
+    ]
+  }
 }

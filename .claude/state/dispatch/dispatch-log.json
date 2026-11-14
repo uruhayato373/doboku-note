@@ -8326,6 +8326,19 @@
       "commit": "52422a5e1fe0",
       "verification": "moshimo-report --check / product-sales / report-product-funnel / tests/moshimo-report.test.mjs",
       "note": "月次取得段・週次認証/検算・販売台帳/商品ファネルを実装。2026-11-14 接続 Chrome でサイト672381・期間・列を読み戻し、10月と11月各2案件を取得。観測した0件と未計測を分離しGA4 p_idから2案件の販売行へ結合。土曜の定期収集の実行自体は次回。"
+    },
+    {
+      "id": "DN-1165",
+      "at": "2026-11-14",
+      "task": "基準書以外の面も面ごとのサイズの決まりで台帳の素材から画像バナーを選ぶ（記事・カテゴリ・トップ・ツール・トピック・法令）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e1c8ce08a0ce",
+      "verification": "check-affiliate-mats / check-affiliate-wiring / check-affiliate-placements / type-check / tests/affiliate-creative-pick.test.mjs / UI14画面 / CI build E2E",
+      "note": "カテゴリ・トップ・ツール・トピック・法令と基準書のバナーを共通の台帳/サイズ選択へ統一。既存pairs/splitsは維持し、画像無しは小型カード。7ページ×375/1440pxの14画面で画像・main・主要語・横はみ出し無しを確認。GitHub build/E2E通過（43537444211/43537444207）。"
     }
   ]
 }
