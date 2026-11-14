@@ -82,7 +82,7 @@
       "format": "longform",
       "variant": "reading-fix",
       "revisionOf": "pe-construction/hissu1-infra-roukyuuka/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.revision-reading-fix.json",
       "media": {
         "cover": "pe-construction/hissu1-infra-roukyuuka/work/candidate-cover",
@@ -135,11 +135,12 @@
       "platform": {
         "id": "w5kX20cj5Yk",
         "url": "https://www.youtube.com/watch?v=w5kX20cj5Yk",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.revision-reading-fix.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-14T03:34:05.329Z"
+        },
+        "publishedAt": "2026-11-13T11:30:30.000Z"
       },
       "times": {
         "uploaded": "2026-11-10T10:10:19.267Z",
@@ -515,7 +516,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-purpose-1",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1",
       "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -567,13 +568,14 @@
       "platform": {
         "id": "OdKCHkNllG4",
         "url": "https://www.youtube.com/watch?v=OdKCHkNllG4",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-purpose-1"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-14T03:34:05.329Z"
         },
         "relatedVideoId": "AWiTjuOa1U4",
-        "desiredRelatedVideoId": "AWiTjuOa1U4"
+        "desiredRelatedVideoId": "AWiTjuOa1U4",
+        "publishedAt": "2026-11-13T05:30:37.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -1585,7 +1587,7 @@
       "work": "pe-road-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform/scene-001",
@@ -1646,11 +1648,12 @@
       "platform": {
         "id": "8PgWfKBlFaE",
         "url": "https://www.youtube.com/watch?v=8PgWfKBlFaE",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-14T03:34:05.329Z"
+        },
+        "publishedAt": "2026-11-14T03:15:12.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -1763,7 +1766,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-jogai-2",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-jogai-2",
       "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1815,13 +1818,14 @@
       "platform": {
         "id": "nOml4YwNQJw",
         "url": "https://www.youtube.com/watch?v=nOml4YwNQJw",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-jogai-2"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-14T03:34:05.329Z"
         },
         "relatedVideoId": "IrhUBYTTpQI",
-        "desiredRelatedVideoId": "IrhUBYTTpQI"
+        "desiredRelatedVideoId": "IrhUBYTTpQI",
+        "publishedAt": "2026-11-13T22:30:00.000Z"
       },
       "thumbnail": {
         "status": "set",
