@@ -30,6 +30,7 @@ import { todayJst } from "./lib/jst-date.mjs";
 import { parseLegacyRedirects } from "./lib/legacy-routes.mjs";
 import { SNS_CONTENT_ROOT } from "./lib/repository-paths.mjs";
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { parseCatalog } from "./lib/coconala-catalog.mjs";
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -61,17 +62,13 @@ const publicPaths = new Set([...parseLegacyRedirects(redirectsText)]
   .map(([, to]) => to));
 
 // ── カタログ SoT の読み込み ────────────────────────────────────────────────
-/** id → status/url の並び順はファイル規約（check-coconala-wiring.mjs parseCatalog と同型） */
+/** serviceUrl → { id, status }。読み方は共通の parseCatalog（欄の並び順に依存しない。2026-11-14 に独自の正規表現が
+ *  末尾に serviceUrl を置いた出品を読み落とした）。 */
 function parseCoconala() {
   const p = "src/lib/coconala-services.ts";
   if (!existsSync(p)) return null;
-  const ts = readFileSync(p, "utf8");
-  const start = ts.indexOf("const SERVICES_RAW");
-  const body = start >= 0 ? ts.slice(start) : ts;
-  const re = /id:\s*'([^']+)',\s*status:\s*'([^']+)',\s*serviceUrl:\s*'([^']*)'/g;
   const out = new Map();
-  let m;
-  while ((m = re.exec(body)) !== null) if (m[3]) out.set(m[3], { id: m[1], status: m[2] });
+  for (const s of Object.values(parseCatalog(readFileSync(p, "utf8")))) if (s.serviceUrl) out.set(s.serviceUrl, { id: s.id, status: s.status });
   return out;
 }
 function parseNote() {
