@@ -8274,6 +8274,45 @@
       "commit": "62174b9d8675",
       "verification": "tests/affiliate-creative-pick.test.mjs; check-datasets",
       "note": "候補画像 99 点を目視（GIF は全フレーム）。61 点使用可・38 点 avoid、確認日・理由・SHA-256・フレーム数を記録。"
+    },
+    {
+      "id": "DN-1172",
+      "at": "2026-11-14",
+      "task": "worktree の pre-commit でだけ check-affiliate-wiring が出す WARN 1 件の中身を確かめる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8f011c3d6579",
+      "verification": "tests/pre-commit-dispatch.test.mjs; check-affiliate-wiring",
+      "note": "原因は pre-commit の countWarns が正常集計 WARN 0 を警告行と数えたこと。worktree の欠測ではない。0件表記を除外し実警告を保持する回帰テストを追加。"
+    },
+    {
+      "id": "DN-1083",
+      "at": "2026-11-14",
+      "task": "不動産投資のアフィリを入口記事 1 本で 8 週試す（公務員・技術士の兼業規制の切り口）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8f011c3d6579",
+      "verification": "check-doc-refs",
+      "note": "2026-11-14 運営者が不動産投資は見送り、カードを閉じると明示。収益化戦略へ判断を記録。"
+    },
+    {
+      "id": "DN-0882",
+      "at": "2026-11-14",
+      "task": "転職案件 9 件の提携審査の結果を確かめ、提携台帳を更新する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8f011c3d6579",
+      "verification": "check-backlog-schema",
+      "note": "重複する申請状態の照合を DN-1169 へ統合。afb の unknown・2サイト照合・条件付き kazu-note 登録を引き継いだ。実機照合の完了ではない。"
     }
   ]
 }

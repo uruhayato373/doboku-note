@@ -145,7 +145,8 @@ export function tailLines(text, n) {
 
 /** 出力の中の WARN 行の数（成功した検査の警告を件数だけ要約に載せる） */
 export function countWarns(text) {
-  return text.split('\n').filter((l) => /\bWARN(ING)?\b|警告/.test(l)).length;
+  // 検査の正常な集計「WARN 0」「警告 0 件」を警告の本文と数えない。
+  return text.split('\n').filter((l) => /\bWARN(ING)?\b|警告/.test(l.replace(/\bWARN(?:ING)?\s*[:=]?\s*0\b|警告\s*[:：]?\s*0\s*件/g, ''))).length;
 }
 
 /** 最後に出す要約 1 行（WARN を出した検査は名前と件数だけ） */
