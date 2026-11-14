@@ -53,6 +53,22 @@ test('上下水道・舗装・管工事・測量の教材と、複数資格向�
   assert.equal(catalog.find((exam) => exam.id === 'pe-first-stage').support.length, 0);
 });
 
+test('2026-10-31 の発信の優先順（技術士一次が先頭・コンクリートは主力教材へ直行）を保つ', () => {
+  const head = ['pe-first-stage', 'pe-construction', 'pe-comprehensive-management',
+    'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician',
+    'civil-construction-1', 'civil-construction-2', 'rccm'];
+  assert.deepEqual(catalog.slice(0, head.length).map((exam) => exam.id), head);
+  const featured = Object.fromEntries(catalog.map((exam) => [exam.id, exam.featured?.id ?? null]));
+  assert.ok(['pe1-chokuzen-pack', 'pe1-takuitsu-pdf'].includes(featured['pe-first-stage']), `技術士一次の主力教材: ${featured['pe-first-stage']}`);
+  assert.equal(featured['concrete-engineer'], 'ce-chokuzen-pack');
+  assert.equal(featured['concrete-chief-engineer'], 'cce-takuitsu-chokuzen-pack');
+  assert.equal(featured['civil-construction-1'], null);
+  // 主力教材を出すコンクリートのカードにも、全教材の一覧（もくじ）を残す
+  for (const id of ['concrete-engineer', 'concrete-chief-engineer']) {
+    assert.match(catalog.find((exam) => exam.id === id).noteIndex?.href ?? '', /note\.com\/dobokunote\/n\//);
+  }
+});
+
 test('主要教材の順序と計測URLを保持する', () => {
   for (const exam of catalog) {
     const channels = new Set(exam.materials.map((product) => product.channel));

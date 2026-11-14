@@ -42,12 +42,13 @@ function ProductRow({ product }: { product: LearningProduct }) {
 function QualificationCard({ exam }: { exam: LearningQualification }) {
   const mainNote = exam.materials.find((product) => product.channel === 'note');
   const mainBook = exam.materials.find((product) => product.channel === 'kindle');
-  const featured = [!exam.noteIndex ? mainNote : undefined, mainBook]
+  // 主力の教材を指定した資格はもくじより先にそれを出す（2026-10-31 の決定）。もくじは全教材の一覧として残す
+  const featured = [exam.featured ?? (!exam.noteIndex ? mainNote : undefined), mainBook]
     .filter((product): product is LearningProduct => !!product);
   const remaining = exam.materials.filter((product) => !featured.some((entry) => entry.id === product.id));
 
   return (
-    <section id={`catalog-${exam.id}`} aria-labelledby={`heading-${exam.id}`}
+    <section id={`exam-${exam.id}`} aria-labelledby={`heading-${exam.id}`}
       className="scroll-mt-24 overflow-hidden rounded-card-content border border-(--rule-soft) bg-(--paper) shadow-card-content dark:border-(--rule-soft)">
       <h2 id={`heading-${exam.id}`} className="border-b border-(--rule-soft) bg-(--accent-fill) px-4 py-3 text-base font-bold leading-relaxed text-(--ink) dark:border-(--rule-soft)">
         {exam.label}
@@ -58,17 +59,18 @@ function QualificationCard({ exam }: { exam: LearningQualification }) {
           <BookOpen className="h-4 w-4 shrink-0" aria-hidden="true" />
           <span className="flex-1">無料で学ぶ</span><ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
         </Link>
+        {exam.featured && <ProductRow product={exam.featured} />}
         {exam.noteIndex && (
           <a href={exam.noteIndex.href} target="_blank" rel={externalLinkRel(exam.noteIndex.href)}
             data-cta="note" data-cta-label={`mokuji-${exam.id}`} data-cta-placement="links-hub" className={ROW_CLASS}>
             <span className="min-w-0 flex-1">
               <span className="mb-1 block text-xs text-(--ink-muted)">note</span>
-              <span className="block text-sm font-medium leading-relaxed text-(--ink)">教材の目次を見る</span>
+              <span className="block text-sm font-medium leading-relaxed text-(--ink)">{exam.featured ? '全教材の目次を見る' : '教材の目次を見る'}</span>
             </span>
             <ArrowUpRight className="h-4 w-4 shrink-0 text-(--accent)" aria-hidden="true" />
           </a>
         )}
-        {featured.map((product) => <ProductRow key={product.id} product={product} />)}
+        {featured.filter((product) => product !== exam.featured).map((product) => <ProductRow key={product.id} product={product} />)}
         {exam.support.map((product) => <ProductRow key={product.id} product={product} />)}
       </div>
       {remaining.length > 0 && (
@@ -93,7 +95,7 @@ export default function LinksPage() {
         <PageHeader title="資格別の教材・学習サポート" className="mb-4 sm:mb-6" />
         <nav aria-label="資格の目次" className="mb-6 flex flex-wrap gap-x-4 gap-y-1 border-b border-(--rule-soft) pb-4 dark:border-(--rule-soft)">
           {catalog.map((exam) => (
-            <a key={exam.id} href={`#catalog-${exam.id}`} title={exam.label}
+            <a key={exam.id} href={`#exam-${exam.id}`} title={exam.label}
               className="focus-ring inline-flex min-h-10 items-center text-sm text-(--accent) underline decoration-(--rule-soft) underline-offset-4 hover:decoration-current">
               {exam.shortLabel}
             </a>

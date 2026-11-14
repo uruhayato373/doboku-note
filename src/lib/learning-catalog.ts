@@ -29,6 +29,8 @@ export type LearningQualification = {
   shortLabel: string;
   siteHref: string;
   noteIndex: { title: string; href: string } | null;
+  /** もくじより先に、カードの 2 行目へ直接出す主力の教材（FEATURED_NOTE の資格だけ） */
+  featured: LearningProduct | null;
   materials: LearningProduct[];
   support: LearningProduct[];
 };
@@ -41,6 +43,26 @@ type ProductRecord = {
 };
 
 const groups: Record<string, { members: string[] }> = registry.groups;
+
+/**
+ * /links の発信の優先順（2026-10-31 の運営者の決定）。技術士一次→技術士の二次→コンクリート→土木→RCCM の順に先頭へ置き、
+ * スマホの 1 画面目は技術士一次にする（e2e/mobile.spec.ts が見る）。ここに無い資格は資格の台帳の順で後ろに続く。
+ */
+const LINKS_PRIORITY = [
+  'pe-first-stage', 'pe-construction', 'pe-comprehensive-management',
+  'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician',
+  'civil-construction-1', 'civil-construction-2', 'rccm',
+];
+
+/**
+ * 主力の教材へ直接送る資格（2026-10-31 の決定）。技術士一次は試験日で切り替える（categoryLeadMagazineId＝試験日の翌日から過去問 PDF）。
+ * コンクリートの 2 資格は直前パックを固定で出す。
+ */
+const FEATURED_NOTE: Record<string, MagazineId | 'season'> = {
+  'pe-first-stage': 'season',
+  'concrete-engineer': 'ce-chokuzen-pack',
+  'concrete-chief-engineer': 'cce-takuitsu-chokuzen-pack',
+};
 
 /** 商品台帳はサーバーで読む。クライアントへ渡すのは公開用の項目だけ。 */
 export function buildLearningCatalog(): LearningQualification[] {
@@ -109,13 +131,18 @@ export function buildLearningCatalog(): LearningQualification[] {
     }
   }
 
-  return qualifications.map(({ scope: _scope, ...exam }) => {
-    const lead = categoryLeadMagazineId(exam.id) ?? sidebarProduct(exam.id)?.id;
+  const cards = qualifications.map(({ scope: _scope, ...exam }) => {
+    const featuredId = FEATURED_NOTE[exam.id];
+    const lead = featuredId === 'season' ? categoryLeadMagazineId(exam.id) : featuredId ?? categoryLeadMagazineId(exam.id) ?? sidebarProduct(exam.id)?.id;
     // 既存の主教材を先頭へ。電子書籍も折りたたみの外から選べるようにする。
     const notes = exam.materials.filter((product) => product.channel === 'note');
     const first = exam.materials.find((product) => product.id === lead) ?? notes[0] ?? exam.materials[0];
     const book = exam.materials.find((product) => product.channel === 'kindle');
     const preview = [first, book, ...notes, ...exam.materials].filter((product): product is LearningProduct => !!product);
-    return { ...exam, materials: [...new Map(preview.map((product) => [product.id, product])).values()] };
+    const featured = featuredId ? exam.materials.find((product) => product.id === lead) ?? null : null;
+    return { ...exam, featured, materials: [...new Map(preview.map((product) => [product.id, product])).values()] };
   });
+  const rank = (id: string) => { const i = LINKS_PRIORITY.indexOf(id); return i === -1 ? LINKS_PRIORITY.length : i; };
+  // 優先の資格を先頭へ。それ以外は資格の台帳の順（buildExamCards の順）のまま後ろに続く（sort は安定）
+  return cards.sort((a, b) => rank(a.id) - rank(b.id));
 }
