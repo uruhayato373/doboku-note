@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "week": "2026-W45",
+  "week": "2026-W46",
   "period": {
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-15"
+  },
+  "window": {
+    "week": "2026-W45",
     "startDate": "2026-11-02",
     "endDate": "2026-11-08"
   },
-  "window": {
-    "week": "2026-W44",
-    "startDate": "2026-10-26",
-    "endDate": "2026-11-01"
-  },
-  "generatedAt": "2026-11-07T22:10:51.480Z",
+  "generatedAt": "2026-11-14T04:27:44.952Z",
   "missing": [
-    "計測ダイジェスト 2026-W44（最新は 2026-W43。fetch-metrics の publish を確認）",
-    "自然検索人数 2026-10-26〜2026-11-01（fetch-business-metrics の取得・書き戻しを確認）"
+    "計測ダイジェスト 2026-W45（最新は 2026-W44。fetch-metrics の publish を確認）",
+    "自然検索人数 2026-11-02〜2026-11-08（fetch-business-metrics の取得・書き戻しを確認）"
   ],
   "inputs": [
     {
@@ -21,26 +21,26 @@
       "command": "node scripts/build-growth-digest.mjs --print",
       "rc": 0,
       "status": "pass",
-      "durationMs": 210,
-      "monoMs": 210,
+      "durationMs": 196,
+      "monoMs": 196,
       "sleptMs": 0
     },
     {
       "id": "business",
-      "command": "node scripts/business-review.mjs report --start 2026-10-26 --end 2026-11-01 --json",
+      "command": "node scripts/business-review.mjs report --start 2026-11-02 --end 2026-11-08 --json",
       "rc": 0,
       "status": "pass",
-      "durationMs": 938,
-      "monoMs": 938,
+      "durationMs": 1695,
+      "monoMs": 1695,
       "sleptMs": 0
     },
     {
       "id": "businessPrev",
-      "command": "node scripts/business-review.mjs report --start 2026-10-19 --end 2026-10-25 --json",
+      "command": "node scripts/business-review.mjs report --start 2026-10-26 --end 2026-11-01 --json",
       "rc": 0,
       "status": "pass",
-      "durationMs": 1127,
-      "monoMs": 1127,
+      "durationMs": 1477,
+      "monoMs": 1478,
       "sleptMs": 0
     },
     {
@@ -48,8 +48,8 @@
       "command": "node scripts/growth-triage.mjs list --json",
       "rc": 0,
       "status": "pass",
-      "durationMs": 142,
-      "monoMs": 142,
+      "durationMs": 158,
+      "monoMs": 158,
       "sleptMs": 0
     },
     {
@@ -57,26 +57,26 @@
       "command": "node scripts/check-experiment-due.mjs --json",
       "rc": 0,
       "status": "pass",
-      "durationMs": 57,
-      "monoMs": 57,
+      "durationMs": 65,
+      "monoMs": 65,
       "sleptMs": 0
     },
     {
       "id": "checks",
-      "command": "node scripts/review-checks.mjs --cadence weekly --run 2026-W45",
+      "command": "node scripts/review-checks.mjs --cadence weekly --run 2026-W46",
       "rc": 0,
       "status": "pass",
-      "durationMs": 189834,
-      "monoMs": 189834,
-      "sleptMs": 0
+      "durationMs": 196467,
+      "monoMs": 196466,
+      "sleptMs": 1
     },
     {
       "id": "gate",
       "command": "node scripts/backlog-gate.mjs --weekly",
       "rc": 0,
       "status": "pass",
-      "durationMs": 72,
-      "monoMs": 72,
+      "durationMs": 276,
+      "monoMs": 276,
       "sleptMs": 0
     },
     {
@@ -84,26 +84,26 @@
       "command": "node scripts/check-backlog-health.mjs",
       "rc": 0,
       "status": "pass",
-      "durationMs": 3839,
-      "monoMs": 3839,
-      "sleptMs": 0
+      "durationMs": 7886,
+      "monoMs": 7885,
+      "sleptMs": 1
     },
     {
       "id": "search",
       "command": "node scripts/report-search-opportunities.mjs --json",
       "rc": 0,
       "status": "pass",
-      "durationMs": 351,
-      "monoMs": 350,
-      "sleptMs": 1
+      "durationMs": 831,
+      "monoMs": 832,
+      "sleptMs": 0
     },
     {
       "id": "psi",
       "command": "npm run -s psi-audit:check",
       "rc": 0,
       "status": "pass",
-      "durationMs": 199,
-      "monoMs": 199,
+      "durationMs": 517,
+      "monoMs": 517,
       "sleptMs": 0
     },
     {
@@ -111,17 +111,17 @@
       "command": "npm run -s report-web-vitals",
       "rc": 0,
       "status": "pass",
-      "durationMs": 212,
-      "monoMs": 212,
-      "sleptMs": 0
+      "durationMs": 516,
+      "monoMs": 515,
+      "sleptMs": 1
     },
     {
       "id": "noteSync",
       "command": "npm run -s note-sync-plan",
       "rc": 0,
       "status": "pass",
-      "durationMs": 5718,
-      "monoMs": 5718,
+      "durationMs": 9346,
+      "monoMs": 9346,
       "sleptMs": 0
     },
     {
@@ -129,8 +129,8 @@
       "command": "npm run -s x-queue-surfacer",
       "rc": 0,
       "status": "pass",
-      "durationMs": 251,
-      "monoMs": 251,
+      "durationMs": 498,
+      "monoMs": 498,
       "sleptMs": 0
     },
     {
@@ -138,8 +138,8 @@
       "command": "npm run -s check-coconala-orders -- --json",
       "rc": 0,
       "status": "pass",
-      "durationMs": 179,
-      "monoMs": 179,
+      "durationMs": 365,
+      "monoMs": 365,
       "sleptMs": 0
     },
     {
@@ -147,10 +147,10 @@
       "command": "npm run -s sales-summary",
       "rc": 0,
       "status": "pass",
-      "durationMs": 203,
-      "monoMs": 203,
-      "sleptMs": 0
+      "durationMs": 412,
+      "monoMs": 411,
+      "sleptMs": 1
     }
   ],
-  "markdown": "<!-- weekly-review:draft 2026-W45 -->\n# 週次レビュー 2026-W45（下書き）\n\n作成日: 2026-11-08（build-weekly-review-draft・機械で決まる節だけ）\n対象期間: 2026-11-02 〜 2026-11-08（事業レビューと計測ダイジェストは前の完了週 2026-10-26〜2026-11-01＝2026-W44 窓）\n\n> [!note] この下書きの使い方\n> `/weekly-review` はここから機械の節を写し、判断の節（計画 vs 実績・トリアージ・課題・学び・バックログの関門・申し送り）を書いて `docs/reviews/weekly/<週>-review.md` に保存する。数字は転記し直さない。\n\n## 材料の欠け（先に直す）\n\n- 計測ダイジェスト 2026-W44（最新は 2026-W43。fetch-metrics の publish を確認）\n- 自然検索人数 2026-10-26〜2026-11-01（fetch-business-metrics の取得・書き戻しを確認）\n\n## 月の受取額（手数料控除後・管理画面トップと同じ集計）\n\n| 月 | 合計 | note | ココナラ | KDP |\n|---|---|---|---|---|\n| 2026-11（途中） | — | —（未取得） | —（未取得・10-31 取得） | —（未取得） |\n| 2026-10 | ¥64,418 | ¥56,655（推計・10-31 取得） | ¥0（途中・10-31 取得） | ¥7,763（推計・10-24 取得） |\n\n## 資格別 KPI（2026-W44 窓・前週比）\n\n| 指標 | 全体 | 前週比 | 1級土木 | 技術士 総監 | 技術士 建設部門 | RCCM |\n|---|--:|--:|--:|--:|--:|--:|\n| 自然検索 | — | — | — | — | — | — |\n| Google クリック | — | — | — | — | — | — |\n| YouTube 経由 | — | — | — | — | — | — |\n| X 経由 | — | — | — | — | — | — |\n| Instagram 経由 | — | — | — | — | — | — |\n| note CTA | — | — | — | — | — | — |\n| note 販売（件） | 2（部分） | -71.4% | 0（部分） | 0（部分） | 0（部分） | 0（部分） |\n| note 売上（円） | 9,960（部分） | -43.3% | 0（部分） | 0（部分） | 0（部分） | 0（部分） |\n| ココナラ（件） | 0 | — | 0 | — | — | 0 |\n| 演習開始 | — | — | — | — | — | — |\n\n欠測（—）は 0 ではない。資格間で合算しない。\n\n## 計測ダイジェスト\n\n<!-- growth-digest:2026-W43 -->\n## 計測ダイジェスト 2026-W43（2026-10-19〜2026-10-25・基線 2026-09-21〜2026-10-18 の週平均と比較）\n\n入力: growth-pack=取得済み / monetization-coverage=取得済み / bing-webmaster=取得済み\n\n| 流入元（GA4・日本） | セッション | 基線週平均 | 増減 | エンゲージ率 | キーイベント |\n|---|--:|--:|--:|--:|--:|\n| bing | 5,440 | 3,341.3 | +62.8% | 76.6% | 250 |\n| google | 4,100 | 516.5 | +693.8% | 75.9% | 79 |\n| yahoo | 979 | 173.8 | +463.5% | 79.3% | 19 |\n| direct | 595 | 252.5 | +135.6% | 69.7% | 43 |\n| referral | 225 | 115.5 | +94.8% | 77.8% | 20 |\n| organic-other | 81 | 17 | +376.5% | 70.4% | 0 |\n| ai-assistant | 44 | 19 | +131.6% | 72.7% | 0 |\n| organic-social | 12 | 26.3 | -54.3% | 66.7% | 0 |\n| unassigned | 9 | 10.3 | -12.2% | 77.8% | 0 |\n| organic-video | 0 | 4.8 | -100% | —% | 0 |\n\nGSC（日本・web・プロパティ全体）: クリック 5,648（基線週平均 449.5・+1156.5%）/ 表示 50,150 / CTR 11.26%\n\nページ明細（国の条件なしのページ別＝匿名化された検索語の分を含み、日本以外の行も含む）: 1312 行・5668 クリック / 139674 表示・byPage 全体（日本）5,665 クリックの 100% / 表示の 100%。急落・減衰の判定に使う。全体の KPI・資格別の合計には使わない。\n\nBing 照合: GA4 の bing 自然検索セッション 5,440 / Bing Webmaster クリック 6,371（0.9 倍）\n\n| イベント | 今週 | 基線週平均 | 増減 |\n|---|--:|--:|--:|\n| note_cta_click | 383 | 125.5 | +205.2% |\n| affiliate_cta_click | 10 | 5.3 | +90.5% |\n| coconala_cta_click | 2 | 2.5 | -20% |\n| quiz_cta_click | 0 | 0 | — |\n| note_cta_impression | 31,521 | 12,483.3 | +152.5% |\n| affiliate_cta_impression | 8,719 | 4,857.3 | +79.5% |\n| coconala_cta_impression | 648 | 759.3 | -14.7% |\n| quiz_start | 51 | 18.8 | +172% |\n| quiz_complete | 12 | 1.8 | +585.7% |\n| standards_data_download | 4 | 0.8 | +433.3% |\n\ngoogle 流入の上昇: /exam/civil-construction-2/guide/r08-secondary-answers（75→2768） / /exam/civil-construction-2/guide/secondary-grading-and-partial-credit（3.8→152） / (not set)（31.3→127） / /exam/civil-construction-2/secondary/experience-writing-guide（10→58） / /exam/civil-construction-2/guide/secondary-written-questions-guide（1.8→37）\ngoogle 流入の下落: /exam/pe-comprehensive-management/past-exams/r08-primary（15→9） / /exam/civil-construction-1/secondary/r06（19.8→15） / /exam/pe-comprehensive-management/past-exams/r08-secondary（5→3） / /exam/civil-construction-1/textbook/safety-scaffolding（4→2） / /exam/civil-construction-1/secondary/r04（14.3→13）\n\n### トリアージ対象 19 件（候補 136・抑止 27・表示上限で見送り SEO 3 / 収益 51）\n\n| ID | 区分 | 内容 | 期待効果/週 | 推奨 |\n|---|---|---|--:|---|\n| OPP-57c84288a8 | 実験 | EXP-015（2級土木 二次の経験記述3商品（想定工事バンク ¥5,480→¥6,980・過去問模範答案集 ¥2,480→¥2,980・完成答案集 ¥2,480→¥2,980）を試験直前に値上げし、販売額が落ちないかを見る）: next_check_date 2026-10-26 を超過 | — | verdict / defer |\n| OPP-8cf8dd82e2 | 実験 | EXP-027（資格名: /exam/pe-comprehensive-management/keywords/cpd の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 20.1→9.8・目安 improved）。裁定して close する | — | verdict / defer |\n| OPP-9fb321f255 | 実験 | EXP-034（技術図書（共通仕様書など）: /standards/tohoku の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 13.5→20.5・目安 insufficient-data）。裁定して close する | — | verdict / defer |\n| OPP-c04120b67c | 実験 | EXP-024（技術図書（共通仕様書など）: /standards/hokuriku の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 13.4→6.9・目安 insufficient-data）。裁定して close する | — | verdict / defer |\n| OPP-c49d25f32d | 実験 | EXP-025（技術図書（共通仕様書など）: /standards/hokkaido の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 18.7→—・目安 insufficient-data）。裁定して close する | — | verdict / defer |\n| OPP-e0e8a74145 | 実験 | EXP-026（技術図書（共通仕様書など）: /standards/kinki の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 10.5→9.2・目安 insufficient-data）。裁定して close する | — | verdict / defer |\n| OPP-e65f3f93f4 | 実験 | EXP-023（技術図書（共通仕様書など）: /standards/chugoku/local の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 11.7→6.9・目安 insufficient-data）。裁定して close する | — | verdict / defer |\n| OPP-f2ba0b6d6d | 実験 | EXP-014（2級土木 二次ページの冒頭 CTA を、高額のまとめ売りから時期・検索意図に合う商品へ差し替え、冒頭バナーの表示崩れを直して、冒頭 CTA のクリック率を上げる）: next_check_date 2026-10-26 を超過 / 自動計測の事後窓が完了（ga4.event:note_cta_click 186→296・目安 target-met）。裁定して close する | — | verdict / defer |\n| OPP-f834cfe4ab | 実験 | EXP-028（資格名: /exam/civil-construction-1/secondary/r06 の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 15.5→7.3・目安 improved）。裁定して close する | — | verdict / defer |\n| OPP-f9ced5b0c3 | 実験 | EXP-029（土木公務員: /exam/pe-comprehensive-management/guide/public-engineer-qualification-map の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 11.4→7.7・目安 improved）。裁定して close する | — | verdict / defer |\n| OPP-fa225d9335 | 実験 | EXP-022（技術図書（共通仕様書など）: /standards/okinawa の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 10.7→—・目安 insufficient-data）。裁定して close する | — | verdict / defer |\n| OPP-fcfcda5a1a | SEO | 「二級土木施工管理技士 二次試験」は平均 8.4 位なのに CTR 0.98%（期待 3%） | 12.7 searchClicks | experiment / backlog |\n| OPP-a202ad33ee | SEO | /exam/civil-construction-2/secondary/r06 の検索クリックが週 2（基線の週平均 6.5・-69.2%） | 4.5 searchClicks | backlog |\n| OPP-5dd26ae975 | SEO | 「2級土木施工管理技士 2次試験 配点」は平均 1.5 位なのに CTR 5.88%（期待 15%） | 1.2 searchClicks | experiment / backlog |\n| OPP-adc3bac9b1 | SEO | 「スクレープドーザー」は平均 6.3 位なのに CTR 1.34%（期待 4%） | 1.2 searchClicks | experiment / backlog |\n| OPP-22c5d85639 | SEO | 「建設工事公衆災害防止対策要綱」は平均 8.1 位なのに CTR 0.56%（期待 3%） | 0.9 searchClicks | backlog |\n| OPP-9039aef12c | 収益導線 | /exam/civil-construction-1/secondary/r06 の CTA クリック率 0.33%（サイト平均 0.82%） | 1.8 ctaClicks | backlog / experiment |\n| OPP-5b6a44c56a | 収益導線 | /exam/pe-first-stage/primary/r07-basic の CTA クリック率 0.24%（サイト平均 0.82%） | 1.5 ctaClicks | backlog / experiment |\n| OPP-9a77f81ae7 | 収益導線 | /exam/pe-first-stage の CTA クリック率 0.11%（サイト平均 0.82%） | 1.3 ctaClicks | backlog / experiment |\n\n全件を `npm run growth-triage -- list` で確認し、`apply --decisions <file> --commit` で backlog / 実験 / 束ね / 却下 / 保留に振り分ける（11〜30 位の取りこぼしは検索キーワード戦略のサイクルが受け持つ）。\n\n## 計測→改善トリアージ（未処分 0 件）\n\n- なし\n\n> 起票の前に、各ページの直近コミットと `.claude/todo/weekly.md` を見て対応済みでないことを確かめる。\n\n## 実験の期限（due 10 件）\n\n- EXP-008 キャリア（転職アフィリエイト）を悩み起点の hub→5柱→ツールへ再設計: PENDING 要人手 2 件: 記事末撤去（DN-0779）の deploy から 28 日後に npm run report-career-funnel を再実行し、2026-10-20 の観測（裁定ログ）と比べる / A8 の月次成果を取り込む（npm run a8-ui:fetch -- --month YYYY-MM／要ログイン）。確定 3 件未満では案件の勝敗を決めない\n- EXP-009 RCCM 問題III 模範論文集を 2026 年度 CBT 期間（〜10/31）に note で販売: MEASURE_DUE next_check_date 2026-11-03 を超過\n- EXP-010 note CTA の rel=noreferrer を外し、note ダッシュボード「記事の流入元」: MEASURE_DUE next_check_date 2026-11-07 を超過\n- EXP-015 2級土木 二次の経験記述3商品（想定工事バンク ¥5,480→¥6,980・過去問模範答案集 ¥2,: MEASURE_DUE next_check_date 2026-11-03 を超過\n- EXP-017 転職アフィリエイトを、アクセスがあるのに広告の無い面（実務・公的基準・ツール・トップ・経験記述の書き: MEASURE_DUE next_check_date 2026-11-04 を超過 / PENDING 要人手 1 件: （任意）A8 にサイトを 2 つ登録して面ごとの月次成果を分ける（PR-3）。2026-10-07 に広告リンクのリファラ方針を直し、デプロイ後の成果は A8 の成果別レポートの「リファラ」でページまで分かるようになったので、成果の帰属には不要。面の合計を A8 のサイト別で\n- EXP-018 転職アフィリエイトの残りの面（公的基準の章以外・トピック・実務ツール・測量士・舗装・建築）へ広げ、サ: MEASURE_DUE next_check_date 2026-11-04 を超過\n- EXP-055 技術士（建設部門）の読者に、施工管理の転職（ビルドジョブ）とハイクラス転職（ハイクラス DX・コンサ: NO_BASELINE running だが baseline が無い＝前後比較ができない\n- EXP-056 過去問の年度ナビと流入上位ガイドの次の行き先で、1 セッションあたりのページ数を増やす: NO_BASELINE running だが baseline が無い＝前後比較ができない\n- EXP-057 総監キーワード 30 ページの title に「とは」を入れ、一般語の検索でのクリック率を上げる: NO_BASELINE running だが baseline が無い＝前後比較ができない\n- EXP-058 検索語に答えていない実務 3 本・教科書 1 本の title と冒頭を直し、クリック率を上げる: NO_BASELINE running だが baseline が無い＝前後比較ができない\n\n## 点検と Issue\n\n```\n[review-checks] 週次 2026-W45: 点検 4 本中 4 本を実行 / 要対応 1・検査不成立 0 / 開いている Issue 5 / 依存の脆弱性 0\n  ✓ check-workflow-health（重要 workflow の健全性）\n  ✓ node:check-backlog-health（バックログの健全性）\n  ✓ check-taxonomy-wiring（分類と回遊の配線）\n  ✗ quality:audit:weekly（土曜の週次の点検（quality-audit の cadence weekly）） — [quality-audit] weekly 区分の失敗: egov-drift, monthly-review-due\n\nレポートの「## 点検と Issue」に、次の各行の行き先（DN-xxxx・定常・理由）を書く:\n- quality:audit:weekly: [quality-audit] weekly 区分の失敗: egov-drift, monthly-review-due → 振り分け: \n- #1006 [auto] note-live-audit: note のライブ監査で異常があります（2026-10-12〜） → 振り分け: \n- #1217 [auto] weekly-collect: 土曜の収集（ログインが要る取得と書き込み）が完了しませんでした（2026-10-24〜） → 振り分け: \n- #1331 [auto] gsc-auto-review: 土曜の GSC の記録層（週次観測・coverage）が完了しませんでした（2026-10-31〜） → 振り分け: \n- #1421 [auto] fetch-metrics: 計測アラート（1 件）（2026-11-06〜） → 振り分け: \n- #1445 [auto] gsc-indexing-local: GSC の登録リクエストが失敗した（2026-11-06〜） → 振り分け:\n```\n\n## バックログの関門\n\n```\n■ 週次: 今決められる判断待ち 12 件（全件を運営者に諮る）\n  DN-0305 🟣 「業務経験 → 資格」カード（EXP-012）の反応を見て、入口記事を増やすか・文言や位置を変えるかを決める（起票 44 日前） 期日 2026-11-30\n  DN-0507 🟣 「解答・解説」の開封計測を見て、過去問の解説を有料側（note・KDP）へ移すかを決める（起票 37 日前）\n  DN-0505 🟣 技術士一次試験の他部門（環境・衛生工学）の専門科目を展開するか決める（起票 37 日前）\n  DN-0572 🟣 note からココナラへの冒頭導線（DN-0268）の反映後 30 日の閲覧・注文を読み、残すか決める（起票 32 日前）\n  DN-0726 🟣 通常動画 38 本の計画台帳への仮配分を YouTube 再開時に運営者が見直す（起票 26 日前）\n  DN-0721 🟣 共通仕様書の既存回遊導線の反応を確認し、直接リンク追加の要否を判断する（起票 26 日前）\n  DN-0844 🟣 EXP-012 の判定（11/26）を受けて、自治体の土木担当・コンクリートの両シリーズの改善（導線と次の章の優先）を決める（起票 15 日前） 期日 2026-11-27\n  DN-0903 🟣 悩みの軸・立場・商品候補の AI 案から、作るものを運営者が決める（demand-map.json の idea を decided/stopped に）（起票 11 日前）\n  DN-0953 🟣 もしもの転職案件の成果を取る仕組みを作るか決める（今は記録 0 件で効果を測れない）（起票 5 日前）\n  DN-0955 🟣 技術士の口頭試験でココナラの想定質問の作成を今季再開するか決める（起票 4 日前） 期日 2026-11-11\n  DN-0989 🟣 イシュー: 答案の痛みを別の資格へ広げるのか、試験の後へ伸ばすのか（起票 3 日前）\n  DN-1007 🟣 X・Instagram の年間の枠の未決定の論点を運営者が決める（起票 2 日前）\n■ 週次: 判断の時期が先の判断待ち 11 件（その月に諮る）\n  DN-0265 🟣 コンクリート主任技士のココナラ小論文添削を本試験後に継続か休止か判定する（起票 46 日前） 期日 2026-12-15 時期 2026-12\n  DN-0798 🟣 呼び出しの記録と静的参照から、使われていない・役割が重なるエージェントとスキルを統合・退役する（拡張性・第3波）（起票 19 日前） 時期 2026-12\n  DN-0624 🟣 技術士第一次試験の後に iOS アプリの感触を振り返り、総監の追加・土木アプリ・有料化を決める（起票 30 日前） 時期 2026-12\n  DN-0403 🟣 総監・建設部門の note 共同マガジンの候補と参加条件を調べる（起票 42 日前） 時期 2026-12\n  DN-0967 🟣 解答ページを年度なしの固定 URL にするかを決める（起票 4 日前） 時期 2026-12..2027-02\n  DN-0425 🟣 `/blog/`（時事解説・運営記事）を開くかを決める（起票 42 日前） 時期 2027-01\n  DN-0427 🟣 合格発表後に候補資格の昇格・見送りを決める（建築の有料化・舗装・技術士の他部門ほか）（起票 43 日前） 時期 2027-01..2027-03\n  DN-1033 🟣 1 級一次の有料の模試を作るか決める（起票 2 日前） 時期 2027-03\n  DN-0992 🟣 1 級二次の経験記述を、シーズン一括の伴走（題数の上限・各題 A 判定まで・不合格なら翌年割引）で試すか決める（起票 3 日前） 時期 2027-04..2027-06\n  DN-0428 🟣 総監・建設部門の直前期（試験前）の価格と品揃えを確定する（起票 43 日前） 時期 2027-04..2027-06\n  DN-0331 🟣 年間の EPC で継続する転職案件を決める（起票 43 日前） 時期 2027-07..2027-09\n■ 週次: 期日切れ 0 件\n■ 週次: 直近 7 日の起票 90 件（重要度と時期を確かめる）\n```\n\n## バックログの健全性\n\n```\n[check-backlog-health] カード 237 件を実検査（判定はしない・候補の列挙のみ）\n  S1 種類の内訳: 不具合:32 改善:128 意思決定:33 制作:44\n  S2 🟢/🟣 に沈んだ不具合: 2 / 不具合 32\n      L2698 [low] coconala-delete-draft を新しい出品フォームに対応させる\n      L2739 [low] Windows の手元で npm test が 46〜47 件落ちる原因を分けて直す（CI では通る）\n  S3 意思決定なのに tier≠🟣: 10\n      L80 [high] YouTube 年間の枠の未決定の論点を運営者が決める\n      L181 [high] 添削の販売実績を積み、動画と公式LINEからの集客を作る\n      L693 [mid] YouTube・X・Instagram の年間計画を 3 か月の実測で見直す\n      L1246 [mid] 季節の谷を埋められたかを判定する: 建設業×AI メンバーシップ（DN-0876）の会費が 8〜9 月型の売上の谷をどれだけ下支えしたかを 3 か月で数える\n      L1412 [mid] 建築施工管理（1級・2級）の note 商品の競合分析と商品案を作り、DN-0427 の判断材料にする\n      L2749 [low] データ配線の検査経路の判断: SNS 系検査の CI 復帰・Windows で落ちる束のテスト・refs の日付での warn 分け・src の日本時間検査\n      L2777 [low] 転送の見直し: 2026-10-26 の基準類の逐語ページ part-NN の転送を外せるか判断する\n      L2793 [low] 転送の見直し: 2026-09〜10 の GSC 404 の救済ルールを外せるか判断する\n  S4 定期（backlog の役割違反）: 0\n  S5 起票から 90 日超: 0（[起票:] 欠落 0）\n  S6 語彙外カテゴリの残: 0\n  S7 検証ゲート欠落: 205 / 237（不具合/改善 151〔gate が実在するなら付ける〕 ＋ 制作/意思決定 54〔原則付かない〕）\n      候補: L24 不具合 Codex の並列画像生成で別の実行の画像を取り違える\n      候補: L38 不具合 資格キーの変換を導出にして全資格をテストで固定する\n      候補: L48 改善 hub-cta とココナラの TS 文字列解析を商品の読み口へ移す\n      候補: L58 改善 note 商品カタログの読み口を 1 つにして TS の正規表現解析をやめる\n      候補: L68 不具合 note スクリプト 5 本にアカウント確認を足す\n      候補: L95 改善 コンクリート技士の教材の規定値を JIS A 5308:2024 と R 5210:2026 の本文で照\n      候補: L105 改善 CI を効率化し、PR から本番確認までの待ち時間を短くする\n      候補: L117 改善 video-factory の量産を広げる前に、文面・改訂版・トークンの 3 点を直す\n      …ほか 143 件\n  S8 重複候補ペア: 1\n      L167 ↔ L2900  共有: youtube.json video-pack.json cover-design.json pop-image.json\n  S9 .claude/todo の 4 層以外: 0\n  S10 ID の再利用（現役カード）: 0\n  S11 実績コミット後に本文未更新: 3\n      L524 DN-1037 0.5日遅れ X の返信候補を毎日用意し、人が承認して送る仕組みを 2 週間試す\n      L117 DN-0988 0.4日遅れ video-factory の量産を広げる前に、文面・改訂版・トークンの 3 点を直す\n      L798 DN-0990 0.1日遅れ 建設行政の体系の穴を埋める（新規 3 章・法令ページ 2 本・既存 5 章の補強）\n  S12 完了 prose 蓄積（TRIM 候補・本文 5 件以上）: 6\n      L2370 10件 YouTube 動画パックの公開と、概要欄（季節の主商品リンク・保有資格）の同期・6 週間判定\n      L2455 9件 人・外部実体が必要な残務\n      L328 8件 （DN-0817 段1）土曜の収集チェーンが 2 週続けて全段 rc=0 で終わることを確かめる\n      L1876 8件 反映済みの変更の効果を、比べられる日が来た順に GSC・GA4 で比べて記録する（11 月）\n      L269 6件 商品への送客から販売までを GA4 と販売台帳で同じ商品 ID でつないで測る\n      L2900 5件 YouTube の再開でやること（移行の読み戻し不整合の解消・総まとめと図解版の公開判断と 28 日比較・新形式の動画パック）\n  S13 チャネル状態複製の疑い（SSOT が真実源・カードから剥がす候補）: 1\n      L464 2件 合格ラボを畳む: 会員0人を確認し、会員専用マガジンと旧2プランを削除する（メンバーシップの器は建設業×AI に使う）\n  S14 期日超過: 0\n  S15 [時期:] の月を過ぎたまま残っている: 0\n  S16 マージの状態が古いまま: 0（「未マージ」の PR 0 件・ブランチ 1 件を照合）\n\n判定と適用は /backlog-sweep --audit（backlog-curator）が行う。ここは候補の列挙のみ。\n```\n\n## 検索の改善（今週 0/3 件。直してよい 6 件の上位を develop で直し、npm run search-improvement -- record --page <path> --change \"…\" --commit で記録する）\n\n- [資格名] /exam/civil-construction-1/guide/future「技術士 オワコン」表示 16・最良 13.1 位\n- [資格名] /exam/rccm/guide/study-plan「rccm 予約」表示 15・最良 10.5 位\n- [土木公務員] /exam/pe-comprehensive-management/guide/public-engineer-qualification-map「土木 公務員 資格」表示 14・最良 11 位（前回 EXP-029: success）\n\n## 検索の週次処置（要処置 0・観察中 3）\n\n- 観察中 [資格名] /exam/civil-construction-2/secondary/r07: EXP-049 改善 2026-11-01・本番反映待ち\n- 観察中 [資格名] /exam/civil-construction-1/secondary/r04: EXP-050 改善 2026-11-01・本番反映待ち\n- 観察中 [土木公務員] /practice/owner-safety-responsibility: EXP-051 改善 2026-11-01・本番反映待ち\n\n## 検索改善の実験（直す→本番反映→計測→判定）\n\n- closed 9 / measuring 10 / implemented 3\n\n## PSI と実ユーザー計測\n\n```\n- CI ゲート違反（field 実害・取得失敗率20%超）: **0件**\n- `https://doboku-note.com/search` (desktop): **SEO** = 66 (閾値: ≥90)\n- `https://doboku-note.com/exam/civil-construction-1/primary/r07-a` (desktop): **CLS** = 0.25 (閾値: ≤0.1)\n- `https://doboku-note.com/` (mobile): **LCP** = 6451ms (閾値: ≤2500ms)\n- `https://doboku-note.com/search` (mobile): **SEO** = 66 (閾値: ≥90)\n- `https://doboku-note.com/exam/civil-construction-1/guide/strategy` (mobile): **LCP** = 5146ms (閾値: ≤2500ms)\n- `https://doboku-note.com/exam/civil-construction-1/guide/four-management` (mobile): **LCP** = 5552ms (閾値: ≤2500ms)\n- `https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics` (mobile): **LCP** = 8176ms (閾値: ≤2500ms)\n実ユーザー計測 data/rum/web-vitals/2026-10-31.json（2026-10-03〜2026-10-30・7 日前）状態 ok・イベント 83768 件\n  要改善　 CLS desktop 良好率  72%（384 件）/exam/civil-construction-2/primary\n  要改善　 INP mobile  良好率  74%（281 件）/exam/pe-first-stage/primary\n  要改善　 INP mobile  良好率  70%（53 件）/exam/pe-first-stage\n手を打つ組 3（不良 0）\n```\n\n## build 後 SEO スキャン（check-seo-build・CI が develop の push ごとに記録）\n\n- 最新の記録: 2026-11-07。検査 1988 URL / sitemap 1988 URL\n- error 0（前週比 ±0）/ warn 408（前週比 +1）\n- 前週の記録: 2026-10-31\n\n| 型 | 区分 | 件数 | 前週比 |\n|---|---|--:|--:|\n| jsonld_recommended_missing | warn | 407 | ±0 |\n| ssr_thin_body | warn | 1 | +1 |\n\n## note 同期\n\n```\n[note-sync-plan] 公開記事 1025: 反映済み 664 / 反映待ち 358 / 止まっている 3\n  反映待ちの部品: 本文 360・カバー 17・タグ 0（配布 PDF の取り寄せが要る 0）\n  止まっている: 前回の更新が途中で止まった 3 件 → note の公開ページを確認し、問題なければ note-update-body --sync --article <path> --force-retry --commit\n    nd88d5ec77f2d  content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md（2026-10-24T07:59:28: 更新フローが false を返した（保存せず中断））\n    nd4320a66d09f  content/note/1級・2級土木/1級土木/magazines/1級土木-テキスト精読ガイド/土木一般-共通工学編/article.md（2026-10-24T08:10:37: 更新フローが false を返した（保存せず中断））\n    n653cd1b3ee71  content/note/1級・2級土木/1級土木/magazines/1級土木-テキスト精読ガイド/施工管理-法規編/article.md（2026-10-24T08:09:47: 更新フローが false を返した（保存せず中断））\n```\n\n## X 予約キュー\n\n```\n📮 X 予約キュー投入 surfacer — 2026/11/8\n   最終予約記録（途中の空白を含む）: 11/30   lookahead: 8 日\n\n⚠ 判定不能: 11 件（見出しから日付が読めず due 判定できない・未投入あり）\n   - 096-civil1-pressure-correction（未投入 1/1）— 見出しの日付書式を確認する\n   - 097-civil1-diagram-reuse（未投入 3/3）— 見出しの日付書式を確認する\n   - 098-cem-textbook-diagrams（未投入 19/19）— 見出しの日付書式を確認する\n   - 099-pe-construction-textbook-diagrams（未投入 5/5）— 見出しの日付書式を確認する\n   - 100-pe-first-stage-calculation-diagrams（未投入 3/3）— 見出しの日付書式を確認する\n   - 101-civil-textbook-diagrams（未投入 4/4）— 見出しの日付書式を確認する\n   - 102-practice-textbook-diagrams（未投入 7/7）— 見出しの日付書式を確認する\n   - 103-cem-existing-figure-diagrams（未投入 15/15）— 見出しの日付書式を確認する\n   - 108-civil1-prestress-diagrams（未投入 1/1）— 見出しの日付書式を確認する\n   - 109-civil1-construction-diagrams（未投入 5/5）— 見出しの日付書式を確認する\n   - 114-pe-merit-series（未投入 8/8）— 見出しの日付書式を確認する\n```\n\n## ココナラ取引\n\n- 要対応 0・注意 0\n\n## 売上台帳\n\n```\n最終更新: 2026-10-31\n【2026-09】 35件 / ¥106,800 ★¥15kマイルストーン達成\n【2026-10】 22件 / ¥67,680 ★¥15kマイルストーン達成\n```\n"
+  "markdown": "<!-- weekly-review:draft 2026-W46 -->\n# 週次レビュー 2026-W46（下書き）\n\n作成日: 2026-11-14（build-weekly-review-draft・機械で決まる節だけ）\n対象期間: 2026-11-09 〜 2026-11-15（事業レビューと計測ダイジェストは前の完了週 2026-11-02〜2026-11-08＝2026-W45 窓）\n\n> [!note] この下書きの使い方\n> `/weekly-review` はここから機械の節を写し、判断の節（計画 vs 実績・トリアージ・課題・学び・バックログの関門・申し送り）を書いて `docs/reviews/weekly/<週>-review.md` に保存する。数字は転記し直さない。\n\n## 材料の欠け（先に直す）\n\n- 計測ダイジェスト 2026-W45（最新は 2026-W44。fetch-metrics の publish を確認）\n- 自然検索人数 2026-11-02〜2026-11-08（fetch-business-metrics の取得・書き戻しを確認）\n\n## 月の受取額（手数料控除後・管理画面トップと同じ集計）\n\n| 月 | 合計 | note | ココナラ | KDP |\n|---|---|---|---|---|\n| 2026-11（途中） | ¥52,201 | ¥34,403（推計・11-14 取得） | ¥0（途中・11-14 取得） | ¥17,798（推計・11-14 取得） |\n| 2026-10 | ¥65,198 | ¥57,435（確定・11-14 取得） | ¥0（確定・11-14 取得） | ¥7,763（推計・10-24 取得） |\n\n## 資格別 KPI（2026-W45 窓・前週比）\n\n| 指標 | 全体 | 前週比 | 1級土木 | 技術士 総監 | 技術士 建設部門 | RCCM |\n|---|--:|--:|--:|--:|--:|--:|\n| 自然検索 | — | — | — | — | — | — |\n| Google クリック | — | — | — | — | — | — |\n| YouTube 経由 | — | — | — | — | — | — |\n| X 経由 | — | — | — | — | — | — |\n| Instagram 経由 | — | — | — | — | — | — |\n| note CTA | — | — | — | — | — | — |\n| note 販売（件） | 11（部分） | +450.0% | 0（部分） | 1（部分） | 5（部分） | 0（部分） |\n| note 売上（円） | 23,400（部分） | +134.9% | 0（部分） | 500（部分） | 11,200（部分） | 0（部分） |\n| ココナラ（件） | 0 | — | 0 | — | — | 0 |\n| 演習開始 | — | — | — | — | — | — |\n\n欠測（—）は 0 ではない。資格間で合算しない。\n\n## 計測ダイジェスト\n\n<!-- growth-digest:2026-W44 -->\n## 計測ダイジェスト 2026-W44（2026-10-26〜2026-11-01・基線 2026-09-28〜2026-10-25 の週平均と比較）\n\n入力: growth-pack=取得済み / monetization-coverage=取得済み / bing-webmaster=取得済み\n\n| 流入元（GA4・日本） | セッション | 基線週平均 | 増減 | エンゲージ率 | キーイベント |\n|---|--:|--:|--:|--:|--:|\n| bing | 4,558 | 4,189.3 | +8.8% | 78.9% | 78 |\n| google | 2,754 | 1,498 | +83.8% | 78.1% | 46 |\n| yahoo | 994 | 382 | +160.2% | 77.9% | 13 |\n| direct | 405 | 305 | +32.8% | 69.9% | 9 |\n| organic-other | 132 | 36.3 | +264.1% | 63.6% | 0 |\n| referral | 92 | 128.5 | -28.4% | 68.5% | 1 |\n| ai-assistant | 73 | 25 | +192% | 76.7% | 1 |\n| organic-video | 32 | 3.5 | +814.3% | 0% | 0 |\n| organic-social | 18 | 24 | -25% | 66.7% | 1 |\n| unassigned | 7 | 9.3 | -24.3% | 71.4% | 0 |\n\nGSC（日本・web・プロパティ全体）: クリック 1,198（基線週平均 1,816.8・-34.1%）/ 表示 18,701 / CTR 6.41%\n\nページ明細（国の条件なしのページ別＝匿名化された検索語の分を含み、日本以外の行も含む）: 1301 行・1209 クリック / 32614 表示・byPage 全体（日本）1,209 クリックの 100% / 表示の 101%。急落・減衰の判定に使う。全体の KPI・資格別の合計には使わない。\n\nBing 照合: GA4 の bing 自然検索セッション 4,558 / Bing Webmaster クリック 3,194（1.4 倍）\n\n| イベント | 今週 | 基線週平均 | 増減 |\n|---|--:|--:|--:|\n| note_cta_click | 129 | 193.8 | -33.4% |\n| affiliate_cta_click | 3 | 6.5 | -53.8% |\n| coconala_cta_click | 1 | 3 | -66.7% |\n| quiz_cta_click | 0 | 0 | — |\n| note_cta_impression | 19,522 | 18,340 | +6.4% |\n| affiliate_cta_impression | 6,890 | 5,663.3 | +21.7% |\n| coconala_cta_impression | 159 | 871.5 | -81.8% |\n| quiz_start | 92 | 31.3 | +194.4% |\n| quiz_complete | 10 | 4.8 | +110.5% |\n| standards_data_download | 6 | 1.8 | +242.9% |\n\ngoogle 流入の上昇: /exam/civil-construction-2/guide/r08-secondary-answers（785.8→1603） / /exam/civil-construction-2/guide/secondary-grading-and-partial-credit（41.8→138） / /exam/civil-construction-2/secondary/r08（0→85） / (not set)（59.5→130） / /exam/concrete-chief-engineer（11→38）\ngoogle 流入の下落: /tools/keiken-charcount（29.3→4） / /exam/civil-construction-2/secondary/experience-writing-examples（25→2） / /exam/civil-construction-1/secondary/r06（22.5→3） / /exam/civil-construction-2/secondary/experience-writing-guide（23.5→8） / /exam/civil-construction-1/secondary/r04（14.3→0）\n\n### トリアージ対象 10 件（候補 156・抑止 31・表示上限で見送り SEO 18 / 収益 51）\n\n| ID | 区分 | 内容 | 期待効果/週 | 推奨 |\n|---|---|---|--:|---|\n| OPP-1a1e06a94b | 実験 | EXP-018（転職アフィリエイトの残りの面（公的基準の章以外・トピック・実務ツール・測量士・舗装・建築）へ広げ、サイト全体のクリックと発生が増えるかを見る）: 自動計測の事後窓が完了（ga4.event:affiliate_cta_click 0→0・目安 insufficient-data）。裁定して close する | — | verdict / defer |\n| OPP-54c4b70fae | 実験 | EXP-017（転職アフィリエイトを、アクセスがあるのに広告の無い面（実務・公的基準・ツール・トップ・経験記述の書き方）へ広げ、2級は建設JOBs に替えて、クリックと発生が増えるかを見る）: 自動計測の事後窓が完了（ga4.event:affiliate_cta_click 15→25・目安 improved）。裁定して close する / 要人手 1 件: （任意）A8 にサイトを 2 つ登録して面ごとの月次成果を分ける（PR-3）。2026-10-07 に広告リンクのリファラ方針を直し、デプロイ後の成果は A8 の成果別レポートの「リファラ」でページまで分かるようになったので、成果の帰属には不要。面の合計を A8 のサイト別で見たいときだけ | — | verdict / defer |\n| OPP-23fcb9d041 | SEO | /exam/civil-construction-2/guide/r08-secondary-answers の検索クリックが週 381（基線の週平均 1210.5・-68.5%） | 829.5 searchClicks | backlog |\n| OPP-125be209b4 | SEO | /tools/keiken-charcount の検索クリックが週 2（基線の週平均 28.8・-93%） | 26.8 searchClicks | backlog |\n| OPP-c308f66990 | SEO | /exam/civil-construction-2/secondary/experience-writing-examples の検索クリックが週 2（基線の週平均 28.5・-93%） | 26.5 searchClicks | backlog |\n| OPP-8d6d1d552c | SEO | /exam/civil-construction-1/secondary/r06 の検索クリックが週 1（基線の週平均 24.8・-96%） | 23.8 searchClicks | backlog |\n| OPP-b1f54e7b6d | SEO | /exam/civil-construction-2/secondary/experience-writing-guide の検索クリックが週 4（基線の週平均 19.3・-79.2%） | 15.3 searchClicks | backlog |\n| OPP-5a37725ac3 | 収益導線 | /exam/civil-construction-2/secondary/r08 の CTA クリック率 0.23%（サイト平均 0.75%） | 3.1 ctaClicks | backlog / experiment |\n| OPP-b67bbfd016 | 収益導線 | 演習の完了率が 12%（基線 17.5%）に低下 | 2.8 quizCompletions | backlog |\n| OPP-1d0d1c99f7 | 収益導線 | /exam/civil-construction-2/secondary/r04 の CTA クリック率 0.25%（サイト平均 0.75%） | 2.3 ctaClicks | backlog / experiment |\n\n全件を `npm run growth-triage -- list` で確認し、`apply --decisions <file> --commit` で backlog / 実験 / 束ね / 却下 / 保留に振り分ける（11〜30 位の取りこぼしは検索キーワード戦略のサイクルが受け持つ）。\n\n## 計測→改善トリアージ（未処分 0 件）\n\n- なし\n\n> 起票の前に、各ページの直近コミットと `.claude/todo/weekly.md` を見て対応済みでないことを確かめる。\n\n## 実験の期限（due 12 件）\n\n- EXP-008 キャリア（転職アフィリエイト）を悩み起点の hub→5柱→ツールへ再設計: PENDING 要人手 2 件: 記事末撤去（DN-0779）の deploy から 28 日後に npm run report-career-funnel を再実行し、2026-10-20 の観測（裁定ログ）と比べる / A8 の月次成果を取り込む（npm run a8-ui:fetch -- --month YYYY-MM／要ログイン）。確定 3 件未満では案件の勝敗を決めない\n- EXP-017 転職アフィリエイトを、アクセスがあるのに広告の無い面（実務・公的基準・ツール・トップ・経験記述の書き: MEASURE_DUE next_check_date 2026-11-13 を超過 / VERDICT_DUE 自動計測の事後窓が完了（ga4.event:affiliate_cta_click 15→25・目安 improved）。裁定して close する / PENDING 要人手 1 件: （任意）A8 にサイトを 2 つ登録して面ごとの月次成果を分ける（PR-3）。2026-10-07\n- EXP-018 転職アフィリエイトの残りの面（公的基準の章以外・トピック・実務ツール・測量士・舗装・建築）へ広げ、サ: MEASURE_DUE next_check_date 2026-11-13 を超過 / VERDICT_DUE 自動計測の事後窓が完了（ga4.event:affiliate_cta_click 0→0・目安 insufficient-data）。裁定して close する\n- EXP-020 2級土木 二次の 4 本（r06・r07・経験記述の例文・書き方）の題名と説明を検索語の語順に合わせ: MEASURE_DUE 開始から 34日（next_check_date 未設定・しきい値 28日）\n- EXP-021 総監の定型題名（｜ 技術士 総合技術監理部門 キーワード集）を、表示の多い 5 本で「語とは｜区別点: MEASURE_DUE 開始から 34日（next_check_date 未設定・しきい値 28日）\n- EXP-045 悩みのハブ「施工管理から発注者側へ移りたい人の地図」を作り、キャリア記事と教材をつなぐ: DECIDE_DUE proposed のまま 17日（start か abandon の判断待ち）\n- EXP-046 立場のテーマ「建設コンサルタントの技術者」を育成中（noindex）で作り、記事末の回遊と教材の枠を: DECIDE_DUE proposed のまま 17日（start か abandon の判断待ち）\n- EXP-052 技術士一次の直前パック（pe1-chokuzen-pack）で、案内の表示 → 販売先へのクリック : MEASURE_DUE next_check_date 2026-11-10 を超過\n- EXP-053 本文中の note 案内を POP 画像（image）と商品名・説明の文字のカード（text）で同時: MEASURE_DUE next_check_date 2026-11-10 を超過\n- EXP-054 「まず市場価値を確かめる——転職サイトに 2〜3 社登録して比べる」記事と動線で、転職アフィリの発生: MEASURE_DUE next_check_date 2026-11-10 を超過\n- EXP-055 技術士（建設部門）の読者に、施工管理の転職（ビルドジョブ）とハイクラス転職（ハイクラス DX・コンサ: MEASURE_DUE next_check_date 2026-11-10 を超過\n- EXP-063 技術士一次 令和8年度の解答速報で、正答は無料のまま自己採点シートと結果別の次の一手をメール登録の特: PENDING 要人手 1 件: 11/30 と合格発表の後に、Brevo のリスト「技術士一次 R8 速報」の件数（確認済み）を読む\n\n## 点検と Issue\n\n```\n[review-checks] 週次 2026-W46: 点検 6 本中 6 本を実行 / 要対応 1・検査不成立 0 / 開いている Issue 5 / 依存の脆弱性 1\n  ✓ check-workflow-health（重要 workflow の健全性）\n  ✓ node:check-backlog-health（バックログの健全性）\n  ✓ check-taxonomy-wiring（分類と回遊の配線）\n  ✓ standards-visual-review:status（基準書の章ページの画面の目視判定）\n  ✓ site-visual-review:status（サイトの代表ページの全画面幅の点検）\n  ✗ quality:audit:weekly（土曜の週次の点検（quality-audit の cadence weekly）） — [quality-audit] weekly 区分の失敗: competitor-scan-due, monthly-review-due\n\nレポートの「## 点検と Issue」に、次の各行の行き先（DN-xxxx・定常・理由）を書く:\n- quality:audit:weekly: [quality-audit] weekly 区分の失敗: competitor-scan-due, monthly-review-due → 振り分け: \n- #1217 [auto] weekly-collect: 土曜の収集（ログインが要る取得と書き込み）が完了しませんでした（2026-10-24〜） → 振り分け: \n- #1445 [auto] gsc-indexing-local: GSC の登録リクエストが失敗した（2026-11-06〜） → 振り分け: \n- #1460 [auto] ops: 投稿・配信・販売計測に遅れがあります（2026-11-08〜） → 振り分け: \n- #1475 [auto] report-checks: quality-audit の report 区分に FAIL があります（2026-11-09〜） → 振り分け: \n- #1575 [auto] fetch-metrics: 計測アラート（1 件）（2026-11-13〜） → 振り分け: \n- dependabot:basic-ftp medium → 振り分け:\n```\n\n## バックログの関門\n\n```\n■ 週次: 今決められる判断待ち 6 件（全件を運営者に諮る）\n  DN-0305 🟣 「業務経験 → 資格」カード（EXP-012）の反応を見て、入口記事を増やすか・文言や位置を変えるかを決める（起票 50 日前） 期日 2026-11-30\n  DN-0844 🟣 EXP-012 の判定（11/26）を受けて、自治体の土木担当・コンクリートの両シリーズの改善（導線と次の章の優先）を決める（起票 21 日前） 期日 2026-11-27\n  DN-0903 🟣 悩みのハブ（施工管理から発注者側へ・技術士で給料を上げたい）を作るかを運営者が決める（起票 17 日前）\n  DN-1156 🟣 答案の痛み（自力では書けない記述の答案を仕上げる）を広げる先の資格を 1 つ選び、年間の計画に入れる（起票 2 日前）\n  DN-1179 🟣 git で追跡している大きなファイル（state・Kindle の成果物・.obsidian）の置き場を決める（起票 1 日前）\n  DN-1178 🟣 文字サイズの任意値（text-[Npx] 約 400 件）をトークンにするか決める（起票 1 日前）\n■ 週次: 判断の時期が先の判断待ち 11 件（その月に諮る）\n  DN-0265 🟣 コンクリート主任技士のココナラ小論文添削を本試験後に継続か休止か判定する（起票 52 日前） 期日 2026-12-15 時期 2026-12\n  DN-0798 🟣 呼び出しの記録と静的参照から、使われていない・役割が重なるエージェントとスキルを統合・退役する（拡張性・第3波）（起票 25 日前） 時期 2026-12\n  DN-0624 🟣 技術士第一次試験の後に iOS アプリの感触を振り返り、総監の追加・土木アプリ・有料化を決める（起票 36 日前） 時期 2026-12\n  DN-0572 🟣 note からココナラへの冒頭導線（DN-0268）を、出品をそろえた後の 30 日で再判定する（起票 38 日前） 時期 2026-12\n  DN-0427 🟣 合格発表後に候補資格の昇格・見送りを決める（建築の有料化・舗装・技術士の他部門ほか）（起票 49 日前） 時期 2027-01..2027-03\n  DN-1062 🟣 2027 年に AI で効率化した技術士論文の添削を出すかを、集客・入口の添削・作業時間の 3 条件で決める（起票 4 日前） 時期 2027-02\n  DN-1006 🟣 YouTube・X・Instagram の年間計画を 3 か月の実測で見直す（起票 8 日前） 期日 2027-02-05 時期 2027-02\n  DN-1033 🟣 1 級一次の有料の模試を作るか決める（起票 8 日前） 時期 2027-03\n  DN-0992 🟣 1 級二次の経験記述を、シーズン一括の伴走（題数の上限・各題 A 判定まで・不合格なら翌年割引）で試すか決める（起票 9 日前） 時期 2027-04..2027-06\n  DN-0428 🟣 総監・建設部門の直前期（試験前）の価格と品揃えを確定する（起票 49 日前） 時期 2027-04..2027-06\n  DN-0331 🟣 年間の EPC で継続する転職案件を決める（起票 49 日前） 時期 2027-07..2027-09\n■ 週次: 期日切れ 0 件\n■ 週次: 直近 7 日の起票 80 件（重要度と時期を確かめる）\n```\n\n## バックログの健全性\n\n```\n[check-backlog-health] カード 251 件を実検査（判定はしない・候補の列挙のみ）\n  S1 種類の内訳: 改善:150 制作:56 不具合:24 意思決定:21\n  S2 🟢/🟣 に沈んだ不具合: 1 / 不具合 24\n      L3014 [low] Windows の手元で npm test が 46〜47 件落ちる原因を分けて直す（CI では通る）\n  S3 意思決定なのに tier≠🟣: 4\n      L3045 [low] 転送の見直し: 2026-10-26 の基準類の逐語ページ part-NN の転送を外せるか判断する\n      L3061 [low] 転送の見直し: 2026-09〜10 の GSC 404 の救済ルールを外せるか判断する\n      L3077 [low] 転送の見直し: 2026-08-22 の旧 /docs・/category → 正規 URL の転送を外せるか判断する\n      L3093 [low] 転送の見直し: 2026-04〜06 の手書きの静的ルール（キーワード統合・テキストの slug 変更・旧 /docs/exam 構造・削除記事）を外せるか判断する\n  S4 定期（backlog の役割違反）: 0\n  S5 起票から 90 日超: 0（[起票:] 欠落 0）\n  S6 語彙外カテゴリの残: 0\n  S7 検証ゲート欠落: 226 / 251（不具合/改善 166〔gate が実在するなら付ける〕 ＋ 制作/意思決定 60〔原則付かない〕）\n      候補: L83 改善 55歳までの方向「発注者の目で配線した土木の情報拠点」を戦略文書に反映する\n      候補: L100 改善 コンクリート技士 令和8年度の当日ページの、試験翌週のクリックと検索語を記録する\n      候補: L111 改善 土曜の収集の business-records の段が受取額を記録するか確かめる（11/14・11/21\n      候補: L202 改善 コンクリート技士の教材の規定値を JIS A 5308:2024 と R 5210:2026 の本文で照\n      候補: L214 改善 CI を効率化し、PR から本番確認までの待ち時間を短くする\n      候補: L230 改善 未クロールの改善の効果を次の URL 検査で確かめる\n      候補: L240 改善 解答速報は正答を無料のまま、解説と次の一手を登録の特典にしてリスト化を試す\n      候補: L315 改善 本文中の note 案内を POP 画像と文字のカードで A/B し、既定を決める（EXP-053）\n      …ほか 158 件\n  S8 重複候補ペア: 0\n  S9 .claude/todo の 4 層以外: 0\n  S10 ID の再利用（現役カード）: 0\n  S11 実績コミット後に本文未更新: 1\n      L1078 DN-1001 1.2日遅れ 新しい通常動画からショートを派生させる試行（通常動画 3 本 × ショート 2 本）\n  S12 完了 prose 蓄積（TRIM 候補・本文 5 件以上）: 3\n      L2406 8件 YouTube 動画パックの公開と、概要欄（季節の主商品リンク・保有資格）の同期・6 週間判定\n      L2486 6件 人・外部実体が必要な残務\n      L1985 5件 反映済みの変更の効果を、比べられる日が来た順に GSC・GA4 で比べて記録する（11 月）\n  S13 チャネル状態複製の疑い（SSOT が真実源・カードから剥がす候補）: 1\n      L385 2件 合格ラボを畳む: 会員0人を確認し、会員専用マガジンと旧2プランを削除する（メンバーシップの器は建設業×AI に使う）\n  S14 期日超過: 0\n  S15 [時期:] の月を過ぎたまま残っている: 0\n  S16 マージの状態が古いまま: 2（「未マージ」の PR 0 件・ブランチ 2 件を照合）\n      DN-1164 wip/shorts-batch-2026-11-13 origin に無いブランチなのに、同じ行にマージ・削除の記述が無い\n      DN-1164 wip/shorts-batch-2026-11-13 origin に無いブランチなのに、同じ行にマージ・削除の記述が無い\n\n判定と適用は /backlog-sweep --audit（backlog-curator）が行う。ここは候補の列挙のみ。\n```\n\n## 検索の改善（今週 3/3 件。直してよい 3 件の上位を develop で直し、npm run search-improvement -- record --page <path> --change \"…\" --commit で記録する）\n\n- [資格名] /exam/civil-construction-1/secondary/r06「1級土木施工管理技士 2 次試験 解答例」表示 17・最良 11 位（前回 EXP-028: success）\n- [資格名] /exam/pe-first-stage/guide/basic-subject「技術士補 基礎科目」表示 16・最良 13.5 位\n- [資格名] /exam/pe-comprehensive-management/keywords/cpd「技術士cpdガイドライン」表示 10・最良 11.7 位（前回 EXP-027: success）\n\n## 検索の週次処置（要処置 0・観察中 3）\n\n- 観察中 [資格名] /exam/civil-construction-1/guide/future: EXP-060 改善 2026-11-08・本番反映待ち\n- 観察中 [資格名] /exam/rccm/guide/study-plan: EXP-061 改善 2026-11-08・本番反映待ち\n- 観察中 [土木公務員] /exam/pe-comprehensive-management/guide/public-engineer-qualification-map: EXP-062 改善 2026-11-08・本番反映待ち\n\n## 検索改善の実験（直す→本番反映→計測→判定）\n\n- closed 9 / measuring 13 / implemented 3\n\n## PSI と実ユーザー計測\n\n```\n- CI ゲート違反（field 実害・取得失敗率20%超）: **0件**\n- `https://doboku-note.com/search` (desktop): **SEO** = 66 (閾値: ≥90)\n- `https://doboku-note.com/exam/civil-construction-1/primary/r07-a` (desktop): **CLS** = 0.222 (閾値: ≤0.1)\n- `https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary` (desktop): **CLS** = 0.173 (閾値: ≤0.1)\n- `https://doboku-note.com/` (mobile): **LCP** = 5805ms (閾値: ≤2500ms)\n- `https://doboku-note.com/search` (mobile): **SEO** = 66 (閾値: ≥90)\n- `https://doboku-note.com/exam/civil-construction-1/guide/strategy` (mobile): **LCP** = 5527ms (閾値: ≤2500ms)\n- `https://doboku-note.com/exam/civil-construction-1/guide/four-management` (mobile): **LCP** = 5661ms (閾値: ≤2500ms)\n実ユーザー計測 data/rum/web-vitals/2026-11-08.json（2026-10-10〜2026-11-06・6 日前）状態 ok・イベント 91428 件\n  要改善　 CLS desktop 良好率  71%（324 件）/exam/civil-construction-2/primary\n  要改善　 CLS desktop 良好率  65%（159 件）/standards/mlit\n手を打つ組 2（不良 0）\n```\n\n## build 後 SEO スキャン（check-seo-build・CI が develop の push ごとに記録）\n\n- 最新の記録: 2026-11-14。検査 2103 URL / sitemap 2103 URL\n- error 0（前週比 ±0）/ warn 407（前週比 -1）\n- 前週の記録: 2026-11-07\n\n| 型 | 区分 | 件数 | 前週比 |\n|---|---|--:|--:|\n| jsonld_recommended_missing | warn | 407 | ±0 |\n| ssr_thin_body | warn | 0 | -1 |\n\n## note 同期\n\n```\n[note-sync-plan] 公開記事 1077: 反映済み 493 / 反映待ち 581 / 止まっている 3\n  反映待ちの部品: 本文 583・カバー 51・タグ 0（配布 PDF の取り寄せが要る 467）\n  止まっている: 前回の更新が途中で止まった 3 件 → note の公開ページを確認し、問題なければ note-update-body --sync --article <path> --force-retry --commit\n    nd88d5ec77f2d  content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md（2026-10-24T07:59:28: 更新フローが false を返した（保存せず中断））\n    nd4320a66d09f  content/note/1級・2級土木/1級土木/magazines/1級土木-テキスト精読ガイド/土木一般-共通工学編/article.md（2026-10-24T08:10:37: 更新フローが false を返した（保存せず中断））\n    n653cd1b3ee71  content/note/1級・2級土木/1級土木/magazines/1級土木-テキスト精読ガイド/施工管理-法規編/article.md（2026-10-24T08:09:47: 更新フローが false を返した（保存せず中断））\n```\n\n## X 予約キュー\n\n```\n📮 X 予約キュー投入 surfacer — 2026/11/14\n   最終予約記録（途中の空白を含む）: 11/30   lookahead: 8 日\n\n⚠ 判定不能: 11 件（見出しから日付が読めず due 判定できない・未投入あり）\n   - 096-civil1-pressure-correction（未投入 1/1）— 見出しの日付書式を確認する\n   - 097-civil1-diagram-reuse（未投入 3/3）— 見出しの日付書式を確認する\n   - 098-cem-textbook-diagrams（未投入 19/19）— 見出しの日付書式を確認する\n   - 099-pe-construction-textbook-diagrams（未投入 5/5）— 見出しの日付書式を確認する\n   - 100-pe-first-stage-calculation-diagrams（未投入 3/3）— 見出しの日付書式を確認する\n   - 101-civil-textbook-diagrams（未投入 4/4）— 見出しの日付書式を確認する\n   - 102-practice-textbook-diagrams（未投入 7/7）— 見出しの日付書式を確認する\n   - 103-cem-existing-figure-diagrams（未投入 15/15）— 見出しの日付書式を確認する\n   - 108-civil1-prestress-diagrams（未投入 1/1）— 見出しの日付書式を確認する\n   - 109-civil1-construction-diagrams（未投入 5/5）— 見出しの日付書式を確認する\n   - 114-pe-merit-series（未投入 8/8）— 見出しの日付書式を確認する\n```\n\n## ココナラ取引\n\n- 要対応 0・注意 0\n\n## 売上台帳\n\n```\n最終更新: 2026-11-14\n【2026-10】 22件 / ¥67,680 ★¥15kマイルストーン達成\n【2026-11】 19件 / ¥40,540 ★¥15kマイルストーン達成\n```\n"
 }

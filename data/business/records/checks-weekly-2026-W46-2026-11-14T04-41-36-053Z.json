@@ -1,0 +1,106 @@
+{
+  "cadence": "weekly",
+  "runKey": "2026-W46",
+  "ranAt": "2026-11-14T04:41:36.053Z",
+  "checks": [
+    {
+      "command": "check-workflow-health",
+      "label": "重要 workflow の健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-workflow-health] ✓ 重要 workflow はすべて健全",
+      "seconds": 13
+    },
+    {
+      "command": "node:check-backlog-health",
+      "label": "バックログの健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-backlog-health] カード 251 件を実検査（判定はしない・候補の列挙のみ）",
+      "seconds": 7
+    },
+    {
+      "command": "check-taxonomy-wiring",
+      "label": "分類と回遊の配線",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "- GSC 2026-10-13〜2026-11-09: テーマページ 1 件・クリック 1・表示 29（上位: /topics/municipal-civil-engineers 29）",
+      "seconds": 5
+    },
+    {
+      "command": "standards-visual-review:status",
+      "label": "基準書の章ページの画面の目視判定",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[standards-visual-review] 対象 546 章（中身が異なる章） / 判定済み 43（不合格 1・うち起票済み 1） / 中身が変わり判定待ち 2 / 未判定 501 / 最後の実行 2026-11-09",
+      "seconds": 1
+    },
+    {
+      "command": "site-visual-review:status",
+      "label": "サイトの代表ページの全画面幅の点検",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[site-visual-review] 設定 15 ページ × 6 幅 / 判定済み 15（不合格 0・うち起票済み 0） / 未判定 0 / 最後の実行 2026-11-11",
+      "seconds": 0
+    },
+    {
+      "command": "quality:audit:weekly",
+      "label": "土曜の週次の点検（quality-audit の cadence weekly）",
+      "exitCode": 1,
+      "state": "fail",
+      "summary": "[quality-audit] weekly 区分の失敗: competitor-scan-due, monthly-review-due",
+      "seconds": 173
+    }
+  ],
+  "issues": [
+    {
+      "number": 1217,
+      "title": "[auto] weekly-collect: 土曜の収集（ログインが要る取得と書き込み）が完了しませんでした",
+      "createdAt": "2026-10-24T08:55:15Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1445,
+      "title": "[auto] gsc-indexing-local: GSC の登録リクエストが失敗した",
+      "createdAt": "2026-11-06T22:40:45Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1460,
+      "title": "[auto] ops: 投稿・配信・販売計測に遅れがあります",
+      "createdAt": "2026-11-08T01:48:04Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1475,
+      "title": "[auto] report-checks: quality-audit の report 区分に FAIL があります",
+      "createdAt": "2026-11-09T09:50:58Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1575,
+      "title": "[auto] fetch-metrics: 計測アラート（1 件）",
+      "createdAt": "2026-11-13T01:36:52Z",
+      "labels": [
+        "automation-failure"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "number": 119,
+      "severity": "medium",
+      "package": "basic-ftp",
+      "summary": "basic-ftp: Uncaught TypeError in MLSD directory-listing parser via __proto__ fact name causes DoS in Client.list()",
+      "createdAt": "2026-11-13T06:33:05Z"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "cadence": "weekly",
+  "period": {
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-08"
+  },
+  "status": "provisional",
+  "snapshot": "data/business/records/snapshot-2026-11-14T04-43-14-068Z-00df8290-323e-4d04-a3d3-cb46ba041048.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction",
+    "rccm"
+  ],
+  "findings": "W45 窓（11/2〜11/8）。note 販売 11 件 ¥23,400（部分・前週比 件数 +450.0%・金額 +134.9%）。資格別は建設部門 5 件 ¥11,200、総監 1 件 ¥500、1級土木と RCCM は 0 件（いずれも部分）。ココナラ 0 件。note の閲覧 1,741・表示 22,336。10 月の受取額は ¥65,198（note ¥57,435・ココナラ ¥0・KDP ¥7,763 推計）で目標 ¥100,000 に対し −¥34,802。ただし 11/14 の収集の検算で、10 月の note の販売明細 ¥67,680 と月次売上 ¥25,400 が合わず、note の値は確定と読めない（DN-1190）。自然検索人数・Google クリック・note CTA・演習開始は欠測: 金曜 11/13 の fetch-metrics が develop への書き戻しで lint-ja の検査不成立になり、W45 の計測ダイジェストと週次の記録が入っていない（DN-1189）。手元の最新の自然検索人数は 10/31〜11/06 の 2,887（別の窓・この期間へ換算しない）。土曜 11/14 の収集は auth・KDP・note-traffic・note-sales・ココナラが失敗し、後段は途中で終わった（DN-0819・DN-1190）。",
+  "decision": "重点 4 資格と、サイトと note 教材の品質優先を維持する。運営者の居ない実行のため方針の変更はしない。判断待ち 6 件（DN-0305・DN-0844・DN-0903・DN-1156・DN-1178・DN-1179）と実験の判定（EXP-017・EXP-018）・開始（EXP-045・EXP-046）は見送り・承認待ちとした。欠測が多いため provisional とする。",
+  "nextAction": "(1) DN-1189 で fetch-metrics の書き戻しを直して取り直し、W45 の計測トリアージと実験の再計測を済ませる。(2) 11/21 の土曜の収集を全段 rc=0 にする（運営者の KDP・auth の再ログイン・DN-0819、ログイン以外は DN-1190）。(3) 2026-10 の月次レビューを補完する。(4) EXP-017・EXP-018 の判定と EXP-045・EXP-046 の開始を運営者に諮る。",
+  "experimentIds": [
+    "EXP-008",
+    "EXP-017",
+    "EXP-018",
+    "EXP-020",
+    "EXP-021",
+    "EXP-045",
+    "EXP-046",
+    "EXP-052",
+    "EXP-053",
+    "EXP-054",
+    "EXP-055",
+    "EXP-063"
+  ],
+  "nextReviewDate": "2026-12-02",
+  "schemaVersion": 1,
+  "createdAt": "2026-11-14T04:43:38.501Z",
+  "strategyHash": "ebc307915d12c3ec63d43da443722b860373134b2782463741d8814350cf18d4"
+}
