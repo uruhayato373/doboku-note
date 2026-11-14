@@ -431,6 +431,18 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1191] 朝の GSC の登録リクエストの記録が commit 前の検査で落ちるのを直す（Issue #1445）
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-14]
+
+**起点**: 週次レビュー（2026-11-09〜2026-11-15）。Issue #1445（gsc-indexing-local・11/6〜）が 7 日を超えて開いている。11/14 朝の回は登録リクエスト自体は送れた（受理 10 件）が、記録の commit が pre-commit の `check-category-curriculum` の ERROR（`pe-fisheries.examGuide` の slug 不在: guide-overview が doc-meta-index に無い）で落ちた（`~/Library/Logs/doboku-note/gsc-indexing.log`）。同じ検査は、doc-meta-index を作り直した worktree では通る（slug 参照 348 件・全て実在）。朝の処理が使うチェックアウトの doc-meta-index が古いまま commit している疑い（未確認）。あわせて「button-not-found」で送れない URL が 5 件ある。
+
+**やること**:
+1. gsc-indexing-local が commit する前に `node .claude/scripts/build-doc-meta-index.mjs --ci` を回すか、記録だけの commit が記事の索引に左右されない形にする。
+2. button-not-found の 5 件（主任技士 materials・総監 h21-secondary・水産部門のガイドほか）が、URL 検査の画面で登録できない状態（既に登録済み・上限）なのか、画面の変更なのかを切り分ける。
+
+**完了条件**: 朝の回が 2 日続けて rc=0 で終わり、`data/gsc/indexing-requests.json` の記録が develop に入り、Issue #1445 が自動で閉じる。
+
+
 ### [DN-1190] 土曜の収集のログイン以外の失敗（note-traffic・note-sales の検算・ココナラのカタログ・もしも・後段の途中終了とロック）を直す
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-14]
 
