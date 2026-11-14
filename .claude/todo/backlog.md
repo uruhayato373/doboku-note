@@ -431,6 +431,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1192] sitemap-legacy.xml に出ている GSC のエラー 1 件を直す（Issue #1460）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-14]
+
+**起点**: 週次レビュー（2026-11-09〜2026-11-15）。日次の ops 点検 `gsc-sitemaps-due` が 11/8 から落ちている（Issue #1460）。中身は「GSC がエラー 1 件を報告: https://doboku-note.com/sitemap-legacy.xml（最終読込 2026-11-03）」。sitemap.xml 本体はエラー 0。同じ Issue に出ている `registry-due` は DN-1070 が持つ。
+
+**やること**: sitemap-legacy.xml の中身（旧 URL の転送先を載せる sitemap）を本番で取り、GSC がエラーにする行（転送・404・形式）を特定して直す。役目を終えているなら GSC の登録と配信を外す判断を運営者に諮る（GSC の画面の操作は運営者）。
+
+**完了条件**: `node scripts/quality-audit.mjs --only gsc-sitemaps-due` が PASS し、Issue #1460 から gsc-sitemaps-due が消える。
+
+
 ### [DN-1191] 朝の GSC の登録リクエストの記録が commit 前の検査で落ちるのを直す（Issue #1445）
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-14]
 
