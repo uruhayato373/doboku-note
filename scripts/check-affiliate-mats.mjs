@@ -34,6 +34,9 @@ import { todayJst } from './lib/jst-date.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { linkKeys } from './lib/affiliate-link-keys.mjs';
+import { affiliateMatEntries, validateCatalogCreatives } from './lib/affiliate-catalog-mats.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 /** A8 口座の中での doboku-note のサイト番号（001 は stats47）。 */
@@ -55,11 +58,15 @@ const STAGED = __argv.includes('--staged');
 const REGISTRY = datasetPath('config.affiliate-mats');
 
 if (!existsSync(REGISTRY)) {
-  console.error(`[check-affiliate-mats] ${REGISTRY} が無いため検証をスキップ`);
-  __exit(0);
+  console.error(`[check-affiliate-mats] ${REGISTRY} が無いため検査不成立`);
+  __exit(1);
 }
 
-const registry = JSON.parse(readFileSync(REGISTRY, 'utf8')).mats;
+const catalog = readDataset(REPO_ROOT, 'affiliate.catalog');
+const validation = validateCatalogCreatives(catalog);
+for (const error of validation.errors) console.error(`[check-affiliate-mats] ERROR: ${error}`);
+if (validation.checked === 0 || validation.errors.length) __exit(1);
+const registry = affiliateMatEntries(catalog, readDataset(REPO_ROOT, 'config.affiliate-mats').mats);
 const known = new Map(registry.map((m) => [m.mat, m]));
 const today = todayJst(); // YYYY-MM-DD
 
@@ -174,7 +181,7 @@ if (mdxRaw.length > 0 || unknown.length > 0 || noteDisallowed.length > 0 || fore
 
 const scope = STAGED ? 'staged' : `${files.length} ファイル`;
 console.log(
-  `[check-affiliate-mats] ✓ ${scope} の a8mat は全て許可リストに存在（既知 ${seenKnown.size}/${known.size} 種が出現）`,
+  `[check-affiliate-mats] ✓ ${scope} の a8mat は全て許可リストに存在（台帳の素材 ${validation.checked} 件検査・既知 ${seenKnown.size}/${known.size} 種が出現）`,
 );
 __exit(0);
   });

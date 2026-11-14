@@ -18,6 +18,7 @@
  *   kdp-report が書籍 ID を付けられなかった行（stats47 の本）は excluded に件数と金額だけ残す。
  * アトリビューションはしない（クリックした人が買ったかは分からない。広告費も使っていない）。
  */
+import { validateMoshimoReport } from './moshimo-report.mjs';
 import { canonicalizeProductId } from './sales-normalize.mjs';
 
 export const COVERAGE_STATUSES = ['measured', 'partial', 'account-only', 'unmeasured'];
@@ -52,8 +53,11 @@ export function buildProductIndex(products, mats = []) {
       if (c.id) kindleByBookId.set(c.id, { id: p.id, asin: c.asin ?? null });
     }
   }
-  // A8 は案件（program）が商品にあたる。GA4 の product_id は a8mat なので config/affiliate-mats.json で案件へ引き当てる
-  for (const m of mats ?? []) if (m.program && m.mat) add(m.program, 'a8', m.mat);
+  // GA4 の商品 ID は A8 が a8mat、もしもが p_id（素材 ID を含めない）。
+  for (const m of mats ?? []) if (m.program && m.mat) {
+    const promotionId = /^moshimo:(\d+):\d+$/.exec(m.mat)?.[1];
+    add(m.program, promotionId ? 'moshimo' : 'a8', promotionId ?? m.mat);
+  }
   return { toDestination, fromDestination, kindleByBookId };
 }
 
@@ -193,7 +197,7 @@ function a8Section(month, reportLog, index) {
   const pending = ours.some((r) => (r.pendingCount ?? 0) > 0);
   const rows = ours
     .filter((r) => (r.conversions ?? 0) > 0 || (r.approved ?? 0) > 0)
-    .map((r) => ({ destination: 'a8', productId: r.program, destinationIds: index.toDestination.get(r.program) ?? [], count: r.conversions ?? 0, amountYen: r.revenueYen ?? 0, grossYen: r.grossRevenueYen ?? 0, approvedCount: r.approved ?? 0, pendingYen: r.pendingRevenueYen ?? 0, clicks: r.clicks ?? 0 }));
+    .map((r) => ({ destination: 'a8', productId: r.program, destinationIds: (index.toDestination.get(r.program) ?? []).filter(id => index.fromDestination.get(`a8:${id}`) === r.program), count: r.conversions ?? 0, amountYen: r.revenueYen ?? 0, grossYen: r.grossRevenueYen ?? 0, approvedCount: r.approved ?? 0, pendingYen: r.pendingRevenueYen ?? 0, clicks: r.clicks ?? 0 }));
   const complete = fetchedAt.slice(0, 10) > lastDayOf(month);
   return {
     coverage: {
@@ -211,19 +215,33 @@ function a8Section(month, reportLog, index) {
 /**
  * @param {{ month: string, products: Array, salesLog: object, royalties: object, revenue: object, orders: object, reportLog: object }} input
  */
-export function buildProductSales({ month, products, mats = [], salesLog, royalties, revenue, orders, reportLog }) {
+
+function moshimoSection(month, report, catalog, index, siteId) {
+  if (!report) return { coverage: { status: 'unmeasured', reason: 'もしものサイト別月次成果が未取得' }, rows: [] };
+  validateMoshimoReport(report, { month, siteId });
+  const programs = new Map(Object.entries(catalog?.programs ?? {}).filter(([, p]) => p.asps?.moshimo?.promotionId).map(([id, p]) => [String(p.asps.moshimo.promotionId), id]));
+  const rows = report.records.flatMap(r => {
+    const productId = programs.get(r.programId);
+    if (!productId) return [];
+    return [{ destination: 'moshimo', productId, destinationIds: (index.toDestination.get(productId) ?? []).filter(id => index.fromDestination.get(`moshimo:${id}`) === productId), count: r.conversions, amountYen: r.revenueYen, grossYen: r.grossRevenueYen, approvedCount: r.approved, clicks: r.clicks }];
+  });
+  return { coverage: { status: 'partial', provisional: true, amountBasis: 'approved', fetchedAt: report.fetchedAt, note: '画面で観測した案件だけを収録。行のない案件は未計測。承認は後日の取得で変わり得る' }, rows };
+}
+
+export function buildProductSales({ month, products, mats = [], salesLog, royalties, revenue, orders, reportLog, moshimoReport, catalog, moshimoSiteId }) {
   if (!/^\d{4}-\d{2}$/.test(String(month))) throw new Error(`月は YYYY-MM で指定する（受領: ${month}）`);
   const index = buildProductIndex(products, mats);
   const note = noteSection(month, salesLog, index);
   const kindle = kindleSection(month, royalties, index);
   const coconala = coconalaSection(month, revenue, orders);
   const a8 = a8Section(month, reportLog, index);
-  const rows = [...note.rows, ...kindle.rows, ...coconala.rows, ...a8.rows].sort((a, b) => a.destination.localeCompare(b.destination) || b.amountYen - a.amountYen || a.productId.localeCompare(b.productId));
+  const moshimo = moshimoSection(month, moshimoReport, catalog, index, moshimoSiteId);
+  const rows = [...note.rows, ...kindle.rows, ...coconala.rows, ...a8.rows, ...moshimo.rows].sort((a, b) => a.destination.localeCompare(b.destination) || b.amountYen - a.amountYen || a.productId.localeCompare(b.productId));
   return {
     schemaVersion: 1,
     month,
     generatedBy: 'npm run product-sales',
-    coverage: { note: note.coverage, amazon: kindle.coverage, coconala: coconala.coverage, a8: a8.coverage },
+    coverage: { note: note.coverage, amazon: kindle.coverage, coconala: coconala.coverage, a8: a8.coverage, moshimo: moshimo.coverage },
     rows,
     ...(kindle.excluded?.rows ? { excluded: { amazon: kindle.excluded } } : {}),
   };
@@ -277,7 +295,7 @@ export function buildProductFunnel({ report, ledgers, index }) {
   const rows = [...byKey.values()].map((row) => ({
     ...row,
     ctr: row.impressions >= 100 ? row.clicks / row.impressions : null,
-    sales: Object.fromEntries((ledgers ?? []).map((l) => [l.month, ['note', 'amazon', 'coconala', 'a8'].includes(row.destination) ? salesByDestinationId(l, row.destination, row.destinationId) : { status: 'unmeasured' }])),
+    sales: Object.fromEntries((ledgers ?? []).map((l) => [l.month, ['note', 'amazon', 'coconala', 'a8', 'moshimo'].includes(row.destination) ? salesByDestinationId(l, row.destination, row.destinationId) : { status: 'unmeasured' }])),
   }));
   rows.sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions || a.destinationId.localeCompare(b.destinationId));
   return { window: { startDate: report?.meta?.startDate ?? null, endDate: report?.meta?.endDate ?? null }, months, rows };

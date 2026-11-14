@@ -79,23 +79,33 @@ test('実データ相当（今日転記・280件）は OK', () => {
   assert.equal(r.latest, '2026-08-17');
 });
 
-test('note月次売上と販売明細の不一致をFAILにする', () => {
-  const sales = { sales: [
+test('明細の合計を売上管理の確定額と突合し、不一致をFAILにする', () => {
+  const sales = [
     { date: '2026-08-01', price: 1000 },
     { date: '2026-08-20', price: 2000 },
     { date: '2026-09-01', price: 9999 },
-  ] };
-  assert.equal(assessSalesBenchmark(sales, { month: '2026-08', summary: { salesYen: 3000 } }).status, 'OK');
-  const bad = assessSalesBenchmark(sales, { month: '2026-08', summary: { salesYen: 71640 } });
+  ];
+  assert.equal(assessSalesBenchmark({ sales, months: { '2026-08': { total: 3000, finalized: true } } }, '2026-08').status, 'OK');
+  const bad = assessSalesBenchmark({ sales, months: { '2026-08': { total: 71640, finalized: true } } }, '2026-08');
   assert.equal(bad.status, 'FAIL');
   assert.equal(bad.actual, 3000);
   assert.match(bad.reason, /不一致/);
 });
 
-test('note月次売上の検査対象が0件・不正値でもPASSにしない', () => {
-  assert.equal(assessSalesBenchmark({ sales: [] }, { month: '2026-08', summary: { salesYen: 0 } }).status, 'OK');
-  assert.equal(assessSalesBenchmark({ sales: [] }, { month: '2026/08', summary: { salesYen: 0 } }).status, 'FAIL');
-  assert.equal(assessSalesBenchmark({ sales: [] }, { month: '2026-08', summary: {} }).status, 'FAIL');
+test('確定額が無い・未確定・不正値の月をPASSにしない', () => {
+  assert.equal(assessSalesBenchmark({ sales: [], months: { '2026-08': { total: 0, finalized: true } } }, '2026-08').status, 'OK');
+  assert.equal(assessSalesBenchmark({ sales: [], months: {} }, '2026-08').status, 'FAIL');
+  assert.equal(assessSalesBenchmark({ sales: [], months: { '2026-08': { total: 0, finalized: false } } }, '2026-08').status, 'FAIL');
+  assert.equal(assessSalesBenchmark({ sales: [], months: { '2026-08': { finalized: true } } }, '2026-08').status, 'FAIL');
+  assert.equal(assessSalesBenchmark({ sales: [], months: { '2026/08': { total: 0, finalized: true } } }, '2026/08').status, 'FAIL');
+});
+
+test('アクセス状況の売上ではなく確定額で照合する（2026-11-14: 9月は単品3本、10月は月途中の値で偽FAILだった）', () => {
+  // 2026-10: 明細 ¥67,680 は売上管理の確定額と一致。アクセス状況は 10/10 取得の ¥25,400 が残っていた
+  const sales = [{ date: '2026-10-09', price: 25400 }, { date: '2026-10-30', price: 42280 }];
+  const r = assessSalesBenchmark({ sales, months: { '2026-10': { total: 67680, finalized: true } } }, '2026-10');
+  assert.equal(r.status, 'OK');
+  assert.equal(r.expected, 67680);
 });
 
 test('5日以降は前月、月初は前々月を月次照合対象にする', () => {

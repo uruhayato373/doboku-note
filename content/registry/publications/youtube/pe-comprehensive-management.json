@@ -479,6 +479,28 @@
       "copy": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.json#longform"
     },
     {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.short.point-ippan-1",
+      "work": "gyoumu-keireki-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-ippan-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.json#shorts/point-ippan-1",
+      "relatedTo": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.short.point-seika-2",
+      "work": "gyoumu-keireki-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-seika-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.json#shorts/point-seika-2",
+      "relatedTo": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform",
       "work": "hakusho-kadai-erabu",
       "account": "youtube:main",
@@ -503,6 +525,28 @@
         "subtitles": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu/youtube.json#longform"
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.short.point-medatsu-1",
+      "work": "hakusho-kadai-erabu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-medatsu-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu/youtube.json#shorts/point-medatsu-1",
+      "relatedTo": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.short.point-mittsu-2",
+      "work": "hakusho-kadai-erabu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-mittsu-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu/youtube.json#shorts/point-mittsu-2",
+      "relatedTo": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform",
@@ -531,6 +575,28 @@
       "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.json#longform"
     },
     {
+      "id": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.short.point-hoshin-2",
+      "work": "hakusho-shisaku-kaiketsu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-hoshin-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.json#shorts/point-hoshin-2",
+      "relatedTo": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.short.point-utsusanai-1",
+      "work": "hakusho-shisaku-kaiketsu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-utsusanai-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.json#shorts/point-utsusanai-1",
+      "relatedTo": "pe-comprehensive-management/hakusho-shisaku-kaiketsu/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform",
       "work": "hakusho-tsunagu-jitsuen",
       "account": "youtube:main",
@@ -557,6 +623,28 @@
       "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.json#longform"
     },
     {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.short.point-mittsu-toi-2",
+      "work": "hakusho-tsunagu-jitsuen",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-mittsu-toi-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.json#shorts/point-mittsu-toi-2",
+      "relatedTo": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.short.point-naraberu-1",
+      "work": "hakusho-tsunagu-jitsuen",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-naraberu-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.json#shorts/point-naraberu-1",
+      "relatedTo": "pe-comprehensive-management/hakusho-tsunagu-jitsuen/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform",
       "work": "hakusho-yomu-fukasa",
       "account": "youtube:main",
@@ -581,6 +669,28 @@
         "subtitles": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa/youtube.json#longform"
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.short.point-memo-2",
+      "work": "hakusho-yomu-fukasa",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-memo-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa/youtube.json#shorts/point-memo-2",
+      "relatedTo": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.short.point-onaji-1",
+      "work": "hakusho-yomu-fukasa",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-onaji-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/hakusho-yomu-fukasa/youtube.json#shorts/point-onaji-1",
+      "relatedTo": "pe-comprehensive-management/hakusho-yomu-fukasa/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-comprehensive-management/sanso-kozo/youtube.longform",
@@ -811,6 +921,28 @@
       "publishAt": "2026-12-15T11:30:00Z"
     },
     {
+      "id": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.short.point-tachiba-1",
+      "work": "sokan-kojutsu-tachiba",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-tachiba-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.json#shorts/point-tachiba-1",
+      "relatedTo": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.short.point-tejun-2",
+      "work": "sokan-kojutsu-tachiba",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-tejun-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.json#shorts/point-tejun-2",
+      "relatedTo": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform",
       "work": "sokan-kojutsu-tradeoff",
       "account": "youtube:main",
@@ -887,6 +1019,28 @@
         "status": "set",
         "setAt": "2026-11-10T21:13:06.619Z"
       }
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.short.point-kanrimei-1",
+      "work": "sokan-kojutsu-tradeoff",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kanrimei-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.json#shorts/point-kanrimei-1",
+      "relatedTo": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.short.point-yottsu-jun-2",
+      "work": "sokan-kojutsu-tradeoff",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-yottsu-jun-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.json#shorts/point-yottsu-jun-2",
+      "relatedTo": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform",
+      "idException": "imported-before-cutover"
     }
   ]
 }

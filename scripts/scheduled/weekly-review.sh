@@ -1,13 +1,14 @@
 #!/bin/bash
-# launchd から毎週土曜 9:30 に呼ばれるラッパー（com.doboku-note.weekly-review）。名前は登録済みの launchd に合わせて残している。
+# launchd から毎週土曜 9:30 と、ログイン・起動のたび（RunAtLoad）に呼ばれるラッパー（com.doboku-note.weekly-review）。名前は登録済みの launchd に合わせて残している。
+# 土曜の開始時刻から日曜の間だけ、収集の記録から今週まだ終わっていない範囲（全部・後段だけ・なし）を決めて回す（再起動で途中終了した回の回し直し・DN-1196）。
 #   1. 土曜の収集（前）: ログインが要る取得と、その検算・note の公開状態の照合を scripts/weekly-collect.mjs --phase pre で回す（DN-0817・DN-0819・DN-0847）
 #   2. GSC の記録層: 要るときだけヘッドレスの Claude に週次観測・coverage の断片を書かせ、scripts/apply-gsc-records.mjs が
 #      gsc-management.md へ追記して push する（旧 gsc-auto-review.yml・CI の中の Claude をやめて土曜へ寄せた・DN-0849）
 #   3. 土曜の収集（後）: 時間がかかる照合と note への書き込みを --phase post で回す
 # 導入・状態確認・即実行・解除: npm run weekly-review:install [-- --status|--run-now|--uninstall]
 #
-# 週次レビュー（/weekly-review・/plan-weekly・/monthly-review）はここで回さない。運営者の指示で対話セッションが実行する
-# （2026-11-08 に自動実行をやめた。画面のない実行は落ちても気づかれず、抜けた週は後日まとめて回せば足りる）。
+# 週次レビュー（/weekly-review・/plan-weekly・/monthly-review）はここで回さない（2026-11-08 にヘッドレスの実行をやめた。画面のない実行は
+# 落ちても気づかれなかった）。週次は 2026-11-14 から Claude デスクトップアプリのスケジュール済みタスクが土曜 13:10 に回す。
 # 未作成の週はセッション開始時に check-weekly-review-due が 1 行で知らせる。
 #
 # なぜ収集を Mac で回すか: クラウドルーティンはサンドボックスで .claude/ への書き込みが止まり、Playwright・ログインの要る
@@ -26,6 +27,23 @@ export LANG="ja_JP.UTF-8"
 export LC_ALL="ja_JP.UTF-8"
 export DOBOKU_PW_MIN_FREE_MB="${DOBOKU_PW_MIN_FREE_MB:-1024}"
 unset DOBOKU_PW_ALLOW_PARALLEL
+
+# launchd の処理は、Google Drive の未ダウンロードのファイルの取り寄せが既定で禁止される（iopolicy の
+# materialize dataless files が 1=OFF。対話セッションは 2=ON）。禁止のままだと Drive の読みが EDEADLK
+# （node は Unknown system error -11）で落ち、note 同期の配布 PDF とカバーの保存が毎週失敗した（2026-10-31〜11-14）。
+# 設定は子プロセスへ引き継がれるので、最初に許可へ切り替えて自分を起動し直す。python3 が無ければ切り替えずに進む。
+# あわせて /bin/bash と node の実体にフルディスクアクセスが要る（無いと open が Operation not permitted）。
+# macOS だけで切り替える（CI の Linux には libSystem が無い）。切り替えに失敗しても、必ず元のスクリプトへ戻る。
+if [ -z "${DOBOKU_DATALESS_ON:-}" ] && [ "$(uname)" = "Darwin" ] && [ -x /usr/bin/python3 ]; then
+  export DOBOKU_DATALESS_ON=1
+  exec /usr/bin/python3 -c 'import os, sys
+try:
+    import ctypes
+    ctypes.CDLL("/usr/lib/libSystem.B.dylib").setiopolicy_np(3, 0, 2)
+except Exception:
+    pass
+os.execv("/bin/bash", ["/bin/bash"] + sys.argv[1:])' "$0" "$@"
+fi
 # X was resumed on 2026-11-12 (DN-1159), so the SessionStart x-sync runs again. Instagram stays on hold
 # but has no SessionStart check. To hold SNS again, export DOBOKU_SNS_PAUSED=1 here.
 
@@ -38,6 +56,19 @@ LOG_FILE="$LOG_DIR/weekly-review.log"
 STUCK_MINUTES=360
 mkdir -p "$LOG_DIR"
 
+# launchd は定刻（土曜 9:30）に加えて、ログイン・起動のたびにもここを起動する（RunAtLoad）。再起動で途中終了した収集を
+# 回し直すため（2026-11-14 は Mac の再起動で後段が消えた）。土曜の開始時刻から日曜の終わり以外は、何も触らずに終わる。
+# 運営者の「今すぐ実行」（npm run weekly-review:install -- --run-now）は印のファイルを置いてから起動する。印があれば曜日を問わず、
+# 今週の収集が済んでいても最初から回す。
+FORCE_FILE="$LOG_DIR/weekly-review.force"
+force="${DOBOKU_WEEKLY_FORCE:-0}"
+if [ -f "$FORCE_FILE" ]; then force=1; rm -f "$FORCE_FILE"; fi
+if [ "$force" != "1" ] && [ "${DOBOKU_WEEKLY_SKIP_DAY_GATE:-0}" != "1" ]; then
+  dow="$(date +%u)"
+  if [ "$dow" != "6" ] && [ "$dow" != "7" ]; then exit 0; fi
+  if [ "$dow" = "6" ] && [ "$(date +%H%M)" -lt "0930" ]; then exit 0; fi
+fi
+
 {
   echo ""
   echo "=== $(date -Iseconds) [weekly-review] start ==="
@@ -46,6 +77,10 @@ mkdir -p "$LOG_DIR"
 week="$(date +%G-W%V)"
 collect_rc=0
 gsc_rc=0
+# 回す範囲が無い（今週の収集は済んでいる）ときは、失敗の通知も復旧の通知も出さずにロックだけ外す
+quiet_exit=0
+# 同じ週に収集を起動してよい回数（定刻 1 回 + 回し直し 2 回）。収集そのものが Mac を固まらせるときに、起動のたびに回し続けない
+MAX_ATTEMPTS=3
 
 # A concurrent invocation must not reset the active worktree. gsc-indexing-daily.sh も同じロックを見て譲る
 LOCK="$LOG_DIR/weekly-review.lock"
@@ -87,6 +122,7 @@ finish() {
   trap - EXIT
   rm -f "$LOCK/pid"
   rmdir "$LOCK"
+  if [ "$quiet_exit" -eq 1 ]; then return 0; fi
   # set -e で途中終了したときは収集の失敗として扱う
   [ "$rc" -eq 0 ] || [ "$collect_rc" -ne 0 ] || [ "$gsc_rc" -ne 0 ] || collect_rc=$rc
   if [ "$collect_rc" -eq 0 ]; then
@@ -197,7 +233,30 @@ run_gsc_record() {
   return "$rc"
 }
 
-collect_phase pre
-run_gsc_record || gsc_rc=$?
-cd "$REPO"
+# いま回す範囲（all・post・none）を、収集の記録（runs.json）から決める
+prepare_collect_worktree || { echo "[weekly-collect] worktree を用意できない"; collect_rc=1; exit 1; }
+plan="$(cd "$CWT" && node scripts/weekly-collect.mjs --resume-plan)" || plan=""
+if [ "$force" = "1" ] && [ "$plan" = "none" ]; then plan="all"; fi
+case "$plan" in
+  all|post) ;;
+  none) echo "[weekly-collect] 今週の収集は済んでいる（回し直しなし）"; quiet_exit=1; exit 0 ;;
+  *) echo "[weekly-collect] 回す範囲を決められない（--resume-plan の出力: ${plan:-空}）"; collect_rc=1; exit 1 ;;
+esac
+attempts_file="$LOG_DIR/weekly-collect-attempts-$week"
+attempts=$(( $(cat "$attempts_file" 2>/dev/null || echo 0) + 1 ))
+find "$LOG_DIR" -maxdepth 1 -name 'weekly-collect-attempts-*' -mtime +30 -delete 2>/dev/null || true
+if [ "$force" != "1" ] && [ "$attempts" -gt "$MAX_ATTEMPTS" ]; then
+  echo "[weekly-collect] 今週は ${MAX_ATTEMPTS} 回起動して終わらなかったので、これ以上は回さない（範囲: ${plan}）"
+  quiet_exit=1
+  (cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-collect --key saturday-mac-retries --title "土曜の収集が ${MAX_ATTEMPTS} 回起動しても終わらない" --body "$week の収集（範囲 ${plan}）が終わらないまま ${MAX_ATTEMPTS} 回起動した。Mac が途中で再起動していないか（メモリ不足）を確かめる。ログ: ~/Library/Logs/doboku-note/weekly-review.log") || true
+  exit 0
+fi
+echo "$attempts" > "$attempts_file"
+echo "[weekly-collect] 範囲: ${plan}（今週 $attempts 回目の起動）"
+
+if [ "$plan" = "all" ]; then
+  collect_phase pre
+  run_gsc_record || gsc_rc=$?
+  cd "$REPO"
+fi
 collect_phase post

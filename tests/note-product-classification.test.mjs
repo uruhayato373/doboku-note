@@ -143,15 +143,14 @@ test('中間と末尾は実描画条件を共有し、手書きカードを重�
   assert.equal(result.manualMid, null); assert.equal(result.manualEnd, null); assert.equal(result.short, null);
 });
 
-test('主任技士は受付中の同資格ココナラへ接続し、追加3ページも対象を守る', () => {
+test('主任技士の解説ページは受付中の同資格ココナラへ接続し、追加3ページも対象を守る', () => {
+  // /links のカードのココナラ行は learning-catalog が examScope で振り分ける（tests/learning-catalog.test.mjs）
   const result = inspect(`
-    import {pickCoconalaFor} from './src/lib/exam-key-bridge.ts';
     import {resolveOffsiteCta} from './src/lib/offsite-cta.ts';
-    process.stdout.write(JSON.stringify({chief:pickCoconalaFor('concrete-chief'),empty:pickCoconalaFor('pe-first-stage'),
+    process.stdout.write(JSON.stringify({
       grading:resolveOffsiteCta('civil-construction-2-secondary-grading-and-partial-credit'),
       overview:resolveOffsiteCta('concrete-chief-engineer-guide-overview'),trends:resolveOffsiteCta('concrete-chief-engineer-guide-trends')}));
   `);
-  assert.equal(result.chief.id, 'coconala-cce-essay-tensaku'); assert.equal(result.chief.status, 'listed'); assert.equal(result.empty, null);
   // 経験記述の添削を統合出品へ集約した後は、2級の採点解説からも受付中の出品へ案内する。
   assert.deepEqual(result.grading.map(i=>i.trackLabel), ['offsite-coconala-tensaku-4theme']);
   assert.deepEqual(result.overview.map(i=>i.trackLabel), ['offsite-coconala-cce-essay-tensaku']);

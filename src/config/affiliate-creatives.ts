@@ -7,9 +7,11 @@
  *
  * 1 ページ 1 ピクセル: 同一ページで同じ a8mat のピクセルを 2 回発火させない。発火源の面は config/cta-placements.json の
  * pixelPriority で決まる（解決は affiliate-placement.ts の pixelFor）。
- * mat は config/affiliate-mats.json の許可リストにあること（check-affiliate-mats）。
+ * URL は提携台帳の creatives が正本。check-affiliate-mats が台帳の素材と旧リンクの許可情報を検査する。
  * 人間向けの方針: .claude/knowledge/reference/affiliate-operations.md「6. 配置ポリシー」
  */
+
+import catalog from "../../data/affiliate/catalog.json";
 
 import {
   CAREER_NEEDS,
@@ -28,19 +30,26 @@ export type SidebarAdCreative = {
   readonly height: number;
 };
 
+type CatalogCreative = { asp: string; materialId: string; kind: string; href: string; imageSrc?: string; pixelSrc?: string; width?: number; height?: number };
+const CATALOG_PROGRAMS = catalog.programs as Record<string, { creatives?: CatalogCreative[] }>;
+
+function catalogCreative(program: string, asp: string, materialId: string): CatalogCreative & { pixelSrc: string } {
+  const c = CATALOG_PROGRAMS[program]?.creatives?.find(c => c.asp === asp && c.materialId === materialId);
+  if (!c || !c.pixelSrc) throw new Error(`広告素材またはピクセルが台帳に無い: ${program}/${asp}/${materialId}`);
+  return { ...c, pixelSrc: c.pixelSrc };
+}
+
+function catalogBanner(program: string, asp: string, materialId: string, alt: string): SidebarAdCreative {
+  const c = catalogCreative(program, asp, materialId);
+  if (!c.imageSrc || !c.width || !c.height || !c.pixelSrc) throw new Error(`バナーの必須値が無い: ${program}/${materialId}`);
+  return { href: c.href, imageSrc: c.imageSrc, pixelSrc: c.pixelSrc, width: c.width, height: c.height, alt };
+}
+
 /**
  * ビルドジョブ（建設業界特化 転職エージェント・A8.net）。300×250 banner + 計測ピクセル。
  * 2026-09-08 検証の通常条件は面談 ¥13,534（60 歳未満・申込後 30 日以内の無料面談完了）。
  */
-const BUILDJOB_CAREER_AD = {
-  href: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH",
-  imageSrc:
-    "https://www21.a8.net/svt/bgt?aid=260605733026&wid=002&eno=01&mid=s00000024757004003000&mc=1",
-  pixelSrc: "https://www15.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH",
-  alt: "建設業界特化 転職エージェント ビルドジョブ",
-  width: 300,
-  height: 250,
-} as const;
+const BUILDJOB_CAREER_AD = catalogBanner("buildjob", "a8", "003", "建設業界特化 転職エージェント ビルドジョブ");
 
 /**
  * 建設JOBs（リアルエステートWORKS・施工管理/建設業界特化の転職サイト・A8.net）。300×250 + pixel。
@@ -48,15 +57,7 @@ const BUILDJOB_CAREER_AD = {
  * 全年齢の記事に出す前提は 2026-09-08 に撤回し、2026-10-07 に 2級土木の学習ページへ絞って戻した（EXP-017）。
  * 素材は 2026-09-08 までの配置と同じ（A8 の doboku-note・websiteId=002）。
  */
-const KENSETSU_JOBS_CAREER_AD = {
-  href: "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
-  imageSrc:
-    "https://www27.a8.net/svt/bgt?aid=260529673996&wid=002&eno=01&mid=s00000023057002003000&mc=1",
-  pixelSrc: "https://www10.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
-  alt: "建設JOBs 施工管理・建設業界の転職サイト",
-  width: 300,
-  height: 250,
-} as const;
+const KENSETSU_JOBS_CAREER_AD = catalogBanner("kensetsu-jobs", "a8", "003", "建設JOBs 施工管理・建設業界の転職サイト");
 
 /**
  * RSG建設転職（株式会社RSG・建設業界専門の転職支援・A8.net）。300×250 + pixel。
@@ -65,15 +66,7 @@ const KENSETSU_JOBS_CAREER_AD = {
  * 「No.1」「第1位」の表示がある素材（006・034・036）は根拠の調査が古いので使わない（建築転職と同じ扱い）。
  * 728×90（素材ID 025）・320×50（素材ID 005）もあり、横長の面を作るときに使える。
  */
-const RSG_KENSETSU_CAREER_AD = {
-  href: "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+65EOH",
-  imageSrc:
-    "https://www25.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001033000&mc=1",
-  pixelSrc: "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65EOH",
-  alt: "RSG建設転職 建設業界専門の転職支援",
-  width: 300,
-  height: 250,
-} as const;
+const RSG_KENSETSU_CAREER_AD = catalogBanner("rsg-kensetsu", "a8", "033", "RSG建設転職 建設業界専門の転職支援");
 
 /**
  * 第二新卒エージェントneo（株式会社ネオキャリア・第二新卒・既卒・フリーター・中退・高卒の就職・転職支援・A8.net）。300×250 + pixel。
@@ -81,15 +74,7 @@ const RSG_KENSETSU_CAREER_AD = {
  * 素材は 2026-11-13 に A8 の広告リンク作成で掲載サイト doboku-note（websiteId=002）・素材ID 038 を写した。
  * 「No.1」の表示がある素材（008）は使わない。
  */
-const DAINISHINSOTSU_NEO_CAREER_AD = {
-  href: "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+66H9D",
-  imageSrc:
-    "https://www29.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001038000&mc=1",
-  pixelSrc: "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66H9D",
-  alt: "第二新卒エージェントneo 第二新卒・既卒の就職・転職支援",
-  width: 300,
-  height: 250,
-} as const;
+const DAINISHINSOTSU_NEO_CAREER_AD = catalogBanner("dainishinsotsu-agent-neo", "a8", "038", "第二新卒エージェントneo 第二新卒・既卒の就職・転職支援");
 
 /**
  * 建築転職（トップリフォーム・建築系技術者に特化した転職エージェント・もしもアフィリエイト）。250×250 + インプレッション。
@@ -97,14 +82,7 @@ const DAINISHINSOTSU_NEO_CAREER_AD = {
  * 素材はもしもの原稿取得（shop_site_id=672381＝doboku-note・a_id 5868364）の 250×250（pl_id 57940）。
  * 「No.1」の表記がある素材は 2022 年の調査の表示なので使わない。台帳のキーは moshimo:4183:57940。
  */
-const KENCHIKU_TENSHOKU_CAREER_AD = {
-  href: "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57940",
-  imageSrc: "https://image.moshimo.com/af-img/3713/000000057940.png",
-  pixelSrc: "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57940",
-  alt: "建築転職 建築士・施工管理技士の転職エージェント",
-  width: 250,
-  height: 250,
-} as const;
+const KENCHIKU_TENSHOKU_CAREER_AD = catalogBanner("kenchiku-tenshoku", "moshimo", "57940", "建築転職 建築士・施工管理技士の転職エージェント");
 
 /**
  * コンストワーク（施工管理の転職サポート・もしもアフィリエイト）。300×250 + インプレッション。
@@ -112,28 +90,13 @@ const KENCHIKU_TENSHOKU_CAREER_AD = {
  * 素材はもしもの原稿取得（shop_site_id=672381＝doboku-note・a_id 5716837）の 300×250（pl_id 80122）。台帳のキーは moshimo:6154:80122。
  * バナーは「未経験募集」を前面に出すので画像は表示に使わず、2 枚並べの小型カード（文章）だけで出す（banner はピクセルの素材）。
  */
-const CONSTWORK_CAREER_AD = {
-  href: "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80122",
-  imageSrc: "https://image.moshimo.com/af-img/5909/000000080122.jpg",
-  pixelSrc: "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80122",
-  alt: "コンストワーク 施工管理の転職サポート",
-  width: 300,
-  height: 250,
-} as const;
+const CONSTWORK_CAREER_AD = catalogBanner("constwork", "moshimo", "80122", "コンストワーク 施工管理の転職サポート");
 
 /**
  * ハイクラス DX・コンサル転職（A8.net）。技術士（総監）= シニア技術者・管理職層向け。300×250 + pixel。
  * 施工管理系の案件が総監層に合わないため、総監のページはこの案件だけにする（2026-06-16）。
  */
-const PE_CONSULTING_CAREER_AD = {
-  href: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTDQY+4SXU+NUES1",
-  imageSrc:
-    "https://www23.a8.net/svt/bgt?aid=260605733040&wid=002&eno=01&mid=s00000022413004005000&mc=1",
-  pixelSrc: "https://www18.a8.net/0.gif?a8mat=4B5OO5+NTDQY+4SXU+NUES1",
-  alt: "ハイクラス DX・コンサル転職",
-  width: 300,
-  height: 250,
-} as const;
+const PE_CONSULTING_CAREER_AD = catalogBanner("dx-consulting", "a8", "005", "ハイクラス DX・コンサル転職");
 
 
 /**
@@ -147,8 +110,8 @@ const PE_CONSULTING_CAREER_AD = {
  * A8 は生成リンクの改変を禁じているので、この形を変えない（tests/coconala-affiliate-href.test.mjs が固定）。
  * 計測ピクセルは 1 ページ 1 発（同じ mat を 2 回発火させない）。
  */
-const COCONALA_A8_LINK_BASE = "https://px.a8.net/svt/ejp?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A";
-export const COCONALA_A8_PIXEL = "https://www15.a8.net/0.gif?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A";
+const COCONALA_A8_LINK_BASE = catalog.programs.coconala.productLink.href;
+export const COCONALA_A8_PIXEL = catalog.programs.coconala.productLink.pixelSrc;
 
 /** ココナラのサービス / 出品者 / カテゴリ URL を A8 経由の商品リンクに変換する。 */
 export function coconalaAffiliateHref(serviceUrl: string): string {
@@ -424,9 +387,9 @@ export const PROGRAM_ASSETS: Readonly<Record<string, ProgramAsset>> = {
     trackLabel: "BuildJob-sidebar",
     card: (slug, need) => resolveBuildJobCopy(slug, need),
     // 本文テキストリンク用に発行した mat（NTRMQ・doboku-note の websiteId=002）。2026-07-28 から未使用だったものを小型カード（EXP-043 の B・EXP-048）に使う。
-    textHref: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ",
+    textHref: catalogCreative("buildjob", "a8", "002").href,
     // 2026-10-24 に A8 の広告リンク作成（websiteId=002）で素材ID 002・テキストとして発行中なのを確かめて写した（DN-0831）。
-    textPixelSrc: "https://www10.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ",
+    textPixelSrc: catalogCreative("buildjob", "a8", "002").pixelSrc,
   },
   "dx-consulting": { banner: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar", card: () => resolvePeConsultingArticleEndCard() },
   constwork: { banner: CONSTWORK_CAREER_AD, trackLabel: "Constwork-sidebar", card: (slug, need) => resolveConstworkCopy(slug, need) },

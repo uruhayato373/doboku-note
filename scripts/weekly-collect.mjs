@@ -21,6 +21,7 @@
  *   node scripts/weekly-collect.mjs --only a8,kdp            # 指定の段だけ（phase は問わない）
  *   node scripts/weekly-collect.mjs --verify-last [--json]   # 段ごとの最新の結果（取り直しを含む）が合格か・期限内か（週次レビュー）
  *   node scripts/weekly-collect.mjs --verify-last --alive    # 直近の pre と post が期限内に回ったかだけ（日次の ops の死活・DN-0847）
+ *   node scripts/weekly-collect.mjs --resume-plan            # いま回す範囲を 1 語で出す（all | post | none。weekly-review.sh が読む）
  *   --no-push  commit まで
  * --only の取り直しで段ごとの最新がすべて合格になったら、Issue（channel weekly-collect）を自動で閉じる。
  * exit: 0 = 合格（全段が ok・warn・skipped、書き戻しに問題なし）/ 1 = どこかの段が失敗・書き戻しの問題・期限切れ / 2 = 使い方の誤り
@@ -35,7 +36,8 @@ import { readJsonIf, writeJson } from './lib/json-io.mjs';
 import { guardBrowserLaunch, LaunchGuardError } from './lib/playwright-launch.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { commitAndPush, onBranch } from './lib/routine-commit.mjs';
-import { buildStages, commandFailureReason, judgeRuns, runPassed, stageStatus, verifyFailureReason } from './lib/weekly-collect-plan.mjs';
+import { buildStages, commandFailureReason, judgeRuns, previousMonth, resumePlan, runPassed, stageStatus, verifyFailureReason } from './lib/weekly-collect-plan.mjs';
+import { jstMonth, todayJst } from './lib/jst-date.mjs';
 import { CHECKS, resolveCommand } from './quality-audit.mjs';
 
 const TAG = '[weekly-collect]';
@@ -56,6 +58,7 @@ const args = parseCliArgs({
   phase: { type: 'string' },
   only: { type: 'string' },
   'verify-last': { type: 'boolean' },
+  'resume-plan': { type: 'boolean' },
   alive: { type: 'boolean' },
   'no-push': { type: 'boolean' },
 });
@@ -228,10 +231,24 @@ function resolveIssueIfRecovered() {
 /** note・ココナラの競合の最新の取得日（四半期の competitors 段を回すかを competitorsDue が決める） */
 const competitorScans = () => ({ note: latestFileDate(REPO_ROOT, 'note.competitors'), coconala: latestFileDate(REPO_ROOT, 'coconala.competitors') });
 
+/** note-audit の段を最後に回した日時（skip した回は数えない）。月 1 回に下げた段を回すかを noteAuditDue が決める */
+function noteAuditLastAt() {
+  const hit = readRuns().runs.filter((r) => r.finishedAt && r.stages.some((st) => st.id === 'note-audit' && st.status !== 'skipped')).at(-1);
+  return hit?.finishedAt ?? null;
+}
+
+/** 先月の note のアクセスの記録の取得日時（月が明けた後に取れていれば、月次は取り直さない） */
+function noteTrafficMonthFetchedAt() {
+  const prev = previousMonth(jstMonth(Date.now()));
+  return readJsonIf(REPO_ROOT, datasetPath('note.referrers', { month: prev }))?.fetchedAt ?? null;
+}
+
 async function main() {
   if (args.verifyLast) return verifyLast();
+  // 収集スクリプト（weekly-review.sh）が、いま回す範囲を決めるのに読む（all | post | none の 1 語だけを出す）
+  if (args.resumePlan) { console.log(resumePlan({ today: todayJst(), now: Date.now(), runs: readRuns().runs })); return; }
   const kdp = kdpMonthsDue();
-  const stages = buildStages({ kdpMonths: kdp.months, competitorScans: competitorScans() });
+  const stages = buildStages({ kdpMonths: kdp.months, competitorScans: competitorScans(), noteAuditLastAt: noteAuditLastAt(), noteTrafficMonthFetchedAt: noteTrafficMonthFetchedAt() });
   if (args.plan) {
     const view = stages.map((s) => ({ id: s.id, phase: s.phase, title: s.title, skip: s.skip ?? null, commands: s.commands.map((c) => c.argv.join(' ')), verify: (s.verify ?? []).map((id) => ({ id, command: verifyCommand(id).argv.join(' ') })) }));
     if (args.json) console.log(JSON.stringify({ stages: view, kdpProblem: kdp.problem ?? null }, null, 2));

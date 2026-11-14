@@ -75,7 +75,7 @@ export function resolveCivil1PrimaryLead(nowMs = Date.now()): MagazineId {
  * 技術士一次の主商品（概要・学習計画・解答速報の冒頭と /links のカード）。
  * 本試験当日（JST）までは直前パック、翌日からは年度をまたいで使う過去問 PDF。
  */
-export function pe1LeadMagazineId(nowMs = Date.now()): MagazineId {
+function pe1LeadMagazineId(nowMs = Date.now()): MagazineId {
   return isAfterExamDay('pe-first-stage', 'exam', nowMs) ? 'pe1-takuitsu-pdf' : 'pe1-chokuzen-pack';
 }
 

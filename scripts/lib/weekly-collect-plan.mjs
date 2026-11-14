@@ -45,15 +45,65 @@ export function competitorsDue({ today, lastScans }) {
   return ['note', 'coconala'].some((k) => !lastScans[k] || lastScans[k] < start);
 }
 
+/** note の全記事の照合（note-audit）を回す間隔。月 1 回で足りる（土曜の収集へ移してからの検出は注意 1〜2 件・1 回 40 分前後） */
+export const NOTE_AUDIT_INTERVAL_DAYS = 27;
+
+/**
+ * note の全記事の照合を回す週か（pure）。最後に回した日（合格か注意で終わった回）から NOTE_AUDIT_INTERVAL_DAYS 以上たっているか、記録が無い。
+ * 「月の最初の土曜」と決めると、その土曜に Mac が動かなかった月に丸ごと抜ける。
+ * @param {{ today: string, lastAt?: string | null }} input lastAt は ISO 8601 の日時
+ */
+export function noteAuditDue({ today, lastAt = null }) {
+  if (!lastAt) return true;
+  return (Date.parse(`${today}T00:00:00Z`) - Date.parse(`${String(lastAt).slice(0, 10)}T00:00:00Z`)) / 86_400_000 >= NOTE_AUDIT_INTERVAL_DAYS;
+}
+
+/**
+ * note のアクセスの月次（先月）を取る週か（pure）。先月が終わった後に取れた記録があれば、もう取らない
+ * （月が終われば値は変わらない。同じ月を毎週取り直していて、2026-11-14 はその取り直しで段が落ちた）。
+ * @param {{ prevMonth: string, fetchedAt?: string | null }} input prevMonth は 'YYYY-MM'・fetchedAt は先月の記録の取得日時
+ */
+export function noteTrafficMonthDue({ prevMonth, fetchedAt = null }) {
+  if (!fetchedAt) return true;
+  const [y, m] = prevMonth.split('-').map(Number);
+  const next = m === 12 ? `${y + 1}-01` : `${y}-${String(m + 1).padStart(2, '0')}`;
+  // 月が明けた日の JST 0 時より後に取ったか
+  return Date.parse(fetchedAt) < Date.parse(`${next}-01T00:00:00+09:00`);
+}
+
+/** 土曜の収集が始まる時刻（JST）。launchd の StartCalendarInterval と同じ */
+export const COLLECT_START_JST = '09:30:00';
+
+/**
+ * いま回すべき収集の範囲（pure）。launchd はログイン・起動のたびにも収集スクリプトを起動する（RunAtLoad）ので、
+ * 土曜の開始時刻から日曜の終わりまでの間だけ、今週まだ終わっていない段を返す。
+ *   'all'  … 今週の pre の記録が無い（定刻の起動・pre の途中で止まった）
+ *   'post' … 今週の pre は終わったが post の記録が無い（2026-11-14 は Mac の再起動で post が消えた）
+ *   'none' … 土日でない・開始時刻より前・今週の pre も post も終わっている
+ * 途中からの再開は作らない（前段・後段はやり直しがきく。note 同期は未反映の記事から続きを拾う）。
+ * @param {{ today: string, now: number, runs: { phase: string, finishedAt: string | null }[] }} input today は JST の 'YYYY-MM-DD'
+ */
+export function resumePlan({ today, now, runs }) {
+  const dow = new Date(`${today}T12:00:00+09:00`).getUTCDay(); // 0 = 日・6 = 土
+  if (dow !== 6 && dow !== 0) return 'none';
+  const saturday = dow === 6 ? today : new Date(Date.parse(`${today}T12:00:00+09:00`) - 86_400_000).toISOString().slice(0, 10);
+  const start = Date.parse(`${saturday}T${COLLECT_START_JST}+09:00`);
+  if (now < start) return 'none';
+  const done = (phase) => runs.some((r) => r.phase === phase && r.finishedAt && Date.parse(r.finishedAt) >= start);
+  if (!done('pre')) return 'all';
+  return done('post') ? 'none' : 'post';
+}
+
 /** note の売上の前月を取り直す期間（月初は前月の明細と月次表示が揃うまで検算が合わない・login-collectors の 14 日と同じ） */
 export const NOTE_SALES_PREV_MONTH_UNTIL_DAY = 14;
 
 /**
  * 段の表。today は JST の 'YYYY-MM-DD'、kdpMonths は `kdp-report --list-due` の結果、competitorScans は
  * note・ココナラの競合の最新の取得日（どちらも実行時に取る）。
- * @param {{ today?: string, kdpMonths?: string[], competitorScans?: { note?: string | null, coconala?: string | null } }} [input]
+ *   noteAuditLastAt は note-audit の段を最後に回した日時、noteTrafficMonthFetchedAt は先月の note のアクセスの記録の取得日時。
+ * @param {{ today?: string, kdpMonths?: string[], competitorScans?: { note?: string | null, coconala?: string | null }, noteAuditLastAt?: string | null, noteTrafficMonthFetchedAt?: string | null }} [input]
  */
-export function buildStages({ today = todayJst(), kdpMonths = [], competitorScans = {} } = {}) {
+export function buildStages({ today = todayJst(), kdpMonths = [], competitorScans = {}, noteAuditLastAt = null, noteTrafficMonthFetchedAt = null } = {}) {
   const cur = jstMonth(new Date(`${today}T12:00:00+09:00`).getTime());
   const prev = previousMonth(cur);
   const day = Number(today.slice(8, 10));
@@ -62,9 +112,15 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
 
   return [
     {
+      // Drive を読めるか先に 1 本読む。読めないと note 同期（post）が配布 PDF の要る記事を全部翌週へ回すので、原因（フルディスクアクセス・
+      // 取り寄せの禁止）を名指しで先に出す（2026-11-14・3 週続けて -11 を「Drive の停止」と誤って扱っていた）
+      id: 'drive', phase: 'pre', title: 'Drive の読み取り（note 同期の配布 PDF）', timeoutMin: 5,
+      commands: [{ argv: ['scripts/check-drive-readable.mjs'] }],
+    },
+    {
       id: 'auth', phase: 'pre', title: 'ログインの確認と入り直し', timeoutMin: 20, browser: true,
-      // export と CI の起動はしない（CI はログインを使わない・DN-0822）。もしも・afb は doboku-note に広告が無いので回さない（DN-0643）
-      commands: [{ argv: ['scripts/auth-session-refresh.mjs', '--service', 'a8,kdp,note,coconala', '--json'] }],
+      // export と CI の起動はしない（CI はログインを使わない・DN-0822）。afb の成果取得は未実装
+      commands: [{ argv: ['scripts/auth-session-refresh.mjs', '--service', 'a8,moshimo,kdp,note,coconala', '--json'] }],
     },
     {
       id: 'a8', phase: 'pre', title: 'A8 の成果（前月と当月）', timeoutMin: 30, browser: true,
@@ -76,6 +132,11 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       verify: ['a8-report-due'],
     },
     {
+      id: 'moshimo', phase: 'pre', title: 'もしもの成果（前月と当月）', timeoutMin: 30, browser: true,
+      commands: [prev, cur].map(m => ({ argv: ['npm', 'run', '-s', 'moshimo-report', '--', '--month', m] })),
+      verify: ['moshimo-report-due'],
+    },
+    {
       id: 'kdp', phase: 'pre', title: 'KDP のロイヤリティ', timeoutMin: 30, browser: true,
       skip: kdpMonths.length ? null : '取る月が無い（kdp-report --list-due が 0 件）',
       commands: kdpMonths.map((m) => ({ argv: ['npm', 'run', '-s', 'kdp-report', '--', '--month', m] })),
@@ -84,7 +145,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
     {
       id: 'note-traffic', phase: 'pre', title: `note のアクセス（月と ${window.startDate}〜${window.endDate}）`, timeoutMin: 30, browser: true,
       commands: [
-        { argv: ['npm', 'run', '-s', 'note-traffic-fetch', '--', '--commit'] },
+        ...(noteTrafficMonthDue({ prevMonth: prev, fetchedAt: noteTrafficMonthFetchedAt }) ? [{ argv: ['npm', 'run', '-s', 'note-traffic-fetch', '--', '--commit'] }] : []),
         { argv: ['npm', 'run', '-s', 'note-traffic-fetch', '--', '--from', window.startDate, '--to', window.endDate, '--commit'] },
       ],
     },
@@ -123,34 +184,42 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       verify: ['gsc-ui-due', 'gsc-indexing-due'],
     },
     {
-      id: 'note-audit', phase: 'pre', title: 'note の公開状態の照合（公開 API・構造・タグ・本文・カード・状態・マガジン・導線・題名と価格）', timeoutMin: 45, browser: false,
-      // 旧 note-live-audit.yml（CI・月曜・平均 40 分・19 回中 13 回赤）。ログインは要らないが、直すにはログインが要るので土曜に寄せた。
-      // 前段に置くのは、その日のレビューが結果と snapshot（note.status・note.magazines）を読み、題名と価格のずれの印を同じ日の
-      // 後段の note-sync が直すため（DN-0847）。指摘（exit 1 など）は warn、取得失敗が支配的な検査不成立は failed。
-      // check-note-republish（再公開待ちの surfacer）は artifact にしか出ず読み手が無かったので移さない（note-sync-check が反映待ちを見る）
+      id: 'note-status', phase: 'pre', title: 'note の公開状態・マガジン・題名と価格の照合（毎週）', timeoutMin: 30, browser: false,
+      // 旧 note-audit の 9 本のうち、毎週の記録が要る 4 本（2026-11-14 に分けた・DN-1196）。その日のレビューが snapshot（note.status・
+      // note.magazines。鮮度は 9 日）を読み、CI のマガジンの照合も同じ記録を読む。題名と価格のずれの印は同じ日の後段の note-sync が直す（DN-0847）。
+      // 指摘（exit 1 など）は warn、取得失敗が支配的な検査不成立は failed。
       addPaths: ['content/note', datasetPath('config.products'), 'src/lib/note-magazines.ts'],
       commands: [
-        { argv: ['scripts/check-note-structure.mjs', '--ci'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/check-note-live-tags.mjs'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/check-note-live-headings.mjs'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['scripts/audit-note-cards.mjs'], warn: [1], failPattern: '検査不成立' },
         { argv: ['scripts/verify-note-status.mjs', '--ci', '--json', '--snapshot'], warn: [1], failPattern: '検査不成立' },
         // exit 1 = 単品の照合が不成立・2 = ずれ（--contents が無いと収録が取れず check-magazine-membership の軸 C が検査不成立になる）
         { argv: ['scripts/verify-note-magazines.mjs', '--vs-txt', '--contents', '--json'], warn: [2] },
         // snapshot を作り直した直後に三軸（repo・SoT・ライブ）を突き合わせる。exit 2 = 検査不成立
         { argv: ['scripts/check-magazine-membership.mjs', '--ci'], warn: [1] },
-        { argv: ['scripts/audit-note-funnel.mjs', '--live', '--ci'], warn: [1], failPattern: '検査不成立' },
-        // 題名・価格は原稿（frontmatter。単品価格は config/products.json の articlePrices の写し）が正で、note のライブはそれに合わせる。note と食い違う記事を「note へ未反映」に戻す（後段の note-sync が上げ直す）。exit 1 = 検査不成立
+        // 題名・価格は原稿（frontmatter。単品価格は config/products.json の articlePrices の写し）が正で、note のライブはそれに合わせる。note と食い違う記事を「note へ未反映」にする
         { argv: ['scripts/note-reconcile-title-price.mjs', '--commit'] },
       ],
     },
     {
-      id: 'note-public-view', phase: 'pre', title: 'note の公開画面の撮影と見え方の照合', timeoutMin: 45, browser: false,
-      // 旧 note-public-view.yml（CI・月曜・約 20 分）。未ログインの公開 API とブラウザで見え方を検査し、代表ページを画面幅ごとに撮る。
-      // 前段に置くのは、その日のレビューが撮った画像を見るため（fetch-note-public-view-shots が手元の置き場から写す・DN-0852）。
-      // 指摘（exit 1）は warn、取得失敗が支配的・撮影の欠け（「検査不成立」）は failed。ログインは要らないので専用の Chromium で開く
+      id: 'note-audit', phase: 'pre', title: 'note の全記事の照合（構造・タグ・本文・カード・導線。月 1 回）', timeoutMin: 60, browser: false,
+      // 旧 note-live-audit.yml（CI・月曜・平均 40 分・19 回中 13 回赤）の残り 5 本。どれも全記事の公開 API を 1 本ずつ呼ぶ（前段 2 時間のうち 58 分を占めた）。
+      // 土曜の収集へ移してからの検出は注意 1〜2 件だったので、NOTE_AUDIT_INTERVAL_DAYS ごとに下げた（2026-11-14・DN-1196）。
+      // note の本文をまとめて直した後など、すぐ見たいときは運営者が node scripts/weekly-collect.mjs --only note-audit で回す。
+      skip: noteAuditDue({ today, lastAt: noteAuditLastAt }) ? null : `前回（${String(noteAuditLastAt).slice(0, 10)}）から ${NOTE_AUDIT_INTERVAL_DAYS} 日たっていない`,
+      commands: [
+        { argv: ['scripts/check-note-structure.mjs', '--ci'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/check-note-live-tags.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/check-note-live-headings.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/audit-note-cards.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/audit-note-funnel.mjs', '--live', '--ci'], warn: [1], failPattern: '検査不成立' },
+      ],
+    },
+    {
+      id: 'note-public-view', phase: 'pre', title: 'note の公開画面の照合（公開 API・全件）', timeoutMin: 20, browser: false,
+      // 未ログインの公開 API で全件の添付 PDF・価格・カバー・全文会員限定・本文の画像を見る（数分）。2026-10-31 に無料の序章 3 本の
+      // 全文会員限定（DN-0929）を見つけたのはこの層。代表ページの撮影（--review・最大 25 分）は毎週は回さず、
+      // 必要なときに運営者かエージェントが --review で回す（2026-11-14・DN-1196）。指摘（exit 1）は warn、取得失敗が支配的（「検査不成立」）は failed
       commands: [{
-        argv: ['scripts/check-note-public-view.mjs', '--review', '--out', `${NOTE_PUBLIC_VIEW_LOCAL_DIR}/report.json`, '--shot-dir', NOTE_PUBLIC_VIEW_LOCAL_DIR],
+        argv: ['scripts/check-note-public-view.mjs', '--api-only', '--out', `${NOTE_PUBLIC_VIEW_LOCAL_DIR}/report.json`],
         ok: [0], warn: [1], failPattern: '検査不成立',
       }],
     },
@@ -233,6 +302,9 @@ export function verifyFailureReason(id, output) {
   return `検算 ${id}: ${line}`.slice(0, 300);
 }
 
+/** pre の後に post を待つ時間。pre の後に GSC の記録層と post（最大で数時間）が続くので、1 日を超えたら止まったとみる */
+export const POST_GRACE_MS = 24 * 3_600_000;
+
 /**
  * 直近の収集の判定（pure・DN-0847）。運営者の取り直し（--only）も数えるため、段ごとに一番新しい結果で決める。
  *   alive  … 直近の pre と post が failDays 以内に回ったか（日次の ops は死活だけを見る）
@@ -249,6 +321,13 @@ export function judgeRuns({ runs, stageIds, failDays, now, alive = false }) {
     const ageDays = (now - Date.parse(last.finishedAt)) / 86_400_000;
     phases.push({ phase, finishedAt: last.finishedAt, ageDays: Math.round(ageDays * 10) / 10 });
     if (ageDays > failDays) problems.push(`${phase}: 最後の収集が ${Math.floor(ageDays)} 日前（${failDays} 日を超えた・土曜の Mac が動いていない）`);
+  }
+  // 前（pre）の後に後（post）の記録が無いまま 1 日たったら、収集が途中で止まった（再起動・スリープでプロセスごと消えると
+  // 終了処理が走らず通知も出ない。2026-11-14 は Mac の再起動で post が消え、期限 15 日の死活では見えなかった）
+  const lastPre = runs.filter((r) => r.phase === 'pre').at(-1);
+  const lastPost = runs.filter((r) => r.phase === 'post').at(-1);
+  if (lastPre && (!lastPost || Date.parse(lastPost.finishedAt) < Date.parse(lastPre.finishedAt)) && now - Date.parse(lastPre.finishedAt) > POST_GRACE_MS) {
+    problems.push(`post: ${lastPre.finishedAt.slice(0, 10)} の pre の後に post の記録が無い（収集が途中で止まった。Mac の再起動・スリープを疑い、取り直すなら npm run weekly-review:install -- --run-now）`);
   }
   if (alive) return { problems, phases, stages: [] };
   const since = now - failDays * 86_400_000;

@@ -8,7 +8,7 @@
  *
  * 判定はすべてコア (a8-scout-core.mjs) に委譲。ブラウザ層は「操作 + 生データ抽出」のみ。
  * doboku は『転職一本』方針: scout は A8 カテゴリ 09(仕事) のみ (curated categoryCodeToVertical)、
- * register (SSOT 追記) は手キュレーション (src/config/affiliate-creatives.ts) のため harvest は候補出力に留める。
+ * register (SSOT 追記) は手キュレーション (data/affiliate/catalog.json) のため harvest は候補出力に留める。
  *
  * ★★ 初回セットアップ (必須) ★★
  *   1. node .claude/skills/scout-asp/scripts/login.mjs  (人間が手動ログイン)
@@ -29,6 +29,7 @@ import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
 import * as fs from "fs";
 import { createRequire } from "module";
+import { affiliateMatEntries, existingA8Ads } from "../../../../scripts/lib/affiliate-catalog-mats.mjs";
 import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
 import { resolveProfileDir, resolveStatePath } from "../../../../scripts/lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
@@ -55,7 +56,7 @@ const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-a8-debug");
 const CATALOG_PATH = path.join(PROJECT_ROOT, datasetPath("a8.catalog"));
 const INVENTORY_PATH = path.join(PROJECT_ROOT, datasetPath("a8.inventory"));
 // doboku の creative SSOT (dedup / placed 判定の突合先)。stats47 の AFFILIATE_ADS[] とは形が違う。
-const CREATIVES_PATH = path.join(PROJECT_ROOT, "src/config/affiliate-creatives.ts");
+const CREATIVES_PATH = path.join(PROJECT_ROOT, datasetPath("affiliate.catalog"));
 const MATS_PATH = path.join(PROJECT_ROOT, datasetPath("config.affiliate-mats"));
 
 let IS_DRY_RUN = false;
@@ -215,41 +216,16 @@ function loadCoverage(): any {
   }
 }
 
-/**
- * doboku の既存 creative から a8mat トークンを抽出 (dedup 用)。
- * stats47 の affiliate-ads-data.ts (AFFILIATE_ADS[]) とは形が違うため、
- * affiliate-creatives.ts の href / pixelSrc と affiliate-mats.json の mats[].mat を突合する。
- * isDuplicate は htmlContent.includes(`a8mat=<token>`) を見るので、その形で返す。
- */
+/** 取得済み A8 素材と旧リンクを突合し、重複申請候補を除く。 */
 function loadExistingAds(): Array<{ title: string; htmlContent: string }> {
-  const out: Array<{ title: string; htmlContent: string }> = [];
-  try {
-    const src = fs.readFileSync(CREATIVES_PATH, "utf8");
-    for (const m of src.matchAll(/a8mat=([A-Za-z0-9+._%-]+)/g)) {
-      out.push({ title: "", htmlContent: `a8mat=${m[1]}` });
-    }
-  } catch {
-    /* creatives 未読でも続行 */
-  }
-  try {
-    const mats = JSON.parse(fs.readFileSync(MATS_PATH, "utf8")).mats ?? [];
-    for (const m of mats) {
-      if (m?.mat) out.push({ title: m.label ?? "", htmlContent: `a8mat=${m.mat}` });
-    }
-  } catch {
-    /* mats 未読でも続行 */
-  }
-  return out;
+  return existingA8Ads(JSON.parse(fs.readFileSync(CREATIVES_PATH, "utf8")), JSON.parse(fs.readFileSync(MATS_PATH, "utf8")).mats);
 }
 
-/** affiliate-mats.json の登録済み mat 一覧 (list の placed 表示用)。 */
-function loadPlacedMats(): Array<{ mat: string; label: string }> {
-  try {
-    const mats = JSON.parse(fs.readFileSync(MATS_PATH, "utf8")).mats ?? [];
-    return mats.filter((m: any) => m?.mat).map((m: any) => ({ mat: m.mat, label: m.label ?? "" }));
-  } catch {
-    return [];
-  }
+/** 登録済み素材。実際の配置は affiliate-placements.json で別に決まる。 */
+function loadRegisteredMats(): Array<{ mat: string; label: string }> {
+  return affiliateMatEntries(JSON.parse(fs.readFileSync(CREATIVES_PATH, "utf8")), JSON.parse(fs.readFileSync(MATS_PATH, "utf8")).mats)
+    .filter((m: any) => !m.mat.startsWith("moshimo:"))
+    .map((m: any) => ({ mat: m.mat, label: m.label ?? "" }));
 }
 
 // ─── ページ抽出 ────────────────────────────────────
@@ -369,7 +345,7 @@ async function cmdList(page: Page): Promise<void> {
   const applying = await collectList(page, A8.applyingListUrl, "list");
   if (applying === null) return;
 
-  const placed = loadPlacedMats();
+  const placed = loadRegisteredMats();
   const curated = core.loadCurated();
 
   // ★ 注意: A8 の list は口座横断 (webSiteId フィルタは効かない=実機確認 2026-07-20)。
@@ -384,12 +360,12 @@ async function cmdList(page: Page): Promise<void> {
     const v = core.resolveVertical(p, curated) || "-";
     console.log(`   ✅ ${p.name}  [${p.programId}]  vertical=${v}`);
   }
-  console.log(`\n■ 現在サイト配置中の mat (affiliate-mats.json): ${placed.length} 件`);
+  console.log(`\n■ 登録済み A8 素材 (提携台帳・旧リンク。配置は別判定): ${placed.length} 件`);
   for (const m of placed) {
     console.log(`   🔗 ${m.label}  (a8mat=${m.mat})`);
   }
   console.log(
-    `\n→ 承認済み ${partnered.length} 件のうち未配置は harvest → affiliate-creatives.ts へ手配置の候補。` +
+    `\n→ 承認済み ${partnered.length} 件のうち未配置は harvest → 提携台帳の creatives へ登録する候補。` +
       `\n  (programId ↔ a8mat の対応は harvest が確定する。Phase 3)\n`,
   );
 
@@ -822,7 +798,7 @@ async function cmdHarvest(page: Page, limit: number, programId?: string): Promis
     console.log(`📥 harvest: ${entry.name} → ${nextStatus}  (a8mat=${parsed.a8mat})`);
   }
   console.log(
-    `✅ ${harvested} 件 harvest。affiliate-creatives.ts への確定配置は手判断 (カニバリ/1ページ1ピクセル/vertical セグメント)。`,
+    `✅ ${harvested} 件 harvest。提携台帳への素材登録・配置ルールの確定は手判断 (カニバリ/1ページ1ピクセル/vertical セグメント)。`,
   );
 }
 
@@ -884,7 +860,7 @@ function buildCreativeDraft(entry: any, fields: any, a8mat: string | null): any 
     a8mat,
     vertical: entry.vertical ?? null,
     adType: fields.adType,
-    // affiliate-creatives.ts の SidebarAdCreative 形 (手で貼る用)。
+    // 素材 URL の候補。提携台帳へ asp・materialId・kind とともに登録する。
     creative: {
       href: fields.htmlContent, // px.a8.net/svt/ejp?a8mat=...
       imageSrc: fields.imageUrl, // www*.a8.net/svt/bgt?...  (banner のみ)
@@ -893,13 +869,13 @@ function buildCreativeDraft(entry: any, fields: any, a8mat: string | null): any 
       width: fields.width,
       height: fields.height,
     },
-    // affiliate-mats.json allowlist 追記案。
+    // 過去の取り込みとの互換用。新規素材の許可は提携台帳から導出する。
     matEntry: {
       mat: a8mat,
       program: slug,
       label: entry.name,
       surfaces: ["sidebar"],
-      definedIn: "src/config/affiliate-creatives.ts",
+      definedIn: datasetPath("affiliate.catalog"),
       expiresAt: null,
     },
   };

@@ -175,6 +175,7 @@
     "x-profile-sync": "node scripts/x-profile-sync.mjs",
     "check-review-wiring": "node scripts/check-review-wiring.mjs",
     "review-checks": "node scripts/review-checks.mjs",
+    "review-prepare": "node scripts/review-prepare.mjs",
     "check-experiment-due": "node scripts/check-experiment-due.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",
     "check-figure-crop": "node scripts/check-figure-crop-integrity.mjs",
@@ -624,7 +625,8 @@
     "ci-data": "node scripts/ci-data.mjs",
     "check-generated-indexes": "node scripts/check-generated-indexes.mjs",
     "standardize-civil1-note-intro": "node scripts/standardize-civil1-note-intro.mjs",
-    "note-replace-intro": "node scripts/note-replace-intro.mjs"
+    "note-replace-intro": "node scripts/note-replace-intro.mjs",
+    "moshimo-report": "node scripts/moshimo-report.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1141.0",

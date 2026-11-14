@@ -19,7 +19,7 @@ title: 推奨ワークフロー
 2. 収集の前段（weekly-collect --phase pre）<- ログインが要る取得と、その検算・note の公開状態の照合
 3. GSC の記録層（run_gsc_record・旧 gsc-auto-review.yml）<- ダイジェストの OPP に意味の判断を足す（失敗は channel gsc-auto-review）
 4. 収集の後段（weekly-collect --phase post）<- note のライブ照合・同期
-運営者の指示で（土曜以降いつでも・抜けた週は後日まとめて）:
+土曜 13:10 JST（デスクトップアプリのスケジュール済みタスク doboku-weekly-review。落ちた週は運営者の指示で後日）:
 5. /weekly-review                       <- 実績を振り返る（計測ダイジェストを埋め込み、全件トリアージで backlog/実験へ起票）
 6. /plan-weekly                         <- 来週の計画を .claude/todo/weekly.md に書く（[時期:] が今月を含むカードと申し送りの DN から選定）
 月曜:
@@ -30,7 +30,9 @@ title: 推奨ワークフロー
 
 詳細は `.claude/skills/weekly-review/SKILL.md` と `.claude/skills/plan-weekly/SKILL.md` を参照。
 
-**実行主体（2026-11-08〜）**: 週次・月次レビューは**運営者の指示で対話セッションが実行する**（`/weekly-review`・`/plan-weekly`・`/monthly-review`）。土曜の launchd は収集と GSC の記録層だけを回し、レビューを回さない。画面のないレビューは落ちても気づかれず（2026-W45 は収集の失敗で止まり、下書きだけが worktree に残った）、抜けた週は後日まとめて回せば足りるため。未作成の週は SessionStart の `check-weekly-review-due` が 1 行で知らせるだけで、月曜の guard の赤落ち（「Check last week's review exists」）も外した。自動実行用の worktree は `.claude/worktrees/weekly-collect` の 1 本で、毎日の GSC の登録（`gsc-indexing-daily.sh`）も同じものを使う（土曜の収集の実行中は譲る）。
+**実行主体（2026-11-14〜）**: 週次レビューと週次計画は**デスクトップアプリのスケジュール済みタスク `doboku-weekly-review`（土曜 13:10・専用 worktree `.claude/worktrees/weekly-review`）が実行する**。実行はアプリのセッションとして残り、報告を読んでそのまま続きを指示できる。分業は親の往復を減らすために決めた（2026-11-14 の初回は親が準備のコマンドを 1 本ずつ打ち、API 呼び出し 54 回・キャッシュ読み 966 万トークン。消費を決めるのは親の往復の回数）: 準備は `npm run review-prepare -- --cadence weekly` の 1 回、親（Opus）は判断（決定の一覧）と最終報告、子は不足分の収集（general-purpose・sonnet・effort low）・本文の組み立てと起票の実行（general-purpose・sonnet・effort medium）・計画（todo-planner）の 3 体まで。親の API 呼び出しは 15 回以内を目標にし、実行のたびに報告へ子の数とモデルを書く。アプリが開いていて Mac が起きていることが前提で、落ちた週は運営者の指示で対話セッションが回す。月次レビュー（`/monthly-review`）はデスクトップアプリのスケジュール済みタスク `doboku-monthly-review`（毎週土曜 15:31・期限が来た月だけ回す）が回す（月を暫定と確定の 2 回で仕上げる・判断が要る段は承認待ち・詳細は monthly-review/SKILL.md「実行主体」）。土曜の launchd は収集と GSC の記録層だけを回し、レビューを回さない。
+
+**以前の実行主体（2026-11-08〜11-13）**: 週次レビューも運営者の指示で対話セッションが実行していた。ヘッドレスのレビューは落ちても気づかれなかったため（2026-W45 は収集の失敗で止まり、下書きだけが worktree に残った）自動実行をやめたが、手動では W45 が未完・W46 が未作成のまま滞った。未作成の週は SessionStart の `check-weekly-review-due` が 1 行で知らせるだけで、月曜の guard の赤落ち（「Check last week's review exists」）も外した。自動実行用の worktree は `.claude/worktrees/weekly-collect` の 1 本で、毎日の GSC の登録（`gsc-indexing-daily.sh`）も同じものを使う（土曜の収集の実行中は譲る）。
 
 **以前の実行主体（2026-10-10〜11-07・3 段）**: (1) 金曜の CI の下書き（`weekly-review-draft.yml`）は土曜に作り直すので使われておらず、2026-10-25 に外した（DN-0849）。下書き（`.claude/state/weekly-review/draft.json`）は土曜の Mac が収集の後に作る。(2) 土曜 9:30 に Mac の launchd `com.doboku-note.weekly-review`（`scripts/scheduled/weekly-review.sh`・導入は `npm run weekly-review:install`）が、まず収集用 worktree でログインが要る取得（`weekly-collect --phase pre`：ログイン確認・A8・KDP・note・ココナラ・GSC・note の公開状態の照合〔note-audit〕。各段は取った記録の検算つき。2026-10-24〜、DN-0817）を回し、専用 worktree で GSC の記録層（`run_gsc_record`・ヘッドレスの Claude が観測ログの断片を書き `apply-gsc-records` が追記・失敗は channel gsc-auto-review・DN-0849）を回したあと、ヘッドレスの Claude Code に `/weekly-review` と `/plan-weekly` を回させ develop へ push し、最後に後段（`--phase post`：note のライブ照合・同期）を回す。レビューは記録と最終取得日を読み、ログインして取りに行かない。収集の失敗は別の Issue（channel: weekly-collect）、日々の死活は `npm run check-weekly-collect:alive`、段ごとの合否は `npm run check-weekly-collect`（週次レビューが読む・DN-0847）。develop に今週分が入らなければ Issue（channel: weekly-review-local）。(3) 判断待ちの諮問はヘッドレスでは聞けないので、レビューの印 `<!-- weekly-review:pending-questions -->` を SessionStart の `check-weekly-review-due` が知らせ、対話セッションで諮る。月曜の guard は従来どおり先週分の実在を見る。経緯: 2026-W40 が抜けた（土曜に対話セッションを開かないと何も始まらず、fetch-metrics の書き戻しが止まっていたことにも気づかなかった）。
 
@@ -148,7 +150,7 @@ title: 推奨ワークフロー
 
 週次レビューでは **`npm run check-content-quality`**（モバイル可読性ラチェット）も回す。全 published MDX を `content-rules.json` の `fullScan` ルール（表/入れ子リスト/段落長/見出し/文体）で走査し、`.claude/state/quality/latest-report.md` に **GA4 人気度順の違反レポート**を出力する。レポート上位（違反数 × activeUsers）の記事を、記事の `category`/`group` に対応する既存の品質サイクル（`/quality-cycle --profile cem`／`civil-textbook` など。ルーティングの真実源は [exam-content-policy.md](exam-content-policy.md) Part 2）へ流してリライトし、表を非表へ・入れ子をフラットへ・長段落を改段する（変換パターンは [content-authoring.md](content-authoring.md)）。既存違反は baseline で grandfather 済みで、CI（`quality:audit:ci`）は **baseline 超過の新規違反のみ赤落ち**させる（機械＝検知、エージェント＝リライト時の表現判断、と役割を分ける）。リライトで違反が減ったら `npm run update-content-quality-baseline` で baseline を刈り込む。
 
-note 導線の機械監査は CI と土曜の収集が分担する。`quality-audit`（ci:true）がソース D1-D4/D6、土曜の収集の note-audit 段（weekly-collect・DN-0847）がライブ反映 D5（配線後に再投稿せず live が死ぬドリフト）を週次検査する。修復はログイン済みブラウザが必要な `note-append-cta`、意味的レビューは `/audit-note-funnel --semantic`（`note-funnel-auditor`）をオンデマンドで行う。真実源は [note-funnel-architecture.md](note-funnel-architecture.md)。
+note 導線の機械監査は CI と土曜の収集が分担する。`quality-audit`（ci:true）がソース D1-D4/D6、土曜の収集の note-audit 段（weekly-collect・DN-0847）がライブ反映 D5（配線後に再投稿せず live が死ぬドリフト）を月 1 回（2026-11-14 に週次から下げた・DN-1196）検査する。修復はログイン済みブラウザが必要な `note-append-cta`、意味的レビューは `/audit-note-funnel --semantic`（`note-funnel-auditor`）をオンデマンドで行う。真実源は [note-funnel-architecture.md](note-funnel-architecture.md)。
 
 **`npm run check-note-republish`**（公開記事の本文＋ハッシュタグの再公開ドリフト・creds不要）は surfacer（正常な公開待ちも含むため非ゲート。週次の自動実行はしない＝反映待ちは土曜の note-sync-check 段と `npm run note-sync-plan` が見る）。本文drift→`note-update-body --commit`、タグdrift→`note-sync-tags --commit` で解消する（ライブが上限99で埋まり dry-run に「余分=N」が出る記事は `--prune --commit`）。有料境界の構成監査 `check-note-structure --ci` も同じ段が FULL_LOCK/漏洩/画像/価格を検出する。ソース側の境界欠落は `npm run check-note-boundary`（pre-commit＋CI）が事前に止める。
 

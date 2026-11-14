@@ -31,7 +31,7 @@ const WANT_JSON = process.argv.includes('--json');
 const WATCHED = [
   { module: '@/config/author', preferred: 'AuthorProfile / AuthorCard' },
   { module: '@/lib/note-magazines', preferred: 'MagazineCard / MagazineHeroCta / hub-cta' },
-  { module: '@/lib/coconala-services', preferred: 'exam-key-bridge（pickCoconalaFor）' },
+  { module: '@/lib/coconala-services', preferred: 'offsite-cta（記事）/ learning-catalog（/links）' },
 ];
 
 /**
@@ -43,11 +43,6 @@ const ALLOWLIST = [
     file: 'src/app/about/page.tsx',
     module: '@/config/author',
     reason: 'AuthorProfile を主表示に使ったうえで、SNS リンク等を個別に組む運営者紹介ページ本体',
-  },
-  {
-    file: 'src/app/links/page.tsx',
-    module: '@/config/author',
-    reason: 'ヒーローのアバター・名乗り（AuthorProfile は末尾で別途使用）',
   },
 ];
 

@@ -1,6 +1,6 @@
 ---
 name: reference_book_sources_drive_vault
-description: "Google Drive vault。書籍文字起こしの移設先と構造・ストリーミングマウントの罠(stat 16MiB・アップロード中ECANCELED)・Drive MCP でバイナリ送信不可"
+description: "Google Drive vault。書籍文字起こしの移設先と構造・ストリーミングマウントの罠(stat 16MiB・アップロード中ECANCELED)・Drive MCP でバイナリ送信不可・launchd からは読めない(-11)"
 metadata:
   type: reference
 ---
@@ -36,6 +36,17 @@ doboku-note/
 - 各サブディレクトリの `README.md` だけは git 追跡を継続（案内用）
 - git 履歴には旧コミットの内容がまだ残っている（force-push は複数セッション並行環境で危険なため未実施）
 - 構造の SSOT は [[reference_civil_pdfs]] が併記する asset-storage-policy.md §1-1。土木奥義（基準類696本）は移動せず現位置
+
+---
+
+## launchd から起動した処理は Drive の中身を読めない（2026-11-14 実測・対処済み）
+
+土曜の収集（launchd `com.doboku-note.weekly-review`）の note 同期が、10/31・11/8・11/14 と配布 PDF の読みで `Unknown system error -11`（EDEADLK）を出し、PDF の要る記事を全部翌週へ回していた。カバーを Drive へ書く処理も落ちていた。原因は 2 つ重なっていた。
+- **取り寄せの禁止**: launchd の処理は、未ダウンロード（`ls -lO` が `dataless`）のファイルの取り寄せが既定で禁止（`getiopolicy_np(3,0)` が 1。対話セッションは 2）。open は通り read が EDEADLK になる。`setiopolicy_np(3,0,2)` で許可にすると子プロセスにも引き継がれる。`scripts/scheduled/weekly-review.sh` の冒頭が python3 で切り替えて自分を起動し直す。
+- **プライバシー保護**: `/bin/bash` と node の実体（`/opt/homebrew/Cellar/node@22/<版>/bin/node`）にフルディスクアクセスが要る（無いと open が `Operation not permitted`）。運営者が 2026-11-14 に付けた。**node の版が上がると場所が変わり、付け直しが要る**。
+- **Drive の停止ではない**: `note-sync-routine.mjs` の「3 件続けて失敗したら Google Drive を再起動」はこの原因には効かない。
+- **確かめ方の罠**: `wc -c < file` は読まずにサイズを返すので、読めた証拠にならない。node か cat で実際に読む。
+- **How to apply:** launchd の処理で Drive の読み書きが -11 か Operation not permitted で落ちたら、`launchctl submit -l <label> -- /bin/bash <1 ファイル読むスクリプト>` で再現し（終わったら `launchctl remove <label>`）、iopolicy の値とフルディスクアクセスの登録（node の版）を見る。
 
 ---
 

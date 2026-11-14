@@ -426,4 +426,7 @@ test('PRECOMMIT_VERBOSE=1 で従来どおり（出力を捕まえない）。cou
   assert.equal(isVerbose({}), false);
   assert.equal(countWarns('a\nWARN x\nno warning here\n警告 y\n'), 2);
   assert.equal(countWarns(''), 0);
+  assert.equal(countWarns('[check-affiliate-wiring] ✓ mats 9 種 が整合（WARN 0）\n警告: 0 件\n'), 0);
+  assert.equal(countWarns('[check-affiliate-wiring] WARN: catalog.x に ID が無い\n（WARN 0）\n'), 1);
+  assert.equal(countWarns('WARN 10\nWARN 0 / 警告: 実際の指摘\n'), 2);
 });

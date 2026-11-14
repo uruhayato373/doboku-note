@@ -117,7 +117,7 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 2. `npm run sales-summary -- YYYY-MM` と比較
 3. 差異があれば data/note/sales.json を確認・修正
 
-毎月5日以降、`check-sales-freshness` は前月の `note-traffic-fetch` 結果を要求し、月次売上表示と同月の sales.json 合計を照合する。月初4日までは前々月を対象にする。`updatedAt` が新しくても未取得・金額不一致ならFAILとし、販売明細の取りこぼしを緑にしない。販売履歴のパスワード再確認は資格情報で自動で通る（土曜の Mac 収集の note-sales 段が毎週取得する）。通らなかったときは人がブラウザで通し、その後 `note-sales-fetch --commit` を再実行する。
+毎月5日以降、`check-sales-freshness` は前月の売上管理の確定額（`note-sales-fetch` が検算して書く `sales.json` の `months[月]`・`finalized: true`）を要求し、同月の明細の合計と照合する。「アクセス状況」の売上（`note-traffic-fetch`）は照合に使わない（2026-11-14: 単品の一部を数えない月があり、月の途中に取った値も残るため、明細が正しくても FAIL になっていた）。月初4日までは前々月を対象にする。`updatedAt` が新しくても未取得・金額不一致ならFAILとし、販売明細の取りこぼしを緑にしない。販売履歴のパスワード再確認は資格情報で自動で通る（土曜の Mac 収集の note-sales 段が毎週取得する）。通らなかったときは人がブラウザで通し、その後 `note-sales-fetch --commit` を再実行する。
 
 ### 商品別の月次販売台帳（DN-0947）
 

@@ -95,7 +95,7 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 - **新規マガジン公開時** — その資格の L2 もくじに追記し、`audit-note-funnel` を実行
 - **新規記事公開時** — L3 CTA が入っているか（`wire-note-funnel-cta` 済みか）確認。**配線が公開より後なら `note-append-cta` で live 反映**（ソースだけ直して再投稿しないと live は死んだまま＝2026-06-18 の事故）
 - **週次 CI（ソース）** — `quality:audit:ci` の `check-note-funnel` が D1-D4/D6 を赤落ちで機械検知
-- **週次（ライブ）** — 土曜の収集の note-audit 段（weekly-collect・DN-0847）が `audit-note-funnel --live --ci` を実行し、D5 と取得失敗率を検査
+- **月 1 回（ライブ）** — 土曜の収集の note-audit 段（weekly-collect・DN-0847。2026-11-14 に週次から下げた・DN-1196）が `audit-note-funnel --live --ci` を実行し、D5 と取得失敗率を検査
 - **意味的監査** — `note-funnel-auditor` は順序・文面の関連性を判断するときにオンデマンド実行。CI は意味判断やソース修復をしない
 - **修復** — CI が D5 を検出したら `note-append-cta`／`publish-note --update` で live 反映し、手動 `--live --ci` で消失を確認する
 

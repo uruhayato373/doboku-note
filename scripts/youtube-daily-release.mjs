@@ -20,7 +20,7 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { shortsStatus } from './lib/shorts-factory.mjs';
 import { dispatchAndWatch } from './lib/publish-sync.mjs';
 import { nextSlot, readPolicy, uploadsLeft } from './lib/video-publish-gate.mjs';
-import { releaseQueue } from './lib/youtube-daily-release.mjs';
+import { releaseQueue, shortRestoreArgs } from './lib/youtube-daily-release.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 
@@ -108,8 +108,13 @@ function releaseShort(item, policy) {
   runPublishWorkflow(item.pub, digest);
 }
 
-/** 関連動画を記録したショートを予約する（投稿済みなので割当を使わない） */
+/**
+ * 関連動画を記録したショートを予約する（投稿済みなので割当を使わない）。
+ * digest は手元の動画（.tmp/media）を読む。前の晩に投稿した素材は専用の worktree に残らないことがあるので Drive から戻す（2026-11-13・2 本が動画が無いで落ちた）
+ */
 function scheduleShort(pub) {
+  const { pack, key } = shortRestoreArgs(pub);
+  node('scripts/shorts-factory.mjs', 'restore', '--pack', pack, '--key', key);
   const { digest, blockers } = lastJson(node('scripts/registry.mjs', 'publish-youtube', '--pub', pub, '--phase', 'upload'));
   if (blockers.length) throw new Error(`${pub}: ${blockers.join(', ')}`);
   pushRegistry(`content(video): ショート ${pub} の関連動画を記録する`);

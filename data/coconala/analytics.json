@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "fetchedAt": "2026-11-08T02:40:05.165Z",
-  "fetchedOnJst": "2026-11-08",
+  "fetchedAt": "2026-11-14T01:12:47.181Z",
+  "fetchedOnJst": "2026-11-14",
   "status": "ok",
   "source": "coconala.com /mypage/analytics（Playwright・read-only・書き込みなし）",
   "caveats": [
@@ -11,21 +11,21 @@
   ],
   "period": {
     "services": {
-      "from": "2026-10-09",
-      "to": "2026-11-07",
+      "from": "2026-10-15",
+      "to": "2026-11-13",
       "label": "過去30日間",
       "windowDays": 30
     },
     "blogs": {
-      "from": "2026-10-10",
-      "to": "2026-11-08",
+      "from": "2026-10-16",
+      "to": "2026-11-14",
       "label": "過去30日間",
       "windowDays": 30
     }
   },
   "totals": {
     "impressions": null,
-    "views": 685,
+    "views": 706,
     "orders": 0,
     "salesYen": 0,
     "favorites": 0,
@@ -41,7 +41,7 @@
       "title": "1級・2級土木の経験記述を元発注者が添削します",
       "ok": true,
       "impressions": null,
-      "views": 37,
+      "views": 45,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -52,10 +52,10 @@
       "serviceId": "coconala-pe-oral-qa",
       "numericId": "4486050",
       "catalogStatus": "listed",
-      "title": "技術士口頭試験の想定質問を経歴から作ります",
+      "title": "技術士口頭試験｜経歴をコンピテンシーで整理します",
       "ok": true,
       "impressions": null,
-      "views": 12,
+      "views": 29,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -69,7 +69,7 @@
       "title": "コンクリート主任技士の小論文を添削します",
       "ok": true,
       "impressions": null,
-      "views": 189,
+      "views": 152,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -83,7 +83,63 @@
       "title": "コンクリート主任技士の小論文1本を診断します",
       "ok": true,
       "impressions": null,
-      "views": 17,
+      "views": 31,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
+    },
+    {
+      "serviceId": "coconala-pe-gyomu-tensaku",
+      "numericId": "4502273",
+      "catalogStatus": "listed",
+      "title": "技術士の業務内容の詳細720字を添削します",
+      "ok": true,
+      "impressions": null,
+      "views": 0,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
+    },
+    {
+      "serviceId": "coconala-pe-construction-tensaku",
+      "numericId": "4502256",
+      "catalogStatus": "listed",
+      "title": "技術士 建設部門の論文を元発注者が添削します",
+      "ok": true,
+      "impressions": null,
+      "views": 0,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
+    },
+    {
+      "serviceId": "coconala-pe-sokan-tensaku",
+      "numericId": "4502262",
+      "catalogStatus": "listed",
+      "title": "技術士 総監の記述式論文を添削します",
+      "ok": true,
+      "impressions": null,
+      "views": 0,
+      "orders": 0,
+      "favorites": 0,
+      "masked": [
+        "impressions"
+      ]
+    },
+    {
+      "serviceId": "coconala-pe-water-tensaku",
+      "numericId": "4502267",
+      "catalogStatus": "listed",
+      "title": "技術士 上下水道部門の論文を添削します",
+      "ok": true,
+      "impressions": null,
+      "views": 1,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -197,13 +253,13 @@
     {
       "serviceId": "coconala-1kyu-full-pdf",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
       "serviceId": "coconala-2kyu-full-pdf",
       "catalogStatus": "paused",
-      "pauseReason": "absence",
+      "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
     },
     {
@@ -285,35 +341,35 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 14
+      "views": 16
     },
     {
       "title": "経験記述の数値、どこに何を入れるか｜5箇所と整合チェック",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 17
+      "views": 14
     },
     {
       "title": "経験記述は工事概要で落ちる｜対象工事・数量・立場の書き方",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 12
+      "views": 13
     },
     {
       "title": "経験記述の技術的課題「珍しい工事」でなくていい理由",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 12
+      "views": 7
     },
     {
       "title": "経験記述の工程管理、遅延要因から評価まで書く手順",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 15
+      "views": 16
     },
     {
       "title": "2級 二次 予想模試の使い方｜丸付けで終わらせない3段階",
@@ -327,14 +383,14 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 13
+      "views": 11
     },
     {
       "title": "【第5回】経験記述の安全管理、品質管理と同じ手順で書く",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 14
+      "views": 10
     },
     {
       "title": "【第4回】経験記述の品質管理、設問1〜評価まで書く手順",
@@ -355,7 +411,7 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-24",
-      "views": 13
+      "views": 15
     },
     {
       "title": "2級土木 二次 予想模試の見本｜設問1問と復習の進め方",
@@ -369,14 +425,14 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-17",
-      "views": 15
+      "views": 14
     },
     {
       "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-13",
-      "views": 12
+      "views": 9
     },
     {
       "title": "【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木",
@@ -395,15 +451,15 @@
         "ok": true,
         "cards": 5,
         "blogs": 15,
-        "serviceCards": 6
+        "serviceCards": 8
       },
       {
         "key": "services",
         "label": "サービス別",
         "url": "https://coconala.com/mypage/analytics/{id}",
         "ok": true,
-        "rows": 4,
-        "expected": 4,
+        "rows": 8,
+        "expected": 8,
         "skipped": 31
       }
     ],

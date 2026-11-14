@@ -7,6 +7,7 @@ metadata:
 
 ## クラウドルーティンは全停止（2026-06-27 棚卸し→2026-09-19 最終）
 2026-06-27 にクラウドルーティン（claude.ai RemoteTrigger）を棚卸しし「できるだけ利用しない方向」へ削減。**最終状態（2026-09-19）: 稼働(enabled:true)は0本**。`doboku-note weekly PDCA`（`trig_01Edgim5qXCiGwKtnL4AVEmM`・cron `0 0 * * 6`）も enabled:false で退役し、週次レビューは**ローカルで土曜に `/weekly-review`**。2026-10-10 から土曜 9:30 に Mac の launchd がヘッドレスで回し（下書きも収集の後に Mac が作る。金曜 CI の下書きと CI の Claude による GSC の記録層は 2026-10-25 に外して土曜へ寄せた・DN-0849）、対話セッションは諮問待ちの判断だけ（workflows.md「実行主体」。催促＝SessionStart の check-weekly-review-due・backstop＝月曜 guard）。退役理由: サンドボックスでは `.claude/` 配下の書き込みが許可プロンプトで止まり数日沈黙（09-18 は W38 欠落）、Playwright/tsx 依存の検査が動かず材料が欠ける。本文は保持してあるので再開は `update {enabled:true}`。
+- **2026-11-14〜**: 週次レビューと週次計画は、デスクトップアプリのスケジュール済みタスク `doboku-weekly-review`（土曜 13:10・ローカル実行でクラウドルーティンではない）が回す。収集は launchd のまま。詳細は [[feedback_weekly_review_late_catchup]]。
 - **停止した(enabled:false)もの**: doboku: daily-doboku-progress-sync / doboku-todo-weekly-refresh / cem-qa monthly / note-funnel monthly（note-funnel は2026-08-16時点で404＝UI削除済み）。stats47: weekly-blog-10-articles / weekly CWV PR / weekly PDCA（3本とも停止）。
 - **Why**: ルーティンは毎回 compute/トークンを消費し、大半は on-demand スキルで代替できる。
 

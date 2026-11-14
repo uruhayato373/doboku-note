@@ -4,10 +4,10 @@
   "generatedBy": "npm run product-sales",
   "coverage": {
     "note": {
-      "status": "partial",
-      "provisional": true,
+      "status": "measured",
+      "provisional": false,
       "amountBasis": "price",
-      "fetchedAt": "2026-10-31T00:40:31.551Z",
+      "fetchedAt": "2026-11-14T01:00:03.690Z",
       "dashboardCount": 22,
       "recordedCount": 22
     },
@@ -20,10 +20,10 @@
       "reason": "月末より前の取得（残りの日の販売が入っていない）"
     },
     "coconala": {
-      "status": "partial",
-      "provisional": true,
+      "status": "measured",
+      "provisional": false,
       "amountBasis": "net",
-      "fetchedAt": "2026-10-31T00:45:29.275Z",
+      "fetchedAt": "2026-11-14T01:14:32.329Z",
       "note": "クローズ日で計上・手数料控除後。おひねり（tip）は金額に入れ、件数に数えない"
     },
     "a8": {
@@ -31,8 +31,14 @@
       "provisional": true,
       "amountBasis": "approved",
       "fetchedAt": "2026-10-31T00:33:42.333Z",
-      "note": "案件別の単月レポート。count は発生件数（キャンセルを含む）、amountYen は確定報酬。発生 0 の案件は行が無い＝計測済み・0 件",
-      "otherPrograms": 81
+      "note": "案件別の単月レポート。count は発生件数（キャンセルを含む）、amountYen は確定報酬。発生 0 の案件は行が無い＝計測済み・0 件"
+    },
+    "moshimo": {
+      "status": "partial",
+      "provisional": true,
+      "amountBasis": "approved",
+      "fetchedAt": "2026-11-14T01:08:42.995Z",
+      "note": "画面で観測した案件だけを収録。行のない案件は未計測。承認は後日の取得で変わり得る"
     }
   },
   "rows": [
@@ -40,11 +46,10 @@
       "destination": "a8",
       "productId": "buildjob",
       "destinationIds": [
-        "4B5OO5+FHBA2+5B0Y+NTZCH",
-        "4B5OO5+FHED6+5B0Y+NTJWY",
+        "4B5OO5+FHBA2+5B0Y+NTJWY",
         "4B5OO5+FHBA2+5B0Y+NTRMQ",
-        "4B5OO5+FHBA2+5B0Y+NU729",
-        "4B5OO5+FHBA2+5B0Y+NUES1"
+        "4B5OO5+FHBA2+5B0Y+NTZCH",
+        "4B5OO5+FHED6+5B0Y+NTJWY"
       ],
       "count": 1,
       "amountYen": 0,
@@ -580,6 +585,30 @@
       "count": null,
       "amountYen": 0,
       "kenpYen": 0
+    },
+    {
+      "destination": "moshimo",
+      "productId": "constwork",
+      "destinationIds": [
+        "6154"
+      ],
+      "count": 0,
+      "amountYen": 0,
+      "grossYen": 0,
+      "approvedCount": 0,
+      "clicks": 0
+    },
+    {
+      "destination": "moshimo",
+      "productId": "kenchiku-tenshoku",
+      "destinationIds": [
+        "4183"
+      ],
+      "count": 0,
+      "amountYen": 0,
+      "grossYen": 0,
+      "approvedCount": 0,
+      "clicks": 0
     },
     {
       "destination": "note",

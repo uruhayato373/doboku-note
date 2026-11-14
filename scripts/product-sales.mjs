@@ -16,6 +16,7 @@
  * npm run product-sales — 暦月×商品の販売台帳→data/business/product-sales/YYYY-MM.json（既定は前月と当月・`--month`・`--all`・`--check`）。note・KDP（doboku-note の ASIN だけ。stats47 の本は excluded）・ココナラ・A8（案件別の単月レポート。a8mat → 案件は config/affiliate-mats.json・金額は確定報酬、発生額と承認待ちは別欄）を販売先ごとの coverage つきで並べ、measured の月だけ「行が無い＝0 件」と読む。読み手は scripts/lib/product-sales.mjs の salesOf。土曜の収集の product-sales 段が回す（DN-0947）
  */
 import { buildProductSales } from './lib/product-sales.mjs';
+import { affiliateMatEntries } from './lib/affiliate-catalog-mats.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readJson, readJsonIf, writeJson } from './lib/json-io.mjs';
 import { jst } from './lib/business-direction.mjs';
@@ -29,11 +30,13 @@ let input;
 try {
   input = {
     products: readJson(ROOT, datasetPath('config.products')).products,
-    mats: readJsonIf(ROOT, datasetPath('config.affiliate-mats'))?.mats ?? [],
+    mats: affiliateMatEntries(readJson(ROOT, datasetPath('affiliate.catalog')), readJsonIf(ROOT, datasetPath('config.affiliate-mats'))?.mats ?? []),
     salesLog: readJson(ROOT, datasetPath('note.sales')),
     royalties: readJsonIf(ROOT, datasetPath('kdp.royalties')),
     revenue: readJsonIf(ROOT, datasetPath('coconala.revenue')),
     orders: readJsonIf(ROOT, datasetPath('coconala.orders')),
+    catalog: readJson(ROOT, datasetPath('affiliate.catalog')),
+    moshimoSiteId: readJson(ROOT, datasetPath('config.affiliate-asp')).asps.moshimo.sites['doboku-note'],
     reportLog: readJsonIf(ROOT, datasetPath('a8.report-log')),
   };
 } catch (e) {
@@ -53,7 +56,8 @@ const months = args.month
     : [previousMonth(today), today.slice(0, 7)];
 
 for (const month of months) {
-  const ledger = buildProductSales({ month, ...input });
+  const moshimoReport = readJsonIf(ROOT, datasetPath('moshimo.reports', { month }));
+  const ledger = buildProductSales({ month, ...input, moshimoReport });
   const covered = Object.entries(ledger.coverage).map(([k, c]) => `${k}=${c.status}${c.provisional ? '(暫定)' : ''}`).join(' ');
   const yen = ledger.rows.reduce((s, r) => s + r.amountYen, 0);
   console.log(`[product-sales] ${month}: ${ledger.rows.length} 商品・¥${yen.toLocaleString('ja-JP')} / ${covered}`);
