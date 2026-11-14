@@ -309,7 +309,7 @@
       "work": "cm-ochiru-answer-naoshikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-001",
@@ -342,6 +342,9 @@
         "by": "policy",
         "at": "2026-11-14T12:50:43.711Z",
         "contentSha256": "231841098dab7df7b04ea16594b1ae6a1e4c68d82322543b5727bd66c5d15737"
+      },
+      "times": {
+        "rendered": "2026-11-14T13:02:50.565Z"
       }
     },
     {
