@@ -62,6 +62,12 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
 
   return [
     {
+      // Drive を読めるか先に 1 本読む。読めないと note 同期（post）が配布 PDF の要る記事を全部翌週へ回すので、原因（フルディスクアクセス・
+      // 取り寄せの禁止）を名指しで先に出す（2026-11-14・3 週続けて -11 を「Drive の停止」と誤って扱っていた）
+      id: 'drive', phase: 'pre', title: 'Drive の読み取り（note 同期の配布 PDF）', timeoutMin: 5,
+      commands: [{ argv: ['scripts/check-drive-readable.mjs'] }],
+    },
+    {
       id: 'auth', phase: 'pre', title: 'ログインの確認と入り直し', timeoutMin: 20, browser: true,
       // export と CI の起動はしない（CI はログインを使わない・DN-0822）。afb の成果取得は未実装
       commands: [{ argv: ['scripts/auth-session-refresh.mjs', '--service', 'a8,moshimo,kdp,note,coconala', '--json'] }],
@@ -238,6 +244,9 @@ export function verifyFailureReason(id, output) {
   return `検算 ${id}: ${line}`.slice(0, 300);
 }
 
+/** pre の後に post を待つ時間。pre の後に GSC の記録層と post（最大で数時間）が続くので、1 日を超えたら止まったとみる */
+export const POST_GRACE_MS = 24 * 3_600_000;
+
 /**
  * 直近の収集の判定（pure・DN-0847）。運営者の取り直し（--only）も数えるため、段ごとに一番新しい結果で決める。
  *   alive  … 直近の pre と post が failDays 以内に回ったか（日次の ops は死活だけを見る）
@@ -254,6 +263,13 @@ export function judgeRuns({ runs, stageIds, failDays, now, alive = false }) {
     const ageDays = (now - Date.parse(last.finishedAt)) / 86_400_000;
     phases.push({ phase, finishedAt: last.finishedAt, ageDays: Math.round(ageDays * 10) / 10 });
     if (ageDays > failDays) problems.push(`${phase}: 最後の収集が ${Math.floor(ageDays)} 日前（${failDays} 日を超えた・土曜の Mac が動いていない）`);
+  }
+  // 前（pre）の後に後（post）の記録が無いまま 1 日たったら、収集が途中で止まった（再起動・スリープでプロセスごと消えると
+  // 終了処理が走らず通知も出ない。2026-11-14 は Mac の再起動で post が消え、期限 15 日の死活では見えなかった）
+  const lastPre = runs.filter((r) => r.phase === 'pre').at(-1);
+  const lastPost = runs.filter((r) => r.phase === 'post').at(-1);
+  if (lastPre && (!lastPost || Date.parse(lastPost.finishedAt) < Date.parse(lastPre.finishedAt)) && now - Date.parse(lastPre.finishedAt) > POST_GRACE_MS) {
+    problems.push(`post: ${lastPre.finishedAt.slice(0, 10)} の pre の後に post の記録が無い（収集が途中で止まった。Mac の再起動・スリープを疑い、取り直すなら npm run weekly-review:install -- --run-now）`);
   }
   if (alive) return { problems, phases, stages: [] };
   const since = now - failDays * 86_400_000;

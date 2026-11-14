@@ -60,3 +60,11 @@ metadata:
 ## 素材の良否は生成記録と現行スキルに照らしてから言う
 2026-11-06、ショートの表紙を「ルールが整っている」と報告した。運営者に「Codex で生成するはずでは」と問われて `create-pop-image` を読むと、見本は代用禁止の `pop-v2` 組版で、222/224 本が同じだった。`approvedImage` の照合が通ることを、運営者の承認や現行基準への適合と読み違えていた。
 - **How to apply:** 画像の品質を評価するときは、見た目の前に `cover-design.json` の `design`、`pop-image.json` の `render` と `userImageReview`、該当スキルの現行基準を確認する。`approved` という名前のフィールドを運営者の承認として報告しない。
+
+## ロックの有無を「実行中」の根拠にしない（2026-11-14）
+土曜の収集のロック `~/Library/Logs/doboku-note/weekly-review.lock` が残っていたのを見て、Mac の再起動で消えた収集を約 2 時間「まだ実行中」と運営者に報告し続けた。ログの末尾も 11:58 で止まっていた。
+- **How to apply:** 実行中かを言う前に、ロックの `pid` を `ps -p`／`kill -0` で確かめ、ログの最終更新時刻と `uptime`（再起動の有無）を見る。
+
+## macOS 専用の処理は、Linux の CI で落ちない形で最初から書く（2026-11-14）
+収集スクリプトに macOS の libSystem を呼ぶ処理を足して PR を出し、CI（Linux）の unit tests を 2 件赤にした（#1591・修正 1 回）。
+- **How to apply:** macOS 専用の呼び出しは `uname` が Darwin のときだけ通し、失敗しても元の処理へ戻る形にしてから push する。

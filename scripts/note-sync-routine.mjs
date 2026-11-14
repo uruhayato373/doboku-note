@@ -173,7 +173,7 @@ async function syncArticles(items) {
         if (r.status !== 0) {
           const why = pullWhy(r.out);
           if (drive.down) {
-            problems.push(`Drive から配布 PDF を読めない（再起動しても ${drive.consecutive} 件続けて失敗）。PDF の要る記事は翌週へ回した${why ? `（${why}）` : ''}`);
+            problems.push(`Drive から配布 PDF を読めない（再起動しても ${drive.consecutive} 件続けて失敗）。原因は同じ回の drive 段（scripts/check-drive-readable.mjs）の結果を見る。PDF の要る記事は翌週へ回した${why ? `（${why}）` : ''}`);
             defer([item], 'drive-unavailable');
           } else {
             failed.push({ path: item.path, parts: item.parts, reason: `配布 PDF を取り寄せられない${why ? `: ${why}` : ''}` });

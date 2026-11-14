@@ -176,3 +176,16 @@ test('売上の段のあとに、前々月と前月の受取額と固定費を�
   ]);
   assert.equal(stages.find((s) => s.id === 'business-records').browser, false);
 });
+
+test('pre の後に post の記録が無いまま 1 日たつと、死活でも赤（2026-11-14 の再起動での途中終了）', () => {
+  const pre = { phase: 'pre', finishedAt: '2026-11-14T02:39:00Z', stages: [], commit: {}, leftover: [] };
+  const post = { phase: 'post', finishedAt: '2026-11-08T02:09:00Z', stages: [], commit: {}, leftover: [] };
+  const stuck = judgeRuns({ runs: [post, pre], stageIds: [], failDays: 15, now: at('2026-11-15T03:00:00Z'), alive: true }).problems;
+  assert.equal(stuck.length, 1);
+  assert.match(stuck[0], /post: 2026-11-14 の pre の後に post の記録が無い/);
+  // 1 日以内は待つ（post が走っている途中）
+  assert.deepEqual(judgeRuns({ runs: [post, pre], stageIds: [], failDays: 15, now: at('2026-11-14T12:00:00Z'), alive: true }).problems, []);
+  // post が pre の後に終わっていれば赤くしない
+  const done = { ...post, finishedAt: '2026-11-14T08:00:00Z' };
+  assert.deepEqual(judgeRuns({ runs: [post, pre, done], stageIds: [], failDays: 15, now: at('2026-11-16T00:00:00Z'), alive: true }).problems, []);
+});

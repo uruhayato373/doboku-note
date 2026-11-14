@@ -28,7 +28,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { readFileSync } from 'node:fs';
+import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
@@ -94,6 +95,7 @@ try {
 
   // 月次の流入元は従来どおり取得。指定期間では全期間への切り替えを挟まない。
   let series = null;
+  let seriesText = '';
   if (!requestedPeriod) {
     await selectPeriod('過去365日間');
     const tsBtn = page.getByRole('button', { name: '時系列', exact: true }).first();
@@ -101,7 +103,8 @@ try {
     // 表が描かれるまで待つ（固定 4 秒では、Mac の負荷が高い土曜に表の前を読んで「時系列テーブルが読めない」になった・2026-11-14）
     for (let i = 0; i < 15 && !series; i++) {
       await sleep(2000);
-      series = parseReferrerTimeSeries(await page.evaluate(() => document.body.innerText || ''));
+      seriesText = await page.evaluate(() => document.body.innerText || '');
+      series = parseReferrerTimeSeries(seriesText);
     }
     const pieBtn = page.getByRole('button', { name: '円グラフ', exact: true }).first();
     if (await pieBtn.count()) { await pieBtn.click(); await sleep(1500); }
@@ -164,7 +167,18 @@ try {
   const problems = trafficProblems({ period, summary, rows, hasMore, requestedPeriod });
   if (!requestedPeriod && !series) problems.push('時系列テーブルが読めない');
   if (!requestedPeriod && !pie) problems.push('円グラフテーブルが読めない');
-  if (problems.length) { console.error(`${NAME}: 検査不成立: ${problems.join(' / ')}`); exitCode = 1; }
+  if (problems.length) {
+    console.error(`${NAME}: 検査不成立: ${problems.join(' / ')}`); exitCode = 1;
+    // 画面の変更か読み込み待ちかを後から切り分けられるよう、読んだ文字列と画面を残す（2026-11-14 は推定しかできなかった）
+    try {
+      const dir = join(homedir(), 'Library', 'Caches', 'doboku-note', 'note-traffic', new Date().toISOString().replace(/[:.]/g, '-'));
+      mkdirSync(dir, { recursive: true });
+      if (seriesText) writeFileSync(join(dir, 'timeseries.txt'), seriesText);
+      writeFileSync(join(dir, 'month.txt'), monthText);
+      await page.screenshot({ path: join(dir, 'page.png'), fullPage: true });
+      console.error(`${NAME}: 画面の証拠 → ${dir}`);
+    } catch (e) { console.error(`${NAME}: 画面の証拠を残せなかった（${e.message}）`); }
+  }
   else if (COMMIT) {
     const fetchedAt = new Date().toISOString();
     const source = 'note ダッシュボード「アクセス状況」（Playwright read-only・自己閲覧を含む）。流入元は閲覧の経路であり購入経路ではない';
