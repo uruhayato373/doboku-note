@@ -28,6 +28,7 @@ import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { datasetPath, freshnessDays } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { parseCatalog } from './lib/coconala-catalog.mjs';
 
 const TAG = '[check-coconala-analytics]';
 const SNAP_PATH = join(ROOT, datasetPath('coconala.analytics'));
@@ -43,16 +44,11 @@ const warns = [];
 const fail = (m) => fails.push(m);
 const warn = (m) => warns.push(m);
 
-/** カタログから id/status/serviceUrl を抜く（coconala-session.readCatalog と同じ正規表現方式） */
+/** カタログから id/status/serviceUrl を抜く。読み方は共通の parseCatalog（フィールドの並び順に依存しない）。
+ *  2026-11-14: 独自の正規表現が status の直後に serviceUrl を要求し、末尾に serviceUrl を置いた技術士の添削 4 件を
+ *  「カタログに無い」と誤判定して土曜の収集の検算を落としていた。 */
 function readCatalogIds() {
-  const ts = readFileSync(CATALOG_PATH, 'utf8');
-  const start = ts.indexOf('const SERVICES_RAW');
-  const body = start >= 0 ? ts.slice(start) : ts;
-  const re = /id:\s*'([^']+)',\s*status:\s*'([^']+)',\s*serviceUrl:\s*'([^']*)'/g;
-  const out = [];
-  let m;
-  while ((m = re.exec(body))) out.push({ id: m[1], status: m[2], serviceUrl: m[3] });
-  return out;
+  return Object.values(parseCatalog(readFileSync(CATALOG_PATH, 'utf8')));
 }
 
 function daysBetween(a, b) {

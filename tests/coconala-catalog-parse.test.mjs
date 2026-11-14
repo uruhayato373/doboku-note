@@ -26,3 +26,19 @@ test('parseCatalog はフィールド順に依存しない', () => {
   assert.equal(c.a.priceYen, 3000);
   assert.equal(c.b.status, 'listed');
 });
+
+// serviceUrl をエントリの末尾に置いても拾う（2026-11-14: check-coconala-analytics の独自の読み方が
+// 技術士の添削 4 件を「カタログに無い」と誤判定した。検算も parseCatalog を使う）
+test('parseCatalog はエントリ末尾の serviceUrl を拾う', () => {
+  const ts = `const SERVICES_RAW = {
+  'c': {
+    id: 'c',
+    status: 'listed',
+    title: 'x',
+    priceYen: 3000,
+    listedAt: '2026-11-12',
+    serviceUrl: 'https://coconala.com/services/3',
+  },
+};`;
+  assert.equal(parseCatalog(ts).c.serviceUrl, 'https://coconala.com/services/3');
+});
