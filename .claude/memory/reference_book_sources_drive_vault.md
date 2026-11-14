@@ -39,12 +39,14 @@ doboku-note/
 
 ---
 
-## launchd から起動した処理は Drive の中身を読めない（2026-11-14 実測）
+## launchd から起動した処理は Drive の中身を読めない（2026-11-14 実測・対処済み）
 
-土曜の収集（launchd `com.doboku-note.weekly-review`・`/bin/bash` 起動）の note 同期が、10/31・11/8・11/14 と毎週 RCCM の配布 PDF で `Unknown system error -11`（node）を出し、Drive を再起動しても直らず、PDF の要る記事を全部翌週へ回していた。マガジンのカバーを Drive へ書く処理も同じ理由で落ちている。
-- **原因は macOS のプライバシー保護**: `launchctl submit` で同じ PDF を読ませると、`sh` は `Operation not permitted`、node は `-11`。対話セッション（Claude アプリ・ターミナル）からは同じファイルを読める（`ls -lO` が `dataless` でも読むと取り寄せる）。stat だけは通るので「ファイルはある・読めない」になる。
+土曜の収集（launchd `com.doboku-note.weekly-review`）の note 同期が、10/31・11/8・11/14 と配布 PDF の読みで `Unknown system error -11`（EDEADLK）を出し、PDF の要る記事を全部翌週へ回していた。カバーを Drive へ書く処理も落ちていた。原因は 2 つ重なっていた。
+- **取り寄せの禁止**: launchd の処理は、未ダウンロード（`ls -lO` が `dataless`）のファイルの取り寄せが既定で禁止（`getiopolicy_np(3,0)` が 1。対話セッションは 2）。open は通り read が EDEADLK になる。`setiopolicy_np(3,0,2)` で許可にすると子プロセスにも引き継がれる。`scripts/scheduled/weekly-review.sh` の冒頭が python3 で切り替えて自分を起動し直す。
+- **プライバシー保護**: `/bin/bash` と node の実体（`/opt/homebrew/Cellar/node@22/<版>/bin/node`）にフルディスクアクセスが要る（無いと open が `Operation not permitted`）。運営者が 2026-11-14 に付けた。**node の版が上がると場所が変わり、付け直しが要る**。
 - **Drive の停止ではない**: `note-sync-routine.mjs` の「3 件続けて失敗したら Google Drive を再起動」はこの原因には効かない。
-- **How to apply:** launchd の処理で Drive を読み書きして失敗したら、まずこの許可を疑う。確かめ方は `launchctl submit -l <label> -- /bin/sh <読むだけのスクリプト>` で 1 ファイル読ませ、`launchctl remove <label>`。Drive を読む処理は、許可を持つ Claude アプリのスケジュール済みタスクか対話セッションで回す。
+- **確かめ方の罠**: `wc -c < file` は読まずにサイズを返すので、読めた証拠にならない。node か cat で実際に読む。
+- **How to apply:** launchd の処理で Drive の読み書きが -11 か Operation not permitted で落ちたら、`launchctl submit -l <label> -- /bin/bash <1 ファイル読むスクリプト>` で再現し（終わったら `launchctl remove <label>`）、iopolicy の値とフルディスクアクセスの登録（node の版）を見る。
 
 ---
 
