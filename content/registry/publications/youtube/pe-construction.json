@@ -1381,6 +1381,28 @@
       }
     },
     {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.short.point-ippanron-1",
+      "work": "pe-kojutsu-fukabori",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-ippanron-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori/youtube.json#shorts/point-ippanron-1",
+      "relatedTo": "pe-construction/pe-kojutsu-fukabori/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-fukabori/youtube.short.point-katachi-2",
+      "work": "pe-kojutsu-fukabori",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-katachi-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-fukabori/youtube.json#shorts/point-katachi-2",
+      "relatedTo": "pe-construction/pe-kojutsu-fukabori/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
       "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform",
       "work": "pe-kojutsu-kaitei-competency",
       "account": "youtube:main",
@@ -1406,6 +1428,28 @@
       },
       "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-kaitei-competency/youtube.json#longform",
       "publishAt": "2026-12-08T11:30:00Z"
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.short.point-gokai-1",
+      "work": "pe-kojutsu-kaitei-competency",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-gokai-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-kaitei-competency/youtube.json#shorts/point-gokai-1",
+      "relatedTo": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-kaitei-competency/youtube.short.point-keizoku-2",
+      "work": "pe-kojutsu-kaitei-competency",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-keizoku-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-kaitei-competency/youtube.json#shorts/point-keizoku-2",
+      "relatedTo": "pe-construction/pe-kojutsu-kaitei-competency/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/pe-kojutsu-keireki/youtube.longform",
@@ -1488,6 +1532,28 @@
         "status": "set",
         "setAt": "2026-11-04T22:07:07.695Z"
       }
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-keireki/youtube.short.point-hyouka-1",
+      "work": "pe-kojutsu-keireki",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-hyouka-1",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/youtube.json#shorts/point-hyouka-1",
+      "relatedTo": "pe-construction/pe-kojutsu-keireki/youtube.longform",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-keireki/youtube.short.point-kata-2",
+      "work": "pe-kojutsu-keireki",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kata-2",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/youtube.json#shorts/point-kata-2",
+      "relatedTo": "pe-construction/pe-kojutsu-keireki/youtube.longform",
+      "idException": "imported-before-cutover"
     },
     {
       "id": "pe-construction/pe-river-coast-shutsudai-yomikata/youtube.longform",
