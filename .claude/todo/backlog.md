@@ -65,6 +65,19 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1189] fetch-metrics の書き戻しが lint-ja の検査不成立で落ちるのを直し、W45 の計測を取り直す
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-14]
+
+**起点**: 週次レビュー（2026-11-09〜2026-11-15）。11/13（金）の fetch-metrics（run 43345841346）は取得と計測ダイジェスト 2026-W45 の生成まで成功したが、develop へ書き戻す commit の pre-commit で `[lint-ja --staged] 検査不成立: CI で比較元（REGISTRY_BASE）が無く、変更した MDX を決められない` となり exit 1。W45 のダイジェスト・事業の週次記録（自然検索人数ほか）・実験の自動計測 20 件が develop に入っていない（Issue #1575）。11/6 の失敗（DN-1043 で修理）とは別の原因。lint-ja を CI で比較元との差分検査に変えた DN-1124（#1571・11/12）の後に起きたが、因果は未確認。
+
+**やること**:
+1. fetch-metrics.yml の publish の commit で lint-ja が成立するようにする（比較元を渡すか、MDX を stage していない commit では対象 0 件で通す。0 件を緑にしない DN-1124 の意図は MDX を変える commit で守る）。同じ形で develop へ書き戻すほかの workflow（ops・収集の記録など）も同じ検査で落ちないか確かめる。
+2. 直したら `gh workflow run fetch-metrics.yml` で取り直し、`data/analysis/growth/digest-2026-W45.json` と `data/business/weekly/2026-W45.json` が develop に入ったことを確かめる。
+3. W45 のダイジェストの表示対象を `npm run growth-triage -- list` で全件処分する（週次レビュー W46 では未生成のため処分 0 件）。
+
+**完了条件**: 金曜の schedule の fetch-metrics が 1 回成功し、W45 と次の週のダイジェストが develop にある。Issue #1575 が閉じている。
+
+
 
 
 
