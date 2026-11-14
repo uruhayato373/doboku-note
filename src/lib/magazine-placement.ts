@@ -15,6 +15,7 @@
  *   1 ページを除きすべて inline/top にも入っており、外しても実際の露出は変わらない。
  *   唯一の単独配線だった management-tradeoffs は本文に <MagazineCard> を 3 枚持つ（4.6 参照）。
  */
+import { NOTE_LIST_ARTICLES } from './cta-density-policy.mjs';
 import type { DocGroupKey } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
 import examCalendar from '../../config/exam-calendar.json';
@@ -32,7 +33,7 @@ export interface ResolvedPlacement {
   /** 他部門でも使える共通科目だけを案内するときの対象範囲。 */
   readonly scopeNotice?: string;
   // 記事冒頭（本文 prose の前）に出す 1 行テキスト CTA。二次系の高 intent ページのみ設定する。
-  // 末尾の画像カード（inline）と重複してよい（形が違い・記事が長いため）。未設定＝冒頭 CTA なし。
+  // 本文直後の画像カード（end）と重複してよい（形が違い・記事が長いため）。未設定＝冒頭 CTA なし。
   readonly top?: PlacementSlot;
   // 末尾の画像カードを top と別にしたいときだけ設定する（未設定＝top を末尾にも出す）。
   // 建設部門の過去問は口頭試験の時期に冒頭を口頭試験の教材へ替えるが、末尾は科目の模範解答集を残す（DN-0902）。
@@ -292,39 +293,58 @@ export function resolvePlacement(
   slug: string,
   docGroup: DocGroupKey,
   isCareer = false,
+  manualCards: readonly RenderedNoteCard[] = [],
 ): ResolvedPlacement {
   // career 記事は note 導線を一切置かない（下の resolvePlacementRaw 0 番と同じ判定を入口でも止める）
   if (isCareer) return EMPTY;
   // 収録範囲が一致する一次PDFを、季節の別段階の商品より先に選ぶ。
   const matchingProduct = matchNoteProductPage(slug);
-  if (matchingProduct) return { top: slot(matchingProduct, slug, 'top'), inline: [] };
-  const placement = resolvePlacementRaw(slug, docGroup, isCareer);
+  const placement = matchingProduct
+    ? { top: slot(matchingProduct, slug, 'top'), inline: [] }
+    : resolvePlacementRaw(slug, docGroup, isCareer);
   // 共通ルール（DN-0364・2026-09-30）: 個別配線で top を決めていないページは、inline の先頭
   // （公開済みの最初の 1 誌＝その資格の主力）を冒頭にも出す。SNS から着地するキーワード・テキスト・
   // 過去問ページは、本文中間の枠が長文でしか出ず note 導線が本文後半（中央値 69%）だった。
   // 個別に top を置いたページ・career（EMPTY）は変えない。
-  if (placement.top) return placement;
-  const lead = placement.inline.find((s) => getMagazine(s.magazineId) !== null);
-  return lead ? { ...placement, top: lead } : placement;
+  const lead = placement.top ?? placement.inline.find((s) => getMagazine(s.magazineId) !== null);
+  const manualIds = new Set(manualCards.map(card => card.magazineId));
+  const isProductList = NOTE_LIST_ARTICLES.some(page => page.legacySlug === slug);
+  const top = manualCards.some(card => card.beforeFirstH2) || (!isProductList && manualCards.length >= 3) || (lead && manualIds.has(lead.magazineId))
+    ? undefined : lead;
+  return {
+    ...(placement.scopeNotice ? { scopeNotice: placement.scopeNotice } : {}),
+    ...(top ? { top } : {}),
+    inline: manualCards.length >= 2 ? [] : placement.inline.filter(s => !manualIds.has(s.magazineId)),
+    ...(placement.end && !manualIds.has(placement.end.magazineId) ? { end: placement.end } : {}),
+  };
 }
 
-/**
- * 本文中間 CTA に出す note マガジン。冒頭（top）と同じ商品を 2 度見せないため、
- * 公開済みの inline のうち top と別の先頭 1 誌を返す。DocPage と到達性検査が共有する。
- */
-function resolveMidNoteSlot(placement: ResolvedPlacement): PlacementSlot | null {
-  return (
-    placement.inline.find(
-      (s) => getMagazine(s.magazineId) !== null && s.magazineId !== placement.top?.magazineId,
-    ) ?? null
-  );
+export interface RenderedNoteCard {
+  /** 有料 NoteLink は商品台帳のIDを持たない。 */
+  readonly magazineId: MagazineId | null;
+  readonly beforeFirstH2: boolean;
 }
 
-/** 描画に渡す本文だけを数える。参考資料内のカードは到達面に含めない。 */
-export function renderedMagazineCardIds(content: string): MagazineId[] {
+/** 参考資料・コメント・コード例を除き、実際に表示する手書き MagazineCard・有料 NoteLink の位置を集める。 */
+export function renderedNoteCards(content: string): RenderedNoteCard[] {
   const { strippedContent } = extractReferencesSection(content);
-  return [...strippedContent.matchAll(/<MagazineCard[^>]*\sid=["']([^"']+)["']/g)]
-    .map(m => m[1] as MagazineId).filter(id => getMagazine(id));
+  const body = strippedContent.replace(/\{\/\*[\s\S]*?\*\/\}|<!--[\s\S]*?-->|^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[^\n]*$/gm, '');
+  const firstH2 = body.search(/^##\s+/m);
+  const cards: RenderedNoteCard[] = [];
+  for (const m of body.matchAll(/<(MagazineCard|NoteLink)\b[^>]*>/g)) {
+    const beforeFirstH2 = firstH2 < 0 || m.index! < firstH2;
+    if (m[1] === 'NoteLink') {
+      if (/\bkind=["']product["']/.test(m[0])) cards.push({ magazineId: null, beforeFirstH2 });
+    } else {
+      const id = m[0].match(/\bid=["']([^"']+)["']/)?.[1] as MagazineId | undefined;
+      if (id && getMagazine(id)) cards.push({ magazineId: id, beforeFirstH2 });
+    }
+  }
+  return cards;
+}
+
+export function renderedMagazineCardIds(content: string): MagazineId[] {
+  return renderedNoteCards(content).flatMap(card => card.magazineId ? [card.magazineId] : []);
 }
 
 /** 記事中間の実表示条件を描画と検査で共有する。一次は問題見出しの間で復習を案内する。 */
@@ -332,18 +352,31 @@ export function resolveArticleMidNoteSlot(
   placement: ResolvedPlacement, group: DocGroupKey, content: string, isCivilSecondary = false,
 ): PlacementSlot | null {
   const { strippedContent: body } = extractReferencesSection(content);
+  const manualIds = renderedMagazineCardIds(body);
+  if (renderedNoteCards(body).length >= 2) return null;
   const h2 = (body.match(/^##\s+/gm) ?? []).length;
   if (group === 'primary') {
     if (h2 < 3 || body.length < 2500 || /<MagazineCard[^>]*placement=["']article-mid["']/.test(body)) return null;
-    return placement.top && getMagazine(placement.top.magazineId) ? placement.top : null;
+  } else {
+    if (!['guide', 'pillar', 'textbook'].includes(group) && !isCivilSecondary) return null;
+    if (h2 < 5 || body.length < 8000) return null;
   }
-  if (!['guide', 'pillar', 'textbook'].includes(group) && !isCivilSecondary) return null;
-  return h2 >= 5 && body.length >= 8000 ? resolveMidNoteSlot(placement) : null;
+  // 冒頭・本文直後・手書きと異なる商品だけ。一次も冒頭の再掲はしない。
+  const excluded = new Set([...manualIds, placement.top?.magazineId, resolveEndNoteSlot(placement, body)?.magazineId]);
+  return placement.inline.find(s => getMagazine(s.magazineId) && !excluded.has(s.magazineId)) ?? null;
+}
+
+/** 一次の唯一の中間枠を教材が使っていた記事では、note 抑止後も転職枠へ転用しない。 */
+export function reservesPrimaryStudySlot(placement: ResolvedPlacement, content: string): boolean {
+  const { strippedContent: body } = extractReferencesSection(content);
+  return (body.match(/^##\s+/gm) ?? []).length === 3 && body.length >= 2500 &&
+    !/<MagazineCard[^>]*placement=["']article-mid["']/.test(body) &&
+    Boolean(placement.top && getMagazine(placement.top.magazineId));
 }
 
 /** 手書きの商品カードがない記事には、主教材を末尾にも表示する。 */
 export function resolveEndNoteSlot(placement: ResolvedPlacement, content: string): PlacementSlot | null {
-  if (renderedMagazineCardIds(content).length) return null;
+  if (renderedNoteCards(content).length) return null;
   const end = placement.end ?? placement.top;
   return end && getMagazine(end.magazineId) ? end : null;
 }

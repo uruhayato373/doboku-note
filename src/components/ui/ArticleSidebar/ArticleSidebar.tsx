@@ -18,6 +18,7 @@ interface ArticleSidebarProps {
   readonly category: DocMeta['category'];
   readonly docGroup: DocGroupKey;
   readonly slugStr: string;
+  readonly content: string;
   readonly sectionStr: string | undefined;
   readonly categoryArticles: DocMeta[];
   readonly hasCategoryNavCard: boolean;
@@ -46,6 +47,7 @@ export default function ArticleSidebar({
   category,
   docGroup,
   slugStr,
+  content,
   sectionStr,
   categoryArticles,
   hasCategoryNavCard,
@@ -72,7 +74,7 @@ export default function ArticleSidebar({
           <HubCtaBanner cta={sidebarMokuji} placement="article-sidebar" />
         </div>
       )}
-      {!sidebarMokuji && category && categoryArticles.some(d => d.slug === slugStr) && <div className="mb-3"><SidebarProduct category={category} doc={categoryArticles.find(d => d.slug === slugStr)!} placement="article-sidebar" /></div>}
+      {!sidebarMokuji && category && categoryArticles.some(d => d.slug === slugStr) && <div className="mb-3"><SidebarProduct category={category} doc={categoryArticles.find(d => d.slug === slugStr)!} placement="article-sidebar" content={content} /></div>}
       {/* ブロック2: sticky クラスタ（列の最終要素・読中に追従）——TOC/ナビのみ。
           自身をスクロール可能にし、低解像度でも見切れない（TOC 側の max-h は撤去し高さ制御をここへ一元化）。 */}
       {hasStickyCluster && (

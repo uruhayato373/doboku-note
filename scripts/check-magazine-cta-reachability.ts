@@ -13,7 +13,7 @@
  * 収益商品を公開したのに導線ゼロという事故は静かに起きるので、機械で止める。
  *
  * 到達手段（いずれか 1 つでも成立すれば OK）:
- *   1. placement.top … 配線があれば無条件で出る
+ *   1. placement.top … 手書きの位置・商品・枚数を反映した自動配置
  *   2. 自動中間・末尾 … 描画側と共通の resolveArticleMidNoteSlot / resolveEndNoteSlot が商品を返す
  *   3. MDX 内 <MagazineCard id="..."> … 参考資料抽出後の本文にあり、商品が公開中
  *   4. 記事サイドバーの商品カード … 非 HUB の discovery 資格で `placement.top || inline[0]`
@@ -47,7 +47,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { NOTE_MAGAZINES, getMagazine, type MagazineId } from '../src/lib/note-magazines';
-import { resolvePlacement, resolveArticleMidNoteSlot, resolveEndNoteSlot, renderedMagazineCardIds } from '../src/lib/magazine-placement';
+import { renderedNoteCards, resolvePlacement, resolveArticleMidNoteSlot, resolveEndNoteSlot, renderedMagazineCardIds } from '../src/lib/magazine-placement';
 import { extractReferencesSection } from '../src/lib/extract-references';
 import { resolveHubCta } from '../src/lib/hub-cta';
 import { sidebarProduct, DISCOVERY_CATEGORIES } from '../src/lib/sidebar-discovery';
@@ -165,7 +165,7 @@ const ensure = (id: string): Reach => {
 };
 
 for (const d of docs) {
-  const p = resolvePlacement(d.slug, d.group as never, d.isCareer);
+  const p = resolvePlacement(d.slug, d.group as never, d.isCareer, renderedNoteCards(d.body));
   if (p.top && getMagazine(p.top.magazineId)) {
     const r = ensure(p.top.magazineId); r.routes.push(`top:${d.slug}`); r.categories.add(d.category);
   }
@@ -183,11 +183,11 @@ for (const d of docs) {
   //   `placement.top || placement.inline[0]`（sidebar-discovery.ts:20）。
   // **中間 CTA の h2>=5 / 8,000 字ゲートを通らない**ので、経路 2 が不成立の記事でも
   // inline[0] がここで実際に出る。これを数えないと非 HUB 資格の到達を過小評価する。
-  if (!resolveHubCta(d.category) && sidebarProduct(d.category, {slug:d.slug, category:d.category, group:d.group, tags:d.isCareer ? ['career'] : []} as never)) {
-    const slot = p.top ?? p.inline[0];
-    if (slot && getMagazine(slot.magazineId)) {
-      const r = ensure(slot.magazineId); r.routes.push(`sidebar:${d.slug}`); r.categories.add(d.category);
-    }
+  const sidebar = !resolveHubCta(d.category)
+    ? sidebarProduct(d.category, {slug:d.slug, category:d.category, group:d.group, tags:d.isCareer ? ['career'] : []} as never, d.body)
+    : null;
+  if (sidebar) {
+    const r = ensure(sidebar.id); r.routes.push(`sidebar:${d.slug}`); r.categories.add(d.category);
   }
   for (const id of renderedMagazineCardIds(d.body)) {
     if (!getMagazine(id as MagazineId)) continue;

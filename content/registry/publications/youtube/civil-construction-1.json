@@ -109,7 +109,7 @@
       "work": "c1-keiken-hacchusha-yomu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform/cover",
         "scene-001": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform/scene-001",
@@ -129,7 +129,30 @@
         "video": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform/video",
         "subtitles": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-hacchusha-yomu/youtube.json#longform",
+      "publishAt": "2026-11-20T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-14T12:50:45.484Z",
+          "digest": "2b2e9f4f341cffbb17e7c581b7539d2d66813ff56de6c13468225b935741020f"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-14T12:50:45.484Z",
+        "contentSha256": "31d9723d83a059704ff639064815df5ecc4ad763b10bfd3ababc4db1ba887015"
+      },
+      "times": {
+        "rendered": "2026-11-14T13:03:00.207Z"
+      },
+      "delivery": {
+        "inputSha256": "a525d998f37d1942ff26becfe05229255600b3c4dae8a4577842feb3739ee27d",
+        "marker": "dn-single-8fa97cc286e285ab20caceaca738fc07a18b5e5d",
+        "uploadRequestedAt": "2026-11-14T13:08:08.710Z",
+        "videoId": "rkoe3GSxmU4"
+      }
     },
     {
       "id": "civil-construction-1/c1-keiken-hacchusha-yomu/youtube.short.point-joukyou-1",
@@ -206,7 +229,7 @@
       "work": "c1-keiken-kouji-gaiyou",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform/cover",
         "scene-001": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform/scene-001",
@@ -225,7 +248,59 @@
         "video": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform/video",
         "subtitles": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.json#longform",
+      "publishAt": "2026-11-20T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-14T12:50:44.603Z",
+          "digest": "2172b1553ae5e3d11b3c2f6f51af87d8fa2c7eae6cbcd506fcef815595681eb0"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-14T12:50:44.603Z",
+        "contentSha256": "aa71c95b361449591ddbf358ca87ddd79b69374ee802ae1f014964f23eb988b2"
+      },
+      "times": {
+        "rendered": "2026-11-14T13:02:54.964Z",
+        "uploaded": "2026-11-14T13:07:08.964Z",
+        "scheduled": "2026-11-14T13:07:16.317Z"
+      },
+      "delivery": {
+        "inputSha256": "aedfb144422339d8aa73b88225983f00edf0e82bc23b0e60c1a3eee5b54fc983",
+        "marker": "dn-single-0454b7c69932a94b92e384008237aa53207863e4",
+        "uploadRequestedAt": "2026-11-14T13:06:25.762Z",
+        "videoId": "a8q0a5RGzWI",
+        "processedAt": "2026-11-14T13:07:08.407Z",
+        "thumbnailRequestedAt": "2026-11-14T13:07:09.014Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/a8q0a5RGzWI/default.jpg?sqp=CPy44dcG&rs=AOn4CLAGneW5syrGZ28QRnbnd1Upuo-CkA",
+          "https://i9.ytimg.com/vi/a8q0a5RGzWI/mqdefault.jpg?sqp=CPy44dcG&rs=AOn4CLDuFLCpe9Cd4sgCjPru44Wz-ApaMg",
+          "https://i9.ytimg.com/vi/a8q0a5RGzWI/hqdefault.jpg?sqp=CPy44dcG&rs=AOn4CLCDveQmWHjywfxDhV4pMTMFUIxrBw",
+          "https://i9.ytimg.com/vi/a8q0a5RGzWI/sddefault.jpg?sqp=CPy44dcG&rs=AOn4CLA9LOk7jjXEOh07ws3j4MeQpYV6hA",
+          "https://i9.ytimg.com/vi/a8q0a5RGzWI/maxresdefault.jpg?sqp=CPy44dcG&rs=AOn4CLDv2KEz9_P5oUStDblCsWtx3rWRWA",
+          "https://i9.ytimg.com/vi/a8q0a5RGzWI/fhddefault.jpg?sqp=CPy44dcG&rs=AOn4CLDveXJ6FmP1WekCNVYoP2eABzJVXA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-14T13:07:12.004Z",
+        "scheduleRequestedAt": "2026-11-14T13:07:13.068Z",
+        "scheduleAt": "2026-11-20T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-14T13:07:16.317Z"
+      },
+      "platform": {
+        "id": "a8q0a5RGzWI",
+        "url": "https://www.youtube.com/watch?v=a8q0a5RGzWI",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/c1-keiken-kouji-gaiyou/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-14T13:07:12.004Z"
+      }
     },
     {
       "id": "civil-construction-1/c1-keiken-kouji-gaiyou/youtube.short.point-period-1",

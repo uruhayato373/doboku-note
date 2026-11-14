@@ -48,6 +48,22 @@
       "pages": 4,
       "pass": 4,
       "fail": 0
+    },
+    {
+      "runId": "20261114T095559Z",
+      "at": "2026-11-14T09:59:00.130Z",
+      "base": "http://localhost:3025",
+      "pages": 6,
+      "pass": 5,
+      "fail": 1
+    },
+    {
+      "runId": "20261114T095559Z",
+      "at": "2026-11-14T09:59:04.805Z",
+      "base": "http://localhost:3025",
+      "pages": 6,
+      "pass": 5,
+      "fail": 1
     }
   ],
   "pages": {
@@ -193,38 +209,71 @@
       "deterministic": [],
       "ticket": null
     },
-    "guide": {
-      "layoutSha256": "b5a969256754faf58d7fdb6c385b20342c4b20740611f490d9c8f691a03bec55",
+    "exam-overview": {
+      "layoutSha256": "7a8767956190817da69f1c4819fc1ba9b4de6356d1bd428532868ed44e9fa2d7",
       "verdict": "pass",
-      "reviewedAt": "2026-11-11T02:13:15.359Z",
-      "runId": "20261111T020034Z",
+      "reviewedAt": "2026-11-14T09:59:04.803Z",
+      "runId": "20261114T095559Z",
+      "path": "/exam/civil-construction-1/guide/exam-overview",
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "最初の画面で本文内の「教材パック」バナーと右サイドバーの「学習教材」バナーが同時に見え、似た画像バナーが 2 枚並ぶ。別商品で重なりはない。",
+          "viewport": "w1440",
+          "shot": "w1440-01.png"
+        },
+        {
+          "severity": "minor",
+          "type": "consistency",
+          "detail": "本文内の画像バナー（教材パック・要点整理）が本文幅より狭く左寄せで、隣のカード類と右端が揃っていない。",
+          "viewport": "w1440",
+          "shot": "w1440-cta-02.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "転職カードは PR 表記が見え、導線として読める。冒頭の導線は 1 枚のみで重複・重なりはない。本文途中（75% 付近）に置かれ、スマホでは深めの位置。",
+          "viewport": "w375",
+          "shot": "w375-cta-01.png"
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "guide": {
+      "layoutSha256": "438a2437b2d834b79d9bbebd898f49504c9c89570dfd1b880c0697aead458477",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-14T09:59:04.803Z",
+      "runId": "20261114T095559Z",
       "path": "/exam/civil-construction-1/guide/strategy",
       "findings": [
         {
           "severity": "minor",
           "type": "cta",
-          "detail": "記事末の「精読ガイド」バナー、直後の参考資料を挟んだ「学習教材」バナー、記事上部・中ほどのバナーと、同じ人物の note 誘導バナーが続き、末尾付近では短い間隔で重なって見える。",
+          "detail": "最初の画面で本文冒頭の「精読ガイド」バナーと右サイドバーの「学習教材」バナーが並んで見え、似た見た目の商品導線が 2 枚同時に目に入る（重複ではなく別商品）。",
+          "viewport": "w1440",
+          "shot": "w1440-01.png"
+        },
+        {
+          "severity": "minor",
+          "type": "consistency",
+          "detail": "本文途中の「記述式対策」と末尾の「精読ガイド」バナーが本文幅より狭く左寄せで、冒頭の「精読ガイド」（本文幅いっぱい）と幅が揃っていない。",
+          "viewport": "w1440",
+          "shot": "w1440-04.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "記事末の「精読ガイド」の直後に参考資料を挟んで「学習教材」バナーが続き、スマホでは末尾に画像バナーが 2 回出る。ただし別商品で、手書きカードの重複はない。",
           "viewport": "w375",
           "shot": "w375-05.png"
         },
         {
           "severity": "minor",
-          "type": "consistency",
-          "detail": "記事中ほどの「記述式対策」と記事末の「精読ガイド」のバナーが本文幅の約 9 割で左寄せになり右に余白が残る。記事冒頭のバナーは本文幅いっぱいで、幅がそろっていない。w1440 も同様。",
-          "viewport": "w1280",
-          "shot": "w1280-04.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "記事本体と、その下の参考資料・次のステップなどの区画で、左端が 8px ほどずれている（w640・w768 は 66px と 58px）。読みづらさはない。",
-          "viewport": "w640",
-          "shot": "w640-05.png"
-        },
-        {
-          "severity": "minor",
           "type": "typography",
-          "detail": "パンくず・更新日などの補助文字が 11px と小さい。本文・見出しは十分に読める。",
+          "detail": "パンくず・更新日などの補助文字が 11px で小さい（本文・題名ではない）。",
+          "viewport": "w375",
           "shot": "w375-01.png"
         }
       ],
@@ -256,38 +305,25 @@
       "ticket": null
     },
     "keyword": {
-      "layoutSha256": "b4a1b1eb40598de4a0ce0f79122ef28644e172bad4ffeea964d34bd396993e10",
+      "layoutSha256": "248381e378d8807d86277f00f192093b9b6d475942ffafaf3c133471477ffd32",
       "verdict": "pass",
-      "reviewedAt": "2026-11-11T02:13:15.359Z",
-      "runId": "20261111T020034Z",
+      "reviewedAt": "2026-11-14T09:59:04.803Z",
+      "runId": "20261114T095559Z",
       "path": "/exam/pe-comprehensive-management/keywords/alarp-principle",
       "findings": [
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "同じ「技術士総監 精読ガイド」「学習教材」のバナーが、記事冒頭・記事末・右の欄・記事下の 4 か所に出る。冒頭のバナーは本文の見出しより先に大きく入り、記事末も関連キーワードの直後に続くため、押し売り感が出る。",
+          "type": "hierarchy",
+          "detail": "冒頭の精読ガイドのバナーが大きく、リードのすぐ下で本文より先に画面を占める。導線は 1 枚だけで重複はしていない。",
+          "viewport": "w1440",
           "shot": "w1440-01.png"
         },
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "右の欄の「同セクションのキーワード」と「5 管理学習ガイド」のカードが途中で切れ、一覧の最後まで見えない（w1280 も同様。w1440 では全部見える）。",
-          "viewport": "w1024",
-          "shot": "w1024-02.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "パンくず・更新日・目次の項目数などの補助文字が 11px と小さく、薄い。本文と見出しは読める大きさ。",
+          "type": "cta",
+          "detail": "本文直後の精読ガイドは冒頭と同じバナーだが 2 回目なので上限内。末尾の別バナーとも重ならず見える。",
           "viewport": "w375",
-          "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "スマホ幅で「同セクションのキーワード」のタグが 20 個以上縦に長く続き、本文の後の関連記事までのスクロールが長い。",
-          "viewport": "w375",
-          "shot": "w375-04.png"
+          "shot": "w375-03.png"
         }
       ],
       "deterministic": [],
@@ -325,24 +361,30 @@
       "ticket": null
     },
     "past-exam": {
-      "layoutSha256": "1c7d16f26e9b136ce700399d46e09b14077c66d522cfa1ca231c76704fb72dec",
+      "layoutSha256": "f5e6348cad1a985f6b4facc2763aad6c269c97ade45c74b0618c549b891834c5",
       "verdict": "pass",
-      "reviewedAt": "2026-11-11T04:51:37.762Z",
-      "runId": "20261111T044200Z",
+      "reviewedAt": "2026-11-14T09:59:04.803Z",
+      "runId": "20261114T095559Z",
       "path": "/exam/civil-construction-1/secondary/r06",
       "findings": [
         {
           "severity": "minor",
+          "type": "cta",
+          "detail": "同じ「1級土木 教材パック」のバナー画像が、冒頭のカード、問題 7 の後、記事末尾の 3 回出る（商品は 2 種）。重なりや冒頭の連続は無いが、読者には同じ導線の繰り返しに見える。",
+          "viewport": "w375",
+          "shot": "w375-04.png"
+        },
+        {
+          "severity": "minor",
           "type": "layout",
-          "detail": "768px と 1440px でココナラの枠が本文幅の半分ほどで左に寄り、上のバナー（中央寄せ）や下の全幅の区画と幅・位置が揃っていない。",
+          "detail": "「この記事に関連するサービス」のココナラカードが幅の半分ほどで左に寄り、上の学習教材バナー（中央）と並びが合っていない。w1440 でも同様。",
           "viewport": "w768",
           "shot": "w768-cta-02.png"
         },
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "パンくず・更新日などの補助文字が 11px と小さい。",
-          "viewport": "w375",
+          "detail": "パンくず・更新日などが 11px で小さい。",
           "shot": "w375-01.png"
         }
       ],
@@ -350,28 +392,23 @@
       "ticket": null
     },
     "pillar": {
-      "layoutSha256": "633d7648567aa43d2260588ee4e50fb0320a44934dea073ca1000caca9884ae0",
+      "layoutSha256": "cde0f99e281d12e649bef367748b0f9404f4a4604b741032510fc67ccdc394a9",
       "verdict": "pass",
-      "reviewedAt": "2026-11-11T02:13:15.359Z",
-      "runId": "20261111T020034Z",
+      "reviewedAt": "2026-11-14T09:59:04.803Z",
+      "runId": "20261114T095559Z",
       "path": "/exam/pe-comprehensive-management/pillar/economic-management-pillar",
       "findings": [
         {
           "severity": "minor",
           "type": "cta",
-          "detail": "最初の画面で精読ガイドのバナー、直後の本文を挟んで同じ精読ガイドの小さなリンクカードと続き、PC 幅ではさらに右側の学習教材バナーも同時に見えるため、同じ商品導線が 3 つ並び、記事末尾でも精読ガイドのバナーと学習教材バナーが近接して重複して見える。"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "PC 幅（w1024 以上）で、記事内の精読ガイドのバナーとリンクカード、「この続きに読みたい」カードが本文幅いっぱいにならず左寄せで右に余白が残り、本文の右端と揃っていない（w1440 も同様）。",
-          "viewport": "w1280",
-          "shot": "w1280-01.png"
+          "detail": "冒頭と本文直後の精読ガイドが同じバナー、末尾が別の学習教材バナーで、重複は 2 回までに収まっている。転職カードには PR 表記があり読める。スマホ幅で本文直後のカードは 54% の位置と深め。",
+          "viewport": "w375",
+          "shot": "w375-cta-02.png"
         },
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "パンくず・更新日・タグなどの補助文字が 11px と小さく薄い。主要な本文は読める大きさ。",
+          "detail": "パンくずや更新日が 11px と小さい補助文字。主要な本文は読める。",
           "viewport": "w375",
           "shot": "w375-01.png"
         }
@@ -485,49 +522,40 @@
       "ticket": null
     },
     "textbook": {
-      "layoutSha256": "4e45018b4939d6cd1d1249f946709b2c2e93a829401fa88924d0a3acfe6aac93",
-      "verdict": "pass",
-      "reviewedAt": "2026-11-11T02:13:15.359Z",
-      "runId": "20261111T020034Z",
+      "layoutSha256": "d7469a7a9a1a9c040f6b28914aea0c8bfc965b1d3152467bde8fe71686ec384d",
+      "verdict": "fail",
+      "reviewedAt": "2026-11-14T09:59:04.803Z",
+      "runId": "20261114T095559Z",
       "path": "/exam/civil-construction-1/textbook/network-schedule",
       "findings": [
         {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "「最遅開始時刻」の下の灰色の数式ボックスが右端で式の途中（「ノード3からノード4の」）まで切れて見える。横に送れば全部読めるが、送れることを示す表示が画面に無い。",
-          "viewport": "w640",
-          "shot": "w640-03.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "同じ数式ボックスが本文列の右端で式の途中まで切れて見える。横に送れば読めるが、送れることが画面から分からない（w640 と同じ）。",
-          "viewport": "w1024",
-          "shot": "w1024-03.png"
+          "severity": "major",
+          "type": "content",
+          "detail": "図「LFT 計算ルール」の枠内で「手順1: 終了イベントの LFT = プロジェクト工期」の 2 行目が「手順2」の行に重なって読めない。直下の EST/LFT 併記図でも③の「16」と「12」が上下に重なっている。",
+          "viewport": "w1440",
+          "shot": "w1440-03.png"
         },
         {
           "severity": "minor",
           "type": "cta",
-          "detail": "スマホ幅の記事末で「精読ガイド」バナーの直後に、参考資料を挟んで別の「学習教材」バナーが続き、同種の導線が記事の上・中・末と複数回重なっている。",
-          "shot": "w375-06.png"
+          "detail": "商品導線は冒頭の精読ガイド、末尾の要点整理、本文外の学習教材と、同じキャラクターの青い大判バナーが 3 回続き（w1440 は右側にも学習教材）、商品の違いが見分けにくい。冒頭に 2 枚続く・重なる崩れは無く、末尾は PR 付きの転職カードと要点整理バナーが隣り合うが区別はつく。"
         },
         {
           "severity": "minor",
-          "type": "consistency",
-          "detail": "記事内のバナー（記述式対策・精読ガイド）が本文列の幅いっぱいにならず左寄せで右に余白が残り、上の全幅バナーや他の区画と幅が揃っていない。w1440 も同様。",
-          "viewport": "w1280",
-          "shot": "w1280-03.png"
+          "type": "layout",
+          "detail": "記事末尾の要点整理バナーが本文の幅いっぱいに広がらず右が余り、直上の転職カードと右端が揃っていない（w768 では揃っている）。",
+          "viewport": "w1440",
+          "shot": "w1440-cta-02.png"
         },
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "パンくず・更新日が 11px と小さく薄い。補助情報だが読みにくい。",
-          "viewport": "w375",
+          "detail": "パンくず・更新日などが 11px で小さい。",
           "shot": "w375-01.png"
         }
       ],
       "deterministic": [],
-      "ticket": null
+      "ticket": "DN-1199"
     },
     "tools": {
       "layoutSha256": "8670ddb71d46b8bbe9fb1670cc24facca0652d2d007aacdd734e9a2145b2c7e2",

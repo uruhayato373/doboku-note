@@ -8409,6 +8409,19 @@
       "commit": "8200bcbb9cfb",
       "verification": "grep -A1 RunAtLoad ~/Library/LaunchAgents/com.doboku-note.weekly-review.plist が <true/>",
       "note": "2026-11-14 16:26 に develop の先端（8200bcbb9）から npm run weekly-review:install で入れ直した。plist の RunAtLoad は true。読み込み時に起動し、今週の範囲 post（note-live → note-sync → note-sync-check）を回し始めたことをログで確認"
+    },
+    {
+      "id": "DN-1198",
+      "at": "2026-11-14",
+      "task": "記事ページの note 商品カードの重複を除き、面ごとの枚数と型を検査で固定する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-1198-cta-layout.md",
+      "commit": "4039fb84f232",
+      "verification": "npm run quality:audit:ci -- --only cta-density",
+      "note": "PR #1597 を develop へ squash merge。check-cta-density を CI の build 後ゲート（ci:true）に入れ、全 2,435 ページで違反 0。画面の点検は 5/6 合格、教科書の図の重なりは DN-1199 へ抽出"
     }
   ]
 }

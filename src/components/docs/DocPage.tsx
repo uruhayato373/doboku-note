@@ -27,7 +27,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { MDXProvider } from '@mdx-js/react';
 import SafeMdx from '@/components/mdx/SafeMdx';
 import { extractHeadings } from '@/lib/toc';
-import { resolvePlacement, resolveArticleMidNoteSlot, resolveEndNoteSlot } from '@/lib/magazine-placement';
+import { resolvePlacement, resolveArticleMidNoteSlot, resolveEndNoteSlot, renderedNoteCards, reservesPrimaryStudySlot } from '@/lib/magazine-placement';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
@@ -259,7 +259,8 @@ export async function renderDocPage(slugStr: string) {
   // note 有料マガジン CTA の配置を解決。
   // published: false や noteUrl 空のマガジンは getMagazine() で防御的に弾く。
   // career 記事（tags: [career]）には note 二次 CTA を置かない。判定は真実源の isCareerDoc。
-  const magazinePlacement = resolvePlacement(slugStr, docGroup, isCareerDoc(doc.meta));
+  const manualMagazineCards = renderedNoteCards(doc.content);
+  const magazinePlacement = resolvePlacement(slugStr, docGroup, isCareerDoc(doc.meta), manualMagazineCards);
   // note 有料マガジン導線は「もくじタイル」（L2 索引）を全 HUB 資格の記事末尾＋サイドバーに 1 枚ずつ
   // 統一表示する（2026-07 統一）。従来の個別マガジンタイル（inline を先頭 3 誌 cap）はページ個別配線に
   // 依存し、未配線ページ（総監 guide 等）が空白になる不整合を生んでいたため廃止した。
@@ -327,8 +328,11 @@ export async function renderDocPage(slugStr: string) {
   // 既に本文へ手書き inline <CareerAffiliate> がある記事は二重表示になるため除外する。
   const hasInlineCareerCard = /\bCareerAffiliate\b/.test(strippedContent);
   const inlineCareerAd = hasInlineCareerCard ? (careerPlacements['article-inline'] ?? null) : null;
+  const reservedStudySlot = docGroup === 'primary' && reservesPrimaryStudySlot(
+    resolvePlacement(slugStr, docGroup, isCareerDoc(doc.meta)), strippedContent,
+  );
   const careerMidCard =
-    !hasInlineCareerCard && midH2Count >= MID_MIN_H2 && midBodyLen >= 2500
+    !reservedStudySlot && !hasInlineCareerCard && midH2Count >= MID_MIN_H2 && midBodyLen >= 2500
       ? (careerPlacements['article-mid']?.card(slugStr) ?? null)
       : null;
 
@@ -341,7 +345,7 @@ export async function renderDocPage(slugStr: string) {
 
   // 中身を優先順に用意する（各種別 1 記事 1 回まで＝同じ広告を 2 度出さない）。
   const midRenderers: Array<() => React.ReactElement> = [];
-  // 1) note 中間 CTA（最優先）。一次は冒頭教材を再掲し、その他は別の inline 商品を選ぶ。
+  // 1) note 中間 CTA（最優先）。冒頭・本文直後・手書きと異なる商品を選ぶ。
   const midSlot = resolveArticleMidNoteSlot(magazinePlacement, docGroup, strippedContent, isCivilSecondary);
   if (midSlot) {
     midRenderers.push(() => (
@@ -437,6 +441,7 @@ export async function renderDocPage(slugStr: string) {
           gutter="flush-mobile"
           aside={
             <ArticleSidebar
+              content={strippedContent}
               sidebarMokuji={sidebarMokuji}
               headings={headings}
               category={category}

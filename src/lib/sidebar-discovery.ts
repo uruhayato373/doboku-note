@@ -2,7 +2,7 @@ import type { DocMeta } from './docs';
 import { isStructuralTag } from '@/lib/content-taxonomy';
 import { classifyDoc, isCareerDoc } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
-import { categoryLeadMagazineId, resolvePlacement } from './magazine-placement';
+import { categoryLeadMagazineId, resolvePlacement, renderedNoteCards, renderedMagazineCardIds, resolveArticleMidNoteSlot, resolveEndNoteSlot } from './magazine-placement';
 
 export const DISCOVERY_CATEGORIES = ['pe-first-stage', 'pe-construction', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'civil-practice', 'rccm'];
 const products: Partial<Record<string, MagazineId>> = {
@@ -21,7 +21,7 @@ const products: Partial<Record<string, MagazineId>> = {
 function categoryProductId(category: string): MagazineId | undefined {
   return categoryLeadMagazineId(category) ?? products[category];
 }
-export function sidebarProduct(category: string, doc?: DocMeta) {
+export function sidebarProduct(category: string, doc?: DocMeta, content?: string) {
   if (!products[category]) return null;
   if (!doc) return getMagazine(categoryProductId(category)!);
   // career 記事に note 商品カードを出さない（学習意図＝note／キャリア意図＝転職アフィリの分離）。
@@ -30,7 +30,17 @@ export function sidebarProduct(category: string, doc?: DocMeta) {
   if (isCareerDoc(doc)) return null;
   const placement = resolvePlacement(doc.slug, classifyDoc(doc), isCareerDoc(doc));
   const slot = placement.top || placement.inline[0];
-  return slot ? getMagazine(slot.magazineId) : null;
+  if (!slot) return null;
+  if (content !== undefined) {
+    // もくじタイルと異なり個別商品は記事内と重ねない。描画と到達性検査で同じ除外を使う。
+    const group = classifyDoc(doc);
+    const article = resolvePlacement(doc.slug, group, false, renderedNoteCards(content));
+    const mid = resolveArticleMidNoteSlot(article, group, content, group === 'secondary' && /^civil-construction-[12]$/.test(category));
+    const end = resolveEndNoteSlot(article, content);
+    const shownIds = [...renderedMagazineCardIds(content), article.top?.magazineId, mid?.magazineId, end?.magazineId];
+    if (shownIds.includes(slot.magazineId)) return null;
+  }
+  return getMagazine(slot.magazineId);
 }
 
 /** 同じ科目の年度違い、同年度の別科目、同分野の教材と演習を先に出す。 */

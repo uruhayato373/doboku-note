@@ -1666,10 +1666,39 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-jogai-2",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-jogai-2",
       "relatedTo": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/video",
+        "cover": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/cover",
+        "contact-sheet": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/contact-sheet",
+        "subtitles": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2/subtitles"
+      },
+      "publishAt": "2026-11-16T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-14T13:10:39.090Z",
+          "digest": "bfa7fe7fafa0862cc571e49737e362c8ddb2ab55afac59f0eec57a514e4dccfe"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-14T13:10:39.090Z",
+        "contentSha256": "7e4fc9a8c0151a3e032f8068a6129c075b752cc05ab90b9ee97d518c7a93a848"
+      },
+      "times": {
+        "rendered": "2026-11-14T13:10:39.281Z"
+      },
+      "delivery": {
+        "inputSha256": "b4cd5d77515fcc2dad73340ef88076244cba6a44d890a9e372b08af949ee40b5",
+        "marker": "dn-single-0672e09eaea05ac95e8f279041eebe9740df65b5",
+        "uploadRequestedAt": "2026-11-14T13:11:49.886Z",
+        "videoId": "WTszra15S5U"
+      }
     },
     {
       "id": "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-themename-1",
@@ -1838,10 +1867,39 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-themename-1",
-      "status": "draft",
+      "status": "rendered",
       "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
       "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/video",
+        "cover": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/cover",
+        "contact-sheet": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/contact-sheet",
+        "subtitles": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1/subtitles"
+      },
+      "publishAt": "2026-11-15T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-14T13:09:12.545Z",
+          "digest": "85dffd37248d6d4fc9e86726ecacc5c0c439ed94f2473f89e8421e19c954f364"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-14T13:09:12.545Z",
+        "contentSha256": "0061dfd35951d38c8fcae116b14510db0a47f0539e9703283354da8c8abc5425"
+      },
+      "times": {
+        "rendered": "2026-11-14T13:09:12.733Z"
+      },
+      "delivery": {
+        "inputSha256": "8a6e4706a0722a330ba2b4ee03a8cabb3f0e3067167b340309f64c160ee43dbc",
+        "marker": "dn-single-21e2c4e6058b97e8167256f2860399dfa0e3b16e",
+        "uploadRequestedAt": "2026-11-14T13:10:19.837Z",
+        "videoId": "6UZ-EUqFZXs"
+      }
     },
     {
       "id": "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",

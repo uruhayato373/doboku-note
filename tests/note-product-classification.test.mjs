@@ -72,20 +72,21 @@ test('一次PDFの自動配線は収録年度・科目を守り、収録外は�
   assert.equal(result.guide, 'pe1-anki-note');
 });
 
-test('一次過去問21記事の中間・末尾カードは解説折りたたみの外に各1枚', t => {
+test('一次過去問21記事は中間の重複を除き、末尾カード1枚を解説折りたたみの外に置く', t => {
   let checked=0;
   for (let year=1;year<=7;year++) for (const subject of ['basic','aptitude','construction']) {
     const path=`content/site/pe-first-stage/r0${year}-${subject}/article.mdx`;
     const raw=readFileSync(join(ROOT, path),'utf8');
     for (const placement of ['article-mid','article-end']) {
       const cards=[...raw.matchAll(new RegExp('<MagazineCard[^>]*placement="'+placement+'"[^>]*>','g'))];
-      assert.equal(cards.length,1,`${path}/${placement}`);
+      assert.equal(cards.length,placement === 'article-end' ? 1 : 0,`${path}/${placement}`);
+      if (!cards.length) continue;
       const before=raw.slice(0,cards[0].index);
       assert.equal((before.match(/<details[\s>]/g)??[]).length,(before.match(/<\/details>/g)??[]).length,`${path}: details内にCTA`);
     }
     checked++;
   }
-  t.diagnostic(`21記事 / 42枚の中間・末尾カードを検査（折りたたみ外）`);
+  t.diagnostic(`21記事 / 21枚の末尾カードを検査（中間の重複なし・折りたたみ外）`);
   assert.equal(checked,21);
 });
 
@@ -139,7 +140,7 @@ test('中間と末尾は実描画条件を共有し、手書きカードを重�
     const explicit=body+'\\n<MagazineCard id="civil-2-takuitsu-pdf" placement="article-mid" />';
     process.stdout.write(JSON.stringify({mid:resolveArticleMidNoteSlot(p,'primary',body),end:resolveEndNoteSlot(p,body),manualMid:resolveArticleMidNoteSlot(p,'primary',explicit),manualEnd:resolveEndNoteSlot(p,explicit),short:resolveArticleMidNoteSlot(p,'primary','## 問1')}));
   `);
-  assert.equal(result.mid.magazineId, 'civil-2-takuitsu-pdf'); assert.equal(result.end.magazineId, 'civil-2-takuitsu-pdf');
+  assert.equal(result.mid, null, '一次でも冒頭商品を中間へ再掲しない'); assert.equal(result.end.magazineId, 'civil-2-takuitsu-pdf');
   assert.equal(result.manualMid, null); assert.equal(result.manualEnd, null); assert.equal(result.short, null);
 });
 

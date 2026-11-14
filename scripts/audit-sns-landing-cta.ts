@@ -6,7 +6,7 @@
  * 転職（career）と practice は方針どおり note 導線を置かないので対象外。
  *
  * 判定（ソース静的判定。本番 HTML の data-cta 位置による監査は build 後に別途行う）:
- *   記事    : placement.top が描画可能（getMagazine 非 null）、または本文冒頭 50% 以内に <MagazineCard>
+ *   記事    : placement.top が描画可能（getMagazine 非 null）、または本文冒頭 50% 以内に <MagazineCard> または有料 <NoteLink>
  *   tools   : サーバー page.tsx に note の静的リンクか NoteImageCta がある（クライアント描画のみは SSR に出ないので不可）
  *   資格トップ: resolveHubCta か sidebarProduct が非 null
  *   その他  : 対象外として件数だけ出す（/links・トップ等）
@@ -21,7 +21,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { getMagazine } from '../src/lib/note-magazines';
-import { resolvePlacement } from '../src/lib/magazine-placement';
+import { renderedNoteCards, resolvePlacement } from '../src/lib/magazine-placement';
 import { getAllPublicDocRoutes } from '../src/lib/content-routes';
 import { resolveHubCta } from '../src/lib/hub-cta';
 import { sidebarProduct } from '../src/lib/sidebar-discovery';
@@ -103,17 +103,17 @@ for (const [path, links] of [...linkCount].sort()) {
   const doc = slug ? docs.get(slug) : undefined;
   if (doc) {
     if (doc.isCareer) { excluded.career++; continue; }
-    const p = resolvePlacement(doc.slug, doc.group as never, doc.isCareer);
+    const p = resolvePlacement(doc.slug, doc.group as never, doc.isCareer, renderedNoteCards(doc.body));
     if (p.top && getMagazine(p.top.magazineId)) {
       verdicts.push({ path, links, kind: 'doc', ok: true, note: `top:${p.top.magazineId}` });
       continue;
     }
-    const cardIdx = doc.body.search(/<MagazineCard\b/);
+    const cardIdx = doc.body.search(/<(?:MagazineCard\b|NoteLink\b(?=[^>]*\bkind=["']product["']))/);
     if (cardIdx >= 0 && cardIdx / Math.max(doc.body.length, 1) <= CARD_EARLY_RATIO) {
-      verdicts.push({ path, links, kind: 'doc', ok: true, note: `MagazineCard ${Math.round((cardIdx / doc.body.length) * 100)}%` });
+      verdicts.push({ path, links, kind: 'doc', ok: true, note: `手書き商品カード ${Math.round((cardIdx / doc.body.length) * 100)}%` });
       continue;
     }
-    verdicts.push({ path, links, kind: 'doc', ok: false, note: cardIdx >= 0 ? 'MagazineCard が本文後半のみ' : 'top 配線なし（末尾の枠だけ）' });
+    verdicts.push({ path, links, kind: 'doc', ok: false, note: cardIdx >= 0 ? '手書き商品カードが本文後半のみ' : 'top 配線なし（末尾の枠だけ）' });
     continue;
   }
   const cat = /^\/exam\/([a-z0-9-]+)$/.exec(path)?.[1];

@@ -100,9 +100,10 @@ jobs:
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
         run: node scripts/asset-hydrate.mjs --group kindle-dist
 
-      # unit-tests は test ジョブが回す。手元の npm run quality:audit:ci は全部回す。
+      # unit-tests は test ジョブが回す。cta-density は build 後の build ジョブが out/ を検査する。
+      # 手元の npm run quality:audit:ci は全部回す。
       - name: Quality audit (ci gate)
-        run: npm run quality:audit:ci -- --except unit-tests
+        run: npm run quality:audit:ci -- --except unit-tests,cta-density
 
   # unit-tests（tests/*.test.mjs・3,000 件超）。quality-audit 経由で回し、失敗行の抜き出し・timeout・検査不成立の扱いを audit と揃える。
   test:
@@ -176,6 +177,11 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # CTA 密度は build 済み out/ を全件走査する。audit ジョブは build と並行で out/ を持たないため、
+      # quality:audit:ci の同じゲートをここで build 後に名指し実行する。
+      - name: Check CTA density (out/)
+        run: npm run quality:audit:ci -- --only cta-density
 
       # build 依存の SEO ゲートは build 直後にのみ置く（build 前の quality:audit:ci へは混ぜない）。
       # out/ を突合するので Build の後。quality-audit（Build より前に走る）へ入れると

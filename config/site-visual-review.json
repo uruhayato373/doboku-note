@@ -76,6 +76,15 @@
       }
     },
     {
+      "key": "exam-overview",
+      "label": "試験概要（手書き教材カードあり）",
+      "pageType": "guide",
+      "path": "/exam/civil-construction-1/guide/exam-overview",
+      "expect": {
+        "note": true
+      }
+    },
+    {
       "key": "pillar",
       "label": "ピラー記事",
       "pageType": "exam-pillar",
