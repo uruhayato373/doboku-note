@@ -6,6 +6,8 @@ import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
+const DAILY_MAX = 4;
+
 function check(packs) {
   const root = mkdtempSync(join(tmpdir(), 'shorts-gate-'));
   const write = (path, value) => writeFileSync(join(root, path), value);
@@ -13,6 +15,9 @@ function check(packs) {
     mkdirSync(join(root, 'scripts/lib'), { recursive: true });
     cpSync(join(REPO_ROOT, 'scripts/check-youtube-video-pack-shorts.mjs'), join(root, 'scripts/check-youtube-video-pack-shorts.mjs'));
     cpSync(join(REPO_ROOT, 'scripts/lib/repository-paths.mjs'), join(root, 'scripts/lib/repository-paths.mjs'));
+    for (const lib of ['dataset-io.mjs', 'datasets.mjs', 'json-io.mjs', 'regexp-escape.mjs', 'jst-date.mjs']) cpSync(join(REPO_ROOT, 'scripts/lib', lib), join(root, 'scripts/lib', lib));
+    mkdirSync(join(root, 'config'), { recursive: true });
+    write('config/video-auto-publish.json', JSON.stringify({ maxPublishPerDay: DAILY_MAX }));
     write('scripts/lib/utm-contract.mjs', 'export const utmChannel = () => ({});');
     write('scripts/lib/registry-video-state.mjs', `export const loadVideoState = () => (${JSON.stringify({ packs: Object.fromEntries(packs.map((p) => [p.id, { derivatives: { longform: p.row } }])) })});`);
     for (const exam of ['civil-construction-1', 'civil-construction-2', 'concrete-engineer', 'concrete-chief-engineer', 'pe-comprehensive-management', 'pe-construction']) mkdirSync(join(root, 'content/sns/video-packs', exam), { recursive: true });
@@ -44,10 +49,19 @@ test('台帳の実予約が衝突していれば引き続き失敗する', () =>
   assert.equal(r.status, 1);
   assert.match(r.text, /公開枠重複/);
 });
-test('1日4本の実予約は上限違反になる', () => {
-  const r = check([10, 12, 18, 20].map((h) => ({ id: `p${h}`, row: { status: 'scheduled', publishAt: `2026-10-19T${h}:00:00+09:00` } })));
+test('設定の上限（1日4本）までは通し、超えると上限違反になる', () => {
+  const at = (hours) => hours.map((h) => ({ id: `p${h}`, row: { status: 'scheduled', publishAt: `2026-10-19T${h}:00:00+09:00` } }));
+  assert.equal(check(at([10, 12, 18, 20])).status, 0);
+  const r = check(at(['08', 10, 12, 18, 20]));
   assert.equal(r.status, 1);
-  assert.match(r.text, /1日上限3本/);
+  assert.match(r.text, /1日上限4本/);
+});
+test('日は JST で数える（UTC の前日の夜は JST の翌日）', () => {
+  const r = check([
+    ...[10, 12, 18, 20].map((h) => ({ id: `p${h}`, row: { status: 'scheduled', publishAt: `2026-10-19T${h}:00:00+09:00` } })),
+    { id: 'utc', row: { status: 'scheduled', publishAt: '2026-10-19T22:30:00Z' } },
+  ]);
+  assert.equal(r.status, 0, r.text);
 });
 test('ショートは年間の枠で選んで作るので、未着手のパックは失敗にしない', () => {
   assert.equal(check([{ id: 'a', shorts: 2, row: scheduled }]).status, 0);

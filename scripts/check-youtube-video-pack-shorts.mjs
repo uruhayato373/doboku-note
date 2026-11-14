@@ -5,6 +5,8 @@ import { join } from 'node:path';
 import { utmChannel } from './lib/utm-contract.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
+import { jstDayOf } from './lib/jst-date.mjs';
 
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 // 概要欄の送客リンクの UTM の期待値は契約（config/utm-templates.json の youtube.shorts）から受け取る
@@ -23,6 +25,8 @@ const titles = new Map();
 const slots = new Map();
 const daily = new Map();
 const pendingSlots = [];
+// 1 日の公開の上限（通常動画とショートの合計）は予約を組む側（shorts-release・video-factory・youtube-daily-release）と同じ設定から引き、日は JST で数える
+const DAILY_MAX = readDataset(ROOT, 'config.video-auto-publish').maxPublishPerDay;
 const APPROVED = new Set(['approved', 'rendered', 'scheduled', 'published', 'measured', 'refresh_due']);
 const STATE = loadVideoState(ROOT);
 let packCount = 0;
@@ -38,7 +42,7 @@ function addSlot(value, label) {
   if (!value) return;
   if (slots.has(value)) errors.push(`公開枠重複: ${value} (${slots.get(value)}, ${label})`);
   else slots.set(value, label);
-  const day = value.slice(0, 10);
+  const day = jstDayOf(value);
   daily.set(day, (daily.get(day) ?? 0) + 1);
 }
 
@@ -143,12 +147,12 @@ for (const exam of EXAMS) {
 
 if (!packCount) errors.push('動画パックを1件も検査していません');
 for (const [day, count] of daily) {
-  if (count > 3) errors.push(`${day}: 公開${count}本 (1日上限3本)`);
+  if (count > DAILY_MAX) errors.push(`${day}: 公開${count}本 (1日上限${DAILY_MAX}本)`);
 }
 for (const [publishAt, label] of pendingSlots) {
-  const day = publishAt.slice(0, 10);
+  const day = jstDayOf(publishAt);
   if (slots.has(publishAt)) warnings.push(`承認前の予定枠が重複: ${publishAt} (${slots.get(publishAt)}, ${label})`);
-  if ((daily.get(day) ?? 0) >= 3) warnings.push(`承認前の予定枠: ${day} は既に${daily.get(day)}本（承認すると1日上限3本を超える）: ${label}`);
+  if ((daily.get(day) ?? 0) >= DAILY_MAX) warnings.push(`承認前の予定枠: ${day} は既に${daily.get(day)}本（承認すると1日上限${DAILY_MAX}本を超える）: ${label}`);
 }
 
 console.log(`YouTube Shorts gate: targets=${targetCount}, packs=${packCount}, shorts=${shortsCount}, stopped=${stoppedCount}, titles=${titles.size}, slots=${slots.size}`);
