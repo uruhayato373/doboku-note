@@ -309,7 +309,7 @@
       "work": "cm-ochiru-answer-naoshikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-001",
@@ -328,7 +328,21 @@
         "video": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.json#longform",
+      "publishAt": "2026-11-19T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-14T12:50:43.711Z",
+          "digest": "ecfd1d1b72bf37c9266a3c8e451f75e35533a5834733e2115079dceac2314e7e"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-14T12:50:43.711Z",
+        "contentSha256": "231841098dab7df7b04ea16594b1ae6a1e4c68d82322543b5727bd66c5d15737"
+      }
     },
     {
       "id": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.short.point-kouzou-1",

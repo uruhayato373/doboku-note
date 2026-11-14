@@ -8,7 +8,7 @@
       "work": "ce-haigou-kakunin-jun",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform/cover",
         "scene-001": "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform/scene-001",
@@ -26,7 +26,21 @@
         "video": "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform/video",
         "subtitles": "concrete-engineer/ce-haigou-kakunin-jun/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/concrete-engineer/ce-haigou-kakunin-jun/youtube.json#longform"
+      "copy": "content/sns/video-packs/concrete-engineer/ce-haigou-kakunin-jun/youtube.json#longform",
+      "publishAt": "2026-11-21T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-14T12:50:46.328Z",
+          "digest": "77521360d7dae0dc9b914b76c80e19d3f7004d0ea5be7e768003661bc1b897eb"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-14T12:50:46.328Z",
+        "contentSha256": "7580cbfa2da7b06bb68d7dedf9a1349a78010c78992fc582de525841041d0a10"
+      }
     },
     {
       "id": "concrete-engineer/ce-haigou-kakunin-jun/youtube.short.point-pitfalls-2",
