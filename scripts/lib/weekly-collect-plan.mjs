@@ -63,8 +63,8 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
   return [
     {
       id: 'auth', phase: 'pre', title: 'ログインの確認と入り直し', timeoutMin: 20, browser: true,
-      // export と CI の起動はしない（CI はログインを使わない・DN-0822）。もしも・afb は doboku-note に広告が無いので回さない（DN-0643）
-      commands: [{ argv: ['scripts/auth-session-refresh.mjs', '--service', 'a8,kdp,note,coconala', '--json'] }],
+      // export と CI の起動はしない（CI はログインを使わない・DN-0822）。afb の成果取得は未実装
+      commands: [{ argv: ['scripts/auth-session-refresh.mjs', '--service', 'a8,moshimo,kdp,note,coconala', '--json'] }],
     },
     {
       id: 'a8', phase: 'pre', title: 'A8 の成果（前月と当月）', timeoutMin: 30, browser: true,
@@ -74,6 +74,11 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
         { argv: ['npm', 'run', '-s', 'a8-ui:normalize'], onlyIfPrev: [0, 2] },
       ]),
       verify: ['a8-report-due'],
+    },
+    {
+      id: 'moshimo', phase: 'pre', title: 'もしもの成果（前月と当月）', timeoutMin: 30, browser: true,
+      commands: [prev, cur].map(m => ({ argv: ['npm', 'run', '-s', 'moshimo-report', '--', '--month', m] })),
+      verify: ['moshimo-report-due'],
     },
     {
       id: 'kdp', phase: 'pre', title: 'KDP のロイヤリティ', timeoutMin: 30, browser: true,

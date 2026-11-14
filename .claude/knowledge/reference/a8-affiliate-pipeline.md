@@ -16,7 +16,7 @@ doboku=転職一本へ移植・スリム化）。
 
 > [!important] register は手キュレーション（自動一括配置しない）
 > stats47 の register 先は `AFFILIATE_ADS[]`（10-vertical intent-hub・R2 snapshot 配信）。doboku は素材を
-> `src/config/affiliate-creatives.ts`（`PROGRAM_ASSETS`）、どのページのどの面にいつ出すかを `config/affiliate-placements.json`
+> `data/affiliate/catalog.json` の `creatives`（文言は `src/config/affiliate-creatives.ts`）、どのページのどの面にいつ出すかを `config/affiliate-placements.json`
 > （配置ルール・案件 × 面 × 対象 × 期間）に分けて人が書き、自動追記機構は持たない。
 > よって **harvest は「配置候補（`SidebarAdCreative` 形 + `affiliate-mats.json` 追記案）を catalog の `adDraft` に出力」
 > するまでで止め、確定配置は人が判断**する（配置ルールを足すか `until` で閉じる）。1ページ1ピクセル・カニバリ回避を機械で壊さないため。
@@ -70,7 +70,7 @@ candidate → applied → approved → harvested → registered → published
 |---|---|
 | 申請は週 `weeklyApplyMax`（初期 5）件まで | `check-a8-apply-budget.cjs` が apply 前に判定 |
 | NG ジャンル + 講座/教材/書籍/添削/**スクール/学習塾**は申請しない | curated `blocklistKeywords` → status=blocked。**`資格取得` 等の語は足さない**（GKS の名称「資格取得も支援」を誤ブロックする・テストで固定済み） |
-| 既存 creative と重複する案件は候補にしない | `isDuplicate`（a8mat / title 一致・`affiliate-creatives.ts` + `affiliate-mats.json` を突合） |
+| 既存 creative と重複する案件は候補にしない | `isDuplicate`（a8mat / title 一致・提携台帳の `creatives` + `affiliate-mats.json` の旧リンクを突合） |
 | canonical 4 種以外のサイズは harvest しない | `parseA8Code` が non-canonical を弾く |
 | セッション失効でパイプラインを壊さない | isLoggedIn 失敗は catalog に error 記録して exit 0。再ログインは人間 |
 | 候補にしなかったものを黙って捨てない | `scoreAndRank` は `belowThreshold` / `pendingVertical` も返し、search/scout が必ず表示（2026-07-27） |

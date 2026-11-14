@@ -35,8 +35,7 @@ A8.net メディア管理画面 (media-console.a8.net) を Playwright（永続�
 
 - **転職一本**: scout は A8 カテゴリ **09(仕事) のみ**巡回（curated `categoryCodeToVertical`）。講座/教材/書籍/添削は
   `blocklistKeywords` で恒久除外（2026-06-25 廃止・memory `affiliate-career-only` の Red Line）。
-- **register は手キュレーション**: doboku の creative SSOT は `src/config/affiliate-creatives.ts`（3枠・意図配置・
-  カニバリ回避）。stats47 のような `AFFILIATE_ADS[]` 自動追記機構は無い。よって **harvest は「配置候補（SidebarAdCreative 形 +
+- **register は手キュレーション**: doboku の素材 URL の正本は `data/affiliate/catalog.json` の `creatives`。文言は `src/config/affiliate-creatives.ts`、面の決定は `config/affiliate-placements.json`。stats47 のような `AFFILIATE_ADS[]` 自動追記機構は無い。よって **harvest は「配置候補（SidebarAdCreative 形 +
   mats 追記案）を catalog の adDraft に出力するまで」で止め、確定配置は人が判断**する（1ページ1ピクセル・vertical セグメント・
   campaign 窓を壊さないため）。
 
@@ -88,7 +87,7 @@ npm run test:ads                                                 # 純関数コ�
 - **審査落ち (rejected) は再申請しない**。
 - **申請は週 `weeklyApplyMax` 件まで**（`a8-curated.json`。A8 スパム判定回避。初期 5）。
 - **講座/教材/書籍/添削は blocklist で恒久除外**（転職一本の Red Line）。
-- **creative の確定配置（affiliate-creatives.ts / affiliate-mats.json 追記）は手判断**。harvest は候補出力まで。
+- **creative の確定配置（提携台帳への素材登録と affiliate-placements.json の配置ルール）は手判断**。harvest は候補出力まで。
 - **node_modules 不在時は先に `npm install --legacy-peer-deps`**（tsx/playwright に必要）。
 
 ## 関連

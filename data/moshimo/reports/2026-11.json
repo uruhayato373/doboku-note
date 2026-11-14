@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "month": "2026-11",
+  "fetchedAt": "2026-11-14T01:08:43.023Z",
+  "source": {
+    "site": "doboku-note",
+    "siteId": "672381",
+    "url": "https://af.moshimo.com/af/shop/report/kpi/promotion?from_date=2026%2F11%2F01&to_date=2026%2F11%2F14&terminal_type=0&order=result_price_d&shop_site_id=672381"
+  },
+  "period": {
+    "from": "2026-11-01",
+    "to": "2026-11-14"
+  },
+  "observedRows": 2,
+  "records": [
+    {
+      "programId": "4183",
+      "programName": "建築転職｜建築系技術者に特化した転職エージェントの求職者面談",
+      "impressions": 194,
+      "clicks": 1,
+      "clickRevenueYen": 0,
+      "conversions": 0,
+      "grossRevenueYen": 0,
+      "approved": 0,
+      "revenueYen": 0
+    },
+    {
+      "programId": "6154",
+      "programName": "コンストワーク｜施工管理の転職サポート無料会員登録",
+      "impressions": 3519,
+      "clicks": 1,
+      "clickRevenueYen": 0,
+      "conversions": 0,
+      "grossRevenueYen": 0,
+      "approved": 0,
+      "revenueYen": 0
+    }
+  ]
+}

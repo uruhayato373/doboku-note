@@ -9,7 +9,7 @@
     "unavailable": "その ASP に案件自体が無い",
     "unknown": "未確認（調べていない。none と区別する）"
   },
-  "updatedAt": "2026-11-13T07:00:00.000Z",
+  "updatedAt": "2026-11-14T01:18:28.549Z",
   "verifiedAt": "2026-11-13",
   "_verifiedNote": "2026-09-08部分照合: A8は口座a25050375786の案件詳細、BuildJobは広告作成websiteId002/既存mat一致まで確認。もしも4案件はshop_site_id672381とselectedOption=doboku-noteを実機確認。afbは今回未確認、旧値保持。各ASPのverifiedAt/verificationScopeを参照。",
   "programs": {
@@ -51,7 +51,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "a8",
@@ -75,7 +75,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH",
           "imageSrc": "https://www27.a8.net/svt/bgt?aid=260605733026&wid=002&eno=01&mid=s00000024757004003000&mc=1",
-          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH"
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "施工管理・建設業界向け。A8 素材は年収・休日条件の訴求がある。求人条件は広告主の案内で確認する",
+            "sha256": "dbec885c490f11270b274ccfc0bc4860b9e02bcf73f082f7347e514896fa127e",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -85,7 +92,14 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81734",
           "imageSrc": "https://image.moshimo.com/af-img/5666/000000081734.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81734"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81734",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "施工管理・建設業界向け。A8 素材は年収・休日条件の訴求がある。求人条件は広告主の案内で確認する",
+            "sha256": "1e2d2d3c2fad0f09f5ed27ae318e233da290298a0baeb598df44f012f83c25e2",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -95,7 +109,14 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81735",
           "imageSrc": "https://image.moshimo.com/af-img/5666/000000081735.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81735"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81735",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "施工管理・建設業界向け。A8 素材は年収・休日条件の訴求がある。求人条件は広告主の案内で確認する",
+            "sha256": "527542aa288280f739c68282fe4ca0c3270b31c83ecd0c70770607b39d82fda6",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -105,7 +126,14 @@
           "height": 90,
           "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81736",
           "imageSrc": "https://image.moshimo.com/af-img/5666/000000081736.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81736"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81736",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "施工管理・建設業界向け。A8 素材は年収・休日条件の訴求がある。求人条件は広告主の案内で確認する",
+            "sha256": "4368764ab2cc16a054640b82c8548bc9800325799bf3c911c91c9b5a4831e705",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -115,7 +143,70 @@
           "height": 100,
           "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81737",
           "imageSrc": "https://image.moshimo.com/af-img/5666/000000081737.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81737"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81737",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "施工管理・建設業界向け。A8 素材は年収・休日条件の訴求がある。求人条件は広告主の案内で確認する",
+            "sha256": "918c9167ceff001abb7999362b1d2e469d1cdfa4635ec2bea8ca60b2d711804e",
+            "framesChecked": 1
+          }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92673",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=92673",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=92673"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "81731",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81731",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81731"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "90169",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=90169",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=90169"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "90514",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=90514",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=90514"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "91190",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=91190",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=91190"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "82338",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=82338",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=82338"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "82339",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=82339",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=82339"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92209",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=92209",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=92209"
         }
       ]
     },
@@ -201,7 +292,15 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=260529673996&wid=002&eno=01&mid=s00000023057002003000&mc=1",
-          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X"
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
+          "avoid": "「顧客満足度96.5%（当社調べ）」の表示に調査期間・対象数がなく、根拠を確認できない。小型カードの文章で案内する",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「顧客満足度96.5%（当社調べ）」の表示に調査期間・対象数がなく、根拠を確認できない。小型カードの文章で案内する",
+            "sha256": "a4797cd52ecd5c49b15c3a82e40ccb618d7b5d082d8a96884920ffd2b1fcd9ad",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -290,7 +389,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTDQY+4SXU+NUES1",
           "imageSrc": "https://www22.a8.net/svt/bgt?aid=260605733040&wid=002&eno=01&mid=s00000022413004005000&mc=1",
-          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4B5OO5+NTDQY+4SXU+NUES1"
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4B5OO5+NTDQY+4SXU+NUES1",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "ハイクラス DX・コンサル向け。年収の訴求があるため技術士・管理職の面に限り、年収を保証する本文には転用しない",
+            "sha256": "aba614c0ceffc0aa271e10f062f5076c010cd4cc2378f7e67e8591592aea090c",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -300,7 +406,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTDQY+4SXU+NUMHT",
           "imageSrc": "https://www26.a8.net/svt/bgt?aid=260605733040&wid=002&eno=01&mid=s00000022413004006000&mc=1",
-          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4B5OO5+NTDQY+4SXU+NUMHT"
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4B5OO5+NTDQY+4SXU+NUMHT",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "ハイクラス DX・コンサル向け。年収の訴求があるため技術士・管理職の面に限り、年収を保証する本文には転用しない",
+            "sha256": "488545467db725278e3bac4dffa76f862ed4c2064bb77b7f79f5279299264a66",
+            "framesChecked": 1
+          }
         }
       ]
     },
@@ -330,7 +443,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -370,7 +483,14 @@
           "height": 50,
           "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80119",
           "imageSrc": "https://image.moshimo.com/af-img/5909/000000080119.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80119"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80119",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "施工管理職向け。未経験者募集を強調する素材は除外。給与・休日条件は広告主の案内で確認する",
+            "sha256": "1c68c4a7b493d48e161cc757ab222d5bbad65e4b963ab7abb8ecc9a753ea02e4",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -380,7 +500,14 @@
           "height": 280,
           "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80120",
           "imageSrc": "https://image.moshimo.com/af-img/5909/000000080120.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80120"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80120",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "施工管理職向け。未経験者募集を強調する素材は除外。給与・休日条件は広告主の案内で確認する",
+            "sha256": "20ebe18058c37314fcf8b9dc0f316e21a24a41771f0b5b3134bbfbb3a4f00a3c",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -401,7 +528,14 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80122",
           "imageSrc": "https://image.moshimo.com/af-img/5909/000000080122.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80122",
-          "avoid": "「未経験募集」を前面に出す絵柄で、有資格の施工管理の読者に合わない（2026-10-31 の判断）"
+          "avoid": "「未経験募集」を前面に出す絵柄で、有資格の施工管理の読者に合わない（2026-10-31 の判断）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「未経験募集」を前面に出す絵柄で、有資格の施工管理の読者に合わない（2026-10-31 の判断）",
+            "sha256": "47636e5bb950af0e7ce86da9a16c7e595f57149308e53cd5b6bbaed9a610a1a7",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -411,7 +545,15 @@
           "height": 60,
           "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80123",
           "imageSrc": "https://image.moshimo.com/af-img/5909/000000080123.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80123"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80123",
+          "avoid": "「未経験者募集中」の訴求。既存の有資格施工管理者向けの面では使わない",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「未経験者募集中」の訴求。既存の有資格施工管理者向けの面では使わない",
+            "sha256": "450ea9024703d31c23ac87c502b42dbd92100d0b201a0f16a90099b0a54f3fd5",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -421,7 +563,14 @@
           "height": 90,
           "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80124",
           "imageSrc": "https://image.moshimo.com/af-img/5909/000000080124.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80124"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80124",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "施工管理職向け。未経験者募集を強調する素材は除外。給与・休日条件は広告主の案内で確認する",
+            "sha256": "be3e305b3fec3edcf137b1d3a1869478eb9144893a8fa814507d4c4861ba629b",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -432,6 +581,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80125",
           "imageSrc": "https://image.moshimo.com/af-img/5909/000000080125.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80125"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "78863",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=78863",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=78863"
         }
       ]
     },
@@ -451,7 +607,7 @@
           "verifiedAt": "2026-09-08",
           "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
           "approvalConditions": "有資格者15,000円/29歳以下3,500円の2条件。電気資格が中心。本人確認必須。50歳以下という募集説明と50歳以上否認の境界矛盾あり要照会。",
-          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中"
         },
         "afb": {
           "status": "unknown"
@@ -474,7 +630,7 @@
           "verifiedAt": "2026-09-08",
           "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
           "approvalConditions": "新規会員登録。18歳未満・66歳以上、いたずら・重複・連絡不可能は否認。",
-          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中"
         },
         "afb": {
           "status": "unknown"
@@ -534,7 +690,14 @@
           "height": 60,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+5Z6WX",
           "imageSrc": "https://www25.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001004000&mc=1",
-          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5Z6WX"
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5Z6WX",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "df5c4678b03f45a29e66e49eabf43df1a62e4fd8c5d8e66dac308a527853e545",
+            "framesChecked": 5
+          }
         },
         {
           "asp": "a8",
@@ -544,7 +707,14 @@
           "height": 50,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+5ZEMP",
           "imageSrc": "https://www25.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001005000&mc=1",
-          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5ZEMP"
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5ZEMP",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "a8d5b6f67a10c8771667f49181483ffc0828bec2eb3f67cfeb2a8cda416d6895",
+            "framesChecked": 17
+          }
         },
         {
           "asp": "a8",
@@ -555,7 +725,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+5ZMCH",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001006000&mc=1",
           "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5ZMCH",
-          "avoid": "「No.1」表示（転職サポート充実度・コンサルタント信頼度）。根拠の調査が古い"
+          "avoid": "「No.1」表示（転職サポート充実度・コンサルタント信頼度）。根拠の調査が古い",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」表示（転職サポート充実度・コンサルタント信頼度）。根拠の調査が古い",
+            "sha256": "1da0f05ec338b12f08ebfd5abee61061114cfab4d8bfd4a55e46753ffbfaffc1",
+            "framesChecked": 5
+          }
         },
         {
           "asp": "a8",
@@ -586,7 +763,14 @@
           "height": 90,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+614CX",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001013000&mc=1",
-          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+614CX"
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+614CX",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "7f745f6e848555394839f921442eb70c6b0a3594a08cf5cf8c32beac4cae8763",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -596,7 +780,14 @@
           "height": 60,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+61C2P",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001014000&mc=1",
-          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61C2P"
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61C2P",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "7046a22f05e31a69045ac4a587e964df29ffdf289aa043decaa91e579c2d5c1c",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -606,7 +797,14 @@
           "height": 280,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+61JSH",
           "imageSrc": "https://www28.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001015000&mc=1",
-          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61JSH"
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61JSH",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "a66dc7a564853c4f182aafaf79c33489c7cb238e297744fb25699e37b0b65355",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -616,7 +814,14 @@
           "height": 50,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+61RI9",
           "imageSrc": "https://www26.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001016000&mc=1",
-          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61RI9"
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61RI9",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "b08b56485ccb1eb11d76ca47105573515292cf1c079d870974abbc5297bc5f7c",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -626,7 +831,14 @@
           "height": 600,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+61Z81",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001017000&mc=1",
-          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61Z81"
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+61Z81",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "6bc123b3d354aed29c98e0aaa58995f453ea1da9a15cbe0af4b1a7e663897f76",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -636,7 +848,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+626XT",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001018000&mc=1",
-          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+626XT"
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+626XT",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "88179d8be52b1875fd265a1a975868a248f2adecd7290a8688204abeaa0f7cb4",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -647,7 +866,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+62ENL",
           "imageSrc": "https://www23.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001019000&mc=1",
           "pixelSrc": "https://www16.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+62ENL",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "741dbbd8f7c727b087e9fc85435a0d1ebc355127f611024e7fa5bc1a4fff7922",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -657,7 +883,15 @@
           "height": 600,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+63H8H",
           "imageSrc": "https://www20.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001024000&mc=1",
-          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+63H8H"
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+63H8H",
+          "avoid": "「転職サポート充実度・コンサルタント信頼度 No.1」の表示。最新の調査根拠を確認できない",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「転職サポート充実度・コンサルタント信頼度 No.1」の表示。最新の調査根拠を確認できない",
+            "sha256": "dbbf24e965583cd128c11b5d772bd5713e10121d858c4189b76e67daf49be999",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -668,7 +902,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+63OY9",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001025000&mc=1",
           "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+63OY9",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "0d778f273515a2924a559d3a9e36582c5a3708081cc433bf3a9142a56379eb63",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -679,7 +920,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+63WO1",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001026000&mc=1",
           "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+63WO1",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "de0868dd0e81098b93259cc2c7f650166224d7c7ff4a3e369c38d9fc4b8b0706",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -689,7 +937,15 @@
           "height": 600,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+644DT",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001027000&mc=1",
-          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+644DT"
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+644DT",
+          "avoid": "「転職サポート充実度・コンサルタント信頼度 No.1」の表示。最新の調査根拠を確認できない",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「転職サポート充実度・コンサルタント信頼度 No.1」の表示。最新の調査根拠を確認できない",
+            "sha256": "b5fc6eddde4e68c88051f8ca10ee74ae73a8efb99b34c3e9db05e8e9031e44a1",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -699,7 +955,14 @@
           "height": 600,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+64C3L",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001028000&mc=1",
-          "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64C3L"
+          "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64C3L",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "ffddbedb12795d6836b44d5ef30b614e0d36048a3b1fa63fc8e8647225651ca1",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -709,7 +972,15 @@
           "height": 600,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+64JTD",
           "imageSrc": "https://www22.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001029000&mc=1",
-          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64JTD"
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64JTD",
+          "avoid": "「第1位・No.1」表示（2021年 JMR 調査）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「第1位・No.1」表示（2021年 JMR 調査）",
+            "sha256": "8876332a9c9d1829d3465f3b0ac6440378dd5da5001b123d7411ddee57625ef6",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -720,7 +991,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+64RJ5",
           "imageSrc": "https://www20.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001030000&mc=1",
           "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64RJ5",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "837f90da02449a7d1f2aac5947f7b6310ee4c8411ecb2d602aa8aee72b6f7ec6",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -730,7 +1008,14 @@
           "height": 280,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+64Z8X",
           "imageSrc": "https://www28.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001031000&mc=1",
-          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64Z8X"
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64Z8X",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "cc76ed9e70e812cd8e3c77cf4bb52273e07ab1c39bb964cbbccfa95338cc4b47",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -741,7 +1026,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+656YP",
           "imageSrc": "https://www27.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001032000&mc=1",
           "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+656YP",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "74e796537a27fba6e7b43f37aa091f346f6f579ea5ae9ccb59bacfe967c94894",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -751,7 +1043,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+65EOH",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001033000&mc=1",
-          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65EOH"
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65EOH",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "f7b899ae12a689c8306a7b3f336e13eb2ec244e64333652c454f616241bd8faf",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -762,7 +1061,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+65ME9",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001034000&mc=1",
           "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65ME9",
-          "avoid": "「No.1」表示。根拠の調査が古い"
+          "avoid": "「No.1」表示。根拠の調査が古い",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」表示。根拠の調査が古い",
+            "sha256": "7ff2c0d33a6b32fa32a83804e2220f92cbf0eac66971b463aa28ce31a1ddbf31",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -772,7 +1078,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+65U41",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001035000&mc=1",
-          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65U41"
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65U41",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "5c7d4006f05d42e9b30450164f08fdba5ddefca769f2a35f8fb29875ebe8fe9b",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -783,7 +1096,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+661TT",
           "imageSrc": "https://www22.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001036000&mc=1",
           "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+661TT",
-          "avoid": "「No.1」「第1位」表示（2021 年の調査）。根拠の調査が古い"
+          "avoid": "「No.1」「第1位」表示（2021 年の調査）。根拠の調査が古い",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示（2021 年の調査）。根拠の調査が古い",
+            "sha256": "6c353cd0aedd5b3af0f2fb84816d2e72683d8dd5e65f03076d3113a334bd6fae",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -794,7 +1114,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+669JL",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001037000&mc=1",
           "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+669JL",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "92667fc6c28e77f00063f59329ad5ecec70bea700dccc583ec84211a5b04dc17",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -805,7 +1132,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+66H9D",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001038000&mc=1",
           "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+66H9D",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "92f55b4ce148ba5f5dbf90e251c7ae583fc0ebc6ec39e541d78d461ee803cca4",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -815,7 +1149,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+66OZ5",
           "imageSrc": "https://www28.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001039000&mc=1",
-          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+66OZ5"
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+66OZ5",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "2852493b6bd07c39f3e461548351863f59cd83d91d90314ef8ccd9a2a7262af2",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -826,7 +1167,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+66WOX",
           "imageSrc": "https://www22.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001040000&mc=1",
           "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+66WOX",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "d1deeba939f6e04cbf2cb8d5880c06036b0a9b53e6db7a6e5b1d834e6f24207e",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -836,7 +1184,14 @@
           "height": 50,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+674EP",
           "imageSrc": "https://www28.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001041000&mc=1",
-          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+674EP"
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+674EP",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "b51efa78b8e03540cf5785fa36bf6600ab5916927da99ce6972987a8baac78da",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -846,7 +1201,14 @@
           "height": 50,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+67C4H",
           "imageSrc": "https://www25.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001042000&mc=1",
-          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67C4H"
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67C4H",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "2b283bb275ac82d69606117006394b58ec65c4249573fddc27c0548a4232814b",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -857,7 +1219,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+67JU9",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001043000&mc=1",
           "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67JU9",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "fe03b5dac38b0b930ac67ab506be0d6ee9717a3986cdaa76e6192e64fcdbfaef",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -868,7 +1237,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+67RK1",
           "imageSrc": "https://www27.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001044000&mc=1",
           "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67RK1",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "68b1f26e77e1a1cf0386dc354b84c077bdb0060bc68eb2ac27bd44240d8b5506",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -878,7 +1254,14 @@
           "height": 60,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+67Z9T",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001045000&mc=1",
-          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67Z9T"
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67Z9T",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "8e3031ebfa822e45a950cc642c7cbad03ea9baa7b8ac687c2b4bf7ab34b4e2a1",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -889,7 +1272,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+686ZL",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001046000&mc=1",
           "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+686ZL",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "8954112633d14a275d4f1b9a6f78897b2cb817c059fa88ff6b3bc1a447a91754",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -899,7 +1289,14 @@
           "height": 90,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+68EPD",
           "imageSrc": "https://www26.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001047000&mc=1",
-          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+68EPD"
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+68EPD",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "07cd59ca815b412699b7237535911cd39c7fe09e5b856bd3c19cf747aed3dbc5",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -910,7 +1307,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+68MF5",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001048000&mc=1",
           "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+68MF5",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "87439e421fc893595cb8f931605428d9cf8a707e5db6c5554fdd3ecbf7c232f2",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -920,7 +1324,14 @@
           "height": 50,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+68U4X",
           "imageSrc": "https://www26.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001049000&mc=1",
-          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+68U4X"
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+68U4X",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建設・施工管理向け。年収の訴求を含むが順位表示はない（順位表示のある素材は avoid）",
+            "sha256": "096470cdaaf10289dadf48ee5b7dad31105207c838a8672dacf74391a4f81bf6",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -931,7 +1342,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+691UP",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001050000&mc=1",
           "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+691UP",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "5d0cefdd51ead531854f903c9d5e89a8079016385ecbeb8b8f0fee8c94f589d1",
+            "framesChecked": 1
+          }
         }
       ]
     },
@@ -1040,6 +1458,12 @@
         "afb": {
           "status": "unknown"
         }
+      },
+      "productLink": {
+        "href": "https://px.a8.net/svt/ejp?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A",
+        "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A",
+        "verifiedAt": "2026-09-24",
+        "source": "既存の実機照合済み商品リンクから移管（2026-11-14・DN-1166）"
       }
     },
     "plex-job": {
@@ -1087,7 +1511,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -1097,7 +1521,15 @@
           "height": 100,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57936",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057936.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57936"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57936",
+          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "sha256": "10cb0406ecb339edfe1bbc63ad21d63d5f792e2b6dd93b54baec48fb0f8981f8",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1107,7 +1539,15 @@
           "height": 100,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57937",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057937.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57937"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57937",
+          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "sha256": "dbc16848ecd2a483b4899566595e303184f8e834efb8e96c301075adb1b966bf",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1117,7 +1557,15 @@
           "height": 100,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57938",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057938.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57938"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57938",
+          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "sha256": "7e99d894ebd2cc2f87ca51407ae805fc534e29e53038b57bf4452a3a00687848",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1127,7 +1575,14 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57939",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057939.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57939"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57939",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建築士・施工管理技士向け。ブランドと対象職種のみの素材",
+            "sha256": "3a0b0c99fa5516cebdc94ef936a0259776880b1d83a375ff1226b7f3b523e675",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1137,7 +1592,14 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57940",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057940.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57940"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57940",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建築士・施工管理技士向け。ブランドと対象職種のみの素材",
+            "sha256": "405dbacc8ffa8a427234dc1a996d60b24a053559a5941048af2b6092716a818b",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1147,7 +1609,14 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57941",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057941.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57941"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57941",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "建築士・施工管理技士向け。ブランドと対象職種のみの素材",
+            "sha256": "5cbb7144b18a82165b4c214350997599dfef324741d00a9dbba16042c841f038",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1187,7 +1656,15 @@
           "height": 90,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57822",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057822.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57822"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57822",
+          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "sha256": "88b53b15183af45c209692032bf5509af21a873ac1ace2a65180ffcfec15e102",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1197,7 +1674,15 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57821",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057821.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57821"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57821",
+          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "sha256": "9ab1273d7f524fadcb5e0133590546fba996f8f1211258642212209de2f1977e",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1207,7 +1692,15 @@
           "height": 280,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57819",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057819.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57819"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57819",
+          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "sha256": "75e68639fe48f9904b4d0d2fae5c5e4e8dc93cc9b6175e1bfe5e13b08b306f7d",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1238,6 +1731,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57814",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057814.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57814"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57044",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57044",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57044"
         }
       ]
     },
@@ -1284,7 +1784,7 @@
           "promotionId": "3802",
           "status": "applying",
           "rewardYen": 2000,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中 2026-11-14 サイト別再照合: doboku-note（672381）=申請中、統計で見る都道府県（638943）=申請中。"
         },
         "afb": {
           "pid": "6872",
@@ -1352,13 +1852,13 @@
           "promotionId": "7797",
           "status": "approved",
           "rewardYen": 18000,
-          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。提携中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。提携中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中 2026-11-14 サイト別再照合: doboku-note（672381）=提携中、統計で見る都道府県（638943）=提携中。"
         },
         "afb": {
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -1378,7 +1878,15 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97091",
           "imageSrc": "https://image.moshimo.com/af-img/5666/000000097091.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97091"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97091",
+          "avoid": "Google口コミ4.8・平均年収UP額119万円の表示。2025年時点の注記で、現在の根拠を未照合",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "Google口コミ4.8・平均年収UP額119万円の表示。2025年時点の注記で、現在の根拠を未照合",
+            "sha256": "1ea79fa139009a09ab52fb9533a47eafe04bc65d6c16b541f152efb00851243e",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1388,7 +1896,15 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97092",
           "imageSrc": "https://image.moshimo.com/af-img/5666/000000097092.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97092"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97092",
+          "avoid": "Google口コミ4.8・平均年収UP額119万円の表示。2025年時点の注記で、現在の根拠を未照合",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "Google口コミ4.8・平均年収UP額119万円の表示。2025年時点の注記で、現在の根拠を未照合",
+            "sha256": "8f971c972d3d4a9954d2271494eb65d8d3941f1b21bb1d08a74810a41f3e5f19",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1399,6 +1915,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97093",
           "imageSrc": "https://image.moshimo.com/af-img/5666/000000097093.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97093"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97049",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97049",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97049"
         }
       ]
     },
@@ -1418,9 +1941,9 @@
         },
         "moshimo": {
           "promotionId": "2502",
-          "status": "applying",
+          "status": "none",
           "rewardYen": 18000,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 否認中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中 2026-11-14 サイト別再照合: doboku-note（672381）=否認中、統計で見る都道府県（638943）=否認中。"
         },
         "afb": {
           "status": "unknown"
@@ -1444,9 +1967,9 @@
         },
         "afb": {
           "pid": "9055",
-          "status": "unknown",
+          "status": "none",
           "rewardYen": 3383,
-          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。doboku-note の申請中一覧に無い（stats47 側の申請か否認かは未確認）。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中（2026-10-27 に申請中一覧で確認）"
+          "note": "2026-11-14 通知メールを確認。2026-11-10 に doboku-note と統計で見る都道府県の両サイトが否認（Gmail 1a1c4bd17013a293 / 1a1c4bd1af825840）。理由の記載なし。11/13 の申請中一覧に無かった原因を解消。"
         }
       }
     },
@@ -1472,7 +1995,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "a8",
@@ -1510,7 +2033,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4B5N41+6TW2E2+5BJK+5ZEMP",
           "imageSrc": "https://www22.a8.net/svt/bgt?aid=260603713413&wid=002&eno=01&mid=s00000024824001005000&mc=1",
-          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+5ZEMP"
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+5ZEMP",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "転職エージェント紹介。漫画素材は求人条件の説明ではなく誘導表現である",
+            "sha256": "f4931043465d604bfb5e7ddf62a470196787d0f07228ce8d73c886c40999d94f",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1520,7 +2050,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4B5N41+6TW2E2+5BJK+609HT",
           "imageSrc": "https://www23.a8.net/svt/bgt?aid=260603713413&wid=002&eno=01&mid=s00000024824001009000&mc=1",
-          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+609HT"
+          "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+609HT",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "転職エージェント紹介。漫画素材は求人条件の説明ではなく誘導表現である",
+            "sha256": "a118095ff04f4cbd33374ede2ee7d389d350edf269b3fb0f5e9d3c2f9733a0c2",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1530,7 +2067,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4B5N41+6TW2E2+5BJK+60H7L",
           "imageSrc": "https://www28.a8.net/svt/bgt?aid=260603713413&wid=002&eno=01&mid=s00000024824001010000&mc=1",
-          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+60H7L"
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4B5N41+6TW2E2+5BJK+60H7L",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "転職エージェント紹介。漫画素材は求人条件の説明ではなく誘導表現である",
+            "sha256": "2639ab2d974de12d1ff6c4124ce8a4de36c01166512f2e2df657b642a7e19166",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1551,6 +2095,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71462",
           "imageSrc": "https://image.moshimo.com/af-img/5218/000000071462.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71462"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "71445",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71445",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71445"
         }
       ]
     },
@@ -1573,7 +2124,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -1583,7 +2134,21 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93944",
           "imageSrc": "https://image.moshimo.com/af-img/5856/000000093944.png",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93944"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93944",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "コンサル転職のキャリア相談向け。順位・満足度の数値表示なし",
+            "sha256": "99f1f1fc2e48644c73e94e1f31c938bde37585aec71ef2f5d4d874750b9e3a15",
+            "framesChecked": 1
+          }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "93907",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93907",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93907"
         }
       ]
     },
@@ -1606,7 +2171,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -1617,6 +2182,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5718001&p_id=7540&pc_id=21772&pl_id=94548",
           "imageSrc": "https://image.moshimo.com/af-img/6249/000000094548.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718001&p_id=7540&pc_id=21772&pl_id=94548"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94510",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718001&p_id=7540&pc_id=21772&pl_id=94510",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718001&p_id=7540&pc_id=21772&pl_id=94510"
         }
       ]
     },
@@ -1639,7 +2211,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -1669,7 +2241,14 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29927",
           "imageSrc": "https://image.moshimo.com/af-img/1287/000000029927.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29927"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29927",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "30代・40代の管理職・技術職向け。年収レンジは求人の訴求であり、転職後の年収保証ではない",
+            "sha256": "7a23cdfe170dc42867d1f93a9d386156d1060fcfb86499df0b1aeb1edea88573",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -1679,7 +2258,21 @@
           "height": 280,
           "href": "https://af.moshimo.com/af/c/click?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29928",
           "imageSrc": "https://image.moshimo.com/af-img/1287/000000029928.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29928"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29928",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "30代・40代の管理職・技術職向け。年収レンジは求人の訴求であり、転職後の年収保証ではない",
+            "sha256": "407074447ac329fd58409fbc272b64ea25df5cd1b5f91ac9086473860c62e625",
+            "framesChecked": 1
+          }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "29601",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29601",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29601"
         }
       ]
     },
@@ -1726,7 +2319,14 @@
           "height": 60,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BXIYP",
           "imageSrc": "https://www27.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002004000&mc=1",
-          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BXIYP"
+          "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BXIYP",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "14a174d88a58bbf964b91077695a4697227e1ee0a270caf704c228d045a7900e",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1736,7 +2336,14 @@
           "height": 60,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BXQOH",
           "imageSrc": "https://www27.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002005000&mc=1",
-          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BXQOH"
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BXQOH",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "14a174d88a58bbf964b91077695a4697227e1ee0a270caf704c228d045a7900e",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1746,7 +2353,14 @@
           "height": 60,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BXYE9",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002006000&mc=1",
-          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BXYE9"
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BXYE9",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "14a174d88a58bbf964b91077695a4697227e1ee0a270caf704c228d045a7900e",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1756,7 +2370,14 @@
           "height": 60,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BY641",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002007000&mc=1",
-          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BY641"
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BY641",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "14a174d88a58bbf964b91077695a4697227e1ee0a270caf704c228d045a7900e",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1766,7 +2387,14 @@
           "height": 50,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BYDTT",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002008000&mc=1",
-          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BYDTT"
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BYDTT",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "49ef25712c08a14bc35fd7db8b82a59a8192420b7aba2de357bed3dcbdc3a669",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1776,7 +2404,14 @@
           "height": 50,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BYLJL",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002009000&mc=1",
-          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BYLJL"
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BYLJL",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "49ef25712c08a14bc35fd7db8b82a59a8192420b7aba2de357bed3dcbdc3a669",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1786,7 +2421,14 @@
           "height": 50,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BYT9D",
           "imageSrc": "https://www23.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002010000&mc=1",
-          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BYT9D"
+          "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BYT9D",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "49ef25712c08a14bc35fd7db8b82a59a8192420b7aba2de357bed3dcbdc3a669",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1796,7 +2438,14 @@
           "height": 50,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BZ0Z5",
           "imageSrc": "https://www25.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002011000&mc=1",
-          "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZ0Z5"
+          "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZ0Z5",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "49ef25712c08a14bc35fd7db8b82a59a8192420b7aba2de357bed3dcbdc3a669",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1806,7 +2455,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BZ8OX",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002012000&mc=1",
-          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZ8OX"
+          "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZ8OX",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "903b8310b813169c999e558f1d34337252de4461fa562f4995816f59011def0d",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1816,7 +2472,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BZGEP",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002013000&mc=1",
-          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZGEP"
+          "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZGEP",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "903b8310b813169c999e558f1d34337252de4461fa562f4995816f59011def0d",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1826,7 +2489,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BZO4H",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002014000&mc=1",
-          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZO4H"
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZO4H",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "903b8310b813169c999e558f1d34337252de4461fa562f4995816f59011def0d",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1836,7 +2506,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+BZVU9",
           "imageSrc": "https://www27.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002015000&mc=1",
-          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZVU9"
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+BZVU9",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "903b8310b813169c999e558f1d34337252de4461fa562f4995816f59011def0d",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1867,7 +2544,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4BCHZR+7O968Q+49JS+C5VW1",
           "imageSrc": "https://www28.a8.net/svt/bgt?aid=260923671464&wid=002&eno=01&mid=s00000019900002043000&mc=1",
-          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+C5VW1"
+          "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BCHZR+7O968Q+49JS+C5VW1",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "若手ハイエンド向け。043 は2020・2021・2025年の受賞実績の表示がある。若手向けの面に限定する",
+            "sha256": "7ee4c785062fc15a0584fc54a93b329dc16c2303c8592da7e4eb4aa564446898",
+            "framesChecked": 1
+          }
         }
       ]
     },
@@ -1920,7 +2604,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+5Z6WX",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001004000&mc=1",
           "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+5Z6WX",
-          "avoid": "フリーター向けの訴求（「フリーターのままじゃヤバイ」等）で、在職中の公務員・技術者の読者に合わない（2026-11-13）"
+          "avoid": "フリーター向けの訴求（「フリーターのままじゃヤバイ」等）で、在職中の公務員・技術者の読者に合わない（2026-11-13）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "フリーター向けの訴求（「フリーターのままじゃヤバイ」等）で、在職中の公務員・技術者の読者に合わない（2026-11-13）",
+            "sha256": "ef99ce469befc8e55154ff2aadf06520219e4bf475ebacb3cd3176011c979c9d",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1931,7 +2622,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+5ZEMP",
           "imageSrc": "https://www26.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001005000&mc=1",
           "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+5ZEMP",
-          "avoid": "フリーター向けの訴求（「フリーターのままじゃヤバイ」等）で、在職中の公務員・技術者の読者に合わない（2026-11-13）"
+          "avoid": "フリーター向けの訴求（「フリーターのままじゃヤバイ」等）で、在職中の公務員・技術者の読者に合わない（2026-11-13）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "フリーター向けの訴求（「フリーターのままじゃヤバイ」等）で、在職中の公務員・技術者の読者に合わない（2026-11-13）",
+            "sha256": "45f70fb0f4e7f874defa57969711f991ea110827e28244c18af465968786ec4b",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1942,7 +2640,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+5ZU29",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001007000&mc=1",
           "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+5ZU29",
-          "avoid": "フリーター向けの訴求（「フリーターのままじゃヤバイ」等）で、在職中の公務員・技術者の読者に合わない（2026-11-13）"
+          "avoid": "フリーター向けの訴求（「フリーターのままじゃヤバイ」等）で、在職中の公務員・技術者の読者に合わない（2026-11-13）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "フリーター向けの訴求（「フリーターのままじゃヤバイ」等）で、在職中の公務員・技術者の読者に合わない（2026-11-13）",
+            "sha256": "fbf9f761b1b1a26580d5f66ca94bf6f66a933b8f4d0016a742cb69c64b782199",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1953,7 +2658,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+601S1",
           "imageSrc": "https://www25.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001008000&mc=1",
           "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+601S1",
-          "avoid": "「20代の支持率No.1」表示。根拠の調査が古い"
+          "avoid": "「20代の支持率No.1」表示。根拠の調査が古い",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「20代の支持率No.1」表示。根拠の調査が古い",
+            "sha256": "66deb140752d3d9c121bc5479a110b197648c9e4530842cb889cca6ac6bbbc11",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1963,7 +2675,14 @@
           "height": 50,
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+61RI9",
           "imageSrc": "https://www27.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001016000&mc=1",
-          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+61RI9"
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+61RI9",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "第二新卒・既卒向け。経験ゼロの訴求は20代の異業種転職の面に限定し、経験者向けの年収訴求には使わない",
+            "sha256": "68a495ad303acbbcaab7ef40652feaec817ec2c292fd172bc1670d3e3008e26c",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -1973,7 +2692,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+61Z81",
           "imageSrc": "https://www23.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001017000&mc=1",
-          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+61Z81"
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+61Z81",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "第二新卒・既卒向け。経験ゼロの訴求は20代の異業種転職の面に限定し、経験者向けの年収訴求には使わない",
+            "sha256": "6719e201c417ac0fcd4c9ee525060143ea90e47535a02bc81f03611984328f68",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -2011,7 +2737,14 @@
           "height": 600,
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+65ME9",
           "imageSrc": "https://www27.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001034000&mc=1",
-          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+65ME9"
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+65ME9",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "第二新卒・既卒向け。経験ゼロの訴求は20代の異業種転職の面に限定し、経験者向けの年収訴求には使わない",
+            "sha256": "f42f8614793ef0b3daa3d020e3bfebe0ff4e39735bcc0f73e6c0d129ec77d640",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -2022,7 +2755,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+661TT",
           "imageSrc": "https://www20.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001036000&mc=1",
           "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+661TT",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "22faa0625828f78a2d65e27b32ef21de0f004aa5ad28f46f008475cfdc7ebb55",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -2033,7 +2773,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+669JL",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001037000&mc=1",
           "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+669JL",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "cf88e76229662344063bac4e22a6450a0bad2c935111410dc241b463c521ea74",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -2043,7 +2790,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+66H9D",
           "imageSrc": "https://www20.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001038000&mc=1",
-          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66H9D"
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66H9D",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "第二新卒・既卒向け。経験ゼロの訴求は20代の異業種転職の面に限定し、経験者向けの年収訴求には使わない",
+            "sha256": "0fd6a5b4931c73d811a26fa2c4b0a6db12edb6023f6e2adf63ae7f634597a5d4",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -2054,7 +2808,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+66OZ5",
           "imageSrc": "https://www25.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001039000&mc=1",
           "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66OZ5",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "df7c5e3b1a96a9492eddd610a35f98c57a5c46c9d2646dc40e2836fea6903401",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -2065,7 +2826,14 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+66WOX",
           "imageSrc": "https://www25.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001040000&mc=1",
           "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66WOX",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）"
+          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "sha256": "c66e5985ec85ca4dbe316000e9440ff5acb897823fd86928eddb73cbefd62ca0",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -2126,7 +2894,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4B614K+GC8B8A+5O7E+BXB8X",
           "imageSrc": "https://www20.a8.net/svt/bgt?aid=260621876988&wid=002&eno=01&mid=s00000026465002003000&mc=1",
-          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4B614K+GC8B8A+5O7E+BXB8X"
+          "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4B614K+GC8B8A+5O7E+BXB8X",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "転職データ・口コミの参照と無料会員登録の案内",
+            "sha256": "bc0084814da51137ea3d04f472575de51574c9d8e74efe2e7c3b2dcf7ca63644",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -2136,7 +2911,14 @@
           "height": 250,
           "href": "https://px.a8.net/svt/ejp?a8mat=4B614K+GC8B8A+5O7E+BXYE9",
           "imageSrc": "https://www23.a8.net/svt/bgt?aid=260621876988&wid=002&eno=01&mid=s00000026465002006000&mc=1",
-          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4B614K+GC8B8A+5O7E+BXYE9"
+          "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4B614K+GC8B8A+5O7E+BXYE9",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "転職データ・口コミの参照と無料会員登録の案内",
+            "sha256": "11ff2fe1c263a5849247cac1ef051f07216a655030dcc1a3d94ebcc7496dbdf8",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "a8",
@@ -2173,7 +2955,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -2204,6 +2986,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94962",
           "imageSrc": "https://image.moshimo.com/af-img/7386/000000094962.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94962"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94958",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94958",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94958"
         }
       ]
     },
@@ -2226,7 +3015,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -2236,7 +3025,14 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92172",
           "imageSrc": "https://image.moshimo.com/af-img/5160/000000092172.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92172"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92172",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代・未経験者から正社員への転職向け。20代の異業種転職の面に限定し、経験者・管理職の面には使わない",
+            "sha256": "2dcf868172379bf0f5dc13d77784ead26277e352ca6415aa780e1ec86ab7df61",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -2246,7 +3042,14 @@
           "height": 250,
           "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92173",
           "imageSrc": "https://image.moshimo.com/af-img/5160/000000092173.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92173"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92173",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代・未経験者から正社員への転職向け。20代の異業種転職の面に限定し、経験者・管理職の面には使わない",
+            "sha256": "8d2b2d30f860c250a5966be46380dac2ef6efcba4474ee6d35b48c2778d52683",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -2266,7 +3069,14 @@
           "height": 100,
           "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92175",
           "imageSrc": "https://image.moshimo.com/af-img/5160/000000092175.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92175"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92175",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代・未経験者から正社員への転職向け。20代の異業種転職の面に限定し、経験者・管理職の面には使わない",
+            "sha256": "47faaa245304e12a09735870e99c34080534b38d7cd83413c5832ad1ba83ffdc",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -2276,7 +3086,14 @@
           "height": 280,
           "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92176",
           "imageSrc": "https://image.moshimo.com/af-img/5160/000000092176.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92176"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92176",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代・未経験者から正社員への転職向け。20代の異業種転職の面に限定し、経験者・管理職の面には使わない",
+            "sha256": "865db9034d22cfe195c7f79f00535411f1c80b622e7f341d97ef456929fdfc25",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -2286,7 +3103,14 @@
           "height": 90,
           "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92177",
           "imageSrc": "https://image.moshimo.com/af-img/5160/000000092177.jpg",
-          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92177"
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92177",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代・未経験者から正社員への転職向け。20代の異業種転職の面に限定し、経験者・管理職の面には使わない",
+            "sha256": "9f42ab3601bf637c478d1e9d92a803f0777be44df3840ab57904800832983d3a",
+            "framesChecked": 1
+          }
         },
         {
           "asp": "moshimo",
@@ -2307,6 +3131,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92179",
           "imageSrc": "https://image.moshimo.com/af-img/5160/000000092179.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92179"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92066",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92066",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92066"
         }
       ]
     },
@@ -2329,7 +3160,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -2400,6 +3231,20 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94945",
           "imageSrc": "https://image.moshimo.com/af-img/7318/000000094945.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94945"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94844",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94844",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94844"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94281",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94281",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94281"
         }
       ]
     },
@@ -2422,7 +3267,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -2493,6 +3338,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75335",
           "imageSrc": "https://image.moshimo.com/af-img/1052/000000075335.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75335"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "75201",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75201",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75201"
         }
       ]
     },
@@ -2509,7 +3361,7 @@
           "promotionId": "7267",
           "status": "applying",
           "rewardYen": 16000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料相談（新規面談申込完了）"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料相談（新規面談申込完了）"
         },
         "afb": {
           "status": "unknown"
@@ -2529,7 +3381,7 @@
           "promotionId": "5922",
           "status": "applying",
           "rewardYen": 18000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料キャリア面談"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料キャリア面談"
         },
         "afb": {
           "status": "unknown"
@@ -2540,21 +3392,136 @@
       "label": "REFLAME（20代ハイクラス向けの無料キャリア相談）",
       "vertical": "general-career",
       "placement": "none",
-      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "decision": "2026-11-14 もしもの承認・素材を確認。20代ハイクラス限定のため、第二新卒全般を扱う既存neo枠を置換せず、今回は配置を追加しない。建設向け面・比較実験も維持する。",
       "asps": {
         "a8": {
           "status": "unknown"
         },
         "moshimo": {
           "promotionId": "7790",
-          "status": "applying",
+          "status": "approved",
           "rewardYen": 15000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=面談完了"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 提携中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=面談完了"
         },
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-14",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "96954",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=96954",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=96954"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97111",
+          "kind": "banner",
+          "width": 600,
+          "height": 500,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97111",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097111.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97111",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代向けのキャリア相談。満足度・年収アップの自社調べと算出期間・条件の脚注あり。20代向け面に限定する。",
+            "sha256": "8a6dbc3aa9b4280e5eb5595d64d368a0ed73444b24d4a5e2f1a966ffac14b4cc",
+            "framesChecked": 1
+          }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97112",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97112",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097112.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97112",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代向けのキャリア相談。満足度・年収アップの自社調べと算出期間・条件の脚注あり。20代向け面に限定する。",
+            "sha256": "4271c8f264a8107bafd484258be9fedb5556a5626067472078e8f028f726f773",
+            "framesChecked": 1
+          }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97113",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97113",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097113.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97113",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代向けのキャリア相談。満足度・年収アップの自社調べと算出期間・条件の脚注あり。20代向け面に限定する。",
+            "sha256": "8d731447b14a3287ec381c0a91ea571d83c0fad351322ad0c9f43cfd10ea4528",
+            "framesChecked": 1
+          }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97114",
+          "kind": "banner",
+          "width": 240,
+          "height": 120,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97114",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097114.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97114",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う",
+            "sha256": "d1c87cd67ba7fb0e1c950c05ec77242a295bd4c9784b7f579540646c7c408058",
+            "framesChecked": 1
+          },
+          "avoid": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97115",
+          "kind": "banner",
+          "width": 200,
+          "height": 120,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97115",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097115.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97115",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う",
+            "sha256": "a81d74904239bd5f55e559813917436668a0d6b0729216daa288702e75a63f50",
+            "framesChecked": 1
+          },
+          "avoid": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97116",
+          "kind": "banner",
+          "width": 120,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97116",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097116.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97116",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う",
+            "sha256": "7ef93cf8fa7c3700b694a1ed974f191bf53d189e94969bc561dfadd69b9fb434",
+            "framesChecked": 1
+          },
+          "avoid": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う"
+        }
+      ]
     },
     "amecari": {
       "label": "アメキャリ（第二新卒に特化した就職・転職支援）",
@@ -2569,7 +3536,7 @@
           "promotionId": "5923",
           "status": "applying",
           "rewardYen": 10000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料相談"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料相談"
         },
         "afb": {
           "status": "unknown"
@@ -2589,7 +3556,7 @@
           "promotionId": "6135",
           "status": "applying",
           "rewardYen": 8000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=新規会員登録"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=新規会員登録"
         },
         "afb": {
           "status": "unknown"
@@ -2609,7 +3576,7 @@
           "promotionId": "7032",
           "status": "applying",
           "rewardYen": 5000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=会員登録"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=会員登録"
         },
         "afb": {
           "status": "unknown"
@@ -2629,7 +3596,7 @@
           "promotionId": "5663",
           "status": "applying",
           "rewardYen": 4231,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=新規会員登録"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=新規会員登録"
         },
         "afb": {
           "status": "unknown"
@@ -2649,7 +3616,7 @@
           "promotionId": "7383",
           "status": "applying",
           "rewardYen": 3000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果の条件は未確認"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果の条件は未確認"
         },
         "afb": {
           "status": "unknown"
@@ -2669,7 +3636,7 @@
           "promotionId": "7416",
           "status": "applying",
           "rewardYen": 3000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料転職相談の予約申込み"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料転職相談の予約申込み"
         },
         "afb": {
           "status": "unknown"
@@ -2681,5 +3648,40 @@
     "afb: 検索 5 語のうち「建設」「現場」が回線タイムアウトで取得できず。**『afb に建設案件が無い』ではなく『検索できた範囲には無かった』**。回線が落ち着いたら `npm run afb:scan -- --query 建設,現場` で補完する",
     "afb: 成果レポートの実数は未取得（フォーム送信が自動化で通らない）。サイトに afb リンクが 0 本なので構造上ゼロのはずだが『ゼロと確認した』ではない",
     "もしもの Amazon.co.jp商品購入 / 楽天市場は旧台帳で『提携済』だが doboku-note の提携中一覧に出ない。解除か『かんたんリンク』が別枠かは未確認（書籍アフィリ自体は 2026-06-25 廃止済みなので実害なし）"
-  ]
+  ],
+  "_spotConsultResearch": {
+    "checkedAt": "2026-11-14",
+    "scope": "技術士個人の経験を提供するスポットコンサル・顧問登録。全ASPでの不存在を断定しない。",
+    "results": [
+      {
+        "asp": "moshimo",
+        "siteId": "672381",
+        "queries": [
+          {
+            "term": "ビザスク",
+            "hits": 0
+          },
+          {
+            "term": "スポットコンサル",
+            "hits": 0
+          },
+          {
+            "term": "サーキュレーション",
+            "hits": 0
+          },
+          {
+            "term": "HiPro",
+            "hits": 0
+          },
+          {
+            "term": "顧問",
+            "hits": 11,
+            "checked": 11
+          }
+        ],
+        "source": "https://af.moshimo.com/af/shop/promotion/search?words=%E9%A1%A7%E5%95%8F&shop_site_id=672381&limit=100",
+        "finding": "顧問11件は税務・労務・融資・スクール・Web運用等。イグジッターは企業側の相談申込（成果30,000円）で個人の知見提供登録ではない。検索した範囲で対象案件は見つからなかった。"
+      }
+    ]
+  }
 }

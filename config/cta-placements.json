@@ -6,13 +6,33 @@
       "label": "本文中（手書き）",
       "status": "active",
       "pageKind": "doc",
-      "pixelPriority": 1
+      "pixelPriority": 1,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
     },
     "article-mid": {
       "label": "本文中間",
       "status": "active",
       "pageKind": "doc",
-      "pixelPriority": 2
+      "pixelPriority": 2,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
     },
     "article-end": {
       "label": "記事末",
@@ -37,13 +57,28 @@
       "label": "カテゴリ サイドバー",
       "status": "active",
       "pageKind": "category",
-      "pixelPriority": 1
+      "pixelPriority": 1,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
     },
     "category-mobile": {
       "label": "カテゴリ モバイル",
       "status": "active",
       "pageKind": "category",
-      "pixelPriority": null
+      "pixelPriority": null,
+      "sizes": {
+        "pc": [],
+        "mobile": [
+          "300x250",
+          "250x250",
+          "336x280"
+        ]
+      }
     },
     "category-career-section": {
       "label": "カテゴリ キャリア欄",
@@ -190,31 +225,81 @@
       "label": "トピック 末尾",
       "status": "active",
       "pageKind": "topic",
-      "pixelPriority": 1
+      "pixelPriority": 1,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
     },
     "laws-list-end": {
       "label": "法令 一覧の末尾",
       "status": "active",
       "pageKind": "laws-list",
-      "pixelPriority": 1
+      "pixelPriority": 1,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
     },
     "tool-end": {
       "label": "ツール ページ末",
       "status": "active",
       "pageKind": "tool",
-      "pixelPriority": 1
+      "pixelPriority": 1,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
     },
     "home-section": {
       "label": "トップ 区画",
       "status": "active",
       "pageKind": "home",
-      "pixelPriority": 1
+      "pixelPriority": 1,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
     },
     "tool-inline": {
       "label": "ツール 結果の下",
       "status": "active",
       "pageKind": "tool",
-      "pixelPriority": 1
+      "pixelPriority": 1,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
     },
     "article-end-offsite": {
       "label": "記事末（ココナラ）",

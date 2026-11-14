@@ -845,17 +845,29 @@ const productSalesCoverage = z
     otherPrograms: count('doboku-note の案件に当たらない A8 の行（stats47 など同じ口座のほかのサイト）').optional(),
   })
   .strict();
+export const MoshimoReport = z.object({
+  schemaVersion: z.literal(1), month, fetchedAt: utcTime('取得時刻'),
+  source: z.object({ site: z.literal('doboku-note'), siteId: z.string().regex(/^\d+$/), url: z.url() }).strict(),
+  period: z.object({ from: jstDate("集計開始日"), to: jstDate("集計終了日") }).strict(),
+  observedRows: z.number().int().positive(),
+  records: z.array(z.object({
+    programId: z.string().regex(/^\d+$/), programName: z.string().min(1),
+    impressions: count('表示'), clicks: count('クリック'), clickRevenueYen: count('クリック報酬'),
+    conversions: count('発生件数'), grossRevenueYen: count('発生報酬'), approved: count('承認件数'), revenueYen: count('確定報酬'),
+  }).strict()).min(1).superRefine(uniqueBy(r => r.programId, '案件 ID')),
+}).strict();
+
 export const BusinessProductSales = z
   .object({
     schemaVersion: z.literal(1),
     month,
     generatedBy: z.literal('npm run product-sales'),
-    coverage: z.object({ note: productSalesCoverage, amazon: productSalesCoverage, coconala: productSalesCoverage, a8: productSalesCoverage }).strict(),
+    coverage: z.object({ note: productSalesCoverage, amazon: productSalesCoverage, coconala: productSalesCoverage, a8: productSalesCoverage, moshimo: productSalesCoverage.optional() }).strict(),
     rows: z
       .array(
         z
           .object({
-            destination: z.enum(['note', 'amazon', 'coconala', 'a8']),
+            destination: z.enum(['note', 'amazon', 'coconala', 'a8', 'moshimo']),
             productId: z.string().min(1).describe('販売記録の商品 ID（note は販売履歴の productId・ほかは商品の正本の id）'),
             type: z.string().optional(),
             bookId: z.string().optional(),
@@ -1285,9 +1297,11 @@ const affiliateCreative = z
     href: z.string().url().describe('広告リンク'),
     imageSrc: z.string().url().optional().describe('バナー画像（配信ホストは ASP が振り分けるので写した時点の値）'),
     pixelSrc: z.string().url().optional().describe('計測ピクセル（A8 の 0.gif・もしもの impression）'),
+    review: z.strictObject({ reviewedAt: jstDate('画像の目視確認日'), outcome: z.enum(['ok', 'avoid']), note: z.string().min(1), sha256: z.string().regex(/^[a-f0-9]{64}$/), framesChecked: z.number().int().positive() }).optional().describe('配信画像の目視記録。判定の根拠となった画像をハッシュで識別する'),
     avoid: z.string().min(1).optional().describe('使わない理由（「No.1」表示・訴求が読み手に合わない など）。書いた素材は配置に選ばない'),
   })
   .superRefine((c, ctx) => {
+    if (c.review && (c.review.outcome === 'avoid') !== Boolean(c.avoid)) flag(ctx, ['review', 'outcome'], '目視判定と avoid が一致しない');
     if (c.kind === 'banner' && (!c.width || !c.height || !c.imageSrc)) flag(ctx, ['kind'], 'バナーは width・height・imageSrc が要る');
     if (c.kind === 'text' && (c.width || c.height || c.imageSrc)) flag(ctx, ['kind'], 'テキスト素材にサイズ・画像は無い');
     if (c.asp === 'a8' && c.imageSrc && !/[?&]wid=002(&|$)/.test(c.imageSrc)) flag(ctx, ['imageSrc'], 'A8 の素材が doboku-note（wid=002）でない');
@@ -1310,6 +1324,7 @@ export const AffiliateCatalog = z
         redLine: z.boolean().optional().describe('講座・教材など配置してはいけない案件'),
         ctaLabels: z.array(z.string().min(1)).optional().describe('GA4 の data-cta-label のうちこの案件のもの（面ごとの trackLabel と本文カードの service 名）。対応の唯一の正本（scripts/lib/affiliate-labels.mjs が読む）'),
         asps: z.strictObject({ a8: aspEntry.optional(), moshimo: aspEntry.optional(), afb: aspEntry.optional() }),
+        productLink: z.strictObject({ href: z.string().url(), pixelSrc: z.string().url(), verifiedAt: jstDate('商品リンクの実機照合日'), source: z.string().min(1) }).optional().describe('ASP が発行した自社商品へのリンク'),
         creativesCollectedAt: jstDate('素材の一覧を ASP の画面から写した日').optional(),
         creatives: z.array(affiliateCreative).optional().describe('広告素材の一覧（ASP の画面から写す）。サイト・note の配置はここから選ぶ'),
       }).superRefine((p, ctx) => {

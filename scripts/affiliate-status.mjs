@@ -41,8 +41,9 @@ function parseArgs() {
   const f = parseCliArgs({
     asp: { type: "string" },
     write: { type: "boolean" },
+    help: { type: "boolean", alias: "-h" },
   });
-  return { asps: f.asp === null ? null : f.asp.split(",").map((s) => s.trim()), write: f.write };
+  return { asps: f.asp === null ? null : f.asp.split(",").map((s) => s.trim()), write: f.write, help: f.help };
 }
 
 /** カタログの ASP エントリの識別子（ASP ごとにキー名が違う）。 */
@@ -126,6 +127,10 @@ async function checkAsp(name, root, log, catalogIds) {
 
 async function main() {
   const opts = parseArgs();
+  if (opts.help) {
+    console.log("Usage: node scripts/affiliate-status.mjs [--asp a8,moshimo,afb] [--write]\n提携状態を照合する。--write はカタログ更新。--help / -h は説明のみ表示。");
+    return;
+  }
   const root = loadAspConfig();
   const catalog = JSON.parse(readFileSync(CATALOG, "utf-8"));
   const targets = opts.asps ?? Object.keys(root.asps);

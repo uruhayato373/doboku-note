@@ -13,6 +13,7 @@
  * exit: 0 / 2 = 取得がまだ無い（未デプロイ・未取得）
  */
 import { buildProductFunnel, buildProductIndex } from './lib/product-sales.mjs';
+import { affiliateMatEntries } from './lib/affiliate-catalog-mats.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { listReports } from './lib/metric-reports.mjs';
 import { readJson, readJsonIf } from './lib/json-io.mjs';
@@ -33,7 +34,7 @@ for (let m = startDate.slice(0, 7); m <= endDate.slice(0, 7); ) {
   m = new Date(Date.UTC(y, mo, 1)).toISOString().slice(0, 7);
 }
 const ledgers = months.map((month) => readJsonIf(ROOT, datasetPath('business.product-sales', { month })) ?? { month, coverage: {}, rows: [] });
-const index = buildProductIndex(readJson(ROOT, datasetPath('config.products')).products, readJsonIf(ROOT, datasetPath('config.affiliate-mats'))?.mats ?? []);
+const index = buildProductIndex(readJson(ROOT, datasetPath('config.products')).products, affiliateMatEntries(readJson(ROOT, datasetPath('affiliate.catalog')), readJsonIf(ROOT, datasetPath('config.affiliate-mats'))?.mats ?? []));
 const funnel = buildProductFunnel({ report: latest.data, ledgers, index });
 if (args.product) funnel.rows = funnel.rows.filter((r) => r.destinationId === args.product || r.productId === args.product);
 
