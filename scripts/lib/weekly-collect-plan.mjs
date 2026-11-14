@@ -244,6 +244,9 @@ export function verifyFailureReason(id, output) {
   return `検算 ${id}: ${line}`.slice(0, 300);
 }
 
+/** pre の後に post を待つ時間。pre の後に GSC の記録層と post（最大で数時間）が続くので、1 日を超えたら止まったとみる */
+export const POST_GRACE_MS = 24 * 3_600_000;
+
 /**
  * 直近の収集の判定（pure・DN-0847）。運営者の取り直し（--only）も数えるため、段ごとに一番新しい結果で決める。
  *   alive  … 直近の pre と post が failDays 以内に回ったか（日次の ops は死活だけを見る）
@@ -251,9 +254,6 @@ export function verifyFailureReason(id, output) {
  * @param {{ runs: object[], stageIds: string[], failDays: number, now: number, alive?: boolean }} input
  * @returns {{ problems: string[], phases: { phase: string, finishedAt: string, ageDays: number }[], stages: { id: string, status: 'ok' | 'warn' | 'skipped' | 'failed' | 'missing', reason: string, at: string | null, phase: string | null }[] }}
  */
-/** pre の後に post を待つ時間。pre の後に GSC の記録層と post（最大で数時間）が続くので、1 日を超えたら止まったとみる */
-export const POST_GRACE_MS = 24 * 3_600_000;
-
 export function judgeRuns({ runs, stageIds, failDays, now, alive = false }) {
   const problems = [];
   const phases = [];

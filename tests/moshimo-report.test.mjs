@@ -43,7 +43,8 @@ test('もしもの成果を A8 と分離し、観測した案件のみをファ�
 });
 test('土曜の認証・取得・検算が販売台帳より前に並ぶ', () => {
   const stages=buildStages({today:'2026-11-14'});
-  assert.match(stages[0].commands[0].argv.join(' '),/a8,moshimo/);
+  assert.match(stages.find(s=>s.id==='auth').commands[0].argv.join(' '),/a8,moshimo/);
+  assert(stages.findIndex(s=>s.id==='auth')<stages.findIndex(s=>s.id==='moshimo'));
   const i=stages.findIndex(s=>s.id==='moshimo');
   assert(i<stages.findIndex(s=>s.id==='product-sales'));
   assert.deepEqual(stages[i].commands.map(c=>c.argv.at(-1)),['2026-10','2026-11']);
