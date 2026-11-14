@@ -59,7 +59,8 @@ export function buildSteps(cadence, period) {
       { id: 'search-opportunities', npm: 'report-search-opportunities', args: ['--json'], timeoutMin: 5 },
       { id: 'search-improvement', npm: 'search-improvement', args: ['monthly', '--json'], timeoutMin: 5 },
       { id: 'product-funnel', npm: 'report-product-funnel', args: [], timeoutMin: 5 },
-      { id: 'site-to-sales', npm: 'report-site-to-sales', args: ['--month', period], timeoutMin: 5 },
+      // 回すたびに data/business/records/ へ版つきの記録を書く（site-to-sales-<月>-rN.json）
+      { id: 'site-to-sales', npm: 'report-site-to-sales', args: ['--month', period], writes: true, timeoutMin: 5 },
       { id: 'exam-ssot', npm: 'exam-ssot-status', args: [], timeoutMin: 2 },
       { id: 'past-exam-inventory', npm: 'check-past-exam-inventory', args: [], timeoutMin: 2 },
       { id: 'qualification-market', npm: 'qualification-market', args: [], timeoutMin: 5 },
