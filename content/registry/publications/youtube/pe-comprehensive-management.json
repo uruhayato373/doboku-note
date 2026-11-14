@@ -309,7 +309,7 @@
       "work": "cm-ochiru-answer-naoshikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.longform/scene-001",
@@ -344,7 +344,42 @@
         "contentSha256": "231841098dab7df7b04ea16594b1ae6a1e4c68d82322543b5727bd66c5d15737"
       },
       "times": {
-        "rendered": "2026-11-14T13:02:50.565Z"
+        "rendered": "2026-11-14T13:02:50.565Z",
+        "uploaded": "2026-11-14T13:05:06.936Z",
+        "scheduled": "2026-11-14T13:05:17.552Z"
+      },
+      "delivery": {
+        "inputSha256": "f5c9153c4e2f388dc9050916527226c21cba818c9b7019b3cedf83eff261bcb3",
+        "marker": "dn-single-a8e81b9ca3db42e67f5cfcccaa031efd4a2fbf20",
+        "uploadRequestedAt": "2026-11-14T13:04:02.105Z",
+        "videoId": "gjpQLbv7KGI",
+        "processedAt": "2026-11-14T13:05:06.241Z",
+        "thumbnailRequestedAt": "2026-11-14T13:05:06.981Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/gjpQLbv7KGI/default.jpg?sqp=CPy44dcG&rs=AOn4CLBYJZxz7jLAXvqyrG588Vtze2S6OA",
+          "https://i9.ytimg.com/vi/gjpQLbv7KGI/mqdefault.jpg?sqp=CPy44dcG&rs=AOn4CLCFJArbiUBhIS99eLztuaPaaaLJcw",
+          "https://i9.ytimg.com/vi/gjpQLbv7KGI/hqdefault.jpg?sqp=CPy44dcG&rs=AOn4CLDtjGURXNRId3G2YeowaJHjZeqvoQ",
+          "https://i9.ytimg.com/vi/gjpQLbv7KGI/sddefault.jpg?sqp=CPy44dcG&rs=AOn4CLAWfEfHSpvss9RiLXvlkrp9GVAmKQ",
+          "https://i9.ytimg.com/vi/gjpQLbv7KGI/maxresdefault.jpg?sqp=CPy44dcG&rs=AOn4CLDw8YrZ1Iwk4dgLHGxGTRIDsvk4_g",
+          "https://i9.ytimg.com/vi/gjpQLbv7KGI/fhddefault.jpg?sqp=CPy44dcG&rs=AOn4CLDXm_gkO47Da5utq-CM2iEB8v6ZJw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-14T13:05:10.741Z",
+        "scheduleRequestedAt": "2026-11-14T13:05:14.229Z",
+        "scheduleAt": "2026-11-19T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-14T13:05:17.552Z"
+      },
+      "platform": {
+        "id": "gjpQLbv7KGI",
+        "url": "https://www.youtube.com/watch?v=gjpQLbv7KGI",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-ochiru-answer-naoshikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-14T13:05:10.741Z"
       }
     },
     {
