@@ -1,23 +1,573 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-11-12T11-52-40Z",
-  "collectedAt": "2026-11-12T11:52:40.421Z",
+  "runId": "2026-11-14T01-16-59Z",
+  "collectedAt": "2026-11-14T01:16:59.840Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "7ebf16682",
+  "scriptVersion": "1d4705696",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 1,
+  "targetCount": 167,
   "items": [
     {
-      "slug": "/exam/concrete-chief-engineer/guide/r08-answers",
-      "url": "https://doboku-note.com/exam/concrete-chief-engineer/guide/r08-answers",
+      "slug": "/exam/concrete-chief-engineer/primary/construction",
+      "url": "https://doboku-note.com/exam/concrete-chief-engineer/primary/construction",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/concrete-chief-engineer/primary/materials",
+      "url": "https://doboku-note.com/exam/concrete-chief-engineer/primary/materials",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/10/26 2:14:47",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/past-exams/h21-secondary",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h21-secondary",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/09/01 9:49:16",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": false,
+        "status": "unconfirmed",
+        "detail": "受理文言を読めなかった（送信された可能性はある）"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-fisheries/guide/hissu-kamoku",
+      "url": "https://doboku-note.com/exam/pe-fisheries/guide/hissu-kamoku",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-fisheries/guide/overview",
+      "url": "https://doboku-note.com/exam/pe-fisheries/guide/overview",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-fisheries/guide/sentaku-kamoku",
+      "url": "https://doboku-note.com/exam/pe-fisheries/guide/sentaku-kamoku",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-fisheries/guide/study-plan",
+      "url": "https://doboku-note.com/exam/pe-fisheries/guide/study-plan",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/surveyor/past-exams/gozen-r04",
+      "url": "https://doboku-note.com/exam/surveyor/past-exams/gozen-r04",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/surveyor/past-exams/gozen-r05",
+      "url": "https://doboku-note.com/exam/surveyor/past-exams/gozen-r05",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/surveyor/past-exams/gozen-r06",
+      "url": "https://doboku-note.com/exam/surveyor/past-exams/gozen-r06",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/surveyor/past-exams/gozen-r07",
+      "url": "https://doboku-note.com/exam/surveyor/past-exams/gozen-r07",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/11/14 7:46:30",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "unconfirmed",
+        "detail": "受理文言を読めなかった（送信された可能性はある）"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/surveyor/past-exams/gozen-r08",
+      "url": "https://doboku-note.com/exam/surveyor/past-exams/gozen-r08",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/explaining-to-residents-and-council",
+      "url": "https://doboku-note.com/practice/explaining-to-residents-and-council",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/information-system-procurement",
+      "url": "https://doboku-note.com/practice/information-system-procurement",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/land-acquisition-compensation",
+      "url": "https://doboku-note.com/practice/land-acquisition-compensation",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/landscape-planning-public-works",
+      "url": "https://doboku-note.com/practice/landscape-planning-public-works",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/municipal-engineer-qualifications",
+      "url": "https://doboku-note.com/practice/municipal-engineer-qualifications",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/national-prefecture-municipal-roles",
+      "url": "https://doboku-note.com/practice/national-prefecture-municipal-roles",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/nature-oriented-river-works",
+      "url": "https://doboku-note.com/practice/nature-oriented-river-works",
       "inspected": {
         "state": "not-indexed",
         "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/polymer-construction-materials",
+      "url": "https://doboku-note.com/practice/polymer-construction-materials",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "unconfirmed",
+        "detail": "受理文言を読めなかった（送信された可能性はある）"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/ready-mixed-concrete-ordering",
+      "url": "https://doboku-note.com/practice/ready-mixed-concrete-ordering",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/road-structure-standards",
+      "url": "https://doboku-note.com/practice/road-structure-standards",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "unconfirmed",
+        "detail": "受理文言を読めなかった（送信された可能性はある）"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/supervision-compliance-surveys",
+      "url": "https://doboku-note.com/practice/supervision-compliance-surveys",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/survey-informatics-overview",
+      "url": "https://doboku-note.com/practice/survey-informatics-overview",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/waterworks-business",
+      "url": "https://doboku-note.com/practice/waterworks-business",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/weather-information-reading",
+      "url": "https://doboku-note.com/practice/weather-information-reading",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "unconfirmed",
+        "detail": "受理文言を読めなかった（送信された可能性はある）"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/wood-and-stone-materials",
+      "url": "https://doboku-note.com/practice/wood-and-stone-materials",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r07-construction-planning-ii-1-1",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r07-construction-planning-ii-1-1",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r07-construction-planning-ii-1-2",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r07-construction-planning-ii-1-2",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "unconfirmed",
+        "detail": "受理文言を読めなかった（送信された可能性はある）"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r07-construction-planning-ii-1-3",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r07-construction-planning-ii-1-3",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r07-construction-planning-ii-1-4",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r07-construction-planning-ii-1-4",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r07-construction-planning-ii-2-1",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r07-construction-planning-ii-2-1",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "unconfirmed",
+        "detail": "受理文言を読めなかった（送信された可能性はある）"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r07-construction-planning-ii-2-2",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r07-construction-planning-ii-2-2",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
@@ -32,9 +582,9 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 1,
-    "accepted": 1,
-    "alreadyIndexed": 0,
-    "unreadable": 0
+    "inspected": 33,
+    "accepted": 10,
+    "alreadyIndexed": 15,
+    "unreadable": 1
   }
 }
