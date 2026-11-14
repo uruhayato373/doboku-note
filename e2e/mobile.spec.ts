@@ -41,12 +41,13 @@ test('/links は最初の資格リンクがスマホの 1 画面目に収まる'
 
 test('/links のコンクリート資格は有料教材へ直接進め、全教材一覧も残す', async ({ page }) => {
   await page.goto('/links');
-  for (const id of ['concrete', 'concrete-chief']) {
-    const href = await page.locator(`#exam-${id} a[data-cta="note"]`).getAttribute('href');
+  for (const id of ['concrete-engineer', 'concrete-chief-engineer']) {
+    const href = await page.locator(`#exam-${id} a[data-cta="note"]`).first().getAttribute('href');
     expect(href).not.toBeNull();
     expect(new URL(href!).pathname).toMatch(/^\/dobokunote\/m\//);
+    // 全教材の一覧（コンクリート資格もくじ）も同じカードに残す
+    await expect(page.locator(`#exam-${id} a[data-cta-label="mokuji-${id}"]`)).toHaveAttribute('href', /\/dobokunote\/n\//);
   }
-  await expect(page.getByRole('link', { name: /コンクリートの全教材一覧/ })).toHaveAttribute('href', /\/dobokunote\/n\//);
 });
 
 test('モバイルメニューを開閉できる', async ({ page }) => {
