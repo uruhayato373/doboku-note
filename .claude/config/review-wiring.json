@@ -284,6 +284,12 @@
           "role": "点検"
         },
         {
+          "command": "review-prepare",
+          "label": "機械の準備をまとめて回す（対象の週・下書き・関門・点検。スケジュール済みタスクの最初の 1 回）",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
           "command": "weekly-review:draft",
           "label": "機械の節の下書き（土曜の Mac が収集の後に作るものと同じ）",
           "stage": "計画・運用",

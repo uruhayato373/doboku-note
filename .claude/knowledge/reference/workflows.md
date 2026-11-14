@@ -30,7 +30,7 @@ title: 推奨ワークフロー
 
 詳細は `.claude/skills/weekly-review/SKILL.md` と `.claude/skills/plan-weekly/SKILL.md` を参照。
 
-**実行主体（2026-11-14〜）**: 週次レビューと週次計画は**デスクトップアプリのスケジュール済みタスク `doboku-weekly-review`（土曜 13:10・専用 worktree `.claude/worktrees/weekly-review`）が実行する**。実行はアプリのセッションとして残り、報告を読んでそのまま続きを指示できる。親は判断と本文だけを担当し、材料の収集（general-purpose・sonnet）と計画（todo-planner）の 2 体だけを起動する。アプリが開いていて Mac が起きていることが前提で、落ちた週は運営者の指示で対話セッションが回す。月次レビュー（`/monthly-review`）は運営者の指示のまま。土曜の launchd は収集と GSC の記録層だけを回し、レビューを回さない。
+**実行主体（2026-11-14〜）**: 週次レビューと週次計画は**デスクトップアプリのスケジュール済みタスク `doboku-weekly-review`（土曜 13:10・専用 worktree `.claude/worktrees/weekly-review`）が実行する**。実行はアプリのセッションとして残り、報告を読んでそのまま続きを指示できる。分業は親の往復を減らすために決めた（2026-11-14 の初回は親が準備のコマンドを 1 本ずつ打ち、API 呼び出し 54 回・キャッシュ読み 966 万トークン。消費を決めるのは親の往復の回数）: 準備は `npm run review-prepare -- --cadence weekly` の 1 回、親（Opus）は判断（決定の一覧）と最終報告、子は不足分の収集（general-purpose・sonnet・effort low）・本文の組み立てと起票の実行（general-purpose・sonnet・effort medium）・計画（todo-planner）の 3 体まで。親の API 呼び出しは 15 回以内を目標にし、実行のたびに報告へ子の数とモデルを書く。アプリが開いていて Mac が起きていることが前提で、落ちた週は運営者の指示で対話セッションが回す。月次レビュー（`/monthly-review`）は運営者の指示のまま。土曜の launchd は収集と GSC の記録層だけを回し、レビューを回さない。
 
 **以前の実行主体（2026-11-08〜11-13）**: 週次レビューも運営者の指示で対話セッションが実行していた。ヘッドレスのレビューは落ちても気づかれなかったため（2026-W45 は収集の失敗で止まり、下書きだけが worktree に残った）自動実行をやめたが、手動では W45 が未完・W46 が未作成のまま滞った。未作成の週は SessionStart の `check-weekly-review-due` が 1 行で知らせるだけで、月曜の guard の赤落ち（「Check last week's review exists」）も外した。自動実行用の worktree は `.claude/worktrees/weekly-collect` の 1 本で、毎日の GSC の登録（`gsc-indexing-daily.sh`）も同じものを使う（土曜の収集の実行中は譲る）。
 
