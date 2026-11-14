@@ -26,6 +26,18 @@ export LANG="ja_JP.UTF-8"
 export LC_ALL="ja_JP.UTF-8"
 export DOBOKU_PW_MIN_FREE_MB="${DOBOKU_PW_MIN_FREE_MB:-1024}"
 unset DOBOKU_PW_ALLOW_PARALLEL
+
+# launchd の処理は、Google Drive の未ダウンロードのファイルの取り寄せが既定で禁止される（iopolicy の
+# materialize dataless files が 1=OFF。対話セッションは 2=ON）。禁止のままだと Drive の読みが EDEADLK
+# （node は Unknown system error -11）で落ち、note 同期の配布 PDF とカバーの保存が毎週失敗した（2026-10-31〜11-14）。
+# 設定は子プロセスへ引き継がれるので、最初に許可へ切り替えて自分を起動し直す。python3 が無ければ切り替えずに進む。
+# あわせて /bin/bash と node の実体にフルディスクアクセスが要る（無いと open が Operation not permitted）。
+if [ -z "${DOBOKU_DATALESS_ON:-}" ] && [ -x /usr/bin/python3 ]; then
+  export DOBOKU_DATALESS_ON=1
+  exec /usr/bin/python3 -c 'import ctypes, os, sys
+ctypes.CDLL("/usr/lib/libSystem.B.dylib").setiopolicy_np(3, 0, 2)
+os.execv("/bin/bash", ["/bin/bash"] + sys.argv[1:])' "$0" "$@"
+fi
 # X was resumed on 2026-11-12 (DN-1159), so the SessionStart x-sync runs again. Instagram stays on hold
 # but has no SessionStart check. To hold SNS again, export DOBOKU_SNS_PAUSED=1 here.
 
