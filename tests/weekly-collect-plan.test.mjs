@@ -1,7 +1,7 @@
 // 土曜の収集の段の表（DN-0817・DN-0819）: 対象の月・期間と、段の合否の決め方
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildStages, commandFailureReason, competitorsDue, judgeRuns, previousMonth, quarterStart, runPassed, stageStatus, verifyFailureReason } from '../scripts/lib/weekly-collect-plan.mjs';
+import { buildStages, commandFailureReason, competitorsDue, judgeRuns, noteAuditDue, noteTrafficMonthDue, NOTE_AUDIT_INTERVAL_DAYS, resumePlan, previousMonth, quarterStart, runPassed, stageStatus, verifyFailureReason } from '../scripts/lib/weekly-collect-plan.mjs';
 import { NOTE_PUBLIC_VIEW_LOCAL_DIR } from '../scripts/lib/note-public-view.mjs';
 
 const argvOf = (stages, id) => stages.find((s) => s.id === id).commands.map((c) => c.argv.join(' '));
@@ -85,9 +85,9 @@ test('取る月が無い KDP の段も検算は持つ（skip の週も過去の�
   assert.deepEqual(kdp.verify, ['kdp-report-freshness']);
 });
 
-test('note-audit はレビューより前・ブラウザ不要・題名と価格の印を commit する置き場を持つ', () => {
+test('note-status（毎週）はレビューより前・ブラウザ不要・題名と価格の印を commit する置き場を持つ', () => {
   const stages = buildStages({ today: '2026-10-24' });
-  const audit = stages.find((s) => s.id === 'note-audit');
+  const audit = stages.find((s) => s.id === 'note-status');
   assert.equal(audit.phase, 'pre');
   assert.equal(audit.browser, false);
   assert.deepEqual(audit.addPaths, ['content/note', 'config/products.json', 'src/lib/note-magazines.ts']);
@@ -135,16 +135,45 @@ test('一番新しい回の書き戻しの問題は段が全部合格でも赤',
 });
 
 // DN-0852: CI の note-public-view.yml・competitor-scan.yml を土曜の前段へ移した
-test('note の公開画面の撮影は前段・撮影は収集とレビューが共有する手元の置き場へ・検査不成立は失敗', () => {
+test('note の公開画面は前段で公開 API の層だけを見る（撮影は毎週回さない・DN-1196）・検査不成立は失敗', () => {
   const stages = buildStages({ today: '2026-10-31' });
   const npv = stages.find((s) => s.id === 'note-public-view');
   assert.equal(npv.phase, 'pre');
   const argv = npv.commands[0].argv.join(' ');
-  assert.match(argv, /check-note-public-view\.mjs --review/);
-  assert.ok(argv.includes(`--shot-dir ${NOTE_PUBLIC_VIEW_LOCAL_DIR}`) && !argv.includes('.tmp/'));
+  assert.match(argv, /check-note-public-view\.mjs --api-only/);
+  assert.ok(!argv.includes('--review') && !argv.includes('--shot-dir'));
+  assert.ok(argv.includes(`--out ${NOTE_PUBLIC_VIEW_LOCAL_DIR}/report.json`) && !argv.includes('.tmp/'));
   assert.equal(stageStatus(npv, [1], ['BAD x']), 'warn');
-  assert.equal(stageStatus(npv, [2], ['検査不成立: 代表ページの撮影成立 3/10']), 'failed');
   assert.equal(stageStatus(npv, [1], ['✗ 検査不成立: 取得・表示の失敗が 40%']), 'failed');
+});
+
+// DN-1196: 前段 2 時間のうち 58 分を占めた note-audit を、毎週要る 4 本（note-status）と月 1 回の 5 本に分けた
+test('note の全記事の照合（note-audit）は前回から 27 日たつまで skip・記録が無ければ回す', () => {
+  const ids = (st) => st.commands.map((c) => c.argv[0].split('/').pop());
+  const first = buildStages({ today: '2026-11-21' }).find((s) => s.id === 'note-audit');
+  assert.equal(first.skip, null);
+  assert.deepEqual(ids(first), ['check-note-structure.mjs', 'check-note-live-tags.mjs', 'check-note-live-headings.mjs', 'audit-note-cards.mjs', 'audit-note-funnel.mjs']);
+  const recent = buildStages({ today: '2026-11-21', noteAuditLastAt: '2026-11-14T02:39:47.455Z' }).find((s) => s.id === 'note-audit');
+  assert.match(recent.skip, /前回（2026-11-14）から 27 日たっていない/);
+  assert.equal(buildStages({ today: '2026-12-12', noteAuditLastAt: '2026-11-14T02:39:47.455Z' }).find((s) => s.id === 'note-audit').skip, null);
+  assert.equal(noteAuditDue({ today: '2026-12-10', lastAt: '2026-11-14T02:39:47.455Z' }), false);
+  assert.equal(NOTE_AUDIT_INTERVAL_DAYS, 27);
+  // 毎週の 4 本と月 1 回の 5 本で、分ける前の 9 本を過不足なく持つ
+  const weekly = ids(buildStages({ today: '2026-11-21' }).find((s) => s.id === 'note-status'));
+  assert.deepEqual(weekly, ['verify-note-status.mjs', 'verify-note-magazines.mjs', 'check-magazine-membership.mjs', 'note-reconcile-title-price.mjs']);
+  assert.equal(new Set([...weekly, ...ids(first)]).size, 9);
+});
+
+test('note のアクセスの月次（先月）は、月が明けた後に取れていれば取り直さない・週の期間は毎週取る', () => {
+  const cmds = (o) => buildStages({ today: '2026-11-21', ...o }).find((s) => s.id === 'note-traffic').commands.map((c) => c.argv.join(' '));
+  assert.equal(cmds({}).length, 2);
+  assert.equal(cmds({ noteTrafficMonthFetchedAt: '2026-10-10T04:42:11.655Z' }).length, 2); // 月の途中の値（10/10）は取り直す
+  const done = cmds({ noteTrafficMonthFetchedAt: '2026-11-07T02:00:00.000Z' });
+  assert.equal(done.length, 1);
+  assert.match(done[0], /--from 2026-11-09 --to 2026-11-15/);
+  // 月の境界は JST（10/31 23:59 JST = 14:59Z はまだ月の途中・11/1 00:00 JST = 15:00Z から月が明けた後）
+  assert.equal(noteTrafficMonthDue({ prevMonth: '2026-10', fetchedAt: '2026-10-31T14:59:00Z' }), true);
+  assert.equal(noteTrafficMonthDue({ prevMonth: '2026-10', fetchedAt: '2026-10-31T15:00:00Z' }), false);
 });
 
 test('四半期の初日と、競合の取得は四半期の最初の土曜だけ（取得済みなら skip）', () => {
@@ -188,4 +217,18 @@ test('pre の後に post の記録が無いまま 1 日たつと、死活でも�
   // post が pre の後に終わっていれば赤くしない
   const done = { ...post, finishedAt: '2026-11-14T08:00:00Z' };
   assert.deepEqual(judgeRuns({ runs: [post, pre, done], stageIds: [], failDays: 15, now: at('2026-11-16T00:00:00Z'), alive: true }).problems, []);
+});
+
+test('回す範囲: 土曜の開始時刻〜日曜だけ・今週の pre が無ければ all・post だけ無ければ post（2026-11-14 の再起動）', () => {
+  const pre = { phase: 'pre', finishedAt: '2026-11-14T02:39:47Z' }; // 土曜 11:39 JST
+  const post = { phase: 'post', finishedAt: '2026-11-14T06:00:00Z' };
+  const old = [{ phase: 'pre', finishedAt: '2026-11-07T02:00:00Z' }, { phase: 'post', finishedAt: '2026-11-08T02:09:36Z' }];
+  const p = (today, iso, runs) => resumePlan({ today, now: Date.parse(iso), runs });
+  assert.equal(p('2026-11-14', '2026-11-14T00:00:00Z', old), 'none'); // 土曜 9:00 JST＝開始前
+  assert.equal(p('2026-11-14', '2026-11-14T00:30:00Z', old), 'all'); // 土曜 9:30 JST＝定刻
+  assert.equal(p('2026-11-14', '2026-11-14T03:05:00Z', [...old, pre]), 'post'); // 再起動の後のログイン
+  assert.equal(p('2026-11-15', '2026-11-15T01:00:00Z', [...old, pre]), 'post'); // 日曜の朝
+  assert.equal(p('2026-11-15', '2026-11-15T01:00:00Z', [...old, pre, post]), 'none');
+  assert.equal(p('2026-11-16', '2026-11-16T01:00:00Z', [...old, pre]), 'none'); // 月曜は回さない
+  assert.equal(p('2026-11-13', '2026-11-13T05:00:00Z', old), 'none'); // 金曜
 });

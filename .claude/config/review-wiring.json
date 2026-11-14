@@ -116,8 +116,14 @@
           "role": "点検"
         },
         {
+          "command": "node:check-note-public-view",
+          "label": "note の代表ページの撮影（必要なときだけ・--review）",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
           "command": "node:fetch-note-public-view-shots",
-          "label": "note 公開ページの目視",
+          "label": "note 公開ページの目視（撮影を回した週だけ）",
           "stage": "受取・販売",
           "role": "点検"
         },

@@ -66,7 +66,7 @@ npm run verify-note-magazines -- --json       # スナップショットを JSON
 - スクリプト: `scripts/verify-note-magazines.mjs`。内部で `curl --ssl-no-revoke` を spawn（プロキシ env を自動利用）。
 - **単品の価格照合（常に実行・DN-0704）**: マガジン一覧に単品は出ないので、公開中の単品（`published:true`・`retiredAt` なし）を 1 本ずつ `fetchNote` で読み、正本 `catalog.price` の先頭の ¥金額と note の `price`・`status` を照合する。`price` 欄の無い単品（精読ガイドなどの無料記事）は 0 円として照合する。判定は `scripts/lib/note-single-price.mjs` の純関数（テスト `tests/note-single-price.test.mjs`）。出力の末尾に「対象・取得・検査・一致・ズレ・取得失敗」の件数を出し、取得失敗は一致にもズレにも数えない。検査 0 件か取得失敗が `inconclusive-gate.mjs` の上限（20%）を超えたら検査不成立（exit 1）。`--contents` で収録記事の取得が不成立になって止まったときは回らない。
 - **`--vs-txt`**: 各 `note掲載文.txt`（マガジン設定 SoT）を note 公開状態と突合。**説明文の先頭一致でマガジンを同定**（タイトルがドリフトしても照合可）し、タイトル差/価格差/説明差/文字数超過を検出。`note掲載文.txt` を編集したら本モードでドリフトを確認 → `note-edit-magazine` で push、の運用。
-- `--json` 出力先: `data/note/magazines.json`（machine データ）。**供給は土曜の Mac の収集（weekly-collect の note-audit 段・週次・公開 API）が正**（2026-10-25 に CI の note-live-audit.yml から移した・DN-0847）。
+- `--json` 出力先: `data/note/magazines.json`（machine データ）。**供給は土曜の Mac の収集（weekly-collect の note-status 段・週次・公開 API）が正**（2026-10-25 に CI の note-live-audit.yml から移した・DN-0847）。
   ローカル再生成は可（デバッグ・事故是正の即時反映）だが、**再生成したら commit する**——`check-magazine-membership` が `fetchedAt` の鮮度を見ており、腐った snapshot は「合格」ではなく検査不成立として扱う。収録リスト `notes[]` は `--contents` を渡したときだけ入るので、**この 2 つを常にセットで**（`--contents --json`）。
   （2026-06-12 に生成された snapshot が 73 日間そのまま残り、ゼネコン=5 件という古い値を保持していた。「コミット任意」がその腐敗の許可証になっていたため 2026-08-24 に改めた。）
 - 収録記事の取得失敗は 0 件と区別する（DN-0482）: 以前は `magazines/{key}/notes` が JSON を返さないとき（連続取得で弾かれる・プロキシ）も `?? []` で「収録 0 件」と書き、`check-magazine-membership` が 39 誌で「ライブ 0」と誤判定した（2026-10-01）。いまは間を空けて 3 回まで取り直し、それでも取れない誌は `notes` を書かず `contentsFailed[]` に記録する（軸 C は未検査）。失敗が過半なら snapshot を書き換えず exit 1。
@@ -295,9 +295,9 @@ node scripts/check-note-price-consistency.mjs --json      # 機械可読
 | トラック | ゲート | 見るもの |
 |---|---|---|
 | ソース | `npm run check-note-hashtags` | `content/note/**/hashtags*.txt` が90個以上か。pre-commit（staged）＋ CI 全量 |
-| ライブ | `npm run check-note-live-tags` | note API の `hashtag_notes` が90個以上か。curl 経路・土曜の収集の note-audit 段（週次） |
+| ライブ | `npm run check-note-live-tags` | note API の `hashtag_notes` が90個以上か。curl 経路・土曜の収集の note-audit 段（月 1 回） |
 
-土曜の収集の note-audit 段（`scripts/lib/weekly-collect-plan.mjs`）はこのタグ検査だけでなく、`check-note-structure --ci` / `check-note-live-headings` / `audit-note-cards` / `verify-note-status --ci --snapshot` / `verify-note-magazines --vs-txt --contents --json` / `check-magazine-membership --ci` / `audit-note-funnel --live --ci` / `note-reconcile-title-price --commit` を同じ段で順に回す。ログインは要らないが、直すにはログインが要るので土曜に寄せ、その日のレビューが結果を読む（2026-10-25 まで CI の note-live-audit.yml・DN-0847）。指摘は段の warn、取得失敗が支配的な検査不成立は failed（Issue channel weekly-collect）。
+土曜の収集は 2026-11-14 に note の照合を 2 段に分けた（DN-1196）。毎週の note-status 段は公開状態・マガジン・題名と価格の 4 本、月 1 回（前回から 27 日）の note-audit 段は全記事を 1 本ずつ見る構造・タグ・本文・カード・導線の 5 本。すぐ見たいときは運営者が `node scripts/weekly-collect.mjs --only note-audit` で回す。note-audit 段（`scripts/lib/weekly-collect-plan.mjs`）はこのタグ検査だけでなく、`check-note-structure --ci` / `check-note-live-headings` / `audit-note-cards` / `verify-note-status --ci --snapshot` / `verify-note-magazines --vs-txt --contents --json` / `check-magazine-membership --ci` / `audit-note-funnel --live --ci` / `note-reconcile-title-price --commit` を同じ段で順に回す。ログインは要らないが、直すにはログインが要るので土曜に寄せ、その日のレビューが結果を読む（2026-10-25 まで CI の note-live-audit.yml・DN-0847）。指摘は段の warn、取得失敗が支配的な検査不成立は failed（Issue channel weekly-collect）。
 
 **2026-07-28 の実測**: ソースは 748 件すべて 90+ で完備（欠落0）なのに、**ライブは 675 本中 250 本（37%）が 90 未満**だった（0タグ19本・30〜59が214本）。ソースだけ見ていると永遠に緑になる。
 
