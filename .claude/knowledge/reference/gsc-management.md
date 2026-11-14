@@ -823,3 +823,35 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 判断: 定義語の順位取りは続けず、題名と冒頭に「出題例・過去問での問われ方・似た語との違い」を出す形を 3〜5 ページで試す（DN-1160）。
 - 理由: 定義を聞く検索語は 1〜2 位でもクリックが 0（7 日: 「循環型社会形成推進基本法」1.0 位・表示 38、「ブラインド訓練とは」2.6 位・31、「alarpの原則」2.2 位・25）。検索語の 98% は総監を含まない一般語で、検索結果の中や生成 AI の回答で答えが済んでいる可能性がある。表示のある 417 ページと表示 0 の 269 ページは title とリードの形が同じだった（2026-11-04）。
 - EXP-057 は判定をクリック数で行う（実験台帳の target_metric・2026-12-30 確認）。表示だけ増えてクリックが増えない場合は成功にしない。
+
+### 2026-11-14（週次・自動レビュー）
+
+- **観測**: GSC page 10-13〜11-09（1000 行打ち切り）・GA4 10-10〜11-06・ダイジェスト W44。P3 Traffic-Drop 6 / P1・2・7・8 surfaced 0（notSurfaced 18・suppressed 31 は未確認）/ P4 多数 / P5 121 クエリ（空き 2）/ P6 判定不能
+- **上位候補と推奨**:
+  1. `/exam/civil-construction-2/guide/r08-secondary-answers` — 週クリック 381（基線 1,210・-68.5%）、28 日 表示 31,363・CTR 16.7%・順位 6.4。発表直後の急増が引いた季節要因の可能性。週次推移・鮮度・SERP を確認
+  2. 2 級土木 経験記述の束（experience-writing-guide 週 4・-79% / experience-writing-examples 週 2・-93% / tools/keiken-charcount 週 2・-93%）— 順位 6〜8 位は維持。鮮度確認後に最大 5 URL・14〜28 日の実験案
+  3. `/exam/civil-construction-2/secondary/r08` — CTA クリック率 0.23%（サイト平均 0.75%）、GSC CTR 13.9%・ER 84.2%。r04（0.25%）と束ねて CTA 面の実験案（EXP-017/018 と重複確認が先）
+- **トリアージ待ち**:
+  - OPP-23fcb9d041（r08-secondary-answers）→ backlog 起票
+  - OPP-b1f54e7b6d / OPP-c308f66990 / OPP-125be209b4（2 級経験記述の束）→ /nsm-experiment propose
+  - OPP-5a37725ac3 / OPP-1d0d1c99f7（2 級 r08・r04 CTA）→ /nsm-experiment propose
+  - OPP-8d6d1d552c（1 級 secondary/r06 週 1・-96%）→ backlog 起票（季節性の切り分け）
+  - OPP-b67bbfd016（kakomon-quiz 完了率 12%・母数小）→ backlog 起票
+  - OPP-1a1e06a94b（EXP-018 insufficient-data）/ OPP-54c4b70fae（EXP-017 improved）→ /nsm-experiment close の裁定
+- 他 N=8 件（P5 の空き 2、P1 scraper ほか、P4 需要シグナル）→ improvements/2026-11-14.md
+- **注記**: 自動生成（metrics-analyzer）。総監の定義語クエリは EXP-057（DN-1160）で処理中として除外、crawled-not-indexed の主任技士・診断士 2 ページは観測継続の裁定どおり除外。人間の上書き歓迎
+
+### 2026-11-14（coverage・自動レビュー）
+
+- **観測**（batch 2026-11-12・history 該当エントリ）: inspected 2,101 / sitemap 2,101 / indexed 1,926 / ratio 91.7%（前回 89.8%・+1.9pt）/ discovered_not_indexed 58（前回 144）/ crawled_not_indexed 2（前回 5）/ hygiene 0（404 0・redirect 0）/ other 115（URL 未認識 109・Google が別の正規を選択 6）
+- **資格別の注意**: pe-construction 156/237（65.8%・前回 152/152）は新規 85 URL のうち 81 件が lastCrawl なしの未認識。surveyor 9/14（gozen-r04〜r08 の 5 件）、pe-fisheries 0/4 も同様に新規の発見待ち
+- **原因バケット**:
+  - 権威性: 167 件（発見済み未登録 58＝standards/kinki 22・kyushu 12 ほか、practice 約 17／未認識 109＝pe-construction 81 ほか）。discovered は 144→58 に減少
+  - 技術: 8 件。Google が旧 `/docs/` を正規に選んでいる総監 6 件（例 `/keywords/key-performance-indicators`・`/keywords/labor-tribunal-act`・`/past-exams/h21-secondary`）と、crawled-not-indexed の主任技士 2 件（primary/construction・materials、観測継続の裁定どおり）。fetch 失敗・robots・noindex は 0
+  - hygiene: 0 件
+- **推奨アクション**:
+  1. 総監の旧 `/docs/` 正規 6 件は、11-11 の登録リクエスト（9 件中、残り 3 件は今回 PASS）の再クロール待ち。次回 batch で再確認し、残っていれば 6 件を個別に再申請する
+  2. pe-construction 81・surveyor 5・pe-fisheries 4 の新規ページは発見待ち。ハブからの内部リンクと sitemap の lastmod を確認し、必要なら優先 10 件ほどを登録リクエストする
+  3. standards の kinki・kyushu は未登録が多いため、追加を抑えて内部リンクを強化する方向で観測する
+- **異常フラグ**: なし（ratio ≥ 60%・前回比 +1.9pt・discovered は sitemap の 2.8%・hygiene 0・inspected = sitemap・results 2,101 件）
+- **注記**: 自動生成（gsc-index-auditor・sonnet）。前回 batch ファイルはローカルになく、前回値は history を使用。最終決定は人間
