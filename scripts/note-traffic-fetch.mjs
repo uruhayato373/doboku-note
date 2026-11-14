@@ -97,8 +97,12 @@ try {
   if (!requestedPeriod) {
     await selectPeriod('過去365日間');
     const tsBtn = page.getByRole('button', { name: '時系列', exact: true }).first();
-    if (await tsBtn.count()) { await tsBtn.click(); await sleep(4000); }
-    series = parseReferrerTimeSeries(await page.evaluate(() => document.body.innerText || ''));
+    if (await tsBtn.count()) await tsBtn.click();
+    // 表が描かれるまで待つ（固定 4 秒では、Mac の負荷が高い土曜に表の前を読んで「時系列テーブルが読めない」になった・2026-11-14）
+    for (let i = 0; i < 15 && !series; i++) {
+      await sleep(2000);
+      series = parseReferrerTimeSeries(await page.evaluate(() => document.body.innerText || ''));
+    }
     const pieBtn = page.getByRole('button', { name: '円グラフ', exact: true }).first();
     if (await pieBtn.count()) { await pieBtn.click(); await sleep(1500); }
   }
