@@ -1,12 +1,1211 @@
 {
-  "measuredAt": "2026-11-08",
-  "inspected": 630,
-  "target": 630,
+  "measuredAt": "2026-11-14",
+  "inspected": 728,
+  "target": 728,
   "fetchFail": 0,
-  "satisfied": 630,
-  "missingPromised": [],
+  "satisfied": 665,
+  "missingPromised": [
+    {
+      "noteId": "n1125db5bc867",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R01 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R01/上下水道部門-上水道-R01-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "ne4168781707b",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R01 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R01/上下水道部門-上水道-R01-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n5c25f39e6aaa",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R01 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R01/上下水道部門-上水道-R01-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n4e731d63669f",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R02 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R02/上下水道部門-上水道-R02-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nf32dfe74467a",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R02 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R02/上下水道部門-上水道-R02-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n9c78fc6e0cd0",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R02 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R02/上下水道部門-上水道-R02-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nfd3a2e875766",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R03 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R03/上下水道部門-上水道-R03-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n7a212fcaaa8d",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R03 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R03/上下水道部門-上水道-R03-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n85629ff48734",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R03 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R03/上下水道部門-上水道-R03-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nafaefa267fe8",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R04 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R04/上下水道部門-上水道-R04-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n456b2844b6aa",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R04 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R04/上下水道部門-上水道-R04-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n332bc2288711",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R04 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R04/上下水道部門-上水道-R04-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n1cd976800eba",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R05 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R05/上下水道部門-上水道-R05-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n0cd3827dd915",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R05 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R05/上下水道部門-上水道-R05-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nc66b07a43e1d",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R05 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R05/上下水道部門-上水道-R05-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n60e3a6d24532",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R06 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R06/上下水道部門-上水道-R06-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nd31befb0431b",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R06 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R06/上下水道部門-上水道-R06-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n7119d08de104",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R06 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R06/上下水道部門-上水道-R06-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n47ad942a0413",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R07 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R07/上下水道部門-上水道-R07-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nec418dbe0908",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R07 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R07/上下水道部門-上水道-R07-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n95a0361b4028",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R07 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R07/上下水道部門-上水道-R07-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nd0db7f85f8ee",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R08 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R08/上下水道部門-上水道-R08-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n5526fbb9b1fe",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R08 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R08/上下水道部門-上水道-R08-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nc244516d7522",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R08 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R08/上下水道部門-上水道-R08-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n5fccde30ff07",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R9予想 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R09-yosou/上下水道部門-上水道-R09予想-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nab0bad90c988",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R9予想 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R09-yosou/上下水道部門-上水道-R09予想-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n5139230b5721",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R9予想 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R09-yosou/上下水道部門-上水道-R09予想-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n1ac55ee1a455",
+      "title": "技術士 上下水道部門｜下水道 R01 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R01/上下水道部門-下水道-R01-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nfa5772308330",
+      "title": "技術士 上下水道部門｜下水道 R01 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R01/上下水道部門-下水道-R01-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n416c6863538f",
+      "title": "技術士 上下水道部門｜下水道 R01 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R01/上下水道部門-下水道-R01-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n4e7630883217",
+      "title": "技術士 上下水道部門｜下水道 R02 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R02/上下水道部門-下水道-R02-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n4bdbbf2c2aa4",
+      "title": "技術士 上下水道部門｜下水道 R02 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R02/上下水道部門-下水道-R02-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n9cd979ce79d0",
+      "title": "技術士 上下水道部門｜下水道 R02 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R02/上下水道部門-下水道-R02-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n79cba2e855ec",
+      "title": "技術士 上下水道部門｜下水道 R03 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R03/上下水道部門-下水道-R03-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n984fd6faebf5",
+      "title": "技術士 上下水道部門｜下水道 R03 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R03/上下水道部門-下水道-R03-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n74c057407905",
+      "title": "技術士 上下水道部門｜下水道 R03 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R03/上下水道部門-下水道-R03-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n08c966f8b3ea",
+      "title": "技術士 上下水道部門｜下水道 R04 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R04/上下水道部門-下水道-R04-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n61188958f831",
+      "title": "技術士 上下水道部門｜下水道 R04 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R04/上下水道部門-下水道-R04-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n6348b902a633",
+      "title": "技術士 上下水道部門｜下水道 R04 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R04/上下水道部門-下水道-R04-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n22f10e396b8f",
+      "title": "技術士 上下水道部門｜下水道 R05 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R05/上下水道部門-下水道-R05-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nfce9417c39dc",
+      "title": "技術士 上下水道部門｜下水道 R05 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R05/上下水道部門-下水道-R05-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n851c74cc4908",
+      "title": "技術士 上下水道部門｜下水道 R05 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R05/上下水道部門-下水道-R05-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nb2bf6bfd6ac4",
+      "title": "技術士 上下水道部門｜下水道 R06 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R06/上下水道部門-下水道-R06-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n52c26a2011d9",
+      "title": "技術士 上下水道部門｜下水道 R06 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R06/上下水道部門-下水道-R06-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n6ce39e240062",
+      "title": "技術士 上下水道部門｜下水道 R06 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R06/上下水道部門-下水道-R06-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n35d3f8618977",
+      "title": "技術士 上下水道部門｜下水道 R07 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R07/上下水道部門-下水道-R07-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nb901a4b0a70b",
+      "title": "技術士 上下水道部門｜下水道 R07 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R07/上下水道部門-下水道-R07-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nf92cac6cf4cb",
+      "title": "技術士 上下水道部門｜下水道 R07 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R07/上下水道部門-下水道-R07-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n0dba2ba725ce",
+      "title": "技術士 上下水道部門｜下水道 R08 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R08/上下水道部門-下水道-R08-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n3063752db461",
+      "title": "技術士 上下水道部門｜下水道 R08 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R08/上下水道部門-下水道-R08-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n8df47cd6b0f4",
+      "title": "技術士 上下水道部門｜下水道 R08 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R08/上下水道部門-下水道-R08-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "ned807f698a47",
+      "title": "技術士 上下水道部門｜下水道 R9予想 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R09-yosou/上下水道部門-下水道-R09予想-II-1-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n373832b42505",
+      "title": "技術士 上下水道部門｜下水道 R9予想 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R09-yosou/上下水道部門-下水道-R09予想-II-2-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n67d203f14273",
+      "title": "技術士 上下水道部門｜下水道 R9予想 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R09-yosou/上下水道部門-下水道-R09予想-III-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nbc2bc6f4a16d",
+      "title": "技術士 上下水道部門｜必須科目 I R01 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R01/上下水道部門-必須科目I-R01-I-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n2784a0fab747",
+      "title": "技術士 上下水道部門｜必須科目 I R02 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R02/上下水道部門-必須科目I-R02-I-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n3abae225dbc1",
+      "title": "技術士 上下水道部門｜必須科目 I R03 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R03/上下水道部門-必須科目I-R03-I-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "n2d113373e46d",
+      "title": "技術士 上下水道部門｜必須科目 I R04 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R04/上下水道部門-必須科目I-R04-I-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "ne7ae59f5318e",
+      "title": "技術士 上下水道部門｜必須科目 I R05 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R05/上下水道部門-必須科目I-R05-I-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "neb7614e931eb",
+      "title": "技術士 上下水道部門｜必須科目 I R06 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R06/上下水道部門-必須科目I-R06-I-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "nfb302981752f",
+      "title": "技術士 上下水道部門｜必須科目 I R07 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R07/上下水道部門-必須科目I-R07-I-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "ndccbe710eb8d",
+      "title": "技術士 上下水道部門｜必須科目 I R08 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R08/上下水道部門-必須科目I-R08-I-模範解答.pdf"
+      ]
+    },
+    {
+      "noteId": "ndf50c0266cbe",
+      "title": "技術士 上下水道部門｜必須科目I R9予想 老朽管路・耐震 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R09-yosou-1/上下水道部門-必須科目I-R09予想-I-模範解答.pdf"
+      ]
+    }
+  ],
   "missingSilent": [],
-  "missing": [],
+  "missing": [
+    {
+      "noteId": "n1125db5bc867",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R01 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R01/上下水道部門-上水道-R01-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "ne4168781707b",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R01 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R01/上下水道部門-上水道-R01-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n5c25f39e6aaa",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R01 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R01/上下水道部門-上水道-R01-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n4e731d63669f",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R02 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R02/上下水道部門-上水道-R02-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nf32dfe74467a",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R02 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R02/上下水道部門-上水道-R02-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n9c78fc6e0cd0",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R02 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R02/上下水道部門-上水道-R02-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nfd3a2e875766",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R03 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R03/上下水道部門-上水道-R03-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n7a212fcaaa8d",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R03 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R03/上下水道部門-上水道-R03-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n85629ff48734",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R03 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R03/上下水道部門-上水道-R03-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nafaefa267fe8",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R04 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R04/上下水道部門-上水道-R04-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n456b2844b6aa",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R04 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R04/上下水道部門-上水道-R04-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n332bc2288711",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R04 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R04/上下水道部門-上水道-R04-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n1cd976800eba",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R05 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R05/上下水道部門-上水道-R05-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n0cd3827dd915",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R05 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R05/上下水道部門-上水道-R05-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nc66b07a43e1d",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R05 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R05/上下水道部門-上水道-R05-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n60e3a6d24532",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R06 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R06/上下水道部門-上水道-R06-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nd31befb0431b",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R06 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R06/上下水道部門-上水道-R06-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n7119d08de104",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R06 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R06/上下水道部門-上水道-R06-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n47ad942a0413",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R07 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R07/上下水道部門-上水道-R07-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nec418dbe0908",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R07 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R07/上下水道部門-上水道-R07-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n95a0361b4028",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R07 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R07/上下水道部門-上水道-R07-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nd0db7f85f8ee",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R08 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R08/上下水道部門-上水道-R08-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n5526fbb9b1fe",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R08 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R08/上下水道部門-上水道-R08-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nc244516d7522",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R08 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R08/上下水道部門-上水道-R08-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n5fccde30ff07",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R9予想 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R09-yosou/上下水道部門-上水道-R09予想-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nab0bad90c988",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R9予想 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R09-yosou/上下水道部門-上水道-R09予想-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n5139230b5721",
+      "title": "技術士 上下水道部門｜上水道及び工業用水道 R9予想 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道/R09-yosou/上下水道部門-上水道-R09予想-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n1ac55ee1a455",
+      "title": "技術士 上下水道部門｜下水道 R01 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R01/上下水道部門-下水道-R01-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nfa5772308330",
+      "title": "技術士 上下水道部門｜下水道 R01 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R01/上下水道部門-下水道-R01-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n416c6863538f",
+      "title": "技術士 上下水道部門｜下水道 R01 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R01/上下水道部門-下水道-R01-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n4e7630883217",
+      "title": "技術士 上下水道部門｜下水道 R02 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R02/上下水道部門-下水道-R02-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n4bdbbf2c2aa4",
+      "title": "技術士 上下水道部門｜下水道 R02 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R02/上下水道部門-下水道-R02-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n9cd979ce79d0",
+      "title": "技術士 上下水道部門｜下水道 R02 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R02/上下水道部門-下水道-R02-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n79cba2e855ec",
+      "title": "技術士 上下水道部門｜下水道 R03 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R03/上下水道部門-下水道-R03-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n984fd6faebf5",
+      "title": "技術士 上下水道部門｜下水道 R03 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R03/上下水道部門-下水道-R03-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n74c057407905",
+      "title": "技術士 上下水道部門｜下水道 R03 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R03/上下水道部門-下水道-R03-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n08c966f8b3ea",
+      "title": "技術士 上下水道部門｜下水道 R04 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R04/上下水道部門-下水道-R04-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n61188958f831",
+      "title": "技術士 上下水道部門｜下水道 R04 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R04/上下水道部門-下水道-R04-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n6348b902a633",
+      "title": "技術士 上下水道部門｜下水道 R04 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R04/上下水道部門-下水道-R04-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n22f10e396b8f",
+      "title": "技術士 上下水道部門｜下水道 R05 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R05/上下水道部門-下水道-R05-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nfce9417c39dc",
+      "title": "技術士 上下水道部門｜下水道 R05 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R05/上下水道部門-下水道-R05-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n851c74cc4908",
+      "title": "技術士 上下水道部門｜下水道 R05 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R05/上下水道部門-下水道-R05-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nb2bf6bfd6ac4",
+      "title": "技術士 上下水道部門｜下水道 R06 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R06/上下水道部門-下水道-R06-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n52c26a2011d9",
+      "title": "技術士 上下水道部門｜下水道 R06 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R06/上下水道部門-下水道-R06-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n6ce39e240062",
+      "title": "技術士 上下水道部門｜下水道 R06 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R06/上下水道部門-下水道-R06-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n35d3f8618977",
+      "title": "技術士 上下水道部門｜下水道 R07 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R07/上下水道部門-下水道-R07-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nb901a4b0a70b",
+      "title": "技術士 上下水道部門｜下水道 R07 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R07/上下水道部門-下水道-R07-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nf92cac6cf4cb",
+      "title": "技術士 上下水道部門｜下水道 R07 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R07/上下水道部門-下水道-R07-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n0dba2ba725ce",
+      "title": "技術士 上下水道部門｜下水道 R08 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R08/上下水道部門-下水道-R08-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n3063752db461",
+      "title": "技術士 上下水道部門｜下水道 R08 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R08/上下水道部門-下水道-R08-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n8df47cd6b0f4",
+      "title": "技術士 上下水道部門｜下水道 R08 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R08/上下水道部門-下水道-R08-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "ned807f698a47",
+      "title": "技術士 上下水道部門｜下水道 R9予想 選択科目II-1 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R09-yosou/上下水道部門-下水道-R09予想-II-1-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n373832b42505",
+      "title": "技術士 上下水道部門｜下水道 R9予想 選択科目II-2 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R09-yosou/上下水道部門-下水道-R09予想-II-2-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n67d203f14273",
+      "title": "技術士 上下水道部門｜下水道 R9予想 選択科目III 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-02_下水道/R09-yosou/上下水道部門-下水道-R09予想-III-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nbc2bc6f4a16d",
+      "title": "技術士 上下水道部門｜必須科目 I R01 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R01/上下水道部門-必須科目I-R01-I-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n2784a0fab747",
+      "title": "技術士 上下水道部門｜必須科目 I R02 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R02/上下水道部門-必須科目I-R02-I-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n3abae225dbc1",
+      "title": "技術士 上下水道部門｜必須科目 I R03 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R03/上下水道部門-必須科目I-R03-I-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "n2d113373e46d",
+      "title": "技術士 上下水道部門｜必須科目 I R04 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R04/上下水道部門-必須科目I-R04-I-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "ne7ae59f5318e",
+      "title": "技術士 上下水道部門｜必須科目 I R05 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R05/上下水道部門-必須科目I-R05-I-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "neb7614e931eb",
+      "title": "技術士 上下水道部門｜必須科目 I R06 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R06/上下水道部門-必須科目I-R06-I-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "nfb302981752f",
+      "title": "技術士 上下水道部門｜必須科目 I R07 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R07/上下水道部門-必須科目I-R07-I-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "ndccbe710eb8d",
+      "title": "技術士 上下水道部門｜必須科目 I R08 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R08/上下水道部門-必須科目I-R08-I-模範解答.pdf"
+      ],
+      "promises": true
+    },
+    {
+      "noteId": "ndf50c0266cbe",
+      "title": "技術士 上下水道部門｜必須科目I R9予想 老朽管路・耐震 模範解答",
+      "live": 0,
+      "want": 1,
+      "pdfs": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R09-yosou-1/上下水道部門-必須科目I-R09予想-I-模範解答.pdf"
+      ],
+      "promises": true
+    }
+  ],
   "reverified": [
     {
       "noteId": "nc6c8bb7fb7d3",
@@ -18,9 +1217,9 @@
   "recoveredInConfirm": [],
   "measurement": {
     "method": "public-api-with-author-fallback",
-    "apiSatisfied": 630,
-    "browserTargets": 0,
-    "browserInspected": 0,
+    "apiSatisfied": 665,
+    "browserTargets": 63,
+    "browserInspected": 63,
     "apiMeasurements": [
       {
         "noteId": "nc2a33b52a2f7",
@@ -1238,6 +2437,326 @@
         "want": 3
       },
       {
+        "noteId": "n1125db5bc867",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "ne4168781707b",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n5c25f39e6aaa",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n4e731d63669f",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nf32dfe74467a",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n9c78fc6e0cd0",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nfd3a2e875766",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n7a212fcaaa8d",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n85629ff48734",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nafaefa267fe8",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n456b2844b6aa",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n332bc2288711",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n1cd976800eba",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n0cd3827dd915",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nc66b07a43e1d",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n60e3a6d24532",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nd31befb0431b",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n7119d08de104",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n47ad942a0413",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nec418dbe0908",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n95a0361b4028",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nd0db7f85f8ee",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n5526fbb9b1fe",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nc244516d7522",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n5fccde30ff07",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nab0bad90c988",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n5139230b5721",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n1ac55ee1a455",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nfa5772308330",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n416c6863538f",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n4e7630883217",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n4bdbbf2c2aa4",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n9cd979ce79d0",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n79cba2e855ec",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n984fd6faebf5",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n74c057407905",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n08c966f8b3ea",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n61188958f831",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n6348b902a633",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n22f10e396b8f",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nfce9417c39dc",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n851c74cc4908",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nb2bf6bfd6ac4",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n52c26a2011d9",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n6ce39e240062",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n35d3f8618977",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nb901a4b0a70b",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nf92cac6cf4cb",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n0dba2ba725ce",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n3063752db461",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n8df47cd6b0f4",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "ned807f698a47",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n373832b42505",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n67d203f14273",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nbc2bc6f4a16d",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n2784a0fab747",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n3abae225dbc1",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "n2d113373e46d",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "ne7ae59f5318e",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "neb7614e931eb",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nfb302981752f",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "ndccbe710eb8d",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "ndf50c0266cbe",
+        "live": 0,
+        "want": 1
+      },
+      {
+        "noteId": "nb6b847a9979c",
+        "live": 1,
+        "want": 1
+      },
+      {
         "noteId": "nb50d168c443a",
         "live": 1,
         "want": 1
@@ -1309,6 +2828,21 @@
       },
       {
         "noteId": "n7f2753f242eb",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n3540f9543329",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n9200e4724d4d",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n3f39d234575a",
         "live": 1,
         "want": 1
       },
@@ -1433,6 +2967,21 @@
         "want": 1
       },
       {
+        "noteId": "nf6e6195b962c",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n4c84f9500f9e",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n3f73de90ed77",
+        "live": 1,
+        "want": 1
+      },
+      {
         "noteId": "ne542468cb0e0",
         "live": 1,
         "want": 1
@@ -1519,6 +3068,21 @@
       },
       {
         "noteId": "n4a06fc8dbc31",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "ncb7fb0630e0d",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "nb2d750bfa608",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n81f259486b66",
         "live": 1,
         "want": 1
       },
@@ -1613,6 +3177,21 @@
         "want": 1
       },
       {
+        "noteId": "n858de00dcb6c",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n722adeca77cc",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n05eb031c1f4f",
+        "live": 1,
+        "want": 1
+      },
+      {
         "noteId": "n9187e7396ccb",
         "live": 1,
         "want": 1
@@ -1699,6 +3278,21 @@
       },
       {
         "noteId": "n8dc1d6634aa2",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n7b5e252a5f20",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "nd92b376b1d98",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "nbec1d52f7ce2",
         "live": 1,
         "want": 1
       },
@@ -1793,6 +3387,21 @@
         "want": 1
       },
       {
+        "noteId": "nde8ec38e1bf7",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n99dc4e825a72",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n2038656117dc",
+        "live": 1,
+        "want": 1
+      },
+      {
         "noteId": "nac1ee98b8b8b",
         "live": 1,
         "want": 1
@@ -1879,6 +3488,21 @@
       },
       {
         "noteId": "n2a429546988d",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n891f78276f6c",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "nad968483ec82",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "na15f68bf3f80",
         "live": 1,
         "want": 1
       },
@@ -1973,6 +3597,21 @@
         "want": 1
       },
       {
+        "noteId": "n849740549dff",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n6cd31dc9f3c5",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "ndebefeb944fc",
+        "live": 1,
+        "want": 1
+      },
+      {
         "noteId": "n6ea0a86911f4",
         "live": 1,
         "want": 1
@@ -2059,6 +3698,21 @@
       },
       {
         "noteId": "nce6738ce5f89",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n13d4168399f9",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n9fc82753f2ee",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "ndfa29476367f",
         "live": 1,
         "want": 1
       },
@@ -2153,6 +3807,21 @@
         "want": 1
       },
       {
+        "noteId": "nb70dff660594",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "nf1531b01dc71",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n7a618a6dadf7",
+        "live": 1,
+        "want": 1
+      },
+      {
         "noteId": "n44418c163b26",
         "live": 1,
         "want": 1
@@ -2243,6 +3912,21 @@
         "want": 1
       },
       {
+        "noteId": "n1c5b03884d98",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "nea89b596ed86",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n94a453dffbfa",
+        "live": 1,
+        "want": 1
+      },
+      {
         "noteId": "n032d23ed032e",
         "live": 1,
         "want": 1
@@ -2279,6 +3963,11 @@
       },
       {
         "noteId": "n6cbd95df5aad",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "nffbdcd25eaf7",
         "live": 1,
         "want": 1
       },
