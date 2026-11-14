@@ -16,8 +16,10 @@ import { MoshimoReport } from './lib/dataset-schemas.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { agentSession } from './lib/credential-store.mjs';
 
-const args = parseCliArgs({ month: { type: 'string' }, check: { type: 'boolean' } });
-try {
+const args = parseCliArgs({ month: { type: 'string' }, check: { type: 'boolean' }, help: { type: 'boolean', alias: '-h' } });
+if (args.help) {
+  console.log('Usage: node scripts/moshimo-report.mjs [--month YYYY-MM] [--check]\n月別成果を取得する。--check は保存済み記録の検算。--help / -h は説明のみ表示。');
+} else try {
   const root = loadAspConfig();
   const asp = getAsp(root, 'moshimo');
   const siteId = String(asp.sites['doboku-note']);

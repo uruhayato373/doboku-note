@@ -9,7 +9,7 @@
     "unavailable": "その ASP に案件自体が無い",
     "unknown": "未確認（調べていない。none と区別する）"
   },
-  "updatedAt": "2026-11-14T00:25:38.797Z",
+  "updatedAt": "2026-11-14T01:08:42.653Z",
   "verifiedAt": "2026-11-13",
   "_verifiedNote": "2026-09-08部分照合: A8は口座a25050375786の案件詳細、BuildJobは広告作成websiteId002/既存mat一致まで確認。もしも4案件はshop_site_id672381とselectedOption=doboku-noteを実機確認。afbは今回未確認、旧値保持。各ASPのverifiedAt/verificationScopeを参照。",
   "programs": {
@@ -51,7 +51,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "a8",
@@ -151,6 +151,62 @@
             "sha256": "918c9167ceff001abb7999362b1d2e469d1cdfa4635ec2bea8ca60b2d711804e",
             "framesChecked": 1
           }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92673",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=92673",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=92673"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "81731",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81731",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=81731"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "90169",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=90169",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=90169"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "90514",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=90514",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=90514"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "91190",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=91190",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=91190"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "82338",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=82338",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=82338"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "82339",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=82339",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=82339"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92209",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612109&p_id=6353&pc_id=17943&pl_id=92209",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612109&p_id=6353&pc_id=17943&pl_id=92209"
         }
       ]
     },
@@ -387,7 +443,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -525,6 +581,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80125",
           "imageSrc": "https://image.moshimo.com/af-img/5909/000000080125.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80125"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "78863",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=78863",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=78863"
         }
       ]
     },
@@ -544,7 +607,7 @@
           "verifiedAt": "2026-09-08",
           "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
           "approvalConditions": "有資格者15,000円/29歳以下3,500円の2条件。電気資格が中心。本人確認必須。50歳以下という募集説明と50歳以上否認の境界矛盾あり要照会。",
-          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中"
         },
         "afb": {
           "status": "unknown"
@@ -567,7 +630,7 @@
           "verifiedAt": "2026-09-08",
           "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
           "approvalConditions": "新規会員登録。18歳未満・66歳以上、いたずら・重複・連絡不可能は否認。",
-          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。まだ申請中"
         },
         "afb": {
           "status": "unknown"
@@ -1448,7 +1511,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -1668,6 +1731,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57814",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057814.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57814"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "57044",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57044",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57044"
         }
       ]
     },
@@ -1714,7 +1784,7 @@
           "promotionId": "3802",
           "status": "applying",
           "rewardYen": 2000,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中 2026-11-14 サイト別再照合: doboku-note（672381）=申請中、統計で見る都道府県（638943）=申請中。"
         },
         "afb": {
           "pid": "6872",
@@ -1782,13 +1852,13 @@
           "promotionId": "7797",
           "status": "approved",
           "rewardYen": 18000,
-          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。提携中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
+          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。提携中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中 2026-11-14 サイト別再照合: doboku-note（672381）=提携中、統計で見る都道府県（638943）=提携中。"
         },
         "afb": {
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -1845,6 +1915,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97093",
           "imageSrc": "https://image.moshimo.com/af-img/5666/000000097093.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97093"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97049",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97049",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97049"
         }
       ]
     },
@@ -1864,9 +1941,9 @@
         },
         "moshimo": {
           "promotionId": "2502",
-          "status": "applying",
+          "status": "none",
           "rewardYen": 18000,
-          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 否認中。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中 2026-11-14 サイト別再照合: doboku-note（672381）=否認中、統計で見る都道府県（638943）=否認中。"
         },
         "afb": {
           "status": "unknown"
@@ -1890,9 +1967,9 @@
         },
         "afb": {
           "pid": "9055",
-          "status": "unknown",
+          "status": "none",
           "rewardYen": 3383,
-          "note": "2026-11-13 Chrome の管理画面で確認（運営者ログイン・A8 は口座単位、もしも・afb は doboku-note のサイトを選択）。doboku-note の申請中一覧に無い（stats47 側の申請か否認かは未確認）。2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中（2026-10-27 に申請中一覧で確認）"
+          "note": "2026-11-14 通知メールを確認。2026-11-10 に doboku-note と統計で見る都道府県の両サイトが否認（Gmail 1a1c4bd17013a293 / 1a1c4bd1af825840）。理由の記載なし。11/13 の申請中一覧に無かった原因を解消。"
         }
       }
     },
@@ -1918,7 +1995,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "a8",
@@ -2018,6 +2095,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71462",
           "imageSrc": "https://image.moshimo.com/af-img/5218/000000071462.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71462"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "71445",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71445",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5612112&p_id=5537&pc_id=15176&pl_id=71445"
         }
       ]
     },
@@ -2040,7 +2124,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -2058,6 +2142,13 @@
             "sha256": "99f1f1fc2e48644c73e94e1f31c938bde37585aec71ef2f5d4d874750b9e3a15",
             "framesChecked": 1
           }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "93907",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93907",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93907"
         }
       ]
     },
@@ -2080,7 +2171,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -2091,6 +2182,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5718001&p_id=7540&pc_id=21772&pl_id=94548",
           "imageSrc": "https://image.moshimo.com/af-img/6249/000000094548.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718001&p_id=7540&pc_id=21772&pl_id=94548"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94510",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718001&p_id=7540&pc_id=21772&pl_id=94510",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718001&p_id=7540&pc_id=21772&pl_id=94510"
         }
       ]
     },
@@ -2113,7 +2211,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -2168,6 +2266,13 @@
             "sha256": "407074447ac329fd58409fbc272b64ea25df5cd1b5f91ac9086473860c62e625",
             "framesChecked": 1
           }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "29601",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29601",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29601"
         }
       ]
     },
@@ -2850,7 +2955,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -2881,6 +2986,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94962",
           "imageSrc": "https://image.moshimo.com/af-img/7386/000000094962.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94962"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94958",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94958",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717990&p_id=7593&pc_id=21950&pl_id=94958"
         }
       ]
     },
@@ -2903,7 +3015,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -3019,6 +3131,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92179",
           "imageSrc": "https://image.moshimo.com/af-img/5160/000000092179.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92179"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "92066",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92066",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718022&p_id=7309&pc_id=21003&pl_id=92066"
         }
       ]
     },
@@ -3041,7 +3160,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -3112,6 +3231,20 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94945",
           "imageSrc": "https://image.moshimo.com/af-img/7318/000000094945.jpg",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94945"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94844",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94844",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94844"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "94281",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94281",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718062&p_id=7517&pc_id=21714&pl_id=94281"
         }
       ]
     },
@@ -3134,7 +3267,7 @@
           "status": "unknown"
         }
       },
-      "creativesCollectedAt": "2026-11-13",
+      "creativesCollectedAt": "2026-11-14",
       "creatives": [
         {
           "asp": "moshimo",
@@ -3205,6 +3338,13 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75335",
           "imageSrc": "https://image.moshimo.com/af-img/1052/000000075335.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75335"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "75201",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75201",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718038&p_id=5870&pc_id=16301&pl_id=75201"
         }
       ]
     },
@@ -3221,7 +3361,7 @@
           "promotionId": "7267",
           "status": "applying",
           "rewardYen": 16000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料相談（新規面談申込完了）"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料相談（新規面談申込完了）"
         },
         "afb": {
           "status": "unknown"
@@ -3241,7 +3381,7 @@
           "promotionId": "5922",
           "status": "applying",
           "rewardYen": 18000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料キャリア面談"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料キャリア面談"
         },
         "afb": {
           "status": "unknown"
@@ -3252,21 +3392,136 @@
       "label": "REFLAME（20代ハイクラス向けの無料キャリア相談）",
       "vertical": "general-career",
       "placement": "none",
-      "decision": "2026-11-13 もしもで申請（運営者指示: 20代の公務員・第二新卒・他職種への転職の読者向け）。承認後に配置を決める。",
+      "decision": "2026-11-14 もしもの承認・素材を確認。20代向けのキャリア相談に限る。既存の建設向け面・比較実験には追加せず、対象が一致する面を選ぶ。",
       "asps": {
         "a8": {
           "status": "unknown"
         },
         "moshimo": {
           "promotionId": "7790",
-          "status": "applying",
+          "status": "approved",
           "rewardYen": 15000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=面談完了"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 提携中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=面談完了"
         },
         "afb": {
           "status": "unknown"
         }
-      }
+      },
+      "creativesCollectedAt": "2026-11-14",
+      "creatives": [
+        {
+          "asp": "moshimo",
+          "materialId": "96954",
+          "kind": "text",
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=96954",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=96954"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97111",
+          "kind": "banner",
+          "width": 600,
+          "height": 500,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97111",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097111.jpg",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97111",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代向けのキャリア相談。満足度・年収アップの自社調べと算出期間・条件の脚注あり。20代向け面に限定する。",
+            "sha256": "8a6dbc3aa9b4280e5eb5595d64d368a0ed73444b24d4a5e2f1a966ffac14b4cc",
+            "framesChecked": 1
+          }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97112",
+          "kind": "banner",
+          "width": 336,
+          "height": 280,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97112",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097112.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97112",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代向けのキャリア相談。満足度・年収アップの自社調べと算出期間・条件の脚注あり。20代向け面に限定する。",
+            "sha256": "4271c8f264a8107bafd484258be9fedb5556a5626067472078e8f028f726f773",
+            "framesChecked": 1
+          }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97113",
+          "kind": "banner",
+          "width": 300,
+          "height": 250,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97113",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097113.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97113",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "ok",
+            "note": "20代向けのキャリア相談。満足度・年収アップの自社調べと算出期間・条件の脚注あり。20代向け面に限定する。",
+            "sha256": "8d731447b14a3287ec381c0a91ea571d83c0fad351322ad0c9f43cfd10ea4528",
+            "framesChecked": 1
+          }
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97114",
+          "kind": "banner",
+          "width": 240,
+          "height": 120,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97114",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097114.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97114",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う",
+            "sha256": "d1c87cd67ba7fb0e1c950c05ec77242a295bd4c9784b7f579540646c7c408058",
+            "framesChecked": 1
+          },
+          "avoid": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97115",
+          "kind": "banner",
+          "width": 200,
+          "height": 120,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97115",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097115.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97115",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う",
+            "sha256": "a81d74904239bd5f55e559813917436668a0d6b0729216daa288702e75a63f50",
+            "framesChecked": 1
+          },
+          "avoid": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う"
+        },
+        {
+          "asp": "moshimo",
+          "materialId": "97116",
+          "kind": "banner",
+          "width": 120,
+          "height": 60,
+          "href": "https://af.moshimo.com/af/c/click?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97116",
+          "imageSrc": "https://image.moshimo.com/af-img/7568/000000097116.png",
+          "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5896361&p_id=7790&pc_id=22577&pl_id=97116",
+          "review": {
+            "reviewedAt": "2026-11-14",
+            "outcome": "avoid",
+            "note": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う",
+            "sha256": "7ef93cf8fa7c3700b694a1ed974f191bf53d189e94969bc561dfadd69b9fb434",
+            "framesChecked": 1
+          },
+          "avoid": "実績数値の算出条件が小さすぎて読めない。自由テキストを使う"
+        }
+      ]
     },
     "amecari": {
       "label": "アメキャリ（第二新卒に特化した就職・転職支援）",
@@ -3281,7 +3536,7 @@
           "promotionId": "5923",
           "status": "applying",
           "rewardYen": 10000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料相談"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料相談"
         },
         "afb": {
           "status": "unknown"
@@ -3301,7 +3556,7 @@
           "promotionId": "6135",
           "status": "applying",
           "rewardYen": 8000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=新規会員登録"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=新規会員登録"
         },
         "afb": {
           "status": "unknown"
@@ -3321,7 +3576,7 @@
           "promotionId": "7032",
           "status": "applying",
           "rewardYen": 5000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=会員登録"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=会員登録"
         },
         "afb": {
           "status": "unknown"
@@ -3341,7 +3596,7 @@
           "promotionId": "5663",
           "status": "applying",
           "rewardYen": 4231,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=新規会員登録"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=新規会員登録"
         },
         "afb": {
           "status": "unknown"
@@ -3361,7 +3616,7 @@
           "promotionId": "7383",
           "status": "applying",
           "rewardYen": 3000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果の条件は未確認"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果の条件は未確認"
         },
         "afb": {
           "status": "unknown"
@@ -3381,7 +3636,7 @@
           "promotionId": "7416",
           "status": "applying",
           "rewardYen": 3000,
-          "note": "2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料転職相談の予約申込み"
+          "note": "2026-11-14 接続 Chrome の案件詳細で doboku-note（672381）を読み戻して確認: 申請中。2026-11-13 申請（運営者指示: 20代の公務員・第二新卒・土木職から他職種への転職の読者向け）。doboku-note の申請中一覧で確認。成果=無料転職相談の予約申込み"
         },
         "afb": {
           "status": "unknown"

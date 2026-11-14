@@ -1,4 +1,5 @@
 import { test } from 'node:test';
+import { productReferralOf } from '../src/lib/product-referral.mjs';
 import assert from 'node:assert/strict';
 import { parseMoshimoRows, moshimoMonthRange, validateMoshimoReport } from '../scripts/lib/moshimo-report.mjs';
 import { buildProductIndex, buildProductSales, buildProductFunnel, salesOf } from '../scripts/lib/product-sales.mjs';
@@ -31,9 +32,10 @@ test('もしもの成果を A8 と分離し、観測した案件のみをファ�
   const index=buildProductIndex([],mats);
   const ledger=BusinessProductSales.parse(buildProductSales({month:'2026-10',products:[],mats,moshimoSiteId:'672381',moshimoReport:make(),catalog:{programs:{construction:{asps:{moshimo:{promotionId:'1'}}}}}}));
   assert.equal(ledger.coverage.moshimo.status,'partial');
-  assert.deepEqual(ledger.rows[0].destinationIds,['moshimo:1:2']);
+  assert.deepEqual(ledger.rows[0].destinationIds,['1']);
   assert.equal(salesOf(ledger,'moshimo','missing').status,'unmeasured');
-  const report={rows:[{destination:'moshimo',productId:'moshimo:1:2',placement:'tool-end',eventName:'product_click',eventCount:2}]};
+  const referral=productReferralOf('https://af.moshimo.com/af/c/click?a_id=5&p_id=1&pl_id=2');
+  const report={rows:[{...referral,placement:'tool-end',eventName:'product_click',eventCount:2}]};
   const funnel=buildProductFunnel({report,ledgers:[ledger],index});
   assert.equal(funnel.rows[0].productId,'construction');
   assert.equal(funnel.rows[0].sales['2026-10'].amountYen,10000);

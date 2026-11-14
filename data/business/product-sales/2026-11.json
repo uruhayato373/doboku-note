@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "month": "2026-11",
+  "generatedBy": "npm run product-sales",
+  "coverage": {
+    "note": {
+      "status": "unmeasured",
+      "reason": "note の販売履歴（note.sales）に月の取得記録（months）が無い"
+    },
+    "amazon": {
+      "status": "unmeasured",
+      "reason": "KDP のロイヤリティ（kdp.royalties）に月の取得が無い"
+    },
+    "coconala": {
+      "status": "partial",
+      "provisional": true,
+      "amountBasis": "net",
+      "fetchedAt": "2026-11-08T02:40:38.422Z",
+      "note": "クローズ日で計上・手数料控除後。おひねり（tip）は金額に入れ、件数に数えない"
+    },
+    "a8": {
+      "status": "unmeasured",
+      "reason": "A8 の月次レポート（a8.report-log）に月の行が無い"
+    },
+    "moshimo": {
+      "status": "partial",
+      "provisional": true,
+      "amountBasis": "approved",
+      "fetchedAt": "2026-11-14T01:08:43.023Z",
+      "note": "画面で観測した案件だけを収録。行のない案件は未計測。承認は後日の取得で変わり得る"
+    }
+  },
+  "rows": [
+    {
+      "destination": "moshimo",
+      "productId": "constwork",
+      "destinationIds": [
+        "6154"
+      ],
+      "count": 0,
+      "amountYen": 0,
+      "grossYen": 0,
+      "approvedCount": 0,
+      "clicks": 1
+    },
+    {
+      "destination": "moshimo",
+      "productId": "kenchiku-tenshoku",
+      "destinationIds": [
+        "4183"
+      ],
+      "count": 0,
+      "amountYen": 0,
+      "grossYen": 0,
+      "approvedCount": 0,
+      "clicks": 1
+    }
+  ]
+}

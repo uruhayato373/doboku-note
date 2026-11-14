@@ -8313,6 +8313,19 @@
       "commit": "8f011c3d6579",
       "verification": "check-backlog-schema",
       "note": "重複する申請状態の照合を DN-1169 へ統合。afb の unknown・2サイト照合・条件付き kazu-note 登録を引き継いだ。実機照合の完了ではない。"
+    },
+    {
+      "id": "DN-1046",
+      "at": "2026-11-14",
+      "task": "土曜の収集にもしもアフィリエイトの成果を取る段を足す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "52422a5e1fe0",
+      "verification": "moshimo-report --check / product-sales / report-product-funnel / tests/moshimo-report.test.mjs",
+      "note": "月次取得段・週次認証/検算・販売台帳/商品ファネルを実装。2026-11-14 接続 Chrome でサイト672381・期間・列を読み戻し、10月と11月各2案件を取得。観測した0件と未計測を分離しGA4 p_idから2案件の販売行へ結合。土曜の定期収集の実行自体は次回。"
     }
   ]
 }

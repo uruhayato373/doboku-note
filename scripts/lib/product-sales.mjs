@@ -53,8 +53,11 @@ export function buildProductIndex(products, mats = []) {
       if (c.id) kindleByBookId.set(c.id, { id: p.id, asin: c.asin ?? null });
     }
   }
-  // A8 は案件（program）が商品にあたる。GA4 の product_id は a8mat なので config/affiliate-mats.json で案件へ引き当てる
-  for (const m of mats ?? []) if (m.program && m.mat) add(m.program, m.mat.startsWith('moshimo:') ? 'moshimo' : 'a8', m.mat);
+  // GA4 の商品 ID は A8 が a8mat、もしもが p_id（素材 ID を含めない）。
+  for (const m of mats ?? []) if (m.program && m.mat) {
+    const promotionId = /^moshimo:(\d+):\d+$/.exec(m.mat)?.[1];
+    add(m.program, promotionId ? 'moshimo' : 'a8', promotionId ?? m.mat);
+  }
   return { toDestination, fromDestination, kindleByBookId };
 }
 
@@ -194,7 +197,7 @@ function a8Section(month, reportLog, index) {
   const pending = ours.some((r) => (r.pendingCount ?? 0) > 0);
   const rows = ours
     .filter((r) => (r.conversions ?? 0) > 0 || (r.approved ?? 0) > 0)
-    .map((r) => ({ destination: 'a8', productId: r.program, destinationIds: (index.toDestination.get(r.program) ?? []).filter(id => !id.startsWith('moshimo:')), count: r.conversions ?? 0, amountYen: r.revenueYen ?? 0, grossYen: r.grossRevenueYen ?? 0, approvedCount: r.approved ?? 0, pendingYen: r.pendingRevenueYen ?? 0, clicks: r.clicks ?? 0 }));
+    .map((r) => ({ destination: 'a8', productId: r.program, destinationIds: (index.toDestination.get(r.program) ?? []).filter(id => index.fromDestination.get(`a8:${id}`) === r.program), count: r.conversions ?? 0, amountYen: r.revenueYen ?? 0, grossYen: r.grossRevenueYen ?? 0, approvedCount: r.approved ?? 0, pendingYen: r.pendingRevenueYen ?? 0, clicks: r.clicks ?? 0 }));
   const complete = fetchedAt.slice(0, 10) > lastDayOf(month);
   return {
     coverage: {
@@ -220,7 +223,7 @@ function moshimoSection(month, report, catalog, index, siteId) {
   const rows = report.records.flatMap(r => {
     const productId = programs.get(r.programId);
     if (!productId) return [];
-    return [{ destination: 'moshimo', productId, destinationIds: (index.toDestination.get(productId) ?? []).filter(id => id.startsWith('moshimo:')), count: r.conversions, amountYen: r.revenueYen, grossYen: r.grossRevenueYen, approvedCount: r.approved, clicks: r.clicks }];
+    return [{ destination: 'moshimo', productId, destinationIds: (index.toDestination.get(productId) ?? []).filter(id => index.fromDestination.get(`moshimo:${id}`) === productId), count: r.conversions, amountYen: r.revenueYen, grossYen: r.grossRevenueYen, approvedCount: r.approved, clicks: r.clicks }];
   });
   return { coverage: { status: 'partial', provisional: true, amountBasis: 'approved', fetchedAt: report.fetchedAt, note: '画面で観測した案件だけを収録。行のない案件は未計測。承認は後日の取得で変わり得る' }, rows };
 }
