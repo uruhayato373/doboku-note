@@ -18,7 +18,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 ## カテゴリ別クイックリファレンス
 
 <!-- generated:skills:start（npm run build-capability-index が書く。手で直さない） -->
-スキル 99 本（`.claude/skills/*/SKILL.md` の frontmatter から生成）。
+スキル 100 本（`.claude/skills/*/SKILL.md` の frontmatter から生成）。
 
 ### コンテンツ制作（authoring）
 
@@ -66,6 +66,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/keiken-charcount` | product | 1級・2級土木 施工経験記述マガジン模範答案の各設問を、解答欄の字数しきい値で機械チェックして OVER を出す。Use when user asks to [経験記述の字数確認, 解答欄に収まるか, 字数オーバー検出, /keiken-charcount]. |
 | `/keiken-tensaku` | product | 1級・2級土木 施工経験記述の顧客対応ドラフト（添削・骨子 --mode kosshi・診断 --mode shindan）を作り、返信文を QA で PASS させて運営者へ渡す。事実は捏造せず骨子・診断は文章を書き換えない。Use when user asks to [経験記述を添削, 骨子シートを作成, /keiken-tensaku]. |
 | `/note-prepublish-review` | product | note 公開用ドラフトを公開前に、inline 検査と3並列エージェント（link-injector / figure-auditor / fact-checker）で統合チェックする。Use when user asks to [note 公開前レビュー, /note-prepublish-review]. |
+| `/note-visual-review` | product | note の公開ページの代表（資格×記事の種類ごとに約 30 本）を 5 つの画面幅で撮り、数値では決められない見た目の崩れ・有料エリア直前の見え方をエージェントの目視で判定し、直すものを起票する。毎週は回さず、必要なときだけ回す。 Use when user asks to [note の見た目を確認, note 公開ページの目視, カバーや本文の見え方を点検, /note-visual-review]. |
 | `/pe-essay-review` | product | 総監記述式の模範論文を、採点者・技術士OB・予備校講師の3視点で1〜10点評価し、致命的問題と修正提案を出す。Use when user asks to [模範論文レビュー, 論文評価, /pe-essay-review]. |
 | `/pe-first-stage-audit` | site | 技術士第一次試験 pe-first-stage 全21ページの原典突合・正答照合・構造検査を行い、監査記録を state に書く。Use when user asks to [pe-first-stage監査, 技術士第一次試験QA, /audit-pe-first-stage]. |
 | `/quality-cycle` | site | キーワードページ・教科書 MDX の品質サイクル（スコアリング→リライト→検証→人間レビュー）。--profile {cem\|civil-textbook} で切替。Use when user asks to [品質サイクル, スコアリング, リライト, /quality-cycle]. |
