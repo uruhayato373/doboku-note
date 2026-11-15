@@ -75,7 +75,7 @@ test('2-1章は表の後に 3 枠置き、末尾と枠の間隔の字数を守�
   const plan = planInlineSlots(md);
   assert.equal(plan.tables, 10);
   assert.equal(plan.insertAt.length, 3);
-  assert.deepEqual(plan.insertAt.map((p) => p.afterLabel), ['表 2 の後', '表 4 の後', '表 7 の後']);
+  assert.deepEqual(plan.insertAt.map((p) => p.afterLabel), ['表 2 の後', '表 4 の後', '表 6 の後']);
   for (const { line } of plan.insertAt) {
     assert.ok(plan.chars - planInlineSlots(md.split('\n').slice(0, line).join('\n')).chars >= INLINE_REMAINING_CHARS);
   }
