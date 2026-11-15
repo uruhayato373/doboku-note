@@ -10,7 +10,7 @@ export const NOTE_LIST_ARTICLES = [
   ].map(page => ({ page, legacySlug: page.replace(/^exam\//, '').replace('pe-comprehensive-management/guide/', 'pe-comprehensive-management/').replaceAll('/', '-'), rules: ['note-non-footer'], reason: '商品一覧型の記事。構成として手書き4枚以上を許すが、同一商品の重複は検査する' }));
 
 export const PAGE_ALLOWLIST = [
-  { prefix: 'standards/', rules: ['note-total', 'note-non-footer', 'note-before-first-h2', 'note-product-dup', 'note-article-footer', 'note-article-sidebar', 'affiliate-forbidden-surface', 'affiliate-slots'], reason: '基準書は DocPage と別実装。広告面は配置ルールで管理する' },
+  { prefix: 'standards/', rules: ['note-total', 'note-non-footer', 'note-before-first-h2', 'note-product-dup', 'note-article-footer', 'note-article-sidebar', 'affiliate-forbidden-surface', 'affiliate-slots', 'affiliate-total'], reason: '基準書は DocPage と別実装。広告面は配置ルールで管理し、枚数は check-standards-density（基準書の密度の設定の affiliate.max）が見る' },
   { page: 'links', rules: ['note-total'], reason: '商品一覧ページのため総数上限の対象外' },
   ...NOTE_LIST_ARTICLES,
 ];

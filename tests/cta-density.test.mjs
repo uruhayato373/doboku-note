@@ -171,6 +171,10 @@ test('理由つき許可リストは指定したページ・ルール・面だ�
   assert.deepEqual(r.violations, []);
   assert.ok(r.exclusions.every(e => e.reason));
   assert.ok(inspect(standards).violations.length);
+  // 基準書はスマホで本文中 3＋本文末 1＋追加 1 の 5 枠になる。記事の総数の上限（スマホ 4）では落とさない（枚数は check-standards-density が見る）
+  const standardsFive = article(`<h2>本文</h2>${['standards-inline','standards-inline-2','standards-inline-3','standards-end','standards-rail'].map(p => affiliate(p)).join('<p>本文</p>')}`);
+  assert.deepEqual(inspectHtml(standardsFive, 'standards/tohoku/reference/chapters/2-1').violations, []);
+  assert.ok(inspect(standardsFive).violations.some(v => v.rule === 'affiliate-total'));
   for (const placement of Object.keys(SURFACE_ALLOWLIST)) {
     assert.deepEqual(rules(article('<h2>本文</h2>', '', affiliate(placement) + affiliate(placement))), []);
   }
