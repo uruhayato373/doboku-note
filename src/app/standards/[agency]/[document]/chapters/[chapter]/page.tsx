@@ -27,6 +27,7 @@ import {
   getStandardChapter,
   getStandardChapters,
   readStandardChapterMarkdown,
+  getStandardChapterPresentation,
   standardBookLabel,
   standardChapterHeading,
   standardChapterOgpUrl,
@@ -112,7 +113,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   const resolved = getStandardChapter(agency, document, chapter);
   if (!resolved) notFound();
   const { document: entry, chapter: target } = resolved;
-  const markdown = readStandardChapterMarkdown(agency, document, target);
+  const presentation = getStandardChapterPresentation(agency, document, target);
+  const markdown = presentation?.markdown ?? readStandardChapterMarkdown(agency, document, target);
   const preamble = target.splitBySection ? standardChapterPreamble(markdown) : null;
   const relatedTopics = getTopicsForStandardText(entry, markdown);
   const referencedDocuments = getReferencedStandardDocuments(entry, markdown);
@@ -120,7 +122,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   const schema = buildStandardChapterStructuredData(entry, target, {
     markdown: standardsDataPath(entry, target, 'md'),
     jsonLd: standardsDataPath(entry, target, 'jsonld'),
-  });
+  }, undefined, presentation?.text);
 
   // 章記事は数式を持たないので KaTeX は積まない（katex.min.css は render-blocking なので
   // 必要なページだけに閉じ込める運用。DocPage 側のコメント参照）。

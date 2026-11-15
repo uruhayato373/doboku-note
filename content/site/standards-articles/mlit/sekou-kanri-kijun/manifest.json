@@ -182,6 +182,7 @@
       "bookLabel": "出来形管理基準 第1編 共通編",
       "chapterLabel": "",
       "file": "chapters/2-1.md",
+      "presentationFile": "chapters/2-1.grouped.json",
       "firstPage": 21,
       "lastPage": 31,
       "sourceParts": [
@@ -236,6 +237,7 @@
       "bookLabel": "出来形管理基準 第3編 土木工事共通編",
       "chapterLabel": "",
       "file": "chapters/3-1.md",
+      "presentationFile": "chapters/3-1.grouped.json",
       "firstPage": 31,
       "lastPage": 46,
       "sourceParts": [
@@ -295,6 +297,7 @@
       "bookLabel": "出来形管理基準 第3編 土木工事共通編",
       "chapterLabel": "",
       "file": "chapters/3-2.md",
+      "presentationFile": "chapters/3-2.grouped.json",
       "firstPage": 46,
       "lastPage": 51,
       "sourceParts": [
@@ -345,6 +348,7 @@
       "bookLabel": "出来形管理基準 第3編 土木工事共通編",
       "chapterLabel": "",
       "file": "chapters/3-3.md",
+      "presentationFile": "chapters/3-3.grouped.json",
       "firstPage": 51,
       "lastPage": 73,
       "sourceParts": [
@@ -411,6 +415,7 @@
       "bookLabel": "出来形管理基準 第3編 土木工事共通編",
       "chapterLabel": "",
       "file": "chapters/3-4.md",
+      "presentationFile": "chapters/3-4.grouped.json",
       "firstPage": 73,
       "lastPage": 94,
       "sourceParts": [
@@ -476,6 +481,7 @@
       "bookLabel": "出来形管理基準 第3編 土木工事共通編",
       "chapterLabel": "",
       "file": "chapters/3-5.md",
+      "presentationFile": "chapters/3-5.grouped.json",
       "firstPage": 94,
       "lastPage": 123,
       "sourceParts": [
@@ -550,6 +556,7 @@
       "bookLabel": "出来形管理基準 第3編 土木工事共通編",
       "chapterLabel": "",
       "file": "chapters/3-6.md",
+      "presentationFile": "chapters/3-6.grouped.json",
       "firstPage": 123,
       "lastPage": 131,
       "sourceParts": [
@@ -602,6 +609,7 @@
       "bookLabel": "出来形管理基準 第3編 土木工事共通編",
       "chapterLabel": "",
       "file": "chapters/3-7.md",
+      "presentationFile": "chapters/3-7.grouped.json",
       "firstPage": 131,
       "lastPage": 145,
       "sourceParts": [
@@ -660,6 +668,7 @@
       "bookLabel": "出来形管理基準 第3編 土木工事共通編",
       "chapterLabel": "",
       "file": "chapters/3-8.md",
+      "presentationFile": "chapters/3-8.grouped.json",
       "firstPage": 145,
       "lastPage": 154,
       "sourceParts": [
@@ -714,6 +723,7 @@
       "bookLabel": "出来形管理基準 第6編 河川編",
       "chapterLabel": "",
       "file": "chapters/4-1.md",
+      "presentationFile": "chapters/4-1.grouped.json",
       "firstPage": 154,
       "lastPage": 162,
       "sourceParts": [
@@ -766,6 +776,7 @@
       "bookLabel": "出来形管理基準 第7編 河川海岸編",
       "chapterLabel": "",
       "file": "chapters/5-1.md",
+      "presentationFile": "chapters/5-1.grouped.json",
       "firstPage": 162,
       "lastPage": 171,
       "sourceParts": [
@@ -819,6 +830,7 @@
       "bookLabel": "出来形管理基準 第8編 砂防編",
       "chapterLabel": "",
       "file": "chapters/6-1.md",
+      "presentationFile": "chapters/6-1.grouped.json",
       "firstPage": 171,
       "lastPage": 177,
       "sourceParts": [
@@ -870,6 +882,7 @@
       "bookLabel": "出来形管理基準 第9編 ダム編",
       "chapterLabel": "",
       "file": "chapters/7-1.md",
+      "presentationFile": "chapters/7-1.grouped.json",
       "firstPage": 177,
       "lastPage": 183,
       "sourceParts": [
@@ -920,6 +933,7 @@
       "bookLabel": "出来形管理基準 第10編 道路編",
       "chapterLabel": "",
       "file": "chapters/8-1.md",
+      "presentationFile": "chapters/8-1.grouped.json",
       "firstPage": 183,
       "lastPage": 190,
       "sourceParts": [
@@ -971,6 +985,7 @@
       "bookLabel": "出来形管理基準 第10編 道路編",
       "chapterLabel": "",
       "file": "chapters/8-2.md",
+      "presentationFile": "chapters/8-2.grouped.json",
       "firstPage": 190,
       "lastPage": 199,
       "sourceParts": [
@@ -1024,6 +1039,7 @@
       "bookLabel": "出来形管理基準 第10編 道路編",
       "chapterLabel": "",
       "file": "chapters/8-3.md",
+      "presentationFile": "chapters/8-3.grouped.json",
       "firstPage": 199,
       "lastPage": 202,
       "sourceParts": [
@@ -1072,6 +1088,7 @@
       "bookLabel": "出来形管理基準 第10編 道路編",
       "chapterLabel": "",
       "file": "chapters/8-4.md",
+      "presentationFile": "chapters/8-4.grouped.json",
       "firstPage": 202,
       "lastPage": 206,
       "sourceParts": [
@@ -1120,6 +1137,7 @@
       "bookLabel": "出来形管理基準 第10編 道路編",
       "chapterLabel": "",
       "file": "chapters/8-5.md",
+      "presentationFile": "chapters/8-5.grouped.json",
       "firstPage": 206,
       "lastPage": 209,
       "sourceParts": [
@@ -1167,6 +1185,7 @@
       "bookLabel": "出来形管理基準 第10編 道路編",
       "chapterLabel": "",
       "file": "chapters/8-6.md",
+      "presentationFile": "chapters/8-6.grouped.json",
       "firstPage": 209,
       "lastPage": 211,
       "sourceParts": [
@@ -1213,6 +1232,7 @@
       "bookLabel": "品質管理基準及び規格値（案）",
       "chapterLabel": "",
       "file": "chapters/9-1.md",
+      "presentationFile": "chapters/9-1.grouped.json",
       "firstPage": 213,
       "lastPage": 218,
       "sourceParts": [
@@ -1262,6 +1282,7 @@
       "bookLabel": "品質管理基準及び規格値（案）",
       "chapterLabel": "",
       "file": "chapters/9-2.md",
+      "presentationFile": "chapters/9-2.grouped.json",
       "firstPage": 218,
       "lastPage": 221,
       "sourceParts": [
@@ -1309,6 +1330,7 @@
       "bookLabel": "品質管理基準及び規格値（案）",
       "chapterLabel": "",
       "file": "chapters/9-3.md",
+      "presentationFile": "chapters/9-3.grouped.json",
       "firstPage": 221,
       "lastPage": 228,
       "sourceParts": [
@@ -1360,6 +1382,7 @@
       "bookLabel": "品質管理基準及び規格値（案）",
       "chapterLabel": "",
       "file": "chapters/9-4.md",
+      "presentationFile": "chapters/9-4.grouped.json",
       "firstPage": 228,
       "lastPage": 240,
       "sourceParts": [
@@ -1416,6 +1439,7 @@
       "bookLabel": "品質管理基準及び規格値（案）",
       "chapterLabel": "",
       "file": "chapters/9-5.md",
+      "presentationFile": "chapters/9-5.grouped.json",
       "firstPage": 240,
       "lastPage": 247,
       "sourceParts": [
@@ -1467,6 +1491,7 @@
       "bookLabel": "品質管理基準及び規格値（案）",
       "chapterLabel": "",
       "file": "chapters/9-6.md",
+      "presentationFile": "chapters/9-6.grouped.json",
       "firstPage": 247,
       "lastPage": 250,
       "sourceParts": [
@@ -1514,6 +1539,7 @@
       "bookLabel": "品質管理基準及び規格値（案）",
       "chapterLabel": "",
       "file": "chapters/9-7.md",
+      "presentationFile": "chapters/9-7.grouped.json",
       "firstPage": 250,
       "lastPage": 257,
       "sourceParts": [
@@ -1566,6 +1592,7 @@
       "bookLabel": "品質管理基準及び規格値（案）",
       "chapterLabel": "",
       "file": "chapters/9-8.md",
+      "presentationFile": "chapters/9-8.grouped.json",
       "firstPage": 257,
       "lastPage": 264,
       "sourceParts": [
@@ -1617,6 +1644,7 @@
       "bookLabel": "品質管理基準及び規格値（案）",
       "chapterLabel": "",
       "file": "chapters/9-9.md",
+      "presentationFile": "chapters/9-9.grouped.json",
       "firstPage": 264,
       "lastPage": 267,
       "sourceParts": [

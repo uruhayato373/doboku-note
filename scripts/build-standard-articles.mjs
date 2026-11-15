@@ -5,6 +5,8 @@
  *   入力 content/site/standards-library/{agency}/{document}/part-*.md   ← 不変・原典照合用
  *   出力 content/site/standards-articles/{agency}/{document}/manifest.json
  *        content/site/standards-articles/{agency}/{document}/chapters/{chapterId}.md
+ *        chapters/{chapterId}.grouped.json（文書設定 tableLayout=grouped の表示本文・検索全文）
+ * 正規 Markdown は照合・配布用として保ち、表示の列の削減で原文を失わないようにする。
  *
  * 章は part（PDF 50 ページ単位）ではなく**柱（running header）が示す編・章**で切る。part 境界を
  * またぐ章があるため、全 part を PDF ページ順に結合してから解析する（scripts/lib/standards-structure.mjs）。
@@ -26,6 +28,7 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, rmSync, existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { prepareGroupedTable, projectGroupedChapter, groupedCoverageErrors, groupedArtifact } from './lib/standards-grouped-tables.mjs';
 import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
@@ -280,7 +283,7 @@ const formatPages = (pages) =>
  * figureOf: (chapterId, sourceRef, caption) → 差し込む <ArticleImage> の文字列 | null。
  * 切り出した図が台帳に無いキャプションは今までどおりキャプションと SourceRef だけを出す（検査 20 が落とす）。
  */
-function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = [], amendmentNote = null, amendmentRows = null, figureOf = null, transcribedTables = [], { standardFigureTitles = false } = {}) {
+function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = [], amendmentNote = null, amendmentRows = null, figureOf = null, transcribedTables = [], { standardFigureTitles = false, groupedRecords = null } = {}) {
   // 章記事は next-mdx-remote で MDX としてコンパイルする（<SourceRef> を解決するため）。
   // MDX は HTML コメントを受け付けないので、注記は MDX コメント {/* */} で書く。
   const lines = [
@@ -436,6 +439,7 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
           push(`{/* table-override: ${key} absorbed-into ${applied.into} */}`);
           continue;
         }
+        if (groupedRecords) groupedRecords.push({ key, prepared: prepareGroupedTable(override, (ref) => tableOverrides.get(ref)) });
         push(`{/* table-override: ${key} */}`);
         for (const absorbed of override.absorbs ?? []) pendingAbsorbed.delete(absorbed);
         if (applied.kind === 'verbatim') {
@@ -663,17 +667,27 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
     const transcribedTables = [];
     const amendmentPages = amendment?.byChapter.get(chapter.chapterId) ?? null;
     const rows = amendment?.rowsByChapter.get(chapter.chapterId) ?? [];
+    const groupedRecords = overrides.documents?.[documentKey]?.tableLayout === 'grouped' ? [] : null;
     const markdown = renderChapter(
       chapter, tableOutcomes, tableOverrides, chapterTables,
       amendmentPages ? renderAmendmentNote(amendment, rows.length > 0) : null,
       rows.length ? { amendment, rows } : null,
       figureOf,
       transcribedTables,
-      { standardFigureTitles: overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.standardFigureTitles === true },
+      { standardFigureTitles: overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.standardFigureTitles === true, groupedRecords },
     );
     verbatimTables.push(...chapterTables.map((table) => ({ ...table, document: `${document.agencyId}/${document.documentId}` })));
     const file = `chapters/${chapter.chapterId}.md`;
     if (write) writeMdxFile(join(outDir, file), markdown);
+    const grouped = groupedRecords?.length ? projectGroupedChapter(markdown, groupedRecords, { sourceUrl: document.sourceUrl }) : null;
+    const presentationFile = grouped ? `chapters/${chapter.chapterId}.grouped.json` : null;
+    if (grouped) {
+      const errors = groupedCoverageErrors(grouped);
+      if (errors.length) throw new Error(errors.join('\n'));
+      if (write) writeFileSync(join(outDir, presentationFile), JSON.stringify(groupedArtifact(grouped), null, 2) + '\n');
+      const reasons = tallyReasons(grouped.tables.map((table) => table.reason));
+      console.log(`  [grouped] ${chapter.chapterId}: ${JSON.stringify(reasons)}`);
+    }
     const sourceText = chapter.sourcePages.map((page) => pageText.get(page)).join('\n');
     const outputBytes = Buffer.byteLength(markdown, 'utf8');
     const { sections, articles: chapterArticles } = summarizeChapter(chapter);
@@ -690,6 +704,7 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
       // 目次（outline）で切った文書は「第N編」「第N章」と書けないので、表示の語を持たせる（サイトはこれを優先する）
       ...(chapter.chapterLabel !== undefined ? { bookLabel: chapter.bookLabel, chapterLabel: chapter.chapterLabel } : {}),
       file,
+      ...(presentationFile ? { presentationFile } : {}),
       firstPage: chapter.firstPage,
       lastPage: chapter.lastPage,
       sourceParts: chapter.sourceParts,
