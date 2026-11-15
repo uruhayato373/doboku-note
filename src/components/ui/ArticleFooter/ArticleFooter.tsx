@@ -293,7 +293,7 @@ export default function ArticleFooter({
           要点記事の行き止まりを解消し、カテゴリ hub の sec-* アンカー（直前期 note CTA と同居）へ送る。 */}
       {docGroup === 'guide' && category && !isCareer && (
         <div className="mt-8">
-          <NextStepNav category={category} />
+          <NextStepNav category={category} docs={categoryArticles} currentSlug={slugStr} />
         </div>
       )}
 

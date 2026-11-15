@@ -4,9 +4,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import ContentThumbnail from '@/components/ui/ContentThumbnail';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
+import type { CardImage } from '@/lib/site-thumbnail';
 
 export type TopicArea = 'exam' | 'practice' | 'standards' | 'laws';
-export type TopicArticle = { href: string; title: string; description: string; category: string; categoryLabel: string; categoryOrder: number; area: TopicArea; kind: string; image: string; subgroup?: string | undefined };
+export type TopicArticle = { href: string; title: string; description: string; category: string; categoryLabel: string; categoryOrder: number; area: TopicArea; kind: string; image: CardImage; subgroup?: string | undefined };
 
 // 一覧は 領域（資格試験／施工実務／公的基準）→ 資格・カテゴリ の順に区切る（05_情報アーキテクチャ.md の三方向）
 const AREAS: TopicArea[] = ['laws', 'exam', 'practice', 'standards'];
@@ -47,8 +48,8 @@ export default function TopicArticles({ articles, areaLabels, featured: entry = 
     {/* 初期HTMLには全リンクを保持。JSがなくても分類ごとに開いて閲覧できる。 */}
     {!filtered && <ul className="mb-6 grid gap-4 sm:grid-cols-3">
       {articles.filter(a=>featured.has(a.href)).map(a=><li key={a.href}>
-        <Link href={a.href} className="focus-ring block h-full rounded-card-content border border-(--rule-soft) bg-(--paper) overflow-hidden">
-          <div className="aspect-1200/630"><ContentThumbnail src={a.image} sizes="(max-width: 640px) 100vw, 320px" /></div>
+        <Link href={a.href} data-thumb={a.image.band ? 'photo' : 'ogp'} className="focus-ring block h-full rounded-card-content border border-(--rule-soft) bg-(--paper) overflow-hidden">
+          <div className="aspect-1200/630"><ContentThumbnail src={a.image.src} band={a.image.band} sizes="(max-width: 640px) 100vw, 320px" /></div>
           <div className="p-4"><p className="text-xs text-(--ink-muted)">{a.categoryLabel} · {a.kind}</p><h4 className="mt-2 font-bold text-(--ink)">{a.title}</h4><p className="mt-2 line-clamp-2 text-sm text-(--ink-muted)">{a.description}</p></div>
         </Link>
       </li>)}

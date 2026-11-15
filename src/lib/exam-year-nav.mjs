@@ -10,6 +10,11 @@ function yearOf(slug) {
   return { family: slug.replace(YEAR_TOKEN, '$1*'), order: (m[2] === 'r' ? 1000 : 0) + Number(m[3]) };
 }
 
+/** slug の年度の並び順（令和が平成より後・大きいほど新しい）。年度が無ければ null */
+export function examYearOrder(slug) {
+  return yearOf(slug)?.order ?? null;
+}
+
 /**
  * 年度違いの回遊候補を行き先の優先順に並べる。前後の年度 → 同じ年度の別区分（slug 順）→ 残りの年度を近い順。
  * 現在のページ自身と年度の無いページは含めない。
