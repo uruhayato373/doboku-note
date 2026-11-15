@@ -3,7 +3,7 @@
 import { useSyncExternalStore } from "react";
 import { ArrowRight } from "lucide-react";
 import type { CareerArticleEndCard, SidebarAdCreative } from "@/config/affiliate-creatives";
-import { AFFILIATE_EXPERIMENT_ID, AFFILIATE_VARIANTS, assignAffiliateVariant } from "@/lib/affiliate-experiment.mjs";
+import { AFFILIATE_EXPERIMENT_ACTIVE, AFFILIATE_EXPERIMENT_ID, AFFILIATE_VARIANTS, assignAffiliateVariant } from "@/lib/affiliate-experiment.mjs";
 import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
 
 let visitorVariant: string | null = null;
@@ -16,6 +16,7 @@ function previewVariant(): string | null {
   return v && AFFILIATE_VARIANTS.includes(v) ? v : null;
 }
 function clientSnapshot(): string {
+  if (!AFFILIATE_EXPERIMENT_ACTIVE) return "B";
   if (!visitorVariant) visitorVariant = previewVariant();
   if (!visitorVariant) {
     let storage: Storage | undefined;
@@ -99,8 +100,8 @@ function SmallCard({ card, program, trackLabel, placement, textHref, assigned }:
       data-cta="affiliate"
       data-cta-label={trackLabel}
       data-cta-placement={placement}
-      data-cta-experiment={AFFILIATE_EXPERIMENT_ID}
-      data-cta-variant={assigned ?? undefined}
+      data-cta-experiment={AFFILIATE_EXPERIMENT_ACTIVE ? AFFILIATE_EXPERIMENT_ID : undefined}
+      data-cta-variant={AFFILIATE_EXPERIMENT_ACTIVE ? assigned ?? undefined : undefined}
       data-cta-program={program}
       style={{ textDecoration: "none" }}
       className="career-experiment-card @container focus-ring group block h-full rounded-card-content border border-l-4 border-(--rule-soft) border-l-brand bg-(--paper) text-ink-strong shadow-card-content transition-shadow hover:shadow-card-hover dark:border-(--rule-soft) dark:border-l-brand"

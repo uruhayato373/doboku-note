@@ -72,8 +72,8 @@ export async function getAffiliatePages(now = Date.now()) {
     const cards = articleSidebarPlan(articleSidebarInput(doc.meta, plan, categoryArticles));
     const images = articleImagePlacements(plan.careerPlacements, plan.inline.map(s => s.slot), cards.length);
     const candidates = articlePixelCandidates(plan.careerPlacements, plan.renderedCareerSlots, images);
-    const owners = (['B', 'B2'] as const).flatMap(variant => ([false, true] as const).flatMap(desktop =>
-      chooseArticlePixels(candidates, vocab.affiliate, { desktop, wide: desktop, variant }).map(p => ({ ...p, label: `${desktop ? 'PC' : 'スマホ'} ${variant}` }))));
+    const owners = ([false, true] as const).flatMap(desktop =>
+      chooseArticlePixels(candidates, vocab.affiliate, { desktop, wide: desktop, variant: 'B' }).map(p => ({ ...p, label: desktop ? 'PC' : 'スマホ' })));
     const path = getPublicDocPath(meta.slug);
     const programs = images.map(({ placement }) => ({ slot: placement.slot, program: placement.program }));
     const slotDetails = images.map(({ placement: p, creatives: c }) => ({ slot: p.slot, program: p.program,

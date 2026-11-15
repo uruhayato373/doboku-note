@@ -7,7 +7,8 @@ export function ArticleBanner({ placement, kind }: { placement: ResolvedPlacemen
   if (!placement) return null;
   const c = slotCreatives(placement.program, placement.slot);
   if (!c.pc && !c.mobile) return null;
-  return <div data-article-affiliate={kind} data-pagefind-ignore className={kind === 'rail' ? 'hidden zenn-desktop:block' : 'not-prose mx-auto my-8 max-w-[740px]'}>
+  const visibility = !c.pc ? ' zenn-desktop:hidden' : !c.mobile ? ' hidden zenn-desktop:block' : '';
+  return <div data-article-affiliate={kind} data-pagefind-ignore className={kind === 'rail' ? 'hidden zenn-desktop:block' : `not-prose mx-auto my-8 max-w-[740px]${visibility}`}>
     {placement.program === 'dainishinsotsu-agent-neo' && <p className="mb-2 text-center text-xs text-ink-muted">20代・第二新卒向け</p>}
     <ResponsiveAffiliateBanner placement={placement} withPixel={false} strictImage {...(kind === 'rail' ? { only: 'pc' as const } : {})} />
   </div>;

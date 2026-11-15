@@ -20,9 +20,9 @@ export const SURFACE_ALLOWLIST = {
 };
 
 
-// DN-1215（2026-11-15）: 既存 1 枠 + 本文画像 3 + PC 実カードの先頭・間隔 6 + 末尾 1。
+// DN-1215（2026-11-15）: 旧カード撤去・本文画像 3 + PC 実カードの先頭・間隔 6 + 末尾 1。
 // 全体を免除せず種類・DOM 位置・幅ごとにも検査する。
-export const ARTICLE_AFFILIATE_LIMITS = { native: 1, inline: 3, rail: 6, end: 1, desktop: 11, mobile: 5 };
+export const ARTICLE_AFFILIATE_LIMITS = { native: 0, inline: 3, rail: 6, end: 1, desktop: 10, mobile: 4 };
 export function articleImageKind(slot) {
  if (/^article-banner(?:-[23])?$/.test(slot)) return 'inline';
  if (/^article-rail(?:-[2-6])?$/.test(slot)) return 'rail';

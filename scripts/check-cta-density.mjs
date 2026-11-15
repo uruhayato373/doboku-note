@@ -5,7 +5,7 @@
  * DN-1198 A の記録は B/C が読む。CI 登録は C。検査 0 件・読み取り失敗も exit 1。
  * DOM だけを見る（RSC は除外）。EXP-053 は隣接する image/text の同じ CTA を1枚にする。
  * 記事カード内は note 最大3枚、記事下と右側のもくじは各1枚の別枠。
- * EXP-048 の2社は同じ grid の1枠。非記事ページは総数30とピクセルの既存ガードのみ。
+ * 旧ネイティブカードは許可しない。非記事ページは総数30とピクセルの既存ガードのみ。
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -148,22 +148,14 @@ export function inspectHtml(html, slug) {
       links: forbidden.map(n => ({ href: attr(n, 'href'), placement: attr(n, 'data-cta-placement') })),
     });
     const affiliates = page.querySelectorAll('[data-cta="affiliate"]').filter(n => !exemptSurface(n));
-    const slotOf = n => {
-      // EXP-048 B2 の実 DOM は2枚が同一 grid 内。別 grid・別配置を一緒にはしない。
-      if (attr(n, 'data-cta-variant') === 'B2') {
-        const grid = ancestor(n, p => hasClass(p, 'grid-cols-2'));
-        if (grid) return grid;
-      }
-      return n;
-    };
     const slotsByViewport = Object.fromEntries([['mobile', false], ['desktop', true]].map(([key, desktop]) =>
-      [key, new Set(affiliates.filter(n => visibleAt(n, desktop) && !articleImageKind(attr(n, 'data-cta-placement'))).map(slotOf)).size]));
+      [key, new Set(affiliates.filter(n => visibleAt(n, desktop) && !articleImageKind(attr(n, 'data-cta-placement')))).size]));
     const nativeMax = Math.max(...Object.values(slotsByViewport));
     if (nativeMax > ARTICLE_AFFILIATE_LIMITS.native) add('affiliate-slots', nativeMax, ARTICLE_AFFILIATE_LIMITS.native, [], ['affiliate'], { slotsByViewport });
     for (const [viewport, desktop] of [['mobile', false], ['desktop', true]]) {
       const visible = affiliates.filter(n => visibleAt(n, desktop));
       const native = visible.filter(n => !articleImageKind(attr(n, 'data-cta-placement')));
-      const nativeCount = new Set(native.map(slotOf)).size;
+      const nativeCount = new Set(native).size;
       const imageLinks = visible.filter(n => articleImageKind(attr(n, 'data-cta-placement')));
       for (const kind of ['inline', 'rail', 'end']) {
         const links = imageLinks.filter(n => articleImageKind(attr(n, 'data-cta-placement')) === kind);

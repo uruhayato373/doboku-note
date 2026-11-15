@@ -22,7 +22,7 @@ function stripLeadingH1(content: string): string {
   return content;
 }
 
-/** 既存 note / EXP-048 の容量と順序、および新画像の安全な区切り。サイトと管理画面が共用する。 */
+/** 既存 note / 関連記事の容量と順序、および新画像の安全な区切り。サイトと管理画面が共用する。 */
 export function planArticleCtas(doc: { meta: DocMeta; content: string }, relatedArticles: DocMeta[], now = Date.now()) {
   const { meta } = doc;
   const category = meta.category, slugStr = meta.slug, docGroup = classifyDoc(meta);
@@ -124,6 +124,6 @@ export function planArticleCtas(doc: { meta: DocMeta; content: string }, related
   return { body, strippedContent, references, headings, isQuestionSeries, magazinePlacement, careerPlacements,
     inlineCareerAd, careerMidCard, midSlot, endNoteSlot, relatedTop, midKinds: midSlots, effectiveMidPositions,
     renderedCareerSlots, reservedStudySlot, inline, candidates, docGroup,
-    inlineReason: inline.length ? null : candidates.insertAt.length ? '適合する横長素材・配置ルールなし' : '既存 CTA と設問を避けた安全な区切りなし',
+    inlineReason: inline.length ? null : candidates.insertAt.length ? '適合する画像素材・配置ルールなし' : '既存 CTA と設問を避けた安全な区切りなし',
   };
 }

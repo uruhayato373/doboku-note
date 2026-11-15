@@ -119,9 +119,9 @@ test('2 枚並べの 2 枚目は pairs で当たるルールとして扱い、1 
 test('代表の記事は転職広告が出る記事から選び、ツールは診断の後にだけ広告が出るページを避ける', async () => {
   const { docShowsCareerAd, pickMedianDoc } = await import('../scripts/lib/affiliate-layout-judge.mjs');
   const long = '本文'.repeat(1300);
-  assert.equal(docShowsCareerAd(`## a\n${long}\n## b\n## c\n`), true);
-  assert.equal(docShowsCareerAd(`## a\n${long}\n## b\n`), false, 'h2 が 2 本だと本文中間カードは出ない');
-  assert.equal(docShowsCareerAd('短い\n<CareerAffiliate program="career" />'), true, '手書きの本文カード');
+  assert.equal(docShowsCareerAd(`## a\n${long}\n## b\n${long}\n## c\n${long}`), true);
+  assert.equal(docShowsCareerAd(`## a\n${long}\n## b\n`), false, '末尾600字を残せる区切りがない');
+  assert.equal(docShowsCareerAd('短い\n<CareerAffiliate program="career" />'), false, '手書きの旧カードは広告面に数えない');
   const pick = pickMedianDoc([
     { path: '/a', bytes: 9000, adEligible: false },
     { path: '/b', bytes: 20000, adEligible: true },
