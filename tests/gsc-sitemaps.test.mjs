@@ -23,7 +23,7 @@ test("robots.txt の Sitemap 行を大文字小文字を問わず重複なしで
 });
 
 test("正常な記録は OK（旧 URL sitemap の警告は数えない）", () => {
-  assert.deepEqual(evaluateSitemapsDue({ latest: healthy, now }), { due: false, reasons: [] });
+  assert.deepEqual(evaluateSitemapsDue({ latest: healthy, now }), { due: false, reasons: [], info: [] });
 });
 
 test("記録が無い・古いは DUE（検査ゼロを OK と呼ばない）", () => {
@@ -47,4 +47,15 @@ test("未登録・送信の権限不足・エラー・長期未読み込みを�
   assert.ok(r.reasons.some((x) => x.includes("permission-denied") && x.includes("フル")));
   assert.ok(r.reasons.some((x) => x.includes("エラー 2 件")));
   assert.ok(r.reasons.some((x) => x.includes("最終読み込みが 31 日前")));
+});
+
+
+test("退役した登録のエラー・未読込は情報だけにし、現役の判定を保つ", () => {
+  const latest = { ...healthy, robotsSitemaps: [MAIN], sitemaps: [healthy.sitemaps[0], { path: LEGACY, errors: 1, lastDownloaded: null }] };
+  const result = evaluateSitemapsDue({ latest, now });
+  assert.equal(result.due, false);
+  assert.deepEqual(result.reasons, []);
+  assert.deepEqual(result.info, [`退役した登録が GSC に残っている（GSC の画面で削除する）: ${LEGACY}`]);
+  assert.equal(evaluateSitemapsDue({ latest: { ...latest, robotsSitemaps: [MAIN, LEGACY] }, now }).due, true);
+  assert.equal(evaluateSitemapsDue({ latest: { ...latest, sitemaps: [{ ...healthy.sitemaps[0], errors: 1 }, latest.sitemaps[1]] }, now }).due, true);
 });
