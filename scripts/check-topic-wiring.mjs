@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-
+// /topics の配線を検査する: topics.json の slug・tags・featured・roadmap・商品参照、法令ページの lawId と e-Gov の写し、
+// 公開機関（地方 10 機関＋本省）の数、公開実務ガイドがいずれかの topic に接続されているか。exit 1 = 問題あり。auditTopicWiring() は他の検査からも import される。
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import matter from 'gray-matter';

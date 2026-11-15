@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// X 返信レビュー画面（x-review-server.mjs）の新規カード原稿を検査する: 予定、画像原稿の欠落、280 weighted 超、
+// 公開マガジンへの導線と UTM、キャラクターカードの仕様。exit 1 = 問題あり。--local は「この端末では画像の再生成が必要」も問題として数える（既定は許す）。
 import fs from 'node:fs';
 import path from 'node:path';
 import { readXReview, readXReviewPlans } from './lib/x-review.mjs';

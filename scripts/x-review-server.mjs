@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// X 返信レビュー画面を読み取り専用のローカルサーバで配信する（npm run x-review。既定ポート 3026、--port で変更、--check は件数を出して終了）。検査は check-x-review.mjs。
+// 罠: 127.0.0.1・localhost 以外の Host は 403、GET・HEAD 以外は 405。画像は端末に実体があるときだけ返す（無ければ 404）。--check は件数 0 のとき exit 1。
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';

@@ -215,3 +215,19 @@ test('checkCompleteReadiness: 不具合は再発防止が無ければ hard fail�
   const r = checkCompleteReadiness(improve.text, JSON.stringify(improve.claimsStore), 'DN-0001');
   assert.equal(r.checks.some((c) => c.label === 'prevention'), false);
 });
+
+test('staleClaims: startedAt から期限を過ぎた claim と読めない claim だけを返す（DN-1128）', async () => {
+  const { staleClaims } = await import('../scripts/lib/todo-lifecycle.mjs');
+  const now = new Date('2026-11-15T00:00:00.000Z');
+  const store = { claims: [
+    { id: 'DN-0001', owner: 'a', startedAt: '2026-10-24T04:35:23.563Z' },
+    { id: 'DN-0002', owner: 'b', startedAt: '2026-11-14T00:00:00.000Z' },
+    { id: 'DN-0003', owner: 'c', startedAt: '2026-11-08T00:00:00.000Z' },
+    { id: 'DN-0004', owner: 'd', startedAt: 'xx' },
+  ] };
+  const stale = staleClaims(store, now, 7);
+  assert.deepEqual(stale.map((s) => s.id), ['DN-0001', 'DN-0004']);
+  assert.equal(stale[0].ageDays, 21);
+  assert.equal(stale[1].ageDays, null);
+  assert.deepEqual(staleClaims({ claims: [] }, now), []);
+});

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// note 記事を記事管理ダッシュボード（note.com/notes）経由で削除する。--note <key>・--notes <k1,k2>（公開記事）、--draft '<タイトルの一部>' [--date]（下書き）、--list-drafts（列挙のみ）。既定は probe、実削除は --commit。
+// 罠: 下書きは key で引けずタイトル＋日付で同定する。API は下書きも削除済みも 404 なので下書きの削除確認は一覧の再走査だけ。タイトルが 2 件以上一致したら削除しない。販売実績のある有料記事の削除は不可逆。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-delete-note.mjs

@@ -46,42 +46,11 @@ import { AREAS } from './lib/datasets.mjs';
 import { scriptsWithoutHeader } from './lib/cmd-help.mjs';
 
 /**
- * 冒頭コメントの無い既存のファイル（2026-11-11 時点の 32 本）。**増やさない**。冒頭コメントを書いたらここから消す
+ * 冒頭コメントの無い既存のファイル（2026-11-11 時点の 32 本のうち、残りは配布物の sync.mjs だけ・DN-1140）。**増やさない**。冒頭コメントを書いたらここから消す
  * （書いたのに残っていると検査が落ちる）。新しい script の起動ファイルは、冒頭コメントに用途と罠を書く。
  */
 export const NO_HEADER_BASELINE = [
   '.claude/shared-policy/sync.mjs',
-  'scripts/build-note-text-partial-specs.mjs',
-  'scripts/build-public-route-redirects.ts',
-  'scripts/build-standards-library.mjs',
-  'scripts/check-exam-calendar.mjs',
-  'scripts/check-instagram-profile-funnel.mjs',
-  'scripts/check-note-link-cards.mjs',
-  'scripts/check-note-membership.mjs',
-  'scripts/check-topic-wiring.mjs',
-  'scripts/check-x-review.mjs',
-  'scripts/check-youtube-cover-handoff.mjs',
-  'scripts/ensure-local-media.mjs',
-  'scripts/local-resource-audit.mjs',
-  'scripts/local-resource-clean.mjs',
-  'scripts/local-resource-run.mjs',
-  'scripts/note-account-name.mjs',
-  'scripts/note-append-cta.mjs',
-  'scripts/note-append-list-links.mjs',
-  'scripts/note-attach-file.mjs',
-  'scripts/note-comment-reply.mjs',
-  'scripts/note-delete-note.mjs',
-  'scripts/note-edit-magazine.mjs',
-  'scripts/note-edit-session.mjs',
-  'scripts/note-magazine-add-articles.mjs',
-  'scripts/note-magazine-cover.mjs',
-  'scripts/note-membership-plan-create.mjs',
-  'scripts/note-membership-plan-edit.mjs',
-  'scripts/note-membership-plan-status.mjs',
-  'scripts/note-sync-tags.mjs',
-  'scripts/note-update-partial.mjs',
-  'scripts/x-review-server.mjs',
-  'tests/local-resources.test.mjs',
 ];
 
 /**

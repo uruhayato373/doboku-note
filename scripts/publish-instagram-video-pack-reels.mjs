@@ -4,7 +4,7 @@
  * 既定 dry-run（先頭1件で最終確定直前まで）。--commit で予約する。
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { createHash } from 'node:crypto';
+import { sha256File as sha256 } from './lib/sha256.mjs';
 import { dirname, join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { assertInstagramPublicationReady } from './lib/instagram-campaign.mjs';
@@ -28,7 +28,6 @@ const now = Date.now();
 const minTime = now + 20 * 60 * 1000;
 const maxTime = now + 29 * 24 * 60 * 60 * 1000;
 const metaPaths = [];
-function sha256(path) { return createHash('sha256').update(readFileSync(path)).digest('hex'); }
 function hydrateVideo(videoPath) {
   if (existsSync(videoPath)) return;
   const rel = relative(ROOT, videoPath).replace(/\\/g, '/');

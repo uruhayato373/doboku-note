@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// 重い作業（ビルド等）を 1 本ずつに絞って走らせる包み: node scripts/local-resource-run.mjs [--allow-low-memory] -- <コマンド> <引数>。
+// 空きディスク・空きメモリが config.local-resources の下限未満なら起動せず投げ（CI では見ない）、heavy-work ロックを取って子を実行し、終了コードをそのまま返す。
+// 罠: `--` が必須。ロック名は DOBOKU_HEAVY_LOCK_NAME で変えられる（テストが実ビルドと奪い合わないため）。
 import { spawn } from 'node:child_process';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 import { acquireLock, machineResources, GiB } from './lib/local-resources.mjs';

@@ -56,12 +56,12 @@
 
   <!-- 1. 定格荷重表示銘板 (フック近傍) -->
   <rect x="55" y="240" width="12" height="8" class="safety"/>
-  <line x1="55" y1="244" x2="45" y2="255" class="lead"/>
-  <text x="5" y="255" class="label">定格荷重表示銘板</text>
+  <line x1="55" y1="244" x2="102" y2="263" class="lead"/>
+  <text x="105" y="268" class="label">定格荷重表示銘板</text>
 
   <!-- 2. 落下防止バルブ (ブーム基部) -->
   <circle cx="210" cy="195" r="4" class="safety"/>
-  <line x1="205" y1="195" x2="165" y2="160" class="lead"/>
+  <line x1="205" y1="195" x2="87" y2="159" class="lead"/>
   <text x="5" y="158" class="label">落下防止バルブ</text>
 
   <!-- 3. アーム角度センサ (ブーム-アーム接合部) -->
@@ -71,8 +71,8 @@
 
   <!-- 4. ブーム角度センサ (本体-ブーム接合部) -->
   <circle cx="232" cy="225" r="3.5" class="sensor"/>
-  <line x1="235" y1="225" x2="280" y2="185" class="lead"/>
-  <text x="284" y="183" class="label">ブーム角度センサ</text>
+  <line x1="235" y1="225" x2="278" y2="176" class="lead"/>
+  <text x="282" y="174" class="label">ブーム角度センサ</text>
 
   <!-- 5. 荷重検出用圧力センサ (ブームシリンダ付近) -->
   <circle cx="185" cy="175" r="3.5" class="sensor"/>
@@ -86,17 +86,17 @@
 
   <!-- 7. 水準器 -->
   <rect x="275" y="240" width="10" height="6" fill="#ffffff" stroke="#222"/>
-  <line x1="280" y1="246" x2="335" y2="225" class="lead"/>
-  <text x="338" y="224" class="label">水準器</text>
+  <line x1="280" y1="246" x2="336" y2="238" class="lead"/>
+  <text x="340" y="240" class="label">水準器</text>
 
   <!-- 8. クレーンモード外部表示灯 (本体後方) -->
   <circle cx="305" cy="220" r="4" fill="#d4a017" stroke="#222"/>
-  <line x1="308" y1="220" x2="340" y2="195" class="lead"/>
-  <text x="396" y="194" class="label" text-anchor="end">クレーンモード</text>
-  <text x="396" y="205" class="label" text-anchor="end">外部表示灯</text>
+  <line x1="308" y1="220" x2="316" y2="197" class="lead"/>
+  <text x="394" y="195" class="label" text-anchor="end">クレーンモード</text>
+  <text x="394" y="211" class="label" text-anchor="end">外部表示灯</text>
 
   <!-- 9. 格納型フック annotated separately -->
-  <line x1="75" y1="252" x2="55" y2="280" class="lead"/>
+  <line x1="75" y1="252" x2="60" y2="268" class="lead"/>
   <text x="5" y="282" class="label">格納型フック</text>
 
   <!-- Legend -->
@@ -115,7 +115,7 @@
   </g>
 
   <!-- 安全装置説明ボックス -->
-  <rect x="15" y="352" width="370" height="134" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="15" y="352" width="370" height="142" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
   <text x="200" y="371" font-size="12" fill="#1a3a5c" text-anchor="middle" font-weight="bold">主要安全装置の機能</text>
   <line x1="15" y1="378" x2="385" y2="378" stroke="#d7d7d7" stroke-width="1"/>
   <text x="25" y="396" font-size="11" fill="#222">過負荷警報装置：定格荷重超過を警報・自動停止</text>

@@ -1,3 +1,6 @@
+// YouTube の採用表紙（cover-design.json の approvedImage）が Drive vault へ渡り切っているかを検査する。
+// 入力の変更（specSha256）、Drive 台帳の group・sha256・verifiedAt・driveFileId の不一致を見る。--local は手元の実体のバイトとハッシュも照合する。
+// exit 1 = 不整合あり / 2 = 実行エラー。採用画像 0 件は検査不成立として problems に積む。
 import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';

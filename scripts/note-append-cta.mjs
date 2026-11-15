@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// 公開済み note 記事の本文末尾へ CTA（文章 + URL リンクカード）を追記して「更新する」。--note <noteId> --text <文章> --url <URL>。既定は dry-run、実更新は --commit。
+// 罠: 追記のみで本文の全消去・paste はしない（paste は無音失敗する）。追記 URL が既にあれば何もしない。account が dobokunote でなければ中断。詳細は下のブロックコメント。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-append-cta.mjs

@@ -15,7 +15,7 @@
     </style>
   </defs>
 <g transform="translate(10 10)">
-  <text class="t-lead" x="200" y="16" text-anchor="middle">面積図の境界線が区切るもの（数値なし・構成を示す）</text>
+  <text class="t-lead" x="200" y="6" text-anchor="middle">面積図の境界線が区切るもの（数値なし・構成を示す）</text>
   <rect class="box-b" x="40" y="30" width="200" height="70"/>
   <rect class="box-b" x="240" y="30" width="120" height="70"/>
   <rect class="box" x="40" y="100" width="110" height="170"/>

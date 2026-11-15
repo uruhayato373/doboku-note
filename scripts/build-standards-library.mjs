@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-
+// .tmp/mlit-national-transcription の全国版 manifest・QA から content/site/standards-library を一括で作り直す（staging → 差し替え）。
+// 罠: add-standards-document.mjs で 1 冊ずつ足した文書は manifest に無く、ここで作り直すと catalog から消える。実行後に add-standards-document を再実行する。
 import {
   copyFileSync,
   existsSync,

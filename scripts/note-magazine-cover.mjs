@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// note 有料マガジンの見出し画像（カバー）をマガジン設定ページからアップロードして保存する。--key <magKey> と --dir <magazineDir>（<dir>/_cover.png が既定）または --image <path.png>。既定は probe（フォーム構造のダンプのみ）、実保存は --commit。
+// 罠: account が dobokunote でなければ中断（名前が出るまで待ち、出なければ exit 2）。保存後に note API で eyecatch が空でないことを実体検証する。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-cover.mjs

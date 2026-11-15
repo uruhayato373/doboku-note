@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// 既存の note 記事を別の有料マガジンへ収録（追加）する。追加対象は「ソースマガジンの収録記事 ∪ 明示指定記事 − ターゲットの現収録」を API 差分で自動算出する（冪等）。既定は dry-run（計画とスクショのみ）、実追加は --commit、--probe は 1 記事目の DOM ダンプ。
+// 罠: 完了後に note API でターゲットの収録数を実体検証する（画面の成功表示を信じない）。設定・価格は note-edit-magazine の担当。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-add-articles.mjs

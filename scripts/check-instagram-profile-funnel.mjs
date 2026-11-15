@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// Instagram のプロフィール導線（1 プロフィール・1 リンク・固定投稿）と固定投稿の原稿・表紙・図解を検査する。
+// 手元の PNG と来歴の SHA、Drive 台帳の現版、キャプションとマニフェストの一致を見る。exit 1 = 違反あり。罠: 表紙は手元が無ければ SHA 照合を飛ばす（Drive 台帳側の有無は常に見る）。
 import { readDataset } from './lib/dataset-io.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';

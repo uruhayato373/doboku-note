@@ -28,7 +28,7 @@
   <polygon points="60,32 56,42 64,42" fill="#555"/>
   <polygon points="374,220 364,216 364,224" fill="#555"/>
   <text class="t-axis" x="30" y="100" text-anchor="middle" transform="rotate(-90 30 100)">ひずみ ε</text>
-  <text class="t-axis" x="374" y="240" text-anchor="end">載荷期間</text>
+  <text class="t-axis" x="245" y="240" text-anchor="end">載荷期間</text>
   <text class="t-axis" x="52" y="236" text-anchor="end">0</text>
   <path class="line-main" d="M60,150 C 70,110 100,78 160,66 C 220,54 280,50 320,50"/>
   <path class="line-sub" d="M60,220 C 70,200 100,196 160,192 C 220,188 280,186 320,186"/>

@@ -1,6 +1,6 @@
 /**
  * note カバー Crop-safe V4（cover.variant: crop-safe-v4）の回帰テスト。
- * 仕様 SSOT: .claude/knowledge/design-system/note-cover-crop-safe-v4.md
+ * 仕様 SSOT: .claude/knowledge/design-system/note-cover-character-v5.md（表示面と文言フィールド）
  * 対象: ogp-templates.mjs の renderNoteCoverCropSafeV4 / v4FitFontSize / v4FitIssues と
  *       renderNoteCoverG2 の opt-in 分岐（variant なし G2 の非回帰）。
  */

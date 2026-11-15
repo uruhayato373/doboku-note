@@ -51,7 +51,7 @@ domain: product
 
 ## Crop-safe V4（cover.variant: crop-safe-v4・**既定**）
 
-> 仕様 SSOT: [`note-cover-crop-safe-v4.md`](../knowledge/design-system/note-cover-crop-safe-v4.md)。**既定は V4**（2026-07-24 に全 715 記事＋46 マガジンを V4 へ全量移行済み・G2 残 0）。新規記事・マガジンは必ず V4 で執筆する。
+> 仕様 SSOT: [`note-cover-character-v5.md`](../knowledge/design-system/note-cover-character-v5.md)「表示面と文言フィールド」。文言の構造は V4 の分解（2026-07-24 に全記事・全マガジンを移行済み・G2 残 0）。新規記事・マガジンは必ずこの構造で書く。描画は V5。
 
 V4 のコピー規則（G2 との違い）:
 

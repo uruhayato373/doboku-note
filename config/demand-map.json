@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "_doc": "悩みと商品候補の地図（正本）。配線は「悩み → 立場 → 資格・テーマ・法令 → 商品」の順。pains＝悩み（HARM・深さ・需要の証拠・ハブの候補）、positions＝立場（公開したものは src/config/topics.json の facet: audience のテーマ）、candidates＝商品候補（類似／差別の軸・需要の証拠・指標・判定日・停止条件。販売を始めたら productIds で実売を引く）。打ち手（ハブ・導線の実験）は data/business/experiments.json に置き、demand.painId でここの悩みを指す。判断の考え方は docs/strategy/21_分類の軸と回遊の配線2026-10.md「悩みの軸」、競合と需要の証拠は docs/strategy/09_販売チャネル競合分析.md §F。evidence は観測した事実だけを書き、仮説は hypothesis、取れなかった値は unverified に書く（推測を確定値にしない）。管理画面 戦略＞資格と市場＞悩みと商品候補（/strategy/demand）が表示する。research＝外の調査の順番と記録（四半期・1 回 1 資格）。毎月は npm run report-demand-map で判定日と悩みの検索語を読む（月次レビュー）。",
-  "updatedAt": "2026-11-12",
+  "updatedAt": "2026-11-15",
   "pains": [
     {
       "id": "pass-exam",
@@ -102,7 +102,7 @@
       "hubs": [
         {
           "title": "施工管理から発注者側（自治体・発注者支援・コンサル）へ移りたい人の地図：仕事の中身・要る資格・移り方",
-          "status": "idea",
+          "status": "decided",
           "positions": [
             "career-changer",
             "general-contractor",
@@ -146,7 +146,7 @@
       "hubs": [
         {
           "title": "技術士を取って給料を上げたい人の地図：手当・就ける役・受け方の順番",
-          "status": "idea",
+          "status": "decided",
           "positions": [
             "consultant-engineer",
             "general-contractor"

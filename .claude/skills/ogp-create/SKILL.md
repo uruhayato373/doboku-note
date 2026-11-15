@@ -42,7 +42,7 @@ note 公開用ドラフト（`content/note/`）のカバー画像（1280×670）
 
 過去 Phase で 5 種テンプレ（navy-white / dark-wood / red-line / blackboard / dark-grid）を併用していたが、2026-04-29 に T06 Mono Tag に統一（理由: SNS シェアでブランド一貫性を担保 + メンテ単純化）。**旧**テンプレの背景画像 (`assets/fonts/ogp-backgrounds/*.png`) は履歴として残置しているが現在は参照されない。新しい資格別 AI 背景は別系統で `config/ogp/backgrounds/<exam-key>.png|webp|jpg` に置き、`ogp-create.mjs` の `resolveBackgroundImage` が参照する（任意・未配置なら従来のオフホワイト+グリッドにフォールバック。下記「資格別 AI 背景」）。
 
-**note 記事・マガジンカバーは V5文字優先POP（本スキル外の `scripts/lib/note-character-cover.mjs`）が標準**。サイトOGP（`mono-tag`）とは別系統で、背景写真は共有せず、フォント（本スキルの`assets/fonts/`）だけを共有する。値の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../../knowledge/design-system/note-cover-tokens.json)、現行レイアウトは [`note-cover-character-v5.md`](../../knowledge/design-system/note-cover-character-v5.md)、V4履歴は [`.claude/knowledge/design-system/note-cover-crop-safe-v4.md`](../../knowledge/design-system/note-cover-crop-safe-v4.md)（G2履歴は [`note-cover.md`](../../knowledge/design-system/note-cover.md)）。
+**note 記事・マガジンカバーは V5文字優先POP（本スキル外の `scripts/lib/note-character-cover.mjs`）が標準**。サイトOGP（`mono-tag`）とは別系統で、背景写真は共有せず、フォント（本スキルの`assets/fonts/`）だけを共有する。値の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../../knowledge/design-system/note-cover-tokens.json)、現行レイアウトは [`note-cover-character-v5.md`](../../knowledge/design-system/note-cover-character-v5.md)（G2履歴は [`note-cover.md`](../../knowledge/design-system/note-cover.md)）。
 
 ## 全幅レイアウト（2026-06-16〜）
 
@@ -256,4 +256,4 @@ cover:
 - 改行・フォント計算: `.claude/skills/ogp-create/scripts/lib/ogp-text.mjs`
 - エントリポイント: `.claude/skills/ogp-create/scripts/ogp-create.mjs`
 - note カバー: `scripts/generate-note-covers.mjs`（variant: crop-safe-v4=既定 / variant 無し cover:=G2 レガシー / cover: 無し=mono-tag）
-- noteカバー現行V5: `.claude/knowledge/design-system/note-cover-character-v5.md`（SSOT）／V4・G2履歴: `note-cover-crop-safe-v4.md`・`note-cover.md`／トークン: `.claude/knowledge/design-system/note-cover-tokens.json`（値の真実源）
+- noteカバー現行V5: `.claude/knowledge/design-system/note-cover-character-v5.md`（SSOT）／G2履歴: `note-cover.md`／トークン: `.claude/knowledge/design-system/note-cover-tokens.json`（値の真実源）

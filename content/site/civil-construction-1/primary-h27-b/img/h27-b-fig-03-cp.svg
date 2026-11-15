@@ -27,8 +27,8 @@
   <text x="120" y="125" text-anchor="middle" class="du">5</text>
   <!-- 3->5 E,9 -->
   <line x1="220" y1="110" x2="322" y2="118" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#ar)"/>
-  <text x="270" y="104" text-anchor="middle" class="ac">E</text>
-  <text x="270" y="118" text-anchor="middle" class="du">9</text>
+  <text x="245" y="130" text-anchor="middle" class="ac">E</text>
+  <text x="280" y="130" text-anchor="middle" class="du">9</text>
   <!-- 2->3 dummy -->
   <line x1="128" y1="242" x2="200" y2="120" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ar)"/>
   <!-- 2->6 (8) -->
@@ -47,7 +47,7 @@
   <text x="180" y="232" text-anchor="middle" class="du">4</text>
   <!-- 4->5 (6) -->
   <line x1="228" y1="172" x2="322" y2="128" stroke="#b22234" stroke-width="3.5" marker-end="url(#arcp)"/>
-  <text x="262" y="142" text-anchor="middle" class="du">6</text>
+  <text x="250" y="155" text-anchor="middle" class="du">6</text>
   <!-- 5->7 (12) -->
   <line x1="348" y1="125" x2="432" y2="155" stroke="#b22234" stroke-width="3.5" marker-end="url(#arcp)"/>
   <text x="392" y="128" text-anchor="middle" class="du">12</text>
