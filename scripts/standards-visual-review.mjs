@@ -331,7 +331,10 @@ async function shootChapter({ desktop, mobile, base, chapter, dir, maxShots, max
       // 図は遅延読み込み（loading=lazy）なので、撮る前に全部読み込ませる。読み込めない図は描画の崩れとして残す
       // （待たずに撮ると真っ白の図を「図が無い」と判定させてしまう。2026-11-09 の近畿 1-2・10-6）
       const unloaded = await d.evaluate(async () => {
-        const images = [...document.querySelectorAll('[data-standards-chapter] img')];
+        // 本文中の転職バナー（data-standards-affiliate・DN-1214）と計測ピクセルは原本の図ではない。PC 用とスマホ用の片方は
+        // 非表示で読み込まれず、計測は撮影側で止めるので、数えると全章が「読み込めない画像」で落ちた（2026-11-15）
+        const images = [...document.querySelectorAll('[data-standards-chapter] img')]
+          .filter((img) => !img.closest('[data-standards-affiliate], [data-cta]') && !(img.width <= 1 && img.height <= 1));
         for (const img of images) img.loading = 'eager';
         await Promise.all(images.map((img) => (img.complete && img.naturalWidth > 0
           ? null

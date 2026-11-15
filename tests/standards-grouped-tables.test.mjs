@@ -13,10 +13,10 @@ import React from 'react';
 import remarkGfm from 'remark-gfm';
 import { buildDocument } from '../scripts/build-standard-articles.mjs';
 import { createHash } from 'node:crypto';
-import { loadTableOverrides, ARTICLES_ROOT, getCatalog, loadOverrides } from '../scripts/lib/standards-structure.mjs';
+import { loadTableOverrides, loadDocumentPages, ARTICLES_ROOT, getCatalog, loadOverrides } from '../scripts/lib/standards-structure.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 import { resolveTablePart } from '../scripts/lib/standards-table.mjs';
-import { classifyGroupedTable, prepareGroupedTable, projectGroupedChapter, groupedCoverageErrors, groupedArtifact, GROUPED_EXCEPTIONS } from '../scripts/lib/standards-grouped-tables.mjs';
+import { classifyGroupedTable, prepareGroupedTable, projectGroupedChapter, groupedCoverageErrors, groupedArtifact } from '../scripts/lib/standards-grouped-tables.mjs';
 import { restoreStandardSearchText } from '../scripts/lib/standards-search-text.mjs';
 import { isIndexableHtml } from '../scripts/build-search-index.mjs';
 
@@ -98,7 +98,7 @@ test('品質9-2:試験頻度・確認○を保持し、行ごとの注記のみ�
   for (const line of p.markdown.split('\n').filter((l) => l.startsWith('|'))) assert.ok(line.split('|').length - 2 <= 3);
 });
 
-test('全245参照: 238変換・例外7件の本文は不変、セル網羅と保存物一致', () => {
+test('全245参照: 表244件と図のみ1件を投影、セル網羅と保存物一致', () => {
   let count = 0;
   const fallback = [];
   for (const ch of manifest.chapters.filter((c) => c.presentationFile)) {
@@ -116,8 +116,7 @@ test('全245参照: 238変換・例外7件の本文は不変、セル網羅と�
     }
   }
   assert.equal(count, 245);
-  assert.deepEqual(new Set(fallback), GROUPED_EXCEPTIONS);
-  assert.equal(fallback.length, 7);
+  assert.deepEqual(fallback, []);
   const changed = project('2-1');
   changed.markdown = changed.markdown.replaceAll('施工延長40m', '削除');
   assert.ok(groupedCoverageErrors(changed).length > 0, '表示の欠落を検出');
@@ -275,4 +274,78 @@ test('値の列は「以下・以上・未満・）」の後の半角空白で�
   const { valueItemBreaks } = await import('../scripts/lib/standards-grouped-tables.mjs');
   assert.equal(valueItemBreaks('砕石　3.0％以下（ただし、5.0％以下） スラグ粗骨材　5.0％以下 それ以外（砂利等）1.0％以下'), '砕石　3.0％以下（ただし、5.0％以下）\nスラグ粗骨材　5.0％以下\nそれ以外（砂利等）1.0％以下');
   assert.equal(valueItemBreaks('設計図書による'), '設計図書による');
+});
+
+test('旧例外7件: 表部品は3列以下、式・図の版面はページ注記にし全文を保持', async () => {
+  const keys = ['ca5f0c2db24112d7', '9064d57a26078f7d', '1afa7fe58fbb8c5e', '1c67cc73d3d47582', '0cc13e23cfad408e', 'fe8f808b4a34cb16', '1937ba6d73a14b92'];
+  let checked = 0;
+  for (const id of ['3-2', '3-6', '3-8', '6-1']) {
+    const p = project(id);
+    const { content } = await compileMDX({ source: p.markdown, components: { SourceRef: () => null }, options: { mdxOptions: { remarkPlugins: [remarkGfm] } } });
+    const html = renderToStaticMarkup(content);
+    assert.doesNotMatch(html, /原典の表|<pre|ｄ＝/u);
+    const search = restoreStandardSearchText(html, p.tables);
+    for (const t of p.tables.filter(t => keys.includes(t.key))) {
+      checked++;
+      assert.equal(t.ok, true, t.key);
+      assert.match(t.markdown, new RegExp(`測定箇所・計算式の図：原本 p\\.${t.pages}`));
+      assert.doesNotMatch(t.markdown, /https?:|<a\b|\]\(/u);
+      const raw = overrides.get(t.key);
+      const lines = raw.kind === 'verbatim' ? raw.layout : raw.parts.filter(part => part.kind === 'verbatim').flatMap(part => part.lines);
+      for (const line of lines) {
+        assert.ok(t.sourceText.includes(line));
+        assert.ok(p.text.includes(line));
+        assert.ok(canonical(id).includes(line));
+        assert.ok(search.includes(line));
+      }
+      if (raw.kind === 'verbatim') assert.doesNotMatch(t.markdown, /^\|/mu); // p.174 は図のみ
+      else {
+        assert.match(t.markdown, /^#{2,4} /mu);
+        assert.match(t.markdown, /\| 測定項目 \|/u);
+        for (const line of t.markdown.split('\n').filter(l => l.startsWith('|'))) assert.ok(line.split('|').length - 2 <= 3);
+      }
+    }
+  }
+  assert.equal(checked, 7);
+});
+
+test('9-1の目次41項目を原文の行どおり保持して連結せず描く', async () => {
+  const document = getCatalog().documents.find(d => d.agencyId === 'mlit' && d.documentId === 'sekou-kanri-kijun');
+  const page = loadDocumentPages(document).find(p => p.page === 213);
+  const original = page.lines.map(l => l.trim()).filter(l => /^\d+\s+.+･{2,}\s*Ⅱ\s*－\s*\d+$/u.test(l));
+  assert.equal(original.length, 41);
+  const md = presentation('9-1').markdown;
+  const items = md.split('\n').filter(l => /^\d+ .+Ⅱ － \d+$/u.test(l));
+  assert.deepEqual(items, original);
+  const { content } = await compileMDX({ source: md, components: { SourceRef: () => null }, options: { mdxOptions: { remarkPlugins: [remarkGfm] } } });
+  const html = renderToStaticMarkup(content);
+  const paragraphs = [...html.matchAll(/<p>([^<]+)<\/p>/gu)].map(m => m[1]);
+  assert.deepEqual(paragraphs.filter(p => /^\d+ .+Ⅱ － \d+$/u.test(p)), original);
+});
+
+test('9-4 table-10の規格値・頻度を含め、組み直した表の値列は全画面幅で折り返す', () => {
+  const md = presentation('9-4').markdown;
+  const tables = [...md.matchAll(/\| 試験項目[^\n]*\n[\s\S]*?(?=\n\n)/gu)];
+  assert.match(tables[9][0], /温度測定/u);
+  assert.match(tables[9][0], /10,000㎡/u);
+  const css = readFileSync(join(REPO_ROOT, 'src/styles/globals.css'), 'utf8');
+  const selector = '[data-standards-chapter] [data-standard-table] table:not(:has(th:nth-child(4))) :is(td, th):not(:first-child)';
+  const rule = css.split(selector + ' {')[1].split('}')[0];
+  assert.match(rule, /white-space: normal;/u);
+  assert.match(rule, /overflow-wrap: anywhere;/u);
+  assert.ok(css.indexOf(selector) < css.indexOf('@media (max-width: 639px)'));
+});
+
+test('構成図とロックボルト図1〜3を承認済み切り出し画像で埋め込み、図ラベルの段落を出さない', () => {
+  const one = canonical('1-1');
+  assert.match(one, /^## 3\. 構成$/mu);
+  assert.doesNotMatch(one, /出来形管理施工管理/u);
+  const ledger = JSON.parse(readFileSync(join(REPO_ROOT, 'content/sources/standards/mlit/sekou-kanri-kijun/figures.json')));
+  assert.equal(ledger.figures.length, 4);
+  for (const f of ledger.figures) {
+    assert.equal(f.review.status, 'approved');
+    assert.ok(existsSync(join(root, 'img', f.file)));
+    assert.ok(canonical(f.chapterId).includes(`/img/${f.file}`));
+    assert.ok(canonical(f.chapterId).includes(`<SourceRef pages="${f.sourceRef}" kind="figure" />`));
+  }
 });

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "document": "mlit/sekou-kanri-kijun",
+  "figures": [
+    {
+      "chapterId": "1-1",
+      "sourceRef": "2",
+      "caption": "構成図",
+      "imagePage": 2,
+      "bbox": [
+        491,
+        997,
+        1461,
+        1161
+      ],
+      "file": "structure.webp",
+      "width": 970,
+      "height": 164,
+      "review": {
+        "status": "approved",
+        "by": "codex",
+        "method": "270dpi の原本ページと切り出し画像を目視照合"
+      }
+    },
+    {
+      "chapterId": "10-1",
+      "sourceRef": "268",
+      "caption": "図-1　ロックボルト引抜試験",
+      "imagePage": 268,
+      "bbox": [
+        1389,
+        1000,
+        1898,
+        1702
+      ],
+      "file": "rockbolt-pullout-curve.webp",
+      "width": 509,
+      "height": 702,
+      "review": {
+        "status": "approved",
+        "by": "codex",
+        "method": "270dpi の原本ページと切り出し画像を目視照合"
+      }
+    },
+    {
+      "chapterId": "10-1",
+      "sourceRef": "269",
+      "caption": "図-2　反力座の設置",
+      "imagePage": 269,
+      "bbox": [
+        613,
+        695,
+        1665,
+        1270
+      ],
+      "file": "rockbolt-reaction-plate.webp",
+      "width": 1052,
+      "height": 575,
+      "review": {
+        "status": "approved",
+        "by": "codex",
+        "method": "270dpi の原本ページと切り出し画像を目視照合"
+      }
+    },
+    {
+      "chapterId": "10-1",
+      "sourceRef": "269",
+      "caption": "図-3　引抜試験概要図",
+      "imagePage": 269,
+      "bbox": [
+        481,
+        1558,
+        1861,
+        2546
+      ],
+      "file": "rockbolt-pullout-test.webp",
+      "width": 1200,
+      "height": 859,
+      "review": {
+        "status": "approved",
+        "by": "codex",
+        "method": "270dpi の原本ページと切り出し画像を目視照合"
+      }
+    }
+  ],
+  "source": "原本のページ画像（Drive vault・270dpi）。bbox は原本ピクセル、幅1200pxを超える図だけ縮小。"
+}

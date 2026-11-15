@@ -1341,6 +1341,12 @@
   min-width: 7em;
 }
 
+/* 組み直した表では短い値の nowrap も解除する。長い英数字や br を含む値も列幅の中で折り返す。 */
+[data-standards-chapter] [data-standard-table] table:not(:has(th:nth-child(4))) :is(td, th):not(:first-child) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 /* スマホでは、長いセルの最小幅 10em（上の .table-scroll の規則）が列の少ない表でも効き、3 列目（試験時期・頻度）が
    画面外へはみ出した（品質 9-1 章の全 10 表）。列の少ない表だけ、1 列目は 5em・残りは最小幅なしにして画面幅に収める。 */
 @media (max-width: 639px) {

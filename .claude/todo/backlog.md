@@ -461,8 +461,20 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1217] 画面判定（standards-visual-review）が、表を組み直した文書で原本のページ画像を作業票に付けられない
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:不具合] [起票:2026-11-15]
+
+**起点**: 2026-11-15 の施工管理基準 30 章の画面判定（DN-1213・DN-1216）で、作業票の `sourceImages`／shots の `sourcePages` が全章で空になり、判定役が原本のページ画像と見比べられなかった（画面が読めるかだけの判定になった）。
+
+**原因**（DN-1216 の調査）: ページ画像は Drive vault に 269 ページ分ある。`scripts/standards-visual-review.mjs`（353 行付近）は正規 Markdown の要素数と表示後の要素数を順番で照合し、数が合わないと対応付け（mdPages）を null にする。表を見出し＋3 列以下に組み直した文書（`mlit/sekou-kanri-kijun`）は 1 つの元の表が複数の表になるので数が合わない（9-4 は 12 要素 → 27 表）。
+
+**やること**: 組み直した表（`<section data-standard-table="…">`・`*.grouped.json` の key とページ）から、表示後の表ごとに原本のページを引けるようにする。直したら施工管理基準 30 章を原本と見比べて判定し直す。
+
+**完了条件**: `npm run standards-visual-review -- prepare --only mlit/sekou-kanri-kijun` の作業票で、表の撮影に原本のページ画像が付く（テストで固定）。30 章を原本照合つきで判定し、台帳に記録されている。
+
+
 ### [DN-1216] 基準書 mlit/sekou-kanri-kijun の 8 章が画面の目視判定で不合格（9-4・3-8・3-6・3-2・6-1・9-1 ほか）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:standards-visual-review] [起票:2026-11-15]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:standards-visual-review] [起票:2026-11-15] [進行中]
 
 **起点**: 2026-11-15 の画面の目視判定（`npm run standards-visual-review`・作業票 20261115T051048Z）で、mlit/sekou-kanri-kijun の 8 章が不合格になった。判定は撮影した画面と原本のページ画像の見比べ（エージェント standards-page-visual-auditor）と、描画で決まる崩れの機械判定。台帳は .claude/state/quality/standards-visual-review.json。
 
