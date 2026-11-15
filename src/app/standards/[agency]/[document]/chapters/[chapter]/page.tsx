@@ -18,6 +18,7 @@ import StandardReferenceLinks from '@/components/standards/StandardReferenceLink
 import StandardChapterPager from '@/components/standards/StandardChapterPager';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import { StandardsEndBanner, StandardsInlineBanner } from '@/components/standards/StandardsAffiliateBanners';
+import { planInlineSlots, withInlineSlots } from '@/lib/standards-inline-slots.mjs';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
@@ -43,24 +44,6 @@ import { standardsAgencyPath } from '@/lib/route-paths';
 import { getAreaLabel } from '@/lib/content-taxonomy';
 
 type Params = { agency: string; document: string; chapter: string };
-
-/**
- * 章の本文の第 2 節（2 つ目の `## `）の前に本文中の横長バナーを差し込む。本文を 2 つに割ると見出し ID の重複番号
- * （rehypeHeadingIds は文書ごとに数える）がずれて目次のリンクが外れるので、1 つの文書のまま部品を置く。
- * コードブロック（版面のままの表）の中の行は見出しとして数えない。節が 1 つしかない章には置かない（本文末の枠がある）。
- */
-function withInlineBanner(markdown: string): string {
-  const lines = markdown.split('\n');
-  let fenced = false;
-  let h2 = 0;
-  for (let i = 0; i < lines.length; i += 1) {
-    if (/^\s*```/.test(lines[i] ?? '')) fenced = !fenced;
-    if (fenced || !/^## /.test(lines[i] ?? '')) continue;
-    h2 += 1;
-    if (h2 === 2) return [...lines.slice(0, i), '<StandardsInlineBanner />', '', ...lines.slice(i)].join('\n');
-  }
-  return markdown;
-}
 
 export const dynamicParams = false;
 
@@ -114,6 +97,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   const { document: entry, chapter: target } = resolved;
   const markdown = readStandardChapterMarkdown(agency, document, target);
   const preamble = target.splitBySection ? standardChapterPreamble(markdown) : null;
+  const inlineSlots = target.splitBySection ? [] : planInlineSlots(markdown).insertAt.map(({ slot }) => slot);
   const relatedTopics = getTopicsForStandardText(entry, markdown);
   const referencedDocuments = getReferencedStandardDocuments(entry, markdown);
 
@@ -138,8 +122,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
     SourceRef: () => null,
     // はみ出すときだけキーボードで操作でき、案内を出す（scrollable-region-focusable）
     table: StandardScrollTable,
-    // 本文中の横長バナー（withInlineBanner が第 2 節の前に置く）
-    StandardsInlineBanner,
+    // 実際に置く面だけを渡し、短い章でピクセルの持ち主が消えないようにする
+    StandardsInlineBanner: ({ slot }: { slot: string }) => <StandardsInlineBanner slot={slot} inlineSlots={inlineSlots} />,
   };
 
   return (
@@ -151,7 +135,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
     >
       <TwoColumnShell
         gutter="flush-mobile"
-        aside={<StandardsNavigation agencyId={agency} currentDocument={entry} currentChapter={target} />}
+        aside={<StandardsNavigation agencyId={agency} currentDocument={entry} currentChapter={target} inlineSlots={inlineSlots} />}
       >
         <SectionCard
           as="article"
@@ -199,7 +183,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
               className="prose-blog mt-7 [&>h2:first-child]:mt-0"
               data-standards-chapter={target.chapterId}
             >
-              <SafeMdx source={withInlineBanner(markdown)} components={components} options={mdxOptions} />
+              <SafeMdx source={withInlineSlots(markdown)} components={components} options={mdxOptions} />
             </div>
           )}
 
@@ -214,7 +198,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           <div className="mt-10">
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
-          <StandardsEndBanner pageKind="standards" />
+          <StandardsEndBanner pageKind="standards" inlineSlots={inlineSlots} />
           <StandardDataLinks document={entry} chapter={target} />
           <StandardsAttribution document={entry} item={target.item} />
         </SectionCard>

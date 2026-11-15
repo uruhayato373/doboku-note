@@ -1,5 +1,6 @@
 // check-standards-density（/standards の密度ゲート）の回帰。純粋関数は fixtures、CLI は一時 out/ で exit 0/1/2 と --json を見る。
 import { test } from 'node:test';
+import process from 'node:process';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
@@ -46,8 +47,17 @@ test('出典ブロックが 2 つだと attribution', () => {
   assert.deepEqual(rulesOf(fixture('two-attribution'), 'agency'), ['attribution']);
 });
 
-test('アフィリエイトのカード・リンクが上限（16 件）を超えると affiliate', () => {
+test('アフィリエイトのカード・リンクが上限（28 件）を超えると affiliate', () => {
   assert.deepEqual(rulesOf(fixture('affiliate'), 'agency'), ['affiliate']);
+});
+
+test('最大 12 枚（24 件）と余裕の 14 枚（28 件）は上限内', () => {
+  const banner = '<div data-cta="affiliate"><a href="https://px.a8.net/svt/ejp?a8mat=x">転職</a></div>';
+  const html = fixture('pass-chapter').replace('</main>', banner.repeat(12) + '</main>');
+  assert.deepEqual(rulesOf(html, 'chapter'), []);
+  assert.equal(rules.affiliate.max, 28);
+  assert.deepEqual(rulesOf(html.replace('</main>', banner.repeat(2) + '</main>'), 'chapter'), []);
+  assert.deepEqual(rulesOf(html.replace('</main>', banner.repeat(3) + '</main>'), 'chapter'), ['affiliate']);
 });
 
 test('章を持たない文書（chapters 一覧なし）は minListLinks を課さない', () => {
@@ -100,7 +110,8 @@ test('違反が 1 つあれば exit 1 でページとルールを挙げる', () 
 
 test('out/standards が無い・テンプレートが 0 ページは検査不成立（exit 2）', () => {
   assert.equal(run(join(tmpdir(), 'standards-density-missing-' + Date.now())).status, 2);
-  const { 'standards/a/b/chapters/1/sections/1.html': _drop, ...noSection } = FULL;
+  const noSection = { ...FULL };
+  delete noSection['standards/a/b/chapters/1/sections/1.html'];
   const out = makeOut(noSection);
   try {
     const r = run(out);
