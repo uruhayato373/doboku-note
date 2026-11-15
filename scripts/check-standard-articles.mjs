@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-standard-articles.mjs — 構造化章記事（レイヤー2）の生成物を 20 検査で検証する。
+ * check-standard-articles.mjs — 構造化章記事（レイヤー2）の生成物を 21 検査で検証する。
  *
  *   node scripts/check-standard-articles.mjs                # 設定 build.documents を検査
  *   node scripts/check-standard-articles.mjs chubu/common   # 対象を明示
@@ -16,9 +16,10 @@
  *
  * この検査器は生成物・パーサーを一切書き換えない（read-only）。
  *
- * npm run check-standard-articles — 上の 20 検査（本文の取りこぼし0・全ページ割当・条番号整合・見出しレベル・SHA-256 一致・重複 indexable・**catalog 72 文書の被覆と除外理由の実データ検証**・表の可逆性・**章ごとの OGP 被覆**・節ページの切り出し・**読める形（版面のまま残った表は文書別の verbatimTables 基準以下・文の途中の改行・表から外れた断片は基準以下／壊れた表 0）**・**図の SourceRef と、表の領域・組み直した表の中に出た図のキャプション（太字で図の番号を持つもの・DN-0881）ごとに原本から切り出した画像（台帳 content/sources/standards/{agency}/{document}/figures.json・scripts/lib/standards-figures.mjs・DN-0865）**。exit 2=検査不成立）
+ * npm run check-standard-articles — 上の 21 検査（本文の取りこぼし0・全ページ割当・条番号整合・見出しレベル・SHA-256 一致・重複 indexable・**catalog 72 文書の被覆と除外理由の実データ検証**・表の可逆性・**章ごとの OGP 被覆**・節ページの切り出し・**読める形（版面のまま残った表は文書別の verbatimTables 基準以下・文の途中の改行・表から外れた断片は基準以下／壊れた表 0）**・**図の SourceRef と、表の領域・組み直した表の中に出た図のキャプション（太字で図の番号を持つもの・DN-0881）ごとに原本から切り出した画像（台帳 content/sources/standards/{agency}/{document}/figures.json・scripts/lib/standards-figures.mjs・DN-0865）**。exit 2=検査不成立）
  */
 
+import { prepareGroupedTable, projectGroupedChapter, groupedCoverageErrors, groupedArtifact } from './lib/standards-grouped-tables.mjs';
 import { createHash } from 'node:crypto';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -72,6 +73,7 @@ const CHECK_DEFS = [
   { id: 18, name: '表から外れた断片が増えていない（基準以下）' },
   { id: 19, name: '壊れた表（見出しも中身も空・全行が空の列）が無い' },
   { id: 20, name: '図の SourceRef・表の領域の図のキャプションごとに原本から切り出した画像がある' },
+  { id: 21, name: 'grouped表示・検索全文が解決済み全セルを保持' },
 ];
 
 const PASS = 'PASS';
@@ -1276,6 +1278,35 @@ function checkReadability([midDef, strayDef, brokenDef], { manifest, agencyId, d
   ];
 }
 
+/** 正規MDと元JSONから再投影し、保存された表示・全文の欠落を検知する。 */
+function checkGroupedTables(def, { manifest, agencyId, documentId, document }) {
+  const violations = [];
+  let checked = 0;
+  let cells = 0;
+  let fallbacks = 0;
+  const lookup = loadTableOverrides(`${agencyId}/${documentId}`);
+  const root = join(ARTICLES_ROOT, agencyId, documentId);
+  for (const chapter of manifest.chapters) {
+    const markdown = readFileSync(join(root, chapter.file), 'utf8').replace(/\r\n/gu, '\n');
+    const records = [...markdown.matchAll(/\{\/\* table-override: ([a-f0-9]{16}) \*\/\}/gu)].map((match) => ({
+      key: match[1], prepared: prepareGroupedTable(lookup.get(match[1]), (key) => lookup.get(key)),
+    }));
+    if (!records.length) continue;
+    checked += records.length;
+    const expected = projectGroupedChapter(markdown, records, { sourceUrl: document.sourceUrl });
+    cells += expected.tables.reduce((sum, t) => sum + t.coverage.length, 0);
+    fallbacks += expected.tables.filter((t) => !t.ok).length;
+    violations.push(...groupedCoverageErrors(expected));
+    if (!chapter.presentationFile || !existsSync(join(root, chapter.presentationFile))) {
+      violations.push(`${chapter.chapterId}: 表示ファイルが無い`);
+      continue;
+    }
+    const actual = JSON.parse(readFileSync(join(root, chapter.presentationFile), 'utf8'));
+    if (JSON.stringify(actual) !== JSON.stringify(groupedArtifact(expected))) violations.push(`${chapter.chapterId}: 表示・全文が元セルからの再生成と不一致`);
+  }
+  return result(def, { status: checked ? verdict(violations, []) : INCONCLUSIVE, checked, unit: `表（解決済み ${cells} セル、フォールバック ${fallbacks} 件）`, violations });
+}
+
 // ---- 文書単位の実行 -------------------------------------------------------
 
 function inspectDocument(target, catalog, overrides) {
@@ -1413,6 +1444,7 @@ function main() {
         checkSectionPages(CHECK_DEFS[15], { ...context, overrides }),
         ...checkReadability([CHECK_DEFS[16], CHECK_DEFS[17], CHECK_DEFS[18]], { ...context, overrides }),
         checkFigures(CHECK_DEFS[19], context),
+        ...(overrides.documents?.[context.target]?.tableLayout === 'grouped' ? [checkGroupedTables(CHECK_DEFS[20], context)] : []),
       ],
     });
   }

@@ -1,7 +1,7 @@
 /** 基準書の本文を分割せずに枠を置く。見出し ID の採番をサイト・管理画面で変えないための共有計画。 */
 export const INLINE_FIRST_CHARS = 600;
-// 表は 1 行の注記が長く、字数の割に画面が縦に伸びる（2-1 章は 7,300 字で約 15,000px）。間隔は字数で控えめに取る。
-export const INLINE_INTERVAL_CHARS = 1800;
+// 間隔は字数で取る。施工管理基準は表を組み直して繰り返しの字が減り（2-1 章 4,716 字）、1,800 字では 2 枠に減ったので 1,400 字（DN-1213）。
+export const INLINE_INTERVAL_CHARS = 1400;
 export const INLINE_REMAINING_CHARS = 600;
 export const INLINE_MAX_SLOTS = 3;
 

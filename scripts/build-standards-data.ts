@@ -12,6 +12,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { dirname, join, resolve, sep } from 'node:path';
+import { readStandardPresentation } from '../src/lib/standards-presentation';
 import {
   buildStandardChapterStructuredData,
   buildStandardDocumentStructuredData,
@@ -248,7 +249,8 @@ function main(): void {
       const articleText = extractArticleText(markdown);
       writeJson(
         join(chapterRoot, `${chapter.chapterId}.jsonld`),
-        buildStandardChapterStructuredData(document, chapter, dataUrls, articleText),
+        buildStandardChapterStructuredData(document, chapter, dataUrls, articleText,
+          readStandardPresentation(join(ARTICLES_ROOT, document.agencyId, document.documentId), chapter)?.text),
       );
       chapterCount += 1;
       articleCount += articleText.size;
