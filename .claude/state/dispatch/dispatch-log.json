@@ -8689,6 +8689,19 @@
       "commit": "e79bc995f119",
       "verification": "git ls-tree origin/develop data/analysis/growth/digest-2026-W45.json",
       "note": "原因の lint-ja の検査不成立は e5566bac0（11/13 17:16 JST・main 反映済み・pre-commit の中の bot の commit は staged を見る）で直っていた。11/15 に fetch-metrics を手で取り直し（run 43658960995）、c3e2f12f0 で W45 の計測ダイジェスト（digest-2026-W45.json・表示 11 件）と事業の週次の記録が develop に入った。run は最後のアラートの段で失敗扱い（GA4 の 11/12 の欠け）で、別の原因として DN-1211 に分けた。Issue #1575 は次の金曜の成功で自動で閉じる"
+    },
+    {
+      "id": "DN-1041",
+      "at": "2026-11-15",
+      "task": "note カバーの V3 と V4 の文書を統合して廃止する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "db8f4c19399e",
+      "verification": "npm run check-doc-refs",
+      "note": "PR #1602 を develop へ squash merge。V3・V4 の文書を廃止し、今も有効な内容（表示面と文言フィールド・crop-safe-v4 の variant が必須の値であること）を V5 の新節へ移した。V4 の「画像生成に日本語タイトルを描かせない」は POP 方針と矛盾するため捨てた。参照 11 ファイルを付け替え、コードとテストの挙動は変えていない"
     }
   ]
 }
