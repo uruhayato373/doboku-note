@@ -20,7 +20,7 @@ type Creative = {
   pixelSrc?: string;
   avoid?: string;
 };
-type CatalogProgram = { label: string; creatives?: Creative[] };
+type CatalogProgram = { label: string; creatives?: Creative[]; asps?: Record<string, { status?: string }> };
 type SlotSizes = { pc: string[]; mobile: string[] };
 
 const PROGRAMS = (catalogJson as unknown as { programs: Record<string, CatalogProgram> }).programs;
@@ -47,7 +47,7 @@ function toBanner(program: string, c: Creative | null): SlotCreative | null {
 export function slotCreatives(program: string, slot: string): SlotCreatives {
   const sizes = VOCAB[slot]?.sizes;
   if (!sizes) return { pc: null, mobile: null };
-  const picked = pickSlotCreatives(PROGRAMS[program]?.creatives, sizes) as { pc: Creative | null; mobile: Creative | null };
+  const picked = pickSlotCreatives(PROGRAMS[program]?.creatives?.filter(c => PROGRAMS[program]?.asps?.[c.asp]?.status === 'approved'), sizes) as { pc: Creative | null; mobile: Creative | null };
   return { pc: toBanner(program, picked.pc), mobile: toBanner(program, picked.mobile) };
 }
 

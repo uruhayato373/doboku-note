@@ -381,7 +381,15 @@ export type ProgramAsset = {
   /** textHref と同じテキスト素材の計測ピクセル URL（A8「広告リンク作成」の素材のコードから写す） */
   readonly textPixelSrc?: string;
 };
+
+const MYVISION_AGENT_AD = catalogBanner("myvision-agent", "moshimo", "97091", "MyVisionエージェント");
+const NEWMA_AD = catalogBanner("newma", "moshimo", "93944", "NewMA");
+const SAMURAI_JOB_AD = catalogBanner("samurai-job", "moshimo", "29927", "Samurai Job");
+
 export const PROGRAM_ASSETS: Readonly<Record<string, ProgramAsset>> = {
+  "myvision-agent": { banner: MYVISION_AGENT_AD, trackLabel: "MyVisionAgent-sidebar", card: () => ({ service: "MyVisionエージェント", category: "ハイクラス転職", description: "転職支援サービスの案内を確認できます。", href: MYVISION_AGENT_AD.href, points: [], cta: "サービスを見る" }) },
+  "newma": { banner: NEWMA_AD, trackLabel: "NewMA-sidebar", card: () => ({ service: "NewMA", category: "ハイクラス転職", description: "転職支援サービスの案内を確認できます。", href: NEWMA_AD.href, points: [], cta: "サービスを見る" }) },
+  "samurai-job": { banner: SAMURAI_JOB_AD, trackLabel: "SamuraiJob-sidebar", card: () => ({ service: "Samurai Job", category: "ハイクラス転職", description: "転職支援サービスの案内を確認できます。", href: SAMURAI_JOB_AD.href, points: [], cta: "サービスを見る" }) },
   buildjob: {
     banner: BUILDJOB_CAREER_AD,
     trackLabel: "BuildJob-sidebar",

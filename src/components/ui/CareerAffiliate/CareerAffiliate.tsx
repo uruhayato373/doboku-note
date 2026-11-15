@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/AffiliateParts";
 
 interface CareerAffiliateProps {
+  readonly managedPixels?: boolean | undefined;
   /** サービス名（例: "RSG建設転職"） */
   readonly service: string;
   /** カテゴリ・職種ラベル（例: "施工管理 転職エージェント"） */
@@ -108,6 +109,7 @@ export default function CareerAffiliate({
   need,
   emphasis = false,
   inlineCard,
+  managedPixels,
   secondary,
   noExperiment = false,
   preset,
@@ -136,7 +138,7 @@ export default function CareerAffiliate({
     };
     return (
       <div className="not-prose my-6">
-        <CareerAffiliateExperiment card={card} program={experiment.program} trackLabel={effService} placement={placement} textHref={experiment.asset.textHref} textPixelSrc={experiment.asset.textPixelSrc} pixelSrc={trackingPixelUrl} secondary={second ? { card: second.card(slug, need), program: second.program, textHref: second.textHref, textPixelSrc: second.textPixelSrc, pixelSrc: second.banner.pixelSrc } : undefined} />
+        <CareerAffiliateExperiment managedPixels={managedPixels} card={card} program={experiment.program} trackLabel={effService} placement={placement} textHref={experiment.asset.textHref} textPixelSrc={experiment.asset.textPixelSrc} pixelSrc={trackingPixelUrl} secondary={second ? { card: second.card(slug, need), program: second.program, textHref: second.textHref, textPixelSrc: second.textPixelSrc, pixelSrc: second.banner.pixelSrc } : undefined} />
       </div>
     );
   }

@@ -174,3 +174,27 @@ test('理由つき許可リストは指定したページ・ルール・面だ�
     assert.deepEqual(rules(article(`<h2>本文</h2>${affiliate()}`, '', affiliate(placement) + affiliate(placement))), []);
   }
 });
+
+const imageAd = (slot, kind) => `<div data-article-affiliate="${kind}">${affiliate(slot)}</div>`;
+test('新しい画像面は種類別の上限とDOM位置を検査し、noteの違反を免除しない', () => {
+ const body = [1,2,3].map(n=>imageAd(n===1?'article-banner':`article-banner-${n}`,'inline')).join('<p>学習本文</p>');
+ const rail = `<aside class="hidden zenn-desktop:block"><div data-article-sidebar-cards="6">${Array.from({length:6},(_,i)=>`${imageAd(i?`article-rail-${i+1}`:'article-rail','rail')}<div data-article-sidebar-card>ナビ</div>`).join('')}</div></aside>`;
+ const html = `<div>${article(`<h2>本文</h2>${affiliate()}<p>学習本文</p>${body}`,'',imageAd('article-banner-end','end'))}${rail}</div>`;
+ assert.deepEqual(rules(html),[]);
+ assert.ok(rules(html.replace('</article>',`${imageAd('article-banner-end','end')}</article>`)).includes('affiliate-image-position'));
+ assert.ok(rules(html.replace('</article>',`${note('a')}${note('b')}${note('c')}${note('d')}</article>`)).includes('note-non-footer'));
+ assert.ok(rules(article(`${body}<p>本文</p>${imageAd('article-banner-3','inline')}`)).includes('affiliate-image-inline'));
+ assert.ok(rules(article(body,'',imageAd('article-banner-end','end').repeat(2))).includes('affiliate-image-end'));
+ assert.ok(rules(html.replace('class="hidden zenn-desktop:block"','')).includes('affiliate-image-rail'));
+ assert.ok(rules(html.replace('data-article-sidebar-card>', 'data-not-card>')).includes('affiliate-rail-cards'));
+ // 右の欄で同じ案件（同じリンク先）を 2 回出さない。案件が尽きて枠がカード数より少ないのは違反にしない
+ const railWith = (hrefs) => `<div>${article(`<h2>本文</h2>${affiliate()}<p>学習本文</p>${body}`,'',imageAd('article-banner-end','end'))}<aside class="hidden zenn-desktop:block"><div data-article-sidebar-cards="3">${hrefs.map((h,i)=>`<div data-article-affiliate="rail">${affiliate(i?`article-rail-${i+1}`:'article-rail',`href="${h}"`)}</div><div data-article-sidebar-card>ナビ</div>`).join('')}<div data-article-sidebar-card>ナビ</div></div></aside></div>`;
+ assert.ok(!rules(railWith(['https://a.example/1','https://a.example/2'])).includes('affiliate-rail-cards'));
+ assert.ok(rules(railWith(['https://a.example/1','https://a.example/1'])).includes('affiliate-rail-duplicate'));
+ assert.ok(rules(article(imageAd('article-banner','inline')+imageAd('article-banner-2','inline'))).includes('affiliate-image-adjacent'));
+});
+
+test('同案件の異なる素材でもピクセル二重送信を検出する',()=>{
+ const pixels=['mat1','mat2'].map(mat=>`<img data-article-pixel-program="buildjob" src="https://example.com/${mat}" width="1" height="1">`).join('');
+ assert.ok(rules(article('<h2>本文</h2>','',pixels)).includes('affiliate-program-pixel-dup'));
+});

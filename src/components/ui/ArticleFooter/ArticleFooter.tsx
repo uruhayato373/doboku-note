@@ -39,6 +39,7 @@ import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { isCivilConstructionCategory } from '@/lib/qualification-names';
 
 interface ArticleFooterProps {
+  readonly imageBanner?: React.ReactNode;
   /** 記事末の転職バナー（config/affiliate-placements.json の article-end のルール。無ければ置かない）。DocPage が解決して渡す */
   readonly endBanner?: ResolvedPlacement | null | undefined;
   /** 記事末バナーに付ける A8 計測ピクセル。本文側で既に 1 発出すページは undefined（1 ページ 1 ピクセル）。 */
@@ -73,6 +74,7 @@ interface ArticleFooterProps {
  * 関連記事／著者」の構成を出し分ける。ロジックは抽出前と不変。
  */
 export default function ArticleFooter({
+  imageBanner,
   endBanner: endBannerAd = null,
   careerPixelSrc,
   references,
@@ -141,6 +143,8 @@ export default function ArticleFooter({
           <ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} pageLinks={lawPageLinks} />
         </div>
       )}
+
+      {imageBanner}
 
       {/* 実務記事: 業務経験 → 資格の橋渡し（非受験層の入口・本文には試験文脈を入れない）。 */}
       {shouldShowQualificationBridge(category, slugStr) && (
