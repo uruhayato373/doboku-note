@@ -380,8 +380,10 @@ export default function StandardsNavigation({
   }
 
   return (
-    <div className="sticky top-6 flex max-h-[calc(100vh-3rem)] flex-col gap-3">
-      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto" data-standards-sidebar>
+    // 案内（目次・回遊）はページと一緒に流し、欄の中にスクロールを作らない。広告だけを aside の直下で sticky にし、
+    // 案内が画面外へ流れたあとも画面上部に残す（aside は本文の高さまで伸びるので、本文の終わりまで付いてくる）。
+    <>
+      <div className="space-y-3" data-standards-sidebar>
         {!treeMode && <div className="border border-(--rule-soft) bg-(--paper) p-5">
           <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
           <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
@@ -396,9 +398,9 @@ export default function StandardsNavigation({
         {contents}
         {discovery}
       </div>
-      <div className="shrink-0">
+      <div className="sticky top-6 mt-3">
         <StandardsRailBanner pageKind={currentChapter ? 'standards' : 'standards-list'} inlineSlots={inlineSlots} />
       </div>
-    </div>
+    </>
   );
 }

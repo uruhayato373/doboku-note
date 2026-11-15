@@ -37,14 +37,14 @@ export default function StandardsPage() {
       <TwoColumnShell
         as="div"
         aside={(
-          <div className="sticky top-6 flex max-h-[calc(100vh-3rem)] flex-col gap-3">
-            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto" data-standards-sidebar>
+          <>
+            <div className="space-y-3" data-standards-sidebar>
               <StandardsExplore />
             </div>
-            <div className="shrink-0">
+            <div className="sticky top-6 mt-3">
               <StandardsRailBanner pageKind="standards-list" />
             </div>
-          </div>
+          </>
         )}
       >
         <div className="card-surface-section px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
