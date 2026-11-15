@@ -63,6 +63,7 @@ async function run(id, cmd, cmdArgs, { json = false, timeoutMs = 180_000 } = {})
 const node = (id, script, a = [], o) => run(id, 'node', [script, ...a], o);
 
 const R = {
+  auth: await node('auth', 'scripts/check-auth-freshness.mjs'),
   digest: await node('digest', 'scripts/build-growth-digest.mjs', ['--print']),
   business: await node('business', 'scripts/business-review.mjs', ['report', '--start', windowPeriod.startDate, '--end', windowPeriod.endDate, '--json'], { json: true }),
   businessPrev: await node('businessPrev', 'scripts/business-review.mjs', ['report', '--start', prevWindow.startDate, '--end', prevWindow.endDate, '--json'], { json: true }),
@@ -141,6 +142,7 @@ const exp = R.experiments.data;
 md.push(`## 実験の期限（due ${exp?.dueCount ?? '—'} 件）`, '');
 md.push(exp?.due?.length ? exp.due.map((d) => `- ${d.id} ${d.title.slice(0, 50)}: ${d.reasons.map((x) => `${x.kind} ${x.detail}`).join(' / ').slice(0, 200)}`).join('\n') : '- なし', '');
 
+md.push('## 運営者の入力が要るもの（認証）', '', block(R.auth) + note(R.auth), '');
 md.push('## 点検と Issue', '', block(R.checks, 60) + note(R.checks), '');
 md.push('## バックログの関門', '', block(R.gate, 50) + note(R.gate), '');
 md.push('## バックログの健全性', '', block(R.backlogHealth, 50) + note(R.backlogHealth), '');

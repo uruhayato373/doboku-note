@@ -35,6 +35,8 @@ import { mergeLeanOptions } from './lib/playwright-launch.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
 
+import { importSharedState, recordAuthStatus } from './lib/auth-session-refresh.mjs';
+
 export { REPO_ROOT };
 
 const HELP = `Playwright auth CLI
@@ -371,7 +373,7 @@ async function openAuthContext(service, context, headed) {
     args: ['--disable-blink-features=AutomationControlled'],
   }, { allowServiceWorkers: (context.env ?? process.env).DOBOKU_PW_ALLOW_SW === '1' }));
   const statePath = resolveStatePath(service, options);
-  if (statePath && existsSync(statePath)) {
+  if (loadAuthRegistry({ cwd: context.repoRoot ?? REPO_ROOT }).services[service].sessionMode === 'profile-plus-state' && statePath && existsSync(statePath)) {
     try {
       const state = JSON.parse(readFileSync(statePath, 'utf8'));
       if (Array.isArray(state.cookies) && state.cookies.length > 0) await browser.addCookies(state.cookies);
@@ -385,21 +387,23 @@ export async function statusAuthService(context = {}, service) {
   const repoRoot = context.repoRoot ?? REPO_ROOT;
   const adapter = loadAuthAdapter(service, { repoRoot });
   if (!adapter.supported) return { ok: false, service, ...classifyAuthSnapshot(adapter, {}) };
-  const profilePath = resolveProfileDir(service, authOptions(context));
-  if (!existsSync(profilePath)) return { ok: false, service, status: 'expired', reason: 'profile未作成' };
+  const options = authOptions(context);
+  const record = (result) => recordAuthStatus(service, result, options);
 
   return withAuthLock(service, { command: 'status', authOptions: authOptions(context) }, async () => {
     let opened;
     try {
+      if (!context.skipSharedImport) importSharedState(service, options);
+      if (!existsSync(resolveProfileDir(service, options))) return record({ status: 'expired', reason: 'profile未作成' });
       opened = await openAuthContext(service, context, false);
       await opened.page.goto(adapter.checkUrl, { waitUntil: 'domcontentloaded', timeout: context.timeoutMs ?? 60000 });
       const result = await pollAuthStatus(
         async () => classifyAuthSnapshot(adapter, await captureAuthSnapshot(service, opened.page)),
         { attempts: context.statusAttempts ?? 6, sleep: (ms) => opened.page.waitForTimeout(ms) },
       );
-      return { ok: result.status === 'authenticated', service, ...result };
+      return record(result);
     } catch (error) {
-      return { ok: false, service, status: 'blocked', reason: String(error.message).slice(0, 200) };
+      return record({ status: 'blocked', reason: String(error.message).slice(0, 200) });
     } finally {
       if (opened) await opened.browser.close().catch(() => {});
     }
@@ -412,6 +416,12 @@ export async function loginAuthService(context = {}, service) {
   const adapter = loadAuthAdapter(service, { repoRoot });
   if (!adapter.supported) return { ok: false, service, status: 'unsupported', reason: adapter.unsupportedReason };
   const options = authOptions(context);
+
+  const record = (result) => recordAuthStatus(service, result, options);
+  if (service === 'kdp') {
+    console.error('KDP: 画面の「ログインしたままにする」に印を付けてください。');
+    console.error('本人確認時は「このブラウザではコードを要求しない」に印を付けてください。');
+  }
 
   return withAuthLock(service, { command: 'login', authOptions: options }, async () => {
     let opened;
@@ -441,9 +451,9 @@ export async function loginAuthService(context = {}, service) {
       if (result.status === 'authenticated' && opened.statePath) {
         await opened.browser.storageState({ path: opened.statePath });
       }
-      return { ok: result.status === 'authenticated', service, ...result };
+      return record(result);
     } catch (error) {
-      return { ok: false, service, status: 'blocked', reason: String(error.message).slice(0, 200) };
+      return record({ status: 'blocked', reason: String(error.message).slice(0, 200) });
     } finally {
       if (opened) await opened.browser.close().catch(() => {});
     }

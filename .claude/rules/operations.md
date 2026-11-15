@@ -28,3 +28,7 @@ paths:
 - アフィリエイト: 転職一本（講座/教材/書籍は Red Line）。**3 ASP とも doboku-note と stats47 が同一口座に同居**し判定は `scripts/lib/asp-site-guard.mjs` に集約（不一致は例外で停止） → [affiliate-operations.md](../knowledge/reference/affiliate-operations.md)。台帳 `data/affiliate/catalog.json`、設定 `config/affiliate-asp.json`
 - 会員配信ドリップの真実源は `メンバーシップ/README.md` の配信表（`npm run check-membership-drip`。日付をカードへ複製しない）
 - **競合の結論と年間の枠**: 競合の結論の正本は `config/competitor-positions.json`。空き・不在は市場の検索（`probes`）で確かめ、件数や金額を文章に写さない。枠の `materials` に `entries` と `primaryCta` の写しを持たせない。枠や台帳を変えたら `npm run check-competitor-positions` を通す。企画の前に `npm run competitor-position -- --slot <枠 id>` を読む。
+
+## 収集用ログイン
+
+- ログインの窓は `npm run auth:login -- --service <id>` で開き、入力は運営者に任せる。アプリ内ブラウザ・Playwright MCP・普段の Chrome で代用しない。保存と失敗印の解除まで含む運用は [playwright-auth-profiles.md](../knowledge/reference/playwright-auth-profiles.md) に従う。

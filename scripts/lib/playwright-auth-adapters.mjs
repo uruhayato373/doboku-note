@@ -40,7 +40,7 @@ export function loadAuthAdapter(serviceId, options) {
   if (serviceId === 'kdp') {
     const memo = readDataset(repoRoot, 'config.kdp-memo');
     const accountEmail = memo.defaults?.accountEmail;
-    const checkUrl = 'https://kdpreports.amazon.co.jp/dashboard';
+    const checkUrl = adapter.checkUrl;
     if (!accountEmail) {
       // account config が無くても、ダッシュボード文言そのものを account marker として使う
       // （口座を取り違えないための担保は kdp-report.mjs の LIVE 書籍 fail-closed 側にある）。
