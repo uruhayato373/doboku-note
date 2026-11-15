@@ -25,7 +25,7 @@ export default function TableOfContents({ headings, variant = 'sidebar' }: Table
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    if (headings.length === 0) return;
+    if (variant === 'mobile' || headings.length === 0) return;
 
     const handleIntersect = (entries: IntersectionObserverEntry[]) => {
       const visible = entries
@@ -48,7 +48,7 @@ export default function TableOfContents({ headings, variant = 'sidebar' }: Table
     elements.forEach((el) => observerRef.current?.observe(el));
 
     return () => observerRef.current?.disconnect();
-  }, [headings]);
+  }, [headings, variant]);
 
   // Build nested groups: H2 → group, H3/H4 → children of last group
   const groups = useMemo<TocGroup[]>(() => {
@@ -81,7 +81,7 @@ export default function TableOfContents({ headings, variant = 'sidebar' }: Table
 
   const tocList = (
     <ol className="ol-depth-1">
-      {groups.map((group) => (
+      {groups.filter(group => variant === 'sidebar' || group.heading.level === 2).map((group) => (
         <li
           key={group.heading.id}
           className={activeId === group.heading.id ? 'active' : undefined}
@@ -118,19 +118,26 @@ export default function TableOfContents({ headings, variant = 'sidebar' }: Table
 
   if (variant === 'mobile') {
     return (
-      <Disclosure
-        data-cta="nav"
-        data-cta-label="mobile-article-toc"
-        summary={<span className="font-serif text-[16px] font-bold text-(--ink)">このページの内容</span>}
-        meta={<span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">{groups.length}項目</span>}
-      >
-        <nav
-          aria-label="このページの目次"
-          className="toc-content toc-content-mobile max-h-[55vh] overflow-y-auto border-t border-(--rule-soft) px-4 py-3"
+      <>
+        <MetaCard as="div" padding="compact" className="hidden zenn-desktop:block" trackNav="article-toc">
+          <div className="toc-title">このページの内容</div>
+          <nav aria-label="このページの目次" className="toc-content toc-content-mobile">{tocList}</nav>
+        </MetaCard>
+        <Disclosure
+          className="zenn-desktop:hidden"
+          data-cta="nav"
+          data-cta-label="article-toc"
+          summary={<span className="font-serif text-[16px] font-bold text-(--ink)">このページの内容</span>}
+          meta={<span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">{groups.filter(group => group.heading.level === 2).length}項目</span>}
         >
-          {tocList}
-        </nav>
-      </Disclosure>
+          <nav
+            aria-label="このページの目次"
+            className="toc-content toc-content-mobile max-h-[55vh] overflow-y-auto border-t border-(--rule-soft) dark:border-(--rule-soft) px-4 py-3"
+          >
+            {tocList}
+          </nav>
+        </Disclosure>
+      </>
     );
   }
 

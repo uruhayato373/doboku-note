@@ -553,6 +553,19 @@
         "mobile": []
       }
     },
+    "article-rail-fill": {
+      "label": "記事の右欄（過去問の組の間を埋める）",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 16,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
     "article-banner-end": {
       "label": "記事本文末の画像",
       "status": "active",
