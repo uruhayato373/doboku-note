@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-15T00:25:14.062Z",
+  "updated_at": "2026-11-15T00:38:42.843Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1751,6 +1751,28 @@
           "salesLedgerThrough": "2026-10-30",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:35.824Z",
+          "specHash": "d28a7d59daa2",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-20",
+            "endDate": "2026-09-16",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-17",
+            "endDate": "2026-11-11",
+            "value": 26920,
+            "volume": 10
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-11-13",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -2020,6 +2042,27 @@
             "endDate": "2026-11-04",
             "value": 7,
             "volume": 7
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:36.488Z",
+          "specHash": "d3e6f543e588",
+          "metric": "ga4.event:qualification_bridge_click",
+          "pre": {
+            "startDate": "2026-08-28",
+            "endDate": "2026-09-24",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-02",
+            "endDate": "2026-11-11",
+            "value": 11,
+            "volume": 11
           },
           "complete": false,
           "deltaPct": null,
@@ -2913,6 +2956,28 @@
           },
           "complete": false,
           "salesLedgerThrough": "2026-10-30",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:36.489Z",
+          "specHash": "8bf703a65759",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-09-08",
+            "endDate": "2026-10-05",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-06",
+            "endDate": "2026-11-11",
+            "value": 23900,
+            "volume": 5
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-11-13",
           "deltaPct": null,
           "verdictHint": "in-progress"
         }
@@ -3923,6 +3988,27 @@
           "complete": false,
           "deltaPct": 433.3,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:36.910Z",
+          "specHash": "63e2eeb6bc5b",
+          "metric": "gsc.clicks",
+          "pre": {
+            "startDate": "2026-09-14",
+            "endDate": "2026-10-11",
+            "value": 9,
+            "volume": 9
+          },
+          "post": {
+            "startDate": "2026-10-15",
+            "endDate": "2026-11-11",
+            "value": 38,
+            "volume": 38
+          },
+          "complete": true,
+          "deltaPct": 322.2,
+          "verdictHint": "insufficient-data"
         }
       ],
       "next_check_date": "2026-11-21",
@@ -4063,6 +4149,27 @@
           "complete": false,
           "deltaPct": 300,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:37.392Z",
+          "specHash": "99cbed99d56f",
+          "metric": "gsc.clicks",
+          "pre": {
+            "startDate": "2026-09-14",
+            "endDate": "2026-10-11",
+            "value": 3,
+            "volume": 3
+          },
+          "post": {
+            "startDate": "2026-10-15",
+            "endDate": "2026-11-11",
+            "value": 10,
+            "volume": 10
+          },
+          "complete": true,
+          "deltaPct": 233.3,
+          "verdictHint": "insufficient-data"
         }
       ],
       "next_check_date": "2026-11-21",
@@ -6046,6 +6153,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:37.689Z",
+          "specHash": "80ac37faa846",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 16.7,
+            "volume": 33
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-11",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -6225,6 +6353,27 @@
           "post": {
             "startDate": "2026-10-16",
             "endDate": "2026-11-04",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:38.086Z",
+          "specHash": "ff7f22cf1b1d",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 20,
+            "volume": 20
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-11",
             "value": null,
             "volume": 0
           },
@@ -6430,6 +6579,27 @@
           "complete": false,
           "deltaPct": 108.2,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:38.369Z",
+          "specHash": "288ee90c335b",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 29.3,
+            "volume": 17
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-11",
+            "value": 61,
+            "volume": 6
+          },
+          "complete": false,
+          "deltaPct": 108.2,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -6609,6 +6779,27 @@
           "post": {
             "startDate": "2026-10-16",
             "endDate": "2026-11-04",
+            "value": 15.3,
+            "volume": 16
+          },
+          "complete": false,
+          "deltaPct": 10.9,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:39.032Z",
+          "specHash": "af81ea06d327",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 13.8,
+            "volume": 13
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-11",
             "value": 15.3,
             "volume": 16
           },
@@ -7030,6 +7221,27 @@
           "complete": false,
           "deltaPct": 3.4,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:39.349Z",
+          "specHash": "ba8cc239545e",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 23.6,
+            "volume": 28
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-11",
+            "value": 25,
+            "volume": 17
+          },
+          "complete": false,
+          "deltaPct": 5.9,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -7220,6 +7432,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:39.714Z",
+          "specHash": "5c1c4495141d",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 20.3,
+            "volume": 10
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-11",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -7388,6 +7621,27 @@
           },
           "complete": false,
           "deltaPct": -17.5,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:40.123Z",
+          "specHash": "2e14aa1310ec",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 10.3,
+            "volume": 9
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-11-11",
+            "value": 8.8,
+            "volume": 9
+          },
+          "complete": false,
+          "deltaPct": -14.6,
           "verdictHint": "in-progress"
         }
       ]
@@ -7675,6 +7929,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:40.693Z",
+          "specHash": "ef0f6b09a6db",
+          "metric": "ga4.event:note_cta_click",
+          "pre": {
+            "startDate": "2026-09-25",
+            "endDate": "2026-10-22",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-26",
+            "endDate": "2026-11-11",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -7900,6 +8175,27 @@
           "complete": false,
           "deltaPct": -41.9,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:41.092Z",
+          "specHash": "6b7a5ed39a49",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-26",
+            "endDate": "2026-10-23",
+            "value": 13.6,
+            "volume": 63
+          },
+          "post": {
+            "startDate": "2026-10-27",
+            "endDate": "2026-11-11",
+            "value": 8.5,
+            "volume": 24
+          },
+          "complete": false,
+          "deltaPct": -37.5,
+          "verdictHint": "in-progress"
         }
       ],
       "actions": [
@@ -8038,6 +8334,27 @@
           "post": {
             "startDate": "2026-10-27",
             "endDate": "2026-11-04",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:41.358Z",
+          "specHash": "064300830106",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-26",
+            "endDate": "2026-10-23",
+            "value": 16,
+            "volume": 23
+          },
+          "post": {
+            "startDate": "2026-10-27",
+            "endDate": "2026-11-11",
             "value": null,
             "volume": 0
           },
@@ -8205,6 +8522,27 @@
           },
           "complete": false,
           "deltaPct": 17.8,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:41.658Z",
+          "specHash": "1f900c18e556",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-26",
+            "endDate": "2026-10-23",
+            "value": 14.6,
+            "volume": 31
+          },
+          "post": {
+            "startDate": "2026-10-27",
+            "endDate": "2026-11-11",
+            "value": 16,
+            "volume": 6
+          },
+          "complete": false,
+          "deltaPct": 9.6,
           "verdictHint": "in-progress"
         }
       ]
@@ -8727,6 +9065,44 @@
           ],
           "verdictHint": "review-required",
           "note": "取得窓内の案別イベント回数。週次の窓は重複するため足し合わせない。少数・案別の構成差・同一訪問者の複数表示を確認して人が裁定する。A8成果の案別帰属は未取得（ビルドジョブは EXP-043 から B/C で mat が別なので A8 の成果別レポートで読める。建設JOBs・DXコンサルは素材が 1 つで不可）。"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:35.814Z",
+          "sourceReport": "data/ga4/reports/2026-11-15.json#affiliate-experiment:2026-11-15T00-37-29",
+          "metric": "affiliate-design",
+          "window": {
+            "startDate": "2026-10-31",
+            "endDate": "2026-11-14"
+          },
+          "variants": [
+            {
+              "variant": "B",
+              "impressions": 3499,
+              "clicks": 6,
+              "pageViews": 8571,
+              "noteImpressions": 11411,
+              "noteClicks": 117,
+              "ctr": 0.0017147756501857674,
+              "clicksPerPageView": 0.0007000350017500875,
+              "noteCtr": 0.010253264394005784,
+              "evidence": "insufficient-data"
+            },
+            {
+              "variant": "B2",
+              "impressions": 5434,
+              "clicks": 5,
+              "pageViews": 9413,
+              "noteImpressions": 12787,
+              "noteClicks": 119,
+              "ctr": 0.0009201324990798675,
+              "clicksPerPageView": 0.0005311802825879103,
+              "noteCtr": 0.009306326738093377,
+              "evidence": "insufficient-data"
+            }
+          ],
+          "verdictHint": "review-required",
+          "note": "取得窓内の案別イベント回数。週次の窓は重複するため足し合わせない。少数・案別の構成差・同一訪問者の複数表示を確認して人が裁定する。A8成果の案別帰属は未取得（ビルドジョブは EXP-043 から B/C で mat が別なので A8 の成果別レポートで読める。建設JOBs・DXコンサルは素材が 1 つで不可）。"
         }
       ]
     },
@@ -8903,6 +9279,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:42.085Z",
+          "specHash": "f1f7a25df97f",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-04",
+            "endDate": "2026-10-31",
+            "value": 11.6,
+            "volume": 33
+          },
+          "post": {
+            "startDate": "2026-11-04",
+            "endDate": "2026-11-11",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -9017,6 +9414,27 @@
           "post": {
             "startDate": "2026-11-04",
             "endDate": "2026-11-04",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:42.438Z",
+          "specHash": "d5c7c2ad533d",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-04",
+            "endDate": "2026-10-31",
+            "value": 14.7,
+            "volume": 18
+          },
+          "post": {
+            "startDate": "2026-11-04",
+            "endDate": "2026-11-11",
             "value": null,
             "volume": 0
           },
@@ -9142,6 +9560,27 @@
           },
           "complete": false,
           "deltaPct": -12.9,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-11-15T00:38:42.843Z",
+          "specHash": "1ad8bd757b35",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-10-04",
+            "endDate": "2026-10-31",
+            "value": 13.2,
+            "volume": 24
+          },
+          "post": {
+            "startDate": "2026-11-04",
+            "endDate": "2026-11-11",
+            "value": 10.2,
+            "volume": 12
+          },
+          "complete": false,
+          "deltaPct": -22.7,
           "verdictHint": "in-progress"
         }
       ]
@@ -9590,7 +10029,7 @@
       "hypothesis": "/exam/civil-construction-1/guide/future は 1 語が11〜30位（最良 13.1 位・表示 16）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 直す前の検索語 1 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-11-08",
       "searchStrategy": {
         "cluster": "qualification",
@@ -9632,7 +10071,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-11-09"
       },
       "history": [
         {
@@ -9644,13 +10084,26 @@
           "event": "implemented",
           "commit": "a4de7278ca2b",
           "change": "title・seoTitle・description を「技術士・建設業はオワコン？」に寄せ、冒頭に H2「技術士はオワコンなのか」で答えと関連ガイドへの内部リンクを足した"
+        },
+        {
+          "at": "2026-11-15T00:38:34.048Z",
+          "event": "deployed",
+          "commit": "a4de7278ca2b",
+          "deploy": {
+            "id": 42560683931,
+            "sha": "8746cbfbba5aacf0ba5724f17e8ce0ca08e1db33",
+            "at": "2026-11-09T04:19:38Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/42560683931"
+          }
         }
       ],
       "implementation": {
         "commit": "a4de7278ca2b",
         "at": "2026-11-08",
         "change": "title・seoTitle・description を「技術士・建設業はオワコン？」に寄せ、冒頭に H2「技術士はオワコンなのか」で答えと関連ガイドへの内部リンクを足した"
-      }
+      },
+      "started_at": "2026-11-09",
+      "next_check_date": "2026-12-13"
     },
     {
       "id": "EXP-061",
@@ -9659,7 +10112,7 @@
       "hypothesis": "/exam/rccm/guide/study-plan は 8 語が11〜30位（最良 10.5 位・表示 15）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 直す前の検索語 8 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-11-08",
       "searchStrategy": {
         "cluster": "qualification",
@@ -9750,7 +10203,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-11-09"
       },
       "history": [
         {
@@ -9762,13 +10216,26 @@
           "event": "implemented",
           "commit": "e485e01fe8ce",
           "change": "title・seoTitle・description を「RCCMの予約・試験期間・試験日」に寄せ、冒頭に予約の方法と2026年度の予約・試験期間、2027年度の申込の目安を答える段落を足した"
+        },
+        {
+          "at": "2026-11-15T00:38:34.048Z",
+          "event": "deployed",
+          "commit": "e485e01fe8ce",
+          "deploy": {
+            "id": 42560683931,
+            "sha": "8746cbfbba5aacf0ba5724f17e8ce0ca08e1db33",
+            "at": "2026-11-09T04:19:38Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/42560683931"
+          }
         }
       ],
       "implementation": {
         "commit": "e485e01fe8ce",
         "at": "2026-11-08",
         "change": "title・seoTitle・description を「RCCMの予約・試験期間・試験日」に寄せ、冒頭に予約の方法と2026年度の予約・試験期間、2027年度の申込の目安を答える段落を足した"
-      }
+      },
+      "started_at": "2026-11-09",
+      "next_check_date": "2026-12-13"
     },
     {
       "id": "EXP-062",
@@ -9777,7 +10244,7 @@
       "hypothesis": "/exam/pe-comprehensive-management/guide/public-engineer-qualification-map は 4 語が11〜30位（最良 11 位・表示 14）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 直す前の検索語 4 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-11-08",
       "searchStrategy": {
         "cluster": "public-servant",
@@ -9840,7 +10307,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-11-09"
       },
       "history": [
         {
@@ -9852,13 +10320,26 @@
           "event": "implemented",
           "commit": "f97e52dfc125",
           "change": "前回（EXP-029・取得順）と別の角度で、title・description を「土木公務員の資格一覧」に寄せ、冒頭に検討する資格 4 つの一覧の段落を足した"
+        },
+        {
+          "at": "2026-11-15T00:38:34.048Z",
+          "event": "deployed",
+          "commit": "f97e52dfc125",
+          "deploy": {
+            "id": 42560683931,
+            "sha": "8746cbfbba5aacf0ba5724f17e8ce0ca08e1db33",
+            "at": "2026-11-09T04:19:38Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/42560683931"
+          }
         }
       ],
       "implementation": {
         "commit": "f97e52dfc125",
         "at": "2026-11-08",
         "change": "前回（EXP-029・取得順）と別の角度で、title・description を「土木公務員の資格一覧」に寄せ、冒頭に検討する資格 4 つの一覧の段落を足した"
-      }
+      },
+      "started_at": "2026-11-09",
+      "next_check_date": "2026-12-13"
     },
     {
       "id": "EXP-063",

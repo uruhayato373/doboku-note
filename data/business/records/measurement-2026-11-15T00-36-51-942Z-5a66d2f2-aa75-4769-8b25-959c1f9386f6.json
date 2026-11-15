@@ -1,0 +1,26 @@
+{
+  "kind": "measurement",
+  "qualification": "all",
+  "period": {
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31"
+  },
+  "channel": "GA4",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。X・動画の教材クリックは全体のみ（sessionCampaignName 別の note_cta_click を campaignNames の集合で合計・該当の行が無ければ値を載せない）。",
+  "values": {
+    "organicUsers": 19470,
+    "noteCtaClicks": 804,
+    "quizStarts": 188,
+    "quizCompletions": 24,
+    "youtubeUsers": 30,
+    "xUsers": 83,
+    "instagramUsers": 1,
+    "xCampaignClicks": 4
+  },
+  "supersedes": "data/business/records/measurement-2026-11-07T23-30-09-530Z-c46e2e98-c48a-4d9d-82a6-f82be1a9f14b.json",
+  "schemaVersion": 1,
+  "createdAt": "2026-11-15T00:36:51.942Z",
+  "strategyHash": "ebc307915d12c3ec63d43da443722b860373134b2782463741d8814350cf18d4"
+}

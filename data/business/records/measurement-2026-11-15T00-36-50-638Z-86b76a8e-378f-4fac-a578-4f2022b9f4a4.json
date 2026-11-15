@@ -1,0 +1,21 @@
+{
+  "kind": "measurement",
+  "qualification": "civil-construction-1",
+  "period": {
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-08"
+  },
+  "channel": "GA4",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。X・動画の教材クリックは全体のみ（sessionCampaignName 別の note_cta_click を campaignNames の集合で合計・該当の行が無ければ値を載せない）。",
+  "values": {
+    "organicUsers": 330,
+    "noteCtaClicks": 3,
+    "quizStarts": 0,
+    "quizCompletions": 0
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-11-15T00:36:50.638Z",
+  "strategyHash": "ebc307915d12c3ec63d43da443722b860373134b2782463741d8814350cf18d4"
+}
