@@ -8702,6 +8702,32 @@
       "commit": "db8f4c19399e",
       "verification": "npm run check-doc-refs",
       "note": "PR #1602 を develop へ squash merge。V3・V4 の文書を廃止し、今も有効な内容（表示面と文言フィールド・crop-safe-v4 の variant が必須の値であること）を V5 の新節へ移した。V4 の「画像生成に日本語タイトルを描かせない」は POP 方針と矛盾するため捨てた。参照 11 ファイルを付け替え、コードとテストの挙動は変えていない"
+    },
+    {
+      "id": "DN-1022",
+      "at": "2026-11-15",
+      "task": "sha256 の補助関数を scripts/lib に 1 つ置く",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d507d5a18439",
+      "verification": "node --test tests/sha256.test.mjs",
+      "note": "PR #1603 を develop へ squash merge。scripts/lib/sha256.mjs（sha256Hex・sha256File）とテストを足し、同じ定義の 2 か所（prune・publish-instagram-video-pack-reels）だけ移した。ほかはスクリプトを触るときに移す"
+    },
+    {
+      "id": "DN-1128",
+      "at": "2026-11-15",
+      "task": "todo の claim の残骸を期限で検出する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d507d5a18439",
+      "verification": "npm run check-todo-claims",
+      "note": "PR #1603 を develop へ squash merge。scripts/check-todo-claims.mjs（npm run check-todo-claims・しきい値 7 日）を足し、quality-audit の weekly の ops（ci:false）に登録した。初回の実行で claims 8 件中 7 件を残骸として検出した"
     }
   ]
 }
