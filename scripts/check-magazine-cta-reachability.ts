@@ -289,3 +289,32 @@ if (newZeroPages.length) {
 } else {
   console.log('✓ ページ単位の CTA ゼロなし（baseline 外）');
 }
+
+// ── ページ単位: 商品は出るが、出るのが無料の記事だけのページ ──────────────────────────
+// 上の「CTA ゼロ」は無料の精読ガイドも 1 面に数えるので、有料の教材へ 1 つも行けないページを見逃す
+// （2026-11-15: 2級ガイド 16 本・1級ガイド 7 本が該当）。無料かどうかは価格の数値で決める（価格なし＝無料）。
+// どちらかの時点で「面はあるが有料が 0」なら数える。増やさないラチェット（baseline の freeOnlyPageMax）。
+const isPaid = (id: string): boolean => /[¥￥]\s*[1-9]/.test(getMagazine(id as MagazineId)?.price ?? '');
+const freeOnlyByProbe = reachByProbe.map((probe) => {
+  const paid = new Map<string, boolean>();
+  for (const r of probe.values()) {
+    for (const route of r.routes) {
+      const slug = route.slice(route.indexOf(':') + 1);
+      paid.set(slug, (paid.get(slug) ?? false) || isPaid(r.id));
+    }
+  }
+  return paid;
+});
+const freeOnlyPages = gateTargets.filter((d) => freeOnlyByProbe.some((m) => m.get(d.slug) === false));
+const freeOnlyMax: number = baselineJson.freeOnlyPageMax ?? 0;
+const byCategory = new Map<string, number>();
+for (const d of freeOnlyPages) byCategory.set(d.category, (byCategory.get(d.category) ?? 0) + 1);
+console.log(`\n[free-only] 対象 ${gateTargets.length} 本のうち、出る商品が無料の記事だけのページ ${freeOnlyPages.length} 本（上限 ${freeOnlyMax}）${freeOnlyPages.length ? `: ${[...byCategory].map(([c, n]) => `${c} ${n}`).join(' / ')}` : ''}`);
+for (const d of freeOnlyPages) console.log(`  - ${d.slug}`);
+if (freeOnlyPages.length > freeOnlyMax) {
+  console.error(`✗ 有料の教材が 1 つも出ないページが上限を超えた（${freeOnlyPages.length} > ${freeOnlyMax}）`);
+  console.error('  対処: magazine-placement.ts でそのページの end か top に有料の教材を置く / 意図したものなら baseline の freeOnlyPageMax を理由つきで上げる');
+  if (CI) process.exit(1);
+} else if (freeOnlyPages.length < freeOnlyMax) {
+  console.log(`  info: 上限より少ない（baseline の freeOnlyPageMax を ${freeOnlyPages.length} へ下げてよい）`);
+}

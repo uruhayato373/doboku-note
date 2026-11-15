@@ -2,7 +2,7 @@
 /**
  * 技術士第二次試験・建設部門の内部導線契約を検査する。
  *
- * - articleLevel: 12 科目 × R01〜R07 の過去問 84 本と keyword 35 本を科目単位で双方向化
+ * - articleLevel: 12 科目 × 実在する全年度（R01〜）の過去問と keyword 35 本を科目単位で双方向化
  * - questionLevel: 科目概説を設問へ雑に貼らず、細粒度の中心概念ページだけを許可
  *
  * 真実源: src/config/pe-construction-exam-keyword-links.json
@@ -45,6 +45,7 @@ function checkArticle(localSlug, expectedGroup) {
   return meta;
 }
 
+const componentSource = fs.readFileSync(COMPONENT_PATH, 'utf8');
 const subjectSource = fs.readFileSync(SUBJECTS_PATH, 'utf8');
 const subjectKeys = [...subjectSource.matchAll(/\{\s*key:\s*'([^']+)',\s*label:/g)].map((m) => m[1]);
 const configuredSubjects = Object.keys(config.articleLevel?.subjects ?? {});
@@ -71,11 +72,17 @@ if (missingKeywords.length || extraKeywords.length) {
 }
 
 for (const keywordSlug of configuredKeywords) checkArticle(keywordSlug, 'keyword');
+// 年度は固定しない。実在する年度の列（r01〜最新）を content から拾い、全科目がその全年度にそろうことを見る
+const examYears = [...new Set(fs.readdirSync(CONTENT_ROOT).flatMap((name) => name.match(/^(r\d{2})-required$/)?.[1] ?? []))].sort();
+if (examYears.length < 8) errors.push(`年度別の過去問が ${examYears.length} 年度（R01〜R08 の 8 年度以上を期待）`);
+let checkedExams = 0;
 for (const subjectKey of configuredSubjects) {
-  for (let year = 1; year <= 7; year += 1) {
-    checkArticle(`r${String(year).padStart(2, '0')}-${subjectKey}`, 'past-exam');
+  for (const year of examYears) {
+    checkArticle(`${year}-${subjectKey}`, 'past-exam');
+    checkedExams += 1;
   }
 }
+if (/Array\.from\(\{\s*length:\s*\d+/.test(componentSource)) errors.push('導線コンポーネントが年度を固定している（Array.from({ length: N })）');
 
 const questionLevel = config.questionLevel ?? {};
 const questionEntries = Object.entries(questionLevel.entries ?? {});
@@ -99,7 +106,6 @@ for (const [source, slugs] of questionEntries) {
 }
 
 const footerSource = fs.readFileSync(ARTICLE_FOOTER_PATH, 'utf8');
-const componentSource = fs.readFileSync(COMPONENT_PATH, 'utf8');
 if (!footerSource.includes('<PeConstructionSubjectLinks')) errors.push('ArticleFooter に双方向導線コンポーネントが未配線');
 if (!componentSource.includes('pe-construction-exam-keyword-links.json')) errors.push('導線コンポーネントが正源 config を参照していない');
 
@@ -114,5 +120,5 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `[check-pe-construction-subject-links] ✓ ${configuredSubjects.length}科目 / 過去問84本 / keyword${configuredKeywords.length}本 / 設問map ${questionEntries.length}件を検査`,
+  `[check-pe-construction-subject-links] ✓ ${configuredSubjects.length}科目 / 過去問${checkedExams}本（${examYears.length}年度）/ keyword${configuredKeywords.length}本 / 設問map ${questionEntries.length}件を検査`,
 );

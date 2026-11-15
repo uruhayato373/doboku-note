@@ -67,6 +67,7 @@ export default function AuthorCard({
             href={AUTHOR.noteCta.url}
             target="_blank"
             rel={NOTE_LINK_REL}
+            data-cta-placement="author-card"
             className="mt-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-(--accent) text-(--paper) text-sm font-bold shadow-xs hover:bg-(--accent) transition-colors"
           >
             {AUTHOR.noteCta.label}

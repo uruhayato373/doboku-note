@@ -22,6 +22,7 @@ import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
+import { buildLearningCatalog } from '@/lib/learning-catalog';
 import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
 import ResponsiveAffiliateBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner';
 import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
@@ -74,6 +75,9 @@ export default async function CategoryPage({
   const hubCtaMobile = resolveHubCta(slug, { utmSuffix: 'mob' });
   // ココナラ（自社出品・A8 経由）。記事末尾と同じ部品で、資格トップでは見出し直後に出す。
   const offsiteCta = resolveOffsiteCta(slug);
+  // 資格トップの商品の枠は 1 枚だけなので、この資格の教材の全部は /links の資格別の節で見せる（教材が 1 つも無い資格には出さない）
+  const learning = buildLearningCatalog().find((exam) => exam.id === slug);
+  const hasLearningList = Boolean(learning && learning.materials.length + learning.support.length > 0);
   // もくじタイルを持たない資格のうち、スマホで note 商品を見出し直後へ出す資格（それ以外は一覧の最下部）。
   // 主任技士は資格トップが直前期の入口で、最下部だと本試験までに読まれない（DN-0703）。
   const productFirstOnMobile = slug === 'concrete-chief-engineer' && !hubCtaMobile;
@@ -162,6 +166,13 @@ export default async function CategoryPage({
               </div>
             )}
             <OffsiteCta items={offsiteCta} heading="この資格に関連するサービス" />
+            {hasLearningList && (
+              <p className="mt-4 text-sm" data-cta="nav" data-cta-label="category-links-hub">
+                <Link href={`/links#exam-${slug}`} className="focus-ring inline-flex min-h-11 items-center font-bold text-(--accent) hover:underline">
+                  この資格の教材一覧を見る
+                </Link>
+              </p>
+            )}
             <div className="pt-8 text-[17px] leading-[1.9]">
           {docs.length === 0 ? (
             <div className="text-center py-12">

@@ -1,6 +1,6 @@
 import { getMagazine, buildMagazineUrl, type MagazineId } from '@/lib/note-magazines';
 import { examDayEndUtcMs } from '@/lib/exam-dates';
-import { isPeConstructionOralSeason } from '@/lib/magazine-placement';
+import { isPeConstructionOralSeason, isTankanOralSeason } from '@/lib/magazine-placement';
 import { qualificationShortLabel } from '@/lib/qualification-names';
 import { withNoteUtm } from '@/lib/note-utm';
 import { mokujiFor } from '@/lib/note-mokuji';
@@ -66,6 +66,8 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     examKey: 'tankan',
     mokuji: { title1: '記述式・R8予想', title2: 'キーワード対策' },
     seasonal: { switchUtcMs: examDayEndUtcMs('pe-comprehensive-management', 'written'), product: 'r8-essay-forecast', sub: '出る6テーマ×専門' },
+    // 筆記合格発表の日から 1 月末まで、合格した人が次に準備する口頭試験の教材へ（建設部門と同じ決め方）
+    afterResult: { active: isTankanOralSeason, product: 'tankan-oral-complete', title: '口頭試験の完全準備', sub: '想定25問＋立場別の回答例' },
   },
   'pe-construction': {
     bg: '/images/cta-bg/pe-construction.webp',

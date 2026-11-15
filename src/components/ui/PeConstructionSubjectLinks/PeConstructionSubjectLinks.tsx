@@ -50,9 +50,14 @@ export default function PeConstructionSubjectLinks({
     : subjectKeyForKeyword(currentSlug);
   if (!subjectKey) return null;
 
+  const yearSlug = new RegExp(`^r\\d{2}-${subjectKey}$`);
   const targetLocalSlugs = docGroup === 'pastExam'
     ? linksConfig.articleLevel.subjects[subjectKey]
-    : Array.from({ length: 7 }, (_, i) => `r${String(i + 1).padStart(2, '0')}-${subjectKey}`);
+    // 年度は固定せず、実在する年度別の科目ページ（r{年度}-{科目}）を全部拾う。R07 までの固定だと R08 が漏れた（2026-11-15）
+    : categoryArticles
+        .map((article) => article.slug.replace(/^pe-construction-/, ''))
+        .filter((localSlug) => yearSlug.test(localSlug))
+        .sort();
   const metaBySlug = new Map(categoryArticles.map((article) => [article.slug, article]));
   const targets = targetLocalSlugs.flatMap((targetLocalSlug) => {
     const slug = fullSlug(targetLocalSlug);

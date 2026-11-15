@@ -14,7 +14,7 @@
  */
 import { listedCoconalaServices } from './coconala-services';
 import { coconalaAffiliateHref } from '@/config/affiliate-creatives';
-import { beforeExamCatch, isAfterExamDay, withTensakuDeadline } from '@/lib/exam-dates';
+import { beforeExamCatch, isAfterExamDay, isPeOralSeason, withTensakuDeadline } from '@/lib/exam-dates';
 
 export type OffsiteChannel = 'coconala';
 
@@ -37,6 +37,8 @@ interface OffsiteRule {
   readonly coconalaCatch?: string;
   /** この試験の当日までだけ出す（翌日からのビルドでは出さない）。試験前だけ意味のある導線に使う */
   readonly until?: { readonly examId: string; readonly eventId: string };
+  /** この時期だけ出す（偽の間は次のルールへ進む）。口頭試験のように期間で決まる導線に使う */
+  readonly active?: (nowMs: number) => boolean;
 }
 
 // slug は category prefix 付きの完全形（例: civil-construction-1-secondary-experience-writing-guide）。
@@ -139,6 +141,20 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
     coconalaCatch: '模範論文を読んだら、自分の記述式を管理の視点とトレードオフまで添削します。',
   },
   {
+    // 技術士 総監・上下水道の口頭試験: 筆記合格発表から 1 月末まで、資格トップと総監の令和の記述式の過去問に出す。
+    // note の口頭試験の教材は hub-cta・magazine-placement が同じ時期判定（isPeOralSeason）で出す。
+    test: /^pe-comprehensive-management(-r0[1-9]-secondary)?$/,
+    coconala: ['coconala-pe-oral-qa'],
+    coconalaCatch: '筆記に合格したら、業務経歴から想定質問と回答の骨子を人の手で整理したい方へ。',
+    active: (now) => isPeOralSeason('pe-comprehensive-management', now),
+  },
+  {
+    test: /^pe-water-supply$/,
+    coconala: ['coconala-pe-oral-qa'],
+    coconalaCatch: '筆記に合格したら、業務経歴から想定質問と回答の骨子を人の手で整理したい方へ。',
+    active: (now) => isPeOralSeason('pe-water-supply', now),
+  },
+  {
     // 技術士 総監の出願（業務経歴票）。業務内容の詳細の添削は建設・上下水道・総監に対応。
     test: /^pe-comprehensive-management-exam-application-guide$/,
     coconala: ['coconala-pe-gyomu-tensaku'],
@@ -165,7 +181,7 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
  * 非対象ページ・未 listed の商品は空配列（＝非表示）。
  */
 export function resolveOffsiteCta(slug: string, now: number = Date.now()): OffsiteCtaItem[] {
-  const rule = OFFSITE_RULES.find((r) => r.test.test(slug) && !(r.until && isAfterExamDay(r.until.examId, r.until.eventId, now)));
+  const rule = OFFSITE_RULES.find((r) => r.test.test(slug) && !(r.until && isAfterExamDay(r.until.examId, r.until.eventId, now)) && (!r.active || r.active(now)));
   if (!rule) return [];
   const items: OffsiteCtaItem[] = [];
 

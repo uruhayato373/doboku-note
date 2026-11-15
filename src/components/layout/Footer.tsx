@@ -6,6 +6,7 @@ import { WIDE_CONTAINER } from './container';
 
 const categories = getAllCategories().filter(category => category.visible !== false);
 const siteLinks = [
+  ['/links', '教材一覧'],
   ['/tools', '計算・演習'],
   ['/standards', getAreaLabel('standards')],
   ['/topics', 'テーマ別索引'],

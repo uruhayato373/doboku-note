@@ -17,6 +17,7 @@ import { type OffsiteCtaItem } from '@/lib/offsite-cta';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import ExamYearNav from '@/components/ui/TextbookNav/ExamYearNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
+import { categoryNavPlan } from '@/lib/category-nav-plan';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
 import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
@@ -268,7 +269,9 @@ export default function ArticleFooter({
         (DISCOVERY_CATEGORIES.includes(category) || docGroup === 'guide' ||
           docGroup === 'pillar' ||
           docGroup === 'secondary' ||
-          docGroup === 'textbook') && (
+          docGroup === 'textbook') &&
+        // 並べる記事が無い資格・領域（法令・商品の少ない資格のガイド）で空の折りたたみだけが出ていた（2026-11-15）
+        categoryNavPlan({ variant: 'mobile', category, currentSlug: slugStr, docGroup, categoryArticles }).length > 0 && (
           /* モバイルでは記事一覧が数千 px になり本文の倍近い高さを占めるため（textbook 実測 5,000px）、
              既定は閉じた details にして、開きたい人だけ展開させる。デスクトップはサイドバーで表示済み。 */
           <Disclosure
