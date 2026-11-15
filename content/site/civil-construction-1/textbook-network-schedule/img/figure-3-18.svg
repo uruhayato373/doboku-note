@@ -71,7 +71,7 @@
 
   <text x="32" y="336" class="rule-body">手順1: 終了イベントの LFT =</text>
   <text x="32" y="350" class="rule-body">　　　プロジェクト工期（= EST の最大値）</text>
-  <text x="32" y="358" class="rule-body">手順2: 各アクティビティの LFT から所要時間を減算（右→左）</text>
+  <text x="32" y="364" class="rule-body">手順2: 各アクティビティの LFT から所要時間を減算（右→左）</text>
   <text x="32" y="376" class="rule-body">手順3: 複数経路が分岐する場合は最小値を採用</text>
   <text x="32" y="394" class="rule-body">手順4: すべてのアクティビティを右から左に処理</text>
 

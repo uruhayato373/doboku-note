@@ -65,17 +65,17 @@ export function estimateTextWidth(text, fontSize) {
   return width;
 }
 
-/** <style>...</style> から class ベースの CSS ルールを抽出 */
+/** <style>...</style> から text / class の CSS ルールを抽出 */
 function parseStyleBlock(content) {
   const rules = {};
   const styleMatch = content.match(/<style>([\s\S]*?)<\/style>/);
   if (!styleMatch) return rules;
   const css = styleMatch[1];
-  const ruleRe = /\.([\w-]+)\s*\{([^}]+)\}/g;
+  const ruleRe = /(?:\.([\w-]+)|\b(text))\s*\{([^}]+)\}/g;
   let m;
   while ((m = ruleRe.exec(css))) {
-    const name = m[1];
-    const body = m[2];
+    const name = m[1] || "__text";
+    const body = m[3];
     const fontSize = body.match(/font-size:\s*([\d.]+)px/)?.[1];
     const textAnchor = body.match(/text-anchor:\s*(\w+)/)?.[1];
     rules[name] = {
@@ -121,13 +121,15 @@ export function parseSvg(content) {
   const cssRules = parseStyleBlock(content);
 
   // <g> の transform / font-size / text-anchor をスタックで継承
-  const tokenRe = /<g\b([^>]*)>|<\/g>|<text\b([^>]*)>([^<]*)<\/text>/g;
+  const tokenRe = /<g\b([^>]*)>|<\/g>|<text\b([^>]*)>([^<]*)<\/text>|<(rect|circle)\b([^>]*)\/?>/g;
   const texts = [];
+  const rects = [];
+  const circles = [];
   // スタック要素: { x, y, fontSize, textAnchor }
-  const stack = [{ x: 0, y: 0, fontSize: null, textAnchor: null }];
+  const stack = [{ x: 0, y: 0, fontSize: null, textAnchor: null, isRotated: false }];
   let m;
   while ((m = tokenRe.exec(content))) {
-    const [raw, gAttrs, textAttrs, textBody] = m;
+    const [raw, gAttrs, textAttrs, textBody, shape, shapeAttrs] = m;
     if (raw === "</g>") {
       if (stack.length > 1) stack.pop();
       continue;
@@ -154,7 +156,23 @@ export function parseSvg(content) {
         y: top.y + tr.y,
         fontSize: gFontSize || classFontSize || top.fontSize,
         textAnchor: gAnchor || classAnchor || top.textAnchor,
+        isRotated: top.isRotated || /\brotate\s*\(/.test(trAttr || ""),
       });
+      continue;
+    }
+    if (shape) {
+      const parent = stack[stack.length - 1];
+      const transform = shapeAttrs.match(/transform="([^"]+)"/)?.[1];
+      if (parent.isRotated || /\brotate\s*\(/.test(transform || "")) continue;
+      const tr = parseTranslate(transform);
+      const value = (name) => parseFloat(shapeAttrs.match(new RegExp(`\\b${name}="([\\d.-]+)"`))?.[1] || 0);
+      if (shape === "rect") {
+        const w = value("width"), h = value("height");
+        if (w > 0 && h > 0) rects.push({ x: value("x") + parent.x + tr.x, y: value("y") + parent.y + tr.y, w, h, area: w * h });
+      } else {
+        const r = value("r");
+        if (r > 0) circles.push({ cx: value("cx") + parent.x + tr.x, cy: value("cy") + parent.y + tr.y, r });
+      }
       continue;
     }
     // <text>
@@ -163,7 +181,7 @@ export function parseSvg(content) {
 
     const trAttr = textAttrs?.match(/transform="([^"]+)"/)?.[1];
     const ownTr = parseTranslate(trAttr);
-    const isRotated = trAttr ? /\brotate\s*\(/.test(trAttr) : false;
+    const isRotated = stack[stack.length - 1].isRotated || /\brotate\s*\(/.test(trAttr || "");
     const parent = stack[stack.length - 1];
 
     const xRaw = parseFloat(textAttrs?.match(/\bx="([\d.-]+)"/)?.[1] || 0);
@@ -188,39 +206,14 @@ export function parseSvg(content) {
         if (!textAnchor && rule.textAnchor) textAnchor = rule.textAnchor;
       }
     }
-    // 親 <g> からの継承
-    if (!fontSize) fontSize = parent.fontSize;
-    if (!textAnchor) textAnchor = parent.textAnchor;
+    // text セレクタの直接指定を優先し、未指定のプロパティは親 <g> から継承
+    if (!fontSize) fontSize = cssRules.__text?.fontSize || parent.fontSize;
+    if (!textAnchor) textAnchor = cssRules.__text?.textAnchor || parent.textAnchor;
     // デフォルト
     if (!fontSize) fontSize = 12;
     if (!textAnchor) textAnchor = "start";
 
     texts.push({ x, y, fontSize, textAnchor, text: textContent, isRotated });
-  }
-
-  // <rect> 要素収集（g transform は非考慮。translate 内の rect は近似値になる）
-  const rects = [];
-  const rectRe = /<rect\b([^/>]*(?:\/(?!>)[^/>]*)*)(?:\/?>)/g;
-  let rm;
-  while ((rm = rectRe.exec(content))) {
-    const a = rm[1];
-    const rx = parseFloat(a.match(/\bx="([\d.-]+)"/)?.[1] ?? 0);
-    const ry = parseFloat(a.match(/\by="([\d.-]+)"/)?.[1] ?? 0);
-    const rw = parseFloat(a.match(/\bwidth="([\d.-]+)"/)?.[1] ?? 0);
-    const rh = parseFloat(a.match(/\bheight="([\d.-]+)"/)?.[1] ?? 0);
-    if (rw > 0 && rh > 0) rects.push({ x: rx, y: ry, w: rw, h: rh, area: rw * rh });
-  }
-
-  // <circle> 要素収集
-  const circles = [];
-  const circleRe = /<circle\b([^/>]*(?:\/(?!>)[^/>]*)*)(?:\/?>)/g;
-  let cm;
-  while ((cm = circleRe.exec(content))) {
-    const a = cm[1];
-    const cx = parseFloat(a.match(/\bcx="([\d.-]+)"/)?.[1] ?? 0);
-    const cy = parseFloat(a.match(/\bcy="([\d.-]+)"/)?.[1] ?? 0);
-    const r  = parseFloat(a.match(/\br="([\d.-]+)"/)?.[1] ?? 0);
-    if (r > 0) circles.push({ cx, cy, r });
   }
 
   return { viewBox, hasRole, ariaLabel, hasMaxWidth, texts, rects, circles };
@@ -316,7 +309,21 @@ export function detectSvgIssues(svg, opts = {}) {
   // P2: テキスト同士の重なり
   for (let i = 0; i < bboxes.length; i++) {
     for (let j = i + 1; j < bboxes.length; j++) {
-      if (bboxesOverlap(bboxes[i], bboxes[j])) {
+      const a = svg.texts[i];
+      const b = svg.texts[j];
+      if (a.isRotated || b.isRotated) continue;
+      const xOverlap = Math.min(bboxes[i].x + bboxes[i].width, bboxes[j].x + bboxes[j].width)
+        - Math.max(bboxes[i].x, bboxes[j].x);
+      // bbox の 3px slack で見逃す詰まった行間を補う。横並びの別ラベルは除外。
+      const upper = a.y <= b.y ? a : b;
+      const lower = a.y <= b.y ? b : a;
+      // 大見出しの下の小さな補足は、上行のdescenderと下行のascentで判定する。
+      const lineThreshold = Math.min(Math.max(a.fontSize, b.fontSize) * 0.95,
+        upper.fontSize * 0.15 + lower.fontSize * 0.8);
+      const crampedLines = Math.abs(a.y - b.y) < lineThreshold
+        && xOverlap > 6
+        && xOverlap > Math.min(bboxes[i].width, bboxes[j].width) * 0.3;
+      if (bboxesOverlap(bboxes[i], bboxes[j]) || crampedLines) {
         findings.push({
           pattern: "P2-text-overlap",
           severity: "MEDIUM",
@@ -332,7 +339,7 @@ export function detectSvgIssues(svg, opts = {}) {
   // P9a: start-anchor テキストが <circle> bbox と重なる（middle = 意図的ラベルとして除外）
   const SHAPE_SLACK = 2;
   for (const t of svg.texts) {
-    if (t.textAnchor !== "start") continue;
+    if (t.isRotated || t.textAnchor !== "start") continue;
     const bb = textBBox(t);
     for (const c of svg.circles || []) {
       const xOv = Math.min(bb.x + bb.width, c.cx + c.r) - Math.max(bb.x, c.cx - c.r);
@@ -351,6 +358,7 @@ export function detectSvgIssues(svg, opts = {}) {
   const RECT_H_SLACK = 5; // 横方向（フォント幅推定誤差・描画差を吸収）
   const RECT_V_SLACK = 1; // 縦方向（descender 微超過を除外）
   for (const t of svg.texts) {
+    if (t.isRotated) continue;
     const bb = textBBox(t);
     // t.x = text 要素のアンカー点（start=左端 / middle=中心 / end=右端）を使って
     // 最も小さい enclosing rect を探す。bb.x（左端）を使うと middle-anchor テキストが
@@ -363,7 +371,7 @@ export function detectSvgIssues(svg, opts = {}) {
           r.x - 1 <= t.x &&             // アンカー点が rect の内側
           r.x + r.w + 1 >= t.x &&
           r.y <= t.y + 1 &&
-          r.y + r.h >= t.y - t.fontSize * 0.85 - 1
+          r.y + r.h >= t.y              // 箱の外にある接続矢印・注記を内部ラベルと誤認しない
       )
       .sort((a, b) => a.area - b.area);
     if (enclosing.length === 0) continue;
