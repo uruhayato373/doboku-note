@@ -497,7 +497,7 @@
 
 
 ### [DN-1199] textbook（/exam/civil-construction-1/textbook/network-schedule）が画面の点検で不合格（content）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-14]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-14] [進行中]
 
 **起点**: 2026-11-14 の画面の点検（`npm run site-visual-review`・作業票 20261114T095559Z）で、textbook（/exam/civil-construction-1/textbook/network-schedule）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
 
