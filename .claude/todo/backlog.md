@@ -2954,6 +2954,8 @@ Windows の PowerShell で repo 直下から順に:
 
 **やること**: `npm audit` / `npm update` で `basic-ftp` を修正版へ上げるか、依存元ごと剪定できるか見る。影響がなければ警告を取り下げる。
 
+**進み（2026-11-15）**: `package.json` の overrides で get-uri の下の basic-ftp を 6.2.4 に上げ、#1601 で develop へ入れた。Dependabot の警告は main で判定されるので、残りは main への昇格の後に警告が閉じたかを見ることだけ。
+
 **完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts --jq '.[] | select(.state=="open")'` が 0 件。
 
 
