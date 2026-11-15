@@ -14,10 +14,16 @@ import path from 'path';
 import { SITE_CONTENT_ROOT } from '../../../../../../scripts/lib/repository-paths.mjs';
 import { R2_PUBLIC_HOST, SITE_HOST } from '../../../../../../scripts/lib/site-identity.mjs';
 
+import { classifyExternalLink, summarizeExternalLinks } from '../../../../../../scripts/lib/external-link-results.mjs';
+import { parseCliArgs } from '../../../../../../scripts/lib/cli-args.mjs';
+import { writeJson } from '../../../../../../scripts/lib/json-io.mjs';
+
+const args = parseCliArgs({ concurrency: { type: 'integer', default: 10 }, report: { type: 'string' } });
 const postsDir = SITE_CONTENT_ROOT;
 const TIMEOUT_MS = 15000;
-const CONCURRENCY = parseInt(process.argv.find((_, i, a) => a[i - 1] === '--concurrency') || '10');
-const REPORT_PATH = process.argv.find((_, i, a) => a[i - 1] === '--report') || null;
+const CONCURRENCY = args.concurrency;
+const REPORT_PATH = args.report;
+if (!Number.isInteger(CONCURRENCY) || CONCURRENCY < 1) throw new Error('concurrency は 1 以上の整数');
 const SKIP_DOMAINS = new Set(['localhost', R2_PUBLIC_HOST, SITE_HOST]);
 
 // Step 1: 全MDXファイルから外部URLを抽出
@@ -100,7 +106,7 @@ async function checkUrl(url) {
     if (err.name === 'AbortError') {
       return { url, status: 0, ok: false, error: 'TIMEOUT' };
     }
-    return { url, status: 0, ok: false, error: err.code || err.message };
+    return { url, status: 0, ok: false, error: err.cause?.code || err.code || err.message };
   } finally {
     clearTimeout(timer);
   }
@@ -153,38 +159,11 @@ console.log(`チェック中...`);
 const urlList = [...uniqueUrls.keys()];
 const results = await checkWithConcurrency(urlList, CONCURRENCY);
 
-// 結果を分類
-const broken = [];   // 404, 410, 5xx
-const redirected = []; // 301, 302 (but ok)
-const timeout = [];  // timeout
-const errors = [];   // network errors
-const ok = [];       // 200
-
-for (let i = 0; i < urlList.length; i++) {
-  const r = results[i];
-  const locations = uniqueUrls.get(r.url);
-
-  if (r.error === 'TIMEOUT') {
-    timeout.push({ ...r, locations });
-  } else if (r.error) {
-    errors.push({ ...r, locations });
-  } else if (r.status === 404 || r.status === 410) {
-    broken.push({ ...r, locations });
-  } else if (r.status >= 400) {
-    errors.push({ ...r, locations });
-  } else {
-    ok.push({ ...r, locations });
-  }
-}
-
-// レポート出力
-console.log(`\n${'='.repeat(60)}`);
-console.log(`📊 結果サマリー`);
-console.log(`${'='.repeat(60)}`);
-console.log(`   ✅ OK:        ${ok.length} 件`);
-console.log(`   ❌ リンク切れ:  ${broken.length} 件`);
-console.log(`   ⏱️  タイムアウト: ${timeout.length} 件`);
-console.log(`   ⚠️  エラー:     ${errors.length} 件`);
+// 結果を分類（取得できないものをリンク切れと混ぜない）
+const summary = summarizeExternalLinks(results, urlList.length);
+const groups = { broken: [], inconclusive: [], ok: [] };
+for (const result of results) groups[classifyExternalLink(result)].push({ ...result, locations: uniqueUrls.get(result.url) });
+console.log(`対象数 ${summary.target} / 実検査数 ${summary.checked} / 切れ ${summary.broken} / 確かめられない ${summary.inconclusive} / OK ${summary.ok}`);
 
 function printSection(title, items) {
   if (items.length === 0) return;
@@ -200,34 +179,18 @@ function printSection(title, items) {
   }
 }
 
-printSection('❌ リンク切れ（404/410）— 要修正', broken);
-printSection('⚠️  エラー（接続不可・拒否等）— 要確認', errors);
-printSection('⏱️  タイムアウト — 要確認（政府サイトは遅いだけの場合あり）', timeout);
+printSection('リンク切れ（404・410・DNS 不在）— 要修正', groups.broken);
+printSection('確かめられない（inconclusive）— 取得制限・接続失敗等', groups.inconclusive);
 
 if (REPORT_PATH) {
-  const report = {
+  writeJson('.', REPORT_PATH, {
     checkedAt: new Date().toISOString(),
-    summary: {
-      files: files.length,
-      occurrences: allEntries.length,
-      uniqueUrls: uniqueUrls.size,
-      ok: ok.length,
-      broken: broken.length,
-      timeout: timeout.length,
-      errors: errors.length,
-    },
-    broken,
-    errors,
-    timeout,
-  };
-  fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });
-  fs.writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`);
-  console.log(`📄 JSON report: ${REPORT_PATH}`);
+    summary: { files: files.length, occurrences: allEntries.length, uniqueUrls: uniqueUrls.size, ...summary },
+    broken: groups.broken,
+    inconclusive: groups.inconclusive,
+  });
+  console.log(`JSON report: ${REPORT_PATH}`);
 }
-
-if (broken.length === 0 && errors.length === 0 && timeout.length === 0) {
-  console.log(`\n✅ すべての外部リンクが有効です。\n`);
-}
-
-console.log('');
-process.exit(broken.length > 0 ? 1 : 0);
+if (summary.exitCode === 2) console.log('検査不成立: 対象なし・未検査あり、または取得失敗の割合が上限を超えた');
+else if (summary.exitCode === 0) console.log('確認できた範囲でリンク切れなし');
+process.exitCode = summary.exitCode;
