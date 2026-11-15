@@ -1,12 +1,16 @@
 /**
- * auth-session-refresh.mjs の判定部（純関数）。ブラウザ・キーチェーン・ファイルには触れない。
+ * auth-session-refresh.mjs の判定と認証メタデータの共通処理。ブラウザ・資格情報の値には触れない。
  *
  * 仕組みは stats47 の `.claude/scripts/measurement/refresh-session.mjs` を doboku-note の認証基盤
  * （OS 標準 auth root・account assert）へ移したもの。ログイン画面の
  * セレクタは stats47 の実測値をそのまま使う。
  */
+import { chmodSync, copyFileSync, readFileSync, statSync, rmSync } from 'node:fs';
+import { ensureAuthDirectories, loadAuthRegistry, resolveMetadataPath, resolveStatePath } from './playwright-auth-profile.mjs';
+import { REPO_ROOT } from './repository-paths.mjs';
+import { writeJson } from './json-io.mjs';
 import { homedir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 
 /**
  * OS の資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）で自動ログインできるサービス。
@@ -28,7 +32,7 @@ export const AUTO_LOGIN = Object.freeze({
   },
   moshimo: {
     shared: true,
-    loginUrl: 'https://af.moshimo.com/af/shop/login',
+    get loginUrl() { return loadAuthRegistry({ cwd: REPO_ROOT }).services.moshimo.loginUrl; },
     user: '#login-form input[name=account]',
     password: '#login-form input[name=password]',
     submit: '#login-form input[name=login]',
@@ -36,7 +40,7 @@ export const AUTO_LOGIN = Object.freeze({
   },
   kdp: {
     shared: false,
-    loginUrl: 'https://kdp.amazon.co.jp/ja_JP/bookshelf',
+    get loginUrl() { return loadAuthRegistry({ cwd: REPO_ROOT }).services.kdp.loginUrl; },
     user: 'input[name=email]',
     next: 'input#continue',
     password: 'input[name=password]',
@@ -163,4 +167,52 @@ export async function submitLoginForm(page, spec, cred) {
   await page.locator(spec.submit).first().click();
   await page.waitForLoadState('domcontentloaded', { timeout: 60000 }).catch(() => {});
   await page.waitForTimeout(5000);
+}
+
+export const AUTH_RETRY_MS = 7 * 86_400_000;
+
+/** 未知の印は安全側で停止。画面側の error だけ 7 日後に再試行する。 */
+export function failMarkDecision({ markText, markMtimeMs, nowMs = Date.now() }) {
+  if (markText == null) return { retry: true, reason: 'no-mark' };
+  const reason = String(markText).trim().split(/\s+/)[1] ?? 'unknown';
+  return { retry: reason === 'error' && Number.isFinite(markMtimeMs) && nowMs - markMtimeMs >= AUTH_RETRY_MS, reason };
+}
+
+export function failMarkPath(service, options = {}) {
+  return join(dirname(resolveMetadataPath(service, options)), `${service}.autologin-failed`);
+}
+export function clearAuthFailure(service, options = {}) {
+  const path = failMarkPath(service, options);
+  rmSync(path, { force: true });
+  rmSync(`${path}.png`, { force: true });
+}
+export function lastStatusPath(service, options = {}) {
+  return join(dirname(resolveMetadataPath(service, options)), `${service}.last-status.json`);
+}
+export function recordAuthStatus(service, result, options = {}) {
+  const path = lastStatusPath(service, options);
+  writeJson(dirname(path), `${service}.last-status.json`, {
+    status: result.status, checkedAt: new Date().toISOString(), reason: result.reason ?? null,
+  });
+  chmodSync(path, 0o600);
+  if (result.status === 'authenticated') clearAuthFailure(service, options);
+  return { ok: result.status === 'authenticated', service, ...result };
+}
+export function authMtimeMs(path) {
+  try { return statSync(path).mtimeMs; } catch { return NaN; }
+}
+/** stats47 の新しい state だけ取り込む。dryRun はファイルを書かない。 */
+export function importSharedState(service, options = {}, { dryRun = false } = {}) {
+  const shared = sharedStatePath(service, options.env, options.homeDir);
+  const local = resolveStatePath(service, options);
+  if (!shared || !local) return { import: false, reason: 'not-shared' };
+  let sharedCookieCount = 0;
+  try { sharedCookieCount = JSON.parse(readFileSync(shared, 'utf8')).cookies?.length ?? 0; } catch { /* 無い・壊れている */ }
+  const decision = decideSharedImport({ sharedMtimeMs: authMtimeMs(shared), localMtimeMs: authMtimeMs(local), sharedCookieCount });
+  if (decision.import && !dryRun) {
+    ensureAuthDirectories(service, options);
+    copyFileSync(shared, local);
+    try { chmodSync(local, 0o600); } catch { /* best-effort */ }
+  }
+  return decision;
 }

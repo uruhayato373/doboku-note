@@ -27,6 +27,7 @@ export const CHECKS = [
   { name: 'shared-policy', script: 'scripts/check-shared-policy.mjs', args: [], timeout: 20_000 },
   { name: 'plan-staleness', script: 'scripts/check-plan-staleness.mjs', args: [], timeout: 10_000 },
   { name: 'backlog-due', script: 'scripts/check-backlog-health.mjs', args: ['--due'], timeout: 15_000 },
+  { name: 'auth-freshness', script: 'scripts/check-auth-freshness.mjs', args: ['--session'], timeout: 5_000 },
   { name: 'weekly-review-due', script: 'scripts/check-weekly-review-due.mjs', args: [], timeout: 10_000 },
   { name: 'monthly-review-due', script: 'scripts/check-monthly-review-due.mjs', args: [], timeout: 10_000 },
   { name: 'gsc-login', script: 'scripts/check-gsc-login.mjs', args: [], timeout: 5_000 },

@@ -141,6 +141,7 @@
     "auth:login": "node scripts/playwright-auth.mjs login",
     "auth:status": "node scripts/playwright-auth.mjs status",
     "auth:migrate": "node scripts/playwright-auth.mjs migrate",
+    "check-auth-freshness": "node scripts/check-auth-freshness.mjs",
     "auth:refresh": "node scripts/auth-session-refresh.mjs",
     "check-task-plan-links": "node scripts/check-task-plan-links.mjs",
     "todo:claim": "node scripts/todo-claim.mjs",
