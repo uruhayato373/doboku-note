@@ -1140,7 +1140,7 @@ function renderNoteCoverG2(props, { width, height }) {
 
 // ---- テンプレート: note-cover Crop-safe V4 (cover.variant: crop-safe-v4 の opt-in) ----
 //
-// 仕様 SSOT: .claude/knowledge/design-system/note-cover-crop-safe-v4.md / 値: note-cover-tokens.json layout.cropSafeV4。
+// 仕様 SSOT: .claude/knowledge/design-system/note-cover-character-v5.md（表示面と文言フィールド） / 値: note-cover-tokens.json layout.cropSafeV4。
 // note の表示面はフル 1280×670 / 正方形(中央630×630) / 一覧(中央1280×454) / 狭ヘッダー(中央1280×216) /
 // リンクカード / 関連記事 とトリミングが異なる。V4 は三重安全領域（square/list/core-safe）に情報階層を
 // 固定配置し、主要文字（headline / hi+hiSuffix / benefit / magazineName）を中央 590px 一行に必ず収める。

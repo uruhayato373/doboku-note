@@ -1,7 +1,7 @@
 # note カバー画像デザイン仕様（G2「全幅バナー帯」）
 
 > [!warning]
-> **描画は 2026-09-17 から V5 キャラクターカバーに切り替わった**（SSOT: [note-cover-character-v5.md](note-cover-character-v5.md)）。`generate-note-covers.mjs` / `generate-magazine-covers.mjs` / note への登録（Mac の週次 note-sync-routine）はいずれも V5 を描き、本書と [Crop-safe V4](note-cover-crop-safe-v4.md) のレイアウト幾何（バナー帯・HiBox・チップ・三重安全領域）はもう描画されない。本書で今も有効なのは **試験=色/系列=濃淡の二軸カラー**（`note-cover-tokens.json` の `exams`）と **frontmatter `cover:` の文言フィールド**（leadIn / headline / hi / hiSuffix / benefit を V5 がそのまま使う）、および「ライブ反映」の運用。`banner` / `chips` / `meta` / `visualAsset` は読まれない。
+> **描画は 2026-09-17 から V5 キャラクターカバーに切り替わった**（SSOT: [note-cover-character-v5.md](note-cover-character-v5.md)）。`generate-note-covers.mjs` / `generate-magazine-covers.mjs` / note への登録（Mac の週次 note-sync-routine）はいずれも V5 を描き、本書と旧 Crop-safe V4 のレイアウト幾何（バナー帯・HiBox・チップ・三重安全領域）はもう描画されない。本書で今も有効なのは **試験=色/系列=濃淡の二軸カラー**（`note-cover-tokens.json` の `exams`）と **frontmatter `cover:` の文言フィールド**（leadIn / headline / hi / hiSuffix / benefit を V5 がそのまま使う）、および「ライブ反映」の運用。`banner` / `chips` / `meta` / `visualAsset` は読まれない。
 
 note 記事・有料マガジンのカバー画像（1280×670）の G2 時代の仕様。値の SSoT は [`note-cover-tokens.json`](note-cover-tokens.json)。本書はレイアウト意図と運用ルールを説明する。
 
@@ -142,7 +142,7 @@ npm run note-update-body -- --parts cover --list .tmp/list.txt --commit
 
 表示面ごとのトリミング（正方形 630×630／一覧 1280×454／狭ヘッダー 1280×216／リンクカード／関連記事）で**重要文字を切らない**variant（現行の既定）。G2 の「長文 banner は正方形で両端切れ許容」を V4 は採用せず、`headline / hi+hiSuffix / benefit`（マガジンは `magazineName / qualifier / proof / benefit`）を三重安全領域（square/list/core-safe）の中央 590px に一行で収める（入らなければ生成エラー・chips 不使用・AI 背景素材 `visualAsset` は任意でフォールバックあり）。
 
-- **仕様 SSOT**: [`note-cover-crop-safe-v4.md`](note-cover-crop-safe-v4.md) ／ 値: [`note-cover-tokens.json`](note-cover-tokens.json) `layout.cropSafeV4`
+- **仕様 SSOT**: [`note-cover-character-v5.md`](note-cover-character-v5.md)「表示面と文言フィールド」 ／ 値: [`note-cover-tokens.json`](note-cover-tokens.json) `layout.cropSafeV4`
 - **状態**: **全量移行済み・V4 が既定**（2026-07-24〜25: パイロット 6/6 合格 → 全 715 記事＋46 マガジンを V4 化・G2 残 0 → note.com ライブ反映 702/706＋36/36 誌完了）。本ファイルの G2 記述はレガシー仕様の記録（新規に G2 を書かない）
 - 検証: `npm run check-note-cover-fit`（V4 は 590px フィットをエラー検査）／ 6 表示面プレビュー `node scripts/note-cover-gallery.mjs --crops`
 
