@@ -1869,7 +1869,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-themename-1",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
       "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1894,13 +1894,38 @@
         "contentSha256": "0061dfd35951d38c8fcae116b14510db0a47f0539e9703283354da8c8abc5425"
       },
       "times": {
-        "rendered": "2026-11-14T13:09:12.733Z"
+        "rendered": "2026-11-14T13:09:12.733Z",
+        "uploaded": "2026-11-15T13:09:28.832Z"
       },
       "delivery": {
         "inputSha256": "8a6e4706a0722a330ba2b4ee03a8cabb3f0e3067167b340309f64c160ee43dbc",
         "marker": "dn-single-21e2c4e6058b97e8167256f2860399dfa0e3b16e",
         "uploadRequestedAt": "2026-11-14T13:10:19.837Z",
-        "videoId": "6UZ-EUqFZXs"
+        "videoId": "6UZ-EUqFZXs",
+        "processedAt": "2026-11-15T13:09:28.018Z",
+        "thumbnailRequestedAt": "2026-11-15T13:09:28.903Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/default.jpg?sqp=CPzb5tcG&rs=AOn4CLAKFtQ9j9M41f3_b97Cr6bZ1wORvg",
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/mqdefault.jpg?sqp=CPzb5tcG&rs=AOn4CLBwUSpBDZ-JKcfL5RsAw3re34aY9g",
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/hqdefault.jpg?sqp=CPzb5tcG&rs=AOn4CLC0PBStFsMUmSZXvVpyOJr1gmMh5g",
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/sddefault.jpg?sqp=CPzb5tcG&rs=AOn4CLA3eaOVw6MulMW7eWHwaRw581IiyA",
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/maxresdefault.jpg?sqp=CPzb5tcG&rs=AOn4CLD6EkbFKDfpVgW0g8UgaWHt7FLuFg",
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/sardefault.jpg?sqp=CPzb5tcG&rs=AOn4CLAOscp2UGmzkGOXqfm3kX5C_wcbPA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-15T13:09:36.003Z"
+      },
+      "platform": {
+        "id": "6UZ-EUqFZXs",
+        "url": "https://www.youtube.com/watch?v=6UZ-EUqFZXs",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-themename-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-15T13:09:36.003Z"
       }
     },
     {
