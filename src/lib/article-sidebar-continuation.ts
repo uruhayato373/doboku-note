@@ -13,30 +13,13 @@ import { findYearRelatives } from './exam-year-nav.mjs';
 import { relatedTextbookSlugs } from './related-textbooks';
 import { isCivilConstructionCategory } from './qualification-names';
 import { ARTICLE_RAIL_FILL_SLOT, articleImagePlacements, articleRailFillColumn, articleRailSlot } from './article-affiliate-plan';
-import type { ResolvedPlacement, ResolvedPlacements } from './affiliate-placement';
+import type { ResolvedPlacements } from './affiliate-placement';
+import { createCardPicker, interleaveFillGroups, type RailGroup, type RailLink, type RailSource as Source } from './rail-continuation';
 
-interface RailLink {
-  href: string;
-  title: string;
-  doc?: DocMeta;
-}
-export interface RailCard {
-  label: 'rail-related' | 'rail-exam-years' | 'rail-textbooks' | 'rail-discovery' | 'rail-topic' | 'rail-popular' | 'rail-latest' | 'rail-tools';
-  title: string;
-  links: RailLink[];
-}
-export interface RailGroup {
-  slot: string;
-  card: RailCard | null;
-  banner: ResolvedPlacement | undefined;
-  /** 過去問だけ。回遊の組の間をバナーだけで埋める組（card なし・面は article-rail-fill） */
-  fill?: boolean;
-}
+export type { RailGroup } from './rail-continuation';
 
 const PER_GROUP = 3;
 const EXAM_GROUPS = ['primary', 'secondary', 'pastExam'];
-
-interface Source { label: RailCard['label']; title: string; links: RailLink[] }
 
 /**
  * 上の束の行き先を除き、1 組 3 件（最後の組だけ 2 件）で下に続く束を作る。
@@ -85,30 +68,7 @@ export function articleSidebarContinuation(
   const tools: Source = { label: 'rail-tools', title: '無料ツールで確認する', links: input.category ? getRelatedTools(input.category, input.slugStr).map(tool => ({ href: tool.href, title: tool.title })) : [] };
   const others = isExam ? [examYears, textbooks, discovery, topic, popular, latest, tools] : [discovery, topic, popular, latest, tools];
 
-  const available = (source: Source) => source.links.filter(link => !usedHrefs.has(link.href));
-  const taken = new Map<Source, number>();
-  let cursor = 0;
-  let last: Source | null = null;
-  let closed = false;
-  const nextCard = (index: number): RailCard | null => {
-    if (closed) return null;
-    const rotated = [...others.slice(cursor), ...others.slice(0, cursor)];
-    const order = index % 2 === 0 ? [related, ...rotated] : [...rotated, related];
-    for (const need of [PER_GROUP, 2]) {
-      const source = order.find(candidate => candidate !== last && available(candidate).length >= need);
-      if (!source) continue;
-      const links = available(source).slice(0, PER_GROUP);
-      links.forEach(link => usedHrefs.add(link.href));
-      const round = taken.get(source) ?? 0;
-      taken.set(source, round + 1);
-      if (others.includes(source)) cursor = (others.indexOf(source) + 1) % others.length;
-      if (links.length < PER_GROUP) closed = true;
-      last = source;
-      return { label: source.label, title: round ? `${source.title}（続き）` : source.title, links };
-    }
-    closed = true;
-    return null;
-  };
+  const nextCard = createCardPicker({ first: related, others, usedHrefs });
 
   const images = articleImagePlacements(placements, [], upper.length + count);
   const groups: RailGroup[] = [];
@@ -121,28 +81,9 @@ export function articleSidebarContinuation(
   return input.questionSeries ? fillGroups(groups, count - groups.length, placements, upper.length) : groups;
 }
 
-/**
- * 回遊の組（と広告だけの組）の間へ、バナーだけの組を fill 個、均等に挟む（累積が整数を跨ぐ位置に置く）。
- * 案件は右の欄に出ている案件の列を順に繰り返し、前後の組のバナーと同じ案件は列に別の案件がある限り避ける。
- */
+/** 過去問の埋める組の案件は右の欄に出ている案件（上の束＋回遊の組）を順に繰り返す。 */
 function fillGroups(groups: RailGroup[], fill: number, placements: ResolvedPlacements, upperCount: number): RailGroup[] {
   if (fill <= 0) return groups;
   const rail = articleImagePlacements(placements, [], upperCount, groups.map(group => group.slot)).filter(image => image.placement.slot.startsWith('article-rail'));
-  const column = articleRailFillColumn(rail);
-  if (!column.length) return groups;
-  const total = groups.length + fill;
-  const isFill = (i: number) => Math.floor(((i + 1) * fill) / total) > Math.floor((i * fill) / total);
-  const order: Array<RailGroup | null> = [];
-  let next = 0;
-  for (let i = 0; i < total; i++) order.push(isFill(i) ? null : groups[next++]!);
-  const picked: RailGroup[] = [];
-  let cursor = 0;
-  return order.map((group, i) => {
-    if (group) { picked[i] = group; return group; }
-    const avoid = new Set([picked[i - 1]?.banner?.program, order[i + 1]?.banner?.program]);
-    const rotated = [...column.slice(cursor), ...column.slice(0, cursor)];
-    const banner = rotated.find(candidate => !avoid.has(candidate.program)) ?? rotated[0]!;
-    cursor = (column.indexOf(banner) + 1) % column.length;
-    return (picked[i] = { slot: ARTICLE_RAIL_FILL_SLOT, card: null, banner, fill: true });
-  });
+  return interleaveFillGroups(groups, fill, articleRailFillColumn(rail), ARTICLE_RAIL_FILL_SLOT);
 }

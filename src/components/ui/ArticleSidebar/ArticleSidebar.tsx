@@ -1,7 +1,7 @@
 import { articleSidebarPlan, type ArticleSidebarInput } from '@/lib/article-sidebar-plan';
 import { Fragment } from 'react';
 import type { RailGroup } from '@/lib/article-sidebar-continuation';
-import RailArticleList from '@/components/ui/RelatedArticles/RailArticleList';
+import RailContinuation from '@/components/ui/RailContinuation/RailContinuation';
 import { ArticleBanner, articleRailSlot, articleImagePlacements } from '@/components/docs/ArticleAffiliateBanners';
 import type { ResolvedPlacements } from '@/lib/affiliate-placement';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
@@ -52,11 +52,6 @@ export default function ArticleSidebar({ cards, groups = [], placements, questio
         <div data-article-sidebar-card>{card}</div>
       </Fragment>)}
     </div>
-    {groups.length > 0 && <div className="flex flex-1 flex-col justify-around gap-6 pt-6" data-article-sidebar-continuation>
-      {groups.map((group, index) => <div key={`${group.slot}-${index}`} className="space-y-3" data-article-sidebar-group data-article-sidebar-fill={group.fill || undefined} data-article-sidebar-ad-only={(!group.card && !group.fill) || undefined}>
-        <ArticleBanner placement={group.banner} kind="rail" />
-        {group.card && <div data-article-sidebar-card><RailArticleList card={group.card} /></div>}
-      </div>)}
-    </div>}
+    <RailContinuation groups={groups} />
   </div>;
 }

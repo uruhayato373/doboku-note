@@ -9,6 +9,8 @@ import { groupDocs } from '@/lib/category-groups';
 import { DocCard, DocSection } from '@/components/category/CategorySections';
 import { PopularShowcase, PopularRanking } from '@/components/category/PopularSections';
 import { getPopularDocs } from '@/lib/popular';
+import { categorySidebarContinuation } from '@/lib/category-sidebar-continuation';
+import RailContinuation from '@/components/ui/RailContinuation/RailContinuation';
 import {
   CivilConstruction1View,
   CivilConstruction2View,
@@ -105,26 +107,31 @@ export default async function CategoryPage({
   // 他の資格は note のバナーと転職広告が 10px ほどで接していた。学習のページは note を主導線にする方針（affiliate-operations.md §6）
   // に合わせて note を先に出し、運営者プロフィールを挟んで転職広告を置く。
   const viewCareerAds = mobileAdsAfterNote ? [] : mobileCareerAds;
+  // 上の束の下に、人気・新着の記事と転職バナーの組を並べる（記事数が少ない資格は 0 組。DN-1218 段 3）。
+  const railGroups = categorySidebarContinuation(docs, popularDocs, sidebarAd);
   const categorySidebar = (
-    <div className="space-y-3">
-      {slug === 'concrete-engineer' ? <>
-        <ConcreteEngineerStudy />
-        <ConcreteEngineerProduct placement="category-sidebar" />
-        <ConcreteEngineerRelated />
-      </> : <CategoryStudyNav category={slug} />}
-      {slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" />}
-      {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" />}
-      <AuthorSidebarCard />
-      {sidebarAd && (
-        <ProgramSplitBanner
-          alternate={sidebarAd.alternate}
-          placement="category-sidebar"
-          primary={
-            <ResponsiveAffiliateBanner placement={sidebarAd} withPixel={sidebarPixel?.slot === 'category-sidebar'} only="pc" />
-          }
-        />
-      )}
-      <PopularRanking items={popularDocs} />
+    <div className="flex h-full flex-1 flex-col">
+      <div className="space-y-3">
+        {slug === 'concrete-engineer' ? <>
+          <ConcreteEngineerStudy />
+          <ConcreteEngineerProduct placement="category-sidebar" />
+          <ConcreteEngineerRelated />
+        </> : <CategoryStudyNav category={slug} />}
+        {slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" />}
+        {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" />}
+        <AuthorSidebarCard />
+        {sidebarAd && (
+          <ProgramSplitBanner
+            alternate={sidebarAd.alternate}
+            placement="category-sidebar"
+            primary={
+              <ResponsiveAffiliateBanner placement={sidebarAd} withPixel={sidebarPixel?.slot === 'category-sidebar'} only="pc" />
+            }
+          />
+        )}
+        <PopularRanking items={popularDocs} />
+      </div>
+      <RailContinuation groups={railGroups} />
     </div>
   );
 
@@ -132,7 +139,7 @@ export default async function CategoryPage({
     <PageShell variant="article">
         <HubStructuredData path={getCategoryHubPath(slug)} name={cat.label} description={cat.description ?? cat.subtitle} docs={docs} />
         {/* 学習の入口を本文と右列の先頭に置く。note CTA はモバイルでは記事一覧の下に表示。 */}
-        <TwoColumnShell gutter="default" mainClassName="pt-8 sm:pt-10 pb-10" aside={categorySidebar}>
+        <TwoColumnShell gutter="default" mainClassName="pt-8 sm:pt-10 pb-10" stretchAside aside={categorySidebar}>
             {/* 左メインカラム全体を 1 枚の白カードに統一（グレー地に白サーフェス・角丸ゼロの
                 エディトリアル面）。見出し・人気記事・各セクションを同一カード内に載せ、内側は
                 リスト/テーブル/フラットタイルで構成してカード内カードを避ける（2026-07 A-1）。 */}

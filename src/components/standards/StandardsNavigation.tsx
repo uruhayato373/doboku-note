@@ -21,6 +21,8 @@ import { standardsAgencyPath } from '@/lib/route-paths';
 import { getTopicsForStandardDocument } from '@/lib/topics';
 import { getStandardDefaultTopics } from '@/lib/standards-discovery';
 import { StandardsRailBanner } from '@/components/standards/StandardsAffiliateBanners';
+import RailContinuation from '@/components/ui/RailContinuation/RailContinuation';
+import type { RailGroup } from '@/lib/rail-continuation';
 
 type StandardsNavigationProps = {
   agencyId: string;
@@ -30,6 +32,8 @@ type StandardsNavigationProps = {
   currentSection?: number | undefined;
   variant?: 'sidebar' | 'mobile';
   inlineSlots?: readonly string[];
+  /** 章・節ページの右の欄の「下に続く束」（回遊カード＋転職バナーの組。無ければ上の束だけ） */
+  railGroups?: RailGroup[];
 };
 
 const LINK_BASE =
@@ -304,6 +308,7 @@ export default function StandardsNavigation({
   currentSection,
   variant = 'sidebar',
   inlineSlots = [],
+  railGroups = [],
 }: StandardsNavigationProps) {
   const agency = getStandardsCatalog().agencies.find((entry) => entry.agencyId === agencyId);
   const sectionTitle = currentSection !== undefined
@@ -377,26 +382,32 @@ export default function StandardsNavigation({
     );
   }
 
+  // 右の欄は固定・欄の中のスクロールをしない（2026-11-15 運営者指示・全ページ共通）。
+  // 上の束は上詰め、下に続く束（章・節ページだけ）は本文の残りの高さへ均等に並べる（親の TwoColumnShell は stretchAside）。
+  const upper = (
+    <div className="space-y-3" data-standards-sidebar>
+      <StandardsRailBanner slot={currentChapter ? 'standards-rail' : 'standards-list-rail'} pageKind={pageKind} inlineSlots={inlineSlots} />
+      {!treeMode && <div className="border border-(--rule-soft) bg-(--paper) p-5">
+        <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
+        <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
+        <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-(--ink-muted)">{contextLabel}</p>
+        <Link
+          href={parentHref}
+          className="focus-ring mt-3 inline-flex min-h-11 items-center text-[12px] font-bold text-(--accent) hover:underline"
+        >
+          ← {parentLabel}
+        </Link>
+      </div>}
+      {contents}
+      {currentChapter && <StandardsRailBanner slot="standards-rail-2" pageKind="standards" inlineSlots={inlineSlots} />}
+      {discovery}
+    </div>
+  );
+  if (railGroups.length === 0) return upper;
   return (
-    // 右の欄は固定・欄の中のスクロールをしない（2026-11-15 運営者指示・全ページ共通）。
-    <>
-      <div className="space-y-3" data-standards-sidebar>
-        <StandardsRailBanner slot={currentChapter ? 'standards-rail' : 'standards-list-rail'} pageKind={pageKind} inlineSlots={inlineSlots} />
-        {!treeMode && <div className="border border-(--rule-soft) bg-(--paper) p-5">
-          <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
-          <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
-          <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-(--ink-muted)">{contextLabel}</p>
-          <Link
-            href={parentHref}
-            className="focus-ring mt-3 inline-flex min-h-11 items-center text-[12px] font-bold text-(--accent) hover:underline"
-          >
-            ← {parentLabel}
-          </Link>
-        </div>}
-        {contents}
-        {currentChapter && <StandardsRailBanner slot="standards-rail-2" pageKind="standards" inlineSlots={inlineSlots} />}
-        {discovery}
-      </div>
-    </>
+    <div className="flex h-full flex-1 flex-col">
+      {upper}
+      <RailContinuation groups={railGroups} />
+    </div>
   );
 }

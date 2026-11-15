@@ -8,6 +8,7 @@ import { sidebarProduct } from './sidebar-discovery';
 import { categoryNavPlan } from './category-nav-plan';
 import { parseQuestionNo } from './exam-question-number';
 import { getRelatedTools } from './tools';
+import { railGroupCountFromFree } from './rail-continuation';
 
 export interface ArticleSidebarInput {
  sidebarMokuji: ResolvedHubCta | null; headings: TocHeading[]; category: DocMeta['category']; docGroup: DocGroupKey;
@@ -49,24 +50,24 @@ export function articleSidebarInput(meta: DocMeta, plan: ReturnType<typeof planA
  * （railEmptyPx＋目次を本文へ移した分）を 字数×係数＋H2×80 で当てた中央値。過去問一次・二次は本文の字数に
  * 問題の部品が多く入り、画面の高さは 1.3 倍の見積もりより低い（0.6〜0.7）。短い記事を詰めすぎないため
  * キーワード・過去問（総監など）は下位四分位に寄せる。
+ * standards は基準書の章・節（407 ページ）。本文の高さは 1.48 px/字＋約 3,000px、上の束（目次・回遊）が 2,000〜4,250px
+ * （中央値 2,600）なので、残る空きの下位四分位に寄せて 1.4。見積もりが空きを超えた章は 0 件（組 1 つ約 600px で検証）。
  */
-const RAIL_PX_PER_CHAR: Record<DocGroupKey, number> = {
- guide: 1.15, career: 1.15, textbook: 1.2, primary: 0.7, secondary: 0.75, pastExam: 0.6, keyword: 0.75, pillar: 0.5,
+export type RailBodyKind = DocGroupKey | 'standards';
+const RAIL_PX_PER_CHAR: Record<RailBodyKind, number> = {
+ guide: 1.15, career: 1.15, textbook: 1.2, primary: 0.7, secondary: 0.75, pastExam: 0.6, keyword: 0.75, pillar: 0.5, standards: 1.4,
 };
-const GROUP_SPACING_PX = 2000;
-const FIRST_GROUP_MIN_PX = 3000;
 const MAX_GROUPS = 12;
-/** 過去問は本文が長く（年度別の一次は 4 万 px 前後）、回遊の組の間を転職バナーで埋める（2026-11-16 運営者判断）ので上限を上げる */
-const MAX_GROUPS_QUESTION = 20;
-const QUESTION_GROUPS: ReadonlySet<DocGroupKey> = new Set<DocGroupKey>(['primary', 'secondary', 'pastExam']);
+/** 過去問・基準書は本文が長く（年度別の一次は 4 万 px 前後・基準書の長い章は 13 万 px）、回遊の組の間を転職バナーで埋めるので上限を上げる */
+const MAX_GROUPS_LONG = 20;
+const LONG_BODY: ReadonlySet<RailBodyKind> = new Set<RailBodyKind>(['primary', 'secondary', 'pastExam', 'standards']);
 
 /**
  * 下に続く束の組の数の見積もり（SSR の段階で決まる字数と H2 から）。空きが 3,000px 未満なら 0 組、
- * それ以上なら約 2,000px ごとに 1 組（安全の上限 12・過去問は 20）。実際の間隔は flex で均等配分する。
+ * それ以上なら約 2,000px ごとに 1 組（安全の上限 12・過去問と基準書は 20）。実際の間隔は flex で均等配分する。
  * 実際に並ぶ数は、さらに回遊の候補で埋められる組数で決まる。
  */
-export function articleSidebarGroupCount(bodyLength: number, h2Count: number, docGroup: DocGroupKey = 'guide'): number {
+export function articleSidebarGroupCount(bodyLength: number, h2Count: number, docGroup: RailBodyKind = 'guide'): number {
  const free = Math.max(0, bodyLength) * RAIL_PX_PER_CHAR[docGroup] + Math.max(0, h2Count) * 80;
- const max = QUESTION_GROUPS.has(docGroup) ? MAX_GROUPS_QUESTION : MAX_GROUPS;
- return free < FIRST_GROUP_MIN_PX ? 0 : Math.min(max, Math.floor(free / GROUP_SPACING_PX));
+ return railGroupCountFromFree(free, { max: LONG_BODY.has(docGroup) ? MAX_GROUPS_LONG : MAX_GROUPS });
 }
