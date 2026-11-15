@@ -1209,13 +1209,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **完了条件**: 移行の計画（対象・順序・受け皿・計測・KDP Select の扱い）が決まり、最初の資格で解説を有料側へ移し、比べる実験が running になっている。
 
-
-
-
-
-
-
-
+**配線の注意（2026-11-16・全サイト点検から）**: 過去問の記事型（primary・pastExam）は本文中間の note の枠が出ない仕様（`src/lib/magazine-placement.ts` の resolveArticleMidNoteSlot は guide・pillar・textbook・土木の二次だけ）。解説を外すページは、冒頭と記事末の枠（top・end）で受け皿の商品を指すように配線する。到達検査 `npm run check-magazine-cta` の「出る商品が無料だけのページ」（上限 0）で、受け皿が無料記事だけになっていないかを確かめる。
 
 
 ### [DN-1034] twitter CLI の認証先が投稿用の @doboku373 になっていて、X ポリシー §11.7 と違う
