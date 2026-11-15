@@ -9,13 +9,13 @@ import { join } from 'node:path';
  * 生成前（dev の直後・テスト）はファイルが無いので null を返し、ページには何も出さない。
  */
 
-export interface PillarExamQuestion {
+interface PillarExamQuestion {
   readonly num: string;
   readonly heading: string;
   readonly anchor: string;
 }
 
-export interface PillarExamYear {
+interface PillarExamYear {
   readonly year: string;
   readonly exam_slug: string;
   readonly questions: readonly PillarExamQuestion[];
@@ -30,7 +30,7 @@ export interface PillarExamQuestions {
 const DATA_PATH = join(process.cwd(), 'src', 'config', 'pillar-exam-questions.json');
 
 /** 'economic-management-pillar' → 集計のキー 'economic' */
-export function pillarKeyOf(slug: string): string | null {
+function pillarKeyOf(slug: string): string | null {
   const m = slug.replace(/^pe-comprehensive-management-/, '').match(/^(.+)-management-pillar$/);
   return m ? m[1]! : null;
 }

@@ -12,7 +12,7 @@ const LIMIT = 4;
  * テーマが名指しした資料（featuredStandardRefs）を先に、同じ題名の資料は機関違いを 1 つにまとめる。
  * クリックは internal_nav_click（label=law-standards）。
  */
-export function resolveLawStandards(doc: DocMeta): { document: StandardDocument; topicLabel: string }[] {
+function resolveLawStandards(doc: DocMeta): { document: StandardDocument; topicLabel: string }[] {
   const out: { document: StandardDocument; topicLabel: string }[] = [];
   const titles = new Set<string>();
   for (const topic of getDocTopics(doc)) {

@@ -269,6 +269,7 @@ const fixedPages = Object.keys(zeroPageBaseline).filter((slug) => hasSurface(slu
 const excludedCount = docs.filter((d) => Object.hasOwn(PAGE_GATE_EXCLUDED, d.category)).length;
 console.log(`\n[page-gate] 教材のある${PAGE_GATE_CATEGORIES.size}資格の公開記事 ${gateDocs.length} 本（career ${gateDocs.length - gateTargets.length} 本は対象外）/ 実検査 ${gateTargets.length} 本 / CTA ゼロ ${zeroPages.length} 本（baseline 外 ${newZeroPages.length} 本）/ もくじタイルは数えない`);
 console.log(`  対象外のカテゴリ ${Object.keys(PAGE_GATE_EXCLUDED).length} 件・${excludedCount} 本: ${Object.entries(PAGE_GATE_EXCLUDED).map(([c, why]) => `${c}（${why}）`).join(' / ')}`);
+console.log('  基準書（/standards・章ページ）は content/site の記事でないので数えない。note の導線は置かず、転職の枠とテーマ経由の記事で教材へつなぐ（右欄の判定は DN-1171）');
 if (uncovered.length) {
   console.error(`✗ 検査不成立: 記事のあるカテゴリ ${uncovered.join(', ')} が検査対象（PAGE_GATE_CATEGORIES）にも対象外（PAGE_GATE_EXCLUDED）にも無い。どちらかに理由付きで入れる`);
   process.exit(1);

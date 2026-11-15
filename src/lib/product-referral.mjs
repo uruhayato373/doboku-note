@@ -50,6 +50,13 @@ export function productReferralOf(href) {
     return asin ? { destination: 'amazon', productId: asin } : null;
   }
   if (host === 'px.a8.net') {
+    // ココナラは全サービスが同じ a8mat の商品リンクで、飛び先（a8ejpredirect）だけが違う。a8mat で送ると全サービスが
+    // 1 つの ID にまとまり、どの出品が押されたか分からなかった（2026-11-15・DN-1222）。飛び先がココナラの出品ならその番号で送る
+    const redirect = url.searchParams.get('a8ejpredirect');
+    if (redirect) {
+      const inner = productReferralOf(redirect);
+      if (inner?.destination === 'coconala') return inner;
+    }
     // searchParams は + を空白に戻すので、生のクエリから読む（config/affiliate-mats.json の mat と同じ表記）
     const mat = url.search.match(/[?&]a8mat=([0-9A-Z]+(?:\+[0-9A-Z]+){3})(?:&|$)/)?.[1];
     return mat ? { destination: 'a8', productId: mat } : null;
