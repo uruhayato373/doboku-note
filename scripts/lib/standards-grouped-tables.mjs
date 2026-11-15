@@ -142,7 +142,10 @@ function renderPart(part, raw, { varying, key, unit, previous }) {
     const notes = [];
     for (const entry of group.rows) {
       const { row } = entry;
-      const name = items.filter((c) => raw.rows[entry.r][c]?.same !== 'left').map((c) => row[c]).filter(Boolean).join(' ／ ');
+      // 測定項目の右の欄から規格値まで横に結合したセル（「ただし、吹付面に凹凸がある場合の…」）は規格値の側にだけ出す。
+      // 名前にも入れると同じ文が測定項目と規格値の両方に並ぶ（3-8 章 植生工・吹付工・DN-1216）
+      const spansIntoValue = (c) => values[0] === c + 1 && raw.rows[entry.r][values[0]]?.same === 'left' && items.filter((i) => row[i]).length > 1;
+      const name = items.filter((c) => raw.rows[entry.r][c]?.same !== 'left' && !spansIntoValue(c)).map((c) => row[c]).filter(Boolean).join(' ／ ');
       if (values.length === 2 && ((!name && row[values[0]] === '平均値' && row[values[1]] === '個々の計測値') || (row[values[0]] === 'コンクリート橋' && row[values[1]] === '鋼橋'))) {
         labels = values.map((c) => row[c]);
         continue;

@@ -279,7 +279,15 @@ function spawnGate(gate) {
  * （記事 1 本の commit で 6 検査・合計 18.2 秒、最長の 1 本は 6.1 秒。会社 PC・2026-11-13・DN-1141）。
  */
 export async function runPlan(plan, { exec = spawnGate, concurrency = GATE_CONCURRENCY } = {}) {
-  const settled = await runPool(plan, concurrency, exec);
+  // 単体テスト（unit-tests）だけは作業ツリーに一時ファイルを書く（孤児 OGP の検出テストが `__test-orphan__/ogp.png` を作って消す）。
+  // ほかの検査と同時に走らせると orphan-ogp がその一時ファイルを拾って落ちる（2026-11-15・基準書の生成物の commit で 3 回連続）。
+  // 読むだけの検査を先に並行で回し、書く検査は後から回す。結果は plan の順に戻す。
+  const writes = (gate) => gate.id === 'unit-tests';
+  const order = [...plan.filter((g) => !writes(g)), ...plan.filter(writes)];
+  const readers = await runPool(order.filter((g) => !writes(g)), concurrency, exec);
+  const writers = await runPool(order.filter(writes), 1, exec);
+  const byGate = new Map(order.map((g, i) => [g, [...readers, ...writers][i]]));
+  const settled = plan.map((g) => byGate.get(g));
   // 起動が投げた検査も失敗として数える（通ったことにしない）
   return settled.map((r) => (r.ok ? r.value : { status: 1, out: `${r.error?.stack ?? r.error}\n` }));
 }
