@@ -474,7 +474,7 @@
 
 
 ### [DN-1216] 基準書 mlit/sekou-kanri-kijun の 8 章が画面の目視判定で不合格（9-4・3-8・3-6・3-2・6-1・9-1 ほか）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:standards-visual-review] [起票:2026-11-15]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:standards-visual-review] [起票:2026-11-15] [進行中]
 
 **起点**: 2026-11-15 の画面の目視判定（`npm run standards-visual-review`・作業票 20261115T051048Z）で、mlit/sekou-kanri-kijun の 8 章が不合格になった。判定は撮影した画面と原本のページ画像の見比べ（エージェント standards-page-visual-auditor）と、描画で決まる崩れの機械判定。台帳は .claude/state/quality/standards-visual-review.json。
 

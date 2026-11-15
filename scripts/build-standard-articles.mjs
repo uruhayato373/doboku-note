@@ -57,6 +57,32 @@ const { RE_TABLE_CAPTION, RE_FIGURE_CAPTION } = patterns;
 /** 基準類の一覧を持つ節・条の題名（`第2節 適用すべき諸基準`・`1-3-2-1 適用すべき諸基準`） */
 const STANDARDS_LIST_SCOPE = /適用すべき諸基準/;
 
+/** 施工管理基準の目次と図は段落の連結前に扱う。原本の文字・ページから識別し、他文書には適用しない。 */
+function sekouKanriNodes(chapter) {
+  return chapter.nodes.flatMap((node) => {
+    if (chapter.chapterId === '1-1' && node.page === 2 && node.title === '構成 工程管理') {
+      return [{ ...node, title: '構成' }];
+    }
+    if (node.type !== 'paragraph') return [node];
+    const text = joinWrapped(node.lines);
+    if (chapter.chapterId === '1-1' && node.pages.length === 1 && node.pages[0] === 2
+      && stripSpacesForMatch(text) === '出来形管理施工管理品質管理（工事写真を含む）') {
+      return [{ ...node, type: 'caption', lines: [{ text: '構成図', page: 2 }] }];
+    }
+    if (chapter.chapterId === '10-1' && isFigureCaption(text)) return [{ ...node, type: 'caption' }];
+    if (chapter.chapterId !== '9-1' || node.pages.length !== 1 || node.pages[0] !== 213) return [node];
+    // 版面の行を散文として結ぶと「5 … 7 6 … 7 7 …」になる。目次行だけを分け、後続の注記は段落のまま。
+    const nodes = [];
+    for (const line of node.lines) {
+      const toc = /^\s*\d+\s+.+[･]{2,}\s*Ⅱ\s*－\s*\d+\s*$/u.test(line.text);
+      if (toc) nodes.push({ ...node, type: 'toc', lines: [line] });
+      else if (nodes.at(-1)?.type === 'paragraph') nodes.at(-1).lines.push(line);
+      else nodes.push({ ...node, lines: [line] });
+    }
+    return nodes;
+  });
+}
+
 const sha256 = (value) => createHash('sha256').update(value, 'utf8').digest('hex');
 
 /**
@@ -400,6 +426,10 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       continue;
     }
     const pages = formatPages(node.pages);
+    if (node.type === 'toc') {
+      push(escapeInline(joinWrapped(node.lines)));
+      continue;
+    }
     if (node.type === 'table') {
       const { body, caption } = tableLayoutOf(node);
 
@@ -669,7 +699,8 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
     const rows = amendment?.rowsByChapter.get(chapter.chapterId) ?? [];
     const groupedRecords = overrides.documents?.[documentKey]?.tableLayout === 'grouped' ? [] : null;
     const markdown = renderChapter(
-      chapter, tableOutcomes, tableOverrides, chapterTables,
+      documentKey === 'mlit/sekou-kanri-kijun' ? { ...chapter, nodes: sekouKanriNodes(chapter) } : chapter,
+      tableOutcomes, tableOverrides, chapterTables,
       amendmentPages ? renderAmendmentNote(amendment, rows.length > 0) : null,
       rows.length ? { amendment, rows } : null,
       figureOf,
