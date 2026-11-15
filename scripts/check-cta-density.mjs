@@ -154,8 +154,6 @@ export function inspectHtml(html, slug) {
     if (nativeMax > ARTICLE_AFFILIATE_LIMITS.native) add('affiliate-slots', nativeMax, ARTICLE_AFFILIATE_LIMITS.native, [], ['affiliate'], { slotsByViewport });
     for (const [viewport, desktop] of [['mobile', false], ['desktop', true]]) {
       const visible = affiliates.filter(n => visibleAt(n, desktop));
-      const native = visible.filter(n => !articleImageKind(attr(n, 'data-cta-placement')));
-      const nativeCount = new Set(native).size;
       const imageLinks = visible.filter(n => articleImageKind(attr(n, 'data-cta-placement')));
       for (const kind of ['inline', 'rail', 'end']) {
         const links = imageLinks.filter(n => articleImageKind(attr(n, 'data-cta-placement')) === kind);
@@ -170,8 +168,7 @@ export function inspectHtml(html, slug) {
       }
       const slots = imageLinks.map(n => attr(n, 'data-cta-placement'));
       if (new Set(slots).size !== slots.length) add('affiliate-image-duplicate', slots.length - new Set(slots).size, 0, [], ['affiliate'], { viewport });
-      const total = nativeCount + imageLinks.length;
-      if (total > ARTICLE_AFFILIATE_LIMITS[viewport]) add('affiliate-total', total, ARTICLE_AFFILIATE_LIMITS[viewport], [], ['affiliate'], { viewport });
+      // 広告の総数の上限（affiliate-total）は 2026-11-15 に廃止（運営者判断）。面の種類ごとの数・位置・重複・ピクセルは引き続き見る
       // 各カードの直前に 1 枠。空のカードや同じ場所への連続挿入を通さない。
       const rail = page.querySelector('[data-article-sidebar-cards]');
       if (desktop && rail) {
