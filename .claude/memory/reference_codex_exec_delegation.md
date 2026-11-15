@@ -14,4 +14,7 @@ metadata:
 - モデルとエフォートは実行時に `-m` と `-c model_reasoning_effort=` で段ごとに指定する（この時の割り当ては gpt-6-astra medium＝検査、high＝配置ロジック、gpt-5.6-terra medium＝設定と CI）。既定（`~/.codex/config.toml`）は gpt-6-astra・high。
 - Codex の成果は鵜呑みにしない。今回は C が `out/` 不在時の skip を消していて、手元の `quality:audit:ci` が常に赤になる変更を親が戻した。
 
+- **図の修正は「検出 0 件」で合格にしない**（2026-11-15・DN-1199）。audit-svg は線・多角形・凡例と文字の重なりを見ないので、Codex が所見 0 と報告した 34 図のうち 7 図にラベルの重なりが残っていた。親が PNG を並べたシート（sharp で合成）を見て、残りを具体的に指して手直しさせる。
+- **R2 の図は本番反映＝読者に届く、ではない**。CDN の purge 権限が無いので、上書きした図は最大 1 日旧版が出る（DN-0756）。画面の点検は期限切れか手動 purge の後に撮る。
+
 関連: [[feedback_opus_sonnet_split]] [[reference_shared_worktree_autostash_hazard]]
