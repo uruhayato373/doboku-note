@@ -1534,7 +1534,8 @@
         "ojt-off-jt",
         "hierarchical-training",
         "training-techniques",
-        "self-development"
+        "self-development",
+        "problem-setting-ability"
       ]
     },
     "1-16": {
@@ -1633,7 +1634,9 @@
         "crisis-communication",
         "communication-control",
         "stakeholder",
-        "public-acceptance"
+        "public-acceptance",
+        "personal-communication",
+        "mass-communication"
       ]
     },
     "1-27": {
@@ -1734,7 +1737,8 @@
         "environmental-standards",
         "seven-types-of-pollution",
         "air-pollution-control-act",
-        "water-pollution-control-act"
+        "water-pollution-control-act",
+        "environmental-basic-act"
       ]
     },
     "1-38": {
@@ -2082,7 +2086,8 @@
       "slugs": [
         "environmental-standards",
         "environmental-basic-plan",
-        "dioxin-countermeasures-act"
+        "dioxin-countermeasures-act",
+        "environmental-basic-act"
       ]
     },
     "1-38": {
@@ -2226,7 +2231,8 @@
         "formal-informal-organization",
         "hawthorne-experiment",
         "organizational-commitment",
-        "psychological-safety"
+        "psychological-safety",
+        "human-relations-management"
       ]
     },
     "1-15": {
@@ -2235,7 +2241,8 @@
         "ojt-off-jt",
         "hierarchical-training",
         "problem-solving-ability",
-        "job-execution-ability"
+        "job-execution-ability",
+        "problem-setting-ability"
       ]
     },
     "1-16": {
@@ -2380,7 +2387,9 @@
         "crisis-communication",
         "risk-perception",
         "public-acceptance",
-        "public-relations"
+        "public-relations",
+        "personal-communication",
+        "mass-communication"
       ]
     },
     "1-33": {
@@ -2413,7 +2422,8 @@
         "environmental-standards",
         "seven-types-of-pollution",
         "air-pollution-control-act",
-        "soil-contamination-act"
+        "soil-contamination-act",
+        "environmental-basic-act"
       ]
     },
     "1-37": {
@@ -2446,7 +2456,8 @@
         "environmental-accounting",
         "cost-effectiveness-analysis",
         "carbon-pricing",
-        "eco-label"
+        "eco-label",
+        "surcharge"
       ]
     }
   },
@@ -2512,7 +2523,8 @@
       "slugs": [
         "accounting-systems",
         "balance-sheet",
-        "income-statement"
+        "income-statement",
+        "accounting-principles"
       ]
     },
     "1-8": {
@@ -2580,7 +2592,9 @@
         "recruitment-management",
         "worker-dispatch-act",
         "internal-job-posting",
-        "multi-track-hr-system"
+        "multi-track-hr-system",
+        "internship",
+        "self-declaration-system"
       ]
     },
     "1-16": {
@@ -3126,7 +3140,8 @@
       "heading": "Ⅰ-1-37",
       "slugs": [
         "citizen-participation",
-        "partnership"
+        "partnership",
+        "landscape-act"
       ]
     },
     "1-38": {
@@ -3260,7 +3275,8 @@
         "equal-employment-act",
         "positive-action",
         "women-empowerment-act",
-        "childcare-nursing-leave-act"
+        "childcare-nursing-leave-act",
+        "youth-employment-act"
       ]
     },
     "1-13": {
@@ -3302,7 +3318,8 @@
       "slugs": [
         "workers-compensation-insurance",
         "business-continuity-plan",
-        "cyber-security"
+        "cyber-security",
+        "telework"
       ]
     },
     "1-18": {
@@ -3440,7 +3457,8 @@
       "slugs": [
         "environmental-standards",
         "water-pollution-control-act",
-        "air-pollution-control-act"
+        "air-pollution-control-act",
+        "environmental-basic-act"
       ]
     },
     "1-35": {
@@ -3584,7 +3602,8 @@
       "slugs": [
         "mcgregor-xy-theory",
         "maslow-hierarchy-of-needs",
-        "herzberg-two-factor-theory"
+        "herzberg-two-factor-theory",
+        "asch-conformity-experiment"
       ]
     },
     "1-15": {
@@ -3886,7 +3905,8 @@
         "work-life-balance",
         "positive-action",
         "lgbtq",
-        "unconscious-bias"
+        "unconscious-bias",
+        "diversity-management"
       ]
     },
     "1-13": {
@@ -4169,7 +4189,10 @@
         "internal-rate-of-return",
         "payback-period-method",
         "dcf-method",
-        "cost-effectiveness-analysis"
+        "cost-effectiveness-analysis",
+        "outcome-indicators",
+        "output-indicators",
+        "cost-benefit-analysis"
       ]
     },
     "1-2": {
@@ -4236,7 +4259,8 @@
         "maintenance-cost",
         "lifecycle-costing-method",
         "preventive-maintenance",
-        "lifecycle-management"
+        "lifecycle-management",
+        "opportunity-cost"
       ]
     },
     "1-9": {
@@ -4536,7 +4560,8 @@
         "esd",
         "environmental-basic-plan",
         "citizen-participation",
-        "environmental-communication"
+        "environmental-communication",
+        "environmental-basic-act"
       ]
     }
   },
@@ -4625,7 +4650,8 @@
       "slugs": [
         "work-life-balance",
         "discretionary-work-system",
-        "labor-standards-act"
+        "labor-standards-act",
+        "telework"
       ]
     },
     "1-12": {
@@ -5191,7 +5217,8 @@
         "energy",
         "carbon-neutral",
         "climate-change-international",
-        "carbon-pricing"
+        "carbon-pricing",
+        "s-plus-3e"
       ]
     },
     "1-35": {
@@ -5382,7 +5409,8 @@
         "equal-employment-act",
         "work-life-balance",
         "unconscious-bias",
-        "gender-gap"
+        "gender-gap",
+        "diversity-management"
       ]
     },
     "1-15": {
@@ -5697,7 +5725,8 @@
       "slugs": [
         "depreciation",
         "cash-flow-statement",
-        "balance-sheet"
+        "balance-sheet",
+        "accounting-principles"
       ]
     },
     "1-8": {
@@ -5907,14 +5936,18 @@
       "slugs": [
         "unced-earth-summit",
         "un-human-environment-conf",
-        "sdgs"
+        "sdgs",
+        "agenda-21",
+        "ecological-footprint"
       ]
     },
     "1-34": {
       "heading": "Ⅰ-1-34",
       "slugs": [
         "energy",
-        "carbon-neutral"
+        "carbon-neutral",
+        "s-plus-3e",
+        "top-runner-system"
       ]
     },
     "1-35": {
@@ -5941,7 +5974,8 @@
         "air-pollution-control-act",
         "four-major-pollution-diseases",
         "seven-types-of-pollution",
-        "water-pollution-control-act"
+        "water-pollution-control-act",
+        "environmental-basic-act"
       ]
     },
     "1-38": {
@@ -6160,7 +6194,8 @@
       "heading": "Ⅰ-1-28",
       "slugs": [
         "fmea",
-        "fta"
+        "fta",
+        "hazid"
       ]
     },
     "1-29": {
