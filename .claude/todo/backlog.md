@@ -2956,34 +2956,10 @@ Windows の PowerShell で repo 直下から順に:
 **完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts --jq '.[] | select(.state=="open")'` が 0 件。
 
 
-### [DN-1176] note リンクの属性と資格別背景を CTA の共通部品にする
-タグ: [UI・UX] [領域:サイト] [種類:改善] [起票:2026-11-13]
-
-**起点**: 2026-11-13 の構成・SSOT 監査。note への導線は見た目が配置ごとに違う（本文の縦型・記事冒頭の横帯・本文の横型カード・サイドバーのタイル）ので部品の統合は要らないが、配線が重なっている。note リンクの属性一式（`target`・`rel`・`data-cta="note"`・`data-cta-label`・`data-cta-placement`）を 11 ファイル 14 か所で組み立てている。資格別背景の出し分け（`brand.ctaBg` があれば画像、無ければテーマ色）が `MagazineHeroCta`・`MagazineTopBanner`・`MagazineInlineCard` に 3 回ある。「画像があれば `NoteImageCta`、無ければ文字カード」の分岐が 5 部品にある。計測の属性を 1 か所で落とすと、その配置のクリックが GA4 に出なくなる。
-
-**やること**: note リンクの属性を返す関数を `src/lib/external-link-rel.ts` の隣に 1 つ置き、背景の出し分けを小さな部品にする。11 ファイルを一度に移す（半分だけ移して書き方を混在させない）。
-
-**完了条件**: `data-cta="note"` を直接書く箇所が共通の関数の中だけになる。各配置の HTML の属性が変更前と一致し、a11y と CTA の E2E が通る。
 
 
-### [DN-1175] 資格・記事種別ごとの分岐を lib の対応表へ寄せる
-タグ: [エージェント・SSOT] [領域:サイト] [種類:改善] [起票:2026-11-13]
-
-**起点**: 2026-11-13 の構成・SSOT 監査。`category === '資格 id'` の形の比較が `src/` に約 90 か所ある（検索の概数）。`src/lib/magazine-placement.ts` は 1,099 行で `startsWith('civil-construction-…')` が 7 か所、`src/lib/law-wiring.ts`・`src/components/ui/PastExamNav/exam-nav-utils.ts` に各 3 か所、`ArticleFooter.tsx` に 4 か所。`src/app/topics/[slug]/page.tsx:139` は記事種別のラベル（受験ガイド・テキスト・用語・過去問）を入れ子の三項演算子で直書きしている。`MagazineTopBanner.tsx` は 2級土木の記事ラベル 3 件を条件に直書きしている。日付整形は `MetaRow.tsx:17`・`LatestArticles.tsx:23` が `display-date.ts` を包むだけの同名関数を持つ。資格を足すたびに複数のファイルを直すことになる。`getRelatedTools` の if 連鎖は PR #1577 で対応表にした。
-
-**やること**: 分岐の多いファイルから、資格 id をキーにした対応表（設定か lib）へ移す。記事種別のラベルは `doc-classifier.ts` の読み口へ寄せる。包むだけの日付関数は消して直接 import する。資格別のレイアウトの違い（DN-1023 の対象）は残す。
-
-**完了条件**: 上に挙げたファイルの資格 id の比較が表の参照になり、表示が変更前と一致する。資格を 1 つ足すときに直すファイルが一覧で言える。
 
 
-### [DN-1174] 過去問 JSON 3 種（総監・1級土木・2級土木）の形を 1 つにそろえる
-タグ: [エージェント・SSOT] [領域:サイト] [種類:改善] [起票:2026-11-13]
-
-**起点**: 2026-11-13 の構成・SSOT 監査。`src/config/exam-questions.json`・`civil-1-exam-questions.json`・`civil-2-exam-questions.json` はフィールド名が資格ごとに違う（`correct` と `correctNum`、`body` と `question`、`optionExplanations` と `explanations`。`src/lib/quiz/types.ts:2-5` に明記）。`scripts/build-quiz-data.mjs` が毎回共通形へ寄せて吸収している。3 ファイルで約 9.4MB あり、設定ではなくデータなのに `src/config/` にある。問題台帳 `data/pastexams/questions/` は別系統で型と refs を持つ。
-
-**やること**: 生成元のスクリプトが出す形を共通形に合わせ、`build-quiz-data.mjs` の正規化を薄くする。置き場を `data/` 側へ移すかは、サイトのバンドルが読む経路を確かめてから決める。資格を足すときに 4 つ目の形を作らない。
-
-**完了条件**: 3 ファイルが同じ欄の名前を持ち、型が 1 つで検査できる。演習ページの問題数と正答が変更前と一致する。
 
 
 
@@ -3034,14 +3010,6 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: 2 回の結果が DN-0974 に書かれ、制作の順番に反映されている。
 
-### [DN-1147] ココナラの資格欄にコンクリート診断士（取得 2018）を、候補に足されたら登録する
-タグ: [収益化] [領域:商品] [種類:改善] [起票:2026-11-12]
-
-**起点**: 旧 DN-0440（主任技士の小論文添削を直前期の受注に応えられる状態にする）を 2026-11-12 の棚卸しで起こし直した。出品（services/4425046）・商品画像・受注手順・資格欄のコンクリート主任技士（取得 2016）の登録は済んでいる。
-
-**残り**: コンクリート診断士はココナラの資格の候補に無く、2026-10-16 に資格の追加要望フォームで「コンクリート診断士（公益社団法人日本コンクリート工学会）」を送った（受付表示を確認）。追加の画面（https://coconala.com/mypage/user/licenses）で「コンクリート診断」が候補に出たら、取得年 2018 で登録する。
-
-**完了条件**: 公開プロフィール（users/6197366）の資格欄にコンクリート診断士が表示される。
 
 ### [DN-0919] 季節の谷を埋められたかを判定する: 建設業×AI メンバーシップ（DN-0876）の会費が 8〜9 月型の売上の谷をどれだけ下支えしたかを 3 か月で数える
 タグ: [収益化] [領域:商品] [時期:2027-07..2027-09] [種類:改善] [起票:2026-10-30]
@@ -3101,10 +3069,6 @@ Windows の PowerShell で repo 直下から順に:
 
 
 
-### [DN-1141] pre-commit の固定費の残りを削る（事業方針の検査・日本語校正・最長の検査）
-タグ: [領域:管理] [種類:改善] [起票:2026-11-12]
-
-会社 PC の暖機後で、何も stage しない pre-commit は約 20 秒、記事 MDX 1 本は 38〜55 秒（PR #1585 の後）。残りは次のとおり。(1) check-business-direction が毎回 3〜4 秒（冷えた状態で 7.5 秒）。入力は config/・data/・.claude/state・Kindle の catalog・スナップショットが指す出典のファイルと広く、touches を付けるには検査側が入力の根を定数で export する形に直す必要がある。(2) lint-ja（textlint）が記事 1 本で約 8 秒。(3) staged に当たる CI の検査は並行 4 で回るので、律速は最長の 1 本: affiliate-placements 6.1 秒・keiken-answer-split 5.6 秒（どちらも全量走査）。(4) 約 53 本の検査が各自 git diff --cached を呼び直している（ディスパッチャの ctx を渡せば 1 回で済む）。(5) Bash 1 回ごとに agent-hook を node 4 プロセス起動している（.claude/settings.json）。pre-commit-mdx の検証器の遅延 import は効かない（後続の検査が同じモジュールを読むので、読み込みが後ろへ移るだけ）。前後は 3 場面（何も stage しない・docs 1 本・記事 1 本）を PRE_COMMIT_TIMING=1 で測り、検査ごとの秒数で比べる（合計は 1 回ごとに数秒〜十数秒ぶれる）
 
 
 ### [DN-1140] 冒頭コメントの無い起動ファイル 32 本に用途を書く
@@ -3115,10 +3079,6 @@ npm run cmd はコマンドの用途を、起動するスクリプトの冒頭�
 
 
 
-### [DN-1136] 記憶メモを棚卸しする（機械ゲートと重複するもの・古い手順）
-タグ: [領域:管理] [種類:改善] [起票:2026-11-12]
-
-記憶メモはユーザー側 172 本・530KB（索引 MEMORY.md は毎セッション読み込む・142 行）とリポジトリ側 .claude/memory 142 本・853KB。2026-11-11 の調査で、機械ゲート（検査・テスト・フック）を名指しするメモが計 37 本あった。フックや検査が同じことを止めているメモは消し、古い手順（今はフックが止める昇格手順など）を案内するメモは直すか消す。/doc-declutter（doc-curator）で判定し、消したら MEMORY.md の索引行も消す。ユーザー側は git 管理外なので、消す前に一覧を運営者へ見せる。完了条件: 消した・縮めた・残したの件数を記録／check-memory が通る
 
 
 
@@ -3131,31 +3091,8 @@ npm run cmd はコマンドの用途を、起動するスクリプトの冒頭�
 .claude/state/todo-claims.json に 2026-10-24 の claim（DN-0819）など古い claim が残る（2026-11-11 時点 8 件）。並行セッションは claim を見て着手を避けるので、持ち主のいない claim はカードを塞ぐ。startedAt から一定日数を過ぎた claim を週次の点検（quality:audit:weekly）で赤にする
 
 
-### [DN-1088] 測量士補とコンクリート主任技士の過去問の設問・選択肢の転記を原典と照合し、問題台帳に記録する
-タグ: [領域:教材] [種類:改善] [起票:2026-11-10]
-
-**起点**: DN-1085（2026-11-10）で測量士補 140 問とコンクリート主任技士 334 問を問題台帳に入れ、正答は照合済み（check-past-exam-ledger が CI で不一致を止める）。ただし設問・選択肢の転記は原典と照合しておらず、台帳の transcription は 474 問とも unverified のまま。1級土木一次では転記の化け（別の問題への置き換わり）が見つかっている。
-
-**やること**: 測量士補は Drive vault の国土地理院の問題 PDF（R07 は問題1・問題2 の 2 ファイル）、主任技士は過去問解説書のページ画像と、設問・選択肢・問い方の向きを 1 問ずつ照合し、`sync-past-exam-ledger --apply` で transcription（verified／fixed）と原典のページを記録する。誤りは記事を直す。主任技士は在庫台帳に原典が無いので、置き場の扱い（no-source とするか）も決める。
-
-**完了条件**: `check-past-exam-ledger` の 2 資格の「転記の照合: 未了」が 0。
 
 
-### [DN-1084] 技術士向けスポットコンサル・顧問マッチング（ビザスク型）の ASP 案件の有無と条件を確かめる
-タグ: [収益化] [領域:アフィリエイト] [種類:改善] [起票:2026-11-10]
-
-2026-11-14: もしもはビザスク・スポットコンサル・サーキュレーション・HiPro・顧問で検索し、専門家登録の対象案件は検索範囲内で見つからなかった。検索結果はcatalogの_spotConsultResearchに記録済み。A8・afbは運営者指定で後日、ログイン後の依頼で再開する。
-
-**起点**: 2026-11-10 の会話でアフィリの展開先を評価し、技術士の読者に合う商材としてスポットコンサル・顧問の登録（ビザスク型）を候補に残した。技術士が経験を活かす使い方で、note の教材とカニバらない。ただし ASP で扱われているかは未確認。
-
-**判断理由（共通事業方針）**: 読者の課題＝技術士の経験が社外でどう評価されるかを知りたい（A: 成長・M: 収入）。提供価値＝転職せずに経験を値付けする選択肢を示す。需要の証拠＝未確認。次の検証＝案件の有無と条件。
-
-**やること**:
-1. A8・もしも・afb で、スポットコンサル・顧問マッチング（ビザスク等）の案件の有無、成果地点（登録か案件成立か）、単価、対象条件を確かめる（ASP 管理画面は土曜の収集か運営者の依頼時）。
-2. 結果を `data/affiliate/catalog.json` に記録する。案件が無ければ「検索した語と日付」を残して閉じる（無いことの確認ではなく、検索した範囲に無かったと書く）。
-3. 案件がある場合は、配置先を技術士（建設部門・総監）の面に限る案を書く。現職の公務員は兼業規制で対象外になることを訴求に明記する。EXP-055（ハイクラスの A/B）の判定と重ならないよう、配置は運営者が決める。
-
-**完了条件**: catalog に案件の有無と条件（または検索した範囲）が記録され、配置するかどうかの判断が運営者に渡っている。
 
 
 
@@ -3184,26 +3121,10 @@ npm run cmd はコマンドの用途を、起動するスクリプトの冒頭�
 **完了条件**: 2 本が消え、`check-doc-refs` が通り、note カバーの規約が矛盾なく 1 つになっている。
 
 
-### [DN-1026] 冗長コード監査で見なかった範囲を確かめる
-タグ: [エージェント・SSOT] [領域:管理] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd の対象は `src`・`scripts`・`tools`・`tests`・`e2e`・`e2e-admin` で、`.claude/scripts` と `.claude/skills` は対象外だった。`KakomonQuizClient.tsx`（817 行）などの大きなコンポーネントの中身は読まず、責務の混在は `fs` と `gtag` の検索だけで見た（どちらも問題なし）。`scout-*`・`check-bold-rendering` と `check-table-rendering`・launchd の install スクリプトの重複は検出したが評価していない。
-
-**やること**: jscpd を `.claude/scripts` と `.claude/skills` へ広げ、大きなコンポーネントの責務を読む。残った重複は共通化するかを判断する。
-
-**完了条件**: 未評価の範囲について、直すものが起票され、直さないものは理由が書かれている。
 
 
 
 
-### [DN-1023] カテゴリと標準ページの重複部品を抽出する
-タグ: [UI・UX] [領域:サイト] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd が `src/components/category/CategoryViews.tsx` の内部で 261 行、`chapters/[chapter]/page.tsx` と `sections/[section]/page.tsx` の間で 83 行の重複を検出した。資格を足すと View を写すことになる。CategoryViews の関数構成は確認済みで、標準ページの重複の中身は未読。
-
-**やること**: 共通の小部品だけを抽出する。資格別のレイアウトは試験構成の違いをそのまま表すので残す。
-
-**完了条件**: 新しい資格の View が小部品の組み合わせで書ける。表示が変わらない。
 
 
 ### [DN-1022] sha256 の補助関数を scripts/lib に 1 つ置く
@@ -3216,14 +3137,6 @@ npm run cmd はコマンドの用途を、起動するスクリプトの冒頭�
 **完了条件**: 共通の関数があり、新しいコードはそれを使う。
 
 
-### [DN-1021] note の収録の追加と解除の共通処理を lib へ移す
-タグ: [インフラ・計測] [領域:商品] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd が `note-magazine-add-articles.mjs` と `note-magazine-remove-articles.mjs` の間に 142 行の重複を検出した（全 260 行と 210 行）。内容の確認は remove 側の冒頭まで。
-
-**やること**: ダイアログ操作の共通部分を lib へ出す。実行スクリプトは 2 本のままにする。
-
-**完了条件**: note のダイアログが変わっても lib の 1 か所を直せば済む。
 
 
 ### [DN-0976] note の案内の部品とナビのカードの重なりを整理する
@@ -3258,18 +3171,6 @@ npm run cmd はコマンドの用途を、起動するスクリプトの冒頭�
 
 
 
-### [DN-0889] Windows の手元で npm test が 46〜47 件落ちる原因を分けて直す（CI では通る）
-タグ: [領域:管理] [種類:不具合] [起票:2026-10-27]
-
-**起点**: 2026-10-27、Windows の手元で `npm test` を全量で回すと 3,637 件中 46〜47 件が落ちた（PR #1281 の作業中）。同じ変更で CI（Linux）の audit（unit-tests を含む）は通ったので、手元の環境に固有の失敗と見ている。落ちたのは 28 ファイル: admin-document-store・admin-figure-sns-board・agent-hooks・check-execution・check-mdx-images・client-chunk-size・disk-hygiene・e2e-execution・instagram-campaign・longform-pop-images・merge-dispatch-log・post-exam-cta・pre-commit-hook・pre-commit-install-guard・prh-verb-forms・product-note-derive（掲載文の改行コード CRLF/LF）・quality-audit-ops-tier（旧 DN-0886 の 2）・replay-onto-develop・report-automation-failure・standard-articles-platform・standards-figures・video-cache-prune・video-scene-sheet・weekly-review-launchd・write-all-sync・youtube-analytics・youtube-revision-publisher・youtube-single-publisher。
-
-**統合（2026-11-12 棚卸し）: 旧 DN-0582**（2026-10-08 に Windows で 11 件落ちた同じ母集団）から 2 点を引き継ぐ: content-expansion のテストも対象に含める。prh は現行 API の一次情報と使用箇所を確かめ、実装と同じ文字列を照合するだけの検査に置き換えない。
-
-**やること**: 原因で分ける（改行コード・パス区切り・シェル・時刻依存・手元に無い生成物）。直せるものは直し、Windows で意図して回さないものは理由をつけて skip する。手元で全量が緑になれば、手元の失敗と自分の変更の失敗を見分けられる。
-
-**完了条件**: Windows の手元で `npm test` の失敗が 0 件、または残りが理由つきの skip だけになっている。
-
-**統合（2026-11-08・週次レビュー W45 の積み残しの台帳監査）: 旧 DN-0996「Windows の手元で落ちる npm run test の 48 件」**。11/3 に 3,818 件中 49 件失敗・4 件中断（120 秒のタイムアウト）。**分かっている原因の傾向**: `EPERM: operation not permitted, fsync`（16 件。`youtube-revision-publisher` の 14 件など）、`/bin/bash` ENOENT、一時ディレクトリの ENOENT、120 秒のタイムアウト、改行コードの差と見られる ERR_ASSERTION。多いファイルは `youtube-revision-publisher`・`weekly-review-launchd`・`admin-figure-sns-board`・`check-execution`。
 
 
 
@@ -3691,23 +3592,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 
 
-### [DN-0839] Tailwind v4 の対象未満ブラウザ（iOS 16.3 以下・macOS Safari 16.3 以下）の比率を GA4 の探索で一度確かめる
-タグ: [インフラ・計測] [領域:サイト] [種類:改善] [起票:2026-10-24]
 
-**起点**: Tailwind CSS v4（PR #683）は 2026-09-28 の develop マージ以降のデプロイですでに main（本番）に入っている。v4 の対象ブラウザは Safari 16.4+ / Chrome 111+ / Firefox 128+ で、それ未満では CSS（カスケードレイヤー・oklch 色・@property）が効かず表示が崩れる。GA4 の週次取得にブラウザ別の集計は無く、一度きりの問いのために常設の取得は足さない。
-
-**やること**: Mac で GA4 の画面（探索＝OS とバージョン・直近 28 日・日本）から iOS 16.3 以下・macOS Safari 16.3 以下のユーザー比率を見る。比率が大きければ v4 の互換対応を起票する。
-
-**完了条件**: 対象未満のユーザー比率（%）と取得期間をこのカードか週次レビューに記録し、互換対応の要否を決めている。
-
-### [DN-0840] Windows の worktree .claude/worktrees/data3 を git worktree remove する（config/・data/ 分離の残り）
-タグ: [インフラ・計測] [領域:管理] [種類:改善] [起票:2026-10-24]
-
-**起点**: 2026-10-02 の `config/`・`data/` 分離（PR feature/config-data-dirs）の後始末のうち、Windows 分の worktree だけが残っている。各 PC の git 管理外ファイルの移し替えは Windows・Mac とも 2026-10-02 に済んだ。
-
-**やること**: Windows のチェックアウトで `.claude/worktrees/data3` を `git worktree remove` する（ブランチ `feat/data-config`・`feat/data-rank-watch` は origin で削除済み）。
-
-**完了条件**: Windows で `git worktree list` に `.claude/worktrees/data3` が無い。
 
 ### [DN-0841] 管理画面のカラーテーマを stats47 と同じトークンにそろえる（公開サイトには shadcn を入れない）
 タグ: [UI・UX] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-24]
@@ -3718,29 +3603,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: 管理画面のカラートークンが stats47 と一致し、`check-shadcn-parity` と `check-admin-ui-debt` が通る。
 
-### [DN-0925] 「スクレープドーザー」の検索で 6.3 位・CTR 1.3% のスクレーパーの教科書ページの title・説明を直す
-タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-11-01]
 
-**起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-adc3bac9b1: 「スクレープドーザー」は平均 6.3 位なのに CTR 1.34%（期待 4%）（期待効果 1.2 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-scraper/article.mdx`
-
-**やること**: 2026-11-29 以降に「スクレープドーザー」の CTR と順位を GSC で見て、修正前（平均 6.3 位・CTR 1.34%）と比べ、結果をこのカードに記録する。title・seoTitle・description・冒頭は修正済み（develop cf80c30d70）。
-
-**完了条件**: title・description が直って develop に入り、28 日後に CTR を比べた記録がカードに残る
-
-### [DN-1028] Instagram の投稿は増やさず、ハイライトの導線を作って流入を測る
-タグ: [領域:SNS] [種類:改善] [起票:2026-11-06]
-
-**起点**: 2026-11-06 に Instagram の流入を調べた。投稿の本文のリンクは押せず、プロフィールのリンクは 1 本で UTM が付いたのは 2026-10-31、ハイライトは公開画面で「技術士総監」の 1 つだけ、ストーリーズのリンクスタンプは作っていなかった。4 月以降の流入は `instagram / social` が 5 セッション、`l.instagram.com / referral` が 6 セッションで、UTM は GA4 に届いている。導線が無いまま投稿 160 件を出していたので、Instagram の効果はまだ判断できない。
-
-**やること**:
-
-1. 年間の投稿枠 8 枠・48 本は保留のまま増やさない
-2. Business Suite のストーリーズでリンクスタンプを付けられるかを確かめる（旧 DN-0415 の問いはこのカードに移した。`publish-ig-bs` はカルーセルとリールにしか対応していない）
-3. リンクスタンプ付きのストーリーズを作り、ハイライトに固定する。まず総監と 1 級土木。ハイライトへの登録はスマホアプリだけなので運営者の手作業
-4. 4〜8 週間、`npm run metric-status` と GA4 の `instagram / social` で流入の変化を見て、続けるか凍結するかを決める
-5. あわせて直す: 週次の取得条件に `l.instagram.com` を足す。`config/ig-account.json` のハイライトの記載を実態に合わせる。DN-1027 の問いには上の実測で答えが出たので閉じる
-
-**完了条件**: ハイライトの導線が公開され、4 週間以上の流入の記録をもとに、継続か凍結かの判断が `data/business/records/` に残っている。
 
 
 
