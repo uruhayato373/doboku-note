@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// note メンバーシップの既存プランの内容（プラン名・説明・会費・定員・特典マガジンの紐付け）を編集して保存する。--plan <planId>。既定は dry-run（現在値の読取とスクショのみ）、実書込は --commit。
+// 罠: 保存は公開中プランへ即時反映され得る。会費は一度設定すると変更できない。プラン ID は note.com/membership/settings/manage の編集リンクで確認する。account が dobokunote でなければ中断。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-membership-plan-edit.mjs

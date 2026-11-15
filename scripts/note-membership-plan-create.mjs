@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// note メンバーシップのプランを新規作成する（/membership/settings/plans/new）。--name <プラン名> --desc <説明>。既定は dry-run（フォーム構造のダンプのみ）、実作成は --commit。
+// 罠: 作成フォームに会費・定員の欄は無く、作成後に note-membership-plan-edit で設定する（会費は一度設定すると変更不可なので変えるにはプランの作り直し）。作成されるのは非公開プラン。account が dobokunote でなければ中断。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-membership-plan-create.mjs

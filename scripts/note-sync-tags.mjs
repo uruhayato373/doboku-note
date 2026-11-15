@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// 公開済み note 記事に hashtags.txt のタグの差分だけを追加する（本文・有料境界・PDF カードには触れない）。--article <path> または --list <file>（1 行 1 記事）。既定は dry-run、実適用は --commit、--prune は原稿に無いライブタグも外して原稿と同じ集合にする。
+// 罠: ライブのタグが上限 99 に達していると足せない。会員限定記事は未ログインの公開 API がタグを空で返すので dry-run では計画できない。更新後に API で全タグの実在を検証してから記録する。詳細は下のコメント。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 // note-sync-tags.mjs — 公開済み note 記事に hashtags.txt のタグ差分だけを追加する（本文非破壊）。
 //

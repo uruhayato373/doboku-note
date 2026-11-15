@@ -1,3 +1,6 @@
+// dev / admin 起動前（predev・preadmin）に、旧方式の public/posts → content/site のシンボリックリンクを外す。
+// next build が全画像を out/ へコピーするのを避けるため。リンクだけを unlink し、content/site の実データには触れない。
+// 罠: public/posts が別のリンクや実ディレクトリのときは安全のため何も変えず警告だけ出す。
 import { existsSync, lstatSync, mkdirSync, readlinkSync, unlinkSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { REPO_ROOT as repoRoot } from './lib/repository-paths.mjs';

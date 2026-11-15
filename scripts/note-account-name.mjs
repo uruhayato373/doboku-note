@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// note のクリエイター名（nickname）を確認・変更するブラウザ CLI。既定は現在値の表示のみ、変更は --name <表示名> --commit。
+// 罠: note ID が dobokunote でなければ中断する。保存後は公開 API の nickname まで読み戻して成功とする。Playwright の note プロファイルにログイン済みが前提。詳細は下のブロックコメント。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-account-name.mjs

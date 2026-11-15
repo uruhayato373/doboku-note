@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// 公開済み note の同一文言を直す部分更新 spec（note-update-partial.mjs の入力）を、ローカル原稿から .tmp 配下へ生成する。
+// --scope（content/note 配下のみ）・--from・--to が必須。罠: 原稿と note.com は変更しない。noteId/noteUrl が無い記事は投げて止まる。
 import { existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';
 import { relative, resolve, join } from 'node:path';
 import { parseNoteArticle } from './lib/note-frontmatter.mjs';

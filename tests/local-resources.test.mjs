@@ -1,3 +1,5 @@
+// 手元の資源の検査・掃除（scripts/local-resource-*.mjs・lib/local-resources.mjs・prune-tmp・disk-hygiene）のテスト。npm run test:resources が回す。
+// 罠: 一時ディレクトリに作った疑似リポジトリだけを触る（実リポジトリを消さない）。git の分離は isolate-git-env を最初に import する。
 import './lib/isolate-git-env.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';

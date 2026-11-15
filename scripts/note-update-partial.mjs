@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// 公開済み note 記事の指定した範囲だけを spec JSON（replaceText など）で更新する。npm run note-update-partial -- --spec <spec.json> または --list <specs.list.txt> [--start N] [--limit N]。既定は dry-run（読み取りのみ）、実更新は --commit。
+// 罠: 全文の select-all・paste はしない。全 operation を preflight し、対象件数がずれていれば本文に触れない。PDF 添付は更新前・直後・再読の 3 点で一致を要求する。有料記事の境界は動かさない（--paid-line-bottom・--trial-line-bottom は境界の置き直し）。spec は build-note-text-partial-specs.mjs でも作れる。
 import { chromium } from 'playwright';
 import { existsSync, readFileSync, mkdirSync } from 'node:fs';
 import { resolve, join } from 'node:path';
