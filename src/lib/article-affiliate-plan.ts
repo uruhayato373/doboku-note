@@ -4,10 +4,10 @@ export type ArticlePixelCandidate = { program: string; slot: string; src: string
 
 export function articleRailSlot(index: number) { return index === 0 ? 'article-rail' : `article-rail-${index + 1}`; }
 
-/** 最終的に存在する画像面だけ。右欄は実カードの先頭と全間隔（末尾には置かない）。 */
-export function articleImagePlacements(placements: ResolvedPlacements, inlineSlots: string[], cards: number) {
+/** 最終的に存在する画像面だけ。右欄は上の実カード数＋下に続く組数で割り当てる。 */
+export function articleImagePlacements(placements: ResolvedPlacements, inlineSlots: string[], cards: number, continuationSlots: string[] = []) {
   const railPrograms = new Set<string>();
-  return [...inlineSlots, ...Array.from({ length: Math.min(cards, 6) }, (_, i) => articleRailSlot(i)), 'article-banner-end']
+  return [...inlineSlots, ...Array.from({ length: cards }, (_, i) => articleRailSlot(i)), ...continuationSlots, 'article-banner-end']
     .flatMap(slot => {
       const p = placements[slot];
       if (!p) return [];

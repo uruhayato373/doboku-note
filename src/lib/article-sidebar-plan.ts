@@ -16,13 +16,12 @@ export interface ArticleSidebarInput {
 }
 /** 空の商品の枠・設問ナビ・節ナビを含めない実カードの順序。 */
 export function articleSidebarPlan(p: ArticleSidebarInput) {
- const cards: Array<{ kind: 'author' | 'hub' | 'product' | 'toc' | 'questions' | 'category' | 'pillar' | 'tools'; index?: number }> = [{ kind: 'author' }];
+ const cards: Array<{ kind: 'author' | 'hub' | 'product' | 'questions' | 'category' | 'pillar' | 'tools'; index?: number }> = [{ kind: 'author' }];
  const current = p.categoryArticles.find(d => d.slug === p.slugStr);
  if (p.sidebarMokuji) cards.push({ kind: 'hub' });
  else if (p.category && current && sidebarProduct(p.category, current, p.content)) cards.push({ kind: 'product' });
  const cluster = ['pastExam','primary','secondary'].includes(p.docGroup) ? p.docGroup === 'primary' || p.hasCategoryNavCard || p.showPillarNav : true;
  if (cluster) {
-  if (p.showTableOfContents) cards.push({ kind: 'toc' });
   if (p.docGroup === 'primary' && p.headings.some(h => parseQuestionNo(h.text) !== null)) cards.push({ kind: 'questions' });
   if (p.hasCategoryNavCard && p.category) categoryNavPlan({ variant: 'sidebar', category: p.category, currentSlug: p.slugStr, docGroup: p.docGroup, categoryArticles: p.categoryArticles }).forEach((_, index) => cards.push({ kind: 'category', index }));
   if (p.showPillarNav) cards.push({ kind: 'pillar' });
@@ -40,4 +39,13 @@ export function articleSidebarInput(meta: DocMeta, plan: ReturnType<typeof planA
   hasCategoryNavCard: Boolean(category), showPillarNav: category === 'pe-comprehensive-management' && plan.docGroup === 'keyword',
   showTableOfContents: !plan.isQuestionSeries && plan.headings.some(h => h.level === 2),
  };
+}
+
+/**
+ * SSR の高さ見積もり。作業票の既定 1,000字≒1,300px＋H2あたり80px。
+ * 上の束を2,500pxと見込み、残り2,500pxにつき1組（最大6）。実際の間隔はflexで均等配分する。
+ */
+export function articleSidebarGroupCount(bodyLength: number, h2Count: number): number {
+  const remaining = Math.max(0, bodyLength) * 1.3 + Math.max(0, h2Count) * 80 - 2500;
+  return Math.max(0, Math.min(6, Math.floor(remaining / 2500)));
 }

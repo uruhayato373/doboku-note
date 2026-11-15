@@ -1,6 +1,6 @@
 import type { DocMeta } from './docs';
 import { classifyDoc, type DocGroupKey } from './doc-classifier';
-import { DISCOVERY_CATEGORIES } from './sidebar-discovery';
+import { DISCOVERY_CATEGORIES, discoveryGroups } from './sidebar-discovery';
 import { resolveCurriculum } from './category-curriculum';
 import { isCivilConstructionCategory } from './qualification-names';
 import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
@@ -88,4 +88,15 @@ function categoryNavSpecs({ variant, category, currentSlug, docGroup, categoryAr
 export function categoryNavPlan(props: CategoryNavCardProps) {
  const result = categoryNavSpecs(props);
  return (Array.isArray(result) ? result : [result]).filter((card): card is NonNullable<typeof card> => card !== null);
+}
+
+/** 右欄の追加カードから既存ナビの行き先を除く。描画と同じ spec / resolver を使う。 */
+export function categoryNavLinkedSlugs(props: CategoryNavCardProps): string[] {
+ return categoryNavPlan(props).flatMap(card => {
+  if (card.kind === 'links') return card.docs.map(doc => doc.slug);
+  if (card.kind === 'discovery') return discoveryGroups(props.category, props.currentSlug, props.categoryArticles).flatMap(group => group.docs.map(doc => doc.slug));
+  if (card.kind === 'pastExam') return (buildPastExamNavData(props.category, props.categoryArticles)?.years ?? []).flatMap(year => [year.col1, year.col2, year.col3].flatMap(doc => doc ? [doc.slug] : []));
+  return (peChapters.chapters.flatMap(chapter => chapter.sections).find(section => section.id === card.currentSection)?.keywords ?? [])
+   .filter(keyword => peKeywordPageExists(keyword.slug)).map(keyword => `pe-comprehensive-management-${keyword.slug}`);
+ });
 }

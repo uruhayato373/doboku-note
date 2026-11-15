@@ -169,8 +169,14 @@ export function inspectHtml(html, slug) {
         const railTargets = banners.map(b => attr(b.querySelector('a[data-cta="affiliate"]') ?? b, 'href')).filter(Boolean);
         const duplicated = railTargets.length - new Set(railTargets).size;
         if (duplicated) add('affiliate-rail-duplicate', duplicated, 0, [], ['affiliate']);
-        const children = rail.childNodes.filter(n => n.tagName);
-        for (const banner of banners) if (!children[children.indexOf(banner) + 1]?.hasAttribute('data-article-sidebar-card')) add('affiliate-rail-adjacent', 1, 0, [], ['affiliate']);
+        for (const banner of banners) {
+          const parent = banner.parentNode;
+          const children = parent.childNodes.filter(n => n.tagName);
+          // 回遊候補が尽きた組だけ広告単独を許す。空の「実カード」で検査をすり抜けない。
+          const adOnly = parent.hasAttribute('data-article-sidebar-group') && attr(parent, 'data-article-sidebar-ad-only') === 'true'
+            && parent.parentNode.hasAttribute('data-article-sidebar-continuation') && children.length === 1;
+          if (!adOnly && !children[children.indexOf(banner) + 1]?.hasAttribute('data-article-sidebar-card')) add('affiliate-rail-adjacent', 1, 0, [], ['affiliate']);
+        }
       }
       for (const n of imageLinks.filter(n => articleImageKind(attr(n, 'data-cta-placement')) === 'inline')) {
         const wrapper = ancestor(n, p => attr(p, 'data-article-affiliate') === 'inline');

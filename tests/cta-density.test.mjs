@@ -208,3 +208,15 @@ test('同案件の異なる素材でもピクセル二重送信を検出する',
  const pixels=['mat1','mat2'].map(mat=>`<img data-article-pixel-program="buildjob" src="https://example.com/${mat}" width="1" height="1">`).join('');
  assert.ok(rules(article('<h2>本文</h2>','',pixels)).includes('affiliate-program-pixel-dup'));
 });
+
+
+test('下に続く組でもバナー直後の実カードと案件重複を検査し、明示した広告単独だけ許す', () => {
+ const wrap = groups => `<main><article><div class="prose-blog"><h2>本文</h2></div></article></main><aside class="hidden zenn-desktop:flex"><div data-article-sidebar-cards="2"><div>${imageAd('article-rail','rail')}<div data-article-sidebar-card>上のナビ</div></div><div data-article-sidebar-continuation>${groups}</div></div></aside>`;
+ const group = `<div data-article-sidebar-group>${imageAd('article-rail-2','rail')}<div data-article-sidebar-card>関連記事</div></div>`;
+ assert.deepEqual(rules(wrap(group)), []);
+ assert.ok(rules(wrap(group.replace('data-article-sidebar-card', 'data-not-card'))).includes('affiliate-rail-adjacent'));
+ const adOnly = `<div data-article-sidebar-group data-article-sidebar-ad-only="true">${imageAd('article-rail-2','rail')}</div>`;
+ assert.deepEqual(rules(wrap(adOnly)), []);
+ assert.ok(rules(wrap(adOnly.replace('data-article-sidebar-ad-only="true"', ''))).includes('affiliate-rail-adjacent'));
+ assert.ok(rules(wrap(adOnly.replace(/<\/div>$/, '<p>空のカードではない</p></div>'))).includes('affiliate-rail-adjacent'));
+});
