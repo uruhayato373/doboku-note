@@ -8434,6 +8434,19 @@
       "commit": "f8f57e264100",
       "verification": "node scripts/quality-audit.mjs --only egov-drift（2026-11-15 PASS）",
       "note": "f8f57e264 で記事を直し、同じ commit でカードを消したが完了記録が無かった。2026-11-15 に運営者の確認のうえ後から記録した（週次レビュー W45 の申し送りの居場所）"
+    },
+    {
+      "id": "DN-0903",
+      "at": "2026-11-15",
+      "task": "悩みのハブ（施工管理から発注者側へ・技術士で給料を上げたい）を作るかを運営者が決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "52853ea5d253",
+      "verification": "node -e 'demand-map.json の change-job・raise-pay の hubs.status が decided'",
+      "note": "運営者の判断（2026-11-15・週次レビュー W46 の申し送り）: 悩みのハブを両方作る。demand-map の change-job・raise-pay のハブを decided にし、EXP-045・EXP-046 を running にした。制作は DN-1200（発注者側への地図・EXP-045）・DN-1201（給料を上げたい人の地図）・DN-1202（建設コンサルの技術者のテーマ・EXP-046）へ抽出した"
     }
   ]
 }
