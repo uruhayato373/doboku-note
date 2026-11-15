@@ -333,7 +333,8 @@ export async function renderDocPage(slugStr: string) {
               )}
               {/* 年度別過去問: 問1へのリンクと折りたたみ番号一覧（5 問以上） */}
               {isQuestionSeries && <QuestionJumpNav headings={headings} />}
-              {/* 記事冒頭 CTA。多問の過去問では画像をコンパクト表示。未公開は非表示 */}
+              {/* 記事冒頭 CTA。全ページで小さめ表示（左に小さな表紙・右に商品名とボタン）。752×376 の画像が最初の画面の
+                  4 割を占めて本文の書き出しを押し下げていた（2026-11-15 運営者指摘）。未公開は非表示 */}
               {topSlot && topMagazine && (
                 <MagazineTopBanner
                   scopeNotice={magazinePlacement.scopeNotice}
@@ -343,7 +344,7 @@ export async function renderDocPage(slugStr: string) {
                   price={topMagazine.price}
                   badge={topMagazine.badge}
                   trackLabel={topSlot.utmContent}
-                  compact={isQuestionSeries}
+                  compact
                 />
               )}
               {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip。
