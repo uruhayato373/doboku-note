@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-standards-density.mjs — build 済み out/standards/** の密度ゲート（説明文の量・一覧リンク数・出典表示・アフィリエイト）。
+ * check-standards-density.mjs — build 済み out/standards/** の密度ゲート（説明文の量・一覧リンク数・出典表示）。
  *
  * なぜ要るか: /standards の入口ページが説明文で膨らみ、一覧（読者が押すもの）が下に押し下げられるのを防ぐ。
  * 閾値は config/standards-page-density.json、判定は scripts/lib/standards-density.mjs。

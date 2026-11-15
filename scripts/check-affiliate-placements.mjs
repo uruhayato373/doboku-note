@@ -9,7 +9,7 @@
  *   (c) 面は config.cta-placements にあり、ページの種類が合う。撤去済みの面のルールは閉じている（撤去日が分かればその日まで）
  *   (d) カテゴリは src/config/categories.json に、実験は data/business/experiments.json にある
  *   (e) 同じ面・重なる期間・交わる対象の 2 ルールが無い（1 ページ 1 面 1 案件。GA4 の配置別の数字をルールへ結ぶ前提）
- *   (f) MDX 本文に <CareerAffiliate program=…> を書いた記事のカテゴリは、開いている article-inline のルールが覆う（覆わなければ描画されない）
+ *   (f) MDX 本文に <CareerAffiliate program=…> を書いた記事のカテゴリは、開いている article-inline、または終了済み article-inline と置換先 article-banner のルールが覆う
  *
  * --upcoming（ops・日次）: 7 日以内に始まる・終わるルールがあるか、開いているルールの広告リンクが全て期限切れなら exit 1。
  *   SSG は境界を過ぎても再ビルドまで切り替わらないので、本番の再ビルドを予定する合図。
@@ -134,6 +134,9 @@ for (const [a, b] of findPairOverlaps(splits)) errors.push(`${a} と ${b}: 同�
 
 // (f)
 const inlineCovered = new Set(rules.filter((r) => r.slot === 'article-inline' && isOpen(r)).flatMap((r) => r.target.categories ?? [...categories]));
+// 画像へ置き換えたカテゴリは、終了の履歴と現在の置換先が両方ある場合だけ空出力を許す。
+const inlineReplaced = new Set(rules.filter(r => r.slot === 'article-inline' && !isOpen(r)).flatMap(r => r.target.categories ?? [...categories])
+  .filter(category => rules.some(r => r.slot === 'article-banner' && isOpen(r) && (!r.target.categories || r.target.categories.includes(category)))));
 const SITE = join(ROOT, 'content', 'site');
 let mdxScanned = 0;
 const inlineCategories = new Map();
@@ -152,7 +155,7 @@ function walk(dir) {
 }
 walk(SITE);
 for (const [category, n] of inlineCategories) {
-  if (!inlineCovered.has(category)) errors.push(`content/site/${category}: <CareerAffiliate program=…> が ${n} ファイルにあるのに、開いている article-inline のルールが無い（描画されない）`);
+  if (!inlineCovered.has(category) && !inlineReplaced.has(category)) errors.push(`content/site/${category}: <CareerAffiliate program=…> が ${n} ファイルにあるのに、開いている article-inline のルールが無い（描画されない）`);
 }
 
 console.log(

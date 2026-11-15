@@ -16,7 +16,7 @@ export async function articleLayoutPlans(paths: string[], now: number) {
     if (!doc) throw new Error(`撮影対象の記事がない: ${path}`);
     const plan = planArticleCtas(doc, related, now);
     const cards = articleSidebarPlan(articleSidebarInput(doc.meta, plan, related.filter(m => m.category === meta!.category)));
-    result[path] = [...plan.renderedCareerSlots, ...articleImagePlacements(plan.careerPlacements, plan.inline.map(s => s.slot), cards.length).map(p => p.placement.slot)];
+    result[path] = [...articleImagePlacements(plan.careerPlacements, plan.inline.map(s => s.slot), cards.length).map(p => p.placement.slot)];
   }
   return result;
 }

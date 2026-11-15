@@ -9,8 +9,12 @@
 import { isActive, matchesPage, resolvePair, resolveSplit } from '../../src/lib/affiliate-placement-core.mjs';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { SITE_CONTENT_ROOT } from './repository-paths.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
+import { planArticleInlineSlots } from '../../src/lib/article-inline-slots.mjs';
 import { planInlineSlots } from '../../src/lib/standards-inline-slots.mjs';
+import { readDataset } from './dataset-io.mjs';
+import { pickSlotCreatives } from '../../src/lib/affiliate-creative-pick.mjs';
+import { articleImageKind } from '../../src/lib/cta-density-policy.mjs';
 import { impressionKeyCounts } from './affiliate-link-keys.mjs';
 
 /** サイトマップの章パスに対応する本文。節一覧になった章は代表から除く。 */
@@ -37,22 +41,12 @@ const TOL = 1.5;
 
 const median = (sorted) => sorted[Math.floor((sorted.length - 1) / 2)];
 
-/** 本文が短い記事は中間カードが出ない（DocPage の下限 2,500 字 ≒ 7,500 バイト）ので代表に選ばない */
+/** 撮影時間を抑えるため、一定の本文量がある記事の中央を代表に選ぶ。 */
 export const MIN_DOC_BYTES = 7500;
-/** 本文中間カードの下限（src/components/docs/DocPage.tsx の MID_MIN_H2 と 2,500 字） */
-export const MID_MIN_H2 = 3;
-export const MID_MIN_CHARS = 2500;
 
-/**
- * その記事に転職広告が出るか（DocPage と同じ条件の近似）: 本文に手書きの転職カードがあるか、
- * h2 が MID_MIN_H2 本以上かつ本文が MID_MIN_CHARS 字以上（本文中間カード）。
- * 2026-10-31 まではファイルの大きさだけで選び、総監の代表（h2 が足りない用語の記事）に広告が出なかった。
- */
+/** 本文画像を置ける区切りがある記事を優先する。手書きの旧カードや h2 数を条件にしない。 */
 export function docShowsCareerAd(body) {
-  const text = String(body ?? '');
-  if (/<CareerAffiliate\b[^>]*\bprogram=/.test(text)) return true;
-  const h2 = (text.match(/^## /gm) ?? []).length;
-  return h2 >= MID_MIN_H2 && text.length >= MID_MIN_CHARS;
+  return planArticleInlineSlots(String(body ?? '')).insertAt.length > 0;
 }
 
 /**
@@ -193,6 +187,17 @@ export function expectedSlots(rules, page, nowMs, readChapter = readStandardsCha
   for (const r of rules) if (isActive(r, nowMs) && matchesPage(r, page)) out[r.slot] = { ruleId: r.id, program: r.program };
   if (page.pageKind === 'doc' && page.articleSlots) {
     for (const slot of Object.keys(out)) if (!page.articleSlots.includes(slot)) delete out[slot];
+  }
+  if (page.pageKind === 'doc' && page.viewportWidth != null) {
+    const catalog = readDataset(REPO_ROOT, 'affiliate.catalog').programs;
+    const vocab = readDataset(REPO_ROOT, 'config.cta-placements').affiliate;
+    const viewport = page.viewportWidth >= 993 ? 'pc' : 'mobile';
+    for (const [slot, rule] of Object.entries(out)) {
+      if (!articleImageKind(slot)) continue;
+      const program = catalog[rule.program];
+      const creatives = (program?.creatives ?? []).filter(c => program.asps[c.asp]?.status === 'approved');
+      if (!pickSlotCreatives(creatives, vocab[slot]?.sizes)[viewport]) delete out[slot];
+    }
   }
   if (page.pageKind === 'standards') {
     const markdown = readChapter(page.path);

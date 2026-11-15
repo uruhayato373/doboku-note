@@ -106,11 +106,5 @@ export function checkPage(html, template, rules) {
     if (visible > rules.attribution.maxVisibleChars) add('attribution', visible, `details の外 ${rules.attribution.maxVisibleChars}字以下`, '出典表示の見える文字が長い');
   }
 
-  // 4. アフィリエイト
-  const cards = root.querySelectorAll('[data-cta="affiliate"]').length;
-  const hosts = rules.affiliate.hostPatterns;
-  const links = root.querySelectorAll('a[href]').filter((a) => hosts.some((h) => (a.getAttribute('href') ?? '').includes(h))).length;
-  if (cards + links > rules.affiliate.max) add('affiliate', `カード${cards}・リンク${links}`, `${rules.affiliate.max}件`, 'アフィリエイトが載っている');
-
   return out;
 }

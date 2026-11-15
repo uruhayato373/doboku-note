@@ -15,10 +15,5 @@
     "description": "出典表示ブロック（data-standards-attribution）はページに 1 つだけ。details の外に見える文字数の上限。",
     "count": 1,
     "maxVisibleChars": 160
-  },
-  "affiliate": {
-    "description": "転職アフィリエイトのカード・リンクの上限（2026-11-15 DN-1214。本文中 3×PC/スマホ 6 + 右欄 3 + 本文末 1 + モバイル追加 最大 2 = 12 枚。1 枚につき data-cta=affiliate 1 件と下のホストへのリンク 1 件で 24、余裕を見て 28）。data-cta=affiliate の数と、下のホストへのリンクの数の合計。",
-    "max": 28,
-    "hostPatterns": ["px.a8.net", "moshimo.com", "afi-b.com"]
   }
 }

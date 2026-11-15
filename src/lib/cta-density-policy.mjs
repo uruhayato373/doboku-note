@@ -10,7 +10,7 @@ export const NOTE_LIST_ARTICLES = [
   ].map(page => ({ page, legacySlug: page.replace(/^exam\//, '').replace('pe-comprehensive-management/guide/', 'pe-comprehensive-management/').replaceAll('/', '-'), rules: ['note-non-footer'], reason: '商品一覧型の記事。構成として手書き4枚以上を許すが、同一商品の重複は検査する' }));
 
 export const PAGE_ALLOWLIST = [
-  { prefix: 'standards/', rules: ['note-total', 'note-non-footer', 'note-before-first-h2', 'note-product-dup', 'note-article-footer', 'note-article-sidebar', 'affiliate-forbidden-surface', 'affiliate-slots'], reason: '基準書は DocPage と別実装。広告面は配置ルールで管理する' },
+  { prefix: 'standards/', rules: ['note-total', 'note-non-footer', 'note-before-first-h2', 'note-product-dup', 'note-article-footer', 'note-article-sidebar', 'affiliate-forbidden-surface'], reason: '基準書は DocPage と別実装。広告面は配置ルールで管理する' },
   { page: 'links', rules: ['note-total'], reason: '商品一覧ページのため総数上限の対象外' },
   ...NOTE_LIST_ARTICLES,
 ];
@@ -20,9 +20,6 @@ export const SURFACE_ALLOWLIST = {
 };
 
 
-// DN-1215（2026-11-15）: 既存 1 枠 + 本文画像 3 + PC 実カードの先頭・間隔 6 + 末尾 1。
-// 全体を免除せず種類・DOM 位置・幅ごとにも検査する。
-export const ARTICLE_AFFILIATE_LIMITS = { native: 1, inline: 3, rail: 6, end: 1, desktop: 11, mobile: 5 };
 export function articleImageKind(slot) {
  if (/^article-banner(?:-[23])?$/.test(slot)) return 'inline';
  if (/^article-rail(?:-[2-6])?$/.test(slot)) return 'rail';
