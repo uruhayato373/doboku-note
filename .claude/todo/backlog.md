@@ -750,6 +750,8 @@
 
 基線（GA4 2026-10-10〜11-06）: 基準書 2,085 セッション・エンゲージメント率 38%、章ページ 1,472 セッションで 1 セッションあたり 1.07 ページ。
 
+2026-11-15 DN-1214 で基準書の面を作り替えた（本文中を最大 3 枠・右の欄は常時表示の 1 枠・本文末 kensetsu-jobs）。読み始めは DN-1214 の本番反映日から 28 日後に改め、読むルールは PL-0065〜0070 と出し分け PS-0002・PS-0003 に置き換える。時期は本番反映後の 28 日窓と判断作業を含むため、`2026-12..2027-01` のままとする。
+
 やること（本番反映から 28 日後に 1 回）:
 - 章ページの 1 セッションあたりページ数（基線 1.07）と、`internal_nav_click` の label standards-related・standards-region・standards-entry-chapter
 - `qualification_bridge_*` の placement standards-bridge-sidebar

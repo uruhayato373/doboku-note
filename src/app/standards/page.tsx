@@ -5,7 +5,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import StandardsExplore from '@/components/standards/StandardsExplore';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
-import { StandardsEndBanner, StandardsSidebarBanners } from '@/components/standards/StandardsAffiliateBanners';
+import { StandardsEndBanner, StandardsRailBanner } from '@/components/standards/StandardsAffiliateBanners';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog, standardDocumentPath } from '@/lib/standards';
 import { standardsAgencyPath, standardsDocumentPath } from '@/lib/route-paths';
@@ -37,9 +37,13 @@ export default function StandardsPage() {
       <TwoColumnShell
         as="div"
         aside={(
-          <div className="space-y-4">
-            <StandardsExplore />
-            <StandardsSidebarBanners pageKind="standards-list" />
+          <div className="sticky top-6 flex max-h-[calc(100vh-3rem)] flex-col gap-3">
+            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto" data-standards-sidebar>
+              <StandardsExplore />
+            </div>
+            <div className="shrink-0">
+              <StandardsRailBanner pageKind="standards-list" />
+            </div>
           </div>
         )}
       >

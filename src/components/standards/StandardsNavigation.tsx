@@ -20,7 +20,7 @@ import { generateHeadingId } from '@/lib/toc';
 import { standardsAgencyPath } from '@/lib/route-paths';
 import { getTopicsForStandardDocument } from '@/lib/topics';
 import { getStandardDefaultTopics } from '@/lib/standards-discovery';
-import { StandardsSidebarBanners } from '@/components/standards/StandardsAffiliateBanners';
+import { StandardsRailBanner } from '@/components/standards/StandardsAffiliateBanners';
 
 type StandardsNavigationProps = {
   agencyId: string;
@@ -29,6 +29,7 @@ type StandardsNavigationProps = {
   /** 節ページ（splitBySection の章）で表示中の節番号 */
   currentSection?: number | undefined;
   variant?: 'sidebar' | 'mobile';
+  inlineSlots?: readonly string[];
 };
 
 const LINK_BASE =
@@ -282,7 +283,6 @@ function NavigationContents({
 
 /** 右の欄の目次の下に置く回遊。章・節 → 関連記事と他地域の同じ章、文書 → 文書のテーマ、機関 → 施工計画・品質管理のテーマ（入口の章は目次の位置に出す） */
 function StandardsDiscovery({
-  agencyId,
   currentDocument,
   currentChapter,
   withBridge,
@@ -307,6 +307,7 @@ export default function StandardsNavigation({
   currentChapter,
   currentSection,
   variant = 'sidebar',
+  inlineSlots = [],
 }: StandardsNavigationProps) {
   const agency = getStandardsCatalog().agencies.find((entry) => entry.agencyId === agencyId);
   const sectionTitle = currentSection !== undefined
@@ -379,21 +380,25 @@ export default function StandardsNavigation({
   }
 
   return (
-    <div className="sticky top-6 max-h-[calc(100vh-3rem)] space-y-3 overflow-y-auto" data-standards-sidebar>
-      {!treeMode && <div className="border border-(--rule-soft) bg-(--paper) p-5">
-        <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
-        <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
-        <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-(--ink-muted)">{contextLabel}</p>
-        <Link
-          href={parentHref}
-          className="focus-ring mt-3 inline-flex min-h-11 items-center text-[12px] font-bold text-(--accent) hover:underline"
-        >
-          ← {parentLabel}
-        </Link>
-      </div>}
-      {contents}
-      {discovery}
-      <StandardsSidebarBanners pageKind={currentChapter ? 'standards' : 'standards-list'} />
+    <div className="sticky top-6 flex max-h-[calc(100vh-3rem)] flex-col gap-3">
+      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto" data-standards-sidebar>
+        {!treeMode && <div className="border border-(--rule-soft) bg-(--paper) p-5">
+          <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
+          <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
+          <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-(--ink-muted)">{contextLabel}</p>
+          <Link
+            href={parentHref}
+            className="focus-ring mt-3 inline-flex min-h-11 items-center text-[12px] font-bold text-(--accent) hover:underline"
+          >
+            ← {parentLabel}
+          </Link>
+        </div>}
+        {contents}
+        {discovery}
+      </div>
+      <div className="shrink-0">
+        <StandardsRailBanner pageKind={currentChapter ? 'standards' : 'standards-list'} inlineSlots={inlineSlots} />
+      </div>
     </div>
   );
 }

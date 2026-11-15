@@ -15,7 +15,8 @@ import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardReferenceLinks from '@/components/standards/StandardReferenceLinks';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
-import { StandardsEndBanner } from '@/components/standards/StandardsAffiliateBanners';
+import { StandardsEndBanner, StandardsInlineBanner } from '@/components/standards/StandardsAffiliateBanners';
+import { planInlineSlots, withInlineSlots } from '@/lib/standards-inline-slots.mjs';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
@@ -95,6 +96,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
   const resolved = resolve(resolvedParams);
   if (!resolved) notFound();
   const { document: entry, chapter, section, index, markdown } = resolved;
+  const inlineSlots = planInlineSlots(markdown).insertAt.map(({ slot }) => slot);
   const pages = standardSectionPageRange(chapter, index);
   const previous = chapter.sections[index - 1];
   const next = chapter.sections[index + 1];
@@ -117,6 +119,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
     SourceRef: () => null,
     // はみ出すときだけキーボードで操作でき、案内を出す（scrollable-region-focusable）
     table: StandardScrollTable,
+    StandardsInlineBanner: ({ slot }: { slot: string }) => <StandardsInlineBanner slot={slot} inlineSlots={inlineSlots} />,
   };
 
   return (
@@ -134,6 +137,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             currentDocument={entry}
             currentChapter={chapter}
             currentSection={section.number}
+            inlineSlots={inlineSlots}
           />
         )}
       >
@@ -173,7 +177,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             data-standards-chapter={chapter.chapterId}
             data-standards-section={section.number}
           >
-            <SafeMdx source={markdown} components={components} options={mdxOptions} />
+            <SafeMdx source={withInlineSlots(markdown)} components={components} options={mdxOptions} />
           </div>
 
           <nav aria-label="前後の節" className="mt-8 grid gap-3 border-t border-(--rule-soft) pt-6 sm:grid-cols-2">
@@ -206,7 +210,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
           <div className="mt-8">
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
-          <StandardsEndBanner pageKind="standards" />
+          <StandardsEndBanner pageKind="standards" inlineSlots={inlineSlots} />
           <StandardsAttribution document={entry} item={chapter.item} />
         </SectionCard>
       </TwoColumnShell>
