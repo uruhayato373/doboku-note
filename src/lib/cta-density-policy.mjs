@@ -22,6 +22,6 @@ export const SURFACE_ALLOWLIST = {
 
 export function articleImageKind(slot) {
  if (/^article-banner(?:-[23])?$/.test(slot)) return 'inline';
- if (/^article-rail(?:-[2-6])?$/.test(slot)) return 'rail';
+ if (/^article-rail(?:-[2-6]|-fill)?$/.test(slot)) return 'rail';
  return slot === 'article-banner-end' ? 'end' : null;
 }

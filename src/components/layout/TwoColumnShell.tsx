@@ -43,6 +43,8 @@ interface TwoColumnShellProps {
   mainClassName?: string;
   /** 右サイドバーの中身。<aside> 要素・幅（w-[316px]）・表示制御（≥993px）はシェルが所有する */
   aside?: ReactNode;
+  /** 記事の右欄を本文の高さに伸ばし、下の回遊を分散する。 */
+  stretchAside?: boolean;
   children: ReactNode;
 }
 
@@ -51,6 +53,7 @@ export default function TwoColumnShell({
   as = 'main',
   mainClassName = 'py-10',
   aside,
+  stretchAside = false,
   children,
 }: TwoColumnShellProps) {
   const Body = as;
@@ -61,7 +64,7 @@ export default function TwoColumnShell({
           main/aside の先頭要素に独自 margin-top を持たせない（先頭が下がって上端がズレる）。 */}
       <Body className={`flex-1 min-w-0 ${mainClassName}`}>{children}</Body>
       {aside && (
-        <aside className="hidden zenn-desktop:block w-[316px] shrink-0 py-10">{aside}</aside>
+        <aside className={`hidden ${stretchAside ? 'zenn-desktop:flex flex-col' : 'zenn-desktop:block'} w-[316px] shrink-0 py-10`}>{aside}</aside>
       )}
     </div>
   );

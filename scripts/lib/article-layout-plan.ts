@@ -1,4 +1,5 @@
 /** 撮影前に記事の実配置を求める。表示・管理画面と同じ関数を使い、ブラウザへ渡すのは面名だけ。 */
+import { articleSidebarContinuation } from '../../src/lib/article-sidebar-continuation';
 import { getAllDocsMeta, getDoc } from '../../src/lib/docs';
 import { getPublicDocPath } from '../../src/lib/content-routes';
 import { planArticleCtas } from '../../src/lib/article-cta-plan';
@@ -15,8 +16,10 @@ export async function articleLayoutPlans(paths: string[], now: number) {
     const doc = meta ? await getDoc(meta.slug) : null;
     if (!doc) throw new Error(`撮影対象の記事がない: ${path}`);
     const plan = planArticleCtas(doc, related, now);
-    const cards = articleSidebarPlan(articleSidebarInput(doc.meta, plan, related.filter(m => m.category === meta!.category)));
-    result[path] = [...articleImagePlacements(plan.careerPlacements, plan.inline.map(s => s.slot), cards.length).map(p => p.placement.slot)];
+    const sidebarInput = articleSidebarInput(doc.meta, plan, related.filter(m => m.category === meta!.category));
+    const cards = articleSidebarPlan(sidebarInput);
+    const groups = articleSidebarContinuation(sidebarInput, doc.meta, related, plan.body.length, plan.careerPlacements);
+    result[path] = [...articleImagePlacements(plan.careerPlacements, plan.inline.map(s => s.slot), cards.length, groups.map(group => group.slot)).map(p => p.placement.slot)];
   }
   return result;
 }

@@ -1,10 +1,11 @@
 import { articleSidebarPlan, type ArticleSidebarInput } from '@/lib/article-sidebar-plan';
 import { Fragment } from 'react';
+import type { RailGroup } from '@/lib/article-sidebar-continuation';
+import RailArticleList from '@/components/ui/RelatedArticles/RailArticleList';
 import { ArticleBanner, articleRailSlot, articleImagePlacements } from '@/components/docs/ArticleAffiliateBanners';
 import type { ResolvedPlacements } from '@/lib/affiliate-placement';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
-import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
 import { categoryNavCards } from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
@@ -12,20 +13,7 @@ import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
 import RelatedTools from '@/components/ui/RelatedTools';
 
 
-/**
- * docs 記事の右サイドバー（PC ≥993px）。
- *
- * 2 ブロック構成:
- *  1. 通常フロー（追従させない）: 運営者プロフィール → note もくじタイル。
- *     転職画像は 2026-11-15 運営者指示で先頭・全カード間へ追加（DN-1215）。
- *     ピクセルは DocPage が案件ごとに 1 発へ集約する。
- *  2. ナビ群: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。
- *
- * 経緯: 2026-06-27 に全体 sticky を解除 → 2026-07 に「TOC+ナビのみ」を sticky＋欄の中のスクロールで限定復活 →
- * 2026-11-15 運営者指示で全ページの右サイドバーから固定と欄の中のスクロールを撤去（ページと一緒に流す・DN-1214）。
- * note もくじタイル: 2026-07-06 に一旦撤去したが全ページ統一の一環で復活（記事末尾と同一もくじを PC で併掲・
- * utm -docs-sb で面分離）。sidebarMokuji が null（非 HUB 資格・career）のときは枠ごと非表示。
- */
+/** 記事右欄の上の束。目次は本文上部、年度別の設問ナビはここに残す。 */
 export function buildArticleSidebarCards({
   sidebarMokuji,
   headings,
@@ -46,7 +34,6 @@ export function buildArticleSidebarCards({
       case 'author': return <AuthorSidebarCard />;
       case 'hub': return <HubCtaBanner cta={sidebarMokuji!} placement="article-sidebar" />;
       case 'product': return <SidebarProduct category={category!} doc={categoryArticles.find(d => d.slug === slugStr)!} placement="article-sidebar" content={content} />;
-      case 'toc': return <TableOfContents headings={headings} />;
       case 'questions': return <ExamQuestionNav headings={headings} variant="sidebar" />;
       case 'category': return navigation[card.index!]!;
       case 'pillar': return <PillarNavCard variant="sidebar" currentSection={sectionStr} />;
@@ -55,13 +42,21 @@ export function buildArticleSidebarCards({
   });
 }
 
-/** 先頭と実カードの全間隔。末尾に追加しない。固定や欄内スクロールは持たない。 */
-export default function ArticleSidebar({ cards, placements }: { cards: React.ReactElement[]; placements: ResolvedPlacements }) {
+/** 上の束は上詰め、下の組は本文の残りの高さへ均等に配分する。過去問（questionSeries）だけ、組の間をバナーだけの組で埋める。 */
+export default function ArticleSidebar({ cards, groups = [], placements, questionSeries = false }: { cards: React.ReactElement[]; groups?: RailGroup[]; placements: ResolvedPlacements; questionSeries?: boolean }) {
   const images = articleImagePlacements(placements, [], cards.length);
-  return <div className="space-y-3" data-article-sidebar-cards={cards.length}>
-    {cards.map((card, index) => <Fragment key={index}>
-      <ArticleBanner placement={images.find(image => image.placement.slot === articleRailSlot(index))?.placement} kind="rail" />
-      <div data-article-sidebar-card>{card}</div>
-    </Fragment>)}
+  return <div className="flex h-full flex-1 flex-col" data-article-sidebar-cards={cards.length + groups.filter(group => group.card).length} data-article-question-series={questionSeries || undefined}>
+    <div className="space-y-3">
+      {cards.map((card, index) => <Fragment key={index}>
+        <ArticleBanner placement={images.find(image => image.placement.slot === articleRailSlot(index))?.placement} kind="rail" />
+        <div data-article-sidebar-card>{card}</div>
+      </Fragment>)}
+    </div>
+    {groups.length > 0 && <div className="flex flex-1 flex-col justify-around gap-6 pt-6" data-article-sidebar-continuation>
+      {groups.map((group, index) => <div key={`${group.slot}-${index}`} className="space-y-3" data-article-sidebar-group data-article-sidebar-fill={group.fill || undefined} data-article-sidebar-ad-only={(!group.card && !group.fill) || undefined}>
+        <ArticleBanner placement={group.banner} kind="rail" />
+        {group.card && <div data-article-sidebar-card><RailArticleList card={group.card} /></div>}
+      </div>)}
+    </div>}
   </div>;
 }

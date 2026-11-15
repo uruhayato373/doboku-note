@@ -1,3 +1,4 @@
+import { articleSidebarContinuation } from '../../../../src/lib/article-sidebar-continuation';
 import { getAllDocsMeta, getDoc } from '../../../../src/lib/docs';
 import { getPublicDocPath } from '../../../../src/lib/content-routes';
 import { isCareerDoc } from '../../../../src/lib/doc-classifier';
@@ -69,8 +70,10 @@ export async function getAffiliatePages(now = Date.now()) {
     if (!doc) continue;
     const plan = planArticleCtas(doc, related, now);
     const categoryArticles = related.filter(d => d.category === meta.category);
-    const cards = articleSidebarPlan(articleSidebarInput(doc.meta, plan, categoryArticles));
-    const images = articleImagePlacements(plan.careerPlacements, plan.inline.map(s => s.slot), cards.length);
+    const sidebarInput = articleSidebarInput(doc.meta, plan, categoryArticles);
+    const cards = articleSidebarPlan(sidebarInput);
+    const groups = articleSidebarContinuation(sidebarInput, doc.meta, related, plan.body.length, plan.careerPlacements);
+    const images = articleImagePlacements(plan.careerPlacements, plan.inline.map(s => s.slot), cards.length, groups.map(group => group.slot));
     const candidates = articlePixelCandidates(plan.careerPlacements, plan.renderedCareerSlots, images);
     const owners = ([false, true] as const).flatMap(desktop =>
       chooseArticlePixels(candidates, vocab.affiliate, { desktop, wide: desktop, variant: 'B' }).map(p => ({ ...p, label: desktop ? 'PC' : 'スマホ' })));

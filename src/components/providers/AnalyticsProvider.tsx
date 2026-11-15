@@ -109,9 +109,8 @@ export default function AnalyticsProvider() {
         // qualification-bridge 用。リンクにラベルが無い既存の面は従来どおり root → href）。
         label: anchor.dataset.ctaLabel || el.dataset.ctaLabel || anchor.getAttribute("href") || "(unknown)",
         params: {
-          // 回遊カードは、写真サムネイルか OGP の縮小かをカード（<a data-thumb>）が持つ（DN-1040）。面の placement が無ければそれを使う。
-          // サムネイルの無い面は face（面の表示 internal_nav_impression と同じ placement で割れるように・DN-1222）
-          cta_placement: el.dataset.ctaPlacement || (kind === "nav" ? (anchor.dataset.thumb ? `thumb-${anchor.dataset.thumb}` : "face") : "(unknown)"),
+          // 回遊カードは、写真サムネイルか OGP の縮小かをカード（<a data-thumb>）が持つ（DN-1040）。面の placement が無ければそれを使う
+          cta_placement: el.dataset.ctaPlacement || (kind === "nav" && anchor.dataset.thumb ? `thumb-${anchor.dataset.thumb}` : kind === "nav" ? "text" : "(unknown)"),
         },
       });
       const arm = kind === "note" ? noteBodyArmOf(el) : undefined;
@@ -253,6 +252,8 @@ export default function AnalyticsProvider() {
         for (const entry of entries) {
           if (!entry.isIntersecting || entry.intersectionRatio < 0.5) continue;
           const card = entry.target as HTMLElement;
+          // サムネイルのある面はカード単位だけを送る（遅延追加もここで再確認）。
+          if (card.matches('[data-cta="nav"]') && card.querySelector('a[data-thumb]')) continue;
           if (navSent.has(card)) continue;
           navSent.add(card);
           navObserver.unobserve(card);
@@ -261,7 +262,7 @@ export default function AnalyticsProvider() {
             action: "internal_nav_impression",
             category: "internal-nav",
             label: root?.dataset.ctaLabel || "(unknown)",
-            params: { cta_placement: root?.dataset.ctaPlacement || `thumb-${card.dataset.thumb}` },
+            params: { cta_placement: card.matches('[data-cta="nav"]') ? "text" : root?.dataset.ctaPlacement || `thumb-${card.dataset.thumb}` },
           });
         }
       },
@@ -275,39 +276,14 @@ export default function AnalyticsProvider() {
       });
     };
 
-    // 回遊の面そのものの表示回数（2026-11-16・DN-1222）。サムネイルの無い面（前後ナビ・関連記事・ジャンプ・カリキュラムなど）は
-    // 表示を送っておらず、面ごとのクリック率が出せなかった。面は縦に長いので、面の最初のリンクが 50% 見えたら面を 1 回と数える。
-    // サムネイルのある面は上のカード単位の表示があるので数えない。placement は face（カード単位の thumb-* と分ける）。
-    const faceSent = new WeakSet<Element>();
-    const faceObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting || entry.intersectionRatio < 0.5) continue;
-          const root = (entry.target as HTMLElement).closest<HTMLElement>('[data-cta="nav"]');
-          faceObserver.unobserve(entry.target);
-          if (!root || faceSent.has(root)) continue;
-          faceSent.add(root);
-          gtag.event({
-            action: "internal_nav_impression",
-            category: "internal-nav",
-            label: root.dataset.ctaLabel || "(unknown)",
-            params: { cta_placement: root.dataset.ctaPlacement || "face" },
-          });
-        }
-      },
-      { threshold: 0.5 },
-    );
-    const observeNavFaces = () => {
-      document.querySelectorAll<HTMLElement>('[data-cta="nav"]').forEach((root) => {
-        if (observed.has(root) || root.querySelector('a[data-thumb]')) return;
-        const first = root.querySelector('a[href]');
-        if (!first) return;
-        observed.add(root);
-        faceObserver.observe(first);
+    const observeTextNav = () => {
+      document.querySelectorAll('[data-cta="nav"]').forEach((surface) => {
+        if (surface.querySelector('a[data-thumb]') || observed.has(surface)) return;
+        observed.add(surface);
+        navObserver.observe(surface);
       });
     };
-
-    const observeAll = () => { observeRevenueCtas(); observeNavCards(); observeNavFaces(); };
+    const observeAll = () => { observeRevenueCtas(); observeNavCards(); observeTextNav(); };
     observeAll();
     const mutationObserver = new MutationObserver(observeAll);
     mutationObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-cta-variant"] });
@@ -316,7 +292,6 @@ export default function AnalyticsProvider() {
       mutationObserver.disconnect();
       observer.disconnect();
       navObserver.disconnect();
-      faceObserver.disconnect();
     };
   }, [pathname]);
 
