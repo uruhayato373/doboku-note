@@ -24,10 +24,10 @@
   <!-- 頂上事象 T -->
   <rect class="box-top" x="160" y="10" width="80" height="34" rx="5"/>
   <text class="t-top"   x="200" y="32" text-anchor="middle">T</text>
-  <text class="t-label" x="200" y="56" text-anchor="middle">頂上事象</text>
+  <text class="t-label" x="165" y="56" text-anchor="middle">頂上事象</text>
 
   <!-- AND ゲート（T 直下） -->
-  <text class="t-gate"  x="200" y="74" text-anchor="middle">AND</text>
+  <text class="t-gate"  x="175" y="74" text-anchor="middle">AND</text>
   <path class="gate-and" d="M 175 76 Q 175 90 200 90 Q 225 90 225 76 Z"/>
   <line class="conn" x1="200" y1="44" x2="200" y2="76"/>
 
@@ -38,10 +38,10 @@
   <!-- 中間事象 A1 -->
   <rect class="box-mid" x="80" y="112" width="80" height="32" rx="5"/>
   <text class="t-mid"   x="120" y="132" text-anchor="middle">A1</text>
-  <text class="t-label" x="120" y="156" text-anchor="middle">中間事象</text>
+  <text class="t-label" x="85" y="156" text-anchor="middle">中間事象</text>
 
   <!-- A1 の AND -->
-  <text class="t-gate"  x="120" y="174" text-anchor="middle">AND</text>
+  <text class="t-gate"  x="95" y="174" text-anchor="middle">AND</text>
   <path class="gate-and" d="M 98 176 Q 98 190 120 190 Q 142 190 142 176 Z"/>
   <line class="conn" x1="120" y1="144" x2="120" y2="176"/>
 
@@ -52,17 +52,17 @@
   <!-- X1 -->
   <rect class="box-cause" x="50" y="216" width="58" height="28" rx="4"/>
   <text class="t-cause"   x="79" y="234" text-anchor="middle">X1</text>
-  <text class="t-label"   x="79" y="252" text-anchor="middle">原因事象</text>
+  <text class="t-label"   x="79" y="260" text-anchor="middle">原因事象</text>
 
   <!-- X2 -->
   <rect class="box-cause" x="130" y="216" width="58" height="28" rx="4"/>
   <text class="t-cause"   x="159" y="234" text-anchor="middle">X2</text>
-  <text class="t-label"   x="159" y="252" text-anchor="middle">原因事象</text>
+  <text class="t-label"   x="159" y="260" text-anchor="middle">原因事象</text>
 
   <!-- 中間事象 A2 -->
   <rect class="box-mid" x="240" y="112" width="80" height="32" rx="5"/>
   <text class="t-mid"   x="280" y="132" text-anchor="middle">A2</text>
-  <text class="t-label" x="280" y="156" text-anchor="middle">中間事象</text>
+  <text class="t-label" x="315" y="156" text-anchor="middle">中間事象</text>
 
   <!-- A2 の OR: 閉じたアーチ形（平坦な上辺＋下方尖頂） -->
   <line class="conn" x1="280" y1="144" x2="280" y2="168"/>
@@ -76,10 +76,10 @@
   <!-- X3 -->
   <rect class="box-cause" x="210" y="216" width="58" height="28" rx="4"/>
   <text class="t-cause"   x="239" y="234" text-anchor="middle">X3</text>
-  <text class="t-label"   x="239" y="252" text-anchor="middle">原因事象</text>
+  <text class="t-label"   x="239" y="260" text-anchor="middle">原因事象</text>
 
   <!-- OR ゲート（X4/X5） -->
-  <text class="t-gate"  x="320" y="234" text-anchor="middle">OR</text>
+  <text class="t-gate"  x="350" y="223" text-anchor="middle">OR</text>
   <path class="gate-or" d="M 298 228 Q 320 246 342 228" fill="#fff3cd"/>
   <line class="conn" x1="320" y1="216" x2="320" y2="228"/>
 

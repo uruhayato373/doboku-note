@@ -75,5 +75,5 @@
 
   <!-- EST legend -->
   <rect x="20" y="490" width="360" height="1" rx="0" fill="#d7d7d7"/>
-  <text x="200" y="484" text-anchor="middle" class="sub">EST = Earliest Start Time（最早開始時刻）</text>
+  <text x="200" y="465" text-anchor="middle" class="sub">EST = Earliest Start Time（最早開始時刻）</text>
 </svg>

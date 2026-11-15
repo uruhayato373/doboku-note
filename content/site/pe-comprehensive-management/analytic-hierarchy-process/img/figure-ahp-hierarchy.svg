@@ -28,7 +28,7 @@
   <!-- 接続線 → 要因 1, 要因 2 -->
   <line x1="200" y1="67" x2="115" y2="100" class="conn" />
   <line x1="200" y1="67" x2="285" y2="100" class="conn" />
-  <text x="148" y="84" class="t-w">W₁</text>
+  <text x="136" y="78" class="t-w">W₁</text>
   <text x="245" y="84" class="t-w">W₂</text>
 
   <!-- レベル 2: 要因 1, 要因 2 -->
@@ -40,14 +40,14 @@
   <!-- 接続線 → 要因 11/12 -->
   <line x1="100" y1="132" x2="65" y2="170" class="conn" />
   <line x1="130" y1="132" x2="155" y2="170" class="conn" />
-  <text x="76" y="155" class="t-w">W₁₁</text>
-  <text x="142" y="155" class="t-w">W₁₂</text>
+  <text x="55" y="151" class="t-w">W₁₁</text>
+  <text x="153" y="151" class="t-w">W₁₂</text>
 
   <!-- 接続線 → 要因 21/22 -->
   <line x1="270" y1="132" x2="245" y2="170" class="conn" />
   <line x1="300" y1="132" x2="335" y2="170" class="conn" />
-  <text x="245" y="155" class="t-w">W₂₁</text>
-  <text x="312" y="155" class="t-w">W₂₂</text>
+  <text x="232" y="151" class="t-w">W₂₁</text>
+  <text x="327" y="151" class="t-w">W₂₂</text>
 
   <!-- レベル 3: 要因 11, 12, 21, 22 -->
   <rect x="20" y="170" width="80" height="30" rx="3" class="node-mid" />
@@ -84,7 +84,7 @@
   <!-- 注釈 -->
   <text x="200" y="290" class="t-cap" text-anchor="middle">W₁ + W₂ = 1、W₁₁ + W₁₂ = 1、W₂₁ + W₂₂ = 1</text>
   <text x="200" y="305" class="t-cap" text-anchor="middle">（各階層の係数和 = 1）</text>
-  <text x="200" y="313" class="t-cap" text-anchor="middle">総合評価 Sₐ = W₁W₁₁A₁ + W₁W₁₂A₂ + W₂W₂₁A₃ + W₂W₂₂A₄</text>
+  <text x="200" y="320" class="t-cap" text-anchor="middle">総合評価 Sₐ = W₁W₁₁A₁ + W₁W₁₂A₂ + W₂W₂₁A₃ + W₂W₂₂A₄</text>
 
   <!-- 下部サマリー -->
   <rect x="20" y="380" width="360" height="105" rx="4" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>

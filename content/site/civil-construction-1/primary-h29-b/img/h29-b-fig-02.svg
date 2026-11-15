@@ -14,8 +14,8 @@ text.h{paint-order:stroke;stroke:#fff;stroke-width:3px}
 <line x1="900" y1="-30" x2="1020" y2="-30" stroke-width="1.2"/>
 <text x="233" y="803" text-anchor="middle" class="hd">断 面 図</text>
 <line x1="150" y1="811" x2="300" y2="811" stroke-width="1.2"/>
-<text x="966" y="806" text-anchor="middle" class="hd">た て 壁</text>
-<line x1="884" y1="816" x2="1032" y2="816" stroke-width="1.2"/>
+<text x="966" y="826" text-anchor="middle" class="hd">た て 壁</text>
+<line x1="884" y1="836" x2="1032" y2="836" stroke-width="1.2"/>
 <path d="M198.5 107.3 H252.5 V465.7 H419.3 V521.7 H142.7 V465.7 H198.5 Z" fill="none" stroke-width="3.2" stroke-linejoin="miter"/>
 <line x1="252.5" y1="107.3" x2="420" y2="107.3" stroke-width="1"/>
 <line x1="88" y1="437.7" x2="198.5" y2="437.7" stroke-width="1"/>
@@ -68,10 +68,10 @@ text.h{paint-order:stroke;stroke:#fff;stroke-width:3px}
 <line x1="134" y1="446.7" x2="138" y2="451.7" stroke-width="0.9"/>
 <line x1="821" y1="22" x2="821" y2="241" stroke-width="1.2"/>
 <line x1="821" y1="250" x2="821" y2="514" stroke-width="1.2"/>
-<line x1="821" y1="527" x2="821" y2="745" stroke-width="1.2"/>
+<line x1="821" y1="527" x2="821" y2="793" stroke-width="1.2"/>
 <line x1="1097" y1="22" x2="1097" y2="241" stroke-width="1.2"/>
 <line x1="1097" y1="250" x2="1097" y2="514" stroke-width="1.2"/>
-<line x1="1097" y1="527" x2="1097" y2="745" stroke-width="1.2"/>
+<line x1="1097" y1="527" x2="1097" y2="793" stroke-width="1.2"/>
 <line x1="835" y1="58" x2="835" y2="706" stroke-width="1.2"/>
 <line x1="869.5" y1="58" x2="869.5" y2="706" stroke-width="1.2"/>
 <line x1="890" y1="58" x2="890" y2="706" stroke-width="1.2"/>
@@ -140,17 +140,17 @@ text.h{paint-order:stroke;stroke:#fff;stroke-width:3px}
 <polygon points="945,703 955,700.5 955,705.5" fill="#1f2937" stroke="none"/>
 <polygon points="1083,703 1073,700.5 1073,705.5" fill="#1f2937" stroke="none"/>
 <polygon points="1097,703 1107,700.5 1107,705.5" fill="#1f2937" stroke="none"/>
-<text x="805" y="697" text-anchor="middle">100</text>
-<text x="852" y="697" text-anchor="middle">250</text>
-<text x="904" y="697" text-anchor="middle">200</text>
-<text x="1014" y="697" text-anchor="middle">4×250=1 000</text>
-<text x="1113" y="697" text-anchor="middle">100</text>
-<text x="880" y="722" text-anchor="middle" class="h">50</text>
-<text x="931" y="722" text-anchor="middle" class="h">200</text>
-<line x1="821" y1="736.5" x2="1097" y2="736.5" stroke-width="1.2"/>
-<polygon points="821,736.5 831,734 831,739" fill="#1f2937" stroke="none"/>
-<polygon points="1097,736.5 1087,734 1087,739" fill="#1f2937" stroke="none"/>
-<text x="959" y="733" text-anchor="middle">2 000</text>
+<text x="805" y="728" text-anchor="middle">100</text>
+<text x="852" y="728" text-anchor="middle">250</text>
+<text x="904" y="728" text-anchor="middle">200</text>
+<text x="1014" y="728" text-anchor="middle">4×250=1 000</text>
+<text x="1113" y="728" text-anchor="middle">100</text>
+<text x="880" y="751" text-anchor="middle" class="h">50</text>
+<text x="931" y="751" text-anchor="middle" class="h">200</text>
+<line x1="821" y1="785" x2="1097" y2="785" stroke-width="1.2"/>
+<polygon points="821,785 831,782.5 831,787.5" fill="#1f2937" stroke="none"/>
+<polygon points="1097,785 1087,782.5 1087,787.5" fill="#1f2937" stroke="none"/>
+<text x="959" y="780" text-anchor="middle">2 000</text>
 <line x1="710" y1="245.5" x2="710" y2="521.5" stroke-width="1.2"/>
 <polygon points="710,245.5 707.5,255.5 712.5,255.5" fill="#1f2937" stroke="none"/>
 <polygon points="710,383.5 707.5,373.5 712.5,373.5" fill="#1f2937" stroke="none"/>
@@ -170,7 +170,7 @@ text.h{paint-order:stroke;stroke:#fff;stroke-width:3px}
 <polygon points="633.7,424 631.2,414 636.2,414" fill="#1f2937" stroke="none"/>
 <text x="615" y="349" text-anchor="middle" transform="rotate(-90 615 349)">上面</text>
 <text x="615" y="416" text-anchor="middle" transform="rotate(-90 615 416)">下面</text>
-<line x1="971.4" y1="212.4" x2="1063" y2="212.4" stroke-width="1.2"/>
+<line x1="971.4" y1="212.4" x2="1194" y2="212.4" stroke-width="1.2"/>
 <line x1="971.4" y1="212.4" x2="971.4" y2="366" stroke-width="1.2"/>
 <polygon points="971.4,245.5 968.9,235.5 973.9,235.5" fill="#1f2937" stroke="none"/>
 <polygon points="971.4,262.75 968.9,252.75 973.9,252.75" fill="#1f2937" stroke="none"/>
@@ -180,13 +180,13 @@ text.h{paint-order:stroke;stroke:#fff;stroke-width:3px}
 <polygon points="971.4,331.75 968.9,321.75 973.9,321.75" fill="#1f2937" stroke="none"/>
 <polygon points="971.4,349 968.9,339 973.9,339" fill="#1f2937" stroke="none"/>
 <polygon points="971.4,366.25 968.9,356.25 973.9,356.25" fill="#1f2937" stroke="none"/>
-<text x="994" y="208" text-anchor="start">③D16</text>
-<line x1="971.4" y1="567.5" x2="1063" y2="567.5" stroke-width="1.2"/>
+<text x="1120" y="208" text-anchor="start">③D16</text>
+<line x1="971.4" y1="567.5" x2="1194" y2="567.5" stroke-width="1.2"/>
 <line x1="971.4" y1="567.5" x2="971.4" y2="418" stroke-width="1.2"/>
 <polygon points="971.4,418.5 968.9,428.5 973.9,428.5" fill="#1f2937" stroke="none"/>
 <polygon points="971.4,452.5 968.9,462.5 973.9,462.5" fill="#1f2937" stroke="none"/>
 <polygon points="971.4,487 968.9,497 973.9,497" fill="#1f2937" stroke="none"/>
-<text x="994" y="563" text-anchor="start">②D13</text>
+<text x="1120" y="563" text-anchor="start">②D13</text>
 <path d="M198.7 979 H253 V1337.5 H419.5 V1392.5 H142.5 V1337.5 H198.7 Z" fill="none" stroke-width="3.2"/>
 <path d="M210.6 1380 V992.5 H240.7 V1380" fill="none" stroke-width="1.2"/>
 <line x1="160" y1="1350" x2="406" y2="1350" stroke-width="1.2"/>
@@ -367,8 +367,8 @@ text.h{paint-order:stroke;stroke:#fff;stroke-width:3px}
 <polygon points="634,1392.5 631.5,1402.5 636.5,1402.5" fill="#1f2937" stroke="none"/>
 <line x1="634" y1="1392.5" x2="634" y2="1427" stroke-width="1.2"/>
 <text x="621.7" y="951.7" text-anchor="middle" transform="rotate(-90 621.7 951.7)">100</text>
-<text x="621.7" y="1017.5" text-anchor="middle" transform="rotate(-90 621.7 1017.5)">2×180</text>
-<text x="648" y="1023" text-anchor="middle" transform="rotate(-90 648 1023)">=360</text>
+<text x="700" y="1012" text-anchor="middle" transform="rotate(0 700 1012)">2×180</text>
+<text x="700" y="1034" text-anchor="middle" transform="rotate(0 700 1034)">=360</text>
 <text x="621.7" y="1198" text-anchor="middle" transform="rotate(-90 621.7 1198)">9×250=2 250</text>
 <text x="621.7" y="1365" text-anchor="middle" transform="rotate(-90 621.7 1365)">180</text>
 <text x="621.7" y="1414" text-anchor="middle" transform="rotate(-90 621.7 1414)">110</text>
@@ -386,10 +386,10 @@ text.h{paint-order:stroke;stroke:#fff;stroke-width:3px}
 <polygon points="1288.5,1392.5 1286,1402.5 1291,1402.5" fill="#1f2937" stroke="none"/>
 <line x1="1288.5" y1="1392.5" x2="1288.5" y2="1427" stroke-width="1.2"/>
 <text x="1277.5" y="951.7" text-anchor="middle" transform="rotate(-90 1277.5 951.7)">100</text>
-<text x="1277.5" y="1017.5" text-anchor="middle" transform="rotate(-90 1277.5 1017.5)">2×180</text>
-<text x="1303" y="1023" text-anchor="middle" transform="rotate(-90 1303 1023)">=360</text>
+<text x="1200" y="1012" text-anchor="middle" transform="rotate(0 1200 1012)">2×180</text>
+<text x="1200" y="1034" text-anchor="middle" transform="rotate(0 1200 1034)">=360</text>
 <text x="1277.5" y="1198" text-anchor="middle" transform="rotate(-90 1277.5 1198)">9×250=2 250</text>
-<text x="1305" y="1365" text-anchor="middle" transform="rotate(-90 1305 1365)">180</text>
+<text x="1311" y="1365" text-anchor="middle" transform="rotate(-90 1311 1365)">180</text>
 <text x="1280" y="1414" text-anchor="middle" transform="rotate(-90 1280 1414)">110</text>
 <line x1="821" y1="1516.5" x2="1096.6" y2="1516.5" stroke-width="1.2"/>
 <polygon points="821,1516.5 831,1514 831,1519" fill="#1f2937" stroke="none"/>

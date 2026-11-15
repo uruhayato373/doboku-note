@@ -39,18 +39,18 @@
 
   <!-- Boom (上向きの腕, from 旋回台 up to 中央) -->
   <polygon points="280,240 190,145 175,160 275,265" class="boom"/>
-  <text x="235" y="200" class="label">ブーム</text>
+  <text x="251" y="198" class="label">ブーム</text>
 
   <!-- Boom cylinder: 本体から Boom へ -->
   <rect x="260" y="220" width="35" height="10" rx="2" class="cylinder"/>
   <rect x="220" y="210" width="50" height="10" rx="2" class="piston"/>
   <circle cx="220" cy="215" r="2" class="pin"/>
   <circle cx="285" cy="225" r="2" class="pin"/>
-  <text x="263" y="208" class="annot">ブームシリンダ</text>
+  <text x="293" y="217" class="annot">ブームシリンダ</text>
 
   <!-- Arm (下向き, Boom 先端から下) -->
   <polygon points="195,145 170,155 135,250 160,260" class="arm"/>
-  <text x="145" y="205" class="label">アーム</text>
+  <text x="111" y="183" class="label">アーム</text>
 
   <!-- Arm cylinder: Boom 上 から Arm へ -->
   <rect x="215" y="170" width="30" height="8" rx="2" class="cylinder"/>
@@ -61,7 +61,7 @@
 
   <!-- Bucket (at Arm 先端) -->
   <path d="M 135 250 L 160 260 L 155 285 Q 130 295 115 283 L 125 255 Z" class="bucket"/>
-  <text x="138" y="275" class="label">バケット</text>
+  <text x="167" y="279" class="label">バケット</text>
   <!-- ツメ -->
   <polygon points="115,283 110,290 122,290" class="bucket"/>
   <polygon points="130,290 125,297 137,297" class="bucket"/>
@@ -71,7 +71,7 @@
   <rect x="125" y="226" width="28" height="7" rx="2" class="piston"/>
   <circle cx="125" cy="229" r="2" class="pin"/>
   <circle cx="170" cy="233" r="2" class="pin"/>
-  <text x="100" y="221" class="annot">バケットシリンダ</text>
+  <text x="32" y="220" class="annot">バケットシリンダ</text>
 
   <!-- Legend -->
   <g transform="translate(15,333)">
@@ -81,14 +81,14 @@
     <text x="72" y="0" class="annot">アーム</text>
     <rect x="110" y="-8" width="12" height="8" class="bucket"/>
     <text x="127" y="0" class="annot">バケット</text>
-    <rect x="170" y="-8" width="12" height="8" class="cylinder"/>
-    <text x="187" y="0" class="annot">シリンダ</text>
-    <rect x="230" y="-8" width="12" height="8" class="body"/>
-    <text x="247" y="0" class="annot">本体</text>
+    <rect x="185" y="-8" width="12" height="8" class="cylinder"/>
+    <text x="202" y="0" class="annot">シリンダ</text>
+    <rect x="260" y="-8" width="12" height="8" class="body"/>
+    <text x="277" y="0" class="annot">本体</text>
   </g>
 
   <!-- 作業装置説明 -->
-  <rect x="15" y="350" width="370" height="132" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="15" y="350" width="370" height="142" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
   <text x="200" y="369" font-size="12" fill="#1a3a5c" text-anchor="middle" font-weight="bold">各部の役割</text>
   <line x1="15" y1="375" x2="385" y2="375" stroke="#d7d7d7" stroke-width="1"/>
   <text x="25" y="393" font-size="11" fill="#222">ブーム：本体に取り付く第1腕。ブームシリンダで上下動</text>
