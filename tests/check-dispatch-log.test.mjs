@@ -38,4 +38,6 @@ test('不具合の完了は prevention 必須（type 語彙と ref）。不具�
   assert.equal(validateDispatchLog(ok([{ ...base, prevention: { type: 'fix', ref: 'x' } }])).violations.length, 1);
   assert.equal(validateDispatchLog(ok([{ ...base, kind: '改善' }])).violations.length, 0);
   assert.equal(validateDispatchLog(ok([{ ...base, outcome: 'swept' }])).violations.length, 0);
+  assert.equal(validateDispatchLog(ok([{ ...base, outcome: 'dropped' }])).violations.length, 0);
+  assert.equal(validateDispatchLog(ok([{ ...base, outcome: 'deleted' }])).violations.length, 1);
 });

@@ -42,7 +42,7 @@ export const PHASES = {
 export const RESULTS = { success: '改善', partial: '一部改善', 'no-effect': '効果なし', negative: '悪化' };
 const GOOD = new Set(['success', 'partial']);
 /** カードの完了記録のうち、改善を打てずに終わったもの（EXP を中止にする） */
-const DROPPED = new Set(['swept', 'fail']);
+const DROPPED = new Set(['swept', 'fail', 'dropped']);
 
 const EXP_ID = /^EXP-(\d+)$/;
 const CARD_ID = /^DN-\d{4}$/;

@@ -186,10 +186,10 @@ export function idsFromCards(cards) {
   return new Set(cards.map((c) => c.id).filter(Boolean));
 }
 
-/** dispatch-log.json から完了（done / swept）した ID を返す。 */
+/** dispatch-log.json から閉じた（done / swept / dropped）ID を返す。dropped は運営者がやらないと決めたもので、居場所はその記録 */
 export function completedIdsFromDispatchLog(json) {
   const entries = Array.isArray(json?.entries) ? json.entries : [];
-  return new Set(entries.filter((e) => e && ['done', 'swept'].includes(e.outcome)).map((e) => e.id).filter(Boolean));
+  return new Set(entries.filter((e) => e && ['done', 'swept', 'dropped'].includes(e.outcome)).map((e) => e.id).filter(Boolean));
 }
 
 /** experiments.json から実験 ID を返す。 */
