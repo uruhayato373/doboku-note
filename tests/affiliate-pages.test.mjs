@@ -40,7 +40,7 @@ test('基準書の右欄の新しい面は PC の見本ページを持つ', () =
     process.stdout.write(JSON.stringify(affiliatePreviewSurfaces().filter(s => s.slot.includes('standards') && s.slot.includes('rail'))));
   `;
   const surfaces = JSON.parse(execFileSync(execPath, ['--conditions=react-server', '--import', 'tsx', '--input-type=module', '-e', script], { encoding: 'utf8' }));
-  assert.equal(surfaces.length, 5);
+  assert.equal(surfaces.length, 6);
   for (const surface of surfaces) {
     assert.deepEqual(surface.widths, ['pc']);
     assert.equal(surface.path, surface.slot.startsWith('standards-list') ? '/standards' : '/standards/mlit/sekou-kanri-kijun/chapters/2-1');

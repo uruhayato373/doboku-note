@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-15T05:36:30.358Z",
+  "updated_at": "2026-11-15T22:38:59.071Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -10431,6 +10431,46 @@
           "at": "2026-11-13T08:07:19.977Z",
           "event": "implemented",
           "change": "16 資格 859 ページを写真サムネイルにし（#1576・#1579）、カードの表示とクリックを写真・OGP 別に送る（#1572）。本番反映は main への deploy 後"
+        }
+      ]
+    },
+    {
+      "id": "EXP-065",
+      "title": "目次を本文の上へ移し、右の欄の空きをサムネイルつき回遊と転職バナーで埋めて、回遊と広告の表示を増やす",
+      "hypothesis": "右の欄は記事の 6 割（中央値 4,228px）が空で、回遊は文字だけだった。目次を本文の上に出し、右の欄の残りの高さにサムネイルつきの回遊カードと転職バナーを等間隔で並べれば、読み進める途中で次の記事と広告が目に入り、1 セッションあたりのページ数と転職バナーの表示・クリックが増える",
+      "target_metric": "1 セッションあたりのページ数（GA4 screenPageViewsPerSession）・回遊のクリック数（internal_nav_click の合計と rail-* ラベル）・転職バナーの表示とクリック（affiliate_cta_impression / affiliate_cta_click）",
+      "target_delta": "本番反映から 28 日で、1 セッションあたりのページ数が基準 1.575 より 5% 以上、internal_nav_click が基準 4,043 件より 15% 以上、affiliate_cta_impression が基準 24,450 件より 50% 以上増える",
+      "status": "running",
+      "created_at": "2026-11-16",
+      "started_at": "2026-11-16",
+      "next_check_date": "2026-12-14",
+      "updated_at": "2026-11-15T22:38:59.071Z",
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "記事を読み進めながら、次に読む記事や転職の選択肢に自然に気づきたい",
+        "verifiedGap": "全ページの実測（2026-11-15・scripts/site-layout-census.mjs）で記事の右の欄の 61% が空・目次は右の欄 1,196 ページ・右の欄の回遊リンク約 4 万本はすべて文字（DN-1218）",
+        "reviewRecord": "data/business/records/review-2026-11-15T00-25-04-354Z-b2f4607d-f80a-4f87-b5e4-aebb98349143.json",
+        "metricId": "a8ConfirmedYen"
+      },
+      "baseline": {
+        "measured_at": "2026-11-15",
+        "source": "data/ga4/reports/2026-11-15.json の date と cta-clicks-by-label（2026-10-18〜11-14）",
+        "pagesPerSession": 1.575,
+        "internalNavClicks": 4043,
+        "affiliateImpressions": 24450,
+        "affiliateClicks": 24,
+        "note": "文字の回遊の表示（placement=text）は DN-1218 段 1 の本番反映から取り始めるので、面ごとのクリック率の基準は無い。2026-11-15 の広告上限の廃止（DN-1215）と期間が重なるので、affiliate の増分は両方の合算として読む"
+      },
+      "pending_user_actions": [],
+      "history": [
+        {
+          "at": "2026-11-15T22:38:59.071Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-15T22:38:59.071Z",
+          "event": "implemented",
+          "change": "目次を本文の上へ・右の欄の下に続く束（#1619）、本文末の回遊のサムネイル化（#1620）、基準書・資格トップの右の欄（段 3）。本番反映は main への deploy 後"
         }
       ]
     }

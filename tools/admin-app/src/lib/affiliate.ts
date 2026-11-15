@@ -457,6 +457,8 @@ const PREVIEW_PAGES: Record<string, { path: string | null; widths?: PreviewWidth
   'article-end': { path: '/exam/civil-construction-2/primary/r03-kouki' },
   'category-sidebar': { path: '/exam/civil-construction-1', widths: ['pc'] },
   'category-mobile': { path: '/exam/civil-construction-1', widths: ['sp'] },
+  // 下に続く束（2026-11-16）。上の束の案件を繰り返す・ピクセルなし
+  'category-rail-fill': { path: '/exam/civil-construction-1', widths: ['pc'] },
   'standards-end': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1' },
   'standards-inline': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1' },
   'standards-inline-2': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1' },
@@ -464,6 +466,7 @@ const PREVIEW_PAGES: Record<string, { path: string | null; widths?: PreviewWidth
   'standards-rail': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1', widths: ['pc'] },
   'standards-rail-2': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1', widths: ['pc'] },
   'standards-rail-3': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1', widths: ['pc'] },
+  'standards-rail-fill': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1', widths: ['pc'] },
   'standards-list-rail-2': { path: '/standards', widths: ['pc'] },
   'standards-list-rail': { path: '/standards', widths: ['pc'] },
   'standards-list-end': { path: '/standards' },
