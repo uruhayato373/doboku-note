@@ -82,3 +82,13 @@ test('ココナラと KDP は画面ありで送る（Amazon・ココナラは he
   assert.ok(AUTO_LOGIN.coconala.headed);
   assert.ok(AUTO_LOGIN.kdp.headed);
 });
+
+test('失敗印は error だけ7日後に再試行し、人の確認・口座不一致・ID/PW不通は止める', async () => {
+  const { failMarkDecision, AUTH_RETRY_MS } = await import('../scripts/lib/auth-session-refresh.mjs');
+  for (const reason of ['human_required', 'login_failed', 'unknown', 'blocked']) {
+    assert.equal(failMarkDecision({ markText: `2026-01-01T00:00:00Z ${reason} error`, markMtimeMs: 0, nowMs: AUTH_RETRY_MS * 2 }).retry, false);
+  }
+  assert.equal(failMarkDecision({ markText: 'date error timeout', markMtimeMs: 0, nowMs: AUTH_RETRY_MS - 1 }).retry, false);
+  assert.equal(failMarkDecision({ markText: 'date error timeout', markMtimeMs: 0, nowMs: AUTH_RETRY_MS }).retry, true);
+  assert.equal(failMarkDecision({ markText: '', markMtimeMs: 0, nowMs: AUTH_RETRY_MS }).retry, false);
+});

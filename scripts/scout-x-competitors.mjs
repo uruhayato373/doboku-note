@@ -14,7 +14,8 @@
  *     `uruhayato373` セッションで認証されており、凍結復帰中の投稿アカウントには触れない
  *     （x-post-policy.md §11・x-suspension-guardrail）。未ログイン公開読取は X 側が 404 で遮断する
  *     ため、read はログイン済み CLI 経由が唯一の経路。
- *   - 低頻度（四半期）・少数（config の ≤15 プロフィール）・呼び出し間に jitter 遅延。
+ *   - 低頻度（四半期）・呼び出し間に jitter 遅延。1 回の社数の上限（旧 ≤15）は 2026-11-15 に運営者の判断で外した
+ *     （追跡が 16 社になり止まったため。社数は config/competitors.json の x.competitors が決める）。
  *   - CLI がエラー/認証切れを返したら該当社を failed 記録し、他社の取得は続行（自動リトライしない）。
  *
  * 使い方:
@@ -181,7 +182,6 @@ function main() {
   if (HANDLE_OVERRIDE) competitors = [{ handle: HANDLE_OVERRIDE }];
   else competitors = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8')).x.competitors ?? [];
   if (competitors.length === 0) { console.error('ERROR: 対象ハンドルがありません。'); process.exit(1); }
-  if (competitors.length > 15) { console.error('ERROR: 安全弁＝1回 ≤15 プロフィール。config を分割してください。'); process.exit(1); }
   const PARTIAL = Boolean(HANDLE_OVERRIDE);
 
   console.log('=== X 競合偵察（twitter CLI・read専用・個人アカ uruhayato373 経由）===');

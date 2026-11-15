@@ -24,10 +24,18 @@ import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { classifyPublicKeys, parseDeleteList } from './lib/r2-orphans.mjs';
 
+import { chapterDataKeys } from './lib/standards-data-r2.mjs';
+
 const args = parseCliArgs({ write: { type: 'boolean' } });
 const IMAGE_NAME = '[A-Za-z0-9_.-]+\\.(png|webp|svg|jpg|jpeg|gif)';
 // 参照を探す範囲（削除リスト・台帳・記録・計画は「参照」ではないので含めない）
 const REF_PATHS = ['content', 'src', 'config', 'public', 'scripts', '.claude/scripts', 'tools'];
+
+let standardsDataKeys;
+try { standardsDataKeys = chapterDataKeys(); } catch (error) {
+  console.error(`[check-r2-orphans] 検査不成立: ${error.message}`);
+  process.exit(2);
+}
 
 loadEnvLocal();
 if (!hasR2Credentials()) {
@@ -59,7 +67,7 @@ let refOut = '';
 try { refOut = git(['grep', '-h', '-o', '-E', IMAGE_NAME, '--', ...REF_PATHS]); } catch (e) { if (e.status !== 1) throw e; }
 const referencedBasenames = refOut.split('\n').filter(Boolean);
 
-const r = classifyPublicKeys({ keys, manifestPublicKeys, trackedSitePaths, pendingDeleteKeys, referencedBasenames });
+const r = classifyPublicKeys({ keys, standardsDataKeys, manifestPublicKeys, trackedSitePaths, pendingDeleteKeys, referencedBasenames });
 console.log(`[check-r2-orphans] ${bucket}: ${keys.length} 件を実検査（List ${calls} 回）/ 残す理由あり ${r.kept} / 削除リストに載り未削除 ${r.pending.length} / 孤児 ${r.orphans.length} / 孤児だが参照あり ${r.referencedOrphans.length}`);
 const show = (label, arr) => { if (arr.length) console.log(`  ${label}（先頭 10 件）:\n${arr.slice(0, 10).map((k) => `    ${k}`).join('\n')}`); };
 show('孤児＝削除候補', r.orphans);

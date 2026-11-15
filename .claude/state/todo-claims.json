@@ -53,6 +53,30 @@
       "owner": "codex",
       "startedAt": "2026-11-15T00:17:11.316Z",
       "branch": "fix/dn-1199-svg-text-overlap"
+    },
+    {
+      "id": "DN-1212",
+      "owner": "codex",
+      "startedAt": "2026-11-15T01:19:24.693Z",
+      "branch": null
+    },
+    {
+      "id": "DN-1213",
+      "owner": "claude-code",
+      "startedAt": "2026-11-15T02:40:28.474Z",
+      "branch": "feat/standards-table-ui"
+    },
+    {
+      "id": "DN-1214",
+      "owner": "claude-code",
+      "startedAt": "2026-11-15T01:32:49.644Z",
+      "branch": "feat/standards-affiliate-impressions"
+    },
+    {
+      "id": "DN-1215",
+      "owner": "claude-code",
+      "startedAt": "2026-11-15T03:27:00.788Z",
+      "branch": "feat/article-affiliate-banners"
     }
   ]
 }

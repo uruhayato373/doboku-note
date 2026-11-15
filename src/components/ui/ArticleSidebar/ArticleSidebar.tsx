@@ -1,47 +1,32 @@
-import { type DocMeta } from '@/lib/docs';
-import { type DocGroupKey } from '@/lib/doc-classifier';
-import { type TocHeading } from '@/lib/toc';
-import { type ResolvedHubCta } from '@/lib/hub-cta';
+import { articleSidebarPlan, type ArticleSidebarInput } from '@/lib/article-sidebar-plan';
+import { Fragment } from 'react';
+import { ArticleBanner, articleRailSlot, articleImagePlacements } from '@/components/docs/ArticleAffiliateBanners';
+import type { ResolvedPlacements } from '@/lib/affiliate-placement';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
-import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
+import { categoryNavCards } from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
 import RelatedTools from '@/components/ui/RelatedTools';
 
-interface ArticleSidebarProps {
-  /** もくじ（L2 索引）タイル。HUB 資格 & 非 career のとき非 null。記事末尾と同一もくじを PC 側で併掲。 */
-  readonly sidebarMokuji: ResolvedHubCta | null;
-  readonly headings: TocHeading[];
-  readonly category: DocMeta['category'];
-  readonly docGroup: DocGroupKey;
-  readonly slugStr: string;
-  readonly content: string;
-  readonly sectionStr: string | undefined;
-  readonly categoryArticles: DocMeta[];
-  readonly hasCategoryNavCard: boolean;
-  readonly showPillarNav: boolean;
-  readonly showTableOfContents: boolean;
-}
 
 /**
  * docs 記事の右サイドバー（PC ≥993px）。
  *
  * 2 ブロック構成:
  *  1. 通常フロー（追従させない）: 運営者プロフィール → note もくじタイル。
- *     転職アフィリ枠は 2026-09-26 に撤去（GA4 4 週で表示 12,673・クリック 0／DN-0322）。
- *     A8 ピクセルは DocPage が本文または記事末の転職広告に 1 発だけ付ける。
- *  2. sticky クラスタ（列の最終要素・読中に追従）: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。
- *     ナビゲーションだけを追従させ、長記事でも導線が視界に残る。
+ *     転職画像は 2026-11-15 運営者指示で先頭・全カード間へ追加（DN-1215）。
+ *     ピクセルは DocPage が案件ごとに 1 発へ集約する。
+ *  2. ナビ群: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。
  *
- * 経緯: 2026-06-27 に全体 sticky を解除（落ち着いた読書体験）→ 2026-07 に「TOC+ナビのみ」へ限定復活。
- * sticky クラスタの下に非 sticky を置くと下スクロールで届かなくなる（過去事故）ため、クラスタは末尾に置く。
+ * 経緯: 2026-06-27 に全体 sticky を解除 → 2026-07 に「TOC+ナビのみ」を sticky＋欄の中のスクロールで限定復活 →
+ * 2026-11-15 運営者指示で全ページの右サイドバーから固定と欄の中のスクロールを撤去（ページと一緒に流す・DN-1214）。
  * note もくじタイル: 2026-07-06 に一旦撤去したが全ページ統一の一環で復活（記事末尾と同一もくじを PC で併掲・
  * utm -docs-sb で面分離）。sidebarMokuji が null（非 HUB 資格・career）のときは枠ごと非表示。
  */
-export default function ArticleSidebar({
+export function buildArticleSidebarCards({
   sidebarMokuji,
   headings,
   category,
@@ -53,57 +38,30 @@ export default function ArticleSidebar({
   hasCategoryNavCard,
   showPillarNav,
   showTableOfContents,
-}: ArticleSidebarProps) {
-  const hasStickyCluster =
-    docGroup === 'pastExam' || docGroup === 'primary' || docGroup === 'secondary'
-      ? docGroup === 'primary' || hasCategoryNavCard || showPillarNav
-      : true;
-  return (
-    // 根の <aside> 要素・幅（w-[316px]）・表示制御（≥993px）・py-10 は TwoColumnShell が所有する。
-    // ここは中身のみを返す（aside 入れ子の意味論を回避）。
-    <>
-      {/* ブロック1: 通常フロー（追従させない）——著者・note。
-          読者への信頼提示を先に置き、ファーストビューの商業要素を減らす。運営者はカテゴリ hub の右欄と同じく畳まず常に出す。 */}
-      <div className="mb-3">
-        <AuthorSidebarCard />
-      </div>
-      {/* note もくじタイル（L2 索引）。HUB 資格の全 docs ページで記事末尾と併掲（全ページ統一・2026-07）。
-          非 HUB 資格（一次・concrete・reference）と career タグ記事は sidebarMokuji=null で非表示。 */}
-      {sidebarMokuji && (
-        <div className="mb-3">
-          <HubCtaBanner cta={sidebarMokuji} placement="article-sidebar" />
-        </div>
-      )}
-      {!sidebarMokuji && category && categoryArticles.some(d => d.slug === slugStr) && <div className="mb-3"><SidebarProduct category={category} doc={categoryArticles.find(d => d.slug === slugStr)!} placement="article-sidebar" content={content} /></div>}
-      {/* ブロック2: sticky クラスタ（列の最終要素・読中に追従）——TOC/ナビのみ。
-          自身をスクロール可能にし、低解像度でも見切れない（TOC 側の max-h は撤去し高さ制御をここへ一元化）。 */}
-      {hasStickyCluster && (
-        <div className="sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto">
-          {/* 年度別過去問は TOC が問番号の羅列になるため呼び出し側で showTableOfContents=false。
-              primary は代わりに設問番号グリッド（ExamQuestionNav）を出す。 */}
-          {showTableOfContents && (
-            <TableOfContents headings={headings} />
-          )}
-          {docGroup === 'primary' && <ExamQuestionNav headings={headings} variant="sidebar" />}
-          {hasCategoryNavCard && category && (
-            <div className="mt-3">
-              <CategoryNavCard
-                variant="sidebar"
-                category={category}
-                currentSlug={slugStr}
-                docGroup={docGroup}
-                categoryArticles={categoryArticles}
-              />
-            </div>
-          )}
-          {showPillarNav && (
-            <div className="mt-3">
-              <PillarNavCard variant="sidebar" currentSection={sectionStr} />
-            </div>
-          )}
-          {category && docGroup !== 'career' && <RelatedTools category={category} slug={slugStr} compact />}
-        </div>
-      )}
-    </>
-  );
+}: ArticleSidebarInput) {
+  const p = { sidebarMokuji, headings, category, docGroup, slugStr, content, sectionStr, categoryArticles, hasCategoryNavCard, showPillarNav, showTableOfContents };
+  const navigation = category ? categoryNavCards({ variant: 'sidebar', category, currentSlug: slugStr, docGroup, categoryArticles }) : [];
+  return articleSidebarPlan(p).map(card => {
+    switch (card.kind) {
+      case 'author': return <AuthorSidebarCard />;
+      case 'hub': return <HubCtaBanner cta={sidebarMokuji!} placement="article-sidebar" />;
+      case 'product': return <SidebarProduct category={category!} doc={categoryArticles.find(d => d.slug === slugStr)!} placement="article-sidebar" content={content} />;
+      case 'toc': return <TableOfContents headings={headings} />;
+      case 'questions': return <ExamQuestionNav headings={headings} variant="sidebar" />;
+      case 'category': return navigation[card.index!]!;
+      case 'pillar': return <PillarNavCard variant="sidebar" currentSection={sectionStr} />;
+      case 'tools': return <RelatedTools category={category!} slug={slugStr} compact />;
+    }
+  });
+}
+
+/** 先頭と実カードの全間隔。末尾に追加しない。固定や欄内スクロールは持たない。 */
+export default function ArticleSidebar({ cards, placements }: { cards: React.ReactElement[]; placements: ResolvedPlacements }) {
+  const images = articleImagePlacements(placements, [], cards.length);
+  return <div className="space-y-3" data-article-sidebar-cards={cards.length}>
+    {cards.map((card, index) => <Fragment key={index}>
+      <ArticleBanner placement={images.find(image => image.placement.slot === articleRailSlot(index))?.placement} kind="rail" />
+      <div data-article-sidebar-card>{card}</div>
+    </Fragment>)}
+  </div>;
 }

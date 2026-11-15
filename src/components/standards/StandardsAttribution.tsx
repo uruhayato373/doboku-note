@@ -10,7 +10,10 @@ const linkClass = 'text-(--accent) underline underline-offset-4';
  * 出典の共通表示。見える 1 行（機関・原典リンク・二次利用物の注意）＋ 全文（開閉）。
  * 法的リンクは閉じていても DOM に残る。見える文字は 160 字以内（check-standards-density）。
  */
-export default function StandardsAttribution({ document, item }: { document?: StandardDocument; item?: number | undefined }) {
+/**
+ * pages を渡すと「原本PDF」をその章の開始ページで開き、範囲を添える（表ごとに原本リンクを並べず、ここ 1 か所に集める）。
+ */
+export default function StandardsAttribution({ document, item, pages }: { document?: StandardDocument; item?: number | undefined; pages?: { first: number; last: number } | undefined }) {
   // 同じ要綱を他の機関・版でも収録していて、この文書（冊子の項目）は索引に載せない側なら、載せている 1 本へ案内する
   const edition = document ? getStandardEditionDuplicate(document, item ?? null) : null;
   const [canonicalAgency = '', canonicalId = ''] = edition ? edition.canonical.document.split('/') : [];
@@ -31,7 +34,9 @@ export default function StandardsAttribution({ document, item }: { document?: St
             {document.sourceUrl && (
               <>
                 {' / '}
-                <a href={document.sourceUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>原本PDF</a>
+                <a href={pages ? `${document.sourceUrl.split('#')[0]}#page=${pages.first}` : document.sourceUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                  原本PDF{pages ? `（p.${pages.first}${pages.last !== pages.first ? `〜${pages.last}` : ''}）` : ''}
+                </a>
               </>
             )}
             {'）'}

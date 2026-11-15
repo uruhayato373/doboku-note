@@ -21,7 +21,7 @@
  *   - ID/PW は scripts/lib/credential-store.mjs からだけ読む。ログ・引数・ファイルへ出さない
  *   - 2FA / CAPTCHA / 追加確認は突破しない。human_required で止めて通知する
  *   - 自動ログインの失敗は 1 回で止め、失敗印（auth root の metadata/<service>.autologin-failed）を残す。
- *     人が確認して印を消すまで再試行しない（アカウントロック回避）
+ *     人のログイン成功まで停止する。画面側の error だけ 7 日後に再試行する
  *   - 共用口座以外（KDP・note・ココナラ）は doboku-note 専用の項目だけを使う
  *
  * 資格情報の登録（オーナーが各 PC で 1 回だけ。値を省くとパスワードを対話入力できる）:
@@ -41,14 +41,17 @@
  * ---------------------------------------------------------------------------
  */
 import { execFileSync } from 'node:child_process';
-import { chmodSync, copyFileSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { chmodSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
   AUTO_LOGIN,
   classifyLoginOutcome,
-  decideSharedImport,
+  clearAuthFailure,
+  failMarkDecision,
+  failMarkPath,
+  importSharedState,
   detectChallenge,
   keychainServiceNames,
   maskLoginText,
@@ -60,7 +63,6 @@ import { withAuthLock } from './lib/playwright-auth-lock.mjs';
 import {
   ensureAuthDirectories,
   loadAuthRegistry,
-  resolveMetadataPath,
   resolveProfileDir,
   resolveStatePath,
 } from './lib/playwright-auth-profile.mjs';
@@ -110,30 +112,6 @@ function notify(message) {
   } catch { /* 通知は補助 */ }
 }
 
-function failMarkPath(service) {
-  return join(dirname(resolveMetadataPath(service, authOptions)), `${service}.autologin-failed`);
-}
-
-function mtimeMs(path) {
-  try { return statSync(path).mtimeMs; } catch { return NaN; }
-}
-
-/** 1. stats47 と共用する state が新しければ auth root へ写す。 */
-function importSharedState(service) {
-  const shared = sharedStatePath(service);
-  const local = resolveStatePath(service, authOptions);
-  if (!shared || !local) return { import: false, reason: 'not-shared' };
-  let sharedCookieCount = 0;
-  try { sharedCookieCount = JSON.parse(readFileSync(shared, 'utf8')).cookies?.length ?? 0; } catch { /* 無い・壊れている */ }
-  const decision = decideSharedImport({ sharedMtimeMs: mtimeMs(shared), localMtimeMs: mtimeMs(local), sharedCookieCount });
-  if (decision.import && !DRY_RUN) {
-    ensureAuthDirectories(service, authOptions);
-    copyFileSync(shared, local);
-    try { chmodSync(local, 0o600); } catch { /* best-effort */ }
-  }
-  return decision;
-}
-
 async function pageSignals(page) {
   const raw = await page.evaluate(() => {
     const visible = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
@@ -147,11 +125,6 @@ async function pageSignals(page) {
   }).catch(() => null);
   if (!raw) return { hasPassword: true, hasChallenge: false, errorText: '' };
   return { hasPassword: raw.hasPassword, hasChallenge: detectChallenge(raw), errorText: maskLoginText(raw.errorText) };
-}
-
-/** 自動ログインが ok にならなかった画面の写し（auth root の metadata・リポジトリの外）。パスワード欄は伏せ字で写る。 */
-function failShotPath(service) {
-  return join(dirname(resolveMetadataPath(service, authOptions)), `${service}.autologin-failed.png`);
 }
 
 /**
@@ -195,7 +168,7 @@ async function autoLogin(service, cred, checkUrl) {
       }
       if (status !== 'ok') {
         // 次に人が見るときに理由が分かるよう、送信後の場所・表示の文言・画面の写しを残す（ID/PW は書かない）
-        const shot = failShotPath(service);
+        const shot = `${failMarkPath(service, authOptions)}.png`;
         await page.screenshot({ path: shot }).catch(() => {});
         const where = page.url().split('?')[0];
         return { status, reason: `送信後 ${where}・表示「${signals.errorText || '文言なし'}」・画面 ${shot}` };
@@ -217,16 +190,16 @@ async function refresh(service) {
   if (AUTO_LOGIN[service].inProcessOnly) {
     return { ...result, status: 'skipped', reason: 'ログイン状態を別プロセスへ持ち出せないため、取得スクリプトの中でログインする（asp-browser の openAsp）' };
   }
-  const failMark = failMarkPath(service);
-  result.sharedImport = importSharedState(service);
+  const failMark = failMarkPath(service, authOptions);
+  result.sharedImport = importSharedState(service, authOptions, { dryRun: DRY_RUN });
 
-  let status = await statusAuthService({ repoRoot: REPO_ROOT }, service);
+  let status = await statusAuthService({ repoRoot: REPO_ROOT, skipSharedImport: true }, service);
   result.statusBefore = status.status;
 
   if (status.status !== 'authenticated') {
     if (NO_LOGIN) return { ...result, status: 'needs-login', reason: status.reason };
-    if (existsSync(failMark)) {
-      return { ...result, status: 'blocked', reason: `前回の自動ログインが失敗したため停止中。確認後に ${failMark} を削除する` };
+    if (existsSync(failMark) && !failMarkDecision({ markText: readFileSync(failMark, 'utf8'), markMtimeMs: statSync(failMark).mtimeMs }).retry) {
+      return { ...result, status: 'blocked', reason: `前回の自動ログインが失敗したため停止中。npm run auth:login -- --service ${service} で入り直す` };
     }
     if (AGENT_RUN) {
       return { ...result, status: 'agent_skipped', reason: 'エージェント（Claude Code）からの実行では資格情報でログインしない。土曜の Mac 収集（weekly-collect）かオーナーがターミナルで実行する' };
@@ -235,10 +208,10 @@ async function refresh(service) {
     if (!cred) {
       return { ...result, status: 'no_credential', reason: `資格情報ストアに ${keychainServiceNames(service).join(' / ')} が無い` };
     }
-    const checkUrl = service === 'kdp' ? 'https://kdpreports.amazon.co.jp/dashboard' : null;
+    const checkUrl = service === 'kdp' ? loadAuthRegistry({ cwd: REPO_ROOT }).services.kdp.checkUrl : null;
     const login = await autoLogin(service, cred, checkUrl).catch((e) => ({ status: 'error', reason: String(e.message).slice(0, 160) }));
     result.loggedInWith = cred.source;
-    status = login.status === 'ok' ? await statusAuthService({ repoRoot: REPO_ROOT }, service) : { status: login.status, reason: login.reason };
+    status = login.status === 'ok' ? await statusAuthService({ repoRoot: REPO_ROOT, skipSharedImport: true }, service) : { status: login.status, reason: login.reason };
     if (status.status !== 'authenticated') {
       // 口座不一致・2FA・ID/PW 不通は自動で繰り返さない（アカウントロックと別口座の混入を避ける）
       const reason = status.status === 'human_required'
@@ -249,6 +222,7 @@ async function refresh(service) {
       return { ...result, status: status.status === 'authenticated' ? 'ok' : status.status, reason };
     }
   }
+  clearAuthFailure(service, authOptions);
   result.status = 'ok';
 
   return result;

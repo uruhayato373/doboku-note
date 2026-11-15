@@ -440,13 +440,32 @@ export function affiliateCatalog(): ProgramCatalogRow[] {
  * （2026-10-20 にローカルで巡回して面の実在を確かめた）。見本の無い有効な面は画面に「見本なし」と出る。
  * widths は、その幅でしか出ない面（カテゴリのサイドバー＝PC・モバイル＝スマホ）だけ絞る。
  */
-const PREVIEW_PAGES: Record<string, { path: string; widths?: PreviewWidth[] }> = {
+const PREVIEW_PAGES: Record<string, { path: string | null; widths?: PreviewWidth[] }> = {
+  'article-banner': { path: '/exam/civil-construction-1/textbook/concrete-materials' },
+  'article-banner-2': { path: '/exam/civil-construction-1/textbook/concrete-materials' },
+  'article-banner-3': { path: '/exam/civil-construction-1/textbook/concrete-materials' },
+  'article-rail': { path: '/exam/civil-construction-1/textbook/concrete-materials', widths: ['pc'] },
+  'article-rail-2': { path: '/exam/civil-construction-1/textbook/concrete-materials', widths: ['pc'] },
+  'article-rail-3': { path: '/exam/civil-construction-1/textbook/concrete-materials', widths: ['pc'] },
+  'article-rail-4': { path: '/exam/civil-construction-1/textbook/concrete-materials', widths: ['pc'] },
+  'article-rail-5': { path: '/exam/civil-construction-1/textbook/concrete-materials', widths: ['pc'] },
+  'article-banner-end': { path: '/exam/civil-construction-1/textbook/concrete-materials' },
+  // 現行の公開記事は実カード最大5枚。6枚目の実在見本ができるまで撮影済みと見せない。
+  'article-rail-6': { path: null, widths: ['pc'] },
   'article-inline': { path: '/exam/civil-construction-1/guide/allowance' },
   'article-mid': { path: '/exam/pe-comprehensive-management/keywords/360-degree-evaluation' },
   'article-end': { path: '/exam/civil-construction-2/primary/r03-kouki' },
   'category-sidebar': { path: '/exam/civil-construction-1', widths: ['pc'] },
   'category-mobile': { path: '/exam/civil-construction-1', widths: ['sp'] },
-  'standards-end': { path: '/standards/kinki/common/chapters/1-1' },
+  'standards-end': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1' },
+  'standards-inline': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1' },
+  'standards-inline-2': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1' },
+  'standards-inline-3': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1' },
+  'standards-rail': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1', widths: ['pc'] },
+  'standards-rail-2': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1', widths: ['pc'] },
+  'standards-rail-3': { path: '/standards/mlit/sekou-kanri-kijun/chapters/2-1', widths: ['pc'] },
+  'standards-list-rail-2': { path: '/standards', widths: ['pc'] },
+  'standards-list-rail': { path: '/standards', widths: ['pc'] },
   'standards-list-end': { path: '/standards' },
   'topic-end': { path: '/topics/concrete' },
   'laws-list-end': { path: '/laws' },

@@ -37,7 +37,7 @@ PC ごとに独立保持し、Windows と Mac の間でコピー・Git・OneDriv
 | `instagram` | `playwright-ig-bs-profile` | profile | `config/ig-account.json` | なし（同上） |
 | `google` | `playwright-google-profile` | profile | GSC/GA4 の対象プロパティ | gsc |
 | `a8` | `playwright-a8-profile` | profile-plus-state | メディア ID `a25050375786` | auth・a8 |
-| `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `config/affiliate-asp.json` | なし（doboku-note に広告が無い・DN-0643） |
+| `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `config/affiliate-asp.json` | auth・moshimo（2026-11-14〜） |
 | `afb` | `playwright-afb-profile` | same-process | ASP site guard | なし（同上） |
 
 A8 は揮発性 Cookie のため `states/playwright-a8-state.json` の再注入を併用する。afb は保存 state を
@@ -50,6 +50,13 @@ doboku-note への帰属はレポート単位で分ける。
 > 接続先に含まれない宛先の検索 0 件を「メールなし」と判定しない。
 
 ## 標準操作
+
+収集用のログインは `npm run auth:login -- --service <id>` で窓を開く。エージェントはアプリ内ブラウザ・Playwright MCP・普段の Chrome を代わりに開かず、入力は運営者に任せる。
+KDP は「ログインしたままにする」「このブラウザではコードを要求しない」に人が印を付ける。
+認証成功で失敗印と画面写真を解除する。2FA・CAPTCHA・口座不一致・ID/PW 不通はそれまで自動再試行しない。画面側の `error` だけ 7 日後に再試行する。
+`auth:status` も A8・もしもの新しい共用 state を取り込み、最後の確認結果を `metadata/<service>.last-status.json` に保存する。profile のサービスには state の古い Cookie を足さない。
+`npm run check-auth-freshness` はブラウザを開かず記録を点検する。更新日時はログインの有効性を保証せず、7 日以上前の認証確認は再確認を案内する。
+
 
 最初にパスとローカル状態を確認する。
 
@@ -193,7 +200,7 @@ Windows と Mac の双方で note の別プロセス再利用・worktree 非依�
 
 ## ログイン維持（`auth-session-refresh`・土曜の auth 段）
 
-`scripts/auth-session-refresh.mjs` が、A8・もしも・KDP・note・ココナラのログインを取り直す。毎日の launchd・Windows のタスクは 2026-10-24 に廃止し、土曜の `weekly-collect` の auth 段（`--service a8,kdp,note,coconala`）だけが呼ぶ。
+`scripts/auth-session-refresh.mjs` が、A8・もしも・KDP・note・ココナラのログインを取り直す。毎日の launchd・Windows のタスクは 2026-10-24 に廃止し、土曜の `weekly-collect` の auth 段（`--service a8,moshimo,kdp,note,coconala`）だけが呼ぶ。
 ID/PW の読み口は `scripts/lib/credential-store.mjs` だけ（Mac キーチェーン／Windows 資格情報マネージャー）。
 
 | 段 | 内容 |
@@ -203,7 +210,7 @@ ID/PW の読み口は `scripts/lib/credential-store.mjs` だけ（Mac キーチ�
 | 資格情報でログイン | 切れていれば 1 回だけ。項目は `doboku-note-auth-<service>`、A8・もしもは無ければ `stats47-measurement-<service>`。KDP・note・ココナラは doboku-note 専用の項目だけ（別口座の資格情報で入らない） |
 
 2FA・CAPTCHA・ID/PW 不通・口座不一致では突破せず、auth root の `metadata/<service>.autologin-failed` を残して通知する。印には送信後の場所とログイン画面に出た文言（メールアドレスは伏せる）を書き、画面の写しを `metadata/<service>.autologin-failed.png` に残す。不可視の reCAPTCHA（`size=invisible`・v3 の印）はログイン画面に常にあるので「人の確認」に数えない（2026-10-01: ココナラの送信がログイン画面へ戻されただけで human_required と判定し、拒否の理由を隠した）。
-人が `npm run auth:login -- --service <service>` で通し、印を消すまで自動では再試行しない。KDP は Amazon の再認証で止まりやすく、切れたら次の土曜を待たず人が入り直す。
+`auth:login` または `auth:status` が認証成功を確認すると印と画面写真を自動で消す。画面側の `error` だけは 7 日後に再試行し、それ以外は人のログインまで停止する。KDP が再び本人確認を求めた回は、運営者が正規のログイン窓で入り直す。
 ログインの記録は `.claude/state/weekly-collect/runs.json` の auth 段と、Mac `~/Library/Logs/doboku-note/weekly-review.log`に残る。
 
 KDP・note・ココナラは資格情報を登録したときだけ対象になる（未登録は `skipped`）。登録はオーナーが各 PC で 1 回（値は対話入力）:

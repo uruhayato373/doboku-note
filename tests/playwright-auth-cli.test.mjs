@@ -347,3 +347,72 @@ test('moshimo: 本文のお知らせ・メディア一覧ではなく選択中�
   assert.equal(classifyAuthSnapshot(adapter, { url, title: 'メディアオーナートップページ', text, accountText: '統計で見る都道府県' }).status, 'unknown');
   assert.equal(classifyAuthSnapshot(adapter, { url: 'https://af.moshimo.com/af/shop/login', text: '', accountText: '' }).status, 'expired');
 });
+
+test('profile は state を足さず、profile-plus-state は足す。認証成功だけ失敗印を消す', async () => {
+  const { statusAuthService } = await import('../scripts/playwright-auth.mjs');
+  for (const sessionMode of ['profile', 'profile-plus-state']) {
+    const f = makeFixture();
+    try {
+      const registryPath = join(f.repoRoot, '.claude/config/playwright-auth-profiles.json');
+      const registry = JSON.parse(readFileSync(registryPath, 'utf8'));
+      registry.services.note.stateFileName = 'note.json';
+      registry.services.note.sessionMode = sessionMode;
+      writeFileSync(registryPath, JSON.stringify(registry));
+      mkdirSync(join(f.overrideRoot, 'states'), { recursive: true });
+      mkdirSync(join(f.overrideRoot, 'profiles/playwright-note-profile'), { recursive: true });
+      mkdirSync(join(f.overrideRoot, 'metadata'), { recursive: true });
+      writeFileSync(join(f.overrideRoot, 'states/note.json'), JSON.stringify({ cookies: [{ name: 'fixture' }] }));
+      const mark = join(f.overrideRoot, 'metadata/note.autologin-failed');
+      const shot = `${mark}.png`;
+      let statusOk = false;
+      let added = 0;
+      let saved = 0;
+      const page = { goto: async () => {}, waitForTimeout: async () => {}, evaluate: async () => ({ url: statusOk ? 'https://note.com/settings/account' : 'https://note.com/login', text: statusOk ? 'dobokunote' : '' }) };
+      const browser = { pages: () => [page], close: async () => {}, addCookies: async () => { added++; }, storageState: async () => { saved++; } };
+      const ctx = { ...f, timeoutMs: 100, playwright: { chromium: { launchPersistentContext: async () => browser } } };
+      writeFileSync(mark, 'date human_required'); writeFileSync(shot, 'fixture');
+      assert.equal((await statusAuthService(ctx, 'note')).status, 'expired');
+      assert.equal(existsSync(mark), true);
+      assert.equal(added, sessionMode === 'profile' ? 0 : 1);
+      statusOk = true;
+      assert.equal((await loginAuthService(ctx, 'note')).status, 'authenticated');
+      assert.equal(saved, 1);
+      assert.equal(existsSync(mark), false); assert.equal(existsSync(shot), false);
+      const last = JSON.parse(readFileSync(join(f.overrideRoot, 'metadata/note.last-status.json'), 'utf8'));
+      assert.equal(last.status, 'authenticated'); assert.ok(Date.parse(last.checkedAt));
+      writeFileSync(mark, 'date error'); writeFileSync(shot, 'fixture');
+      assert.equal((await statusAuthService(ctx, 'note')).status, 'authenticated');
+      assert.equal(existsSync(mark), false); assert.equal(existsSync(shot), false);
+    } finally { rmSync(f.base, { recursive: true, force: true }); }
+  }
+});
+
+test('status も新しい共用 state を読み込み、古い共用 state で上書きしない', async () => {
+  const { statusAuthService } = await import('../scripts/playwright-auth.mjs');
+  const { utimesSync } = await import('node:fs');
+  const f = makeFixture();
+  try {
+    // 共用取り込みは fixture の state だけで確かめる。
+    const { importSharedState } = await import('../scripts/lib/auth-session-refresh.mjs');
+    const shared = join(f.base, 'shared'); mkdirSync(shared);
+    const options = { ...f, cwd: f.repoRoot, env: { DOBOKU_SHARED_ASP_SESSIONS: shared } };
+    writeFileSync(join(shared, 'a8-state.json'), JSON.stringify({ cookies: [{ name: 'new' }] }));
+    assert.equal(importSharedState('a8', options, { dryRun: true }).import, true);
+    assert.equal(existsSync(join(f.overrideRoot, 'states/playwright-a8-state.json')), false);
+    assert.equal(importSharedState('a8', options).import, true);
+    const local = join(f.overrideRoot, 'states/playwright-a8-state.json');
+    utimesSync(local, new Date('2030-01-01'), new Date('2030-01-01'));
+    assert.equal(importSharedState('a8', options).reason, 'local-newer');
+    // status 経路の取り込みは新しい shared が存在すれば profile を作ってブラウザへ渡す。
+    // a8 adapter が読む設定だけ fixture に供給する。
+    mkdirSync(join(f.repoRoot, 'config'), { recursive: true });
+    const { datasetPath } = await import('../scripts/lib/datasets.mjs');
+    const configPath = join(f.repoRoot, datasetPath('config.a8-report-automation'));
+    writeFileSync(configPath, JSON.stringify({ a8: { baseUrl: 'https://media-console.a8.net', homePath: '/home', mediaId: 'fixture' } }));
+    rmSync(f.overrideRoot, { recursive: true, force: true });
+    let cookies;
+    const page = { goto: async () => {}, evaluate: async () => ({ url: 'https://www.a8.net/login', text: '' }), waitForTimeout: async () => {} };
+    await statusAuthService({ ...f, env: options.env, playwright: { chromium: { launchPersistentContext: async () => ({ pages: () => [page], addCookies: async (c) => { cookies = c; }, close: async () => {} }) } } }, 'a8');
+    assert.deepEqual(cookies, [{ name: 'new' }]);
+  } finally { rmSync(f.base, { recursive: true, force: true }); }
+});

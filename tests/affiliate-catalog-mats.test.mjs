@@ -18,8 +18,11 @@ test('台帳の全素材を検査し、未登録だった横長素材も許可�
 });
 
 test('avoid・未提携素材を許可せず、note の許可をサイト素材に広げない', () => {
-  const entries = affiliateMatEntries(catalog, readDataset(REPO_ROOT, 'config.affiliate-mats').mats);
-  const forbidden = catalog.programs['rsg-kensetsu'].creatives.find(c => c.materialId === '025');
+  // 実データの avoid の有無に頼らず、複製した台帳の 1 件を avoid にして挙動を確かめる（2026-11-15 に根拠理由の avoid を全て外した）
+  const avoidedCatalog = structuredClone(catalog);
+  const forbidden = avoidedCatalog.programs['rsg-kensetsu'].creatives.find(c => c.materialId === '025');
+  forbidden.avoid = 'テスト用: 使わない素材';
+  const entries = affiliateMatEntries(avoidedCatalog, readDataset(REPO_ROOT, 'config.affiliate-mats').mats);
   assert.ok(!entries.some(e => forbidden.href.includes(e.mat)));
   assert.equal(entries.filter(e => e.surfaces.includes('note-article')).length, 1);
   const changed = structuredClone(catalog);
@@ -39,7 +42,7 @@ test('他サイトのバナーと別素材のピクセルを拒否する', () =>
 
 test('表示する既定バナー・テキストの URL は台帳の素材と一致する', async () => {
   const { PROGRAM_ASSETS } = await loadTsModule('src/config/affiliate-creatives.ts');
-  assert.equal(Object.keys(PROGRAM_ASSETS).length, 7);
+  assert.equal(Object.keys(PROGRAM_ASSETS).length, 10);
   for (const [program, asset] of Object.entries(PROGRAM_ASSETS)) {
     const c = catalog.programs[program].creatives.find(c => c.href === asset.banner.href);
     assert.ok(c, program);
@@ -52,8 +55,10 @@ test('表示する既定バナー・テキストの URL は台帳の素材と一
 });
 
 test('A8 の候補重複検査は取得済みの avoid 素材も読み、もしもを混ぜない', () => {
-  const ads = existingA8Ads(catalog, [{mat:'OLD+LINK+ID+HERE',label:'旧リンク'},{mat:'moshimo:1:2'}]);
-  const avoided = catalog.programs['rsg-kensetsu'].creatives.find(c=>c.asp==='a8'&&c.avoid);
+  const avoidedCatalog = structuredClone(catalog);
+  const avoided = avoidedCatalog.programs['rsg-kensetsu'].creatives.find(c=>c.asp==='a8'&&c.kind==='banner');
+  avoided.avoid = 'テスト用: 使わない素材';
+  const ads = existingA8Ads(avoidedCatalog, [{mat:'OLD+LINK+ID+HERE',label:'旧リンク'},{mat:'moshimo:1:2'}]);
   assert.ok(ads.some(a=>a.htmlContent===avoided.href));
   assert.ok(ads.some(a=>a.htmlContent==='a8mat=OLD+LINK+ID+HERE'));
   assert.ok(ads.every(a => a.htmlContent.startsWith('a8mat=') || new URL(a.htmlContent).hostname === 'px.a8.net'));

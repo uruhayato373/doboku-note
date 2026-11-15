@@ -1,6 +1,7 @@
 // 転職アフィリエイトの配置ルール（config/affiliate-placements.json）の解決を、固定の時刻で確かめる。
 // ルールを変えたら、ここの期待値も意図して変える（配置の変更がテストの差分として見える）。
 import { test } from 'node:test';
+import { URL } from 'node:url';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { loadTsModule } from './lib/load-ts.mjs';
@@ -85,6 +86,23 @@ test('基準書は 2026-11-12 に外し、11-13 から右の欄 3 枠（3 案件
   assert.deepEqual(programs(resolvePlacements({ pageKind: 'standards-list' }, after)), {
     'standards-list-sidebar': 'buildjob', 'standards-list-sidebar-2': 'dainishinsotsu-agent-neo', 'standards-list-sidebar-3': 'rsg-kensetsu', 'standards-list-end': 'dainishinsotsu-agent-neo',
   });
+});
+
+test('基準書は 11/15 0時から本文中 3 面・右欄 3 面・本文末。一覧の右欄は 2 面で出し分けなし', async () => {
+  const { resolvePlacements } = await load();
+  const after = Date.parse('2026-11-15T00:00:00+09:00');
+  const chapter = resolvePlacements({ pageKind: 'standards' }, after);
+  const list = resolvePlacements({ pageKind: 'standards-list' }, after);
+  assert.deepEqual(programs(chapter), {
+    'standards-inline': 'buildjob', 'standards-inline-2': 'constwork', 'standards-inline-3': 'rsg-kensetsu',
+    'standards-rail': 'buildjob', 'standards-rail-2': 'kensetsu-jobs', 'standards-rail-3': 'dainishinsotsu-agent-neo', 'standards-end': 'kensetsu-jobs',
+  });
+  assert.deepEqual(programs(list), { 'standards-list-end': 'dainishinsotsu-agent-neo', 'standards-list-rail': 'buildjob', 'standards-list-rail-2': 'dainishinsotsu-agent-neo' });
+  for (const p of [...Object.values(chapter), ...Object.values(list)]) {
+    assert.equal(p.alternate, undefined);
+    assert.notEqual(p.program, 'dx-consulting');
+  }
+  assert.equal(resolvePlacements({ pageKind: 'standards' }, after - 1)['standards-sidebar']?.program, 'buildjob');
 });
 
 test('法令は 2026-10-24 から解説の本文中間と一覧の末尾に BuildJob（PL-0042・PL-0043）、それより前は出さない', async () => {

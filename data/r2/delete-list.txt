@@ -7017,3 +7017,6 @@ test.png
 # 2026-10-20: DN-0775。1級テキスト 2 本が参照していた civil-practice の旧パス。図はリポジトリの各記事の img/ へ戻し、本番で新パスの配信と旧パスへの参照 0 件を確認してから削除
 posts/civil-practice/concrete-crack-causes/img/figure-crack-timeline.svg
 posts/civil-practice/rebar-splice-selection/img/figure-stagger-layout.svg
+
+# 2026-11-15: DN-1208。上下水道の CTA 画像の旧版。9cefdd109 で cta-written-body-v2.webp に差し替えてリポジトリから消した（git 履歴から戻せる）。同じファイル名を総監・2級土木が使うため check-r2-orphans が「参照あり」と誤って分けていた
+posts/pe-water-supply/_shared/img/cta-written-body-v1.webp

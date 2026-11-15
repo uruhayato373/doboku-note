@@ -95,8 +95,8 @@
     "kdp": {
       "profileDirName": "playwright-kdp-profile",
       "stateFileName": "playwright-kdp-state.json",
-      "loginUrl": "https://kdp.amazon.com",
-      "checkUrl": "https://kdp.amazon.com/bookshelf",
+      "loginUrl": "https://kdp.amazon.co.jp/ja_JP/bookshelf",
+      "checkUrl": "https://kdpreports.amazon.co.jp/dashboard",
       "accountConfigPath": null,
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
@@ -234,12 +234,12 @@
     "moshimo": {
       "profileDirName": "playwright-moshimo-profile",
       "stateFileName": "playwright-moshimo-state.json",
-      "loginUrl": "https://af.moshimo.com/af/login",
+      "loginUrl": "https://af.moshimo.com/af/shop/login",
       "checkUrl": "https://af.moshimo.com/af/",
       "accountConfigPath": "config/affiliate-asp.json",
       "sessionMode": "profile-plus-state",
       "interactiveLoginRequired": true,
-      "notes": "doboku-note はもしもの広告を置いていない（記事のリンク 0）ので取得を止めている（運営者判断・DN-0643）。広告を置くときは weekly-collect の affiliate 段に戻す。",
+      "notes": "2026-11-14 から土曜の収集（auth・moshimo）に参加。loginUrl は 2026-11-15 に資格情報なしの取得で login-form の account・password 欄を確認（/af/login は 404）。",
       "collectors": [
         "scripts/affiliate-status.mjs",
         "scripts/auth-session-refresh.mjs"

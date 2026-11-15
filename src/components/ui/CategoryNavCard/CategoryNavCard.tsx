@@ -1,14 +1,13 @@
+import { categoryNavPlan } from '@/lib/category-nav-plan';
 /**
  * カテゴリナビカード
  * PE・Civil 両カテゴリのグループナビゲーションを
  * ページの分類に応じて右サイドバーまたは記事末尾に表示する。
  */
 import Link from 'next/link';
-import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 import { DiscoveryNav } from '@/components/ui/SidebarDiscovery';
 import type { DocMeta } from '@/lib/docs';
-import { classifyDoc, type DocGroupKey } from '@/lib/doc-classifier';
-import { resolveCurriculum } from '@/lib/category-curriculum';
+import { type DocGroupKey } from '@/lib/doc-classifier';
 import { resolveNavTitle } from '@/lib/doc-title';
 import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
 import peChaptersData from '@/config/pe-chapters.json';
@@ -16,7 +15,6 @@ import type { PeChapter } from '@/config/pe-chapters';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import { peKeywordPageExists } from '@/lib/pe-keyword-nav';
 import { getPublicDocPath } from '@/lib/content-routes';
-import { isCivilConstructionCategory } from '@/lib/qualification-names';
 
 const peChapters = peChaptersData.chapters as PeChapter[];
 
@@ -127,7 +125,7 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
         <p className="text-xs text-(--ink-muted) mb-2">
           {section.id} {section.title}
         </p>
-        <ul className="max-h-[280px] overflow-y-auto toc-scroll">
+        <ul>
           {keywords.map(kw => (
             <li key={kw.slug} className="border-b border-(--rule-soft) last:border-b-0">
               {kw.slug === currentSuffix ? (
@@ -296,78 +294,14 @@ function LinkListCard({
 }
 
 /* ━━━ メインコンポーネント ━━━ */
-export default function CategoryNavCard({ variant, category, currentSlug, docGroup, categoryArticles }: CategoryNavCardProps) {
-  if (DISCOVERY_CATEGORIES.includes(category)) return <DiscoveryNav category={category} currentSlug={currentSlug} docs={categoryArticles} />;
-  if (category === 'pe-comprehensive-management') {
-    const currentDoc = categoryArticles.find((m) => m.slug === currentSlug);
-    const currentSection = currentDoc?.section as string | undefined;
-
-    switch (docGroup) {
-      case 'guide': {
-        const guides = categoryArticles
-          .filter((m) => classifyDoc(m) === 'guide')
-          .sort((a, b) => (a.guide_order ?? 999) - (b.guide_order ?? 999));
-        return <LinkListCard variant={variant} title="試験概要" currentSlug={currentSlug} docs={guides} />;
-      }
-      case 'pillar': {
-        const pillars = categoryArticles
-          .filter((m) => classifyDoc(m) === 'pillar')
-          .sort((a, b) => parseFloat(a.section ?? '99') - parseFloat(b.section ?? '99'));
-        return (
-          <>
-            <LinkListCard variant={variant} title="5 管理学習ガイド" currentSlug={currentSlug} docs={pillars} />
-            <div className={variant === 'sidebar' ? 'mt-3' : 'mt-6'}>
-              <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />
-            </div>
-          </>
-        );
-      }
-      case 'pastExam':
-        return <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />;
-      case 'keyword':
-        return <SectionCard variant={variant} currentSlug={currentSlug} currentSection={currentSection} />;
-      default:
-        return null;
-    }
-  }
-
-  if (isCivilConstructionCategory(category)) {
-    switch (docGroup) {
-      case 'guide': {
-        // 学習系ガイドのみを curriculum の意図順で出す。
-        // classifyDoc は career 記事も 'guide' を返すため、素で filter すると転職記事が混入する
-        // （2026-07-28 実測: civil-1 は 49 件中 26 件が転職系・並びは slug のアルファベット順）。
-        // カテゴリページと同じ resolveCurriculum に寄せることで career 除外と表示順が構造的に入る。
-        // 転職導線はサイドバーのアフィリ枠とカテゴリページの CareerSection が担当（ここには出さない）。
-        const guideDocs = categoryArticles.filter((m) => classifyDoc(m) === 'guide');
-        const curriculum = resolveCurriculum(category, guideDocs);
-        const guides = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
-        return (
-          <LinkListCard
-            variant={variant}
-            title="試験ガイド"
-            currentSlug={currentSlug}
-            docs={guides}
-            navList="exam-guide"
-          />
-        );
-      }
-      case 'primary':
-        return <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />;
-      case 'secondary': {
-        const secondaryDocs = categoryArticles.filter((m) => classifyDoc(m) === 'secondary');
-        return <LinkListCard variant={variant} title="第2次検定" currentSlug={currentSlug} docs={secondaryDocs} />;
-      }
-      case 'textbook': {
-        const textbooks = categoryArticles
-          .filter((m) => classifyDoc(m) === 'textbook')
-          .sort((a, b) => (a.textbook_order ?? 999) - (b.textbook_order ?? 999));
-        return <LinkListCard variant={variant} title="テキスト" currentSlug={currentSlug} docs={textbooks} />;
-      }
-      default:
-        return null;
-    }
-  }
-
-  return null;
+export function categoryNavCards(props: CategoryNavCardProps) {
+ return categoryNavPlan(props).map(spec => {
+  if (spec.kind === 'discovery') return <DiscoveryNav category={props.category} currentSlug={props.currentSlug} docs={props.categoryArticles} />;
+  if (spec.kind === 'pastExam') return <PastExamCard {...props} />;
+  if (spec.kind === 'section') return <SectionCard variant={props.variant} currentSlug={props.currentSlug} currentSection={spec.currentSection} />;
+  return <LinkListCard variant={props.variant} currentSlug={props.currentSlug} title={spec.title} docs={spec.docs} {...(spec.navList ? { navList: spec.navList } : {})} />;
+ });
+}
+export default function CategoryNavCard(props: CategoryNavCardProps) {
+ return <>{categoryNavCards(props).map((card, index) => <div key={index} className={index ? (props.variant === 'sidebar' ? 'mt-3' : 'mt-6') : undefined}>{card}</div>)}</>;
 }

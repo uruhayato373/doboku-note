@@ -19,11 +19,12 @@
  * exit 0 = 全件 OK / 1 = 検査不成立（接続不能・対象 0 件・撮影失敗が MAX_FETCH_FAIL_RATE 超・1 枚も撮れない）/ 2 = 判定 NG あり
  * ---------------------------------------------------------------------------
  */
+/* global URL, window, document, getComputedStyle, setTimeout, console, process */
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
-import matter from 'gray-matter';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
@@ -35,6 +36,7 @@ import { VIEWPORTS, docShowsCareerAd, expectedSlots, judgeShot, selectTargets } 
 import { AFFILIATE_VARIANTS, AFFILIATE_VARIANT_KEY, AFFILIATE_EXPERIMENT_ID } from '../src/lib/affiliate-experiment.mjs';
 
 const flags = parseCliArgs({
+  help: { type: 'boolean' },
   base: { type: 'string', default: 'http://localhost:3025' },
   variants: { type: 'string', default: AFFILIATE_VARIANTS.join(',') },
   widths: { type: 'string', default: VIEWPORTS.map((v) => v.id).join(',') },
@@ -138,10 +140,15 @@ async function settle(page) {
 }
 
 async function main() {
+  if (flags.help) {
+    console.log('Usage: node scripts/affiliate-layout-shots.mjs [--base URL] [--only standards|category|…] [--widths sp,tablet,pc] [--variants B,C] [--limit N] [--max-height N]');
+    return 0;
+  }
   const startedAt = new Date();
   const placements = readDataset(REPO_ROOT, 'config.affiliate-placements');
   const rules = placements.rules;
   const pairs = placements.pairs ?? [];
+  const splits = placements.splits ?? [];
   const categories = JSON.parse(readFileSync(join(REPO_ROOT, 'src/config/categories.json'), 'utf8'));
 
   let sitemapPaths;
@@ -159,6 +166,14 @@ async function main() {
     console.error(`[affiliate-shots] 撮る対象が 0 件（検査不成立）: 対象ページ ${targets.length} × 幅 ${WIDTHS.length} × 案 ${VARIANTS.length}`);
     return 1;
   }
+
+  const articlePlans = JSON.parse(execFileSync(process.execPath, ['--conditions', 'react-server', '--import', 'tsx', '--input-type=module', '-e', `
+    import { readFileSync } from 'node:fs';
+    import { articleLayoutPlans } from '${pathToFileURL(join(REPO_ROOT, 'scripts/lib/article-layout-plan.ts')).href}';
+    const input = JSON.parse(readFileSync(0, 'utf8'));
+    process.stdout.write(JSON.stringify(await articleLayoutPlans(input.paths, input.now)));
+  `], { cwd: REPO_ROOT, input: JSON.stringify({ paths: targets.filter(t => t.pageKind === 'doc').map(t => t.path), now: startedAt.getTime() }), encoding: 'utf8' }));
+  targets = targets.map(t => ({ ...t, articleSlots: articlePlans[t.path] }));
 
   const ts = startedAt.toISOString().replace(/\.\d+Z$/, 'Z').replace(/:/g, '-');
   const outDir = join(REPO_ROOT, datasetDir('affiliate.layout-shots'), ts);
@@ -191,10 +206,10 @@ async function main() {
             await settle(page);
             const measured = await page.evaluate(measureInPage);
             const html = await page.content();
-            const pageInfo = { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc };
+            const pageInfo = { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc, path: t.path, articleSlots: t.articleSlots };
             const verdict = judgeShot(
               { viewport: { width: vp.width, height: vp.height }, scrollWidth: measured.scrollWidth, html, ads: measured.ads },
-              { rules, pairs, page: pageInfo, nowMs, forcedVariant: variant, expectedCount: Object.keys(expectedSlots(rules, pageInfo, nowMs)).length },
+              { rules, pairs, splits, page: pageInfo, nowMs, forcedVariant: variant, expectedCount: Object.keys(expectedSlots(rules, pageInfo, nowMs)).length },
             );
             await page.evaluate(drawOverlay, { ads: verdict.ads, notes: measured.notes });
             const file = `${t.id}__${vp.id}__${variant}.png`;
@@ -212,7 +227,7 @@ async function main() {
               crops.push({ file: cropFile, adTop: Math.round(a.rect.top), y, height: h, placement: a.placement });
             }
             shots.push({
-              crops: crops.map(({ adTop, ...c }) => c),
+              crops: crops.map((c) => ({ file: c.file, y: c.y, height: c.height, placement: c.placement })),
               ...base, status: verdict.ok ? 'ok' : 'ng', file, pageHeight: measured.height, truncated: measured.height > MAX_HEIGHT,
               checks: verdict.checks, warnings: verdict.warnings, pixelCounts: verdict.pixelCounts,
               ads: verdict.ads.map((a) => ({ placement: a.placement, program: a.program, variant: a.variant, label: a.label, ruleId: a.ruleId, ruleStatus: a.ruleStatus, top: Math.round(a.rect.top), left: Math.round(a.rect.left), right: Math.round(a.rect.right), problems: a.problems })),
@@ -243,7 +258,7 @@ async function main() {
     viewports: WIDTHS.map(({ id, label, width, height }) => ({ id, label, width, height })),
     maxHeight: MAX_HEIGHT,
     counts: { targets: targets.length, planned, captured, failed, ng, warn: shots.filter((s) => s.warnings?.length).length },
-    targets: targets.map((t) => ({ ...t, expected: expectedSlots(rules, { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc }, nowMs) })),
+    targets: targets.map((t) => ({ ...t, expected: expectedSlots(rules, { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc, path: t.path, articleSlots: t.articleSlots }, nowMs) })),
     shots,
   };
   writeFileSync(join(outDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);

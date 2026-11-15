@@ -12,8 +12,9 @@
  */
 export const OGP_THUMB_WIDTHS = [248, 336, 640];
 
-export function classifyPublicKeys({ keys, manifestPublicKeys, trackedSitePaths, pendingDeleteKeys, referencedBasenames }) {
+export function classifyPublicKeys({ keys, manifestPublicKeys, trackedSitePaths, pendingDeleteKeys, referencedBasenames, standardsDataKeys = [] }) {
   const manifest = new Set(manifestPublicKeys);
+  const standards = new Set(standardsDataKeys);
   const thumbs = new Set(
     [...manifest].filter((k) => k.endsWith('/ogp.png'))
       .flatMap((k) => OGP_THUMB_WIDTHS.map((w) => k.replace(/ogp\.png$/, `ogp-thumb-${w}.webp`))),
@@ -24,7 +25,7 @@ export function classifyPublicKeys({ keys, manifestPublicKeys, trackedSitePaths,
   const out = { kept: 0, pending: [], orphans: [], referencedOrphans: [] };
   for (const key of keys) {
     const rel = key.startsWith('posts/') ? key.slice('posts/'.length) : null;
-    const keep = manifest.has(key) || thumbs.has(key)
+    const keep = standards.has(key) || manifest.has(key) || thumbs.has(key)
       || (rel !== null && !key.endsWith('.mdx') && tracked.has(`content/site/${rel}`));
     if (keep) { out.kept++; continue; }
     if (pending.has(key)) { out.pending.push(key); continue; }

@@ -293,11 +293,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=260529673996&wid=002&eno=01&mid=s00000023057002003000&mc=1",
           "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
-          "avoid": "「顧客満足度96.5%（当社調べ）」の表示に調査期間・対象数がなく、根拠を確認できない。小型カードの文章で案内する",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「顧客満足度96.5%（当社調べ）」の表示に調査期間・対象数がなく、根拠を確認できない。小型カードの文章で案内する",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 「顧客満足度96.5%（当社調べ）」の表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定（2026-11-14 avoid）は調査期間・対象数の記載が無いことを理由にしていた",
             "sha256": "a4797cd52ecd5c49b15c3a82e40ccb618d7b5d082d8a96884920ffd2b1fcd9ad",
             "framesChecked": 1
           }
@@ -641,7 +640,7 @@
       "label": "RSG建設転職（建設業界専門の転職支援）",
       "vertical": "civil-career",
       "placement": "active",
-      "decision": "**afb で提携済み・A8 では未提携**。A8 側は ¥2,930 / EPC 0 で scout の閾値（0.35）未満だった。afb 側の単価・確定率は未取得。配置するかは afb 側の条件を確認してから。 2026-11-13: 基準書の右の欄（章・節は 2 枠目、章以外は 3 枠目）に 300×250 で配置（運営者指示「基準書は建設系と第二新卒」）。",
+      "decision": "A8・afb 提携済み。2026-11-15 運営者承認 DN-1215 で建設系記事の画像面にも配置。avoid 素材は使用しない。",
       "asps": {
         "a8": {
           "programId": "s00000021947001",
@@ -725,11 +724,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+5ZMCH",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001006000&mc=1",
           "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+5ZMCH",
-          "avoid": "「No.1」表示（転職サポート充実度・コンサルタント信頼度）。根拠の調査が古い",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」表示（転職サポート充実度・コンサルタント信頼度）。根拠の調査が古い",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」表示（転職サポート充実度・コンサルタント信頼度）。根拠の調査が古い",
             "sha256": "1da0f05ec338b12f08ebfd5abee61061114cfab4d8bfd4a55e46753ffbfaffc1",
             "framesChecked": 5
           }
@@ -866,11 +864,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+62ENL",
           "imageSrc": "https://www23.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001019000&mc=1",
           "pixelSrc": "https://www16.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+62ENL",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "741dbbd8f7c727b087e9fc85435a0d1ebc355127f611024e7fa5bc1a4fff7922",
             "framesChecked": 1
           }
@@ -884,11 +881,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+63H8H",
           "imageSrc": "https://www20.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001024000&mc=1",
           "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+63H8H",
-          "avoid": "「転職サポート充実度・コンサルタント信頼度 No.1」の表示。最新の調査根拠を確認できない",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「転職サポート充実度・コンサルタント信頼度 No.1」の表示。最新の調査根拠を確認できない",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「転職サポート充実度・コンサルタント信頼度 No.1」の表示。最新の調査根拠を確認できない",
             "sha256": "dbbf24e965583cd128c11b5d772bd5713e10121d858c4189b76e67daf49be999",
             "framesChecked": 1
           }
@@ -902,11 +898,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+63OY9",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001025000&mc=1",
           "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+63OY9",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "0d778f273515a2924a559d3a9e36582c5a3708081cc433bf3a9142a56379eb63",
             "framesChecked": 1
           }
@@ -920,11 +915,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+63WO1",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001026000&mc=1",
           "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+63WO1",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "de0868dd0e81098b93259cc2c7f650166224d7c7ff4a3e369c38d9fc4b8b0706",
             "framesChecked": 1
           }
@@ -938,11 +932,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+644DT",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001027000&mc=1",
           "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+644DT",
-          "avoid": "「転職サポート充実度・コンサルタント信頼度 No.1」の表示。最新の調査根拠を確認できない",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「転職サポート充実度・コンサルタント信頼度 No.1」の表示。最新の調査根拠を確認できない",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「転職サポート充実度・コンサルタント信頼度 No.1」の表示。最新の調査根拠を確認できない",
             "sha256": "b5fc6eddde4e68c88051f8ca10ee74ae73a8efb99b34c3e9db05e8e9031e44a1",
             "framesChecked": 1
           }
@@ -973,11 +966,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+64JTD",
           "imageSrc": "https://www22.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001029000&mc=1",
           "pixelSrc": "https://www14.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64JTD",
-          "avoid": "「第1位・No.1」表示（2021年 JMR 調査）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「第1位・No.1」表示（2021年 JMR 調査）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「第1位・No.1」表示（2021年 JMR 調査）",
             "sha256": "8876332a9c9d1829d3465f3b0ac6440378dd5da5001b123d7411ddee57625ef6",
             "framesChecked": 1
           }
@@ -991,11 +983,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+64RJ5",
           "imageSrc": "https://www20.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001030000&mc=1",
           "pixelSrc": "https://www15.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+64RJ5",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "837f90da02449a7d1f2aac5947f7b6310ee4c8411ecb2d602aa8aee72b6f7ec6",
             "framesChecked": 1
           }
@@ -1026,11 +1017,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+656YP",
           "imageSrc": "https://www27.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001032000&mc=1",
           "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+656YP",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "74e796537a27fba6e7b43f37aa091f346f6f579ea5ae9ccb59bacfe967c94894",
             "framesChecked": 1
           }
@@ -1061,11 +1051,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+65ME9",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001034000&mc=1",
           "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+65ME9",
-          "avoid": "「No.1」表示。根拠の調査が古い",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」表示。根拠の調査が古い",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」表示。根拠の調査が古い",
             "sha256": "7ff2c0d33a6b32fa32a83804e2220f92cbf0eac66971b463aa28ce31a1ddbf31",
             "framesChecked": 1
           }
@@ -1096,11 +1085,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+661TT",
           "imageSrc": "https://www22.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001036000&mc=1",
           "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+661TT",
-          "avoid": "「No.1」「第1位」表示（2021 年の調査）。根拠の調査が古い",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示（2021 年の調査）。根拠の調査が古い",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示（2021 年の調査）。根拠の調査が古い",
             "sha256": "6c353cd0aedd5b3af0f2fb84816d2e72683d8dd5e65f03076d3113a334bd6fae",
             "framesChecked": 1
           }
@@ -1114,11 +1102,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+669JL",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001037000&mc=1",
           "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+669JL",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "92667fc6c28e77f00063f59329ad5ecec70bea700dccc583ec84211a5b04dc17",
             "framesChecked": 1
           }
@@ -1132,11 +1119,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+66H9D",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001038000&mc=1",
           "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+66H9D",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "92f55b4ce148ba5f5dbf90e251c7ae583fc0ebc6ec39e541d78d461ee803cca4",
             "framesChecked": 1
           }
@@ -1167,11 +1153,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+66WOX",
           "imageSrc": "https://www22.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001040000&mc=1",
           "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+66WOX",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "d1deeba939f6e04cbf2cb8d5880c06036b0a9b53e6db7a6e5b1d834e6f24207e",
             "framesChecked": 1
           }
@@ -1219,11 +1204,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+67JU9",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001043000&mc=1",
           "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67JU9",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "fe03b5dac38b0b930ac67ab506be0d6ee9717a3986cdaa76e6192e64fcdbfaef",
             "framesChecked": 1
           }
@@ -1237,11 +1221,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+67RK1",
           "imageSrc": "https://www27.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001044000&mc=1",
           "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+67RK1",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "68b1f26e77e1a1cf0386dc354b84c077bdb0060bc68eb2ac27bd44240d8b5506",
             "framesChecked": 1
           }
@@ -1272,11 +1255,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+686ZL",
           "imageSrc": "https://www21.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001046000&mc=1",
           "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+686ZL",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "8954112633d14a275d4f1b9a6f78897b2cb817c059fa88ff6b3bc1a447a91754",
             "framesChecked": 1
           }
@@ -1307,11 +1289,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+68MF5",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001048000&mc=1",
           "pixelSrc": "https://www11.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+68MF5",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "87439e421fc893595cb8f931605428d9cf8a707e5db6c5554fdd3ecbf7c232f2",
             "framesChecked": 1
           }
@@ -1342,11 +1323,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4BEPQ0+BRB8NU+4PCE+691UP",
           "imageSrc": "https://www29.a8.net/svt/bgt?aid=261027000711&wid=002&eno=01&mid=s00000021947001050000&mc=1",
           "pixelSrc": "https://www17.a8.net/0.gif?a8mat=4BEPQ0+BRB8NU+4PCE+691UP",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "5d0cefdd51ead531854f903c9d5e89a8079016385ecbeb8b8f0fee8c94f589d1",
             "framesChecked": 1
           }
@@ -1522,11 +1502,10 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57936",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057936.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57936",
-          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
             "sha256": "10cb0406ecb339edfe1bbc63ad21d63d5f792e2b6dd93b54baec48fb0f8981f8",
             "framesChecked": 1
           }
@@ -1540,11 +1519,10 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57937",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057937.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57937",
-          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
             "sha256": "dbc16848ecd2a483b4899566595e303184f8e834efb8e96c301075adb1b966bf",
             "framesChecked": 1
           }
@@ -1558,11 +1536,10 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57938",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057938.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57938",
-          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
             "sha256": "7e99d894ebd2cc2f87ca51407ae805fc534e29e53038b57bf4452a3a00687848",
             "framesChecked": 1
           }
@@ -1657,11 +1634,10 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57822",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057822.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57822",
-          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
             "sha256": "88b53b15183af45c209692032bf5509af21a873ac1ace2a65180ffcfec15e102",
             "framesChecked": 1
           }
@@ -1675,11 +1651,10 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57821",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057821.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57821",
-          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
             "sha256": "9ab1273d7f524fadcb5e0133590546fba996f8f1211258642212209de2f1977e",
             "framesChecked": 1
           }
@@ -1693,11 +1668,10 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57819",
           "imageSrc": "https://image.moshimo.com/af-img/3713/000000057819.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57819",
-          "avoid": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」表示（2022年の調査を根拠とする素材）。順位表示のない素材を使う",
             "sha256": "75e68639fe48f9904b4d0d2fae5c5e4e8dc93cc9b6175e1bfe5e13b08b306f7d",
             "framesChecked": 1
           }
@@ -1842,8 +1816,8 @@
     "myvision-agent": {
       "label": "MyVisionエージェント（ハイクラス転職エージェント）",
       "vertical": "pe-career",
-      "placement": "none",
-      "decision": "ハイクラス向け。ビルドジョブと同じ運営会社。",
+      "placement": "active",
+      "decision": "2026-11-15 運営者承認 DN-1215。総監・RCCM の記事の右欄。本文末にも配置。",
       "asps": {
         "a8": {
           "status": "unknown"
@@ -1879,11 +1853,10 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97091",
           "imageSrc": "https://image.moshimo.com/af-img/5666/000000097091.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97091",
-          "avoid": "Google口コミ4.8・平均年収UP額119万円の表示。2025年時点の注記で、現在の根拠を未照合",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "Google口コミ4.8・平均年収UP額119万円の表示。2025年時点の注記で、現在の根拠を未照合",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: Google口コミ4.8・平均年収UP額119万円の表示。2025年時点の注記で、現在の根拠を未照合",
             "sha256": "1ea79fa139009a09ab52fb9533a47eafe04bc65d6c16b541f152efb00851243e",
             "framesChecked": 1
           }
@@ -1897,11 +1870,10 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97092",
           "imageSrc": "https://image.moshimo.com/af-img/5666/000000097092.png",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97092",
-          "avoid": "Google口コミ4.8・平均年収UP額119万円の表示。2025年時点の注記で、現在の根拠を未照合",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "Google口コミ4.8・平均年収UP額119万円の表示。2025年時点の注記で、現在の根拠を未照合",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: Google口コミ4.8・平均年収UP額119万円の表示。2025年時点の注記で、現在の根拠を未照合",
             "sha256": "8f971c972d3d4a9954d2271494eb65d8d3941f1b21bb1d08a74810a41f3e5f19",
             "framesChecked": 1
           }
@@ -1923,6 +1895,11 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97049",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97049"
         }
+      ],
+      "ctaLabels": [
+        "MyVisionAgent-sidebar",
+        "MyVisionエージェント",
+        "MyVisionAgent-endbanner"
       ]
     },
     "axis-agent": {
@@ -2108,8 +2085,8 @@
     "newma": {
       "label": "NewMA（DX・戦略・AI コンサル転職支援）",
       "vertical": "pe-career",
-      "placement": "none",
-      "decision": "2026-11-13 提携済みを確認して台帳に追加。技術士・総監のハイクラス層の候補。配置は未定。",
+      "placement": "active",
+      "decision": "2026-11-15 運営者承認 DN-1215。総監・RCCM の記事の右欄。",
       "asps": {
         "a8": {
           "status": "unknown"
@@ -2150,6 +2127,11 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93907",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93907"
         }
+      ],
+      "ctaLabels": [
+        "NewMA-sidebar",
+        "NewMA",
+        "NewMA-endbanner"
       ]
     },
     "type-agent": {
@@ -2195,8 +2177,8 @@
     "samurai-job": {
       "label": "Samurai Job（外資・グローバルのハイクラス転職）",
       "vertical": "pe-career",
-      "placement": "none",
-      "decision": "2026-11-13 提携済みを確認して台帳に追加。外資・英語寄りで読者との適合は未確認。",
+      "placement": "active",
+      "decision": "2026-11-15 運営者承認 DN-1215。総監・RCCM の記事の右欄。",
       "asps": {
         "a8": {
           "status": "unknown"
@@ -2274,6 +2256,11 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29601",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29601"
         }
+      ],
+      "ctaLabels": [
+        "SamuraiJob-sidebar",
+        "Samurai Job",
+        "SamuraiJob-endbanner"
       ]
     },
     "assign-agent": {
@@ -2658,11 +2645,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+601S1",
           "imageSrc": "https://www25.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001008000&mc=1",
           "pixelSrc": "https://www10.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+601S1",
-          "avoid": "「20代の支持率No.1」表示。根拠の調査が古い",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「20代の支持率No.1」表示。根拠の調査が古い",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「20代の支持率No.1」表示。根拠の調査が古い",
             "sha256": "66deb140752d3d9c121bc5479a110b197648c9e4530842cb889cca6ac6bbbc11",
             "framesChecked": 1
           }
@@ -2755,11 +2741,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+661TT",
           "imageSrc": "https://www20.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001036000&mc=1",
           "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+661TT",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "22faa0625828f78a2d65e27b32ef21de0f004aa5ad28f46f008475cfdc7ebb55",
             "framesChecked": 1
           }
@@ -2773,11 +2758,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+669JL",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001037000&mc=1",
           "pixelSrc": "https://www18.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+669JL",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "cf88e76229662344063bac4e22a6450a0bad2c935111410dc241b463c521ea74",
             "framesChecked": 1
           }
@@ -2808,11 +2792,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+66OZ5",
           "imageSrc": "https://www25.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001039000&mc=1",
           "pixelSrc": "https://www12.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66OZ5",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "df7c5e3b1a96a9492eddd610a35f98c57a5c46c9d2646dc40e2836fea6903401",
             "framesChecked": 1
           }
@@ -2826,11 +2809,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4AZCG4+8FN42I+3Y6M+66WOX",
           "imageSrc": "https://www25.a8.net/svt/bgt?aid=260309956510&wid=002&eno=01&mid=s00000018427001040000&mc=1",
           "pixelSrc": "https://www19.a8.net/0.gif?a8mat=4AZCG4+8FN42I+3Y6M+66WOX",
-          "avoid": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 順位・満足度などの表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定: 「No.1」「第1位」表示。根拠の調査が古い（2026-11-13 に画像を見て確認）",
             "sha256": "c66e5985ec85ca4dbe316000e9440ff5acb897823fd86928eddb73cbefd62ca0",
             "framesChecked": 1
           }

@@ -16,7 +16,7 @@ import { listFiles } from './lib/fs-walk.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { impressionKeyCounts } from './lib/affiliate-link-keys.mjs';
 
-import { PAGE_ALLOWLIST, SURFACE_ALLOWLIST } from '../src/lib/cta-density-policy.mjs';
+import { PAGE_ALLOWLIST, SURFACE_ALLOWLIST, ARTICLE_AFFILIATE_LIMITS, articleImageKind } from '../src/lib/cta-density-policy.mjs';
 export { PAGE_ALLOWLIST, SURFACE_ALLOWLIST };
 
 const attr = (node, key) => node.getAttribute(key) ?? '';
@@ -141,7 +141,7 @@ export function inspectHtml(html, slug) {
       if (count) exclusions.push({ slug, placement, count, reason });
     }
     const sponsored = page.querySelectorAll('[rel]').filter(n => !exemptSurface(n)).filter(n => attr(n, 'rel').split(/\s+/).includes('sponsored'));
-    const forbidden = sponsored.filter(n => !within(n, article) ||
+    const forbidden = sponsored.filter(n => !articleImageKind(attr(n, 'data-cta-placement')) || attr(n, 'data-cta') !== 'affiliate').filter(n => !within(n, article) ||
       /(?:^|-)(?:end|footer|sidebar)(?:-|$)/.test(attr(n, 'data-cta-placement')) ||
       ancestor(n, p => p.tagName === 'ASIDE' || p.tagName === 'FOOTER'));
     if (forbidden.length) add('affiliate-forbidden-surface', forbidden.length, 0, [], ['affiliate'], {
@@ -157,13 +157,61 @@ export function inspectHtml(html, slug) {
       return n;
     };
     const slotsByViewport = Object.fromEntries([['mobile', false], ['desktop', true]].map(([key, desktop]) =>
-      [key, new Set(affiliates.filter(n => visibleAt(n, desktop)).map(slotOf)).size]));
-    const slotCount = Math.max(...Object.values(slotsByViewport));
-    if (slotCount > 1) add('affiliate-slots', slotCount, 1, [], ['affiliate'], {
-      slotsByViewport,
-      links: affiliates.map(n => ({ href: attr(n, 'href'), placement: attr(n, 'data-cta-placement') })),
-    });
+      [key, new Set(affiliates.filter(n => visibleAt(n, desktop) && !articleImageKind(attr(n, 'data-cta-placement'))).map(slotOf)).size]));
+    const nativeMax = Math.max(...Object.values(slotsByViewport));
+    if (nativeMax > ARTICLE_AFFILIATE_LIMITS.native) add('affiliate-slots', nativeMax, ARTICLE_AFFILIATE_LIMITS.native, [], ['affiliate'], { slotsByViewport });
+    for (const [viewport, desktop] of [['mobile', false], ['desktop', true]]) {
+      const visible = affiliates.filter(n => visibleAt(n, desktop));
+      const native = visible.filter(n => !articleImageKind(attr(n, 'data-cta-placement')));
+      const nativeCount = new Set(native.map(slotOf)).size;
+      const imageLinks = visible.filter(n => articleImageKind(attr(n, 'data-cta-placement')));
+      for (const kind of ['inline', 'rail', 'end']) {
+        const links = imageLinks.filter(n => articleImageKind(attr(n, 'data-cta-placement')) === kind);
+        const limit = kind === 'rail' && !desktop ? 0 : ARTICLE_AFFILIATE_LIMITS[kind];
+        if (links.length > limit) add(`affiliate-image-${kind}`, links.length, limit, [], ['affiliate'], { viewport });
+        for (const n of links) {
+          const wrapper = ancestor(n, p => attr(p, 'data-article-affiliate') === kind);
+          const aside = ancestor(n, p => p.tagName === 'ASIDE');
+          const valid = wrapper && (kind === 'inline' ? within(n, prose) && !ancestor(n, p => p.tagName === 'DETAILS') : kind === 'rail' ? Boolean(aside) : !within(n, article) && !aside);
+          if (!valid) add('affiliate-image-position', 1, 0, [], ['affiliate'], { viewport, placement: attr(n, 'data-cta-placement') });
+        }
+      }
+      const slots = imageLinks.map(n => attr(n, 'data-cta-placement'));
+      if (new Set(slots).size !== slots.length) add('affiliate-image-duplicate', slots.length - new Set(slots).size, 0, [], ['affiliate'], { viewport });
+      const total = nativeCount + imageLinks.length;
+      if (total > ARTICLE_AFFILIATE_LIMITS[viewport]) add('affiliate-total', total, ARTICLE_AFFILIATE_LIMITS[viewport], [], ['affiliate'], { viewport });
+      // 各カードの直前に 1 枠。空のカードや同じ場所への連続挿入を通さない。
+      const rail = page.querySelector('[data-article-sidebar-cards]');
+      if (desktop && rail) {
+        const cards = rail.querySelectorAll('[data-article-sidebar-card]');
+        const banners = rail.querySelectorAll('[data-article-affiliate="rail"]');
+        // 右の欄の枠はカード数（上限 rail）まで。案件が尽きたら止める規則（同じ案件を 2 回出さない）なので、少ないのは正しい
+        const expected = Math.min(cards.length, ARTICLE_AFFILIATE_LIMITS.rail);
+        if (banners.length > expected) add('affiliate-rail-cards', banners.length, expected, [], ['affiliate']);
+        const railTargets = banners.map(b => attr(b.querySelector('a[data-cta="affiliate"]') ?? b, 'href')).filter(Boolean);
+        const duplicated = railTargets.length - new Set(railTargets).size;
+        if (duplicated) add('affiliate-rail-duplicate', duplicated, 0, [], ['affiliate']);
+        const children = rail.childNodes.filter(n => n.tagName);
+        for (const banner of banners) if (!children[children.indexOf(banner) + 1]?.hasAttribute('data-article-sidebar-card')) add('affiliate-rail-adjacent', 1, 0, [], ['affiliate']);
+      }
+      for (const n of imageLinks.filter(n => articleImageKind(attr(n, 'data-cta-placement')) === 'inline')) {
+        const wrapper = ancestor(n, p => attr(p, 'data-article-affiliate') === 'inline');
+        if (!wrapper) continue;
+        const siblings = wrapper.parentNode.childNodes.filter(n => n.tagName);
+        const index = siblings.indexOf(wrapper);
+        for (const neighbor of [siblings[index-1], siblings[index+1]]) {
+          if (neighbor?.querySelector('[data-cta="affiliate"], [data-cta="note"]')) add('affiliate-image-adjacent', 1, 0, [], ['affiliate'], { viewport });
+        }
+      }
+    }
+
   }
+  const programPixels = new Map();
+  for (const pixel of dom.querySelectorAll('[data-article-pixel-program]')) {
+    const program = attr(pixel, 'data-article-pixel-program');
+    programPixels.set(program, (programPixels.get(program) ?? 0) + 1);
+  }
+  for (const [program, count] of programPixels) if (count > 1) add('affiliate-program-pixel-dup', count, 1, [], ['affiliate'], { program });
   for (const [mat, count] of Object.entries(impressionKeyCounts(dom.toString()))) {
     if (count > 1) add('affiliate-pixel-dup', count, 1, [], ['affiliate'], { mat });
   }

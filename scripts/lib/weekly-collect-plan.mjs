@@ -118,6 +118,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       commands: [{ argv: ['scripts/check-drive-readable.mjs'] }],
     },
     {
+      verify: ['auth-freshness'],
       id: 'auth', phase: 'pre', title: 'ログインの確認と入り直し', timeoutMin: 20, browser: true,
       // export と CI の起動はしない（CI はログインを使わない・DN-0822）。afb の成果取得は未実装
       commands: [{ argv: ['scripts/auth-session-refresh.mjs', '--service', 'a8,moshimo,kdp,note,coconala', '--json'] }],

@@ -69,7 +69,7 @@ npm run scout-youtube-competitors               # YouTube（追跡チャンネ�
 
 - **note**: 公開ページ read-only（認証不要）
 - **ココナラ**: 公開ページ read-only・**低頻度厳守（数ヶ月に1度・operations.md §2.3）**・外部誘導しない
-- **X**: 実アカ Playwright だが **read-only 専用**（いいね/フォロー/リプライ機能を持たない）・四半期・≤15プロフィール・jitter 遅延・**challenge/captcha/凍結警告で即中断（自動リトライ禁止）**→ `probe-status.json` に記録。投稿スケジュールと実行を重ねない。方針は [x-post-policy.md](../../knowledge/reference/x-post-policy.md) §11
+- **X**: 実アカ Playwright だが **read-only 専用**（いいね/フォロー/リプライ機能を持たない）・四半期・社数の上限なし（2026-11-15 に外した）・jitter 遅延・**challenge/captcha/凍結警告で即中断（自動リトライ禁止）**→ `probe-status.json` に記録。投稿スケジュールと実行を重ねない。方針は [x-post-policy.md](../../knowledge/reference/x-post-policy.md) §11
 - **IG**: **未ログイン公開プロフィール（og:description メタ）を curl で read**（2026-07-20 実証・投稿アカ @dobokunotecom の IG セッション不使用＝足跡ゼロ）。取れるのはフォロワー/フォロー/投稿数まで（個別投稿のエンゲージは要ログインで未対応）
 - **有料本文は全チャネルで取得しない/できない**（中身の質は「未読」扱いで断定しない）
 - **定期取得は土曜の Mac の収集に限定**。weekly-collect の `competitors` 段が note / ココナラを四半期の最初の土曜に取得し（取り直しは `node scripts/weekly-collect.mjs --only competitors`）、`check-competitor-scan-due` は段の停止と X・YouTube・market の手動期限を backstop する。新規クラウドルーティンは作らない（DN-0852 で competitor-scan.yml を外した）

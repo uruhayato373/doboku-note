@@ -337,6 +337,7 @@ export const ConfigStandardsStructure = z
         z
           .object({
             _comment: doc().optional(),
+            tableLayout: z.literal('grouped').optional().describe('章の表を見出しと3列以下の表で表示する（配布Markdownは保持）'),
             bodyStartPage: z.number().int().positive().optional().describe('本文の開始ページ（自動検出を上書きする）'),
             runningHeaderCorrections: z
               .array(
