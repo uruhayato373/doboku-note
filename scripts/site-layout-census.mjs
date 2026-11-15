@@ -168,7 +168,8 @@ export function measureInPage() {
 
 export function loadSitemap(base, getText = url => execFileSync('curl', ['--ssl-no-revoke', '-fsSL', '--max-time', '30', url], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })) {
   const seen = new Set(), urls = new Set();
-  const decode = s => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'");
+  // &amp; は最後に戻す（先に戻すと &amp;lt; が < まで二重に戻る。CodeQL js/double-escaping）
+  const decode = s => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
   const visit = url => {
     if (seen.has(url)) return;
     seen.add(url);

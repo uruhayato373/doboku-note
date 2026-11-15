@@ -71,6 +71,9 @@ test('sitemap index recursively loads children, decodes entities and preserves t
   ]);
   assert.deepEqual(loadSitemap('http://localhost:3025', url => xml.get(new URL(url).pathname)), ['http://localhost:3025/a?x=1&y=2', 'http://localhost:3025/b']);
   assert.throws(() => loadSitemap('https://example.test', () => '<html>oops</html>'), /XML/);
+  // &amp;lt; は &lt; に戻すだけで、< まで二重に戻さない
+  const once = loadSitemap('https://example.test', () => '<urlset><url><loc>https://example.test/q?a=&amp;lt;b</loc></url></urlset>');
+  assert.deepEqual(once, ['https://example.test/q?a=&lt;b']);
 });
 
 test('partial final JSONL line can be repaired without losing completed rows', () => {
