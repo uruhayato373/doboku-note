@@ -47,17 +47,12 @@ test('出典ブロックが 2 つだと attribution', () => {
   assert.deepEqual(rulesOf(fixture('two-attribution'), 'agency'), ['attribution']);
 });
 
-test('アフィリエイトのカード・リンクが上限（28 件）を超えると affiliate', () => {
-  assert.deepEqual(rulesOf(fixture('affiliate'), 'agency'), ['affiliate']);
-});
-
-test('最大 12 枚（24 件）と余裕の 14 枚（28 件）は上限内', () => {
+test('アフィリエイトのカード・リンクは数で制限しない', () => {
   const banner = '<div data-cta="affiliate"><a href="https://px.a8.net/svt/ejp?a8mat=x">転職</a></div>';
-  const html = fixture('pass-chapter').replace('</main>', banner.repeat(12) + '</main>');
-  assert.deepEqual(rulesOf(html, 'chapter'), []);
-  assert.equal(rules.affiliate.max, 28);
-  assert.deepEqual(rulesOf(html.replace('</main>', banner.repeat(2) + '</main>'), 'chapter'), []);
-  assert.deepEqual(rulesOf(html.replace('</main>', banner.repeat(3) + '</main>'), 'chapter'), ['affiliate']);
+  for (const count of [12, 14, 15, 100]) {
+    const html = fixture('pass-chapter').replace('</main>', banner.repeat(count) + '</main>');
+    assert.deepEqual(rulesOf(html, 'chapter'), []);
+  }
 });
 
 test('章を持たない文書（chapters 一覧なし）は minListLinks を課さない', () => {
@@ -100,11 +95,11 @@ test('全テンプレート合格なら exit 0・対象外ページは数えな�
 });
 
 test('違反が 1 つあれば exit 1 でページとルールを挙げる', () => {
-  const out = makeOut({ ...FULL, 'standards/a/c.html': 'affiliate' });
+  const out = makeOut({ ...FULL, 'standards/a/c.html': 'too-much-prose' });
   try {
     const r = run(out);
     assert.equal(r.status, 1);
-    assert.deepEqual(r.json.findings.map((x) => [x.path, x.rule]), [['standards/a/c.html', 'affiliate']]);
+    assert.deepEqual(r.json.findings.map((x) => [x.path, x.rule]), [['standards/a/c.html', 'proseBeforeContent']]);
   } finally { rmSync(out, { recursive: true, force: true }); }
 });
 

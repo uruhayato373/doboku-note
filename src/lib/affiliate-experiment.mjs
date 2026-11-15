@@ -4,6 +4,8 @@
  * 前の EXP-043（小型カード B と支給バナー C）は 2026-10-31 に運営者の指示で B を採用して打ち切った。EXP-019・EXP-038 も打ち切り済み
  * （data/business/experiments.json）。保存キーも実験ごとに変え、前の実験で割り当てた案を引き継がない。
  */
+// 2026-11-15: 画像バナーへ置き換えて打ち切り。ID・解析関数は過去データ用に保持する。
+export const AFFILIATE_EXPERIMENT_ACTIVE = false;
 export const AFFILIATE_EXPERIMENT_ID = 'EXP-048';
 export const AFFILIATE_VARIANTS = ['B', 'B2'];
 export const AFFILIATE_VARIANT_KEY = 'doboku-note:EXP-048:variant';

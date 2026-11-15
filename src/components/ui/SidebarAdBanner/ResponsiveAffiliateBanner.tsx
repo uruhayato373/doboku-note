@@ -20,7 +20,7 @@ function Banner({ creative, placement, withPixel }: { creative: SlotCreative; pl
       height={creative.height}
       pixelSrc={withPixel && creative.pixelSrc ? creative.pixelSrc : undefined}
       trackLabel={placement.trackLabel}
-      placement={placement.slot}
+      placement={placement.slot} program={placement.program}
       forceImage
     />
   );
@@ -37,7 +37,7 @@ export default function ResponsiveAffiliateBanner({ placement, creativeSlot = pl
   only?: 'pc' | 'mobile';
   strictImage?: boolean;
 }) {
-  const fallback = () => affiliateSlotPreview() ? <PreviewBox width={placement.banner.width} height={placement.banner.height} placement={placement} /> : <SidebarAdBanner {...placement.banner} pixelSrc={withPixel ? placement.banner.pixelSrc : undefined} trackLabel={placement.trackLabel} placement={placement.slot} />;
+  const fallback = () => affiliateSlotPreview() ? <PreviewBox width={placement.banner.width} height={placement.banner.height} placement={placement} /> : <SidebarAdBanner {...placement.banner} pixelSrc={withPixel ? placement.banner.pixelSrc : undefined} trackLabel={placement.trackLabel} placement={placement.slot} program={placement.program} />;
   if (placement.secondary || placement.alternate) return strictImage ? null : fallback();
   const { pc, mobile } = slotCreatives(placement.program, creativeSlot);
   const showPc = only !== 'mobile' ? pc : null;

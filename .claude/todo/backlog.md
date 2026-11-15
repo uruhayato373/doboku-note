@@ -461,6 +461,46 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1217] 画面判定（standards-visual-review）が、表を組み直した文書で原本のページ画像を作業票に付けられない
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:不具合] [起票:2026-11-15]
+
+**起点**: 2026-11-15 の施工管理基準 30 章の画面判定（DN-1213・DN-1216）で、作業票の `sourceImages`／shots の `sourcePages` が全章で空になり、判定役が原本のページ画像と見比べられなかった（画面が読めるかだけの判定になった）。
+
+**原因**（DN-1216 の調査）: ページ画像は Drive vault に 269 ページ分ある。`scripts/standards-visual-review.mjs`（353 行付近）は正規 Markdown の要素数と表示後の要素数を順番で照合し、数が合わないと対応付け（mdPages）を null にする。表を見出し＋3 列以下に組み直した文書（`mlit/sekou-kanri-kijun`）は 1 つの元の表が複数の表になるので数が合わない（9-4 は 12 要素 → 27 表）。
+
+**やること**: 組み直した表（`<section data-standard-table="…">`・`*.grouped.json` の key とページ）から、表示後の表ごとに原本のページを引けるようにする。直したら施工管理基準 30 章を原本と見比べて判定し直す。
+
+**完了条件**: `npm run standards-visual-review -- prepare --only mlit/sekou-kanri-kijun` の作業票で、表の撮影に原本のページ画像が付く（テストで固定）。30 章を原本照合つきで判定し、台帳に記録されている。
+
+
+### [DN-1216] 基準書 mlit/sekou-kanri-kijun の 8 章が画面の目視判定で不合格（9-4・3-8・3-6・3-2・6-1・9-1 ほか）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:standards-visual-review] [起票:2026-11-15] [進行中]
+
+**起点**: 2026-11-15 の画面の目視判定（`npm run standards-visual-review`・作業票 20261115T051048Z）で、mlit/sekou-kanri-kijun の 8 章が不合格になった。判定は撮影した画面と原本のページ画像の見比べ（エージェント standards-page-visual-auditor）と、描画で決まる崩れの機械判定。台帳は .claude/state/quality/standards-visual-review.json。
+
+- mlit/sekou-kanri-kijun/9-4（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-4）
+  - layout: table-10（温度・出来形の測定を含む表）は規格値・試験時期欄の長文が折り返されず、表の幅が約 7200px になり、読者は横に大きくスクロールしないと規格値と頻度を読めない。原本未照合。（table-10.png）
+- mlit/sekou-kanri-kijun/3-8（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-8）
+  - table: page-02 と table-06 で、アンカー工（3-2-14-6）と場所打擁壁工（3-2-15-1）の行が、見出しに組み直されず編・章・節・条・枝番・工種の 13 列の表のまま 1 つに出ている（約 3900px の横長）。測定項目が 2 列に重複し、測定箇所の欄に「w1 w2 w1 h h h t t t…」のラベル文字が並ぶ。仕様の 3 列以下・見出し化に反し、節見出し（アンカー工・一般（table-06.png）
+  - text: 表の直後に「原典の表（空白・改行は原本のまま）」の枠で「d＝ x2+y 2」という崩れた断片が出ている（page-02）。（table-06.png）
+- mlit/sekou-kanri-kijun/3-6（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-6）
+  - table: 地盤改良工（3-2-7-8 付近）の後に、編・章・節・条・枝番・工種・測定項目・規格値・測定基準の 8 列の表が見出し無しで出る（土留・仮締切工 3-2-10-5 の 1〜3 の行）。右端の測定基準列が画面幅で切れ、直前の表の節の見出しとも別の節の内容で、どの工種の表か読者に分からない。直後の「原典の表」は式が「d＝ x2+y 2」と平方根・べきが落ちて読めない。原本未照合（overview page-03.png）
+- mlit/sekou-kanri-kijun/3-2（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-2）
+  - table: 3-2-4 基礎工の表（table-01・02・03、page-01〜03）が組み直されておらず、編・章・節・条・枝番・測定箇所・摘要を含む 10 列超の横長表のまま。編/章/節が見出しに上がらず、同じ値が全行に反復し、測定箇所の図のラベル（w h、d D y x 根入長 等）も表に出ている。mobile-01 では先頭の画面が列の途中で切れ、行が縦に伸びて読めない。原本未照合（table-01.png）
+- mlit/sekou-kanri-kijun/6-1（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/6-1）
+  - table: 8-3-7 地下水排除工・8-3-9 抑止杭工の表（page-04）が組み直されておらず、編・章・節・条・枝番・工種・測定基準など 8 列超の横長表のまま（編/章/節が見出しに上がらず全行に反復）。横にはみ出して測定基準が読めない。table-01〜05 の撮影対象は 2 列表で問題なし。原本未照合（page-04.png）
+- mlit/sekou-kanri-kijun/9-1（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-1）
+  - text: 目次が崩れている。原本 p213 は 1〜41 の項目が 1 行ずつ「項目名……Ⅱ-頁」で並ぶが、画面では 5 ガス圧接以降が「7 6 既製杭 工……」のように複数項目が 1 行に連結し、「工」「盤」「装」「M)」が行頭に孤立する。下層路盤以降の項目名も頁番号と取り違えやすく、読者は目次を正しく読めない。（page-01.png・原本 p213）
+- mlit/sekou-kanri-kijun/1-1（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/1-1）
+  - figure: 原本 p2 の「3. 構成」は、施工管理（工事写真を含む）から工程管理・出来形管理・品質管理へ分岐する構成図だが、画面では図が無く「出来形管理施工管理 品質管理（工事写真を含む）」という語順の崩れた 1 行の文字になっており、工程管理も欠けて構成の関係が読み取れない（page-01.png・原本 p2）
+- mlit/sekou-kanri-kijun/10-1（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/10-1）
+  - figure: 原本 p268 の図-1（荷重変位曲線、領域 A・B・C・D と引抜耐力）が画面に無く、題名「図-1 ロックボルト引抜試験」だけが残る。本文の「A 領域」「B 領域」の参照先が読めない。図-2（反力座の設置）・図-3（引抜試験概要図）も題名のみで図が無い（原本 p269 想定、未照合）（page-01.png・原本 p268）
+
+**やること**: 原因（生成器 scripts/build-standard-articles.mjs・表の台帳・描画の部品のどれか）を直す。同じ原因の章はまとめて直す。
+
+**完了条件**: `npm run standards-visual-review -- prepare --keys mlit/sekou-kanri-kijun/9-4,mlit/sekou-kanri-kijun/3-8,mlit/sekou-kanri-kijun/3-6,mlit/sekou-kanri-kijun/3-2,mlit/sekou-kanri-kijun/6-1,mlit/sekou-kanri-kijun/9-1,mlit/sekou-kanri-kijun/1-1,mlit/sekou-kanri-kijun/10-1` で撮り直して判定し、record で全章が pass と台帳に記録される。
+
+
 ### [DN-1213] 施工管理基準・品質管理基準の表を、照合済みの表の JSON から読める UI で描く（GFM へ平らにするのをやめる）
 タグ: [UI・UX] [領域:サイト] [時期:2026-12..2027-01] [種類:改善] [起票:2026-11-15] [進行中]
 
@@ -2822,6 +2862,8 @@ Windows の PowerShell で repo 直下から順に:
 **起点**: アフィリエイトは転職の 1 系統だけ（講座・教材・書籍は Red Line）で、3 ASP とも stats47 と同じ口座（affiliate-operations.md）。2026-10-15 に運営者が、判定を待ってから広げると決めた。EXP-008 の判定は済み、意匠実験は EXP-019 → EXP-038 → EXP-043（2026-10-31 に小型カード B を採用して終了）と進み、いまは EXP-048（2 社の小型カード横並び）が測っている。判定前に面を増やすと、どの面の効果か分けられなくなる。
 
 **適用変更**: 2026-11-15 運営者指示 DN-1215 で記事の画像面の拡張待ちは上書き。残る判定は追加面の介入後の EXP-048 比較とし、旧窓と単純合算せず追加面の維持・縮小を決める。
+
+2026-11-15: EXP-048を画像バナーへの置き換えにより判定せず閉じたため、このカードの前提は無くなった。
 
 **やること**: EXP-043 は 2026-10-31 に B を採用して打ち切り、2 枚並べの EXP-048 が後継（2026-12-26 判定）。その判定を読み、勝った案で置く面（ガイド記事の末尾・実務シリーズ）と案件を広げる。2026-11-03 に転職アフィリを「育てる」に変えた（訴求設計 §13・DN-0951・DN-0952）ので、広げる面はそちらの結果と合わせて決める。
 

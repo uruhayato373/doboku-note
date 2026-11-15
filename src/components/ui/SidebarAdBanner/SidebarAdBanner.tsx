@@ -13,6 +13,8 @@ interface SidebarAdBannerProps {
   readonly trackLabel?: string;
   /** GA4 の表示位置。category-mobile など呼び出し側で面を分離する。 */
   readonly placement?: string;
+  /** 案件 id（data-cta-program）。撮影の判定（affiliate-layout-shots）と GA4 の案件別の分類が読む */
+  readonly program?: string | undefined;
   /** 登録済みの案件でも小型カードに替えず、支給の画像バナーのまま出す（基準書の面・2026-11-13 運営者指示） */
   readonly forceImage?: boolean;
 }
@@ -38,6 +40,7 @@ export default function SidebarAdBanner({
   pixelSrc,
   trackLabel,
   placement = "sidebar",
+  program,
   forceImage = false,
 }: SidebarAdBannerProps) {
   const experiment = forceImage ? null : programAssetForHref(href);
@@ -66,6 +69,7 @@ export default function SidebarAdBanner({
           data-cta="affiliate"
           data-cta-label={trackLabel}
           data-cta-placement={placement}
+          data-cta-program={program}
           className="block"
         >
           <img

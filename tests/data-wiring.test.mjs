@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { loadTsModule } from './lib/load-ts.mjs';
 import { datasetPath } from '../scripts/lib/datasets.mjs';
-import { AFFILIATE_EXPERIMENT_ID } from '../src/lib/affiliate-experiment.mjs';
+import { AFFILIATE_EXPERIMENT_ACTIVE, AFFILIATE_EXPERIMENT_ID } from '../src/lib/affiliate-experiment.mjs';
 
 const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
 const NOW = Date.now();
@@ -19,12 +19,12 @@ test('開いている配置ルールの案件は、広告素材（PROGRAM_ASSETS
   assert.deepEqual(missing, [], `広告素材の無い案件: ${missing.join(', ')}`);
 });
 
-test('コードが配信している転職アフィリの意匠実験は、実験台帳にあって running', () => {
+test('転職アフィリの実験の配信スイッチと台帳の状態が一致する', () => {
   const experiments = readJson(datasetPath('business.experiments'));
   const list = Array.isArray(experiments) ? experiments : experiments.experiments;
   const e = list.find((x) => x.id === AFFILIATE_EXPERIMENT_ID);
   assert.ok(e, `${AFFILIATE_EXPERIMENT_ID} が実験台帳に無い`);
-  assert.equal(e.status, 'running', `${AFFILIATE_EXPERIMENT_ID} は ${e.status}。閉じたなら配信のコードも止める`);
+  assert.equal(e.status, AFFILIATE_EXPERIMENT_ACTIVE ? 'running' : 'done', `${AFFILIATE_EXPERIMENT_ID} は ${e.status}。閉じたなら配信のコードも止める`);
 });
 
 test('1級・2級土木の判定は registry の groups.civil-construction-1-2 のメンバーと同じ', async () => {

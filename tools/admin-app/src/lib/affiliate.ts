@@ -452,8 +452,6 @@ const PREVIEW_PAGES: Record<string, { path: string | null; widths?: PreviewWidth
   'article-banner-end': { path: '/exam/civil-construction-1/textbook/concrete-materials' },
   // 現行の公開記事は実カード最大5枚。6枚目の実在見本ができるまで撮影済みと見せない。
   'article-rail-6': { path: null, widths: ['pc'] },
-  'article-inline': { path: '/exam/civil-construction-1/guide/allowance' },
-  'article-mid': { path: '/exam/pe-comprehensive-management/keywords/360-degree-evaluation' },
   'article-end': { path: '/exam/civil-construction-2/primary/r03-kouki' },
   'category-sidebar': { path: '/exam/civil-construction-1', widths: ['pc'] },
   'category-mobile': { path: '/exam/civil-construction-1', widths: ['sp'] },

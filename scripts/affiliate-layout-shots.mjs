@@ -206,7 +206,7 @@ async function main() {
             await settle(page);
             const measured = await page.evaluate(measureInPage);
             const html = await page.content();
-            const pageInfo = { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc, path: t.path, articleSlots: t.articleSlots };
+            const pageInfo = { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc, path: t.path, articleSlots: t.articleSlots, viewportWidth: vp.width };
             const verdict = judgeShot(
               { viewport: { width: vp.width, height: vp.height }, scrollWidth: measured.scrollWidth, html, ads: measured.ads },
               { rules, pairs, splits, page: pageInfo, nowMs, forcedVariant: variant, expectedCount: Object.keys(expectedSlots(rules, pageInfo, nowMs)).length },

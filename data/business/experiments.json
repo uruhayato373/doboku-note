@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-15T01:44:53Z",
+  "updated_at": "2026-11-15T05:36:30.358Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8958,12 +8958,12 @@
         "metricId": "a8ConfirmedYen",
         "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
       },
-      "status": "running",
+      "status": "done",
       "created_at": "2026-10-30T22:56:00.000Z",
-      "closed_at": null,
-      "result": null,
-      "learnings": null,
-      "next_check_date": "2026-12-26",
+      "closed_at": "2026-11-15T05:36:30.358Z",
+      "result": "中止（2026-11-15）。運営者判断で本文の2枚カードを画像バナー（article-banner*）へ置き換えたため打ち切り（判定せず）。B/B2の勝敗は決めない。DN-1215。",
+      "learnings": "画像バナー追加後の露出と旧カードの比較窓を合算しない。旧実験の計測記録は保持し、新配置の効果をEXP-048の勝敗へ読み替えない。",
+      "next_check_date": null,
       "actions": [
         "B＝小型カード 1 枚、B2＝PC（幅 1024px 以上）で同じ本文の枠に 2 社の小型カードを横に並べる。スマホ・タブレットは B2 でも 1 枚。訪問者単位で約 1/2 ずつ、localStorage（doboku-note:EXP-048:variant）で再訪も固定。",
         "対象の面は本文中（手書き）と本文中間だけ（記事に 1 枠）。2 枚目は config/affiliate-placements.json の pairs で決める（建築＝建築転職＋ビルドジョブ、2 級の学習記事＝建設JOBs＋ビルドジョブ、土木の施工管理＝ビルドジョブ＋コンストワーク）。組の無い面（総監・RCCM・技術士の一次以外のハイクラス）は両案とも 1 枚。",
@@ -8984,7 +8984,7 @@
       ],
       "measurementPlan": {
         "kind": "affiliate-design",
-        "status": "running",
+        "status": "done",
         "firstRound": [
           "B",
           "B2"
@@ -9029,6 +9029,11 @@
           "at": "2026-11-15T03:00:00.000Z",
           "event": "note",
           "note": "運営者指示 DN-1215 で DN-0843 の判定前拡張待ちを上書きし、記事の画像面を追加する実装。公開日時は未確定。公開後の EXP-048 は追加面の介入後の B/B2 比較として読み、旧窓と単純合算しない。新画像と article-mid/inline の表示・クリック、note 送客を分け、ASP 確定額を面別に推定配賦しない。"
+        },
+        {
+          "at": "2026-11-15T05:36:30.358Z",
+          "event": "close",
+          "note": "中止（2026-11-15）。運営者判断で本文の2枚カードを画像バナー（article-banner*）へ置き換えたため打ち切り（判定せず）。B/B2の勝敗は決めない。DN-1215。"
         }
       ],
       "started_at": "2026-10-31T00:00:00.000Z",
