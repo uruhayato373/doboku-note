@@ -531,10 +531,7 @@
 
 **完了条件**: `npm run site-visual-review -- prepare --keys textbook` で撮り直して判定し、record で pass と台帳に記録される。
 
-
-
-
-
+**進捗（2026-11-15・PR #1604・main a8203cb49）**: 原因は図のソース（行間 8px）で、検出（audit-svg の P2）に行間の規則を足し、全 1,635 図から 34 図を直して本番へ出した。R2 へは 34 図とも上がったが、CDN の purge が 401 で失敗し（DN-0756・r2-sync run 43660863887）、14 図は旧版が配信されている（figure-3-17・3-18・3-19 を含む。キャッシュは 1 日で切れる）。本番を撮り直した画面の点検は旧版が写って不合格（台帳には未記録）。**残り**: キャッシュが入れ替わった後（2026-11-16 10:00 JST 以降、または手動 purge の後）に、14 URL が新しい版を返すことを確かめ、`npm run site-visual-review -- prepare --keys textbook --base https://doboku-note.com` → 判定 → record で合格にして、このカードを閉じる。描き直しが要る 1 図は DN-1209、検出の HIGH 化は DN-1210。
 
 ### [DN-1196] 土曜の収集を軽くし（重い照合の頻度を下げる）、再起動で途中終了した段を自動で回し直す
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-14]
@@ -2024,13 +2021,7 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **進捗（2026-10-20）**: PR #1134 を develop へマージ。r2-sync が送った画像を `upload-images-r2 --changed-out` で書き出し、`scripts/purge-r2-changed.mjs` が上書き分を URL で purge してから全件の通常 URL を SHA-256 で照合する（対象・実検査・一致・旧版・取得失敗を出し、旧版は exit 1・取れない URL は exit 2）。手元で一致・不一致・0 件の 3 通りを確認。**残り**: (1) 今のトークンにはキャッシュ パージ権限が無い（ダッシュボードで確認）ので、運営者が doboku-note.com の「キャッシュ パージ」＋「ゾーン 読み取り」のトークンを作り `CLOUDFLARE_CACHE_PURGE_TOKEN` に登録する (2) main への反映後、既存画像を上書きした r2-sync の run で照合が一致 N/N になることを確かめてこのカードを閉じる。
 
-
-
-
-
-
-
-
+**進捗（2026-11-15）**: DN-1199 の本番反映で再発した。r2-sync（run 43660863887）が 34 図を上書きし、purge が HTTP 401（`CLOUDFLARE_CACHE_PURGE_TOKEN` が空）で 0/34、照合は一致 20・旧版 14 で exit 1。同じ図を r2-sync で送り直しても「変更なし」で purge の対象に入らないので、旧版の URL はダッシュボードの Custom Purge か 1 日の期限切れを待つしかない。残りは変わらず、運営者がトークン（doboku-note.com の Cache Purge＋Zone Read）を作って Secrets に入れること。
 
 ### [DN-0749] GA4 週次レポートのアフィリ意匠実験の案別行を細らせ、上限の例外（data/ga4/reports/）を外す
 タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-15]
