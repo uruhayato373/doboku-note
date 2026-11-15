@@ -109,6 +109,23 @@ export function releaseTask(text, claimsRaw, id, opts = {}) {
   return { ok: true, text: removed.text, claimsStore: store, reason: opts.reason || null };
 }
 
+/** claim が残ったままとみなす日数（startedAt から。持ち主のいない claim はカードを塞ぐ・DN-1128） */
+export const CLAIM_MAX_DAYS = 7;
+
+/**
+ * startedAt から maxDays 日を過ぎた claim を返す（純関数）。startedAt が読めない claim も残骸として返す（ageDays: null）。
+ * @returns {Array<{id:string, owner:string, startedAt:string|null, ageDays:number|null}>}
+ */
+export function staleClaims(store, now = new Date(), maxDays = CLAIM_MAX_DAYS) {
+  const out = [];
+  for (const c of store.claims) {
+    const t = Date.parse(c.startedAt);
+    const ageDays = Number.isNaN(t) ? null : Math.floor((now.getTime() - t) / 86_400_000);
+    if (ageDays === null || ageDays > maxDays) out.push({ id: c.id, owner: c.owner, startedAt: c.startedAt ?? null, ageDays });
+  }
+  return out;
+}
+
 /**
  * complete の dry-run チェック。機械検証できる項目だけを判定し、
  * 人間判断が要る項目は `requiresConfirmation: true` で明示する。

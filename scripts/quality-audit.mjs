@@ -214,6 +214,7 @@ export const CHECKS = [
   { id: 'information-architecture', npm: 'check-information-architecture', timeout: 60_000, ci: true, note: '4 領域モデル（docs/content/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT' },
   { id: 'content-layout', npm: 'check-content-layout', timeout: 60_000, ci: true, note: 'content/ の移行インベントリ（件数・容量・二重 SSOT）を read-only で観測' },
   { id: 'project-task-refs', npm: 'check-project-task-refs', timeout: 30_000, ci: true, note: 'docs/ の廃止参照（task-queue.json）と backlog ID 参照切れ。error は判断の余地がなく直し方も自明なのでゲート' },
+  { id: 'todo-claims-stale', npm: 'check-todo-claims', timeout: 30_000, ci: false, ops: true, cadence: 'weekly', note: 'todo-claims.json に 7 日を過ぎた claim が残っていないか（持ち主のいない claim は並行セッションの着手を塞ぐ・DN-1128）。壁時計に依存するので週次の ops。読み手＝土曜の週次レビュー（quality:audit:weekly）。直すのは todo-release.mjs（作業中なら残す）' },
   { id: 'backlog-health', npm: 'check-backlog-health', timeout: 60_000, ci: false, note: '台帳の候補 surfacer（沈んだ不具合・定期の混入・重複候補・マージの状態が古いまま〔gh と git ls-remote を引く〕）。読み手＝/weekly-review のバックログ関門（判断の材料）と /backlog-sweep --audit' },
   { id: 'mdx-dates', npm: 'check-mdx-dates', timeout: 60_000, ci: true, note: '記事日付が frontmatter に揃っているか（欠けるとビルドが git 履歴へフォールバックし、公開 SEO 信号がリポジトリ操作で動く状態に逆戻りする）' },
   { id: 'note-cover-tokens', npm: 'check-note-cover-tokens', timeout: 30_000, ci: true, note: 'note カバーの資格トークンが実ディレクトリを網羅しているか。未登録 dir は生成器が無言で総監へ落とし、色だけでなく資格ラベルまで総監のまま出荷される（2026-08-18 に技術士一次で1か月超の誤出荷が判明）' },
