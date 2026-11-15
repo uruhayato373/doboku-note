@@ -8741,6 +8741,23 @@
       "commit": "21b3d3bc6426",
       "verification": "npm run check-command-guidance",
       "note": "PR #1603 を develop へ squash merge。32 本中 31 本に用途と罠の冒頭コメントを書き、NO_HEADER_BASELINE から外した。残る 1 本 .claude/shared-policy/sync.mjs は Obsidian vault が正本の配布物（manifest.json にハッシュがあり、ここで編集すると policy:check が落ちる）なので基準に理由つきで残した。運営者の判断（2026-11-15・片付けられるものは片付け、残りは削除）で、vault 側の作業は起こさない"
+    },
+    {
+      "id": "DN-1211",
+      "at": "2026-11-15",
+      "task": "GA4 で 2026-11-12 の 1 日分の利用者が丸ごと欠けた原因を確かめる（Daily-Traffic-Zero）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/measurement-incidents.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d0f81ecdda81",
+      "verification": "GA4 レポートのスナップショット（11/12）と uptime-ping run 43148273373",
+      "note": "GA4 の画面でも 11/12 はユーザー・イベントとも 0（API だけの欠けではない）。一方、Cloudflare は普段どおり（PV 72,774）、uptime-ping は 11/12 12:26 JST に SSR の gtag を確認して成功、タグ・ヘッダー・ビルドの GA ID・GA4 の設定（変更履歴）に変更なし、同じアカウントの別プロパティは 11/12 も計測できた。サイト側で直すものは無く、GA4 側の受け取り・処理の欠けと判断して measurement-incidents.md に扱い（11/12 は欠測として読む・再発時は dateHour で境界を見る）を記録した"
     }
   ]
 }
