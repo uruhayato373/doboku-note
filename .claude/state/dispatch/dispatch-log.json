@@ -8499,6 +8499,19 @@
       "commit": "0d8f2108bd26",
       "verification": "grep -c 'Node 20' docs/operations/12_Playwright_E2E導入設計.md が 0",
       "note": "E2E 導入設計の実行順の節（Node 20・build しない前提）を消し、手順の正本は e2e.yml と書いて、設計判断（out/ に対して回す・type-check を重ねない）だけ残した"
+    },
+    {
+      "id": "DN-1048",
+      "at": "2026-11-15",
+      "task": "演習の完了率の低下（12%・基線 17.5%）の原因を、資格別と問題数別に分けて確かめる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "4526ab4c3048",
+      "verification": "data/ga4/reports/2026-11-08.json の cta-clicks の quiz_complete（技術士一次 49）と digest-2026-W44 の quiz_start/quiz_complete",
+      "note": "原因は季節（技術士一次 11/22 の直前）で、不具合ではない。W44 の完了率 10/92＝10.9%（基線 4.8/31.3＝15.3%）の低下は、開始が基線の約 3 倍（31.3→92/週）に増え、完了も約 2 倍（4.8→10/週）に増えた結果で、完了は減っていない。資格別の完了数は 28 日窓で技術士一次 21（10/3〜10/30）→ 49（10/10〜11/6）で、ほかの資格は 0〜1。資格別の開始数は GA4 の記録（cta-clicks は quiz_complete だけをページ別に取る）に無く、資格別の完了率は出せない。修正のカードは起票しない"
     }
   ]
 }
