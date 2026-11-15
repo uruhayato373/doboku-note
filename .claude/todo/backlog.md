@@ -72,6 +72,8 @@
 
 **やること**: 計画 `.claude/plans/` の DN 付きの引き継ぎ（Codex が実装）。失敗印の解除と寿命・state の重ね方・KDP ともしもの入口の統一・`check-auth-freshness` での事前の知らせ・ログインの入口の決まりの明文化・テスト。KDP の 2 段階認証（Mac の指紋）は機械で通さず、端末を記憶させて保つ（2026-11-15 運営者の決定）。
 
+**進み（2026-11-15）**: #1606 で develop へ入れた（実装は Codex）。もしもの入口は /af/shop/login が正しく、台帳の /af/login は 404 だった。残りは運営者の `npm run auth:login -- --service kdp`・ココナラの資格情報の登録・`npm run auth:refresh` と、11/21 の土曜の収集での確認。KDP がまたコードの画面（/ap/mfa）で止まったら、認証アプリ（TOTP）の自動化を別のカードで諮る。
+
 **完了条件**: PR が develop に入り、運営者の `auth:login --service kdp`・ココナラの資格情報の登録・`auth:refresh` の後に `npm run auth:status -- --all` で kdp・a8・moshimo が authenticated。11/21 の土曜の収集で auth・kdp・a8・moshimo が ok。
 
 
