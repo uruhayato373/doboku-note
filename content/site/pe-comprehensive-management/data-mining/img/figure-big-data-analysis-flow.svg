@@ -56,27 +56,27 @@
   <!-- Branches -->
   <text class="t-branch-title" x="200" y="286" text-anchor="middle">↓ アプローチは仮説の有無で分岐 ↓</text>
 
-  <rect class="branch-box" x="16" y="296" width="170" height="66" rx="6"/>
+  <rect class="branch-box" x="16" y="296" width="170" height="76" rx="6"/>
   <text class="t-branch-title" x="101" y="314" text-anchor="middle">仮説なし</text>
-  <text class="t-branch" x="101" y="332" text-anchor="middle">機械学習</text>
-  <text class="t-desc" x="101" y="350" text-anchor="middle">コンピュータが自ら発見</text>
+  <text class="t-branch" x="101" y="330" text-anchor="middle">機械学習</text>
+  <text class="t-desc" x="101" y="346" text-anchor="middle">コンピュータが自ら発見</text>
   <text class="t-desc" x="101" y="362" text-anchor="middle">（反復学習）</text>
 
-  <rect class="branch-box" x="214" y="296" width="170" height="66" rx="6"/>
+  <rect class="branch-box" x="214" y="296" width="170" height="76" rx="6"/>
   <text class="t-branch-title" x="299" y="314" text-anchor="middle">仮説あり</text>
-  <text class="t-branch" x="299" y="332" text-anchor="middle">統計分析</text>
-  <text class="t-desc" x="299" y="350" text-anchor="middle">仮説を標本データで</text>
+  <text class="t-branch" x="299" y="330" text-anchor="middle">統計分析</text>
+  <text class="t-desc" x="299" y="346" text-anchor="middle">仮説を標本データで</text>
   <text class="t-desc" x="299" y="362" text-anchor="middle">検証する</text>
 
-  <path class="arrow-branch" d="M 101 296 Q 101 280 165 268" marker-end="url(#arb)"/>
-  <path class="arrow-branch" d="M 299 296 Q 299 280 235 268" marker-end="url(#arb)"/>
+  <path class="arrow-branch" d="M 101 296 Q 20 268 80 246" marker-end="url(#arb)"/>
+  <path class="arrow-branch" d="M 299 296 Q 380 268 320 246" marker-end="url(#arb)"/>
 
-  <line class="arrow" x1="200" y1="374" x2="200" y2="392" marker-end="url(#ar)"/>
+  <line class="arrow" x1="200" y1="380" x2="200" y2="398" marker-end="url(#ar)"/>
 
   <!-- Stage 5 -->
-  <rect class="stage-box" x="80" y="394" width="240" height="44" rx="6"/>
-  <text class="t-stage" x="200" y="414" text-anchor="middle">⑤ 活用</text>
-  <text class="t-desc" x="200" y="430" text-anchor="middle">意思決定・新ビジネス創出</text>
+  <rect class="stage-box" x="80" y="400" width="240" height="44" rx="6"/>
+  <text class="t-stage" x="200" y="420" text-anchor="middle">⑤ 活用</text>
+  <text class="t-desc" x="200" y="436" text-anchor="middle">意思決定・新ビジネス創出</text>
 
   <text class="t-desc" x="200" y="475" text-anchor="middle">※ 教材『情報管理』§1-(2) ビッグデータ分析プロセスより</text>
 </svg>

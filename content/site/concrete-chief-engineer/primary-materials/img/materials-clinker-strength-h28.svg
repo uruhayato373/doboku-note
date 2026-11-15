@@ -19,8 +19,8 @@ text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragin
   <path d="M 80.0 192.4 C 86.7 181.7 103.3 145.7 120.0 128.0 C 136.7 110.3 148.7 97.7 180.0 86.0 C 211.3 74.3 261.3 65.0 308.0 58.0 C 354.7 51.0 434.7 46.3 460.0 44.0 " fill="none" stroke="#2e6da4" stroke-width="2"/>
   <path d="M 80.0 296.0 C 96.7 292.7 142.0 281.5 180.0 276.4 C 218.0 271.3 261.3 268.9 308.0 265.2 C 354.7 261.5 434.7 255.9 460.0 254.0 " fill="none" stroke="#2e6da4" stroke-width="1.5"/>
   <path d="M 80.0 301.6 C 96.7 299.3 142.0 291.3 180.0 287.6 C 218.0 283.9 261.3 282.0 308.0 279.2 C 354.7 276.4 434.7 272.2 460.0 270.8 " fill="none" stroke="#2e6da4" stroke-width="1.5"/>
-  <text x="468.0" y="39.6" text-anchor="start" font-size="12" fill="#1a3a5c" font-weight="bold">A</text>
-  <text x="468.0" y="48.0" text-anchor="start" font-size="12" fill="#1a3a5c" font-weight="bold">B</text>
+  <text x="468.0" y="34" text-anchor="start" font-size="12" fill="#1a3a5c" font-weight="bold">A</text>
+  <text x="468.0" y="51" text-anchor="start" font-size="12" fill="#1a3a5c" font-weight="bold">B</text>
   <text x="468.0" y="258.0" text-anchor="start" font-size="12" fill="#1a3a5c" font-weight="bold">C</text>
   <text x="468.0" y="274.8" text-anchor="start" font-size="12" fill="#1a3a5c" font-weight="bold">D</text>
 </svg>

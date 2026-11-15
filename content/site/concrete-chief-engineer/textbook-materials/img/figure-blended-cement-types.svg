@@ -22,12 +22,12 @@
   <text class="t-lead" x="200" y="16" text-anchor="middle">混合材の質量比でA・B・C種に区分される（JIS R 5211／5213／5212）</text>
 
   <!-- 共通目盛り 0-70% を x=90〜370 に対応（x = 90 + pct*4） -->
-  <line class="axisline" x1="90" y1="30" x2="370" y2="30" />
-  <text class="t-axis" x="90" y="26" text-anchor="middle">0</text>
-  <text class="t-axis" x="130" y="26" text-anchor="middle">10</text>
-  <text class="t-axis" x="210" y="26" text-anchor="middle">30</text>
-  <text class="t-axis" x="330" y="26" text-anchor="middle">60</text>
-  <text class="t-axis" x="370" y="26" text-anchor="middle">70%</text>
+  <line class="axisline" x1="90" y1="40" x2="370" y2="40" />
+  <text class="t-axis" x="90" y="35" text-anchor="middle">0</text>
+  <text class="t-axis" x="130" y="35" text-anchor="middle">10</text>
+  <text class="t-axis" x="210" y="35" text-anchor="middle">30</text>
+  <text class="t-axis" x="330" y="35" text-anchor="middle">60</text>
+  <text class="t-axis" x="370" y="35" text-anchor="middle">70%</text>
 
   <!-- 高炉セメント -->
   <text class="t-sec" x="20" y="56">高炉セメント（JIS R 5211）</text>

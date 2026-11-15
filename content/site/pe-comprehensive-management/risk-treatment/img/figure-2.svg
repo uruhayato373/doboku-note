@@ -74,9 +74,9 @@
   <text class="t-desc" x="298" y="297" text-anchor="middle">（B・A対応）</text>
 
   <!-- === 対角矢印: 右上→左下（brand色） === -->
-  <line x1="358" y1="70" x2="108" y2="290" stroke="#2e6da4" stroke-width="2.5" stroke-dasharray="6 3" marker-end="url(#arr-brand)"/>
+  <line x1="250" y1="165" x2="180" y2="225" stroke="#2e6da4" stroke-width="2.5" stroke-dasharray="6 3" marker-end="url(#arr-brand)"/>
   <!-- 矢印ラベル -->
-  <text x="240" y="182" text-anchor="middle" font-size="11" font-weight="bold" fill="#2e6da4" transform="rotate(-37 240 182)">対応方針の方向</text>
+  <text x="130" y="205" text-anchor="middle" font-size="11" font-weight="bold" fill="#2e6da4" transform="rotate(0 130 205)">対応方針の方向</text>
 
   <!-- フッター -->
   <text class="t-foot" x="200" y="380" text-anchor="middle">A:低減（軽減）｜B:移転（転嫁）｜C:回避｜D:保有（受容）</text>

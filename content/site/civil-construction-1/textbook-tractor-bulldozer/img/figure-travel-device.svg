@@ -3,7 +3,7 @@
 
   <!-- クローラ式 -->
   <g transform="translate(10,40)">
-    <rect x="0" y="0" width="185" height="210" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+    <rect x="0" y="0" width="185" height="216" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
     <text x="92" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a3a5c">クローラ式</text>
 
     <!-- クローラ概念図 -->
@@ -17,16 +17,16 @@
     </g>
 
     <!-- 特徴 -->
-    <text x="10" y="140" font-family="sans-serif" font-size="12" fill="#222">• 接地面積大 → 軟弱地 ◎</text>
-    <text x="10" y="158" font-family="sans-serif" font-size="12" fill="#222">• 粘着係数 μ</text>
-    <text x="16" y="169" font-family="sans-serif" font-size="12" fill="#222">= 0.80〜0.90</text>
+    <text x="10" y="130" font-family="sans-serif" font-size="12" fill="#222">• 接地面積大 → 軟弱地 ◎</text>
+    <text x="10" y="148" font-family="sans-serif" font-size="12" fill="#222">• 粘着係数 μ</text>
+    <text x="16" y="166" font-family="sans-serif" font-size="12" fill="#222">= 0.80〜0.90</text>
     <text x="10" y="184" font-family="sans-serif" font-size="12" fill="#222">• 登坂能力 約 30°</text>
-    <text x="10" y="198" font-family="sans-serif" font-size="12" fill="#222">• 走行速度 3〜16 km/h（遅）</text>
+    <text x="10" y="202" font-family="sans-serif" font-size="12" fill="#222">• 走行速度 3〜16 km/h（遅）</text>
   </g>
 
   <!-- ホイール式 -->
   <g transform="translate(205,40)">
-    <rect x="0" y="0" width="185" height="210" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+    <rect x="0" y="0" width="185" height="216" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
     <text x="92" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a3a5c">ホイール式</text>
 
     <!-- ホイール概念図 -->
@@ -40,14 +40,14 @@
     </g>
 
     <!-- 特徴 -->
-    <text x="10" y="140" font-family="sans-serif" font-size="12" fill="#222">• 接地圧大 → 舗装路 ◎</text>
-    <text x="10" y="158" font-family="sans-serif" font-size="12" fill="#222">• 粘着係数 μ = 0.50〜0.70</text>
-    <text x="10" y="176" font-family="sans-serif" font-size="12" fill="#222">• 機動性 ◎（長距離自走可）</text>
-    <text x="10" y="194" font-family="sans-serif" font-size="12" fill="#222">• 軟弱地・傾斜地は不得手</text>
+    <text x="10" y="130" font-family="sans-serif" font-size="12" fill="#222">• 接地圧大 → 舗装路 ◎</text>
+    <text x="10" y="148" font-family="sans-serif" font-size="12" fill="#222">• 粘着係数 μ = 0.50〜0.70</text>
+    <text x="10" y="166" font-family="sans-serif" font-size="12" fill="#222">• 機動性 ◎（長距離自走可）</text>
+    <text x="10" y="184" font-family="sans-serif" font-size="12" fill="#222">• 軟弱地・傾斜地は不得手</text>
   </g>
 
   <!-- 比較表 -->
-  <rect x="10" y="264" width="380" height="222" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect x="10" y="264" width="380" height="230" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
   <text x="200" y="284" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">形式別 性能比較</text>
 
   <!-- ヘッダ行 -->
