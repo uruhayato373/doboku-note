@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 /** サイト内検索の索引を作る。noindex のページは検索の入口にしないので索引へ入れない。 */
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import * as pagefind from 'pagefind';
 import { isCliEntry } from './lib/cli-run.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+
+import { restoreStandardSearchText } from './lib/standards-search-text.mjs';
+import { ARTICLES_ROOT } from './lib/standards-structure.mjs';
 
 const OUT = join(REPO_ROOT, 'out');
 const NOINDEX = /<meta name="robots" content="noindex/;
@@ -23,7 +26,19 @@ async function main() {
   for (const path of files) {
     const content = readFileSync(path, 'utf8');
     if (!isIndexableHtml(content)) continue;
-    const result = await index.addHTMLFile({ sourcePath: relative(OUT, path), content });
+    let searchContent = content;
+    const chapter = relative(OUT, path).replaceAll('\\', '/').match(/^standards\/([^/]+)\/([^/]+)\/chapters\/([^/]+)\/index.html$/u);
+    if (chapter) {
+      const root = join(ARTICLES_ROOT, chapter[1], chapter[2]);
+      const manifestPath = join(root, 'manifest.json');
+      const manifest = existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, 'utf8')) : null;
+      const target = manifest?.chapters.find((c) => c.chapterId === chapter[3]);
+      if (target?.presentationFile) {
+        const presentation = JSON.parse(readFileSync(join(root, target.presentationFile), 'utf8'));
+        searchContent = restoreStandardSearchText(content, presentation.tables);
+      }
+    }
+    const result = await index.addHTMLFile({ sourcePath: relative(OUT, path), content: searchContent });
     if (result.errors.length) throw new Error(`${path}: ${result.errors.join(' / ')}`);
     added += 1;
   }

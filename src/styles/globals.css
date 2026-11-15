@@ -1333,6 +1333,26 @@
   min-width: 10em;
 }
 
+/* 施工管理基準の組み直した表（見出し＋3 列以下・DN-1213）。MDX の表の「1 列目は折り返さない」既定のままだと、
+   スマホで測定項目（「法面 (軟岩Ⅰ)(小段含む) ／ 水平または標高較差」）が 1 行に伸び、規格値が画面外に隠れた。
+   列の少ない表だけ 1 列目を折り返し、規格値の列が画面に入るようにする。 */
+[data-standards-chapter] table:not(:has(th:nth-child(4))) :is(td, th):first-child {
+  white-space: normal;
+  min-width: 7em;
+}
+
+/* スマホでは、長いセルの最小幅 10em（上の .table-scroll の規則）が列の少ない表でも効き、3 列目（試験時期・頻度）が
+   画面外へはみ出した（品質 9-1 章の全 10 表）。列の少ない表だけ、1 列目は 5em・残りは最小幅なしにして画面幅に収める。 */
+@media (max-width: 639px) {
+  [data-standards-chapter] .table-scroll table:not(:has(th:nth-child(4))) :is(td, th):first-child {
+    min-width: 5em;
+  }
+  [data-standards-chapter] .table-scroll table:not(:has(th:nth-child(4))) :is(td, th):not(:first-child) {
+    min-width: 0;
+    white-space: normal; /* 12 字以下の短いセル（「同左（試験方法欄）」）の折り返し止めも、ここでは外す */
+  }
+}
+
 /* EXP-053: 本文中の note 案内の A/B（src/lib/note-body-experiment.mjs）。選ばれなかった案を隠す。
    割り当てのスクリプトが動かない（JS 無効・失敗）ときは画像の案（今の既定）だけを見せる。 */
 html:not([data-note-body-variant="text"]) [data-note-body-arm="text"],

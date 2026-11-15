@@ -161,6 +161,7 @@ export function buildStandardChapterStructuredData(
   chapter: StandardChapter,
   dataUrls?: ChapterDataUrls,
   articleText?: ReadonlyMap<string, string>,
+  chapterText?: string,
 ): JsonLdNode {
   const documentUrl = absoluteUrl(standardsDocumentPath(document.agencyId, document.documentId));
   const chapterUrl = absoluteUrl(
@@ -297,6 +298,7 @@ export function buildStandardChapterStructuredData(
       },
       {
         '@type': 'TechArticle',
+        ...(chapterText ? { text: chapterText } : {}),
         '@id': chapterId,
         headline: standardChapterHeading(chapter),
         alternativeHeadline: chapter.title,

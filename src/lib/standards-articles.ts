@@ -1,4 +1,5 @@
 import 'server-only';
+import { readStandardPresentation } from '@/lib/standards-presentation';
 
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -52,6 +53,7 @@ export type StandardChapter = {
   bookLabel?: string;
   chapterLabel?: string;
   file: string;
+  presentationFile?: string;
   firstPage: number;
   lastPage: number;
   sourceParts: string[];
@@ -172,6 +174,11 @@ export function readStandardChapterMarkdown(
   chapter: Pick<StandardChapter, 'file'>,
 ): string {
   return readFileSync(join(ARTICLES_ROOT, agencyId, documentId, chapter.file), 'utf8');
+}
+
+/** 生成器が指定した章だけ表示用の本文・全文を返す。 */
+export function getStandardChapterPresentation(agencyId: string, documentId: string, chapter: StandardChapter) {
+  return readStandardPresentation(join(ARTICLES_ROOT, agencyId, documentId), chapter);
 }
 
 /**

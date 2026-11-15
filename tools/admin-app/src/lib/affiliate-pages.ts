@@ -1,5 +1,5 @@
 import { getStandardDocuments } from '../../../../src/lib/standards';
-import { getStandardChapters, getStandardChapterSection, isStandardChapterMerged, readStandardChapterMarkdown, standardChapterPath } from '../../../../src/lib/standards-articles';
+import { getStandardChapterPresentation, getStandardChapters, getStandardChapterSection, isStandardChapterMerged, readStandardChapterMarkdown, standardChapterPath } from '../../../../src/lib/standards-articles';
 import { standardSectionPath } from '../../../../src/lib/standards-section-split.mjs';
 import { planInlineSlots } from '../../../../src/lib/standards-inline-slots.mjs';
 import { resolvePlacements } from '../../../../src/lib/affiliate-placement';
@@ -39,7 +39,8 @@ export function getAffiliatePages(now = Date.now()) {
           if (!resolved) throw new Error(`節本文が無い: ${document.agencyId}/${document.documentId}/${chapter.chapterId}/${section.number}`);
           return { path: standardSectionPath(document, chapter, section.number), title: `${chapter.chapterTitle} / ${section.title}`, markdown: resolved.markdown };
         })
-        : [{ path: standardChapterPath(document, chapter), title: chapter.chapterTitle, markdown: readStandardChapterMarkdown(document.agencyId, document.documentId, chapter) }];
+        : [{ path: standardChapterPath(document, chapter), title: chapter.chapterTitle, // サイトの章ページと同じく、表を組み直した文書は組み直した後の本文で枠の位置を数える
+          markdown: getStandardChapterPresentation(document.agencyId, document.documentId, chapter)?.markdown ?? readStandardChapterMarkdown(document.agencyId, document.documentId, chapter) }];
       return bodies.map(({ path, title, markdown }) => {
         const plan = planInlineSlots(markdown);
         const slots = [...plan.insertAt.map((s) => s.slot), 'standards-rail', 'standards-rail-2', 'standards-rail-3', 'standards-end'];
