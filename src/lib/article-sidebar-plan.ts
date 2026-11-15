@@ -42,10 +42,24 @@ export function articleSidebarInput(meta: DocMeta, plan: ReturnType<typeof planA
 }
 
 /**
- * SSR の高さ見積もり。作業票の既定 1,000字≒1,300px＋H2あたり80px。
- * 上の束を2,500pxと見込み、残り2,500pxにつき1組（最大6）。実際の間隔はflexで均等配分する。
+ * 右の欄の本文高さの係数（px/字）。DN-1218 の全ページ実測（本番 PC・記事 1,588 ページ）で、上の束の下に残った空き
+ * （railEmptyPx＋目次を本文へ移した分）を 字数×係数＋H2×80 で当てた中央値。過去問一次・二次は本文の字数に
+ * 問題の部品が多く入り、画面の高さは 1.3 倍の見積もりより低い（0.6〜0.7）。短い記事を詰めすぎないため
+ * キーワード・過去問（総監など）は下位四分位に寄せる。
  */
-export function articleSidebarGroupCount(bodyLength: number, h2Count: number): number {
-  const remaining = Math.max(0, bodyLength) * 1.3 + Math.max(0, h2Count) * 80 - 2500;
-  return Math.max(0, Math.min(6, Math.floor(remaining / 2500)));
+const RAIL_PX_PER_CHAR: Record<DocGroupKey, number> = {
+ guide: 1.15, career: 1.15, textbook: 1.2, primary: 0.7, secondary: 0.75, pastExam: 0.6, keyword: 0.75, pillar: 0.5,
+};
+const GROUP_SPACING_PX = 2000;
+const FIRST_GROUP_MIN_PX = 3000;
+const MAX_GROUPS = 12;
+
+/**
+ * 下に続く束の組の数の見積もり（SSR の段階で決まる字数と H2 から）。空きが 3,000px 未満なら 0 組、
+ * それ以上なら約 2,000px ごとに 1 組（安全の上限 12）。実際の間隔は flex で均等配分する。
+ * 実際に並ぶ数は、さらに回遊の候補で埋められる組数で決まる。
+ */
+export function articleSidebarGroupCount(bodyLength: number, h2Count: number, docGroup: DocGroupKey = 'guide'): number {
+ const free = Math.max(0, bodyLength) * RAIL_PX_PER_CHAR[docGroup] + Math.max(0, h2Count) * 80;
+ return free < FIRST_GROUP_MIN_PX ? 0 : Math.min(MAX_GROUPS, Math.floor(free / GROUP_SPACING_PX));
 }

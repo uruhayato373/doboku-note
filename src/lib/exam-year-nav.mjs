@@ -10,6 +10,22 @@ function yearOf(slug) {
   return { family: slug.replace(YEAR_TOKEN, '$1*'), order: (m[2] === 'r' ? 1000 : 0) + Number(m[3]) };
 }
 
+/**
+ * 年度違いの回遊候補を行き先の優先順に並べる。前後の年度 → 同じ年度の別区分（slug 順）→ 残りの年度を近い順。
+ * 現在のページ自身と年度の無いページは含めない。
+ */
+export function findYearRelatives(currentSlug, slugs) {
+  const current = yearOf(currentSlug);
+  if (!current) return [];
+  const rows = slugs.filter((slug) => slug !== currentSlug).map((slug) => ({ slug, year: yearOf(slug) })).filter((row) => row.year);
+  const distance = (row) => Math.abs(row.year.order - current.order);
+  const family = rows.filter((row) => row.year.family === current.family).sort((a, b) => distance(a) - distance(b) || b.year.order - a.year.order);
+  const { older, newer } = findYearSiblings(currentSlug, slugs);
+  const adjacent = [older, newer].filter(Boolean);
+  const sameYear = rows.filter((row) => row.year.order === current.order && row.year.family !== current.family).map((row) => row.slug).sort();
+  return [...new Set([...adjacent, ...sameYear, ...family.map((row) => row.slug)])];
+}
+
 /** 現在の slug の 1 年前（older）と 1 年後（newer）。無ければ null */
 export function findYearSiblings(currentSlug, slugs) {
   const current = yearOf(currentSlug);

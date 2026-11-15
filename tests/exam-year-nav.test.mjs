@@ -20,3 +20,10 @@ test('平成の次は令和で、前期と後期を混ぜない', () => {
 test('年度の無いページは対象にしない', () => {
   assert.deepEqual(findYearSiblings('c2-guide-exam-overview', slugs), { older: null, newer: null });
 });
+
+test('回遊候補は前後の年度→同じ年度の別区分→残りの年度を近い順に並べ、自分を含めない', async () => {
+  const { findYearRelatives } = await import('../src/lib/exam-year-nav.mjs');
+  const list = ['c2-secondary-r04', 'c2-secondary-r05', 'c2-secondary-r06', 'c2-secondary-r07', 'c2-primary-r06-kouki', 'c2-primary-r06-zenki', 'c2-guide-exam-overview'];
+  assert.deepEqual(findYearRelatives('c2-secondary-r06', list), ['c2-secondary-r05', 'c2-secondary-r07', 'c2-primary-r06-kouki', 'c2-primary-r06-zenki', 'c2-secondary-r04']);
+  assert.deepEqual(findYearRelatives('c2-guide-exam-overview', list), []);
+});
