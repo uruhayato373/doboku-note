@@ -1,7 +1,7 @@
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { StandardChapterDiscovery, StandardEntryChapters, StandardTopicDiscovery } from '@/components/standards/StandardsSidebarDiscovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
-import StandardsTreeActiveScroll from '@/components/standards/StandardsTreeActiveScroll';
 import StandardsTreeChapter from '@/components/standards/StandardsTreeChapter';
 import { standardTreeSections, standardTreeTocPath, usesTreeNav } from '@/lib/standards-tree-nav';
 import {
@@ -20,7 +20,7 @@ import { generateHeadingId } from '@/lib/toc';
 import { standardsAgencyPath } from '@/lib/route-paths';
 import { getTopicsForStandardDocument } from '@/lib/topics';
 import { getStandardDefaultTopics } from '@/lib/standards-discovery';
-import { StandardsSidebarBanners } from '@/components/standards/StandardsAffiliateBanners';
+import { StandardsRailBanner } from '@/components/standards/StandardsAffiliateBanners';
 
 type StandardsNavigationProps = {
   agencyId: string;
@@ -29,6 +29,7 @@ type StandardsNavigationProps = {
   /** 節ページ（splitBySection の章）で表示中の節番号 */
   currentSection?: number | undefined;
   variant?: 'sidebar' | 'mobile';
+  inlineSlots?: readonly string[];
 };
 
 const LINK_BASE =
@@ -151,13 +152,10 @@ function DocumentTreeNav({
   document,
   currentChapter,
   currentSection,
-  scroll,
 }: {
   document: StandardDocument;
   currentChapter?: StandardChapter | undefined;
   currentSection?: number | undefined;
-  /** 右の欄では目次だけを高さで区切って中をスクロールさせ、下の回遊の枠を画面に残す */
-  scroll: boolean;
 }) {
   const books = groupChaptersByBook(getStandardChapters(document.agencyId, document.documentId));
   const tocUrl = standardTreeTocPath(document);
@@ -172,9 +170,8 @@ function DocumentTreeNav({
         {document.role === 'common' ? '土木工事共通仕様書' : document.title}・目次
       </Link>
       <div
-        className={scroll ? 'standards-tree max-h-[52vh] overflow-y-auto' : 'standards-tree'}
+        className="standards-tree"
         data-standards-nav="tree"
-        data-standards-tree-scroll={scroll ? '' : undefined}
       >
         {books.map((book) => {
           const activeBook = book.chapters.some((chapter) => chapter.chapterId === currentChapter?.chapterId);
@@ -244,7 +241,6 @@ function DocumentTreeNav({
           );
         })}
       </div>
-      <StandardsTreeActiveScroll />
     </nav>
   );
 }
@@ -254,7 +250,6 @@ function NavigationContents({
   currentDocument,
   currentChapter,
   currentSection,
-  variant,
 }: StandardsNavigationProps) {
   // 機関のページの読み手はその機関の仕様書を探しに来ているので、機関の切り替えより先に章の入口を出す
   if (!currentDocument) {
@@ -272,7 +267,7 @@ function NavigationContents({
     return (
       <>
         {!currentChapter && <DocumentNav currentDocument={currentDocument} />}
-        <DocumentTreeNav document={currentDocument} currentChapter={currentChapter} currentSection={currentSection} scroll={variant === 'sidebar'} />
+        <DocumentTreeNav document={currentDocument} currentChapter={currentChapter} currentSection={currentSection} />
       </>
     );
   }
@@ -282,23 +277,24 @@ function NavigationContents({
 
 /** 右の欄の目次の下に置く回遊。章・節 → 関連記事と他地域の同じ章、文書 → 文書のテーマ、機関 → 施工計画・品質管理のテーマ（入口の章は目次の位置に出す） */
 function StandardsDiscovery({
-  agencyId,
   currentDocument,
   currentChapter,
   withBridge,
+  betweenCards,
 }: {
   agencyId: string;
   currentDocument?: StandardDocument | undefined;
   currentChapter?: StandardChapter | undefined;
   withBridge: boolean;
+  betweenCards?: ReactNode;
 }) {
   if (currentDocument && currentChapter) {
-    return <StandardChapterDiscovery document={currentDocument} chapter={currentChapter} withBridge={withBridge} />;
+    return <StandardChapterDiscovery document={currentDocument} chapter={currentChapter} withBridge={withBridge} betweenCards={betweenCards} />;
   }
   if (currentDocument) {
-    return <StandardTopicDiscovery topics={getTopicsForStandardDocument(currentDocument)} heading="この資料を実務・試験で深める" withBridge={withBridge} />;
+    return <StandardTopicDiscovery topics={getTopicsForStandardDocument(currentDocument)} heading="この資料を実務・試験で深める" withBridge={withBridge} betweenCards={betweenCards} />;
   }
-  return <StandardTopicDiscovery topics={getStandardDefaultTopics()} heading="基準を実務・試験で深める" withBridge={withBridge} />;
+  return <StandardTopicDiscovery topics={getStandardDefaultTopics()} heading="基準を実務・試験で深める" withBridge={withBridge} betweenCards={betweenCards} />;
 }
 
 export default function StandardsNavigation({
@@ -307,6 +303,7 @@ export default function StandardsNavigation({
   currentChapter,
   currentSection,
   variant = 'sidebar',
+  inlineSlots = [],
 }: StandardsNavigationProps) {
   const agency = getStandardsCatalog().agencies.find((entry) => entry.agencyId === agencyId);
   const sectionTitle = currentSection !== undefined
@@ -341,6 +338,7 @@ export default function StandardsNavigation({
       variant={variant}
     />
   );
+  const pageKind = currentChapter ? 'standards' : 'standards-list';
   // 目次の下に置く回遊の枠。モバイルは本文の末尾に資格の橋渡しがあるので、ここでは出さない
   const discovery = (
     <StandardsDiscovery
@@ -348,6 +346,7 @@ export default function StandardsNavigation({
       currentDocument={currentDocument}
       currentChapter={currentChapter}
       withBridge={variant === 'sidebar'}
+      betweenCards={variant === 'sidebar' ? <StandardsRailBanner slot={currentChapter ? 'standards-rail-3' : 'standards-list-rail-2'} pageKind={pageKind} inlineSlots={inlineSlots} /> : null}
     />
   );
 
@@ -379,21 +378,25 @@ export default function StandardsNavigation({
   }
 
   return (
-    <div className="sticky top-6 max-h-[calc(100vh-3rem)] space-y-3 overflow-y-auto" data-standards-sidebar>
-      {!treeMode && <div className="border border-(--rule-soft) bg-(--paper) p-5">
-        <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
-        <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
-        <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-(--ink-muted)">{contextLabel}</p>
-        <Link
-          href={parentHref}
-          className="focus-ring mt-3 inline-flex min-h-11 items-center text-[12px] font-bold text-(--accent) hover:underline"
-        >
-          ← {parentLabel}
-        </Link>
-      </div>}
-      {contents}
-      {discovery}
-      <StandardsSidebarBanners pageKind={currentChapter ? 'standards' : 'standards-list'} />
-    </div>
+    // 右の欄は固定・欄の中のスクロールをしない（2026-11-15 運営者指示・全ページ共通）。
+    <>
+      <div className="space-y-3" data-standards-sidebar>
+        <StandardsRailBanner slot={currentChapter ? 'standards-rail' : 'standards-list-rail'} pageKind={pageKind} inlineSlots={inlineSlots} />
+        {!treeMode && <div className="border border-(--rule-soft) bg-(--paper) p-5">
+          <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
+          <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
+          <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-(--ink-muted)">{contextLabel}</p>
+          <Link
+            href={parentHref}
+            className="focus-ring mt-3 inline-flex min-h-11 items-center text-[12px] font-bold text-(--accent) hover:underline"
+          >
+            ← {parentLabel}
+          </Link>
+        </div>}
+        {contents}
+        {currentChapter && <StandardsRailBanner slot="standards-rail-2" pageKind="standards" inlineSlots={inlineSlots} />}
+        {discovery}
+      </div>
+    </>
   );
 }

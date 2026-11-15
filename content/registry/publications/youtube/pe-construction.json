@@ -445,7 +445,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-means-2",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-means-2",
       "relatedTo": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -497,13 +497,14 @@
       "platform": {
         "id": "c5R1Y1Z87fs",
         "url": "https://www.youtube.com/watch?v=c5R1Y1Z87fs",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#shorts/point-means-2"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-15T03:04:57.016Z"
         },
         "relatedVideoId": "AWiTjuOa1U4",
-        "desiredRelatedVideoId": "AWiTjuOa1U4"
+        "desiredRelatedVideoId": "AWiTjuOa1U4",
+        "publishedAt": "2026-11-14T05:30:16.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -861,7 +862,7 @@
       "work": "pe-geotechnical-shutsudai-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform/scene-001",
@@ -922,11 +923,12 @@
       "platform": {
         "id": "vn-RKeML8Ik",
         "url": "https://www.youtube.com/watch?v=vn-RKeML8Ik",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-15T03:04:57.016Z"
+        },
+        "publishedAt": "2026-11-14T11:30:10.000Z"
       },
       "thumbnail": {
         "status": "set",

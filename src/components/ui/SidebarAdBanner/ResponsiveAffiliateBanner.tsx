@@ -1,8 +1,16 @@
+import { affiliateSlotPreview } from '@/lib/affiliate-slot-preview.mjs';
 import SidebarAdBanner from './index';
 import type { ResolvedPlacement } from '@/lib/affiliate-placement';
 import { slotCreatives, type SlotCreative } from '@/lib/affiliate-slot-creatives';
 
+function PreviewBox({ width, height, placement }: { width: number; height: number; placement: ResolvedPlacement }) {
+  return <div className="mx-auto flex max-w-full items-center justify-center rounded-card-sm border border-dashed border-ink-muted dark:border-ink-muted bg-surface text-ink-body text-xs" style={{ width, aspectRatio: `${width} / ${height}` }}>
+    <span>{placement.slot}・{placement.program}・{width}×{height}</span>
+  </div>;
+}
+
 function Banner({ creative, placement, withPixel }: { creative: SlotCreative; placement: ResolvedPlacement; withPixel: boolean }) {
+  if (affiliateSlotPreview()) return <PreviewBox width={creative.width} height={creative.height} placement={placement} />;
   return (
     <SidebarAdBanner
       href={creative.href}
@@ -28,7 +36,7 @@ export default function ResponsiveAffiliateBanner({ placement, creativeSlot = pl
   withPixel: boolean;
   only?: 'pc' | 'mobile';
 }) {
-  const fallback = () => <SidebarAdBanner {...placement.banner} pixelSrc={withPixel ? placement.banner.pixelSrc : undefined} trackLabel={placement.trackLabel} placement={placement.slot} />;
+  const fallback = () => affiliateSlotPreview() ? <PreviewBox width={placement.banner.width} height={placement.banner.height} placement={placement} /> : <SidebarAdBanner {...placement.banner} pixelSrc={withPixel ? placement.banner.pixelSrc : undefined} trackLabel={placement.trackLabel} placement={placement.slot} />;
   if (placement.secondary || placement.alternate) return fallback();
   const { pc, mobile } = slotCreatives(placement.program, creativeSlot);
   const showPc = only !== 'mobile' ? pc : null;

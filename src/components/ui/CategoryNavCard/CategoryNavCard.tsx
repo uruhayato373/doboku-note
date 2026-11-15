@@ -127,7 +127,7 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
         <p className="text-xs text-(--ink-muted) mb-2">
           {section.id} {section.title}
         </p>
-        <ul className="max-h-[280px] overflow-y-auto toc-scroll">
+        <ul>
           {keywords.map(kw => (
             <li key={kw.slug} className="border-b border-(--rule-soft) last:border-b-0">
               {kw.slug === currentSuffix ? (

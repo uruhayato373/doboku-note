@@ -1,15 +1,13 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-14T03:34:05.329Z",
+  "checkedAt": "2026-11-15T03:04:57.016Z",
   "channel": "youtube",
-  "targets": 56,
-  "checked": 56,
-  "observed": 56,
+  "targets": 58,
+  "checked": 58,
+  "observed": 58,
   "advanced": [
-    "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
-    "pe-construction/hissu1-kensetsu-dx/youtube.short.point-purpose-1",
-    "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
-    "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-jogai-2"
+    "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2",
+    "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform"
   ],
   "findings": []
 }

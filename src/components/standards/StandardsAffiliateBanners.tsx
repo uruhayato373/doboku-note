@@ -2,82 +2,85 @@ import ResponsiveBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliat
 import { resolvePlacements, type ResolvedPlacement } from '@/lib/affiliate-placement';
 
 /**
- * 基準書（/standards）の転職アフィリエイトの画像バナー（2026-11-13 運営者指示）。
- * どの面にどの案件を出すかは config/affiliate-placements.json（standards-* の面）、
- * 面で使うサイズは config/cta-placements.json の sizes（PC・スマホ別）、素材は data/affiliate/catalog.json の creatives が決める。
- * ここは描画とピクセルの割り振りだけ持つ。
- *
- * - 右の欄（PC）: 3 枠（300×250）。
- * - 章の本文中: 横長 1 枠（PC 728×90・スマホ 320×50 など）。
- * - 本文末: 1 枠。モバイルは右の欄が無いので、右の欄の残りの案件も本文末に続けて出す。
- * - ピクセルは 1 ページ・1 案件・1 発。どの幅でも出る面（本文末 → 本文中）を優先し、右の欄だけの案件はその枠が持つ。
- *   PC 用とスマホ用の 2 つを描く面は、ピクセルを片方にだけ付ける（隠れている方の画像も読み込まれるので、どちらに付けても 1 発）。
+ * 基準書の画像バナー。案件は affiliate-placements.json、サイズは cta-placements.json が決める。
+ * ピクセルは 1 ページ・1 案件・1 発。どの幅でも出る本文末 → 実際の本文中 → PC の右欄の順に持たせる。
+ * モバイル追加分にはピクセルを付けない。
  */
-
 type StandardsPageKind = 'standards' | 'standards-list';
+type PlacementProps = { pageKind: StandardsPageKind; inlineSlots?: readonly string[] };
 
-const SLOTS: Record<StandardsPageKind, { sidebar: string[]; end: string; inline: string | null }> = {
-  standards: { sidebar: ['standards-sidebar', 'standards-sidebar-2', 'standards-sidebar-3'], end: 'standards-end', inline: 'standards-inline' },
-  'standards-list': { sidebar: ['standards-list-sidebar', 'standards-list-sidebar-2', 'standards-list-sidebar-3'], end: 'standards-list-end', inline: null },
+const SLOTS: Record<StandardsPageKind, { rail: string[]; end: string; inline: string[] }> = {
+  standards: { rail: ['standards-rail', 'standards-rail-2', 'standards-rail-3'], end: 'standards-end', inline: ['standards-inline', 'standards-inline-2', 'standards-inline-3'] },
+  'standards-list': { rail: ['standards-list-rail', 'standards-list-rail-2'], end: 'standards-list-end', inline: [] },
 };
 
-function placementsOf(pageKind: StandardsPageKind) {
+function placementsOf(pageKind: StandardsPageKind, inlineSlots: readonly string[]) {
   const resolved = resolvePlacements({ pageKind });
   const slots = SLOTS[pageKind];
   const end = resolved[slots.end];
-  const inline = slots.inline ? resolved[slots.inline] : undefined;
-  const sidebar = slots.sidebar
+  const inline = slots.inline.filter((slot) => inlineSlots.includes(slot))
     .map((slot) => resolved[slot])
     .filter((placement): placement is ResolvedPlacement => Boolean(placement));
-  // 案件 → ピクセルを持つ面。どの幅でも出る面（本文末・本文中）から先に取る
+  const rail = slots.rail.map((slot) => resolved[slot])
+    .filter((placement): placement is ResolvedPlacement => Boolean(placement));
   const owner = new Map<string, string>();
-  for (const placement of [end, inline, ...sidebar]) {
-    if (placement && !owner.has(placement.program)) owner.set(placement.program, placement.slot);
+  for (const placement of [end, ...inline, ...rail]) {
+    if (!placement) continue;
+    if (!owner.has(placement.program)) owner.set(placement.program, placement.slot);
   }
-  return { end, inline, sidebar, owner, endSlot: slots.end };
+  return { end, inline, rail, owner, endSlot: slots.end };
 }
 
-/** 右の欄（PC）の 3 枠。ピクセルは本文末・本文中に同じ案件が無いときだけ */
-export function StandardsSidebarBanners({ pageKind }: { pageKind: StandardsPageKind }) {
-  const { sidebar, owner } = placementsOf(pageKind);
-  if (sidebar.length === 0) return null;
+/** 本文末 → 本文中 → 右欄の順で決めた持ち主だけがピクセルを出す。 */
+function PlacementBanner({ placement, owner, creativeSlot, mobileExtra = false }: {
+  placement: ResolvedPlacement;
+  owner: Map<string, string>;
+  creativeSlot?: string;
+  mobileExtra?: boolean;
+}) {
+  return <ResponsiveBanner placement={placement} creativeSlot={creativeSlot ?? placement.slot} withPixel={!mobileExtra && owner.get(placement.program) === placement.slot} {...(mobileExtra ? { only: 'mobile' as const } : {})} />;
+}
+
+/** PC の右欄の指定した面を描く。 */
+export function StandardsRailBanner({ slot, pageKind, inlineSlots = [] }: PlacementProps & { slot: string }) {
+  const { rail, owner } = placementsOf(pageKind, inlineSlots);
+  const placement = rail.find((entry) => entry.slot === slot);
+  if (!placement) return null;
   return (
-    <div className="space-y-3" data-standards-affiliate="sidebar">
-      {sidebar.map((placement) => (
-        <ResponsiveBanner key={placement.slot} placement={placement} withPixel={owner.get(placement.program) === placement.slot} />
-      ))}
+    <div className="hidden zenn-desktop:block" data-standards-affiliate="rail" data-pagefind-ignore>
+      <PlacementBanner placement={placement} owner={owner} />
     </div>
   );
 }
 
-/** 章の本文中の横長 1 枠（PC 728×90・スマホ 320×50 など）。合う素材が無ければ出さない */
-export function StandardsInlineBanner({ className = 'my-8' }: { className?: string }) {
-  const { inline, owner } = placementsOf('standards');
-  if (!inline) return null;
+export function StandardsInlineBanner({ slot, inlineSlots = [slot], className = 'my-8' }: { slot: string; inlineSlots?: readonly string[]; className?: string }) {
+  const { inline, owner } = placementsOf('standards', inlineSlots);
+  const placement = inline.find((entry) => entry.slot === slot);
+  if (!placement) return null;
   return (
     <div className={`not-prose mx-auto ${className}`} data-standards-affiliate="inline" data-pagefind-ignore>
-      <ResponsiveBanner placement={inline} withPixel={owner.get(inline.program) === inline.slot} />
+      <PlacementBanner placement={placement} owner={owner} />
     </div>
   );
 }
 
-/**
- * 本文末の 1 枠（どの幅でも出る）。モバイル（右の欄が無い幅）では、右の欄の残りの案件も本文末のサイズで続けて出す（ピクセルなし）。
- */
-export function StandardsEndBanner({ pageKind, className = 'mt-10' }: { pageKind: StandardsPageKind; className?: string }) {
-  const { end, inline, sidebar, owner, endSlot } = placementsOf(pageKind);
-  if (!end) return null;
-  const shown = new Set([end.program, ...(inline ? [inline.program] : [])]);
-  const mobileExtra = sidebar.filter((placement) => {
+/** 本文末と、モバイルでは本文にまだ出ていない右欄の案件を出す。 */
+export function StandardsEndBanner({ pageKind, inlineSlots = [], className = 'mt-10' }: PlacementProps & { className?: string }) {
+  const { end, inline, rail, owner, endSlot } = placementsOf(pageKind, inlineSlots);
+  const shown = new Set([end, ...inline].filter((p): p is ResolvedPlacement => Boolean(p)).map((p) => p.program));
+  const mobileExtras = rail.filter((placement) => {
     if (shown.has(placement.program)) return false;
     shown.add(placement.program);
     return true;
   });
+  if (!end && mobileExtras.length === 0) return null;
   return (
     <div className={`mx-auto max-w-[740px] space-y-3 ${className}`} data-standards-affiliate="end" data-pagefind-ignore>
-      <ResponsiveBanner placement={end} withPixel={owner.get(end.program) === end.slot} />
-      {mobileExtra.map((placement) => (
-        <ResponsiveBanner key={placement.slot} placement={placement} creativeSlot={endSlot} withPixel={false} only="mobile" />
+      {end && <PlacementBanner placement={end} owner={owner} />}
+      {mobileExtras.map((placement) => (
+        <div key={placement.slot} className="zenn-desktop:hidden">
+          <PlacementBanner placement={placement} owner={owner} creativeSlot={endSlot} mobileExtra />
+        </div>
       ))}
     </div>
   );

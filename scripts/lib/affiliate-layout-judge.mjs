@@ -1,13 +1,29 @@
 /**
- * affiliate-layout-judge.mjs — 広告配置のスクリーンショット検査（scripts/affiliate-layout-shots.mjs）の純関数。依存は
- * 配置ルールの判定（src/lib/affiliate-placement-core.mjs）と計測ピクセルの数え方（affiliate-link-keys.mjs）だけ。
+ * affiliate-layout-judge.mjs — 広告配置のスクリーンショット検査（scripts/affiliate-layout-shots.mjs）の対象選定と判定。
+ * 基準書はローカル本文を読み、サイトと共有の planInlineSlots で期待する面を決める。
  *
  * 2 つの仕事:
  *   1. selectTargets … 配置ルール・サイトマップ・記事一覧から「ページの種類ごとの代表 URL」を機械で選ぶ（手書きの URL 表を持たない）
  *   2. judgeShot     … 1 回の撮影で測った値から (a)〜(e) の判定を出す
  */
-import { isActive, matchesPage, resolvePair } from '../../src/lib/affiliate-placement-core.mjs';
+import { isActive, matchesPage, resolvePair, resolveSplit } from '../../src/lib/affiliate-placement-core.mjs';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { SITE_CONTENT_ROOT } from './repository-paths.mjs';
+import { planInlineSlots } from '../../src/lib/standards-inline-slots.mjs';
 import { impressionKeyCounts } from './affiliate-link-keys.mjs';
+
+/** サイトマップの章パスに対応する本文。節一覧になった章は代表から除く。 */
+export function readStandardsChapter(path) {
+  const match = /^\/standards\/([^/]+)\/([^/]+)\/chapters\/([^/]+)$/.exec(path ?? '');
+  if (!match) return null;
+  const [, agency, document, chapter] = match;
+  const root = join(SITE_CONTENT_ROOT, 'standards-articles', agency, document);
+  const manifest = JSON.parse(readFileSync(join(root, 'manifest.json'), 'utf8'));
+  const entry = manifest.chapters.find((c) => c.chapterId === chapter);
+  if (!entry || entry.splitBySection) return null;
+  return readFileSync(join(root, entry.file), 'utf8');
+}
 
 /** 画面幅。案（variant）は src/lib/affiliate-experiment.mjs の AFFILIATE_VARIANTS（--variants で上書き） */
 export const VIEWPORTS = [
@@ -77,7 +93,7 @@ const slugify = (s) => s.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLo
  * @param {Map<string, { bytes: number, career: boolean, adEligible?: boolean }>} p.docsBySlug 公開記事（MDX）の slug → 大きさ・キャリア記事か・転職広告が出るか
  * @returns {{ id: string, kind: string, label: string, path: string, pageKind: string, category: string|null, isCareerDoc: boolean }[]}
  */
-export function selectTargets({ rules, sitemapPaths, categories, docsBySlug }) {
+export function selectTargets({ rules, sitemapPaths, categories, docsBySlug, readChapter = readStandardsChapter }) {
   const kinds = new Set(rules.map((r) => r.target.pageKind));
   const paths = [...new Set(sitemapPaths)].sort();
   const has = (p) => paths.includes(p);
@@ -125,8 +141,22 @@ export function selectTargets({ rules, sitemapPaths, categories, docsBySlug }) {
     if (p) add({ id: 'tool', kind: 'tool', label: 'ツール', path: p, pageKind: 'tool' });
   }
   if (kinds.has('standards')) {
-    const p = first(/^\/standards\/[^/]+\/[^/]+\/chapters\/[^/]+$/);
-    if (p) add({ id: 'standards', kind: 'standards', label: '公的基準の章', path: p, pageKind: 'standards' });
+    const chapters = paths.filter((p) => /^\/standards\/[^/]+\/[^/]+\/chapters\/[^/]+$/.test(p)).flatMap((path) => {
+      const markdown = readChapter(path);
+      return markdown === null ? [] : [{ path, markdown, chars: planInlineSlots(markdown).chars }];
+    }).sort((a, b) => a.chars - b.chars || a.path.localeCompare(b.path));
+    const fixed = chapters.find((c) => c.path === '/standards/mlit/sekou-kanri-kijun/chapters/2-1');
+    const selected = [
+      ['standards', '公的基準の長い表', fixed],
+      ['standards-median', '公的基準の中央の長さ', median(chapters)],
+      ['standards-headings', '公的基準の見出しあり', median(chapters.filter((c) => (c.markdown.replace(/```[\s\S]*?```/g, '').match(/^## /gm) ?? []).length >= 2))],
+    ];
+    const seenPaths = new Set();
+    for (const [id, label, chapter] of selected) {
+      if (!chapter || seenPaths.has(chapter.path)) continue;
+      seenPaths.add(chapter.path);
+      add({ id, kind: 'standards', label, path: chapter.path, pageKind: 'standards' });
+    }
   }
   if (kinds.has('standards-list') && has('/standards')) add({ id: 'standards-list', kind: 'standards-list', label: '公的基準の一覧', path: '/standards', pageKind: 'standards-list' });
   if (kinds.has('topic')) {
@@ -141,7 +171,7 @@ export function selectTargets({ rules, sitemapPaths, categories, docsBySlug }) {
 }
 
 /** このページ・面・案件に当たるルール。期間内なら active、期間外にだけ当たるなら expired、無ければ none */
-export function ruleFor(rules, page, slot, program, nowMs, pairs = []) {
+export function ruleFor(rules, page, slot, program, nowMs, pairs = [], splits = []) {
   const hits = rules.filter((r) => r.slot === slot && r.program === program && matchesPage(r, page));
   const active = hits.find((r) => isActive(r, nowMs));
   if (active) return { ruleId: active.id, status: 'active' };
@@ -150,15 +180,22 @@ export function ruleFor(rules, page, slot, program, nowMs, pairs = []) {
     if (r.slot !== slot || !isActive(r, nowMs) || !matchesPage(r, page)) continue;
     const pair = resolvePair(pairs, r, page, nowMs);
     if (pair && pair.secondary === program) return { ruleId: pair.id, status: 'active' };
+    const split = resolveSplit(splits, r, page, nowMs);
+    if (split && split.alternate === program) return { ruleId: split.id, status: 'active' };
   }
   if (hits.length) return { ruleId: hits[hits.length - 1].id, status: 'expired' };
   return { ruleId: null, status: 'none' };
 }
 
-/** そのページに今当たる面（slot → rule id）。管理画面で「期待した面」を並べる */
-export function expectedSlots(rules, page, nowMs) {
+/** そのページに今当たる面（slot → rule id）。右欄の各面も配置ルールから取り込み、本文中だけ実際の挿入計画で絞る。 */
+export function expectedSlots(rules, page, nowMs, readChapter = readStandardsChapter) {
   const out = {};
   for (const r of rules) if (isActive(r, nowMs) && matchesPage(r, page)) out[r.slot] = { ruleId: r.id, program: r.program };
+  if (page.pageKind === 'standards') {
+    const markdown = readChapter(page.path);
+    const inline = new Set(planInlineSlots(markdown ?? '').insertAt.map((s) => s.slot));
+    for (const slot of Object.keys(out)) if (/^standards-inline(?:-\d+)?$/.test(slot) && !inline.has(slot)) delete out[slot];
+  }
   return out;
 }
 
@@ -177,7 +214,7 @@ export function judgeShot(m, ctx) {
   const pixelCounts = impressionKeyCounts(m.html);
 
   const ads = m.ads.map((a) => {
-    const rule = ruleFor(ctx.rules, ctx.page, a.placement, a.program, ctx.nowMs, ctx.pairs ?? []);
+    const rule = ruleFor(ctx.rules, ctx.page, a.placement, a.program, ctx.nowMs, ctx.pairs ?? [], ctx.splits ?? []);
     const problems = [];
     for (const img of a.imgs) {
       if (img.naturalWidth > 0 && img.w > img.naturalWidth + TOL) problems.push('stretch');

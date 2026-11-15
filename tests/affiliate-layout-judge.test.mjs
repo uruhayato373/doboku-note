@@ -133,3 +133,38 @@ test('代表の記事は転職広告が出る記事から選び、ツールは�
   const withIndex = selectTargets({ rules: [rule('PL-9', 'tool-end', 'buildjob', { pageKind: 'tool' })], sitemapPaths: ['/tools', '/tools/career-check'], categories: [], docsBySlug: new Map() });
   assert.equal(withIndex[0].path, '/tools');
 });
+
+test('基準書は固定の表・字数中央値・見出しあり中央値と一覧を選ぶ', () => {
+  const fixed = '/standards/mlit/sekou-kanri-kijun/chapters/2-1';
+  const paths = [fixed, ...['a', 'b', 'c', 'd'].map((n) => `/standards/test/book/chapters/${n}`)];
+  const bodies = new Map(paths.map((p, i) => [p, `${i > 2 ? '## 一\n## 二\n' : ''}${'字'.repeat((i + 1) * 1000)}`]));
+  const rules = [rule('s1', 'standards-inline', 'buildjob', { pageKind: 'standards' }), rule('s2', 'standards-list-end', 'buildjob', { pageKind: 'standards-list' })];
+  const targets = selectTargets({ rules, sitemapPaths: [...paths, '/standards'], categories: [], docsBySlug: new Map(), readChapter: (path) => bodies.get(path) });
+  assert.deepEqual(targets.map((t) => t.path), [fixed, paths[2], paths[3], '/standards']);
+  assert.equal(targets.filter((t) => t.id.includes('standards') || t.path.includes('standards')).length, 4, '--only standards の絞り込みに全件入る');
+});
+
+test('基準書の期待する本文中の面は本文の計画に一致する', () => {
+  const rules = ['standards-inline', 'standards-inline-2', 'standards-inline-3', 'standards-rail', 'standards-rail-2', 'standards-rail-3', 'standards-end'].map((slot, i) => rule(`s${i}`, slot, 'buildjob', { pageKind: 'standards' }));
+  const page = { pageKind: 'standards', path: '/standards/test/book/chapters/a' };
+  assert.deepEqual(Object.keys(expectedSlots(rules, page, NOW, () => '短い本文')), ['standards-rail', 'standards-rail-2', 'standards-rail-3', 'standards-end']);
+  const long = Array.from({ length: 10 }, () => '字'.repeat(1000)).join('\n\n');
+  assert.equal(Object.keys(expectedSlots(rules, page, NOW, () => long)).length, 7);
+});
+
+test('カテゴリの出し分け先も有効な配置ルールとして判定する', () => {
+  const rules = [rule('s1', 'category-sidebar', 'buildjob', { pageKind: 'category' })];
+  const splits = [{ id: 'PS-2', primary: 'buildjob', alternate: 'dx-consulting', slots: ['category-sidebar'], target: { pageKind: 'category' }, period: { from: '2026-09-01T00:00:00+09:00', until: null } }];
+  assert.equal(ruleFor(rules, { pageKind: 'category' }, 'category-sidebar', 'dx-consulting', NOW, [], splits).status, 'active');
+  assert.equal(ruleFor(rules, { pageKind: 'doc' }, 'category-sidebar', 'dx-consulting', NOW, [], splits).status, 'none');
+});
+
+
+test('基準書一覧は上端・回遊間・本文末の期待面を配置ルールから取る', () => {
+  const rules = ['standards-list-rail', 'standards-list-rail-2', 'standards-list-end'].map((slot, i) => rule(`l${i}`, slot, i === 0 ? 'buildjob' : 'dainishinsotsu-agent-neo', { pageKind: 'standards-list' }));
+  assert.deepEqual(expectedSlots(rules, { pageKind: 'standards-list' }, NOW), {
+    'standards-list-rail': { ruleId: 'l0', program: 'buildjob' },
+    'standards-list-rail-2': { ruleId: 'l1', program: 'dainishinsotsu-agent-neo' },
+    'standards-list-end': { ruleId: 'l2', program: 'dainishinsotsu-agent-neo' },
+  });
+});

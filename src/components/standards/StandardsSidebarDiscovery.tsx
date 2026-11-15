@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from 'react';
 import Link from 'next/link';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
@@ -114,16 +115,22 @@ function RegionalVersions({ document, chapter }: { document: StandardDocument; c
   );
 }
 
+/** 最初の回遊カードの後。カードが 1 枚なら回遊の末尾になる。 */
+function DiscoveryCards({ cards, betweenCards }: { cards: ReactNode[]; betweenCards?: ReactNode }) {
+  const visible = cards.filter(Boolean);
+  return <>{visible.map((card, index) => (
+    <Fragment key={index}>{card}{index === 0 && betweenCards}</Fragment>
+  ))}{visible.length === 0 && betweenCards}</>;
+}
+
 /** 章ページ・節ページの右の欄（目次の下） */
-export function StandardChapterDiscovery({ document, chapter, withBridge }: { document: StandardDocument; chapter: StandardChapter; withBridge: boolean }) {
+export function StandardChapterDiscovery({ document, chapter, withBridge, betweenCards }: { document: StandardDocument; chapter: StandardChapter; withBridge: boolean; betweenCards?: ReactNode }) {
   const topics = getStandardChapterTopics(chapter);
-  return (
-    <>
-      <RelatedReading topics={topics} heading="この章を実務・試験で深める" />
-      <RegionalVersions document={document} chapter={chapter} />
-      {withBridge && <QualificationBridge placement="standards-bridge-sidebar" layout="sidebar" />}
-    </>
-  );
+  return <DiscoveryCards betweenCards={betweenCards} cards={[
+    RelatedReading({ topics, heading: 'この章を実務・試験で深める' }),
+    RegionalVersions({ document, chapter }),
+    withBridge && <QualificationBridge key="bridge" placement="standards-bridge-sidebar" layout="sidebar" />,
+  ]} />;
 }
 
 /** 共通仕様書の入口の章（共通編・土木工事共通編）へ直接入る */
@@ -151,11 +158,9 @@ export function StandardEntryChapters({ agencyId, heading = '共通仕様書を�
 }
 
 /** 文書・機関・トップのページの右の欄（テーマの記事と資格の橋渡し） */
-export function StandardTopicDiscovery({ topics, heading, withBridge }: { topics: Topic[]; heading: string; withBridge: boolean }) {
-  return (
-    <>
-      {topics.length > 0 && <RelatedReading topics={topics.slice(0, 2)} heading={heading} />}
-      {withBridge && <QualificationBridge placement="standards-bridge-sidebar" layout="sidebar" />}
-    </>
-  );
+export function StandardTopicDiscovery({ topics, heading, withBridge, betweenCards }: { topics: Topic[]; heading: string; withBridge: boolean; betweenCards?: ReactNode }) {
+  return <DiscoveryCards betweenCards={betweenCards} cards={[
+    topics.length > 0 && RelatedReading({ topics: topics.slice(0, 2), heading }),
+    withBridge && <QualificationBridge key="bridge" placement="standards-bridge-sidebar" layout="sidebar" />,
+  ]} />;
 }
