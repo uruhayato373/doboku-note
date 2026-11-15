@@ -452,59 +452,8 @@
 **完了条件**: `npm run standards-visual-review -- prepare --only mlit/sekou-kanri-kijun` の作業票で、表の撮影に原本のページ画像が付く（テストで固定）。30 章を原本照合つきで判定し、台帳に記録されている。
 
 
-### [DN-1216] 基準書 mlit/sekou-kanri-kijun の 8 章が画面の目視判定で不合格（9-4・3-8・3-6・3-2・6-1・9-1 ほか）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:standards-visual-review] [起票:2026-11-15] [進行中]
-
-**起点**: 2026-11-15 の画面の目視判定（`npm run standards-visual-review`・作業票 20261115T051048Z）で、mlit/sekou-kanri-kijun の 8 章が不合格になった。判定は撮影した画面と原本のページ画像の見比べ（エージェント standards-page-visual-auditor）と、描画で決まる崩れの機械判定。台帳は .claude/state/quality/standards-visual-review.json。
-
-- mlit/sekou-kanri-kijun/9-4（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-4）
-  - layout: table-10（温度・出来形の測定を含む表）は規格値・試験時期欄の長文が折り返されず、表の幅が約 7200px になり、読者は横に大きくスクロールしないと規格値と頻度を読めない。原本未照合。（table-10.png）
-- mlit/sekou-kanri-kijun/3-8（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-8）
-  - table: page-02 と table-06 で、アンカー工（3-2-14-6）と場所打擁壁工（3-2-15-1）の行が、見出しに組み直されず編・章・節・条・枝番・工種の 13 列の表のまま 1 つに出ている（約 3900px の横長）。測定項目が 2 列に重複し、測定箇所の欄に「w1 w2 w1 h h h t t t…」のラベル文字が並ぶ。仕様の 3 列以下・見出し化に反し、節見出し（アンカー工・一般（table-06.png）
-  - text: 表の直後に「原典の表（空白・改行は原本のまま）」の枠で「d＝ x2+y 2」という崩れた断片が出ている（page-02）。（table-06.png）
-- mlit/sekou-kanri-kijun/3-6（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-6）
-  - table: 地盤改良工（3-2-7-8 付近）の後に、編・章・節・条・枝番・工種・測定項目・規格値・測定基準の 8 列の表が見出し無しで出る（土留・仮締切工 3-2-10-5 の 1〜3 の行）。右端の測定基準列が画面幅で切れ、直前の表の節の見出しとも別の節の内容で、どの工種の表か読者に分からない。直後の「原典の表」は式が「d＝ x2+y 2」と平方根・べきが落ちて読めない。原本未照合（overview page-03.png）
-- mlit/sekou-kanri-kijun/3-2（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-2）
-  - table: 3-2-4 基礎工の表（table-01・02・03、page-01〜03）が組み直されておらず、編・章・節・条・枝番・測定箇所・摘要を含む 10 列超の横長表のまま。編/章/節が見出しに上がらず、同じ値が全行に反復し、測定箇所の図のラベル（w h、d D y x 根入長 等）も表に出ている。mobile-01 では先頭の画面が列の途中で切れ、行が縦に伸びて読めない。原本未照合（table-01.png）
-- mlit/sekou-kanri-kijun/6-1（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/6-1）
-  - table: 8-3-7 地下水排除工・8-3-9 抑止杭工の表（page-04）が組み直されておらず、編・章・節・条・枝番・工種・測定基準など 8 列超の横長表のまま（編/章/節が見出しに上がらず全行に反復）。横にはみ出して測定基準が読めない。table-01〜05 の撮影対象は 2 列表で問題なし。原本未照合（page-04.png）
-- mlit/sekou-kanri-kijun/9-1（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-1）
-  - text: 目次が崩れている。原本 p213 は 1〜41 の項目が 1 行ずつ「項目名……Ⅱ-頁」で並ぶが、画面では 5 ガス圧接以降が「7 6 既製杭 工……」のように複数項目が 1 行に連結し、「工」「盤」「装」「M)」が行頭に孤立する。下層路盤以降の項目名も頁番号と取り違えやすく、読者は目次を正しく読めない。（page-01.png・原本 p213）
-- mlit/sekou-kanri-kijun/1-1（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/1-1）
-  - figure: 原本 p2 の「3. 構成」は、施工管理（工事写真を含む）から工程管理・出来形管理・品質管理へ分岐する構成図だが、画面では図が無く「出来形管理施工管理 品質管理（工事写真を含む）」という語順の崩れた 1 行の文字になっており、工程管理も欠けて構成の関係が読み取れない（page-01.png・原本 p2）
-- mlit/sekou-kanri-kijun/10-1（https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/10-1）
-  - figure: 原本 p268 の図-1（荷重変位曲線、領域 A・B・C・D と引抜耐力）が画面に無く、題名「図-1 ロックボルト引抜試験」だけが残る。本文の「A 領域」「B 領域」の参照先が読めない。図-2（反力座の設置）・図-3（引抜試験概要図）も題名のみで図が無い（原本 p269 想定、未照合）（page-01.png・原本 p268）
-
-**やること**: 原因（生成器 scripts/build-standard-articles.mjs・表の台帳・描画の部品のどれか）を直す。同じ原因の章はまとめて直す。
-
-**完了条件**: `npm run standards-visual-review -- prepare --keys mlit/sekou-kanri-kijun/9-4,mlit/sekou-kanri-kijun/3-8,mlit/sekou-kanri-kijun/3-6,mlit/sekou-kanri-kijun/3-2,mlit/sekou-kanri-kijun/6-1,mlit/sekou-kanri-kijun/9-1,mlit/sekou-kanri-kijun/1-1,mlit/sekou-kanri-kijun/10-1` で撮り直して判定し、record で全章が pass と台帳に記録される。
 
 
-### [DN-1213] 施工管理基準・品質管理基準の表を、照合済みの表の JSON から読める UI で描く（GFM へ平らにするのをやめる）
-タグ: [UI・UX] [領域:サイト] [時期:2026-12..2027-01] [種類:改善] [起票:2026-11-15] [進行中]
-
-**起点**: 2026-11-15 運営者指摘。`/standards/mlit/sekou-kanri-kijun/chapters/2-1`（出来形管理基準 1-2・1-3）の表が読めない。本番の実測:
-- 表 10 個・11〜13 列。表の幅 1,035〜1,461px に対し本文欄は PC 722px・狭い幅 458px で、横スクロールが前提
-- 1 表の高さ 590〜1,653px（ページ全体 約 15,500px）。「測定基準」列（約 140px）に 200〜400 字の注記が入り行が 1,000px 前後に伸びる。その列は初期表示で画面外なので、見えている左の列は 1 行目の下が数百 px の空白になる（PC・スマホとも再現）
-- 「１共通編／２土工／３河川土工…／条／枝番」が全行に繰り返され幅の約 4 割を使う
-- 測定箇所の列に原本の図のラベル文字（「天端部の計測点 法面部の計測点 …」）が文字として入る。表の後の `d＝D/(n－1)` がコードブロックで崩れる
-- 同じ型（11 列以上の表を持つ章）は基準書の章 837 件中 83 件。施工管理基準（出来形・品質）が中心
-
-**現状の仕組み（作り直す必要はない部分）**: 表は既に原本照合済みの JSON になっている（`content/sources/standards/tables/{key}.json`・1,640 件・`header`/`rows`/`notes`・結合は `{"same":"above"|"left"}`・`headerImage`・承認は standards-table-qa）。生成器 `scripts/build-standard-articles.mjs` がこれを **GFM の表に平らにして** 章記事 MD に書き出すため、結合（rowspan）・階層・注記の区別が表示で失われている。問題は JSON ではなく描き方。
-
-**やること**:
-1. 施工管理基準・品質管理基準の表の型を分類する（出来形: 編/章/節/条/枝番/工種/測定項目/規格値/測定基準/測定箇所/摘要。品質: 試験区分/試験項目/試験方法/規格値/試験基準/摘要 など）。型ごとに「グループの見出しになる列（編・章・節・条・枝番・工種）」「本体の列」「長文の注記の列（測定基準・試験基準）」「図の列（測定箇所）」を JSON 側の宣言（例 `display` 欄・照合の外）で持てるようにする
-2. 章記事の MD に GFM で平らに書くのをやめ、表の key を参照する部品（例 `<StandardTable id="…" />`）を出し、ページ側で JSON から描く。要件:
-   - 編〜枝番は表の上のグループ見出し（または左の固定列 1 本）にまとめ、毎行に繰り返さない
-   - 縦の結合は rowspan で 1 回だけ描く（「（同上）」の連発をやめる）
-   - 長文の注記（測定基準）は行の下の展開・脚注・カード内の段落に出し、行の高さを支配させない
-   - スマホは工種ごとのカード表示（測定項目→規格値の 2 列）に切り替える。PC は主要列だけの表＋注記
-   - 測定箇所の図ラベル文字は表示しない（原本ページ画像の該当ページへのリンク、または切り出し図）。分数式は KaTeX
-   - Pagefind・JSON-LD・`standards-data/*.md`（機械可読の配布）には従来どおり全セルの文字を出す（表示だけを変える）
-3. 検査: `check-standard-articles` 14 番（文字の過不足ゼロ）は JSON 側の照合なので維持。表示側に「本文欄で横スクロールが要る表の数」「1 行の高さの上限超え」を測る検査を足す（standards-visual-review の撮影に組み込む）
-4. まず `mlit/sekou-kanri-kijun` の 2-1 と品質管理基準の 1 章で試作 → standards-page-visual-auditor で PC・スマホを判定 → 83 章へ展開
-
-**完了条件**: `mlit/sekou-kanri-kijun` の全章で、PC 1280px・スマホ 375px のどちらでも表の行に「画面外の列のせいで空白になる行」が無く、編〜枝番の繰り返しが無い（standards-visual-review で pass）。`check-standard-articles` が通り、`standards-data` の配布物の文字数が変わらない。
 
 
 ### [DN-1209] 総監「短時間強雨の推移」の図を気象庁の原典と照合して描き直す（目盛が二重で重なる）

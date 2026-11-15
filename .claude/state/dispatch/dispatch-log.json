@@ -8835,6 +8835,36 @@
       "commit": "850ec3487931",
       "verification": "affiliate:shots --base https://doboku-note.com 252 件 NG 0。本番の実務記事・総監・教科書で枠・ピクセル重複 0・はみ出し 0 を実測",
       "note": "PR #1610・#1614 を本番へ反映（2026-11-15）。記事に本文中 最大 3 枠の横長・右の欄・末尾（横長）。文字の 2 枚カードは撤去し EXP-048 は打ち切り、広告の数の上限は廃止（運営者判断）。水産は配置なし"
+    },
+    {
+      "id": "DN-1213",
+      "at": "2026-11-15",
+      "task": "施工管理基準・品質管理基準の表を、照合済みの表の JSON から読める UI で描く（GFM へ平らにするのをやめる）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "73ada279c01f",
+      "verification": "standards-visual-review: 30 章 pass / check-standard-articles FAIL 0 / 本番 2-1・9-1・9-4・3-8 を PC・スマホで実測",
+      "note": "PR #1609・#1613・#1615 を本番へ反映（2026-11-15）。施工管理基準 30 章の表を見出し＋3 列以下に組み直し、全章が画面判定 pass。原本照合つきの判定は DN-1217 へ"
+    },
+    {
+      "id": "DN-1216",
+      "at": "2026-11-15",
+      "task": "基準書 mlit/sekou-kanri-kijun の 8 章が画面の目視判定で不合格（9-4・3-8・3-6・3-2・6-1・9-1 ほか）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/standards-grouped-tables.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "73ada279c01f",
+      "verification": "standards-visual-review record: mlit/sekou-kanri-kijun 30 章 pass・status exit 0",
+      "note": "PR #1613・#1615 を本番へ反映（2026-11-15）。不合格 8 章を撮り直して全章 pass（台帳 30/30）。9-4 の約 7,200px は撮影スクリプトが表を広げた作りものだった"
     }
   ]
 }

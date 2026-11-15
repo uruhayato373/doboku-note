@@ -48,6 +48,14 @@
       "chapters": 1,
       "pass": 1,
       "fail": 0
+    },
+    {
+      "runId": "20261115T075421Z",
+      "at": "2026-11-15T07:55:54.229Z",
+      "base": "https://doboku-note.com",
+      "chapters": 2,
+      "pass": 2,
+      "fail": 0
     }
   ],
   "chapters": {
@@ -972,22 +980,22 @@
     },
     "mlit/sekou-kanri-kijun/3-8": {
       "outputSha256": "c1633609200551f3b8e3c980472fc9874e423ad3ecc3797ab9149ddef986031e",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-15T07:27:38.739Z",
-      "runId": "20261115T071308Z",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-15T07:55:54.224Z",
+      "runId": "20261115T075421Z",
       "urls": [
         "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-8"
       ],
       "findings": [
         {
-          "severity": "major",
-          "type": "table",
-          "detail": "2-2 植生工の表で「厚さ t／ただし、吹付面に凹凸がある場合の最小吹付厚は…〔5〕」の長文が測定項目欄と規格値欄の両方に同じ形で入り、表が約 1440px に広がって本文幅（page-01 で約 1110px）の右端で文が切れる。規格値欄に値が無く、同じ文が重複している。同じ崩れが table-02.png（3 吹付工、約 1420px）にもある。原本未照合。",
+          "severity": "minor",
+          "type": "other",
+          "detail": "原本未照合。前回の指摘(a)は解消: 2-2 植生工・3 吹付工(table-01/02)の「ただし、吹付面に凹凸がある場合…」は規格値の列のみに出ており、測定項目は「厚さ t〔5〕」。表は約1080px幅で読者の画面どおり。値の欠け・記法の文字・崩れは見当たらない。",
           "shot": "table-01.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1216"
+      "ticket": null
     },
     "mlit/sekou-kanri-kijun/4-1": {
       "outputSha256": "2427035a6ee321379eae2f2870cfba411b7e6e89eaf4eeefc4519d07647f836b",
@@ -1230,28 +1238,28 @@
     },
     "mlit/sekou-kanri-kijun/9-4": {
       "outputSha256": "1cc5ad14b2618f7f10d491f757e16c7fded984ce81ecef59ca3838526c66c3ca",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-15T07:27:38.739Z",
-      "runId": "20261115T071308Z",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-15T07:55:54.224Z",
+      "runId": "20261115T075421Z",
       "urls": [
         "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-4"
       ],
       "findings": [
         {
-          "severity": "major",
-          "type": "layout",
-          "detail": "table-10.png の表が幅約 7,217px に広がり、規格値・試験時期の欄が極小の 1 行に押し込まれて読めない。前回不合格の「約 7,200px の表」が直っていない。原本未照合。",
+          "severity": "minor",
+          "type": "table",
+          "detail": "原本未照合。転圧コンクリートの現場密度の測定・温度測定の欄で、複数の「・」項目が改行なしに1つのセルへ続いて出ており読みにくい。内容の欠けはなく読める。",
           "shot": "table-10.png"
         },
         {
-          "severity": "major",
-          "type": "layout",
-          "detail": "table-01.png（約 1260px）、table-05.png（約 1610px）、table-06.png（約 1630px）、table-08.png（約 1630px）、table-10.png の表は本文幅（約 1110px）を超え、page-01〜page-03 で試験時期・頻度の欄の右端が切れて読めない。",
+          "severity": "minor",
+          "type": "other",
+          "detail": "前回の指摘(b)は解消: 表は約1080px幅で収まり、折り返されている。記法の文字の露出・列のずれ・値の欠けは見当たらない。",
           "shot": "table-01.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1216"
+      "ticket": null
     },
     "mlit/sekou-kanri-kijun/9-5": {
       "outputSha256": "ee283a062a05763662606e80a591b5358ebd7e5473ef8ecdc2fc51b4f249cd7a",
