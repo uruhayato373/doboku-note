@@ -8809,6 +8809,32 @@
       "commit": "641390753875",
       "verification": "node scripts/check-gsc-sitemaps.mjs",
       "note": "PR #1607 を develop へ squash merge。11/3 の期限で設計どおり退役した sitemap-legacy.xml の GSC の登録のエラーだった。robots.txt に無い sitemap は警報にしない。GSC の登録は 11/15 に運営者が削除済み（送信済みは sitemap.xml の 1 件だけ）"
+    },
+    {
+      "id": "DN-1214",
+      "at": "2026-11-15",
+      "task": "基準書ページの転職バナーを見える位置へ（本文中を分量で最大 3 枠・右の欄の上端・カード間）と、ページ別に配置を確かめる管理画面",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "850ec3487931",
+      "verification": "affiliate:shots --base https://doboku-note.com 252 件 NG 0（2026-11-15T07-00-07Z）",
+      "note": "PR #1608・#1612 を develop→main へ反映（2026-11-15）。本番 2-1 章で本文中 3 枠・右の欄 3 枠・本文末、固定とスクロールなしを実測。管理画面 /affiliate/pages・裁定ログ記録済み。その後の運営者判断で右の欄は上端ビルドジョブ・建設JOBs・第二新卒neo、dx-consulting は基準書に出さない"
+    },
+    {
+      "id": "DN-1215",
+      "at": "2026-11-15",
+      "task": "記事全般（教科書・ガイド・過去問ほか）に転職アフィリエイトの画像バナーを増やす（本文中を分量で最大 3 枠・右の欄の上端とカードの間・本文末）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "850ec3487931",
+      "verification": "affiliate:shots --base https://doboku-note.com 252 件 NG 0。本番の実務記事・総監・教科書で枠・ピクセル重複 0・はみ出し 0 を実測",
+      "note": "PR #1610・#1614 を本番へ反映（2026-11-15）。記事に本文中 最大 3 枠の横長・右の欄・末尾（横長）。文字の 2 枚カードは撤去し EXP-048 は打ち切り、広告の数の上限は廃止（運営者判断）。水産は配置なし"
     }
   ]
 }

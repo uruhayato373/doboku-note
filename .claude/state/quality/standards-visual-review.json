@@ -32,6 +32,22 @@
       "chapters": 30,
       "pass": 22,
       "fail": 8
+    },
+    {
+      "runId": "20261115T071308Z",
+      "at": "2026-11-15T07:27:38.747Z",
+      "base": "https://doboku-note.com",
+      "chapters": 7,
+      "pass": 5,
+      "fail": 2
+    },
+    {
+      "runId": "20261115T071607Z",
+      "at": "2026-11-15T07:27:39.179Z",
+      "base": "https://doboku-note.com",
+      "chapters": 1,
+      "pass": 1,
+      "fail": 0
     }
   ],
   "chapters": {
@@ -784,58 +800,44 @@
       "ticket": "DN-1056"
     },
     "mlit/sekou-kanri-kijun/1-1": {
-      "outputSha256": "6fae03510e5afd9902f23785921b40d4095d6f00b15a5b8008f0d0681e8a09f1",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-15T05:16:53.962Z",
-      "runId": "20261115T051048Z",
+      "outputSha256": "851ef521e5bd18ec526963a177d923ddcc2bcab98259c5bd67a197ecb505102f",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-15T07:27:39.174Z",
+      "runId": "20261115T071607Z",
       "urls": [
         "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/1-1"
       ],
       "findings": [
         {
-          "severity": "major",
-          "type": "figure",
-          "detail": "原本 p2 の「3. 構成」は、施工管理（工事写真を含む）から工程管理・出来形管理・品質管理へ分岐する構成図だが、画面では図が無く「出来形管理施工管理 品質管理（工事写真を含む）」という語順の崩れた 1 行の文字になっており、工程管理も欠けて構成の関係が読み取れない",
-          "shot": "page-01.png",
-          "sourcePage": 2
-        },
-        {
           "severity": "minor",
           "type": "text",
-          "detail": "7. その他で（2）3次元データによる出来形管理・（3）施工箇所が点在する工事の見出しが直前の段落末尾に連結している（原本では独立した見出し）",
+          "detail": "「7. その他」で、小見出し「（2） 3次元データによる出来形管理」「（3）施工箇所が点在する工事」が直前段落の末尾に続けて出ており、見出しとして独立していない（本文は次の段落に出る）。原本 p3 は見出し行。内容は読み取れる。なお figure-01.png の構成図（施工管理（工事写真を含む）から工程管理・出来形管理・品質管理へ分岐）は原本 p2 と一致しており、前回の指摘は解消している。",
           "shot": "page-02.png",
           "sourcePage": 3
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1216"
+      "ticket": null
     },
     "mlit/sekou-kanri-kijun/10-1": {
-      "outputSha256": "572e37cc6a5e8961a61841fc17ee40037e1bdc93eff61597ea081f04fd91e49b",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-15T05:16:53.962Z",
-      "runId": "20261115T051048Z",
+      "outputSha256": "5d24ddcc5175252075ad3ce78f1648530019cd5ef4674d180b9715d9b28db99e",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-15T07:27:38.739Z",
+      "runId": "20261115T071308Z",
       "urls": [
         "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/10-1"
       ],
       "findings": [
         {
-          "severity": "major",
-          "type": "figure",
-          "detail": "原本 p268 の図-1（荷重変位曲線、領域 A・B・C・D と引抜耐力）が画面に無く、題名「図-1 ロックボルト引抜試験」だけが残る。本文の「A 領域」「B 領域」の参照先が読めない。図-2（反力座の設置）・図-3（引抜試験概要図）も題名のみで図が無い（原本 p269 想定、未照合）",
-          "shot": "page-01.png",
-          "sourcePage": 268
-        },
-        {
           "severity": "minor",
           "type": "text",
-          "detail": "(4) 試験後のボルトの処置や (3) 全面接着式ボルトの注意事項（イ）（ロ）（ハ）が段落内で連結・文の途中で切れている",
-          "shot": "page-01.png",
+          "detail": "図-1〜3 は原本 p268・p269 と同じ図が出ており、前回の抜けは直っている（図-1 の横軸「変位」の下半分の欠けは原本どおり）。(4) 試験後のボルトの処置などで原本の行の折り返し位置で段落が切れ、p269 の (3)(イ)(ロ)(ハ) が 1 段落につながっているが、読める。",
+          "shot": "figure-01.png",
           "sourcePage": 268
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1216"
+      "ticket": null
     },
     "mlit/sekou-kanri-kijun/2-1": {
       "outputSha256": "4c3266f9c616a0257f08965d5e211297faa23829ae64a4c692e2ae9034270256",
@@ -863,28 +865,22 @@
     },
     "mlit/sekou-kanri-kijun/3-2": {
       "outputSha256": "ce90499d8969dbd425df25b4aefba19a4d73aa80570060e46ea392282ffcf4c0",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-15T05:16:53.962Z",
-      "runId": "20261115T051048Z",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-15T07:27:38.739Z",
+      "runId": "20261115T071308Z",
       "urls": [
         "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-2"
       ],
       "findings": [
         {
-          "severity": "major",
-          "type": "table",
-          "detail": "3-2-4 基礎工の表（table-01・02・03、page-01〜03）が組み直されておらず、編・章・節・条・枝番・測定箇所・摘要を含む 10 列超の横長表のまま。編/章/節が見出しに上がらず、同じ値が全行に反復し、測定箇所の図のラベル（w h、d D y x 根入長 等）も表に出ている。mobile-01 では先頭の画面が列の途中で切れ、行が縦に伸びて読めない。原本未照合",
-          "shot": "table-01.png"
-        },
-        {
           "severity": "minor",
-          "type": "text",
-          "detail": "「原典の表」ブロックに偏心量の式が「d＝ x2+y 2」と根号・指数を失った形で出ている（page-01〜03）。",
+          "type": "other",
+          "detail": "原本未照合（原本画像なし）。画面だけで見ると、すべての表が 2 列に組み直され、単位・測定基準・図の参照注記も揃っていて読める。",
           "shot": "table-01.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1216"
+      "ticket": null
     },
     "mlit/sekou-kanri-kijun/3-3": {
       "outputSha256": "6f43258f8025c9c3264a41700c945244f5f082e88bac83e1da72090cb75f2777",
@@ -931,22 +927,22 @@
     },
     "mlit/sekou-kanri-kijun/3-6": {
       "outputSha256": "4c3e3e58fef8e25b6ffccaa19d6ba311a7e0b5742ea2181f3b59a2d50b53a6eb",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-15T05:16:53.962Z",
-      "runId": "20261115T051048Z",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-15T07:27:38.739Z",
+      "runId": "20261115T071308Z",
       "urls": [
         "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-6"
       ],
       "findings": [
         {
-          "severity": "major",
-          "type": "table",
-          "detail": "地盤改良工（3-2-7-8 付近）の後に、編・章・節・条・枝番・工種・測定項目・規格値・測定基準の 8 列の表が見出し無しで出る（土留・仮締切工 3-2-10-5 の 1〜3 の行）。右端の測定基準列が画面幅で切れ、直前の表の節の見出しとも別の節の内容で、どの工種の表か読者に分からない。直後の「原典の表」は式が「d＝ x2+y 2」と平方根・べきが落ちて読めない。原本未照合",
-          "shot": "overview page-03.png"
+          "severity": "minor",
+          "type": "other",
+          "detail": "原本未照合（原本画像なし）。画面だけで見ると、2 列の表・測定基準・脚注が崩れずに読め、横にはみ出す表も無い。",
+          "shot": "table-01.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1216"
+      "ticket": null
     },
     "mlit/sekou-kanri-kijun/3-7": {
       "outputSha256": "d5a1d3a7fc44b7f88e8e005dbddec12e52750c9a64ac0208bcb1bf4a41b4595c",
@@ -977,8 +973,8 @@
     "mlit/sekou-kanri-kijun/3-8": {
       "outputSha256": "c1633609200551f3b8e3c980472fc9874e423ad3ecc3797ab9149ddef986031e",
       "verdict": "fail",
-      "reviewedAt": "2026-11-15T05:16:53.962Z",
-      "runId": "20261115T051048Z",
+      "reviewedAt": "2026-11-15T07:27:38.739Z",
+      "runId": "20261115T071308Z",
       "urls": [
         "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-8"
       ],
@@ -986,19 +982,7 @@
         {
           "severity": "major",
           "type": "table",
-          "detail": "page-02 と table-06 で、アンカー工（3-2-14-6）と場所打擁壁工（3-2-15-1）の行が、見出しに組み直されず編・章・節・条・枝番・工種の 13 列の表のまま 1 つに出ている（約 3900px の横長）。測定項目が 2 列に重複し、測定箇所の欄に「w1 w2 w1 h h h t t t…」のラベル文字が並ぶ。仕様の 3 列以下・見出し化に反し、節見出し（アンカー工・一般事項）も無い。",
-          "shot": "table-06.png"
-        },
-        {
-          "severity": "major",
-          "type": "text",
-          "detail": "表の直後に「原典の表（空白・改行は原本のまま）」の枠で「d＝ x2+y 2」という崩れた断片が出ている（page-02）。",
-          "shot": "table-06.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "table-01・02 は最終行の規格値欄が長文で、画面幅からはみ出し横スクロールになる。",
+          "detail": "2-2 植生工の表で「厚さ t／ただし、吹付面に凹凸がある場合の最小吹付厚は…〔5〕」の長文が測定項目欄と規格値欄の両方に同じ形で入り、表が約 1440px に広がって本文幅（page-01 で約 1110px）の右端で文が切れる。規格値欄に値が無く、同じ文が重複している。同じ崩れが table-02.png（3 吹付工、約 1420px）にもある。原本未照合。",
           "shot": "table-01.png"
         }
       ],
@@ -1045,28 +1029,22 @@
     },
     "mlit/sekou-kanri-kijun/6-1": {
       "outputSha256": "8da4d5c6194b8ffd10914e64258d04589af618abc7fcdad11354d46e76cd8f8d",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-15T05:16:53.962Z",
-      "runId": "20261115T051048Z",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-15T07:27:38.739Z",
+      "runId": "20261115T071308Z",
       "urls": [
         "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/6-1"
       ],
       "findings": [
         {
-          "severity": "major",
-          "type": "table",
-          "detail": "8-3-7 地下水排除工・8-3-9 抑止杭工の表（page-04）が組み直されておらず、編・章・節・条・枝番・工種・測定基準など 8 列超の横長表のまま（編/章/節が見出しに上がらず全行に反復）。横にはみ出して測定基準が読めない。table-01〜05 の撮影対象は 2 列表で問題なし。原本未照合",
-          "shot": "page-04.png"
-        },
-        {
           "severity": "minor",
-          "type": "text",
-          "detail": "「原典の表」ブロックの式が「d＝ x2+y 2」と根号・指数を失った形で出ている。",
-          "shot": "page-04.png"
+          "type": "other",
+          "detail": "原本未照合（原本ページ対応なし）。画面だけでは、見出し（節・工種）＋2列表（測定項目・規格値）＋測定基準の注記＋「測定箇所・計算式の図：原本 p.N」の注記が揃い、横長の表は解消している。記法の文字の露出・値のずれは無い。",
+          "shot": "table-01.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1216"
+      "ticket": null
     },
     "mlit/sekou-kanri-kijun/7-1": {
       "outputSha256": "17abb2c2d3d4dccb4b070e783991f24f46567c24aa808109233e3c9e3f3eeb75",
@@ -1188,24 +1166,29 @@
       "ticket": null
     },
     "mlit/sekou-kanri-kijun/9-1": {
-      "outputSha256": "8f769fa25a5bcc6408654b56e76652cdc349987e500e150e8a28746f7d5306b0",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-15T05:16:53.962Z",
-      "runId": "20261115T051048Z",
+      "outputSha256": "432484d57ceaf2214425ca84700c294422227836696c3e7b0ac6a2cede1c17cf",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-15T07:27:38.739Z",
+      "runId": "20261115T071308Z",
       "urls": [
         "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-1"
       ],
       "findings": [
         {
-          "severity": "major",
+          "severity": "minor",
+          "type": "layout",
+          "detail": "原本未照合。table-02・table-03（材料の表、施工の表）は3列目（試験時期・頻度）が長く、本文幅を超えて横に伸びる（page-02/03 では右端で切れて見える）。列の値の対応は崩れていない。",
+          "shot": "table-02.png"
+        },
+        {
+          "severity": "minor",
           "type": "text",
-          "detail": "目次が崩れている。原本 p213 は 1〜41 の項目が 1 行ずつ「項目名……Ⅱ-頁」で並ぶが、画面では 5 ガス圧接以降が「7 6 既製杭 工……」のように複数項目が 1 行に連結し、「工」「盤」「装」「M)」が行頭に孤立する。下層路盤以降の項目名も頁番号と取り違えやすく、読者は目次を正しく読めない。",
-          "shot": "page-01.png",
-          "sourcePage": 213
+          "detail": "原本未照合。練混ぜ水の水質試験〔5〕〔6〕の規格値欄で行が詰まって続く（始発は30分以内、終結は60分以内 モルタルの圧縮強度比…）。内容は読める。目次（原本 p.213）は 1 項目 1 行に分かれ、前回の1行つながりは直っている。",
+          "shot": "table-03.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1216"
+      "ticket": null
     },
     "mlit/sekou-kanri-kijun/9-2": {
       "outputSha256": "2c97f215e1a5830eab3bd489dbb91322a19ac912ea794b85a16b02750c9a8e96",
@@ -1248,8 +1231,8 @@
     "mlit/sekou-kanri-kijun/9-4": {
       "outputSha256": "1cc5ad14b2618f7f10d491f757e16c7fded984ce81ecef59ca3838526c66c3ca",
       "verdict": "fail",
-      "reviewedAt": "2026-11-15T05:16:53.962Z",
-      "runId": "20261115T051048Z",
+      "reviewedAt": "2026-11-15T07:27:38.739Z",
+      "runId": "20261115T071308Z",
       "urls": [
         "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-4"
       ],
@@ -1257,14 +1240,14 @@
         {
           "severity": "major",
           "type": "layout",
-          "detail": "table-10（温度・出来形の測定を含む表）は規格値・試験時期欄の長文が折り返されず、表の幅が約 7200px になり、読者は横に大きくスクロールしないと規格値と頻度を読めない。原本未照合。",
+          "detail": "table-10.png の表が幅約 7,217px に広がり、規格値・試験時期の欄が極小の 1 行に押し込まれて読めない。前回不合格の「約 7,200px の表」が直っていない。原本未照合。",
           "shot": "table-10.png"
         },
         {
-          "severity": "minor",
+          "severity": "major",
           "type": "layout",
-          "detail": "table-05・06・07・08 や page-01〜03 の表も右の欄（試験時期・頻度）が画面幅からはみ出し横スクロールになる。",
-          "shot": "table-05.png"
+          "detail": "table-01.png（約 1260px）、table-05.png（約 1610px）、table-06.png（約 1630px）、table-08.png（約 1630px）、table-10.png の表は本文幅（約 1110px）を超え、page-01〜page-03 で試験時期・頻度の欄の右端が切れて読めない。",
+          "shot": "table-01.png"
         }
       ],
       "deterministic": [],

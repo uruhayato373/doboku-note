@@ -349,3 +349,10 @@ test('構成図とロックボルト図1〜3を承認済み切り出し画像で
     assert.ok(canonical(f.chapterId).includes(`<SourceRef pages="${f.sourceRef}" kind="figure" />`));
   }
 });
+
+test('測定項目の右の欄から規格値まで結合した文は規格値の側にだけ出す（3-8 章）', () => {
+  const p = JSON.parse(readFileSync(join(root, 'chapters', '3-8.grouped.json'), 'utf8'));
+  const text = JSON.stringify(p);
+  assert.ok(!text.includes('厚さｔ ／ ただし'));
+  assert.ok(text.includes('| 厚さｔ〔5〕 | ただし、吹付面に凹凸がある場合の最小吹付厚は'));
+});
