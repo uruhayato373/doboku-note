@@ -149,13 +149,14 @@ test('offsite-cta: 主任技士の添削の文言に、締めの日の前だけ�
   `], { cwd: ROOT, encoding: 'utf8' });
   const before = JSON.parse(catchAt(jst(shiftDays(cceExam, -10), '12:00:00')));
   const after = JSON.parse(catchAt(jst(shiftDays(cceExam, 1), '00:00:00')));
+  // 資格トップと小論文・概要のガイドは添削と診断の 2 枚、傾向のガイドは添削の 1 枚（DN-1222）
+  assert.deepEqual(before.map((items) => items.length), [2, 2, 1]);
   for (const items of before) {
-    assert.equal(items.length, 1);
-    assert.match(items[0], /までの受付なら、\d+\/\d+の本試験に間に合います。$/);
+    for (const text of items) assert.match(text, /までの受付なら、\d+\/\d+の本試験に間に合います。$/);
   }
+  assert.deepEqual(after.map((items) => items.length), [2, 2, 1]);
   for (const items of after) {
-    assert.equal(items.length, 1);
-    assert.doesNotMatch(items[0], /受付/);
+    for (const text of items) assert.doesNotMatch(text, /受付/);
   }
 });
 

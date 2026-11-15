@@ -26,6 +26,7 @@ import RelatedArticles from '@/components/ui/RelatedArticles';
 import TopicHubLinks from '@/components/ui/TopicHubLinks/TopicHubLinks';
 import { resolveArticleEnd } from '@/lib/law-wiring';
 import LawPageSections from '@/components/laws/LawPageSections';
+import LawStandards from '@/components/laws/LawStandards';
 import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import RelatedTools from '@/components/ui/RelatedTools';
@@ -132,6 +133,12 @@ export default function ArticleFooter({
         </div>
       )}
       {lawPage && <LawPageSections data={lawPage} />}
+      {/* 法令ページ → 基準資料（テーマ経由・DN-1221） */}
+      {category === 'laws' && (
+        <div className="mt-8">
+          <LawStandards doc={meta} />
+        </div>
+      )}
       {!isCareer && category && <RelatedTools category={category} slug={slugStr} />}
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
       {references.length > 0 && (

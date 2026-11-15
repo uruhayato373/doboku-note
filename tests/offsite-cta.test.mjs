@@ -51,5 +51,5 @@ test('主任技士の択一・教科書のページは、本試験の当日ま�
   `));
   assert.deepEqual(out.before, ['offsite-coconala-cce-essay-tensaku']);
   assert.equal(out.after, 0);
-  assert.equal(out.top, 1, '資格トップの導線は試験後も残る（until を付けていない）');
+  assert.equal(out.top, 2, '資格トップの導線（添削と診断）は試験後も残る（until を付けていない）');
 });

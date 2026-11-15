@@ -35,6 +35,8 @@ interface OffsiteRule {
   readonly test: RegExp;
   readonly coconala?: readonly string[];
   readonly coconalaCatch?: string;
+  /** 出品ごとに文言を変えるとき（添削と診断を並べるなど）。無い出品は coconalaCatch */
+  readonly coconalaCatchById?: Readonly<Record<string, string>>;
   /** この試験の当日までだけ出す（翌日からのビルドでは出さない）。試験前だけ意味のある導線に使う */
   readonly until?: { readonly examId: string; readonly eventId: string };
   /** この時期だけ出す（偽の間は次のルールへ進む）。口頭試験のように期間で決まる導線に使う */
@@ -116,9 +118,13 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
   },
   {
     // コンクリート主任技士: 資格トップと小論文ガイド。小論文の添削（骨子からの指導はオプション）。
+    // 2026-11-16: 診断（1本・A/B/C 判定のみ・¥2,000）を添削の隣に足す。/links にしか出ていなかった（DN-1222）
     test: /^concrete-chief-engineer(-guide-(essay|overview))?$/,
-    coconala: ['coconala-cce-essay-tensaku'],
+    coconala: ['coconala-cce-essay-tensaku', 'coconala-cce-essay-shindan'],
     coconalaCatch: withTensakuDeadline('concrete-chief-engineer', 'exam', '小論文を人の目で確かめたい方・骨子から一緒に組み立てたい方へ。'),
+    coconalaCatchById: {
+      'coconala-cce-essay-shindan': withTensakuDeadline('concrete-chief-engineer', 'exam', '書いた小論文1本の出来と、減点の大きい箇所だけを知りたい方へ。'),
+    },
   },
   {
     // 技術士 建設部門の口頭試験ガイド: 筆記合格者が「業務経歴をコンピテンシーの言葉で説明できない」と迷うページ（2026-11-12 運営者指示）。
@@ -195,7 +201,7 @@ export function resolveOffsiteCta(slug: string, now: number = Date.now()): Offsi
         href: coconalaAffiliateHref(svc.serviceUrl),
         shortTitle: svc.shortTitle,
         price: svc.price,
-        catch: rule.coconalaCatch ?? '',
+        catch: rule.coconalaCatchById?.[id] ?? rule.coconalaCatch ?? '',
         trackLabel: `offsite-${id}`,
         affiliate: true,
       });
