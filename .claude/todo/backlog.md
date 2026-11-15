@@ -456,6 +456,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1224] 基準書・資格トップの右の欄の続きの束に cta-density の右欄検査を当てる
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-16]
+
+**起点**: DN-1218 段 3（#1620 の次の PR・78f7223e6）で基準書の章・節（standards-rail-fill）と資格トップ（category-rail-fill）の右の欄に回遊＋転職バナーの組を足したが、scripts/check-cta-density.mjs の右欄検査（affiliate-rail-adjacent・data-article-sidebar-card(s) の印）はこの 2 種に当てていない。同じ案件の繰り返し（ピクセルなしの fill 面）とバナーだけの組を許す宣言が検査側に無いため、印を付けると誤検出になる。今は構造（バナーの直後が実カード・バナーだけの組は data-article-sidebar-fill）を src/lib/rail-continuation.ts が保っているだけで、機械の検査は素通り（検査 0 件）。
+
+**やること**: 検査に *-rail-fill 面の繰り返しとバナーだけの組を許す印を足し、基準書・資格トップの右欄にも data-article-sidebar-cards 相当の印を付けて検査対象にする。検査対象数を出力に出す。
+
+**完了条件**: npm run build 後の check-cta-density で基準書の章・資格トップの右欄が実検査され（対象数 > 0）、違反 0。
+
+
 
 
 ### [DN-1221] 法令と基準書の行き来・2級二次の年度別ページの次の行き先を、実験の判定後に決める

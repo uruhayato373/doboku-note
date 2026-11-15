@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
+import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
+import type { DocMeta } from '@/lib/docs';
 import { resolveNextSteps } from '@/lib/next-step';
+import { getCardImage } from '@/lib/site-thumbnail';
 
 /**
  * NextStepNav — guide（要点・概要）記事末の「次のステップ」導線。
@@ -9,9 +12,12 @@ import { resolveNextSteps } from '@/lib/next-step';
  * リンク先はカテゴリページの sec-* アンカー（直前期 note CTA と同居＝回遊と収益導線が接続）。
  * クリックは MetaCard trackNav 経由で internal_nav_click（label=next-step）として計測される。
  * キャリア記事では呼び出し側で描画しない（転職導線と競合させない）。
+ *
+ * サムネイル: 行き先は節のアンカーで記事ではないので、節の代表の記事（next-step.ts の representativeDoc）の画像を添える。
+ * 代表の記事が見つからない行は従来の文字だけのリンク。
  */
-export default function NextStepNav({ category }: { category: string }) {
-  const steps = resolveNextSteps(category);
+export default function NextStepNav({ category, docs = [], currentSlug }: { category: string; docs?: readonly DocMeta[]; currentSlug?: string | undefined }) {
+  const steps = resolveNextSteps(category, docs, currentSlug);
   if (steps.length === 0) return null;
   return (
     <MetaCard ariaLabel="次のステップ" trackNav="next-step">
@@ -22,13 +28,13 @@ export default function NextStepNav({ category }: { category: string }) {
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {steps.map((s) => (
           <li key={s.href}>
-            <Link
+            {s.doc ? <ArticleThumbRow href={s.href} title={s.label} caption={s.hint} image={getCardImage(s.doc)} /> : <Link
               href={s.href}
               className="block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-brand"
             >
               <span className="block text-[15px] font-medium text-(--ink)">{s.label}</span>
               <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{s.hint}</span>
-            </Link>
+            </Link>}
           </li>
         ))}
       </ul>

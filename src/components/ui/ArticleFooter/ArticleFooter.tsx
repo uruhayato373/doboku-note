@@ -24,7 +24,7 @@ import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
 import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
 import RelatedArticles from '@/components/ui/RelatedArticles';
 import TopicHubLinks from '@/components/ui/TopicHubLinks/TopicHubLinks';
-import { resolveArticleEnd } from '@/lib/law-wiring';
+import { lawSeriesGroup, resolveArticleEnd } from '@/lib/law-wiring';
 import LawPageSections from '@/components/laws/LawPageSections';
 import LawStandards from '@/components/laws/LawStandards';
 import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
@@ -129,7 +129,7 @@ export default function ArticleFooter({
       {/* 前の記事・次に読む 1 本（資格ページと同じ並び＝category-curriculum.json）。教科書・過去問は上の前後ナビが担う */}
       {slugStr && !isCareer && docGroup !== 'textbook' && (
         <div className="mt-8">
-          <NextInSeries category={category} currentSlug={slugStr} categoryArticles={categoryArticles} />
+          <NextInSeries category={category} currentSlug={slugStr} categoryArticles={categoryArticles} ownGroup={category === 'laws' ? lawSeriesGroup(categoryArticles) : undefined} />
         </div>
       )}
       {lawPage && <LawPageSections data={lawPage} />}
@@ -311,7 +311,7 @@ export default function ArticleFooter({
           要点記事の行き止まりを解消し、カテゴリ hub の sec-* アンカー（直前期 note CTA と同居）へ送る。 */}
       {docGroup === 'guide' && category && !isCareer && (
         <div className="mt-8">
-          <NextStepNav category={category} />
+          <NextStepNav category={category} docs={categoryArticles} currentSlug={slugStr} />
         </div>
       )}
 

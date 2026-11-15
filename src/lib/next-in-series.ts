@@ -86,13 +86,16 @@ export function resolveSeriesNav(
  * 二次の要点・コンクリートの一次・法令・総監の用語など 815 本に前後の行き先が無かった（2026-11-15・DN-1219）。
  * キャリア記事は列に入れない（転職導線は別の部品が持つ）。
  */
+/** 記事の属する列（見出しと並び）を返す。null は列に入らない記事 */
+export type SeriesGroupOf = (doc: DocMeta) => { heading: string; docs: DocMeta[] } | null;
+
 export function resolveGroupSeriesNav(
   category: string | undefined,
   currentSlug: string,
   docs: readonly DocMeta[],
   opts: {
     /** 資格ページと別の並べ方をする領域（法令はテーマごと）で、記事の属する列を返す */
-    readonly ownGroup?: (doc: DocMeta) => { heading: string; docs: DocMeta[] } | null;
+    readonly ownGroup?: SeriesGroupOf;
   } = {},
 ): SeriesNav | null {
   if (!category) return null;
