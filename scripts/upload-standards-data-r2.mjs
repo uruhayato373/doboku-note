@@ -10,11 +10,12 @@
  * node scripts/upload-standards-data-r2.mjs — 公的基準の章データ（.md・.jsonld）を R2 へ送る。変わった分だけ。cloudflare-deploy.yml が Pages への配信の前に実行する。`--dry-run` で件数だけ見る
  */
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { ListObjectsV2Command, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { isCliEntry } from './lib/cli-run.mjs';
-import { listFiles } from './lib/fs-walk.mjs';
+import { chapterDataFiles } from './lib/standards-data-r2.mjs';
+import { parseCliArgs } from './lib/cli-args.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const SOURCE = join(REPO_ROOT, 'public', 'standards-data');
@@ -26,11 +27,6 @@ const CONTENT_TYPES = { md: 'text/markdown; charset=utf-8', jsonld: 'application
 function fail(code, message) {
   console.error(`[standards-data-r2] ${message}`);
   process.exit(code);
-}
-
-export function chapterDataFiles(root) {
-  if (!existsSync(root)) return [];
-  return listFiles(root).filter((path) => /[\\/]chapters[\\/][^\\/]+\.(?:md|jsonld)$/.test(path));
 }
 
 async function remoteETags(client) {
@@ -45,8 +41,9 @@ async function remoteETags(client) {
 }
 
 async function main() {
-  const dryRun = process.argv.includes('--dry-run');
-  const files = chapterDataFiles(SOURCE);
+  const { dryRun } = parseCliArgs({ 'dry-run': { type: 'boolean' } });
+  let files;
+  try { files = chapterDataFiles(SOURCE); } catch (error) { fail(2, `検査不成立: ${error.message}`); }
   if (files.length === 0) fail(2, `対象 0 件（${SOURCE}）。先に npm run build-standards-data を実行する`);
   const { CLOUDFLARE_ACCOUNT_ID: accountId, CLOUDFLARE_R2_ACCESS_KEY_ID: accessKeyId, CLOUDFLARE_R2_SECRET_ACCESS_KEY: secretAccessKey } = process.env;
   if (!accountId || !accessKeyId || !secretAccessKey) fail(2, 'R2 の認証情報が無い');
