@@ -1,10 +1,8 @@
 /** 施工管理基準の表示用投影。原文照合済みの表だけを受け、配布用Markdownには触れない。 */
 import { overrideParts, overrideTexts, resolveTablePart } from './standards-table.mjs';
 
-export const GROUPED_EXCEPTIONS = new Set([
-  'ca5f0c2db24112d7', '9064d57a26078f7d', '1afa7fe58fbb8c5e',
-  '1c67cc73d3d47582', '0cc13e23cfad408e', 'fe8f808b4a34cb16', '1937ba6d73a14b92',
-]);
+// p.174 は前表の続きの図だけ（元 JSON の承認記録）。表の行を推測して作らない。
+const FIGURE_ONLY_KEY = 'fe8f808b4a34cb16';
 const compact = (s) => String(s).replace(/[\s\u3000]+/gu, '');
 const groupValue = (s) => String(s).replace(/[\s\u3000]+/gu, ' ').trim();
 const digits = (s) => String(s).replace(/[０-９]/gu, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0));
@@ -46,12 +44,13 @@ export function prepareGroupedTable(override, lookup) {
   const raw = overrideParts(override);
   const parts = raw.map((p) => p.kind === 'table' ? resolveTablePart(p, lookup, { abbreviate: false }) : p);
   const sourceText = unique([...(override.kind === 'verbatim' ? override.layout : []), ...overrideTexts(raw), ...parts.flatMap((p) => p.kind === 'table' && !p.error ? [...p.header, ...p.rows].flat() : [])]).join('\n');
-  if (GROUPED_EXCEPTIONS.has(override.key)) return { ok: false, reason: 'review-required', sourceText };
+  if (override.key === FIGURE_ONLY_KEY && override.kind === 'verbatim') {
+    return { ok: true, parts: [{ kind: 'verbatim', lines: override.layout }], raw, sourceText };
+  }
   if (override.kind === 'verbatim') return { ok: false, reason: 'verbatim', sourceText: override.layout.join('\n') };
   for (const part of parts) {
     if (part.error) return { ok: false, reason: part.error, sourceText };
     if (part.kind === 'table' && !classifyGroupedTable(part).ok) return { ok: false, reason: 'unknown-columns', sourceText };
-    if (part.kind === 'verbatim' && override.key !== '39a76733f2e3e2fa') return { ok: false, reason: 'unhandled-part', sourceText };
     if (!['table', 'note', 'text', 'caption', 'verbatim'].includes(part.kind)) return { ok: false, reason: 'unhandled-part', sourceText };
   }
   if (!parts.some((p) => p.kind === 'table')) return { ok: false, reason: 'no-table', sourceText };
@@ -243,7 +242,8 @@ export function projectGroupedChapter(markdown, records, { sourceUrl }) {
           if (!rendered.ok) { result.ok = false; result.reason = rendered.reason; break; }
           blocks.push(rendered.markdown);
           result.coverage.push(...rendered.coverage.map((cell) => ({ part: index, ...cell })));
-        } else if (part.kind === 'verbatim') blocks.push('d＝D÷(n－1)');
+        } else if (part.kind === 'verbatim') blocks.push(key === '39a76733f2e3e2fa'
+          ? 'd＝D÷(n－1)' : `測定箇所・計算式の図：原本 p.${pages}`);
         else if (part.text !== unit) blocks.push(escape(part.text));
       }
     }
