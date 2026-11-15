@@ -65,6 +65,16 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1212] 土曜の収集で KDP・A8・もしものログインが毎週切れるのを直す（失敗印の解除・入口の統一・事前の知らせ）
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-15]
+
+**起点**: 週次レビュー（2026-11-09〜2026-11-15）の申し送り。土曜の収集で KDP・A8・もしもが毎週ログイン切れになり、運営者は何度もログインしている。2026-11-15 の調査で、ログインの置き場は 1 か所（`~/Library/Application Support/doboku-note/playwright-auth`）で worktree・launchd のずれは無く、原因は次の 4 つと分かった。(1) 自動の入り直しの失敗印 `metadata/<service>.autologin-failed` が永久に残り、人がログインしても消えない（KDP 10/31・もしも 10/11）。(2) 収集のプロファイルに入る正規の入口が `npm run auth:login` だけなのに、別のブラウザでログインしていた。(3) `openAuthContext` がプロファイルだけで保つ種類にも古い state の Cookie を重ねる。(4) KDP ともしもの入口の URL が台帳・確認・自動ログインで食い違う。
+
+**やること**: 計画 `.claude/plans/` の DN 付きの引き継ぎ（Codex が実装）。失敗印の解除と寿命・state の重ね方・KDP ともしもの入口の統一・`check-auth-freshness` での事前の知らせ・ログインの入口の決まりの明文化・テスト。KDP の 2 段階認証（Mac の指紋）は機械で通さず、端末を記憶させて保つ（2026-11-15 運営者の決定）。
+
+**完了条件**: PR が develop に入り、運営者の `auth:login --service kdp`・ココナラの資格情報の登録・`auth:refresh` の後に `npm run auth:status -- --all` で kdp・a8・moshimo が authenticated。11/21 の土曜の収集で auth・kdp・a8・moshimo が ok。
+
+
 ### [DN-1211] GA4 で 2026-11-12 の 1 日分の利用者が丸ごと欠けた原因を確かめる（Daily-Traffic-Zero）
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-15]
 
