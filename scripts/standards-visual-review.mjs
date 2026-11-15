@@ -283,7 +283,9 @@ function outIsStale(base) {
 }
 
 const SHOT_STYLE =
-  '[data-standards-chapter] .table-scroll{overflow:visible!important;width:max-content!important;max-width:none!important}[data-standards-sidebar],aside{display:none!important}article,main,main *{overflow:visible!important}';
+  // 横スクロールの表は全体を写すために折り返しなしの幅まで広げる。見出し＋3 列以下に組み直した表（data-standard-table の中）は
+  // 読者の画面では折り返して本文幅に収まるので広げない（広げると 1 行に伸びて 7,217px に写り、崩れていない表を不合格にした。2026-11-15・DN-1216）
+  '[data-standards-chapter] :not([data-standard-table]) > .table-scroll{overflow:visible!important;width:max-content!important;max-width:none!important}[data-standards-sidebar],aside{display:none!important}article,main,main *{overflow:visible!important}';
 
 /** 要素を撮る。高すぎる要素は上の MAX_SHOT_HEIGHT だけ撮り、その旨の文字列を返す */
 async function shootElement(page, locator, path) {
