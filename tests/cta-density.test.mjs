@@ -187,6 +187,10 @@ test('新しい画像面は種類別の上限とDOM位置を検査し、noteの�
  assert.ok(rules(article(body,'',imageAd('article-banner-end','end').repeat(2))).includes('affiliate-image-end'));
  assert.ok(rules(html.replace('class="hidden zenn-desktop:block"','')).includes('affiliate-image-rail'));
  assert.ok(rules(html.replace('data-article-sidebar-card>', 'data-not-card>')).includes('affiliate-rail-cards'));
+ // 右の欄で同じ案件（同じリンク先）を 2 回出さない。案件が尽きて枠がカード数より少ないのは違反にしない
+ const railWith = (hrefs) => `<div>${article(`<h2>本文</h2>${affiliate()}<p>学習本文</p>${body}`,'',imageAd('article-banner-end','end'))}<aside class="hidden zenn-desktop:block"><div data-article-sidebar-cards="3">${hrefs.map((h,i)=>`<div data-article-affiliate="rail">${affiliate(i?`article-rail-${i+1}`:'article-rail',`href="${h}"`)}</div><div data-article-sidebar-card>ナビ</div>`).join('')}<div data-article-sidebar-card>ナビ</div></div></aside></div>`;
+ assert.ok(!rules(railWith(['https://a.example/1','https://a.example/2'])).includes('affiliate-rail-cards'));
+ assert.ok(rules(railWith(['https://a.example/1','https://a.example/1'])).includes('affiliate-rail-duplicate'));
  assert.ok(rules(article(imageAd('article-banner','inline')+imageAd('article-banner-2','inline'))).includes('affiliate-image-adjacent'));
 });
 

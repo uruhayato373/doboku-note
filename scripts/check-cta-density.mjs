@@ -185,8 +185,12 @@ export function inspectHtml(html, slug) {
       if (desktop && rail) {
         const cards = rail.querySelectorAll('[data-article-sidebar-card]');
         const banners = rail.querySelectorAll('[data-article-affiliate="rail"]');
+        // 右の欄の枠はカード数（上限 rail）まで。案件が尽きたら止める規則（同じ案件を 2 回出さない）なので、少ないのは正しい
         const expected = Math.min(cards.length, ARTICLE_AFFILIATE_LIMITS.rail);
-        if (banners.length && banners.length !== expected) add('affiliate-rail-cards', banners.length, expected, [], ['affiliate']);
+        if (banners.length > expected) add('affiliate-rail-cards', banners.length, expected, [], ['affiliate']);
+        const railTargets = banners.map(b => attr(b.querySelector('a[data-cta="affiliate"]') ?? b, 'href')).filter(Boolean);
+        const duplicated = railTargets.length - new Set(railTargets).size;
+        if (duplicated) add('affiliate-rail-duplicate', duplicated, 0, [], ['affiliate']);
         const children = rail.childNodes.filter(n => n.tagName);
         for (const banner of banners) if (!children[children.indexOf(banner) + 1]?.hasAttribute('data-article-sidebar-card')) add('affiliate-rail-adjacent', 1, 0, [], ['affiliate']);
       }

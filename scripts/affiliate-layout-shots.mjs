@@ -23,6 +23,7 @@
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
@@ -168,7 +169,7 @@ async function main() {
 
   const articlePlans = JSON.parse(execFileSync(process.execPath, ['--conditions', 'react-server', '--import', 'tsx', '--input-type=module', '-e', `
     import { readFileSync } from 'node:fs';
-    import { articleLayoutPlans } from './scripts/lib/article-layout-plan.ts';
+    import { articleLayoutPlans } from '${pathToFileURL(join(REPO_ROOT, 'scripts/lib/article-layout-plan.ts')).href}';
     const input = JSON.parse(readFileSync(0, 'utf8'));
     process.stdout.write(JSON.stringify(await articleLayoutPlans(input.paths, input.now)));
   `], { cwd: REPO_ROOT, input: JSON.stringify({ paths: targets.filter(t => t.pageKind === 'doc').map(t => t.path), now: startedAt.getTime() }), encoding: 'utf8' }));
