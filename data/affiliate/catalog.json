@@ -293,11 +293,10 @@
           "href": "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
           "imageSrc": "https://www24.a8.net/svt/bgt?aid=260529673996&wid=002&eno=01&mid=s00000023057002003000&mc=1",
           "pixelSrc": "https://www13.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
-          "avoid": "「顧客満足度96.5%（当社調べ）」の表示に調査期間・対象数がなく、根拠を確認できない。小型カードの文章で案内する",
           "review": {
             "reviewedAt": "2026-11-14",
-            "outcome": "avoid",
-            "note": "「顧客満足度96.5%（当社調べ）」の表示に調査期間・対象数がなく、根拠を確認できない。小型カードの文章で案内する",
+            "outcome": "ok",
+            "note": "2026-11-15 運営者判断で使う（DN-1214）: 「顧客満足度96.5%（当社調べ）」の表示は広告主の素材のまま出し、こちらで根拠を確かめることは求めない。旧判定（2026-11-14 avoid）は調査期間・対象数の記載が無いことを理由にしていた",
             "sha256": "a4797cd52ecd5c49b15c3a82e40ccb618d7b5d082d8a96884920ffd2b1fcd9ad",
             "framesChecked": 1
           }
