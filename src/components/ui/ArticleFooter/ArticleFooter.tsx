@@ -9,6 +9,7 @@ import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklin
 import PeConstructionSubjectLinks from '@/components/ui/PeConstructionSubjectLinks';
 import SectionKeywords from '@/components/ui/SectionKeywords';
 import PillarNavCard from '@/components/ui/PillarNavCard';
+import PillarExamQuestions from '@/components/ui/PillarExamQuestions/PillarExamQuestions';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import { type ResolvedHubCta } from '@/lib/hub-cta';
@@ -157,6 +158,13 @@ export default function ArticleFooter({
       {examTopic && (
         <div className="mt-8">
           <ExamTopicBridge question={examTopic} />
+        </div>
+      )}
+
+      {/* PE pillar（5 管理）: この管理の過去問（直近 3 年度の設問へ直接・DN-1220） */}
+      {category === 'pe-comprehensive-management' && docGroup === 'pillar' && (
+        <div className="mt-8">
+          <PillarExamQuestions slug={slugStr} />
         </div>
       )}
 
