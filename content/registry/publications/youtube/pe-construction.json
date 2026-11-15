@@ -1735,7 +1735,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-themename-1",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
       "relatedTo": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1760,13 +1760,38 @@
         "contentSha256": "96234283def74cd5438d83d5eb8b07dc8697aed357cb9c25490acd0c45dc8e7c"
       },
       "times": {
-        "rendered": "2026-11-15T13:11:06.981Z"
+        "rendered": "2026-11-15T13:11:06.981Z",
+        "uploaded": "2026-11-15T13:19:18.629Z"
       },
       "delivery": {
         "inputSha256": "d8473ebba9936bcadf2b85b70ecfb67a8b469a669a090354b3ec165c8ba8b999",
         "marker": "dn-single-012f1cacbbf5829fbe5a55a04648d8e53c258fab",
         "uploadRequestedAt": "2026-11-15T13:12:17.696Z",
-        "videoId": "66fisLRxH4M"
+        "videoId": "66fisLRxH4M",
+        "processedAt": "2026-11-15T13:19:17.966Z",
+        "thumbnailRequestedAt": "2026-11-15T13:19:18.704Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/66fisLRxH4M/default.jpg?sqp=CNTg5tcG&rs=AOn4CLAhZXuoj2GmjIOz_mxy-BYCcW1eow",
+          "https://i9.ytimg.com/vi/66fisLRxH4M/mqdefault.jpg?sqp=CNTg5tcG&rs=AOn4CLBNz9v1g8Vl5jumb-8q6W0QQKzMJA",
+          "https://i9.ytimg.com/vi/66fisLRxH4M/hqdefault.jpg?sqp=CNTg5tcG&rs=AOn4CLD-vkDRt9NsoN1vKubC5ZEye8gZuQ",
+          "https://i9.ytimg.com/vi/66fisLRxH4M/sddefault.jpg?sqp=CNTg5tcG&rs=AOn4CLA9X5wERLtZVhzsSSXd6iusDqWbZw",
+          "https://i9.ytimg.com/vi/66fisLRxH4M/maxresdefault.jpg?sqp=CNTg5tcG&rs=AOn4CLBkD55eMlw74JHPUvRyTrB5xnf57g",
+          "https://i9.ytimg.com/vi/66fisLRxH4M/sardefault.jpg?sqp=CNTg5tcG&rs=AOn4CLBEysniiwsDePQgAEjBE1B12QcWBg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-15T13:19:22.893Z"
+      },
+      "platform": {
+        "id": "66fisLRxH4M",
+        "url": "https://www.youtube.com/watch?v=66fisLRxH4M",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-themename-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-15T13:19:22.893Z"
       }
     },
     {
