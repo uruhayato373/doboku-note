@@ -8447,6 +8447,45 @@
       "commit": "52853ea5d253",
       "verification": "node -e 'demand-map.json の change-job・raise-pay の hubs.status が decided'",
       "note": "運営者の判断（2026-11-15・週次レビュー W46 の申し送り）: 悩みのハブを両方作る。demand-map の change-job・raise-pay のハブを decided にし、EXP-045・EXP-046 を running にした。制作は DN-1200（発注者側への地図・EXP-045）・DN-1201（給料を上げたい人の地図）・DN-1202（建設コンサルの技術者のテーマ・EXP-046）へ抽出した"
+    },
+    {
+      "id": "DN-1156",
+      "at": "2026-11-15",
+      "task": "答案の痛み（自力では書けない記述の答案を仕上げる）を広げる先の資格を 1 つ選び、年間の計画に入れる",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2d957aff47ad",
+      "verification": "grep 2026-11-15 docs/strategy/06_多資格展開戦略.md",
+      "note": "運営者の判断（2026-11-15・週次レビュー W46）: 広げる先は 1級管工事施工管理技士。docs/strategy/06_多資格展開戦略.md の判断の記録に足し、制作は DN-1203（[時期:2027-08..2027-10]＝年間の計画）へ抽出した"
+    },
+    {
+      "id": "DN-1179",
+      "at": "2026-11-15",
+      "task": "git で追跡している大きなファイル（state・Kindle の成果物・.obsidian）の置き場を決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2d957aff47ad",
+      "verification": "grep DN-1204 DN-1205 DN-1206 .claude/todo/backlog.md",
+      "note": "運営者の判断（2026-11-15・週次レビュー W46）: 置き場の基準どおりに整理する。Kindle の epub・jpg は移す（DN-1204）、.claude/state/ のログと作り直せる出力は追跡から外す（DN-1205）、.obsidian/ は設定だけ残して zip と端末ごとの状態を外す（DN-1206）"
+    },
+    {
+      "id": "DN-1178",
+      "at": "2026-11-15",
+      "task": "文字サイズの任意値（text-[Npx] 約 400 件）をトークンにするか決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2d957aff47ad",
+      "verification": "grep 'UI の文字サイズの段階' .claude/knowledge/design-system/design-system.md",
+      "note": "運営者の判断（2026-11-15・週次レビュー W46）: 文字サイズの任意値をトークンに置き換える。方針を design-system.md §2.5 に書き、置き換えと増やさない検査は DN-1207 へ抽出した"
     }
   ]
 }
