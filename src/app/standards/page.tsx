@@ -41,7 +41,7 @@ export default function StandardsPage() {
             <div className="space-y-3" data-standards-sidebar>
               <StandardsExplore />
             </div>
-            <div className="sticky top-6 mt-3">
+            <div className="mt-3">
               <StandardsRailBanner pageKind="standards-list" />
             </div>
           </>

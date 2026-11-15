@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { StandardChapterDiscovery, StandardEntryChapters, StandardTopicDiscovery } from '@/components/standards/StandardsSidebarDiscovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
-import StandardsTreeActiveScroll from '@/components/standards/StandardsTreeActiveScroll';
 import StandardsTreeChapter from '@/components/standards/StandardsTreeChapter';
 import { standardTreeSections, standardTreeTocPath, usesTreeNav } from '@/lib/standards-tree-nav';
 import {
@@ -152,13 +151,10 @@ function DocumentTreeNav({
   document,
   currentChapter,
   currentSection,
-  scroll,
 }: {
   document: StandardDocument;
   currentChapter?: StandardChapter | undefined;
   currentSection?: number | undefined;
-  /** 右の欄では目次だけを高さで区切って中をスクロールさせ、下の回遊の枠を画面に残す */
-  scroll: boolean;
 }) {
   const books = groupChaptersByBook(getStandardChapters(document.agencyId, document.documentId));
   const tocUrl = standardTreeTocPath(document);
@@ -173,9 +169,8 @@ function DocumentTreeNav({
         {document.role === 'common' ? '土木工事共通仕様書' : document.title}・目次
       </Link>
       <div
-        className={scroll ? 'standards-tree max-h-[52vh] overflow-y-auto' : 'standards-tree'}
+        className="standards-tree"
         data-standards-nav="tree"
-        data-standards-tree-scroll={scroll ? '' : undefined}
       >
         {books.map((book) => {
           const activeBook = book.chapters.some((chapter) => chapter.chapterId === currentChapter?.chapterId);
@@ -245,7 +240,6 @@ function DocumentTreeNav({
           );
         })}
       </div>
-      <StandardsTreeActiveScroll />
     </nav>
   );
 }
@@ -255,7 +249,6 @@ function NavigationContents({
   currentDocument,
   currentChapter,
   currentSection,
-  variant,
 }: StandardsNavigationProps) {
   // 機関のページの読み手はその機関の仕様書を探しに来ているので、機関の切り替えより先に章の入口を出す
   if (!currentDocument) {
@@ -273,7 +266,7 @@ function NavigationContents({
     return (
       <>
         {!currentChapter && <DocumentNav currentDocument={currentDocument} />}
-        <DocumentTreeNav document={currentDocument} currentChapter={currentChapter} currentSection={currentSection} scroll={variant === 'sidebar'} />
+        <DocumentTreeNav document={currentDocument} currentChapter={currentChapter} currentSection={currentSection} />
       </>
     );
   }
@@ -380,8 +373,7 @@ export default function StandardsNavigation({
   }
 
   return (
-    // 案内（目次・回遊）はページと一緒に流し、欄の中にスクロールを作らない。広告だけを aside の直下で sticky にし、
-    // 案内が画面外へ流れたあとも画面上部に残す（aside は本文の高さまで伸びるので、本文の終わりまで付いてくる）。
+    // 右の欄は固定・欄の中のスクロールをしない（2026-11-15 運営者指示・全ページ共通）。
     <>
       <div className="space-y-3" data-standards-sidebar>
         {!treeMode && <div className="border border-(--rule-soft) bg-(--paper) p-5">
@@ -398,7 +390,7 @@ export default function StandardsNavigation({
         {contents}
         {discovery}
       </div>
-      <div className="sticky top-6 mt-3">
+      <div className="mt-3">
         <StandardsRailBanner pageKind={currentChapter ? 'standards' : 'standards-list'} inlineSlots={inlineSlots} />
       </div>
     </>

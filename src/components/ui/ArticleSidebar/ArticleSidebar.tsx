@@ -33,11 +33,10 @@ interface ArticleSidebarProps {
  *  1. 通常フロー（追従させない）: 運営者プロフィール → note もくじタイル。
  *     転職アフィリ枠は 2026-09-26 に撤去（GA4 4 週で表示 12,673・クリック 0／DN-0322）。
  *     A8 ピクセルは DocPage が本文または記事末の転職広告に 1 発だけ付ける。
- *  2. sticky クラスタ（列の最終要素・読中に追従）: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。
- *     ナビゲーションだけを追従させ、長記事でも導線が視界に残る。
+ *  2. ナビ群: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。
  *
- * 経緯: 2026-06-27 に全体 sticky を解除（落ち着いた読書体験）→ 2026-07 に「TOC+ナビのみ」へ限定復活。
- * sticky クラスタの下に非 sticky を置くと下スクロールで届かなくなる（過去事故）ため、クラスタは末尾に置く。
+ * 経緯: 2026-06-27 に全体 sticky を解除 → 2026-07 に「TOC+ナビのみ」を sticky＋欄の中のスクロールで限定復活 →
+ * 2026-11-15 運営者指示で全ページの右サイドバーから固定と欄の中のスクロールを撤去（ページと一緒に流す・DN-1214）。
  * note もくじタイル: 2026-07-06 に一旦撤去したが全ページ統一の一環で復活（記事末尾と同一もくじを PC で併掲・
  * utm -docs-sb で面分離）。sidebarMokuji が null（非 HUB 資格・career）のときは枠ごと非表示。
  */
@@ -75,10 +74,9 @@ export default function ArticleSidebar({
         </div>
       )}
       {!sidebarMokuji && category && categoryArticles.some(d => d.slug === slugStr) && <div className="mb-3"><SidebarProduct category={category} doc={categoryArticles.find(d => d.slug === slugStr)!} placement="article-sidebar" content={content} /></div>}
-      {/* ブロック2: sticky クラスタ（列の最終要素・読中に追従）——TOC/ナビのみ。
-          自身をスクロール可能にし、低解像度でも見切れない（TOC 側の max-h は撤去し高さ制御をここへ一元化）。 */}
+      {/* ブロック2: ナビ群——TOC/ナビ。固定・欄の中のスクロールはしない（2026-11-15）。 */}
       {hasStickyCluster && (
-        <div className="sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto">
+        <div>
           {/* 年度別過去問は TOC が問番号の羅列になるため呼び出し側で showTableOfContents=false。
               primary は代わりに設問番号グリッド（ExamQuestionNav）を出す。 */}
           {showTableOfContents && (
