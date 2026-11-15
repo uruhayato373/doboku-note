@@ -23,6 +23,7 @@ import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import { buildLearningCatalog } from '@/lib/learning-catalog';
+import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
 import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
 import ResponsiveAffiliateBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner';
 import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
@@ -145,9 +146,16 @@ export default async function CategoryPage({
                 パンくずと重複のため削除） */}
             <div className="pt-6 sm:pt-8 pb-5 border-b border-(--rule-soft)">
               <nav aria-label="breadcrumb" className="font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest mb-2 flex items-center gap-2">
-                <Link href="/" className="hover:text-(--accent) transition-colors">Home</Link>
+                <Link href="/" className="hover:text-(--accent) transition-colors">ホーム</Link>
                 <span aria-hidden className="opacity-60">›</span>
-                <span>Category</span>
+                {/* 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は資格ページが領域の入口なので 2 段（DN-1219） */}
+                {getCategoryArea(slug) === 'exam' && (
+                  <>
+                    <Link href={getAreaHubPath('exam')} className="hover:text-(--accent) transition-colors">{getAreaLabel('exam')}</Link>
+                    <span aria-hidden className="opacity-60">›</span>
+                  </>
+                )}
+                <span>{cat.label}</span>
               </nav>
               <h1 className="font-serif font-bold tracking-tight text-(--ink) text-[24px] sm:text-[28px] leading-[1.3] mb-2">
                 {cat.label}

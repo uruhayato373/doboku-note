@@ -250,18 +250,18 @@ export default function ArticleFooter({
       {/* Civil 2級 guide（キャリア記事）: 記事末 CTA なし（GKS はサイドバー上部に集約＝1 ページ 1 GKS ピクセル）。
           本文インライン CareerAffiliate（href のみ）は MDX 側で維持。 */}
 
-      {/* Civil textbook: 前後章ナビ + 過去問逆引き（1級・2級共通） */}
-      {isCivilConstructionCategory(category) &&
-        docGroup === 'textbook' && (
-          <>
-            <div className="mt-8">
-              <TextbookNav currentSlug={slugStr} categoryArticles={categoryArticles} />
-            </div>
-            <div className="mt-8">
-              <PastExamBacklinks category={category} currentSlug={slugStr} />
-            </div>
-          </>
-        )}
+      {/* 教科書: 前後章ナビ（全資格・textbook_order 順。コンクリート 3 資格の 20 本に無かった・DN-1219） */}
+      {docGroup === 'textbook' && (
+        <div className="mt-8">
+          <TextbookNav currentSlug={slugStr} categoryArticles={categoryArticles} />
+        </div>
+      )}
+      {/* 1級・2級土木: 過去問逆引き（教科書とガイド。ガイドの索引 47 件が未表示だった・DN-1220） */}
+      {isCivilConstructionCategory(category) && (docGroup === 'textbook' || docGroup === 'guide') && !isCareer && (
+        <div className="mt-8">
+          <PastExamBacklinks category={category} currentSlug={slugStr} />
+        </div>
+      )}
 
       {/* guide/pillar/secondary/textbook: カテゴリナビカード（モバイル） */}
       {hasCategoryNavCard &&

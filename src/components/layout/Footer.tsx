@@ -9,6 +9,7 @@ const siteLinks = [
   ['/links', '教材一覧'],
   ['/tools', '計算・演習'],
   ['/standards', getAreaLabel('standards')],
+  ['/laws', getAreaLabel('laws')],
   ['/topics', 'テーマ別索引'],
   ['/about', '運営者情報'],
   ['/contact', 'お問い合わせ'],
