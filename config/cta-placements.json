@@ -423,6 +423,148 @@
         ],
         "mobile": []
       }
+    },
+    "article-banner": {
+      "label": "記事本文中の画像 1",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 4,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
+    },
+    "article-banner-2": {
+      "label": "記事本文中の画像 2",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 5,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
+    },
+    "article-banner-3": {
+      "label": "記事本文中の画像 3",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 6,
+      "sizes": {
+        "pc": [
+          "728x90",
+          "468x60"
+        ],
+        "mobile": [
+          "320x100",
+          "320x50"
+        ]
+      }
+    },
+    "article-rail": {
+      "label": "記事の右欄 1",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 10,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "article-rail-2": {
+      "label": "記事の右欄 2",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 11,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "article-rail-3": {
+      "label": "記事の右欄 3",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 12,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "article-rail-4": {
+      "label": "記事の右欄 4",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 13,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "article-rail-5": {
+      "label": "記事の右欄 5",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 14,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "article-rail-6": {
+      "label": "記事の右欄 6",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 15,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "article-banner-end": {
+      "label": "記事本文末の画像",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 3,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "336x280"
+        ],
+        "mobile": [
+          "300x250",
+          "336x280"
+        ]
+      }
     }
   }
 }

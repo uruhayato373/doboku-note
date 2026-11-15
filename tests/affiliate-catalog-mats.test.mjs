@@ -42,7 +42,7 @@ test('他サイトのバナーと別素材のピクセルを拒否する', () =>
 
 test('表示する既定バナー・テキストの URL は台帳の素材と一致する', async () => {
   const { PROGRAM_ASSETS } = await loadTsModule('src/config/affiliate-creatives.ts');
-  assert.equal(Object.keys(PROGRAM_ASSETS).length, 7);
+  assert.equal(Object.keys(PROGRAM_ASSETS).length, 10);
   for (const [program, asset] of Object.entries(PROGRAM_ASSETS)) {
     const c = catalog.programs[program].creatives.find(c => c.href === asset.banner.href);
     assert.ok(c, program);

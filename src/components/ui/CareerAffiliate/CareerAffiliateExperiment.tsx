@@ -26,7 +26,7 @@ function clientSnapshot(): string {
 }
 
 /** 訪問者の案（SSR と案の確定前は null）。カードとページ単位のピクセルで同じ割り当てを使う。 */
-function useAffiliateVariant(): string | null {
+export function useAffiliateVariant(): string | null {
   return useSyncExternalStore(subscribe, clientSnapshot, serverSnapshot);
 }
 
@@ -52,10 +52,6 @@ function ExperimentPixel({ assigned, ...source }: PixelSource & { readonly assig
   return <TrackingPixel src={pixelForVariant(source)} />;
 }
 
-/** ページ単位の計測ピクセル（DocPage が本文の後に置く 1 発）。 */
-export function AffiliateExperimentPixel(source: PixelSource & { readonly src: string }) {
-  return <ExperimentPixel assigned={useAffiliateVariant()} {...source} />;
-}
 
 const HEADLINES: Record<string, string> = {
   buildjob: "その資格と経験、いまの待遇に活きている？",
@@ -135,7 +131,8 @@ function SmallCard({ card, program, trackLabel, placement, textHref, assigned }:
  * 計測は data-cta-exposure="heading" が 50% 見えた時点。SSR では 1 枚を描き、案の確定前は数えない。
  * 計測ピクセルは案が決まってから出す。textHref のある案件（ビルドジョブ）はテキスト素材のリンクとピクセル。
  */
-export default function CareerAffiliateExperiment({ card, program, trackLabel, placement, textHref, textPixelSrc, pixelSrc, secondary }: {
+export default function CareerAffiliateExperiment({ card, program, trackLabel, placement, textHref, textPixelSrc, pixelSrc, secondary, managedPixels = false }: {
+  readonly managedPixels?: boolean | undefined;
   readonly card: CareerArticleEndCard;
   readonly program: string;
   readonly trackLabel: string;
@@ -151,7 +148,7 @@ export default function CareerAffiliateExperiment({ card, program, trackLabel, p
 }) {
   const assigned = useAffiliateVariant();
   const wide = useSyncExternalStore(subscribeWide, wideSnapshot, wideServerSnapshot);
-  const pixel = <ExperimentPixel assigned={assigned} src={pixelSrc} textHref={textHref} textPixelSrc={textPixelSrc} />;
+  const pixel = !managedPixels && <ExperimentPixel assigned={assigned} src={pixelSrc} textHref={textHref} textPixelSrc={textPixelSrc} />;
   const first = <SmallCard card={card} program={program} trackLabel={trackLabel} placement={placement} textHref={textHref} assigned={assigned} />;
   if (assigned === "B2" && wide && secondary) {
     return (
@@ -161,7 +158,7 @@ export default function CareerAffiliateExperiment({ card, program, trackLabel, p
           <SmallCard card={secondary.card} program={secondary.program} trackLabel={secondary.card.service} placement={placement} textHref={secondary.textHref} assigned={assigned} />
         </div>
         {pixel}
-        <TrackingPixel src={pixelForVariant({ src: secondary.pixelSrc, textHref: secondary.textHref, textPixelSrc: secondary.textPixelSrc })} />
+        {!managedPixels && <TrackingPixel src={pixelForVariant({ src: secondary.pixelSrc, textHref: secondary.textHref, textPixelSrc: secondary.textPixelSrc })} />}
       </>
     );
   }

@@ -640,7 +640,7 @@
       "label": "RSG建設転職（建設業界専門の転職支援）",
       "vertical": "civil-career",
       "placement": "active",
-      "decision": "**afb で提携済み・A8 では未提携**。A8 側は ¥2,930 / EPC 0 で scout の閾値（0.35）未満だった。afb 側の単価・確定率は未取得。配置するかは afb 側の条件を確認してから。 2026-11-13: 基準書の右の欄（章・節は 2 枠目、章以外は 3 枠目）に 300×250 で配置（運営者指示「基準書は建設系と第二新卒」）。",
+      "decision": "A8・afb 提携済み。2026-11-15 運営者承認 DN-1215 で建設系記事の画像面にも配置。avoid 素材は使用しない。",
       "asps": {
         "a8": {
           "programId": "s00000021947001",
@@ -1816,8 +1816,8 @@
     "myvision-agent": {
       "label": "MyVisionエージェント（ハイクラス転職エージェント）",
       "vertical": "pe-career",
-      "placement": "none",
-      "decision": "ハイクラス向け。ビルドジョブと同じ運営会社。",
+      "placement": "active",
+      "decision": "2026-11-15 運営者承認 DN-1215。総監・RCCM の記事の右欄。本文末にも配置。",
       "asps": {
         "a8": {
           "status": "unknown"
@@ -1895,6 +1895,11 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97049",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5868365&p_id=7797&pc_id=22603&pl_id=97049"
         }
+      ],
+      "ctaLabels": [
+        "MyVisionAgent-sidebar",
+        "MyVisionエージェント",
+        "MyVisionAgent-endbanner"
       ]
     },
     "axis-agent": {
@@ -2080,8 +2085,8 @@
     "newma": {
       "label": "NewMA（DX・戦略・AI コンサル転職支援）",
       "vertical": "pe-career",
-      "placement": "none",
-      "decision": "2026-11-13 提携済みを確認して台帳に追加。技術士・総監のハイクラス層の候補。配置は未定。",
+      "placement": "active",
+      "decision": "2026-11-15 運営者承認 DN-1215。総監・RCCM の記事の右欄。",
       "asps": {
         "a8": {
           "status": "unknown"
@@ -2122,6 +2127,11 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93907",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5717928&p_id=7487&pc_id=21632&pl_id=93907"
         }
+      ],
+      "ctaLabels": [
+        "NewMA-sidebar",
+        "NewMA",
+        "NewMA-endbanner"
       ]
     },
     "type-agent": {
@@ -2167,8 +2177,8 @@
     "samurai-job": {
       "label": "Samurai Job（外資・グローバルのハイクラス転職）",
       "vertical": "pe-career",
-      "placement": "none",
-      "decision": "2026-11-13 提携済みを確認して台帳に追加。外資・英語寄りで読者との適合は未確認。",
+      "placement": "active",
+      "decision": "2026-11-15 運営者承認 DN-1215。総監・RCCM の記事の右欄。",
       "asps": {
         "a8": {
           "status": "unknown"
@@ -2246,6 +2256,11 @@
           "href": "https://af.moshimo.com/af/c/click?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29601",
           "pixelSrc": "https://i.moshimo.com/af/i/impression?a_id=5718040&p_id=2228&pc_id=4739&pl_id=29601"
         }
+      ],
+      "ctaLabels": [
+        "SamuraiJob-sidebar",
+        "Samurai Job",
+        "SamuraiJob-endbanner"
       ]
     },
     "assign-agent": {

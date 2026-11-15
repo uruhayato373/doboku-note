@@ -1206,6 +1206,1295 @@
       },
       "experiment": null,
       "note": "2026-11-15 DN-1214（運営者指示）。PC の一覧・文書の回遊カードの間（1 枚ならその後）に第二新卒エージェントneo"
+    },
+    {
+      "id": "PL-0074",
+      "program": "buildjob",
+      "slot": "article-banner",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "laws",
+          "pipe-work",
+          "concrete-engineer",
+          "pavement"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0075",
+      "program": "constwork",
+      "slot": "article-banner-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "laws",
+          "pipe-work",
+          "concrete-engineer",
+          "pavement"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0076",
+      "program": "rsg-kensetsu",
+      "slot": "article-banner-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "laws",
+          "pipe-work",
+          "concrete-engineer",
+          "pavement"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0077",
+      "program": "buildjob",
+      "slot": "article-rail",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "laws",
+          "pipe-work",
+          "concrete-engineer",
+          "pavement"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0078",
+      "program": "rsg-kensetsu",
+      "slot": "article-rail-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "laws",
+          "pipe-work",
+          "concrete-engineer",
+          "pavement"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0079",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "article-rail-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "laws",
+          "pipe-work",
+          "concrete-engineer",
+          "pavement"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0080",
+      "program": "kensetsu-jobs",
+      "slot": "article-rail-4",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "laws",
+          "pipe-work",
+          "concrete-engineer",
+          "pavement"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0083",
+      "program": "buildjob",
+      "slot": "article-banner-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "laws",
+          "pipe-work",
+          "concrete-engineer",
+          "pavement"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0084",
+      "program": "buildjob",
+      "slot": "article-banner",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0085",
+      "program": "constwork",
+      "slot": "article-banner-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0086",
+      "program": "rsg-kensetsu",
+      "slot": "article-banner-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0087",
+      "program": "buildjob",
+      "slot": "article-rail",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0088",
+      "program": "rsg-kensetsu",
+      "slot": "article-rail-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0089",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "article-rail-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0090",
+      "program": "kensetsu-jobs",
+      "slot": "article-rail-4",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0093",
+      "program": "kensetsu-jobs",
+      "slot": "article-banner-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0094",
+      "program": "buildjob",
+      "slot": "article-banner",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0095",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "article-banner-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0096",
+      "program": "constwork",
+      "slot": "article-banner-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0097",
+      "program": "kensetsu-jobs",
+      "slot": "article-rail",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0098",
+      "program": "buildjob",
+      "slot": "article-rail-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0099",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "article-rail-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0100",
+      "program": "rsg-kensetsu",
+      "slot": "article-rail-4",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0103",
+      "program": "kensetsu-jobs",
+      "slot": "article-banner-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0104",
+      "program": "buildjob",
+      "slot": "article-banner",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0105",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "article-banner-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0106",
+      "program": "constwork",
+      "slot": "article-banner-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0107",
+      "program": "buildjob",
+      "slot": "article-rail",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0108",
+      "program": "rsg-kensetsu",
+      "slot": "article-rail-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0109",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "article-rail-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0110",
+      "program": "kensetsu-jobs",
+      "slot": "article-rail-4",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0113",
+      "program": "buildjob",
+      "slot": "article-banner-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0114",
+      "program": "kenchiku-tenshoku",
+      "slot": "article-banner",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0115",
+      "program": "buildjob",
+      "slot": "article-banner-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0116",
+      "program": "kenchiku-tenshoku",
+      "slot": "article-banner-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0117",
+      "program": "kenchiku-tenshoku",
+      "slot": "article-rail",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0118",
+      "program": "buildjob",
+      "slot": "article-rail-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0119",
+      "program": "rsg-kensetsu",
+      "slot": "article-rail-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0123",
+      "program": "kenchiku-tenshoku",
+      "slot": "article-banner-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0124",
+      "program": "buildjob",
+      "slot": "article-banner",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "concrete-chief-engineer",
+          "concrete-diagnostician"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0125",
+      "program": "constwork",
+      "slot": "article-banner-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "concrete-chief-engineer",
+          "concrete-diagnostician"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0126",
+      "program": "rsg-kensetsu",
+      "slot": "article-banner-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "concrete-chief-engineer",
+          "concrete-diagnostician"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0127",
+      "program": "buildjob",
+      "slot": "article-rail",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "concrete-chief-engineer",
+          "concrete-diagnostician"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0128",
+      "program": "rsg-kensetsu",
+      "slot": "article-rail-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "concrete-chief-engineer",
+          "concrete-diagnostician"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0133",
+      "program": "buildjob",
+      "slot": "article-banner-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "concrete-chief-engineer",
+          "concrete-diagnostician"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0134",
+      "program": "buildjob",
+      "slot": "article-banner",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0135",
+      "program": "rsg-kensetsu",
+      "slot": "article-banner-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0136",
+      "program": "buildjob",
+      "slot": "article-banner-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0137",
+      "program": "buildjob",
+      "slot": "article-rail",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0138",
+      "program": "rsg-kensetsu",
+      "slot": "article-rail-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0139",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "article-rail-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0140",
+      "program": "kensetsu-jobs",
+      "slot": "article-rail-4",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0143",
+      "program": "buildjob",
+      "slot": "article-banner-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0144",
+      "program": "buildjob",
+      "slot": "article-banner",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-construction",
+          "pe-water-supply"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0145",
+      "program": "rsg-kensetsu",
+      "slot": "article-banner-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-construction",
+          "pe-water-supply"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0146",
+      "program": "buildjob",
+      "slot": "article-banner-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-construction",
+          "pe-water-supply"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0147",
+      "program": "buildjob",
+      "slot": "article-rail",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-construction",
+          "pe-water-supply"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0148",
+      "program": "rsg-kensetsu",
+      "slot": "article-rail-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-construction",
+          "pe-water-supply"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0153",
+      "program": "buildjob",
+      "slot": "article-banner-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-construction",
+          "pe-water-supply"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0154",
+      "program": "buildjob",
+      "slot": "article-banner",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0155",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "article-banner-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0156",
+      "program": "rsg-kensetsu",
+      "slot": "article-banner-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0157",
+      "program": "buildjob",
+      "slot": "article-rail",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0158",
+      "program": "rsg-kensetsu",
+      "slot": "article-rail-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0159",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "article-rail-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0160",
+      "program": "kensetsu-jobs",
+      "slot": "article-rail-4",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0163",
+      "program": "buildjob",
+      "slot": "article-banner-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0164",
+      "program": "dx-consulting",
+      "slot": "article-rail",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-comprehensive-management",
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0165",
+      "program": "myvision-agent",
+      "slot": "article-rail-2",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-comprehensive-management",
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0166",
+      "program": "newma",
+      "slot": "article-rail-3",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-comprehensive-management",
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0167",
+      "program": "samurai-job",
+      "slot": "article-rail-4",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-comprehensive-management",
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
+    },
+    {
+      "id": "PL-0170",
+      "program": "myvision-agent",
+      "slot": "article-banner-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-comprehensive-management",
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 運営者指示 DN-1215。カテゴリ別の画像面。本文は安全な区切りだけ、右欄は実カードの先頭・間隔だけ描画する。DN-0843 の拡張待ちを上書き。"
     }
   ],
   "pairs": [

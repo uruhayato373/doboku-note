@@ -166,6 +166,14 @@ async function main() {
     return 1;
   }
 
+  const articlePlans = JSON.parse(execFileSync(process.execPath, ['--conditions', 'react-server', '--import', 'tsx', '--input-type=module', '-e', `
+    import { readFileSync } from 'node:fs';
+    import { articleLayoutPlans } from './scripts/lib/article-layout-plan.ts';
+    const input = JSON.parse(readFileSync(0, 'utf8'));
+    process.stdout.write(JSON.stringify(await articleLayoutPlans(input.paths, input.now)));
+  `], { cwd: REPO_ROOT, input: JSON.stringify({ paths: targets.filter(t => t.pageKind === 'doc').map(t => t.path), now: startedAt.getTime() }), encoding: 'utf8' }));
+  targets = targets.map(t => ({ ...t, articleSlots: articlePlans[t.path] }));
+
   const ts = startedAt.toISOString().replace(/\.\d+Z$/, 'Z').replace(/:/g, '-');
   const outDir = join(REPO_ROOT, datasetDir('affiliate.layout-shots'), ts);
   try {
@@ -197,7 +205,7 @@ async function main() {
             await settle(page);
             const measured = await page.evaluate(measureInPage);
             const html = await page.content();
-            const pageInfo = { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc, path: t.path };
+            const pageInfo = { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc, path: t.path, articleSlots: t.articleSlots };
             const verdict = judgeShot(
               { viewport: { width: vp.width, height: vp.height }, scrollWidth: measured.scrollWidth, html, ads: measured.ads },
               { rules, pairs, splits, page: pageInfo, nowMs, forcedVariant: variant, expectedCount: Object.keys(expectedSlots(rules, pageInfo, nowMs)).length },
@@ -249,7 +257,7 @@ async function main() {
     viewports: WIDTHS.map(({ id, label, width, height }) => ({ id, label, width, height })),
     maxHeight: MAX_HEIGHT,
     counts: { targets: targets.length, planned, captured, failed, ng, warn: shots.filter((s) => s.warnings?.length).length },
-    targets: targets.map((t) => ({ ...t, expected: expectedSlots(rules, { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc, path: t.path }, nowMs) })),
+    targets: targets.map((t) => ({ ...t, expected: expectedSlots(rules, { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc, path: t.path, articleSlots: t.articleSlots }, nowMs) })),
     shots,
   };
   writeFileSync(join(outDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);

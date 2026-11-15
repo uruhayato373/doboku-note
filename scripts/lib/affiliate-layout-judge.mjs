@@ -191,6 +191,9 @@ export function ruleFor(rules, page, slot, program, nowMs, pairs = [], splits = 
 export function expectedSlots(rules, page, nowMs, readChapter = readStandardsChapter) {
   const out = {};
   for (const r of rules) if (isActive(r, nowMs) && matchesPage(r, page)) out[r.slot] = { ruleId: r.id, program: r.program };
+  if (page.pageKind === 'doc' && page.articleSlots) {
+    for (const slot of Object.keys(out)) if (!page.articleSlots.includes(slot)) delete out[slot];
+  }
   if (page.pageKind === 'standards') {
     const markdown = readChapter(page.path);
     const inline = new Set(planInlineSlots(markdown ?? '').insertAt.map((s) => s.slot));

@@ -28,6 +28,7 @@ type MidArticleCtaProps =
     }
   | {
       readonly mode: 'career';
+      readonly managedPixels?: boolean | undefined;
       /** 配置ルール（article-mid）で解決した案件の本文カード（src/lib/affiliate-placement.ts の card）。 */
       readonly card: CareerArticleEndCard;
       /** 2 枚並べの 2 枚目（配置ルールの pairs。無ければ 1 枚） */
@@ -45,7 +46,7 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
   if (props.mode === 'career') {
     // CareerAffiliate 自身が not-prose / my-6 / PR バッジ / rel="nofollow sponsored" を持つ。
     // emphasis: 本文フローでは白背景だと本文カードに溶け込むため地色＋左ラインで視認性を上げる。
-    return <CareerAffiliate {...props.card} placement="article-mid" emphasis secondary={props.secondary} />;
+    return <CareerAffiliate {...props.card} placement="article-mid" emphasis secondary={props.secondary} managedPixels={props.managedPixels} />;
   }
   return (
     <div className="not-prose my-8 max-w-2xl" data-cta="nav" data-cta-label="article-mid-related">

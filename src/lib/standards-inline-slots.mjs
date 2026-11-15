@@ -14,7 +14,7 @@ function isTableSeparator(line) {
 /**
  * line は元の markdown の 0 始まりの行番号（その行の直前に差し込む）。
  * @param {string} markdown
- * @param {{ firstChars?: number, intervalChars?: number, remainingChars?: number, maxSlots?: number }} [opts]
+ * @param {{ firstChars?: number, intervalChars?: number, remainingChars?: number, maxSlots?: number, slotPrefix?: string, forbiddenRanges?: Array<{start: number, end: number}>, allowedLines?: number[], occupiedLines?: number[] }} [opts]
  * @returns {{ insertAt: Array<{ line: number, slot: string, afterLabel: string }>, chars: number, tables: number }}
  */
 export function planInlineSlots(markdown, opts = {}) {
@@ -23,6 +23,7 @@ export function planInlineSlots(markdown, opts = {}) {
     intervalChars = INLINE_INTERVAL_CHARS,
     remainingChars = INLINE_REMAINING_CHARS,
     maxSlots = INLINE_MAX_SLOTS,
+    slotPrefix = 'standards-inline', forbiddenRanges = [], allowedLines, occupiedLines = [],
   } = opts;
   // コメントを行ごと消すと元の行番号がずれるため、改行は保存する。
   const lines = markdown.replace(/\{\/\*[\s\S]*?\*\/\}/g, (s) => s.replace(/[^\n]/g, '')).split('\n');
@@ -87,12 +88,15 @@ export function planInlineSlots(markdown, opts = {}) {
   const insertAt = [];
   let previousChars = 0;
   for (const candidate of candidates) {
+    if (allowedLines && !allowedLines.includes(candidate.line)) continue;
+    if (forbiddenRanges.some(r => candidate.line >= r.start && candidate.line <= r.end)) continue;
     const at = cumulative[candidate.line];
+    if (occupiedLines.some(line => Math.abs(at - cumulative[line]) < firstChars)) continue;
     if (insertAt.length >= Math.min(maxSlots, INLINE_MAX_SLOTS)) break;
     if (chars - at < remainingChars) continue;
     if (insertAt.length ? at - previousChars < intervalChars : at <= firstChars) continue;
     const number = insertAt.length + 1;
-    insertAt.push({ ...candidate, slot: number === 1 ? 'standards-inline' : `standards-inline-${number}` });
+    insertAt.push({ ...candidate, slot: number === 1 ? slotPrefix : `${slotPrefix}-${number}` });
     previousChars = at;
   }
   return { insertAt, chars, tables };

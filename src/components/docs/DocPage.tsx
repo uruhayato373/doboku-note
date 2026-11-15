@@ -26,8 +26,6 @@ import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeExternalLinks from 'rehype-external-links';
 import { MDXProvider } from '@mdx-js/react';
 import SafeMdx from '@/components/mdx/SafeMdx';
-import { extractHeadings } from '@/lib/toc';
-import { resolvePlacement, resolveArticleMidNoteSlot, resolveEndNoteSlot, renderedNoteCards, reservesPrimaryStudySlot } from '@/lib/magazine-placement';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
@@ -36,49 +34,30 @@ import MagazineTopBanner from '@/components/ui/MagazineTopBanner';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import ArticleFooter from '@/components/ui/ArticleFooter/ArticleFooter';
 import TableOfContents from '@/components/ui/TableOfContents';
-import ArticleSidebar from '@/components/ui/ArticleSidebar/ArticleSidebar';
+import ArticleSidebar, { buildArticleSidebarCards } from '@/components/ui/ArticleSidebar/ArticleSidebar';
 import MidArticleCta from '@/components/ui/MidArticleCta/MidArticleCta';
 import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
-import { rankRelated } from '@/lib/related-score';
-import { extractReferencesSection } from '@/lib/extract-references';
 import { lawsOfArticle } from '@/lib/article-laws';
 import type { Pluggable } from 'unified';
-import { pixelFor, resolvePlacements } from '@/lib/affiliate-placement';
-import { AffiliateExperimentPixel } from '@/components/ui/CareerAffiliate/CareerAffiliateExperiment';
+import { articleSidebarInput } from '@/lib/article-sidebar-plan';
+import { planArticleCtas } from '@/lib/article-cta-plan';
+import { remarkArticleBanners } from '@/lib/article-inline-slots.mjs';
+import { ArticleBanner, articleImagePlacements, articlePixelCandidates } from './ArticleAffiliateBanners';
+import ArticleAffiliatePixels from './ArticleAffiliatePixels';
+import { affiliateSlotPreview } from '@/lib/affiliate-slot-preview.mjs';
 import type React from 'react';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { externalLinkRel } from '@/lib/external-link-rel';
-import { isCivilConstructionCategory } from '@/lib/qualification-names';
 
 
 
-/**
- * 本文中間 CTA を出す下限の h2 本数（2026-08-24 に 4 → 3）。
- *
- * なぜ緩めたか: GA4 実測（2026-07-24〜08-20・日本）で **本文中間は サイドバーより
- * インプレッション当たりのクリックが高い**——sidebar 5,900imp/5click（0.085%）に対し
- * article-mid 1,546imp/5click（0.323%）、article-inline 1,111imp/2click（0.180%）。
- * 全体でも 11,106imp → 13click しかなく、**クリックが取れている面を広げるのが唯一のレバー**。
- * にもかかわらず h2>=4 の下限で、4,000 字以上あるのに 0 枠の published 記事が 47 本あった
- * （うち h2=3 が 15 本）。
- *
- * なぜ 3 までで、2 にしないか: 位置は `min(max(1, …), h2 - 2)` で決まる。h2=3 なら 1
- * （第1セクション後・最終セクション前）で設計どおりだが、**h2=2 では 0 に潰れ**、
- * 「先頭セクション直後は避ける」という配置ルールを破る。h2<=2 の長文（24 本）は
- * 見出し構造そのものが薄い（14,450 字で h2=2、83,284 字で h2=2 など）ので、
- * ゲートではなく記事側の構造で直す（backlog DN-0123）。
- *
- * 注: 13 クリックは標本として小さく、CTR 差は誤差を含む。ただし「中間を広げても
- * 失うものが無い」ため方向としては安全（1 記事 1 枚・href のみでピクセル増なし＝
- * 1 ページ 1 ピクセルと note スロット上限 3 のいずれにも触れない）。
- */
-const MID_MIN_H2 = 3;
+type ArticleInlineSlot = { line: number; slot: string; afterLabel: string };
 
 /**
  * MDX コンパイルオプションを組み立てる。midCtaPositions が空でないときのみ
  * rehypeMidCta を rehypePlugins 末尾に追加し、本文中間に <midslot> を挿入する（1〜3 個）。
  */
-function buildMdxOptions(midCtaPositions?: readonly number[]) {
+function buildMdxOptions(midCtaPositions?: readonly number[], inline: ArticleInlineSlot[] = []) {
   const rehypePlugins: Pluggable[] = [
     rehypeHeadingIds,
     rehypeKatex,
@@ -94,27 +73,10 @@ function buildMdxOptions(midCtaPositions?: readonly number[]) {
     blockJS: false as const,
     blockDangerousJS: true as const,
     mdxOptions: {
-      remarkPlugins: [remarkMath, remarkGfm],
+      remarkPlugins: [remarkMath, remarkGfm, [remarkArticleBanners, { insertAt: inline }] as Pluggable],
       rehypePlugins,
     },
   };
-}
-
-/**
- * MDX content の先頭にある単一の `# title` 行（および直後の空行）を削除する。
- * page.tsx 側で frontmatter から server-side に H1 を描画するため、本文 H1 を二重描画させないための前処理。
- * H1 が無い記事（reference-materials 等で `## ` から始まる）はそのまま返す。
- */
-function stripLeadingH1(content: string): string {
-  const lines = content.split('\n');
-  let i = 0;
-  while (i < lines.length && lines[i]!.trim() === '') i++;
-  if (i < lines.length && /^#\s+/.test(lines[i]!)) {
-    const rest = lines.slice(i + 1);
-    while (rest.length > 0 && rest[0]!.trim() === '') rest.shift();
-    return [...lines.slice(0, i), ...rest].join('\n');
-  }
-  return content;
 }
 
 /**
@@ -125,12 +87,14 @@ function SafeMDXRemote({
   source,
   components,
   midCtaPositions,
+  inline,
 }: {
   source: string;
   components: React.ComponentProps<typeof MDXProvider>['components'];
   midCtaPositions?: readonly number[] | undefined;
+  inline: ArticleInlineSlot[];
 }) {
-  return <SafeMdx source={source} components={components} options={buildMdxOptions(midCtaPositions)} />;
+  return <SafeMdx source={source} components={components} options={buildMdxOptions(midCtaPositions, inline)} />;
 }
 
 /**
@@ -253,14 +217,13 @@ export async function renderDocPage(slugStr: string) {
   // Determine page classification for navigation cards
   const docGroup = classifyDoc(doc.meta);
   const hasCategoryNavCard = Boolean(category);
-  const showPillarNav = category === 'pe-comprehensive-management' && docGroup === 'keyword';
   const sectionStr = doc.meta.section as string | undefined;
 
   // note 有料マガジン CTA の配置を解決。
   // published: false や noteUrl 空のマガジンは getMagazine() で防御的に弾く。
   // career 記事（tags: [career]）には note 二次 CTA を置かない。判定は真実源の isCareerDoc。
-  const manualMagazineCards = renderedNoteCards(doc.content);
-  const magazinePlacement = resolvePlacement(slugStr, docGroup, isCareerDoc(doc.meta), manualMagazineCards);
+  const articlePlan = planArticleCtas(doc, relatedArticles);
+  const { magazinePlacement, careerPlacements, references, headings, isQuestionSeries } = articlePlan;
   // note 有料マガジン導線は「もくじタイル」（L2 索引）を全 HUB 資格の記事末尾＋サイドバーに 1 枚ずつ
   // 統一表示する（2026-07 統一）。従来の個別マガジンタイル（inline を先頭 3 誌 cap）はページ個別配線に
   // 依存し、未配線ページ（総監 guide 等）が空白になる不整合を生んでいたため廃止した。
@@ -275,8 +238,7 @@ export async function renderDocPage(slugStr: string) {
     showMokuji && category ? resolveHubCta(category, { utmSuffix: 'footer', stage: hubStage }) : null;
   // 読書中サイドバー（PC）にも同じもくじを併掲（utm -docs-sb で面分離）。2026-07-06 に一旦撤去したが、
   // 全ページ統一の一環で復活し、カテゴリ hub（sidebar -sb + mobile -mob）と同じ二面構成に揃える。
-  const sidebarMokuji =
-    showMokuji && category ? resolveHubCta(category, { utmSuffix: 'docs-sb', stage: hubStage }) : null;
+
   // 外部チャネル（ココナラ添削）CTA。施工経験記述・総監記述系の高適合ページのみ非空。
   // 商品の listed 状態は offsite-cta.ts 側で判定（未 listed は自動非表示）。
   const offsiteCta = resolveOffsiteCta(slugStr);
@@ -286,115 +248,17 @@ export async function renderDocPage(slugStr: string) {
   const topMagazine = topSlot ? getMagazine(topSlot.magazineId) : null;
   // 転職アフィリエイトをどの面に出すか（案件 × 面 × カテゴリ × キャリア記事 × 期間）は config/affiliate-placements.json の
   // ルールが決める（src/lib/affiliate-placement.ts）。記事の長さで枠を出すか・何枠かはこのページが決める。
-  const careerPlacements = resolvePlacements({ pageKind: 'doc', category: category ?? null, isCareerDoc: isCareerDoc(doc.meta) });
 
-  // 参考資料セクションを本文から抽出して別カードに切り出す
-  // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
-  const { strippedContent, references } = extractReferencesSection(doc.content);
-  // 根拠法令は参考資料の節のリンクも含めて全文から集める（DN-0731）
+
   const articleLawList = lawsOfArticle(doc.content, doc.meta.explainsLaw);
-
-  // Extract headings for Table of Contents
-  const headings = extractHeadings(
-    strippedContent,
-    doc.meta.toc_min_heading_level ?? 2,
-    doc.meta.toc_max_heading_level ?? 3,
-  );
-  // 年度別過去問は見出しが問番号の羅列になるため通常 TOC を出さない。
-  // secondary でも解説・ガイド記事は長文になるため、slug で年度別問題だけを除外する。
-  const isQuestionSeries =
-    docGroup === 'pastExam' ||
-    docGroup === 'primary' ||
-    (docGroup === 'secondary' && /-secondary-(r|h)\d+(?:-|$)/i.test(slugStr));
   const showTableOfContents = !isQuestionSeries && headings.some((h) => h.level === 2);
 
-  // 記事内（本文中間）CTA。**記事長に応じて 1〜3 枠**を h2 境界に挿入する（2026-07-28 に
-  // 1 枠固定から拡張）。1 枠だと長文記事で note と転職カードが枠を奪い合い、どちらかが
-  // 出せなかった。枠が複数あれば長文は両方載る（短い記事は従来どおり優先順で 1 つ）。
-  // MDX ソースは書き換えず rehypeMidCta が <midslot data-mid-index> を挿し、
-  // components の midslot が index で中身を引く。
-  const midH2Count = headings.filter((h) => h.level === 2).length;
-  const midBodyLen = stripLeadingH1(strippedContent).length;
-  // 1級・2級土木の二次（secondary）ページも本文中間 CTA の対象に含める（会員「合格ラボ」を
-  // 二次高 intent 面へ出すため）。全資格の secondary を一律対象にはしない（土木のみ）。
-  const isCivilSecondary =
-    isCivilConstructionCategory(category) &&
-    docGroup === 'secondary';
-  const midEligibleGroup =
-    docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'textbook' || isCivilSecondary;
-  const midEnabled = midEligibleGroup && midH2Count >= 5 && midBodyLen >= 8000;
-
-  // 転職ネイティブカード（本文中間）。出すカテゴリと案件は article-mid のルール。
-  // 既に本文へ手書き inline <CareerAffiliate> がある記事は二重表示になるため除外する。
-  const hasInlineCareerCard = /\bCareerAffiliate\b/.test(strippedContent);
-  const inlineCareerAd = hasInlineCareerCard ? (careerPlacements['article-inline'] ?? null) : null;
-  const reservedStudySlot = docGroup === 'primary' && reservesPrimaryStudySlot(
-    resolvePlacement(slugStr, docGroup, isCareerDoc(doc.meta)), strippedContent,
-  );
-  const careerMidCard =
-    !reservedStudySlot && !hasInlineCareerCard && midH2Count >= MID_MIN_H2 && midBodyLen >= 2500
-      ? (careerPlacements['article-mid']?.card(slugStr) ?? null)
-      : null;
-
-  // 枠数: 記事が長いほど増やす（h2 3 本ごと / 4,000 字ごとの少ない方・上限 3）。
-  // 下限ゲート（h2>=MID_MIN_H2 かつ >=2,500 字）を満たさない記事は 0 枠＝「出さない」。
-  const midSlotCapacity =
-    midH2Count >= MID_MIN_H2 && midBodyLen >= 2500
-      ? Math.max(1, Math.min(3, Math.floor(midH2Count / 3), Math.floor(midBodyLen / 4000)))
-      : 0;
-
-  // 中身を優先順に用意する（各種別 1 記事 1 回まで＝同じ広告を 2 度出さない）。
-  const midRenderers: Array<() => React.ReactElement> = [];
-  // 1) note 中間 CTA（最優先）。冒頭・本文直後・手書きと異なる商品を選ぶ。
-  const midSlot = resolveArticleMidNoteSlot(magazinePlacement, docGroup, strippedContent, isCivilSecondary);
-  if (midSlot) {
-    midRenderers.push(() => (
-      <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`}
-        scopeNotice={magazinePlacement.scopeNotice} />
-    ));
-  }
-  const endNoteSlot = resolveEndNoteSlot(magazinePlacement, strippedContent);
-  // 2) 関連記事。長文記事では収益 CTA に枠を使い切らず、サイト内回遊を最低 1 枠確保する。
-  if (midEnabled) {
-    const relatedTop = rankRelated(doc.meta, relatedArticles, 1)[0];
-    if (relatedTop) midRenderers.push(() => <MidArticleCta mode="related" doc={relatedTop} />);
-  }
-  // 3) 転職ネイティブカード（1 記事 1 枚まで＝広告密度を抑える）
-  let careerMidIndex = -1;
-  if (careerMidCard) {
-    const card = careerMidCard;
-    careerMidIndex = midRenderers.length;
-    const secondary = careerPlacements['article-mid']?.secondary ?? null;
-    midRenderers.push(() => <MidArticleCta mode="career" card={card} secondary={secondary} />);
-  }
-
-  // 転職カードが容量からあふれる記事（note・関連記事が先に枠を使う）は、見出しの境界に空きがあれば転職カードの枠を 1 つ足す（上限 3）。
-  // 2026-10-21 に記事末を閉じてから（DN-0779）、長文でもあふれた記事は転職広告が 0 になっていた（本番 34 本・2026-10-24 実測）。
-  // 位置は 1〜h2-2 の境界なので、枠の数がそれを超えると同じ境界に重なる。h2=3（境界 1 つ）の記事は足さない。
-  const careerMidFits = careerMidIndex >= 0 && careerMidIndex < midSlotCapacity;
-  const careerMidExtra =
-    careerMidIndex >= midSlotCapacity && midSlotCapacity < 3 && midH2Count - 2 > midSlotCapacity;
-  // 実際に使う枠＝用意できた中身と容量の小さい方（あふれた転職カードを足すときは末尾に置く）。
-  const midSlots = careerMidExtra
-    ? [...midRenderers.slice(0, midSlotCapacity), midRenderers[careerMidIndex]!]
-    : midRenderers.slice(0, midSlotCapacity);
-  // A8 計測ピクセルは 1 ページ 1 発（affiliate-operations.md）。実際に描画する面のうち優先順（config/cta-placements.json の
-  // pixelPriority: 手書き > 本文中間 > 記事末）の最も高い面の案件で 1 発。本文側なら本文の後に、記事末なら記事末バナーに付ける。
-  const renderedCareerSlots = [
-    ...(inlineCareerAd ? ['article-inline'] : []),
-    ...(careerMidFits || careerMidExtra ? ['article-mid'] : []),
-    ...(careerPlacements['article-end'] ? ['article-end'] : []),
-  ];
-  const careerPixel = pixelFor(careerPlacements, renderedCareerSlots);
-  const bodyPixelSrc = careerPixel && careerPixel.slot !== 'article-end' ? careerPixel.pixelSrc : null;
-  // 位置: h2 境界に均等配分。先頭セクション直後（0）と最終 h2（まとめ）直前は避ける。
-  const midPositions = midSlots.map((_, i) =>
-    Math.min(
-      Math.max(1, Math.round(((i + 1) * midH2Count) / (midSlots.length + 1))),
-      midH2Count - 2,
-    ),
-  );
-  const effectiveMidPositions = midSlots.length > 0 ? midPositions : [];
+  const { body, inlineCareerAd, careerMidCard, midSlot, endNoteSlot, relatedTop, midKinds, effectiveMidPositions, renderedCareerSlots, inline } = articlePlan;
+  const midSlots = midKinds.map(kind => () => {
+    if (kind === 'note' && midSlot) return <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`} scopeNotice={magazinePlacement.scopeNotice} />;
+    if (kind === 'related' && relatedTop) return <MidArticleCta mode="related" doc={relatedTop} />;
+    return <MidArticleCta mode="career" card={careerMidCard!} secondary={careerPlacements['article-mid']?.secondary} managedPixels />;
+  });
   // 多列データ表（ふるい分け 9 列・圧縮試験 5 列等）はモバイル 375px で画面外へはみ出し、
   // 右端の列が読めない（2026-07-14 実機確認）。SVG/画像化は「9 列を 375px に収める」制約が
   // 同じで解決にならず、テキスト選択・SEO 索引・読み上げを失うため却下。横スクロールできる
@@ -404,6 +268,7 @@ export async function renderDocPage(slugStr: string) {
   // MDX は書き換えない（202 か所の手書きをそのまま残す）。
   let inlineCareerCardsRendered = 0;
   const baseComponents = {
+    ArticleInlineBanner: ({ slot }: { slot: string }) => <ArticleBanner placement={careerPlacements[slot]} kind="inline" />,
     ...components,
     table: (p: React.ComponentProps<'table'>) => (
       <div className="table-scroll">
@@ -414,7 +279,7 @@ export async function renderDocPage(slugStr: string) {
     // slug が無いと悩み別 CTA が解決できず既定文言に倒れる（既存 168 箇所を書き換えずに配線する）。
     CareerAffiliate: (p: React.ComponentProps<typeof CareerAffiliate>) => {
       if (p.program && inlineCareerCardsRendered++ > 0) return null;
-      return <CareerAffiliate slug={slugStr} inlineCard={inlineCareerAd} {...p} />;
+      return <CareerAffiliate slug={slugStr} inlineCard={inlineCareerAd} {...p} managedPixels />;
     },
   };
   const componentsWithMid =
@@ -429,6 +294,10 @@ export async function renderDocPage(slugStr: string) {
         }
       : baseComponents;
 
+  const sidebarCards = buildArticleSidebarCards(articleSidebarInput(doc.meta, articlePlan, categoryArticles));
+  const images = articleImagePlacements(careerPlacements, inline.map(s => s.slot), sidebarCards.length);
+  const pixels = articlePixelCandidates(careerPlacements, renderedCareerSlots, images);
+
   return (
     <PageShell
       variant="article"
@@ -440,19 +309,7 @@ export async function renderDocPage(slugStr: string) {
         <TwoColumnShell
           gutter="flush-mobile"
           aside={
-            <ArticleSidebar
-              content={strippedContent}
-              sidebarMokuji={sidebarMokuji}
-              headings={headings}
-              category={category}
-              docGroup={docGroup}
-              slugStr={slugStr}
-              sectionStr={sectionStr}
-              categoryArticles={categoryArticles}
-              hasCategoryNavCard={hasCategoryNavCard}
-              showPillarNav={showPillarNav}
-              showTableOfContents={showTableOfContents}
-            />
+            <ArticleSidebar cards={sidebarCards} placements={careerPlacements} />
           }
         >
             {/* Editorial article card: 12px radius, soft border + shadow。
@@ -494,9 +351,10 @@ export async function renderDocPage(slugStr: string) {
               {/* 年度別過去問は画面外の本文を描かない（スマホの INP 対策・DN-0814。CSS は globals.css の prose-blog） */}
               <div className="prose-blog" data-offscreen-render={isQuestionSeries ? 'skip' : undefined}>
                 <SafeMDXRemote
-                  source={stripLeadingH1(strippedContent)}
+                  source={body}
                   components={componentsWithMid}
                   midCtaPositions={effectiveMidPositions}
+                  inline={inline}
                 />
               </div>
               {endNoteSlot && <MagazineHeroCta id={endNoteSlot.magazineId}
@@ -510,11 +368,10 @@ export async function renderDocPage(slugStr: string) {
               />
             </article>
 
-            {/* 意匠実験の案が決まってから、その案のリンクと同じ素材のピクセルを出す（ビルドジョブの B はテキスト素材のピクセル） */}
-            {bodyPixelSrc && <AffiliateExperimentPixel src={bodyPixelSrc} textHref={careerPixel?.textHref} textPixelSrc={careerPixel?.textPixelSrc} />}
+            <ArticleAffiliatePixels key={slugStr} candidates={affiliateSlotPreview() ? [] : pixels} />
             <ArticleFooter
               endBanner={careerPlacements['article-end'] ?? null}
-              careerPixelSrc={careerPixel?.slot === 'article-end' ? careerPixel.pixelSrc : undefined}
+              imageBanner={<ArticleBanner placement={careerPlacements['article-banner-end']} kind="end" />}
               references={references}
               laws={articleLawList}
               category={category}
