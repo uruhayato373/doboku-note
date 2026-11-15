@@ -8,7 +8,7 @@
  *      （_schema=date / 実データ=at / 読み手=e.date の三つ巴不一致が 2026-08-26 まで実在し、
  *        weekly-review の集計が常に 0 件だった再発防止）
  *   3. at > LEGACY_CUTOFF のエントリは id（DN-####）必須。以前の11件は legacy として許容し件数を出す
- *   4. outcome は done|swept|blocked|fail
+ *   4. outcome は done|swept|blocked|fail|dropped（dropped＝運営者の判断でやらないと決めて消した。backlog-edit --delete --drop）
  *   5. kind が「不具合」で done のエントリは prevention（type: gate|memory|doc|none・ref）必須（2026-10-07〜。
  *      todo-complete が --prevention を記録する。直した不具合が学びに変わったかを週次で数えるため）
  * exit: 0 PASS / 1 違反 / 2 検査不成立
@@ -20,7 +20,7 @@ import { REPO_ROOT as ROOT, STATE_ROOT } from './lib/repository-paths.mjs';
 
 const LOG_PATH = join(STATE_ROOT, 'dispatch/dispatch-log.json');
 export const LEGACY_CUTOFF = '2026-08-18';
-const OUTCOMES = new Set(['done', 'swept', 'blocked', 'fail']);
+const OUTCOMES = new Set(['done', 'swept', 'blocked', 'fail', 'dropped']);
 const ID_RE = /^DN-\d{4}$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const PREVENTION_TYPES = new Set(['gate', 'memory', 'doc', 'none']);

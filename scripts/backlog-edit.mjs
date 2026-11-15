@@ -14,6 +14,10 @@
  *   node scripts/backlog-edit.mjs --show DN-0100              # カード本文を表示
  *   node scripts/backlog-edit.mjs --delete DN-0129            # dry-run（削除される範囲を表示）
  *   node scripts/backlog-edit.mjs --delete DN-0129 --commit   # 実削除 → check-backlog-schema を自動実行
+ *   node scripts/backlog-edit.mjs --delete DN-0129 --drop "理由" --commit
+ *       # 運営者の判断でやらないと決めたカードを消し、dispatch-log に outcome: dropped と理由を残す。
+ *       # 理由のないまま 1 回の commit で 3 枚以上消すと check-backlog-schema の removed-cards が止める（記録なしの一括削除の防止）。
+ *       # 終えた作業は --drop ではなく todo:complete で閉じる（dropped は「やらない」の記録で、完了ではない）
  *   node scripts/backlog-edit.mjs --next-id                   # 次に使える DN-#### を1件出力（全ブランチの履歴基準・採番前に git fetch）
  * exit: 0 成功 / 1 ID が見つからない・重複・書き込み失敗 / 2 引数不正
  */
@@ -22,6 +26,8 @@ import { execFileSync } from 'node:child_process';
 import { join, relative } from 'node:path';
 import { parseBacklog } from './lib/backlog-lib.mjs';
 import { REPO_ROOT, TODO_ROOT } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const NAME = 'backlog-edit';
 const BACKLOG = join(TODO_ROOT, 'backlog.md');
@@ -129,6 +135,25 @@ export function logCoversMax(text, gitLogText) {
   return String(gitLogText).includes(`\n+### [${max}]`);
 }
 
+/**
+ * やらないと決めて消したカードの記録（dispatch-log の 1 行）。純関数。
+ * @returns {object} dispatch-log の entries に足す行
+ */
+export function dropEntry(card, reason, { at, executor = 'claude-code' }) {
+  const why = String(reason ?? '').trim();
+  if (why.length < 10) throw new Error('--drop の理由は 10 字以上で書く（あとで読んだ人が、なぜやらないかを分かるように）');
+  return {
+    id: card.id,
+    at,
+    task: card.title,
+    tier: card.tier,
+    ...(card.kind ? { kind: card.kind } : {}),
+    executor,
+    outcome: 'dropped',
+    note: why,
+  };
+}
+
 // ── CLI ──────────────────────────────────────────────────────────────────
 const isMain = process.argv[1] && process.argv[1].endsWith('backlog-edit.mjs');
 if (isMain) {
@@ -138,9 +163,10 @@ if (isMain) {
   const DELETE = arg('--delete');
   const NEXT_ID = argv.includes('--next-id');
   const COMMIT = argv.includes('--commit');
+  const DROP = arg('--drop');
 
   if (!SHOW && !DELETE && !NEXT_ID) {
-    console.error(`使い方: node scripts/${NAME}.mjs --show <ID> | --delete <ID> [--commit] | --next-id`);
+    console.error(`使い方: node scripts/${NAME}.mjs --show <ID> | --delete <ID> [--drop "理由"] [--commit] | --next-id`);
     process.exit(2);
   }
 
@@ -172,11 +198,26 @@ if (isMain) {
   console.log(`${COMMIT ? '[delete]' : '[dry-run]'} ${card.id}  L${card.startLine}-${card.endLine}（${removed} 行）`);
   console.log(`  ${card.title}`);
 
+  let dropped = null;
+  if (argv.includes('--drop')) {
+    try { dropped = dropEntry(card, DROP, { at: todayJst() }); } catch (e) { console.error(`FAIL: ${e.message}`); process.exit(2); }
+    console.log(`  dispatch-log に dropped を記録する: ${dropped.note}`);
+  }
+
   if (!COMMIT) {
     console.log('\n--commit を付けると実削除する。');
     process.exit(0);
   }
 
+  if (dropped) {
+    // 先に記録を書く（カードだけ消えて記録が無い状態を作らない）
+    const logPath = datasetPath('state.dispatch-log');
+    const log = JSON.parse(readFileSync(logPath, 'utf8'));
+    if (!Array.isArray(log.entries)) { console.error(`FAIL: ${logPath} に entries が無い`); process.exit(1); }
+    log.entries.push(dropped);
+    writeFileSync(logPath, JSON.stringify(log, null, 2) + '\n', 'utf8');
+    console.log(`  → dispatch-log に ${card.id} を dropped で記録した`);
+  }
   writeFileSync(BACKLOG, result.text, 'utf8');
   console.log(`  → ${removed} 行削除して書き戻した`);
 

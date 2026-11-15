@@ -237,7 +237,7 @@ export function validateRemovedCards(headIds, stagedIds, completedIds, max = MAX
   if (removed.length <= max) return [];
   return [{
     rule: 'removed-cards', at: BACKLOG_REL,
-    msg: `完了の記録（dispatch-log）の無いカードが ${removed.length} 枚消えている（上限 ${max}）: ${removed.slice(0, 8).join(', ')}${removed.length > 8 ? ' ほか' : ''}。書き換えの範囲を確かめる（閉じるのは todo:complete）`,
+    msg: `完了の記録（dispatch-log）の無いカードが ${removed.length} 枚消えている（上限 ${max}）: ${removed.slice(0, 8).join(', ')}${removed.length > 8 ? ' ほか' : ''}。書き換えの範囲を確かめる（閉じるのは todo:complete、やらないと決めて消すのは backlog-edit --delete --drop "理由"）`,
   }];
 }
 

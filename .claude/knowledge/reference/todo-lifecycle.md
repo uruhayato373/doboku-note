@@ -34,7 +34,7 @@ frontmatter は taskId / type: implementation-plan / createdAt / deleteOnComplet
 
 ## dispatch-log
 - 日付キーは `at`（date は禁止・check-dispatch-log が FAIL にする）。id は DN-#### 必須（2026-08-18 以前の11件のみ legacy 許容）
-- outcome は done|swept|blocked|fail
+- outcome は done|swept|blocked|fail|dropped。dropped は運営者がやらないと決めたカードを消した記録で、`node scripts/backlog-edit.mjs --delete DN-#### --drop "理由" --commit` が書く（理由のないまま 3 枚以上消すと check-backlog-schema の removed-cards が止める）
 - kind=不具合 で outcome=done のエントリは prevention（gate|memory|doc|none と ref）必須（check-dispatch-log が FAIL にする）
 - 台帳外の作業を記録したくなったら、先にカードを起票してから記録する
 

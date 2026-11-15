@@ -5,7 +5,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { deleteCard, findCard, detectEol, nextId, backlogGitLog, logCoversMax } from '../scripts/backlog-edit.mjs';
+import { deleteCard, findCard, detectEol, nextId, backlogGitLog, logCoversMax, dropEntry } from '../scripts/backlog-edit.mjs';
 
 // 実カードの最小形（タグ行込み・parseBacklog が要求する構造）を CRLF で組む。
 const CRLF = '\r\n';
@@ -133,4 +133,12 @@ test('backlogGitLog: 別ブランチでだけ使われて消えた ID も採番�
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test('dropEntry: やらないと決めたカードを dispatch-log の dropped の行にする。理由が短ければ投げる', () => {
+  const card = { id: 'DN-0001', title: 't', tier: 'low', kind: '改善' };
+  const e = dropEntry(card, '運営者の判断で、手作業が要るのでやらない', { at: '2026-11-15' });
+  assert.deepEqual(e, { id: 'DN-0001', at: '2026-11-15', task: 't', tier: 'low', kind: '改善', executor: 'claude-code', outcome: 'dropped', note: '運営者の判断で、手作業が要るのでやらない' });
+  assert.throws(() => dropEntry(card, '不要', { at: '2026-11-15' }));
+  assert.throws(() => dropEntry(card, undefined, { at: '2026-11-15' }));
 });

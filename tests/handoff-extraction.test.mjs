@@ -107,8 +107,8 @@ test('handoff の前送りマーカー検出（既存ルール2の判定部品�
 });
 
 test('台帳 JSON から完了 ID と実験 ID を読む', () => {
-  const done = completedIdsFromDispatchLog({ entries: [{ id: 'DN-1', outcome: 'done' }, { id: 'DN-2', outcome: 'swept' }, { id: 'DN-3', outcome: 'blocked' }] });
-  assert.deepEqual([...done], ['DN-1', 'DN-2']);
+  const done = completedIdsFromDispatchLog({ entries: [{ id: 'DN-1', outcome: 'done' }, { id: 'DN-2', outcome: 'swept' }, { id: 'DN-3', outcome: 'blocked' }, { id: 'DN-4', outcome: 'dropped' }] });
+  assert.deepEqual([...done], ['DN-1', 'DN-2', 'DN-4']);
   assert.deepEqual([...experimentIdsFrom({ experiments: [{ id: 'EXP-001' }] })], ['EXP-001']);
   assert.equal(completedIdsFromDispatchLog(null).size, 0);
 });
