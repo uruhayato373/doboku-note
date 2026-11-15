@@ -133,7 +133,7 @@ const presentKinds = KIND_ORDER.filter((k) => {
 
 // ---- 6表示面クロップ（--crops）----
 // note の実表示面を CSS で実際に切り出す（単なる縮小ではなく crop 座標を適用）。
-// 座標 SSOT: .claude/knowledge/design-system/note-cover-crop-safe-v4.md §9
+// 座標 SSOT: .claude/knowledge/design-system/note-cover-character-v5.md「表示面と文言フィールド」
 //   full 1280×670 / square 中央630×630 / list 中央1280×454 / core 中央1280×216 /
 //   card 320×168(1.91:1=full縮小) / related 160×110(中央974×670)
 const CROPS_MODE = process.argv.includes("--crops");

@@ -488,7 +488,7 @@
     }
   },
   "magazineText": {
-    "$comment": "note マガジンカバー Crop-safe V4 フィールドの一元マップ。generate-magazine-covers.mjs が MAGAZINES[].id でマージし、entry があれば V4 レンダ（無ければ従来 magazine-banner）。字数制約: magazineName 実効≤8.1 / qualifier ≤18.9 / proof ≤17.7 / benefit ≤19.2。価格・自動同期できない記事本数は書かない。背景=examKey のブランド写真プール（brand-image-system §3）。仕様 SSOT: note-cover-crop-safe-v4.md §6",
+    "$comment": "note マガジンカバー Crop-safe V4 フィールドの一元マップ。generate-magazine-covers.mjs が MAGAZINES[].id でマージし、entry があれば V4 レンダ（無ければ従来 magazine-banner）。字数制約: magazineName 実効≤8.1 / qualifier ≤18.9 / proof ≤17.7 / benefit ≤19.2。価格・自動同期できない記事本数は書かない。背景=examKey のブランド写真プール（brand-image-system §3）。仕様 SSOT: note-cover-character-v5.md「表示面と文言フィールド」",
     "river-consultant": {
       "examKey": "pe-comprehensive",
       "qualifier": "総監 記述式｜模範論文",

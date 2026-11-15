@@ -9,7 +9,7 @@
     "magazine": "2026-09-29-magazine-pop"
   },
   "updated": "2026-09-01",
-  "source": "handoff covers-g2-all.jsx（claude.ai/design プロトタイプ G2 案）を satori 本番レンダラへ移植。1.1.0 で Crop-safe V4（opt-in variant）を追加（.claude/knowledge/design-system/note-cover-crop-safe-v4.md）",
+  "source": "handoff covers-g2-all.jsx（claude.ai/design プロトタイプ G2 案）を satori 本番レンダラへ移植。1.1.0 で Crop-safe V4（opt-in variant）を追加（.claude/knowledge/design-system/note-cover-character-v5.md）",
 
   "canvas": {
     "width": 1280,
@@ -247,7 +247,7 @@
       "shadow": "0 3px 10px rgba(22,54,92,0.12)"
     },
     "cropSafeV4": {
-      "comment": "Crop-safe V4（cover.variant: crop-safe-v4 の opt-in）。表示面ごとのトリミングで重要文字を切らない三重安全領域。仕様 SSOT は .claude/knowledge/design-system/note-cover-crop-safe-v4.md。実装 renderNoteCoverCropSafeV4（ogp-templates.mjs）と check-note-cover-fit.mjs が本値をミラーする。chips は V4 では使用しない（指定時は警告）。",
+      "comment": "Crop-safe V4（cover.variant: crop-safe-v4 の opt-in）。表示面ごとのトリミングで重要文字を切らない三重安全領域。仕様 SSOT は .claude/knowledge/design-system/note-cover-character-v5.md。実装 renderNoteCoverCropSafeV4（ogp-templates.mjs）と check-note-cover-fit.mjs が本値をミラーする。chips は V4 では使用しない（指定時は警告）。",
       "safeAreas": {
         "full": { "x": [0, 1280], "y": [0, 670], "use": "背景・装飾・人物・資格クレジット・補助情報" },
         "squareSafe": { "x": [325, 955], "y": [20, 650], "use": "正方形表示で残す範囲" },
@@ -299,7 +299,7 @@
   },
 
   "coverSchemaV4": {
-    "comment": "cover.variant: crop-safe-v4 の記事 frontmatter 仕様（正規形は note-cover-crop-safe-v4.md §5.2）。V4 では chips を使用しない（指定時は lint/生成ログ警告）。",
+    "comment": "cover.variant: crop-safe-v4 の記事 frontmatter 仕様（正規形は note-cover-character-v5.md「表示面と文言フィールド」）。V4 では chips を使用しない（指定時は lint/生成ログ警告）。",
     "fields": {
       "variant": "必須。'crop-safe-v4' 固定",
       "leadIn": "必須。資格・対象読者・試験区分（8〜18字）。list-safe 上部",

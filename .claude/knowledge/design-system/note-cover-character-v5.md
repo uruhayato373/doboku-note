@@ -49,6 +49,21 @@ note 上のカバーの登録は2段に分ける（2026-09-29）。**判定**は
 
 テスト: `node --test tests/note-character-cover.test.mjs`（通常生成器が旧テンプレを import しない静的ゲートを含む）・`node --test tests/note-cover-live.test.mjs`（要登録の判定）。
 
+## 表示面と文言フィールド
+
+note は同じ画像を表示面ごとに別の範囲で切る（出典: note ヘルプ「登録画像の推奨サイズ一覧」）。`node scripts/note-cover-gallery.mjs --crops` は次の6面を実際に切り出して並べる（座標の正本は `scripts/note-cover-gallery.mjs`）。
+
+| 面 | 切り出し | 用途 |
+|---|---|---|
+| full | 1280×670 | 記事見出し |
+| square | 中央630×630 | 正方形系 |
+| list | 中央1280×454 | マガジン一覧 |
+| core | 中央1280×216 | 狭いマガジンヘッダー |
+| card | 320×168 | リンクカード |
+| related | 中央974×670を160×110 | 人気・関連記事 |
+
+文言は frontmatter `cover:`（`variant: crop-safe-v4` は現行も必須の値で、V5 はこの文言フィールドを読む）に分解して書く。記事は `leadIn`（資格・対象 8〜18字）→ `headline`（主題 4〜8字）→ `hi`＋`hiSuffix`（数字・分類 合計2〜7字）→ `benefit`（読後価値 8〜15字）。マガジンは `config/note-covers.json` の `magazineText` に `qualifier` / `magazineName` / `proof` / `benefit` を書く。`chips` は描画されず、指定すると警告する。価格と自動で同期できない記事本数は画像へ入れない。人物・資格色・文字は決定論的レンダラーで描き、文字だけを画像生成に任せない（POP の生成経路は [キャラクターPOP画像方針](../reference/pop-image-policy.md)）。
+
 ## ポーズの使い分け
 
 `cover.character`の原稿指定を最優先し、未指定分はタイトルと`coverCopy`の`headline`・`lead`・`proof`から選ぶ（`benefit`は除く）。自動選択は次の順で最初に一致した用途を採用する。
