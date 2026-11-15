@@ -22,8 +22,9 @@ const result = { channel: "gsc-sitemaps", label: "GSC sitemap", fetchedAt: lates
 if (process.argv.includes("--json")) {
   console.log(JSON.stringify(result, null, 2));
 } else {
-  console.log(`[${result.label}] ${result.due ? "DUE" : "OK"}: ${result.due ? result.reasons.join(" / ") : `記録 ${result.fetchedAt}・${(latest?.sitemaps ?? []).length} 件とも正常`}`);
-  for (const s of latest?.sitemaps ?? []) {
+  console.log(`[${result.label}] ${result.due ? "DUE" : "OK"}: ${result.due ? result.reasons.join(" / ") : `記録 ${result.fetchedAt}・${(latest?.robotsSitemaps ?? []).length} 件の送信対象は正常`}`);
+  for (const message of result.info) console.log(`  情報: ${message}`);
+  for (const s of (latest?.sitemaps ?? []).filter((item) => latest.robotsSitemaps?.includes(item.path))) {
     console.log(`  ${s.path}  最終読込 ${s.lastDownloaded ?? "未"} / エラー ${s.errors} / 警告 ${s.warnings}`);
   }
   if (result.due) console.log("  → 再取得: gh workflow run fetch-metrics.yml ／ 権限不足なら Search Console の「設定 → ユーザーと権限」でサービスアカウントを「フル」に");

@@ -53,3 +53,21 @@ test("UI CSV の exit code: 不完全でも正規化はする・未ログイン�
   assert.deepEqual(classifyUiFetchExit(3), { outcome: "needs-login", normalize: false });
   assert.deepEqual(classifyUiFetchExit(6), { outcome: "failed", normalize: false });
 });
+
+
+test("記録の commit 前に索引を更新し、失敗時は commit も push もしない", async () => {
+  const { commitGscRecords } = await import("../scripts/lib/gsc-local-routine.mjs");
+  for (const code of [0, 1, 2]) {
+    const calls = [];
+    const result = commitGscRecords(["record.json"], "記録", { push: false }, {
+      run: (cmd, args) => { calls.push([cmd, args]); return code; },
+      commitAndPush: (...args) => { calls.push(args); return { status: "committed" }; },
+    });
+    assert.deepEqual(calls[0], ["node", [".claude/scripts/build-doc-meta-index.mjs", "--ci"]]);
+    assert.equal(calls.length, code === 0 ? 2 : 1);
+    if (code === 0) {
+      assert.deepEqual(calls[1], [["record.json"], "記録", { push: false }]);
+      assert.equal(result.status, "committed");
+    } else assert.match(result.problem, new RegExp(`exit ${code}.*commit しない`));
+  }
+});

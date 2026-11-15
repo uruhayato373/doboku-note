@@ -37,7 +37,8 @@ const ageDays = (iso, now) => {
 // maxRecordAgeDays の既定は台帳 gsc.sitemaps の freshness.warnDays。maxDownloadAgeDays（Google が読み込んでいない日数）は台帳の鮮度ではなく Google 側の事実への許容。
 export function evaluateSitemapsDue({ latest, now = new Date(), maxRecordAgeDays = freshnessDays("gsc.sitemaps", "warnDays"), maxDownloadAgeDays = 14 }) {
   const reasons = [];
-  if (!latest) return { due: true, reasons: ["記録が無い（fetch-metrics の GSC sitemaps ステップが一度も完走していない）"] };
+  const info = [];
+  if (!latest) return { due: true, info, reasons: ["記録が無い（fetch-metrics の GSC sitemaps ステップが一度も完走していない）"] };
   const recordAge = ageDays(latest.fetchedAt, now);
   if (recordAge === null || recordAge > maxRecordAgeDays) reasons.push(`記録が ${recordAge ?? "?"} 日前（しきい値 ${maxRecordAgeDays} 日・fetch-metrics 停止の疑い）`);
   const listed = new Map((latest.sitemaps ?? []).map((s) => [s.path, s]));
@@ -48,11 +49,15 @@ export function evaluateSitemapsDue({ latest, now = new Date(), maxRecordAgeDays
     if (s.status !== "ok") reasons.push(`送信失敗（${s.status}）: ${s.path}${s.status === "permission-denied" ? "（サービスアカウントに Search Console の「フル」権限が要る）" : ""}`);
   }
   for (const s of latest.sitemaps ?? []) {
+    if (!(latest.robotsSitemaps ?? []).includes(s.path)) {
+      info.push(`退役した登録が GSC に残っている（GSC の画面で削除する）: ${s.path}`);
+      continue;
+    }
     if (Number(s.errors) > 0) reasons.push(`GSC がエラー ${s.errors} 件を報告: ${s.path}`);
     if ((latest.robotsSitemaps ?? []).includes(s.path)) {
       const dl = ageDays(s.lastDownloaded, now);
       if (dl === null || dl > maxDownloadAgeDays) reasons.push(`Google の最終読み込みが ${dl ?? "未"} 日前: ${s.path}`);
     }
   }
-  return { due: reasons.length > 0, reasons };
+  return { due: reasons.length > 0, reasons, info };
 }
