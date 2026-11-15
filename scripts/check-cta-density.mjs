@@ -160,16 +160,23 @@ export function inspectHtml(html, slug) {
           if (!valid) add('affiliate-image-position', 1, 0, [], ['affiliate'], { viewport, placement: attr(n, 'data-cta-placement') });
         }
       }
-      const slots = imageLinks.map(n => attr(n, 'data-cta-placement'));
+      // 過去問だけ、右の欄の組の間を埋めるバナー（article-rail-fill）は同じ案件・同じ面の繰り返しを許す（2026-11-16 運営者判断）。
+      const rail = page.querySelector('[data-article-sidebar-cards]');
+      const questionSeries = Boolean(rail?.hasAttribute('data-article-question-series'));
+      const isFill = n => attr(n, 'data-cta-placement') === 'article-rail-fill';
+      const slots = imageLinks.filter(n => !(questionSeries && isFill(n))).map(n => attr(n, 'data-cta-placement'));
       if (new Set(slots).size !== slots.length) add('affiliate-image-duplicate', slots.length - new Set(slots).size, 0, [], ['affiliate'], { viewport });
       // 数の上限は 2026-11-15 に廃止（運営者判断）。位置・重複・ピクセルは検査する。
-      const rail = page.querySelector('[data-article-sidebar-cards]');
       if (desktop && rail) {
         const banners = rail.querySelectorAll('[data-article-affiliate="rail"]');
-        const railTargets = banners.map(b => attr(b.querySelector('a[data-cta="affiliate"]') ?? b, 'href')).filter(Boolean);
+        const anchorOf = b => b.querySelector('a[data-cta="affiliate"]') ?? b;
+        const fillBanner = b => questionSeries && isFill(anchorOf(b));
+        const railTargets = banners.filter(b => !fillBanner(b)).map(b => attr(anchorOf(b), 'href')).filter(Boolean);
         const duplicated = railTargets.length - new Set(railTargets).size;
         if (duplicated) add('affiliate-rail-duplicate', duplicated, 0, [], ['affiliate']);
         for (const banner of banners) {
+          // 埋める組はバナーだけ。実カードの直後という決まりは過去問の埋める組には当てない。
+          if (fillBanner(banner)) continue;
           const parent = banner.parentNode;
           const children = parent.childNodes.filter(n => n.tagName);
           // 回遊候補が尽きた組だけ広告単独を許す。空の「実カード」で検査をすり抜けない。

@@ -313,7 +313,7 @@ export async function renderDocPage(slugStr: string) {
           gutter="flush-mobile"
           stretchAside
           aside={
-            <ArticleSidebar cards={sidebarCards} groups={sidebarGroups} placements={careerPlacements} />
+            <ArticleSidebar cards={sidebarCards} groups={sidebarGroups} placements={careerPlacements} questionSeries={isQuestionSeries} />
           }
         >
             {/* Editorial article card: 12px radius, soft border + shadow。

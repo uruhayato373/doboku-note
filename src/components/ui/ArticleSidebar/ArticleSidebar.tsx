@@ -42,10 +42,10 @@ export function buildArticleSidebarCards({
   });
 }
 
-/** 上の束は上詰め、下の組は本文の残りの高さへ均等に配分する。 */
-export default function ArticleSidebar({ cards, groups = [], placements }: { cards: React.ReactElement[]; groups?: RailGroup[]; placements: ResolvedPlacements }) {
+/** 上の束は上詰め、下の組は本文の残りの高さへ均等に配分する。過去問（questionSeries）だけ、組の間をバナーだけの組で埋める。 */
+export default function ArticleSidebar({ cards, groups = [], placements, questionSeries = false }: { cards: React.ReactElement[]; groups?: RailGroup[]; placements: ResolvedPlacements; questionSeries?: boolean }) {
   const images = articleImagePlacements(placements, [], cards.length);
-  return <div className="flex h-full flex-1 flex-col" data-article-sidebar-cards={cards.length + groups.filter(group => group.card).length}>
+  return <div className="flex h-full flex-1 flex-col" data-article-sidebar-cards={cards.length + groups.filter(group => group.card).length} data-article-question-series={questionSeries || undefined}>
     <div className="space-y-3">
       {cards.map((card, index) => <Fragment key={index}>
         <ArticleBanner placement={images.find(image => image.placement.slot === articleRailSlot(index))?.placement} kind="rail" />
@@ -53,7 +53,7 @@ export default function ArticleSidebar({ cards, groups = [], placements }: { car
       </Fragment>)}
     </div>
     {groups.length > 0 && <div className="flex flex-1 flex-col justify-around gap-6 pt-6" data-article-sidebar-continuation>
-      {groups.map(group => <div key={group.slot} className="space-y-3" data-article-sidebar-group data-article-sidebar-ad-only={!group.card || undefined}>
+      {groups.map((group, index) => <div key={`${group.slot}-${index}`} className="space-y-3" data-article-sidebar-group data-article-sidebar-fill={group.fill || undefined} data-article-sidebar-ad-only={(!group.card && !group.fill) || undefined}>
         <ArticleBanner placement={group.banner} kind="rail" />
         {group.card && <div data-article-sidebar-card><RailArticleList card={group.card} /></div>}
       </div>)}

@@ -12,7 +12,7 @@ import { classifyDoc } from './doc-classifier';
 import { findYearRelatives } from './exam-year-nav.mjs';
 import { relatedTextbookSlugs } from './related-textbooks';
 import { isCivilConstructionCategory } from './qualification-names';
-import { articleImagePlacements, articleRailSlot } from './article-affiliate-plan';
+import { ARTICLE_RAIL_FILL_SLOT, articleImagePlacements, articleRailFillColumn, articleRailSlot } from './article-affiliate-plan';
 import type { ResolvedPlacement, ResolvedPlacements } from './affiliate-placement';
 
 interface RailLink {
@@ -29,6 +29,8 @@ export interface RailGroup {
   slot: string;
   card: RailCard | null;
   banner: ResolvedPlacement | undefined;
+  /** 過去問だけ。回遊の組の間をバナーだけで埋める組（card なし・面は article-rail-fill） */
+  fill?: boolean;
 }
 
 const PER_GROUP = 3;
@@ -40,6 +42,8 @@ interface Source { label: RailCard['label']; title: string; links: RailLink[] }
  * 上の束の行き先を除き、1 組 3 件（最後の組だけ 2 件）で下に続く束を作る。
  * 関連記事（上位 12 件）→ほかの種類→関連の続き…と交互に並べ、同じ種類を続けず、同じ記事を 2 回出さない。
  * 組の数は高さの見積もり（上限）と回遊の候補（実数）の小さいほう。広告の重複除外は既存の画像計画に一任。
+ * 過去問（questionSeries）だけは、回遊の候補が尽きて見積もりに足りない組数を、バナーだけの組で埋めて
+ * 回遊の組の間に均等に散らす（2026-11-16 運営者判断。fillGroups）。
  */
 export function articleSidebarContinuation(
   input: ArticleSidebarInput,
@@ -114,5 +118,31 @@ export function articleSidebarContinuation(
     const banner = images.find(image => image.placement.slot === slot)?.placement;
     if (card || banner) groups.push({ slot, card, banner });
   }
-  return groups;
+  return input.questionSeries ? fillGroups(groups, count - groups.length, placements, upper.length) : groups;
+}
+
+/**
+ * 回遊の組（と広告だけの組）の間へ、バナーだけの組を fill 個、均等に挟む（累積が整数を跨ぐ位置に置く）。
+ * 案件は右の欄に出ている案件の列を順に繰り返し、前後の組のバナーと同じ案件は列に別の案件がある限り避ける。
+ */
+function fillGroups(groups: RailGroup[], fill: number, placements: ResolvedPlacements, upperCount: number): RailGroup[] {
+  if (fill <= 0) return groups;
+  const rail = articleImagePlacements(placements, [], upperCount, groups.map(group => group.slot)).filter(image => image.placement.slot.startsWith('article-rail'));
+  const column = articleRailFillColumn(rail);
+  if (!column.length) return groups;
+  const total = groups.length + fill;
+  const isFill = (i: number) => Math.floor(((i + 1) * fill) / total) > Math.floor((i * fill) / total);
+  const order: Array<RailGroup | null> = [];
+  let next = 0;
+  for (let i = 0; i < total; i++) order.push(isFill(i) ? null : groups[next++]!);
+  const picked: RailGroup[] = [];
+  let cursor = 0;
+  return order.map((group, i) => {
+    if (group) { picked[i] = group; return group; }
+    const avoid = new Set([picked[i - 1]?.banner?.program, order[i + 1]?.banner?.program]);
+    const rotated = [...column.slice(cursor), ...column.slice(0, cursor)];
+    const banner = rotated.find(candidate => !avoid.has(candidate.program)) ?? rotated[0]!;
+    cursor = (column.indexOf(banner) + 1) % column.length;
+    return (picked[i] = { slot: ARTICLE_RAIL_FILL_SLOT, card: null, banner, fill: true });
+  });
 }
