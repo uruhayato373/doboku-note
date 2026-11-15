@@ -1,5 +1,6 @@
 #!/usr/bin/env tsx
-
+// 公開 URL の対応表から public/_redirects の生成ブロック（BEGIN/END GENERATED PUBLIC ROUTES）を作り直す。
+// 旧 /docs/*・分冊・カテゴリの恒久転送を 1 対 1 で書く。罠: 生成ブロックの外の手書き行は残す。Cloudflare の規則上限（静的 2000・動的 100）を出力で確認する。
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { getAllPublicDocRoutes, getPublicDocPath } from '../src/lib/content-routes';

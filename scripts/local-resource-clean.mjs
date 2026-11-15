@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// config.local-resources の cleanup カテゴリ（--category。既定 scratch。build・browser-cache など）の掃除候補を出し、--commit で削除する。
+// 既定は dry-run。--include-recent は新しさの下限を外す、--only <相対パス> で 1 対象に絞る。
+// 罠: git 追跡下・assets の台帳に載るもの・プロセス調査が不完全／実行中のビルド・ブラウザがあるものは消さない。削除直前に再走査し、変化があれば全体を中止する。exit 2 = 調査不完全。
 import { readFileSync, existsSync, readdirSync, unlinkSync, lstatSync } from 'node:fs';
 import { join, resolve, relative, isAbsolute } from 'node:path';
 import { spawnSync } from 'node:child_process';

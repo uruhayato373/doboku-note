@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// note メンバーシップの会費・定員・プラン ID が SSOT（config/note-membership.json）とズレていないかを検知する。
+// 既定はオフライン（CI 可）、--live は実機突合でローカル専用（Playwright・note ログイン要）。罠: note は会費・定員を後から変更できず作り直しになるので早く気づく検査。mirrors 0 件は FAIL。詳細は下のブロックコメント。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * check-note-membership.mjs

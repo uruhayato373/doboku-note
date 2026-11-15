@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-
+// 記事 MDX の <NoteLink>（自作 note へのリンクカード）が規約どおりかを検査する。
+// imageSrc は /images/note-links/*.webp で実在し拡張子と実体が WebP で一致すること、廃止済み coverImage の不使用、kind="product" の price 必須。exit 1 = 違反あり。
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join, relative } from "node:path";
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';

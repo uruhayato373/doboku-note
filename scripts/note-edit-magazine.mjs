@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// note の有料マガジン設定（タイトル・説明・アピール・価格）を _meta.yaml の値へ反映する。npm run note-edit-magazine -- --key <magazineKey> --meta <_meta.yaml> [--articles] [--dry-run]。--articles は収録記事の単品価格も揃える。
+// 罠: タイトル約 30 字・アピール 250 字を超えると保存できない（事前チェックする）。--dry-run は保存せずスクショまで。保存後に note API で price・title を実体検証する。初回は note-edit-session でログインしておく。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-edit-magazine.mjs

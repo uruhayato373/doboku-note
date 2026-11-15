@@ -307,6 +307,7 @@
     "check-backlog-verify": "node scripts/check-backlog-verify.mjs",
     "check-backlog-health": "node scripts/check-backlog-health.mjs",
     "check-backlog-due": "node scripts/check-backlog-health.mjs --due",
+    "check-todo-claims": "node scripts/check-todo-claims.mjs",
     "check-orphan-figures": "node scripts/check-orphan-figures.mjs",
     "lint-ui": "node scripts/lint-ui.mjs --all",
     "check-workflow-clone-depth": "node scripts/check-workflow-clone-depth.mjs",

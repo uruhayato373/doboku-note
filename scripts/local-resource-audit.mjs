@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// 手元の空きディスク・メモリ、config.local-resources の対象ディレクトリの容量、プロセスの内訳を測り、警告つきで報告する。
+// 既定は全走査して .local/resource-audit/latest.json と history.json に残す。--quick は機械の空きだけ（書き込みなし・ロックなし・SessionStart が使う）、--json は機械可読。
+// exit 2 = 走査・プロセス調査が不完全。罠: acquireLock で重い作業と排他になる。
 import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';

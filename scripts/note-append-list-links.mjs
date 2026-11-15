@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// 公開済み note 記事の既存リスト（ul）の末尾へ、インラインリンク項目（li）を spec JSON で追加する（note 導線 D2 のライブ反映）。--spec <path.json>、実保存は --commit。
+// 罠: 編集画面の paste は無音失敗するので、ul 末尾の兄弟 li を DOM へ挿入して input イベントで取り込ませる方式。保存後は API で実査する。詳細は下のブロックコメント。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-append-list-links.mjs — 公開済み note 記事の既存リスト（<ul>）へ

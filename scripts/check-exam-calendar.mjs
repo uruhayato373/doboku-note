@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-
+// 試験日程の正本（config.exam-calendar）が公式発表の期待値と一致するか、リポジトリの文書に禁止表現・古い日付が残っていないかを検査する。
+// exit 1 = 不一致あり。走査対象 0 ファイルは検査不成立として errors に積む（件数は出力に出る）。pre-commit-dispatch が in-process でも呼ぶ。
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { extname, join, relative } from "node:path";
 import { FORBIDDEN, SCAN_ROOTS, findForbidden } from "./lib/exam-calendar-guards.mjs";

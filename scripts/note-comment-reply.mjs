@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// note 記事のコメントへ返信を投稿する。node scripts/note-comment-reply.mjs <noteId> <本文txt> [--submit]。既定は入力までで停止（draft-first）、送信は --submit のときだけ。
+// 罠: 投稿は読者に公開され取り消せない。本文は txt ファイルから読む。note ID が dobokunote でなければ中断。投稿後に本文がページ上にあるか読み戻す。コメントには 1 時間あたりの上限がある。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-comment-reply.mjs

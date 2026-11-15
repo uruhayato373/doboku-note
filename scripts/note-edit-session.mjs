@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// note の編集画面（マガジン設定一覧・指定 URL・マガジン key）をヘッド付き Chrome の永続プロファイルで開いて待機する半自動ランチャ。初回の手動ログイン用。
+// 罠: 編集・保存は人が行う（自動保存はしない）。パスワードは扱わない。他の note 系スクリプトはこのプロファイルのログインが前提。プロファイルの場所は npm run auth:paths -- --service note。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-edit-session.mjs

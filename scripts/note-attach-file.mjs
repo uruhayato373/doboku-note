@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// 公開済み note 記事の本文末尾（有料エリア内）へ PDF 等を添付して再保存する。--note <noteKey> --file <path>。既定は probe（挿入メニューのダンプのみ・保存しない）、--draft-only で下書き保存、--commit で実保存。
+// 罠: 有料境界が「試験問題|予想問題」直前に保たれているか再保存前に検証し、崩れたら中断。既添付なら再公開のみ（複数添付は --force）。account が dobokunote でなければ中断。詳細は下のブロックコメント。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-attach-file.mjs

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// note メンバーシップのプランの公開トグル（--publish・--unpublish）と削除を行う。--plan <id>。既定は dry-run、実行は --commit。内容の編集は note-membership-plan-edit の担当。
+// 罠: 削除は不可逆で、会員 0 名を確認できたときだけ実行する（在籍者がいる・同名プランで判別できないときは中断）。操作後は状態を読み戻して確認する。account が dobokunote でなければ中断。
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-membership-plan-status.mjs

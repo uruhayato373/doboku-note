@@ -6,7 +6,7 @@
 import {
   existsSync, readFileSync, readdirSync, rmdirSync, statSync, unlinkSync,
 } from 'node:fs';
-import { createHash } from 'node:crypto';
+import { sha256File as sha256 } from './lib/sha256.mjs';
 import { spawnSync } from 'node:child_process';
 import { dirname, join, relative, resolve } from 'node:path';
 import { toVaultRel, vaultRelFor } from './lib/drive-vault.mjs';
@@ -30,7 +30,6 @@ const verifiedListPath = resolve(ROOT, arg('--verified-list') ?? '.tmp/ig-reels-
 const now = Date.now();
 const maxTime = now + 29 * 24 * 60 * 60 * 1000;
 
-function sha256(path) { return createHash('sha256').update(readFileSync(path)).digest('hex'); }
 function clearIntermediates(dir) {
   let files = 0;
   let bytes = 0;
