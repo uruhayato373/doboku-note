@@ -8728,6 +8728,19 @@
       "commit": "d507d5a18439",
       "verification": "npm run check-todo-claims",
       "note": "PR #1603 を develop へ squash merge。scripts/check-todo-claims.mjs（npm run check-todo-claims・しきい値 7 日）を足し、quality-audit の weekly の ops（ci:false）に登録した。初回の実行で claims 8 件中 7 件を残骸として検出した"
+    },
+    {
+      "id": "DN-1140",
+      "at": "2026-11-15",
+      "task": "冒頭コメントの無い起動ファイル 32 本に用途を書く",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "21b3d3bc6426",
+      "verification": "npm run check-command-guidance",
+      "note": "PR #1603 を develop へ squash merge。32 本中 31 本に用途と罠の冒頭コメントを書き、NO_HEADER_BASELINE から外した。残る 1 本 .claude/shared-policy/sync.mjs は Obsidian vault が正本の配布物（manifest.json にハッシュがあり、ここで編集すると policy:check が落ちる）なので基準に理由つきで残した。運営者の判断（2026-11-15・片付けられるものは片付け、残りは削除）で、vault 側の作業は起こさない"
     }
   ]
 }
