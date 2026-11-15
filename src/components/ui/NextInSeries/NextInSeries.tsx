@@ -7,9 +7,12 @@ import PrevNextNav from '@/components/ui/TextbookNav/PrevNextNav';
 /** 法令は /laws と同じく、分野・立場のテーマごとの列（記事が最初に属するテーマ）で前後を決める */
 function lawTopicGroup(laws: readonly DocMeta[]) {
   const topics = getTopicsByFacet().flatMap(({ topics: list }) => list).filter((t) => t.facet !== 'law');
+  const lawsOf = (slug: string) => laws.filter((d) => getDocTopics(d).some((x) => x.slug === slug));
+  // 法令ページが 1 本だけのテーマでは前後が無いので、2 本以上あるテーマのうち最初のものを使う
   return (doc: DocMeta) => {
-    const topic = topics.find((t) => getDocTopics(doc).some((x) => x.slug === t.slug));
-    return topic ? { heading: topic.label, docs: laws.filter((d) => getDocTopics(d).some((x) => x.slug === topic.slug)) } : null;
+    const own = getDocTopics(doc);
+    const topic = topics.find((t) => own.some((x) => x.slug === t.slug) && lawsOf(t.slug).length > 1);
+    return topic ? { heading: topic.label, docs: lawsOf(topic.slug) } : null;
   };
 }
 
