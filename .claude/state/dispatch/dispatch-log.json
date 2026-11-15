@@ -8758,6 +8758,57 @@
       "commit": "d0f81ecdda81",
       "verification": "GA4 レポートのスナップショット（11/12）と uptime-ping run 43148273373",
       "note": "GA4 の画面でも 11/12 はユーザー・イベントとも 0（API だけの欠けではない）。一方、Cloudflare は普段どおり（PV 72,774）、uptime-ping は 11/12 12:26 JST に SSR の gtag を確認して成功、タグ・ヘッダー・ビルドの GA ID・GA4 の設定（変更履歴）に変更なし、同じアカウントの別プロパティは 11/12 も計測できた。サイト側で直すものは無く、GA4 側の受け取り・処理の欠けと判断して measurement-incidents.md に扱い（11/12 は欠測として読む・再発時は dateHour で境界を見る）を記録した"
+    },
+    {
+      "id": "DN-1208",
+      "at": "2026-11-15",
+      "task": "R2 公開バケットの孤児 1,674 件の出どころを特定し、台帳を直すか削除リストへ足す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-r2-orphans"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "641390753875",
+      "verification": "npm run check-r2-orphans",
+      "note": "PR #1607 を develop へ squash merge。孤児 1,674 件は全件が R2 から配信中の公的基準の章データで、検査が送る集合を知らなかった誤検出。送る集合の作り方を lib に出して検査と送り手で共有し、実データで孤児 0 件。上下水道の旧い CTA 画像 1 件は根拠つきで削除リストへ"
+    },
+    {
+      "id": "DN-1193",
+      "at": "2026-11-15",
+      "task": "切れている外部リンクを直し、report 区分の external-links を PASS に戻す（Issue #1475）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-external-links"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "641390753875",
+      "verification": "npm run check-external-links",
+      "note": "PR #1607 を develop へ squash merge。失敗は 404 が 0 件で、官公庁の 403・Wikipedia の 429・接続失敗だけだった。確かめられないものを切れと分け、それだけなら FAIL にしない。大半なら検査不成立"
+    },
+    {
+      "id": "DN-1192",
+      "at": "2026-11-15",
+      "task": "sitemap-legacy.xml に出ている GSC のエラー 1 件を直す（Issue #1460）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-gsc-sitemaps"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "641390753875",
+      "verification": "node scripts/check-gsc-sitemaps.mjs",
+      "note": "PR #1607 を develop へ squash merge。11/3 の期限で設計どおり退役した sitemap-legacy.xml の GSC の登録のエラーだった。robots.txt に無い sitemap は警報にしない。GSC の登録は 11/15 に運営者が削除済み（送信済みは sitemap.xml の 1 件だけ）"
     }
   ]
 }
