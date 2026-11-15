@@ -1668,7 +1668,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-jogai-2",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-jogai-2",
       "relatedTo": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1693,13 +1693,38 @@
         "contentSha256": "7e4fc9a8c0151a3e032f8068a6129c075b752cc05ab90b9ee97d518c7a93a848"
       },
       "times": {
-        "rendered": "2026-11-14T13:10:39.281Z"
+        "rendered": "2026-11-14T13:10:39.281Z",
+        "uploaded": "2026-11-15T13:10:44.541Z"
       },
       "delivery": {
         "inputSha256": "b4cd5d77515fcc2dad73340ef88076244cba6a44d890a9e372b08af949ee40b5",
         "marker": "dn-single-0672e09eaea05ac95e8f279041eebe9740df65b5",
         "uploadRequestedAt": "2026-11-14T13:11:49.886Z",
-        "videoId": "WTszra15S5U"
+        "videoId": "WTszra15S5U",
+        "processedAt": "2026-11-15T13:10:43.696Z",
+        "thumbnailRequestedAt": "2026-11-15T13:10:44.575Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/WTszra15S5U/default.jpg?sqp=CKje5tcG&rs=AOn4CLDsdLgO-bWFTk3Uli9RHOFku0sFQQ",
+          "https://i9.ytimg.com/vi/WTszra15S5U/mqdefault.jpg?sqp=CKje5tcG&rs=AOn4CLDRMsAwjAfFwutlp28uvjvKujEqFg",
+          "https://i9.ytimg.com/vi/WTszra15S5U/hqdefault.jpg?sqp=CKje5tcG&rs=AOn4CLCamXf0RhjWqQqafpoVCZSzc35TiA",
+          "https://i9.ytimg.com/vi/WTszra15S5U/sddefault.jpg?sqp=CKje5tcG&rs=AOn4CLAMSR4AXRc789IzyxVYQ_qftoBU5w",
+          "https://i9.ytimg.com/vi/WTszra15S5U/maxresdefault.jpg?sqp=CKje5tcG&rs=AOn4CLC5Ps832XgWTTU2EOj4ADO8KkDOAQ",
+          "https://i9.ytimg.com/vi/WTszra15S5U/sardefault.jpg?sqp=CKje5tcG&rs=AOn4CLBR3sPSXOMsxTdPKgY_58MdewcPjQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-15T13:10:51.355Z"
+      },
+      "platform": {
+        "id": "WTszra15S5U",
+        "url": "https://www.youtube.com/watch?v=WTszra15S5U",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-jogai-2"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-15T13:10:51.355Z"
       }
     },
     {
