@@ -1720,7 +1720,9 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-jogai-2"
-        }
+        },
+        "relatedVideoId": "8PgWfKBlFaE",
+        "desiredRelatedVideoId": "8PgWfKBlFaE"
       },
       "thumbnail": {
         "status": "set",
@@ -1975,7 +1977,9 @@
         "evidence": {
           "kind": "publisher-live-check",
           "ref": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-themename-1"
-        }
+        },
+        "relatedVideoId": "IrhUBYTTpQI",
+        "desiredRelatedVideoId": "IrhUBYTTpQI"
       },
       "thumbnail": {
         "status": "set",
