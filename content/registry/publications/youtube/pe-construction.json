@@ -1960,7 +1960,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-themename-1",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
       "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1986,7 +1986,8 @@
       },
       "times": {
         "rendered": "2026-11-14T13:09:12.733Z",
-        "uploaded": "2026-11-15T13:09:28.832Z"
+        "uploaded": "2026-11-15T13:09:28.832Z",
+        "scheduled": "2026-11-15T14:29:07.872Z"
       },
       "delivery": {
         "inputSha256": "8a6e4706a0722a330ba2b4ee03a8cabb3f0e3067167b340309f64c160ee43dbc",
@@ -1994,16 +1995,19 @@
         "uploadRequestedAt": "2026-11-14T13:10:19.837Z",
         "videoId": "6UZ-EUqFZXs",
         "processedAt": "2026-11-15T13:09:28.018Z",
-        "thumbnailRequestedAt": "2026-11-15T13:09:28.903Z",
+        "thumbnailRequestedAt": "2026-11-15T14:28:51.785Z",
         "thumbnailUrls": [
-          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/default.jpg?sqp=CPzb5tcG&rs=AOn4CLAKFtQ9j9M41f3_b97Cr6bZ1wORvg",
-          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/mqdefault.jpg?sqp=CPzb5tcG&rs=AOn4CLBwUSpBDZ-JKcfL5RsAw3re34aY9g",
-          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/hqdefault.jpg?sqp=CPzb5tcG&rs=AOn4CLC0PBStFsMUmSZXvVpyOJr1gmMh5g",
-          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/sddefault.jpg?sqp=CPzb5tcG&rs=AOn4CLA3eaOVw6MulMW7eWHwaRw581IiyA",
-          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/maxresdefault.jpg?sqp=CPzb5tcG&rs=AOn4CLD6EkbFKDfpVgW0g8UgaWHt7FLuFg",
-          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/sardefault.jpg?sqp=CPzb5tcG&rs=AOn4CLAOscp2UGmzkGOXqfm3kX5C_wcbPA"
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/default.jpg?sqp=CLyB59cG&rs=AOn4CLA7RFhPZS8ro_vvly2DnyokqZUFlg",
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/mqdefault.jpg?sqp=CLyB59cG&rs=AOn4CLCbGXxSZfeNRrfMUre4SKFxvdi4xA",
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/hqdefault.jpg?sqp=CLyB59cG&rs=AOn4CLAkkUfXKkzYtn4qaVe1wqwUfKQzdg",
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/sddefault.jpg?sqp=CLyB59cG&rs=AOn4CLDhyiwmmy3BcwwiwfXcPaSgyhnUQw",
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/maxresdefault.jpg?sqp=CLyB59cG&rs=AOn4CLAOwfMIKFpg47UXpTJecOizlbvRbg",
+          "https://i9.ytimg.com/vi/6UZ-EUqFZXs/sardefault.jpg?sqp=CLyB59cG&rs=AOn4CLBZUkX9yO39f4yvEml4iV2tNCJyeA"
         ],
-        "thumbnailAcceptedAt": "2026-11-15T13:09:36.003Z"
+        "thumbnailAcceptedAt": "2026-11-15T14:29:00.066Z",
+        "scheduleRequestedAt": "2026-11-15T14:29:04.198Z",
+        "scheduleAt": "2026-11-15T22:30:00Z",
+        "scheduledVerifiedAt": "2026-11-15T14:29:07.872Z"
       },
       "platform": {
         "id": "6UZ-EUqFZXs",
@@ -2018,7 +2022,7 @@
       },
       "thumbnail": {
         "status": "set",
-        "setAt": "2026-11-15T13:09:36.003Z"
+        "setAt": "2026-11-15T14:29:00.066Z"
       }
     },
     {
