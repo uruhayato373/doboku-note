@@ -8422,6 +8422,18 @@
       "commit": "4039fb84f232",
       "verification": "npm run quality:audit:ci -- --only cta-density",
       "note": "PR #1597 を develop へ squash merge。check-cta-density を CI の build 後ゲート（ci:true）に入れ、全 2,435 ページで違反 0。画面の点検は 5/6 合格、教科書の図の重なりは DN-1199 へ抽出"
+    },
+    {
+      "id": "DN-1047",
+      "at": "2026-11-09",
+      "task": "2026-11-02 施行の 7 法令の改正にリンクする記事 17 本を確かめ、写しを進める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "commit": "f8f57e264100",
+      "verification": "node scripts/quality-audit.mjs --only egov-drift（2026-11-15 PASS）",
+      "note": "f8f57e264 で記事を直し、同じ commit でカードを消したが完了記録が無かった。2026-11-15 に運営者の確認のうえ後から記録した（週次レビュー W45 の申し送りの居場所）"
     }
   ]
 }
