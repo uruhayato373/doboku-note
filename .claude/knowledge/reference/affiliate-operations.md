@@ -173,7 +173,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 ### 記事の画像面（2026-11-15 運営者指示・DN-1215）
 
-本文は `article-banner`〜`-3`（先頭600字超・間隔1,800字・末尾600字以上）、PC右欄は `article-rail`〜`-6`（先頭と実表示カードの全間隔）、本文末は `article-banner-end` の1枠。右欄は通常フロー。基準書のスマホ末尾追加は記事に持ち込まない。案件は配置ルールのカテゴリ表で決める。総監・RCCMのDXコンサル系には指定の横長素材がなく、本文画像は0枠。水産（pe-fisheries）は配置しない（候補の転職エージェントナビは A8 の同じ口座で stats47 が扱う案件で、A8 の集計は口座単位のため doboku-note の成果に混ざる）。合う画像がない面は出さず、カードでは埋めない。
+本文は `article-banner`〜`-3`（先頭600字超・間隔1,400字・末尾600字以上）、PC右欄は `article-rail`〜`-6`（先頭と実表示カードの全間隔）、本文末は `article-banner-end` の1枠。右欄は通常フロー。基準書のスマホ末尾追加は記事に持ち込まない。案件は配置ルールのカテゴリ表で決める。総監・RCCMのDXコンサル系には指定の横長素材がなく、本文画像は0枠。水産（pe-fisheries）は配置しない（候補の転職エージェントナビは A8 の同じ口座で stats47 が扱う案件で、A8 の集計は口座単位のため doboku-note の成果に混ざる）。合う画像がない面は出さず、カードでは埋めない。
 
 既存note・EXP-048・手書きCareerAffiliate・一次過去問の学習予約位置を維持し、同じ／隣の区切りを避ける。JSX・detailsの内部、問題文と解答の間、条文とSourceRefの間は挿入禁止。共通の字数選択は `standards-inline-slots.mjs`、記事のAST境界は `article-inline-slots.mjs`、既存CTAの計画は `article-cta-plan.ts`。管理画面 `/affiliate/pages` も同じ最終計画を読む。
 
@@ -218,7 +218,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 どの案件がどの面に出ているかの一覧はここに写さない（写すと配置ルールと食い違う。2026-11-03 の整理で、案件 4 行の表が RCCM・建築・コンストワークの変更を反映していなかった・DN-0950）。いま開いているルール（`until` が空か未来のもの）を `config/affiliate-placements.json` で読む。同じファイルの `pairs` は 2 枚並べ（EXP-048）、`splits` は面の案件を訪問者ごとに別の案件と半々で出す出し分け（EXP-055。割り当ては `src/lib/program-split-experiment.mjs`・描画は `ProgramSplitBanner`・代わりの案件にはピクセルを付けない）。案件の提携状態・報酬・条件は `data/affiliate/catalog.json`。
 
-公的基準の章・節の本文中は `src/lib/standards-inline-slots.mjs` の規則で最大 3 枠（buildjob・constwork・rsg-kensetsu）にする。区切り候補は表の後、2 つ目以降の `##` の前、`###`/`####` の前、段落の切れ目で、1 枠目は 600 字超、以降は 1,800 字ごと、残り 600 字未満には置かない。PC の右欄は上端に buildjob、目次と回遊の間に kensetsu-jobs、回遊カードの間（1 枚なら後）に dainishinsotsu-agent-neo を置く。固定と欄内スクロールは全ページで撤去し、dx-consulting は基準書の読者に合わないので出さない（運営者判断）。本文末は kensetsu-jobs、一覧・文書ページは右欄の上端に buildjob、回遊の間に dainishinsotsu-agent-neo と既存の本文末を置く。上限は `config/standards-page-density.json` の `affiliate.max`（28）で、ページごとの枠・案件・GA4 の可視表示は管理画面 `/affiliate/pages` で確かめる。配置の真実源は `config/affiliate-placements.json`（PL-0065〜0073）である。
+公的基準の章・節の本文中は `src/lib/standards-inline-slots.mjs` の規則で最大 3 枠（buildjob・constwork・rsg-kensetsu）にする。区切り候補は表の後、2 つ目以降の `##` の前、`###`/`####` の前、段落の切れ目で、1 枠目は 600 字超、以降は 1,400 字ごと（2026-11-15 に表の組み直しで字数が減ったため 1,800 から詰めた・DN-1213）、残り 600 字未満には置かない。PC の右欄は上端に buildjob、目次と回遊の間に kensetsu-jobs、回遊カードの間（1 枚なら後）に dainishinsotsu-agent-neo を置く。固定と欄内スクロールは全ページで撤去し、dx-consulting は基準書の読者に合わないので出さない（運営者判断）。本文末は kensetsu-jobs、一覧・文書ページは右欄の上端に buildjob、回遊の間に dainishinsotsu-agent-neo と既存の本文末を置く。上限は `config/standards-page-density.json` の `affiliate.max`（28）で、ページごとの枠・案件・GA4 の可視表示は管理画面 `/affiliate/pages` で確かめる。配置の真実源は `config/affiliate-placements.json`（PL-0065〜0073）である。
 
 ビルドジョブ指名記事（civil-1/civil-2）は期間に関係なく同社の広告に揃える。既存mat NTZCH/NTJWYは9/8にA8広告作成画面のdoboku-note（websiteId=002）と一致を確認。8/31は増額終了日で、リンクの失効日ではない。現行のBuildJob報酬は13,534円、60歳未満・WEB申込後30日以内の無料面談完了が条件。
 
