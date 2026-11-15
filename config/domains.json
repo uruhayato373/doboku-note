@@ -167,6 +167,12 @@
           "href": "/affiliate/layout",
           "kind": "assets",
           "match": "/affiliate/layout"
+        },
+        {
+          "label": "ページ別の広告",
+          "href": "/affiliate/pages",
+          "kind": "assets",
+          "match": "/affiliate/pages"
         }
       ]
     },
