@@ -601,6 +601,8 @@
 1. gsc-indexing-local が commit する前に `node .claude/scripts/build-doc-meta-index.mjs --ci` を回すか、記録だけの commit が記事の索引に左右されない形にする。
 2. button-not-found の 5 件（主任技士 materials・総監 h21-secondary・水産部門のガイドほか）が、URL 検査の画面で登録できない状態（既に登録済み・上限）なのか、画面の変更なのかを切り分ける。
 
+**進み（2026-11-15）**: 11/15 07:40 の回は rc=0 で記録を develop へ push した（commit の失敗は 11/14 の 1 回だけ）。button-not-found は 5 件 → 21 件に増えた（h21-secondary・水産部門の選択科目・道路構造の基準ほか）。残りはやること 1 の再発防止と 2 の切り分け。Issue #1445 は 11/15 の成功の後も開いたまま（自動で閉じる配線を確かめる）。
+
 **完了条件**: 朝の回が 2 日続けて rc=0 で終わり、`data/gsc/indexing-requests.json` の記録が develop に入り、Issue #1445 が自動で閉じる。
 
 
