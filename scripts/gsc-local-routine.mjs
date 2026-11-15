@@ -29,6 +29,7 @@ import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { datasetDir, datasetPath } from "./lib/datasets.mjs";
 import {
+  commitGscRecords,
   classifyIndexingResult,
   classifyUiFetchExit,
   decideIndexingRun,
@@ -120,7 +121,7 @@ if (DRY) {
   console.log(`${TAG} --dry-run のため commit しない`);
 } else {
   const stamp = new Date().toISOString().replace(/\.\d+Z$/, "Z");
-  const r = commitAndPush(LEDGER_PATHS, `chore(gsc-local): ${done.join("・") || "GSC 定期処理"} ${stamp} [skip ci]`, { push: !NO_PUSH });
+  const r = commitGscRecords(LEDGER_PATHS, `chore(gsc-local): ${done.join("・") || "GSC 定期処理"} ${stamp} [skip ci]`, { push: !NO_PUSH }, { run, commitAndPush });
   if (r.problem) problems.push(r.problem);
   else console.log(`${TAG} ${r.status === "pushed" ? "develop へ push した" : r.status === "committed" ? "--no-push のため push しない" : "台帳に差分なし。commit しない"}`);
 }
