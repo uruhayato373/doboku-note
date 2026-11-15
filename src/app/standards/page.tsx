@@ -39,10 +39,8 @@ export default function StandardsPage() {
         aside={(
           <>
             <div className="space-y-3" data-standards-sidebar>
-              <StandardsExplore />
-            </div>
-            <div className="mt-3">
-              <StandardsRailBanner pageKind="standards-list" />
+              <StandardsRailBanner slot="standards-list-rail" pageKind="standards-list" />
+              <StandardsExplore betweenCards={<StandardsRailBanner slot="standards-list-rail-2" pageKind="standards-list" />} />
             </div>
           </>
         )}

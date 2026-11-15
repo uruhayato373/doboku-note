@@ -88,21 +88,19 @@ test('基準書は 2026-11-12 に外し、11-13 から右の欄 3 枠（3 案件
   });
 });
 
-test('基準書は 11/15 0時から本文中 3 面・右欄 1 面・本文末。右欄だけを DX と出し分ける', async () => {
+test('基準書は 11/15 0時から本文中 3 面・右欄 3 面・本文末。一覧の右欄は 2 面で出し分けなし', async () => {
   const { resolvePlacements } = await load();
   const after = Date.parse('2026-11-15T00:00:00+09:00');
   const chapter = resolvePlacements({ pageKind: 'standards' }, after);
   const list = resolvePlacements({ pageKind: 'standards-list' }, after);
   assert.deepEqual(programs(chapter), {
     'standards-inline': 'buildjob', 'standards-inline-2': 'constwork', 'standards-inline-3': 'rsg-kensetsu',
-    'standards-rail': 'buildjob', 'standards-end': 'kensetsu-jobs',
+    'standards-rail': 'buildjob', 'standards-rail-2': 'kensetsu-jobs', 'standards-rail-3': 'dainishinsotsu-agent-neo', 'standards-end': 'kensetsu-jobs',
   });
-  assert.deepEqual(programs(list), { 'standards-list-end': 'dainishinsotsu-agent-neo', 'standards-list-rail': 'buildjob' });
-  for (const [placements, slot, splitId] of [[chapter, 'standards-rail', 'PS-0002'], [list, 'standards-list-rail', 'PS-0003']]) {
-    assert.equal(placements[slot].alternate?.program, 'dx-consulting');
-    assert.equal(placements[slot].alternate?.splitId, splitId);
-    assert.equal(placements[slot].alternate?.experiment, 'EXP-065');
-    for (const p of Object.values(placements).filter((p) => p.slot !== slot)) assert.equal(p.alternate, undefined);
+  assert.deepEqual(programs(list), { 'standards-list-end': 'dainishinsotsu-agent-neo', 'standards-list-rail': 'buildjob', 'standards-list-rail-2': 'dainishinsotsu-agent-neo' });
+  for (const p of [...Object.values(chapter), ...Object.values(list)]) {
+    assert.equal(p.alternate, undefined);
+    assert.notEqual(p.program, 'dx-consulting');
   }
   assert.equal(resolvePlacements({ pageKind: 'standards' }, after - 1)['standards-sidebar']?.program, 'buildjob');
 });

@@ -81,7 +81,7 @@ test('2-1章は表の後に 3 枠置き、末尾と枠の間隔の字数を守�
   }
 });
 
-test('描画した面だけがピクセルを持ち、rail の出し分け・モバイル追加でも重複しない', async () => {
+test('描画した面だけがピクセルを持ち、rail 3 面・モバイル追加でも重複しない', async () => {
   const { execFileSync } = await import('node:child_process');
   const { execPath } = await import('node:process');
   const script = `
@@ -90,30 +90,34 @@ test('描画した面だけがピクセルを持ち、rail の出し分け・モ
     import { parse } from 'node-html-parser';
     import { StandardsRailBanner, StandardsEndBanner, StandardsInlineBanner } from './src/components/standards/StandardsAffiliateBanners.tsx';
     Date.now = () => Date.parse('2026-11-16T00:00:00+09:00');
-    const result = [[], ['standards-inline'], ['standards-inline', 'standards-inline-2', 'standards-inline-3']].map(inlineSlots => {
-      const props = { pageKind: 'standards', inlineSlots };
-      const rail = renderToStaticMarkup(React.createElement(StandardsRailBanner, props));
+    const cases = [[], ['standards-inline'], ['standards-inline', 'standards-inline-2', 'standards-inline-3']].map(inlineSlots => ({ pageKind: 'standards', inlineSlots }));
+    cases.push({ pageKind: 'standards-list', inlineSlots: [] });
+    const result = cases.map(props => {
+      const { inlineSlots, pageKind } = props;
+      const railSlots = pageKind === 'standards' ? ['standards-rail', 'standards-rail-2', 'standards-rail-3'] : ['standards-list-rail', 'standards-list-rail-2'];
+      const rail = railSlots.map(slot => renderToStaticMarkup(React.createElement(StandardsRailBanner, { ...props, slot }))).join('');
       const end = renderToStaticMarkup(React.createElement(StandardsEndBanner, props));
       const inline = inlineSlots.map(slot => renderToStaticMarkup(React.createElement(StandardsInlineBanner, { slot, inlineSlots }))).join('');
       const root = parse(rail + inline + end);
+      const extras = parse(parse(end).querySelector('[data-standards-affiliate="end"]').childNodes.filter(el => el.getAttribute?.('class') === 'zenn-desktop:hidden').map(el => el.toString()).join(''));
       const pixels = html => parse(html).querySelectorAll('img[width="1"]').map(el => el.getAttribute('src'));
       return {
         pixels: pixels(rail + inline + end), railPixels: pixels(rail).length,
         cards: root.querySelectorAll('[data-cta="affiliate"]').length,
         railArms: parse(rail).querySelectorAll('[data-program-split-arm]').length,
-        extraPixels: parse(end).querySelectorAll('[class~="zenn-desktop:hidden"] img[width="1"]').length,
-        extraCards: parse(end).querySelectorAll('[data-program-split-arm] [data-cta="affiliate"]').length,
+        extraPixels: extras.querySelectorAll('img[width="1"]').length,
+        extraCards: extras.querySelectorAll('[data-cta="affiliate"]').filter(el => railSlots.includes(el.getAttribute('data-cta-placement'))).length,
       };
     });
     process.stdout.write(JSON.stringify(result));
   `;
   // tsx CLI は IPC の listen を要求するため、sandbox でも動く import フックで描画する。
   const results = JSON.parse(execFileSync(execPath, ['--import', 'tsx', '--input-type=module', '-e', script], { encoding: 'utf8' }));
-  assert.deepEqual(results.map((r) => r.railPixels), [2, 1, 1], 'inline が無ければ rail が buildjob を持ち、あれば inline に譲る。DX は rail が持つ');
-  assert.deepEqual(results.map((r) => r.extraCards), [2, 1, 1], '本文中にある buildjob はモバイル追加しない。DX は残す');
-  assert.equal(results[2].cards, 10, '出し分けの両案件を含めても密度20件以内');
+  assert.deepEqual(results.map((r) => r.railPixels), [2, 1, 1, 1], 'buildjob は inline を優先、kensetsu-jobs は end を優先し、neo は rail が持つ');
+  assert.deepEqual(results.map((r) => r.extraCards), [2, 1, 1, 1], '本文中・本文末にない buildjob と neo だけモバイル追加する');
+  assert.equal(results[2].cards, 11, '本文中6枚・rail3枚・末尾1枚・モバイル追加1枚');
   for (const result of results) {
-    assert.equal(result.railArms, 2);
+    assert.equal(result.railArms, 0);
     assert.equal(result.extraPixels, 0);
     assert.equal(result.pixels.length, new Set(result.pixels).size);
   }
@@ -129,4 +133,55 @@ test('表も 2 つ目の ## も無い長い章は段落の切れ目に置き、�
     assert.ok(!/^#/.test(lines[line - 1] ?? ''), '見出しの直後');
     assert.ok(!(/^- /.test(lines[line - 1] ?? '') && /^- /.test(lines[line + 1] ?? '')), '箇条の項目の間');
   }
+});
+
+
+test('PC は上端・目次後・回遊カード間へ配置し、モバイルの Disclosure には入れない', async () => {
+  const { execFileSync } = await import('node:child_process');
+  const { execPath } = await import('node:process');
+  const script = `
+    import { createRequire } from 'node:module';
+    import React from 'react';
+    import { renderToStaticMarkup } from 'react-dom/server';
+    import { parse } from 'node-html-parser';
+    const require = createRequire(import.meta.url);
+    // Node の静的描画では RSC の専用マーカーだけを無効にし、実際のデータ・部品を使う。
+    require.cache[require.resolve('server-only')] = { exports: {} };
+    const { default: nav } = await import('./src/components/standards/StandardsNavigation.tsx');
+    const { default: top } = await import('./src/app/standards/page.tsx');
+    const { ThemeProvider } = await import('./src/components/providers/ThemeProvider.tsx');
+    const { StandardTopicDiscovery } = await import('./src/components/standards/StandardsSidebarDiscovery.tsx');
+    const { StandardsRailBanner } = await import('./src/components/standards/StandardsAffiliateBanners.tsx');
+    const { getStandardChapter } = await import('./src/lib/standards-articles.ts');
+    Date.now = () => Date.parse('2026-11-16T00:00:00+09:00');
+    const render = (component, props) => parse(renderToStaticMarkup(React.createElement(component.default ?? component, props)));
+    const identify = el => el.getAttribute('data-cta-label') ?? el.getAttribute('data-cta') ?? el.getAttribute('aria-label');
+    const order = root => root.childNodes.filter(el => el.tagName).map(el => el.getAttribute('data-standards-affiliate') === 'rail' ? el.querySelector('[data-cta-placement]').getAttribute('data-cta-placement') : identify(el));
+    const rows = ['mlit/sekou-kanri-kijun/2-1', 'kinki/common/1-1'].map(path => {
+      const [agencyId, docId, chapterId] = path.split('/');
+      const { document, chapter } = getStandardChapter(agencyId, docId, chapterId);
+      const props = { agencyId, currentDocument: document, currentChapter: chapter };
+      const pc = render(nav, props).querySelector('[data-standards-sidebar]');
+      const section = render(nav, { ...props, currentSection: chapter.sections[0]?.number }).querySelector('[data-standards-sidebar]');
+      const mobile = render(nav, { ...props, variant: 'mobile' });
+      return { order: order(pc), sectionOrder: order(section), mobileAds: mobile.querySelectorAll('[data-standards-affiliate]').length };
+    });
+    const topRoot = parse(renderToStaticMarkup(React.createElement(ThemeProvider, null, React.createElement(top.default ?? top))));
+    const topRail = topRoot.querySelector('[data-standards-sidebar]');
+    const single = render(StandardTopicDiscovery, { topics: [], heading: '回遊', withBridge: true, betweenCards: React.createElement(StandardsRailBanner, { slot: 'standards-list-rail-2', pageKind: 'standards-list' }) });
+    process.stdout.write(JSON.stringify({ rows, top: order(topRail), explore: order(topRail.querySelector('[data-standards-explore]')), single: order(single), main: Boolean(topRoot.querySelector('main')), text: topRoot.textContent.includes('土木') }));
+  `;
+  const data = JSON.parse(execFileSync(execPath, ['--import', 'tsx', '--input-type=module', '-e', script], { encoding: 'utf8' }));
+  for (const row of data.rows) {
+    assert.deepEqual(row.order.slice(0, 5), ['standards-rail', 'standards-tree', 'standards-rail-2', 'standards-related', 'standards-rail-3']);
+    assert.ok(row.order.length > 5, '3面目は回遊カードの間');
+    assert.deepEqual(row.sectionOrder, row.order);
+    assert.equal(row.mobileAds, 0);
+  }
+  assert.equal(data.top[0], 'standards-list-rail');
+  assert.deepEqual(data.explore.slice(0, 2), ['standards-entry-chapter', 'standards-list-rail-2']);
+  assert.ok(data.explore.length > 2);
+  assert.deepEqual(data.single, ['card', 'standards-list-rail-2'], '回遊が1枚だけなら後ろ');
+  assert.equal(data.main, true);
+  assert.equal(data.text, true);
 });

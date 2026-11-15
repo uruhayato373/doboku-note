@@ -17,8 +17,8 @@
     "maxVisibleChars": 160
   },
   "affiliate": {
-    "description": "転職アフィリエイトの画像バナーの上限（2026-11-15 DN-1214。本文中 3×PC/スマホ 6・rail 1・本文末 1・モバイル追加 1 → 9 枚。1 枚につき data-cta=affiliate 1 件と下のホストへのリンク 1 件で 18、余裕 2 で 20。rail の出し分けで HTML に両案件を持つ分もこの余裕に含める）。data-cta=affiliate の数と、下のホストへのリンクの数の合計の上限。",
-    "max": 20,
+    "description": "転職アフィリエイトのカード・リンクの上限（2026-11-15 DN-1214。本文中 3×PC/スマホ 6 + 右欄 3 + 本文末 1 + モバイル追加 最大 2 = 12 枚。1 枚につき data-cta=affiliate 1 件と下のホストへのリンク 1 件で 24、余裕を見て 28）。data-cta=affiliate の数と、下のホストへのリンクの数の合計。",
+    "max": 28,
     "hostPatterns": ["px.a8.net", "moshimo.com", "afi-b.com"]
   }
 }

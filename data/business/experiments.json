@@ -10423,63 +10423,6 @@
           "change": "16 資格 859 ページを写真サムネイルにし（#1576・#1579）、カードの表示とクリックを写真・OGP 別に送る（#1572）。本番反映は main への deploy 後"
         }
       ]
-    },
-    {
-      "id": "EXP-065",
-      "title": "基準書の PC 右欄でビルドジョブと DX・コンサル転職を訪問者ごとに出し分ける",
-      "hypothesis": "固定表示の箱の外にあった右欄の広告を常時見える 1 枠にすると可視表示が増え、基準書の読者には施工管理向けのビルドジョブとハイクラスの DX・コンサル転職のどちらが閲覧あたりのクリックと発生・確定額で合うかを比較できる",
-      "target_metric": "GA4 の affiliate_cta_impression / affiliate_cta_click を placement standards-rail・standards-list-rail × 案件ラベルで読み、A8 の案件別の発生・確定を併読する",
-      "target_delta": "2026-12-13 以降、同じ 28 日窓で両案の可視表示あたりクリックと案件別の発生・確定額を比べる。片方の可視表示またはクリックが不足するときは判定不能として継続する",
-      "status": "running",
-      "created_at": "2026-11-15",
-      "started_at": "2026-11-15",
-      "next_check_date": "2026-12-13",
-      "businessContext": {
-        "qualification": "all",
-        "readerNeed": "基準書を読む建設技術者が、実務経験を生かせる転職先を比較したい",
-        "verifiedGap": "右欄 3 枠は固定表示の箱の y=1,446px 以降で画面外となり、GA4 11/08 版の直近 28 日で章ページ 1,472 セッションに対する本文末の可視表示も 172 にとどまった",
-        "metricId": "a8ConfirmedYen",
-        "reviewRecord": "data/business/records/review-2026-11-15T00-25-04-354Z-b2f4607d-f80a-4f87-b5e4-aebb98349143.json"
-      },
-      "actions": [
-        "対象は PC の基準書章・節の右欄 standards-rail と、一覧・文書の右欄 standards-list-rail。config/affiliate-placements.json の PS-0002・PS-0003 で buildjob と dx-consulting を訪問者ごとに約 1/2 で出し分ける",
-        "GA4 は affiliate_cta_impression / affiliate_cta_click を placement standards-rail・standards-list-rail × 案件ラベルで読み、A8 の成果別レポートで案件別の発生・確定を確認する",
-        "ページごとの本文中の枠・案件・GA4 可視表示は管理画面 /affiliate/pages で確認する"
-      ],
-      "measurementPlan": {
-        "kind": "affiliate-program",
-        "status": "running",
-        "variants": [
-          "buildjob",
-          "dx-consulting"
-        ],
-        "card": "DN-1214",
-        "splits": [
-          "PS-0002",
-          "PS-0003"
-        ],
-        "placements": [
-          "standards-rail",
-          "standards-list-rail"
-        ]
-      },
-      "baseline": {
-        "measured_at": "2026-11-08",
-        "source": "GA4 11/08 版の直近 28 日",
-        "chapterSessions": 1472,
-        "standardsEndVisibleImpressions": 172,
-        "inlineZeroPlacementChapters": 252,
-        "allChapters": 837,
-        "note": "右欄 3 枠は固定表示の箱の y=1,446px 以降で画面外だった。新しい出し分けの表示は 2026-11-15 から計測するため、案件別の開始時点の値は無い"
-      },
-      "history": [
-        {
-          "at": "2026-11-15T01:44:53Z",
-          "event": "recorded",
-          "note": "DN-1214。右欄を常時見える 1 枠にし、PS-0002・PS-0003 で buildjob と dx-consulting の出し分けを開始した"
-        }
-      ],
-      "updated_at": "2026-11-15T01:44:53Z"
     }
   ]
 }

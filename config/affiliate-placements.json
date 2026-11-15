@@ -1134,8 +1134,8 @@
         "from": "2026-11-15T00:00:00+09:00",
         "until": null
       },
-      "experiment": "EXP-065",
-      "note": "2026-11-15 DN-1214（運営者指示）。PC の右欄を目次のスクロール箱から分けて常時表示し、ビルドジョブと DX・コンサルを訪問者ごとに半々で比較する（EXP-065）"
+      "experiment": null,
+      "note": "2026-11-15 DN-1214（運営者指示）。PC の右欄の上端にビルドジョブ。固定・欄内スクロールは設けず、基準書の読者に合わない DX・コンサル転職は出さない"
     },
     {
       "id": "PL-0069",
@@ -1162,8 +1162,50 @@
         "from": "2026-11-15T00:00:00+09:00",
         "until": null
       },
-      "experiment": "EXP-065",
-      "note": "2026-11-15 DN-1214（運営者指示）。PC の右欄を目次のスクロール箱から分けて常時表示し、ビルドジョブと DX・コンサルを訪問者ごとに半々で比較する（EXP-065）"
+      "experiment": null,
+      "note": "2026-11-15 DN-1214（運営者指示）。PC の右欄の上端にビルドジョブ。固定・欄内スクロールは設けず、基準書の読者に合わない DX・コンサル転職は出さない"
+    },
+    {
+      "id": "PL-0071",
+      "program": "kensetsu-jobs",
+      "slot": "standards-rail-2",
+      "target": {
+        "pageKind": "standards"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 DN-1214（運営者指示）。PC の目次と回遊カードの間に建設JOBs（画像素材は avoid のため文字カード）"
+    },
+    {
+      "id": "PL-0072",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "standards-rail-3",
+      "target": {
+        "pageKind": "standards"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 DN-1214（運営者指示）。PC の回遊カードの間（1 枚ならその後）に第二新卒エージェントneo"
+    },
+    {
+      "id": "PL-0073",
+      "program": "dainishinsotsu-agent-neo",
+      "slot": "standards-list-rail-2",
+      "target": {
+        "pageKind": "standards-list"
+      },
+      "period": {
+        "from": "2026-11-15T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "2026-11-15 DN-1214（運営者指示）。PC の一覧・文書の回遊カードの間（1 枚ならその後）に第二新卒エージェントneo"
     }
   ],
   "pairs": [
@@ -1284,40 +1326,6 @@
       },
       "experiment": "EXP-055",
       "note": "技術士（建設部門）の読者に、施工管理の転職（ビルドジョブ）とハイクラスの転職（ハイクラス DX・コンサル転職・A8 ¥18,000）を訪問者ごとに約半分ずつ出し、閲覧あたりのクリックと案件別の発生・確定額を比べる（EXP-055・訴求設計 §13.4・DN-0952）。本文中の枠は EXP-048（2026-12-26 判定）が使っているので、その判定までは資格トップだけ（記事末の転職広告は 2026-10-21 に全資格で閉じている）"
-    },
-    {
-      "id": "PS-0002",
-      "primary": "buildjob",
-      "alternate": "dx-consulting",
-      "slots": [
-        "standards-rail"
-      ],
-      "target": {
-        "pageKind": "standards"
-      },
-      "period": {
-        "from": "2026-11-15T00:00:00+09:00",
-        "until": null
-      },
-      "experiment": "EXP-065",
-      "note": "2026-11-15 DN-1214（運営者指示）。PC の右欄のビルドジョブと DX・コンサルを訪問者ごとに約半分ずつ出し、可視表示あたりのクリックと案件別の発生・確定を比較する。モバイルは本文に出ていない案件だけを本文末に追加する"
-    },
-    {
-      "id": "PS-0003",
-      "primary": "buildjob",
-      "alternate": "dx-consulting",
-      "slots": [
-        "standards-list-rail"
-      ],
-      "target": {
-        "pageKind": "standards-list"
-      },
-      "period": {
-        "from": "2026-11-15T00:00:00+09:00",
-        "until": null
-      },
-      "experiment": "EXP-065",
-      "note": "2026-11-15 DN-1214（運営者指示）。PC の右欄のビルドジョブと DX・コンサルを訪問者ごとに約半分ずつ出し、可視表示あたりのクリックと案件別の発生・確定を比較する。モバイルは本文に出ていない案件だけを本文末に追加する"
     }
   ]
 }

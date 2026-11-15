@@ -187,7 +187,7 @@ export function ruleFor(rules, page, slot, program, nowMs, pairs = [], splits = 
   return { ruleId: null, status: 'none' };
 }
 
-/** そのページに今当たる面（slot → rule id）。管理画面で「期待した面」を並べる */
+/** そのページに今当たる面（slot → rule id）。右欄の各面も配置ルールから取り込み、本文中だけ実際の挿入計画で絞る。 */
 export function expectedSlots(rules, page, nowMs, readChapter = readStandardsChapter) {
   const out = {};
   for (const r of rules) if (isActive(r, nowMs) && matchesPage(r, page)) out[r.slot] = { ruleId: r.id, program: r.program };

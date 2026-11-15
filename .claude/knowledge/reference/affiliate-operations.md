@@ -210,7 +210,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 どの案件がどの面に出ているかの一覧はここに写さない（写すと配置ルールと食い違う。2026-11-03 の整理で、案件 4 行の表が RCCM・建築・コンストワークの変更を反映していなかった・DN-0950）。いま開いているルール（`until` が空か未来のもの）を `config/affiliate-placements.json` で読む。同じファイルの `pairs` は 2 枚並べ（EXP-048）、`splits` は面の案件を訪問者ごとに別の案件と半々で出す出し分け（EXP-055。割り当ては `src/lib/program-split-experiment.mjs`・描画は `ProgramSplitBanner`・代わりの案件にはピクセルを付けない）。案件の提携状態・報酬・条件は `data/affiliate/catalog.json`。
 
-公的基準の章・節の本文中は `src/lib/standards-inline-slots.mjs` の規則で最大 3 枠（buildjob・constwork・rsg-kensetsu）にする。区切り候補は表の後、2 つ目以降の `##` の前、`###`/`####` の前、段落の切れ目で、1 枠目は 600 字超、以降は 1,800 字ごと、残り 600 字未満には置かない。PC の右欄は 2 段に分け、下段の常時見える 1 枠で buildjob と dx-consulting を出し分ける。本文末は kensetsu-jobs、一覧・文書ページは右欄 1 枠と本文末を置く。上限は `config/standards-page-density.json` の `affiliate.max`（20）で、ページごとの枠・案件・GA4 の可視表示は管理画面 `/affiliate/pages` で確かめる。配置と出し分けの真実源は `config/affiliate-placements.json`（PL-0065〜0070、PS-0002・PS-0003）である。
+公的基準の章・節の本文中は `src/lib/standards-inline-slots.mjs` の規則で最大 3 枠（buildjob・constwork・rsg-kensetsu）にする。区切り候補は表の後、2 つ目以降の `##` の前、`###`/`####` の前、段落の切れ目で、1 枠目は 600 字超、以降は 1,800 字ごと、残り 600 字未満には置かない。PC の右欄は上端に buildjob、目次と回遊の間に kensetsu-jobs、回遊カードの間（1 枚なら後）に dainishinsotsu-agent-neo を置く。固定と欄内スクロールは全ページで撤去し、dx-consulting は基準書の読者に合わないので出さない（運営者判断）。本文末は kensetsu-jobs、一覧・文書ページは右欄の上端に buildjob、回遊の間に dainishinsotsu-agent-neo と既存の本文末を置く。上限は `config/standards-page-density.json` の `affiliate.max`（28）で、ページごとの枠・案件・GA4 の可視表示は管理画面 `/affiliate/pages` で確かめる。配置の真実源は `config/affiliate-placements.json`（PL-0065〜0073）である。
 
 ビルドジョブ指名記事（civil-1/civil-2）は期間に関係なく同社の広告に揃える。既存mat NTZCH/NTJWYは9/8にA8広告作成画面のdoboku-note（websiteId=002）と一致を確認。8/31は増額終了日で、リンクの失効日ではない。現行のBuildJob報酬は13,534円、60歳未満・WEB申込後30日以内の無料面談完了が条件。
 
@@ -565,8 +565,8 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 
 - **運営者指示**: 基準書でアフィリエイトのインプレッションを確保する。11/13 の画像バナーを戻す判断は維持しつつ、画面外と枠なしの章を減らす。
 - **観測**: 右欄の 3 枠は固定表示の箱の y=1,446px 以降にあり画面外だった。本文中は見出しが 2 未満の 252 / 837 章で 0 枠だった。GA4 11/08 版の直近 28 日では、章ページ 1,472 セッションに対し本文末の可視表示は 172 だった。
-- **決定**: PL-0056〜0062・PL-0064 を 2026-11-15 で閉じ、PL-0065〜0070 を開始した。本文中は字数と残り字数で最大 3 枠、PC 右欄は常時見える 1 枠、本文末は建設JOBs、一覧・文書は右欄 1 枠と本文末にした。出し分けは PS-0002（`standards-rail`）と PS-0003（`standards-list-rail`）で buildjob ⇄ dx-consulting を半々にする。
-- **見直し**: DN-1171 の読み始めは DN-1214 の本番反映日から 28 日後へずらした。PL-0065〜0070 と PS-0002・PS-0003 を、`affiliate_cta_impression` / `_click` と A8 の発生で読む。
+- **決定**: PL-0056〜0062・PL-0064 を 2026-11-15 で閉じ、PL-0065〜0073 を開始する。本文中は字数と残り字数で最大 3 枠、本文末は建設JOBs。右の欄は上端 buildjob・目次と回遊の間 kensetsu-jobs・回遊の間 dainishinsotsu-agent-neo。固定とスクロールは全ページで撤去し、dx-consulting は基準書の読者に合わないので出さない（運営者判断）。一覧・文書は右欄の上端 buildjob・回遊の間 dainishinsotsu-agent-neo と既存の本文末。
+- **見直し**: DN-1171 の読み始めは DN-1214 の本番反映日から 28 日後。PL-0065〜0073 を、`affiliate_cta_impression` / `_click` と A8 の発生で読む。
 
 ---
 

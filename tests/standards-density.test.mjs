@@ -47,15 +47,17 @@ test('出典ブロックが 2 つだと attribution', () => {
   assert.deepEqual(rulesOf(fixture('two-attribution'), 'agency'), ['attribution']);
 });
 
-test('アフィリエイトのカード・リンクが上限（20 件）を超えると affiliate', () => {
+test('アフィリエイトのカード・リンクが上限（28 件）を超えると affiliate', () => {
   assert.deepEqual(rulesOf(fixture('affiliate'), 'agency'), ['affiliate']);
 });
 
-test('最大 3 枠と rail の両案件を含む 10 枚（20 件）は上限内', () => {
+test('最大 12 枚（24 件）と余裕の 14 枚（28 件）は上限内', () => {
   const banner = '<div data-cta="affiliate"><a href="https://px.a8.net/svt/ejp?a8mat=x">転職</a></div>';
-  const html = fixture('pass-chapter').replace('</main>', banner.repeat(10) + '</main>');
+  const html = fixture('pass-chapter').replace('</main>', banner.repeat(12) + '</main>');
   assert.deepEqual(rulesOf(html, 'chapter'), []);
-  assert.deepEqual(rulesOf(html.replace('</main>', banner + '</main>'), 'chapter'), ['affiliate']);
+  assert.equal(rules.affiliate.max, 28);
+  assert.deepEqual(rulesOf(html.replace('</main>', banner.repeat(2) + '</main>'), 'chapter'), []);
+  assert.deepEqual(rulesOf(html.replace('</main>', banner.repeat(3) + '</main>'), 'chapter'), ['affiliate']);
 });
 
 test('章を持たない文書（chapters 一覧なし）は minListLinks を課さない', () => {

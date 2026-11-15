@@ -42,10 +42,10 @@ export function getAffiliatePages(now = Date.now()) {
         : [{ path: standardChapterPath(document, chapter), title: chapter.chapterTitle, markdown: readStandardChapterMarkdown(document.agencyId, document.documentId, chapter) }];
       return bodies.map(({ path, title, markdown }) => {
         const plan = planInlineSlots(markdown);
-        const slots = [...plan.insertAt.map((s) => s.slot), 'standards-rail', 'standards-end'];
+        const slots = [...plan.insertAt.map((s) => s.slot), 'standards-rail', 'standards-rail-2', 'standards-rail-3', 'standards-end'];
         const programs = slots.flatMap((slot) => {
           const r = placements[slot];
-          return r ? [{ slot, program: r.alternate ? `${r.program} ⇄ ${r.alternate.program}` : r.program }] : [];
+          return r ? [{ slot, program: r.program }] : [];
         });
         const crops = manifest?.shots.filter((s) => manifest.targets.some((t) => t.id === s.targetId && t.path === path))
           .flatMap((s) => (s.crops ?? []).map((c) => ({ label: `${s.viewport} ${s.variant} ${c.placement}`, href: `/affiliate/layout-shot/${manifest.ts}/${c.file}` }))) ?? [];

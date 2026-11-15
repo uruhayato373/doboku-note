@@ -360,7 +360,7 @@
       }
     },
     "standards-rail": {
-      "label": "公的基準 章・節の右欄（固定）",
+      "label": "公的基準 章・節の右欄（上端）",
       "status": "active",
       "pageKind": "standards",
       "pixelPriority": 5,
@@ -373,10 +373,49 @@
       }
     },
     "standards-list-rail": {
-      "label": "公的基準 一覧・文書の右欄（固定）",
+      "label": "公的基準 一覧・文書の右欄（上端）",
       "status": "active",
       "pageKind": "standards-list",
       "pixelPriority": 2,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "standards-rail-2": {
+      "label": "公的基準 章・節の目次と回遊の間",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 6,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "standards-rail-3": {
+      "label": "公的基準 章・節の回遊カードの間",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 7,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "standards-list-rail-2": {
+      "label": "公的基準 一覧・文書の回遊カードの間",
+      "status": "active",
+      "pageKind": "standards-list",
+      "pixelPriority": 3,
       "sizes": {
         "pc": [
           "300x250",
