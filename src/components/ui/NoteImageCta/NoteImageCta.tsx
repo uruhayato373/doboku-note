@@ -16,8 +16,15 @@ interface NoteImageCtaProps {
   className?: string;
 }
 
-/** 完成画像を表示し、指定された面だけ商品名・収録内容を添える。 */
-export default function NoteImageCta({ href, image, trackLabel, placement, compact = false, showDescription = false, actionLabel, scopeNotice, className = '' }: NoteImageCtaProps) {
+/**
+ * 完成画像を表示し、指定された面だけ商品名・収録内容を添える。
+ *
+ * 既定は小さめ表示（左に小さな表紙・右に商品名とボタン）。全幅の画像（752×376 など）は最初の画面の 4 割を占め、
+ * 本文の書き出しを押し下げていた（2026-11-15 運営者指示でサイト全体を小さめに統一）。右の欄（placement に sidebar /
+ * docs-sb を含む・幅 300px）は横に並べると窮屈なので画像のまま。
+ */
+export default function NoteImageCta({ href, image, trackLabel, placement, compact: compactProp, showDescription = false, actionLabel, scopeNotice, className = '' }: NoteImageCtaProps) {
+  const compact = compactProp ?? !/sidebar|docs-sb/.test(placement);
   return <>
     {scopeNotice && <p className="not-prose mb-2 text-sm leading-relaxed text-(--ink-body)">{scopeNotice}</p>}
     <a href={href} target="_blank" rel={NOTE_LINK_REL}
