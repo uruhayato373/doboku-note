@@ -2837,6 +2837,16 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1205] .claude/state/ のログと作り直せる出力を git の追跡から外す
+タグ: [領域:管理] [時期:2026-12] [種類:制作] [起票:2026-11-15]
+
+**起点**: 2026-11-15、運営者が git で追跡している大きなファイルの置き場を決めた（DN-1179）。`.claude/state/` が 275 ファイル（約 39MB）追跡されていて、`civil-figure-rework/failures.log` のようなログや作り直せる出力を含む。作業用 worktree の作成が遅い原因の 1 つ。
+
+**やること**: `.claude/state/` の各ファイルを「記録（週次レビューや検査が前回の状態として読む・消すと戻せない）」と「ログ・作り直せる出力」に分ける。後者を `git rm --cached` で追跡から外し `.gitignore` に足す。記録は残す（`verify-status.json`・`dispatch-log.json`・`weekly-review/draft.json` のように検査が読むもの）。外したものを読む検査が無いかを `npm run quality:audit:ci` で確かめる。
+
+**完了条件**: 追跡を外したファイルの一覧と理由が commit にあり、`.claude/state/` の追跡サイズが減り、quality:audit:ci が通る。
+
+
 ### [DN-1204] Kindle の出版済み成果物（scripts/kindle-published の epub・jpg）を置き場の基準どおりに移し、追跡から外す
 タグ: [領域:管理] [時期:2026-12] [種類:制作] [起票:2026-11-15]
 
