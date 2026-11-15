@@ -6,12 +6,19 @@ export const GROUPED_EXCEPTIONS = new Set([
   '1c67cc73d3d47582', '0cc13e23cfad408e', 'fe8f808b4a34cb16', '1937ba6d73a14b92',
 ]);
 const compact = (s) => String(s).replace(/[\s\u3000]+/gu, '');
+const groupValue = (s) => String(s).replace(/[\s\u3000]+/gu, ' ').trim();
 const digits = (s) => String(s).replace(/[０-９]/gu, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0));
 const numbered = (s) => String(s).replace(/^([０-９0-9]+)[\s\u3000]*(?=[^０-９0-9\s])/u, '$1 ');
 const escape = (s) => String(s).replace(/&/gu, '&amp;').replace(/</gu, '&lt;').replace(/>/gu, '&gt;')
   .replace(/\{/gu, '&#123;').replace(/\}/gu, '&#125;').replace(/\|/gu, '&#124;')
-  .replace(/([\\`*_[\]])/gu, '\\$1').replace(/\r?\n/gu, ' ');
-const table = (headers, rows) => [headers, headers.map(() => '---'), ...rows]
+  .replace(/([\\`*_[\]])/gu, '\\$1').replace(/\r?\n/gu, '<br />');
+/**
+ * 規格値などの値の列で、材料・条件ごとの値の区切りを改行にする。原本の版面は材料ごとに行が分かれているが、
+ * 照合済みの表のセルでは半角空白でつながっている（「…5.0％以下 スラグ粗骨材　5.0％以下 それ以外（砂利等）1.0％以下」）。
+ * 名前と値の間は全角空白なので、「以下・以上・未満・閉じ括弧」の直後の半角空白だけを改行にする（文字は足し引きしない）。
+ */
+export const valueItemBreaks = (s) => String(s).replace(/(以下|以上|未満|）|\))[ ](?=\S)/gu, '$1\n');
+const table = (headers, rows) => [headers, headers.map(() => '---'), ...rows.map((row) => row.map((cell, i) => (i > 0 ? valueItemBreaks(cell) : cell)))]
   .map((row) => `| ${row.map(escape).join(' | ')} |`).join('\n');
 const unique = (values) => [...new Set(values.filter(Boolean))];
 
@@ -60,7 +67,7 @@ function varyingGroups(records) {
       for (const row of part.rows) names.forEach((name, c) => {
         if (roles[c] !== 'group') return;
         if (!values.has(name)) values.set(name, new Set());
-        values.get(name).add(row[c]);
+        values.get(name).add(groupValue(row[c]));
       });
     }
   }
@@ -69,7 +76,7 @@ function varyingGroups(records) {
 
 function headings(row, names, varying, key) {
   const get = (name) => row[names.indexOf(name)] ?? '';
-  if (names.includes('試験項目')) return ['工種', '種別', '試験区分'].filter((name) => varying.has(name)).map((name) => get(name)).filter(Boolean);
+  if (names.includes('試験項目')) return ['工種', '種別', '試験区分'].filter((name) => name === '工種' || varying.has(name)).map((name) => get(name)).filter(Boolean);
   const result = [];
   const parents = ['編', '章', '節'].filter((name) => varying.has(name)).map((name) => numbered(get(name))).filter(Boolean);
   // 編・章が変わる場合も節までを1つにまとめ、工種と規模にH3/H4を残す。
@@ -112,7 +119,7 @@ function renderPart(part, raw, { varying, key, unit, previous }) {
   const groupCols = roles.flatMap((role, c) => ['group', 'code'].includes(role) ? [c] : []);
   const groups = [];
   part.rows.forEach((row, r) => {
-    const identity = JSON.stringify(groupCols.map((c) => row[c]));
+    const identity = JSON.stringify(groupCols.map((c) => groupValue(row[c])));
     if (groups.at(-1)?.identity !== identity) groups.push({ identity, rows: [] });
     groups.at(-1).rows.push({ row, r });
     row.forEach((text, c) => {
@@ -124,9 +131,11 @@ function renderPart(part, raw, { varying, key, unit, previous }) {
   for (const group of groups) {
     const hs = headings(group.rows[0].row, names, varying, key);
     hs.forEach((h, i) => {
-      if (previous[i] !== h) blocks.push(`${'#'.repeat(i + 2)} ${escape(h)}`);
-      if (previous[i] !== h) previous.splice(i);
-      previous[i] = h;
+      if (previous[i] === undefined || groupValue(previous[i]) !== groupValue(h)) {
+        blocks.push(`${'#'.repeat(i + 2)} ${escape(h)}`);
+        previous.splice(i);
+        previous[i] = h;
+      }
     });
     previous.splice(hs.length);
     let labels = headerLabels(values);
@@ -189,6 +198,10 @@ function renderPart(part, raw, { varying, key, unit, previous }) {
     for (const c of noteCols) {
       const label = unique(part.header.map((h) => h[c])).join(' ／ ');
       if (!data.some(({ row }) => row[c])) continue;
+      if (!differingNotes.includes(c) && data.every(({ row }) => ['', '○'].includes(row[c].trim()))) {
+        blocks.push(`**${escape(label)}**：${escape(data[0].row[c])}`);
+        continue;
+      }
       blocks.push(`**${escape(label)}**`);
       if (!differingNotes.includes(c)) blocks.push(numberedNoteItems(escape(displayCell(data[0].row, c))));
       else blocks.push(data.flatMap(({ row, name }, index) => row[c] ? [`- 〔${index + 1}〕${escape(name)}：${escape(displayCell(row, c))}`] : []).join('\n'));
@@ -250,7 +263,7 @@ export function projectGroupedChapter(markdown, records, { sourceUrl }) {
 
 /** 表示の省略は図ラベル・章内固定groupだけ。JSONの全セルはsourceTextにも必ず残す。 */
 export function groupedCoverageErrors(presentation) {
-  const normalize = (s) => digits(s).replace(/&lt;/gu, '<').replace(/&gt;/gu, '>').replace(/&amp;/gu, '&')
+  const normalize = (s) => digits(s).replace(/<br\s*\/?>/gu, '').replace(/&lt;/gu, '<').replace(/&gt;/gu, '>').replace(/&amp;/gu, '&')
     .replace(/&#(\d+);/gu, (_, n) => String.fromCharCode(Number(n))).replace(/[\s\\／・-]/gu, '');
   const errors = [];
   for (const t of presentation.tables.filter((t) => t.ok)) {

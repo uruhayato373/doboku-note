@@ -1338,7 +1338,19 @@
    列の少ない表だけ 1 列目を折り返し、規格値の列が画面に入るようにする。 */
 [data-standards-chapter] table:not(:has(th:nth-child(4))) :is(td, th):first-child {
   white-space: normal;
-  min-width: 0;
+  min-width: 7em;
+}
+
+/* スマホでは、長いセルの最小幅 10em（上の .table-scroll の規則）が列の少ない表でも効き、3 列目（試験時期・頻度）が
+   画面外へはみ出した（品質 9-1 章の全 10 表）。列の少ない表だけ、1 列目は 5em・残りは最小幅なしにして画面幅に収める。 */
+@media (max-width: 639px) {
+  [data-standards-chapter] .table-scroll table:not(:has(th:nth-child(4))) :is(td, th):first-child {
+    min-width: 5em;
+  }
+  [data-standards-chapter] .table-scroll table:not(:has(th:nth-child(4))) :is(td, th):not(:first-child) {
+    min-width: 0;
+    white-space: normal; /* 12 字以下の短いセル（「同左（試験方法欄）」）の折り返し止めも、ここでは外す */
+  }
 }
 
 /* EXP-053: 本文中の note 案内の A/B（src/lib/note-body-experiment.mjs）。選ばれなかった案を隠す。

@@ -148,7 +148,7 @@ test('全28表示章のMDXをコンパイルしてSSR、検索投入の全セル
 });
 
 test('サイト・配布共用JSON-LDのTechArticleに章全文を格納し、他文書は追加しない', () => {
-  const output = execFileSync(process.execPath, ['--import', 'tsx', '--input-type=module', '-e', `
+  const output = execFileSync(process.execPath, ['--conditions', 'react-server', '--import', 'tsx', '--input-type=module', '-e', `
     import { readFileSync } from 'node:fs';
     import { buildStandardChapterStructuredData } from './src/lib/standards-structured-data.ts';
     import { readStandardPresentation } from './src/lib/standards-presentation.ts';
@@ -213,4 +213,66 @@ test('番号付きの注記を連番の箇条に分け、小数や番号の無�
   assert.equal(numberedNoteItems('１．あ２．５mい２．う３．え'), '- １．あ２．５mい\n- ２．う\n- ３．え');
   assert.equal(numberedNoteItems('施工延長40m につき1ヶ所'), '施工延長40m につき1ヶ所');
   assert.equal(numberedNoteItems('１．だけ'), '１．だけ');
+});
+
+function projectFixture(parts) {
+  const records = parts.map((part, i) => ({
+    key: i.toString(16).padStart(16, '0'),
+    prepared: { ok: true, parts: [part], raw: [part], sourceText: [...part.header, ...part.rows].flat().join('\n') },
+  }));
+  const markdown = records.map(({ key }) => `{/* table-override: ${key} */}\nold\n<SourceRef pages="1" kind="table" />`).join('\n\n');
+  return projectGroupedChapter(markdown, records, { sourceUrl });
+}
+
+test('セルと注記の改行はbrで表示し、特殊文字を逃がし、文字網羅も維持する', async () => {
+  const p = projectFixture([{
+    kind: 'table',
+    header: [['試験項目', '規格値', '試験時期・頻度', '摘要']],
+    rows: [['項目A\n項目B', '粗骨材 3.0%以下\r\nスラグ 5.0%以下', '着手前\n材料変更時', '注意<原文>\n次の行']],
+  }]);
+  assert.match(p.markdown, /\| 項目A<br \/>項目B \| 粗骨材 3.0%以下<br \/>スラグ 5.0%以下 \| 着手前<br \/>材料変更時 \|/u);
+  assert.match(p.markdown, /\*\*摘要\*\*\n\n注意&lt;原文&gt;<br \/>次の行/u);
+  assert.deepEqual(groupedCoverageErrors(p), []);
+  const { content } = await compileMDX({ source: p.markdown, components: { SourceRef: () => null }, options: { mdxOptions: { remarkPlugins: [remarkGfm] } } });
+  const html = renderToStaticMarkup(content);
+  assert.match(html, /<td>項目A<br\/>項目B<\/td>/u);
+  assert.match(html, /<p>注意&lt;原文&gt;<br\/>次の行<\/p>/u);
+  p.markdown = p.markdown.replace('スラグ', '');
+  assert.ok(groupedCoverageErrors(p).length > 0);
+});
+
+test('品質・出来形とも空白違いのグループは同一視し、最初の見出し表記を保つ', () => {
+  for (const item of ['試験項目', '測定項目']) {
+    const part = (group) => ({ kind: 'table', header: [['工種', item, '規格値']], rows: [[group, '項目', '10']] });
+    const first = '1　セメント・コンクリート';
+    const p = projectFixture([part(first), part(' 1  セメント・コンクリート '), part('2 別工種')]);
+    const headings = p.markdown.split('\n').filter((line) => line.startsWith('## '));
+    assert.deepEqual(headings, [`## ${first}`, '## 2 別工種']);
+    assert.deepEqual(groupedCoverageErrors(p), []);
+  }
+});
+
+test('○だけの共通注記は1行、○と空欄が混在する列は行番号を保持する', () => {
+  const header = [['試験項目', '規格値', '試験成績表等による確認', '摘要']];
+  const p = projectFixture([{ kind: 'table', header, rows: [['A', '1', '○', '○'], ['B', '2', '○', '○']] }]);
+  assert.match(p.markdown, /^\*\*試験成績表等による確認\*\*：○$/mu);
+  assert.match(p.markdown, /^\*\*摘要\*\*：○$/mu);
+  assert.doesNotMatch(p.markdown, /^○$/mu);
+  const varied = projectFixture([{ kind: 'table', header, rows: [['A', '1', '○', ''], ['B', '2', '', '']] }]);
+  assert.match(varied.markdown, /\| A〔1〕 \|/u);
+  assert.match(varied.markdown, /\| B〔2〕 \|/u);
+  assert.match(varied.markdown, /\*\*試験成績表等による確認\*\*\n\n- 〔1〕A：○/u);
+});
+
+test('3列以下の表の1列目には7emの最小幅を確保する', () => {
+  const css = readFileSync(join(REPO_ROOT, 'src/styles/globals.css'), 'utf8');
+  const rule = css.split('[data-standards-chapter] table:not(:has(th:nth-child(4))) :is(td, th):first-child {')[1].split('}')[0];
+  assert.match(rule, /white-space: normal;/u);
+  assert.match(rule, /min-width: 7em;/u);
+});
+
+test('値の列は「以下・以上・未満・）」の後の半角空白で改行し、名前と値の間の全角空白は残す', async () => {
+  const { valueItemBreaks } = await import('../scripts/lib/standards-grouped-tables.mjs');
+  assert.equal(valueItemBreaks('砕石　3.0％以下（ただし、5.0％以下） スラグ粗骨材　5.0％以下 それ以外（砂利等）1.0％以下'), '砕石　3.0％以下（ただし、5.0％以下）\nスラグ粗骨材　5.0％以下\nそれ以外（砂利等）1.0％以下');
+  assert.equal(valueItemBreaks('設計図書による'), '設計図書による');
 });
