@@ -207,7 +207,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
           <StandardsEndBanner pageKind="standards" />
-          <StandardsAttribution document={entry} item={chapter.item} />
+          <StandardsAttribution document={entry} item={chapter.item} pages={{ first: chapter.firstPage, last: chapter.lastPage }} />
         </SectionCard>
       </TwoColumnShell>
     </PageShell>

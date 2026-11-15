@@ -104,7 +104,7 @@ export function numberedNoteItems(text) {
   return cuts.map((start, i) => `- ${text.slice(start, cuts[i + 1] ?? text.length).trim()}`).join('\n');
 }
 
-function renderPart(part, raw, { varying, key, sourceUrl, pages, unit, previous }) {
+function renderPart(part, raw, { varying, key, unit, previous }) {
   const { names, roles, items, values, type } = classifyGroupedTable(part);
   const blocks = [];
   const coverage = [];
@@ -200,10 +200,8 @@ function renderPart(part, raw, { varying, key, sourceUrl, pages, unit, previous 
       const definition = text.match(/※[\s\S]+/u)?.[0];
       if (definition) blocks.push(escape(definition));
     }
-    if (figures.some(Boolean)) {
-      if (!sourceUrl) return { ok: false, reason: 'missing-source-url' };
-      blocks.push(`[測定箇所の図：原本 p.${pages}](${sourceUrl.split('#')[0]}#page=${pages.split(',')[0]})`);
-    }
+    // 図ラベルの代わりの原本リンクは表ごとに出さない（同じ PDF への繰り返しになる。2026-11-15 運営者判断）。
+    // 原本へはページ末の出典表示（StandardsAttribution）の「原本PDF（p.N〜M）」1 か所から開く。
   }
   return { ok: true, markdown: blocks.join('\n\n'), coverage };
 }

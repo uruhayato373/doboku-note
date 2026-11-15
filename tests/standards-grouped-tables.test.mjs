@@ -76,7 +76,7 @@ test('2-1: H2〜H3、最大3列、共通注記に行番号なし、単位と原�
   assert.match(p.markdown, /^### 2-1 掘削工 （1-2-3-2）$/mu);
   assert.doesNotMatch(p.markdown, /^#{4,}|^## .*共通編|同左|（同上）/mu);
   assert.match(p.markdown, /単位：mm\n\n\| 測定項目 \|/u);
-  assert.match(p.markdown, /\[測定箇所の図：原本 p\.21\]\(https:.*#page=21\)/u);
+  assert.doesNotMatch(p.markdown, /測定箇所の図：原本/u); // 原本リンクは出典表示の 1 か所だけ
   assert.match(p.markdown, /※かぶりとは、鉄筋の最外縁からコンクリート表面までの距離をいう/u);
   assert.match(p.markdown, /d＝D÷\(n－1\)/u);
   const first = p.markdown.split('<SourceRef')[0];

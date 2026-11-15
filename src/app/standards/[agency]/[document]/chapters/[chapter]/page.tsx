@@ -218,7 +218,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           </div>
           <StandardsEndBanner pageKind="standards" />
           <StandardDataLinks document={entry} chapter={target} />
-          <StandardsAttribution document={entry} item={target.item} />
+          <StandardsAttribution document={entry} item={target.item} pages={{ first: target.firstPage, last: target.lastPage }} />
         </SectionCard>
       </TwoColumnShell>
     </PageShell>
