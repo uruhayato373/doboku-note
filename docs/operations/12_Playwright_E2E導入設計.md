@@ -206,16 +206,10 @@ CTA期待値をspecへ大量に直書きしない。既存の`src/lib/note-magaz
 - `workflow_dispatch`
 - `schedule`（毎日 JST 23:17・checkout は develop。毎時 0 分の指定は起動が 3.5〜7 時間遅れ、失敗が朝に出ていたので 2026-11-13 に移した）。コンテンツは develop へ直 push され PR 経路を通らないため、MDX コンポーネント誤用による画面崩れを夜間に拾う。失敗は `automation-failure` Issue（channel `e2e-nightly`）。全 spec は夜間と手動で回し、`deploy:main` は未解決の夜間 Issue があると止まる。夜間と手動は `STANDARDS_RENDER_SCOPE=all` で公的基準の全文書を描画するので timeout を 60 分に取る
 
-実行順。
+手順の正本は `.github/workflows/e2e.yml`（Node のセットアップ・依存の復元・`npm run build`・`npm run check-e2e-targets`・`npm run test:e2e`・失敗時の artifact）。ここには手順を写さない。設計で決めたのは次の 2 点だけ。
 
-1. checkout
-2. Node 20セットアップ
-3. `npm ci --legacy-peer-deps --ignore-scripts`
-4. `npx playwright install --with-deps chromium`
-5. `npm run test:e2e`（type-check は ci.yml の audit が同じ commit で回すので、ここでは回さない）
-6. 失敗時に`playwright-report/`と`test-results/`をartifact保存
-
-CI時間を抑えるため、E2E workflow内で全量の`npm run build`や既存監査を重複実行しない。ビルドは既存CIまたは別ジョブの責務とする。
+- E2E は本番と同じ静的出力（`out/`）に対して回す。叩く URL は `check-e2e-targets` で `out/` に実在させる（開発サーバーの挙動差を E2E に持ち込まない）
+- type-check と既存の監査は ci.yml が同じ commit で回すので、E2E の workflow では重ねて回さない
 
 ## 9. flake防止
 

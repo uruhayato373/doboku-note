@@ -8486,6 +8486,19 @@
       "commit": "2d957aff47ad",
       "verification": "grep 'UI の文字サイズの段階' .claude/knowledge/design-system/design-system.md",
       "note": "運営者の判断（2026-11-15・週次レビュー W46）: 文字サイズの任意値をトークンに置き換える。方針を design-system.md §2.5 に書き、置き換えと増やさない検査は DN-1207 へ抽出した"
+    },
+    {
+      "id": "DN-1129",
+      "at": "2026-11-15",
+      "task": "E2E 導入設計の文書が e2e.yml と食い違う（実行順の節を消す）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0d8f2108bd26",
+      "verification": "grep -c 'Node 20' docs/operations/12_Playwright_E2E導入設計.md が 0",
+      "note": "E2E 導入設計の実行順の節（Node 20・build しない前提）を消し、手順の正本は e2e.yml と書いて、設計判断（out/ に対して回す・type-check を重ねない）だけ残した"
     }
   ]
 }
