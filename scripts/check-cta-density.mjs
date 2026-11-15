@@ -16,7 +16,7 @@ import { listFiles } from './lib/fs-walk.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { impressionKeyCounts } from './lib/affiliate-link-keys.mjs';
 
-import { PAGE_ALLOWLIST, SURFACE_ALLOWLIST, ARTICLE_AFFILIATE_LIMITS, articleImageKind } from '../src/lib/cta-density-policy.mjs';
+import { PAGE_ALLOWLIST, SURFACE_ALLOWLIST, articleImageKind } from '../src/lib/cta-density-policy.mjs';
 export { PAGE_ALLOWLIST, SURFACE_ALLOWLIST };
 
 const attr = (node, key) => node.getAttribute(key) ?? '';
@@ -148,35 +148,24 @@ export function inspectHtml(html, slug) {
       links: forbidden.map(n => ({ href: attr(n, 'href'), placement: attr(n, 'data-cta-placement') })),
     });
     const affiliates = page.querySelectorAll('[data-cta="affiliate"]').filter(n => !exemptSurface(n));
-    const slotsByViewport = Object.fromEntries([['mobile', false], ['desktop', true]].map(([key, desktop]) =>
-      [key, new Set(affiliates.filter(n => visibleAt(n, desktop) && !articleImageKind(attr(n, 'data-cta-placement')))).size]));
-    const nativeMax = Math.max(...Object.values(slotsByViewport));
-    if (nativeMax > ARTICLE_AFFILIATE_LIMITS.native) add('affiliate-slots', nativeMax, ARTICLE_AFFILIATE_LIMITS.native, [], ['affiliate'], { slotsByViewport });
     for (const [viewport, desktop] of [['mobile', false], ['desktop', true]]) {
       const visible = affiliates.filter(n => visibleAt(n, desktop));
       const imageLinks = visible.filter(n => articleImageKind(attr(n, 'data-cta-placement')));
       for (const kind of ['inline', 'rail', 'end']) {
         const links = imageLinks.filter(n => articleImageKind(attr(n, 'data-cta-placement')) === kind);
-        const limit = kind === 'rail' && !desktop ? 0 : ARTICLE_AFFILIATE_LIMITS[kind];
-        if (links.length > limit) add(`affiliate-image-${kind}`, links.length, limit, [], ['affiliate'], { viewport });
         for (const n of links) {
           const wrapper = ancestor(n, p => attr(p, 'data-article-affiliate') === kind);
           const aside = ancestor(n, p => p.tagName === 'ASIDE');
-          const valid = wrapper && (kind === 'inline' ? within(n, prose) && !ancestor(n, p => p.tagName === 'DETAILS') : kind === 'rail' ? Boolean(aside) : !within(n, article) && !aside);
+          const valid = wrapper && (kind === 'inline' ? within(n, prose) && !ancestor(n, p => p.tagName === 'DETAILS') : kind === 'rail' ? desktop && Boolean(aside) : !within(n, article) && !aside);
           if (!valid) add('affiliate-image-position', 1, 0, [], ['affiliate'], { viewport, placement: attr(n, 'data-cta-placement') });
         }
       }
       const slots = imageLinks.map(n => attr(n, 'data-cta-placement'));
       if (new Set(slots).size !== slots.length) add('affiliate-image-duplicate', slots.length - new Set(slots).size, 0, [], ['affiliate'], { viewport });
-      // 広告の総数の上限（affiliate-total）は 2026-11-15 に廃止（運営者判断）。面の種類ごとの数・位置・重複・ピクセルは引き続き見る
-      // 各カードの直前に 1 枠。空のカードや同じ場所への連続挿入を通さない。
+      // 数の上限は 2026-11-15 に廃止（運営者判断）。位置・重複・ピクセルは検査する。
       const rail = page.querySelector('[data-article-sidebar-cards]');
       if (desktop && rail) {
-        const cards = rail.querySelectorAll('[data-article-sidebar-card]');
         const banners = rail.querySelectorAll('[data-article-affiliate="rail"]');
-        // 右の欄の枠はカード数（上限 rail）まで。案件が尽きたら止める規則（同じ案件を 2 回出さない）なので、少ないのは正しい
-        const expected = Math.min(cards.length, ARTICLE_AFFILIATE_LIMITS.rail);
-        if (banners.length > expected) add('affiliate-rail-cards', banners.length, expected, [], ['affiliate']);
         const railTargets = banners.map(b => attr(b.querySelector('a[data-cta="affiliate"]') ?? b, 'href')).filter(Boolean);
         const duplicated = railTargets.length - new Set(railTargets).size;
         if (duplicated) add('affiliate-rail-duplicate', duplicated, 0, [], ['affiliate']);

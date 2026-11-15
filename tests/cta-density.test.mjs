@@ -66,12 +66,12 @@ test('記事末・サイドバーの各note上限は1枚', () => {
   assert.deepEqual(rules(article('<h2>本文</h2>', '', note('a', 'article-footer') + note('b', 'article-footer'))), ['note-article-footer']);
 });
 
-test('旧ネイティブカードは1枚でも違反。EXP-048の2社gridも許容しない', () => {
-  assert.deepEqual(rules(article(`<h2>本文</h2>${affiliate()}`)), ['affiliate-slots']);
-  assert.deepEqual(rules(article(`<h2>本文</h2>${affiliate()}${affiliate()}`)), ['affiliate-slots']);
+test('旧ネイティブカードも数では制限しない', () => {
+  assert.deepEqual(rules(article(`<h2>本文</h2>${affiliate()}`)), []);
+  assert.deepEqual(rules(article(`<h2>本文</h2>${affiliate()}${affiliate()}`)), []);
   const pair = `<div class="grid grid-cols-2">${affiliate('article-mid', 'data-cta-variant="B2"')}${affiliate('article-mid', 'data-cta-variant="B2"')}</div>`;
-  assert.deepEqual(rules(article(`<h2>本文</h2>${pair}`)), ['affiliate-slots']);
-  assert.ok(rules(article(`<h2>本文</h2>${pair}${pair}`)).includes('affiliate-slots'));
+  assert.deepEqual(rules(article(`<h2>本文</h2>${pair}`)), []);
+  assert.deepEqual(rules(article(`<h2>本文</h2>${pair.repeat(20)}`)), []);
 });
 
 test('記事下とasideのsponsoredリンクはdata-ctaが無くても検出', () => {
@@ -82,11 +82,11 @@ test('記事下とasideのsponsoredリンクはdata-ctaが無くても検出', (
   assert.ok(rules(`<div>${article('<h2>本文</h2>')}<aside class="hidden zenn-desktop:block"><a rel="sponsored">PR</a></aside></div>`).includes('affiliate-forbidden-surface'));
 });
 
-test('993pxで切り替える2案を同時表示として数えず、PCの追加枠は見落とさない', () => {
+test('画面幅別の旧カードは数で制限せず、PCの禁止面は検出する', () => {
   const responsive = `<div class="hidden zenn-desktop:block">${affiliate()}</div><div class="zenn-desktop:hidden">${affiliate()}</div>`;
-  assert.deepEqual(rules(article(`<h2>本文</h2>${responsive}`)), ['affiliate-slots']);
+  assert.deepEqual(rules(article(`<h2>本文</h2>${responsive}`)), []);
   const r = inspect(`<div>${article(`<h2>本文</h2>${responsive}`)}<aside class="hidden zenn-desktop:block">${affiliate('standards-sidebar')}</aside></div>`);
-  assert.deepEqual(r.violations.find(v => v.rule === 'affiliate-slots').slotsByViewport, { mobile: 1, desktop: 2 });
+  assert.deepEqual(r.violations.map(v => v.rule), ['affiliate-forbidden-surface']);
 });
 
 test('非記事カテゴリの広告面は対象外。ピクセル重複ガードは維持', () => {
@@ -174,27 +174,32 @@ test('理由つき許可リストは指定したページ・ルール・面だ�
   // 広告の総数の上限は廃止（2026-11-15）。基準書のスマホ 5 枠（本文中 3＋本文末 1＋追加 1）でも総数では落ちない
   const standardsFive = article(`<h2>本文</h2>${['standards-inline','standards-inline-2','standards-inline-3','standards-end','standards-rail'].map(p => affiliate(p)).join('<p>本文</p>')}`);
   assert.deepEqual(inspectHtml(standardsFive, 'standards/tohoku/reference/chapters/2-1').violations, []);
-  assert.ok(!inspect(standardsFive).violations.some(v => v.rule === 'affiliate-total'));
+  assert.deepEqual(rules(standardsFive), ['affiliate-forbidden-surface']);
   for (const placement of Object.keys(SURFACE_ALLOWLIST)) {
     assert.deepEqual(rules(article('<h2>本文</h2>', '', affiliate(placement) + affiliate(placement))), []);
   }
 });
 
 const imageAd = (slot, kind) => `<div data-article-affiliate="${kind}">${affiliate(slot)}</div>`;
-test('新しい画像面は種類別の上限とDOM位置を検査し、noteの違反を免除しない', () => {
+test('画像面は数で制限せずDOM位置・重複を検査し、noteの違反を免除しない', () => {
  const body = [1,2,3].map(n=>imageAd(n===1?'article-banner':`article-banner-${n}`,'inline')).join('<p>学習本文</p>');
  const rail = `<aside class="hidden zenn-desktop:block"><div data-article-sidebar-cards="6">${Array.from({length:6},(_,i)=>`${imageAd(i?`article-rail-${i+1}`:'article-rail','rail')}<div data-article-sidebar-card>ナビ</div>`).join('')}</div></aside>`;
  const html = `<div>${article(`<h2>本文</h2><p>学習本文</p>${body}`,'',imageAd('article-banner-end','end'))}${rail}</div>`;
  assert.deepEqual(rules(html),[]);
  assert.ok(rules(html.replace('</article>',`${imageAd('article-banner-end','end')}</article>`)).includes('affiliate-image-position'));
  assert.ok(rules(html.replace('</article>',`${note('a')}${note('b')}${note('c')}${note('d')}</article>`)).includes('note-non-footer'));
- assert.ok(rules(article(`${body}<p>本文</p>${imageAd('article-banner-3','inline')}`)).includes('affiliate-image-inline'));
- assert.ok(rules(article(body,'',imageAd('article-banner-end','end').repeat(2))).includes('affiliate-image-end'));
- assert.ok(rules(html.replace('class="hidden zenn-desktop:block"','')).includes('affiliate-image-rail'));
- assert.ok(rules(html.replace('data-article-sidebar-card>', 'data-not-card>')).includes('affiliate-rail-cards'));
+ assert.deepEqual(rules(article(`${body}<p>本文</p>${imageAd('article-banner-3','inline')}`)), ['affiliate-image-duplicate', 'affiliate-image-duplicate']);
+ assert.deepEqual(rules(article(body,'',imageAd('article-banner-end','end').repeat(2))), ['affiliate-image-duplicate', 'affiliate-image-duplicate']);
+ const extraRail = html.replace('</aside>', imageAd('article-rail-6','rail') + '</aside>');
+ assert.deepEqual(rules(extraRail), ['affiliate-image-duplicate']);
+ assert.ok(rules(article('<details>' + body + '</details>')).includes('affiliate-image-position'));
+ assert.ok(rules(article('<h2>本文</h2>', body)).includes('affiliate-image-position'));
+ assert.ok(rules(html.replace('<aside ', '<section ').replace('</aside>', '</section>')).includes('affiliate-image-position'));
+ assert.ok(rules(html.replace('class="hidden zenn-desktop:block"','')).includes('affiliate-image-position'));
+ assert.ok(rules(html.replace('data-article-sidebar-card>', 'data-not-card>')).includes('affiliate-rail-adjacent'));
  // 右の欄で同じ案件（同じリンク先）を 2 回出さない。案件が尽きて枠がカード数より少ないのは違反にしない
  const railWith = (hrefs) => `<div>${article(`<h2>本文</h2><p>学習本文</p>${body}`,'',imageAd('article-banner-end','end'))}<aside class="hidden zenn-desktop:block"><div data-article-sidebar-cards="3">${hrefs.map((h,i)=>`<div data-article-affiliate="rail">${affiliate(i?`article-rail-${i+1}`:'article-rail',`href="${h}"`)}</div><div data-article-sidebar-card>ナビ</div>`).join('')}<div data-article-sidebar-card>ナビ</div></div></aside></div>`;
- assert.ok(!rules(railWith(['https://a.example/1','https://a.example/2'])).includes('affiliate-rail-cards'));
+ assert.deepEqual(rules(railWith(['https://a.example/1','https://a.example/2'])), []);
  assert.ok(rules(railWith(['https://a.example/1','https://a.example/1'])).includes('affiliate-rail-duplicate'));
  assert.ok(rules(article(imageAd('article-banner','inline')+imageAd('article-banner-2','inline'))).includes('affiliate-image-adjacent'));
 });

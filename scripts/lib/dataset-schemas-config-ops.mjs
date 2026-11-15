@@ -590,9 +590,6 @@ export const ConfigStandardsPageDensity = z
     attribution: z
       .object({ description: note, count: posInt, maxVisibleChars: nonNeg })
       .strict(),
-    affiliate: z
-      .object({ description: note, max: nonNeg, hostPatterns: strings })
-      .strict(),
   })
   .strict()
   .meta({ title: '/standards 密度ゲートの設定' });

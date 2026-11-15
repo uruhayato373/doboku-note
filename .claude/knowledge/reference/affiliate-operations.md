@@ -218,7 +218,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 どの案件がどの面に出ているかの一覧はここに写さない（写すと配置ルールと食い違う。2026-11-03 の整理で、案件 4 行の表が RCCM・建築・コンストワークの変更を反映していなかった・DN-0950）。いま開いているルール（`until` が空か未来のもの）を `config/affiliate-placements.json` で読む。同じファイルの `pairs` は 2 枚並べ（EXP-048）、`splits` は面の案件を訪問者ごとに別の案件と半々で出す出し分け（EXP-055。割り当ては `src/lib/program-split-experiment.mjs`・描画は `ProgramSplitBanner`・代わりの案件にはピクセルを付けない）。案件の提携状態・報酬・条件は `data/affiliate/catalog.json`。
 
-公的基準の章・節の本文中は `src/lib/standards-inline-slots.mjs` の規則で最大 3 枠（buildjob・constwork・rsg-kensetsu）にする。区切り候補は表の後、2 つ目以降の `##` の前、`###`/`####` の前、段落の切れ目で、1 枠目は 600 字超、以降は 1,400 字ごと（2026-11-15 に表の組み直しで字数が減ったため 1,800 から詰めた・DN-1213）、残り 600 字未満には置かない。PC の右欄は上端に buildjob、目次と回遊の間に kensetsu-jobs、回遊カードの間（1 枚なら後）に dainishinsotsu-agent-neo を置く。固定と欄内スクロールは全ページで撤去し、dx-consulting は基準書の読者に合わないので出さない（運営者判断）。本文末は kensetsu-jobs、一覧・文書ページは右欄の上端に buildjob、回遊の間に dainishinsotsu-agent-neo と既存の本文末を置く。上限は `config/standards-page-density.json` の `affiliate.max`（28）で、ページごとの枠・案件・GA4 の可視表示は管理画面 `/affiliate/pages` で確かめる。配置の真実源は `config/affiliate-placements.json`（PL-0065〜0073）である。
+公的基準の章・節の本文中は `src/lib/standards-inline-slots.mjs` の規則で最大 3 枠（buildjob・constwork・rsg-kensetsu）にする。区切り候補は表の後、2 つ目以降の `##` の前、`###`/`####` の前、段落の切れ目で、1 枠目は 600 字超、以降は 1,400 字ごと（2026-11-15 に表の組み直しで字数が減ったため 1,800 から詰めた・DN-1213）、残り 600 字未満には置かない。PC の右欄は上端に buildjob、目次と回遊の間に kensetsu-jobs、回遊カードの間（1 枚なら後）に dainishinsotsu-agent-neo を置く。固定と欄内スクロールは全ページで撤去し、dx-consulting は基準書の読者に合わないので出さない（運営者判断）。本文末は kensetsu-jobs、一覧・文書ページは右欄の上端に buildjob、回遊の間に dainishinsotsu-agent-neo と既存の本文末を置く。数の上限は 2026-11-15 に廃止（運営者判断）。位置・重複・ピクセルは検査する。ページごとの枠・案件・GA4 の可視表示は管理画面 `/affiliate/pages` で確かめる。配置の真実源は `config/affiliate-placements.json`（PL-0065〜0073）である。
 
 ビルドジョブ指名記事（civil-1/civil-2）は期間に関係なく同社の広告に揃える。既存mat NTZCH/NTJWYは9/8にA8広告作成画面のdoboku-note（websiteId=002）と一致を確認。8/31は増額終了日で、リンクの失効日ではない。現行のBuildJob報酬は13,534円、60歳未満・WEB申込後30日以内の無料面談完了が条件。
 
@@ -452,6 +452,8 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 ### 裁定ログ（append-only）
 
 #### 2026-11-15（DN-1215・記事の画像面）
+
+同日の追加裁定: 転職アフィリエイトの数の上限をすべて廃止し、位置（スマホの右欄非表示を含む）・重複・ピクセルの検査は維持する。
 
 右欄は同じ案件を繰り返さず、カテゴリの案件列を先頭から1回ずつ使い、尽きた後のカード間には画像面を置かない（本文中・中間・末尾とは別計数）。総監・RCCMの右欄は dx-consulting → myvision-agent → newma → samurai-job を運営者承認で採用し、本文末は myvision-agent とする。
 
