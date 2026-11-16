@@ -1,13 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-15T03:04:57.016Z",
+  "checkedAt": "2026-11-16T03:07:10.294Z",
   "channel": "youtube",
-  "targets": 58,
-  "checked": 58,
-  "observed": 58,
+  "targets": 62,
+  "checked": 62,
+  "observed": 62,
   "advanced": [
-    "pe-construction/hissu1-kensetsu-dx/youtube.short.point-means-2",
-    "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform"
+    "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform",
+    "pe-construction/pe-fugoukaku-toan/youtube.longform",
+    "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1",
+    "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1"
   ],
   "findings": []
 }

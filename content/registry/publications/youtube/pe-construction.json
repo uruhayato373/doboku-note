@@ -761,7 +761,7 @@
       "work": "pe-fugoukaku-toan",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-construction/pe-fugoukaku-toan/youtube.longform/cover",
         "scene-001": "pe-construction/pe-fugoukaku-toan/youtube.longform/scene-001",
@@ -824,11 +824,12 @@
       "platform": {
         "id": "VQ0OLSQQCgc",
         "url": "https://www.youtube.com/watch?v=VQ0OLSQQCgc",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/pe-fugoukaku-toan/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-16T03:07:10.294Z"
+        },
+        "publishedAt": "2026-11-15T11:30:11.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -1960,7 +1961,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-themename-1",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
       "relatedTo": "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -2012,13 +2013,14 @@
       "platform": {
         "id": "6UZ-EUqFZXs",
         "url": "https://www.youtube.com/watch?v=6UZ-EUqFZXs",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/pe-tunnel-shutsudai-yomikata/youtube.json#shorts/point-themename-1"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-16T03:07:10.294Z"
         },
         "relatedVideoId": "IrhUBYTTpQI",
-        "desiredRelatedVideoId": "IrhUBYTTpQI"
+        "desiredRelatedVideoId": "IrhUBYTTpQI",
+        "publishedAt": "2026-11-15T22:30:39.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -2316,7 +2318,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-skeleton-1",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-skeleton-1",
       "relatedTo": "pe-construction/toan-kousei-template/youtube.longform",
       "idException": "imported-before-cutover",
@@ -2368,13 +2370,14 @@
       "platform": {
         "id": "HU2LFTMrl4Y",
         "url": "https://www.youtube.com/watch?v=HU2LFTMrl4Y",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#shorts/point-skeleton-1"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-16T03:07:10.294Z"
         },
         "relatedVideoId": "ywemm49EBPA",
-        "desiredRelatedVideoId": "ywemm49EBPA"
+        "desiredRelatedVideoId": "ywemm49EBPA",
+        "publishedAt": "2026-11-15T05:30:39.000Z"
       },
       "thumbnail": {
         "status": "set",
