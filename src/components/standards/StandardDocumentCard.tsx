@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LinkRow from '@/components/ui/LinkRow/LinkRow';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import type { StandardDocument } from '@/lib/standards';
 import { standardDocumentPath } from '@/lib/standards';
@@ -29,14 +29,13 @@ export default function StandardDocumentCard({
     );
   }
   return (
-    <Link
+    <LinkRow
       href={standardDocumentPath(document)}
-      data-cta="nav"
-      data-cta-label="standards-document"
-      className="focus-ring block border-b border-(--rule-soft) py-2.5 transition-colors hover:bg-(--accent-fill)"
-    >
-      <h3 className="text-[15px] font-bold leading-[1.5] text-(--ink)">{document.title}</h3>
-      <p className="mt-0.5 text-[12px] leading-[1.6] text-(--ink-muted)">{meta}</p>
-    </Link>
+      title={document.title}
+      description={meta}
+      headingLevel="h3"
+      tone="ink"
+      data={{ 'data-cta': 'nav', 'data-cta-label': 'standards-document' }}
+    />
   );
 }

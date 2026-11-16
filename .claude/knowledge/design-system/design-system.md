@@ -159,15 +159,16 @@
 
 ### 3.1 共通プリミティブ
 
-**記事の一覧の型（2026-11-16 棚卸し・統一）**: 内部リンクを並べる一覧は、次の部品で組む（手書きの行・タイルを増やさない）。計測は今までどおり、一覧の枠の `trackNav`／`data-cta="nav"`＋`data-cta-label`、行のリンクの `data-thumb`。
+**内部リンクのカード・行の型（2026-11-16 棚卸し・2026-11-17 完全に統一）**: 内部リンクを並べるカード・タイル・行は、次の 4 部品だけで組む（`<Link>` の className に枠・カードのクラスを手書きしない。`tests/link-primitives-ratchet.test.mjs` が止める）。使い分けは「行き先に画像があれば画像つき、無ければタイル、項目が多ければ文字の行」。計測は今までどおり、一覧の枠の `trackNav`／`data-cta="nav"`＋`data-cta-label`、リンクの `data-thumb`（画像つきの 2 部品が付ける）。
 
 | 形 | 部品 | 使う所 |
 |---|---|---|
-| サムネイルの行 | `ArticleThumbRow`（`variant`: `card` 枠つき 96px／`rail` 枠なし 96px／`feed` 区切り線・124/168px・明朝の題名と抜粋・順位） | 記事末の次のステップ・この記事のテーマ（card）、右の欄の回遊（rail）、資格トップの一覧・よく読まれている記事（feed。インフィード広告はこの型に合わせる） |
-| 枠つきのタイル（題名＋ひとこと） | `LinkTile` | 資格の橋渡し・次のステップの予備・一次→二次・キャリアの次の一歩・関連テキスト・資格トップのテーマ・悩みから選ぶ |
-| 区切り線の文字の行 | `LinkRow`＋`LinkRowList`（`eyebrow`・`arrow`） | 右の欄の文字の一覧・関係する基準資料・無料ツール・分野から復習 |
+| 上に画像のカード | `ArticleCard`（`eyebrow`・`align`。記事のメタからは `lib/article-card` の `articleCardProps`） | 記事末の関連記事・本文中間の続き・前後の 2 枚（画像あり）・テーマの「はじめに読む」 |
+| 左に画像の行 | `ArticleThumbRow`（`variant`: `card` 枠つき 96px／`rail` 枠なし 96px／`feed` 124/168px・明朝の題名と抜粋・順位・`eyebrow`・`meta`・`framed`・`thumb="wide"`） | 記事末の次のステップ・この記事のテーマ・関連テキスト・ツールの関連ページ（card）、右の欄の回遊（rail）、資格トップの一覧・よく読まれている記事（feed。インフィード広告はこの型に合わせる）、トップの新着・検索結果（feed＋framed） |
+| 枠つきのタイル | `LinkTile`（`eyebrow`・`icon`・`meta`・`size`・`serif`・`align`・`current`・`accentBar`・外部 URL は a） | 記事でない行き先: 資格の橋渡し・テーマ・法令・ツール一覧・基準書の文書・前後の 2 枚（文字だけ）・トップの領域・資格トップのカード・モバイルのカテゴリナビ |
+| 区切り線の文字の行 | `LinkRow`＋`LinkRowList`（`eyebrow`・`description`・`marker`（`RankMarker`）・`meta`・`arrow`・`tone`・`serif`） | 項目の多い一覧: 右の欄の文字の一覧・カリキュラム・人気の順位・テーマの記事の行・基準書の文書と章・無料ツール |
 
-前後の 2 枚（`PrevNextNav`）・サムネイルのカード（`RelatedArticleCard`）・矢印の行（`MetaListItem`）・表（`ExamMatrix`）・チップと MDX の手書き（関連キーワード・`SeeAlso`）は、それぞれ 1 実装のまま使う。トップの新着（`LatestArticles`）と検索結果（`SearchResults`）はバッジ・日付・タグを持つ別の形。
+前後ナビ（`PrevNextNav`／見出しの無い所は `PrevNextPair`）は部品を持たず、画像ありは `ArticleCard`、文字だけは `LinkTile` を左右に並べる。ツールの末尾の関連ページは `RelatedPages`（server で行き先の画像を引き、client のツールへ ReactNode で渡す）。1 実装のまま使う固有の形（チップ・表・資格の入口・矢印の行 `MetaListItem`・MDX の `SeeAlso`・商品の導線）は、ラチェットの許可リストに理由つきで載せる。
 
 記事（`DocPage`）の目次は本文上部にH2だけを表示する。PCは開いたカード、モバイルは畳んだ`Disclosure`で、計測ラベルは両方`article-toc`。右欄は目次を除いた上詰めの束と、本文の長さから0〜6組を見積もる追加回遊で構成する。追加の組はバナー→幅96pxのサムネイル一覧の順に、残りの高さへ均等配分する。右欄全体で記事・案件を再掲せず、候補切れは回遊のみ／広告のみを許す。固定・欄内スクロールは持たない。
 

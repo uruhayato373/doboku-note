@@ -128,6 +128,14 @@
       "pages": 7,
       "pass": 7,
       "fail": 0
+    },
+    {
+      "runId": "20261116T230955Z",
+      "at": "2026-11-16T23:12:13.817Z",
+      "base": "http://localhost:3025",
+      "pages": 6,
+      "pass": 6,
+      "fail": 0
     }
   ],
   "pages": {
@@ -157,23 +165,23 @@
       "ticket": null
     },
     "exam-hub-cem": {
-      "layoutSha256": "3e2f5f13e883218fd90da4d715d24117ae913546f53ba8f39a3319011e6705df",
+      "layoutSha256": "556c3739f61357a2f93a836fdfe6e57eb30d53173f946b1fc5250eac14c4d1ec",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T11:31:10.785Z",
-      "runId": "20261116T111306Z",
+      "reviewedAt": "2026-11-16T23:12:13.814Z",
+      "runId": "20261116T230955Z",
       "path": "/exam/pe-comprehensive-management",
       "findings": [
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "右の欄で「人気記事」と下の転職バナーの間に約 500px の空白が続き、欄が間延びして見える。",
+          "detail": "5 管理学習ガイドの 3 列カードで最終行が 2 枚だけ残り右側が空く（768 でも最終行 1 枚）。読むのに支障はない。",
           "viewport": "w1440",
           "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
-          "type": "consistency",
-          "detail": "note のカード（白地・枠線）とココナラの枠（青地）は幅と左右の端が本文の列にそろっているが、地の色と形が違い、続けて並ぶと別の部品に見える。",
+          "type": "typography",
+          "detail": "パンくずが 11px と小さい。行の題名・補助説明・順位の数字の位置は崩れておらず、はみ出しも無い。",
           "viewport": "w375",
           "shot": "w375-01.png"
         }
@@ -184,37 +192,30 @@
     "exam-hub-civil1": {
       "layoutSha256": "503084f02cd72c45f4311c0699f6e9c9552bcdef113c45f3c51302eba9049b1c",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T22:56:11.314Z",
-      "runId": "20261116T225248Z",
+      "reviewedAt": "2026-11-16T23:12:13.814Z",
+      "runId": "20261116T230955Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "テキストの章タイルで「施工管理・施…」「環境保全・建設…」と題名が省略され、記事数のぶんだけ題名の幅が狭い。章番号で区別はつく。",
+          "detail": "テキストの章の行で「施工管理・施…」「環境保全・建設…」と題名が省略されている。余白はあるが記事数の欄に幅を取られ、768px 以上では全文が出る。",
           "viewport": "w375",
           "shot": "w375-03.png"
         },
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "サムネイル行の説明文が 2 行で「…」切れになる行がある（例: 1級と2級の違い）。題名は読める。",
+          "detail": "記事の行の間に入るインフィード広告の枠は幅・左右の端が隣の行と揃っているが、枠の直後の行との間に区切り線が無く、上下の間隔が行の間隔より詰まって見える（768px・1440px も同様）。",
           "viewport": "w375",
-          "shot": "w375-02.png"
+          "shot": "w375-04.png"
         },
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "右の欄に同じビルドジョブのバナーが 2 回（人気記事を挟んで）出ている。続いてはいないが重複感がある。",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "キャリア記事の横送りカードが右端で切れて次のカードが見え、送れることは分かるが矢印が無い。",
+          "type": "typography",
+          "detail": "記事の説明文が 2 行で「…」で切れるものがある（1級と2級の違いなど）。題名で区別はつく。",
           "viewport": "w375",
-          "shot": "w375-05.png"
+          "shot": "w375-01.png"
         }
       ],
       "deterministic": [],
@@ -278,23 +279,24 @@
       "ticket": null
     },
     "home": {
-      "layoutSha256": "342f4a3b38042ee74ed9eeca71701b3175351fe5a79aee77ada18a749ac52413",
+      "layoutSha256": "a72c32440f50434459a6ef927163f33651755bff6ec32cc00344f7d09f533d17",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T22:56:11.314Z",
-      "runId": "20261116T225248Z",
+      "reviewedAt": "2026-11-16T23:12:13.814Z",
+      "runId": "20261116T230955Z",
       "path": "/",
       "findings": [
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "資格タイルの題名が 2 列の狭い幅で「1級土木施工管理技 / 士」のように最後の 1 文字だけ折り返す（複数タイル）。枠・余白・題名の大きさ自体は全タイルで揃っている。",
+          "detail": "資格カードの題名が 2 列で窮屈になり、「1級土木施工管理技士」「コンクリート診断士」などが最後の 1 文字（士・者）だけ次の行に折り返している。",
           "viewport": "w375",
           "shot": "w375-01.png"
         },
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "記事カードのタグ・日付・READ が 10px 前後で小さい補助文字。主役の題名は十分な大きさ。",
+          "detail": "新着カードのカテゴリ・日付・タグが 10px 前後と小さい。題名は十分な大きさで画像と文字の並びは崩れていない。",
+          "viewport": "w375",
           "shot": "w375-02.png"
         }
       ],
@@ -409,17 +411,25 @@
       "ticket": null
     },
     "practice": {
-      "layoutSha256": "58d032ae2bc3d5d1ae5b84933f97d77529ca3b667adaadb863eb6cf118910457",
+      "layoutSha256": "2129f8d543801592031c49e66e9084f02c13e4f0ad7378bcd6aae6fc8633d547",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T13:50:27.924Z",
-      "runId": "20261116T134839Z",
+      "reviewedAt": "2026-11-16T23:12:13.814Z",
+      "runId": "20261116T230955Z",
       "path": "/practice/oshms-pdca-site-operation",
       "findings": [
         {
           "severity": "minor",
           "type": "cta",
-          "detail": "記事内広告（ネイティブ）が図の直後・本文の途中に置かれ、枠が大きく本文の流れを切る。見出し直下ではなく、PR 導線とも隣り合っていないので不合格にはしない。",
-          "shot": "w375-02.png"
+          "detail": "右の列と本文の最初の画面に同じ広告主のビルドジョブのバナーが 2 つ見える。ほかの導線とは離れており読むのは妨げない。",
+          "viewport": "w1440",
+          "shot": "w1440-01.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "スマホ幅で本文中に PR バナーが短い間隔で複数入る。PR 表記はあり、本文は読める。",
+          "viewport": "w375",
+          "shot": "w375-03.png"
         }
       ],
       "deterministic": [],
@@ -449,31 +459,23 @@
       "ticket": null
     },
     "standards-index": {
-      "layoutSha256": "466fd05c594257ee6dbe32da42ae426819ae9bef5898c1d0c725dfcaae3de1f8",
+      "layoutSha256": "c8caef081fbacb7b27c251e3838a1c72d7bbf2d113793de1cda6c9f5922df022",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T23:12:13.814Z",
+      "runId": "20261116T230955Z",
       "path": "/standards",
       "findings": [
         {
           "severity": "minor",
+          "type": "typography",
+          "detail": "章の番号（1–1 など）が 11px と小さく、補助の文字として薄い。区切り線・→ の位置・説明の行は崩れていない"
+        },
+        {
+          "severity": "minor",
           "type": "layout",
-          "detail": "発行機関の 2 列カードで右列の四国地方整備局の下に空白が残り、東北地方整備局が左列に 1 つだけ残る",
+          "detail": "発行機関の 2 列で、行の高さが隣に揃うため四国・近畿などに下の空白が残る。区切り線は揃っている",
           "viewport": "w768",
           "shot": "w768-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "スマホ幅では商品導線（PR バナー）がページ末尾の深い位置（約 81%）にある",
-          "viewport": "w375",
-          "shot": "w375-03.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "章番号（1-1 など）が 11px、PR 表記が 10px と小さい",
-          "shot": "w375-02.png"
         }
       ],
       "deterministic": [],
@@ -532,23 +534,23 @@
     "topics": {
       "layoutSha256": "d3355707dc8574426f3f18a52f3314a87dabf70ab76932996db7bd76308ad17e",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T22:56:11.314Z",
-      "runId": "20261116T225248Z",
+      "reviewedAt": "2026-11-16T23:12:13.814Z",
+      "runId": "20261116T230955Z",
       "path": "/topics/safety-laws",
       "findings": [
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "「このテーマの有料教材（note）」のカードとPR枠が本文の幅の約 6 割で左に寄り、右が空く。同じ区画内の関連テーマのタイルや公的基準の枠は全幅で並ぶ。",
+          "detail": "法令と分野の対応の行で、分野の説明が無い行（建設業法施行規則など）だけ行の高さが少し高く、縦の間隔が不揃い",
           "viewport": "w1440",
-          "shot": "w1440-06.png"
+          "shot": "w1440-03.png"
         },
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "「はじめに読む」の説明文などで途中の切れや最後の行が 1 文字の折り返しがあるが、読める範囲。",
+          "detail": "長い法令名の行で、e-Gov と記事件数の補助文字が折り返し、件数が 1 文字だけ次の行に残る箇所がある",
           "viewport": "w375",
-          "shot": "w375-02.png"
+          "shot": "w375-03.png"
         }
       ],
       "deterministic": [],
