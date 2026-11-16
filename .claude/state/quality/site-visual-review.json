@@ -120,6 +120,14 @@
       "pages": 2,
       "pass": 2,
       "fail": 0
+    },
+    {
+      "runId": "20261116T225248Z",
+      "at": "2026-11-16T22:56:11.317Z",
+      "base": "http://localhost:3025",
+      "pages": 7,
+      "pass": 7,
+      "fail": 0
     }
   ],
   "pages": {
@@ -176,21 +184,37 @@
     "exam-hub-civil1": {
       "layoutSha256": "503084f02cd72c45f4311c0699f6e9c9552bcdef113c45f3c51302eba9049b1c",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T13:50:27.924Z",
-      "runId": "20261116T134839Z",
+      "reviewedAt": "2026-11-16T22:56:11.314Z",
+      "runId": "20261116T225248Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
           "severity": "minor",
+          "type": "typography",
+          "detail": "テキストの章タイルで「施工管理・施…」「環境保全・建設…」と題名が省略され、記事数のぶんだけ題名の幅が狭い。章番号で区別はつく。",
+          "viewport": "w375",
+          "shot": "w375-03.png"
+        },
+        {
+          "severity": "minor",
           "type": "layout",
-          "detail": "第2次検定の分野別一覧の途中に入ったインフィード広告の枠が、上の項目との間に区切り線がなく、下の「品質管理 過去問」とも詰まっている。ほかの行は線で区切られているため、広告の枠だけ並びのリズムが崩れて見える（w375・w768・w1440 共通）。",
-          "shot": "w375-04.png"
+          "detail": "サムネイル行の説明文が 2 行で「…」切れになる行がある（例: 1級と2級の違い）。題名は読める。",
+          "viewport": "w375",
+          "shot": "w375-02.png"
         },
         {
           "severity": "minor",
           "type": "cta",
-          "detail": "広告は一覧の 10 項目目と最後の項目の間にあり、見出しの直下や note・ココナラ・転職の導線とは離れていて記事と誤認する配置ではない。ただ末尾から 1 件手前なので、広告の下に項目が 1 つだけ残る。",
-          "shot": "w375-04.png"
+          "detail": "右の欄に同じビルドジョブのバナーが 2 回（人気記事を挟んで）出ている。続いてはいないが重複感がある。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
+        },
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "キャリア記事の横送りカードが右端で切れて次のカードが見え、送れることは分かるが矢印が無い。",
+          "viewport": "w375",
+          "shot": "w375-05.png"
         }
       ],
       "deterministic": [],
@@ -229,25 +253,25 @@
       "ticket": null
     },
     "guide": {
-      "layoutSha256": "3142109ebc82d56e300574261599e6ddfaa4119432cf061f9b7efb5ca9ea2028",
+      "layoutSha256": "0024e1875777b1d449311fbb35e18b14c689f4eab5e52536583a2d9663fc724a",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T13:33:23.811Z",
-      "runId": "20261116T132651Z",
+      "reviewedAt": "2026-11-16T22:56:11.314Z",
+      "runId": "20261116T225248Z",
       "path": "/exam/civil-construction-1/guide/strategy",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "「次のステップ」の3枚目（第2次検定の対策へ進む）がサムネイルなしで1枚だけ次の行に残り、他の2枚と見た目の重さが違う。",
+          "type": "consistency",
+          "detail": "「次のステップ」の 3 枚目（第2次検定の対策へ進む）だけ画像が無く、2 枚の下に 1 枚だけ左に残る。上の 2 枚と重さが違って見える",
           "viewport": "w768",
           "shot": "w768-05.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "右の欄の小さなサムネイル上のラベルが「コンクリート維持管」などで切れている。題名は右に出ているので区別はつく。",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
+          "type": "consistency",
+          "detail": "「受験ガイドの続き」の前後 2 枚は大きな写真つきで、下の参考資料や他の内部リンク（小さなサムネイルの行）と枠・題名の重さが異なるが、読めて押せる",
+          "viewport": "w375",
+          "shot": "w375-04.png"
         }
       ],
       "deterministic": [],
@@ -256,16 +280,22 @@
     "home": {
       "layoutSha256": "342f4a3b38042ee74ed9eeca71701b3175351fe5a79aee77ada18a749ac52413",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T11:31:10.785Z",
-      "runId": "20261116T111306Z",
+      "reviewedAt": "2026-11-16T22:56:11.314Z",
+      "runId": "20261116T225248Z",
       "path": "/",
       "findings": [
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "資格カードの題名（1級土木施工管理技士など）が 1 文字だけ折り返され、最後の行に「士」「者」が残る。",
+          "detail": "資格タイルの題名が 2 列の狭い幅で「1級土木施工管理技 / 士」のように最後の 1 文字だけ折り返す（複数タイル）。枠・余白・題名の大きさ自体は全タイルで揃っている。",
           "viewport": "w375",
           "shot": "w375-01.png"
+        },
+        {
+          "severity": "minor",
+          "type": "typography",
+          "detail": "記事カードのタグ・日付・READ が 10px 前後で小さい補助文字。主役の題名は十分な大きさ。",
+          "shot": "w375-02.png"
         }
       ],
       "deterministic": [],
@@ -398,23 +428,21 @@
     "standards-chapter": {
       "layoutSha256": "5826cf4b49555f8ac3d31dc951054ae659e21b2297fd4f91c873fbcdf3fea4ae",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T13:33:23.811Z",
-      "runId": "20261116T132651Z",
+      "reviewedAt": "2026-11-16T22:56:11.314Z",
+      "runId": "20261116T225248Z",
       "path": "/standards/kinki/common/chapters/1-3",
       "findings": [
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "右の欄の上と中ほどで同じ「年収下げずにホワイト転職」のバナーが 2 回出ており、本文中にも同じ系統のバナーがある。重複気味だが間に別の欄が挟まる。",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
+          "type": "other",
+          "detail": "撮影は間引かれ、スマホ・タブレット幅の末尾にある「前後の章」のタイルは写っていない。PC幅の右の欄の「同じ文書の前後の章（続き）」は枠・余白とも崩れていない。"
         },
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "本文中の転職バナー（施工管理職・RSG）のスマホ用素材が細い。起票済み（DN-1226）。",
+          "type": "typography",
+          "detail": "パンくずや補助の文字が 11px で小さい（本文・題名は読める大きさ）。",
           "viewport": "w375",
-          "shot": "w375-cta-02.png"
+          "shot": "w375-01.png"
         }
       ],
       "deterministic": [],
@@ -452,26 +480,48 @@
       "ticket": null
     },
     "textbook": {
-      "layoutSha256": "d81694a1ffe4f2c6621294b27741f34f13c0530c4063a8d28923745eab79730e",
+      "layoutSha256": "f7cd2baf6f0e127dcbb558aba64f0a9c04369184a5f9f65e48ec9cd332b777af",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T13:33:23.811Z",
-      "runId": "20261116T132651Z",
+      "reviewedAt": "2026-11-16T22:56:11.314Z",
+      "runId": "20261116T225248Z",
       "path": "/exam/civil-construction-1/textbook/network-schedule",
-      "findings": [],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "hierarchy",
+          "detail": "本文中の「この続きに読みたい」カードは写真が大きい一方、題名と説明が小さく（説明は 11px 前後）、題名が写真に負けて見える",
+          "viewport": "w768",
+          "shot": "w768-04.png"
+        },
+        {
+          "severity": "minor",
+          "type": "consistency",
+          "detail": "「テキスト章ナビゲーション」の前後の章は題名が黒の枠だけの行で、他の内部リンクの青い題名と色が異なるが、押せる位置は分かる",
+          "viewport": "w375",
+          "shot": "w375-05.png"
+        }
+      ],
       "deterministic": [],
       "ticket": null
     },
     "tools": {
-      "layoutSha256": "2eea73e97b3c4f60eaf648fae0f30d670f63f451a9b8328fbc96ce9af1ecb87b",
+      "layoutSha256": "83445110c86f1122d283389ab4e2a9722f79d5fc91f76e0f0ac999d23e64118b",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T11:31:10.785Z",
-      "runId": "20261116T111306Z",
+      "reviewedAt": "2026-11-16T22:56:11.314Z",
+      "runId": "20261116T225248Z",
       "path": "/tools/keiken-charcount",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "関連記事カードの 2 組目（書き方と完成答案集）の間だけ空きが広く、組の区切りが少し唐突。ココナラ枠・転職バナーは本文の列と同じ幅・左右の端で揃っている。",
+          "type": "typography",
+          "detail": "題名「施工経験記述 文字数チェッカー」の最後の「ー」だけが次の行に折り返す。",
+          "viewport": "w375",
+          "shot": "w375-01.png"
+        },
+        {
+          "severity": "minor",
+          "type": "consistency",
+          "detail": "関連記事のサムネイル行と、その下の題名だけの完成答案集タイルで形が違うが、役割（無料の解説と有料教材）が違うため許容範囲。",
           "viewport": "w375",
           "shot": "w375-02.png"
         }
@@ -480,25 +530,25 @@
       "ticket": null
     },
     "topics": {
-      "layoutSha256": "51ca8780f031ecc9480ae033fdb1e1335fbf464721c62eeb8fa9014603481142",
+      "layoutSha256": "d3355707dc8574426f3f18a52f3314a87dabf70ab76932996db7bd76308ad17e",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T11:31:10.785Z",
-      "runId": "20261116T111306Z",
+      "reviewedAt": "2026-11-16T22:56:11.314Z",
+      "runId": "20261116T225248Z",
       "path": "/topics/safety-laws",
       "findings": [
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "転職バナーがページ最下部（関連テーマの後）にあり、スマホでは深い位置。note 教材カードと転職バナーは同じ幅・左端で揃っている。",
-          "viewport": "w375",
-          "shot": "w375-06.png"
+          "type": "layout",
+          "detail": "「このテーマの有料教材（note）」のカードとPR枠が本文の幅の約 6 割で左に寄り、右が空く。同じ区画内の関連テーマのタイルや公的基準の枠は全幅で並ぶ。",
+          "viewport": "w1440",
+          "shot": "w1440-06.png"
         },
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "note 教材カードと転職バナーは 506px の左寄せで区画の左端には揃うが、右側が広く空く（意図した左寄せ）。",
-          "viewport": "w1440",
-          "shot": "w1440-06.png"
+          "type": "typography",
+          "detail": "「はじめに読む」の説明文などで途中の切れや最後の行が 1 文字の折り返しがあるが、読める範囲。",
+          "viewport": "w375",
+          "shot": "w375-02.png"
         }
       ],
       "deterministic": [],
