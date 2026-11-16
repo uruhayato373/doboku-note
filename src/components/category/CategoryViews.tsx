@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react';
 import Link from 'next/link';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { getGroupLabel } from '@/lib/doc-classifier';
 import { type DocGroup } from '@/lib/category-groups';
 import { DocSection } from '@/components/category/CategorySections';
@@ -315,23 +316,17 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
               5 管理 × 26 セクションで体系化された全 {keywordCount} キーワードの索引
             </p>
           </div>
-          <Link
+          <LinkTile
             href="/sitemap-keywords"
-            className="focus-ring card-surface-content group flex items-center gap-4 p-5 transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-card-hover"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-card-inline bg-(--accent) text-lg font-bold text-(--paper)">
-              ≡
-            </div>
-            <div className="flex-1">
-              <div className="font-bold text-lg text-(--ink) group-hover:text-(--accent) transition-colors">
-                キーワードを全件見る（{keywordCount} 件）
-              </div>
-              <div className="text-sm text-(--ink-muted)">
-                文部科学省「総合技術監理 キーワード集 2026」に基づくセクション別索引へ
-              </div>
-            </div>
-            <span className="text-(--accent) group-hover:translate-x-1 transition-transform" aria-hidden>›</span>
-          </Link>
+            size="lg"
+            icon={
+              <span className="flex h-10 w-10 items-center justify-center rounded-card-inline bg-(--accent) text-lg font-bold text-(--paper)">
+                ≡
+              </span>
+            }
+            title={`キーワードを全件見る（${keywordCount} 件）`}
+            description="文部科学省「総合技術監理 キーワード集 2026」に基づくセクション別索引へ"
+          />
         </section>
       )}
     </>

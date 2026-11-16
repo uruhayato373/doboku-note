@@ -1,3 +1,4 @@
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
@@ -57,7 +58,7 @@ export default function ConcreteTimeCheckPage() {
         }
       />
 
-      <ConcreteTimeCheckClient />
+      <ConcreteTimeCheckClient related={<RelatedPages heading="関連する対策ページ" toolsIndex="経験記述の文字数チェック・受験資格判定・過去問演習" toolsIndexFirst links={[{ href: "/exam/civil-construction-1", title: "1級土木施工管理技士", description: "コンクリート工の出題ポイントと過去問解説" }]} />} />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
       <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>

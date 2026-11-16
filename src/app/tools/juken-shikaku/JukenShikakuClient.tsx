@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
 import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
@@ -76,7 +75,7 @@ const SECOND_ROUTES: Record<Grade, Route[]> = {
 const OK = "var(--color-positive)";
 const NG = "var(--color-danger)";
 
-export default function JukenShikakuClient() {
+export default function JukenShikakuClient({ related }: { related?: React.ReactNode }) {
   const [grade, setGrade] = useState<Grade>("civil-1");
   const [exam, setExam] = useState<Exam>("second");
   const [age, setAge] = useState("");
@@ -249,20 +248,7 @@ export default function JukenShikakuClient() {
         </ul>
       </div>
 
-      {/* 関連（内部リンク・funnel） */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">試験の全体像を知る</div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link href="/exam/civil-construction-1/guide/exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)">
-            <div className="font-bold text-(--ink)">1級土木 試験概要</div>
-            <div className="text-sm text-(--ink-body) mt-1">受験資格・科目・合格率・日程をまとめて解説</div>
-          </Link>
-          <Link href="/exam/civil-construction-2/guide/exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)">
-            <div className="font-bold text-(--ink)">2級土木 試験概要</div>
-            <div className="text-sm text-(--ink-body) mt-1">受験資格・科目・合格率・日程をまとめて解説</div>
-          </Link>
-        </div>
-      </div>
+      {related}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import LinkTile from "@/components/ui/LinkTile/LinkTile";
 import { useEffect, useId, useRef, useState } from "react";
 import CareerAffiliate from "@/components/ui/CareerAffiliate/CareerAffiliate";
 import { resolvePlacements } from '@/lib/affiliate-placement';
@@ -257,28 +257,20 @@ export default function CareerCheckClient({ builtAt }: { builtAt: number }) {
               {result.reads.map((r) =>
                 r.external ? (
                   <li key={r.href}>
-                    <a
-                      href={r.href}
-                      target="_blank"
-                      rel="noopener"
-                      className="focus-ring block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 dark:border-(--rule-soft)"
-                    >
-                      <span className="block text-[15px] font-medium text-(--ink)">{r.title}</span>
-                      <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{r.reason}</span>
-                    </a>
+                    <LinkTile href={r.href} title={r.title} description={r.reason} />
                   </li>
                 ) : (
                   <li key={r.href}>
-                    <Link
+                    <LinkTile
                       href={r.href}
-                      data-cta="career-need"
-                      data-cta-label={result.need ?? "urgent"}
-                      data-cta-placement="career-tool"
-                      className="focus-ring block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-brand dark:border-(--rule-soft)"
-                    >
-                      <span className="block text-[15px] font-medium text-(--ink)">{r.title}</span>
-                      <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{r.reason}</span>
-                    </Link>
+                      title={r.title}
+                      description={r.reason}
+                      data={{
+                        'data-cta': 'career-need',
+                        'data-cta-label': result.need ?? 'urgent',
+                        'data-cta-placement': 'career-tool',
+                      }}
+                    />
                   </li>
                 ),
               )}

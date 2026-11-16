@@ -3,7 +3,8 @@ import type { MagazineId } from '@/lib/note-magazines';
 import type { CareerArticleEndCard } from '@/config/affiliate-creatives';
 import type { ResolvedSecondary } from '@/lib/affiliate-placement';
 import MagazineHeroCta from '@/components/ui/MagazineHeroCta/MagazineHeroCta';
-import RelatedArticleCard from '@/components/ui/RelatedArticles/RelatedArticleCard';
+import ArticleCard from '@/components/ui/ArticleCard/ArticleCard';
+import { articleCardProps } from '@/lib/article-card';
 import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
 import { CTA_STACK_WIDTH } from '@/lib/cta-stack';
 
@@ -17,7 +18,7 @@ import { CTA_STACK_WIDTH } from '@/lib/cta-stack';
  *  - career モード: 転職アフィリの**ネイティブカード**（PR バッジ＋見出し＋説明＋points＋CTA）。
  *    href のみ＝計測ピクセルはサイドバー 1 発火のまま（1 ページ 1 ピクセル）。
  *    2026-07-28 に 1 行テキストリンクから格上げ（訴求カードは記事末ではなく本文中が正しい配置）。
- *  - related モード: RelatedArticleCard（OGP サムネ）1 枚に「この続きに読みたい」見出し。
+ *  - related モード: ArticleCard（OGP サムネ）1 枚に「この続きに読みたい」見出し。
  */
 type MidArticleCtaProps =
   | {
@@ -52,7 +53,7 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
   return (
     <div className={`not-prose my-8 ${CTA_STACK_WIDTH}`} data-cta="nav" data-cta-label="article-mid-related">
       <div className="mb-2 text-sm font-semibold text-(--ink-muted)">この続きに読みたい</div>
-      <RelatedArticleCard doc={props.doc} />
+      <ArticleCard {...articleCardProps(props.doc)} />
     </div>
   );
 }

@@ -19,7 +19,7 @@ const SURFACES = [
 ];
 // サムネイルの行は ArticleThumbRow の 1 実装（資格トップの OgpThumbRow・右の欄・記事末が使う。2026-11-16 に統一）
 const CARDS = [
-  'src/components/ui/RelatedArticles/RelatedArticleCard.tsx',
+  'src/components/ui/ArticleCard/ArticleCard.tsx',
   'src/components/ui/RelatedArticles/ArticleThumbRow.tsx',
   'src/components/home/LatestArticles.tsx',
   'src/components/search/SearchResults.tsx',

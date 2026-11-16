@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 // バレル @/components/home を通すと LatestArticles 等まで client バンドルへ入る。実体を直接 import する。
 import { ExamCard, type ExamData } from "@/components/home/ExamCards";
 import { type CategoryDef } from "@/lib/categories";
@@ -48,16 +49,13 @@ export function SearchZeroState({ examCards, otherCategories, popular }: SearchZ
           <h2 className="font-serif text-lg font-bold text-(--ink) mb-1">その他のカテゴリ</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             {otherCategories.map((cat) => (
-              <Link
+              <LinkTile
                 key={cat.slug}
                 href={getCategoryHubPath(cat.slug)}
-                className="focus-ring card-surface-content group flex flex-col gap-1 p-4 transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
-              >
-                <span className="font-serif font-bold text-(--ink) group-hover:text-(--accent) transition-colors">
-                  {cat.label}
-                </span>
-                <span className="text-sm text-(--ink-muted) line-clamp-1">{cat.subtitle}</span>
-              </Link>
+                serif
+                title={cat.label}
+                description={cat.subtitle}
+              />
             ))}
           </div>
         </section>

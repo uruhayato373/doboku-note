@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { PrevNextPair } from '@/components/ui/TextbookNav/PrevNextNav';
 import remarkGfm from 'remark-gfm';
 import PageShell from '@/components/layout/PageShell';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
@@ -187,29 +187,14 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             <SafeMdx source={withInlineSlots(markdown)} components={components} options={mdxOptions} />
           </div>
 
-          <nav aria-label="前後の節" className="mt-8 grid gap-3 border-t border-(--rule-soft) pt-6 sm:grid-cols-2">
-            {previous ? (
-              <Link
-                href={standardSectionPath(entry, chapter, previous.number)}
-                data-cta="nav"
-                data-cta-label="standards-section-nav"
-                className="focus-ring flex min-h-14 flex-col justify-center border border-(--rule-soft) px-4 py-3 transition-colors hover:bg-(--accent-fill) dark:border-(--rule-soft)"
-              >
-                <span className="text-[11px] text-(--ink-muted)">← 前の節</span>
-                <span className="mt-1 font-bold text-(--ink)">{previous.headingText}</span>
-              </Link>
-            ) : <span aria-hidden />}
-            {next && (
-              <Link
-                href={standardSectionPath(entry, chapter, next.number)}
-                data-cta="nav"
-                data-cta-label="standards-section-nav"
-                className="focus-ring flex min-h-14 flex-col justify-center border border-(--rule-soft) px-4 py-3 text-right transition-colors hover:bg-(--accent-fill) dark:border-(--rule-soft)"
-              >
-                <span className="text-[11px] text-(--ink-muted)">次の節 →</span>
-                <span className="mt-1 font-bold text-(--ink)">{next.headingText}</span>
-              </Link>
-            )}
+          <nav aria-label="前後の節" className="mt-8 border-t border-(--rule-soft) pt-6">
+            <PrevNextPair
+              prev={previous ? { href: standardSectionPath(entry, chapter, previous.number), title: previous.headingText } : null}
+              next={next ? { href: standardSectionPath(entry, chapter, next.number), title: next.headingText } : null}
+              prevLabel="前の節"
+              nextLabel="次の節"
+              data={{ 'data-cta': 'nav', 'data-cta-label': 'standards-section-nav' }}
+            />
           </nav>
 
           <StandardReferenceLinks documents={referencedDocuments} />

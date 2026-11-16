@@ -42,7 +42,7 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
               data-thumb={a.image?.band ? 'photo' : 'ogp'}
               className="focus-ring card-surface-section group flex overflow-hidden transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
             >
-              {/* サムネ（記事別 OGP＝1200:630・資格別テーマ色＋タグ焼き込み。RelatedArticleCard と同系統）。
+              {/* サムネ（記事別 OGP＝1200:630・資格別テーマ色＋タグ焼き込み。ArticleCard と同系統）。
                   資格別写真プール（guide-covers）は猫/場違い画像の混入により 2026-07-07 に廃止し OGP へ一本化。 */}
               <div className="relative aspect-1200/630 w-[128px] shrink-0 self-start overflow-hidden bg-(--accent-fill) sm:w-[188px] md:w-[204px]">
                 {a.image && (

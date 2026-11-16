@@ -1,8 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
 import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
@@ -80,7 +78,7 @@ type Row = {
   emphasis?: boolean;
 };
 
-export default function ConcreteTimeCheckClient() {
+export default function ConcreteTimeCheckClient({ related }: { related?: React.ReactNode }) {
   const [airTemp, setAirTemp] = useState("28");
   const [dailyMean, setDailyMean] = useState("27");
   const [mixTime, setMixTime] = useState("09:00");
@@ -293,24 +291,7 @@ export default function ConcreteTimeCheckClient() {
         </ul>
       </div>
 
-      {/* 関連 */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          関連する対策ページ
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <ToolsIndexCard description="経験記述の文字数チェック・受験資格判定・過去問演習" />
-          <Link
-            href="/exam/civil-construction-1"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">1級土木施工管理技士</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              コンクリート工の出題ポイントと過去問解説
-            </div>
-          </Link>
-        </div>
-      </div>
+      {related}
     </div>
   );
 }

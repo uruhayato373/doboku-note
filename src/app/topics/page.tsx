@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import TopicIcon from '@/components/topics/TopicIcon';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
@@ -32,18 +32,17 @@ export default function TopicsPage() {
             const docs = getTopicDocs(topic);
             const standards = getTopicStandards(topic);
             return (
-              <Link
+              <LinkTile
                 key={topic.slug}
                 href={topicPath(topic.slug)}
-                className="focus-ring card-interactive border border-(--rule-soft) bg-(--paper) p-5 transition-[border-color,box-shadow] hover:border-(--accent)"
-              >
-                <TopicIcon slug={topic.slug} />
-                <h3 className="font-serif text-lg font-bold text-(--ink)">{topic.label}</h3>
-                <p className="mt-2 text-[13px] leading-[1.75] text-(--ink-muted)">{topic.description}</p>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-(--accent)">
-                  記事 {docs.length} / 基準資料 {standards.length}
-                </p>
-              </Link>
+                size="lg"
+                serif
+                icon={<TopicIcon slug={topic.slug} className="" />}
+                title={topic.label}
+                description={topic.description}
+                meta={`記事 ${docs.length} / 基準資料 ${standards.length}`}
+                headingLevel="h3"
+              />
             );
           })}
         </div>

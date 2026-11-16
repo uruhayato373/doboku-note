@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
@@ -25,7 +24,7 @@ function toNum(s: string): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-export default function ConcreteMaturityClient() {
+export default function ConcreteMaturityClient({ related }: { related?: React.ReactNode }) {
   const [avgTemp, setAvgTemp] = useState("10");
   const [days, setDays] = useState("14");
   const [dailyMean, setDailyMean] = useState("6");
@@ -156,32 +155,7 @@ export default function ConcreteMaturityClient() {
         </ul>
       </div>
 
-      {/* 関連 */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          関連するページ
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/practice/formwork-removal-timing"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">型枠・支保工はいつ外せるか</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              積算温度による推定の位置づけを解説した記事
-            </div>
-          </Link>
-          <Link
-            href="/tools/concrete-time-check"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">打込み 時間管理チェッカー</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              暑中／寒中の区分と当日の限度時刻を計算
-            </div>
-          </Link>
-        </div>
-      </div>
+      {related}
     </div>
   );
 }

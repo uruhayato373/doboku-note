@@ -1,62 +1,55 @@
-import Link from 'next/link';
 import { getPublicDocPath } from '@/lib/content-routes';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import ContentThumbnail from '@/components/ui/ContentThumbnail';
+import ArticleCard from '@/components/ui/ArticleCard/ArticleCard';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import type { CardImage } from '@/lib/site-thumbnail';
 
 interface NavItem {
-  readonly slug: string;
+  /** 記事の slug（行き先は getPublicDocPath）。記事でない行き先（基準書の章・節）は href で渡す */
+  readonly slug?: string;
+  readonly href?: string;
   readonly title: string;
-  /** 渡すとサムネイルつきのカードにする（リンクの data-thumb で写真と OGP を分けて計測）。無ければ文字だけ */
+  /** 渡すと画像つきのカード（ArticleCard）にする。無ければ文字だけのタイル（LinkTile） */
   readonly image?: CardImage | undefined;
 }
 
-interface PrevNextNavProps {
-  readonly heading: string;
-  readonly track: string;
-  readonly prev: NavItem | null;
-  readonly next: NavItem | null;
+interface PairProps {
+  readonly prev: NavItem | null | undefined;
+  readonly next: NavItem | null | undefined;
   readonly prevLabel: string;
   readonly nextLabel: string;
+  /** 各リンクへ付ける計測の属性（枠の trackNav が無い所） */
+  readonly data?: Readonly<Record<`data-${string}`, string>>;
 }
 
-const CARD = 'block min-w-0 rounded-card-content border border-(--rule-soft) transition-colors hover:border-(--accent) dark:hover:border-(--accent)';
+const hrefOf = (item: NavItem) => item.href ?? getPublicDocPath(item.slug ?? '');
 
-/** 順序のあるページ（教科書の章・過去問の年度・続きの記事）の前後ナビ。item.image があるとき左右 2 枚のサムネイルカード */
-export default function PrevNextNav({ heading, track, prev, next, prevLabel, nextLabel }: PrevNextNavProps) {
+/** 前後の 2 枚（左が前・右が次）。カードの形は ArticleCard（画像あり）と LinkTile（文字だけ）に任せ、ここは並べるだけ（2026-11-17 に手書きのカードを外した） */
+export function PrevNextPair({ prev, next, prevLabel, nextLabel, data }: PairProps) {
   if (!prev && !next) return null;
+  const card = (item: NavItem, label: string, align: 'left' | 'right') => item.image
+    ? <ArticleCard href={hrefOf(item)} title={item.title} image={item.image} eyebrow={label} align={align} {...(data ? { data } : {})} />
+    : <LinkTile href={hrefOf(item)} title={item.title} eyebrow={label} align={align} {...(data ? { data } : {})} />;
+  return (
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      {prev ? card(prev, `← ${prevLabel}`, 'left') : <div />}
+      {next ? card(next, `${nextLabel} →`, 'right') : <div />}
+    </div>
+  );
+}
 
-  const card = (item: NavItem, label: string, align: 'left' | 'right') => {
-    const { image } = item;
-    const text = align === 'right' ? ' text-right' : '';
-    if (!image) {
-      return (
-        <Link href={getPublicDocPath(item.slug)} className={`${CARD} p-4${text}`}>
-          <div className="text-xs text-(--ink-muted) mb-1">{label}</div>
-          <div className="text-sm font-semibold text-(--accent)">{item.title}</div>
-        </Link>
-      );
-    }
-    return (
-      <Link href={getPublicDocPath(item.slug)} data-thumb={image.band ? 'photo' : 'ogp'} className={`${CARD} focus-ring not-prose overflow-hidden${text}`}>
-        <div className="relative aspect-1200/630 w-full overflow-hidden bg-(--bg)">
-          <ContentThumbnail src={image.src} band={image.band} sizes="(max-width: 640px) 100vw, 320px" />
-        </div>
-        <div className="px-4 py-3">
-          <div className="text-xs text-(--ink-muted) mb-1">{label}</div>
-          <div className="line-clamp-2 text-sm font-semibold text-(--accent)">{item.title}</div>
-        </div>
-      </Link>
-    );
-  };
+interface PrevNextNavProps extends Omit<PairProps, 'data'> {
+  readonly heading: string;
+  readonly track: string;
+}
 
+/** 順序のあるページ（教科書の章・過去問の年度・続きの記事・基準書の章）の前後ナビ。見出しつきの枠に PrevNextPair を置く */
+export default function PrevNextNav({ heading, track, ...pair }: PrevNextNavProps) {
+  if (!pair.prev && !pair.next) return null;
   return (
     <MetaCard trackNav={track}>
-      <h2 className="text-lg font-bold text-(--ink) mb-4">{heading}</h2>
-      <div className="grid gap-3 grid-cols-1 sm:grid-cols-2">
-        {prev ? card(prev, `← ${prevLabel}`, 'left') : <div />}
-        {next ? card(next, `${nextLabel} →`, 'right') : <div />}
-      </div>
+      <h2 className="mb-4 text-lg font-bold text-(--ink)">{heading}</h2>
+      <PrevNextPair {...pair} />
     </MetaCard>
   );
 }

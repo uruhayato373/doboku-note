@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
 import { countAnswerChars } from "@/lib/keiken-charcount.mjs";
 import { READING_CONTAINER } from '@/components/layout/container';
 
@@ -91,7 +90,7 @@ const SEV_META: Record<
   },
 };
 
-export default function KeikenCharcountClient({ limits }: { limits: KeikenLimits }) {
+export default function KeikenCharcountClient({ limits, related }: { limits: KeikenLimits; related?: React.ReactNode }) {
   const [grade, setGrade] = useState<Grade>("civil-1");
   const [format, setFormat] = useState<Format>("current2");
   const [qkey, setQkey] = useState<QKey>("q1");
@@ -257,28 +256,7 @@ export default function KeikenCharcountClient({ limits }: { limits: KeikenLimits
         </ul>
       </div>
 
-      {/* 関連（内部リンク・funnel） */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          経験記述の書き方をもっと詳しく
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/exam/civil-construction-1/secondary/experience-writing-guide"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">1級土木 施工経験記述の書き方</div>
-            <div className="text-sm text-(--ink-body) mt-1">課題→検討→対応の型と頻出テーマを解説</div>
-          </Link>
-          <Link
-            href="/exam/civil-construction-2/secondary/experience-writing-guide"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">2級土木 施工経験記述の書き方</div>
-            <div className="text-sm text-(--ink-body) mt-1">2級の解答欄・テーマ別の書き分けを解説</div>
-          </Link>
-        </div>
-      </div>
+      {related}
     </div>
   );
 }
