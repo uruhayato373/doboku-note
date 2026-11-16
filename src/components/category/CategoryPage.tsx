@@ -24,6 +24,8 @@ import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
+import { buildLearningCatalog } from '@/lib/learning-catalog';
+import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
 import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
 import ResponsiveAffiliateBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner';
 import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
@@ -76,6 +78,9 @@ export default async function CategoryPage({
   const hubCtaMobile = resolveHubCta(slug, { utmSuffix: 'mob' });
   // ココナラ（自社出品・A8 経由）。記事末尾と同じ部品で、資格トップでは見出し直後に出す。
   const offsiteCta = resolveOffsiteCta(slug);
+  // 資格トップの商品の枠は 1 枚だけなので、この資格の教材の全部は /links の資格別の節で見せる（教材が 1 つも無い資格には出さない）
+  const learning = buildLearningCatalog().find((exam) => exam.id === slug);
+  const hasLearningList = Boolean(learning && learning.materials.length + learning.support.length > 0);
   // もくじタイルを持たない資格のうち、スマホで note 商品を見出し直後へ出す資格（それ以外は一覧の最下部）。
   // 主任技士は資格トップが直前期の入口で、最下部だと本試験までに読まれない（DN-0703）。
   const productFirstOnMobile = slug === 'concrete-chief-engineer' && !hubCtaMobile;
@@ -148,9 +153,16 @@ export default async function CategoryPage({
                 パンくずと重複のため削除） */}
             <div className="pt-6 sm:pt-8 pb-5 border-b border-(--rule-soft)">
               <nav aria-label="breadcrumb" className="font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest mb-2 flex items-center gap-2">
-                <Link href="/" className="hover:text-(--accent) transition-colors">Home</Link>
+                <Link href="/" className="hover:text-(--accent) transition-colors">ホーム</Link>
                 <span aria-hidden className="opacity-60">›</span>
-                <span>Category</span>
+                {/* 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は資格ページが領域の入口なので 2 段（DN-1219） */}
+                {getCategoryArea(slug) === 'exam' && (
+                  <>
+                    <Link href={getAreaHubPath('exam')} className="hover:text-(--accent) transition-colors">{getAreaLabel('exam')}</Link>
+                    <span aria-hidden className="opacity-60">›</span>
+                  </>
+                )}
+                <span>{cat.label}</span>
               </nav>
               <h1 className="font-serif font-bold tracking-tight text-(--ink) text-[24px] sm:text-[28px] leading-[1.3] mb-2">
                 {cat.label}
@@ -169,6 +181,13 @@ export default async function CategoryPage({
               </div>
             )}
             <OffsiteCta items={offsiteCta} heading="この資格に関連するサービス" />
+            {hasLearningList && (
+              <p className="mt-4 text-sm" data-cta="nav" data-cta-label="category-links-hub">
+                <Link href={`/links#exam-${slug}`} className="focus-ring inline-flex min-h-11 items-center font-bold text-(--accent) hover:underline">
+                  この資格の教材一覧を見る
+                </Link>
+              </p>
+            )}
             <div className="pt-8 text-[17px] leading-[1.9]">
           {docs.length === 0 ? (
             <div className="text-center py-12">

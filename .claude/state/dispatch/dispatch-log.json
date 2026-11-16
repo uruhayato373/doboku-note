@@ -8865,6 +8865,45 @@
       "commit": "73ada279c01f",
       "verification": "standards-visual-review record: mlit/sekou-kanri-kijun 30 章 pass・status exit 0",
       "note": "PR #1613・#1615 を本番へ反映（2026-11-15）。不合格 8 章を撮り直して全章 pass（台帳 30/30）。9-4 の約 7,200px は撮影スクリプトが表を広げた作りものだった"
+    },
+    {
+      "id": "DN-1219",
+      "at": "2026-11-16",
+      "task": "前後ナビ・パンくず・次の一歩が出ないページを埋める（コンクリート 3 資格・法令・1級二次とガイド）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "906c5492b281",
+      "verification": "npm run test（4322 本・失敗 1 は直して再実行で通過）・npm run build・check-seo-build error 0・check-magazine-cta・check-topic-wiring",
+      "note": "前後ナビ 815 本→0 本（法令は 2 本以上あるテーマの列）・パンくずを ホーム›資格試験›資格›記事型 に・次の一歩の誤った節を修正し 3 資格へ・トップとフッターに法令。PR #1616"
+    },
+    {
+      "id": "DN-1220",
+      "at": "2026-11-16",
+      "task": "索引はあるのに出ていない回遊データを出す（教材→過去問・総監の逆引き 103 本・未使用の JSON 3 本）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "906c5492b281",
+      "verification": "npm run test（4322 本・失敗 1 は直して再実行で通過）・npm run build・check-seo-build error 0・check-magazine-cta・check-topic-wiring",
+      "note": "ガイドに過去問逆引き・1級の教材 21 本に関連用語・5 管理に過去問・総監の逆引き 35 件追加（無い用語 102→79、残りは択一で問われていない）。未使用とされた JSON は MDX 挿入の中間物で使用中。過去問の関連記事は DN-0975。PR #1616"
+    },
+    {
+      "id": "DN-1222",
+      "at": "2026-11-16",
+      "task": "商品の配線と計測の残りを片づける（主任技士の診断・台帳外の note リンク・回遊の表示の計測）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "906c5492b281",
+      "verification": "npm run test（4322 本・失敗 1 は直して再実行で通過）・npm run build・check-seo-build error 0・check-magazine-cta・check-topic-wiring",
+      "note": "主任技士の診断を配線・回遊の面ごとの表示計測・ココナラは出品番号で計測・台帳外 6 件は案内記事と無料記事（報告で区別）・基準書を数えない理由を出力。売り場から外す判断は DN-1223。PR #1616"
     }
   ]
 }

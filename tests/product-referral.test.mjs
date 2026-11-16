@@ -31,6 +31,8 @@ test('ココナラ・Amazon・A8・もしもは販売先の ID を読む', () =>
   assert.deepEqual(productReferralOf('https://coconala.com/services/4341188'), { destination: 'coconala', productId: '4341188' });
   assert.deepEqual(productReferralOf('https://www.amazon.co.jp/dp/B0H8HW139T?tag=x-22'), { destination: 'amazon', productId: 'B0H8HW139T' });
   assert.deepEqual(productReferralOf('https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH'), { destination: 'a8', productId: '4B5OO5+FHBA2+5B0Y+NTZCH' });
+  // ココナラの A8 商品リンクは、飛び先の出品の番号で送る（全サービス同じ a8mat なので、a8mat ではどの出品か分からない）
+  assert.deepEqual(productReferralOf('https://px.a8.net/svt/ejp?a8mat=4B3RUY+AINQAI+2PEO+1NIX2A&a8ejpredirect=https%3A%2F%2Fcoconala.com%2Fservices%2F4317349'), { destination: 'coconala', productId: '4317349' });
   assert.deepEqual(productReferralOf('https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57940'), { destination: 'moshimo', productId: '4183' });
 });
 

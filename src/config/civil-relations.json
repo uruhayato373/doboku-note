@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "generated_at": "2026-09-10T23:39:36.988Z",
+  "generated_at": "2026-11-15T21:48:12.200Z",
   "summary": {
-    "total_docs": 114,
+    "total_docs": 132,
     "by_group": {
-      "textbook": 63,
-      "guide": 51
+      "textbook": 73,
+      "guide": 59
     },
-    "docs_with_relations": 105,
-    "docs_below_target": 9,
+    "docs_with_relations": 123,
+    "docs_below_target": 14,
     "isolated_docs": [
-      "guide-1-vs-2",
       "guide-difficulty",
-      "guide-exam-overview",
+      "guide-hydraulics-basics",
       "guide-last-minute-2026",
       "guide-strategy",
+      "guide-structural-mechanics-basics",
       "guide-study-method",
       "guide-study-plan",
       "guide-vs-pe",
@@ -49,7 +49,16 @@
     "tag_cap": 3
   },
   "relations": {
-    "guide-1-vs-2": [],
+    "guide-1-vs-2": [
+      {
+        "slug": "guide-exam-overview",
+        "label": "1級の試験概要",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "guide-age-career": [
       {
         "slug": "guide-allowance",
@@ -516,6 +525,16 @@
       {
         "slug": "guide-concrete-maintenance",
         "label": "コンクリート維持管理",
+        "score": 16,
+        "signals": [
+          "topic",
+          "guide_overlap",
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
         "score": 15,
         "signals": [
           "topic",
@@ -541,23 +560,64 @@
         ]
       },
       {
-        "slug": "textbook-construction-mgmt-overview",
-        "label": "施工管理の概要",
-        "score": 10,
+        "slug": "guide-quality-management",
+        "label": "品質管理",
+        "score": 15,
         "signals": [
-          "topic"
-        ]
-      },
-      {
-        "slug": "textbook-construction-plan-overview",
-        "label": "施工計画と計画書",
-        "score": 10,
-        "signals": [
-          "topic"
+          "topic",
+          "guide_overlap"
         ]
       }
     ],
     "guide-concrete-maintenance": [
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 16,
+        "signals": [
+          "topic",
+          "guide_overlap",
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-earthwork-key-points",
+        "label": "土工",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-four-management",
+        "label": "施工管理4大管理",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-quality-management",
+        "label": "品質管理",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      }
+    ],
+    "guide-construction-plan": [
       {
         "slug": "guide-concrete-key-points",
         "label": "コンクリート",
@@ -568,6 +628,15 @@
         ]
       },
       {
+        "slug": "guide-concrete-maintenance",
+        "label": "コンクリート維持管理",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
         "slug": "guide-earthwork-key-points",
         "label": "土工",
         "score": 15,
@@ -591,56 +660,6 @@
         "score": 10,
         "signals": [
           "topic"
-        ]
-      },
-      {
-        "slug": "textbook-construction-plan-overview",
-        "label": "施工計画と計画書",
-        "score": 10,
-        "signals": [
-          "topic"
-        ]
-      }
-    ],
-    "guide-construction-plan": [
-      {
-        "slug": "guide-demolition",
-        "label": "解体工事",
-        "score": 1,
-        "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-environment-management",
-        "label": "環境保全管理",
-        "score": 1,
-        "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-foundation",
-        "label": "基礎工",
-        "score": 1,
-        "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-machinery",
-        "label": "建設機械",
-        "score": 1,
-        "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-quality-management",
-        "label": "品質管理",
-        "score": 1,
-        "signals": [
-          "other_tag"
         ]
       }
     ],
@@ -688,43 +707,11 @@
     ],
     "guide-demolition": [
       {
-        "slug": "guide-construction-plan",
-        "label": "施工計画",
-        "score": 1,
+        "slug": "textbook-demolition",
+        "label": "解体工事",
+        "score": 10,
         "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-environment-management",
-        "label": "環境保全管理",
-        "score": 1,
-        "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-foundation",
-        "label": "基礎工",
-        "score": 1,
-        "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-machinery",
-        "label": "建設機械",
-        "score": 1,
-        "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-quality-management",
-        "label": "品質管理",
-        "score": 1,
-        "signals": [
-          "other_tag"
+          "topic"
         ]
       }
     ],
@@ -791,6 +778,15 @@
         ]
       },
       {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
         "slug": "guide-four-management",
         "label": "施工管理4大管理",
         "score": 15,
@@ -806,10 +802,45 @@
         "signals": [
           "topic"
         ]
+      }
+    ],
+    "guide-engineer-assignment": [
+      {
+        "slug": "guide-law-key-points",
+        "label": "法規",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
       },
       {
-        "slug": "textbook-construction-plan-overview",
-        "label": "施工計画と計画書",
+        "slug": "textbook-building-standards",
+        "label": "建築基準法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-construction-business",
+        "label": "建設業法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-explosives-act",
+        "label": "火薬類取締法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-labor-standards",
+        "label": "労働基準法",
         "score": 10,
         "signals": [
           "topic"
@@ -818,83 +849,92 @@
     ],
     "guide-environment-management": [
       {
-        "slug": "guide-construction-plan",
-        "label": "施工計画",
+        "slug": "textbook-byproduct-guideline",
+        "label": "建設副産物適正処理推進要綱",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-demolition",
-        "label": "解体工事",
+        "slug": "textbook-construction-byproduct-recycle",
+        "label": "建設副産物・リサイクル法",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-foundation",
-        "label": "基礎工",
+        "slug": "textbook-noise-vibration-regulation",
+        "label": "騒音・振動規制",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-machinery",
-        "label": "建設機械",
+        "slug": "textbook-waste-disposal-manifest",
+        "label": "廃棄物処理・マニフェスト",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-quality-management",
-        "label": "品質管理",
+        "slug": "textbook-water-air-soil-pollution",
+        "label": "水質・大気・土壌の保全",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       }
     ],
-    "guide-exam-overview": [],
+    "guide-exam-overview": [
+      {
+        "slug": "guide-1-vs-2",
+        "label": "1級と2級の違い（詳細比較）",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "guide-foundation": [
       {
-        "slug": "guide-construction-plan",
-        "label": "施工計画",
+        "slug": "textbook-cast-in-place-pile",
+        "label": "場所打ち杭",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-demolition",
-        "label": "解体工事",
+        "slug": "textbook-earth-retaining-cofferdam",
+        "label": "土留め・仮締切り",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-environment-management",
-        "label": "環境保全管理",
+        "slug": "textbook-foundation-overview-survey",
+        "label": "基礎工の概説",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-machinery",
-        "label": "建設機械",
+        "slug": "textbook-pile-foundation-precast",
+        "label": "既製杭の施工",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-quality-management",
-        "label": "品質管理",
+        "slug": "textbook-safety-foundation-bridge",
+        "label": "基礎・鋼橋架設の安全",
         "score": 1,
         "signals": [
           "other_tag"
@@ -921,6 +961,15 @@
         ]
       },
       {
+        "slug": "guide-construction-plan",
+        "label": "施工計画",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
         "slug": "guide-earthwork-key-points",
         "label": "土工",
         "score": 15,
@@ -930,19 +979,12 @@
         ]
       },
       {
-        "slug": "textbook-construction-mgmt-overview",
-        "label": "施工管理の概要",
-        "score": 10,
+        "slug": "guide-quality-management",
+        "label": "品質管理",
+        "score": 15,
         "signals": [
-          "topic"
-        ]
-      },
-      {
-        "slug": "textbook-construction-plan-overview",
-        "label": "施工計画と計画書",
-        "score": 10,
-        "signals": [
-          "topic"
+          "topic",
+          "guide_overlap"
         ]
       }
     ],
@@ -1072,6 +1114,7 @@
         ]
       }
     ],
+    "guide-hydraulics-basics": [],
     "guide-interview": [
       {
         "slug": "guide-age-career",
@@ -1117,6 +1160,15 @@
     "guide-last-minute-2026": [],
     "guide-law-key-points": [
       {
+        "slug": "guide-engineer-assignment",
+        "label": "技術者の配置",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
         "slug": "textbook-building-standards",
         "label": "建築基準法",
         "score": 10,
@@ -1147,55 +1199,47 @@
         "signals": [
           "topic"
         ]
-      },
-      {
-        "slug": "textbook-law-compliance",
-        "label": "建設工事の法令遵守",
-        "score": 10,
-        "signals": [
-          "topic"
-        ]
       }
     ],
     "guide-machinery": [
       {
-        "slug": "guide-construction-plan",
-        "label": "施工計画",
-        "score": 1,
+        "slug": "textbook-crane",
+        "label": "クレーン・高所作業車",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       },
       {
-        "slug": "guide-demolition",
-        "label": "解体工事",
-        "score": 1,
+        "slug": "textbook-grader-compaction",
+        "label": "グレーダ・締固め機械",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       },
       {
-        "slug": "guide-environment-management",
-        "label": "環境保全管理",
-        "score": 1,
+        "slug": "textbook-loader",
+        "label": "積込機械（ローダ）",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       },
       {
-        "slug": "guide-foundation",
-        "label": "基礎工",
-        "score": 1,
+        "slug": "textbook-machinery-overview",
+        "label": "建設機械の概要",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       },
       {
-        "slug": "guide-quality-management",
-        "label": "品質管理",
-        "score": 1,
+        "slug": "textbook-machinery-structure",
+        "label": "建設機械の構造",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       }
     ],
@@ -1241,7 +1285,7 @@
         ]
       }
     ],
-    "guide-public-servant": [
+    "guide-market-value-check": [
       {
         "slug": "guide-age-career",
         "label": "40代・50代の転職",
@@ -1283,45 +1327,216 @@
         ]
       }
     ],
+    "guide-public-engineer-exam-study": [
+      {
+        "slug": "guide-public-engineer-salary-table",
+        "label": "給料表で読む公務員の年収",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-servant",
+        "label": "公務員（土木職）への転職",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-servant-or-private",
+        "label": "公務員土木か民間か",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-quit-public-engineer",
+        "label": "土木公務員を辞めたい",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "public-servant-merit",
+        "label": "土木公務員と1級土木",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-public-engineer-salary-table": [
+      {
+        "slug": "guide-public-engineer-exam-study",
+        "label": "土木職の公務員採用試験、勉強法は出題の構造から逆算する",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-servant",
+        "label": "公務員（土木職）への転職",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-servant-or-private",
+        "label": "公務員土木か民間か",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-quit-public-engineer",
+        "label": "土木公務員を辞めたい",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "public-servant-merit",
+        "label": "土木公務員と1級土木",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-public-servant": [
+      {
+        "slug": "guide-public-engineer-exam-study",
+        "label": "土木職の公務員採用試験、勉強法は出題の構造から逆算する",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-engineer-salary-table",
+        "label": "給料表で読む公務員の年収",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-servant-or-private",
+        "label": "公務員土木か民間か",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-quit-public-engineer",
+        "label": "土木公務員を辞めたい",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "public-servant-merit",
+        "label": "土木公務員と1級土木",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
+    "guide-public-servant-or-private": [
+      {
+        "slug": "guide-public-engineer-exam-study",
+        "label": "土木職の公務員採用試験、勉強法は出題の構造から逆算する",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-engineer-salary-table",
+        "label": "給料表で読む公務員の年収",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-servant",
+        "label": "公務員（土木職）への転職",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-quit-public-engineer",
+        "label": "土木公務員を辞めたい",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "public-servant-merit",
+        "label": "土木公務員と1級土木",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "guide-quality-management": [
       {
-        "slug": "guide-construction-plan",
-        "label": "施工計画",
-        "score": 1,
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 15,
         "signals": [
-          "other_tag"
+          "topic",
+          "guide_overlap"
         ]
       },
       {
-        "slug": "guide-demolition",
-        "label": "解体工事",
-        "score": 1,
+        "slug": "guide-concrete-maintenance",
+        "label": "コンクリート維持管理",
+        "score": 15,
         "signals": [
-          "other_tag"
+          "topic",
+          "guide_overlap"
         ]
       },
       {
-        "slug": "guide-environment-management",
-        "label": "環境保全管理",
-        "score": 1,
+        "slug": "guide-four-management",
+        "label": "施工管理4大管理",
+        "score": 15,
         "signals": [
-          "other_tag"
+          "topic",
+          "guide_overlap"
         ]
       },
       {
-        "slug": "guide-foundation",
-        "label": "基礎工",
-        "score": 1,
+        "slug": "textbook-control-chart",
+        "label": "管理図",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       },
       {
-        "slug": "guide-machinery",
-        "label": "建設機械",
-        "score": 1,
+        "slug": "textbook-histogram",
+        "label": "ヒストグラム",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       }
     ],
@@ -1409,6 +1624,48 @@
         ]
       }
     ],
+    "guide-quit-public-engineer": [
+      {
+        "slug": "guide-public-engineer-exam-study",
+        "label": "土木職の公務員採用試験、勉強法は出題の構造から逆算する",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-engineer-salary-table",
+        "label": "給料表で読む公務員の年収",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-servant",
+        "label": "公務員（土木職）への転職",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-public-servant-or-private",
+        "label": "公務員土木か民間か",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "public-servant-merit",
+        "label": "土木公務員と1級土木",
+        "score": 2,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "guide-resume": [
       {
         "slug": "guide-age-career",
@@ -1453,40 +1710,40 @@
     ],
     "guide-safety-management": [
       {
-        "slug": "guide-construction-plan",
-        "label": "施工計画",
+        "slug": "textbook-safety-excavation-shoring",
+        "label": "掘削・支保工の安全",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-demolition",
-        "label": "解体工事",
+        "slug": "textbook-safety-foundation-bridge",
+        "label": "基礎・鋼橋架設の安全",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-environment-management",
-        "label": "環境保全管理",
+        "slug": "textbook-safety-industrial-safety-law",
+        "label": "安衛法と計画の届出",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-foundation",
-        "label": "基礎工",
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-machinery",
-        "label": "建設機械",
+        "slug": "textbook-safety-management-system",
+        "label": "災害統計・管理体制",
         "score": 1,
         "signals": [
           "other_tag"
@@ -1579,88 +1836,66 @@
     ],
     "guide-schedule-management": [
       {
-        "slug": "guide-construction-plan",
-        "label": "施工計画",
-        "score": 1,
+        "slug": "guide-four-management",
+        "label": "施工管理4大管理",
+        "score": 15,
         "signals": [
-          "other_tag"
+          "topic",
+          "guide_overlap"
         ]
       },
       {
-        "slug": "guide-demolition",
-        "label": "解体工事",
-        "score": 1,
+        "slug": "textbook-network-schedule",
+        "label": "ネットワーク式工程表",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       },
       {
-        "slug": "guide-environment-management",
-        "label": "環境保全管理",
-        "score": 1,
+        "slug": "textbook-schedule-charts",
+        "label": "工程図表",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       },
       {
-        "slug": "guide-foundation",
-        "label": "基礎工",
-        "score": 1,
+        "slug": "textbook-schedule-overview",
+        "label": "工程管理の概要",
+        "score": 10,
         "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-machinery",
-        "label": "建設機械",
-        "score": 1,
-        "signals": [
-          "other_tag"
+          "topic"
         ]
       }
     ],
     "guide-strategy": [],
+    "guide-structural-mechanics-basics": [],
     "guide-study-method": [],
     "guide-study-plan": [],
     "guide-surveying": [
       {
-        "slug": "guide-construction-plan",
-        "label": "施工計画",
-        "score": 1,
+        "slug": "textbook-distance-angle",
+        "label": "測距と測角",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       },
       {
-        "slug": "guide-demolition",
-        "label": "解体工事",
-        "score": 1,
+        "slug": "textbook-leveling",
+        "label": "水準測量・地形測量",
+        "score": 10,
         "signals": [
-          "other_tag"
+          "topic"
         ]
       },
       {
-        "slug": "guide-environment-management",
-        "label": "環境保全管理",
-        "score": 1,
+        "slug": "textbook-surveying-basics",
+        "label": "測量の基本",
+        "score": 10,
         "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-foundation",
-        "label": "基礎工",
-        "score": 1,
-        "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "guide-machinery",
-        "label": "建設機械",
-        "score": 1,
-        "signals": [
-          "other_tag"
+          "topic"
         ]
       }
     ],
@@ -1794,41 +2029,41 @@
     "keyword-2026": [],
     "public-servant-merit": [
       {
-        "slug": "guide-age-career",
-        "label": "40代・50代の転職",
-        "score": 1,
+        "slug": "guide-public-engineer-exam-study",
+        "label": "土木職の公務員採用試験、勉強法は出題の構造から逆算する",
+        "score": 2,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-allowance",
-        "label": "資格手当で年収を上げる",
-        "score": 1,
+        "slug": "guide-public-engineer-salary-table",
+        "label": "給料表で読む公務員の年収",
+        "score": 2,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-buildjob-review",
-        "label": "ビルドジョブの評判と使いどころ",
-        "score": 1,
+        "slug": "guide-public-servant",
+        "label": "公務員（土木職）への転職",
+        "score": 2,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-career",
-        "label": "転職の入口",
-        "score": 1,
+        "slug": "guide-public-servant-or-private",
+        "label": "公務員土木か民間か",
+        "score": 2,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "guide-career-agent-comparison",
-        "label": "転職エージェントを軸で比較",
-        "score": 1,
+        "slug": "guide-quit-public-engineer",
+        "label": "土木公務員を辞めたい",
+        "score": 2,
         "signals": [
           "other_tag"
         ]
@@ -1922,6 +2157,48 @@
         ]
       }
     ],
+    "textbook-byproduct-guideline": [
+      {
+        "slug": "textbook-construction-byproduct-recycle",
+        "label": "建設副産物・リサイクル法",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-waste-disposal-manifest",
+        "label": "廃棄物処理・マニフェスト",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-water-air-soil-pollution",
+        "label": "水質・大気・土壌の保全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-noise-vibration-regulation",
+        "label": "騒音・振動規制",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-cast-in-place-pile": [
       {
         "slug": "textbook-pile-foundation-precast",
@@ -1948,19 +2225,61 @@
         ]
       },
       {
-        "slug": "textbook-machinery-overview",
-        "label": "建設機械の概要",
-        "score": 0,
+        "slug": "textbook-safety-foundation-bridge",
+        "label": "基礎・鋼橋架設の安全",
+        "score": 1,
         "signals": [
-          "fallback_order"
+          "other_tag"
         ]
       },
       {
-        "slug": "textbook-machinery-structure",
-        "label": "建設機械の構造",
-        "score": 0,
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
         "signals": [
-          "fallback_order"
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-coast-port": [
+      {
+        "slug": "textbook-railway-underground",
+        "label": "鉄道・地下構造物",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-tunnel-natm",
+        "label": "トンネル（山岳工法）",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-dam-construction",
+        "label": "ダム",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-water-sewer",
+        "label": "上下水道",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-sabo-landslide",
+        "label": "砂防・地すべり・急傾斜地",
+        "score": 1,
+        "signals": [
+          "other_tag"
         ]
       }
     ],
@@ -2180,6 +2499,14 @@
     ],
     "textbook-construction-byproduct-recycle": [
       {
+        "slug": "textbook-byproduct-guideline",
+        "label": "建設副産物適正処理推進要綱",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
         "slug": "textbook-waste-disposal-manifest",
         "label": "廃棄物処理・マニフェスト",
         "score": 1,
@@ -2204,19 +2531,11 @@
         ]
       },
       {
-        "slug": "textbook-safety-work-environment",
-        "label": "各種工事・作業環境の安全",
-        "score": 0,
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
         "signals": [
-          "fallback_order"
-        ]
-      },
-      {
-        "slug": "textbook-safety-machinery-crane",
-        "label": "建設機械・クレーンの安全",
-        "score": 0,
-        "signals": [
-          "fallback_order"
+          "other_tag"
         ]
       }
     ],
@@ -2441,7 +2760,57 @@
         ]
       }
     ],
+    "textbook-dam-construction": [
+      {
+        "slug": "textbook-sabo-landslide",
+        "label": "砂防・地すべり・急傾斜地",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-tunnel-natm",
+        "label": "トンネル（山岳工法）",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-coast-port",
+        "label": "海岸・港湾",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-river-works",
+        "label": "河川工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-railway-underground",
+        "label": "鉄道・地下構造物",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-demolition": [
+      {
+        "slug": "guide-demolition",
+        "label": "解体工事",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
       {
         "slug": "textbook-leveling",
         "label": "水準測量・地形測量",
@@ -2473,14 +2842,6 @@
         "signals": [
           "fallback_order"
         ]
-      },
-      {
-        "slug": "textbook-grader-compaction",
-        "label": "グレーダ・締固め機械",
-        "score": 0,
-        "signals": [
-          "fallback_order"
-        ]
       }
     ],
     "textbook-distance-angle": [
@@ -2503,6 +2864,14 @@
         ]
       },
       {
+        "slug": "guide-surveying",
+        "label": "測量",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
         "slug": "textbook-grader-compaction",
         "label": "グレーダ・締固め機械",
         "score": 0,
@@ -2513,14 +2882,6 @@
       {
         "slug": "textbook-demolition",
         "label": "解体工事",
-        "score": 0,
-        "signals": [
-          "fallback_order"
-        ]
-      },
-      {
-        "slug": "textbook-crane",
-        "label": "クレーン・高所作業車",
         "score": 0,
         "signals": [
           "fallback_order"
@@ -2553,19 +2914,19 @@
         ]
       },
       {
-        "slug": "textbook-special-concrete-inspection",
-        "label": "特殊コンクリート・検査",
-        "score": 0,
+        "slug": "textbook-safety-foundation-bridge",
+        "label": "基礎・鋼橋架設の安全",
+        "score": 1,
         "signals": [
-          "fallback_order"
+          "other_tag"
         ]
       },
       {
-        "slug": "textbook-rebar-formwork",
-        "label": "鉄筋工・型枠",
-        "score": 0,
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
         "signals": [
-          "fallback_order"
+          "other_tag"
         ]
       }
     ],
@@ -2724,19 +3085,19 @@
         ]
       },
       {
-        "slug": "textbook-special-concrete-inspection",
-        "label": "特殊コンクリート・検査",
-        "score": 0,
+        "slug": "textbook-safety-foundation-bridge",
+        "label": "基礎・鋼橋架設の安全",
+        "score": 1,
         "signals": [
-          "fallback_order"
+          "other_tag"
         ]
       },
       {
-        "slug": "textbook-rebar-formwork",
-        "label": "鉄筋工・型枠",
-        "score": 0,
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
         "signals": [
-          "fallback_order"
+          "other_tag"
         ]
       }
     ],
@@ -2938,6 +3299,14 @@
         ]
       },
       {
+        "slug": "guide-surveying",
+        "label": "測量",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
         "slug": "textbook-demolition",
         "label": "解体工事",
         "score": 0,
@@ -2948,14 +3317,6 @@
       {
         "slug": "textbook-grader-compaction",
         "label": "グレーダ・締固め機械",
-        "score": 0,
-        "signals": [
-          "fallback_order"
-        ]
-      },
-      {
-        "slug": "textbook-crane",
-        "label": "クレーン・高所作業車",
         "score": 0,
         "signals": [
           "fallback_order"
@@ -3169,16 +3530,16 @@
         ]
       },
       {
-        "slug": "textbook-management-subplans",
-        "label": "各種管理計画",
-        "score": 0,
+        "slug": "guide-schedule-management",
+        "label": "工程管理",
+        "score": 10,
         "signals": [
-          "fallback_order"
+          "topic"
         ]
       },
       {
-        "slug": "textbook-quality-overview",
-        "label": "品質管理の概要",
+        "slug": "textbook-management-subplans",
+        "label": "各種管理計画",
         "score": 0,
         "signals": [
           "fallback_order"
@@ -3203,6 +3564,14 @@
         ]
       },
       {
+        "slug": "textbook-byproduct-guideline",
+        "label": "建設副産物適正処理推進要綱",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
         "slug": "textbook-waste-disposal-manifest",
         "label": "廃棄物処理・マニフェスト",
         "score": 1,
@@ -3211,19 +3580,11 @@
         ]
       },
       {
-        "slug": "textbook-safety-work-environment",
-        "label": "各種工事・作業環境の安全",
-        "score": 0,
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
         "signals": [
-          "fallback_order"
-        ]
-      },
-      {
-        "slug": "textbook-safety-machinery-crane",
-        "label": "建設機械・クレーンの安全",
-        "score": 0,
-        "signals": [
-          "fallback_order"
+          "other_tag"
         ]
       }
     ],
@@ -3295,19 +3656,19 @@
         ]
       },
       {
-        "slug": "textbook-machinery-overview",
-        "label": "建設機械の概要",
-        "score": 0,
+        "slug": "textbook-safety-foundation-bridge",
+        "label": "基礎・鋼橋架設の安全",
+        "score": 1,
         "signals": [
-          "fallback_order"
+          "other_tag"
         ]
       },
       {
-        "slug": "textbook-machinery-structure",
-        "label": "建設機械の構造",
-        "score": 0,
+        "slug": "guide-foundation",
+        "label": "基礎工",
+        "score": 1,
         "signals": [
-          "fallback_order"
+          "other_tag"
         ]
       }
     ],
@@ -3443,6 +3804,48 @@
         ]
       }
     ],
+    "textbook-railway-underground": [
+      {
+        "slug": "textbook-coast-port",
+        "label": "海岸・港湾",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-water-sewer",
+        "label": "上下水道",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-tunnel-natm",
+        "label": "トンネル（山岳工法）",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-dam-construction",
+        "label": "ダム",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-sabo-landslide",
+        "label": "砂防・地すべり・急傾斜地",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-rebar-formwork": [
       {
         "slug": "textbook-concrete-placement",
@@ -3528,6 +3931,48 @@
         "score": 10,
         "signals": [
           "topic"
+        ]
+      }
+    ],
+    "textbook-river-works": [
+      {
+        "slug": "textbook-sabo-landslide",
+        "label": "砂防・地すべり・急傾斜地",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-steel-structures",
+        "label": "鋼構造物",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-dam-construction",
+        "label": "ダム",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-tunnel-natm",
+        "label": "トンネル（山岳工法）",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-coast-port",
+        "label": "海岸・港湾",
+        "score": 1,
+        "signals": [
+          "other_tag"
         ]
       }
     ],
@@ -3619,6 +4064,48 @@
         ]
       }
     ],
+    "textbook-sabo-landslide": [
+      {
+        "slug": "textbook-dam-construction",
+        "label": "ダム",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-river-works",
+        "label": "河川工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-steel-structures",
+        "label": "鋼構造物",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-tunnel-natm",
+        "label": "トンネル（山岳工法）",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-coast-port",
+        "label": "海岸・港湾",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-safety-excavation-shoring": [
       {
         "slug": "textbook-safety-machinery-crane",
@@ -3631,6 +4118,14 @@
       {
         "slug": "textbook-safety-scaffolding",
         "label": "足場・通路の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-foundation-bridge",
+        "label": "基礎・鋼橋架設の安全",
         "score": 1,
         "signals": [
           "other_tag"
@@ -3651,10 +4146,44 @@
         "signals": [
           "other_tag"
         ]
+      }
+    ],
+    "textbook-safety-foundation-bridge": [
+      {
+        "slug": "textbook-safety-machinery-crane",
+        "label": "建設機械・クレーンの安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
       },
       {
-        "slug": "textbook-safety-risk-assessment",
-        "label": "リスクアセスメント",
+        "slug": "textbook-safety-work-environment",
+        "label": "各種工事・作業環境の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-excavation-shoring",
+        "label": "掘削・支保工の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-scaffolding",
+        "label": "足場・通路の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-safety-industrial-safety-law",
+        "label": "安衛法と計画の届出",
         "score": 1,
         "signals": [
           "other_tag"
@@ -3713,6 +4242,14 @@
         ]
       },
       {
+        "slug": "textbook-safety-foundation-bridge",
+        "label": "基礎・鋼橋架設の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
         "slug": "textbook-safety-scaffolding",
         "label": "足場・通路の安全",
         "score": 1,
@@ -3731,14 +4268,6 @@
       {
         "slug": "textbook-safety-industrial-safety-law",
         "label": "安衛法と計画の届出",
-        "score": 1,
-        "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "textbook-safety-risk-assessment",
-        "label": "リスクアセスメント",
         "score": 1,
         "signals": [
           "other_tag"
@@ -3855,16 +4384,16 @@
         ]
       },
       {
-        "slug": "textbook-safety-risk-assessment",
-        "label": "リスクアセスメント",
+        "slug": "textbook-safety-foundation-bridge",
+        "label": "基礎・鋼橋架設の安全",
         "score": 1,
         "signals": [
           "other_tag"
         ]
       },
       {
-        "slug": "textbook-safety-management-system",
-        "label": "災害統計・管理体制",
+        "slug": "textbook-safety-risk-assessment",
+        "label": "リスクアセスメント",
         "score": 1,
         "signals": [
           "other_tag"
@@ -3872,6 +4401,14 @@
       }
     ],
     "textbook-safety-work-environment": [
+      {
+        "slug": "textbook-safety-foundation-bridge",
+        "label": "基礎・鋼橋架設の安全",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
       {
         "slug": "textbook-safety-machinery-crane",
         "label": "建設機械・クレーンの安全",
@@ -3899,14 +4436,6 @@
       {
         "slug": "textbook-safety-industrial-safety-law",
         "label": "安衛法と計画の届出",
-        "score": 1,
-        "signals": [
-          "other_tag"
-        ]
-      },
-      {
-        "slug": "textbook-safety-risk-assessment",
-        "label": "リスクアセスメント",
         "score": 1,
         "signals": [
           "other_tag"
@@ -3941,16 +4470,16 @@
         ]
       },
       {
-        "slug": "textbook-management-subplans",
-        "label": "各種管理計画",
-        "score": 0,
+        "slug": "guide-schedule-management",
+        "label": "工程管理",
+        "score": 10,
         "signals": [
-          "fallback_order"
+          "topic"
         ]
       },
       {
-        "slug": "textbook-work-scheduling",
-        "label": "工程計画",
+        "slug": "textbook-management-subplans",
+        "label": "各種管理計画",
         "score": 0,
         "signals": [
           "fallback_order"
@@ -3985,16 +4514,16 @@
         ]
       },
       {
-        "slug": "textbook-management-subplans",
-        "label": "各種管理計画",
-        "score": 0,
+        "slug": "guide-schedule-management",
+        "label": "工程管理",
+        "score": 10,
         "signals": [
-          "fallback_order"
+          "topic"
         ]
       },
       {
-        "slug": "textbook-work-scheduling",
-        "label": "工程計画",
+        "slug": "textbook-management-subplans",
+        "label": "各種管理計画",
         "score": 0,
         "signals": [
           "fallback_order"
@@ -4311,6 +4840,48 @@
         ]
       }
     ],
+    "textbook-steel-structures": [
+      {
+        "slug": "textbook-river-works",
+        "label": "河川工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-sabo-landslide",
+        "label": "砂防・地すべり・急傾斜地",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-dam-construction",
+        "label": "ダム",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-tunnel-natm",
+        "label": "トンネル（山岳工法）",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-coast-port",
+        "label": "海岸・港湾",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-surveying-basics": [
       {
         "slug": "textbook-distance-angle",
@@ -4331,6 +4902,14 @@
         ]
       },
       {
+        "slug": "guide-surveying",
+        "label": "測量",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
         "slug": "textbook-grader-compaction",
         "label": "グレーダ・締固め機械",
         "score": 0,
@@ -4341,14 +4920,6 @@
       {
         "slug": "textbook-crane",
         "label": "クレーン・高所作業車",
-        "score": 0,
-        "signals": [
-          "fallback_order"
-        ]
-      },
-      {
-        "slug": "textbook-demolition",
-        "label": "解体工事",
         "score": 0,
         "signals": [
           "fallback_order"
@@ -4447,7 +5018,57 @@
         ]
       }
     ],
+    "textbook-tunnel-natm": [
+      {
+        "slug": "textbook-coast-port",
+        "label": "海岸・港湾",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-dam-construction",
+        "label": "ダム",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-railway-underground",
+        "label": "鉄道・地下構造物",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-sabo-landslide",
+        "label": "砂防・地すべり・急傾斜地",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-river-works",
+        "label": "河川工事",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      }
+    ],
     "textbook-waste-disposal-manifest": [
+      {
+        "slug": "textbook-byproduct-guideline",
+        "label": "建設副産物適正処理推進要綱",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
       {
         "slug": "textbook-construction-byproduct-recycle",
         "label": "建設副産物・リサイクル法",
@@ -4473,19 +5094,11 @@
         ]
       },
       {
-        "slug": "textbook-safety-work-environment",
-        "label": "各種工事・作業環境の安全",
-        "score": 0,
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
         "signals": [
-          "fallback_order"
-        ]
-      },
-      {
-        "slug": "textbook-safety-machinery-crane",
-        "label": "建設機械・クレーンの安全",
-        "score": 0,
-        "signals": [
-          "fallback_order"
+          "other_tag"
         ]
       }
     ],
@@ -4507,6 +5120,14 @@
         ]
       },
       {
+        "slug": "textbook-byproduct-guideline",
+        "label": "建設副産物適正処理推進要綱",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
         "slug": "textbook-waste-disposal-manifest",
         "label": "廃棄物処理・マニフェスト",
         "score": 1,
@@ -4515,19 +5136,53 @@
         ]
       },
       {
-        "slug": "textbook-safety-work-environment",
-        "label": "各種工事・作業環境の安全",
-        "score": 0,
+        "slug": "guide-environment-management",
+        "label": "環境保全管理",
+        "score": 1,
         "signals": [
-          "fallback_order"
+          "other_tag"
+        ]
+      }
+    ],
+    "textbook-water-sewer": [
+      {
+        "slug": "textbook-railway-underground",
+        "label": "鉄道・地下構造物",
+        "score": 1,
+        "signals": [
+          "other_tag"
         ]
       },
       {
-        "slug": "textbook-safety-machinery-crane",
-        "label": "建設機械・クレーンの安全",
-        "score": 0,
+        "slug": "textbook-coast-port",
+        "label": "海岸・港湾",
+        "score": 1,
         "signals": [
-          "fallback_order"
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-tunnel-natm",
+        "label": "トンネル（山岳工法）",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-dam-construction",
+        "label": "ダム",
+        "score": 1,
+        "signals": [
+          "other_tag"
+        ]
+      },
+      {
+        "slug": "textbook-sabo-landslide",
+        "label": "砂防・地すべり・急傾斜地",
+        "score": 1,
+        "signals": [
+          "other_tag"
         ]
       }
     ],

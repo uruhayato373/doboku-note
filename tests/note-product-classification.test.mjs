@@ -154,6 +154,7 @@ test('主任技士の解説ページは受付中の同資格ココナラへ接�
   `);
   // 経験記述の添削を統合出品へ集約した後は、2級の採点解説からも受付中の出品へ案内する。
   assert.deepEqual(result.grading.map(i=>i.trackLabel), ['offsite-coconala-tensaku-4theme']);
-  assert.deepEqual(result.overview.map(i=>i.trackLabel), ['offsite-coconala-cce-essay-tensaku']);
+  // 概要ガイドは添削の隣に小論文の診断（DN-1222）。傾向のガイドは添削だけ
+  assert.deepEqual(result.overview.map(i=>i.trackLabel), ['offsite-coconala-cce-essay-tensaku', 'offsite-coconala-cce-essay-shindan']);
   assert.deepEqual(result.trends.map(i=>i.trackLabel), ['offsite-coconala-cce-essay-tensaku']);
 });

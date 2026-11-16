@@ -65,13 +65,15 @@ export default async function HomePage() {
   const exams = buildExamCards();
 
   const latest = pickRecent(allMeta, 4);
+  const lawPageCount = allMeta.filter((d) => d.category === 'laws' && d.published !== false).length;
 
   return (
     <PageShell variant="default">
       <Hero />
       <ExamCards exams={exams} />
-      <SectionBlock space="sm" ariaLabel="実務と基準資料">
-        <div className="grid gap-4 md:grid-cols-3">
+      <SectionBlock space="sm" ariaLabel="実務・基準資料・法令・テーマ">
+        {/* 4 つの領域の入口。法令（/laws）だけトップから入口が無かった（2026-11-15・DN-1219） */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-cta="nav" data-cta-label="home-areas">
           {[
             {
               href: '/practice',
@@ -84,6 +86,12 @@ export default async function HomePage() {
               label: 'STANDARDS',
               title: '共通仕様書・工事必携',
               description: `全国${standardsTotals.agencies}機関・${standardsTotals.documents}文書・${standardsTotals.pages.toLocaleString('ja-JP')}ページの全文文字起こしライブラリ`,
+            },
+            {
+              href: '/laws',
+              label: 'LAWS',
+              title: '土木の法令の解説',
+              description: `建設業法・労働安全衛生法・道路法などの解説${lawPageCount}本。試験と実務の両方から条文を読む`,
             },
             {
               href: '/topics',

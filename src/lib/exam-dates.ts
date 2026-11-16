@@ -22,7 +22,7 @@ export function examDayEndUtcMs(examId: string, eventId: string): number {
 }
 
 /** 試験日の始め（JST 00:00:00）の UTC ミリ秒。発表の日など「その日から」切り替えるときに使う */
-export function examDayStartUtcMs(examId: string, eventId: string): number {
+function examDayStartUtcMs(examId: string, eventId: string): number {
   return Date.parse(`${eventDate(examId, eventId)}T00:00:00+09:00`);
 }
 
@@ -58,4 +58,17 @@ export function beforeExamCatch(examId: string, eventId: string, text: string, n
   if (now > examDayEndUtcMs(examId, eventId)) return text;
   const [, month, day] = eventDate(examId, eventId).split('-').map(Number);
   return `${month}/${day}の本試験前に、${text}`;
+}
+
+/** 口頭試験の教材を出す日数。11/4 の発表なら 1/31 まで（口頭試験は 12月上旬〜1月中旬・exam-calendar の periods.oral） */
+const PE_ORAL_SEASON_DAYS = 89;
+
+/**
+ * 技術士第二次試験の口頭試験の教材を出す時期か。筆記合格発表の日（JST の 0 時）から 1 月末まで。
+ * 部門ごとに exam-calendar の writtenResult を引く（建設部門・総監・上下水道とも同じ決め方）。
+ * ビルド時の日付で決まるので、本番に出るのは発表日以降の deploy から。
+ */
+export function isPeOralSeason(category: string, nowMs = Date.now()): boolean {
+  const start = examDayStartUtcMs(category, 'writtenResult');
+  return nowMs >= start && nowMs < start + PE_ORAL_SEASON_DAYS * 86_400_000;
 }

@@ -12,7 +12,8 @@ import egovLaws from '../../config/egov-laws.json';
 import policyRegistry from '../../config/policy-registry.json';
 import { getAllDocsMeta, type DocMeta } from '@/lib/docs';
 import { isCareerDoc } from '@/lib/doc-classifier';
-import { getDocTopics, getTopicBySlug, type Topic } from '@/lib/topics';
+import { getDocTopics, getTopicBySlug, getTopicsByFacet, type Topic } from '@/lib/topics';
+import type { SeriesGroupOf } from '@/lib/next-in-series';
 import { resolveLawSiblings, resolveTopicHubLinks, spreadAcrossCategories, toWired, type TopicHubLink, type WiredDoc } from '@/lib/article-end-wiring';
 import { EGOV_LAW_BASE, articleLabel } from '@/lib/egov-links.mjs';
 import { getPublicDocPath, getPublicDocRouteArea } from '@/lib/content-routes';
@@ -212,5 +213,17 @@ export function resolveArticleEnd(meta: DocMeta, lawIds: readonly string[], pool
     lawPage: meta.category === 'laws' && meta.lawId ? getLawPageData(meta.lawId, meta.lawFamily ?? []) : null,
     topicLinks,
     shownSlugs: new Set([...lawSiblingSlugs, ...topicLinks.flatMap((link) => link.picks.map((doc) => doc.slug))]),
+  };
+}
+
+/** 法令ページの前後ナビの列。/laws と同じく分野・立場のテーマごとの列（NextInSeries の ownGroup・DN-1219） */
+export function lawSeriesGroup(laws: readonly DocMeta[]): SeriesGroupOf {
+  const topics = getTopicsByFacet().flatMap(({ topics: list }) => list).filter((t) => t.facet !== 'law');
+  const lawsOf = (slug: string) => laws.filter((d) => getDocTopics(d).some((x) => x.slug === slug));
+  // 法令ページが 1 本だけのテーマでは前後が無いので、2 本以上あるテーマのうち最初のものを使う
+  return (doc: DocMeta) => {
+    const own = getDocTopics(doc);
+    const topic = topics.find((t) => own.some((x) => x.slug === t.slug) && lawsOf(t.slug).length > 1);
+    return topic ? { heading: topic.label, docs: lawsOf(topic.slug) } : null;
   };
 }

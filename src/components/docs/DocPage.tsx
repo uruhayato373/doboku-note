@@ -5,7 +5,8 @@ import QuestionJumpNav from '@/components/ui/QuestionJumpNav';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import ArticleHeader from '@/components/ui/ArticleHeader/ArticleHeader';
 import { getAllComponents } from '@/lib/component-loader';
-import { getCategoryLabel } from '@/lib/categories';
+import { getCategoryHubPath, getCategoryLabel } from '@/lib/categories';
+import { getCategoryJumps } from '@/components/category/CategoryJumpNav';
 import { classifyDoc, getGroupLabel, isCareerDoc } from '@/lib/doc-classifier';
 import { Metadata } from 'next';
 import { NOT_FOUND_TITLE, normalizeMetaDescription } from '@/lib/metadata';
@@ -326,6 +327,7 @@ export async function renderDocPage(slugStr: string) {
                 category={category}
                 categoryLabel={category ? getCategoryLabel(category) : null}
                 groupLabel={category ? getGroupLabel(category, docGroup) : null}
+                groupHref={category && getCategoryJumps(category).some((j) => j.href === `#sec-${docGroup}`) ? `${getCategoryHubPath(category)}#sec-${docGroup}` : null}
                 description={doc.meta.description}
                 publishedAt={doc.meta.publishedAt || doc.meta.created}
                 updatedAt={doc.meta.updatedAt || doc.meta.dateModified}

@@ -72,6 +72,7 @@ function NoteCta() {
       href={AUTHOR.noteCta.url}
       target="_blank"
       rel={NOTE_LINK_REL}
+      data-cta-placement="author-profile"
       className="flex items-center justify-center gap-2 rounded-full bg-(--accent) px-3.5 py-2 text-[14px] font-bold text-(--paper) transition-opacity hover:opacity-90"
     >
       {AUTHOR.noteCta.label}
