@@ -1723,7 +1723,7 @@
       "work": "shunin-theme-tachiba-erabi",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-001",
@@ -1738,7 +1738,21 @@
         "video": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/video",
         "subtitles": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.json#longform"
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.json#longform",
+      "publishAt": "2026-11-23T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-16T12:51:22.538Z",
+          "digest": "2cd672e01769d0c54c68febd6e1a102197e2d6f36573feb909b41cbe5b425fa8"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-16T12:51:22.538Z",
+        "contentSha256": "6a01914f552b0946a3fffd9b6187197470546d12dfbb2ff6b87b0b102d1ecad9"
+      }
     },
     {
       "id": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.short.point-keitou-1",
