@@ -159,11 +159,13 @@
 
 ### 3.1 共通プリミティブ
 
+記事（`DocPage`）の目次は本文上部にH2だけを表示する。PCは開いたカード、モバイルは畳んだ`Disclosure`で、計測ラベルは両方`article-toc`。右欄は目次を除いた上詰めの束と、本文の長さから0〜6組を見積もる追加回遊で構成する。追加の組はバナー→幅96pxのサムネイル一覧の順に、残りの高さへ均等配分する。右欄全体で記事・案件を再掲せず、候補切れは回遊のみ／広告のみを許す。固定・欄内スクロールは持たない。
+
 | コンポーネント | 役割 | 主な API |
 |---|---|---|
 | `PageShell`（`layout/PageShell.tsx`） | 全ページの chrome（Header/main/Footer）を 1 箇所に集約 | `variant`: `default`（素の main・ページ側が PageHeader+SectionBlock を構成）/ `content`（内側 content rail を持つ単カラム）/ `article`（2カラム記事・内側で `TwoColumnShell` を使う）。`rail`: `780`(既定)/`820`/`860`。`beforeHeader` |
-| `TwoColumnShell`（`layout/TwoColumnShell.tsx`） | **2カラム（本文＋右サイドバー）の単一定義**。docs 記事・category・standards 下層が共用（旧: 各ページが手書きコピペ）。外枠 `max-w-[1280px]`・カラム間 `gap-10`(40px)・サイドバー `w-[316px]`(316px＝300px バナー + 内側 padding 16px)・`zenn-desktop`(≥993px)でのみサイドバー表示——これらレイアウト値の**真実源はこのファイルのみ**（幅・gap・cap を変えるときはここだけ）。サイドバー中身は `aside` prop へ渡す（`<aside>` 要素・幅・表示制御はシェルが所有） | `gutter`: `flush-mobile`（docs・≤576px 外周0でカードフルブリード）/ `default`（category / standards 等・`px-4 sm:px-6 lg:px-10`）。`mainClassName`(既定 `py-10`)。`aside` |
-| `StandardsNavigation`（`standards/StandardsNavigation.tsx`） | `/standards` 下層の階層ナビ。地域ページ＝発行機関、章の無い文書の文書ページ＝同機関の文書へ文脈に応じて切替（原本の逐語ページ＝分冊・PDF ページは 2026-10-26 に公開をやめた）。章を構造化した文書（manifest のある 24 文書）の文書・章・節ページは 編 → 章 → 節 の目次 1 本（表示中の章の節と表示中の節の条は HTML、他の章の節は開いたときに `/standards/{agency}/{document}/toc.json` から読む。縦線は節の段の 1 本だけ・表示中は背景色。見た目は globals.css の `standards-tree` に集約し行ごとにクラスを並べない。判定は `src/lib/standards-tree-nav.ts`）。PC は右サイドバー全体を `sticky top-6`＋内部スクロール、モバイルは同一情報を native `<details>` に畳み、サイドバー非表示時も導線を失わない。ナビ欄には広告・著者情報を置かず、公共資料の閲覧ナビに限定する（`/standards` 配下に転職カード `AffiliateSlot` は置かない・運営者判断） | `agencyId` / `currentDocument?` / `currentChapter?` / `currentSection?` / `variant`（sidebar/mobile） |
+| `TwoColumnShell`（`layout/TwoColumnShell.tsx`） | **2カラム（本文＋右サイドバー）の単一定義**。docs 記事・category・standards 下層が共用（旧: 各ページが手書きコピペ）。外枠 `max-w-[1280px]`・カラム間 `gap-10`(40px)・サイドバー `w-[316px]`(316px＝300px バナー + 内側 padding 16px)・`zenn-desktop`(≥993px)でのみサイドバー表示——これらレイアウト値の**真実源はこのファイルのみ**（幅・gap・cap を変えるときはここだけ）。サイドバー中身は `aside` prop へ渡す（`<aside>` 要素・幅・表示制御はシェルが所有） | `gutter`: `flush-mobile`（docs・≤576px 外周0でカードフルブリード）/ `default`（category / standards 等・`px-4 sm:px-6 lg:px-10`）。`mainClassName`(既定 `py-10`)。`aside`。`stretchAside`（記事だけで使い、右欄の子を本文と同じ高さへ伸ばす） |
+| `StandardsNavigation`（`standards/StandardsNavigation.tsx`） | `/standards` 下層の階層ナビ。地域ページ＝発行機関、章の無い文書の文書ページ＝同機関の文書へ文脈に応じて切替（原本の逐語ページ＝分冊・PDF ページは 2026-10-26 に公開をやめた）。章を構造化した文書（manifest のある 24 文書）の文書・章・節ページは 編 → 章 → 節 の目次 1 本（表示中の章の節と表示中の節の条は HTML、他の章の節は開いたときに `/standards/{agency}/{document}/toc.json` から読む。縦線は節の段の 1 本だけ・表示中は背景色。見た目は globals.css の `standards-tree` に集約し行ごとにクラスを並べない。判定は `src/lib/standards-tree-nav.ts`）。PC の右の欄は固定（sticky）にも欄内スクロールにもしない（2026-11-15・全ページ共通）。上の束（転職バナー・目次・回遊・資格の橋渡し）は上詰め、章・節ページは本文が長いとき「下に続く束」（回遊カード＋転職バナーの組・`RailContinuation`）を残りの高さに均等に並べる（`TwoColumnShell stretchAside`・`standardsSidebarContinuation`）。モバイルは同一情報を native `<details>` に畳み、サイドバー非表示時も導線を失わない。転職は画像バナーだけ（文字の転職カード `AffiliateSlot` は置かない・著者カードは置かない） | `agencyId` / `currentDocument?` / `currentChapter?` / `currentSection?` / `variant`（sidebar/mobile） |
 | `StandardsArticleHeader`（`standards/StandardsArticleHeader.tsx`） | `/standards` の章記事・節ページ用の記事内ヘッダー。編ラベル＋章名を見出しとし、機関名・版を13pxのメタ情報に併記する（原本のページ番号は出さない）。配列のmetaは項目の途中で折り返さない。文書名・構造説明・分冊内部名は反復しない。詳細な原本情報は末尾の出典欄に置き、逐語ページのみ閲覧方法の lead を許容する | `breadcrumb` / `label` / `title` / `lead?` / `meta?（文字列または文字列配列）` |
 | `StandardVerbatimTable`（`standards/StandardVerbatimTable.tsx`） | 章記事の逐語表を原文の空白・改行のまま表示する。背景`--paper`・文字`--ink-body`。横に続く表だけスクロール案内を表示し、キーボードでも読める | `pre`のprops |
 | `PageHeader`（`layout/PageHeader.tsx`） | 下層ページの breadcrumb + eyebrow label + h1 + lead + meta + actions | `variant`: `band`(全幅帯)/`inline`(帯なし)。`titleSize`: `default`/`lg`。`width`: `wide`(既定)/`860`/`780`/`760` |
@@ -252,19 +254,19 @@
 
 **上端揃え（docs/category/standards 共通）**: メイン本文と右サイドバーの上端は揃える。縦位置は `TwoColumnShell` の `aside py-10` ＝ main の上 padding（≥993px で 40px）が唯一の供給源で、**サイドバー先頭要素・main 先頭要素に独自の `margin-top` を持たせない**（先頭が下がって上端がズレる。例: 旧 `SidebarAdBanner` の `mt-3` を撤去して是正）。
 
-**PC 右サイドバー（`/docs`）は 2 ブロック構成**（2026-07 改訂）:
-1. **通常フロー（追従させない）**: note もくじタイル（`HubCtaBanner`・1 枚・utm `-docs-sb`。転職アフィリ枠は 2026-09-26 に撤去。HUB 対応資格 & 非 career 記事のときのみ＝`resolveHubCta` が null で自動非表示）→ 運営者プロフィール。広告・著者は追従させない（「広告が追いかけてくる」体験を避ける）。
-2. **sticky クラスタ（列の最終要素・読中に追従）**: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。`sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto`。ナビゲーションだけ追従させ長記事でも導線を視界に残す。
+**PC 右サイドバー（`/docs`）は 2 ブロック構成**（2026-11-16 改訂・DN-1218）:
+1. **上の束（上詰め）**: note もくじタイル（`HubCtaBanner`・1 枚・utm `-docs-sb`。HUB 対応資格 & 非 career 記事のときのみ）→ 運営者プロフィール → 設問ナビ・カテゴリナビ・ピラーナビ。目次は本文の上（`TableOfContents`）。
+2. **下に続く束**（`RailContinuation`）: 回遊カード（サムネイルつき）＋転職バナーの組を、本文の長さから見積もった数（`articleSidebarGroupCount`）だけ残りの高さへ均等に並べる。親は `flex h-full flex-col`・下の束は `flex-1 justify-around`。
 
-> sticky クラスタの**下に非 sticky 要素を置かない**（下スクロールで届かなくなる過去事故）。だからクラスタは列の末尾に置く。TOC 自身の `max-h` は撤去し高さ制御を sticky コンテナへ一元化。note もくじタイルは記事末尾（`ArticleFooter`・utm `-footer`）と PC サイドバー（utm `-docs-sb`）に各 1 枚を併掲し全 HUB ページで統一（2026-07・個別マガジンタイルは廃止）。
+> **右の欄に sticky・欄内スクロール（`max-h`＋`overflow`）は使わない**（2026-11-15 運営者指示・全ページ共通。「広告が追いかけてくる」体験と、sticky の下に置いた要素が届かなくなる過去事故を避ける）。同じ「上の束＋下に続く束」を基準書の章・節（`standardsSidebarContinuation`）と資格トップ（`categorySidebarContinuation`）にも使い、組の数・カードの選び方・バナーだけの組の散らし方は `src/lib/rail-continuation.ts` に集約する。note もくじタイルは記事末尾（`ArticleFooter`・utm `-footer`）と PC サイドバー（utm `-docs-sb`）に各 1 枚を併掲し全 HUB ページで統一（2026-07・個別マガジンタイルは廃止）。
 
 **`/standards` トップ**: カテゴリページと同じ `card-surface-section` の白い本文面に `PageHeader`（タイトル＋件数のみ・lead なし）・よく使う文書・発行機関一覧（各機関の文書名リンク付き）をまとめる。目視確認件数・文字化け置換文字数など運営向けの品質集計はトップに表示せず、出典は末尾の `StandardsAttribution`（1 行＋開閉）に残す。全国の入口として各発行機関を同列に扱い、特定地域の文書を重複して特出ししない。内部は罫線とリストで区切り、カードを重ねない。右列は `StandardsExplore` で技術テーマ→公開済み実務記事→地域比較・データ利用を案内し、サイト内回遊を担う。テーマ名・記事名・公開状態・URLは既存索引から解決する。モバイルは同じ回遊カードを本文の後に表示し、出典は別カードで末尾に置く。
 
-**基準書の画面の情報密度**: `/standards` 配下のブロックは「本文」か「本文への導線（文書名・章名のリンク一覧）」のどちらか。説明文は H1 直下の短い 1 行まで、出典は `StandardsAttribution` 1 つに集約（見える 1 行＋`Disclosure` に全文・法的リンクは DOM に残す）。転職カードは置かない。
+**基準書の画面の情報密度**: `/standards` 配下のブロックは「本文」か「本文への導線（文書名・章名のリンク一覧）」のどちらか。説明文は H1 直下の短い 1 行まで、出典は `StandardsAttribution` 1 つに集約（見える 1 行＋`Disclosure` に全文・法的リンクは DOM に残す）。転職は画像バナー（右の欄・本文中・本文末。配置は `config/affiliate-placements.json`）だけで、文字の転職カード `AffiliateSlot` は置かない。
 - マーカー契約: `data-standards-list` = `major`（トップのよく使う文書）/ `agencies`（発行機関）/ `documents`（機関ページの文書）/ `chapters`（文書ページの章）、出典は `data-standards-attribution`。回遊計測は `data-cta="nav"` の label `standards-agency` / `standards-document` / `standards-chapter` / `standards-tree` / `standards-section-nav`。
 - ゲート: `npm run check-standards-density`。最初のリスト／本文までの説明文 60 字以内・トップの発行機関リンク 11 以上かつ主要文書 3 以上・出典はちょうど 1 つで見える文字 160 字以内・転職カード 0。
 
-**PC 右サイドバー（`/standards` 下層）は閲覧ナビ専用**: 地域→文書→編・章・節の目次のうち現在地に必要な階層だけを表示する。列全体を `sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto` とし、長い目次も画面内で操作できる。広告・著者カードは置かない。モバイルでは同一リンク群を `<details>` に畳み、右サイドバーが消える幅でも階層移動を維持する。
+**PC 右サイドバー（`/standards` 下層）**: 地域→文書→編・章・節の目次のうち現在地に必要な階層を表示し、固定（sticky）・欄内スクロールは使わない。章・節ページは上の束（転職バナー 3 面・目次・回遊・資格の橋渡し）の下に「下に続く束」（同じ文書の前後の章・近い実務/試験対策の記事・同じ資格の人気/新着と転職バナー。面 `standards-rail-fill`）を本文の長さに応じて並べる。著者カードは置かない。モバイルでは同一リンク群を `<details>` に畳み、右サイドバーが消える幅でも階層移動を維持する（モバイルの「資料内を移動」の中に広告は出さない）。
 
 **基準類の機関・文書一覧**: `TwoColumnShell` の本文をトップと同じ白い面にまとめ、`PageHeader variant="inline"` と読むための一覧を内包する。機関ページの文書は `StandardDocumentCard variant="row"` でカードの入れ子を避ける。文書の先頭は文書名・版・章数・ページ数、続いて章選択。原本SHA-256・分冊構成・同一原本の情報は末尾の `StandardsAttribution` の開閉欄へ置き、判読注記は本文の入口に残す。モバイルの詳細ナビは一覧の後ろに置き、上位階層へのリンクは冒頭のパンくずで提供する。
 

@@ -21,7 +21,8 @@ import { getMagazine, type MagazineId } from './note-magazines';
 import examCalendar from '../../config/exam-calendar.json';
 import { matchNoteProductPage } from './note-product-classification';
 import { extractReferencesSection } from './extract-references';
-import { examDayStartUtcMs, isAfterExamDay } from './exam-dates';
+import { isAfterExamDay } from './exam-dates';
+import { activeSeason, surfaceLeadProductId } from './cta-surfaces';
 
 export interface PlacementSlot {
   readonly magazineId: MagazineId;
@@ -73,36 +74,32 @@ export function resolveCivil1PrimaryLead(nowMs = Date.now()): MagazineId {
 }
 
 /**
- * 技術士一次の主商品（概要・学習計画・解答速報の冒頭と /links のカード）。
- * 本試験当日（JST）までは直前パック、翌日からは年度をまたいで使う過去問 PDF。
+ * 技術士一次の主商品（概要・学習計画・解答速報の冒頭と /links のカード）。試験日での切り替えは
+ * config/site-cta-surfaces.json の pe-first-stage（本試験当日までは直前パック、翌日からは過去問 PDF）。
  */
 function pe1LeadMagazineId(nowMs = Date.now()): MagazineId {
-  return isAfterExamDay('pe-first-stage', 'exam', nowMs) ? 'pe1-takuitsu-pdf' : 'pe1-chokuzen-pack';
+  return surfaceLeadProductId('pe-first-stage', nowMs) ?? 'pe1-takuitsu-pdf';
 }
 
-/** 口頭試験の教材を出す日数。11/4 の発表なら 1/31 まで（口頭試験は 12月上旬〜1月中旬・exam-calendar の periods.oral） */
-const PE_CONSTRUCTION_ORAL_SEASON_DAYS = 89;
-
 /**
- * 技術士（建設部門）の口頭試験の教材を出す時期か（DN-0902・EXP-047）。筆記合格発表の日（JST の 0 時）から 1 月末まで。
- * 合格を知った人が最初に開く資格トップと、自分が受けた科目の過去問に出す。
- * ビルド時の日付で決まるので、本番に出るのは発表日以降の deploy から。
+ * 技術士（建設部門）の口頭試験の教材を出す時期か（DN-0902・EXP-047）。期間は台帳（site-cta-surfaces.json の after-event）。
+ * 合格を知った人が最初に開く資格トップと、自分が受けた科目の過去問に出す。ビルド時の日付で決まる。
  */
-export function isPeConstructionOralSeason(nowMs = Date.now()): boolean {
-  const start = examDayStartUtcMs('pe-construction', 'writtenResult');
-  return nowMs >= start && nowMs < start + PE_CONSTRUCTION_ORAL_SEASON_DAYS * 86_400_000;
+function isPeConstructionOralSeason(nowMs = Date.now()): boolean {
+  return activeSeason('pe-construction', nowMs, 'after-event') !== null;
+}
+
+/** 総監の口頭試験の教材を出す時期か。資格トップと令和の記述式の過去問に出す（期間は台帳） */
+function isTankanOralSeason(nowMs = Date.now()): boolean {
+  return activeSeason('pe-comprehensive-management', nowMs, 'after-event') !== null;
 }
 
 /**
- * 資格トップ（/exam/{資格}・サイドバーとスマホの枠）の商品のうち、試験日で切り替えるもの。切り替えない資格は undefined。
- * 資格トップは直前期に検索から来る入口なので、本試験の日までは直前パックを出す。
- * 主任技士は高額のまるごとパックが PC サイドバーで表示あたり 0.28% しか押されなかった（DN-0703・GA4 2026-09-24〜10-21）。
- * 技術士一次は過去問 PDF に固定されていて、概要・学習計画・/links が出す直前パックと食い違っていた（2026-10-28 の点検）。
+ * 資格トップ（/exam/{資格}・サイドバーとスマホの枠）と /links の先頭の商品。試験日での切り替えも含めて
+ * config/site-cta-surfaces.json が決める（DN-1223）。もくじへ寄せる資格は季節外なら undefined。
  */
 export function categoryLeadMagazineId(category: string, nowMs = Date.now()): MagazineId | undefined {
-  if (category === 'pe-first-stage') return pe1LeadMagazineId(nowMs);
-  if (category === 'concrete-chief-engineer' && !isAfterExamDay('concrete-chief-engineer', 'exam', nowMs)) return 'cce-takuitsu-chokuzen-pack';
-  return undefined;
+  return surfaceLeadProductId(category, nowMs);
 }
 
 /**
@@ -557,6 +554,12 @@ function resolvePlacementRaw(
     if (isR07) {
       inline.unshift(slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-r8'));
     }
+    // 筆記合格発表から 1 月末までは、令和の記述式の過去問の冒頭に口頭試験の教材を出す（建設部門の 1.7 と同じ決め方）。
+    // 末尾は時期によらず記述式の教材のまま。
+    if (/^r0/.test(secondaryMatch[1]!) && isTankanOralSeason()) {
+      const subject = inline.find((s) => getMagazine(s.magazineId) !== null);
+      return { top: slot('tankan-oral-complete', slug, 'top'), ...(subject ? { end: subject } : {}), inline };
+    }
     return {
       inline,
     };
@@ -813,6 +816,9 @@ function resolvePlacementRaw(
           slot(soft, slug, 'inline-2'),
           slot(flagship, slug, 'inline-3'),
         ],
+        // 記事末は一次の有料教材（2026-11-15）。末尾は冒頭と同じ無料の精読ガイドになり、中間の枠は長い記事（h2 5 本以上かつ 8,000 字）
+        // でしか出ないので、2級 16 本・1級 7 本で有料の教材が 1 つも出ていなかった。段階は教科書（12 番）と同じく一次に合わせる。
+        end: slot(isCivil1 ? 'civil-1-ichiji-ronten' : 'civil-2-takuitsu-pdf', slug, 'end'),
       };
     }
     if (isCivil1 && CIVIL_SECONDARY_ADJACENT_GUIDES.has(bare)) {

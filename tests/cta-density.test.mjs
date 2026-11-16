@@ -208,3 +208,34 @@ test('同案件の異なる素材でもピクセル二重送信を検出する',
  const pixels=['mat1','mat2'].map(mat=>`<img data-article-pixel-program="buildjob" src="https://example.com/${mat}" width="1" height="1">`).join('');
  assert.ok(rules(article('<h2>本文</h2>','',pixels)).includes('affiliate-program-pixel-dup'));
 });
+
+
+test('下に続く組でもバナー直後の実カードと案件重複を検査し、明示した広告単独だけ許す', () => {
+ const wrap = groups => `<main><article><div class="prose-blog"><h2>本文</h2></div></article></main><aside class="hidden zenn-desktop:flex"><div data-article-sidebar-cards="2"><div>${imageAd('article-rail','rail')}<div data-article-sidebar-card>上のナビ</div></div><div data-article-sidebar-continuation>${groups}</div></div></aside>`;
+ const group = `<div data-article-sidebar-group>${imageAd('article-rail-2','rail')}<div data-article-sidebar-card>関連記事</div></div>`;
+ assert.deepEqual(rules(wrap(group)), []);
+ assert.ok(rules(wrap(group.replace('data-article-sidebar-card', 'data-not-card'))).includes('affiliate-rail-adjacent'));
+ const adOnly = `<div data-article-sidebar-group data-article-sidebar-ad-only="true">${imageAd('article-rail-2','rail')}</div>`;
+ assert.deepEqual(rules(wrap(adOnly)), []);
+ assert.ok(rules(wrap(adOnly.replace('data-article-sidebar-ad-only="true"', ''))).includes('affiliate-rail-adjacent'));
+ assert.ok(rules(wrap(adOnly.replace(/<\/div>$/, '<p>空のカードではない</p></div>'))).includes('affiliate-rail-adjacent'));
+});
+
+test('過去問の右の欄だけ、組の間を埋める article-rail-fill の同じ案件の繰り返しと、バナーだけの組を許す', () => {
+ const fill = href => `<div data-article-sidebar-group data-article-sidebar-fill="true"><div data-article-affiliate="rail">${affiliate('article-rail-fill', `href="${href}"`)}</div></div>`;
+ const wrap = (groups, questionSeries) => `<main><article><div class="prose-blog"><h2>本文</h2></div></article></main><aside class="hidden zenn-desktop:block"><div data-article-sidebar-cards="2"${questionSeries ? ' data-article-question-series="true"' : ''}><div data-article-affiliate="rail">${affiliate('article-rail', 'href="https://a.example/1"')}</div><div data-article-sidebar-card>上のナビ</div><div data-article-sidebar-continuation>${groups}</div></div></aside>`;
+ const groups = fill('https://a.example/1') + fill('https://a.example/1') + fill('https://a.example/2');
+ // 上の束の案件と同じリンク先・fill 同士の同じリンク先・面の重複・バナーだけの組は、過去問なら違反にならない
+ assert.deepEqual(rules(wrap(groups, true)), []);
+ // ほかの記事では規則を変えない: 同じリンク先の重複・面の重複・バナー直後の実カード
+ const others = rules(wrap(groups, false));
+ assert.ok(others.includes('affiliate-rail-duplicate'));
+ assert.ok(others.includes('affiliate-image-duplicate'));
+ assert.ok(others.includes('affiliate-rail-adjacent'));
+ // 過去問でも、上の束・回遊の組のバナー同士の重複は違反のまま
+ const dup = `<div data-article-sidebar-group><div data-article-affiliate="rail">${affiliate('article-rail-2', 'href="https://a.example/1"')}</div><div data-article-sidebar-card>関連記事</div></div>`;
+ assert.ok(rules(wrap(dup, true)).includes('affiliate-rail-duplicate'));
+ // 過去問でも、回遊の組のバナー直後は実カード
+ const noCard = `<div data-article-sidebar-group><div data-article-affiliate="rail">${affiliate('article-rail-2', 'href="https://a.example/2"')}</div></div>`;
+ assert.ok(rules(wrap(noCard, true)).includes('affiliate-rail-adjacent'));
+});

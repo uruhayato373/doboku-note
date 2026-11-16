@@ -8835,6 +8835,88 @@
       "commit": "850ec3487931",
       "verification": "affiliate:shots --base https://doboku-note.com 252 件 NG 0。本番の実務記事・総監・教科書で枠・ピクセル重複 0・はみ出し 0 を実測",
       "note": "PR #1610・#1614 を本番へ反映（2026-11-15）。記事に本文中 最大 3 枠の横長・右の欄・末尾（横長）。文字の 2 枚カードは撤去し EXP-048 は打ち切り、広告の数の上限は廃止（運営者判断）。水産は配置なし"
+    },
+    {
+      "id": "DN-1213",
+      "at": "2026-11-15",
+      "task": "施工管理基準・品質管理基準の表を、照合済みの表の JSON から読める UI で描く（GFM へ平らにするのをやめる）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "73ada279c01f",
+      "verification": "standards-visual-review: 30 章 pass / check-standard-articles FAIL 0 / 本番 2-1・9-1・9-4・3-8 を PC・スマホで実測",
+      "note": "PR #1609・#1613・#1615 を本番へ反映（2026-11-15）。施工管理基準 30 章の表を見出し＋3 列以下に組み直し、全章が画面判定 pass。原本照合つきの判定は DN-1217 へ"
+    },
+    {
+      "id": "DN-1216",
+      "at": "2026-11-15",
+      "task": "基準書 mlit/sekou-kanri-kijun の 8 章が画面の目視判定で不合格（9-4・3-8・3-6・3-2・6-1・9-1 ほか）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/standards-grouped-tables.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "73ada279c01f",
+      "verification": "standards-visual-review record: mlit/sekou-kanri-kijun 30 章 pass・status exit 0",
+      "note": "PR #1613・#1615 を本番へ反映（2026-11-15）。不合格 8 章を撮り直して全章 pass（台帳 30/30）。9-4 の約 7,200px は撮影スクリプトが表を広げた作りものだった"
+    },
+    {
+      "id": "DN-1219",
+      "at": "2026-11-16",
+      "task": "前後ナビ・パンくず・次の一歩が出ないページを埋める（コンクリート 3 資格・法令・1級二次とガイド）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "906c5492b281",
+      "verification": "npm run test（4322 本・失敗 1 は直して再実行で通過）・npm run build・check-seo-build error 0・check-magazine-cta・check-topic-wiring",
+      "note": "前後ナビ 815 本→0 本（法令は 2 本以上あるテーマの列）・パンくずを ホーム›資格試験›資格›記事型 に・次の一歩の誤った節を修正し 3 資格へ・トップとフッターに法令。PR #1616"
+    },
+    {
+      "id": "DN-1220",
+      "at": "2026-11-16",
+      "task": "索引はあるのに出ていない回遊データを出す（教材→過去問・総監の逆引き 103 本・未使用の JSON 3 本）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "906c5492b281",
+      "verification": "npm run test（4322 本・失敗 1 は直して再実行で通過）・npm run build・check-seo-build error 0・check-magazine-cta・check-topic-wiring",
+      "note": "ガイドに過去問逆引き・1級の教材 21 本に関連用語・5 管理に過去問・総監の逆引き 35 件追加（無い用語 102→79、残りは択一で問われていない）。未使用とされた JSON は MDX 挿入の中間物で使用中。過去問の関連記事は DN-0975。PR #1616"
+    },
+    {
+      "id": "DN-1222",
+      "at": "2026-11-16",
+      "task": "商品の配線と計測の残りを片づける（主任技士の診断・台帳外の note リンク・回遊の表示の計測）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "906c5492b281",
+      "verification": "npm run test（4322 本・失敗 1 は直して再実行で通過）・npm run build・check-seo-build error 0・check-magazine-cta・check-topic-wiring",
+      "note": "主任技士の診断を配線・回遊の面ごとの表示計測・ココナラは出品番号で計測・台帳外 6 件は案内記事と無料記事（報告で区別）・基準書を数えない理由を出力。売り場から外す判断は DN-1223。PR #1616"
+    },
+    {
+      "id": "DN-1223",
+      "at": "2026-11-16",
+      "task": "表示だけでクリックも販売も無い商品（10 月 69 件）を売り場から外すか決める（主任技士・RCCM 以外）",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2fd78a38a27f",
+      "verification": "npm run test 4358 本 失敗 0・npm run build・check-cta-surfaces・check-magazine-cta・check-seo-build error 0・壊した台帳で 4 件の誤りを検出",
+      "note": "売り場から外すのではなく、広い面（資格トップ・横の欄・記事末のタイル・/links の先頭）の案内先を台帳 config/site-cta-surfaces.json で管理する形に決定・実装。RCCM・コンクリート 3 資格・上下水道をもくじ（試験前・口頭試験期はパック）へ。検査 check-cta-surfaces を CI に追加。"
     }
   ]
 }

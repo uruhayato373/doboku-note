@@ -76,6 +76,10 @@ export function auditTopicWiring(root = REPO_ROOT) {
   // products（このテーマの有料教材）は note の商品の正本にある id を指す。打ち間違いはページから黙って消える
   const productList = readDataset(root, 'config.products');
   const noteProductIds = new Set((Array.isArray(productList) ? productList : productList.products ?? []).filter((p) => p.channel === 'note').map((p) => p.id));
+  // サイトに出る商品（getMagazine が返すもの）: 公開済み・noteUrl あり・売り場から外していない
+  const liveNoteProductIds = new Set((Array.isArray(productList) ? productList : productList.products ?? [])
+    .filter((p) => p.channel === 'note' && p.catalog?.published && p.catalog?.noteUrl && !p.catalog?.shelvedAt).map((p) => p.id));
+  let topicsWithProducts = 0;
 
   for (const topic of topics) {
     if (!topic.slug || topicSlugs.has(topic.slug)) issues.push(`topic slug が空または重複: ${topic.slug || '(empty)'}`);
@@ -108,6 +112,11 @@ export function auditTopicWiring(root = REPO_ROOT) {
     }
     for (const id of topic.products ?? []) {
       if (!noteProductIds.has(id)) issues.push(`${topic.slug}: products「${id}」は商品の正本（config.products）の note の商品に無い`);
+    }
+    // 指定した商品が全部売り場から外れると、教材の枠が黙って空になる（2026-11-15 に 4 テーマで判明）。外した商品の参照は来季の復帰に備えて残してよい
+    if ((topic.products ?? []).length > 0) {
+      topicsWithProducts += 1;
+      if (!topic.products.some((id) => liveNoteProductIds.has(id))) issues.push(`${topic.slug}: products に、いまサイトに出る商品が 1 つも無い（全部が未公開か売り場から外した商品）`);
     }
     for (const ref of topic.featuredStandardRefs ?? []) {
       if (!documentRefs.has(ref)) issues.push(`${topic.slug}: 存在しない featuredStandardRefs: ${ref}`);
@@ -147,6 +156,7 @@ export function auditTopicWiring(root = REPO_ROOT) {
     issues,
     summary: {
       topics: topics.length,
+      topicsWithProducts,
       mappedTags: topicTags.size,
       agencies: catalog.agencies.length,
       documents: catalog.documents.length,

@@ -68,6 +68,7 @@ test('代表14ページは同じ計画関数で0〜3本文・実カード分の�
  import { getDoc, getAllDocsMeta } from './src/lib/docs.ts';
  import { planArticleCtas } from './src/lib/article-cta-plan.ts';
  import { articleSidebarPlan, articleSidebarInput } from './src/lib/article-sidebar-plan.ts';
+ import { articleSidebarContinuation } from './src/lib/article-sidebar-continuation.ts';
  import { articleImagePlacements } from './src/lib/article-affiliate-plan.ts';
  import { compile } from '@mdx-js/mdx';
  import { remarkArticleBanners } from './src/lib/article-inline-slots.mjs';
@@ -78,10 +79,12 @@ test('代表14ページは同じ計画関数で0〜3本文・実カード分の�
  for(const slug of samples){
  const doc=await getDoc(slug); if(!doc)throw new Error(slug);
  const p=planArticleCtas(doc,all,${now});
- const cards=articleSidebarPlan(articleSidebarInput(doc.meta,p,all.filter(m=>m.category===doc.meta.category)));
- const images=articleImagePlacements(p.careerPlacements,p.inline.map(s=>s.slot),cards.length);
+ const input=articleSidebarInput(doc.meta,p,all.filter(m=>m.category===doc.meta.category));
+ const cards=articleSidebarPlan(input);
+ const groups=articleSidebarContinuation(input,doc.meta,all,p.body.length,p.careerPlacements);
+ const images=articleImagePlacements(p.careerPlacements,p.inline.map(s=>s.slot),cards.length,groups.map(g=>g.slot));
  const compiled=String(await compile(p.body,{remarkPlugins:[remarkGfm,remarkMath,[remarkArticleBanners,{insertAt:p.inline}]]}));
- rows.push({slug,category:doc.meta.category,slots:images.map(i=>i.placement.slot),cards:cards.length,compiled:compiled.includes('ArticleInlineBanner'),inline:p.inline.length,mid:p.effectiveMidPositions});
+ rows.push({slug,category:doc.meta.category,slots:images.map(i=>i.placement.slot),cards:cards.length+groups.length,compiled:compiled.includes('ArticleInlineBanner'),inline:p.inline.length,mid:p.effectiveMidPositions});
  }
  const longBody=Array.from({length:12},(_,i)=>'## 節'+i+'\\n\\n'+'技術と施工管理の説明。'.repeat(170)+'\\n\\n').join('');
  for(const category of ['pe-comprehensive-management','rccm']) {

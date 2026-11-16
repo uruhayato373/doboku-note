@@ -38,3 +38,39 @@ test('AnalyticsProvider はカードの表示と、クリックの thumb の pla
   assert.ok(src.includes(`'[data-cta="nav"] a[data-thumb]'`), 'カードの監視が無い');
   assert.ok(src.includes('thumb-${anchor.dataset.thumb}'), 'クリックの placement が無い');
 });
+
+test('文字の面は50%で1回、サムネイル面はカードだけを数え、遅延追加でも面を重ねない', async () => {
+  const { transformSync } = await import('esbuild');
+  const { runInNewContext } = await import('node:vm');
+  const src = read('src/components/providers/AnalyticsProvider.tsx');
+  const block = src.slice(src.indexOf('    const navSent ='), src.indexOf('    const mutationObserver ='));
+  const observers = [];
+  const events = [];
+  class Observer {
+    targets = [];
+    constructor(callback, options) { this.callback=callback; assert.equal(options.threshold,0.5); observers.push(this); }
+    observe(target) { this.targets.push(target); }
+    unobserve(target) { this.targets=this.targets.filter(t=>t!==target); }
+  }
+  const surface = label => ({dataset:{ctaLabel:label},thumb:null,matches:()=>true,querySelector(){return this.thumb;},closest(){return this;}});
+  const text = surface('category-nav');
+  const thumbs = surface('rail-related');
+  const delayed = surface('article-toc');
+  const card = {dataset:{thumb:'photo'},matches:()=>false,closest:()=>thumbs};
+  thumbs.thumb=card;
+  const document = {querySelectorAll:selector=>selector.includes('a[data-thumb]')?[card]:[text,thumbs,delayed]};
+  runInNewContext(transformSync(block,{loader:'ts'}).code,{IntersectionObserver:Observer,WeakSet,document,observed:new WeakSet(),observeRevenueCtas:()=>{},gtag:{event:event=>events.push(event)}});
+  const observer=observers[0];
+  assert.deepEqual(observer.targets,[card,text,delayed]);
+  const intersect=(target,ratio)=>observer.callback([{target,isIntersecting:true,intersectionRatio:ratio}]);
+  intersect(text,0.49); assert.equal(events.length,0);
+  intersect(text,0.5); intersect(text,0.8);
+  intersect(card,0.5); intersect(card,0.9);
+  delayed.thumb=card;
+  intersect(delayed,0.5);
+  assert.deepEqual(events.map(e=>[e.action,e.label,e.params.cta_placement]),[
+    ['internal_nav_impression','category-nav','text'],
+    ['internal_nav_impression','rail-related','thumb-photo'],
+  ]);
+  assert.ok(!observer.targets.includes(text) && !observer.targets.includes(card));
+});

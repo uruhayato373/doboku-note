@@ -70,13 +70,15 @@ test('有料NoteLinkも冒頭・枚数の判定に含め、無料NoteLinkは含�
 
 test('個別サイドバー商品を冒頭・本文直後・手書きと重ねず、資格トップの配置は保つ', async () => {
   const { sidebarProduct } = await loadTsModule('src/lib/sidebar-discovery.ts');
-  const doc = {slug:'rccm-guide-study-plan',category:'rccm',group:'guide',tags:[]};
-  const product = sidebarProduct('rccm',doc);
+  // 記事の横の欄の単品は、台帳（site-cta-surfaces.json）で lead: product の資格だけ（RCCM はもくじへ寄せた・DN-1223）
+  const doc = {slug:'pe-first-stage-guide-study-plan',category:'pe-first-stage',group:'guide',tags:[]};
+  const product = sidebarProduct('pe-first-stage',doc);
   assert.ok(product);
-  assert.equal(sidebarProduct('rccm',doc,body), null);
-  assert.equal(sidebarProduct('rccm',doc,body + card(product.id)), null);
-  assert.equal(sidebarProduct('rccm',doc,card(ids[0]) + body)?.id, product.id, '冒頭が消えた場合は未掲出の商品を残す');
-  assert.ok(sidebarProduct('rccm'), 'カテゴリの導線は維持する');
+  assert.equal(sidebarProduct('pe-first-stage',doc,body), null);
+  assert.equal(sidebarProduct('pe-first-stage',doc,body + card(product.id)), null);
+  assert.equal(sidebarProduct('pe-first-stage',doc,card(ids[0]) + body)?.id, product.id, '冒頭が消えた場合は未掲出の商品を残す');
+  assert.ok(sidebarProduct('pe-first-stage'), 'カテゴリの導線は維持する');
+  assert.equal(sidebarProduct('rccm',{slug:'rccm-guide-study-plan',category:'rccm',group:'guide',tags:[]}), null, 'もくじへ寄せた資格の記事の横の欄に単品を出さない');
 });
 
 

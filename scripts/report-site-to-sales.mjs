@@ -6,7 +6,7 @@
  *   GA4 by-label   data/ga4/reports/<日付>.json の cta-clicks-by-label（月一致の窓を優先、無ければ重なり最大）
  *   note 流入元    data/note/referrers/*.json（アカウント全体・取得が最新のファイル）
  *   売上           data/note/sales.json
- *   商品カタログ   src/lib/note-magazines.ts・src/lib/hub-cta.ts・data/note/magazines.json
+ *   商品カタログ   src/lib/note-magazines.ts・config/site-cta-surfaces.json（季節の商品）・data/note/magazines.json
  * 出力: data/business/records/site-to-sales-YYYY-MM.json（追記専用台帳。内容が変われば -rN を足す）と標準出力の表
  *
  * Usage:
@@ -25,8 +25,7 @@ import { listReports } from './lib/metric-reports.mjs';
 import {
   buildResolver,
   buildSiteToSales,
-  parseHubAfterResultProducts,
-  parseHubSeasonalProducts,
+  surfaceSeasonProducts,
   parseNoteCatalog,
   pickGa4Snapshot,
   pickNoteReferral,
@@ -68,10 +67,10 @@ function main() {
 
   const catalog = parseNoteCatalog(readFileSync(join(ROOT, 'src/lib/note-magazines.ts'), 'utf8'));
   if (catalog.length === 0) return fail('note-magazines.ts から商品を 1 件も解析できない（定義の形が変わった）');
-  const hubSource = readFileSync(join(ROOT, 'src/lib/hub-cta.ts'), 'utf8');
-  const hubSeasonal = parseHubSeasonalProducts(hubSource);
-  const hubAfterResult = parseHubAfterResultProducts(hubSource);
-  if (Object.keys(hubSeasonal).length === 0) return fail('hub-cta.ts の HUB seasonal 商品を解析できない');
+  const surfaces = readJson(ROOT, datasetPath('config.site-cta-surfaces'));
+  const hubSeasonal = surfaceSeasonProducts(surfaces, 'before-exam');
+  const hubAfterResult = surfaceSeasonProducts(surfaces, 'after-event');
+  if (Object.keys(hubSeasonal).length === 0) return fail('site-cta-surfaces.json に before-exam の季節の商品が 1 件も無い（台帳の形が変わった）');
   const salesPath = datasetPath('note.sales');
   let salesLog;
   try {

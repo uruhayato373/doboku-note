@@ -2267,6 +2267,70 @@
         "/exam/pe-construction/past-exams/r07-road-ii-1-4",
         "/exam/pe-construction/past-exams/r07-steel-concrete-ii-1-1"
       ]
+    },
+    {
+      "runId": "2026-11-15T22-40-10Z",
+      "collectedAt": "2026-11-15T22:40:10.950Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 36,
+      "accepted": 10,
+      "alreadyIndexed": 18,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/concrete-chief-engineer/primary/construction",
+        "/exam/pe-comprehensive-management/past-exams/h21-secondary",
+        "/exam/pe-fisheries/guide/hissu-kamoku",
+        "/exam/pe-fisheries/guide/sentaku-kamoku",
+        "/exam/surveyor/past-exams/gozen-r04",
+        "/exam/surveyor/past-exams/gozen-r05",
+        "/exam/surveyor/past-exams/gozen-r06",
+        "/exam/surveyor/past-exams/gozen-r08",
+        "/practice/explaining-to-residents-and-council",
+        "/practice/information-system-procurement",
+        "/practice/land-acquisition-compensation",
+        "/practice/landscape-planning-public-works",
+        "/practice/municipal-engineer-qualifications",
+        "/practice/national-prefecture-municipal-roles",
+        "/practice/road-structure-standards",
+        "/practice/supervision-compliance-surveys",
+        "/practice/survey-informatics-overview",
+        "/practice/wood-and-stone-materials",
+        "/exam/pe-construction/past-exams/r07-construction-planning-ii-1-2",
+        "/exam/pe-construction/past-exams/r07-construction-planning-ii-2-1",
+        "/exam/pe-construction/past-exams/r07-construction-planning-iii-2",
+        "/exam/pe-construction/past-exams/r07-geotechnical-ii-1-1",
+        "/exam/pe-construction/past-exams/r07-geotechnical-ii-1-2",
+        "/exam/pe-construction/past-exams/r07-geotechnical-ii-1-3",
+        "/exam/pe-construction/past-exams/r07-geotechnical-ii-1-4",
+        "/exam/pe-construction/past-exams/r07-geotechnical-ii-2-1",
+        "/exam/pe-construction/past-exams/r07-geotechnical-ii-2-2",
+        "/exam/pe-construction/past-exams/r07-geotechnical-iii-1",
+        "/exam/pe-construction/past-exams/r07-geotechnical-iii-2",
+        "/exam/pe-construction/past-exams/r07-required-i-1",
+        "/exam/pe-construction/past-exams/r07-required-i-2",
+        "/exam/pe-construction/past-exams/r07-river-coast-ii-1-1",
+        "/exam/pe-construction/past-exams/r07-river-coast-ii-1-2",
+        "/exam/pe-construction/past-exams/r07-river-coast-ii-1-3",
+        "/exam/pe-construction/past-exams/r07-river-coast-ii-1-4",
+        "/exam/pe-construction/past-exams/r07-river-coast-ii-2-1"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-comprehensive-management/past-exams/h21-secondary",
+        "/practice/road-structure-standards",
+        "/exam/pe-construction/past-exams/r07-construction-planning-ii-1-2",
+        "/exam/pe-construction/past-exams/r07-construction-planning-iii-2",
+        "/exam/pe-construction/past-exams/r07-geotechnical-ii-1-1",
+        "/exam/pe-construction/past-exams/r07-geotechnical-ii-1-4",
+        "/exam/pe-construction/past-exams/r07-geotechnical-iii-1",
+        "/exam/pe-construction/past-exams/r07-required-i-1",
+        "/exam/pe-construction/past-exams/r07-river-coast-ii-1-3",
+        "/exam/pe-construction/past-exams/r07-river-coast-ii-2-1"
+      ]
     }
   ]
 }

@@ -15,6 +15,7 @@
 import { listedCoconalaServices } from './coconala-services';
 import { coconalaAffiliateHref } from '@/config/affiliate-creatives';
 import { beforeExamCatch, isAfterExamDay, withTensakuDeadline } from '@/lib/exam-dates';
+import { activeSeason } from '@/lib/cta-surfaces';
 
 export type OffsiteChannel = 'coconala';
 
@@ -35,8 +36,12 @@ interface OffsiteRule {
   readonly test: RegExp;
   readonly coconala?: readonly string[];
   readonly coconalaCatch?: string;
+  /** 出品ごとに文言を変えるとき（添削と診断を並べるなど）。無い出品は coconalaCatch */
+  readonly coconalaCatchById?: Readonly<Record<string, string>>;
   /** この試験の当日までだけ出す（翌日からのビルドでは出さない）。試験前だけ意味のある導線に使う */
   readonly until?: { readonly examId: string; readonly eventId: string };
+  /** この時期だけ出す（偽の間は次のルールへ進む）。口頭試験のように期間で決まる導線に使う */
+  readonly active?: (nowMs: number) => boolean;
 }
 
 // slug は category prefix 付きの完全形（例: civil-construction-1-secondary-experience-writing-guide）。
@@ -114,9 +119,13 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
   },
   {
     // コンクリート主任技士: 資格トップと小論文ガイド。小論文の添削（骨子からの指導はオプション）。
+    // 2026-11-16: 診断（1本・A/B/C 判定のみ・¥2,000）を添削の隣に足す。/links にしか出ていなかった（DN-1222）
     test: /^concrete-chief-engineer(-guide-(essay|overview))?$/,
-    coconala: ['coconala-cce-essay-tensaku'],
+    coconala: ['coconala-cce-essay-tensaku', 'coconala-cce-essay-shindan'],
     coconalaCatch: withTensakuDeadline('concrete-chief-engineer', 'exam', '小論文を人の目で確かめたい方・骨子から一緒に組み立てたい方へ。'),
+    coconalaCatchById: {
+      'coconala-cce-essay-shindan': withTensakuDeadline('concrete-chief-engineer', 'exam', '書いた小論文1本の出来と、減点の大きい箇所だけを知りたい方へ。'),
+    },
   },
   {
     // 技術士 建設部門の口頭試験ガイド: 筆記合格者が「業務経歴をコンピテンシーの言葉で説明できない」と迷うページ（2026-11-12 運営者指示）。
@@ -137,6 +146,20 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
     test: /^pe-comprehensive-management-(essay-exam-strategy|essay-persona-guide|essay-pattern-cross-year-application|(?:h\d{2}|r\d{2}|pattern)-essay-[a-z-]+)$/,
     coconala: ['coconala-pe-sokan-tensaku'],
     coconalaCatch: '模範論文を読んだら、自分の記述式を管理の視点とトレードオフまで添削します。',
+  },
+  {
+    // 技術士 総監・上下水道の口頭試験: 筆記合格発表から 1 月末まで、資格トップと総監の令和の記述式の過去問に出す。
+    // note の口頭試験の教材と同じ期間（config/site-cta-surfaces.json の after-event）だけ出す。
+    test: /^pe-comprehensive-management(-r0[1-9]-secondary)?$/,
+    coconala: ['coconala-pe-oral-qa'],
+    coconalaCatch: '筆記に合格したら、業務経歴から想定質問と回答の骨子を人の手で整理したい方へ。',
+    active: (now) => activeSeason('pe-comprehensive-management', now, 'after-event') !== null,
+  },
+  {
+    test: /^pe-water-supply$/,
+    coconala: ['coconala-pe-oral-qa'],
+    coconalaCatch: '筆記に合格したら、業務経歴から想定質問と回答の骨子を人の手で整理したい方へ。',
+    active: (now) => activeSeason('pe-water-supply', now, 'after-event') !== null,
   },
   {
     // 技術士 総監の出願（業務経歴票）。業務内容の詳細の添削は建設・上下水道・総監に対応。
@@ -165,7 +188,7 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
  * 非対象ページ・未 listed の商品は空配列（＝非表示）。
  */
 export function resolveOffsiteCta(slug: string, now: number = Date.now()): OffsiteCtaItem[] {
-  const rule = OFFSITE_RULES.find((r) => r.test.test(slug) && !(r.until && isAfterExamDay(r.until.examId, r.until.eventId, now)));
+  const rule = OFFSITE_RULES.find((r) => r.test.test(slug) && !(r.until && isAfterExamDay(r.until.examId, r.until.eventId, now)) && (!r.active || r.active(now)));
   if (!rule) return [];
   const items: OffsiteCtaItem[] = [];
 
@@ -179,7 +202,7 @@ export function resolveOffsiteCta(slug: string, now: number = Date.now()): Offsi
         href: coconalaAffiliateHref(svc.serviceUrl),
         shortTitle: svc.shortTitle,
         price: svc.price,
-        catch: rule.coconalaCatch ?? '',
+        catch: rule.coconalaCatchById?.[id] ?? rule.coconalaCatch ?? '',
         trackLabel: `offsite-${id}`,
         affiliate: true,
       });

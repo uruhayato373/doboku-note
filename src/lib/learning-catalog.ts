@@ -8,7 +8,6 @@ import { listedCoconalaServices } from './coconala-services';
 import { QUALIFICATION_TO_EXAM_KEY } from './exam-brand';
 import { classifyProduct } from './product-classification.mjs';
 import { categoryLeadMagazineId } from './magazine-placement';
-import { sidebarProduct } from './sidebar-discovery';
 import { withTensakuDeadline } from './exam-dates';
 import { qualificationShortLabel } from './qualification-names';
 import { mokujiFor } from './note-mokuji';
@@ -54,15 +53,6 @@ const LINKS_PRIORITY = [
   'civil-construction-1', 'civil-construction-2', 'rccm',
 ];
 
-/**
- * 主力の教材へ直接送る資格（2026-10-31 の決定）。技術士一次は試験日で切り替える（categoryLeadMagazineId＝試験日の翌日から過去問 PDF）。
- * コンクリートの 2 資格は直前パックを固定で出す。
- */
-const FEATURED_NOTE: Record<string, MagazineId | 'season'> = {
-  'pe-first-stage': 'season',
-  'concrete-engineer': 'ce-chokuzen-pack',
-  'concrete-chief-engineer': 'cce-takuitsu-chokuzen-pack',
-};
 
 /** 商品台帳はサーバーで読む。クライアントへ渡すのは公開用の項目だけ。 */
 export function buildLearningCatalog(): LearningQualification[] {
@@ -132,14 +122,15 @@ export function buildLearningCatalog(): LearningQualification[] {
   }
 
   const cards = qualifications.map(({ scope: _scope, ...exam }) => {
-    const featuredId = FEATURED_NOTE[exam.id];
-    const lead = featuredId === 'season' ? categoryLeadMagazineId(exam.id) : featuredId ?? categoryLeadMagazineId(exam.id) ?? sidebarProduct(exam.id)?.id;
+    // 先頭の教材は台帳（config/site-cta-surfaces.json・DN-1223）: 試験の前後の季節の商品、単品・パックへ案内する資格はその商品。
+    // もくじへ寄せる資格の季節外は先頭を決めず、もくじ（全教材の目次）を先に見せる。
+    const lead = categoryLeadMagazineId(exam.id);
     // 既存の主教材を先頭へ。電子書籍も折りたたみの外から選べるようにする。
     const notes = exam.materials.filter((product) => product.channel === 'note');
     const first = exam.materials.find((product) => product.id === lead) ?? notes[0] ?? exam.materials[0];
     const book = exam.materials.find((product) => product.channel === 'kindle');
     const preview = [first, book, ...notes, ...exam.materials].filter((product): product is LearningProduct => !!product);
-    const featured = featuredId ? exam.materials.find((product) => product.id === lead) ?? null : null;
+    const featured = lead ? exam.materials.find((product) => product.id === lead) ?? null : null;
     return { ...exam, featured, materials: [...new Map(preview.map((product) => [product.id, product])).values()] };
   });
   const rank = (id: string) => { const i = LINKS_PRIORITY.indexOf(id); return i === -1 ? LINKS_PRIORITY.length : i; };

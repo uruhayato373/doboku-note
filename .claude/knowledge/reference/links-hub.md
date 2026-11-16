@@ -46,7 +46,7 @@
 1. **ページ見出しと目次**: 目次は各カード（`#exam-{資格 id}`）へのページ内リンク
 2. **資格カード**（`QualificationCard`）: モバイル 1 列／`md` 2 列／`xl` 3 列。1 枚の行は次の順
    - ①**無料で学ぶ** → 資格のカテゴリハブ（`getCategoryHubPath`）
-   - ②**主力の教材**（`featured`）→ 発信の優先資格だけ。技術士一次は `categoryLeadMagazineId`（試験日の翌日から過去問 PDF）、コンクリート技士は `ce-chokuzen-pack`、主任技士は `cce-takuitsu-chokuzen-pack`（`FEATURED_NOTE`）
+   - ②**主力の教材**（`featured`）→ 広い面の台帳（`config/site-cta-surfaces.json`）がいま出す商品。試験の前後の季節の商品（直前パック・口頭試験対策など）と、もくじの無い資格（`lead: product`）の主商品。もくじへ寄せる資格の季節外は出さず、③のもくじを先に見せる（2026-11-16・DN-1223）
    - ③**note もくじ** → `config/note-funnel.json` の資格別 L2。②がある資格は「全教材の目次を見る」として残す（コンクリート 3 資格は共通のコンクリート資格もくじ）
    - ④**Kindle**（公開中の本があれば 1 冊）、⑤**ココナラ**（資格の `examScope` に当たる受付中の出品。PR 表記つき。主任技士の添削は受付締めを題名の下に出す）
    - 残りの教材は「ほかの教材（N件）」の折りたたみへ。商品を追加しても /links の改修は不要
@@ -85,7 +85,7 @@ GA4 で SNS bio → /links → 各送客先の流入経路を区別するため�
 ## 6. メンテ手順
 
 - **商品を足す・止める**: `config/products.json` を更新するだけでよい（公開・受付中のものだけが自動で載る）。複数資格に当たる note 教材は `config/product-lineup.json` の分類に足す
-- **主力の教材を替える**: `src/lib/learning-catalog.ts` の `FEATURED_NOTE` を更新し、`tests/learning-catalog.test.mjs` の期待も直す
+- **主力の教材を替える**: `config/site-cta-surfaces.json` の資格の行（`product`・`seasons`）を直し、`npm run check-cta-surfaces` と `tests/learning-catalog.test.mjs` を通す
 - **発信の優先順を変える**: `LINKS_PRIORITY` と同テスト、`e2e/mobile.spec.ts` の 1 画面目の期待を同時に直す（運営者の判断。経緯をこの文書に残す）
 - **確認**: `npm run type-check`、`node --test tests/learning-catalog.test.mjs`、dev の `/links` をスマホ幅で目視する
 

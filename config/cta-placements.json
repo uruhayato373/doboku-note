@@ -80,6 +80,19 @@
         ]
       }
     },
+    "category-rail-fill": {
+      "label": "カテゴリ サイドバー（下に続く組。案件は上の束の繰り返し・ピクセルなし）",
+      "status": "active",
+      "pageKind": "category",
+      "pixelPriority": null,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
     "category-career-section": {
       "label": "カテゴリ キャリア欄",
       "status": "retired",
@@ -411,6 +424,19 @@
         "mobile": []
       }
     },
+    "standards-rail-fill": {
+      "label": "公的基準 章・節の右欄（下に続く組。案件は右欄の繰り返し・ピクセルなし）",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": null,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
     "standards-list-rail-2": {
       "label": "公的基準 一覧・文書の回遊カードの間",
       "status": "active",
@@ -545,6 +571,19 @@
       "status": "active",
       "pageKind": "doc",
       "pixelPriority": 15,
+      "sizes": {
+        "pc": [
+          "300x250",
+          "250x250"
+        ],
+        "mobile": []
+      }
+    },
+    "article-rail-fill": {
+      "label": "記事の右欄（過去問の組の間を埋める）",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 16,
       "sizes": {
         "pc": [
           "300x250",

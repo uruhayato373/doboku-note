@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-10-08T13:29:51.903Z",
+  "generated_at": "2026-11-15T22:00:55.669Z",
   "summary": {
     "total_keywords": 662,
     "published_keywords": 662,
@@ -69,8 +69,8 @@
         ]
       },
       {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
         "score": 13,
         "signals": [
           "section",
@@ -228,94 +228,104 @@
     ],
     "outcome-indicators": [
       {
-        "slug": "budget-planning",
-        "label": "予算計画",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "business-continuity-plan",
-        "label": "BCP・BCM",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "concurrent-engineering",
-        "label": "コンカレントエンジニアリング",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "construction-plan",
-        "label": "工事計画",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "cost-benefit-analysis",
         "label": "費用便益分析（CBA）",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "cost-effectiveness-analysis",
+        "label": "費用効果分析",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "dcf-method",
+        "label": "DCF法",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "internal-rate-of-return",
+        "label": "内部収益率法",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "npv-net-present-value",
+        "label": "NPV",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
           "tag"
         ]
       }
     ],
     "output-indicators": [
       {
-        "slug": "budget-planning",
-        "label": "予算計画",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "business-continuity-plan",
-        "label": "BCP・BCM",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "concurrent-engineering",
-        "label": "コンカレントエンジニアリング",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "construction-plan",
-        "label": "工事計画",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "cost-benefit-analysis",
         "label": "費用便益分析（CBA）",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "cost-effectiveness-analysis",
+        "label": "費用効果分析",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "dcf-method",
+        "label": "DCF法",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "internal-rate-of-return",
+        "label": "内部収益率法",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "npv-net-present-value",
+        "label": "NPV",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
           "tag"
         ]
       }
@@ -858,8 +868,8 @@
         ]
       },
       {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
         "score": 13,
         "signals": [
           "section",
@@ -1314,8 +1324,8 @@
         ]
       },
       {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
         "score": 13,
         "signals": [
           "section",
@@ -1325,6 +1335,16 @@
       }
     ],
     "cost-effectiveness-analysis": [
+      {
+        "slug": "cost-benefit-analysis",
+        "label": "費用便益分析（CBA）",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "dcf-method",
         "label": "DCF法",
@@ -1364,61 +1384,56 @@
           "exam",
           "tag"
         ]
-      },
+      }
+    ],
+    "cost-benefit-analysis": [
       {
-        "slug": "market-research",
-        "label": "市場調査",
+        "slug": "cost-effectiveness-analysis",
+        "label": "費用効果分析",
         "score": 13,
         "signals": [
           "section",
           "exam",
           "tag"
         ]
-      }
-    ],
-    "cost-benefit-analysis": [
+      },
       {
-        "slug": "budget-planning",
-        "label": "予算計画",
-        "score": 11,
+        "slug": "dcf-method",
+        "label": "DCF法",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "business-continuity-plan",
-        "label": "BCP・BCM",
-        "score": 11,
+        "slug": "internal-rate-of-return",
+        "label": "内部収益率法",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "concurrent-engineering",
-        "label": "コンカレントエンジニアリング",
-        "score": 11,
+        "slug": "npv-net-present-value",
+        "label": "NPV",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "construction-plan",
-        "label": "工事計画",
-        "score": 11,
+        "slug": "outcome-indicators",
+        "label": "アウトカム指標",
+        "score": 13,
         "signals": [
           "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
-        "score": 11,
-        "signals": [
-          "section",
+          "exam",
           "tag"
         ]
       }
@@ -4605,42 +4620,46 @@
       {
         "slug": "balance-sheet",
         "label": "貸借対照表（B/S）",
-        "score": 11,
+        "score": 15,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
         "slug": "cash-flow-statement",
         "label": "キャッシュ・フロー計算書（C/F）",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
         "slug": "depreciation",
         "label": "減価償却",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "ifrs",
-        "label": "国際会計基準（IFRS）",
-        "score": 11,
-        "signals": [
-          "section",
+          "exam",
           "tag"
         ]
       },
       {
         "slug": "income-statement",
         "label": "損益計算書（P/L）",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "ifrs",
+        "label": "国際会計基準（IFRS）",
         "score": 11,
         "signals": [
           "section",
@@ -4692,9 +4711,10 @@
       {
         "slug": "accounting-principles",
         "label": "企業会計原則",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       }
@@ -4731,8 +4751,8 @@
         ]
       },
       {
-        "slug": "ifrs",
-        "label": "国際会計基準（IFRS）",
+        "slug": "accounting-principles",
+        "label": "企業会計原則",
         "score": 13,
         "signals": [
           "section",
@@ -4741,11 +4761,12 @@
         ]
       },
       {
-        "slug": "accounting-principles",
-        "label": "企業会計原則",
-        "score": 11,
+        "slug": "ifrs",
+        "label": "国際会計基準（IFRS）",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       }
@@ -4883,8 +4904,8 @@
         ]
       },
       {
-        "slug": "ifrs",
-        "label": "国際会計基準（IFRS）",
+        "slug": "accounting-principles",
+        "label": "企業会計原則",
         "score": 15,
         "signals": [
           "section",
@@ -4893,11 +4914,13 @@
         ]
       },
       {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 14,
+        "slug": "ifrs",
+        "label": "国際会計基準（IFRS）",
+        "score": 15,
         "signals": [
-          "exam"
+          "section",
+          "exam",
+          "tag"
         ]
       }
     ],
@@ -6568,6 +6591,36 @@
     ],
     "asch-conformity-experiment": [
       {
+        "slug": "herzberg-two-factor-theory",
+        "label": "ハーズバーグの二要因理論",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "maslow-hierarchy-of-needs",
+        "label": "マズローの欲求5段階説",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "mcgregor-xy-theory",
+        "label": "マクレガーのX理論とY理論",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "achievement-organization",
         "label": "達成型組織",
         "score": 11,
@@ -6579,33 +6632,6 @@
       {
         "slug": "content-process",
         "label": "コンテント／プロセス",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "diagnostic-od",
-        "label": "診断型組織開発",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "dialogic-od",
-        "label": "対話型組織開発",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "divisional-organization",
-        "label": "事業部制組織",
         "score": 11,
         "signals": [
           "section",
@@ -7999,44 +8025,48 @@
     ],
     "telework": [
       {
+        "slug": "discretionary-work-system",
+        "label": "裁量労働制",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "labor-standards-act",
+        "label": "労働基準法",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "work-life-balance",
+        "label": "ワーク・ライフ・バランス",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "workers-compensation-insurance",
+        "label": "労災保険制度",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "annual-salary-system",
         "label": "年俸制",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "child-rearing-support-act",
-        "label": "次世代育成支援対策推進法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "child-support-act",
-        "label": "子ども・子育て支援法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "childcare-nursing-leave-act",
-        "label": "育児・介護休業法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "disability-discrimination-act",
-        "label": "障害者差別解消法",
         "score": 11,
         "signals": [
           "section",
@@ -8970,44 +9000,48 @@
     ],
     "youth-employment-act": [
       {
-        "slug": "annual-salary-system",
-        "label": "年俸制",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "child-rearing-support-act",
-        "label": "次世代育成支援対策推進法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "child-support-act",
-        "label": "子ども・子育て支援法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "childcare-nursing-leave-act",
         "label": "育児・介護休業法",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "disability-discrimination-act",
-        "label": "障害者差別解消法",
+        "slug": "equal-employment-act",
+        "label": "男女雇用機会均等法",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "women-empowerment-act",
+        "label": "女性活躍推進法",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "work-life-balance",
+        "label": "ワーク・ライフ・バランス",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "annual-salary-system",
+        "label": "年俸制",
         "score": 11,
         "signals": [
           "section",
@@ -10259,11 +10293,12 @@
         ]
       },
       {
-        "slug": "annual-salary-system",
-        "label": "年俸制",
-        "score": 11,
+        "slug": "telework",
+        "label": "テレワーク",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       }
@@ -10833,6 +10868,16 @@
     ],
     "lgbtq": [
       {
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "positive-action",
         "label": "ポジティブアクション",
         "score": 13,
@@ -10869,18 +10914,19 @@
           "section",
           "tag"
         ]
-      },
-      {
-        "slug": "disability-employment",
-        "label": "障害者雇用",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
       }
     ],
     "unconscious-bias": [
+      {
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
+        "score": 15,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "positive-action",
         "label": "ポジティブアクション",
@@ -10919,18 +10965,49 @@
           "section",
           "tag"
         ]
-      },
-      {
-        "slug": "continued-employment-system",
-        "label": "継続雇用制度",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
       }
     ],
     "internship": [
+      {
+        "slug": "internal-job-posting",
+        "label": "社内公募制",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "multi-track-hr-system",
+        "label": "複線型人事制度",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "recruitment-management",
+        "label": "採用管理",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "self-declaration-system",
+        "label": "自己申告制度",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "career-track-system",
         "label": "総合職・一般職",
@@ -10939,45 +11016,19 @@
           "section",
           "tag"
         ]
-      },
-      {
-        "slug": "continued-employment-system",
-        "label": "継続雇用制度",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "disability-employment",
-        "label": "障害者雇用",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "diversity-management",
-        "label": "ダイバーシティ・マネジメント",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
       }
     ],
     "gender-gap": [
+      {
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "positive-action",
         "label": "ポジティブアクション",
@@ -11010,15 +11061,6 @@
       {
         "slug": "continued-employment-system",
         "label": "継続雇用制度",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "disability-employment",
-        "label": "障害者雇用",
         "score": 11,
         "signals": [
           "section",
@@ -11127,44 +11169,48 @@
     ],
     "diversity-management": [
       {
-        "slug": "career-track-system",
-        "label": "総合職・一般職",
-        "score": 11,
+        "slug": "positive-action",
+        "label": "ポジティブアクション",
+        "score": 15,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "continued-employment-system",
-        "label": "継続雇用制度",
-        "score": 11,
+        "slug": "unconscious-bias",
+        "label": "アンコンシャス・バイアス",
+        "score": 15,
         "signals": [
           "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "disability-employment",
-        "label": "障害者雇用",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
-        "score": 11,
-        "signals": [
-          "section",
+          "exam",
           "tag"
         ]
       },
       {
         "slug": "gender-gap",
         "label": "ジェンダーギャップ",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "lgbtq",
+        "label": "LGBTQ",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "career-track-system",
+        "label": "総合職・一般職",
         "score": 11,
         "signals": [
           "section",
@@ -11222,6 +11268,16 @@
     ],
     "positive-action": [
       {
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
+        "score": 15,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "unconscious-bias",
         "label": "アンコンシャス・バイアス",
         "score": 15,
@@ -11254,16 +11310,6 @@
       {
         "slug": "gender-gap",
         "label": "ジェンダーギャップ",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "lgbtq",
-        "label": "LGBTQ",
         "score": 13,
         "signals": [
           "section",
@@ -11423,6 +11469,16 @@
     ],
     "formal-informal-organization": [
       {
+        "slug": "human-relations-management",
+        "label": "人間関係管理",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "hawthorne-experiment",
         "label": "ホーソン実験",
         "score": 12,
@@ -11458,21 +11514,22 @@
           "section",
           "tag"
         ]
-      },
-      {
-        "slug": "diversity-management",
-        "label": "ダイバーシティ・マネジメント",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
       }
     ],
     "recruitment-management": [
       {
         "slug": "internal-job-posting",
         "label": "社内公募制",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "internship",
+        "label": "インターンシップ",
         "score": 13,
         "signals": [
           "section",
@@ -11491,26 +11548,18 @@
         ]
       },
       {
+        "slug": "self-declaration-system",
+        "label": "自己申告制度",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "career-track-system",
         "label": "総合職・一般職",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "continued-employment-system",
-        "label": "継続雇用制度",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "disability-employment",
-        "label": "障害者雇用",
         "score": 11,
         "signals": [
           "section",
@@ -11520,52 +11569,25 @@
     ],
     "self-declaration-system": [
       {
-        "slug": "career-track-system",
-        "label": "総合職・一般職",
-        "score": 11,
+        "slug": "internal-job-posting",
+        "label": "社内公募制",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "continued-employment-system",
-        "label": "継続雇用制度",
-        "score": 11,
+        "slug": "internship",
+        "label": "インターンシップ",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
-      {
-        "slug": "disability-employment",
-        "label": "障害者雇用",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "diversity-management",
-        "label": "ダイバーシティ・マネジメント",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      }
-    ],
-    "internal-job-posting": [
       {
         "slug": "multi-track-hr-system",
         "label": "複線型人事制度",
@@ -11594,19 +11616,52 @@
           "section",
           "tag"
         ]
-      },
+      }
+    ],
+    "internal-job-posting": [
       {
-        "slug": "continued-employment-system",
-        "label": "継続雇用制度",
-        "score": 11,
+        "slug": "internship",
+        "label": "インターンシップ",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "disability-employment",
-        "label": "障害者雇用",
+        "slug": "multi-track-hr-system",
+        "label": "複線型人事制度",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "recruitment-management",
+        "label": "採用管理",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "self-declaration-system",
+        "label": "自己申告制度",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "career-track-system",
+        "label": "総合職・一般職",
         "score": 11,
         "signals": [
           "section",
@@ -11868,6 +11923,16 @@
     ],
     "human-relations-management": [
       {
+        "slug": "formal-informal-organization",
+        "label": "公式組織・非公式組織",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "career-track-system",
         "label": "総合職・一般職",
         "score": 11,
@@ -11897,15 +11962,6 @@
       {
         "slug": "diversity-management",
         "label": "ダイバーシティ・マネジメント",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
         "score": 11,
         "signals": [
           "section",
@@ -12097,8 +12153,8 @@
         ]
       },
       {
-        "slug": "location-limited-employee",
-        "label": "勤務地限定社員制度",
+        "slug": "internship",
+        "label": "インターンシップ",
         "score": 13,
         "signals": [
           "section",
@@ -12107,8 +12163,8 @@
         ]
       },
       {
-        "slug": "recruitment-management",
-        "label": "採用管理",
+        "slug": "location-limited-employee",
+        "label": "勤務地限定社員制度",
         "score": 13,
         "signals": [
           "section",
@@ -12921,47 +12977,52 @@
     ],
     "problem-setting-ability": [
       {
-        "slug": "360-degree-evaluation",
-        "label": "多面評価（360度評価）",
-        "score": 11,
+        "slug": "hierarchical-training",
+        "label": "階層別研修",
+        "score": 15,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "appraisal-three-principles",
-        "label": "人事考課の三原則",
-        "score": 11,
+        "slug": "ojt-off-jt",
+        "label": "OJT/OFF-JT",
+        "score": 15,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "attitude-appraisal",
-        "label": "情意考課",
-        "score": 11,
+        "slug": "job-execution-ability",
+        "label": "職務遂行能力",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "career-ownership",
-        "label": "キャリアオーナーシップ",
-        "score": 11,
+        "slug": "problem-solving-ability",
+        "label": "問題解決能力",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "career-path",
-        "label": "キャリアパス",
-        "score": 11,
+        "slug": "self-development",
+        "label": "自己啓発",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       }
@@ -13050,8 +13111,8 @@
         ]
       },
       {
-        "slug": "specialized-training",
-        "label": "専門別研修",
+        "slug": "problem-setting-ability",
+        "label": "課題設定能力",
         "score": 15,
         "signals": [
           "section",
@@ -13060,9 +13121,9 @@
         ]
       },
       {
-        "slug": "e-learning",
-        "label": "eラーニング",
-        "score": 13,
+        "slug": "specialized-training",
+        "label": "専門別研修",
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -13149,8 +13210,8 @@
         ]
       },
       {
-        "slug": "specialized-training",
-        "label": "専門別研修",
+        "slug": "problem-setting-ability",
+        "label": "課題設定能力",
         "score": 13,
         "signals": [
           "section",
@@ -13159,8 +13220,8 @@
         ]
       },
       {
-        "slug": "task-based-training",
-        "label": "課題別研修",
+        "slug": "specialized-training",
+        "label": "専門別研修",
         "score": 13,
         "signals": [
           "section",
@@ -13347,6 +13408,16 @@
         ]
       },
       {
+        "slug": "problem-setting-ability",
+        "label": "課題設定能力",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "problem-solving-ability",
         "label": "問題解決能力",
         "score": 13,
@@ -13359,15 +13430,6 @@
       {
         "slug": "360-degree-evaluation",
         "label": "多面評価（360度評価）",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "appraisal-three-principles",
-        "label": "人事考課の三原則",
         "score": 11,
         "signals": [
           "section",
@@ -13865,17 +13927,18 @@
         ]
       },
       {
-        "slug": "360-degree-evaluation",
-        "label": "多面評価（360度評価）",
-        "score": 11,
+        "slug": "problem-setting-ability",
+        "label": "課題設定能力",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "appraisal-three-principles",
-        "label": "人事考課の三原則",
+        "slug": "360-degree-evaluation",
+        "label": "多面評価（360度評価）",
         "score": 11,
         "signals": [
           "section",
@@ -15354,30 +15417,32 @@
         ]
       },
       {
+        "slug": "mass-communication",
+        "label": "マス・コミュニケーション",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "personal-communication",
+        "label": "パーソナル・コミュニケーション",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "public-acceptance",
         "label": "社会的受容（PA）",
         "score": 12,
         "signals": [
           "section",
           "exam"
-        ]
-      },
-      {
-        "slug": "citizen-participation",
-        "label": "住民参加",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "disclosure-request",
-        "label": "開示請求",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
         ]
       }
     ],
@@ -15471,8 +15536,8 @@
         ]
       },
       {
-        "slug": "public-relations",
-        "label": "パブリック・リレーションズ（PR）",
+        "slug": "mass-communication",
+        "label": "マス・コミュニケーション",
         "score": 13,
         "signals": [
           "section",
@@ -15483,47 +15548,51 @@
     ],
     "personal-communication": [
       {
-        "slug": "citizen-participation",
-        "label": "住民参加",
-        "score": 11,
+        "slug": "mass-communication",
+        "label": "マス・コミュニケーション",
+        "score": 15,
         "signals": [
           "section",
+          "exam",
           "tag"
+        ]
+      },
+      {
+        "slug": "public-acceptance",
+        "label": "社会的受容（PA）",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
         ]
       },
       {
         "slug": "communication-control",
         "label": "コミュニケーション・コントロール",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "communication-planning",
-        "label": "コミュニケーション計画",
-        "score": 11,
+        "slug": "public-relations",
+        "label": "パブリック・リレーションズ（PR）",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "disclosure-request",
-        "label": "開示請求",
-        "score": 11,
+        "slug": "stakeholder",
+        "label": "ステーク・ホルダー",
+        "score": 13,
         "signals": [
           "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "disclosure-standards",
-        "label": "開示基準",
-        "score": 11,
-        "signals": [
-          "section",
+          "exam",
           "tag"
         ]
       }
@@ -15536,6 +15605,26 @@
         "signals": [
           "section",
           "exam"
+        ]
+      },
+      {
+        "slug": "mass-communication",
+        "label": "マス・コミュニケーション",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "personal-communication",
+        "label": "パーソナル・コミュニケーション",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
         ]
       },
       {
@@ -15556,69 +15645,55 @@
           "section",
           "tag"
         ]
-      },
-      {
-        "slug": "communication-control",
-        "label": "コミュニケーション・コントロール",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "communication-planning",
-        "label": "コミュニケーション計画",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
       }
     ],
     "mass-communication": [
       {
-        "slug": "citizen-participation",
-        "label": "住民参加",
-        "score": 11,
+        "slug": "personal-communication",
+        "label": "パーソナル・コミュニケーション",
+        "score": 15,
         "signals": [
           "section",
+          "exam",
           "tag"
+        ]
+      },
+      {
+        "slug": "public-acceptance",
+        "label": "社会的受容（PA）",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
         ]
       },
       {
         "slug": "communication-control",
         "label": "コミュニケーション・コントロール",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "communication-planning",
-        "label": "コミュニケーション計画",
-        "score": 11,
+        "slug": "public-relations",
+        "label": "パブリック・リレーションズ（PR）",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "disclosure-request",
-        "label": "開示請求",
-        "score": 11,
+        "slug": "stakeholder",
+        "label": "ステーク・ホルダー",
+        "score": 13,
         "signals": [
           "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "disclosure-standards",
-        "label": "開示基準",
-        "score": 11,
-        "signals": [
-          "section",
+          "exam",
           "tag"
         ]
       }
@@ -15943,8 +16018,8 @@
         ]
       },
       {
-        "slug": "public-relations",
-        "label": "パブリック・リレーションズ（PR）",
+        "slug": "mass-communication",
+        "label": "マス・コミュニケーション",
         "score": 14,
         "signals": [
           "section",
@@ -15952,9 +16027,9 @@
         ]
       },
       {
-        "slug": "communication-control",
-        "label": "コミュニケーション・コントロール",
-        "score": 12,
+        "slug": "personal-communication",
+        "label": "パーソナル・コミュニケーション",
+        "score": 14,
         "signals": [
           "section",
           "exam"
@@ -26450,6 +26525,26 @@
     ],
     "hazid": [
       {
+        "slug": "fmea",
+        "label": "FMEA",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "fta",
+        "label": "フォールトツリー分析（FTA）",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "bowtie-analysis",
         "label": "ボウタイ分析",
         "score": 11,
@@ -26470,24 +26565,6 @@
       {
         "slug": "eta",
         "label": "イベントツリー分析（ETA）",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "fmea",
-        "label": "FMEA",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "fta",
-        "label": "フォールトツリー分析（FTA）",
         "score": 11,
         "signals": [
           "section",
@@ -27303,44 +27380,48 @@
     ],
     "s-plus-3e": [
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "agenda-21",
-        "label": "アジェンダ21",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biodiversity-basic-act",
-        "label": "生物多様性基本法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "carbon-neutral",
         "label": "カーボンニュートラル",
+        "score": 15,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "energy",
+        "label": "エネルギー",
+        "score": 15,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "climate-change-international",
+        "label": "気候変動・国際対応",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "top-runner-system",
+        "label": "トップランナー制度",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "acid-rain",
+        "label": "酸性雨",
         "score": 11,
         "signals": [
           "section",
@@ -27447,44 +27528,48 @@
     ],
     "agenda-21": [
       {
+        "slug": "ecological-footprint",
+        "label": "エコロジカル・フットプリント",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "sdgs",
+        "label": "持続可能な開発目標（SDGs）",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "un-human-environment-conf",
+        "label": "国連人間環境会議",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "unced-earth-summit",
+        "label": "国連環境開発会議（UNCED）",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 12,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biodiversity-basic-act",
-        "label": "生物多様性基本法",
-        "score": 12,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
-        "score": 12,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "climate-change-adaptation-act",
-        "label": "気候変動適応法",
-        "score": 12,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "climate-change-international",
-        "label": "気候変動・国際対応",
         "score": 12,
         "signals": [
           "section",
@@ -27494,44 +27579,48 @@
     ],
     "ecological-footprint": [
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "agenda-21",
         "label": "アジェンダ21",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "biodiversity-basic-act",
-        "label": "生物多様性基本法",
-        "score": 11,
+        "slug": "sdgs",
+        "label": "持続可能な開発目標（SDGs）",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "slug": "un-human-environment-conf",
+        "label": "国連人間環境会議",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
+        "slug": "unced-earth-summit",
+        "label": "国連環境開発会議（UNCED）",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "acid-rain",
+        "label": "酸性雨",
         "score": 11,
         "signals": [
           "section",
@@ -27571,20 +27660,22 @@
         ]
       },
       {
-        "slug": "energy-conservation-act",
-        "label": "省エネ法",
-        "score": 13,
+        "slug": "s-plus-3e",
+        "label": "S+3E",
+        "score": 15,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 12,
+        "slug": "top-runner-system",
+        "label": "トップランナー制度",
+        "score": 13,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       }
@@ -27733,6 +27824,36 @@
     ],
     "top-runner-system": [
       {
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "energy",
+        "label": "エネルギー",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "s-plus-3e",
+        "label": "S+3E",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "acid-rain",
         "label": "酸性雨",
         "score": 11,
@@ -27744,33 +27865,6 @@
       {
         "slug": "agenda-21",
         "label": "アジェンダ21",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biodiversity-basic-act",
-        "label": "生物多様性基本法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
         "score": 11,
         "signals": [
           "section",
@@ -28595,8 +28689,8 @@
         ]
       },
       {
-        "slug": "sdgs",
-        "label": "持続可能な開発目標（SDGs）",
+        "slug": "s-plus-3e",
+        "label": "S+3E",
         "score": 15,
         "signals": [
           "section",
@@ -28605,9 +28699,9 @@
         ]
       },
       {
-        "slug": "unced-earth-summit",
-        "label": "国連環境開発会議（UNCED）",
-        "score": 13,
+        "slug": "sdgs",
+        "label": "持続可能な開発目標（SDGs）",
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -28647,8 +28741,8 @@
         ]
       },
       {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
         "score": 13,
         "signals": [
           "section",
@@ -28657,8 +28751,8 @@
         ]
       },
       {
-        "slug": "rio-declaration",
-        "label": "環境と開発に関するリオ宣言",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 13,
         "signals": [
           "section",
@@ -28689,6 +28783,16 @@
         ]
       },
       {
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "climate-change-international",
         "label": "気候変動・国際対応",
         "score": 13,
@@ -28699,21 +28803,12 @@
         ]
       },
       {
-        "slug": "rio-declaration",
-        "label": "環境と開発に関するリオ宣言",
+        "slug": "ecological-footprint",
+        "label": "エコロジカル・フットプリント",
         "score": 13,
         "signals": [
           "section",
           "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
-        "signals": [
-          "section",
           "tag"
         ]
       }
@@ -28860,8 +28955,8 @@
         ]
       },
       {
-        "slug": "rio-declaration",
-        "label": "環境と開発に関するリオ宣言",
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
         "score": 13,
         "signals": [
           "section",
@@ -31231,6 +31326,16 @@
     ],
     "esd": [
       {
+        "slug": "environmental-basic-act",
+        "label": "環境基本法",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "environmental-basic-plan",
         "label": "環境基本計画",
         "score": 13,
@@ -31261,15 +31366,6 @@
       {
         "slug": "carbon-pricing",
         "label": "環境税・カーボンプライシング",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "consensus-instruments",
-        "label": "合意的手法",
         "score": 11,
         "signals": [
           "section",
@@ -31629,6 +31725,26 @@
     ],
     "surcharge": [
       {
+        "slug": "eco-label",
+        "label": "環境ラベル",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "carbon-pricing",
+        "label": "環境税・カーボンプライシング",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "backcasting",
         "label": "バックキャスティング",
         "score": 12,
@@ -31647,26 +31763,8 @@
         ]
       },
       {
-        "slug": "eco-label",
-        "label": "環境ラベル",
-        "score": 12,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "end-of-pipe",
         "label": "エンドオブパイプ型対策",
-        "score": 12,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "environmental-basic-act",
-        "label": "環境基本法",
         "score": 12,
         "signals": [
           "section",
@@ -31852,6 +31950,16 @@
         ]
       },
       {
+        "slug": "environmental-basic-act",
+        "label": "環境基本法",
+        "score": 20,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
         "score": 17,
@@ -31864,16 +31972,6 @@
       {
         "slug": "polluter-pays-principle",
         "label": "汚染者負担原則（PPP）",
-        "score": 14,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "precautionary-principle",
-        "label": "予防原則",
         "score": 14,
         "signals": [
           "section",
@@ -31924,8 +32022,8 @@
         ]
       },
       {
-        "slug": "extended-producer-responsibility",
-        "label": "拡大生産者責任（EPR）",
+        "slug": "environmental-basic-act",
+        "label": "環境基本法",
         "score": 16,
         "signals": [
           "section",
@@ -31936,44 +32034,48 @@
     ],
     "environmental-basic-act": [
       {
-        "slug": "backcasting",
-        "label": "バックキャスティング",
-        "score": 12,
+        "slug": "environmental-standards",
+        "label": "環境基準",
+        "score": 20,
         "signals": [
           "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "consensus-instruments",
-        "label": "合意的手法",
-        "score": 12,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "eco-label",
-        "label": "環境ラベル",
-        "score": 12,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "end-of-pipe",
-        "label": "エンドオブパイプ型対策",
-        "score": 12,
-        "signals": [
-          "section",
+          "exam",
           "tag"
         ]
       },
       {
         "slug": "environmental-basic-plan",
         "label": "環境基本計画",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "esd",
+        "label": "ESD",
+        "score": 13,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "air-pollution-control-act",
+        "label": "大気汚染防止法",
+        "score": 13,
+        "signals": [
+          "chapter",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "backcasting",
+        "label": "バックキャスティング",
         "score": 12,
         "signals": [
           "section",

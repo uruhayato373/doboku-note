@@ -19,6 +19,7 @@ import StandardChapterPager from '@/components/standards/StandardChapterPager';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import { StandardsEndBanner, StandardsInlineBanner } from '@/components/standards/StandardsAffiliateBanners';
 import { planInlineSlots, withInlineSlots } from '@/lib/standards-inline-slots.mjs';
+import { standardsSidebarContinuation } from '@/lib/standards-sidebar-continuation';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
@@ -99,7 +100,10 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   const presentation = getStandardChapterPresentation(agency, document, target);
   const markdown = presentation?.markdown ?? readStandardChapterMarkdown(agency, document, target);
   const preamble = target.splitBySection ? standardChapterPreamble(markdown) : null;
-  const inlineSlots = target.splitBySection ? [] : planInlineSlots(markdown).insertAt.map(({ slot }) => slot);
+  const inlinePlan = target.splitBySection ? null : planInlineSlots(markdown);
+  const inlineSlots = inlinePlan ? inlinePlan.insertAt.map(({ slot }) => slot) : [];
+  // 節ページに分けた章は本文が節の一覧なので、右の欄の下に続く束の見積もりは前置きの字数だけ
+  const railGroups = standardsSidebarContinuation(entry, target, inlinePlan?.chars ?? preamble?.length ?? 0);
   const relatedTopics = getTopicsForStandardText(entry, markdown);
   const referencedDocuments = getReferencedStandardDocuments(entry, markdown);
 
@@ -137,7 +141,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
     >
       <TwoColumnShell
         gutter="flush-mobile"
-        aside={<StandardsNavigation agencyId={agency} currentDocument={entry} currentChapter={target} inlineSlots={inlineSlots} />}
+        stretchAside
+        aside={<StandardsNavigation agencyId={agency} currentDocument={entry} currentChapter={target} inlineSlots={inlineSlots} railGroups={railGroups} />}
       >
         <SectionCard
           as="article"

@@ -9,6 +9,7 @@ import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklin
 import PeConstructionSubjectLinks from '@/components/ui/PeConstructionSubjectLinks';
 import SectionKeywords from '@/components/ui/SectionKeywords';
 import PillarNavCard from '@/components/ui/PillarNavCard';
+import PillarExamQuestions from '@/components/ui/PillarExamQuestions/PillarExamQuestions';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
 import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import { type ResolvedHubCta } from '@/lib/hub-cta';
@@ -17,13 +18,15 @@ import { type OffsiteCtaItem } from '@/lib/offsite-cta';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import ExamYearNav from '@/components/ui/TextbookNav/ExamYearNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
+import { categoryNavPlan } from '@/lib/category-nav-plan';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
 import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
 import RelatedArticles from '@/components/ui/RelatedArticles';
 import TopicHubLinks from '@/components/ui/TopicHubLinks/TopicHubLinks';
-import { resolveArticleEnd } from '@/lib/law-wiring';
+import { lawSeriesGroup, resolveArticleEnd } from '@/lib/law-wiring';
 import LawPageSections from '@/components/laws/LawPageSections';
+import LawStandards from '@/components/laws/LawStandards';
 import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import RelatedTools from '@/components/ui/RelatedTools';
@@ -126,10 +129,16 @@ export default function ArticleFooter({
       {/* 前の記事・次に読む 1 本（資格ページと同じ並び＝category-curriculum.json）。教科書・過去問は上の前後ナビが担う */}
       {slugStr && !isCareer && docGroup !== 'textbook' && (
         <div className="mt-8">
-          <NextInSeries category={category} currentSlug={slugStr} categoryArticles={categoryArticles} />
+          <NextInSeries category={category} currentSlug={slugStr} categoryArticles={categoryArticles} ownGroup={category === 'laws' ? lawSeriesGroup(categoryArticles) : undefined} />
         </div>
       )}
       {lawPage && <LawPageSections data={lawPage} />}
+      {/* 法令ページ → 基準資料（テーマ経由・DN-1221） */}
+      {category === 'laws' && (
+        <div className="mt-8">
+          <LawStandards doc={meta} />
+        </div>
+      )}
       {!isCareer && category && <RelatedTools category={category} slug={slugStr} />}
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
       {references.length > 0 && (
@@ -156,6 +165,13 @@ export default function ArticleFooter({
       {examTopic && (
         <div className="mt-8">
           <ExamTopicBridge question={examTopic} />
+        </div>
+      )}
+
+      {/* PE pillar（5 管理）: この管理の過去問（直近 3 年度の設問へ直接・DN-1220） */}
+      {category === 'pe-comprehensive-management' && docGroup === 'pillar' && (
+        <div className="mt-8">
+          <PillarExamQuestions slug={slugStr} />
         </div>
       )}
 
@@ -249,18 +265,18 @@ export default function ArticleFooter({
       {/* Civil 2級 guide（キャリア記事）: 記事末 CTA なし（GKS はサイドバー上部に集約＝1 ページ 1 GKS ピクセル）。
           本文インライン CareerAffiliate（href のみ）は MDX 側で維持。 */}
 
-      {/* Civil textbook: 前後章ナビ + 過去問逆引き（1級・2級共通） */}
-      {isCivilConstructionCategory(category) &&
-        docGroup === 'textbook' && (
-          <>
-            <div className="mt-8">
-              <TextbookNav currentSlug={slugStr} categoryArticles={categoryArticles} />
-            </div>
-            <div className="mt-8">
-              <PastExamBacklinks category={category} currentSlug={slugStr} />
-            </div>
-          </>
-        )}
+      {/* 教科書: 前後章ナビ（全資格・textbook_order 順。コンクリート 3 資格の 20 本に無かった・DN-1219） */}
+      {docGroup === 'textbook' && (
+        <div className="mt-8">
+          <TextbookNav currentSlug={slugStr} categoryArticles={categoryArticles} />
+        </div>
+      )}
+      {/* 1級・2級土木: 過去問逆引き（教科書とガイド。ガイドの索引 47 件が未表示だった・DN-1220） */}
+      {isCivilConstructionCategory(category) && (docGroup === 'textbook' || docGroup === 'guide') && !isCareer && (
+        <div className="mt-8">
+          <PastExamBacklinks category={category} currentSlug={slugStr} />
+        </div>
+      )}
 
       {/* guide/pillar/secondary/textbook: カテゴリナビカード（モバイル） */}
       {hasCategoryNavCard &&
@@ -268,7 +284,9 @@ export default function ArticleFooter({
         (DISCOVERY_CATEGORIES.includes(category) || docGroup === 'guide' ||
           docGroup === 'pillar' ||
           docGroup === 'secondary' ||
-          docGroup === 'textbook') && (
+          docGroup === 'textbook') &&
+        // 並べる記事が無い資格・領域（法令・商品の少ない資格のガイド）で空の折りたたみだけが出ていた（2026-11-15）
+        categoryNavPlan({ variant: 'mobile', category, currentSlug: slugStr, docGroup, categoryArticles }).length > 0 && (
           /* モバイルでは記事一覧が数千 px になり本文の倍近い高さを占めるため（textbook 実測 5,000px）、
              既定は閉じた details にして、開きたい人だけ展開させる。デスクトップはサイドバーで表示済み。 */
           <Disclosure
@@ -293,7 +311,7 @@ export default function ArticleFooter({
           要点記事の行き止まりを解消し、カテゴリ hub の sec-* アンカー（直前期 note CTA と同居）へ送る。 */}
       {docGroup === 'guide' && category && !isCareer && (
         <div className="mt-8">
-          <NextStepNav category={category} />
+          <NextStepNav category={category} docs={categoryArticles} currentSlug={slugStr} />
         </div>
       )}
 

@@ -177,6 +177,8 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 既存note・関連記事・一次過去問の学習予約位置と同じ／隣の区切りを避ける。空出力になった手書きCareerAffiliateの周囲も安全側で避ける。JSX・detailsの内部、問題文と解答の間、条文とSourceRefの間は挿入禁止。共通の字数選択は `standards-inline-slots.mjs`、記事のAST境界は `article-inline-slots.mjs`、既存CTAの計画は `article-cta-plan.ts`。管理画面 `/affiliate/pages` も同じ最終計画を読む。
 
+過去問（一次・二次の年度別・総監など。`isQuestionSeries`）だけは、右欄の下に続く束で回遊の組が尽きて約2,000pxおきの組の数に足りない分を、バナーだけの組（面 `article-rail-fill`）で埋める。案件は右欄に出ている案件を順に繰り返し、前後の組と同じ案件は避け、計測ピクセルは付けない（`articleSidebarContinuation`・検査は右欄の容器の `data-article-question-series` で判別し、`article-rail-fill` だけ重複とバナー直後の実カードの規則を外す）。
+
 記事のピクセルは実際の表示幅で出る素材から案件ごとに1面を選び、末尾画像→本文画像→右欄の順で1発に集約する（`article-affiliate-pixels.mjs`）。リンクとピクセルの素材・ASPを揃え、リサイズで同じ案件を再送しない。
 
 ### 配置原則
@@ -218,7 +220,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 どの案件がどの面に出ているかの一覧はここに写さない（写すと配置ルールと食い違う。2026-11-03 の整理で、案件 4 行の表が RCCM・建築・コンストワークの変更を反映していなかった・DN-0950）。いま開いているルール（`until` が空か未来のもの）を `config/affiliate-placements.json` で読む。同じファイルの `pairs` は 2 枚並べ（EXP-048）、`splits` は面の案件を訪問者ごとに別の案件と半々で出す出し分け（EXP-055。割り当ては `src/lib/program-split-experiment.mjs`・描画は `ProgramSplitBanner`・代わりの案件にはピクセルを付けない）。案件の提携状態・報酬・条件は `data/affiliate/catalog.json`。
 
-公的基準の章・節の本文中は `src/lib/standards-inline-slots.mjs` の規則で最大 3 枠（buildjob・constwork・rsg-kensetsu）にする。区切り候補は表の後、2 つ目以降の `##` の前、`###`/`####` の前、段落の切れ目で、1 枠目は 600 字超、以降は 1,400 字ごと（2026-11-15 に表の組み直しで字数が減ったため 1,800 から詰めた・DN-1213）、残り 600 字未満には置かない。PC の右欄は上端に buildjob、目次と回遊の間に kensetsu-jobs、回遊カードの間（1 枚なら後）に dainishinsotsu-agent-neo を置く。固定と欄内スクロールは全ページで撤去し、dx-consulting は基準書の読者に合わないので出さない（運営者判断）。本文末は kensetsu-jobs、一覧・文書ページは右欄の上端に buildjob、回遊の間に dainishinsotsu-agent-neo と既存の本文末を置く。数の上限は 2026-11-15 に廃止（運営者判断）。位置・重複・ピクセルは検査する。ページごとの枠・案件・GA4 の可視表示は管理画面 `/affiliate/pages` で確かめる。配置の真実源は `config/affiliate-placements.json`（PL-0065〜0073）である。
+公的基準の章・節の本文中は `src/lib/standards-inline-slots.mjs` の規則で最大 3 枠（buildjob・constwork・rsg-kensetsu）にする。区切り候補は表の後、2 つ目以降の `##` の前、`###`/`####` の前、段落の切れ目で、1 枠目は 600 字超、以降は 1,400 字ごと（2026-11-15 に表の組み直しで字数が減ったため 1,800 から詰めた・DN-1213）、残り 600 字未満には置かない。PC の右欄は上端に buildjob、目次と回遊の間に kensetsu-jobs、回遊カードの間（1 枚なら後）に dainishinsotsu-agent-neo を置く。固定と欄内スクロールは全ページで撤去し、dx-consulting は基準書の読者に合わないので出さない（運営者判断）。本文末は kensetsu-jobs、一覧・文書ページは右欄の上端に buildjob、回遊の間に dainishinsotsu-agent-neo と既存の本文末を置く。数の上限は 2026-11-15 に廃止（運営者判断）。章・節ページは右欄の上の束（上記 3 面）の下に、記事と同じ「下に続く束」（回遊カード＋転職バナーの組）を本文の字数に応じた数だけ並べる（面 `standards-rail-fill`・案件は上の 3 面の繰り返し・ピクセルなし・`standardsSidebarContinuation`。2026-11-16）。位置・重複・ピクセルは検査する。ページごとの枠・案件・GA4 の可視表示は管理画面 `/affiliate/pages` で確かめる。配置の真実源は `config/affiliate-placements.json`（PL-0065〜0073）である。
 
 ビルドジョブ指名記事（civil-1/civil-2）は期間に関係なく同社の広告に揃える。既存mat NTZCH/NTJWYは9/8にA8広告作成画面のdoboku-note（websiteId=002）と一致を確認。8/31は増額終了日で、リンクの失効日ではない。現行のBuildJob報酬は13,534円、60歳未満・WEB申込後30日以内の無料面談完了が条件。
 
@@ -586,6 +588,18 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 - **観測**: 右欄の 3 枠は固定表示の箱の y=1,446px 以降にあり画面外だった。本文中は見出しが 2 未満の 252 / 837 章で 0 枠だった。GA4 11/08 版の直近 28 日では、章ページ 1,472 セッションに対し本文末の可視表示は 172 だった。
 - **決定**: PL-0056〜0062・PL-0064 を 2026-11-15 で閉じ、PL-0065〜0073 を開始する。本文中は字数と残り字数で最大 3 枠、本文末は建設JOBs。右の欄は上端 buildjob・目次と回遊の間 kensetsu-jobs・回遊の間 dainishinsotsu-agent-neo。固定とスクロールは全ページで撤去し、dx-consulting は基準書の読者に合わないので出さない（運営者判断）。一覧・文書は右欄の上端 buildjob・回遊の間 dainishinsotsu-agent-neo と既存の本文末。
 - **見直し**: DN-1171 の読み始めは DN-1214 の本番反映日から 28 日後。PL-0065〜0073 を、`affiliate_cta_impression` / `_click` と A8 の発生で読む。
+
+### 2026-11-16（DN-1218 段 3・基準書の章と節・資格トップの右の欄）
+
+- **決定**: 面 `standards-rail-fill`・`category-rail-fill`（`config/cta-placements.json`・ピクセルなし）を追加。配置ルールは足さず、基準書は上の束の 3 面の案件（buildjob・kensetsu-jobs・dainishinsotsu-agent-neo）を、資格トップは上の束の転職バナーの案件を順に繰り返す。ピクセルは1ページ・1案件・1発のまま増やさない
+- **組の数**: 基準書は字数×1.4 px/字（`articleSidebarGroupCount` の `standards`）・約2,000pxに1組・上限20。資格トップは一覧の記事数が16本以上で1組・40本以上で2組（`categoryRailGroupCount`）
+- **検査の範囲**: この 2 種の右の欄は `check-cta-density` の右欄検査（`data-article-sidebar-cards`）の対象にしていない（同じ案件の繰り返しを許す面で、検査側に繰り返しの宣言が要るため。検査の拡張は別判断）。構造（バナーの直後は実カード）は記事と同じ部品 `RailContinuation` で保つ
+
+### 2026-11-16（DN-1218・過去問の右の欄を転職バナーで埋める）
+
+- **運営者判断**: 過去問だけ、右欄の下に続く束の組の間を転職バナーで埋め、同じ案件の繰り返しを許す（ほかの記事は右欄で同じ案件を2回出さないまま）
+- **観測**: 開発サーバーの実測で、過去問一次 `/exam/civil-construction-1/primary/r02-a`（高さ約42,000px）は回遊の候補が尽きて7組になり、組の間が約5,400px空いた。ガイドは9組・最大の空き約1,800pxで目標どおり
+- **決定**: 面 `article-rail-fill`（`config/cta-placements.json`・ピクセル優先は右欄の最後）を追加。配置ルールは足さず、右欄に出ている案件を順に使う。ピクセルは1ページ・1案件・1発のまま増やさない
 
 ---
 

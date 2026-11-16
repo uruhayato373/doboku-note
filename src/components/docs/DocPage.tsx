@@ -5,7 +5,8 @@ import QuestionJumpNav from '@/components/ui/QuestionJumpNav';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import ArticleHeader from '@/components/ui/ArticleHeader/ArticleHeader';
 import { getAllComponents } from '@/lib/component-loader';
-import { getCategoryLabel } from '@/lib/categories';
+import { getCategoryHubPath, getCategoryLabel } from '@/lib/categories';
+import { getCategoryJumps } from '@/components/category/CategoryJumpNav';
 import { classifyDoc, getGroupLabel, isCareerDoc } from '@/lib/doc-classifier';
 import { Metadata } from 'next';
 import { NOT_FOUND_TITLE, normalizeMetaDescription } from '@/lib/metadata';
@@ -39,6 +40,7 @@ import MidArticleCta from '@/components/ui/MidArticleCta/MidArticleCta';
 import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
 import { lawsOfArticle } from '@/lib/article-laws';
 import type { Pluggable } from 'unified';
+import { articleSidebarContinuation } from '@/lib/article-sidebar-continuation';
 import { articleSidebarInput } from '@/lib/article-sidebar-plan';
 import { planArticleCtas } from '@/lib/article-cta-plan';
 import { remarkArticleBanners } from '@/lib/article-inline-slots.mjs';
@@ -294,8 +296,10 @@ export async function renderDocPage(slugStr: string) {
         }
       : baseComponents;
 
-  const sidebarCards = buildArticleSidebarCards(articleSidebarInput(doc.meta, articlePlan, categoryArticles));
-  const images = articleImagePlacements(careerPlacements, inline.map(s => s.slot), sidebarCards.length);
+  const sidebarInput = articleSidebarInput(doc.meta, articlePlan, categoryArticles);
+  const sidebarCards = buildArticleSidebarCards(sidebarInput);
+  const sidebarGroups = articleSidebarContinuation(sidebarInput, doc.meta, relatedArticles, body.length, careerPlacements);
+  const images = articleImagePlacements(careerPlacements, inline.map(s => s.slot), sidebarCards.length, sidebarGroups.map(group => group.slot));
   const pixels = articlePixelCandidates(careerPlacements, renderedCareerSlots, images);
 
   return (
@@ -308,8 +312,9 @@ export async function renderDocPage(slugStr: string) {
             ≤576px は外周 0（記事カードをフルブリードさせる）。サイドバーは aside prop へ集約。 */}
         <TwoColumnShell
           gutter="flush-mobile"
+          stretchAside
           aside={
-            <ArticleSidebar cards={sidebarCards} placements={careerPlacements} />
+            <ArticleSidebar cards={sidebarCards} groups={sidebarGroups} placements={careerPlacements} questionSeries={isQuestionSeries} />
           }
         >
             {/* Editorial article card: 12px radius, soft border + shadow。
@@ -322,12 +327,13 @@ export async function renderDocPage(slugStr: string) {
                 category={category}
                 categoryLabel={category ? getCategoryLabel(category) : null}
                 groupLabel={category ? getGroupLabel(category, docGroup) : null}
+                groupHref={category && getCategoryJumps(category).some((j) => j.href === `#sec-${docGroup}`) ? `${getCategoryHubPath(category)}#sec-${docGroup}` : null}
                 description={doc.meta.description}
                 publishedAt={doc.meta.publishedAt || doc.meta.created}
                 updatedAt={doc.meta.updatedAt || doc.meta.dateModified}
               />
               {showTableOfContents && (
-                <div className="mb-6 zenn-desktop:hidden">
+                <div className="mb-6">
                   <TableOfContents headings={headings} variant="mobile" />
                 </div>
               )}

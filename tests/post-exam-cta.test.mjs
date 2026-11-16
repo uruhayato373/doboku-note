@@ -149,13 +149,14 @@ test('offsite-cta: 主任技士の添削の文言に、締めの日の前だけ�
   `], { cwd: ROOT, encoding: 'utf8' });
   const before = JSON.parse(catchAt(jst(shiftDays(cceExam, -10), '12:00:00')));
   const after = JSON.parse(catchAt(jst(shiftDays(cceExam, 1), '00:00:00')));
+  // 資格トップと小論文・概要のガイドは添削と診断の 2 枚、傾向のガイドは添削の 1 枚（DN-1222）
+  assert.deepEqual(before.map((items) => items.length), [2, 2, 1]);
   for (const items of before) {
-    assert.equal(items.length, 1);
-    assert.match(items[0], /までの受付なら、\d+\/\d+の本試験に間に合います。$/);
+    for (const text of items) assert.match(text, /までの受付なら、\d+\/\d+の本試験に間に合います。$/);
   }
+  assert.deepEqual(after.map((items) => items.length), [2, 2, 1]);
   for (const items of after) {
-    assert.equal(items.length, 1);
-    assert.doesNotMatch(items[0], /受付/);
+    for (const text of items) assert.doesNotMatch(text, /受付/);
   }
 });
 
@@ -177,9 +178,9 @@ const oralTimes = [
   jst(shiftDays(peConstructionResult, 89), '00:00:00'),
 ];
 
-test('建設部門の口頭試験の時期: 筆記合格発表の日の 0 時から 1 月末まで', async () => {
-  const { isPeConstructionOralSeason } = await loadPlacement();
-  assert.deepEqual(oralTimes.map((t) => isPeConstructionOralSeason(t)), [false, true, true, false]);
+test('建設部門の口頭試験の時期: 筆記合格発表の日の 0 時から 1 月末まで（期間は台帳 site-cta-surfaces.json の after-event）', async () => {
+  const { activeSeason } = await loadTsModule('src/lib/cta-surfaces.ts');
+  assert.deepEqual(oralTimes.map((t) => activeSeason('pe-construction', t, 'after-event') !== null), [false, true, true, false]);
   if (peConstructionResult === '2026-11-04') assert.equal(shiftDays(peConstructionResult, 88), '2027-01-31');
 });
 
@@ -227,4 +228,51 @@ test('建設部門の資格トップ・記事の枠（hub-cta）: 口頭試験�
     { mode: 'product', productId: 'pe-construction-oral-guide', trackLabel: 'category-pe-construction-hub-after-result-sb' },
     { mode: 'mokuji', productId: null, trackLabel: 'category-pe-construction-hub-mokuji-sb' },
   ]);
+});
+
+// 総監・上下水道の口頭試験の教材（2026-11-15）: 建設部門と同じ決め方（筆記合格発表の日から 89 日）
+const tankanResult = calendar.exams['pe-comprehensive-management'].events.writtenResult.date;
+const waterResult = calendar.exams['pe-water-supply'].events.writtenResult.date;
+const seasonTimes = (result) => [
+  jst(shiftDays(result, -1), '23:59:59'),
+  jst(result, '00:00:00'),
+  jst(shiftDays(result, 88), '23:59:59'),
+  jst(shiftDays(result, 89), '00:00:00'),
+];
+
+test('総監の過去問（令和の記述式）: 口頭試験の時期だけ冒頭が口頭試験の教材、末尾は記述式の教材のまま。平成は替えない', async () => {
+  const { resolvePlacement, resolveEndNoteSlot } = await loadPlacement();
+  const times = seasonTimes(tankanResult);
+  const slug = 'pe-comprehensive-management-r06-secondary';
+  const tops = times.map((t) => topIdAt(resolvePlacement, slug, 'pastExam', t));
+  assert.deepEqual(tops.map((id) => id === 'tankan-oral-complete'), [false, true, true, false]);
+  const ends = times.map((t) => endIdAt(resolvePlacement, resolveEndNoteSlot, slug, t));
+  assert.ok(ends.every((id) => id && id === tops[0]), `末尾は時期によらず記述式の教材: ${ends.join(',')}`);
+  for (const t of times) assert.notEqual(topIdAt(resolvePlacement, 'pe-comprehensive-management-h30-secondary', 'pastExam', t), 'tankan-oral-complete');
+});
+
+test('上下水道の資格トップの商品: 口頭試験の時期だけ全部門共通の口頭試験対策', async () => {
+  const { categoryLeadMagazineId } = await loadPlacement();
+  assert.deepEqual(seasonTimes(waterResult).map((t) => categoryLeadMagazineId('pe-water-supply', t)),
+    [undefined, 'pe-oral-general-guide', 'pe-oral-general-guide', undefined]);
+});
+
+test('総監の資格トップ（hub-cta）とココナラ: 口頭試験の時期だけ口頭試験の教材と想定質問のサービス', () => {
+  const cli = join(ROOT, 'node_modules/tsx/dist/cli.mjs');
+  const at = (nowMs) => JSON.parse(execFileSync(process.execPath, [cli, '-e', `
+    Date.now = () => ${nowMs};
+    Promise.all([import('./src/lib/hub-cta.ts'), import('./src/lib/offsite-cta.ts')]).then(([h, o]) => {
+      const c = (h.resolveHubCta ? h : h.default).resolveHubCta('pe-comprehensive-management', { utmSuffix: 'sb' });
+      const resolve = (o.resolveOffsiteCta ? o : o.default).resolveOffsiteCta;
+      process.stdout.write(JSON.stringify({
+        productId: c?.productId ?? null,
+        hub: resolve('pe-comprehensive-management', ${nowMs}).map((i) => i.trackLabel).length,
+        water: resolve('pe-water-supply', ${nowMs}).length,
+      }));
+    });
+  `], { cwd: ROOT, encoding: 'utf8' }));
+  const got = seasonTimes(tankanResult).map(at);
+  assert.deepEqual(got.map((g) => g.productId === 'tankan-oral-complete'), [false, true, true, false]);
+  assert.deepEqual(got.map((g) => g.hub), [0, 1, 1, 0]);
+  if (waterResult === tankanResult) assert.deepEqual(got.map((g) => g.water), [0, 1, 1, 0]);
 });

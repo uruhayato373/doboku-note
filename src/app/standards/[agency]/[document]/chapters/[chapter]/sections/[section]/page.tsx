@@ -17,6 +17,7 @@ import StandardReferenceLinks from '@/components/standards/StandardReferenceLink
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import { StandardsEndBanner, StandardsInlineBanner } from '@/components/standards/StandardsAffiliateBanners';
 import { planInlineSlots, withInlineSlots } from '@/lib/standards-inline-slots.mjs';
+import { standardsSidebarContinuation } from '@/lib/standards-sidebar-continuation';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
@@ -96,7 +97,9 @@ export default async function StandardSectionPage({ params }: { params: Promise<
   const resolved = resolve(resolvedParams);
   if (!resolved) notFound();
   const { document: entry, chapter, section, index, markdown } = resolved;
-  const inlineSlots = planInlineSlots(markdown).insertAt.map(({ slot }) => slot);
+  const inlinePlan = planInlineSlots(markdown);
+  const inlineSlots = inlinePlan.insertAt.map(({ slot }) => slot);
+  const railGroups = standardsSidebarContinuation(entry, chapter, inlinePlan.chars);
   const pages = standardSectionPageRange(chapter, index);
   const previous = chapter.sections[index - 1];
   const next = chapter.sections[index + 1];
@@ -131,6 +134,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
     >
       <TwoColumnShell
         gutter="flush-mobile"
+        stretchAside
         aside={(
           <StandardsNavigation
             agencyId={resolvedParams.agency}
@@ -138,6 +142,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             currentChapter={chapter}
             currentSection={section.number}
             inlineSlots={inlineSlots}
+            railGroups={railGroups}
           />
         )}
       >

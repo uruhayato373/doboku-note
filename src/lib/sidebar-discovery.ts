@@ -1,29 +1,16 @@
 import type { DocMeta } from './docs';
 import { isStructuralTag } from '@/lib/content-taxonomy';
 import { classifyDoc, isCareerDoc } from './doc-classifier';
-import { getMagazine, type MagazineId } from './note-magazines';
+import { getMagazine } from './note-magazines';
+import { surfaceRow } from './cta-surfaces';
 import { categoryLeadMagazineId, resolvePlacement, renderedNoteCards, renderedMagazineCardIds, resolveArticleMidNoteSlot, resolveEndNoteSlot } from './magazine-placement';
 
 export const DISCOVERY_CATEGORIES = ['pe-first-stage', 'pe-construction', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'civil-practice', 'rccm'];
-const products: Partial<Record<string, MagazineId>> = {
-  'pe-first-stage': 'pe1-takuitsu-pdf',
-  'concrete-engineer': 'ce-mix-jis-practice',
-  'concrete-chief-engineer': 'cce-marugoto-pack',
-  'concrete-diagnostician': 'cd-essay-magazine',
-  rccm: 'rccm-mondai3-magazine',
-  // 2026-10-28 に商品を公開した 2 資格。資格トップに商品の導線が無かった（DN-0890）。記事の主力と同じ商品
-  surveyor: 'surveyor-gogo-bunya-magazine',
-  pavement: 'pavement-1-keiken-magazine',
-  'pipe-work': 'pipe-work-sekou-kijutsu-bank',
-  'pe-water-supply': 'pe-water-required-magazine',
-};
-/** 資格トップ（doc なし）の商品。試験日で切り替える資格は magazine-placement の categoryLeadMagazineId が決める。 */
-function categoryProductId(category: string): MagazineId | undefined {
-  return categoryLeadMagazineId(category) ?? products[category];
-}
 export function sidebarProduct(category: string, doc?: DocMeta, content?: string) {
-  if (!products[category]) return null;
-  if (!doc) return getMagazine(categoryProductId(category)!);
+  // 記事の横の欄の商品カードは、台帳で単品・パックへ案内する資格だけ（もくじへ寄せる資格は横の欄もくじタイル）
+  // 資格トップ（doc なし）は台帳がいま出す商品（lead: product の主商品か季節の商品）。もくじへ寄せる資格の季節外は null
+  if (!doc) { const id = categoryLeadMagazineId(category); return id ? getMagazine(id) : null; }
+  if (surfaceRow(category)?.lead !== 'product') return null;
   // career 記事に note 商品カードを出さない（学習意図＝note／キャリア意図＝転職アフィリの分離）。
   // classifyDoc は 'career' を返さない（career は group: guide のまま・doc-classifier.ts:11-14）ため、
   // 旧実装 `classifyDoc(doc) === 'career'` は常に false の死んだガードだった（2026-09-22 是正）。

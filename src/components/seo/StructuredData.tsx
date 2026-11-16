@@ -6,6 +6,7 @@ import categoriesData from "@/config/categories.json";
 import { AUTHOR } from "@/config/author";
 import { CONTACT_EMAIL, SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { getCategoryHubPath } from '@/lib/categories';
+import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
 import { qualificationLabel } from "@/lib/qualification-names";
@@ -49,10 +50,19 @@ function generateBreadcrumbSchema(
     },
   ];
 
+  if (category && getCategoryArea(category) === "exam") {
+    items.push({
+      "@type": "ListItem",
+      position: items.length + 1,
+      name: getAreaLabel("exam"),
+      item: `${baseUrl}${getAreaHubPath("exam")}`,
+    });
+  }
+
   if (category) {
     items.push({
       "@type": "ListItem",
-      position: 2,
+      position: items.length + 1,
       name: getCategoryLabelForSchema(category),
       item: `${baseUrl}${getCategoryHubPath(category)}`,
     });

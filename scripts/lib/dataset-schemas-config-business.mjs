@@ -1588,3 +1588,52 @@ export const ConfigOperatingCosts = z
     m.items.forEach((x, i) => { if (x.to && x.to < x.from) flag(ctx, ['items', i, 'to'], '終える月が始める月より前'); });
   })
   .meta({ title: '運営の固定費の表' });
+
+// ---- サイトの広い面の案内先（config/site-cta-surfaces.json・DN-1223） ------------------------------
+
+const surfaceTile = z.object({ title1: text, title2: text }).strict();
+const surfaceSeason = z
+  .object({
+    kind: z.enum(['before-exam', 'after-event']).describe('before-exam＝行事の日の終わりまで（days 日前から）、after-event＝行事の日の始めから days 日'),
+    event: text.describe('exam-calendar.json の events の id'),
+    days: z.number().int().positive().optional(),
+    product: QID.describe('products.json の note の商品 id'),
+    title: text.optional(),
+    sub: text,
+  })
+  .strict()
+  .superRefine((s, ctx) => {
+    if (s.kind === 'after-event' && s.days === undefined) flag(ctx, ['days'], 'after-event は days（何日間）が要る');
+  });
+
+/** 資格トップ・記事の横の欄・記事末のタイル・/links の先頭から、note のどこへ案内するか。商品・行事・もくじの実在は check-cta-surfaces が見る */
+export const ConfigSiteCtaSurfaces = z
+  .object({
+    _doc: text,
+    _rules: text,
+    schemaVersion: z.literal(1),
+    qualifications: z.record(
+      QID,
+      z
+        .object({
+          lead: z.enum(['mokuji', 'product', 'none']),
+          product: QID.optional(),
+          reason: text.optional(),
+          tile: surfaceTile.optional(),
+          tileFirstStage: surfaceTile.optional(),
+          seasons: z.array(surfaceSeason).optional(),
+        })
+        .strict()
+        .superRefine((r, ctx) => {
+          if (r.lead === 'mokuji' && !r.tile) flag(ctx, ['tile'], 'mokuji は tile（もくじタイルの見出し 2 行）が要る');
+          if (r.lead === 'product' && !r.product) flag(ctx, ['product'], 'product は product（案内する商品 id）が要る');
+          if (r.lead !== 'product' && r.product) flag(ctx, ['product'], 'product を書けるのは lead: product だけ');
+          if (r.lead === 'none' && !r.reason) flag(ctx, ['reason'], 'none は reason（出さない理由）が要る');
+          if (r.lead === 'none' && r.seasons?.length) flag(ctx, ['seasons'], 'none に季節の商品は書かない');
+          for (const kind of ['before-exam', 'after-event']) {
+            if ((r.seasons ?? []).filter((s) => s.kind === kind).length > 1) flag(ctx, ['seasons'], `${kind} は 1 資格に 1 つまで（売上の帰属の utm が種類ごとに 1 つ）`);
+          }
+        }),
+    ),
+  })
+  .strict();

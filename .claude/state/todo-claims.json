@@ -61,16 +61,10 @@
       "branch": null
     },
     {
-      "id": "DN-1213",
+      "id": "DN-1218",
       "owner": "claude-code",
-      "startedAt": "2026-11-15T02:40:28.474Z",
-      "branch": "feat/standards-table-ui"
-    },
-    {
-      "id": "DN-1216",
-      "owner": "claude-code",
-      "startedAt": "2026-11-15T05:19:46.088Z",
-      "branch": "fix/dn-1216-sekou-kanri-visual"
+      "startedAt": "2026-11-15T08:18:09.018Z",
+      "branch": "feat/site-layout-census"
     }
   ]
 }

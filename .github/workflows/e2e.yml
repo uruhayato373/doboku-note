@@ -22,6 +22,7 @@ on:
       - "config/exam-calendar.json"
       - "config/keiken-answer-sheet-limits.json"
       - "config/note-funnel.json"
+      - "config/site-cta-surfaces.json"
       - "config/product-lineup.json"
       - "config/products.json"
       - "config/qualification-registry.json"

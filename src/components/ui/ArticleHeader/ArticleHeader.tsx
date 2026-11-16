@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { generateHeadingId } from '@/lib/toc';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import { getCategoryHubPath } from '@/lib/categories';
+import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
 
 interface ArticleHeaderProps {
   title: string;
@@ -22,6 +23,8 @@ interface ArticleHeaderProps {
   categoryLabel?: string | null | undefined;
   /** グループ表示名（過去問/ガイド 等） */
   groupLabel?: string | null | undefined;
+  /** 資格ページのその記事型の節（#sec-…）。資格ページに節のジャンプがある記事型だけ渡す */
+  groupHref?: string | null | undefined;
   /** frontmatter description（1 文リード） */
   description?: string | null | undefined;
   publishedAt?: string | undefined;
@@ -33,6 +36,7 @@ export default function ArticleHeader({
   category,
   categoryLabel,
   groupLabel,
+  groupHref,
   description,
   publishedAt,
   updatedAt,
@@ -42,15 +46,26 @@ export default function ArticleHeader({
       {category && categoryLabel && (
         <nav
           aria-label="breadcrumb"
-          className="mb-6 font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest flex items-center gap-2"
+          className="mb-6 font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest flex flex-wrap items-center gap-x-2 gap-y-1"
         >
+          {/* ホーム › 資格試験 › 資格 › 記事型（構造化データの BreadcrumbList と同じ段・DN-1219）。実務・法令は資格ページが領域の入口を兼ねる */}
+          <Link href="/" className="hover:text-(--accent) transition-colors">ホーム</Link>
+          <span aria-hidden className="opacity-60">›</span>
+          {getCategoryArea(category) === 'exam' && (
+            <>
+              <Link href={getAreaHubPath('exam')} className="hover:text-(--accent) transition-colors">{getAreaLabel('exam')}</Link>
+              <span aria-hidden className="opacity-60">›</span>
+            </>
+          )}
           <Link href={getCategoryHubPath(category)} className="hover:text-(--accent) transition-colors">
             {categoryLabel}
           </Link>
           {groupLabel && (
             <>
               <span aria-hidden className="opacity-60">›</span>
-              <span>{groupLabel}</span>
+              {groupHref
+                ? <Link href={groupHref} className="hover:text-(--accent) transition-colors">{groupLabel}</Link>
+                : <span>{groupLabel}</span>}
             </>
           )}
         </nav>

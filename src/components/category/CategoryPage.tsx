@@ -9,6 +9,8 @@ import { groupDocs } from '@/lib/category-groups';
 import { DocCard, DocSection } from '@/components/category/CategorySections';
 import { PopularShowcase, PopularRanking } from '@/components/category/PopularSections';
 import { getPopularDocs } from '@/lib/popular';
+import { categorySidebarContinuation } from '@/lib/category-sidebar-continuation';
+import RailContinuation from '@/components/ui/RailContinuation/RailContinuation';
 import {
   CivilConstruction1View,
   CivilConstruction2View,
@@ -22,6 +24,8 @@ import HubCtaBanner from '@/components/ui/HubCtaBanner/HubCtaBanner';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
+import { buildLearningCatalog } from '@/lib/learning-catalog';
+import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
 import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
 import ResponsiveAffiliateBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner';
 import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
@@ -74,6 +78,9 @@ export default async function CategoryPage({
   const hubCtaMobile = resolveHubCta(slug, { utmSuffix: 'mob' });
   // ココナラ（自社出品・A8 経由）。記事末尾と同じ部品で、資格トップでは見出し直後に出す。
   const offsiteCta = resolveOffsiteCta(slug);
+  // 資格トップの商品の枠は 1 枚だけなので、この資格の教材の全部は /links の資格別の節で見せる（教材が 1 つも無い資格には出さない）
+  const learning = buildLearningCatalog().find((exam) => exam.id === slug);
+  const hasLearningList = Boolean(learning && learning.materials.length + learning.support.length > 0);
   // もくじタイルを持たない資格のうち、スマホで note 商品を見出し直後へ出す資格（それ以外は一覧の最下部）。
   // 主任技士は資格トップが直前期の入口で、最下部だと本試験までに読まれない（DN-0703）。
   const productFirstOnMobile = slug === 'concrete-chief-engineer' && !hubCtaMobile;
@@ -105,26 +112,32 @@ export default async function CategoryPage({
   // 他の資格は note のバナーと転職広告が 10px ほどで接していた。学習のページは note を主導線にする方針（affiliate-operations.md §6）
   // に合わせて note を先に出し、運営者プロフィールを挟んで転職広告を置く。
   const viewCareerAds = mobileAdsAfterNote ? [] : mobileCareerAds;
+  // 上の束の下に、人気・新着の記事と転職バナーの組を並べる（記事数が少ない資格は 0 組。DN-1218 段 3）。
+  const railGroups = categorySidebarContinuation(docs, popularDocs, sidebarAd);
   const categorySidebar = (
-    <div className="space-y-3">
-      {slug === 'concrete-engineer' ? <>
-        <ConcreteEngineerStudy />
-        <ConcreteEngineerProduct placement="category-sidebar" />
-        <ConcreteEngineerRelated />
-      </> : <CategoryStudyNav category={slug} />}
-      {slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" />}
-      {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" />}
-      <AuthorSidebarCard />
-      {sidebarAd && (
-        <ProgramSplitBanner
-          alternate={sidebarAd.alternate}
-          placement="category-sidebar"
-          primary={
-            <ResponsiveAffiliateBanner placement={sidebarAd} withPixel={sidebarPixel?.slot === 'category-sidebar'} only="pc" />
-          }
-        />
-      )}
-      <PopularRanking items={popularDocs} />
+    <div className="flex h-full flex-1 flex-col">
+      <div className="space-y-3">
+        {slug === 'concrete-engineer' ? <>
+          <ConcreteEngineerStudy />
+          {/* 台帳（site-cta-surfaces.json）でもくじタイルが出る間は、計算・JIS 演習の単品を重ねない */}
+          {!hubCtaSidebar && <ConcreteEngineerProduct placement="category-sidebar" />}
+          <ConcreteEngineerRelated />
+        </> : <CategoryStudyNav category={slug} />}
+        {slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" />}
+        {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" />}
+        <AuthorSidebarCard />
+        {sidebarAd && (
+          <ProgramSplitBanner
+            alternate={sidebarAd.alternate}
+            placement="category-sidebar"
+            primary={
+              <ResponsiveAffiliateBanner placement={sidebarAd} withPixel={sidebarPixel?.slot === 'category-sidebar'} only="pc" />
+            }
+          />
+        )}
+        <PopularRanking items={popularDocs} />
+      </div>
+      <RailContinuation groups={railGroups} />
     </div>
   );
 
@@ -132,7 +145,7 @@ export default async function CategoryPage({
     <PageShell variant="article">
         <HubStructuredData path={getCategoryHubPath(slug)} name={cat.label} description={cat.description ?? cat.subtitle} docs={docs} />
         {/* 学習の入口を本文と右列の先頭に置く。note CTA はモバイルでは記事一覧の下に表示。 */}
-        <TwoColumnShell gutter="default" mainClassName="pt-8 sm:pt-10 pb-10" aside={categorySidebar}>
+        <TwoColumnShell gutter="default" mainClassName="pt-8 sm:pt-10 pb-10" stretchAside aside={categorySidebar}>
             {/* 左メインカラム全体を 1 枚の白カードに統一（グレー地に白サーフェス・角丸ゼロの
                 エディトリアル面）。見出し・人気記事・各セクションを同一カード内に載せ、内側は
                 リスト/テーブル/フラットタイルで構成してカード内カードを避ける（2026-07 A-1）。 */}
@@ -141,9 +154,16 @@ export default async function CategoryPage({
                 パンくずと重複のため削除） */}
             <div className="pt-6 sm:pt-8 pb-5 border-b border-(--rule-soft)">
               <nav aria-label="breadcrumb" className="font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest mb-2 flex items-center gap-2">
-                <Link href="/" className="hover:text-(--accent) transition-colors">Home</Link>
+                <Link href="/" className="hover:text-(--accent) transition-colors">ホーム</Link>
                 <span aria-hidden className="opacity-60">›</span>
-                <span>Category</span>
+                {/* 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は資格ページが領域の入口なので 2 段（DN-1219） */}
+                {getCategoryArea(slug) === 'exam' && (
+                  <>
+                    <Link href={getAreaHubPath('exam')} className="hover:text-(--accent) transition-colors">{getAreaLabel('exam')}</Link>
+                    <span aria-hidden className="opacity-60">›</span>
+                  </>
+                )}
+                <span>{cat.label}</span>
               </nav>
               <h1 className="font-serif font-bold tracking-tight text-(--ink) text-[24px] sm:text-[28px] leading-[1.3] mb-2">
                 {cat.label}
@@ -162,6 +182,13 @@ export default async function CategoryPage({
               </div>
             )}
             <OffsiteCta items={offsiteCta} heading="この資格に関連するサービス" />
+            {hasLearningList && (
+              <p className="mt-4 text-sm" data-cta="nav" data-cta-label="category-links-hub">
+                <Link href={`/links#exam-${slug}`} className="focus-ring inline-flex min-h-11 items-center font-bold text-(--accent) hover:underline">
+                  この資格の教材一覧を見る
+                </Link>
+              </p>
+            )}
             <div className="pt-8 text-[17px] leading-[1.9]">
           {docs.length === 0 ? (
             <div className="text-center py-12">
@@ -215,7 +242,7 @@ export default async function CategoryPage({
             </div>
 
             {slug === 'concrete-engineer' && <div className="zenn-desktop:hidden mt-8 space-y-3">
-              <ConcreteEngineerProduct placement="category-mobile" />
+              {!hubCtaMobile && <ConcreteEngineerProduct placement="category-mobile" />}
               <ConcreteEngineerRelated />
             </div>}
             {slug !== 'concrete-engineer' && !hubCtaMobile && !productFirstOnMobile && <div className="zenn-desktop:hidden mt-8"><SidebarProduct category={slug} placement="category-mobile" /></div>}

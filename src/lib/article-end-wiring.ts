@@ -12,12 +12,13 @@ import { relatedScore } from '@/lib/related-score';
 import { stableTieBreak } from '@/lib/related-core.mjs';
 import { getDocTopics, getTopicDocs, type Topic } from '@/lib/topics';
 
-export type WiredDoc = { slug: string; href: string; title: string; categoryLabel: string };
+export type WiredDoc = { slug: string; category: string; href: string; title: string; categoryLabel: string };
 export type TopicHubLink = { topic: Pick<Topic, 'slug' | 'label'>; total: number; picks: WiredDoc[] };
 
 export function toWired(doc: DocMeta): WiredDoc {
   return {
     slug: doc.slug,
+    category: String(doc.category),
     href: getPublicDocPath(doc.slug),
     title: doc.shortTitle || doc.title,
     categoryLabel: getCategoryLabel(String(doc.category)),
