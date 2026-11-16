@@ -658,7 +658,7 @@
       "work": "owner-eye-kouji-kensa",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-001",
@@ -694,7 +694,42 @@
         "contentSha256": "76604deedf901656c8f036d06e9ed616305635505c11d4aa25992f33d1cf3411"
       },
       "times": {
-        "rendered": "2026-11-16T13:04:42.779Z"
+        "rendered": "2026-11-16T13:04:42.779Z",
+        "uploaded": "2026-11-16T13:11:18.898Z",
+        "scheduled": "2026-11-16T13:11:30.900Z"
+      },
+      "delivery": {
+        "inputSha256": "a7bc8ae6a7519464e4cbdb2b7202f9b52165d77d4e6d6d90f975972587aa611d",
+        "marker": "dn-single-99026f6c8c75674b891e86954b79d0914eb2d07b",
+        "uploadRequestedAt": "2026-11-16T13:10:27.798Z",
+        "videoId": "mdx48aakaV8",
+        "processedAt": "2026-11-16T13:11:18.064Z",
+        "thumbnailRequestedAt": "2026-11-16T13:11:18.960Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/mdx48aakaV8/default.jpg?sqp=CKiB7NcG&rs=AOn4CLDdoy_8EVR-_vWe64ThdNggPaF1JA",
+          "https://i9.ytimg.com/vi/mdx48aakaV8/mqdefault.jpg?sqp=CKiB7NcG&rs=AOn4CLB59-PhFtnnxFWdc9zb8E3nFis6pQ",
+          "https://i9.ytimg.com/vi/mdx48aakaV8/hqdefault.jpg?sqp=CKiB7NcG&rs=AOn4CLCxTizBHkkBo4PR4v4bVRXLMAE6AQ",
+          "https://i9.ytimg.com/vi/mdx48aakaV8/sddefault.jpg?sqp=CKiB7NcG&rs=AOn4CLDUiZHRCHRT3bD8m2Th7n5ySbeh_A",
+          "https://i9.ytimg.com/vi/mdx48aakaV8/maxresdefault.jpg?sqp=CKiB7NcG&rs=AOn4CLD5XkhOPk43yqD-F7WHeOVSu65V_Q",
+          "https://i9.ytimg.com/vi/mdx48aakaV8/fhddefault.jpg?sqp=CKiB7NcG&rs=AOn4CLBHpqix12hizcmRt_p-ih-n0bY0KA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-16T13:11:26.007Z",
+        "scheduleRequestedAt": "2026-11-16T13:11:27.279Z",
+        "scheduleAt": "2026-11-23T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-16T13:11:30.900Z"
+      },
+      "platform": {
+        "id": "mdx48aakaV8",
+        "url": "https://www.youtube.com/watch?v=mdx48aakaV8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/owner-eye-kouji-kensa/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-16T13:11:26.007Z"
       }
     },
     {
