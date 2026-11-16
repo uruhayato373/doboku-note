@@ -13,7 +13,8 @@
  */
 import type { DocMeta } from '@/lib/docs';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import RelatedArticleCard from './RelatedArticleCard';
+import ArticleCard from '@/components/ui/ArticleCard/ArticleCard';
+import { articleCardProps } from '@/lib/article-card';
 import { rankRelated } from '@/lib/related-score';
 
 interface RelatedArticlesProps {
@@ -36,7 +37,7 @@ export default function RelatedArticles({ currentMeta, categoryArticles, exclude
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 zenn-desktop:grid-cols-3">
         {related.map((doc) => (
           <li key={doc.slug}>
-            <RelatedArticleCard doc={doc} />
+            <ArticleCard {...articleCardProps(doc)} />
           </li>
         ))}
       </ul>

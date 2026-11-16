@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import SlingTensionClient from "./SlingTensionClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { toolByHref } from "@/lib/tools";
 import { READING_CONTAINER } from '@/components/layout/container';
@@ -55,7 +56,7 @@ export default function SlingTensionPage() {
         }
       />
 
-      <SlingTensionClient />
+      <SlingTensionClient related={<RelatedPages links={[{ href: "/practice/sling-work-wire-rope", title: "玉掛けとワイヤーロープの選定", description: "安全係数・使用禁止基準・1本吊りの考え方を解説" }]} toolsIndex="現場管理値の計算ツールをまとめて見る" />} />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
       <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>

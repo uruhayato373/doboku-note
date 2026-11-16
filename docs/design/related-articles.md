@@ -20,7 +20,7 @@
 | `src/lib/article-end-wiring.ts` | 記事末の「この記事のテーマ」「同じ法令を扱う記事」の選び方（`relatedScore` で並べ、資格が重ならないように選ぶ） |
 | `src/lib/law-wiring.ts` の `resolveArticleEnd` | 記事末の回遊をまとめて決める（根拠法令の同じ法令を扱う記事・関わるテーマ・法令ページへのリンク → この記事のテーマ。先に出した記事を後ろから外す `shownSlugs`）。`ArticleFooter` は表示だけ |
 | `src/components/ui/RelatedArticles/RelatedArticles.tsx` | セクション本体（サーバーコンポーネント） |
-| `src/components/ui/RelatedArticles/RelatedArticleCard.tsx` | OGP サムネイルカード1枚分 |
+| `src/components/ui/ArticleCard/ArticleCard.tsx` | 上に画像のカード1枚分（関連記事・前後ナビ・本文中間の続きと共通） |
 
 ## アルゴリズム: タグの class とテーマで点を付けてランク
 

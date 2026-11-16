@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LinkTile from "@/components/ui/LinkTile/LinkTile";
 import {
   BookOpen,
   FileText,
@@ -277,24 +278,9 @@ export default function AboutPage() {
           まずは各試験のカテゴリ目次から、必要な分野にアクセスしてください。
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Link
-            href="/exam/civil-construction-1"
-            className="focus-ring card-surface-section block p-5 font-serif text-lg font-bold text-(--ink) transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
-          >
-            1級土木施工管理技士 →
-          </Link>
-          <Link
-            href="/exam/civil-construction-2"
-            className="focus-ring card-surface-section block p-5 font-serif text-lg font-bold text-(--ink) transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
-          >
-            2級土木施工管理技士 →
-          </Link>
-          <Link
-            href="/exam/pe-comprehensive-management"
-            className="focus-ring card-surface-section block p-5 font-serif text-lg font-bold text-(--ink) transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
-          >
-            技術士（総合技術監理部門） →
-          </Link>
+          <LinkTile href="/exam/civil-construction-1" size="lg" serif title="1級土木施工管理技士 →" />
+          <LinkTile href="/exam/civil-construction-2" size="lg" serif title="2級土木施工管理技士 →" />
+          <LinkTile href="/exam/pe-comprehensive-management" size="lg" serif title="技術士（総合技術監理部門） →" />
         </div>
       </SectionBlock>
 

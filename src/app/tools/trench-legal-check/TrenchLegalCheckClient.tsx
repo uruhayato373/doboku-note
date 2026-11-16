@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
 import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
@@ -38,7 +36,7 @@ function toNum(s: string): number | null {
   return Number.isFinite(n) && n >= 0 ? n : null;
 }
 
-export default function TrenchLegalCheckClient() {
+export default function TrenchLegalCheckClient({ related }: { related?: React.ReactNode }) {
   const [height, setHeight] = useState("2.0");
   const [width, setWidth] = useState("1.5");
   const [ground, setGround] = useState<GroundType>("other");
@@ -190,24 +188,7 @@ export default function TrenchLegalCheckClient() {
         </ul>
       </div>
 
-      {/* 関連 */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          関連するページ
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/practice/trench-excavation-safety"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">溝掘削の土留めをいつ入れるか</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              法令の構造と判断の考え方を解説した記事
-            </div>
-          </Link>
-          <ToolsIndexCard description="現場管理値の計算ツールをまとめて見る" />
-        </div>
-      </div>
+      {related}
     </div>
   );
 }

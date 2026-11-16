@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
 import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
@@ -27,7 +25,7 @@ function toNum(s: string): number | null {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-export default function WaterContentClient() {
+export default function WaterContentClient({ related }: { related?: React.ReactNode }) {
   const [wcRatio, setWcRatio] = useState("55");
   const [cementUnit, setCementUnit] = useState("320");
 
@@ -172,24 +170,7 @@ export default function WaterContentClient() {
         </ul>
       </div>
 
-      {/* 関連 */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          関連するページ
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/practice/concrete-mix-acceptance"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">配合と受入れ検査で何を見るか</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              スランプ・空気量・強度の合否判定を解説した記事
-            </div>
-          </Link>
-          <ToolsIndexCard description="現場管理値の計算ツールをまとめて見る" />
-        </div>
-      </div>
+      {related}
     </div>
   );
 }

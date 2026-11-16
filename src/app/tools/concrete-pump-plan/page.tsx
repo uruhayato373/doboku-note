@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import ConcretePumpPlanClient from "./ConcretePumpPlanClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { toolByHref } from "@/lib/tools";
 import { READING_CONTAINER } from '@/components/layout/container';
@@ -56,7 +57,7 @@ export default function ConcretePumpPlanPage() {
         }
       />
 
-      <ConcretePumpPlanClient />
+      <ConcretePumpPlanClient related={<RelatedPages links={[{ href: "/practice/concrete-pump-capacity", title: "ポンプ車・ミキサ車は何台必要か", description: "配車計算の考え方を解説した記事" }]} toolsIndex="現場管理値の計算ツールをまとめて見る" />} />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
       <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>

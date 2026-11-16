@@ -111,7 +111,7 @@ test('関連テキスト: 順位づけは lib（relatedTextbooks）と同じ並�
   assert.deepEqual(out.slugs, out.rows.map(row => row.slug));
   const links = parse(out.html).querySelectorAll('a');
   assert.equal(links.length, out.rows.length);
-  assert.deepEqual(links.map(a => a.text.trim()), out.rows.map(row => row.title));
+  assert.deepEqual(links.map(a => a.querySelector('span.font-semibold').text.trim()), out.rows.map(row => row.title));
 });
 
 test('続きの記事: 前後の記事（category-curriculum の並び）が左右 2 枚のサムネイルカードになる', () => {

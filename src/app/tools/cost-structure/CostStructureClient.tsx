@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
 import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
@@ -30,7 +28,7 @@ function toNum(s: string | undefined): number {
   return Number.isFinite(n) && n >= 0 ? n : 0;
 }
 
-export default function CostStructureClient() {
+export default function CostStructureClient({ related }: { related?: React.ReactNode }) {
   const [values, setValues] = useState<Record<string, string>>({
     direct: "24000",
     commonTemp: "2500",
@@ -169,24 +167,7 @@ export default function CostStructureClient() {
         </ul>
       </div>
 
-      {/* 関連 */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          関連するページ
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/practice/cost-and-design-change"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">原価と設計変更</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              費目構成と差異の見方、設計変更の協議記録を解説
-            </div>
-          </Link>
-          <ToolsIndexCard description="現場管理値の計算ツールをまとめて見る" />
-        </div>
-      </div>
+      {related}
     </div>
   );
 }

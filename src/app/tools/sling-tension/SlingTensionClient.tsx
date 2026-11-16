@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
 import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
@@ -31,7 +29,7 @@ function tensionFactor(deg: number): number {
   return 1 / Math.cos(rad / 2);
 }
 
-export default function SlingTensionClient() {
+export default function SlingTensionClient({ related }: { related?: React.ReactNode }) {
   const [weight, setWeight] = useState("2000");
   const [strands, setStrands] = useState("2");
   const [angle, setAngle] = useState("60");
@@ -222,24 +220,7 @@ export default function SlingTensionClient() {
         </ul>
       </div>
 
-      {/* 関連 */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          関連するページ
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/practice/sling-work-wire-rope"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">玉掛けとワイヤーロープの選定</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              安全係数・使用禁止基準・1本吊りの考え方を解説
-            </div>
-          </Link>
-          <ToolsIndexCard description="現場管理値の計算ツールをまとめて見る" />
-        </div>
-      </div>
+      {related}
     </div>
   );
 }

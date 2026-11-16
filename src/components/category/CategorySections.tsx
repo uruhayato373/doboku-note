@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
@@ -26,34 +26,22 @@ export function DocCard({ doc }: { doc: DocMeta }) {
   const excerpt = doc.subtitle || doc.description;
   const date = cardDate(doc);
   return (
-    <Link
+    <LinkTile
       href={getPublicDocPath(doc.slug)}
-      data-cta="nav"
-      data-cta-label="category-card"
-      className="group relative flex flex-col overflow-hidden border border-(--rule-soft) bg-(--paper) transition-colors hover:border-(--accent) hover:bg-(--accent-fill)"
-    >
-      {/* ブランド色の上端アクセント（mockup の category band を mono 化＝硬質エディトリアル維持）。
-          ガイドカバー写真（guide-cover.ts）は dormant: メタガイドに literal 機械写真が不一致のため撤回（PR #276→revert）。 */}
-      <span aria-hidden className="block h-[3px] w-full bg-(--accent) opacity-70 transition-opacity group-hover:opacity-100" />
-      <div className="flex flex-1 flex-col gap-1.5 p-5">
-        <h3 className="font-serif text-lg font-bold text-(--ink) group-hover:text-(--accent) line-clamp-2 transition-colors">
-          {displayTitle}
-        </h3>
-        {excerpt && (
-          <p className="text-sm text-(--ink-muted) line-clamp-2">
-            {excerpt}
-          </p>
-        )}
-        <div className="mt-auto pt-3 flex items-center justify-between border-t border-dashed border-(--rule-soft)">
-          <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-(--ink-muted) group-hover:text-(--accent) transition-colors">
-            Read <span aria-hidden>→</span>
-          </span>
-          {date && (
-            <span className="font-mono text-[10px] tabular-nums text-(--ink-muted)">{date}</span>
-          )}
-        </div>
-      </div>
-    </Link>
+      size="lg"
+      serif
+      accentBar="var(--accent)"
+      title={displayTitle}
+      description={excerpt}
+      headingLevel="h3"
+      meta={
+        <span className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest">
+          <span>Read <span aria-hidden>→</span></span>
+          {date && <span className="tabular-nums normal-case tracking-normal">{date}</span>}
+        </span>
+      }
+      data={{ 'data-cta': 'nav', 'data-cta-label': 'category-card' }}
+    />
   );
 }
 

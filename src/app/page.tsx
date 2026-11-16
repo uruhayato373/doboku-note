@@ -8,7 +8,7 @@ import { getCardImage } from "@/lib/site-thumbnail";
 import { buildExamCards } from "@/lib/home-exam-cards";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
-import Link from 'next/link';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import SectionBlock from '@/components/layout/SectionBlock';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import { getStandardsCatalog } from '@/lib/standards';
@@ -100,15 +100,16 @@ export default async function HomePage() {
               description: '試験・実務・基準資料を、コンクリートや安全管理などのテーマで接続',
             },
           ].map((item) => (
-            <Link
+            <LinkTile
               key={item.href}
               href={item.href}
-              className="focus-ring card-interactive border border-(--rule-soft) bg-(--paper) p-5 transition-[border-color,box-shadow] hover:border-(--accent)"
-            >
-              <div className="font-mono text-[10px] uppercase tracking-widest text-(--accent)">{item.label}</div>
-              <h2 className="mt-2 font-serif text-xl font-bold text-(--ink)">{item.title}</h2>
-              <p className="mt-2 text-[13px] leading-[1.75] text-(--ink-muted)">{item.description}</p>
-            </Link>
+              size="lg"
+              serif
+              eyebrow={item.label}
+              title={item.title}
+              description={item.description}
+              headingLevel="h2"
+            />
           ))}
         </div>
       </SectionBlock>

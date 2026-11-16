@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import WaterContentClient from "./WaterContentClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { toolByHref } from "@/lib/tools";
 import { READING_CONTAINER } from '@/components/layout/container';
@@ -55,7 +56,7 @@ export default function WaterContentPage() {
         }
       />
 
-      <WaterContentClient />
+      <WaterContentClient related={<RelatedPages links={[{ href: "/practice/concrete-mix-acceptance", title: "配合と受入れ検査で何を見るか", description: "スランプ・空気量・強度の合否判定を解説した記事" }]} toolsIndex="現場管理値の計算ツールをまとめて見る" />} />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
       <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>

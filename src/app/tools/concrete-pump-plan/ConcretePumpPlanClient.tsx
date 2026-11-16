@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
 import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
@@ -32,7 +30,7 @@ function toNum(s: string): number | null {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-export default function ConcretePumpPlanClient() {
+export default function ConcretePumpPlanClient({ related }: { related?: React.ReactNode }) {
   // ① ポンプ車
   const [totalVolume, setTotalVolume] = useState("400");
   const [workHours, setWorkHours] = useState("8");
@@ -325,24 +323,7 @@ export default function ConcretePumpPlanClient() {
         </ul>
       </div>
 
-      {/* 関連 */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          関連するページ
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/practice/concrete-pump-capacity"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">ポンプ車・ミキサ車は何台必要か</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              配車計算の考え方を解説した記事
-            </div>
-          </Link>
-          <ToolsIndexCard description="現場管理値の計算ツールをまとめて見る" />
-        </div>
-      </div>
+      {related}
     </div>
   );
 }

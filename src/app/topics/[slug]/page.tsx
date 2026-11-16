@@ -12,6 +12,7 @@ import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import { buildPageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import TopicIcon from '@/components/topics/TopicIcon';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { getAllTopics, getRelatedTopics, getTopicBySlug, getTopicDocs, getTopicRoadmap, getTopicStandards, isTopicIndexable } from '@/lib/topics';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import MagazineCard from '@/components/ui/MagazineCard/MagazineCard';
@@ -181,14 +182,13 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-cta="nav" data-cta-label="topic-related">
             {relatedTopics.map(({ topic: related, shared }) => (
               <li key={related.slug}>
-                <Link
+                <LinkTile
                   href={topicPath(related.slug)}
-                  className="focus-ring card-interactive block h-full border border-(--rule-soft) bg-(--paper) p-4 transition-[border-color,box-shadow] hover:border-(--accent) dark:border-(--rule-soft)"
-                >
-                  <TopicIcon slug={related.slug} />
-                  <span className="block font-serif text-base font-bold text-(--ink)">{related.label}</span>
-                  <span className="mt-1 block text-[13px] text-(--ink-muted)">共通の記事 {shared}件</span>
-                </Link>
+                  serif
+                  icon={<TopicIcon slug={related.slug} className="" />}
+                  title={related.label}
+                  meta={`共通の記事 ${shared}件`}
+                />
               </li>
             ))}
           </ul>

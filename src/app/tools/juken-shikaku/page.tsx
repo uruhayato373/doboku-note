@@ -1,3 +1,4 @@
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
@@ -47,7 +48,7 @@ export default function JukenShikakuPage() {
         }
       />
 
-      <JukenShikakuClient />
+      <JukenShikakuClient related={<RelatedPages heading="試験の全体像を知る" links={[{ href: "/exam/civil-construction-1/guide/exam-overview", title: "1級土木 試験概要", description: "受験資格・科目・合格率・日程をまとめて解説" }, { href: "/exam/civil-construction-2/guide/exam-overview", title: "2級土木 試験概要", description: "受験資格・科目・合格率・日程をまとめて解説" }]} />} />
       {/* 転職の案内（結果の下に 1 枠。案件は配置ルール） */}
       <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-inline" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>

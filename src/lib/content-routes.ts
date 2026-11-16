@@ -101,6 +101,16 @@ export function getAllPublicDocRoutes(): Array<PublicDocRoute & { legacySlug: st
     .sort((a, b) => a.path.localeCompare(b.path));
 }
 
+let byPath: Map<string, string> | null = null;
+
+/** 公開 URL（/practice/… など）から記事の slug と category を引く。記事でない URL（/tools・/topics など）は null */
+export function findDocByPublicPath(path: string): { slug: string; category: string } | null {
+  byPath ??= new Map(getAllPublicDocRoutes().map((route) => [route.path, route.legacySlug]));
+  const slug = byPath.get(path.replace(/[?#].*$/, '').replace(/\/$/, ''));
+  const category = slug ? (docs[slug]?.category as string | undefined) : undefined;
+  return slug && category ? { slug, category } : null;
+}
+
 export function findLegacySlugForPublicRoute(
   area: PublicArea,
   category: string,

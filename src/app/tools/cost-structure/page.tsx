@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import CostStructureClient from "./CostStructureClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { toolByHref } from "@/lib/tools";
 import { READING_CONTAINER } from '@/components/layout/container';
@@ -55,7 +56,7 @@ export default function CostStructurePage() {
         }
       />
 
-      <CostStructureClient />
+      <CostStructureClient related={<RelatedPages links={[{ href: "/practice/cost-and-design-change", title: "原価と設計変更", description: "費目構成と差異の見方、設計変更の協議記録を解説" }]} toolsIndex="現場管理値の計算ツールをまとめて見る" />} />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
       <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>

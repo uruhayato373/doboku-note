@@ -3,7 +3,7 @@ import tokens from '../../.claude/knowledge/design-system/note-cover-tokens.json
 import categories from '@/config/categories.json';
 import { getOgpDisplayUrl, getPostAssetDisplayUrl } from '@/lib/r2-image-loader';
 
-export interface SiteThumbnail {
+interface SiteThumbnail {
   readonly src: string;
   /** 下帯の文字。サイトのフォントで重ねるので、タイトルを直しても画像の作り直しが要らない */
   readonly text: string;
@@ -32,7 +32,7 @@ const bandColor = (category: string) => {
 };
 
 /** ページ別のサムネイルを返す。絵がまだ無いページは null で、呼び出し側は OGP の縮小へ戻す */
-export function getSiteThumbnail(doc: ThumbnailDoc): SiteThumbnail | null {
+function getSiteThumbnail(doc: ThumbnailDoc): SiteThumbnail | null {
   const category = doc.category;
   if (!category) return null;
   const key = doc.slug.startsWith(`${category}-`) ? doc.slug.slice(category.length + 1) : doc.slug;

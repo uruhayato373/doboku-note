@@ -5,6 +5,7 @@ import { categoryNavPlan } from '@/lib/category-nav-plan';
  * ページの分類に応じて右サイドバーまたは記事末尾に表示する。
  */
 import Link from 'next/link';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { DiscoveryNav } from '@/components/ui/SidebarDiscovery';
 import type { DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
@@ -273,18 +274,8 @@ function LinkListCard({
         {docs.map((d) => {
           const { main, sub } = resolveNavTitle(d);
           return (
-            <li key={d.slug} className={`rounded-card-content border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-(--accent-fill) border-(--accent)' : 'border-(--rule-soft) hover:border-(--accent)'}`}>
-              {d.slug === currentSlug ? (
-                <>
-                  <span className="block text-sm font-bold text-(--ink)">{main}</span>
-                  {sub && <NavSubtitle>{sub}</NavSubtitle>}
-                </>
-              ) : (
-                <Link href={getPublicDocPath(d.slug)} className="group block">
-                  <span className="block text-sm text-brand group-hover:underline">{main}</span>
-                  {sub && <NavSubtitle>{sub}</NavSubtitle>}
-                </Link>
-              )}
+            <li key={d.slug}>
+              <LinkTile href={getPublicDocPath(d.slug)} title={main} description={sub} current={d.slug === currentSlug} />
             </li>
           );
         })}

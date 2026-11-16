@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import ConcreteMaturityClient from "./ConcreteMaturityClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { toolByHref } from "@/lib/tools";
 import { READING_CONTAINER } from '@/components/layout/container';
@@ -55,7 +56,7 @@ export default function ConcreteMaturityPage() {
         }
       />
 
-      <ConcreteMaturityClient />
+      <ConcreteMaturityClient related={<RelatedPages links={[{ href: "/practice/formwork-removal-timing", title: "型枠・支保工はいつ外せるか", description: "積算温度による推定の位置づけを解説した記事" }, { href: "/tools/concrete-time-check", title: "打込み 時間管理チェッカー", description: "暑中／寒中の区分と当日の限度時刻を計算" }]} />} />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
       <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
     </PageShell>

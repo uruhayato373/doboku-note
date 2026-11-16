@@ -12,7 +12,7 @@ const icons = {
   'water-sewerage': Droplets, 'urban-regional-planning': Building2,
   'municipal-civil-engineers': Landmark,
 };
-export default function TopicIcon({ slug }: { slug: string }) {
+export default function TopicIcon({ slug, className = 'mb-4' }: { slug: string; className?: string }) {
   const Icon = icons[slug as keyof typeof icons] ?? Blocks;
-  return <Icon size={28} aria-hidden="true" className="mb-4 text-(--accent)" />;
+  return <Icon size={28} aria-hidden="true" className={`${className} text-(--accent)`.trim()} />;
 }

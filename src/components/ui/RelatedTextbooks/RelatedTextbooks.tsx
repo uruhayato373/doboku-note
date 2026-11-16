@@ -4,7 +4,8 @@
  * 順位づけ（過去問→教材インデックス優先・0 件ならタグの共通数）は src/lib/related-textbooks.ts に集約している
  * （右の欄の rail-textbooks と共有）。ここは並んだ章に記事の title・description を添えて描画するだけ。
  */
-import LinkTile from '@/components/ui/LinkTile/LinkTile';
+import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
+import { getCardImage } from '@/lib/site-thumbnail';
 import { getPublicDocPath } from '@/lib/content-routes';
 import type { DocMeta } from '@/lib/docs';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
@@ -19,7 +20,7 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
   const bySlug = new Map(categoryArticles.map((m) => [m.slug, m]));
   const entries = relatedTextbooks(currentMeta, categoryArticles).map((item) => {
     const meta = bySlug.get(item.slug);
-    return { slug: item.slug, title: meta?.title || item.title, description: meta?.description };
+    return { slug: item.slug, title: meta?.title || item.title, description: meta?.description, category: meta?.category ?? currentMeta.category };
   });
 
   if (entries.length === 0) return null;
@@ -35,7 +36,7 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
       <ul className="space-y-2">
         {entries.map((doc) => (
           <li key={doc.slug}>
-            <LinkTile href={getPublicDocPath(doc.slug)} title={doc.title} description={doc.description} />
+            <ArticleThumbRow href={getPublicDocPath(doc.slug)} title={doc.title} caption={doc.description} image={getCardImage(doc.category ? { slug: doc.slug, category: doc.category } : { slug: doc.slug })} />
           </li>
         ))}
       </ul>

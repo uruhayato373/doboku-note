@@ -1,3 +1,4 @@
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
@@ -78,7 +79,7 @@ export default function KeikenCharcountPage() {
         }
       />
 
-      <KeikenCharcountClient limits={LIMITS} />
+      <KeikenCharcountClient limits={LIMITS} related={<RelatedPages heading="経験記述の書き方をもっと詳しく" links={[{ href: "/exam/civil-construction-1/secondary/experience-writing-guide", title: "1級土木 施工経験記述の書き方", description: "課題→検討→対応の型と頻出テーマを解説" }, { href: "/exam/civil-construction-2/secondary/experience-writing-guide", title: "2級土木 施工経験記述の書き方", description: "2級の解答欄・テーマ別の書き分けを解説" }]} />} />
       <div className={`${READING_CONTAINER} pb-10`}>
         {/* 幅は転職の横長バナーとそろえ、上に見出しは付けない（src/lib/cta-stack.ts） */}
         <div data-cta-stack className={`${CTA_STACK_CLASS} grid gap-3 sm:grid-cols-2`}>

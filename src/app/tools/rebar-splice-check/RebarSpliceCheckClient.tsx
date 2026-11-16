@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
 import { READING_CONTAINER } from '@/components/layout/container';
 
 /**
@@ -39,7 +37,7 @@ type CheckRow = {
   pass: boolean | null;
 };
 
-export default function RebarSpliceCheckClient() {
+export default function RebarSpliceCheckClient({ related }: { related?: React.ReactNode }) {
   // ① ずらし量
   const [diameter, setDiameter] = useState("22");
   const [spliceLength, setSpliceLength] = useState("880");
@@ -354,24 +352,7 @@ export default function RebarSpliceCheckClient() {
         </ul>
       </div>
 
-      {/* 関連 */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          関連するページ
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/practice/rebar-splice-selection"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">継手を3方式から選ぶ</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              重ね継手・ガス圧接・機械式継手の選定基準を解説
-            </div>
-          </Link>
-          <ToolsIndexCard description="現場管理値の計算ツールをまとめて見る" />
-        </div>
-      </div>
+      {related}
     </div>
   );
 }
