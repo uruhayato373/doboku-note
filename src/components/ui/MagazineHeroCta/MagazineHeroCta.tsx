@@ -8,6 +8,7 @@ import {
 } from "@/lib/note-magazines";
 import { brandOf } from "@/lib/exam-brand";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
+import { CTA_STACK_WIDTH } from '@/lib/cta-stack';
 
 interface MagazineHeroCtaProps {
   /** note-magazines.ts に登録済みのマガジン ID */
@@ -59,7 +60,7 @@ export default function MagazineHeroCta({
       data-cta="note"
       data-cta-label={`${id}:${utmContent}`}
       data-cta-placement={placement}
-      className="focus-ring not-prose group relative my-6 block max-w-2xl overflow-hidden rounded-card-content shadow-card-content transition-shadow hover:shadow-card-hover"
+      className={`focus-ring not-prose group relative my-6 block ${CTA_STACK_WIDTH} overflow-hidden rounded-card-content shadow-card-content transition-shadow hover:shadow-card-hover`}
     >
       {/* 背景: 資格別ブランドイラスト（未整備の資格はテーマ色ベタ塗りにフォールバック） */}
       {brand.ctaBg ? (
@@ -111,7 +112,7 @@ export default function MagazineHeroCta({
   // EXP-053: POP 画像と文字のカードを両方描き、<html data-note-body-variant> で片方だけ見せる（src/lib/note-body-experiment.mjs）
   return <>
     <div data-note-body-arm="image"><NoteImageCta href={buildMagazineUrl(magazine, utmContent)} image={image} scopeNotice={scopeNotice}
-      trackLabel={`${id}:${utmContent}`} placement={placement} className="my-6 w-full max-w-2xl" /></div>
+      trackLabel={`${id}:${utmContent}`} placement={placement} className={`my-6 ${CTA_STACK_WIDTH}`} /></div>
     <div data-note-body-arm="text">{scopeNotice && <p className="not-prose mb-2 text-sm leading-relaxed text-(--ink-body)">{scopeNotice}</p>}{textCard}</div>
   </>;
 }

@@ -40,6 +40,7 @@ import { resolveExamStepBridge } from '@/lib/exam-step-bridge';
 import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { isCivilConstructionCategory } from '@/lib/qualification-names';
+import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 
 interface ArticleFooterProps {
   readonly imageBanner?: React.ReactNode;
@@ -231,17 +232,14 @@ export default function ArticleFooter({
       {footerMokuji && endBanner ? (
         <div className="mt-8 grid items-start gap-4 sm:grid-cols-[300px_300px] sm:justify-center">
           <div className="w-full max-w-[300px]">
-            <p className="mb-2 text-sm font-bold text-ink-strong">試験の準備を進めたい</p>
             <HubCtaBanner cta={footerMokuji} placement="article-footer" />
           </div>
-          <div className="w-full max-w-[300px]"><p className="mb-2 text-sm font-bold text-ink-strong">資格・経験を仕事に活かしたい</p>{endBanner}</div>
+          <div className="w-full max-w-[300px]">{endBanner}</div>
         </div>
       ) : footerMokuji ? (
-        // 1 枚だけのときは本文の幅いっぱいの横長カード（左に表紙・右に商品名）。300px の中央寄せは、上の転職バナー（全幅）・
-        // 下のココナラ（全幅）と幅がそろわず、記事末の導線がばらばらに見えた（2026-11-16 運営者指摘）。
+        // 1 枚だけのときは転職の横長バナーと同じ幅の横長カード（左に表紙・右に商品名）。幅の正本は cta-stack.ts
         <div className="mt-8 max-zenn-sp:px-(--article-gutter-sp)">
-          <p className="mb-2 text-sm font-bold text-ink-strong">試験の準備を進めたい</p>
-          <HubCtaBanner cta={footerMokuji} placement="article-footer" wide />
+          <div data-cta-stack className={CTA_STACK_CLASS}><HubCtaBanner cta={footerMokuji} placement="article-footer" wide /></div>
         </div>
       ) : endBanner ? (
         <div className="mt-8 flex justify-center">

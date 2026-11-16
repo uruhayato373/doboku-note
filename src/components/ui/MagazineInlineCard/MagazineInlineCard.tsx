@@ -4,6 +4,7 @@ import Image from "next/image";
 import MagazineBadge from "@/components/ui/MagazineBadge/MagazineBadge";
 import { brandOf } from "@/lib/exam-brand";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
+import { CTA_STACK_WIDTH } from '@/lib/cta-stack';
 
 interface MagazineInlineCardProps {
   readonly url: string;
@@ -48,7 +49,7 @@ export default function MagazineInlineCard({
       data-cta="note"
       data-cta-label={`${magazineId}:${trackLabel ?? "unknown"}`}
       data-cta-placement={placement}
-      className="card-surface-content focus-ring not-prose group my-6 block max-w-2xl overflow-hidden hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+      className={`card-surface-content focus-ring not-prose group my-6 block ${CTA_STACK_WIDTH} overflow-hidden hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow`}
     >
       <div className="flex min-h-[112px] flex-row">
         <div className="relative aspect-6/5 w-24 shrink-0 self-center overflow-hidden bg-(--bg) sm:w-[180px]">
@@ -80,7 +81,7 @@ export default function MagazineInlineCard({
   // EXP-053: POP 画像と文字のカードを両方描き、<html data-note-body-variant> で片方だけ見せる（src/lib/note-body-experiment.mjs）
   return <>
     <div data-note-body-arm="image"><NoteImageCta href={url} image={image}
-      trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={placement} compact className="my-6 w-full max-w-2xl" /></div>
+      trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={placement} compact className={`my-6 ${CTA_STACK_WIDTH}`} /></div>
     <div data-note-body-arm="text">{textCard}</div>
   </>;
 }

@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { ADSENSE_CLIENT, ADSENSE_SLOTS, type AdSenseSlot } from '@/config/adsense';
 
 /**
- * AdSense の手動の枠。高さを先に取ってレイアウトのずれ（CLS）を防ぎ、配信が無い枠（data-ad-status="unfilled"）は globals.css が畳む。
+ * AdSense の手動の枠。上に「広告」の文字は付けない（ほかの導線と同じく、表記は広告の中の AdChoices に任せる）。高さを先に取ってレイアウトのずれ（CLS）を防ぎ、配信が無い枠（data-ad-status="unfilled"）は globals.css が畳む。
  * 枠の push はページごとに 1 回（クライアント遷移でパスが変わったら ins を作り直す＝key）。
  */
 export default function AdSlot({ slot, className = '' }: { slot: AdSenseSlot; className?: string }) {
@@ -27,8 +27,7 @@ function AdUnit({ slot, className }: { slot: AdSenseSlot; className: string }) {
   }, []);
   const multiplex = slot === 'endMultiplex';
   return (
-    <aside data-adsense={slot} data-pagefind-ignore aria-label="広告" className={`not-prose adsense-slot ${className}`}>
-      <p className="mb-1 text-center text-[11px] text-ink-muted">広告</p>
+    <aside data-adsense={slot} data-cta-stack data-pagefind-ignore aria-label="広告" className={`not-prose adsense-slot ${className}`}>
       <ins
         className="adsbygoogle"
         style={{ display: 'block', minHeight: multiplex ? 320 : slot === 'rail' ? 250 : 280 }}

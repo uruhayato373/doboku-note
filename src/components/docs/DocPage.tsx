@@ -47,6 +47,7 @@ import { remarkArticleBanners } from '@/lib/article-inline-slots.mjs';
 import { ArticleBanner, articleImagePlacements, articlePixelCandidates } from './ArticleAffiliateBanners';
 import ArticleAffiliatePixels from './ArticleAffiliatePixels';
 import AdSlot from '@/components/ads/AdSlot';
+import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 import { affiliateSlotPreview } from '@/lib/affiliate-slot-preview.mjs';
 import type React from 'react';
 import { getPublicDocPath } from '@/lib/content-routes';
@@ -272,7 +273,7 @@ export async function renderDocPage(slugStr: string) {
   let inlineCareerCardsRendered = 0;
   const baseComponents = {
     ArticleInlineBanner: ({ slot }: { slot: string }) => <ArticleBanner placement={careerPlacements[slot]} kind="inline" />,
-    ArticleInlineAd: () => <AdSlot slot="inArticle" className="mx-auto my-8 max-w-[740px]" />,
+    ArticleInlineAd: () => <AdSlot slot="inArticle" className={`${CTA_STACK_CLASS} my-8`} />,
     ...components,
     table: (p: React.ComponentProps<'table'>) => (
       <div className="table-scroll">
@@ -396,7 +397,7 @@ export async function renderDocPage(slugStr: string) {
               hasCategoryNavCard={hasCategoryNavCard}
               authorDates={authorDates}
             />
-            <AdSlot slot="endMultiplex" className="mt-10 max-zenn-sp:px-(--article-gutter-sp)" />
+            <div className="mt-10 max-zenn-sp:px-(--article-gutter-sp)"><AdSlot slot="endMultiplex" className={CTA_STACK_CLASS} /></div>
         </TwoColumnShell>
     </PageShell>
   );
