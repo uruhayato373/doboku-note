@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import ArticleCard from '@/components/ui/ArticleCard/ArticleCard';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import type { CardImage } from '@/lib/site-thumbnail';
@@ -68,7 +68,7 @@ export default function TopicArticles({ articles, areaLabels, featured: entry = 
               return <Disclosure key={`${value}-${filtered}`} open={filtered} hidden={!matches.length} summaryClassName="font-bold text-(--ink)" summary={<><h4 className="inline">{label}</h4> <span className="text-sm font-normal text-(--ink-muted)">{matches.length}件</span></>}>
                 {bySubgroup(rows).map(([subgroup, items])=><div key={subgroup || '-'}>
                   {subgroup && <p hidden={!items.some(match)} className="border-t border-(--rule-soft) px-4 pt-4 text-sm font-bold text-(--ink-muted)">{subgroup}（{items.filter(match).length}件）</p>}
-                  <ul className="px-4">{items.map(a=><li key={a.href} hidden={!match(a)} className="border-t border-(--rule-soft)"><Link className="focus-ring block py-4 hover:text-(--accent)" href={a.href}><span className="text-xs text-(--ink-muted)">{a.kind}</span><h5 className="mt-1 font-bold text-(--ink)">{a.title}</h5><p className="mt-1 line-clamp-2 text-sm text-(--ink-muted)">{a.description}</p></Link></li>)}</ul>
+                  <LinkRowList className="px-4">{items.map(a=><LinkRow key={a.href} href={a.href} eyebrow={a.kind} title={a.title} headingLevel="h5" description={a.description} tone="ink" hidden={!match(a)} />)}</LinkRowList>
                 </div>)}
               </Disclosure>;
             })}

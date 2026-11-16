@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LinkRow, { LinkRowList, RankMarker } from '@/components/ui/LinkRow/LinkRow';
 import { type PopularDoc, popularWindow } from '@/lib/popular';
 import { OgpThumbRow } from '@/components/category/CategorySections';
 import { getPublicDocPath } from '@/lib/content-routes';
@@ -44,23 +44,18 @@ export function PopularRanking({ items }: { items: PopularDoc[] }) {
         <h3 className="font-serif font-bold text-(--ink) text-sm">人気記事</h3>
         {label && <span className="font-mono text-[10px] text-(--ink-muted) tabular-nums">{label}</span>}
       </div>
-      <ol className="flex flex-col">
+      <LinkRowList as="ol" className="px-4">
         {items.map((item) => (
-          <li key={item.doc.slug}>
-            <Link
-              href={getPublicDocPath(item.doc.slug)}
-              className="group flex gap-3 px-4 py-3 border-b border-(--rule-soft) last:border-b-0 hover:bg-(--accent-fill) transition-colors"
-            >
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-(--accent-fill) font-mono text-xs font-bold text-(--accent)">
-                {item.rank}
-              </span>
-              <span className="font-serif text-[13px] font-bold leading-tight text-(--ink) group-hover:text-(--accent) transition-colors line-clamp-2">
-                {item.doc.shortTitle || item.doc.title}
-              </span>
-            </Link>
-          </li>
+          <LinkRow
+            key={item.doc.slug}
+            href={getPublicDocPath(item.doc.slug)}
+            title={item.doc.shortTitle || item.doc.title}
+            marker={<RankMarker rank={item.rank} />}
+            serif
+            tone="ink"
+          />
         ))}
-      </ol>
+      </LinkRowList>
     </div>
   );
 }

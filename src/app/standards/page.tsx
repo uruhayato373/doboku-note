@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import StandardsExplore from '@/components/standards/StandardsExplore';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import { StandardsEndBanner, StandardsRailBanner } from '@/components/standards/StandardsAffiliateBanners';
@@ -54,19 +55,19 @@ export default function StandardsPage() {
 
           <section aria-labelledby="major-documents-heading" className="mt-5">
             <h2 id="major-documents-heading" className="mb-2 text-xl font-bold text-(--ink)">よく使う文書</h2>
-            <ul className="grid gap-x-4 sm:grid-cols-2" data-standards-list="major">
+            <LinkRowList className="grid gap-x-4 sm:grid-cols-2" data={{ 'data-standards-list': 'major' }}>
               {MAJOR_DOCUMENTS.map((doc) => (
-                <li key={`${doc.agencyId}-${doc.documentId}`} className="border-b border-(--rule-soft)">
-                  <Link href={standardsDocumentPath(doc.agencyId, doc.documentId)} data-cta="nav" data-cta-label="standards-document" className={rowLink}>
-                    <span className="min-w-0">
-                      <span className="block font-bold">{doc.label}</span>
-                      <span className="block text-sm text-(--ink-body)">{doc.note}</span>
-                    </span>
-                    <span aria-hidden="true" className="text-(--accent)">→</span>
-                  </Link>
-                </li>
+                <LinkRow
+                  key={`${doc.agencyId}-${doc.documentId}`}
+                  href={standardsDocumentPath(doc.agencyId, doc.documentId)}
+                  title={doc.label}
+                  description={doc.note}
+                  tone="ink"
+                  arrow
+                  data={{ 'data-cta': 'nav', 'data-cta-label': 'standards-document' }}
+                />
               ))}
-            </ul>
+            </LinkRowList>
           </section>
 
           <section id="agencies" aria-labelledby="agencies-heading" className="mt-7 scroll-mt-6">

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import { getCategoryJumps } from './CategoryJumpNav';
 import { getRelatedTools } from '@/lib/tools';
@@ -17,11 +18,11 @@ export default function CategoryStudyNav({ category }: { category: string }) {
   if (!links.length && !tools.length) return null;
   return <MetaCard padding="compact" ariaLabel="演習・復習の入口" trackNav="category-study">
     <h2 className="text-lg font-bold text-(--ink)">演習・復習の入口</h2>
-    <ul className="mt-2 divide-y divide-(--rule-soft)">
-      {links.map(link => <li key={link.href}><Link className="focus-ring flex min-h-11 items-center justify-between gap-2 py-2 text-sm text-(--ink) hover:text-(--accent)" href={link.href}>{link.label}<span aria-hidden="true">→</span></Link></li>)}
-    </ul>
-    {guides.length > 0 && <><h3 className="mt-4 text-sm font-bold text-(--ink)">最初に読む・対策を選ぶ</h3><ul>{guides.map(d=><li key={d.slug}><Link className="focus-ring flex min-h-11 items-center py-2 text-sm text-(--accent) hover:underline" href={getPublicDocPath(d.slug)}>{resolveNavTitle(d).main}</Link></li>)}</ul></>}
-    {tools.length > 0 && <><h3 className="mt-4 text-sm font-bold text-(--ink)">無料ツールで試す</h3><ul className="mt-1 divide-y divide-(--rule-soft)">{tools.map(tool => <li key={tool.href}><Link href={tool.href} className="focus-ring flex min-h-11 items-center py-2 text-sm text-(--accent) hover:underline">{tool.title}</Link></li>)}</ul></>}
+    <LinkRowList className="mt-2">
+      {links.map(link => <LinkRow key={link.href} href={link.href} title={link.label} tone="ink" arrow />)}
+    </LinkRowList>
+    {guides.length > 0 && <><h3 className="mt-4 text-sm font-bold text-(--ink)">最初に読む・対策を選ぶ</h3><LinkRowList>{guides.map(d=><LinkRow key={d.slug} href={getPublicDocPath(d.slug)} title={resolveNavTitle(d).main} />)}</LinkRowList></>}
+    {tools.length > 0 && <><h3 className="mt-4 text-sm font-bold text-(--ink)">無料ツールで試す</h3><LinkRowList className="mt-1">{tools.map(tool => <LinkRow key={tool.href} href={tool.href} title={tool.title} />)}</LinkRowList></>}
     <Link href="/tools" className="focus-ring mt-2 inline-flex min-h-11 items-center text-sm text-(--accent) underline">計算・演習ツール一覧 →</Link>
   </MetaCard>;
 }
