@@ -4,6 +4,7 @@ import Link from 'next/link';
 import remarkGfm from 'remark-gfm';
 import PageShell from '@/components/layout/PageShell';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
+import AdSlot from '@/components/ads/AdSlot';
 import SafeMdx from '@/components/mdx/SafeMdx';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
@@ -218,6 +219,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
           <StandardsEndBanner pageKind="standards" inlineSlots={inlineSlots} />
           <StandardsAttribution document={entry} item={chapter.item} pages={{ first: chapter.firstPage, last: chapter.lastPage }} />
         </SectionCard>
+        <AdSlot slot="endMultiplex" className="mt-10 max-zenn-sp:px-(--article-gutter-sp)" />
       </TwoColumnShell>
     </PageShell>
   );

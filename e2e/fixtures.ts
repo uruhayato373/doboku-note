@@ -65,6 +65,7 @@ const allowedConsoleErrors = [
   /google-analytics\.com/,
   /doubleclick\.net/,
   /adsbygoogle/,
+  /googlesyndication\.com/,
 ];
 
 export function observeRuntimeErrors(page: Page) {

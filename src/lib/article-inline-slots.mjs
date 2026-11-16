@@ -6,6 +6,10 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import { planInlineSlots } from './standards-inline-slots.mjs';
 
+export const ADSENSE_GAP_CHARS = 800;
+export const ADSENSE_INTERVAL_CHARS = 2500;
+export const ADSENSE_MAX_SLOTS = 2;
+
 const parser = unified().use(remarkParse).use(remarkMdx).use(remarkGfm).use(remarkMath);
 const ctaNames = new Set(['CareerAffiliate', 'MagazineCard', 'NoteLink', 'MagazineHeroCta', 'MidArticleCta', 'CareerMultiRegister']);
 const textOf = node => node.value ?? (node.children ?? []).map(textOf).join('');
@@ -48,17 +52,24 @@ export function planArticleInlineSlots(markdown, { midPositions = [], reservedSt
     }
   }
   const plan = planInlineSlots(markdown, { slotPrefix: 'article-banner', allowedLines, forbiddenRanges, occupiedLines });
+  // AdSense の本文枠は、転職バナーの候補位置（素材の有無に関わらず）と CTA から 800 字以上離し、2,500 字ごとに最大 2 枠。
+  const ads = planInlineSlots(markdown, {
+    slotPrefix: 'adsense', allowedLines, forbiddenRanges,
+    occupiedLines: [...occupiedLines, ...plan.insertAt.map(s => s.line)],
+    firstChars: ADSENSE_GAP_CHARS, intervalChars: ADSENSE_INTERVAL_CHARS, maxSlots: ADSENSE_MAX_SLOTS,
+  });
   // 注入位置は次の root ノードへ正規化する（空行自身は AST ノードを持たない）。
-  return { ...plan, hasRuledCareerCard, renderedMidIndexes: midPositions.flatMap((n, i) => h2[n + 1] ? [i] : []), insertAt: plan.insertAt.map(s => ({ ...s, line: starts.find(line => line >= s.line) ?? s.line })) };
+  const normalize = s => ({ ...s, line: starts.find(line => line >= s.line) ?? s.line });
+  return { ...plan, hasRuledCareerCard, renderedMidIndexes: midPositions.flatMap((n, i) => h2[n + 1] ? [i] : []), insertAt: plan.insertAt.map(normalize), adInsertAt: ads.insertAt.map(normalize) };
 }
 
 /** 単一 MDX コンパイル内で注入し、本文・見出し ID の採番を変えない。 */
 export function remarkArticleBanners({ insertAt = [] } = {}) {
   return tree => {
-    for (const item of [...insertAt].reverse()) {
+    for (const item of [...insertAt].sort((a, b) => a.line - b.line).reverse()) {
       const index = tree.children.findIndex(n => n.position?.start.line - 1 >= item.line);
       if (index < 0) throw new Error(`記事バナーの境界がない: ${item.line}`);
-      tree.children.splice(index, 0, { type: 'mdxJsxFlowElement', name: 'ArticleInlineBanner', attributes: [{ type: 'mdxJsxAttribute', name: 'slot', value: item.slot }], children: [] });
+      tree.children.splice(index, 0, { type: 'mdxJsxFlowElement', name: item.slot.startsWith('adsense') ? 'ArticleInlineAd' : 'ArticleInlineBanner', attributes: [{ type: 'mdxJsxAttribute', name: 'slot', value: item.slot }], children: [] });
     }
   };
 }

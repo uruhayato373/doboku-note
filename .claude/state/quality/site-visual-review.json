@@ -72,6 +72,14 @@
       "pages": 16,
       "pass": 16,
       "fail": 0
+    },
+    {
+      "runId": "20261116T101412Z",
+      "at": "2026-11-16T10:26:34.995Z",
+      "base": "http://localhost:3025",
+      "pages": 6,
+      "pass": 6,
+      "fail": 0
     }
   ],
   "pages": {
@@ -190,32 +198,17 @@
       "ticket": null
     },
     "guide": {
-      "layoutSha256": "c475112f35e6c9afa0c21569dc10c168501eb55d3c91fec2235de508e2a762c6",
+      "layoutSha256": "0db428726630ad2a1e406dad2c72c9eb0c844646cf158380d4f36e00bfe1ad37",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T10:26:34.992Z",
+      "runId": "20261116T101412Z",
       "path": "/exam/civil-construction-1/guide/strategy",
       "findings": [
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "スマホ幅で記事下の「1級土木 教材一覧」カードや各区画の左端が 16〜39px 単位でずれ、768/1440 でも教材一覧カードが本文幅より狭く中央寄せで、端が揃っていない。",
-          "viewport": "w375",
-          "shot": "w375-04.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "パンくずが 11px と小さく、タップ領域も 17px と小さい。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "記述式対策のカード等の題名が下線付きで読みにくく、本文の途中に商品導線が複数続く。",
-          "viewport": "w375",
-          "shot": "w375-cta-02.png"
+          "detail": "ページ末尾の広告枠は執筆者カードとフッターの間に約 470px の空白として見える（ローカルでは広告が出ないため正常）。本番で広告が出ない場合に大きな空白が残る可能性がある。",
+          "viewport": "w375"
         }
       ],
       "deterministic": [],
@@ -232,24 +225,17 @@
       "ticket": null
     },
     "keyword": {
-      "layoutSha256": "01b0fc04647ff79eec59213ac67b4557696db57aa49186bdbd0ae389dd61eed3",
+      "layoutSha256": "67fd5559b6a126339afe56818879ab629de40af23f4890db895f175f766e62e3",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T10:26:34.992Z",
+      "runId": "20261116T101412Z",
       "path": "/exam/pe-comprehensive-management/keywords/alarp-principle",
       "findings": [
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "5管理 精読ガイドの note 導線が冒頭と記事末で似た形で重複する。",
-          "shot": "w375-03.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "パンくずが 11px と小さく、押す範囲も小さい。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "type": "layout",
+          "detail": "ページ末尾の広告枠は執筆者カードとフッターの間に約 470px の空白として見える（ローカルでは広告が出ないため正常）。本番で広告が出ない場合に大きな空白が残る可能性がある。",
+          "viewport": "w375"
         }
       ],
       "deterministic": [],
@@ -281,31 +267,24 @@
       "ticket": null
     },
     "past-exam": {
-      "layoutSha256": "51bc4b7316bf688762a075f3b21ea8784d74a942524cfb512284f26c7aae19c6",
+      "layoutSha256": "aee754c4c33d9a2f2f21240b09b469f3a89bed2ec405b9e2ec7238a5a06d993b",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T10:26:34.992Z",
+      "runId": "20261116T101412Z",
       "path": "/exam/civil-construction-1/secondary/r06",
       "findings": [
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "区画の左端がずれ（16/25/38/39px）、教材一覧カードの幅が他の区画より狭く揃っていない。",
-          "viewport": "w375",
-          "shot": "w375-05.png"
+          "detail": "問題 3 と問題 4 の間の広告枠は、設問・解答ポイントの区切りに収まり転職バナーとは設問 1 つ分離れていて位置は適切。ただし広告が空のとき約 370px の空白に見える。",
+          "shot": "w375-02.png"
         },
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "問題と問題の間にアフィリエイトのバナーが何度も挟まり、答案を読み進める流れが途切れる。",
-          "shot": "w768-03.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "パンくずが 11px と小さく、押す範囲も小さい。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "type": "layout",
+          "detail": "ページ末尾で本文側と右の欄の広告枠が横に並び、空の約 300px の余白になる。",
+          "viewport": "w1440",
+          "shot": "w1440-06.png"
         }
       ],
       "deterministic": [],
@@ -351,55 +330,36 @@
       "ticket": null
     },
     "practice": {
-      "layoutSha256": "243f8a2cc79c919a14e396f8b517976716df4a3cc3314fb117947f7cbcd3548d",
+      "layoutSha256": "9b9ab169f958ef3d4ad7d69e887ce1f30ca8936cf8933e3b249da3f55cd2d921",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T10:26:34.992Z",
+      "runId": "20261116T101412Z",
       "path": "/practice/oshms-pdca-site-operation",
       "findings": [
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "パンくずが 11px と小さい。スマホ幅では見出しの最後が 1 文字だけ折り返す箇所がある。"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "記事本文の途中に転職バナーが 3 回入り、読みの流れが細かく途切れる。",
-          "viewport": "w375",
-          "shot": "w375-cta-01.png"
+          "type": "other",
+          "detail": "PC の右の欄の一番下の広告枠が、右の欄の内容（関連記事の続き）が終わった位置ではなくページ末尾に出ており、記事の下に約 300px の空の箱が続く。広告が出れば解消する範囲。",
+          "viewport": "w1440",
+          "shot": "w1440-06.png"
         }
       ],
       "deterministic": [],
       "ticket": null
     },
     "standards-chapter": {
-      "layoutSha256": "d02db860f077a911559c91b7862c41b61b4487f6ea42cd34ef7b5edd69b4c580",
+      "layoutSha256": "52c08d3d863d0676ed3b27c03ee8816605e5094e2cdb475f2c172d026f0ba3d6",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T10:26:34.992Z",
+      "runId": "20261116T101412Z",
       "path": "/standards/kinki/common/chapters/1-3",
       "findings": [
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "スマホ幅でパンくずが 11px と小さく、押せる範囲も高さ 17px しかない。本文は読める大きさ。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "横に送る表（表1-3-3）が本文の左端より 16px ほど内側から始まり、右端で切れている。「左右にスクロールして表を読む」の案内があり読める。",
-          "viewport": "w768",
-          "shot": "w768-03.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "章末の「この業務経験を資格につなげる」の 3 枚のカードは説明文の長さが違い、下端がそろっていない。",
+          "type": "other",
+          "detail": "ページ末尾の広告枠が、末尾の転職バナーと出典欄の下に続く。間に出典欄があり隣接はしていないが、導線の直後に枠が続く。",
           "viewport": "w1440",
-          "shot": "w1440-05.png"
+          "shot": "w1440-cta-03.png"
         }
       ],
       "deterministic": [],
@@ -437,23 +397,25 @@
       "ticket": null
     },
     "textbook": {
-      "layoutSha256": "0fcaf1eb8edb5a62e6371ba6b7670ff204b523f5b2382a1f5b1069586597f786",
+      "layoutSha256": "b6551c0f145a649f5020eff50e76bda224a662e394374cce130f6861ab3bcb8b",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T10:26:34.992Z",
+      "runId": "20261116T101412Z",
       "path": "/exam/civil-construction-1/textbook/network-schedule",
       "findings": [
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "パンくずが 11px で小さく、スマホ幅では 2 行に折り返す。本文には影響しない。"
+          "type": "layout",
+          "detail": "ページ末尾で本文側の広告枠と右の欄の広告枠が横に並び、どちらも空の約 300px の余白になる。配信時に埋まれば解消するが、枠の位置が左右でずれて見える。",
+          "viewport": "w1440",
+          "shot": "w1440-06.png"
         },
         {
           "severity": "minor",
-          "type": "consistency",
-          "detail": "記事末の「1級土木 教材一覧」バナーと就職バナーで幅が揃わず、教材バナーが細く中央に寄って見える。",
-          "viewport": "w1440",
-          "shot": "w1440-05.png"
+          "type": "layout",
+          "detail": "スマホ幅の末尾の広告枠は、運営者の欄とフッターの間に約 450px の空白として出る。広告が入らない場合は大きな空白に見える。",
+          "viewport": "w375",
+          "shot": "w375-06.png"
         }
       ],
       "deterministic": [],
