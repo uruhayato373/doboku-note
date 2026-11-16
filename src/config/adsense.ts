@@ -7,7 +7,8 @@
 export const ADSENSE_CLIENT = 'ca-pub-8504035087322664';
 
 export const ADSENSE_SLOTS = {
-  inArticle: '3134794094', // doboku-in-article（ディスプレイ・レスポンシブ）
+  // 本文の途中は記事内広告（ネイティブ・2026-11-16 作成）。旧 doboku-in-article（3134794094・ディスプレイ）は使わないが AdSense には残す
+  inArticle: '2242183125', // doboku-in-article-native（記事内広告・fluid）
   rail: '8003977399', // doboku-rail（ディスプレイ・レスポンシブ）
   endMultiplex: '1246997354', // doboku-end-multiplex（Multiplex）
 } as const;
@@ -16,7 +17,7 @@ export type AdSenseSlot = keyof typeof ADSENSE_SLOTS;
 
 /** 管理画面の広告ユニット名（手元の目印に出す） */
 export const ADSENSE_UNIT_NAMES: Record<AdSenseSlot, string> = {
-  inArticle: 'doboku-in-article',
+  inArticle: 'doboku-in-article-native',
   rail: 'doboku-rail',
   endMultiplex: 'doboku-end-multiplex',
 };
