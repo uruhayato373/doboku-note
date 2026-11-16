@@ -8917,6 +8917,23 @@
       "commit": "2fd78a38a27f",
       "verification": "npm run test 4358 本 失敗 0・npm run build・check-cta-surfaces・check-magazine-cta・check-seo-build error 0・壊した台帳で 4 件の誤りを検出",
       "note": "売り場から外すのではなく、広い面（資格トップ・横の欄・記事末のタイル・/links の先頭）の案内先を台帳 config/site-cta-surfaces.json で管理する形に決定・実装。RCCM・コンクリート 3 資格・上下水道をもくじ（試験前・口頭試験期はパック）へ。検査 check-cta-surfaces を CI に追加。"
+    },
+    {
+      "id": "DN-1218",
+      "at": "2026-11-16",
+      "task": "記事の目次を本文上部へ・右の欄の空きを回遊と広告で埋める・回遊カードのサムネイル化（全ページの検査から）",
+      "tier": "high",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "改善のカード"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fc539a25aca5",
+      "verification": "本番 PC 1440 の代表 7 ページで、目次が本文の上・右の欄の最後の組がページ末尾の 1.4〜1.9k 手前・横はみ出し 0・ピクセル重複 0・固定と欄内スクロール 0 を実測。site-visual-review で代表 16 ページ × 3 幅を目視し、全部合格（台帳 2026-11-16）",
+      "note": "段 0 の集計は #1619（本番 2,103 URL × PC/スマホ・右の欄の空き 61%）。段 1〜3 は #1619・#1620・#1621、基準書の表と E2E の修正 #1624。本番 d02274ddd に反映。EXP-065 登録済み。"
     }
   ]
 }
