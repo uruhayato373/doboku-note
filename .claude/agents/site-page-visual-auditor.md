@@ -88,7 +88,7 @@ domain: site
 - `detail` は**どの画面幅のどこが、読者にとってどう困るか**を 1〜2 文で。直し方の推測は書かない
 - 全部の画面幅に出る指摘は `viewport` を省く。特定の幅だけなら必ず書く
 - 同じ原因が複数の撮影に出るときは、指摘を 1 件にまとめる
-- `deterministicIssues` があれば、その内容を major の指摘として書き写す（`edge` → layout、`cta-missing`・`cta-clip`・`cta-width` → cta、`overflow` → layout、`image` → content）
+- `deterministicIssues` があれば、その内容を major の指摘として書き写す（`edge` → layout、`cta-missing`・`cta-clip`・`cta-width`・`feed-ad` → cta、`overflow` → layout、`image` → content）
 
 ## しないこと
 

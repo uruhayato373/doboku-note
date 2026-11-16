@@ -5,6 +5,9 @@ import { DocCard, OgpThumbRow } from '@/components/category/CategorySections';
 import { getPublicDocPath } from '@/lib/content-routes';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import CardRail from '@/components/ui/CardRail';
+import AdSlot from '@/components/ads/AdSlot';
+import { withFeedAds } from '@/lib/feed-ads';
+import { feedAdBudget } from '@/lib/feed-ads-budget';
 
 // カテゴリページの「体系（受験ガイド / 分野別 / テキスト章）」をテキスト目次調のリストで見せる共有コンポーネント群。
 // カード（DocCard）でなくリストにすることで、章立て・出題分野の体系が一目で分かり情報密度を上げる。
@@ -70,12 +73,16 @@ function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode 
 }
 
 /** 1 ブロック内の行（章頭の要点 → 本文 docs）。開閉カード内・フラット双方で共有。 */
-function ChapterRows({ block, numbered, thumbnails, previewFirst = false }: { block: CurriculumBlockView; numbered: boolean; thumbnails: boolean; previewFirst?: boolean }) {
+function ChapterRows({ block, numbered, thumbnails, previewFirst = false, adKey }: { block: CurriculumBlockView; numbered: boolean; thumbnails: boolean; previewFirst?: boolean; adKey?: string | undefined }) {
+  // 広告は adKey があるとき（畳まれない一覧）だけ。開閉の中身（Disclosure）には置かない
+  const budget = adKey ? feedAdBudget() : undefined;
   if (thumbnails) {
     return (
       <ul data-cta="nav" data-cta-label="curriculum-thumbs">
-        {[...(block.intro ?? []), ...block.docs].map(doc => (
-          <OgpThumbRow key={doc.slug} doc={doc} headingLevel={block.label ? 'h4' : 'h3'} />
+        {(budget ? withFeedAds([...(block.intro ?? []), ...block.docs], { key: adKey!, budget }) : [...(block.intro ?? []), ...block.docs].map((item, index) => ({ kind: 'item' as const, item, index }))).map(e => e.kind === 'ad' ? (
+          <AdSlot key={e.key} as="li" slot="inFeedThumb" className="border-b border-(--rule-soft) py-4" />
+        ) : (
+          <OgpThumbRow key={e.item.slug} doc={e.item} headingLevel={block.label ? 'h4' : 'h3'} />
         ))}
       </ul>
     );
@@ -90,7 +97,11 @@ function ChapterRows({ block, numbered, thumbnails, previewFirst = false }: { bl
           marker={<span className="font-mono text-[10px] font-bold text-(--accent)">要点</span>}
         />
       ))}
-      {block.docs.map((doc, i) => previewFirst && i === 0 ? (
+      {(budget ? withFeedAds(block.docs, { key: adKey!, budget }) : block.docs.map((item, index) => ({ kind: 'item' as const, item, index }))).map(e => {
+        if (e.kind === 'ad') return <AdSlot key={e.key} as="li" slot="inFeedText" className="border-b border-(--rule-soft) py-3" />;
+        const doc = e.item;
+        const i = e.index;
+        return previewFirst && i === 0 ? (
         <OgpThumbRow key={doc.slug} doc={doc} headingLevel={block.label ? 'h4' : 'h3'} />
       ) : (
         <CurriculumRow
@@ -106,7 +117,8 @@ function ChapterRows({ block, numbered, thumbnails, previewFirst = false }: { bl
             )
           }
         />
-      ))}
+        );
+      })}
     </ul>
   );
 }
@@ -180,7 +192,7 @@ export function CurriculumList({
                     {block.label}
                   </h3>
                 )}
-                <ChapterRows block={block} numbered={numbered} thumbnails={thumbnails} previewFirst={previewFirst} />
+                <ChapterRows block={block} numbered={numbered} thumbnails={thumbnails} previewFirst={previewFirst} adKey={`${block.label ?? 'block'}-${bi}`} />
               </>
             )}
           </div>

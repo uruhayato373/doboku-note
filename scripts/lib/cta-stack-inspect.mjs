@@ -89,3 +89,32 @@ export function inspectCtaStacksInPage() {
   }
   return { checked: items.length, mismatches };
 }
+
+/**
+ * 記事の一覧に挟んだインフィード広告（[data-adsense^="inFeed"]・ul の li か grid の div・src/lib/feed-ads.ts）を描画した画面で点検する（ブラウザの中で走る関数）。
+ * 見えている広告ごとに、前後の兄弟が見えている一覧の項目であること（先頭・末尾・広告の隣に置かない）と、幅が前後の項目と 12px 以内でそろうことを見る。
+ * 返すもの: { checked: 見えている広告の数, total: 広告の数, mismatches: [{ detail }] }。1 ページ 3 枠を超えたら mismatches に入れる。
+ */
+export function inspectFeedAdsInPage() {
+  const TOL = 12;
+  const shown = (el) => { const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 0 && r.height > 0; };
+  const ads = [...document.querySelectorAll('[data-adsense^="inFeed"]')];
+  const mismatches = [];
+  if (ads.length > 3) mismatches.push({ detail: `インフィード広告が ${ads.length} 枠（1 ページ 3 枠まで）` });
+  let checked = 0;
+  for (const ad of ads) {
+    if (!shown(ad)) continue;
+    checked += 1;
+    const items = [...ad.parentElement.children].filter((el) => shown(el));
+    const index = items.indexOf(ad);
+    const neighbors = [items[index - 1], items[index + 1]];
+    const slot = ad.getAttribute('data-adsense');
+    if (neighbors.some((n) => !n || n.hasAttribute('data-adsense'))) mismatches.push({ detail: `${slot} が一覧の先頭・末尾か、広告の隣にある` });
+    const w = ad.getBoundingClientRect().width;
+    for (const n of neighbors.filter(Boolean)) {
+      const nw = n.getBoundingClientRect().width;
+      if (Math.abs(nw - w) > TOL) mismatches.push({ detail: `${slot}（幅 ${Math.round(w)}px）が隣の項目（幅 ${Math.round(nw)}px）とそろっていない` });
+    }
+  }
+  return { checked, total: ads.length, mismatches };
+}
