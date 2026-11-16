@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolResultValue, ToolStatus, ToolNotice, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * コンクリート打込み 時間管理チェッカー（クライアント）。
@@ -31,23 +31,23 @@ type Season = "normal" | "hot" | "cold";
 // dark: の指定を上書きしてしまうため lint-ui が禁止している）
 const SEASON_META: Record<
   Season,
-  { label: string; color: string; borderClass: string; note: string | null }
+  { label: string; textClass: string; borderClass: string; note: string | null }
 > = {
   normal: {
     label: "通常のコンクリート",
-    color: "var(--color-positive)",
+    textClass: "text-(--color-positive)",
     borderClass: "border-(--color-positive)",
     note: null,
   },
   hot: {
     label: "暑中コンクリート",
-    color: "var(--color-danger)",
+    textClass: "text-(--color-danger)",
     borderClass: "border-(--color-danger)",
     note: "打込み時のコンクリート温度は原則 35℃ 以下。運搬・打込み・締固めを迅速に行い、打込み直後から乾燥を防ぐ養生に入る。",
   },
   cold: {
     label: "寒中コンクリート",
-    color: "var(--color-warn)",
+    textClass: "text-(--color-warn)",
     borderClass: "border-(--color-warn)",
     note: "打込み時のコンクリート温度は 5〜20℃ を確保し、初期凍害を受けない強度が出るまで 5℃ 以上に保つ。凝結が遅れるため、時間の限度は余裕側で運用する。",
   },
@@ -125,18 +125,13 @@ export default function ConcreteTimeCheckClient({ related }: { related?: React.R
     [limits]
   );
 
-  const inputBase =
-    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
-  const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
-
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       {/* 入力 */}
-      <div className="card-surface-section p-5 sm:p-6">
+      <ToolPanel>
         <div className="grid gap-4 sm:grid-cols-3">
           <div>
-            <label htmlFor="air-temp" className={labelBase}>
+            <label htmlFor="air-temp" className={`${TOOL_LABEL} mb-2`}>
               外気温（℃）
             </label>
             <input
@@ -146,14 +141,14 @@ export default function ConcreteTimeCheckClient({ related }: { related?: React.R
               step="0.1"
               value={airTemp}
               onChange={(e) => setAirTemp(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
             <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               打込み当日の気温。時間の限度を決める
             </p>
           </div>
           <div>
-            <label htmlFor="daily-mean" className={labelBase}>
+            <label htmlFor="daily-mean" className={`${TOOL_LABEL} mb-2`}>
               日平均気温（℃）
             </label>
             <input
@@ -163,14 +158,14 @@ export default function ConcreteTimeCheckClient({ related }: { related?: React.R
               step="0.1"
               value={dailyMean}
               onChange={(e) => setDailyMean(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
             <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               暑中／寒中の区分を決める
             </p>
           </div>
           <div>
-            <label htmlFor="mix-time" className={labelBase}>
+            <label htmlFor="mix-time" className={`${TOOL_LABEL} mb-2`}>
               練混ぜ完了時刻
             </label>
             <input
@@ -178,33 +173,25 @@ export default function ConcreteTimeCheckClient({ related }: { related?: React.R
               type="time"
               value={mixTime}
               onChange={(e) => setMixTime(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
             <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               プラントでの練混ぜ開始時刻
             </p>
           </div>
         </div>
-      </div>
+      </ToolPanel>
 
       {/* 結果 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
-              施工区分
-            </div>
-            <div
-              className="font-serif font-black text-[24px] sm:text-[28px] leading-tight mt-1"
-              style={{ color: meta.color }}
-            >
-              {meta.label}
-            </div>
-          </div>
+          <ToolResultValue label="施工区分" toneClass={meta.textClass}>
+            {meta.label}
+          </ToolResultValue>
           {/* バッジは「どちらの限度を採ったか」を示す。区分の色とは別軸なので配色も分ける */}
-          <div className="inline-flex items-center rounded-full border border-(--rule) px-3 py-1 text-sm font-bold text-(--ink-body)">
+          <ToolStatus>
             {isHotAir ? `外気温 ${TEMP_BOUNDARY_C}℃ 超` : `外気温 ${TEMP_BOUNDARY_C}℃ 以下`}
-          </div>
+          </ToolStatus>
         </div>
 
         <div className="mt-5 overflow-x-auto">
@@ -258,11 +245,9 @@ export default function ConcreteTimeCheckClient({ related }: { related?: React.R
         </div>
 
         {meta.note && (
-          <p
-            className={`mt-4 rounded-card-content border-l-4 ${meta.borderClass} bg-(--bg) p-3 text-sm leading-6 text-(--ink-body)`}
-          >
+          <ToolNotice borderClass={meta.borderClass} className="mt-4">
             {meta.note}
-          </p>
+          </ToolNotice>
         )}
 
         {(!airValid || !meanValid) && (
@@ -270,12 +255,10 @@ export default function ConcreteTimeCheckClient({ related }: { related?: React.R
             気温が未入力です。{!airValid && "外気温は 25℃ 以下として"} 計算しています。
           </p>
         )}
-      </div>
+      </ToolPanel>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources>
           <li>
             <strong className="text-(--ink)">練混ぜ〜打込み終了</strong>と<strong className="text-(--ink)">許容打重ね時間間隔</strong>は、土木学会 コンクリート標準示方書 施工編。外気温 25℃ 以下で 2.0h / 2.5h、25℃ を超えると 1.5h / 2.0h。
           </li>
@@ -288,10 +271,9 @@ export default function ConcreteTimeCheckClient({ related }: { related?: React.R
           <li className="text-(--ink-muted)">
             ※ 発注者の特記仕様書や監督員の指示が示方書と異なる場合は、そちらが優先します。本ツールは標準値の早見であり、現場の管理値を代替するものではありません。
           </li>
-        </ul>
-      </div>
+      </ToolSources>
 
       {related}
-    </div>
+    </ToolLayout>
   );
 }

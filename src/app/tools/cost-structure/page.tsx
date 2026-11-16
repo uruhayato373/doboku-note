@@ -1,13 +1,10 @@
-import PageShell from "@/components/layout/PageShell";
-import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import CostStructureClient from "./CostStructureClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
-import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import ToolPageShell from "@/components/tools/ToolPageShell";
 import { toolByHref } from "@/lib/tools";
-import { READING_CONTAINER } from '@/components/layout/container';
 
 const tool = toolByHref("/tools/cost-structure");
 
@@ -42,23 +39,15 @@ export const metadata: Metadata = {
 
 export default function CostStructurePage() {
   return (
-    <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        width="760"
-        breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
-        label="無料ツール"
-        title={tool.title}
-        lead={
-          <>
-            直接工事費・共通仮設費・現場管理費・一般管理費等の金額を入れると、請負工事費に占める<strong className="text-(--ink)">構成比</strong>を計算します。<strong className="text-(--ink)">「赤字かどうか」は判定しません</strong>——公的な判定基準が存在しないためです。自社の実績・計画との比較材料としてお使いください。
-          </>
-        }
-      />
-
+    <ToolPageShell
+      title={tool.title}
+      lead={
+        <>
+          直接工事費・共通仮設費・現場管理費・一般管理費等の金額を入れると、請負工事費に占める<strong className="text-(--ink)">構成比</strong>を計算します。<strong className="text-(--ink)">「赤字かどうか」は判定しません</strong>——公的な判定基準が存在しないためです。自社の実績・計画との比較材料としてお使いください。
+        </>
+      }
+    >
       <CostStructureClient related={<RelatedPages links={[{ href: "/practice/cost-and-design-change", title: "原価と設計変更", description: "費目構成と差異の見方、設計変更の協議記録を解説" }]} toolsIndex="現場管理値の計算ツールをまとめて見る" />} />
-      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
-    </PageShell>
+    </ToolPageShell>
   );
 }

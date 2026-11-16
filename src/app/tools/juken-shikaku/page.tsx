@@ -1,6 +1,5 @@
 import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
-import PageShell from "@/components/layout/PageShell";
-import PageHeader from "@/components/layout/PageHeader";
+import ToolPageShell from "@/components/tools/ToolPageShell";
 import type { Metadata } from "next";
 import JukenShikakuClient from "./JukenShikakuClient";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
@@ -34,23 +33,18 @@ export const metadata: Metadata = {
 
 export default function JukenShikakuPage() {
   return (
-    <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        width="760"
-        breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
-        label="無料ツール"
-        title="土木施工管理技士 受験資格チェッカー"
-        lead={
-          <>
-            <strong className="text-(--ink)">1級・2級土木施工管理技士</strong>の受験資格を無料で判定します。第一次検定の<strong className="text-(--ink)">年齢要件</strong>と、第二次検定の<strong className="text-(--ink)">新受検資格（合格後の実務経験年数）</strong>を、級・保有資格ルート別にチェックできます（令和6年度〜の新制度）。
-          </>
-        }
-      />
-
+    <ToolPageShell
+      title="土木施工管理技士 受験資格チェッカー"
+      lead={
+        <>
+          <strong className="text-(--ink)">1級・2級土木施工管理技士</strong>の受験資格を無料で判定します。第一次検定の<strong className="text-(--ink)">年齢要件</strong>と、第二次検定の<strong className="text-(--ink)">新受検資格（合格後の実務経験年数）</strong>を、級・保有資格ルート別にチェックできます（令和6年度〜の新制度）。
+        </>
+      }
+      affiliate={false}
+    >
       <JukenShikakuClient related={<RelatedPages heading="試験の全体像を知る" links={[{ href: "/exam/civil-construction-1/guide/exam-overview", title: "1級土木 試験概要", description: "受験資格・科目・合格率・日程をまとめて解説" }, { href: "/exam/civil-construction-2/guide/exam-overview", title: "2級土木 試験概要", description: "受験資格・科目・合格率・日程をまとめて解説" }]} />} />
       {/* 転職の案内（結果の下に 1 枠。案件は配置ルール） */}
       <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-inline" className={`${READING_CONTAINER} pb-10`} />
-    </PageShell>
+    </ToolPageShell>
   );
 }

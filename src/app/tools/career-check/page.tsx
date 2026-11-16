@@ -1,5 +1,4 @@
-import PageShell from "@/components/layout/PageShell";
-import PageHeader from "@/components/layout/PageHeader";
+import ToolPageShell from "@/components/tools/ToolPageShell";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { CAREER_HUB_ENTRIES, CAREER_HUB_SLUG } from "@/config/career-pathways";
@@ -42,23 +41,18 @@ export const metadata: Metadata = {
 
 export default function CareerCheckPage() {
   return (
-    <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        width="760"
-        breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
-        label="無料ツール"
-        title="土木施工管理キャリア整理ツール"
-        lead={
-          <>
-            施工管理の経験を<strong className="text-(--ink)">資格・工種・工事規模・立場</strong>
-            の4つで棚卸しし、いま整理すべき論点と、面談・求人票で確認することを一覧にします。
-            <strong className="text-(--ink)">転職の可否や想定年収は判定しません</strong>
-            。すべて選択式で、入力は保存も送信もされません。
-          </>
-        }
-      />
-
+    <ToolPageShell
+      title="土木施工管理キャリア整理ツール"
+      lead={
+        <>
+          施工管理の経験を<strong className="text-(--ink)">資格・工種・工事規模・立場</strong>
+          の4つで棚卸しし、いま整理すべき論点と、面談・求人票で確認することを一覧にします。
+          <strong className="text-(--ink)">転職の可否や想定年収は判定しません</strong>
+          。すべて選択式で、入力は保存も送信もされません。
+        </>
+      }
+      affiliate={false}
+    >
       <CareerCheckClient builtAt={BUILT_AT} />
 
       {/*
@@ -87,6 +81,6 @@ export default function CareerCheckPage() {
           </ul>
         </div>
       </noscript>
-    </PageShell>
+    </ToolPageShell>
   );
 }

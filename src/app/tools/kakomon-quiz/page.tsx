@@ -1,15 +1,12 @@
-import PageShell from "@/components/layout/PageShell";
-import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import KakomonQuizClient from "./KakomonQuizClient";
 import QuizNoteProducts from "./QuizNoteProducts";
 import type { MagazineId } from "@/lib/note-magazines";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
-import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { quizQuestionCount, quizYearCount, quizYearRange } from "@/lib/quiz-summary";
 import { toolByHref } from "@/lib/tools";
-import { READING_CONTAINER } from '@/components/layout/container';
+import ToolPageShell from "@/components/tools/ToolPageShell";
 
 const tool = toolByHref("/tools/kakomon-quiz");
 
@@ -42,24 +39,16 @@ export const metadata: Metadata = {
 
 export default function KakomonQuizPage() {
   return (
-    <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        width="760"
-        breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
-        label="無料ツール"
-        title={tool.title}
-        lead={
-          <>
-            <strong className="text-(--ink)">1級土木施工管理技士 第一次検定</strong>の過去問を、その場で解ける<strong className="text-(--ink)">4択演習</strong>です。1問ずつ即採点し、全選択肢の解説を表示します（{quizYearRange("civil-1")}・全{quizQuestionCount("civil-1")}問／年度別・ランダム・間違い復習）。
-          </>
-        }
-      />
-
+    <ToolPageShell
+      title={tool.title}
+      lead={
+        <>
+          <strong className="text-(--ink)">1級土木施工管理技士 第一次検定</strong>の過去問を、その場で解ける<strong className="text-(--ink)">4択演習</strong>です。1問ずつ即採点し、全選択肢の解説を表示します（{quizYearRange("civil-1")}・全{quizQuestionCount("civil-1")}問／年度別・ランダム・間違い復習）。
+        </>
+      }
+    >
       <KakomonQuizClient />
       <QuizNoteProducts products={NOTE_PRODUCTS} placement="tools-kakomon-quiz" />
-      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
-    </PageShell>
+    </ToolPageShell>
   );
 }

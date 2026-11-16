@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolResultValue, ToolStatus, ToolNotice, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * コンクリート 積算温度（マチュリティ）計算ツール（クライアント）。
@@ -38,18 +38,13 @@ export default function ConcreteMaturityClient({ related }: { related?: React.Re
 
   const isCold = mean !== null && mean <= COLD_DAILY_MEAN_C;
 
-  const inputBase =
-    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
-  const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
-
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       {/* 入力 */}
-      <div className="card-surface-section p-5 sm:p-6">
+      <ToolPanel>
         <div className="grid gap-4 sm:grid-cols-3">
           <div>
-            <label htmlFor="avg-temp" className={labelBase}>
+            <label htmlFor="avg-temp" className={`${TOOL_LABEL} mb-2`}>
               養生期間中の平均気温（℃）
             </label>
             <input
@@ -59,11 +54,11 @@ export default function ConcreteMaturityClient({ related }: { related?: React.Re
               step="0.5"
               value={avgTemp}
               onChange={(e) => setAvgTemp(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="days" className={labelBase}>
+            <label htmlFor="days" className={`${TOOL_LABEL} mb-2`}>
               養生日数（日）
             </label>
             <input
@@ -74,11 +69,11 @@ export default function ConcreteMaturityClient({ related }: { related?: React.Re
               min="0"
               value={days}
               onChange={(e) => setDays(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="daily-mean" className={labelBase}>
+            <label htmlFor="daily-mean" className={`${TOOL_LABEL} mb-2`}>
               日平均気温（℃）
             </label>
             <input
@@ -88,30 +83,25 @@ export default function ConcreteMaturityClient({ related }: { related?: React.Re
               step="0.5"
               value={dailyMean}
               onChange={(e) => setDailyMean(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
             <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               寒中コンクリートの区分を決める
             </p>
           </div>
         </div>
-      </div>
+      </ToolPanel>
 
       {/* 結果 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
-              積算温度 M = Σ(θ+{MATURITY_OFFSET})Δt
-            </div>
-            <div className="font-serif font-black text-[24px] sm:text-[28px] leading-tight mt-1 text-(--ink) tabular-nums">
-              {maturity !== null ? `${maturity.toFixed(0)} ℃・D` : "—"}
-            </div>
-          </div>
+          <ToolResultValue label={<>積算温度 M = Σ(θ+{MATURITY_OFFSET})Δt</>}>
+            {maturity !== null ? `${maturity.toFixed(0)} ℃・D` : "—"}
+          </ToolResultValue>
           {isCold && (
-            <div className="inline-flex items-center rounded-full border border-(--color-warn) px-3 py-1 text-sm font-bold text-(--warn-text-emphasis)">
+            <ToolStatus toneClass="border border-(--color-warn) text-(--warn-text-emphasis)">
               寒中コンクリートの区分
-            </div>
+            </ToolStatus>
           )}
         </div>
 
@@ -120,9 +110,9 @@ export default function ConcreteMaturityClient({ related }: { related?: React.Re
             <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-body)">
               標準養生28日相当（{STANDARD_28D_MATURITY}℃・D）との比
             </div>
-            <div className="font-serif font-black text-[22px] text-(--ink) mt-1 tabular-nums">
+            <ToolResultValue size="sm" className="mt-1">
               {(ratio * 100).toFixed(0)}%
-            </div>
+            </ToolResultValue>
             <p className="mt-2 text-sm leading-6 text-(--ink-body)">
               比が100%を超えても、標準養生28日と同じ強度が出ているとは限りません。強度への換算は配合ごとに事前に把握した関係式が必要です。
             </p>
@@ -130,16 +120,14 @@ export default function ConcreteMaturityClient({ related }: { related?: React.Re
         )}
 
         {isCold && (
-          <p className="mt-4 rounded-card-content border-l-4 border-(--color-warn) bg-(--bg) p-3 text-sm leading-6 text-(--ink-body)">
+          <ToolNotice className="mt-4">
             日平均気温が4℃以下のため、寒中コンクリートとして扱う区分に該当します。打込み時のコンクリート温度は5〜20℃を確保し、初期凍害を受けない強度が出るまで5℃以上に保つ必要があります。
-          </p>
+          </ToolNotice>
         )}
-      </div>
+      </ToolPanel>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources>
           <li>
             <strong className="text-(--ink)">積算温度 M = Σ(θ+10)Δt</strong>は、コンクリートの強度発現を温度と時間の積み重ねで捉えるマチュリティ（Saul の積算温度式）です。θは養生期間中の平均気温、Δtは日数を表します。
           </li>
@@ -152,10 +140,9 @@ export default function ConcreteMaturityClient({ related }: { related?: React.Re
           <li className="text-(--ink-muted)">
             ※ 積算温度と圧縮強度の関係（σ=A logM+Bの形）は、使用する材料・配合・養生条件によって異なる実験定数A・Bを必要とします。<strong className="text-(--ink-body)">本ツールは強度を推定・判定するものではありません。</strong>重要部材では供試体の試験による確認と併用してください。
           </li>
-        </ul>
-      </div>
+      </ToolSources>
 
       {related}
-    </div>
+    </ToolLayout>
   );
 }
