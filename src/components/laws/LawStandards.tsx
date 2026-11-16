@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import type { DocMeta } from '@/lib/docs';
 import { getDocTopics, getTopicStandards } from '@/lib/topics';
 import { standardDocumentPath, type StandardDocument } from '@/lib/standards';
@@ -35,19 +35,17 @@ export default function LawStandards({ doc }: { doc: DocMeta }) {
     <MetaCard trackNav="law-standards" ariaLabel="関係する基準資料">
       <h2 className="mb-1 text-lg font-bold text-(--ink)">関係する基準資料</h2>
       <p className="mb-3 text-sm text-(--ink-muted)">この法令が現場でどう運用されるかを、発注者の仕様書・基準で確かめる</p>
-      <ul className="divide-y divide-(--rule-soft)">
+      {/* 区切り線の文字の行は共通部品に任せる（発行機関・テーマを題名の上に出す） */}
+      <LinkRowList>
         {rows.map(({ document, topicLabel }) => (
-          <li key={`${document.agencyId}/${document.documentId}`}>
-            <Link
-              href={standardDocumentPath(document)}
-              className="focus-ring flex min-h-11 flex-col justify-center py-2 text-sm text-(--accent) hover:underline"
-            >
-              <span className="text-[11px] font-bold text-(--ink-muted)">{document.agencyName}・{topicLabel}</span>
-              <span>{document.title}</span>
-            </Link>
-          </li>
+          <LinkRow
+            key={`${document.agencyId}/${document.documentId}`}
+            href={standardDocumentPath(document)}
+            eyebrow={`${document.agencyName}・${topicLabel}`}
+            title={document.title}
+          />
         ))}
-      </ul>
+      </LinkRowList>
     </MetaCard>
   );
 }

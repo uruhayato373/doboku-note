@@ -4,7 +4,7 @@
  *
  * 計測: root の data-cta="nav"（label category-topics）。AnalyticsProvider が internal_nav_click として拾う。
  */
-import Link from 'next/link';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { getTopicsForCategory } from '@/lib/topics';
 import type { DocMeta } from '@/lib/docs';
 import { topicPath } from '@/lib/route-paths';
@@ -21,13 +21,7 @@ export default function CategoryTopics({ docs }: { docs: DocMeta[] }) {
       <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2" data-cta="nav" data-cta-label="category-topics">
         {items.map(({ topic, inCategory, total }) => (
           <li key={topic.slug}>
-            <Link
-              href={topicPath(topic.slug)}
-              className="focus-ring block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-(--accent) dark:border-(--rule-soft)"
-            >
-              <span className="block text-[15px] font-medium text-(--ink)">{topic.label}</span>
-              <span className="mt-0.5 block text-[12px] text-(--ink-muted)">この資格 {inCategory}件・全体 {total}件</span>
-            </Link>
+            <LinkTile href={topicPath(topic.slug)} title={topic.label} description={`この資格 ${inCategory}件・全体 ${total}件`} />
           </li>
         ))}
       </ul>

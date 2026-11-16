@@ -17,9 +17,10 @@ const SURFACES = [
   { file: 'src/components/home/LatestArticles.tsx', label: 'data-cta-label="home-latest"' },
   { file: 'src/components/search/SearchResults.tsx', label: 'data-cta-label="search-results"' },
 ];
+// サムネイルの行は ArticleThumbRow の 1 実装（資格トップの OgpThumbRow・右の欄・記事末が使う。2026-11-16 に統一）
 const CARDS = [
   'src/components/ui/RelatedArticles/RelatedArticleCard.tsx',
-  'src/components/category/CategorySections.tsx',
+  'src/components/ui/RelatedArticles/ArticleThumbRow.tsx',
   'src/components/home/LatestArticles.tsx',
   'src/components/search/SearchResults.tsx',
 ];
@@ -30,6 +31,11 @@ test('サムネイルを出す面は data-cta="nav" とラベルを持つ', () =
 
 test('サムネイルのカードは写真か OGP かを data-thumb で持つ', () => {
   for (const file of CARDS) assert.match(read(file), /data-thumb=\{/, `${file} に data-thumb が無い`);
+});
+
+test('資格トップ・右の欄のサムネイルの行は ArticleThumbRow を使う（data-thumb を自前で書かない）', () => {
+  assert.match(read('src/components/category/CategorySections.tsx'), /<ArticleThumbRow[\s\S]*variant="feed"/);
+  assert.match(read('src/components/ui/RelatedArticles/RailArticleList.tsx'), /<ArticleThumbRow variant="rail"/);
 });
 
 test('AnalyticsProvider はカードの表示と、クリックの thumb の placement を送る', () => {

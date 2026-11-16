@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import { type ExamStepBridgeData } from '@/lib/exam-step-bridge';
 
@@ -14,13 +14,7 @@ export default function ExamStepBridge({ data }: { data: ExamStepBridgeData }) {
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {data.links.map((l) => (
           <li key={l.href}>
-            <Link
-              href={l.href}
-              className="block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-brand"
-            >
-              <span className="block text-[15px] font-medium text-(--ink)">{l.label}</span>
-              <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{l.hint}</span>
-            </Link>
+            <LinkTile href={l.href} title={l.label} description={l.hint} />
           </li>
         ))}
       </ul>
