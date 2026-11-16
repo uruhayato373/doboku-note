@@ -35,7 +35,7 @@ export interface RailGroup {
   lower?: boolean;
 }
 
-/** 上詰めの組の下の空きに置く AdSense の間隔と上限（2026-11-16 運営者判断）。出すかどうかは描画した空きの高さで決める（globals.css の rail-lower-ads） */
+/** 上詰めの組の下の空きに置く AdSense の上限（2026-11-16 運営者判断）。間隔（2,500px ごとに 1 枠）と出すかどうかは描画した空きの高さで決める（globals.css の rail-lower-ads） */
 const RAIL_LOWER_AD_MAX = 3;
 
 /**

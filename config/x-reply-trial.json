@@ -6,7 +6,9 @@
     "from": "2026-11-07"
   },
   "limits": {
-    "minIntervalMinutes": 5,
+    "minIntervalMinutes": 10,
+    "maxIntervalMinutes": 25,
+    "maxPerDay": 5,
     "candidatesPerRun": 20,
     "lookbackHours": 120,
     "perTopic": 6,

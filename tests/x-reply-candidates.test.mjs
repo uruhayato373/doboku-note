@@ -163,7 +163,9 @@ test('送信の門番: 期間・間隔・同じ相手を止める', () => {
   assert.equal(checkSendAllowed([], { ...base, user: 'a', now: NOW }), null);
   // 間隔の下限は設定（minIntervalMinutes）から作る（2026-11-08 に 60 分→5 分へ変えたら 10 分前の固定値で落ちた）
   assert.match(checkSendAllowed([row(config.limits.minIntervalMinutes - 1)], { ...base, user: 'a', now: NOW }), /分あけます/);
-  assert.equal(checkSendAllowed([row(61), row(62), row(63), row(64)], { ...base, user: 'a', now: NOW }), null);
+  assert.equal(checkSendAllowed(Array.from({ length: config.limits.maxPerDay - 1 }, (_, i) => row(61 + i)), { ...base, user: 'a', now: NOW }), null);
+  // 1 日の上限は JST の同じ日に送った数で止める（2026-11-17 スパム判定のタグの後）
+  assert.match(checkSendAllowed(Array.from({ length: config.limits.maxPerDay }, (_, i) => row(61 + i)), { ...base, user: 'a', now: NOW }), /1 日 \d+ 件まで/);
   assert.match(checkSendAllowed([row(90, 'a')], { ...base, user: 'A', now: NOW }), /すでに返信/);
   assert.equal(checkSendAllowed([row(90)], { ...base, user: 'a', now: NOW }), null);
   // 返信した相手からの質問への答え（--answer）は 2 回目でも通し、返信していない相手には送らない
