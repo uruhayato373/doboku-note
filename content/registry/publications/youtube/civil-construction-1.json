@@ -404,7 +404,7 @@
       "work": "c1-keiken-ochiru-naoshikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform/cover",
         "scene-001": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform/scene-001",
@@ -439,7 +439,42 @@
         "contentSha256": "a9ceef973ea3c288dd2f49ea532564e4e19a2843b864134f7d44df00611b0c41"
       },
       "times": {
-        "rendered": "2026-11-16T13:04:26.117Z"
+        "rendered": "2026-11-16T13:04:26.117Z",
+        "uploaded": "2026-11-16T13:07:04.863Z",
+        "scheduled": "2026-11-16T13:07:14.201Z"
+      },
+      "delivery": {
+        "inputSha256": "a7e59a6059b492d8d052faef312f54cad7dc087039be6ff1ea7051a197ef896c",
+        "marker": "dn-single-2878cfe2f88506a9bdecc256217ad83e0792c821",
+        "uploadRequestedAt": "2026-11-16T13:06:13.827Z",
+        "videoId": "aZreKyUqboo",
+        "processedAt": "2026-11-16T13:07:04.235Z",
+        "thumbnailRequestedAt": "2026-11-16T13:07:04.904Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/aZreKyUqboo/default.jpg?sqp=CPz-69cG&rs=AOn4CLBGOElEnobDqN6-G7EuTCU6qlYdCQ",
+          "https://i9.ytimg.com/vi/aZreKyUqboo/mqdefault.jpg?sqp=CPz-69cG&rs=AOn4CLC8sUUtqTOQj95BXcwl2DMTRbipBQ",
+          "https://i9.ytimg.com/vi/aZreKyUqboo/hqdefault.jpg?sqp=CPz-69cG&rs=AOn4CLDn3UDCbte5p9XQxZM86sTjMTztdw",
+          "https://i9.ytimg.com/vi/aZreKyUqboo/sddefault.jpg?sqp=CPz-69cG&rs=AOn4CLBfttcYkegiovj8lK63B5kTsnlPrA",
+          "https://i9.ytimg.com/vi/aZreKyUqboo/maxresdefault.jpg?sqp=CPz-69cG&rs=AOn4CLDOjCgJ6rdsOHwXUM6l0YVU4pIVUQ",
+          "https://i9.ytimg.com/vi/aZreKyUqboo/fhddefault.jpg?sqp=CPz-69cG&rs=AOn4CLBaJZHqlMnGtMPVuWDOzS3rrFT-VQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-16T13:07:09.304Z",
+        "scheduleRequestedAt": "2026-11-16T13:07:10.393Z",
+        "scheduleAt": "2026-11-22T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-16T13:07:14.201Z"
+      },
+      "platform": {
+        "id": "aZreKyUqboo",
+        "url": "https://www.youtube.com/watch?v=aZreKyUqboo",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-16T13:07:09.304Z"
       }
     },
     {
