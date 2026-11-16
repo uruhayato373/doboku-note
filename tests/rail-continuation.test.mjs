@@ -58,11 +58,15 @@ test('基準書 2-1（4,716字）は3組・短い章は0組・長い章は20組�
     assert.equal(new Set(hrefs).size, hrefs.length, row.path + ' 同じリンクを2回出さない');
     for (const href of row.upper) assert.ok(!hrefs.includes(href), row.path + ' 上の束の記事を出さない ' + href);
     assert.ok(!hrefs.includes(row.self), '自分の章を出さない');
+    // 2 件の組を出したら打ち切る（createCardPicker）ので、2 件を許すのはカードの組の最後だけ。後ろにバナーだけの組が続いてもよい
+    // （2026-11-16: 記事の更新日でテーマの記事の並びが変わり、長い章の最後のカードの組が 2 件になった）
+    const lastCard = row.groups.map((g, i) => (g.fill ? -1 : i)).reduce((a, b) => Math.max(a, b), -1);
     row.groups.forEach((g, i) => {
       assert.equal(g.slot, 'standards-rail-fill');
       assert.ok(g.program, '各組に転職バナー');
       if (g.fill) { assert.equal(g.hrefs.length, 0); assert.notEqual(g.program, row.groups[i - 1]?.program); assert.notEqual(g.program, row.groups[i + 1]?.program); }
-      else { assert.equal(g.hrefs.length, 3, '1組は3件（最後の組だけ2件）'); }
+      else if (i === lastCard) { assert.ok(g.hrefs.length === 2 || g.hrefs.length === 3, 'カードの最後の組は 2〜3 件'); }
+      else { assert.equal(g.hrefs.length, 3, '1組は3件（カードの最後の組だけ2件）'); }
     });
     const cards = row.groups.filter(g => !g.fill);
     cards.forEach((g, i) => assert.notEqual(g.label, cards[i - 1]?.label, '同じ種類を続けない'));

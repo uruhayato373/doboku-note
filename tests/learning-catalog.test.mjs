@@ -5,6 +5,7 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 require('tsx/cjs');
 const { buildLearningCatalog } = require('../src/lib/learning-catalog.ts');
+const { surfaceLeadProductId } = require('../src/lib/cta-surfaces.ts');
 const { products } = require('../config/products.json');
 const categories = require('../src/config/categories.json');
 const catalog = buildLearningCatalog();
@@ -58,13 +59,20 @@ test('2026-10-31 の発信の優先順（技術士一次が先頭・コンクリ
     'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician',
     'civil-construction-1', 'civil-construction-2', 'rccm'];
   assert.deepEqual(catalog.slice(0, head.length).map((exam) => exam.id), head);
+  // 主力の教材は広い面の台帳（config/site-cta-surfaces.json・DN-1223）がいま出す商品（季節の商品か、もくじの無い資格の主商品）。
+  // 日付で変わるので、台帳の読み手（surfaceLeadProductId）と一致することを全資格で見る
   const featured = Object.fromEntries(catalog.map((exam) => [exam.id, exam.featured?.id ?? null]));
+  let compared = 0;
+  for (const exam of catalog) {
+    const lead = surfaceLeadProductId(exam.id) ?? null;
+    if (lead && !exam.materials.some((product) => product.id === lead)) continue;
+    assert.equal(featured[exam.id], lead, `${exam.id} の主力教材`);
+    compared += 1;
+  }
+  assert.ok(compared >= 14, `比べた資格 ${compared} 件`);
   assert.ok(['pe1-chokuzen-pack', 'pe1-takuitsu-pdf'].includes(featured['pe-first-stage']), `技術士一次の主力教材: ${featured['pe-first-stage']}`);
-  assert.equal(featured['concrete-engineer'], 'ce-chokuzen-pack');
-  assert.equal(featured['concrete-chief-engineer'], 'cce-takuitsu-chokuzen-pack');
-  assert.equal(featured['civil-construction-1'], null);
-  // 主力教材を出すコンクリートのカードにも、全教材の一覧（もくじ）を残す
-  for (const id of ['concrete-engineer', 'concrete-chief-engineer']) {
+  // もくじへ寄せる資格のカードには、主力の教材があっても全教材の一覧（もくじ）を残す
+  for (const id of ['concrete-engineer', 'concrete-chief-engineer', 'rccm', 'pe-water-supply']) {
     assert.match(catalog.find((exam) => exam.id === id).noteIndex?.href ?? '', /note\.com\/dobokunote\/n\//);
   }
 });

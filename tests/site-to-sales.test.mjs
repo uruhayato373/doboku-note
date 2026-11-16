@@ -4,8 +4,7 @@ import {
   buildResolver,
   buildSiteToSales,
   monthBounds,
-  parseHubAfterResultProducts,
-  parseHubSeasonalProducts,
+  surfaceSeasonProducts,
   parseNoteCatalog,
   pickGa4Snapshot,
   pickNoteReferral,
@@ -34,23 +33,16 @@ const MAGAZINES_RAW = {
   'civil-membership-lab': { id: 'civil-membership-lab', published: true, noteUrl: 'https://note.com/dobokunote/membership/join', title: 'ラボ' },
 };`;
 
-const HUB_TS = `
-const HUB: Partial<Record<string, HubCtaSpec>> = {
-  'civil-construction-1': {
-    mokuji: { url: 'https://note.com/dobokunote/n/nmokuji', title1: 'a', title2: 'b' },
-    seasonal: {
-      switchUtcMs: 0,
-      product: 'civil-1-anki-note',
-      sub: 'x',
-    },
-  },
-  'pe-construction': {
-    mokuji: { url: 'https://note.com/dobokunote/n/nmokuji2', title1: 'a', title2: 'b' },
-    afterResult: { active: isOralSeason, product: 'pe-construction-road-pack', sub: 'x' },
-    seasonal: { switchUtcMs: 0, product: 'civil-1-pack', sub: 'x' },
+const SURFACES = {
+  qualifications: {
+    'civil-construction-1': { lead: 'mokuji', seasons: [{ kind: 'before-exam', event: 'second', days: 42, product: 'civil-1-anki-note', sub: 'x' }] },
+    'pe-construction': { lead: 'mokuji', seasons: [
+      { kind: 'after-event', event: 'writtenResult', days: 89, product: 'pe-construction-road-pack', sub: 'x' },
+      { kind: 'before-exam', event: 'written', days: 42, product: 'civil-1-pack', sub: 'x' },
+    ] },
+    rccm: { lead: 'mokuji' },
   },
 };
-`;
 
 const SNAPSHOT = {
   magazines: [
@@ -71,7 +63,7 @@ const SALES = {
 };
 
 function resolver() {
-  return buildResolver({ catalog: parseNoteCatalog(CATALOG_TS), hubSeasonal: parseHubSeasonalProducts(HUB_TS), hubAfterResult: parseHubAfterResultProducts(HUB_TS), magazineSnapshot: SNAPSHOT, salesLog: SALES });
+  return buildResolver({ catalog: parseNoteCatalog(CATALOG_TS), hubSeasonal: surfaceSeasonProducts(SURFACES, 'before-exam'), hubAfterResult: surfaceSeasonProducts(SURFACES, 'after-event'), magazineSnapshot: SNAPSHOT, salesLog: SALES });
 }
 
 test('月の境界と直近の完了月', () => {
@@ -87,8 +79,8 @@ test('カタログと hub seasonal 商品を解析する', () => {
   assert.equal(catalog[0].landingUrl, 'https://note.com/dobokunote/n/nfront1');
   assert.equal(catalog[1].landingUrl, null);
   // 1 つの資格に afterResult と seasonal が並んでも、それぞれの product を取り違えない
-  assert.deepEqual(parseHubSeasonalProducts(HUB_TS), { 'civil-construction-1': 'civil-1-anki-note', 'pe-construction': 'civil-1-pack' });
-  assert.deepEqual(parseHubAfterResultProducts(HUB_TS), { 'pe-construction': 'pe-construction-road-pack' });
+  assert.deepEqual(surfaceSeasonProducts(SURFACES, 'before-exam'), { 'civil-construction-1': 'civil-1-anki-note', 'pe-construction': 'civil-1-pack' });
+  assert.deepEqual(surfaceSeasonProducts(SURFACES, 'after-event'), { 'pe-construction': 'pe-construction-road-pack' });
 });
 
 test('CTA label を商品へ解決し、解決できないものは理由を返す', () => {

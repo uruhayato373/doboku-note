@@ -8,7 +8,9 @@ for(const d of docs.filter(d=>DISCOVERY_CATEGORIES.includes(d.category ?? ''))){
  const links=groups.flatMap(g=>g.docs);assert(links.every(a=>a.slug!==d.slug&&a.published!==false&&!a.hideFromCategory));assert.equal(new Set(links.map(a=>a.slug)).size,links.length);assert(links.length<=9);checked++;
 }
 const primary=docs.filter(d=>/^pe-first-stage-[hr]\d{2}(?:-retry)?-(basic|aptitude|construction)$/.test(d.slug));assert(primary.length>0,'一次過去問の検査0件を許さない');assert(primary.every(d=>getRelatedTools(d.category ?? '',d.slug).some(t=>t.href==='/tools/kakomon-quiz/pe-first-stage')));
-for(const category of ['pe-first-stage','concrete-chief-engineer','concrete-diagnostician'])assert(sidebarProduct(category));
+// 資格トップの商品は台帳（config/site-cta-surfaces.json・DN-1223）で lead: product の資格（と季節の商品）だけ。もくじへ寄せた資格は季節外なら null
+for(const category of ['pe-first-stage','surveyor','pavement'])assert(sidebarProduct(category));
+assert.equal(sidebarProduct('concrete-diagnostician'),null,'もくじへ寄せた資格の資格トップはもくじタイル');
 assert.equal(sidebarProduct('civil-practice'),null);const afterPass=docs.find(d=>d.slug==='pe-first-stage-guide-after-pass');
 assert.equal(sidebarProduct('pe-first-stage',afterPass)?.id,'pe-construction-required-magazine','合格後ガイドの候補は建設部門二次へつなぐ');
 assert.equal(sidebarProduct('pe-first-stage',afterPass,'## 合格後の学習'),null,'本文冒頭と同じ商品をサイドバーで再掲しない');
@@ -25,14 +27,14 @@ for(const slug of ['pe-first-stage-r01-retry-aptitude','pe-first-stage-r01-retry
 // career ガードの回帰（2026-09-22）。
 // 旧実装は `classifyDoc(doc) === 'career'` だったが classifyDoc は 'career' を返さない
 // （career 記事は group: guide のまま・doc-classifier.ts:11-14）ため常に false＝死んだガードだった。
-// rccm は products を持ち非 HUB なので、career 記事を足すと note 商品カードが出てしまう
-// （「career 記事に note CTA を置かない」方針違反）。isCareerDoc で塞いだことを固定する。
-const careerDoc = {slug:'rccm-guide-what-is-rccm',category:'rccm',group:'guide',tags:['guide','career'],published:true} as unknown as Parameters<typeof sidebarProduct>[1];
-assert.equal(sidebarProduct('rccm',careerDoc),null,'career タグの rccm 記事に note 商品カードを出さない');
-const nonCareerDoc = {slug:'rccm-guide-overview',category:'rccm',group:'guide',tags:['guide'],published:true} as unknown as Parameters<typeof sidebarProduct>[1];
-// doc あり経路は products[category] ではなく placement.top || inline[0] を返す（固定商品は doc 無しのときだけ）。
-assert(sidebarProduct('rccm',nonCareerDoc),'非 career は従来どおり商品カードを出す');
-assert(sidebarProduct('rccm'),'doc 無し（カテゴリページ）は固定商品を返す');
+// 単品へ案内する資格（台帳の lead: product）で career 記事に note 商品カードが出ないことを固定する（RCCM は 2026-11-16 にもくじへ寄せた）。
+const careerDoc = {slug:'pe-first-stage-guide-career',category:'pe-first-stage',group:'guide',tags:['guide','career'],published:true} as unknown as Parameters<typeof sidebarProduct>[1];
+assert.equal(sidebarProduct('pe-first-stage',careerDoc),null,'career タグの記事に note 商品カードを出さない');
+const nonCareerDoc = {slug:'pe-first-stage-guide-overview',category:'pe-first-stage',group:'guide',tags:['guide'],published:true} as unknown as Parameters<typeof sidebarProduct>[1];
+// doc あり経路は placement.top || inline[0] を返す（資格トップの商品は doc 無しのときだけ）。
+assert(sidebarProduct('pe-first-stage',nonCareerDoc),'非 career は従来どおり商品カードを出す');
+assert(sidebarProduct('pe-first-stage'),'doc 無し（カテゴリページ）は資格トップの商品を返す');
+assert.equal(sidebarProduct('rccm',{slug:'rccm-guide-overview',category:'rccm',group:'guide',tags:['guide'],published:true} as unknown as Parameters<typeof sidebarProduct>[1]),null,'もくじへ寄せた資格の記事の横の欄は単品を出さない');
 console.log('PASS career guard: career doc → null, non-career → product, category page unchanged');
 
 // 追加回遊の候補も、上のナビと同じURLを再掲しない（総監・土木の旧ナビも共通計画から除く）。

@@ -14,7 +14,8 @@
  */
 import { listedCoconalaServices } from './coconala-services';
 import { coconalaAffiliateHref } from '@/config/affiliate-creatives';
-import { beforeExamCatch, isAfterExamDay, isPeOralSeason, withTensakuDeadline } from '@/lib/exam-dates';
+import { beforeExamCatch, isAfterExamDay, withTensakuDeadline } from '@/lib/exam-dates';
+import { activeSeason } from '@/lib/cta-surfaces';
 
 export type OffsiteChannel = 'coconala';
 
@@ -148,17 +149,17 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
   },
   {
     // 技術士 総監・上下水道の口頭試験: 筆記合格発表から 1 月末まで、資格トップと総監の令和の記述式の過去問に出す。
-    // note の口頭試験の教材は hub-cta・magazine-placement が同じ時期判定（isPeOralSeason）で出す。
+    // note の口頭試験の教材と同じ期間（config/site-cta-surfaces.json の after-event）だけ出す。
     test: /^pe-comprehensive-management(-r0[1-9]-secondary)?$/,
     coconala: ['coconala-pe-oral-qa'],
     coconalaCatch: '筆記に合格したら、業務経歴から想定質問と回答の骨子を人の手で整理したい方へ。',
-    active: (now) => isPeOralSeason('pe-comprehensive-management', now),
+    active: (now) => activeSeason('pe-comprehensive-management', now, 'after-event') !== null,
   },
   {
     test: /^pe-water-supply$/,
     coconala: ['coconala-pe-oral-qa'],
     coconalaCatch: '筆記に合格したら、業務経歴から想定質問と回答の骨子を人の手で整理したい方へ。',
-    active: (now) => isPeOralSeason('pe-water-supply', now),
+    active: (now) => activeSeason('pe-water-supply', now, 'after-event') !== null,
   },
   {
     // 技術士 総監の出願（業務経歴票）。業務内容の詳細の添削は建設・上下水道・総監に対応。

@@ -178,9 +178,9 @@ const oralTimes = [
   jst(shiftDays(peConstructionResult, 89), '00:00:00'),
 ];
 
-test('建設部門の口頭試験の時期: 筆記合格発表の日の 0 時から 1 月末まで', async () => {
-  const { isPeConstructionOralSeason } = await loadPlacement();
-  assert.deepEqual(oralTimes.map((t) => isPeConstructionOralSeason(t)), [false, true, true, false]);
+test('建設部門の口頭試験の時期: 筆記合格発表の日の 0 時から 1 月末まで（期間は台帳 site-cta-surfaces.json の after-event）', async () => {
+  const { activeSeason } = await loadTsModule('src/lib/cta-surfaces.ts');
+  assert.deepEqual(oralTimes.map((t) => activeSeason('pe-construction', t, 'after-event') !== null), [false, true, true, false]);
   if (peConstructionResult === '2026-11-04') assert.equal(shiftDays(peConstructionResult, 88), '2027-01-31');
 });
 

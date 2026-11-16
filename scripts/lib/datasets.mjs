@@ -109,6 +109,7 @@ export const DATASETS = [
   d('config.product-lineup', 'config/product-lineup.json', 'config', 'product', '商品ラインナップの分類', { schema: 'ProductLineup' }),
   d('config.content-themes', 'config/content-themes.json', 'config', 'product', '制作物のテーマの語彙とチャネル→テーマの写し方', { schema: 'ConfigContentThemes' }),
   d('config.note-funnel', 'config/note-funnel.json', 'config', 'product', 'note 導線（ファネル）の構成', { schema: 'NoteFunnel' }),
+  d('config.site-cta-surfaces', 'config/site-cta-surfaces.json', 'config', 'product', 'サイトの広い面（資格トップ・記事の横の欄・記事末のタイル・/links の先頭）から note のもくじ・パック・単品のどこへ案内するか（季節の切り替えを含む・DN-1223）', { schema: 'ConfigSiteCtaSurfaces' }),
   d('config.note-membership', 'config/note-membership.json', 'config', 'product', 'note メンバーシップの会費・特典', { schema: 'ConfigNoteMembership' }),
   d('config.note-magazine-membership', 'config/note-magazine-membership.json', 'config', 'product', 'マガジン収録の期待値', { schema: 'ConfigNoteMagazineMembership' }),
   d('config.note-price-consistency', 'config/note-price-consistency.json', 'config', 'product', '単品価格のずれを止める検査の設定', { schema: 'ConfigNotePriceConsistency' }),

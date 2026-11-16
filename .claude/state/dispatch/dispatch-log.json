@@ -8904,6 +8904,19 @@
       "commit": "906c5492b281",
       "verification": "npm run test（4322 本・失敗 1 は直して再実行で通過）・npm run build・check-seo-build error 0・check-magazine-cta・check-topic-wiring",
       "note": "主任技士の診断を配線・回遊の面ごとの表示計測・ココナラは出品番号で計測・台帳外 6 件は案内記事と無料記事（報告で区別）・基準書を数えない理由を出力。売り場から外す判断は DN-1223。PR #1616"
+    },
+    {
+      "id": "DN-1223",
+      "at": "2026-11-16",
+      "task": "表示だけでクリックも販売も無い商品（10 月 69 件）を売り場から外すか決める（主任技士・RCCM 以外）",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2fd78a38a27f",
+      "verification": "npm run test 4358 本 失敗 0・npm run build・check-cta-surfaces・check-magazine-cta・check-seo-build error 0・壊した台帳で 4 件の誤りを検出",
+      "note": "売り場から外すのではなく、広い面（資格トップ・横の欄・記事末のタイル・/links の先頭）の案内先を台帳 config/site-cta-surfaces.json で管理する形に決定・実装。RCCM・コンクリート 3 資格・上下水道をもくじ（試験前・口頭試験期はパック）へ。検査 check-cta-surfaces を CI に追加。"
     }
   ]
 }

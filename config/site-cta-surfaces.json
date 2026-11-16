@@ -1,0 +1,98 @@
+{
+  "_doc": "サイトの広い面（資格トップ・記事の横の欄・記事末のタイル・/links の先頭）から note のどこへ案内するかの台帳（DN-1223）。文脈の合う本文中の単品カードは src/lib/magazine-placement.ts が持ち、ここには書かない。読み手は src/lib/cta-surfaces.ts（サイト）・scripts/lib/site-to-sales.mjs（売上の帰属）・scripts/check-cta-surfaces.mjs（検査）。真実源の説明は .claude/knowledge/reference/note-funnel-architecture.md の「サイトの広い面」。",
+  "_rules": "lead: mokuji＝資格のもくじ（config/note-funnel.json の L2）へ。product＝単品かパック 1 つへ（もくじがある資格では reason が要る）。none＝出す商品が無い（reason が要る）。seasons は試験日の正本（config/exam-calendar.json）の行事で書く。before-exam＝行事の日の終わりまで（days があればその日数前から）、after-event＝行事の日の始めから days 日。季節の商品は mokuji の資格では資格トップと記事のタイルに、product の資格では資格トップの商品カードに出る。1 資格に before-exam と after-event は 1 つずつまで（売上の帰属の utm が hub-seasonal・hub-after-result の 2 種のため）。",
+  "schemaVersion": 1,
+  "qualifications": {
+    "civil-construction-1": {
+      "lead": "mokuji",
+      "tile": { "title1": "施工経験記述", "title2": "学科記述・暗記" },
+      "tileFirstStage": { "title1": "第1次検定", "title2": "出る順ノート・精読" },
+      "seasons": [
+        { "kind": "before-exam", "event": "second", "days": 42, "product": "civil-1-chokuzen-pack", "title": "直前総仕上げパック", "sub": "模試3回＋暗記ノート＋出題分析" }
+      ]
+    },
+    "civil-construction-2": {
+      "lead": "mokuji",
+      "tile": { "title1": "施工経験記述", "title2": "学科記述・暗記" },
+      "seasons": [
+        { "kind": "before-exam", "event": "second", "days": 42, "product": "civil-2-chokuzen-pack", "title": "直前総仕上げパック", "sub": "模試3回＋暗記ノート＋出題分析" }
+      ]
+    },
+    "pe-comprehensive-management": {
+      "lead": "mokuji",
+      "tile": { "title1": "記述式・R8予想", "title2": "キーワード対策" },
+      "seasons": [
+        { "kind": "before-exam", "event": "written", "days": 42, "product": "r8-essay-forecast", "sub": "出る6テーマ×専門" },
+        { "kind": "after-event", "event": "writtenResult", "days": 89, "product": "tankan-oral-complete", "title": "口頭試験の完全準備", "sub": "想定25問＋立場別の回答例" }
+      ]
+    },
+    "pe-construction": {
+      "lead": "mokuji",
+      "tile": { "title1": "必須I・選択科目", "title2": "模範解答集" },
+      "seasons": [
+        { "kind": "before-exam", "event": "written", "days": 42, "product": "pe-construction-required-magazine", "sub": "R03-R08＋R8予想" },
+        { "kind": "after-event", "event": "writtenResult", "days": 89, "product": "pe-construction-oral-guide", "title": "口頭試験対策", "sub": "想定問答33問＋準備ロードマップ" }
+      ]
+    },
+    "pe-water-supply": {
+      "lead": "mokuji",
+      "tile": { "title1": "必須科目I", "title2": "上水道・下水道" },
+      "seasons": [
+        { "kind": "after-event", "event": "writtenResult", "days": 89, "product": "pe-oral-general-guide", "title": "口頭試験対策", "sub": "想定問答24問＋部門別の当てはめ例" }
+      ]
+    },
+    "rccm": {
+      "lead": "mokuji",
+      "tile": { "title1": "問題III 模範論文", "title2": "問題I・択一" }
+    },
+    "concrete-engineer": {
+      "lead": "mokuji",
+      "tile": { "title1": "択一・予想問題", "title2": "計算・暗記" },
+      "seasons": [
+        { "kind": "before-exam", "event": "exam", "days": 42, "product": "ce-chokuzen-pack", "title": "択一 直前パック", "sub": "配合計算＋暗記ノート" }
+      ]
+    },
+    "concrete-chief-engineer": {
+      "lead": "mokuji",
+      "tile": { "title1": "小論文 模範答案", "title2": "択一・配合計算" },
+      "seasons": [
+        { "kind": "before-exam", "event": "exam", "product": "cce-takuitsu-chokuzen-pack", "title": "択一 直前パック", "sub": "予想50問＋配合計算＋暗記ノート" }
+      ]
+    },
+    "concrete-diagnostician": {
+      "lead": "mokuji",
+      "tile": { "title1": "記述式 模範答案", "title2": "択一・まるごと" }
+    },
+    "pe-first-stage": {
+      "lead": "product",
+      "product": "pe1-takuitsu-pdf",
+      "reason": "note に技術士一次のもくじが無い（note-funnel.json の exams に無い）",
+      "seasons": [
+        { "kind": "before-exam", "event": "exam", "product": "pe1-chokuzen-pack", "sub": "過去問PDF＋暗記ノート" }
+      ]
+    },
+    "surveyor": {
+      "lead": "product",
+      "product": "surveyor-gogo-bunya-magazine",
+      "reason": "note に測量士のもくじが無い"
+    },
+    "pavement": {
+      "lead": "product",
+      "product": "pavement-1-keiken-magazine",
+      "reason": "note に舗装施工管理のもくじが無い"
+    },
+    "pipe-work": {
+      "lead": "product",
+      "product": "pipe-work-sekou-kijutsu-bank",
+      "reason": "note に管工事施工管理のもくじが無い"
+    },
+    "pe-fisheries": {
+      "lead": "none",
+      "reason": "note の商品がまだ無い（DN-1098・販売の時期は運営者の判断）"
+    },
+    "building-construction": {
+      "lead": "none",
+      "reason": "note の商品がまだ無い（DN-0974）"
+    }
+  }
+}

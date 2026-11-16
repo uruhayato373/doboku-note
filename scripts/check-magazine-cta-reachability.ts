@@ -8,7 +8,7 @@
  * 1 面も出なかった。配線（magazine-placement.ts）は生きていたのに、
  *   - `placement.sidebar` は 2026-07 の CTA 統一以降どこからも参照されない（死に配線）
  *   - `placement.inline` は中間 CTA 経由で **h2>=5 かつ本文 8,000 字** が条件
- *   - もくじタイル（resolveHubCta）は **HUB 資格のみ**（concrete 系・一次・reference は null）
+ *   - もくじタイル（resolveHubCta）は **台帳（site-cta-surfaces.json）で lead: mokuji の資格のみ**（一次・測量・舗装などは null）
  * が重なり、published にした瞬間に発火するという handoff の前提が崩れていた。
  * 収益商品を公開したのに導線ゼロという事故は静かに起きるので、機械で止める。
  *
@@ -53,6 +53,7 @@ import { resolveHubCta } from '../src/lib/hub-cta';
 import { sidebarProduct, DISCOVERY_CATEGORIES } from '../src/lib/sidebar-discovery';
 import { isCivilConstructionCategory } from '../src/lib/qualification-names';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 import { pageGate } from './lib/magazine-page-gate.mjs';
 
 // このリポジトリは package.json に "type" が無く、tsx は .ts を CJS として扱う。
@@ -119,8 +120,9 @@ const isCivilSecondary = (d: Doc): boolean =>
   d.group === 'secondary';
 
 // もくじタイル（hub-cta.ts の HUB）に載っている資格 = 資格単位でマガジン導線がある
-const hubSrc = readFileSync(join(ROOT, 'src/lib/hub-cta.ts'), 'utf8');
-const hubCategories = new Set([...hubSrc.matchAll(/^\s{2}'([a-z0-9-]+)':\s*\{/gm)].map((m) => m[1]!));
+// 台帳（config/site-cta-surfaces.json・DN-1223）でもくじへ寄せる資格。以前は hub-cta.ts の HUB 定義を正規表現で読んでいた
+const hubCategories = new Set(Object.entries(readDataset(ROOT, 'config.site-cta-surfaces').qualifications as Record<string, { lead: string }>)
+  .filter(([, row]) => row.lead === 'mokuji').map(([slug]) => slug));
 
 const baselineJson = existsSync(EXEMPT_PATH) ? JSON.parse(readFileSync(EXEMPT_PATH, 'utf8')) : {};
 const baseline: Record<string, string> = baselineJson.zeroSurface ?? {};

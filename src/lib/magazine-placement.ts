@@ -21,7 +21,8 @@ import { getMagazine, type MagazineId } from './note-magazines';
 import examCalendar from '../../config/exam-calendar.json';
 import { matchNoteProductPage } from './note-product-classification';
 import { extractReferencesSection } from './extract-references';
-import { isAfterExamDay, isPeOralSeason } from './exam-dates';
+import { isAfterExamDay } from './exam-dates';
+import { activeSeason, surfaceLeadProductId } from './cta-surfaces';
 
 export interface PlacementSlot {
   readonly magazineId: MagazineId;
@@ -73,38 +74,32 @@ export function resolveCivil1PrimaryLead(nowMs = Date.now()): MagazineId {
 }
 
 /**
- * 技術士一次の主商品（概要・学習計画・解答速報の冒頭と /links のカード）。
- * 本試験当日（JST）までは直前パック、翌日からは年度をまたいで使う過去問 PDF。
+ * 技術士一次の主商品（概要・学習計画・解答速報の冒頭と /links のカード）。試験日での切り替えは
+ * config/site-cta-surfaces.json の pe-first-stage（本試験当日までは直前パック、翌日からは過去問 PDF）。
  */
 function pe1LeadMagazineId(nowMs = Date.now()): MagazineId {
-  return isAfterExamDay('pe-first-stage', 'exam', nowMs) ? 'pe1-takuitsu-pdf' : 'pe1-chokuzen-pack';
+  return surfaceLeadProductId('pe-first-stage', nowMs) ?? 'pe1-takuitsu-pdf';
 }
 
 /**
- * 技術士（建設部門）の口頭試験の教材を出す時期か（DN-0902・EXP-047）。
- * 合格を知った人が最初に開く資格トップと、自分が受けた科目の過去問に出す。
+ * 技術士（建設部門）の口頭試験の教材を出す時期か（DN-0902・EXP-047）。期間は台帳（site-cta-surfaces.json の after-event）。
+ * 合格を知った人が最初に開く資格トップと、自分が受けた科目の過去問に出す。ビルド時の日付で決まる。
  */
-export function isPeConstructionOralSeason(nowMs = Date.now()): boolean {
-  return isPeOralSeason('pe-construction', nowMs);
+function isPeConstructionOralSeason(nowMs = Date.now()): boolean {
+  return activeSeason('pe-construction', nowMs, 'after-event') !== null;
 }
 
-/** 総監の口頭試験の教材を出す時期か。資格トップと令和の記述式の過去問に出す。 */
-export function isTankanOralSeason(nowMs = Date.now()): boolean {
-  return isPeOralSeason('pe-comprehensive-management', nowMs);
+/** 総監の口頭試験の教材を出す時期か。資格トップと令和の記述式の過去問に出す（期間は台帳） */
+function isTankanOralSeason(nowMs = Date.now()): boolean {
+  return activeSeason('pe-comprehensive-management', nowMs, 'after-event') !== null;
 }
 
 /**
- * 資格トップ（/exam/{資格}・サイドバーとスマホの枠）の商品のうち、試験日で切り替えるもの。切り替えない資格は undefined。
- * 資格トップは直前期に検索から来る入口なので、本試験の日までは直前パックを出す。
- * 主任技士は高額のまるごとパックが PC サイドバーで表示あたり 0.28% しか押されなかった（DN-0703・GA4 2026-09-24〜10-21）。
- * 技術士一次は過去問 PDF に固定されていて、概要・学習計画・/links が出す直前パックと食い違っていた（2026-10-28 の点検）。
+ * 資格トップ（/exam/{資格}・サイドバーとスマホの枠）と /links の先頭の商品。試験日での切り替えも含めて
+ * config/site-cta-surfaces.json が決める（DN-1223）。もくじへ寄せる資格は季節外なら undefined。
  */
 export function categoryLeadMagazineId(category: string, nowMs = Date.now()): MagazineId | undefined {
-  if (category === 'pe-first-stage') return pe1LeadMagazineId(nowMs);
-  if (category === 'concrete-chief-engineer' && !isAfterExamDay('concrete-chief-engineer', 'exam', nowMs)) return 'cce-takuitsu-chokuzen-pack';
-  // 上下水道は口頭試験の専用教材が無いので、筆記合格発表から 1 月末まで全部門共通の口頭試験対策を出す
-  if (category === 'pe-water-supply' && isPeOralSeason('pe-water-supply', nowMs)) return 'pe-oral-general-guide';
-  return undefined;
+  return surfaceLeadProductId(category, nowMs);
 }
 
 /**
