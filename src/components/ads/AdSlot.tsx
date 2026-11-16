@@ -1,12 +1,14 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { ADSENSE_CLIENT, ADSENSE_SLOTS, type AdSenseSlot } from '@/config/adsense';
+import { ADSENSE_CLIENT, ADSENSE_SLOTS, ADSENSE_UNIT_NAMES, isAdSensePreviewHost, type AdSenseSlot } from '@/config/adsense';
 
 /**
- * AdSense の手動の枠。高さを先に取ってレイアウトのずれ（CLS）を防ぎ、配信が無い枠（data-ad-status="unfilled"）は globals.css が畳む。
+ * AdSense の手動の枠。上に「広告」の文字は付けない（ほかの導線と同じく、表記は広告の中の AdChoices に任せる）。高さを先に取ってレイアウトのずれ（CLS）を防ぎ、配信が無い枠（data-ad-status="unfilled"）は globals.css が畳む。
  * 枠の push はページごとに 1 回（クライアント遷移でパスが変わったら ins を作り直す＝key）。
+ * 見えていない枠（スマホで隠れる右の欄）は push しない（幅 0 で要求すると AdSense がエラーを出す）。
+ * 手元・プレビュー（localhost・pages.dev）では広告を要求せず、破線の枠にユニット名を出して置き場を見せる（撮影の目視でも位置がわかる）。
  */
 export default function AdSlot({ slot, className = '' }: { slot: AdSenseSlot; className?: string }) {
   const pathname = usePathname();
@@ -15,9 +17,15 @@ export default function AdSlot({ slot, className = '' }: { slot: AdSenseSlot; cl
 
 function AdUnit({ slot, className }: { slot: AdSenseSlot; className: string }) {
   const pushed = useRef(false);
+  const ref = useRef<HTMLElement>(null);
+  const [preview, setPreview] = useState(false);
   useEffect(() => {
     if (pushed.current) return;
     pushed.current = true;
+    // 手元の目印は描画後に切り替える（SSR の HTML は本番と同じに保つ）
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (isAdSensePreviewHost(location.hostname)) { setPreview(true); return; }
+    if (!ref.current || ref.current.offsetWidth === 0) return;
     try {
       const w = window as unknown as { adsbygoogle?: unknown[] };
       (w.adsbygoogle = w.adsbygoogle || []).push({});
@@ -27,8 +35,8 @@ function AdUnit({ slot, className }: { slot: AdSenseSlot; className: string }) {
   }, []);
   const multiplex = slot === 'endMultiplex';
   return (
-    <aside data-adsense={slot} data-pagefind-ignore aria-label="広告" className={`not-prose adsense-slot ${className}`}>
-      <p className="mb-1 text-center text-[11px] text-ink-muted">広告</p>
+    <aside ref={ref} data-adsense={slot} data-adsense-preview={preview || undefined} data-cta-stack data-pagefind-ignore aria-label="広告" className={`not-prose adsense-slot relative ${className}`}>
+      {preview && <span className="adsense-preview-label">AdSense {ADSENSE_UNIT_NAMES[slot]}（{ADSENSE_SLOTS[slot]}）</span>}
       <ins
         className="adsbygoogle"
         style={{ display: 'block', minHeight: multiplex ? 320 : slot === 'rail' ? 250 : 280 }}

@@ -2,7 +2,7 @@ import type { DocMeta } from './docs';
 import type { ResolvedPlacement } from './affiliate-placement';
 import { getPublicDocPath } from './content-routes';
 import { getPopularDocs, type PopularDoc } from './popular';
-import { categoryRailGroupCount, createCardPicker, railFillColumn, type RailGroup, type RailLink, type RailSource } from './rail-continuation';
+import { categoryRailGroupCount, createCardPicker, railFillColumn, withRailAdSense, type RailGroup, type RailLink, type RailSource } from './rail-continuation';
 
 /**
  * 資格トップの右の欄の「下に続く束」（DN-1218 段 3）。上の束（学習ナビ・note・運営者・転職バナー・人気ランキング）の下へ、
@@ -16,7 +16,7 @@ const docLinks = (docs: DocMeta[]): RailLink[] => docs.map(doc => ({ href: getPu
 /** docs は資格トップに並ぶ記事、shownPopular は上の束の人気ランキング、sidebarAd は上の束の転職バナーの案件 */
 export function categorySidebarContinuation(docs: DocMeta[], shownPopular: PopularDoc[], sidebarAd: ResolvedPlacement | null): RailGroup[] {
   const count = categoryRailGroupCount(docs.length);
-  if (!count) return [];
+  if (!count) return withRailAdSense([]);
   const usedHrefs = new Set(shownPopular.map(item => getPublicDocPath(item.doc.slug)));
   const sources: RailSource[] = [
     { label: 'rail-popular', title: 'よく読まれている記事', links: docLinks(getPopularDocs(docs, docs.length).map(item => item.doc)) },
@@ -30,5 +30,5 @@ export function categorySidebarContinuation(docs: DocMeta[], shownPopular: Popul
     if (!card) break;
     groups.push({ slot: CATEGORY_RAIL_FILL_SLOT, card, banner: column[index % Math.max(1, column.length)] });
   }
-  return groups;
+  return withRailAdSense(groups);
 }

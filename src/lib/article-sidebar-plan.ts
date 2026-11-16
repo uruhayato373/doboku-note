@@ -68,6 +68,10 @@ const LONG_BODY: ReadonlySet<RailBodyKind> = new Set<RailBodyKind>(['primary', '
  * 実際に並ぶ数は、さらに回遊の候補で埋められる組数で決まる。
  */
 export function articleSidebarGroupCount(bodyLength: number, h2Count: number, docGroup: RailBodyKind = 'guide'): number {
- const free = Math.max(0, bodyLength) * RAIL_PX_PER_CHAR[docGroup] + Math.max(0, h2Count) * 80;
- return railGroupCountFromFree(free, { max: LONG_BODY.has(docGroup) ? MAX_GROUPS_LONG : MAX_GROUPS });
+ return railGroupCountFromFree(articleSidebarFreePx(bodyLength, h2Count, docGroup), { max: LONG_BODY.has(docGroup) ? MAX_GROUPS_LONG : MAX_GROUPS });
+}
+
+/** 右の欄の上の束の下に残る空きの見積もり（px）。組の数に使う */
+function articleSidebarFreePx(bodyLength: number, h2Count: number, docGroup: RailBodyKind = 'guide'): number {
+ return Math.max(0, bodyLength) * RAIL_PX_PER_CHAR[docGroup] + Math.max(0, h2Count) * 80;
 }

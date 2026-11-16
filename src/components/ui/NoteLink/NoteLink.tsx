@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 import { noteCtaFamilyImage } from "@/lib/note-cta-images";
 import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
+import { CTA_STACK_WIDTH } from '@/lib/cta-stack';
 
 interface NoteLinkProps {
   /** note 記事の URL（例: https://note.com/dobokunote/n/nc360aaa381b0） */
@@ -59,7 +60,7 @@ export default function NoteLink({
   const image = isProduct && imageFamily ? noteCtaFamilyImage(imageFamily) : undefined;
   if (image) return <NoteImageCta href={url}
     image={{ ...image, alt: `${title}。教材の内容を見る（note）`, caption: { title, description: description ?? '', price } }}
-    trackLabel={trackLabel ?? trackLabelFromUrl(url)} placement={placement} compact className="my-6 max-w-2xl" />;
+    trackLabel={trackLabel ?? trackLabelFromUrl(url)} placement={placement} compact className={`my-6 ${CTA_STACK_WIDTH}`} />;
 
   return (
     <a
@@ -69,7 +70,7 @@ export default function NoteLink({
       data-cta={isProduct ? "note" : "note-article"}
       data-cta-label={trackLabel ?? trackLabelFromUrl(url)}
       data-cta-placement={placement}
-      className="card-surface-content focus-ring not-prose group my-6 block max-w-2xl overflow-hidden hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+      className={`card-surface-content focus-ring not-prose group my-6 block ${CTA_STACK_WIDTH} overflow-hidden hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow`}
     >
       <div className="flex flex-col sm:flex-row">
         <div className="relative w-full sm:w-[240px] shrink-0 aspect-square bg-(--bg)">

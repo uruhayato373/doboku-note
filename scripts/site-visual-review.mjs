@@ -13,7 +13,7 @@
  *
  * 流れ（手順は /site-visual-review）:
  *   prepare  判定待ちのページ（未判定・骨組みが変わった）を全部の画面幅で撮り、作業票（packet.json）を作る。
- *            機械で決まる崩れ（横はみ出し・読めない画像・コンテナ幅の不統一・期待する導線が無い）はここで確定する。
+ *            機械で決まる崩れ（横はみ出し・読めない画像・コンテナ幅の不統一・期待する導線が無い・縦に続く導線の幅の不一致 cta-width）はここで確定する。
  *   （親がエージェント site-page-visual-auditor に作業票を渡し、verdicts/*.json に判定を書かせる）
  *   record   判定を検証して台帳（.claude/state/quality/site-visual-review.json）へ書く。--ticket で不合格をページごとに起票。
  *   status   被覆と未処理を出す（週次の点検が読む）。
@@ -46,6 +46,7 @@ import { formatJson, readJson } from './lib/json-io.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { inspectInPage } from './lib/rendered-page-inspect.mjs';
 import { inspectLayoutInPage } from './lib/site-visual-inspect.mjs';
+import { inspectCtaStacksInPage } from './lib/cta-stack-inspect.mjs';
 import { reviewTier, summarizeCoverage, validateVerdicts } from './lib/visual-review-ledger.mjs';
 
 export const LEDGER_PATH = join(REPO_ROOT, datasetPath('state.site-visual-review'));
@@ -266,6 +267,9 @@ async function shootPage({ browser, base, target, viewports, dir, maxTiles, shot
 
       const generic = await page.evaluate(inspectInPage);
       const layout = await page.evaluate(inspectLayoutInPage);
+      // 縦に続く商品導線の幅と左端（規則は src/lib/cta-stack.ts）
+      const stacks = await page.evaluate(inspectCtaStacksInPage);
+      layout.issues.push(...stacks.mismatches.map((m) => ({ type: 'cta-width', detail: m.detail })));
       const ignore = new Set(target.ignore ?? []);
       const before = deterministicIssues.length;
       for (const issue of [...generic, ...layout.issues]) {

@@ -1,5 +1,6 @@
 import ResponsiveBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner';
 import { resolvePlacements, type ResolvedPlacement } from '@/lib/affiliate-placement';
+import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 
 /**
  * 基準書の画像バナー。案件は affiliate-placements.json、サイズは cta-placements.json が決める。
@@ -58,7 +59,7 @@ export function StandardsInlineBanner({ slot, inlineSlots = [slot], className = 
   const placement = inline.find((entry) => entry.slot === slot);
   if (!placement) return null;
   return (
-    <div className={`not-prose mx-auto ${className}`} data-standards-affiliate="inline" data-pagefind-ignore>
+    <div data-cta-stack className={`${CTA_STACK_CLASS} ${className}`} data-standards-affiliate="inline" data-pagefind-ignore>
       <PlacementBanner placement={placement} owner={owner} />
     </div>
   );
@@ -75,7 +76,7 @@ export function StandardsEndBanner({ pageKind, inlineSlots = [], className = 'mt
   });
   if (!end && mobileExtras.length === 0) return null;
   return (
-    <div className={`mx-auto max-w-[740px] space-y-3 ${className}`} data-standards-affiliate="end" data-pagefind-ignore>
+    <div data-cta-stack className={`${CTA_STACK_CLASS} space-y-3 ${className}`} data-standards-affiliate="end" data-pagefind-ignore>
       {end && <PlacementBanner placement={end} owner={owner} />}
       {mobileExtras.map((placement) => (
         <div key={placement.slot} className="zenn-desktop:hidden">

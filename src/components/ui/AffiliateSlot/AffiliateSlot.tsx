@@ -1,5 +1,6 @@
 import ResponsiveAffiliateBanner from "@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner";
 import { pixelFor, resolvePlacements, type PlacementPage } from "@/lib/affiliate-placement";
+import { CTA_STACK_CLASS, CTA_STACK_START_CLASS } from "@/lib/cta-stack";
 
 /**
  * 1 ページに転職アフィリエイトの面が 1 つだけのページ（公的基準・トピック・トップ・ツール）の枠。
@@ -12,11 +13,17 @@ export default function AffiliateSlot({
   page,
   slot,
   className,
+  framed = false,
+  alignStart = false,
 }: {
   readonly page: PlacementPage;
   /** 面（config/cta-placements.json のキー＝GA4 の cta_placement） */
   readonly slot: string;
   readonly className?: string;
+  /** 全幅の枠の中央にバナーを置く（トップ: 上の全幅の見出し画像と左右の端をそろえる） */
+  readonly framed?: boolean;
+  /** 区画の左端にそろえる（テーマのページ: ほかの区画が左寄せ） */
+  readonly alignStart?: boolean;
 }) {
   const resolved = resolvePlacements(page);
   const placement = resolved[slot];
@@ -24,7 +31,16 @@ export default function AffiliateSlot({
   const pixel = pixelFor(resolved, [slot]);
   return (
     <div className={className}>
-      <ResponsiveAffiliateBanner placement={placement} withPixel={Boolean(pixel)} />
+      {/* 横長バナーの幅の正本（本文の列で縦に続く導線とそろえる・src/lib/cta-stack.ts） */}
+      {framed ? (
+        <div data-cta-stack className="rounded-card-section border border-(--rule-soft) bg-(--paper) px-4 py-6 shadow-card-content dark:border-(--rule)">
+          <div className={CTA_STACK_CLASS}><ResponsiveAffiliateBanner placement={placement} withPixel={Boolean(pixel)} /></div>
+        </div>
+      ) : (
+        <div data-cta-stack className={alignStart ? CTA_STACK_START_CLASS : CTA_STACK_CLASS}>
+          <ResponsiveAffiliateBanner placement={placement} withPixel={Boolean(pixel)} />
+        </div>
+      )}
     </div>
   );
 }

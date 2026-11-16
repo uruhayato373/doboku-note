@@ -3,6 +3,7 @@ import { type ResolvedHubCta } from '@/lib/hub-cta';
 import { NOTE_LINK_REL } from '@/lib/external-link-rel';
 import { noteCtaImage, noteCtaQualificationTile } from '@/lib/note-cta-images';
 import NoteImageCta from '@/components/ui/NoteImageCta/NoteImageCta';
+import { CTA_STACK_WIDTH } from '@/lib/cta-stack';
 
 // カテゴリ hub の note CTA。完成画像を資格または商品から選び、商品台帳の説明を併記する。
 // もくじ・季節商品・リンク・計測は resolveHubCta の既存ルールを使う。画像欠落時は背景型へ戻る。
@@ -12,9 +13,12 @@ const HALO = { textShadow: '0 1px 2px rgba(255,255,255,0.95), 0 0 12px rgba(255,
 export default function HubCtaBanner({
   cta,
   placement,
+  wide = false,
 }: {
   cta: ResolvedHubCta;
   placement: string;
+  /** 記事末など本文の幅いっぱいに出す面（既定は 360px まで） */
+  wide?: boolean;
 }) {
   const qualificationTile = noteCtaQualificationTile(cta.qualification);
   const image = cta.productId ? noteCtaImage(cta.productId, 'tile', 'lead') : qualificationTile;
@@ -24,8 +28,9 @@ export default function HubCtaBanner({
     image={cta.productId ? (genericProductTile ? { ...image, caption: { title: cta.title1, description: cta.sub, price: cta.price } } : image) : { ...image, caption: {
       title: `${cta.qual} 教材一覧`, description: `${cta.title1}・${cta.title2}。${cta.sub}`, price: undefined,
     } }}
-    showDescription={genericProductTile}
-    trackLabel={cta.trackLabel} placement={placement} className="w-full max-w-[360px]" />;
+    // 横長（wide）は画像の右が空かないよう、中身の説明と「教材の内容を見る」を添える
+    showDescription={genericProductTile || wide} actionLabel={wide ? '教材の内容を見る（note） →' : undefined}
+    trackLabel={cta.trackLabel} placement={placement} className={wide ? 'w-full' : 'w-full max-w-[360px]'} />;
   return (
     <a
       href={cta.url}
@@ -34,10 +39,10 @@ export default function HubCtaBanner({
       data-cta="note"
       data-cta-label={cta.trackLabel}
       data-cta-placement={placement}
-      className="card-surface-content focus-ring group block w-full max-w-[360px] overflow-hidden p-2 transition-shadow hover:shadow-card-hover"
+      className={`card-surface-content focus-ring group block w-full ${wide ? CTA_STACK_WIDTH : 'max-w-[360px]'} overflow-hidden p-2 transition-shadow hover:shadow-card-hover`}
     >
       {/* 白カード枠（bg-paper + p-2）で囲む＝転職アフィリ SidebarAdBanner とカード意匠を統一。画像は内側に inset。 */}
-      <div className="relative aspect-6/5 w-full overflow-hidden rounded-[6px]">
+      <div className={`relative ${wide ? 'aspect-5/2' : 'aspect-6/5'} w-full overflow-hidden rounded-[6px]`}>
         <Image src={cta.bg} alt="" fill sizes="360px" className="object-cover" />
         {/* 文字列は左寄せなので、箱を 60% まで広げても実際の描画は 52% 程度に収まり
             背景イラスト（右にモチーフ）には被らない。狭い面での折り返し余裕を稼ぐための幅。 */}

@@ -1379,3 +1379,29 @@ html[data-program-split="alternate"] [data-program-split-arm="primary"] {
 .adsense-slot:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
   display: none;
 }
+/* 手元・プレビューでの AdSense の置き場の目印（AdSlot が data-adsense-preview を付ける。本番には出ない） */
+.adsense-slot[data-adsense-preview] {
+  outline: 2px dashed var(--color-warn);
+  outline-offset: -2px;
+  background: repeating-linear-gradient(135deg, transparent 0 12px, color-mix(in srgb, var(--color-warn) 10%, transparent) 12px 24px);
+}
+.adsense-preview-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-warn);
+  pointer-events: none;
+}
+/* 右の欄の上詰めの組の下の空き（RailContinuation の lower）。空きの高さ 2,500px ごとに AdSense を 1 枠出す（最大 3 枠）。
+   字数からの見積もりは表の多い章で外れるので、描画した高さで決める。隠れた枠は AdSlot が広告を要求しない（幅 0） */
+.rail-lower-ads { container-type: size; }
+.rail-lower-ads > [data-lower-ad] { display: none; }
+@container (min-height: 2500px) { .rail-lower-ads > [data-lower-ad="1"] { display: block; } }
+@container (min-height: 5000px) { .rail-lower-ads > [data-lower-ad="2"] { display: block; } }
+@container (min-height: 7500px) { .rail-lower-ads > [data-lower-ad="3"] { display: block; } }
