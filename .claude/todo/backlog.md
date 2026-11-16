@@ -65,6 +65,18 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1227] YouTube の長尺計画の検査が落ちる（親の通常動画が在庫に進む前にショートが進んだ 2 件）
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-16]
+
+**起点**: 2026-11-16 の npm run test で tests/youtube-longform-plan.test.mjs:141（実際の計画と台帳で違反 0 件）が落ちる。
+「親の通常動画が在庫に進んでいない: pe-construction/pe-kojutsu-kaitei-competency/point-gokai-1」と同じく point-keizoku-2 の 2 件。
+同じ日に develop へ動画の承認・予約のコミット（a358915e6 など）が続いており、ショートの承認が親の通常動画の在庫より先に進んだ状態とみられる。サイトの変更（feat/list-primitives）とは無関係。
+
+**やること**: 親の通常動画（pe-kojutsu-kaitei-competency）の在庫の状態と、2 本のショートの状態を台帳で突き合わせ、順序の規則どおりに直す（親を在庫へ進めるか、ショートを戻す）。
+
+**完了条件**: node --test tests/youtube-longform-plan.test.mjs が通る。
+
+
 
 
 
