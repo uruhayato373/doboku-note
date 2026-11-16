@@ -35,7 +35,7 @@ export function articleSidebarContinuation(
   placements: ResolvedPlacements,
 ): RailGroup[] {
   const count = articleSidebarGroupCount(bodyLength, input.headings.filter(h => h.level === 2).length, input.docGroup);
-  if (!count) return [];
+  if (!count) return withRailAdSense([]);
   const upper = articleSidebarPlan(input);
   const used = new Set([current.slug]);
   if (upper.some(card => card.kind === 'category') && input.category) {

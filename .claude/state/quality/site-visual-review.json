@@ -96,6 +96,14 @@
       "pages": 6,
       "pass": 6,
       "fail": 0
+    },
+    {
+      "runId": "20261116T122139Z",
+      "at": "2026-11-16T12:27:55.291Z",
+      "base": "http://localhost:3025",
+      "pages": 6,
+      "pass": 4,
+      "fail": 2
     }
   ],
   "pages": {
@@ -152,23 +160,23 @@
     "exam-hub-civil1": {
       "layoutSha256": "503084f02cd72c45f4311c0699f6e9c9552bcdef113c45f3c51302eba9049b1c",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T11:31:10.962Z",
-      "runId": "20261116T112742Z",
+      "reviewedAt": "2026-11-16T12:27:55.288Z",
+      "runId": "20261116T122139Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
           "severity": "minor",
           "type": "cta",
-          "detail": "右の欄で同じビルドジョブの転職バナーが、1 つ目（学習教材の下）と人気記事の下の 2 回出る。間に人気記事があり続けてはいないが、同じ画像の繰り返しに見える。AdSense の枠（空の高さ）は組の間に入り、広告が続く並びにはなっていない。",
+          "detail": "右の欄に同じビルドジョブの転職バナー（同じ絵柄）が、人気記事を挟んで 2 回出る。続けては並んでいないが、同じ絵柄の繰り返しに見える。",
           "viewport": "w1440",
           "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "テキストの章一覧で「施工管理・施…」「環境保全・建設…」が…で切れる。章番号で区別はつくので読めなくはない。",
-          "viewport": "w375",
-          "shot": "w375-04.png"
+          "type": "layout",
+          "detail": "右の欄は新着記事の後が約 1,000px 空き、AdSense の枠は 1 つだけ本文の過去問の後半に出る。上詰めの範囲に大きな隙間は無く、はみ出しも無い。",
+          "viewport": "w1440",
+          "shot": "w1440-03.png"
         }
       ],
       "deterministic": [],
@@ -207,25 +215,25 @@
       "ticket": null
     },
     "guide": {
-      "layoutSha256": "b5cd0e04a264aeacb9669123f628c70ec37dbd0c792dd5b6f8b98fdb8b0b6a79",
+      "layoutSha256": "3142109ebc82d56e300574261599e6ddfaa4119432cf061f9b7efb5ca9ea2028",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T11:31:10.962Z",
-      "runId": "20261116T112742Z",
+      "reviewedAt": "2026-11-16T12:27:55.288Z",
+      "runId": "20261116T122139Z",
       "path": "/exam/civil-construction-1/guide/strategy",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "記事の途中の転職バナーは列の幅いっぱいの枠に入るが、画像は幅 320px 前後で中央に置かれ、枠の左右に余白が残る。読むのに支障はない。",
-          "viewport": "w768",
-          "shot": "w768-cta-01.png"
+          "type": "cta",
+          "detail": "PC の右の欄の上部で、転職バナー（RSG）・教材バナー・転職バナー（AGENT）・AdSense 枠が、間に文字の区画をほとんど挟まず続けて並び、広告が連続して見える",
+          "viewport": "w1440",
+          "shot": "w1440-01.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "パンくず・ナビの 11px の補助文字と 32px 未満の押せる要素がある。本文・題名は読める大きさ。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "type": "cta",
+          "detail": "スマホ・タブレット幅の記事中バナー（RSG・施工管理職）は画像が左右に切り詰められ、RSG は社名ロゴとビルの写真だけで訴求文が読めず、何が得られるか分かりにくい",
+          "viewport": "w768",
+          "shot": "w768-cta-02.png"
         }
       ],
       "deterministic": [],
@@ -252,21 +260,22 @@
     "keyword": {
       "layoutSha256": "43e89551728ab925d4f5cbb8831aada12357f3241b5acafa0a7051ea608147cb",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T11:31:10.962Z",
-      "runId": "20261116T112742Z",
+      "reviewedAt": "2026-11-16T12:27:55.288Z",
+      "runId": "20261116T122139Z",
       "path": "/exam/pe-comprehensive-management/keywords/alarp-principle",
       "findings": [
         {
           "severity": "minor",
           "type": "cta",
-          "detail": "右の欄の上が、転職バナー、運営者、転職バナー、note 教材と続き、広告・導線が密に並ぶ。種類が交互で重複はなく、幅は列いっぱいにそろっている。",
+          "detail": "右の欄に転職バナーが 4 種（Groovement・MyVision・NewMA・Samurai Job）と note の教材バナーが入り、PR 系が多い。間に運営者やキーワード一覧が挟まり、広告が続いてはいない。",
           "viewport": "w1440",
-          "shot": "w1440-01.png"
+          "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "総監の精読ガイドの note 導線が記事の上と末尾（連動カード）に同じ内容で出る。続けてではないが、ほぼ同じ導線の繰り返し。",
+          "type": "layout",
+          "detail": "右の欄の AdSense 枠は 1 つで、学習ガイドの後に約 900px の空きがあってから本文の過去問・関連記事の横に出る。位置の偏りは小さく、はみ出しも無い。",
+          "viewport": "w1440",
           "shot": "w1440-04.png"
         }
       ],
@@ -299,36 +308,29 @@
       "ticket": null
     },
     "past-exam": {
-      "layoutSha256": "3767d6277b09bab009fe2ad7ba9e60f376553e0bfd8e2d9643c0ec5137aeab01",
-      "verdict": "pass",
-      "reviewedAt": "2026-11-16T11:31:10.962Z",
-      "runId": "20261116T112742Z",
+      "layoutSha256": "d75b4babcea94d578a7a4c628b319674bafa7716516753d6c9b1a7d696152ee1",
+      "verdict": "fail",
+      "reviewedAt": "2026-11-16T12:27:55.288Z",
+      "runId": "20261116T122139Z",
       "path": "/exam/civil-construction-1/secondary/r06",
       "findings": [
         {
+          "severity": "major",
+          "type": "cta",
+          "detail": "スマホ幅（w375）・タブレット幅（w768）の記事内バナー（RSG・コンストワーク）が高さ約50〜100pxの帯に切り詰められ、RSG は ロゴと背景写真だけ、施工管理職は文字の下半分が切れて、何の転職サービスか・何が得られるか読み取れない（PC 幅では全体が見える）",
+          "viewport": "w375",
+          "shot": "w375-04.png"
+        },
+        {
           "severity": "minor",
           "type": "layout",
-          "detail": "PC の右の欄は本文より先に終わり、広告枠（ローカルでは空）の高さだけ空きがあるが、組の並びは カード→転職→カード→広告→カード で広告は続いておらず意図どおり。本文の中の広告枠も空の高さだけ大きな空白に見える（本番では広告が入る）。",
+          "detail": "右の欄は上詰めの組の後、約800px の空きの後に AdSense が1枠だけ出る。散らす設計どおりだが本文の横が長く空く。広告の連続・はみ出しは無い",
           "viewport": "w1440",
-          "shot": "w1440-02.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "スマホ幅の施工管理職・RSG のバナーは小さい版で、文字が上下に切れたり社名ロゴ中心で何が得られるか読み取りにくい（PR 表記はある）。",
-          "viewport": "w375",
-          "shot": "w375-03.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "右の欄のサムネイル下の小さな見出しが途中で切れている（「盛土の施工と締固め」など）。隣に題名があり区別はつく。",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
+          "shot": "w1440-03.png"
         }
       ],
       "deterministic": [],
-      "ticket": null
+      "ticket": "DN-1225"
     },
     "pillar": {
       "layoutSha256": "c83a5e8ed6fc23d6f90d9a2351fb1041f20c86a6e0d191aa30babce2d716afef",
@@ -389,35 +391,28 @@
     },
     "standards-chapter": {
       "layoutSha256": "5826cf4b49555f8ac3d31dc951054ae659e21b2297fd4f91c873fbcdf3fea4ae",
-      "verdict": "pass",
-      "reviewedAt": "2026-11-16T11:31:10.962Z",
-      "runId": "20261116T112742Z",
+      "verdict": "fail",
+      "reviewedAt": "2026-11-16T12:27:55.288Z",
+      "runId": "20261116T122139Z",
       "path": "/standards/kinki/common/chapters/1-3",
       "findings": [
         {
-          "severity": "minor",
+          "severity": "major",
           "type": "cta",
-          "detail": "スマホ・タブレット幅の RSG バナーは社名ロゴと背景写真だけで、何が得られるか文言が読めない。施工管理職のバナーも下の文字が切れる（PR 表記はある）。",
+          "detail": "スマホ幅（w375）・タブレット幅（w768）の記事内バナー（RSG・コンストワーク）が高さ約50〜100pxの帯に切り詰められ、RSG は ロゴと背景写真だけ、施工管理職は文字の下半分が切れて、何の転職サービスか・何が得られるか読み取れない（PC 幅では全体が見える）",
           "viewport": "w375",
-          "shot": "w375-cta-03.png"
+          "shot": "w375-cta-02.png"
         },
         {
           "severity": "minor",
           "type": "cta",
-          "detail": "PC の右の欄で同じ建設ジョブズ系の転職バナーが目次の上と下の 2 箇所に出ている（間にカードが挟まり連続はしていない）。",
+          "detail": "右の欄の上部に BuildJob の同じバナーが約9000px 離れて2回出る（記事内にも同系の帯がある）",
           "viewport": "w1440",
           "shot": "w1440-02.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "右の欄の広告枠（ローカルでは空）の高さが空白に見える。本番で広告が入る前提のため意図どおり。",
-          "viewport": "w1440",
-          "shot": "w1440-cta-01.png"
         }
       ],
       "deterministic": [],
-      "ticket": null
+      "ticket": "DN-1226"
     },
     "standards-index": {
       "layoutSha256": "466fd05c594257ee6dbe32da42ae426819ae9bef5898c1d0c725dfcaae3de1f8",
@@ -451,25 +446,18 @@
       "ticket": null
     },
     "textbook": {
-      "layoutSha256": "a4bc7b23a351257f35d29728e085803bd3b432b4a1a0c9e264a5b33bba87b3c9",
+      "layoutSha256": "d81694a1ffe4f2c6621294b27741f34f13c0530c4063a8d28923745eab79730e",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T11:31:10.962Z",
-      "runId": "20261116T112742Z",
+      "reviewedAt": "2026-11-16T12:27:55.288Z",
+      "runId": "20261116T122139Z",
       "path": "/exam/civil-construction-1/textbook/network-schedule",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "記事の途中の転職バナーは列の幅いっぱいの枠に入るが、画像は幅 320px 前後で中央に置かれ、枠の左右に余白が残る。読むのに支障はない。",
+          "type": "cta",
+          "detail": "スマホ・タブレット幅の記事中バナー（RSG・施工管理職）は画像が左右に切り詰められ、RSG は社名ロゴとビルの写真だけで訴求文が読めず、何が得られるか分かりにくい",
           "viewport": "w768",
-          "shot": "w768-cta-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "パンくず・ナビの 11px の補助文字と 32px 未満の押せる要素がある。本文・題名は読める大きさ。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "shot": "w768-cta-03.png"
         }
       ],
       "deterministic": [],

@@ -38,7 +38,8 @@ test('基準書 2-1（4,716字）は3組・短い章は0組・長い章はカー
       const shown = getStandardRelatedDocs(getStandardChapterTopics(resolved.chapter), 3);
       return {
         path, chars,
-        groups: groups.map(g => ({ slot: g.slot, fill: Boolean(g.fill), adsense: Boolean(g.adsense), label: g.card?.label, plain: g.card?.plain, hrefs: g.card?.links.map(l => l.href) ?? [], program: g.banner?.program })),
+        lower: groups.filter(g => g.lower).length,
+        groups: groups.filter(g => !g.lower).map(g => ({ slot: g.slot, fill: Boolean(g.fill), adsense: Boolean(g.adsense), label: g.card?.label, plain: g.card?.plain, hrefs: g.card?.links.map(l => l.href) ?? [], program: g.banner?.program })),
         upper: [...shown.practice, ...shown.exam].map(doc => getPublicDocPath(doc.slug)),
         self: '/standards/' + path.replace(/\\/([^/]+)$/, '/chapters/$1'),
       };
@@ -53,6 +54,8 @@ test('基準書 2-1（4,716字）は3組・短い章は0組・長い章はカー
   const long = byPath['kinki/common/1-1'];
   assert.ok(long.groups.length > 3 && long.groups.length <= 20, '長い章は回遊の候補の数まで（上限20）');
   assert.ok(long.groups.every(g => !g.fill), 'バナーだけの組は作らない（上詰めで広告が続く）');
+  assert.equal(long.lower, 3, '空きの AdSense の候補は 3 枠');
+  assert.equal(byPath['mlit/sekou-kanri-kijun/1-1'].lower, 3, '組が無くても空きの AdSense の候補は 3 枠（出すかは描画した高さで決める）');
   for (const row of [main, long]) {
     const hrefs = row.groups.flatMap(g => g.hrefs);
     assert.equal(new Set(hrefs).size, hrefs.length, row.path + ' 同じリンクを2回出さない');
@@ -82,7 +85,8 @@ test('案件が無ければバナーなしで回遊だけを出し、回遊が�
     const { standardsSidebarContinuation } = await import('./src/lib/standards-sidebar-continuation.ts');
     const { chapter, document } = getStandardChapter('mlit', 'sekou-kanri-kijun', '2-1');
     const groups = standardsSidebarContinuation(document, chapter, 4716, {});
-    process.stdout.write(JSON.stringify({ n: groups.length, banners: groups.filter(g => g.banner).length, cards: groups.filter(g => g.card).length }));`);
+    const packed = groups.filter(g => !g.lower);
+    process.stdout.write(JSON.stringify({ n: packed.length, banners: packed.filter(g => g.banner).length, cards: packed.filter(g => g.card).length }));`);
   assert.deepEqual(result, { n: 3, banners: 0, cards: 3 });
 });
 
@@ -101,7 +105,7 @@ test('資格トップ: 1級土木は人気→新着の2組・ランキングに�
       const popular = getPopularDocs(docs, 5);
       const groups = categorySidebarContinuation(docs, popular, placements['category-sidebar'] ?? null);
       return { slug, docs: docs.length, sidebar: placements['category-sidebar']?.program, shown: popular.map(p => getPublicDocPath(p.doc.slug)),
-        groups: groups.map(g => ({ slot: g.slot, adsense: Boolean(g.adsense), label: g.card?.label, hrefs: g.card?.links.map(l => l.href) ?? [], program: g.banner?.program, thumbs: g.card?.links.every(l => l.doc) })) };
+        groups: groups.filter(g => !g.lower).map(g => ({ slot: g.slot, adsense: Boolean(g.adsense), label: g.card?.label, hrefs: g.card?.links.map(l => l.href) ?? [], program: g.banner?.program, thumbs: g.card?.links.every(l => l.doc) })) };
     });
     process.stdout.write(JSON.stringify(rows));`);
   const by = Object.fromEntries(rows.map(row => [row.slug, row]));

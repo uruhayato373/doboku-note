@@ -67,7 +67,8 @@ test('代表7記事の描画で目次なしの右欄・設問ナビ維持・上�
     import ArticleSidebar,{buildArticleSidebarCards} from './src/components/ui/ArticleSidebar/ArticleSidebar';
     import TwoColumnShell from './src/components/layout/TwoColumnShell';
     const rows = ${JSON.stringify(inputs)}.map(row=>({...row,
-      groups:row.groups.map(g=>({label:g.card?.label,links:g.card?.links.map(l=>l.href),banner:g.banner?.program,fill:g.fill,adsense:g.adsense,slot:g.slot})),
+      groups:row.groups.filter(g=>!g.lower).map(g=>({label:g.card?.label,links:g.card?.links.map(l=>l.href),banner:g.banner?.program,fill:g.fill,adsense:g.adsense,slot:g.slot})),
+      lower:row.groups.filter(g=>g.lower).length,
       html:render(<TwoColumnShell stretchAside aside={<ArticleSidebar cards={buildArticleSidebarCards(row.input)} groups={row.groups} placements={row.placements} questionSeries={row.input.questionSeries}/>}><article><div className="prose-blog"><h2>土木・技術士</h2></div></article></TwoColumnShell>)}));
     process.stdout.write(JSON.stringify(rows));`,true);
   assert.equal(rows.length,7);
@@ -92,8 +93,10 @@ test('代表7記事の描画で目次なしの右欄・設問ナビ維持・上�
     assert.ok(row.groups.every(group=>!group.fill),row.slug+' 埋める組は作らない');
     assert.ok(row.groups.every(group=>group.label||group.adsense),row.slug+' カードの無い組は AdSense だけ');
     assert.equal(row.groups.filter(group=>group.adsense).length,row.groups.length?1:0,row.slug+' AdSense は 1 枠');
-    assert.equal(dom.querySelectorAll('[data-article-sidebar-continuation] [data-adsense="rail"]').length,row.groups.length?1:0);
-    assert.equal(dom.querySelectorAll('[data-article-sidebar-continuation]').filter(el=>/justify-around|flex-1/.test(el.getAttribute('class'))).length,0,'上詰め');
+    assert.ok(row.lower<=3,row.slug+' 空きの AdSense は最大 3 枠');
+    assert.equal(dom.querySelectorAll('[data-article-sidebar-lower-ads] [data-adsense="rail"]').length,row.lower);
+    assert.equal(dom.querySelectorAll('[data-article-sidebar-continuation] [data-adsense="rail"]').length,(row.groups.length?1:0)+row.lower);
+    assert.equal(dom.querySelectorAll('[data-article-sidebar-group]').filter(el=>/justify-around/.test(el.parentNode.getAttribute('class'))).length,0,'組は上詰め（均等に散らすのは空きの AdSense だけ）');
     assert.equal(dom.querySelectorAll('[data-article-question-series]').length,row.input.questionSeries?1:0);
     for(const image of dom.querySelectorAll('a[data-thumb] img')) {
       assert.equal(image.getAttribute('loading'),'lazy');
@@ -115,9 +118,12 @@ test('回遊候補が尽きれば組を作らない（上詰めでバナーだ�
     const current={slug:'civil-practice-example',category:'civil-practice',title:'確認',published:true};
     const input={sidebarMokuji:null,headings:[],category:current.category,docGroup:'guide',slugStr:current.slug,content:'',sectionStr:undefined,categoryArticles:[current],hasCategoryNavCard:false,showPillarNav:false,showTableOfContents:true};
     const placements={'article-rail':{slot:'article-rail',program:'buildjob'},'article-rail-2':{slot:'article-rail-2',program:'buildjob'},'article-rail-3':{slot:'article-rail-3',program:'rsg-kensetsu'}};
-    process.stdout.write(JSON.stringify({groups:articleSidebarContinuation(input,current,[],20000,placements),empty:articleSidebarContinuation(input,current,[],20000,{})}));`);
+    const packed=gs=>gs.filter(g=>!g.lower);
+    const a=articleSidebarContinuation(input,current,[],20000,placements), b=articleSidebarContinuation(input,current,[],20000,{});
+    process.stdout.write(JSON.stringify({groups:packed(a),empty:packed(b),lower:a.filter(g=>g.lower).length}));`);
   assert.deepEqual(result.groups,[]);
   assert.deepEqual(result.empty,[]);
+  assert.equal(result.lower,3,'空きの AdSense は候補 3 枠（出すかは描画した空きの高さで決める）');
 });
 
 test('過去問は前後の年度→同じ年度の別区分の順。1組3件・種類が続かず・同じ記事を2回出さない', () => {
@@ -130,7 +136,7 @@ test('過去問は前後の年度→同じ年度の別区分の順。1組3件・
     const current=pool.find(doc=>doc.slug==='pe-first-stage-r05-basic');
     const input={sidebarMokuji:null,headings:[],category:'pe-first-stage',docGroup:'primary',slugStr:current.slug,content:'',sectionStr:undefined,categoryArticles:pool,hasCategoryNavCard:false,showPillarNav:false,showTableOfContents:true};
     const groups=articleSidebarContinuation(input,current,pool,50000,{});
-    process.stdout.write(JSON.stringify(groups.map(g=>({label:g.card?.label,links:g.card?.links.map(l=>l.href)}))));`);
+    process.stdout.write(JSON.stringify(groups.filter(g=>!g.lower).map(g=>({label:g.card?.label,links:g.card?.links.map(l=>l.href)}))));`);
   const years=result.find(group=>group.label==='rail-exam-years');
   assert.ok(years,'年度の組');
   assert.deepEqual(years.links.slice(0,3).map(href=>href.split('/').pop()),['r04-basic','r06-basic','r05-aptitude']);
@@ -153,13 +159,15 @@ test('上詰め: 過去問も含めバナーだけの組を作らず、2 組目�
     const input={sidebarMokuji:null,headings:[],category:'pe-first-stage',docGroup:'primary',slugStr:current.slug,content:'',sectionStr:undefined,categoryArticles:pool,hasCategoryNavCard:false,showPillarNav:false,showTableOfContents:true,questionSeries:true};
     const p=(slot,program)=>[slot,{slot,program}];
     const placements=Object.fromEntries([p('article-rail','buildjob'),p('article-rail-2','rsg-kensetsu'),p('article-rail-3','dainishinsotsu-agent-neo'),p('article-rail-4','kensetsu-jobs')]);
-    const groups=articleSidebarContinuation(input,current,pool,50000,placements);
-    const images=articleImagePlacements(placements,[],1,groups.filter(g=>g.banner).map(g=>g.slot));
-    process.stdout.write(JSON.stringify({groups:groups.map(g=>({fill:Boolean(g.fill),card:Boolean(g.card),adsense:Boolean(g.adsense),slot:g.slot,program:g.banner?.program})),pixelSlots:articlePixelCandidates(placements,[],images).map(c=>c.slot)}));`);
+    const all=articleSidebarContinuation(input,current,pool,50000,placements);
+    const groups=all.filter(g=>!g.lower);
+    const images=articleImagePlacements(placements,[],1,all.filter(g=>g.banner).map(g=>g.slot));
+    process.stdout.write(JSON.stringify({lower:all.filter(g=>g.lower).length,groups:groups.map(g=>({fill:Boolean(g.fill),card:Boolean(g.card),adsense:Boolean(g.adsense),slot:g.slot,program:g.banner?.program})),pixelSlots:articlePixelCandidates(placements,[],images).map(c=>c.slot)}));`);
   assert.ok(result.groups.length>=2);
   assert.ok(result.groups.every(group=>group.card&&!group.fill),'カードの無い組・埋める組は作らない');
   assert.deepEqual(result.groups.map(group=>group.adsense),result.groups.map((_,i)=>i===1),'2 組目だけ AdSense');
   assert.equal(result.groups[1].program,undefined,'AdSense の組に転職バナーは無い');
   assert.ok(result.groups[0].program,'1 組目は転職バナーつき（案件の数を超えた組はカードだけ）');
   assert.ok(!result.pixelSlots.includes(result.groups[1].slot),'AdSense に替えた面のピクセルは出さない');
+  assert.ok(result.lower>=1&&result.lower<=3,'長い本文は上詰めの組の下の空きに AdSense（最大 3 枠）');
 });

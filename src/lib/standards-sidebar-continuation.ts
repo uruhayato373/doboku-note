@@ -47,7 +47,7 @@ export function standardsSidebarContinuation(
   placements: ResolvedPlacements = resolvePlacements({ pageKind: 'standards' }),
 ): RailGroup[] {
   const count = articleSidebarGroupCount(bodyLength, 0, 'standards');
-  if (!count) return [];
+  if (!count) return withRailAdSense([]);
 
   // 上の束の「この章を実務・試験で深める」に出ている記事は出さない
   const topics = getStandardChapterTopics(chapter);

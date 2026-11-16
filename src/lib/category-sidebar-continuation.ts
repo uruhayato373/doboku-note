@@ -16,7 +16,7 @@ const docLinks = (docs: DocMeta[]): RailLink[] => docs.map(doc => ({ href: getPu
 /** docs は資格トップに並ぶ記事、shownPopular は上の束の人気ランキング、sidebarAd は上の束の転職バナーの案件 */
 export function categorySidebarContinuation(docs: DocMeta[], shownPopular: PopularDoc[], sidebarAd: ResolvedPlacement | null): RailGroup[] {
   const count = categoryRailGroupCount(docs.length);
-  if (!count) return [];
+  if (!count) return withRailAdSense([]);
   const usedHrefs = new Set(shownPopular.map(item => getPublicDocPath(item.doc.slug)));
   const sources: RailSource[] = [
     { label: 'rail-popular', title: 'よく読まれている記事', links: docLinks(getPopularDocs(docs, docs.length).map(item => item.doc)) },

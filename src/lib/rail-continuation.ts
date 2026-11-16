@@ -31,13 +31,24 @@ export interface RailGroup {
   fill?: boolean;
   /** 転職バナーの代わりに AdSense の枠を置く組 */
   adsense?: boolean;
+  /** 上詰めの組の下の空きへ均等に散らす AdSense だけの組 */
+  lower?: boolean;
 }
 
-/** 2 組目の転職バナーを AdSense の枠に替える（1 組だけなら組の後ろに AdSense だけの組を足す）。カード → 転職 → カード → AdSense → カード の順になる */
+/** 上詰めの組の下の空きに置く AdSense の間隔と上限（2026-11-16 運営者判断）。出すかどうかは描画した空きの高さで決める（globals.css の rail-lower-ads） */
+export const RAIL_LOWER_AD_SPACING_PX = 2500;
+export const RAIL_LOWER_AD_MAX = 3;
+
+/**
+ * 2 組目の転職バナーを AdSense の枠に替え（1 組だけなら組の後ろに AdSense だけの組を足す）、カード → 転職 → カード → AdSense → カード の順にする。
+ * 上詰めの組の下の空きには AdSense だけの組（lower）を最大 3 つ足す。何枠出すかは描画した空きの高さで決める（2,500px ごとに 1 枠。
+ * 字数からの高さの見積もりは表の多い基準書の章で外れ、空きが 1 万 px を超えても 0 枠だった）。転職バナーは同じ案件の繰り返しとピクセルの扱いが崩れるので足さない。
+ */
 export function withRailAdSense(groups: RailGroup[]): RailGroup[] {
-  if (groups.length === 0) return groups;
-  if (groups.length === 1) return [...groups, { slot: 'rail-adsense', card: null, banner: undefined, adsense: true }];
-  return groups.map((group, index) => index === 1 ? { ...group, banner: undefined, adsense: true } : group);
+  const packed = groups.length === 0 ? []
+    : groups.length === 1 ? [...groups, { slot: 'rail-adsense', card: null, banner: undefined, adsense: true }]
+    : groups.map((group, index) => index === 1 ? { ...group, banner: undefined, adsense: true } : group);
+  return [...packed, ...Array.from({ length: RAIL_LOWER_AD_MAX }, (_, i) => ({ slot: `rail-adsense-lower-${i + 1}`, card: null, banner: undefined, adsense: true, lower: true }))];
 }
 export interface RailSource { label: RailCard['label']; title: string; links: RailLink[]; plain?: boolean }
 
@@ -57,8 +68,10 @@ export function railGroupCountFromFree(free: number, { first = FIRST_GROUP_MIN_P
  */
 const CATEGORY_RAIL_FREE_PX: ReadonlyArray<readonly [minDocs: number, free: number]> = [[40, 3600], [16, 2000]];
 export function categoryRailGroupCount(docCount: number): number {
-  const free = CATEGORY_RAIL_FREE_PX.find(([minDocs]) => docCount >= minDocs)?.[1] ?? 0;
-  return railGroupCountFromFree(free, { first: 1500, spacing: 1800, max: 2 });
+  return railGroupCountFromFree(categoryRailFreePx(docCount), { first: 1500, spacing: 1800, max: 2 });
+}
+function categoryRailFreePx(docCount: number): number {
+  return CATEGORY_RAIL_FREE_PX.find(([minDocs]) => docCount >= minDocs)?.[1] ?? 0;
 }
 
 const PER_GROUP = 3;

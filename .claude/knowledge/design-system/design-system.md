@@ -256,7 +256,7 @@
 
 **PC 右サイドバー（`/docs`）は 2 ブロック構成**（2026-11-16 改訂・DN-1218）:
 1. **上の束（上詰め）**: note もくじタイル（`HubCtaBanner`・1 枚・utm `-docs-sb`。HUB 対応資格 & 非 career 記事のときのみ）→ 運営者プロフィール → 設問ナビ・カテゴリナビ・ピラーナビ。目次は本文の上（`TableOfContents`）。
-2. **下に続く束**（`RailContinuation`）: 回遊カード（サムネイルつき）＋転職バナーの組を、本文の長さから見積もった数（`articleSidebarGroupCount`）だけ上詰め（組の間 24px）で並べ、2 組目の転職バナーは AdSense の枠に替える（1 組だけなら後ろに AdSense。`withRailAdSense`）。カードの無い組（バナーだけ）は作らない（上詰めで広告が続くため）。2026-11-16 運営者判断: 残りの高さへの均等割りは組の間に約 500px の余白が出た。
+2. **下に続く束**（`RailContinuation`）: 回遊カード（サムネイルつき）＋転職バナーの組を、本文の長さから見積もった数（`articleSidebarGroupCount`）だけ上詰め（組の間 24px）で並べ、2 組目の転職バナーは AdSense の枠に替える（1 組だけなら後ろに AdSense。`withRailAdSense`）。カードの無い組（バナーだけ）は作らない（上詰めで広告が続くため）。上詰めの組の下に残る本文の横の空きには AdSense だけを均等に散らし、空きの高さ 2,500px ごとに 1 枠（最大 3 枠）出す。枠数は描画した高さで決める（globals.css の `rail-lower-ads` のコンテナクエリ。字数の見積もりは表の多い章で外れた）。2026-11-16 運営者判断: 残りの高さへの均等割りは組の間に約 500px の余白が出た。手元・プレビュー（localhost・pages.dev）の AdSense の枠は広告を要求せず、破線の目印にユニット名を出す（`AdSlot`）。
 
 > **右の欄に sticky・欄内スクロール（`max-h`＋`overflow`）は使わない**（2026-11-15 運営者指示・全ページ共通。「広告が追いかけてくる」体験と、sticky の下に置いた要素が届かなくなる過去事故を避ける）。同じ「上の束＋下に続く束」を基準書の章・節（`standardsSidebarContinuation`）と資格トップ（`categorySidebarContinuation`）にも使い、組の数・カードの選び方・AdSense の組（`withRailAdSense`）は `src/lib/rail-continuation.ts` に集約する。note もくじタイルは記事末尾（`ArticleFooter`・utm `-footer`）と PC サイドバー（utm `-docs-sb`）に各 1 枚を併掲し全 HUB ページで統一（2026-07・個別マガジンタイルは廃止）。
 
