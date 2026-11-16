@@ -12,9 +12,9 @@ import { classifyDoc } from './doc-classifier';
 import { findYearRelatives } from './exam-year-nav.mjs';
 import { relatedTextbookSlugs } from './related-textbooks';
 import { isCivilConstructionCategory } from './qualification-names';
-import { ARTICLE_RAIL_FILL_SLOT, articleImagePlacements, articleRailFillColumn, articleRailSlot } from './article-affiliate-plan';
+import { articleImagePlacements, articleRailSlot } from './article-affiliate-plan';
 import type { ResolvedPlacements } from './affiliate-placement';
-import { createCardPicker, interleaveFillGroups, type RailGroup, type RailLink, type RailSource as Source } from './rail-continuation';
+import { createCardPicker, withRailAdSense, type RailGroup, type RailLink, type RailSource as Source } from './rail-continuation';
 
 export type { RailGroup } from './rail-continuation';
 
@@ -25,8 +25,7 @@ const EXAM_GROUPS = ['primary', 'secondary', 'pastExam'];
  * 上の束の行き先を除き、1 組 3 件（最後の組だけ 2 件）で下に続く束を作る。
  * 関連記事（上位 12 件）→ほかの種類→関連の続き…と交互に並べ、同じ種類を続けず、同じ記事を 2 回出さない。
  * 組の数は高さの見積もり（上限）と回遊の候補（実数）の小さいほう。広告の重複除外は既存の画像計画に一任。
- * 過去問（questionSeries）だけは、回遊の候補が尽きて見積もりに足りない組数を、バナーだけの組で埋めて
- * 回遊の組の間に均等に散らす（2026-11-16 運営者判断。fillGroups）。
+ * 組は上詰めで並べ、2 組目の転職バナーは AdSense に替える（withRailAdSense）。
  */
 export function articleSidebarContinuation(
   input: ArticleSidebarInput,
@@ -76,14 +75,9 @@ export function articleSidebarContinuation(
     const card = nextCard(index);
     const slot = articleRailSlot(upper.length + index);
     const banner = images.find(image => image.placement.slot === slot)?.placement;
-    if (card || banner) groups.push({ slot, card, banner });
+    // 上詰めなので、カードの無い組（バナーだけ）は作らない（広告が続く）
+    if (card) groups.push({ slot, card, banner });
   }
-  return input.questionSeries ? fillGroups(groups, count - groups.length, placements, upper.length) : groups;
+  return withRailAdSense(groups);
 }
 
-/** 過去問の埋める組の案件は右の欄に出ている案件（上の束＋回遊の組）を順に繰り返す。 */
-function fillGroups(groups: RailGroup[], fill: number, placements: ResolvedPlacements, upperCount: number): RailGroup[] {
-  if (fill <= 0) return groups;
-  const rail = articleImagePlacements(placements, [], upperCount, groups.map(group => group.slot)).filter(image => image.placement.slot.startsWith('article-rail'));
-  return interleaveFillGroups(groups, fill, articleRailFillColumn(rail), ARTICLE_RAIL_FILL_SLOT);
-}

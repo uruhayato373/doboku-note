@@ -4,7 +4,8 @@ import { slotCreatives } from './affiliate-slot-creatives';
 
 /**
  * 右の欄の「下に続く束」の共通部品（記事・基準書の章と節・資格トップが同じ仕組みを使う）。
- * 上の束（そのページの今の並び）は上詰めのまま、下の束＝回遊カードと転職バナーの組を、本文の残りの高さへ均等に並べる。
+ * 上の束（そのページの今の並び）の下へ、回遊カードと転職バナーの組を上詰めで並べる（2026-11-16 運営者判断: 均等割りは組の間に大きな余白が出た）。
+ * 2 組目は転職バナーの代わりに AdSense の枠を置く（withRailAdSense）。上詰めで広告が続かないよう、カードの無い組（バナーだけ）は作らない。
  * 組の数の判定・カードの選び方・バナーだけの組の散らし方は、ここだけに置く。
  */
 
@@ -28,6 +29,15 @@ export interface RailGroup {
   banner: ResolvedPlacement | undefined;
   /** 回遊の組の間をバナーだけで埋める組（card なし・面は *-rail-fill） */
   fill?: boolean;
+  /** 転職バナーの代わりに AdSense の枠を置く組 */
+  adsense?: boolean;
+}
+
+/** 2 組目の転職バナーを AdSense の枠に替える（1 組だけなら組の後ろに AdSense だけの組を足す）。カード → 転職 → カード → AdSense → カード の順になる */
+export function withRailAdSense(groups: RailGroup[]): RailGroup[] {
+  if (groups.length === 0) return groups;
+  if (groups.length === 1) return [...groups, { slot: 'rail-adsense', card: null, banner: undefined, adsense: true }];
+  return groups.map((group, index) => index === 1 ? { ...group, banner: undefined, adsense: true } : group);
 }
 export interface RailSource { label: RailCard['label']; title: string; links: RailLink[]; plain?: boolean }
 
@@ -97,25 +107,3 @@ export function railFillColumn(placements: ResolvedPlacement[], fillSlot: string
   });
 }
 
-/**
- * 回遊の組（と広告だけの組）の間へ、バナーだけの組を fill 個、均等に挟む（累積が整数を跨ぐ位置に置く）。
- * 案件は column を順に繰り返し、前後の組のバナーと同じ案件は列に別の案件がある限り避ける。
- */
-export function interleaveFillGroups(groups: RailGroup[], fill: number, column: ResolvedPlacement[], fillSlot: string): RailGroup[] {
-  if (fill <= 0 || !column.length) return groups;
-  const total = groups.length + fill;
-  const isFill = (i: number) => Math.floor(((i + 1) * fill) / total) > Math.floor((i * fill) / total);
-  const order: Array<RailGroup | null> = [];
-  let next = 0;
-  for (let i = 0; i < total; i++) order.push(isFill(i) ? null : groups[next++]!);
-  const picked: RailGroup[] = [];
-  let cursor = 0;
-  return order.map((group, i) => {
-    if (group) { picked[i] = group; return group; }
-    const avoid = new Set([picked[i - 1]?.banner?.program, order[i + 1]?.banner?.program]);
-    const rotated = [...column.slice(cursor), ...column.slice(0, cursor)];
-    const banner = rotated.find(candidate => !avoid.has(candidate.program)) ?? rotated[0]!;
-    cursor = (column.indexOf(banner) + 1) % column.length;
-    return (picked[i] = { slot: fillSlot, card: null, banner, fill: true });
-  });
-}

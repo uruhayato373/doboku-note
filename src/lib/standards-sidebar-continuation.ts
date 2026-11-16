@@ -6,7 +6,7 @@ import { resolvePlacements, type ResolvedPlacement, type ResolvedPlacements } fr
 import { articleSidebarGroupCount } from './article-sidebar-plan';
 import { getPublicDocPath } from './content-routes';
 import { getPopularDocs } from './popular';
-import { createCardPicker, interleaveFillGroups, railFillColumn, type RailGroup, type RailLink, type RailSource } from './rail-continuation';
+import { createCardPicker, withRailAdSense, railFillColumn, type RailGroup, type RailLink, type RailSource } from './rail-continuation';
 import type { StandardDocument } from './standards';
 import { getStandardChapterTopics, getStandardRelatedDocs } from './standards-discovery';
 import { getStandardChapters, standardChapterPath, type StandardChapter } from './standards-articles';
@@ -16,7 +16,7 @@ import { getStandardChapters, standardChapterPath, type StandardChapter } from '
  * 回遊カード＋転職バナーの組を本文の長さに応じた数だけ並べる。組の数は記事と同じ判定（articleSidebarGroupCount・係数 standards）。
  * 組の中身は、この章に近い実務の記事 → 試験対策の記事 → 同じ文書の前後の章（文字の一覧）→ 同じ資格の人気・新着の順に回し、
  * 上の束のカードに出た記事・同じ記事を 2 回出さない。バナーは基準書の右の欄の案件（standards-rail 系）を順に繰り返し、
- * ピクセルは付けない（上の束の同じ案件が持つ）。候補が尽きて見積もりに足りない組は、バナーだけの組で埋める。
+ * ピクセルは付けない（上の束の同じ案件が持つ）。組は上詰めで、候補が尽きたら打ち切る（バナーだけの組は作らない）。2 組目は AdSense。
  */
 
 /** 回遊の「同じ資格」。基準書の読み手の主な行き先（施工管理基準＝土木施工管理技士） */
@@ -74,5 +74,5 @@ export function standardsSidebarContinuation(
     if (!card) break;
     groups.push({ slot: STANDARDS_RAIL_FILL_SLOT, card, banner: column.length ? column[index % column.length] : undefined });
   }
-  return interleaveFillGroups(groups, count - groups.length, column, STANDARDS_RAIL_FILL_SLOT);
+  return withRailAdSense(groups);
 }

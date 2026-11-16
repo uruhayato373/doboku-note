@@ -2,7 +2,7 @@ import type { DocMeta } from './docs';
 import type { ResolvedPlacement } from './affiliate-placement';
 import { getPublicDocPath } from './content-routes';
 import { getPopularDocs, type PopularDoc } from './popular';
-import { categoryRailGroupCount, createCardPicker, railFillColumn, type RailGroup, type RailLink, type RailSource } from './rail-continuation';
+import { categoryRailGroupCount, createCardPicker, railFillColumn, withRailAdSense, type RailGroup, type RailLink, type RailSource } from './rail-continuation';
 
 /**
  * 資格トップの右の欄の「下に続く束」（DN-1218 段 3）。上の束（学習ナビ・note・運営者・転職バナー・人気ランキング）の下へ、
@@ -30,5 +30,5 @@ export function categorySidebarContinuation(docs: DocMeta[], shownPopular: Popul
     if (!card) break;
     groups.push({ slot: CATEGORY_RAIL_FILL_SLOT, card, banner: column[index % Math.max(1, column.length)] });
   }
-  return groups;
+  return withRailAdSense(groups);
 }

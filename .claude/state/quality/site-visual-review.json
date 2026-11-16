@@ -80,6 +80,22 @@
       "pages": 6,
       "pass": 6,
       "fail": 0
+    },
+    {
+      "runId": "20261116T111306Z",
+      "at": "2026-11-16T11:31:10.787Z",
+      "base": "http://localhost:3025",
+      "pages": 6,
+      "pass": 5,
+      "fail": 1
+    },
+    {
+      "runId": "20261116T112742Z",
+      "at": "2026-11-16T11:31:10.964Z",
+      "base": "http://localhost:3025",
+      "pages": 6,
+      "pass": 6,
+      "fail": 0
     }
   ],
   "pages": {
@@ -109,57 +125,50 @@
       "ticket": null
     },
     "exam-hub-cem": {
-      "layoutSha256": "5b72930a4dbba1ca6d18de66d591694712c0e259651e78c2145e847a69c2288a",
+      "layoutSha256": "3e2f5f13e883218fd90da4d715d24117ae913546f53ba8f39a3319011e6705df",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T11:31:10.785Z",
+      "runId": "20261116T111306Z",
       "path": "/exam/pe-comprehensive-management",
       "findings": [
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "スマホ幅の最初の画面で、学習の入口の直後に note バナーとココナラの 2 つの導線が続き、受験ガイド本体が下に押される。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "type": "layout",
+          "detail": "右の欄で「人気記事」と下の転職バナーの間に約 500px の空白が続き、欄が間延びして見える。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "右サイドバーの人気記事の下に大きな空白が残る。",
-          "viewport": "w1440",
-          "shot": "w1440-03.png"
+          "type": "consistency",
+          "detail": "note のカード（白地・枠線）とココナラの枠（青地）は幅と左右の端が本文の列にそろっているが、地の色と形が違い、続けて並ぶと別の部品に見える。",
+          "viewport": "w375",
+          "shot": "w375-01.png"
         }
       ],
       "deterministic": [],
       "ticket": null
     },
     "exam-hub-civil1": {
-      "layoutSha256": "1794af959582e1f909edee76106117bf68473d4ec73cc1312b701600ef810d0c",
+      "layoutSha256": "503084f02cd72c45f4311c0699f6e9c9552bcdef113c45f3c51302eba9049b1c",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T11:31:10.962Z",
+      "runId": "20261116T112742Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
           "severity": "minor",
+          "type": "cta",
+          "detail": "右の欄で同じビルドジョブの転職バナーが、1 つ目（学習教材の下）と人気記事の下の 2 回出る。間に人気記事があり続けてはいないが、同じ画像の繰り返しに見える。AdSense の枠（空の高さ）は組の間に入り、広告が続く並びにはなっていない。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
+        },
+        {
+          "severity": "minor",
           "type": "typography",
-          "detail": "スマホ幅のテキスト一覧で「施工管理・施…」「環境保全・建設…」の題名が省略されている。ほかの幅では全文が出ている。",
+          "detail": "テキストの章一覧で「施工管理・施…」「環境保全・建設…」が…で切れる。章番号で区別はつくので読めなくはない。",
           "viewport": "w375",
-          "shot": "w375-03.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "教材一覧のバナーは中央寄せ、ココナラの案内は左寄せで幅も狭く、並んだ 2 つの導線の配置がそろっていない。",
-          "viewport": "w768",
-          "shot": "w768-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "「学習を始める」のボタンが 2 列で並び、最後の「キャリア」が 1 つだけ残っている。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "shot": "w375-04.png"
         }
       ],
       "deterministic": [],
@@ -198,44 +207,67 @@
       "ticket": null
     },
     "guide": {
-      "layoutSha256": "0db428726630ad2a1e406dad2c72c9eb0c844646cf158380d4f36e00bfe1ad37",
+      "layoutSha256": "b5cd0e04a264aeacb9669123f628c70ec37dbd0c792dd5b6f8b98fdb8b0b6a79",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T10:26:34.992Z",
-      "runId": "20261116T101412Z",
+      "reviewedAt": "2026-11-16T11:31:10.962Z",
+      "runId": "20261116T112742Z",
       "path": "/exam/civil-construction-1/guide/strategy",
       "findings": [
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "ページ末尾の広告枠は執筆者カードとフッターの間に約 470px の空白として見える（ローカルでは広告が出ないため正常）。本番で広告が出ない場合に大きな空白が残る可能性がある。",
-          "viewport": "w375"
+          "detail": "記事の途中の転職バナーは列の幅いっぱいの枠に入るが、画像は幅 320px 前後で中央に置かれ、枠の左右に余白が残る。読むのに支障はない。",
+          "viewport": "w768",
+          "shot": "w768-cta-01.png"
+        },
+        {
+          "severity": "minor",
+          "type": "typography",
+          "detail": "パンくず・ナビの 11px の補助文字と 32px 未満の押せる要素がある。本文・題名は読める大きさ。",
+          "viewport": "w375",
+          "shot": "w375-01.png"
         }
       ],
       "deterministic": [],
       "ticket": null
     },
     "home": {
-      "layoutSha256": "3fb1c9483c1a3a5216d9e7b96dafd98c717a79c71557ad925d9662c06f30f9c3",
+      "layoutSha256": "342f4a3b38042ee74ed9eeca71701b3175351fe5a79aee77ada18a749ac52413",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T11:31:10.785Z",
+      "runId": "20261116T111306Z",
       "path": "/",
-      "findings": [],
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "typography",
+          "detail": "資格カードの題名（1級土木施工管理技士など）が 1 文字だけ折り返され、最後の行に「士」「者」が残る。",
+          "viewport": "w375",
+          "shot": "w375-01.png"
+        }
+      ],
       "deterministic": [],
       "ticket": null
     },
     "keyword": {
-      "layoutSha256": "67fd5559b6a126339afe56818879ab629de40af23f4890db895f175f766e62e3",
+      "layoutSha256": "43e89551728ab925d4f5cbb8831aada12357f3241b5acafa0a7051ea608147cb",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T10:26:34.992Z",
-      "runId": "20261116T101412Z",
+      "reviewedAt": "2026-11-16T11:31:10.962Z",
+      "runId": "20261116T112742Z",
       "path": "/exam/pe-comprehensive-management/keywords/alarp-principle",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "ページ末尾の広告枠は執筆者カードとフッターの間に約 470px の空白として見える（ローカルでは広告が出ないため正常）。本番で広告が出ない場合に大きな空白が残る可能性がある。",
-          "viewport": "w375"
+          "type": "cta",
+          "detail": "右の欄の上が、転職バナー、運営者、転職バナー、note 教材と続き、広告・導線が密に並ぶ。種類が交互で重複はなく、幅は列いっぱいにそろっている。",
+          "viewport": "w1440",
+          "shot": "w1440-01.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "総監の精読ガイドの note 導線が記事の上と末尾（連動カード）に同じ内容で出る。続けてではないが、ほぼ同じ導線の繰り返し。",
+          "shot": "w1440-04.png"
         }
       ],
       "deterministic": [],
@@ -267,24 +299,32 @@
       "ticket": null
     },
     "past-exam": {
-      "layoutSha256": "aee754c4c33d9a2f2f21240b09b469f3a89bed2ec405b9e2ec7238a5a06d993b",
+      "layoutSha256": "3767d6277b09bab009fe2ad7ba9e60f376553e0bfd8e2d9643c0ec5137aeab01",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T10:26:34.992Z",
-      "runId": "20261116T101412Z",
+      "reviewedAt": "2026-11-16T11:31:10.962Z",
+      "runId": "20261116T112742Z",
       "path": "/exam/civil-construction-1/secondary/r06",
       "findings": [
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "問題 3 と問題 4 の間の広告枠は、設問・解答ポイントの区切りに収まり転職バナーとは設問 1 つ分離れていて位置は適切。ただし広告が空のとき約 370px の空白に見える。",
-          "shot": "w375-02.png"
+          "detail": "PC の右の欄は本文より先に終わり、広告枠（ローカルでは空）の高さだけ空きがあるが、組の並びは カード→転職→カード→広告→カード で広告は続いておらず意図どおり。本文の中の広告枠も空の高さだけ大きな空白に見える（本番では広告が入る）。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "ページ末尾で本文側と右の欄の広告枠が横に並び、空の約 300px の余白になる。",
+          "type": "cta",
+          "detail": "スマホ幅の施工管理職・RSG のバナーは小さい版で、文字が上下に切れたり社名ロゴ中心で何が得られるか読み取りにくい（PR 表記はある）。",
+          "viewport": "w375",
+          "shot": "w375-03.png"
+        },
+        {
+          "severity": "minor",
+          "type": "typography",
+          "detail": "右の欄のサムネイル下の小さな見出しが途中で切れている（「盛土の施工と締固め」など）。隣に題名があり区別はつく。",
           "viewport": "w1440",
-          "shot": "w1440-06.png"
+          "shot": "w1440-02.png"
         }
       ],
       "deterministic": [],
@@ -348,18 +388,32 @@
       "ticket": null
     },
     "standards-chapter": {
-      "layoutSha256": "52c08d3d863d0676ed3b27c03ee8816605e5094e2cdb475f2c172d026f0ba3d6",
+      "layoutSha256": "5826cf4b49555f8ac3d31dc951054ae659e21b2297fd4f91c873fbcdf3fea4ae",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T10:26:34.992Z",
-      "runId": "20261116T101412Z",
+      "reviewedAt": "2026-11-16T11:31:10.962Z",
+      "runId": "20261116T112742Z",
       "path": "/standards/kinki/common/chapters/1-3",
       "findings": [
         {
           "severity": "minor",
-          "type": "other",
-          "detail": "ページ末尾の広告枠が、末尾の転職バナーと出典欄の下に続く。間に出典欄があり隣接はしていないが、導線の直後に枠が続く。",
+          "type": "cta",
+          "detail": "スマホ・タブレット幅の RSG バナーは社名ロゴと背景写真だけで、何が得られるか文言が読めない。施工管理職のバナーも下の文字が切れる（PR 表記はある）。",
+          "viewport": "w375",
+          "shot": "w375-cta-03.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "PC の右の欄で同じ建設ジョブズ系の転職バナーが目次の上と下の 2 箇所に出ている（間にカードが挟まり連続はしていない）。",
           "viewport": "w1440",
-          "shot": "w1440-cta-03.png"
+          "shot": "w1440-02.png"
+        },
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "右の欄の広告枠（ローカルでは空）の高さが空白に見える。本番で広告が入る前提のため意図どおり。",
+          "viewport": "w1440",
+          "shot": "w1440-cta-01.png"
         }
       ],
       "deterministic": [],
@@ -397,87 +451,68 @@
       "ticket": null
     },
     "textbook": {
-      "layoutSha256": "b6551c0f145a649f5020eff50e76bda224a662e394374cce130f6861ab3bcb8b",
+      "layoutSha256": "a4bc7b23a351257f35d29728e085803bd3b432b4a1a0c9e264a5b33bba87b3c9",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T10:26:34.992Z",
-      "runId": "20261116T101412Z",
+      "reviewedAt": "2026-11-16T11:31:10.962Z",
+      "runId": "20261116T112742Z",
       "path": "/exam/civil-construction-1/textbook/network-schedule",
       "findings": [
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "ページ末尾で本文側の広告枠と右の欄の広告枠が横に並び、どちらも空の約 300px の余白になる。配信時に埋まれば解消するが、枠の位置が左右でずれて見える。",
-          "viewport": "w1440",
-          "shot": "w1440-06.png"
+          "detail": "記事の途中の転職バナーは列の幅いっぱいの枠に入るが、画像は幅 320px 前後で中央に置かれ、枠の左右に余白が残る。読むのに支障はない。",
+          "viewport": "w768",
+          "shot": "w768-cta-01.png"
         },
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "スマホ幅の末尾の広告枠は、運営者の欄とフッターの間に約 450px の空白として出る。広告が入らない場合は大きな空白に見える。",
+          "type": "typography",
+          "detail": "パンくず・ナビの 11px の補助文字と 32px 未満の押せる要素がある。本文・題名は読める大きさ。",
           "viewport": "w375",
-          "shot": "w375-06.png"
+          "shot": "w375-01.png"
         }
       ],
       "deterministic": [],
       "ticket": null
     },
     "tools": {
-      "layoutSha256": "748c7032b5d46ae40676d0a2367aa90e06a6f92106959d03d3cee8585687f577",
+      "layoutSha256": "2eea73e97b3c4f60eaf648fae0f30d670f63f451a9b8328fbc96ce9af1ecb87b",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T11:31:10.785Z",
+      "runId": "20261116T111306Z",
       "path": "/tools/keiken-charcount",
       "findings": [
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "題名「施工経験記述 文字数チェッカー」の最後の 1 文字「ー」だけが次の行に折り返している。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "パンくず（HOME・TOOLS）が 11px で小さく、押せる範囲も小さい。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
           "type": "layout",
-          "detail": "ココナラの添削導線が 2 列の左半分だけで、右側が空いて幅が不揃いに見える。",
-          "viewport": "w768",
-          "shot": "w768-02.png"
+          "detail": "関連記事カードの 2 組目（書き方と完成答案集）の間だけ空きが広く、組の区切りが少し唐突。ココナラ枠・転職バナーは本文の列と同じ幅・左右の端で揃っている。",
+          "viewport": "w375",
+          "shot": "w375-02.png"
         }
       ],
       "deterministic": [],
       "ticket": null
     },
     "topics": {
-      "layoutSha256": "31e8dc8b5aff3504a663df40bd7cfae3c8af2b5854c53989e5e9b1d01f7b8f0a",
+      "layoutSha256": "51ca8780f031ecc9480ae033fdb1e1335fbf464721c62eeb8fa9014603481142",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-16T11:31:10.785Z",
+      "runId": "20261116T111306Z",
       "path": "/topics/safety-laws",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "「このテーマの有料教材（note）」の 2 枚のカードが他の区画より右に約 50px 短く、右端が揃っていない。w1440 でも同様。",
-          "viewport": "w768",
-          "shot": "w768-cta-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "content",
-          "detail": "「法令と分野の対応」が 100 件近い法令の縦長リストで、スマホ幅では有料教材と関連テーマに着くまでかなり長くスクロールが要る。"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "パンくずが 11px と小さく、押す範囲も小さい。",
+          "type": "cta",
+          "detail": "転職バナーがページ最下部（関連テーマの後）にあり、スマホでは深い位置。note 教材カードと転職バナーは同じ幅・左端で揃っている。",
           "viewport": "w375",
-          "shot": "w375-01.png"
+          "shot": "w375-06.png"
+        },
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "note 教材カードと転職バナーは 506px の左寄せで区画の左端には揃うが、右側が広く空く（意図した左寄せ）。",
+          "viewport": "w1440",
+          "shot": "w1440-06.png"
         }
       ],
       "deterministic": [],

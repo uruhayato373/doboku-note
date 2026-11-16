@@ -302,7 +302,7 @@ export async function renderDocPage(slugStr: string) {
   const sidebarInput = articleSidebarInput(doc.meta, articlePlan, categoryArticles);
   const sidebarCards = buildArticleSidebarCards(sidebarInput);
   const sidebarGroups = articleSidebarContinuation(sidebarInput, doc.meta, relatedArticles, body.length, careerPlacements);
-  const images = articleImagePlacements(careerPlacements, inline.map(s => s.slot), sidebarCards.length, sidebarGroups.map(group => group.slot));
+  const images = articleImagePlacements(careerPlacements, inline.map(s => s.slot), sidebarCards.length, sidebarGroups.filter(group => group.banner).map(group => group.slot));
   const pixels = articlePixelCandidates(careerPlacements, renderedCareerSlots, images);
 
   return (
