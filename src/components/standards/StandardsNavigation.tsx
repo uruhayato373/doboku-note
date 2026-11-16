@@ -383,7 +383,7 @@ export default function StandardsNavigation({
   }
 
   // 右の欄は固定・欄の中のスクロールをしない（2026-11-15 運営者指示・全ページ共通）。
-  // 上の束は上詰め、下に続く束（章・節ページだけ）は本文の残りの高さへ均等に並べる（親の TwoColumnShell は stretchAside）。
+  // 上の束も下に続く束（章・節ページだけ・2 組目は AdSense）も上詰めで並べる。
   const upper = (
     <div className="space-y-3" data-standards-sidebar>
       <StandardsRailBanner slot={currentChapter ? 'standards-rail' : 'standards-list-rail'} pageKind={pageKind} inlineSlots={inlineSlots} />

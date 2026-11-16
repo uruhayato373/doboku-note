@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import remarkGfm from 'remark-gfm';
 import PageShell from '@/components/layout/PageShell';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
+import AdSlot from '@/components/ads/AdSlot';
+import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 import SafeMdx from '@/components/mdx/SafeMdx';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
@@ -209,6 +211,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           <StandardDataLinks document={entry} chapter={target} />
           <StandardsAttribution document={entry} item={target.item} pages={{ first: target.firstPage, last: target.lastPage }} />
         </SectionCard>
+        <div className="mt-10 max-zenn-sp:px-(--article-gutter-sp)"><AdSlot slot="endMultiplex" className={CTA_STACK_CLASS} /></div>
       </TwoColumnShell>
     </PageShell>
   );

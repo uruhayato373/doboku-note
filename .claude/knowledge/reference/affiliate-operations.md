@@ -177,7 +177,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 既存note・関連記事・一次過去問の学習予約位置と同じ／隣の区切りを避ける。空出力になった手書きCareerAffiliateの周囲も安全側で避ける。JSX・detailsの内部、問題文と解答の間、条文とSourceRefの間は挿入禁止。共通の字数選択は `standards-inline-slots.mjs`、記事のAST境界は `article-inline-slots.mjs`、既存CTAの計画は `article-cta-plan.ts`。管理画面 `/affiliate/pages` も同じ最終計画を読む。
 
-過去問（一次・二次の年度別・総監など。`isQuestionSeries`）だけは、右欄の下に続く束で回遊の組が尽きて約2,000pxおきの組の数に足りない分を、バナーだけの組（面 `article-rail-fill`）で埋める。案件は右欄に出ている案件を順に繰り返し、前後の組と同じ案件は避け、計測ピクセルは付けない（`articleSidebarContinuation`・検査は右欄の容器の `data-article-question-series` で判別し、`article-rail-fill` だけ重複とバナー直後の実カードの規則を外す）。
+右欄の下に続く束は上詰めで、回遊カードのある組だけを作る（2026-11-16 運営者判断。旧: 過去問だけ、回遊の組が尽きた分をバナーだけの組 `article-rail-fill` で埋めて均等に散らしていた）。2 組目の転職バナーは AdSense の枠に替え、その面の計測ピクセルは出さない（`withRailAdSense`・DocPage はバナーのある組の面だけを画像計画に渡す）。
 
 記事のピクセルは実際の表示幅で出る素材から案件ごとに1面を選び、末尾画像→本文画像→右欄の順で1発に集約する（`article-affiliate-pixels.mjs`）。リンクとピクセルの素材・ASPを揃え、リサイズで同じ案件を再送しない。
 

@@ -1,6 +1,7 @@
 import type { OffsiteCtaItem, OffsiteChannel } from '@/lib/offsite-cta';
 import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from '@/components/ui/AffiliateParts';
 import { COCONALA_A8_PIXEL } from '@/config/affiliate-creatives';
+import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 
 /**
  * OffsiteCta — 記事末尾に出す外部チャネル（ココナラ）導線カード。
@@ -15,18 +16,14 @@ const CHANNEL_LABEL: Record<OffsiteChannel, string> = {
 
 export default function OffsiteCta({
   items,
-  heading = 'この記事に関連するサービス',
 }: {
   readonly items: readonly OffsiteCtaItem[];
-  readonly heading?: string;
 }) {
   if (!items.length) return null;
+  // 幅は転職の横長バナーとそろえ（cta-stack.ts）、上に見出しは付けない。1 件のときは全幅、2 件以上で 2 列
   return (
-    <div className="not-prose mt-8">
-      <div className="mb-2 text-sm font-semibold text-(--ink-muted)">
-        {heading}
-      </div>
-      <ul className="grid gap-3 sm:grid-cols-2">
+    <div data-cta-stack className={`${CTA_STACK_CLASS} mt-8`}>
+      <ul className={`grid gap-3${items.length > 1 ? ' sm:grid-cols-2' : ''}`}>
         {items.map((it) => (
           <li key={it.trackLabel}>
             <a

@@ -42,7 +42,7 @@ export function buildArticleSidebarCards({
   });
 }
 
-/** 上の束は上詰め、下の組は本文の残りの高さへ均等に配分する。過去問（questionSeries）だけ、組の間をバナーだけの組で埋める。 */
+/** 上の束も下の組（回遊カード＋転職バナー、2 組目は AdSense）も上詰めで並べる。 */
 export default function ArticleSidebar({ cards, groups = [], placements, questionSeries = false }: { cards: React.ReactElement[]; groups?: RailGroup[]; placements: ResolvedPlacements; questionSeries?: boolean }) {
   const images = articleImagePlacements(placements, [], cards.length);
   return <div className="flex h-full flex-1 flex-col" data-article-sidebar-cards={cards.length + groups.filter(group => group.card).length} data-article-question-series={questionSeries || undefined}>

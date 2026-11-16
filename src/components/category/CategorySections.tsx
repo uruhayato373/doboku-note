@@ -1,9 +1,8 @@
 import Link from 'next/link';
-import ContentThumbnail from '@/components/ui/ContentThumbnail';
+import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
-import { getOgpDisplayUrl } from '@/lib/r2-image-loader';
-import { getSiteThumbnail } from '@/lib/site-thumbnail';
+import { getCardImage } from '@/lib/site-thumbnail';
 import ExamMatrix, { type ExamMatrixRow } from '@/components/category/ExamMatrix';
 import {
   PE_CONSTRUCTION_SUBJECTS,
@@ -12,6 +11,9 @@ import {
 } from '@/lib/pe-construction-subjects';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { formatDotDate } from '@/lib/display-date';
+import AdSlot from '@/components/ads/AdSlot';
+import { withFeedAds } from '@/lib/feed-ads';
+import { feedAdBudget } from '@/lib/feed-ads-budget';
 
 /** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
 function cardDate(doc: DocMeta): string | null {
@@ -324,39 +326,21 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
 }
 
 /**
- * OGP サムネ左＋タイトル右の1行（全資格・カテゴリ hub 共通の唯一の実装）。
- * 「よく読まれている記事」（rank 付き）と各セクションの OGP 行（rank 無し）で共用する。
- * サムネの縦横比は self-start で保つ（下記コメント参照）。
+ * OGP サムネ左＋タイトル右の1行（資格トップの一覧・よく読まれている記事）。見た目と計測は ArticleThumbRow の feed 型が持つ
+ * （2026-11-16 にサムネイルの行の実装を 1 つにまとめた。インフィード広告もこの型に合わせる）。
  */
-export function OgpThumbRow({ doc, rank, eager = false, headingLevel: Heading = 'h3' }: { doc: DocMeta; rank?: number; eager?: boolean; headingLevel?: 'h3' | 'h4' }) {
-  const title = doc.shortTitle || doc.title;
-  const excerpt = doc.subtitle || doc.description;
-  const thumbnail = getSiteThumbnail(doc);
+export function OgpThumbRow({ doc, rank, eager = false, headingLevel = 'h3' }: { doc: DocMeta; rank?: number; eager?: boolean; headingLevel?: 'h3' | 'h4' }) {
   return (
-    <li className="border-b border-(--rule-soft) last:border-b-0">
-      <Link href={getPublicDocPath(doc.slug)} data-thumb={thumbnail ? 'photo' : 'ogp'} className="focus-ring group flex gap-3 sm:gap-4 py-4">
-        {/* self-start 必須: 親 flex の align-items:stretch がサムネをテキスト列の高さに
-            引き伸ばし aspect-1200/630 を無効化する（縦伸び事故の根治・2026-07-15）。 */}
-        <div className="relative aspect-1200/630 w-[124px] sm:w-[168px] shrink-0 self-start overflow-hidden border border-(--rule-soft) bg-(--bg)">
-          <ContentThumbnail src={thumbnail?.src ?? getOgpDisplayUrl(doc.slug)} band={thumbnail} eager={eager} />
-        </div>
-        <div className="flex min-w-0 flex-1 gap-2.5">
-          {rank != null && (
-            <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-(--accent-fill) font-mono text-xs font-bold tabular-nums text-(--accent)">
-              {rank}
-            </span>
-          )}
-          <div className="flex min-w-0 flex-col gap-1">
-            <Heading className="font-serif text-[15px] sm:text-lg font-bold leading-snug sm:leading-7 text-(--ink) group-hover:text-(--accent) transition-colors">
-              {title}
-            </Heading>
-            {excerpt && (
-              <p className="text-[13px] sm:text-sm text-(--ink-muted) line-clamp-2">{excerpt}</p>
-            )}
-          </div>
-        </div>
-      </Link>
-    </li>
+    <ArticleThumbRow
+      variant="feed"
+      href={getPublicDocPath(doc.slug)}
+      title={doc.shortTitle || doc.title}
+      caption={doc.subtitle || doc.description}
+      image={getCardImage(doc)}
+      {...(rank != null ? { rank } : {})}
+      eager={eager}
+      headingLevel={headingLevel}
+    />
   );
 }
 
@@ -379,8 +363,10 @@ export function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; 
         <PeConstructionExamTable docs={group.docs} />
       ) : layout === 'ogp-rows' ? (
         <ul className="flex flex-col" data-cta="nav" data-cta-label="category-rows">
-          {group.docs.map(doc => (
-            <OgpThumbRow key={doc.slug} doc={doc} />
+          {withFeedAds(group.docs, { key: group.key, budget: feedAdBudget() }).map(e => e.kind === 'ad' ? (
+            <AdSlot key={e.key} as="li" slot="inFeedThumb" className="border-b border-(--rule-soft) py-4" />
+          ) : (
+            <OgpThumbRow key={e.item.slug} doc={e.item} />
           ))}
         </ul>
       ) : (

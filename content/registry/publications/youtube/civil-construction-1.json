@@ -404,7 +404,7 @@
       "work": "c1-keiken-ochiru-naoshikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform/cover",
         "scene-001": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform/scene-001",
@@ -423,7 +423,59 @@
         "video": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform/video",
         "subtitles": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.json#longform",
+      "publishAt": "2026-11-22T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-16T12:51:21.487Z",
+          "digest": "ae74474a2794ad47ac033f6f517c517060f40195bac0fe80c217246197d6225b"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-16T12:51:21.487Z",
+        "contentSha256": "a9ceef973ea3c288dd2f49ea532564e4e19a2843b864134f7d44df00611b0c41"
+      },
+      "times": {
+        "rendered": "2026-11-16T13:04:26.117Z",
+        "uploaded": "2026-11-16T13:07:04.863Z",
+        "scheduled": "2026-11-16T13:07:14.201Z"
+      },
+      "delivery": {
+        "inputSha256": "a7e59a6059b492d8d052faef312f54cad7dc087039be6ff1ea7051a197ef896c",
+        "marker": "dn-single-2878cfe2f88506a9bdecc256217ad83e0792c821",
+        "uploadRequestedAt": "2026-11-16T13:06:13.827Z",
+        "videoId": "aZreKyUqboo",
+        "processedAt": "2026-11-16T13:07:04.235Z",
+        "thumbnailRequestedAt": "2026-11-16T13:07:04.904Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/aZreKyUqboo/default.jpg?sqp=CPz-69cG&rs=AOn4CLBGOElEnobDqN6-G7EuTCU6qlYdCQ",
+          "https://i9.ytimg.com/vi/aZreKyUqboo/mqdefault.jpg?sqp=CPz-69cG&rs=AOn4CLC8sUUtqTOQj95BXcwl2DMTRbipBQ",
+          "https://i9.ytimg.com/vi/aZreKyUqboo/hqdefault.jpg?sqp=CPz-69cG&rs=AOn4CLDn3UDCbte5p9XQxZM86sTjMTztdw",
+          "https://i9.ytimg.com/vi/aZreKyUqboo/sddefault.jpg?sqp=CPz-69cG&rs=AOn4CLBfttcYkegiovj8lK63B5kTsnlPrA",
+          "https://i9.ytimg.com/vi/aZreKyUqboo/maxresdefault.jpg?sqp=CPz-69cG&rs=AOn4CLDOjCgJ6rdsOHwXUM6l0YVU4pIVUQ",
+          "https://i9.ytimg.com/vi/aZreKyUqboo/fhddefault.jpg?sqp=CPz-69cG&rs=AOn4CLBaJZHqlMnGtMPVuWDOzS3rrFT-VQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-16T13:07:09.304Z",
+        "scheduleRequestedAt": "2026-11-16T13:07:10.393Z",
+        "scheduleAt": "2026-11-22T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-16T13:07:14.201Z"
+      },
+      "platform": {
+        "id": "aZreKyUqboo",
+        "url": "https://www.youtube.com/watch?v=aZreKyUqboo",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-16T13:07:09.304Z"
+      }
     },
     {
       "id": "civil-construction-1/c1-keiken-ochiru-naoshikata/youtube.short.point-kadai-1",
@@ -606,7 +658,7 @@
       "work": "owner-eye-kouji-kensa",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/scene-001",
@@ -627,7 +679,58 @@
         "subtitles": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/owner-eye-kouji-kensa/youtube.json#longform",
-      "publishAt": "2026-12-01T11:30:00Z"
+      "publishAt": "2026-11-23T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-16T12:51:23.538Z",
+          "digest": "a04638923010905ecbf0b70c8ecd1eb400992fe8888e920ff8463852a62d66c2"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-16T12:51:23.538Z",
+        "contentSha256": "76604deedf901656c8f036d06e9ed616305635505c11d4aa25992f33d1cf3411"
+      },
+      "times": {
+        "rendered": "2026-11-16T13:04:42.779Z",
+        "uploaded": "2026-11-16T13:11:18.898Z",
+        "scheduled": "2026-11-16T13:11:30.900Z"
+      },
+      "delivery": {
+        "inputSha256": "a7bc8ae6a7519464e4cbdb2b7202f9b52165d77d4e6d6d90f975972587aa611d",
+        "marker": "dn-single-99026f6c8c75674b891e86954b79d0914eb2d07b",
+        "uploadRequestedAt": "2026-11-16T13:10:27.798Z",
+        "videoId": "mdx48aakaV8",
+        "processedAt": "2026-11-16T13:11:18.064Z",
+        "thumbnailRequestedAt": "2026-11-16T13:11:18.960Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/mdx48aakaV8/default.jpg?sqp=CKiB7NcG&rs=AOn4CLDdoy_8EVR-_vWe64ThdNggPaF1JA",
+          "https://i9.ytimg.com/vi/mdx48aakaV8/mqdefault.jpg?sqp=CKiB7NcG&rs=AOn4CLB59-PhFtnnxFWdc9zb8E3nFis6pQ",
+          "https://i9.ytimg.com/vi/mdx48aakaV8/hqdefault.jpg?sqp=CKiB7NcG&rs=AOn4CLCxTizBHkkBo4PR4v4bVRXLMAE6AQ",
+          "https://i9.ytimg.com/vi/mdx48aakaV8/sddefault.jpg?sqp=CKiB7NcG&rs=AOn4CLDUiZHRCHRT3bD8m2Th7n5ySbeh_A",
+          "https://i9.ytimg.com/vi/mdx48aakaV8/maxresdefault.jpg?sqp=CKiB7NcG&rs=AOn4CLD5XkhOPk43yqD-F7WHeOVSu65V_Q",
+          "https://i9.ytimg.com/vi/mdx48aakaV8/fhddefault.jpg?sqp=CKiB7NcG&rs=AOn4CLBHpqix12hizcmRt_p-ih-n0bY0KA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-16T13:11:26.007Z",
+        "scheduleRequestedAt": "2026-11-16T13:11:27.279Z",
+        "scheduleAt": "2026-11-23T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-16T13:11:30.900Z"
+      },
+      "platform": {
+        "id": "mdx48aakaV8",
+        "url": "https://www.youtube.com/watch?v=mdx48aakaV8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/owner-eye-kouji-kensa/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-16T13:11:26.007Z"
+      }
     },
     {
       "id": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform",

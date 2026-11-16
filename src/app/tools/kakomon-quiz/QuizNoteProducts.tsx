@@ -2,24 +2,21 @@ import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
 import { noteCtaImage } from "@/lib/note-cta-images";
 import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magazines";
 import { READING_CONTAINER } from '@/components/layout/container';
+import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 
 // 演習画面は結果表示後にしか note 導線が出ず、SSR の HTML には導線が無い（2026-09-27 配線監査 DN-0364・
 // 1級は 2026-10-29 の DN-0890）。演習の下に静的な note 商品カードを置く。未公開の商品は出さない。
 export default function QuizNoteProducts({
   products,
   placement,
-  heading = "紙でも反復する（note）",
 }: {
   products: readonly { id: MagazineId; lead: string }[];
   placement: string;
-  heading?: string;
 }) {
+  // 幅は転職の横長バナーとそろえ、上に見出しは付けない（src/lib/cta-stack.ts）。1 件のときは全幅
   return (
     <div className={`${READING_CONTAINER} pb-10`}>
-      <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-        {heading}
-      </div>
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div data-cta-stack className={`${CTA_STACK_CLASS} grid gap-3${products.length > 1 ? ' sm:grid-cols-2' : ''}`}>
         {products.map(({ id, lead }) => {
           const mag = getMagazine(id);
           if (!mag) return null;

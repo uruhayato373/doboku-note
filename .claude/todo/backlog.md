@@ -65,6 +65,18 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1227] YouTube の長尺計画の検査が落ちる（親の通常動画が在庫に進む前にショートが進んだ 2 件）
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-16]
+
+**起点**: 2026-11-16 の npm run test で tests/youtube-longform-plan.test.mjs:141（実際の計画と台帳で違反 0 件）が落ちる。
+「親の通常動画が在庫に進んでいない: pe-construction/pe-kojutsu-kaitei-competency/point-gokai-1」と同じく point-keizoku-2 の 2 件。
+同じ日に develop へ動画の承認・予約のコミット（a358915e6 など）が続いており、ショートの承認が親の通常動画の在庫より先に進んだ状態とみられる。サイトの変更（feat/list-primitives）とは無関係。
+
+**やること**: 親の通常動画（pe-kojutsu-kaitei-competency）の在庫の状態と、2 本のショートの状態を台帳で突き合わせ、順序の規則どおりに直す（親を在庫へ進めるか、ショートを戻す）。
+
+**完了条件**: node --test tests/youtube-longform-plan.test.mjs が通る。
+
+
 
 
 
@@ -441,6 +453,30 @@
 - **禁止**: 確認していない実績を書かない
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-1226] standards-chapter（/standards/kinki/common/chapters/1-3）が画面の点検で不合格（cta）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-16]
+
+**起点**: 2026-11-16 の画面の点検（`npm run site-visual-review`・作業票 20261116T122139Z）で、standards-chapter（/standards/kinki/common/chapters/1-3）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
+
+- cta [w375]: スマホ幅（w375）・タブレット幅（w768）の記事内バナー（RSG・コンストワーク）が高さ約50〜100pxの帯に切り詰められ、RSG は ロゴと背景写真だけ、施工管理職は文字の下半分が切れて、何の転職サービスか・何が得られるか読み取れない（PC 幅では全体が見える）（w375-cta-02.png）
+
+**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
+
+**完了条件**: `npm run site-visual-review -- prepare --keys standards-chapter` で撮り直して判定し、record で pass と台帳に記録される。
+
+
+### [DN-1225] past-exam（/exam/civil-construction-1/secondary/r06）が画面の点検で不合格（cta）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-16]
+
+**起点**: 2026-11-16 の画面の点検（`npm run site-visual-review`・作業票 20261116T122139Z）で、past-exam（/exam/civil-construction-1/secondary/r06）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
+
+- cta [w375]: スマホ幅（w375）・タブレット幅（w768）の記事内バナー（RSG・コンストワーク）が高さ約50〜100pxの帯に切り詰められ、RSG は ロゴと背景写真だけ、施工管理職は文字の下半分が切れて、何の転職サービスか・何が得られるか読み取れない（PC 幅では全体が見える）（w375-04.png）
+
+**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
+
+**完了条件**: `npm run site-visual-review -- prepare --keys past-exam` で撮り直して判定し、record で pass と台帳に記録される。
+
 
 ### [DN-1224] 基準書・資格トップの右の欄の続きの束に cta-density の右欄検査を当てる
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-16]

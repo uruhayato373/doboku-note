@@ -5,6 +5,8 @@ import ContentThumbnail from "@/components/ui/ContentThumbnail";
 import { getCategoryLabel } from "@/lib/categories";
 import { type SearchResult } from "@/lib/search/search-client";
 import type { CardImage } from "@/lib/site-thumbnail";
+import AdSlot from "@/components/ads/AdSlot";
+import { withFeedAds } from "@/lib/feed-ads";
 
 interface SearchResultsProps {
   images?: Record<string, CardImage>;
@@ -77,7 +79,10 @@ export function SearchResults({
       </div>
 
       <div className="grid gap-4" data-cta="nav" data-cta-label="search-results">
-        {results.posts.map((post) => (
+        {withFeedAds(results.posts, { key: 'search', first: 5, max: 1 }).map((e) => {
+          if (e.kind === 'ad') return <AdSlot as="div" key={e.key} slot="inFeedThumb" className="card-surface-section p-4 sm:p-6" />;
+          const post = e.item;
+          return (
           <article
             key={post.id}
             className="card-surface-section flex gap-4 p-4 sm:p-6 transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-card-hover"
@@ -112,7 +117,8 @@ export function SearchResults({
               )}
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

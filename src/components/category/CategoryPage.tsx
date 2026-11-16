@@ -27,6 +27,7 @@ import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import { buildLearningCatalog } from '@/lib/learning-catalog';
 import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
 import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
+import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 import ResponsiveAffiliateBanner from '@/components/ui/SidebarAdBanner/ResponsiveAffiliateBanner';
 import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
 import { pixelFor, resolvePlacements } from '@/lib/affiliate-placement';
@@ -92,7 +93,7 @@ export default async function CategoryPage({
   // 各案件を 1 枚ずつの node にしてビューのグループ境界に分散配置する（カードの隙間に「両方」）。
   const mobileCareerAds = mobileAd
     ? [
-        <div key={mobileAd.ruleId} className="zenn-desktop:hidden my-10">
+        <div key={mobileAd.ruleId} data-cta-stack className={`zenn-desktop:hidden my-10 ${CTA_STACK_CLASS}`}>
           <ProgramSplitBanner
             alternate={mobileAd.alternate}
             placement="category-mobile"
@@ -172,16 +173,17 @@ export default async function CategoryPage({
             </div>
             <CategoryJumpNav category={slug} />
             {hubCtaMobile && (
-              <div className="zenn-desktop:hidden mt-6 mx-auto max-w-[360px]">
-                <HubCtaBanner cta={hubCtaMobile} placement="category-mobile" />
+              // 幅はココナラ・転職バナーとそろえる（src/lib/cta-stack.ts）。360px の中央寄せはタブレット幅で下のココナラ（全幅）とずれた
+              <div data-cta-stack className={`zenn-desktop:hidden mt-6 ${CTA_STACK_CLASS}`}>
+                <HubCtaBanner cta={hubCtaMobile} placement="category-mobile" wide />
               </div>
             )}
             {productFirstOnMobile && (
-              <div className="zenn-desktop:hidden mt-6 mx-auto max-w-[360px]">
+              <div data-cta-stack className={`zenn-desktop:hidden mt-6 ${CTA_STACK_CLASS}`}>
                 <SidebarProduct category={slug} placement="category-mobile" />
               </div>
             )}
-            <OffsiteCta items={offsiteCta} heading="この資格に関連するサービス" />
+            <OffsiteCta items={offsiteCta} />
             {hasLearningList && (
               <p className="mt-4 text-sm" data-cta="nav" data-cta-label="category-links-hub">
                 <Link href={`/links#exam-${slug}`} className="focus-ring inline-flex min-h-11 items-center font-bold text-(--accent) hover:underline">

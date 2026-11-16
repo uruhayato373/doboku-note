@@ -11,6 +11,7 @@ import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { toolByHref } from "@/lib/tools";
 import { READING_CONTAINER } from '@/components/layout/container';
+import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 
 const tool = toolByHref("/tools/keiken-charcount");
 
@@ -79,10 +80,8 @@ export default function KeikenCharcountPage() {
 
       <KeikenCharcountClient limits={LIMITS} />
       <div className={`${READING_CONTAINER} pb-10`}>
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          完成答案で書き方を確かめる（note）
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
+        {/* 幅は転職の横長バナーとそろえ、上に見出しは付けない（src/lib/cta-stack.ts） */}
+        <div data-cta-stack className={`${CTA_STACK_CLASS} grid gap-3 sm:grid-cols-2`}>
           {NOTE_PRODUCTS.map(({ id, lead }) => {
             const mag = getMagazine(id);
             if (!mag) return null;
@@ -104,7 +103,7 @@ export default function KeikenCharcountPage() {
             );
           })}
         </div>
-        <OffsiteCta items={resolveOffsiteCta("tools-keiken-charcount")} heading="答案を見てほしい方へ" />
+        <OffsiteCta items={resolveOffsiteCta("tools-keiken-charcount")} />
         {/* 転職の案内（結果と教材の下に 1 枠。案件は配置ルール） */}
         <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-inline" className="mt-8" />
       </div>

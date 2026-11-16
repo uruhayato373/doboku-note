@@ -63,3 +63,23 @@ test('条文とSourceRefを分けず、AST不成立を黙って通常選択に�
  assert.ok(p.insertAt.every(s=>body.split('\n')[s.line]!=='<SourceRef id="law" />'));
  assert.throws(()=>planArticleInlineSlots('<Callout>\n\n閉じない'));
 });
+
+test('AdSense の本文枠: 転職バナーの候補と 800 字以上離し、最大 2 枠、ArticleInlineAd として差し込む', () => {
+  const body = Array.from({ length: 30 }, () => text(500)).join('\n\n');
+  const plan = planArticleInlineSlots(body);
+  assert.ok(plan.adInsertAt.length >= 1 && plan.adInsertAt.length <= 2);
+  assert.ok(plan.adInsertAt.every(s => s.slot.startsWith('adsense')));
+  const charsAt = line => body.split('\n').slice(0, line).join('').length;
+  for (const ad of plan.adInsertAt) {
+    for (const banner of plan.insertAt) assert.ok(Math.abs(charsAt(ad.line) - charsAt(banner.line)) >= 800, `広告 ${ad.line} とバナー ${banner.line} が近い`);
+  }
+  const tree = parser.parse(body);
+  remarkArticleBanners({ insertAt: [...plan.adInsertAt, ...plan.insertAt] })(tree);
+  const names = tree.children.filter(n => n.type === 'mdxJsxFlowElement').map(n => n.name);
+  assert.equal(names.filter(n => n === 'ArticleInlineAd').length, plan.adInsertAt.length);
+  assert.equal(names.filter(n => n === 'ArticleInlineBanner').length, plan.insertAt.length);
+});
+
+test('AdSense の本文枠: 短い記事には置かない', () => {
+  assert.equal(planArticleInlineSlots(`${text(700)}\n\n${text(700)}`).adInsertAt.length, 0);
+});

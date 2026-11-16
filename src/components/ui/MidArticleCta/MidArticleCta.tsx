@@ -5,6 +5,7 @@ import type { ResolvedSecondary } from '@/lib/affiliate-placement';
 import MagazineHeroCta from '@/components/ui/MagazineHeroCta/MagazineHeroCta';
 import RelatedArticleCard from '@/components/ui/RelatedArticles/RelatedArticleCard';
 import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
+import { CTA_STACK_WIDTH } from '@/lib/cta-stack';
 
 /**
  * MidArticleCta — 記事本文の h2 境界に挿入する文脈連動 CTA。
@@ -49,7 +50,7 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
     return <CareerAffiliate {...props.card} placement="article-mid" emphasis secondary={props.secondary} managedPixels={props.managedPixels} />;
   }
   return (
-    <div className="not-prose my-8 max-w-2xl" data-cta="nav" data-cta-label="article-mid-related">
+    <div className={`not-prose my-8 ${CTA_STACK_WIDTH}`} data-cta="nav" data-cta-label="article-mid-related">
       <div className="mb-2 text-sm font-semibold text-(--ink-muted)">この続きに読みたい</div>
       <RelatedArticleCard doc={props.doc} />
     </div>

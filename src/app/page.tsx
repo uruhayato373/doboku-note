@@ -119,7 +119,7 @@ export default async function HomePage() {
       <PremiumNoteHero />
       {/* 転職の案内（1 枠。案件は配置ルール）。2026-10-31 に note のヒーローの後ろへ移した（撮影で全幅とも転職広告が先だった） */}
       <SectionBlock space="sm" ariaLabel="転職の相談先">
-        <AffiliateSlot page={{ pageKind: 'home' }} slot="home-section" />
+        <AffiliateSlot page={{ pageKind: 'home' }} slot="home-section" framed />
       </SectionBlock>
     </PageShell>
   );

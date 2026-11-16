@@ -22,7 +22,8 @@ test('カードは root に data-cta・各リンクに立場ラベルを持つ',
   const card = read('src/components/ui/QualificationBridge/QualificationBridge.tsx');
   assert.match(card, /data-cta="qualification-bridge"/);
   assert.match(card, /data-cta-placement=\{placement\}/);
-  assert.match(card, /data-cta-label=\{option\.key\}/);
+  // リンクは LinkTile（計測の属性は data で渡す・2026-11-16）
+  assert.match(card, /'data-cta-label': option\.key/);
 });
 
 test('立場 key は GA4 ラベルとして固定（変えると過去データと連続しない）', () => {

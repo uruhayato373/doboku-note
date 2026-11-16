@@ -239,3 +239,17 @@ test('過去問の右の欄だけ、組の間を埋める article-rail-fill の�
  const noCard = `<div data-article-sidebar-group><div data-article-affiliate="rail">${affiliate('article-rail-2', 'href="https://a.example/2"')}</div></div>`;
  assert.ok(rules(wrap(noCard, true)).includes('affiliate-rail-adjacent'));
 });
+
+test('インフィード広告: 1 ページ 3 枠まで・前後が一覧の項目でなければ違反', async () => {
+  const { inspectHtml } = await import('../scripts/check-cta-density.mjs');
+  const row = (i) => `<li><a href="/exam/x/${i}">記事${i}</a></li>`;
+  const ad = '<li data-adsense="inFeedThumb"><ins class="adsbygoogle"></ins></li>';
+  const ok = `<html><body><main><ul>${row(1)}${ad}${row(2)}</ul></main></body></html>`;
+  assert.deepEqual(inspectHtml(ok, 'exam/civil-construction-1').violations.filter(v => v.rule.startsWith('feed-ad')), []);
+  const edge = `<html><body><main><ul>${ad}${row(1)}</ul></main></body></html>`;
+  assert.deepEqual(inspectHtml(edge, 'exam/civil-construction-1').violations.map(v => v.rule), ['feed-ad-adjacent'], '先頭は違反');
+  const near = `<html><body><main><ul>${row(1)}${ad}<li><a data-cta="note" href="https://note.com/x">note</a></li></ul></main></body></html>`;
+  assert.deepEqual(inspectHtml(near, 'exam/civil-construction-1').violations.map(v => v.rule), ['feed-ad-adjacent'], 'note の導線の隣は違反');
+  const many = `<html><body><main><ul>${[1, 2, 3, 4, 5].map(i => row(i) + ad).join('')}${row(9)}</ul></main></body></html>`;
+  assert.ok(inspectHtml(many, 'exam/civil-construction-1').violations.some(v => v.rule === 'feed-ad-total'), '4 枠以上は違反');
+});
