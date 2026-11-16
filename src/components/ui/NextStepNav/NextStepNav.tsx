@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
 import type { DocMeta } from '@/lib/docs';
@@ -28,13 +28,7 @@ export default function NextStepNav({ category, docs = [], currentSlug }: { cate
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {steps.map((s) => (
           <li key={s.href}>
-            {s.doc ? <ArticleThumbRow href={s.href} title={s.label} caption={s.hint} image={getCardImage(s.doc)} /> : <Link
-              href={s.href}
-              className="block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-brand"
-            >
-              <span className="block text-[15px] font-medium text-(--ink)">{s.label}</span>
-              <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{s.hint}</span>
-            </Link>}
+            {s.doc ? <ArticleThumbRow href={s.href} title={s.label} caption={s.hint} image={getCardImage(s.doc)} /> : <LinkTile href={s.href} title={s.label} description={s.hint} />}
           </li>
         ))}
       </ul>

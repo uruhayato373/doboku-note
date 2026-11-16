@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { CAREER_HUB_ENTRIES } from '@/config/career-pathways';
 
 /**
@@ -18,19 +18,16 @@ export default function CareerNeedPicker() {
     <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
       {CAREER_HUB_ENTRIES.map((e) => (
         <li key={`${e.need}-${e.href}`}>
-          <Link
+          <LinkTile
             href={e.href}
-            data-cta="career-need"
-            data-cta-label={e.need}
-            data-cta-placement="career-hub"
-            className="block h-full rounded-card-content border border-(--rule-soft) bg-(--paper) px-4 py-3 transition-colors hover:border-brand dark:border-(--rule-soft)"
+            title={e.state}
+            description={`最初に必要なこと: ${e.first}`}
+            className="bg-(--paper)"
+            data={{ 'data-cta': 'career-need', 'data-cta-label': e.need, 'data-cta-placement': 'career-hub' }}
           >
-            <span className="block text-[15px] font-medium text-(--ink)">{e.state}</span>
-            <span className="mt-1 block text-[13px] text-(--ink-muted)">
-              最初に必要なこと: {e.first}
-            </span>
+            {/* 行き先の名前 */}
             <span className="mt-2 block text-[13px] font-medium text-brand">{e.label}</span>
-          </Link>
+          </LinkTile>
         </li>
       ))}
     </ul>

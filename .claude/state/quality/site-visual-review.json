@@ -104,6 +104,14 @@
       "pages": 6,
       "pass": 4,
       "fail": 2
+    },
+    {
+      "runId": "20261116T132651Z",
+      "at": "2026-11-16T13:33:23.813Z",
+      "base": "http://localhost:3025",
+      "pages": 7,
+      "pass": 7,
+      "fail": 0
     }
   ],
   "pages": {
@@ -160,23 +168,16 @@
     "exam-hub-civil1": {
       "layoutSha256": "503084f02cd72c45f4311c0699f6e9c9552bcdef113c45f3c51302eba9049b1c",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T12:27:55.288Z",
-      "runId": "20261116T122139Z",
+      "reviewedAt": "2026-11-16T13:33:23.811Z",
+      "runId": "20261116T132651Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "右の欄に同じビルドジョブの転職バナー（同じ絵柄）が、人気記事を挟んで 2 回出る。続けては並んでいないが、同じ絵柄の繰り返しに見える。",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "右の欄は新着記事の後が約 1,000px 空き、AdSense の枠は 1 つだけ本文の過去問の後半に出る。上詰めの範囲に大きな隙間は無く、はみ出しも無い。",
-          "viewport": "w1440",
-          "shot": "w1440-03.png"
+          "type": "typography",
+          "detail": "スマホ幅で記事の一覧の説明文が2行で省略記号になる行がある。題名で区別でき、読者は困らない。",
+          "viewport": "w375",
+          "shot": "w375-01.png"
         }
       ],
       "deterministic": [],
@@ -217,23 +218,23 @@
     "guide": {
       "layoutSha256": "3142109ebc82d56e300574261599e6ddfaa4119432cf061f9b7efb5ca9ea2028",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T12:27:55.288Z",
-      "runId": "20261116T122139Z",
+      "reviewedAt": "2026-11-16T13:33:23.811Z",
+      "runId": "20261116T132651Z",
       "path": "/exam/civil-construction-1/guide/strategy",
       "findings": [
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "PC の右の欄の上部で、転職バナー（RSG）・教材バナー・転職バナー（AGENT）・AdSense 枠が、間に文字の区画をほとんど挟まず続けて並び、広告が連続して見える",
-          "viewport": "w1440",
-          "shot": "w1440-01.png"
+          "type": "layout",
+          "detail": "「次のステップ」の3枚目（第2次検定の対策へ進む）がサムネイルなしで1枚だけ次の行に残り、他の2枚と見た目の重さが違う。",
+          "viewport": "w768",
+          "shot": "w768-05.png"
         },
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "スマホ・タブレット幅の記事中バナー（RSG・施工管理職）は画像が左右に切り詰められ、RSG は社名ロゴとビルの写真だけで訴求文が読めず、何が得られるか分かりにくい",
-          "viewport": "w768",
-          "shot": "w768-cta-02.png"
+          "type": "typography",
+          "detail": "右の欄の小さなサムネイル上のラベルが「コンクリート維持管」などで切れている。題名は右に出ているので区別はつく。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         }
       ],
       "deterministic": [],
@@ -260,23 +261,23 @@
     "keyword": {
       "layoutSha256": "43e89551728ab925d4f5cbb8831aada12357f3241b5acafa0a7051ea608147cb",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T12:27:55.288Z",
-      "runId": "20261116T122139Z",
+      "reviewedAt": "2026-11-16T13:33:23.811Z",
+      "runId": "20261116T132651Z",
       "path": "/exam/pe-comprehensive-management/keywords/alarp-principle",
       "findings": [
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "右の欄に転職バナーが 4 種（Groovement・MyVision・NewMA・Samurai Job）と note の教材バナーが入り、PR 系が多い。間に運営者やキーワード一覧が挟まり、広告が続いてはいない。",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
+          "type": "typography",
+          "detail": "「この記事のテーマ」の縮小画像の札「R8施工II-2-1地下街」が札の幅で切れている。題名は横に出ており読者は困らない。",
+          "viewport": "w768",
+          "shot": "w768-04.png"
         },
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "右の欄の AdSense 枠は 1 つで、学習ガイドの後に約 900px の空きがあってから本文の過去問・関連記事の横に出る。位置の偏りは小さく、はみ出しも無い。",
-          "viewport": "w1440",
-          "shot": "w1440-04.png"
+          "detail": "「口頭試験の完全準備」の帯が枠なしで他の区画の白い箱の左右いっぱいに広がり、箱の内側余白がない。読めて押せるので minor。",
+          "viewport": "w768",
+          "shot": "w768-04.png"
         }
       ],
       "deterministic": [],
@@ -308,29 +309,22 @@
       "ticket": null
     },
     "past-exam": {
-      "layoutSha256": "d75b4babcea94d578a7a4c628b319674bafa7716516753d6c9b1a7d696152ee1",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-16T12:27:55.288Z",
-      "runId": "20261116T122139Z",
+      "layoutSha256": "e76655ffe106bbf1b61bbe5407af5ae16b8e8bc6abc58461b7f7efc9061057d8",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-16T13:33:23.811Z",
+      "runId": "20261116T132651Z",
       "path": "/exam/civil-construction-1/secondary/r06",
       "findings": [
         {
-          "severity": "major",
-          "type": "cta",
-          "detail": "スマホ幅（w375）・タブレット幅（w768）の記事内バナー（RSG・コンストワーク）が高さ約50〜100pxの帯に切り詰められ、RSG は ロゴと背景写真だけ、施工管理職は文字の下半分が切れて、何の転職サービスか・何が得られるか読み取れない（PC 幅では全体が見える）",
-          "viewport": "w375",
-          "shot": "w375-04.png"
-        },
-        {
           "severity": "minor",
           "type": "layout",
-          "detail": "右の欄は上詰めの組の後、約800px の空きの後に AdSense が1枠だけ出る。散らす設計どおりだが本文の横が長く空く。広告の連続・はみ出しは無い",
-          "viewport": "w1440",
-          "shot": "w1440-03.png"
+          "detail": "スマホ幅で「ほかの年度の過去問」「この試験で扱われた教材」の白い箱が画面の左右いっぱいに広がり、本文の16px余白と左端がずれる。読むには支障なし。",
+          "viewport": "w375",
+          "shot": "w375-04.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1225"
+      "ticket": null
     },
     "pillar": {
       "layoutSha256": "c83a5e8ed6fc23d6f90d9a2351fb1041f20c86a6e0d191aa30babce2d716afef",
@@ -372,18 +366,25 @@
       "ticket": null
     },
     "practice": {
-      "layoutSha256": "9b9ab169f958ef3d4ad7d69e887ce1f30ca8936cf8933e3b249da3f55cd2d921",
+      "layoutSha256": "58d032ae2bc3d5d1ae5b84933f97d77529ca3b667adaadb863eb6cf118910457",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T10:26:34.992Z",
-      "runId": "20261116T101412Z",
+      "reviewedAt": "2026-11-16T13:33:23.811Z",
+      "runId": "20261116T132651Z",
       "path": "/practice/oshms-pdca-site-operation",
       "findings": [
         {
           "severity": "minor",
-          "type": "other",
-          "detail": "PC の右の欄の一番下の広告枠が、右の欄の内容（関連記事の続き）が終わった位置ではなくページ末尾に出ており、記事の下に約 300px の空の箱が続く。広告が出れば解消する範囲。",
-          "viewport": "w1440",
-          "shot": "w1440-06.png"
+          "type": "typography",
+          "detail": "「この記事のテーマ」の縮小画像の札「R8施工II-2-1地下街」が札の幅で切れている。題名は本文側に出ているので読者は困らない。",
+          "viewport": "w375",
+          "shot": "w375-05.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "本文中の転職バナー（施工管理職・RSG）のスマホ用素材が細く文字が読みにくい。起票済み（DN-1226）のため minor。",
+          "viewport": "w375",
+          "shot": "w375-cta-01.png"
         }
       ],
       "deterministic": [],
@@ -391,28 +392,28 @@
     },
     "standards-chapter": {
       "layoutSha256": "5826cf4b49555f8ac3d31dc951054ae659e21b2297fd4f91c873fbcdf3fea4ae",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-16T12:27:55.288Z",
-      "runId": "20261116T122139Z",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-16T13:33:23.811Z",
+      "runId": "20261116T132651Z",
       "path": "/standards/kinki/common/chapters/1-3",
       "findings": [
         {
-          "severity": "major",
+          "severity": "minor",
           "type": "cta",
-          "detail": "スマホ幅（w375）・タブレット幅（w768）の記事内バナー（RSG・コンストワーク）が高さ約50〜100pxの帯に切り詰められ、RSG は ロゴと背景写真だけ、施工管理職は文字の下半分が切れて、何の転職サービスか・何が得られるか読み取れない（PC 幅では全体が見える）",
-          "viewport": "w375",
-          "shot": "w375-cta-02.png"
+          "detail": "右の欄の上と中ほどで同じ「年収下げずにホワイト転職」のバナーが 2 回出ており、本文中にも同じ系統のバナーがある。重複気味だが間に別の欄が挟まる。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
           "type": "cta",
-          "detail": "右の欄の上部に BuildJob の同じバナーが約9000px 離れて2回出る（記事内にも同系の帯がある）",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
+          "detail": "本文中の転職バナー（施工管理職・RSG）のスマホ用素材が細い。起票済み（DN-1226）。",
+          "viewport": "w375",
+          "shot": "w375-cta-02.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1226"
+      "ticket": null
     },
     "standards-index": {
       "layoutSha256": "466fd05c594257ee6dbe32da42ae426819ae9bef5898c1d0c725dfcaae3de1f8",
@@ -448,18 +449,10 @@
     "textbook": {
       "layoutSha256": "d81694a1ffe4f2c6621294b27741f34f13c0530c4063a8d28923745eab79730e",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T12:27:55.288Z",
-      "runId": "20261116T122139Z",
+      "reviewedAt": "2026-11-16T13:33:23.811Z",
+      "runId": "20261116T132651Z",
       "path": "/exam/civil-construction-1/textbook/network-schedule",
-      "findings": [
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "スマホ・タブレット幅の記事中バナー（RSG・施工管理職）は画像が左右に切り詰められ、RSG は社名ロゴとビルの写真だけで訴求文が読めず、何が得られるか分かりにくい",
-          "viewport": "w768",
-          "shot": "w768-cta-03.png"
-        }
-      ],
+      "findings": [],
       "deterministic": [],
       "ticket": null
     },

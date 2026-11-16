@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import { MUNICIPAL_HUB, resolveQualificationBridge, type QualificationBridgeAudience, type QualificationBridgeSurface } from '@/config/qualification-bridge';
 
@@ -36,14 +37,13 @@ export default function QualificationBridge({
         <ul className={sidebar ? 'grid grid-cols-1 gap-2' : 'grid grid-cols-1 gap-2 sm:grid-cols-3'}>
           {options.map((option) => (
             <li key={option.key}>
-              <Link
+              {/* sidebar では理由を出さない（右の欄の幅に合わせて短く） */}
+              <LinkTile
                 href={option.href}
-                data-cta-label={option.key}
-                className="focus-ring block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-brand dark:border-(--rule-soft)"
-              >
-                <span className="block text-[15px] font-medium text-(--ink)">{option.title}</span>
-                {!sidebar && <span className="mt-0.5 block text-[13px] text-(--ink-muted)">{option.reason}</span>}
-              </Link>
+                title={option.title}
+                description={sidebar ? undefined : option.reason}
+                data={{ 'data-cta-label': option.key }}
+              />
             </li>
           ))}
         </ul>
