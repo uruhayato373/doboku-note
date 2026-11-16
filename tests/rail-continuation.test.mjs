@@ -136,7 +136,7 @@ test('基準書の右の欄を描画: 上の束の後に下に続く束・各組
     const groups = withGroups.querySelectorAll('[data-article-sidebar-group]');
     process.stdout.write(JSON.stringify({
       upperWith: order(withGroups.querySelector('[data-standards-sidebar]')), upperWithout: order(without.querySelector('[data-standards-sidebar]')),
-      wrapper: withGroups.querySelector('div').childNodes.filter(el => el.tagName).map(el => el.hasAttribute('data-standards-sidebar') ? 'upper' : el.hasAttribute('data-article-sidebar-continuation') ? 'continuation' : 'other'),
+      wrapper: withGroups.querySelector('div').childNodes.filter(el => el.tagName).map(el => el.hasAttribute('data-standards-sidebar') ? 'upper' : el.hasAttribute('data-article-sidebar-continuation') ? 'continuation' : el.getAttribute('data-adsense') === 'rail' ? 'adsense' : 'other'),
       wrapperClass: withGroups.querySelector('div').getAttribute('class'),
       groups: groups.map(g => g.childNodes.filter(el => el.tagName).map(el => el.hasAttribute('data-article-affiliate') ? 'banner:' + el.querySelector('a[data-cta-placement]').getAttribute('data-cta-placement') : el.hasAttribute('data-article-sidebar-card') ? 'card' : 'other')),
       pixels: withGroups.querySelector('[data-article-sidebar-continuation]').querySelectorAll('img[width="1"]').length,
@@ -147,7 +147,7 @@ test('基準書の右の欄を描画: 上の束の後に下に続く束・各組
   const data = JSON.parse(execFileSync(process.execPath, ['--import', 'tsx', '--input-type=module', '-e', script], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 }));
   assert.deepEqual(data.upperWith, data.upperWithout, '上の束は変えない');
   assert.deepEqual(data.upperWith.slice(0, 5), ['standards-rail', 'standards-tree', 'standards-rail-2', 'standards-related', 'standards-rail-3']);
-  assert.deepEqual(data.wrapper, ['upper', 'continuation']);
+  assert.deepEqual(data.wrapper, ['upper', 'continuation', 'adsense'], '続きの束の後に AdSense の枠が 1 つ');
   assert.match(data.wrapperClass, /flex h-full flex-1 flex-col/);
   assert.equal(data.groups.length, 3);
   for (const group of data.groups) assert.deepEqual(group, ['banner:standards-rail-fill', 'card'], 'バナーの直後は実カード');

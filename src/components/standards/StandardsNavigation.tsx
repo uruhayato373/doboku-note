@@ -22,6 +22,7 @@ import { getTopicsForStandardDocument } from '@/lib/topics';
 import { getStandardDefaultTopics } from '@/lib/standards-discovery';
 import { StandardsRailBanner } from '@/components/standards/StandardsAffiliateBanners';
 import RailContinuation from '@/components/ui/RailContinuation/RailContinuation';
+import AdSlot from '@/components/ads/AdSlot';
 import type { RailGroup } from '@/lib/rail-continuation';
 
 type StandardsNavigationProps = {
@@ -408,6 +409,7 @@ export default function StandardsNavigation({
     <div className="flex h-full flex-1 flex-col">
       {upper}
       <RailContinuation groups={railGroups} />
+      <AdSlot slot="rail" className="mt-6" />
     </div>
   );
 }

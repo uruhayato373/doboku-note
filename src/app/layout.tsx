@@ -9,6 +9,8 @@ import "../styles/globals.css";
 import { Suspense } from "react";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import AdSenseScript from "@/components/ads/AdSenseScript";
+import { ADSENSE_CLIENT } from "@/config/adsense";
 import DevPreviewFocus from "@/components/DevPreviewFocus";
 import AnalyticsProvider from "@/components/providers/AnalyticsProvider";
 import WebVitals from "@/components/WebVitals";
@@ -19,10 +21,10 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { NOTE_BODY_VARIANT_SCRIPT } from "@/lib/note-body-experiment.mjs";
 import { PROGRAM_SPLIT_SCRIPT } from "@/lib/program-split-experiment.mjs";
 
-// AdSense の所有権確認はメタタグで行う。広告用スクリプトは承認後に入れる。
+// AdSense の所有権確認はメタタグで行う。広告用スクリプトは AdSenseScript（2026-11-16 承認後）。
 export const metadata: Metadata = {
   ...getCommonSeoData(),
-  other: { "google-adsense-account": "ca-pub-8504035087322664" },
+  other: { "google-adsense-account": ADSENSE_CLIENT },
 };
 
 export default function RootLayout({
@@ -48,6 +50,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <GoogleAnalytics />
+        <AdSenseScript />
         <WebVitals />
         <Suspense fallback={null}>
           <AnalyticsProvider />

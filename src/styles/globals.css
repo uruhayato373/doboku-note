@@ -1374,3 +1374,8 @@ html:not([data-program-split="alternate"]) [data-program-split-arm="alternate"],
 html[data-program-split="alternate"] [data-program-split-arm="primary"] {
   display: none;
 }
+
+/* AdSense の手動の枠（src/components/ads/AdSlot.tsx）。配信の無い枠は「広告」の表示ごと畳む */
+.adsense-slot:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+  display: none;
+}

@@ -123,7 +123,7 @@ export function planArticleCtas(doc: { meta: DocMeta; content: string }, related
   });
   return { body, strippedContent, references, headings, isQuestionSeries, magazinePlacement, careerPlacements,
     inlineCareerAd, careerMidCard, midSlot, endNoteSlot, relatedTop, midKinds: midSlots, effectiveMidPositions,
-    renderedCareerSlots, reservedStudySlot, inline, candidates, docGroup,
+    renderedCareerSlots, reservedStudySlot, inline, adInline: candidates.adInsertAt, candidates, docGroup,
     inlineReason: inline.length ? null : candidates.insertAt.length ? '適合する画像素材・配置ルールなし' : '既存 CTA と設問を避けた安全な区切りなし',
   };
 }

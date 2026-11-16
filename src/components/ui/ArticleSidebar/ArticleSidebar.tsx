@@ -1,3 +1,4 @@
+import AdSlot from '@/components/ads/AdSlot';
 import { articleSidebarPlan, type ArticleSidebarInput } from '@/lib/article-sidebar-plan';
 import { Fragment } from 'react';
 import type { RailGroup } from '@/lib/article-sidebar-continuation';
@@ -53,5 +54,6 @@ export default function ArticleSidebar({ cards, groups = [], placements, questio
       </Fragment>)}
     </div>
     <RailContinuation groups={groups} />
+    <AdSlot slot="rail" className="mt-6" />
   </div>;
 }

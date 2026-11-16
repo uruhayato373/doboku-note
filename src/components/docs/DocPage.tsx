@@ -46,6 +46,7 @@ import { planArticleCtas } from '@/lib/article-cta-plan';
 import { remarkArticleBanners } from '@/lib/article-inline-slots.mjs';
 import { ArticleBanner, articleImagePlacements, articlePixelCandidates } from './ArticleAffiliateBanners';
 import ArticleAffiliatePixels from './ArticleAffiliatePixels';
+import AdSlot from '@/components/ads/AdSlot';
 import { affiliateSlotPreview } from '@/lib/affiliate-slot-preview.mjs';
 import type React from 'react';
 import { getPublicDocPath } from '@/lib/content-routes';
@@ -255,7 +256,7 @@ export async function renderDocPage(slugStr: string) {
   const articleLawList = lawsOfArticle(doc.content, doc.meta.explainsLaw);
   const showTableOfContents = !isQuestionSeries && headings.some((h) => h.level === 2);
 
-  const { body, inlineCareerAd, careerMidCard, midSlot, endNoteSlot, relatedTop, midKinds, effectiveMidPositions, renderedCareerSlots, inline } = articlePlan;
+  const { body, inlineCareerAd, careerMidCard, midSlot, endNoteSlot, relatedTop, midKinds, effectiveMidPositions, renderedCareerSlots, inline, adInline } = articlePlan;
   const midSlots = midKinds.map(kind => () => {
     if (kind === 'note' && midSlot) return <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`} scopeNotice={magazinePlacement.scopeNotice} />;
     if (kind === 'related' && relatedTop) return <MidArticleCta mode="related" doc={relatedTop} />;
@@ -271,6 +272,7 @@ export async function renderDocPage(slugStr: string) {
   let inlineCareerCardsRendered = 0;
   const baseComponents = {
     ArticleInlineBanner: ({ slot }: { slot: string }) => <ArticleBanner placement={careerPlacements[slot]} kind="inline" />,
+    ArticleInlineAd: () => <AdSlot slot="inArticle" className="mx-auto my-8 max-w-[740px]" />,
     ...components,
     table: (p: React.ComponentProps<'table'>) => (
       <div className="table-scroll">
@@ -361,7 +363,7 @@ export async function renderDocPage(slugStr: string) {
                   source={body}
                   components={componentsWithMid}
                   midCtaPositions={effectiveMidPositions}
-                  inline={inline}
+                  inline={[...inline, ...adInline]}
                 />
               </div>
               {endNoteSlot && <MagazineHeroCta id={endNoteSlot.magazineId}
@@ -394,6 +396,7 @@ export async function renderDocPage(slugStr: string) {
               hasCategoryNavCard={hasCategoryNavCard}
               authorDates={authorDates}
             />
+            <AdSlot slot="endMultiplex" className="mt-10 max-zenn-sp:px-(--article-gutter-sp)" />
         </TwoColumnShell>
     </PageShell>
   );
