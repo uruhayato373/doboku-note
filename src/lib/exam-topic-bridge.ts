@@ -2,6 +2,7 @@ import bridgeJson from '@/config/exam-topic-bridge.json';
 import questionsJson from '@/config/civil-1-exam-questions.json';
 import textbookIndexJson from '@/config/civil-exam-textbook-index.json';
 import { getPublicDocPath } from '@/lib/content-routes';
+import { examYearLabel, examYearRank } from '@/lib/exam-year.mjs';
 
 /**
  * exam-topic-bridge.ts — 実務記事の記事末に「この論点が出る 1級土木の過去問」を 1 問だけ出す（2026-11 の SEO 計画 §5）。
@@ -37,8 +38,6 @@ export interface ExamTopicQuestion {
 }
 
 const UNRENDERABLE = /[$<|]|!\[|&#x/;
-const yearRank = (y: string) => (y.startsWith('r') ? 100 : 0) + Number(y.slice(1));
-const yearLabel = (y: string) => (y.startsWith('r') ? `令和${Number(y.slice(1)) === 1 ? '元' : Number(y.slice(1))}年度` : `平成${Number(y.slice(1))}年度`);
 
 /**
  * 解説の中のタグ（<ExamPoint>・<p>・<img> など）を外して中の文字だけ残す。正規表現の置換を 1 回かけるだけだと
@@ -70,13 +69,13 @@ export function resolveExamTopicQuestion(slug: string): ExamTopicQuestion | null
   const rank = (q: Question) => terms.findIndex((t) => q.body.includes(t));
   const q = allQuestions()
     .filter((x) => rank(x) >= 0)
-    .sort((a, b) => rank(a) - rank(b) || yearRank(b.year) - yearRank(a.year))[0];
+    .sort((a, b) => rank(a) - rank(b) || (examYearRank(b.year) ?? 0) - (examYearRank(a.year) ?? 0))[0];
   if (!q) return null;
   const examSlug = `primary-${q.year}-${q.part.toLowerCase()}`;
   const tb = Q2T[examSlug]?.[`問題-${q.no}`]?.[0];
   const explanation = stripTags(q.optionExplanations?.find((e) => e.num === q.correct)?.text ?? '').trim();
   return {
-    label: `${yearLabel(q.year)} 第1次検定 No.${q.no}`,
+    label: `${examYearLabel(q.year)} 第1次検定 No.${q.no}`,
     body: q.body,
     options: q.options,
     correct: q.correct,

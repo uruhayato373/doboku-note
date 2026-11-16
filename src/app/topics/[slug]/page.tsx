@@ -22,6 +22,7 @@ import { getLawDirectory, getTopicLaws, getTopicPolicies } from '@/lib/law-wirin
 import PolicyList from '@/components/laws/PolicyList';
 import { peSectionLabel } from '@/lib/pe-keyword-nav';
 import { topicPath } from '@/lib/route-paths';
+import { docKindLabel } from '@/lib/doc-kind';
 
 type Params = { slug: string };
 
@@ -137,7 +138,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           categoryLabel: getCategoryLabel(String(doc.category)), image: getCardImage(doc),
           categoryOrder: getCategoryBySlug(String(doc.category))?.order ?? 999, area: getCategoryArea(String(doc.category)),
           subgroup: doc.category === 'pe-comprehensive-management' ? peSectionLabel(doc.section) : undefined,
-          kind: doc.category === 'laws' ? '法令' : doc.category === 'civil-practice' ? '実務' : doc.category === 'concrete-engineer' && doc.group === 'primary' ? '演習' : ({guide:'受験ガイド', textbook:'テキスト', keyword:'用語', primary:'過去問', secondary:'過去問', 'past-exam':'過去問', pillar:'まとめ'}[String(doc.group)] ?? '解説'),
+          kind: docKindLabel(doc),
         }))} areaLabels={areaLabels} featured={(topic.featured ?? []).map(getPublicDocPath)} />
         </div>
       </SectionBlock>

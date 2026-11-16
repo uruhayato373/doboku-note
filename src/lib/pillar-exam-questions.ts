@@ -43,9 +43,5 @@ export function getPillarExamQuestions(slug: string): PillarExamQuestions | null
   return pillar && pillar.by_year.length > 0 ? pillar : null;
 }
 
-/** 'r08' → '令和8年度'、'h30' → '平成30年度' */
-export function examYearLabel(year: string): string {
-  const m = year.match(/^([rh])(\d{2})$/);
-  if (!m) return year;
-  return `${m[1] === 'r' ? '令和' : '平成'}${Number(m[2])}年度`;
-}
+/** 年度の表示は exam-year.mjs が唯一の実装（ここからも読めるように再 export） */
+export { examYearLabel } from '@/lib/exam-year.mjs';

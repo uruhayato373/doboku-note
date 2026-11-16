@@ -2,12 +2,14 @@
  * 同じ試験の年度違いのページを slug から見つける。年度は `-r07`（令和）・`-h29`（平成）。
  * `civil-construction-2-secondary-r07` と `-r06` のように、年度以外が同じ slug を兄弟とする。
  */
+import { examYearRank } from './exam-year.mjs';
+
 const YEAR_TOKEN = /(^|-)([rh])(\d{2})(?=-|$)/;
 
 function yearOf(slug) {
   const m = YEAR_TOKEN.exec(slug);
   if (!m) return null;
-  return { family: slug.replace(YEAR_TOKEN, '$1*'), order: (m[2] === 'r' ? 1000 : 0) + Number(m[3]) };
+  return { family: slug.replace(YEAR_TOKEN, '$1*'), order: examYearRank(`${m[2]}${m[3]}`) };
 }
 
 /** slug の年度の並び順（令和が平成より後・大きいほど新しい）。年度が無ければ null */

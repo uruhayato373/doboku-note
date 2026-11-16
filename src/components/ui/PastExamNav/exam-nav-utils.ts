@@ -3,6 +3,7 @@
  */
 import { classifyDoc } from '@/lib/doc-classifier';
 import type { DocMeta } from '@/lib/docs';
+import { compareExamYearDesc, examYearLabel } from '@/lib/exam-year.mjs';
 
 export type ExamYear = {
   yearCode: string;                   // "r07", "h26"
@@ -19,21 +20,6 @@ export type PastExamNavData = {
   years: ExamYear[];
 };
 
-function yearLabel(code: string): string {
-  const match = code.match(/^(r|h)(\d+)$/);
-  if (!match) return code;
-  const era = match[1] === 'r' ? '令和' : '平成';
-  const num = parseInt(match[2]!);
-  if (era === '令和' && num === 1) return '令和元年度';
-  return `${era}${num}年度`;
-}
-
-function sortYearsDesc(a: string, b: string): number {
-  const valA = (a.startsWith('r') ? 100 : 0) + parseInt(a.slice(1));
-  const valB = (b.startsWith('r') ? 100 : 0) + parseInt(b.slice(1));
-  return valB - valA;
-}
-
 function buildPeData(articles: DocMeta[]): PastExamNavData | null {
   const pastExams = articles.filter((m) => classifyDoc(m) === 'pastExam');
   if (pastExams.length === 0) return null;
@@ -49,12 +35,12 @@ function buildPeData(articles: DocMeta[]): PastExamNavData | null {
   }
 
   const years: ExamYear[] = Array.from(yearMap.keys())
-    .sort(sortYearsDesc)
+    .sort(compareExamYearDesc)
     .map((code) => {
       const pair = yearMap.get(code)!;
       return {
         yearCode: code,
-        label: yearLabel(code),
+        label: examYearLabel(code),
         col1: pair.primary ? { slug: pair.primary } : undefined,
         col2: pair.secondary ? { slug: pair.secondary } : undefined,
         col3: undefined,
@@ -93,12 +79,12 @@ function buildCivilData(articles: DocMeta[]): PastExamNavData | null {
   const hasSecondary = Array.from(yearMap.values()).some((v) => v.secondary);
 
   const years: ExamYear[] = Array.from(yearMap.keys())
-    .sort(sortYearsDesc)
+    .sort(compareExamYearDesc)
     .map((code) => {
       const entry = yearMap.get(code)!;
       return {
         yearCode: code,
-        label: yearLabel(code),
+        label: examYearLabel(code),
         col1: entry.a ? { slug: entry.a } : undefined,
         col2: entry.b ? { slug: entry.b } : undefined,
         col3: entry.secondary ? { slug: entry.secondary } : undefined,
@@ -145,12 +131,12 @@ function buildCivil2Data(articles: DocMeta[]): PastExamNavData | null {
   const hasSecondary = Array.from(yearMap.values()).some((v) => v.secondary);
 
   const years: ExamYear[] = Array.from(yearMap.keys())
-    .sort(sortYearsDesc)
+    .sort(compareExamYearDesc)
     .map((code) => {
       const entry = yearMap.get(code)!;
       return {
         yearCode: code,
-        label: yearLabel(code),
+        label: examYearLabel(code),
         col1: entry.zenki ? { slug: entry.zenki } : undefined,
         col2: entry.kouki ? { slug: entry.kouki } : undefined,
         col3: entry.secondary ? { slug: entry.secondary } : undefined,
