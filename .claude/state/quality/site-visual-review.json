@@ -136,6 +136,14 @@
       "pages": 6,
       "pass": 6,
       "fail": 0
+    },
+    {
+      "runId": "20261116T235434Z",
+      "at": "2026-11-16T23:56:18.585Z",
+      "base": "http://localhost:3025",
+      "pages": 3,
+      "pass": 3,
+      "fail": 0
     }
   ],
   "pages": {
@@ -192,30 +200,30 @@
     "exam-hub-civil1": {
       "layoutSha256": "503084f02cd72c45f4311c0699f6e9c9552bcdef113c45f3c51302eba9049b1c",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T23:12:13.814Z",
-      "runId": "20261116T230955Z",
+      "reviewedAt": "2026-11-16T23:56:18.583Z",
+      "runId": "20261116T235434Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "テキストの章の行で「施工管理・施…」「環境保全・建設…」と題名が省略されている。余白はあるが記事数の欄に幅を取られ、768px 以上では全文が出る。",
-          "viewport": "w375",
-          "shot": "w375-03.png"
+          "type": "content",
+          "detail": "記事一覧の途中と右の欄に「AdSense doboku-infeed-thumb」「AdSense doboku-rail」の破線の枠が出ている。ローカル配信の代わりの表示とみられ、本番で出るなら読者に見える仮の表示になる。",
+          "viewport": "w1440",
+          "shot": "w1440-04.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "右の欄に「ホワイト転職」のバナーが人気記事をはさんで 2 回出ている。続けてではないが同じ導線の重複。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "記事の行の間に入るインフィード広告の枠は幅・左右の端が隣の行と揃っているが、枠の直後の行との間に区切り線が無く、上下の間隔が行の間隔より詰まって見える（768px・1440px も同様）。",
+          "detail": "章の一覧で「施工管理・施…」「環境保全・建設…」と題名が切れている。",
           "viewport": "w375",
-          "shot": "w375-04.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "記事の説明文が 2 行で「…」で切れるものがある（1級と2級の違いなど）。題名で区別はつく。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "shot": "w375-03.png"
         }
       ],
       "deterministic": [],
@@ -507,25 +515,18 @@
       "ticket": null
     },
     "tools": {
-      "layoutSha256": "83445110c86f1122d283389ab4e2a9722f79d5fc91f76e0f0ac999d23e64118b",
+      "layoutSha256": "58973351890ae22aa0cf678c4aa5f8ef82b3ea64936cd943dd1071d3341d47b7",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T22:56:11.314Z",
-      "runId": "20261116T225248Z",
+      "reviewedAt": "2026-11-16T23:56:18.583Z",
+      "runId": "20261116T235434Z",
       "path": "/tools/keiken-charcount",
       "findings": [
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "題名「施工経験記述 文字数チェッカー」の最後の「ー」だけが次の行に折り返す。",
+          "detail": "スマホ幅で題名「施工経験記述 文字数チェッカー」の最後の行が「ー」1 文字だけで折り返している。入力欄・結果の数字・根拠の箱の枠や余白は 3 幅とも揃っていて崩れはない。",
           "viewport": "w375",
           "shot": "w375-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "consistency",
-          "detail": "関連記事のサムネイル行と、その下の題名だけの完成答案集タイルで形が違うが、役割（無料の解説と有料教材）が違うため許容範囲。",
-          "viewport": "w375",
-          "shot": "w375-02.png"
         }
       ],
       "deterministic": [],
@@ -534,23 +535,23 @@
     "topics": {
       "layoutSha256": "d3355707dc8574426f3f18a52f3314a87dabf70ab76932996db7bd76308ad17e",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T23:12:13.814Z",
-      "runId": "20261116T230955Z",
+      "reviewedAt": "2026-11-16T23:56:18.583Z",
+      "runId": "20261116T235434Z",
       "path": "/topics/safety-laws",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "法令と分野の対応の行で、分野の説明が無い行（建設業法施行規則など）だけ行の高さが少し高く、縦の間隔が不揃い",
-          "viewport": "w1440",
-          "shot": "w1440-03.png"
+          "type": "cta",
+          "detail": "有料教材の導線がページ終盤にあり、長い法令の一覧を読み進めないと届かない。",
+          "viewport": "w375",
+          "shot": "w375-cta-01.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "長い法令名の行で、e-Gov と記事件数の補助文字が折り返し、件数が 1 文字だけ次の行に残る箇所がある",
-          "viewport": "w375",
-          "shot": "w375-03.png"
+          "type": "layout",
+          "detail": "有料教材のカードとビルドジョブのバナーが本文幅の左半分ほどで止まり、右が空いている。",
+          "viewport": "w1440",
+          "shot": "w1440-06.png"
         }
       ],
       "deterministic": [],
