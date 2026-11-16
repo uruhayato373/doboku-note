@@ -43,9 +43,9 @@ domain: sns
 
 ## 承認済みの分を時間差で送る
 
-1. 運営者が相手と文面を 1 件ずつ承認する（1 回 5 件まで）
+1. 運営者が相手と文面を 1 件ずつ承認する（1 日 `maxPerDay` 件まで。質問への答えも数え、`x-reply-log --check` が止める）
 2. 承認された分を `.tmp/x-outreach/queue.json` に書く。形は `{ "approvedAt": <UTC>, "items": [{ "user", "targetId", "kind", "text" }] }`
-3. 運営者が `/loop` で 5 分おき以上の実行を始める（間隔の下限は `config/x-reply-trial.json` の `minIntervalMinutes`）
+3. 運営者が間隔を書かない `/loop` を始める。毎回、次に送るまでの待ちを `minIntervalMinutes`〜`maxIntervalMinutes`（`config/x-reply-trial.json`）の間で毎回違う分数に選ぶ。決まった間隔の `/loop` は等間隔になるので使わない（2026-11-17: 5 分の等間隔で 20 件送った後に X からスパム判定のタグが付き、審査で解除された）
 4. 毎回、先頭の 1 件だけを手順 8・9 で送り、`queue.json` から消す
 5. 次のときは送らない。新しい投稿で状況が変わった、`x-reply-log --check` が BLOCK、承認から 24 時間を超えた。止めた分は運営者に返す
 6. `queue.json` が空になったら `/loop` を止める

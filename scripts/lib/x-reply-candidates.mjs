@@ -209,6 +209,9 @@ export function checkSendAllowed(log, { user, now, limits, trial, skips = [], an
   const last = Math.max(0, ...log.map((r) => Date.parse(r.at)));
   const waited = (now - last) / 60_000;
   if (waited < limits.minIntervalMinutes) return `前の返信から ${Math.floor(waited)} 分です（${limits.minIntervalMinutes} 分あけます）`;
+  // 1 日の上限（2026-11-17: 5 分の等間隔で 20 件送った後に X からスパム判定のタグが付いた）
+  const sentToday = log.filter((r) => jstDayOf(Date.parse(r.at)) === day).length;
+  if (sentToday >= limits.maxPerDay) return `今日はすでに ${sentToday} 件送っています（1 日 ${limits.maxPerDay} 件まで）`;
   const replied = log.some((r) => r.userHash === hashUser(user));
   if (answer && !replied) return 'この相手にはまだ返信していません（質問への答えは返信した相手にだけ送ります）';
   if (!answer && replied) return 'この相手にはすでに返信しています（相手からの質問に答えるなら --answer）';
