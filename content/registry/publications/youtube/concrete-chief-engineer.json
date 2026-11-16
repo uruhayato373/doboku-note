@@ -1723,7 +1723,7 @@
       "work": "shunin-theme-tachiba-erabi",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.longform/scene-001",
@@ -1754,7 +1754,42 @@
         "contentSha256": "6a01914f552b0946a3fffd9b6187197470546d12dfbb2ff6b87b0b102d1ecad9"
       },
       "times": {
-        "rendered": "2026-11-16T13:04:36.717Z"
+        "rendered": "2026-11-16T13:04:36.717Z",
+        "uploaded": "2026-11-16T13:09:15.144Z",
+        "scheduled": "2026-11-16T13:09:26.505Z"
+      },
+      "delivery": {
+        "inputSha256": "bcb355c13ab4a9afc1aea7f3a122b19fce8868555c4ef6efabb330eb99d8360f",
+        "marker": "dn-single-3fb673c6695932f737784abe7c8010a3701cbe61",
+        "uploadRequestedAt": "2026-11-16T13:08:26.352Z",
+        "videoId": "khd3tYUoqsA",
+        "processedAt": "2026-11-16T13:09:14.506Z",
+        "thumbnailRequestedAt": "2026-11-16T13:09:15.216Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/khd3tYUoqsA/default.jpg?sqp=CPz-69cG&rs=AOn4CLDLdvLiPk2j5pPXhP1S1byYLy0ZZA",
+          "https://i9.ytimg.com/vi/khd3tYUoqsA/mqdefault.jpg?sqp=CPz-69cG&rs=AOn4CLDIrOlWmkvzeb5yM0boUL3iFwmU9w",
+          "https://i9.ytimg.com/vi/khd3tYUoqsA/hqdefault.jpg?sqp=CPz-69cG&rs=AOn4CLBhvKku1mkR9SWnz5h4RI-Kd4bWFA",
+          "https://i9.ytimg.com/vi/khd3tYUoqsA/sddefault.jpg?sqp=CPz-69cG&rs=AOn4CLA9m2Ttpk2n5B-VbJYz0J7NhHpBBw",
+          "https://i9.ytimg.com/vi/khd3tYUoqsA/maxresdefault.jpg?sqp=CPz-69cG&rs=AOn4CLA2iHpkNKyRyNDelmPyzE8VBxLwCA",
+          "https://i9.ytimg.com/vi/khd3tYUoqsA/fhddefault.jpg?sqp=CPz-69cG&rs=AOn4CLCtaf422jix8ThiMjtXNIWtTUDLtA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-16T13:09:18.475Z",
+        "scheduleRequestedAt": "2026-11-16T13:09:22.807Z",
+        "scheduleAt": "2026-11-23T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-16T13:09:26.505Z"
+      },
+      "platform": {
+        "id": "khd3tYUoqsA",
+        "url": "https://www.youtube.com/watch?v=khd3tYUoqsA",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-theme-tachiba-erabi/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-16T13:09:18.475Z"
       }
     },
     {
