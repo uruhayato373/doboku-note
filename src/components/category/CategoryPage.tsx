@@ -119,7 +119,8 @@ export default async function CategoryPage({
       <div className="space-y-3">
         {slug === 'concrete-engineer' ? <>
           <ConcreteEngineerStudy />
-          <ConcreteEngineerProduct placement="category-sidebar" />
+          {/* 台帳（site-cta-surfaces.json）でもくじタイルが出る間は、計算・JIS 演習の単品を重ねない */}
+          {!hubCtaSidebar && <ConcreteEngineerProduct placement="category-sidebar" />}
           <ConcreteEngineerRelated />
         </> : <CategoryStudyNav category={slug} />}
         {slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" />}
@@ -241,7 +242,7 @@ export default async function CategoryPage({
             </div>
 
             {slug === 'concrete-engineer' && <div className="zenn-desktop:hidden mt-8 space-y-3">
-              <ConcreteEngineerProduct placement="category-mobile" />
+              {!hubCtaMobile && <ConcreteEngineerProduct placement="category-mobile" />}
               <ConcreteEngineerRelated />
             </div>}
             {slug !== 'concrete-engineer' && !hubCtaMobile && !productFirstOnMobile && <div className="zenn-desktop:hidden mt-8"><SidebarProduct category={slug} placement="category-mobile" /></div>}

@@ -6,7 +6,7 @@
  *   - カタログ商品（マガジン・/n/ 単品・メンバーシップ）: src/lib/note-magazines.ts の id
  *   - カタログ外の単品記事: sales.json の `article:<slug>`（収録マガジンは live snapshot の題名一致で求める）
  * 各データからの解決:
- *   - GA4 event_label: `<id>:<面>` / 裸の `<id>` / `category-<資格>-hub-seasonal-*`（hub-cta.ts の seasonal.product）/
+ *   - GA4 event_label: `<id>:<面>` / 裸の `<id>` / `category-<資格>-hub-seasonal-*`（site-cta-surfaces.json の before-exam の商品）/
  *     `note-n<key>`（カタログ noteUrl・landingUrl → live snapshot の題名 → sales.json の productId）
  *   - sales.json productId: `article:` を外してカタログにあればその id、建設部門の `bk-*` は CTA 側 id へ、
  *     `membership:civil-lab-*` は civil-membership-lab へ
@@ -59,24 +59,18 @@ export function parseNoteCatalog(source) {
   });
 }
 
-/** hub-cta.ts の HUB 定義 → { 資格カテゴリ: <key>.product }。key は seasonal（直前期）か afterResult（試験後の期間）。 */
-function parseHubProducts(source, key) {
-  const start = String(source).indexOf('const HUB');
-  if (start < 0) return {};
-  const block = source.slice(start, source.indexOf('\n};', start));
-  const heads = [...block.matchAll(/^\s{2}'([a-z0-9-]+)':\s*\{/gm)];
-  const pattern = new RegExp(`\\b${key}:\\s*\\{[^}]*?product:\\s*'([^']+)'`);
+/**
+ * 広い面の台帳（config/site-cta-surfaces.json・DN-1223）の季節の商品 → { 資格カテゴリ: 商品 id }。
+ * kind は before-exam（utm の hub-seasonal）か after-event（hub-after-result）。1 資格に各 1 つまで（check-cta-surfaces が止める）。
+ */
+export function surfaceSeasonProducts(ledger, kind) {
   const out = {};
-  heads.forEach((h, i) => {
-    const slice = block.slice(h.index, heads[i + 1]?.index ?? block.length);
-    const product = slice.match(pattern)?.[1];
-    if (product) out[h[1]] = product;
-  });
+  for (const [category, row] of Object.entries(ledger?.qualifications ?? {})) {
+    const season = (row.seasons ?? []).find((s) => s.kind === kind);
+    if (season) out[category] = season.product;
+  }
   return out;
 }
-
-export const parseHubSeasonalProducts = (source) => parseHubProducts(source, 'seasonal');
-export const parseHubAfterResultProducts = (source) => parseHubProducts(source, 'afterResult');
 
 const noteKeyOf = (url) => String(url ?? '').match(/\/n\/(n[0-9a-z]+)/)?.[1] ?? null;
 
@@ -128,7 +122,7 @@ export function resolveCtaLabel(label, r) {
         : { productId: null, via: 'hub-after-result', placement: value, reason: 'hub afterResult の商品がカタログに無い' };
     }
     if (/-hub-mokuji/.test(value)) return { productId: null, via: 'hub-mokuji', placement: value, reason: '無料もくじ記事への送客（商品を特定しない）' };
-    return { productId: null, via: 'hub', placement: value, reason: 'hub ラベルの資格が hub-cta.ts に無い' };
+    return { productId: null, via: 'hub', placement: value, reason: 'hub ラベルの資格が site-cta-surfaces.json の季節に無い' };
   }
   const noteKey = value.match(/^note-(n[0-9a-z]+)$/)?.[1];
   if (noteKey) {

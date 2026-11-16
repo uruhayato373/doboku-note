@@ -58,6 +58,19 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 
 実装作業票: 旧 plan `civil-note-funnel-remediation-2026-07-24.md`（2026-08-18 に完了確認のうえ削除・記録は git 履歴）
 
+## サイトの広い面（2026-11-16・DN-1223）
+
+サイトから note への案内は、文脈で 2 つに分ける。
+
+- **本文の中（記事の中身と商品が合う場所）**: 単品・パックへ直接。記事ごとの判断なので `src/lib/magazine-placement.ts` が持つ（本文カードのクリック率 2.95%）。
+- **広い面（資格トップ・記事の横の欄・記事末のタイル・/links の先頭）**: その資格のもくじ（L2）へ集約し、試験の前後の決まった期間だけパックへ切り替える。同じ広い面でも、もくじタイルは単品 1 枚のおよそ 2 倍押されていた（GA4 2026-10-18〜11-14・資格トップと横の欄）。
+
+広い面の案内先は **`config/site-cta-surfaces.json`（台帳）が唯一の正本**。資格ごとに `lead`（mokuji・product・none）と季節（`before-exam`＝行事の日まで／`after-event`＝行事の日から N 日）を試験日の正本（`config/exam-calendar.json`）の行事名で書く。サイトのコード（`hub-cta.ts`・`sidebar-discovery.ts`・`learning-catalog.ts`・`magazine-placement.ts` の `categoryLeadMagazineId`）と売上の帰属（`scripts/lib/site-to-sales.mjs`）は台帳を読むだけ。
+
+- **変えるとき**: 台帳を書き換えて `npm run check-cta-surfaces` を通す（CI の quality:audit にも入っている）。検査は、資格の行の漏れ・案内する商品がいまサイトに出るか・行事の実在と季節の窓の重なり・もくじがあるのに単品にしていないか（理由が要る）・広い面のコードの商品 id の直書きを止める。
+- **今日の配線を見る**: `npm run check-cta-surfaces` の表（`-- --json` で JSON）。週次レビューで、置き場所ごとのクリック率と並べて読む。
+- **もくじが無い資格**（技術士一次・測量・舗装・管工事）は `lead: product` と理由を書く。note にもくじを作ったら、`config/note-funnel.json` の L2 と `src/lib/note-mokuji.ts` の対応を足し、台帳を `mokuji` に替える。
+
 ## L1/L2 レジストリ
 
 | 層 | 資格 | noteId | ソース | 状態 |

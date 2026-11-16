@@ -29,6 +29,7 @@ const FUNNEL_KEY_BY_EXAM: Partial<Record<ExamKey, string>> = {
   concrete: 'concrete-engineer',
   'concrete-chief': 'concrete-chief',
   'concrete-diagnosis': 'concrete-diagnosis',
+  'pe-water-supply': 'pe-water-supply',
 };
 
 /** 資格の L2 もくじ（無ければ null）。pe-first-stage は未整備。 */
