@@ -11,6 +11,9 @@ import {
 } from '@/lib/pe-construction-subjects';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { formatDotDate } from '@/lib/display-date';
+import AdSlot from '@/components/ads/AdSlot';
+import { withFeedAds } from '@/lib/feed-ads';
+import { feedAdBudget } from '@/lib/feed-ads-budget';
 
 /** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
 function cardDate(doc: DocMeta): string | null {
@@ -360,8 +363,10 @@ export function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; 
         <PeConstructionExamTable docs={group.docs} />
       ) : layout === 'ogp-rows' ? (
         <ul className="flex flex-col" data-cta="nav" data-cta-label="category-rows">
-          {group.docs.map(doc => (
-            <OgpThumbRow key={doc.slug} doc={doc} />
+          {withFeedAds(group.docs, { key: group.key, budget: feedAdBudget() }).map(e => e.kind === 'ad' ? (
+            <AdSlot key={e.key} as="li" slot="inFeedThumb" className="border-b border-(--rule-soft) py-4" />
+          ) : (
+            <OgpThumbRow key={e.item.slug} doc={e.item} />
           ))}
         </ul>
       ) : (

@@ -112,6 +112,14 @@
       "pages": 7,
       "pass": 7,
       "fail": 0
+    },
+    {
+      "runId": "20261116T134839Z",
+      "at": "2026-11-16T13:50:27.925Z",
+      "base": "http://localhost:3025",
+      "pages": 2,
+      "pass": 2,
+      "fail": 0
     }
   ],
   "pages": {
@@ -168,16 +176,21 @@
     "exam-hub-civil1": {
       "layoutSha256": "503084f02cd72c45f4311c0699f6e9c9552bcdef113c45f3c51302eba9049b1c",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T13:33:23.811Z",
-      "runId": "20261116T132651Z",
+      "reviewedAt": "2026-11-16T13:50:27.924Z",
+      "runId": "20261116T134839Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "スマホ幅で記事の一覧の説明文が2行で省略記号になる行がある。題名で区別でき、読者は困らない。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "type": "layout",
+          "detail": "第2次検定の分野別一覧の途中に入ったインフィード広告の枠が、上の項目との間に区切り線がなく、下の「品質管理 過去問」とも詰まっている。ほかの行は線で区切られているため、広告の枠だけ並びのリズムが崩れて見える（w375・w768・w1440 共通）。",
+          "shot": "w375-04.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "広告は一覧の 10 項目目と最後の項目の間にあり、見出しの直下や note・ココナラ・転職の導線とは離れていて記事と誤認する配置ではない。ただ末尾から 1 件手前なので、広告の下に項目が 1 つだけ残る。",
+          "shot": "w375-04.png"
         }
       ],
       "deterministic": [],
@@ -368,23 +381,15 @@
     "practice": {
       "layoutSha256": "58d032ae2bc3d5d1ae5b84933f97d77529ca3b667adaadb863eb6cf118910457",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T13:33:23.811Z",
-      "runId": "20261116T132651Z",
+      "reviewedAt": "2026-11-16T13:50:27.924Z",
+      "runId": "20261116T134839Z",
       "path": "/practice/oshms-pdca-site-operation",
       "findings": [
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "「この記事のテーマ」の縮小画像の札「R8施工II-2-1地下街」が札の幅で切れている。題名は本文側に出ているので読者は困らない。",
-          "viewport": "w375",
-          "shot": "w375-05.png"
-        },
-        {
-          "severity": "minor",
           "type": "cta",
-          "detail": "本文中の転職バナー（施工管理職・RSG）のスマホ用素材が細く文字が読みにくい。起票済み（DN-1226）のため minor。",
-          "viewport": "w375",
-          "shot": "w375-cta-01.png"
+          "detail": "記事内広告（ネイティブ）が図の直後・本文の途中に置かれ、枠が大きく本文の流れを切る。見出し直下ではなく、PR 導線とも隣り合っていないので不合格にはしない。",
+          "shot": "w375-02.png"
         }
       ],
       "deterministic": [],

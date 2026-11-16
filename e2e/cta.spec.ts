@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { ctaPages } from './fixtures';
-import { inspectCtaStacksInPage } from '../scripts/lib/cta-stack-inspect.mjs';
+import { inspectCtaStacksInPage, inspectFeedAdsInPage } from '../scripts/lib/cta-stack-inspect.mjs';
 
 for (const path of ctaPages) {
   test(`${path} のnote CTAが安全なURLを持つ`, async ({ page }) => {
@@ -65,3 +65,17 @@ test('右の欄の空きの AdSense は空きの高さで枠数が決まり、�
   await expect(page.locator('aside [data-adsense][data-adsense-preview]').first()).toBeVisible();
   expect(await page.locator('script[data-adsense-loader]').count(), '手元では adsbygoogle.js を読まない').toBe(0);
 });
+
+// 記事の一覧のインフィード広告（src/lib/feed-ads.ts）は一覧の項目の間にあり、前後の項目と同じ幅。1 ページ 3 枠まで。
+// 広告が 1 枠も無いと検査不成立として落とす（0 件の緑にしない）。手元では目印が出る。
+for (const path of ['/exam/civil-construction-1', '/practice']) {
+  test(`${path} のインフィード広告は一覧の項目の間にあり、幅がそろう`, async ({ page }) => {
+    await page.goto(path);
+    await page.waitForLoadState('networkidle').catch(() => {});
+    const { checked, total, mismatches } = await page.evaluate(inspectFeedAdsInPage);
+    expect(total, 'インフィード広告が無い（検査不成立）').toBeGreaterThan(0);
+    expect(checked).toBeGreaterThan(0);
+    expect(mismatches.map((m) => m.detail)).toEqual([]);
+    await expect(page.locator('[data-adsense^="inFeed"][data-adsense-preview]').first()).toBeVisible();
+  });
+}

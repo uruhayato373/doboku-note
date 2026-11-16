@@ -197,6 +197,15 @@ export function inspectHtml(html, slug) {
     }
 
   }
+  // インフィード広告（記事の一覧の 1 項目・src/lib/feed-ads.ts）: 1 ページ 3 枠まで、前後は広告・転職・note・ココナラでない一覧の項目（2026-11-16）
+  const feedAds = dom.querySelectorAll('[data-adsense^="inFeed"]');
+  if (feedAds.length > 3) add('feed-ad-total', feedAds.length, 3, [], ['adsense']);
+  const adLike = n => !n || n.hasAttribute('data-adsense') || Boolean(n.querySelector('[data-adsense], [data-cta="affiliate"], [data-cta="note"], [data-cta="coconala"], [data-cta="career-need"]'));
+  for (const ad of feedAds) {
+    const siblings = ad.parentNode.childNodes.filter(n => n.tagName);
+    const index = siblings.indexOf(ad);
+    if (adLike(siblings[index - 1]) || adLike(siblings[index + 1])) add('feed-ad-adjacent', 1, 0, [], ['adsense'], { slot: attr(ad, 'data-adsense') });
+  }
   const programPixels = new Map();
   for (const pixel of dom.querySelectorAll('[data-article-pixel-program]')) {
     const program = attr(pixel, 'data-article-pixel-program');

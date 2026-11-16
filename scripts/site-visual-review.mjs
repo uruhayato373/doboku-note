@@ -46,7 +46,7 @@ import { formatJson, readJson } from './lib/json-io.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { inspectInPage } from './lib/rendered-page-inspect.mjs';
 import { inspectLayoutInPage } from './lib/site-visual-inspect.mjs';
-import { inspectCtaStacksInPage } from './lib/cta-stack-inspect.mjs';
+import { inspectCtaStacksInPage, inspectFeedAdsInPage } from './lib/cta-stack-inspect.mjs';
 import { reviewTier, summarizeCoverage, validateVerdicts } from './lib/visual-review-ledger.mjs';
 
 export const LEDGER_PATH = join(REPO_ROOT, datasetPath('state.site-visual-review'));
@@ -270,6 +270,9 @@ async function shootPage({ browser, base, target, viewports, dir, maxTiles, shot
       // 縦に続く商品導線の幅と左端（規則は src/lib/cta-stack.ts）
       const stacks = await page.evaluate(inspectCtaStacksInPage);
       layout.issues.push(...stacks.mismatches.map((m) => ({ type: 'cta-width', detail: m.detail })));
+      // 一覧に挟んだインフィード広告の位置と幅（src/lib/feed-ads.ts）
+      const feed = await page.evaluate(inspectFeedAdsInPage);
+      layout.issues.push(...feed.mismatches.map((m) => ({ type: 'feed-ad', detail: m.detail })));
       const ignore = new Set(target.ignore ?? []);
       const before = deterministicIssues.length;
       for (const issue of [...generic, ...layout.issues]) {

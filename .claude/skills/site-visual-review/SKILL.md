@@ -31,7 +31,7 @@ domain: site
    直しながら回すときは開発サーバー `--base http://localhost:3020`（画像は代わりの表示になる。導線と骨組みの確認には足りる）
 2. **撮る**: `npm run site-visual-review -- prepare`（既定は判定の無い・古いページから 4 ページ。`--keys home,guide`・`--all`・`--limit N`）。
    Playwright のブラウザを入れていない端末は `--channel chrome`。会社 PC で起動ガードに止められたら `DOBOKU_PW_SKIP_GUARD=1`。
-   骨組みが前の判定と同じページは作業票に載らない（判定が生きている）。**機械で決まる崩れ**（`edge` コンテナ幅の不統一・`overflow`・`image`・`cta-missing`・`cta-clip`・`cta-width` 縦に続く商品導線の幅と左端の不一致＝規則は `src/lib/cta-stack.ts`）はここで出る
+   骨組みが前の判定と同じページは作業票に載らない（判定が生きている）。**機械で決まる崩れ**（`edge` コンテナ幅の不統一・`overflow`・`image`・`cta-missing`・`cta-clip`・`cta-width` 縦に続く商品導線の幅と左端の不一致＝規則は `src/lib/cta-stack.ts`・`feed-ad` 一覧に挟んだインフィード広告が先頭・末尾・広告の隣にある／隣の項目と幅が違う／1 ページ 3 枠超＝規則は `src/lib/feed-ads.ts`）はここで出る
 3. **判定させる**: 作業票のページを 2 ページずつに分け、`site-page-visual-auditor` に渡す（同時に 3 体まで）。渡すのは
    `packet`（作業票のパス）・`keys`（その組のページ）・`out`（`<作業票のフォルダ>/verdicts/batch-NN.json`）だけ
 4. **記録する**: `npm run site-visual-review -- record --run <作業票のフォルダ>`。
