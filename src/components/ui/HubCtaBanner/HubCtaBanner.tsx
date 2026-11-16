@@ -12,9 +12,12 @@ const HALO = { textShadow: '0 1px 2px rgba(255,255,255,0.95), 0 0 12px rgba(255,
 export default function HubCtaBanner({
   cta,
   placement,
+  wide = false,
 }: {
   cta: ResolvedHubCta;
   placement: string;
+  /** 記事末など本文の幅いっぱいに出す面（既定は 360px まで） */
+  wide?: boolean;
 }) {
   const qualificationTile = noteCtaQualificationTile(cta.qualification);
   const image = cta.productId ? noteCtaImage(cta.productId, 'tile', 'lead') : qualificationTile;
@@ -25,7 +28,7 @@ export default function HubCtaBanner({
       title: `${cta.qual} 教材一覧`, description: `${cta.title1}・${cta.title2}。${cta.sub}`, price: undefined,
     } }}
     showDescription={genericProductTile}
-    trackLabel={cta.trackLabel} placement={placement} className="w-full max-w-[360px]" />;
+    trackLabel={cta.trackLabel} placement={placement} className={wide ? 'w-full' : 'w-full max-w-[360px]'} />;
   return (
     <a
       href={cta.url}

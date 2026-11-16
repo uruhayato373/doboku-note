@@ -237,10 +237,11 @@ export default function ArticleFooter({
           <div className="w-full max-w-[300px]"><p className="mb-2 text-sm font-bold text-ink-strong">資格・経験を仕事に活かしたい</p>{endBanner}</div>
         </div>
       ) : footerMokuji ? (
-        <div className="mt-8 flex justify-center">
-          <div className="w-full max-w-[300px]">
-            <HubCtaBanner cta={footerMokuji} placement="article-footer" />
-          </div>
+        // 1 枚だけのときは本文の幅いっぱいの横長カード（左に表紙・右に商品名）。300px の中央寄せは、上の転職バナー（全幅）・
+        // 下のココナラ（全幅）と幅がそろわず、記事末の導線がばらばらに見えた（2026-11-16 運営者指摘）。
+        <div className="mt-8 max-zenn-sp:px-(--article-gutter-sp)">
+          <p className="mb-2 text-sm font-bold text-ink-strong">試験の準備を進めたい</p>
+          <HubCtaBanner cta={footerMokuji} placement="article-footer" wide />
         </div>
       ) : endBanner ? (
         <div className="mt-8 flex justify-center">

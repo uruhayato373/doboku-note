@@ -23,10 +23,9 @@ export default function OffsiteCta({
   if (!items.length) return null;
   return (
     <div className="not-prose mt-8">
-      <div className="mb-2 text-sm font-semibold text-(--ink-muted)">
-        {heading}
-      </div>
-      <ul className="grid gap-3 sm:grid-cols-2">
+      {/* 見出しは記事末のほかの導線（「試験の準備を進めたい」）と同じ書式。1 件のときは全幅、2 件以上で 2 列 */}
+      <p className="mb-2 text-sm font-bold text-ink-strong">{heading}</p>
+      <ul className={`grid gap-3${items.length > 1 ? ' sm:grid-cols-2' : ''}`}>
         {items.map((it) => (
           <li key={it.trackLabel}>
             <a
