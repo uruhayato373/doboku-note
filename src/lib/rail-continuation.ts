@@ -35,9 +35,8 @@ export interface RailGroup {
   lower?: boolean;
 }
 
-/** 上詰めの組の下の空きに置く AdSense の間隔と上限（2026-11-16 運営者判断）。出すかどうかは描画した空きの高さで決める（globals.css の rail-lower-ads） */
-export const RAIL_LOWER_AD_SPACING_PX = 2500;
-export const RAIL_LOWER_AD_MAX = 3;
+/** 上詰めの組の下の空きに置く AdSense の上限（2026-11-16 運営者判断）。間隔（2,500px ごとに 1 枠）と出すかどうかは描画した空きの高さで決める（globals.css の rail-lower-ads） */
+const RAIL_LOWER_AD_MAX = 3;
 
 /**
  * 2 組目の転職バナーを AdSense の枠に替え（1 組だけなら組の後ろに AdSense だけの組を足す）、カード → 転職 → カード → AdSense → カード の順にする。
