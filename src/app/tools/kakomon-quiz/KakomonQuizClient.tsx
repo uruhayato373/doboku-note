@@ -15,6 +15,7 @@ import {
 import { withNoteUtm } from "@/lib/note-utm";
 import { quizQuestionCount, quizYearCount, quizYearRange } from "@/lib/quiz-summary";
 import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_LABEL, ToolLayout, ToolPanel } from '@/components/tools/ToolParts';
 
 /**
  * 1級土木 第一次検定 過去問 フル演習エンジン（v1・オンライン先行）。
@@ -297,7 +298,7 @@ function MenuScreen({
 }) {
   const totalPct = tally.answered > 0 ? Math.round((tally.correct / tally.answered) * 100) : null;
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       <p className="text-[14px] sm:text-[15px] leading-[1.9] text-(--ink-body) mb-6">
         {config.intro}
       </p>
@@ -329,7 +330,7 @@ function MenuScreen({
 
       {config.specialties && config.specialties.length > 1 && (
         <div className="mb-6">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
+          <div className={`${TOOL_LABEL} mb-2`}>
             専門科目の部門（年度別・ランダムに含める部門）
           </div>
           <div className="flex flex-wrap gap-2" role="group" aria-label="専門科目の部門">
@@ -381,7 +382,7 @@ function MenuScreen({
 
       {config.showSubjects && (data?.subjects ?? config.placeholderSubjects) && (
         <>
-          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
+          <div className={`${TOOL_LABEL} mb-3`}>
             科目別に演習
           </div>
           <div className="grid gap-2.5 sm:grid-cols-3 mb-8">
@@ -402,7 +403,7 @@ function MenuScreen({
       )}
 
       {/* 年度別 */}
-      <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
+      <div className={`${TOOL_LABEL} mb-3`}>
         年度別に演習
       </div>
       {loading && !data ? (
@@ -429,7 +430,7 @@ function MenuScreen({
       <p className="mt-6 text-[12px] text-(--ink-muted)">
         {config.sourceNote}
       </p>
-    </div>
+    </ToolLayout>
   );
 }
 
@@ -515,7 +516,7 @@ function QuizRunner({
     return (
       <div className={`${READING_CONTAINER} py-10`}>
         <div className="card-surface-section p-6 text-center">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
+          <div className={TOOL_LABEL}>
             結果 — {title}
           </div>
           <div className="font-serif font-black text-(--ink) mt-2">
@@ -543,7 +544,7 @@ function QuizRunner({
   }
 
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       <div className="flex items-center justify-between text-[12px] text-(--ink-muted) mb-3">
         <button type="button" onClick={onExit} className="focus-ring font-bold hover:text-(--accent)">
           ← モード選択
@@ -559,7 +560,7 @@ function QuizRunner({
         />
       </div>
 
-      <div className="card-surface-section p-5 sm:p-6">
+      <ToolPanel>
         <div className="overflow-x-auto mb-4">
           <QuizRichText html={q.bodyHtml} text={q.body} strong />
         </div>
@@ -650,8 +651,8 @@ function QuizRunner({
             {isLast ? "結果を見る" : "次の問題へ →"}
           </button>
         )}
-      </div>
-    </div>
+      </ToolPanel>
+    </ToolLayout>
   );
 }
 
@@ -776,7 +777,7 @@ function FunnelLinks({ config, mode }: { config: KakomonQuizConfig; mode: Exclud
 
   return (
     <div className="mt-6">
-      <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
+      <div className={`${TOOL_LABEL} mb-3`}>
         続けて合格へ
       </div>
       <div className="grid gap-3 sm:grid-cols-2">

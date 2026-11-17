@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolResultValue, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * ポンプ車・アジテータ車 配車計算ツール（クライアント）。
@@ -69,19 +69,14 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
   const totalEq = hd + vertEq + bendEq + hoseEq;
   const withinLimit = totalEq <= HORIZONTAL_LIMIT_M;
 
-  const inputBase =
-    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
-  const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
-
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       {/* ① ポンプ車台数 */}
-      <div className="card-surface-section p-5 sm:p-6">
+      <ToolPanel>
         <div className="font-bold text-(--ink) mb-4">① ポンプ車の必要台数</div>
         <div className="grid gap-4 sm:grid-cols-3">
           <div>
-            <label htmlFor="total-volume" className={labelBase}>
+            <label htmlFor="total-volume" className={`${TOOL_LABEL} mb-2`}>
               総打込み量（m³）
             </label>
             <input
@@ -91,11 +86,11 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
               step="1"
               value={totalVolume}
               onChange={(e) => setTotalVolume(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="work-hours" className={labelBase}>
+            <label htmlFor="work-hours" className={`${TOOL_LABEL} mb-2`}>
               実質作業時間（h）
             </label>
             <input
@@ -105,11 +100,11 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
               step="0.5"
               value={workHours}
               onChange={(e) => setWorkHours(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="unit-speed" className={labelBase}>
+            <label htmlFor="unit-speed" className={`${TOOL_LABEL} mb-2`}>
               1台の実質速度（m³/h）
             </label>
             <input
@@ -119,7 +114,7 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
               step="1"
               value={unitSpeed}
               onChange={(e) => setUnitSpeed(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
             <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               目安は{REAL_SPEED_MIN}〜{REAL_SPEED_MAX}（カタログ最大値ではない）
@@ -131,9 +126,9 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
           <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-body)">
             目標の時間当たり打込み量
           </div>
-          <div className="font-serif font-black text-[22px] text-(--ink) mt-1 tabular-nums">
+          <ToolResultValue size="sm" className="mt-1">
             {targetRate ? `${targetRate.toFixed(1)} m³/h` : "—"}
-          </div>
+          </ToolResultValue>
           <div className="mt-3 pt-3 border-t border-(--rule-soft) flex items-baseline justify-between">
             <span className="text-sm text-(--ink-body)">必要台数</span>
             <span className="font-serif font-black text-[28px] text-(--ink) tabular-nums">
@@ -142,14 +137,14 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
             </span>
           </div>
         </div>
-      </div>
+      </ToolPanel>
 
       {/* ② アジテータ車台数 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="font-bold text-(--ink) mb-4">② アジテータ車の必要台数</div>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="truck-capacity" className={labelBase}>
+            <label htmlFor="truck-capacity" className={`${TOOL_LABEL} mb-2`}>
               1台の積載量（m³）
             </label>
             <input
@@ -159,11 +154,11 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
               step="0.5"
               value={truckCapacity}
               onChange={(e) => setTruckCapacity(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="round-trip" className={labelBase}>
+            <label htmlFor="round-trip" className={`${TOOL_LABEL} mb-2`}>
               往復（積込〜返送）の実測時間（分）
             </label>
             <input
@@ -173,7 +168,7 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
               step="1"
               value={roundTripMin}
               onChange={(e) => setRoundTripMin(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
         </div>
@@ -192,17 +187,17 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
             ①の総打込み量・作業時間を入力すると目標速度が決まり、この計算が動きます。
           </p>
         )}
-      </div>
+      </ToolPanel>
 
       {/* ③ 水平換算長 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="font-bold text-(--ink) mb-1">③ 圧送距離は届くか（125A配管）</div>
         <p className="text-xs leading-5 text-(--ink-muted) mb-4">
           粗骨材最大寸法40mm・125A配管を前提にした換算係数です。100A・150Aなど他径は係数が変わるため、圧送指針の該当表を確認してください。
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="horiz-dist" className={labelBase}>
+            <label htmlFor="horiz-dist" className={`${TOOL_LABEL} mb-2`}>
               水平距離（m）
             </label>
             <input
@@ -212,11 +207,11 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
               step="1"
               value={horizDist}
               onChange={(e) => setHorizDist(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="vert-rise" className={labelBase}>
+            <label htmlFor="vert-rise" className={`${TOOL_LABEL} mb-2`}>
               垂直立上り（m）
             </label>
             <input
@@ -226,11 +221,11 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
               step="1"
               value={vertRise}
               onChange={(e) => setVertRise(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="bend-count" className={labelBase}>
+            <label htmlFor="bend-count" className={`${TOOL_LABEL} mb-2`}>
               90°ベント管（か所）
             </label>
             <input
@@ -240,11 +235,11 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
               step="1"
               value={bendCount}
               onChange={(e) => setBendCount(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="hose-count" className={labelBase}>
+            <label htmlFor="hose-count" className={`${TOOL_LABEL} mb-2`}>
               フレキシブルホース（本）
             </label>
             <input
@@ -254,7 +249,7 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
               step="1"
               value={hoseCount}
               onChange={(e) => setHoseCount(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
         </div>
@@ -302,12 +297,10 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
             ? `100mの目安以内です（残り ${(HORIZONTAL_LIMIT_M - totalEq).toFixed(1)} m）`
             : `100mの目安を ${(totalEq - HORIZONTAL_LIMIT_M).toFixed(1)} m 超えています。ルートを見直すか機種を変更してください`}
         </p>
-      </div>
+      </ToolPanel>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources>
           <li>
             <strong className="text-(--ink)">現場実質の打込み速度 {REAL_SPEED_MIN}〜{REAL_SPEED_MAX} m³/h</strong>は、スランプ18cm程度のコンクリートをポンプ工法で打ち込む場合の目安です。ポンプ車のカタログ上の最大吐出量（スクイズ式50m³/h程度・ピストン式100m³/h超）とは別の値で、台数計算にはこちらを使います。
           </li>
@@ -320,10 +313,9 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
           <li className="text-(--ink-muted)">
             ※ 配管径は粗骨材の最大寸法から選定します（20・25mmは100A以上、40mmは125A以上が目安）。特記仕様書・施工計画書の値が優先します。本ツールは標準的な考え方の早見であり、現場の判断を代替するものではありません。
           </li>
-        </ul>
-      </div>
+      </ToolSources>
 
       {related}
-    </div>
+    </ToolLayout>
   );
 }

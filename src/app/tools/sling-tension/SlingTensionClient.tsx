@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolResultValue, ToolStatus, ToolNotice, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * 玉掛け 吊り角度・張力計算ツール（クライアント）。
@@ -63,18 +63,13 @@ export default function SlingTensionClient({ related }: { related?: React.ReactN
 
   const sampleAngles = [0, 30, 60, 90, 120];
 
-  const inputBase =
-    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
-  const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
-
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       {/* 入力 */}
-      <div className="card-surface-section p-5 sm:p-6">
+      <ToolPanel>
         <div className="grid gap-4 sm:grid-cols-3">
           <div>
-            <label htmlFor="weight" className={labelBase}>
+            <label htmlFor="weight" className={`${TOOL_LABEL} mb-2`}>
               吊り荷重（kg）
             </label>
             <input
@@ -84,11 +79,11 @@ export default function SlingTensionClient({ related }: { related?: React.ReactN
               step="10"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="strands" className={labelBase}>
+            <label htmlFor="strands" className={`${TOOL_LABEL} mb-2`}>
               ワイヤー本数
             </label>
             <input
@@ -99,11 +94,11 @@ export default function SlingTensionClient({ related }: { related?: React.ReactN
               min="1"
               value={strands}
               onChange={(e) => setStrands(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="angle" className={labelBase}>
+            <label htmlFor="angle" className={`${TOOL_LABEL} mb-2`}>
               吊り角度θ（度）
             </label>
             <input
@@ -115,31 +110,24 @@ export default function SlingTensionClient({ related }: { related?: React.ReactN
               max="179"
               value={angle}
               onChange={(e) => setAngle(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
             <p className="mt-1.5 text-xs leading-5 text-(--ink-muted)">
               2本のワイヤーがなす開き角
             </p>
           </div>
         </div>
-      </div>
+      </ToolPanel>
 
       {/* 結果 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
-              張力割増し係数 k = 1/cos(θ/2)
-            </div>
-            <div className="font-serif font-black text-[24px] sm:text-[28px] leading-tight mt-1 text-(--ink) tabular-nums">
-              {factor ? factor.toFixed(2) : "—"}
-            </div>
-          </div>
-          <div
-            className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-bold ${zoneMeta.borderClass} ${zoneMeta.textClass}`}
-          >
+          <ToolResultValue label="張力割増し係数 k = 1/cos(θ/2)">
+            {factor ? factor.toFixed(2) : "—"}
+          </ToolResultValue>
+          <ToolStatus toneClass={`border ${zoneMeta.borderClass} ${zoneMeta.textClass}`}>
             {zoneMeta.label}
-          </div>
+          </ToolStatus>
         </div>
 
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -147,29 +135,29 @@ export default function SlingTensionClient({ related }: { related?: React.ReactN
             <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-body)">
               1本当たりの張力 T
             </div>
-            <div className="font-serif font-black text-[22px] text-(--ink) mt-1 tabular-nums">
+            <ToolResultValue size="sm" className="mt-1">
               {tension ? `${tension.toFixed(0)} kgf` : "—"}
-            </div>
+            </ToolResultValue>
           </div>
           <div className="rounded-card-content bg-(--accent-fill) p-4">
             <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-body)">
               必要な破断荷重（安全係数{SAFETY_FACTOR}）
             </div>
-            <div className="font-serif font-black text-[22px] text-(--ink) mt-1 tabular-nums">
+            <ToolResultValue size="sm" className="mt-1">
               {requiredBreak ? `${requiredBreak.toFixed(0)} kgf 以上` : "—"}
-            </div>
+            </ToolResultValue>
           </div>
         </div>
 
         {angleZone === "danger" && (
-          <p className="mt-4 rounded-card-content border-l-4 border-(--color-danger) bg-(--bg) p-3 text-sm leading-6 text-(--ink-body)">
+          <ToolNotice tone="danger" className="mt-4">
             吊り角度が90度を超えています。玉掛け技能講習のテキストでは90度を超えないことが推奨されています。ワイヤーを長くする、掛け点を増やすなどで角度を狭くしてください。
-          </p>
+          </ToolNotice>
         )}
         {angleZone === "caution" && (
-          <p className="mt-4 rounded-card-content border-l-4 border-(--color-warn) bg-(--bg) p-3 text-sm leading-6 text-(--ink-body)">
+          <ToolNotice className="mt-4">
             吊り角度が60度を超えています。玉掛け技能講習のテキストでは60度以内が推奨されています。
-          </p>
+          </ToolNotice>
         )}
 
         <div className="mt-5 overflow-x-auto">
@@ -199,12 +187,10 @@ export default function SlingTensionClient({ related }: { related?: React.ReactN
             </tbody>
           </table>
         </div>
-      </div>
+      </ToolPanel>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources>
           <li>
             <strong className="text-(--ink)">張力割増し係数 k = 1/cos(θ/2)</strong>は、開き角θのワイヤー2本で荷を吊るときの一般的な力学の関係です。1本当たりの張力は、吊り荷重を本数で割った値にこの係数を掛けて求めます。
           </li>
@@ -217,10 +203,9 @@ export default function SlingTensionClient({ related }: { related?: React.ReactN
           <li className="text-(--ink-muted)">
             ※ 使用するロープの破断荷重は、そのロープの成績書（ミルシート）に記載の値で確認してください。本ツールは必要な破断荷重を計算するもので、手元のロープが安全係数を満たすかどうかまでは判定しません。素線の断線・径の減少・キンク・形くずれなどの使用禁止基準（同規則第215条）は別途、現物で確認してください。
           </li>
-        </ul>
-      </div>
+      </ToolSources>
 
       {related}
-    </div>
+    </ToolLayout>
   );
 }

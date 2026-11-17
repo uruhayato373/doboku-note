@@ -1,13 +1,10 @@
 import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
-import PageShell from "@/components/layout/PageShell";
-import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import ConcreteTimeCheckClient from "./ConcreteTimeCheckClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
-import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import ToolPageShell from "@/components/tools/ToolPageShell";
 import { toolByHref } from "@/lib/tools";
-import { READING_CONTAINER } from '@/components/layout/container';
 
 const tool = toolByHref("/tools/concrete-time-check");
 
@@ -44,23 +41,15 @@ export const metadata: Metadata = {
 
 export default function ConcreteTimeCheckPage() {
   return (
-    <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        width="760"
-        breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
-        label="無料ツール"
-        title={tool.title}
-        lead={
-          <>
-            <strong className="text-(--ink)">外気温</strong>と<strong className="text-(--ink)">練混ぜ完了時刻</strong>を入れると、許容打重ね時間間隔・練混ぜ〜打込み終了・荷卸しの限度が<strong className="text-(--ink)">時刻</strong>で出ます。日平均気温から暑中／寒中コンクリートの区分も判定します。
-          </>
-        }
-      />
-
+    <ToolPageShell
+      title={tool.title}
+      lead={
+        <>
+          <strong className="text-(--ink)">外気温</strong>と<strong className="text-(--ink)">練混ぜ完了時刻</strong>を入れると、許容打重ね時間間隔・練混ぜ〜打込み終了・荷卸しの限度が<strong className="text-(--ink)">時刻</strong>で出ます。日平均気温から暑中／寒中コンクリートの区分も判定します。
+        </>
+      }
+    >
       <ConcreteTimeCheckClient related={<RelatedPages heading="関連する対策ページ" toolsIndex="経験記述の文字数チェック・受験資格判定・過去問演習" toolsIndexFirst links={[{ href: "/exam/civil-construction-1", title: "1級土木施工管理技士", description: "コンクリート工の出題ポイントと過去問解説" }]} />} />
-      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
-    </PageShell>
+    </ToolPageShell>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_INPUT, ToolLayout, ToolPanel, ToolField, ToolResultValue, ToolStatus, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * コンクリート 単位水量・水和水 計算ツール（クライアント）。
@@ -45,65 +45,49 @@ export default function WaterContentClient({ related }: { related?: React.ReactN
         ? `鉄筋コンクリートの上限（${WC_MAX_REINFORCED}%以下）を超えています（無筋は${WC_MAX_PLAIN}%以下）`
         : `一般の環境条件の上限（鉄筋${WC_MAX_REINFORCED}%・無筋${WC_MAX_PLAIN}%以下）を超えています`;
 
-  const inputBase =
-    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
-  const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
-
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       {/* 入力 */}
-      <div className="card-surface-section p-5 sm:p-6">
+      <ToolPanel>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label htmlFor="wc-ratio" className={labelBase}>
-              水セメント比 W/C（%）
-            </label>
-            <input
-              id="wc-ratio"
-              type="number"
-              inputMode="decimal"
-              step="1"
-              value={wcRatio}
-              onChange={(e) => setWcRatio(e.target.value)}
-              className={inputBase}
-            />
-            {wcWarning && (
-              <p className="mt-1.5 text-xs leading-5 text-(--warn-text-emphasis)">{wcWarning}</p>
-            )}
-          </div>
-          <div>
-            <label htmlFor="cement-unit" className={labelBase}>
-              単位セメント量（kg/m³）
-            </label>
-            <input
-              id="cement-unit"
-              type="number"
-              inputMode="decimal"
-              step="5"
-              value={cementUnit}
-              onChange={(e) => setCementUnit(e.target.value)}
-              className={inputBase}
-            />
-          </div>
+          <ToolField id="wc-ratio" label="水セメント比 W/C（%）">
+          <input
+            id="wc-ratio"
+            type="number"
+            inputMode="decimal"
+            step="1"
+            value={wcRatio}
+            onChange={(e) => setWcRatio(e.target.value)}
+            className={TOOL_INPUT}
+          />
+          {wcWarning && (
+            <p className="mt-1.5 text-xs leading-5 text-(--warn-text-emphasis)">{wcWarning}</p>
+          )}
+          </ToolField>
+          <ToolField id="cement-unit" label="単位セメント量（kg/m³）">
+          <input
+            id="cement-unit"
+            type="number"
+            inputMode="decimal"
+            step="5"
+            value={cementUnit}
+            onChange={(e) => setCementUnit(e.target.value)}
+            className={TOOL_INPUT}
+          />
+          </ToolField>
         </div>
-      </div>
+      </ToolPanel>
 
       {/* 結果 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
-              単位水量 W = C × W/C
-            </div>
-            <div className="font-serif font-black text-[24px] sm:text-[28px] leading-tight mt-1 text-(--ink) tabular-nums">
-              {unitWater !== null ? `${unitWater.toFixed(0)} kg/m³` : "—"}
-            </div>
-          </div>
+          <ToolResultValue label="単位水量 W = C × W/C">
+            {unitWater !== null ? `${unitWater.toFixed(0)} kg/m³` : "—"}
+          </ToolResultValue>
           {overWaterGuide && (
-            <div className="inline-flex items-center rounded-full border border-(--color-warn) px-3 py-1 text-sm font-bold text-(--warn-text-emphasis)">
+            <ToolStatus toneClass="border border-(--color-warn) text-(--warn-text-emphasis)">
               目安（{UNIT_WATER_GUIDE_MAX}kg/m³以下）超過
-            </div>
+            </ToolStatus>
           )}
         </div>
 
@@ -149,12 +133,10 @@ export default function WaterContentClient({ related }: { related?: React.ReactN
             </tbody>
           </table>
         </div>
-      </div>
+      </ToolPanel>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources>
           <li>
             <strong className="text-(--ink)">単位水量 W = C × W/C</strong>は配合設計の基本式です。単位セメント量Cに水セメント比を掛けて求めます。
           </li>
@@ -167,10 +149,9 @@ export default function WaterContentClient({ related }: { related?: React.ReactN
           <li className="text-(--ink-muted)">
             ※ 余剰水は硬化後に空隙となり耐久性・強度を下げ、不足すれば打込みが困難になります。現場での加水は水セメント比を上げ、この鎖を後から壊す行為になるため避けてください。特記仕様書・配合計画書の値が優先します。
           </li>
-        </ul>
-      </div>
+      </ToolSources>
 
       {related}
-    </div>
+    </ToolLayout>
   );
 }

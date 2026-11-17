@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { countAnswerChars } from "@/lib/keiken-charcount.mjs";
-import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolStatus, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * 施工経験記述 文字数チェッカー（クライアント）。
@@ -116,12 +116,12 @@ export default function KeikenCharcountClient({ limits, related }: { limits: Kei
     "border-(--rule-soft) text-(--ink-body) hover:border-(--accent)";
 
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       {/* コントロール */}
-      <div className="card-surface-section p-5 sm:p-6">
+      <ToolPanel>
         <div className="flex flex-col gap-4">
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
+            <div className={`${TOOL_LABEL} mb-2`}>
               級
             </div>
             <div className="flex gap-2">
@@ -140,7 +140,7 @@ export default function KeikenCharcountClient({ limits, related }: { limits: Kei
           </div>
 
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
+            <div className={`${TOOL_LABEL} mb-2`}>
               出題形式
             </div>
             <div className="flex flex-wrap gap-2">
@@ -164,7 +164,7 @@ export default function KeikenCharcountClient({ limits, related }: { limits: Kei
           </div>
 
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
+            <div className={`${TOOL_LABEL} mb-2`}>
               設問
             </div>
             <div className="flex flex-wrap gap-2">
@@ -192,15 +192,15 @@ export default function KeikenCharcountClient({ limits, related }: { limits: Kei
           onChange={(e) => setText(e.target.value)}
           placeholder="ここに施工経験記述の答案を貼り付け／入力してください。&#10;（数値プレースホルダ〇は受験時に同桁の数値へ置換される前提で1字として数えます）"
           rows={10}
-          className="focus-ring mt-5 w-full resize-y rounded-card-content border border-(--rule-soft) bg-(--bg) p-4 text-[15px] leading-[1.9] text-(--ink) focus:border-(--accent)"
+          className={`${TOOL_INPUT} mt-5 resize-y p-4! leading-[1.9]`}
         />
-      </div>
+      </ToolPanel>
 
       {/* 結果 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="flex items-end justify-between gap-4 flex-wrap">
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
+            <div className={TOOL_LABEL}>
               実文字数
             </div>
             <div className="font-serif font-black text-(--ink) leading-none mt-1">
@@ -208,12 +208,9 @@ export default function KeikenCharcountClient({ limits, related }: { limits: Kei
               <span className="text-[18px] text-(--ink-muted)"> / {max} 字</span>
             </div>
           </div>
-          <div
-            className="inline-flex items-center rounded-full px-3 py-1 text-sm font-bold"
-            style={{ background: meta.pillBg, color: meta.pillText }}
-          >
+          <ToolStatus toneClass="" style={{ background: meta.pillBg, color: meta.pillText }}>
             {meta.label}
-          </div>
+          </ToolStatus>
         </div>
 
         {/* プログレスバー */}
@@ -235,12 +232,10 @@ export default function KeikenCharcountClient({ limits, related }: { limits: Kei
             </>
           )}
         </p>
-      </div>
+      </ToolPanel>
 
       {/* 注記・出典 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">カウント・しきい値について</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources title="カウント・しきい値について">
           <li>
             文字数は <strong className="text-(--ink)">空白・改行を除いた実文字数</strong>（マークダウン装飾やタグも除外）。数値プレースホルダ〇は受験時に数値へ置換される前提で1字として算入します。
           </li>
@@ -253,10 +248,9 @@ export default function KeikenCharcountClient({ limits, related }: { limits: Kei
           <li className="text-(--ink-muted)">
             ※ 経験記述は「自分が経験した工事」を書く問題です。模範答案の丸写しは失格につながります。必ず自分の現場に置き換えて使用してください。
           </li>
-        </ul>
-      </div>
+      </ToolSources>
 
       {related}
-    </div>
+    </ToolLayout>
   );
 }
