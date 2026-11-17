@@ -61,3 +61,17 @@ export function ssrVerdict(localStatus, runStepConclusion) {
 export function findDeployRun(runs, sha) {
   return runs.find((run) => run.headSha === sha) ?? null;
 }
+
+/**
+ * デプロイ run の状態から次の手を決める。`gh run watch --exit-status` は run の途中でも 0 以外で抜けることがあり（2026-11-17・DN-1234）、
+ * 終了コードだけで失敗と決めると、後で success になるデプロイを失敗と報告する。run の実体（status・conclusion）で決める。
+ * @param {{ status?: string, conclusion?: string | null }} view
+ * @returns {'success' | 'failure' | 'pending'}
+ */
+export function deployRunOutcome(view) {
+  if (view?.status !== 'completed') return 'pending';
+  return view.conclusion === 'success' ? 'success' : 'failure';
+}
+
+/** デプロイの完了待ちの上限（通常は 10 分前後） */
+export const DEPLOY_WAIT_LIMIT_MS = 40 * 60 * 1000;
