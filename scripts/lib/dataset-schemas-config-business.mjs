@@ -694,39 +694,6 @@ export const ConfigContentThemes = z
   .strict()
   .meta({ title: '制作物のテーマ' });
 
-// ---- note メンバーシップ（config/note-membership.json） ---------------------------------------
-
-/** note メンバーシップのプランと価格の写し。retiredAt があるあいだ check-note-membership は突合せず SKIP する */
-export const ConfigNoteMembership = z
-  .object({
-    schemaVersion: z.literal(1),
-    _comment: text,
-    updatedAt: jstDate('最終更新日'),
-    retiredAt: jstDate('撤退した日').optional().describe('あれば撤退済み。再開するときは消して mirrors を宣言し直す'),
-    plans: z
-      .array(
-        z
-          .object({
-            id: z.string().regex(/^[0-9a-f]{12}$/, 'note のプラン id（16 進 12 桁）'),
-            key: z.string().regex(/^[a-z][a-z0-9-]*$/, 'mirrors の {key} が指す名前'),
-            name: text,
-            price: yen('月額会費'),
-            limit: z.number().int().min(1).nullable().describe('定員。無制限は null'),
-            published: z.boolean().describe('募集中か'),
-            note: text.optional(),
-            limitDecision: text.optional().describe('定員の判断の記録（unresolved なら未決）'),
-          })
-          .strict(),
-      )
-      .superRefine(uniqueBy('id'))
-      .superRefine(uniqueBy('key')),
-    mirrors: z
-      .array(z.object({ file: text.describe('価格の写しがあるファイル（リポジトリ相対）'), must: text.describe('ファイルに含まれるべき文字列。{key} は plans[].key の価格に展開') }).strict())
-      .describe('価格の写し。運用中は 1 件以上が要る（0 件は検査不成立）'),
-  })
-  .strict()
-  .meta({ title: 'note メンバーシップ' });
-
 // ---- マガジン収録の期待値（config/note-magazine-membership.json） ------------------------------
 
 const docKey = z.object({ _doc: z.string() });

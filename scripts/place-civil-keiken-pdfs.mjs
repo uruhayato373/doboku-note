@@ -8,8 +8,8 @@
  * 建設部門 200 本は既に「本文で印刷用PDFを約束 → 記事 dir に PDF 実体 → note へ添付」で
  * 運用されている。土木 178 本を同じ形へ揃える（2026-07-31・note 一本化方針 C-2）。
  *
- * 節は記事の**末尾**（メンバーシップ CTA より後ろ）へ置く。spec の include 範囲は
- * `<!-- cta:civil-membership-lab` で終わるため、PDF 自身の紙面にこの節は載らない。
+ * 節は記事の**末尾**へ置く。spec の include 範囲は `## 印刷用PDF` の手前で終わるため、
+ * PDF 自身の紙面にこの節は載らない。
  *
  * 使い方:
  *   node scripts/place-civil-keiken-pdfs.mjs           # dry-run

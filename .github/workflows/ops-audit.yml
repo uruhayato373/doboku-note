@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: "22"
 
-      # ops 区分の検査は node: 標準モジュールだけで動く（membership-drip / sales-freshness / kdp-report-freshness / coconala-analytics）。
+      # ops 区分の検査は node: 標準モジュールだけで動く（sales-freshness / kdp-report-freshness / coconala-analytics）。
       # npm ci は不要。依存が要る検査を ops に足すときは、ここに npm ci を入れる。
       - name: Run ops audit
         id: ops

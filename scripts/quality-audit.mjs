@@ -318,8 +318,6 @@ export const CHECKS = [
     { label: 'sns-urls-note', cmd: ['node', 'scripts/check-sns-urls.mjs', '--note'], timeout: 60_000, note: 'note 本文コーパス（content/note/**/*.md・全量のみ・pre-commit では走らない）' },
   ] },
   // ── ops（運用アラート）── 壁時計依存。PR の diff では直せないので ci:true に置かない（ヘッダ「設計」参照）。
-  { id: 'membership-drip', npm: 'check-membership-drip', timeout: 30_000, ci: false, ops: true, note: '会員配信ドリップの遅れ・実体欠落。配信表(README)が真実源で、予定日を GRACE_DAYS 以上過ぎた未配信は赤。2026-08-27 に学科02が2日遅れで沈黙していた（カード側の日付が正典とずれていて気づけなかった）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-18 まで ci 区分に居て 30 日に 13 回 Pre-merge を落としていたため ops へ移した' },
-  { id: 'note-membership', npm: 'check-note-membership', timeout: 60_000, ci: true, note: 'メンバーシップの会費/定員/planId が SSOT config と一致するか。note は会費を変更できずプラン作り直しが唯一の手段なので、ドリフト放置は修復不能に近づく（--live は実機突合・ローカル専用）。退役済み（config の retiredAt）は SKIP と理由を出し、公開状態だけ見る' },
   // 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。未登録タグ・別名綴り・構造タグ不整合は baseline ラチェット
   // （content-taxonomy-baseline.json）。WARN（topic 三方向の 0 件・未使用タグ）の読み手＝/weekly-review Phase 2。
   { id: 'content-taxonomy', npm: 'check-content-taxonomy:ci', timeout: 60_000, ci: true, note: '領域×資格×記事型×テーマ×タグの整合（規則 content-taxonomy.md）。未登録タグ／別名綴り／構造タグ不整合は baseline ラチェット。WARN の読み手＝/weekly-review Phase 2' },
