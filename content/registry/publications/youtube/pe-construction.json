@@ -942,7 +942,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-kazu-1",
-      "status": "rendered",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#shorts/point-kazu-1",
       "relatedTo": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -967,7 +967,38 @@
         "contentSha256": "16620da98c4fe0f87a32ad1f136d0732cc8446ba3a56865fa9e369186e2f6bce"
       },
       "times": {
-        "rendered": "2026-11-17T13:00:18.844Z"
+        "rendered": "2026-11-17T13:00:18.844Z",
+        "uploaded": "2026-11-17T13:02:50.091Z"
+      },
+      "delivery": {
+        "inputSha256": "17504eb7bf62f509091a47ae09949bfd6098145d06af4b93d3131701f3839782",
+        "marker": "dn-single-646b86e78888607ea3432c99e8588a8a2ea355b4",
+        "uploadRequestedAt": "2026-11-17T13:01:45.162Z",
+        "videoId": "cBpCEAp40dg",
+        "processedAt": "2026-11-17T13:02:49.356Z",
+        "thumbnailRequestedAt": "2026-11-17T13:02:50.151Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/cBpCEAp40dg/default.jpg?sqp=CNCf8dcG&rs=AOn4CLBqgnubM6h8t1GnZ6cHiOEH8OwlIg",
+          "https://i9.ytimg.com/vi/cBpCEAp40dg/mqdefault.jpg?sqp=CNCf8dcG&rs=AOn4CLB9XluyOhCixi86dvYMlWwoEmZN9g",
+          "https://i9.ytimg.com/vi/cBpCEAp40dg/hqdefault.jpg?sqp=CNCf8dcG&rs=AOn4CLAwXcn3ESFVrfO0li5Ww78SkvLNPw",
+          "https://i9.ytimg.com/vi/cBpCEAp40dg/sddefault.jpg?sqp=CNCf8dcG&rs=AOn4CLBvtLc8wXQzkkDypxTED4-bcDorbA",
+          "https://i9.ytimg.com/vi/cBpCEAp40dg/maxresdefault.jpg?sqp=CNCf8dcG&rs=AOn4CLBed6jJI5QvnUXRS33dlJgGx69Cdw",
+          "https://i9.ytimg.com/vi/cBpCEAp40dg/sardefault.jpg?sqp=CNCf8dcG&rs=AOn4CLBhN1v4n4gYdyYSb2V34u8SKlhtpw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-17T13:02:54.697Z"
+      },
+      "platform": {
+        "id": "cBpCEAp40dg",
+        "url": "https://www.youtube.com/watch?v=cBpCEAp40dg",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#shorts/point-kazu-1"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-17T13:02:54.697Z"
       }
     },
     {
