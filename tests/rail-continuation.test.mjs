@@ -138,13 +138,15 @@ test('基準書の右の欄を描画: 上の束の後に下に続く束・各組
     const render = props => parse(renderToStaticMarkup(React.createElement(nav.default ?? nav, { agencyId: 'mlit', currentDocument: document, currentChapter: chapter, ...props })));
     const withGroups = render({ railGroups });
     const without = render({});
-    const order = root => root.childNodes.filter(el => el.tagName).map(el => el.getAttribute('data-standards-affiliate') === 'rail' ? el.querySelector('[data-cta-placement]').getAttribute('data-cta-placement') : el.getAttribute('data-cta-label') ?? el.getAttribute('data-cta') ?? el.getAttribute('aria-label'));
+    // 右の欄の 1 つ 1 つは RailStack の data-rail-kind の包みの中。包みを外して中身を見る（中身が空の包みは数えない）
+    const unwrap = root => root.childNodes.filter(el => el.tagName).flatMap(el => el.getAttribute('data-rail-kind') ? el.childNodes.filter(c => c.tagName).slice(0, 1) : [el]);
+    const order = root => unwrap(root).map(el => el.getAttribute('data-standards-affiliate') === 'rail' ? el.querySelector('[data-cta-placement]').getAttribute('data-cta-placement') : el.getAttribute('data-cta-label') ?? el.getAttribute('data-cta') ?? el.getAttribute('aria-label'));
     const groups = withGroups.querySelectorAll('[data-article-sidebar-group]');
     process.stdout.write(JSON.stringify({
       upperWith: order(withGroups.querySelector('[data-standards-sidebar]')), upperWithout: order(without.querySelector('[data-standards-sidebar]')),
       wrapper: withGroups.querySelector('div').childNodes.filter(el => el.tagName).map(el => el.hasAttribute('data-standards-sidebar') ? 'upper' : el.hasAttribute('data-article-sidebar-continuation') ? 'continuation' : 'other'),
       wrapperClass: withGroups.querySelector('div').getAttribute('class'),
-      groups: groups.map(g => g.childNodes.filter(el => el.tagName).map(el => el.hasAttribute('data-article-affiliate') ? 'banner:' + el.querySelector('a[data-cta-placement]').getAttribute('data-cta-placement') : el.getAttribute('data-adsense') === 'rail' ? 'adsense' : el.hasAttribute('data-article-sidebar-card') ? 'card' : 'other')),
+      groups: groups.map(g => g.childNodes.filter(el => el.tagName).map(el => el.hasAttribute('data-rail-kind') && !el.hasAttribute('data-article-sidebar-card') ? el.childNodes.filter(c => c.tagName)[0] : el).map(el => el.hasAttribute('data-article-affiliate') ? 'banner:' + el.querySelector('a[data-cta-placement]').getAttribute('data-cta-placement') : el.getAttribute('data-adsense') === 'rail' ? 'adsense' : el.hasAttribute('data-article-sidebar-card') ? 'card' : 'other')),
       pixels: withGroups.querySelector('[data-article-sidebar-continuation]').querySelectorAll('img[width="1"]').length,
       thumbs: withGroups.querySelectorAll('[data-article-sidebar-card] a[data-thumb]').length,
       plainRows: withGroups.querySelectorAll('[data-article-sidebar-card] a').filter(a => a.getAttribute('href').includes('/standards/')).length,

@@ -150,13 +150,16 @@ test('PC は上端・目次後・回遊カード間へ配置し、モバイル�
     const { default: nav } = await import('./src/components/standards/StandardsNavigation.tsx');
     const { default: top } = await import('./src/app/standards/page.tsx');
     const { ThemeProvider } = await import('./src/components/providers/ThemeProvider.tsx');
-    const { StandardTopicDiscovery } = await import('./src/components/standards/StandardsSidebarDiscovery.tsx');
+    const { standardTopicDiscoveryItems } = await import('./src/components/standards/StandardsSidebarDiscovery.tsx');
     const { StandardsRailBanner } = await import('./src/components/standards/StandardsAffiliateBanners.tsx');
     const { getStandardChapter } = await import('./src/lib/standards-articles.ts');
+    const { default: RailStack } = await import('./src/components/ui/RailStack/RailStack.tsx');
     Date.now = () => Date.parse('2026-11-16T00:00:00+09:00');
     const render = (component, props) => parse(renderToStaticMarkup(React.createElement(component.default ?? component, props)));
     const identify = el => el.getAttribute('data-cta-label') ?? el.getAttribute('data-cta') ?? el.getAttribute('aria-label');
-    const order = root => root.childNodes.filter(el => el.tagName).map(el => el.getAttribute('data-standards-affiliate') === 'rail' ? el.querySelector('[data-cta-placement]').getAttribute('data-cta-placement') : identify(el));
+    // 右の欄の 1 つ 1 つは RailStack の data-rail-kind の包みの中。包みを外して中身を見る（中身が空の包みは数えない）
+    const unwrap = root => root.childNodes.filter(el => el.tagName).flatMap(el => el.getAttribute('data-rail-kind') ? el.childNodes.filter(c => c.tagName).slice(0, 1) : [el]);
+    const order = root => unwrap(root).map(el => el.getAttribute('data-standards-affiliate') === 'rail' ? el.querySelector('[data-cta-placement]').getAttribute('data-cta-placement') : identify(el));
     const rows = ['mlit/sekou-kanri-kijun/2-1', 'kinki/common/1-1'].map(path => {
       const [agencyId, docId, chapterId] = path.split('/');
       const { document, chapter } = getStandardChapter(agencyId, docId, chapterId);
@@ -168,8 +171,8 @@ test('PC は上端・目次後・回遊カード間へ配置し、モバイル�
     });
     const topRoot = parse(renderToStaticMarkup(React.createElement(ThemeProvider, null, React.createElement(top.default ?? top))));
     const topRail = topRoot.querySelector('[data-standards-sidebar]');
-    const single = render(StandardTopicDiscovery, { topics: [], heading: '回遊', withBridge: true, betweenCards: React.createElement(StandardsRailBanner, { slot: 'standards-list-rail-2', pageKind: 'standards-list' }) });
-    process.stdout.write(JSON.stringify({ rows, top: order(topRail), explore: order(topRail.querySelector('[data-standards-explore]')), single: order(single), main: Boolean(topRoot.querySelector('main')), text: topRoot.textContent.includes('土木') }));
+    const single = render(RailStack, { items: standardTopicDiscoveryItems({ topics: [], heading: '回遊', withBridge: true, betweenCards: React.createElement(StandardsRailBanner, { slot: 'standards-list-rail-2', pageKind: 'standards-list' }) }) });
+    process.stdout.write(JSON.stringify({ rows, top: order(topRail), single: order(single.querySelector('[data-rail-stack]')), main: Boolean(topRoot.querySelector('main')), text: topRoot.textContent.includes('土木') }));
   `;
   const data = JSON.parse(execFileSync(execPath, ['--import', 'tsx', '--input-type=module', '-e', script], { encoding: 'utf8' }));
   for (const row of data.rows) {
@@ -179,8 +182,8 @@ test('PC は上端・目次後・回遊カード間へ配置し、モバイル�
     assert.equal(row.mobileAds, 0);
   }
   assert.equal(data.top[0], 'standards-list-rail');
-  assert.deepEqual(data.explore.slice(0, 2), ['standards-entry-chapter', 'standards-list-rail-2']);
-  assert.ok(data.explore.length > 2);
+  assert.deepEqual(data.top.slice(1, 3), ['standards-entry-chapter', 'standards-list-rail-2']);
+  assert.ok(data.top.length > 3);
   assert.deepEqual(data.single, ['card', 'standards-list-rail-2'], '回遊が1枚だけなら後ろ');
   assert.equal(data.main, true);
   assert.equal(data.text, true);

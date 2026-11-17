@@ -25,7 +25,7 @@ test('仕様書の階層ナビをデスクトップとモバイルで利用で�
   } else {
     await expect(sidebar).toBeVisible();
     await expect(mobileNav).toBeHidden();
-    await expect(sidebar.locator('[data-standards-nav="agencies"] a[aria-current="page"]')).toContainText('中部地方整備局');
+    await expect(sidebar.locator('[data-standards-nav="agencies"] [aria-current="page"]')).toContainText('中部地方整備局');
   }
 
   await page.goto('/standards/chubu/common');

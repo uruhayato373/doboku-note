@@ -1,7 +1,7 @@
 import { articleSidebarPlan, type ArticleSidebarInput } from '@/lib/article-sidebar-plan';
 import type { RailGroup } from '@/lib/article-sidebar-continuation';
 import RailStack, { type RailItem } from '@/components/ui/RailStack/RailStack';
-import type { RailKind } from '@/lib/rail-kinds';
+import type { RailKind } from '@/lib/rail-kinds.mjs';
 import { ArticleBanner, articleRailSlot, articleImagePlacements } from '@/components/docs/ArticleAffiliateBanners';
 import type { ResolvedPlacements } from '@/lib/affiliate-placement';
 import AuthorSidebarCard from '@/components/ui/AuthorSidebarCard';

@@ -5,8 +5,9 @@ import { categoryNavPlan } from '@/lib/category-nav-plan';
  * ページの分類に応じて右サイドバーまたは記事末尾に表示する。
  */
 import Link from 'next/link';
-import type { RailKind } from '@/lib/rail-kinds';
+import type { RailKind } from '@/lib/rail-kinds.mjs';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import { DiscoveryNav } from '@/components/ui/SidebarDiscovery';
 import type { DocMeta } from '@/lib/docs';
 import { type DocGroupKey } from '@/lib/doc-classifier';
@@ -123,28 +124,17 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
     if (!section || !keywords || keywords.length === 0) return null;
 
     return (
-      <SidebarWrapper title="同セクションのキーワード">
-        <p className="text-xs text-(--ink-muted) mb-2">
-          {section.id} {section.title}
-        </p>
-        <ul>
+      <SidebarWrapper title="同セクションのキーワード" lead={`${section.id} ${section.title}`}>
+        <LinkRowList>
           {keywords.map(kw => (
-            <li key={kw.slug} className="border-b border-(--rule-soft) last:border-b-0">
-              {kw.slug === currentSuffix ? (
-                <span className="block text-sm py-2 font-bold text-(--ink)">
-                  {kw.title}
-                </span>
-              ) : (
-                <Link
-                  href={getPublicDocPath(`pe-comprehensive-management-${kw.slug}`)}
-                  className="block text-sm py-2 text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors"
-                >
-                  {kw.title}
-                </Link>
-              )}
-            </li>
+            <LinkRow
+              key={kw.slug}
+              href={getPublicDocPath(`pe-comprehensive-management-${kw.slug}`)}
+              title={kw.title}
+              current={kw.slug === currentSuffix}
+            />
           ))}
-        </ul>
+        </LinkRowList>
       </SidebarWrapper>
     );
   }
@@ -185,14 +175,9 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
 }
 
 /* ─── ラッパー（デザイン統一） ─── */
-function SidebarWrapper({ title, children }: { title: string; children: React.ReactNode }) {
+function SidebarWrapper({ title, lead, children }: { title: string; lead?: string; children: React.ReactNode }) {
   return (
-    <MetaCard as="div" padding="compact" trackNav="category-nav">
-      <div
-        className="nav-card-title text-(--ink)"
-      >
-        {title}
-      </div>
+    <MetaCard as="div" padding="compact" trackNav="category-nav" title={title} lead={lead}>
       {children}
     </MetaCard>
   );
@@ -203,22 +188,6 @@ function MobileWrapper({ title, children }: { title: string; children: React.Rea
     <MetaCard trackNav="category-nav" title={title}>
       {children}
     </MetaCard>
-  );
-}
-
-/**
- * ナビ一覧の 2 行目（サブタイトル）。
- * subtitle は平均 27 字・最大 50 字あり、サイドバー幅 288px では 3 行以上になりうるので
- * 2 行で打ち切る（全件が「主題 1 行 + サブ 2 行」以内に収まりリストのリズムが安定する）。
- */
-function NavSubtitle({ children }: { children: React.ReactNode }) {
-  return (
-    <span
-      className="mt-0.5 block text-[12px] leading-normal text-(--ink-muted) overflow-hidden"
-      style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}
-    >
-      {children}
-    </span>
   );
 }
 
@@ -242,28 +211,20 @@ function LinkListCard({
   if (variant === 'sidebar') {
     return (
       <SidebarWrapper title={title}>
-        <ul data-nav-list={navList}>
+        <LinkRowList {...(navList ? { data: { 'data-nav-list': navList } } : {})}>
           {docs.map((d) => {
             const { main, sub } = resolveNavTitle(d);
             return (
-              <li key={d.slug} className="border-b border-(--rule-soft) last:border-b-0">
-                {d.slug === currentSlug ? (
-                  <span className="block py-2">
-                    <span className="block text-sm font-bold text-(--ink)">{main}</span>
-                    {sub && <NavSubtitle>{sub}</NavSubtitle>}
-                  </span>
-                ) : (
-                  <Link href={getPublicDocPath(d.slug)} className="group block py-2">
-                    <span className="block text-sm text-brand underline decoration-brand/30 underline-offset-2 group-hover:text-brand-deep group-hover:decoration-brand transition-colors">
-                      {main}
-                    </span>
-                    {sub && <NavSubtitle>{sub}</NavSubtitle>}
-                  </Link>
-                )}
-              </li>
+              <LinkRow
+                key={d.slug}
+                href={getPublicDocPath(d.slug)}
+                title={main}
+                description={sub}
+                current={d.slug === currentSlug}
+              />
             );
           })}
-        </ul>
+        </LinkRowList>
       </SidebarWrapper>
     );
   }
@@ -293,7 +254,7 @@ export function categoryNavCards(props: CategoryNavCardProps) {
   return <LinkListCard variant={props.variant} currentSlug={props.currentSlug} title={spec.title} docs={spec.docs} {...(spec.navList ? { navList: spec.navList } : {})} />;
  });
 }
-/** categoryNavCards の 1 枚ずつの右の欄の種類（src/lib/rail-kinds.ts）。年度の表だけ years */
+/** categoryNavCards の 1 枚ずつの右の欄の種類（src/lib/rail-kinds.mjs）。年度の表だけ years */
 export function categoryNavKinds(props: CategoryNavCardProps): RailKind[] {
  return categoryNavPlan(props).map(spec => spec.kind === 'pastExam' ? 'years' : 'nav');
 }

@@ -17,6 +17,7 @@ import { parseCliArgs } from './lib/cli-args.mjs';
 import { impressionKeyCounts } from './lib/affiliate-link-keys.mjs';
 
 import { PAGE_ALLOWLIST, SURFACE_ALLOWLIST, articleImageKind } from '../src/lib/cta-density-policy.mjs';
+import { RAIL_KINDS } from '../src/lib/rail-kinds.mjs';
 export { PAGE_ALLOWLIST, SURFACE_ALLOWLIST };
 
 const attr = (node, key) => node.getAttribute(key) ?? '';
@@ -107,6 +108,17 @@ export function inspectHtml(html, slug) {
     if (allowed) exclusions.push({ ...result, reason: allowed.reason });
     else violations.push(result);
   };
+  // 右の欄（TwoColumnShell の aside・幅 316px）は RailStack だけが描き、1 つ 1 つが台帳（src/lib/rail-kinds.mjs）の種類を持つ。
+  // 手書きの入れ物・台帳に無い種類が戻ったら止める（2026-11-17 に右の欄を共通化）。
+  const rails = dom.querySelectorAll('aside').filter(n => hasClass(n, 'w-[316px]'));
+  let railUnits = 0;
+  for (const rail of rails) {
+    if (!rail.querySelector('[data-rail-stack]')) { add('rail-without-stack', 1, 0, [], ['layout']); continue; }
+    const units = rail.querySelectorAll('[data-rail-stack], [data-article-sidebar-group], [data-article-sidebar-lower-ads]').flatMap(box => box.childNodes.filter(n => n.tagName));
+    railUnits += units.length;
+    const unknown = units.filter(n => !Object.hasOwn(RAIL_KINDS, attr(n, 'data-rail-kind')));
+    if (unknown.length) add('rail-kind-unknown', unknown.length, 0, [], ['layout'], { kinds: [...new Set(unknown.map(n => attr(n, 'data-rail-kind') || n.tagName.toLowerCase()))] });
+  }
   if (notes.length > 30) add('note-total', notes.length, 30, notes);
   if (article) {
     const bodyNotes = notes.filter(n => within(n.node, article));
@@ -177,12 +189,14 @@ export function inspectHtml(html, slug) {
         for (const banner of banners) {
           // 埋める組はバナーだけ。実カードの直後という決まりは過去問の埋める組には当てない。
           if (fillBanner(banner)) continue;
-          const parent = banner.parentNode;
+          // 右の欄の 1 つ 1 つは RailStack が data-rail-kind の div で包む。包みがあれば包みを 1 単位として前後を見る
+          const unit = banner.parentNode.hasAttribute('data-rail-kind') ? banner.parentNode : banner;
+          const parent = unit.parentNode;
           const children = parent.childNodes.filter(n => n.tagName);
           // 回遊候補が尽きた組だけ広告単独を許す。空の「実カード」で検査をすり抜けない。
           const adOnly = parent.hasAttribute('data-article-sidebar-group') && attr(parent, 'data-article-sidebar-ad-only') === 'true'
             && parent.parentNode.hasAttribute('data-article-sidebar-continuation') && children.length === 1;
-          if (!adOnly && !children[children.indexOf(banner) + 1]?.hasAttribute('data-article-sidebar-card')) add('affiliate-rail-adjacent', 1, 0, [], ['affiliate']);
+          if (!adOnly && !children[children.indexOf(unit) + 1]?.hasAttribute('data-article-sidebar-card')) add('affiliate-rail-adjacent', 1, 0, [], ['affiliate']);
         }
       }
       for (const n of imageLinks.filter(n => articleImageKind(attr(n, 'data-cta-placement')) === 'inline')) {
@@ -215,7 +229,7 @@ export function inspectHtml(html, slug) {
   for (const [mat, count] of Object.entries(impressionKeyCounts(dom.toString()))) {
     if (count > 1) add('affiliate-pixel-dup', count, 1, [], ['affiliate'], { mat });
   }
-  return { slug, pageType: type, article: Boolean(article), noteCount: notes.length, violations, exclusions };
+  return { slug, pageType: type, article: Boolean(article), noteCount: notes.length, rail: rails.length > 0, railUnits, violations, exclusions };
 }
 
 export function auditDirectory(outRoot) {
@@ -241,6 +255,7 @@ export function auditDirectory(outRoot) {
     ok: files.length > 0 && errors.length === 0 && violations.length === 0,
     ...(files.length ? {} : { reason: 'no-build' }),
     files: files.length, checkedPages: pages.length, articlePages: pages.filter(p => p.article).length,
+    railPages: pages.filter(p => p.rail).length, railUnits: pages.reduce((n, p) => n + (p.railUnits ?? 0), 0),
     violationPages: pages.filter(p => p.violations.length).length, violationCount: violations.length,
     // 原因は重複しうる（3枚以上で自動×手書き・手書き同士の両方）。総数は violationCount。
     byPageTypeAndCause: [...groups.values()].map(g => ({ ...g, pages: [...g.pages] })),
@@ -257,6 +272,7 @@ export function main(argv = process.argv.slice(2)) {
   else {
     console.log(`[check-cta-density] 対象 ${report.files} / 検査 ${report.checkedPages} ページ（記事 ${report.articlePages}）・違反 ${report.violationCount} 件 / ${report.violationPages} ページ・取得失敗 ${report.errors.length} 件`);
     console.log(`  許可リストによる除外 ${report.excludedCount} 件（理由は JSON に記録）`);
+    console.log(`  右の欄: ${report.railPages} ページ・${report.railUnits} 個の種類を台帳と照合`);
     if (!report.files) console.error('out/ の HTML が空です。先に npm run build を実行してください。');
     for (const g of report.byPageTypeAndCause) console.log(`  ${g.pageType} × ${g.cause}: ${g.violations} 件 / ${g.pages.length} ページ`);
     for (const v of report.violations) console.error(`  ${v.slug}: ${v.rule} = ${v.count}（上限 ${v.limit}） [${v.causes.join(', ')}]`);

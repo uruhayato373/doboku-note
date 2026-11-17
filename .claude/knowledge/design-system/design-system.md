@@ -165,7 +165,7 @@
 |---|---|---|
 | 原子 | `Button`・`ButtonLink`（`variant`: primary／secondary／soft／text・`download`）、`Eyebrow`・`EYEBROW`・`eyebrowClass`（label／mono／plain・`tone`）、`Pill`（accent／tag／outline）、`Arrow`、`Breadcrumb`。既存の専用品 `MagazineBadge`・`AffiliatePrBadge`・`RankMarker` | `tests/atoms-ratchet.test.mjs` |
 | 分子 | 内部リンクの 4 部品（下の表）、ツールの `ToolField`・`ToolResultValue`・`ToolStatus`・`ToolNotice`・`ToolSources`（`src/components/tools/ToolParts.tsx`） | `tests/link-primitives-ratchet.test.mjs`・`tests/tool-parts-ratchet.test.mjs` |
-| 生体 | 区画の `MetaCard`（`title`・`lead`・`icon`。SectionCard は廃止）、前後ナビ `PrevNextNav`、ツールの関連ページ `RelatedPages` | `tests/section-card-ratchet.test.mjs` |
+| 生体 | 区画の `MetaCard`（`title`・`lead`・`eyebrow`・`titleAside`・`icon`。SectionCard は廃止）、前後ナビ `PrevNextNav`、ツールの関連ページ `RelatedPages`、右の欄の入れ物 `RailStack`（§3.4） | `tests/section-card-ratchet.test.mjs`・`tests/rail-ratchet.test.mjs` |
 | テンプレート | `PageShell`・`PageHeader`・`TwoColumnShell`、ツールのページ `ToolPageShell` | — |
 | lib | 年度コード `src/lib/exam-year.mjs`、記事の種類のラベル `src/lib/doc-kind.ts` | `tests/dedupe-ratchet.test.mjs` |
 
@@ -178,7 +178,7 @@
 | 上に画像のカード | `ArticleCard`（`eyebrow`・`align`。記事のメタからは `lib/article-card` の `articleCardProps`） | 記事末の関連記事・本文中間の続き・前後の 2 枚（画像あり）・テーマの「はじめに読む」 |
 | 左に画像の行 | `ArticleThumbRow`（`variant`: `card` 枠つき 96px／`rail` 枠なし 96px／`feed` 124/168px・明朝の題名と抜粋・順位・`eyebrow`・`meta`・`framed`・`thumb="wide"`） | 記事末の次のステップ・この記事のテーマ・関連テキスト・ツールの関連ページ（card）、右の欄の回遊（rail）、資格トップの一覧・よく読まれている記事（feed。インフィード広告はこの型に合わせる）、トップの新着・検索結果（feed＋framed） |
 | 枠つきのタイル | `LinkTile`（`eyebrow`・`icon`・`meta`・`size`・`serif`・`align`・`current`・`accentBar`・外部 URL は a） | 記事でない行き先: 資格の橋渡し・テーマ・法令・ツール一覧・基準書の文書・前後の 2 枚（文字だけ）・トップの領域・資格トップのカード・モバイルのカテゴリナビ |
-| 区切り線の文字の行 | `LinkRow`＋`LinkRowList`（`eyebrow`・`description`・`marker`（`RankMarker`）・`meta`・`arrow`・`tone`・`serif`） | 項目の多い一覧: 右の欄の文字の一覧・カリキュラム・人気の順位・テーマの記事の行・基準書の文書と章・無料ツール |
+| 区切り線の文字の行 | `LinkRow`＋`LinkRowList`（`eyebrow`・`description`・`marker`（`RankMarker`）・`meta`・`arrow`・`tone`・`serif`・`current`＝いま見ているページはリンクにせず太字） | 項目の多い一覧: 右の欄の文字の一覧・カリキュラム・人気の順位・テーマの記事の行・基準書の文書と章・無料ツール |
 
 前後ナビ（`PrevNextNav`／見出しの無い所は `PrevNextPair`）は部品を持たず、画像ありは `ArticleCard`、文字だけは `LinkTile` を左右に並べる。ツールの末尾の関連ページは `RelatedPages`（server で行き先の画像を引き、client のツールへ ReactNode で渡す）。1 実装のまま使う固有の形（チップ・表・資格の入口・矢印の行 `MetaListItem`・MDX の `SeeAlso`・商品の導線）は、ラチェットの許可リストに理由つきで載せる。
 
@@ -274,6 +274,8 @@
 
 以下には**追加しない**: `/links`・`/search`・`/about`・`/privacy`・`/terms`・`/tools`。
 理由 — 検索=入力と結果比較に集中 / links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
+
+**右の欄の部品（2026-11-17 共通化）**: 右の欄の中身は `RailStack`（`ui/RailStack/RailStack.tsx`）だけが描く。記事（`ArticleSidebar`）・資格トップ（`CategoryPage`）・基準書（`StandardsNavigation`・`/standards` トップ）は並べるもの（`items`＝種類と中身）と下に続く組（`groups`）を渡すだけで、入れ物の div を手書きしない。並べる 1 つ 1 つは台帳 `src/lib/rail-kinds.mjs` の種類（nav・thumbs・tree・years・questions・author・bridge・note・career・adsense）を持ち、`data-rail-kind` の div で包まれる（中身が空なら畳む）。カードの外枠と題名は `MetaCard`（`padding="compact"`・`title`・`titleAside`・`eyebrow`）、文字の一覧は `LinkRow`（現在地は `current`）で、目次ツリー・年度の表・設問のチップも外枠は `MetaCard`。広告と note の画像の CTA だけが固有の形で、中身と配置の正本は `site-cta-surfaces.json` とアフィリエイトの配置ルール。コードは `tests/rail-ratchet.test.mjs`、ビルド後の HTML は `check-cta-density` の `rail-without-stack`・`rail-kind-unknown` が止める。
 
 **上端揃え（docs/category/standards 共通）**: メイン本文と右サイドバーの上端は揃える。縦位置は `TwoColumnShell` の `aside py-10` ＝ main の上 padding（≥993px で 40px）が唯一の供給源で、**サイドバー先頭要素・main 先頭要素に独自の `margin-top` を持たせない**（先頭が下がって上端がズレる。例: 旧 `SidebarAdBanner` の `mt-3` を撤去して是正）。
 

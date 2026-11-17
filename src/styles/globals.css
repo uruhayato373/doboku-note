@@ -38,14 +38,6 @@
   }
 }
 
-@utility nav-card-title {
-  /* ===== nav-card-title: サイドバー・カード見出し共通 ===== */
-  font-size: var(--font-size-ui-title);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  margin-bottom: 8px;
-}
-
 @utility card-interactive {
   /* ===== card-interactive: クリック可能カードの hover 演出（影＋2px 浮き）=====
      2026-07 Soft Editorial。演出は「影の深化＋translateY(-2px)」まで。

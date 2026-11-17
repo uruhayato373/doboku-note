@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import Link from 'next/link';
 import { ButtonLink } from '@/components/ui/Button/Button';
 import Arrow from '@/components/ui/Arrow/Arrow';
-import { StandardChapterDiscovery, StandardEntryChapters, StandardTopicDiscovery } from '@/components/standards/StandardsSidebarDiscovery';
+import { standardChapterDiscoveryItems, standardEntryChaptersItem, standardTopicDiscoveryItems } from '@/components/standards/StandardsSidebarDiscovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import StandardsTreeChapter from '@/components/standards/StandardsTreeChapter';
 import { standardTreeSections, standardTreeTocPath, usesTreeNav } from '@/lib/standards-tree-nav';
@@ -23,7 +23,9 @@ import { standardsAgencyPath } from '@/lib/route-paths';
 import { getTopicsForStandardDocument } from '@/lib/topics';
 import { getStandardDefaultTopics } from '@/lib/standards-discovery';
 import { StandardsRailBanner } from '@/components/standards/StandardsAffiliateBanners';
-import RailContinuation from '@/components/ui/RailContinuation/RailContinuation';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
+import RailStack, { type RailItem } from '@/components/ui/RailStack/RailStack';
 import type { RailGroup } from '@/lib/rail-continuation';
 
 type StandardsNavigationProps = {
@@ -38,70 +40,35 @@ type StandardsNavigationProps = {
   railGroups?: RailGroup[];
 };
 
-const LINK_BASE =
-  'focus-ring flex min-h-11 items-center gap-3 border-l-4 px-3 py-2 text-[14px] leading-[1.55] transition-colors';
-
-function navLinkClass(active: boolean): string {
-  return active
-    ? `${LINK_BASE} border-(--accent) bg-(--accent-fill) font-bold text-(--ink)`
-    : `${LINK_BASE} border-transparent text-(--ink-body) hover:border-(--rule) hover:bg-(--accent-fill) hover:text-(--ink)`;
-}
-
-function NavHeading({ children, count }: { children: string; count?: number }) {
-  return (
-    <div className="flex items-baseline justify-between gap-3 border-b border-(--rule-soft) px-4 py-3">
-      <h3 className="text-[15px] font-bold tracking-[0.02em] text-(--ink)">{children}</h3>
-      {typeof count === 'number' && (
-        <span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">{count}</span>
-      )}
-    </div>
-  );
-}
-
 function AgencyNav({ currentAgency }: { currentAgency: string }) {
   const agencies = getStandardsCatalog().agencies;
 
   return (
-    <nav aria-label="発行機関を移動" className="border border-(--rule-soft) bg-(--paper)">
-      <NavHeading count={agencies.length}>発行機関</NavHeading>
-      <ul className="py-1" data-standards-nav="agencies">
-        {agencies.map((agency) => {
-          const active = agency.agencyId === currentAgency;
-          return (
-            <li key={agency.agencyId}>
-              <Link
-                href={standardsAgencyPath(agency.agencyId)}
-                className={navLinkClass(active)}
-                aria-current={active ? 'page' : undefined}
-              >
-                <span className="min-w-0 flex-1">{agency.agencyName}</span>
-                <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
-                  {agency.documentCount}
-                </span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+    <MetaCard as="nav" ariaLabel="発行機関を移動" padding="compact" title="発行機関" titleAside={agencies.length}>
+      <LinkRowList data={{ 'data-standards-nav': 'agencies' }}>
+        {agencies.map((agency) => (
+          <LinkRow
+            key={agency.agencyId}
+            href={standardsAgencyPath(agency.agencyId)}
+            title={agency.agencyName}
+            meta={<span className="font-mono text-[11px] tabular-nums">{agency.documentCount}</span>}
+            current={agency.agencyId === currentAgency}
+          />
+        ))}
+      </LinkRowList>
+    </MetaCard>
   );
 }
 
-function DocumentLink({ document, active }: { document: StandardDocument; active: boolean }) {
+function documentRow(document: StandardDocument, current: boolean) {
   return (
-    <Link
+    <LinkRow
+      key={document.documentId}
       href={standardDocumentPath(document)}
-      className={navLinkClass(active)}
-      aria-current={active ? 'page' : undefined}
       title={document.title}
-    >
-      <span className="min-w-0 flex-1">
-        <span className="line-clamp-2">{document.title}</span>
-        <span className="mt-1 block font-mono text-[11px] font-normal text-(--ink-muted)">
-          {document.role === 'common' ? '共通仕様書' : '工事必携・関連資料'} · {document.pages.toLocaleString('ja-JP')}頁
-        </span>
-      </span>
-    </Link>
+      description={<span className="font-mono text-[11px]">{document.role === 'common' ? '共通仕様書' : '工事必携・関連資料'} · {document.pages.toLocaleString('ja-JP')}頁</span>}
+      current={current}
+    />
   );
 }
 
@@ -112,35 +79,24 @@ function DocumentNav({ currentDocument }: { currentDocument: StandardDocument })
   const remaining = others.slice(5);
 
   return (
-    <nav aria-label="この機関の文書を移動" className="border border-(--rule-soft) bg-(--paper)">
-      <NavHeading count={documents.length}>この機関の文書</NavHeading>
-      <ul className="py-1" data-standards-nav="documents">
-        <li>
-          <DocumentLink document={currentDocument} active />
-        </li>
-        {visibleOthers.map((document) => (
-          <li key={document.documentId}>
-            <DocumentLink document={document} active={false} />
-          </li>
-        ))}
-      </ul>
+    <MetaCard as="nav" ariaLabel="この機関の文書を移動" padding="compact" title="この機関の文書" titleAside={documents.length}>
+      <LinkRowList data={{ 'data-standards-nav': 'documents' }}>
+        {documentRow(currentDocument, true)}
+        {visibleOthers.map((document) => documentRow(document, false))}
+      </LinkRowList>
       {remaining.length > 0 && (
         <Disclosure
           variant="plain"
           className="border-t border-(--rule-soft)"
-          summaryClassName="px-4 py-2 text-[12px] font-bold text-(--accent)"
+          summaryClassName="px-1 py-2 text-[12px] font-bold text-(--accent)"
           summary={`ほか${remaining.length}文書を表示`}
         >
-          <ul className="border-t border-(--rule-soft) py-1">
-            {remaining.map((document) => (
-              <li key={document.documentId}>
-                <DocumentLink document={document} active={false} />
-              </li>
-            ))}
-          </ul>
+          <LinkRowList className="border-t border-(--rule-soft)">
+            {remaining.map((document) => documentRow(document, false))}
+          </LinkRowList>
         </Disclosure>
       )}
-    </nav>
+    </MetaCard>
   );
 }
 
@@ -167,10 +123,10 @@ function DocumentTreeNav({
   const tocUrl = standardTreeTocPath(document);
 
   return (
-    <nav aria-label="目次" data-cta="nav" data-cta-label="standards-tree" className="border border-(--rule-soft) bg-(--paper) py-2 dark:border-(--rule-soft)">
+    <MetaCard as="nav" ariaLabel="目次" padding="compact" trackNav="standards-tree">
       <Link
         href={standardDocumentPath(document)}
-        className="focus-ring block px-4 pb-2 pt-1 text-[12px] font-bold text-(--ink-muted) hover:text-(--accent)"
+        className="focus-ring block pb-2 text-[12px] font-bold text-(--ink-muted) hover:text-(--accent)"
         aria-current={!currentChapter ? 'page' : undefined}
       >
         {document.role === 'common' ? '土木工事共通仕様書' : document.title}・目次
@@ -247,60 +203,52 @@ function DocumentTreeNav({
           );
         })}
       </div>
-    </nav>
+    </MetaCard>
   );
 }
 
-function NavigationContents({
+function navigationItems({
   agencyId,
   currentDocument,
   currentChapter,
   currentSection,
-}: StandardsNavigationProps) {
+}: StandardsNavigationProps): RailItem[] {
   // 機関のページの読み手はその機関の仕様書を探しに来ているので、機関の切り替えより先に章の入口を出す
   if (!currentDocument) {
-    return (
-      <>
-        <StandardEntryChapters agencyId={agencyId} />
-        <AgencyNav currentAgency={agencyId} />
-      </>
-    );
+    return [standardEntryChaptersItem(agencyId), { kind: 'nav', node: <AgencyNav currentAgency={agencyId} /> }];
   }
 
   // 章を構造化した文書は 編 → 章 → 節 の目次 1 本。章の無い文書は同じ機関の文書一覧だけ
   // （原本の逐語ページ＝分冊は 2026-10-26 に公開をやめた）。
   if (usesTreeNav(currentDocument)) {
-    return (
-      <>
-        {!currentChapter && <DocumentNav currentDocument={currentDocument} />}
-        <DocumentTreeNav document={currentDocument} currentChapter={currentChapter} currentSection={currentSection} />
-      </>
-    );
+    return [
+      { kind: 'nav', node: !currentChapter && <DocumentNav currentDocument={currentDocument} /> },
+      { kind: 'tree', node: <DocumentTreeNav document={currentDocument} currentChapter={currentChapter} currentSection={currentSection} /> },
+    ];
   }
 
-  return <DocumentNav currentDocument={currentDocument} />;
+  return [{ kind: 'nav', node: <DocumentNav currentDocument={currentDocument} /> }];
 }
 
 /** 右の欄の目次の下に置く回遊。章・節 → 関連記事と他地域の同じ章、文書 → 文書のテーマ、機関 → 施工計画・品質管理のテーマ（入口の章は目次の位置に出す） */
-function StandardsDiscovery({
+function discoveryItems({
   currentDocument,
   currentChapter,
   withBridge,
   betweenCards,
 }: {
-  agencyId: string;
   currentDocument?: StandardDocument | undefined;
   currentChapter?: StandardChapter | undefined;
   withBridge: boolean;
   betweenCards?: ReactNode;
-}) {
+}): RailItem[] {
   if (currentDocument && currentChapter) {
-    return <StandardChapterDiscovery document={currentDocument} chapter={currentChapter} withBridge={withBridge} betweenCards={betweenCards} />;
+    return standardChapterDiscoveryItems({ document: currentDocument, chapter: currentChapter, withBridge, betweenCards });
   }
   if (currentDocument) {
-    return <StandardTopicDiscovery topics={getTopicsForStandardDocument(currentDocument)} heading="この資料を実務・試験で深める" withBridge={withBridge} betweenCards={betweenCards} />;
+    return standardTopicDiscoveryItems({ topics: getTopicsForStandardDocument(currentDocument), heading: 'この資料を実務・試験で深める', withBridge, betweenCards });
   }
-  return <StandardTopicDiscovery topics={getStandardDefaultTopics()} heading="基準を実務・試験で深める" withBridge={withBridge} betweenCards={betweenCards} />;
+  return standardTopicDiscoveryItems({ topics: getStandardDefaultTopics(), heading: '基準を実務・試験で深める', withBridge, betweenCards });
 }
 
 export default function StandardsNavigation({
@@ -336,26 +284,15 @@ export default function StandardsNavigation({
         : '全国の基準類一覧';
   // 目次 1 本の文書は目次の頭に文書へのリンクがあるので、右の欄の「資料内を移動」の枠を出さない。
   const treeMode = Boolean(currentDocument && usesTreeNav(currentDocument));
-  const contents = (
-    <NavigationContents
-      agencyId={agencyId}
-      currentDocument={currentDocument}
-      currentChapter={currentChapter}
-      currentSection={currentSection}
-      variant={variant}
-    />
-  );
   const pageKind = currentChapter ? 'standards' : 'standards-list';
+  const navItems = navigationItems({ agencyId, currentDocument, currentChapter, currentSection });
   // 目次の下に置く回遊の枠。モバイルは本文の末尾に資格の橋渡しがあるので、ここでは出さない
-  const discovery = (
-    <StandardsDiscovery
-      agencyId={agencyId}
-      currentDocument={currentDocument}
-      currentChapter={currentChapter}
-      withBridge={variant === 'sidebar'}
-      betweenCards={variant === 'sidebar' ? <StandardsRailBanner slot={currentChapter ? 'standards-rail-3' : 'standards-list-rail-2'} pageKind={pageKind} inlineSlots={inlineSlots} /> : null}
-    />
-  );
+  const discovery = discoveryItems({
+    currentDocument,
+    currentChapter,
+    withBridge: variant === 'sidebar',
+    betweenCards: variant === 'sidebar' ? <StandardsRailBanner slot={currentChapter ? 'standards-rail-3' : 'standards-list-rail-2'} pageKind={pageKind} inlineSlots={inlineSlots} /> : null,
+  });
 
   if (variant === 'mobile') {
     return (
@@ -374,8 +311,7 @@ export default function StandardsNavigation({
           <ButtonLink href={parentHref} variant="text">
             <Arrow direction="prev" /> {parentLabel}
           </ButtonLink>
-          {contents}
-          {discovery}
+          {[...navItems, ...discovery].map((item, index) => <Fragment key={index}>{item.node}</Fragment>)}
         </div>
       </Disclosure>
     );
@@ -383,27 +319,21 @@ export default function StandardsNavigation({
 
   // 右の欄は固定・欄の中のスクロールをしない（2026-11-15 運営者指示・全ページ共通）。
   // 上の束も下に続く束（章・節ページだけ・2 組目は AdSense）も上詰めで並べる。
-  const upper = (
-    <div className="space-y-3" data-standards-sidebar>
-      <StandardsRailBanner slot={currentChapter ? 'standards-rail' : 'standards-list-rail'} pageKind={pageKind} inlineSlots={inlineSlots} />
-      {!treeMode && <div className="border border-(--rule-soft) bg-(--paper) p-5">
-        <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
-        <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
-        <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-(--ink-muted)">{contextLabel}</p>
-        <ButtonLink href={parentHref} variant="text" className="mt-3">
-          <Arrow direction="prev" /> {parentLabel}
-        </ButtonLink>
-      </div>}
-      {contents}
-      {currentChapter && <StandardsRailBanner slot="standards-rail-2" pageKind="standards" inlineSlots={inlineSlots} />}
-      {discovery}
-    </div>
-  );
-  if (railGroups.length === 0) return upper;
-  return (
-    <div className="flex h-full flex-1 flex-col">
-      {upper}
-      <RailContinuation groups={railGroups} />
-    </div>
-  );
+  const items: RailItem[] = [
+    { kind: 'career', node: <StandardsRailBanner slot={currentChapter ? 'standards-rail' : 'standards-list-rail'} pageKind={pageKind} inlineSlots={inlineSlots} /> },
+    {
+      kind: 'nav',
+      node: !treeMode && (
+        <MetaCard padding="compact" eyebrow="基準類ナビ" title="資料内を移動" lead={<span className="line-clamp-2">{contextLabel}</span>}>
+          <ButtonLink href={parentHref} variant="text" className="mt-3">
+            <Arrow direction="prev" /> {parentLabel}
+          </ButtonLink>
+        </MetaCard>
+      ),
+    },
+    ...navItems,
+    { kind: 'career', node: currentChapter && <StandardsRailBanner slot="standards-rail-2" pageKind="standards" inlineSlots={inlineSlots} /> },
+    ...discovery,
+  ];
+  return <RailStack items={items} groups={railGroups} upperData={{ 'data-standards-sidebar': '' }} />;
 }

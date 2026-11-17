@@ -7,6 +7,7 @@
  * section 不在の場合は active なしで全項目通常表示。
  */
 import Link from "next/link";
+import LinkRow, { LinkRowList } from "@/components/ui/LinkRow/LinkRow";
 import { PILLARS } from "@/lib/pillar-nav";
 import MetaCard from "@/components/ui/MetaCard/MetaCard";
 import { getPublicDocPath } from '@/lib/content-routes';
@@ -29,32 +30,17 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
 
   if (variant === "sidebar") {
     return (
-      <MetaCard as="div" padding="compact" trackNav="pillar-nav">
-        <div
-          className="nav-card-title text-(--ink)"
-        >
-          5 管理学習ガイド
-        </div>
-        <ul className="space-y-1.5">
-          {PILLARS.map((p) => {
-            const isActive = p.sectionPrefix === activePrefix;
-            return (
-              <li key={p.slug}>
-                <Link
-                  href={getPublicDocPath(`pe-comprehensive-management-${p.slug}`)}
-                  aria-current={isActive ? "true" : undefined}
-                  className={
-                    isActive
-                      ? "text-sm font-bold text-(--ink)"
-                      : "text-sm text-(--ink-body) hover:text-brand hover:underline"
-                  }
-                >
-                  {p.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      <MetaCard as="div" padding="compact" trackNav="pillar-nav" title="5 管理学習ガイド">
+        <LinkRowList>
+          {PILLARS.map((p) => (
+            <LinkRow
+              key={p.slug}
+              href={getPublicDocPath(`pe-comprehensive-management-${p.slug}`)}
+              title={p.label}
+              current={p.sectionPrefix === activePrefix}
+            />
+          ))}
+        </LinkRowList>
       </MetaCard>
     );
   }

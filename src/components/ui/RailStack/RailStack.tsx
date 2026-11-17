@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react';
 import RailContinuation from '@/components/ui/RailContinuation/RailContinuation';
 import type { RailGroup } from '@/lib/rail-continuation';
-import { isRailAd, type RailKind } from '@/lib/rail-kinds';
+import { isRailAd, type RailKind } from '@/lib/rail-kinds.mjs';
 
 /**
  * 右の欄（PC ≥993px）の中身の唯一の入れ物。記事・資格トップ・基準書の全ページが使う（2026-11-17 に 4 か所の手書きをまとめた）。
  * 上の束（items）を上詰めで並べ、その下に回遊と広告の組（groups・RailContinuation）を続ける。
- * 並べる 1 つ 1 つは種類（src/lib/rail-kinds.ts の台帳）を持ち、data-rail-kind を付けた div で包む。
+ * 並べる 1 つ 1 つは種類（src/lib/rail-kinds.mjs の台帳）を持ち、data-rail-kind を付けた div で包む。
  * 中身が空の部品（出す商品が無いなど）は包みごと畳む（globals.css の [data-rail-kind]:empty）。
  */
 export type RailItem = { readonly kind: RailKind; readonly node: ReactNode };
