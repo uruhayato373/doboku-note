@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
@@ -82,7 +83,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
         aside={<StandardsNavigation agencyId={agency} currentDocument={entry} />}
       >
 
-        <div className="card-surface-section px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
+        <MetaCard padding="none" as="div" className="px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
       <PageHeader
         variant="inline"
         className="border-b border-(--rule-soft) py-6 sm:py-8"
@@ -127,7 +128,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
 
         <StandardTopicLinks topics={relatedTopics} />
         </div>
-        </div>
+        </MetaCard>
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsNavigation agencyId={agency} currentDocument={entry} variant="mobile" />
         </div>

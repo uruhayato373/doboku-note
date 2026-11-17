@@ -21,11 +21,7 @@ import { getCardImage } from '@/lib/site-thumbnail';
 export default function TopicHubLinks({ links }: { links: readonly TopicHubLink[] }) {
   if (links.length === 0) return null;
   return (
-    <MetaCard ariaLabel="この記事のテーマ" trackNav="topic-hub">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">この記事のテーマ</h2>
-      <p className="text-sm text-(--ink-muted) mb-4">
-        同じテーマを、ほかの資格の試験対策や現場の実務でどう扱うか
-      </p>
+    <MetaCard ariaLabel="この記事のテーマ" trackNav="topic-hub" title="この記事のテーマ" lead="同じテーマを、ほかの資格の試験対策や現場の実務でどう扱うか">
       <ul className="space-y-5">
         {links.map(({ topic, total, picks }) => (
           <li key={topic.slug}>

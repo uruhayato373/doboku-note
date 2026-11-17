@@ -47,8 +47,7 @@ interface PrevNextNavProps extends Omit<PairProps, 'data'> {
 export default function PrevNextNav({ heading, track, ...pair }: PrevNextNavProps) {
   if (!pair.prev && !pair.next) return null;
   return (
-    <MetaCard trackNav={track}>
-      <h2 className="mb-4 text-lg font-bold text-(--ink)">{heading}</h2>
+    <MetaCard trackNav={track} title={heading}>
       <PrevNextPair {...pair} />
     </MetaCard>
   );

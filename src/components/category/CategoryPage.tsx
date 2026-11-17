@@ -36,6 +36,7 @@ import CategoryStudyNav from '@/components/category/CategoryStudyNav';
 import CategoryTopics from '@/components/category/CategoryTopics';
 import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
 import { ConcreteEngineerStudy, ConcreteEngineerProduct, ConcreteEngineerRelated } from '@/components/category/ConcreteEngineerResources';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
 // グループ化レイアウトは categories.json の layout.view を持つカテゴリだけ（持たないものはフラットグリッド・DN-0793）
 
@@ -150,7 +151,7 @@ export default async function CategoryPage({
             {/* 左メインカラム全体を 1 枚の白カードに統一（グレー地に白サーフェス・角丸ゼロの
                 エディトリアル面）。見出し・人気記事・各セクションを同一カード内に載せ、内側は
                 リスト/テーブル/フラットタイルで構成してカード内カードを避ける（2026-07 A-1）。 */}
-            <div className="card-surface-section px-5 sm:px-8 lg:px-10 pb-8 sm:pb-10">
+            <MetaCard padding="none" as="div" className="px-5 sm:px-8 lg:px-10 pb-8 sm:pb-10">
             {/* カテゴリ見出し（縮小版・H1/パンくず/説明は SEO のため維持。CATEGORY チップは
                 パンくずと重複のため削除） */}
             <div className="pt-6 sm:pt-8 pb-5 border-b border-(--rule-soft)">
@@ -241,7 +242,7 @@ export default async function CategoryPage({
             {/* 資格 → 横断テーマの向きの回遊（記事 → テーマは記事末の「この記事のテーマ」）。キャリア記事は数えない */}
             <CategoryTopics docs={docs.filter((d) => !d.tags?.includes('career'))} />
             </div>
-            </div>
+            </MetaCard>
 
             {slug === 'concrete-engineer' && <div className="zenn-desktop:hidden mt-8 space-y-3">
               {!hubCtaMobile && <ConcreteEngineerProduct placement="category-mobile" />}

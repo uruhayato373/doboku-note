@@ -13,7 +13,7 @@ import { AUTHOR } from "@/config/author";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import SectionBlock from "@/components/layout/SectionBlock";
-import SectionCard from "@/components/ui/SectionCard/SectionCard";
+import MetaCard from "@/components/ui/MetaCard/MetaCard";
 import AuthorProfile from "@/components/ui/AuthorProfile/AuthorProfile";
 import { DEFAULT_OG_IMAGE, SITE_TITLE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
@@ -70,7 +70,7 @@ export default function AboutPage() {
           運営者プロフィール
         </h2>
         <AuthorProfile variant="wide" showNoteCta={false} />
-        <SectionCard as="div" className="mt-6">
+        <MetaCard as="div" className="mt-6">
           <div>
             <h4 className="text-sm font-bold text-(--ink-body) mb-2">
               編集方針
@@ -98,7 +98,7 @@ export default function AboutPage() {
               現在は<strong>1級土木施工管理技士</strong>・<strong>技術士（総合技術監理部門）</strong>を中心にコンテンツを整備していますが、運営者が取得してきた<strong>技術士（建設部門・上下水道部門）・コンクリート主任技士・コンクリート診断士・1級舗装施工管理技術者・測量士・行政書士・応用情報技術者</strong>などの受験経験を活かし、土木・建設・法務・IT にまたがる多様な資格試験の対策コンテンツを順次展開していく予定です。
             </p>
           </div>
-        </SectionCard>
+        </MetaCard>
       </SectionBlock>
 
       {/* Mission Section */}

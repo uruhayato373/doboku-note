@@ -11,8 +11,7 @@ export function ConcreteEngineerStudy() {
     ['primary-mix-design', '配合計算を演習する'],
     ['textbook-production-qc', '製造・品質管理を復習する'],
   ];
-  return <MetaCard padding="compact" ariaLabel="学習・復習の入口" trackNav="concrete-study">
-    <h2 className="text-lg font-bold text-(--ink)">学習・復習の入口</h2>
+  return <MetaCard padding="compact" ariaLabel="学習・復習の入口" trackNav="concrete-study" title="学習・復習の入口">
     <LinkRowList className="mt-2">
       {links.map(([slug, title]) => <LinkRow key={slug} href={getPublicDocPath(`concrete-engineer-${slug}`)} title={title} tone="ink" arrow />)}
     </LinkRowList>
@@ -32,8 +31,7 @@ export function ConcreteEngineerRelated() {
     { href: getPublicDocPath('concrete-engineer-guide-difference-chief'), title: '技士と主任技士の違い' },
     { href: '/exam/concrete-chief-engineer', title: 'コンクリート主任技士の対策' },
   ];
-  return <MetaCard padding="compact" ariaLabel="関連ツール・資格" trackNav="concrete-related">
-    <h2 className="text-lg font-bold text-(--ink)">関連ツール・資格</h2>
+  return <MetaCard padding="compact" ariaLabel="関連ツール・資格" trackNav="concrete-related" title="関連ツール・資格">
     <LinkRowList className="mt-2">
       {links.map(link => <LinkRow key={link.href} href={link.href} title={link.title} tone="ink" arrow />)}
     </LinkRowList>

@@ -27,13 +27,12 @@ export default function QualificationBridge({
   const sidebar = layout === 'sidebar';
   return (
     <div data-cta="qualification-bridge" data-cta-label="card" data-cta-placement={placement}>
-      <MetaCard ariaLabel="この業務経験を資格につなげる" padding={sidebar ? 'compact' : 'default'}>
-        <h2 className="text-lg font-bold text-(--ink) mb-1">この業務経験を資格につなげる</h2>
-        <p className={`text-sm text-(--ink-muted) ${sidebar ? 'mb-3' : 'mb-4'}`}>
-          {sidebar
-            ? '担当している仕事の経験は、土木系資格の受検に使えます。'
-            : 'いま担当している仕事の知識と経験は、土木系資格の受検や学習に使えます。立場に近いものを 1 つ選んでください。'}
-        </p>
+      <MetaCard ariaLabel="この業務経験を資格につなげる" padding={sidebar ? 'compact' : 'default'}
+        title="この業務経験を資格につなげる"
+        lead={sidebar
+          ? '担当している仕事の経験は、土木系資格の受検に使えます。'
+          : 'いま担当している仕事の知識と経験は、土木系資格の受検や学習に使えます。立場に近いものを 1 つ選んでください。'}>
+
         <ul className={sidebar ? 'grid grid-cols-1 gap-2' : 'grid grid-cols-1 gap-2 sm:grid-cols-3'}>
           {options.map((option) => (
             <li key={option.key}>

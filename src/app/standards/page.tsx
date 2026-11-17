@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
@@ -46,7 +47,7 @@ export default function StandardsPage() {
           </>
         )}
       >
-        <div className="card-surface-section px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
+        <MetaCard padding="none" as="div" className="px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
           <PageHeader
             className="border-b border-(--rule-soft) py-5 sm:py-6"
             title="土木工事共通仕様書・工事必携"
@@ -99,7 +100,7 @@ export default function StandardsPage() {
               })}
             </ul>
           </section>
-        </div>
+        </MetaCard>
 
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsExplore />

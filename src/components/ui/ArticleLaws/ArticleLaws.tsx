@@ -34,11 +34,7 @@ export default function ArticleLaws({ laws, siblings, lawTopics, pageLinks }: {
 }) {
   if (!laws || laws.length === 0) return null;
   return (
-    <MetaCard ariaLabel="この記事の根拠法令">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">この記事の根拠法令</h2>
-      <p className="text-sm text-(--ink-muted) mb-4">
-        本文が引いている法令と条（e-Gov 法令検索・{laws.length} 法令）
-      </p>
+    <MetaCard ariaLabel="この記事の根拠法令" title="この記事の根拠法令" lead={<>本文が引いている法令と条（e-Gov 法令検索・{laws.length} 法令）</>}>
       <ul className="space-y-2">
         {laws.map((law) => {
           const related = siblings?.get(law.lawId) ?? [];

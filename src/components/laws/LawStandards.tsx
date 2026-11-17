@@ -32,9 +32,7 @@ export default function LawStandards({ doc }: { doc: DocMeta }) {
   const rows = resolveLawStandards(doc);
   if (rows.length === 0) return null;
   return (
-    <MetaCard trackNav="law-standards" ariaLabel="関係する基準資料">
-      <h2 className="mb-1 text-lg font-bold text-(--ink)">関係する基準資料</h2>
-      <p className="mb-3 text-sm text-(--ink-muted)">この法令が現場でどう運用されるかを、発注者の仕様書・基準で確かめる</p>
+    <MetaCard trackNav="law-standards" ariaLabel="関係する基準資料" title="関係する基準資料" lead="この法令が現場でどう運用されるかを、発注者の仕様書・基準で確かめる">
       {/* 区切り線の文字の行は共通部品に任せる（発行機関・テーマを題名の上に出す） */}
       <LinkRowList>
         {rows.map(({ document, topicLabel }) => (

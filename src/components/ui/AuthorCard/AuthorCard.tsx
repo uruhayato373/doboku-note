@@ -22,8 +22,7 @@ export default function AuthorCard({
   const lastReviewed = formatDate(lastRewrittenAt);
 
   return (
-    <MetaCard as="aside" ariaLabel="執筆者情報" className="mt-10">
-      <h2 className="text-lg font-bold text-(--ink) mb-4">執筆者</h2>
+    <MetaCard as="aside" ariaLabel="執筆者情報" className="mt-10" title="執筆者">
       <div className="flex items-start gap-4">
         <Link href="/about" className="shrink-0">
           <img

@@ -29,11 +29,7 @@ export default function RelatedArticles({ currentMeta, categoryArticles, exclude
   if (related.length < 2) return null;
 
   return (
-    <MetaCard trackNav="related-articles">
-      <h2 className="mb-1 text-lg font-bold text-(--ink)">関連記事</h2>
-      <p className="mb-4 text-sm text-(--ink-muted)">
-        同じテーマの記事 ({related.length} 件)
-      </p>
+    <MetaCard trackNav="related-articles" title="関連記事" lead={`同じテーマの記事 (${related.length} 件)`}>
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 zenn-desktop:grid-cols-3">
         {related.map((doc) => (
           <li key={doc.slug}>

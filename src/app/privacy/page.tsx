@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
-import SectionCard from '@/components/ui/SectionCard/SectionCard';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import {
   Shield,
   Database,
@@ -47,12 +47,12 @@ type PolicyCardProps = {
   children: React.ReactNode;
 };
 
-// 共通 SectionCard へ委譲（chrome の二重管理を解消）。
+// 共通 MetaCard へ委譲（chrome の二重管理を解消）。
 function PolicyCard({ icon, title, children }: PolicyCardProps) {
   return (
-    <SectionCard interactive icon={icon} title={title}>
+    <MetaCard interactive serifTitle icon={icon} title={title}>
       <div className="text-[15px] text-(--ink-body) leading-relaxed">{children}</div>
-    </SectionCard>
+    </MetaCard>
   );
 }
 

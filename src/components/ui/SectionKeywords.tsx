@@ -30,13 +30,7 @@ export default function SectionKeywords({ currentSlug, section }: SectionKeyword
   if (others.length === 0) return null;
 
   return (
-    <MetaCard ariaLabel="同セクションのキーワード" trackNav="section-keywords">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">
-        {sec.title}
-      </h2>
-      <p className="text-sm text-(--ink-muted) mb-4">
-        {chapter.title} &mdash; セクション {section}
-      </p>
+    <MetaCard ariaLabel="同セクションのキーワード" trackNav="section-keywords" title={sec.title} lead={<>{chapter.title} &mdash; セクション {section}</>}>
       <div className="flex flex-wrap gap-2">
         {others.map(kw => (
           <Link

@@ -16,8 +16,7 @@ export default function CategoryStudyNav({ category }: { category: string }) {
   const tools = getRelatedTools(category);
   const guides = getDocsMetaByCategory(category).filter(d => d.published !== false && !d.hideFromCategory && /-guide-(overview|study-plan|essay|after-pass)$/.test(d.slug)).slice(0,3);
   if (!links.length && !tools.length) return null;
-  return <MetaCard padding="compact" ariaLabel="演習・復習の入口" trackNav="category-study">
-    <h2 className="text-lg font-bold text-(--ink)">演習・復習の入口</h2>
+  return <MetaCard padding="compact" ariaLabel="演習・復習の入口" trackNav="category-study" title="演習・復習の入口">
     <LinkRowList className="mt-2">
       {links.map(link => <LinkRow key={link.href} href={link.href} title={link.label} tone="ink" arrow />)}
     </LinkRowList>
