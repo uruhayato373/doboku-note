@@ -72,14 +72,7 @@ export default function PeConstructionSubjectLinks({
   return (
     <MetaCard
       ariaLabel={isExam ? 'この科目の対策記事' : 'この科目の過去問'}
-      trackNav="pe-construction-subject-links"
-    >
-      <h2 className="mb-1 text-lg font-bold text-(--ink)">
-        {isExam ? 'この科目の対策記事' : 'この科目の過去問'}
-      </h2>
-      <p className="mb-4 text-sm text-(--ink-muted)">
-        {subject?.label ?? '同じ科目'}を年度・論点の両方向から確認できます
-      </p>
+      trackNav="pe-construction-subject-links" title={isExam ? 'この科目の対策記事' : 'この科目の過去問'} lead={<>{subject?.label ?? '同じ科目'}を年度・論点の両方向から確認できます</>}>
       <ul className="space-y-2">
         {targets.map(({ slug, meta }) => (
           <li key={slug}>

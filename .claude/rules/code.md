@@ -14,7 +14,7 @@ paths:
 ## UI コンポーネント（CLAUDE.md §7 の詳細）
 
 - デザイントークンを使う（`rounded-card-*` / `shadow-card-*`）。`dark:border-*` を必ず書く。インライン `borderColor` 禁止。色は `brand` / `ink-strong` / `ink-body` / `ink-muted` / `positive` / `warn` / `danger`（真実源: `src/styles/globals.css` の `--color-*`）
-- トークン体系は二系統: editorial `--accent/--paper/--ink/--rule`＝ページ/prose、`--color-*`＝SVG 図版＋Tailwind semantic。レイアウト体系（PageShell/PageHeader/SectionCard）・記事 prose・禁止パターンは [design-system.md](../knowledge/design-system/design-system.md)。自己点検は `node scripts/lint-ui.mjs`、合否は `/design-review`（`page-design-builder` は自分で合格と言わない）
+- トークン体系は二系統: editorial `--accent/--paper/--ink/--rule`＝ページ/prose、`--color-*`＝SVG 図版＋Tailwind semantic。レイアウト体系（PageShell/PageHeader/MetaCard）・記事 prose・禁止パターンは [design-system.md](../knowledge/design-system/design-system.md)。自己点検は `node scripts/lint-ui.mjs`、合否は `/design-review`（`page-design-builder` は自分で合格と言わない）
 - `next/font` は render-blocking、`next/dynamic` を RSC に使うと LCP 悪化。metadata の title template は自動付与（個別に suffix を含めると重複）。計測ピクセル `<img>` は `suppressHydrationWarning` 必須。Tailwind の `content` に無いファイルのクラスは生成されない
 - **この Next.js は学習データと違う**。書く前に `node_modules/next/dist/docs/` の該当ガイドを読む（CLAUDE.md 末尾ブロック）
 

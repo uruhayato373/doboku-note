@@ -106,7 +106,7 @@
 |---|---|---|
 | `--radius-card-inline` | `6px` | バッジ・チップ・インラインコード |
 | `--radius-card-content` | `0` | 標準カード・表・details・pre・KaTeX display |
-| `--radius-card-section` | `0` | SectionCard 等の大カード |
+| `--radius-card-section` | `0` | MetaCard 等の大カード |
 | `--radius-card-hero` | `0` | トップ hero |
 | `--shadow-card-content` | `0 1px 2px /.04, 0 2px 8px /.05` | カード影（2 層）。Tailwind `shadow-card-*` |
 | `--shadow-card-section` | `0 1px 3px /.04, 0 6px 20px /.06` | 大カード影 |
@@ -181,7 +181,7 @@
 | `StandardVerbatimTable`（`standards/StandardVerbatimTable.tsx`） | 章記事の逐語表を原文の空白・改行のまま表示する。背景`--paper`・文字`--ink-body`。横に続く表だけスクロール案内を表示し、キーボードでも読める | `pre`のprops |
 | `PageHeader`（`layout/PageHeader.tsx`） | 下層ページの breadcrumb + eyebrow label + h1 + lead + meta + actions | `variant`: `band`(全幅帯)/`inline`(帯なし)。`titleSize`: `default`/`lg`。`width`: `wide`(既定)/`860`/`780`/`760` |
 | `SectionBlock`（`layout/SectionBlock.tsx`） | セクション間余白・band 背景を統一。幅 `wide` は `WIDE_CONTAINER`（左右の余白を内側の要素に付ける）、読み幅 `860/780/760` は余白を外側に付ける | — |
-| `SectionCard`（`ui/SectionCard/`） | カード（radius/border/shadow を token に統一・カード内カード回避） | — |
+| `MetaCard`（`ui/MetaCard/`） | 枠つきの区画の唯一の部品（radius/border/shadow を token に統一・カード内カード回避）。見出しは `title`・`lead`・`icon`・`serifTitle`。2026-11-17 に SectionCard を取り込んで廃止（`tests/section-card-ratchet.test.mjs` が手書きの外枠と見出しを止める） | `title?` / `lead?` / `icon?` / `padding?` / `trackNav?` |
 | `ArticleHeader`（`ui/ArticleHeader/`） | docs 記事冒頭（breadcrumb + h1 + description リード + byline/meta） | — |
 | `CurriculumSections`（`category/CurriculumSections.tsx`） | カテゴリページの体系表示。試験ガイド・テキストを**カードでなく目次調リスト**で見せ、章立て・出題分野の体系を一目で伝える（`CurriculumSection` 枠 / `CurriculumList` 目次リスト / `CareerSection` 横スクロールカードレール）。編成は `src/config/category-curriculum.json`（SSOT）、解決は `src/lib/category-curriculum.ts`（resolver・silent drop 防止の `unassigned` 付き）、健全性は `check-category-curriculum`（pre-commit・`guide`/`careerFeatured`/`textbookChapters` に加え `keywordSection` の slug 実在・重複・列数一致も検査し、検査した slug 参照数を出力する＝検査 0 件の偽 PASS 防止）。過去問テーブル群（`CategorySections.tsx`）・キーワード節（`KeywordSections.tsx`）とは併存。テキスト章がある分野の**要点 guide は各章の入口**（config `textbookChapters[].introGuides`）に「要点」マーカーで内包し、分野別対策との重複を回避 | `CurriculumList`: `blocks`/`numbered`/`collapsible`（テキストは章を `<details>` アコーディオン。`collapsible` 章の summary は `[章番号(config `chapterNo`)] [章タイトル] [N記事] [右端 `DisclosureChevron`]` の 1 行＝畳めば体系一目・開いてドリルダウン。`block.intro` で章頭の要点。分冊見出しは章タイトルより一段控えめな 13px 太字＋区切り罫線）。`CareerSection`: `featured`/`rest`（注目→残りの順で 1 本の横スクロール `CardRail`（ui/CardRail・左右矢印付き）に統合＝二次セクションを全件縦積みせず畳む。カード幅 clamp(240,80%,288px) で常に次カードを覗かせ scroll-snap で吸着。レールは最大 `CAREER_RAIL_MAX`=10 枚で打ち切り、超過分は「その他のキャリア記事 N記事」の `<details>` 目次リストへ＝リンクは閉状態でも DOM に残りクロール/内部リンク維持。テールの発見は記事ページの RelatedArticles（career タグ共有で自動相互リンク）と検索が担う。全カテゴリ共通・career 記事が無い資格では非描画） |
 | `CategoryNavCard`（`ui/CategoryNavCard/`） | docs 記事の**カテゴリ内ナビ一覧**（PC 右サイドバー＋モバイル記事末の 1 コンポーネントで両面）。**学習系のみを載せ、転職・キャリア記事（`tags: [career]`）は入れない** — career は `group: guide` なので `classifyDoc` が `guide` を返し、素朴な filter だと混入する（2026-07-28 に civil-1 で 49 件中 26 件・civil-2 で 22 件中 10 件が混入していた）。civil の `guide` 分岐は **`resolveCurriculum` 経由**で examGuide 記載順 → unassigned の意図順に並べる（カテゴリページと同じ SSOT `category-curriculum.json` を共有・slug アルファベット順にしない）。判定述語は `isCareerDoc`（`lib/doc-classifier.ts`）に集約。転職導線はサイドバーのアフィリ枠とカテゴリページ `CareerSection` が担当。健全性は `check-career-separation`（pre-commit＝source 整合／CI＝`--built` で `data-nav-list="exam-guide"` 内に career リンクが無いこと）。**リンクは 2 行構成**＝1 行目 `shortTitle ?? title`、2 行目 `subtitle`（12px `--ink-muted`・`line-clamp: 2`）。解決は `lib/doc-title.ts` の `resolveNavTitle`（**title の分割はしない** — 区切り方言が 2 系統・2 段区切り 6 件・資格名除去で 21 件破綻するため実測で却下）。PC/モバイル両 variant で同一。frontmatter が欠けると長い title にフォールバックするので `lint-frontmatter` が guide の `shortTitle`/`subtitle` 欠落を MEDIUM 警告 | `variant`（sidebar/mobile）/ `category` / `currentSlug` / `docGroup` / `categoryArticles` |
@@ -341,7 +341,7 @@ CLAUDE.md §7 と一致:
 - `dark:border-*` を必ず書く。インライン `style={{ borderColor }}` 禁止（`dark:` クラスを上書きするため）。
 - 操作要素には `.focus-ring` を付ける。`focus:outline-none` 単独は禁止。
 - `transition-all` 禁止。変化するプロパティだけを明示する。
-- 新規ページ・改修は §3 のレイアウト体系（PageShell / PageHeader / SectionCard）に乗せる。
+- 新規ページ・改修は §3 のレイアウト体系（PageShell / PageHeader / MetaCard）に乗せる。
 - 機械検出: `node scripts/lint-ui.mjs`（`border-gray-*` の dark 欠落 / `rounded-* + shadow-*` 直書き / インライン borderColor / focus outline 代替欠如 / `transition-all` を検出）。
 
 ---
@@ -427,7 +427,7 @@ CLAUDE.md §7 と一致:
 デザインを改善するときは、**コードとドキュメントを同一 PR で更新する**。
 
 1. **トークンを変える**（`src/styles/globals.css` の CSS 変数）→ §2 の該当表を同一 PR で更新。iOS 択一アプリへ演習の色として写す 10 トークン（`scripts/lib/quiz-style.mjs` の `QUIZ_TOKENS`）は改名・削除しない（消えると `build-ios-quiz-bundle` と `tests/quiz-style.test.mjs` が止まる）。過去問演習の問題文・解説の中身の見た目は `src/styles/quiz-content.css` だけで直す（サイトとアプリが同じファイルを読む）。
-2. **レイアウトを変える**（`PageShell`/`PageHeader`/`SectionCard`/`ArticleHeader` 等）→ §3 を更新。
+2. **レイアウトを変える**（`PageShell`/`PageHeader`/`MetaCard`/`ArticleHeader` 等）→ §3 を更新。
 3. **記事タイポを変える**（`.prose-blog`）→ §4 を更新。
 4. **禁止/原則を追加/緩和** → §5/§8 を更新。
 5. コミット前に **`/doc-sync` を 1 回回す**（`src/styles/**`・`src/components/**` は doc-sync 対象面。`doc-sync-auditor` が本ファイルとの意味ズレを検出）。

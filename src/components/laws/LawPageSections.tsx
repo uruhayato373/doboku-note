@@ -21,9 +21,7 @@ export default function LawPageSections({ data }: { data: LawPageData }) {
   return (
     <div className="mt-8 space-y-8">
       {topics.length > 0 && (
-        <MetaCard ariaLabel="この法令が関わるテーマ">
-          <h2 className="text-lg font-bold text-(--ink) mb-1">この法令が関わるテーマ</h2>
-          <p className="text-sm text-(--ink-muted) mb-4">この法令を本文で引く記事が多い分野・立場のテーマです（かっこ内は記事の本数）。</p>
+        <MetaCard ariaLabel="この法令が関わるテーマ" title="この法令が関わるテーマ" lead="この法令を本文で引く記事が多い分野・立場のテーマです（かっこ内は記事の本数）。">
           <p className="flex flex-wrap gap-x-4 gap-y-2 text-[15px]" data-cta="nav" data-cta-label="law-page:topics">
             {topics.map((t) => (
               <Link key={t.slug} href={topicPath(t.slug)} className="text-(--accent) hover:underline">
@@ -34,16 +32,12 @@ export default function LawPageSections({ data }: { data: LawPageData }) {
         </MetaCard>
       )}
       {policies.length > 0 && (
-        <MetaCard ariaLabel="関係する国の計画・施策・審議会">
-          <h2 className="text-lg font-bold text-(--ink) mb-1">関係する国の計画・施策・審議会</h2>
-          <p className="text-sm text-(--ink-muted) mb-4">この法令（と政令・省令）を根拠にする計画・施策と、方向を決めた審議会の答申です。</p>
+        <MetaCard ariaLabel="関係する国の計画・施策・審議会" title="関係する国の計画・施策・審議会" lead="この法令（と政令・省令）を根拠にする計画・施策と、方向を決めた審議会の答申です。">
           <PolicyList policies={policies} />
         </MetaCard>
       )}
       {articles.length > 0 && (
-        <MetaCard ariaLabel="よく引かれる条">
-          <h2 className="text-lg font-bold text-(--ink) mb-1">よく引かれる条</h2>
-          <p className="text-sm text-(--ink-muted) mb-4">このサイトの記事が本文で引いている条と、その記事の本数です（e-Gov 法令検索の条へ）。</p>
+        <MetaCard ariaLabel="よく引かれる条" title="よく引かれる条" lead="このサイトの記事が本文で引いている条と、その記事の本数です（e-Gov 法令検索の条へ）。">
           <ul className="flex flex-wrap gap-x-4 gap-y-2 text-[14px]">
             {articles.map((a) => (
               <li key={`${a.lawId}-${a.article}`}>
@@ -55,9 +49,7 @@ export default function LawPageSections({ data }: { data: LawPageData }) {
         </MetaCard>
       )}
       {(docsByArea.exam.length > 0 || docsByArea.practice.length > 0) && (
-        <MetaCard ariaLabel="この法令を扱う記事" trackNav="law-page:articles">
-          <h2 className="text-lg font-bold text-(--ink) mb-1">この法令を扱う記事</h2>
-          <p className="text-sm text-(--ink-muted) mb-4">本文でこの法令（と政令・省令）を引いている記事です。</p>
+        <MetaCard ariaLabel="この法令を扱う記事" trackNav="law-page:articles" title="この法令を扱う記事" lead="本文でこの法令（と政令・省令）を引いている記事です。">
           {(['practice', 'exam'] as const).map((area) => docsByArea[area].length > 0 && (
             <div key={area} className="mb-4 last:mb-0">
               <h3 className="mb-2 text-[15px] font-bold text-(--ink)">{area === 'practice' ? '土木施工の実務' : '資格試験'}（{docsByArea[area].length}件）</h3>
@@ -75,9 +67,7 @@ export default function LawPageSections({ data }: { data: LawPageData }) {
         </MetaCard>
       )}
       {enforced.length > 0 && (
-        <MetaCard ariaLabel="最新の改正の施行日">
-          <h2 className="text-lg font-bold text-(--ink) mb-1">最新の改正の施行日</h2>
-          <p className="text-sm text-(--ink-muted) mb-4">e-Gov 法令 API から取り直した時点の値です。条文は e-Gov 法令検索で最新のものを確かめてください。</p>
+        <MetaCard ariaLabel="最新の改正の施行日" title="最新の改正の施行日" lead="e-Gov 法令 API から取り直した時点の値です。条文は e-Gov 法令検索で最新のものを確かめてください。">
           <ul className="space-y-1.5 text-[14px]">
             {enforced.map((e) => (
               <li key={e.lawId}>

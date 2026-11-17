@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
-import SectionCard from '@/components/ui/SectionCard/SectionCard';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import {
   FileText,
   BookOpen,
@@ -52,9 +52,10 @@ export default function TermsPage() {
       </p>
 
       <div className="space-y-6">
-        <SectionCard
+        <MetaCard
           interactive
           icon={<FileText className="w-5 h-5 text-(--accent)" />}
+          serifTitle
           title="1. サービスの内容"
         >
           <div className={bodyClass}>
@@ -66,11 +67,12 @@ export default function TermsPage() {
               試験に関する最新・正確な情報は、各試験実施機関のWebサイトをご確認ください。
             </p>
           </div>
-        </SectionCard>
+        </MetaCard>
 
-        <SectionCard
+        <MetaCard
           interactive
           icon={<BookOpen className="w-5 h-5 text-(--accent)" />}
+          serifTitle
           title="2. 知的財産権"
         >
           <div className={bodyClass}>
@@ -86,11 +88,12 @@ export default function TermsPage() {
               引用する場合は、当サイト名とURLを明記してください。
             </p>
           </div>
-        </SectionCard>
+        </MetaCard>
 
-        <SectionCard
+        <MetaCard
           interactive
           icon={<AlertTriangle className="w-5 h-5 text-(--accent)" />}
+          serifTitle
           title="3. 免責事項"
         >
           <ul className={`${bodyClass} list-disc list-inside space-y-2`}>
@@ -107,11 +110,12 @@ export default function TermsPage() {
               当サイトは予告なくコンテンツの変更・削除・サービスの中断を行う場合があります。
             </li>
           </ul>
-        </SectionCard>
+        </MetaCard>
 
-        <SectionCard
+        <MetaCard
           interactive
           icon={<Shield className="w-5 h-5 text-(--accent)" />}
+          serifTitle
           title="4. 広告について"
         >
           <div className={bodyClass}>
@@ -123,11 +127,12 @@ export default function TermsPage() {
               をご確認ください。
             </p>
           </div>
-        </SectionCard>
+        </MetaCard>
 
-        <SectionCard
+        <MetaCard
           interactive
           icon={<Ban className="w-5 h-5 text-(--accent)" />}
+          serifTitle
           title="5. 禁止事項"
         >
           <div className={bodyClass}>
@@ -140,11 +145,12 @@ export default function TermsPage() {
               <li>その他、当サイト運営者が不適切と判断する行為</li>
             </ul>
           </div>
-        </SectionCard>
+        </MetaCard>
 
-        <SectionCard
+        <MetaCard
           interactive
           icon={<RefreshCw className="w-5 h-5 text-(--accent)" />}
+          serifTitle
           title="6. 規約の変更"
         >
           <div className={bodyClass}>
@@ -154,10 +160,10 @@ export default function TermsPage() {
               重要な変更がある場合は、当サイト上でお知らせします。
             </p>
           </div>
-        </SectionCard>
+        </MetaCard>
       </div>
 
-      <SectionCard
+      <MetaCard
         as="div"
         padding="compact"
         className="mt-8 bg-(--accent-fill) border-0 shadow-none"
@@ -167,7 +173,7 @@ export default function TermsPage() {
           <a href="/contact" className="text-(--accent) hover:underline">お問い合わせ</a>
           よりご連絡ください。
         </p>
-      </SectionCard>
+      </MetaCard>
     </PageShell>
   );
 }

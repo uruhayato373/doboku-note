@@ -5,7 +5,7 @@ import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
 import { StandardsEndBanner } from '@/components/standards/StandardsAffiliateBanners';
-import SectionCard from '@/components/ui/SectionCard/SectionCard';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardsComparison, inferStandardEdition } from '@/lib/standards-comparison';
@@ -76,10 +76,10 @@ export default function StandardsComparePage() {
             ['本文完全一致', `${comparison.summary.identicalDocuments}文書`],
             ['地域差分', `${comparison.summary.differentDocuments}文書`],
           ].map(([label, value]) => (
-            <SectionCard key={label} padding="compact">
+            <MetaCard key={label} padding="compact">
               <div className="text-[11px] font-bold tracking-[0.08em] text-(--ink-muted)">{label}</div>
               <div className="mt-2 text-2xl font-bold text-(--ink)">{value}</div>
-            </SectionCard>
+            </MetaCard>
           ))}
         </div>
 
@@ -206,7 +206,7 @@ export default function StandardsComparePage() {
       </SectionBlock>
 
       <SectionBlock divider="top" width="860" ariaLabel="比較方法と注意事項">
-        <SectionCard title="比較方法と利用上の注意">
+        <MetaCard serifTitle title="比較方法と利用上の注意">
           <div className="flex items-start gap-3">
             <ShieldCheck aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-(--accent)" />
             <div className="space-y-2 text-[13px] leading-[1.8] text-(--ink-body)">
@@ -230,7 +230,7 @@ export default function StandardsComparePage() {
               比較結果JSONを取得
             </a>
           </div>
-        </SectionCard>
+        </MetaCard>
         <StandardsEndBanner pageKind="standards-list" />
       </SectionBlock>
     </PageShell>

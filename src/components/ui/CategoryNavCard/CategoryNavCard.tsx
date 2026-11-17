@@ -199,8 +199,7 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
 
 function MobileWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <MetaCard trackNav="category-nav">
-      <h2 className="text-lg font-bold text-(--ink) mb-4">{title}</h2>
+    <MetaCard trackNav="category-nav" title={title}>
       {children}
     </MetaCard>
   );

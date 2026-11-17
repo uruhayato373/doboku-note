@@ -8,9 +8,7 @@ import { type ExamStepBridgeData } from '@/lib/exam-step-bridge';
  */
 export default function ExamStepBridge({ data }: { data: ExamStepBridgeData }) {
   return (
-    <MetaCard ariaLabel={data.heading} trackNav="exam-step">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">{data.heading}</h2>
-      <p className="text-sm text-(--ink-muted) mb-4">{data.lead}</p>
+    <MetaCard ariaLabel={data.heading} trackNav="exam-step" title={data.heading} lead={data.lead}>
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {data.links.map((l) => (
           <li key={l.href}>

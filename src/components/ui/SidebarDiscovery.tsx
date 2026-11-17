@@ -19,8 +19,7 @@ export function SidebarProduct({category,doc,placement,content}: {category:strin
 
 export function DiscoveryNav({category,currentSlug,docs}: {category:string;currentSlug:string;docs:DocMeta[]}) {
  const groups=discoveryGroups(category,currentSlug,docs);
- return <MetaCard padding="compact" ariaLabel="分野・科目から復習" trackNav="article-discovery">
-  <h2 className="text-lg font-bold text-(--ink)">分野・科目から復習</h2>
+ return <MetaCard padding="compact" ariaLabel="分野・科目から復習" trackNav="article-discovery" title="分野・科目から復習">
   {groups.map(g=><div key={g.title} className="mt-3"><h3 className="text-sm font-bold text-(--ink-muted)">{g.title}</h3><LinkRowList>{g.docs.map(d=><LinkRow key={d.slug} href={getPublicDocPath(d.slug)} title={resolveNavTitle(d).main} />)}</LinkRowList></div>)}
   <Link className="focus-ring mt-2 flex min-h-11 items-center text-sm font-bold text-(--accent) hover:underline" href={getCategoryHubPath(category)}>{getCategoryBySlug(category)?.label}の一覧 →</Link>
   {category === 'civil-practice' && <Link className="focus-ring flex min-h-11 items-center text-sm text-(--accent) hover:underline" href="/standards">発行機関別に基準・仕様書を確認 →</Link>}

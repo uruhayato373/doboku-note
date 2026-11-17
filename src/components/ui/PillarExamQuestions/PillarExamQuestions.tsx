@@ -16,11 +16,7 @@ export default function PillarExamQuestions({ slug }: { slug: string }) {
   if (!pillar) return null;
   const years = pillar.by_year.slice(0, RECENT_YEARS);
   return (
-    <MetaCard trackNav="pillar-exam-questions">
-      <h2 className="mb-1 text-lg font-bold text-(--ink)">{pillar.label}の過去問</h2>
-      <p className="mb-4 text-sm text-(--ink-muted)">
-        この管理のキーワードが問われた択一の設問（直近{years.length}年度・全{pillar.total}問）
-      </p>
+    <MetaCard trackNav="pillar-exam-questions" title={<>{pillar.label}の過去問</>} lead={<>この管理のキーワードが問われた択一の設問（直近{years.length}年度・全{pillar.total}問）</>}>
       <div className="space-y-4">
         {years.map((y) => (
           <section key={y.year}>

@@ -14,9 +14,7 @@ function Emphasis({ text }: { text: string }) {
  */
 export default function ExamTopicBridge({ question }: { question: ExamTopicQuestion }) {
   return (
-    <MetaCard ariaLabel="この論点が出る1級土木の過去問" trackNav="exam-topic">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">この論点が出る1級土木の過去問</h2>
-      <p className="text-sm text-(--ink-muted) mb-3">{question.label}</p>
+    <MetaCard ariaLabel="この論点が出る1級土木の過去問" trackNav="exam-topic" title="この論点が出る1級土木の過去問" lead={question.label}>
       <div className="text-[15px] leading-7 text-(--ink-body) whitespace-pre-line">
         <Emphasis text={question.body} />
       </div>

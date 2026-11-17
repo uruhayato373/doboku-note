@@ -182,7 +182,7 @@ export default function ArticleFooter({
           <div className="mt-8">
             <PastExamBacklinks category={category} currentSlug={slugStr} />
           </div>
-          {/* 同セクションのキーワード: モバイル限定（デスクトップではサイドバーの SectionCard で表示済み） */}
+          {/* 同セクションのキーワード: モバイル限定（デスクトップではサイドバーの MetaCard で表示済み） */}
           {meta.section && (
             <div className="mt-8 zenn-desktop:hidden">
               <SectionKeywords currentSlug={slugStr} section={meta.section as string} />

@@ -7,7 +7,7 @@ import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import AdSlot from '@/components/ads/AdSlot';
 import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 import SafeMdx from '@/components/mdx/SafeMdx';
-import SectionCard from '@/components/ui/SectionCard/SectionCard';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
 import StandardVerbatimTable from '@/components/standards/StandardVerbatimTable';
 import ArticleImage from '@/components/ui/ArticleImage/ArticleImage';
@@ -148,7 +148,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
           />
         )}
       >
-        <SectionCard
+        <MetaCard
           as="article"
           padding="none"
           className="overflow-hidden px-10 py-12 transition-colors duration-300 zenn-desktop:px-11 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:px-(--article-gutter-sp) max-zenn-sp:py-[35px]"
@@ -204,7 +204,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
           </div>
           <StandardsEndBanner pageKind="standards" inlineSlots={inlineSlots} />
           <StandardsAttribution document={entry} item={chapter.item} pages={{ first: chapter.firstPage, last: chapter.lastPage }} />
-        </SectionCard>
+        </MetaCard>
         <div className="mt-10 max-zenn-sp:px-(--article-gutter-sp)"><AdSlot slot="endMultiplex" className={CTA_STACK_CLASS} /></div>
       </TwoColumnShell>
     </PageShell>

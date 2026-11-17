@@ -875,7 +875,7 @@
        値のみ変更で rounded-card-* 経由の全カードが自動追従する。 */
     --radius-card-inline: 6px;   /* バッジ・チップ・インラインコード */
     --radius-card-content: 0;    /* 標準カード・表・details・pre・KaTeX display */
-    --radius-card-section: 0;    /* SectionCard 等の大カード */
+    --radius-card-section: 0;    /* MetaCard 等の大カード */
     --radius-card-hero: 0;       /* トップ hero */
 
     /* 影 — 2 層ソフトシャドウ（slate 寒色 rgb(15 23 42) で紙面に馴染ませる） */

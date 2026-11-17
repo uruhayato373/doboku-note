@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
-import SectionCard from '@/components/ui/SectionCard/SectionCard';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import { getDocsMetaByCategory } from '@/lib/docs';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { resolveNavTitle } from '@/lib/doc-title';
@@ -27,9 +27,8 @@ export default function StandardsExplore({ betweenCards }: { betweenCards?: Reac
       {/* 全国版（近畿版にまとめた共通の本文）の入口の章。トップから章へ 1 クリックで入れる */}
       <StandardEntryChapters agencyId="kinki" heading="共通仕様書を章から読む" />
       {betweenCards}
-      <SectionCard padding="compact">
-        <h2 className="text-lg font-bold text-(--ink)">テーマから読む</h2>
-        <nav aria-label="基準と関連する技術テーマ" className="mt-2 divide-y divide-(--rule-soft)">
+      <MetaCard padding="compact" title="テーマから読む">
+        <nav aria-label="基準と関連する技術テーマ" className="divide-y divide-(--rule-soft)">
           {topicSlugs.flatMap(slug => {
             const topic = topics.find(item => item.slug === slug);
             return topic ? [
@@ -41,7 +40,7 @@ export default function StandardsExplore({ betweenCards }: { betweenCards?: Reac
           })}
         </nav>
         <Link href="/topics" className="focus-ring mt-1 flex min-h-11 items-center justify-end text-sm text-(--accent) underline underline-offset-4">すべてのテーマ →</Link>
-      </SectionCard>
+      </MetaCard>
 
       <nav aria-label="実務・比較・データ" className="flex flex-wrap gap-x-4 px-1">
         {selectedDocs.map(doc => (

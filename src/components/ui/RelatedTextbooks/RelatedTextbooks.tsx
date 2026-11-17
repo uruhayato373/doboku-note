@@ -26,13 +26,7 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
   if (entries.length === 0) return null;
 
   return (
-    <MetaCard trackNav="related-textbooks">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">
-        この試験で扱われた教材
-      </h2>
-      <p className="text-sm text-(--ink-muted) mb-4">
-        問題の分野に関連する教科書の章 ({entries.length} 件)
-      </p>
+    <MetaCard trackNav="related-textbooks" title="この試験で扱われた教材" lead={`問題の分野に関連する教科書の章 (${entries.length} 件)`}>
       <ul className="space-y-2">
         {entries.map((doc) => (
           <li key={doc.slug}>

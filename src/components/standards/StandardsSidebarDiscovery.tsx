@@ -47,8 +47,7 @@ function RelatedReading({ topics, heading }: { topics: Topic[]; heading: string 
   const { practice, exam } = getStandardRelatedDocs(topics);
   if (practice.length === 0 && exam.length === 0) return null;
   return (
-    <MetaCard padding="compact" ariaLabel={heading} trackNav="standards-related" className="dark:border-(--rule-soft)">
-      <h2 className="text-lg font-bold text-(--ink)">{heading}</h2>
+    <MetaCard padding="compact" ariaLabel={heading} trackNav="standards-related" className="dark:border-(--rule-soft)" title={heading}>
       {practice.length > 0 && (
         <>
           <h3 className={SUB_HEADING}>実務で使う</h3>
@@ -87,8 +86,7 @@ function RegionalVersions({ document, chapter }: { document: StandardDocument; c
   const versions = getStandardRegionalVersions(document, chapter);
   if (versions.length === 0) return null;
   return (
-    <MetaCard padding="compact" ariaLabel="他の地方整備局の同じ章" trackNav="standards-region" className="dark:border-(--rule-soft)">
-      <h2 className="text-lg font-bold text-(--ink)">他の地方整備局の同じ章</h2>
+    <MetaCard padding="compact" ariaLabel="他の地方整備局の同じ章" trackNav="standards-region" className="dark:border-(--rule-soft)" title="他の地方整備局の同じ章">
       <LinkRowList className="mt-1" data={{ 'data-standards-nav': 'regions' }}>
         {versions.map((version) => (version.current ? (
           <li key={version.href}>
@@ -136,8 +134,7 @@ export function StandardEntryChapters({ agencyId, heading = '共通仕様書を�
   const entry = getStandardEntryChapters(agencyId);
   if (!entry) return null;
   return (
-    <MetaCard padding="compact" ariaLabel={heading} trackNav="standards-entry-chapter" className="dark:border-(--rule-soft)">
-      <h2 className="text-lg font-bold text-(--ink)">{heading}</h2>
+    <MetaCard padding="compact" ariaLabel={heading} trackNav="standards-entry-chapter" className="dark:border-(--rule-soft)" title={heading}>
       {entry.document.agencyId !== agencyId && (
         <p className="mt-1 text-[12px] text-(--ink-muted)">{entry.document.agencyName}版（本文が共通の地域をまとめた版）</p>
       )}

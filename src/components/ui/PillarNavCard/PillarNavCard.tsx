@@ -61,10 +61,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
 
   return (
     // モバイルの記事末も PC の右の欄と同じラベルで回遊を計測する（2026-11-16 の棚卸しで計測が無かった）
-    <MetaCard trackNav="pillar-nav">
-      <h2 className="text-lg font-bold text-(--ink) mb-4">
-        5 管理学習ガイド
-      </h2>
+    <MetaCard trackNav="pillar-nav" title="5 管理学習ガイド">
       <ul className="space-y-2">
         {PILLARS.map((p) => {
           const isActive = p.sectionPrefix === activePrefix;
