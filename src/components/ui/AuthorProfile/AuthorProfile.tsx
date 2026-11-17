@@ -3,6 +3,7 @@ import { AUTHOR } from "@/config/author";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 import Arrow from '@/components/ui/Arrow/Arrow';
 import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
 /**
  * AuthorProfile — 運営者プロフィールの共通コンポーネント（SSOT）。
@@ -154,12 +155,7 @@ export default function AuthorProfile({
   const taglineRest = dot >= 0 ? AUTHOR.tagline.slice(dot + 1) : "";
 
   return (
-    <aside
-      aria-label="運営者プロフィール"
-      className="overflow-hidden rounded-card-content border border-(--rule-soft) bg-(--paper)"
-    >
-      <span aria-hidden className="block h-[3px] w-full bg-(--accent) opacity-70" />
-      <div className="p-5">
+    <MetaCard as="aside" padding="compact" ariaLabel="運営者プロフィール">
         <div className="mb-3 font-mono text-[10px] tracking-[0.2em] text-(--ink-muted)">
           {eyebrow}
         </div>
@@ -194,7 +190,6 @@ export default function AuthorProfile({
         <div className="mt-2">
           <SocialLinks center />
         </div>
-      </div>
-    </aside>
+    </MetaCard>
   );
 }

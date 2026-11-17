@@ -160,6 +160,22 @@
       "pages": 6,
       "pass": 6,
       "fail": 0
+    },
+    {
+      "runId": "20261117T045600Z",
+      "at": "2026-11-17T04:59:33.547Z",
+      "base": "http://localhost:3025",
+      "pages": 8,
+      "pass": 6,
+      "fail": 2
+    },
+    {
+      "runId": "20261117T050221Z",
+      "at": "2026-11-17T05:04:01.202Z",
+      "base": "http://localhost:3025",
+      "pages": 2,
+      "pass": 2,
+      "fail": 0
     }
   ],
   "pages": {
@@ -195,67 +211,54 @@
       "ticket": null
     },
     "exam-hub-cem": {
-      "layoutSha256": "556c3739f61357a2f93a836fdfe6e57eb30d53173f946b1fc5250eac14c4d1ec",
-      "verdict": "pass",
-      "reviewedAt": "2026-11-16T23:12:13.814Z",
-      "runId": "20261116T230955Z",
+      "layoutSha256": "b67df12778c3e55c5275b5877f78a7cf79e5bc76f3c2ac855a70319515b17754",
+      "verdict": "fail",
+      "reviewedAt": "2026-11-17T04:59:33.545Z",
+      "runId": "20261117T045600Z",
       "path": "/exam/pe-comprehensive-management",
       "findings": [
         {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "5 管理学習ガイドの 3 列カードで最終行が 2 枚だけ残り右側が空く（768 でも最終行 1 枚）。読むのに支障はない。",
+          "severity": "major",
+          "type": "cta",
+          "detail": "右の欄に同じ Groovement の転職バナー（年収 1,200 万円以上）が、人気記事のカードを挟んで 2 回出る。同じ導線が重複している。",
           "viewport": "w1440",
           "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "パンくずが 11px と小さい。行の題名・補助説明・順位の数字の位置は崩れておらず、はみ出しも無い。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "type": "layout",
+          "detail": "右の欄の広告枠が本文の過去問表の途中に 1 つだけ離れて出て、その上下が大きく空く。カードの揃いは問題ない。",
+          "viewport": "w1440",
+          "shot": "w1440-03.png"
         }
       ],
       "deterministic": [],
-      "ticket": null
+      "ticket": "DN-1233"
     },
     "exam-hub-civil1": {
       "layoutSha256": "8a4389595c4261cc992c1ca4407613b9a86bb7efb43e31441c6b08dc965b0b33",
-      "verdict": "pass",
-      "reviewedAt": "2026-11-17T00:40:10.212Z",
-      "runId": "20261117T003743Z",
+      "verdict": "fail",
+      "reviewedAt": "2026-11-17T04:59:33.545Z",
+      "runId": "20261117T045600Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
-          "severity": "minor",
-          "type": "content",
-          "detail": "記事一覧の途中と右レールに「AdSense doboku-infeed-thumb (…)」と書かれた破線の空き枠が出ている（w768・w1440 も同じ）。ローカル配信（:3025）で広告が出ない代わりの表示なら本番では出ないはずだが、本番で残るなら読者に見える仮の枠になる。",
-          "shot": "w375-04.png"
-        },
-        {
-          "severity": "minor",
+          "severity": "major",
           "type": "cta",
-          "detail": "右レールにビルドジョブの同じ「ホワイト転職」バナーが人気記事をはさんで 2 回出ている。",
+          "detail": "右の欄に同じビルドジョブの転職バナー（年収下げずにホワイト転職）が、人気記事のカードを挟んで 2 回出る。同じ導線が近くで重複し、読者に押し売りの印象を与える。",
           "viewport": "w1440",
           "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "教材の章の題名が「施工管理・施…」「環境保全・建設…」と省略され、区別がつきにくい。",
-          "viewport": "w375",
-          "shot": "w375-03.png"
-        },
-        {
-          "severity": "minor",
           "type": "layout",
-          "detail": "「学習を始める」のボタンが 2 列で並び、最後の「キャリア」が 1 つだけ左に残る（w768 も同様）。矢印・パンくず・ボタンの角丸と余白は揃っていて崩れはない。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "detail": "右の欄の末尾（広告枠）が本文の中ほどまでで終わり、その下は右側が空白のまま続く。カードの並び・題名 18px・区切り線・枠と角丸は揃っていて崩れは無い。",
+          "viewport": "w1440",
+          "shot": "w1440-03.png"
         }
       ],
       "deterministic": [],
-      "ticket": null
+      "ticket": "DN-1232"
     },
     "exam-overview": {
       "layoutSha256": "1c2bd327db5c1850749dbc1401693e41dc9e75e68c5f821604846edaf47d08b2",
@@ -332,25 +335,18 @@
       "ticket": null
     },
     "keyword": {
-      "layoutSha256": "43e89551728ab925d4f5cbb8831aada12357f3241b5acafa0a7051ea608147cb",
+      "layoutSha256": "2ff4cfe61429f1e139073c8384287b957e7c3ad6677d9ed88c70d6082fe4f287",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T13:33:23.811Z",
-      "runId": "20261116T132651Z",
+      "reviewedAt": "2026-11-17T04:59:33.545Z",
+      "runId": "20261117T045600Z",
       "path": "/exam/pe-comprehensive-management/keywords/alarp-principle",
       "findings": [
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "「この記事のテーマ」の縮小画像の札「R8施工II-2-1地下街」が札の幅で切れている。題名は横に出ており読者は困らない。",
-          "viewport": "w768",
-          "shot": "w768-04.png"
-        },
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "「口頭試験の完全準備」の帯が枠なしで他の区画の白い箱の左右いっぱいに広がり、箱の内側余白がない。読めて押せるので minor。",
-          "viewport": "w768",
-          "shot": "w768-04.png"
+          "type": "hierarchy",
+          "detail": "右の欄の上から広告・運営者カード・広告・教材バナーが続き、カードの枠・角丸・影・題名は揃っているが、広告が運営者カードを挟んで 3 枚あり、右の欄の主役が分かりにくい。",
+          "viewport": "w1440",
+          "shot": "w1440-01.png"
         }
       ],
       "deterministic": [],
@@ -382,82 +378,61 @@
       "ticket": null
     },
     "past-exam": {
-      "layoutSha256": "e76655ffe106bbf1b61bbe5407af5ae16b8e8bc6abc58461b7f7efc9061057d8",
+      "layoutSha256": "671be94a776e14a47dae896b9e51f82cccb8e6211411937fdd20724878667823",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T13:33:23.811Z",
-      "runId": "20261116T132651Z",
+      "reviewedAt": "2026-11-17T04:59:33.545Z",
+      "runId": "20261117T045600Z",
       "path": "/exam/civil-construction-1/secondary/r06",
       "findings": [
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "スマホ幅で「ほかの年度の過去問」「この試験で扱われた教材」の白い箱が画面の左右いっぱいに広がり、本文の16px余白と左端がずれる。読むには支障なし。",
-          "viewport": "w375",
-          "shot": "w375-04.png"
+          "detail": "右の欄に「この試験で扱われた教材」「（続き）」「同じ資格のよく読まれている記事」「（続き）」が分かれて並び、題名「同じ資格のよく読まれている記事（続き）」は 2 行に折り返す。枠・題名の大きさは揃っていて読める。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         }
       ],
       "deterministic": [],
       "ticket": null
     },
     "pillar": {
-      "layoutSha256": "c83a5e8ed6fc23d6f90d9a2351fb1041f20c86a6e0d191aa30babce2d716afef",
+      "layoutSha256": "7d8f669288d97105f0729cd32fa73dcc3e84df7abc151f1a9399070bb822de73",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-17T04:59:33.545Z",
+      "runId": "20261117T045600Z",
       "path": "/exam/pe-comprehensive-management/pillar/economic-management-pillar",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "「5 管理学習ガイドの続き」の箱で、次の記事カードが右半分だけに出て左半分が大きく空いている。",
-          "viewport": "w768",
-          "shot": "w768-05.png"
-        },
-        {
-          "severity": "minor",
           "type": "cta",
-          "detail": "「口頭試験の完全準備」の note 導線が幅約 300px で中央に小さく置かれ、文章が窮屈に折り返している。w1440 でも同様。",
-          "viewport": "w768",
-          "shot": "w768-cta-03.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "本文の途中に異なる転職広告（MyVision・NewMA・Groovement）が各区画の末尾に入り、スマホ幅では広告が多く読みの流れを切る。PR 表記はある。",
-          "viewport": "w375",
-          "shot": "w375-02.png"
+          "detail": "右の欄に転職系の PR バナーが 3 つ（Groovement・MyVision・NewMA）と note 教材バナーが並び、カードの並びが広告寄りで重い。創作は別々で重複ではない。",
+          "viewport": "w1440",
+          "shot": "w1440-01.png"
         },
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "精読ガイドの note バナーが本文幅より約 100px 短く、右端が本文と揃っていない（w1440 も同様）。",
-          "viewport": "w768",
-          "shot": "w768-01.png"
+          "detail": "「5 管理学習ガイドの続き」の箱は左半分が空白で、次へのカードが右に 1 枚だけ寄る。読めない崩れではない。",
+          "viewport": "w1440",
+          "shot": "w1440-05.png"
         }
       ],
       "deterministic": [],
       "ticket": null
     },
     "practice": {
-      "layoutSha256": "2129f8d543801592031c49e66e9084f02c13e4f0ad7378bcd6aae6fc8633d547",
+      "layoutSha256": "83abaaf282960e0600845781b4a2d8f05bcc6c92f2ac1f6263aaa070054a15f7",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T23:12:13.814Z",
-      "runId": "20261116T230955Z",
+      "reviewedAt": "2026-11-17T04:59:33.545Z",
+      "runId": "20261117T045600Z",
       "path": "/practice/oshms-pdca-site-operation",
       "findings": [
         {
           "severity": "minor",
-          "type": "cta",
-          "detail": "右の列と本文の最初の画面に同じ広告主のビルドジョブのバナーが 2 つ見える。ほかの導線とは離れており読むのは妨げない。",
+          "type": "layout",
+          "detail": "右の欄は記事の中ほどで終わり、以降は広告の枠だけが離れて残る（開発サーバーの代替表示）。カードの揃い・はみ出し・空の箱は無い。",
           "viewport": "w1440",
-          "shot": "w1440-01.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "スマホ幅で本文中に PR バナーが短い間隔で複数入る。PR 表記はあり、本文は読める。",
-          "viewport": "w375",
-          "shot": "w375-03.png"
+          "shot": "w1440-03.png"
         }
       ],
       "deterministic": [],
@@ -466,42 +441,21 @@
     "standards-chapter": {
       "layoutSha256": "929219d662b9c31432e50a0b264abc6dd26ef79aeaff04f139d82a2923eb7b04",
       "verdict": "pass",
-      "reviewedAt": "2026-11-17T00:40:10.212Z",
-      "runId": "20261117T003743Z",
+      "reviewedAt": "2026-11-17T05:04:01.200Z",
+      "runId": "20261117T050221Z",
       "path": "/standards/kinki/common/chapters/1-3",
       "findings": [
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "パンくず（ホーム › 公的基準 › 近畿地方整備局 › 土木工事共通仕様書）が 11px で小さく、押す範囲が 17px と狭い。2 行に折り返すが読める。",
-          "viewport": "w375",
-          "shot": "w375-01.png"
+          "detail": "右の欄の「同じ文書の前後の章（続き）」は題名の意味が分かりにくく、リンク文字も小さい",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "表 1-3-5 の見出しと表の間に大きな空白があり、表の左端も本文より 16px 内側に入っている。",
-          "viewport": "w768",
-          "shot": "w768-05.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "右の記事カードのサムネイル内ラベル（「令和8年の答え合わせ」など）が小さい画像の中で切れている。記事名は横に出ており読める。",
-          "viewport": "w1440",
-          "shot": "w1440-cta-02.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "本文の途中に出る広告（PR 表記あり）のうち「施工管理職」「RSG」は細く、何の広告か分かりにくい。",
-          "viewport": "w375",
-          "shot": "w375-cta-02.png"
-        },
-        {
-          "severity": "minor",
-          "type": "other",
-          "detail": "右の欄に「AdSense doboku-rail」と書かれた斜線の枠が出ている（開発環境の代わりの表示と思われる）。",
+          "detail": "本文の下の方で右の欄に広告枠だけが残り、周囲に大きな余白ができる（開発用の枠表示）",
           "viewport": "w1440",
           "shot": "w1440-04.png"
         }
@@ -510,25 +464,25 @@
       "ticket": null
     },
     "standards-index": {
-      "layoutSha256": "c8caef081fbacb7b27c251e3838a1c72d7bbf2d113793de1cda6c9f5922df022",
+      "layoutSha256": "49657bbf6a07a38bb836019a29d8ba356e9c10f39ae02ca82153abf42d752dec",
       "verdict": "pass",
-      "reviewedAt": "2026-11-17T00:15:43.374Z",
-      "runId": "20261117T000950Z",
+      "reviewedAt": "2026-11-17T05:04:01.200Z",
+      "runId": "20261117T050221Z",
       "path": "/standards",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "右の側欄が主欄より長く、主欄の下に大きな空白が残る。",
+          "type": "consistency",
+          "detail": "右の欄で「共通仕様書を章から読む」「実務・比較・データ」の行は矢印が無く、「テーマから読む」の行は右端に矢印があり、同じ一覧でも行の形が少し違う",
           "viewport": "w1440",
-          "shot": "w1440-02.png"
+          "shot": "w1440-01.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "章の番号(1-1 など)が 11px と小さい補助文字。",
-          "viewport": "w375",
-          "shot": "w375-02.png"
+          "type": "layout",
+          "detail": "発行機関の一覧で、四国地方整備局の隣など空の枠が残る（w1440 も同様）",
+          "viewport": "w768",
+          "shot": "w768-01.png"
         }
       ],
       "deterministic": [],
