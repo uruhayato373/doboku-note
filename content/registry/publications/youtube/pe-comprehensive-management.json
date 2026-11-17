@@ -952,7 +952,7 @@
       "work": "sokan-kojutsu-tachiba",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-001",
@@ -985,6 +985,9 @@
         "by": "policy",
         "at": "2026-11-17T12:51:03.252Z",
         "contentSha256": "1b595017e711012d517f0122b35dbc98739142d790b10f94f1ab5773cad3fbc2"
+      },
+      "times": {
+        "rendered": "2026-11-17T12:57:51.071Z"
       }
     },
     {
