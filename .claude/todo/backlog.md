@@ -462,6 +462,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1234] deploy:main が gh run watch の途中終了をデプロイ失敗と誤判定する
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-17]
+
+起点: 2026-11-17 の `npm run deploy:main`（run 44029292928）が「デプロイが失敗」で exit 1 になった。実際の run はまだ in_progress で、その後 success で終わり、本番の確認も通った。`scripts/deploy-main.mjs` の waitForDeploy が `gh run watch --exit-status` の終了コードだけで失敗と決めている。watch が途中で抜けた（通信・API の一時エラー）だけで偽の失敗になる。
+やること: watch が 0 以外で抜けたら `gh run view --json status,conclusion` で run の実際の状態を確かめ、in_progress なら待ち直し、completed かつ success なら続行、failure のときだけ exit 1 にする。回帰テストを足す。
+完了条件: watch が途中で抜けても、run が success なら deploy:main が本番の確認まで進んで exit 0 になる（テストで再現）。
+
+
 ### [DN-1233] exam-hub-cem（/exam/pe-comprehensive-management）が画面の点検で不合格（cta）
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-17]
 
