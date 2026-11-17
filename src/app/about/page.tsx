@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ButtonLink } from "@/components/ui/Button/Button";
 import LinkTile from "@/components/ui/LinkTile/LinkTile";
 import {
   BookOpen,
@@ -291,20 +291,8 @@ export default function AboutPage() {
           ご質問やご意見がございましたらお気軽にお問い合わせください。
         </p>
         <div className="flex flex-wrap gap-3">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-(--accent) text-(--paper) px-5 py-2.5 rounded-card-content font-medium hover:opacity-90 transition-opacity"
-          >
-            お問い合わせフォーム
-          </Link>
-          <a
-            href={AUTHOR.twitterUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-(--rule-soft) text-(--ink-body) px-5 py-2.5 rounded-card-content font-medium hover:border-(--accent) hover:text-(--accent) transition-colors"
-          >
-            Xでフォロー
-          </a>
+          <ButtonLink href="/contact" size="md">お問い合わせフォーム</ButtonLink>
+          <ButtonLink href={AUTHOR.twitterUrl} variant="secondary" size="md">Xでフォロー</ButtonLink>
         </div>
       </SectionBlock>
     </PageShell>

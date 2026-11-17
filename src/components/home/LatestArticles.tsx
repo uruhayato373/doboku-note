@@ -1,5 +1,8 @@
 import ArticleThumbRow from "@/components/ui/RelatedArticles/ArticleThumbRow";
-import { ArrowRight, Hash } from "lucide-react";
+import { Hash } from "lucide-react";
+import Arrow from '@/components/ui/Arrow/Arrow';
+import Pill from '@/components/ui/Pill/Pill';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { formatDotDate } from "@/lib/display-date";
 import { WIDE_CONTAINER } from '@/components/layout/container';
@@ -44,7 +47,7 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
               title={a.title}
               image={a.image}
               eyebrow={(a.categoryLabel || date) && <span className="flex flex-wrap items-center gap-2">
-                {a.categoryLabel && <span className="rounded-card-inline bg-(--accent-fill) px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-(--accent)">{a.categoryLabel}</span>}
+                {a.categoryLabel && <Pill size="xs" className="font-mono uppercase tracking-widest">{a.categoryLabel}</Pill>}
                 {date && <span className="font-mono text-[10px] tabular-nums">{date}</span>}
               </span>}
               meta={<>
@@ -55,10 +58,10 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
                     ))}
                   </span>
                 )}
-                <span className="mt-2 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-(--ink-muted) transition-colors group-hover:text-(--accent)">
+                <Eyebrow variant="mono" className="mt-2 inline-flex items-center gap-1.5 transition-colors group-hover:text-(--accent)">
                   <span>Read</span>
-                  <ArrowRight className="h-3 w-3" />
-                </span>
+                  <Arrow />
+                </Eyebrow>
               </>}
             />
           );

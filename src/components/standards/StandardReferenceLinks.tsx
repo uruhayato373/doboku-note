@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import { ButtonLink } from '@/components/ui/Button/Button';
+import Arrow from '@/components/ui/Arrow/Arrow';
 import { standardDocumentPath, type StandardDocument } from '@/lib/standards';
 
 /** 本文が言及している基準のうち、全文ライブラリに収録済みのものへ案内する */
@@ -13,12 +14,9 @@ export default function StandardReferenceLinks({ documents }: { documents: Stand
       <ul className="mt-3 space-y-2">
         {documents.map((document) => (
           <li key={`${document.agencyId}/${document.documentId}`}>
-            <Link
-              href={standardDocumentPath(document)}
-              className="focus-ring inline-flex min-h-11 items-center text-[14px] font-bold text-(--accent) hover:underline"
-            >
-              {document.agencyName}「{document.title}」→
-            </Link>
+            <ButtonLink href={standardDocumentPath(document)} variant="text">
+              {document.agencyName}「{document.title}」<Arrow />
+            </ButtonLink>
           </li>
         ))}
       </ul>

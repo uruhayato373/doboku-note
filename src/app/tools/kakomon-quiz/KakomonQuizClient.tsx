@@ -1,7 +1,10 @@
 "use client";
 
+import { eyebrowClass } from '@/components/ui/Eyebrow/Eyebrow';
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
+import Button, { ButtonLink } from "@/components/ui/Button/Button";
+import Arrow from "@/components/ui/Arrow/Arrow";
 import type { QuizDataset, QuizQuestion } from "@/lib/quiz/types";
 import { correctLabel, isCorrectChoice } from "@/lib/quiz/grading";
 import { event } from "@/lib/gtag";
@@ -318,13 +321,7 @@ function MenuScreen({
       {loadError && (
         <div className="card-surface-content p-4 mb-6 text-center">
           <p className="text-sm text-(--color-danger) font-bold mb-2">問題データの読み込みに失敗しました</p>
-          <button
-            type="button"
-            onClick={onRetry}
-            className="focus-ring rounded-card-content border border-(--accent) bg-(--accent-fill) px-4 py-1.5 text-sm font-bold text-(--accent)"
-          >
-            再読み込み
-          </button>
+          <Button variant="soft" onClick={onRetry}>再読み込み</Button>
         </div>
       )}
 
@@ -525,13 +522,7 @@ function QuizRunner({
           </div>
           <div className="mt-2 text-(--ink-body)">正答率 {pct}%</div>
           <div className="mt-5 flex flex-wrap justify-center gap-3">
-            <button
-              type="button"
-              onClick={onExit}
-              className="focus-ring rounded-card-content border border-(--accent) bg-(--accent-fill) px-5 py-2 text-sm font-bold text-(--accent)"
-            >
-              別のモードを選ぶ
-            </button>
+            <Button variant="soft" onClick={onExit}>別のモードを選ぶ</Button>
           </div>
         </div>
 
@@ -635,21 +626,18 @@ function QuizRunner({
             </ul>
             )}
             {q.articlePath && (
-              <Link href={q.articlePath} className="focus-ring mt-3 inline-block text-[13px] font-bold text-(--accent) hover:underline">
-                元記事で詳しい解説を読む →
-              </Link>
+              <ButtonLink href={q.articlePath} variant="text" className="mt-3">
+                元記事で詳しい解説を読む
+                <Arrow />
+              </ButtonLink>
             )}
           </div>
         )}
 
         {answered && (
-          <button
-            type="button"
-            onClick={next}
-            className="focus-ring mt-5 w-full rounded-card-content border border-(--accent) bg-(--accent-fill) px-5 py-2.5 text-sm font-bold text-(--accent)"
-          >
-            {isLast ? "結果を見る" : "次の問題へ →"}
-          </button>
+          <Button variant="soft" size="md" block onClick={next} className="mt-5">
+            {isLast ? "結果を見る" : <>次の問題へ<Arrow /></>}
+          </Button>
         )}
       </ToolPanel>
     </ToolLayout>
@@ -736,7 +724,7 @@ function PremiumInterestCard({
   return (
     <section className="card-surface-section mt-6 overflow-hidden" aria-labelledby={`premium-${placement}`}>
       <div className="border-b border-(--rule-soft) bg-(--accent-fill) px-5 py-3">
-        <span className="text-[11px] font-bold uppercase tracking-wider text-(--accent)">Premium 準備中</span>
+        <span className={eyebrowClass('label', 'accent')}>Premium 準備中</span>
       </div>
       <div className="p-5 sm:p-6">
         <h2 id={`premium-${placement}`} className="font-serif text-xl font-black text-(--ink) sm:text-2xl">
@@ -748,14 +736,9 @@ function PremiumInterestCard({
         <div className="mt-4 rounded-card-content bg-(--bg) p-4 text-sm leading-6 text-(--ink-body)">
           価格仮説は<strong className="text-(--ink)">資格ごと買い切り ¥980〜¥1,480</strong>。現在は需要検証中で、決済も連絡先入力もありません。
         </div>
-        <button
-          type="button"
-          onClick={() => markInterest("premium_intent")}
-          aria-pressed={mainSelected}
-          className="focus-ring mt-4 w-full rounded-card-content border border-(--accent) bg-(--accent) px-5 py-3 text-sm font-bold text-(--paper) transition-opacity hover:opacity-90"
-        >
+        <Button onClick={() => markInterest("premium_intent")} aria-pressed={mainSelected} size="md" block className="mt-4">
           {mainSelected ? "購入意向を記録しました" : "この内容なら使いたい（匿名で記録）"}
-        </button>
+        </Button>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {interestButton("email_interest", "メールで学習レポート", "復習状況と先行案内。今はアドレスを取得しません")}
           {interestButton("line_interest", "LINEで試験日通知", "試験日・合格発表など期限通知。今は友だち追加しません")}

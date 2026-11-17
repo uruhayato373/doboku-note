@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
+import Arrow from '@/components/ui/Arrow/Arrow';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
 /**
  * 区切り線の文字の行（1 行 1 リンク）。項目の多い一覧（右の欄の文字の一覧・資格トップのカリキュラム・人気の順位・基準書の文書と章・テーマの記事の行）が使う。
@@ -56,12 +58,12 @@ export default function LinkRow({ href, title, eyebrow, description, marker, met
       <Link href={href} {...data} className="focus-ring group flex min-h-11 items-center gap-3 py-2 text-sm transition-colors">
         {marker}
         <div className="min-w-0 flex-1">
-          {eyebrow && <span className="block text-[11px] font-bold text-(--ink-muted)">{eyebrow}</span>}
+          {eyebrow && <Eyebrow variant="plain">{eyebrow}</Eyebrow>}
           <Title className={`line-clamp-2 block font-medium ${color}${serif ? ' font-serif' : ''}`}>{title}</Title>
           {description && <span className="mt-0.5 line-clamp-2 block text-[13px] text-(--ink-muted)">{description}</span>}
         </div>
         {meta && <span className="shrink-0 text-xs text-(--ink-muted)">{meta}</span>}
-        {arrow && <span aria-hidden="true" className="shrink-0 text-(--accent)">→</span>}
+        {arrow && <Arrow className="text-(--accent)" />}
       </Link>
     </li>
   );

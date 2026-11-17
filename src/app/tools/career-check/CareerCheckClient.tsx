@@ -1,6 +1,7 @@
 "use client";
 
 import LinkTile from "@/components/ui/LinkTile/LinkTile";
+import Button from "@/components/ui/Button/Button";
 import { useEffect, useId, useRef, useState } from "react";
 import CareerAffiliate from "@/components/ui/CareerAffiliate/CareerAffiliate";
 import { resolvePlacements } from '@/lib/affiliate-placement';
@@ -224,13 +225,9 @@ export default function CareerCheckClient({ builtAt }: { builtAt: number }) {
           onChange={setChangeWant}
         />
 
-        <button
-          type="button"
-          onClick={run}
-          className="focus-ring mt-8 w-full rounded-card-content bg-(--accent) px-5 py-3 text-[15px] font-bold text-(--paper) transition-opacity hover:opacity-90 sm:w-auto"
-        >
+        <Button onClick={run} size="md" className="mt-8 w-full sm:w-auto">
           整理する
-        </button>
+        </Button>
       </section>
 
       <div ref={resultRef} tabIndex={-1} aria-live="polite" className="focus-ring">
@@ -300,20 +297,10 @@ export default function CareerCheckClient({ builtAt }: { builtAt: number }) {
                   ))}
                 </ul>
                 <div className="mt-4 flex flex-wrap gap-2 print:hidden">
-                  <button
-                    type="button"
-                    onClick={copyChecklist}
-                    className="focus-ring rounded-card-content border border-(--rule-soft) px-4 py-2 text-[14px] text-(--ink-body) transition-colors hover:border-brand dark:border-(--rule-soft)"
-                  >
+                  <Button variant="secondary" onClick={copyChecklist}>
                     {copied ? "コピーしました" : "チェックリストをコピー"}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => window.print()}
-                    className="focus-ring rounded-card-content border border-(--rule-soft) px-4 py-2 text-[14px] text-(--ink-body) transition-colors hover:border-brand dark:border-(--rule-soft)"
-                  >
-                    印刷する
-                  </button>
+                  </Button>
+                  <Button variant="secondary" onClick={() => window.print()}>印刷する</Button>
                   <a
                     href="/downloads/career-preparation.txt"
                     download

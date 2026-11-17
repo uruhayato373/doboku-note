@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolSources } from '@/components/tools/ToolParts';
 
 /**
@@ -68,9 +69,7 @@ export default function CostStructureClient({ related }: { related?: React.React
       {/* 結果 */}
       <ToolPanel spaced>
         <div className="flex items-baseline justify-between">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
-            請負工事費 合計
-          </span>
+          <Eyebrow>請負工事費 合計</Eyebrow>
           <span className="font-serif font-black text-[24px] text-(--ink) tabular-nums">
             {total.toLocaleString()} 千円
           </span>

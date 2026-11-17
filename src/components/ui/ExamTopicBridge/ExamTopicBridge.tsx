@@ -2,6 +2,7 @@ import Link from 'next/link';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { type ExamTopicQuestion } from '@/lib/exam-topic-bridge';
+import Arrow from '@/components/ui/Arrow/Arrow';
 
 /** 問題文の **強調** だけを <strong> にする（他の記法は exam-topic-bridge.ts の選定で除いている） */
 function Emphasis({ text }: { text: string }) {
@@ -32,9 +33,9 @@ export default function ExamTopicBridge({ question }: { question: ExamTopicQuest
         </p>
       </Disclosure>
       <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-        <Link href={question.examHref} className="font-semibold text-(--accent) hover:underline">この年度の過去問を全部解く →</Link>
+        <Link href={question.examHref} className="font-semibold text-(--accent) hover:underline">この年度の過去問を全部解く <Arrow /></Link>
         {question.textbook && (
-          <Link href={question.textbook.href} className="font-semibold text-(--accent) hover:underline">教科書「{question.textbook.title}」で確認する →</Link>
+          <Link href={question.textbook.href} className="font-semibold text-(--accent) hover:underline">教科書「{question.textbook.title}」で確認する <Arrow /></Link>
         )}
       </div>
     </MetaCard>

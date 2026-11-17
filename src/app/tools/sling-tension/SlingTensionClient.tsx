@@ -1,5 +1,6 @@
 "use client";
 
+import { eyebrowClass } from '@/components/ui/Eyebrow/Eyebrow';
 import { useState } from "react";
 import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolResultValue, ToolStatus, ToolNotice, ToolSources } from '@/components/tools/ToolParts';
 
@@ -132,7 +133,7 @@ export default function SlingTensionClient({ related }: { related?: React.ReactN
 
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div className="rounded-card-content bg-(--accent-fill) p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-body)">
+            <div className={eyebrowClass('label', 'body')}>
               1本当たりの張力 T
             </div>
             <ToolResultValue size="sm" className="mt-1">
@@ -140,7 +141,7 @@ export default function SlingTensionClient({ related }: { related?: React.ReactN
             </ToolResultValue>
           </div>
           <div className="rounded-card-content bg-(--accent-fill) p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-body)">
+            <div className={eyebrowClass('label', 'body')}>
               必要な破断荷重（安全係数{SAFETY_FACTOR}）
             </div>
             <ToolResultValue size="sm" className="mt-1">

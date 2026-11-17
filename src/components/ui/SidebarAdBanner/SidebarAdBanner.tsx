@@ -1,4 +1,4 @@
-import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL } from "@/components/ui/AffiliateParts";
+import { AffiliatePrBadge, AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL } from "@/components/ui/AffiliateParts";
 import { programAssetForHref } from "@/config/affiliate-creatives";
 import CareerAffiliateExperiment from "@/components/ui/CareerAffiliate/CareerAffiliateExperiment";
 
@@ -54,13 +54,7 @@ export default function SidebarAdBanner({
     // 自前の mt を持たせるとサイドバー先頭がメインカードより下がり上端がズレる（2026-07 上端揃え）。
     <div className="not-prose">
       <div className="card-surface-content relative overflow-hidden p-2">
-        <span
-          className="absolute right-2 top-2 z-10 inline-flex items-center rounded-sm px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"
-          style={{ background: "var(--ink-muted-fill)" }}
-          aria-label="広告"
-        >
-          PR
-        </span>
+        <AffiliatePrBadge className="absolute right-2 top-2 z-10" />
         <a
           href={href}
           rel={AFFILIATE_LINK_REL}

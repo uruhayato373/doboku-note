@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { ButtonLink } from '@/components/ui/Button/Button';
 import type { StandardChapter } from '@/lib/standards-articles';
 import type { StandardDocument } from '@/lib/standards';
 import {
@@ -11,7 +11,6 @@ type Props = {
   chapter?: StandardChapter;
 };
 
-const linkClass = 'focus-ring inline-flex min-h-11 items-center text-[13px] font-bold text-(--accent) hover:underline';
 
 export default function StandardDataLinks({ document, chapter }: Props) {
   const downloads = chapter
@@ -28,19 +27,11 @@ export default function StandardDataLinks({ document, chapter }: Props) {
     <nav aria-label="機械可読データ" className="mt-6 flex flex-wrap items-center gap-x-5 border-t border-(--rule-soft)">
       <span className="text-[13px] text-(--ink-muted)">データ</span>
       {downloads.map((download) => (
-        <a
-          key={download.href}
-          href={download.href}
-          download
-          data-cta="standards-data"
-          data-cta-label={download.key}
-          data-cta-placement={chapter ? 'standards-chapter' : 'standards-document'}
-          className={linkClass}
-        >
+        <ButtonLink key={download.href} href={download.href} download variant="text" className="text-[13px]" data={{ 'data-cta': 'standards-data', 'data-cta-label': download.key, 'data-cta-placement': chapter ? 'standards-chapter' : 'standards-document' }}>
           {download.label}
-        </a>
+        </ButtonLink>
       ))}
-      <Link href="/standards/data" className={linkClass}>仕様・利用条件</Link>
+      <ButtonLink href="/standards/data" variant="text" className="text-[13px]">仕様・利用条件</ButtonLink>
     </nav>
   );
 }

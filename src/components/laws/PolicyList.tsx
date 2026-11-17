@@ -5,6 +5,7 @@
  * 件数の多いテーマ（自治体の土木職 40 件など）は、新しい順に initial 件を見せ、残りは折りたたむ（初期 HTML には全件を出す）。
  */
 import Link from 'next/link';
+import Pill from '@/components/ui/Pill/Pill';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import type { LawLink, Policy } from '@/lib/law-wiring';
 
@@ -33,7 +34,7 @@ function PolicyItems({ policies }: { policies: readonly Row[] }) {
       {policies.map((p) => (
         <li key={p.id}>
           <p className="text-[15px]">
-            <span className="mr-2 rounded-card-content border border-(--rule-soft) px-1.5 py-0.5 text-[11px] text-(--ink-muted) dark:border-(--rule-soft)">{KIND_LABEL[p.kind]}</span>
+            <Pill variant="outline" className="mr-2 text-(--ink-muted)">{KIND_LABEL[p.kind]}</Pill>
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="font-medium text-(--accent) hover:underline">{p.title}</a>
           </p>
           <p className="mt-1 text-[12px] text-(--ink-muted)">

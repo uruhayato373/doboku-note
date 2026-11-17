@@ -1,3 +1,4 @@
+import Arrow from '@/components/ui/Arrow/Arrow';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
 import { type DocMeta } from '@/lib/docs';
@@ -37,7 +38,7 @@ export function DocCard({ doc }: { doc: DocMeta }) {
       headingLevel="h3"
       meta={
         <span className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest">
-          <span>Read <span aria-hidden>→</span></span>
+          <span>Read <Arrow /></span>
           {date && <span className="tabular-nums normal-case tracking-normal">{date}</span>}
         </span>
       }

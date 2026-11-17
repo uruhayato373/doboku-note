@@ -1,5 +1,7 @@
 import { Fragment, type ReactNode } from 'react';
-import Link from 'next/link';
+import { ButtonLink } from '@/components/ui/Button/Button';
+import Arrow from '@/components/ui/Arrow/Arrow';
+import { EYEBROW } from '@/components/ui/Eyebrow/Eyebrow';
 import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
@@ -24,7 +26,7 @@ import {
  * クリックは MetaCard の trackNav（internal_nav_click）、資格の橋渡しは qualification-bridge（placement=standards-bridge-sidebar）で計る。
  */
 
-const SUB_HEADING = 'mt-3 text-[13px] font-bold text-(--ink-muted)';
+const SUB_HEADING = `mt-3 ${EYEBROW.plain}`;
 
 /** 試験対策の記事は短い題名（「コンクリート」「試験概要」）だけでは資格が分からないので、資格名を添える */
 function DocList({ docs, showQualification = false }: { docs: DocMeta[]; showQualification?: boolean }) {
@@ -63,9 +65,9 @@ function RelatedReading({ topics, heading }: { topics: Topic[]; heading: string 
       <ul className="mt-2 flex flex-wrap gap-x-4">
         {topics.map((topic) => (
           <li key={topic.slug}>
-            <Link className="focus-ring inline-flex min-h-11 items-center text-[13px] font-bold text-(--accent) hover:underline" href={topicPath(topic.slug)}>
-              {topic.label}のテーマへ →
-            </Link>
+            <ButtonLink href={topicPath(topic.slug)} variant="text">
+              {topic.label}のテーマへ <Arrow />
+            </ButtonLink>
           </li>
         ))}
       </ul>
@@ -104,9 +106,9 @@ function RegionalVersions({ document, chapter }: { document: StandardDocument; c
           />
         )))}
       </LinkRowList>
-      <Link className="focus-ring mt-1 inline-flex min-h-11 items-center text-[13px] font-bold text-(--accent) hover:underline" href="/standards/compare">
-        地方整備局別の違いを一覧で見る →
-      </Link>
+      <ButtonLink href="/standards/compare" variant="text" className="mt-1">
+        地方整備局別の違いを一覧で見る <Arrow />
+      </ButtonLink>
     </MetaCard>
   );
 }

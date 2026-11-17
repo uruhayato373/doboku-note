@@ -1,10 +1,12 @@
-import Link from 'next/link';
+import { ButtonLink } from '@/components/ui/Button/Button';
+import Arrow from '@/components/ui/Arrow/Arrow';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 import { NOT_FOUND_TITLE } from '@/lib/metadata';
 
 export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4 bg-(--bg)">
-      <div className="font-mono text-[11px] uppercase tracking-widest text-(--ink-muted) mb-2">404 — Not Found</div>
+      <Eyebrow variant="mono" as="div" className="mb-2">404 — Not Found</Eyebrow>
       <h1 className="font-serif font-black text-(--ink) text-6xl sm:text-7xl tracking-tight">404</h1>
       <h2 className="mt-4 font-serif text-xl font-bold text-(--ink-body)">
         {NOT_FOUND_TITLE}
@@ -13,19 +15,11 @@ export default function NotFound() {
         お探しのページは移動または削除された可能性があります。
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-        <Link
-          href="/search"
-          className="inline-flex items-center gap-2 rounded-card-inline border border-(--rule-soft) px-4 py-2 text-sm font-bold text-(--ink-body) hover:border-(--accent) hover:text-(--accent) transition-colors"
-        >
-          記事を検索
-        </Link>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 rounded-card-inline bg-(--accent) px-4 py-2 text-sm font-bold text-(--paper) hover:opacity-90 transition-opacity"
-        >
+        <ButtonLink href="/search" variant="secondary">記事を検索</ButtonLink>
+        <ButtonLink href="/">
           <span>ホーム（資格一覧）へ</span>
-          <span aria-hidden>→</span>
-        </Link>
+          <Arrow />
+        </ButtonLink>
       </div>
     </div>
   );

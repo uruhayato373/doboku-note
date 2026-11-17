@@ -14,6 +14,7 @@
  * （Callout を 9 回繰り返すとページが重くなるため、その代替として導入）。
  */
 import { getWhitepaper } from "@/lib/whitepapers";
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
 interface SourceBadgesProps {
   readonly label?: string;
@@ -30,9 +31,9 @@ export default function SourceBadges({ label = "関連白書", items }: SourceBa
   if (!items || items.length === 0) return null;
   return (
     <div className="not-prose my-4 flex items-baseline gap-2 flex-wrap">
-      <span className="text-[11px] font-bold tracking-wider text-ink-muted uppercase shrink-0">
+      <Eyebrow className="shrink-0">
         {label}
-      </span>
+      </Eyebrow>
       <div className="flex gap-1.5 flex-wrap">
         {items.map((item) => {
           const wp = getWhitepaper(item);

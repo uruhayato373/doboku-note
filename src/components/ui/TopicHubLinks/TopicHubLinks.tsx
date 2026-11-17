@@ -17,6 +17,7 @@ import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
 import type { TopicHubLink } from '@/lib/article-end-wiring';
 import { topicPath } from '@/lib/route-paths';
 import { getCardImage } from '@/lib/site-thumbnail';
+import Arrow from '@/components/ui/Arrow/Arrow';
 
 export default function TopicHubLinks({ links }: { links: readonly TopicHubLink[] }) {
   if (links.length === 0) return null;
@@ -30,7 +31,7 @@ export default function TopicHubLinks({ links }: { links: readonly TopicHubLink[
               data-cta-label="topic-hub:hub"
               className="focus-ring inline-block font-medium text-(--accent) hover:underline"
             >
-              {topic.label}のテーマを見る（{total}件） →
+              {topic.label}のテーマを見る（{total}件） <Arrow />
             </Link>
             {picks.length > 0 && (
               <ul className="mt-2 space-y-2">

@@ -2,6 +2,7 @@ import ArticleThumbRow from '@/components/ui/RelatedArticles/ArticleThumbRow';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { findDocByPublicPath } from '@/lib/content-routes';
 import { getCardImage } from '@/lib/site-thumbnail';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
 export interface RelatedPageLink {
   readonly href: string;
@@ -19,7 +20,7 @@ export default function RelatedPages({ links, toolsIndex, toolsIndexFirst = fals
   if (!all.length) return null;
   return (
     <div className="mt-6">
-      <div className="mb-3 text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">{heading}</div>
+      <Eyebrow as="div" className="mb-3">{heading}</Eyebrow>
       <ul className="grid gap-3 sm:grid-cols-2">
         {all.map((link) => {
           const doc = findDocByPublicPath(link.href);

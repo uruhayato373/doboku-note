@@ -1,3 +1,4 @@
+import { eyebrowClass } from '@/components/ui/Eyebrow/Eyebrow';
 import type { LucideIcon } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -52,7 +53,7 @@ export default function NavLinkCard({
       </span>
 
       <div className={cn('min-w-0 flex-1', compact && 'leading-tight')}>
-        <div className="text-[11px] font-bold uppercase tracking-wider text-brand">
+        <div className={eyebrowClass('label', 'brand')}>
           {eyebrow}
         </div>
         <div
