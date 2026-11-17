@@ -1,12 +1,10 @@
-import PageShell from "@/components/layout/PageShell";
-import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import TrenchLegalCheckClient from "./TrenchLegalCheckClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
-import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
 import { toolByHref } from "@/lib/tools";
-import { READING_CONTAINER } from '@/components/layout/container';
+import ToolPageShell from "@/components/tools/ToolPageShell";
 
 const tool = toolByHref("/tools/trench-legal-check");
 
@@ -41,23 +39,15 @@ export const metadata: Metadata = {
 
 export default function TrenchLegalCheckPage() {
   return (
-    <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        width="760"
-        breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
-        label="無料ツール"
-        title={tool.title}
-        lead={
-          <>
-            掘削面の高さと地山の種類を入れると、<strong className="text-(--ink)">作業主任者の選任義務</strong>・<strong className="text-(--ink)">法面勾配の基準</strong>・<strong className="text-(--ink)">土止め先行工法ガイドラインの適用範囲</strong>を確認できます。「安全な深さ」を判定するツールではありません。
-          </>
-        }
-      />
-
-      <TrenchLegalCheckClient />
-      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
-    </PageShell>
+    <ToolPageShell
+      title={tool.title}
+      lead={
+        <>
+          掘削面の高さと地山の種類を入れると、<strong className="text-(--ink)">作業主任者の選任義務</strong>・<strong className="text-(--ink)">法面勾配の基準</strong>・<strong className="text-(--ink)">土止め先行工法ガイドラインの適用範囲</strong>を確認できます。「安全な深さ」を判定するツールではありません。
+        </>
+      }
+    >
+      <TrenchLegalCheckClient related={<RelatedPages links={[{ href: "/practice/trench-excavation-safety", title: "溝掘削の土留めをいつ入れるか", description: "法令の構造と判断の考え方を解説した記事" }]} toolsIndex="現場管理値の計算ツールをまとめて見る" />} />
+    </ToolPageShell>
   );
 }

@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
-import { READING_CONTAINER } from '@/components/layout/container';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
+import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * 工事原価 構成比計算ツール（クライアント）。
@@ -30,7 +29,7 @@ function toNum(s: string | undefined): number {
   return Number.isFinite(n) && n >= 0 ? n : 0;
 }
 
-export default function CostStructureClient() {
+export default function CostStructureClient({ related }: { related?: React.ReactNode }) {
   const [values, setValues] = useState<Record<string, string>>({
     direct: "24000",
     commonTemp: "2500",
@@ -43,19 +42,14 @@ export default function CostStructureClient() {
   const indirect = toNum(values.commonTemp) + toNum(values.siteMgmt);
   const workCost = toNum(values.direct) + indirect; // 工事原価 = 直接工事費 + 間接工事費
 
-  const inputBase =
-    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
-  const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
-
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       {/* 入力 */}
-      <div className="card-surface-section p-5 sm:p-6">
+      <ToolPanel>
         <div className="grid gap-4 sm:grid-cols-2">
           {ITEMS.map((item) => (
             <div key={item.key}>
-              <label htmlFor={item.key} className={labelBase}>
+              <label htmlFor={item.key} className={`${TOOL_LABEL} mb-2`}>
                 {item.label}（千円）
               </label>
               <input
@@ -65,19 +59,17 @@ export default function CostStructureClient() {
                 step="10"
                 value={values[item.key]}
                 onChange={(e) => setValues((v) => ({ ...v, [item.key]: e.target.value }))}
-                className={inputBase}
+                className={TOOL_INPUT}
               />
             </div>
           ))}
         </div>
-      </div>
+      </ToolPanel>
 
       {/* 結果 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="flex items-baseline justify-between">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
-            請負工事費 合計
-          </span>
+          <Eyebrow>請負工事費 合計</Eyebrow>
           <span className="font-serif font-black text-[24px] text-(--ink) tabular-nums">
             {total.toLocaleString()} 千円
           </span>
@@ -151,12 +143,10 @@ export default function CostStructureClient() {
             </div>
           </>
         )}
-      </div>
+      </ToolPanel>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">数値の根拠と注意</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources title="数値の根拠と注意">
           <li>
             <strong className="text-(--ink)">費目区分</strong>は土木工事の積算基準に基づきます。請負代金額は工事価格と消費税相当額に分かれ、工事価格はさらに工事原価（直接工事費＋間接工事費）と一般管理費等に分かれます。
           </li>
@@ -166,27 +156,9 @@ export default function CostStructureClient() {
           <li className="text-(--ink-muted)">
             ※ <strong className="text-(--ink-body)">本ツールは構成比を計算するだけで、「何%を超えたら赤字」という判定は行いません。</strong>そうした閾値を示す公的な積算基準は存在しません。差異を見るときは絶対額ではなく、自社の実行予算・過去実績との比較で計画からの伸び方を確認してください。
           </li>
-        </ul>
-      </div>
+      </ToolSources>
 
-      {/* 関連 */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          関連するページ
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/practice/cost-and-design-change"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">原価と設計変更</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              費目構成と差異の見方、設計変更の協議記録を解説
-            </div>
-          </Link>
-          <ToolsIndexCard description="現場管理値の計算ツールをまとめて見る" />
-        </div>
-      </div>
-    </div>
+      {related}
+    </ToolLayout>
   );
 }

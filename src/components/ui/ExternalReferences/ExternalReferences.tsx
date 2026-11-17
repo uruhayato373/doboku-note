@@ -22,11 +22,7 @@ export default function ExternalReferences({ references }: ExternalReferencesPro
   if (!references || references.length === 0) return null;
 
   return (
-    <MetaCard ariaLabel="参考資料">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">参考資料</h2>
-      <p className="text-sm text-(--ink-muted) mb-4">
-        公的資料・解説記事への外部リンク（{references.length} 件）
-      </p>
+    <MetaCard ariaLabel="参考資料" title="参考資料" lead={<>公的資料・解説記事への外部リンク（{references.length} 件）</>}>
       {/* 題が URL そのものの行はスマホ幅で折り返さずページを横にはみ出させる */}
       <ul className="space-y-2 wrap-anywhere">
         {references.map((item, i) => (

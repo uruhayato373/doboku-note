@@ -2,7 +2,8 @@ import { TOOLS } from "@/lib/tools";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import SectionBlock from "@/components/layout/SectionBlock";
-import Link from "next/link";
+import LinkTile from "@/components/ui/LinkTile/LinkTile";
+import Pill from "@/components/ui/Pill/Pill";
 import { BookOpen, FlaskConical, HardHat } from "lucide-react";
 import type { Metadata } from "next";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
@@ -58,18 +59,17 @@ export default function ToolsIndexPage() {
           <h2 className="mb-4 flex items-center gap-3 text-xl font-bold text-(--ink)"><g.icon aria-hidden="true" size={24} />{g.title}</h2>
           <div className="grid gap-4 sm:grid-cols-2">
           {TOOLS.filter(t => toolGroup(t.href) === g.id).map((t) => (
-            <Link
+            <LinkTile
               key={t.href}
               href={t.href}
-              className="focus-ring card-surface-section group block p-5 transition-colors hover:border-(--accent)"
+              size="lg"
+              eyebrow={<Pill variant="tag" size="xs" className="uppercase tracking-wider">{t.tag}</Pill>}
+              title={t.title}
+              description={t.desc}
+              headingLevel="h3"
             >
-              <div className="inline-flex items-center font-mono text-[10px] uppercase tracking-wider text-(--accent) px-2 py-0.5 bg-(--accent-fill) rounded-full mb-3">
-                {t.tag}
-              </div>
-              <h3 className="font-bold text-[17px] text-(--ink) group-hover:underline mb-1.5">{t.title}</h3>
-              <p className="text-sm leading-6 text-(--ink-body)">{t.desc}</p>
-              <p className="mt-4 border-t border-(--rule-soft) pt-3 text-sm font-medium text-(--accent)">{FLOWS[t.href.split('/').at(-1)!]}</p>
-            </Link>
+              <span className="mt-4 block border-t border-(--rule-soft) pt-3 text-sm font-medium text-(--accent)">{FLOWS[t.href.split('/').at(-1)!]}</span>
+            </LinkTile>
           ))}
         </div>
         </section>)}

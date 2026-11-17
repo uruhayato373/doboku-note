@@ -1,6 +1,8 @@
-import Link from "next/link";
-import ContentThumbnail from "@/components/ui/ContentThumbnail";
-import { ArrowRight, Hash } from "lucide-react";
+import ArticleThumbRow from "@/components/ui/RelatedArticles/ArticleThumbRow";
+import { Hash } from "lucide-react";
+import Arrow from '@/components/ui/Arrow/Arrow';
+import Pill from '@/components/ui/Pill/Pill';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { formatDotDate } from "@/lib/display-date";
 import { WIDE_CONTAINER } from '@/components/layout/container';
@@ -36,47 +38,32 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
         {articles.map((a) => {
           const date = formatDate(a.date);
           return (
-            <Link
+            <ArticleThumbRow
               key={a.slug}
+              variant="feed"
+              framed
+              thumb="wide"
               href={getPublicDocPath(a.slug)}
-              data-thumb={a.image?.band ? 'photo' : 'ogp'}
-              className="focus-ring card-surface-section group flex overflow-hidden transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
-            >
-              {/* サムネ（記事別 OGP＝1200:630・資格別テーマ色＋タグ焼き込み。RelatedArticleCard と同系統）。
-                  資格別写真プール（guide-covers）は猫/場違い画像の混入により 2026-07-07 に廃止し OGP へ一本化。 */}
-              <div className="relative aspect-1200/630 w-[128px] shrink-0 self-start overflow-hidden bg-(--accent-fill) sm:w-[188px] md:w-[204px]">
-                {a.image && (
-                  <ContentThumbnail src={a.image.src} band={a.image.band} sizes="(max-width: 640px) 128px, (max-width: 768px) 188px, 204px" />
-                )}
-              </div>
-              <div className="min-w-0 p-4 sm:p-5">
-                <div className="flex items-center gap-2 mb-2 flex-wrap">
-                  {a.categoryLabel && (
-                    <span className="rounded-card-inline bg-(--accent-fill) px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-(--accent)">
-                      {a.categoryLabel}
-                    </span>
-                  )}
-                  {date && <span className="font-mono text-[10px] text-(--ink-muted) tabular-nums">{date}</span>}
-                </div>
-                <h3 className="font-serif font-bold text-base text-(--ink) leading-snug group-hover:text-(--accent) transition-colors sm:line-clamp-2">
-                  {a.title}
-                </h3>
+              title={a.title}
+              image={a.image}
+              eyebrow={(a.categoryLabel || date) && <span className="flex flex-wrap items-center gap-2">
+                {a.categoryLabel && <Pill size="xs" className="font-mono uppercase tracking-widest">{a.categoryLabel}</Pill>}
+                {date && <span className="font-mono text-[10px] tabular-nums">{date}</span>}
+              </span>}
+              meta={<>
                 {a.tags && a.tags.length > 0 && (
-                  <div className="flex gap-3 mt-3 flex-wrap">
+                  <span className="mt-2 flex flex-wrap gap-3">
                     {a.tags.slice(0, 4).map((t) => (
-                      <span key={t} className="font-mono text-[10px] text-(--ink-muted) flex items-center gap-1">
-                        <Hash className="w-2.5 h-2.5" />
-                        {t}
-                      </span>
+                      <span key={t} className="flex items-center gap-1 font-mono text-[10px] text-(--ink-muted)"><Hash className="h-2.5 w-2.5" />{t}</span>
                     ))}
-                  </div>
+                  </span>
                 )}
-                <div className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-(--ink-muted) group-hover:text-(--accent) transition-colors">
+                <Eyebrow variant="mono" className="mt-2 inline-flex items-center gap-1.5 transition-colors group-hover:text-(--accent)">
                   <span>Read</span>
-                  <ArrowRight className="w-3 h-3" />
-                </div>
-              </div>
-            </Link>
+                  <Arrow />
+                </Eyebrow>
+              </>}
+            />
           );
         })}
       </div>

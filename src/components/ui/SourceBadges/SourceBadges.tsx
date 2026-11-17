@@ -4,7 +4,7 @@
  *
  * 用途想定:
  * - hub ページの各テーマセクションで「関連白書」を縦スキャンしやすく列挙
- * - <SeeAlso> / <SpokeNavCard> ほどの導線重みは不要だが、本文太字より視認性を上げたい場面
+ * - <SeeAlso> ほどの導線重みは不要だが、本文太字より視認性を上げたい場面
  *
  * リンク挙動:
  * - items の各文字列が `src/lib/whitepapers.ts` の registry に存在する場合は <a> 化（新規タブ、政府公式 URL）
@@ -14,6 +14,7 @@
  * （Callout を 9 回繰り返すとページが重くなるため、その代替として導入）。
  */
 import { getWhitepaper } from "@/lib/whitepapers";
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
 interface SourceBadgesProps {
   readonly label?: string;
@@ -30,9 +31,9 @@ export default function SourceBadges({ label = "関連白書", items }: SourceBa
   if (!items || items.length === 0) return null;
   return (
     <div className="not-prose my-4 flex items-baseline gap-2 flex-wrap">
-      <span className="text-[11px] font-bold tracking-wider text-ink-muted uppercase shrink-0">
+      <Eyebrow className="shrink-0">
         {label}
-      </span>
+      </Eyebrow>
       <div className="flex gap-1.5 flex-wrap">
         {items.map((item) => {
           const wp = getWhitepaper(item);

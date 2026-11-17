@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, BookOpen } from 'lucide-react';
+import { ArrowUpRight, BookOpen } from 'lucide-react';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import { WIDE_CONTAINER } from '@/components/layout/container';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
+import Arrow from '@/components/ui/Arrow/Arrow';
 import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from '@/components/ui/AffiliateParts';
 import { COCONALA_A8_PIXEL } from '@/config/affiliate-creatives';
 import { buildLearningCatalog, type LearningProduct, type LearningQualification } from '@/lib/learning-catalog';
@@ -57,7 +58,7 @@ function QualificationCard({ exam }: { exam: LearningQualification }) {
         <Link href={exam.siteHref} data-cta="nav" data-cta-label={`site-${exam.id}`} data-cta-placement="links-hub"
           className={`${ROW_CLASS} text-sm font-bold text-(--accent)`}>
           <BookOpen className="h-4 w-4 shrink-0" aria-hidden="true" />
-          <span className="flex-1">無料で学ぶ</span><ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+          <span className="flex-1">無料で学ぶ</span><Arrow />
         </Link>
         {exam.featured && <ProductRow product={exam.featured} />}
         {exam.noteIndex && (

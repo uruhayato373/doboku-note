@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getTopicPathForTag } from '@/lib/topics';
 import { formatDotDate } from "@/lib/display-date";
+import Pill from '@/components/ui/Pill/Pill';
 
 interface MetaRowProps {
   tags?: string[] | undefined;
@@ -53,9 +54,9 @@ export default function MetaRow({
             <Link
               key={tag}
               href={getTopicPathForTag(tag) ?? `/search?q=${encodeURIComponent(tag)}`}
-              className="font-mono text-[11px] text-(--accent) bg-(--accent-fill) hover:bg-(--accent) hover:text-(--paper) px-2.5 py-0.5 rounded-full transition-colors"
+              className="focus-ring group"
             >
-              #{tag}
+              <Pill variant="tag" className="transition-colors group-hover:bg-(--accent) group-hover:text-(--paper)">#{tag}</Pill>
             </Link>
           ))}
         </div>

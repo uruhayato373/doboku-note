@@ -1,12 +1,10 @@
-import PageShell from "@/components/layout/PageShell";
-import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import ConcretePumpPlanClient from "./ConcretePumpPlanClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
-import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
+import ToolPageShell from "@/components/tools/ToolPageShell";
 import { toolByHref } from "@/lib/tools";
-import { READING_CONTAINER } from '@/components/layout/container';
 
 const tool = toolByHref("/tools/concrete-pump-plan");
 
@@ -42,23 +40,15 @@ export const metadata: Metadata = {
 
 export default function ConcretePumpPlanPage() {
   return (
-    <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        width="760"
-        breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
-        label="無料ツール"
-        title={tool.title}
-        lead={
-          <>
-            総打込み量と作業時間から<strong className="text-(--ink)">ポンプ車の必要台数</strong>を、積載量と往復時間から<strong className="text-(--ink)">アジテータ車の必要台数</strong>を計算します。圧送ルートの<strong className="text-(--ink)">水平換算長</strong>が100mの目安に収まるかも同じ画面で確認できます。
-          </>
-        }
-      />
-
-      <ConcretePumpPlanClient />
-      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
-    </PageShell>
+    <ToolPageShell
+      title={tool.title}
+      lead={
+        <>
+          総打込み量と作業時間から<strong className="text-(--ink)">ポンプ車の必要台数</strong>を、積載量と往復時間から<strong className="text-(--ink)">アジテータ車の必要台数</strong>を計算します。圧送ルートの<strong className="text-(--ink)">水平換算長</strong>が100mの目安に収まるかも同じ画面で確認できます。
+        </>
+      }
+    >
+      <ConcretePumpPlanClient related={<RelatedPages links={[{ href: "/practice/concrete-pump-capacity", title: "ポンプ車・ミキサ車は何台必要か", description: "配車計算の考え方を解説した記事" }]} toolsIndex="現場管理値の計算ツールをまとめて見る" />} />
+    </ToolPageShell>
   );
 }

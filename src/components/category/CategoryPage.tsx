@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Breadcrumb from '@/components/ui/Breadcrumb/Breadcrumb';
 import PageShell from '@/components/layout/PageShell';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import { getCategoryBySlug, getCategoryHubPath } from '@/lib/categories';
@@ -36,6 +37,7 @@ import CategoryStudyNav from '@/components/category/CategoryStudyNav';
 import CategoryTopics from '@/components/category/CategoryTopics';
 import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
 import { ConcreteEngineerStudy, ConcreteEngineerProduct, ConcreteEngineerRelated } from '@/components/category/ConcreteEngineerResources';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
 // グループ化レイアウトは categories.json の layout.view を持つカテゴリだけ（持たないものはフラットグリッド・DN-0793）
 
@@ -150,22 +152,19 @@ export default async function CategoryPage({
             {/* 左メインカラム全体を 1 枚の白カードに統一（グレー地に白サーフェス・角丸ゼロの
                 エディトリアル面）。見出し・人気記事・各セクションを同一カード内に載せ、内側は
                 リスト/テーブル/フラットタイルで構成してカード内カードを避ける（2026-07 A-1）。 */}
-            <div className="card-surface-section px-5 sm:px-8 lg:px-10 pb-8 sm:pb-10">
+            <MetaCard padding="none" as="div" className="px-5 sm:px-8 lg:px-10 pb-8 sm:pb-10">
             {/* カテゴリ見出し（縮小版・H1/パンくず/説明は SEO のため維持。CATEGORY チップは
                 パンくずと重複のため削除） */}
             <div className="pt-6 sm:pt-8 pb-5 border-b border-(--rule-soft)">
-              <nav aria-label="breadcrumb" className="font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest mb-2 flex items-center gap-2">
-                <Link href="/" className="hover:text-(--accent) transition-colors">ホーム</Link>
-                <span aria-hidden className="opacity-60">›</span>
-                {/* 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は資格ページが領域の入口なので 2 段（DN-1219） */}
-                {getCategoryArea(slug) === 'exam' && (
-                  <>
-                    <Link href={getAreaHubPath('exam')} className="hover:text-(--accent) transition-colors">{getAreaLabel('exam')}</Link>
-                    <span aria-hidden className="opacity-60">›</span>
-                  </>
-                )}
-                <span>{cat.label}</span>
-              </nav>
+              <Breadcrumb
+                className="mb-2"
+                items={[
+                  { label: 'ホーム', href: '/' },
+                  // 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は資格ページが領域の入口なので 2 段（DN-1219）
+                  ...(getCategoryArea(slug) === 'exam' ? [{ label: getAreaLabel('exam'), href: getAreaHubPath('exam') }] : []),
+                  { label: cat.label },
+                ]}
+              />
               <h1 className="font-serif font-bold tracking-tight text-(--ink) text-[24px] sm:text-[28px] leading-[1.3] mb-2">
                 {cat.label}
               </h1>
@@ -241,7 +240,7 @@ export default async function CategoryPage({
             {/* 資格 → 横断テーマの向きの回遊（記事 → テーマは記事末の「この記事のテーマ」）。キャリア記事は数えない */}
             <CategoryTopics docs={docs.filter((d) => !d.tags?.includes('career'))} />
             </div>
-            </div>
+            </MetaCard>
 
             {slug === 'concrete-engineer' && <div className="zenn-desktop:hidden mt-8 space-y-3">
               {!hubCtaMobile && <ConcreteEngineerProduct placement="category-mobile" />}

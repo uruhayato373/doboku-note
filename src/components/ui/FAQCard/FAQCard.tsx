@@ -16,13 +16,7 @@ export default function FAQCard({ faqs }: FAQCardProps) {
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <MetaCard ariaLabel="よくある質問">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">
-        よくある質問
-      </h2>
-      <p className="text-sm text-(--ink-muted) mb-4">
-        この記事に関する Q&amp;A
-      </p>
+    <MetaCard ariaLabel="よくある質問" title="よくある質問" lead={<>この記事に関する Q&amp;A</>}>
       <ul className="space-y-2">
         {faqs.map((entry, idx) => (
           <li key={idx}>

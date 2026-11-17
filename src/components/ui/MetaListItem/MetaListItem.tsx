@@ -27,6 +27,7 @@
  */
 
 import type { ReactNode } from 'react';
+import Arrow from '@/components/ui/Arrow/Arrow';
 
 interface MetaListItemProps {
   title: ReactNode;
@@ -43,7 +44,7 @@ export default function MetaListItem({ title, source, plain = false }: MetaListI
 
   return (
     <div className="flex items-baseline gap-2 text-sm">
-      <span className="text-(--ink-muted) shrink-0 leading-tight">→</span>
+      <Arrow className="text-(--ink-muted) leading-tight" />
       <span className="min-w-0">
         <span className={titleClassName}>{title}</span>
         {source && (

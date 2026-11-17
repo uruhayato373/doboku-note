@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import ContentThumbnail from '@/components/ui/ContentThumbnail';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
+import ArticleCard from '@/components/ui/ArticleCard/ArticleCard';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import type { CardImage } from '@/lib/site-thumbnail';
+import { ENTRY_KIND_LABELS } from '@/lib/doc-kind';
 
 export type TopicArea = 'exam' | 'practice' | 'standards' | 'laws';
 export type TopicArticle = { href: string; title: string; description: string; category: string; categoryLabel: string; categoryOrder: number; area: TopicArea; kind: string; image: CardImage; subgroup?: string | undefined };
@@ -30,7 +31,7 @@ export default function TopicArticles({ articles, areaLabels, featured: entry = 
   const match = (a: TopicArticle) => (!category || a.category === category) && (!kind || a.kind === kind) && `${a.title} ${a.description}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase());
   const filtered = !!(category || kind || query.trim());
   // 入口は topics.json の featured（編集で選んだ記事）。無いテーマはガイド・実務を優先し、同点は元の更新順を維持。
-  const featured = new Set(entry.length ? entry.slice(0,3) : [...articles].sort((a,b) => Number(!['受験ガイド','実務'].includes(a.kind)) - Number(!['受験ガイド','実務'].includes(b.kind))).slice(0,3).map(a=>a.href));
+  const featured = new Set(entry.length ? entry.slice(0,3) : [...articles].sort((a,b) => Number(!ENTRY_KIND_LABELS.includes(a.kind)) - Number(!ENTRY_KIND_LABELS.includes(b.kind))).slice(0,3).map(a=>a.href));
   const count = articles.filter(match).length;
   const control = 'focus-ring min-h-11 rounded-card-inline border border-(--rule-soft) bg-(--paper) px-3 py-2 text-sm text-(--ink)';
   return <div>
@@ -48,10 +49,7 @@ export default function TopicArticles({ articles, areaLabels, featured: entry = 
     {/* 初期HTMLには全リンクを保持。JSがなくても分類ごとに開いて閲覧できる。 */}
     {!filtered && <ul className="mb-6 grid gap-4 sm:grid-cols-3">
       {articles.filter(a=>featured.has(a.href)).map(a=><li key={a.href}>
-        <Link href={a.href} data-thumb={a.image.band ? 'photo' : 'ogp'} className="focus-ring block h-full rounded-card-content border border-(--rule-soft) bg-(--paper) overflow-hidden">
-          <div className="aspect-1200/630"><ContentThumbnail src={a.image.src} band={a.image.band} sizes="(max-width: 640px) 100vw, 320px" /></div>
-          <div className="p-4"><p className="text-xs text-(--ink-muted)">{a.categoryLabel} · {a.kind}</p><h4 className="mt-2 font-bold text-(--ink)">{a.title}</h4><p className="mt-2 line-clamp-2 text-sm text-(--ink-muted)">{a.description}</p></div>
-        </Link>
+        <ArticleCard href={a.href} title={a.title} description={a.description} image={a.image} eyebrow={`${a.categoryLabel} · ${a.kind}`} />
       </li>)}
     </ul>}
     {count === 0 && <p className="py-6 text-(--ink)">条件に合う記事がありません。絞り込みを解除してお探しください。</p>}
@@ -71,7 +69,7 @@ export default function TopicArticles({ articles, areaLabels, featured: entry = 
               return <Disclosure key={`${value}-${filtered}`} open={filtered} hidden={!matches.length} summaryClassName="font-bold text-(--ink)" summary={<><h4 className="inline">{label}</h4> <span className="text-sm font-normal text-(--ink-muted)">{matches.length}件</span></>}>
                 {bySubgroup(rows).map(([subgroup, items])=><div key={subgroup || '-'}>
                   {subgroup && <p hidden={!items.some(match)} className="border-t border-(--rule-soft) px-4 pt-4 text-sm font-bold text-(--ink-muted)">{subgroup}（{items.filter(match).length}件）</p>}
-                  <ul className="px-4">{items.map(a=><li key={a.href} hidden={!match(a)} className="border-t border-(--rule-soft)"><Link className="focus-ring block py-4 hover:text-(--accent)" href={a.href}><span className="text-xs text-(--ink-muted)">{a.kind}</span><h5 className="mt-1 font-bold text-(--ink)">{a.title}</h5><p className="mt-1 line-clamp-2 text-sm text-(--ink-muted)">{a.description}</p></Link></li>)}</ul>
+                  <LinkRowList className="px-4">{items.map(a=><LinkRow key={a.href} href={a.href} eyebrow={a.kind} title={a.title} headingLevel="h5" description={a.description} tone="ink" hidden={!match(a)} />)}</LinkRowList>
                 </div>)}
               </Disclosure>;
             })}

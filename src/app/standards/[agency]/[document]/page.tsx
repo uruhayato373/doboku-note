@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
@@ -82,7 +83,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
         aside={<StandardsNavigation agencyId={agency} currentDocument={entry} />}
       >
 
-        <div className="card-surface-section px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
+        <MetaCard padding="none" as="div" className="px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
       <PageHeader
         variant="inline"
         className="border-b border-(--rule-soft) py-6 sm:py-8"
@@ -106,24 +107,19 @@ export default async function StandardDocumentPage({ params }: { params: Promise
                 <h3 className="text-lg font-bold text-(--ink)">
                   {book.bookLabel}
                 </h3>
-                <ol data-standards-list="chapters" className="mt-2 divide-y divide-(--rule-soft) border-y border-(--rule-soft) bg-(--paper)">
+                <LinkRowList as="ol" className="mt-2 border-y border-(--rule-soft)" data={{ 'data-standards-list': 'chapters' }}>
                   {book.chapters.map((chapter) => (
-                    <li key={chapter.chapterId}>
-                      <Link
-                        href={standardChapterPath(entry, chapter)}
-                        data-cta="nav"
-                        data-cta-label="standards-chapter"
-                        className="focus-ring flex min-h-11 items-center justify-between gap-4 px-4 py-2 transition-colors hover:bg-(--accent-fill)"
-                      >
-                        <span className="min-w-0 flex-1">
-                          <span className="font-medium text-(--ink)">{standardChapterHeading(chapter)}</span>
-                          <span className="ml-2 font-mono text-[11px] text-(--ink-muted)">{chapter.sections.length}節</span>
-                        </span>
-                        <span className="shrink-0 font-mono text-[11px] text-(--ink-muted)">→</span>
-                      </Link>
-                    </li>
+                    <LinkRow
+                      key={chapter.chapterId}
+                      href={standardChapterPath(entry, chapter)}
+                      title={standardChapterHeading(chapter)}
+                      meta={`${chapter.sections.length}節`}
+                      tone="ink"
+                      arrow
+                      data={{ 'data-cta': 'nav', 'data-cta-label': 'standards-chapter' }}
+                    />
                   ))}
-                </ol>
+                </LinkRowList>
               </div>
             ))}
           </section>
@@ -132,7 +128,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
 
         <StandardTopicLinks topics={relatedTopics} />
         </div>
-        </div>
+        </MetaCard>
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsNavigation agencyId={agency} currentDocument={entry} variant="mobile" />
         </div>

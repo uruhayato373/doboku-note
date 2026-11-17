@@ -44,8 +44,7 @@ export default function ExamQuestionNav({ headings, variant = 'sidebar' }: ExamQ
 
   if (variant === 'mobile') {
     return (
-      <MetaCard trackNav="exam-question-nav">
-        <h2 className="mb-4 text-lg font-bold text-(--ink)">{title}</h2>
+      <MetaCard trackNav="exam-question-nav" title={title}>
         {grid}
       </MetaCard>
     );

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import { type DocMeta } from '@/lib/docs';
 import { type ResolvedCurriculum } from '@/lib/category-curriculum';
 import { DocCard, OgpThumbRow } from '@/components/category/CategorySections';
@@ -52,23 +52,14 @@ export function CurriculumSection({
 
 function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode }) {
   return (
-    <li className="border-b border-(--rule-soft) last:border-b-0">
-      <Link href={getPublicDocPath(doc.slug)} data-cta="nav" data-cta-label="curriculum-list" className="group flex items-baseline gap-3 py-3">
-        <span className="shrink-0 flex items-center justify-center min-w-6" aria-hidden>
-          {marker}
-        </span>
-        {/* タイトル下に subtitle を縦積み（旧: 右寄せ truncate はデスクトップで途切れ・
-            モバイル非表示だった）。全文・全デバイス表示で記事選択の手がかりを保つ（2026-07 C-2）。 */}
-        <span className="flex min-w-0 flex-col gap-0.5">
-          <span className="text-[15px] sm:text-base font-medium text-(--ink) group-hover:text-(--accent) transition-colors">
-            {doc.shortTitle || doc.title}
-          </span>
-          {doc.subtitle && (
-            <span className="text-[13px] text-(--ink-muted)">{doc.subtitle}</span>
-          )}
-        </span>
-      </Link>
-    </li>
+    <LinkRow
+      href={getPublicDocPath(doc.slug)}
+      title={doc.shortTitle || doc.title}
+      description={doc.subtitle}
+      marker={<span className="flex min-w-6 shrink-0 items-center justify-center" aria-hidden>{marker}</span>}
+      tone="ink"
+      data={{ 'data-cta': 'nav', 'data-cta-label': 'curriculum-list' }}
+    />
   );
 }
 
@@ -88,7 +79,7 @@ function ChapterRows({ block, numbered, thumbnails, previewFirst = false, adKey 
     );
   }
   return (
-    <ul>
+    <LinkRowList>
       {/* 章の入口: 要点まとめ（本文の前・「要点」マーカーで区別） */}
       {(block.intro ?? []).map((doc) => (
         <CurriculumRow
@@ -98,7 +89,7 @@ function ChapterRows({ block, numbered, thumbnails, previewFirst = false, adKey 
         />
       ))}
       {(budget ? withFeedAds(block.docs, { key: adKey!, budget }) : block.docs.map((item, index) => ({ kind: 'item' as const, item, index }))).map(e => {
-        if (e.kind === 'ad') return <AdSlot key={e.key} as="li" slot="inFeedText" className="border-b border-(--rule-soft) py-3" />;
+        if (e.kind === 'ad') return <AdSlot key={e.key} as="li" slot="inFeedText" className="py-2" />;
         const doc = e.item;
         const i = e.index;
         return previewFirst && i === 0 ? (
@@ -119,7 +110,7 @@ function ChapterRows({ block, numbered, thumbnails, previewFirst = false, adKey 
         />
         );
       })}
-    </ul>
+    </LinkRowList>
   );
 }
 

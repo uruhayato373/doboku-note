@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
+import Arrow from '@/components/ui/Arrow/Arrow';
 import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import StandardsExplore from '@/components/standards/StandardsExplore';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import { StandardsEndBanner, StandardsRailBanner } from '@/components/standards/StandardsAffiliateBanners';
@@ -45,7 +48,7 @@ export default function StandardsPage() {
           </>
         )}
       >
-        <div className="card-surface-section px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
+        <MetaCard padding="none" as="div" className="px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
           <PageHeader
             className="border-b border-(--rule-soft) py-5 sm:py-6"
             title="土木工事共通仕様書・工事必携"
@@ -54,19 +57,19 @@ export default function StandardsPage() {
 
           <section aria-labelledby="major-documents-heading" className="mt-5">
             <h2 id="major-documents-heading" className="mb-2 text-xl font-bold text-(--ink)">よく使う文書</h2>
-            <ul className="grid gap-x-4 sm:grid-cols-2" data-standards-list="major">
+            <LinkRowList className="grid gap-x-4 sm:grid-cols-2" data={{ 'data-standards-list': 'major' }}>
               {MAJOR_DOCUMENTS.map((doc) => (
-                <li key={`${doc.agencyId}-${doc.documentId}`} className="border-b border-(--rule-soft)">
-                  <Link href={standardsDocumentPath(doc.agencyId, doc.documentId)} data-cta="nav" data-cta-label="standards-document" className={rowLink}>
-                    <span className="min-w-0">
-                      <span className="block font-bold">{doc.label}</span>
-                      <span className="block text-sm text-(--ink-body)">{doc.note}</span>
-                    </span>
-                    <span aria-hidden="true" className="text-(--accent)">→</span>
-                  </Link>
-                </li>
+                <LinkRow
+                  key={`${doc.agencyId}-${doc.documentId}`}
+                  href={standardsDocumentPath(doc.agencyId, doc.documentId)}
+                  title={doc.label}
+                  description={doc.note}
+                  tone="ink"
+                  arrow
+                  data={{ 'data-cta': 'nav', 'data-cta-label': 'standards-document' }}
+                />
               ))}
-            </ul>
+            </LinkRowList>
           </section>
 
           <section id="agencies" aria-labelledby="agencies-heading" className="mt-7 scroll-mt-6">
@@ -83,7 +86,7 @@ export default function StandardsPage() {
                   <li key={agency.agencyId} className="border-b border-(--rule-soft) pb-2">
                     <Link href={standardsAgencyPath(agency.agencyId)} data-cta="nav" data-cta-label="standards-agency" className={rowLink}>
                       <span className="font-bold">{agency.agencyName}</span>
-                      <span aria-hidden="true" className="text-(--accent)">→</span>
+                      <Arrow className="text-(--accent)" />
                     </Link>
                     <ul className="flex flex-wrap gap-x-3 px-2 text-[13px] leading-[1.7]">
                       {shown.map((document) => (
@@ -98,7 +101,7 @@ export default function StandardsPage() {
               })}
             </ul>
           </section>
-        </div>
+        </MetaCard>
 
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsExplore />

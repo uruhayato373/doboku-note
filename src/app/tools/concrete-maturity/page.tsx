@@ -1,12 +1,10 @@
-import PageShell from "@/components/layout/PageShell";
-import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import ConcreteMaturityClient from "./ConcreteMaturityClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
-import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
+import ToolPageShell from "@/components/tools/ToolPageShell";
 import { toolByHref } from "@/lib/tools";
-import { READING_CONTAINER } from '@/components/layout/container';
 
 const tool = toolByHref("/tools/concrete-maturity");
 
@@ -41,23 +39,15 @@ export const metadata: Metadata = {
 
 export default function ConcreteMaturityPage() {
   return (
-    <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        width="760"
-        breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
-        label="無料ツール"
-        title={tool.title}
-        lead={
-          <>
-            養生期間中の<strong className="text-(--ink)">平均気温</strong>と<strong className="text-(--ink)">日数</strong>から積算温度（マチュリティ）を計算し、標準養生28日相当（840℃・D）との比較で養生の進み具合の目安を確認します。強度そのものは、配合ごとに事前に把握した関係式・試験による確認と併用してください。
-          </>
-        }
-      />
-
-      <ConcreteMaturityClient />
-      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className={`${READING_CONTAINER} pb-10`} />
-    </PageShell>
+    <ToolPageShell
+      title={tool.title}
+      lead={
+        <>
+          養生期間中の<strong className="text-(--ink)">平均気温</strong>と<strong className="text-(--ink)">日数</strong>から積算温度（マチュリティ）を計算し、標準養生28日相当（840℃・D）との比較で養生の進み具合の目安を確認します。強度そのものは、配合ごとに事前に把握した関係式・試験による確認と併用してください。
+        </>
+      }
+    >
+      <ConcreteMaturityClient related={<RelatedPages links={[{ href: "/practice/formwork-removal-timing", title: "型枠・支保工はいつ外せるか", description: "積算温度による推定の位置づけを解説した記事" }, { href: "/tools/concrete-time-check", title: "打込み 時間管理チェッカー", description: "暑中／寒中の区分と当日の限度時刻を計算" }]} />} />
+    </ToolPageShell>
   );
 }

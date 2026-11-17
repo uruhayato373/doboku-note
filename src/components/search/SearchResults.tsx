@@ -1,10 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import ContentThumbnail from "@/components/ui/ContentThumbnail";
+import ArticleThumbRow from "@/components/ui/RelatedArticles/ArticleThumbRow";
 import { getCategoryLabel } from "@/lib/categories";
+import { docKindLabelFromPath } from "@/lib/doc-kind";
 import { type SearchResult } from "@/lib/search/search-client";
 import type { CardImage } from "@/lib/site-thumbnail";
+import Button from "@/components/ui/Button/Button";
+import Pill from "@/components/ui/Pill/Pill";
 import AdSlot from "@/components/ads/AdSlot";
 import { withFeedAds } from "@/lib/feed-ads";
 
@@ -37,12 +39,9 @@ export function SearchResults({
         <p className="text-(--color-danger) mb-4">
           検索中にエラーが発生しました: {error}
         </p>
-        <button
-          onClick={() => window.location.reload()}
-          className="focus-ring rounded-card-content bg-(--accent) px-4 py-2 text-(--paper) transition-opacity hover:opacity-90"
-        >
+        <Button onClick={() => window.location.reload()}>
           再試行
-        </button>
+        </Button>
       </div>
     );
   }
@@ -83,40 +82,23 @@ export function SearchResults({
           if (e.kind === 'ad') return <AdSlot as="div" key={e.key} slot="inFeedThumb" className="card-surface-section p-4 sm:p-6" />;
           const post = e.item;
           return (
-          <article
+          <ArticleThumbRow
             key={post.id}
-            className="card-surface-section flex gap-4 p-4 sm:p-6 transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-card-hover"
-          >
-            {images[post.path.replace(/\/$/, "")] && <div className="aspect-1200/630 w-[100px] sm:w-[168px] shrink-0 self-start"><ContentThumbnail src={images[post.path.replace(/\/$/, "")]!.src} band={images[post.path.replace(/\/$/, "")]!.band} sizes="(max-width:640px) 100px,168px" /></div>}
-            <div className="flex-1 min-w-0">
-              <p className="mb-2 text-xs text-(--ink-muted)">{getCategoryLabel(post.category)} · {post.category === 'concrete-engineer' && post.path.includes('/primary/') ? '演習' : post.path.includes("/guide/") ? "受験ガイド" : post.path.startsWith("/practice/") ? "実務" : post.path.startsWith("/laws/") ? "法令の解説" : /\/(primary|secondary|past-exam)\//.test(post.path) ? "過去問" : post.path.startsWith("/standards/") ? "基準資料" : "解説・学習"}</p>
-              <h3 className="text-lg font-bold text-(--ink) mb-2 hover:text-(--accent) transition-colors">
-                <Link href={post.path} data-thumb={images[post.path.replace(/\/$/, "")] ? (images[post.path.replace(/\/$/, "")]!.band ? 'photo' : 'ogp') : undefined} className="focus-ring rounded-card-inline">
-                  {post.title}
-                </Link>
-              </h3>
-
-              {post.excerpt && (
-                <p
-                  className="mb-3 line-clamp-2 text-sm leading-relaxed text-(--ink-body) [&_mark]:rounded-card-inline [&_mark]:bg-yellow-200 [&_mark]:px-0.5 dark:[&_mark]:bg-yellow-800/60 dark:[&_mark]:text-warn"
-                  dangerouslySetInnerHTML={{ __html: post.excerpt }}
-                />
-              )}
-
-              {post.tags && post.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.slice(0, 4).map((tag) => (
-                    <span
-                      key={tag}
-                      className="font-mono text-[11px] text-(--accent) bg-(--accent-fill) px-2.5 py-0.5 rounded-full"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </article>
+            variant="feed"
+            framed
+            href={post.path}
+            title={post.title}
+            image={images[post.path.replace(/\/$/, "")]}
+            eyebrow={`${getCategoryLabel(post.category)} · ${docKindLabelFromPath(post.path, post.category)}`}
+            caption={post.excerpt && <span className="[&_mark]:rounded-card-inline [&_mark]:bg-yellow-200 [&_mark]:px-0.5 dark:[&_mark]:bg-yellow-800/60 dark:[&_mark]:text-warn" dangerouslySetInnerHTML={{ __html: post.excerpt }} />}
+            meta={post.tags && post.tags.length > 0 && (
+              <span className="mt-1 flex flex-wrap gap-2">
+                {post.tags.slice(0, 4).map((tag) => (
+                  <Pill key={tag} variant="tag">#{tag}</Pill>
+                ))}
+              </span>
+            )}
+          />
           );
         })}
       </div>

@@ -5,8 +5,11 @@ import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
 import { StandardsEndBanner } from '@/components/standards/StandardsAffiliateBanners';
-import SectionCard from '@/components/ui/SectionCard/SectionCard';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
+import { ButtonLink } from '@/components/ui/Button/Button';
+import Arrow from '@/components/ui/Arrow/Arrow';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardsComparison, inferStandardEdition } from '@/lib/standards-comparison';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
@@ -76,10 +79,10 @@ export default function StandardsComparePage() {
             ['本文完全一致', `${comparison.summary.identicalDocuments}文書`],
             ['地域差分', `${comparison.summary.differentDocuments}文書`],
           ].map(([label, value]) => (
-            <SectionCard key={label} padding="compact">
+            <MetaCard key={label} padding="compact">
               <div className="text-[11px] font-bold tracking-[0.08em] text-(--ink-muted)">{label}</div>
               <div className="mt-2 text-2xl font-bold text-(--ink)">{value}</div>
-            </SectionCard>
+            </MetaCard>
           ))}
         </div>
 
@@ -184,13 +187,13 @@ export default function StandardsComparePage() {
                       </h3>
                       <div className="mt-2 grid gap-3 lg:grid-cols-2">
                         <div className="min-w-0 border-l-4 border-(--color-danger) bg-(--color-danger-fill) p-3">
-                          <div className="mb-2 text-[11px] font-bold text-(--ink-muted)">近畿版</div>
+                          <Eyebrow variant="plain" as="div" className="mb-2">近畿版</Eyebrow>
                           <pre className="whitespace-pre-wrap wrap-break-word font-sans text-[12px] leading-[1.7] text-(--ink-body)">
                             {hunk.before.length > 0 ? hunk.before.join('\n') : '（該当記述なし）'}
                           </pre>
                         </div>
                         <div className="min-w-0 border-l-4 border-(--accent) bg-(--accent-fill) p-3">
-                          <div className="mb-2 text-[11px] font-bold text-(--ink-muted)">{change.agencyName}版</div>
+                          <Eyebrow variant="plain" as="div" className="mb-2">{change.agencyName}版</Eyebrow>
                           <pre className="whitespace-pre-wrap wrap-break-word font-sans text-[12px] leading-[1.7] text-(--ink-body)">
                             {hunk.after.length > 0 ? hunk.after.join('\n') : '（該当記述なし）'}
                           </pre>
@@ -206,7 +209,7 @@ export default function StandardsComparePage() {
       </SectionBlock>
 
       <SectionBlock divider="top" width="860" ariaLabel="比較方法と注意事項">
-        <SectionCard title="比較方法と利用上の注意">
+        <MetaCard serifTitle title="比較方法と利用上の注意">
           <div className="flex items-start gap-3">
             <ShieldCheck aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-(--accent)" />
             <div className="space-y-2 text-[13px] leading-[1.8] text-(--ink-body)">
@@ -216,21 +219,15 @@ export default function StandardsComparePage() {
             </div>
           </div>
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
-            <Link href="/standards/data" className="focus-ring inline-flex min-h-11 items-center font-bold text-(--accent) hover:underline">
-              データ仕様を見る →
-            </Link>
-            <a
-              href="/standards-data/comparison.json"
-              download
-              data-cta="standards-data"
-              data-cta-label="comparison-json"
-              data-cta-placement="standards-compare-footer"
-              className="focus-ring inline-flex min-h-11 items-center font-bold text-(--accent) hover:underline"
-            >
+            <ButtonLink href="/standards/data" variant="text">
+              データ仕様を見る
+              <Arrow />
+            </ButtonLink>
+            <ButtonLink href="/standards-data/comparison.json" download variant="text" data={{ 'data-cta': 'standards-data', 'data-cta-label': 'comparison-json', 'data-cta-placement': 'standards-compare-footer' }}>
               比較結果JSONを取得
-            </a>
+            </ButtonLink>
           </div>
-        </SectionCard>
+        </MetaCard>
         <StandardsEndBanner pageKind="standards-list" />
       </SectionBlock>
     </PageShell>

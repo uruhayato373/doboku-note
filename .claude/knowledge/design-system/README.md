@@ -9,7 +9,7 @@
 
 | ファイル | 内容 |
 |---|---|
-| [`design-system.md`](./design-system.md) | **デザイン単一 SSOT**（トークン体系・レイアウト体系 PageShell/PageHeader/SectionCard・記事 prose・5 原則・禁止パターン・更新手順・ツーリング） |
+| [`design-system.md`](./design-system.md) | **デザイン単一 SSOT**（トークン体系・レイアウト体系 PageShell/PageHeader/MetaCard・記事 prose・5 原則・禁止パターン・更新手順・ツーリング） |
 | `svg-tokens.json` | 記事内 SVG 用デザイントークン真実源（colors / font / geometry） |
 | `instagram-carousel.md` / `instagram-carousel-tokens.json` | Instagram カルーセル（exam-packs）デザイン仕様 — **別サブシステム** |
 | `note-cover.md` / `note-cover-tokens.json` | note カバー画像（G2「全幅バナー帯」）デザイン仕様 — **別サブシステム** |

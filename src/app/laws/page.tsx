@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
@@ -11,6 +10,9 @@ import { getDocTopics, getTopicsByFacet } from '@/lib/topics';
 import { LawDirectory } from '@/components/topics/TopicLaws';
 import { getLawDirectory } from '@/lib/law-wiring';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
+import { ButtonLink } from '@/components/ui/Button/Button';
+import Arrow from '@/components/ui/Arrow/Arrow';
 import { topicPath } from '@/lib/route-paths';
 
 const category = getCategoryBySlug('laws')!;
@@ -46,18 +48,18 @@ export default function LawsPage() {
         <SectionBlock key={topic.slug} divider={i === 0 ? 'none' : 'top'} ariaLabel={`${topic.label}の法令`}>
           <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">{topic.label}の法令</h2>
           <p className="mb-4 text-sm">
-            <Link href={topicPath(topic.slug)} className="text-(--accent) hover:underline">{topic.label}のテーマ（記事・計画・審議会）を見る →</Link>
+            <ButtonLink href={topicPath(topic.slug)} variant="text">{topic.label}のテーマ（記事・計画・審議会）を見る<Arrow /></ButtonLink>
           </p>
           <ul className="grid gap-4 md:grid-cols-2" data-cta="nav" data-cta-label="laws-index">
             {list.map((d) => (
               <li key={d.slug}>
-                <Link
+                <LinkTile
                   href={getPublicDocPath(d.slug)}
-                  className="focus-ring card-interactive block h-full border border-(--rule-soft) bg-(--paper) p-5 transition-[border-color,box-shadow] hover:border-(--accent) dark:border-(--rule-soft)"
-                >
-                  <span className="block font-serif text-lg font-bold text-(--ink)">{d.shortTitle || d.title}</span>
-                  <span className="mt-2 block text-[13px] leading-[1.75] text-(--ink-muted)">{d.subtitle || d.description}</span>
-                </Link>
+                  size="lg"
+                  serif
+                  title={d.shortTitle || d.title}
+                  description={d.subtitle || d.description}
+                />
               </li>
             ))}
           </ul>

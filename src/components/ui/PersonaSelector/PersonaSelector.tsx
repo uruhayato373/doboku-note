@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { User, ArrowRight } from "lucide-react";
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
 /**
  * PersonaSelector — 3 固定ペルソナへの分岐選択を視覚カード化した
@@ -17,7 +18,7 @@ import { User, ArrowRight } from "lucide-react";
  * デザイン:
  * - 2×2 grid (PC) / 1 col (モバイル)
  * - href 指定があればリンク、なければ非リンク <div>
- * - SpokeNavCard と同系統のデザイントークン使用（rounded-card-content, shadow-card-content）
+ * - リンクのカードと同系統のデザイントークン使用（rounded-card-content, shadow-card-content）
  */
 
 const PERSONA_NAMES = {
@@ -119,9 +120,9 @@ export default function PersonaSelector({ items, mode, label }: PersonaSelectorP
   return (
     <div className="not-prose my-5">
       {label && (
-        <div className="mb-2 text-[11px] font-bold tracking-wider text-ink-muted uppercase">
+        <Eyebrow as="div" className="mb-2">
           {label}
-        </div>
+        </Eyebrow>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {resolvedItems.map((item) => {

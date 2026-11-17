@@ -9,7 +9,7 @@
  * 重複するメタチップ行は置かない（リード文を主役にする）。
  */
 
-import Link from 'next/link';
+import Breadcrumb from '@/components/ui/Breadcrumb/Breadcrumb';
 import { generateHeadingId } from '@/lib/toc';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import { getCategoryHubPath } from '@/lib/categories';
@@ -44,31 +44,16 @@ export default function ArticleHeader({
   return (
     <header>
       {category && categoryLabel && (
-        <nav
-          aria-label="breadcrumb"
-          className="mb-6 font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest flex flex-wrap items-center gap-x-2 gap-y-1"
-        >
-          {/* ホーム › 資格試験 › 資格 › 記事型（構造化データの BreadcrumbList と同じ段・DN-1219）。実務・法令は資格ページが領域の入口を兼ねる */}
-          <Link href="/" className="hover:text-(--accent) transition-colors">ホーム</Link>
-          <span aria-hidden className="opacity-60">›</span>
-          {getCategoryArea(category) === 'exam' && (
-            <>
-              <Link href={getAreaHubPath('exam')} className="hover:text-(--accent) transition-colors">{getAreaLabel('exam')}</Link>
-              <span aria-hidden className="opacity-60">›</span>
-            </>
-          )}
-          <Link href={getCategoryHubPath(category)} className="hover:text-(--accent) transition-colors">
-            {categoryLabel}
-          </Link>
-          {groupLabel && (
-            <>
-              <span aria-hidden className="opacity-60">›</span>
-              {groupHref
-                ? <Link href={groupHref} className="hover:text-(--accent) transition-colors">{groupLabel}</Link>
-                : <span>{groupLabel}</span>}
-            </>
-          )}
-        </nav>
+        // ホーム › 資格試験 › 資格 › 記事型（構造化データの BreadcrumbList と同じ段・DN-1219）。実務・法令は資格ページが領域の入口を兼ねる
+        <Breadcrumb
+          className="mb-6"
+          items={[
+            { label: 'ホーム', href: '/' },
+            ...(getCategoryArea(category) === 'exam' ? [{ label: getAreaLabel('exam'), href: getAreaHubPath('exam') }] : []),
+            { label: categoryLabel, href: getCategoryHubPath(category) },
+            ...(groupLabel ? [{ label: groupLabel, href: groupHref ?? undefined }] : []),
+          ]}
+        />
       )}
 
       <h1

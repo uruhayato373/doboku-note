@@ -1,5 +1,8 @@
 import { Fragment, type ReactNode } from 'react';
-import Link from 'next/link';
+import { ButtonLink } from '@/components/ui/Button/Button';
+import Arrow from '@/components/ui/Arrow/Arrow';
+import { EYEBROW } from '@/components/ui/Eyebrow/Eyebrow';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import { getPublicDocPath } from '@/lib/content-routes';
@@ -23,24 +26,21 @@ import {
  * クリックは MetaCard の trackNav（internal_nav_click）、資格の橋渡しは qualification-bridge（placement=standards-bridge-sidebar）で計る。
  */
 
-const LIST_LINK = 'focus-ring flex min-h-11 flex-col justify-center py-2 text-sm text-(--accent) hover:underline';
-const SUB_HEADING = 'mt-3 text-[13px] font-bold text-(--ink-muted)';
+const SUB_HEADING = `mt-3 ${EYEBROW.plain}`;
 
 /** 試験対策の記事は短い題名（「コンクリート」「試験概要」）だけでは資格が分からないので、資格名を添える */
 function DocList({ docs, showQualification = false }: { docs: DocMeta[]; showQualification?: boolean }) {
   return (
-    <ul className="divide-y divide-(--rule-soft)">
+    <LinkRowList>
       {docs.map((doc) => (
-        <li key={doc.slug}>
-          <Link className={LIST_LINK} href={getPublicDocPath(doc.slug)}>
-            {showQualification && doc.category && (
-              <span className="text-[11px] font-bold text-(--ink-muted)">{qualificationShortLabel(doc.category)}</span>
-            )}
-            <span>{resolveNavTitle(doc).main}</span>
-          </Link>
-        </li>
+        <LinkRow
+          key={doc.slug}
+          href={getPublicDocPath(doc.slug)}
+          title={resolveNavTitle(doc).main}
+          eyebrow={showQualification && doc.category ? qualificationShortLabel(doc.category) : undefined}
+        />
       ))}
-    </ul>
+    </LinkRowList>
   );
 }
 
@@ -49,8 +49,7 @@ function RelatedReading({ topics, heading }: { topics: Topic[]; heading: string 
   const { practice, exam } = getStandardRelatedDocs(topics);
   if (practice.length === 0 && exam.length === 0) return null;
   return (
-    <MetaCard padding="compact" ariaLabel={heading} trackNav="standards-related" className="dark:border-(--rule-soft)">
-      <h2 className="text-lg font-bold text-(--ink)">{heading}</h2>
+    <MetaCard padding="compact" ariaLabel={heading} trackNav="standards-related" className="dark:border-(--rule-soft)" title={heading}>
       {practice.length > 0 && (
         <>
           <h3 className={SUB_HEADING}>実務で使う</h3>
@@ -66,9 +65,9 @@ function RelatedReading({ topics, heading }: { topics: Topic[]; heading: string 
       <ul className="mt-2 flex flex-wrap gap-x-4">
         {topics.map((topic) => (
           <li key={topic.slug}>
-            <Link className="focus-ring inline-flex min-h-11 items-center text-[13px] font-bold text-(--accent) hover:underline" href={topicPath(topic.slug)}>
-              {topic.label}のテーマへ →
-            </Link>
+            <ButtonLink href={topicPath(topic.slug)} variant="text">
+              {topic.label}のテーマへ <Arrow />
+            </ButtonLink>
           </li>
         ))}
       </ul>
@@ -89,28 +88,27 @@ function RegionalVersions({ document, chapter }: { document: StandardDocument; c
   const versions = getStandardRegionalVersions(document, chapter);
   if (versions.length === 0) return null;
   return (
-    <MetaCard padding="compact" ariaLabel="他の地方整備局の同じ章" trackNav="standards-region" className="dark:border-(--rule-soft)">
-      <h2 className="text-lg font-bold text-(--ink)">他の地方整備局の同じ章</h2>
-      <ul className="mt-1 divide-y divide-(--rule-soft)" data-standards-nav="regions">
-        {versions.map((version) => (
+    <MetaCard padding="compact" ariaLabel="他の地方整備局の同じ章" trackNav="standards-region" className="dark:border-(--rule-soft)" title="他の地方整備局の同じ章">
+      <LinkRowList className="mt-1" data={{ 'data-standards-nav': 'regions' }}>
+        {versions.map((version) => (version.current ? (
           <li key={version.href}>
-            {version.current ? (
-              <span className="flex min-h-11 flex-col justify-center py-2 text-sm text-(--ink)" aria-current="page">
-                <span className="font-bold">{regionLabel(version.agencyNames)}</span>
-                <span className="text-[12px] text-(--ink-muted)">表示中</span>
-              </span>
-            ) : (
-              <Link className="focus-ring flex min-h-11 flex-col justify-center py-2 text-sm text-(--accent) hover:underline" href={version.href}>
-                <span>{regionLabel(version.agencyNames)}</span>
-                {version.changed && <span className="text-[12px] font-bold text-warn">この章に本文の違いあり</span>}
-              </Link>
-            )}
+            <span className="flex min-h-11 flex-col justify-center py-2 text-sm text-(--ink)" aria-current="page">
+              <span className="font-bold">{regionLabel(version.agencyNames)}</span>
+              <span className="text-[12px] text-(--ink-muted)">表示中</span>
+            </span>
           </li>
-        ))}
-      </ul>
-      <Link className="focus-ring mt-1 inline-flex min-h-11 items-center text-[13px] font-bold text-(--accent) hover:underline" href="/standards/compare">
-        地方整備局別の違いを一覧で見る →
-      </Link>
+        ) : (
+          <LinkRow
+            key={version.href}
+            href={version.href}
+            title={regionLabel(version.agencyNames)}
+            description={version.changed ? <span className="font-bold text-warn">この章に本文の違いあり</span> : undefined}
+          />
+        )))}
+      </LinkRowList>
+      <ButtonLink href="/standards/compare" variant="text" className="mt-1">
+        地方整備局別の違いを一覧で見る <Arrow />
+      </ButtonLink>
     </MetaCard>
   );
 }
@@ -138,21 +136,20 @@ export function StandardEntryChapters({ agencyId, heading = '共通仕様書を�
   const entry = getStandardEntryChapters(agencyId);
   if (!entry) return null;
   return (
-    <MetaCard padding="compact" ariaLabel={heading} trackNav="standards-entry-chapter" className="dark:border-(--rule-soft)">
-      <h2 className="text-lg font-bold text-(--ink)">{heading}</h2>
+    <MetaCard padding="compact" ariaLabel={heading} trackNav="standards-entry-chapter" className="dark:border-(--rule-soft)" title={heading}>
       {entry.document.agencyId !== agencyId && (
         <p className="mt-1 text-[12px] text-(--ink-muted)">{entry.document.agencyName}版（本文が共通の地域をまとめた版）</p>
       )}
-      <ul className="mt-1 divide-y divide-(--rule-soft)">
+      <LinkRowList className="mt-1">
         {entry.chapters.map((chapter) => (
-          <li key={chapter.chapterId}>
-            <Link className="focus-ring flex min-h-11 items-center gap-2 py-2 text-sm text-(--accent) hover:underline" href={standardChapterPath(entry.document, chapter)}>
-              <span className="shrink-0 font-mono text-[11px] text-(--ink-muted)">{chapter.chapterId}</span>
-              <span>{chapter.bookTitle}・{chapter.chapterTitle}</span>
-            </Link>
-          </li>
+          <LinkRow
+            key={chapter.chapterId}
+            href={standardChapterPath(entry.document, chapter)}
+            marker={<span className="shrink-0 font-mono text-[11px] text-(--ink-muted)">{chapter.chapterId}</span>}
+            title={`${chapter.bookTitle}・${chapter.chapterTitle}`}
+          />
         ))}
-      </ul>
+      </LinkRowList>
     </MetaCard>
   );
 }

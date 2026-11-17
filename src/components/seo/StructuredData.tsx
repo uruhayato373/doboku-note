@@ -2,10 +2,9 @@ import type { PostData } from "@/types/blog";
 import type { DocMeta } from "@/lib/docs";
 import { inlinePlainText } from "@/lib/inline-links";
 
-import categoriesData from "@/config/categories.json";
 import { AUTHOR } from "@/config/author";
 import { CONTACT_EMAIL, SITE_ORIGIN } from "@/config/site-identity.mjs";
-import { getCategoryHubPath } from '@/lib/categories';
+import { getCategoryBySlug, getCategoryHubPath, getCategoryLabel } from '@/lib/categories';
 import { getAreaHubPath, getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
@@ -26,13 +25,6 @@ interface StructuredDataProps {
   type: "article" | "website" | "organization";
   post?: PostData;
   docMeta?: DocMeta;
-}
-
-function getCategoryLabelForSchema(slug: string): string {
-  const cat = (categoriesData as { slug: string; label: string }[]).find(
-    (c) => c.slug === slug
-  );
-  return cat?.label ?? slug;
 }
 
 function generateBreadcrumbSchema(
@@ -63,7 +55,7 @@ function generateBreadcrumbSchema(
     items.push({
       "@type": "ListItem",
       position: items.length + 1,
-      name: getCategoryLabelForSchema(category),
+      name: getCategoryLabel(category),
       item: `${baseUrl}${getCategoryHubPath(category)}`,
     });
   }
@@ -114,7 +106,7 @@ function isExamQuizPage(meta: DocMeta | PostData): boolean {
 // 構造化データの対象資格名。資格カテゴリの名前は categories.json（qualification-registry.json の正式名を
 // npm run sync-qualification-names が書く）から引き、ここに資格名を写さない
 function getExamName(category: string | undefined): string {
-  return (category && categoriesData.find((c) => c.slug === category)?.label) || "土木系資格試験";
+  return (category && getCategoryBySlug(category)?.label) || "土木系資格試験";
 }
 
 type FAQEntry = { q: string; a: string };

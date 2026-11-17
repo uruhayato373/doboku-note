@@ -20,11 +20,7 @@ export default function NextStepNav({ category, docs = [], currentSlug }: { cate
   const steps = resolveNextSteps(category, docs, currentSlug);
   if (steps.length === 0) return null;
   return (
-    <MetaCard ariaLabel="次のステップ" trackNav="next-step">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">次のステップ</h2>
-      <p className="text-sm text-(--ink-muted) mb-4">
-        要点をつかんだら、演習と本文で定着させましょう。
-      </p>
+    <MetaCard ariaLabel="次のステップ" trackNav="next-step" title="次のステップ" lead="要点をつかんだら、演習と本文で定着させましょう。">
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {steps.map((s) => (
           <li key={s.href}>

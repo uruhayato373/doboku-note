@@ -62,13 +62,7 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
     if (!civilEntries || civilEntries.length === 0) return null;
 
     return (
-      <MetaCard ariaLabel="過去問での出題" trackNav="past-exam-backlinks">
-        <h2 className="text-lg font-bold text-(--ink) mb-1">
-          過去問での出題
-        </h2>
-        <p className="text-sm text-(--ink-muted) mb-4">
-          この教材の分野が登場した {label}の過去問 ({civilEntries.length} 件)
-        </p>
+      <MetaCard ariaLabel="過去問での出題" trackNav="past-exam-backlinks" title="過去問での出題" lead={<>この教材の分野が登場した {label}の過去問 ({civilEntries.length} 件)</>}>
         <ul className="space-y-2">
           {civilEntries.map((b, i) => (
             <li key={`${b.examSlug}-${b.section}-${i}`}>
@@ -100,13 +94,7 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
   if (!backlinks || backlinks.length === 0) return null;
 
   return (
-    <MetaCard ariaLabel="過去問での出題" trackNav="past-exam-backlinks">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">
-        過去問での出題
-      </h2>
-      <p className="text-sm text-(--ink-muted) mb-4">
-        このキーワードが登場した過去問の設問
-      </p>
+    <MetaCard ariaLabel="過去問での出題" trackNav="past-exam-backlinks" title="過去問での出題" lead="このキーワードが登場した過去問の設問">
       <ul className="space-y-2">
         {backlinks.map((b, i) => (
           <li key={`${b.examSlug}-${b.anchor}-${i}`}>

@@ -12,6 +12,7 @@ import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import { buildPageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import TopicIcon from '@/components/topics/TopicIcon';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { getAllTopics, getRelatedTopics, getTopicBySlug, getTopicDocs, getTopicRoadmap, getTopicStandards, isTopicIndexable } from '@/lib/topics';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import MagazineCard from '@/components/ui/MagazineCard/MagazineCard';
@@ -21,6 +22,7 @@ import { getLawDirectory, getTopicLaws, getTopicPolicies } from '@/lib/law-wirin
 import PolicyList from '@/components/laws/PolicyList';
 import { peSectionLabel } from '@/lib/pe-keyword-nav';
 import { topicPath } from '@/lib/route-paths';
+import { docKindLabel } from '@/lib/doc-kind';
 
 type Params = { slug: string };
 
@@ -136,7 +138,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           categoryLabel: getCategoryLabel(String(doc.category)), image: getCardImage(doc),
           categoryOrder: getCategoryBySlug(String(doc.category))?.order ?? 999, area: getCategoryArea(String(doc.category)),
           subgroup: doc.category === 'pe-comprehensive-management' ? peSectionLabel(doc.section) : undefined,
-          kind: doc.category === 'laws' ? '法令' : doc.category === 'civil-practice' ? '実務' : doc.category === 'concrete-engineer' && doc.group === 'primary' ? '演習' : ({guide:'受験ガイド', textbook:'テキスト', keyword:'用語', primary:'過去問', secondary:'過去問', 'past-exam':'過去問', pillar:'まとめ'}[String(doc.group)] ?? '解説'),
+          kind: docKindLabel(doc),
         }))} areaLabels={areaLabels} featured={(topic.featured ?? []).map(getPublicDocPath)} />
         </div>
       </SectionBlock>
@@ -181,14 +183,13 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-cta="nav" data-cta-label="topic-related">
             {relatedTopics.map(({ topic: related, shared }) => (
               <li key={related.slug}>
-                <Link
+                <LinkTile
                   href={topicPath(related.slug)}
-                  className="focus-ring card-interactive block h-full border border-(--rule-soft) bg-(--paper) p-4 transition-[border-color,box-shadow] hover:border-(--accent) dark:border-(--rule-soft)"
-                >
-                  <TopicIcon slug={related.slug} />
-                  <span className="block font-serif text-base font-bold text-(--ink)">{related.label}</span>
-                  <span className="mt-1 block text-[13px] text-(--ink-muted)">共通の記事 {shared}件</span>
-                </Link>
+                  serif
+                  icon={<TopicIcon slug={related.slug} className="" />}
+                  title={related.label}
+                  meta={`共通の記事 ${shared}件`}
+                />
               </li>
             ))}
           </ul>

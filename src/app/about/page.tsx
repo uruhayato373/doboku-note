@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { ButtonLink } from "@/components/ui/Button/Button";
+import LinkTile from "@/components/ui/LinkTile/LinkTile";
 import {
   BookOpen,
   FileText,
@@ -12,7 +13,7 @@ import { AUTHOR } from "@/config/author";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import SectionBlock from "@/components/layout/SectionBlock";
-import SectionCard from "@/components/ui/SectionCard/SectionCard";
+import MetaCard from "@/components/ui/MetaCard/MetaCard";
 import AuthorProfile from "@/components/ui/AuthorProfile/AuthorProfile";
 import { DEFAULT_OG_IMAGE, SITE_TITLE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
@@ -69,7 +70,7 @@ export default function AboutPage() {
           運営者プロフィール
         </h2>
         <AuthorProfile variant="wide" showNoteCta={false} />
-        <SectionCard as="div" className="mt-6">
+        <MetaCard as="div" className="mt-6">
           <div>
             <h4 className="text-sm font-bold text-(--ink-body) mb-2">
               編集方針
@@ -97,7 +98,7 @@ export default function AboutPage() {
               現在は<strong>1級土木施工管理技士</strong>・<strong>技術士（総合技術監理部門）</strong>を中心にコンテンツを整備していますが、運営者が取得してきた<strong>技術士（建設部門・上下水道部門）・コンクリート主任技士・コンクリート診断士・1級舗装施工管理技術者・測量士・行政書士・応用情報技術者</strong>などの受験経験を活かし、土木・建設・法務・IT にまたがる多様な資格試験の対策コンテンツを順次展開していく予定です。
             </p>
           </div>
-        </SectionCard>
+        </MetaCard>
       </SectionBlock>
 
       {/* Mission Section */}
@@ -277,24 +278,9 @@ export default function AboutPage() {
           まずは各試験のカテゴリ目次から、必要な分野にアクセスしてください。
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Link
-            href="/exam/civil-construction-1"
-            className="focus-ring card-surface-section block p-5 font-serif text-lg font-bold text-(--ink) transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
-          >
-            1級土木施工管理技士 →
-          </Link>
-          <Link
-            href="/exam/civil-construction-2"
-            className="focus-ring card-surface-section block p-5 font-serif text-lg font-bold text-(--ink) transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
-          >
-            2級土木施工管理技士 →
-          </Link>
-          <Link
-            href="/exam/pe-comprehensive-management"
-            className="focus-ring card-surface-section block p-5 font-serif text-lg font-bold text-(--ink) transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-soft"
-          >
-            技術士（総合技術監理部門） →
-          </Link>
+          <LinkTile href="/exam/civil-construction-1" size="lg" serif title="1級土木施工管理技士 →" />
+          <LinkTile href="/exam/civil-construction-2" size="lg" serif title="2級土木施工管理技士 →" />
+          <LinkTile href="/exam/pe-comprehensive-management" size="lg" serif title="技術士（総合技術監理部門） →" />
         </div>
       </SectionBlock>
 
@@ -305,20 +291,8 @@ export default function AboutPage() {
           ご質問やご意見がございましたらお気軽にお問い合わせください。
         </p>
         <div className="flex flex-wrap gap-3">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-(--accent) text-(--paper) px-5 py-2.5 rounded-card-content font-medium hover:opacity-90 transition-opacity"
-          >
-            お問い合わせフォーム
-          </Link>
-          <a
-            href={AUTHOR.twitterUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-(--rule-soft) text-(--ink-body) px-5 py-2.5 rounded-card-content font-medium hover:border-(--accent) hover:text-(--accent) transition-colors"
-          >
-            Xでフォロー
-          </a>
+          <ButtonLink href="/contact" size="md">お問い合わせフォーム</ButtonLink>
+          <ButtonLink href={AUTHOR.twitterUrl} variant="secondary" size="md">Xでフォロー</ButtonLink>
         </div>
       </SectionBlock>
     </PageShell>

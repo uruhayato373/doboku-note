@@ -29,15 +29,15 @@ test('追加した技術士2資格で検索結果を絞り込める', async ({ p
   ] as const) {
     await page.getByRole('button', { name: label, exact: true }).click();
     await expect.poll(async () => {
-      const paths = await page.locator('article h3 a').evaluateAll(a => a.map(x => x.getAttribute('href') ?? ''));
+      const paths = await page.locator('[data-cta-label="search-results"] > a').evaluateAll(a => a.map(x => x.getAttribute('href') ?? ''));
       return paths.length > 0 && paths.every(p => p.startsWith(prefix) && !p.endsWith('.html'));
     }, { timeout: 45_000 }).toBe(true);
   }
   await page.getByRole('button', { name: 'すべて', exact: true }).click();
-  await expect(page.locator('article h3 a').first()).toBeVisible();
-  const first = await page.locator('article h3 a').first().getAttribute('href');
+  await expect(page.locator('[data-cta-label="search-results"] > a').first()).toBeVisible();
+  const first = await page.locator('[data-cta-label="search-results"] > a').first().getAttribute('href');
   await page.getByRole('button', { name: '次へ', exact: true }).click();
-  await expect(page.locator('article h3 a').first()).not.toHaveAttribute('href', first!);
+  await expect(page.locator('[data-cta-label="search-results"] > a').first()).not.toHaveAttribute('href', first!);
   expect(fragments).toBe(initialFragments);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

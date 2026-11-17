@@ -1,6 +1,7 @@
 import { type DocMeta } from '@/lib/docs';
 import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from '@/lib/doc-classifier';
 import { getCategoryBySlug, type CategoryLayout } from '@/lib/categories';
+import { examYearIn, examYearRank } from '@/lib/exam-year.mjs';
 
 export type DocGroup = {
   key: DocGroupKey;
@@ -12,6 +13,12 @@ export type DocGroup = {
 /** 記事型ごとの説明と並べ替えの規則は categories.json の layout が持つ（DN-0793） */
 function layoutOf(category: string): CategoryLayout | undefined {
   return getCategoryBySlug(category)?.layout;
+}
+
+/** slug の年度の並び順の値（大きいほど新しい）。年度が無ければ null */
+function slugYearRank(slug: string | undefined): number | null {
+  const code = examYearIn(slug ?? '');
+  return code ? examYearRank(code) : null;
 }
 
 /** Sort functions per group */
@@ -28,13 +35,9 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
       docs.sort((a, b) => {
         const slugA = a.slug || '';
         const slugB = b.slug || '';
-        const yearA = slugA.match(/(r|h)(\d+)/);
-        const yearB = slugB.match(/(r|h)(\d+)/);
-        if (yearA && yearB) {
-          const valA = (yearA[1] === 'r' ? 100 : 0) + parseInt(yearA[2]!);
-          const valB = (yearB[1] === 'r' ? 100 : 0) + parseInt(yearB[2]!);
-          if (valB !== valA) return valB - valA;
-        }
+        const valA = slugYearRank(slugA);
+        const valB = slugYearRank(slugB);
+        if (valA !== null && valB !== null && valB !== valA) return valB - valA;
         return slugA.localeCompare(slugB);
       });
     } else if (group === 'textbook') {
@@ -80,14 +83,9 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
       });
     } else if (group === 'primary') {
       docs.sort((a, b) => {
-        const yearA = a.slug?.match(/(r|h)(\d+)/);
-        const yearB = b.slug?.match(/(r|h)(\d+)/);
-        if (yearA && yearB) {
-          const valA = (yearA[1] === 'r' ? 100 : 0) + parseInt(yearA[2]!);
-          const valB = (yearB[1] === 'r' ? 100 : 0) + parseInt(yearB[2]!);
-          return valB - valA;
-        }
-        return 0;
+        const valA = slugYearRank(a.slug);
+        const valB = slugYearRank(b.slug);
+        return valA !== null && valB !== null ? valB - valA : 0;
       });
     }
   } else if (sort === 'pe-comprehensive') {

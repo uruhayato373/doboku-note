@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
-import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolNotice, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * 鉄筋継手 判定ツール（クライアント）。
@@ -39,7 +37,7 @@ type CheckRow = {
   pass: boolean | null;
 };
 
-export default function RebarSpliceCheckClient() {
+export default function RebarSpliceCheckClient({ related }: { related?: React.ReactNode }) {
   // ① ずらし量
   const [diameter, setDiameter] = useState("22");
   const [spliceLength, setSpliceLength] = useState("880");
@@ -110,19 +108,14 @@ export default function RebarSpliceCheckClient() {
   const allEntered = rows.every((r) => r.pass !== null);
   const allPass = allEntered && rows.every((r) => r.pass === true);
 
-  const inputBase =
-    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
-  const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
-
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       {/* ① ずらし量 */}
-      <div className="card-surface-section p-5 sm:p-6">
+      <ToolPanel>
         <div className="font-bold text-(--ink) mb-4">① 千鳥配置のずらし量</div>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="diameter" className={labelBase}>
+            <label htmlFor="diameter" className={`${TOOL_LABEL} mb-2`}>
               鉄筋径 d（mm）
             </label>
             <input
@@ -132,11 +125,11 @@ export default function RebarSpliceCheckClient() {
               step="1"
               value={diameter}
               onChange={(e) => setDiameter(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="splice-length" className={labelBase}>
+            <label htmlFor="splice-length" className={`${TOOL_LABEL} mb-2`}>
               継手の長さ（mm・設計図書の値）
             </label>
             <input
@@ -146,7 +139,7 @@ export default function RebarSpliceCheckClient() {
               step="1"
               value={spliceLength}
               onChange={(e) => setSpliceLength(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
         </div>
@@ -158,15 +151,15 @@ export default function RebarSpliceCheckClient() {
             {staggerDistance !== null ? `${staggerDistance.toFixed(0)} mm` : "—"}
           </span>
         </div>
-      </div>
+      </ToolPanel>
 
       {/* ② ガス圧接ふくらみ検査 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="font-bold text-(--ink) mb-4">② ガス圧接部の検査（JIS Z 3120）</div>
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="gas-diameter" className={labelBase}>
+            <label htmlFor="gas-diameter" className={`${TOOL_LABEL} mb-2`}>
               鉄筋径 d（mm）
             </label>
             <input
@@ -176,11 +169,11 @@ export default function RebarSpliceCheckClient() {
               step="1"
               value={gasDiameter}
               onChange={(e) => setGasDiameter(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="other-diameter" className={labelBase}>
+            <label htmlFor="other-diameter" className={`${TOOL_LABEL} mb-2`}>
               相手側の鉄筋径（mm）
             </label>
             <input
@@ -190,20 +183,20 @@ export default function RebarSpliceCheckClient() {
               step="1"
               value={otherDiameter}
               onChange={(e) => setOtherDiameter(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
         </div>
 
         {diffOk === false && !isD41D51 && (
-          <p className="mt-3 rounded-card-content border-l-4 border-(--color-danger) bg-(--bg) p-3 text-sm leading-6 text-(--ink-body)">
+          <ToolNotice tone="danger" className="mt-3">
             径の差が{MANUAL_GAS_WELD_MAX_DIFF_MM}mmを超えています。D41とD51の組合せを除き、手動ガス圧接そのものが認められません。
-          </p>
+          </ToolNotice>
         )}
 
         <div className="mt-4 grid gap-4 sm:grid-cols-3">
           <div>
-            <label htmlFor="bulge-diameter" className={labelBase}>
+            <label htmlFor="bulge-diameter" className={`${TOOL_LABEL} mb-2`}>
               ふくらみ直径 実測（mm）
             </label>
             <input
@@ -213,11 +206,11 @@ export default function RebarSpliceCheckClient() {
               step="0.1"
               value={bulgeDiameter}
               onChange={(e) => setBulgeDiameter(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="bulge-length" className={labelBase}>
+            <label htmlFor="bulge-length" className={`${TOOL_LABEL} mb-2`}>
               ふくらみ長さ 実測（mm）
             </label>
             <input
@@ -227,11 +220,11 @@ export default function RebarSpliceCheckClient() {
               step="0.1"
               value={bulgeLength}
               onChange={(e) => setBulgeLength(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="offset" className={labelBase}>
+            <label htmlFor="offset" className={`${TOOL_LABEL} mb-2`}>
               圧接面のずれ 実測（mm）
             </label>
             <input
@@ -241,11 +234,11 @@ export default function RebarSpliceCheckClient() {
               step="0.1"
               value={offset}
               onChange={(e) => setOffset(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="eccentricity" className={labelBase}>
+            <label htmlFor="eccentricity" className={`${TOOL_LABEL} mb-2`}>
               中心軸偏心量 実測（mm）
             </label>
             <input
@@ -255,11 +248,11 @@ export default function RebarSpliceCheckClient() {
               step="0.1"
               value={eccentricity}
               onChange={(e) => setEccentricity(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="bend-angle" className={labelBase}>
+            <label htmlFor="bend-angle" className={`${TOOL_LABEL} mb-2`}>
               折れ曲がり 実測（度）
             </label>
             <input
@@ -269,11 +262,11 @@ export default function RebarSpliceCheckClient() {
               step="0.1"
               value={bendAngle}
               onChange={(e) => setBendAngle(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
           <div>
-            <label htmlFor="one-side-bulge" className={labelBase}>
+            <label htmlFor="one-side-bulge" className={`${TOOL_LABEL} mb-2`}>
               片ふくらみ 実測（mm）
             </label>
             <input
@@ -283,7 +276,7 @@ export default function RebarSpliceCheckClient() {
               step="0.1"
               value={oneSideBulge}
               onChange={(e) => setOneSideBulge(e.target.value)}
-              className={inputBase}
+              className={TOOL_INPUT}
             />
           </div>
         </div>
@@ -333,12 +326,10 @@ export default function RebarSpliceCheckClient() {
             {allPass ? "全項目 合格" : "1項目以上が基準を満たしていません"}
           </div>
         )}
-      </div>
+      </ToolPanel>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources>
           <li>
             <strong className="text-(--ink)">千鳥配置のずらし量</strong>は、隣り合う継手同士の間隔を継手の長さに鉄筋直径の25倍を加えた長さ以上とする考え方です。継手の長さそのものは設計図書で決まるため、本ツールでは入力値として扱います。
           </li>
@@ -351,27 +342,9 @@ export default function RebarSpliceCheckClient() {
           <li className="text-(--ink-muted)">
             ※ 本ツールは入力値をJIS Z 3120の基準と照らすだけで、外観検査・引張試験そのものを代替しません。外観検査は全数、引張試験は1日1組の作業班が完了した箇所を1ロットとして抜き取るのが基本です。
           </li>
-        </ul>
-      </div>
+      </ToolSources>
 
-      {/* 関連 */}
-      <div className="mt-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          関連するページ
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/practice/rebar-splice-selection"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">継手を3方式から選ぶ</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              重ね継手・ガス圧接・機械式継手の選定基準を解説
-            </div>
-          </Link>
-          <ToolsIndexCard description="現場管理値の計算ツールをまとめて見る" />
-        </div>
-      </div>
-    </div>
+      {related}
+    </ToolLayout>
   );
 }

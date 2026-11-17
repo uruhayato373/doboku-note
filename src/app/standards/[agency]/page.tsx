@@ -1,9 +1,11 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import PageShell from '@/components/layout/PageShell';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
+import { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import { StandardsEndBanner } from '@/components/standards/StandardsAffiliateBanners';
@@ -66,7 +68,7 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         aside={<StandardsNavigation agencyId={agency} />}
       >
 
-        <div className="card-surface-section px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
+        <MetaCard padding="none" as="div" className="px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
       <PageHeader
         variant="inline"
         className="border-b border-(--rule-soft) py-6 sm:py-8"
@@ -77,16 +79,14 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         <div className="pt-5">
         <section aria-labelledby="agency-documents">
           <h2 id="agency-documents" className="mb-2 text-2xl font-bold text-(--ink)">収録文書</h2>
-          <ul className="grid gap-x-5 sm:grid-cols-2" data-standards-list="documents">
+          <LinkRowList className="grid gap-x-5 sm:grid-cols-2" data={{ 'data-standards-list': 'documents' }}>
             {documents.map((document) => (
-              <li key={document.documentId}>
-                <StandardDocumentCard document={document} variant="row" chapterCount={getStandardChapters(agency, document.documentId).length} />
-              </li>
+              <StandardDocumentCard key={document.documentId} document={document} variant="row" chapterCount={getStandardChapters(agency, document.documentId).length} />
             ))}
-          </ul>
+          </LinkRowList>
         </section>
         </div>
-        </div>
+        </MetaCard>
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsNavigation agencyId={agency} variant="mobile" />
         </div>

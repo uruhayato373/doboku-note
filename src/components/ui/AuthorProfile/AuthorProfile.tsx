@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { AUTHOR } from "@/config/author";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
+import Arrow from '@/components/ui/Arrow/Arrow';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
 /**
  * AuthorProfile — 運営者プロフィールの共通コンポーネント（SSOT）。
@@ -42,9 +44,9 @@ function Avatar() {
 function Qualifications({ columns = 1 }: { columns?: 1 | 2 }) {
   return (
     <div>
-      <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.15em] text-(--ink-muted)">
+      <Eyebrow variant="mono" as="div" className="mb-2">
         保有資格
-      </div>
+      </Eyebrow>
       <ul
         className={
           columns === 2
@@ -94,7 +96,7 @@ function SocialLinks({ center = false }: { center?: boolean }) {
         {`X @${AUTHOR.twitterHandle}`}
       </a>
       <Link href="/about" className="hover:text-(--accent) hover:underline">
-        運営者について →
+        運営者について <Arrow />
       </Link>
     </div>
   );

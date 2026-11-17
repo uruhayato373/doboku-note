@@ -1,5 +1,9 @@
+import { eyebrowClass } from '@/components/ui/Eyebrow/Eyebrow';
 import { type ReactNode } from 'react';
 import Link from 'next/link';
+import { ButtonLink } from '@/components/ui/Button/Button';
+import Arrow from '@/components/ui/Arrow/Arrow';
+import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { getGroupLabel } from '@/lib/doc-classifier';
 import { type DocGroup } from '@/lib/category-groups';
 import { DocSection } from '@/components/category/CategorySections';
@@ -256,19 +260,16 @@ export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: Doc
         </CurriculumSection>
       )}
       <section className="card-surface-section mb-10 p-5 sm:p-6" aria-labelledby="pe1-free-quiz">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--accent)">登録不要・無料</div>
+        <div className={eyebrowClass('label', 'accent')}>登録不要・無料</div>
         <h2 id="pe1-free-quiz" className="mt-1 font-serif text-[21px] sm:text-[24px] font-black text-(--ink)">
           {quizYearRange('pe-first-stage')}と令和元年度再試験・全{quizQuestionCount('pe-first-stage')}問をその場で演習
         </h2>
         <p className="mt-2 text-[14px] leading-7 text-(--ink-body)">
           基礎・適性・専門（建設部門・上下水道部門）を、年度別・科目別・ランダムで即採点。間違えた問題だけの復習にも対応しています。
         </p>
-        <Link
-          href="/tools/kakomon-quiz/pe-first-stage"
-          className="focus-ring mt-4 inline-flex rounded-card-content border border-(--accent) bg-(--accent-fill) px-4 py-2 text-sm font-bold text-(--accent) hover:underline"
-        >
-          無料で過去問を解く →
-        </Link>
+        <ButtonLink href="/tools/kakomon-quiz/pe-first-stage" variant="soft" className="mt-4">
+          無料で過去問を解く <Arrow />
+        </ButtonLink>
       </section>
       {primaryGroup && (
         <DocSection group={primaryGroup} layout="pe-first-stage-table" />
@@ -315,23 +316,17 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
               5 管理 × 26 セクションで体系化された全 {keywordCount} キーワードの索引
             </p>
           </div>
-          <Link
+          <LinkTile
             href="/sitemap-keywords"
-            className="focus-ring card-surface-content group flex items-center gap-4 p-5 transition-[border-color,box-shadow] hover:border-(--accent) hover:shadow-card-hover"
-          >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-card-inline bg-(--accent) text-lg font-bold text-(--paper)">
-              ≡
-            </div>
-            <div className="flex-1">
-              <div className="font-bold text-lg text-(--ink) group-hover:text-(--accent) transition-colors">
-                キーワードを全件見る（{keywordCount} 件）
-              </div>
-              <div className="text-sm text-(--ink-muted)">
-                文部科学省「総合技術監理 キーワード集 2026」に基づくセクション別索引へ
-              </div>
-            </div>
-            <span className="text-(--accent) group-hover:translate-x-1 transition-transform" aria-hidden>›</span>
-          </Link>
+            size="lg"
+            icon={
+              <span className="flex h-10 w-10 items-center justify-center rounded-card-inline bg-(--accent) text-lg font-bold text-(--paper)">
+                ≡
+              </span>
+            }
+            title={`キーワードを全件見る（${keywordCount} 件）`}
+            description="文部科学省「総合技術監理 キーワード集 2026」に基づくセクション別索引へ"
+          />
         </section>
       )}
     </>

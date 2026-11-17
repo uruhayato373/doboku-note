@@ -19,11 +19,7 @@ export default function CareerNextStepNav({ slug }: { slug: string }) {
   const steps = resolveCareerNextSteps(slug);
   if (steps.length === 0) return null;
   return (
-    <MetaCard ariaLabel="次に読むページ" trackNav="career-next-step">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">次に読むページ</h2>
-      <p className="text-sm text-(--ink-muted) mb-4">
-        いま迷っている内容に近いほうを 1 つ選んで、そこで示された行動を先に済ませてください。
-      </p>
+    <MetaCard ariaLabel="次に読むページ" trackNav="career-next-step" title="次に読むページ" lead="いま迷っている内容に近いほうを 1 つ選んで、そこで示された行動を先に済ませてください。">
       <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {steps.map((s) => (
           <li key={s.href}>

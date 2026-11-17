@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Breadcrumb from '@/components/ui/Breadcrumb/Breadcrumb';
 
 type StandardsCrumb = {
   label: string;
@@ -27,23 +27,7 @@ export default function StandardsArticleHeader({
 }: StandardsArticleHeaderProps) {
   return (
     <header className="border-b border-(--rule-soft) pb-6 dark:border-(--rule-soft)">
-      <nav
-        aria-label="breadcrumb"
-        className="mb-4 flex flex-wrap items-center gap-2 font-mono text-[11px] tracking-wide text-(--ink-muted)"
-      >
-        {breadcrumb.map((crumb, index) => (
-          <span key={`${crumb.label}-${index}`} className="flex min-w-0 items-center gap-2">
-            {index > 0 && <span aria-hidden="true" className="opacity-60">›</span>}
-            {crumb.href ? (
-              <Link href={crumb.href} className="focus-ring hover:text-(--accent)">
-                {crumb.label}
-              </Link>
-            ) : (
-              <span className="truncate">{crumb.label}</span>
-            )}
-          </span>
-        ))}
-      </nav>
+      <Breadcrumb items={breadcrumb} className="mb-4" />
 
       <div className="mb-1 text-[11px] font-bold tracking-[0.06em] text-(--accent)">
         {label}

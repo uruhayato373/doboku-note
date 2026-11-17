@@ -2,6 +2,7 @@ import Link from 'next/link';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { type ExamTopicQuestion } from '@/lib/exam-topic-bridge';
+import Arrow from '@/components/ui/Arrow/Arrow';
 
 /** 問題文の **強調** だけを <strong> にする（他の記法は exam-topic-bridge.ts の選定で除いている） */
 function Emphasis({ text }: { text: string }) {
@@ -14,9 +15,7 @@ function Emphasis({ text }: { text: string }) {
  */
 export default function ExamTopicBridge({ question }: { question: ExamTopicQuestion }) {
   return (
-    <MetaCard ariaLabel="この論点が出る1級土木の過去問" trackNav="exam-topic">
-      <h2 className="text-lg font-bold text-(--ink) mb-1">この論点が出る1級土木の過去問</h2>
-      <p className="text-sm text-(--ink-muted) mb-3">{question.label}</p>
+    <MetaCard ariaLabel="この論点が出る1級土木の過去問" trackNav="exam-topic" title="この論点が出る1級土木の過去問" lead={question.label}>
       <div className="text-[15px] leading-7 text-(--ink-body) whitespace-pre-line">
         <Emphasis text={question.body} />
       </div>
@@ -34,9 +33,9 @@ export default function ExamTopicBridge({ question }: { question: ExamTopicQuest
         </p>
       </Disclosure>
       <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-        <Link href={question.examHref} className="font-semibold text-(--accent) hover:underline">この年度の過去問を全部解く →</Link>
+        <Link href={question.examHref} className="font-semibold text-(--accent) hover:underline">この年度の過去問を全部解く <Arrow /></Link>
         {question.textbook && (
-          <Link href={question.textbook.href} className="font-semibold text-(--accent) hover:underline">教科書「{question.textbook.title}」で確認する →</Link>
+          <Link href={question.textbook.href} className="font-semibold text-(--accent) hover:underline">教科書「{question.textbook.title}」で確認する <Arrow /></Link>
         )}
       </div>
     </MetaCard>

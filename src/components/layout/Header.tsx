@@ -7,6 +7,7 @@ import categoriesData from "@/config/categories.json";
 import { CategoryDef, getCategoryHubPath } from "@/lib/categories";
 import { getAreaLabel } from '@/lib/content-taxonomy';
 import { WIDE_CONTAINER } from './container';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
 const categories = (categoriesData as CategoryDef[]).filter(c => c.visible !== false);
 
@@ -280,9 +281,9 @@ export default function Header() {
                         {/* 資格でないカテゴリ（variant: general）の手前に区切りを置く */}
                         {cat.variant === "general" && categories[i - 1]?.variant !== "general" && (
                           <div className="border-t border-(--rule-soft) px-4 pt-2 pb-1">
-                            <span className="font-mono text-[10px] uppercase tracking-widest text-(--ink-muted)">
+                            <Eyebrow variant="mono">
                               資格を問わない実務・法令
-                            </span>
+                            </Eyebrow>
                           </div>
                         )}
                         <Link
@@ -395,9 +396,9 @@ export default function Header() {
                 {/* 資格でないカテゴリ（variant: general）の手前に区切りを置く */}
                 {cat.variant === "general" && categories[i - 1]?.variant !== "general" && (
                   <div className="border-t border-(--rule-soft) mt-2 pt-3 px-3 pb-1">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-(--ink-muted)">
+                    <Eyebrow variant="mono">
                       資格を問わない実務・法令
-                    </span>
+                    </Eyebrow>
                   </div>
                 )}
                 <Link

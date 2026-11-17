@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
-import SectionCard from '@/components/ui/SectionCard/SectionCard';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import { Mail, Clock, AlertCircle } from 'lucide-react';
 import { DEFAULT_OG_IMAGE, SITE_TITLE } from '@/lib/metadata';
 import { CONTACT_EMAIL, SITE_ORIGIN } from '@/config/site-identity.mjs';
@@ -41,7 +41,7 @@ export default function ContactPage() {
 
       <SectionBlock width="780" space="md">
         {/* メール */}
-        <SectionCard className="mb-6">
+        <MetaCard className="mb-6">
           <div className="flex items-center gap-3 mb-5">
             <div className="bg-(--accent-fill) w-12 h-12 rounded-card-content flex items-center justify-center shrink-0">
               <Mail className="w-6 h-6 text-(--accent)" />
@@ -61,10 +61,10 @@ export default function ContactPage() {
           >
             {CONTACT_EMAIL}
           </a>
-        </SectionCard>
+        </MetaCard>
 
         {/* お問い合わせの種類 */}
-        <SectionCard title="お問い合わせの例" className="mb-6">
+        <MetaCard serifTitle title="お問い合わせの例" className="mb-6">
           <ul className="space-y-2 text-[15px] text-(--ink-body)">
             <li className="flex items-start gap-2">
               <span className="text-(--accent) mt-1 shrink-0">●</span>
@@ -91,11 +91,11 @@ export default function ContactPage() {
               <span>その他のご意見・ご要望</span>
             </li>
           </ul>
-        </SectionCard>
+        </MetaCard>
 
         {/* 注意事項 */}
         <div className="grid gap-4 md:grid-cols-2">
-          <SectionCard padding="default">
+          <MetaCard padding="default">
             <div className="flex items-center gap-2 mb-3">
               <Clock className="w-5 h-5 text-(--ink-muted)" />
               <h3 className="font-serif font-bold text-(--ink)">返信について</h3>
@@ -103,8 +103,8 @@ export default function ContactPage() {
             <p className="text-sm text-(--ink-body) leading-relaxed">
               お問い合わせいただいた内容には、通常3営業日以内にご返信いたします。内容によってはお時間をいただく場合がございます。
             </p>
-          </SectionCard>
-          <SectionCard padding="default">
+          </MetaCard>
+          <MetaCard padding="default">
             <div className="flex items-center gap-2 mb-3">
               <AlertCircle className="w-5 h-5 text-(--ink-muted)" />
               <h3 className="font-serif font-bold text-(--ink)">ご了承事項</h3>
@@ -112,7 +112,7 @@ export default function ContactPage() {
             <p className="text-sm text-(--ink-body) leading-relaxed">
               個別の試験問題の解答や、合否に関するご質問にはお答えできかねます。あらかじめご了承ください。
             </p>
-          </SectionCard>
+          </MetaCard>
         </div>
       </SectionBlock>
     </PageShell>

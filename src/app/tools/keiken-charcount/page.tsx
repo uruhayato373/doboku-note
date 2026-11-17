@@ -1,5 +1,4 @@
-import PageShell from "@/components/layout/PageShell";
-import PageHeader from "@/components/layout/PageHeader";
+import RelatedPages from "@/components/ui/RelatedPages/RelatedPages";
 import type { Metadata } from "next";
 import KeikenCharcountClient, { type KeikenLimits } from "./KeikenCharcountClient";
 import limitsConfig from "../../../../config/keiken-answer-sheet-limits.json";
@@ -10,6 +9,7 @@ import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magaz
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { toolByHref } from "@/lib/tools";
+import ToolPageShell from "@/components/tools/ToolPageShell";
 import { READING_CONTAINER } from '@/components/layout/container';
 import { CTA_STACK_CLASS } from '@/lib/cta-stack';
 
@@ -64,21 +64,16 @@ export const metadata: Metadata = {
 
 export default function KeikenCharcountPage() {
   return (
-    <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        width="760"
-        breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
-        label="無料ツール"
-        title={tool.title}
-        lead={
-          <>
-            <strong className="text-(--ink)">1級・2級土木施工管理技士 第2次検定 問題1（施工経験記述）</strong>の答案が、本番の<strong className="text-(--ink)">解答欄の字数</strong>に収まるかを無料でチェックします。級・出題形式・設問を選び、答案を貼り付けるだけ。
-          </>
-        }
-      />
-
-      <KeikenCharcountClient limits={LIMITS} />
+    <ToolPageShell
+      title={tool.title}
+      lead={
+        <>
+          <strong className="text-(--ink)">1級・2級土木施工管理技士 第2次検定 問題1（施工経験記述）</strong>の答案が、本番の<strong className="text-(--ink)">解答欄の字数</strong>に収まるかを無料でチェックします。級・出題形式・設問を選び、答案を貼り付けるだけ。
+        </>
+      }
+      affiliate={false}
+    >
+      <KeikenCharcountClient limits={LIMITS} related={<RelatedPages heading="経験記述の書き方をもっと詳しく" links={[{ href: "/exam/civil-construction-1/secondary/experience-writing-guide", title: "1級土木 施工経験記述の書き方", description: "課題→検討→対応の型と頻出テーマを解説" }, { href: "/exam/civil-construction-2/secondary/experience-writing-guide", title: "2級土木 施工経験記述の書き方", description: "2級の解答欄・テーマ別の書き分けを解説" }]} />} />
       <div className={`${READING_CONTAINER} pb-10`}>
         {/* 幅は転職の横長バナーとそろえ、上に見出しは付けない（src/lib/cta-stack.ts） */}
         <div data-cta-stack className={`${CTA_STACK_CLASS} grid gap-3 sm:grid-cols-2`}>
@@ -107,6 +102,6 @@ export default function KeikenCharcountPage() {
         {/* 転職の案内（結果と教材の下に 1 枠。案件は配置ルール） */}
         <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-inline" className="mt-8" />
       </div>
-    </PageShell>
+    </ToolPageShell>
   );
 }
