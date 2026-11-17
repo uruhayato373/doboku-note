@@ -188,10 +188,66 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-haiin-1",
-      "status": "draft",
+      "status": "uploaded_private",
       "copy": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#shorts/point-haiin-1",
       "relatedTo": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform",
-      "idException": "imported-before-cutover"
+      "idException": "imported-before-cutover",
+      "media": {
+        "video": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-haiin-1/video",
+        "cover": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-haiin-1/cover",
+        "contact-sheet": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-haiin-1/contact-sheet",
+        "subtitles": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-haiin-1/subtitles"
+      },
+      "publishAt": "2026-11-19T22:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-17T13:05:13.896Z",
+          "digest": "98a2d826fbfdfa439eef6e38b8a957a0f9b117dc47645eabf15ebb0e62017963"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-17T13:05:13.896Z",
+        "contentSha256": "a4aee692e2cb91cf76cfd53f6a4389b33ac8786eb34698a4e05d8e1584fa2d71"
+      },
+      "times": {
+        "rendered": "2026-11-17T13:05:14.085Z",
+        "uploaded": "2026-11-17T13:13:43.289Z"
+      },
+      "delivery": {
+        "inputSha256": "15bf9f860b71146a913e62e7c2328e3a5a706202a09de0f75126af56844b99b6",
+        "marker": "dn-single-49cb69c33883739aff427767ec7b95ff2321eba1",
+        "uploadRequestedAt": "2026-11-17T13:06:57.638Z",
+        "videoId": "kM9UoZfVDls",
+        "processedAt": "2026-11-17T13:13:42.689Z",
+        "thumbnailRequestedAt": "2026-11-17T13:13:43.312Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/kM9UoZfVDls/default.jpg?sqp=CKik8dcG&rs=AOn4CLBBk03Af8XgbVJ-n-ZkZfUXKqOQmA",
+          "https://i9.ytimg.com/vi/kM9UoZfVDls/mqdefault.jpg?sqp=CKik8dcG&rs=AOn4CLBo8bLXUsQ821EpyJ00_lzmKMvjpA",
+          "https://i9.ytimg.com/vi/kM9UoZfVDls/hqdefault.jpg?sqp=CKik8dcG&rs=AOn4CLC_QYlJrDR3ZTh6ICSf03AqN2Xfag",
+          "https://i9.ytimg.com/vi/kM9UoZfVDls/sddefault.jpg?sqp=CKik8dcG&rs=AOn4CLAnSLv8dCht672ei-IvyQrvyBddyQ",
+          "https://i9.ytimg.com/vi/kM9UoZfVDls/maxresdefault.jpg?sqp=CKik8dcG&rs=AOn4CLBjqBSpQQP9EM868HUr1cHwd7mnBQ",
+          "https://i9.ytimg.com/vi/kM9UoZfVDls/sardefault.jpg?sqp=CKik8dcG&rs=AOn4CLBbkHhitDnwDle3Zb7geg1KMFusnw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-17T13:13:47.449Z"
+      },
+      "platform": {
+        "id": "kM9UoZfVDls",
+        "url": "https://www.youtube.com/watch?v=kM9UoZfVDls",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-fugokaku-tenken/youtube.json#shorts/point-haiin-1"
+        },
+        "relatedVideoId": "JDMeEBkcX5U",
+        "desiredRelatedVideoId": "JDMeEBkcX5U"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-17T13:13:47.449Z"
+      }
     },
     {
       "id": "pe-comprehensive-management/cm-fugokaku-tenken/youtube.short.point-tenken-2",
@@ -952,7 +1008,7 @@
       "work": "sokan-kojutsu-tachiba",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "uploaded_private",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-001",
@@ -972,7 +1028,50 @@
         "subtitles": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.json#longform",
-      "publishAt": "2026-12-15T11:30:00Z"
+      "publishAt": "2026-11-24T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-17T12:51:03.252Z",
+          "digest": "5327c9194e923b2db91e86703fda7bb96a56e97e23ec87589d7ce8bd0ad3a184"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-17T12:51:03.252Z",
+        "contentSha256": "1b595017e711012d517f0122b35dbc98739142d790b10f94f1ab5773cad3fbc2"
+      },
+      "times": {
+        "rendered": "2026-11-17T12:57:51.071Z",
+        "uploaded": "2026-11-17T12:59:53.090Z"
+      },
+      "delivery": {
+        "inputSha256": "e81546045e8c6c6cdaf8e5f4de17c5460d0d893871e9f0d0802d83765077807c",
+        "marker": "dn-single-fec88f32cf87895ac58cc9095edadb3a1ab15abb",
+        "uploadRequestedAt": "2026-11-17T12:59:10.277Z",
+        "videoId": "Xw8Slj7Q340",
+        "processedAt": "2026-11-17T12:59:52.232Z",
+        "thumbnailRequestedAt": "2026-11-17T12:59:53.123Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/default.jpg?sqp=CKSd8dcG&rs=AOn4CLDMD5tY2GZB9NOL4GaOshKO5hQDDQ",
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/mqdefault.jpg?sqp=CKSd8dcG&rs=AOn4CLCbsxwmPo62vhTp-_jyBbt07Mih2Q",
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/hqdefault.jpg?sqp=CKSd8dcG&rs=AOn4CLCsendFIJ3wm804_33tFdER3RgSRg",
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/sddefault.jpg?sqp=CKSd8dcG&rs=AOn4CLBbv7Qm5jPLPcQBpln7bi5Nde-IKQ",
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/maxresdefault.jpg?sqp=CKSd8dcG&rs=AOn4CLCFLJn_80d2u6NdTk9smWHTMTB3vQ",
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/fhddefault.jpg?sqp=CKSd8dcG&rs=AOn4CLCDw23v97IoWnu1KOYyALJ6uZ9aCA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-17T12:59:59.312Z"
+      },
+      "platform": {
+        "id": "Xw8Slj7Q340",
+        "url": "https://www.youtube.com/watch?v=Xw8Slj7Q340",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.json#longform"
+        }
+      }
     },
     {
       "id": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.short.point-tachiba-1",

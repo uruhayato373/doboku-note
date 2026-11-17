@@ -65,6 +65,14 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1239] YouTube の表紙の読み返し照合が通らず予約が止まる（4 本）
+タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-17]
+
+- 起点: 2026-11-17 の毎日の予約（youtube-daily run）で、表紙の設定（thumbnails.set）は応答を得て thumbnailAcceptedAt まで記録されるのに、読み返しの照合（`scripts/lib/youtube-revision-publisher.mjs` の thumbnailVerified：delivery.thumbnailUrls のどれかが videos.list の snippet.thumbnails に完全一致するか）が通らず「表紙のAPI応答・読取が未確認」で止まる。通常動画 sokan-kojutsu-tachiba（run 44088160645）とショート point-kazu-1・point-risk-2（土質及び基礎）・point-haiin-1（総監 不合格点検）の計 4 本が uploaded_private のまま予約されない。約 1 時間後の再試行（run 44091114228・44091257007・44091406550）も同じ結果で、一時的な反映遅れではない見込み。URL は i9.ytimg.com の sqp・rs 署名つきで、読み返しで署名が変わっている疑い。後続の通常動画 3 本（c1-juken-junjo-2027・owner-eye-kantokuin・c2-juken-junjo-2027）は承認済みのまま投稿されず止まっている。
+- やること: 読み返しの thumbnails と記録した URL の実物を突き合わせ、照合を署名の変わらない部分（パスと表紙の実体）で行うよう直す。止まっている 4 本を予約まで進める。
+- 完了条件: 4 本が scheduled になり、次の毎日の予約で表紙の照合エラーが出ない。
+
+
 
 
 ### [DN-1227] YouTube の長尺計画の検査が落ちる（親の通常動画が在庫に進む前にショートが進んだ 2 件）
