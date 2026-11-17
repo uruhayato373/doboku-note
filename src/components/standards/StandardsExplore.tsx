@@ -1,5 +1,5 @@
 import { Fragment, type ReactNode } from 'react';
-import Link from 'next/link';
+import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import { ButtonLink } from '@/components/ui/Button/Button';
 import Arrow from '@/components/ui/Arrow/Arrow';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
@@ -33,16 +33,15 @@ export function standardsExploreItems(betweenCards?: ReactNode): RailItem[] {
       kind: 'nav',
       node: (
         <MetaCard padding="compact" title="テーマから読む">
-          <nav aria-label="基準と関連する技術テーマ" className="divide-y divide-(--rule-soft)">
-            {topicSlugs.flatMap(slug => {
-              const topic = topics.find(item => item.slug === slug);
-              return topic ? [
-                <Link key={slug} href={topicPath(slug)} data-cta="nav" data-cta-label="standards-topic"
-                  className="focus-ring flex min-h-11 items-center justify-between gap-2 px-2 py-2 text-sm font-bold text-(--accent) transition-colors hover:bg-(--accent-fill)">
-                  {topic.label}<Arrow />
-                </Link>,
-              ] : [];
-            })}
+          <nav aria-label="基準と関連する技術テーマ">
+            <LinkRowList>
+              {topicSlugs.flatMap(slug => {
+                const topic = topics.find(item => item.slug === slug);
+                return topic ? [
+                  <LinkRow key={slug} href={topicPath(slug)} title={topic.label} arrow data={{ 'data-cta': 'nav', 'data-cta-label': 'standards-topic' }} />,
+                ] : [];
+              })}
+            </LinkRowList>
           </nav>
           <div className="mt-1 flex justify-end"><ButtonLink href="/topics" variant="text">すべてのテーマ <Arrow /></ButtonLink></div>
         </MetaCard>
@@ -51,14 +50,16 @@ export function standardsExploreItems(betweenCards?: ReactNode): RailItem[] {
     {
       kind: 'nav',
       node: (
-        <nav aria-label="実務・比較・データ" className="flex flex-wrap gap-x-4 px-1">
-          {selectedDocs.map(doc => (
-            <ButtonLink key={doc.slug} href={getPublicDocPath(doc.slug)} variant="text" data={{ 'data-cta': 'nav', 'data-cta-label': 'standards-practice' }}>{resolveNavTitle(doc).main}</ButtonLink>
-          ))}
-          <ButtonLink href="/practice" variant="text">土木施工の実務ノート</ButtonLink>
-          <ButtonLink href="/standards/compare" variant="text">地方整備局別の違い</ButtonLink>
-          <ButtonLink href="/standards/data" variant="text">基準本文のデータ</ButtonLink>
-        </nav>
+        <MetaCard as="nav" ariaLabel="実務・比較・データ" padding="compact" title="実務・比較・データ">
+          <LinkRowList>
+            {selectedDocs.map(doc => (
+              <LinkRow key={doc.slug} href={getPublicDocPath(doc.slug)} title={resolveNavTitle(doc).main} data={{ 'data-cta': 'nav', 'data-cta-label': 'standards-practice' }} />
+            ))}
+            <LinkRow href="/practice" title="土木施工の実務ノート" />
+            <LinkRow href="/standards/compare" title="地方整備局別の違い" />
+            <LinkRow href="/standards/data" title="基準本文のデータ" />
+          </LinkRowList>
+        </MetaCard>
       ),
     },
     { kind: 'bridge', node: <QualificationBridge placement="standards-bridge-sidebar" layout="sidebar" /> },

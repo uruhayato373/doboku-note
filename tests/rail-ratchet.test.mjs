@@ -31,6 +31,7 @@ const RAIL_PARTS = [
   'src/components/standards/StandardsExplore.tsx',
 ];
 const HAND_ROW = /className="[^"]*border-b border-\(--rule-soft\) last:border-b-0/g;
+const HAND_LINK_ROW = /<Link\b[^>]*className="[^"]*\bmin-h-11/g;
 const HAND_FRAME = /className="[^"]*\bborder border-\(--rule-soft\)[^"]*bg-\(--paper\)/g;
 
 test('右の欄の入れ物は RailStack だけ（上の束の div を手書きしない）', () => {
@@ -52,7 +53,7 @@ test('右の欄のカードの部品に手書きの行・外枠を戻さない�
   const hits = RAIL_PARTS.flatMap((rel) => {
     const src = readFileSync(`${REPO_ROOT}/${rel}`, 'utf8');
     checked += 1;
-    return [...src.matchAll(HAND_ROW), ...src.matchAll(HAND_FRAME)].map((m) => `${rel}:${lineOf(src, m.index)}`);
+    return [...src.matchAll(HAND_ROW), ...src.matchAll(HAND_LINK_ROW), ...src.matchAll(HAND_FRAME)].map((m) => `${rel}:${lineOf(src, m.index)}`);
   });
   console.log(`[rail] 部品 ${checked} ファイル・手書きの行と外枠 ${hits.length}`);
   assert.equal(checked, RAIL_PARTS.length);

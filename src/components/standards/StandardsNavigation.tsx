@@ -123,14 +123,22 @@ function DocumentTreeNav({
   const tocUrl = standardTreeTocPath(document);
 
   return (
-    <MetaCard as="nav" ariaLabel="目次" padding="compact" trackNav="standards-tree">
-      <Link
-        href={standardDocumentPath(document)}
-        className="focus-ring block pb-2 text-[12px] font-bold text-(--ink-muted) hover:text-(--accent)"
-        aria-current={!currentChapter ? 'page' : undefined}
-      >
-        {document.role === 'common' ? '土木工事共通仕様書' : document.title}・目次
-      </Link>
+    <MetaCard
+      as="nav"
+      ariaLabel="目次"
+      padding="compact"
+      trackNav="standards-tree"
+      eyebrow="目次"
+      title={
+        <Link
+          href={standardDocumentPath(document)}
+          className="focus-ring hover:text-(--accent)"
+          aria-current={!currentChapter ? 'page' : undefined}
+        >
+          {document.role === 'common' ? '土木工事共通仕様書' : document.title}
+        </Link>
+      }
+    >
       <div
         className="standards-tree"
         data-standards-nav="tree"
