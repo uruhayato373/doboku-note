@@ -43,7 +43,8 @@ export default defineConfig({
     },
     {
       name: 'mobile-chromium',
-      testIgnore: skipA11y,
+      // 右の欄など PC 幅だけの検査は desktop.spec.ts に置き、モバイルでは回さない（test.skip は夜間の実行検査がスキップとして落とす）
+      testIgnore: ['**/desktop.spec.ts', ...skipA11y],
       use: { ...devices['iPhone 13'], browserName: 'chromium' },
     },
   ],
