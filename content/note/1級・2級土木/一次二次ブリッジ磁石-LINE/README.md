@@ -1,7 +1,7 @@
 # 一次→二次ブリッジ磁石（LINE公式）— 制作物一覧
 
 DN-0013「1級土木 二次10/4 直前スプリント」の死守コア3「最小リスト捕獲」向け制作物（2026-08-25 作成）。
-真実源: [noteコンテンツ計画.md §3.3](../noteコンテンツ計画.md)・§5.4。
+真実源: [noteコンテンツ計画.md §3](../noteコンテンツ計画.md)。
 
 - `magnet-pdf.md` — 磁石本文の原稿（`article.md` へ配線済み）
 - `article.md` — note 無料記事として**公開済み**: https://note.com/dobokunote/n/na31c6abae8f6（2026-08-26・noteId `na31c6abae8f6`）
