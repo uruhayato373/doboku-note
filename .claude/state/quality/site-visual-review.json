@@ -152,29 +152,43 @@
       "pages": 6,
       "pass": 6,
       "fail": 0
+    },
+    {
+      "runId": "20261117T003743Z",
+      "at": "2026-11-17T00:40:10.213Z",
+      "base": "http://localhost:3025",
+      "pages": 6,
+      "pass": 6,
+      "fail": 0
     }
   ],
   "pages": {
     "about": {
       "layoutSha256": "0edc8151ffd0842e33517bed1299747f1af931e11e2581d92d226ddb79203817",
       "verdict": "pass",
-      "reviewedAt": "2026-11-17T00:15:43.374Z",
-      "runId": "20261117T000950Z",
+      "reviewedAt": "2026-11-17T00:40:10.212Z",
+      "runId": "20261117T003743Z",
       "path": "/about",
       "findings": [
         {
           "severity": "minor",
-          "type": "consistency",
-          "detail": "運営者プロフィールの箱だけ上に青い太線があり、直下の編集方針の箱には無い。影は揃っており読むのに支障はない。",
-          "viewport": "w768",
-          "shot": "w768-01.png"
+          "type": "typography",
+          "detail": "パンくず（HOME › ABOUT）が 11px で小さく、押す範囲も 31×17px と狭い。",
+          "viewport": "w375",
+          "shot": "w375-01.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "編集方針・今後の展開の本文が薄い灰色で、白い箱の中では読みにくい。",
-          "viewport": "w375",
+          "type": "cta",
+          "detail": "「X @doboku373」「運営者について →」が薄く小さい文字だけのリンクで、ボタンのように見えず押す範囲も狭い。",
           "shot": "w375-02.png"
+        },
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "「学習を始める」の 3 つ目のカードが 2 行目に 1 枚だけ残る。お問い合わせのボタン（青の塗り・白の枠）の形・大きさは揃っていて崩れなし。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         }
       ],
       "deterministic": [],
@@ -206,16 +220,36 @@
       "ticket": null
     },
     "exam-hub-civil1": {
-      "layoutSha256": "503084f02cd72c45f4311c0699f6e9c9552bcdef113c45f3c51302eba9049b1c",
+      "layoutSha256": "8a4389595c4261cc992c1ca4407613b9a86bb7efb43e31441c6b08dc965b0b33",
       "verdict": "pass",
-      "reviewedAt": "2026-11-17T00:15:43.374Z",
-      "runId": "20261117T000950Z",
+      "reviewedAt": "2026-11-17T00:40:10.212Z",
+      "runId": "20261117T003743Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
           "severity": "minor",
+          "type": "content",
+          "detail": "記事一覧の途中と右レールに「AdSense doboku-infeed-thumb (…)」と書かれた破線の空き枠が出ている（w768・w1440 も同じ）。ローカル配信（:3025）で広告が出ない代わりの表示なら本番では出ないはずだが、本番で残るなら読者に見える仮の枠になる。",
+          "shot": "w375-04.png"
+        },
+        {
+          "severity": "minor",
+          "type": "cta",
+          "detail": "右レールにビルドジョブの同じ「ホワイト転職」バナーが人気記事をはさんで 2 回出ている。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
+        },
+        {
+          "severity": "minor",
+          "type": "typography",
+          "detail": "教材の章の題名が「施工管理・施…」「環境保全・建設…」と省略され、区別がつきにくい。",
+          "viewport": "w375",
+          "shot": "w375-03.png"
+        },
+        {
+          "severity": "minor",
           "type": "layout",
-          "detail": "スマホ幅で本文の白い枠が画面の左右に近く、枠の外側の余白が小さい。中身は読めて、見出し・影・枠の左右の内側余白に崩れはない。",
+          "detail": "「学習を始める」のボタンが 2 列で並び、最後の「キャリア」が 1 つだけ左に残る（w768 も同様）。矢印・パンくず・ボタンの角丸と余白は揃っていて崩れはない。",
           "viewport": "w375",
           "shot": "w375-01.png"
         }
@@ -249,56 +283,49 @@
       "ticket": null
     },
     "guide": {
-      "layoutSha256": "e3c612a8c63e69a0b5f53dc7d8f2d64b811c8f7426d54d2f5a31973c32054741",
+      "layoutSha256": "acf6f3a7727ef61232c8a16e90299b869e2c090c05fbd3c6242470a4b8196a64",
       "verdict": "pass",
-      "reviewedAt": "2026-11-17T00:15:43.374Z",
-      "runId": "20261117T000950Z",
+      "reviewedAt": "2026-11-17T00:40:10.212Z",
+      "runId": "20261117T003743Z",
       "path": "/exam/civil-construction-1/guide/strategy",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "右の欄に「関連記事（続き）」という同じ見出しの区画が 2 つあり、区別がつきにくい。区画の外枠・見出し余白自体は揃っており崩れはない。",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
-        },
-        {
-          "severity": "minor",
           "type": "cta",
-          "detail": "記事末に note 商品カード・転職バナー・教材一覧カードが続き、導線が多めだが、重複はなく PR 表記もある。",
-          "shot": "w375-cta-03.png"
+          "detail": "パンくず（ホーム › 資格試験 › …）が 11px・高さ 17px で、スマホでは押しにくい。折り返さず 1 行に収まり崩れはない",
+          "viewport": "w375",
+          "shot": "w375-01.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "記事末の関連記事カードの説明文が…で切れているが、題名は読めて区別できる。",
-          "viewport": "w1440",
-          "shot": "w1440-06.png"
+          "type": "content",
+          "detail": "「AdSense doboku-end-multiplex」と書かれた破線の仮枠が記事末や右側・本文中に出る（ローカル配信の代替表示と思われ、本番では広告が入る想定）",
+          "shot": "w375-06.png"
         }
       ],
       "deterministic": [],
       "ticket": null
     },
     "home": {
-      "layoutSha256": "a72c32440f50434459a6ef927163f33651755bff6ec32cc00344f7d09f533d17",
+      "layoutSha256": "9cab02825686a529d502080bf59d06a412bf66a447b320732f77927697d207fd",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T23:12:13.814Z",
-      "runId": "20261116T230955Z",
+      "reviewedAt": "2026-11-17T00:40:10.212Z",
+      "runId": "20261117T003743Z",
       "path": "/",
       "findings": [
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "資格カードの題名が 2 列で窮屈になり、「1級土木施工管理技士」「コンクリート診断士」などが最後の 1 文字（士・者）だけ次の行に折り返している。",
+          "detail": "記事カードの資格ピル・タグ・日付が 10px 台で小さいが、読み取れる範囲で主導線ではない",
           "viewport": "w375",
-          "shot": "w375-01.png"
+          "shot": "w375-02.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "新着カードのカテゴリ・日付・タグが 10px 前後と小さい。題名は十分な大きさで画像と文字の並びは崩れていない。",
+          "type": "cta",
+          "detail": "フッターや「運営者について →」「X @doboku373」の押す範囲が高さ 20px 前後で小さい",
           "viewport": "w375",
-          "shot": "w375-02.png"
+          "shot": "w375-03.png"
         }
       ],
       "deterministic": [],
@@ -437,25 +464,46 @@
       "ticket": null
     },
     "standards-chapter": {
-      "layoutSha256": "88f0c56cdef7f15b433700916124e1aff0341ed4949dcad0274d61d7594aee15",
+      "layoutSha256": "929219d662b9c31432e50a0b264abc6dd26ef79aeaff04f139d82a2923eb7b04",
       "verdict": "pass",
-      "reviewedAt": "2026-11-17T00:15:43.374Z",
-      "runId": "20261117T000950Z",
+      "reviewedAt": "2026-11-17T00:40:10.212Z",
+      "runId": "20261117T003743Z",
       "path": "/standards/kinki/common/chapters/1-3",
       "findings": [
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "スマホ幅でパンくず・小見出しが 11px 前後と小さく、薄めで読みにくいが、本文・章題は十分な大きさで読める。",
+          "detail": "パンくず（ホーム › 公的基準 › 近畿地方整備局 › 土木工事共通仕様書）が 11px で小さく、押す範囲が 17px と狭い。2 行に折り返すが読める。",
           "viewport": "w375",
           "shot": "w375-01.png"
         },
         {
           "severity": "minor",
+          "type": "layout",
+          "detail": "表 1-3-5 の見出しと表の間に大きな空白があり、表の左端も本文より 16px 内側に入っている。",
+          "viewport": "w768",
+          "shot": "w768-05.png"
+        },
+        {
+          "severity": "minor",
+          "type": "typography",
+          "detail": "右の記事カードのサムネイル内ラベル（「令和8年の答え合わせ」など）が小さい画像の中で切れている。記事名は横に出ており読める。",
+          "viewport": "w1440",
+          "shot": "w1440-cta-02.png"
+        },
+        {
+          "severity": "minor",
           "type": "cta",
-          "detail": "本文の途中にバナー広告（PR 表記あり）が挟まり読みが途切れるが、PR は明記され本文は読み進められる。",
+          "detail": "本文の途中に出る広告（PR 表記あり）のうち「施工管理職」「RSG」は細く、何の広告か分かりにくい。",
           "viewport": "w375",
           "shot": "w375-cta-02.png"
+        },
+        {
+          "severity": "minor",
+          "type": "other",
+          "detail": "右の欄に「AdSense doboku-rail」と書かれた斜線の枠が出ている（開発環境の代わりの表示と思われる）。",
+          "viewport": "w1440",
+          "shot": "w1440-04.png"
         }
       ],
       "deterministic": [],
@@ -512,16 +560,23 @@
       "ticket": null
     },
     "tools": {
-      "layoutSha256": "58973351890ae22aa0cf678c4aa5f8ef82b3ea64936cd943dd1071d3341d47b7",
+      "layoutSha256": "7b8d71799bf7a9c81b9ef7641fb3d3d1a4327c82368366ece2eec84f53e7bb63",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T23:56:18.583Z",
-      "runId": "20261116T235434Z",
+      "reviewedAt": "2026-11-17T00:40:10.212Z",
+      "runId": "20261117T003743Z",
       "path": "/tools/keiken-charcount",
       "findings": [
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "スマホ幅で題名「施工経験記述 文字数チェッカー」の最後の行が「ー」1 文字だけで折り返している。入力欄・結果の数字・根拠の箱の枠や余白は 3 幅とも揃っていて崩れはない。",
+          "detail": "題名「施工経験記述 文字数チェッカー」の最後の「ー」だけが 3 行目に折り返されている。",
+          "viewport": "w375",
+          "shot": "w375-01.png"
+        },
+        {
+          "severity": "minor",
+          "type": "typography",
+          "detail": "パンくず（HOME / TOOLS）と「無料ツール」のピルが 11px で小さく、押す範囲も 17px と低い。表示・配置の崩れはない。",
           "viewport": "w375",
           "shot": "w375-01.png"
         }
