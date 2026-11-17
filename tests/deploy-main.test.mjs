@@ -1,7 +1,7 @@
 // deploy-main の判定の意図: 検査を通った commit だけを昇格し、失敗を見逃さない。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { blockingNightlyIssues, findDeployRun, GATE_WAIT_LIMIT_MS, gateWaitExpired, pickGateTarget, pushRejectedAsStale, ssrVerdict, stepConclusion, unverifiedPrCommits } from '../scripts/lib/deploy-main.mjs';
+import { blockingNightlyIssues, deployRunOutcome, findDeployRun, GATE_WAIT_LIMIT_MS, gateWaitExpired, pickGateTarget, pushRejectedAsStale, ssrVerdict, stepConclusion, unverifiedPrCommits } from '../scripts/lib/deploy-main.mjs';
 
 const run = (headSha, status, conclusion, databaseId = 1) => ({ headSha, status, conclusion, databaseId });
 
@@ -71,4 +71,16 @@ test('夜間の全件検査の未解決 Issue だけが昇格を止める', () =
 test('昇格先より新しい PR の commit を取り残さない（台帳と bot の commit は除く）', () => {
   assert.deepEqual(unverifiedPrCommits(['feat(site): AdSense を戻す (#1426)', 'todo: DN-1 を起票する', 'chore(metrics): daily [skip ci]']), ['feat(site): AdSense を戻す (#1426)']);
   assert.deepEqual(unverifiedPrCommits([]), []);
+});
+
+test('deployRunOutcome: 進行中の run は失敗にせず待ち直す（watch の途中終了を失敗と誤判定しない・DN-1234）', () => {
+  assert.equal(deployRunOutcome({ status: 'in_progress', conclusion: null }), 'pending');
+  assert.equal(deployRunOutcome({ status: 'queued', conclusion: '' }), 'pending');
+  assert.equal(deployRunOutcome(undefined), 'pending');
+});
+
+test('deployRunOutcome: 完了した run は conclusion で決める', () => {
+  assert.equal(deployRunOutcome({ status: 'completed', conclusion: 'success' }), 'success');
+  assert.equal(deployRunOutcome({ status: 'completed', conclusion: 'failure' }), 'failure');
+  assert.equal(deployRunOutcome({ status: 'completed', conclusion: 'cancelled' }), 'failure');
 });

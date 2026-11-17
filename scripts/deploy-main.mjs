@@ -12,7 +12,7 @@
 
 import { spawnSync } from 'node:child_process';
 import process from 'node:process';
-import { blockingNightlyIssues, findDeployRun, GATE_WAIT_LIMIT_MS, gateWaitExpired, pickGateTarget, pushRejectedAsStale, ssrVerdict, stepConclusion, unverifiedPrCommits } from './lib/deploy-main.mjs';
+import { blockingNightlyIssues, DEPLOY_WAIT_LIMIT_MS, deployRunOutcome, findDeployRun, GATE_WAIT_LIMIT_MS, gateWaitExpired, pickGateTarget, pushRejectedAsStale, ssrVerdict, stepConclusion, unverifiedPrCommits } from './lib/deploy-main.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const GATE = 'Pre-merge check (quality audit + build)';
@@ -99,8 +99,19 @@ function waitForDeploy(commit) {
   }
   if (!started) stop(1, `デプロイが起動していない（${commit.slice(0, 9)}）。先頭の [skip ci] などを確かめる`);
   console.log(`[deploy-main] デプロイを待つ（run ${started.databaseId}）`);
-  if (run('gh', ['run', 'watch', String(started.databaseId), '--exit-status'], { allowFail: true }).status !== 0) {
-    const log = run('gh', ['run', 'view', String(started.databaseId), '--log-failed'], { allowFail: true }).stdout;
+  const id = String(started.databaseId);
+  const startedAt = Date.now();
+  let outcome = 'pending';
+  while (outcome === 'pending') {
+    if (gateWaitExpired(startedAt, Date.now(), DEPLOY_WAIT_LIMIT_MS)) stop(2, `デプロイの完了待ちが ${DEPLOY_WAIT_LIMIT_MS / 60000} 分を超えた（run ${id}）`);
+    // watch の終了コードは途中でも 0 以外になるので使わない。run の実体で決める（DN-1234）
+    run('gh', ['run', 'watch', id, '--exit-status'], { allowFail: true });
+    const view = run('gh', ['run', 'view', id, '--json', 'status,conclusion'], { allowFail: true });
+    try { outcome = deployRunOutcome(JSON.parse(view.stdout)); } catch { outcome = 'pending'; }
+    if (outcome === 'pending') { console.log(`[deploy-main] run ${id} はまだ進行中。待ち直す`); sleep(10000); }
+  }
+  if (outcome === 'failure') {
+    const log = run('gh', ['run', 'view', id, '--log-failed'], { allowFail: true }).stdout;
     console.error(log.split('\n').slice(-30).join('\n'));
     stop(1, `デプロイが失敗（run ${started.databaseId}）`);
   }
