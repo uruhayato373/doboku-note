@@ -18,28 +18,33 @@ export default function AdSlot({ slot, className = '', as = 'aside' }: { slot: A
 /** 枠の高さの下限（配信で変わる形式は下限だけ取って CLS を抑える） */
 const MIN_HEIGHT: Record<AdSenseSlot, number> = { endMultiplex: 320, rail: 250, inArticle: 280, inFeedThumb: 120, inFeedText: 90 };
 
-/** push から広告の要求（ins の中の iframe）が出るまでの待ち。出ないまま data-ad-status も付かない枠は、AdSense が要求を出さなかった枠 */
+/** 枠が画面に入ってから広告の要求（ins の中の iframe）が出るまでの待ち */
 const REQUEST_WAIT_MS = 8000;
 
 /**
- * AdSense が要求を出さなかった枠を畳む（DN-1228）。push しても要求が出ない枠は、AdSense が ins の高さだけ取って
- * data-ad-status を付けないので、globals.css の unfilled の規則では畳めず空白が残る（2026-11-17 の本番で記事内の枠が 391px の空白）。
- * 画面に入っている間に畳むと本文がずれる（CLS）ので、画面の外にあるときに畳む。
+ * 画面に入っても AdSense が要求を出さなかった枠を畳む（DN-1228）。要求の出ない枠は ins の高さだけ取って data-ad-status を付けないので、
+ * globals.css の unfilled の規則では畳めず空白が残る。AdSense は枠が画面に近づいてから要求を出す（遅延読み込み）ので、
+ * 待ちは枠が画面に入ってから数える（push から数えると、まだ読み進めていない下の枠を要求の前に畳む・2026-11-17 の本番で記事末の枠が消えた）。
+ * 画面に入っている間に畳むと本文がずれる（CLS）ので、画面の外へ出たときに畳む。
  */
 function collapseIfNeverRequested(el: HTMLElement | null) {
   if (!el) return undefined;
-  let observer: IntersectionObserver | undefined;
-  const timer = window.setTimeout(() => {
+  let timer: number | undefined;
+  let expired = false;
+  const requested = () => {
     const ins = el.querySelector('ins.adsbygoogle');
-    if (!ins || ins.querySelector('iframe') || ins.getAttribute('data-ad-status')) return;
-    observer = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) return;
-      el.setAttribute('data-ad-empty', '');
-      observer?.disconnect();
-    });
-    observer.observe(el);
-  }, REQUEST_WAIT_MS);
-  return () => { window.clearTimeout(timer); observer?.disconnect(); };
+    return !ins || Boolean(ins.querySelector('iframe') || ins.getAttribute('data-ad-status'));
+  };
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries.some((entry) => entry.isIntersecting);
+    if (visible && timer === undefined) timer = window.setTimeout(() => { expired = true; if (requested()) observer.disconnect(); }, REQUEST_WAIT_MS);
+    if (!visible && expired) {
+      if (!requested()) el.setAttribute('data-ad-empty', '');
+      observer.disconnect();
+    }
+  });
+  observer.observe(el);
+  return () => { window.clearTimeout(timer); observer.disconnect(); };
 }
 
 function AdUnit({ slot, className, as }: { slot: AdSenseSlot; className: string; as: 'aside' | 'li' | 'div' }) {
