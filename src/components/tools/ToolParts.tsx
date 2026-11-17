@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { READING_CONTAINER } from '@/components/layout/container';
+import { EYEBROW } from '@/components/ui/Eyebrow/Eyebrow';
 
 /**
  * 無料ツール（src/app/tools/*）の部品。2026-11-17 に、8〜12 本のツールが一字一句同じクラスの定数（inputBase・labelBase・
@@ -11,7 +12,7 @@ import { READING_CONTAINER } from '@/components/layout/container';
 export const TOOL_INPUT = 'focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)';
 
 /** 小見出しのラベル（入力欄の上・結果の上） */
-export const TOOL_LABEL = 'block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)';
+export const TOOL_LABEL = EYEBROW.label;
 
 /** ツールの本体の外枠（読みやすい幅＋上下の余白） */
 export function ToolLayout({ children }: { readonly children: ReactNode }) {

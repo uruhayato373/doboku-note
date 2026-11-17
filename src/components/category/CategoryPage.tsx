@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Breadcrumb from '@/components/ui/Breadcrumb/Breadcrumb';
 import PageShell from '@/components/layout/PageShell';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import { getCategoryBySlug, getCategoryHubPath } from '@/lib/categories';
@@ -155,18 +156,15 @@ export default async function CategoryPage({
             {/* カテゴリ見出し（縮小版・H1/パンくず/説明は SEO のため維持。CATEGORY チップは
                 パンくずと重複のため削除） */}
             <div className="pt-6 sm:pt-8 pb-5 border-b border-(--rule-soft)">
-              <nav aria-label="breadcrumb" className="font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest mb-2 flex items-center gap-2">
-                <Link href="/" className="hover:text-(--accent) transition-colors">ホーム</Link>
-                <span aria-hidden className="opacity-60">›</span>
-                {/* 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は資格ページが領域の入口なので 2 段（DN-1219） */}
-                {getCategoryArea(slug) === 'exam' && (
-                  <>
-                    <Link href={getAreaHubPath('exam')} className="hover:text-(--accent) transition-colors">{getAreaLabel('exam')}</Link>
-                    <span aria-hidden className="opacity-60">›</span>
-                  </>
-                )}
-                <span>{cat.label}</span>
-              </nav>
+              <Breadcrumb
+                className="mb-2"
+                items={[
+                  { label: 'ホーム', href: '/' },
+                  // 資格試験の資格は「ホーム › 資格試験 › 資格名」。実務・法令は資格ページが領域の入口なので 2 段（DN-1219）
+                  ...(getCategoryArea(slug) === 'exam' ? [{ label: getAreaLabel('exam'), href: getAreaHubPath('exam') }] : []),
+                  { label: cat.label },
+                ]}
+              />
               <h1 className="font-serif font-bold tracking-tight text-(--ink) text-[24px] sm:text-[28px] leading-[1.3] mb-2">
                 {cat.label}
               </h1>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Arrow from '@/components/ui/Arrow/Arrow';
 import type { StandardDocument } from '@/lib/standards';
 import type { StandardChapter } from '@/lib/standards-articles';
 import { standardSectionPath } from '@/lib/standards-section-split.mjs';
@@ -34,7 +35,7 @@ export default function StandardSectionIndex({
                     <span className="mt-1 block font-mono text-[11px] text-(--ink-muted)">{section.articles.length}条</span>
                   )}
                 </span>
-                <span className="shrink-0 font-mono text-[11px] text-(--ink-muted)">→</span>
+                <Arrow className="font-mono text-[11px] text-(--ink-muted)" />
               </Link>
               {section.articles.length > 0 && (
                 <ul className="flex flex-wrap gap-x-4 gap-y-1 border-t border-(--rule-soft) px-4 py-3 text-[13px] leading-[1.7]">

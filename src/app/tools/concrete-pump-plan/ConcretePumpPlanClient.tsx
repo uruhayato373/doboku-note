@@ -1,5 +1,6 @@
 "use client";
 
+import { eyebrowClass } from '@/components/ui/Eyebrow/Eyebrow';
 import { useState } from "react";
 import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolResultValue, ToolSources } from '@/components/tools/ToolParts';
 
@@ -123,7 +124,7 @@ export default function ConcretePumpPlanClient({ related }: { related?: React.Re
         </div>
 
         <div className="mt-5 rounded-card-content bg-(--accent-fill) p-4">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-body)">
+          <div className={eyebrowClass('label', 'body')}>
             目標の時間当たり打込み量
           </div>
           <ToolResultValue size="sm" className="mt-1">

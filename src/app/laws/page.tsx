@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
@@ -12,6 +11,8 @@ import { LawDirectory } from '@/components/topics/TopicLaws';
 import { getLawDirectory } from '@/lib/law-wiring';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
+import { ButtonLink } from '@/components/ui/Button/Button';
+import Arrow from '@/components/ui/Arrow/Arrow';
 import { topicPath } from '@/lib/route-paths';
 
 const category = getCategoryBySlug('laws')!;
@@ -47,7 +48,7 @@ export default function LawsPage() {
         <SectionBlock key={topic.slug} divider={i === 0 ? 'none' : 'top'} ariaLabel={`${topic.label}の法令`}>
           <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">{topic.label}の法令</h2>
           <p className="mb-4 text-sm">
-            <Link href={topicPath(topic.slug)} className="text-(--accent) hover:underline">{topic.label}のテーマ（記事・計画・審議会）を見る →</Link>
+            <ButtonLink href={topicPath(topic.slug)} variant="text">{topic.label}のテーマ（記事・計画・審議会）を見る<Arrow /></ButtonLink>
           </p>
           <ul className="grid gap-4 md:grid-cols-2" data-cta="nav" data-cta-label="laws-index">
             {list.map((d) => (

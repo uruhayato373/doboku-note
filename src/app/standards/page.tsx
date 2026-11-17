@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
+import Arrow from '@/components/ui/Arrow/Arrow';
 import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
@@ -85,7 +86,7 @@ export default function StandardsPage() {
                   <li key={agency.agencyId} className="border-b border-(--rule-soft) pb-2">
                     <Link href={standardsAgencyPath(agency.agencyId)} data-cta="nav" data-cta-label="standards-agency" className={rowLink}>
                       <span className="font-bold">{agency.agencyName}</span>
-                      <span aria-hidden="true" className="text-(--accent)">→</span>
+                      <Arrow className="text-(--accent)" />
                     </Link>
                     <ul className="flex flex-wrap gap-x-3 px-2 text-[13px] leading-[1.7]">
                       {shown.map((document) => (

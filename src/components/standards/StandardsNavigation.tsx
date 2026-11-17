@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
+import { ButtonLink } from '@/components/ui/Button/Button';
+import Arrow from '@/components/ui/Arrow/Arrow';
 import { StandardChapterDiscovery, StandardEntryChapters, StandardTopicDiscovery } from '@/components/standards/StandardsSidebarDiscovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import StandardsTreeChapter from '@/components/standards/StandardsTreeChapter';
@@ -369,12 +371,9 @@ export default function StandardsNavigation({
         }
       >
         <div className="space-y-3 border-t border-(--rule-soft) bg-(--bg) p-3">
-          <Link
-            href={parentHref}
-            className="focus-ring inline-flex min-h-11 items-center text-[12px] font-bold text-(--accent) hover:underline"
-          >
-            ← {parentLabel}
-          </Link>
+          <ButtonLink href={parentHref} variant="text">
+            <Arrow direction="prev" /> {parentLabel}
+          </ButtonLink>
           {contents}
           {discovery}
         </div>
@@ -391,12 +390,9 @@ export default function StandardsNavigation({
         <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
         <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
         <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-(--ink-muted)">{contextLabel}</p>
-        <Link
-          href={parentHref}
-          className="focus-ring mt-3 inline-flex min-h-11 items-center text-[12px] font-bold text-(--accent) hover:underline"
-        >
-          ← {parentLabel}
-        </Link>
+        <ButtonLink href={parentHref} variant="text" className="mt-3">
+          <Arrow direction="prev" /> {parentLabel}
+        </ButtonLink>
       </div>}
       {contents}
       {currentChapter && <StandardsRailBanner slot="standards-rail-2" pageKind="standards" inlineSlots={inlineSlots} />}

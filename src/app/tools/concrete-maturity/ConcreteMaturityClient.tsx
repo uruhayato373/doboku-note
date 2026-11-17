@@ -1,5 +1,6 @@
 "use client";
 
+import { eyebrowClass } from '@/components/ui/Eyebrow/Eyebrow';
 import { useState } from "react";
 import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolResultValue, ToolStatus, ToolNotice, ToolSources } from '@/components/tools/ToolParts';
 
@@ -107,7 +108,7 @@ export default function ConcreteMaturityClient({ related }: { related?: React.Re
 
         {ratio !== null && (
           <div className="mt-5 rounded-card-content bg-(--accent-fill) p-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-body)">
+            <div className={eyebrowClass('label', 'body')}>
               標準養生28日相当（{STANDARD_28D_MATURITY}℃・D）との比
             </div>
             <ToolResultValue size="sm" className="mt-1">

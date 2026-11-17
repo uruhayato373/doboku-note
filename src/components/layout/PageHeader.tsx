@@ -10,14 +10,10 @@
  */
 
 import type { ReactNode } from 'react';
-import Link from 'next/link';
+import Breadcrumb, { type Crumb } from '@/components/ui/Breadcrumb/Breadcrumb';
 import SectionBlock from './SectionBlock';
 
-export interface Crumb {
-  label: string;
-  /** 省略時は現在地（リンクなし） */
-  href?: string;
-}
+export type { Crumb };
 
 type BandWidth = 'wide' | '860' | '780' | '760';
 
@@ -44,32 +40,6 @@ const TITLE_SIZES = {
   default: 'text-[26px] sm:text-[32px]',
   lg: 'text-[30px] sm:text-[38px]',
 };
-
-function Breadcrumb({ items }: { items: Crumb[] }) {
-  return (
-    <nav
-      aria-label="breadcrumb"
-      className="font-mono text-[11px] text-(--ink-muted) uppercase tracking-widest mb-3 flex items-center gap-2 flex-wrap"
-    >
-      {items.map((c, i) => (
-        <span key={`${c.label}-${i}`} className="flex items-center gap-2">
-          {i > 0 && (
-            <span aria-hidden className="opacity-60">
-              ›
-            </span>
-          )}
-          {c.href ? (
-            <Link href={c.href} className="hover:text-(--accent) transition-colors">
-              {c.label}
-            </Link>
-          ) : (
-            <span>{c.label}</span>
-          )}
-        </span>
-      ))}
-    </nav>
-  );
-}
 
 function HeaderStack({
   breadcrumb,

@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { Braces, Download, FileText, GitCompare, ShieldCheck } from 'lucide-react';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
 import { StandardsEndBanner } from '@/components/standards/StandardsAffiliateBanners';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
+import { ButtonLink } from '@/components/ui/Button/Button';
+import Arrow from '@/components/ui/Arrow/Arrow';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog } from '@/lib/standards';
 import { getStandardChapters } from '@/lib/standards-articles';
@@ -94,34 +95,18 @@ export default function StandardsDataPage() {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <a
-            href="/standards-data/catalog.json"
-            download
-            data-cta="standards-data"
-            data-cta-label="catalog-json"
-            data-cta-placement="standards-data-hero"
-            className="focus-ring inline-flex min-h-11 items-center gap-2 bg-(--accent) px-5 py-2.5 text-sm font-bold text-(--paper) transition-opacity hover:opacity-90"
-          >
+          <ButtonLink href="/standards-data/catalog.json" download variant="primary" size="md" data={{ 'data-cta': 'standards-data', 'data-cta-label': 'catalog-json', 'data-cta-placement': 'standards-data-hero' }}>
             <Download aria-hidden="true" className="h-4 w-4" />
             データカタログ JSON
-          </a>
-          <a
-            href="/standards-data/comparison.json"
-            download
-            data-cta="standards-data"
-            data-cta-label="comparison-json"
-            data-cta-placement="standards-data-hero"
-            className="focus-ring inline-flex min-h-11 items-center gap-2 border border-(--accent) px-5 py-2.5 text-sm font-bold text-(--accent) transition-colors hover:bg-(--accent-fill)"
-          >
+          </ButtonLink>
+          <ButtonLink href="/standards-data/comparison.json" download variant="soft" size="md" data={{ 'data-cta': 'standards-data', 'data-cta-label': 'comparison-json', 'data-cta-placement': 'standards-data-hero' }}>
             <GitCompare aria-hidden="true" className="h-4 w-4" />
             地域差分 JSON
-          </a>
-          <Link
-            href="/standards/compare"
-            className="focus-ring inline-flex min-h-11 items-center px-4 py-2.5 text-sm font-bold text-(--accent) hover:underline"
-          >
-            画面で地域差分を見る →
-          </Link>
+          </ButtonLink>
+          <ButtonLink href="/standards/compare" variant="text">
+            画面で地域差分を見る
+            <Arrow />
+          </ButtonLink>
         </div>
       </SectionBlock>
 
@@ -143,26 +128,12 @@ export default function StandardsDataPage() {
         </div>
         <MetaCard serifTitle title="サンプル" padding="compact" className="mt-5">
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-[14px]">
-            <a
-              href="/standards-data/kinki/common/chapters/1-1.md"
-              download
-              data-cta="standards-data"
-              data-cta-label="sample-chapter-markdown"
-              data-cta-placement="standards-data-sample"
-              className="focus-ring inline-flex min-h-11 items-center text-(--accent) hover:underline"
-            >
+            <ButtonLink href="/standards-data/kinki/common/chapters/1-1.md" download variant="text" data={{ 'data-cta': 'standards-data', 'data-cta-label': 'sample-chapter-markdown', 'data-cta-placement': 'standards-data-sample' }}>
               第1編 第1章 Markdown
-            </a>
-            <a
-              href="/standards-data/kinki/common/chapters/1-1.jsonld"
-              download
-              data-cta="standards-data"
-              data-cta-label="sample-chapter-jsonld"
-              data-cta-placement="standards-data-sample"
-              className="focus-ring inline-flex min-h-11 items-center text-(--accent) hover:underline"
-            >
+            </ButtonLink>
+            <ButtonLink href="/standards-data/kinki/common/chapters/1-1.jsonld" download variant="text" data={{ 'data-cta': 'standards-data', 'data-cta-label': 'sample-chapter-jsonld', 'data-cta-placement': 'standards-data-sample' }}>
               第1編 第1章 JSON-LD
-            </a>
+            </ButtonLink>
           </div>
         </MetaCard>
       </SectionBlock>
@@ -188,12 +159,10 @@ export default function StandardsDataPage() {
               {comparison.summary.differentDocuments}文書・{comparison.summary.changedChapters}章・
               {comparison.summary.changeHunks}箇所です。
             </p>
-            <Link
-              href="/standards/compare"
-              className="focus-ring mt-4 inline-flex min-h-11 items-center font-bold text-(--accent) hover:underline"
-            >
-              比較結果を確認する →
-            </Link>
+            <ButtonLink href="/standards/compare" variant="text" className="mt-4">
+              比較結果を確認する
+              <Arrow />
+            </ButtonLink>
           </MetaCard>
         </div>
       </SectionBlock>
@@ -203,12 +172,9 @@ export default function StandardsDataPage() {
           <p className="text-[15px] leading-[1.85] text-(--ink-body)">
             PDF資料のHTML・Markdown・JSON-LD化、年度改定差分、原本照合、検索・AI利用向けデータ整備について相談を受け付けています。行政機関、建設コンサルタント、システム事業者での利用を想定しています。
           </p>
-          <Link
-            href="/contact"
-            className="focus-ring mt-5 inline-flex min-h-11 items-center bg-(--accent) px-5 py-2.5 text-sm font-bold text-(--paper) transition-opacity hover:opacity-90"
-          >
+          <ButtonLink href="/contact" size="md" className="mt-5">
             データ加工について問い合わせる
-          </Link>
+          </ButtonLink>
         </MetaCard>
         <p className="mt-5 text-[12px] leading-[1.8] text-(--ink-muted)">
           本データは各発行機関の公式サービスではありません。出典資料をdoboku-noteが加工した二次利用物です。公共データ利用規約（第1.0版）に基づき、出典と加工内容を表示しています。

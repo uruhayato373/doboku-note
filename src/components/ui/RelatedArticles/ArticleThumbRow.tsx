@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import ContentThumbnail from '@/components/ui/ContentThumbnail';
+import { RankMarker } from '@/components/ui/LinkRow/LinkRow';
 import type { CardImage } from '@/lib/site-thumbnail';
 
 type Variant = 'card' | 'rail' | 'feed';
@@ -54,11 +55,7 @@ export default function ArticleThumbRow({ href, title, caption, image, ctaLabel,
             <ContentThumbnail src={image.src} band={image.band} eager={eager} {...(thumbSize === 'wide' ? { sizes: '(max-width: 640px) 128px, (max-width: 768px) 188px, 204px' } : {})} />
           </div>}
           <div className="flex min-w-0 flex-1 gap-2.5">
-            {rank != null && (
-              <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-(--accent-fill) font-mono text-xs font-bold tabular-nums text-(--accent)">
-                {rank}
-              </span>
-            )}
+            {rank != null && <RankMarker rank={rank} />}
             <div className="flex min-w-0 flex-col gap-1">
               {eyebrow && <p className="text-xs text-(--ink-muted)">{eyebrow}</p>}
               <Heading className="font-serif text-[15px] font-bold leading-snug text-(--ink) transition-colors group-hover:text-(--accent) sm:text-lg sm:leading-7">

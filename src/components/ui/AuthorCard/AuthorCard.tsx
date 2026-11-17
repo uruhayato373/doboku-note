@@ -3,6 +3,8 @@ import { AUTHOR } from "@/config/author";
 import MetaCard from "@/components/ui/MetaCard/MetaCard";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 import { formatJaDate } from "@/lib/display-date";
+import Arrow from '@/components/ui/Arrow/Arrow';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
 interface AuthorCardProps {
   publishedAt?: string;
@@ -44,9 +46,9 @@ export default function AuthorCard({
             {AUTHOR.tagline}
           </p>
           <div className="mt-3">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-(--ink-muted) mb-1">
+            <Eyebrow variant="mono" as="div" className="mb-1">
               保有資格
-            </div>
+            </Eyebrow>
             <p className="text-xs text-(--ink-body) leading-relaxed">
               {AUTHOR.qualifications.join("・")}
             </p>
@@ -75,7 +77,7 @@ export default function AuthorCard({
             href="/about"
             className="mt-2 block text-xs text-(--ink-muted) hover:text-(--accent) hover:underline"
           >
-            運営者・編集方針について →
+            運営者・編集方針について <Arrow />
           </Link>
         </div>
       </div>

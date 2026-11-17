@@ -2,6 +2,7 @@ import Link from 'next/link';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import { MUNICIPAL_HUB, resolveQualificationBridge, type QualificationBridgeAudience, type QualificationBridgeSurface } from '@/config/qualification-bridge';
+import Arrow from '@/components/ui/Arrow/Arrow';
 
 /**
  * QualificationBridge — 実務記事・共通仕様書の章末に置く「業務経験 → 資格」の橋渡しカード。
@@ -49,7 +50,7 @@ export default function QualificationBridge({
         {audience === 'municipal' && (
           <p className="mt-3 text-sm">
             <Link href={MUNICIPAL_HUB.href} data-cta-label="municipal-hub" className="focus-ring text-(--accent) hover:underline">
-              {MUNICIPAL_HUB.label} →
+              {MUNICIPAL_HUB.label} <Arrow />
             </Link>
           </p>
         )}

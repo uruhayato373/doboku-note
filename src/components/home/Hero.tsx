@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Search } from "lucide-react";
+import { Search } from "lucide-react";
+import Arrow from '@/components/ui/Arrow/Arrow';
 import { WIDE_CONTAINER } from '@/components/layout/container';
 
 export default function Hero() {
@@ -22,7 +23,7 @@ export default function Hero() {
         <div className="mt-6 flex max-w-[215px] flex-wrap gap-2 sm:max-w-none sm:gap-3">
           <a href="#exams" className="hero-ink focus-ring inline-flex min-h-11 items-center gap-2 rounded-card-content bg-warn px-4 py-3 text-[12px] font-bold shadow-card-content transition-[filter] hover:brightness-105 sm:px-5 sm:text-[14px]">
             資格を選んで学ぶ
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            <Arrow />
           </a>
           <Link href="/search" className="hero-ink focus-ring inline-flex min-h-11 items-center gap-2 rounded-card-content border border-brand/30 bg-white px-4 py-3 text-[12px] font-bold transition-[filter] hover:brightness-95 dark:border-brand/30 sm:px-5 sm:text-[14px]">
             <Search className="h-4 w-4" aria-hidden="true" />

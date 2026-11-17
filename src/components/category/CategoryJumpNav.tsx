@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Arrow from '@/components/ui/Arrow/Arrow';
 import { getCategoryBySlug } from '@/lib/categories';
 
 // ジャンプの項目は categories.json の layout.jumps が持つ（DN-0793）
@@ -36,7 +37,7 @@ export default function CategoryJumpNav({ category }: { category: string }) {
               href={item.href}
               className="focus-ring flex h-full min-h-11 items-center justify-between gap-2 rounded-card-inline border border-(--rule-soft) px-3 py-3 text-sm font-bold text-(--ink) transition-colors hover:bg-(--accent-fill)"
             >
-              <span>{item.label}</span><span aria-hidden="true" className="text-(--accent)">→</span>
+              <span>{item.label}</span><Arrow className="text-(--accent)" />
             </Link>
           </li>
         ))}

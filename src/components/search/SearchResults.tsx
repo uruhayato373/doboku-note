@@ -5,6 +5,8 @@ import { getCategoryLabel } from "@/lib/categories";
 import { docKindLabelFromPath } from "@/lib/doc-kind";
 import { type SearchResult } from "@/lib/search/search-client";
 import type { CardImage } from "@/lib/site-thumbnail";
+import Button from "@/components/ui/Button/Button";
+import Pill from "@/components/ui/Pill/Pill";
 import AdSlot from "@/components/ads/AdSlot";
 import { withFeedAds } from "@/lib/feed-ads";
 
@@ -37,12 +39,9 @@ export function SearchResults({
         <p className="text-(--color-danger) mb-4">
           検索中にエラーが発生しました: {error}
         </p>
-        <button
-          onClick={() => window.location.reload()}
-          className="focus-ring rounded-card-content bg-(--accent) px-4 py-2 text-(--paper) transition-opacity hover:opacity-90"
-        >
+        <Button onClick={() => window.location.reload()}>
           再試行
-        </button>
+        </Button>
       </div>
     );
   }
@@ -95,7 +94,7 @@ export function SearchResults({
             meta={post.tags && post.tags.length > 0 && (
               <span className="mt-1 flex flex-wrap gap-2">
                 {post.tags.slice(0, 4).map((tag) => (
-                  <span key={tag} className="rounded-full bg-(--accent-fill) px-2.5 py-0.5 font-mono text-[11px] text-(--accent)">#{tag}</span>
+                  <Pill key={tag} variant="tag">#{tag}</Pill>
                 ))}
               </span>
             )}

@@ -159,6 +159,18 @@
 
 ### 3.1 共通プリミティブ
 
+**部品の層（2026-11-17 アトミックデザインの棚卸しで統一）**: 同じ見た目・判定は 1 か所だけに書き、複製は検査が止める。
+
+| 層 | 部品 | 再発止め |
+|---|---|---|
+| 原子 | `Button`・`ButtonLink`（`variant`: primary／secondary／soft／text・`download`）、`Eyebrow`・`EYEBROW`・`eyebrowClass`（label／mono／plain・`tone`）、`Pill`（accent／tag／outline）、`Arrow`、`Breadcrumb`。既存の専用品 `MagazineBadge`・`AffiliatePrBadge`・`RankMarker` | `tests/atoms-ratchet.test.mjs` |
+| 分子 | 内部リンクの 4 部品（下の表）、ツールの `ToolField`・`ToolResultValue`・`ToolStatus`・`ToolNotice`・`ToolSources`（`src/components/tools/ToolParts.tsx`） | `tests/link-primitives-ratchet.test.mjs`・`tests/tool-parts-ratchet.test.mjs` |
+| 生体 | 区画の `MetaCard`（`title`・`lead`・`icon`。SectionCard は廃止）、前後ナビ `PrevNextNav`、ツールの関連ページ `RelatedPages` | `tests/section-card-ratchet.test.mjs` |
+| テンプレート | `PageShell`・`PageHeader`・`TwoColumnShell`、ツールのページ `ToolPageShell` | — |
+| lib | 年度コード `src/lib/exam-year.mjs`、記事の種類のラベル `src/lib/doc-kind.ts` | `tests/dedupe-ratchet.test.mjs` |
+
+商品の導線（note・アフィリエイト・ココナラ）の部品の統合は、A/B 実験 EXP-053 の判定の後に DN-0976 で行う（それまでラチェットの許可リストに理由つきで載せる）。
+
 **内部リンクのカード・行の型（2026-11-16 棚卸し・2026-11-17 完全に統一）**: 内部リンクを並べるカード・タイル・行は、次の 4 部品だけで組む（`<Link>` の className に枠・カードのクラスを手書きしない。`tests/link-primitives-ratchet.test.mjs` が止める）。使い分けは「行き先に画像があれば画像つき、無ければタイル、項目が多ければ文字の行」。計測は今までどおり、一覧の枠の `trackNav`／`data-cta="nav"`＋`data-cta-label`、リンクの `data-thumb`（画像つきの 2 部品が付ける）。
 
 | 形 | 部品 | 使う所 |

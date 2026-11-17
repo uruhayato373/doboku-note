@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 import { noteCtaFamilyImage } from "@/lib/note-cta-images";
 import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
+import MagazineBadge from "@/components/ui/MagazineBadge/MagazineBadge";
 import { CTA_STACK_WIDTH } from '@/lib/cta-stack';
 
 interface NoteLinkProps {
@@ -81,11 +82,7 @@ export default function NoteLink({
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 640px) 100vw, 240px"
           />
-          <div
-            className="absolute left-1.5 top-1.5 rounded-card-inline bg-brand dark:bg-brand-fill px-1.5 py-0.5 text-[10px] font-medium text-white shadow-xs"
-          >
-            {isProduct ? "note 有料教材" : "note 解説記事"}
-          </div>
+          <MagazineBadge>{isProduct ? "note 有料教材" : "note 解説記事"}</MagazineBadge>
         </div>
         <div className="min-w-0 flex-1 p-3 sm:p-4">
           <div className="flex items-start justify-between gap-2 mb-1.5">

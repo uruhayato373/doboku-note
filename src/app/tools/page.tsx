@@ -3,6 +3,7 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import SectionBlock from "@/components/layout/SectionBlock";
 import LinkTile from "@/components/ui/LinkTile/LinkTile";
+import Pill from "@/components/ui/Pill/Pill";
 import { BookOpen, FlaskConical, HardHat } from "lucide-react";
 import type { Metadata } from "next";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
@@ -62,7 +63,7 @@ export default function ToolsIndexPage() {
               key={t.href}
               href={t.href}
               size="lg"
-              eyebrow={<span className="inline-flex items-center rounded-full bg-(--accent-fill) px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-(--accent)">{t.tag}</span>}
+              eyebrow={<Pill variant="tag" size="xs" className="uppercase tracking-wider">{t.tag}</Pill>}
               title={t.title}
               description={t.desc}
               headingLevel="h3"
