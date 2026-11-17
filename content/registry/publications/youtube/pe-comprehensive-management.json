@@ -952,7 +952,7 @@
       "work": "sokan-kojutsu-tachiba",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "uploaded_private",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform/scene-001",
@@ -987,7 +987,34 @@
         "contentSha256": "1b595017e711012d517f0122b35dbc98739142d790b10f94f1ab5773cad3fbc2"
       },
       "times": {
-        "rendered": "2026-11-17T12:57:51.071Z"
+        "rendered": "2026-11-17T12:57:51.071Z",
+        "uploaded": "2026-11-17T12:59:53.090Z"
+      },
+      "delivery": {
+        "inputSha256": "e81546045e8c6c6cdaf8e5f4de17c5460d0d893871e9f0d0802d83765077807c",
+        "marker": "dn-single-fec88f32cf87895ac58cc9095edadb3a1ab15abb",
+        "uploadRequestedAt": "2026-11-17T12:59:10.277Z",
+        "videoId": "Xw8Slj7Q340",
+        "processedAt": "2026-11-17T12:59:52.232Z",
+        "thumbnailRequestedAt": "2026-11-17T12:59:53.123Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/default.jpg?sqp=CKSd8dcG&rs=AOn4CLDMD5tY2GZB9NOL4GaOshKO5hQDDQ",
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/mqdefault.jpg?sqp=CKSd8dcG&rs=AOn4CLCbsxwmPo62vhTp-_jyBbt07Mih2Q",
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/hqdefault.jpg?sqp=CKSd8dcG&rs=AOn4CLCsendFIJ3wm804_33tFdER3RgSRg",
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/sddefault.jpg?sqp=CKSd8dcG&rs=AOn4CLBbv7Qm5jPLPcQBpln7bi5Nde-IKQ",
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/maxresdefault.jpg?sqp=CKSd8dcG&rs=AOn4CLCFLJn_80d2u6NdTk9smWHTMTB3vQ",
+          "https://i9.ytimg.com/vi/Xw8Slj7Q340/fhddefault.jpg?sqp=CKSd8dcG&rs=AOn4CLCDw23v97IoWnu1KOYyALJ6uZ9aCA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-17T12:59:59.312Z"
+      },
+      "platform": {
+        "id": "Xw8Slj7Q340",
+        "url": "https://www.youtube.com/watch?v=Xw8Slj7Q340",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.json#longform"
+        }
       }
     },
     {
