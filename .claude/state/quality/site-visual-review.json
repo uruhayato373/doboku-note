@@ -144,29 +144,37 @@
       "pages": 3,
       "pass": 3,
       "fail": 0
+    },
+    {
+      "runId": "20261117T000950Z",
+      "at": "2026-11-17T00:15:43.376Z",
+      "base": "http://localhost:3025",
+      "pages": 6,
+      "pass": 6,
+      "fail": 0
     }
   ],
   "pages": {
     "about": {
-      "layoutSha256": "2c15ce9808c783ca9aebff0647a3233e454aeb63713332468df38f05a0b0e5a4",
+      "layoutSha256": "0edc8151ffd0842e33517bed1299747f1af931e11e2581d92d226ddb79203817",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
+      "reviewedAt": "2026-11-17T00:15:43.374Z",
+      "runId": "20261117T000950Z",
       "path": "/about",
       "findings": [
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "サイトコンセプトの箱が他の区画より狭く中央寄せで、左右の端が揃っていない（読むのに支障はない）",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
+          "type": "consistency",
+          "detail": "運営者プロフィールの箱だけ上に青い太線があり、直下の編集方針の箱には無い。影は揃っており読むのに支障はない。",
+          "viewport": "w768",
+          "shot": "w768-01.png"
         },
         {
           "severity": "minor",
           "type": "typography",
-          "detail": "パンくず（HOME・ABOUT）が 11px で小さく、押せる範囲も小さい",
+          "detail": "編集方針・今後の展開の本文が薄い灰色で、白い箱の中では読みにくい。",
           "viewport": "w375",
-          "shot": "w375-01.png"
+          "shot": "w375-02.png"
         }
       ],
       "deterministic": [],
@@ -200,60 +208,14 @@
     "exam-hub-civil1": {
       "layoutSha256": "503084f02cd72c45f4311c0699f6e9c9552bcdef113c45f3c51302eba9049b1c",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T23:56:18.583Z",
-      "runId": "20261116T235434Z",
+      "reviewedAt": "2026-11-17T00:15:43.374Z",
+      "runId": "20261117T000950Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
           "severity": "minor",
-          "type": "content",
-          "detail": "記事一覧の途中と右の欄に「AdSense doboku-infeed-thumb」「AdSense doboku-rail」の破線の枠が出ている。ローカル配信の代わりの表示とみられ、本番で出るなら読者に見える仮の表示になる。",
-          "viewport": "w1440",
-          "shot": "w1440-04.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "右の欄に「ホワイト転職」のバナーが人気記事をはさんで 2 回出ている。続けてではないが同じ導線の重複。",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
-        },
-        {
-          "severity": "minor",
           "type": "layout",
-          "detail": "章の一覧で「施工管理・施…」「環境保全・建設…」と題名が切れている。",
-          "viewport": "w375",
-          "shot": "w375-03.png"
-        }
-      ],
-      "deterministic": [],
-      "ticket": null
-    },
-    "exam-overview": {
-      "layoutSha256": "b4c0bfb9b506414af69dd311c53bc1f1b22e911bceb82589cd9fc0b05965954b",
-      "verdict": "pass",
-      "reviewedAt": "2026-11-16T04:22:37.289Z",
-      "runId": "20261116T041539Z",
-      "path": "/exam/civil-construction-1/guide/exam-overview",
-      "findings": [
-        {
-          "severity": "minor",
-          "type": "layout",
-          "detail": "「受験ガイドの続き」の箱で、次に読むカードが右寄りに 1 枚だけ置かれ、左半分が空白のまま残っている。",
-          "viewport": "w1440",
-          "shot": "w1440-05.png"
-        },
-        {
-          "severity": "minor",
-          "type": "cta",
-          "detail": "スマホ幅で本文中に PR バナーが複数（RSG・ビルドジョブ・施工管理職）入り、末尾にも AGENT neo と教材バナーが続く。読む流れは切れるが、本文は読める。",
-          "viewport": "w375",
-          "shot": "w375-cta-03.png"
-        },
-        {
-          "severity": "minor",
-          "type": "typography",
-          "detail": "パンくずなど補助の文字が 11px で小さい。",
+          "detail": "スマホ幅で本文の白い枠が画面の左右に近く、枠の外側の余白が小さい。中身は読めて、見出し・影・枠の左右の内側余白に崩れはない。",
           "viewport": "w375",
           "shot": "w375-01.png"
         }
@@ -261,26 +223,57 @@
       "deterministic": [],
       "ticket": null
     },
-    "guide": {
-      "layoutSha256": "0024e1875777b1d449311fbb35e18b14c689f4eab5e52536583a2d9663fc724a",
+    "exam-overview": {
+      "layoutSha256": "1c2bd327db5c1850749dbc1401693e41dc9e75e68c5f821604846edaf47d08b2",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T22:56:11.314Z",
-      "runId": "20261116T225248Z",
+      "reviewedAt": "2026-11-17T00:15:43.374Z",
+      "runId": "20261117T000950Z",
+      "path": "/exam/civil-construction-1/guide/exam-overview",
+      "findings": [
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "「受験ガイドの続き」の枠は次の記事 1 枚だけで、左半分が空いて見える。枠の内側の余白が本文の端より約 8px 内側にある。",
+          "viewport": "w1440",
+          "shot": "w1440-05.png"
+        },
+        {
+          "severity": "minor",
+          "type": "layout",
+          "detail": "記事末の「受験ガイドの続き」「参考資料」「執筆者」の枠が画面の左右いっぱいに広がり、本文の左右 16px の余白と揃っていない。見出し・影の崩れはない。",
+          "viewport": "w375",
+          "shot": "w375-05.png"
+        }
+      ],
+      "deterministic": [],
+      "ticket": null
+    },
+    "guide": {
+      "layoutSha256": "e3c612a8c63e69a0b5f53dc7d8f2d64b811c8f7426d54d2f5a31973c32054741",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-17T00:15:43.374Z",
+      "runId": "20261117T000950Z",
       "path": "/exam/civil-construction-1/guide/strategy",
       "findings": [
         {
           "severity": "minor",
-          "type": "consistency",
-          "detail": "「次のステップ」の 3 枚目（第2次検定の対策へ進む）だけ画像が無く、2 枚の下に 1 枚だけ左に残る。上の 2 枚と重さが違って見える",
-          "viewport": "w768",
-          "shot": "w768-05.png"
+          "type": "layout",
+          "detail": "右の欄に「関連記事（続き）」という同じ見出しの区画が 2 つあり、区別がつきにくい。区画の外枠・見出し余白自体は揃っており崩れはない。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
-          "type": "consistency",
-          "detail": "「受験ガイドの続き」の前後 2 枚は大きな写真つきで、下の参考資料や他の内部リンク（小さなサムネイルの行）と枠・題名の重さが異なるが、読めて押せる",
-          "viewport": "w375",
-          "shot": "w375-04.png"
+          "type": "cta",
+          "detail": "記事末に note 商品カード・転職バナー・教材一覧カードが続き、導線が多めだが、重複はなく PR 表記もある。",
+          "shot": "w375-cta-03.png"
+        },
+        {
+          "severity": "minor",
+          "type": "typography",
+          "detail": "記事末の関連記事カードの説明文が…で切れているが、題名は読めて区別できる。",
+          "viewport": "w1440",
+          "shot": "w1440-06.png"
         }
       ],
       "deterministic": [],
@@ -444,23 +437,25 @@
       "ticket": null
     },
     "standards-chapter": {
-      "layoutSha256": "5826cf4b49555f8ac3d31dc951054ae659e21b2297fd4f91c873fbcdf3fea4ae",
+      "layoutSha256": "88f0c56cdef7f15b433700916124e1aff0341ed4949dcad0274d61d7594aee15",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T22:56:11.314Z",
-      "runId": "20261116T225248Z",
+      "reviewedAt": "2026-11-17T00:15:43.374Z",
+      "runId": "20261117T000950Z",
       "path": "/standards/kinki/common/chapters/1-3",
       "findings": [
         {
           "severity": "minor",
-          "type": "other",
-          "detail": "撮影は間引かれ、スマホ・タブレット幅の末尾にある「前後の章」のタイルは写っていない。PC幅の右の欄の「同じ文書の前後の章（続き）」は枠・余白とも崩れていない。"
+          "type": "typography",
+          "detail": "スマホ幅でパンくず・小見出しが 11px 前後と小さく、薄めで読みにくいが、本文・章題は十分な大きさで読める。",
+          "viewport": "w375",
+          "shot": "w375-01.png"
         },
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "パンくずや補助の文字が 11px で小さい（本文・題名は読める大きさ）。",
+          "type": "cta",
+          "detail": "本文の途中にバナー広告（PR 表記あり）が挟まり読みが途切れるが、PR は明記され本文は読み進められる。",
           "viewport": "w375",
-          "shot": "w375-01.png"
+          "shot": "w375-cta-02.png"
         }
       ],
       "deterministic": [],
@@ -469,21 +464,23 @@
     "standards-index": {
       "layoutSha256": "c8caef081fbacb7b27c251e3838a1c72d7bbf2d113793de1cda6c9f5922df022",
       "verdict": "pass",
-      "reviewedAt": "2026-11-16T23:12:13.814Z",
-      "runId": "20261116T230955Z",
+      "reviewedAt": "2026-11-17T00:15:43.374Z",
+      "runId": "20261117T000950Z",
       "path": "/standards",
       "findings": [
         {
           "severity": "minor",
-          "type": "typography",
-          "detail": "章の番号（1–1 など）が 11px と小さく、補助の文字として薄い。区切り線・→ の位置・説明の行は崩れていない"
+          "type": "layout",
+          "detail": "右の側欄が主欄より長く、主欄の下に大きな空白が残る。",
+          "viewport": "w1440",
+          "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
-          "type": "layout",
-          "detail": "発行機関の 2 列で、行の高さが隣に揃うため四国・近畿などに下の空白が残る。区切り線は揃っている",
-          "viewport": "w768",
-          "shot": "w768-01.png"
+          "type": "typography",
+          "detail": "章の番号(1-1 など)が 11px と小さい補助文字。",
+          "viewport": "w375",
+          "shot": "w375-02.png"
         }
       ],
       "deterministic": [],
