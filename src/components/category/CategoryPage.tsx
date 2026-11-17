@@ -11,7 +11,7 @@ import { DocCard, DocSection } from '@/components/category/CategorySections';
 import { PopularShowcase, PopularRanking } from '@/components/category/PopularSections';
 import { getPopularDocs } from '@/lib/popular';
 import { categorySidebarContinuation } from '@/lib/category-sidebar-continuation';
-import RailContinuation from '@/components/ui/RailContinuation/RailContinuation';
+import RailStack from '@/components/ui/RailStack/RailStack';
 import {
   CivilConstruction1View,
   CivilConstruction2View,
@@ -118,18 +118,22 @@ export default async function CategoryPage({
   // 上の束の下に、人気・新着の記事と転職バナーの組を並べる（記事数が少ない資格は 0 組。DN-1218 段 3）。
   const railGroups = categorySidebarContinuation(docs, popularDocs, sidebarAd);
   const categorySidebar = (
-    <div className="flex h-full flex-1 flex-col">
-      <div className="space-y-3">
-        {slug === 'concrete-engineer' ? <>
-          <ConcreteEngineerStudy />
-          {/* 台帳（site-cta-surfaces.json）でもくじタイルが出る間は、計算・JIS 演習の単品を重ねない */}
-          {!hubCtaSidebar && <ConcreteEngineerProduct placement="category-sidebar" />}
-          <ConcreteEngineerRelated />
-        </> : <CategoryStudyNav category={slug} />}
-        {slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" />}
-        {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" />}
-        <AuthorSidebarCard />
-        {sidebarAd && (
+    <RailStack
+      groups={railGroups}
+      data={{ 'data-category-sidebar': '' }}
+      items={[
+        ...(slug === 'concrete-engineer'
+          ? [
+              { kind: 'nav' as const, node: <ConcreteEngineerStudy /> },
+              // 台帳（site-cta-surfaces.json）でもくじタイルが出る間は、計算・JIS 演習の単品を重ねない
+              { kind: 'note' as const, node: !hubCtaSidebar && <ConcreteEngineerProduct placement="category-sidebar" /> },
+              { kind: 'nav' as const, node: <ConcreteEngineerRelated /> },
+            ]
+          : [{ kind: 'nav' as const, node: <CategoryStudyNav category={slug} /> }]),
+        { kind: 'note', node: slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" /> },
+        { kind: 'note', node: hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" /> },
+        { kind: 'author', node: <AuthorSidebarCard /> },
+        { kind: 'career', node: sidebarAd && (
           <ProgramSplitBanner
             alternate={sidebarAd.alternate}
             placement="category-sidebar"
@@ -137,11 +141,10 @@ export default async function CategoryPage({
               <ResponsiveAffiliateBanner placement={sidebarAd} withPixel={sidebarPixel?.slot === 'category-sidebar'} only="pc" />
             }
           />
-        )}
-        <PopularRanking items={popularDocs} />
-      </div>
-      <RailContinuation groups={railGroups} />
-    </div>
+        ) },
+        { kind: 'nav', node: popularDocs.length > 0 && <PopularRanking items={popularDocs} /> },
+      ]}
+    />
   );
 
   return (

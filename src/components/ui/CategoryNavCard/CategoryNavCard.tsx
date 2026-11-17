@@ -5,6 +5,7 @@ import { categoryNavPlan } from '@/lib/category-nav-plan';
  * ページの分類に応じて右サイドバーまたは記事末尾に表示する。
  */
 import Link from 'next/link';
+import type { RailKind } from '@/lib/rail-kinds';
 import LinkTile from '@/components/ui/LinkTile/LinkTile';
 import { DiscoveryNav } from '@/components/ui/SidebarDiscovery';
 import type { DocMeta } from '@/lib/docs';
@@ -291,6 +292,10 @@ export function categoryNavCards(props: CategoryNavCardProps) {
   if (spec.kind === 'section') return <SectionCard variant={props.variant} currentSlug={props.currentSlug} currentSection={spec.currentSection} />;
   return <LinkListCard variant={props.variant} currentSlug={props.currentSlug} title={spec.title} docs={spec.docs} {...(spec.navList ? { navList: spec.navList } : {})} />;
  });
+}
+/** categoryNavCards の 1 枚ずつの右の欄の種類（src/lib/rail-kinds.ts）。年度の表だけ years */
+export function categoryNavKinds(props: CategoryNavCardProps): RailKind[] {
+ return categoryNavPlan(props).map(spec => spec.kind === 'pastExam' ? 'years' : 'nav');
 }
 export default function CategoryNavCard(props: CategoryNavCardProps) {
  return <>{categoryNavCards(props).map((card, index) => <div key={index} className={index ? (props.variant === 'sidebar' ? 'mt-3' : 'mt-6') : undefined}>{card}</div>)}</>;

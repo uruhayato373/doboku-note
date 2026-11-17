@@ -26,6 +26,8 @@ type LinkRowProps = {
   readonly serif?: boolean;
   /** 題名の段（一覧ページの見出しの並びに合わせる） */
   readonly headingLevel?: 'h3' | 'h4' | 'h5';
+  /** いま見ているページの行。リンクにせず太字で出す（aria-current="page"） */
+  readonly current?: boolean;
   /** li に付ける属性（絞り込みで隠す hidden など） */
   readonly hidden?: boolean;
   /** 計測の属性（data-cta-label など）。そのままリンクへ付ける */
@@ -50,21 +52,25 @@ export function RankMarker({ rank }: { readonly rank: number }) {
   );
 }
 
-export default function LinkRow({ href, title, eyebrow, description, marker, meta, arrow = false, tone = 'accent', serif = false, headingLevel, hidden, data }: LinkRowProps) {
+export default function LinkRow({ href, title, eyebrow, description, marker, meta, arrow = false, tone = 'accent', serif = false, headingLevel, current = false, hidden, data }: LinkRowProps) {
   const Title = headingLevel ?? 'span';
-  const color = tone === 'ink' ? 'text-(--ink) group-hover:text-(--accent)' : 'text-(--accent) group-hover:underline';
+  const color = current ? 'font-bold text-(--ink)' : tone === 'ink' ? 'font-medium text-(--ink) group-hover:text-(--accent)' : 'font-medium text-(--accent) group-hover:underline';
+  const body = <>
+    {marker}
+    <div className="min-w-0 flex-1">
+      {eyebrow && <Eyebrow variant="plain">{eyebrow}</Eyebrow>}
+      <Title className={`line-clamp-2 block ${color}${serif ? ' font-serif' : ''}`}>{title}</Title>
+      {description && <span className="mt-0.5 line-clamp-2 block text-[13px] text-(--ink-muted)">{description}</span>}
+    </div>
+    {meta && <span className="shrink-0 text-xs text-(--ink-muted)">{meta}</span>}
+    {arrow && !current && <Arrow className="text-(--accent)" />}
+  </>;
+  const row = 'flex min-h-11 items-center gap-3 py-2 text-sm';
   return (
     <li hidden={hidden}>
-      <Link href={href} {...data} className="focus-ring group flex min-h-11 items-center gap-3 py-2 text-sm transition-colors">
-        {marker}
-        <div className="min-w-0 flex-1">
-          {eyebrow && <Eyebrow variant="plain">{eyebrow}</Eyebrow>}
-          <Title className={`line-clamp-2 block font-medium ${color}${serif ? ' font-serif' : ''}`}>{title}</Title>
-          {description && <span className="mt-0.5 line-clamp-2 block text-[13px] text-(--ink-muted)">{description}</span>}
-        </div>
-        {meta && <span className="shrink-0 text-xs text-(--ink-muted)">{meta}</span>}
-        {arrow && <Arrow className="text-(--accent)" />}
-      </Link>
+      {current
+        ? <span aria-current="page" className={row}>{body}</span>
+        : <Link href={href} {...data} className={`focus-ring group ${row} transition-colors`}>{body}</Link>}
     </li>
   );
 }

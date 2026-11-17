@@ -12,8 +12,9 @@
  */
 
 import type { ReactNode } from 'react';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow';
 
-type MetaCardElement = 'section' | 'aside' | 'div' | 'article';
+type MetaCardElement = 'section' | 'aside' | 'div' | 'article' | 'nav';
 
 interface MetaCardProps {
   /** ラッパー要素のタグ。意味的に `<section>` を既定とする */
@@ -24,6 +25,10 @@ interface MetaCardProps {
   title?: ReactNode;
   /** 見出しの下の 1 行（件数・説明） */
   lead?: ReactNode;
+  /** 見出しの上の小さなラベル（区画の役割。右の欄の「基準類ナビ」など） */
+  eyebrow?: ReactNode;
+  /** 見出しの右の補足（集計の期間・件数など） */
+  titleAside?: ReactNode;
   /** 見出しの左のアイコン（accent のタイルに入れる） */
   icon?: ReactNode;
   /** 見出しの段 */
@@ -58,11 +63,15 @@ const PADDINGS: Record<NonNullable<MetaCardProps['padding']>, string> = {
   none: '',
 };
 
-function CardHeader({ title, lead, icon, headingLevel = 2, serifTitle = false, compact }: Pick<MetaCardProps, 'title' | 'lead' | 'icon' | 'headingLevel' | 'serifTitle'> & { compact: boolean }) {
+function CardHeader({ title, lead, eyebrow, titleAside, icon, headingLevel = 2, serifTitle = false, compact }: Pick<MetaCardProps, 'title' | 'lead' | 'eyebrow' | 'titleAside' | 'icon' | 'headingLevel' | 'serifTitle'> & { compact: boolean }) {
   const Heading = headingLevel === 3 ? 'h3' : 'h2';
   const text = (
-    <div className="min-w-0">
-      <Heading className={`text-lg font-bold leading-tight text-(--ink)${serifTitle ? ' font-serif' : ''}`}>{title}</Heading>
+    <div className="min-w-0 flex-1">
+      {eyebrow && <Eyebrow variant="plain" tone="accent" className="mb-1.5">{eyebrow}</Eyebrow>}
+      <div className="flex items-baseline justify-between gap-3">
+        <Heading className={`text-lg font-bold leading-tight text-(--ink)${serifTitle ? ' font-serif' : ''}`}>{title}</Heading>
+        {titleAside && <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{titleAside}</span>}
+      </div>
       {lead && <p className="mt-1 text-sm text-(--ink-muted)">{lead}</p>}
     </div>
   );
@@ -81,6 +90,8 @@ export default function MetaCard({
   ariaLabel,
   title,
   lead,
+  eyebrow,
+  titleAside,
   icon,
   headingLevel = 2,
   serifTitle = false,
@@ -95,7 +106,7 @@ export default function MetaCard({
   const trackAttrs = trackNav ? { 'data-cta': 'nav', 'data-cta-label': trackNav } : {};
   return (
     <Tag aria-label={ariaLabel} className={finalClassName} {...trackAttrs} {...data}>
-      {title && <CardHeader title={title} lead={lead} icon={icon} headingLevel={headingLevel} serifTitle={serifTitle} compact={padding === 'compact'} />}
+      {title && <CardHeader title={title} lead={lead} eyebrow={eyebrow} titleAside={titleAside} icon={icon} headingLevel={headingLevel} serifTitle={serifTitle} compact={padding === 'compact'} />}
       {children}
     </Tag>
   );
