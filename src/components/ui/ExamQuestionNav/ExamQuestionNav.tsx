@@ -51,8 +51,7 @@ export default function ExamQuestionNav({ headings, variant = 'sidebar' }: ExamQ
   }
 
   return (
-    <MetaCard as="div" padding="compact">
-      <div className="nav-card-title text-(--ink)">{title}</div>
+    <MetaCard as="div" padding="compact" title={title}>
       {grid}
     </MetaCard>
   );

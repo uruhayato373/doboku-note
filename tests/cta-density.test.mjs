@@ -219,6 +219,14 @@ test('下に続く組でもバナー直後の実カードと案件重複を検�
  assert.deepEqual(rules(wrap(adOnly)), []);
  assert.ok(rules(wrap(adOnly.replace('data-article-sidebar-ad-only="true"', ''))).includes('affiliate-rail-adjacent'));
  assert.ok(rules(wrap(adOnly.replace(/<\/div>$/, '<p>空のカードではない</p></div>'))).includes('affiliate-rail-adjacent'));
+ // RailStack の形（1 つ 1 つを data-rail-kind の div で包む）でも、包みを 1 単位として同じ決まりを当てる
+ const kind = (k, inner, card) => `<div data-rail-kind="${k}"${card ? ' data-article-sidebar-card' : ''}>${inner}</div>`;
+ const stacked = groups => `<main><article><div class="prose-blog"><h2>本文</h2></div></article></main><aside class="hidden zenn-desktop:flex"><div data-article-sidebar-cards="2"><div data-rail-stack>${kind('career', imageAd('article-rail','rail'))}${kind('nav','上のナビ',true)}</div><div data-article-sidebar-continuation>${groups}</div></div></aside>`;
+ const wrapped = `<div data-article-sidebar-group>${kind('career', imageAd('article-rail-2','rail'))}${kind('thumbs','関連記事',true)}</div>`;
+ assert.deepEqual(rules(stacked(wrapped)), []);
+ assert.ok(rules(stacked(wrapped.replace('data-rail-kind="thumbs" data-article-sidebar-card', 'data-rail-kind="thumbs"'))).includes('affiliate-rail-adjacent'));
+ assert.ok(rules(stacked(wrapped).replace(' data-article-sidebar-card>上のナビ', '>上のナビ')).includes('affiliate-rail-adjacent'));
+ assert.deepEqual(rules(stacked(`<div data-article-sidebar-group data-article-sidebar-ad-only="true">${kind('career', imageAd('article-rail-2','rail'))}</div>`)), []);
 });
 
 test('過去問の右の欄だけ、組の間を埋める article-rail-fill の同じ案件の繰り返しと、バナーだけの組を許す', () => {

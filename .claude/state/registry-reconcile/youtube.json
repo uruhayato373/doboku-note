@@ -1,15 +1,16 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-16T03:07:10.294Z",
+  "checkedAt": "2026-11-17T05:15:35.673Z",
   "channel": "youtube",
-  "targets": 62,
-  "checked": 62,
-  "observed": 62,
+  "targets": 66,
+  "checked": 66,
+  "observed": 66,
   "advanced": [
-    "pe-comprehensive-management/cm-fugokaku-tenken/youtube.longform",
-    "pe-construction/pe-fugoukaku-toan/youtube.longform",
-    "pe-construction/pe-tunnel-shutsudai-yomikata/youtube.short.point-themename-1",
-    "pe-construction/toan-kousei-template/youtube.short.point-skeleton-1"
+    "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
+    "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
+    "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2",
+    "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
+    "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2"
   ],
   "findings": []
 }

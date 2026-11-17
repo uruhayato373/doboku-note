@@ -1,10 +1,11 @@
-import { Fragment, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { ButtonLink } from '@/components/ui/Button/Button';
 import Arrow from '@/components/ui/Arrow/Arrow';
 import { EYEBROW } from '@/components/ui/Eyebrow/Eyebrow';
 import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
+import type { RailItem } from '@/components/ui/RailStack/RailStack';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { resolveNavTitle } from '@/lib/doc-title';
 import { qualificationShortLabel } from '@/lib/qualification-names';
@@ -90,21 +91,15 @@ function RegionalVersions({ document, chapter }: { document: StandardDocument; c
   return (
     <MetaCard padding="compact" ariaLabel="他の地方整備局の同じ章" trackNav="standards-region" className="dark:border-(--rule-soft)" title="他の地方整備局の同じ章">
       <LinkRowList className="mt-1" data={{ 'data-standards-nav': 'regions' }}>
-        {versions.map((version) => (version.current ? (
-          <li key={version.href}>
-            <span className="flex min-h-11 flex-col justify-center py-2 text-sm text-(--ink)" aria-current="page">
-              <span className="font-bold">{regionLabel(version.agencyNames)}</span>
-              <span className="text-[12px] text-(--ink-muted)">表示中</span>
-            </span>
-          </li>
-        ) : (
+        {versions.map((version) => (
           <LinkRow
             key={version.href}
             href={version.href}
             title={regionLabel(version.agencyNames)}
-            description={version.changed ? <span className="font-bold text-warn">この章に本文の違いあり</span> : undefined}
+            current={version.current}
+            description={!version.current && version.changed ? <span className="font-bold text-warn">この章に本文の違いあり</span> : undefined}
           />
-        )))}
+        ))}
       </LinkRowList>
       <ButtonLink href="/standards/compare" variant="text" className="mt-1">
         地方整備局別の違いを一覧で見る <Arrow />
@@ -113,26 +108,25 @@ function RegionalVersions({ document, chapter }: { document: StandardDocument; c
   );
 }
 
-/** 最初の回遊カードの後。カードが 1 枚なら回遊の末尾になる。 */
-function DiscoveryCards({ cards, betweenCards }: { cards: ReactNode[]; betweenCards?: ReactNode }) {
-  const visible = cards.filter(Boolean);
-  return <>{visible.map((card, index) => (
-    <Fragment key={index}>{card}{index === 0 && betweenCards}</Fragment>
-  ))}{visible.length === 0 && betweenCards}</>;
+/** 最初の回遊カードの後に間のバナーを挟む。カードが無ければ間のバナーだけ。 */
+function discoveryItems(cards: RailItem[], betweenCards?: ReactNode): RailItem[] {
+  const visible = cards.filter((card) => card.node);
+  const between: RailItem[] = betweenCards ? [{ kind: 'career', node: betweenCards }] : [];
+  return visible.length === 0 ? between : [visible[0] as RailItem, ...between, ...visible.slice(1)];
 }
 
 /** 章ページ・節ページの右の欄（目次の下） */
-export function StandardChapterDiscovery({ document, chapter, withBridge, betweenCards }: { document: StandardDocument; chapter: StandardChapter; withBridge: boolean; betweenCards?: ReactNode }) {
+export function standardChapterDiscoveryItems({ document, chapter, withBridge, betweenCards }: { document: StandardDocument; chapter: StandardChapter; withBridge: boolean; betweenCards?: ReactNode }): RailItem[] {
   const topics = getStandardChapterTopics(chapter);
-  return <DiscoveryCards betweenCards={betweenCards} cards={[
-    RelatedReading({ topics, heading: 'この章を実務・試験で深める' }),
-    RegionalVersions({ document, chapter }),
-    withBridge && <QualificationBridge key="bridge" placement="standards-bridge-sidebar" layout="sidebar" />,
-  ]} />;
+  return discoveryItems([
+    { kind: 'nav', node: RelatedReading({ topics, heading: 'この章を実務・試験で深める' }) },
+    { kind: 'nav', node: RegionalVersions({ document, chapter }) },
+    { kind: 'bridge', node: withBridge && <QualificationBridge placement="standards-bridge-sidebar" layout="sidebar" /> },
+  ], betweenCards);
 }
 
 /** 共通仕様書の入口の章（共通編・土木工事共通編）へ直接入る */
-export function StandardEntryChapters({ agencyId, heading = '共通仕様書を章から読む' }: { agencyId: string; heading?: string }) {
+function StandardEntryChapters({ agencyId, heading = '共通仕様書を章から読む' }: { agencyId: string; heading?: string }) {
   const entry = getStandardEntryChapters(agencyId);
   if (!entry) return null;
   return (
@@ -154,10 +148,15 @@ export function StandardEntryChapters({ agencyId, heading = '共通仕様書を�
   );
 }
 
+/** 入口の章の区画（右の欄の 1 つ） */
+export function standardEntryChaptersItem(agencyId: string, heading?: string): RailItem {
+  return { kind: 'nav', node: StandardEntryChapters({ agencyId, ...(heading ? { heading } : {}) }) };
+}
+
 /** 文書・機関・トップのページの右の欄（テーマの記事と資格の橋渡し） */
-export function StandardTopicDiscovery({ topics, heading, withBridge, betweenCards }: { topics: Topic[]; heading: string; withBridge: boolean; betweenCards?: ReactNode }) {
-  return <DiscoveryCards betweenCards={betweenCards} cards={[
-    topics.length > 0 && RelatedReading({ topics: topics.slice(0, 2), heading }),
-    withBridge && <QualificationBridge key="bridge" placement="standards-bridge-sidebar" layout="sidebar" />,
-  ]} />;
+export function standardTopicDiscoveryItems({ topics, heading, withBridge, betweenCards }: { topics: Topic[]; heading: string; withBridge: boolean; betweenCards?: ReactNode }): RailItem[] {
+  return discoveryItems([
+    { kind: 'nav', node: topics.length > 0 && RelatedReading({ topics: topics.slice(0, 2), heading }) },
+    { kind: 'bridge', node: withBridge && <QualificationBridge placement="standards-bridge-sidebar" layout="sidebar" /> },
+  ], betweenCards);
 }

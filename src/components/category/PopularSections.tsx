@@ -1,3 +1,4 @@
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import LinkRow, { LinkRowList, RankMarker } from '@/components/ui/LinkRow/LinkRow';
 import { type PopularDoc, popularWindow } from '@/lib/popular';
 import { OgpThumbRow } from '@/components/category/CategorySections';
@@ -39,12 +40,8 @@ export function PopularRanking({ items }: { items: PopularDoc[] }) {
   if (items.length === 0) return null;
   const label = windowLabel();
   return (
-    <div data-cta="nav" data-cta-label="popular-ranking" className="card-surface-content overflow-hidden shadow-none">
-      <div className="px-4 py-3 border-b border-(--rule-soft) flex items-baseline justify-between gap-2">
-        <h3 className="font-serif font-bold text-(--ink) text-sm">人気記事</h3>
-        {label && <span className="font-mono text-[10px] text-(--ink-muted) tabular-nums">{label}</span>}
-      </div>
-      <LinkRowList as="ol" className="px-4">
+    <MetaCard as="div" padding="compact" trackNav="popular-ranking" title="人気記事" titleAside={label}>
+      <LinkRowList as="ol">
         {items.map((item) => (
           <LinkRow
             key={item.doc.slug}
@@ -56,6 +53,6 @@ export function PopularRanking({ items }: { items: PopularDoc[] }) {
           />
         ))}
       </LinkRowList>
-    </div>
+    </MetaCard>
   );
 }
