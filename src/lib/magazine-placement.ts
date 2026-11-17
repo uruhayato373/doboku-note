@@ -1125,6 +1125,11 @@ function resolvePlacementRaw(
     return { top: slot('pe-water-required-magazine', slug, 'top'), inline: [] };
   }
   if (slug.startsWith('pipe-work-guide-')) {
+    // 令和8年度の出題予想（PC-011）は公開されたら top に出し、機器別バンクを本文中へ回す。
+    // 未公開のあいだは getMagazine が null を返すので、これまでどおりバンクだけが出る。
+    if (getMagazine('pipe-work-1-r8-yosou')) {
+      return { top: slot('pipe-work-1-r8-yosou', slug, 'top'), inline: [slot('pipe-work-sekou-kijutsu-bank', slug, 'inline-1')] };
+    }
     return { top: slot('pipe-work-sekou-kijutsu-bank', slug, 'top'), inline: [] };
   }
 

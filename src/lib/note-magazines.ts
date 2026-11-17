@@ -2780,6 +2780,19 @@ const MAGAZINES_RAW = {
   },
   // </generated:products pe-water-supply>
   // <generated:products pipe-work> config/products.json から生成（npm run product -- gen）。手で直さない
+  // 2026-11-17 に下書きを作成（PC-011・DN-1236）。価格は仮で、公開時に運営者が決める。公開したら noteUrl を入れて published を true にする。
+  'pipe-work-1-r8-yosou': {
+    id: 'pipe-work-1-r8-yosou',
+    published: false,
+    noteUrl: '',
+    qualification: 'pipe-work',
+    title: '1級管工事施工管理技士 第二次検定 令和8年度 出題予想と模範解答（問題4 空調・問題5 衛生）',
+    description: '令和6年度からの新形式（施工記述）で出た問題を5回分整理し、まだ出ていない機器・材料から令和8年度の問題4（空調）・問題5（衛生）を予想した。本番と同じ設問の形の予想セット6つに、解答例を複数パターンで示す。設問3の型別の模範解答と、特徴の短文集つき。出題を保証するものではない。',
+    shortTitle: '1級管工事 令和8年度の出題予想',
+    shortDescription: '未出題の機器から問題4・5を予想。予想セット6つに解答例を複数パターンで。',
+    price: '¥2,480',
+    badge: 'note 限定 教材',
+  },
   // 2026-10-28 公開（n538762ec7f12・¥1,980・境界=機器別の模範解答）。2026-11-04 に管工事の active 化に合わせて正本へ登録（DN-0452）。
   'pipe-work-sekou-kijutsu-bank': {
     id: 'pipe-work-sekou-kijutsu-bank',
