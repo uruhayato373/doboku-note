@@ -209,7 +209,7 @@
       "work": "cm-mondaibun-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform/scene-001",
@@ -272,11 +272,12 @@
       "platform": {
         "id": "AH31FCYkLKk",
         "url": "https://www.youtube.com/watch?v=AH31FCYkLKk",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-mondaibun-yomikata/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-17T05:15:35.673Z"
+        },
+        "publishedAt": "2026-11-16T03:15:16.000Z"
       },
       "thumbnail": {
         "status": "set",
