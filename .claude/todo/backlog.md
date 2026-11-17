@@ -65,12 +65,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-1228] スマホ幅で記事内の広告が読み込まれず 391px の空白が残る
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-17]
-
-起点: 2026-11-17 に本番の広告をスマホ幅（375px）で確かめたところ、記事内（in-article ネイティブ）の広告が広告のリクエストを出さず、391px の空白のまま残った。PC 幅では同じ枠が埋まっていた。原因はまだ切り分けていない（枠の幅・遅延読み込みの条件・AdSense 側の在庫のどれか）。
-やること: スマホ幅で ins 要素の幅・data-ad-status・adsbygoogle.push の呼び出しの有無を確かめ、原因を決める。埋まらないときは枠を畳む（unfilled で高さ 0）か、スマホでは出さない。
-完了条件: 本番のスマホ幅で、記事内の枠が広告で埋まるか、空白を残さず畳まれる。
 
 
 ### [DN-1227] YouTube の長尺計画の検査が落ちる（親の通常動画が在庫に進む前にショートが進んだ 2 件）
@@ -462,36 +456,10 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1234] deploy:main が gh run watch の途中終了をデプロイ失敗と誤判定する
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-17]
-
-起点: 2026-11-17 の `npm run deploy:main`（run 44029292928）が「デプロイが失敗」で exit 1 になった。実際の run はまだ in_progress で、その後 success で終わり、本番の確認も通った。`scripts/deploy-main.mjs` の waitForDeploy が `gh run watch --exit-status` の終了コードだけで失敗と決めている。watch が途中で抜けた（通信・API の一時エラー）だけで偽の失敗になる。
-やること: watch が 0 以外で抜けたら `gh run view --json status,conclusion` で run の実際の状態を確かめ、in_progress なら待ち直し、completed かつ success なら続行、failure のときだけ exit 1 にする。回帰テストを足す。
-完了条件: watch が途中で抜けても、run が success なら deploy:main が本番の確認まで進んで exit 0 になる（テストで再現）。
 
 
-### [DN-1233] exam-hub-cem（/exam/pe-comprehensive-management）が画面の点検で不合格（cta）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-17]
-
-**起点**: 2026-11-17 の画面の点検（`npm run site-visual-review`・作業票 20261117T045600Z）で、exam-hub-cem（/exam/pe-comprehensive-management）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
-
-- cta [w1440]: 右の欄に同じ Groovement の転職バナー（年収 1,200 万円以上）が、人気記事のカードを挟んで 2 回出る。同じ導線が重複している。（w1440-02.png）
-
-**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
-
-**完了条件**: `npm run site-visual-review -- prepare --keys exam-hub-cem` で撮り直して判定し、record で pass と台帳に記録される。
 
 
-### [DN-1232] exam-hub-civil1（/exam/civil-construction-1）が画面の点検で不合格（cta）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-17]
-
-**起点**: 2026-11-17 の画面の点検（`npm run site-visual-review`・作業票 20261117T045600Z）で、exam-hub-civil1（/exam/civil-construction-1）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
-
-- cta [w1440]: 右の欄に同じビルドジョブの転職バナー（年収下げずにホワイト転職）が、人気記事のカードを挟んで 2 回出る。同じ導線が近くで重複し、読者に押し売りの印象を与える。（w1440-02.png）
-
-**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
-
-**完了条件**: `npm run site-visual-review -- prepare --keys exam-hub-civil1` で撮り直して判定し、record で pass と台帳に記録される。
 
 
 ### [DN-1230] 検索結果の広告に競合のココナラ出品が出ている（AdSense で広告主をブロック）
@@ -502,12 +470,6 @@
 完了条件: ブロックする範囲を決め、設定した URL を記録し、次の週次で競合の広告が出ていないことを確かめる。
 
 
-### [DN-1229] スマホ幅でマルチプレックス広告が約 1,600px の高さになり回遊の導線を押し出す
-タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-17]
-
-起点: 2026-11-17 に本番をスマホ幅で確かめたところ、記事末のマルチプレックス広告が約 1,613px の高さになった（縦 1 列に積まれる）。記事を読み終えた後の回遊の導線（関連記事・note）が画面の遠くへ押し出される。
-やること: AdSense のマルチプレックスの表示形式（スマホの行数・列数。data-matched-content-rows-num / ui-type）を絞るか、スマホでは高さの上限のある形式に替える。回遊の導線の位置への影響を見て決める。
-完了条件: 本番のスマホ幅でマルチプレックスの高さが 800px 以下になり、関連記事の位置が広告より上か直後にある。
 
 
 ### [DN-1226] standards-chapter（/standards/kinki/common/chapters/1-3）が画面の点検で不合格（cta）
