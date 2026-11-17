@@ -30,7 +30,7 @@ note-publish.mjs の有料判定は **`const isPaid = notePricing === 'paid' && 
 
 **プランの会費・人数制限は一度設定すると変更できない**: 静的テキスト描画になり入力欄も編集ボタンも消え、**運営者が UI から直すこともできない**。`--price` は黙って skip するので「変えたつもり」に注意。**新規作成直後のプランにだけ `input[name=price]` があり、そこで入れた値が確定値**＝会費変更は作り直しが唯一の手段。
 
-**作り直しの手順（2026-08-06 実証）**: 事故回避のため**新プランを作って公開してから旧プランを削除**する（逆だと作成失敗時にプランが消えたまま残る）。`note-membership-plan-create`（作成フォームは名前と説明のみ・新 planId は一覧の差分で特定）→ `note-membership-plan-edit --price --limit --benefit-magazine` → `note-membership-plan-status --publish`（manage の行トグル・可逆）→ 旧を `--delete`（**在籍者0名を assert**・削除ダイアログは**プラン名の入力**を求める二段確認・復元不可）。
+**作り直しの手順（2026-08-06 実証・操作スクリプトは 2026-11-17 に削除済みで、今は使えない）**: 事故回避のため**新プランを作って公開してから旧プランを削除**する（逆だと作成失敗時にプランが消えたまま残る）。`note-membership-plan-create`（作成フォームは名前と説明のみ・新 planId は一覧の差分で特定）→ `note-membership-plan-edit --price --limit --benefit-magazine` → `note-membership-plan-status --publish`（manage の行トグル・可逆）→ 旧を `--delete`（**在籍者0名を assert**・削除ダイアログは**プラン名の入力**を求める二段確認・復元不可）。
 
 **「参加特典の表示」は手入力しない**: 特典マガジンを紐付けると一覧が自動生成される。手入力欄は**5件で上限**に達し disabled になるので、マガジン名を手で並べようとすると6件目で詰まる。
 
