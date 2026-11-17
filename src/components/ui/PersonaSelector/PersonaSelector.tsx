@@ -17,7 +17,7 @@ import { User, ArrowRight } from "lucide-react";
  * デザイン:
  * - 2×2 grid (PC) / 1 col (モバイル)
  * - href 指定があればリンク、なければ非リンク <div>
- * - SpokeNavCard と同系統のデザイントークン使用（rounded-card-content, shadow-card-content）
+ * - リンクのカードと同系統のデザイントークン使用（rounded-card-content, shadow-card-content）
  */
 
 const PERSONA_NAMES = {

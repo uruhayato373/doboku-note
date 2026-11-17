@@ -2,6 +2,7 @@
 
 import ArticleThumbRow from "@/components/ui/RelatedArticles/ArticleThumbRow";
 import { getCategoryLabel } from "@/lib/categories";
+import { docKindLabelFromPath } from "@/lib/doc-kind";
 import { type SearchResult } from "@/lib/search/search-client";
 import type { CardImage } from "@/lib/site-thumbnail";
 import AdSlot from "@/components/ads/AdSlot";
@@ -14,16 +15,6 @@ interface SearchResultsProps {
   error?: string | null;
   query: string;
 }
-
-/** 検索結果の記事の種類（パスから決める） */
-const kindOf = (post: { category: string; path: string }) =>
-  post.category === 'concrete-engineer' && post.path.includes('/primary/') ? '演習'
-    : post.path.includes('/guide/') ? '受験ガイド'
-    : post.path.startsWith('/practice/') ? '実務'
-    : post.path.startsWith('/laws/') ? '法令の解説'
-    : /\/(primary|secondary|past-exam)\//.test(post.path) ? '過去問'
-    : post.path.startsWith('/standards/') ? '基準資料'
-    : '解説・学習';
 
 export function SearchResults({
   images = {},
@@ -99,7 +90,7 @@ export function SearchResults({
             href={post.path}
             title={post.title}
             image={images[post.path.replace(/\/$/, "")]}
-            eyebrow={`${getCategoryLabel(post.category)} · ${kindOf(post)}`}
+            eyebrow={`${getCategoryLabel(post.category)} · ${docKindLabelFromPath(post.path, post.category)}`}
             caption={post.excerpt && <span className="[&_mark]:rounded-card-inline [&_mark]:bg-yellow-200 [&_mark]:px-0.5 dark:[&_mark]:bg-yellow-800/60 dark:[&_mark]:text-warn" dangerouslySetInnerHTML={{ __html: post.excerpt }} />}
             meta={post.tags && post.tags.length > 0 && (
               <span className="mt-1 flex flex-wrap gap-2">

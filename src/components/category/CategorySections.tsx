@@ -14,6 +14,7 @@ import { formatDotDate } from '@/lib/display-date';
 import AdSlot from '@/components/ads/AdSlot';
 import { withFeedAds } from '@/lib/feed-ads';
 import { feedAdBudget } from '@/lib/feed-ads-budget';
+import { compareExamYearDesc, examYearLabel, examYearRank } from '@/lib/exam-year.mjs';
 
 /** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
 function cardDate(doc: DocMeta): string | null {
@@ -46,16 +47,6 @@ export function DocCard({ doc }: { doc: DocMeta }) {
 }
 
 /**
- * 年度コードから表示名に変換（例: "r07" → "令和7年度", "h26" → "平成26年度"）
- */
-function yearLabel(code: string): string {
-  const match = code.match(/^(r|h)(\d+)$/);
-  if (!match) return code;
-  const era = match[1] === 'r' ? '令和' : '平成';
-  return `${era}${match[2]}年度`;
-}
-
-/**
  * 第1次検定の過去問をテーブル形式で表示（2級向け、前期/後期）
  * 年度ごとに前期・後期・第2次をまとめる
  */
@@ -84,11 +75,7 @@ function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; seco
   }
 
   // 年度ソート（新しい順）
-  const years = Array.from(yearMap.keys()).sort((a, b) => {
-    const valA = (a.startsWith('r') ? 100 : 0) + parseInt(a.slice(1));
-    const valB = (b.startsWith('r') ? 100 : 0) + parseInt(b.slice(1));
-    return valB - valA;
-  });
+  const years = Array.from(yearMap.keys()).sort(compareExamYearDesc);
 
   const hasSecondary = secondaryMap.size > 0;
 
@@ -97,7 +84,7 @@ function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; seco
     const pair = yearMap.get(yearCode)!;
     return {
       key: yearCode,
-      label: yearLabel(yearCode),
+      label: examYearLabel(yearCode),
       cells: [
         { label: '前期', doc: pair.zenki },
         pair.single ? { label: '学科', doc: pair.single } : { label: '後期', doc: pair.kouki },
@@ -137,11 +124,7 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secon
   }
 
   // 年度ソート（新しい順）
-  const years = Array.from(yearMap.keys()).sort((a, b) => {
-    const valA = (a.startsWith('r') ? 100 : 0) + parseInt(a.slice(1));
-    const valB = (b.startsWith('r') ? 100 : 0) + parseInt(b.slice(1));
-    return valB - valA;
-  });
+  const years = Array.from(yearMap.keys()).sort(compareExamYearDesc);
 
   const hasSecondary = secondaryMap.size > 0;
 
@@ -150,7 +133,7 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secon
     const pair = yearMap.get(yearCode)!;
     return {
       key: yearCode,
-      label: yearLabel(yearCode),
+      label: examYearLabel(yearCode),
       cells: [
         { label: '問題A', doc: pair.a },
         { label: '問題B', doc: pair.b },
@@ -177,27 +160,14 @@ function PeExamTable({ docs }: { docs: DocMeta[] }) {
     yearMap.get(yearCode)![type] = doc;
   }
 
-  const toWesternYear = (code: string) => {
-    const era = code[0];
-    const num = parseInt(code.slice(1));
-    return era === 'r' ? 2018 + num : 1988 + num;
-  };
-
-  const years = Array.from(yearMap.keys()).sort((a, b) => {
-    return toWesternYear(b) - toWesternYear(a);
-  });
+  const years = Array.from(yearMap.keys()).sort(compareExamYearDesc);
 
   const columns = ['択一式', '記述式'];
   const rows: ExamMatrixRow[] = years.map((yearCode) => {
     const pair = yearMap.get(yearCode)!;
-    const era = yearCode[0];
-    const yearNum = parseInt(yearCode.slice(1));
-    const label = era === 'r'
-      ? (yearNum === 1 ? '令和元年度' : `令和${yearNum}年度`)
-      : `平成${yearNum}年度`;
     return {
       key: yearCode,
-      label,
+      label: examYearLabel(yearCode),
       cells: [
         { label: '択一式', doc: pair.primary },
         { label: '記述式', doc: pair.secondary },
@@ -226,8 +196,8 @@ function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
   }
 
   const years = Array.from(yearMap.keys()).sort((a, b) => {
-    const valA = (a.startsWith('r') ? 100 : 0) + parseInt(a.slice(1)) + (a.endsWith('-retry') ? 0.1 : 0);
-    const valB = (b.startsWith('r') ? 100 : 0) + parseInt(b.slice(1)) + (b.endsWith('-retry') ? 0.1 : 0);
+    const valA = (examYearRank(a.replace(/-retry$/, '')) ?? 0) + (a.endsWith('-retry') ? 0.1 : 0);
+    const valB = (examYearRank(b.replace(/-retry$/, '')) ?? 0) + (b.endsWith('-retry') ? 0.1 : 0);
     return valB - valA;
   });
 
@@ -236,7 +206,7 @@ function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
     const row = yearMap.get(yearCode)!;
     return {
       key: yearCode,
-      label: yearLabel(yearCode.replace(/-retry$/, '')) + (yearCode.endsWith('-retry') ? '（再試験）' : ''),
+      label: examYearLabel(yearCode.replace(/-retry$/, '')) + (yearCode.endsWith('-retry') ? '（再試験）' : ''),
       cells: [
         { label: '適性', doc: row.aptitude },
         { label: '基礎', doc: row.basic },
@@ -276,11 +246,9 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
   }
 
   // 年度は新しい順
-  const years = Array.from(yearSet).sort((a, b) => parseInt(b.slice(1)) - parseInt(a.slice(1)));
-  const colLabel = (code: string) => {
-    const num = parseInt(code.slice(1));
-    return num === 1 ? '令和元' : `令和${num}`;
-  };
+  const years = Array.from(yearSet).sort(compareExamYearDesc);
+  // 列見出しは「年度」を除いた短い形（令和7・令和元）
+  const colLabel = (code: string) => examYearLabel(code).replace(/年度$/, '');
   // モバイルチップ用の短縮年度。7 個を横に並べるため「令和7」(4字) では 3 行に折返す。
   // R 表記はキーワード節のセル（"R01〜R07"）で既に使っている同一ページ内の語彙。
   const chipYear = (code: string) => {
