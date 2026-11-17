@@ -61,6 +61,76 @@
         "coconala-cce-essay-tensaku"
       ],
       "note": "売上は試験の 4〜6 週前。制作は 10 週前、切り替えは山の 1 週手前の 7 週前。"
+    },
+    {
+      "qualification": "pipe-work-1",
+      "examEvent": "second",
+      "productionStartWeeks": 10,
+      "ctaSwitchWeeks": 8,
+      "peakFromWeeks": 4,
+      "peakToWeeks": 0,
+      "judgmentDaysAfter": 14,
+      "note": "2026-11-17 追加。10〜12 月に買われる唯一の資格で、秋の売上を 12 月まで延ばす。販売の実績がまだ無いので、買い場 8 週（annual-roadmap の既定）に合わせた初期値。最初の試験期の売上を見て直す。"
+    },
+    {
+      "qualification": "pipe-work-2",
+      "examEvent": "second",
+      "productionStartWeeks": 10,
+      "ctaSwitchWeeks": 8,
+      "peakFromWeeks": 4,
+      "peakToWeeks": 0,
+      "judgmentDaysAfter": 14,
+      "note": "2026-11-17 追加。1級と同じ形式（施工記述）。販売の実績がまだ無いので、買い場 8 週（annual-roadmap の既定）に合わせた初期値。最初の試験期の売上を見て直す。"
+    },
+    {
+      "qualification": "surveyor",
+      "examEvent": "exam",
+      "productionStartWeeks": 16,
+      "ctaSwitchWeeks": 8,
+      "peakFromWeeks": 6,
+      "peakToWeeks": 0,
+      "judgmentDaysAfter": 14,
+      "note": "2026-11-17 追加。3〜5 月の谷に買われる。商品は公開済みで、足りないのは集客なので制作の開始は記事・動画の仕込みを指す。販売の実績がまだ無いので、買い場 8 週（annual-roadmap の既定）に合わせた初期値。最初の試験期の売上を見て直す。"
+    },
+    {
+      "qualification": "pavement-1",
+      "examEvent": "exam",
+      "productionStartWeeks": 12,
+      "ctaSwitchWeeks": 8,
+      "peakFromWeeks": 4,
+      "peakToWeeks": 0,
+      "judgmentDaysAfter": 14,
+      "note": "2026-11-17 追加。技術士の筆記の山と重なるので維持が中心。販売の実績がまだ無いので、買い場 8 週（annual-roadmap の既定）に合わせた初期値。最初の試験期の売上を見て直す。"
+    },
+    {
+      "qualification": "building-construction-1",
+      "examEvent": "second",
+      "productionStartWeeks": 16,
+      "ctaSwitchWeeks": 8,
+      "peakFromWeeks": 4,
+      "peakToWeeks": 0,
+      "judgmentDaysAfter": 14,
+      "note": "2026-11-17 追加。記述の受験者が約 1.8 万人で未着手の中では最大。商品は DN-0974。販売の実績がまだ無いので、買い場 8 週（annual-roadmap の既定）に合わせた初期値。最初の試験期の売上を見て直す。"
+    },
+    {
+      "qualification": "building-construction-2",
+      "examEvent": "second",
+      "productionStartWeeks": 16,
+      "ctaSwitchWeeks": 8,
+      "peakFromWeeks": 4,
+      "peakToWeeks": 0,
+      "judgmentDaysAfter": 14,
+      "note": "2026-11-17 追加。1級と同じ。販売の実績がまだ無いので、買い場 8 週（annual-roadmap の既定）に合わせた初期値。最初の試験期の売上を見て直す。"
+    },
+    {
+      "qualification": "pe-construction",
+      "examEvent": "applicationDeadline",
+      "productionStartWeeks": 16,
+      "ctaSwitchWeeks": 10,
+      "peakFromWeeks": 8,
+      "peakToWeeks": 1,
+      "judgmentDaysAfter": 14,
+      "note": "2026-11-17 追加。受験申込書（業務内容の詳細）の商品（DN-0345・DN-0911）。2〜4 月の谷に買われる見込みで、全部門共通。販売の実績がまだ無いので、買い場 8 週（annual-roadmap の既定）に合わせた初期値。最初の試験期の売上を見て直す。"
     }
   ]
 }
