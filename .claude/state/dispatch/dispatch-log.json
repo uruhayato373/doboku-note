@@ -9015,6 +9015,32 @@
       "commit": "065f2ebb1336",
       "verification": "記事末の枠は ArticleFooter（関連記事・note）の後ろで、本番のスマホ幅で要求後に unfilled なら 0px に畳まれる",
       "note": "#1645 で data-matched-content-*（スマホ 4 行 1 列）を指定。関連記事は広告より上にあり、押し出していない"
+    },
+    {
+      "id": "DN-0876",
+      "at": "2026-11-17",
+      "task": "note メンバーシップ「建設業×AI」を立てる: プラン・説明文・限定記事2本・入口を用意して公開する",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fcb6d355036d",
+      "verification": "none",
+      "note": "取りやめ（2026-11-17 運営者決定: 月額の会員制は今後やらない。高単価はココナラの診断→添削→指導で作る。docs/strategy/22 §5）"
+    },
+    {
+      "id": "DN-0919",
+      "at": "2026-11-17",
+      "task": "季節の谷を埋められたかを判定する: 建設業×AI メンバーシップ（DN-0876）の会費が 8〜9 月型の売上の谷をどれだけ下支えしたかを 3 か月で数える",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fcb6d355036d",
+      "verification": "none",
+      "note": "取りやめ（2026-11-17 運営者決定: 月額の会員制は今後やらない。高単価はココナラの診断→添削→指導で作る。docs/strategy/22 §5）"
     }
   ]
 }
