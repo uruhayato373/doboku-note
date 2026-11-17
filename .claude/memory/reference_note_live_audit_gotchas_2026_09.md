@@ -9,7 +9,7 @@ metadata:
 **偽陽性 3 型**
 - `noteStatus: reserved`（予約投稿）は noteUrl/noteId が書き戻されるが go-live 前で API が本文もタグも返さない → live-headings は「画像欠落 live=0」、live-tags は「0 タグ」になる。checker は reserved を対象外にして件数を出す（修正済み・[[reference_quality_audit_system]]）。go-live 後は `verify-note-status --fix` が published に戻す
 - check-note-structure の有料 probe は境界直後 30 字。無料側（テーマの読み解き等）に同じ文が再掲されていると、境界が正しくても PAYWALL_LEAK。probe は SoT の無料部分に無い行から選ぶ（修正済み・`tests/note-structure-probe.test.mjs`）
-- 未マージ branch で配信・予約した記事は develop の frontmatter が draft のままで membership-drip / magazine-membership が偽赤。note API で実体を確認してから frontmatter だけ develop に取り込む（内容が同一なら後の merge と衝突しない）
+- 未マージ branch で配信・予約した記事は develop の frontmatter が draft のままで membership-drip（スクリプトは削除済み）/ magazine-membership が偽赤。note API で実体を確認してから frontmatter だけ develop に取り込む（内容が同一なら後の merge と衝突しない）
 
 **live 修復の実務**
 - `note-update-body --commit` は画像の CDN 確定を待つ。Mac では 270s 上限で ABORT（未保存・安全）しがち → `NOTE_IMG_SETTLE_MIN_MS=420000 NOTE_IMG_SETTLE_PER_IMG_MS=180000`。8GB Mac は `DOBOKU_PW_MIN_FREE_MB=1024`

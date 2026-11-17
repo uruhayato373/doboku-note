@@ -26,7 +26,7 @@ note-publish.mjs の有料判定は **`const isPaid = notePricing === 'paid' && 
 
 **実装（2026-08-06）**: `note-publish.mjs` が `notePricing: membership` を解する。押下後のボタンが「追加済/削除」に変わらなければ**公開しない**（fail-closed）。公開後 `[13m]` で `is_limited` を検証し、読めてしまえば exit 5。`--membership-plan "<プラン名>"` でプラン限定も可。`--use-draft` / frontmatter `noteDraftId` で既存下書きを再利用（旧実装は `/new` で作り直し、元の下書きが孤児化していた）。
 
-**特典マガジン**: `note-magazine-create --free` で無料マガジンを作り（無料フォームは価格/アピール/カテゴリ欄が無く説明欄の placeholder も異なる）、`note-membership-plan-edit --benefit-magazine "<タイトル部分一致>"` でプランへ紐付ける。
+**特典マガジン**: `note-magazine-create --free` で無料マガジンを作り（無料フォームは価格/アピール/カテゴリ欄が無く説明欄の placeholder も異なる）、`note-membership-plan-edit --benefit-magazine "<タイトル部分一致>"` でプランへ紐付ける（`note-membership-plan-*` は会員制撤退により 2026-11 に削除済み・経緯として残す）。
 
 **プランの会費・人数制限は一度設定すると変更できない**: 静的テキスト描画になり入力欄も編集ボタンも消え、**運営者が UI から直すこともできない**。`--price` は黙って skip するので「変えたつもり」に注意。**新規作成直後のプランにだけ `input[name=price]` があり、そこで入れた値が確定値**＝会費変更は作り直しが唯一の手段。
 
