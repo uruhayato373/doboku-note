@@ -8,6 +8,7 @@ import { categoryRailGroupCount, createCardPicker, railFillColumn, withRailAdSen
  * 資格トップの右の欄の「下に続く束」（DN-1218 段 3）。上の束（学習ナビ・note・運営者・転職バナー・人気ランキング）の下へ、
  * 人気・新着の記事（サムネイルつき）と転職バナーの組を並べる。組の数は一覧の記事数から（categoryRailGroupCount・実測は同ファイル）。
  * 上の束の人気ランキングに出た記事・同じ記事を 2 回出さない。バナーは上の束の転職バナーと同じ案件を繰り返し、ピクセルは付けない。
+ * 1 組目にはバナーを置かない（上の束の転職バナーと人気ランキングを挟んで同じバナーが続き、押し売りに見えた・2026-11-17 の画面の点検・DN-1232/1233）。
  */
 const CATEGORY_RAIL_FILL_SLOT = 'category-rail-fill';
 const stamp = (doc: DocMeta) => doc.publishedAt || doc.created || '';
@@ -28,7 +29,7 @@ export function categorySidebarContinuation(docs: DocMeta[], shownPopular: Popul
   for (let index = 0; index < count; index++) {
     const card = nextCard(index);
     if (!card) break;
-    groups.push({ slot: CATEGORY_RAIL_FILL_SLOT, card, banner: column[index % Math.max(1, column.length)] });
+    groups.push({ slot: CATEGORY_RAIL_FILL_SLOT, card, banner: index === 0 ? undefined : column[index % Math.max(1, column.length)] });
   }
   return withRailAdSense(groups);
 }

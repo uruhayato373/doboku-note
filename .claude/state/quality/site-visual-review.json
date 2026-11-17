@@ -176,6 +176,14 @@
       "pages": 2,
       "pass": 2,
       "fail": 0
+    },
+    {
+      "runId": "20261117T092839Z",
+      "at": "2026-11-17T09:32:15.955Z",
+      "base": "http://localhost:3025",
+      "pages": 2,
+      "pass": 2,
+      "fail": 0
     }
   ],
   "pages": {
@@ -211,54 +219,54 @@
       "ticket": null
     },
     "exam-hub-cem": {
-      "layoutSha256": "b67df12778c3e55c5275b5877f78a7cf79e5bc76f3c2ac855a70319515b17754",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-17T04:59:33.545Z",
-      "runId": "20261117T045600Z",
+      "layoutSha256": "f9f254ab7be0b962112d2601bfc9164d574dfab08c1faf7981be034ae58d6dc5",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-17T09:32:15.941Z",
+      "runId": "20261117T092839Z",
       "path": "/exam/pe-comprehensive-management",
       "findings": [
         {
-          "severity": "major",
-          "type": "cta",
-          "detail": "右の欄に同じ Groovement の転職バナー（年収 1,200 万円以上）が、人気記事のカードを挟んで 2 回出る。同じ導線が重複している。",
-          "viewport": "w1440",
-          "shot": "w1440-02.png"
+          "severity": "minor",
+          "type": "layout",
+          "detail": "5 管理学習ガイドのカードが 2 列で最後の 1 枚だけ行に残る。",
+          "viewport": "w768",
+          "shot": "w768-04.png"
         },
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "右の欄の広告枠が本文の過去問表の途中に 1 つだけ離れて出て、その上下が大きく空く。カードの揃いは問題ない。",
+          "detail": "右の欄に広告枠の空白の箱が単独で残る（開発用の代替表示）。転職バナー（Groovement）は PC の右の欄で 1 回のみで重複はない。",
           "viewport": "w1440",
           "shot": "w1440-03.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1233"
+      "ticket": null
     },
     "exam-hub-civil1": {
-      "layoutSha256": "8a4389595c4261cc992c1ca4407613b9a86bb7efb43e31441c6b08dc965b0b33",
-      "verdict": "fail",
-      "reviewedAt": "2026-11-17T04:59:33.545Z",
-      "runId": "20261117T045600Z",
+      "layoutSha256": "2b976845263704aa9f47e5477ce01ae585a968de6f43ac0c33eac18c47e818d3",
+      "verdict": "pass",
+      "reviewedAt": "2026-11-17T09:32:15.941Z",
+      "runId": "20261117T092839Z",
       "path": "/exam/civil-construction-1",
       "findings": [
         {
-          "severity": "major",
+          "severity": "minor",
           "type": "cta",
-          "detail": "右の欄に同じビルドジョブの転職バナー（年収下げずにホワイト転職）が、人気記事のカードを挟んで 2 回出る。同じ導線が近くで重複し、読者に押し売りの印象を与える。",
+          "detail": "PC の右の欄では転職バナー（ビルドジョブ）が 1 回だけになり、人気記事を挟んだ近接の重複は解消している。",
           "viewport": "w1440",
           "shot": "w1440-02.png"
         },
         {
           "severity": "minor",
           "type": "layout",
-          "detail": "右の欄の末尾（広告枠）が本文の中ほどまでで終わり、その下は右側が空白のまま続く。カードの並び・題名 18px・区切り線・枠と角丸は揃っていて崩れは無い。",
+          "detail": "右の欄の下部に広告枠の空白の箱が単独で残り、ほかの欄から離れて浮いて見える（開発用の代替表示）。",
           "viewport": "w1440",
           "shot": "w1440-03.png"
         }
       ],
       "deterministic": [],
-      "ticket": "DN-1232"
+      "ticket": null
     },
     "exam-overview": {
       "layoutSha256": "1c2bd327db5c1850749dbc1401693e41dc9e75e68c5f821604846edaf47d08b2",

@@ -117,7 +117,12 @@ test('資格トップ: 1級土木は人気→新着の2組・ランキングに�
     assert.equal(new Set(hrefs).size, hrefs.length);
     for (const href of row.shown) assert.ok(!hrefs.includes(href), row.slug + ' ランキングの記事を出さない');
     assert.equal(row.groups.filter(g => g.adsense).length, 1, 'AdSense は 1 枠');
-    for (const g of row.groups.filter(g => !g.adsense)) { assert.equal(g.slot, 'category-rail-fill'); assert.equal(g.program, row.sidebar); assert.ok(g.thumbs, '記事はサムネイルつき'); }
+    assert.equal(row.groups[0].program, undefined, row.slug + ' 1 組目は上の束の転職バナーの近くなのでバナーを置かない（DN-1232/1233）');
+    for (const [i, g] of row.groups.entries()) {
+      if (g.adsense) continue;
+      assert.equal(g.slot, 'category-rail-fill'); assert.ok(g.thumbs, '記事はサムネイルつき');
+      if (i > 0) assert.equal(g.program, row.sidebar);
+    }
   }
 });
 
