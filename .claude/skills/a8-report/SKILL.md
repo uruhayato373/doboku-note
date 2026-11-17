@@ -84,7 +84,7 @@ npm run report-buildjob-affiliate
 ### 5. finalize
 
 - 分析結果を報告する。SSOT の書き込みと commit は土曜の収集が行う（セッションは記録を書き換えない）
-- 大きな変化があれば `.claude/todo/weekly.md` の週次レビューに 1 行残す
+- 大きな変化があれば報告に書き、対応が要るものは `npm run todo:add` で起票する（`.claude/todo/weekly.md` は `todo-planner` だけが書く）
 
 ## トラブルシューティング
 
