@@ -530,8 +530,7 @@
   }
 
   /* MDX 表の最初列 = ラベル列という慣習に基づき、デフォルトで折り返さない。
-     例外（最初列に長文が来る表）は対象 td に opt-out クラスを付与するか
-     <Nowrap> を中立列で使う。詳細は CLAUDE.md / Nowrap コンポーネント README 参照。 */
+     例外（最初列に長文が来る表）は対象 td に opt-out クラスを付与する。 */
   & table thead th:first-child {
     white-space: nowrap;
   }

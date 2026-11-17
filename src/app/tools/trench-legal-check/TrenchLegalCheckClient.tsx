@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolField, ToolResultValue, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * 溝掘削 法令チェッカー（クライアント）。
@@ -54,13 +54,8 @@ export default function TrenchLegalCheckClient({ related }: { related?: React.Re
     h <= GL_MAX_DEPTH &&
     w <= GL_MAX_WIDTH;
 
-  const inputBase =
-    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
-  const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
-
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       {/* 常設の警告 */}
       <div className="rounded-card-content border-l-4 border-(--color-danger) bg-(--bg) p-4 text-sm leading-6 text-(--ink-body)">
         労働安全衛生規則第361条は、地山の崩壊または土石の落下により労働者に危険を及ぼす<strong className="text-(--ink)">おそれがあるとき</strong>、深さにかかわらず土止め支保工の設置を義務づけています。
@@ -68,108 +63,93 @@ export default function TrenchLegalCheckClient({ related }: { related?: React.Re
       </div>
 
       {/* 入力 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="grid gap-4 sm:grid-cols-3">
-          <div>
-            <label htmlFor="height" className={labelBase}>
-              掘削面の高さ（m）
-            </label>
-            <input
-              id="height"
-              type="number"
-              inputMode="decimal"
-              step="0.1"
-              value={height}
-              onChange={(e) => setHeight(e.target.value)}
-              className={inputBase}
-            />
-          </div>
-          <div>
-            <label htmlFor="width" className={labelBase}>
-              掘削幅（m）
-            </label>
-            <input
-              id="width"
-              type="number"
-              inputMode="decimal"
-              step="0.1"
-              value={width}
-              onChange={(e) => setWidth(e.target.value)}
-              className={inputBase}
-            />
-          </div>
-          <div>
-            <label htmlFor="ground" className={labelBase}>
-              地山の種類
-            </label>
-            <select
-              id="ground"
-              value={ground}
-              onChange={(e) => setGround(e.target.value as GroundType)}
-              className={inputBase}
-            >
-              <option value="other">その他の地山</option>
-              <option value="rock_or_hard_clay">岩盤または堅い粘土からなる地山</option>
-            </select>
-          </div>
+          <ToolField id="height" label="掘削面の高さ（m）">
+          <input
+            id="height"
+            type="number"
+            inputMode="decimal"
+            step="0.1"
+            value={height}
+            onChange={(e) => setHeight(e.target.value)}
+            className={TOOL_INPUT}
+          />
+          </ToolField>
+          <ToolField id="width" label="掘削幅（m）">
+          <input
+            id="width"
+            type="number"
+            inputMode="decimal"
+            step="0.1"
+            value={width}
+            onChange={(e) => setWidth(e.target.value)}
+            className={TOOL_INPUT}
+          />
+          </ToolField>
+          <ToolField id="ground" label="地山の種類">
+          <select
+            id="ground"
+            value={ground}
+            onChange={(e) => setGround(e.target.value as GroundType)}
+            className={TOOL_INPUT}
+          >
+            <option value="other">その他の地山</option>
+            <option value="rock_or_hard_clay">岩盤または堅い粘土からなる地山</option>
+          </select>
+          </ToolField>
         </div>
-      </div>
+      </ToolPanel>
 
       {/* 結果① 作業主任者 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
+      <ToolPanel spaced>
+        <div className={TOOL_LABEL}>
           ① 作業主任者の選任義務（施行令第6条第9号・規則第359条）
         </div>
-        <div
-          className={`font-serif font-black text-[22px] mt-2 ${
-            needsSupervisor ? "text-(--color-danger)" : "text-(--ink)"
-          }`}
-        >
+        <ToolResultValue size="sm" className="mt-2" toneClass={needsSupervisor ? "text-(--color-danger)" : "text-(--ink)"}>
           {h === null ? "—" : needsSupervisor ? "地山の掘削作業主任者が必要" : "選任義務の対象外（高さ2m未満）"}
-        </div>
+        </ToolResultValue>
         <p className="mt-2 text-sm leading-6 text-(--ink-body)">
           掘削面の高さが2m以上になると、地山の掘削作業主任者の選任が義務になります。推進工事の立坑を掘り下げる作業にも同じ基準が及びます。
         </p>
-      </div>
+      </ToolPanel>
 
       {/* 結果② 勾配基準 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
+      <ToolPanel spaced>
+        <div className={TOOL_LABEL}>
           ② 土留めを設けない場合の法面勾配の基準（規則第356条）
         </div>
-        <div className="font-serif font-black text-[28px] mt-2 text-(--ink) tabular-nums">
+        <ToolResultValue size="xl" className="mt-2">
           {grad !== null ? `${grad}度以下` : "—"}
-        </div>
+        </ToolResultValue>
         <p className="mt-2 text-sm leading-6 text-(--ink-body)">
           この勾配は「土留めを設けずに法面を切って掘削してよい上限」を定めたものです。基準を満たしていても、地質が崩れやすい・地下水位が高い・振動を受けやすいといった条件があれば、①とは別に361条の土留め義務が生じます。
         </p>
-      </div>
+      </ToolPanel>
 
       {/* 結果③ 土止め先行工法ガイドライン */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
+      <ToolPanel spaced>
+        <div className={TOOL_LABEL}>
           ③ 土止め先行工法ガイドラインの想定範囲
         </div>
-        <div
-          className={`font-serif font-black text-[22px] mt-2 ${
-            h !== null && w !== null ? (glApplicable ? "text-(--color-positive)" : "text-(--warn-text-emphasis)") : "text-(--ink)"
-          }`}
+        <ToolResultValue
+          size="sm"
+          className="mt-2"
+          toneClass={h !== null && w !== null ? (glApplicable ? "text-(--color-positive)" : "text-(--warn-text-emphasis)") : "text-(--ink)"}
         >
           {h === null || w === null
             ? "—"
             : glApplicable
               ? "想定範囲内（簡易土留め工法が候補になる）"
               : "想定範囲外（本設の土留め工法を個別に検討）"}
-        </div>
+        </ToolResultValue>
         <p className="mt-2 text-sm leading-6 text-(--ink-body)">
           想定範囲は深さおおむね{GL_MIN_DEPTH}〜{GL_MAX_DEPTH}m・幅おおむね{GL_MAX_WIDTH}m以下でほぼ鉛直に掘削する小規模な溝です。矢板・支保工は掘削深さが自立可能なおおむね{SHORING_PRE_INSTALL_DEPTH}mに達した段階で先行して設置します。地下水位が高い、軟弱地盤、埋設物が輻輳するといった条件が重なる場合は、範囲内でも本設の土留め工法への切り替えを検討してください。
         </p>
-      </div>
+      </ToolPanel>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">数値の根拠</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources>
           <li>
             <strong className="text-(--ink)">作業主任者の選任義務（2m基準）</strong>は労働安全衛生法施行令第6条第9号・労働安全衛生規則第359条。
           </li>
@@ -185,10 +165,9 @@ export default function TrenchLegalCheckClient({ related }: { related?: React.Re
           <li className="text-(--ink-muted)">
             ※ 現場ごとの土質・地下水・周辺環境の調査結果が優先します。本ツールは条文の数値基準を整理する早見であり、土留めの要否そのものを判定するものではありません。
           </li>
-        </ul>
-      </div>
+      </ToolSources>
 
       {related}
-    </div>
+    </ToolLayout>
   );
 }

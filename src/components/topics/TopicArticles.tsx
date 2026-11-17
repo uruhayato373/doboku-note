@@ -5,6 +5,7 @@ import LinkRow, { LinkRowList } from '@/components/ui/LinkRow/LinkRow';
 import ArticleCard from '@/components/ui/ArticleCard/ArticleCard';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import type { CardImage } from '@/lib/site-thumbnail';
+import { ENTRY_KIND_LABELS } from '@/lib/doc-kind';
 
 export type TopicArea = 'exam' | 'practice' | 'standards' | 'laws';
 export type TopicArticle = { href: string; title: string; description: string; category: string; categoryLabel: string; categoryOrder: number; area: TopicArea; kind: string; image: CardImage; subgroup?: string | undefined };
@@ -30,7 +31,7 @@ export default function TopicArticles({ articles, areaLabels, featured: entry = 
   const match = (a: TopicArticle) => (!category || a.category === category) && (!kind || a.kind === kind) && `${a.title} ${a.description}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase());
   const filtered = !!(category || kind || query.trim());
   // 入口は topics.json の featured（編集で選んだ記事）。無いテーマはガイド・実務を優先し、同点は元の更新順を維持。
-  const featured = new Set(entry.length ? entry.slice(0,3) : [...articles].sort((a,b) => Number(!['受験ガイド','実務'].includes(a.kind)) - Number(!['受験ガイド','実務'].includes(b.kind))).slice(0,3).map(a=>a.href));
+  const featured = new Set(entry.length ? entry.slice(0,3) : [...articles].sort((a,b) => Number(!ENTRY_KIND_LABELS.includes(a.kind)) - Number(!ENTRY_KIND_LABELS.includes(b.kind))).slice(0,3).map(a=>a.href));
   const count = articles.filter(match).length;
   const control = 'focus-ring min-h-11 rounded-card-inline border border-(--rule-soft) bg-(--paper) px-3 py-2 text-sm text-(--ink)';
   return <div>

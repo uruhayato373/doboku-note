@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolStatus, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * 土木施工管理技士 受験資格チェッカー（クライアント）。
@@ -111,11 +111,11 @@ export default function JukenShikakuClient({ related }: { related?: React.ReactN
   }
 
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
-      <div className="card-surface-section p-5 sm:p-6">
+    <ToolLayout>
+      <ToolPanel>
         {/* 級 */}
         <div className="mb-4">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">級</div>
+          <div className={`${TOOL_LABEL} mb-2`}>級</div>
           <div className="flex gap-2">
             {(["civil-1", "civil-2"] as Grade[]).map((g) => (
               <button key={g} type="button" onClick={() => changeGrade(g)} className={`${btn} ${grade === g ? on : off}`} aria-pressed={grade === g}>
@@ -127,7 +127,7 @@ export default function JukenShikakuClient({ related }: { related?: React.ReactN
 
         {/* 検定区分 */}
         <div className="mb-4">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">検定区分</div>
+          <div className={`${TOOL_LABEL} mb-2`}>検定区分</div>
           <div className="flex gap-2">
             <button type="button" onClick={() => setExam("first")} className={`${btn} ${exam === "first" ? on : off}`} aria-pressed={exam === "first"}>
               第一次検定
@@ -140,7 +140,7 @@ export default function JukenShikakuClient({ related }: { related?: React.ReactN
 
         {exam === "first" ? (
           <div>
-            <label htmlFor="age" className="block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
+            <label htmlFor="age" className={`${TOOL_LABEL} mb-2`}>
               受検年度中の年齢
             </label>
             <input
@@ -151,14 +151,14 @@ export default function JukenShikakuClient({ related }: { related?: React.ReactN
               value={age}
               onChange={(e) => setAge(e.target.value)}
               placeholder={`例: ${FIRST_AGE[grade]}`}
-              className="focus-ring w-32 rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)"
+              className={`${TOOL_INPUT} w-32!`}
             />
             <span className="ml-2 text-sm text-(--ink-body)">歳</span>
           </div>
         ) : (
           <div className="flex flex-col gap-4">
             <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">保有資格（受検ルート）</div>
+              <div className={`${TOOL_LABEL} mb-2`}>保有資格（受検ルート）</div>
               <div className="flex flex-col gap-2">
                 {routes.map((r) => (
                   <button key={r.key} type="button" onClick={() => setRouteKey(r.key)} className={`${btn} text-left ${routeKey === r.key ? on : off}`} aria-pressed={routeKey === r.key}>
@@ -168,7 +168,7 @@ export default function JukenShikakuClient({ related }: { related?: React.ReactN
               </div>
             </div>
             <div>
-              <label htmlFor="years" className="block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
+              <label htmlFor="years" className={`${TOOL_LABEL} mb-2`}>
                 合格後の実務経験年数
               </label>
               <input
@@ -180,26 +180,26 @@ export default function JukenShikakuClient({ related }: { related?: React.ReactN
                 value={years}
                 onChange={(e) => setYears(e.target.value)}
                 placeholder="例: 5"
-                className="focus-ring w-32 rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)"
+                className={`${TOOL_INPUT} w-32!`}
               />
               <span className="ml-2 text-sm text-(--ink-body)">年</span>
             </div>
           </div>
         )}
-      </div>
+      </ToolPanel>
 
       {/* 結果 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         {exam === "first" ? (
           <div>
-            <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-1">第一次検定 受験可否</div>
+            <div className={`${TOOL_LABEL} mb-1`}>第一次検定 受験可否</div>
             {ageNum == null ? (
               <p className="text-sm text-(--ink-body)">年齢を入力してください。{GRADE_LABEL[grade]}土木の第一次検定は <strong className="text-(--ink)">{FIRST_AGE[grade]}歳以上</strong>（受検年度中の年齢）で、学歴・実務経験を問わず受検できます。</p>
             ) : (
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-bold text-white" style={{ background: firstOk ? OK : NG }}>
+                <ToolStatus toneClass="text-white" style={{ background: firstOk ? OK : NG }}>
                   {firstOk ? "受験できます" : "受験できません"}
-                </span>
+                </ToolStatus>
                 <span className="text-sm text-(--ink-body)">
                   {firstOk ? `${FIRST_AGE[grade]}歳以上の要件を満たします。` : `${FIRST_AGE[grade]}歳以上が必要です（あと${FIRST_AGE[grade] - ageNum}歳）。`}
                 </span>
@@ -209,11 +209,11 @@ export default function JukenShikakuClient({ related }: { related?: React.ReactN
         ) : (
           <div>
             <div className="flex items-center justify-between gap-3 flex-wrap mb-3">
-              <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">第二次検定 受験可否（新受検資格）</div>
+              <div className={TOOL_LABEL}>第二次検定 受験可否（新受検資格）</div>
               {yearsNum != null && (
-                <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-bold text-white" style={{ background: secondAnyMet ? OK : NG }}>
+                <ToolStatus toneClass="text-white" style={{ background: secondAnyMet ? OK : NG }}>
                   {secondAnyMet ? "いずれかの要件を満たします" : "まだ要件を満たしません"}
-                </span>
+                </ToolStatus>
               )}
             </div>
             <ul className="flex flex-col gap-2">
@@ -235,20 +235,17 @@ export default function JukenShikakuClient({ related }: { related?: React.ReactN
             </p>
           </div>
         )}
-      </div>
+      </ToolPanel>
 
       {/* 注記・出典 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">補足（重要）</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources title="補足（重要）">
           <li>本ツールは <strong className="text-(--ink)">令和6年度〜の新受検資格</strong>に基づきます（第一次＝年齢、第二次＝第一次検定等合格後の実務経験）。</li>
           <li><strong className="text-(--ink)">経過措置（令和10年度まで）</strong>として、改正前の<strong className="text-(--ink)">旧受検資格（学歴別の実務経験年数）</strong>でも受検できます。学歴によっては旧資格の方が早く受検できる場合があります（旧資格の年数判定は公式手引を参照）。</li>
           <li><strong className="text-(--ink)">実務経験</strong>とは、施工計画の作成や工程・品質・安全管理など、工事の施工管理に直接関わる職務経験です（単純な労務・測量・設計のみ等は対象外）。</li>
           <li className="text-(--ink-muted)">※ 最終的な受験可否は、必ず<a className="text-(--accent) underline" href="https://www.jctc.jp/" target="_blank" rel="noopener noreferrer">全国建設研修センター（公式）</a>の最新の受検の手引でご確認ください。</li>
-        </ul>
-      </div>
+      </ToolSources>
 
       {related}
-    </div>
+    </ToolLayout>
   );
 }

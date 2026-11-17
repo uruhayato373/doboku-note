@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { READING_CONTAINER } from '@/components/layout/container';
+import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolSources } from '@/components/tools/ToolParts';
 
 /**
  * 工事原価 構成比計算ツール（クライアント）。
@@ -41,19 +41,14 @@ export default function CostStructureClient({ related }: { related?: React.React
   const indirect = toNum(values.commonTemp) + toNum(values.siteMgmt);
   const workCost = toNum(values.direct) + indirect; // 工事原価 = 直接工事費 + 間接工事費
 
-  const inputBase =
-    "focus-ring w-full rounded-card-content border border-(--rule-soft) bg-(--bg) px-3 py-2 text-[15px] text-(--ink) focus:border-(--accent)";
-  const labelBase =
-    "block text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2";
-
   return (
-    <div className={`${READING_CONTAINER} py-8 sm:py-10`}>
+    <ToolLayout>
       {/* 入力 */}
-      <div className="card-surface-section p-5 sm:p-6">
+      <ToolPanel>
         <div className="grid gap-4 sm:grid-cols-2">
           {ITEMS.map((item) => (
             <div key={item.key}>
-              <label htmlFor={item.key} className={labelBase}>
+              <label htmlFor={item.key} className={`${TOOL_LABEL} mb-2`}>
                 {item.label}（千円）
               </label>
               <input
@@ -63,15 +58,15 @@ export default function CostStructureClient({ related }: { related?: React.React
                 step="10"
                 value={values[item.key]}
                 onChange={(e) => setValues((v) => ({ ...v, [item.key]: e.target.value }))}
-                className={inputBase}
+                className={TOOL_INPUT}
               />
             </div>
           ))}
         </div>
-      </div>
+      </ToolPanel>
 
       {/* 結果 */}
-      <div className="card-surface-section mt-4 p-5 sm:p-6">
+      <ToolPanel spaced>
         <div className="flex items-baseline justify-between">
           <span className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted)">
             請負工事費 合計
@@ -149,12 +144,10 @@ export default function CostStructureClient({ related }: { related?: React.React
             </div>
           </>
         )}
-      </div>
+      </ToolPanel>
 
       {/* 根拠 */}
-      <div className="mt-6 rounded-card-content border border-(--rule-soft) bg-(--bg) p-5 text-sm leading-7 text-(--ink-body)">
-        <p className="font-bold text-(--ink) mb-2">数値の根拠と注意</p>
-        <ul className="list-disc pl-5 space-y-1">
+      <ToolSources title="数値の根拠と注意">
           <li>
             <strong className="text-(--ink)">費目区分</strong>は土木工事の積算基準に基づきます。請負代金額は工事価格と消費税相当額に分かれ、工事価格はさらに工事原価（直接工事費＋間接工事費）と一般管理費等に分かれます。
           </li>
@@ -164,10 +157,9 @@ export default function CostStructureClient({ related }: { related?: React.React
           <li className="text-(--ink-muted)">
             ※ <strong className="text-(--ink-body)">本ツールは構成比を計算するだけで、「何%を超えたら赤字」という判定は行いません。</strong>そうした閾値を示す公的な積算基準は存在しません。差異を見るときは絶対額ではなく、自社の実行予算・過去実績との比較で計画からの伸び方を確認してください。
           </li>
-        </ul>
-      </div>
+      </ToolSources>
 
       {related}
-    </div>
+    </ToolLayout>
   );
 }
