@@ -462,6 +462,18 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1232] exam-hub-civil1（/exam/civil-construction-1）が画面の点検で不合格（cta）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [検証:site-visual-review] [起票:2026-11-17]
+
+**起点**: 2026-11-17 の画面の点検（`npm run site-visual-review`・作業票 20261117T045600Z）で、exam-hub-civil1（/exam/civil-construction-1）が不合格になった。全部の画面幅で撮った画面を、機械の検査とエージェント site-page-visual-auditor の目視で判定した。台帳は .claude/state/quality/site-visual-review.json。
+
+- cta [w1440]: 右の欄に同じビルドジョブの転職バナー（年収下げずにホワイト転職）が、人気記事のカードを挟んで 2 回出る。同じ導線が近くで重複し、読者に押し売りの印象を与える。（w1440-02.png）
+
+**やること**: 原因の部品を直す。同じ崩れがほかのページにも出る共通の部品（コンテナ・カード・導線の部品）なら、ページごとに直さず部品を直す。
+
+**完了条件**: `npm run site-visual-review -- prepare --keys exam-hub-civil1` で撮り直して判定し、record で pass と台帳に記録される。
+
+
 ### [DN-1230] 検索結果の広告に競合のココナラ出品が出ている（AdSense で広告主をブロック）
 タグ: [領域:サイト] [時期:2026-11] [種類:意思決定] [起票:2026-11-17]
 
