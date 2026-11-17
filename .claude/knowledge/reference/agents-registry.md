@@ -63,7 +63,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/magazine-to-pdf` | `magazine-pdf-builder` |
 | `/note-attach-pdf` | `magazine-pdf-builder` |
 | `/note-hashtags` | `note-link-injector` |
-| `/note-membership` | `note-membership-operator` |
 | `/note-prepublish-review` | `note-fact-checker` `note-link-injector` `svg-figure-auditor` |
 | `/note-visual-review` | `note-page-visual-auditor` |
 | `/notebooklm-research` | `cem-qa` |
@@ -93,7 +92,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 ## エージェント一覧
 
 <!-- generated:agents:start（npm run build-capability-index が書く。手で直さない） -->
-エージェント 84 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
+エージェント 83 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
 
 | エージェント | 種別 | model | 領域 | 説明 | 呼び出すスキル |
 |---|---|---|---|---|---|
@@ -144,8 +143,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `note-fact-checker` | 監査のみ | sonnet | product | note 公開用ドラフトの数値・主張・年度を doboku-note 内部データと突合する Evaluator。 | `/note-prepublish-review` `/pe-essay-review` |
 | `note-funnel-auditor` | 監査のみ | sonnet | product | note 導線の3層（L1/L2/L3）を、もくじの構成・CTA 関連性・回遊の質で意味監査する Evaluator（audit-only）。 | `/audit-note-funnel` |
 | `note-link-injector` | 編集可 | sonnet | product | note 公開用ドラフトに doboku-note キーワードページへのインラインリンクを注入する Generator。 | `/note-hashtags` `/note-prepublish-review` |
-| `note-membership-operator` | 編集可 | sonnet | product | note「土木セコカン合格ラボ」の会員配信・特典収録・プラン設定を運用する。口座と公開範囲が不一致なら公開しない。Use when [会員特典配信]. | `/note-membership` |
-| `note-operator` | 編集可 | sonnet | product | note の価格・マガジン・収録・購入者コメント返信・PDF 添付を運用する。会員プランは note-membership-operator。Use when [note 価格変更]. | — |
+| `note-operator` | 編集可 | sonnet | product | note の価格・マガジン・収録・購入者コメント返信・PDF 添付を運用する。Use when [note 価格変更]. | — |
 | `note-page-visual-auditor` | 監査のみ | sonnet | product | note の公開ページの代表を画面幅ごとに撮った画像を見て、見た目の崩れ・カバーの切れ・図の不一致・価格の食い違い・有料エリア直前の情報不足をページごとに pass / fail で判定する Evaluator。直さない。 | `/note-visual-review` |
 | `page-design-builder` | 編集可 | sonnet | site | サイト UI・レイアウトを共通コンポーネントとトークンで実装する Generator。合否は /design-review。SVG・カバーは担当外。Use when [ページUI設計]. | `/site-visual-review` |
 | `past-exam-qa` | 監査のみ | sonnet | site | 全資格の過去問 MDX を正答・解説・ExamPoint・可読性で監査する Evaluator。修正・PDF 忠実性・図クロップは別担当。Use when [過去問品質監査]. | — |

@@ -52,7 +52,7 @@ developer_instructions = """
 - 添削下書きの生成そのもの → `civil-keiken-tensaku-drafter`（`/keiken-tensaku` 経由で呼ぶ）
 - 最終赤入れ・トークルーム返信送信 → 運営者（人間）
 - 新規出品時の有料オプションと画像の自動投入（FAQ は新規出品でも入る・既存出品の編集では FAQ/有料オプションを自動反映）→ 新規出品後はココナラ UI で手動
-- note 側の操作（価格変更・マガジン収録） → `note-operator` / `note-membership-operator`
+- note 側の操作（価格変更・マガジン収録） → `note-operator`
 - 売上の月次集計 → `sales-recorder`（`/record-sales`）
 - **ココナラブログ**（記事の執筆・採点・公開） → `/coconala-blog`（`coconala-blog-writer` / `coconala-blog-qa`・
   真実源 `coconala-blog-policy.md`）。本エージェントは出品と受注が対象で、ブログには触れない
