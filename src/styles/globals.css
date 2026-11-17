@@ -1366,8 +1366,9 @@ html[data-program-split="alternate"] [data-program-split-arm="primary"] {
   display: none;
 }
 
-/* AdSense の手動の枠（src/components/ads/AdSlot.tsx）。配信の無い枠は「広告」の表示ごと畳む */
-.adsense-slot:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+/* AdSense の手動の枠（src/components/ads/AdSlot.tsx）。配信の無い枠と、要求が出なかった枠（data-ad-empty・DN-1228）は畳む */
+.adsense-slot:has(ins.adsbygoogle[data-ad-status="unfilled"]),
+.adsense-slot[data-ad-empty] {
   display: none;
 }
 /* 手元・プレビューでの AdSense の置き場の目印（AdSlot が data-adsense-preview を付ける。本番には出ない） */
