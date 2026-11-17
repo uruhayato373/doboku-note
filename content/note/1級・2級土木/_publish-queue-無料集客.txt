@@ -6,9 +6,9 @@
 #   1日1本ドリップ:  ... --schedule-start 2026-06-24T07:00 --interval-hours 24 --commit
 # 冪等: frontmatter に noteUrl があれば自動スキップ（再実行で途中再開）。
 # 公開後 note-publish が noteUrl/noteId/notePublishedAt を frontmatter に writeback → git pull で本セッションへ反映。
-# 順序の根拠: ①無料→買い切り/会員の分岐入口（リードマグネット）→ ②2級の購入直結BOFU → ③1級（現状ライブ0本＝新チャネル開通）→ ④2級の入口拡大
+# 順序の根拠: ①無料→買い切りの入口（リードマグネット）→ ②2級の購入直結BOFU → ③1級（現状ライブ0本＝新チャネル開通）→ ④2級の入口拡大
 
-# --- ① 無料リードマグネット（買い切り/会員への分岐入口を最初に立てる）---
+# --- ① 無料リードマグネット（買い切りへの入口を最初に立てる）---
 content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md
 content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md
 content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md
