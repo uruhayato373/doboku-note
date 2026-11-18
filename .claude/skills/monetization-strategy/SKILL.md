@@ -55,6 +55,8 @@ doboku-note は土木工学に関するドキュメントサイト（Next.js 16 
 
 ### Step 2: 候補戦略のブレインストーム
 
+商品の品揃え・価格の案が論点のとき（月次だけ）は、`product-portfolio-planner`（planner・書かない・`model: inherit`）を 1 回起動して案の材料を受け取り、下の候補に反映する。総監の note 有料記事の編集ロードマップは `/pe-note-plan` が担う。
+
 doboku-note に適した収益化モデルを 3-5 案生成する。以下のカテゴリを考慮:
 
 | カテゴリ | doboku-note での例 |

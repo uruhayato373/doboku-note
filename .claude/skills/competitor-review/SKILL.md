@@ -2,7 +2,7 @@
 name: competitor-review
 category: management
 description: >
-  note / X / Instagram / ココナラの競合を四半期に再取得し、ドリフト検出→competitor-analyst の評価→承認後に SSOT へ反映する。Use when user asks to [競合を再調査, 競合レビュー, 競合分析を更新, /competitor-review].
+  note / X / Instagram / ココナラの競合を四半期に再取得し、ドリフト検出→チャネル別の analyst（sales-competitor-analyst／content-competitor-analyst）の評価→承認後に SSOT へ反映する。Use when user asks to [競合を再調査, 競合レビュー, 競合分析を更新, /competitor-review].
 user-invocable: true
 domain: strategy
 ---
@@ -51,10 +51,17 @@ npm run scout-youtube-competitors               # YouTube（追跡チャンネ�
 
 ### 2. 意味評価（analyst）
 
-`competitor-analyst` サブエージェント（sonnet）に対象チャネルのスナップショットを渡す（親が手順1を実行済みであること）。
+**チャネルで呼び分ける**（どちらも sonnet・資格を引数で渡す・親が手順1を実行済みであること）。呼ぶのは対象チャネルがあるほうだけで、`--platform all` のときは 2 体を順に回す（同時起動しない）。
+
+| 対象チャネル | 起動するエージェント | 見るもの |
+|---|---|---|
+| note・ココナラ・Kindle（`--platform note\|coconala`） | `sales-competitor-analyst` | 価格・品揃え・訴求 |
+| X・Instagram・YouTube（`--platform x\|ig\|youtube`） | `content-competitor-analyst` | 型・論点・再生（旧「SNS 定点観測」） |
+
+どちらの出力も `config/competitor-positions.json` の差分案に統一されている。
 
 - 入力: `npm run competitor-position`（現在の立ち位置と実測）、各チャネルの `snapshot.json`（`drift[]` を起点に）、資格ごとの混み具合 `npm run qualification-market -- --json`、参照 09・07・`src/lib/note-magazines.ts`・`src/lib/coconala-services.ts`（自社実価格）
-- 出力: 4観点（ポジショニング/価格対比/品揃えギャップ/脅威と代替軸）＋**「反映パッチ」＝反映先SSOT（09 or 07）と節番号を明示したそのまま貼れる文案**
+- 出力: 観点別の評価＋**`competitor-positions.json` の差分案**（§5・文章の修正案ではない。09・07 の文章に波及する節は節番号だけ）
 - audit-only（取得・価格変更・doc への直接書込みはしない）
 
 ### 3. 反映（ユーザー承認 → 親が適用）
@@ -62,7 +69,7 @@ npm run scout-youtube-competitors               # YouTube（追跡チャンネ�
 - **資格ごとの結論は `config/competitor-positions.json` へ入れる**（文書へ写さない）。取得で数字が変わっただけなら、読み直して `reviewedOn` を更新する。主張が変わったら `rivals`・`avoid`・`stances`・`limits` を直す
 - 適用後に `npm run check-competitor-positions` を通す。市場の検索で目立つ相手の見落とし、空きの主張の崩れ、文章への観測値の写し、年間の枠の参照切れで止まる
 - 検索語が足りない主張は `config/market-scan.json` の `probeKeywords` に足して `npm run scan-qualification-market -- --qualification <id>` で取り直す
-- analyst の反映パッチを**ユーザーに提示**し、承認を得てから親が該当 doc（価格/品揃え→09・エンゲージ/コンテンツ型→07）を Edit で更新
+- analyst の差分案を**ユーザーに提示**し、承認を得てから親が該当 doc（価格/品揃え→09・エンゲージ/コンテンツ型→07）を Edit で更新
 - **鉄則（現物照合）**: 自社価格を書くときは `note-magazines.ts`/`coconala-services.ts` を Read して file:line で裏取り。裏取りできない主張は confidence:low か「未確認」
 
 ## 安全弁（チャネル別）
@@ -79,12 +86,12 @@ npm run scout-youtube-competitors               # YouTube（追跡チャンネ�
 X scout は各競合の**エンゲージ上位10投稿**（`engagementLeaders`・`vsAvg`＝自アカ平均比）を時系列で蓄積する。四半期ごとに「どの投稿・切り口が伸びたか」を定点観測し、**勝ち型（フォーマット・トピック・切り口）を自社に取り込む**。
 
 - **奪うのは"型"であって"文面"ではない**: `vsAvg ≥ 2` の投稿から**フォーマット**（例: 解答速報／頻出予想「偶数年は◯◯が鉄板」／試験前後の感情訴求／現役者の劣化解説）を抽出する。**文面の丸写し・微改変での再利用は禁止**（`x-post-policy.md` §11.1 の near-duplicate BLOCK＝凍結カテゴリ spam の本丸。@dobokunotecom 凍結の再現になる）。
-- **原案化は `x-post-writer`**（ユニーク性を強制）へ橋渡しする: competitor-analyst が「転用する型」を surface → `x-post-writer` が自社の合格体験者ポジションで**原案**を生成 → `x-post-qa`（§11 ゲート）で near-duplicate を機械検査。
+- **原案化は `x-post-writer`**（ユニーク性を強制）へ橋渡しする: `content-competitor-analyst` が「転用する型」を surface → `x-post-writer` が自社の合格体験者ポジションで**原案**を生成 → `x-post-qa`（§11 ゲート）で near-duplicate を機械検査。
 - 試験対策と無関係に伸びる投稿（例: 給与・処遇批判）は**追わない**（ブランド不整合）。型の抽出は exam-prep 純度の高い勝ち投稿に限る。
 
 ## 関連
 
 - 機械: `scripts/lib/weekly-collect-plan.mjs` の `competitors` 段・`scripts/scout-{note,x,ig,youtube}-competitors.mjs`・`scout-coconala-competitors.mjs`・`check-competitor-scan-due.mjs`
 - 勝ち型の原案化: `x-post-writer`（生成・ユニーク性強制）／`x-post-qa`（§11 near-duplicate ゲート）
-- Evaluator: `competitor-analyst`（[agents-registry.md](../../knowledge/reference/agents-registry.md)）
+- Evaluator: `sales-competitor-analyst`・`content-competitor-analyst`（[agents-registry.md](../../knowledge/reference/agents-registry.md)）
 - config: `config/competitors.json`（競合ハンドル SSOT・チャネル別）

@@ -109,6 +109,7 @@ export const DATASETS = [
   // 商品
   d('config.products', 'config/products.json', 'master', 'product', '商品の正本（全チャネル・1ファイル。書き換えは npm run product）', { schema: 'ConfigProducts', refs: [{ at: 'products[].qualification', to: 'qualification' }] }),
   d('config.product-lineup', 'config/product-lineup.json', 'config', 'product', '商品ラインナップの分類', { schema: 'ProductLineup' }),
+  d('config.sales-product-map', 'config/sales-product-map.json', 'config', 'product', '売上の商品名から productId を決める対応表（check-sales-mapping が台帳と照合）', { schema: 'ConfigSalesProductMap' }),
   d('config.content-themes', 'config/content-themes.json', 'config', 'product', '制作物のテーマの語彙とチャネル→テーマの写し方', { schema: 'ConfigContentThemes' }),
   d('config.note-funnel', 'config/note-funnel.json', 'config', 'product', 'note 導線（ファネル）の構成', { schema: 'NoteFunnel' }),
   d('config.site-cta-surfaces', 'config/site-cta-surfaces.json', 'config', 'product', 'サイトの広い面（資格トップ・記事の横の欄・記事末のタイル・/links の先頭）から note のもくじ・パック・単品のどこへ案内するか（季節の切り替えを含む・DN-1223）', { schema: 'ConfigSiteCtaSurfaces' }),
@@ -379,7 +380,7 @@ export const DATASETS = [
   d('state.link-audit', '.claude/state/link-audit/audit-{ts}.json', 'series', 'site', '内部リンクの監査'),
   d('state.link-audit-external', '.claude/state/link-audit/external-latest.json', 'state', 'site', '外部リンクの監査の最新'),
   d('state.link-audit-report', '.claude/state/link-audit/latest-report.md', 'report', 'site', 'リンクの監査の最新の報告'),
-  d('state.improvements', '.claude/state/improvements/{date}{suffix}.md', 'report', 'site', '改善候補の報告（performance-auditor・調査）'),
+  d('state.improvements', '.claude/state/improvements/{date}{suffix}.md', 'report', 'site', '改善候補の報告（/psi-audit の親・調査）'),
   d('state.improvements-evidence', '.claude/state/improvements/{name}-{date}.json', 'evidence', 'site', '改善候補の根拠（同じ名前の .md と対）'),
   d('state.improvements-topic', '.claude/state/improvements/{name}-{date}.md', 'report', 'site', '主題ごとの改善候補の報告（同じ名前の .json と対）'),
   d('state.search-growth-report', '.claude/state/improvements/search-growth-latest.md', 'report', 'site', '検索の成長の最新の報告'),

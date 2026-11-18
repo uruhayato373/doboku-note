@@ -33,7 +33,7 @@
 
 ## バイナリ容量管理（Google Drive vault へ退避）
 
-reels の wav/mp4 等の再生成可能バイナリは git に溜め込まず Google Drive vault（`制作物/SNS音声動画/`）へ退避する。判定は `sns-archive-auditor` エージェント、実行は `npm run drive-vault-sync -- --group sns-archived-media --commit`（2026-09-05 DN-0170 で旧 `upload-sns-r2`＝R2 系統を廃止）。詳細・3層モデル・安全不変条件は `.claude/knowledge/reference/sns-archive-policy.md`。
+reels の wav/mp4 等の再生成可能バイナリは git に溜め込まず Google Drive vault（`制作物/SNS音声動画/`）へ退避する。判定は `npm run report-sns-archive-candidates`、実行は `npm run drive-vault-sync -- --group sns-archived-media --commit`（2026-09-05 DN-0170 で旧 `upload-sns-r2`＝R2 系統を廃止）。詳細・3層モデル・安全不変条件は `.claude/knowledge/reference/sns-archive-policy.md`。
 
 通常動画、Shorts、Reelsも同じ原則を適用し、mp4・wav・字幕・レンダリングフレームを動画パックへコミットしない。
 

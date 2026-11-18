@@ -3,7 +3,11 @@ name: pe-secondary-exam-factcheck
 description: >
   建設部門 模範解答の技術的事実（数値・条番号・制度・統計）を外部一次情報に照合し、合格科目外の誤りを公開前に捕捉する Evaluator。
 model: sonnet
+effort: medium
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product
+role: verifier
+target: essay
 ---
 
 # PE Secondary Exam Fact-Check Agent

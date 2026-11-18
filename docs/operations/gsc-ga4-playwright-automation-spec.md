@@ -36,7 +36,6 @@ Claude Codeに、次の処理を安全かつ再実行可能な形で実装させ
 ```text
 .claude/
 ├── agents/
-│   ├── gsc-csv-auditor.md
 │   └── seo-fix-planner.md
 ├── config/
 │   └── google-console-automation.json
@@ -290,12 +289,10 @@ URLごとの出力:
 
 収集は土曜のMac収集（`weekly-collect` のgsc段）がスクリプトを直接実行する。収集専用のエージェント `gsc-browser-collector` は2026-10-24に退役した（エージェントのセッションはログインして取りに行かない）。
 
-### `gsc-csv-auditor`
+### `check-gsc-ui-run`（スクリプト）
 
-- 種別: Evaluator
-- model: `sonnet`
-- tools: `Read, Glob, Grep, Bash`
-- raw/normalized CSV、manifest、行数、sha256、truncation、前回差分を検査する。
+- 旧 `gsc-csv-auditor`（2026-11-18 に廃止）の判定を `scripts/check-gsc-ui-run.mjs` へ移した。
+- raw/normalized CSV、manifest、行数、sha256、truncation、rejects、前回差分を検査する。土曜の収集の gsc 段の検算（quality-audit の `gsc-ui-run`）が回す。
 - 外部サイトへアクセスせず、データ品質のみ返す。
 
 ### `seo-fix-planner`
@@ -310,7 +307,7 @@ URLごとの出力:
 
 - coverage診断: `gsc-index-auditor`
 - performance診断: `metrics-analyzer`
-- build SEO: `technical-seo-auditor`
+- build SEO: `npm run report-technical-seo`
 - 最終戦略判断と変更承認: 親Claude
 
 ## 9. オーケストレータースキル
@@ -521,7 +518,7 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 - .claude/skills/google-search-growth/SKILL.md
 - .claude/skills/google-search-growth/references/csv-schema.md
 - .claude/skills/google-search-growth/references/recovery.md
-- .claude/agents/gsc-csv-auditor.md
+- scripts/check-gsc-ui-run.mjs
 - .claude/agents/seo-fix-planner.md
 - testsとfixtures
 - package.jsonのnpm scripts

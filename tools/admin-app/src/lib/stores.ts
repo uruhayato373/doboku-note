@@ -136,7 +136,7 @@ function codeRefs(root: string, token: string): string[] {
 }
 
 /** 台帳の writer（'script:product' など）を人が読む呼び名にする関数を返す。自動化は題名で出す（config/automations.json） */
-function writerLabeler(root: string): (writer: string) => string {
+export function writerLabeler(root: string): (writer: string) => string {
   const automations = (readDatasetIf(root, 'config.automations') as { automations?: { id: string; title: string }[] } | null)?.automations ?? [];
   const titles = new Map(automations.map((a) => [a.id, a.title]));
   return (writer) => {

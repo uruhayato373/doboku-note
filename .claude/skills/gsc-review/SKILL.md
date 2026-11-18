@@ -79,7 +79,7 @@ API と CI の記録で取れない 4 項目は、月次レビューの前に GS
 
 - GSC データの取得（CI の責務）／history.json への追記（CI の `append-coverage-history.mjs`）
 - 理由別 UI CSV の取得（`/google-search-growth`＝ローカル手動・月次）
-- performance / CWV の分析（`/weekly-improve` / `performance-auditor`）
+- performance / CWV の分析（`/weekly-improve` / `npm run report-psi-regression`）
 - 修正の自動実施（ユーザー判断 + 各 Generator）
 
 ## 参照

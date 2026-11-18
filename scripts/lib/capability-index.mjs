@@ -38,6 +38,8 @@ export function parseEntry(content) {
     domain: d.domain == null ? '' : String(d.domain),
     description: oneLine(d.description),
     model: d.model == null ? '' : String(d.model),
+    role: d.role == null ? '' : String(d.role),
+    target: d.target == null ? '' : String(d.target),
     tools: d.tools == null ? null : oneLine(Array.isArray(d.tools) ? d.tools.join(', ') : d.tools),
     body: parsed.content ?? '',
   };
@@ -73,13 +75,48 @@ export function renderSkills(skills) {
   return out.join('\n').trimEnd();
 }
 
-export function renderAgents(agents, callers) {
-  const out = [`エージェント ${agents.length} 体（\`.claude/agents/*.md\` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。`, '', '| エージェント | 種別 | model | 領域 | 説明 | 呼び出すスキル |', '|---|---|---|---|---|---|'];
+export function renderAgents(agents, callers, labels = {}) {
+  const role = (r) => labels.roles?.[r] ?? r;
+  const out = [`エージェント ${agents.length} 体（\`.claude/agents/*.md\` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。`, '', '| エージェント | 役割 | 対象 | 種別 | model | 領域 | 説明 | 呼び出すスキル |', '|---|---|---|---|---|---|---|---|'];
   for (const a of [...agents].sort((x, y) => x.name.localeCompare(y.name))) {
     const by = callers.get(a.name) ?? [];
-    out.push(`| \`${a.name}\` | ${agentKind(a.tools)} | ${cell(a.model)} | ${cell(a.domain)} | ${cell(a.description)} | ${by.map((s) => `\`/${s}\``).join(' ') || '—'} |`);
+    out.push(`| \`${a.name}\` | ${cell(role(a.role)) || '—'} | ${cell(a.target) || '—'} | ${agentKind(a.tools)} | ${cell(a.model)} | ${cell(a.domain)} | ${cell(a.description)} | ${by.map((s) => `\`/${s}\``).join(' ') || '—'} |`);
   }
   return out.join('\n');
+}
+
+/** 「行（領域か対象）×役割」の表。セルはエージェント名。labels.roles の並びを列にする */
+function roleMatrix(agents, rowKey, rows, rowLabel, roleIds, roleName) {
+  const head = `| ${rowLabel} | ${roleIds.map(roleName).join(' | ')} |`;
+  const out = [head, `|---|${roleIds.map(() => '---').join('|')}|`];
+  for (const [id, label] of rows) {
+    const mine = agents.filter((a) => a[rowKey] === id);
+    if (!mine.length) continue;
+    const cells = roleIds.map((r) => mine.filter((a) => a.role === r).map((a) => `\`${a.name}\``).sort().join(' ') || '—');
+    out.push(`| ${cell(label)} | ${cells.join(' | ')} |`);
+  }
+  return out;
+}
+
+/** 領域×役割・対象×役割の表（agents-registry.md の生成区間 agent-roles）。語彙と並びは config/domains.json */
+export function renderAgentRoles(agents, labels = {}) {
+  const roleIds = Object.keys(labels.roles ?? {}).length ? Object.keys(labels.roles) : [...new Set(agents.map((a) => a.role))].sort();
+  const roleName = (r) => labels.roles?.[r] ?? r;
+  const domains = labels.domains?.length ? labels.domains : [...new Set(agents.map((a) => a.domain))].sort().map((d) => [d, d]);
+  const targets = Object.entries(labels.targets ?? {}).length
+    ? Object.entries(labels.targets).map(([id, l]) => [id, `${l}（${id}）`])
+    : [...new Set(agents.map((a) => a.target))].sort().map((x) => [x, x]);
+  return [
+    '役割と対象は各エージェントの frontmatter の `role:`・`target:`（語彙と重複の説明は領域の正本の agentRoles・agentTargets・agentOverlaps。`npm run check-domains` が止める）。',
+    '',
+    '**領域×役割**',
+    '',
+    ...roleMatrix(agents, 'domain', domains, '領域', roleIds, roleName),
+    '',
+    '**対象×役割**',
+    '',
+    ...roleMatrix(agents, 'target', targets, '対象', roleIds, roleName),
+  ].join('\n');
 }
 
 export function renderCallMap(map) {
@@ -103,10 +140,10 @@ export function replaceRegion(doc, id, body) {
 export const markers = { start: startMark, end: endMark };
 
 /**
- * 生成物を作る。入力は読み込んだファイルの中身。
+ * 生成物を作る。入力は読み込んだファイルの中身と、役割・対象・領域の表示名（labels: { roles, targets, domains:[[id,label]] }。無ければ id のまま）。
  * @returns {{ skills: object[], agents: object[], invalid: string[], regions: Record<string, string> }}
  */
-export function buildIndex({ skillFiles, agentFiles }) {
+export function buildIndex({ skillFiles, agentFiles, labels = {} }) {
   const invalid = [];
   const read = (files) => files.map(({ path, content }) => { const e = parseEntry(content); if (!e) invalid.push(path); return e; }).filter(Boolean);
   const skills = read(skillFiles);
@@ -114,5 +151,5 @@ export function buildIndex({ skillFiles, agentFiles }) {
   const map = skillAgentMap(skills, agents.map((a) => a.name));
   const callers = new Map();
   for (const [skill, names] of map) for (const name of names) callers.set(name, [...(callers.get(name) ?? []), skill].sort());
-  return { skills, agents, invalid, regions: { skills: renderSkills(skills), agents: renderAgents(agents, callers), 'skill-agent-map': renderCallMap(map) } };
+  return { skills, agents, invalid, regions: { skills: renderSkills(skills), agents: renderAgents(agents, callers, labels), 'agent-roles': renderAgentRoles(agents, labels), 'skill-agent-map': renderCallMap(map) } };
 }

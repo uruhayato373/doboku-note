@@ -3,8 +3,11 @@ name: standards-page-visual-auditor
 description: >
   基準書の章ページの撮影を原本のページ画像と見比べ、読者の画面の崩れ・欠けを章ごとに pass / fail で判定する Evaluator。直さない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: site
+role: qa
+target: standards-page
 ---
 
 # Standards Page Visual Auditor

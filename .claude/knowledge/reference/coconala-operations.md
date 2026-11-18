@@ -323,7 +323,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 納品の実務メモ: 複数冊を **ZIP でまとめて送るときは解凍手順を一文添える**（2026-08-07 に購入者が実際につまずいた）。
 購入時メッセージには**納品形態（PDF か・何冊か）を明記**する——初回の質問はここに集中した。
 
-添削3ステップ（字数→論点抽出→最終赤入れ）の真実源は [2級経験記述-添削テンプレ.md](../../../content/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)。トークルーム定型文（初回挨拶・シート送付・C系 PDF 送付・満枠断り・書き直し受付・S1 診断返却テンプレ）は [ココナラ展開キット.md §4c](../../../content/note/1級・2級土木/ココナラ展開キット.md)、S2 納品文面テンプレは `.claude/agents/coconala-operator.md`。
+添削3ステップ（字数→論点抽出→最終赤入れ）の真実源は [2級経験記述-添削テンプレ.md](../../../content/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)。トークルーム定型文（初回挨拶・シート送付・C系 PDF 送付・満枠断り・書き直し受付・S1 診断返却テンプレ）は [ココナラ展開キット.md §4c](../../../content/note/1級・2級土木/ココナラ展開キット.md)、S2 納品文面テンプレは `.claude/agents/coconala-listing-operator.md`（出品）・`coconala-order-drafter.md`（受注の下書き）・`coconala-traffic-analyst.md`（閾値越えの解釈）。
 
 ## 3-1. 受注に気づく経路（通知メールの宛先）
 
@@ -380,7 +380,7 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 定型の一文で終わらせず、その取引で実際に起きたことを1つ以上入れる。同一顧客の複数取引では
 文面を書き分ける（同じ文が並ぶと機械的に見える）。
 
-## 4. KPI 週次運用（`/coconala-analytics` → `/coconala-status`）
+## 4. KPI 週次運用（`/coconala-status`）
 
 1. ココナラの分析画面を**read-only で自動取得**する（`npm run coconala-analytics -- --append-kpi` → `npm run check-coconala-analytics`）。手動貼付も引き続き可
 2. kpi.json へ週次 upsert ＋ orders.json から受注サマリ
@@ -396,7 +396,7 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 > だった（初受注 08-04・出品 07-16 を経ても撤退ライン判定の素地が無い）。運用が回らない安全策は
 > 安全ではないので、**ログイン必須の自社分析画面も read-only で自動取得する**（ユーザー判断）。
 > 安全弁は受注収集（§2.2b）と同じ＝`assertAccount`・低頻度（週次）・**書き込み操作なし**
-> （メモ追加・期間変更・出品操作をしない）。取得は `/coconala-analytics`。
+> （メモ追加・期間変更・出品操作をしない）。取得は土曜の収集の `npm run coconala-analytics`。
 >
 > 変わらない線引き: **公開ページの競合調査**（`npm run coconala-research`・§2.3）は商品設計の一次データで、
 > こちらは自社実績。両者は依然スコープが直交する。
@@ -737,7 +737,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 の3点から**記事型（9.2）を先に立てる**。9.3 は出品フォーム未探査のまま残置（backlog）。
 
 実装 → [coconala-blog-policy.md](coconala-blog-policy.md)（真実源）・`/coconala-blog` スキル・
-`coconala-blog-writer` / `coconala-blog-qa`・`scripts/coconala-blog-publish.mjs`・`npm run check-coconala-blog`
+`scripts/coconala-blog-publish.mjs`・`npm run check-coconala-blog`
 
 ## 関連
 
@@ -746,4 +746,4 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 - 添削パイプライン: `/keiken-tensaku`（`civil-keiken-tensaku-drafter`）／添削テンプレ: [2級経験記述-添削テンプレ.md](../../../content/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)
 - 売上: [sales-tracking.md](sales-tracking.md)（`coconala:<serviceId>` 命名）
 - チャネルの位置づけ: note は買い切りの本店、ココナラは人が手を入れる商品（診断・添削・指導）の売り場。高単価の方向は [22_チャネル別商品設計2026-11.md](../../../docs/strategy/22_チャネル別商品設計2026-11.md) §5
-- エージェント: `.claude/agents/coconala-operator.md` ／ スキル: `/coconala-publish`（出品・修正）・`/coconala-order`（受注）・`/coconala-status`（KPI）
+- エージェント: `.claude/agents/coconala-listing-operator.md`（出品）・`coconala-order-drafter.md`（受注の下書き）・`coconala-traffic-analyst.md`（閾値越えの解釈） ／ スキル: `/coconala-publish`（出品・修正）・`/coconala-order`（受注）・`/coconala-status`（KPI）

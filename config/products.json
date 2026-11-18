@@ -11142,7 +11142,7 @@
         "原稿配置: content/note/RCCM/magazines/。id 接頭辞 rccm-（exam-brand.ts examKeyOf → 'rccm'）。",
         "2026 年度は CBT 試験期間 9/1〜10/31 が進行中（exam-calendar.json rccm）。問題III は事前公開 6 テーマから 1 題。",
         "公式過去問は非公開のため問題文は収録せず、模範論文・テンプレ・論点集は全て自作。",
-        "公開時: noteUrl 埋め → published:true → note-funnel.json exams.rccm → sales-recorder.md 行（同一 commit）。",
+        "公開時: noteUrl 埋め → published:true → note-funnel.json exams.rccm → sales-product-map.json 行（同一 commit）。",
         "2026-09-15 公開: 7 記事（序章無料＋6 テーマ ¥780）を note 公開 → マガジン m770bef96b39f（¥3,480）へ 7/7 収録 → カバー SET。"
       ]
     },

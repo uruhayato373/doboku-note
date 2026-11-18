@@ -96,12 +96,12 @@ domain: ops
 | **既存原則の精緻化** | 既存ルールの境界・例外・適用手順が明確化された | `content-principles.md` を修正 |
 | **ユーザー嗜好** | 一般化しにくい個別の好み／ワークスタイル | `memory/` （feedback 型） |
 | **ワークフロー改善** | 校正の進め方・順序・ツール使い方の改善 | 関連 SKILL.md / `workflows.md` |
-| **採点・リライト改修** | 採点ルーブリック（cem-qa 5 軸）・リライト方法論（4 視点 × Phase 対応）の改修。ほかの分類と同じくその場で適用する | 下の「反映先」の同期更新 |
+| **採点・リライト改修** | 採点ルーブリック（keyword-qa 5 軸）・リライト方法論（4 視点 × Phase 対応）の改修。ほかの分類と同じくその場で適用する | 下の「反映先」の同期更新 |
 
 **採点・リライト議論候補の判定基準**:
 
 - **採点側候補**: 採点軸の重み・閾値・新軸追加・既存軸の判定基準改修など
-  - 反映先: `cem-qa.md` + `content-principles.md` + `templates/cem.md` の **3 ファイルを同じ commit で同期更新する**
+  - 反映先: `keyword-qa.md`・`profiles/keyword/cem.md` + `content-principles.md` + `templates/cem.md` の **3 ファイルを同じ commit で同期更新する**
 - **リライト側候補**: 視点タグ追加・Phase 対応の見直し・拡張パターン A-G 改修・NLM 照合プロンプト調整など
   - 反映先: `quality-cycle/SKILL.md` ほか該当 SKILL.md の修正
 - **2 回ルール**: 1 回限りの違和感は次サイクル再観察、2 回以上浮上したパターンだけを適用する
@@ -205,7 +205,7 @@ domain: ops
 **観察**: [両サイクルで共通して見られた現象]
 **仮説**: [採点軸の改修案 or リライト方法論の改修案]
 **反映先（同じ commit で同期更新）**:
-- 採点側の場合: `.claude/agents/cem-qa.md` + `.claude/knowledge/reference/content-principles.md` + `templates/cem.md`（3 ファイル同期）
+- 採点側の場合: `.claude/agents/keyword-qa.md`・`.claude/agents/profiles/keyword/cem.md` + `.claude/knowledge/reference/content-principles.md` + `templates/cem.md`（3 ファイル同期）
 - リライト側の場合: `.claude/skills/quality-cycle/SKILL.md` ほか該当 SKILL.md
 
 

@@ -25,9 +25,9 @@
  *   report   : 全データを集計してコンソール表示
  *
  * ──subagent モード（Claude Code 経由で動かす）──
- *   score    : 上位 N 件を cem-qa subagent で評価 → quality-scores.json
+ *   score    : 上位 N 件を keyword-qa subagent で評価 → quality-scores.json
  *   rewrite  : 弱いページを keyword-rewriter subagent で改訂 → state 更新
- *   verify   : リライト後を cem-qa で再評価 → state 更新
+ *   verify   : リライト後を keyword-qa で再評価 → state 更新
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -103,11 +103,11 @@ Modes (機械的・subagent 不要):
   --mode report          ダッシュボード表示
 
 Modes (subagent 必要):
-  --mode score           上位 N 件を cem-qa subagent で質的評価
+  --mode score           上位 N 件を keyword-qa subagent で質的評価
                          (subagent 起動用プロンプトを出力するのみ)
   --mode rewrite         弱いページを keyword-rewriter で改訂
                          (subagent 起動用プロンプトを出力するのみ)
-  --mode verify          リライト後を cem-qa で再評価
+  --mode verify          リライト後を keyword-qa で再評価
                          (subagent 起動用プロンプトを出力するのみ)
 
 Options:

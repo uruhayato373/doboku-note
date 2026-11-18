@@ -1,8 +1,8 @@
 // スキャン書籍 図クロップ監査 Workflow テンプレート（audit/refine ループの監査側）。
 //
-// 生成済みクロップ PNG を scanned-figure-crop-auditor に groupSize ずつ順次ファンアウトし、
+// 生成済みクロップ PNG を figure-crop-auditor（種類: scanned）に groupSize ずつ順次ファンアウトし、
 // 各図の pass / 4軸スコア / adjust_bbox（相対調整値）を返す。main が apply_deltas_recrop.py で
-// 算術適用→不合格図のみ再クロップ→本ワークフロー再実行、を最大2〜3反復して締める。
+// 算術適用→不合格図のみ再クロップ→本ワークフロー再実行、を最大2反復（3回目は親が判断）して締める。
 //
 // args:
 //   {
@@ -15,14 +15,14 @@
 //
 // 返り値 results を WORK/audit.json に保存 → apply_deltas_recrop.py に渡す。
 //
-// 注意（落とし穴）: scanned-figure-crop-auditor を**新規作成した直後の同一セッション**では
+// 注意（落とし穴）: figure-crop-auditor を**新規作成した直後の同一セッション**では
 // agentType として解決できない（エージェント定義はセッション開始時ロード）。その場合は
 // args.agentType:"general-purpose" を渡す（本ワークフローのプロンプトに4軸ルーブリックを内包済みで自己完結）。
-// セッションを開き直せば agentType 既定の scanned-figure-crop-auditor が使える。
+// セッションを開き直せば agentType 既定の figure-crop-auditor が使える。
 export const meta = {
   name: 'scanned-figure-crop-audit',
-  description: 'スキャン書籍 図クロップを scanned-figure-crop-auditor で4軸採点し adjust_bbox を返す。groupSize順次でレート制限抑制',
-  phases: [{ title: 'Load', detail: '監査ジョブ読込' }, { title: 'Audit', detail: 'scanned-figure-crop-auditor 群順次' }],
+  description: 'スキャン書籍 図クロップを figure-crop-auditor（scanned）で4軸採点し adjust_bbox を返す。groupSize順次でレート制限抑制',
+  phases: [{ title: 'Load', detail: '監査ジョブ読込' }, { title: 'Audit', detail: 'figure-crop-auditor（scanned）群順次' }],
 }
 
 const cfg = typeof args === 'string' ? JSON.parse(args) : args
@@ -69,7 +69,8 @@ const AUDIT_SCHEMA = {
 const buildPrompt = (J) => {
   const crop = `${cfg.imgDir}\\${J.figId}.png`
   const page = `${cfg.thumbDir}\\ch${J.chId}\\p${pad2(J.chosenPage)}.png`
-  return `スキャン教材の図クロップ PNG を4軸ルーブリックで採点し、bbox の相対調整値を返す（scanned-figure-crop-auditor）。
+  return `種類: scanned
+スキャン教材の図クロップ PNG を4軸ルーブリックで採点し、bbox の相対調整値を返す（figure-crop-auditor）。
 
 ## 対象キャプション（この図が正しく・タイトに切れているべき）
 ${J.caption}
@@ -100,7 +101,7 @@ for (let i = 0; i < jobs.length; i += GROUP) {
   const part = await parallel(
     slice.map((J) => () =>
       agent(buildPrompt(J), { label: `audit:${J.figId}`, phase: 'Audit',
-        agentType: cfg.agentType || 'scanned-figure-crop-auditor', model: cfg.model || 'sonnet', schema: AUDIT_SCHEMA })
+        agentType: cfg.agentType || 'figure-crop-auditor', model: cfg.model || 'sonnet', schema: AUDIT_SCHEMA })
         .then((r) => ({ figId: J.figId, chId: J.chId, result: r }))
         .catch((e) => ({ figId: J.figId, chId: J.chId, result: null, err: String(e) }))
     )

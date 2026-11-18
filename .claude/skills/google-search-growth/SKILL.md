@@ -2,7 +2,7 @@
 name: google-search-growth
 category: management
 description: >
-  GSC/GA4 の収集済み CSV・API データ・sitemap・生成 HTML を URL 単位で突合し、index coverage・検索 performance・技術 SEO を統合診断する。Use when user asks to [検索流入改善, /google-search-growth].
+  GSC/GA4 の収集済み CSV・API データ・sitemap・生成 HTML を URL 単位で突合し、index coverage・検索 performance・技術 SEO・検索意図の 4 面を統合診断する。Use when user asks to [検索流入改善, SEO総合レビュー, /google-search-growth].
 user-invocable: true
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash, Task
@@ -61,9 +61,9 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
    - 未ログインで取得が失敗していた場合は、運営者に `npm run auth:login -- --service google` を依頼する（セッションからは入らない）
    - GA4 は API 優先（`data/ga4/reports/`）。UI CSV が要るときも同じく記録を読む
 
-3. **validate**（`gsc-csv-auditor` を起動）
-   - raw CSV / manifest / 行数 / sha256 / truncation / rejects / 重複 / 前回差分を PASS/WARN/FAIL 判定
-   - FAIL（sha256 不一致・全 download 失敗等）なら再取得を促し、join へ進めない
+3. **validate**（`npm run check-gsc-ui-run`。旧 `gsc-csv-auditor` は廃止・DN-1242）
+   - raw CSV / manifest / 行数 / sha256 / truncation / rejects / 重複 / 前回差分をスクリプトが FAIL / WARN / INFO 判定（`--json` を親が読む）
+   - FAIL（sha256 不一致・全 download 失敗等）なら再取得を促し、join へ進めない。raw が無い checkout は exit 2（検査不成立）なので `npm run check-google-ui-ssot` の結果を読む
 
 4. **normalize**（決定的スクリプト）
    - 土曜の収集が取得と正規化まで済ませ、追跡 SSOT（`gsc-ui/ssot/`）を develop へ push 済み。raw CSV（gitignore）がこの checkout に無いときは、追跡 SSOT で 3〜4 の整合だけ確かめ、取り直さない
@@ -90,7 +90,11 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
    - `seo-fix-planner`（URL 分類の意味補正・優先順位）
    - `gsc-index-auditor`（coverage ratio・原因バケット）
    - `metrics-analyzer`（performance パターン）
-   - `technical-seo-auditor`（build SEO・canonical/sitemap hygiene）
+   - `search-intent-auditor`（検索意図。**metrics-analyzer が surface した最大 20 URL だけ**を渡す）
+   - 技術 SEO は `npm run report-technical-seo -- --json`（build 検査の履歴・seo-meta・index-coverage・sitemap の悪化と欠測。親が読んで優先度を決める）
+   - 技術の母集合は機械で先に確定する: `npm run check-seo-build -- --json`（out/ 全数）・`npm run check-seo-meta -- --json`（build が古ければ先に `npm run build`）
+   - CWV（任意）: `npm run report-psi-regression -- --json`（重大度と回帰。親が読んで改善案を決める）
+   - 数値は機械 JSON を出典引用する（Evaluator の再判定値は使わない）。title/description の一括変更は提案しない（少数 URL の 14〜28 日実験＝`/nsm-experiment` に限る）
    - 収集/品質が済んでから、可能な範囲で並列で呼ぶ
 
 7. **integrate**（親 Claude）

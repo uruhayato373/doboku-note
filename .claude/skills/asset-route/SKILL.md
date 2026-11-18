@@ -79,4 +79,4 @@ node scripts/asset-offload.mjs --forget-group <id> --commit                     
 - **`check-asset-storage` の not-offloaded**: Drive 台帳に載っているか active な Drive group に一致するファイルは数えない。
   出たら R2 tier の未退避＝`asset-offload`。
 - **reels の wav/mp4・YouTube Shorts mp4**（`sns-archived-media`）も 2026-09-05（DN-0170）から Drive vault `制作物/SNS音声動画/`
-  （旧 `upload-sns-r2`＝public R2 系統は廃止）。パック単位の退避可否は `sns-archive-auditor`（[sns-archive-policy.md](../../knowledge/reference/sns-archive-policy.md)）。
+  （旧 `upload-sns-r2`＝public R2 系統は廃止）。パック単位の退避可否は `npm run report-sns-archive-candidates`（OFFLOAD / ARCHIVE_KEEP / KEEP_LOCAL / BLOCK を SoT 無傷・投稿状態・更新日で決める。旧 `sns-archive-auditor` は廃止・DN-1242。[sns-archive-policy.md](../../knowledge/reference/sns-archive-policy.md)）。

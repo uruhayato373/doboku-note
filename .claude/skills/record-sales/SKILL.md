@@ -35,7 +35,7 @@ note 販売履歴を `data/note/sales.json` に記録し、月次集計を表示
 ```
 
 1. ユーザーから販売履歴テキストを受け取る
-2. 親が直接、正規化して `data/note/sales.json` に追記する（テキスト整形＋JSON 追記は決定的な小作業なので委譲しない。productId の対応表は [sales-tracking.md](../../knowledge/reference/sales-tracking.md)）
+2. 親が直接、正規化して `data/note/sales.json` に追記する（テキスト整形＋JSON 追記は決定的な小作業なので委譲しない。productId の対応表は `config/sales-product-map.json`、命名規則は [sales-tracking.md](../../knowledge/reference/sales-tracking.md)）。取引は `{購入者名}\n{購入種別}\n{商品名}\n{日時}\n{価格}円` の並びで読む
 3. 結果（追加件数・スキップ件数・不明 productId）を表示
 4. 月次集計テーブルを表示
 
@@ -58,6 +58,13 @@ note 販売履歴を `data/note/sales.json` に記録し、月次集計を表示
 1. 販売履歴テキストを解析
 2. productId が推定できない商品をリストアップ
 3. 追記はしない（dry-run）
+
+## 追記の規則（旧 sales-recorder エージェントから引き継ぐ）
+
+- **重複**: 同一日・同一商品・同一価格の組は、既存の件数より新規の件数が多いぶんだけ追記する（同日に同じ商品が複数売れることがあるため、完全一致の件数で判定）
+- **購入者名は記録しない**。`price` は円記号を除いた数値、`date` は `2026-06-17` 形式（時刻は記録しない）
+- productId が推定できなくても `article:unknown-{YYYYMMDD}-{index}` で記録し、後で直す。追記したら `updatedAt` を今日の日付にする
+- ココナラは貼付ではなく `data/coconala/orders.json` の `status: closed`（または delivered）を月次で転記する。`price` は `priceYen`（手数料差引前）
 
 ## 販売履歴テキストの形式
 
@@ -122,7 +129,7 @@ kuro
 ### productId が推定できない
 
 1. `--validate` で不明分を確認
-2. `sales-recorder.md` の productId 推定ルールに追加
+2. `config/sales-product-map.json` の対応表に追加（`npm run check-sales-mapping` が漏れを止める）
 3. または `data/note/sales.json` を直接編集して正しい productId に修正
 
 ### 重複が多すぎる
@@ -137,6 +144,6 @@ kuro
 
 ## 参照
 
-- `.claude/agents/sales-recorder.md` — 正規化・追記を担当するエージェント
+- `config/sales-product-map.json` — 商品名 → productId の対応表（旧 sales-recorder の表。命名系統の注意・推定できない場合の記録もここ）
 - `scripts/sales-summary.mjs` — 集計スクリプト
 - `.claude/knowledge/reference/sales-tracking.md` — 運用手順・ポリシー

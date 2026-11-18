@@ -2,7 +2,7 @@
 name: psi-audit
 category: analytics
 description: >
-  PageSpeed Insights で代表ページを計測し、Core Web Vitals のしきい値違反を performance-auditor に出させる。Use when user asks to [PSI 計測, 速度監査, /psi-audit].
+  PageSpeed Insights で代表ページを計測し、Core Web Vitals のしきい値違反と回帰をスクリプトで出す。Use when user asks to [PSI 計測, 速度監査, /psi-audit].
 domain: site
 ---
 

@@ -3,8 +3,11 @@ name: gsc-index-auditor
 description: >
   GSC URL Inspection と sitemap から index coverage を診断し、原因別に hygiene 修正候補を返す Evaluator（audit-only）。
 model: sonnet
+effort: low
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
+role: auditor
+target: index-coverage
 ---
 
 # GSC Index Auditor Agent
@@ -29,7 +32,7 @@ URL Inspection のスナップショットを読み込み、**サイトの index
 
 - **URL Inspection データの取得**: `index-coverage.yml`（CI・週次・全件そろった回だけ履歴に積む周回）。本エージェントは取得済み JSON を読むだけ
 - **index 済みページの performance 分析**（CTR/rank ＋ SNS 流入の 6 パターン）: `metrics-analyzer`
-- **CWV / PSI**: `performance-auditor`
+- **CWV / PSI**: `npm run report-psi-regression`（スクリプト）
 - **修正の実施**（meta 書換・リダイレクト修正・ページ統合・noindex 付与）: ユーザー判断 / 各 Generator
 - **history.json への追記**: CI（`append-coverage-history.mjs`）。本エージェントは読むだけ・書かない
 

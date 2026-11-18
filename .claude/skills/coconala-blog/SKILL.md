@@ -2,7 +2,7 @@
 name: coconala-blog
 category: management
 description: >
-  ココナラブログ記事の企画・執筆（coconala-blog-writer）・採点（coconala-blog-qa）・下書き投入・ライブ実査を回す。Use when user asks to [ココナラブログを書く, ココナラブログを公開, ブログで送客, /coconala-blog].
+  ココナラブログの公開済み記事の送客先の付け替え（--update）と下書き投入・ライブ実査を回す。新規執筆は 2026-11-18 から停止中（再開は DN-1247）。Use when user asks to [ココナラブログの送客先を付け替え, ココナラブログを公開, /coconala-blog].
 user-invocable: true
 domain: product
 ---
@@ -13,6 +13,8 @@ domain: product
 [coconala-blog-policy.md](../../knowledge/reference/coconala-blog-policy.md)、
 プラットフォーム仕様は [coconala-operations.md §9](../../knowledge/reference/coconala-operations.md)。
 このファイルには手順だけを書く（ルールを写経しない）。
+
+> **新規執筆は停止中（2026-11-18）**。執筆役と採点役は退役した（判断は policy §9）。いま行うのは、出品を休止・変更したときの公開済み記事の送客先の付け替えだけ（`node scripts/coconala-blog-publish.mjs --post <slug> --update`、確認後に `--commit`）。再開するかは DN-1247 で決め、再開するなら agents-registry.md の退役表から 2 体を戻す。以下の 1〜3 は再開したときの手順。
 
 ## 前提（最重要）
 
@@ -37,14 +39,14 @@ domain: product
 `data/coconala/blog-competitors/` の最新（`npm run ci-data -- latest coconala.blog-competitors`） を読み、競合が書いていない／自分に一次資産がある論点を選ぶ。
 古ければ `npm run scout-coconala-blogs`（四半期でよい）。
 
-### 2. 執筆 — `coconala-blog-writer`
+### 2. 執筆（停止中）
 
-`slug` / `exam` / `angle` / `funnel` / `source` を渡す。source は**素材**であって原稿ではない
+執筆役に `slug` / `exam` / `angle` / `funnel` / `source` を渡す。source は**素材**であって原稿ではない
 （note 記事を渡す場合は `stripNoteFunnel` した本文を渡す）。
 
-### 3. 採点 — `coconala-blog-qa`
+### 3. 採点（停止中）
 
-平均 2.0 以上かつハードゲート全通過で合格。**不合格なら writer へ1回だけ差し戻す**。
+policy §8 のルーブリックで平均 2.0 以上かつハードゲート全通過で合格。**不合格なら writer へ1回だけ差し戻す**。
 2回目も落ちたら選題か素材の問題なので、親が判断して止める。
 
 ### 4. 下書き投入（既定・公開しない）
@@ -110,7 +112,7 @@ npm run check-coconala-blog       # ドリフト0を確認
 
 ## 完了条件
 
-- `coconala-blog-qa` が PASS（平均 2.0 以上・ハードゲート全通過）
+- （新規記事のとき）採点が PASS（policy §8・平均 2.0 以上・ハードゲート全通過）
 - `--commit` 実行が exit 0（＝一覧で公開状態・ライブ実査で外部リンク0）
 - frontmatter に `blogUrl` と `publishedAt` が入っている
 - `npm run check-coconala-blog` が exit 0
@@ -119,5 +121,5 @@ npm run check-coconala-blog       # ドリフト0を確認
 
 - 真実源: [coconala-blog-policy.md](../../knowledge/reference/coconala-blog-policy.md)
 - プラットフォーム仕様・セレクタ: [coconala-operations.md §9](../../knowledge/reference/coconala-operations.md)
-- エージェント: `coconala-blog-writer`（Generator）/ `coconala-blog-qa`（Evaluator）
+- エージェント: なし（執筆役・採点役は 2026-11-18 に退役。agents-registry.md の退役表）
 - 隣接スキル: `/coconala-publish`（出品の作成・修正）・`/coconala-order`（受注）・`/coconala-status`（KPI）

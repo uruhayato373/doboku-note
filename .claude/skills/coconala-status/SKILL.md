@@ -2,14 +2,14 @@
 name: coconala-status
 category: management
 description: >
-  ココナラ出品の状態を読み取り専用で照合し（受注 orders.json・カタログ・sales.json・KPI のドリフト）、撤退ラインを判定する。Use when user asks to [ココナラの状態を確認, ココナラKPIを記録, 撤退ライン判定, /coconala-status].
+  ココナラ出品の状態を読み取り専用で照合し（受注 orders.json・カタログ・sales.json・閲覧などの分析の記録と鮮度）、撤退ラインを判定する。Use when user asks to [ココナラの状態を確認, ココナラの数字を見る, 閲覧数を確認, ココナラKPIを記録, 撤退ライン判定, /coconala-status].
 user-invocable: true
 domain: product
 ---
 
 ## 用途
 
-ココナラ・チャネルの**週次の健康診断**。`verify-ig-status` と同じ思想＝**検知と報告のみ（read-only）**で、是正（カタログ flip・出品変更）は `/coconala-order` や運営者の判断に委ねる。
+ココナラ・チャネルの**週次の健康診断**。`verify-ig-status` と同じ思想＝**検知と報告のみ（read-only）**で、是正（カタログ flip・出品変更）は `coconala-listing-operator`（`/coconala-publish`）や運営者の判断に委ねる。
 
 ```
 /coconala-status            # カタログ↔state の整合だけ確認（数値なし）
@@ -23,7 +23,7 @@ domain: product
    snapshot が古い/無いときは exit 2＝**検査不成立**なので「受注 0 件」と報告せず「未取得」と書き、運営者に次の土曜か端末での `node scripts/weekly-collect.mjs --only coconala` を案内する。
 1. **整合チェック**: `node scripts/check-coconala-wiring.mjs` を実行し結果を報告（listed なのに serviceUrl 空・未知 serviceId・priceYen 不一致・**paused の理由欠落**・**復帰予定日 `resumeOn` の超過** 等）。
    ⚠ が出たら**棚が止まったままになっていないか**を必ず報告する（長期不在の全件休止から戻し忘れると、売上ゼロのまま誰も気づかない）。
-2. **KPI を読む**: 取得（`coconala-analytics -- --append-kpi`）は土曜の Mac の収集（weekly-collect の coconala 段）だけが行う。セッションはログインして取りに行かず、`data/coconala/kpi.json` の `weekly` / `blogsWeekly`（`weekOf`＝ISO 週初の月曜）と `npm run check-coconala-analytics` の鮮度を読み、古ければ「未取得」と書く（詳細は `/coconala-analytics`）。数値の**手動貼付があればそれも正規化してよい**。**読み取れない項目は `null`。推測で埋めない**。
+2. **KPI を読む**: 取得（`coconala-analytics -- --append-kpi`）は土曜の Mac の収集（weekly-collect の coconala 段）だけが行う。セッションはログインして取りに行かず、`data/coconala/kpi.json` の `weekly` / `blogsWeekly`（`weekOf`＝ISO 週初の月曜）と `npm run check-coconala-analytics`（鮮度・欠測・マスク値・kpi.json 整合）を読み、`data/coconala/analytics.json` の取得日を報告に書く。古い・空なら数値を埋めず「未取得」と書き、次の土曜の収集を待つか、運営者が収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only coconala` を実行する。読み方は下の「分析の記録の読み方」。数値の**手動貼付があればそれも正規化してよい**。**読み取れない項目は `null`。推測で埋めない**。
    数値は `period` 区間の累計（`cumulative: true`・既定30日ローリング）なので、**前週行との引き算で「今週の伸び」を出さない**。
 3. **受注サマリ**: `data/coconala/orders.json` から 直近4週の serviceId 別 受注件数・平均 `tensakuMinutes` を集計。
 4. **判定を報告**:
@@ -31,22 +31,30 @@ domain: product
    - **成功の感触**: 4週で S1+S2 合計5件以上 → 価格引き上げ（S2 ¥8,000→¥12,000 は評価20件が目安）を検討。
    - **工数警告**: `tensakuMinutes` の平均が30分超 → 受付枠（`weeklyCapacity`）の引き下げを推奨。
    - **満枠**: 当週の受注が `weeklyCapacity` に達していれば `status: 'full'` への flip を提案。
-
+5. **解釈の起動条件**: 上の判定（撤退ライン該当・工数警告・満枠）または `check-coconala-analytics` の異常（鮮度・partial 以外の KPI の急変）が出た**週だけ** `coconala-traffic-analyst`（sonnet・分析役）を 1 回起動する。入力は `kpi.json`・`analytics.json`・`orders.json` と手順 0〜1 の `check-*` の出力だけで、返り値（変化・考えられる理由・確かめ方・次の手）を報告に添える。異常のない週は起動しない。判定の閾値（受注 3 件・5 件・30 分）は上の手順を親が適用する（現状これらを判定するスクリプトは無い。スクリプト化はバックログで扱う）。KPI の取得・記録は土曜の Mac 収集と親が行い、analyst は書かない。
 ## 入力（既定は自動取得・貼付でも可）
 
-既定は `/coconala-analytics` の自動取得。手で貼りたいときは、サービスごとの数値をそのまま貼る（形式は自由・読めない項目は null 記録）。
+既定は土曜の収集（`npm run coconala-analytics -- --append-kpi`）の記録。手で貼りたいときは、サービスごとの数値をそのまま貼る（形式は自由・読めない項目は null 記録）。
 
 ```
 経験記述 合格診断  閲覧 120  お気に入り 8  販売 2
 経験記述 添削      閲覧 340  お気に入り 21 販売 3
 ```
 
+## 分析の記録の読み方（間違えると数字が嘘になる）
+
+- **累計であって週次増分ではない**。画面の既定は「過去30日間」のローリング累計。
+- **`0000` は 0 ではない**。セラーサクセス未加入の「表示数」はマスク表示で、`null` + `masked` で記録する（0 で記録されていれば検査が FAIL にする）。
+- 数値はココナラ側で午前0〜1時頃に更新される。当日分は未確定。
+- 対象は `listed` の出品だけ。アーカイブ済み（`paused`）は分析ページが無く、`skipped` として残る。**`listed` なのに分析ページが無い**のは、出品がライブに無い疑い。公開ページ（`serviceUrl`）を確かめてカタログの status の是正を提案する。
+- 取得の UI が変わって selector が効かないときは、probe（read-only）してから直し、coconala-operations.md §4 に追記する。
+
 ## ガードレール
 
 - **収集は read-only に限り、土曜の Mac 収集だけが行う**: KPI（`coconala-analytics`）も受注の実体（`coconala-orders`）も画面を読むだけ。セッションは記録を読む。
   メモ追加・期間変更・出品操作・返信送信はしない（方針の経緯は coconala-operations.md §4・§2.2b）。
 - **partial を成功と呼ばない**: 取得件数は「対象 N / 取得 M / 除外 K」で報告する。`ok:false` は 0 件ではなく欠測。
-- **是正しない**: カタログの status flip・価格変更は提案まで（実行は `/coconala-order` ケース3 か運営者）。
+- **是正しない**: カタログの status flip・価格変更は提案まで（実行は `coconala-listing-operator`＝`/coconala-publish` か運営者）。
 - **捏造しない**: 貼付に含まれない数値を推測で埋めない（`null` のまま記録し、欠測として報告）。
 
 ## 完了条件
@@ -57,8 +65,9 @@ domain: product
 
 ## 参照
 
-- エージェント: `.claude/agents/coconala-operator.md`
+- エージェント: `.claude/agents/coconala-traffic-analyst.md`（閾値越えの週だけ・解釈）／`.claude/agents/coconala-listing-operator.md`（是正の実行）
+- 分析の収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala-analytics.mjs`（`npm run coconala-analytics`）／検査: `scripts/check-coconala-analytics.mjs`
 - 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`）／`scripts/check-coconala-orders.mjs`（`npm run check-coconala-orders`）
 - 受注の実体収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala-orders.mjs`（`npm run coconala-orders`・read-only）
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / KPI・撤退ライン: `content/note/1級・2級土木/ココナラ展開キット.md` §6
-- 受注処理は `/coconala-order`
+- 受注処理は `/coconala-order`（`coconala-order-drafter`）

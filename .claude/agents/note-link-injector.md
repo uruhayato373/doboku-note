@@ -3,7 +3,10 @@ name: note-link-injector
 description: >
   note 公開用ドラフトに doboku-note キーワードページへのインラインリンクを注入する Generator。
 model: sonnet
+effort: medium
 domain: product
+role: writer
+target: note-draft
 ---
 
 # Note Link Injector Agent

@@ -29,6 +29,6 @@ Agent ツールのサブエージェントは bypassPermissions でも Bash を�
 - 見た目が変わる PR の e2e visual 失敗は、失敗 run の `playwright-e2e-*` artifact の `*-actual.png` を基準画像名にコピーして commit（`visual-snapshots-*` は既存と同じで役に立たない）。diff 画像で意図どおりか確認してから。関連: [[feedback_exam_pdf_cross_reference]]
 
 ## 仕様が固まった機械作業は直接処理する（2026-06-21）
-note 売上のダッシュボード→sales-log.json 転記など明確な作業は、skill 呼び出し→サブエージェント委譲と遠回りせず Read/Edit/Bash で直接処理する（surface されていない `/record-sales` を Skill で呼んで弾かれ、`sales-recorder` 委譲でユーザーに2回 interrupt された）。skill が利用可能一覧に無ければ SSOT（reference）を Read して手順を踏み直接実行。
-- 売上記録は既存ログの (date, productId, price) と突合して重複 skip（既存月は記録済みのことが多い）。productId は sales-recorder.md の mapping と既存ログの slug 系統（`bk-*`/`essay-*`。note-magazines.ts の `pe-construction-*` とは別系統）に合わせる。
-- 新商品を売ったら sales-recorder.md の mapping 追加が必要。取りこぼしは `npm run check-sales-mapping` が pre-commit で検知（2026-06-21 新設・未文書化 productId・`article:unknown-*` で exit 1・回避 `SKIP_SALES_MAPPING=1`）。`npm run sales-summary -- 2026-06`（月は位置引数。`--month`/`--trend`/`--by-product` は未実装）。
+note 売上のダッシュボード→sales-log.json 転記など明確な作業は、skill 呼び出し→サブエージェント委譲と遠回りせず Read/Edit/Bash で直接処理する（surface されていない `/record-sales` を Skill で呼んで弾かれ、`sales-recorder`（廃止済み）委譲でユーザーに2回 interrupt された）。skill が利用可能一覧に無ければ SSOT（reference）を Read して手順を踏み直接実行。
+- 売上記録は既存ログの (date, productId, price) と突合して重複 skip（既存月は記録済みのことが多い）。productId は config/sales-product-map.json の mapping と既存ログの slug 系統（`bk-*`/`essay-*`。note-magazines.ts の `pe-construction-*` とは別系統）に合わせる。
+- 新商品を売ったら config/sales-product-map.json の mapping 追加が必要。取りこぼしは `npm run check-sales-mapping` が pre-commit で検知（2026-06-21 新設・未文書化 productId・`article:unknown-*` で exit 1・回避 `SKIP_SALES_MAPPING=1`）。`npm run sales-summary -- 2026-06`（月は位置引数。`--month`/`--trend`/`--by-product` は未実装）。

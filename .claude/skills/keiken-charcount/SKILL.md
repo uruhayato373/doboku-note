@@ -9,7 +9,7 @@ domain: product
 
 ## 用途
 
-施工経験記述 note マガジン（完成答案集 / 過去問模範答案集 / 予想問題集 / 想定工事バンク）のフル模範答案が、本番の**解答欄に収まる字数**かを機械チェックする。字数カウントは決定論的処理なのでスクリプトで実行し、超過の**判定**は Evaluator (`civil-keiken-essay-qa`)、**圧縮修正**は Generator (`civil-keiken-essay-writer`) が担う（Generator/Evaluator 分離）。
+施工経験記述 note マガジン（完成答案集 / 過去問模範答案集 / 予想問題集 / 想定工事バンク）のフル模範答案が、本番の**解答欄に収まる字数**かを機械チェックする。字数カウントは決定論的処理なのでスクリプトで実行し、超過の**判定**は Evaluator (`essay-qa`（資格 civil-keiken）)、**圧縮修正**は Generator (`essay-writer`（資格 civil-keiken）) が担う（Generator/Evaluator 分離）。
 
 ## 実行
 
@@ -54,5 +54,5 @@ node scripts/keiken-charcount.mjs --staged --strict
 
 ## 完了条件
 
-- 出力の各 article で OVER 件数を確認。OVER があれば該当設問を `civil-keiken-essay-writer` で圧縮し、再実行で OVER 0 を確認してからコミット。
+- 出力の各 article で OVER 件数を確認。OVER があれば該当設問を `essay-writer`（`資格: civil-keiken`）で圧縮し、再実行で OVER 0 を確認してからコミット。圧縮と再検査の往復は最大 2 回、3 回目は親が判断する。
 - 公式行数が手に入ったら config を差し替え、`provisional: false` 化。

@@ -9071,6 +9071,45 @@
       "commit": "5ece294a750a",
       "verification": "npm run check-backlog-schema",
       "note": "運営者決定（2026-11-18）: 測量士・舗装の全 8 商品を据え置き。試験の 14 日後に revenue-calendar の judgmentDaysAfter で再判定（目安: 閲覧 100 件超で購入 0 なら値下げ検討）。記録は各 noteコンテンツ計画.md（5ece294a7）"
+    },
+    {
+      "id": "DN-1241",
+      "at": "2026-11-18",
+      "task": "領域ごとの担当表と文書の持ち主を決め、エージェントに役割と対象を付ける（役割分担の見直し・第3段階）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2e4c0a6a333a",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1242",
+      "at": "2026-11-18",
+      "task": "エージェントを役割で分け直し、機械で決まる検査をスクリプトへ寄せる（役割分担の見直し・第4段階）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "91637f0033ff",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0798",
+      "at": "2026-11-18",
+      "task": "呼び出しの記録から、使われていない・役割が重なるスキルを統合・退役する（拡張性・第3波）",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "732ee4c00763",
+      "verification": "npm run check-domains",
+      "note": "エージェント21体（退役6・残す15）とスキル100本（統合2・残す98）の判断を記録。PR #1658・#1659・#1660。hook の撤去は DN-1246 へ移した"
     }
   ]
 }

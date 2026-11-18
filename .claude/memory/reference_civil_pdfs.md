@@ -21,4 +21,4 @@ metadata:
 ## 用途
 - MDX コンテンツの図抽出元。手順: `pdftoppm -png -r 200 -f P -l P` でページ画像化 → `magick … -crop WxH+X+Y +repage -fuzz 8% -trim +repage` で図を切り出し → `npm run generate-webp`（quality 80・既存はスキップ=sweep無し）→ `<ArticleImage src="/posts/{cat}/{slug}/img/qN-fig.webp" alt="…" width height />` を「下図」参照行の直後に挿入。
 - コンテンツ照合（`/verify-content`, `/qa-pdf-mdx`）の原本。
-- 図クロップは [[feedback_exam_pdf_cross_reference]] / `civil-exam-figure-extractor` も参照。
+- 図クロップは [[feedback_exam_pdf_cross_reference]] / `figure-crop-worker` も参照。

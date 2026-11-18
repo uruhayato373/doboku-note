@@ -113,7 +113,7 @@ export interface CoconalaService {
  *      thumb-<id から coconala- を除いた key>.png を生成
  *   3. コンテンツPDF商品(C系)なら: scripts/build-coconala-content-pdf.mjs の PRODUCTS に源記事を追加
  *      → npm run coconala-content-pdf（funnel 除去＋note URL 0件検証）
- *   4. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表＋.claude/knowledge/reference/sales-tracking.md
+ *   4. 売上記録: config/sales-product-map.json の productId マッピング表＋.claude/knowledge/reference/sales-tracking.md
  *   5. ドキュメント: .claude/knowledge/reference/coconala-operations.md のサービス表＋ココナラ展開キット.md §2
  *   6. check-coconala-wiring.mjs が pre-commit で catalog↔listings↔商品画像↔state↔sales の
  *      整合/カバレッジを機械検知する（listings/画像の漏れ・serviceUrl 空・受注額と定価の不一致・PDF 価格ルール違反で落ちる）。

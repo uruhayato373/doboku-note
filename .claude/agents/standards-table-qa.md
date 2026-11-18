@@ -3,8 +3,11 @@ name: standards-table-qa
 description: >
   組み直した共通仕様書の表を原本ページ画像と1セルずつ照合し、承認・差し戻しを決める Evaluator。表は直さない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
+role: verifier
+target: standards-table
 ---
 
 # Standards Table QA

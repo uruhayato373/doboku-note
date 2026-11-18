@@ -34,7 +34,7 @@
 
 ## Phase 1: 週次 performance 記録
 
-1. サブエージェント `metrics-analyzer`（sonnet）を前景で起動し、最新の GSC/GA4 JSON と機会ダイジェスト（場所は `node scripts/ci-data.mjs latest gsc.page`・`latest ga4.page`・`latest analysis.growth-digest` などで出す）から改善候補を抽出させる（Pattern 1/2/3/7/8 はダイジェストの `OPP-…` を引用し、自分で抽出するのは 4/5/6）。結果は本文をテキストで返させる
+1. サブエージェント `metrics-analyzer`（sonnet）を前景で起動し、最新の GSC/GA4 JSON と機会ダイジェスト（場所は `node scripts/ci-data.mjs latest gsc.page`・`latest ga4.page`・`latest analysis.growth-digest` などで出す）から改善候補を抽出させる（Pattern 1/2/3/6/7 はダイジェストの `OPP-…` を引用し、自分で抽出するのは 4/5。SNS 流入の急変は週次レビューの担当）。結果は本文をテキストで返させる（metrics-analyzer は Write を持たない）
 2. 返ってきた内容を `.tmp/claude-out/gsc/improvements.md` に書く
 3. Phase 0-3 で除外すべき候補を落としたうえで、`.tmp/claude-out/gsc/weekly-entry.md` に**追記本文だけ**を書く（**20 行以内**。上位 3 件まで、残りは「他 N 件 → improvements/{TODAY}.md」と参照で済ませる。問題なしの軸は 1 行で「✓」）。1 行目は必ず `### {TODAY}（週次・自動レビュー）` とし、続けて **観測**（窓とパターン別件数を 1 行）/ **上位候補と推奨**（URL・数値・推奨アクションを最大 3 件）/ **トリアージ待ち**（各候補に対応する機会ダイジェストの `OPP-…` と推奨ルートを 1 行ずつ。処分＝起票・却下・保留は、この後に回る週次レビューの growth-triage が決める）/ **注記**（自動生成・人間の上書き歓迎）の 4 ブロック
 

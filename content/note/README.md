@@ -96,7 +96,7 @@ content/note/
 - **問題I 部門別記入例**: 上水道・下水道・土質及び基礎（各¥1,980・各2例・PDF付き・2026-09-19公開）。既存テンプレの道路・河川砂防・鋼構造コンクリートと合わせ6部門。2,400字は練習用の目安。問題IV-2は対象外。
 - **無料**: `RCCMもくじ`（L2）＋ lead-in 3 本（指定語の使い方／落ちる業務経験論文／CBT 直前 2 週間の学習計画・2026-09-17 公開済み）
 - **試験事実の SSOT**: `RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`（協会の出題テーマ PDF が一次出典。過去問は事務局非公開＝問題文の転載禁止・全て自作）
-- **戦略 SSOT**: `RCCM/noteコンテンツ計画.md`。Generator/Evaluator は `rccm-essay-writer` / `rccm-essay-qa`、機械ゲートは `npm run check-rccm-essay`
+- **戦略 SSOT**: `RCCM/noteコンテンツ計画.md`。Generator/Evaluator は `essay-writer`（資格 rccm） / `essay-qa`（資格 rccm）、機械ゲートは `npm run check-rccm-essay`
 
 ### コンクリート主任技士（`コンクリート主任技士/`）
 
@@ -149,7 +149,7 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 | `noteSeries` | **表示用の編集ラベル**（カバー生成の系列名・もくじ index の判定マーカー） | `noteMagazine` と語尾が異なってよい自由記述（例: 「…小論文」と「…小論文集」）。特殊値 `総合案内` はもくじ index ページを示し、`note-lint` 経由で markdown リンク列挙を許容する |
 
 **noteMagazine が正**（商品を特定する必要がある処理）: マガジン収録数の突合（`check-magazine-membership`）・note 公開時の価格/CTA 解決（`note-publish.mjs`）。
-**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`note-cover-writer`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・記事カタログの系列表示（`build-note-published-index.mjs`）。
+**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`scripts/add-note-cover.mjs`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・記事カタログの系列表示（`build-note-published-index.mjs`）。
 
 **書いてはいけない逸脱**（`npm run check-note-vocabulary-boundary` が検知・pre-commit 非搭載のため commit 前に手動実行を推奨）:
 - `noteSeries` に `note-magazines.ts` の `id`（内部slug）をそのまま書く

@@ -3,7 +3,10 @@ name: civil-keiken-tensaku-drafter
 description: >
   顧客原稿・ヒアリング事実から診断・添削・骨子シートの下書きを作る。事実は創作せず質問にする。最終化・送信は担当外。
 model: sonnet
+effort: medium
 domain: product
+role: writer
+target: tensaku
 ---
 
 # Civil Keiken Tensaku Drafter Agent
@@ -130,8 +133,8 @@ domain: product
 ## 担当外
 
 - 最終赤入れ・事実確認・返却送信・匿名化アーカイブ化 → 運営者
-- 自社マガジン模範答案の採点 → `civil-keiken-essay-qa`
-- **自社商品の模範答案生成** → `civil-keiken-essay-writer`（note マガジン用・generic な改変前提テンプレ）。本エージェントは**顧客固有**（購入者の原稿・ヒアリング事実から）で対象が異なる
+- 自社マガジン模範答案の採点 → `essay-qa`（資格 civil-keiken）
+- **自社商品の模範答案生成** → `essay-writer`（資格 civil-keiken）（note マガジン用・generic な改変前提テンプレ）。本エージェントは**顧客固有**（購入者の原稿・ヒアリング事実から）で対象が異なる
 
 ## 参照
 

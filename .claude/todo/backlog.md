@@ -518,6 +518,27 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1246] エージェント再編の 4 週間後に起動回数を前後で比べ、新設の役の形を直す
+タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-18] [期日:2026-12-16]
+
+**起点**: 2026-11-18 の DN-1242（PR #1653〜#1657）でエージェントを 84→75 体に再編した（役割に直す・照合、答案と図の共通化、分析役 3 体の新設、運用役の分割、機械の段へ 5 体）。新設の役は試し呼びをせず、本番の週次・月次で初めて動かしている。
+**基準**: 2026-10-21〜11-18 の 4 週間で専任エージェント 568 回・general-purpose 184〜189 回（`~/.claude/usage-log/`）。判断表は `docs/reviews/2026-11-18-agent-usage-candidates.md`。
+**やること**:
+1. 2026-11-18〜12-16 の起動回数を、エージェントごと（旧名は新名へ合算）と general-purpose について前の 4 週間と比べる
+2. 新設の 3 体（note-traffic-analyst・coconala-traffic-analyst・product-portfolio-planner）と共通化した essay-writer／essay-qa・figure-crop-worker／figure-crop-auditor の返り値を、実際に動いた回の記録で見て、入力・返り値の形を直す。動いていない役は起動条件が合っているかを確かめる
+3. Workflow の機械の段から起動したエージェントが hook に記録されるかを確かめる（cli-runner が 0 回だった）
+4. 比較が済んだら、呼び出しを記録する hook（`scripts/hooks/agent-hook.mjs` の record-usage・`scripts/lib/agent-hooks.mjs`）を外す（DN-0798 から移した）
+**完了条件**: 比較の表（エージェントごとの前後の回数・general-purpose の増減）がカードの完了記録か docs/reviews にあり、直した役の commit がある。記録の hook が外れている。
+
+
+### [DN-1245] ココナラの撤退ラインと工数警告の判定をスクリプトにする
+タグ: [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-11-18]
+
+**起点**: 2026-11-18 の DN-1242（エージェントの再編）で coconala-traffic-analyst を「閾値越えが出た週だけ起動」にしたが、撤退ライン・工数警告・満枠の判定はまだ `/coconala-status` 手順 4 で親が orders.json の件数を数えて行っている（スクリプトが無い）。数えられる判定を親が毎回手でやると、起動条件が人の読み次第になる。
+**やること**: 撤退ライン・工数警告・満枠の閾値を設定ファイルに置き、orders.json と kpi.json から判定して JSON を返すスクリプトを作る。`/coconala-status` 手順 4 と週次レビューのココナラの行を、そのスクリプトの出力で起動条件を決める形に直す。
+**完了条件**: スクリプトが対象の出品数と判定数を出し、対象 0 件を検査不成立（exit 2）にする。`/coconala-status` から親の手での数え上げが消えている。
+
+
 ### [DN-1244] データ台帳の書き手の未記入 175 件を領域ごとに埋める（役割分担の見直し・第2段階の残り）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [検証:check-datasets] [起票:2026-11-18]
 
@@ -528,35 +549,8 @@
 **完了条件**: `npm run check-datasets` が「未記入 0・基準線 0」で通る。
 
 
-### [DN-1242] エージェントを役割で分け直し、機械で決まる検査をスクリプトへ寄せる（役割分担の見直し・第4段階）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-18]
-
-**起点**: 2026-11-18 に運営者が承認した計画（`docs/handoffs/2026-11-18-agent-roles-plan.md` の第4段階）。運用役の担当が広い（coconala-operator は 7 機能、note-operator は実質 7 機能）、集客の分析役と総監以外の商品企画の役が居ない、機械で決まる検査をエージェントが持っている（gsc-csv-auditor など 5 体・直近 4 週間の呼び出し 0 回）、strategy-advisor と sales-recorder は 0 回。
-**次または実行順**: 担当表（第3段階）の後。`role:`・`target:` を使って再編後の表を検査する。0 回だった 39 体のうち、やること 7 で扱う答案・図以外の統合・退役は DN-0798 で運営者が判断する。
-**やること**:
-1. 新設: product-portfolio-planner・note-traffic-analyst・coconala-traffic-analyst（入力はスクリプトの集計だけ・tools は Read, Glob, Grep）
-2. 分割: competitor-analyst（売り場／発信）・coconala-operator（出品／受注の下書き）・note-operator（カタログ／購入者対応）・civil-construction-qa（原典照合／校正）
-3. 廃止: strategy-advisor・sales-recorder（商品名の対応表は設定へ移す）と、機械の段へ寄せる 5 体（gsc-csv-auditor・a8-csv-auditor・technical-seo-auditor・performance-auditor・sns-archive-auditor。先に検査スクリプトと quality-audit への登録を入れる）
-4. 改名: civil-guide-writer → guide-writer、cem-qa → keyword-qa。採点表から機械の軸を抜き、機械ゲートを先に置く
-5. 役割ごとのモデル・エフォートの既定を `.claude/rules/skills-agents.md` に書き、`check-domains` で外れを止める。評価役 8 体に `tools:` の制限を足す
-6. 呼び出し元の SKILL.md を更新し、`build-capability-index`・`sync-codex-compat` を通す
-7. 制作と採点を共通の型にする（計画の「制作と採点を共通の型にする」）: 役割に `rewriter`（直す）・`verifier`（照合）を足して 11 体を付け替え、答案 4 組（cce・cem・rccm・civil-keiken）を `essay-writer`／`essay-qa`＋資格別プロファイルへ、切り抜き図を 1 対へ、`pe-exam-figure-auditor` を `svg-figure-auditor` へまとめ、`civil-exampoint-restorer` を廃止する。本文 150 行の上限（ラチェット）を検査に足し、呼び出し元に「機械ゲートが先・採点と直しの往復は 2 回まで」を書く。建設部門の組は統合せず本文を削るだけ
-**禁止事項**: 確認だけのための試し呼びをしない（新設の役は次の本番の週次・月次レビューで初めて動かす）。
-**完了条件**: `npm run quality:audit:ci` が通り、廃止した 5 体の検査が quality-audit に登録されている。再編の 4 週間後に `~/.claude/usage-log/` の起動回数を再編前（専任 568 回＋general-purpose 184 回）と比べる予定がカードか計画に残っている。
 
 
-### [DN-1241] 領域ごとの担当表と文書の持ち主を決め、エージェントに役割と対象を付ける（役割分担の見直し・第3段階）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-18] [進行中]
-
-**起点**: 2026-11-18 に運営者が承認した計画（`docs/handoffs/2026-11-18-agent-roles-plan.md` の第3段階）。領域ごとの判断者（運営者・親・スキル）と、文書 159 本の持ち主がどこにも記録されていない。エージェントの種別は tools から「編集可／監査のみ」の 2 値を導いているだけ。
-**次または実行順**: 書き手の欄（第2段階）の後。管理画面に持ち物を出すのに台帳の書き手を使う。
-**やること**:
-1. `config/domains.json` の各領域に `roles`（decides・review・gaps）を足し、`documentStewards`（docs/strategy・marketing・products は必須）と `contentStewards`（記事の型ごとの作る・直す・見る・機械ゲート）を置く
-2. エージェント 84 体の frontmatter に `role:`（analyst・planner・writer・qa・operator・auditor）と `target:`（対象の型）を足す
-3. `build-capability-index` で「領域×役割」「対象×役割」の表を `agents-registry.md` に生成し、管理画面 `/domains/[id]` に役割と持ち物を出す
-4. `check-domains` で、role・target の欠落、同じ組み合わせの重複（違いの説明なし）、担当の居ない仕事の `gaps` 未記入を止める
-5. `docs/strategy/14_領域モデル.md` に「決める・動かす・見る」の節を足す
-**完了条件**: `npm run check-domains` と `npm run check-doc-coupling` が通り、8 領域すべてで決める人・判断の場・空白の担い手が管理画面で読める。
 
 
 
@@ -3759,6 +3753,14 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-1247] ココナラブログの新規執筆を再開するか決める
+タグ: [領域:商品] [時期:2027-07] [種類:意思決定] [起票:2026-11-18]
+
+- 起点: 2026-11-18 にココナラブログの新規執筆を止め、`coconala-blog-writer`・`coconala-blog-qa` を退役した（10/16〜11/14 の 30 日で公開 15 本の閲覧は計 181 回・同期間の注文 0 件・ブログ経由の注文は画面に出ず測れない）。公開済み 15 本は残す
+- やること: 1級土木の本試験の前に、`data/coconala/analytics.json` のブログ閲覧と出品の閲覧・注文を見て、新規執筆を再開するかを運営者が決める。再開するなら 2 体を git の履歴から戻す（agents-registry.md の退役表）
+- 完了条件: 判断（再開／停止を続ける／公開済み記事も下げる）と理由を `content/coconala/blog/README.md` に 1 行書いた
+
+
 
 
 
@@ -3917,17 +3919,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 掲載先別・年間の成果を見て継続・停止の案件と配置を決め、data/affiliate/catalog.json と config/affiliate-placements.json を更新し、affiliate-operations.md §6.5 に記録したら、このカードを削除する。
 
 
-### [DN-0798] 呼び出しの記録と静的参照から、使われていない・役割が重なるエージェントとスキルを統合・退役する（拡張性・第3波）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:意思決定] [起票:2026-10-20]
-
-**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。エージェント 90・スキル 111。資格固有のエージェントが 23 体あり、答案の writer/qa の組が 4 組（cce・cem・civil-keiken・rccm）。静的な参照の数は判断に使えない（参照 0 の civil-guide-writer も会話記録で 4 回使われていた）。
-**次または実行順**: 呼び出しを記録する hook（`~/.claude/usage-log/`・2026-10-21 から記録）から 4 週間後＝2026-11-18 以降。DN-0477（メンバーシップ撤退）の完了後。
-**やること**:
-1. 記録（Claude の hook の記録と ~/.codex/sessions）と静的参照から、呼び出し 0 のもの・役割が重なるものの候補一覧を作る
-2. 各行に運営者が判断（統合・退役・残す理由）を書く。次の資格の writer/qa の組を足す前に、既存の組を資格の設定で使い回せるかもここで決める
-3. 退役は agents-registry.md・skills-registry.md の退役表と同じ commit で行い、hook も外す
-**禁止事項**: SNS を保留しているチャネルのスキル・エージェントは、記録が 0 でも「使われていない」と判定しない。
-**完了条件**: 候補の全行に判断があり、退役分が消えて登録簿の退役表に行がある。hook が外れている。
 
 ### [DN-0624] 技術士第一次試験の後に iOS アプリの感触を振り返り、総監の追加・土木アプリ・有料化を決める
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-10-09]

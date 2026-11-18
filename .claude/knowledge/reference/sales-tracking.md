@@ -213,15 +213,15 @@ npm run report-site-to-sales -- --month 2026-08
 ### 新商品の追加
 
 1. `src/lib/note-magazines.ts` にエントリ追加（マガジンの場合）／ココナラは `src/lib/coconala-services.ts`
-2. `.claude/agents/sales-recorder.md` の productId 推定ルールに追加
+2. `config/sales-product-map.json` の対応表に追加
 3. 本ドキュメントの命名規則テーブルに追記
 4. カタログに無い単品で、note の題名が変わる・初出で `article:unknown-*` になる場合は、`scripts/lib/sales-normalize.mjs` の `SINGLE_ARTICLE_TITLE_RULES` に 1 行足す（`tests/sales-normalize.test.mjs` が規則同士の重なりを止める）
 
 > **機械ガード**: 手順②の取りこぼし（mapping 陳腐化）は `npm run check-sales-mapping` が検知する。
-> data/note/sales.json に出現する productId が sales-recorder.md の mapping パターンに一致しない、
+> data/note/sales.json に出現する productId が sales-product-map.json の mapping パターンに一致しない、
 > `article:unknown-*` が残っている、または `note-magazines.ts` の公開済み単品（`/n/`）に
 > `article:<catalog-id>` の明示 mapping がないと **pre-commit / CI で止める**。
-> pre-commit は data/note/sales.json・sales-recorder.md・note-magazines.ts のいずれかを含む変更で発火する。
+> pre-commit は data/note/sales.json・sales-product-map.json・note-magazines.ts のいずれかを含む変更で発火する。
 > 緊急回避は `SKIP_SALES_MAPPING=1`。
 
 ---
@@ -303,7 +303,7 @@ KENP既読ページは共有口座全体値でサイト帰属できないため�
 
 | ファイル | 役割 |
 |---|---|
-| `.claude/agents/sales-recorder.md` | 販売履歴正規化エージェント |
+| `config/sales-product-map.json` | 商品名 → productId の対応表（旧 sales-recorder エージェントの表） |
 | `.claude/skills/record-sales/SKILL.md` | 記録スキル |
 | `scripts/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
 | `scripts/note-sales-fetch.mjs` | note ダッシュボードからの read-only 自動取得＋検算＋差し替え（`npm run note-sales-fetch`） |

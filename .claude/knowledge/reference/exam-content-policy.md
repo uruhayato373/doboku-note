@@ -25,7 +25,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 | **図の標準量** | 多数（断面・配筋・施工写真） | 少数（重要箇所のみ） | 少数（基礎の図のみ） | 原本準拠（あれば） | ほぼゼロ（テキスト中心） | 原本準拠（あれば） |
 | **数式** | 頻出（W/C 比・配合・力学） | 限定的 | 基礎数式のみ | 問題文に応じて | 少ない | 問題文に応じて |
 | **Generator スキル** | `/pdf-to-mdx --exam civil-construction-1` | 手動編集 | 手動編集 + `guide-rewriter`／`guide-qa` サイクル | `/exam-questions-import --exam {civil-primary-2\|civil-secondary-2}` | `/keyword-page` | `/pdf-to-mdx` `/pdf-to-mdx --exam cem` |
-| **Evaluator エージェント** | `civil-construction-qa` (Mode A・既存記事は Mode R) | `civil-construction-qa` (Mode B・既存記事は Mode R) | `civil-construction-qa` (Mode B・Mode R、category フィルタ拡張済み) | `content-qa` | `cem-qa` | `content-qa` |
+| **Evaluator エージェント** | `textbook-qa`（既存記事の校正は `article-proofreader`） | `guide-qa`（既存記事の校正は `article-proofreader`） | `guide-qa`・`article-proofreader` | `content-qa` | `keyword-qa` | `content-qa` |
 
 **2級土木の補足**:
 - **前期/後期の区分**: 2級は第1次が前期（6月）/後期（10月）の2回開催。過去問 MDX は `primary-{year}-{zenki\|kouki}` 命名（1級の `primary-{year}-{a\|b}` と命名規則が異なる）
@@ -63,8 +63,8 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **整備の目標**: 公開済み一次検定 過去問を逐条解説する
 - **構造**: 問題ごとに H2 `## 問題 No.N`、解答は `<details>` で開閉式、各問題に `<ExamPoint>` 1 個（最大 1 個）
 - **ExamPoint ルール**: `summary` 30〜50 字（本質）、`items` は体言止め 1〜3 個（≤60 字、句読点禁止）。詳細は [content-principles.md §5「items の禁止パターン」](./content-principles.md) 参照
-- **過去歴**: `migrate-civil-answer-style.mjs` の `generateExamPoint()` バグで約 1,440 個の壊れた items が生成された（2026-04-24）。修復は `civil-exampoint-restorer` Generator サブエージェントを使う（2026-05-16 起動）
-- **執筆ツール**: 既存リライトは `civil-exampoint-restorer`、新規変換は `/pdf-to-mdx --exam civil-construction-1`
+- **過去歴**: `migrate-civil-answer-style.mjs` の `generateExamPoint()` バグで約 1,440 個の壊れた items が生成された（2026-04-24）。修復は専用の Generator で 2026-05-16 に実施済み（2026-11-18 に退役）
+- **執筆ツール**: 既存リライトは `past-exam-rewriter`、新規変換は `/pdf-to-mdx --exam civil-construction-1`
 
 #### 1級土木 secondary（`group: secondary`、二次過去問）
 
@@ -110,7 +110,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 試験ごとに「正しい状態」の定義が異なるため、レビュー時に評価軸を自動で切り替える。新資格を追加する際の指針にもなる。
 
-| 観点 | 総監キーワード（cem-qa）| 1級土木 textbook（civil-construction-qa）| 1級土木 guide（civil-construction-qa）|
+| 観点 | 総監キーワード（keyword-qa）| 1級土木 textbook（textbook-qa）| 1級土木 guide（guide-qa）|
 |---|---|---|---|
 | **真実源** | キーワード集2026 + content-principles.md | 元の教科書 PDF 原本（章節構造） | 複数 PDF を編集統合した記事 |
 | **テキスト網羅性** | 不要（要約が正解） | **95% 以上必須**（教科書を切り捨てない） | 不要（出題範囲を抽出） |
@@ -123,7 +123,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 | **過去問バックリンク** | 双方向必須 | 不要 | **過去問への誘導が重要** |
 | **モバイル視認性** | review-mobile 厳格 | 図のレスポンシブが課題 | review-mobile 適用 |
 
-**判定方法**: `/improve-article --mode verify` スキルが MDX の `category` と `group` から自動判定し、適切な Evaluator エージェントへ振り分ける（cem-qa / civil-construction-qa / content-qa）。詳細は各エージェント定義 `.claude/agents/*.md` を参照。
+**判定方法**: `/improve-article --mode verify` スキルが MDX の `category` と `group` から自動判定し、適切な Evaluator エージェントへ振り分ける（keyword-qa / textbook-qa / guide-qa / content-qa）。詳細は各エージェント定義 `.claude/agents/*.md` を参照。
 
 **機械ルールの資格×種別マトリクス**: 上表の「表」「モバイル視認性」行など機械検知可能なルールの重大度・資格別の有効/無効は **`config/content-rules.json`** が SSOT（実装は `lint-mdx-mobile.mjs`）。例: 上表の「1級土木 textbook＝規格表・配合表など4列以上も許容」は同 config の `overrides.civil-construction-{1,2}.textbook` で 1-3/1-4 を無効化して機械化済み。**civil-construction-1 の `secondary` にも同免除を適用**（2026-07-10 品質サイクル決定）: 二次検定の解説/基礎ページ（secondary-*-basics 等）は textbook 転載の規格表（JIS A5308 17列・土量計算 12列・締固め機種 10列 等）を含み、箇条書き化すると 2 次元参照性を失うため。ただし**散文をセルに詰め込んだだけの表**（説明文 100〜200 字/セル）は免除対象でなくリライトで解体する。全量ラチェット（`npm run check-content-quality` / `quality:audit:ci`）が `fullScan` ルール群で新規違反を赤落ちさせ、既存違反は baseline で grandfather する。リライト優先度は `.claude/state/quality/latest-report.md`（GA4 人気度順）。
 
@@ -176,7 +176,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - groups = guide のみ。variant=pe / order=2.7 / `home-exam-cards.json` order 8 / テーマ色 `--exam-rccm`（`#9C3D1E` 赤褐色・note カバー `exams.rccm` と同色）。ExamKey は `rccm`（マガジン id 接頭辞 `rccm-`）。
 - **過去問は事務局非公開**（jcca.or.jp の past_tests は 404・2026-09-15）。よって `primary` を作らず、民間サイトの再現問題も引用しない。試験事実・公開テーマ・指定用語の SSOT は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`（協会の出題テーマ PDF が一次出典）。数値・日付は `exam-calendar.json` / `exam-stats.json`（`latest` は一次未照合で null）を参照し、ガイドは `guide-fact-checker` を通す。
 - 収益面は note 先行（問題III 模範論文集 `rccm-mondai3-magazine`・問題I テンプレ `rccm-mondai1-template`）。サイトのガイド 7 本（`category-curriculum.json rccm.examGuide.slugs`）は 2027-03-01 合格発表・5 月申込期の検索流入を仕込む位置づけで、`magazine-placement.ts` は `rccm-*` を top CTA へ一括解決する。
-- Generator は `civil-guide-writer` 相当の汎用手順（sonnet・`category: rccm`）、Evaluator は `guide-qa`＋`guide-fact-checker`。note 教材は `rccm-essay-writer` / `rccm-essay-qa`（`check-rccm-essay` が出題条件を機械化）。
+- Generator は `guide-writer` 相当の汎用手順（sonnet・`category: rccm`）、Evaluator は `guide-qa`＋`guide-fact-checker`。note 教材は `essay-writer`（資格 rccm） / `essay-qa`（資格 rccm）（`check-rccm-essay` が出題条件を機械化）。
 - 運営者の座は「発注者として建設コンサルタント業務を発注し成果品を検査・評定した技術士（建設・総監）」に限定し、RCCM 保有・コンサル在籍・採点者・合格体験を名乗らない。
 
 ### 新資格メモ: コンクリート診断士（`concrete-diagnostician`、2026-05-30 新設 → 2026-07-31 公開）

@@ -2,7 +2,7 @@
  * dataset-writers.mjs — データセットごとの「書き手」の宣言（DN-1240）。台帳 scripts/lib/datasets.mjs が読み込み、各行の writer・writerNote に合成する。
  *
  * なぜ要るか: 台帳は「どのファイルが何のデータか」を決めるが、「誰が書くか」が無かった。価格の正本を 3 体のエージェントが書く、
- * 実験の台帳に書き手が 4 つある、といった重なりが散文の中でしか分からず、照合できなかった（docs/handoffs/2026-11-18-agent-roles-plan.md）。
+ * 実験の台帳に書き手が 4 つある、といった重なりが散文の中でしか分からず、照合できなかった（2026-11-18 の役割分担の見直し・DN-1240）。
  * 書き手はここだけに書く。config/automations.json は書く先を持たない（管理画面・検査はここからの逆引き）。
  *
  * 書き手の書き方（接頭辞つき）:
@@ -82,6 +82,7 @@ export const WRITERS = {
   // ===== 商品 =====
   'config.products': { writer: ['script:product'], note: '価格・公開状態の変更は npm run product だけ。note・ココナラ・KDP の運用スクリプトも同じ保存関数（scripts/lib/product-registry.mjs）を通す' },
   'config.product-lineup': ['human'],
+  'config.sales-product-map': ['human'],
   'config.content-themes': ['human'],
   'config.note-funnel': ['human'],
   'config.site-cta-surfaces': ['human'],
