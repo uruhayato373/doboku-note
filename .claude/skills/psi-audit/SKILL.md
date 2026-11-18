@@ -2,7 +2,7 @@
 name: psi-audit
 category: analytics
 description: >
-  PageSpeed Insights で代表ページを計測し、Core Web Vitals のしきい値違反を performance-auditor に出させる。Use when user asks to [PSI 計測, 速度監査, /psi-audit].
+  PageSpeed Insights で代表ページを計測し、Core Web Vitals のしきい値違反と回帰をスクリプトで出す。Use when user asks to [PSI 計測, 速度監査, /psi-audit].
 domain: site
 ---
 
@@ -60,7 +60,7 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 > **4xx は再送しない** — 400/403 は設定ミス、429 はクォータで、再送すると原因を隠したまま
 > 時間だけ延びる。契約は `tests/psi-retry.test.mjs`。
 > それでも欠測は 0 にならないので、**中央値の母数は「その URL が測れているバッチ」だけ**にする
-> （詳細は `performance-auditor` の「回帰検出」）。バッチの計測件数が 22 に満たない日は
+> （詳細は `scripts/report-psi-regression.mjs` 冒頭の「回帰」）。バッチの計測件数が 22 に満たない日は
 > 「違反が消えた」ではなく「測れていない」を疑う。
 
 必要な GitHub Secret:
@@ -68,14 +68,27 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 
 ### 改善候補の抽出
 
-計測後、`performance-auditor` エージェントを呼び出して違反パターンを surface する:
+計測後、`npm run report-psi-regression -- --json`（旧 `performance-auditor`・DN-1242 で廃止）が重大度と回帰を決める。親がその JSON を読み、改善案を既知パターンに沿って書く:
 
 1. 最新の `psi-batch-*.json` を読み込み
 2. `config/psi-config.json` の `judgment` に従って判定する（**field(CrUX) が実害の判定源・lab は診断**）
-3. 違反メトリクスごとに既知パターン（LCP 肥大・CLS 発生・INP 悪化等）にマッピング。**`lcp_element`（selector/snippet）から LCP 要素を特定して打ち手を分岐**する（`<img loading="lazy">` なら `check-lcp-image-hints`／テキストなら render-blocking 側）
+3. 違反メトリクスごとに既知パターン（LCP 肥大・CLS 発生・INP 悪化等）へ親がマッピングする（下の「既知パターン」）。**`lcp_element`（selector/snippet）から LCP 要素を特定して打ち手を分岐**する（`<img loading="lazy">` なら `check-lcp-image-hints`／テキストなら render-blocking 側）
 4. `.claude/state/improvements/psi-{YYYY-MM-DD}.md` に優先度付きで出力
 
-> **判定原則（誤報防止）**: Critical は **field が AVERAGE/SLOW のときだけ**。lab は日次の振れが大きく、単発値・単発差分で Critical を立てない（field が FAST なら最大 Medium・回帰は直近5バッチ中央値）。真実源: [measurement-incidents.md](../../knowledge/reference/measurement-incidents.md)「2026-07-27: lab と field の判定原則」。詳細な分業は [performance-auditor.md](../../agents/performance-auditor.md)。
+> **判定原則（誤報防止）**: Critical は **field が AVERAGE/SLOW のときだけ**。lab は日次の振れが大きく、単発値・単発差分で Critical を立てない（field が FAST なら最大 Medium・回帰は直近5バッチ中央値）。真実源: [measurement-incidents.md](../../knowledge/reference/measurement-incidents.md)「2026-07-27: lab と field の判定原則」。重大度と回帰の判定は `scripts/report-psi-regression.mjs`。
+
+## 既知パターン（違反 → 改善候補・旧 performance-auditor から移した）
+
+該当しなければ「要調査」と書き、候補を無理に埋めない。ページ型で打ち手が違う（過去問は図版が LCP、ガイドはテキストが LCP になりやすい）。
+
+| 違反 | 候補（参照） |
+|---|---|
+| LCP 肥大 | JSON の `lcp.kind` で分岐: `img-lazy`＝`npm run check-lcp-image-hints -- --fix` / `img-eager`＝画像の重量・R2 配信・width/height・不要な preload / `text`＝render-blocking CSS/JS・フォント / `unknown`＝Playwright の PerformanceObserver で実測。field が FAST なら Medium 止まり |
+| CLS 発生 | 画像・iframe の width/height 明示、`ArticleImage` の aspect-ratio、フォント切替のシフト（`src/components/mdx/ArticleImage.tsx`） |
+| INP / TBT 悪化 | Mermaid・KaTeX の初期実行量、検索インデックスの読み込み時機、GA スクリプトの async/defer、useEffect の同期処理（`src/components/search/**`・`src/app/layout.tsx`） |
+| TTFB 悪化 | Cloudflare Pages のキャッシュ戦略（`public/_headers`）、静的生成の網羅（`generateStaticParams`） |
+| Accessibility < 90 | 画像 alt、color-contrast（`--color-text-*`）、form ラベル・aria-label |
+| Best Practices < 85 | HTTPS 違反画像、console.error の残存、deprecated API |
 
 ## 本スキルの実行手順
 
@@ -90,8 +103,8 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
    - exit code 1（違反あり）なら詳細を確認
 
 3. **改善候補抽出**
-   - `performance-auditor` エージェントを呼び出し
-   - 出力 `.claude/state/improvements/psi-{YYYY-MM-DD}.md` を Read して会話に表示
+   - `npm run report-psi-regression -- --json` を実行し、Critical / High / Medium と回帰、LCP 要素の分岐を読む
+   - 親が改善案を書き、必要なら `.claude/state/improvements/psi-{YYYY-MM-DD}.md` に保存して会話に表示
    - Critical / High の候補から着手
 
 4. **実装（ユーザーと協議）**
@@ -131,7 +144,7 @@ High
 
 - `.claude/scripts/fetch-psi-data.mjs` — PSI 計測本体
 - `.claude/scripts/psi-threshold-check.mjs` — しきい値比較
-- `.claude/agents/performance-auditor.md` — 違反検出・改善候補 Evaluator
+- `scripts/report-psi-regression.mjs` — 重大度・回帰の判定（旧 performance-auditor）
 - `.github/workflows/psi-audit.yml` — 日次自動計測
 - `config/psi-config.json` — 設定の真実源
 - `config/psi-urls.txt` — 計測対象 URL リスト

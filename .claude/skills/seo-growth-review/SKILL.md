@@ -13,7 +13,7 @@ SEO を4面（技術健全性 / index coverage / performance / 検索意図）�
 
 - **決定的判定を LLM に委ねない**: broken link / canonical 不一致 / 404 混入 / CTR / 順位 は機械（`check-seo-build`・`seo-checks.mjs`・`metrics-analyzer` の集計）が出す。Evaluator はその結果を読んで統合・意味づけするだけ。
 - **自動修正エージェントは作らない**: 本スキルも各 Evaluator も修正しない。改善は各 Generator / ユーザー判断 / `/nsm-experiment`。
-- **旧 catch-all `seo-auditor` は復活させない**（2026-06-19 退役）。取得は CI、coverage は gsc-index-auditor、performance は metrics-analyzer、技術は technical-seo-auditor、意図は search-intent-auditor に分割済み。
+- **旧 catch-all `seo-auditor` は復活させない**（2026-06-19 退役）。取得は CI、coverage は gsc-index-auditor、performance は metrics-analyzer、技術は `report-technical-seo`（旧 technical-seo-auditor は 2026-11 に廃止・DN-1242）、意図は search-intent-auditor に分割済み。
 - **メタの一括変更をしない**: title/description の量産改変は禁止。少数 URL（〜5）の 14〜28 日実験（`/nsm-experiment`）に限る（gsc-management.md 2026-07-10 の教訓）。
 
 ## 前提（計測は CI 供給が正）
@@ -27,12 +27,13 @@ SEO を4面（技術健全性 / index coverage / performance / 検索意図）�
    - 母集合メタ: `npm run check-seo-meta -- --json`（out/ 直接・1,000+ URL）
    - 計測: `data/{gsc,ga4}/reports/` の最新スナップショット日付を確認（無ければ CI 実行を案内）
 
+   - 技術: `npm run report-technical-seo -- --json`（check-seo-build の履歴・seo-meta・index-coverage・sitemap の悪化と欠測。親が読む）
+   - CWV（任意）: `npm run report-psi-regression -- --json`（重大度と回帰。親が読んで改善案を決める）
+
 2. **各面を audit-only Evaluator へ配る（意味評価・並列可）**
-   - 技術健全性 → `technical-seo-auditor`（check-seo-build / check-seo-meta / index-coverage 履歴 / sitemap を統合）
    - index coverage → `gsc-index-auditor`（url-inspection + history）
    - performance → `metrics-analyzer`（gsc/ga4 + `gsc.page-query` で cannibalization/decay も）
    - 検索意図 → `search-intent-auditor`（**metrics-analyzer が surface した最大 20 URL のみ**）
-   - CWV → `performance-auditor`（psi・任意）
 
 3. **統合レポートを提示**
    - 4面の Evaluator 出力を 1 本にまとめ、重大度順に「今すぐ直す技術欠陥（error）／様子見の warn／performance の実験候補」を並べる
@@ -55,7 +56,8 @@ SEO を4面（技術健全性 / index coverage / performance / 検索意図）�
 ## 参照
 
 - `.claude/knowledge/reference/gsc-management.md` — GSC 管理 SSOT（分業表・閾値・判断マトリクス）
-- `.claude/agents/technical-seo-auditor.md` / `search-intent-auditor.md` — 本スキルが新設した Evaluator
-- `.claude/agents/{gsc-index-auditor,metrics-analyzer,performance-auditor}.md` — 既存 Evaluator（本スキルが束ねる）
+- `.claude/agents/search-intent-auditor.md` — 本スキルが新設した Evaluator
+- `.claude/agents/{gsc-index-auditor,metrics-analyzer}.md` — 既存 Evaluator（本スキルが束ねる）
+- `scripts/report-technical-seo.mjs` / `scripts/report-psi-regression.mjs` — 技術・CWV の機械判定（旧 technical-seo-auditor・performance-auditor）
 - `scripts/check-seo-build.mjs` / `.claude/skills/check-seo-meta/` — 決定的検出（機械）
 - `.claude/skills/{gsc-review,weekly-improve,nsm-experiment}/` — 各面の既存スキル（重複させない）

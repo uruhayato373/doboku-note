@@ -65,7 +65,7 @@ secondary（記述）は ExamPoint を使わない構造（設問→解答本体
 | 親が渡す `node .claude/scripts/validate-mdx.mjs` の結果 | MDX パース整合・KaTeX 警告 |
 | 親が渡す slug 実在チェック | RelatedKeywords の slug が本番に存在するか |
 
-> **Bash 不可**: 本エージェントは Bash を使わない。lint / validate / slug 実在の機械結果は**親が実行して渡す**（doc-sync-auditor・sns-archive-auditor と同方針）。本エージェントの価値は lint が拾えない**意味的品質**（正答の妥当性・選択肢解説が「なぜ誤りか」を説明できているか・ExamPoint が引っかけを捉えているか）の判定にある。
+> **Bash 不可**: 本エージェントは Bash を使わない。lint / validate / slug 実在の機械結果は**親が実行して渡す**（doc-sync-auditor と同方針）。本エージェントの価値は lint が拾えない**意味的品質**（正答の妥当性・選択肢解説が「なぜ誤りか」を説明できているか・ExamPoint が引っかけを捉えているか）の判定にある。
 
 ## 品質ルーブリック（5軸）
 

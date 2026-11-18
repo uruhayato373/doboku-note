@@ -61,9 +61,9 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
    - 未ログインで取得が失敗していた場合は、運営者に `npm run auth:login -- --service google` を依頼する（セッションからは入らない）
    - GA4 は API 優先（`data/ga4/reports/`）。UI CSV が要るときも同じく記録を読む
 
-3. **validate**（`gsc-csv-auditor` を起動）
-   - raw CSV / manifest / 行数 / sha256 / truncation / rejects / 重複 / 前回差分を PASS/WARN/FAIL 判定
-   - FAIL（sha256 不一致・全 download 失敗等）なら再取得を促し、join へ進めない
+3. **validate**（`npm run check-gsc-ui-run`。旧 `gsc-csv-auditor` は廃止・DN-1242）
+   - raw CSV / manifest / 行数 / sha256 / truncation / rejects / 重複 / 前回差分をスクリプトが FAIL / WARN / INFO 判定（`--json` を親が読む）
+   - FAIL（sha256 不一致・全 download 失敗等）なら再取得を促し、join へ進めない。raw が無い checkout は exit 2（検査不成立）なので `npm run check-google-ui-ssot` の結果を読む
 
 4. **normalize**（決定的スクリプト）
    - 土曜の収集が取得と正規化まで済ませ、追跡 SSOT（`gsc-ui/ssot/`）を develop へ push 済み。raw CSV（gitignore）がこの checkout に無いときは、追跡 SSOT で 3〜4 の整合だけ確かめ、取り直さない
@@ -90,7 +90,7 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
    - `seo-fix-planner`（URL 分類の意味補正・優先順位）
    - `gsc-index-auditor`（coverage ratio・原因バケット）
    - `metrics-analyzer`（performance パターン）
-   - `technical-seo-auditor`（build SEO・canonical/sitemap hygiene）
+   - 技術 SEO は `npm run report-technical-seo -- --json`（build 検査の履歴・seo-meta・index-coverage・sitemap の悪化と欠測。親が読んで優先度を決める）
    - 収集/品質が済んでから、可能な範囲で並列で呼ぶ
 
 7. **integrate**（親 Claude）
