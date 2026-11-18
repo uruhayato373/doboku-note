@@ -518,16 +518,6 @@
 **完了条件**: `npm run check-domains` と `npm run check-doc-coupling` が通り、8 領域すべてで決める人・判断の場・空白の担い手が管理画面で読める。
 
 
-### [DN-1240] データ台帳に書き手の欄を足し、検査で止める（役割分担の見直し・第2段階）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-18] [進行中]
-
-**起点**: 2026-11-18 に運営者が承認した計画（`docs/handoffs/2026-11-18-agent-roles-plan.md` の第2段階）。データ台帳 296 件すべてに領域は付いているが書き手の欄が無く、コードから書き手が分かるのは 70 件、`config/automations.json` の `writes` で分かるのは 38 件。`config/products.json` を 3 体が書き、`data/business/experiments.json` は書き手が 4 つある。
-**やること**:
-1. `scripts/lib/datasets.mjs` の opts に `writer`（`script:`・`automation:`・`skill:`・`agent:`・`human`）と `writerNote` を足す
-2. `scripts/check-datasets.mjs` で接頭辞・実在・複数書き手の `writerNote` を検査し、未記入はラチェット（`.claude/config/dataset-writer-baseline.json`）で増やせなくする
-3. `config/automations.json` の `writes` を廃止し、台帳からの逆引きにする（`check-automations`・管理画面 `/ops/store` の書き手列）
-4. 最初の PR で戦略・計画・商品・アフィリエイトと検索集客（約 130 件）を埋める。残りは領域ごとに下げる
-**完了条件**: `npm run check-datasets` が書き手の検査つきで通り、管理画面 `/ops/store` の書き手列が台帳の値で出る。未記入の件数が基準線に記録されている。
 
 
 

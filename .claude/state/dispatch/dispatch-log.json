@@ -9015,6 +9015,19 @@
       "commit": "065f2ebb1336",
       "verification": "記事末の枠は ArticleFooter（関連記事・note）の後ろで、本番のスマホ幅で要求後に unfilled なら 0px に畳まれる",
       "note": "#1645 で data-matched-content-*（スマホ 4 行 1 列）を指定。関連記事は広告より上にあり、押し出していない"
+    },
+    {
+      "id": "DN-1240",
+      "at": "2026-11-18",
+      "task": "データ台帳に書き手の欄を足し、検査で止める（役割分担の見直し・第2段階）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "acc7037de1f5",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
