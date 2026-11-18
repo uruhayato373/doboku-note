@@ -490,7 +490,13 @@
           "skill:doc-sync",
           "skill:weekly-review"
         ],
-        "gaps": []
+        "gaps": [
+          {
+            "job": "文書の更新",
+            "by": "parent",
+            "reason": "文書を書くエージェントは置かない（書き換えは方針の判断と一体）。親が /doc-sync・/doc-declutter・/monthly-review などで直す。更新する人と承認する人は documentStewards が正本"
+          }
+        ]
       }
     }
   ],
