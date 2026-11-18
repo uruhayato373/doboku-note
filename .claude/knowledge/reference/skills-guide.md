@@ -18,7 +18,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 ## カテゴリ別クイックリファレンス
 
 <!-- generated:skills:start（npm run build-capability-index が書く。手で直さない） -->
-スキル 100 本（`.claude/skills/*/SKILL.md` の frontmatter から生成）。
+スキル 98 本（`.claude/skills/*/SKILL.md` の frontmatter から生成）。
 
 ### コンテンツ制作（authoring）
 
@@ -134,15 +134,14 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | スキル | 領域 | 説明 |
 |---|---|---|
 | `/backlog-sweep` | plan | backlog.md からタスクを1〜2件選んで実査・実行・検証し、完了したら削除する1サイクル（--audit は backlog-curator による台帳監査）。Use when user asks to [バックログを消化して, sweep を回して, バックログを棚卸しして, /backlog-sweep]. |
-| `/coconala-analytics` | product | ココナラ「サービス・ブログ分析」の収集済み記録（kpi.json・analytics.json）を読んで報告し、鮮度・欠測を検査する（読み取り専用・数値は累計）。Use when user asks to [ココナラの数字を見る, 閲覧数を確認, /coconala-analytics]. |
 | `/coconala-blog` | product | ココナラブログの公開済み記事の送客先の付け替え（--update）と下書き投入・ライブ実査を回す。新規執筆は 2026-11-18 から停止中（再開は DN-1247）。Use when user asks to [ココナラブログの送客先を付け替え, ココナラブログを公開, /coconala-blog]. |
 | `/coconala-order` | product | ココナラ受注1件を受領から納品文面ドラフトまで通す（coconala-order-drafter。土木は /keiken-tensaku、PDF は送付文）。送信は運営者。Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, /coconala-order]. |
 | `/coconala-publish` | product | ココナラ出品の新規出品・内容修正・受付休止/再開/アーカイブを Playwright で行う（既定は下書き・実公開は --commit）。Use when user asks to [ココナラに出品, ココナラ出品を修正, ココナラを休止, 出品を再開, /coconala-publish]. |
-| `/coconala-status` | product | ココナラ出品の状態を読み取り専用で照合し（受注 orders.json・カタログ・sales.json・KPI のドリフト）、撤退ラインを判定する。Use when user asks to [ココナラの状態を確認, ココナラKPIを記録, 撤退ライン判定, /coconala-status]. |
+| `/coconala-status` | product | ココナラ出品の状態を読み取り専用で照合し（受注 orders.json・カタログ・sales.json・閲覧などの分析の記録と鮮度）、撤退ラインを判定する。Use when user asks to [ココナラの状態を確認, ココナラの数字を見る, 閲覧数を確認, ココナラKPIを記録, 撤退ライン判定, /coconala-status]. |
 | `/competitor-review` | strategy | note / X / Instagram / ココナラの競合を四半期に再取得し、ドリフト検出→チャネル別の analyst（sales-competitor-analyst／content-competitor-analyst）の評価→承認後に SSOT へ反映する。Use when user asks to [競合を再調査, 競合レビュー, 競合分析を更新, /competitor-review]. |
 | `/critical-review` | strategy | 設計書・計画書・戦略文書を批判的に評価して改善点を提示する。Use when user asks to [批判的レビュー, クリティカルレビュー, /critical-review]. |
 | `/distill-proofread-learnings` | ops | 直近の校正作業の差分と指示から、content-principles・スキル・memory に反映すべき新ルールを抽出し、承認を待たずに反映するメタスキル。Use when user asks to [校正スキル改善, 校正ルール更新, 校正の学習, /distill-proofread-learnings]. |
-| `/google-search-growth` | site | GSC/GA4 の収集済み CSV・API データ・sitemap・生成 HTML を URL 単位で突合し、index coverage・検索 performance・技術 SEO を統合診断する。Use when user asks to [検索流入改善, /google-search-growth]. |
+| `/google-search-growth` | site | GSC/GA4 の収集済み CSV・API データ・sitemap・生成 HTML を URL 単位で突合し、index coverage・検索 performance・技術 SEO・検索意図の 4 面を統合診断する。Use when user asks to [検索流入改善, SEO総合レビュー, /google-search-growth]. |
 | `/gsc-review` | site | 週次 GSC index coverage を gsc-index-auditor で診断し、gsc-management.md の観測・判断ログへ判断つきで追記する。Use when user asks to [GSC月次レビュー, index coverage確認, インデックス率, /gsc-review]. |
 | `/knowledge` | ops | 過去の失敗・設計判断・バグ解決の教訓をナレッジベースに参照・追記する。 Use when user asks to [ナレッジ参照, 失敗から学ぶ, 教訓を記録, 過去の判断を調べる, /knowledge, ナレッジを追加]. |
 | `/monetization-strategy` | product | 収益化戦略のブレインストーミングと施策ロードマップを生成する。 Use when user asks to [収益化, マネタイズ戦略, /monetization-strategy, 稼ぎ方を考えたい, 月X万円達成するには, AdSense以外の収益源, 有料記事戦略]. |
@@ -150,7 +149,6 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/nsm-experiment` | strategy | NSM 改善の実験ライフサイクル（propose→start→measure→close）を experiments.json で管理する。Use when user asks to [NSM 実験, 仮説検証, 実験提案, 効果測定, 残作業確認, /nsm-experiment]. |
 | `/plan-weekly` | plan | todo の annual/monthly/weekly と git log から今週のタスクを優先順位付きで決め、weekly.md を更新する（todo-planner を1回起動）。Use when user asks to [今週のタスクを決めて, 今週何をすべきか, /plan-weekly]. |
 | `/routines` | ops | クラウドルーティンを一覧・監査する（重複・残骸 one-shot・平文シークレット・cron 衝突・無効）。新規作成前の重複確認にも使う。Use when user asks to [ルーティン一覧, ルーティン監査, routine 重複チェック, /routines]. |
-| `/seo-growth-review` | site | SEO を技術・index coverage・performance・検索意図の4面で束ね、機械結果を audit-only Evaluator へ配って統合レポートにする（修正はしない）。Use when user asks to [SEO総合レビュー, /seo-growth-review]. |
 | `/weekly-improve` | strategy | 週次の計測→改善サイクル（GSC/GA4 取得→metrics-analyzer→/nsm-experiment→pending 再計測）を1コマンドで回す軽量オーケストレータ。Use when user asks to [週次改善, 改善ループ, 今週の改善候補, /weekly-improve]. |
 | `/weekly-review` | strategy | 前週の成果・KPI・学びを振り返るレビューを生成する。Use when user asks to [週次レビュー, 先週の振り返り, /weekly-review]. |
 
@@ -266,3 +264,14 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/plan-affiliate` | Web 月収 ¥15k 達成後 |
 | `/register-affiliate-banner` | Web 月収 ¥15k 達成後 |
 | `/audit-ads` | Web 月収 ¥15k 達成後 |
+
+---
+
+## 退役・統合したスキル
+
+退役は呼び出し元と中身の重なりを見て、運営者が決める（DN-0798・判断表は `docs/reviews/2026-11-18-agent-usage-candidates.md`）。スキルは親が SKILL.md を読んで手順に従う使い方が多く、呼び出しの記録（`~/.claude/usage-log/`）の回数では判断できない。
+
+| スキル | 日付 | 理由 | 代わり |
+|---|---|---|---|
+| `/seo-growth-review` | 2026-11-18 | `/google-search-growth` と 4 面のうち 3 面（coverage・performance・技術）が重なり、同じ Evaluator を配っていた | `/google-search-growth` の手順 6（検索意図の `search-intent-auditor`・`check-seo-build`・`check-seo-meta`・PSI の回帰を足した） |
+| `/coconala-analytics` | 2026-11-18 | 収集済みの記録を読んで鮮度を見るだけで、`/coconala-status` と同じ読み取り専用 | `/coconala-status`（手順 2 と「分析の記録の読み方」）。収集の `npm run coconala-analytics` は変わらない |

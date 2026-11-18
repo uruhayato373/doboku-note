@@ -380,7 +380,7 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 定型の一文で終わらせず、その取引で実際に起きたことを1つ以上入れる。同一顧客の複数取引では
 文面を書き分ける（同じ文が並ぶと機械的に見える）。
 
-## 4. KPI 週次運用（`/coconala-analytics` → `/coconala-status`）
+## 4. KPI 週次運用（`/coconala-status`）
 
 1. ココナラの分析画面を**read-only で自動取得**する（`npm run coconala-analytics -- --append-kpi` → `npm run check-coconala-analytics`）。手動貼付も引き続き可
 2. kpi.json へ週次 upsert ＋ orders.json から受注サマリ
@@ -396,7 +396,7 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 > だった（初受注 08-04・出品 07-16 を経ても撤退ライン判定の素地が無い）。運用が回らない安全策は
 > 安全ではないので、**ログイン必須の自社分析画面も read-only で自動取得する**（ユーザー判断）。
 > 安全弁は受注収集（§2.2b）と同じ＝`assertAccount`・低頻度（週次）・**書き込み操作なし**
-> （メモ追加・期間変更・出品操作をしない）。取得は `/coconala-analytics`。
+> （メモ追加・期間変更・出品操作をしない）。取得は土曜の収集の `npm run coconala-analytics`。
 >
 > 変わらない線引き: **公開ページの競合調査**（`npm run coconala-research`・§2.3）は商品設計の一次データで、
 > こちらは自社実績。両者は依然スコープが直交する。

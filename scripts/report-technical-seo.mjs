@@ -4,7 +4,7 @@
  * （旧 technical-seo-auditor の束ねと「前回比の悪化」の判定を移した・DN-1242）
  * ---------------------------------------------------------------------------
  * 決定的な検出（404・canonical 不一致・broken link の有無）は check-seo-build / check-seo-meta が済ませている。
- * ここは CI が記録した結果（コミット済み）を読み、次を機械で決める。読み手は /seo-growth-review と /google-search-growth。
+ * ここは CI が記録した結果（コミット済み）を読み、次を機械で決める。読み手は /google-search-growth。
  *   build     最新の error>0 → FAIL / 前回より error が増えた・新しい型の error / warn が増えた → 悪化 / 検査数 < sitemap の 90% → FAIL / 最新が 3 日より古い → 欠測 WARN
  *   seo-meta  HIGH の違反 → FAIL / 違反 URL の型別件数 / 生成が 14 日より古い → 欠測 WARN
  *   coverage  indexed_ratio の最新と前回の差（2 pt 以上の低下 → 悪化 WARN）/ sitemap URL 数が build と 5% 超ずれ → WARN

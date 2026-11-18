@@ -412,11 +412,11 @@ export const CHECKS = [
   { id: 'git-binary-policy', npm: 'check-git-binary-policy', timeout: 120_000, ci: true, note: '生成物・著作権物・巨大 blob・拡張子偽装の新規追跡を baseline ラチェットで止める（HEAD 4.16GiB / remote 11GB の再発防止）' },
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: false, ops: true, cadence: 'weekly', note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847））。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。デッドコードが baseline から増えていないか' },
   { id: 'cta-density', npm: 'check-cta-density', timeout: 90_000, ci: true, note: 'ビルド済み out/ の記事カード内 note 密度・商品重複と転職広告の配置を検査する。対象 HTML が 0 件なら失敗するため、CI は build 後に --only cta-density を実行する', skip: () => existsSync(join(ROOT, 'out', 'index.html')) ? null : 'ビルド成果物 out/index.html が無い（CI は build ジョブが build 後に --only cta-density で回す）' },
-  { id: 'technical-seo', cmd: ['node', 'scripts/report-technical-seo.mjs'], timeout: 60_000, ci: false, note: '技術 SEO の記録（build 検査の履歴・seo-meta・index-coverage・sitemap）の悪化と欠測を数える（旧 technical-seo-auditor・DN-1242）。入力はコミット済みの記録だけで CI でも走る。読み手＝/seo-growth-review と /google-search-growth（--json を親が読み、何を先に直すかを決める）。FAIL は weekly-review-guard の report digest が Issue へ集約' },
-  { id: 'psi-regression', cmd: ['node', 'scripts/report-psi-regression.mjs'], timeout: 60_000, ci: false, note: 'PSI の履歴から重大度（Critical は field が AVERAGE/SLOW のときだけ）と回帰（直近 5 バッチの中央値）を決める（旧 performance-auditor・DN-1242）。入力はコミット済みの PSI 履歴（台帳 psi.batch）。読み手＝/psi-audit・/seo-growth-review・/gsc-review（--json を親が読み、改善案を決める）と週次レビュー（inputs の report-psi-regression）。Critical は weekly-review-guard の report digest が Issue へ集約' },
+  { id: 'technical-seo', cmd: ['node', 'scripts/report-technical-seo.mjs'], timeout: 60_000, ci: false, note: '技術 SEO の記録（build 検査の履歴・seo-meta・index-coverage・sitemap）の悪化と欠測を数える（旧 technical-seo-auditor・DN-1242）。入力はコミット済みの記録だけで CI でも走る。読み手＝/google-search-growth（--json を親が読み、何を先に直すかを決める）。FAIL は weekly-review-guard の report digest が Issue へ集約' },
+  { id: 'psi-regression', cmd: ['node', 'scripts/report-psi-regression.mjs'], timeout: 60_000, ci: false, note: 'PSI の履歴から重大度（Critical は field が AVERAGE/SLOW のときだけ）と回帰（直近 5 バッチの中央値）を決める（旧 performance-auditor・DN-1242）。入力はコミット済みの PSI 履歴（台帳 psi.batch）。読み手＝/psi-audit・/google-search-growth・/gsc-review（--json を親が読み、改善案を決める）と週次レビュー（inputs の report-psi-regression）。Critical は weekly-review-guard の report digest が Issue へ集約' },
   {
     id: 'seo-meta', npm: 'check-seo-meta', timeout: 300_000, ci: false,
-    note: '読み手＝/seo-growth-review（親が読む）。build 済み out/ を直接検査し、weekly-review-guard の report digest でも拾う',
+    note: '読み手＝/google-search-growth（親が読む）。build 済み out/ を直接検査し、weekly-review-guard の report digest でも拾う',
     skip: () => existsSync(join(ROOT, 'out', 'sitemap.xml')) ? null : 'ビルド成果物 out/sitemap.xml が無い（npm run build 後に実行）',
   },
   // 週次レビューが読む収益カバレッジ集計が「実行できる」ことを毎回確かめる（ci ゲート）。

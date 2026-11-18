@@ -119,7 +119,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/fetch-gsc-data` | `gsc-index-auditor` `metrics-analyzer` |
 | `/figure-quality-loop` | `figure-crop-worker` |
 | `/figure-recrop` | `figure-crop-auditor` `figure-crop-worker` |
-| `/google-search-growth` | `gsc-index-auditor` `metrics-analyzer` `seo-fix-planner` |
+| `/google-search-growth` | `gsc-index-auditor` `metrics-analyzer` `search-intent-auditor` `seo-fix-planner` |
 | `/gsc-review` | `gsc-index-auditor` `metrics-analyzer` |
 | `/ig-carousel-restyle` | `ig-carousel-qa` `ig-carousel-writer` |
 | `/improve-article` | `article-proofreader` `content-qa` `guide-qa` `keyword-qa` `keyword-rewriter` `textbook-qa` |
@@ -145,7 +145,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/psi-audit` | `gsc-index-auditor` `metrics-analyzer` |
 | `/publish-x` | `x-post-qa` `x-post-writer` |
 | `/quality-cycle` | `article-proofreader` `civil-textbook-rewriter` `keyword-qa` `keyword-rewriter` |
-| `/seo-growth-review` | `gsc-index-auditor` `metrics-analyzer` `search-intent-auditor` |
 | `/site-visual-review` | `page-design-builder` `site-page-visual-auditor` |
 | `/social-post` | `x-post-writer` |
 | `/standards-table-rebuild` | `standards-table-qa` `standards-table-writer` |
@@ -186,7 +185,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `exam-keyword-mapping-auditor` | 採点 | exam-mapping | 監査のみ | sonnet | site | 総監の過去問1問の紐づけキーワード群が論点を覆うかを評価し、追加・削除候補を返す Evaluator。Use when [過去問紐づけ監査]. | `/audit-exam-mapping` |
 | `figure-crop-auditor` | 採点 | crop-figure | 監査のみ | sonnet | site | 図のクロップ（過去問ページの図 PNG・スキャン教材の図 PNG）を、種類別プロファイルの 4 軸ルーブリックで採点し、bbox の調整値を返す Evaluator。種類を引数で受ける。修正はしない。 | `/civil-figure-rework` `/figure-recrop` `/pdf-to-mdx` |
 | `figure-crop-worker` | 制作 | crop-figure | 監査のみ | sonnet | site | 図のクロップ（過去問ページの bbox spec・記事の図の再クロップと切り出し直し・スキャン教材の図の locate）を、種類別プロファイルに従って作る Generator。種類を引数で受ける。MDX・台帳・git は担当外。 | `/civil-figure-rework` `/figure-quality-loop` `/figure-recrop` |
-| `gsc-index-auditor` | 監査 | index-coverage | 監査のみ | sonnet | site | GSC URL Inspection と sitemap から index coverage を診断し、原因別に hygiene 修正候補を返す Evaluator（audit-only）。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` `/seo-growth-review` |
+| `gsc-index-auditor` | 監査 | index-coverage | 監査のみ | sonnet | site | GSC URL Inspection と sitemap から index coverage を診断し、原因別に hygiene 修正候補を返す Evaluator（audit-only）。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` |
 | `guide-fact-checker` | 照合 | guide | 監査のみ | sonnet | site | ガイド記事の試験制度・統計・法令等の事実を外部一次情報と照合し、判定・正値・出典を返す Evaluator。修正はしない。 | `/keyword-page` |
 | `guide-qa` | 採点 | guide | 監査のみ | inherit | site | ガイド記事を導入・散文・ボリューム・導線・モバイル視認性の5軸で評価する Evaluator（audit-only）。 | `/improve-article` `/keyword-page` `/pdf-to-mdx` |
 | `guide-rewriter` | 直す | guide | 編集可 | sonnet | site | ガイド記事を guide-qa と fact-checker の指摘に沿って修正する Generator。新規記事・新事実の創作は担当外。 | `/keyword-page` |
@@ -199,7 +198,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `kindle-book-composer` | 制作 | kindle-book | 編集可 | sonnet | product | Kindle の論点分類・構成 spec・前付け原稿・KDP の販売文（メタデータ）を設計/改訂する Generator。EPUB ビルド・品質判定はしない。Use when [Kindle 構成設計]. | `/kdp-publish` `/kindle-build` |
 | `kindle-book-qa` | 採点 | kindle-book | 監査のみ | sonnet | product | Kindle EPUB と原稿を完全性・構成・KDP 規約などで監査し修正案を返す Evaluator。修正・出版はしない。Use when [EPUB 品質チェック]. | `/kindle-build` |
 | `magazine-pdf-builder` | 制作 | magazine-pdf | 編集可 | sonnet | product | note マガジンの article.md を「問題文＋解答」中心の紙用 PDF にする spec を作り、magazine-to-pdf.mjs を実行する Generator。 | `/cce-essay-cycle` `/magazine-to-pdf` `/note-attach-pdf` |
-| `metrics-analyzer` | 分析 | search-metrics | 監査のみ | sonnet | site | 検索（GSC・GA4）のデータから7パターンの改善機会を抽出し、/nsm-experiment propose の入力を親へ返す Evaluator。ファイルは書かない。SNS 流入は担当外。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` `/seo-growth-review` `/weekly-improve` |
+| `metrics-analyzer` | 分析 | search-metrics | 監査のみ | sonnet | site | 検索（GSC・GA4）のデータから7パターンの改善機会を抽出し、/nsm-experiment propose の入力を親へ返す Evaluator。ファイルは書かない。SNS 流入は担当外。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` `/weekly-improve` |
 | `note-buyer-responder` | 制作 | note-buyer | 編集可 | sonnet | product | note の購入者コメントへの返信を、購入と納品の実体を確かめたうえで下書きする。送信は運営者か親の承認後。Use when [note のコメントに返信, 購入者への応対, 納品の問い合わせ]. | — |
 | `note-catalog-operator` | 運用 | note | 編集可 | sonnet | product | note の価格・マガジン・収録・カバー・PDF 添付・同期検証を運用する。返信は対象外。Use when [note 価格変更, マガジン収録]. | — |
 | `note-fact-checker` | 照合 | note-draft | 監査のみ | sonnet | product | note 公開用ドラフトの数値・主張・年度を doboku-note 内部データと突合する Evaluator。 | `/note-prepublish-review` `/pe-essay-review` |
@@ -216,7 +215,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `pe-secondary-exam-writer` | 制作 | essay | 編集可 | sonnet | product | 建設部門 note マガジン用の模範解答を科目区分ごとに1記事生成する Generator（過去問/予想 forecast:true・全選択肢網羅）。 | `/pe-secondary-yosou` |
 | `product-portfolio-planner` | 企画・計画 | product-portfolio | 監査のみ | inherit | strategy | 資格ごとの次に作る商品と価格・品揃えの案を返す。書かない。月次のみ。Use when [商品企画, 価格と品揃えの案]. | `/monetization-strategy` `/monthly-review` |
 | `sales-competitor-analyst` | 分析 | competitor-sales | 監査のみ | sonnet | strategy | note・ココナラ・Kindle の競合データから価格・品揃え・訴求の変化を差分案で返す。取得は担当外。Use when [売り場の競合評価]. | `/competitor-review` |
-| `search-intent-auditor` | 分析 | search-intent | 監査のみ | sonnet | site | 機械抽出した最大20 URL が対象クエリの検索意図に合致するかを意味評価する Evaluator（audit-only）。 | `/seo-growth-review` |
+| `search-intent-auditor` | 分析 | search-intent | 監査のみ | sonnet | site | 機械抽出した最大20 URL が対象クエリの検索意図に合致するかを意味評価する Evaluator（audit-only）。 | `/google-search-growth` |
 | `seo-fix-planner` | 企画・計画 | seo | 監査のみ | sonnet | site | 結合済み検索計測 JSON の URL 分類を評価し、優先順位つきの修正計画を返す Evaluator。取得・修正はしない。 | `/google-search-growth` |
 | `site-page-visual-auditor` | 採点 | site-page | 監査のみ | sonnet | site | サイトの代表ページを全部の画面幅で撮った画面を見て、レイアウト・読みやすさ・商品導線（note・アフィリエイト・ココナラ）の崩れをページごとに pass / fail で判定する Evaluator。直さない。 | `/site-visual-review` |
 | `standards-page-visual-auditor` | 採点 | standards-page | 監査のみ | sonnet | site | 基準書の章ページの撮影を原本のページ画像と見比べ、読者の画面の崩れ・欠けを章ごとに pass / fail で判定する Evaluator。直さない。 | `/standards-visual-review` |
