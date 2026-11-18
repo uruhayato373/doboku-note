@@ -1,12 +1,12 @@
 ---
-title: 起動 0 回のエージェントの判断表（DN-0798）
+title: 起動 0 回のエージェントとスキルの判断表（2026-11-18）
 updated: 2026-11-18
 ---
 
-# 起動 0 回のエージェントの判断表（DN-0798）
+# 起動 0 回のエージェントとスキルの判断表（2026-11-18）
 
 > [!note] 使い方
-> 2026-11-18 に全 21 行の判断を終えた（退役 6・残す 15）。「判断」の欄は運営者が「残す／統合／退役」と理由を書いたもの。退役は agents-registry.md の退役表と同じ commit で行う（DN-0798 のやること 3）。提案の欄は親の見立てで、判断ではない。
+> 2026-11-18 に全 21 行の判断を終えた（退役 6・残す 15）。「判断」の欄は運営者が「残す／統合／退役」と理由を書いたもの。退役は agents-registry.md の退役表と同じ commit で行う。提案の欄は親の見立てで、判断ではない。
 
 ## 数え方
 
@@ -56,7 +56,7 @@ updated: 2026-11-18
 ## 判断の対象外
 
 - **今日新設した 3 体**: `note-traffic-analyst`・`coconala-traffic-analyst`・`product-portfolio-planner`。再編の 4 週間後に起動回数を比べる
-- **SNS を保留しているチャネル**（DN-0798 の禁止事項）: `ig-carousel-writer`・`ig-carousel-qa`・`x-repost-curator`・`yt-shorts-title-writer`。ただし `yt-shorts-title-writer` はどのスキルからも呼ばれていないので、SNS 再開のときに呼び出し元を決める
+- **SNS を保留しているチャネル**（記録が 0 でも使われていないと判定しない）: `ig-carousel-writer`・`ig-carousel-qa`・`x-repost-curator`・`yt-shorts-title-writer`。ただし `yt-shorts-title-writer` はどのスキルからも呼ばれていないので、SNS 再開のときに呼び出し元を決める
 
 ## 1〜2 回だったもの（参考）
 
