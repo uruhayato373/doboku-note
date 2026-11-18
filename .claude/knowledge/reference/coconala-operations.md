@@ -737,7 +737,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 の3点から**記事型（9.2）を先に立てる**。9.3 は出品フォーム未探査のまま残置（backlog）。
 
 実装 → [coconala-blog-policy.md](coconala-blog-policy.md)（真実源）・`/coconala-blog` スキル・
-`coconala-blog-writer` / `coconala-blog-qa`・`scripts/coconala-blog-publish.mjs`・`npm run check-coconala-blog`
+`scripts/coconala-blog-publish.mjs`・`npm run check-coconala-blog`
 
 ## 関連
 

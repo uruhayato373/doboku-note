@@ -2,7 +2,7 @@
 name: coconala-blog
 category: management
 description: >
-  ココナラブログ記事の企画・執筆（coconala-blog-writer）・採点（coconala-blog-qa）・下書き投入・ライブ実査を回す。Use when user asks to [ココナラブログを書く, ココナラブログを公開, ブログで送客, /coconala-blog].
+  ココナラブログの公開済み記事の送客先の付け替え（--update）と下書き投入・ライブ実査を回す。新規執筆は 2026-11-18 から停止中（再開は DN-1247）。Use when user asks to [ココナラブログの送客先を付け替え, ココナラブログを公開, /coconala-blog].
 user-invocable: true
 domain: product
 ---

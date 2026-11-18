@@ -135,7 +135,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 |---|---|---|
 | `/backlog-sweep` | plan | backlog.md からタスクを1〜2件選んで実査・実行・検証し、完了したら削除する1サイクル（--audit は backlog-curator による台帳監査）。Use when user asks to [バックログを消化して, sweep を回して, バックログを棚卸しして, /backlog-sweep]. |
 | `/coconala-analytics` | product | ココナラ「サービス・ブログ分析」の収集済み記録（kpi.json・analytics.json）を読んで報告し、鮮度・欠測を検査する（読み取り専用・数値は累計）。Use when user asks to [ココナラの数字を見る, 閲覧数を確認, /coconala-analytics]. |
-| `/coconala-blog` | product | ココナラブログ記事の企画・執筆（coconala-blog-writer）・採点（coconala-blog-qa）・下書き投入・ライブ実査を回す。Use when user asks to [ココナラブログを書く, ココナラブログを公開, ブログで送客, /coconala-blog]. |
+| `/coconala-blog` | product | ココナラブログの公開済み記事の送客先の付け替え（--update）と下書き投入・ライブ実査を回す。新規執筆は 2026-11-18 から停止中（再開は DN-1247）。Use when user asks to [ココナラブログの送客先を付け替え, ココナラブログを公開, /coconala-blog]. |
 | `/coconala-order` | product | ココナラ受注1件を受領から納品文面ドラフトまで通す（coconala-order-drafter。土木は /keiken-tensaku、PDF は送付文）。送信は運営者。Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, /coconala-order]. |
 | `/coconala-publish` | product | ココナラ出品の新規出品・内容修正・受付休止/再開/アーカイブを Playwright で行う（既定は下書き・実公開は --commit）。Use when user asks to [ココナラに出品, ココナラ出品を修正, ココナラを休止, 出品を再開, /coconala-publish]. |
 | `/coconala-status` | product | ココナラ出品の状態を読み取り専用で照合し（受注 orders.json・カタログ・sales.json・KPI のドリフト）、撤退ラインを判定する。Use when user asks to [ココナラの状態を確認, ココナラKPIを記録, 撤退ライン判定, /coconala-status]. |
