@@ -831,7 +831,7 @@
       "work": "owner-eye-sekkei-tosho",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-001",
@@ -881,7 +881,42 @@
         "contentSha256": "2e021ca72b99cb327f2983ae59c49095723a268d870c1265191850165333be46"
       },
       "times": {
-        "rendered": "2026-11-18T13:05:52.328Z"
+        "rendered": "2026-11-18T13:05:52.328Z",
+        "uploaded": "2026-11-18T13:09:25.872Z",
+        "scheduled": "2026-11-18T13:09:38.974Z"
+      },
+      "delivery": {
+        "inputSha256": "5b5b92f61873dd02f168f8ffdf4cd7992d3bbac9770d8fe908974530a394dc50",
+        "marker": "dn-single-1f8c24ea8c5f48ea55d3b7735ca399c840560445",
+        "uploadRequestedAt": "2026-11-18T13:08:29.887Z",
+        "videoId": "bK79HMYZlx8",
+        "processedAt": "2026-11-18T13:09:24.145Z",
+        "thumbnailRequestedAt": "2026-11-18T13:09:25.973Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/default.jpg?sqp=CPzE9tcG&rs=AOn4CLCQhb7zX-A662ZVgctioE-oc_uXGQ",
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/mqdefault.jpg?sqp=CPzE9tcG&rs=AOn4CLCczR-jXSJv5NTymLg8jRpZHipqZw",
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/hqdefault.jpg?sqp=CPzE9tcG&rs=AOn4CLD25sz5bom1r4HIQzXn8Wi2HAD_Zw",
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/sddefault.jpg?sqp=CPzE9tcG&rs=AOn4CLAPRXZ1nOen0iiaE9PKh9NW2Hyy-g",
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/maxresdefault.jpg?sqp=CPzE9tcG&rs=AOn4CLAFPw3KhyetJc2r4zF96ZFUXcGllg",
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/fhddefault.jpg?sqp=CPzE9tcG&rs=AOn4CLCtkjpdHWlzb11LXOHt1TUM3qSiog"
+        ],
+        "thumbnailAcceptedAt": "2026-11-18T13:09:32.292Z",
+        "scheduleRequestedAt": "2026-11-18T13:09:34.557Z",
+        "scheduleAt": "2026-11-27T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-18T13:09:38.974Z"
+      },
+      "platform": {
+        "id": "bK79HMYZlx8",
+        "url": "https://www.youtube.com/watch?v=bK79HMYZlx8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-tosho/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-18T13:09:32.292Z"
       }
     },
     {
