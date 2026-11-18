@@ -65,6 +65,20 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-1243] 親の通常動画が非公開アップロードに進むと、ショートが「在庫に進んでいない」違反に戻り CI が赤になる
+タグ: [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-18]
+
+**起点**: 2026-11-17 13:13 の公開記録（`2a9d7af99`）で、総監の通常動画 `pe-comprehensive-management/sokan-kojutsu-tachiba/youtube.longform` の状態が `uploaded_private` になった。その時点から `npm run check-youtube-plan` が違反 2 件で exit 1 になり、develop と、develop を取り込んだ全ブランチの CI（audit の youtube-plan と、test の「実際の計画と台帳で違反 0 件」）が赤のまま（PR #1648 で確認・コメント済み）。
+
+**原因の見立て**: `scripts/lib/youtube-longform-audit.mjs:101-103` は、ショートを在庫に置いてよい親の状態を `config/channel-annual-plan.json` の `shortsRule.stockParentStatus`（`qa_passed`・`approved`・`scheduled`・`published`）で判定する。状態の並び（`scripts/lib/dataset-schemas-content.mjs` の STATUS）では `rendered` と `uploaded_private` が `approved` と `scheduled` の間にあるのに、一覧に入っていない。親が承認後に描画・非公開アップロードへ進むと、ショート（`point-tachiba-1`・`point-tejun-2`、どちらも draft）が違反に戻る。
+
+**やること**: 動画の運用を持つ側が、次のどちらかを決める。
+1. `stockParentStatus` に `rendered` と `uploaded_private` を足す（承認より先へ進んだ親を在庫の条件から外さない）。テスト（`tests/*youtube*`）の期待もあわせて直す。
+2. 意図どおりなら、2 本のショートの扱い（親が予約に進むまで在庫から外す等）を台帳のコマンド（`npm run registry` / `npm run media`）で直す。
+
+**完了条件**: `npm run check-youtube-plan` が exit 0、`npm run test` の当該テストが通り、develop の CI が緑に戻る。
+
+
 ### [DN-1239] YouTube の表紙の読み返し照合が通らず予約が止まる（4 本）
 タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-17]
 
