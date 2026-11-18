@@ -3,6 +3,7 @@ name: product-portfolio-planner
 description: >
   資格ごとの次に作る商品と価格・品揃えの案を返す。書かない。月次のみ。Use when [商品企画, 価格と品揃えの案].
 model: inherit
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: strategy
 role: planner

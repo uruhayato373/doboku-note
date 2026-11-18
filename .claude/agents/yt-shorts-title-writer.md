@@ -3,6 +3,7 @@ name: yt-shorts-title-writer
 description: >
   YouTube Shorts の論点ベースのタイトルを1本ずつ執筆し meta.json の title を上書きする Generator。
 model: sonnet
+effort: medium
 domain: sns
 role: writer
 target: yt-short

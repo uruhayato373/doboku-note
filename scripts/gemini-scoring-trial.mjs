@@ -49,7 +49,7 @@ const ADOPT_MIN_N = 8;
 const ADOPT_DETECT = 0.7;
 const ADOPT_MIN_FLAGGED = 3;
 
-/** 評価役ごとの軸（採点ファイルのキー）・重み・採点基準の文章の置き場 */
+/** 評価役ごとの軸（採点ファイルのキー。家族名 cem-qa・civil-construction-qa は記録 .claude/state/quality/gemini-trial.json の旧名のまま。cem-qa＝keyword-qa、civil-construction-qa＝article-proofreader）・重み・採点基準の文章の置き場 */
 const FAMILIES = {
   'cem-qa': {
     axes: { structure: '構造', mobile: 'モバイル視認性', principle: 'コンテンツ原則', reference: '参考資料', linking: '関連付け' },
@@ -59,7 +59,7 @@ const FAMILIES = {
   'civil-construction-qa': {
     axes: { structure: '構造', principle: 'テキスト原則', mobile: 'モバイル視認性', figures: '図表の適切性', reference: '参考資料・関連付け' },
     weights: { structure: 0.2, principle: 0.2, mobile: 0.3, figures: 0.15, reference: 0.15 },
-    rubric: { file: join(CLAUDE_ROOT, 'agents', 'civil-construction-qa.md'), from: '### Mode R', to: '**手順**' },
+    rubric: { file: join(CLAUDE_ROOT, 'agents', 'article-proofreader.md'), from: '## ルーブリック', to: '**手順**' },
   },
   'guide-qa': {
     axes: { intro: '導入の質', readability: '読みやすさ・文体', volume: 'ボリューム・網羅', funnel: 'コンバージョン導線・末尾', mobile: 'モバイル視認性・構造' },

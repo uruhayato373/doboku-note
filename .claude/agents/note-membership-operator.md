@@ -3,6 +3,7 @@ name: note-membership-operator
 description: >
   note「土木セコカン合格ラボ」の会員配信・特典収録・プラン設定を運用する。口座と公開範囲が不一致なら公開しない。Use when [会員特典配信].
 model: sonnet
+effort: low
 domain: product
 role: operator
 target: note-membership

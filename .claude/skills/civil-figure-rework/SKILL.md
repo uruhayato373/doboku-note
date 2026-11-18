@@ -234,7 +234,7 @@ skip: `r03-a`, `r04-a`（PDF原本に図参照なし）
 ## 担当外（明確化）
 
 - **二次過去問（secondary-*）**: 対象外
-- **textbook / guide ページ**: `civil-construction-qa` の担当
+- **textbook / guide ページ**: `textbook-qa`（原典照合）・`article-proofreader`（校正）の担当
 - **手動 Preview.app 調整**: failures.log のページのみ、ユーザーが手動対応
 - **R2 アップロード**: CI（GitHub Actions）が `main` push 時に自動同期
 

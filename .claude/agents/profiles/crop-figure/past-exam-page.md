@@ -16,7 +16,7 @@ figure-crop-worker と figure-crop-auditor が、種類 `past-exam-page` で呼�
 
 類似エージェントとの差別化:
 
-- `civil-construction-qa`: textbook/guide ページの 5軸 QA（過去問は対象外）
+- `article-proofreader`: textbook/guide ページの 5軸 校正 QA（過去問は対象外）
 - `figure-crop-auditor`（種類 `past-exam-page`）: 本プロファイルの spec で crop された PNG を 4軸ルーブリックで評価する Evaluator
 - `figure-crop-worker`（種類 `past-exam-page`・このエージェント）: 過去問図の bbox spec 生成
 
@@ -272,7 +272,7 @@ PDF 図要問題数: M
 - **Read のみ**（Edit / Write / Bash 禁止）
 - **PNG は必ず Read で目視確認**（マルチモーダルの強み — 自動検出に頼らない）
 - **修正自体は行わない**（feedback を返すだけ）
-- **二次過去問・textbook・guide は対象外**（civil-construction-qa / content-qa に案内）
+- **二次過去問・textbook・guide は対象外**（article-proofreader / content-qa に案内）
 
 ### 参照ドキュメント
 

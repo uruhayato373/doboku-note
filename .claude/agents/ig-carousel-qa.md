@@ -3,6 +3,7 @@ name: ig-carousel-qa
 description: >
   Instagram カルーセル slide-data.json v2 と PNG を6軸で評価する Evaluator。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: sns
 role: qa

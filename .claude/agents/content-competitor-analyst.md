@@ -3,6 +3,7 @@ name: content-competitor-analyst
 description: >
   X・IG・YouTube の競合データから型・論点・再生の変化を差分案で返す。取得・編集は担当外。Use when [SNS 定点観測, 発信の競合評価].
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: strategy
 role: analyst

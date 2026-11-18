@@ -3,6 +3,7 @@ name: gsc-index-auditor
 description: >
   GSC URL Inspection と sitemap から index coverage を診断し、原因別に hygiene 修正候補を返す Evaluator（audit-only）。
 model: sonnet
+effort: low
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
 role: auditor

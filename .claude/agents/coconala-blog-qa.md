@@ -3,6 +3,7 @@ name: coconala-blog-qa
 description: >
   ココナラブログ記事を5軸（0〜3）で採点する Evaluator。外部リンクゼロ等のハードゲートは check-coconala-blog で確認。修正はしない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: product
 role: qa

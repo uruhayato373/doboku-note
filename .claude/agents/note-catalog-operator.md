@@ -3,6 +3,7 @@ name: note-catalog-operator
 description: >
   note の価格・マガジン・収録・カバー・PDF 添付・同期検証を運用する。返信は対象外。Use when [note 価格変更, マガジン収録].
 model: sonnet
+effort: low
 domain: product
 role: operator
 target: note

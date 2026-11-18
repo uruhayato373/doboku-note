@@ -82,6 +82,7 @@ export const WRITERS = {
   // ===== 商品 =====
   'config.products': { writer: ['script:product'], note: '価格・公開状態の変更は npm run product だけ。note・ココナラ・KDP の運用スクリプトも同じ保存関数（scripts/lib/product-registry.mjs）を通す' },
   'config.product-lineup': ['human'],
+  'config.sales-product-map': ['human'],
   'config.content-themes': ['human'],
   'config.note-funnel': ['human'],
   'config.site-cta-surfaces': ['human'],

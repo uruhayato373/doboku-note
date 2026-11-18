@@ -15,13 +15,14 @@
  *      持ち主（documentStewards）、記事の型の持ち主（contentStewards）の担当が実在し、全エージェントに role:・target: があり、
  *      同じ役割と対象のエージェントが 2 体以上なら違いが agentOverlaps に書いてある（DN-1241）
  *   8. エージェントの形（DN-1242）: 本文が 150 行以内、判定だけの役（分析・採点・照合・監査）は tools: で書き込みを外す。
+ *      model・effort は役割の既定（domain-roles.mjs の ROLE_DEFAULTS）と一致するか、本文に「モデル方針」の理由があること。
  *      今の超過は .claude/config/agent-shape-baseline.json が持ち、増やせない（直したら下げる・消す）
  * バックログの [領域:] は check-backlog-schema が見る。検査した件数を出し、0 件は検査不成立（exit 2）。
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { loadDomains, documentDomain, frontmatterDomain } from './lib/domains.mjs';
-import { validateRoles, validateAgentShape, agentBodyLines, frontmatterField } from './lib/domain-roles.mjs';
+import { validateRoles, validateAgentShape, validateAgentDefaults, MODEL_RATIONALE_MARK, agentBodyLines, frontmatterField } from './lib/domain-roles.mjs';
 import { loadRoadmap, validateRoadmap } from './lib/annual-roadmap.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
@@ -87,7 +88,7 @@ const agentFiles = defs.filter((p) => p.includes(`${join('.claude', 'agents')}`)
 const skillNames = new Set(defs.filter((p) => p.endsWith('SKILL.md')).map((p) => frontmatterField(readFileSync(p, 'utf8'), 'name')).filter(Boolean));
 const agents = agentFiles.map((p) => {
   const t = readFileSync(p, 'utf8');
-  return { name: frontmatterField(t, 'name'), role: frontmatterField(t, 'role'), target: frontmatterField(t, 'target'), tools: frontmatterField(t, 'tools'), bodyLines: agentBodyLines(t) };
+  return { name: frontmatterField(t, 'name'), role: frontmatterField(t, 'role'), target: frontmatterField(t, 'target'), tools: frontmatterField(t, 'tools'), model: frontmatterField(t, 'model'), effort: frontmatterField(t, 'effort'), hasRationale: t.includes(MODEL_RATIONALE_MARK), bodyLines: agentBodyLines(t) };
 });
 const known = {
   skills: skillNames,
@@ -100,6 +101,7 @@ const rc = roleCheck.counts;
 const SHAPE_BASELINE = '.claude/config/agent-shape-baseline.json';
 const shapeBaseline = JSON.parse(readFileSync(join(ROOT, SHAPE_BASELINE), 'utf8'));
 errors.push(...validateAgentShape(agents, shapeBaseline, SHAPE_BASELINE));
+errors.push(...validateAgentDefaults(agents));
 const longBodies = Object.keys(shapeBaseline.bodyLines).length;
 
 console.log(`[check-domains] 領域 ${ids.size} / サイドバー画面 ${navViews} / ロードマップ設定 1 件 / スキル・エージェント ${defs.length} 件 / 文書 ${docs.length} 件（画面に結んだ恒久文書 ${permanentDocs.filter((d) => linked.has(d)).length}/${permanentDocs.length}・結び ${pageLinks} 本）/ 担当: 領域 ${rc.domains}・持ち主が必須の文書 ${rc.stewardDocs}・記事の型 ${rc.contentTypes}・エージェント ${rc.agents}（役割と対象の重複 ${rc.overlaps} 組・本文の上限超えの基準線 ${longBodies} 体・書き込める判定役の基準線 ${shapeBaseline.writeTools.length} 体）を実検査 / 違反 ${errors.length} 件`);

@@ -20,6 +20,7 @@ paths:
 ## ハーネス設計原則の実装（CLAUDE.md §5 の詳細）
 
 - サブエージェントは `model: sonnet` 既定。Opus は親エージェントのみ。model 判定ルールは `/create-skill` の「サブエージェント作成時の model 指定ルール」、per-agent の model 一覧は agents-registry.md「エージェント一覧」が唯一
+- frontmatter には `effort:`（low / medium / high）も必ず書く。役割ごとの既定は planner・analyst・writer・rewriter・qa・verifier が sonnet・medium、operator・auditor が sonnet・low、runner が haiku・low（`scripts/lib/domain-roles.mjs` の ROLE_DEFAULTS）。既定から外すときは本文に「モデル方針」の行で理由を書く（例: `product-portfolio-planner`・`guide-qa` の `model: inherit`）。`npm run check-domains` が止める
 - audit-only（`*-qa` / `*-auditor` / `*-fact-checker`）は frontmatter に `tools:` allowlist（`Read, Glob, Grep, Bash, WebSearch, WebFetch`）を持ち `Edit`/`Write`/`NotebookEdit` を機構的に除外する。Generator（`*-writer` / `*-rewriter` / `*-restorer`）は `tools:` 無指定。Generator/Evaluator 分離の原則と呼出マップは agents-registry.md
 - 同時起動は原則 3 体まで・Workflow の並行は 2 本まで。委任は「大きく・独立・並列化できる」作業のみ。自分のインライン作業を検証させるためだけの起動はしない（`*-writer`↔`*-qa` の分離パイプラインは別物・維持）。委任には必要最小限の直近コンテキストまたは `fork_turns: none`
 - スキル・エージェントに書いてよい検証は**決定的ゲートだけ**（実行するコマンドと合格条件が特定できるもの）。「必ず最後に検証」「ダブルチェック」「サブエージェントで検証させる」は書かない（CLAUDE.md §9）

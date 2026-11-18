@@ -3,6 +3,7 @@ name: figure-crop-worker
 description: >
   図のクロップ（過去問ページの bbox spec・記事の図の再クロップと切り出し直し・スキャン教材の図の locate）を、種類別プロファイルに従って作る Generator。種類を引数で受ける。MDX・台帳・git は担当外。
 model: sonnet
+effort: medium
 tools: Read, Bash, Glob, Grep
 domain: site
 role: writer

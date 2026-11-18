@@ -382,7 +382,7 @@ function printSummary(data, allSlugs) {
   // 自動 vs 手動
   const autoScored = pages.filter(p => p.scoring_method === 'auto').length;
   const manualScored = total - autoScored;
-  console.log(`\n採点方法: 自動=${autoScored}, cem-qa=${manualScored}`);
+  console.log(`\n採点方法: 自動=${autoScored}, keyword-qa=${manualScored}`);
 }
 
 main();

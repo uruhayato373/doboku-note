@@ -95,7 +95,7 @@ grep -c $'\xef\xbf\xbd' "<path>"                                              # 
 ### 担当外（rccm 固有）
 
 - カバー・ハッシュタグ・掲載文・`note-magazines.ts` 配線・公開・commit → 親
-- サイトのガイド記事（`content/site/rccm/**`）→ `civil-guide-writer`（`category: rccm`）
+- サイトのガイド記事（`content/site/rccm/**`）→ `guide-writer`（`category: rccm`）
 - 択一（問題II/IV）予想問題 → 親が直接（`content-qa`＋`note-fact-checker` で採点）
 
 ### 参照

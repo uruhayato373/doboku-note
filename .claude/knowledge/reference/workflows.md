@@ -130,9 +130,9 @@ title: 推奨ワークフロー
 │                                                                 │
 │  /quality-cycle --profile cem --mode auto-loop [--max N]        │
 │    │                                                            │
-│    ├─ score:   cem-qa で全件 5 軸評価                            │
+│    ├─ score:   keyword-qa で全件 5 軸評価                            │
 │    ├─ rewrite: weighted < 2.0 のページを keyword-rewriter でリライト │
-│    ├─ verify:  cem-qa で再評価                                   │
+│    ├─ verify:  keyword-qa で再評価                                   │
 │    └─ 全件 >= 2.0 になるまで最大 3 ラウンド自動反復              │
 │                                                                 │
 │  過去問⇔キーワード紐づけの確認は /audit-exam-mapping で随時実施  │
@@ -206,12 +206,12 @@ note 導線の機械監査は CI と土曜の収集が分担する。`quality-au
 1. /keyword-page create or revise              <- Generator: コンテンツ作成・校正
 2. node .claude/scripts/lint-mdx-mobile.mjs <file>     <- 機械リンター（カテゴリ1・6・8・9）
                                                   HIGH/MEDIUM ゼロまで修正→再実行ループ
-3. cem-qa エージェント呼び出し                 <- Evaluator: 5軸ルーブリック評価
+3. keyword-qa エージェント呼び出し                 <- Evaluator: 5軸ルーブリック評価
 4. 加重スコア ≥ 2.0 → 完了 / < 2.0 → 指摘事項に沿って修正して 2 に戻る
 ```
 
 **重要**:
-- ステップ 3 の `cem-qa` を**省略してはならない**（自己評価バイアス回避のため）
+- ステップ 3 の `keyword-qa` を**省略してはならない**（自己評価バイアス回避のため）
 - 品質ルールの真実源は `.claude/knowledge/reference/content-principles.md`。ルール変更時はまずここを更新
 - リンターのカテゴリ9（ExamPoint 個数・位置・誤り選択肢パターン・参考資料多様性）は HIGH なのでブロッカー
 

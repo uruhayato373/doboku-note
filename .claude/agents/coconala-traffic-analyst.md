@@ -3,6 +3,7 @@ name: coconala-traffic-analyst
 description: >
   ココナラの閲覧・お気に入り・撤退ラインを集計済み記録から解釈する。書かない。Use when [ココナラの数字が急変, 撤退ライン越え].
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: product
 role: analyst

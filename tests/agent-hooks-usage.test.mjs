@@ -15,7 +15,7 @@ test('Skill・Agent・Task の PreToolUse を記録する', () => {
     { at: '2026-10-21T03:04:05.000Z', session: 's1', fromAgent: null, kind: 'skill', name: 'deploy' });
   assert.equal(usageRecord({ hook_event_name: 'PreToolUse', tool_name: 'Agent', tool_input: { subagent_type: 'guide-qa' } }, NOW).name, 'guide-qa');
   assert.equal(usageRecord({ hook_event_name: 'PreToolUse', tool_name: 'Task', tool_input: {} }, NOW).name, 'general-purpose');
-  assert.equal(usageRecord({ hook_event_name: 'PreToolUse', tool_name: 'Agent', tool_input: { subagent_type: 'Explore' }, agent_type: 'strategy-advisor' }, NOW).fromAgent, 'strategy-advisor');
+  assert.equal(usageRecord({ hook_event_name: 'PreToolUse', tool_name: 'Agent', tool_input: { subagent_type: 'Explore' }, agent_type: 'todo-planner' }, NOW).fromAgent, 'todo-planner');
 });
 
 test('人が打ったスラッシュコマンドは名前だけを残し、本文は残さない', () => {

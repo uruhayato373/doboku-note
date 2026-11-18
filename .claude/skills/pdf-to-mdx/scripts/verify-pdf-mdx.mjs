@@ -2,7 +2,7 @@
 // scripts/verify-pdf-mdx.mjs
 //
 // PDF ⇔ MDX 整合性検証の決定論的前処理スクリプト。
-// civil-construction-qa サブエージェントから呼ばれ、JSON で結果を返す。
+// textbook-qa サブエージェントから呼ばれ、JSON で結果を返す。
 // 視覚比較や Playwright レンダリング検証はエージェント側が直接行う。
 // 本スクリプトはファイルアクセスとテキスト処理に限定する。
 //

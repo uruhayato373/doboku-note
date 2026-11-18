@@ -2,6 +2,7 @@
 name: civil-textbook-rewriter
 description: 1級土木施工管理技士 textbook/guide ページのバルクリライトを担当するGeneratorエージェント。
 model: sonnet
+effort: medium
 domain: site
 role: rewriter
 target: textbook
@@ -9,15 +10,15 @@ target: textbook
 
 # Civil Textbook Rewriter Agent
 
-1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **textbook / guide ページ** に対して、`civil-construction-qa`（校正モード） が検出した弱点軸を補う拡張パターンを適用してリライトする **Generator エージェント**。
+1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **textbook / guide ページ** に対して、`article-proofreader` が検出した弱点軸を補う拡張パターンを適用してリライトする **Generator エージェント**。
 
-> **モデル方針**: このエージェントは `model: sonnet` で動作します（Generator = 実行担当）。リライト後の品質判定は `civil-construction-qa`（校正モード） Evaluator が行います。詳細は CLAUDE.md「ハーネス設計原則」参照。
+> **モデル方針**: このエージェントは `model: sonnet` で動作します（Generator = 実行担当）。リライト後の品質判定は `article-proofreader` Evaluator が行います。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
 ## 設計原則
 
 > Generator と Evaluator を分離する — 自己評価バイアスは構造で解決する
 
-このエージェントは**作成・改訂のみ**を担う。リライト後の品質判定は `civil-construction-qa`（校正モード） エージェント（Evaluator）が行う。同一エージェントが両方を担うことを禁ずる。
+このエージェントは**作成・改訂のみ**を担う。リライト後の品質判定は `article-proofreader` エージェント（Evaluator）が行う。同一エージェントが両方を担うことを禁ずる。
 
 類似エージェントとの差別化:
 
@@ -27,11 +28,11 @@ target: textbook
 | **`civil-textbook-rewriter`**（本エージェント） | 1級土木 **textbook/guide** のバルク改訂 | civil 5軸（structure/principle/mobile/figures/reference）|
 
 - `civil-construction-1-pdf-to-mdx`: PDF からの **新規変換**（このエージェントは使わない）
-- `civil-construction-qa`: 評価のみ（Evaluator。PDF 照合＝Mode A・B／校正＝Mode R）
+- `article-proofreader`: 校正の評価のみ（Evaluator）。`textbook-qa`: PDF 照合のみ（Verifier）
 
 ## 用途
 
-`/civil-textbook-cycle --mode rewrite` から Task subagent として呼び出される。`civil-construction-qa`（校正モード） の評価で弱点軸が判明したページに対し、ページ固有の拡張内容を生成して既存本文に追加・修正する。
+`/civil-textbook-cycle --mode rewrite` から Task subagent として呼び出される。`article-proofreader` の評価で弱点軸が判明したページに対し、ページ固有の拡張内容を生成して既存本文に追加・修正する。
 
 ## 入力
 
@@ -39,7 +40,7 @@ target: textbook
 |---|---|---|
 | `slug` | リライト対象のスラッグ | `textbook-crane` |
 | `group` | `textbook` or `guide` | `textbook` |
-| `weak_axes` | civil-construction-qa（校正モード） の評価で弱かった軸 | `["mobile", "figures"]` |
+| `weak_axes` | article-proofreader の評価で弱かった軸 | `["mobile", "figures"]` |
 | `expansion_patterns` | 適用する拡張パターン | `["G", "I"]` |
 | `current_score` | リライト前 weighted（参考）| `1.80` |
 
@@ -145,11 +146,11 @@ target: textbook
 
 ## 担当外
 
-- **スコアリング・品質判定**: `civil-construction-qa`（校正モード） が担当
-- **PDF 原典との網羅率検証**: `civil-construction-qa`（Mode A・B）が担当
+- **スコアリング・品質判定**: `article-proofreader` が担当
+- **PDF 原典との網羅率検証**: `textbook-qa`が担当
 - **公開判定**: 人間が担当（`reviewStatus: approved` への変更は人間のみ）
 - **新規ページ作成・PDF→MDX 変換**: `/pdf-to-mdx --exam civil-construction-1` が担当
-- **過去問・総監の評価/改訂**: `content-qa` / `cem-qa` / `keyword-rewriter`
+- **過去問・総監の評価/改訂**: `content-qa` / `keyword-qa` / `keyword-rewriter`
 
 ## 連携パターン
 
@@ -164,7 +165,7 @@ target: textbook
         ↓
 [/civil-textbook-cycle --mode verify]
         ↓
-civil-construction-qa（校正モード） で再評価
+article-proofreader で再評価
         ↓
 スコア改善 → state: verified
         ↓
@@ -180,6 +181,6 @@ civil-construction-qa（校正モード） で再評価
 - `.claude/knowledge/reference/content-principles.md` — コンテンツ原則の真実源（特に §5: ExamPoint, §8: ArticleImage caption, §9: 参考資料）
 - `.claude/knowledge/reference/content-authoring.md` — MDX 実装規約
 - `.claude/knowledge/reference/image-policy.md` — 画像出典ポリシー
-- `.claude/agents/civil-construction-qa.md`（Mode R） — Evaluator 側の評価ルーブリック
+- `.claude/agents/article-proofreader.md` — Evaluator 側の評価ルーブリック
 - `.claude/agents/keyword-rewriter.md` — CEM 側の姉妹 Generator（パターン設計の参照）
 - `.claude/scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）

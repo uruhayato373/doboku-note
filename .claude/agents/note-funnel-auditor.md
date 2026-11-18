@@ -3,6 +3,7 @@ name: note-funnel-auditor
 description: >
   note 導線の3層（L1/L2/L3）を、もくじの構成・CTA 関連性・回遊の質で意味監査する Evaluator（audit-only）。
 model: sonnet
+effort: low
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product
 role: auditor

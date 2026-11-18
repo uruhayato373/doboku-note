@@ -3,6 +3,7 @@ name: metrics-analyzer
 description: >
   検索（GSC・GA4）のデータから7パターンの改善機会を抽出し、/nsm-experiment propose の入力を親へ返す Evaluator。ファイルは書かない。SNS 流入は担当外。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: site
 role: analyst

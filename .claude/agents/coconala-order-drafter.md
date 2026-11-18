@@ -3,6 +3,7 @@ name: coconala-order-drafter
 description: >
   ココナラの受注を記録と照合し、添削・骨子・PDF 送付の納品文面を下書きする。送信は運営者。Use when [ココナラで受注した, ココナラの納品文面を作って, /coconala-order].
 model: sonnet
+effort: medium
 domain: product
 role: writer
 target: coconala-order
@@ -46,7 +47,7 @@ target: coconala-order
 - 最終赤入れ・トークルーム返信送信・評価の送信 → 運営者
 - 出品・修正・価格/状態・休止/再開・出品文面 → `coconala-listing-operator`
 - 閲覧・お気に入り・撤退ライン → `coconala-traffic-analyst`
-- 売上の月次集計 → `sales-recorder`
+- 売上の月次集計 → `/record-sales`（親が直接実行）
 
 ## 実行手順
 

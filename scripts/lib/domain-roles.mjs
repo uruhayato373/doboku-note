@@ -113,6 +113,45 @@ export function validateAgentShape(agents, baseline, where) {
 }
 
 /**
+ * 役割ごとの model・effort の既定（DN-1242）。ここと違うエージェントは、本文に「モデル方針」の行で理由を書く。
+ * 判断の重い役（企画・分析・制作・直し・採点・照合）は medium、定型の運用・監査は low、機械の段（runner）は haiku。
+ */
+export const ROLE_DEFAULTS = {
+  planner: { model: 'sonnet', effort: 'medium' },
+  analyst: { model: 'sonnet', effort: 'medium' },
+  writer: { model: 'sonnet', effort: 'medium' },
+  rewriter: { model: 'sonnet', effort: 'medium' },
+  qa: { model: 'sonnet', effort: 'medium' },
+  verifier: { model: 'sonnet', effort: 'medium' },
+  operator: { model: 'sonnet', effort: 'low' },
+  auditor: { model: 'sonnet', effort: 'low' },
+  runner: { model: 'haiku', effort: 'low' },
+};
+export const EFFORT_VALUES = ['low', 'medium', 'high'];
+/** 既定から外れた理由を書く行の目印（本文に必要） */
+export const MODEL_RATIONALE_MARK = 'モデル方針';
+
+/**
+ * model・effort を役割の既定と比べる。effort の欠落は常に違反。既定と違うときは本文に「モデル方針」の行が要る。
+ * @param {{ name:string, role:string|null, model:string|null, effort:string|null, hasRationale:boolean }[]} agents
+ */
+export function validateAgentDefaults(agents) {
+  const errors = [];
+  for (const a of agents) {
+    const where = `.claude/agents/${a.name}.md`;
+    if (!a.effort) { errors.push(`${where}: frontmatter に effort: が無い（${EFFORT_VALUES.join(' / ')}）`); continue; }
+    if (!EFFORT_VALUES.includes(a.effort)) { errors.push(`${where}: effort: ${a.effort} は ${EFFORT_VALUES.join(' / ')} のどれかにする`); continue; }
+    const d = ROLE_DEFAULTS[a.role];
+    if (!d) continue; // role の欠落・語彙外は validateRoles が止める
+    const diff = [];
+    if (a.model !== d.model) diff.push(`model: ${a.model}（既定 ${d.model}）`);
+    if (a.effort !== d.effort) diff.push(`effort: ${a.effort}（既定 ${d.effort}）`);
+    if (diff.length && !a.hasRationale) errors.push(`${where}: role: ${a.role} の既定と違う（${diff.join('・')}）。本文に「${MODEL_RATIONALE_MARK}」の行で理由を書くか、既定に戻す`);
+  }
+  return errors;
+}
+
+/**
  * 担当の設定を検査する。
  * @param {object} cfg config/domains.json
  * @param {{ skills:Set<string>, agents:Set<string>, scripts:Set<string> }} known

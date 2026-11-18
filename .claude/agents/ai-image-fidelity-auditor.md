@@ -3,6 +3,7 @@ name: ai-image-fidelity-auditor
 description: >
   記事の写真・動画/商品素材の AI 生成画像が実物・本文どおりかを ok/fail で判定する Evaluator。修正・記録はしない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
 role: qa

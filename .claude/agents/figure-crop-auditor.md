@@ -3,6 +3,7 @@ name: figure-crop-auditor
 description: >
   図のクロップ（過去問ページの図 PNG・スキャン教材の図 PNG）を、種類別プロファイルの 4 軸ルーブリックで採点し、bbox の調整値を返す Evaluator。種類を引数で受ける。修正はしない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
 role: qa
@@ -33,11 +34,11 @@ figure-crop-worker と親のスクリプトが作った**図のクロップ PNG*
 ## 共通ガードレール
 
 - 修正はしない（feedback を返すだけ）。Edit・Write は使わない。Bash はプロファイルが許す場合の検査コマンドに限る。
-- 対象外（二次過去問・textbook・guide・SVG・cover・ogp）は採点せず、振り先を案内して終わる（textbook/guide → civil-construction-qa / content-qa、SVG → svg-figure-auditor）。
+- 対象外（二次過去問・textbook・guide・SVG・cover・ogp）は採点せず、振り先を案内して終わる（textbook/guide → textbook-qa・article-proofreader / content-qa、SVG → svg-figure-auditor）。
 - 検査対象の数（PNG 枚数・PDF 図要問題数）を出力に書く。0 件を合格にしない。
 
 ## 担当外
 
 - bbox spec の生成・再クロップ・埋め込み → figure-crop-worker と親のスクリプト
 - SVG 図版の監査 → svg-figure-auditor
-- 公開記事の 5 軸 QA → civil-construction-qa / content-qa
+- 公開記事の 5 軸 QA → article-proofreader / content-qa

@@ -3,6 +3,7 @@ name: kindle-book-qa
 description: >
   Kindle EPUB と原稿を完全性・構成・KDP 規約などで監査し修正案を返す Evaluator。修正・出版はしない。Use when [EPUB 品質チェック].
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product
 role: qa

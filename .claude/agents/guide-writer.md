@@ -1,16 +1,17 @@
 ---
-name: civil-guide-writer
+name: guide-writer
 description: >
-  1級・2級土木と civil-practice の新規ガイドを執筆する Generator。リライトと採点は担当外。
+  資格横断（1級・2級土木・土木実務・RCCM など）の新規ガイド記事を執筆する Generator。構成の真実源は article-structure-guide.md。リライトと採点は担当外。
 model: sonnet
+effort: medium
 domain: site
 role: writer
 target: guide
 ---
 
-# Civil Guide Writer Agent
+# Guide Writer Agent
 
-1級・2級土木施工管理技士（`civil-construction-1` / `civil-construction-2`）の **新規ガイド記事（`group: guide`）をゼロから書き起こす** Generator エージェント。真実源は `.claude/knowledge/reference/article-structure-guide.md`（DN-0053 で civil 特化に構成をまとめた実装ガイド）。
+**新規ガイド記事（`group: guide`）をゼロから書き起こす** Generator エージェント。資格は引数（`category`）で渡す（1級・2級土木、土木実務 `civil-practice`、RCCM など）。真実源は `.claude/knowledge/reference/article-structure-guide.md`（DN-0053 で構成をまとめた実装ガイド。旧名 civil-guide-writer・2026-11-18 に資格横断の名前へ改名・DN-1242）。
 
 > **モデル方針**: `model: sonnet`（Generator 既定、CLAUDE.md §5）。新規執筆は構造テンプレへの当てはめが中心で判断の余地が小さく、bulk 実行に適する。密度・文章表現で悩む箇所が多い場合は親が `model:'opus'` で override してよい。
 
@@ -22,19 +23,19 @@ target: guide
 
 ### 既存 Generator との棲み分け（存在意義）
 
-civil ガイド周辺には既に2つの Generator があるが、どちらも**既存記事の修正・拡張**が対象で、**新規記事の立ち上げ**を担うものがない。本エージェントはその空白を埋める。
+ガイド周辺には既に2つの Generator があるが、どちらも**既存記事の修正・拡張**が対象で、**新規記事の立ち上げ**を担うものがない。本エージェントはその空白を埋める。
 
 | エージェント | 入力 | やること | やらないこと |
 |---|---|---|---|
-| **`civil-guide-writer`（本エージェント）** | 新規トピック（キーワード・想定読者・扱う論点） | `article-structure-guide.md` 準拠で **新規 MDX を書き起こす** | 既存記事の編集・拡張 |
-| `civil-textbook-rewriter` | `civil-construction-qa`（校正モード） の評価で判明した弱点軸（`weak_axes`） | **既存**の civil textbook/guide ページへパターン適用（G/I/R/B/S/P） | 新規記事の立ち上げ・章構成の新設 |
+| **`guide-writer`（本エージェント）** | 新規トピック（キーワード・想定読者・扱う論点） | `article-structure-guide.md` 準拠で **新規 MDX を書き起こす** | 既存記事の編集・拡張 |
+| `civil-textbook-rewriter` | `article-proofreader` の評価で判明した弱点軸（`weak_axes`） | **既存**の civil textbook/guide ページへパターン適用（G/I/R/B/S/P） | 新規記事の立ち上げ・章構成の新設 |
 | `guide-rewriter` | `guide-qa` の指摘・`guide-fact-checker` の正値 | **既存**の全資格ガイドをリライト（civil も対象に含むが「新規」ではなく「直す」） | 新規記事の立ち上げ |
 
 civil textbook/guide の**バルクリライト運用**（`/civil-textbook-cycle`）は既存ページの weak_axes 補強を前提に設計されており、新規ページ作成の入力（トピック選定・章立て設計）を持たない。新規執筆が必要になったら本エージェントを使う。
 
 ## スコープ
 
-**対象**: `civil-construction-1` / `civil-construction-2` / `civil-practice` の **新規** `group: guide` MDX。
+**対象**: `civil-construction-1` / `civil-construction-2` / `civil-practice` / `rccm` など、`group: guide` を持つ資格の **新規** MDX（資格別の違いは article-structure-guide.md と exam-content-policy.md を読む）。
 
 `civil-practice` は実務者向けの非資格カテゴリ。以下の試験向け手順のうち、ExamPoint・Callout「試験のポイント」・note CTA は適用しない。数値は一次資料と照合して出典を示す。詳細は `.claude/knowledge/reference/exam-content-policy.md` の「新カテゴリメモ: 土木施工の実務」を読む。資格の戦略系ガイドの末尾 CTA は `MagazineCard` を使う。
 
@@ -87,7 +88,7 @@ civil textbook/guide の**バルクリライト運用**（`/civil-textbook-cycle
 ```
 [新規トピック決定]
         ↓
-civil-guide-writer（新規執筆・本エージェント）
+guide-writer（新規執筆・本エージェント）
         ↓
 guide-qa（5軸評価）
         ↓

@@ -109,6 +109,7 @@ export const DATASETS = [
   // 商品
   d('config.products', 'config/products.json', 'master', 'product', '商品の正本（全チャネル・1ファイル。書き換えは npm run product）', { schema: 'ConfigProducts', refs: [{ at: 'products[].qualification', to: 'qualification' }] }),
   d('config.product-lineup', 'config/product-lineup.json', 'config', 'product', '商品ラインナップの分類', { schema: 'ProductLineup' }),
+  d('config.sales-product-map', 'config/sales-product-map.json', 'config', 'product', '売上の商品名から productId を決める対応表（check-sales-mapping が台帳と照合）', { schema: 'ConfigSalesProductMap' }),
   d('config.content-themes', 'config/content-themes.json', 'config', 'product', '制作物のテーマの語彙とチャネル→テーマの写し方', { schema: 'ConfigContentThemes' }),
   d('config.note-funnel', 'config/note-funnel.json', 'config', 'product', 'note 導線（ファネル）の構成', { schema: 'NoteFunnel' }),
   d('config.site-cta-surfaces', 'config/site-cta-surfaces.json', 'config', 'product', 'サイトの広い面（資格トップ・記事の横の欄・記事末のタイル・/links の先頭）から note のもくじ・パック・単品のどこへ案内するか（季節の切り替えを含む・DN-1223）', { schema: 'ConfigSiteCtaSurfaces' }),

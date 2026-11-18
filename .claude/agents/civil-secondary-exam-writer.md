@@ -3,6 +3,7 @@ name: civil-secondary-exam-writer
 description: >
   1級土木 二次過去問の解答・ポイント・設問解説を補完する Generator。
 model: sonnet
+effort: medium
 domain: site
 role: writer
 target: past-exam
@@ -83,7 +84,7 @@ target: past-exam
 
 > Generator と Evaluator を分離する
 
-本エージェントは解答補完を担う。スコア判定は Evaluator の責務で、設問-解答構造の二次過去問（`secondary-r0X` 等）は `past-exam-qa`、PDF 照合直後の網羅性は `content-qa` が見る（`civil-construction-qa` は textbook/guide 限定で secondary は対象外）。
+本エージェントは解答補完を担う。スコア判定は Evaluator の責務で、設問-解答構造の二次過去問（`secondary-r0X` 等）は `past-exam-qa`、PDF 照合直後の網羅性は `content-qa` が見る（`textbook-qa`・`article-proofreader` は textbook/guide 限定で secondary は対象外）。
 
 ## スコープ
 

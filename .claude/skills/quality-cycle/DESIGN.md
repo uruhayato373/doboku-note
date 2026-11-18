@@ -13,7 +13,7 @@
 ## 設計の動機
 
 - 700 ページ規模のサイトを 1 人で運営するため、品質維持を**人手だけ**で回すのは不可能
-- 既存ハーネスは「1 ページずつ作成・1 ページずつ評価」の単発ツール（`/keyword-page` + `cem-qa`）で、全体俯瞰がない
+- 既存ハーネスは「1 ページずつ作成・1 ページずつ評価」の単発ツール（`/keyword-page` + `keyword-qa`）で、全体俯瞰がない
 - AdSense 不合格を受け、品質ばらつきを継続的に検出・改善する仕組みが必要
 - 将来的には 1級土木・他分野コンテンツへも拡張可能な汎用基盤としたい（→ `--profile` 拡張で実現済）
 
@@ -30,7 +30,7 @@
 
 3. **Generator/Evaluator 厳密分離**
    - **Generator**: profile 別のリライトエージェント（`keyword-rewriter` / `civil-textbook-rewriter` 等）
-   - **Evaluator**: profile 別の評価エージェント（`cem-qa` / `civil-construction-qa` 等）
+   - **Evaluator**: profile 別の評価エージェント（`keyword-qa` / `article-proofreader` 等）
    - 同一エージェントが両方を担うことを禁じる（自己評価バイアス回避）
 
 4. **人間ゲート必須**
@@ -149,7 +149,7 @@ unscored → scored → rewriting → needs-review → verified → approved
 
 - `SKILL.md` — 現行スキル仕様（モード・引数・パス）の真実源
 - `templates/cem.md` / `templates/civil-textbook.md` — profile 別テンプレート
-- `.claude/agents/cem-qa.md` / `civil-construction-qa.md` — Tier 2 評価ルーブリックの真実源
+- `.claude/agents/keyword-qa.md` / `article-proofreader.md` — Tier 2 評価ルーブリックの真実源
 - `.claude/agents/keyword-rewriter.md` / `civil-textbook-rewriter.md` — Generator 真実源
 - `.claude/knowledge/reference/content-principles.md` — コンテンツ原則の真実源
 - `.claude/scripts/lint-mdx-mobile.mjs` — Tier 1 機械的判定

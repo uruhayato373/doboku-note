@@ -3,6 +3,7 @@ name: note-buyer-responder
 description: >
   note の購入者コメントへの返信を、購入と納品の実体を確かめたうえで下書きする。送信は運営者か親の承認後。Use when [note のコメントに返信, 購入者への応対, 納品の問い合わせ].
 model: sonnet
+effort: medium
 domain: product
 role: writer
 target: note-buyer

@@ -58,6 +58,21 @@ A8 の確定額（`a8ConfirmedYen`）は `data/a8/report-log.json` の `siteSumm
 
 目標は `target` 記録。対象指標・資格のcompleteな実測snapshot、目標値、方向（at-least/at-most）、適用日、見直し日、設定理由を持つ。適用期間の開始日以前の目標を表示する。後から設定した目標で過去の達成を装わない。
 
+## どの判断をどのスキルで行うか
+
+旧 strategy-advisor（2026-11-18 廃止・DN-1242）のルーティング。親が直接これらを呼ぶ。
+
+| 依頼 | 手順 |
+|---|---|
+| 指標・目標の定義 | `config/business-direction.json`（変更は `/monthly-review` の手順で target 記録） |
+| 前週・前月の振り返り・重点配分 | `/weekly-review`・`/monthly-review` → `/plan-weekly` |
+| 改善の実行・効果判定 | `/nsm-experiment`。SEO は検索キーワード戦略（`/weekly-review` の `search-improvement`） |
+| 販売先の計測 | `/coconala-analytics`、既存 note 売上取得。アクセスの欠測は手入力記録へ |
+| 競合・収益構造 | `/competitor-review`、`/monetization-strategy`、`npm run competitor-position`（資格ごとの立ち位置の正本） |
+| 設計の批判的評価 | `/critical-review` |
+
+レビューの出力は、対象資格・読者の課題・現物で確認した不足・実測と出典と期間・判断・次の変更案・評価指標・次回日を示す。未確認の因果を事実にしない。重点は月次最大 3 件。外部公開・価格変更・記事編集・実験状態変更はその実行主体へ渡す。
+
 ## 実行と検査
 
 管理画面の保存は127.0.0.1/localhostの同一OriginからのJSONのみ。既存台帳の任意編集・外部投稿・本番デプロイは行わない。保存はローカル追記で、スキルの終了時に対象JSONを明示してGitへコミットする。複数書込みはロックで排他する。

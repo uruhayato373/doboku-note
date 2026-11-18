@@ -3,6 +3,7 @@ name: cli-runner
 description: >
   Workflow の機械の段で、渡されたコマンドを 1 回だけ実行し、終了コードと出力の末尾を返す。判断・修正・検証はしない。
 model: haiku
+effort: low
 tools: Bash
 domain: ops
 role: runner

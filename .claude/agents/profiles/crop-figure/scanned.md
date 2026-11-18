@@ -38,7 +38,7 @@ figure-crop-worker と figure-crop-auditor が、種類 `scanned` で呼ばれ�
 |---|---|
 | 入力（メインスレッドが準備） | 1. 生成済みクロップ PNG（`content/sources/textbook/.../img/{figId}.png`）<br>2. 出所ページの高解像画像（`WORK_ROOT/chNN/pXX.png` 等。タイト枠の判断基準）<br>3. 図キャプション（図番号＋内容。MD の `（図: …）` 由来）<br>4. 現 bbox（page 比率 0–1 の `{x,y,w,h}`） |
 | 操作 | **Read のみ**（Edit / Write / Bash 禁止） |
-| 範囲外 | 公開 MDX（`content/site`）の図 → `figure-crop-auditor`（種類 `past-exam-page`）/ `civil-construction-qa`。SVG → `svg-figure-auditor`。 |
+| 範囲外 | 公開 MDX（`content/site`）の図 → `figure-crop-auditor`（種類 `past-exam-page`）/ `textbook-qa`。SVG → `svg-figure-auditor`。 |
 
 ### 4軸ルーブリック（実クロップ PNG を必ず Read して目視）
 

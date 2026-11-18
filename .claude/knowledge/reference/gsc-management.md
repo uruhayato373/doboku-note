@@ -590,7 +590,7 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   - 他 5 件（scraper メタ実験・/tools/keiken-charcount 導線・/practice/ クラスタ・pe-first-stage・chubu 1-3 bot 疑い）→ improvements/2026-09-25.md
 - トリアージ待ち（処分は土曜週次レビューの growth-triage が決める）:
   - OPP-2ee0d7aa00（High-Impr-Low-CTR）→ `/nsm-experiment propose`（メタ実験・単独 URL）
-  - OPP なし・自抽出（Hidden-Winner: civil-construction-2 secondary クラスタ）→ strategy-advisor / 週次レビューで昇格判断
+  - OPP なし・自抽出（Hidden-Winner: civil-construction-2 secondary クラスタ）→ 週次レビュー（親）で昇格判断
   - OPP-09ce18f721（Cannibalization）→ 保留寄り（part-N 復帰後の coverage 確認が先）
   - OPP-07ad782c8d（High-Impr-Low-CTR: scraper）→ 小規模のためメタ実験の同梱候補（5 URL 上限内）
 - 注記: 自動生成・人間の上書き歓迎。Orphan-Query 0 件は「該当なし」ではなく「pos>30 の 140 クエリに専用ページが既存」という別事象（index 側の確認を gsc-index-auditor へ回付）。youtube/video が前週 8→今週 0 で行ごと消滅（投稿停止か計測欠落かの現物確認を推奨）

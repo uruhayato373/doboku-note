@@ -839,7 +839,7 @@
     "_doc": "記事の型 → 作る・直す・見る・機械ゲート。commit は常に親。機械ゲートで落ちたら採点役を起動しない",
     "guide": {
       "label": "ガイド",
-      "create": "agent:civil-guide-writer",
+      "create": "agent:guide-writer",
       "fix": "agent:guide-rewriter",
       "review": [
         "agent:guide-qa",
@@ -856,7 +856,7 @@
       "create": "skill:keyword-page",
       "fix": "agent:keyword-rewriter",
       "review": [
-        "agent:cem-qa"
+        "agent:keyword-qa"
       ],
       "gates": [
         "script:validate-mdx"
@@ -867,7 +867,8 @@
       "create": "skill:pdf-to-mdx",
       "fix": "agent:civil-textbook-rewriter",
       "review": [
-        "agent:civil-construction-qa"
+        "agent:textbook-qa",
+        "agent:article-proofreader"
       ],
       "gates": [
         "script:validate-mdx",
@@ -962,7 +963,6 @@
   "coconala-order": "ココナラの受注対応",
   "coconala-traffic": "ココナラの集客",
     "kdp": "KDP の本棚",
-    "sales": "売上の記録",
     "affiliate": "ASP の提携",
     "a8-csv": "A8 の CSV",
     "x-post": "X の投稿",
@@ -975,7 +975,6 @@
     "competitor-sales": "販売チャネルの競合（note・ココナラ・Kindle）",
   "competitor-content": "発信チャネルの競合（X・IG・YouTube）",
     "product-portfolio": "商品の品揃えと価格",
-  "strategy": "戦略",
     "weekly-plan": "週次計画",
     "backlog": "バックログ",
     "docs": "文書",

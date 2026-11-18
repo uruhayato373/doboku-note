@@ -107,7 +107,7 @@ publishedAt: "YYYY-MM-DD"
 | 安全管理 | 4.X |
 | 社会環境管理 | 5.X |
 
-## 品質ルーブリック（cem-qa エージェント）
+## 品質ルーブリック（keyword-qa エージェント）
 
 変換後に `/improve-article --mode verify` で自動評価。5 軸（構造 30% / モバイル 25% / 原則 20% / 参考資料 15% / 関連付け 10%）、合格ライン 2.0/3.0。
 
@@ -115,7 +115,7 @@ publishedAt: "YYYY-MM-DD"
 
 ```bash
 /check-mdx --rules all
-/improve-article {path} --mode verify   # 任意、cem-qa で 5 軸評価
+/improve-article {path} --mode verify   # 任意、keyword-qa で 5 軸評価
 ```
 
 ## 参照

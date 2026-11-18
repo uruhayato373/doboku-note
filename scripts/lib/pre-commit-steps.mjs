@@ -204,7 +204,7 @@ export const STEPS = [
   s('check-doc-coupling'),
   // handoff の削除/退避で残タスクの backlog 抽出もれ・_archive 復活を検証（2026-07-14 退避事故の再発防止・SKIP_HANDOFF_EXTRACT=1 で回避）
   s('check-handoff-extraction'),
-  // note の販売履歴（データセット note.sales）の productId が sales-recorder.md の mapping に文書化されているか検証（売上mapping陳腐化の再発防止）
+  // note の販売履歴（データセット note.sales）の productId が sales-product-map.json の mapping に文書化されているか検証（売上mapping陳腐化の再発防止）
   s('check-sales-mapping'),
   // ココナラ カタログ(coconala-services.ts)↔state(orders/kpi)↔sales.json の配線ドリフト検証（2026-07-16）
   s('check-coconala-wiring'),
