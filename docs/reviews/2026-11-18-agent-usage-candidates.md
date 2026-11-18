@@ -19,11 +19,11 @@ updated: 2026-11-18
 
 | エージェント | 領域 | 役割・対象 | 呼び出し元 | 提案 | 判断 |
 |---|---|---|---|---|---|
-| `civil-exampoint-restorer` | サイト | 制作・過去問 | なし | 退役（一度きりの修復用・計画どおり） | |
-| `svg-canvas-fitter` | サイト | 直す・SVG 図版 | なし | 退役か `svg-figure-rewriter` へ統合（スキルから呼ばれていない） | |
-| `svg-figure-rewriter` | サイト | 直す・SVG 図版 | なし | 残すなら `/create-svg` か `/check-mdx` の svg から呼ぶ形にする。呼ばないなら退役 | |
-| `note-cover-writer` | 商品 | 制作・note のカバー | スクリプトのみ | V5 カバーの展開が終わっていれば退役 | |
-| `note-membership-operator` | 商品 | 運用・note の会員 | `/note-membership` | メンバーシップ撤退（DN-0477）の完了で退役 | |
+| `civil-exampoint-restorer` | サイト | 制作・過去問 | なし | 退役（一度きりの修復用・計画どおり） || 退役（2026-11-18・PR #1658） |
+| `svg-canvas-fitter` | サイト | 直す・SVG 図版 | なし | 退役か `svg-figure-rewriter` へ統合（スキルから呼ばれていない） || 退役（2026-11-18・PR #1658） |
+| `svg-figure-rewriter` | サイト | 直す・SVG 図版 | なし | 残すなら `/create-svg` か `/check-mdx` の svg から呼ぶ形にする。呼ばないなら退役 || 退役（2026-11-18・PR #1658） |
+| `note-cover-writer` | 商品 | 制作・note のカバー | スクリプトのみ | V5 カバーの展開が終わっていれば退役 || 退役（2026-11-18・PR #1658） |
+| `note-membership-operator` | 商品 | 運用・note の会員 | `/note-membership` | メンバーシップ撤退（DN-0477）の完了で退役 || 残す（メンバーシップの器を建設業×AI＝DN-0876 に使い回すため・2026-11-18） |
 | `coconala-blog-writer` | 商品 | 制作・ココナラブログ | `/coconala-blog` | ブログを続けるかで決める（続けるなら残す） | |
 | `coconala-blog-qa` | 商品 | 採点・ココナラブログ | `/coconala-blog` | writer と同じ判断 | |
 | `seo-fix-planner` | サイト | 企画・SEO | `/google-search-growth` | 残す（月次の検索の見直しで呼ぶ）。4 週間後も 0 回なら親の判断へ寄せる | |
