@@ -1007,24 +1007,9 @@
       "reason": "civil-secondary-exam-writer は二次の解答・解説の補完、civil-exampoint-restorer は壊れた ExamPoint の一度きりの修復（廃止予定・DN-1242）"
     },
     {
-      "role": "writer",
-      "target": "crop-figure",
-      "reason": "civil-exam-figure-extractor はクロップの仕様（JSON）を返す、figure-crop-worker は実際に切り直す。1対へのまとめは DN-0798"
-    },
-    {
-      "role": "qa",
-      "target": "crop-figure",
-      "reason": "civil-exam-figure-auditor は過去問ページの図、scanned-figure-crop-auditor はスキャン教材の図。1対へのまとめは DN-0798"
-    },
-    {
       "role": "rewriter",
       "target": "svg-figure",
       "reason": "svg-figure-rewriter は指摘の適用と色・属性の校正、svg-canvas-fitter は固定キャンバスへの再配置"
-    },
-    {
-      "role": "qa",
-      "target": "svg-figure",
-      "reason": "svg-figure-auditor はサイト・note の図版、pe-exam-figure-auditor は総監の試験図。後者を前者の対象の1つにする（DN-1242）"
     },
     {
       "role": "qa",

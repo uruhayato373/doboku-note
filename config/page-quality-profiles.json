@@ -106,14 +106,14 @@
           ]
         },
         {
-          "agent": "civil-exam-figure-auditor",
+          "agent": "figure-crop-auditor",
           "role": "figures",
           "categories": [
             "civil-construction-1"
           ]
         },
         {
-          "agent": "pe-exam-figure-auditor",
+          "agent": "svg-figure-auditor",
           "role": "figures",
           "categories": [
             "pe-comprehensive-management"
@@ -366,7 +366,7 @@
           "role": "tables"
         },
         {
-          "agent": "scanned-figure-crop-auditor",
+          "agent": "figure-crop-auditor",
           "role": "figures"
         },
         {

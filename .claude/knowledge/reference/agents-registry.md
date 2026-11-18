@@ -37,9 +37,9 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | 計画 | — | `todo-planner` | — | — | — | — | — | `backlog-curator` | — |
 | 商品 | — | — | `civil-keiken-tensaku-drafter` `coconala-blog-writer` `essay-writer` `kindle-book-composer` `magazine-pdf-builder` `note-cover-writer` `note-link-injector` `pe-secondary-exam-writer` | — | `civil-keiken-tensaku-qa` `coconala-blog-qa` `essay-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-operator` `kdp-operator` `note-membership-operator` `note-operator` `sales-recorder` | `note-funnel-auditor` | — |
 | アフィリエイト | — | — | — | — | — | — | `affiliate-operator` | `a8-csv-auditor` | — |
-| サイト | `metrics-analyzer` `search-intent-auditor` | `seo-fix-planner` | `civil-exam-figure-extractor` `civil-exampoint-restorer` `civil-guide-writer` `civil-secondary-exam-writer` `figure-crop-worker` `page-design-builder` `standards-table-writer` | `civil-textbook-rewriter` `guide-rewriter` `keyword-rewriter` `past-exam-rewriter` `svg-canvas-fitter` `svg-figure-rewriter` | `ai-image-fidelity-auditor` `cem-qa` `civil-construction-qa` `civil-exam-figure-auditor` `exam-keyword-mapping-auditor` `guide-qa` `past-exam-qa` `pe-exam-figure-auditor` `site-page-visual-auditor` `standards-page-visual-auditor` `svg-figure-auditor` | `guide-fact-checker` `standards-table-qa` | — | `gsc-csv-auditor` `gsc-index-auditor` `performance-auditor` `technical-seo-auditor` | — |
+| サイト | `metrics-analyzer` `search-intent-auditor` | `seo-fix-planner` | `civil-exampoint-restorer` `civil-guide-writer` `civil-secondary-exam-writer` `figure-crop-worker` `page-design-builder` `standards-table-writer` | `civil-textbook-rewriter` `guide-rewriter` `keyword-rewriter` `past-exam-rewriter` `svg-canvas-fitter` `svg-figure-rewriter` | `ai-image-fidelity-auditor` `cem-qa` `civil-construction-qa` `exam-keyword-mapping-auditor` `figure-crop-auditor` `guide-qa` `past-exam-qa` `site-page-visual-auditor` `standards-page-visual-auditor` `svg-figure-auditor` | `guide-fact-checker` `standards-table-qa` | — | `gsc-csv-auditor` `gsc-index-auditor` `performance-auditor` `technical-seo-auditor` | — |
 | SNS | — | — | `ig-carousel-writer` `video-script-writer` `x-post-writer` `x-reply-drafter` `x-repost-curator` `yt-shorts-title-writer` | — | `ig-carousel-qa` `video-content-qa` `video-review` `x-post-qa` `yt-shorts-publisher-qa` | — | — | `sns-archive-auditor` | — |
-| 教材 | — | — | — | — | `scanned-figure-crop-auditor` | `content-qa` | — | — | — |
+| 教材 | — | — | — | — | — | `content-qa` | — | — | — |
 | 管理 | — | — | — | — | — | — | — | `doc-curator` `doc-sync-auditor` | `cli-runner` |
 
 **対象×役割**
@@ -52,8 +52,8 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | 過去問記事（past-exam） | — | — | `civil-exampoint-restorer` `civil-secondary-exam-writer` | `past-exam-rewriter` | `past-exam-qa` | `content-qa` | — | — | — |
 | 基準書の表（standards-table） | — | — | `standards-table-writer` | — | — | `standards-table-qa` | — | — | — |
 | 基準書の章ページ（standards-page） | — | — | — | — | `standards-page-visual-auditor` | — | — | — | — |
-| SVG 図版（svg-figure） | — | — | — | `svg-canvas-fitter` `svg-figure-rewriter` | `pe-exam-figure-auditor` `svg-figure-auditor` | — | — | — | — |
-| 切り抜きの図（crop-figure） | — | — | `civil-exam-figure-extractor` `figure-crop-worker` | — | `civil-exam-figure-auditor` `scanned-figure-crop-auditor` | — | — | — | — |
+| SVG 図版（svg-figure） | — | — | — | `svg-canvas-fitter` `svg-figure-rewriter` | `svg-figure-auditor` | — | — | — | — |
+| 切り抜きの図（crop-figure） | — | — | `figure-crop-worker` | — | `figure-crop-auditor` | — | — | — | — |
 | AI 画像（ai-image） | — | — | — | — | `ai-image-fidelity-auditor` | — | — | — | — |
 | サイトの画面（site-page） | — | — | `page-design-builder` | — | `site-page-visual-auditor` | — | — | — | — |
 | 過去問とキーワードの紐づけ（exam-mapping） | — | — | — | — | `exam-keyword-mapping-auditor` | — | — | — | — |
@@ -109,7 +109,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/backlog-sweep` | `backlog-curator` |
 | `/cce-essay-cycle` | `essay-qa` `essay-writer` `magazine-pdf-builder` |
 | `/check-mdx` | `svg-figure-auditor` |
-| `/civil-figure-rework` | `civil-construction-qa` `civil-exam-figure-auditor` `civil-exam-figure-extractor` |
+| `/civil-figure-rework` | `civil-construction-qa` `figure-crop-auditor` `figure-crop-worker` |
 | `/civil-keiken-magazine` | `civil-secondary-exam-writer` `essay-qa` `essay-writer` |
 | `/coconala-blog` | `coconala-blog-qa` `coconala-blog-writer` |
 | `/coconala-order` | `civil-keiken-tensaku-drafter` `civil-keiken-tensaku-qa` `coconala-operator` |
@@ -123,7 +123,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/exam-questions-import` | `content-qa` |
 | `/fetch-gsc-data` | `gsc-index-auditor` `metrics-analyzer` |
 | `/figure-quality-loop` | `figure-crop-worker` |
-| `/figure-recrop` | `civil-exam-figure-auditor` `figure-crop-worker` `scanned-figure-crop-auditor` |
+| `/figure-recrop` | `figure-crop-auditor` `figure-crop-worker` |
 | `/google-search-growth` | `gsc-csv-auditor` `gsc-index-auditor` `metrics-analyzer` `seo-fix-planner` `technical-seo-auditor` |
 | `/gsc-review` | `gsc-index-auditor` `metrics-analyzer` `performance-auditor` |
 | `/ig-carousel-restyle` | `ig-carousel-qa` `ig-carousel-writer` |
@@ -140,7 +140,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/note-prepublish-review` | `note-fact-checker` `note-link-injector` `svg-figure-auditor` |
 | `/note-visual-review` | `note-page-visual-auditor` |
 | `/notebooklm-research` | `cem-qa` |
-| `/pdf-to-mdx` | `cem-qa` `civil-construction-qa` `content-qa` `scanned-figure-crop-auditor` |
+| `/pdf-to-mdx` | `cem-qa` `civil-construction-qa` `content-qa` `figure-crop-auditor` |
 | `/pe-essay-cycle` | `essay-qa` `essay-writer` |
 | `/pe-essay-review` | `cem-qa` `note-fact-checker` |
 | `/pe-note-plan` | `strategy-advisor` |
@@ -166,7 +166,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 ## エージェント一覧
 
 <!-- generated:agents:start（npm run build-capability-index が書く。手で直さない） -->
-エージェント 78 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
+エージェント 75 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
 
 | エージェント | 役割 | 対象 | 種別 | model | 領域 | 説明 | 呼び出すスキル |
 |---|---|---|---|---|---|---|---|
@@ -176,8 +176,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `backlog-curator` | 監査 | backlog | 監査のみ | sonnet | plan | backlog カードの分類・重複・陳腐化を監査し処分案を返す Evaluator。編集・実行・週次計画はしない。Use when [バックログ棚卸し]. | `/backlog-sweep` |
 | `cem-qa` | 採点 | keyword | 監査のみ | sonnet | site | 総監キーワードページの5軸ルーブリック品質評価を担当する Evaluator。 | `/distill-proofread-learnings` `/improve-article` `/keyword-page` `/notebooklm-research` `/pdf-to-mdx` `/pe-essay-review` `/quality-cycle` `/verify-exam-coverage` |
 | `civil-construction-qa` | 採点 | textbook | 編集可 | sonnet | site | 1級・2級土木 textbook/guide の視覚検証・テキスト網羅率と、既存記事の校正（Mode R・コンクリ系教科書を含む）を担当する Evaluator。 | `/civil-figure-rework` `/improve-article` `/pdf-to-mdx` `/quality-cycle` |
-| `civil-exam-figure-auditor` | 採点 | crop-figure | 監査のみ | sonnet | site | 1級土木 過去問1次ページの図クロップを PNG と MDX 本文から4軸で採点する Evaluator。 | `/civil-figure-rework` `/figure-recrop` |
-| `civil-exam-figure-extractor` | 制作 | crop-figure | 編集可 | sonnet | site | 1級土木 過去問1次ページの図クロップ仕様を、PDF ページ画像の目視で JSON spec にして返す Generator。 | `/civil-figure-rework` |
 | `civil-exampoint-restorer` | 制作 | past-exam | 編集可 | sonnet | site | 1級土木 一次過去問の壊れた ExamPoint を体言止めの学習ポイントに再生成する Generator。 | — |
 | `civil-guide-writer` | 制作 | guide | 編集可 | sonnet | site | 1級・2級土木と civil-practice の新規ガイドを執筆する Generator。リライトと採点は担当外。 | — |
 | `civil-keiken-tensaku-drafter` | 制作 | tensaku | 編集可 | sonnet | product | 顧客原稿・ヒアリング事実から診断・添削・骨子シートの下書きを作る。事実は創作せず質問にする。最終化・送信は担当外。 | `/coconala-order` `/keiken-tensaku` |
@@ -195,7 +193,8 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `essay-qa` | 採点 | essay | 監査のみ | sonnet | product | note 教材の模範答案・模範論文（総監・施工経験記述・コンクリート主任技士・RCCM）を、資格別プロファイルの決定論ゲートと5軸で採点する Evaluator。生成・修正はしない。Use when 答案を採点する（資格を引数で渡す）。 | `/cce-essay-cycle` `/civil-keiken-magazine` `/keiken-charcount` `/pe-essay-cycle` |
 | `essay-writer` | 制作 | essay | 編集可 | sonnet | product | note 教材の模範答案・模範論文（総監・施工経験記述・コンクリート主任技士・RCCM）を、資格別プロファイルに従って1記事ずつ執筆する Generator。Use when 模範答案を書く・答案を生成する（資格を引数で渡す）。 | `/cce-essay-cycle` `/civil-keiken-magazine` `/keiken-charcount` `/pe-essay-cycle` |
 | `exam-keyword-mapping-auditor` | 採点 | exam-mapping | 監査のみ | sonnet | site | 総監の過去問1問の紐づけキーワード群が論点を覆うかを評価し、追加・削除候補を返す Evaluator。Use when [過去問紐づけ監査]. | `/audit-exam-mapping` |
-| `figure-crop-worker` | 制作 | crop-figure | 監査のみ | sonnet | site | 記事の図画像を1枚ずつ目視分類し、タイト再クロップか元 PDF からの切り出し直しを行う Generator。MDX・台帳・git は担当外。 | `/figure-quality-loop` `/figure-recrop` |
+| `figure-crop-auditor` | 採点 | crop-figure | 監査のみ | sonnet | site | 図のクロップ（過去問ページの図 PNG・スキャン教材の図 PNG）を、種類別プロファイルの 4 軸ルーブリックで採点し、bbox の調整値を返す Evaluator。種類を引数で受ける。修正はしない。 | `/civil-figure-rework` `/figure-recrop` `/pdf-to-mdx` |
+| `figure-crop-worker` | 制作 | crop-figure | 監査のみ | sonnet | site | 図のクロップ（過去問ページの bbox spec・記事の図の再クロップと切り出し直し・スキャン教材の図の locate）を、種類別プロファイルに従って作る Generator。種類を引数で受ける。MDX・台帳・git は担当外。 | `/civil-figure-rework` `/figure-quality-loop` `/figure-recrop` |
 | `gsc-csv-auditor` | 監査 | gsc-csv | 監査のみ | sonnet | site | GSC UI の収集済み CSV の欠損・切捨て・重複・前回差分を監査する Evaluator。SEO 判断・修正はしない。 | `/google-search-growth` |
 | `gsc-index-auditor` | 監査 | index-coverage | 監査のみ | sonnet | site | GSC URL Inspection と sitemap から index coverage を診断し、原因別に hygiene 修正候補を返す Evaluator（audit-only）。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` `/seo-growth-review` |
 | `guide-fact-checker` | 照合 | guide | 監査のみ | sonnet | site | ガイド記事の試験制度・統計・法令等の事実を外部一次情報と照合し、判定・正値・出典を返す Evaluator。修正はしない。 | `/keyword-page` |
@@ -219,13 +218,11 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `page-design-builder` | 制作 | site-page | 編集可 | sonnet | site | サイト UI・レイアウトを共通コンポーネントとトークンで実装する Generator。合否は /design-review。SVG・カバーは担当外。Use when [ページUI設計]. | `/site-visual-review` |
 | `past-exam-qa` | 採点 | past-exam | 監査のみ | sonnet | site | 全資格の過去問 MDX を正答・解説・ExamPoint・可読性で監査する Evaluator。修正・PDF 忠実性・図クロップは別担当。Use when [過去問品質監査]. | — |
 | `past-exam-rewriter` | 直す | past-exam | 編集可 | sonnet | site | 過去問 MDX に past-exam-qa の指摘を適用する Generator。設問文・正答・KaTeX は原則保持。図処理は担当外。Use when [過去問校正]. | — |
-| `pe-exam-figure-auditor` | 採点 | svg-figure | 監査のみ | sonnet | site | 総監 過去問1次の試験図 SVG を4軸（概念・ラベル・可読性・MDX 結線）で採点する Evaluator（audit-only）。 | — |
 | `pe-secondary-exam-factcheck` | 照合 | essay | 監査のみ | sonnet | product | 建設部門 模範解答の技術的事実（数値・条番号・制度・統計）を外部一次情報に照合し、合格科目外の誤りを公開前に捕捉する Evaluator。 | `/pe-secondary-yosou` |
 | `pe-secondary-exam-qa` | 採点 | essay | 監査のみ | sonnet | product | 建設部門 note マガジンの模範解答を6軸で採点する Evaluator（予想問題モード forecast:true 対応）。 | `/pe-secondary-yosou` |
 | `pe-secondary-exam-writer` | 制作 | essay | 編集可 | sonnet | product | 建設部門 note マガジン用の模範解答を科目区分ごとに1記事生成する Generator（過去問/予想 forecast:true・全選択肢網羅）。 | `/pe-secondary-yosou` |
 | `performance-auditor` | 監査 | performance | 監査のみ | sonnet | site | PSI 計測履歴から Core Web Vitals のしきい値違反と回帰を検出し、改善提案を優先度つきで出す Evaluator。 | `/gsc-review` `/psi-audit` `/seo-growth-review` |
 | `sales-recorder` | 運用 | sales | 編集可 | sonnet | product | note 販売履歴テキストを正規化して data/note/sales.json に追記する Generator。Use when [売上記録]. | `/record-sales` |
-| `scanned-figure-crop-auditor` | 採点 | crop-figure | 監査のみ | sonnet | material | スキャン教材の図クロップ PNG を4軸で採点し、bbox の調整値を返す Evaluator（audit-only）。 | `/figure-recrop` `/pdf-to-mdx` |
 | `search-intent-auditor` | 分析 | search-intent | 監査のみ | sonnet | site | 機械抽出した最大20 URL が対象クエリの検索意図に合致するかを意味評価する Evaluator（audit-only）。 | `/seo-growth-review` |
 | `seo-fix-planner` | 企画・計画 | seo | 監査のみ | sonnet | site | 結合済み検索計測 JSON の URL 分類を評価し、優先順位つきの修正計画を返す Evaluator。取得・修正はしない。 | `/google-search-growth` |
 | `site-page-visual-auditor` | 採点 | site-page | 監査のみ | sonnet | site | サイトの代表ページを全部の画面幅で撮った画面を見て、レイアウト・読みやすさ・商品導線（note・アフィリエイト・ココナラ）の崩れをページごとに pass / fail で判定する Evaluator。直さない。 | `/site-visual-review` |
@@ -285,11 +282,11 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | **note-fact-checker（スコープ D）** | note 記事本文の白書由来 数値・固有名 + NotebookLM 白書ノートブック（`2bf7f0dd-3935-49be-8cef-2d428c59eaa9`・白書 PDF をソース登録済み） | NotebookLM 白書ノートブックへの問い合わせ照合（`notebooklm-cross-query.mjs`・引用を返せない数値を ⚠️要確認 で surface。認証切れ時は照合不能と明記）。**ローカル白書 PDF は 2026-06-17 削除＝offline grep 不可** | 白書連動 note 記事（クロストレードオフ・白書R7対応集・R8予想問題集・模範論文の白書事例）公開前 |
 | **kindle-book-qa** | Kindle 入稿用 `.epub` + 同梱原稿 `article.md`（`.tmp/` 出力） | 原稿完全性・構成整合・EPUB技術（epubcheck）・KDP規約適合・商品性（5軸、PASS/WARN/FAIL） | `/kindle-build` のビルド直後（KDP アップロード前ゲート） |
 | **ig-carousel-qa** | `slide-data.json`（v2）+ 過去問パックは `carousel/img/*.png` | スライド構成・文の完結性・図文整合・字数視認性・試験的正確性（5軸）+ デザイン統一性（過去問パック、tokens.json 照合） | IG カルーセル設定ファイル執筆後 / restyle 後 |
-| **civil-exam-figure-auditor** | `content/site/civil-construction-1/primary-*/img/*.png` + 該当 MDX | クリップ純度・本文重複なし・alt 精度・MDX 結線（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格） | `/civil-figure-rework` 実行時、Generator 直後 |
-| **scanned-figure-crop-auditor** | `content/sources/textbook/**/img/*.png`（スキャン教材クロップ）+ 出所ページ画像 | クリップ純度45/図完全性30/正図同定15/alt10（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格）。`adjust_bbox` を返し再クロップ反復、別図掴みは relocate | `pdf-to-mdx --scanned` 経路Bの図 audit/refine ループ、初期クロップ直後 |
-| **pe-exam-figure-auditor** | `content/site/pe-comprehensive-management/h*-primary/img/*.svg` + 該当 MDX（問題文） | 概念・構造の正確性・ラベル整合・可読性・MDX 結線（4軸）。MDX 問題文を真実源として SVG 忠実度を採点。P1-P8・キャンバス標準は非適用。`svg-audit.json.exam_crops` が対象一覧 | 総監 h2x-primary 過去問ページ SVG を新規作成・修正後 |
+| **figure-crop-auditor**（種類: past-exam-page） | `content/site/civil-construction-1/primary-*/img/*.png` + 該当 MDX | クリップ純度・本文重複なし・alt 精度・MDX 結線（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格） | `/civil-figure-rework` 実行時、Generator 直後 |
+| **figure-crop-auditor**（種類: scanned） | `content/sources/textbook/**/img/*.png`（スキャン教材クロップ）+ 出所ページ画像 | クリップ純度45/図完全性30/正図同定15/alt10（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格）。`adjust_bbox` を返し再クロップ反復（最大2回・3回目は親が判断）、別図掴みは relocate | `pdf-to-mdx --scanned` 経路Bの図 audit/refine ループ、初期クロップ直後 |
+| **svg-figure-auditor**（種類: pe-exam） | `content/site/pe-comprehensive-management/h*-primary/img/*.svg` + 該当 MDX（問題文） | 概念・構造の正確性・ラベル整合・可読性・MDX 結線（4軸）。MDX 問題文を真実源として SVG 忠実度を採点。P1-P8・キャンバス標準は非適用。`svg-audit.json.exam_crops` が対象一覧。プロファイル `profiles/svg-figure/pe-exam.md` | 総監 h2x-primary 過去問ページ SVG を新規作成・修正後 |
 | **ai-image-fidelity-auditor** | `content/site/**/img/*` のうち写真（AI 生成画像・`check-image-origin --ai-queue --json`）＋生成の指示＋記事の該当節 | 種別・構造・本文整合・生成の破綻（4 軸、すべて満たすときだけ ok）。背景・色・アングルは問わない | AI 画像を足した・差し替えた後（`check-image-origin` の `ai-unreviewed`） |
-| **svg-figure-auditor** | site: `content/site/**/img/figure-*.svg`（コンテンツ図版のみ）/ note: `content/note/**/img/figure-*.{svg,png}` | site=svg-tokens（viewBox/font/色 allowlist/marker）+ 概念伝達/alt/可読性/結線、note=note-svg-policy（キャンバス/フォント/ブランド/密度）。各 4 軸・加重 ≥2.0 かつ全軸 ≥2。**過去問クロップ（h*-primary）は対象外** | `/note-prepublish-review`（note 枝）/ 単体 SVG 監査時。機械 svg audit(P1-P8) の後段 |
+| **svg-figure-auditor** | site: `content/site/**/img/figure-*.svg`（コンテンツ図版のみ）/ note: `content/note/**/img/figure-*.{svg,png}` | site=svg-tokens（viewBox/font/色 allowlist/marker）+ 概念伝達/alt/可読性/結線、note=note-svg-policy（キャンバス/フォント/ブランド/密度）。各 4 軸・加重 ≥2.0 かつ全軸 ≥2。総監の試験図（h*-primary）は種類 pe-exam（上の行）。過去問クロップ PNG は対象外 | `/note-prepublish-review`（note 枝）/ 単体 SVG 監査時。機械 svg audit(P1-P8) の後段 |
 | **yt-shorts-publisher-qa** | 現行の YouTube Shorts mp4・meta・表紙 | 尺・導線・タイトル・字幕・画面品質を評価し、予約後に `videos.list` を照合 | 現行Shorts制作時。旧IG派生経路は退役 |
 | **video-content-qa** | `content/sns/video-packs/{exam}/{slug}/`（video-pack.json・script.md・storyboard.json）＋ `sourceRefs` の実体 | 悩み適合・事実/出典・視聴維持・図版音声字幕整合・差別化/Red Line・CTA/計測（6軸 0〜3・平均 ≥2.0 かつ BLOCK なし）。`check-video-content` FAIL・出典なし断定・逐語転用・主 CTA 複数は BLOCK | `/video-content` で台本生成後（レンダリング前） |
 | **pe-secondary-exam-qa** | `content/note/技術士建設部門/magazines/{magazine}/{year}/article.md`（論述式 模範解答） | 設問適合・論述構成/論点絞り込み・分かりやすさ/あいまい表現排除・発注者視点/専門性・note完成度（5軸）＋字数上限〔枚数×600字〕・note-lint・設問1対1・論述式文体ゲート。論述原則は `技術士論文の書き方`（非公開・原則抽出）由来 | 技術士二次 模範解答 article.md 生成後 |

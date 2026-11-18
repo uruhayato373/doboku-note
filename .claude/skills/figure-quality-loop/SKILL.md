@@ -48,7 +48,7 @@ node scripts/figure-review-queue.mjs --next 8 --json > .tmp/figure-loop/batch.js
 ```
 Workflow({ scriptPath: ".claude/skills/figure-recrop/scripts/figure-crop-batch.workflow.mjs", args: <batch.json の配列> })
 ```
-各図を `figure-crop-worker`（sonnet）が処理する。判定の規則（何を切り、何を残し、いつ needs-source にするか）は worker の定義が唯一の正本。
+各図を `figure-crop-worker`（sonnet・種類: `article-recrop`）が処理する。判定の規則（何を切り、何を残し、いつ needs-source にするか）は `.claude/agents/profiles/crop-figure/article-recrop.md` の「作る」が唯一の正本。
 
 ### 3. 親の QA（Evaluator）
 Workflow は結果を `.tmp/figure-loop/results-<runId>.json` に保存する（保存の確認はログに出る。失敗の警告が出たら戻り値から自分で保存する）。対象は **画像を書き換えた図（crop / reextract）** と **`selfVerify: suspect` の図**。次の 1 コマンドで 3 つが出るので、親は合否だけを決める:

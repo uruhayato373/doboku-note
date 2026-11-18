@@ -19,7 +19,7 @@
 export const meta = {
   name: 'scanned-figure-bbox',
   description: 'スキャン書籍の図領域検出。章別ジョブをファイル読込→groupSizeずつ順次グループ処理(レート制限抑制)',
-  phases: [{ title: 'Load', detail: '章別ジョブ読込' }, { title: 'BBox', detail: 'civil-exam-figure-extractor 群順次' }],
+  phases: [{ title: 'Load', detail: '章別ジョブ読込' }, { title: 'BBox', detail: 'figure-crop-worker（scanned）群順次' }],
 }
 
 const cfg = typeof args === 'string' ? JSON.parse(args) : args
@@ -57,7 +57,8 @@ const BBOX_SCHEMA = {
 
 const buildPrompt = (J) => {
   const cands = J.candPages.map((pp) => `- pageIndex=${pp}: ${cfg.thumbDir}\\ch${J.chId}\\p${pad2(pp)}.png`).join('\n')
-  return `スキャン教材ページ画像群（第${parseInt(J.chId, 10)}章）から、下記キャプションに対応する**1つの図/表/写真**を探し、領域(bbox)を返す。
+  return `種類: scanned
+スキャン教材ページ画像群（第${parseInt(J.chId, 10)}章）から、下記キャプションに対応する**1つの図/表/写真**を探し、領域(bbox)を返す。
 
 ## 対象（MD文字起こしのキャプション）
 ${J.caption}
@@ -81,7 +82,7 @@ for (let i = 0; i < jobs.length; i += GROUP) {
   const part = await parallel(
     slice.map((J) => () =>
       agent(buildPrompt(J), { label: `bbox:${J.figId}`, phase: 'BBox',
-        agentType: 'civil-exam-figure-extractor', schema: BBOX_SCHEMA })
+        agentType: 'figure-crop-worker', schema: BBOX_SCHEMA })
         .then((r) => ({ figId: J.figId, chId: J.chId, caption: J.caption, result: r }))
         .catch((e) => ({ figId: J.figId, chId: J.chId, caption: J.caption, result: null, err: String(e) }))
     )

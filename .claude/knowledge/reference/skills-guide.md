@@ -58,7 +58,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/build-exam-notebook` | material | 総監の1次択一過去問 MDX を NotebookLM の専用 notebook に source として投入する（変換→作成→upload→検証）。Use when user asks to [過去問 notebook 構築, NotebookLM 過去問投入, /build-exam-notebook]. |
 | `/check-mdx` | site | MDX の構文・frontmatter・リンク・SVG・法令引用・関連キーワード・過去問解説等を10 rule で検査する（pre-commit でも使用）。Use when user asks to [MDX検査, lint MDX, 構文チェック, リンクチェック, /check-mdx]. |
 | `/check-seo-meta` | site | build 済み out/ の全正規 URL の title・description・canonical・og:url・robots・JSON-LD・SSR の欠落/不一致を検査する。Use when user asks to [SEO meta 監査, OGP 検証, /check-seo-meta]. |
-| `/civil-figure-rework` | site | 1級土木 過去問1次ページの図クロップを extractor→auditor のループで再生成する（1ページ単位で commit）。Use when user asks to [過去問図再抽出, 図クロップ改善, テキスト写り込み修正, /civil-figure-rework]. |
+| `/civil-figure-rework` | site | 1級土木 過去問1次ページの図クロップを worker→auditor のループで再生成する（1ページ単位で commit）。Use when user asks to [過去問図再抽出, 図クロップ改善, テキスト写り込み修正, /civil-figure-rework]. |
 | `/consolidate-duplicate-keyword` | site | 総監キーワード集で同一概念が複数スラグにあるものを、1ページへ統合する7フェーズの作業書。Use when user asks to [重複キーワード 統合, 統合手順, /consolidate-duplicate-keyword]. |
 | `/exam-backlinks` | site | 過去問⇔キーワードの紐付け状態の確認・再生成・品質改善（カバー率レポート・JSON再ビルド）。Use when user asks to [過去問 キーワード 紐付け, バックリンク確認, カバー率, /exam-backlinks]. |
 | `/figure-quality-loop` | site | 記事図クロップの品質を、機械検出→目視判定→再クロップ→再検査→台帳記録で1周回すループ（/loop 向け）。単発は /figure-recrop。Use when user asks to [図クロップの品質ループ, 切れた図を直す, /figure-quality-loop]. |

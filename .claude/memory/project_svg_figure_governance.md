@@ -16,7 +16,7 @@ doboku-note の図版SVGガバナンス層（2026-06-18 整備, commit be0283b8d
 
 **孤立figureガード（2026-06-29 新設）**: `scripts/check-orphan-figures.mjs`（`npm run check-orphan-figures`）。`img/figure-*.svg` が同記事直下の `*.mdx/*.md` 本文から basename も stem(別拡張子許容) も未参照＝サイト非表示なら exit 1。pre-commit(`--staged`)＋CI `r2-audit.yml`(全量)＋package.json に配線。過去問クロップdir免除・quiz-figuresブロック内 `<ArticleImage>` も参照として有効。`install-pre-commit.mjs` を worktree 対応化（`git rev-parse --git-path hooks` で共有フックへ書込）。契機=総監で figure 182枚の27%(49枚)が未結線→全件結線(commit f3d1a37bb/27281b648/0ab0711d0)＋ガード新設(73de76747)。SSOT=figure-canvas-policy §3。check-figure-canvas(キャンバスサイズ)とは直交。
 
-**退役**: 旧 `note-figure-auditor` を svg-figure-auditor が吸収し退役。`note-prepublish-review` Phase2 の図版監査を svg-figure-auditor へ配線替え済。Generator/Evaluator分離原則で auditor↔rewriter は別エージェント。図クロップPNG専門 `civil-exam-figure-auditor` とは守備範囲が別。agents 50→51。
+**退役**: 旧 `note-figure-auditor` を svg-figure-auditor が吸収し退役。`note-prepublish-review` Phase2 の図版監査を svg-figure-auditor へ配線替え済。Generator/Evaluator分離原則で auditor↔rewriter は別エージェント。図クロップPNG専門 `figure-crop-auditor` とは守備範囲が別。agents 50→51。
 
 **共有化の未了（別タスク・今回は範囲外でズレをsurfaceするまで）**: 矢印markerが共通化されてない（`PdcaCycle.tsx` が `#6B7280` 直書き・共通marker defs無し）／記事SVGは色がhex直値で `var(--color-*)`・`currentColor` 未使用（svg-tokens allowlistは hex の許可リストであり token共有ではない）。UIコンポーネント内インラインSVGは design-review スキル管轄で別系統。
 

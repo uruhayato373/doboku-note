@@ -15,6 +15,7 @@ doboku-note の図版 SVG を **site・note 横断**で監査する **Evaluator 
 
 - **site 枝**: `content/site/**/img/*.svg`（サイト本体に `<ArticleImage>` で配信される図版、約140枚）
 - **note 枝**: `content/note/**/img/figure-*.{svg,png}`（note.com 投稿用図版）
+- **総監の試験図**（`content/site/pe-comprehensive-management/h{年}-primary/img/*.svg`）: 種類 `pe-exam`。site・note 枝のルーブリックは使わず、`.claude/agents/profiles/svg-figure/pe-exam.md` の `## 採点` 節だけを読んで採点する（P1-P8・キャンバス標準・色トークンは非適用）
 
 > **モデル方針**: `model: sonnet` で動作（Evaluator = ルーブリック判定）。最終判断は親エージェント（Opus）が行う。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
@@ -31,7 +32,7 @@ doboku-note の図版 SVG を **site・note 横断**で監査する **Evaluator 
 
 類似エージェントとの差別化:
 
-- `civil-exam-figure-auditor`: 1級土木 primary 過去問の**図クロップ PNG**（PDF 由来）を採点（守備範囲が別）
+- `figure-crop-auditor`: 1級土木 primary 過去問・スキャン教材の**図クロップ PNG**（PDF 由来）を採点（守備範囲が別）
 - `svg-figure-rewriter`: 指摘を SVG ソースに適用する（Generator）
 - `svg-figure-auditor`（このエージェント）: 図版 SVG の品質監査（Evaluator）
 
@@ -43,7 +44,7 @@ doboku-note の図版 SVG を **site・note 横断**で監査する **Evaluator 
 | site 枝 真実源 | `.claude/knowledge/design-system/svg-tokens.json` / `.claude/knowledge/reference/image-policy.md` / `.claude/knowledge/design-system/design-system.md` |
 | note 枝 真実源 | `.claude/knowledge/reference/note-svg-policy.md` |
 | 操作 | Read のみ（**Edit / Write 禁止**） |
-| 範囲外 | `cover.{svg,png}` / `ogp.png`（別スキル管轄）、図クロップ PNG（civil-exam-figure-auditor 管轄）、UI コンポーネント内インライン SVG（design-review 管轄） |
+| 範囲外 | `cover.{svg,png}` / `ogp.png`（別スキル管轄）、図クロップ PNG（figure-crop-auditor 管轄）、UI コンポーネント内インライン SVG（design-review 管轄） |
 
 ## 監査ルーブリック（site 枝）
 
@@ -97,7 +98,7 @@ doboku-note の図版 SVG を **site・note 横断**で監査する **Evaluator 
 ## 進め方
 
 1. 入力が記事パスなら本文を Read し、図版参照を抽出（site は `<ArticleImage src="/posts/.../*.svg">`、note は `![](./img/figure-*.png)`）。単一 SVG パスならそれ 1 件。
-2. **パスで枝を判定**（`content/site/` → site / `content/note/` → note）。誤判定を避けるため最初に明示する。
+2. **パスで枝を判定**（総監 `h{年}-primary/img/*.svg` → pe-exam プロファイル / `content/site/` → site / `content/note/` → note）。誤判定を避けるため最初に明示する。
 3. **note 枝**: PNG を Read で目視確認（マルチモーダルでレイアウト・重なり・可読性を判定）＋ 同ディレクトリの `figure-*.svg` ソースを Read し font-size を検査。`note-svg-policy.md` で採点。
 4. **site 枝**: `.svg` ソースを Read（XML テキスト）。座標・font-size・色・必須属性・要素重なりを構造的に判定。`.claude/state/svg-audit.json` があれば該当ファイルの機械検出（P1〜P8）と突き合わせる。`svg-tokens.json` + `image-policy.md` + `design-system.md` で採点。
    - 注: site SVG は PNG 書き出しが無いため視覚レンダリングは確認できない。構造判定 + 機械監査結果 + ギャラリー（`npm run svg-gallery`）目視の併用を前提とし、**視覚断定が必要な指摘は「要目視」と明記**する。

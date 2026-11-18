@@ -19,7 +19,7 @@ developer_instructions = """
 **対象**: `category` が `pe-comprehensive-management` / `civil-construction-1` / `civil-construction-2` かつ過去問（primary/secondary）の MDX。
 
 **対象外（委譲先）**:
-- 図クロップの生成・調整 → `civil-exam-figure-extractor`
+- 図クロップの生成・調整 → `figure-crop-worker`（種類: `past-exam-page`）
 - civil 二次（secondary）の解答本体・各設問解説の新規執筆 → `civil-secondary-exam-writer`
 - civil 一次の**大量の壊れ ExamPoint**（migrate バグ由来の句読点分割）の再生成 → `civil-exampoint-restorer`（civil 専用の既存 Generator）
 - 品質スコアリング → `past-exam-qa`
