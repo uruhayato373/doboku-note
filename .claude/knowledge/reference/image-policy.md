@@ -285,7 +285,7 @@ EDGE_CUT・STRAY_LABEL は CI では落とさないが、`/figure-quality-loop` 
 
 **運用**: content-quality-ratchet と同方式。既存債務は `--update-baseline` で `figure-crop-baseline.json` に棚卸し登録し、`--ci` は baseline に無い**新規 STRAY_SLIVER のみ** fail。是正したら再度 `--update-baseline` で刈り込む。CI では `quality:audit:ci` の `figure-crop-integrity` チェックが 0 件を enforce。
 
-**既知の限界と予防**: 旧 `figure-recrop.mjs` は切断後に白 border を付加するため、「切断済み＋白枠」の legacy 図（`r07-a-fig-02`「収縮限界」欠け型）は画素が失われており機械では高精度検出できない。対策は**予防側**＝`figure-recrop.mjs` が border 付加**前**の生クロップに `analyzeImage()` の EDGE_CUT/STRAY_SLIVER 検査を掛け、切りすぎた時点で `crop_warnings` を返す（生クロップでは切断=縁接触が確実に成立）。「切れた文字」の意味判定は機械ゲートに入れず、視覚監査（`civil-exam-figure-auditor`）の守備範囲とする。
+**既知の限界と予防**: 旧 `figure-recrop.mjs` は切断後に白 border を付加するため、「切断済み＋白枠」の legacy 図（`r07-a-fig-02`「収縮限界」欠け型）は画素が失われており機械では高精度検出できない。対策は**予防側**＝`figure-recrop.mjs` が border 付加**前**の生クロップに `analyzeImage()` の EDGE_CUT/STRAY_SLIVER 検査を掛け、切りすぎた時点で `crop_warnings` を返す（生クロップでは切断=縁接触が確実に成立）。「切れた文字」の意味判定は機械ゲートに入れず、視覚監査（`figure-crop-auditor`）の守備範囲とする。
 
 ## 既存 PNG スキャンの扱い
 

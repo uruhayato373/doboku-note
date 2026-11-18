@@ -37,8 +37,8 @@ domain: product
 
 ### draft — 模範答案を作る
 
-1. `cce-essay-writer`（`magazine`・`slug`・`theme`）で 1 記事ずつ生成。同時起動は 3 体まで。立場別記事（1立場×1テーマ）は親が下書きを用意し、writer をテーマ単位で8本ずつ走らせる（立場と置き場の対応は `content/note/コンクリート主任技士/noteコンテンツ計画.md`）。
-2. `cce-essay-qa` で採点。平均 ≥ 2.0・全軸 ≥ 1・決定論ゲート全通過で合格。不合格は issues を writer へ渡して再走。
+1. `essay-writer`（`資格: cce`・`magazine`・`slug`・`theme`）で 1 記事ずつ生成。同時起動は 3 体まで。立場別記事（1立場×1テーマ）は親が下書きを用意し、writer をテーマ単位で8本ずつ走らせる（立場と置き場の対応は `content/note/コンクリート主任技士/noteコンテンツ計画.md`）。
+2. `essay-qa`（`資格: cce`）で採点。平均 ≥ 2.0・全軸 ≥ 1・決定論ゲート全通過で合格。不合格は issues を writer へ渡して再走。採点と直しの往復は最大 2 回、3 回目は親が判断する。
 3. 親が技術事実の抜き取り照合（各記事 3 箇所以上）をしてから commit。
 
 ### product — PDF・ココナラ・配線

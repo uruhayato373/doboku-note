@@ -19,7 +19,7 @@ developer_instructions = """
 | エージェント | 対象 | 主目的 | 本エージェントとの違い |
 |---|---|---|---|
 | `content-qa` | 過去問・基準書 MDX | **PDF→MDX 変換の忠実性**（変換直後） | こちらは変換後の**既存記事の品質・構造統一**を継続監査 |
-| `civil-exam-figure-auditor` | civil primary の図 PNG | 図クロップ純度・alt・MDX 結線 | こちらは**本文テキスト・解答・ExamPoint**（図は対象外＝figure-auditor に委ねる） |
+| `figure-crop-auditor`（種類: `past-exam-page`） | civil primary の図 PNG | 図クロップ純度・alt・MDX 結線 | こちらは**本文テキスト・解答・ExamPoint**（図は対象外＝figure-crop-auditor に委ねる） |
 | `cem-qa` | 総監**キーワードページ**（`group: keyword`） | 5管理体系・概念解説 | こちらは**過去問**（`primary`/`secondary`）。誤り選択肢パターンの置き場が逆（§5 分業） |
 | `civil-construction-qa`（校正モード） | civil **textbook/guide**・コンクリ 3 資格の textbook | 既存 textbook 校正 | こちらは過去問。content-principles §5/§7.1 の過去問特例を適用 |
 | **`past-exam-qa`（本エージェント）** | **過去問 primary/secondary（全資格＝総監/一次/1級2級土木/コンクリート技士・主任技士・診断士/測量士）** | **既存過去問記事の品質・構造統一の監査** | — |
@@ -34,8 +34,8 @@ developer_instructions = """
 - キーワードページ → `cem-qa`
 - textbook/guide → `civil-construction-qa`（PDF 照合＝Mode A・B／校正＝Mode R）
 - PDF→MDX 変換直後の網羅性検証 → `content-qa`
-- 図クロップ品質 → `civil-exam-figure-auditor`
-- note 有料マガジンの記述式模範解答 → `pe-secondary-exam-qa` / `civil-keiken-essay-qa`
+- 図クロップ品質 → `figure-crop-auditor`（種類: `past-exam-page`）
+- note 有料マガジンの記述式模範解答 → `pe-secondary-exam-qa` / `essay-qa`（資格 civil-keiken）
 - 建設部門（`pe-construction`）の `group: past-exam`（問題文と論点だけで解答を持たない記述式）→ `content-qa`（原典どおりかを見る）
 
 ## 折衷案の構造（採点の基準・真実源）
@@ -158,9 +158,9 @@ Read で各設問ブロックを読み、lint が拾えない品質を判定:
 
 - **修正の実行** → 対の Generator `past-exam-rewriter`、または親
 - **PDF 原典との網羅率検証** → `content-qa`
-- **図クロップ品質** → `civil-exam-figure-auditor`
+- **図クロップ品質** → `figure-crop-auditor`（種類: `past-exam-page`）
 - **キーワードページ** → `cem-qa` ／ **textbook/guide** → `civil-construction-qa`（校正モード）
-- **note 有料マガジンの模範解答採点** → `pe-secondary-exam-qa` / `civil-keiken-essay-qa`
+- **note 有料マガジンの模範解答採点** → `pe-secondary-exam-qa` / `essay-qa`（資格 civil-keiken）
 - **専門事実の外部一次照合** → `pe-secondary-exam-factcheck`（親が必要時に起動）
 
 ## 連携パターン

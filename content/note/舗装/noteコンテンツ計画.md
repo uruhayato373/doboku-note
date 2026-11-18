@@ -20,7 +20,7 @@
 | 5 | `pavement-2-sentaku-hinshutsu` | 単発 | ¥980 | 2級 選択問2〜5 の R4〜R8 全100空欄の解答例と頻出24論点 | 2026-11-05 公開（DN-0962） |
 
 - 1級を先に作る: 受験者は 2級の約 2.3 倍、経験記述の字数が長く自分で書く負担が大きい（売れる型＝`exam-formats.json`）。
-- 流用: 1級土木の想定工事バンク（道路・舗装工事）と工種別完成答案の「課題→対策→結果」の骨組みを使い、舗装の管理項目に書き直す。writer/qa は `civil-keiken-essay-writer`／`civil-keiken-essay-qa` を使い、舗装を対象に加えるならエージェント定義と registry を同じ commit で直す。
+- 流用: 1級土木の想定工事バンク（道路・舗装工事）と工種別完成答案の「課題→対策→結果」の骨組みを使い、舗装の管理項目に書き直す。writer/qa は `essay-writer`（資格 civil-keiken）／`essay-qa`（資格 civil-keiken） を使い、舗装を対象に加えるならエージェント定義と registry を同じ commit で直す。
 - 一般試験（択一）は note では作らない。サイトの無料記事（DN-0355）と将来の過去問アプリで扱う。
 
 ## 3. Red Line

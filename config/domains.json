@@ -994,12 +994,12 @@
     {
       "role": "writer",
       "target": "essay",
-      "reason": "資格ごとに字数・形式が違う組（総監・土木の経験記述・主任技士・RCCM・建設部門）。次の資格からは組を足さず共通の essay-writer に資格別の設定を渡す（DN-1242）。既存の組をまとめるかは DN-0798"
+      "reason": "essay-writer（総監・土木の経験記述・主任技士・RCCM の 4 資格をプロファイルで切り替える共通の組）と pe-secondary-exam-writer（建設部門）。建設部門は字数・形式・科目の扱いが違うため別のまま。essay-writer が本番で一度動いてから統合を判断する（DN-1242・DN-0798）。次の資格は組を足さずプロファイルを足す"
     },
     {
       "role": "qa",
       "target": "essay",
-      "reason": "各資格の writer と対の採点役。資格別の 4 組は essay-qa ＋資格別プロファイルへまとめる（DN-1242）"
+      "reason": "essay-qa（4 資格をプロファイルで切り替える共通の採点役）と pe-secondary-exam-qa（建設部門・6 軸と予想モード）。建設部門は採点軸が違うため別のまま。essay-writer と同じく本番で一度動いてから統合を判断する（DN-1242・DN-0798）"
     },
     {
       "role": "writer",
@@ -1007,24 +1007,9 @@
       "reason": "civil-secondary-exam-writer は二次の解答・解説の補完、civil-exampoint-restorer は壊れた ExamPoint の一度きりの修復（廃止予定・DN-1242）"
     },
     {
-      "role": "writer",
-      "target": "crop-figure",
-      "reason": "civil-exam-figure-extractor はクロップの仕様（JSON）を返す、figure-crop-worker は実際に切り直す。1対へのまとめは DN-0798"
-    },
-    {
-      "role": "qa",
-      "target": "crop-figure",
-      "reason": "civil-exam-figure-auditor は過去問ページの図、scanned-figure-crop-auditor はスキャン教材の図。1対へのまとめは DN-0798"
-    },
-    {
       "role": "rewriter",
       "target": "svg-figure",
       "reason": "svg-figure-rewriter は指摘の適用と色・属性の校正、svg-canvas-fitter は固定キャンバスへの再配置"
-    },
-    {
-      "role": "qa",
-      "target": "svg-figure",
-      "reason": "svg-figure-auditor はサイト・note の図版、pe-exam-figure-auditor は総監の試験図。後者を前者の対象の1つにする（DN-1242）"
     },
     {
       "role": "qa",

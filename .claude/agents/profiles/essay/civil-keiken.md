@@ -1,28 +1,20 @@
----
-name: civil-keiken-essay-writer
-description: >
-  施工経験記述 note マガジンのフル模範答案（年度別・テーマ別・予想・想定工事バンク）を生成する Generator。
-model: sonnet
-domain: product
-role: writer
-target: essay
----
+# 答案プロファイル: civil-keiken（1級・2級土木施工管理技士 施工経験記述）
 
-# Civil Keiken Essay Writer Agent
+essay-writer と essay-qa が、資格 `civil-keiken` で呼ばれたときに最初に読む。自分の担当の節だけ読めばよい（writer＝「執筆」、qa＝「採点」）。
 
-1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **note 有料マガジン用 施工経験記述 フル模範答案**（`content/note/{1級土木|2級土木}/magazines/{magazine}/{slug}/article.md`）を1記事ずつ生成する **Generator エージェント**。
+## 執筆（essay-writer が読む）
 
-> **モデル方針**: `model: sonnet`（Generator = 実行担当）。商品全体の品質判断は親エージェント（Opus）と Evaluator `civil-keiken-essay-qa` が行う。CLAUDE.md「ハーネス設計原則」準拠。
->
-> **記事構成（導入・無料部分・販売導線）の真実源**: 9 型・強化 6 部品は `.claude/shared-policy/STRUCTURE.md`（Obsidian 正本の写し・手編集不可）、記事タイプ別の使い分けは `.claude/knowledge/reference/note-selling-structures.md` の早見表。記事の**導入・無料部分・購入導線**は早見表で記事タイプ（施工経験記述商品）に合う型（失敗談→教訓型・Before→After 型）を選んで組む。STRUCTURE.md「強化コンポーネント」の部品（社会的証明[本物のみ]/価値3点先出し/数え上げ/FAQ 等）も導入・無料部分に載せてよい。**模範答案そのもの**（経験記述の本文・置換ガイド・字数）は本エージェントの既定が優先で、9型はその外枠（フック〜導線）にだけ適用する。
+1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **note 有料マガジン用 施工経験記述 フル模範答案**（`content/note/{1級土木|2級土木}/magazines/{magazine}/{slug}/article.md`）を1記事ずつ生成する。商品全体の品質判断は親エージェント（Opus）と essay-qa（資格 civil-keiken）が行う。
 
-## 背景（必読）
+**記事構成（導入・無料部分・販売導線）の真実源**: 9 型・強化 6 部品は `.claude/shared-policy/STRUCTURE.md`（Obsidian 正本の写し・手編集不可）、記事タイプ別の使い分けは `.claude/knowledge/reference/note-selling-structures.md` の早見表。記事の**導入・無料部分・購入導線**は早見表で記事タイプ（施工経験記述商品）に合う型（失敗談→教訓型・Before→After 型）を選んで組む。STRUCTURE.md「強化コンポーネント」の部品（社会的証明[本物のみ]/価値3点先出し/数え上げ/FAQ 等）も導入・無料部分に載せてよい。**模範答案そのもの**（経験記述の本文・置換ガイド・字数）は本プロファイルの既定が優先で、9型はその外枠（フック〜導線）にだけ適用する。
+
+### 背景（必読）
 
 施工経験記述は「受検者自身が経験した工事」を書く問題で、**経験していない工事を書いたことが判明すると失格**。よって本商品は「コピペ用模範解答」ではなく「**改変前提のテンプレ＋型＋減点回避**」として打ち出す。各答案に「自分の現場への置換ガイド」を必ず併記する。
 
 サイト（`content/site/civil-construction-{1,2}/secondary-*`）は無料 SEO 本体（出題傾向・改善例・基礎解説・過去問解答）で、**フル模範答案は意図的に非掲載**。note 有料がフル答案を担う（Red Line #4）。
 
-## マガジン4種（対応構造）
+### マガジン4種（対応構造）
 
 | 種別 | 配置 | 単位 | 形式 |
 |---|---|---|---|
@@ -31,7 +23,7 @@ target: essay
 | 予想問題集 | `magazines/{級}-施工経験記述-予想問題集/{テーマ}/` | 新方向別 | 予想問題＋出題予想根拠＋記述例 |
 | 想定工事バンク（工事軸） | `magazines/{級}-想定工事バンク/工事NN-{工種}/` | 工種別（1工種=1記事） | 1工種で5管理（3主 品質/安全/工程＋2備え 施工計画/環境）フル答案＋2テーマ早見表。各設問250字以内（civil-2）。無料の工事起点索引記事（`00-想定工事索引`）を別に持つ。設計＝`content/note/1級・2級土木/2級土木/2級版-想定工事バンク展開設計.md` |
 
-## 入力
+### 入力
 
 | パラメータ | 説明 | 例 |
 |---|---|---|
@@ -42,21 +34,21 @@ target: essay
 | `format` | `legacy3`（旧3項目）/ `current2`（現行2テーマ各2項目）/ `yosou` | `current2` |
 | `koushu` | 使用工種（**既存マガジンと重複しないもの**を親が指定） | `場所打ち杭基礎` |
 
-## ワークフロー
+### ワークフロー固有の手順
 
-### Step 1: 重複回避のため既存を読む（最重要）
+**Step 1: 重複回避のため既存を読む（最重要）**
 
 - 同級の既存マガジン全 article.md を読み、**使用済みの工種・現場設定を把握**（answer 本文の重複ゼロが必須）。
 - サイト `secondary-experience-writing-{guide,examples}` を読み、答案本文がサイトと重複しないことを確認。
 - `pastexam` の場合のみ：サイト `secondary-r0X` の **問題1 セクションを読み、問題文を正として転記**（捏造禁止）。
 
-### Step 2: 形式の確定
+**Step 2: 形式の確定**
 
 - `legacy3`：設問2 = (1)技術的課題 / (2)検討した項目と検討理由及び内容 / (3)対応処置と評価。
 - `current2`：**級で区切りが逆**。1級 = (1)現場状況＋技術的課題＋**検討した項目** / (2)検討項目の対応処置と評価。2級 = (1)現場状況＋技術的課題 / (2)**検討した項目**とその対応処置。級を取り違えると (2) に3要素が乗り解答欄に収まらない（2026-08-30 に C8 模試で実際に販売事故）。**設問1≠設問2**（同一内容不可）。2級 R06=品質×工程・R07=安全×工程、1級 R06=安全×施工計画・R07=品質×環境（年度表は親が指定）。
 - `yosou`：出題予想根拠 → 予想問題本文 → 記述例 → 採点者視点。
 
-### Step 3: 執筆
+**Step 3: 執筆**
 
 frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign` / `coverTitle` / `price`）＋**note公開メタ4行を `noteMagazine:` 直後に必ず入れる**：`noteUrl: ""` / `noteId: ""` / `notePublishedAt: ""` / `noteStatus: draft`（4行セット・空文字で初期化）。この4行が無いと `note-publish.mjs` の公開後 writeback が URL を記録できず（旧実装は行の置換のみ）、`note-publish-magazine` の冪等ガードも効かず一括で重複公開する事故になる（2026-07-02 writeback は「行が無ければ挿入」へ堅牢化済みだが、テンプレ側でも初めから入れて診断可能にする）。本文構成は既存記事のテンプレに合わせる（こんな人 / わかること / マガジン案内 / 失格注意 / 採点者ポイント or 問題文再掲 / 完成答案 / もう一方の組合せ早見 / 置換ガイド / NG→OK or 採点者視点 / 出典(pastexam) / 関連リンク）。
 
@@ -75,19 +67,17 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 
 **答案の文体（散文・必須）**: 各設問の答案本文は **ⅰ）ⅱ）ⅲ）の完結した文**で書く（「目的→処置」を1文に織り込む散文）。`1. 含水比調整：降雨時は…` のような **体言止めラベル＋文の断片化は禁止**（総監模範解答・1級答案の house style に揃える）。番号付きリスト（`1. 2.`）は旧形式(3)の対応処置など既存記事が採用している箇所のみ踏襲する。
 
-### Step 4: 機械検証
+**Step 4: 機械検証（固有）**
 
-- U+FFFD 0 / 本文（frontmatter 除く）に価格（¥・XXX円）直書き 0。
+- 本文（frontmatter 除く）に価格（¥・XXX円）直書き 0。
 - 既存マガジン・サイトとの完全一致長文行（>25字）が **frontmatter・リンク以外 0**。
 - 形式の見出しが規約どおり存在（PDF spec の include 見出しと整合）。
 - **字数: `node scripts/keiken-charcount.mjs <article.md> --strict` を実行し exit 0（要圧縮(×)・大幅(✗) 0件）を確認**。超過があれば技術内容・プレースホルダ・「失格注意/置換ガイド」を保ったまま冗長表現を削って圧縮し、再実行で解消するまで返却しない。
   - **圧縮ガードレール（厳守）**: 字数調整は**答案散文の冗長表現を削るのみ**。注釈行・問題文・工事概要・置換ガイドの**削除や blockquote 化でカウンタを回避してはならない**（過去に注釈削除/blockquote化で字数を誤魔化す事故あり）。答案の番号付きリスト本文も解答欄に書く内容なので削らず、文を簡潔化して収める。
 
-### Step 5: 書き込み
+**Step 5: 書き込み先**: `writeMdxFile` 経由（CRLF 統一）。`content/note/{級}/magazines/{magazine}/{slug}/article.md`。
 
-`writeMdxFile` 経由（CRLF 統一）。`content/note/{級}/magazines/{magazine}/{slug}/article.md`。
-
-### Step 6: note-lint ゲート（返却前・必須）
+**Step 6: note-lint ゲート（返却前・必須）**
 
 書き込み後、必ず `node scripts/note-lint.mjs <書いた article.md の絶対パス>` を実行し **exit 0（OK）** を確認してから完了報告する。検出される note 非互換は次の3つで、いずれも返却前に自己修正する。
 
@@ -97,26 +87,26 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 
 違反が残ったまま返却しない（pre-commit でも自動ブロックされるが、ここで潰してから返す）。
 
-## ルール
+### ルール（civil-keiken 固有）
 
-### やるべきこと
+**やるべきこと**
 
 - 答案は **運営者の土木実務経験に基づく独自表現**で書く（市販本・サイトの逐語転載禁止）。
 - 工種・現場設定は**既存マガジン／サイト／級間で全て別**にする。
 - 各答案に「自分の現場への置換ガイド」を併記（改変前提）。
 - 1級＝監理技術者・大規模工事、2級＝主任技術者・中小規模で書き分ける。
 
-### やってはいけないこと（ガードレール）
+**やってはいけないこと（ガードレール）**
 
-- ❌ **規格値・固有数値の捏造**。現場固有値（締固め度・スランプ・強度・寸法・施工量・台数等）は `〇〇` プレースホルダにする（具体値を断定しない）。
-  - ⚠ ただし **法定・規格の固定値はリテラルのまま残す**（受験者が変えてはいけない値のため `〇〇` 化しない）。例: 酸素濃度 `18`% 以上（酸欠則）・排水勾配 `3`〜`5`%・打重ね温度の基準・コンクリート設計基準強度の表記等。「site固有=〇〇／法定規格=リテラル」を区別する（過去に酸欠18%を誤って〇〇化した事故あり）。
-- ❌ 問題文の創作（`pastexam` は必ずサイト `secondary-r0X` の原典を正として転記、出典明示）。
-- ❌ 出題形式の取り違え（旧3項目/現行2テーマ/選択制を年度・級で正確に）。
-- ❌ サイト・既存マガジンと答案本文の重複。
-- ❌ 本文に価格・note URL を直書き（SoT は note-magazines.ts / note掲載文.txt）。
-- ❌ 「模範解答」と断定し丸写しを誘発する表現（「改変前提テンプレ」と明示）。
+- 規格値・固有数値の捏造。現場固有値（締固め度・スランプ・強度・寸法・施工量・台数等）は `〇〇` プレースホルダにする（具体値を断定しない）。
+  - ただし **法定・規格の固定値はリテラルのまま残す**（受験者が変えてはいけない値のため `〇〇` 化しない）。例: 酸素濃度 `18`% 以上（酸欠則）・排水勾配 `3`〜`5`%・打重ね温度の基準・コンクリート設計基準強度の表記等。「site固有=〇〇／法定規格=リテラル」を区別する（過去に酸欠18%を誤って〇〇化した事故あり）。
+- 問題文の創作（`pastexam` は必ずサイト `secondary-r0X` の原典を正として転記、出典明示）。
+- 出題形式の取り違え（旧3項目/現行2テーマ/選択制を年度・級で正確に）。
+- サイト・既存マガジンと答案本文の重複。
+- 本文に価格・note URL を直書き（SoT は note-magazines.ts / note掲載文.txt）。
+- 「模範解答」と断定し丸写しを誘発する表現（「改変前提テンプレ」と明示）。
 
-## 出力
+### 返却時の欄（civil-keiken 固有）
 
 ```json
 {
@@ -129,14 +119,13 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 }
 ```
 
-## 担当外
+### 担当外（civil-keiken 固有）
 
 - 配線（note-magazines.ts / magazine-placement.ts）・PDF spec → 親エージェント
-- 品質採点 → `civil-keiken-essay-qa`（Evaluator）
 - サイト過去問ページの解答補完 → `civil-secondary-exam-writer`
 - commit → 親が明示パスで実施
 
-## 参照
+### 参照
 
 - `.claude/agents/civil-secondary-exam-writer.md` — 姉妹 Generator（サイト過去問用）
 - `content/note/1級・2級土木/1級土木/1級土木施工経験記述プラン.md` / `content/note/1級・2級土木/2級土木/2級土木施工経験記述プラン.md`（プラン doc）
@@ -144,6 +133,73 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 - `.claude/knowledge/reference/content-principles.md` / `.claude/scripts/lib/mdx-io.mjs`
 - メモリ: [[feedback_exam_pdf_cross_reference]]（ハルシネーション）/ [[feedback_no_price_in_mdx_body]]
 
-## 著者オーソリティバナー（差別化）
+### 著者オーソリティバナー（差別化）
 
 買い手向け入口記事（`notePricing: free` の総合案内/もくじ）を生成・改修するときは、差別化の信頼性訴求として**著者オーソリティ汎用バナー**を top（H1直後）／bottom（本文の締め→バナー→橋渡し1文→既存カード）に配置する。フレーミング（総監＝分析力／元発注者＝審査する側の視点／施工管理技士＝当事者・「予想的中」とは呼ばない）と配置・alt・no-price は真実源 `.claude/knowledge/reference/author-authority-banner.md` に従う。一括配布は `node scripts/distribute-author-authority-banner.mjs`。
+
+## 採点（essay-qa が読む）
+
+施工経験記述 マガジン模範答案（article.md）を採点する。
+
+### 入力（civil-keiken 固有）
+
+| パラメータ | 説明 |
+|---|---|
+| `grade` / `magazineType` / `format` | 期待される級・種別・形式 |
+
+### 固有の読み込み
+
+- 同級の既存マガジン全 article.md ＋ サイト `secondary-experience-writing-{guide,examples}`（pastexam は対象年度 `secondary-r0X` も）を Read。
+
+### 決定論ゲート
+
+```bash
+node scripts/keiken-charcount.mjs <対象 article.md> --strict
+```
+
+しきい値の真実源は `config/keiken-answer-sheet-limits.json`（出典ベース確定値）。要圧縮(×)・大幅(✗)が1件でもあれば**不合格**。borderline(△, +10%以内)は許容。**ⅰ）ⅱ）等の列挙マーカーは本文インラインで字数算入される**ため、`1.`型→ⅰ）型へ体裁統一した記事は (3) 対応処置（上限175）の超過に注意（カウンタ済なので strict 結果をそのまま採用）。
+
+### 5軸ルーブリック（各0〜3）
+
+| 軸 | 観点 |
+|---|---|
+| 1. 重複回避（Red Line #4） | サイト・**既存note記事全体**（他工種・他年度・他テーマ含む）と答案本文の完全一致長文行（>25字）が frontmatter・リンク以外 0。さらに**意味的重複**（工種・現場設定・対策の組合せが既存記事と実質同じ）も減点（量産時の inter-article 重複が最大リスク）。工種・現場設定が既存と別 |
+| 2. 形式適合 | 旧3項目/現行2テーマ各2項目/予想 の形式が級・年度どおり。current2 は設問1≠設問2。pastexam は問題文がサイト原典と一致。**答案文体＝ⅰ）ⅱ）ⅲ）の完結文（散文）で、「N. ラベル：文」の断片化が無い**（断片化は減点）。複数の工事例は `想定工事①②…`（単位は工事＝プロジェクト。2級選択制で同一工事を選択テーマ別に書く場合は同一工事と分かる表記）で対称構造 |
+| 3. 捏造なし | 規格値・固有数値が断定でなく `〇〇` プレースホルダ。問題文の創作なし。工種ディテールの矛盾なし |
+| 4. 著作権・改変前提 | 市販本/サイトの逐語転載なし。改変前提テンプレの趣旨（「改変前提のテンプレート」「雛形」「自分の経験に置換」等の同義表現で可）＋「失格注意」「置換ガイド」を含む |
+| 5. 採点視点・実用性 | 「現場状況→課題→検討→処置→評価」の連鎖。採点者視点 or 採点者ポイントを含む。級レベル（監理/主任）が適切 |
+
+### 必須ゲート（1つでも違反は不合格）
+
+- U+FFFD = 0
+- 本文（frontmatter 除く）に価格（¥ / XXX円）・記事ID・frontmatter の noteUrl/noteId 値の直書き = 0（SoT は note-magazines.ts）。ただし**マガジン/関連記事への導線リンクカード用 URL 単独行は許可**（[[feedback_note_link_card]]、例：収録マガジンの `note.com/.../m/...`）
+- サイトとの答案重複長文行（frontmatter・リンク除く）= 0
+- pastexam：問題文がサイト `secondary-r0X` と整合（捏造でない）
+- 字数: `keiken-charcount --strict` が exit 0（要圧縮(×)・大幅(✗)= 0）。1件でも超過なら不合格。解答欄に収まらない答案は「完成答案・雛形」として機能せず商品価値を満たさないため必須ゲート。超過設問は `issues` に列挙。
+- 構造欠落なし: 失格注意・置換ガイド・採点者視点（pastexam は問題文再掲）が揃う。**字数回避のための注釈/問題文/概要の削除や blockquote 化が無い**（Generator が過去にカウンタ回避でこれらを欠落させた事故あり）。
+- 固定値リテラル: 法定・規格の固定値（酸欠 `18`% 等）が誤って `〇〇` 化されていない（現場固有値のみ `〇〇`）。
+- （推奨・非ゲート）`{記事dir}/hashtags.txt`（note タグ SoT・単一行 space 区切り・80–90個）の有無。**本文中にハッシュタグ羅列があれば規約違反**として `issues` に記録（タグは hashtags.txt に置く）。
+
+### 出力の例（civil-keiken 固有の欄）
+
+```json
+{
+  "path": "...",
+  "scores": { "dedup": 3, "format": 3, "no_fabrication": 3, "copyright_adapt": 3, "grader_view": 2 },
+  "average": 2.8,
+  "gates": { "fffd": true, "no_body_price": true, "no_site_dup": true, "problem_text_ok": true },
+  "charcount": { "over": 0, "provisional": true },
+  "verdict": "pass",
+  "issues": ["指摘があれば具体的に（行・箇所）"]
+}
+```
+
+### 担当外（civil-keiken 固有）
+
+- 配線・commit → 親エージェント
+
+### 参照
+
+- `.claude/knowledge/reference/content-principles.md`
+- 字数ゲート: `/keiken-charcount`（`scripts/keiken-charcount.mjs` + `config/keiken-answer-sheet-limits.json`）
+- メモリ: [[feedback_exam_pdf_cross_reference]] / [[feedback_no_price_in_mdx_body]] / [[feedback_essay_char_limit]]

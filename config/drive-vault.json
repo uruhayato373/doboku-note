@@ -130,7 +130,7 @@
       "generator": "原典 PDF から再抽出（pdfimages → 回転 → 分割）",
       "requiredBy": [
         ".claude/skills/pdf-to-mdx",
-        "scanned-figure-crop-auditor"
+        "figure-crop-auditor"
       ],
       "reason": "教材のページ画像・図クロップ。原本 PDF と同じ 教材/{書名}/ ツリーに置き、PDF とページが同居する。"
     },
@@ -164,7 +164,7 @@
       "generator": "npm run build-reference-book-pages",
       "requiredBy": [
         ".claude/skills/pdf-to-mdx（--scanned）",
-        "scanned-figure-crop-auditor"
+        "figure-crop-auditor"
       ],
       "reason": "参考文献 ID 単位の通しページ画像と最終図クロップ。原本 PDF と同じ書籍ディレクトリに置き、OCR・原典照合・再クロップをページ単位で再実行できるようにする。"
     },

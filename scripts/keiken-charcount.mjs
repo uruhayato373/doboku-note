@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 施工経験記述（1級・2級土木 第2次検定 問題1）の答案段落を解答欄しきい値で機械チェックする。
-// 決定論的処理（CLAUDE.md 原則5）。判定は Evaluator(civil-keiken-essay-qa)、修正は Generator(civil-keiken-essay-writer)。
+// 決定論的処理（CLAUDE.md 原則5）。判定は Evaluator(essay-qa（資格 civil-keiken）)、修正は Generator(essay-writer（資格 civil-keiken）)。
 //
 // 使い方:
 //   node scripts/keiken-charcount.mjs [path ...] [--json] [--strict] [--min-fill] [--staged]

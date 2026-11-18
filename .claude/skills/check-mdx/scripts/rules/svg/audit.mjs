@@ -43,7 +43,7 @@ function parseArgs(argv) {
 }
 
 // 過去問クロップ専用ディレクトリ — 意匠系（キャンバス幅・フォント・色）の対象外。
-// PDF 忠実度は civil-exam-figure-auditor / pe-exam-figure-auditor が担当する。
+// PDF 忠実度は figure-crop-auditor / svg-figure-auditor が担当する。
 // ただし **HIGH だけは除外しない**: 文字がビューボックス外へはみ出す（P1-text-clip）のは
 // 「試験原図はサイズ自由」で許される話ではなく、pre-commit-mdx.mjs は staged の
 // 過去問 SVG も HIGH でブロックする。ここで全部 skip すると CI と pre-commit の判定が
@@ -110,7 +110,7 @@ function main() {
       generated_at: new Date().toISOString(),
       path: args.path,
       file: args.file,
-      note: "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to civil-exam-figure-auditor",
+      note: "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to figure-crop-auditor",
     },
     summary,
     findings: allFindings,
