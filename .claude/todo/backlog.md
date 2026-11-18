@@ -508,21 +508,6 @@
 **完了条件**: `npm run check-datasets` が「未記入 0・基準線 0」で通る。
 
 
-### [DN-1242] エージェントを役割で分け直し、機械で決まる検査をスクリプトへ寄せる（役割分担の見直し・第4段階）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-18] [進行中]
-
-**起点**: 2026-11-18 に運営者が承認した計画（`docs/handoffs/2026-11-18-agent-roles-plan.md` の第4段階）。運用役の担当が広い（coconala-operator は 7 機能、note-operator は実質 7 機能）、集客の分析役と総監以外の商品企画の役が居ない、機械で決まる検査をエージェントが持っている（gsc-csv-auditor など 5 体・直近 4 週間の呼び出し 0 回）、strategy-advisor と sales-recorder は 0 回。
-**次または実行順**: 担当表（第3段階）の後。`role:`・`target:` を使って再編後の表を検査する。0 回だった 39 体のうち、やること 7 で扱う答案・図以外の統合・退役は DN-0798 で運営者が判断する。
-**やること**:
-1. 新設: product-portfolio-planner・note-traffic-analyst・coconala-traffic-analyst（入力はスクリプトの集計だけ・tools は Read, Glob, Grep）
-2. 分割: competitor-analyst（売り場／発信）・coconala-operator（出品／受注の下書き）・note-operator（カタログ／購入者対応）・civil-construction-qa（原典照合／校正）
-3. 廃止: strategy-advisor・sales-recorder（商品名の対応表は設定へ移す）と、機械の段へ寄せる 5 体（gsc-csv-auditor・a8-csv-auditor・technical-seo-auditor・performance-auditor・sns-archive-auditor。先に検査スクリプトと quality-audit への登録を入れる）
-4. 改名: civil-guide-writer → guide-writer、cem-qa → keyword-qa。採点表から機械の軸を抜き、機械ゲートを先に置く
-5. 役割ごとのモデル・エフォートの既定を `.claude/rules/skills-agents.md` に書き、`check-domains` で外れを止める。評価役 8 体に `tools:` の制限を足す
-6. 呼び出し元の SKILL.md を更新し、`build-capability-index`・`sync-codex-compat` を通す
-7. 制作と採点を共通の型にする（計画の「制作と採点を共通の型にする」）: 役割に `rewriter`（直す）・`verifier`（照合）を足して 11 体を付け替え、答案 4 組（cce・cem・rccm・civil-keiken）を `essay-writer`／`essay-qa`＋資格別プロファイルへ、切り抜き図を 1 対へ、`pe-exam-figure-auditor` を `svg-figure-auditor` へまとめ、`civil-exampoint-restorer` を廃止する。本文 150 行の上限（ラチェット）を検査に足し、呼び出し元に「機械ゲートが先・採点と直しの往復は 2 回まで」を書く。建設部門の組は統合せず本文を削るだけ
-**禁止事項**: 確認だけのための試し呼びをしない（新設の役は次の本番の週次・月次レビューで初めて動かす）。
-**完了条件**: `npm run quality:audit:ci` が通り、廃止した 5 体の検査が quality-audit に登録されている。再編の 4 週間後に `~/.claude/usage-log/` の起動回数を再編前（専任 568 回＋general-purpose 184 回）と比べる予定がカードか計画に残っている。
 
 
 

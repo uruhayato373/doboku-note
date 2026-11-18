@@ -9041,6 +9041,19 @@
       "commit": "2e4c0a6a333a",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1242",
+      "at": "2026-11-18",
+      "task": "エージェントを役割で分け直し、機械で決まる検査をスクリプトへ寄せる（役割分担の見直し・第4段階）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "91637f0033ff",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
