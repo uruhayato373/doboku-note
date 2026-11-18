@@ -619,7 +619,7 @@
       "work": "owner-career-shigoto",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/owner-career-shigoto/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-career-shigoto/youtube.longform/scene-001",
@@ -663,7 +663,42 @@
         "contentSha256": "e2cc58aa5c95f092fba5efda212cd069acd901ce6d6f2cbc786a520b6388567c"
       },
       "times": {
-        "rendered": "2026-11-18T13:06:01.675Z"
+        "rendered": "2026-11-18T13:06:01.675Z",
+        "uploaded": "2026-11-18T13:12:57.275Z",
+        "scheduled": "2026-11-18T13:13:12.778Z"
+      },
+      "delivery": {
+        "inputSha256": "8c8d6a55e86d245cc531526919da65872499c1e0637f795a7cb334335a5a7029",
+        "marker": "dn-single-bf5123f517a360778650614bb6846641800cecbe",
+        "uploadRequestedAt": "2026-11-18T13:12:09.629Z",
+        "videoId": "JTJlEahRFwg",
+        "processedAt": "2026-11-18T13:12:55.721Z",
+        "thumbnailRequestedAt": "2026-11-18T13:12:57.327Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/default.jpg?sqp=CKjH9tcG&rs=AOn4CLAuiSULJgkTseNGogF0cmNOtE_lGw",
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/mqdefault.jpg?sqp=CKjH9tcG&rs=AOn4CLCz4t7hFqrmemm5Aefd2qSre021TQ",
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/hqdefault.jpg?sqp=CKjH9tcG&rs=AOn4CLDnSdgsuivnq2hFULANOwZIWRlU7A",
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/sddefault.jpg?sqp=CKjH9tcG&rs=AOn4CLDzihESRYN1e-YJfC6VIkX7JeaxWQ",
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/maxresdefault.jpg?sqp=CKjH9tcG&rs=AOn4CLD9Kifv-Lzul5HKyEQThU3RbsN0yQ",
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/fhddefault.jpg?sqp=CKjH9tcG&rs=AOn4CLAk7GCDdmSPuzBRguhzeDP074XYeg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-18T13:13:06.389Z",
+        "scheduleRequestedAt": "2026-11-18T13:13:08.185Z",
+        "scheduleAt": "2026-11-27T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-18T13:13:12.778Z"
+      },
+      "platform": {
+        "id": "JTJlEahRFwg",
+        "url": "https://www.youtube.com/watch?v=JTJlEahRFwg",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/owner-career-shigoto/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-18T13:13:06.389Z"
       }
     },
     {
