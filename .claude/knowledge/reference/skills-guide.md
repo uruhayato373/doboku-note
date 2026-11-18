@@ -136,10 +136,10 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/backlog-sweep` | plan | backlog.md からタスクを1〜2件選んで実査・実行・検証し、完了したら削除する1サイクル（--audit は backlog-curator による台帳監査）。Use when user asks to [バックログを消化して, sweep を回して, バックログを棚卸しして, /backlog-sweep]. |
 | `/coconala-analytics` | product | ココナラ「サービス・ブログ分析」の収集済み記録（kpi.json・analytics.json）を読んで報告し、鮮度・欠測を検査する（読み取り専用・数値は累計）。Use when user asks to [ココナラの数字を見る, 閲覧数を確認, /coconala-analytics]. |
 | `/coconala-blog` | product | ココナラブログ記事の企画・執筆（coconala-blog-writer）・採点（coconala-blog-qa）・下書き投入・ライブ実査を回す。Use when user asks to [ココナラブログを書く, ココナラブログを公開, ブログで送客, /coconala-blog]. |
-| `/coconala-order` | product | ココナラ受注1件を受領から納品文面ドラフトまで通す（coconala-operator。土木は /keiken-tensaku、PDF は送付文）。送信は運営者。Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, /coconala-order]. |
+| `/coconala-order` | product | ココナラ受注1件を受領から納品文面ドラフトまで通す（coconala-order-drafter。土木は /keiken-tensaku、PDF は送付文）。送信は運営者。Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, /coconala-order]. |
 | `/coconala-publish` | product | ココナラ出品の新規出品・内容修正・受付休止/再開/アーカイブを Playwright で行う（既定は下書き・実公開は --commit）。Use when user asks to [ココナラに出品, ココナラ出品を修正, ココナラを休止, 出品を再開, /coconala-publish]. |
 | `/coconala-status` | product | ココナラ出品の状態を読み取り専用で照合し（受注 orders.json・カタログ・sales.json・KPI のドリフト）、撤退ラインを判定する。Use when user asks to [ココナラの状態を確認, ココナラKPIを記録, 撤退ライン判定, /coconala-status]. |
-| `/competitor-review` | strategy | note / X / Instagram / ココナラの競合を四半期に再取得し、ドリフト検出→competitor-analyst の評価→承認後に SSOT へ反映する。Use when user asks to [競合を再調査, 競合レビュー, 競合分析を更新, /competitor-review]. |
+| `/competitor-review` | strategy | note / X / Instagram / ココナラの競合を四半期に再取得し、ドリフト検出→チャネル別の analyst（sales-competitor-analyst／content-competitor-analyst）の評価→承認後に SSOT へ反映する。Use when user asks to [競合を再調査, 競合レビュー, 競合分析を更新, /competitor-review]. |
 | `/critical-review` | strategy | 設計書・計画書・戦略文書を批判的に評価して改善点を提示する。Use when user asks to [批判的レビュー, クリティカルレビュー, /critical-review]. |
 | `/distill-proofread-learnings` | ops | 直近の校正作業の差分と指示から、content-principles・スキル・memory に反映すべき新ルールを抽出し、承認を待たずに反映するメタスキル。Use when user asks to [校正スキル改善, 校正ルール更新, 校正の学習, /distill-proofread-learnings]. |
 | `/google-search-growth` | site | GSC/GA4 の収集済み CSV・API データ・sitemap・生成 HTML を URL 単位で突合し、index coverage・検索 performance・技術 SEO を統合診断する。Use when user asks to [検索流入改善, /google-search-growth]. |

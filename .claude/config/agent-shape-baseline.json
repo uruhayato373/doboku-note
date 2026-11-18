@@ -6,18 +6,15 @@
     "civil-exampoint-restorer": 207,
     "civil-secondary-exam-writer": 242,
     "civil-textbook-rewriter": 177,
-    "coconala-operator": 172,
     "exam-keyword-mapping-auditor": 155,
-    "metrics-analyzer": 215,
+    "metrics-analyzer": 203,
     "note-fact-checker": 157,
-    "note-operator": 190,
     "past-exam-qa": 181,
     "pe-secondary-exam-writer": 452,
     "performance-auditor": 232,
     "sales-recorder": 310
   },
   "writeTools": [
-    "civil-construction-qa",
-    "metrics-analyzer"
+    "civil-construction-qa"
   ]
 }

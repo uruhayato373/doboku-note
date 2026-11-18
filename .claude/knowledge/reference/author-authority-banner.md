@@ -107,4 +107,4 @@ node scripts/distribute-author-authority-banner.mjs --exam concrete --migrate # 
 
 - `essay-writer`（資格 civil-keiken） — 経験記述系 note 記事の生成時、買い手向け入口記事に本バナーを top/bottom 配置
 - `civil-keiken-tensaku-drafter` — 添削返却/案内で差別化コピーの根拠として参照
-- `coconala-operator` — ココナラ S1/S2 出品文面に同コピー＋バナー画像添付（実操作＝画像アップロードはユーザー）
+- `coconala-listing-operator` — ココナラ S1/S2 出品文面に同コピー＋バナー画像添付（実操作＝画像アップロードはユーザー）

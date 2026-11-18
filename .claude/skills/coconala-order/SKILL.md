@@ -2,7 +2,7 @@
 name: coconala-order
 category: management
 description: >
-  ココナラ受注1件を受領から納品文面ドラフトまで通す（coconala-operator。土木は /keiken-tensaku、PDF は送付文）。送信は運営者。Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, /coconala-order].
+  ココナラ受注1件を受領から納品文面ドラフトまで通す（coconala-order-drafter。土木は /keiken-tensaku、PDF は送付文）。送信は運営者。Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, /coconala-order].
 user-invocable: true
 domain: product
 ---
@@ -17,7 +17,7 @@ domain: product
 
 `serviceId` は `src/lib/coconala-services.ts` の id。シート/下書き本文はチャットに貼り付けてもよい。
 
-## 商品タイプ別フロー（coconala-operator が実行）
+## 商品タイプ別フロー（coconala-order-drafter が実行）
 
 まず `serviceId` からタイプを判定し、分岐する（真実源 → [coconala-operations.md §3](../../knowledge/reference/coconala-operations.md)）。
 
@@ -32,7 +32,7 @@ domain: product
 3. 下書き（1テーマ）の欠落を検査 → `/keiken-tensaku <path> --grade N --mode shindan` → `診断下書き.md`（A/B/C＋ワースト3＋字数・**書き換え文なし**）→ キット §4c「S1 診断 返却テンプレ」に整形。
 
 **S2 添削（`coconala-tensaku-set`）**
-3. 級・工種・立場・テーマ・下書き本文（2テーマ）の欠落を検査。欠けていれば再送依頼文を出して停止 → `/keiken-tensaku <path> --grade N` → `添削下書き.md` → 納品文面（`coconala-operator.md` テンプレ）。
+3. 級・工種・立場・テーマ・下書き本文（2テーマ）の欠落を検査。欠けていれば再送依頼文を出して停止 → `/keiken-tensaku <path> --grade N` → `添削下書き.md` → 納品文面（`coconala-order-drafter.md` テンプレ）。
 
 **S3 指導（`coconala-sakusei` / `-4theme` / `coconala-2kyu-sakusei` / `-3theme`。id は旧「作成」のまま）**
 2026-09-25 に作成（答案ドラフトの納品）が運営に「学校の課題の代行」として取り下げられ、代筆しない指導へ作り替えた。**答案を書くのは本人**。2段階で進める。
@@ -101,6 +101,6 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 
 ## 参照
 
-- エージェント: `.claude/agents/coconala-operator.md` / `.claude/agents/civil-keiken-tensaku-drafter.md`
+- エージェント: `.claude/agents/coconala-order-drafter.md` / `.claude/agents/civil-keiken-tensaku-drafter.md`
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / 戦略・文面: `content/note/1級・2級土木/ココナラ展開キット.md`
 - KPI 記録は `/coconala-status`

@@ -1,8 +1,9 @@
 ---
 name: metrics-analyzer
 description: >
-  GSC/GA4 データから8パターンの改善機会を抽出し、/nsm-experiment propose の入力を作る Evaluator。
+  検索（GSC・GA4）のデータから7パターンの改善機会を抽出し、/nsm-experiment propose の入力を親へ返す Evaluator。ファイルは書かない。SNS 流入は担当外。
 model: sonnet
+tools: Read, Glob, Grep, Bash
 domain: site
 role: analyst
 target: search-metrics
@@ -21,11 +22,13 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 ## 担当範囲
 
 - GA4・GSC のレポートの読み込み（取得した日ごとの `data/ga4/reports/<日付>.json`・`data/gsc/reports/<日付>.json` の `reports.<種類>`）。下の表の種類 id（`gsc.page-query` など）の最新は `node scripts/ci-data.mjs latest <id>` が「ファイル#種類」で返す
-- 改善機会の8パターン抽出（SNS-Source-Shift 含む）
-- `.claude/state/improvements/{YYYY-MM-DD}.md` への出力
+- 検索（GSC・GA4）の改善機会の7パターン抽出
+- 結果（Markdown）を親へ返す。**ファイルは書かない**（`.claude/state/improvements/{YYYY-MM-DD}.md` への保存は親が行う）
 
 ## 担当外
 
+- **SNS 流入の急変（旧 Pattern 6 SNS-Source-Shift）**: 週次レビューの Agent F（`ga4.source-medium-sns` の source 別 WoW・`collect-metrics.md`）が担う
+- **結果ファイルの書き出し**: 親（`/weekly-improve`・週次レビュー・土曜の GSC の記録層）が受け取って保存する
 - **施策の実行**（meta 書き換え・ページ追加）: `keyword-rewriter` / ユーザー判断
 - **採点・優先順位付け**: `/nsm-experiment propose` の rubric
 - **実験登録**: `/nsm-experiment start`
@@ -41,13 +44,12 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 |---|---|
 | `gsc.query`（最新） | `/fetch-gsc-data` |
 | `gsc.page（data/gsc/reports/<日付>.json）`（最新・`gsc.page-query` と `truncated:true` の水曜打ち切り版は除く） | `/fetch-gsc-data --dimension page` |
-| `gsc.page-query`（最新・前週があれば 2 件） | `/fetch-gsc-data --dimensions page,query --all`（Pattern 7/8 用・週次 CI 生成） |
+| `gsc.page-query`（最新・前週があれば 2 件） | `/fetch-gsc-data --dimensions page,query --all`（Pattern 6/7 用・週次 CI 生成） |
 
 > `gsc.query` / `gsc.page` が `truncated:true` または0行なら、候補件数の前週比較やサイト全体の増減を断定しない。完全な `gsc.date` の合計と `gsc.page-query` は、各データの対象範囲を明示して別に利用できる。
 | `ga4.page`（最新） | GA4 page dimension |
 | `ga4.date`（最新） | GA4 date dimension（トレンド判定用） |
 | `npm run metric-status` | 指標が今計測できているか。手書きの「未計測」を信じず、ここで確かめる |
-| `ga4.source-medium-sns`（最新 2 件） | GA4 SNS 流入 source×medium（Pattern 6 用・`fetch-ga4-data --sns-only`） |
 
 オプション（前週比較用）:
 - 上記の前週スナップショット（`snapshot-weekly-metrics` の出力）があれば使用。無ければトレンドは単一週のみで判定。
@@ -61,14 +63,14 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 | 1 High-Impr-Low-CTR | `seo-high-impr-low-ctr` |
 | 2 Rank-Stuck | `seo-striking-distance` |
 | 3 Traffic-Drop | `seo-traffic-drop`（旧 `/docs/` URL は正規 URL へ寄せ済み＝移行は急落にしない） |
-| 7 Cannibalization | `seo-cannibalization` |
-| 8 Content-Decay | `seo-decay`（過去の成長パックで週次クリックの連続減少） |
+| 6 Cannibalization | `seo-cannibalization` |
+| 7 Content-Decay | `seo-decay`（過去の成長パックで週次クリックの連続減少） |
 
 これらは**再抽出しない**。出力では該当する `OPP-…` を引用し、なぜ起きたか・何を確かめるべきかの**意味の判断だけ**を足す。
-本エージェントが自分で抽出するのは判断を要する Pattern 4（Hidden-Winner）・5（Orphan-Query）・6（SNS-Source-Shift）。
+本エージェントが自分で抽出するのは判断を要する Pattern 4（Hidden-Winner）・5（Orphan-Query）。
 処分（backlog / 実験 / 却下）は週次レビューのトリアージが決める（本エージェントは決めない）。
 
-## 8つの抽出パターン
+## 7つの抽出パターン
 
 ### Pattern 1: High-Impr-Low-CTR（タイトル改善候補）
 
@@ -114,19 +116,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 **注**: ページ存在判定は Grep で title/slug にクエリ主要語が含まれるかで判定（完全一致は不要）。
 
-### Pattern 6: SNS-Source-Shift（SNS 流入の急変）
-
-**条件**: `ga4.source-medium-sns` の最新 2 ファイルで source（x/instagram/youtube/note）別に WoW を取り、次のいずれか:
-- **急落**: 今週 sessions ≥ 5 かつ 前週比 −30% 以上の減少
-- **新規成長**: 前週ほぼゼロ（< 3）から今週 ≥ 10 に伸びた source
-
-**理由**: SNS 投稿の効き目・導線の変化を早期に捉える。急落は投稿停止/UTM 欠落/リンク切れ、成長は当たった投稿型を surface。原因は断定せず「何が」だけを出す（原因は現物照合に委ねる）。
-
-**出力項目**: source、今週 users/sessions、前週、delta%、判定（急落/新規成長）
-
-**前提**: `ga4.source-medium-sns` が 2 ファイル未満（初週・未生成）なら本パターンはスキップし「SNS 流入データ不足（1 週分のみ）」と記録。ファイル自体が無ければ「SNS breakdown 未生成」と 1 行。
-
-### Pattern 7: Cannibalization（同一クエリの共食い）
+### Pattern 6: Cannibalization（同一クエリの共食い）
 
 **条件**: `gsc.page-query`（最新）で、同一 query に対して impressions ≥ 5 の page が **2 つ以上**あり、いずれも position ≤ 30。
 
@@ -138,7 +128,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 **前提**: `gsc.page-query` が無ければ本パターンをスキップし「page×query 未生成」と 1 行。
 
-### Pattern 8: Content-Decay（順位/クリックの継続悪化）
+### Pattern 7: Content-Decay（順位/クリックの継続悪化）
 
 **条件**: `gsc.page-query` の最新と前週スナップショットで**同一 (page, query) ペア**を追跡し、clicks が −30% 以上 かつ position が +3 以上悪化しているペア（前週 clicks ≥ 3）。page は Pattern 7 と同じく `#fragment` 除去で正規化してからペア突合する（アンカー行の分散で clicks が割れる／週によって fragment が変わりペアが不一致になるのを防ぐ）。
 
@@ -149,7 +139,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 **前提**: 前週スナップショットが無ければスキップし「decay 判定はデータ不足（1 週分のみ）」と記録。
 
 > [!important]
-> **メタ改善の提案は少数 URL の実験に限る**。Pattern 1/7/8 で surface した候補について title/description の**一括変更は提案しない**（2026-07-10 の 723 件一括変更が年度クエリ喪失＋再クロール churn を招きコアアップデート demote を増幅した教訓）。メタ改善は**〜5 URL を 14〜28 日の実験**（`/nsm-experiment propose`）として提案し、効果測定後に横展開の可否を判断する。
+> **メタ改善の提案は少数 URL の実験に限る**。Pattern 1/6/7 で surface した候補について title/description の**一括変更は提案しない**（2026-07-10 の 723 件一括変更が年度クエリ喪失＋再クロール churn を招きコアアップデート demote を増幅した教訓）。メタ改善は**〜5 URL を 14〜28 日の実験**（`/nsm-experiment propose`）として提案し、効果測定後に横展開の可否を判断する。
 
 ## 出力フォーマット
 
@@ -158,7 +148,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 > 合格・問題なしの軸は「✓」の 1 行で済ませ、個別講評を書かない（コンテキスト節約）。
 > 載せきれない分は件数と参照先を必ず書く（黙って落とさない）。
 
-`.claude/state/improvements/{YYYY-MM-DD}.md` に以下を書き出す:
+以下の形の Markdown を**親へ返す**（親が `.claude/state/improvements/{YYYY-MM-DD}.md` へ保存する。本エージェントはファイルを書かない）:
 
 ```markdown
 ---
@@ -176,7 +166,6 @@ total_candidates: N
 - Traffic-Drop: N 件
 - Hidden-Winner: N 件
 - Orphan-Query: N 件
-- SNS-Source-Shift: N 件
 - Cannibalization: N 件
 - Content-Decay: N 件
 
@@ -205,16 +194,16 @@ total_candidates: N
 
 1. **入力ファイル特定**: `data/gsc/reports/` と `data/ga4/reports/` を `Glob` で探索し、各 dimension ごとに最新ファイルを選ぶ
 2. **読み込み**: JSON を Read で取得（容量が大きければ `rows` の上位 N 件に絞る）
-3. **パターン抽出**: Pattern 1/2/3/7/8 はダイジェストの `OPP-…` を引用する（再抽出しない）。自分で抽出するのは Pattern 4/5/6（Pattern 6 は要 `ga4.source-medium-sns`）
+3. **パターン抽出**: Pattern 1/2/3/6/7 はダイジェストの `OPP-…` を引用する（再抽出しない）。自分で抽出するのは Pattern 4/5
 4. **存在判定（Pattern 5 のみ）**: `content/site/` に対して Grep で slug 主要語検索
-5. **出力書き出し**: `.claude/state/improvements/{YYYY-MM-DD}.md` を Write
-6. **サマリーを標準出力に返す**: 件数のみ。詳細はファイル経由で呼び出し元が Read する
+5. **結果を返す**: 上の出力フォーマットの Markdown を親へ返す（ファイルは書かない。保存は親）
+6. **サマリー**: 冒頭に件数を置く。詳細は同じ返り値の本文に含める
 
 ## 制約事項
 
 - **採点はしない**（rubric は `/nsm-experiment propose` の責務）
 - **施策案は書かない**（具体的な書き換え案の提案は避ける、候補の surface までが責務）
-- **新規ファイル作成は `.claude/state/improvements/` のみ**
+- **ファイルは一切書かない**（保存は親。道具は読み取りと Bash の読み取りコマンドだけ）
 
 ## 参照
 

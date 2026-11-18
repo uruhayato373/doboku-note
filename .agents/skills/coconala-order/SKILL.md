@@ -2,7 +2,7 @@
 name: coconala-order
 category: management
 description: >
-  ココナラ受注1件を受領から納品文面ドラフトまで通す（coconala-operator。土木は /keiken-tensaku、PDF は送付文）。送信は運営者。Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, /coconala-order].
+  ココナラ受注1件を受領から納品文面ドラフトまで通す（coconala-order-drafter。土木は /keiken-tensaku、PDF は送付文）。送信は運営者。Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, /coconala-order].
 user-invocable: true
 domain: product
 ---

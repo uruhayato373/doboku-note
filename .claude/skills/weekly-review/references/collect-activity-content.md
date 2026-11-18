@@ -21,7 +21,7 @@
 調査項目:
 - docs/ 配下で今週新規作成・更新されたファイル
 - カテゴリ別のページ数変動
-- **note の同期間PV・表示・流入元**: 土曜の収集の note-traffic 段が対象週（レビューの期間）を直接取得している。`note.traffic-period`（`data/note/traffic-period/`）を読む（無ければ未取得として書き、作らない）。business-reviewは全体をcomplete、資格別をpartialとして集計する。月次は `referrers` / `articles-pv` を別期間として読む。月次を週次へ按分しない。記事別販売にはマガジン販売が含まれないため、売上の正本はsales.json。流入元だけで販売理由を断定しない。
+- **note の同期間PV・表示・流入元は Agent B では調べない**（2026-11 に分離）。Phase 1 で `note-traffic-analyst`（sonnet・分析役）を 1 回起動して解釈を受け取り、その返り値を「## コンテンツ実績」の note の小節に入れる。入力は収集済みの記録だけ（`note.traffic-period`〔`data/note/traffic-period/`・土曜の収集の note-traffic 段が対象週を直接取得〕・`referrers`・`articles-pv`・`data/note/sales.json`・`npm run business-review -- report --json`）。資格を引数で渡す（無指定は全体）。無ければ未取得として書き、作らない。月次を週次へ按分せず、記事別販売にマガジン販売が含まれない点（売上の正本は sales.json）と欠測を 0 にしない点は analyst の本文が守る。**起動は週 1 回・入力の取得日が対象週に一致するときだけ**（未取得の週は起動せず「未取得」と書く）。
 - note 公開状態ドリフト: `npm run verify-note-status` を実行（noteId 保有 article.md の
   frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
   ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
@@ -43,6 +43,7 @@
   `snapshotAgeDays` が大きければ実体が古い＝土曜の収集の coconala 段が落ちている（runs.json の理由を書く）。
   その場合 `inconclusive:true` と理由が返るので、`actions` が空でも**「実体が検査不成立」として必ず surface する**（静かなのは
   「問題が無い」ではなく「見ていない」）。
+- **ココナラの閲覧・お気に入り・撤退ラインの解釈**: 毎週は起動しない。**閾値越え（`/coconala-status` の手順4が出す撤退ライン該当・工数警告・満枠、または `check-coconala-analytics` が出す KPI の急変・鮮度 FAIL 以外の異常）が出た週だけ** `coconala-traffic-analyst`（sonnet・分析役）を 1 回起動し、入力は `kpi.json`・`analytics.json`・`orders.json` と上の `check-*` の出力だけにして、返り値（変化・考えられる理由・次の手）を「## コンテンツ実績」のココナラの小節に入れる。異常のない週は `check-coconala-orders` の `actions[]` の列挙で済ませる。KPI の記録は土曜の収集の coconala 段が行い、解釈役は書かない。
 - **教材からの展開**: `npm run check-content-expansion -- --json` で全教材の未確認・必要制作・原典待ち・確認後の変更を確認する。判定手順は `.claude/knowledge/reference/content-expansion.md`、対応表は管理画面 `/materials`（教材ページの「要確認のみ」）。対象0件や概念名の対応だけを完了にしない。残務は既存backlog IDへ接続し、公開・予約・効果は各チャネルと事業レビューのSSOTで別に確認する。
 - **検索キーワード戦略（直す・記録・本番反映・判定・処置。その週のうちに回し、カードに積まない）**: 実験台帳（`experiments.json` の kind `search-strategy`）で回す（`docs/strategy/16_検索キーワード戦略.md`「改善サイクル」）。
   1. `npm run search-improvement -- sync --commit`（記録した commit を含む本番デプロイの日から計測を始める。CI も毎週回すので差分が無ければ何もしない）

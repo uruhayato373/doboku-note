@@ -323,7 +323,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 納品の実務メモ: 複数冊を **ZIP でまとめて送るときは解凍手順を一文添える**（2026-08-07 に購入者が実際につまずいた）。
 購入時メッセージには**納品形態（PDF か・何冊か）を明記**する——初回の質問はここに集中した。
 
-添削3ステップ（字数→論点抽出→最終赤入れ）の真実源は [2級経験記述-添削テンプレ.md](../../../content/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)。トークルーム定型文（初回挨拶・シート送付・C系 PDF 送付・満枠断り・書き直し受付・S1 診断返却テンプレ）は [ココナラ展開キット.md §4c](../../../content/note/1級・2級土木/ココナラ展開キット.md)、S2 納品文面テンプレは `.claude/agents/coconala-operator.md`。
+添削3ステップ（字数→論点抽出→最終赤入れ）の真実源は [2級経験記述-添削テンプレ.md](../../../content/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)。トークルーム定型文（初回挨拶・シート送付・C系 PDF 送付・満枠断り・書き直し受付・S1 診断返却テンプレ）は [ココナラ展開キット.md §4c](../../../content/note/1級・2級土木/ココナラ展開キット.md)、S2 納品文面テンプレは `.claude/agents/coconala-listing-operator.md`（出品）・`coconala-order-drafter.md`（受注の下書き）・`coconala-traffic-analyst.md`（閾値越えの解釈）。
 
 ## 3-1. 受注に気づく経路（通知メールの宛先）
 
@@ -746,4 +746,4 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 - 添削パイプライン: `/keiken-tensaku`（`civil-keiken-tensaku-drafter`）／添削テンプレ: [2級経験記述-添削テンプレ.md](../../../content/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)
 - 売上: [sales-tracking.md](sales-tracking.md)（`coconala:<serviceId>` 命名）
 - 会員（主戦場）: [noteコンテンツ計画.md](../../../content/note/1級・2級土木/noteコンテンツ計画.md)（ココナラは第3チャネル・会員の価格アンカー）
-- エージェント: `.claude/agents/coconala-operator.md` ／ スキル: `/coconala-publish`（出品・修正）・`/coconala-order`（受注）・`/coconala-status`（KPI）
+- エージェント: `.claude/agents/coconala-listing-operator.md`（出品）・`coconala-order-drafter.md`（受注の下書き）・`coconala-traffic-analyst.md`（閾値越えの解釈） ／ スキル: `/coconala-publish`（出品・修正）・`/coconala-order`（受注）・`/coconala-status`（KPI）
