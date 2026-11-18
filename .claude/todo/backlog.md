@@ -478,6 +478,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1244] データ台帳の書き手の未記入 175 件を領域ごとに埋める（役割分担の見直し・第2段階の残り）
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [検証:check-datasets] [起票:2026-11-18]
+
+**起点**: DN-1240（#1650）で台帳 `scripts/lib/datasets.mjs` に書き手の欄を入れ、121 件を埋めた。残り 175 件は基準線 `.claude/config/dataset-writer-baseline.json` に載せて増やせなくしただけで、まだ誰が書くか決まっていない（2026-11-18 時点の内訳: site 82・sns 40・ops 26・product 14・material 10・plan 2・affiliate 1）。
+
+**やること**: 領域ごとに `scripts/lib/dataset-writers.mjs` の `WRITERS` へ書き手を足し、同じ commit で基準線から外す。書き手が 2 つ以上なら `writerNote` を書く。書き手の調べ方は書き込むコードの grep（`writeFileSync`・`writeJson` と台帳 id）と automations の実体。product・plan・affiliate（17 件）を先にやり、次に ops、site・sns の順。
+
+**完了条件**: `npm run check-datasets` が「未記入 0・基準線 0」で通る。
+
+
 ### [DN-1242] エージェントを役割で分け直し、機械で決まる検査をスクリプトへ寄せる（役割分担の見直し・第4段階）
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-18]
 
