@@ -291,7 +291,7 @@ URLごとの出力:
 
 ### `check-gsc-ui-run`（スクリプト）
 
-- 旧 `gsc-csv-auditor`（2026-11 に廃止・DN-1242）の判定を `scripts/check-gsc-ui-run.mjs` へ移した。
+- 旧 `gsc-csv-auditor`（2026-11-18 に廃止）の判定を `scripts/check-gsc-ui-run.mjs` へ移した。
 - raw/normalized CSV、manifest、行数、sha256、truncation、rejects、前回差分を検査する。土曜の収集の gsc 段の検算（quality-audit の `gsc-ui-run`）が回す。
 - 外部サイトへアクセスせず、データ品質のみ返す。
 
