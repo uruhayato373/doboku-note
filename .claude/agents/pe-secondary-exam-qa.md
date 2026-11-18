@@ -4,6 +4,8 @@ description: >
   建設部門 note マガジンの模範解答を6軸で採点する Evaluator（予想問題モード forecast:true 対応）。
 model: sonnet
 domain: product
+role: qa
+target: essay
 ---
 
 # PE Secondary Exam QA Agent

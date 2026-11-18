@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: site
+role: auditor
+target: gsc-csv
 ---
 
 # GSC CSV Auditor Agent

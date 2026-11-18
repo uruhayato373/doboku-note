@@ -4,6 +4,8 @@ description: >
   施工経験記述 note マガジンのフル模範答案を5軸で採点する Evaluator（重複・捏造・形式・著作権）。
 model: sonnet
 domain: product
+role: qa
+target: essay
 ---
 
 # Civil Keiken Essay QA Agent

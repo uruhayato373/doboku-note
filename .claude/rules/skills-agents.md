@@ -13,6 +13,7 @@ paths:
 - 件数の SSOT はディレクトリの実数と各 registry の表。CLAUDE.md や他 doc に件数・per-agent の表を書かない
 - 設計チェックリスト（frontmatter 必須要件・description 形式・progressive disclosure・`.claude/pdfs/guide.pdf` 準拠） → [skills-design-guide.md](../knowledge/reference/skills-design-guide.md)。新規作成は `/create-skill`、既存 description のレビューも同ガイド。新スキルの重複はカテゴリ早引き skills-guide.md で先に確認する
 - frontmatter に `domain:`（事業の領域 id・正本 `config/domains.json`）を必ず書く。ディレクトリ（作業の種類）とは別の軸で、管理画面は領域ごとに束ねて出す。欠落・語彙外は `npm run check-domains` が止める
+- エージェントは frontmatter に `role:`（`config/domains.json` の agentRoles）と `target:`（agentTargets）も必ず書く。資格では分けず、資格は呼び出し時に渡す。同じ role と target のエージェントがすでにいるなら、違いを agentOverlaps に書くか既存の 1 体に足す（`npm run check-domains` が止める）
 
 ## ハーネス設計原則の実装（CLAUDE.md §5 の詳細）
 

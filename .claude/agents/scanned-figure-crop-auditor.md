@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: material
+role: qa
+target: crop-figure
 ---
 
 # Scanned Figure Crop Auditor Agent

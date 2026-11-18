@@ -4,6 +4,8 @@ description: >
   Kindle の論点分類・構成 spec・前付け原稿を設計/改訂する Generator。EPUB ビルド・品質判定はしない。Use when [Kindle 構成設計].
 model: sonnet
 domain: product
+role: writer
+target: kindle-book
 ---
 
 # Kindle Book Composer Agent

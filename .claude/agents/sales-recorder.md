@@ -4,6 +4,8 @@ description: >
   note 販売履歴テキストを正規化して data/note/sales.json に追記する Generator。Use when [売上記録].
 model: sonnet
 domain: product
+role: operator
+target: sales
 ---
 
 # Sales Recorder Agent

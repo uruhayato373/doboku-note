@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Bash, Glob, Grep
 domain: site
+role: writer
+target: crop-figure
 ---
 
 # Figure Crop Worker Agent

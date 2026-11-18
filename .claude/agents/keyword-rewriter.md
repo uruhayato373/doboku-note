@@ -4,6 +4,8 @@ description: >
   総監キーワードページのバルクリライトを担当する Generator。
 model: sonnet
 domain: site
+role: writer
+target: keyword
 ---
 
 # Keyword Rewriter Agent

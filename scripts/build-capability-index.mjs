@@ -13,12 +13,13 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { buildIndex, replaceRegion } from './lib/capability-index.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { loadDomains } from './lib/domains.mjs';
 
 const SKILLS_DIR = '.claude/skills';
 const AGENTS_DIR = '.claude/agents';
 export const TARGETS = [
   { file: '.claude/knowledge/reference/skills-guide.md', regions: ['skills'] },
-  { file: '.claude/knowledge/reference/agents-registry.md', regions: ['skill-agent-map', 'agents'] },
+  { file: '.claude/knowledge/reference/agents-registry.md', regions: ['agent-roles', 'skill-agent-map', 'agents'] },
 ];
 const norm = (s) => s.replace(/\r\n/g, '\n');
 
@@ -29,7 +30,9 @@ export function planIndex(root = ROOT) {
     .map((d) => ({ path: `${SKILLS_DIR}/${d.name}/SKILL.md`, content: readFileSync(join(root, SKILLS_DIR, d.name, 'SKILL.md'), 'utf8') }));
   const agentFiles = readdirSync(join(root, AGENTS_DIR)).filter((f) => f.endsWith('.md'))
     .map((f) => ({ path: `${AGENTS_DIR}/${f}`, content: readFileSync(join(root, AGENTS_DIR, f), 'utf8') }));
-  const index = buildIndex({ skillFiles, agentFiles });
+  const domains = loadDomains(root);
+  const labels = { roles: domains.agentRoles, targets: domains.agentTargets, domains: domains.domains.map((d) => [d.id, d.label]) };
+  const index = buildIndex({ skillFiles, agentFiles, labels });
   const problems = index.invalid.map((p) => `frontmatter が読めない・name が無い: ${p}`);
   if (index.skills.length === 0 || index.agents.length === 0) problems.push(`原本が 0 件（スキル ${index.skills.length}・エージェント ${index.agents.length}）`);
   const docs = [];

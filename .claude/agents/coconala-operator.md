@@ -4,6 +4,8 @@ description: >
   ココナラの受注照合・出品編集・価格/状態・KPI を既存スクリプトで運用する。送信は運営者。Use when [ココナラ受注, /coconala-order].
 model: sonnet
 domain: product
+role: operator
+target: coconala
 ---
 
 # Coconala Operator Agent

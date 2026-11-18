@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
+role: qa
+target: guide
 ---
 
 # Guide Fact Checker Agent

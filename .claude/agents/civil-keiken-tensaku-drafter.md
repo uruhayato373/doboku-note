@@ -4,6 +4,8 @@ description: >
   顧客原稿・ヒアリング事実から診断・添削・骨子シートの下書きを作る。事実は創作せず質問にする。最終化・送信は担当外。
 model: sonnet
 domain: product
+role: writer
+target: tensaku
 ---
 
 # Civil Keiken Tensaku Drafter Agent

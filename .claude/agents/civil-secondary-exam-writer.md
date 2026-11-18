@@ -4,6 +4,8 @@ description: >
   1級土木 二次過去問の解答・ポイント・設問解説を補完する Generator。
 model: sonnet
 domain: site
+role: writer
+target: past-exam
 ---
 
 # Civil Secondary Exam Writer Agent

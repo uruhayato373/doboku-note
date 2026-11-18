@@ -4,6 +4,8 @@ description: >
   GSC/GA4 データから8パターンの改善機会を抽出し、/nsm-experiment propose の入力を作る Evaluator。
 model: sonnet
 domain: site
+role: analyst
+target: search-metrics
 ---
 
 ## 資格別の事業判断への入力

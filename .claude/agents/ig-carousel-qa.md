@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: sns
+role: qa
+target: ig-carousel
 ---
 
 # IG Carousel QA Agent

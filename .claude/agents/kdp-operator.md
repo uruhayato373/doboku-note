@@ -4,6 +4,8 @@ description: >
   ビルド済み EPUB と表紙を KDP へ入稿し、出版・本棚照合・ASIN 記録を運用する。Use when [KDP 提出, KDP 公開状態同期].
 model: sonnet
 domain: product
+role: operator
+target: kdp
 ---
 
 # KDP Operator Agent

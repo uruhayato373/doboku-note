@@ -4,6 +4,8 @@ description: >
   X 投稿 tweets.md を文字数・論点・タグ・導線・偽成功検証の5軸で採点する Evaluator。実績訴求と凍結リスクは重大減点ゲート。
 model: sonnet
 domain: sns
+role: qa
+target: x-post
 ---
 
 # X Post QA Agent

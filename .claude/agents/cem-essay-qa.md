@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product
+role: qa
+target: essay
 ---
 
 # CEM Essay QA Agent

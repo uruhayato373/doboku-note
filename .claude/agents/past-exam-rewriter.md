@@ -4,6 +4,8 @@ description: >
   過去問 MDX に past-exam-qa の指摘を適用する Generator。設問文・正答・KaTeX は原則保持。図処理は担当外。Use when [過去問校正].
 model: sonnet
 domain: site
+role: writer
+target: past-exam
 ---
 
 # Past-Exam Rewriter Agent

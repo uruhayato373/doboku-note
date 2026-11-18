@@ -4,6 +4,8 @@ description: >
   1級土木 過去問1次ページの図クロップ仕様を、PDF ページ画像の目視で JSON spec にして返す Generator。
 model: sonnet
 domain: site
+role: writer
+target: crop-figure
 ---
 
 # Civil Exam Figure Extractor Agent

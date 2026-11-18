@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: plan
+role: auditor
+target: backlog
 ---
 
 # Backlog Curator Agent

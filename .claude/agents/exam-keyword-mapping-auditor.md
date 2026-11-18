@@ -4,6 +4,8 @@ description: >
   総監の過去問1問の紐づけキーワード群が論点を覆うかを評価し、追加・削除候補を返す Evaluator。Use when [過去問紐づけ監査].
 model: sonnet
 domain: site
+role: qa
+target: exam-mapping
 ---
 
 # Exam Keyword Mapping Auditor Agent

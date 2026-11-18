@@ -4,6 +4,8 @@ description: >
   サイト UI・レイアウトを共通コンポーネントとトークンで実装する Generator。合否は /design-review。SVG・カバーは担当外。Use when [ページUI設計].
 model: sonnet
 domain: site
+role: writer
+target: site-page
 ---
 
 # Page Design Builder Agent

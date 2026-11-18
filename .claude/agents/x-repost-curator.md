@@ -4,6 +4,8 @@ description: >
   X 引用リポスト候補を関連性・安全性で選別し、引用コメントを生成して approved.json を書く Evaluator+Generator。
 model: sonnet
 domain: sns
+role: writer
+target: x-repost
 ---
 
 # X Repost Curator Agent

@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: site
+role: auditor
+target: technical-seo
 ---
 
 # Technical SEO Auditor Agent

@@ -4,6 +4,8 @@ description: >
   総監記述式 note マガジンのペルソナ別論文・予想問題・施策バンクを執筆する Generator。施策600字以内・真正な経験座を守る。
 model: sonnet
 domain: product
+role: writer
+target: essay
 ---
 
 # CEM Essay Writer Agent

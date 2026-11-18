@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: site
+role: planner
+target: seo
 ---
 
 # SEO Fix Planner Agent
