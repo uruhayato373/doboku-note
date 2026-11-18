@@ -25,7 +25,7 @@ Googleの取得は既存CI認証を使い、前の完了した週・月の資格
 
 GA4人数は期間全体に対するAPI集計。資格別は正規URL配下の閲覧を条件とするため、複数資格を見る同一人を資格間で足さない。旧URLの期間を含む月との増減は対象範囲の変化を含み、改善効果と判定しない。演習イベントは既存1級土木ツールの範囲。GSCの資格別クリックは正規URL配下を条件とし、旧URLや一般実務ページと混ぜない。異なるタイムゾーンの厳密な購買率は計算しない。
 
-自動集計対象外の値は、各管理画面で期間・対象・定義を確認し `data/business/records/` の JSON へ記録する（`scripts/lib/business-direction.mjs` の `saveRecord`）。`source` に取得面・確認範囲を記す。新PVと旧全体ビューは接続しない。ココナラの閲覧数は `/coconala-analytics` の30日窓を使い、暦月へ換算しない。KDPは月次台帳の書籍別行からcatalog対象だけを集計し、共有口座総額やサイト帰属できないKENPを事業実績へ入れない。note売上・KDPの資格への帰属は商品の分類 `config/product-lineup.json` を引き（`lineupQualifier`・管理画面の資格別売上と同じ判定）、複数資格にまたがる商品・未分類・重点資格外は全体のみに含める。認証・ログイン・UI変更で取得できなければ、値を作らず次回の取得対象へ残す。
+自動集計対象外の値は、各管理画面で期間・対象・定義を確認し `data/business/records/` の JSON へ記録する（`scripts/lib/business-direction.mjs` の `saveRecord`）。`source` に取得面・確認範囲を記す。新PVと旧全体ビューは接続しない。ココナラの閲覧数は `data/coconala/analytics.json`（`/coconala-status`）の30日窓を使い、暦月へ換算しない。KDPは月次台帳の書籍別行からcatalog対象だけを集計し、共有口座総額やサイト帰属できないKENPを事業実績へ入れない。note売上・KDPの資格への帰属は商品の分類 `config/product-lineup.json` を引き（`lineupQualifier`・管理画面の資格別売上と同じ判定）、複数資格にまたがる商品・未分類・重点資格外は全体のみに含める。認証・ログイン・UI変更で取得できなければ、値を作らず次回の取得対象へ残す。
 
 週次のnote PV・表示は `note-traffic-fetch --from YYYY-MM-DD --to YYYY-MM-DD --commit` が直接取得した `note.traffic-period`（`data/note/traffic-period/`）を自動集計する。全記事展開と期間一致を確認して保存し、全体はcomplete、記事タイトルから照合する資格別はpartial。月次との按分は行わない。
 
@@ -67,7 +67,7 @@ A8 の確定額（`a8ConfirmedYen`）は `data/a8/report-log.json` の `siteSumm
 | 指標・目標の定義 | `config/business-direction.json`（変更は `/monthly-review` の手順で target 記録） |
 | 前週・前月の振り返り・重点配分 | `/weekly-review`・`/monthly-review` → `/plan-weekly` |
 | 改善の実行・効果判定 | `/nsm-experiment`。SEO は検索キーワード戦略（`/weekly-review` の `search-improvement`） |
-| 販売先の計測 | `/coconala-analytics`、既存 note 売上取得。アクセスの欠測は手入力記録へ |
+| 販売先の計測 | `/coconala-status`（ココナラの分析の記録）、既存 note 売上取得。アクセスの欠測は手入力記録へ |
 | 競合・収益構造 | `/competitor-review`、`/monetization-strategy`、`npm run competitor-position`（資格ごとの立ち位置の正本） |
 | 設計の批判的評価 | `/critical-review` |
 

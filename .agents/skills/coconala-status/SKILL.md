@@ -2,7 +2,7 @@
 name: coconala-status
 category: management
 description: >
-  ココナラ出品の状態を読み取り専用で照合し（受注 orders.json・カタログ・sales.json・KPI のドリフト）、撤退ラインを判定する。Use when user asks to [ココナラの状態を確認, ココナラKPIを記録, 撤退ライン判定, /coconala-status].
+  ココナラ出品の状態を読み取り専用で照合し（受注 orders.json・カタログ・sales.json・閲覧などの分析の記録と鮮度）、撤退ラインを判定する。Use when user asks to [ココナラの状態を確認, ココナラの数字を見る, 閲覧数を確認, ココナラKPIを記録, 撤退ライン判定, /coconala-status].
 user-invocable: true
 domain: product
 ---

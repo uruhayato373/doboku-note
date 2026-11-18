@@ -41,6 +41,18 @@ updated: 2026-11-18
 | `note-page-visual-auditor` | 商品 | 採点・note の公開ページ | `/note-visual-review`・`/weekly-review` | 残す（必要時だけの撮影） | 残す（2026-11-18） |
 | `cli-runner` | 管理 | 実行・コマンド | Workflow から | 残す（Workflow の起動が記録に出るかを先に確かめる） | 残す（Workflow の起動が記録に出るかは DN-1246 で確かめる・2026-11-18） |
 
+## スキル（100 本・2026-11-18 判断）
+
+- 数え方: 呼び出しの記録はスキルが 48 回・スラッシュコマンドが 14 回だけで、毎週動く `/weekly-review` も 2 回だった。親が SKILL.md を読んで手順に従う使い方が大半で記録に出ないので、回数ではなく、呼び出し元（`.claude/skills`・`.claude/agents`・`scripts`・`.github`・`config` からの参照）と中身の重なりで候補を出した
+- 呼び出し元が 0 のもの（`cce-essay-cycle`・`civil-keiken-magazine`・`pe-secondary-yosou`・`consolidate-duplicate-keyword`・`create-skill`・`monitor`・`routines`）は、商品が動いている・必要なときの作業書・CLAUDE.md が案内している、のどれかなので残す。SNS を保留しているチャネルのスキルは対象外
+
+| スキル | 提案 | 判断 |
+|---|---|---|
+| `seo-growth-review` | `google-search-growth` と 4 面のうち 3 面が重なる。まとめる | 統合（`/google-search-growth` の手順 6 へ・2026-11-18） |
+| `coconala-analytics` | `coconala-status` と同じ読み取り専用。まとめる | 統合（`/coconala-status` へ・2026-11-18） |
+| `publish-note` | browser-use 版で、公開は `note-publish`、本文の更新は `note-update-body` に置き換わっている。退役 | 残す（2026-11-18） |
+| 残り 97 本 | 残す | 残す（2026-11-18） |
+
 ## 判断の対象外
 
 - **今日新設した 3 体**: `note-traffic-analyst`・`coconala-traffic-analyst`・`product-portfolio-planner`。再編の 4 週間後に起動回数を比べる

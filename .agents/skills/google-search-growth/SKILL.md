@@ -2,7 +2,7 @@
 name: google-search-growth
 category: management
 description: >
-  GSC/GA4 の収集済み CSV・API データ・sitemap・生成 HTML を URL 単位で突合し、index coverage・検索 performance・技術 SEO を統合診断する。Use when user asks to [検索流入改善, /google-search-growth].
+  GSC/GA4 の収集済み CSV・API データ・sitemap・生成 HTML を URL 単位で突合し、index coverage・検索 performance・技術 SEO・検索意図の 4 面を統合診断する。Use when user asks to [検索流入改善, SEO総合レビュー, /google-search-growth].
 user-invocable: true
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash, Task
