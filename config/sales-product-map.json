@@ -1049,7 +1049,7 @@
     {
       "id": "membership",
       "label": "メンバーシップ（type: membership・2026-08-17〜）",
-      "note": "月会費は購入のたびに1行として現れる（`1,480円 / 月`）。productId は `membership:<プラン>` 形式。",
+      "note": "2026-09-30 に会員制を終了。過去の 4 件を読むための対応表で、新しい行は出ない。月会費は購入のたびに1行として現れる（`1,480円 / 月`）。productId は `membership:<プラン>` 形式。",
       "entries": [
         {
           "names": [

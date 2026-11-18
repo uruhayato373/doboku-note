@@ -21,7 +21,7 @@ metadata:
 
 ## CI/CD の失敗は GitHub Issue（自動クローズ）で拾う（ユーザー決定 2026-09-18）
 CI/CD の赤は `automation-failure` Issue で拾う。投稿・配信・転記の遅れ（quality-audit の ops 区分）も同経路で、Issue を repo owner に assign して GitHub 通知メール（Gmail）で届け、Slack は secret `SLACK_WEBHOOK_URL` を足したときだけ送る。
-- **Why:** 2026-09-18 の調査で Pre-merge 勝率23%（membership-drip が全 PR を赤にしていた）と Issue open 8件放置（クローズが人手）が判明。ユーザーは「CI/CD は Issue で拾えばよい」「投稿もれは Slack や Gmail で通知」と決めた。branch protection は CI bot の develop 直 push を壊すので採らない。
+- **Why:** 2026-09-18 の調査で Pre-merge 勝率23%（membership-drip が全 PR を赤にしていた。スクリプトは削除済み）と Issue open 8件放置（クローズが人手）が判明。ユーザーは「CI/CD は Issue で拾えばよい」「投稿もれは Slack や Gmail で通知」と決めた。branch protection は CI bot の develop 直 push を壊すので採らない。
 - **How to apply:** 壁時計依存の検査は `ops: true, ci: false`（[[reference_quality_audit_system]]・ci:true に置かない）。新しい起票 channel を足すときは同じ workflow の成功経路に `report-automation-failure.mjs --resolve --channel X` を配線（`tests/report-automation-failure.test.mjs` が未配線を止める）。通知手段を増やす提案（メール直送・別 SaaS）はしない。真実源 `.claude/knowledge/reference/information-architecture.md` の限定例外ブロック。
 
 ## ログインが要る処理の CI 化は提案前に auth notes を読む（2026-09-24）

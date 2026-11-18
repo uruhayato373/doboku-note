@@ -28,7 +28,7 @@ paths:
 - 図解 SVG/PNG（`content/note/**/img/figure-*`） → [note-svg-policy.md](../knowledge/reference/note-svg-policy.md)。カバー画像は [note-cover.md](../knowledge/design-system/note-cover.md)
 - 施工経験記述の解答欄の割り振り（1 級=(1)検討項目/(2)対応処置・評価、2 級=(1)課題/(2)検討項目と対応処置） → `npm run check-keiken-answer-split` が止める
 - note 記事の走査は `/^article(-[^/\\]+)?\.md$/`（型別 `article-*.md` を落とさない）。note は HTML 非対応。販売履歴のある有料記事を下書きへ戻さない（差し替えは新規＋入替）
-- 売上の記録 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)（`/record-sales`・`npm run note-sales-fetch`）。会員配信ドリップの真実源は `メンバーシップ/README.md` の配信表（`npm run check-membership-drip`。日付をカードへ複製しない）
+- 売上の記録 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)（`/record-sales`・`npm run note-sales-fetch`）
 
 ## SNS（content/sns/**: instagram / x / youtube）
 

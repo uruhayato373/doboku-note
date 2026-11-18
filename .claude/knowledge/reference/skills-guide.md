@@ -18,7 +18,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 ## カテゴリ別クイックリファレンス
 
 <!-- generated:skills:start（npm run build-capability-index が書く。手で直さない） -->
-スキル 98 本（`.claude/skills/*/SKILL.md` の frontmatter から生成）。
+スキル 97 本（`.claude/skills/*/SKILL.md` の frontmatter から生成）。
 
 ### コンテンツ制作（authoring）
 
@@ -89,7 +89,6 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/note-magazine-add` | product | 既存の note 記事を有料マガジンへ収録するブラウザ CLI（差分は API から自動算出・既定 dry-run・実追加は --commit）。Use when user says "マガジンに記事を追加", "完全パックに収録", "マガジン収録". |
 | `/note-magazine-cover` | product | note 有料マガジンの見出し画像を _cover.png から設定するブラウザ CLI（既定 probe・保存は --commit）。Use when user says "noteマガジンのカバーを設定", "マガジン画像が未登録", "/note-magazine-cover". |
 | `/note-magazine-create` | product | note 有料マガジンを note掲載文.txt 駆動で新規作成する（編集は note-edit-magazine）。Use when user says [noteマガジン作成, note有料マガジンを作る, /note-magazine-create]. |
-| `/note-membership` | product | note メンバーシップ「土木セコカン合格ラボ」の会員限定配信・特典マガジン収録・プラン設定を note-membership-operator で実行する。Use when user asks to [メンバーシップ運用, 会員特典記事を配信, 会員プラン設定編集, /note-membership]. |
 | `/note-publish` | product | note.com の有料記事を Playwright で下書き作成→境界検証→公開する Windows 決定的パブリッシャ。Use when user says "note記事公開", "note有料記事を投稿", "note自動公開". |
 | `/pe-note-plan` | product | 技術士総監 記述式の note 有料記事・magazine の編集ロードマップ（次に出す記事・順序・価格・バンドル）を提案する企画スキル。Use when user asks to [note 有料記事の企画, note の次の一手, magazine の企画, /pe-note-plan]. |
 | `/publish-ig-bs` | sns | Meta Business Suite を Playwright で操作し、Instagram カルーセル/リールを1パックずつ予約・即時投稿する（IG の唯一の経路・初回は --dry-run）。Use when user says "IG予約投稿", "リール予約". |
@@ -275,3 +274,4 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 |---|---|---|---|
 | `/seo-growth-review` | 2026-11-18 | `/google-search-growth` と 4 面のうち 3 面（coverage・performance・技術）が重なり、同じ Evaluator を配っていた | `/google-search-growth` の手順 6（検索意図の `search-intent-auditor`・`check-seo-build`・`check-seo-meta`・PSI の回帰を足した） |
 | `/coconala-analytics` | 2026-11-18 | 収集済みの記録を読んで鮮度を見るだけで、`/coconala-status` と同じ読み取り専用 | `/coconala-status`（手順 2 と「分析の記録の読み方」）。収集の `npm run coconala-analytics` は変わらない |
+| `/note-membership` | 2026-11-18 | 月額の会員制は今後やらない（2026-11-17 の運営者決定・PR #1648） | なし |

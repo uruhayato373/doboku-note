@@ -21,11 +21,12 @@ const CTA_MARKER = '<!-- cta:civil-membership-lab -->';
 const INTRO_SELF_URL = 'https://note.com/dobokunote/n/n6b66793ca20c';
 
 // ── SoT: 撤退した会員は published:false（getMagazine が null を返し全 CTA が消える）──
-test('note-magazines.ts: civil-membership-lab は撤退済み（published:false）', () => {
+test('note-magazines.ts: civil-membership-lab は撤退済み（published:false・retiredAt）', () => {
   const src = read('src/lib/note-magazines.ts');
   const block = src.match(/'civil-membership-lab':\s*\{([\s\S]*?)\n {2}\},/);
   assert.ok(block, "civil-membership-lab エントリが見つからない");
   assert.match(block[1], /\bpublished:\s*false\b/, '撤退した会員が published:true に戻っている');
+  assert.match(block[1], /\bretiredAt:\s*'2026-09-30'/, '撤退日 retiredAt が外れている');
 });
 
 // ── note 記事: 会員向け記事以外に会員への導線が残っていない ───────────────

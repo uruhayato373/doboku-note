@@ -238,10 +238,9 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       ],
     },
     {
-      id: 'note-live', phase: 'post', title: 'note の添付と会員限定のライブ照合', timeoutMin: 90, browser: true,
+      id: 'note-live', phase: 'post', title: 'note の添付のライブ照合', timeoutMin: 90, browser: true,
       commands: [
         { argv: ['npm', 'run', '-s', 'check-note-attachments:live', '--', '--api-first'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['npm', 'run', '-s', 'check-note-membership:live'], warn: [1], failPattern: '検査不成立' },
       ],
     },
     {

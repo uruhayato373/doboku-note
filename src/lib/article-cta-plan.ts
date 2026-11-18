@@ -39,7 +39,7 @@ export function planArticleCtas(doc: { meta: DocMeta; content: string }, related
   // components の midslot が index で中身を引く。
   const midH2Count = headings.filter((h) => h.level === 2).length;
   const midBodyLen = stripLeadingH1(strippedContent).length;
-  // 1級・2級土木の二次（secondary）ページも本文中間 CTA の対象に含める（会員「合格ラボ」を
+  // 1級・2級土木の二次（secondary）ページも本文中間 CTA の対象に含める（二次の商品を
   // 二次高 intent 面へ出すため）。全資格の secondary を一律対象にはしない（土木のみ）。
   const isCivilSecondary =
     isCivilConstructionCategory(category) &&

@@ -745,5 +745,5 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 - 出品文面の**構成の型**: [STRUCTURE.md](../../shared-policy/STRUCTURE.md)「強化コンポーネント」（C系PDF=直適用／S系人力=翻案・詳細は展開キット §3）
 - 添削パイプライン: `/keiken-tensaku`（`civil-keiken-tensaku-drafter`）／添削テンプレ: [2級経験記述-添削テンプレ.md](../../../content/note/1級・2級土木/2級土木/2級経験記述-添削テンプレ.md)
 - 売上: [sales-tracking.md](sales-tracking.md)（`coconala:<serviceId>` 命名）
-- 会員（主戦場）: [noteコンテンツ計画.md](../../../content/note/1級・2級土木/noteコンテンツ計画.md)（ココナラは第3チャネル・会員の価格アンカー）
+- チャネルの位置づけ: note は買い切りの本店、ココナラは人が手を入れる商品（診断・添削・指導）の売り場。高単価の方向は [22_チャネル別商品設計2026-11.md](../../../docs/strategy/22_チャネル別商品設計2026-11.md) §5
 - エージェント: `.claude/agents/coconala-listing-operator.md`（出品）・`coconala-order-drafter.md`（受注の下書き）・`coconala-traffic-analyst.md`（閾値越えの解釈） ／ スキル: `/coconala-publish`（出品・修正）・`/coconala-order`（受注）・`/coconala-status`（KPI）

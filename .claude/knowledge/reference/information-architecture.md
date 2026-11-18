@@ -184,7 +184,7 @@ content/
 > `weekly-review-guard.yml`（記録層の沈黙／**重要 workflow が赤いまま・動いていない**／**quality-audit の report 区分 FAIL**・同）・
 > `index-coverage.yml`（閾値の無条件異常）・
 > `ops-audit.yml`（**配信・添付・広告の期限・CI の取得の遅れ**＝quality-audit の ops 区分のうち毎日の分・2026-09-18 追加。2026-10-25 から転記の鮮度は土曜の収集の検算へ・DN-0847。
-> それまで membership-drip が Pre-merge のゲートに混ざり、記事が 2 日遅れるたびに全 PR が赤になっていた。2026-10-10 から遅れは Issue だけで job は緑）・
+> それまで membership-drip（現在はスクリプトごと削除済み）が Pre-merge のゲートに混ざり、記事が 2 日遅れるたびに全 PR が赤になっていた。2026-10-10 から遅れは Issue だけで job は緑）・
 > Mac の `scripts/scheduled/weekly-review.sh`（土曜の収集の段の失敗と検算・note の公開状態の照合〔旧 note-live-audit.yml〕は channel weekly-collect・DN-0847。GSC の記録層〔旧 gsc-auto-review.yml〕の失敗は channel gsc-auto-review・DN-0849）。
 > `tests/report-automation-failure.test.mjs` が「起票する channel には必ず `--resolve` がある」ことを固定する。
 >

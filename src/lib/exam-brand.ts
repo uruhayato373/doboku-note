@@ -44,7 +44,7 @@ export const QUALIFICATION_TO_EXAM_KEY: Readonly<Record<string, ExamKey>> = {
   'pe-fisheries': 'pe-fisheries',
   'pe-first-stage': 'pe-first-stage',
   'civil-construction-1': 'civil-1',
-  // 1級・2級を横断する商品（会員ラボ等）はブランドを 1 級側に寄せる
+  // 1級・2級を横断する商品はブランドを 1 級側に寄せる
   'civil-construction-1-2': 'civil-1',
   'civil-construction-2': 'civil-2',
   'concrete-engineer': 'concrete',

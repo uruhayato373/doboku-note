@@ -49,7 +49,7 @@ target: coconala
 - 受注の照合・納品文面・トークルーム返信 → `coconala-order-drafter`（送信は運営者）
 - 閲覧・お気に入り・撤退ラインの解釈 → `coconala-traffic-analyst`。KPI の取得・記録は土曜の Mac 収集（`weekly-collect` の coconala 段）が行う（このエージェントは記録しない）
 - 新規出品時の有料オプションと画像の自動投入（FAQ は新規出品でも入る・既存出品の編集では FAQ/有料オプションを自動反映）→ 新規出品後はココナラ UI で手動
-- note 側の操作（価格変更・マガジン収録） → `note-catalog-operator` / `note-membership-operator`
+- note 側の操作（価格変更・マガジン収録） → `note-catalog-operator`
 - 売上の月次集計 → `/record-sales`（親が直接実行）
 - **ココナラブログ** → `/coconala-blog`（新規執筆は停止中。公開済み記事の送客先の付け替え）
 - 価格・品揃えの案（何を出すか） → `product-portfolio-planner`（月次）。本エージェントは決まった案の反映だけ

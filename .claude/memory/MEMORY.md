@@ -108,7 +108,6 @@
 - [土木guide展開](project_civil1_textbook_to_guide_expansion.md) — 非公開textbook根拠
 - [書籍→ガイド](project_book_to_guide_expansion.md) — 逐語断ち手順・OCR27冊・brief見出しの罠・workflow一括展開
 - [土木経験記述note](project_civil1_flagship_pack.md) — 旗艦100工事・字数ゲート
-- [土木会員ラボ](project_civil_membership_design.md) — FLOWを買切りに出さない
 - [二次学科記述](project_civil_niji_gakka_line.md) — 5SKU公開・エディタ罠
 - [ココナラ](project_coconala_full_channel.md) — 20出品・はしご・不在休止
 - [Kindle出版](project_kindle_publishing_launch.md) — 42冊・提出ペース

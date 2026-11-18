@@ -57,7 +57,6 @@ test('ops:true の検査は ci:false（マージゲートに混ざらない）',
   const ops = checks.filter((c) => c.ops);
   assert.ok(ops.length >= 1, 'ops:true が 1 件も無い（区分が消えた＝検査不成立）');
   assert.deepEqual(ops.filter((c) => c.ci).map((c) => c.id), [], 'ops:true なのに ci:true の検査がある');
-  assert.ok(ops.some((c) => c.id === 'membership-drip'), 'membership-drip が ops に居ない（ci に戻すと全 PR が赤になる）');
   // 2026-10-11: 広告リンクの期限（affiliate-placements）は壁時計依存なので ops 側へ分けた
   assert.ok(ops.some((c) => c.id === 'affiliate-placements-upcoming'), 'affiliate-placements-upcoming が ops に居ない（壁時計依存の検査が消えたか ci に戻った）');
 });
@@ -106,7 +105,7 @@ test('cadence は ops:true にだけ weekly か collect で付き、毎日の op
   assert.deepEqual(bad.map((c) => c.id), []);
   const daily = CHECKS.filter((c) => c.ops && !c.cadence).map((c) => c.id);
   // 数日で実害が出るもの・CI の取得の停止・土曜の収集の死活は毎日
-  for (const id of ['note-delivery-due', 'membership-drip', 'affiliate-placements-upcoming', 'weekly-collect']) assert.ok(daily.includes(id), `${id} が毎日の ops に居ない`);
+  for (const id of ['note-delivery-due', 'affiliate-placements-upcoming', 'weekly-collect']) assert.ok(daily.includes(id), `${id} が毎日の ops に居ない`);
   // 土曜の収集が書く記録の検算を毎日回すと、1 段落ちただけで同じ赤が 6 回出る（2026-10-25 に 3 本が赤）
   for (const id of ['sales-freshness', 'kdp-report-freshness', 'a8-report-due', 'coconala-analytics']) {
     assert.equal(CHECKS.find((c) => c.id === id)?.cadence, 'collect', `${id} が収集の検算に居ない`);

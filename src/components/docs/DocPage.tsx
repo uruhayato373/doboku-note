@@ -247,7 +247,7 @@ export async function renderDocPage(slugStr: string) {
   // 商品の listed 状態は offsite-cta.ts 側で判定（未 listed は自動非表示）。
   const offsiteCta = resolveOffsiteCta(slugStr);
   // 記事冒頭 CTA（二次系高 intent ページのみ placement.top で設定）。getMagazine() ゲートを
-  // 通すため未公開マガジン（会員ラボ等）は自動非表示。末尾の画像カードと重複してよい。
+  // 通すため未公開・退役したマガジンは自動非表示。末尾の画像カードと重複してよい。
   const topSlot = magazinePlacement.top;
   const topMagazine = topSlot ? getMagazine(topSlot.magazineId) : null;
   // 転職アフィリエイトをどの面に出すか（案件 × 面 × カテゴリ × キャリア記事 × 期間）は config/affiliate-placements.json の

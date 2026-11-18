@@ -42,9 +42,6 @@ doboku-note（土木施工管理技士 試験対策）です。
 自分で仕上げたい方はこちら（買い切り・想定工事150件収録）
 https://note.com/dobokunote/m/m8290970a7f05
 
-下書きを見てもらいながら進めたい方はこちら（添削つき会員）
-https://note.com/dobokunote/membership/join
-
 10月4日まで、あと少しずつで大丈夫です。
 ```
 
@@ -56,10 +53,8 @@ https://note.com/dobokunote/membership/join
 「まだ何も書けていない」という方ほど、
 先に完成答案の型を見てから書き始めると早く進みます。
 
-添削つき会員プランは受験シーズンの定員制です。
-伴走してほしい方は、定員に余裕があるうちにご検討ください。
-
-https://note.com/dobokunote/membership/join
+自分で仕上げたい方はこちら（買い切り・想定工事150件収録）
+https://note.com/dobokunote/m/m8290970a7f05
 
 一次を越えたあなたなら、あと13週で十分間に合います。
 ```
@@ -70,4 +65,4 @@ https://note.com/dobokunote/membership/join
 
 - 1通目のPDFリンクは、`magnet-pdf.md` を note の無料記事（または配布用ページ）として公開したURLに差し替える
 - 友だち追加CTA自体の文言は `friend-add-cta.md` を参照
-- 配信後の反応（クリック率・会員遷移数）は月次で `.claude/state/` 配下に記録する運用先が未定。次回セッションで計測方法を決める
+- 配信後の反応（クリック率・買い切りマガジン遷移数）は月次で `.claude/state/` 配下に記録する運用先が未定。次回セッションで計測方法を決める

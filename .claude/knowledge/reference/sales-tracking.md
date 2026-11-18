@@ -50,7 +50,7 @@ note 有料記事・マガジンの販売履歴を一元管理する運用手順
 | `date` | string | 購入日（ISO 8601 日付のみ、時刻は記録しない） |
 | `productId` | string | 商品 ID（マガジン: `essay-*`, 単品記事: `article:<slug>`） |
 | `title` | string | 商品名（note 上の表示名） |
-| `type` | enum | `magazine` \| `article` \| `membership`（2026-08-17 追加。メンバーシップ月会費。`productId` は `membership:<プラン>`） |
+| `type` | enum | `magazine` \| `article` \| `membership`（2026-08-17 追加。メンバーシップ月会費。`productId` は `membership:<プラン>`。2026-09-30 に会員制は終了し新しい行は出ない。過去 4 件の売上を読むために残す） |
 | `price` | number | 購入価格（円、数値型） |
 
 ---
