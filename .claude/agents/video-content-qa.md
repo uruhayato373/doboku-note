@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: sns
+role: qa
+target: video
 ---
 
 # Video Content QA Agent

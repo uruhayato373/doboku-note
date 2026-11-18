@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep
 domain: sns
+role: auditor
+target: sns-archive
 ---
 
 # SNS Archive Auditor Agent

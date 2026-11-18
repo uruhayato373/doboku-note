@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product
+role: auditor
+target: note-funnel
 ---
 
 # Note Funnel Auditor Agent

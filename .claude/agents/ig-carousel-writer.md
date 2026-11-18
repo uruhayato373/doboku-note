@@ -4,6 +4,8 @@ description: >
   Instagram カルーセルの slide-data.json v2 を1キーワードずつ執筆する Generator。
 model: sonnet
 domain: sns
+role: writer
+target: ig-carousel
 ---
 
 # IG Carousel Writer Agent

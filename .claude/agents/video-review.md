@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: sns
+role: qa
+target: video
 ---
 
 # Video Review Agent

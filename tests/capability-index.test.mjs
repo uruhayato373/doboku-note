@@ -34,16 +34,21 @@ test('skillAgentMap: 本文に出るエージェントだけを拾い、名前�
 test('buildIndex: カテゴリごとの表・エージェントの種別と呼び出すスキル・読めないファイルの報告', () => {
   const r = buildIndex({
     skillFiles: [skill('improve-article', 'quality', 'guide-qa を回す'), skill('deploy', 'dev'), { path: '.claude/skills/broken/SKILL.md', content: 'no frontmatter' }],
-    agentFiles: [agent('guide-qa', 'tools: Read, Glob, Grep\n'), agent('guide-rewriter')],
+    agentFiles: [agent('guide-qa', 'tools: Read, Glob, Grep\nrole: qa\ntarget: guide\n'), agent('guide-rewriter')],
+    labels: { roles: { writer: '制作', qa: '採点' }, targets: { guide: 'ガイド' }, domains: [['site', 'サイト']] },
   });
   assert.deepEqual(r.invalid, ['.claude/skills/broken/SKILL.md']);
   assert.match(r.regions.skills, /^スキル 2 本/);
   assert.ok(r.regions.skills.indexOf('### 品質管理（quality）') < r.regions.skills.indexOf('### 開発（dev）'), 'カテゴリは決めた順に並ぶ');
   // 説明の中の | は表を壊さないよう逃がす
   assert.match(r.regions.skills, /\| `\/deploy` \| ops \| deploy の説明。 Use when user asks to \[x\\\|y\]\. \|/);
-  assert.match(r.regions.agents, /\| `guide-qa` \| 監査のみ \| sonnet \| site \| guide-qa の役割。 \| `\/improve-article` \|/);
-  assert.match(r.regions.agents, /\| `guide-rewriter` \| 編集可 \| sonnet \| site \| guide-rewriter の役割。 \| — \|/);
+  assert.match(r.regions.agents, /\| `guide-qa` \| 採点 \| guide \| 監査のみ \| sonnet \| site \| guide-qa の役割。 \| `\/improve-article` \|/);
+  assert.match(r.regions.agents, /\| `guide-rewriter` \| — \| — \| 編集可 \| sonnet \| site \| guide-rewriter の役割。 \| — \|/);
   assert.match(r.regions['skill-agent-map'], /\| `\/improve-article` \| `guide-qa` \|/);
+  // 領域×役割・対象×役割: 役割の語彙の並びが列、役割の無いエージェントはどの列にも出ない
+  assert.match(r.regions['agent-roles'], /\| 領域 \| 制作 \| 採点 \|/);
+  assert.match(r.regions['agent-roles'], /\| サイト \| — \| `guide-qa` \|/);
+  assert.match(r.regions['agent-roles'], /\| ガイド（guide） \| — \| `guide-qa` \|/);
 });
 
 test('表のセル: バックスラッシュと | の両方を逃がす（\\ を逃がさないと、説明の \\| が表の区切りに戻る）', () => {

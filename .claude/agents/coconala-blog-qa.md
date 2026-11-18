@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: product
+role: qa
+target: coconala-blog
 ---
 
 # ココナラブログ QA Agent

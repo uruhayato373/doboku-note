@@ -4,6 +4,8 @@ description: >
   X 投稿の tweets.md を多資格横断で執筆する Generator。280 weighted 以下・試験別タグ・時間帯スロットを守る。
 model: sonnet
 domain: sns
+role: writer
+target: x-post
 ---
 
 # X Post Writer Agent

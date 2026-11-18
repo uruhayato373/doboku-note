@@ -5,6 +5,8 @@ description: >
 model: inherit
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
+role: qa
+target: guide
 ---
 
 # Guide QA Agent

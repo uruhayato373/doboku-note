@@ -4,6 +4,8 @@ description: >
   1級・2級土木 textbook/guide の視覚検証・テキスト網羅率と、既存記事の校正（Mode R・コンクリ系教科書を含む）を担当する Evaluator。
 model: sonnet
 domain: site
+role: qa
+target: textbook
 ---
 
 # Civil Construction QA Agent

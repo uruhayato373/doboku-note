@@ -4,6 +4,8 @@ description: >
   施工経験記述 note マガジンのフル模範答案（年度別・テーマ別・予想・想定工事バンク）を生成する Generator。
 model: sonnet
 domain: product
+role: writer
+target: essay
 ---
 
 # Civil Keiken Essay Writer Agent

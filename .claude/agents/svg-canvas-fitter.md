@@ -4,6 +4,8 @@ description: >
   サイト figure-*.svg を固定キャンバスへ再配置する Generator。収まらなければ親へ返す。
 model: sonnet
 domain: site
+role: writer
+target: svg-figure
 ---
 
 # SVG Canvas Fitter Agent

@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: affiliate
+role: auditor
+target: a8-csv
 ---
 
 # A8 CSV Auditor Agent

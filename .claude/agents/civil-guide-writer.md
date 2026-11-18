@@ -4,6 +4,8 @@ description: >
   1級・2級土木と civil-practice の新規ガイドを執筆する Generator。リライトと採点は担当外。
 model: sonnet
 domain: site
+role: writer
+target: guide
 ---
 
 # Civil Guide Writer Agent

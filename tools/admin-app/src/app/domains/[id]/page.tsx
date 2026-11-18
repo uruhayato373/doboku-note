@@ -19,8 +19,23 @@ const CARD_COLUMNS: DataTableColumn[] = [
 const MEMBER_COLUMNS: DataTableColumn[] = [
   { key: 'name', label: '名前' },
   { key: 'kind', label: '種類' },
+  { key: 'role', label: '役割' },
+  { key: 'target', label: '対象' },
 ];
-const DOC_COLUMNS: DataTableColumn[] = [{ key: 'name', label: '文書' }];
+const DOC_COLUMNS: DataTableColumn[] = [
+  { key: 'name', label: '文書' },
+  { key: 'updates', label: '更新' },
+  { key: 'approves', label: '承認' },
+];
+const ROLE_COLUMNS: DataTableColumn[] = [
+  { key: 'item', label: '項目' },
+  { key: 'who', label: '担当' },
+  { key: 'note', label: '補足', wrap: true },
+];
+const DATASET_COLUMNS: DataTableColumn[] = [
+  { key: 'id', label: 'データ' },
+  { key: 'writers', label: '書き手', wrap: true },
+];
 
 /** 文書パス → 管理画面の閲覧 URL（docs は /docs、作業マニュアルは /knowledge）。 */
 function docHref(path: string): string {
@@ -38,7 +53,7 @@ export default async function DomainPage({ params }: { params: Promise<{ id: str
   const { id } = await params;
   const o = domainOverview(id);
   if (!o) notFound();
-  const { domain, cards, skills, agents, documents } = o;
+  const { domain, cards, skills, agents, documents, roles, datasets } = o;
 
   const cardRows: DataTableRow[] = cards.map((c) => {
     const state = c.wip ? '進行中' : c.due ? `期日 ${c.due.slice(5).replace('-', '/')}` : '';
@@ -52,17 +67,59 @@ export default async function DomainPage({ params }: { params: Promise<{ id: str
       },
     };
   });
-  const memberRows: DataTableRow[] = [...skills.map((s) => ({ ...s, kind: 'スキル' })), ...agents.map((a) => ({ ...a, kind: 'エージェント' }))].map((x) => ({
+  const members = [
+    ...skills.map((s) => ({ ...s, kind: 'スキル', role: '', target: '' })),
+    ...agents.map((a) => ({ ...a, kind: 'エージェント' })),
+  ];
+  const memberRows: DataTableRow[] = members.map((x) => ({
     id: x.kind + x.name,
-    values: { name: x.name, kind: x.kind },
+    values: { name: x.name, kind: x.kind, role: x.role, target: x.target },
     cells: {
       name: <span className="font-mono text-xs">{x.name}</span>,
       kind: <span className="text-xs text-muted-foreground">{x.kind}</span>,
+      role: <span className="text-xs">{x.role}</span>,
+      target: <span className="text-xs text-muted-foreground">{x.target}</span>,
     },
   }));
   const docRows: DataTableRow[] = documents.map((d) => {
-    const name = d.split('/').pop()!.replace(/\.md$/, '');
-    return { id: d, values: { name }, cells: { name: <Link href={docHref(d)} className="text-xs">{name}</Link> } };
+    const name = d.path.split('/').pop()!.replace(/\.md$/, '');
+    return {
+      id: d.path,
+      values: { name, updates: d.updates, approves: d.approves },
+      cells: {
+        name: <Link href={docHref(d.path)} className="text-xs">{name}</Link>,
+        updates: <span className="text-xs">{d.updates}</span>,
+        approves: <span className="text-xs">{d.approves}</span>,
+      },
+    };
+  });
+  const roleItems = roles
+    ? [
+        { item: '決める', who: roles.decides, note: '' },
+        { item: '判断の場', who: roles.review.join('・'), note: '' },
+        ...roles.gaps.map((g) => ({ item: `空白: ${g.job}`, who: g.by, note: g.reason })),
+      ]
+    : [];
+  const roleRows: DataTableRow[] = roleItems.map((r) => ({
+    id: r.item,
+    values: r,
+    cells: { item: <span className="text-xs">{r.item}</span>, who: <span className="text-xs">{r.who}</span>, note: <span className="text-xs text-muted-foreground">{r.note}</span> },
+  }));
+  const unwritten = datasets.filter((d) => d.writers.length === 0).length;
+  const datasetRows: DataTableRow[] = datasets.map((d) => {
+    const writers = d.writers.join('・') || '未記入';
+    return {
+      id: d.id,
+      values: { id: d.id, writers },
+      cells: {
+        id: d.area ? (
+          <Link href={`/ops/store?k=${encodeURIComponent(d.area)}&d=${encodeURIComponent(domain.id)}&f=${encodeURIComponent(d.id)}`} className="font-mono text-xs" title={d.path}>{d.id}</Link>
+        ) : (
+          <span className="font-mono text-xs" title={d.path}>{d.id}</span>
+        ),
+        writers: <span className={d.writers.length ? 'text-xs' : 'text-xs text-muted-foreground'} title={d.writerNote || undefined}>{writers}</span>,
+      },
+    };
   });
 
   return (
@@ -70,7 +127,16 @@ export default async function DomainPage({ params }: { params: Promise<{ id: str
       <PageHead title={domain.label} />
       <UpcomingEvents domain={domain.id as ScheduleDomain} />
 
-      <PanelCard title={<>タスク <span className="sub">{cards.length} 件</span></>}>
+      <div className="grid cols-2">
+        <PanelCard title={<>担当 <span className="sub">空白 {roles?.gaps.length ?? 0} 件</span></>}>
+          <DataTable columns={ROLE_COLUMNS} rows={roleRows} pageSize={50} emptyText="未設定（領域の正本の roles）" />
+        </PanelCard>
+        <PanelCard title={<>持ち物（データ） <span className="sub">{datasets.length} 件・書き手未記入 {unwritten} 件</span></>}>
+          <DataTable columns={DATASET_COLUMNS} rows={datasetRows} pageSize={20} filter={datasetRows.length > 20 ? 'データ・書き手で絞り込む' : undefined} emptyText="なし" />
+        </PanelCard>
+      </div>
+
+      <PanelCard title={<>タスク <span className="sub">{cards.length} 件</span></>} className="mt-4">
         <DataTable columns={CARD_COLUMNS} rows={cardRows} pageSize={50} filter={cards.length > 30 ? 'ID・タスクで絞り込む' : undefined} emptyText="なし" />
       </PanelCard>
 

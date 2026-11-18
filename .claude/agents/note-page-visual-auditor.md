@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: product
+role: qa
+target: note-page
 ---
 
 # Note Page Visual Auditor

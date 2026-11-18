@@ -4,6 +4,8 @@ description: >
   RCCM note 教材（問題III 模範論文・問題I テンプレ）を執筆する Generator。指定用語4語以上・1,200〜1,600字。
 model: sonnet
 domain: product
+role: writer
+target: essay
 ---
 
 # RCCM Essay Writer Agent

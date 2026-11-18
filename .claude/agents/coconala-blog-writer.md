@@ -4,6 +4,8 @@ description: >
   ココナラブログ記事を執筆する Generator。自出品へ送客し、外部リンクゼロ・カニバリ境界を守る。素材は書き直す（逐語転載しない）。
 model: sonnet
 domain: product
+role: writer
+target: coconala-blog
 ---
 
 # ココナラブログ Writer Agent

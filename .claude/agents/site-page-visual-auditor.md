@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: site
+role: qa
+target: site-page
 ---
 
 # Site Page Visual Auditor

@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: strategy
+role: analyst
+target: competitor
 ---
 
 # Competitor Analyst Agent

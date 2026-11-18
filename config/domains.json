@@ -42,7 +42,28 @@
             "/strategy/taxonomy"
           ]
         }
-      ]
+      ],
+      "roles": {
+        "decides": "operator",
+        "review": [
+          "skill:weekly-review",
+          "skill:monthly-review",
+          "skill:competitor-review",
+          "skill:monetization-strategy"
+        ],
+        "gaps": [
+          {
+            "job": "総監以外の資格の商品企画（次に作る商品・価格・品揃え）",
+            "by": "skill:monthly-review",
+            "reason": "担当の企画役が居ない。第4段階（DN-1242）で product-portfolio-planner を新設する"
+          },
+          {
+            "job": "実験の採否の判定",
+            "by": "skill:nsm-experiment",
+            "reason": "判定は親が experiments.json の測定値で行う。専任の役は作らない"
+          }
+        ]
+      }
     },
     {
       "id": "plan",
@@ -89,7 +110,16 @@
           "kind": "actions",
           "match": "/schedule"
         }
-      ]
+      ],
+      "roles": {
+        "decides": "operator",
+        "review": [
+          "skill:plan-weekly",
+          "skill:weekly-review",
+          "skill:backlog-sweep"
+        ],
+        "gaps": []
+      }
     },
     {
       "id": "product",
@@ -130,7 +160,32 @@
           "kind": "actions",
           "match": "/product/status"
         }
-      ]
+      ],
+      "roles": {
+        "decides": "operator",
+        "review": [
+          "skill:weekly-review",
+          "skill:monthly-review",
+          "skill:coconala-status"
+        ],
+        "gaps": [
+          {
+            "job": "note 内の集客（アクセス・スキ・マガジン流入→購入）の分析",
+            "by": "skill:weekly-review",
+            "reason": "週次レビューの名前の無い子が担っている。第4段階（DN-1242）で note-traffic-analyst に置き換える"
+          },
+          {
+            "job": "ココナラ内の集客（閲覧・お気に入り・撤退ライン）の分析",
+            "by": "skill:coconala-status",
+            "reason": "coconala-operator が兼務している。第4段階（DN-1242）で coconala-traffic-analyst へ移す"
+          },
+          {
+            "job": "会員の維持",
+            "by": "parent",
+            "reason": "メンバーシップの撤退判断（DN-0477）待ち。専任の役は作らない"
+          }
+        ]
+      }
     },
     {
       "id": "affiliate",
@@ -174,7 +229,22 @@
           "kind": "assets",
           "match": "/affiliate/pages"
         }
-      ]
+      ],
+      "roles": {
+        "decides": "operator",
+        "review": [
+          "skill:weekly-improve",
+          "skill:a8-report",
+          "skill:affiliate-status"
+        ],
+        "gaps": [
+          {
+            "job": "掲載先（サイト・note・SNS）の最適化",
+            "by": "skill:weekly-improve",
+            "reason": "親が週次の改善で担う。専任の役は作らない"
+          }
+        ]
+      }
     },
     {
       "id": "site",
@@ -228,7 +298,24 @@
           "kind": "assets",
           "match": "/gallery/ogp"
         }
-      ]
+      ],
+      "roles": {
+        "decides": "parent",
+        "review": [
+          "skill:weekly-review",
+          "skill:seo-growth-review",
+          "skill:design-review",
+          "skill:site-visual-review",
+          "skill:improve-article"
+        ],
+        "gaps": [
+          {
+            "job": "管理画面（tools/admin-app）の制作と採点",
+            "by": "parent",
+            "reason": "機械検査（check-admin-ui-debt・check-shadcn-parity・check-admin-pages）と親が担う。作る役・見る役は置かない"
+          }
+        ]
+      }
     },
     {
       "id": "sns",
@@ -260,7 +347,21 @@
           "kind": "assets",
           "match": "/gallery/characters"
         }
-      ]
+      ],
+      "roles": {
+        "decides": "operator",
+        "review": [
+          "skill:weekly-review",
+          "skill:video-content"
+        ],
+        "gaps": [
+          {
+            "job": "SNS 投稿の送客効果の評価",
+            "by": "skill:weekly-review",
+            "reason": "SNS 保留中。再開まで専任の役は作らない"
+          }
+        ]
+      }
     },
     {
       "id": "material",
@@ -277,7 +378,16 @@
             "id": ""
           }
         }
-      ]
+      ],
+      "roles": {
+        "decides": "parent",
+        "review": [
+          "skill:pdf-to-mdx",
+          "skill:improve-article",
+          "skill:figure-quality-loop"
+        ],
+        "gaps": []
+      }
     },
     {
       "id": "ops",
@@ -372,7 +482,16 @@
           "kind": "assets",
           "match": "/content"
         }
-      ]
+      ],
+      "roles": {
+        "decides": "parent",
+        "review": [
+          "skill:doc-declutter",
+          "skill:doc-sync",
+          "skill:weekly-review"
+        ],
+        "gaps": []
+      }
     }
   ],
   "documents": {
@@ -616,6 +735,188 @@
       "docs/operations/04_自動化マップ.md"
     ]
   },
+  "actors": {
+    "_doc": "担当の書き方。operator＝運営者、parent＝親（会話の主エージェント）、skill:<名>・agent:<名>・script:<npm script 名> は実在を check-domains が確かめる",
+    "operator": "運営者",
+    "parent": "親"
+  },
+  "documentStewards": {
+    "docs/strategy/": {
+      "updates": [
+        "skill:monthly-review"
+      ],
+      "approves": "operator"
+    },
+    "docs/strategy/README.md": {
+      "updates": [
+        "parent"
+      ],
+      "approves": "parent"
+    },
+    "docs/strategy/05_情報アーキテクチャ.md": {
+      "updates": [
+        "parent"
+      ],
+      "approves": "operator"
+    },
+    "docs/strategy/09_販売チャネル競合分析.md": {
+      "updates": [
+        "skill:competitor-review"
+      ],
+      "approves": "operator"
+    },
+    "docs/strategy/13_土木公務員SEO戦略2026-08.md": {
+      "updates": [
+        "skill:google-search-growth"
+      ],
+      "approves": "operator"
+    },
+    "docs/strategy/14_領域モデル.md": {
+      "updates": [
+        "parent"
+      ],
+      "approves": "operator"
+    },
+    "docs/strategy/16_検索キーワード戦略.md": {
+      "updates": [
+        "skill:google-search-growth"
+      ],
+      "approves": "operator"
+    },
+    "docs/strategy/21_分類の軸と回遊の配線2026-10.md": {
+      "updates": [
+        "parent"
+      ],
+      "approves": "operator"
+    },
+    "docs/marketing/": {
+      "updates": [
+        "skill:monthly-review"
+      ],
+      "approves": "operator"
+    },
+    "docs/marketing/05a_YouTube競合分析_技術士総監_2026-06.md": {
+      "updates": [
+        "skill:competitor-review"
+      ],
+      "approves": "operator"
+    },
+    "docs/marketing/07a_YouTube競合分析_土木施工管理技士_2026-09.md": {
+      "updates": [
+        "skill:competitor-review"
+      ],
+      "approves": "operator"
+    },
+    "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md": {
+      "updates": [
+        "skill:competitor-review"
+      ],
+      "approves": "operator"
+    },
+    "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md": {
+      "updates": [
+        "skill:competitor-review"
+      ],
+      "approves": "operator"
+    },
+    "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md": {
+      "updates": [
+        "skill:competitor-review"
+      ],
+      "approves": "operator"
+    },
+    "docs/marketing/09a_YouTube競合分析_コンクリート技士・主任技士_2026-10.md": {
+      "updates": [
+        "skill:competitor-review"
+      ],
+      "approves": "operator"
+    },
+    "docs/marketing/06_動画コンテンツ運用設計.md": {
+      "updates": [
+        "skill:video-content"
+      ],
+      "approves": "operator"
+    },
+    "docs/products/": {
+      "updates": [
+        "parent"
+      ],
+      "approves": "operator"
+    }
+  },
+  "contentStewards": {
+    "_doc": "記事の型 → 作る・直す・見る・機械ゲート。commit は常に親。機械ゲートで落ちたら採点役を起動しない",
+    "guide": {
+      "label": "ガイド",
+      "create": "agent:civil-guide-writer",
+      "fix": "agent:guide-rewriter",
+      "review": [
+        "agent:guide-qa",
+        "agent:guide-fact-checker"
+      ],
+      "gates": [
+        "script:validate-mdx",
+        "script:check-guide-length",
+        "script:check-mdx-facts"
+      ]
+    },
+    "keyword": {
+      "label": "キーワード",
+      "create": "skill:keyword-page",
+      "fix": "agent:keyword-rewriter",
+      "review": [
+        "agent:cem-qa"
+      ],
+      "gates": [
+        "script:validate-mdx"
+      ]
+    },
+    "textbook": {
+      "label": "教科書",
+      "create": "skill:pdf-to-mdx",
+      "fix": "agent:civil-textbook-rewriter",
+      "review": [
+        "agent:civil-construction-qa"
+      ],
+      "gates": [
+        "script:validate-mdx",
+        "script:check-figure-crop"
+      ]
+    },
+    "past-exam": {
+      "label": "過去問",
+      "create": "skill:exam-questions-import",
+      "fix": "agent:past-exam-rewriter",
+      "review": [
+        "agent:past-exam-qa",
+        "agent:content-qa"
+      ],
+      "gates": [
+        "script:validate-mdx",
+        "script:check-figure-crop"
+      ]
+    },
+    "standards-table": {
+      "label": "基準書の表",
+      "create": "agent:standards-table-writer",
+      "fix": "agent:standards-table-writer",
+      "review": [
+        "agent:standards-table-qa"
+      ],
+      "gates": [
+        "script:check-standards-data"
+      ]
+    }
+  },
+  "agentRoles": {
+    "analyst": "分析",
+    "planner": "企画・計画",
+    "writer": "制作",
+    "qa": "採点",
+    "operator": "運用",
+    "auditor": "監査",
+    "runner": "実行"
+  },
   "navKinds": {
     "inventory": "品揃え・一覧（何があり何が足りないか）",
     "results": "成果・計測（効いたか）",
@@ -631,5 +932,116 @@
     "横断する視点（計測・品質・動線）は独立した領域にせず、対象の領域に割り振る",
     "バックログは [領域:]、スキル・エージェントは frontmatter domain、文書は documents で必ず領域を持つ（npm run check-domains / check-backlog-schema）",
     "文書（docs/）はサイドバーに置かず、各領域ページの「文書」欄（documents で割り当て）から開く。全体の一覧と検索は /docs"
+  ],
+  "agentTargets": {
+    "guide": "ガイド記事",
+    "keyword": "キーワード記事",
+    "textbook": "教科書記事",
+    "past-exam": "過去問記事",
+    "standards-table": "基準書の表",
+    "standards-page": "基準書の章ページ",
+    "svg-figure": "SVG 図版",
+    "crop-figure": "切り抜きの図",
+    "ai-image": "AI 画像",
+    "site-page": "サイトの画面",
+    "exam-mapping": "過去問とキーワードの紐づけ",
+    "search-metrics": "検索の計測（GSC・GA4）",
+    "search-intent": "検索意図",
+    "seo": "SEO の修正計画",
+    "technical-seo": "技術 SEO",
+    "index-coverage": "インデックス登録",
+    "performance": "表示速度",
+    "gsc-csv": "GSC の CSV",
+    "essay": "答案・模範論文（note 教材）",
+    "tensaku": "添削・診断の返信",
+    "note-draft": "note の下書き",
+    "note-cover": "note のカバー",
+    "note-page": "note の公開ページ",
+    "note-funnel": "note の導線",
+    "magazine-pdf": "マガジンの PDF",
+    "kindle-book": "Kindle 本",
+    "coconala-blog": "ココナラブログ",
+    "note": "note の売り場",
+    "note-membership": "note の会員",
+    "coconala": "ココナラの売り場",
+    "kdp": "KDP の本棚",
+    "sales": "売上の記録",
+    "affiliate": "ASP の提携",
+    "a8-csv": "A8 の CSV",
+    "x-post": "X の投稿",
+    "x-reply": "X の返信",
+    "x-repost": "X の引用リポスト",
+    "ig-carousel": "Instagram のカルーセル",
+    "video": "動画パック",
+    "yt-short": "YouTube ショート",
+    "sns-archive": "SNS 素材の退避",
+    "competitor": "競合",
+    "strategy": "戦略",
+    "weekly-plan": "週次計画",
+    "backlog": "バックログ",
+    "docs": "文書",
+    "command": "コマンド"
+  },
+  "agentOverlaps": [
+    {
+      "role": "writer",
+      "target": "essay",
+      "reason": "資格ごとに字数・形式が違う組（総監・土木の経験記述・主任技士・RCCM・建設部門）。次の資格からは組を足さず共通の essay-writer に資格別の設定を渡す（DN-1242）。既存の組をまとめるかは DN-0798"
+    },
+    {
+      "role": "qa",
+      "target": "essay",
+      "reason": "各資格の writer と対の採点役。pe-secondary-exam-factcheck は採点ではなく技術的事実の外部照合。統合は writer と同じく DN-1242・DN-0798"
+    },
+    {
+      "role": "writer",
+      "target": "guide",
+      "reason": "civil-guide-writer は新規の執筆、guide-rewriter は採点・事実照合の指摘を当てる修正"
+    },
+    {
+      "role": "qa",
+      "target": "guide",
+      "reason": "guide-qa は導入・読みやすさ・導線の採点、guide-fact-checker は制度・数値の外部一次情報との照合"
+    },
+    {
+      "role": "writer",
+      "target": "past-exam",
+      "reason": "past-exam-rewriter は QA 指摘の適用、civil-secondary-exam-writer は二次の解答・解説の補完、civil-exampoint-restorer は壊れた ExamPoint の一度きりの修復（廃止候補・DN-0798）"
+    },
+    {
+      "role": "qa",
+      "target": "past-exam",
+      "reason": "past-exam-qa は正答・解説の質、content-qa は原典 PDF への忠実さ"
+    },
+    {
+      "role": "writer",
+      "target": "crop-figure",
+      "reason": "civil-exam-figure-extractor はクロップの仕様（JSON）を返す、figure-crop-worker は実際に切り直す。1対へのまとめは DN-0798"
+    },
+    {
+      "role": "qa",
+      "target": "crop-figure",
+      "reason": "civil-exam-figure-auditor は過去問ページの図、scanned-figure-crop-auditor はスキャン教材の図。1対へのまとめは DN-0798"
+    },
+    {
+      "role": "writer",
+      "target": "svg-figure",
+      "reason": "svg-figure-rewriter は指摘の適用と校正、svg-canvas-fitter は固定キャンバスへの再配置"
+    },
+    {
+      "role": "qa",
+      "target": "svg-figure",
+      "reason": "svg-figure-auditor はサイト・note の図版、pe-exam-figure-auditor は総監の試験図。後者を前者の対象の1つにする（DN-1242）"
+    },
+    {
+      "role": "qa",
+      "target": "video",
+      "reason": "video-content-qa はレンダリング前のパック、video-review はレンダリング後・承認前の完成動画"
+    },
+    {
+      "role": "auditor",
+      "target": "docs",
+      "reason": "doc-curator は肥大化・陳腐化の棚卸し、doc-sync-auditor は変更 diff を起点にした旧仕様の検出"
+    }
   ]
 }

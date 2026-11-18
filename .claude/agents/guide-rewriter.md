@@ -4,6 +4,8 @@ description: >
   ガイド記事を guide-qa と fact-checker の指摘に沿って修正する Generator。新規記事・新事実の創作は担当外。
 model: sonnet
 domain: site
+role: writer
+target: guide
 ---
 
 # Guide Rewriter Agent

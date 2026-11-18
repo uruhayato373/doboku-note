@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
+role: qa
+target: svg-figure
 ---
 
 # PE Exam Figure Auditor Agent

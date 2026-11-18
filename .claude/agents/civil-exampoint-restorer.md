@@ -4,6 +4,8 @@ description: >
   1級土木 一次過去問の壊れた ExamPoint を体言止めの学習ポイントに再生成する Generator。
 model: sonnet
 domain: site
+role: writer
+target: past-exam
 ---
 
 # Civil ExamPoint Restorer Agent

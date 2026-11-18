@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product
+role: qa
+target: kindle-book
 ---
 
 # Kindle Book QA Agent

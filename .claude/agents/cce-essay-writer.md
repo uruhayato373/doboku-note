@@ -4,6 +4,8 @@ description: >
   コンクリート主任技士 小論文の note 教材（令和形式のテーマ別・立場別模範答案）を執筆する Generator。出題履歴は cce-essay-history.json のみ使用。
 model: sonnet
 domain: product
+role: writer
+target: essay
 ---
 
 # CCE Essay Writer Agent

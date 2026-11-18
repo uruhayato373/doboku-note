@@ -5,6 +5,8 @@ description: >
 model: haiku
 tools: Bash
 domain: ops
+role: runner
+target: command
 ---
 
 # CLI Runner Agent

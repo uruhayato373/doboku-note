@@ -4,6 +4,8 @@ description: >
   note の価格・マガジン・収録・購入者コメント返信・PDF 添付を運用する。会員プランは note-membership-operator。Use when [note 価格変更].
 model: sonnet
 domain: product
+role: operator
+target: note
 ---
 
 # Note Operator Agent

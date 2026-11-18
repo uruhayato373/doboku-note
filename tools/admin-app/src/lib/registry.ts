@@ -16,6 +16,8 @@ export interface AgentEntry {
   model: string | null;
   tools: string | null;
   domain: string | null; // 事業の領域 id（config/domains.json）
+  role: string | null; // 役割（config/domains.json の agentRoles）
+  target: string | null; // 対象（config/domains.json の agentTargets）
   file: string; // repo-relative
 }
 
@@ -55,6 +57,8 @@ export function loadAgents(): RegistryResult<AgentEntry> {
         model: data.model ? String(data.model) : null,
         tools: data.tools ? String(data.tools) : null,
         domain: data.domain ? String(data.domain) : null,
+        role: data.role ? String(data.role) : null,
+        target: data.target ? String(data.target) : null,
         file: '.claude/agents/' + f,
       });
     } catch (e) {

@@ -5,6 +5,8 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: ops
+role: auditor
+target: docs
 ---
 
 # Doc Sync Auditor Agent
