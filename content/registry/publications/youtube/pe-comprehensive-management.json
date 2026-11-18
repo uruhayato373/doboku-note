@@ -8,7 +8,7 @@
       "work": "cm-essay-tradeoff-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform/scene-001",
@@ -70,11 +70,12 @@
       "platform": {
         "id": "ILYznk3YH84",
         "url": "https://www.youtube.com/watch?v=ILYznk3YH84",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-18T04:45:10.928Z"
+        },
+        "publishedAt": "2026-11-18T03:15:37.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -467,7 +468,7 @@
       "work": "cm-setsumon3-risk-kokufuku",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform/scene-001",
@@ -529,11 +530,12 @@
       "platform": {
         "id": "kkPWgzz_buQ",
         "url": "https://www.youtube.com/watch?v=kkPWgzz_buQ",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-18T04:45:10.928Z"
+        },
+        "publishedAt": "2026-11-17T11:30:02.000Z"
       },
       "thumbnail": {
         "status": "set",
