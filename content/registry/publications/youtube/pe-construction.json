@@ -1084,7 +1084,7 @@
       "work": "pe-gyoumu-shousai-720",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-gyoumu-shousai-720/youtube.longform/cover",
         "scene-001": "pe-construction/pe-gyoumu-shousai-720/youtube.longform/scene-001",
@@ -1118,7 +1118,42 @@
         "contentSha256": "6d3c5857565d00ca1be2d990b06368ed5965a1e05aaadf92135251cc3fbd8593"
       },
       "times": {
-        "rendered": "2026-11-18T13:06:19.122Z"
+        "rendered": "2026-11-18T13:06:19.122Z",
+        "uploaded": "2026-11-18T13:20:17.231Z",
+        "scheduled": "2026-11-18T13:20:36.042Z"
+      },
+      "delivery": {
+        "inputSha256": "9ce363e88fa88a8997ca8e0ad6ffe67c39828d444c2cca0140be6ee9ab465899",
+        "marker": "dn-single-37d0d9b151b2aaa8d71e510b483631cf544178b0",
+        "uploadRequestedAt": "2026-11-18T13:19:40.872Z",
+        "videoId": "JPTvdXO7Ris",
+        "processedAt": "2026-11-18T13:20:15.675Z",
+        "thumbnailRequestedAt": "2026-11-18T13:20:17.313Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/JPTvdXO7Ris/default.jpg?sqp=CIDM9tcG&rs=AOn4CLDbFqLODOG6S4ybY1iuOjn1830uxw",
+          "https://i9.ytimg.com/vi/JPTvdXO7Ris/mqdefault.jpg?sqp=CIDM9tcG&rs=AOn4CLAi4ukOPfadqfQ7H81_GmBr5bFHLw",
+          "https://i9.ytimg.com/vi/JPTvdXO7Ris/hqdefault.jpg?sqp=CIDM9tcG&rs=AOn4CLDe8Cyx0M5P0MK6_zfPsy84TzJZtw",
+          "https://i9.ytimg.com/vi/JPTvdXO7Ris/sddefault.jpg?sqp=CIDM9tcG&rs=AOn4CLB168klBrNbzc2hvNBHmhDHo3JHBQ",
+          "https://i9.ytimg.com/vi/JPTvdXO7Ris/maxresdefault.jpg?sqp=CIDM9tcG&rs=AOn4CLDGYPKKUKPtLshMWM-Yx1XJvEXi3g",
+          "https://i9.ytimg.com/vi/JPTvdXO7Ris/fhddefault.jpg?sqp=CIDM9tcG&rs=AOn4CLDg7VV2hwHK7j-PEejoB7EA2HKkOw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-18T13:20:24.437Z",
+        "scheduleRequestedAt": "2026-11-18T13:20:31.491Z",
+        "scheduleAt": "2026-11-28T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-18T13:20:36.042Z"
+      },
+      "platform": {
+        "id": "JPTvdXO7Ris",
+        "url": "https://www.youtube.com/watch?v=JPTvdXO7Ris",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-gyoumu-shousai-720/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-18T13:20:24.437Z"
       }
     },
     {
