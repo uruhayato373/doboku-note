@@ -3,7 +3,7 @@ name: civil-textbook-rewriter
 description: 1級土木施工管理技士 textbook/guide ページのバルクリライトを担当するGeneratorエージェント。
 model: sonnet
 domain: site
-role: writer
+role: rewriter
 target: textbook
 ---
 

@@ -5,7 +5,7 @@ description: >
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
-role: qa
+role: verifier
 target: guide
 ---
 

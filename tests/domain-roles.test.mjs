@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validateRoles, actorProblem, actorLabel, documentSteward, frontmatterField } from '../scripts/lib/domain-roles.mjs';
+import { validateRoles, validateAgentShape, agentBodyLines, canWrite, actorProblem, actorLabel, documentSteward, frontmatterField } from '../scripts/lib/domain-roles.mjs';
 
 const known = { skills: new Set(['weekly-review', 'monthly-review']), agents: new Set(['guide-qa', 'guide-fact-checker', 'guide-writer']), scripts: new Set(['validate-mdx']) };
 
@@ -71,4 +71,29 @@ test('文書の持ち主は長い一致を採り、表示名を引ける', () =>
 test('frontmatter の 1 行を読む', () => {
   assert.equal(frontmatterField('---\nname: a\nrole: qa\n---\nbody role: x', 'role'), 'qa');
   assert.equal(frontmatterField('---\nname: a\n---\n', 'target'), null);
+});
+
+test('本文の行数は frontmatter を除いて数える', () => {
+  assert.equal(agentBodyLines('---\nname: a\n---\nx\ny\n'), 2);
+  assert.equal(agentBodyLines('---\nname: a\n---\n'), 0);
+});
+
+test('判定だけの役が書き込めるかは tools: で決まる（無ければ全道具）', () => {
+  assert.equal(canWrite(null), true);
+  assert.equal(canWrite('Read, Glob, Grep, Bash'), false);
+  assert.equal(canWrite('Read, Edit'), true);
+});
+
+test('本文の上限と書き込める判定役を基準線と比べる（増やせない・直したら消す）', () => {
+  const w = 'base.json';
+  const a = (over) => ({ name: 'x', role: 'qa', tools: 'Read', bodyLines: 100, ...over });
+  assert.deepEqual(validateAgentShape([a()], { bodyLines: {}, writeTools: [] }, w), []);
+  assert.match(validateAgentShape([a({ bodyLines: 151 })], { bodyLines: {}, writeTools: [] }, w).join(), /上限 150/);
+  assert.match(validateAgentShape([a({ bodyLines: 210 })], { bodyLines: { x: 200 }, writeTools: [] }, w).join(), /増えた/);
+  assert.match(validateAgentShape([a({ bodyLines: 190 })], { bodyLines: { x: 200 }, writeTools: [] }, w).join(), /下げる/);
+  assert.match(validateAgentShape([a({ bodyLines: 120 })], { bodyLines: { x: 200 }, writeTools: [] }, w).join(), /消す/);
+  assert.match(validateAgentShape([a({ tools: null })], { bodyLines: {}, writeTools: [] }, w).join(), /Write・Edit を外す/);
+  assert.deepEqual(validateAgentShape([a({ tools: null })], { bodyLines: {}, writeTools: ['x'] }, w), []);
+  assert.match(validateAgentShape([a()], { bodyLines: {}, writeTools: ['x'] }, w).join(), /直った/);
+  assert.deepEqual(validateAgentShape([a({ role: 'writer', tools: null })], { bodyLines: {}, writeTools: [] }, w), []);
 });
