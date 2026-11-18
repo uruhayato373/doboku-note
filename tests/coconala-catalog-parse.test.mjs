@@ -42,3 +42,21 @@ test('parseCatalog はエントリ末尾の serviceUrl を拾う', () => {
 };`;
   assert.equal(parseCatalog(ts).c.serviceUrl, 'https://coconala.com/services/3');
 });
+
+// 定員（weeklyCapacity）を読む。読まないと coconala-edit が「一度に受注可能な件数」を入れない（2026-11-19）
+test('parseCatalog は weeklyCapacity を拾い、無ければ undefined', () => {
+  const ts = `const SERVICES_RAW = {
+  'd': {
+    id: 'd',
+    status: 'listed',
+    weeklyCapacity: 5,
+  },
+  'e': {
+    id: 'e',
+    status: 'listed',
+  },
+};`;
+  const c = parseCatalog(ts);
+  assert.equal(c.d.weeklyCapacity, 5);
+  assert.equal(c.e.weeklyCapacity, undefined);
+});

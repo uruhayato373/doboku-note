@@ -1521,6 +1521,7 @@ export const CoconalaListings = z
           faq: z.array(z.object({ q: z.string().min(1), a: z.string().min(1) }).strict()),
           options: z.array(z.object({ title: z.string().min(1), priceYen: yen('オプションの価格'), deliveryDays: z.number().int().min(1) }).strict()),
           genreFacets: z.array(z.string().regex(/^\d+$/)),
+          subscribable: z.boolean().optional().describe('定期購入（毎月の自動決済）で売る。テキストチャット・データ納品の出品だけ（2026-11-19）'),
         })
         .strict(),
     ),

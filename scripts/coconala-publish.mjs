@@ -80,6 +80,7 @@ const fields = {
   priceYen: svc.priceYen,
   deliveryDays: lst.deliveryDays,
   faq: lst.faq,
+  subscribable: lst.subscribable,
 };
 console.log(`[prep] service=${SERVICE} title="${(svc.title || '').slice(0, 30)}" price=¥${svc.priceYen} cat=${lst.category.master}/${lst.category.sub} mode=${COMMIT ? 'COMMIT(公開)' : 'DRAFT(下書き)'}`);
 

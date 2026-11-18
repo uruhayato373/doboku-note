@@ -114,6 +114,16 @@ async function fillVueServiceForm(page, fields) {
       if ((await combo.textContent()).trim() !== price) warnings.push(`価格の表示が ${price} と一致しない`);
     }
   }
+  if (fields.subscribable !== undefined) {
+    // 「このサービスを定期購入可能にする」（id 末尾 -can-subscribe・2026-11-19 実機確認）
+    const box = page.locator('input[type="checkbox"][id$="-can-subscribe"]');
+    if (await box.count() !== 1) warnings.push('定期購入のチェック欄が見つからない');
+    else {
+      if (await box.isChecked() !== fields.subscribable) await box.setChecked(fields.subscribable, { force: true }).catch(() => {});
+      if (await box.isChecked() !== fields.subscribable) warnings.push(`定期購入のチェックが ${fields.subscribable} にならない`);
+      else log.push(`subscribable: ${fields.subscribable}`);
+    }
+  }
   if (fields.deliveryDays !== undefined) await fill('input[type="text"][id$="-days"]', fields.deliveryDays, 'deliveryDays');
   if (fields.orderLimit !== undefined) await fill('input[type="text"][id$="-order-limit"]', fields.orderLimit, 'orderLimit');
   if (fields.faq?.length) {
@@ -131,12 +141,27 @@ async function fillVueServiceForm(page, fields) {
     }
     if (!warnings.some((x) => x.startsWith('FAQ'))) log.push(`faq: ${fields.faq.length} 件`);
   }
-  if (fields.options?.length) {
+  // 空の配列は「投入しない」の意味が残る（新規出品の有料オプションは公開後に画面で足すので、カタログが 0 件でも live にある）。
+  // 空の配列で live のオプションを全部消すのは定期購入の出品だけ（2026-11-19）
+  if (Array.isArray(fields.options) && (fields.options.length > 0 || fields.subscribable === true)) {
     const add = page.getByRole('button', { name: '有料オプションを追加' });
     if (await add.count() !== 1 || fields.options.length > 10) warnings.push('有料オプションの入力欄または件数が不正');
     else {
       const section = add.locator('xpath=../..');
       const names = section.locator('textarea[placeholder="オプションを入力する"]');
+      // カタログより多い有料オプションは末尾から、その項目の「この項目を削除する」で消す（2026-11-19 実機確認）。
+      // 同じ文言のボタンが FAQ にもあるので、オプション欄の祖先の中のボタンだけを押す。押すと「本当に削除しますか？」の
+      // confirm が出る。Playwright は既定で dialog を閉じる（＝キャンセル）ので、この削除のときだけ承認する
+      for (let n = 0; n < 12 && await names.count() > fields.options.length; n++) {
+        const before = await names.count();
+        const own = names.last().locator('xpath=ancestor::*[.//button[normalize-space()="この項目を削除する"]][1]').getByRole('button', { name: 'この項目を削除する' });
+        if (await own.count() !== 1) break;
+        const onDialog = async (d) => { if (d.type() === 'confirm' && d.message().includes('削除')) await d.accept(); else await d.dismiss(); };
+        page.once('dialog', onDialog);
+        await own.click();
+        await page.waitForFunction((k) => document.querySelectorAll('textarea[placeholder="オプションを入力する"]').length < k, before, { timeout: 5000 }).catch(() => {});
+        page.off('dialog', onDialog);
+      }
       if (await names.count() > fields.options.length) warnings.push('画面の有料オプションがカタログより多い');
       else {
         while (await names.count() < fields.options.length) {
@@ -158,7 +183,7 @@ async function fillVueServiceForm(page, fields) {
           if ((await combo.textContent()).trim() !== price) warnings.push(`有料オプション ${i + 1} の価格が一致しない`);
           if ((await combos.nth(i * 2 + 1).textContent()).trim() !== '公開') warnings.push(`有料オプション ${i + 1} が公開設定でない`);
         }
-        if (!warnings.some((x) => x.startsWith('有料オプション'))) log.push(`options: ${fields.options.length} 件`);
+        if (!warnings.some((x) => x.startsWith('有料オプション') || x.startsWith('画面の有料'))) log.push(`options: ${fields.options.length} 件`);
       }
     }
   }
