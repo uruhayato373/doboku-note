@@ -546,7 +546,7 @@
       "work": "civil-license-ladder-order",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-1/civil-license-ladder-order/youtube.longform/cover",
         "scene-001": "civil-construction-1/civil-license-ladder-order/youtube.longform/scene-001",
@@ -579,6 +579,9 @@
         "by": "policy",
         "at": "2026-11-18T12:58:13.753Z",
         "contentSha256": "f58e683f5f887dc4e923aa36af2c2c38e5c6b3241e63ebfdfd443a0b5dd0eed1"
+      },
+      "times": {
+        "rendered": "2026-11-18T13:06:10.174Z"
       }
     },
     {
@@ -616,7 +619,7 @@
       "work": "owner-career-shigoto",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-1/owner-career-shigoto/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-career-shigoto/youtube.longform/scene-001",
@@ -658,6 +661,9 @@
         "by": "policy",
         "at": "2026-11-18T12:58:12.955Z",
         "contentSha256": "e2cc58aa5c95f092fba5efda212cd069acd901ce6d6f2cbc786a520b6388567c"
+      },
+      "times": {
+        "rendered": "2026-11-18T13:06:01.675Z"
       }
     },
     {
@@ -825,7 +831,7 @@
       "work": "owner-eye-sekkei-tosho",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-001",
@@ -873,6 +879,9 @@
         "by": "policy",
         "at": "2026-11-18T12:58:12.162Z",
         "contentSha256": "2e021ca72b99cb327f2983ae59c49095723a268d870c1265191850165333be46"
+      },
+      "times": {
+        "rendered": "2026-11-18T13:05:52.328Z"
       }
     },
     {
