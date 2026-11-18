@@ -1,0 +1,63 @@
+---
+title: 起動 0 回のエージェントとスキルの判断表（2026-11-18）
+updated: 2026-11-18
+---
+
+# 起動 0 回のエージェントとスキルの判断表（2026-11-18）
+
+> [!note] 使い方
+> 2026-11-18 に全 21 行の判断を終えた（退役 7・残す 14）。「判断」の欄は運営者が「残す／統合／退役」と理由を書いたもの。退役は agents-registry.md の退役表と同じ commit で行う。提案の欄は親の見立てで、判断ではない。
+
+## 数え方
+
+- 期間: 2026-10-21〜2026-11-18（4 週間）。記録は `~/.claude/usage-log/`（Claude の hook）。サブエージェントの起動 695 回（`general-purpose` 189 回・`Explore` 29 回を含む）
+- 対象: エージェントの再編（PR #1653〜#1657）の後の 75 体。名前が変わったものは旧名の回数を足した（例: `essay-qa` は旧 4 体の合計）
+- 呼び出し元: `.claude/skills`・`scripts`・`.github` でエージェント名を参照しているもの
+- 注意: Workflow の機械の段から起動したエージェントが hook に記録されるかは未確認。季節もの（試験の前後・受注があったときだけ）は 4 週間では 0 回になりうる
+
+## 判断が要るもの（0 回・21 体）
+
+| エージェント | 領域 | 役割・対象 | 呼び出し元 | 提案 | 判断 |
+|---|---|---|---|---|---|
+| `civil-exampoint-restorer` | サイト | 制作・過去問 | なし | 退役（一度きりの修復用・計画どおり） | 退役（2026-11-18・PR #1658） |
+| `svg-canvas-fitter` | サイト | 直す・SVG 図版 | なし | 退役か `svg-figure-rewriter` へ統合（スキルから呼ばれていない） | 退役（2026-11-18・PR #1658） |
+| `svg-figure-rewriter` | サイト | 直す・SVG 図版 | なし | 残すなら `/create-svg` か `/check-mdx` の svg から呼ぶ形にする。呼ばないなら退役 | 退役（2026-11-18・PR #1658） |
+| `note-cover-writer` | 商品 | 制作・note のカバー | スクリプトのみ | V5 カバーの展開が終わっていれば退役 | 退役（2026-11-18・PR #1658） |
+| `note-membership-operator` | 商品 | 運用・note の会員 | `/note-membership` | メンバーシップ撤退（DN-0477）の完了で退役 | 退役（月額の会員制は今後やらない＝2026-11-17 の運営者決定で、DN-0876 も取りやめ。PR #1648・2026-11-18） |
+| `coconala-blog-writer` | 商品 | 制作・ココナラブログ | `/coconala-blog` | ブログを続けるかで決める（続けるなら残す） | 退役（新規執筆を止める・公開済み 15 本は残す・再開は DN-1247・2026-11-18） |
+| `coconala-blog-qa` | 商品 | 採点・ココナラブログ | `/coconala-blog` | writer と同じ判断 | 退役（writer と同じ・2026-11-18） |
+| `seo-fix-planner` | サイト | 企画・SEO | `/google-search-growth` | 残す（月次の検索の見直しで呼ぶ）。4 週間後も 0 回なら親の判断へ寄せる | 残す（12/16 の比較でも 0 回なら親へ寄せる＝DN-1246・2026-11-18） |
+| `exam-keyword-mapping-auditor` | サイト | 採点・過去問の紐づけ | `/audit-exam-mapping` | 残す（総監の過去問の追加時だけ） | 残す（2026-11-18） |
+| `keyword-rewriter` | サイト | 直す・キーワード記事 | `/improve-article`・`/quality-cycle`・`/weekly-improve` | 残す | 残す（2026-11-18） |
+| `content-qa` | 教材 | 照合・過去問 | `/pdf-to-mdx`・`/exam-questions-import` ほか 3 本 | 残す（過去問の取り込み時だけ） | 残す（2026-11-18） |
+| `civil-secondary-exam-writer` | サイト | 制作・過去問 | `/exam-questions-import`・`/civil-keiken-magazine` | 残す（二次の取り込み時だけ） | 残す（2026-11-18） |
+| `standards-table-writer` | サイト | 制作・基準書の表 | `/standards-table-rebuild` | 残す | 残す（2026-11-18） |
+| `svg-figure-auditor` | サイト | 採点・SVG 図版 | `/check-mdx`・`/note-prepublish-review` | 残す | 残す（2026-11-18） |
+| `figure-crop-worker` | サイト | 制作・切り抜きの図 | `/figure-recrop` ほか 3 本 | 残す | 残す（2026-11-18） |
+| `civil-keiken-tensaku-drafter` | 商品 | 制作・添削の返信 | `/keiken-tensaku`・`/coconala-order` | 残す（受注時だけ） | 残す（2026-11-18） |
+| `civil-keiken-tensaku-qa` | 商品 | 採点・添削の返信 | `/keiken-tensaku`・`/coconala-order` | 残す（受注時だけ） | 残す（2026-11-18） |
+| `magazine-pdf-builder` | 商品 | 制作・マガジンの PDF | `/magazine-to-pdf` ほか 2 本 | 残す | 残す（2026-11-18） |
+| `note-link-injector` | 商品 | 制作・note の下書き | `/note-prepublish-review`・`/note-hashtags` | 残す | 残す（2026-11-18） |
+| `note-page-visual-auditor` | 商品 | 採点・note の公開ページ | `/note-visual-review`・`/weekly-review` | 残す（必要時だけの撮影） | 残す（2026-11-18） |
+| `cli-runner` | 管理 | 実行・コマンド | Workflow から | 残す（Workflow の起動が記録に出るかを先に確かめる） | 残す（Workflow の起動が記録に出るかは DN-1246 で確かめる・2026-11-18） |
+
+## スキル（100 本・2026-11-18 判断）
+
+- 数え方: 呼び出しの記録はスキルが 48 回・スラッシュコマンドが 14 回だけで、毎週動く `/weekly-review` も 2 回だった。親が SKILL.md を読んで手順に従う使い方が大半で記録に出ないので、回数ではなく、呼び出し元（`.claude/skills`・`.claude/agents`・`scripts`・`.github`・`config` からの参照）と中身の重なりで候補を出した
+- 呼び出し元が 0 のもの（`cce-essay-cycle`・`civil-keiken-magazine`・`pe-secondary-yosou`・`consolidate-duplicate-keyword`・`create-skill`・`monitor`・`routines`）は、商品が動いている・必要なときの作業書・CLAUDE.md が案内している、のどれかなので残す。SNS を保留しているチャネルのスキルは対象外
+
+| スキル | 提案 | 判断 |
+|---|---|---|
+| `seo-growth-review` | `google-search-growth` と 4 面のうち 3 面が重なる。まとめる | 統合（`/google-search-growth` の手順 6 へ・2026-11-18） |
+| `coconala-analytics` | `coconala-status` と同じ読み取り専用。まとめる | 統合（`/coconala-status` へ・2026-11-18） |
+| `publish-note` | browser-use 版で、公開は `note-publish`、本文の更新は `note-update-body` に置き換わっている。退役 | 残す（2026-11-18） |
+| 残り 97 本 | 残す | 残す（2026-11-18） |
+
+## 判断の対象外
+
+- **今日新設した 3 体**: `note-traffic-analyst`・`coconala-traffic-analyst`・`product-portfolio-planner`。再編の 4 週間後に起動回数を比べる
+- **SNS を保留しているチャネル**（記録が 0 でも使われていないと判定しない）: `ig-carousel-writer`・`ig-carousel-qa`・`x-repost-curator`・`yt-shorts-title-writer`。ただし `yt-shorts-title-writer` はどのスキルからも呼ばれていないので、SNS 再開のときに呼び出し元を決める
+
+## 1〜2 回だったもの（参考）
+
+`affiliate-operator`・`note-funnel-auditor`・`search-intent-auditor`・`civil-textbook-rewriter`・`video-content-qa`・`x-post-writer`（各 1 回）、`doc-curator`・`kdp-operator`・`note-fact-checker`・`gsc-index-auditor`（各 2 回）。再編で分けた・改名したもの（`coconala-*`・`keyword-qa`・`textbook-qa`・`article-proofreader`）は旧名の回数。

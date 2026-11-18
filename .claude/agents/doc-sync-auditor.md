@@ -3,8 +3,11 @@ name: doc-sync-auditor
 description: >
   変更 diff と候補ドキュメントを突合し、旧仕様化した記述を file:line つきで報告する Evaluator。自動修正はしない。
 model: sonnet
+effort: low
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: ops
+role: auditor
+target: docs
 ---
 
 # Doc Sync Auditor Agent

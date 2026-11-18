@@ -22,12 +22,12 @@
 
 ## Evaluator / Generator
 
-- **Evaluator**: `cem-qa` エージェント（5 軸ルーブリック）
+- **Evaluator**: `keyword-qa` エージェント（5 軸ルーブリック）
 - **Generator**: `keyword-rewriter` エージェント（拡張パターン **A-H** 適用、H=標準テキスト由来事実取り込み）
 
 ## 採点フロー（2026-05-26 改訂、9 ステップ）
 
-- Step 0: キーワード類型判定（現場運用/歴史政策/法令制度/概念理論）— 詳細は `cem-qa.md`「キーワード類型タクソノミ」
+- Step 0: キーワード類型判定（現場運用/歴史政策/法令制度/概念理論）— 詳細は `profiles/keyword/cem.md`「キーワード類型タクソノミ」
 - Step 0.5: description boilerplate 除外（「5管理トレードオフ・過去問演習リンク付き」等は contract 対象外）
 - Step 0.7: インライン出典チェック（§22、lint カテゴリ 14 / 14R）。factual table・段落直下に **footer に無い固有一次ソース**の `<Callout type="reference" title="出典">` がなければ追加提案（14）。逆に **footer と URL 完全重複**のインライン出典は冗長として削除提案（14R）
 - Step 1-7: 既存 lint・5軸採点フロー（[02_採点ルーブリック方針.md](../../../../docs/editorial/02_採点ルーブリック方針.md) 参照）

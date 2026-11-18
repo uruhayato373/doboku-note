@@ -11,7 +11,8 @@
  *   2. ワークフローの起動条件（on のキー）と cron が台帳の triggers・schedule と一致する
  *   3. plist の StartCalendarInterval（曜日・時・分）が台帳の schedule と一致する
  *   4. GitHub Actions の行は login が空（CI はログインしない）、Mac の行の login は playwright-auth-profiles.json のサービス
- *   5. readers の quality-audit:<id> が実在の検査、admin:/<path> が管理画面に実在、writes がデータセットの台帳に実在
+ *   5. readers の quality-audit:<id> が実在の検査、admin:/<path> が管理画面に実在
+ *   書く先はこの台帳に持たない。データセットの台帳の書き手（scripts/lib/dataset-writers.mjs の automation:<id>）が正本で、実在は check-datasets が見る
  *
  * 使い方: npm run check-automations [-- --json]
  * exit: 0 = 一致 / 1 = 食い違いがある / 2 = 検査対象が 0 件（検査不成立）
@@ -21,7 +22,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import yaml from 'js-yaml';
 
-import { DATASETS, datasetPath } from './lib/datasets.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { CHECKS } from './quality-audit.mjs';
@@ -51,7 +52,7 @@ export function workflowTriggers(doc) {
 const sameSet = (a, b) => a.length === b.length && [...a].sort().join('\n') === [...b].sort().join('\n');
 
 /** 台帳と実物の食い違いを文の配列で返す（root を差し替えればテストできる） */
-export function checkAutomations({ root = REPO_ROOT, ledger, checkIds, datasetIds, authServices }) {
+export function checkAutomations({ root = REPO_ROOT, ledger, checkIds, authServices }) {
   const problems = [];
   const entries = ledger.automations;
   const bySource = new Map(entries.map((e) => [e.source, e]));
@@ -84,7 +85,6 @@ export function checkAutomations({ root = REPO_ROOT, ledger, checkIds, datasetId
       if (kind === 'quality-audit' && !checkIds.has(value)) problems.push(`${e.id}: 読み手 ${r} が quality-audit に無い`);
       if (kind === 'admin' && !existsSync(join(root, 'tools', 'admin-app', 'src', 'app', value, 'page.tsx'))) problems.push(`${e.id}: 読み手 ${r} の画面が管理画面に無い`);
     }
-    for (const w of e.writes ?? []) if (!datasetIds.has(w)) problems.push(`${e.id}: writes の ${w} がデータセットの台帳に無い`);
   }
   return { problems, inspected: { entries: entries.length, workflows: workflows.length, plists: plists.length } };
 }
@@ -96,7 +96,6 @@ function main() {
   const r = checkAutomations({
     ledger,
     checkIds: new Set(CHECKS.map((c) => c.id)),
-    datasetIds: new Set(DATASETS.map((d) => d.id)),
     authServices: new Set(Object.keys(auth.services ?? {})),
   });
   const { entries, workflows, plists } = r.inspected;

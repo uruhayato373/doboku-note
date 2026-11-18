@@ -1406,6 +1406,19 @@ const navView = z
   })
   .strict();
 
+const actor = z.string().regex(/^(operator|parent|(skill|agent|script):[a-z0-9:-]+)$/, 'operator / parent / skill:<名> / agent:<名> / script:<名>');
+const domainRoles = z
+  .object({
+    decides: z.enum(['operator', 'parent']).describe('最終判断（operator＝運営者 / parent＝親）'),
+    review: z.array(actor).min(1).describe('判断の場'),
+    gaps: z.array(z.object({ job: z.string().min(1), by: actor, reason: z.string().min(1) }).strict()).describe('担当エージェントが居ない仕事と、代わりに担う者'),
+  })
+  .strict();
+const steward = z.object({ updates: z.array(actor).min(1), approves: actor }).strict();
+const contentSteward = z
+  .object({ label: z.string().min(1), create: actor, fix: actor, review: z.array(actor).min(1), gates: z.array(actor).min(1) })
+  .strict();
+
 /** 事業の領域・サイドバー・文書の割り当て（config/domains.json）。読み手 24。領域 id の照合は check-domains */
 /** 管理画面の全画面と答える問い。検査は check-admin-pages */
 export const ConfigAdminPages = z
@@ -1427,11 +1440,32 @@ export const DomainsConfig = z
     _doc: z.string(),
     description: z.string(),
     domains: z
-      .array(z.object({ id: ID, label: z.string().min(1), role: z.string().min(1), manages: z.string().min(1), nav: z.array(navView).min(1) }).strict())
+      .array(
+        z
+          .object({
+            id: ID,
+            label: z.string().min(1),
+            role: z.string().min(1),
+            manages: z.string().min(1),
+            nav: z.array(navView).min(1),
+            roles: domainRoles,
+          })
+          .strict(),
+      )
       .min(1)
       .superRefine(uniqueBy('id', '領域の id')),
     documents: z.record(z.string().min(1), z.string().min(1)).describe('文書のパス（末尾 / は接頭辞）→ 領域 id'),
     pageDocuments: z.record(z.string().regex(/^\//, '画面のパスは / で始める'), z.array(z.string().min(1)).min(1)).describe('画面のパス（長い一致が優先）→ その画面の根拠の文書'),
+    actors: z.object({ _doc: z.string(), operator: z.string().min(1), parent: z.string().min(1) }).strict().describe('担当の書き方と表示名'),
+    documentStewards: z.record(z.string().min(1), steward).describe('文書のパス（末尾 / は接頭辞・長い一致が優先）→ 更新する人・承認する人'),
+    contentStewards: z
+      .record(z.string().min(1), z.union([z.string(), contentSteward]))
+      .describe('記事の型 → 作る・直す・見る・機械ゲート（_doc は説明）'),
+    agentRoles: z.record(ID, z.string().min(1)).describe('エージェントの role: の語彙 → 表示名'),
+    agentTargets: z.record(ID, z.string().min(1)).describe('エージェントの target: の語彙 → 表示名'),
+    agentOverlaps: z
+      .array(z.object({ role: ID, target: ID, reason: z.string().min(1) }).strict())
+      .describe('同じ役割と対象のエージェントが 2 体以上いるときの違いの説明'),
     navKinds: z.record(z.string(), z.string()).describe('サイドバーの画面の種類'),
     navRules: z.array(z.string()),
   })

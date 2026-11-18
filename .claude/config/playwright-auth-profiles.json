@@ -15,8 +15,6 @@
         "scripts/note-sales-fetch.mjs",
         "scripts/note-traffic-fetch.mjs",
         "scripts/check-note-attachments.mjs",
-        "scripts/check-note-membership.mjs",
-        "scripts/note-membership-plan-status.mjs",
         "scripts/note-account-name.mjs",
         "scripts/auth-session-refresh.mjs"
       ],
@@ -34,8 +32,6 @@
         "scripts/note-attach-file.mjs",
         "scripts/note-append-cta.mjs",
         "scripts/note-append-list-links.mjs",
-        "scripts/note-membership-plan-create.mjs",
-        "scripts/note-membership-plan-edit.mjs",
         "scripts/note-comment-reply.mjs",
         "scripts/note-convert-to-paid.mjs",
         "scripts/note-swap-author-banner.mjs",

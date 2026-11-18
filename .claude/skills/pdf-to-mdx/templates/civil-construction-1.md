@@ -37,7 +37,7 @@ publishedAt: "YYYY-MM-DD"
 ---
 ```
 
-- `group` は必須。検証エージェント（civil-construction-qa）がモード判定に使う
+- `group` は必須。検証エージェント（textbook-qa・article-proofreader）が対象判定に使う
 
 ## MDX 構造ルール
 
@@ -86,7 +86,7 @@ publishedAt: "YYYY-MM-DD"
 </details>
 ```
 
-## 品質ルーブリック（civil-construction-qa の Mode A・B・R）
+## 品質ルーブリック（textbook-qa の PDF 照合・article-proofreader の校正）
 
 変換後に `/improve-article --mode verify` で自動評価。
 
@@ -113,12 +113,12 @@ publishedAt: "YYYY-MM-DD"
 
 ```bash
 /check-mdx --rules all
-/improve-article {path} --mode verify   # civil-construction-qa で視覚＋網羅率評価
+/improve-article {path} --mode verify   # textbook-qa で視覚＋網羅率評価
 ```
 
 ## 参照
 
 - `.claude/knowledge/reference/exam-content-policy.md` — 試験別コンテンツ整備方針
 - `.claude/knowledge/reference/content-authoring.md` — MDX コンポーネント仕様
-- `.claude/agents/civil-construction-qa.md` — 視覚検証・網羅率評価の真実源
-- `.claude/agents/civil-construction-qa.md`（Mode R） — 既存 MDX 校正の真実源
+- `.claude/agents/textbook-qa.md` — 視覚検証・網羅率評価の真実源
+- `.claude/agents/article-proofreader.md` — 既存 MDX 校正の真実源

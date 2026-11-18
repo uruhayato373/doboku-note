@@ -3,8 +3,11 @@ name: seo-fix-planner
 description: >
   結合済み検索計測 JSON の URL 分類を評価し、優先順位つきの修正計画を返す Evaluator。取得・修正はしない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: site
+role: planner
+target: seo
 ---
 
 # SEO Fix Planner Agent
@@ -44,7 +47,7 @@ domain: site
 ## 担当外
 
 - 取得・再取得: 土曜の Mac 収集（`weekly-collect` の gsc 段）
-- CSV データ品質: `gsc-csv-auditor`
+- CSV データ品質: `npm run check-gsc-ui-run`（スクリプト）
 - index coverage 全体診断（ratio・原因バケット）: `gsc-index-auditor`
 - performance パターン（High-Impr-Low-CTR 等）: `metrics-analyzer`
 - **実際の修正**（MDX / _redirects / meta 書換 / deploy）: 親の承認後に各 Generator / 人間

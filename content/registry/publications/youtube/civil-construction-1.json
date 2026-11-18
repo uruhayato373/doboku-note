@@ -34,7 +34,7 @@
       "work": "c1-juken-junjo-2027",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/cover",
         "scene-001": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/scene-001",
@@ -54,7 +54,23 @@
         "subtitles": "civil-construction-1/c1-juken-junjo-2027/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/c1-juken-junjo-2027/youtube.json#longform",
-      "publishAt": "2027-01-01T11:30:00Z"
+      "publishAt": "2026-11-25T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-17T12:51:04.089Z",
+          "digest": "0a1594392bb2c754aa604ee14cc1ea6a4b099ef528d68721703c7f981b26d8d9"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-17T12:51:04.089Z",
+        "contentSha256": "fe185152fc07e111987590c78bb3689fa3dcfc14cd8cc52c94a63317d56818a5"
+      },
+      "times": {
+        "rendered": "2026-11-17T12:58:01.219Z"
+      }
     },
     {
       "id": "civil-construction-1/c1-keiken-anzen-kakikata/youtube.longform",
@@ -530,7 +546,7 @@
       "work": "civil-license-ladder-order",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/civil-license-ladder-order/youtube.longform/cover",
         "scene-001": "civil-construction-1/civil-license-ladder-order/youtube.longform/scene-001",
@@ -549,7 +565,59 @@
         "video": "civil-construction-1/civil-license-ladder-order/youtube.longform/video",
         "subtitles": "civil-construction-1/civil-license-ladder-order/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order/youtube.json#longform",
+      "publishAt": "2026-11-28T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-18T12:58:13.753Z",
+          "digest": "757873620858b43356954a9152f7a28e177e62972f70215d72c94f3b8c71f1b9"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-18T12:58:13.753Z",
+        "contentSha256": "f58e683f5f887dc4e923aa36af2c2c38e5c6b3241e63ebfdfd443a0b5dd0eed1"
+      },
+      "times": {
+        "rendered": "2026-11-18T13:06:10.174Z",
+        "uploaded": "2026-11-18T13:17:13.233Z",
+        "scheduled": "2026-11-18T13:17:30.987Z"
+      },
+      "delivery": {
+        "inputSha256": "3dc648d8fe8ef657835c068f0e8b1780222f1103e8bb95783ecfd24e6cea6433",
+        "marker": "dn-single-ba3946da9d0f2649e3bc26e18cd4d189cbf63aa2",
+        "uploadRequestedAt": "2026-11-18T13:15:20.359Z",
+        "videoId": "DrYUW7Rg5SA",
+        "processedAt": "2026-11-18T13:17:11.403Z",
+        "thumbnailRequestedAt": "2026-11-18T13:17:13.291Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/default.jpg?sqp=CNTJ9tcG&rs=AOn4CLDVYUzs4nvusEuNKmCBDOm99baXxA",
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/mqdefault.jpg?sqp=CNTJ9tcG&rs=AOn4CLCl-V8-Q9E3FFR6y1DFpDEcTbryEw",
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/hqdefault.jpg?sqp=CNTJ9tcG&rs=AOn4CLCBJJwjbAOgg5hOkELBJoP7kNWl2Q",
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/sddefault.jpg?sqp=CNTJ9tcG&rs=AOn4CLCVygl0_qRWAVeMqlskKAdq1mIHqQ",
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/maxresdefault.jpg?sqp=CNTJ9tcG&rs=AOn4CLDf_pc-S3vieMuy9Xpj1aOl43yFLw",
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/fhddefault.jpg?sqp=CNTJ9tcG&rs=AOn4CLA5sbOtlOt5hb-EE9fmao9sMktz5g"
+        ],
+        "thumbnailAcceptedAt": "2026-11-18T13:17:20.281Z",
+        "scheduleRequestedAt": "2026-11-18T13:17:26.409Z",
+        "scheduleAt": "2026-11-28T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-18T13:17:30.987Z"
+      },
+      "platform": {
+        "id": "DrYUW7Rg5SA",
+        "url": "https://www.youtube.com/watch?v=DrYUW7Rg5SA",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-18T13:17:20.281Z"
+      }
     },
     {
       "id": "civil-construction-1/owner-career-before-moving/youtube.longform",
@@ -586,7 +654,7 @@
       "work": "owner-career-shigoto",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/owner-career-shigoto/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-career-shigoto/youtube.longform/scene-001",
@@ -614,14 +682,66 @@
         "video": "civil-construction-1/owner-career-shigoto/youtube.longform/video",
         "subtitles": "civil-construction-1/owner-career-shigoto/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-1/owner-career-shigoto/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-1/owner-career-shigoto/youtube.json#longform",
+      "publishAt": "2026-11-27T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-18T12:58:12.955Z",
+          "digest": "1db9fb978d33d7106e8d6f996435d4c076c943835dbe52406f12b7936b9de904"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-18T12:58:12.955Z",
+        "contentSha256": "e2cc58aa5c95f092fba5efda212cd069acd901ce6d6f2cbc786a520b6388567c"
+      },
+      "times": {
+        "rendered": "2026-11-18T13:06:01.675Z",
+        "uploaded": "2026-11-18T13:12:57.275Z",
+        "scheduled": "2026-11-18T13:13:12.778Z"
+      },
+      "delivery": {
+        "inputSha256": "8c8d6a55e86d245cc531526919da65872499c1e0637f795a7cb334335a5a7029",
+        "marker": "dn-single-bf5123f517a360778650614bb6846641800cecbe",
+        "uploadRequestedAt": "2026-11-18T13:12:09.629Z",
+        "videoId": "JTJlEahRFwg",
+        "processedAt": "2026-11-18T13:12:55.721Z",
+        "thumbnailRequestedAt": "2026-11-18T13:12:57.327Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/default.jpg?sqp=CKjH9tcG&rs=AOn4CLAuiSULJgkTseNGogF0cmNOtE_lGw",
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/mqdefault.jpg?sqp=CKjH9tcG&rs=AOn4CLCz4t7hFqrmemm5Aefd2qSre021TQ",
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/hqdefault.jpg?sqp=CKjH9tcG&rs=AOn4CLDnSdgsuivnq2hFULANOwZIWRlU7A",
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/sddefault.jpg?sqp=CKjH9tcG&rs=AOn4CLDzihESRYN1e-YJfC6VIkX7JeaxWQ",
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/maxresdefault.jpg?sqp=CKjH9tcG&rs=AOn4CLD9Kifv-Lzul5HKyEQThU3RbsN0yQ",
+          "https://i9.ytimg.com/vi/JTJlEahRFwg/fhddefault.jpg?sqp=CKjH9tcG&rs=AOn4CLAk7GCDdmSPuzBRguhzeDP074XYeg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-18T13:13:06.389Z",
+        "scheduleRequestedAt": "2026-11-18T13:13:08.185Z",
+        "scheduleAt": "2026-11-27T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-18T13:13:12.778Z"
+      },
+      "platform": {
+        "id": "JTJlEahRFwg",
+        "url": "https://www.youtube.com/watch?v=JTJlEahRFwg",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/owner-career-shigoto/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-18T13:13:06.389Z"
+      }
     },
     {
       "id": "civil-construction-1/owner-eye-kantokuin/youtube.longform",
       "work": "owner-eye-kantokuin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-1/owner-eye-kantokuin/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-kantokuin/youtube.longform/scene-001",
@@ -651,7 +771,24 @@
         "video": "civil-construction-1/owner-eye-kantokuin/youtube.longform/video",
         "subtitles": "civil-construction-1/owner-eye-kantokuin/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-1/owner-eye-kantokuin/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-1/owner-eye-kantokuin/youtube.json#longform",
+      "publishAt": "2026-11-26T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-17T12:51:04.927Z",
+          "digest": "5322e1e4265c7b28b1e7279a30c7ac466c71e88c906d87dc8b09ce0c4b042313"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-17T12:51:04.927Z",
+        "contentSha256": "02e30b53d1526dfa9d7fa95e303b7ccb3458e949be9a9b6419430376c76f3982"
+      },
+      "times": {
+        "rendered": "2026-11-17T12:58:06.394Z"
+      }
     },
     {
       "id": "civil-construction-1/owner-eye-kouji-kensa/youtube.longform",
@@ -764,7 +901,7 @@
       "work": "owner-eye-sekkei-tosho",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-001",
@@ -799,7 +936,58 @@
         "subtitles": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-tosho/youtube.json#longform",
-      "publishAt": "2027-01-15T11:30:00Z"
+      "publishAt": "2026-11-27T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-18T12:58:12.162Z",
+          "digest": "6b4a774c990c4f874a55ac8e2789cdca04e602c85ad43af67de799d970b03316"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-18T12:58:12.162Z",
+        "contentSha256": "2e021ca72b99cb327f2983ae59c49095723a268d870c1265191850165333be46"
+      },
+      "times": {
+        "rendered": "2026-11-18T13:05:52.328Z",
+        "uploaded": "2026-11-18T13:09:25.872Z",
+        "scheduled": "2026-11-18T13:09:38.974Z"
+      },
+      "delivery": {
+        "inputSha256": "5b5b92f61873dd02f168f8ffdf4cd7992d3bbac9770d8fe908974530a394dc50",
+        "marker": "dn-single-1f8c24ea8c5f48ea55d3b7735ca399c840560445",
+        "uploadRequestedAt": "2026-11-18T13:08:29.887Z",
+        "videoId": "bK79HMYZlx8",
+        "processedAt": "2026-11-18T13:09:24.145Z",
+        "thumbnailRequestedAt": "2026-11-18T13:09:25.973Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/default.jpg?sqp=CPzE9tcG&rs=AOn4CLCQhb7zX-A662ZVgctioE-oc_uXGQ",
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/mqdefault.jpg?sqp=CPzE9tcG&rs=AOn4CLCczR-jXSJv5NTymLg8jRpZHipqZw",
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/hqdefault.jpg?sqp=CPzE9tcG&rs=AOn4CLD25sz5bom1r4HIQzXn8Wi2HAD_Zw",
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/sddefault.jpg?sqp=CPzE9tcG&rs=AOn4CLAPRXZ1nOen0iiaE9PKh9NW2Hyy-g",
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/maxresdefault.jpg?sqp=CPzE9tcG&rs=AOn4CLAFPw3KhyetJc2r4zF96ZFUXcGllg",
+          "https://i9.ytimg.com/vi/bK79HMYZlx8/fhddefault.jpg?sqp=CPzE9tcG&rs=AOn4CLCtkjpdHWlzb11LXOHt1TUM3qSiog"
+        ],
+        "thumbnailAcceptedAt": "2026-11-18T13:09:32.292Z",
+        "scheduleRequestedAt": "2026-11-18T13:09:34.557Z",
+        "scheduleAt": "2026-11-27T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-18T13:09:38.974Z"
+      },
+      "platform": {
+        "id": "bK79HMYZlx8",
+        "url": "https://www.youtube.com/watch?v=bK79HMYZlx8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-tosho/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-18T13:09:32.292Z"
+      }
     },
     {
       "id": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform",

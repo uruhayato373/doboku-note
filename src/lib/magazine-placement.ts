@@ -225,7 +225,7 @@ const NEW_MAGAZINES = {
  * 1級・2級土木 guide ページの journey stage 分類（2026-07-01 再設計）。
  * 検索着地の guide を「一次/学習の上流」「二次隣接（直前）」「career/転職」で出し分けるための集合。
  * bare slug（civil-construction-{1,2}- 接頭辞を除いた部分）で判定する。両級で共通の suffix を使う。
- * - EXAM_PREP: 一次・学習法・試験概要・分野別要点＝早期読者。低コミットの会員（伴走）を lead に、
+ * - EXAM_PREP: 一次・学習法・試験概要・分野別要点＝早期読者。低コミットの入口商品を lead に、
  *   ¥9,800 完全攻略パック等のハード二次商品は demote（早期読者に二次を正面売りは低転換）。
  * - SECONDARY_ADJACENT: 直前対策＝二次購入 intent が立つ。旗艦パック led を維持（civil-1 のみ実在）。
  * - それ以外（career/年収/転職/比較）: note 二次 CTA を出さない（本文 <CareerAffiliate> ＋ サイドバー
@@ -697,7 +697,7 @@ function resolvePlacementRaw(
       ],
     };
   }
-  // 7.5. 2級 二次ブリッジ磁石（二次の始め方）→ 二次ラインの面を提示（経験記述の柱＋完成答案集＋学科＋暗記＋会員）。
+  // 7.5. 2級 二次ブリッジ磁石（二次の始め方）→ 二次ラインの面を提示（経験記述の柱＋完成答案集＋学科＋暗記）。
   //      top-of-funnel の入口記事。civil-2 は catch-all が無いため明示ブランチが必要（2026-07-04 新設）。
   if (slug === 'civil-construction-2-secondary-getting-started') {
     return {
@@ -754,12 +754,11 @@ function resolvePlacementRaw(
     };
   }
 
-  // 8.4. 1級土木 二次ブリッジ磁石（一次合格 → 二次の始め方）→ 会員（伴走・低コミット）を lead に。
+  // 8.4. 1級土木 二次ブリッジ磁石（一次合格 → 二次の始め方）。
   //      一次合格発表 2026-08-13（公式 jctc.jp で確認）直後に着地する top-of-funnel 面で、
   //      本文の主張は「最初の一歩は経験記述の題材を1つ決める」。8.5 の catch-all に落ちると
   //      top が学科記述になり**本文と CTA が食い違う**ため明示分岐する（2級は 7.5 で分岐済み）。
-  //      会員は完成答案ライブラリを内包し「自分の工種を探せる」＝この地点の需要に最も近い
-  //      （noteコンテンツ計画.md §1.4／2026-07-01 のライブラリ内包転換）。旗艦 ¥9,800 は次点。
+  //      「自分の工種を探せる」完全攻略パックがこの地点の需要に最も近いので top に置く。
   if (slug === 'civil-construction-1-secondary-getting-started') {
     return {
       top: slot('civil-1-keiken-complete-pack', slug, 'top'),
@@ -793,7 +792,7 @@ function resolvePlacementRaw(
   //   先頭 1 誌としてのみ生きる。top（二次系の冒頭 CTA）はそのまま。ここでは「どの商品を・どの順で」
   //   中間 CTA に出すかを journey stage で決める。
   //   - 一次/学習系（EXAM_PREP）: 早期読者。完成答案集（¥2,480/¥1,980）を soft lead、¥9,800 完全攻略パック等の
-  //     ハード二次商品は demote（会員「合格ラボ」を lead にしていたが 2026-09-30 に撤退）。
+  //     ハード二次商品は demote（2026-09-30 の会員制終了後）。
   //   - 二次隣接（SECONDARY_ADJACENT＝直前対策）: 二次購入 intent が立つ高 intent 面。旗艦パック led。
   //   - career/年収/転職・比較（residual）: note 二次 CTA を出さない（EMPTY）。本文 <CareerAffiliate> と
   //     サイドバー転職枠（resolveDocsCareerSidebarAd）が転職導線を担う。二次経験記述¥9,800 を「辞めたい/
@@ -823,7 +822,7 @@ function resolvePlacementRaw(
     }
     if (isCivil1 && CIVIL_SECONDARY_ADJACENT_GUIDES.has(bare)) {
       // 直前対策（civil-1 のみ実在）: 直前総仕上げパック led（2026-09-16・模試3回＋暗記＋出題分析 ¥2,980）
-      // ＋ 二次まるごと旗艦 ＋ 直前暗記 ＋ 学科記述 ＋ 会員伴走。
+      // ＋ 二次まるごと旗艦 ＋ 直前暗記 ＋ 学科記述。
       return {
         top: slot('civil-1-chokuzen-pack', slug, 'top'),
         inline: [
@@ -868,7 +867,7 @@ function resolvePlacementRaw(
     };
   }
 
-  // 14. 2級土木 primary（一次過去問）→ 会員（伴走）lead＋完成答案集の軽め CTA
+  // 14. 2級土木 primary（一次過去問）→ 完成答案集の軽め CTA
   //     13 と同じ理由で top が必須。2級後期は 2026-10-25。
   if (docGroup === 'primary' && slug.startsWith('civil-construction-2-')) {
     return {
@@ -1126,6 +1125,11 @@ function resolvePlacementRaw(
     return { top: slot('pe-water-required-magazine', slug, 'top'), inline: [] };
   }
   if (slug.startsWith('pipe-work-guide-')) {
+    // 令和8年度の出題予想（PC-011）は公開されたら top に出し、機器別バンクを本文中へ回す。
+    // 未公開のあいだは getMagazine が null を返すので、これまでどおりバンクだけが出る。
+    if (getMagazine('pipe-work-1-r8-yosou')) {
+      return { top: slot('pipe-work-1-r8-yosou', slug, 'top'), inline: [slot('pipe-work-sekou-kijutsu-bank', slug, 'inline-1')] };
+    }
     return { top: slot('pipe-work-sekou-kijutsu-bank', slug, 'top'), inline: [] };
   }
 

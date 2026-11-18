@@ -38,7 +38,7 @@ domain: strategy
 
 | 段 | やること | 書くときに読む |
 |---|---|---|
-| Phase 1 Agent A・B | 開発活動／コンテンツ実績・note 同期・競合・GSC/GA4 自動化・ココナラ・検索改善・実験期限・目視確認 | [collect-activity-content.md](references/collect-activity-content.md) |
+| Phase 1 Agent A・B | 開発活動／コンテンツ実績・note 同期・競合・GSC/GA4 自動化・ココナラ・検索改善・実験期限・目視確認（note の同期間 PV・表示・流入元は Agent B から外し、Phase 1 で `note-traffic-analyst` を呼んで結果を「コンテンツ実績」の note の小節に入れる） | [collect-activity-content.md](references/collect-activity-content.md) |
 | Phase 1 Agent D・E・H・I | 計画との差分／校正学習の蒸留／handoff 棚卸し・デッドコード／X 予約キュー | 同上 |
 | Phase 1 Agent C・C2・C3・F・G | NSM と実験進捗／PSI／収益カバレッジ／SNS 流入／計測ダイジェスト | [collect-metrics.md](references/collect-metrics.md) |
 | Phase 2 | 達成率・成果・課題・学び・backlog 消化サマリ・「点検と Issue」（全件に行き先） | [analysis-triage.md](references/analysis-triage.md) |

@@ -3,8 +3,11 @@ name: search-intent-auditor
 description: >
   機械抽出した最大20 URL が対象クエリの検索意図に合致するかを意味評価する Evaluator（audit-only）。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
+role: analyst
+target: search-intent
 ---
 
 # Search Intent Auditor Agent
@@ -58,4 +61,4 @@ domain: site
 
 - `.claude/agents/metrics-analyzer.md` — 候補 URL の抽出元（機械）
 - `.claude/skills/nsm-experiment/` — 実験化（本エージェントは採点・起票しない）
-- `.claude/skills/seo-growth-review/SKILL.md` — 本エージェントの呼び出し元
+- `.claude/skills/google-search-growth/SKILL.md` — 本エージェントの呼び出し元（手順 6）

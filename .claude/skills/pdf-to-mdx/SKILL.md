@@ -38,7 +38,7 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 2. **経路C: テキスト層抽出（born-digital）** — 原本に使えるテキスト層があれば OCR を回さない。**OCR に着手する前に必ず判定する**（`scripts/text-layer/classify_text_layer.py`）。`book-manifest.json` の `renderProfile.mode` は**ページ画像の作り方**でテキスト層の有無ではないので、`born-digital` を「OCR不要」の根拠にしない。runbook = `scripts/text-layer/README.md`
 3. **着手前のゲート**: 自炊の手持ち撮影は指が写り込んで本文を隠す。`scripts/occlusion/detect_occlusion.py` で候補を挙げ、本文が隠れている版面は撮り直しに回す。**候補率は「本文が隠れている率」ではない**（肌色の絵・余白を押さえる指・書影も候補に挙がる）。実測の内訳は scripts/occlusion/README.md、スキャン結果は .claude/state/assets/reference-book-occlusion-scan.json
 4. **経路D: 参考文献 bundle の機械 OCR** — `book_ocr_prep.py`（sha256 照合した原寸画像）→ `book_ocr_machine.py`（`ocr_pdf.py` が縦書き＝NDLOCR-Lite／横書き＝Indra OCR／文字層を自動選択。必ず数ページの試し読みから）→ `book_ocr_concat.py`（48 ページ part・ゲート）→ `register.sh --commit`（`record-reference-book-artifacts` で Drive と台帳へ）。runbook = `scripts/book-ocr/README.md`。マーカーは画像 id `<!-- p0001 -->`（印字ノンブルではない）
-5. **図** — 最終図のクロップは機械の切り出し（`crops/`・`npm run record-reference-book-crops`）。図の位置を決める locate と、実クロップ PNG を4軸採点して `adjust_bbox` を返す `scanned-figure-crop-auditor`（Evaluator・sonnet）は本文を書き写さないので続けて使う。旧経路B の図ループは `scripts/scanned/README.md`
+5. **図** — 最終図のクロップは機械の切り出し（`crops/`・`npm run record-reference-book-crops`）。図の位置を決める locate と、実クロップ PNG を4軸採点して `adjust_bbox` を返す `figure-crop-auditor`（種類: `scanned`・Evaluator・sonnet）は本文を書き写さないので続けて使う。旧経路B の図ループは `scripts/scanned/README.md`
 
 **市販書籍スキャンは内部リファレンス専用＝公開しない**（原本・ページ画像・OCR は Git と公開 R2 に置かない。実体は Drive vault）。文字起こしには `config/reference-sources.json` の ID を示す frontmatter を付け、`source-transcript` group で Drive に同期する。
 
@@ -249,7 +249,7 @@ node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 |---|---|
 | `/check-mdx --rules all` | 変換後の構文・frontmatter 検証（post_hook で自動実行） |
 | `/improve-article --mode verify` | PDF 原典との 5 軸 QA 照合（旧 `/verify-pdf-mdx` / `/qa-pdf-mdx` を吸収） |
-| `content-qa` / `cem-qa` / `civil-construction-qa` | 試験別の QA Evaluator（`/improve-article` 経由で自動振り分け） |
+| `content-qa` / `keyword-qa` / `textbook-qa` / `guide-qa` | 試験別の QA Evaluator（`/improve-article` 経由で自動振り分け） |
 | `/exam-questions-import --exam {civil-primary\|civil-secondary}` | 過去問集の取込（PDF→MDX の特化版） |
 
 ## ハーネス設計上の位置づけ

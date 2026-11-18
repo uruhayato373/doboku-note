@@ -149,20 +149,6 @@ test('ConfigContentThemes: ルールの照合キー・テーマ id・区分の�
   assertFails(schema, mutated(v, (x) => (x.shortLabels = {})), /shortLabels|Unrecognized/);
 });
 
-test('ConfigNoteMembership: プランの欄・id の形・一意と撤退日が落ちる', () => {
-  const { schema, v: base } = envelope('ConfigNoteMembership', 'config.note-membership', { requiredKey: 'plans' });
-  // 実データのプランは撤退で 0 件なので、検査用の 2 件を置く。
-  const plan = { id: 'a'.repeat(12), key: 'one', name: 'プラン', price: 500, limit: null, published: false };
-  const v = { ...base, plans: [plan, { ...plan, id: 'b'.repeat(12), key: 'two' }] };
-  assertFails(schema, mutated(v, (x) => (x.plans[0].price = -1)), /plans\.0\.price/);
-  assertFails(schema, mutated(v, (x) => (x.plans[0].id = 'xyz')), /plans\.0\.id/);
-  assertFails(schema, mutated(v, (x) => (x.plans[0].limit = 0)), /plans\.0\.limit/);
-  assertFails(schema, mutated(v, (x) => delete x.plans[0].published), /plans\.0\.published/);
-  assertFails(schema, mutated(v, (x) => (x.plans[1].key = x.plans[0].key)), /key「.+」が重複/);
-  assertFails(schema, mutated(v, (x) => (x.retiredAt = '2026-09-31')), /retiredAt/);
-  assertFails(schema, mutated(v, (x) => (x.mirrors = [{ file: 'a.md' }])), /mirrors\.0\.must/);
-});
-
 test('ConfigNoteMagazineMembership: 束ねの欄・同梱の値・例外の本数が落ちる', () => {
   const { schema, v } = envelope('ConfigNoteMagazineMembership', 'config.note-magazine-membership', { requiredKey: 'labels' });
   const pack = Object.keys(v.packs).find((k) => k !== '_doc' && v.packs[k].fromMagazines);

@@ -3,7 +3,11 @@ name: exam-keyword-mapping-auditor
 description: >
   総監の過去問1問の紐づけキーワード群が論点を覆うかを評価し、追加・削除候補を返す Evaluator。Use when [過去問紐づけ監査].
 model: sonnet
+effort: medium
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
+role: qa
+target: exam-mapping
 ---
 
 # Exam Keyword Mapping Auditor Agent
@@ -18,7 +22,7 @@ domain: site
 
 類似エージェントとの差別化:
 
-- `cem-qa`: キーワードページ MDX の品質評価（対象 = MDX 1 ファイル）
+- `keyword-qa`: キーワードページ MDX の品質評価（対象 = MDX 1 ファイル）
 - `content-qa`: PDF→MDX 変換結果の評価（対象 = 過去問 MDX や基準書 MDX）
 - `exam-keyword-mapping-auditor`（本エージェント）: 過去問1問の紐づけマップの精度評価（対象 = JSON 1 エントリ）
 

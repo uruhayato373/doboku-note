@@ -213,6 +213,20 @@ const StatePathLiteralBaseline = z
   .object({ _doc: note('説明'), files: z.record(relPath, z.number().int().positive()) })
   .strict();
 
+/** 書き手が未記入のデータセットの基準線（DN-1240・scripts/lib/dataset-writers.mjs・check-datasets） */
+const DatasetWriterBaseline = z
+  .object({ _doc: note('説明'), missing: z.array(z.string().regex(/^[a-z0-9]+(\.[a-z0-9-]+)+$/, 'データセットの id')).describe('書き手が未記入のデータセットの id（増やせない。書いたら消す）') })
+  .strict();
+
+/** エージェントの形の基準線（本文の行数・書き込める判定役。DN-1242・scripts/lib/domain-roles.mjs） */
+const AgentShapeBaseline = z
+  .object({
+    _doc: note('説明'),
+    bodyLines: z.record(z.string(), z.number().int().min(1)).describe('本文が上限を超えるエージェント → 今の行数（増やせない）'),
+    writeTools: z.array(z.string()).describe('判定だけの役なのに書き込める道具を持つエージェント（増やせない）'),
+  })
+  .strict();
+
 /** スクリプトの共通部品の写しと readJson の写しの基準値（DN-0802・scripts/lib/code-ratchets.mjs） */
 const CodeRatchetBaseline = z
   .object({ _doc: note('説明'), scriptHelpers: z.record(z.string(), z.number().int().min(0)), readJson: z.number().int().min(0) })
@@ -221,12 +235,14 @@ const CodeRatchetBaseline = z
 /** .claude/config/ のファイル名 → 型。ここに無い JSON は check-agent-config が止める */
 export const AGENT_CONFIG_SCHEMAS = {
   'admin-ui-debt-baseline.json': AdminUiDebtBaseline,
+  'agent-shape-baseline.json': AgentShapeBaseline,
   'backlog-vocab-baseline.json': BacklogVocabBaseline,
   'cem-essay-structure.json': CemEssayStructure,
   'cem-textbook-mapping.json': CemTextbookMapping,
   'code-ratchet-baseline.json': CodeRatchetBaseline,
   'unreachable-cli-baseline.json': UnreachableCliBaseline,
   'content-taxonomy-baseline.json': ContentTaxonomyBaseline,
+  'dataset-writer-baseline.json': DatasetWriterBaseline,
   'gate-parity-baseline.json': GateParityBaseline,
   'information-architecture.json': InformationArchitecture,
   'magazine-cta-baseline.json': MagazineCtaBaseline,

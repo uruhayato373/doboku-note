@@ -64,7 +64,7 @@ npm run review-checks -- --cadence weekly --run YYYY-Www --write
   open 8 件・最古 43 日が溜まり、この節自体が「消化停止」と書く状態だった）。したがって **open のまま残っている
   ＝まだ復旧していない**と読む。`--resolve` の配線が無い channel（人手ルーティン起票）だけ復旧確認後に人が閉じる。
   起票元は `ci.yml`（Pre-merge が赤）・`uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／
-  report 区分 FAIL）・`index-coverage.yml`・`ops-audit.yml`（quality-audit の ops 区分のうち毎日の分＝会員配信・添付・広告の期限・Cloudflare・sitemap・
+  report 区分 FAIL）・`index-coverage.yml`・`ops-audit.yml`（quality-audit の ops 区分のうち毎日の分＝添付・広告の期限・Cloudflare・sitemap・
   収集の死活）・Mac の weekly-collect（channel weekly-collect＝土曜の収集の段の失敗と検算・note の公開状態の照合の検査不成立・DN-0847）・Mac の GSC の記録層（channel gsc-auto-review＝記録が書けなかった・Claude の【要確認】・DN-0849）
 
 

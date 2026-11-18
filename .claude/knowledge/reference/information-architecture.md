@@ -184,7 +184,7 @@ content/
 > `weekly-review-guard.yml`（記録層の沈黙／**重要 workflow が赤いまま・動いていない**／**quality-audit の report 区分 FAIL**・同）・
 > `index-coverage.yml`（閾値の無条件異常）・
 > `ops-audit.yml`（**配信・添付・広告の期限・CI の取得の遅れ**＝quality-audit の ops 区分のうち毎日の分・2026-09-18 追加。2026-10-25 から転記の鮮度は土曜の収集の検算へ・DN-0847。
-> それまで membership-drip が Pre-merge のゲートに混ざり、記事が 2 日遅れるたびに全 PR が赤になっていた。2026-10-10 から遅れは Issue だけで job は緑）・
+> それまで membership-drip（現在はスクリプトごと削除済み）が Pre-merge のゲートに混ざり、記事が 2 日遅れるたびに全 PR が赤になっていた。2026-10-10 から遅れは Issue だけで job は緑）・
 > Mac の `scripts/scheduled/weekly-review.sh`（土曜の収集の段の失敗と検算・note の公開状態の照合〔旧 note-live-audit.yml〕は channel weekly-collect・DN-0847。GSC の記録層〔旧 gsc-auto-review.yml〕の失敗は channel gsc-auto-review・DN-0849）。
 > `tests/report-automation-failure.test.mjs` が「起票する channel には必ず `--resolve` がある」ことを固定する。
 >
@@ -295,7 +295,7 @@ content/
 
 **意味ガード**（`/doc-sync`・2026-06-12 新設）: 「ドキュメント化された面」(`src/** scripts/** .claude/** package.json` 等)を変更したタスクの完了時に、変更 diff × 候補 doc を `doc-sync-auditor`（Evaluator・sonnet）で突合し、機械ガードが拾えない陳腐化を検出→適用。純コンテンツ MDX 編集では回さない。**routing drift / discoverability gap（規律 7）も検出対象**。発火トリガーとして `agent-hook.mjs check-doc-sync`（commit フック）が、決定/ポリシー文書の変更に加え **新規スクリプト追加（`scripts/**` への `--diff-filter=A`）でも discoverability 配線＋`/doc-sync` を促す**（2026-06-25 拡張）。
 
-**配線ガード**（`check-magazine-wiring.mjs`・2026-07-01 新設）: keiken マガジン（施工経験記述系）を「答案マーカー（`**(N)` / `### 記述例` 等）を持つ article.md」で内容判定し、`keiken-charcount.mjs` の探索フィルタでカバーされない dir を pre-commit で落とす。台帳ガードが skill/agent の登録もれしか見ないのに対し、本ガードは **コンテンツライン（note マガジン）を依存する実行系（字数ゲート）に配線し忘れる content-line 配線ドリフト**を機械検知する。新マガジン追加時の配線チェックリスト（cover 定義・sales-recorder マッピング・字数フィルタ・essay-writer 型・/doc-sync）は `src/lib/note-magazines.ts` の `MAGAZINES_RAW` 直前コメントに明文化。背景: 2026-07-01 想定工事バンク（36本）が dir 名に「経験記述」を含まず一括字数チェックを全スキップしていた再発防止（[[feedback_new_magazine_wiring_gate]]）。
+**配線ガード**（`check-magazine-wiring.mjs`・2026-07-01 新設）: keiken マガジン（施工経験記述系）を「答案マーカー（`**(N)` / `### 記述例` 等）を持つ article.md」で内容判定し、`keiken-charcount.mjs` の探索フィルタでカバーされない dir を pre-commit で落とす。台帳ガードが skill/agent の登録もれしか見ないのに対し、本ガードは **コンテンツライン（note マガジン）を依存する実行系（字数ゲート）に配線し忘れる content-line 配線ドリフト**を機械検知する。新マガジン追加時の配線チェックリスト（cover 定義・sales-product-map.json のマッピング・字数フィルタ・essay-writer 型・/doc-sync）は `src/lib/note-magazines.ts` の `MAGAZINES_RAW` 直前コメントに明文化。背景: 2026-07-01 想定工事バンク（36本）が dir 名に「経験記述」を含まず一括字数チェックを全スキップしていた再発防止（[[feedback_new_magazine_wiring_gate]]）。
 
 ## 廃止済み
 

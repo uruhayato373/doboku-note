@@ -60,9 +60,9 @@ note の段階投下は `content/note/技術士総監/noteコンテンツ計画.
 
 `--horizon next` は最優先 1 本、`--horizon quarter` は 3 ヶ月ロードマップ（表）。出力は会話に提示する（ファイル書き込みはしない）。ロードマップを永続化したい場合はユーザー判断で `content/note/技術士総監/noteコンテンツ計画.md` への追記を提案する。
 
-## strategy-advisor との境界
+## 戦略判断との境界
 
-`pe-note-plan` は **総監記述式 note 有料記事に限定したオペレーショナルな企画** に絞る。サイト横断の戦略判断（キーワードギャップ・検索需要・季節性の統合）が必要になったら `strategy-advisor` に委譲する。重複して戦略を立てない。
+`pe-note-plan` は **総監記述式 note 有料記事に限定したオペレーショナルな企画** に絞る。サイト横断の戦略判断（キーワードギャップ・検索需要・季節性の統合）が必要になったら `/weekly-review`・`/monthly-review`（.claude/knowledge/reference/business-review.md）へ回す。重複して戦略を立てない。
 
 ## 例
 

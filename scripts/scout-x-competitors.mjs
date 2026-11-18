@@ -227,7 +227,7 @@ function main() {
   };
   const saved = saveSnapshot(ROOT, 'x.competitors', stamp, snapshot, { partial: PARTIAL });
   console.log(`\n${PARTIAL ? '部分実行の結果（時系列には残さない）' : '時系列保存'}: ${saved}`);
-  console.log(`完了: ${results.length} 社（失敗 ${failed}）→ 分析は competitor-analyst --platform x`);
+  console.log(`完了: ${results.length} 社（失敗 ${failed}）→ 分析は content-competitor-analyst（--platform x）`);
   process.exit(failed === results.length ? 1 : 0);
 }
 

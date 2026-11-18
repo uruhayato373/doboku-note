@@ -130,9 +130,9 @@ title: 推奨ワークフロー
 │                                                                 │
 │  /quality-cycle --profile cem --mode auto-loop [--max N]        │
 │    │                                                            │
-│    ├─ score:   cem-qa で全件 5 軸評価                            │
+│    ├─ score:   keyword-qa で全件 5 軸評価                            │
 │    ├─ rewrite: weighted < 2.0 のページを keyword-rewriter でリライト │
-│    ├─ verify:  cem-qa で再評価                                   │
+│    ├─ verify:  keyword-qa で再評価                                   │
 │    └─ 全件 >= 2.0 になるまで最大 3 ラウンド自動反復              │
 │                                                                 │
 │  過去問⇔キーワード紐づけの確認は /audit-exam-mapping で随時実施  │
@@ -146,7 +146,7 @@ title: 推奨ワークフロー
 - 週次 PDCA は `docs/reviews/weekly/YYYY-Www-review.md`（レビュー）と `YYYY-Www.md`（計画）の 2 本に保存。最新週のみ保持し、旧週は未完タスクを `.claude/todo/backlog.md` へ抽出してから削除（履歴は git）
 - 申し送りは次週の計画へ引き継ぎ → 解消したら次の review で「完了」として記録
 
-オンデマンド分析が必要な時は `/psi-audit` スキルで `performance-auditor` エージェントを呼び、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。
+オンデマンド分析が必要な時は `/psi-audit` スキルで `npm run report-psi-regression` を回し親が読み、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。
 
 週次レビューでは **`npm run check-content-quality`**（モバイル可読性ラチェット）も回す。全 published MDX を `content-rules.json` の `fullScan` ルール（表/入れ子リスト/段落長/見出し/文体）で走査し、`.claude/state/quality/latest-report.md` に **GA4 人気度順の違反レポート**を出力する。レポート上位（違反数 × activeUsers）の記事を、記事の `category`/`group` に対応する既存の品質サイクル（`/quality-cycle --profile cem`／`civil-textbook` など。ルーティングの真実源は [exam-content-policy.md](exam-content-policy.md) Part 2）へ流してリライトし、表を非表へ・入れ子をフラットへ・長段落を改段する（変換パターンは [content-authoring.md](content-authoring.md)）。既存違反は baseline で grandfather 済みで、CI（`quality:audit:ci`）は **baseline 超過の新規違反のみ赤落ち**させる（機械＝検知、エージェント＝リライト時の表現判断、と役割を分ける）。リライトで違反が減ったら `npm run update-content-quality-baseline` で baseline を刈り込む。
 
@@ -206,12 +206,12 @@ note 導線の機械監査は CI と土曜の収集が分担する。`quality-au
 1. /keyword-page create or revise              <- Generator: コンテンツ作成・校正
 2. node .claude/scripts/lint-mdx-mobile.mjs <file>     <- 機械リンター（カテゴリ1・6・8・9）
                                                   HIGH/MEDIUM ゼロまで修正→再実行ループ
-3. cem-qa エージェント呼び出し                 <- Evaluator: 5軸ルーブリック評価
+3. keyword-qa エージェント呼び出し                 <- Evaluator: 5軸ルーブリック評価
 4. 加重スコア ≥ 2.0 → 完了 / < 2.0 → 指摘事項に沿って修正して 2 に戻る
 ```
 
 **重要**:
-- ステップ 3 の `cem-qa` を**省略してはならない**（自己評価バイアス回避のため）
+- ステップ 3 の `keyword-qa` を**省略してはならない**（自己評価バイアス回避のため）
 - 品質ルールの真実源は `.claude/knowledge/reference/content-principles.md`。ルール変更時はまずここを更新
 - リンターのカテゴリ9（ExamPoint 個数・位置・誤り選択肢パターン・参考資料多様性）は HIGH なのでブロッカー
 
@@ -311,7 +311,7 @@ doc・コンテンツは `develop` へ直 push で蓄積する（「1 修正 = 1
 **Phase 1 で停止中のスキル・エージェント**:
 - analytics 系スキル（GSC・GA4 データ取得、SEO 監査）
 - strategy 系スキル（競合調査・キーワードギャップ分析）
-- （content-planner エージェントは 2026-10-20 退役。）SEO は gsc-index-auditor（coverage・月次 `/gsc-review`）+ metrics-analyzer（performance・週次 `/weekly-improve`）+ technical-seo-auditor（技術・build 後）+ search-intent-auditor（検索意図・最大20URL）に分割稼働中。4面を束ねるオーケストレータは `/seo-growth-review`（機械検出→意味評価→統合・修正なし）。技術ゲートは CI 常設（`check-seo-build:ci`）。旧 catch-all `seo-auditor` は 2026-06-19 退役・復活させない
+- （content-planner エージェントは 2026-10-20 退役。）SEO は gsc-index-auditor（coverage・月次 `/gsc-review`）+ metrics-analyzer（performance・週次 `/weekly-improve`）+ technical-seo-auditor（技術・build 後）+ search-intent-auditor（検索意図・最大20URL）に分割稼働中。4面を束ねるオーケストレータは `/google-search-growth`（機械検出→意味評価→統合・修正は承認後）。技術ゲートは CI 常設（`check-seo-build:ci`）。旧 catch-all `seo-auditor` は 2026-06-19 退役・復活させない
 - ads 系スキル（アフィリエイト・AdSense 最適化）
 
 ### Phase 2（2026年秋予定: note 記事展開・iOS アプリ開発）

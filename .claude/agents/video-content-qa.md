@@ -3,8 +3,11 @@ name: video-content-qa
 description: >
   動画パックを6軸と BLOCK ゲートで採点する Evaluator（audit-only）。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: sns
+role: qa
+target: video
 ---
 
 # Video Content QA Agent

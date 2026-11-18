@@ -79,10 +79,10 @@ export interface NoteMagazine {
  *      データ駆動）。examKeyOf が id 接頭辞から資格を推定できることだけ確認（新接頭辞なら
  *      exam-brand.ts に追記）。※note 公開時のマガジンヘッダー _cover.png は別工程で
  *      generate-magazine-covers.mjs が生成（note-magazine-cover.mjs がアップロード）。
- *   2. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表に追加
+ *   2. 売上記録: config/sales-product-map.json の productId マッピング表に追加
  *   3. keiken 系（施工経験記述）なら: scripts/keiken-charcount.mjs の探索フィルタに dir 判別語を追加
  *      （check-magazine-wiring.mjs が pre-commit で漏れを機械検知する）
- *   4. Generator/Evaluator の対応型: .claude/agents/civil-keiken-essay-writer.md 等の型リスト＋agents-registry.md
+ *   4. Generator/Evaluator の対応型: .claude/agents/essay-writer.md 等の型リスト＋agents-registry.md
  *   5. 変更後は /doc-sync を1回回して prose 陳腐化を点検（CLAUDE.md §8）
  */
 const MAGAZINES_RAW = {
@@ -980,8 +980,7 @@ const MAGAZINES_RAW = {
   //   「テーマ縦断・R03-R07 5年・出題頻度データ・出る順・暗記特化」の加工付加価値。
   //   ただし site の secondary-*-past-problems（テーマ別・傾向表つき・published:true）と論点が重なる。
   //   2026-07-03 オーナー判断＝カニバリは一旦考慮せず作って計測（Red Line #4 を当ラインでは適用保留）。
-  //   予想（フロー）ではなく過去問の後ろ向き分析（ストック）のため会員フローと非競合（Red Line #10）。
-  //   完成答案と同様に買い切り○＋会員ライブラリ内包○の二重配置（§2.2 踏襲）。
+  //   予想ではなく過去問の後ろ向き分析（ストック）。
   // 制作は別セッション。公開時: 原稿制作 → note マガジン作成 → cover/sidebar 生成 →
   //   noteUrl 埋め + published: true。SKU は wire-ahead（published:false / noteUrl:''）。
   // 投入時期: P1→8月中旬 / P3a→8月下旬 / P5→9月上旬 / P2・P3b→10月上旬（§5.4）。
@@ -1052,7 +1051,7 @@ const MAGAZINES_RAW = {
   },
   // ----- 1級土木 経験記述 完全攻略パック（旗艦・買い切り）(2026-06-30 scaffold) -----
   // 既存3買い切り（完成答案集・過去問模範答案集・2テーマ組合せ大全）を「想定工事 索引」で束ね、
-  // 薄い工種（コンクリート工・トンネル等の空セル10）を補充した上位SKU。会員には入れない（非重複・§2.3）。
+  // 薄い工種（コンクリート工・トンネル等の空セル10）を補充した上位SKU。
   // 受験料アンカー: 1級フル¥24,000（一次¥12,000＋二次¥12,000）に対し¥9,800は二次の約8割。
   // 設計: content/note/1級・2級土木/1級土木/1級土木-想定工事バンク設計.md
   // マガジン枠は note 公開済。2026-08-20 に150工事+索引=151件の収録をAPI確認済み。
@@ -1122,7 +1121,7 @@ const MAGAZINES_RAW = {
   },
   // P5: 1級 二次まるごとパック（新最上位アンカー・経験記述完全攻略¥9,800＋P1＋P3aを束ね）
   // 単品合計 ¥13,260（¥9,800＋¥2,480＋¥980）→ ¥11,800。既存¥9,800は残置（Red Line #8）。
-  // 商品ページに「伴走・添削が欲しい方は会員へ」の分岐を明記（会員より魅力的に見えすぎ回避）。
+  // 商品ページに「添削が欲しい方はココナラへ」の分岐を明記。
   // P1/P3a 完成後に束ねるだけ（索引記事1本のみ新規）。
   // サイト CTA は有料マガジンへ直行させず、無料の「まるごとパック 総合案内」に着地させる
   // （3つの柱の全体像を見せてから購入へ）。noteUrl はマガジン SoT で不変。
@@ -1249,6 +1248,7 @@ const MAGAZINES_RAW = {
     ctaCatch: '独学のまま迷っていませんか？合格まで伴走します',
     ctaButton: '合格ラボを見てみる',
     ctaPose: 'smile',
+    retiredAt: '2026-09-30',
   },
   // </generated:products civil-construction-1-2>
 
@@ -2156,7 +2156,7 @@ const MAGAZINES_RAW = {
   // 原稿配置: content/note/RCCM/magazines/。id 接頭辞 rccm-（exam-brand.ts examKeyOf → 'rccm'）。
   // 2026 年度は CBT 試験期間 9/1〜10/31 が進行中（exam-calendar.json rccm）。問題III は事前公開 6 テーマから 1 題。
   // 公式過去問は非公開のため問題文は収録せず、模範論文・テンプレ・論点集は全て自作。
-  // 公開時: noteUrl 埋め → published:true → note-funnel.json exams.rccm → sales-recorder.md 行（同一 commit）。
+  // 公開時: noteUrl 埋め → published:true → note-funnel.json exams.rccm → sales-product-map.json 行（同一 commit）。
   // 2026-09-15 公開: 7 記事（序章無料＋6 テーマ ¥780）を note 公開 → マガジン m770bef96b39f（¥3,480）へ 7/7 収録 → カバー SET。
   'rccm-mondai3-magazine': {
     id: 'rccm-mondai3-magazine',
@@ -2780,6 +2780,19 @@ const MAGAZINES_RAW = {
   },
   // </generated:products pe-water-supply>
   // <generated:products pipe-work> config/products.json から生成（npm run product -- gen）。手で直さない
+  // 2026-11-17 に下書きを作成（PC-011・DN-1236）。2026-11-18 に ¥2,480 で公開（機器別バンクとのセットは作らない）。
+  'pipe-work-1-r8-yosou': {
+    id: 'pipe-work-1-r8-yosou',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n44c518675a51',
+    qualification: 'pipe-work',
+    title: '1級管工事施工管理技士 第二次検定 令和8年度 出題予想と模範解答（問題4 空調・問題5 衛生）',
+    description: '令和6年度からの新形式（施工記述）で出た問題を5回分整理し、まだ出ていない機器・材料から令和8年度の問題4（空調）・問題5（衛生）を予想した。本番と同じ設問の形の予想セット6つに、解答例を複数パターンで示す。設問3の型別の模範解答と、特徴の短文集つき。出題を保証するものではない。',
+    shortTitle: '1級管工事 令和8年度の出題予想',
+    shortDescription: '未出題の機器から問題4・5を予想。予想セット6つに解答例を複数パターンで。',
+    price: '¥2,480',
+    badge: 'note 限定 教材',
+  },
   // 2026-10-28 公開（n538762ec7f12・¥1,980・境界=機器別の模範解答）。2026-11-04 に管工事の active 化に合わせて正本へ登録（DN-0452）。
   'pipe-work-sekou-kijutsu-bank': {
     id: 'pipe-work-sekou-kijutsu-bank',

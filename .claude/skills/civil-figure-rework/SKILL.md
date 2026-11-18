@@ -2,7 +2,7 @@
 name: civil-figure-rework
 category: quality
 description: >
-  1級土木 過去問1次ページの図クロップを extractor→auditor のループで再生成する（1ページ単位で commit）。Use when user asks to [過去問図再抽出, 図クロップ改善, テキスト写り込み修正, /civil-figure-rework].
+  1級土木 過去問1次ページの図クロップを worker→auditor のループで再生成する（1ページ単位で commit）。Use when user asks to [過去問図再抽出, 図クロップ改善, テキスト写り込み修正, /civil-figure-rework].
 user-invocable: true
 domain: site
 ---
@@ -11,7 +11,7 @@ domain: site
 
 1級土木施工管理技士の過去問1次（`primary-r{年}-{a|b}`）ページに掲載されている図 PNG を、原本 PDF から **テキスト写り込みなし・本文重複なし** の品質で再生成する **オーケストレータスキル**。
 
-Generator (`civil-exam-figure-extractor`) と Evaluator (`civil-exam-figure-auditor`) を 1 ページごとに最大 3 反復ループし、合格したら commit。
+Generator (`figure-crop-worker`（種類: `past-exam-page`）) と Evaluator (`figure-crop-auditor`（種類: `past-exam-page`）) を 1 ページごとに最大 2 反復ループし（3 回目は親が判断する）、合格したら commit。
 
 > [!warning] 適用限界（2026-07-08 確認）
 > 本スキルは**問題PDF（問題A/B）に図が存在する**ことが前提。しかし確認した年度（H30/R01/R02/R07）の問題PDFは **"DHP-A.smd" テキスト起こし版で埋め込み画像0・図なし**（`pdfimages -list` / `pdftoppm` で確認）、**H26/H27 は問題PDF自体なし**。これらのページでは extractor が**空 spec を返す**（図は問題PDFでなく解答・解説資料側にしか存在しない）。既存クロップの「答え漏らし写り込み」是正は本スキルでなく**既存画像の手動タイト切り直し**で行う。経緯の詳細は git 履歴の旧 handoff `2026-07-08-civil1-figure-answer-leak.md`（handoffs は 2026-07-11 に extract→削除運用へ移行・生きた運用は [figure-provenance.md](../../knowledge/reference/figure-provenance.md) と memory [[civil1-figure-answer-leak-remediation]]）。
@@ -29,7 +29,7 @@ Generator (`civil-exam-figure-extractor`) と Evaluator (`civil-exam-figure-audi
 | `exam-slug` | `r{年}-{ab}` 形式（例: `r06-a`, `r07-b`） |
 | `--all` | 全14ページを順次実行（r03-a, r04-a は原本図なしで skip） |
 | `--range start:end` | 範囲指定（例: `r05-b:r07-b`） |
-| `--max-iter N` | 反復上限（デフォルト 3） |
+| `--max-iter N` | 反復上限（デフォルト 2。3 回目に進むかは親が判断） |
 | `--no-commit` | commit せずローカルに残す（デバッグ用） |
 | `--skip-backup` | 既存図の backup を作らない（再実行用） |
 
@@ -70,14 +70,15 @@ mv content/site/civil-construction-1/primary-r06-a/img/*.webp .tmp/backup/r06-a/
 
 > `--skip-backup` 指定時はスキップ。
 
-### Step 3: 反復ループ（最大 N 回、デフォルト 3）
+### Step 3: 反復ループ（最大 N 回、デフォルト 2。3 回目は親が判断）
 
 各反復で以下を実行:
 
 #### 3a. Generator agent 起動
 
-`civil-exam-figure-extractor` サブエージェントを起動。プロンプトに以下を含める:
+`figure-crop-worker` サブエージェントを起動。プロンプトに以下を含める:
 
+- 種類: `past-exam-page`
 - 対象 MDX のフルパス
 - PDF テキスト `.tmp/pdf-text/R{年}-1ji-{AB}.txt`
 - PDF ページ画像ディレクトリ `.tmp/pdf-pages/R{年}-1ji-{AB}/`（全ページ画像のパスをリスト化）
@@ -110,8 +111,9 @@ node .claude/skills/civil-figure-rework/scripts/inject-img-mdx.mjs \
 
 #### 3d. Evaluator agent 起動
 
-`civil-exam-figure-auditor` サブエージェントを起動。プロンプトに以下を含める:
+`figure-crop-auditor` サブエージェントを起動。プロンプトに以下を含める:
 
+- 種類: `past-exam-page`
 - 対象 MDX のフルパス
 - 生成済み PNG ディレクトリのフルパスリスト
 - PDF テキスト・ページ画像パス（リファレンス用）
@@ -152,7 +154,7 @@ content(civil-r06-a): figure クロップ品質改善（auditor weighted 2.85）
 
 - 上下のテキスト写り込みを除去、本文との重複を解消
 - alt は答え漏らし回避ルール準拠（image-policy.md L165-177）
-- /civil-figure-rework スキルでループ実行（3反復 / max 3）
+- /civil-figure-rework スキルでループ実行（2反復 / max 2）
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
@@ -221,10 +223,10 @@ skip: `r03-a`, `r04-a`（PDF原本に図参照なし）
     ↓
 [メインスレッド: Opus]
     ├─ /civil-figure-rework が 1 ページずつ実行
-    │  ├─ [Generator: civil-exam-figure-extractor] bbox spec
+    │  ├─ [Generator: figure-crop-worker / past-exam-page] bbox spec
     │  ├─ Bash: ImageMagick crop
     │  ├─ Bash: inject-img-mdx.mjs (writeMdxFile)
-    │  ├─ [Evaluator: civil-exam-figure-auditor] 4軸スコア
+    │  ├─ [Evaluator: figure-crop-auditor / past-exam-page] 4軸スコア
     │  └─ 合格: commit / 不合格: 再ループ
     └─ 全完了: 最終サマリ
 ```
@@ -232,14 +234,14 @@ skip: `r03-a`, `r04-a`（PDF原本に図参照なし）
 ## 担当外（明確化）
 
 - **二次過去問（secondary-*）**: 対象外
-- **textbook / guide ページ**: `civil-construction-qa` の担当
+- **textbook / guide ページ**: `textbook-qa`（原典照合）・`article-proofreader`（校正）の担当
 - **手動 Preview.app 調整**: failures.log のページのみ、ユーザーが手動対応
 - **R2 アップロード**: CI（GitHub Actions）が `main` push 時に自動同期
 
 ## 参照ドキュメント
 
-- `.claude/agents/civil-exam-figure-extractor.md` — Generator agent
-- `.claude/agents/civil-exam-figure-auditor.md` — Evaluator agent
+- `.claude/agents/figure-crop-worker.md` — Generator agent（種類別の手順は `.claude/agents/profiles/crop-figure/past-exam-page.md` の「作る」）
+- `.claude/agents/figure-crop-auditor.md` — Evaluator agent（同プロファイルの「採点」）
 - `.claude/scripts/audit-exam-figures.mjs` — 既存整合監査スクリプト
 - `.claude/scripts/lib/mdx-io.mjs` — writeMdxFile（CRLF 保持必須）
 - `.claude/knowledge/reference/image-policy.md` L165-177 — 過去問図 caption/alt 厳格ルール

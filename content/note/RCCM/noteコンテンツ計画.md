@@ -21,7 +21,7 @@
 
 ## 2. 記事の型（問題III）
 
-`.claude/agents/rccm-essay-writer.md` の節構成が正。無料＝テーマの読み解き＋答案構成の設計、**有料境界 `## 模範論文`**、有料＝模範論文（1,200〜1,600 字・指定用語「」4 語以上）＋指定用語の使用チェック＋部門別置換ポイント＋採点者が見るポイント。機械ゲート `npm run check-rccm-essay -- <path> --strict`、採点 `rccm-essay-qa`（平均 ≥2.0）。
+`.claude/agents/profiles/essay/rccm.md` の節構成が正。無料＝テーマの読み解き＋答案構成の設計、**有料境界 `## 模範論文`**、有料＝模範論文（1,200〜1,600 字・指定用語「」4 語以上）＋指定用語の使用チェック＋部門別置換ポイント＋採点者が見るポイント。機械ゲート `npm run check-rccm-essay -- <path> --strict`、採点 `essay-qa`（資格 rccm）（平均 ≥2.0）。
 
 ## 3. Red Line
 

@@ -26,11 +26,12 @@
  * 検査したファイル数を出し、1 件も読めない・git が失敗したときは検査不成立（exit 2）。違反は exit 1。
  */
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { AREAS, DATASETS, KINDS, areaOf, datasetFiles, datasetsFor, freshnessProblems, listAreaFiles, matchFiles, pathMatchesId, patternOf, resolveDataset } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REF_MASTERS, checkRefs, refContext, refDeclarationError, refResolvers } from './lib/dataset-refs.mjs';
+import { WRITERS, writerBaselineProblems, writerProblems } from './lib/dataset-writers.mjs';
 import { schemaOf, validateFiles } from './lib/dataset-validate.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { findDuplicateKeys } from './lib/json-duplicate-keys.mjs';
@@ -49,7 +50,9 @@ const errors = [];
 const warnings = [];
 
 /** 台帳 1 行に書いてよいキー（d() の位置引数と opts） */
-const DECLARATION_KEYS = new Set(['id', 'path', 'kind', 'domain', 'doc', 'schema', 'immutable', 'local', 'drive', 'regen', 'planned', 'retain', 'freshness', 'refs']);
+const DECLARATION_KEYS = new Set(['id', 'path', 'kind', 'domain', 'doc', 'schema', 'immutable', 'local', 'drive', 'regen', 'planned', 'retain', 'freshness', 'refs', 'writer', 'writerNote']);
+/** 書き手が未記入の行の基準線（増やせない。埋めたら下げる。DN-1240） */
+const WRITER_BASELINE = '.claude/config/dataset-writer-baseline.json';
 /** .claude/state/ の直書きの基準線（ファイル → 件数） */
 const STATE_LITERAL_BASELINE = '.claude/config/state-path-literal-baseline.json';
 /** 台帳のパスの可変部分を、drive の group の pathRegex に当てる見本の値にする */
@@ -77,8 +80,20 @@ for (const a of ambiguous) errors.push(`${a.file}: 複数のデータセット�
 
 const domainIds = new Set(loadDomains(ROOT).domains.map((d) => d.id));
 const driveGroups = new Map(readDataset(ROOT, 'config.drive-vault').groups.map((g) => [g.id, g]));
+// 書き手（scripts/lib/dataset-writers.mjs）の参照先。実在しない名前を書いたら止める
+const dirNames = (dir) => (existsSync(join(ROOT, dir)) ? readdirSync(join(ROOT, dir), { withFileTypes: true }) : []);
+const writerKnown = {
+  scripts: new Set(Object.keys(JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')).scripts ?? {})),
+  files: (p) => tracked.includes(p),
+  automations: new Set(readDataset(ROOT, 'config.automations').automations.map((a) => a.id)),
+  skills: new Set(dirNames('.claude/skills').filter((e) => e.isDirectory()).map((e) => e.name)),
+  agents: new Set(dirNames('.claude/agents').filter((e) => e.isFile() && e.name.endsWith('.md')).map((e) => e.name.replace(/\.md$/, ''))),
+};
+const datasetIdSet = new Set(DATASETS.map((x) => x.id));
+for (const id of Object.keys(WRITERS)) if (!datasetIdSet.has(id)) errors.push(`${id}: 書き手の宣言（scripts/lib/dataset-writers.mjs）の id が台帳に無い`);
 const seen = new Set();
 for (const x of DATASETS) {
+  for (const p of writerProblems(x, writerKnown)) errors.push(`${x.id}: 書き手 — ${p}`);
   if (seen.has(x.id)) errors.push(`${x.id}: id が重複している`);
   seen.add(x.id);
   if (!/^[a-z0-9]+(\.[a-z0-9-]+)+$/.test(x.id)) errors.push(`${x.id}: id は「取得元.データセット」（英小文字・数字・ハイフン）`);
@@ -223,7 +238,18 @@ for (const x of refDatasets) {
   }
 }
 
+// 13. 書き手の未記入（DN-1240）。基準線に無い行は書き手が必須。埋めた行は基準線から消す（増やせない・戻せない）
+let writerBaseline;
+try {
+  writerBaseline = JSON.parse(readFileSync(join(ROOT, WRITER_BASELINE), 'utf8')).missing;
+} catch (e) {
+  inconclusive(`書き手の基準線 ${WRITER_BASELINE} を読めなかった（${e.message.split('\n')[0]}）`);
+}
+const { problems: writerBaselineErrors, missing: noWriter } = writerBaselineProblems(DATASETS, writerBaseline);
+for (const p of writerBaselineErrors) errors.push(`${WRITER_BASELINE}: ${p}`);
+
 const count = (pred) => DATASETS.filter(pred).length;
+console.log(`[check-datasets] 書き手: データセット ${DATASETS.length} のうち記入 ${DATASETS.length - noWriter.length}・未記入 ${noWriter.length}（基準線 ${writerBaseline.length}）`);
 console.log(
   `[check-datasets] 設定・データ・作業状態 ${files.length} ファイル / データセット ${DATASETS.length}（型あり ${typed.length}・Drive vault ${count((x) => x.drive)}・手元だけ ${count((x) => x.local)}・未着手 ${count((x) => x.planned)}）を実検査 / 型の検査 ${validated} ファイル / 重複キーの走査 ${dupScanned} ファイル / 直書きの走査 ${codeFiles.length} ファイル（名前で引ける台帳のファイル名 ${basenames.size}・.claude/state/ の直書き ${Object.keys(stateLiterals).length} ファイル ${stateLiteralTotal} 件）/ id の参照 ${idRefs} 件 / ワークフロー・package.json のパス ${settingPaths} 件 / 参照（refs）${refDatasets.length} データセット・${refFiles} ファイル・${refsChecked} 件（参照切れ ${refsBroken}・写しの不一致 ${refsMismatched}）/ 違反 ${errors.length} 件`,
 );

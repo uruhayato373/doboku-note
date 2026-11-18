@@ -18,6 +18,7 @@ import {
 } from '../../../../scripts/lib/datasets.mjs';
 import { jsonSchemaOf, validateFiles } from '../../../../scripts/lib/dataset-validate.mjs';
 import { readDatasetIf } from '../../../../scripts/lib/dataset-io.mjs';
+import { parseWriter } from '../../../../scripts/lib/dataset-writers.mjs';
 import { findRepoRoot } from './repo-root';
 import { jstDayOf } from '../../../../scripts/lib/jst-date.mjs';
 
@@ -34,7 +35,7 @@ export const STORE_AREAS = Object.keys(AREAS) as StoreArea[];
 export const isStoreArea = (v: string | undefined): v is StoreArea => !!v && v in AREAS;
 
 type Freshness = { warnDays?: number; failDays?: number };
-type Dataset = (typeof DATASETS)[number] & { immutable?: boolean; local?: boolean; planned?: boolean; schema?: unknown; freshness?: Freshness };
+type Dataset = (typeof DATASETS)[number] & { immutable?: boolean; local?: boolean; planned?: boolean; schema?: unknown; freshness?: Freshness; writer?: string[]; writerNote?: string };
 type Shape = { format: string; summary: string; rows: { path: string; type: string }[]; doc: string | null; error?: string };
 
 export type StoreNavItem = { id: string; label: string };
@@ -61,7 +62,7 @@ export interface StoreRow {
   updated: string | null;
   local: boolean;
   typed: boolean;
-  /** これを書く自動化の題名（config/automations.json の writes から）。宣言が無ければ空 */
+  /** 書き手（台帳の writer を人が読む呼び名にしたもの。scripts/lib/dataset-writers.mjs）。未記入なら空 */
   writers: string[];
   shape: string;
 }
@@ -74,6 +75,9 @@ export interface StoreDetail {
   kind: string;
   domain: string;
   flags: string[];
+  /** 書き手の呼び名（未記入なら空）と、書き手が複数のときの分担 */
+  writers: string[];
+  writerNote: string | null;
   fileDoc: string | null;
   schema: { rows: { path: string; type: string; description: string | null }[]; checked: number; errors: { file: string; message: string }[] } | null;
   shape: Shape | null;
@@ -131,12 +135,19 @@ function codeRefs(root: string, token: string): string[] {
   }
 }
 
-/** 台帳 id → それを書く自動化の題名（config/automations.json の writes の逆引き。宣言が無ければ空） */
-function writersByDataset(root: string): Map<string, string[]> {
-  const out = new Map<string, string[]>();
-  const automations = (readDatasetIf(root, 'config.automations') as { automations?: { title: string; writes?: string[] }[] } | null)?.automations ?? [];
-  for (const a of automations) for (const id of a.writes ?? []) out.set(id, [...(out.get(id) ?? []), a.title]);
-  return out;
+/** 台帳の writer（'script:product' など）を人が読む呼び名にする関数を返す。自動化は題名で出す（config/automations.json） */
+export function writerLabeler(root: string): (writer: string) => string {
+  const automations = (readDatasetIf(root, 'config.automations') as { automations?: { id: string; title: string }[] } | null)?.automations ?? [];
+  const titles = new Map(automations.map((a) => [a.id, a.title]));
+  return (writer) => {
+    const p = parseWriter(writer) as { kind: string; name: string } | null;
+    if (!p) return writer;
+    if (p.kind === 'human') return '手で編集';
+    if (p.kind === 'automation') return titles.get(p.name) ?? p.name;
+    if (p.kind === 'script') return `npm run ${p.name}`;
+    if (p.kind === 'skill') return `/${p.name}`;
+    return p.name;
+  };
 }
 
 export function loadStoreView(area: StoreArea, domainId?: string, datasetId?: string): StoreView {
@@ -149,7 +160,7 @@ export function loadStoreView(area: StoreArea, domainId?: string, datasetId?: st
     const tracked = new Set(listAreaFiles(root, area, { tracked: true }) as string[]);
     const { byId, unmatched } = matchFiles(files) as { byId: Map<string, string[]>; unmatched: string[] };
     const sets = (DATASETS as Dataset[]).filter((x) => areaOf(x) === area);
-    const writers = writersByDataset(root);
+    const writerLabel = writerLabeler(root);
     const filesOf = (x: Dataset) => byId.get(x.id) ?? [];
     const name = (x: Dataset) => x.path.slice(dir.length + 1);
 
@@ -177,7 +188,7 @@ export function loadStoreView(area: StoreArea, domainId?: string, datasetId?: st
               updated: st ? day(st.mtimeMs) : null,
               local: !!x.local || (list.length > 0 && list.every((f) => !tracked.has(f))),
               typed: !!x.schema,
-              writers: writers.get(x.id) ?? [],
+              writers: (x.writer ?? []).map(writerLabel),
               shape: x.schema ? '型あり' : shape ? shapeLabel(shape) : x.planned ? '未着手' : '—',
             };
           })
@@ -206,6 +217,8 @@ export function loadStoreView(area: StoreArea, domainId?: string, datasetId?: st
         kind: KINDS[hit.kind as keyof typeof KINDS] ?? hit.kind,
         domain: hit.domain,
         flags: [hit.immutable && '中身を変えない', hit.local && '手元だけ（git 管理外）', hit.planned && '未着手（ファイルなし）', hit.freshness && freshnessLabel(hit.freshness)].filter(Boolean) as string[],
+        writers: (hit.writer ?? []).map(writerLabel),
+        writerNote: hit.writerNote ?? null,
         fileDoc: doc,
         schema: checked ? { rows: schemaRows(jsonSchemaOf(hit)), ...checked } : null,
         shape: !hit.schema && list[0] ? (inferShape(root, list[0]) as Shape) : null,

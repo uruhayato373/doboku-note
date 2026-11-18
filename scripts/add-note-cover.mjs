@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // content/note 配下 article.md の frontmatter に G2 用 cover: ブロックを CRLF 安全に注入する。
 //
-// note-cover-writer エージェント（および手動運用）が生成した cover spec を
+// 親（手動運用。旧 note-cover-writer エージェントは 2026-11-18 に退役）が生成した cover spec を
 // 決定論的にファイルへ書き込むためのヘルパー。直接 writeFileSync による CRLF 混在を防ぐ
 // （既存 note ファイルは CRLF。本スクリプトは全体を CRLF 正規化して書き戻す）。
 //

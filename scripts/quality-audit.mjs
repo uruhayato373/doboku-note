@@ -43,7 +43,8 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import net from 'node:net';
 import { parseCliArgs } from './lib/cli-args.mjs';
-import { datasetPath } from './lib/datasets.mjs';
+import { datasetDir, datasetPath } from './lib/datasets.mjs';
+import { listRunIds } from './lib/run-audit.mjs';
 import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { runCheckedCommand, UNIT_TEST_TIMEOUT_MS } from './lib/check-execution.mjs';
@@ -274,6 +275,8 @@ export const CHECKS = [
   { id: 'moshimo-report-due', cmd: ['node', 'scripts/moshimo-report.mjs', '--check'], timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: '前月・当月のサイト帰属・期間・実検査件数・10日以内の取得を検算。土曜の収集の verify と週次レビューが失敗を読む。' },
   { id: 'a8-report-due', cmd: ['node', 'scripts/check-a8-report-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: 'A8 成果レポートの取り込み（土曜の Mac の収集 weekly-collect の a8 段・手動は /a8-report）が台帳 a8.ui-last-run の warnDays を超えて止まっていないか、取得の後に台帳が進んでいない（書き戻しが落ちた）か。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
   { id: 'gsc-ui-due', cmd: ['node', 'scripts/check-gsc-ui-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: 'GSC UI の理由別 CSV 取得（土曜の Mac の収集 weekly-collect の gsc 段・月次）が台帳 gsc.ui-last-run の failDays を超えて止まっていないか（期日は warnDays・期日の後の最初の土曜に取る）。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
+  { id: 'gsc-ui-run', cmd: ['node', 'scripts/check-gsc-ui-run.mjs'], timeout: 60_000, ci: false, ops: true, cadence: 'collect', note: 'GSC 画面取得の最新 run（raw CSV・manifest・normalized）の欠損・行数・sha256・1,000 件上限・rejects・前回差分・schema（旧 gsc-csv-auditor・DN-1242）。raw は取得した Mac にしか無いので、読み手＝土曜の収集の gsc 段の検算（落ちれば段が failed になる＝週次レビューの収集の合否）。run が無い端末は skip（SSOT の整合は check-google-ui-ssot）', skip: () => (listRunIds(join(ROOT, datasetDir('gsc.ui-raw'))).length ? null : 'GSC の raw run が無い（gitignore・取得した Mac にだけある）') },
+  { id: 'a8-ui-run', cmd: ['node', 'scripts/check-a8-ui-run.mjs'], timeout: 60_000, ci: false, ops: true, cadence: 'collect', note: 'A8 の収集済み CSV・正規化結果の品質とサイト帰属（mediaId・siteSummary の自サイト行・crossCheck・重複キー・sha256・期待 4 レポート・前回差分）。旧 a8-csv-auditor・DN-1242。読み手＝土曜の収集の a8 段の検算（落ちれば段が failed になる＝取り込み不可の判定）。台帳層（report-log）はどの端末でも読める' },
   { id: 'competitor-scan-due', cmd: ['node', 'scripts/check-competitor-scan-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, cadence: 'weekly', note: '競合・市場の再スキャンが 90 日を超えていないか（note/coconala は土曜の収集の competitors 段の停止の backstop、x・youtube・market は手動、ig は SNS 保留中）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
   { id: 'gsc-indexing-due', cmd: ['node', 'scripts/check-gsc-indexing-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: '表示実績のある未登録 URL が残るのに、台帳 gsc.indexing-history の warnDays の間に登録リクエストが無い＝土曜の Mac の収集（weekly-collect の gsc 段・週 10 件）が止まっている。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
   { id: 'gsc-sitemaps-due', cmd: ['node', 'scripts/check-gsc-sitemaps.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, note: 'sitemap の送信・Google の読み込み（fetch-metrics.yml が書く sitemaps-latest.json）の異常と記録の古さ。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
@@ -285,7 +288,7 @@ export const CHECKS = [
   { id: 'weekly-collect', npm: 'check-weekly-collect:alive', timeout: 30_000, ci: false, ops: true, note: '土曜の Mac の収集（ログインが要る取得と書き込み・weekly-collect）の死活。直近の pre と post が台帳 state.weekly-collect の failDays 以内に回ったかだけを見る（Mac が寝ていた・launchd が外れた）。段ごとの合否は土曜に Issue channel weekly-collect と週次レビュー（check-weekly-collect）が読み、毎日は繰り返さない（DN-0847）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）（DN-0819）' },
   // カタログ↔listings↔画像↔受注／KPI／売上の整合と、PDF 商品の価格ルール（note より安く売らない）。結果はリポジトリの差分だけで決まる。
   { id: 'coconala-wiring', npm: 'check-coconala-wiring', timeout: 60_000, ci: true, note: 'pre-commit（--staged）だけだと hook を通らない commit や note 価格の変更で取りこぼすため CI でも全件検査（2026-09-23）' },
-  { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales.json の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
+  { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales.json の productId と note-magazines.ts の公開済み単品が sales-product-map.json の mapping に文書化されているか（初売上前の新商品も先行検知）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
   { id: 'cta-surfaces', npm: 'check-cta-surfaces', timeout: 120_000, ci: true, note: 'サイトの広い面（資格トップ・横の欄・記事末のタイル・/links の先頭）の案内先の台帳（site-cta-surfaces.json）: 資格の行の漏れ・商品の公開・試験日の行事と窓の重なり・もくじの有無・コードの直書き（DN-1223）' },
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）と、1級・2級土木の公開記事に CTA ゼロのページが無いか。baseline 外の新規 0 面・ゼロページで落ちる' },
@@ -318,8 +321,6 @@ export const CHECKS = [
     { label: 'sns-urls-note', cmd: ['node', 'scripts/check-sns-urls.mjs', '--note'], timeout: 60_000, note: 'note 本文コーパス（content/note/**/*.md・全量のみ・pre-commit では走らない）' },
   ] },
   // ── ops（運用アラート）── 壁時計依存。PR の diff では直せないので ci:true に置かない（ヘッダ「設計」参照）。
-  { id: 'membership-drip', npm: 'check-membership-drip', timeout: 30_000, ci: false, ops: true, note: '会員配信ドリップの遅れ・実体欠落。配信表(README)が真実源で、予定日を GRACE_DAYS 以上過ぎた未配信は赤。2026-08-27 に学科02が2日遅れで沈黙していた（カード側の日付が正典とずれていて気づけなかった）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-18 まで ci 区分に居て 30 日に 13 回 Pre-merge を落としていたため ops へ移した' },
-  { id: 'note-membership', npm: 'check-note-membership', timeout: 60_000, ci: true, note: 'メンバーシップの会費/定員/planId が SSOT config と一致するか。note は会費を変更できずプラン作り直しが唯一の手段なので、ドリフト放置は修復不能に近づく（--live は実機突合・ローカル専用）。退役済み（config の retiredAt）は SKIP と理由を出し、公開状態だけ見る' },
   // 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。未登録タグ・別名綴り・構造タグ不整合は baseline ラチェット
   // （content-taxonomy-baseline.json）。WARN（topic 三方向の 0 件・未使用タグ）の読み手＝/weekly-review Phase 2。
   { id: 'content-taxonomy', npm: 'check-content-taxonomy:ci', timeout: 60_000, ci: true, note: '領域×資格×記事型×テーマ×タグの整合（規則 content-taxonomy.md）。未登録タグ／別名綴り／構造タグ不整合は baseline ラチェット。WARN の読み手＝/weekly-review Phase 2' },
@@ -409,9 +410,11 @@ export const CHECKS = [
   { id: 'git-binary-policy', npm: 'check-git-binary-policy', timeout: 120_000, ci: true, note: '生成物・著作権物・巨大 blob・拡張子偽装の新規追跡を baseline ラチェットで止める（HEAD 4.16GiB / remote 11GB の再発防止）' },
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: false, ops: true, cadence: 'weekly', note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847））。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。デッドコードが baseline から増えていないか' },
   { id: 'cta-density', npm: 'check-cta-density', timeout: 90_000, ci: true, note: 'ビルド済み out/ の記事カード内 note 密度・商品重複と転職広告の配置を検査する。対象 HTML が 0 件なら失敗するため、CI は build 後に --only cta-density を実行する', skip: () => existsSync(join(ROOT, 'out', 'index.html')) ? null : 'ビルド成果物 out/index.html が無い（CI は build ジョブが build 後に --only cta-density で回す）' },
+  { id: 'technical-seo', cmd: ['node', 'scripts/report-technical-seo.mjs'], timeout: 60_000, ci: false, note: '技術 SEO の記録（build 検査の履歴・seo-meta・index-coverage・sitemap）の悪化と欠測を数える（旧 technical-seo-auditor・DN-1242）。入力はコミット済みの記録だけで CI でも走る。読み手＝/google-search-growth（--json を親が読み、何を先に直すかを決める）。FAIL は weekly-review-guard の report digest が Issue へ集約' },
+  { id: 'psi-regression', cmd: ['node', 'scripts/report-psi-regression.mjs'], timeout: 60_000, ci: false, note: 'PSI の履歴から重大度（Critical は field が AVERAGE/SLOW のときだけ）と回帰（直近 5 バッチの中央値）を決める（旧 performance-auditor・DN-1242）。入力はコミット済みの PSI 履歴（台帳 psi.batch）。読み手＝/psi-audit・/google-search-growth・/gsc-review（--json を親が読み、改善案を決める）と週次レビュー（inputs の report-psi-regression）。Critical は weekly-review-guard の report digest が Issue へ集約' },
   {
     id: 'seo-meta', npm: 'check-seo-meta', timeout: 300_000, ci: false,
-    note: '読み手＝/seo-growth-review と technical-seo-auditor。build 済み out/ を直接検査し、weekly-review-guard の report digest でも拾う',
+    note: '読み手＝/google-search-growth（親が読む）。build 済み out/ を直接検査し、weekly-review-guard の report digest でも拾う',
     skip: () => existsSync(join(ROOT, 'out', 'sitemap.xml')) ? null : 'ビルド成果物 out/sitemap.xml が無い（npm run build 後に実行）',
   },
   // 週次レビューが読む収益カバレッジ集計が「実行できる」ことを毎回確かめる（ci ゲート）。

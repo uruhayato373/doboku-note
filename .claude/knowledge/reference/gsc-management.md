@@ -25,7 +25,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4。あわせて本番 robots.txt の sitemap を Search Console API で送信し読み込み状況を記録（`gsc-sitemaps`・ログイン不要）。成長パック（前の完了週×28 日基線の GA4/GSC 全件）・Bing・GA4 Admin API の観測・実験の自動計測・機会ダイジェストも同じ run で作る（[growth-cycle.md](growth-cycle.md)） | API → `data/{gsc,ga4}/・data/analysis/growth/・data/bing/` |
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc.page-query` 含む）→ `improvements/*.md` |
-| `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
+| `report-psi-regression`（Script） | PSI の重大度・回帰の判定（旧 performance-auditor・DN-1242） | CWV / PSI | psi → JSON（親が読む） |
 | **GSC の記録層（`scripts/scheduled/weekly-review.sh` の run_gsc_record）** | **土曜の Mac（収集の前段と後段の間・2026-10-25〜・DN-0849。旧 CI の `gsc-auto-review.yml`）** | **記録層の自動化**。ヘッドレスの Claude Code が `scripts/scheduled/gsc-record-prompt.md` に沿って断片を `.tmp/claude-out/gsc/` に書き、`scripts/apply-gsc-records.mjs` が検査して追記・push する（Claude は `.claude/` に書けない）。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し coverage エントリ（見出し `（coverage・自動レビュー）`・旧称 月次）を追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
 | `/gsc-review` | Skill（月次・**手動**） | 土曜の GSC の記録層の応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記。＋月 1 回の画面の実査 4 項目（メッセージ・生成 AI 機能の表示・外部リンク・クロールの統計情報） | — |
 | `/weekly-improve` | Skill（週次・**手動**） | 同上（performance 側）。metrics-analyzer 起動 | — |
@@ -590,7 +590,7 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   - 他 5 件（scraper メタ実験・/tools/keiken-charcount 導線・/practice/ クラスタ・pe-first-stage・chubu 1-3 bot 疑い）→ improvements/2026-09-25.md
 - トリアージ待ち（処分は土曜週次レビューの growth-triage が決める）:
   - OPP-2ee0d7aa00（High-Impr-Low-CTR）→ `/nsm-experiment propose`（メタ実験・単独 URL）
-  - OPP なし・自抽出（Hidden-Winner: civil-construction-2 secondary クラスタ）→ strategy-advisor / 週次レビューで昇格判断
+  - OPP なし・自抽出（Hidden-Winner: civil-construction-2 secondary クラスタ）→ 週次レビュー（親）で昇格判断
   - OPP-09ce18f721（Cannibalization）→ 保留寄り（part-N 復帰後の coverage 確認が先）
   - OPP-07ad782c8d（High-Impr-Low-CTR: scraper）→ 小規模のためメタ実験の同梱候補（5 URL 上限内）
 - 注記: 自動生成・人間の上書き歓迎。Orphan-Query 0 件は「該当なし」ではなく「pos>30 の 140 クエリに専用ページが既存」という別事象（index 側の確認を gsc-index-auditor へ回付）。youtube/video が前週 8→今週 0 で行ごと消滅（投稿停止か計測欠落かの現物確認を推奨）

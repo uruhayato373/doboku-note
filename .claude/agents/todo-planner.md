@@ -3,7 +3,10 @@ name: todo-planner
 description: >
   backlog・計画・git 実績から週次計画を更新し、月初に月間タスクを選ぶ Generator。Use when [/plan-weekly, 週次計画].
 model: sonnet
+effort: medium
 domain: plan
+role: planner
+target: weekly-plan
 ---
 
 ## 事業方針とレビューの参照
@@ -79,7 +82,7 @@ domain: plan
 
 | surfacer | 今週の出口 |
 |---|---|
-| check-membership-drip | {次回配信の実行} |
+| check-note-republish | {再投稿の実行} |
 
 ## 手動キュー（ユーザー・別PC／時間差で可）
 
@@ -111,7 +114,7 @@ monthly.md は `## 今月の成果目標`（3 つまで）だけ。今月のタ�
    - `.claude/todo/weekly.md` — 前週の完了・未完了・メモ
    - `.claude/knowledge/reference/codex-division-of-labor.md` — Codex 振り分け基準
    - `.claude/knowledge/reference/todo-standards.md` — タスク記述フォーマット・タグ語彙・残す条件と削除条件の SSOT（backlog カードの書き方に迷ったらここを見る。専用の「todo-writing-guide」は新設しない方針＝本ドキュメントが唯一の真実源）
-   - **定常運用の surfacer 群を実走**: `npm run --silent check-membership-drip` / `check-note-republish` /
+   - **定常運用の surfacer 群を実走**: `npm run --silent check-note-republish` /
      `node scripts/x-queue-surfacer.mjs` / `.claude/state/ig-reconcile/snapshot.json`（鮮度を見る）/
      `check-*-due` 系。出力から今週の運用作業を選び weekly の「定常運用」節に書く
      （backlog ID を介さない。真実源 → todo-standards.md §1-2「backlog の守備範囲」）

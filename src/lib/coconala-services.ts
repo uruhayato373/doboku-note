@@ -113,7 +113,7 @@ export interface CoconalaService {
  *      thumb-<id から coconala- を除いた key>.png を生成
  *   3. コンテンツPDF商品(C系)なら: scripts/build-coconala-content-pdf.mjs の PRODUCTS に源記事を追加
  *      → npm run coconala-content-pdf（funnel 除去＋note URL 0件検証）
- *   4. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表＋.claude/knowledge/reference/sales-tracking.md
+ *   4. 売上記録: config/sales-product-map.json の productId マッピング表＋.claude/knowledge/reference/sales-tracking.md
  *   5. ドキュメント: .claude/knowledge/reference/coconala-operations.md のサービス表＋ココナラ展開キット.md §2
  *   6. check-coconala-wiring.mjs が pre-commit で catalog↔listings↔商品画像↔state↔sales の
  *      整合/カバレッジを機械検知する（listings/画像の漏れ・serviceUrl 空・受注額と定価の不一致・PDF 価格ルール違反で落ちる）。
@@ -491,7 +491,7 @@ const SERVICES_RAW = {
   },
   // C8: 1級 二次 予想模擬試験3回（問題冊子＋解答解説）。
   //   源=C6 学科記述論点＋C1 出題分析から build-once 生成（新規事実ゼロ・出題保証しない）。
-  //   Red Line #10 例外運用（模試=公開時点で固定した静的3回分／会員フロー=更新型予想ドリップで差別化）。
+  //   模試は公開時点で内容を固定した静的3回分（更新型の予想配信はしない）。
   //   2026-08-05: 不在休止（8/6-8/16）の**例外としてこの1件だけ受付再開**（運営者判断）。
   //   理由=本サービスの購入者へ送った見積り提案（16冊セット ¥7,500・購入期限 8/12）が
   //   コンビニ払いで購入待ちの状態にあり、購入期限が不在期間と丸ごと重なる。決済・取引導線に

@@ -8934,6 +8934,182 @@
       "commit": "fc539a25aca5",
       "verification": "本番 PC 1440 の代表 7 ページで、目次が本文の上・右の欄の最後の組がページ末尾の 1.4〜1.9k 手前・横はみ出し 0・ピクセル重複 0・固定と欄内スクロール 0 を実測。site-visual-review で代表 16 ページ × 3 幅を目視し、全部合格（台帳 2026-11-16）",
       "note": "段 0 の集計は #1619（本番 2,103 URL × PC/スマホ・右の欄の空き 61%）。段 1〜3 は #1619・#1620・#1621、基準書の表と E2E の修正 #1624。本番 d02274ddd に反映。EXP-065 登録済み。"
+    },
+    {
+      "id": "DN-1234",
+      "at": "2026-11-17",
+      "task": "deploy:main が gh run watch の途中終了をデプロイ失敗と誤判定する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/deploy-main.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "065f2ebb1336",
+      "verification": "node --test tests/deploy-main.test.mjs・2026-11-17 の deploy:main 2 回が exit 0",
+      "note": "#1643"
+    },
+    {
+      "id": "DN-1232",
+      "at": "2026-11-17",
+      "task": "exam-hub-civil1（/exam/civil-construction-1）が画面の点検で不合格（cta）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/rail-continuation.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "065f2ebb1336",
+      "verification": "site-visual-review 20261117T092839Z で pass",
+      "note": "#1644・1 組目のバナーを外した"
+    },
+    {
+      "id": "DN-1233",
+      "at": "2026-11-17",
+      "task": "exam-hub-cem（/exam/pe-comprehensive-management）が画面の点検で不合格（cta）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/rail-continuation.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "065f2ebb1336",
+      "verification": "site-visual-review 20261117T092839Z で pass",
+      "note": "#1644・DN-1232 と同じ原因"
+    },
+    {
+      "id": "DN-1228",
+      "at": "2026-11-17",
+      "task": "スマホ幅で記事内の広告が読み込まれず 391px の空白が残る",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/measurement-incidents.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "065f2ebb1336",
+      "verification": "Playwright のスマホ幅（Pixel 7）で本番の記事を読み進め、記事内の 2 枠とも 430px の広告で埋まった",
+      "note": "#1645・#1647。空白は隠れた内部ブラウザで描画が止まった見かけ。画面に入ってから 8 秒たっても要求の無い枠を畳む安全網を足した"
+    },
+    {
+      "id": "DN-1229",
+      "at": "2026-11-17",
+      "task": "スマホ幅でマルチプレックス広告が約 1,600px の高さになり回遊の導線を押し出す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "065f2ebb1336",
+      "verification": "記事末の枠は ArticleFooter（関連記事・note）の後ろで、本番のスマホ幅で要求後に unfilled なら 0px に畳まれる",
+      "note": "#1645 で data-matched-content-*（スマホ 4 行 1 列）を指定。関連記事は広告より上にあり、押し出していない"
+    },
+    {
+      "id": "DN-0876",
+      "at": "2026-11-17",
+      "task": "note メンバーシップ「建設業×AI」を立てる: プラン・説明文・限定記事2本・入口を用意して公開する",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fcb6d355036d",
+      "verification": "none",
+      "note": "取りやめ（2026-11-17 運営者決定: 月額の会員制は今後やらない。高単価はココナラの診断→添削→指導で作る。docs/strategy/22 §5）"
+    },
+    {
+      "id": "DN-0919",
+      "at": "2026-11-17",
+      "task": "季節の谷を埋められたかを判定する: 建設業×AI メンバーシップ（DN-0876）の会費が 8〜9 月型の売上の谷をどれだけ下支えしたかを 3 か月で数える",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fcb6d355036d",
+      "verification": "none",
+      "note": "取りやめ（2026-11-17 運営者決定: 月額の会員制は今後やらない。高単価はココナラの診断→添削→指導で作る。docs/strategy/22 §5）"
+    },
+    {
+      "id": "DN-1240",
+      "at": "2026-11-18",
+      "task": "データ台帳に書き手の欄を足し、検査で止める（役割分担の見直し・第2段階）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "acc7037de1f5",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0901",
+      "at": "2026-11-18",
+      "task": "測量士・舗装の公開済み note 商品の価格を競合と比べて決め直す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "価格の判断で再発防止の対象がない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5ece294a750a",
+      "verification": "npm run check-backlog-schema",
+      "note": "運営者決定（2026-11-18）: 測量士・舗装の全 8 商品を据え置き。試験の 14 日後に revenue-calendar の judgmentDaysAfter で再判定（目安: 閲覧 100 件超で購入 0 なら値下げ検討）。記録は各 noteコンテンツ計画.md（5ece294a7）"
+    },
+    {
+      "id": "DN-1241",
+      "at": "2026-11-18",
+      "task": "領域ごとの担当表と文書の持ち主を決め、エージェントに役割と対象を付ける（役割分担の見直し・第3段階）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2e4c0a6a333a",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1242",
+      "at": "2026-11-18",
+      "task": "エージェントを役割で分け直し、機械で決まる検査をスクリプトへ寄せる（役割分担の見直し・第4段階）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "91637f0033ff",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0798",
+      "at": "2026-11-18",
+      "task": "呼び出しの記録から、使われていない・役割が重なるスキルを統合・退役する（拡張性・第3波）",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "732ee4c00763",
+      "verification": "npm run check-domains",
+      "note": "エージェント21体（退役6・残す15）とスキル100本（統合2・残す98）の判断を記録。PR #1658・#1659・#1660。hook の撤去は DN-1246 へ移した"
     }
   ]
 }

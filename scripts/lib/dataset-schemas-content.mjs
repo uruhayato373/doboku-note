@@ -129,7 +129,7 @@ export const ConfigChannelAnnualPlan = z.object({
   reviewRule: z.string().min(1),
   shortsRule: z.object({
     parentStatus: z.array(z.enum(['published', 'scheduled'])).min(1).describe('親の通常動画がこの状態になってからショートを作る（通常動画の展開に合わせる）'),
-    stockParentStatus: z.array(z.enum(['qa_passed', 'approved', 'scheduled', 'published'])).min(1).optional().describe('ショートを在庫まで作ってよい親の状態。公開は parentStatus に進んでから（2026-11-11）'),
+    stockParentStatus: z.array(z.enum(['qa_passed', 'approved', 'rendered', 'uploaded_private', 'scheduled', 'published'])).min(1).optional().describe('ショートを在庫まで作ってよい親の状態。公開は parentStatus に進んでから（2026-11-11）'),
     perLongform: z.number().int().positive().describe('通常動画 1 本を親にするショートの上限'),
     trial: z.object({
       max: z.number().int().positive().describe('枠にショートの割り当てが無い親から作るショートの合計の上限'),

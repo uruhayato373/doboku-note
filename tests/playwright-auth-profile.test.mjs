@@ -258,7 +258,6 @@ test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照す
     'scripts/kdp-batch.mjs',
     'scripts/kdp-publish.mjs',
     'scripts/kdp-report.mjs',
-    'scripts/check-note-membership.mjs',
     'scripts/coconala-rate-buyer.mjs',
     'scripts/coconala-research.mjs',
     'scripts/scout-coconala-blogs.mjs',
@@ -267,7 +266,6 @@ test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照す
       'account-name', 'append-cta', 'append-list-links', 'article-price-sweep',
       'attach-file', 'comment-reply', 'delete-note', 'edit-magazine', 'edit-session',
       'magazine-add-articles', 'magazine-cover', 'magazine-create',
-      'membership-plan-create', 'membership-plan-edit', 'membership-plan-status',
       'publish-discover', 'publish', 'sales-fetch', 'sync-tags', 'update-body',
     ].map((name) => `scripts/note-${name}.mjs`),
   ];

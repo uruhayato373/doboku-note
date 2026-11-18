@@ -2,7 +2,7 @@
 name: competitor-review
 category: management
 description: >
-  note / X / Instagram / ココナラの競合を四半期に再取得し、ドリフト検出→competitor-analyst の評価→承認後に SSOT へ反映する。Use when user asks to [競合を再調査, 競合レビュー, 競合分析を更新, /competitor-review].
+  note / X / Instagram / ココナラの競合を四半期に再取得し、ドリフト検出→チャネル別の analyst（sales-competitor-analyst／content-competitor-analyst）の評価→承認後に SSOT へ反映する。Use when user asks to [競合を再調査, 競合レビュー, 競合分析を更新, /competitor-review].
 user-invocable: true
 domain: strategy
 ---

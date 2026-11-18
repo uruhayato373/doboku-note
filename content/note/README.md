@@ -2,7 +2,7 @@
 
 このディレクトリが note.com 記事の唯一の真実源（SSOT）です。2026-05-29 に試験別ディレクトリへ再編、**2026-06-11 に戦略 SSOT の体系を整理**しました。
 
-本書は **note チャネルの資格別実行 SSOT**（価格・リリース・マガジン・メンバーシップ）です。全資格共通の**横断戦略**（プロダクト・設計思想・事業・収益化方針）は [../project/01_戦略/README.md](../../docs/strategy/README.md) を参照。
+本書は **note チャネルの資格別実行 SSOT**（価格・リリース・マガジン）です。全資格共通の**横断戦略**（プロダクト・設計思想・事業・収益化方針）は [../project/01_戦略/README.md](../../docs/strategy/README.md) を参照。
 
 ## 戦略 SSOT の体系（どこを読むか）
 
@@ -11,7 +11,7 @@
 | 総監 note 戦略・進捗・価格企画 | `技術士総監/noteコンテンツ計画.md`（マガジン構成の決定記録は `技術士総監/総監マガジン構成_決定2026.md`） |
 | 建設部門 note 戦略・価格企画 | `技術士建設部門/noteコンテンツ計画.md` |
 | コンクリート主任技士 note 商品構成（立場別の再収録） | `コンクリート主任技士/noteコンテンツ計画.md` |
-| 1級・2級土木 note 戦略（メンバーシップ含む） | `1級・2級土木/noteコンテンツ計画.md`（買い切りマガジンの実装詳細は各級プランへ委譲） |
+| 1級・2級土木 note 計画 | `1級・2級土木/noteコンテンツ計画.md`（買い切りマガジンの実装詳細は各級プランへ委譲） |
 | 実価格・noteUrl・公開状態 | `config/products.json`（`npm run product -- set` で書き、`src/lib/note-magazines.ts` へ `gen` で生成。照合は `npm run verify-note-magazines`） |
 | 全記事を横断して引く（URL・ID・状態・価格・所属マガジン） | `.claude/state/note-published.json`（frontmatter と note-magazines.ts から生成。`npm run build-note-catalog`） |
 | 記事・マガジンへの回遊/購入導線（資格別 3 層） | `.claude/knowledge/reference/note-funnel-architecture.md`（監査は `npm run audit-note-funnel`、機械可読は `config/note-funnel.json`） |
@@ -35,16 +35,15 @@ content/note/
   技術士一次/                # 2026-07-11 新設（Kindle 択一の note 従チャネル）
     一次択一-過去問PDF/article.md   # 基礎・適性・専門 全560問 PDF（単発有料）
   1級・2級土木/                  # 2026-06-12 統合: 1級土木・2級土木を級サブdirへ集約
-    noteコンテンツ計画.md     # 1級・2級横断の戦略 SSOT（メンバーシップ含む）
-    メンバーシップ説明文.md
+    noteコンテンツ計画.md     # 1級・2級横断の計画（買い切り）
     経験記述-落ちる答案診断-無料/  # 無料リードマグネット
     1級土木/
-      1級土木施工経験記述プラン.md   # 会員ベース層コンテンツ制作プラン
+      1級土木施工経験記述プラン.md   # 買い切りマガジンの制作プラン
       1級土木-集客記事クラスター.md  # 無料集客記事クラスター（A層）
       {slug}/article.md
       magazines/{magazine}/...
     2級土木/
-      2級土木施工経験記述プラン.md   # 会員ベース層コンテンツ制作プラン
+      2級土木施工経験記述プラン.md   # 買い切りマガジンの制作プラン
       2級土木-集客記事クラスター.md  # 無料集客記事クラスター（A層＋B層）
       2級経験記述-添削テンプレ.md    # 添削半自動化テンプレ
       {slug}/article.md
@@ -76,8 +75,8 @@ content/note/
 
 ### 1級・2級土木（`1級・2級土木/`・`1級土木/`・`2級土木/`）
 
-- **横断戦略 SSOT**: `1級・2級土木/noteコンテンツ計画.md` — **ライブラリ内包メンバーシップ「土木セコカン合格ラボ」**（2026-07-01 転換・2026-09-30 撤退）。完成答案・過去問（買い切りマガジン）を会員特典に内包＝会員読み放題＝入会の引き金／FLOW（月例予想＋毎週添削）が引き止め・LTV本体。買い切りは廃止せず¥9,800パックをアンカー化。会員＝通年プラン ¥1,480/月＋添削つきプラン **¥4,980/月**（2026-08-06 に ¥2,980 から改定）・定員 20・シーズン制。設計・級別サブ文書の索引
-- **買い切りマガジン（販売継続・過去問/完成答案）**: 1級 完成答案集・2テーマ組合せ大全・過去問模範答案集・完全攻略パック／2級 完成答案集ほか（**会員特典マガジンにも内包＝会員読み放題**・買い切りは廃止せずアンカー化。制作詳細は各級プラン文書、モデルは計画 §1.4）
+- **横断の計画**: `1級・2級土木/noteコンテンツ計画.md` — 買い切り（単品 → マガジン → まるごとパック）だけを売る。添削・指導はココナラで受ける。級別サブ文書の索引も同書。
+- **買い切りマガジン（販売継続・過去問/完成答案）**: 1級 完成答案集・2テーマ組合せ大全・過去問模範答案集・完全攻略パック／2級 完成答案集ほか（制作詳細は各級プラン文書）
 - **無料リードマグネット**: 模範解答サンプル＋落ちる答案診断（コールド客のトラスト導線・計画 §3.3）
 - **無料集客**: 級別クラスター（1級 A層 5 本 / 2級 A層 5 本＋B層 5 本）
 
@@ -97,7 +96,7 @@ content/note/
 - **問題I 部門別記入例**: 上水道・下水道・土質及び基礎（各¥1,980・各2例・PDF付き・2026-09-19公開）。既存テンプレの道路・河川砂防・鋼構造コンクリートと合わせ6部門。2,400字は練習用の目安。問題IV-2は対象外。
 - **無料**: `RCCMもくじ`（L2）＋ lead-in 3 本（指定語の使い方／落ちる業務経験論文／CBT 直前 2 週間の学習計画・2026-09-17 公開済み）
 - **試験事実の SSOT**: `RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`（協会の出題テーマ PDF が一次出典。過去問は事務局非公開＝問題文の転載禁止・全て自作）
-- **戦略 SSOT**: `RCCM/noteコンテンツ計画.md`。Generator/Evaluator は `rccm-essay-writer` / `rccm-essay-qa`、機械ゲートは `npm run check-rccm-essay`
+- **戦略 SSOT**: `RCCM/noteコンテンツ計画.md`。Generator/Evaluator は `essay-writer`（資格 rccm） / `essay-qa`（資格 rccm）、機械ゲートは `npm run check-rccm-essay`
 
 ### コンクリート主任技士（`コンクリート主任技士/`）
 
@@ -135,7 +134,7 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 - note 側で直接変わった（ずれた）: 土曜の Mac の収集の note-audit 段（weekly-collect・公開 API）の `note-reconcile-title-price` が見つけて「note へ未反映」に戻し、上と同じ経路で原稿の値に戻る
 - 公開済みで title / price が無い・見出し 1 が title と違う: `check-note-price-consistency` の L0 が commit を止める
 
-`noteContentType` は記事の役割を示す必須分類。`product` は有料商品・会員商品、`index` は資格別もくじ、`learning` は無料の試験学習記事、`career` は転職・年収・資格活用、`editorial` は一般的な雑談・運営・体験談に使う。価格やマガジン収録とは別軸で、分類の正本は各記事の frontmatter とする。
+`noteContentType` は記事の役割を示す必須分類。`product` は有料商品、`index` は資格別もくじ、`learning` は無料の試験学習記事、`career` は転職・年収・資格活用、`editorial` は一般的な雑談・運営・体験談に使う。価格やマガジン収録とは別軸で、分類の正本は各記事の frontmatter とする。
 
 
 ### `noteSeries` と `noteMagazine` の境界（DN-0125・2026-08-26 決定）
@@ -150,7 +149,7 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 | `noteSeries` | **表示用の編集ラベル**（カバー生成の系列名・もくじ index の判定マーカー） | `noteMagazine` と語尾が異なってよい自由記述（例: 「…小論文」と「…小論文集」）。特殊値 `総合案内` はもくじ index ページを示し、`note-lint` 経由で markdown リンク列挙を許容する |
 
 **noteMagazine が正**（商品を特定する必要がある処理）: マガジン収録数の突合（`check-magazine-membership`）・note 公開時の価格/CTA 解決（`note-publish.mjs`）。
-**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`note-cover-writer`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・記事カタログの系列表示（`build-note-published-index.mjs`）。
+**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`scripts/add-note-cover.mjs`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・記事カタログの系列表示（`build-note-published-index.mjs`）。
 
 **書いてはいけない逸脱**（`npm run check-note-vocabulary-boundary` が検知・pre-commit 非搭載のため commit 前に手動実行を推奨）:
 - `noteSeries` に `note-magazines.ts` の `id`（内部slug）をそのまま書く

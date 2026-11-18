@@ -59,7 +59,7 @@ python trim_placeholders.py "$WORK"
 ```
 
 > 図品質の肝は **6→7 の audit/refine ループ**。locate(5) の "確信度" は「正しい図か」しか測らないので、
-> **実クロップ PNG を見る scanned-figure-crop-auditor の adjust_bbox 反復**でタイト化しないと本文写り込み・切れが残る。
+> **実クロップ PNG を見る figure-crop-auditor（種類: scanned）の adjust_bbox 反復（最大2回・3回目は親が判断）**でタイト化しないと本文写り込み・切れが残る。
 
 ## つまずきポイント（このスクリプト群が織り込み済み）
 
@@ -70,7 +70,7 @@ python trim_placeholders.py "$WORK"
 | マーカー↔ページのズレで図ページを誤特定 | 候補窓±N＋キャプション照合（prep/figure_bbox） |
 | 図が多い→ bbox 一括 parallel でレート制限失敗 | groupSize ずつ順次バリア（figure_bbox / figure_crop_audit の GROUP） |
 | 数百ジョブを args inline で破綻 | 章別ジョブファイル＋コーディネータ読込（Load phase） |
-| **bbox が緩く本文段落の写り込み・図の切れ**（locate 単発の限界） | **audit/refine ループ**＝scanned-figure-crop-auditor が実クロップ PNG を見て adjust_bbox を返し、apply_deltas_recrop が算術適用＋再クロップを反復 |
+| **bbox が緩く本文段落の写り込み・図の切れ**（locate 単発の限界） | **audit/refine ループ**＝figure-crop-auditor（種類: scanned）が実クロップ PNG を見て adjust_bbox を返し、apply_deltas_recrop が算術適用＋再クロップを反復 |
 | 低確信度 bbox で誤クロップ（別図を掴む） | confidence<confThreshold を未埋め込み（crop_embed）＋監査の correct_figure=0→relocate でlocateやり直し |
 | ![図]直後の冗長な（図:…）プレースホルダ | trim_placeholders.py で要点だけに短縮（埋め込み済みのみ） |
 | crop_embed の二重挿入 | 冪等でない。再実行前に concat で章 md を再生成 |

@@ -16,7 +16,7 @@ domain: site
 
 | 役割 | 担当 | 性質 |
 |---|---|---|
-| **評価（5軸ルーブリック）** | `civil-construction-qa` / `cem-qa` / `content-qa` | Evaluator 専任（修正しない） |
+| **評価（5軸ルーブリック）** | `textbook-qa` / `guide-qa` / `keyword-qa` / `content-qa` | Evaluator 専任（修正しない） |
 | **PDF→MDX 変換** | `/pdf-to-mdx --exam {cem\|civil-construction-1\|civil-construction-2\|general}` | Generator（初回変換） |
 | **キーワードページリライト** | `keyword-rewriter` | Generator（バルク改訂） |
 | **SVG 図版作成** | `/create-svg` | Generator（図版） |
@@ -56,22 +56,24 @@ Generator / Evaluator 分離原則は維持する。本スキルは「評価を�
 
 | category | group | エージェント |
 |---|---|---|
-| `civil-construction-1` | `textbook` / `guide` | `civil-construction-qa` |
+| `civil-construction-1` | `textbook` | `textbook-qa` |
+| `civil-construction-1` | `guide` | `guide-qa` |
 | `civil-construction-1` | `primary` / `secondary` / `past-exam` | `content-qa` |
-| `civil-construction-2` | `textbook` / `guide` | `civil-construction-qa` |
+| `civil-construction-2` | `textbook` | `textbook-qa` |
+| `civil-construction-2` | `guide` | `guide-qa` |
 | `civil-construction-2` | `primary` / `secondary` / `past-exam` | `content-qa` |
-| `pe-comprehensive-management` | `keyword` | `cem-qa` |
-| `pe-comprehensive-management` | `exam-index` / `section` / `r*-primary` | `cem-qa`（モード自動判別） |
+| `pe-comprehensive-management` | `keyword` | `keyword-qa` |
+| `pe-comprehensive-management` | `exam-index` / `section` / `r*-primary` | `keyword-qa`（モード自動判別） |
 | `pe-first-stage` | `primary` | `content-qa` |
 | その他 | — | `content-qa` |
 
 Agent を呼び出す際は Agent tool の `subagent_type` で指定し、対象 MDX パスと `--mode auto` を渡す。
 
-**cem-qa スコアの扱い**: スコアは「構造的に壊れた記事の検出」にのみ使用する。合否判定ゲートとしては使わない（構造軸・関連付け軸が既に安定高得点のため、コンテンツ深度の欠陥があっても 2.0 を超えてしまう）。コンテンツ品質の主判断は Step 1.5（NLM照合）の結果に基づく。
+**keyword-qa スコアの扱い**: スコアは「構造的に壊れた記事の検出」にのみ使用する。合否判定ゲートとしては使わない（構造軸・関連付け軸が既に安定高得点のため、コンテンツ深度の欠陥があっても 2.0 を超えてしまう）。コンテンツ品質の主判断は Step 1.5（NLM照合）の結果に基づく。
 
 ### Step 1.5: 標準テキスト照合（category=pe-comprehensive-management かつ group=keyword の場合）
 
-**主要品質チェック**。cem-qa が構造的 broken を検出した後、NLM照合がコンテンツの実質的な品質を判定する。NLM照合の `[HIGH]` 未解決を「不合格」とみなし、解消まで修正ループを継続する。
+**主要品質チェック**。keyword-qa が構造的 broken を検出した後、NLM照合がコンテンツの実質的な品質を判定する。NLM照合の `[HIGH]` 未解決を「不合格」とみなし、解消まで修正ループを継続する。
 
 NotebookLM CLI（`notebooklm`、旧 `nlm` から 2026-05-11 移行）経由で総監標準テキストとの照合を行う。
 
@@ -82,7 +84,7 @@ node .claude/scripts/notebooklm-cross-query.mjs --notebooks "総監標準テキ�
 
 ノートブック ID: `c55503ac-07cc-47d8-81d2-41dcb150d0a2`（経済性管理 / 人的資源管理 / 情報管理 / 安全管理 / 社会環境管理 / 総合技術監理キーワード集2026 を収録）
 
-**目的**: `cem-qa` はルーブリックの構造検査であり、テキスト由来の内容欠落を検出できない。NotebookLM 照合で「テキストに記載があるが記事にない論点」を拾う。
+**目的**: `keyword-qa` はルーブリックの構造検査であり、テキスト由来の内容欠落を検出できない。NotebookLM 照合で「テキストに記載があるが記事にない論点」を拾う。
 
 **照合結果の扱い**:
 
@@ -174,20 +176,20 @@ notebooklm CLI が使えない場合（未インストール・ネットワー�
 
 ### Step 5: 完了判定
 
-**cem-qa の再呼び出しはしない**（初回評価の指摘と機械ゲートで判定できる。参考値のためだけに Evaluator を再起動すると 1 イテレーションあたり数分〜十数分のコストが乗る）。以下で判定する:
+**keyword-qa の再呼び出しはしない**（初回評価の指摘と機械ゲートで判定できる。参考値のためだけに Evaluator を再起動すると 1 イテレーションあたり数分〜十数分のコストが乗る）。以下で判定する:
 
 - NLM照合 HIGH がすべて解消 → Step 6 へ
-- 初回 cem-qa が挙げた構造 HIGH（0点軸）が未解消 → 優先して修正、Step 3 に戻る
+- 初回 keyword-qa が挙げた構造 HIGH（0点軸）が未解消 → 優先して修正、Step 3 に戻る
 - MED 以下のみ残存 → Step 6 へ（残課題を記録）
 
-> 構造を大きく作り替えた場合など、初回の指摘では判定できないときだけ cem-qa を再度呼ぶ。
+> 構造を大きく作り替えた場合など、初回の指摘では判定できないときだけ keyword-qa を再度呼ぶ。
 - イテレーション使い切り → 残課題を列挙して停止
 
 ### Step 6: 完了レポート
 
 ```
 === /improve-article: <slug> 完了 ===
-cem-qa スコア（参考）: 2.40 → 2.65
+keyword-qa スコア（参考）: 2.40 → 2.65
 NLM HIGH 解消: 3 件 / 3 件
 NLM MED 残存: 1 件（alt 属性 88字 → 要短縮）
 イテレーション: 2 回
@@ -223,13 +225,13 @@ frontmatter の `category` / `group` から呼び出す Evaluator を決定:
 
 | category | group | Evaluator | モード |
 |---|---|---|---|
-| `civil-construction-1` | `textbook` | `civil-construction-qa` | textbook（視覚検証＋網羅率 95%）|
-| `civil-construction-1` | `guide` | `civil-construction-qa` | guide（topic_rate 80%）|
+| `civil-construction-1` | `textbook` | `textbook-qa` | textbook（視覚検証＋網羅率 95%）|
+| `civil-construction-1` | `guide` | `guide-qa` | guide（5 軸）|
 | `civil-construction-1` | `primary` / `secondary` / `past-exam` | `content-qa` | 静的 5 軸 |
-| `civil-construction-2` | `textbook` | `civil-construction-qa` | textbook（視覚検証＋網羅率 95%）|
-| `civil-construction-2` | `guide` | `civil-construction-qa` | guide（topic_rate 80%）|
+| `civil-construction-2` | `textbook` | `textbook-qa` | textbook（視覚検証＋網羅率 95%）|
+| `civil-construction-2` | `guide` | `guide-qa` | guide（5 軸）|
 | `civil-construction-2` | `primary` / `secondary` / `past-exam` | `content-qa` | 静的 5 軸 |
-| `pe-comprehensive-management` | `keyword` | `cem-qa` | — |
+| `pe-comprehensive-management` | `keyword` | `keyword-qa` | — |
 | `pe-comprehensive-management` | `past-exam` / `guide` / `r*-primary` | `content-qa` | — |
 | その他 | — | 「対応するエージェントがありません」と案内 | — |
 
@@ -260,7 +262,7 @@ JSON 出力をパースして以下を取得:
 該当エージェントを Task ツールで呼び出す。プロンプトに含める:
 - 検証対象 MDX パス
 - frontmatter（category/group/slug/title）
-- 推定 PDF パス（civil-construction-qa の場合）
+- 推定 PDF パス（textbook-qa の場合）
 - `--deep` フラグの有無
 
 #### Step 4: 照合レポート（旧 qa-pdf-mdx Phase 1）
@@ -324,8 +326,9 @@ JSON 出力をパースして以下を取得:
 
 ## 参照
 
-- [.claude/agents/civil-construction-qa.md](../../agents/civil-construction-qa.md) — civil 記事の評価基準
-- [.claude/agents/cem-qa.md](../../agents/cem-qa.md) — CEM 記事の評価基準
+- [.claude/agents/textbook-qa.md](../../agents/textbook-qa.md) — textbook の PDF 照合の評価基準
+- [.claude/agents/article-proofreader.md](../../agents/article-proofreader.md) — 既存記事の校正の評価基準
+- [.claude/agents/keyword-qa.md](../../agents/keyword-qa.md) — CEM 記事の評価基準
 - [.claude/agents/content-qa.md](../../agents/content-qa.md) — 汎用（過去問）の評価基準
 - [.claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs](../pdf-to-mdx/scripts/verify-pdf-mdx.mjs) — verify mode の決定論的前処理スクリプト
 - [.claude/skills/create-svg/SKILL.md](../create-svg/SKILL.md) — SVG 図版作成

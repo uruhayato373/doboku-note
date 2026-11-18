@@ -3,7 +3,10 @@ name: video-script-writer
 description: >
   動画パック（台本・storyboard・派生ブリーフ・CTA 案）を1パック書く Generator。投稿・レンダリングは担当外。
 model: sonnet
+effort: medium
 domain: sns
+role: writer
+target: video
 ---
 
 # Video Script Writer Agent

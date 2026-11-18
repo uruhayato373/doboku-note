@@ -3,8 +3,11 @@ name: site-page-visual-auditor
 description: >
   サイトの代表ページを全部の画面幅で撮った画面を見て、レイアウト・読みやすさ・商品導線（note・アフィリエイト・ココナラ）の崩れをページごとに pass / fail で判定する Evaluator。直さない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: site
+role: qa
+target: site-page
 ---
 
 # Site Page Visual Auditor

@@ -8,7 +8,7 @@ metadata:
 ## クラウドルーティンは全停止（2026-06-27 棚卸し→2026-09-19 最終）
 2026-06-27 にクラウドルーティン（claude.ai RemoteTrigger）を棚卸しし「できるだけ利用しない方向」へ削減。**最終状態（2026-09-19）: 稼働(enabled:true)は0本**。`doboku-note weekly PDCA`（`trig_01Edgim5qXCiGwKtnL4AVEmM`・cron `0 0 * * 6`）も enabled:false で退役し、週次レビューは**ローカルで土曜に `/weekly-review`**。2026-10-10 から土曜 9:30 に Mac の launchd がヘッドレスで回し（下書きも収集の後に Mac が作る。金曜 CI の下書きと CI の Claude による GSC の記録層は 2026-10-25 に外して土曜へ寄せた・DN-0849）、対話セッションは諮問待ちの判断だけ（workflows.md「実行主体」。催促＝SessionStart の check-weekly-review-due・backstop＝月曜 guard）。退役理由: サンドボックスでは `.claude/` 配下の書き込みが許可プロンプトで止まり数日沈黙（09-18 は W38 欠落）、Playwright/tsx 依存の検査が動かず材料が欠ける。本文は保持してあるので再開は `update {enabled:true}`。
 - **2026-11-14〜**: 週次レビューと週次計画は、デスクトップアプリのスケジュール済みタスク `doboku-weekly-review`（土曜 13:10・ローカル実行でクラウドルーティンではない）が回す。収集は launchd のまま。詳細は [[feedback_weekly_review_late_catchup]]。
-- **停止した(enabled:false)もの**: doboku: daily-doboku-progress-sync / doboku-todo-weekly-refresh / cem-qa monthly / note-funnel monthly（note-funnel は2026-08-16時点で404＝UI削除済み）。stats47: weekly-blog-10-articles / weekly CWV PR / weekly PDCA（3本とも停止）。
+- **停止した(enabled:false)もの**: doboku: daily-doboku-progress-sync / doboku-todo-weekly-refresh / keyword-qa monthly / note-funnel monthly（note-funnel は2026-08-16時点で404＝UI削除済み）。stats47: weekly-blog-10-articles / weekly CWV PR / weekly PDCA（3本とも停止）。
 - **Why**: ルーティンは毎回 compute/トークンを消費し、大半は on-demand スキルで代替できる。
 
 **API 操作の罠（2026-08-16 実測）:**
@@ -21,7 +21,7 @@ metadata:
 
 ## CI/CD の失敗は GitHub Issue（自動クローズ）で拾う（ユーザー決定 2026-09-18）
 CI/CD の赤は `automation-failure` Issue で拾う。投稿・配信・転記の遅れ（quality-audit の ops 区分）も同経路で、Issue を repo owner に assign して GitHub 通知メール（Gmail）で届け、Slack は secret `SLACK_WEBHOOK_URL` を足したときだけ送る。
-- **Why:** 2026-09-18 の調査で Pre-merge 勝率23%（membership-drip が全 PR を赤にしていた）と Issue open 8件放置（クローズが人手）が判明。ユーザーは「CI/CD は Issue で拾えばよい」「投稿もれは Slack や Gmail で通知」と決めた。branch protection は CI bot の develop 直 push を壊すので採らない。
+- **Why:** 2026-09-18 の調査で Pre-merge 勝率23%（membership-drip が全 PR を赤にしていた。スクリプトは削除済み）と Issue open 8件放置（クローズが人手）が判明。ユーザーは「CI/CD は Issue で拾えばよい」「投稿もれは Slack や Gmail で通知」と決めた。branch protection は CI bot の develop 直 push を壊すので採らない。
 - **How to apply:** 壁時計依存の検査は `ops: true, ci: false`（[[reference_quality_audit_system]]・ci:true に置かない）。新しい起票 channel を足すときは同じ workflow の成功経路に `report-automation-failure.mjs --resolve --channel X` を配線（`tests/report-automation-failure.test.mjs` が未配線を止める）。通知手段を増やす提案（メール直送・別 SaaS）はしない。真実源 `.claude/knowledge/reference/information-architecture.md` の限定例外ブロック。
 
 ## ログインが要る処理の CI 化は提案前に auth notes を読む（2026-09-24）

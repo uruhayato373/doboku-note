@@ -26,7 +26,6 @@ export interface Automation {
   login: string[];
   purpose: string;
   readers: string[];
-  writes?: string[];
 }
 
 export interface CollectStage { id: string; title: string; status: 'ok' | 'warn' | 'skipped' | 'failed'; reason: string; durationSec: number }

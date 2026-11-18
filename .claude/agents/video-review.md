@@ -3,8 +3,11 @@ name: video-review
 description: >
   承認待ちの YouTube 動画を、運営者の代わりに画面と文面で確認して pass か fail を記録するエージェント。承認・公開はしない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: sns
+role: qa
+target: video
 ---
 
 # Video Review Agent

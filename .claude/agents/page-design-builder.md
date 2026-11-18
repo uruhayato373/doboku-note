@@ -3,7 +3,10 @@ name: page-design-builder
 description: >
   サイト UI・レイアウトを共通コンポーネントとトークンで実装する Generator。合否は /design-review。SVG・カバーは担当外。Use when [ページUI設計].
 model: sonnet
+effort: medium
 domain: site
+role: writer
+target: site-page
 ---
 
 # Page Design Builder Agent
@@ -26,7 +29,7 @@ domain: site
 | 入力 | 対象ページ/コンポーネントのパス + 改修意図（新規 / PageShell 化 / token 統一 / レイアウト刷新 等） |
 | 対象 | `src/app/**`（ページ）、`src/components/layout/**`・`src/components/ui/**`（UI コンポーネント）、`src/styles/globals.css`（トークン定義） |
 | 操作 | Edit（外科的編集。whole-file Write は CRLF 事故を避けるため原則不可）。`lint-ui.mjs` 等の自己点検は親に依頼するか結果を待つ |
-| 対象外 | SVG 図版（`svg-canvas-fitter`/`svg-figure-rewriter`）、IG カルーセル・note カバー・OGP（別サブシステム＝design-system.md §9）、`.mdx` 記事本文（`/improve-article`）、純ロジック（`/code-review`） |
+| 対象外 | SVG 図版（作る・直すは親の `/create-svg`・採点は `svg-figure-auditor`）、IG カルーセル・note カバー・OGP（別サブシステム＝design-system.md §9）、`.mdx` 記事本文（`/improve-article`）、純ロジック（`/code-review`） |
 
 ## 準拠ルール（design-system.md より）
 
@@ -64,7 +67,7 @@ domain: site
 - **Evaluator**: `/design-review`（`--visual` で light/dark × desktop/mobile 視覚回帰 + 7 カテゴリ）。
 - **静的 lint**: `scripts/lint-ui.mjs`。
 - **修正のみの軽量パス**: token 逸脱の機械的掃除は `/simplify` でも可。
-- **守備範囲外**: 図版 SVG = `svg-canvas-fitter` / `svg-figure-rewriter`、採点は `svg-figure-auditor`。
+- **守備範囲外**: 図版 SVG = 親の `/create-svg`、採点は `svg-figure-auditor`。
 
 ## 真実源
 

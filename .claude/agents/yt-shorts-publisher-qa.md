@@ -3,8 +3,11 @@ name: yt-shorts-publisher-qa
 description: >
   YouTube Shorts の完成動画・文面・表紙を評価する。現行は動画パックの素材が対象。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: sns
+role: qa
+target: yt-short
 ---
 
 # YouTube Shorts Publisher QA Agent

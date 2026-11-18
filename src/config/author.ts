@@ -26,6 +26,7 @@ export const AUTHOR = {
     qualificationLabel('concrete-diagnostician'),
     qualificationLabel('pavement-1'),
     qualificationLabel('surveyor'),
+    qualificationLabel('pipe-work-1'),
     "行政書士",
     "応用情報技術者",
     "基本情報技術者",

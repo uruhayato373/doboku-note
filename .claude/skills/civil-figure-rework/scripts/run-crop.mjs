@@ -3,7 +3,7 @@
 //
 // figure-spec.json を読み、各 figure に対して ImageMagick で crop を実行する。
 //
-// 入力 spec フォーマット（civil-exam-figure-extractor が出力）:
+// 入力 spec フォーマット（figure-crop-worker が出力）:
 // {
 //   "exam": "r06-a",
 //   "pdf": "content/sources/textbook/.../R6-1ji-A.pdf",

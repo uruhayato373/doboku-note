@@ -17,6 +17,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { escapeRegExp } from './regexp-escape.mjs';
+import { writerDeclOf } from './dataset-writers.mjs';
 
 /**
  * 置き場。strict の置き場（config/・data/）は JSON に型が必須で、コードのパスの直書きを止める。
@@ -69,6 +70,7 @@ const SLOTS = {
  * refs（中の値が指す先。[{ at: '場所', to: 'qualification'|'product'|'article'|'experiment'|'affiliate-program'|'metric', keys?, prefix?, ignore?, severity?, copies? }]。
  *   check-datasets が全ファイルで参照先の実在と写しの一致を見る＝外部キー相当。参照切れは既定で error、生成した索引の過去分など書き換えない記録は
  *   severity: 'warn'。場所の書き方・参照先・任意の欄は scripts/lib/dataset-refs.mjs。DN-0586・2026-10-27 に参照先と任意の欄を足した）
+ * writer・writerNote（書き手。この行には書かず scripts/lib/dataset-writers.mjs の WRITERS に id で書く。ここで合成する。DN-1240）
  *
  * retain: { family, keepNewest: N }   新しい N 件を残す
  *         { family, maxAgeDays: D }   D 日より古いものを消す（最新 1 件は必ず残す）
@@ -83,7 +85,7 @@ const SLOTS = {
  *   「超えたら」（>）か「以上」（>=）かと、日数の数え方（暦日・経過時間）は検査ごとに決める（閾値の数字だけが正本）。
  *   台帳の外（.claude/state の記録・docs・backlog）の鮮度は台帳に入れない。設定ファイル（config/）の中の閾値はそのファイルが正本
  */
-const d = (id, path, kind, domain, doc, opts = {}) => ({ id, path, kind, domain, doc, ...opts });
+const d = (id, path, kind, domain, doc, opts = {}) => ({ id, path, kind, domain, doc, ...opts, ...writerDeclOf(id) });
 
 export const DATASETS = [
   // ===== config/: 事業・試験・商品の正本と、スクリプト・CI・サイトの設定 =====
@@ -107,10 +109,10 @@ export const DATASETS = [
   // 商品
   d('config.products', 'config/products.json', 'master', 'product', '商品の正本（全チャネル・1ファイル。書き換えは npm run product）', { schema: 'ConfigProducts', refs: [{ at: 'products[].qualification', to: 'qualification' }] }),
   d('config.product-lineup', 'config/product-lineup.json', 'config', 'product', '商品ラインナップの分類', { schema: 'ProductLineup' }),
+  d('config.sales-product-map', 'config/sales-product-map.json', 'config', 'product', '売上の商品名から productId を決める対応表（check-sales-mapping が台帳と照合）', { schema: 'ConfigSalesProductMap' }),
   d('config.content-themes', 'config/content-themes.json', 'config', 'product', '制作物のテーマの語彙とチャネル→テーマの写し方', { schema: 'ConfigContentThemes' }),
   d('config.note-funnel', 'config/note-funnel.json', 'config', 'product', 'note 導線（ファネル）の構成', { schema: 'NoteFunnel' }),
   d('config.site-cta-surfaces', 'config/site-cta-surfaces.json', 'config', 'product', 'サイトの広い面（資格トップ・記事の横の欄・記事末のタイル・/links の先頭）から note のもくじ・パック・単品のどこへ案内するか（季節の切り替えを含む・DN-1223）', { schema: 'ConfigSiteCtaSurfaces' }),
-  d('config.note-membership', 'config/note-membership.json', 'config', 'product', 'note メンバーシップの会費・特典', { schema: 'ConfigNoteMembership' }),
   d('config.note-magazine-membership', 'config/note-magazine-membership.json', 'config', 'product', 'マガジン収録の期待値', { schema: 'ConfigNoteMagazineMembership' }),
   d('config.note-price-consistency', 'config/note-price-consistency.json', 'config', 'product', '単品価格のずれを止める検査の設定', { schema: 'ConfigNotePriceConsistency' }),
   d('config.note-intro-standard', 'config/note-intro-standard.json', 'config', 'product', 'note 記事の冒頭の標準（1級・2級・両方の型を variants に）', { schema: 'ConfigNoteIntroStandard', refs: [{ at: 'variants.*.magazines', to: 'product', keys: true, ignore: ['civil-mokuji'], copies: { url: 'catalog.noteUrl' } }] }),
@@ -378,7 +380,7 @@ export const DATASETS = [
   d('state.link-audit', '.claude/state/link-audit/audit-{ts}.json', 'series', 'site', '内部リンクの監査'),
   d('state.link-audit-external', '.claude/state/link-audit/external-latest.json', 'state', 'site', '外部リンクの監査の最新'),
   d('state.link-audit-report', '.claude/state/link-audit/latest-report.md', 'report', 'site', 'リンクの監査の最新の報告'),
-  d('state.improvements', '.claude/state/improvements/{date}{suffix}.md', 'report', 'site', '改善候補の報告（performance-auditor・調査）'),
+  d('state.improvements', '.claude/state/improvements/{date}{suffix}.md', 'report', 'site', '改善候補の報告（/psi-audit の親・調査）'),
   d('state.improvements-evidence', '.claude/state/improvements/{name}-{date}.json', 'evidence', 'site', '改善候補の根拠（同じ名前の .md と対）'),
   d('state.improvements-topic', '.claude/state/improvements/{name}-{date}.md', 'report', 'site', '主題ごとの改善候補の報告（同じ名前の .json と対）'),
   d('state.search-growth-report', '.claude/state/improvements/search-growth-latest.md', 'report', 'site', '検索の成長の最新の報告'),

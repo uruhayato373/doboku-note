@@ -33,7 +33,7 @@ test('台帳に無い実物・実物の無い行・cron の違い・CI のログ
     { ...base, id: 'weekly', runner: 'mac-launchd', source: 'scripts/scheduled/com.x.weekly.plist.tmpl', triggers: ['launchd'], schedule: ['土 09:30'], login: ['note'], readers: ['quality-audit:nope'] },
     { ...base, id: 'gone', runner: 'github-actions', source: '.github/workflows/gone.yml', triggers: ['push'], schedule: [], login: [] },
   ] };
-  const { problems, inspected } = checkAutomations({ root, ledger, checkIds: new Set(['weekly-collect']), datasetIds: new Set(), authServices: new Set(['note']) });
+  const { problems, inspected } = checkAutomations({ root, ledger, checkIds: new Set(['weekly-collect']), authServices: new Set(['note']) });
   assert.deepEqual(inspected, { entries: 3, workflows: 2, plists: 1 });
   const text = problems.join('\n');
   assert.match(text, /stray\.yml が台帳に無い/);

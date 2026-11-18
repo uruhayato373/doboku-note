@@ -58,7 +58,7 @@ doboku-note サイトの記事ページの note 有料マガジン/メンバー�
 - career/年収/転職・比較 residual → **EMPTY（note CTA出さない・意図的）**。転職アフィリ専任（[[feedback_affiliate_career_only]]）。ここに二次商品を出すのは二重ミスマッチで禁止
 - **2級は secondary catch-all が無い**（1級はL438にあり）。civil-2の新secondary slugは明示ブランチ追加が必要
 
-**会員ラボ** `civil-membership-lab` は `published:false`＋noteUrl空 → `getMagazine()`(note-magazines.ts) が null → 全箇所で防御的に非表示。**ローンチ(published:true+noteUrl)で全配置が自動点灯**（wire-ahead 済）。[[project_civil_membership_design]]
+**会員ラボ** `civil-membership-lab` は 2026-09-30 撤退。`retiredAt` つきで `published:false` のまま → `getMagazine()`(note-magazines.ts) が null → 全箇所で防御的に非表示。
 
 **注意**: note.com記事内funnel（`wire-note-funnel-cta`／note-funnel-architecture.md）は**別サブシステム**でサイトのmagazine-placementとは無関係。混同しない。デザインは design-system.md のコンポーネント表に記載。
 

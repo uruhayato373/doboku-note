@@ -48,12 +48,12 @@ A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった
   `npm run a8-ui:fetch -- --dry-run --probe-isolation` / `--probe-period --headed` で実機を確かめ、
   `config/a8-report-automation.json` の `a8.periodForm` 等を確定する（セッションからは実行しない）
 
-### 2. validate（`a8-csv-auditor` エージェント）
+### 2. validate（`npm run check-a8-ui-run`）
 
-manifest / raw CSV / rejects / 前回差分 / **サイト帰属（`crossCheck` の超過＝stats47 混入の疑い）** を
-PASS/WARN/FAIL で判定。FAIL なら分析へ進まず、運営者に取り直しを依頼する。
-raw CSV（gitignore）がこの checkout に無いときは、追跡された `data/a8/report-log.json` の差分と
-`crossCheck` で見る。
+manifest / raw CSV / rejects / 前回差分 / **サイト帰属（`crossCheck` の超過＝stats47 混入の疑い）** をスクリプトが
+FAIL / WARN / INFO で判定する（旧 `a8-csv-auditor` は廃止・DN-1242）。`--json` を親が読む。exit 1（FAIL）なら分析へ進まず、
+運営者に取り直しを依頼する。exit 2 は検査不成立（台帳も run も読めない）。raw CSV（gitignore）がこの checkout に無いときは、
+追跡された `data/a8/report-log.json`（台帳層）だけで判定される。取り込み可否の最終判断（WARN をどう扱うか）は親。
 
 ### 3. 正規化の確認（決定的）
 
@@ -84,7 +84,7 @@ npm run report-buildjob-affiliate
 ### 5. finalize
 
 - 分析結果を報告する。SSOT の書き込みと commit は土曜の収集が行う（セッションは記録を書き換えない）
-- 大きな変化があれば `.claude/todo/weekly.md` の週次レビューに 1 行残す
+- 大きな変化があれば報告に書き、対応が要るものは `npm run todo:add` で起票する（`.claude/todo/weekly.md` は `todo-planner` だけが書く）
 
 ## トラブルシューティング
 

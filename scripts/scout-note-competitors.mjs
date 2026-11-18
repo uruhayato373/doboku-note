@@ -7,7 +7,7 @@
  * 時系列スナップショットに落とす偵察ツール。前回スナップショットとの差分
  * （価格改定・新商品・休眠・新規参入）を機械検出して drift[] に載せる。
  * 意味的な差別化分析（価格帯マップ・品揃えギャップ・09 反映パッチ）は
- * competitor-analyst エージェントが本 JSON を読んで行う＝機械（本
+ * sales-competitor-analyst エージェントが本 JSON を読んで行う＝機械（本
  * スクリプト）と判断（Evaluator）の分離。
  *
  * 出力（SSOT）:
@@ -319,7 +319,7 @@ function main() {
   const saved = saveSnapshot(ROOT, 'note.competitors', stamp, snapshot, { partial: PARTIAL });
   console.log(`\n${PARTIAL ? '部分実行の結果（時系列には残さない）' : '時系列保存'}: ${saved}`);
   console.log(`完了: ${results.length} 社（失敗 ${failed} 社 / ドリフト ${drift.entries.length} 件）`);
-  console.log('→ 差別化分析＋09反映パッチは competitor-analyst エージェントに本 JSON を渡す');
+  console.log('→ 差別化分析＋competitor-positions の差分案は sales-competitor-analyst エージェントに本 JSON を渡す');
   process.exit(failed === results.length ? 1 : 0);
 }
 

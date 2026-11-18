@@ -130,7 +130,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
         { argv: ['npm', 'run', '-s', 'a8-ui:fetch', '--', '--month', m, '--reports', a8Reports, '--site-filter', 'self'], warn: [2] },
         { argv: ['npm', 'run', '-s', 'a8-ui:normalize'], onlyIfPrev: [0, 2] },
       ]),
-      verify: ['a8-report-due'],
+      verify: ['a8-report-due', 'a8-ui-run'],
     },
     {
       id: 'moshimo', phase: 'pre', title: 'もしもの成果（前月と当月）', timeoutMin: 30, browser: true,
@@ -182,7 +182,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       id: 'gsc', phase: 'pre', title: 'GSC の登録リクエスト 10 件と月次の理由別 CSV', timeoutMin: 40, browser: true, selfCommits: true,
       // 前回の送信から 20 時間以内なら送らない・月次 CSV は期日のときだけ（判定は gsc-local-routine 自身）
       commands: [{ argv: ['scripts/gsc-local-routine.mjs'] }],
-      verify: ['gsc-ui-due', 'gsc-indexing-due'],
+      verify: ['gsc-ui-due', 'gsc-indexing-due', 'gsc-ui-run'],
     },
     {
       id: 'note-status', phase: 'pre', title: 'note の公開状態・マガジン・題名と価格の照合（毎週）', timeoutMin: 30, browser: false,
@@ -238,10 +238,9 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       ],
     },
     {
-      id: 'note-live', phase: 'post', title: 'note の添付と会員限定のライブ照合', timeoutMin: 90, browser: true,
+      id: 'note-live', phase: 'post', title: 'note の添付のライブ照合', timeoutMin: 90, browser: true,
       commands: [
         { argv: ['npm', 'run', '-s', 'check-note-attachments:live', '--', '--api-first'], warn: [1], failPattern: '検査不成立' },
-        { argv: ['npm', 'run', '-s', 'check-note-membership:live'], warn: [1], failPattern: '検査不成立' },
       ],
     },
     {

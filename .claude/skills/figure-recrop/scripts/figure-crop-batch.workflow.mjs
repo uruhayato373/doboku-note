@@ -12,7 +12,7 @@
 //   { stage('review'|'reextract'), figKey, img(相対 .png|.webp), kind, imgSize:[幅,高さ], mdx, signals,
 //     whyCut?, recordedSource?, sourceCandidates?, sourceRoots? }
 // 旧形式 { figKey, name, img, kind, imgSize }（/figure-recrop の recrop-review 一覧）も stage=review として受ける。
-// 判定の RULES は figure-crop-worker.md（agent の system prompt）に集約＝ここでは入力を渡すだけ。
+// 判定の RULES は profiles/crop-figure/article-recrop.md（figure-crop-worker が種類 article-recrop で読む）に集約＝ここでは入力を渡すだけ。
 
 export const meta = {
   name: 'figure-crop-batch',
@@ -57,7 +57,8 @@ log(`${items.length} 図を並列処理開始（review ${items.filter((it) => st
 
 const promptOf = (it) => {
   const lines = [
-    `対象図を1枚だけ処理し、figure-crop-worker の stage=${stageOf(it)} の手順に従って構造化結果を返せ。`,
+    `種類: article-recrop`,
+    `対象図を1枚だけ処理し、figure-crop-worker の種類 article-recrop・stage=${stageOf(it)} の手順に従って構造化結果を返せ。`,
     `figKey: ${it.figKey}`,
     `画像(相対): ${it.img}`,
     `kind: ${it.kind}`,

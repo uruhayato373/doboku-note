@@ -3,7 +3,10 @@ name: standards-table-writer
 description: >
   共通仕様書の版面の表を、原本ページ画像と照合して表の JSON に組み直す Generator。照合・承認は standards-table-qa。
 model: sonnet
+effort: medium
 domain: site
+role: writer
+target: standards-table
 ---
 
 # Standards Table Writer

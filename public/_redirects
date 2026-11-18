@@ -113,9 +113,6 @@
 
 # BEGIN GENERATED PUBLIC ROUTES
 # /docs flat URLs → intent-based canonical URLs (one-to-one, permanent)
-/docs/building-construction-guide-1kyu-keiken-kijutsu /exam/building-construction/guide/1kyu-keiken-kijutsu 301
-/docs/building-construction-guide-2kyu-keiken-kijutsu /exam/building-construction/guide/2kyu-keiken-kijutsu 301
-/docs/building-construction-guide-niji-kakomon-keikou /exam/building-construction/guide/niji-kakomon-keikou 301
 /docs/civil-construction-1-keyword-2026 /exam/civil-construction-1/guide/keyword-2026 301
 /docs/civil-construction-1-public-servant-merit /exam/civil-construction-1/guide/public-servant-merit 301
 /docs/civil-construction-2-secondary-grading-and-partial-credit /exam/civil-construction-2/guide/secondary-grading-and-partial-credit 301
@@ -247,6 +244,11 @@
 /docs/pe-construction-urban-planning-ronbun-keyword /exam/pe-construction/keywords/urban-planning-ronbun-keyword 301
 
 # Table of /docs slugs covered by the dynamic prefix rules below. Comments only (not Cloudflare rules); read by sitemap/RSS/URL checks
+# route /docs/building-construction-guide-1kyu-keiken-kijutsu /exam/building-construction/guide/1kyu-keiken-kijutsu
+# route /docs/building-construction-guide-2kyu-keiken-kijutsu /exam/building-construction/guide/2kyu-keiken-kijutsu
+# route /docs/building-construction-guide-niji-difficulty /exam/building-construction/guide/niji-difficulty
+# route /docs/building-construction-guide-niji-kakomon-keikou /exam/building-construction/guide/niji-kakomon-keikou
+# route /docs/building-construction-guide-niji-kotaekata /exam/building-construction/guide/niji-kotaekata
 # route /docs/civil-construction-1-guide-1-vs-2 /exam/civil-construction-1/guide/1-vs-2
 # route /docs/civil-construction-1-guide-age-career /exam/civil-construction-1/guide/age-career
 # route /docs/civil-construction-1-guide-allowance /exam/civil-construction-1/guide/allowance
@@ -542,7 +544,9 @@
 # route /docs/concrete-engineer-textbook-mix-design /exam/concrete-engineer/textbook/mix-design
 # route /docs/concrete-engineer-textbook-production-qc /exam/concrete-engineer/textbook/production-qc
 # route /docs/concrete-engineer-textbook-properties-testing /exam/concrete-engineer/textbook/properties-testing
+# route /docs/pavement-guide-difficulty /exam/pavement/guide/difficulty
 # route /docs/pavement-guide-keiken-kijutsu /exam/pavement/guide/keiken-kijutsu
+# route /docs/pavement-guide-ouyou-kotaekata /exam/pavement/guide/ouyou-kotaekata
 # route /docs/pavement-guide-overview /exam/pavement/guide/overview
 # route /docs/pavement-guide-sentaku-hinshutsu /exam/pavement/guide/sentaku-hinshutsu
 # route /docs/pavement-guide-study-plan /exam/pavement/guide/study-plan
@@ -1500,8 +1504,11 @@
 # route /docs/rccm-guide-mondai3-themes-2026 /exam/rccm/guide/mondai3-themes-2026
 # route /docs/rccm-guide-overview /exam/rccm/guide/overview
 # route /docs/rccm-guide-study-plan /exam/rccm/guide/study-plan
+# route /docs/surveyor-guide-assistant-keisan /exam/surveyor/guide/assistant-keisan
 # route /docs/surveyor-guide-assistant-takuitsu /exam/surveyor/guide/assistant-takuitsu
+# route /docs/surveyor-guide-difficulty /exam/surveyor/guide/difficulty
 # route /docs/surveyor-guide-gogo-bunya /exam/surveyor/guide/gogo-bunya
+# route /docs/surveyor-guide-gogo-kotaekata /exam/surveyor/guide/gogo-kotaekata
 # route /docs/surveyor-guide-overview /exam/surveyor/guide/overview
 # route /docs/surveyor-guide-study-plan /exam/surveyor/guide/study-plan
 # route /docs/surveyor-gozen-r04 /exam/surveyor/past-exams/gozen-r04
@@ -2037,6 +2044,7 @@
 /docs/civil-construction-1-primary-* /exam/civil-construction-1/primary/:splat 301
 /docs/civil-construction-2-primary-* /exam/civil-construction-2/primary/:splat 301
 /docs/concrete-diagnostician-guide-* /exam/concrete-diagnostician/guide/:splat 301
+/docs/building-construction-guide-* /exam/building-construction/guide/:splat 301
 /docs/pe-comprehensive-management-* /exam/pe-comprehensive-management/keywords/:splat 301
 /docs/civil-construction-1-guide-* /exam/civil-construction-1/guide/:splat 301
 /docs/civil-construction-2-guide-* /exam/civil-construction-2/guide/:splat 301

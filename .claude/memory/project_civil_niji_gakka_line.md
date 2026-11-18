@@ -30,4 +30,4 @@ metadata:
 - **2級無料10本の冒頭カードが1級パック(m8290970a7f05)を指すセグメント違反**を是正。config `exams.civil.topCtaOverrides`（dirPrefix `2級土木/`→2級バンク `m8554e87ca6ec`）新設、wire/audit を override 対応（commit cbdc4eae0）。**noteのOGPカードは自動削除不可**（[[reference_note_update_body_gotchas]]・4方法失敗）ため swap 不可→ユーザー承認で**2級バンクカードを上に追加**（append）＝2級読者が正しい商品に到達。10本 live VERIFIED。旧1級カードは残存（republish で自動消滅）。audit --live D1-D5=0。
 - **まるごとパックLP n824a4ea20acf 全体公開化は保留**: 記事タイプ radio は「無料」表示だが API `is_limited:true`・primary ボタンが「試し読みエリアを設定」（有料概念）＝状態が曖昧で自動 toggle 危険。カードは draft に auto-save 済（未 published）。**手動 UI で全体公開推奨**。
 
-**残**: (1) 2級には まるごとパック無し（設計上1級のみ） (2) deploy でサイトCTA発火 (3) 2級無料10本の旧1級カード手動削除 or republish（任意） (4) まるごとLP手動で全体公開＋draftのカードを publish。3コミット未push。初回テストの孤児下書き nef46a4046273 は削除済み。関連: [[project_civil_membership_design]] [[reference_note_publish_price_field]] [[reference_note_update_body_gotchas]]
+**残**: (1) 2級には まるごとパック無し（設計上1級のみ） (2) deploy でサイトCTA発火 (3) 2級無料10本の旧1級カード手動削除 or republish（任意） (4) まるごとLP手動で全体公開＋draftのカードを publish。3コミット未push。初回テストの孤児下書き nef46a4046273 は削除済み。関連: [[reference_note_publish_price_field]] [[reference_note_update_body_gotchas]]

@@ -1,8 +1,8 @@
 /**
- * rccm-essay.mjs — RCCM 問題III 模範論文の判定ロジック（純関数・check-rccm-essay.mjs と rccm-essay-qa が使う）。
+ * rccm-essay.mjs — RCCM 問題III 模範論文の判定ロジック（純関数・check-rccm-essay.mjs と essay-qa（資格 rccm） が使う）。
  *
  * 協会の出題条件（2026年度出題テーマ PDF）: 設問①②を 1,200〜1,600 字、指定用語から 4 語以上を「」で囲んで使用。
- * 本モジュールは条件を機械化するだけで、論文の中身（視点・専門度）は評価しない（それは rccm-essay-qa）。
+ * 本モジュールは条件を機械化するだけで、論文の中身（視点・専門度）は評価しない（それは essay-qa（資格 rccm））。
  */
 
 export const ESSAY_HEADING = '模範論文';
