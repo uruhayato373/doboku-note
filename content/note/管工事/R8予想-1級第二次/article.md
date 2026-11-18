@@ -3,8 +3,11 @@ notePricing: paid
 noteContentType: product
 price: 2480
 paidBoundary: "予想セットの使い方"
-noteStatus: draft
+noteStatus: published
 utmCampaign: pipe-work-2026
+notePublishedAt: "2026-11-18"
+noteId: "n44c518675a51"
+noteUrl: "https://note.com/dobokunote/n/n44c518675a51"
 title: "1級管工事施工管理技士 第二次検定 令和8年度 出題予想と模範解答（問題4 空調・問題5 衛生）"
 cover:
   variant: crop-safe-v4

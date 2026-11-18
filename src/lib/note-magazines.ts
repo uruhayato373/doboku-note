@@ -2780,11 +2780,11 @@ const MAGAZINES_RAW = {
   },
   // </generated:products pe-water-supply>
   // <generated:products pipe-work> config/products.json から生成（npm run product -- gen）。手で直さない
-  // 2026-11-17 に下書きを作成（PC-011・DN-1236）。価格は仮で、公開時に運営者が決める。公開したら noteUrl を入れて published を true にする。
+  // 2026-11-17 に下書きを作成（PC-011・DN-1236）。2026-11-18 に ¥2,480 で公開（機器別バンクとのセットは作らない）。
   'pipe-work-1-r8-yosou': {
     id: 'pipe-work-1-r8-yosou',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n44c518675a51',
     qualification: 'pipe-work',
     title: '1級管工事施工管理技士 第二次検定 令和8年度 出題予想と模範解答（問題4 空調・問題5 衛生）',
     description: '令和6年度からの新形式（施工記述）で出た問題を5回分整理し、まだ出ていない機器・材料から令和8年度の問題4（空調）・問題5（衛生）を予想した。本番と同じ設問の形の予想セット6つに、解答例を複数パターンで示す。設問3の型別の模範解答と、特徴の短文集つき。出題を保証するものではない。',

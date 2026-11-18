@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-11-17T23:42:24.579Z",
+  "updatedAt": "2026-11-18T12:40:54.353Z",
   "items": [
     {
       "slug": "1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け",
@@ -8589,6 +8589,23 @@
       "magazines": [],
       "utmCampaign": "cd-takuitsu-98-pdf",
       "title": "コンクリート診断士｜四肢択一演習98問 PDF（8回分・全選択肢解説つき）"
+    },
+    {
+      "slug": "管工事/R8予想-1級第二次",
+      "path": "content/note/管工事/R8予想-1級第二次/article.md",
+      "exam": "管工事",
+      "noteUrl": "https://note.com/dobokunote/n/n44c518675a51",
+      "noteId": "n44c518675a51",
+      "status": "published",
+      "publishedAt": "2026-11-18",
+      "pricing": "paid",
+      "price": 2480,
+      "contentType": "product",
+      "series": null,
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "pipe-work-2026",
+      "title": "1級管工事施工管理技士 第二次検定 令和8年度 出題予想と模範解答（問題4 空調・問題5 衛生）"
     },
     {
       "slug": "管工事/施工記述-機器別模範解答バンク",
@@ -21212,23 +21229,6 @@
   ],
   "unpublished": [
     {
-      "slug": "管工事/R8予想-1級第二次",
-      "path": "content/note/管工事/R8予想-1級第二次/article.md",
-      "exam": "管工事",
-      "noteUrl": null,
-      "noteId": null,
-      "status": "draft",
-      "publishedAt": null,
-      "pricing": "paid",
-      "price": 2480,
-      "contentType": "product",
-      "series": null,
-      "noteMagazine": null,
-      "magazines": [],
-      "utmCampaign": "pipe-work-2026",
-      "title": "1級管工事施工管理技士 第二次検定 令和8年度 出題予想と模範解答（問題4 空調・問題5 衛生）"
-    },
-    {
       "slug": "技術士水産部門/magazines/BK-01_水産土木/R01",
       "path": "content/note/技術士水産部門/magazines/BK-01_水産土木/R01/article-II1.md",
       "exam": "技術士水産部門",
@@ -22913,7 +22913,7 @@
       "key": null,
       "title": "1級管工事施工管理技士 第二次検定 令和8年度 出題予想と模範解答（問題4 空調・問題5 衛生）",
       "price": "¥2,480",
-      "published": false
+      "published": true
     },
     {
       "id": "pipe-work-sekou-kijutsu-bank",
