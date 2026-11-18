@@ -85,7 +85,6 @@ export const WRITERS = {
   'config.content-themes': ['human'],
   'config.note-funnel': ['human'],
   'config.site-cta-surfaces': ['human'],
-  'config.note-membership': ['human'],
   'config.note-magazine-membership': ['human'],
   'config.note-price-consistency': ['human'],
   'config.note-intro-standard': ['script:product'],
