@@ -1084,7 +1084,7 @@
       "work": "pe-gyoumu-shousai-720",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-gyoumu-shousai-720/youtube.longform/cover",
         "scene-001": "pe-construction/pe-gyoumu-shousai-720/youtube.longform/scene-001",
@@ -1102,7 +1102,21 @@
         "video": "pe-construction/pe-gyoumu-shousai-720/youtube.longform/video",
         "subtitles": "pe-construction/pe-gyoumu-shousai-720/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-gyoumu-shousai-720/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-gyoumu-shousai-720/youtube.json#longform",
+      "publishAt": "2026-11-28T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-18T12:58:14.560Z",
+          "digest": "046e6ca3a13e42c3ae82257ba05353e751c4c5aeb20233de96c90f6f9a513b7d"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-18T12:58:14.560Z",
+        "contentSha256": "6d3c5857565d00ca1be2d990b06368ed5965a1e05aaadf92135251cc3fbd8593"
+      }
     },
     {
       "id": "pe-construction/pe-hissu1-jikan-haibun/youtube.longform",

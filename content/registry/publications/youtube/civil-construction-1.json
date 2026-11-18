@@ -546,7 +546,7 @@
       "work": "civil-license-ladder-order",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "civil-construction-1/civil-license-ladder-order/youtube.longform/cover",
         "scene-001": "civil-construction-1/civil-license-ladder-order/youtube.longform/scene-001",
@@ -565,7 +565,21 @@
         "video": "civil-construction-1/civil-license-ladder-order/youtube.longform/video",
         "subtitles": "civil-construction-1/civil-license-ladder-order/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order/youtube.json#longform",
+      "publishAt": "2026-11-28T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-18T12:58:13.753Z",
+          "digest": "757873620858b43356954a9152f7a28e177e62972f70215d72c94f3b8c71f1b9"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-18T12:58:13.753Z",
+        "contentSha256": "f58e683f5f887dc4e923aa36af2c2c38e5c6b3241e63ebfdfd443a0b5dd0eed1"
+      }
     },
     {
       "id": "civil-construction-1/owner-career-before-moving/youtube.longform",
@@ -602,7 +616,7 @@
       "work": "owner-career-shigoto",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "civil-construction-1/owner-career-shigoto/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-career-shigoto/youtube.longform/scene-001",
@@ -630,7 +644,21 @@
         "video": "civil-construction-1/owner-career-shigoto/youtube.longform/video",
         "subtitles": "civil-construction-1/owner-career-shigoto/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-1/owner-career-shigoto/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-1/owner-career-shigoto/youtube.json#longform",
+      "publishAt": "2026-11-27T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-18T12:58:12.955Z",
+          "digest": "1db9fb978d33d7106e8d6f996435d4c076c943835dbe52406f12b7936b9de904"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-18T12:58:12.955Z",
+        "contentSha256": "e2cc58aa5c95f092fba5efda212cd069acd901ce6d6f2cbc786a520b6388567c"
+      }
     },
     {
       "id": "civil-construction-1/owner-eye-kantokuin/youtube.longform",
@@ -797,7 +825,7 @@
       "work": "owner-eye-sekkei-tosho",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/scene-001",
@@ -832,7 +860,20 @@
         "subtitles": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-tosho/youtube.json#longform",
-      "publishAt": "2027-01-15T11:30:00Z"
+      "publishAt": "2026-11-27T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-18T12:58:12.162Z",
+          "digest": "6b4a774c990c4f874a55ac8e2789cdca04e602c85ad43af67de799d970b03316"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-18T12:58:12.162Z",
+        "contentSha256": "2e021ca72b99cb327f2983ae59c49095723a268d870c1265191850165333be46"
+      }
     },
     {
       "id": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform",
