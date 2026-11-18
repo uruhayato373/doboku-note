@@ -21,7 +21,7 @@ metadata:
 
 **Why**: ユーザーが「メンバーシップが本当に有効か・受験料も含め再検討」と要請。受験料レンズで会員2層は評価が割れる(添削=追い風/通年ベース=逆風)と判明し、買い切り旗艦に受験料アンカーの価値を載せる構造が最適と確定。
 
-**How to apply**: 残作業=索引マトリクス実生成→空セル10答案執筆(civil-keiken-essay-writer)→カバー→note公開→published:true。**受験料の数値を計画§1.2/§2.4へ一括反映するのはユーザーが「もう少し検討」で保留中**(§8に明記)＝勝手に上書きしない。関連=[[project_civil1_flagship_pack]] [[project_civil1_flagship_pack]]、会員設計は noteコンテンツ計画.md §2が真実源。
+**How to apply**: 残作業=索引マトリクス実生成→空セル10答案執筆(essay-writer（資格 civil-keiken）)→カバー→note公開→published:true。**受験料の数値を計画§1.2/§2.4へ一括反映するのはユーザーが「もう少し検討」で保留中**(§8に明記)＝勝手に上書きしない。関連=[[project_civil1_flagship_pack]] [[project_civil1_flagship_pack]]、会員設計は noteコンテンツ計画.md §2が真実源。
 
 ## 統合: 2テーマ組合せ大全（旧 civil1_combo_essay・2026-06-02）
 R06 以降の実形式（5管理から2テーマ・同一工事で設問1/2を書き分け）に対し C(5,2)=10組合せ×想定工事①②③＝30答案を全網羅（投機でない）。SKU `civil-1-combo-essay`（¥3,980/10本）。出題実績のない予想問題集 `civil-1-yosou-essay` は退役済み。**教訓: 逐語重複0でも同じ品質角度（PC・マスコン）や工程レバー（土積図・出来高曲線）を別組合せで使うと意味的重複になる→量産時は工事だけでなく品質角度/工程レバーも台帳管理し、最終 QA は代表でなく全記事必須。**未完: note 実公開→published:true（`_meta.yaml` にも反映）。
@@ -31,7 +31,7 @@ R06 以降の実形式（5管理から2テーマ・同一工事で設問1/2を�
 - **2級想定工事バンク**（`civil-2-koji-bank`・マガジン `m8554e87ca6ec`）: 設計 `docs/note/1級・2級土木/2級土木/2級版-想定工事バンク展開設計.md`。2級答案は1級から流用不可（2級=250字/4要素/現場代理人視点 vs 1級=200字/5要素/監理技術者）。**中小規模36工種にフィルタ**（トンネル・ケーソン・シールド等の監理技術者領域は除外＝ペルソナ真正性）。5管理＝3主（品質/安全/工程）＋2備え（施工計画/環境）、フレーミングは「頻出/出る」禁止・「未出題だが保険」と正直に。工事NN は1級と同番。価格暫定 ¥3,480〜3,980→本設計 ¥5,480〜6,980。P1 15/36本完成・公開準備完了（paidBoundary:品質管理）、SKU は **published:false 据え置き（15記事の収録完了まで）**。残: 15記事の公開＋収録→published:true／P2で21工種追加／索引記事（無料）。
 
 ## 統合: 字数ゲート（旧 keiken_charcount_gate）
-`/keiken-charcount`（`scripts/keiken-charcount.mjs`・`--strict`）。しきい値の真実源 `config/keiken-answer-sheet-limits.json`（**級別**）。1級=罫線25字/行・現行各区画8行200字・旧形式 (1)225/(2)275/(3)175。2級=問題文に字数規定なし→通説目安『1項目約250字・解答欄8割充足』で各欄250字。**`1.` リスト記号は字数除外だが ⅰ）ⅱ）はインライン本文として算入**（実解答欄でも枡を消費）→リスト体裁変更後は `--strict` 再実行。答案直後の太字注釈ラベルは除外。`civil-keiken-essay-qa` の必須ゲート。経験記述マガジンの公開前は必ず実行し ×/✗ は `civil-keiken-essay-writer` で圧縮。
+`/keiken-charcount`（`scripts/keiken-charcount.mjs`・`--strict`）。しきい値の真実源 `config/keiken-answer-sheet-limits.json`（**級別**）。1級=罫線25字/行・現行各区画8行200字・旧形式 (1)225/(2)275/(3)175。2級=問題文に字数規定なし→通説目安『1項目約250字・解答欄8割充足』で各欄250字。**`1.` リスト記号は字数除外だが ⅰ）ⅱ）はインライン本文として算入**（実解答欄でも枡を消費）→リスト体裁変更後は `--strict` 再実行。答案直後の太字注釈ラベルは除外。`essay-qa`（資格 civil-keiken） の必須ゲート。経験記述マガジンの公開前は必ず実行し ×/✗ は `essay-writer`（資格 civil-keiken） で圧縮。
 
 ## 統合: note 互換（旧 civil_keiken_note_compat）
 note は表を描画しない→markdown pipe 表は箇条書き化、太字内全角括弧（Pattern A）は `**A**（B）` へ外出し（`node scripts/note-lint.mjs <dir>` が BLOCK・pre-commit 連動・対象は `*/article.md`）。`〇〇` 記入プレースホルダは正当な改変前提テンプレ（lint 対象外）。`generate-note-covers.mjs <slug>` は部分一致で2級まで巻き込む→dir 指定か生成後 git status。

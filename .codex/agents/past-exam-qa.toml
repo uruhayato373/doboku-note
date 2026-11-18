@@ -35,7 +35,7 @@ developer_instructions = """
 - textbook/guide → `civil-construction-qa`（PDF 照合＝Mode A・B／校正＝Mode R）
 - PDF→MDX 変換直後の網羅性検証 → `content-qa`
 - 図クロップ品質 → `civil-exam-figure-auditor`
-- note 有料マガジンの記述式模範解答 → `pe-secondary-exam-qa` / `civil-keiken-essay-qa`
+- note 有料マガジンの記述式模範解答 → `pe-secondary-exam-qa` / `essay-qa`（資格 civil-keiken）
 - 建設部門（`pe-construction`）の `group: past-exam`（問題文と論点だけで解答を持たない記述式）→ `content-qa`（原典どおりかを見る）
 
 ## 折衷案の構造（採点の基準・真実源）
@@ -160,7 +160,7 @@ Read で各設問ブロックを読み、lint が拾えない品質を判定:
 - **PDF 原典との網羅率検証** → `content-qa`
 - **図クロップ品質** → `civil-exam-figure-auditor`
 - **キーワードページ** → `cem-qa` ／ **textbook/guide** → `civil-construction-qa`（校正モード）
-- **note 有料マガジンの模範解答採点** → `pe-secondary-exam-qa` / `civil-keiken-essay-qa`
+- **note 有料マガジンの模範解答採点** → `pe-secondary-exam-qa` / `essay-qa`（資格 civil-keiken）
 - **専門事実の外部一次照合** → `pe-secondary-exam-factcheck`（親が必要時に起動）
 
 ## 連携パターン

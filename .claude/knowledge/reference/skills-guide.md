@@ -216,7 +216,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 ### 総監 記述式 模範論文（note 有料）を生成したい
 
-1. `cem-essay-writer` エージェントに `type`（`persona`/`r8yosou`/`setsumon3`/`crosstradeoff`）/ `magazine` / `slug` を渡す → `cem-essay-qa` で5軸採点（不合格は writer へ修正指示で再走）
+1. `essay-writer` エージェントに `資格: cem` と `type`（`persona`/`r8yosou`/`setsumon3`/`crosstradeoff`）/ `magazine` / `slug` を渡す → `essay-qa`（`資格: cem`）で5軸採点（不合格は writer へ修正指示で再走。往復は最大 2 回、3 回目は親が判断）
 2. 工程・評価軸・公開ゲートの SoT＝`.claude/knowledge/reference/note-essay-review-checklist.md`（Step 0〜6f がランブック）。配線・公開後 URL 反映・commit は親
 3. **サイトの r0X-essay-{attr} ページは別物** → `/pe-essay-draft`（Generator）→ `/pe-essay-review`（Evaluator）
 

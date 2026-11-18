@@ -35,7 +35,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 |---|---|---|---|---|---|---|---|---|---|
 | 戦略 | `competitor-analyst` | `strategy-advisor` | — | — | — | — | — | — | — |
 | 計画 | — | `todo-planner` | — | — | — | — | — | `backlog-curator` | — |
-| 商品 | — | — | `cce-essay-writer` `cem-essay-writer` `civil-keiken-essay-writer` `civil-keiken-tensaku-drafter` `coconala-blog-writer` `kindle-book-composer` `magazine-pdf-builder` `note-cover-writer` `note-link-injector` `pe-secondary-exam-writer` `rccm-essay-writer` | — | `cce-essay-qa` `cem-essay-qa` `civil-keiken-essay-qa` `civil-keiken-tensaku-qa` `coconala-blog-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` `rccm-essay-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-operator` `kdp-operator` `note-membership-operator` `note-operator` `sales-recorder` | `note-funnel-auditor` | — |
+| 商品 | — | — | `civil-keiken-tensaku-drafter` `coconala-blog-writer` `essay-writer` `kindle-book-composer` `magazine-pdf-builder` `note-cover-writer` `note-link-injector` `pe-secondary-exam-writer` | — | `civil-keiken-tensaku-qa` `coconala-blog-qa` `essay-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-operator` `kdp-operator` `note-membership-operator` `note-operator` `sales-recorder` | `note-funnel-auditor` | — |
 | アフィリエイト | — | — | — | — | — | — | `affiliate-operator` | `a8-csv-auditor` | — |
 | サイト | `metrics-analyzer` `search-intent-auditor` | `seo-fix-planner` | `civil-exam-figure-extractor` `civil-exampoint-restorer` `civil-guide-writer` `civil-secondary-exam-writer` `figure-crop-worker` `page-design-builder` `standards-table-writer` | `civil-textbook-rewriter` `guide-rewriter` `keyword-rewriter` `past-exam-rewriter` `svg-canvas-fitter` `svg-figure-rewriter` | `ai-image-fidelity-auditor` `cem-qa` `civil-construction-qa` `civil-exam-figure-auditor` `exam-keyword-mapping-auditor` `guide-qa` `past-exam-qa` `pe-exam-figure-auditor` `site-page-visual-auditor` `standards-page-visual-auditor` `svg-figure-auditor` | `guide-fact-checker` `standards-table-qa` | — | `gsc-csv-auditor` `gsc-index-auditor` `performance-auditor` `technical-seo-auditor` | — |
 | SNS | — | — | `ig-carousel-writer` `video-script-writer` `x-post-writer` `x-reply-drafter` `x-repost-curator` `yt-shorts-title-writer` | — | `ig-carousel-qa` `video-content-qa` `video-review` `x-post-qa` `yt-shorts-publisher-qa` | — | — | `sns-archive-auditor` | — |
@@ -64,7 +64,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | インデックス登録（index-coverage） | — | — | — | — | — | — | — | `gsc-index-auditor` | — |
 | 表示速度（performance） | — | — | — | — | — | — | — | `performance-auditor` | — |
 | GSC の CSV（gsc-csv） | — | — | — | — | — | — | — | `gsc-csv-auditor` | — |
-| 答案・模範論文（note 教材）（essay） | — | — | `cce-essay-writer` `cem-essay-writer` `civil-keiken-essay-writer` `pe-secondary-exam-writer` `rccm-essay-writer` | — | `cce-essay-qa` `cem-essay-qa` `civil-keiken-essay-qa` `pe-secondary-exam-qa` `rccm-essay-qa` | `pe-secondary-exam-factcheck` | — | — | — |
+| 答案・模範論文（note 教材）（essay） | — | — | `essay-writer` `pe-secondary-exam-writer` | — | `essay-qa` `pe-secondary-exam-qa` | `pe-secondary-exam-factcheck` | — | — | — |
 | 添削・診断の返信（tensaku） | — | — | `civil-keiken-tensaku-drafter` | — | `civil-keiken-tensaku-qa` | — | — | — | — |
 | note の下書き（note-draft） | — | — | `note-link-injector` | — | — | `note-fact-checker` | — | — | — |
 | note のカバー（note-cover） | — | — | `note-cover-writer` | — | — | — | — | — | — |
@@ -107,10 +107,10 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/audit-exam-mapping` | `exam-keyword-mapping-auditor` |
 | `/audit-note-funnel` | `note-funnel-auditor` |
 | `/backlog-sweep` | `backlog-curator` |
-| `/cce-essay-cycle` | `cce-essay-qa` `cce-essay-writer` `magazine-pdf-builder` |
+| `/cce-essay-cycle` | `essay-qa` `essay-writer` `magazine-pdf-builder` |
 | `/check-mdx` | `svg-figure-auditor` |
 | `/civil-figure-rework` | `civil-construction-qa` `civil-exam-figure-auditor` `civil-exam-figure-extractor` |
-| `/civil-keiken-magazine` | `civil-keiken-essay-qa` `civil-keiken-essay-writer` `civil-secondary-exam-writer` |
+| `/civil-keiken-magazine` | `civil-secondary-exam-writer` `essay-qa` `essay-writer` |
 | `/coconala-blog` | `coconala-blog-qa` `coconala-blog-writer` |
 | `/coconala-order` | `civil-keiken-tensaku-drafter` `civil-keiken-tensaku-qa` `coconala-operator` |
 | `/coconala-publish` | `coconala-operator` |
@@ -129,7 +129,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/ig-carousel-restyle` | `ig-carousel-qa` `ig-carousel-writer` |
 | `/improve-article` | `cem-qa` `civil-construction-qa` `content-qa` `keyword-rewriter` |
 | `/kdp-publish` | `kdp-operator` |
-| `/keiken-charcount` | `civil-keiken-essay-qa` `civil-keiken-essay-writer` |
+| `/keiken-charcount` | `essay-qa` `essay-writer` |
 | `/keiken-tensaku` | `civil-keiken-tensaku-drafter` `civil-keiken-tensaku-qa` |
 | `/keyword-page` | `cem-qa` `guide-fact-checker` `guide-qa` `guide-rewriter` |
 | `/kindle-build` | `kdp-operator` `kindle-book-composer` `kindle-book-qa` |
@@ -141,7 +141,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/note-visual-review` | `note-page-visual-auditor` |
 | `/notebooklm-research` | `cem-qa` |
 | `/pdf-to-mdx` | `cem-qa` `civil-construction-qa` `content-qa` `scanned-figure-crop-auditor` |
-| `/pe-essay-cycle` | `cem-essay-qa` `cem-essay-writer` |
+| `/pe-essay-cycle` | `essay-qa` `essay-writer` |
 | `/pe-essay-review` | `cem-qa` `note-fact-checker` |
 | `/pe-note-plan` | `strategy-advisor` |
 | `/pe-secondary-yosou` | `pe-secondary-exam-factcheck` `pe-secondary-exam-qa` `pe-secondary-exam-writer` |
@@ -166,7 +166,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 ## エージェント一覧
 
 <!-- generated:agents:start（npm run build-capability-index が書く。手で直さない） -->
-エージェント 84 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
+エージェント 78 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
 
 | エージェント | 役割 | 対象 | 種別 | model | 領域 | 説明 | 呼び出すスキル |
 |---|---|---|---|---|---|---|---|
@@ -174,18 +174,12 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `affiliate-operator` | 運用 | affiliate | 編集可 | sonnet | affiliate | A8・もしも・afb の提携照合、申請、ASP 間比較を行う。成果 CSV 取込・案件開拓は担当外。Use when [ASP 横断比較, 提携申請]. | — |
 | `ai-image-fidelity-auditor` | 採点 | ai-image | 監査のみ | sonnet | site | 記事の写真・動画/商品素材の AI 生成画像が実物・本文どおりかを ok/fail で判定する Evaluator。修正・記録はしない。 | `/create-pop-image` |
 | `backlog-curator` | 監査 | backlog | 監査のみ | sonnet | plan | backlog カードの分類・重複・陳腐化を監査し処分案を返す Evaluator。編集・実行・週次計画はしない。Use when [バックログ棚卸し]. | `/backlog-sweep` |
-| `cce-essay-qa` | 採点 | essay | 監査のみ | sonnet | product | コンクリート主任技士 小論文の note 教材（テーマ別・立場別）を5軸で採点する Evaluator。cce-essay-writer の成果物が対象。 | `/cce-essay-cycle` |
-| `cce-essay-writer` | 制作 | essay | 編集可 | sonnet | product | コンクリート主任技士 小論文の note 教材（令和形式のテーマ別・立場別模範答案）を執筆する Generator。出題履歴は cce-essay-history.json のみ使用。 | `/cce-essay-cycle` |
-| `cem-essay-qa` | 採点 | essay | 監査のみ | sonnet | product | 総監記述式 note マガジンの模範論文を字数・散文性・専門度・白書根拠で採点する Evaluator。生成・修正はしない。 | `/pe-essay-cycle` |
-| `cem-essay-writer` | 制作 | essay | 編集可 | sonnet | product | 総監記述式 note マガジンのペルソナ別論文・予想問題・施策バンクを執筆する Generator。施策600字以内・真正な経験座を守る。 | `/pe-essay-cycle` |
 | `cem-qa` | 採点 | keyword | 監査のみ | sonnet | site | 総監キーワードページの5軸ルーブリック品質評価を担当する Evaluator。 | `/distill-proofread-learnings` `/improve-article` `/keyword-page` `/notebooklm-research` `/pdf-to-mdx` `/pe-essay-review` `/quality-cycle` `/verify-exam-coverage` |
 | `civil-construction-qa` | 採点 | textbook | 編集可 | sonnet | site | 1級・2級土木 textbook/guide の視覚検証・テキスト網羅率と、既存記事の校正（Mode R・コンクリ系教科書を含む）を担当する Evaluator。 | `/civil-figure-rework` `/improve-article` `/pdf-to-mdx` `/quality-cycle` |
 | `civil-exam-figure-auditor` | 採点 | crop-figure | 監査のみ | sonnet | site | 1級土木 過去問1次ページの図クロップを PNG と MDX 本文から4軸で採点する Evaluator。 | `/civil-figure-rework` `/figure-recrop` |
 | `civil-exam-figure-extractor` | 制作 | crop-figure | 編集可 | sonnet | site | 1級土木 過去問1次ページの図クロップ仕様を、PDF ページ画像の目視で JSON spec にして返す Generator。 | `/civil-figure-rework` |
 | `civil-exampoint-restorer` | 制作 | past-exam | 編集可 | sonnet | site | 1級土木 一次過去問の壊れた ExamPoint を体言止めの学習ポイントに再生成する Generator。 | — |
 | `civil-guide-writer` | 制作 | guide | 編集可 | sonnet | site | 1級・2級土木と civil-practice の新規ガイドを執筆する Generator。リライトと採点は担当外。 | — |
-| `civil-keiken-essay-qa` | 採点 | essay | 監査のみ | sonnet | product | 施工経験記述 note マガジンのフル模範答案を5軸で採点する Evaluator（重複・捏造・形式・著作権）。 | `/civil-keiken-magazine` `/keiken-charcount` |
-| `civil-keiken-essay-writer` | 制作 | essay | 編集可 | sonnet | product | 施工経験記述 note マガジンのフル模範答案（年度別・テーマ別・予想・想定工事バンク）を生成する Generator。 | `/civil-keiken-magazine` `/keiken-charcount` |
 | `civil-keiken-tensaku-drafter` | 制作 | tensaku | 編集可 | sonnet | product | 顧客原稿・ヒアリング事実から診断・添削・骨子シートの下書きを作る。事実は創作せず質問にする。最終化・送信は担当外。 | `/coconala-order` `/keiken-tensaku` |
 | `civil-keiken-tensaku-qa` | 採点 | tensaku | 監査のみ | sonnet | product | 添削・診断・骨子の返信文を事実忠実性・指摘の正確性など5軸で検証する Evaluator。修正・送信はしない。Use when [添削返信の検証]. | `/coconala-order` `/keiken-tensaku` |
 | `civil-secondary-exam-writer` | 制作 | past-exam | 編集可 | sonnet | site | 1級土木 二次過去問の解答・ポイント・設問解説を補完する Generator。 | `/civil-keiken-magazine` |
@@ -198,6 +192,8 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `content-qa` | 照合 | past-exam | 監査のみ | sonnet | material | PDF→MDX 変換の品質を5軸で評価する Evaluator（過去問・基準書中心）。 | `/exam-questions-import` `/improve-article` `/pdf-to-mdx` |
 | `doc-curator` | 監査 | docs | 監査のみ | sonnet | ops | 文書の肥大化・陳腐化・重複を外部実体に基づき監査し KEEP/TRIM/DELETE/CONSOLIDATE を返す Evaluator。編集はしない。 | `/doc-declutter` |
 | `doc-sync-auditor` | 監査 | docs | 監査のみ | sonnet | ops | 変更 diff と候補ドキュメントを突合し、旧仕様化した記述を file:line つきで報告する Evaluator。自動修正はしない。 | `/doc-sync` |
+| `essay-qa` | 採点 | essay | 監査のみ | sonnet | product | note 教材の模範答案・模範論文（総監・施工経験記述・コンクリート主任技士・RCCM）を、資格別プロファイルの決定論ゲートと5軸で採点する Evaluator。生成・修正はしない。Use when 答案を採点する（資格を引数で渡す）。 | `/cce-essay-cycle` `/civil-keiken-magazine` `/keiken-charcount` `/pe-essay-cycle` |
+| `essay-writer` | 制作 | essay | 編集可 | sonnet | product | note 教材の模範答案・模範論文（総監・施工経験記述・コンクリート主任技士・RCCM）を、資格別プロファイルに従って1記事ずつ執筆する Generator。Use when 模範答案を書く・答案を生成する（資格を引数で渡す）。 | `/cce-essay-cycle` `/civil-keiken-magazine` `/keiken-charcount` `/pe-essay-cycle` |
 | `exam-keyword-mapping-auditor` | 採点 | exam-mapping | 監査のみ | sonnet | site | 総監の過去問1問の紐づけキーワード群が論点を覆うかを評価し、追加・削除候補を返す Evaluator。Use when [過去問紐づけ監査]. | `/audit-exam-mapping` |
 | `figure-crop-worker` | 制作 | crop-figure | 監査のみ | sonnet | site | 記事の図画像を1枚ずつ目視分類し、タイト再クロップか元 PDF からの切り出し直しを行う Generator。MDX・台帳・git は担当外。 | `/figure-quality-loop` `/figure-recrop` |
 | `gsc-csv-auditor` | 監査 | gsc-csv | 監査のみ | sonnet | site | GSC UI の収集済み CSV の欠損・切捨て・重複・前回差分を監査する Evaluator。SEO 判断・修正はしない。 | `/google-search-growth` |
@@ -228,8 +224,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `pe-secondary-exam-qa` | 採点 | essay | 監査のみ | sonnet | product | 建設部門 note マガジンの模範解答を6軸で採点する Evaluator（予想問題モード forecast:true 対応）。 | `/pe-secondary-yosou` |
 | `pe-secondary-exam-writer` | 制作 | essay | 編集可 | sonnet | product | 建設部門 note マガジン用の模範解答を科目区分ごとに1記事生成する Generator（過去問/予想 forecast:true・全選択肢網羅）。 | `/pe-secondary-yosou` |
 | `performance-auditor` | 監査 | performance | 監査のみ | sonnet | site | PSI 計測履歴から Core Web Vitals のしきい値違反と回帰を検出し、改善提案を優先度つきで出す Evaluator。 | `/gsc-review` `/psi-audit` `/seo-growth-review` |
-| `rccm-essay-qa` | 採点 | essay | 監査のみ | sonnet | product | RCCM note 教材（問題III 模範論文・問題I テンプレ）を5軸で採点する Evaluator。生成・修正はしない。 | — |
-| `rccm-essay-writer` | 制作 | essay | 編集可 | sonnet | product | RCCM note 教材（問題III 模範論文・問題I テンプレ）を執筆する Generator。指定用語4語以上・1,200〜1,600字。 | — |
 | `sales-recorder` | 運用 | sales | 編集可 | sonnet | product | note 販売履歴テキストを正規化して data/note/sales.json に追記する Generator。Use when [売上記録]. | `/record-sales` |
 | `scanned-figure-crop-auditor` | 採点 | crop-figure | 監査のみ | sonnet | material | スキャン教材の図クロップ PNG を4軸で採点し、bbox の調整値を返す Evaluator（audit-only）。 | `/figure-recrop` `/pdf-to-mdx` |
 | `search-intent-auditor` | 分析 | search-intent | 監査のみ | sonnet | site | 機械抽出した最大20 URL が対象クエリの検索意図に合致するかを意味評価する Evaluator（audit-only）。 | `/seo-growth-review` |
@@ -299,9 +293,9 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | **yt-shorts-publisher-qa** | 現行の YouTube Shorts mp4・meta・表紙 | 尺・導線・タイトル・字幕・画面品質を評価し、予約後に `videos.list` を照合 | 現行Shorts制作時。旧IG派生経路は退役 |
 | **video-content-qa** | `content/sns/video-packs/{exam}/{slug}/`（video-pack.json・script.md・storyboard.json）＋ `sourceRefs` の実体 | 悩み適合・事実/出典・視聴維持・図版音声字幕整合・差別化/Red Line・CTA/計測（6軸 0〜3・平均 ≥2.0 かつ BLOCK なし）。`check-video-content` FAIL・出典なし断定・逐語転用・主 CTA 複数は BLOCK | `/video-content` で台本生成後（レンダリング前） |
 | **pe-secondary-exam-qa** | `content/note/技術士建設部門/magazines/{magazine}/{year}/article.md`（論述式 模範解答） | 設問適合・論述構成/論点絞り込み・分かりやすさ/あいまい表現排除・発注者視点/専門性・note完成度（5軸）＋字数上限〔枚数×600字〕・note-lint・設問1対1・論述式文体ゲート。論述原則は `技術士論文の書き方`（非公開・原則抽出）由来 | 技術士二次 模範解答 article.md 生成後 |
-| **cem-essay-qa** | `content/note/技術士総監/magazines/{magazine}/{slug}/article.md`（総監記述式 模範論文／模範解答） | 字数〔各施策600字〕・散文性・監理可能性〔越権排除〕・専門度〔設問3 NG用語/5管理正式名〕・白書根拠/真正性〔ペルソナ経験座〕（5軸）＋字数 strict・見出し構造・note-lint・blockquote濫用ゲート。評価軸の真実源は `note-essay-review-checklist.md`。pe-secondary-exam-qa（建設部門）/cem-qa（キーワードページ）と守備範囲が直交 | 総監 note 記述式 模範論文 article.md 生成後 |
-| **rccm-essay-qa** | `content/note/RCCM/magazines/{magazine}/{slug}/article.md`（RCCM 問題III 模範論文・問題I テンプレ） | 字数・形式〔1,200〜1,600 字・①②〕・指定用語〔「」4 語以上〕・視点/構成〔管理技術者視点〕・専門度・事実根拠/真正性（5軸）＋`check-rccm-essay --strict`・note-lint・問題再現節 0 ゲート。試験事実の真実源は `_facts-2026.md` | RCCM note 教材 article.md 生成後 |
-| **cce-essay-qa** | `content/note/コンクリート主任技士/magazines/{magazine}/{slug}/article.md`（令和形式テーマ別・8立場／立場別はテーマ単位で8本） | 本番形式への適合・立場の書き分け・技術精度・出題実績の整合・販売構成/真正性（5軸）＋`check-cce-essay`・note-lint。出題履歴の真実源は `cce-essay-history.json` | 主任技士 小論文テーマ別教材の生成後 |
+| **essay-qa**（資格: cem） | `content/note/技術士総監/magazines/{magazine}/{slug}/article.md`（総監記述式 模範論文／模範解答） | 字数〔各施策600字〕・散文性・監理可能性〔越権排除〕・専門度〔設問3 NG用語/5管理正式名〕・白書根拠/真正性〔ペルソナ経験座〕（5軸）＋字数 strict・見出し構造・note-lint・blockquote濫用ゲート。評価軸の真実源は `note-essay-review-checklist.md`。pe-secondary-exam-qa（建設部門）/cem-qa（キーワードページ）と守備範囲が直交 | 総監 note 記述式 模範論文 article.md 生成後 |
+| **essay-qa**（資格: rccm） | `content/note/RCCM/magazines/{magazine}/{slug}/article.md`（RCCM 問題III 模範論文・問題I テンプレ） | 字数・形式〔1,200〜1,600 字・①②〕・指定用語〔「」4 語以上〕・視点/構成〔管理技術者視点〕・専門度・事実根拠/真正性（5軸）＋`check-rccm-essay --strict`・note-lint・問題再現節 0 ゲート。試験事実の真実源は `_facts-2026.md` | RCCM note 教材 article.md 生成後 |
+| **essay-qa**（資格: cce） | `content/note/コンクリート主任技士/magazines/{magazine}/{slug}/article.md`（令和形式テーマ別・8立場／立場別はテーマ単位で8本） | 本番形式への適合・立場の書き分け・技術精度・出題実績の整合・販売構成/真正性（5軸）＋`check-cce-essay`・note-lint。出題履歴の真実源は `cce-essay-history.json` | 主任技士 小論文テーマ別教材の生成後 |
 | **past-exam-qa** | `.mdx`（過去問 primary/secondary・`pe-comprehensive-management`/`pe-first-stage`/`civil-construction-1`/`-2`/`concrete-chief-engineer`/`concrete-diagnostician`） | 構造統一・正答正確性/全選択肢正誤検証・ExamPoint 折衷案準拠・RelatedKeywords健全性・モバイル文体（primary 5軸／secondary は軸3=ExamPoint を除外し4軸正規化、加重 ≥2.0 で合格） | 既存過去問記事の品質監査時・過去問品質サイクルの評価フェーズ |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
@@ -326,9 +320,9 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | 1級土木 textbook/guide 品質サイクル | `/civil-textbook-cycle`（オーケストレータ） → `civil-construction-qa`（校正モード）（評価） → `civil-textbook-rewriter`（改訂） → 再評価 → 人間レビュー |
 | UI・ページデザイン | `page-design-builder`（`design-system.md` 準拠で実装）→ `/design-review --visual`（light/dark × desktop/mobile 視覚回帰）→ 親が `lint-ui.mjs` 検証・`/simplify` で微修正 |
 | 過去問品質サイクル | `past-exam-qa`（評価・指摘）→ `past-exam-rewriter`（指摘適用）→ 親が lint-mdx-mobile/validate-mdx で検証 → 再評価 → 親が明示パス commit |
-| 総監 記述式 模範論文サイクル | `cem-essay-writer`（生成・自己ゲート）→ `cem-essay-qa`（5軸採点）→ 不合格は writer へ修正指示で再走 → 親が配線（note-magazines.ts/note掲載文.txt/PDF spec）・公開後 URL 反映・明示パス commit。ランブック＝`note-essay-review-checklist.md` |
-| RCCM note 教材サイクル | `rccm-essay-writer`（生成・`check-rccm-essay --strict` 自己ゲート）→ `rccm-essay-qa`（5軸採点）→ 不合格は writer へ修正指示で再走 → 親が配線（`note-magazines.ts rccm-*`／`note-magazine-membership.json`／`sales-recorder.md`）・カバー・公開・明示パス commit。試験事実は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md` が SSOT |
-| 主任技士 小論文サイクル（`/cce-essay-cycle`） | 新年度は SSOT `cce-essay-history.json` へ追記→`check-cce-essay --fix` でサイト/note の出題履歴ブロックを再生成。答案は `cce-essay-writer`（`check-cce-essay` 自己ゲート）→ `cce-essay-qa`（5軸）→ 不合格は writer 再走 → 親が技術事実の抜き取り照合・配線・PDF・commit |
+| 総監 記述式 模範論文サイクル | `essay-writer`（資格: cem・生成・自己ゲート）→ `essay-qa`（資格: cem・5軸採点）→ 不合格は writer へ修正指示で再走（往復は2回まで） → 親が配線（note-magazines.ts/note掲載文.txt/PDF spec）・公開後 URL 反映・明示パス commit。ランブック＝`note-essay-review-checklist.md` |
+| RCCM note 教材サイクル | `essay-writer`（資格: rccm・生成・`check-rccm-essay --strict` 自己ゲート）→ `essay-qa`（資格: rccm・5軸採点）→ 不合格は writer へ修正指示で再走（往復は2回まで） → 親が配線（`note-magazines.ts rccm-*`／`note-magazine-membership.json`／`sales-recorder.md`）・カバー・公開・明示パス commit。試験事実は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md` が SSOT |
+| 主任技士 小論文サイクル（`/cce-essay-cycle`） | 新年度は SSOT `cce-essay-history.json` へ追記→`check-cce-essay --fix` でサイト/note の出題履歴ブロックを再生成。答案は `essay-writer`（資格: cce・`check-cce-essay` 自己ゲート）→ `essay-qa`（資格: cce・5軸）→ 不合格は writer 再走（往復は2回まで） → 親が技術事実の抜き取り照合・配線・PDF・commit |
 
 **注**: 月次企画・四半期レビュー・試験シーズン対策・広告最適化は Phase 2 で再開予定。
 

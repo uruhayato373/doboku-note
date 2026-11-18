@@ -82,7 +82,7 @@ export interface NoteMagazine {
  *   2. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表に追加
  *   3. keiken 系（施工経験記述）なら: scripts/keiken-charcount.mjs の探索フィルタに dir 判別語を追加
  *      （check-magazine-wiring.mjs が pre-commit で漏れを機械検知する）
- *   4. Generator/Evaluator の対応型: .claude/agents/civil-keiken-essay-writer.md 等の型リスト＋agents-registry.md
+ *   4. Generator/Evaluator の対応型: .claude/agents/essay-writer.md 等の型リスト＋agents-registry.md
  *   5. 変更後は /doc-sync を1回回して prose 陳腐化を点検（CLAUDE.md §8）
  */
 const MAGAZINES_RAW = {

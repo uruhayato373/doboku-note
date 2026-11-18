@@ -45,7 +45,7 @@ domain: product
 | `plan` | `pe-note-plan`（企画スキル） | ④ note 有料記事の編集ロードマップ提案 |
 | `publish` | `/note-prepublish-review` ＋ `.claude/knowledge/reference/note-essay-review-checklist.md`（ペルソナ別マガジン）／`.claude/knowledge/reference/note-publish-enhancement.md`（記事個別） | note 公開前の品質ゲート＋公開工程 |
 | `page` | `/keyword-page` / `/improve-article` / `/quality-cycle` のいずれか | ① doboku-note 記述式ページの整備（ルーティング指示のみ） |
-| `forecast` | [references/forecast-flow.md](references/forecast-flow.md)（Stage 1 は親、Stage 2・3 は `cem-essay-writer` → `cem-essay-qa` と `draft`/`review`） | 年度 R{NN} の予想：テーマ予測（3 軸スコア）→ 予想問題 → ペルソナ模範解答 |
+| `forecast` | [references/forecast-flow.md](references/forecast-flow.md)（Stage 1 は親、Stage 2・3 は `essay-writer` → `essay-qa`（いずれも `資格: cem`）と `draft`/`review`） | 年度 R{NN} の予想：テーマ予測（3 軸スコア）→ 予想問題 → ペルソナ模範解答 |
 
 ## 実行手順
 
@@ -139,7 +139,7 @@ draft → needs-review → verified → approved
 - `.claude/skills/pe-essay-draft/SKILL.md` — ② 模範論文 Generator
 - `.claude/skills/pe-essay-review/SKILL.md` — ③ 模範論文 Evaluator（3 ペルソナ）
 - `.claude/skills/pe-note-plan/SKILL.md` — ④ note 有料記事 企画
-- `.claude/agents/cem-essay-writer.md` / `.claude/agents/cem-essay-qa.md` — **note 有料マガジンの記述式模範論文の生成・採点**（本スキルの draft/review は**サイト** r0X-essay ページが対象。note 模範論文の生成・QA はこのペアが担う。ランブック＝note-essay-review-checklist.md）
+- `.claude/agents/essay-writer.md` / `.claude/agents/essay-qa.md`（資格 cem のプロファイル `.claude/agents/profiles/essay/cem.md`） — **note 有料マガジンの記述式模範論文の生成・採点**（本スキルの draft/review は**サイト** r0X-essay ページが対象。note 模範論文の生成・QA はこのペアが担う。ランブック＝note-essay-review-checklist.md）
 - `.claude/skills/quality-cycle/SKILL.md` — キーワード/教科書版の品質サイクル（本スキルの設計元）
 - `.claude/skills/note-prepublish-review/SKILL.md` — note 公開前ゲート
 - `.claude/knowledge/reference/note-essay-review-checklist.md` — **総監模範論文ペルソナ別マガジンの公開品質化 SoT**（Step 0〜6f・全ペルソナ＝R03-R07＋R8予想2記事を作成＝2026-06-16 方針転換〔旧「per-persona R8予想は作らない＝決定2026」撤回〕・note掲載文.txt・価格・_meta.yaml 廃止）

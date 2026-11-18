@@ -86,4 +86,4 @@ target: tensaku
 
 - 返信文・下書きの書き換え（修正は親）
 - 顧客への送信・トークルーム操作
-- 自社マガジン模範答案の採点（`civil-keiken-essay-qa` の担当）
+- 自社マガジン模範答案の採点（`essay-qa`（資格 civil-keiken） の担当）

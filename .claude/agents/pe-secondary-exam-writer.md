@@ -449,7 +449,7 @@ note の販売は**記事（年度・科目）単位**。article.md だけでは
 - `content/sources/past-exams/技術士（建設部門）/{year}/{year}_{subject}.pdf` — PDF 原典
 - `content/sources/textbook/技術士論文の書き方/技術士論文の書き方.pdf` — 論述メソッドの真実源（非公開・原則抽出のみ）
 - `.claude/agents/pe-secondary-exam-qa.md` — 対の Evaluator（5軸採点）
-- `.claude/agents/civil-keiken-essay-writer.md` — note 記事生成の姉妹 Generator
+- `.claude/agents/essay-writer.md` — note 記事生成の姉妹 Generator
 
 ## 上下水道部門への適用（2026-10-15 決定）
 

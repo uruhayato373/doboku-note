@@ -9,8 +9,8 @@ R8 当時の原文は commit 747fab5d9 の「06_R8記述式予測フロー」 �
 | 段階 | 入力 | 出力 | 担当 |
 |---|---|---|---|
 | Stage 1 テーマ予測 | 前年度（R{NN-1}）の白書・閣議決定・国家戦略、過去 17 年の出題テーマ表 | 3 軸スコア付きの候補テーマ N 本（R8 は 6 本） | 親（このスキル）。白書の根拠は NotebookLM 白書ノートブック |
-| Stage 2 予想問題 | Stage 1 で 3 軸 ◎ 以上のテーマ・過去問形式（II-2 / III） | テーマごとに公式形式の予想設問（4 設問・各 600 字相当・計 5 枚） | `cem-essay-writer`（生成）→ `cem-essay-qa`（採点） |
-| Stage 3 模範解答 | Stage 2 の予想問題・既存の pattern-essay / r0X-essay | 固定 3 ペルソナ × テーマの三層構造答案 | サイトの思考フレームは `pe-essay-draft` → `pe-essay-review`、note 有料は `cem-essay-writer` → `cem-essay-qa` |
+| Stage 2 予想問題 | Stage 1 で 3 軸 ◎ 以上のテーマ・過去問形式（II-2 / III） | テーマごとに公式形式の予想設問（4 設問・各 600 字相当・計 5 枚） | `essay-writer`（生成）→ `essay-qa`（採点）・いずれも `資格: cem` |
+| Stage 3 模範解答 | Stage 2 の予想問題・既存の pattern-essay / r0X-essay | 固定 3 ペルソナ × テーマの三層構造答案 | サイトの思考フレームは `pe-essay-draft` → `pe-essay-review`、note 有料は `essay-writer` → `essay-qa`（いずれも `資格: cem`） |
 
 次の段へ進めるのは、Stage 1 で 3 軸 ◎ 以上のテーマと、Stage 2 で固定 3 ペルソナすべてで「管理対象 → 施策 → 将来展望」が組めるテーマだけ。
 
@@ -57,8 +57,8 @@ R8 当時の原文は commit 747fab5d9 の「06_R8記述式予測フロー」 �
 
 1. 前年度白書の特集を NotebookLM で引き、候補テーマを出して 3 軸で採点する（統合できるテーマは単独にしない。R8 ではエネルギー安保・経済安保・AI ガバナンスを既存テーマへ統合し、災害復旧×レジリエンスは独立の価値ありと判断した）
 2. サイトの予想ハブ（R{NN} essay keyword forecast）に候補テーマと 3 軸スコアを反映する
-3. ◎ のテーマごとに `cem-essay-writer` で予想設問を作り、`cem-essay-qa` で公式形式・重複・ペルソナ適合を採点する
-4. 合格した設問で三層構造の模範解答を作る（サイト＝`draft` モード、note＝`cem-essay-writer`）。採点は `review` モード／`cem-essay-qa`
+3. ◎ のテーマごとに `essay-writer`（`資格: cem`）で予想設問を作り、`essay-qa`（`資格: cem`）で公式形式・重複・ペルソナ適合を採点する（採点と直しの往復は最大 2 回、3 回目は親が判断する）
+4. 合格した設問で三層構造の模範解答を作る（サイト＝`draft` モード、note＝`essay-writer`、`資格: cem`）。採点は `review` モード／`essay-qa`（`資格: cem`）
 5. note の予想問題集を `publish` モードの公開ゲートに通す。価格の正本は `src/lib/note-magazines.ts`
 6. 試験後に的中を振り返る。的中の帰属は設問(3)のバンクだけで数える
 

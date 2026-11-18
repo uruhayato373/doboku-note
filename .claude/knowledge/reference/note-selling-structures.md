@@ -62,8 +62,8 @@ note 記事の**作成・リライト経路**ごとに、本書がどこから�
 | 経路 | 担当 | 参照のされ方 |
 |---|---|---|
 | 建設部門 模範解答（過去問／予想） | `pe-secondary-exam-writer`（Generator）・`/pe-secondary-yosou` | エージェント定義から本書を参照（導入・無料部分・販売導線） |
-| 1級2級 施工経験記述 | `civil-keiken-essay-writer`（Generator）・`/civil-keiken-magazine` | エージェント定義から本書を参照（導入・無料部分・販売導線） |
-| 総監 記述式 模範論文（note・persona/R8予想/設問3バンク/クロストレードオフ） | `cem-essay-writer`（Generator）・`cem-essay-qa`（Evaluator） | Generator が定義＋ランブック [note-essay-review-checklist.md](note-essay-review-checklist.md) から型を選ぶ。QA は Red Line・散文性を見る（型そのものは採点しない） |
+| 1級2級 施工経験記述 | `essay-writer`（資格 civil-keiken）（Generator）・`/civil-keiken-magazine` | エージェント定義から本書を参照（導入・無料部分・販売導線） |
+| 総監 記述式 模範論文（note・persona/R8予想/設問3バンク/クロストレードオフ） | `essay-writer`（資格 cem）（Generator）・`essay-qa`（資格 cem）（Evaluator） | Generator が定義＋ランブック [note-essay-review-checklist.md](note-essay-review-checklist.md) から型を選ぶ。QA は Red Line・散文性を見る（型そのものは採点しない） |
 | 総監テキスト精読ガイド（note） | 親駆動（専任 writer なし） | [note-publish-enhancement.md](note-publish-enhancement.md) B1 から橋渡し |
 | 全 note 下書きの公開前ゲート | `/note-prepublish-review` | Phase 1 で無料部分の5ステップ骨格を report-only 観点喚起（自動判定・BLOCK しない） |
 | ココナラ 出品文面 | `coconala-operator`・`/coconala-publish` | [ココナラ展開キット.md](../../../content/note/1級・2級土木/ココナラ展開キット.md) §3 からSTRUCTURE.md「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案） |

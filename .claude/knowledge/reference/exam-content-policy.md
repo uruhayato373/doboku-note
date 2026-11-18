@@ -176,7 +176,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - groups = guide のみ。variant=pe / order=2.7 / `home-exam-cards.json` order 8 / テーマ色 `--exam-rccm`（`#9C3D1E` 赤褐色・note カバー `exams.rccm` と同色）。ExamKey は `rccm`（マガジン id 接頭辞 `rccm-`）。
 - **過去問は事務局非公開**（jcca.or.jp の past_tests は 404・2026-09-15）。よって `primary` を作らず、民間サイトの再現問題も引用しない。試験事実・公開テーマ・指定用語の SSOT は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`（協会の出題テーマ PDF が一次出典）。数値・日付は `exam-calendar.json` / `exam-stats.json`（`latest` は一次未照合で null）を参照し、ガイドは `guide-fact-checker` を通す。
 - 収益面は note 先行（問題III 模範論文集 `rccm-mondai3-magazine`・問題I テンプレ `rccm-mondai1-template`）。サイトのガイド 7 本（`category-curriculum.json rccm.examGuide.slugs`）は 2027-03-01 合格発表・5 月申込期の検索流入を仕込む位置づけで、`magazine-placement.ts` は `rccm-*` を top CTA へ一括解決する。
-- Generator は `civil-guide-writer` 相当の汎用手順（sonnet・`category: rccm`）、Evaluator は `guide-qa`＋`guide-fact-checker`。note 教材は `rccm-essay-writer` / `rccm-essay-qa`（`check-rccm-essay` が出題条件を機械化）。
+- Generator は `civil-guide-writer` 相当の汎用手順（sonnet・`category: rccm`）、Evaluator は `guide-qa`＋`guide-fact-checker`。note 教材は `essay-writer`（資格 rccm） / `essay-qa`（資格 rccm）（`check-rccm-essay` が出題条件を機械化）。
 - 運営者の座は「発注者として建設コンサルタント業務を発注し成果品を検査・評定した技術士（建設・総監）」に限定し、RCCM 保有・コンサル在籍・採点者・合格体験を名乗らない。
 
 ### 新資格メモ: コンクリート診断士（`concrete-diagnostician`、2026-05-30 新設 → 2026-07-31 公開）

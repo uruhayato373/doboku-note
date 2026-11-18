@@ -13,7 +13,7 @@ metadata:
 
 **品質ゲート**: 全数で charcount --strict(600字)/check-essay-heading-structure/note-lint/cover-fit/site-UTM＋白書WebSearch照合を通過。マトリクス整合性検査(noteMagazine一致・MD5重複)で汚染0・重複0を確認。
 
-**重要な運用知見(並行書込み汚染)**: cem-essay-writer を高並行(8-9本)で走らせると writeMdxFile の一時パス衝突で**別ペルソナの内容が混入する事故**が発生(下水道⑤にゼネコン⑤内容が上書きされ、gate-passのままcommitされた)。対策=バッチcommit前に必ず**noteMagazine==dir persona 一致＋MD5重複なし**を検査する整合性ガードを通す(本セッションで是正済)。並行は≤6推奨。詳細は [[feedback_workflow_orchestration_gotchas]] と併読。
+**重要な運用知見(並行書込み汚染)**: essay-writer（資格 cem） を高並行(8-9本)で走らせると writeMdxFile の一時パス衝突で**別ペルソナの内容が混入する事故**が発生(下水道⑤にゼネコン⑤内容が上書きされ、gate-passのままcommitされた)。対策=バッチcommit前に必ず**noteMagazine==dir persona 一致＋MD5重複なし**を検査する整合性ガードを通す(本セッションで是正済)。並行は≤6推奨。詳細は [[feedback_workflow_orchestration_gotchas]] と併読。
 
 **2026-07-13 実施済(Mac実機・このMacで完遂)**: (1)**note全62本公開**=総監56(hashtags59本先行生成→テーマ別ウェーブyosou-3/4/5/6×14＋canary)＋建設BK-09/10の6本。全数note-publish-magazine --commitの偽成功ガード(noteId実在照合)通過＋`verify-note-status`で301本ドリフト0確認。建設カバーは未生成だったのでgenerate-note-covers(sharp・Mac安全)で6枚先行生成。(2)**マガジン収録**=全16マガジンにyosou収録(note-magazine-add --commit・API実体検証)。標準11ペルソナ11件/道路担当12件/ゼネコン・河川コンサル9件(yosou-1/2未公開のため)/BK-09,10各18件。※ツールバグ修正: note-magazine-add の magazineMeta 探索が6ページ止まりで後方マガジン(ゼネコン等)未解決→20ページに拡張(commit fed9e902b)。(3)**note-magazines.ts更新**=実収録数で正確に(標準11/道路12/ゼネコン河川9・BK-09/10を¥1,980→¥2,980/18記事)・旧「横断集約」文言削除・r8-forecastに全14ペルソナ相互導線追記・type-checkクリーン。
 

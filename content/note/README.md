@@ -97,7 +97,7 @@ content/note/
 - **問題I 部門別記入例**: 上水道・下水道・土質及び基礎（各¥1,980・各2例・PDF付き・2026-09-19公開）。既存テンプレの道路・河川砂防・鋼構造コンクリートと合わせ6部門。2,400字は練習用の目安。問題IV-2は対象外。
 - **無料**: `RCCMもくじ`（L2）＋ lead-in 3 本（指定語の使い方／落ちる業務経験論文／CBT 直前 2 週間の学習計画・2026-09-17 公開済み）
 - **試験事実の SSOT**: `RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md`（協会の出題テーマ PDF が一次出典。過去問は事務局非公開＝問題文の転載禁止・全て自作）
-- **戦略 SSOT**: `RCCM/noteコンテンツ計画.md`。Generator/Evaluator は `rccm-essay-writer` / `rccm-essay-qa`、機械ゲートは `npm run check-rccm-essay`
+- **戦略 SSOT**: `RCCM/noteコンテンツ計画.md`。Generator/Evaluator は `essay-writer`（資格 rccm） / `essay-qa`（資格 rccm）、機械ゲートは `npm run check-rccm-essay`
 
 ### コンクリート主任技士（`コンクリート主任技士/`）
 
