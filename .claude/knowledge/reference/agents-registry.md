@@ -33,9 +33,9 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 
 | 領域 | 分析 | 企画・計画 | 制作 | 直す | 採点 | 照合 | 運用 | 監査 | 実行 |
 |---|---|---|---|---|---|---|---|---|---|
-| 戦略 | `competitor-analyst` | `strategy-advisor` | — | — | — | — | — | — | — |
+| 戦略 | `content-competitor-analyst` `sales-competitor-analyst` | `product-portfolio-planner` `strategy-advisor` | — | — | — | — | — | — | — |
 | 計画 | — | `todo-planner` | — | — | — | — | — | `backlog-curator` | — |
-| 商品 | — | — | `civil-keiken-tensaku-drafter` `coconala-blog-writer` `essay-writer` `kindle-book-composer` `magazine-pdf-builder` `note-cover-writer` `note-link-injector` `pe-secondary-exam-writer` | — | `civil-keiken-tensaku-qa` `coconala-blog-qa` `essay-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-operator` `kdp-operator` `note-membership-operator` `note-operator` `sales-recorder` | `note-funnel-auditor` | — |
+| 商品 | `coconala-traffic-analyst` `note-traffic-analyst` | — | `civil-keiken-tensaku-drafter` `coconala-blog-writer` `coconala-order-drafter` `essay-writer` `kindle-book-composer` `magazine-pdf-builder` `note-buyer-responder` `note-cover-writer` `note-link-injector` `pe-secondary-exam-writer` | — | `civil-keiken-tensaku-qa` `coconala-blog-qa` `essay-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-listing-operator` `kdp-operator` `note-catalog-operator` `note-membership-operator` `sales-recorder` | `note-funnel-auditor` | — |
 | アフィリエイト | — | — | — | — | — | — | `affiliate-operator` | `a8-csv-auditor` | — |
 | サイト | `metrics-analyzer` `search-intent-auditor` | `seo-fix-planner` | `civil-exampoint-restorer` `civil-guide-writer` `civil-secondary-exam-writer` `figure-crop-worker` `page-design-builder` `standards-table-writer` | `civil-textbook-rewriter` `guide-rewriter` `keyword-rewriter` `past-exam-rewriter` `svg-canvas-fitter` `svg-figure-rewriter` | `ai-image-fidelity-auditor` `cem-qa` `civil-construction-qa` `exam-keyword-mapping-auditor` `figure-crop-auditor` `guide-qa` `past-exam-qa` `site-page-visual-auditor` `standards-page-visual-auditor` `svg-figure-auditor` | `guide-fact-checker` `standards-table-qa` | — | `gsc-csv-auditor` `gsc-index-auditor` `performance-auditor` `technical-seo-auditor` | — |
 | SNS | — | — | `ig-carousel-writer` `video-script-writer` `x-post-writer` `x-reply-drafter` `x-repost-curator` `yt-shorts-title-writer` | — | `ig-carousel-qa` `video-content-qa` `video-review` `x-post-qa` `yt-shorts-publisher-qa` | — | — | `sns-archive-auditor` | — |
@@ -73,9 +73,13 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | マガジンの PDF（magazine-pdf） | — | — | `magazine-pdf-builder` | — | — | — | — | — | — |
 | Kindle 本（kindle-book） | — | — | `kindle-book-composer` | — | `kindle-book-qa` | — | — | — | — |
 | ココナラブログ（coconala-blog） | — | — | `coconala-blog-writer` | — | `coconala-blog-qa` | — | — | — | — |
-| note の売り場（note） | — | — | — | — | — | — | `note-operator` | — | — |
+| note の売り場（note） | — | — | — | — | — | — | `note-catalog-operator` | — | — |
+| note の購入者への応対（note-buyer） | — | — | `note-buyer-responder` | — | — | — | — | — | — |
+| note の集客（note-traffic） | `note-traffic-analyst` | — | — | — | — | — | — | — | — |
 | note の会員（note-membership） | — | — | — | — | — | — | `note-membership-operator` | — | — |
-| ココナラの売り場（coconala） | — | — | — | — | — | — | `coconala-operator` | — | — |
+| ココナラの売り場（coconala） | — | — | — | — | — | — | `coconala-listing-operator` | — | — |
+| ココナラの受注対応（coconala-order） | — | — | `coconala-order-drafter` | — | — | — | — | — | — |
+| ココナラの集客（coconala-traffic） | `coconala-traffic-analyst` | — | — | — | — | — | — | — | — |
 | KDP の本棚（kdp） | — | — | — | — | — | — | `kdp-operator` | — | — |
 | 売上の記録（sales） | — | — | — | — | — | — | `sales-recorder` | — | — |
 | ASP の提携（affiliate） | — | — | — | — | — | — | `affiliate-operator` | — | — |
@@ -87,7 +91,9 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | 動画パック（video） | — | — | `video-script-writer` | — | `video-content-qa` `video-review` | — | — | — | — |
 | YouTube ショート（yt-short） | — | — | `yt-shorts-title-writer` | — | `yt-shorts-publisher-qa` | — | — | — | — |
 | SNS 素材の退避（sns-archive） | — | — | — | — | — | — | — | `sns-archive-auditor` | — |
-| 競合（competitor） | `competitor-analyst` | — | — | — | — | — | — | — | — |
+| 販売チャネルの競合（note・ココナラ・Kindle）（competitor-sales） | `sales-competitor-analyst` | — | — | — | — | — | — | — | — |
+| 発信チャネルの競合（X・IG・YouTube）（competitor-content） | `content-competitor-analyst` | — | — | — | — | — | — | — | — |
+| 商品の品揃えと価格（product-portfolio） | — | `product-portfolio-planner` | — | — | — | — | — | — | — |
 | 戦略（strategy） | — | `strategy-advisor` | — | — | — | — | — | — | — |
 | 週次計画（weekly-plan） | — | `todo-planner` | — | — | — | — | — | — | — |
 | バックログ（backlog） | — | — | — | — | — | — | — | `backlog-curator` | — |
@@ -112,10 +118,10 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/civil-figure-rework` | `civil-construction-qa` `figure-crop-auditor` `figure-crop-worker` |
 | `/civil-keiken-magazine` | `civil-secondary-exam-writer` `essay-qa` `essay-writer` |
 | `/coconala-blog` | `coconala-blog-qa` `coconala-blog-writer` |
-| `/coconala-order` | `civil-keiken-tensaku-drafter` `civil-keiken-tensaku-qa` `coconala-operator` |
-| `/coconala-publish` | `coconala-operator` |
-| `/coconala-status` | `coconala-operator` |
-| `/competitor-review` | `competitor-analyst` `x-post-qa` `x-post-writer` |
+| `/coconala-order` | `civil-keiken-tensaku-drafter` `civil-keiken-tensaku-qa` `coconala-order-drafter` |
+| `/coconala-publish` | `coconala-listing-operator` |
+| `/coconala-status` | `coconala-listing-operator` `coconala-order-drafter` `coconala-traffic-analyst` |
+| `/competitor-review` | `content-competitor-analyst` `sales-competitor-analyst` `x-post-qa` `x-post-writer` |
 | `/create-pop-image` | `ai-image-fidelity-auditor` `video-content-qa` `video-script-writer` `yt-shorts-publisher-qa` |
 | `/distill-proofread-learnings` | `cem-qa` |
 | `/doc-declutter` | `doc-curator` |
@@ -128,12 +134,14 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/gsc-review` | `gsc-index-auditor` `metrics-analyzer` `performance-auditor` |
 | `/ig-carousel-restyle` | `ig-carousel-qa` `ig-carousel-writer` |
 | `/improve-article` | `cem-qa` `civil-construction-qa` `content-qa` `keyword-rewriter` |
-| `/kdp-publish` | `kdp-operator` |
+| `/kdp-publish` | `kdp-operator` `kindle-book-composer` |
 | `/keiken-charcount` | `essay-qa` `essay-writer` |
 | `/keiken-tensaku` | `civil-keiken-tensaku-drafter` `civil-keiken-tensaku-qa` |
 | `/keyword-page` | `cem-qa` `guide-fact-checker` `guide-qa` `guide-rewriter` |
 | `/kindle-build` | `kdp-operator` `kindle-book-composer` `kindle-book-qa` |
 | `/magazine-to-pdf` | `magazine-pdf-builder` |
+| `/monetization-strategy` | `product-portfolio-planner` |
+| `/monthly-review` | `product-portfolio-planner` |
 | `/note-attach-pdf` | `magazine-pdf-builder` |
 | `/note-hashtags` | `note-link-injector` |
 | `/note-membership` | `note-membership-operator` |
@@ -158,7 +166,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/verify-exam-coverage` | `cem-qa` |
 | `/video-content` | `video-content-qa` `video-script-writer` |
 | `/weekly-improve` | `keyword-rewriter` `metrics-analyzer` |
-| `/weekly-review` | `todo-planner` |
+| `/weekly-review` | `note-traffic-analyst` `todo-planner` |
 | `/x-reply` | `x-reply-drafter` |
 | `/x-repost` | `x-repost-curator` |
 <!-- generated:skill-agent-map:end -->
@@ -166,7 +174,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 ## エージェント一覧
 
 <!-- generated:agents:start（npm run build-capability-index が書く。手で直さない） -->
-エージェント 75 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
+エージェント 81 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
 
 | エージェント | 役割 | 対象 | 種別 | model | 領域 | 説明 | 呼び出すスキル |
 |---|---|---|---|---|---|---|---|
@@ -185,8 +193,10 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `cli-runner` | 実行 | command | 監査のみ | haiku | ops | Workflow の機械の段で、渡されたコマンドを 1 回だけ実行し、終了コードと出力の末尾を返す。判断・修正・検証はしない。 | — |
 | `coconala-blog-qa` | 採点 | coconala-blog | 監査のみ | sonnet | product | ココナラブログ記事を5軸（0〜3）で採点する Evaluator。外部リンクゼロ等のハードゲートは check-coconala-blog で確認。修正はしない。 | `/coconala-blog` |
 | `coconala-blog-writer` | 制作 | coconala-blog | 編集可 | sonnet | product | ココナラブログ記事を執筆する Generator。自出品へ送客し、外部リンクゼロ・カニバリ境界を守る。素材は書き直す（逐語転載しない）。 | `/coconala-blog` |
-| `coconala-operator` | 運用 | coconala | 編集可 | sonnet | product | ココナラの受注照合・出品編集・価格/状態・KPI を既存スクリプトで運用する。送信は運営者。Use when [ココナラ受注, /coconala-order]. | `/coconala-order` `/coconala-publish` `/coconala-status` |
-| `competitor-analyst` | 分析 | competitor | 監査のみ | sonnet | strategy | 取得済みの競合データを比較し、価格・品揃え・訴求の変化と戦略文書への反映案を返す Evaluator。取得・編集はしない。 | `/competitor-review` |
+| `coconala-listing-operator` | 運用 | coconala | 編集可 | sonnet | product | ココナラの出品・修正・価格/状態・休止/再開を既存スクリプトで運用する。受注は対象外。Use when [ココナラに出品, 出品を修正, ココナラを休止]. | `/coconala-publish` `/coconala-status` |
+| `coconala-order-drafter` | 制作 | coconala-order | 編集可 | sonnet | product | ココナラの受注を記録と照合し、添削・骨子・PDF 送付の納品文面を下書きする。送信は運営者。Use when [ココナラで受注した, ココナラの納品文面を作って, /coconala-order]. | `/coconala-order` `/coconala-status` |
+| `coconala-traffic-analyst` | 分析 | coconala-traffic | 監査のみ | sonnet | product | ココナラの閲覧・お気に入り・撤退ラインを集計済み記録から解釈する。書かない。Use when [ココナラの数字が急変, 撤退ライン越え]. | `/coconala-status` |
+| `content-competitor-analyst` | 分析 | competitor-content | 監査のみ | sonnet | strategy | X・IG・YouTube の競合データから型・論点・再生の変化を差分案で返す。取得・編集は担当外。Use when [SNS 定点観測, 発信の競合評価]. | `/competitor-review` |
 | `content-qa` | 照合 | past-exam | 監査のみ | sonnet | material | PDF→MDX 変換の品質を5軸で評価する Evaluator（過去問・基準書中心）。 | `/exam-questions-import` `/improve-article` `/pdf-to-mdx` |
 | `doc-curator` | 監査 | docs | 監査のみ | sonnet | ops | 文書の肥大化・陳腐化・重複を外部実体に基づき監査し KEEP/TRIM/DELETE/CONSOLIDATE を返す Evaluator。編集はしない。 | `/doc-declutter` |
 | `doc-sync-auditor` | 監査 | docs | 監査のみ | sonnet | ops | 変更 diff と候補ドキュメントを突合し、旧仕様化した記述を file:line つきで報告する Evaluator。自動修正はしない。 | `/doc-sync` |
@@ -202,19 +212,21 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `guide-rewriter` | 直す | guide | 編集可 | sonnet | site | ガイド記事を guide-qa と fact-checker の指摘に沿って修正する Generator。新規記事・新事実の創作は担当外。 | `/keyword-page` |
 | `ig-carousel-qa` | 採点 | ig-carousel | 監査のみ | sonnet | sns | Instagram カルーセル slide-data.json v2 と PNG を6軸で評価する Evaluator。 | `/ig-carousel-restyle` |
 | `ig-carousel-writer` | 制作 | ig-carousel | 編集可 | sonnet | sns | Instagram カルーセルの slide-data.json v2 を1キーワードずつ執筆する Generator。 | `/ig-carousel-restyle` |
-| `kdp-operator` | 運用 | kdp | 編集可 | sonnet | product | ビルド済み EPUB と表紙を KDP へ入稿し、出版・本棚照合・ASIN 記録を運用する。Use when [KDP 提出, KDP 公開状態同期]. | `/kdp-publish` `/kindle-build` |
+| `kdp-operator` | 運用 | kdp | 編集可 | sonnet | product | ビルド済み EPUB と表紙を KDP へ入稿し、出版・本棚照合・ASIN 記録を運用する。販売文の作成は kindle-book-composer。Use when [KDP 提出, KDP 公開状態同期]. | `/kdp-publish` `/kindle-build` |
 | `keyword-rewriter` | 直す | keyword | 編集可 | sonnet | site | 総監キーワードページのバルクリライトを担当する Generator。 | `/improve-article` `/quality-cycle` `/weekly-improve` |
-| `kindle-book-composer` | 制作 | kindle-book | 編集可 | sonnet | product | Kindle の論点分類・構成 spec・前付け原稿を設計/改訂する Generator。EPUB ビルド・品質判定はしない。Use when [Kindle 構成設計]. | `/kindle-build` |
+| `kindle-book-composer` | 制作 | kindle-book | 編集可 | sonnet | product | Kindle の論点分類・構成 spec・前付け原稿・KDP の販売文（メタデータ）を設計/改訂する Generator。EPUB ビルド・品質判定はしない。Use when [Kindle 構成設計]. | `/kdp-publish` `/kindle-build` |
 | `kindle-book-qa` | 採点 | kindle-book | 監査のみ | sonnet | product | Kindle EPUB と原稿を完全性・構成・KDP 規約などで監査し修正案を返す Evaluator。修正・出版はしない。Use when [EPUB 品質チェック]. | `/kindle-build` |
 | `magazine-pdf-builder` | 制作 | magazine-pdf | 編集可 | sonnet | product | note マガジンの article.md を「問題文＋解答」中心の紙用 PDF にする spec を作り、magazine-to-pdf.mjs を実行する Generator。 | `/cce-essay-cycle` `/magazine-to-pdf` `/note-attach-pdf` |
-| `metrics-analyzer` | 分析 | search-metrics | 編集可 | sonnet | site | GSC/GA4 データから8パターンの改善機会を抽出し、/nsm-experiment propose の入力を作る Evaluator。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` `/seo-growth-review` `/weekly-improve` |
+| `metrics-analyzer` | 分析 | search-metrics | 監査のみ | sonnet | site | 検索（GSC・GA4）のデータから7パターンの改善機会を抽出し、/nsm-experiment propose の入力を親へ返す Evaluator。ファイルは書かない。SNS 流入は担当外。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` `/seo-growth-review` `/weekly-improve` |
+| `note-buyer-responder` | 制作 | note-buyer | 編集可 | sonnet | product | note の購入者コメントへの返信を、購入と納品の実体を確かめたうえで下書きする。送信は運営者か親の承認後。Use when [note のコメントに返信, 購入者への応対, 納品の問い合わせ]. | — |
+| `note-catalog-operator` | 運用 | note | 編集可 | sonnet | product | note の価格・マガジン・収録・カバー・PDF 添付・同期検証を運用する。返信は対象外。Use when [note 価格変更, マガジン収録]. | — |
 | `note-cover-writer` | 制作 | note-cover | 編集可 | sonnet | product | note 記事のカバー frontmatter（cover: ブロック）を1記事ずつ執筆する Generator。V5 キャラクターカバー用。 | — |
 | `note-fact-checker` | 照合 | note-draft | 監査のみ | sonnet | product | note 公開用ドラフトの数値・主張・年度を doboku-note 内部データと突合する Evaluator。 | `/note-prepublish-review` `/pe-essay-review` |
 | `note-funnel-auditor` | 監査 | note-funnel | 監査のみ | sonnet | product | note 導線の3層（L1/L2/L3）を、もくじの構成・CTA 関連性・回遊の質で意味監査する Evaluator（audit-only）。 | `/audit-note-funnel` |
 | `note-link-injector` | 制作 | note-draft | 編集可 | sonnet | product | note 公開用ドラフトに doboku-note キーワードページへのインラインリンクを注入する Generator。 | `/note-hashtags` `/note-prepublish-review` |
 | `note-membership-operator` | 運用 | note-membership | 編集可 | sonnet | product | note「土木セコカン合格ラボ」の会員配信・特典収録・プラン設定を運用する。口座と公開範囲が不一致なら公開しない。Use when [会員特典配信]. | `/note-membership` |
-| `note-operator` | 運用 | note | 編集可 | sonnet | product | note の価格・マガジン・収録・購入者コメント返信・PDF 添付を運用する。会員プランは note-membership-operator。Use when [note 価格変更]. | — |
 | `note-page-visual-auditor` | 採点 | note-page | 監査のみ | sonnet | product | note の公開ページの代表を画面幅ごとに撮った画像を見て、見た目の崩れ・カバーの切れ・図の不一致・価格の食い違い・有料エリア直前の情報不足をページごとに pass / fail で判定する Evaluator。直さない。 | `/note-visual-review` |
+| `note-traffic-analyst` | 分析 | note-traffic | 監査のみ | sonnet | product | note の PV・流入元・スキ・マガジン流入を収集済み記録から資格別に解釈する。書かない。Use when [note の PV, note の流入元]. | `/weekly-review` |
 | `page-design-builder` | 制作 | site-page | 編集可 | sonnet | site | サイト UI・レイアウトを共通コンポーネントとトークンで実装する Generator。合否は /design-review。SVG・カバーは担当外。Use when [ページUI設計]. | `/site-visual-review` |
 | `past-exam-qa` | 採点 | past-exam | 監査のみ | sonnet | site | 全資格の過去問 MDX を正答・解説・ExamPoint・可読性で監査する Evaluator。修正・PDF 忠実性・図クロップは別担当。Use when [過去問品質監査]. | — |
 | `past-exam-rewriter` | 直す | past-exam | 編集可 | sonnet | site | 過去問 MDX に past-exam-qa の指摘を適用する Generator。設問文・正答・KaTeX は原則保持。図処理は担当外。Use when [過去問校正]. | — |
@@ -222,6 +234,8 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `pe-secondary-exam-qa` | 採点 | essay | 監査のみ | sonnet | product | 建設部門 note マガジンの模範解答を6軸で採点する Evaluator（予想問題モード forecast:true 対応）。 | `/pe-secondary-yosou` |
 | `pe-secondary-exam-writer` | 制作 | essay | 編集可 | sonnet | product | 建設部門 note マガジン用の模範解答を科目区分ごとに1記事生成する Generator（過去問/予想 forecast:true・全選択肢網羅）。 | `/pe-secondary-yosou` |
 | `performance-auditor` | 監査 | performance | 監査のみ | sonnet | site | PSI 計測履歴から Core Web Vitals のしきい値違反と回帰を検出し、改善提案を優先度つきで出す Evaluator。 | `/gsc-review` `/psi-audit` `/seo-growth-review` |
+| `product-portfolio-planner` | 企画・計画 | product-portfolio | 監査のみ | inherit | strategy | 資格ごとの次に作る商品と価格・品揃えの案を返す。書かない。月次のみ。Use when [商品企画, 価格と品揃えの案]. | `/monetization-strategy` `/monthly-review` |
+| `sales-competitor-analyst` | 分析 | competitor-sales | 監査のみ | sonnet | strategy | note・ココナラ・Kindle の競合データから価格・品揃え・訴求の変化を差分案で返す。取得は担当外。Use when [売り場の競合評価]. | `/competitor-review` |
 | `sales-recorder` | 運用 | sales | 編集可 | sonnet | product | note 販売履歴テキストを正規化して data/note/sales.json に追記する Generator。Use when [売上記録]. | `/record-sales` |
 | `search-intent-auditor` | 分析 | search-intent | 監査のみ | sonnet | site | 機械抽出した最大20 URL が対象クエリの検索意図に合致するかを意味評価する Evaluator（audit-only）。 | `/seo-growth-review` |
 | `seo-fix-planner` | 企画・計画 | seo | 監査のみ | sonnet | site | 結合済み検索計測 JSON の URL 分類を評価し、優先順位つきの修正計画を返す Evaluator。取得・修正はしない。 | `/google-search-growth` |

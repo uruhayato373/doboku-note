@@ -87,4 +87,4 @@ target: coconala-blog
 
 - 修正・執筆 → `coconala-blog-writer`
 - 公開・ライブ検証（G6） → `scripts/coconala-blog-publish.mjs`
-- 出品側の文面・価格 → `coconala-operator`
+- 出品側の文面・価格 → `coconala-listing-operator`

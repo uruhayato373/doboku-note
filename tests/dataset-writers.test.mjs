@@ -11,7 +11,7 @@ const known = {
   files: (p) => p === '.claude/scripts/x.mjs',
   automations: new Set(['weekly-review']),
   skills: new Set(['record-sales']),
-  agents: new Set(['note-operator']),
+  agents: new Set(['note-catalog-operator']),
 };
 
 test('parseWriter: 接頭辞つきの値と human を読み、形の違う値は null', () => {

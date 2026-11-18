@@ -109,5 +109,5 @@ service:coconala-shindan
 
 - 採点 → `coconala-blog-qa`
 - 公開・下書き投入 → `scripts/coconala-blog-publish.mjs`（`/coconala-blog` スキル）
-- 出品そのものの作成・価格改定 → `coconala-operator` / `/coconala-publish`
+- 出品そのものの作成・価格改定 → `coconala-listing-operator` / `/coconala-publish`
 - note 記事の執筆 → `essay-writer`（資格 civil-keiken） ほか

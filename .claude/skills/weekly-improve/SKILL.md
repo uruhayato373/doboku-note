@@ -55,16 +55,15 @@ npm run fetch-ga4-data -- --dimension date --days 28
 
 ### Phase 2: パターン抽出（metrics-analyzer エージェント）
 
-`metrics-analyzer` サブエージェントを起動:
+`metrics-analyzer` サブエージェントを起動（検索＝GSC・GA4 の 7 パターン。SNS 流入の急変は週次レビューの Agent F が担当で、ここでは扱わない）:
 
 ```
-prompt: 最新の GSC/GA4 データから6パターン（High-Impr-Low-CTR, Rank-Stuck,
-Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift〔SNS 流入の急変・
-要 ga4.source-medium-sns〕）で改善候補を抽出し、
-`.claude/state/improvements/{today}.md` に出力してください。
+prompt: 最新の GSC/GA4 データから 7 パターン（High-Impr-Low-CTR, Rank-Stuck,
+Traffic-Drop, Hidden-Winner, Orphan-Query, Cannibalization, Content-Decay）で
+改善候補を抽出し、結果の Markdown を返してください（ファイルは書かない）。
 ```
 
-出力ファイルを Read して親コンテキストに取り込む。
+**返り値を親が `.claude/state/improvements/{today}.md` に保存する**（metrics-analyzer は Write を持たない）。保存したファイルを親コンテキストに取り込む。
 
 ### Phase 3: pending 実験の再計測
 

@@ -53,11 +53,6 @@
         ],
         "gaps": [
           {
-            "job": "総監以外の資格の商品企画（次に作る商品・価格・品揃え）",
-            "by": "skill:monthly-review",
-            "reason": "担当の企画役が居ない。第4段階（DN-1242）で product-portfolio-planner を新設する"
-          },
-          {
             "job": "実験の採否の判定",
             "by": "skill:nsm-experiment",
             "reason": "判定は親が experiments.json の測定値で行う。専任の役は作らない"
@@ -169,16 +164,6 @@
           "skill:coconala-status"
         ],
         "gaps": [
-          {
-            "job": "note 内の集客（アクセス・スキ・マガジン流入→購入）の分析",
-            "by": "skill:weekly-review",
-            "reason": "週次レビューの名前の無い子が担っている。第4段階（DN-1242）で note-traffic-analyst に置き換える"
-          },
-          {
-            "job": "ココナラ内の集客（閲覧・お気に入り・撤退ライン）の分析",
-            "by": "skill:coconala-status",
-            "reason": "coconala-operator が兼務している。第4段階（DN-1242）で coconala-traffic-analyst へ移す"
-          },
           {
             "job": "会員の維持",
             "by": "parent",
@@ -970,8 +955,12 @@
     "kindle-book": "Kindle 本",
     "coconala-blog": "ココナラブログ",
     "note": "note の売り場",
+  "note-buyer": "note の購入者への応対",
+  "note-traffic": "note の集客",
     "note-membership": "note の会員",
     "coconala": "ココナラの売り場",
+  "coconala-order": "ココナラの受注対応",
+  "coconala-traffic": "ココナラの集客",
     "kdp": "KDP の本棚",
     "sales": "売上の記録",
     "affiliate": "ASP の提携",
@@ -983,8 +972,10 @@
     "video": "動画パック",
     "yt-short": "YouTube ショート",
     "sns-archive": "SNS 素材の退避",
-    "competitor": "競合",
-    "strategy": "戦略",
+    "competitor-sales": "販売チャネルの競合（note・ココナラ・Kindle）",
+  "competitor-content": "発信チャネルの競合（X・IG・YouTube）",
+    "product-portfolio": "商品の品揃えと価格",
+  "strategy": "戦略",
     "weekly-plan": "週次計画",
     "backlog": "バックログ",
     "docs": "文書",

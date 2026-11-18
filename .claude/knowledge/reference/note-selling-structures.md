@@ -66,7 +66,7 @@ note 記事の**作成・リライト経路**ごとに、本書がどこから�
 | 総監 記述式 模範論文（note・persona/R8予想/設問3バンク/クロストレードオフ） | `essay-writer`（資格 cem）（Generator）・`essay-qa`（資格 cem）（Evaluator） | Generator が定義＋ランブック [note-essay-review-checklist.md](note-essay-review-checklist.md) から型を選ぶ。QA は Red Line・散文性を見る（型そのものは採点しない） |
 | 総監テキスト精読ガイド（note） | 親駆動（専任 writer なし） | [note-publish-enhancement.md](note-publish-enhancement.md) B1 から橋渡し |
 | 全 note 下書きの公開前ゲート | `/note-prepublish-review` | Phase 1 で無料部分の5ステップ骨格を report-only 観点喚起（自動判定・BLOCK しない） |
-| ココナラ 出品文面 | `coconala-operator`・`/coconala-publish` | [ココナラ展開キット.md](../../../content/note/1級・2級土木/ココナラ展開キット.md) §3 からSTRUCTURE.md「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案） |
+| ココナラ 出品文面 | `coconala-listing-operator`・`/coconala-publish` | [ココナラ展開キット.md](../../../content/note/1級・2級土木/ココナラ展開キット.md) §3 からSTRUCTURE.md「強化コンポーネント」を参照（C系PDF=直適用／S系人力=翻案） |
 
 - **対象外（意図的）**: サイトの無料 SEO／参考ページ（キーワードページ・`/pe-essay-draft` の総監模範論文**サイト**ページ・過去問 MDX・textbook）。これらは販売ファネルでないため自動配線しない。検索流入の悩み直撃・勘違い破壊を SEO 記事の導入にも効かせたい場合は、別途その判断で早見表「無料 SEO 記事」行を適用する。
 - 新しい記事タイプ・経路を増やすときは、上表と早見表に 1 行追記してから書く（その場のアドリブで型を増やさない）。

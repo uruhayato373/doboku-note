@@ -10,7 +10,7 @@ domain: product
 ## 用途
 
 `/kindle-build` で生成した EPUB を、Amazon KDP のブラウザ UI へ自動入稿し出版する。UI 操作は決定的
-Playwright スクリプトで、判断（重複突合・未登録本のメタデータ生成・出版可否）は `kdp-operator` が担う。
+Playwright スクリプトで、判断（重複突合・出版可否）は `kdp-operator` が、未登録本のメタデータ（販売文）の生成は `kindle-book-composer` が担う。
 
 ```
 /kindle-build {id}  →  EPUB+表紙（kindle-dist/）
@@ -41,7 +41,7 @@ CI からの提出（`ops-write.yml`）は廃止した。提出は運営者の�
 
 - **ローカル限定・ログイン済みプロファイル**: 初回のみ人が手動ログイン（CAPTCHA/2FA も人）。以降 `<auth root>/profiles/playwright-kdp-profile` にセッション保持で無人。未ログインなら script が最大2分待つ。
 - **EPUB/表紙が Downloads にある**: `npm run sync-kindle-dist -- --downloads <id>` で配置。
-- **メタデータ登録済み**: `config/kdp-memo.json` books[id] が必要。未登録（C系/F系/e-02）は kdp-operator ケース2 で先に生成。
+- **メタデータ登録済み**: `config/kdp-memo.json` books[id] が必要。未登録（C系/F系/e-02）は `kindle-book-composer`（担当タスク 3）で先に生成し、人が確認してから提出する。
 
 ## ケース別手順
 
@@ -175,8 +175,8 @@ node scripts/kdp-publish.mjs --id <id> --update-cover [--commit [--commit-publis
 
 ## kdp-operator への委譲
 
-高レベル指示（「c-01 を提出」「未登録本のメタ生成」「LIVE 化を記録」「重複確認」）は `kdp-operator`
-（Orchestrator・sonnet）へ。出版・削除は同エージェントの安全弁（承認 gate・下書き assert）配下で実行。
+高レベル指示（「c-01 を提出」「LIVE 化を記録」「重複確認」）は `kdp-operator`
+（Orchestrator・sonnet）へ。「未登録本のメタ生成」は `kindle-book-composer` へ。出版・削除は同エージェントの安全弁（承認 gate・下書き assert）配下で実行。
 
 ## 検証
 

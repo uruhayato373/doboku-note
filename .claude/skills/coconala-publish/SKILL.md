@@ -119,4 +119,4 @@ profile の真実源は `coconala-account.json` の `profile`。**自己紹介�
 - 投入 SoT: `config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets）
 - 価格/状態 SoT: `config/products.json`（channel coconala・生成物 `src/lib/coconala-services.ts`）／ アカウント: `config/coconala-account.json`
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` ／ 戦略・文面: `content/note/1級・2級土木/ココナラ展開キット.md`
-- エージェント: `.claude/agents/coconala-operator.md` ／ KPI 照合: `/coconala-status` ／ 受注: `/coconala-order`
+- エージェント: `.claude/agents/coconala-listing-operator.md` ／ KPI 照合: `/coconala-status` ／ 受注: `/coconala-order`

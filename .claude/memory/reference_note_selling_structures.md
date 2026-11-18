@@ -22,5 +22,5 @@ note 記事**内部**の構成（読者の悩みをつかみ購入理由を作�
 - **強化コンポーネント6部品**（Brain 競合売れ筋分析から抽出・Brainは2026-09-26撤退）＝どの型にも載せる部品: ①冒頭の社会的証明（本物の検証可能な実績のみ）②価値3点先出し ③中身の数え上げ ④やること3ステップ ⑤インラインFAQ ⑥図版で実物。
 - **チャネル適合**: note有料記事/ココナラC系PDF・DLキット＝情報商材型で直適用。**ココナラ人力サービス(S1/S2/S3)＝翻案**（「たった3つ」は「ご購入後の流れ」へ）。
 - **誠実証明ガードレール（絶対）**: 部数・的中・合格率の捏造は Red Line 違反（claims-policy 系）。社会的証明は公開日検証・発注者経験など本物のみ。
-- **参照元**: coconala-operations・ココナラ展開キット §3・coconala-operator・coconala-publish SKILL から wikilink 参照。新規出品文面/note記事の執筆はここを見る。
+- **参照元**: coconala-operations・ココナラ展開キット §3・coconala-listing-operator・coconala-publish SKILL から wikilink 参照。新規出品文面/note記事の執筆はここを見る。
 - 適用実績: ココナラC系PDF 9商品（Brain 2商品LPは撤退で廃止）（`coconala-edit --fields body` でライブ反映済み・body 1000字上限）。
