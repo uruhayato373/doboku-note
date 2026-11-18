@@ -17,7 +17,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 1. **価格変更**: 単品記事・マガジンの価格を一括変更
 2. **マガジン操作**: 新規作成・記事収録・カバー設定
 3. **同期検証**: note と SoT（note-magazines.ts）の整合性確認
-4. **SoT 更新**: 変更後の note-magazines.ts 更新
+4. **正本の更新**: 変更は `npm run product` で `config/products.json` に入れる（`note-magazines.ts` は `npm run product -- gen` の生成物なので手で直さない）
 
 ## 担当外
 
@@ -114,7 +114,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 3. **記事収録**: `note-magazine-add-articles.mjs --target <newKey> --notes <key1,key2,key3> --commit`
 4. **カバー設定**: `note-magazine-cover.mjs --key <newKey> --cover <path> --commit`
 5. **検証**: note API でマガジン構成を確認
-6. **SoT 更新**: `note-magazines.ts` にエントリ追加、`noteUrl` と `published: true` を設定
+6. **正本の更新**: `npm run product` で `config/products.json` にマガジンを足し（`noteUrl`・公開状態）、`npm run product -- gen` で `note-magazines.ts` を作り直す（手で直さない）
 
 ### ケース3: 同期検証
 
@@ -146,7 +146,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 1. **書込みゲート必須**: 全スクリプトは既定 dry-run。公開・更新は`--commit`を明示する。**例外: `note-edit-magazine` は既定で保存し、`--dry-run` で止める**（2026-10-06 に空打ちのつもりで保存された）。`note-attach-file`だけは、公開前下書きへPDFを保存する`--draft-only`も書込みゲートとして認める（`--commit`と排他・保存後にエディタ再読込でPDFカードを検証）
 2. **account ゲート**: 全スクリプトは `dobokunote` アカウントを検証
 3. **検証必須**: 公開側の変更後は note API で実体検証。`note-attach-file --draft-only`は非公開なので、保存後のエディタ再読込でPDFカードを検証
-4. **SoT 整合**: スクリプト実行後は必ず `note-magazines.ts` を更新
+4. **正本との整合**: スクリプト実行後は必ず `config/products.json` を `npm run product` で合わせ、`npm run product -- gen` を通す（`note-magazines.ts` は生成物）
 
 ## 制約事項
 

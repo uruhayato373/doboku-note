@@ -29,7 +29,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 
 | スキル | エージェント |
 |---|---|
-| `/a8-report` | `a8-csv-auditor` |
+| `/a8-report` | `a8-csv-auditor` `todo-planner` |
 | `/asset-route` | `sns-archive-auditor` |
 | `/audit-exam-mapping` | `exam-keyword-mapping-auditor` |
 | `/audit-note-funnel` | `note-funnel-auditor` |
@@ -169,7 +169,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `svg-figure-auditor` | 監査のみ | sonnet | site | site・note の SVG 図版を概念・本文整合・可読性・キャンバスで監査する Evaluator。修正は rewriter / fitter。 | `/check-mdx` `/note-prepublish-review` |
 | `svg-figure-rewriter` | 編集可 | sonnet | site | SVG への監査指摘を適用し、色・フォント・属性・重なりを校正する Generator。再レイアウトは svg-canvas-fitter。 | — |
 | `technical-seo-auditor` | 監査のみ | sonnet | site | check-seo-build・check-seo-meta・index-coverage・sitemap の機械出力を束ねて技術 SEO レポートにする Evaluator（再判定・修正はしない）。 | `/google-search-growth` `/seo-growth-review` |
-| `todo-planner` | 編集可 | sonnet | plan | backlog・計画・git 実績から週次計画を更新し、月初に月間タスクを選ぶ Generator。Use when [/plan-weekly, 週次計画]. | `/plan-weekly` `/weekly-review` |
+| `todo-planner` | 編集可 | sonnet | plan | backlog・計画・git 実績から週次計画を更新し、月初に月間タスクを選ぶ Generator。Use when [/plan-weekly, 週次計画]. | `/a8-report` `/plan-weekly` `/weekly-review` |
 | `video-content-qa` | 監査のみ | sonnet | sns | 動画パックを6軸と BLOCK ゲートで採点する Evaluator（audit-only）。 | `/create-pop-image` `/video-content` |
 | `video-review` | 監査のみ | sonnet | sns | 承認待ちの YouTube 動画を、運営者の代わりに画面と文面で確認して pass か fail を記録するエージェント。承認・公開はしない。 | — |
 | `video-script-writer` | 編集可 | sonnet | sns | 動画パック（台本・storyboard・派生ブリーフ・CTA 案）を1パック書く Generator。投稿・レンダリングは担当外。 | `/create-pop-image` `/video-content` |
@@ -242,7 +242,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | シナリオ | エージェント連携 |
 |---|---|
 | **Phase 1 開発フロー** | 1. PDF→MDX 変換 → 2. **content-qa**（品質評価） → 3. `/deploy`（本番反映） |
-| 週次 PDCA（簡略版） | strategy-advisor（weekly-review → plan-weekly） |
+| 週次 PDCA（簡略版） | `/weekly-review`（親が判断） → `/plan-weekly`（`todo-planner`） |
 | キーワードページ作成 | `/keyword-page`（Generator） → `cem-qa`（Evaluator）→ 不合格なら再修正 |
 | キーワードページ品質サイクル | `/quality-cycle`（オーケストレータ） → `cem-qa`（評価） → `keyword-rewriter`（改訂） → 再評価 → 人間レビュー |
 | 1級・2級土木 textbook 変換 | `/pdf-to-mdx --exam {civil-construction-1\|civil-construction-2}`（Generator） → `civil-construction-qa`（Evaluator） → `/improve-article --mode verify` |

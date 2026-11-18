@@ -126,7 +126,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 | スキル | 領域 | 説明 |
 |---|---|---|
-| `/record-sales` | product | note 販売履歴テキストを sales-recorder で正規化して data/note/sales.json に記録し、月次集計を表示する。Use when user asks to [売上記録, 販売履歴を記録, note 売上, /record-sales]. |
+| `/record-sales` | product | note 販売履歴テキストを親が正規化して data/note/sales.json に記録し、月次集計を表示する。Use when user asks to [売上記録, 販売履歴を記録, note 売上, /record-sales]. |
 
 ### 戦略・管理（management）
 

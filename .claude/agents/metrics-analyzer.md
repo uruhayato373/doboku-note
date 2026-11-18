@@ -19,7 +19,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 ## 担当範囲
 
 - GA4・GSC のレポートの読み込み（取得した日ごとの `data/ga4/reports/<日付>.json`・`data/gsc/reports/<日付>.json` の `reports.<種類>`）。下の表の種類 id（`gsc.page-query` など）の最新は `node scripts/ci-data.mjs latest <id>` が「ファイル#種類」で返す
-- 改善機会の6パターン抽出（SNS-Source-Shift 含む）
+- 改善機会の8パターン抽出（SNS-Source-Shift 含む）
 - `.claude/state/improvements/{YYYY-MM-DD}.md` への出力
 
 ## 担当外
@@ -66,7 +66,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 本エージェントが自分で抽出するのは判断を要する Pattern 4（Hidden-Winner）・5（Orphan-Query）・6（SNS-Source-Shift）。
 処分（backlog / 実験 / 却下）は週次レビューのトリアージが決める（本エージェントは決めない）。
 
-## 6つの抽出パターン
+## 8つの抽出パターン
 
 ### Pattern 1: High-Impr-Low-CTR（タイトル改善候補）
 

@@ -503,6 +503,48 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1242] エージェントを役割で分け直し、機械で決まる検査をスクリプトへ寄せる（役割分担の見直し・第4段階）
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-18]
+
+**起点**: 2026-11-18 に運営者が承認した計画（`docs/handoffs/2026-11-18-agent-roles-plan.md` の第4段階）。運用役の担当が広い（coconala-operator は 7 機能、note-operator は実質 7 機能）、集客の分析役と総監以外の商品企画の役が居ない、機械で決まる検査をエージェントが持っている（gsc-csv-auditor など 5 体・直近 4 週間の呼び出し 0 回）、strategy-advisor と sales-recorder は 0 回。
+**次または実行順**: 担当表（第3段階）の後。`role:`・`target:` を使って再編後の表を検査する。0 回だった 39 体の統合・退役は DN-0798 で運営者が判断する（このカードでは扱わない）。
+**やること**:
+1. 新設: product-portfolio-planner・note-traffic-analyst・coconala-traffic-analyst（入力はスクリプトの集計だけ・tools は Read, Glob, Grep）
+2. 分割: competitor-analyst（売り場／発信）・coconala-operator（出品／受注の下書き）・note-operator（カタログ／購入者対応）・civil-construction-qa（原典照合／校正）
+3. 廃止: strategy-advisor・sales-recorder（商品名の対応表は設定へ移す）と、機械の段へ寄せる 5 体（gsc-csv-auditor・a8-csv-auditor・technical-seo-auditor・performance-auditor・sns-archive-auditor。先に検査スクリプトと quality-audit への登録を入れる）
+4. 改名: civil-guide-writer → guide-writer、cem-qa → keyword-qa。採点表から機械の軸を抜き、機械ゲートを先に置く
+5. 役割ごとのモデル・エフォートの既定を `.claude/rules/skills-agents.md` に書き、`check-domains` で外れを止める。評価役 8 体に `tools:` の制限を足す
+6. 呼び出し元の SKILL.md を更新し、`build-capability-index`・`sync-codex-compat` を通す
+**禁止事項**: 確認だけのための試し呼びをしない（新設の役は次の本番の週次・月次レビューで初めて動かす）。
+**完了条件**: `npm run quality:audit:ci` が通り、廃止した 5 体の検査が quality-audit に登録されている。再編の 4 週間後に `~/.claude/usage-log/` の起動回数を再編前（専任 568 回＋general-purpose 184 回）と比べる予定がカードか計画に残っている。
+
+
+### [DN-1241] 領域ごとの担当表と文書の持ち主を決め、エージェントに役割と対象を付ける（役割分担の見直し・第3段階）
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-18]
+
+**起点**: 2026-11-18 に運営者が承認した計画（`docs/handoffs/2026-11-18-agent-roles-plan.md` の第3段階）。領域ごとの判断者（運営者・親・スキル）と、文書 159 本の持ち主がどこにも記録されていない。エージェントの種別は tools から「編集可／監査のみ」の 2 値を導いているだけ。
+**次または実行順**: 書き手の欄（第2段階）の後。管理画面に持ち物を出すのに台帳の書き手を使う。
+**やること**:
+1. `config/domains.json` の各領域に `roles`（decides・review・gaps）を足し、`documentStewards`（docs/strategy・marketing・products は必須）と `contentStewards`（記事の型ごとの作る・直す・見る・機械ゲート）を置く
+2. エージェント 84 体の frontmatter に `role:`（analyst・planner・writer・qa・operator・auditor）と `target:`（対象の型）を足す
+3. `build-capability-index` で「領域×役割」「対象×役割」の表を `agents-registry.md` に生成し、管理画面 `/domains/[id]` に役割と持ち物を出す
+4. `check-domains` で、role・target の欠落、同じ組み合わせの重複（違いの説明なし）、担当の居ない仕事の `gaps` 未記入を止める
+5. `docs/strategy/14_領域モデル.md` に「決める・動かす・見る」の節を足す
+**完了条件**: `npm run check-domains` と `npm run check-doc-coupling` が通り、8 領域すべてで決める人・判断の場・空白の担い手が管理画面で読める。
+
+
+### [DN-1240] データ台帳に書き手の欄を足し、検査で止める（役割分担の見直し・第2段階）
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-18] [進行中]
+
+**起点**: 2026-11-18 に運営者が承認した計画（`docs/handoffs/2026-11-18-agent-roles-plan.md` の第2段階）。データ台帳 296 件すべてに領域は付いているが書き手の欄が無く、コードから書き手が分かるのは 70 件、`config/automations.json` の `writes` で分かるのは 38 件。`config/products.json` を 3 体が書き、`data/business/experiments.json` は書き手が 4 つある。
+**やること**:
+1. `scripts/lib/datasets.mjs` の opts に `writer`（`script:`・`automation:`・`skill:`・`agent:`・`human`）と `writerNote` を足す
+2. `scripts/check-datasets.mjs` で接頭辞・実在・複数書き手の `writerNote` を検査し、未記入はラチェット（`.claude/config/dataset-writer-baseline.json`）で増やせなくする
+3. `config/automations.json` の `writes` を廃止し、台帳からの逆引きにする（`check-automations`・管理画面 `/ops/store` の書き手列）
+4. 最初の PR で戦略・計画・商品・アフィリエイトと検索集客（約 130 件）を埋める。残りは領域ごとに下げる
+**完了条件**: `npm run check-datasets` が書き手の検査つきで通り、管理画面 `/ops/store` の書き手列が台帳の値で出る。未記入の件数が基準線に記録されている。
+
+
 
 
 

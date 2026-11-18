@@ -2,7 +2,7 @@
 name: record-sales
 category: metrics
 description: >
-  note 販売履歴テキストを sales-recorder で正規化して data/note/sales.json に記録し、月次集計を表示する。Use when user asks to [売上記録, 販売履歴を記録, note 売上, /record-sales].
+  note 販売履歴テキストを親が正規化して data/note/sales.json に記録し、月次集計を表示する。Use when user asks to [売上記録, 販売履歴を記録, note 売上, /record-sales].
 user-invocable: true
 domain: product
 ---
