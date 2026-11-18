@@ -546,7 +546,7 @@
       "work": "civil-license-ladder-order",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/civil-license-ladder-order/youtube.longform/cover",
         "scene-001": "civil-construction-1/civil-license-ladder-order/youtube.longform/scene-001",
@@ -581,7 +581,42 @@
         "contentSha256": "f58e683f5f887dc4e923aa36af2c2c38e5c6b3241e63ebfdfd443a0b5dd0eed1"
       },
       "times": {
-        "rendered": "2026-11-18T13:06:10.174Z"
+        "rendered": "2026-11-18T13:06:10.174Z",
+        "uploaded": "2026-11-18T13:17:13.233Z",
+        "scheduled": "2026-11-18T13:17:30.987Z"
+      },
+      "delivery": {
+        "inputSha256": "3dc648d8fe8ef657835c068f0e8b1780222f1103e8bb95783ecfd24e6cea6433",
+        "marker": "dn-single-ba3946da9d0f2649e3bc26e18cd4d189cbf63aa2",
+        "uploadRequestedAt": "2026-11-18T13:15:20.359Z",
+        "videoId": "DrYUW7Rg5SA",
+        "processedAt": "2026-11-18T13:17:11.403Z",
+        "thumbnailRequestedAt": "2026-11-18T13:17:13.291Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/default.jpg?sqp=CNTJ9tcG&rs=AOn4CLDVYUzs4nvusEuNKmCBDOm99baXxA",
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/mqdefault.jpg?sqp=CNTJ9tcG&rs=AOn4CLCl-V8-Q9E3FFR6y1DFpDEcTbryEw",
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/hqdefault.jpg?sqp=CNTJ9tcG&rs=AOn4CLCBJJwjbAOgg5hOkELBJoP7kNWl2Q",
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/sddefault.jpg?sqp=CNTJ9tcG&rs=AOn4CLCVygl0_qRWAVeMqlskKAdq1mIHqQ",
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/maxresdefault.jpg?sqp=CNTJ9tcG&rs=AOn4CLDf_pc-S3vieMuy9Xpj1aOl43yFLw",
+          "https://i9.ytimg.com/vi/DrYUW7Rg5SA/fhddefault.jpg?sqp=CNTJ9tcG&rs=AOn4CLA5sbOtlOt5hb-EE9fmao9sMktz5g"
+        ],
+        "thumbnailAcceptedAt": "2026-11-18T13:17:20.281Z",
+        "scheduleRequestedAt": "2026-11-18T13:17:26.409Z",
+        "scheduleAt": "2026-11-28T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-18T13:17:30.987Z"
+      },
+      "platform": {
+        "id": "DrYUW7Rg5SA",
+        "url": "https://www.youtube.com/watch?v=DrYUW7Rg5SA",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/civil-license-ladder-order/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-18T13:17:20.281Z"
       }
     },
     {
