@@ -308,7 +308,9 @@ export async function uploadImage(page, imgPath, { tag = '[img]', force = false 
   await dismissModal(page);
   // アップロード済み画像枚数。プレビューは <img> でなく、populated スロットに
   // 削除× `a.js_delete-button`（.delete-button）が付く（2026-07-18 実機確定）。これを数える。
-  const countImgs = () => page.evaluate(() => document.querySelectorAll('a.js_delete-button, .delete-button, img[src^="blob:"]').length);
+  // 現行のフォーム（2026-11-19 確認）は画像 1 枚が [data-testid="media-tile"] の 1 枠。あればそれを数える
+  const countImgs = () => page.evaluate(() => document.querySelectorAll('[data-testid="media-tile"]').length
+    || document.querySelectorAll('a.js_delete-button, .delete-button, img[src^="blob:"]').length);
   const before = await countImgs();
   if (before > 0 && !force) {
     return { ok: true, added: false, before, after: before, reason: `既に画像 ${before} 枚あり（追加は --force-image）` };
@@ -349,6 +351,22 @@ export function readImageSlots(page) {
  */
 export async function replaceImage(page, imgPath, { tag = '[img]' } = {}) {
   await dismissModal(page);
+  // 現行のフォーム（2026-11-19 実機確認）: 画像は [data-testid="media-tile"]（tabindex=0）で、旧スロットの class は無い。
+  // 枠に focus して Delete キーで消える（確認の窓は出ない）。旧来の判定だけだと 0 枚と読み、新しい画像を 2 枚目に足して
+  // 古い画像がメインのまま残った（2026-11-19・4418735）
+  const tiles = page.locator('[data-testid="media-tile"]');
+  const tileCount = await tiles.count();
+  if (tileCount > 0) {
+    for (let i = 0; i < tileCount + 2 && await tiles.count() > 0; i++) {
+      await tiles.first().focus();
+      await page.keyboard.press('Delete');
+      await sleep(1500);
+    }
+    const left = await tiles.count();
+    if (left > 0) return { ok: false, before: tileCount, after: left, changed: false, reason: `既存画像を削除しきれない（残り ${left} 枚）` };
+    const up = await uploadImage(page, imgPath, { tag, force: true });
+    return { ok: up.ok, before: tileCount, after: up.after, changed: up.added, reason: up.reason };
+  }
   const slots = () => readImageSlots(page);
   const before = await slots();
   if (before.length === 0) {
