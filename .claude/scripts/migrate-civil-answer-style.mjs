@@ -10,8 +10,8 @@
 // が連なる構造を量産し、AdSense 審査不合格の一因となった。
 //
 // 再実行禁止。代替手段:
-//   - 過去問 ExamPoint の修正は `civil-exampoint-restorer` Generator サブエージェント
-//     （.claude/agents/civil-exampoint-restorer.md）を使う
+//   - 過去問 ExamPoint の修正は past-exam-rewriter で行う（一括修復の専用 Generator は
+//     2026-11-18 に退役）
 //   - 過去問の解答補完は `civil-secondary-exam-writer` Generator サブエージェント
 //     （.claude/agents/civil-secondary-exam-writer.md）を使う
 //

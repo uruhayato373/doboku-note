@@ -85,7 +85,7 @@ developer_instructions = """
 
 **対象外**:
 - secondary-*-basics / secondary-*-past-problems / secondary-experience-writing-* は既に充実、対象外
-- primary 過去問 → `civil-exampoint-restorer`
+- primary 過去問の ExamPoint の修正 → `past-exam-rewriter`
 - textbook/guide → `civil-textbook-rewriter`
 
 ## 入力
@@ -198,7 +198,7 @@ transformMdxFile(path, (raw) => modified);
 - ❌ 公式解答例を逐語転載する（**最重要・著作権配慮**）
 - ❌ frontmatter の他のフィールド（title, seoTitle, category, tags, published, group）を変更する
 - ❌ 「正答：」「❌」「✅」を `<details>` 外の本文に書く
-- ❌ `<details>` 内の `<ExamPoint>` で句読点分割 items を作る（civil-exampoint-restorer と同じバグの再現禁止）
+- ❌ `<details>` 内の `<ExamPoint>` で句読点分割 items を作る（2026-04 の移行スクリプトのバグ＝句読点分割と同じ壊れ方の再現禁止）
 - ❌ 1 問の `<details>` 内に複数の `<ExamPoint>` を書く（最大 1 個）
 
 ### 著作権配慮（最重要）
@@ -231,7 +231,7 @@ transformMdxFile(path, (raw) => modified);
 
 - 本文編集・新規セクション追加（出典以外） → 既存 `civil-textbook-rewriter`
 - スコア判定 → `past-exam-qa`（設問-解答構造の二次過去問）
-- primary 過去問 → `civil-exampoint-restorer`
+- primary 過去問の ExamPoint の修正 → `past-exam-rewriter`
 - commit → 親エージェントが wave 単位明示パス commit
 
 ## 参照ドキュメント
@@ -242,5 +242,4 @@ transformMdxFile(path, (raw) => modified);
 - `content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx` — 解答スタイルの参考実装
 - `content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx` — 解答スタイルの参考実装
 - `.claude/scripts/lib/mdx-io.mjs` — `transformMdxFile` API
-- `.claude/agents/civil-exampoint-restorer.md` — primary 用姉妹 Generator
 """

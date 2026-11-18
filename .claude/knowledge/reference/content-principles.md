@@ -252,7 +252,7 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 - 各 item は ≤60 字、**内部に句読点を含めない**（末尾の句点は許容しない）
 - 「正答：」「❌」「✅」「適当でないものは N」を items に含めない
 
-機械分割の元凶: `.claude/scripts/migrate-civil-answer-style.mjs` の `generateExamPoint()` で約 1,440 個の壊れた ExamPoint が生成された（DEPRECATED 済み）。修復は `civil-exampoint-restorer` Generator サブエージェントを使う。
+機械分割の元凶: `.claude/scripts/migrate-civil-answer-style.mjs` の `generateExamPoint()` で約 1,440 個の壊れた ExamPoint が生成された（DEPRECATED 済み）。一括修復は 2026-05 に完了した（専用の Generator は 2026-11-18 に退役）。再発したら `past-exam-rewriter` で直す。
 
 ### 6. 試験での位置づけを明示
 

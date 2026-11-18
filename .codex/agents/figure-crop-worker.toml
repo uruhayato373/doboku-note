@@ -38,5 +38,5 @@ developer_instructions = """
 
 - 採点（クリップ純度・図完全性・alt・MDX 結線の 4 軸）→ figure-crop-auditor
 - MDX への `<img>` 挿入・台帳記録・目視 QA・commit・push → 親
-- SVG 図版の作成・修正 → svg-figure-rewriter / svg-canvas-fitter
+- SVG 図版の作成・修正 → 親（`/create-svg`）
 """

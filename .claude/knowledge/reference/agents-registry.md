@@ -35,9 +35,9 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 |---|---|---|---|---|---|---|---|---|---|
 | 戦略 | `content-competitor-analyst` `sales-competitor-analyst` | `product-portfolio-planner` | — | — | — | — | — | — | — |
 | 計画 | — | `todo-planner` | — | — | — | — | — | `backlog-curator` | — |
-| 商品 | `coconala-traffic-analyst` `note-traffic-analyst` | — | `civil-keiken-tensaku-drafter` `coconala-blog-writer` `coconala-order-drafter` `essay-writer` `kindle-book-composer` `magazine-pdf-builder` `note-buyer-responder` `note-cover-writer` `note-link-injector` `pe-secondary-exam-writer` | — | `civil-keiken-tensaku-qa` `coconala-blog-qa` `essay-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-listing-operator` `kdp-operator` `note-catalog-operator` `note-membership-operator` | `note-funnel-auditor` | — |
+| 商品 | `coconala-traffic-analyst` `note-traffic-analyst` | — | `civil-keiken-tensaku-drafter` `coconala-blog-writer` `coconala-order-drafter` `essay-writer` `kindle-book-composer` `magazine-pdf-builder` `note-buyer-responder` `note-link-injector` `pe-secondary-exam-writer` | — | `civil-keiken-tensaku-qa` `coconala-blog-qa` `essay-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-listing-operator` `kdp-operator` `note-catalog-operator` `note-membership-operator` | `note-funnel-auditor` | — |
 | アフィリエイト | — | — | — | — | — | — | `affiliate-operator` | — | — |
-| サイト | `metrics-analyzer` `search-intent-auditor` | `seo-fix-planner` | `civil-exampoint-restorer` `civil-secondary-exam-writer` `figure-crop-worker` `guide-writer` `page-design-builder` `standards-table-writer` | `civil-textbook-rewriter` `guide-rewriter` `keyword-rewriter` `past-exam-rewriter` `svg-canvas-fitter` `svg-figure-rewriter` | `ai-image-fidelity-auditor` `article-proofreader` `exam-keyword-mapping-auditor` `figure-crop-auditor` `guide-qa` `keyword-qa` `past-exam-qa` `site-page-visual-auditor` `standards-page-visual-auditor` `svg-figure-auditor` | `guide-fact-checker` `standards-table-qa` `textbook-qa` | — | `gsc-index-auditor` | — |
+| サイト | `metrics-analyzer` `search-intent-auditor` | `seo-fix-planner` | `civil-secondary-exam-writer` `figure-crop-worker` `guide-writer` `page-design-builder` `standards-table-writer` | `civil-textbook-rewriter` `guide-rewriter` `keyword-rewriter` `past-exam-rewriter` | `ai-image-fidelity-auditor` `article-proofreader` `exam-keyword-mapping-auditor` `figure-crop-auditor` `guide-qa` `keyword-qa` `past-exam-qa` `site-page-visual-auditor` `standards-page-visual-auditor` `svg-figure-auditor` | `guide-fact-checker` `standards-table-qa` `textbook-qa` | — | `gsc-index-auditor` | — |
 | SNS | — | — | `ig-carousel-writer` `video-script-writer` `x-post-writer` `x-reply-drafter` `x-repost-curator` `yt-shorts-title-writer` | — | `ig-carousel-qa` `video-content-qa` `video-review` `x-post-qa` `yt-shorts-publisher-qa` | — | — | — | — |
 | 教材 | — | — | — | — | — | `content-qa` | — | — | — |
 | 管理 | — | — | — | — | — | — | — | `doc-curator` `doc-sync-auditor` | `cli-runner` |
@@ -49,10 +49,10 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | ガイド記事（guide） | — | — | `guide-writer` | `guide-rewriter` | `guide-qa` | `guide-fact-checker` | — | — | — |
 | キーワード記事（keyword） | — | — | — | `keyword-rewriter` | `keyword-qa` | — | — | — | — |
 | 教科書記事（textbook） | — | — | — | `civil-textbook-rewriter` | `article-proofreader` | `textbook-qa` | — | — | — |
-| 過去問記事（past-exam） | — | — | `civil-exampoint-restorer` `civil-secondary-exam-writer` | `past-exam-rewriter` | `past-exam-qa` | `content-qa` | — | — | — |
+| 過去問記事（past-exam） | — | — | `civil-secondary-exam-writer` | `past-exam-rewriter` | `past-exam-qa` | `content-qa` | — | — | — |
 | 基準書の表（standards-table） | — | — | `standards-table-writer` | — | — | `standards-table-qa` | — | — | — |
 | 基準書の章ページ（standards-page） | — | — | — | — | `standards-page-visual-auditor` | — | — | — | — |
-| SVG 図版（svg-figure） | — | — | — | `svg-canvas-fitter` `svg-figure-rewriter` | `svg-figure-auditor` | — | — | — | — |
+| SVG 図版（svg-figure） | — | — | — | — | `svg-figure-auditor` | — | — | — | — |
 | 切り抜きの図（crop-figure） | — | — | `figure-crop-worker` | — | `figure-crop-auditor` | — | — | — | — |
 | AI 画像（ai-image） | — | — | — | — | `ai-image-fidelity-auditor` | — | — | — | — |
 | サイトの画面（site-page） | — | — | `page-design-builder` | — | `site-page-visual-auditor` | — | — | — | — |
@@ -64,7 +64,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | 答案・模範論文（note 教材）（essay） | — | — | `essay-writer` `pe-secondary-exam-writer` | — | `essay-qa` `pe-secondary-exam-qa` | `pe-secondary-exam-factcheck` | — | — | — |
 | 添削・診断の返信（tensaku） | — | — | `civil-keiken-tensaku-drafter` | — | `civil-keiken-tensaku-qa` | — | — | — | — |
 | note の下書き（note-draft） | — | — | `note-link-injector` | — | — | `note-fact-checker` | — | — | — |
-| note のカバー（note-cover） | — | — | `note-cover-writer` | — | — | — | — | — | — |
 | note の公開ページ（note-page） | — | — | — | — | `note-page-visual-auditor` | — | — | — | — |
 | note の導線（note-funnel） | — | — | — | — | — | — | — | `note-funnel-auditor` | — |
 | マガジンの PDF（magazine-pdf） | — | — | `magazine-pdf-builder` | — | — | — | — | — | — |
@@ -164,7 +163,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 ## エージェント一覧
 
 <!-- generated:agents:start（npm run build-capability-index が書く。手で直さない） -->
-エージェント 75 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
+エージェント 71 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
 
 | エージェント | 役割 | 対象 | 種別 | model | 領域 | 説明 | 呼び出すスキル |
 |---|---|---|---|---|---|---|---|
@@ -172,7 +171,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `ai-image-fidelity-auditor` | 採点 | ai-image | 監査のみ | sonnet | site | 記事の写真・動画/商品素材の AI 生成画像が実物・本文どおりかを ok/fail で判定する Evaluator。修正・記録はしない。 | `/create-pop-image` |
 | `article-proofreader` | 採点 | textbook | 監査のみ | sonnet | site | 既存の土木・コンクリ textbook/guide を PDF なしで 5 軸校正する Evaluator。修正はしない。原典照合は textbook-qa。 | `/civil-figure-rework` `/improve-article` `/quality-cycle` |
 | `backlog-curator` | 監査 | backlog | 監査のみ | sonnet | plan | backlog カードの分類・重複・陳腐化を監査し処分案を返す Evaluator。編集・実行・週次計画はしない。Use when [バックログ棚卸し]. | `/backlog-sweep` |
-| `civil-exampoint-restorer` | 制作 | past-exam | 編集可 | sonnet | site | 1級土木 一次過去問の壊れた ExamPoint を体言止めの学習ポイントに再生成する Generator。 | — |
 | `civil-keiken-tensaku-drafter` | 制作 | tensaku | 編集可 | sonnet | product | 顧客原稿・ヒアリング事実から診断・添削・骨子シートの下書きを作る。事実は創作せず質問にする。最終化・送信は担当外。 | `/coconala-order` `/keiken-tensaku` |
 | `civil-keiken-tensaku-qa` | 採点 | tensaku | 監査のみ | sonnet | product | 添削・診断・骨子の返信文を事実忠実性・指摘の正確性など5軸で検証する Evaluator。修正・送信はしない。Use when [添削返信の検証]. | `/coconala-order` `/keiken-tensaku` |
 | `civil-secondary-exam-writer` | 制作 | past-exam | 編集可 | sonnet | site | 1級土木 二次過去問の解答・ポイント・設問解説を補完する Generator。 | `/civil-keiken-magazine` |
@@ -208,7 +206,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `metrics-analyzer` | 分析 | search-metrics | 監査のみ | sonnet | site | 検索（GSC・GA4）のデータから7パターンの改善機会を抽出し、/nsm-experiment propose の入力を親へ返す Evaluator。ファイルは書かない。SNS 流入は担当外。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` `/seo-growth-review` `/weekly-improve` |
 | `note-buyer-responder` | 制作 | note-buyer | 編集可 | sonnet | product | note の購入者コメントへの返信を、購入と納品の実体を確かめたうえで下書きする。送信は運営者か親の承認後。Use when [note のコメントに返信, 購入者への応対, 納品の問い合わせ]. | — |
 | `note-catalog-operator` | 運用 | note | 編集可 | sonnet | product | note の価格・マガジン・収録・カバー・PDF 添付・同期検証を運用する。返信は対象外。Use when [note 価格変更, マガジン収録]. | — |
-| `note-cover-writer` | 制作 | note-cover | 編集可 | sonnet | product | note 記事のカバー frontmatter（cover: ブロック）を1記事ずつ執筆する Generator。V5 キャラクターカバー用。 | — |
 | `note-fact-checker` | 照合 | note-draft | 監査のみ | sonnet | product | note 公開用ドラフトの数値・主張・年度を doboku-note 内部データと突合する Evaluator。 | `/note-prepublish-review` `/pe-essay-review` |
 | `note-funnel-auditor` | 監査 | note-funnel | 監査のみ | sonnet | product | note 導線の3層（L1/L2/L3）を、もくじの構成・CTA 関連性・回遊の質で意味監査する Evaluator（audit-only）。 | `/audit-note-funnel` |
 | `note-link-injector` | 制作 | note-draft | 編集可 | sonnet | product | note 公開用ドラフトに doboku-note キーワードページへのインラインリンクを注入する Generator。 | `/note-hashtags` `/note-prepublish-review` |
@@ -229,9 +226,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `standards-page-visual-auditor` | 採点 | standards-page | 監査のみ | sonnet | site | 基準書の章ページの撮影を原本のページ画像と見比べ、読者の画面の崩れ・欠けを章ごとに pass / fail で判定する Evaluator。直さない。 | `/standards-visual-review` |
 | `standards-table-qa` | 照合 | standards-table | 監査のみ | sonnet | site | 組み直した共通仕様書の表を原本ページ画像と1セルずつ照合し、承認・差し戻しを決める Evaluator。表は直さない。 | `/standards-table-rebuild` |
 | `standards-table-writer` | 制作 | standards-table | 編集可 | sonnet | site | 共通仕様書の版面の表を、原本ページ画像と照合して表の JSON に組み直す Generator。照合・承認は standards-table-qa。 | `/standards-table-rebuild` |
-| `svg-canvas-fitter` | 直す | svg-figure | 編集可 | sonnet | site | サイト figure-*.svg を固定キャンバスへ再配置する Generator。収まらなければ親へ返す。 | — |
 | `svg-figure-auditor` | 採点 | svg-figure | 監査のみ | sonnet | site | site・note の SVG 図版を概念・本文整合・可読性・キャンバスで監査する Evaluator。修正は rewriter / fitter。 | `/check-mdx` `/note-prepublish-review` |
-| `svg-figure-rewriter` | 直す | svg-figure | 編集可 | sonnet | site | SVG への監査指摘を適用し、色・フォント・属性・重なりを校正する Generator。再レイアウトは svg-canvas-fitter。 | — |
 | `textbook-qa` | 照合 | textbook | 監査のみ | sonnet | site | 土木 textbook を教科書 PDF 原典と照合する Verifier（網羅率・図・視覚）。修正はしない。校正は article-proofreader。 | `/civil-figure-rework` `/improve-article` `/pdf-to-mdx` |
 | `todo-planner` | 企画・計画 | weekly-plan | 編集可 | sonnet | plan | backlog・計画・git 実績から週次計画を更新し、月初に月間タスクを選ぶ Generator。Use when [/plan-weekly, 週次計画]. | `/a8-report` `/plan-weekly` `/weekly-review` |
 | `video-content-qa` | 採点 | video | 監査のみ | sonnet | sns | 動画パックを6軸と BLOCK ゲートで採点する Evaluator（audit-only）。 | `/create-pop-image` `/video-content` |
@@ -335,3 +330,14 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 7. CLAUDE.md は per-agent の表を持たず件数・詳細を agents-registry.md に委譲する（CLAUDE.md 本体の編集は不要。`model:` 方針の一文は §5 にある）
 
 2026-09-13: strategy-advisor / todo-planner は `check-content-expansion` で教材・図解の未確認と変更後の再確認を読み、既存backlogと事業レビューへ接続する。
+
+## 退役したエージェント
+
+退役は呼び出しの記録（`~/.claude/usage-log/`）と呼び出し元を見て、運営者が決める（DN-0798・判断表は `docs/reviews/2026-11-18-agent-usage-candidates.md`）。再編で名前が変わったもの・まとめたものは各 PR の説明が正本で、ここには載せない。
+
+| エージェント | 退役日 | 理由 | 代わり |
+|---|---|---|---|
+| `civil-exampoint-restorer` | 2026-11-18 | 一度きりの修復用（壊れた ExamPoint の一括再生成は 2026-05 に完了）。4 週間 0 回・呼び出し元なし | 再発したら `past-exam-rewriter` |
+| `svg-canvas-fitter` | 2026-11-18 | どのスキルからも呼ばれていない。4 週間 0 回 | 親が `/create-svg` の手順で再配置し、`check-figure-canvas` で確かめる |
+| `svg-figure-rewriter` | 2026-11-18 | どのスキルからも呼ばれていない。4 週間 0 回 | 親が `/create-svg` の手順で直し、`svg-figure-auditor` で採点する |
+| `note-cover-writer` | 2026-11-18 | V5 カバーの展開が済み、参照はスクリプトの注記だけ。4 週間 0 回 | 親が cover spec を書き、`scripts/add-note-cover.mjs` で反映する |
