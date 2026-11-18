@@ -505,18 +505,6 @@
 **完了条件**: `npm run quality:audit:ci` が通り、廃止した 5 体の検査が quality-audit に登録されている。再編の 4 週間後に `~/.claude/usage-log/` の起動回数を再編前（専任 568 回＋general-purpose 184 回）と比べる予定がカードか計画に残っている。
 
 
-### [DN-1241] 領域ごとの担当表と文書の持ち主を決め、エージェントに役割と対象を付ける（役割分担の見直し・第3段階）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-18] [進行中]
-
-**起点**: 2026-11-18 に運営者が承認した計画（`docs/handoffs/2026-11-18-agent-roles-plan.md` の第3段階）。領域ごとの判断者（運営者・親・スキル）と、文書 159 本の持ち主がどこにも記録されていない。エージェントの種別は tools から「編集可／監査のみ」の 2 値を導いているだけ。
-**次または実行順**: 書き手の欄（第2段階）の後。管理画面に持ち物を出すのに台帳の書き手を使う。
-**やること**:
-1. `config/domains.json` の各領域に `roles`（decides・review・gaps）を足し、`documentStewards`（docs/strategy・marketing・products は必須）と `contentStewards`（記事の型ごとの作る・直す・見る・機械ゲート）を置く
-2. エージェント 84 体の frontmatter に `role:`（analyst・planner・writer・qa・operator・auditor）と `target:`（対象の型）を足す
-3. `build-capability-index` で「領域×役割」「対象×役割」の表を `agents-registry.md` に生成し、管理画面 `/domains/[id]` に役割と持ち物を出す
-4. `check-domains` で、role・target の欠落、同じ組み合わせの重複（違いの説明なし）、担当の居ない仕事の `gaps` 未記入を止める
-5. `docs/strategy/14_領域モデル.md` に「決める・動かす・見る」の節を足す
-**完了条件**: `npm run check-domains` と `npm run check-doc-coupling` が通り、8 領域すべてで決める人・判断の場・空白の担い手が管理画面で読める。
 
 
 
