@@ -919,7 +919,6 @@ export const ConfigAutomations = z
             login: z.array(text).describe('ログインが要るサービス（playwright-auth-profiles.json のキー）。GitHub Actions は必ず空'),
             purpose: text,
             readers: z.array(z.string().regex(AUTOMATION_READER, 'quality-audit:<id>・issue:<channel>・admin:/<path>・skill:<name>・pr-gate・deploy・human')).min(1).describe('結果を読む人・検査・画面（読み手のいない自動化は置かない）'),
-            writes: z.array(text).optional().describe('書く記録のデータセット id（scripts/lib/datasets.mjs）'),
             _note: note,
           })
           .strict(),

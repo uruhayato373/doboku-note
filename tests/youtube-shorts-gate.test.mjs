@@ -15,7 +15,7 @@ function check(packs) {
     mkdirSync(join(root, 'scripts/lib'), { recursive: true });
     cpSync(join(REPO_ROOT, 'scripts/check-youtube-video-pack-shorts.mjs'), join(root, 'scripts/check-youtube-video-pack-shorts.mjs'));
     cpSync(join(REPO_ROOT, 'scripts/lib/repository-paths.mjs'), join(root, 'scripts/lib/repository-paths.mjs'));
-    for (const lib of ['dataset-io.mjs', 'datasets.mjs', 'json-io.mjs', 'regexp-escape.mjs', 'jst-date.mjs']) cpSync(join(REPO_ROOT, 'scripts/lib', lib), join(root, 'scripts/lib', lib));
+    for (const lib of ['dataset-io.mjs', 'datasets.mjs', 'dataset-writers.mjs', 'json-io.mjs', 'regexp-escape.mjs', 'jst-date.mjs']) cpSync(join(REPO_ROOT, 'scripts/lib', lib), join(root, 'scripts/lib', lib));
     mkdirSync(join(root, 'config'), { recursive: true });
     write('config/video-auto-publish.json', JSON.stringify({ maxPublishPerDay: DAILY_MAX }));
     write('scripts/lib/utm-contract.mjs', 'export const utmChannel = () => ({});');
