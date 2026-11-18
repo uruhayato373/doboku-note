@@ -6,7 +6,7 @@ updated: 2026-11-18
 # 起動 0 回のエージェントの判断表（DN-0798）
 
 > [!note] 使い方
-> 「判断」の欄に運営者が「残す／統合／退役」と理由を書く。退役は agents-registry.md の退役表と同じ commit で行う（DN-0798 のやること 3）。提案の欄は親の見立てで、判断ではない。
+> 2026-11-18 に全 21 行の判断を終えた（退役 6・残す 15）。「判断」の欄は運営者が「残す／統合／退役」と理由を書いたもの。退役は agents-registry.md の退役表と同じ commit で行う（DN-0798 のやること 3）。提案の欄は親の見立てで、判断ではない。
 
 ## 数え方
 
@@ -26,20 +26,20 @@ updated: 2026-11-18
 | `note-membership-operator` | 商品 | 運用・note の会員 | `/note-membership` | メンバーシップ撤退（DN-0477）の完了で退役 | 残す（メンバーシップの器を建設業×AI＝DN-0876 に使い回すため・2026-11-18） |
 | `coconala-blog-writer` | 商品 | 制作・ココナラブログ | `/coconala-blog` | ブログを続けるかで決める（続けるなら残す） | 退役（新規執筆を止める・公開済み 15 本は残す・再開は DN-1247・2026-11-18） |
 | `coconala-blog-qa` | 商品 | 採点・ココナラブログ | `/coconala-blog` | writer と同じ判断 | 退役（writer と同じ・2026-11-18） |
-| `seo-fix-planner` | サイト | 企画・SEO | `/google-search-growth` | 残す（月次の検索の見直しで呼ぶ）。4 週間後も 0 回なら親の判断へ寄せる | |
-| `exam-keyword-mapping-auditor` | サイト | 採点・過去問の紐づけ | `/audit-exam-mapping` | 残す（総監の過去問の追加時だけ） | |
-| `keyword-rewriter` | サイト | 直す・キーワード記事 | `/improve-article`・`/quality-cycle`・`/weekly-improve` | 残す | |
-| `content-qa` | 教材 | 照合・過去問 | `/pdf-to-mdx`・`/exam-questions-import` ほか 3 本 | 残す（過去問の取り込み時だけ） | |
-| `civil-secondary-exam-writer` | サイト | 制作・過去問 | `/exam-questions-import`・`/civil-keiken-magazine` | 残す（二次の取り込み時だけ） | |
-| `standards-table-writer` | サイト | 制作・基準書の表 | `/standards-table-rebuild` | 残す | |
-| `svg-figure-auditor` | サイト | 採点・SVG 図版 | `/check-mdx`・`/note-prepublish-review` | 残す | |
-| `figure-crop-worker` | サイト | 制作・切り抜きの図 | `/figure-recrop` ほか 3 本 | 残す | |
-| `civil-keiken-tensaku-drafter` | 商品 | 制作・添削の返信 | `/keiken-tensaku`・`/coconala-order` | 残す（受注時だけ） | |
-| `civil-keiken-tensaku-qa` | 商品 | 採点・添削の返信 | `/keiken-tensaku`・`/coconala-order` | 残す（受注時だけ） | |
-| `magazine-pdf-builder` | 商品 | 制作・マガジンの PDF | `/magazine-to-pdf` ほか 2 本 | 残す | |
-| `note-link-injector` | 商品 | 制作・note の下書き | `/note-prepublish-review`・`/note-hashtags` | 残す | |
-| `note-page-visual-auditor` | 商品 | 採点・note の公開ページ | `/note-visual-review`・`/weekly-review` | 残す（必要時だけの撮影） | |
-| `cli-runner` | 管理 | 実行・コマンド | Workflow から | 残す（Workflow の起動が記録に出るかを先に確かめる） | |
+| `seo-fix-planner` | サイト | 企画・SEO | `/google-search-growth` | 残す（月次の検索の見直しで呼ぶ）。4 週間後も 0 回なら親の判断へ寄せる | 残す（12/16 の比較でも 0 回なら親へ寄せる＝DN-1246・2026-11-18） |
+| `exam-keyword-mapping-auditor` | サイト | 採点・過去問の紐づけ | `/audit-exam-mapping` | 残す（総監の過去問の追加時だけ） | 残す（2026-11-18） |
+| `keyword-rewriter` | サイト | 直す・キーワード記事 | `/improve-article`・`/quality-cycle`・`/weekly-improve` | 残す | 残す（2026-11-18） |
+| `content-qa` | 教材 | 照合・過去問 | `/pdf-to-mdx`・`/exam-questions-import` ほか 3 本 | 残す（過去問の取り込み時だけ） | 残す（2026-11-18） |
+| `civil-secondary-exam-writer` | サイト | 制作・過去問 | `/exam-questions-import`・`/civil-keiken-magazine` | 残す（二次の取り込み時だけ） | 残す（2026-11-18） |
+| `standards-table-writer` | サイト | 制作・基準書の表 | `/standards-table-rebuild` | 残す | 残す（2026-11-18） |
+| `svg-figure-auditor` | サイト | 採点・SVG 図版 | `/check-mdx`・`/note-prepublish-review` | 残す | 残す（2026-11-18） |
+| `figure-crop-worker` | サイト | 制作・切り抜きの図 | `/figure-recrop` ほか 3 本 | 残す | 残す（2026-11-18） |
+| `civil-keiken-tensaku-drafter` | 商品 | 制作・添削の返信 | `/keiken-tensaku`・`/coconala-order` | 残す（受注時だけ） | 残す（2026-11-18） |
+| `civil-keiken-tensaku-qa` | 商品 | 採点・添削の返信 | `/keiken-tensaku`・`/coconala-order` | 残す（受注時だけ） | 残す（2026-11-18） |
+| `magazine-pdf-builder` | 商品 | 制作・マガジンの PDF | `/magazine-to-pdf` ほか 2 本 | 残す | 残す（2026-11-18） |
+| `note-link-injector` | 商品 | 制作・note の下書き | `/note-prepublish-review`・`/note-hashtags` | 残す | 残す（2026-11-18） |
+| `note-page-visual-auditor` | 商品 | 採点・note の公開ページ | `/note-visual-review`・`/weekly-review` | 残す（必要時だけの撮影） | 残す（2026-11-18） |
+| `cli-runner` | 管理 | 実行・コマンド | Workflow から | 残す（Workflow の起動が記録に出るかを先に確かめる） | 残す（Workflow の起動が記録に出るかは DN-1246 で確かめる・2026-11-18） |
 
 ## 判断の対象外
 
