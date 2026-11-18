@@ -146,7 +146,7 @@ title: 推奨ワークフロー
 - 週次 PDCA は `docs/reviews/weekly/YYYY-Www-review.md`（レビュー）と `YYYY-Www.md`（計画）の 2 本に保存。最新週のみ保持し、旧週は未完タスクを `.claude/todo/backlog.md` へ抽出してから削除（履歴は git）
 - 申し送りは次週の計画へ引き継ぎ → 解消したら次の review で「完了」として記録
 
-オンデマンド分析が必要な時は `/psi-audit` スキルで `performance-auditor` エージェントを呼び、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。
+オンデマンド分析が必要な時は `/psi-audit` スキルで `npm run report-psi-regression` を回し親が読み、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。
 
 週次レビューでは **`npm run check-content-quality`**（モバイル可読性ラチェット）も回す。全 published MDX を `content-rules.json` の `fullScan` ルール（表/入れ子リスト/段落長/見出し/文体）で走査し、`.claude/state/quality/latest-report.md` に **GA4 人気度順の違反レポート**を出力する。レポート上位（違反数 × activeUsers）の記事を、記事の `category`/`group` に対応する既存の品質サイクル（`/quality-cycle --profile cem`／`civil-textbook` など。ルーティングの真実源は [exam-content-policy.md](exam-content-policy.md) Part 2）へ流してリライトし、表を非表へ・入れ子をフラットへ・長段落を改段する（変換パターンは [content-authoring.md](content-authoring.md)）。既存違反は baseline で grandfather 済みで、CI（`quality:audit:ci`）は **baseline 超過の新規違反のみ赤落ち**させる（機械＝検知、エージェント＝リライト時の表現判断、と役割を分ける）。リライトで違反が減ったら `npm run update-content-quality-baseline` で baseline を刈り込む。
 

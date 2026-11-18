@@ -121,7 +121,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | スキル | 領域 | 説明 |
 |---|---|---|
 | `/fetch-gsc-data` | site | Google Search Console の検索パフォーマンスデータを取得する（複数ディメンション・ページング対応）。Use when user asks to [GSCデータ取得, 検索クエリ分析, page×query, /fetch-gsc-data]. |
-| `/psi-audit` | site | PageSpeed Insights で代表ページを計測し、Core Web Vitals のしきい値違反を performance-auditor に出させる。Use when user asks to [PSI 計測, 速度監査, /psi-audit]. |
+| `/psi-audit` | site | PageSpeed Insights で代表ページを計測し、Core Web Vitals のしきい値違反と回帰をスクリプトで出す。Use when user asks to [PSI 計測, 速度監査, /psi-audit]. |
 
 ### 計測（metrics）
 

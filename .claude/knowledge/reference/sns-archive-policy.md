@@ -77,12 +77,12 @@ npm run drive-vault-sync -- --pull --path <現行の制作パック> --commit  #
 
 `check-drive-vault` が「group に一致するローカル実体が台帳に無い」を FAIL で拾うので、制作中パックの wav/mp4 を手元に置いたままにすると赤くなる。退避するか、制作が終わるまで待つかを判断する（判断は次節のエージェント）。
 
-## 分業（sns-archive-auditor エージェント）
+## 分業（report-sns-archive-candidates と親）
 
-「どのパックをローカルから消して安全か」という**機械では測れない判断**は `sns-archive-auditor`（Evaluator・audit-only）に委ね、実行は親＋スクリプトが担う。
+「どのパックをローカルから消して安全か」は `npm run report-sns-archive-candidates`（旧 `sns-archive-auditor` エージェントの判定を移した・DN-1242）が決める。実行は親＋スクリプト。
 
-- **親（実行）**: `drive-vault-sync --group sns-archived-media` の dry-run で候補一覧を取得し、各パックの台帳状態・git 追跡状態・更新日時をエージェントへ渡す。判定後に `--commit` → `--verify --cloud` → ローカル削除。
-- **エージェント（判定）**: 渡されたパックの `slide-data.json`/`script.txt`/`caption.txt` を Read し、**SoT が無傷で再生成可能か**を検証。`OFFLOAD` / `ARCHIVE_KEEP` / `KEEP_LOCAL` / `BLOCK` を根拠つきで返す。
+- **スクリプト（判定）**: group の pathRegex に当たる wav/mp4 をパックごとに集め、`slide-data.json`/`script.txt`/`caption.txt`（YouTube は meta.json など）の SoT が無傷で再生成可能か、`status.json` の投稿状態、更新日から `OFFLOAD` / `ARCHIVE_KEEP` / `KEEP_LOCAL` / `BLOCK` を理由つきで返す（`--json` あり。候補 0 件は exit 2）。
+- **親（実行）**: 判定を読み、`drive-vault-sync --group sns-archived-media --path <pack>/ --commit` → `--verify --deep --cloud` → ローカル削除。BLOCK はローカル削除禁止。vault 側の一致はスクリプトでなく `drive-vault-sync` が守る。
 
 二重の安全網: スクリプトが「vault 側の読み直しで sha256 一致するまで台帳に載せない」を守り、エージェントが「そもそも再生成できるか」を守る。
 

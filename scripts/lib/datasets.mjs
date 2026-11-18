@@ -381,7 +381,7 @@ export const DATASETS = [
   d('state.link-audit', '.claude/state/link-audit/audit-{ts}.json', 'series', 'site', '内部リンクの監査'),
   d('state.link-audit-external', '.claude/state/link-audit/external-latest.json', 'state', 'site', '外部リンクの監査の最新'),
   d('state.link-audit-report', '.claude/state/link-audit/latest-report.md', 'report', 'site', 'リンクの監査の最新の報告'),
-  d('state.improvements', '.claude/state/improvements/{date}{suffix}.md', 'report', 'site', '改善候補の報告（performance-auditor・調査）'),
+  d('state.improvements', '.claude/state/improvements/{date}{suffix}.md', 'report', 'site', '改善候補の報告（/psi-audit の親・調査）'),
   d('state.improvements-evidence', '.claude/state/improvements/{name}-{date}.json', 'evidence', 'site', '改善候補の根拠（同じ名前の .md と対）'),
   d('state.improvements-topic', '.claude/state/improvements/{name}-{date}.md', 'report', 'site', '主題ごとの改善候補の報告（同じ名前の .json と対）'),
   d('state.search-growth-report', '.claude/state/improvements/search-growth-latest.md', 'report', 'site', '検索の成長の最新の報告'),

@@ -112,7 +112,7 @@ A/B 判断が保留になっていた。ここを自動化した。
 npm run a8-ui:fetch      → data/a8/ui/<runId>/{*.csv, manifest.json}
    （土曜の Mac 収集の a8 段が実行。口座 assert が通らなければ DL しない）
 npm run a8-ui:normalize  → <runId>/normalized/*.json ＋ SSOT へ upsert
-   （a8-csv-auditor が PASS/WARN/FAIL を出してから実行）
+   （`npm run check-a8-ui-run` が FAIL を出さないことを確かめてから実行）
 npm run report-buildjob-affiliate → GA4 クリック × A8 成果 の EPC
 ```
 
@@ -183,7 +183,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
   `crossCheck` / `missingProgramCandidates` / `notAttributable`）。月次の成果（月×案件）は持たず、読み手が
   `resultsFromReportLog`（`scripts/lib/a8-report-csv.mjs`）で単月の期間から導く
 - skill: `.claude/skills/a8-report/SKILL.md`（`disable-model-invocation: true`）
-- agents: `a8-csv-auditor`（品質監査）。収集は土曜の Mac 収集（`weekly-collect` の a8 段）で、`a8-report-collector` は 2026-10-24 に退役
+- 品質監査: `npm run check-a8-ui-run`（旧 `a8-csv-auditor` は 2026-11 に廃止・DN-1242）。収集は土曜の Mac 収集（`weekly-collect` の a8 段）で、`a8-report-collector` は 2026-10-24 に退役
 - 管理画面: admin-app `/affiliate` タブ（月次×プログラム×EPC・未写像の警告）
 
 ### つまずきポイント
