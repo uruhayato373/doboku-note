@@ -2546,6 +2546,8 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 **完了条件**: `npm run exam-ssot-status` の要対応が active 資格で 0 件、または残りに一次資料が無い理由が書かれている。
 
+**進捗（2026-11-18）**: 舗装の令和8年度の結果（合格発表 2026-10-28）を協会の表-1 で照合し、`exam-stats.json` の pavement-1・pavement-2 を R8 に更新した（1級 17.6%・2級 53.5%）。舗装の次年度日程は未公表のまま。
+
 
 
 
@@ -3218,6 +3220,8 @@ Windows の PowerShell で repo 直下から順に:
 **やること**: 12 月と 2 月に、GSC で 3 本の検索語・順位・推移を見る。経験記述と施工の記述のどちらが検索されているかを分ける。
 
 **完了条件**: 2 回の結果が DN-0974 に書かれ、制作の順番に反映されている。
+
+**進捗（2026-11-18）**: 第二次検定の入口のガイドを 2 本足した（`content/site/building-construction/guide-niji-difficulty`・`guide-niji-kotaekata`。品質の採点と、受検の手引き・結果表との照合済み。照合できない問題数・記述不可の一覧は外して既存記事へのリンクにした）。12 月と 2 月の計測は 5 本で見る。
 
 
 
