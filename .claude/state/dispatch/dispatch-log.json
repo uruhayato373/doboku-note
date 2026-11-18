@@ -9054,6 +9054,19 @@
       "commit": "91637f0033ff",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0798",
+      "at": "2026-11-18",
+      "task": "呼び出しの記録から、使われていない・役割が重なるスキルを統合・退役する（拡張性・第3波）",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "732ee4c00763",
+      "verification": "npm run check-domains",
+      "note": "エージェント21体（退役6・残す15）とスキル100本（統合2・残す98）の判断を記録。PR #1658・#1659・#1660。hook の撤去は DN-1246 へ移した"
     }
   ]
 }
