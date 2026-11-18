@@ -157,7 +157,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-breakdown-1",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-breakdown-1",
       "relatedTo": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
       "idException": "imported-before-cutover",
@@ -209,13 +209,14 @@
       "platform": {
         "id": "LQiIN5sPBAo",
         "url": "https://www.youtube.com/watch?v=LQiIN5sPBAo",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#shorts/point-breakdown-1"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-18T04:45:10.928Z"
         },
         "relatedVideoId": "w5kX20cj5Yk",
-        "desiredRelatedVideoId": "w5kX20cj5Yk"
+        "desiredRelatedVideoId": "w5kX20cj5Yk",
+        "publishedAt": "2026-11-17T05:30:29.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -1905,7 +1906,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-themename-1",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-themename-1",
       "relatedTo": "pe-construction/pe-road-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1957,13 +1958,14 @@
       "platform": {
         "id": "66fisLRxH4M",
         "url": "https://www.youtube.com/watch?v=66fisLRxH4M",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/pe-road-shutsudai-yomikata/youtube.json#shorts/point-themename-1"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-18T04:45:10.928Z"
         },
         "relatedVideoId": "8PgWfKBlFaE",
-        "desiredRelatedVideoId": "8PgWfKBlFaE"
+        "desiredRelatedVideoId": "8PgWfKBlFaE",
+        "publishedAt": "2026-11-17T22:30:07.000Z"
       },
       "thumbnail": {
         "status": "set",

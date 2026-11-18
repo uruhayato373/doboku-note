@@ -1,16 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-17T05:15:35.673Z",
+  "checkedAt": "2026-11-18T04:45:10.928Z",
   "channel": "youtube",
-  "targets": 66,
-  "checked": 66,
-  "observed": 66,
+  "targets": 70,
+  "checked": 70,
+  "observed": 70,
   "advanced": [
-    "pe-comprehensive-management/cm-mondaibun-yomikata/youtube.longform",
-    "pe-construction/pe-hissu1-theme-junbi/youtube.longform",
-    "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-jogai-2",
-    "pe-construction/pe-urban-planning-shutsudai-yomikata/youtube.longform",
-    "pe-construction/toan-kousei-template/youtube.short.point-koukarisk-2"
+    "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform",
+    "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform",
+    "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1",
+    "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-themename-1"
   ],
   "findings": []
 }

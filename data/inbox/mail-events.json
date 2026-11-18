@@ -1,8 +1,15 @@
 {
   "schemaVersion": 1,
   "description": "obsidian の mail-triage（毎日 cron）がメールから拾ったイベント。売上の正本ではない——正本は各リポのスクレイパーが取るログ。辞書は obsidian .claude/mail-rules.json",
-  "updatedAt": "2026-11-16T02:22:36.648Z",
+  "updatedAt": "2026-11-18T03:51:06.228Z",
   "events": [
+    {
+      "id": "1a1eb62b98e00801",
+      "receivedAt": "2026-11-17T21:21:17.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
     {
       "id": "1a1df7e30b0a4e34",
       "receivedAt": "2026-11-15T13:55:51.000Z",

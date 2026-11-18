@@ -517,6 +517,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1244] データ台帳の書き手の未記入 175 件を領域ごとに埋める（役割分担の見直し・第2段階の残り）
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [検証:check-datasets] [起票:2026-11-18]
+
+**起点**: DN-1240（#1650）で台帳 `scripts/lib/datasets.mjs` に書き手の欄を入れ、121 件を埋めた。残り 175 件は基準線 `.claude/config/dataset-writer-baseline.json` に載せて増やせなくしただけで、まだ誰が書くか決まっていない（2026-11-18 時点の内訳: site 82・sns 40・ops 26・product 14・material 10・plan 2・affiliate 1）。
+
+**やること**: 領域ごとに `scripts/lib/dataset-writers.mjs` の `WRITERS` へ書き手を足し、同じ commit で基準線から外す。書き手が 2 つ以上なら `writerNote` を書く。書き手の調べ方は書き込むコードの grep（`writeFileSync`・`writeJson` と台帳 id）と automations の実体。product・plan・affiliate（17 件）を先にやり、次に ops、site・sns の順。
+
+**完了条件**: `npm run check-datasets` が「未記入 0・基準線 0」で通る。
+
+
 ### [DN-1242] エージェントを役割で分け直し、機械で決まる検査をスクリプトへ寄せる（役割分担の見直し・第4段階）
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-18]
 
@@ -534,7 +544,7 @@
 
 
 ### [DN-1241] 領域ごとの担当表と文書の持ち主を決め、エージェントに役割と対象を付ける（役割分担の見直し・第3段階）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-18]
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-18] [進行中]
 
 **起点**: 2026-11-18 に運営者が承認した計画（`docs/handoffs/2026-11-18-agent-roles-plan.md` の第3段階）。領域ごとの判断者（運営者・親・スキル）と、文書 159 本の持ち主がどこにも記録されていない。エージェントの種別は tools から「編集可／監査のみ」の 2 値を導いているだけ。
 **次または実行順**: 書き手の欄（第2段階）の後。管理画面に持ち物を出すのに台帳の書き手を使う。
@@ -547,16 +557,6 @@
 **完了条件**: `npm run check-domains` と `npm run check-doc-coupling` が通り、8 領域すべてで決める人・判断の場・空白の担い手が管理画面で読める。
 
 
-### [DN-1240] データ台帳に書き手の欄を足し、検査で止める（役割分担の見直し・第2段階）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-18] [進行中]
-
-**起点**: 2026-11-18 に運営者が承認した計画（`docs/handoffs/2026-11-18-agent-roles-plan.md` の第2段階）。データ台帳 296 件すべてに領域は付いているが書き手の欄が無く、コードから書き手が分かるのは 70 件、`config/automations.json` の `writes` で分かるのは 38 件。`config/products.json` を 3 体が書き、`data/business/experiments.json` は書き手が 4 つある。
-**やること**:
-1. `scripts/lib/datasets.mjs` の opts に `writer`（`script:`・`automation:`・`skill:`・`agent:`・`human`）と `writerNote` を足す
-2. `scripts/check-datasets.mjs` で接頭辞・実在・複数書き手の `writerNote` を検査し、未記入はラチェット（`.claude/config/dataset-writer-baseline.json`）で増やせなくする
-3. `config/automations.json` の `writes` を廃止し、台帳からの逆引きにする（`check-automations`・管理画面 `/ops/store` の書き手列）
-4. 最初の PR で戦略・計画・商品・アフィリエイトと検索集客（約 130 件）を埋める。残りは領域ごとに下げる
-**完了条件**: `npm run check-datasets` が書き手の検査つきで通り、管理画面 `/ops/store` の書き手列が台帳の値で出る。未記入の件数が基準線に記録されている。
 
 
 

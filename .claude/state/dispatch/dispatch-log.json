@@ -9041,6 +9041,19 @@
       "commit": "fcb6d355036d",
       "verification": "none",
       "note": "取りやめ（2026-11-17 運営者決定: 月額の会員制は今後やらない。高単価はココナラの診断→添削→指導で作る。docs/strategy/22 §5）"
+    },
+    {
+      "id": "DN-1240",
+      "at": "2026-11-18",
+      "task": "データ台帳に書き手の欄を足し、検査で止める（役割分担の見直し・第2段階）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "acc7037de1f5",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
