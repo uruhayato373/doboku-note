@@ -1,8 +1,6 @@
 {
   "_doc": "check-domains のエージェントの形の基準線（DN-1242）。bodyLines＝本文（frontmatter の後）が上限 150 行を超えるエージェントと今の行数。writeTools＝判定だけの役（分析・採点・照合・監査）なのに書き込める道具を持つエージェント。どちらも増やせない。削ったら行数を下げ、上限内に収まったら・道具を絞ったら消す（check-domains が、直したのに残っている行も止める）。2026-11-18 に作成。",
   "bodyLines": {
-    "cem-qa": 235,
-    "civil-construction-qa": 485,
     "civil-exampoint-restorer": 207,
     "civil-secondary-exam-writer": 242,
     "civil-textbook-rewriter": 177,
@@ -11,10 +9,7 @@
     "note-fact-checker": 157,
     "past-exam-qa": 181,
     "pe-secondary-exam-writer": 452,
-    "performance-auditor": 232,
-    "sales-recorder": 310
+    "performance-auditor": 232
   },
-  "writeTools": [
-    "civil-construction-qa"
-  ]
+  "writeTools": []
 }

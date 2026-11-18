@@ -1512,7 +1512,7 @@ export const ConfigDemandMap = z
             nextCheck: text.describe('次の検証'),
             status: z.enum(['idea', 'decided', 'building', 'live', 'hold', 'stopped']).describe('idea=候補 / decided=運営者が作ると決めた / building=制作中 / live=販売中 / hold=保留（方針が変わるまで見送る・判定日の知らせから外す） / stopped=停止（作らない）'),
             productIds: z.array(text).optional().describe('販売を始めた商品 id（商品の正本の id）。実売の比較はこの id で売上を引く'),
-            salesIds: z.array(text).optional().describe('売上記録（note の販売履歴）の productId が商品の id と違うときの id（bk-* など sales-recorder の旧系統）。productIds と合わせて実売を引く'),
+            salesIds: z.array(text).optional().describe('売上記録（note の販売履歴）の productId が商品の id と違うときの id（bk-* など 売上台帳の旧系統）。productIds と合わせて実売を引く'),
             experimentId: z.string().regex(/^EXP-\d{3}$/).optional().describe('計測する実験（experiments.json）'),
             card: z.string().regex(/^DN-\d{4}$/).optional().describe('作業のカード（backlog）'),
           })
@@ -1637,3 +1637,38 @@ export const ConfigSiteCtaSurfaces = z
     ),
   })
   .strict();
+
+// ---- 売上の商品名 → productId の対応表（config/sales-product-map.json） --------------------------
+
+const salesMapEntry = z
+  .object({
+    names: z.array(text).min(1).describe('販売履歴に出る商品名（部分一致の目印。{} は可変部分）'),
+    productId: text.describe('売上台帳（台帳 note.sales）の productId。{N}・{subject} などの可変部分を持てる'),
+    note: text.optional().describe('価格・新設日などの補足'),
+    examples: z.array(text).optional().describe('productId の具体例（check-sales-mapping が照合に使う）'),
+  })
+  .strict();
+
+/** 売上の商品名 → productId の対応表。check-sales-mapping が台帳の productId・公開済み単品との照合に読む */
+export const ConfigSalesProductMap = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    namingNote: text,
+    unknownRule: text,
+    sections: z
+      .array(
+        z
+          .object({
+            id: z.enum(['magazine', 'article', 'membership', 'coconala']),
+            label: text,
+            note: text.optional(),
+            entries: z.array(salesMapEntry).min(1),
+          })
+          .strict(),
+      )
+      .superRefine(uniqueBy('id')),
+    looseIds: z.array(text).describe('表の行に入らないが台帳に出てよい id（ワイルドカード・廃止済みの商品）'),
+  })
+  .strict()
+  .meta({ title: '売上の productId 対応表' });

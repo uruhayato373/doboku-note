@@ -3,6 +3,7 @@ name: civil-keiken-tensaku-qa
 description: >
   添削・診断・骨子の返信文を事実忠実性・指摘の正確性など5軸で検証する Evaluator。修正・送信はしない。Use when [添削返信の検証].
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product
 role: qa

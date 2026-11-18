@@ -3,6 +3,7 @@ name: sales-competitor-analyst
 description: >
   note・ココナラ・Kindle の競合データから価格・品揃え・訴求の変化を差分案で返す。取得は担当外。Use when [売り場の競合評価].
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: strategy
 role: analyst

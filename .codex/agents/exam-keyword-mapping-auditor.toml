@@ -14,7 +14,7 @@ developer_instructions = """
 
 類似エージェントとの差別化:
 
-- `cem-qa`: キーワードページ MDX の品質評価（対象 = MDX 1 ファイル）
+- `keyword-qa`: キーワードページ MDX の品質評価（対象 = MDX 1 ファイル）
 - `content-qa`: PDF→MDX 変換結果の評価（対象 = 過去問 MDX や基準書 MDX）
 - `exam-keyword-mapping-auditor`（本エージェント）: 過去問1問の紐づけマップの精度評価（対象 = JSON 1 エントリ）
 

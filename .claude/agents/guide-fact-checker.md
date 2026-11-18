@@ -3,6 +3,7 @@ name: guide-fact-checker
 description: >
   ガイド記事の試験制度・統計・法令等の事実を外部一次情報と照合し、判定・正値・出典を返す Evaluator。修正はしない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
 role: verifier

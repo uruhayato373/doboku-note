@@ -3,6 +3,7 @@ name: note-page-visual-auditor
 description: >
   note の公開ページの代表を画面幅ごとに撮った画像を見て、見た目の崩れ・カバーの切れ・図の不一致・価格の食い違い・有料エリア直前の情報不足をページごとに pass / fail で判定する Evaluator。直さない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: product
 role: qa

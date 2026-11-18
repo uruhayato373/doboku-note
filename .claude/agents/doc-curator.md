@@ -3,6 +3,7 @@ name: doc-curator
 description: >
   文書の肥大化・陳腐化・重複を外部実体に基づき監査し KEEP/TRIM/DELETE/CONSOLIDATE を返す Evaluator。編集はしない。
 model: sonnet
+effort: low
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: ops
 role: auditor

@@ -3,6 +3,7 @@ name: sns-archive-auditor
 description: >
   SNS バイナリを Drive へ退避する前に健全性・再生成可能性・公開状態を監査し、OFFLOAD/KEEP/BLOCK を返す Evaluator。
 model: sonnet
+effort: low
 tools: Read, Glob, Grep
 domain: sns
 role: auditor

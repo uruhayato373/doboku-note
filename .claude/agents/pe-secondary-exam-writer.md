@@ -3,6 +3,7 @@ name: pe-secondary-exam-writer
 description: >
   建設部門 note マガジン用の模範解答を科目区分ごとに1記事生成する Generator（過去問/予想 forecast:true・全選択肢網羅）。
 model: sonnet
+effort: medium
 domain: product
 role: writer
 target: essay

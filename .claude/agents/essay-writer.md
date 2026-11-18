@@ -3,6 +3,7 @@ name: essay-writer
 description: >-
   note 教材の模範答案・模範論文（総監・施工経験記述・コンクリート主任技士・RCCM）を、資格別プロファイルに従って1記事ずつ執筆する Generator。Use when 模範答案を書く・答案を生成する（資格を引数で渡す）。
 model: sonnet
+effort: medium
 domain: product
 role: writer
 target: essay
@@ -49,4 +50,4 @@ note 有料教材の **模範答案・模範論文**を 1 記事ずつ生成す�
 - 品質採点 → essay-qa
 - カバー・ハッシュタグ・掲載文・`note-magazines.ts` 配線・PDF 化・公開・commit・push → 親
 - 建設部門（技術士二次）の模範解答 → `pe-secondary-exam-writer`
-- サイトのガイド記事・キーワードページ・過去問ページ → `civil-guide-writer` / `keyword-rewriter` / `past-exam-rewriter` ほか
+- サイトのガイド記事・キーワードページ・過去問ページ → `guide-writer` / `keyword-rewriter` / `past-exam-rewriter` ほか

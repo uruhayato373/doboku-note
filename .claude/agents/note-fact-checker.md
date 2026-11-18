@@ -3,6 +3,7 @@ name: note-fact-checker
 description: >
   note 公開用ドラフトの数値・主張・年度を doboku-note 内部データと突合する Evaluator。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product
 role: verifier

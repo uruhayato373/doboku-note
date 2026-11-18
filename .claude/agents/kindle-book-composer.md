@@ -3,6 +3,7 @@ name: kindle-book-composer
 description: >
   Kindle の論点分類・構成 spec・前付け原稿・KDP の販売文（メタデータ）を設計/改訂する Generator。EPUB ビルド・品質判定はしない。Use when [Kindle 構成設計].
 model: sonnet
+effort: medium
 domain: product
 role: writer
 target: kindle-book

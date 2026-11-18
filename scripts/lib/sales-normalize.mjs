@@ -1,11 +1,11 @@
 /**
  * sales-normalize.mjs — data/note/sales.json の productId 解決を純関数として切り出したもの。
  *
- * 背景（DN-0018）: 取得（`note-sales-fetch.mjs`）とスキル手動転記（`sales-recorder` エージェント）で
+ * 背景（DN-0018）: 取得（`note-sales-fetch.mjs`）とスキル手動転記（親が `/record-sales` の手順で）で
  * 同じ商品が別表記の productId に解決されると、`sales-summary` の商品別集計が分断される
  * （実例: `bk-i-r8-yosou-04-cn-gx` と `bk-i-r08-yosou-4`）。
  *
- * 設計方針: `.claude/agents/sales-recorder.md` の巨大な商品名パターン表を並行コードとして
+ * 設計方針: `config/sales-product-map.json` の巨大な商品名パターン表を並行コードとして
  * 複製すると必ず陳腐化する（新マガジン追加時に片方だけ更新される）。そのため:
  *
  * 1. **マガジン（type: magazine）**: `src/lib/note-magazines.ts` を実行時に読み、
@@ -23,7 +23,7 @@
  * （呼び出し側で接頭辞の有無を吸収する）。
  *
  * - `bk-i-r08-yosou-4` → `bk-i-r8-yosou-04-cn-gx`:
- *   技術士建設部門 必須科目I R8予想 4問目（CN/GX テーマ）。手動転記は sales-recorder.md の
+ *   技術士建設部門 必須科目I R8予想 4問目（CN/GX テーマ）。手動転記は sales-product-map.json の
  *   命名規則（`bk-i-r8-yosou-*`・ゼロ埋め・テーマ略称サフィックス付き）で確定した id を使うが、
  *   note タイトルをそのまま機械的に slug 化すると「r8」→「r08」・連番の非ゼロ埋め・
  *   サフィックス欠落という 3 点が同時にずれる。まとめて 1 エイリアスとして吸収する。
@@ -31,7 +31,7 @@
 export const PRODUCT_ID_ALIASES = new Map([['bk-i-r08-yosou-4', 'bk-i-r8-yosou-04-cn-gx']]);
 
 /**
- * カタログ（config/products.json）の建設部門の id を、売上台帳の bk-* 系統へ寄せる規則（sales-recorder.md「命名系統の注意」）。
+ * カタログ（config/products.json）の建設部門の id を、売上台帳の bk-* 系統へ寄せる規則（sales-product-map.json「命名系統の注意」）。
  * noteTitle で照合するとカタログ id（pe-construction-*）に解決されるが、台帳の既存行は bk-* で、
  * そのままだと商品別の集計が二つの id に割れる（2026-10-11・DN-0680）。
  * - pe-construction-required-magazine → bk-i-required-essay-magazine
@@ -96,8 +96,8 @@ export function resolveMagazineId(rawTitle, magazines) {
 }
 
 /**
- * カタログ（note-magazines.ts）に無い単品記事の題名 → productId の手当表。id は sales-recorder.md の命名規則
- * （`.claude/agents/sales-recorder.md`・`npm run check-sales-mapping` が sales.json の id をその表と照合する）。
+ * カタログ（note-magazines.ts）に無い単品記事の題名 → productId の手当表。id は sales-product-map.json の命名規則
+ * （`config/sales-product-map.json`・`npm run check-sales-mapping` が sales.json の id をその表と照合する）。
  * 題名は note 側で変わる（2026-06 に「（予想問題＋フル模範解答）」が付き、既存ログの題名と一致せず 6 件が unknown に戻った）ので、
  * 題名の全文でなく見分けに足りる部分（all の語がすべて入る）で当てる。比較は NFKC（全角・丸数字の揺れを吸収）。
  * 新しい単品で初出の題名が unknown になったら、確定した id をここに 1 行足す。

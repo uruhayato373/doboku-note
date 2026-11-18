@@ -3,6 +3,7 @@ name: essay-qa
 description: >-
   note 教材の模範答案・模範論文（総監・施工経験記述・コンクリート主任技士・RCCM）を、資格別プロファイルの決定論ゲートと5軸で採点する Evaluator。生成・修正はしない。Use when 答案を採点する（資格を引数で渡す）。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product
 role: qa
@@ -62,4 +63,4 @@ essay-writer が生成した **note 教材の模範答案・模範論文**（art
 - 生成・修正 → essay-writer
 - 配線・公開・PDF 化・commit → 親
 - 建設部門（技術士二次）の模範解答の採点 → `pe-secondary-exam-qa`
-- サイトのガイド・キーワードページの評価 → `guide-qa` / `cem-qa` ／ 制度・統計・白書の一次照合 → `guide-fact-checker` / `note-fact-checker`
+- サイトのガイド・キーワードページの評価 → `guide-qa` / `keyword-qa` ／ 制度・統計・白書の一次照合 → `guide-fact-checker` / `note-fact-checker`

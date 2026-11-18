@@ -3,6 +3,7 @@ name: x-reply-drafter
 description: >
   X の返信候補（資格横断）を、相手のプロフィールと最新の投稿で仕分け、見送りの理由と返信の下書きを返す Generator。送信・記録はしない。Use when [/x-reply の候補の仕分けと下書き].
 model: sonnet
+effort: medium
 domain: sns
 role: writer
 target: x-reply

@@ -35,7 +35,7 @@
       ],
       "evaluators": [
         {
-          "agent": "cem-qa",
+          "agent": "keyword-qa",
           "role": "rubric",
           "categories": [
             "pe-comprehensive-management"
@@ -216,7 +216,7 @@
       ],
       "evaluators": [
         {
-          "agent": "civil-construction-qa",
+          "agent": "article-proofreader",
           "role": "rubric",
           "categories": [
             "civil-construction-1",

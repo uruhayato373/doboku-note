@@ -3,6 +3,7 @@ name: kdp-operator
 description: >
   ビルド済み EPUB と表紙を KDP へ入稿し、出版・本棚照合・ASIN 記録を運用する。販売文の作成は kindle-book-composer。Use when [KDP 提出, KDP 公開状態同期].
 model: sonnet
+effort: low
 domain: product
 role: operator
 target: kdp

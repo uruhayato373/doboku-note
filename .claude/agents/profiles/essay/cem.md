@@ -160,7 +160,7 @@ grep -nc "^> " "<path>"                                                  # block
 
 - 配線・公開後 URL 反映・commit → 親エージェント
 - 白書一次照合（NotebookLM スコープ D）→ `note-fact-checker`（補完関係。本軸5は構成・原表現の整合まで）
-- サイトの総監模範論文ページ評価 → `/pe-essay-review`（別物・無料サイトページ）／キーワードページ → `cem-qa`
+- サイトの総監模範論文ページ評価 → `/pe-essay-review`（別物・無料サイトページ）／キーワードページ → `keyword-qa`
 
 ### 参照
 

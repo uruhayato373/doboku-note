@@ -3,6 +3,7 @@ name: note-cover-writer
 description: >
   note 記事のカバー frontmatter（cover: ブロック）を1記事ずつ執筆する Generator。V5 キャラクターカバー用。
 model: sonnet
+effort: medium
 domain: product
 role: writer
 target: note-cover

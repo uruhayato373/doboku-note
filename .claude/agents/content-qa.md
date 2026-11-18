@@ -3,6 +3,7 @@ name: content-qa
 description: >
   PDF→MDX 変換の品質を5軸で評価する Evaluator（過去問・基準書中心）。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: material
 role: verifier

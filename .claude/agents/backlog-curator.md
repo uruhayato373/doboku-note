@@ -3,6 +3,7 @@ name: backlog-curator
 description: >
   backlog カードの分類・重複・陳腐化を監査し処分案を返す Evaluator。編集・実行・週次計画はしない。Use when [バックログ棚卸し].
 model: sonnet
+effort: low
 tools: Read, Glob, Grep, Bash
 domain: plan
 role: auditor

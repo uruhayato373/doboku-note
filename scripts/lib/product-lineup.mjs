@@ -106,7 +106,7 @@ export function validateLineupConfig(config) {
 }
 
 /**
- * 売上記録（data/note/sales.json）の productId をマスへ写す。売上の id は sales-recorder 独自の系統
+ * 売上記録（data/note/sales.json）の productId をマスへ写す。売上の id は 売上台帳独自の系統
  * （bk-*・article:<slug>・membership:<plan>）なので、接頭辞を外して次の順に当てる。
  * 1. 商品の正本（products.json）に結びつく id は、その商品の資格・区分（config.saleProducts がある場合）
  * 2. salesRules → rules.note の正規表現（商品にならない単品記事・会員など）

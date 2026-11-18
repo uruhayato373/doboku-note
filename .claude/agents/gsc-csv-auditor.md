@@ -3,6 +3,7 @@ name: gsc-csv-auditor
 description: >
   GSC UI の収集済み CSV の欠損・切捨て・重複・前回差分を監査する Evaluator。SEO 判断・修正はしない。
 model: sonnet
+effort: low
 tools: Read, Glob, Grep, Bash
 domain: site
 role: auditor

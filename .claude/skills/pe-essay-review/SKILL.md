@@ -232,7 +232,7 @@ domain: product
 - `pe-essay-cycle`: 総監記述式の統括オーケストレーター（本スキルを `--mode review` で呼ぶ）
 - `pe-essay-draft`: 対になる Generator スキル（本スキルの添削レポートを `--mode revise` で反映する）
 - `note-prepublish-review`: note 公開前レビュー（多軸統合）
-- `cem-qa`（エージェント）: キーワードページの 5 軸ルーブリック評価
+- `keyword-qa`（エージェント）: キーワードページの 5 軸ルーブリック評価
 - `note-fact-checker`（エージェント）: note 用ファクトチェック
 
 ## 横断チェック観点（同属性の複数年度を評価する際）

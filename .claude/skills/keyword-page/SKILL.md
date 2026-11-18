@@ -216,12 +216,12 @@ publishedAt: "{YYYY-MM-DD}"
 
 ### Step 5: 品質チェック（2段階ゲート）
 
-**Generator/Evaluator 分離原則**: keyword-page スキル自身は Generator。完成判定は **機械リンター（Step 5a）** と **cem-qa エージェント（Step 5b）** の2段階ゲートで行う。両方を通過しないと完了とみなさない。
+**Generator/Evaluator 分離原則**: keyword-page スキル自身は Generator。完成判定は **機械リンター（Step 5a）** と **keyword-qa エージェント（Step 5b）** の2段階ゲートで行う。両方を通過しないと完了とみなさない。
 
 #### Step 5a: 機械リンター（必須）
 
 1. **文字化け検出**: Grep で `U+FFFD`（`�`）を検索し、文字化けがないことを確認
-2. **リンク確認**: 過去問リンクのアンカー形式が正しいか確認（`#ⅰ-1-1` 等、小文字ローマ数字）
+2. **リンク確認**: 過去問リンクのアンカー形式が正しいか確認（`#ⅰ-1-1` 等、小文字ローマ数字）。参考資料 URL の死活は `/check-mdx <file> --rules syntax,links` で決める（HTTP 404 が出たら keyword-qa を起動せず、差し替えか削除をする。keyword-qa は URL の実在を確かめない）
 3. **section 整合性**: frontmatter の `section` と「総合技術監理における位置づけ」の記述が一致しているか
 4. **lint-mdx-mobile 実行**: `node .claude/scripts/lint-mdx-mobile.mjs <file>` を実行
    - カテゴリ1（表）・6（導入文）・8（リンク）・**9（コンポーネント原則）** をチェック
@@ -232,9 +232,9 @@ publishedAt: "{YYYY-MM-DD}"
    - LOW（カテゴリ 10 の SVG 候補を含む）はユーザーに提示して判断を仰ぐ。自動修正はしない
    - SVG 化が選ばれた場合は別途 `/illustrate-concept {path}` を起動する運用
 
-#### Step 5b: cem-qa エージェント評価（必須）
+#### Step 5b: keyword-qa エージェント評価（必須）
 
-1. `cem-qa` エージェントを呼び出し、対象 slug または mdx パスを渡す
+1. `keyword-qa` エージェントを呼び出し、資格（総監なら `cem`）と対象 slug または mdx パスを渡す（機械検査 Step 5a が通ってから）
 2. 5軸ルーブリック（構造30% / モバイル25% / 原則20% / 参考資料15% / 関連付け10%）で採点
 3. **加重スコア < 2.0 なら指摘事項リストに沿って修正 → Step 5a に戻る**
 4. **加重スコア ≥ 2.0 で完了**

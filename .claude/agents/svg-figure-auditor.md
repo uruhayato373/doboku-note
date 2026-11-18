@@ -3,6 +3,7 @@ name: svg-figure-auditor
 description: >
   site・note の SVG 図版を概念・本文整合・可読性・キャンバスで監査する Evaluator。修正は rewriter / fitter。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site
 role: qa

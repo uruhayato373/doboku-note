@@ -79,7 +79,7 @@ export interface NoteMagazine {
  *      データ駆動）。examKeyOf が id 接頭辞から資格を推定できることだけ確認（新接頭辞なら
  *      exam-brand.ts に追記）。※note 公開時のマガジンヘッダー _cover.png は別工程で
  *      generate-magazine-covers.mjs が生成（note-magazine-cover.mjs がアップロード）。
- *   2. 売上記録: .claude/agents/sales-recorder.md の productId マッピング表に追加
+ *   2. 売上記録: config/sales-product-map.json の productId マッピング表に追加
  *   3. keiken 系（施工経験記述）なら: scripts/keiken-charcount.mjs の探索フィルタに dir 判別語を追加
  *      （check-magazine-wiring.mjs が pre-commit で漏れを機械検知する）
  *   4. Generator/Evaluator の対応型: .claude/agents/essay-writer.md 等の型リスト＋agents-registry.md
@@ -2156,7 +2156,7 @@ const MAGAZINES_RAW = {
   // 原稿配置: content/note/RCCM/magazines/。id 接頭辞 rccm-（exam-brand.ts examKeyOf → 'rccm'）。
   // 2026 年度は CBT 試験期間 9/1〜10/31 が進行中（exam-calendar.json rccm）。問題III は事前公開 6 テーマから 1 題。
   // 公式過去問は非公開のため問題文は収録せず、模範論文・テンプレ・論点集は全て自作。
-  // 公開時: noteUrl 埋め → published:true → note-funnel.json exams.rccm → sales-recorder.md 行（同一 commit）。
+  // 公開時: noteUrl 埋め → published:true → note-funnel.json exams.rccm → sales-product-map.json 行（同一 commit）。
   // 2026-09-15 公開: 7 記事（序章無料＋6 テーマ ¥780）を note 公開 → マガジン m770bef96b39f（¥3,480）へ 7/7 収録 → カバー SET。
   'rccm-mondai3-magazine': {
     id: 'rccm-mondai3-magazine',

@@ -3,6 +3,7 @@ name: note-traffic-analyst
 description: >
   note の PV・流入元・スキ・マガジン流入を収集済み記録から資格別に解釈する。書かない。Use when [note の PV, note の流入元].
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: product
 role: analyst

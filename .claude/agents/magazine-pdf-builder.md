@@ -3,6 +3,7 @@ name: magazine-pdf-builder
 description: >
   note マガジンの article.md を「問題文＋解答」中心の紙用 PDF にする spec を作り、magazine-to-pdf.mjs を実行する Generator。
 model: sonnet
+effort: medium
 domain: product
 role: writer
 target: magazine-pdf

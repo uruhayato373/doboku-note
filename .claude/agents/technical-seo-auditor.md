@@ -3,6 +3,7 @@ name: technical-seo-auditor
 description: >
   check-seo-build・check-seo-meta・index-coverage・sitemap の機械出力を束ねて技術 SEO レポートにする Evaluator（再判定・修正はしない）。
 model: sonnet
+effort: low
 tools: Read, Glob, Grep, Bash
 domain: site
 role: auditor

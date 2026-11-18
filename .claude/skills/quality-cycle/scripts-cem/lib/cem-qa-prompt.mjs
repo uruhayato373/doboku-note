@@ -2,25 +2,26 @@
 //
 // Quality Cycle の subagent 呼び出し用プロンプトテンプレート。
 //
-// cem-qa（Evaluator）と keyword-rewriter（Generator）への
+// keyword-qa（Evaluator）と keyword-rewriter（Generator）への
 // 厳密な JSON 出力を要求するプロンプトを組み立てる。
 
 /**
- * cem-qa subagent 用プロンプト（Tier 2 質的評価）
+ * keyword-qa subagent 用プロンプト（Tier 2 質的評価）
  *
  * @param {string} slug
  * @returns {string}
  */
 export function buildCemQaPrompt(slug) {
-  return `あなたは cem-qa エージェントです。
-完全な定義は \`.claude/agents/cem-qa.md\` を Read で読み、それに従ってください。
+  return `あなたは keyword-qa エージェントです。
+完全な定義は \`.claude/agents/keyword-qa.md\` を Read で読み、それに従ってください（資格: cem）。
 品質ルーブリックの真実源は \`.claude/content-principles.md\` です。
 
 評価対象:
   ファイル: content/site/pe-comprehensive-management/${slug}/article.mdx
 
 実行手順:
-  1. .claude/agents/cem-qa.md を Read で読む
+  1. .claude/agents/keyword-qa.md と .claude/agents/profiles/keyword/cem.md を Read で読む
+     （参考資料 URL の死活と MDX 構文は親が /check-mdx --rules syntax,links で先に通してある。WebFetch で確かめない）
   2. 評価対象ファイルを Read で読む
   3. node .claude/scripts/lint-mdx-mobile.mjs <評価対象ファイル> を Bash で実行
   4. 5 軸ルーブリック（構造30% / モバイル25% / 原則20% / 参考資料15% / 関連付け10%）で
@@ -48,7 +49,7 @@ export function buildCemQaPrompt(slug) {
  * keyword-rewriter subagent 用プロンプト（リライト）
  *
  * @param {string} slug
- * @param {string[]} weakAxes - cem-qa が特定した弱点軸
+ * @param {string[]} weakAxes - keyword-qa が特定した弱点軸
  * @param {string[]} expansionPatterns - 推奨拡張パターン (A〜F)
  * @returns {string}
  */

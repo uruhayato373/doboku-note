@@ -3,6 +3,7 @@ name: a8-csv-auditor
 description: >
   A8 収集済み CSV・正規化結果の品質とサイト帰属を監査する Evaluator。取得・修正・EPC 判断はしない。Use when [A8 CSV 品質確認].
 model: sonnet
+effort: low
 tools: Read, Glob, Grep, Bash
 domain: affiliate
 role: auditor

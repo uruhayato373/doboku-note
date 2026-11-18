@@ -3,6 +3,7 @@ name: seo-fix-planner
 description: >
   結合済み検索計測 JSON の URL 分類を評価し、優先順位つきの修正計画を返す Evaluator。取得・修正はしない。
 model: sonnet
+effort: medium
 tools: Read, Glob, Grep, Bash
 domain: site
 role: planner

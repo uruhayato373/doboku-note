@@ -249,7 +249,7 @@ node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 |---|---|
 | `/check-mdx --rules all` | 変換後の構文・frontmatter 検証（post_hook で自動実行） |
 | `/improve-article --mode verify` | PDF 原典との 5 軸 QA 照合（旧 `/verify-pdf-mdx` / `/qa-pdf-mdx` を吸収） |
-| `content-qa` / `cem-qa` / `civil-construction-qa` | 試験別の QA Evaluator（`/improve-article` 経由で自動振り分け） |
+| `content-qa` / `keyword-qa` / `textbook-qa` / `guide-qa` | 試験別の QA Evaluator（`/improve-article` 経由で自動振り分け） |
 | `/exam-questions-import --exam {civil-primary\|civil-secondary}` | 過去問集の取込（PDF→MDX の特化版） |
 
 ## ハーネス設計上の位置づけ

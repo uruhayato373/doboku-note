@@ -33,11 +33,11 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 
 | 領域 | 分析 | 企画・計画 | 制作 | 直す | 採点 | 照合 | 運用 | 監査 | 実行 |
 |---|---|---|---|---|---|---|---|---|---|
-| 戦略 | `content-competitor-analyst` `sales-competitor-analyst` | `product-portfolio-planner` `strategy-advisor` | — | — | — | — | — | — | — |
+| 戦略 | `content-competitor-analyst` `sales-competitor-analyst` | `product-portfolio-planner` | — | — | — | — | — | — | — |
 | 計画 | — | `todo-planner` | — | — | — | — | — | `backlog-curator` | — |
-| 商品 | `coconala-traffic-analyst` `note-traffic-analyst` | — | `civil-keiken-tensaku-drafter` `coconala-blog-writer` `coconala-order-drafter` `essay-writer` `kindle-book-composer` `magazine-pdf-builder` `note-buyer-responder` `note-cover-writer` `note-link-injector` `pe-secondary-exam-writer` | — | `civil-keiken-tensaku-qa` `coconala-blog-qa` `essay-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-listing-operator` `kdp-operator` `note-catalog-operator` `note-membership-operator` `sales-recorder` | `note-funnel-auditor` | — |
+| 商品 | `coconala-traffic-analyst` `note-traffic-analyst` | — | `civil-keiken-tensaku-drafter` `coconala-blog-writer` `coconala-order-drafter` `essay-writer` `kindle-book-composer` `magazine-pdf-builder` `note-buyer-responder` `note-cover-writer` `note-link-injector` `pe-secondary-exam-writer` | — | `civil-keiken-tensaku-qa` `coconala-blog-qa` `essay-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-listing-operator` `kdp-operator` `note-catalog-operator` `note-membership-operator` | `note-funnel-auditor` | — |
 | アフィリエイト | — | — | — | — | — | — | `affiliate-operator` | `a8-csv-auditor` | — |
-| サイト | `metrics-analyzer` `search-intent-auditor` | `seo-fix-planner` | `civil-exampoint-restorer` `civil-guide-writer` `civil-secondary-exam-writer` `figure-crop-worker` `page-design-builder` `standards-table-writer` | `civil-textbook-rewriter` `guide-rewriter` `keyword-rewriter` `past-exam-rewriter` `svg-canvas-fitter` `svg-figure-rewriter` | `ai-image-fidelity-auditor` `cem-qa` `civil-construction-qa` `exam-keyword-mapping-auditor` `figure-crop-auditor` `guide-qa` `past-exam-qa` `site-page-visual-auditor` `standards-page-visual-auditor` `svg-figure-auditor` | `guide-fact-checker` `standards-table-qa` | — | `gsc-csv-auditor` `gsc-index-auditor` `performance-auditor` `technical-seo-auditor` | — |
+| サイト | `metrics-analyzer` `search-intent-auditor` | `seo-fix-planner` | `civil-exampoint-restorer` `civil-secondary-exam-writer` `figure-crop-worker` `guide-writer` `page-design-builder` `standards-table-writer` | `civil-textbook-rewriter` `guide-rewriter` `keyword-rewriter` `past-exam-rewriter` `svg-canvas-fitter` `svg-figure-rewriter` | `ai-image-fidelity-auditor` `article-proofreader` `exam-keyword-mapping-auditor` `figure-crop-auditor` `guide-qa` `keyword-qa` `past-exam-qa` `site-page-visual-auditor` `standards-page-visual-auditor` `svg-figure-auditor` | `guide-fact-checker` `standards-table-qa` `textbook-qa` | — | `gsc-csv-auditor` `gsc-index-auditor` `performance-auditor` `technical-seo-auditor` | — |
 | SNS | — | — | `ig-carousel-writer` `video-script-writer` `x-post-writer` `x-reply-drafter` `x-repost-curator` `yt-shorts-title-writer` | — | `ig-carousel-qa` `video-content-qa` `video-review` `x-post-qa` `yt-shorts-publisher-qa` | — | — | `sns-archive-auditor` | — |
 | 教材 | — | — | — | — | — | `content-qa` | — | — | — |
 | 管理 | — | — | — | — | — | — | — | `doc-curator` `doc-sync-auditor` | `cli-runner` |
@@ -46,9 +46,9 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 
 | 対象 | 分析 | 企画・計画 | 制作 | 直す | 採点 | 照合 | 運用 | 監査 | 実行 |
 |---|---|---|---|---|---|---|---|---|---|
-| ガイド記事（guide） | — | — | `civil-guide-writer` | `guide-rewriter` | `guide-qa` | `guide-fact-checker` | — | — | — |
-| キーワード記事（keyword） | — | — | — | `keyword-rewriter` | `cem-qa` | — | — | — | — |
-| 教科書記事（textbook） | — | — | — | `civil-textbook-rewriter` | `civil-construction-qa` | — | — | — | — |
+| ガイド記事（guide） | — | — | `guide-writer` | `guide-rewriter` | `guide-qa` | `guide-fact-checker` | — | — | — |
+| キーワード記事（keyword） | — | — | — | `keyword-rewriter` | `keyword-qa` | — | — | — | — |
+| 教科書記事（textbook） | — | — | — | `civil-textbook-rewriter` | `article-proofreader` | `textbook-qa` | — | — | — |
 | 過去問記事（past-exam） | — | — | `civil-exampoint-restorer` `civil-secondary-exam-writer` | `past-exam-rewriter` | `past-exam-qa` | `content-qa` | — | — | — |
 | 基準書の表（standards-table） | — | — | `standards-table-writer` | — | — | `standards-table-qa` | — | — | — |
 | 基準書の章ページ（standards-page） | — | — | — | — | `standards-page-visual-auditor` | — | — | — | — |
@@ -81,7 +81,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | ココナラの受注対応（coconala-order） | — | — | `coconala-order-drafter` | — | — | — | — | — | — |
 | ココナラの集客（coconala-traffic） | `coconala-traffic-analyst` | — | — | — | — | — | — | — | — |
 | KDP の本棚（kdp） | — | — | — | — | — | — | `kdp-operator` | — | — |
-| 売上の記録（sales） | — | — | — | — | — | — | `sales-recorder` | — | — |
 | ASP の提携（affiliate） | — | — | — | — | — | — | `affiliate-operator` | — | — |
 | A8 の CSV（a8-csv） | — | — | — | — | — | — | — | `a8-csv-auditor` | — |
 | X の投稿（x-post） | — | — | `x-post-writer` | — | `x-post-qa` | — | — | — | — |
@@ -94,7 +93,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | 販売チャネルの競合（note・ココナラ・Kindle）（competitor-sales） | `sales-competitor-analyst` | — | — | — | — | — | — | — | — |
 | 発信チャネルの競合（X・IG・YouTube）（competitor-content） | `content-competitor-analyst` | — | — | — | — | — | — | — | — |
 | 商品の品揃えと価格（product-portfolio） | — | `product-portfolio-planner` | — | — | — | — | — | — | — |
-| 戦略（strategy） | — | `strategy-advisor` | — | — | — | — | — | — | — |
 | 週次計画（weekly-plan） | — | `todo-planner` | — | — | — | — | — | — | — |
 | バックログ（backlog） | — | — | — | — | — | — | — | `backlog-curator` | — |
 | 文書（docs） | — | — | — | — | — | — | — | `doc-curator` `doc-sync-auditor` | — |
@@ -115,7 +113,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/backlog-sweep` | `backlog-curator` |
 | `/cce-essay-cycle` | `essay-qa` `essay-writer` `magazine-pdf-builder` |
 | `/check-mdx` | `svg-figure-auditor` |
-| `/civil-figure-rework` | `civil-construction-qa` `figure-crop-auditor` `figure-crop-worker` |
+| `/civil-figure-rework` | `article-proofreader` `figure-crop-auditor` `figure-crop-worker` `textbook-qa` |
 | `/civil-keiken-magazine` | `civil-secondary-exam-writer` `essay-qa` `essay-writer` |
 | `/coconala-blog` | `coconala-blog-qa` `coconala-blog-writer` |
 | `/coconala-order` | `civil-keiken-tensaku-drafter` `civil-keiken-tensaku-qa` `coconala-order-drafter` |
@@ -123,7 +121,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/coconala-status` | `coconala-listing-operator` `coconala-order-drafter` `coconala-traffic-analyst` |
 | `/competitor-review` | `content-competitor-analyst` `sales-competitor-analyst` `x-post-qa` `x-post-writer` |
 | `/create-pop-image` | `ai-image-fidelity-auditor` `video-content-qa` `video-script-writer` `yt-shorts-publisher-qa` |
-| `/distill-proofread-learnings` | `cem-qa` |
+| `/distill-proofread-learnings` | `keyword-qa` |
 | `/doc-declutter` | `doc-curator` |
 | `/doc-sync` | `doc-sync-auditor` |
 | `/exam-questions-import` | `content-qa` |
@@ -133,11 +131,11 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/google-search-growth` | `gsc-csv-auditor` `gsc-index-auditor` `metrics-analyzer` `seo-fix-planner` `technical-seo-auditor` |
 | `/gsc-review` | `gsc-index-auditor` `metrics-analyzer` `performance-auditor` |
 | `/ig-carousel-restyle` | `ig-carousel-qa` `ig-carousel-writer` |
-| `/improve-article` | `cem-qa` `civil-construction-qa` `content-qa` `keyword-rewriter` |
+| `/improve-article` | `article-proofreader` `content-qa` `guide-qa` `keyword-qa` `keyword-rewriter` `textbook-qa` |
 | `/kdp-publish` | `kdp-operator` `kindle-book-composer` |
 | `/keiken-charcount` | `essay-qa` `essay-writer` |
 | `/keiken-tensaku` | `civil-keiken-tensaku-drafter` `civil-keiken-tensaku-qa` |
-| `/keyword-page` | `cem-qa` `guide-fact-checker` `guide-qa` `guide-rewriter` |
+| `/keyword-page` | `guide-fact-checker` `guide-qa` `guide-rewriter` `keyword-qa` |
 | `/kindle-build` | `kdp-operator` `kindle-book-composer` `kindle-book-qa` |
 | `/magazine-to-pdf` | `magazine-pdf-builder` |
 | `/monetization-strategy` | `product-portfolio-planner` |
@@ -147,23 +145,21 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/note-membership` | `note-membership-operator` |
 | `/note-prepublish-review` | `note-fact-checker` `note-link-injector` `svg-figure-auditor` |
 | `/note-visual-review` | `note-page-visual-auditor` |
-| `/notebooklm-research` | `cem-qa` |
-| `/pdf-to-mdx` | `cem-qa` `civil-construction-qa` `content-qa` `figure-crop-auditor` |
+| `/notebooklm-research` | `keyword-qa` |
+| `/pdf-to-mdx` | `content-qa` `figure-crop-auditor` `guide-qa` `keyword-qa` `textbook-qa` |
 | `/pe-essay-cycle` | `essay-qa` `essay-writer` |
-| `/pe-essay-review` | `cem-qa` `note-fact-checker` |
-| `/pe-note-plan` | `strategy-advisor` |
+| `/pe-essay-review` | `keyword-qa` `note-fact-checker` |
 | `/pe-secondary-yosou` | `pe-secondary-exam-factcheck` `pe-secondary-exam-qa` `pe-secondary-exam-writer` |
 | `/plan-weekly` | `todo-planner` |
 | `/psi-audit` | `gsc-index-auditor` `metrics-analyzer` `performance-auditor` |
 | `/publish-x` | `x-post-qa` `x-post-writer` |
-| `/quality-cycle` | `cem-qa` `civil-construction-qa` `civil-textbook-rewriter` `keyword-rewriter` |
-| `/record-sales` | `sales-recorder` |
+| `/quality-cycle` | `article-proofreader` `civil-textbook-rewriter` `keyword-qa` `keyword-rewriter` |
 | `/seo-growth-review` | `gsc-index-auditor` `metrics-analyzer` `performance-auditor` `search-intent-auditor` `technical-seo-auditor` |
 | `/site-visual-review` | `page-design-builder` `site-page-visual-auditor` |
 | `/social-post` | `x-post-writer` |
 | `/standards-table-rebuild` | `standards-table-qa` `standards-table-writer` |
 | `/standards-visual-review` | `standards-page-visual-auditor` |
-| `/verify-exam-coverage` | `cem-qa` |
+| `/verify-exam-coverage` | `keyword-qa` |
 | `/video-content` | `video-content-qa` `video-script-writer` |
 | `/weekly-improve` | `keyword-rewriter` `metrics-analyzer` |
 | `/weekly-review` | `note-traffic-analyst` `todo-planner` |
@@ -174,18 +170,16 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 ## エージェント一覧
 
 <!-- generated:agents:start（npm run build-capability-index が書く。手で直さない） -->
-エージェント 81 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
+エージェント 80 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
 
 | エージェント | 役割 | 対象 | 種別 | model | 領域 | 説明 | 呼び出すスキル |
 |---|---|---|---|---|---|---|---|
 | `a8-csv-auditor` | 監査 | a8-csv | 監査のみ | sonnet | affiliate | A8 収集済み CSV・正規化結果の品質とサイト帰属を監査する Evaluator。取得・修正・EPC 判断はしない。Use when [A8 CSV 品質確認]. | `/a8-report` |
 | `affiliate-operator` | 運用 | affiliate | 編集可 | sonnet | affiliate | A8・もしも・afb の提携照合、申請、ASP 間比較を行う。成果 CSV 取込・案件開拓は担当外。Use when [ASP 横断比較, 提携申請]. | — |
 | `ai-image-fidelity-auditor` | 採点 | ai-image | 監査のみ | sonnet | site | 記事の写真・動画/商品素材の AI 生成画像が実物・本文どおりかを ok/fail で判定する Evaluator。修正・記録はしない。 | `/create-pop-image` |
+| `article-proofreader` | 採点 | textbook | 監査のみ | sonnet | site | 既存の土木・コンクリ textbook/guide を PDF なしで 5 軸校正する Evaluator。修正はしない。原典照合は textbook-qa。 | `/civil-figure-rework` `/improve-article` `/quality-cycle` |
 | `backlog-curator` | 監査 | backlog | 監査のみ | sonnet | plan | backlog カードの分類・重複・陳腐化を監査し処分案を返す Evaluator。編集・実行・週次計画はしない。Use when [バックログ棚卸し]. | `/backlog-sweep` |
-| `cem-qa` | 採点 | keyword | 監査のみ | sonnet | site | 総監キーワードページの5軸ルーブリック品質評価を担当する Evaluator。 | `/distill-proofread-learnings` `/improve-article` `/keyword-page` `/notebooklm-research` `/pdf-to-mdx` `/pe-essay-review` `/quality-cycle` `/verify-exam-coverage` |
-| `civil-construction-qa` | 採点 | textbook | 編集可 | sonnet | site | 1級・2級土木 textbook/guide の視覚検証・テキスト網羅率と、既存記事の校正（Mode R・コンクリ系教科書を含む）を担当する Evaluator。 | `/civil-figure-rework` `/improve-article` `/pdf-to-mdx` `/quality-cycle` |
 | `civil-exampoint-restorer` | 制作 | past-exam | 編集可 | sonnet | site | 1級土木 一次過去問の壊れた ExamPoint を体言止めの学習ポイントに再生成する Generator。 | — |
-| `civil-guide-writer` | 制作 | guide | 編集可 | sonnet | site | 1級・2級土木と civil-practice の新規ガイドを執筆する Generator。リライトと採点は担当外。 | — |
 | `civil-keiken-tensaku-drafter` | 制作 | tensaku | 編集可 | sonnet | product | 顧客原稿・ヒアリング事実から診断・添削・骨子シートの下書きを作る。事実は創作せず質問にする。最終化・送信は担当外。 | `/coconala-order` `/keiken-tensaku` |
 | `civil-keiken-tensaku-qa` | 採点 | tensaku | 監査のみ | sonnet | product | 添削・診断・骨子の返信文を事実忠実性・指摘の正確性など5軸で検証する Evaluator。修正・送信はしない。Use when [添削返信の検証]. | `/coconala-order` `/keiken-tensaku` |
 | `civil-secondary-exam-writer` | 制作 | past-exam | 編集可 | sonnet | site | 1級土木 二次過去問の解答・ポイント・設問解説を補完する Generator。 | `/civil-keiken-magazine` |
@@ -208,11 +202,13 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `gsc-csv-auditor` | 監査 | gsc-csv | 監査のみ | sonnet | site | GSC UI の収集済み CSV の欠損・切捨て・重複・前回差分を監査する Evaluator。SEO 判断・修正はしない。 | `/google-search-growth` |
 | `gsc-index-auditor` | 監査 | index-coverage | 監査のみ | sonnet | site | GSC URL Inspection と sitemap から index coverage を診断し、原因別に hygiene 修正候補を返す Evaluator（audit-only）。 | `/fetch-gsc-data` `/google-search-growth` `/gsc-review` `/psi-audit` `/seo-growth-review` |
 | `guide-fact-checker` | 照合 | guide | 監査のみ | sonnet | site | ガイド記事の試験制度・統計・法令等の事実を外部一次情報と照合し、判定・正値・出典を返す Evaluator。修正はしない。 | `/keyword-page` |
-| `guide-qa` | 採点 | guide | 監査のみ | inherit | site | ガイド記事を導入・散文・ボリューム・導線・モバイル視認性の5軸で評価する Evaluator（audit-only）。 | `/keyword-page` |
+| `guide-qa` | 採点 | guide | 監査のみ | inherit | site | ガイド記事を導入・散文・ボリューム・導線・モバイル視認性の5軸で評価する Evaluator（audit-only）。 | `/improve-article` `/keyword-page` `/pdf-to-mdx` |
 | `guide-rewriter` | 直す | guide | 編集可 | sonnet | site | ガイド記事を guide-qa と fact-checker の指摘に沿って修正する Generator。新規記事・新事実の創作は担当外。 | `/keyword-page` |
+| `guide-writer` | 制作 | guide | 編集可 | sonnet | site | 資格横断（1級・2級土木・土木実務・RCCM など）の新規ガイド記事を執筆する Generator。構成の真実源は article-structure-guide.md。リライトと採点は担当外。 | — |
 | `ig-carousel-qa` | 採点 | ig-carousel | 監査のみ | sonnet | sns | Instagram カルーセル slide-data.json v2 と PNG を6軸で評価する Evaluator。 | `/ig-carousel-restyle` |
 | `ig-carousel-writer` | 制作 | ig-carousel | 編集可 | sonnet | sns | Instagram カルーセルの slide-data.json v2 を1キーワードずつ執筆する Generator。 | `/ig-carousel-restyle` |
 | `kdp-operator` | 運用 | kdp | 編集可 | sonnet | product | ビルド済み EPUB と表紙を KDP へ入稿し、出版・本棚照合・ASIN 記録を運用する。販売文の作成は kindle-book-composer。Use when [KDP 提出, KDP 公開状態同期]. | `/kdp-publish` `/kindle-build` |
+| `keyword-qa` | 採点 | keyword | 監査のみ | sonnet | site | キーワードページを資格別プロファイルの 5 軸ルーブリックで採点する Evaluator。資格を引数で渡す（現在は総監 cem）。修正はしない。機械で決まる検査（構文・リンク死活）は親が先に通す。 | `/distill-proofread-learnings` `/improve-article` `/keyword-page` `/notebooklm-research` `/pdf-to-mdx` `/pe-essay-review` `/quality-cycle` `/verify-exam-coverage` |
 | `keyword-rewriter` | 直す | keyword | 編集可 | sonnet | site | 総監キーワードページのバルクリライトを担当する Generator。 | `/improve-article` `/quality-cycle` `/weekly-improve` |
 | `kindle-book-composer` | 制作 | kindle-book | 編集可 | sonnet | product | Kindle の論点分類・構成 spec・前付け原稿・KDP の販売文（メタデータ）を設計/改訂する Generator。EPUB ビルド・品質判定はしない。Use when [Kindle 構成設計]. | `/kdp-publish` `/kindle-build` |
 | `kindle-book-qa` | 採点 | kindle-book | 監査のみ | sonnet | product | Kindle EPUB と原稿を完全性・構成・KDP 規約などで監査し修正案を返す Evaluator。修正・出版はしない。Use when [EPUB 品質チェック]. | `/kindle-build` |
@@ -236,7 +232,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `performance-auditor` | 監査 | performance | 監査のみ | sonnet | site | PSI 計測履歴から Core Web Vitals のしきい値違反と回帰を検出し、改善提案を優先度つきで出す Evaluator。 | `/gsc-review` `/psi-audit` `/seo-growth-review` |
 | `product-portfolio-planner` | 企画・計画 | product-portfolio | 監査のみ | inherit | strategy | 資格ごとの次に作る商品と価格・品揃えの案を返す。書かない。月次のみ。Use when [商品企画, 価格と品揃えの案]. | `/monetization-strategy` `/monthly-review` |
 | `sales-competitor-analyst` | 分析 | competitor-sales | 監査のみ | sonnet | strategy | note・ココナラ・Kindle の競合データから価格・品揃え・訴求の変化を差分案で返す。取得は担当外。Use when [売り場の競合評価]. | `/competitor-review` |
-| `sales-recorder` | 運用 | sales | 編集可 | sonnet | product | note 販売履歴テキストを正規化して data/note/sales.json に追記する Generator。Use when [売上記録]. | `/record-sales` |
 | `search-intent-auditor` | 分析 | search-intent | 監査のみ | sonnet | site | 機械抽出した最大20 URL が対象クエリの検索意図に合致するかを意味評価する Evaluator（audit-only）。 | `/seo-growth-review` |
 | `seo-fix-planner` | 企画・計画 | seo | 監査のみ | sonnet | site | 結合済み検索計測 JSON の URL 分類を評価し、優先順位つきの修正計画を返す Evaluator。取得・修正はしない。 | `/google-search-growth` |
 | `site-page-visual-auditor` | 採点 | site-page | 監査のみ | sonnet | site | サイトの代表ページを全部の画面幅で撮った画面を見て、レイアウト・読みやすさ・商品導線（note・アフィリエイト・ココナラ）の崩れをページごとに pass / fail で判定する Evaluator。直さない。 | `/site-visual-review` |
@@ -244,11 +239,11 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `standards-page-visual-auditor` | 採点 | standards-page | 監査のみ | sonnet | site | 基準書の章ページの撮影を原本のページ画像と見比べ、読者の画面の崩れ・欠けを章ごとに pass / fail で判定する Evaluator。直さない。 | `/standards-visual-review` |
 | `standards-table-qa` | 照合 | standards-table | 監査のみ | sonnet | site | 組み直した共通仕様書の表を原本ページ画像と1セルずつ照合し、承認・差し戻しを決める Evaluator。表は直さない。 | `/standards-table-rebuild` |
 | `standards-table-writer` | 制作 | standards-table | 編集可 | sonnet | site | 共通仕様書の版面の表を、原本ページ画像と照合して表の JSON に組み直す Generator。照合・承認は standards-table-qa。 | `/standards-table-rebuild` |
-| `strategy-advisor` | 企画・計画 | strategy | 編集可 | inherit | strategy | 資格別の学習価値・図解・販売・運営負担を共通SSOTで統括し、週次/月次レビューから実験と計画へつなぐ戦略オーケストレーター。 | `/pe-note-plan` |
 | `svg-canvas-fitter` | 直す | svg-figure | 編集可 | sonnet | site | サイト figure-*.svg を固定キャンバスへ再配置する Generator。収まらなければ親へ返す。 | — |
 | `svg-figure-auditor` | 採点 | svg-figure | 監査のみ | sonnet | site | site・note の SVG 図版を概念・本文整合・可読性・キャンバスで監査する Evaluator。修正は rewriter / fitter。 | `/check-mdx` `/note-prepublish-review` |
 | `svg-figure-rewriter` | 直す | svg-figure | 編集可 | sonnet | site | SVG への監査指摘を適用し、色・フォント・属性・重なりを校正する Generator。再レイアウトは svg-canvas-fitter。 | — |
 | `technical-seo-auditor` | 監査 | technical-seo | 監査のみ | sonnet | site | check-seo-build・check-seo-meta・index-coverage・sitemap の機械出力を束ねて技術 SEO レポートにする Evaluator（再判定・修正はしない）。 | `/google-search-growth` `/seo-growth-review` |
+| `textbook-qa` | 照合 | textbook | 監査のみ | sonnet | site | 土木 textbook を教科書 PDF 原典と照合する Verifier（網羅率・図・視覚）。修正はしない。校正は article-proofreader。 | `/civil-figure-rework` `/improve-article` `/pdf-to-mdx` |
 | `todo-planner` | 企画・計画 | weekly-plan | 編集可 | sonnet | plan | backlog・計画・git 実績から週次計画を更新し、月初に月間タスクを選ぶ Generator。Use when [/plan-weekly, 週次計画]. | `/a8-report` `/plan-weekly` `/weekly-review` |
 | `video-content-qa` | 採点 | video | 監査のみ | sonnet | sns | 動画パックを6軸と BLOCK ゲートで採点する Evaluator（audit-only）。 | `/create-pop-image` `/video-content` |
 | `video-review` | 採点 | video | 監査のみ | sonnet | sns | 承認待ちの YouTube 動画を、運営者の代わりに画面と文面で確認して pass か fail を記録するエージェント。承認・公開はしない。 | — |
@@ -270,8 +265,8 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 ### 分離例
 
 - **PDF→MDX 変換**: `/pdf-to-mdx`（Generator スキル）→ `content-qa`（Evaluator エージェント）
-- **キーワードページ**: `/keyword-page`（Generator スキル）→ `cem-qa`（Evaluator エージェント）
-- **1級・2級土木 textbook/guide**: `/pdf-to-mdx --exam {civil-construction-1|civil-construction-2}`（Generator スキル）→ `civil-construction-qa`（Evaluator エージェント、category フィルタで両級対応。既存記事の校正は Mode R で、コンクリ 3 資格の textbook も対象）
+- **キーワードページ**: `/keyword-page`（Generator スキル）→ `keyword-qa`（Evaluator エージェント。資格を引数で渡し、`profiles/keyword/{資格}.md` を読む）
+- **1級・2級土木 textbook/guide**: `/pdf-to-mdx --exam {civil-construction-1|civil-construction-2}`（Generator スキル）→ textbook は `textbook-qa`（Verifier・PDF 原典照合）、既存記事の校正は `article-proofreader`（コンクリ 3 資格の textbook も対象）、guide は `guide-qa`
 
 ### Evaluator エージェントの区別
 
@@ -280,9 +275,9 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | **backlog-curator** | `.claude/todo/backlog.md` のカード | 種類・tier・カテゴリ・重複・鮮度・実績乖離・完了prose蓄積 → KEEP/RETAG/TRIM/MERGE/DELETE/RESEED/SPLIT | 月初、または check-backlog-health がしきい値を踏んだとき |
 | **content-qa** | `.mdx`（過去問・基準書） | 静的5軸（視覚検証なし） | PDF→MDX 変換後 |
 | **coconala-blog-qa** | `content/coconala/blog/**/article.md` | 検索適合・捏造なし・カニバリ境界・導線整合・構成準拠＋ハードゲート（外部リンク/連絡先/listed/価格） | ココナラブログ記事の執筆後・公開前 |
-| **cem-qa** | `.mdx`（総監キーワード `group: keyword` 全件 + 横断トレードオフガイド `management-tradeoffs` の §23 構造チェック） | 5管理体系・コンポーネント原則・参考資料・横断トレードオフ §23（核同士の対称関係・固有名詞混入） | キーワードページ執筆後 / `management-tradeoffs` 編集後 |
-| **civil-construction-qa** | `.mdx`（1級・2級土木 textbook/guide） | 視覚検証 + テキスト網羅率（Mode A・B） | 1級・2級土木 MDX 生成後 |
-| **civil-construction-qa（校正モード＝Mode R）** | `.mdx`（1級・2級土木 textbook/guide・コンクリ 3 資格の textbook） | content-principles準拠＋モバイル視認性＋画像キャプション品質（PDF照合なし、5軸） | 既存 MDX の定期校正・編集後 |
+| **keyword-qa**（資格: cem） | `.mdx`（総監キーワード `group: keyword` 全件 + 横断トレードオフガイド `management-tradeoffs` の §23 構造チェック） | 5管理体系・コンポーネント原則・参考資料・横断トレードオフ §23（核同士の対称関係・固有名詞混入） | キーワードページ執筆後 / `management-tradeoffs` 編集後 |
+| **textbook-qa** | `.mdx`（1級・2級土木 textbook） | 視覚検証 + テキスト網羅率（PDF 原典照合） | 1級・2級土木 MDX 生成後 |
+| **article-proofreader** | `.mdx`（1級・2級土木 textbook/guide・コンクリ 3 資格の textbook） | content-principles準拠＋モバイル視認性＋画像キャプション品質（PDF照合なし、5軸） | 既存 MDX の定期校正・編集後 |
 | **guide-qa** | `.mdx`（`group: guide`・全資格横断） | ガイド軸5軸（導入/リード文§26・読みやすさ§24・ボリューム§25・コンバージョン導線§20（civil-practice・laws は一次資料・出典の軸に置換）・モバイル） | ガイド記事の品質監査・加筆後の再評価 |
 | **guide-rewriter** | `.mdx`（`group: guide`・全資格横断） | §17/§26/§24/§2/§20 準拠リライト＋密度向上＋事実是正（正値で） | guide-qa/guide-fact-checker の指摘適用・加筆・密度向上 |
 | **guide-fact-checker** | `.mdx`（`group: guide`・全資格横断）の検証可能な事実 | WebSearch で国交省/JCTC/技術士会/JCI/e-Gov 等の一次情報に照合 | ガイド加筆・密度向上リライトの直後（公開前） |
@@ -304,14 +299,14 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | **yt-shorts-publisher-qa** | 現行の YouTube Shorts mp4・meta・表紙 | 尺・導線・タイトル・字幕・画面品質を評価し、予約後に `videos.list` を照合 | 現行Shorts制作時。旧IG派生経路は退役 |
 | **video-content-qa** | `content/sns/video-packs/{exam}/{slug}/`（video-pack.json・script.md・storyboard.json）＋ `sourceRefs` の実体 | 悩み適合・事実/出典・視聴維持・図版音声字幕整合・差別化/Red Line・CTA/計測（6軸 0〜3・平均 ≥2.0 かつ BLOCK なし）。`check-video-content` FAIL・出典なし断定・逐語転用・主 CTA 複数は BLOCK | `/video-content` で台本生成後（レンダリング前） |
 | **pe-secondary-exam-qa** | `content/note/技術士建設部門/magazines/{magazine}/{year}/article.md`（論述式 模範解答） | 設問適合・論述構成/論点絞り込み・分かりやすさ/あいまい表現排除・発注者視点/専門性・note完成度（5軸）＋字数上限〔枚数×600字〕・note-lint・設問1対1・論述式文体ゲート。論述原則は `技術士論文の書き方`（非公開・原則抽出）由来 | 技術士二次 模範解答 article.md 生成後 |
-| **essay-qa**（資格: cem） | `content/note/技術士総監/magazines/{magazine}/{slug}/article.md`（総監記述式 模範論文／模範解答） | 字数〔各施策600字〕・散文性・監理可能性〔越権排除〕・専門度〔設問3 NG用語/5管理正式名〕・白書根拠/真正性〔ペルソナ経験座〕（5軸）＋字数 strict・見出し構造・note-lint・blockquote濫用ゲート。評価軸の真実源は `note-essay-review-checklist.md`。pe-secondary-exam-qa（建設部門）/cem-qa（キーワードページ）と守備範囲が直交 | 総監 note 記述式 模範論文 article.md 生成後 |
+| **essay-qa**（資格: cem） | `content/note/技術士総監/magazines/{magazine}/{slug}/article.md`（総監記述式 模範論文／模範解答） | 字数〔各施策600字〕・散文性・監理可能性〔越権排除〕・専門度〔設問3 NG用語/5管理正式名〕・白書根拠/真正性〔ペルソナ経験座〕（5軸）＋字数 strict・見出し構造・note-lint・blockquote濫用ゲート。評価軸の真実源は `note-essay-review-checklist.md`。pe-secondary-exam-qa（建設部門）/keyword-qa（キーワードページ）と守備範囲が直交 | 総監 note 記述式 模範論文 article.md 生成後 |
 | **essay-qa**（資格: rccm） | `content/note/RCCM/magazines/{magazine}/{slug}/article.md`（RCCM 問題III 模範論文・問題I テンプレ） | 字数・形式〔1,200〜1,600 字・①②〕・指定用語〔「」4 語以上〕・視点/構成〔管理技術者視点〕・専門度・事実根拠/真正性（5軸）＋`check-rccm-essay --strict`・note-lint・問題再現節 0 ゲート。試験事実の真実源は `_facts-2026.md` | RCCM note 教材 article.md 生成後 |
 | **essay-qa**（資格: cce） | `content/note/コンクリート主任技士/magazines/{magazine}/{slug}/article.md`（令和形式テーマ別・8立場／立場別はテーマ単位で8本） | 本番形式への適合・立場の書き分け・技術精度・出題実績の整合・販売構成/真正性（5軸）＋`check-cce-essay`・note-lint。出題履歴の真実源は `cce-essay-history.json` | 主任技士 小論文テーマ別教材の生成後 |
 | **past-exam-qa** | `.mdx`（過去問 primary/secondary・`pe-comprehensive-management`/`pe-first-stage`/`civil-construction-1`/`-2`/`concrete-chief-engineer`/`concrete-diagnostician`） | 構造統一・正答正確性/全選択肢正誤検証・ExamPoint 折衷案準拠・RelatedKeywords健全性・モバイル文体（primary 5軸／secondary は軸3=ExamPoint を除外し4軸正規化、加重 ≥2.0 で合格） | 既存過去問記事の品質監査時・過去問品質サイクルの評価フェーズ |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
 
-**PE ガイド記事（`group: guide`）の Evaluator は部分割当**: `cem-qa` は原則キーワードページ専用だが、**横断トレードオフガイド（`management-tradeoffs`）の §23 構造チェック**は cem-qa の追加スコープとして 2026-05-28 起動済み（核同士の対称関係宣言・固有名詞混入・SpecSheetList 個数・評価軸メタ解説）。他の `group: guide` 記事（戦略系 Type-1 / 俯瞰系 Type-2）は依然 lint-mdx-mobile.mjs カテゴリ 12 で構造違反を機械検知のみ。Phase 2 で `guide-qa` Evaluator 新設を検討（note CTA 整合性・サイト内回遊密度の 3 軸）。
+**PE ガイド記事（`group: guide`）の Evaluator は部分割当**: `keyword-qa` は原則キーワードページ専用だが、**横断トレードオフガイド（`management-tradeoffs`）の §23 構造チェック**は keyword-qa（資格 cem）の追加スコープとして 2026-05-28 起動済み（核同士の対称関係宣言・固有名詞混入・SpecSheetList 個数・評価軸メタ解説）。他の `group: guide` 記事（戦略系 Type-1 / 俯瞰系 Type-2）は依然 lint-mdx-mobile.mjs カテゴリ 12 で構造違反を機械検知のみ。Phase 2 で `guide-qa` Evaluator 新設を検討（note CTA 整合性・サイト内回遊密度の 3 軸）。
 
 **UI・ページデザイン**は Generator/Evaluator を分離する: Generator＝`page-design-builder`（`design-system.md` 単一 SSOT 準拠でページ/レイアウト/UI コンポーネントを実装）、Evaluator＝`/design-review --visual` スキル（旧 `ui-visual-qa` エージェントを統合・light/dark × desktop/mobile 視覚回帰 + 7 カテゴリ）。静的 lint は `scripts/lint-ui.mjs`。図版 SVG は別系統（`svg-canvas-fitter`/`svg-figure-rewriter` ↔ `svg-figure-auditor`）。
 
@@ -323,16 +318,16 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 |---|---|
 | **Phase 1 開発フロー** | 1. PDF→MDX 変換 → 2. **content-qa**（品質評価） → 3. `/deploy`（本番反映） |
 | 週次 PDCA（簡略版） | `/weekly-review`（親が判断） → `/plan-weekly`（`todo-planner`） |
-| キーワードページ作成 | `/keyword-page`（Generator） → `cem-qa`（Evaluator）→ 不合格なら再修正 |
-| キーワードページ品質サイクル | `/quality-cycle`（オーケストレータ） → `cem-qa`（評価） → `keyword-rewriter`（改訂） → 再評価 → 人間レビュー |
-| 1級・2級土木 textbook 変換 | `/pdf-to-mdx --exam {civil-construction-1\|civil-construction-2}`（Generator） → `civil-construction-qa`（Evaluator） → `/improve-article --mode verify` |
+| キーワードページ作成 | `/keyword-page`（Generator） → `keyword-qa`（Evaluator）→ 不合格なら再修正 |
+| キーワードページ品質サイクル | `/quality-cycle`（オーケストレータ） → `keyword-qa`（評価） → `keyword-rewriter`（改訂） → 再評価 → 人間レビュー |
+| 1級・2級土木 textbook 変換 | `/pdf-to-mdx --exam {civil-construction-1\|civil-construction-2}`（Generator） → `textbook-qa`（Verifier） → `/improve-article --mode verify` |
 | 2級土木 過去問変換 | `/exam-questions-import --exam {civil-primary-2\|civil-secondary-2}` --year r0X [--sub zenki\|kouki]（Generator） → `content-qa`（Evaluator） → `civil-secondary-exam-writer`（解答補完、Phase 1 対応予定） |
 | 技術士第一次 過去問変換 | `/exam-questions-import --exam pe-first-stage` --year r0X --sub {basic\|aptitude\|construction}（Generator） → `content-qa`（Evaluator、`pe-first-stage` + `primary`） |
-| 1級土木 textbook/guide 品質サイクル | `/civil-textbook-cycle`（オーケストレータ） → `civil-construction-qa`（校正モード）（評価） → `civil-textbook-rewriter`（改訂） → 再評価 → 人間レビュー |
+| 1級土木 textbook/guide 品質サイクル | `/civil-textbook-cycle`（オーケストレータ） → `article-proofreader`（評価） → `civil-textbook-rewriter`（改訂） → 再評価 → 人間レビュー |
 | UI・ページデザイン | `page-design-builder`（`design-system.md` 準拠で実装）→ `/design-review --visual`（light/dark × desktop/mobile 視覚回帰）→ 親が `lint-ui.mjs` 検証・`/simplify` で微修正 |
 | 過去問品質サイクル | `past-exam-qa`（評価・指摘）→ `past-exam-rewriter`（指摘適用）→ 親が lint-mdx-mobile/validate-mdx で検証 → 再評価 → 親が明示パス commit |
 | 総監 記述式 模範論文サイクル | `essay-writer`（資格: cem・生成・自己ゲート）→ `essay-qa`（資格: cem・5軸採点）→ 不合格は writer へ修正指示で再走（往復は2回まで） → 親が配線（note-magazines.ts/note掲載文.txt/PDF spec）・公開後 URL 反映・明示パス commit。ランブック＝`note-essay-review-checklist.md` |
-| RCCM note 教材サイクル | `essay-writer`（資格: rccm・生成・`check-rccm-essay --strict` 自己ゲート）→ `essay-qa`（資格: rccm・5軸採点）→ 不合格は writer へ修正指示で再走（往復は2回まで） → 親が配線（`note-magazines.ts rccm-*`／`note-magazine-membership.json`／`sales-recorder.md`）・カバー・公開・明示パス commit。試験事実は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md` が SSOT |
+| RCCM note 教材サイクル | `essay-writer`（資格: rccm・生成・`check-rccm-essay --strict` 自己ゲート）→ `essay-qa`（資格: rccm・5軸採点）→ 不合格は writer へ修正指示で再走（往復は2回まで） → 親が配線（`note-magazines.ts rccm-*`／`note-magazine-membership.json`／`config/sales-product-map.json`）・カバー・公開・明示パス commit。試験事実は `content/note/RCCM/magazines/RCCM問題III-2026模範論文集/_facts-2026.md` が SSOT |
 | 主任技士 小論文サイクル（`/cce-essay-cycle`） | 新年度は SSOT `cce-essay-history.json` へ追記→`check-cce-essay --fix` でサイト/note の出題履歴ブロックを再生成。答案は `essay-writer`（資格: cce・`check-cce-essay` 自己ゲート）→ `essay-qa`（資格: cce・5軸）→ 不合格は writer 再走（往復は2回まで） → 親が技術事実の抜き取り照合・配線・PDF・commit |
 
 **注**: 月次企画・四半期レビュー・試験シーズン対策・広告最適化は Phase 2 で再開予定。

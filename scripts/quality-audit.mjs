@@ -285,7 +285,7 @@ export const CHECKS = [
   { id: 'weekly-collect', npm: 'check-weekly-collect:alive', timeout: 30_000, ci: false, ops: true, note: '土曜の Mac の収集（ログインが要る取得と書き込み・weekly-collect）の死活。直近の pre と post が台帳 state.weekly-collect の failDays 以内に回ったかだけを見る（Mac が寝ていた・launchd が外れた）。段ごとの合否は土曜に Issue channel weekly-collect と週次レビュー（check-weekly-collect）が読み、毎日は繰り返さない（DN-0847）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）（DN-0819）' },
   // カタログ↔listings↔画像↔受注／KPI／売上の整合と、PDF 商品の価格ルール（note より安く売らない）。結果はリポジトリの差分だけで決まる。
   { id: 'coconala-wiring', npm: 'check-coconala-wiring', timeout: 60_000, ci: true, note: 'pre-commit（--staged）だけだと hook を通らない commit や note 価格の変更で取りこぼすため CI でも全件検査（2026-09-23）' },
-  { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales.json の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
+  { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales.json の productId と note-magazines.ts の公開済み単品が sales-product-map.json の mapping に文書化されているか（初売上前の新商品も先行検知）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
   { id: 'cta-surfaces', npm: 'check-cta-surfaces', timeout: 120_000, ci: true, note: 'サイトの広い面（資格トップ・横の欄・記事末のタイル・/links の先頭）の案内先の台帳（site-cta-surfaces.json）: 資格の行の漏れ・商品の公開・試験日の行事と窓の重なり・もくじの有無・コードの直書き（DN-1223）' },
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）と、1級・2級土木の公開記事に CTA ゼロのページが無いか。baseline 外の新規 0 面・ゼロページで落ちる' },

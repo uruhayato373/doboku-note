@@ -18,8 +18,8 @@ metadata:
 ## 参考資料 URL は WebSearch→WebFetch で実在確認（推測・パターン補完禁止）
 新規 URL を参考資料・Callout reference・本文リンクに書く前に必ず実在確認。
 - **Wikipedia（2026 前）**: 「デザインイン」の URL を推測で書いたが正式項目名は「デザイン・イン」（中黒あり）で404。中黒・漢字/カタカナ表記ゆれで別ページになるため、WebSearch で正確な項目名→WebFetch で200と関連内容を確認。content-principles.md 原則12に反映済み。
-- **連番 URL の捏造（2026-05-27、エネルギーキーワード分割・commit c7f5aa167）**: EMIRA `pedia/{数字}/` パターンを3件パターン補完で書き全て404。cem-qa 並列評価で発見、修正 commit 646d2461f で民間ソースを差し替え。lint MDX PASS + HTTP 200 だけで品質保証されたと誤判定し、cem-qa 起動前に commit したのが直接原因。民間解説サイトの `{site}/pedia/{番号}/`・`{site}/article/{連番}/`・`{site}/category/{id}/` 系は特に危険。「他の番号で存在するから」「いつもこの形式だから」を理由に未確認 URL を書かない。候補は WebFetch で実在確認→404/redirect なら別 URL→見つからなければ削除。新規キーワードページは commit 前に必ず cem-qa Evaluator（5軸）を起動（lint だけで済ませない）。
-- ガード公式化: `content-principles.md §12`（連番 URL 捏造リスク）／`cem-qa.md`「参考資料 URL 捏造の検出」節（HIGH 違反）／`keyword-rewriter.md`（新規 URL の WebFetch 必須＋cem-qa 起動）。
+- **連番 URL の捏造（2026-05-27、エネルギーキーワード分割・commit c7f5aa167）**: EMIRA `pedia/{数字}/` パターンを3件パターン補完で書き全て404。keyword-qa 並列評価で発見、修正 commit 646d2461f で民間ソースを差し替え。lint MDX PASS + HTTP 200 だけで品質保証されたと誤判定し、keyword-qa 起動前に commit したのが直接原因。民間解説サイトの `{site}/pedia/{番号}/`・`{site}/article/{連番}/`・`{site}/category/{id}/` 系は特に危険。「他の番号で存在するから」「いつもこの形式だから」を理由に未確認 URL を書かない。候補は WebFetch で実在確認→404/redirect なら別 URL→見つからなければ削除。新規キーワードページは commit 前に必ず keyword-qa Evaluator（5軸）を起動（lint だけで済ませない）。
+- ガード公式化: `content-principles.md §12`（連番 URL 捏造リスク）／`profiles/keyword/cem.md`「参考資料 URL の実在」節（`/check-mdx --rules links` で親が先に止める）／`keyword-rewriter.md`（新規 URL の WebFetch 必須＋keyword-qa 起動）。
 
 ## 運営者の合格科目外の分野は独立 QA 必須（2026-08-20）
 運営者が合格していない分野（建築施工・設計コンサル・試験検査機関・発注者としての主任技士実務など）の商品は、Generator/Evaluator 分離と WebSearch ファクトチェックを省略しない。自分の科目内なら誤りに気づけるが科目外は「読んで違和感がない」ため素通りする。機械ゲート（note-lint・字数・ハッシュタグ）は体裁のみで内容の正しさは検出しない。

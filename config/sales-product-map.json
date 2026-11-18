@@ -1,0 +1,1310 @@
+{
+  "schemaVersion": 1,
+  "_doc": "note・ココナラの販売履歴の商品名から売上台帳（data/note/sales.json）の productId を決める対応表。旧 .claude/agents/sales-recorder.md の「productId 推定ルール」を移したもの（2026-11-18・DN-1242）。npm run check-sales-mapping が、台帳に出る productId と公開済み単品がこの表（productId・examples・looseIds）に載っているかを検査する。新商品を売ったら該当の節に 1 行足す（命名規則は .claude/knowledge/reference/sales-tracking.md）。表に無い id を台帳へ書くとき・ココナラの新サービスは coconala:<src/lib/coconala-services.ts の id と完全一致> で足す。",
+  "namingNote": "命名系統の注意（重要）: data/note/sales.json の productId はこの表の独自の `bk-*` / `essay-*` 系統で記録する。`src/lib/note-magazines.ts` の id（`pe-construction-*` 等）とは別系統で、突合させない。既存ログと同じ slug を再利用して `sales-summary` の商品別集計が分断されないようにすること（特に建設部門 必須科目I マガジンは `bk-i-required-essay-magazine` を必ず再利用）。自動取得（`note-sales-fetch`）が noteTitle でカタログの `pe-construction-*` に解決した場合も、`scripts/lib/sales-normalize.mjs` の `toLedgerProductId` が `bk-*` 系統へ寄せる（`-magazine`→`bk-{科目}-secondary-magazine`・`-pack`→`bk-{科目}-pack`・必須科目I→`bk-i-required-essay-magazine`）。",
+  "unknownRule": "推定できない商品名は article:unknown-{YYYYMMDD}-{index} として記録し、後で運営者が正しい id に直す。",
+  "sections": [
+    {
+      "id": "magazine",
+      "label": "マガジン（type: magazine）",
+      "entries": [
+        {
+          "names": [
+            "5管理 テキスト精読ガイド"
+          ],
+          "productId": "tankan-reading-guide"
+        },
+        {
+          "names": [
+            "模範論文｜河川コンサル",
+            "建設コンサル河川"
+          ],
+          "productId": "essay-river-consultant-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜ゼネコン"
+          ],
+          "productId": "essay-general-contractor-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜自治体 道路担当",
+            "自治体道路担当"
+          ],
+          "productId": "essay-road-municipality-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜自治体 河川担当",
+            "自治体河川担当"
+          ],
+          "productId": "essay-river-municipality-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜自治体 都市計画担当",
+            "自治体都市計画担当"
+          ],
+          "productId": "essay-urban-municipality-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜自治体 下水道担当",
+            "自治体下水道担当"
+          ],
+          "productId": "essay-sewage-municipality-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜自治体 砂防担当",
+            "自治体砂防担当"
+          ],
+          "productId": "essay-sabo-municipality-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜自治体 港湾担当",
+            "自治体港湾担当"
+          ],
+          "productId": "essay-port-municipality-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜自治体 公園緑地担当",
+            "自治体公園緑地担当"
+          ],
+          "productId": "essay-park-municipality-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜自治体 上水道担当",
+            "自治体上水道担当"
+          ],
+          "productId": "essay-water-municipality-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜自治体 契約・調達担当",
+            "自治体契約調達担当"
+          ],
+          "productId": "essay-procurement-municipality-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜自治体 技術基準担当",
+            "自治体技術基準担当"
+          ],
+          "productId": "essay-standards-municipality-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜道路・橋梁設計コンサル",
+            "道路橋梁コンサル"
+          ],
+          "productId": "essay-road-consultant-magazine"
+        },
+        {
+          "names": [
+            "模範論文｜都市計画コンサル"
+          ],
+          "productId": "essay-urban-consultant-magazine"
+        },
+        {
+          "names": [
+            "R8予想問題集",
+            "R8予想 2026最終予想",
+            "記述式 R8予想問題集"
+          ],
+          "productId": "r8-essay-forecast"
+        },
+        {
+          "names": [
+            "設問(3)国家施策バンク",
+            "設問3"
+          ],
+          "productId": "setsumon3-policy-bank"
+        },
+        {
+          "names": [
+            "5管理クロス・トレードオフ",
+            "5管理クロストレードオフ"
+          ],
+          "productId": "tradeoff-5kanri"
+        },
+        {
+          "names": [
+            "記述式 完全パック",
+            "完全パック"
+          ],
+          "productId": "essay-complete-pack"
+        },
+        {
+          "names": [
+            "記述式 コアパック",
+            "コアパック"
+          ],
+          "productId": "essay-core-pack"
+        },
+        {
+          "names": [
+            "2級土木 施工経験記述｜想定工事バンク"
+          ],
+          "productId": "civil-2-koji-bank",
+          "note": "（セット・工種×5管理フル全体）"
+        },
+        {
+          "names": [
+            "1級土木 施工経験記述｜工種×テーマ別 完成答案集"
+          ],
+          "productId": "civil-1-experience-essay"
+        },
+        {
+          "names": [
+            "2級土木 施工経験記述｜工種×テーマ別 完成答案集"
+          ],
+          "productId": "civil-2-experience-essay"
+        },
+        {
+          "names": [
+            "1級土木 施工経験記述｜完全攻略パック"
+          ],
+          "productId": "civil-1-keiken-complete-pack"
+        },
+        {
+          "names": [
+            "1級土木 二次学科記述｜テーマ別 出る順"
+          ],
+          "productId": "civil-1-gakka-kijutsu",
+          "note": "（セット）"
+        },
+        {
+          "names": [
+            "2級土木 二次学科記述｜テーマ別 出る順"
+          ],
+          "productId": "civil-2-gakka-kijutsu",
+          "note": "（セット）"
+        },
+        {
+          "names": [
+            "1級土木 二次検定まるごとパック"
+          ],
+          "productId": "civil-1-niji-marugoto-pack",
+          "note": "（経験＋学科＋暗記＋模試＋分析の統合・2026-09 模試3回と出題分析を追加収録）"
+        },
+        {
+          "names": [
+            "1級土木 二次｜直前総仕上げパック"
+          ],
+          "productId": "civil-1-chokuzen-pack",
+          "note": "（¥2,980・予想模試3回＋直前暗記ノート＋出題分析の3点セット・2026-09-16 新設）"
+        },
+        {
+          "names": [
+            "2級土木 二次検定まるごとパック"
+          ],
+          "productId": "civil-2-niji-marugoto-pack",
+          "note": "（¥8,800・想定工事バンク＋過去問模範答案＋完成答案＋学科出る順＋暗記＋模試3回＋出題分析＝79記事）"
+        },
+        {
+          "names": [
+            "2級土木 二次｜直前総仕上げパック"
+          ],
+          "productId": "civil-2-chokuzen-pack",
+          "note": "（¥2,480・予想模試3回＋直前暗記ノート＋出題分析・2026-09-17 新設）"
+        },
+        {
+          "names": [
+            "技術士 建設部門 2次｜必須科目I",
+            "必須科目I 模範解答集"
+          ],
+          "productId": "bk-i-required-essay-magazine"
+        },
+        {
+          "names": [
+            "建設部門2次｜道路 選択科目 模範解答集"
+          ],
+          "productId": "bk-road-secondary-magazine"
+        },
+        {
+          "names": [
+            "建設部門2次｜土質基礎 選択科目 模範解答集"
+          ],
+          "productId": "bk-geotechnical-secondary-magazine"
+        },
+        {
+          "names": [
+            "建設部門2次｜港湾空港 選択科目 模範解答集"
+          ],
+          "productId": "bk-port-airport-secondary-magazine"
+        },
+        {
+          "names": [
+            "建設部門2次｜河川砂防 選択科目 模範解答集"
+          ],
+          "productId": "bk-river-coast-secondary-magazine"
+        },
+        {
+          "names": [
+            "建設部門2次｜鋼コン 選択科目 模範解答集",
+            "鋼構造及びコンクリート 選択科目 模範解答集"
+          ],
+          "productId": "bk-steel-concrete-secondary-magazine"
+        },
+        {
+          "names": [
+            "建設部門2次｜都市計画 選択科目 模範解答集"
+          ],
+          "productId": "bk-urban-planning-secondary-magazine"
+        },
+        {
+          "names": [
+            "建設部門2次｜建設環境 選択科目 模範解答集"
+          ],
+          "productId": "bk-environment-secondary-magazine"
+        },
+        {
+          "names": [
+            "建設部門2次｜鉄道 選択科目 模範解答集"
+          ],
+          "productId": "bk-railway-secondary-magazine"
+        },
+        {
+          "names": [
+            "建設部門2次｜{他科目} 選択科目 模範解答集"
+          ],
+          "productId": "bk-{subject}-secondary-magazine",
+          "note": "（subject は note-magazines.ts の romaji に合わせる）"
+        },
+        {
+          "names": [
+            "建設部門2次｜{他科目} まるごと合格パック"
+          ],
+          "productId": "bk-{subject}-pack",
+          "note": "（必須科目I＋選択科目 バンドル） （例: bk-road-pack / bk-tunnel-pack / bk-urban-planning-pack。note-magazines.ts の pe-construction-{subject}-pack に対応）",
+          "examples": [
+            "bk-road-pack",
+            "bk-tunnel-pack",
+            "bk-urban-planning-pack",
+            "pe-construction-{subject}-pack"
+          ]
+        },
+        {
+          "names": [
+            "主任技士 小論文｜令和形式 5テーマ×8立場"
+          ],
+          "productId": "cce-essay-reiwa-pack",
+          "note": "（2026-10-03 から全40答案・¥5,980。それ以前は ¥3,980・6本）"
+        },
+        {
+          "names": [
+            "主任技士 小論文｜{立場} 令和形式5テーマ"
+          ],
+          "productId": "cce-reiwa-{slug}-pack",
+          "note": "（¥2,480・2026-10-03〜。立場＝生コン工場／プレキャスト工場／ゼネコン土木施工／維持管理・補修／発注者・監督員／ゼネコン建築施工／設計コンサルタント／試験・検査機関） （slug は namacon／precast／civil-contractor／maintenance／owner／building-contractor／design-consultant／testing。対応表は content/note/コンクリート主任技士/noteコンテンツ計画.md）"
+        },
+        {
+          "names": [
+            "主任技士 合格パック｜{立場}の択一＋小論文"
+          ],
+          "productId": "cce-goukaku-{slug}-pack",
+          "note": "（¥3,980・2026-10-03〜）"
+        },
+        {
+          "names": [
+            "コンクリート主任技士 小論文｜模範答案集"
+          ],
+          "productId": "cce-essay-magazine",
+          "note": "（¥2,480・5本・2026-10-01 削除）"
+        },
+        {
+          "names": [
+            "2級土木 施工経験記述｜過去問 模範答案集（R03-R07）"
+          ],
+          "productId": "civil-2-pastexam-essay",
+          "note": "（¥2,480・5本セット）"
+        },
+        {
+          "names": [
+            "コンクリート主任技士 小論文｜実務立場別 模範答案集"
+          ],
+          "productId": "cce-essay-persona-pack",
+          "note": "（¥5,980・33本）"
+        },
+        {
+          "names": [
+            "主任技士 小論文｜生コン工場の4テーマ"
+          ],
+          "productId": "cce-persona-namacon-pack",
+          "note": "（有料4記事＋無料ガイド）"
+        },
+        {
+          "names": [
+            "主任技士 小論文｜プレキャスト工場の4テーマ"
+          ],
+          "productId": "cce-persona-precast-pack",
+          "note": "（有料4記事＋無料ガイド）"
+        },
+        {
+          "names": [
+            "主任技士 小論文｜土木施工の4テーマ"
+          ],
+          "productId": "cce-persona-civil-contractor-pack",
+          "note": "（有料4記事＋無料ガイド）"
+        },
+        {
+          "names": [
+            "主任技士 小論文｜維持管理補修の4テーマ"
+          ],
+          "productId": "cce-persona-maintenance-pack",
+          "note": "（有料4記事＋無料ガイド）"
+        },
+        {
+          "names": [
+            "主任技士 小論文｜発注者の4テーマ"
+          ],
+          "productId": "cce-persona-owner-pack",
+          "note": "（有料4記事＋無料ガイド）"
+        },
+        {
+          "names": [
+            "主任技士 小論文｜建築施工の4テーマ"
+          ],
+          "productId": "cce-persona-building-contractor-pack",
+          "note": "（有料4記事＋無料ガイド）"
+        },
+        {
+          "names": [
+            "主任技士 小論文｜設計コンサルの4テーマ"
+          ],
+          "productId": "cce-persona-design-consultant-pack",
+          "note": "（有料4記事＋無料ガイド）"
+        },
+        {
+          "names": [
+            "主任技士 小論文｜試験検査機関の4テーマ"
+          ],
+          "productId": "cce-persona-testing-pack",
+          "note": "（有料4記事＋無料ガイド）"
+        },
+        {
+          "names": [
+            "技術士 総監｜土質基礎コンサルの記述式5年分"
+          ],
+          "productId": "essay-geotechnical-consultant-magazine"
+        },
+        {
+          "names": [
+            "技術士 総監｜上下水道コンサルの記述式5年分"
+          ],
+          "productId": "essay-water-consultant-magazine"
+        },
+        {
+          "names": [
+            "技術士 総監｜維持更新施工の記述式5年分"
+          ],
+          "productId": "essay-maintenance-contractor-magazine"
+        },
+        {
+          "names": [
+            "コンクリート主任技士 まるごとパック"
+          ],
+          "productId": "cce-marugoto-pack",
+          "note": "（¥9,800・42記事 → 2026-10-01 ¥4,980・10記事 → 2026-10-03 ¥7,980・45記事）"
+        },
+        {
+          "names": [
+            "コンクリート主任技士 択一｜直前パック"
+          ],
+          "productId": "cce-takuitsu-chokuzen-pack",
+          "note": "（¥2,980・予想50問＋配合計算＋直前暗記ノート・2026-09-17 新設）"
+        },
+        {
+          "names": [
+            "技術士 第一次試験｜直前パック"
+          ],
+          "productId": "pe1-chokuzen-pack",
+          "note": "（¥1,980・過去問PDF 合本＋直前暗記ノート・2026-09-17 新設）"
+        },
+        {
+          "names": [
+            "コンクリート技士 択一｜直前パック"
+          ],
+          "productId": "ce-chokuzen-pack",
+          "note": "（¥1,480・配合計算・JIS判断12問＋直前暗記ノート・2026-09-17 新設）"
+        },
+        {
+          "names": [
+            "RCCM問題III｜2026年度 6テーマ 模範論文集"
+          ],
+          "productId": "rccm-mondai3-magazine",
+          "note": "（¥3,480・6本＋序章）"
+        },
+        {
+          "names": [
+            "RCCM まるごとパック（問題I〜IV 全対応）"
+          ],
+          "productId": "rccm-marugoto-pack",
+          "note": "（¥5,980・問題I〜IV 全16記事）"
+        },
+        {
+          "names": [
+            "測量士 午後記述式｜分野別 解き方の型と過去5年"
+          ],
+          "productId": "surveyor-gogo-bunya-magazine",
+          "note": "（¥2,980・5本＋序章・2026-10-28）"
+        },
+        {
+          "names": [
+            "1級舗装 応用試験 経験記述 模範答案集"
+          ],
+          "productId": "pavement-1-keiken-magazine",
+          "note": "（¥2,480・3本＋序章・2026-10-28）"
+        }
+      ]
+    },
+    {
+      "id": "article",
+      "label": "単品記事（type: article）",
+      "note": "productId は `article:<slug>` 形式。slug は商品名から推定:",
+      "entries": [
+        {
+          "names": [
+            "総監択一式 頻出計算問題 6パターン"
+          ],
+          "productId": "article:tankan-calc-6patterns"
+        },
+        {
+          "names": [
+            "Society 5.0・AIガバナンス｜設問(3)"
+          ],
+          "productId": "article:setsumon3-ai-society-5.0"
+        },
+        {
+          "names": [
+            "経済安全保障｜設問(3)"
+          ],
+          "productId": "article:setsumon3-economic-security"
+        },
+        {
+          "names": [
+            "経済安全保障 × サプライチェーン強靱化"
+          ],
+          "productId": "article:r8-economic-security-supply-chain"
+        },
+        {
+          "names": [
+            "災害復旧 × 複合災害対応"
+          ],
+          "productId": "article:r8-disaster-recovery-compound"
+        },
+        {
+          "names": [
+            "AI社会 × 情報ガバナンス"
+          ],
+          "productId": "article:r8-ai-society-info-governance"
+        },
+        {
+          "names": [
+            "情報管理 × 他4管理｜トレードオフ"
+          ],
+          "productId": "article:tradeoff-information-management"
+        },
+        {
+          "names": [
+            "2級土木 施工経験記述｜令和{N}年度"
+          ],
+          "productId": "article:civil-2-pastexam-essay-r0{N}"
+        },
+        {
+          "names": [
+            "2級土木 施工経験記述｜品質管理 完成答案集"
+          ],
+          "productId": "article:civil-2-essay-quality-complete"
+        },
+        {
+          "names": [
+            "1級土木 施工経験記述｜工程管理 完成答案集（…）"
+          ],
+          "productId": "article:civil-1-essay-schedule-complete",
+          "note": "（1級 完成答案集の工程管理 単品）"
+        },
+        {
+          "names": [
+            "2級土木 施工経験記述｜小規模地域インフラ4工事"
+          ],
+          "productId": "article:civil-2-small-infra-4"
+        },
+        {
+          "names": [
+            "2級土木 施工経験記述｜{工種} 5管理フルカバー完成答案"
+          ],
+          "productId": "article:civil-2-koji-bank-{koshu}",
+          "note": "（想定工事バンク単品¥980） （{koshu} は想定工事バンクの工事番号。例: article:civil-2-koji-bank-68＝工事68-上水道配水管布設開削／article:civil-2-koji-bank-08＝工事08-補強土壁テールアルメ〔¥1,680〕）",
+          "examples": [
+            "article:civil-2-koji-bank-68",
+            "article:civil-2-koji-bank-08"
+          ]
+        },
+        {
+          "names": [
+            "1級土木 二次学科記述｜{テーマ}"
+          ],
+          "productId": "article:civil-1-gakka-kijutsu-{theme}",
+          "note": "（テーマ別出る順 単品¥580）"
+        },
+        {
+          "names": [
+            "2級土木 二次学科記述｜{テーマ}"
+          ],
+          "productId": "article:civil-2-gakka-kijutsu-{theme}",
+          "note": "（テーマ別出る順 単品）"
+        },
+        {
+          "names": [
+            "1級土木 二次学科記述｜直前暗記ノート"
+          ],
+          "productId": "article:civil-1-anki-note"
+        },
+        {
+          "names": [
+            "2級土木 二次学科記述｜直前暗記ノート"
+          ],
+          "productId": "article:civil-2-anki-note"
+        },
+        {
+          "names": [
+            "1級土木 第1次検定｜出る順 合格ノート"
+          ],
+          "productId": "article:civil-1-ichiji-ronten"
+        },
+        {
+          "names": [
+            "1級土木 テキスト精読ガイド"
+          ],
+          "productId": "article:civil-1-reading-guide",
+          "note": "（無料・全2巻。売上は発生しない）"
+        },
+        {
+          "names": [
+            "2級土木 テキスト精読ガイド"
+          ],
+          "productId": "article:civil-2-reading-guide",
+          "note": "（無料・全1巻。売上は発生しない）"
+        },
+        {
+          "names": [
+            "RCCM問題III｜{テーマ短名} 模範論文"
+          ],
+          "productId": "article:rccm-mondai3-{NN}",
+          "note": "（単品¥780・テーマ番号 01〜06） （{NN} は _facts-2026.md のテーマ番号 2 桁。例: article:rccm-mondai3-01＝インフラ老朽化）",
+          "examples": [
+            "article:rccm-mondai3-01"
+          ]
+        },
+        {
+          "names": [
+            "RCCM問題I｜業務経験論文テンプレと記入例"
+          ],
+          "productId": "article:rccm-mondai1-template",
+          "note": "（¥1,980）"
+        },
+        {
+          "names": [
+            "RCCM 問題I｜道路の業務経験記入例2本"
+          ],
+          "productId": "article:rccm-mondai1-road"
+        },
+        {
+          "names": [
+            "RCCM 問題I｜河川、砂防及び海岸・海洋の業務経験記入例2本"
+          ],
+          "productId": "article:rccm-mondai1-river-coast"
+        },
+        {
+          "names": [
+            "RCCM 問題I｜鋼構造及びコンクリートの業務経験記入例2本"
+          ],
+          "productId": "article:rccm-mondai1-steel-concrete"
+        },
+        {
+          "names": [
+            "RCCM問題II・IV｜論点集と予想50問"
+          ],
+          "productId": "article:rccm-takuitsu-yosou-50",
+          "note": "（¥1,480）"
+        },
+        {
+          "names": [
+            "RCCM 問題II・問題IV｜択一 直前暗記ノート"
+          ],
+          "productId": "article:rccm-anki-note",
+          "note": "（¥980・2026-09-17）"
+        },
+        {
+          "names": [
+            "測量士 午後 記述式の計算問題を「型20本」で解く"
+          ],
+          "productId": "article:surveyor-keisan-20",
+          "note": "（¥1,480・2026-10-28）"
+        },
+        {
+          "names": [
+            "1級舗装 応用試験 選択問題（問2〜5）の頻出論点"
+          ],
+          "productId": "article:pavement-1-sentaku-hinshutsu",
+          "note": "（¥1,480・2026-10-28）"
+        },
+        {
+          "names": [
+            "2級舗装 応用試験 問1（経験記述）の模範答案"
+          ],
+          "productId": "article:pavement-2-keiken",
+          "note": "（¥980・2026-10-28）"
+        },
+        {
+          "names": [
+            "2級舗装 応用試験 選択問題（問2〜5）の頻出論点"
+          ],
+          "productId": "article:pavement-2-sentaku-hinshutsu",
+          "note": "（¥980・2026-11-05）"
+        },
+        {
+          "names": [
+            "管工事施工管理技士 第二次検定「施工記述」機器別 模範解答バンク"
+          ],
+          "productId": "article:pipe-work-sekou-kijutsu-bank",
+          "note": "（¥1,980・2026-10-28）"
+        },
+        {
+          "names": [
+            "1級土木 二次｜出題分析と直前の重点"
+          ],
+          "productId": "article:civil-1-r8-bunseki"
+        },
+        {
+          "names": [
+            "2級土木 二次｜出題分析と直前の重点"
+          ],
+          "productId": "article:civil-2-r8-bunseki",
+          "note": "（¥580・2026-09-17）"
+        },
+        {
+          "names": [
+            "1級土木 令和8年度 第2次検定｜予想模試3回"
+          ],
+          "productId": "article:civil-1-r8-mock3-pdf"
+        },
+        {
+          "names": [
+            "2級土木 令和8年度 第2次検定｜予想模試3回"
+          ],
+          "productId": "article:civil-2-r8-mock3-pdf"
+        },
+        {
+          "names": [
+            "コンクリート主任技士｜配合計算 実戦演習12問"
+          ],
+          "productId": "article:cce-mix-calculation-practice"
+        },
+        {
+          "names": [
+            "技術士 総合技術監理部門｜択一 過去問PDF 令和（令和元〜7年度）"
+          ],
+          "productId": "article:tankan-takuitsu-reiwa-pdf",
+          "note": "（単品¥980）"
+        },
+        {
+          "names": [
+            "コンクリート主任技士 小論文 模範答案｜{立場}｜{テーマ}｜令和形式"
+          ],
+          "productId": "article:cce-reiwa-{slug}-{theme}",
+          "note": "（立場別 単品 ¥980・2026-10-03〜） （frontmatter の utmCampaign と同じ。theme は environment／durability／productivity／climate-quality／workforce）"
+        },
+        {
+          "names": [
+            "コンクリート主任技士 小論文 模範答案｜生コン工場｜耐久性"
+          ],
+          "productId": "article:cce-persona-namacon-durability",
+          "note": "（実務立場別 単品）"
+        },
+        {
+          "names": [
+            "コンクリート主任技士 小論文 模範答案｜生コン工場｜環境配慮"
+          ],
+          "productId": "article:cce-persona-namacon-environment",
+          "note": "（実務立場別 単品）"
+        },
+        {
+          "names": [
+            "コンクリート主任技士 小論文｜8つの立場から選ぶ模範答案一覧"
+          ],
+          "productId": "article:cce-essay-mokuji",
+          "note": "（無料の案内記事。売上は発生しない）"
+        },
+        {
+          "names": [
+            "コンクリート主任技士｜令和8年度 四肢択一 予想50問"
+          ],
+          "productId": "article:cce-r8-mc-50"
+        },
+        {
+          "names": [
+            "コンクリート主任技士｜四肢択一 直前暗記ノート"
+          ],
+          "productId": "article:cce-anki-note",
+          "note": "（¥980・2026-09-17）"
+        },
+        {
+          "names": [
+            "コンクリート診断士｜四肢択一演習98問 PDF"
+          ],
+          "productId": "article:cd-takuitsu-98-pdf",
+          "note": "（¥1,480・2026-09-20）"
+        },
+        {
+          "names": [
+            "コンクリート技士｜配合計算・JIS判断 実戦演習12問"
+          ],
+          "productId": "article:ce-mix-jis-practice"
+        },
+        {
+          "names": [
+            "コンクリート技士｜令和8年度 四肢択一 予想40問"
+          ],
+          "productId": "article:ce-r8-mc-40",
+          "note": "（¥1,480・2026-11-05）"
+        },
+        {
+          "names": [
+            "コンクリート技士 択一｜まるごとパック"
+          ],
+          "productId": "ce-marugoto-pack",
+          "note": "（¥2,380・2026-11-05）"
+        },
+        {
+          "names": [
+            "コンクリート技士｜四肢択一 直前暗記ノート"
+          ],
+          "productId": "article:ce-anki-note",
+          "note": "（¥780・2026-09-17）"
+        },
+        {
+          "names": [
+            "技術士 建設部門｜道路 R8予想 選択科目II-1"
+          ],
+          "productId": "article:bk-01-road-r8-yosou-ii1"
+        },
+        {
+          "names": [
+            "技術士 建設部門｜道路 R8予想 選択科目II-2"
+          ],
+          "productId": "article:bk-01-road-r8-yosou-ii2-*"
+        },
+        {
+          "names": [
+            "技術士 建設部門｜道路 R8予想 選択科目III"
+          ],
+          "productId": "article:bk-01-road-r8-yosou-iii-*"
+        },
+        {
+          "names": [
+            "技術士 建設部門｜必須科目I R8予想"
+          ],
+          "productId": "article:bk-i-r8-yosou-*"
+        },
+        {
+          "names": [
+            "技術士 建設部門｜必須科目I R0{N} 模範解答"
+          ],
+          "productId": "article:bk-i-r0{N}-required",
+          "note": "（過去問単品）"
+        },
+        {
+          "names": [
+            "技術士 建設部門｜土質及び基礎"
+          ],
+          "productId": "article:bk-04-dositu-*"
+        },
+        {
+          "names": [
+            "技術士 建設部門｜{他科目} R8予想 選択科目{II-1/II-2/III}"
+          ],
+          "productId": "article:bk-{subject}-r8-yosou-{ii1|ii2|iii}",
+          "note": "（例: bk-steel-concrete-r8-yosou-ii1 / bk-port-airport-r8-yosou-ii2 / bk-urban-planning-r8-yosou-ii2 / bk-environment-r8-yosou-iii / bk-power-civil-r8-yosou-ii1 / bk-railway-r8-yosou-iii）",
+          "examples": [
+            "bk-steel-concrete-r8-yosou-ii1",
+            "bk-port-airport-r8-yosou-ii2",
+            "bk-urban-planning-r8-yosou-ii2",
+            "bk-environment-r8-yosou-iii",
+            "bk-power-civil-r8-yosou-ii1",
+            "bk-railway-r8-yosou-iii"
+          ]
+        },
+        {
+          "names": [
+            "技術士 建設部門｜{他科目} R0{N} 選択科目{II-1/II-2/III}"
+          ],
+          "productId": "article:bk-{subject}-r0{N}-{ii1|ii2|iii}",
+          "note": "（過去問単品） （例: bk-tunnel-r06-ii2）",
+          "examples": [
+            "bk-tunnel-r06-ii2"
+          ]
+        },
+        {
+          "names": [
+            "老朽化インフラ × 予防保全"
+          ],
+          "productId": "article:r8-aging-infra-preventive",
+          "note": "（総監R8予想）"
+        },
+        {
+          "names": [
+            "資源循環 × サプライチェーン強靱化"
+          ],
+          "productId": "article:r8-resource-circulation-supply-chain",
+          "note": "（総監R8予想）"
+        },
+        {
+          "names": [
+            "令和8年度 総監記述式 模範論文｜{ペルソナ}版（{テーマ}／R8予想{③..⑥}）"
+          ],
+          "productId": "article:essay-{persona}-r08-{3..6}",
+          "note": "（ペルソナ別R8予想単品¥780） （persona はマガジン id essay-{persona}-magazine に合わせる。例: essay-sabo-municipality-r08-3 / essay-general-contractor-r08-6 / essay-road-consultant-r08-5）",
+          "examples": [
+            "essay-{persona}-magazine",
+            "essay-sabo-municipality-r08-3",
+            "essay-general-contractor-r08-6",
+            "essay-road-consultant-r08-5"
+          ]
+        },
+        {
+          "names": [
+            "2級土木 第1次検定｜過去問PDF",
+            "2級土木 一次 過去問PDF"
+          ],
+          "productId": "article:civil-2-takuitsu-pdf",
+          "note": "（Kindle択一の従チャネル・¥1,480）"
+        },
+        {
+          "names": [
+            "1級土木 第1次検定｜過去問PDF",
+            "1級土木 一次 過去問PDF"
+          ],
+          "productId": "article:civil-1-takuitsu-pdf",
+          "note": "（Kindle択一の従チャネル・¥1,980）"
+        },
+        {
+          "names": [
+            "技術士 第一次試験｜過去問PDF 合本",
+            "技術士一次 過去問PDF"
+          ],
+          "productId": "article:pe1-takuitsu-pdf",
+          "note": "（¥1,480）"
+        },
+        {
+          "names": [
+            "技術士 第一次試験｜直前暗記ノート"
+          ],
+          "productId": "article:pe1-anki-note",
+          "note": "（¥980・2026-09-17）"
+        },
+        {
+          "names": [
+            "技術士 総合技術監理部門｜択一 過去問PDF 令和",
+            "総監 択一過去問PDF 令和"
+          ],
+          "productId": "article:tankan-takuitsu-reiwa-pdf",
+          "note": "（¥980）"
+        },
+        {
+          "names": [
+            "技術士 総合技術監理部門｜択一 過去問PDF 平成",
+            "総監 択一過去問PDF 平成"
+          ],
+          "productId": "article:tankan-takuitsu-heisei-pdf",
+          "note": "（¥980）"
+        },
+        {
+          "names": [
+            "{管理} × 他4管理｜トレードオフ構造と総監的解決策"
+          ],
+          "productId": "article:tradeoff-{kanri}",
+          "note": "（information / economic / safety / human-resource / social-environment）",
+          "examples": [
+            "human-resource",
+            "social-environment"
+          ]
+        },
+        {
+          "names": [
+            "気候変動適応 × グリーンインフラ"
+          ],
+          "productId": "article:r8-climate-adaptation-green-infra",
+          "note": "（総監R8予想）"
+        },
+        {
+          "names": [
+            "地方創生・東京一極集中｜設問(3)"
+          ],
+          "productId": "article:setsumon3-regional-revitalization"
+        },
+        {
+          "names": [
+            "令和{N}年度 総監記述式 模範論文｜{ペルソナ}版"
+          ],
+          "productId": "article:essay-{persona}-r0{N}",
+          "note": "（過去問年度版・R8予想ではない） （例: essay-sewage-municipality-r07）",
+          "examples": [
+            "essay-sewage-municipality-r07"
+          ]
+        },
+        {
+          "names": [
+            "総監口頭試験 完全準備システム｜想定25問と立場別回答例"
+          ],
+          "productId": "article:tankan-oral-complete"
+        },
+        {
+          "names": [
+            "RCCM問題I｜上水道の業務経験記入例"
+          ],
+          "productId": "article:rccm-mondai1-water"
+        },
+        {
+          "names": [
+            "RCCM問題I｜下水道の業務経験記入例"
+          ],
+          "productId": "article:rccm-mondai1-sewer"
+        },
+        {
+          "names": [
+            "RCCM問題I｜土質及び基礎の業務経験記入例"
+          ],
+          "productId": "article:rccm-mondai1-geotechnical"
+        },
+        {
+          "names": [
+            "技術士 建設部門｜口頭試験対策"
+          ],
+          "productId": "article:pe-construction-oral-guide"
+        },
+        {
+          "names": [
+            "技術士 口頭試験対策（全部門共通）"
+          ],
+          "productId": "article:pe-oral-general-guide"
+        },
+        {
+          "names": [
+            "総監口頭試験…「業務経歴」の語り方"
+          ],
+          "productId": "article:tankan-oral-exam"
+        },
+        {
+          "names": [
+            "【総監再受験者向け】不合格要因を特定する3パターン分析"
+          ],
+          "productId": "article:tankan-retake-analysis"
+        },
+        {
+          "names": [
+            "1級土木 施工経験記述｜令和{N}年度 過去問 模範答案"
+          ],
+          "productId": "article:civil-1-pastexam-essay-r0{N}"
+        },
+        {
+          "names": [
+            "1級土木 施工経験記述｜{工種}（5管理 完成答案）"
+          ],
+          "productId": "article:civil-1-keiken-pack-{工事番号 or 工種}",
+          "note": "（完全攻略パック単品） 。既出: article:civil-1-keiken-pack-15（工事15 橋脚フーチング マスコン）／article:civil-1-keiken-pack-03（工事03 宅地造成切盛土）／article:civil-1-keiken-pack-33（工事33 深礎杭）／article:civil-1-keiken-pack-68（工事68 上水道配水管布設開削）／article:civil-1-keiken-pack-73（工事73 水道管不断水工事）／article:civil-1-keiken-pack-87（工事87 山岳トンネル NATM）／article:civil-1-keiken-pack-24（工事24 PC橋上部工）／article:civil-1-keiken-pack-51（工事51 河川護岸ブロック張）／article:civil-1-keiken-pack-55（工事55 河道掘削・しゅんせつ）／article:civil-1-keiken-pack-72（工事72 既設管更生）／article:civil-1-keiken-pack-76（工事76 橋脚躯体）／article:civil-1-keiken-pack-102（工事102 橋梁支承取替）／article:civil-1-keiken-pack-105（工事105 鋼道路橋塗替塗装）／article:civil-1-keiken-pack-108（工事108 橋梁床版下面炭素繊維補強）／article:civil-1-keiken-pack-tunnel（補充のトンネル工）",
+          "examples": [
+            "article:civil-1-keiken-pack-15",
+            "article:civil-1-keiken-pack-03",
+            "article:civil-1-keiken-pack-33",
+            "article:civil-1-keiken-pack-68",
+            "article:civil-1-keiken-pack-73",
+            "article:civil-1-keiken-pack-87",
+            "article:civil-1-keiken-pack-24",
+            "article:civil-1-keiken-pack-51",
+            "article:civil-1-keiken-pack-55",
+            "article:civil-1-keiken-pack-72",
+            "article:civil-1-keiken-pack-76",
+            "article:civil-1-keiken-pack-102",
+            "article:civil-1-keiken-pack-105",
+            "article:civil-1-keiken-pack-108",
+            "article:civil-1-keiken-pack-tunnel"
+          ]
+        },
+        {
+          "names": [
+            "1級土木 施工経験記述｜{管理A}×{管理B}"
+          ],
+          "productId": "article:civil-1-combo-essay-{a}-{b}",
+          "note": "（2テーマ組合せ大全 単品） （例: -quality-environment）"
+        }
+      ]
+    },
+    {
+      "id": "membership",
+      "label": "メンバーシップ（type: membership・2026-08-17〜）",
+      "note": "月会費は購入のたびに1行として現れる（`1,480円 / 月`）。productId は `membership:<プラン>` 形式。",
+      "entries": [
+        {
+          "names": [
+            "通年プラン｜過去問＆月例予想"
+          ],
+          "productId": "membership:civil-lab-annual",
+          "note": "（土木セコカン合格ラボ 通年プラン ¥1,480/月）"
+        }
+      ]
+    },
+    {
+      "id": "coconala",
+      "label": "ココナラ（type: article・非 note チャネル・2026-07-16〜）",
+      "note": "productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`channel` フィールドは持たない）。\n入力ソースが note と異なる: note ダッシュボードの貼付ではなく、`data/coconala/orders.json`\n（`/coconala-order` が受注時に追記）から月次で転記する。`status: 'closed'`（または `delivered`）の\nレコードだけを sales.json へ移し、`price` は orders.json の `priceYen`（手数料差引前）をそのまま使う。\nアーカイブ済み（2026-08-05 の統廃合で恒久廃止・新規売上は発生しない）:\n`coconala-bunseki-pdf`（出題分析）／`coconala-1kyu-kakomon-pdf`・`coconala-2kyu-kakomon-pdf`（過去問模範答案）／\n`coconala-1kyu-gakka-pdf`・`coconala-2kyu-gakka-pdf`（学科記述攻略）。\n過去の売上を転記する場合は productId をそのまま使う（id はカタログに残っており `check-coconala-wiring` も通る）。\n分析・学科攻略はフルパックに、過去問模範答案は模範答案セットに統合された。\nid の実在は `npm run check-coconala-wiring` が pre-commit で機械検証する（カタログに無い `coconala:*` は commit を止める）。命名規則 → `.claude/knowledge/reference/sales-tracking.md`、運用 SSOT → `.claude/knowledge/reference/coconala-operations.md`",
+      "entries": [
+        {
+          "names": [
+            "経験記述 合格診断"
+          ],
+          "productId": "coconala:coconala-shindan",
+          "note": "coconala-shindan（¥1,500）",
+          "examples": [
+            "coconala-shindan"
+          ]
+        },
+        {
+          "names": [
+            "経験記述 添削（2テーマセット）"
+          ],
+          "productId": "coconala:coconala-tensaku-set",
+          "note": "coconala-tensaku-set（¥6,000）",
+          "examples": [
+            "coconala-tensaku-set"
+          ]
+        },
+        {
+          "names": [
+            "経験記述 添削（4テーマセット）"
+          ],
+          "productId": "coconala:coconala-tensaku-4theme",
+          "note": "coconala-tensaku-4theme（¥12,000）",
+          "examples": [
+            "coconala-tensaku-4theme"
+          ]
+        },
+        {
+          "names": [
+            "1級土木経験記述の書き方を骨子から指導します",
+            "経験記述 答案作成（ヒアリング）"
+          ],
+          "productId": "coconala:coconala-sakusei",
+          "note": "（旧 ） coconala-sakusei（¥8,000）",
+          "examples": [
+            "coconala-sakusei"
+          ]
+        },
+        {
+          "names": [
+            "1級土木経験記述の全5テーマを骨子から指導します",
+            "経験記述 答案作成 4テーマ"
+          ],
+          "productId": "coconala:coconala-sakusei-4theme",
+          "note": "（旧 ） coconala-sakusei-4theme（**¥20,000**・2026-09-25 改定・旧¥16,000）",
+          "examples": [
+            "coconala-sakusei-4theme"
+          ]
+        },
+        {
+          "names": [
+            "2級土木経験記述の書き方を骨子から指導します"
+          ],
+          "productId": "coconala:coconala-2kyu-sakusei",
+          "note": "coconala-2kyu-sakusei（¥7,000）",
+          "examples": [
+            "coconala-2kyu-sakusei"
+          ]
+        },
+        {
+          "names": [
+            "2級土木経験記述の全3テーマを骨子から指導します"
+          ],
+          "productId": "coconala:coconala-2kyu-sakusei-3theme",
+          "note": "coconala-2kyu-sakusei-3theme（¥10,000）",
+          "examples": [
+            "coconala-2kyu-sakusei-3theme"
+          ]
+        },
+        {
+          "names": [
+            "1級 経験記述 模範答案セット PDF"
+          ],
+          "productId": "coconala:coconala-kanseitoan-pdf",
+          "note": "coconala-kanseitoan-pdf（**¥5,500**・2026-09-23 改定・旧¥5,000）",
+          "examples": [
+            "coconala-kanseitoan-pdf"
+          ]
+        },
+        {
+          "names": [
+            "2級 経験記述 模範答案セット PDF"
+          ],
+          "productId": "coconala:coconala-2kyu-kanseitoan-pdf",
+          "note": "coconala-2kyu-kanseitoan-pdf（**¥5,000**・2026-09-23 改定・旧¥4,000）",
+          "examples": [
+            "coconala-2kyu-kanseitoan-pdf"
+          ]
+        },
+        {
+          "names": [
+            "1級 二次 予想模擬試験 PDF"
+          ],
+          "productId": "coconala:coconala-1kyu-moshi-pdf",
+          "note": "coconala-1kyu-moshi-pdf（**¥3,500**・2026-09-23 改定・旧¥2,500）",
+          "examples": [
+            "coconala-1kyu-moshi-pdf"
+          ]
+        },
+        {
+          "names": [
+            "2級 二次 予想模擬試験 PDF"
+          ],
+          "productId": "coconala:coconala-2kyu-moshi-pdf",
+          "note": "coconala-2kyu-moshi-pdf（**¥3,000**・2026-09-23 改定・旧¥2,000）",
+          "examples": [
+            "coconala-2kyu-moshi-pdf"
+          ]
+        },
+        {
+          "names": [
+            "1級 二次 教材フルパック PDF"
+          ],
+          "productId": "coconala:coconala-1kyu-full-pdf",
+          "note": "coconala-1kyu-full-pdf（**¥12,000**・2026-09-23 改定・旧¥10,000）",
+          "examples": [
+            "coconala-1kyu-full-pdf"
+          ]
+        },
+        {
+          "names": [
+            "2級 二次 教材フルパック PDF"
+          ],
+          "productId": "coconala:coconala-2kyu-full-pdf",
+          "note": "coconala-2kyu-full-pdf（**¥10,000**・2026-09-23 改定・旧¥7,000）",
+          "examples": [
+            "coconala-2kyu-full-pdf"
+          ]
+        },
+        {
+          "names": [
+            "1級 二次 プレミアム（教材＋添削）"
+          ],
+          "productId": "coconala:coconala-1kyu-premium",
+          "note": "coconala-1kyu-premium（**¥17,000**・2026-09-23 改定・旧¥15,000・週1枠）",
+          "examples": [
+            "coconala-1kyu-premium"
+          ]
+        },
+        {
+          "names": [
+            "経験記述 AI設計キット（DL）"
+          ],
+          "productId": "coconala:coconala-civil-keiken-kit",
+          "note": "coconala-civil-keiken-kit（¥8,000）",
+          "examples": [
+            "coconala-civil-keiken-kit"
+          ]
+        },
+        {
+          "names": [
+            "総監 出題テーマ分析 PDF"
+          ],
+          "productId": "coconala:coconala-sokan-bunseki-pdf",
+          "note": "coconala-sokan-bunseki-pdf（¥2,500）",
+          "examples": [
+            "coconala-sokan-bunseki-pdf"
+          ]
+        },
+        {
+          "names": [
+            "RCCM 択一 予想50問＋一問一答 PDF"
+          ],
+          "productId": "coconala:coconala-rccm-takuitsu-pdf",
+          "note": "coconala-rccm-takuitsu-pdf（¥3,000・2026-09-23 新設）",
+          "examples": [
+            "coconala-rccm-takuitsu-pdf"
+          ]
+        },
+        {
+          "names": [
+            "技術士 口頭試験 想定問答 PDF"
+          ],
+          "productId": "coconala:coconala-pe-oral-pdf",
+          "note": "coconala-pe-oral-pdf（¥3,500・同上）",
+          "examples": [
+            "coconala-pe-oral-pdf"
+          ]
+        },
+        {
+          "names": [
+            "RCCM 問題I テンプレ＋記入例 PDF"
+          ],
+          "productId": "coconala:coconala-rccm-mondai1-pdf",
+          "note": "coconala-rccm-mondai1-pdf（¥4,500・同上）",
+          "examples": [
+            "coconala-rccm-mondai1-pdf"
+          ]
+        },
+        {
+          "names": [
+            "コンクリート主任技士 小論文 PDF"
+          ],
+          "productId": "coconala:coconala-cce-essay-pdf",
+          "note": "coconala-cce-essay-pdf（¥3,000・同上）",
+          "examples": [
+            "coconala-cce-essay-pdf"
+          ]
+        },
+        {
+          "names": [
+            "コンクリート主任技士 択一直前パック PDF"
+          ],
+          "productId": "coconala:coconala-cce-takuitsu-pdf",
+          "note": "coconala-cce-takuitsu-pdf（¥3,500・同上）",
+          "examples": [
+            "coconala-cce-takuitsu-pdf"
+          ]
+        },
+        {
+          "names": [
+            "技術士 口頭試験 想定質問作成"
+          ],
+          "productId": "coconala:coconala-pe-oral-qa",
+          "note": "coconala-pe-oral-qa（¥5,000・同上・週2枠）",
+          "examples": [
+            "coconala-pe-oral-qa"
+          ]
+        },
+        {
+          "names": [
+            "（新サービス追加時）"
+          ],
+          "productId": "coconala:<src/lib/coconala-services.ts の id と完全一致>"
+        }
+      ]
+    }
+  ],
+  "looseIds": [
+    "bk-*",
+    "essay-*",
+    "pe-construction-*",
+    "article:unknown-*",
+    "coconala:coconala-bunseki-pdf",
+    "coconala:coconala-1kyu-kakomon-pdf",
+    "coconala:coconala-2kyu-kakomon-pdf",
+    "coconala:coconala-1kyu-gakka-pdf",
+    "coconala:coconala-2kyu-gakka-pdf"
+  ]
+}

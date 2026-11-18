@@ -3,6 +3,7 @@ name: svg-canvas-fitter
 description: >
   サイト figure-*.svg を固定キャンバスへ再配置する Generator。収まらなければ親へ返す。
 model: sonnet
+effort: medium
 domain: site
 role: rewriter
 target: svg-figure

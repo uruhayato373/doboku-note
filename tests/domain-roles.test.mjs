@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validateRoles, validateAgentShape, agentBodyLines, canWrite, actorProblem, actorLabel, documentSteward, frontmatterField } from '../scripts/lib/domain-roles.mjs';
+import { validateRoles, validateAgentShape, validateAgentDefaults, ROLE_DEFAULTS, agentBodyLines, canWrite, actorProblem, actorLabel, documentSteward, frontmatterField } from '../scripts/lib/domain-roles.mjs';
 
 const known = { skills: new Set(['weekly-review', 'monthly-review']), agents: new Set(['guide-qa', 'guide-fact-checker', 'guide-writer']), scripts: new Set(['validate-mdx']) };
 
@@ -96,4 +96,16 @@ test('本文の上限と書き込める判定役を基準線と比べる（増�
   assert.deepEqual(validateAgentShape([a({ tools: null })], { bodyLines: {}, writeTools: ['x'] }, w), []);
   assert.match(validateAgentShape([a()], { bodyLines: {}, writeTools: ['x'] }, w).join(), /直った/);
   assert.deepEqual(validateAgentShape([a({ role: 'writer', tools: null })], { bodyLines: {}, writeTools: [] }, w), []);
+});
+
+test('model・effort は役割の既定と比べる（欠落は違反・外れるには本文の理由が要る）', () => {
+  const a = (over) => ({ name: 'x', role: 'qa', model: 'sonnet', effort: 'medium', hasRationale: false, ...over });
+  assert.deepEqual(validateAgentDefaults([a()]), []);
+  assert.deepEqual(validateAgentDefaults([a({ role: 'operator', effort: 'low' }), a({ role: 'runner', model: 'haiku', effort: 'low' })]), []);
+  assert.match(validateAgentDefaults([a({ effort: null })]).join(), /effort: が無い/);
+  assert.match(validateAgentDefaults([a({ effort: 'extreme' })]).join(), /どれかにする/);
+  assert.match(validateAgentDefaults([a({ effort: 'low' })]).join(), /既定と違う.*effort: low（既定 medium）/);
+  assert.match(validateAgentDefaults([a({ model: 'inherit' })]).join(), /model: inherit（既定 sonnet）/);
+  assert.deepEqual(validateAgentDefaults([a({ model: 'inherit', hasRationale: true })]), []);
+  assert.equal(ROLE_DEFAULTS.runner.model, 'haiku');
 });
