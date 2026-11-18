@@ -124,9 +124,9 @@
 | 役割 | 担当 | model | 仕事 |
 |---|---|---|---|
 | 設計・割当判断・カタログ統合・ガバナンス | **親** | opus | catalog/config の JSON のみ読む。SVG 本体は読まない |
-| キャンバス整形（再レイアウト） | **新 `svg-canvas-fitter`** | **sonnet** | (図, 目標 viewBox)→固定枠で再配置。data 値・文言・概念は不変。縦余白を使い切る |
+| キャンバス整形（再レイアウト） | **親**（`/create-svg`。専用の Generator は 2026-11-18 に退役） | opus | (図, 目標 viewBox)→固定枠で再配置。data 値・文言・概念は不変。縦余白を使い切る |
 | 適合品質の採点 | **既存 `svg-figure-auditor` を拡張** | **sonnet** | viewBox 一致＋窮屈/間延び/可読性/余白バランスを 1 軸追加。`cannot-fit` を escalate |
-| 色/フォント微修正 | 既存 `svg-figure-rewriter` | sonnet | 従来どおり（narrow contract、整形とは混ぜない） |
+| 色/フォント微修正 | **親**（`/create-svg`。専用の Generator は 2026-11-18 に退役） | opus | 従来どおり（narrow contract、整形とは混ぜない） |
 
 **トークン配慮**:
 - 親は JSON 駆動で軽量。トリアージ（aspect→推奨 canvas）は build 時にルールで機械生成し、親は境界ケースのみ判断。
@@ -143,7 +143,7 @@
 - [ ] `build-svg-catalog` に canvas/fitStatus フィールド追加（※ PR#269 の所在を要確認）
 - [ ] `svg-gallery.mjs` に canvas 適合バッジ追加
 - [ ] `render-figure-sns.mjs` に 9:16 派生（feed レターボックス）を追加
-- [ ] 新エージェント `svg-canvas-fitter` 定義 ＋ `svg-figure-auditor` に適合軸追加（→ skills-guide / agents-registry 同時更新・check-doc-coupling）
+- [ ] `svg-figure-auditor` に適合軸追加（整形の専用エージェントは作らず親が行う・2026-11-18）（→ skills-guide / agents-registry 同時更新・check-doc-coupling）
 - [ ] 段階バックフィル開始（優先度1から）
 
 > [!warning] ガバナンス

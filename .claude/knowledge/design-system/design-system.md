@@ -458,7 +458,7 @@ CLAUDE.md §7 と一致:
 | Generator（ページ UI を設計・実装） | 親 Claude Code ＋ `page-design-builder` エージェント | §3 体系に沿ったページ/レイアウト案・実装 |
 | Evaluator（デザイン準拠を検証） | `/design-review` スキル（`--visual` で Playwright 視覚回帰） | 7 カテゴリ静的レビュー + light/dark × desktop/mobile スクショ採点 |
 | 静的 lint | `scripts/lint-ui.mjs` | token 逸脱・dark 欠落・インライン borderColor |
-| SVG 図版 | `svg-figure-auditor` / `svg-canvas-fitter` / `svg-figure-rewriter` | §9 別サブシステム |
+| SVG 図版 | `svg-figure-auditor`（作る・直すは親の `/create-svg`） | §9 別サブシステム |
 
 > Generator（作った直後は「綺麗だ」と判断するバイアスを持つ）と Evaluator を**必ず分離**する。
 

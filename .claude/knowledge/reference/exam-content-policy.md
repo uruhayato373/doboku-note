@@ -63,8 +63,8 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **整備の目標**: 公開済み一次検定 過去問を逐条解説する
 - **構造**: 問題ごとに H2 `## 問題 No.N`、解答は `<details>` で開閉式、各問題に `<ExamPoint>` 1 個（最大 1 個）
 - **ExamPoint ルール**: `summary` 30〜50 字（本質）、`items` は体言止め 1〜3 個（≤60 字、句読点禁止）。詳細は [content-principles.md §5「items の禁止パターン」](./content-principles.md) 参照
-- **過去歴**: `migrate-civil-answer-style.mjs` の `generateExamPoint()` バグで約 1,440 個の壊れた items が生成された（2026-04-24）。修復は `civil-exampoint-restorer` Generator サブエージェントを使う（2026-05-16 起動）
-- **執筆ツール**: 既存リライトは `civil-exampoint-restorer`、新規変換は `/pdf-to-mdx --exam civil-construction-1`
+- **過去歴**: `migrate-civil-answer-style.mjs` の `generateExamPoint()` バグで約 1,440 個の壊れた items が生成された（2026-04-24）。修復は専用の Generator で 2026-05-16 に実施済み（2026-11-18 に退役）
+- **執筆ツール**: 既存リライトは `past-exam-rewriter`、新規変換は `/pdf-to-mdx --exam civil-construction-1`
 
 #### 1級土木 secondary（`group: secondary`、二次過去問）
 

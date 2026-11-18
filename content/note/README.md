@@ -150,7 +150,7 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 | `noteSeries` | **表示用の編集ラベル**（カバー生成の系列名・もくじ index の判定マーカー） | `noteMagazine` と語尾が異なってよい自由記述（例: 「…小論文」と「…小論文集」）。特殊値 `総合案内` はもくじ index ページを示し、`note-lint` 経由で markdown リンク列挙を許容する |
 
 **noteMagazine が正**（商品を特定する必要がある処理）: マガジン収録数の突合（`check-magazine-membership`）・note 公開時の価格/CTA 解決（`note-publish.mjs`）。
-**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`note-cover-writer`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・記事カタログの系列表示（`build-note-published-index.mjs`）。
+**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`scripts/add-note-cover.mjs`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・記事カタログの系列表示（`build-note-published-index.mjs`）。
 
 **書いてはいけない逸脱**（`npm run check-note-vocabulary-boundary` が検知・pre-commit 非搭載のため commit 前に手動実行を推奨）:
 - `noteSeries` に `note-magazines.ts` の `id`（内部slug）をそのまま書く
