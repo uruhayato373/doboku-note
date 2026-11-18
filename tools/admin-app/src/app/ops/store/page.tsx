@@ -142,6 +142,7 @@ function Detail({ v, q, t }: { v: StoreView; q?: string; t?: string }) {
           <DetailSheet trigger={<code>{x.name}</code>} title={<code>{x.name}</code>} description={`${x.id}・${x.kind}`}>
             <DetailText title="説明" items={[x.doc]} />
             <DetailText title="ファイルの説明" items={[x.fileDoc]} />
+            <DetailText title="書き手" items={[x.writers.join('・') || '未記入', x.writerNote]} />
             <DetailList items={[{ label: '印', value: x.flags.join('・') }]} />
           </DetailSheet>
         }
@@ -152,6 +153,10 @@ function Detail({ v, q, t }: { v: StoreView; q?: string; t?: string }) {
             {x.flags.map((f) => <StatusBadge key={f} tone="neutral">{f}</StatusBadge>)}
           </div>
         )}
+        <p className="mt-2 text-sm text-muted-foreground">
+          書き手: {x.writers.join('・') || '未記入'}
+          {x.writerNote ? `（${x.writerNote}）` : ''}
+        </p>
       </PanelCard>
 
       {x.path === REGISTRY_PATH && <QualificationSsot />}

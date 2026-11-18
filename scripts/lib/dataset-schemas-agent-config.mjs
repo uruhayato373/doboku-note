@@ -213,6 +213,11 @@ const StatePathLiteralBaseline = z
   .object({ _doc: note('説明'), files: z.record(relPath, z.number().int().positive()) })
   .strict();
 
+/** 書き手が未記入のデータセットの基準線（DN-1240・scripts/lib/dataset-writers.mjs・check-datasets） */
+const DatasetWriterBaseline = z
+  .object({ _doc: note('説明'), missing: z.array(z.string().regex(/^[a-z0-9]+(\.[a-z0-9-]+)+$/, 'データセットの id')).describe('書き手が未記入のデータセットの id（増やせない。書いたら消す）') })
+  .strict();
+
 /** スクリプトの共通部品の写しと readJson の写しの基準値（DN-0802・scripts/lib/code-ratchets.mjs） */
 const CodeRatchetBaseline = z
   .object({ _doc: note('説明'), scriptHelpers: z.record(z.string(), z.number().int().min(0)), readJson: z.number().int().min(0) })
@@ -227,6 +232,7 @@ export const AGENT_CONFIG_SCHEMAS = {
   'code-ratchet-baseline.json': CodeRatchetBaseline,
   'unreachable-cli-baseline.json': UnreachableCliBaseline,
   'content-taxonomy-baseline.json': ContentTaxonomyBaseline,
+  'dataset-writer-baseline.json': DatasetWriterBaseline,
   'gate-parity-baseline.json': GateParityBaseline,
   'information-architecture.json': InformationArchitecture,
   'magazine-cta-baseline.json': MagazineCtaBaseline,

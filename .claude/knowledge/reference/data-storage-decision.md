@@ -183,6 +183,16 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
   既存の個別の検査で置き換えられるかの洗い出し: `check-qualification-ssot` は資格 id の照合に加えて名前の写しを見るので残す（id の照合だけは refs と重なる）／`check-category-curriculum` の slug の実在（260 件）は、読む `src/config/category-curriculum.json` が台帳の置き場（AREAS）の外なので、`src/config` を置き場に足すまで個別のまま／`check-products` は生成ブロックとの一致を見るもので、参照の実在ではないので置き換えない。新しく参照を持つデータを足すときは、個別の検査を書く前に refs で宣言する
 - 種類 `master`（2026-11-10）: 参照の宛先になる台帳（資格・商品・実験・提携案件・事業方針の 5 行。`dataset-refs.mjs` の `REF_MASTERS`）は種類を `master` にする。`check-datasets` が宛先の種類を見る。ファイルは動かさない（`config/` と `data/` の置き場はそのまま）。書き手は台帳に欄を足さず、`config/automations.json` の `writes` から引く（管理画面 `/ops/store` の「書き手」列）。
 
+## 書き手の正本（2026-11-18・DN-1240）
+
+台帳は「どのファイルが何のデータか」を決めるが、「誰が書くか」を持っていなかった。価格の正本を 3 体のエージェントが書く、実験の台帳に書き手が 4 つある、といった重なりは散文を読まないと分からなかった。
+
+- 書き手は `scripts/lib/dataset-writers.mjs` の `WRITERS` に id で書き、台帳の各行の `writer`・`writerNote` に合成する。書き方は `script:<npm script>`・`file:<パス>`（書き込む実装）、`automation:<id>`（定期実行）、`skill:<名前>`・`agent:<名前>`（手順でファイルを直接書き換える）、`human`（運営者か親が手で編集）。スキルやエージェントが npm script を呼ぶだけなら、書き手は `script:` で書く。
+- 定期実行のほかに書き手が 2 つ以上ある行は、どの欄・どの場面を誰が書くかを note に書く。
+- `config/automations.json` は書く先（旧 `writes`）を持たない。管理画面の書き手の列と、自動化から書く先への逆引きは台帳から出す。
+- `npm run check-datasets` が、書き手の形・参照先の実在・note の欠落を止める。未記入の行は基準線 `.claude/config/dataset-writer-baseline.json` に id で並べ、増やせない。書いた行は基準線から消す（消し忘れも止める）。作成時は 296 件のうち 121 件を記入した。
+- 推測では書かない。コードの書き込みから確かめられない行は未記入のまま残し、領域ごとに埋める。
+
 ## 全体の棚卸し（2026-10-10）
 
 台帳 251 データセット・git 管理 963 ファイルを、台帳の宣言と実物・コードの参照・最終更新・中身のハッシュで突き合わせた（調査の道具は `.tmp/` の一回きり）。台帳の構造（宣言・型・直書き・重なり・参照）は `check-datasets` が既に止めていて違反 0。残っていたずれと処置:
@@ -208,3 +218,4 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - 2026-10-03: 台帳に `freshness`（鮮度の閾値）を追加し、設定・記録の読み書きの共通部品（`json-io`・`dataset-io`・`dataset-write`）と、JST の日付の出し方（`jst-date.mjs`）・取得失敗の上限（`inconclusive-gate.mjs`）を 1 か所にした
 - 2026-10-08: 「台帳を 1 本にして DB のように扱う」を追加（置き場 `.claude/state/` を台帳へ・Drive vault の宣言 `drive`・`local` は作り直せる一時出力だけ・直書きのラチェット）
 - 2026-10-10: 「全体の棚卸し」を追加（読み手のいない記録 3 種の削除・`.claude/state/` の鮮度を台帳へ・note の同期の停止の検査・週の換算の一本化・月次レビューを時点の記録に）
+- 2026-11-18: 「書き手の正本」を追加（台帳の `writer`・`writerNote`、未記入の基準線、`config/automations.json` の `writes` を廃止・DN-1240）

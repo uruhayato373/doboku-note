@@ -17,6 +17,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { escapeRegExp } from './regexp-escape.mjs';
+import { writerDeclOf } from './dataset-writers.mjs';
 
 /**
  * 置き場。strict の置き場（config/・data/）は JSON に型が必須で、コードのパスの直書きを止める。
@@ -69,6 +70,7 @@ const SLOTS = {
  * refs（中の値が指す先。[{ at: '場所', to: 'qualification'|'product'|'article'|'experiment'|'affiliate-program'|'metric', keys?, prefix?, ignore?, severity?, copies? }]。
  *   check-datasets が全ファイルで参照先の実在と写しの一致を見る＝外部キー相当。参照切れは既定で error、生成した索引の過去分など書き換えない記録は
  *   severity: 'warn'。場所の書き方・参照先・任意の欄は scripts/lib/dataset-refs.mjs。DN-0586・2026-10-27 に参照先と任意の欄を足した）
+ * writer・writerNote（書き手。この行には書かず scripts/lib/dataset-writers.mjs の WRITERS に id で書く。ここで合成する。DN-1240）
  *
  * retain: { family, keepNewest: N }   新しい N 件を残す
  *         { family, maxAgeDays: D }   D 日より古いものを消す（最新 1 件は必ず残す）
@@ -83,7 +85,7 @@ const SLOTS = {
  *   「超えたら」（>）か「以上」（>=）かと、日数の数え方（暦日・経過時間）は検査ごとに決める（閾値の数字だけが正本）。
  *   台帳の外（.claude/state の記録・docs・backlog）の鮮度は台帳に入れない。設定ファイル（config/）の中の閾値はそのファイルが正本
  */
-const d = (id, path, kind, domain, doc, opts = {}) => ({ id, path, kind, domain, doc, ...opts });
+const d = (id, path, kind, domain, doc, opts = {}) => ({ id, path, kind, domain, doc, ...opts, ...writerDeclOf(id) });
 
 export const DATASETS = [
   // ===== config/: 事業・試験・商品の正本と、スクリプト・CI・サイトの設定 =====

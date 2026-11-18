@@ -54,17 +54,6 @@
         "quality-audit:competitor-scan-due",
         "admin:/strategy/competitors",
         "skill:weekly-review"
-      ],
-      "writes": [
-        "state.weekly-collect",
-        "note.sales",
-        "coconala.analytics",
-        "a8.ui-last-run",
-        "note.sync-log",
-        "note.status",
-        "note.magazines",
-        "state.improvements",
-        "business.measurement"
       ]
     },
     {
@@ -214,10 +203,6 @@
         "issue:cloudflare-metrics",
         "issue:cloudflare-config",
         "quality-audit:cloudflare-metrics-freshness"
-      ],
-      "writes": [
-        "cloudflare.zone",
-        "state.cloudflare-zone-config"
       ]
     },
     {
@@ -279,27 +264,6 @@
         "quality-audit:gsc-sitemaps-due",
         "issue:fetch-metrics",
         "skill:weekly-review"
-      ],
-      "writes": [
-        "ga4.reports",
-        "gsc.reports",
-        "gsc.sitemaps",
-        "rum.web-vitals",
-        "business.measurement",
-        "business.snapshot",
-        "business.weekly",
-        "business.experiments",
-        "analysis.quiz-premium-funnel",
-        "analysis.monetization-coverage",
-        "analysis.monetization-report",
-        "analysis.career-funnel",
-        "analysis.career-funnel-report",
-        "analysis.career-funnel-baseline",
-        "analysis.growth-pack",
-        "analysis.growth-digest",
-        "bing.snapshots",
-        "ga4.admin-inventory",
-        "youtube.analytics"
       ]
     },
     {
@@ -322,13 +286,6 @@
       "readers": [
         "issue:index-coverage",
         "skill:google-search-growth"
-      ],
-      "writes": [
-        "gsc.reports",
-        "gsc.url-inspection",
-        "gsc.index-coverage-history",
-        "gsc.indexing-priority",
-        "gsc.indexing-priority-list"
       ]
     },
     {
@@ -410,10 +367,6 @@
       "purpose": "PageSpeed Insights を記録する",
       "readers": [
         "admin:/metrics/psi"
-      ],
-      "writes": [
-        "psi.batch",
-        "analysis.psi-report"
       ]
     },
     {
@@ -434,9 +387,6 @@
       "purpose": "公開IDと入力digestを固定し、private R2のintent・YouTube API実査を経て予約する。毎朝の schedule では reconcile だけを回し、公開日時を過ぎた予約を published へ照合する（DN-1070）",
       "readers": [
         "human"
-      ],
-      "writes": [
-        "registry.youtube"
       ]
     },
     {
@@ -469,9 +419,6 @@
       "purpose": "確定済みの変更計画に沿って既存動画の公開日時をYouTube APIで再確認し、公開台帳へ結果を記録する",
       "readers": [
         "human"
-      ],
-      "writes": [
-        "registry.youtube"
       ]
     },
     {
@@ -521,9 +468,6 @@
       "purpose": "develop への push の Pre-merge check が完了したら、その build の check-seo-build の件数を data/analysis へ足して develop へ書き戻す（ci.yml のジョブだったが、書き込みの順番待ちでゲートの run が完了しなかったので外へ出した・DN-1139）",
       "readers": [
         "skill:weekly-review"
-      ],
-      "writes": [
-        "analysis.seo-build-summary"
       ]
     },
     {
@@ -590,9 +534,6 @@
         "quality-audit:own-videos-freshness",
         "issue:youtube-own-metrics",
         "skill:monthly-review"
-      ],
-      "writes": [
-        "youtube.own-videos"
       ]
     }
   ]
