@@ -9054,6 +9054,23 @@
       "commit": "acc7037de1f5",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0901",
+      "at": "2026-11-18",
+      "task": "測量士・舗装の公開済み note 商品の価格を競合と比べて決め直す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "価格の判断で再発防止の対象がない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5ece294a750a",
+      "verification": "npm run check-backlog-schema",
+      "note": "運営者決定（2026-11-18）: 測量士・舗装の全 8 商品を据え置き。試験の 14 日後に revenue-calendar の judgmentDaysAfter で再判定（目安: 閲覧 100 件超で購入 0 なら値下げ検討）。記録は各 noteコンテンツ計画.md（5ece294a7）"
     }
   ]
 }
