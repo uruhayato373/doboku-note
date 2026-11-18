@@ -15,7 +15,7 @@ npm run check-coconala-blog                                      # ハードゲ�
 npm run scout-coconala-blogs                                     # 競合偵察（四半期）
 ```
 
-スキル `/coconala-blog`（`coconala-blog-writer` → `coconala-blog-qa` → publish）。
+スキル `/coconala-blog`。新規執筆は 2026-11-18 から停止中で、公開済み記事の送客先の付け替え（`--update`）だけ行う（判断は coconala-blog-policy.md §9・再開は DN-1247）。
 
 ## 書けないもの（機械で止まる）
 

@@ -24,8 +24,8 @@ updated: 2026-11-18
 | `svg-figure-rewriter` | サイト | 直す・SVG 図版 | なし | 残すなら `/create-svg` か `/check-mdx` の svg から呼ぶ形にする。呼ばないなら退役 | 退役（2026-11-18・PR #1658） |
 | `note-cover-writer` | 商品 | 制作・note のカバー | スクリプトのみ | V5 カバーの展開が終わっていれば退役 | 退役（2026-11-18・PR #1658） |
 | `note-membership-operator` | 商品 | 運用・note の会員 | `/note-membership` | メンバーシップ撤退（DN-0477）の完了で退役 | 残す（メンバーシップの器を建設業×AI＝DN-0876 に使い回すため・2026-11-18） |
-| `coconala-blog-writer` | 商品 | 制作・ココナラブログ | `/coconala-blog` | ブログを続けるかで決める（続けるなら残す） | |
-| `coconala-blog-qa` | 商品 | 採点・ココナラブログ | `/coconala-blog` | writer と同じ判断 | |
+| `coconala-blog-writer` | 商品 | 制作・ココナラブログ | `/coconala-blog` | ブログを続けるかで決める（続けるなら残す） | 退役（新規執筆を止める・公開済み 15 本は残す・再開は DN-1247・2026-11-18） |
+| `coconala-blog-qa` | 商品 | 採点・ココナラブログ | `/coconala-blog` | writer と同じ判断 | 退役（writer と同じ・2026-11-18） |
 | `seo-fix-planner` | サイト | 企画・SEO | `/google-search-growth` | 残す（月次の検索の見直しで呼ぶ）。4 週間後も 0 回なら親の判断へ寄せる | |
 | `exam-keyword-mapping-auditor` | サイト | 採点・過去問の紐づけ | `/audit-exam-mapping` | 残す（総監の過去問の追加時だけ） | |
 | `keyword-rewriter` | サイト | 直す・キーワード記事 | `/improve-article`・`/quality-cycle`・`/weekly-improve` | 残す | |

@@ -35,7 +35,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 |---|---|---|---|---|---|---|---|---|---|
 | 戦略 | `content-competitor-analyst` `sales-competitor-analyst` | `product-portfolio-planner` | — | — | — | — | — | — | — |
 | 計画 | — | `todo-planner` | — | — | — | — | — | `backlog-curator` | — |
-| 商品 | `coconala-traffic-analyst` `note-traffic-analyst` | — | `civil-keiken-tensaku-drafter` `coconala-blog-writer` `coconala-order-drafter` `essay-writer` `kindle-book-composer` `magazine-pdf-builder` `note-buyer-responder` `note-link-injector` `pe-secondary-exam-writer` | — | `civil-keiken-tensaku-qa` `coconala-blog-qa` `essay-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-listing-operator` `kdp-operator` `note-catalog-operator` `note-membership-operator` | `note-funnel-auditor` | — |
+| 商品 | `coconala-traffic-analyst` `note-traffic-analyst` | — | `civil-keiken-tensaku-drafter` `coconala-order-drafter` `essay-writer` `kindle-book-composer` `magazine-pdf-builder` `note-buyer-responder` `note-link-injector` `pe-secondary-exam-writer` | — | `civil-keiken-tensaku-qa` `essay-qa` `kindle-book-qa` `note-page-visual-auditor` `pe-secondary-exam-qa` | `note-fact-checker` `pe-secondary-exam-factcheck` | `coconala-listing-operator` `kdp-operator` `note-catalog-operator` `note-membership-operator` | `note-funnel-auditor` | — |
 | アフィリエイト | — | — | — | — | — | — | `affiliate-operator` | — | — |
 | サイト | `metrics-analyzer` `search-intent-auditor` | `seo-fix-planner` | `civil-secondary-exam-writer` `figure-crop-worker` `guide-writer` `page-design-builder` `standards-table-writer` | `civil-textbook-rewriter` `guide-rewriter` `keyword-rewriter` `past-exam-rewriter` | `ai-image-fidelity-auditor` `article-proofreader` `exam-keyword-mapping-auditor` `figure-crop-auditor` `guide-qa` `keyword-qa` `past-exam-qa` `site-page-visual-auditor` `standards-page-visual-auditor` `svg-figure-auditor` | `guide-fact-checker` `standards-table-qa` `textbook-qa` | — | `gsc-index-auditor` | — |
 | SNS | — | — | `ig-carousel-writer` `video-script-writer` `x-post-writer` `x-reply-drafter` `x-repost-curator` `yt-shorts-title-writer` | — | `ig-carousel-qa` `video-content-qa` `video-review` `x-post-qa` `yt-shorts-publisher-qa` | — | — | — | — |
@@ -68,7 +68,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | note の導線（note-funnel） | — | — | — | — | — | — | — | `note-funnel-auditor` | — |
 | マガジンの PDF（magazine-pdf） | — | — | `magazine-pdf-builder` | — | — | — | — | — | — |
 | Kindle 本（kindle-book） | — | — | `kindle-book-composer` | — | `kindle-book-qa` | — | — | — | — |
-| ココナラブログ（coconala-blog） | — | — | `coconala-blog-writer` | — | `coconala-blog-qa` | — | — | — | — |
 | note の売り場（note） | — | — | — | — | — | — | `note-catalog-operator` | — | — |
 | note の購入者への応対（note-buyer） | — | — | `note-buyer-responder` | — | — | — | — | — | — |
 | note の集客（note-traffic） | `note-traffic-analyst` | — | — | — | — | — | — | — | — |
@@ -108,7 +107,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/check-mdx` | `svg-figure-auditor` |
 | `/civil-figure-rework` | `article-proofreader` `figure-crop-auditor` `figure-crop-worker` `textbook-qa` |
 | `/civil-keiken-magazine` | `civil-secondary-exam-writer` `essay-qa` `essay-writer` |
-| `/coconala-blog` | `coconala-blog-qa` `coconala-blog-writer` |
 | `/coconala-order` | `civil-keiken-tensaku-drafter` `civil-keiken-tensaku-qa` `coconala-order-drafter` |
 | `/coconala-publish` | `coconala-listing-operator` |
 | `/coconala-status` | `coconala-listing-operator` `coconala-order-drafter` `coconala-traffic-analyst` |
@@ -163,7 +161,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 ## エージェント一覧
 
 <!-- generated:agents:start（npm run build-capability-index が書く。手で直さない） -->
-エージェント 71 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
+エージェント 69 体（`.claude/agents/*.md` の frontmatter から生成。「呼び出すスキル」はスキルの本文に名前が出るもの）。
 
 | エージェント | 役割 | 対象 | 種別 | model | 領域 | 説明 | 呼び出すスキル |
 |---|---|---|---|---|---|---|---|
@@ -176,8 +174,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `civil-secondary-exam-writer` | 制作 | past-exam | 編集可 | sonnet | site | 1級土木 二次過去問の解答・ポイント・設問解説を補完する Generator。 | `/civil-keiken-magazine` |
 | `civil-textbook-rewriter` | 直す | textbook | 編集可 | sonnet | site | 1級土木施工管理技士 textbook/guide ページのバルクリライトを担当するGeneratorエージェント。 | `/quality-cycle` |
 | `cli-runner` | 実行 | command | 監査のみ | haiku | ops | Workflow の機械の段で、渡されたコマンドを 1 回だけ実行し、終了コードと出力の末尾を返す。判断・修正・検証はしない。 | — |
-| `coconala-blog-qa` | 採点 | coconala-blog | 監査のみ | sonnet | product | ココナラブログ記事を5軸（0〜3）で採点する Evaluator。外部リンクゼロ等のハードゲートは check-coconala-blog で確認。修正はしない。 | `/coconala-blog` |
-| `coconala-blog-writer` | 制作 | coconala-blog | 編集可 | sonnet | product | ココナラブログ記事を執筆する Generator。自出品へ送客し、外部リンクゼロ・カニバリ境界を守る。素材は書き直す（逐語転載しない）。 | `/coconala-blog` |
 | `coconala-listing-operator` | 運用 | coconala | 編集可 | sonnet | product | ココナラの出品・修正・価格/状態・休止/再開を既存スクリプトで運用する。受注は対象外。Use when [ココナラに出品, 出品を修正, ココナラを休止]. | `/coconala-publish` `/coconala-status` |
 | `coconala-order-drafter` | 制作 | coconala-order | 編集可 | sonnet | product | ココナラの受注を記録と照合し、添削・骨子・PDF 送付の納品文面を下書きする。送信は運営者。Use when [ココナラで受注した, ココナラの納品文面を作って, /coconala-order]. | `/coconala-order` `/coconala-status` |
 | `coconala-traffic-analyst` | 分析 | coconala-traffic | 監査のみ | sonnet | product | ココナラの閲覧・お気に入り・撤退ラインを集計済み記録から解釈する。書かない。Use when [ココナラの数字が急変, 撤退ライン越え]. | `/coconala-status` |
@@ -258,7 +254,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 |---|---|---|---|
 | **backlog-curator** | `.claude/todo/backlog.md` のカード | 種類・tier・カテゴリ・重複・鮮度・実績乖離・完了prose蓄積 → KEEP/RETAG/TRIM/MERGE/DELETE/RESEED/SPLIT | 月初、または check-backlog-health がしきい値を踏んだとき |
 | **content-qa** | `.mdx`（過去問・基準書） | 静的5軸（視覚検証なし） | PDF→MDX 変換後 |
-| **coconala-blog-qa** | `content/coconala/blog/**/article.md` | 検索適合・捏造なし・カニバリ境界・導線整合・構成準拠＋ハードゲート（外部リンク/連絡先/listed/価格） | ココナラブログ記事の執筆後・公開前 |
 | **keyword-qa**（資格: cem） | `.mdx`（総監キーワード `group: keyword` 全件 + 横断トレードオフガイド `management-tradeoffs` の §23 構造チェック） | 5管理体系・コンポーネント原則・参考資料・横断トレードオフ §23（核同士の対称関係・固有名詞混入） | キーワードページ執筆後 / `management-tradeoffs` 編集後 |
 | **textbook-qa** | `.mdx`（1級・2級土木 textbook） | 視覚検証 + テキスト網羅率（PDF 原典照合） | 1級・2級土木 MDX 生成後 |
 | **article-proofreader** | `.mdx`（1級・2級土木 textbook/guide・コンクリ 3 資格の textbook） | content-principles準拠＋モバイル視認性＋画像キャプション品質（PDF照合なし、5軸） | 既存 MDX の定期校正・編集後 |
@@ -341,3 +336,5 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `svg-canvas-fitter` | 2026-11-18 | どのスキルからも呼ばれていない。4 週間 0 回 | 親が `/create-svg` の手順で再配置し、`check-figure-canvas` で確かめる |
 | `svg-figure-rewriter` | 2026-11-18 | どのスキルからも呼ばれていない。4 週間 0 回 | 親が `/create-svg` の手順で直し、`svg-figure-auditor` で採点する |
 | `note-cover-writer` | 2026-11-18 | V5 カバーの展開が済み、参照はスクリプトの注記だけ。4 週間 0 回 | 親が cover spec を書き、`scripts/add-note-cover.mjs` で反映する |
+| `coconala-blog-writer` | 2026-11-18 | ココナラブログの新規執筆を止めた（30 日で公開 15 本の閲覧計 181 回・注文の帰属は測れない）。4 週間 0 回 | 再開するとき（DN-1247）に git の履歴から戻す |
+| `coconala-blog-qa` | 2026-11-18 | 同上 | 同上 |
