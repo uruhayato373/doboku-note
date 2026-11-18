@@ -918,7 +918,9 @@
     "analyst": "分析",
     "planner": "企画・計画",
     "writer": "制作",
+    "rewriter": "直す",
     "qa": "採点",
+    "verifier": "照合",
     "operator": "運用",
     "auditor": "監査",
     "runner": "実行"
@@ -997,27 +999,12 @@
     {
       "role": "qa",
       "target": "essay",
-      "reason": "各資格の writer と対の採点役。pe-secondary-exam-factcheck は採点ではなく技術的事実の外部照合。統合は writer と同じく DN-1242・DN-0798"
-    },
-    {
-      "role": "writer",
-      "target": "guide",
-      "reason": "civil-guide-writer は新規の執筆、guide-rewriter は採点・事実照合の指摘を当てる修正"
-    },
-    {
-      "role": "qa",
-      "target": "guide",
-      "reason": "guide-qa は導入・読みやすさ・導線の採点、guide-fact-checker は制度・数値の外部一次情報との照合"
+      "reason": "各資格の writer と対の採点役。資格別の 4 組は essay-qa ＋資格別プロファイルへまとめる（DN-1242）"
     },
     {
       "role": "writer",
       "target": "past-exam",
-      "reason": "past-exam-rewriter は QA 指摘の適用、civil-secondary-exam-writer は二次の解答・解説の補完、civil-exampoint-restorer は壊れた ExamPoint の一度きりの修復（廃止候補・DN-0798）"
-    },
-    {
-      "role": "qa",
-      "target": "past-exam",
-      "reason": "past-exam-qa は正答・解説の質、content-qa は原典 PDF への忠実さ"
+      "reason": "civil-secondary-exam-writer は二次の解答・解説の補完、civil-exampoint-restorer は壊れた ExamPoint の一度きりの修復（廃止予定・DN-1242）"
     },
     {
       "role": "writer",
@@ -1030,9 +1017,9 @@
       "reason": "civil-exam-figure-auditor は過去問ページの図、scanned-figure-crop-auditor はスキャン教材の図。1対へのまとめは DN-0798"
     },
     {
-      "role": "writer",
+      "role": "rewriter",
       "target": "svg-figure",
-      "reason": "svg-figure-rewriter は指摘の適用と校正、svg-canvas-fitter は固定キャンバスへの再配置"
+      "reason": "svg-figure-rewriter は指摘の適用と色・属性の校正、svg-canvas-fitter は固定キャンバスへの再配置"
     },
     {
       "role": "qa",

@@ -4,7 +4,7 @@ description: >
   SVG への監査指摘を適用し、色・フォント・属性・重なりを校正する Generator。再レイアウトは svg-canvas-fitter。
 model: sonnet
 domain: site
-role: writer
+role: rewriter
 target: svg-figure
 ---
 
