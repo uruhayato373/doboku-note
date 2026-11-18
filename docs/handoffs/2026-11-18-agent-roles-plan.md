@@ -38,7 +38,46 @@ updated: 2026-11-18
 | 数えられること（件数・閾値・週比・照合） | スクリプトと検査 | `check-*`・`report-*` |
 
 - **資格ごとには分けない。** 分析・企画・運用の役は資格を引数で受ける。新設する3体も資格別にしない。
-- 答案の制作だけは今、資格別に4組ある（cce・cem・rccm・civil-keiken の writer/qa）。本文の骨格は同じ（背景・入力・記事の構造・執筆規則・機械ゲート・担当外）で、違うのは字数と形式。4週間の呼び出しは cem 3回・civil-keiken 2回・cce と rccm は0回。**次の資格からは組を足さず、共通の `essay-writer`／`essay-qa` に資格別プロファイルを渡す形にする**。既存4組をまとめるかは DN-0798 で運営者が決める。`pe-secondary-exam-*`（51回・事実照合つき）は今のまま残す。
+- 答案の制作は今、資格別に5組ある。扱いは下の「制作と採点を共通の型にする」で決める（11/18 追補。旧案の「既存4組は DN-0798 で判断」を置き換える）。
+
+### 制作と採点を共通の型にする（11/18 追補・運営者の提案）
+
+制作30体・採点31体で84体中61体を占める。対象ごとに書き方がばらばらなので、**流れと役割の語彙を1つに揃え、同じ中身の重複だけをまとめる**。
+
+**共通の流れ（どの対象も同じ）**: ①機械ゲート → ②作る → ③採点 → ④直す → ⑤照合（事実・原典。変わった箇所があるときだけ）。記事の型の持ち主（`contentStewards` の create / fix / review / gates）とすでに同じ形なので、エージェントの役割の語彙をこれに合わせる。
+
+| 役割 | いま | 変更 |
+|---|---|---|
+| `writer` 作る | 新規も修正も `writer` | 新規の執筆だけ |
+| `rewriter` 直す（新設） | `writer` に混在 | 採点の指摘を当てる役（`guide-rewriter`・`keyword-rewriter`・`past-exam-rewriter`・`civil-textbook-rewriter`・`svg-figure-rewriter`・`svg-canvas-fitter`） |
+| `qa` 採点 | 採点も照合も `qa` | 意味の軸の採点だけ |
+| `verifier` 照合（新設） | `qa` に混在 | 外部の一次情報・原典との突き合わせ（`guide-fact-checker`・`pe-secondary-exam-factcheck`・`note-fact-checker`・`content-qa`・`standards-table-qa`） |
+
+これで「役割と対象の重複」12組のうち、役割の違いを説明で補っていた組が消え、残るのは本当の重複だけになる。
+
+**品質とトークンの釣り合い（判断の根拠）**
+
+- エージェントをまとめても、1回の起動で読む量はほぼ変わらない（本文＋その資格の規則を読むのは同じ）。**まとめる効果は品質側**（規則の直しが1か所で済み、資格ごとのずれが出ない）。
+- トークンを減らすのは次の4つで、効く順に並べる。
+  1. 機械で落ちたら採点役を起動しない（既定の方針・起動そのものが減る）
+  2. 「採点→直す」の往復を最大2回で止め、3回目は親が判断する
+  3. 本文の長さに上限を置く。本文は起動のたびに全部読まれる（`pe-secondary-exam-writer` 461行×4週間51回、`civil-construction-qa` 494行、`cem-qa` 245行）。上限は150行、超える分は資格・モード別のプロファイルへ出し、必要な1つだけ読む。今の超過はラチェットで下げる
+  4. 採点の返り値を定型にする（判定・軸ごとの点・指摘は file:line つき・直し方）。親と直す役が読む量が減る
+- 完全に2体（`writer`／`qa`）や系統ごとの1対にはしない。対象の規則まで全部プロファイルへ出すと、tools の制限（採点役は書けない）を対象ごとに変えられず、呼び分けの説明文も効かなくなる。トークンは減らず、品質だけ落ちる。
+
+**まとめる所（中身が同じで、違いが引数で済むもの）**
+
+| 対象 | いま | 変更 |
+|---|---|---|
+| 答案 | 資格別の4組（cce・cem・rccm・civil-keiken。4週間で計5回） | `essay-writer`／`essay-qa` の1組にし、字数・形式・採点軸は資格別プロファイル。使用が少ないので移行の危険が小さい |
+| 答案（建設部門） | `pe-secondary-exam-writer`／`-qa`／`-factcheck`（51回） | 今回は統合しない。本文を150行以内に削るだけ（科目別の規則をプロファイルへ）。共通の組が本番で1度動いてから統合を判断する |
+| 切り抜きの図 | 作る2体・見る2体 | `figure-crop-worker`／`figure-crop-auditor` の1対（対象の種類は引数） |
+| SVG 図版の採点 | `svg-figure-auditor`・`pe-exam-figure-auditor` | 後者を前者の対象の1つにする |
+| 過去問 | `civil-exampoint-restorer`（一度きりの修復・0回） | 廃止 |
+
+**まとめない所**: 新規の執筆と修正（入力が違い、まとめると本文が太る）、採点と照合（照合は Web を使い高い。事実が変わったときだけ起動する）、画面の目視役3体（比べる相手が違う）、SNS の各組（媒体ごとに形式が違う・保留中）。
+
+差し引きで制作・採点は61体→約51体。プロファイルの置き場は `/quality-cycle --profile` の既存の置き場に合わせる（着手時に確認）。
 
 ### 機械の段を先に置く（3層）
 
@@ -61,7 +100,7 @@ updated: 2026-11-18
 
 | 役割 | モデル | エフォート | 理由 |
 |---|---|---|---|
-| `planner`（企画） | sonnet | medium | 台帳の突き合わせは子、決定は親 |
+| `planner`（企画） | sonnet | medium | 台帳の突き合わせは子、決定は親。例外は `product-portfolio-planner` だけ inherit（親と同じ上位モデル）: 月1回で枠への影響が小さく、価格と品揃えの案は弱いと親の判断を引きずる |
 | `analyst`（分析） | sonnet | medium | 集計済みの数字の解釈 |
 | `writer`（制作） | sonnet | medium | 規則に沿った生成 |
 | `qa`（採点） | sonnet | medium | 定型ルーブリック |
@@ -191,6 +230,7 @@ frontmatter の `effort:` が今の Claude Code で効くかは、第3段階の�
 - `docs/strategy/14_領域モデル.md` に「決める・動かす・見る」の節を足す
 
 **第4段階: エージェントの再編**（feature ブランチ）
+- 共通の型: `agentRoles` に `rewriter`・`verifier` を足して該当11体の `role:` を付け替え、不要になった `agentOverlaps` を消す。`scripts/lib/domain-roles.mjs` に本文150行の上限（ラチェット）と、採点役・照合役の `tools:` 制限の検査を足す。答案4組の統合・切り抜き図の1対化・`pe-exam-figure-auditor` の統合・`civil-exampoint-restorer` の廃止。呼び出し元（`/cce-essay-cycle`・`/pe-essay-cycle`・`/civil-keiken-magazine`・`/civil-figure-rework`・`/figure-recrop`・`/improve-article`・`/quality-cycle`）に「機械ゲートが先・往復は2回まで」を書く
 - 上の表の新設3体・分割3組・廃止2体と、機械の段へ寄せる5体の廃止（検査スクリプトと `quality-audit.mjs` への登録を先に入れる）。差し引きで84体→約82体
 - 呼び出し元の SKILL.md（`weekly-review`・`monthly-review`・`monetization-strategy`・`competitor-review`・`coconala-order`・`coconala-publish`・`coconala-status`・`pe-note-plan`・`google-search-growth`・`seo-growth-review`・`a8-report`・`psi-audit`）を更新
 - サイト側: `civil-guide-writer`→`guide-writer`、`cem-qa`→`keyword-qa` の改名、`civil-construction-qa` の2分割、採点表から機械の軸を抜く（`/improve-article`・`/quality-cycle`・`/keyword-page` の手順で機械ゲートを先に置く）。図の統合は DN-0798 の判断後
@@ -211,6 +251,6 @@ frontmatter の `effort:` が今の Claude Code で効くかは、第3段階の�
 - **起動数を増やさない**: `note-traffic-analyst` は週次レビューの名無しの子（Agent B）の置き換えで、差し引き0。`coconala-traffic-analyst` は、スクリプトが閾値越え（撤退ライン・前週比の急変）を出した週だけ起動する。`product-portfolio-planner` は月次だけ、競合の分析役は四半期の `/competitor-review` だけ。
 - **読む量を絞る**: 分析役の入力はスクリプトが作った集計（JSON）だけ。生データ・記事本文・Web は読ませない。tools は `Read, Glob, Grep` に限る。
 - **返す量を決める**: 出力は「変化・考えられる理由・次の手・根拠の数字」の定型にする。
-- **高いモデルを使わない**: 企画役も sonnet にする（上の表の `planner` を inherit から sonnet に変更）。台帳の突き合わせは子、決定は親。
+- **高いモデルは回数の少ない企画だけ**: 分析役と週次の計画役は sonnet（集計済みの数字を定型で返すだけで、判断は上位モデルの親がする。子も上位にすると同じ判断に2回払う）。月1回の `product-portfolio-planner` だけ inherit にする。
 - **機械へ寄せる5体の廃止と、採点の前の機械ゲート**は、起動そのものを減らす側に働く。
 - 起動回数は `~/.claude/usage-log/` に残るので、再編の4週間後に前後を比べる（84体・4週間で専任568回＋`general-purpose` 184回が基準）。
