@@ -1981,6 +1981,8 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 1. 測量士は 12 月中、舗装は 1 月中に、note・ココナラの上位商品の構成と価格を `competitor-review`（`competitor-analyst`）で取る
 2. 価格を変えるなら `npm run product -- price`（単品）と `npm run product -- set`（マガジン）で正本を直し、note の価格へ反映する。`noteコンテンツ計画.md` の価格表も直す
 
+
+**進捗（2026-11-18・案のみ、運営者の決定待ち）**: `competitor-analyst` で取得済みの競合データと比べ、全 8 商品を据え置く案。販売は 0 件（`data/note/sales.json`）で、まだ買われる時期（測量士 3/22〜・舗装 5 月〜）を通っていないため、高いのか見られていないのかを区別できない。比べた相手: 測量士は petenconsul の計算の型 ¥1,980（note）・測量士の note 中央値 ¥2,500・アガルートの通信講座 ¥217,800〜。舗装は応用試験の有料教材が note に見当たらず（検索の上位だけの確認）、ココナラの道路プロ0609 の添削 ¥3,000（レビュー 36 件）が最も強い。決める時期は各試験の 14 日後（`config/revenue-calendar.json` の judgmentDaysAfter）とし、見る指標は商品別の閲覧と購入・パックと単品の比率。値下げの検討条件（例: 閲覧 100 件超で購入 0）は運営者が決める。
 **完了条件**: 競合と比べた価格の判断（据え置きか変更か）を正本と計画書に記録した。
 
 
