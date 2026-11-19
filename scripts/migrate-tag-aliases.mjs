@@ -18,6 +18,7 @@ import { join, relative } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { buildAliasMap, rewriteFrontmatterTags } from './lib/content-taxonomy.mjs';
 import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const ARGS = process.argv.slice(2);
 const WRITE = ARGS.includes('--write');
@@ -27,14 +28,7 @@ const targets = ARGS.filter((a) => !a.startsWith('--'));
 
 const aliasMap = buildAliasMap(JSON.parse(readFileSync(join(REPO_ROOT, 'src/config/tags.json'), 'utf8')));
 
-function walk(dir, out) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, out);
-    else if (e.name.endsWith('.mdx')) out.push(p);
-  }
-  return out;
-}
+const walk = (dir, out) => { out.push(...listFiles(dir, { ext: '.mdx' })); return out; };
 let files = [];
 if (targets.length) {
   for (const t of targets) { const p = join(REPO_ROOT, t); files.push(...(statSync(p).isDirectory() ? walk(p, []) : [p])); }

@@ -21,6 +21,7 @@ import { datasetPath } from './datasets.mjs';
 import { readJson } from './json-io.mjs';
 import { escapeRegExp } from './regexp-escape.mjs';
 import { DESIGN_TOKENS_REL } from './repository-paths.mjs';
+import { listFiles } from './fs-walk.mjs';
 
 export const ALLOW_PATH = '.claude/config/qualification-ssot-allow.json';
 const NAME_KEYS = ['label', 'shortLabel', 'badgeLabel', 'name', 'title', 'short'];
@@ -91,20 +92,7 @@ export function syncDerivedNames(root, registry, { write = false } = {}) {
 }
 const posix = (p) => p.split('\\').join('/');
 
-function walk(dir, pick, out = []) {
-  let entries;
-  try {
-    entries = readdirSync(dir, { withFileTypes: true });
-  } catch {
-    return out;
-  }
-  for (const e of entries) {
-    if (e.isDirectory()) {
-      if (!SKIP_DIRS.has(e.name)) walk(join(dir, e.name), pick, out);
-    } else if (pick(e.name)) out.push(join(dir, e.name));
-  }
-  return out;
-}
+const walk = (dir, pick) => listFiles(dir, { allowMissing: true, skipDir: (_p, name) => SKIP_DIRS.has(name), match: (_p, name) => pick(name) });
 
 /** JSON の中で、資格 id に名前が付いている箇所（パス）を返す */
 export function findConfigCopies(json, ids) {

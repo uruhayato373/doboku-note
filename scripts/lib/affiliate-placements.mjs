@@ -9,6 +9,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { datasetPath } from './datasets.mjs';
 import { linkKeys } from './affiliate-link-keys.mjs';
+import { listFiles, skipHiddenAndNodeModules } from './fs-walk.mjs';
 
 export const SURFACES = [
   { id: 'site', label: 'サイト', roots: ['src', 'content/site'], ext: /\.(tsx?|mdx)$/ },
@@ -17,18 +18,10 @@ export const SURFACES = [
 ];
 
 
-function walk(dir, test, out) {
-  let names;
-  try { names = readdirSync(dir); } catch { return out; }
-  for (const name of names) {
-    if (name === 'node_modules' || name.startsWith('.')) continue;
-    const p = join(dir, name);
-    const st = statSync(p);
-    if (st.isDirectory()) walk(p, test, out);
-    else if (test.test(name)) out.push(p);
-  }
+const walk = (dir, test, out) => {
+  out.push(...listFiles(dir, { allowMissing: true, followLinks: true, skipDir: skipHiddenAndNodeModules, match: (_p, name) => !name.startsWith('.') && test.test(name) }));
   return out;
-}
+};
 
 function frontmatterValue(text, key) {
   const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---/);

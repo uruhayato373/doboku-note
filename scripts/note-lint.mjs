@@ -44,6 +44,7 @@ import { findTaskLists } from './lib/note-task-list.mjs';
 import { findDuplicateCoconala } from './lib/note-duplicate-coconala.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -68,9 +69,8 @@ function stagedNoteArticles() {
 }
 
 function walkMd(p) {
-  const st = statSync(p);
-  if (st.isFile()) return p.endsWith('.md') ? [p] : [];
-  return readdirSync(p).flatMap((c) => walkMd(join(p, c)));
+  if (statSync(p).isFile()) return p.endsWith('.md') ? [p] : [];
+  return listFiles(p, { followLinks: true, match: (path) => path.endsWith('.md') });
 }
 
 // --- 個別チェック（[{line, msg}] を返す） ---
