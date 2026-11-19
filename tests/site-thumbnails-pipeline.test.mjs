@@ -99,7 +99,7 @@ test('claudeQueue: 似た画像の組は二次監査へ回す', () => {
 
 test('帯: 資格の色と共通の色はすべて白文字のコントラスト比が規格以上', () => {
   const { spec } = thumbsConfig();
-  const tokens = JSON.parse(readFileSync(join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8')).exams;
+  const tokens = JSON.parse(readFileSync(join(REPO_ROOT, 'scripts/assets/design-tokens/note-cover-tokens.json'), 'utf8')).exams;
   const colors = Object.entries(tokens).filter(([, v]) => v && typeof v === 'object' && v.base);
   assert.ok(colors.length > 0, '検査 0 件');
   for (const [key, v] of colors) assert.ok(contrastWithWhite(v.base) >= spec.bandContrastMin, `${key} ${v.base} は ${contrastWithWhite(v.base).toFixed(2)}`);

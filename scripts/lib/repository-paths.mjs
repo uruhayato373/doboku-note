@@ -61,6 +61,13 @@ export const AGENT_CONFIG_ROOT = at('.claude', 'config');
  */
 export const FONTS_REL = 'scripts/assets/fonts';
 export const FONTS_ROOT = at('scripts', 'assets', 'fonts');
+/**
+ * 生成する画像の色・寸法のデザイントークン（note-cover・svg・instagram-carousel の 3 つ）。仕様の説明は
+ * .claude/knowledge/design-system/ の文書にあり、値はここだけ。サイト（src/）も相対 import で同じファイルを読む。
+ * root を引数で受ける関数は DESIGN_TOKENS_REL を、それ以外は DESIGN_TOKENS_ROOT を使う。
+ */
+export const DESIGN_TOKENS_REL = 'scripts/assets/design-tokens';
+export const DESIGN_TOKENS_ROOT = at('scripts', 'assets', 'design-tokens');
 
 // --- 正本・記録（2026-10-02 に .claude/ から分離） -------------------------
 /** 事業・試験・商品の正本と、スクリプト・CI・サイトの設定 */
@@ -90,6 +97,10 @@ export const MIGRATION_MAP = [
 export const MOVED_PATHS = [
   // 2026-11-19 に .claude/scripts/ を scripts/ へ集約した（.claude/ にコードを置かない）
   [".claude/scripts", "scripts"],
+  // 2026-11-19 にデザイントークン 3 つを画像生成の共通素材として scripts/assets/design-tokens/ へ移した（.claude/ に CI が読むものを置かない）
+  [".claude/knowledge/design-system/note-cover-tokens.json", "scripts/assets/design-tokens/note-cover-tokens.json"],
+  [".claude/knowledge/design-system/svg-tokens.json", "scripts/assets/design-tokens/svg-tokens.json"],
+  [".claude/knowledge/design-system/instagram-carousel-tokens.json", "scripts/assets/design-tokens/instagram-carousel-tokens.json"],
   [".claude/config/pe-first-stage-historical-sources.json", "config/pe-first-stage-historical-sources.json"],
   [".claude/config/note-intro-standard-civil-cross.json", "config/note-intro-standard-civil-cross.json"],
   [".claude/config/youtube-production-disclosure.json", "config/youtube-production-disclosure.json"],

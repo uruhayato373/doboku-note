@@ -42,10 +42,10 @@ import { join, relative } from 'node:path';
 // ゲートだけが正しく解決できない（civil-1 を civil-1-2 より先に見る特別扱いを取りこぼす）。
 import { resolveExam } from './generate-note-covers.mjs';
 import { isQualificationRef, loadRegistry } from './lib/qualification-registry.mjs';
-import { REPO_ROOT as ROOT, KNOWLEDGE_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, DESIGN_TOKENS_ROOT } from './lib/repository-paths.mjs';
 
 const NOTE_DIR = join(ROOT, 'content/note');
-const TOKENS_PATH = join(KNOWLEDGE_ROOT, 'design-system', 'note-cover-tokens.json');
+const TOKENS_PATH = join(DESIGN_TOKENS_ROOT, 'note-cover-tokens.json');
 const TOKENS = relative(ROOT, TOKENS_PATH).split('\\').join('/'); // 表示用（リポジトリからの相対）
 const JSON_OUT = process.argv.includes('--json');
 

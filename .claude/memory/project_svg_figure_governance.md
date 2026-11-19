@@ -8,7 +8,7 @@ metadata:
 doboku-note の図版SVGガバナンス層（2026-06-18 整備, commit be0283b8d・develop・未push）。SVGの監査/校正/目視確認/共有化を触る前にこの地図を見る。
 
 **5層スタック**:
-1. **数値ルール真実源** = `docs/design-system/svg-tokens.json`（site: viewBox≤400・font最小11/本文13・色 colorsAllowList・矢印marker定義）＋ `create-svg/SKILL.md`。色は CSS変数不可で hex リテラル直書き（`<img>`配信のため）。
+1. **数値ルール真実源** = `scripts/assets/design-tokens/svg-tokens.json`（site: viewBox≤400・font最小11/本文13・色 colorsAllowList・矢印marker定義）＋ `create-svg/SKILL.md`。色は CSS変数不可で hex リテラル直書き（`<img>`配信のため）。
 2. **機械監査** = `check-mdx` の svg rules `audit.mjs`/`detect.mjs`（P1-P8: クリップ/必須属性/viewBox超過/font過小/色ドリフト/濃色bg、P9 はみ出し, P10 marker方向, **P11-concept-title(MEDIUM)=最上部中央 font≥14 y≤26 の概念名タイトル検知**）。pre-commit で site SVG の HIGH をブロック。state= `.claude/state/svg-audit.json`。**鉄則: 図に「概念名タイトルを入れない」(figure-canvas-policy §2.4)**＝SNS書出し render-figure-sns が概念名をヘッダーに出すため二重化／記事は見出しが担う。説明サブタイトル(サマリー)は font≤11 で先頭に置けば可。2026-06-24 に自作8図がこれに違反→除去＋P11新設(commit 169e03709)。既存ドリフト約32図は P11 で surface・別バックログ。check-figure-canvas はキャンバスサイズのみ検査でタイトルは拾わない。
 3. **意味層 Evaluator** = `svg-figure-auditor`（audit-only・sonnet・**site/note横断**）。パスで真実源切替: site(`.local/r2/posts/**/img/*.svg`)=svg-tokens/image-policy/principles、note(`docs/note/**/img/figure-*`)=note-svg-policy。機械P1-P8の上の「概念伝達・alt整合・可読性・本文結線」を4軸採点。site SVGはPNG書出し無く構造判定＋「要目視」明記。
 4. **校正** = 親が `/create-svg` の手順で行う（専用の `svg-figure-rewriter` は呼ばれず 2026-11-18 に退役。指摘をSVGソースに外科適用・データ/文言不変。site=audit.mjsでHIGH=0自己確認、note=figure-*.svg修正後にrenderでPNG再生成）。

@@ -20,13 +20,14 @@ import { qualificationRank } from './qualification-names.mjs';
 import { datasetPath } from './datasets.mjs';
 import { readJson } from './json-io.mjs';
 import { escapeRegExp } from './regexp-escape.mjs';
+import { DESIGN_TOKENS_REL } from './repository-paths.mjs';
 
 export const ALLOW_PATH = '.claude/config/qualification-ssot-allow.json';
 const NAME_KEYS = ['label', 'shortLabel', 'badgeLabel', 'name', 'title', 'short'];
 export const CODE_DIRS = ['scripts', 'tools/admin-app/src', 'src'];
-export const CONFIG_DIRS = ['config', '.claude/config', '.claude/knowledge', 'src/config'];
+export const CONFIG_DIRS = ['config', '.claude/config', '.claude/knowledge', 'src/config', DESIGN_TOKENS_REL];
 const ALIAS_SOURCES = [
-  ['.claude/knowledge/design-system/note-cover-tokens.json', (j) => j.exams],
+  [`${DESIGN_TOKENS_REL}/note-cover-tokens.json`, (j) => j.exams],
   [datasetPath('config.note-funnel'), (j) => j.exams],
   [datasetPath('config.keiken-answer-sheet-limits'), (j) => j.grades],
 ];

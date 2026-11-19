@@ -10,7 +10,7 @@ import { categoryExamKeys } from '../scripts/ogp-create/lib/category-exam-key.mj
 import { ogpCoverageErrors } from '../scripts/check-home-exam-coverage.mjs';
 
 const REAL = JSON.parse(readFileSync('src/config/categories.json', 'utf8'));
-const TOKENS = JSON.parse(readFileSync('.claude/knowledge/design-system/note-cover-tokens.json', 'utf8'));
+const TOKENS = JSON.parse(readFileSync('scripts/assets/design-tokens/note-cover-tokens.json', 'utf8'));
 const FAKE = {
   slug: 'fake-qualification', label: '架空の資格', subtitle: 's', variant: 'civil', area: 'exam', groups: ['guide', 'primary'], order: 34,
   layout: {

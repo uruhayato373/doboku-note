@@ -7,7 +7,7 @@ import { ogpCoverageErrors } from '../scripts/check-home-exam-coverage.mjs';
 import { CATEGORY_TO_EXAM_KEY } from '../scripts/ogp-create/lib/category-exam-key.mjs';
 
 const CATEGORIES = JSON.parse(readFileSync('src/config/categories.json', 'utf8'));
-const TOKENS = JSON.parse(readFileSync('.claude/knowledge/design-system/note-cover-tokens.json', 'utf8'));
+const TOKENS = JSON.parse(readFileSync('scripts/assets/design-tokens/note-cover-tokens.json', 'utf8'));
 
 test('今の categories.json の表示中カテゴリはすべてテーマ色を持つ', () => {
   const { checked, errors } = ogpCoverageErrors(CATEGORIES, CATEGORY_TO_EXAM_KEY, TOKENS);

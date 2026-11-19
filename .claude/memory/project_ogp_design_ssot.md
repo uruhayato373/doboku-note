@@ -15,7 +15,7 @@ OGP デザインは「継続的に相談・改善」する方針（2026-06-16 �
 
 **og:title 分離（2026-06-29・page.tsx:165）**: ソーシャルカードの `og:title`/`twitter:title` は `seoTitle` でなく素の `doc.meta.title`（資格名重複＋「｜…キーワード集」接尾辞をカード上で出さない）。`<title>`（検索）は引き続き `seoTitle`。
 
-**テーマ色**: `docs/design-system/note-cover-tokens.json` の `exams[].base` を note カバーと**共用**（色の二重管理をしない）。`ogp-create.mjs` の `CATEGORY_TO_EXAM_KEY` + `resolveAccentColor()` が解決。新カテゴリ追加時は CATEGORY_TO_EXAM_KEY + note-cover-tokens.json + ogp-prompts.md の3点を更新。
+**テーマ色**: `scripts/assets/design-tokens/note-cover-tokens.json` の `exams[].base` を note カバーと**共用**（色の二重管理をしない）。`ogp-create.mjs` の `CATEGORY_TO_EXAM_KEY` + `resolveAccentColor()` が解決。新カテゴリ追加時は CATEGORY_TO_EXAM_KEY + note-cover-tokens.json + ogp-prompts.md の3点を更新。
 
 **note-cover-g2 は別系統**: note 記事カバーは中央630セーフ幅(590px)を厳守（note フィード1:1クロップ対策）。mono-tag の全幅化と混同しない。`--debug-safety` は630赤枠を重ねる現役機能だが mono-tag では枠超過が正常＝目視は gallery を使う。
 
@@ -29,7 +29,7 @@ OGP デザインは「継続的に相談・改善」する方針（2026-06-16 �
 note/X/Facebook の外部リンクカードが生成されない典型原因は og:image の R2 404（HTML は 200）。①OGP 生成は手動 `npm run ogp -- --all`（published:false はスキップ）②R2 同期は専用 `r2-sync.yml` の path フィルタが `ogp.png`（img/ の外）を拾わなかった→フィルタに `**/ogp.png`/`**/ogp.webp` を追加。予防ゲート `npm run check-ogp-coverage`（published:true の ogp.png 欠落を検知・`r2-audit.yml` 週次）。新カテゴリ追加手順は exam-content-policy.md Part4 step7。手動復旧: 生成→新規 ogp.png のみ pathspec commit→`gh workflow run r2-sync.yml -f dry_run=false -f images_only=true`→`curl --ssl-no-revoke --retry 5 -A facebookexternalhit/1.1` で 200（会社PCは R2 S3 API 遮断でローカル upload 不可・407/000 はノイズ）。現在 OGP は CI 供給（[[project_asset_audience_routing]]）。
 
 ## 統合: note カバー G2 とカバー運用（旧 note_cover_g2）
-- note 記事カバーは G2 全幅バナー帯: **試験区分=ベース色／系列(notePricing)=濃淡**（1級土木=青 `#1E73C8`/2級=緑 `#2A7050`/総監=濃紺 `#16365C`/共通=ブロンズ `#9A6B1E`、主任技士=teal・診断士=plum）。値は `docs/design-system/note-cover-tokens.json`（配色 SoT）＋`note-cover.md`、テンプレ `renderNoteCoverG2`（satori）、生成 `scripts/generate-note-covers.mjs`、データ源は frontmatter `cover:` ブロック。**教訓: 新 exam のマガジンカバー色は generate-magazine-covers.mjs のハードコードでなく note-cover-tokens.json を必ず先に見る**（teal 衝突事故）。マガジンカバーは `magazine-banner`（`accentColor`/`fillBg`）。見た目を変えたら tokens の `designVersion` を上げる（V5 キャラカバー 2026-09-17〜）。
+- note 記事カバーは G2 全幅バナー帯: **試験区分=ベース色／系列(notePricing)=濃淡**（1級土木=青 `#1E73C8`/2級=緑 `#2A7050`/総監=濃紺 `#16365C`/共通=ブロンズ `#9A6B1E`、主任技士=teal・診断士=plum）。値は `scripts/assets/design-tokens/note-cover-tokens.json`（配色 SoT）＋`note-cover.md`、テンプレ `renderNoteCoverG2`（satori）、生成 `scripts/generate-note-covers.mjs`、データ源は frontmatter `cover:` ブロック。**教訓: 新 exam のマガジンカバー色は generate-magazine-covers.mjs のハードコードでなく note-cover-tokens.json を必ず先に見る**（teal 衝突事故）。マガジンカバーは `magazine-banner`（`accentColor`/`fillBg`）。見た目を変えたら tokens の `designVersion` を上げる（V5 キャラカバー 2026-09-17〜）。
 - 点検基盤: `npm run note-cover-gallery`、`check-note-cover-fit`（フル1280幅を超える「真の溢れ」のみ検出）。banner「7-11字推奨」は正方形630クロップの可読性目安で、462本中79%が超過しても正規（クリップのみ NG）。note カバーは中央630セーフ幅(590px)を厳守（mono-tag OGP の全幅化と別系統）。
 - `cover.character:<ポーズ>` で右に先生立ち絵（opt-in・無料/入口/もくじ/学習法/答案ハウツー系39枚）。有料/過去問/キーワード/白書/magazine 内部はクリーン G2（権威性）。`generate-note-covers.mjs <slug>` は部分一致で他級まで巻き込む→dir 指定か生成後 git status。
 - ライブ note カバー差替の技術（2026-06-30 無料55＋有料112 完了）は現在 `note-update-body --sync`/`--parts cover`（[[project_note_article_sync]]）。stale 検出＝`cover.png` の git 最終更新 > `notePublishedAt`（現在は台帳 coverHashes）。カバー更新は本文に触れないので有料境界は自然保持。

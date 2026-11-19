@@ -1,7 +1,7 @@
 /**
  * IG Stories ハイライト用モダンシック意匠 ビルダー (v7.1)。
  *
- * 真実源: .claude/knowledge/design-system/instagram-carousel-tokens.json の highlightStories
+ * 真実源: scripts/assets/design-tokens/instagram-carousel-tokens.json の highlightStories
  * ポリシー: ハイライトの設計の文書（ig-highlight-design-policy.md）は 2026-10-25 に外した（git の履歴にある）
  * 戦略: docs/marketing/01_SNS集客戦略.md v7.1 §2 Highlight 6 種
  *
@@ -33,14 +33,13 @@
  */
 
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { join } from 'node:path';
+import { DESIGN_TOKENS_ROOT } from '../repository-paths.mjs';
 import { pickTitleSize } from './fit-title.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKENS = JSON.parse(
   readFileSync(
-    resolve(__dirname, '../../../.claude/knowledge/design-system/instagram-carousel-tokens.json'),
+    join(DESIGN_TOKENS_ROOT, 'instagram-carousel-tokens.json'),
     'utf8',
   ),
 );

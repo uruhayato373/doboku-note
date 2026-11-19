@@ -8,7 +8,7 @@ Instagram カルーセル設定ファイル（`slide-data.json` v2）と生成 P
 
 > **READ FIRST（真実源）**:
 > - 5 軸ルーブリック（テキスト系）・字数ルール・合否ラインは [`.claude/knowledge/reference/ig-carousel-policy.md`](../../.claude/knowledge/reference/ig-carousel-policy.md)
-> - デザイン統一性（軸 6）の判定基準は [`.claude/knowledge/design-system/instagram-carousel.md`](../../.claude/knowledge/design-system/instagram-carousel.md) と [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../../.claude/knowledge/design-system/instagram-carousel-tokens.json)
+> - デザイン統一性（軸 6）の判定基準は [`.claude/knowledge/design-system/instagram-carousel.md`](../../.claude/knowledge/design-system/instagram-carousel.md) と [`scripts/assets/design-tokens/instagram-carousel-tokens.json`](../../scripts/assets/design-tokens/instagram-carousel-tokens.json)
 >
 > 本ファイルは運用スペック（モデル・I/O・出力形式）のみ。
 >

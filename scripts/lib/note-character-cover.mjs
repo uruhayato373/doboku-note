@@ -7,7 +7,7 @@ import opentype from '@shuding/opentype.js';
 import { renderCharacterFrame } from './character-framing.mjs';
 import { driveGroupFor, loadDriveConfig, resolveVaultRoot, vaultAbsFor, vaultRelFor } from './drive-vault.mjs';
 import { loadRegistry, qualificationBadgeLabel, qualificationLabel, qualificationShortLabel } from './qualification-registry.mjs';
-import { REPO_ROOT, FONTS_REL } from './repository-paths.mjs';
+import { REPO_ROOT, FONTS_REL, DESIGN_TOKENS_ROOT } from './repository-paths.mjs';
 
 let namesSource = null;
 
@@ -20,7 +20,7 @@ export function coverExamNames(examKey, { registry, tokens } = {}) {
   if (!registry || !tokens) {
     namesSource ??= {
       registry: loadRegistry(REPO_ROOT),
-      tokens: JSON.parse(readFileSync(join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8')),
+      tokens: JSON.parse(readFileSync(join(DESIGN_TOKENS_ROOT, 'note-cover-tokens.json'), 'utf8')),
     };
     ({ registry = namesSource.registry, tokens = namesSource.tokens } = { registry, tokens });
   }

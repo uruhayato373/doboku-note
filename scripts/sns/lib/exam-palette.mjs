@@ -1,7 +1,7 @@
 /**
  * exam-palette.mjs — 試験パレット解決（多資格SNS展開の試験識別レイヤー用）
  *
- * 真実源: .claude/knowledge/design-system/note-cover-tokens.json の `exams`。
+ * 真実源: scripts/assets/design-tokens/note-cover-tokens.json の `exams`。
  * note カバー・IG・X・Shorts が同一 token を解決し、試験＝色相 をチャネル横断で統一する。
  * 設計: .claude/knowledge/reference/sns-image-policy.md §12
  */
@@ -9,9 +9,9 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { coverExamNames } from '../../lib/note-character-cover.mjs';
-import { REPO_ROOT as ROOT } from '../../lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, DESIGN_TOKENS_ROOT } from '../../lib/repository-paths.mjs';
 
-const TOKENS = JSON.parse(readFileSync(join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8'));
+const TOKENS = JSON.parse(readFileSync(join(DESIGN_TOKENS_ROOT, 'note-cover-tokens.json'), 'utf8'));
 
 /** トークンに資格の名前を付ける。名前はトークンに書かず registry から引く（coverExamNames・label=正式名・short=ごく短い名前） */
 const withNames = (slug, v) => {

@@ -9,7 +9,7 @@ import { SITE_HOST } from '../../lib/site-identity.mjs';
 
 export const FONT = `'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif`;
 
-// `.claude/design-system/svg-tokens.json` および `content/site/**/img/*.svg` と整合
+// `scripts/assets/design-tokens/svg-tokens.json` および `content/site/**/img/*.svg` と整合
 export const COLORS = {
   white: '#ffffff',
   brandFill: '#e8f0fe',

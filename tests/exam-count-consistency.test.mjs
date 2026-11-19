@@ -31,7 +31,7 @@ test('総監の SoT は 40問/年度で欠年がない（年度パターンの�
 
 test('IG カルーセル CTA の「N問」が総監 SoT の実問数と一致する', () => {
   const total = countQuestions(read('src/config/exam-questions.json'));
-  const tokens = read('.claude/knowledge/design-system/instagram-carousel-tokens.json');
+  const tokens = read('scripts/assets/design-tokens/instagram-carousel-tokens.json');
   const practice = tokens.slides.cta.stats.find((s) => s.label === 'PRACTICE');
   assert.ok(practice, 'CTA スライドに PRACTICE stat が無い');
   assert.equal(

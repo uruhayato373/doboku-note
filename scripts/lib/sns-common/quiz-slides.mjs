@@ -1,7 +1,7 @@
 /**
  * 過去問クイズカルーセル スライド要素ビルダー（AIDesigner 新意匠）。
  *
- * 真実源: .claude/knowledge/design-system/instagram-carousel-tokens.json
+ * 真実源: scripts/assets/design-tokens/instagram-carousel-tokens.json
  * 仕様書: .claude/knowledge/design-system/instagram-carousel.md
  *
  * 1080×1350 (IG Carousel) を主、1080×1920 (Reels) はレイアウト微調整で対応。
@@ -17,15 +17,14 @@
  */
 
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { join } from 'node:path';
+import { DESIGN_TOKENS_ROOT } from '../repository-paths.mjs';
 import { pickTitleSize } from './fit-title.mjs';
 import { examColor } from '../../sns/lib/exam-palette.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKENS = JSON.parse(
   readFileSync(
-    resolve(__dirname, '../../../.claude/knowledge/design-system/instagram-carousel-tokens.json'),
+    join(DESIGN_TOKENS_ROOT, 'instagram-carousel-tokens.json'),
     'utf8',
   ),
 );

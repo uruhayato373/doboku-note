@@ -33,7 +33,7 @@
   "evidence": [
     ".claude/knowledge/reference/author-authority-banner.md",
     "src/config/author.ts",
-    ".claude/knowledge/design-system/note-cover-tokens.json"
+    "scripts/assets/design-tokens/note-cover-tokens.json"
   ],
   "references": [
     {

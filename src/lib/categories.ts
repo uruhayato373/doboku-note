@@ -36,7 +36,7 @@ type CategorySort = 'civil' | 'concrete' | 'pe-first-stage' | 'pe-comprehensive'
 export type CategoryLayout = {
   view?: CategoryView;
   sort?: CategorySort;
-  // OGP の外枠の色（.claude/knowledge/design-system/note-cover-tokens.json の exams のキー）
+  // OGP の外枠の色（scripts/assets/design-tokens/note-cover-tokens.json の exams のキー）
   ogpExamKey?: string;
   // 記事型（DocGroupKey）ごとの見出しと説明。無い記事型はキー名・空の説明
   groupLabels?: Record<string, string>;
