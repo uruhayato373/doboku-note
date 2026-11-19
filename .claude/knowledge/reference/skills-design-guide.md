@@ -4,7 +4,7 @@ title: Skills 設計チェックリスト
 
 # Skills 設計チェックリスト
 
-Anthropic 公式「Skills Best Practices Guide」（`.claude/pdfs/guide.pdf`）の要点をこのプロジェクト向けに凝縮したチェックリスト。**新規スキル・エージェントを作成するとき、および既存のものをレビューするとき**にここを開く。詳細は必ず原典 PDF を参照。
+Anthropic 公式「Skills Best Practices Guide」（`.claude/pdfs/guide.pdf`・git 管理外。取り戻し方は末尾）の要点をこのプロジェクト向けに凝縮したチェックリスト。**新規スキル・エージェントを作成するとき、および既存のものをレビューするとき**にここを開く。詳細は必ず原典 PDF を参照。
 
 ## いつ読むか
 
@@ -249,7 +249,7 @@ Phase 2 の未実装スキルは `skills-guide.md` の「Phase 2 待機スキル
 
 ## 9. 参考リンク
 
-- **原典 PDF**: `.claude/pdfs/guide.pdf`（The Complete Guide to Building Skills for Claude）
+- **原典 PDF**: `.claude/pdfs/guide.pdf`（The Complete Guide to Building Skills for Claude）。人だけが読むので Google Drive vault の `アーカイブ/repo/.claude/pdfs/guide.pdf`（group `repo-archive`）に置き、git では追跡しない（2026-11-19）。手元に無ければ `node scripts/drive-vault-sync.mjs --pull --path .claude/pdfs/ --commit` で取り戻す
 - **スキル早引き**: `.claude/knowledge/reference/skills-guide.md`
 - **Agents Registry**: `.claude/knowledge/reference/agents-registry.md`
 - **プロジェクト設計原則**: `CLAUDE.md` の「ハーネス設計原則」セクション

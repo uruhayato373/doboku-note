@@ -6,7 +6,7 @@ metadata:
 ---
 ## 保管場所（2026-06-20 更新）
 
-**`docs/textbook/{資格}/` 配下に集約済み**。旧 `.claude/pdfs/１級土木施工管理技士/` は撤去（現在 `.claude/pdfs/` は `guide.pdf` のみ）。**`.claude/pdfs/` だけ見て「PDF が無い」と早合点しないこと**（2026-06-20、2級図クロップで誤って「ブロック」と判断しかけた）。
+**`docs/textbook/{資格}/` 配下に集約済み**。旧 `.claude/pdfs/１級土木施工管理技士/` は撤去（現在 `.claude/pdfs/` は git 管理外で、スキル設計の原典 `guide.pdf` だけを Drive vault の repo-archive から取り戻して使う）。**`.claude/pdfs/` だけ見て「PDF が無い」と早合点しないこと**（2026-06-20、2級図クロップで誤って「ブロック」と判断しかけた）。
 
 - 1級: `docs/textbook/１級土木施工管理技士/`
   - `問題集/`（第1次・第2次の教材 PDF）
