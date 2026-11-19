@@ -33,7 +33,8 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 - YouTube 改訂版の正本は `content-media` の Drive。予約を実行する CI へ渡す MP4 と表紙は `registry -- stage-youtube-revision` が private R2 の `youtube-revision-assets/` に一時転送し、CI が SHA-256 を照合して復元する。詳細は [content-registry.md](content-registry.md)。
 - **同じパスが両 tier に一致する状態を作らない**。`check-drive-vault` が `git ls-files ∪ ignore 済み` を走査して衝突を FAIL にする。
 - **Git に残すもの**は変わらない: 記事・SNS の原本（.md / frontmatter / slide-data / caption / status）、真正ベクター .svg、
-  各台帳（`manifest.json` / `drive-manifest.json`）と README。
+  各台帳（`manifest.json` / `drive-manifest.json`）と README。note の本文の図は SVG だけを置き、上げる PNG は投稿の直前に
+  作る（`scripts/lib/note-figure-png.mjs`・2026-11-19）。SVG の無い図・見本・元絵の PNG は、それ自体が正本なので Git に残す。
 
 ### 1-3. 端末間引き継ぎの完了条件
 

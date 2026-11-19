@@ -94,6 +94,9 @@ export function auditLinks(file, source, exists = (p) => existsSync(resolve(ROOT
     const inGit = tracked ? tracked.has(resolved) : true;
     const onDisk = exists(resolved);
     if (onDisk && inGit) continue;
+    // note の本文の図は同名の .svg が正本で、原稿が指す PNG は投稿時に作る（Git に無い・scripts/lib/note-figure-png.mjs）
+    const svgTwin = /^content\/note\/.+\.png$/.test(resolved) ? resolved.replace(/\.png$/, '.svg') : null;
+    if (svgTwin && exists(svgTwin) && (!tracked || tracked.has(svgTwin))) continue;
     const line = masked.slice(0, m.index).split('\n').length;
     out.push({ file, line, link: raw, resolved, kind: onDisk ? 'untracked' : 'missing' });
   }

@@ -234,7 +234,7 @@ function parseArticle(articlePath) {
     }
     anchors.push(anchor);
   }
-  const { body: tokenBody, images, missing } = extractBodyImages(body, dir);
+  const { body: tokenBody, images, missing } = extractBodyImages(body, dir, { render: true });
   images.forEach((im, idx) => { im.anchor = anchors[idx] || ''; });
   // ローカルのファイルが無い画像行を黙って除去すると、ライブの本文から画像が消える。
   // 2026-09-23 に ops-write（CI）で再公開した 7 記事から著者バナーが消えた（CI の checkout には

@@ -29,6 +29,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   node scripts/note-publish.mjs --article <path> --commit --schedule 2026-06-20T07:00  # 予約投稿（JST）
  *   node scripts/note-publish.mjs --article <path> --commit                        # notePricing: membership なら会員限定
  *   node scripts/note-publish.mjs --article <path> --commit --membership-plan "通年プラン｜過去問＆月例予想"  # プラン限定
+ *   本文の画像が手元に無いと note へ書き込む前に止まる（本文の図は同名の .svg から PNG を作る）。意図して外すなら --allow-missing-images
  *   （カバー/タグは article と同じ年度dir の cover-<type>.png / hashtags-<type>.txt を自動解決）
  *
  * 予約投稿（--schedule, note は無料で予約公開可）:
@@ -88,8 +89,17 @@ body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, '').trim().replace(/^#\s+.*(?:\r?\
 // cover / hashtags を type サフィックスで解決（article-II1.md → cover-II1.png / hashtags-II1.txt）
 const dir = dirname(articleAbs);
 // 画像行 → トークン化（paste 後に「＋」メニューでアップロード。lib/note-images.mjs）
-const { body: tokenBody, images: bodyImages, missing: imgMissing } = extractBodyImages(body, dir);
+// 本文の図は同名の SVG が正本で、PNG はここで作る（note-figure-png.mjs）。
+const { body: tokenBody, images: bodyImages, missing: imgMissing } = extractBodyImages(body, dir, { render: true });
 body = tokenBody;
+// 手元に無い画像を黙って除去して公開すると、図の欠けた記事が出る（照合の枚数も実在分で数えるので気づけない）。
+// note-update-body と同じく note へ書き込む前に止め、意図して外すときだけ --allow-missing-images で続ける。
+const localMissing = imgMissing.filter((x) => x.includes('（ファイル無し'));
+if (localMissing.length && !argv.includes('--allow-missing-images')) {
+  console.error(`[img] 中断: ローカルの画像ファイルが無い（${localMissing.length} 件）: ${localMissing.join(' / ')}`);
+  console.error('  → 画像（本文の図は同名の .svg）を用意して再実行する。意図して本文から外すなら --allow-missing-images');
+  process.exit(1);
+}
 if (imgMissing.length) console.log(`[img] WARN 除去した画像行: ${imgMissing.join(' / ')}`);
 const typeSuffix = (basename(articleAbs).match(/article-([^.]+)\.md$/) || [])[1] || '';
 // カバーは公開のたびに最新のデザインと文言で生成する（R2 の旧版を取り寄せると古いデザインで公開してしまう）。

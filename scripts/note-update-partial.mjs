@@ -8,6 +8,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { parseNoteArticle } from './lib/note-frontmatter.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { countEditorImages, settleUploads, uploadAtCaret } from './lib/note-images.mjs';
+import { figureSvgFor, renderNoteFigure } from './lib/note-figure-png.mjs';
 import {
   validatePartialSpec,
   normalizeAttachmentSnapshot,
@@ -612,8 +613,12 @@ async function applyOperation(page, op) {
     }, op);
   }
   if (op.type === 'replaceImage') {
-    const file = resolve(ROOT, op.file);
-    if (!file.startsWith(ROOT + '/') || !existsSync(file)) return false;
+    let file = resolve(ROOT, op.file);
+    if (!file.startsWith(ROOT + '/')) return false;
+    // 本文の図は同名の SVG が正本で、上げる PNG はここで作る（note-figure-png.mjs）
+    const figureSvg = figureSvgFor(file);
+    if (figureSvg) file = renderNoteFigure(figureSvg);
+    else if (!existsSync(file)) return false;
     const beforeSrcs = await page.evaluate(() => [...document.querySelectorAll('[contenteditable=true] img')].map((image) => image.src));
     const beforeImages = beforeSrcs.length;
     if (beforeImages !== op.expectedImages) {

@@ -122,12 +122,14 @@ function collectSite() {
     });
 }
 
-// --- note 図版 PNG を収集（--all） ---
+// --- note 図版を収集（--all）。同名の SVG があれば SVG（正本。PNG は投稿のときに作り Git に無い）、無ければ PNG ---
 function collectNote() {
   if (!existsSync(NOTE)) return [];
-  const rels = readdirSync(NOTE, { recursive: true, withFileTypes: false })
+  const all = readdirSync(NOTE, { recursive: true, withFileTypes: false })
     .map((p) => String(p).replace(/\\/g, "/"))
-    .filter((p) => /\/img\/figure-[^/]+\.png$/.test(p));
+    .filter((p) => /\/img\/figure-[^/]+\.(png|svg)$/.test(p));
+  const has = new Set(all);
+  const rels = all.filter((p) => !(p.endsWith(".png") && has.has(p.replace(/\.png$/, ".svg"))));
   return rels
     .map((rel) => {
       const slugDir = dirname(rel);
