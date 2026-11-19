@@ -156,7 +156,7 @@ node scripts/render-note-figures.mjs content/note/{slug}/img
 ## 7. 雛形リファレンス
 
 良い参考実装:
-- `scripts/render-figure-soukan-analysis.mjs` — 総監択一式17年分分析の生成スクリプト（横棒均等配分・タイムライン）
+- `content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/img/figure-*.svg` — 完成 SVG（フロー・マトリクス・比較）。図は SVG を直接書く（記事ごとの生成スクリプトは 2026-11-19 に退役）
 - `content/note/一般部門との違い/img/figure-{1,2,3}-*.svg` — 完成 SVG（比較表・横棒・マトリクス 3 種）
 
 ## 8. 修正サイクル
