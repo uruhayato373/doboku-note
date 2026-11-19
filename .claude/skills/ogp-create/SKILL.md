@@ -232,7 +232,7 @@ cover:
 
 ## 事前条件
 
-- `.claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf` と `Inter-Bold.ttf` が配置済みであること
+- `scripts/assets/fonts/NotoSansJP-Bold.ttf` と `Inter-Bold.ttf` が配置済みであること
 - `satori` `sharp` `gray-matter` が依存関係に含まれていること（既存済み）
 
 ## トラブルシューティング

@@ -7,7 +7,7 @@ import opentype from '@shuding/opentype.js';
 import { renderCharacterFrame } from './character-framing.mjs';
 import { driveGroupFor, loadDriveConfig, resolveVaultRoot, vaultAbsFor, vaultRelFor } from './drive-vault.mjs';
 import { loadRegistry, qualificationBadgeLabel, qualificationLabel, qualificationShortLabel } from './qualification-registry.mjs';
-import { REPO_ROOT } from './repository-paths.mjs';
+import { REPO_ROOT, FONTS_REL } from './repository-paths.mjs';
 
 let namesSource = null;
 
@@ -153,7 +153,7 @@ const benefitFit = L => [L.benefit, L.textWidth - 36];
 
 function context(root) {
   if (contexts.has(root)) return contexts.get(root);
-  const dir = join(root, '.claude/skills/ogp-create/assets/fonts');
+  const dir = join(root, FONTS_REL);
   const noto = readFileSync(join(dir, 'NotoSansJP-Bold.ttf'));
   const inter = readFileSync(join(dir, 'Inter-Bold.ttf'));
   const font = opentype.parse(noto.buffer.slice(noto.byteOffset, noto.byteOffset + noto.byteLength));

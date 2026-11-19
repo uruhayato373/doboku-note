@@ -37,7 +37,7 @@ import { renderTemplate, LAYOUT_CONSTANTS } from './ogp-create/lib/ogp-templates
 import { wrapTitle, pickFontSize } from './ogp-create/lib/ogp-text.mjs';
 import { pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
-import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT, FONTS_ROOT } from './lib/repository-paths.mjs';
 import { loadManifest, loadManifestRaw, writeManifestAtomic, toPosix } from './lib/asset-storage.mjs';
 import { loadOverrides } from './lib/standards-structure.mjs';
 
@@ -45,10 +45,7 @@ const require = createRequire(import.meta.url);
 const coverTokens = require(path.join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 
 const ARTICLES_ROOT = path.join(REPO_ROOT, 'content', 'site', 'standards-articles');
-const FONTS_DIR = path.join(
-  REPO_ROOT,
-  '.claude/skills/ogp-create/assets/fonts',
-);
+const FONTS_DIR = FONTS_ROOT;
 
 // 章記事は資格ではなく「土木・建設 共通」の領域。外枠色は共通トークンの bronze を使う
 // （資格別テーマ色と取り違えないため、資格の色は借りない）。

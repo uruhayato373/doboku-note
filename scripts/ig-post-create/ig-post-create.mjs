@@ -37,7 +37,7 @@ import { resolve } from 'node:path';
 import { execSync } from 'node:child_process';
 import { Resvg } from '@resvg/resvg-js';
 import { todayJst } from '../lib/jst-date.mjs';
-import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, FONTS_ROOT } from '../lib/repository-paths.mjs';
 
 
 // ─── ヘルパー ────────────────────────────────────────────────
@@ -125,7 +125,7 @@ function normalizeSlideData(sd) {
   };
 }
 
-const FIGURE_FONT_DIR = resolve(ROOT, '.claude/skills/ogp-create/assets/fonts');
+const FIGURE_FONT_DIR = FONTS_ROOT;
 
 /**
  * figure スライドの imagePath を data URI に解決する（無ければスペック表示にフォールバック）。

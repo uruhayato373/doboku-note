@@ -32,7 +32,6 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import satori from 'satori';
 import sharp from 'sharp';
 import matter from 'gray-matter';
@@ -101,7 +100,7 @@ function deriveTitleParts(rawTitle, examLabel, typeLabel) {
 import { renderTemplate, LAYOUT_CONSTANTS, PHOTO_TITLE_WIDTH } from './lib/ogp-templates.mjs';
 import { CATEGORY_TO_EXAM_KEY } from './lib/category-exam-key.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
-import { REPO_ROOT as PROJECT_ROOT, SITE_CONTENT_ROOT } from '../lib/repository-paths.mjs';
+import { REPO_ROOT as PROJECT_ROOT, SITE_CONTENT_ROOT, FONTS_ROOT } from '../lib/repository-paths.mjs';
 import { datasetDir, datasetPath } from '../lib/datasets.mjs';
 import { requireLocalAsset } from '../lib/asset-storage.mjs';
 import { availablePhotoVersion, pagePhotoPath } from '../lib/site-photo.mjs';
@@ -109,9 +108,8 @@ import { listFiles } from '../lib/fs-walk.mjs';
 import { parseCliArgs } from '../lib/cli-args.mjs';
 import { siteSlugFromParts } from '../../src/lib/site-slug.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const POSTS_DIR = SITE_CONTENT_ROOT;
-const FONTS_DIR = path.join(__dirname, '..', '..', '.claude', 'skills', 'ogp-create', 'assets', 'fonts');
+const FONTS_DIR = FONTS_ROOT;
 // 資格ごとに共有する AI 生成背景の置き場。<exam-key>.png|webp|jpg を探す。
 // 真実源の exam-key は CATEGORY_TO_EXAM_KEY（上）と note-cover-tokens.json に一致。
 const BACKGROUNDS_DIR = path.join(PROJECT_ROOT, datasetDir('config.ogp-backgrounds'));

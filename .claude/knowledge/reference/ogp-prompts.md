@@ -192,5 +192,5 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 2. `config/ogp/settings.json` の templates（レジストリ）に ID を追加
 3. `scripts/ogp-create/lib/ogp-templates.mjs` の `renderers` に `render{XYZ}` を追加（`(props, { width, height }) => element` シグネチャ）
 4. 必要なら `config/ogp/settings.json` の rules にルール追加
-5. 背景画像が必要なら `.claude/skills/ogp-create/assets/fonts/ogp-backgrounds/{id}.png` に配置
+5. 背景画像が必要なら `scripts/assets/fonts/ogp-backgrounds/{id}.png` に配置
 6. `npm run ogp-gallery` で一覧目視検証（mono-tag は全幅。中央クロップ耐性が要るテンプレのみ別途セーフ幅を検証）

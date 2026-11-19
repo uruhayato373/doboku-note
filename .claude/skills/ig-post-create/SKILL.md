@@ -204,7 +204,7 @@ node scripts/ig-post-create/ig-post-create.mjs --slug heinrich-law --date 2026-0
 
 ### フォント
 
-`.claude/skills/ogp-create/assets/fonts/`
+`scripts/assets/fonts/`
 - NotoSansJP-Bold.ttf (日本語・700)
 - Inter-Bold.ttf (英数字・700)
 
