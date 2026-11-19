@@ -19,6 +19,7 @@ import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 import { countAnswerChars } from '../src/lib/keiken-charcount.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -64,14 +65,7 @@ function severity(chars, max) {
 }
 
 // --- 走査対象の article.md を集める -----------------------------------------
-function walk(dir, acc) {
-  for (const name of readdirSync(dir)) {
-    const p = join(dir, name);
-    const st = statSync(p);
-    if (st.isDirectory()) walk(p, acc);
-    else if (name === 'article.md') acc.push(p);
-  }
-}
+const walk = (dir, acc) => acc.push(...listFiles(dir, { followLinks: true, match: (_p, name) => name === 'article.md' }));
 
 function defaultTargets() {
   const acc = [];
