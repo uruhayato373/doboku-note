@@ -3056,6 +3056,19 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1256] 到達しない CLI のうち判断待ちの 15 本を、消すか残すか決める
+タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 の scripts 整理（PR #1670）で、到達しない CLI のうち消す根拠が固まらなかったものを残した。
+  - `consolidate-reference-vault.mjs`（261 行）: Drive の移行元 `civil1-personal` を指すのはこのファイルだけ。移行が完了したかは Drive の実体で確かめる必要がある
+  - `backfill-note-hashtags.mjs`（102 行）: 今は 90 個未満の hashtags.txt は 0 本だが、新しい記事で同じ状態が起きうる
+  - `whitepaper-grep-check.mjs`（209 行）: 白書 PDF の置き場が無く使えないが、冒頭に「完全削除はしない」とある
+  - `migrate-civil-frontmatter.mjs`（86 行）: 対象 0 件だが、lint の案内（`lint-mdx-mobile.mjs`）とテスト（`tests/legacy-frontmatter-toc.test.mjs`）が使う
+  - 判断のつかない 11 本（`node scripts/check-unreachable-cli.mjs --list` の残り。`migrate-callout-types`・`bulk-rewrite-descriptions`・`fix-*` の 3 本など）
+- やること: 1 本ずつ、消すか残すか（残すなら冒頭に使い道を書き、到達できるよう文書から案内する）を決める
+- 完了条件: `.claude/config/unreachable-cli-baseline.json` が、意図して残す理由のあるものだけになる
+
+
 ### [DN-1255] note 記事の列挙（7 か所の自前走査）を lib の 1 関数にまとめる
 タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
 
