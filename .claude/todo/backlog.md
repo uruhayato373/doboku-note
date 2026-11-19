@@ -3056,6 +3056,17 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1251] note の本文の図で SVG の無い 16 件を SVG 化し、render-figure-*.mjs が PNG を書くのをやめる
+タグ: [領域:教材] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 に note の本文の図を「SVG が正本・PNG は投稿の直前に作る」形へ変えた（scripts/lib/note-figure-png.mjs）。同名の SVG が無い図 16 件は、PNG 自体が正本のまま Git に残っている。
+  - 土木の経験記述・入門クラスタの 13 件と総監の 2 件は、生成スクリプト（render-figure-2c-entry-cluster・2c-essay-cluster・2c-essay-fail・civil1-essay-cluster・soukan-analysis）が SVG を組みながら保存せず、PNG だけを書いている
+  - `技術士総監/記述式の書き方/img/figure-four-layer-structure.png` は生成元が見つからない
+  - render-figure-*.mjs（34 本）は今も SVG の隣に PNG を書く（.gitignore で無視されるので害はないが、作る意味が無い）
+- やること: 上の 5 本を SVG も保存する形に直して 15 件を SVG 化し、PNG を git rm する。figure-four-layer-structure は SVG で作り直すか、PNG を正本のまま残すかを決める。render-figure-*.mjs は PNG を書くのをやめる（確認は node scripts/render-note-figures.mjs）
+- 完了条件: content/note の追跡中の PNG が、SVG の無い原本（sample.png・著者バナーの原本と元絵・anki-sample・ogp など）だけになる。npm test（tests/note-figure-sources.test.mjs）が通る
+
+
 ### [DN-1231] 暗い配色でインフィード広告の背景が白く浮く
 タグ: [領域:サイト] [種類:改善] [起票:2026-11-17]
 
