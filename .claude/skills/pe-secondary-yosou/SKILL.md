@@ -93,7 +93,7 @@ domain: product
 ### Step 5: 梱包（親が機械処理・1記事1ディレクトリ）
 1. **カバー**: `node scripts/generate-note-covers.mjs "{magazine_id}_{科目名}"`。再帰探索＋`article.md` 対応済みなので、各記事 dir の `article.md` → 同 dir `img/cover.png` を frontmatter `cover:` ブロックから生成する。
 2. **ハッシュタグ**: 各記事 dir に `hashtags.txt`（~90〜99 個・**1 行 1 個**）。同マガジンの過去問 hashtags か近縁科目を土台に、年度タグを `#令和8年度`/`#R08予想`/`#予想問題`/`#出題予想`/`#試験直前対策` に差し替え＋テーマ固有タグを足し、重複排除。
-3. **PDF**: 永続 spec `scripts/pdf-specs/{magazine_id}_{科目名}.json` に R08-yosou の各記事 dir を追記（`src: "R08-yosou/{dir}/article.md"`、include=`^## 予想問題`→`^## なぜこのテーマ` ＋ `^## フル模範解答`→`^## 採点ポイント`）。`node scripts/magazine-to-pdf.mjs --spec <spec> --in-place`（Chrome 必要）。Chrome 不可環境なら PDF はスキップして親が「PDF 未生成」を明示報告。
+3. **PDF**: 永続 spec `<マガジンのフォルダ>/magazine-pdf.json` に R08-yosou の各記事 dir を追記（`src: "R08-yosou/{dir}/article.md"`、include=`^## 予想問題`→`^## なぜこのテーマ` ＋ `^## フル模範解答`→`^## 採点ポイント`）。`node scripts/magazine-to-pdf.mjs --spec <spec> --in-place`（Chrome 必要）。Chrome 不可環境なら PDF はスキップして親が「PDF 未生成」を明示報告。
 
 ### Step 6: SoT 登録（親が編集）
 - `src/lib/note-magazines.ts` に `pe-construction-{subject}-magazine`（`published:false`）。**予想テーマ別記事化で記事数が増える**（道路は II-1/II-2/III×4=計6 ＋過去問）。`title`/`description`/`price` は予想（テーマ別単品）＋過去問の構成で書く。**価格はユーザー判断**（テーマ別単品 ¥? ＋セット）＝確定値はユーザーに確認、暫定で published:false 登録に留める。
@@ -101,7 +101,7 @@ domain: product
 - **記事本文に価格を書かない**（SoT は note-magazines.ts。[[feedback_no_price_in_mdx_body]]）。
 
 ### Step 7: commit（親・pathspec 厳守）
-- **必ず `git commit -- <pathspec>`**（`git add` + bare commit は並行エージェントの index を巻き込む。[[feedback_shared_index_commit_safety]]）。対象＝`{dir}` 配下＋`note掲載文.txt`＋`pdf-specs/...json`＋`note-magazines.ts`。
+- **必ず `git commit -- <pathspec>`**（`git add` + bare commit は並行エージェントの index を巻き込む。[[feedback_shared_index_commit_safety]]）。対象＝`{dir}` 配下＋`note掲載文.txt`＋`{dir}/magazine-pdf.json`＋`note-magazines.ts`。
 - pre-commit（note-lint / check-sns-urls）が通ることを確認。
 
 ## 完了条件（DoD）

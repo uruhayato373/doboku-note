@@ -231,7 +231,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 ### マガジン記事を紙用 PDF にしたい
 
-1. `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` — spec 済みマガジンを「問題文＋解答」PDF に再生成
+1. `/magazine-to-pdf --spec <マガジンのフォルダ>/magazine-pdf.json [--desktop]` — spec 済みマガジンを「問題文＋解答」PDF に再生成
 2. 新規マガジン（spec 無し）は `magazine-pdf-builder` エージェントに spec 作成から委譲（A/B案など複数解答は両方収録）
 
 ### 週次 PDCA を回したい
