@@ -183,7 +183,7 @@ prepare_collect_worktree() {
   git -C "$CWT" clean -q -fd || return 1
   link_deps "$CWT"
   # pre-commit が読む生成物（git 追跡外）。無いと commit の瞬間に ENOENT で落ちる
-  (cd "$CWT" && node .claude/scripts/build-doc-meta-index.mjs --ci > /dev/null) || return 1
+  (cd "$CWT" && node scripts/build-doc-meta-index.mjs --ci > /dev/null) || return 1
 }
 
 collect_phase() { # pre|post

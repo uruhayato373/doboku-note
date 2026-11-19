@@ -15,7 +15,7 @@ import { join } from 'node:path';
 import test from 'node:test';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const SCRIPT = join(ROOT, '.claude/scripts/backfill-mdx-dates.mjs');
+const SCRIPT = join(ROOT, 'scripts/backfill-mdx-dates.mjs');
 
 function makeRepo() {
   const dir = mkdtempSync(join(tmpdir(), 'mdx-dates-merge-'));

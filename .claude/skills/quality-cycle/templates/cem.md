@@ -55,22 +55,22 @@
 
 ```bash
 # 全件評価
-node .claude/skills/quality-cycle/scripts-cem/quality-cycle.mjs --mode score
+node scripts/quality-cycle/cem/quality-cycle.mjs --mode score
 
 # 章別評価（§6.1 等の特定セクション、2026-05-26 追加）
-node .claude/skills/quality-cycle/scripts-cem/quality-cycle.mjs --mode score --section 6.1
+node scripts/quality-cycle/cem/quality-cycle.mjs --mode score --section 6.1
 
 # リライト（5 件）
-node .claude/skills/quality-cycle/scripts-cem/quality-cycle.mjs --mode rewrite --threshold 2.5 --max 5
+node scripts/quality-cycle/cem/quality-cycle.mjs --mode rewrite --threshold 2.5 --max 5
 
 # 章別リライト
-node .claude/skills/quality-cycle/scripts-cem/quality-cycle.mjs --mode rewrite --section 6.1 --threshold 2.5
+node scripts/quality-cycle/cem/quality-cycle.mjs --mode rewrite --section 6.1 --threshold 2.5
 
 # スコア集約
-node .claude/skills/quality-cycle/scripts-cem/merge-scores.mjs /tmp/cem-score-results.json
+node scripts/quality-cycle/cem/merge-scores.mjs /tmp/cem-score-results.json
 
 # リライト履歴記録
-node .claude/skills/quality-cycle/scripts-cem/log-rewrite.mjs /tmp/cem-rewrite-results.json
+node scripts/quality-cycle/cem/log-rewrite.mjs /tmp/cem-rewrite-results.json
 ```
 
 弱点軸 → 推奨拡張パターン A-G の選択ロジックは `scripts-cem/quality-cycle.mjs` の `pickPatterns()` に実装済み（真実源は [03_リライト方法論方針.md](../../../../docs/editorial/03_リライト方法論方針.md)）。
@@ -79,4 +79,4 @@ node .claude/skills/quality-cycle/scripts-cem/log-rewrite.mjs /tmp/cem-rewrite-r
 
 - **人間レビュー必須**: AI リライト後は `reviewStatus: needs-review`。`approved` への変更は人間のみ
 - **バッチ分割コミット**: 690 件を 1 コミットにまとめない。5 件ずつコミット推奨（AI 生成シグナル対策）
-- **改行コード**: リライト時は必ず `.claude/scripts/lib/mdx-io.mjs` 経由（CRLF 保持）
+- **改行コード**: リライト時は必ず `scripts/lib/mdx-io.mjs` 経由（CRLF 保持）

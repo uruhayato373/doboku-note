@@ -22,7 +22,7 @@
 | **問題の質** | 入門〜中級・シンプルな知識クイズ | 公式試験問題そのまま（長文） |
 | **デザイン** | 明色 SVG ベース（既存 quiz-ig.mjs） | AIDesigner 新意匠（単一 brand + semantic、Manrope+NotoSansJP） |
 | **選択肢** | 4 択 | 5 択 |
-| **生成パイプライン** | `.claude/scripts/sns/render-quiz-pack.mjs` | `ig-post-create.mjs --exam` |
+| **生成パイプライン** | `scripts/sns/render-quiz-pack.mjs` | `ig-post-create.mjs --exam` |
 | **1 パック構造** | cover + 4×(Q+A) + cta = 10 枚 | cover + 4×(problem+answer) + cta = 10 枚 |
 | **量産可能性** | △ 運営者作問が必要 | ◎ 自動量産 |
 | **適した投稿時期** | 平時の「気軽に解く」入門訴求 | 試験前 6 ヶ月の高頻度配信 |
@@ -33,12 +33,12 @@
 
 - **対象**: 6管理テーマ（安全/法規/施工計画/環境/品質/工程）＝施工管理法＋法規ドメイン。土木一般・専門土木の技術系論点は THEMES 未定義のため対象外（別途論点設計が必要）
 - **頻出度★**: 論点の出現年数 / 総回数（1級=12・2級=10）を 0.6/0.3 で ★★★/★★☆/★☆☆
-- **生成**: `node .claude/scripts/sns/generate-civil-theme-packs.mjs --exam both`（slide-data.json・**exam-packs を総入れ替え**）→ `node .claude/scripts/sns/render-civil-theme-packs.mjs --exam both`（PNG + caption）
+- **生成**: `node scripts/sns/generate-civil-theme-packs.mjs --exam both`（slide-data.json・**exam-packs を総入れ替え**）→ `node scripts/sns/render-civil-theme-packs.mjs --exam both`（PNG + caption）
 - **出力**: `content/sns/instagram/civil-{1,2}/theme-packs/{themeKey}-{subtopicKey}/pack-NN/`
-- **cover**: `.claude/scripts/sns/templates/exam-quiz-cover-ig.mjs`（科目ピル＋論点見出し＋頻出度★＋第1問Q＋出題年度）
+- **cover**: `scripts/sns/templates/exam-quiz-cover-ig.mjs`（科目ピル＋論点見出し＋頻出度★＋第1問Q＋出題年度）
 - **caption**: `generate-caption.cjs`（`_meta.theme`/`subtopic` で `isThemePack` 分岐）
 - **IG適性フィルタ**: 個数型（選択肢が全て「Nつ」）・解説合計>420字は固定カードで破綻（解答スライドが「ここがポイント」箱に重なる）ため generate 時に除外
-- **予約投稿（波状）**: `node .claude/scripts/sns/schedule-civil-theme-packs.mjs --count 30`（決定的プラン・台帳（写しの status.json）で予約済skip・**1セッション30件上限＝凍結回避**）。詳細 → .claude/todo/backlog.md「IG 論点パック 残92件」
+- **予約投稿（波状）**: `node scripts/sns/schedule-civil-theme-packs.mjs --count 30`（決定的プラン・台帳（写しの status.json）で予約済skip・**1セッション30件上限＝凍結回避**）。詳細 → .claude/todo/backlog.md「IG 論点パック 残92件」
 - **実績（2026-07）**: 1級 85パック/39論点、2級 37パック/26論点 = 計122パック（適性フィルタ後）。うち30件予約済
 
 ## 2. 投稿ペース計画
@@ -147,7 +147,7 @@ node scripts/bulk-generate-exam-packs.mjs --all  # 全 130 パック
 ### 単一パック生成・修正
 
 ```bash
-node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size carousel
+node scripts/ig-post-create/ig-post-create.mjs --exam r07-pack-01 --size carousel
 ```
 
 ### 投稿時の調整
@@ -192,7 +192,7 @@ slide-data.json を手動編集して個別修正可能：
 ### レンダリング
 
 ```bash
-node .claude/scripts/sns/render-quiz-pack.mjs content/sns/instagram/_quiz-sample
+node scripts/sns/render-quiz-pack.mjs content/sns/instagram/_quiz-sample
 # → instagram-carousel/img/{NN-管理名}/{01..10}.{svg,png}
 ```
 
@@ -234,7 +234,7 @@ node .claude/scripts/sns/render-quiz-pack.mjs content/sns/instagram/_quiz-sample
 
 **変更フロー**: tokens.json を編集 → `ig-carousel-restyle --pack ...` で再生成 → `ig-carousel-qa` で 6 軸採点。
 
-> **B（過去問 `exam-packs`）のカバーは別レンダラ**（`.claude/scripts/sns/templates/exam-cover-ig.mjs` の `renderExamCoverIg`、上表の A 用 tokens は不使用）。2026-06-17 に**カバー1枚目を「管理分野」主役に変更**＝上部色帯を 5 管理別色（`sns-config.mjs managementMap[].color`）にし、管理分野ラベルを大見出し、年度＋形式は従（小）へ降格。YT Shorts カバー（`generate-thumbnails.mjs` ほか）も同様に管理分野主役＋「この動画の論点」併記。真実源は sns-image-policy.md §12。本文 problem/answer スライドは単一 brand 配色のまま。
+> **B（過去問 `exam-packs`）のカバーは別レンダラ**（`scripts/sns/templates/exam-cover-ig.mjs` の `renderExamCoverIg`、上表の A 用 tokens は不使用）。2026-06-17 に**カバー1枚目を「管理分野」主役に変更**＝上部色帯を 5 管理別色（`sns-config.mjs managementMap[].color`）にし、管理分野ラベルを大見出し、年度＋形式は従（小）へ降格。YT Shorts カバー（`generate-thumbnails.mjs` ほか）も同様に管理分野主役＋「この動画の論点」併記。真実源は sns-image-policy.md §12。本文 problem/answer スライドは単一 brand 配色のまま。
 
 ### A 択一クイズパック（既存 SVG）
 
@@ -244,7 +244,7 @@ node .claude/scripts/sns/render-quiz-pack.mjs content/sns/instagram/_quiz-sample
 | 配色 | brand 青 (chip は管理別) |
 | 番号バッジ | 円 + 数字 1-4 |
 | 答えカード | 緑系大カード + 解説 |
-| 詳細 | `.claude/scripts/sns/templates/quiz-ig.mjs` |
+| 詳細 | `scripts/sns/templates/quiz-ig.mjs` |
 
 ## 9. 廃止された運用
 
@@ -290,10 +290,10 @@ node .claude/scripts/sns/render-quiz-pack.mjs content/sns/instagram/_quiz-sample
 
 ```bash
 # Reels サイズ PNG を 1080×1920 で生成
-node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size reels
+node scripts/ig-post-create/ig-post-create.mjs --exam r07-pack-01 --size reels
 
 # stories/img/ に 4 枚（cover/Q1/A1/cta）を抽出 + caption + note.md 自動生成
-node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
+node scripts/instagram/build-stories.mjs --pack r07-pack-01
 # → content/sns/instagram/cem/exam-packs/r07/pack-01/stories/{img/01-cover.png ...}
 ```
 

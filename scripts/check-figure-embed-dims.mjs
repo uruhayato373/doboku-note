@@ -33,7 +33,7 @@
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, basename } from "node:path";
 import { execFileSync } from "node:child_process";
-import { readMdxFile, writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
+import { readMdxFile, writeMdxFile } from "./lib/mdx-io.mjs";
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 

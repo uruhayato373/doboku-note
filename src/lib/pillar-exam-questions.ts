@@ -4,7 +4,7 @@ import { join } from 'node:path';
 /**
  * 総監の 5 管理のページ（*-management-pillar）に出す「この管理の過去問」。
  *
- * 集計は .claude/scripts/build-pillar-exam-questions.mjs が refresh-indexes（npm run build に含む）で毎回作る
+ * 集計は scripts/build-pillar-exam-questions.mjs が refresh-indexes（npm run build に含む）で毎回作る
  * src/config/pillar-exam-questions.json（git 管理外の生成物）。2026-11-15 まで、作るだけでどのページにも出ていなかった（DN-1220）。
  * 生成前（dev の直後・テスト）はファイルが無いので null を返し、ページには何も出さない。
  */

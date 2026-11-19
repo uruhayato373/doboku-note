@@ -19,7 +19,7 @@
  * exit: 0 = 完了（対象 0 件を含む） / 1 = 張り替えできない旧リンクが残った / 2 = 対応表が読めない（検査不成立）
  * ---------------------------------------------------------------------------
  */
-import { readMdxFile, writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
+import { readMdxFile, writeMdxFile } from "./lib/mdx-io.mjs";
 import { loadSiteRoutes, rewriteLegacySiteLinks } from "./lib/site-links.mjs";
 import { listFiles } from "./lib/fs-walk.mjs";
 

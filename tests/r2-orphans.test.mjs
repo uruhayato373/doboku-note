@@ -33,7 +33,7 @@ test('削除リスト: コメントと空行を除いたキーだけを読む', 
 });
 
 test('R2 へのアップロード対象は画像の拡張子だけ（MDX・テキストを公開バケットへ送らない）', () => {
-  const src = readFileSync(join(REPO_ROOT, '.claude/scripts/upload-images-to-r2.mjs'), 'utf8');
+  const src = readFileSync(join(REPO_ROOT, 'scripts/upload-images-to-r2.mjs'), 'utf8');
   const block = src.match(/const MIME_TYPES = \{([\s\S]*?)\};/);
   assert.ok(block, 'MIME_TYPES が見つからない（アップロード対象の決め方を変えたらこのテストも直す）');
   const exts = [...block[1].matchAll(/'(\.[a-z0-9]+)'\s*:\s*'([^']+)'/g)];

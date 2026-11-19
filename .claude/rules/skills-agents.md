@@ -7,6 +7,10 @@ paths:
 
 # スキル・サブエージェントを追加・修正するときの規約
 
+## コードの置き場
+
+- スキル・エージェントが使うスクリプトは `scripts/<スキル名>/` に置く。`.claude/` にコードを置かない（CI・テストが読むコードは `scripts/`。`tests/claude-dir-has-no-code.test.mjs` が止める）。スキルのディレクトリに置くのは SKILL.md・references/・templates/・素材だけ
+
 ## 台帳との結合（CLAUDE.md §8）
 
 - `.claude/skills/` または `.claude/agents/` を追加・削除・description 変更したら `npm run build-capability-index` を回し、書き換わった [skills-guide.md](../knowledge/reference/skills-guide.md)・[agents-registry.md](../knowledge/reference/agents-registry.md) を同じ commit に含める。一覧は frontmatter からの生成物で、手では直さない（`npm run check-doc-coupling` が pre-commit と CI で一致を見る。変更の経緯は git の履歴・正当に不要なら `SKIP_DOC_COUPLING=1`）

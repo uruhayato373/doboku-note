@@ -79,7 +79,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 
 ### 3. 外科的に変更する
 - 触るべき箇所だけ触る。頼まれていない周辺コード・コメントを「改善」しない
-- **MDX 書き込みは `lib/mdx-io.mjs` の `writeMdxFile` 経由**（なぜ: 直接 `writeFileSync` は CRLF 混在を引き起こし pre-commit で reject される）
+- **MDX 書き込みは `scripts/lib/mdx-io.mjs` の `writeMdxFile` 経由**（なぜ: 直接 `writeFileSync` は CRLF 混在を引き起こし pre-commit で reject される）
 - **`git add` は変更したファイルだけ明示指定**（`git add -A` / `git add .` 禁止 — 並行エージェントの変更を巻き込む）
 - コンテンツ編集: 1 記事の修正が完了したら**即 commit**。一時ファイルは `.tmp/` 配下に出す
 
@@ -156,7 +156,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 Codex はファイルを読む・編集する前に、以下の適用パスに一致するルール原本をすべて読む。新規ファイルも予定パスで判定し、複数領域にまたがる場合は各ルールを適用する。対象が増えたら追加で読む。同じ原本は変更がなければ再読不要。ルール内の相対参照は原本のディレクトリから解決する。
 
 - [.claude/rules/assets-images.md](.claude/rules/assets-images.md) — `**/img/**`, `content/**/*.svg`, `content/**/*.png`, `content/**/*.webp`, `config/asset-storage.json`, `config/drive-vault.json`, `.claude/state/assets/**`, `content/coconala/assets/**`, `.github/workflows/r2-*.yml`, `.github/workflows/ogp-supply.yml`
-- [.claude/rules/code.md](.claude/rules/code.md) — `src/**`, `scripts/**`, `.claude/scripts/**`, `tools/**`, `tests/**`, `package.json`, `.github/workflows/**`
+- [.claude/rules/code.md](.claude/rules/code.md) — `src/**`, `scripts/**`, `tools/**`, `tests/**`, `package.json`, `.github/workflows/**`
 - [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`, `content/registry/**`
 - [.claude/rules/content-site.md](.claude/rules/content-site.md) — `content/site/**`
 - [.claude/rules/docs.md](.claude/rules/docs.md) — `docs/**`, `.claude/knowledge/**`

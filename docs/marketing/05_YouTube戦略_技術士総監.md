@@ -115,7 +115,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 | 工程 | 資産/ツール | 状態 |
 |---|---|---|
-| スライド生成 | Satori + resvg（`.claude/scripts/lib/sns-common/slide-render.mjs`） | 9:16・16:9とも実装済み |
+| スライド生成 | Satori + resvg（`scripts/lib/sns-common/slide-render.mjs`） | 9:16・16:9とも実装済み |
 | 音声 | VOICEVOX 四国めたん（Docker、`tts-client.mjs`） | 稼働中 |
 | Shorts 生成 | `npm run shorts-factory`（動画パック直結） | 実装済 |
 | Shorts 投稿 | legacy=台帳（kind `legacy-short`）、動画パック=`youtube.json`（計画）＋`content/registry/`（状態） | legacy総監は13本で凍結。日次cronは承認済み非総監video-packのみ |

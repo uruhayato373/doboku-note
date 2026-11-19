@@ -39,7 +39,7 @@ import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs
 import { readVideoCta } from './lib/video-cta.mjs';
 import { renderCharacterFrame } from './lib/character-framing.mjs';
 import { buildEditorialArtwork } from './lib/video-editorial-art.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, FONTS_ROOT } from './lib/repository-paths.mjs';
 
 const { values: args } = parseArgs({
   args: process.argv.slice(2),
@@ -72,7 +72,7 @@ if (coverSpec && args['skip-png']) throw new Error('cover-design があるパッ
 if (coverSpec && coverSpec.format !== 'longform') throw new Error('longform cover の format が不一致');
 
 const { resolveExam } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/exam-palette.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/sns/lib/exam-palette.mjs')).href
 );
 const { scenes, theme, packTitle } = planLongformRender(manifest, storyboard, resolveExam);
 const cta = await readVideoCta(ROOT, packDir, 'longform');
@@ -116,7 +116,7 @@ async function loadCharacter(scene) {
 
 // ─── 依存（TTS/ffmpeg は mp4 を作るときだけ要求） ─────────────
 const { isRunning, synthesize } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/tts-client.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/lib/sns-common/tts-client.mjs')).href
 );
 const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await import(
   pathToFileURL(resolve(ROOT, 'scripts/lib/ffmpeg-compose.mjs')).href
@@ -128,7 +128,7 @@ if (!args['skip-tts']) {
 }
 
 // ─── フォント（render-editorial-reels と同一資産） ─────────────
-const FONT_DIR = resolve(ROOT, '.claude/skills/ogp-create/assets/fonts');
+const FONT_DIR = FONTS_ROOT;
 const FONTSOURCE_DIR = resolve(ROOT, 'node_modules/@fontsource');
 const fonts = [
   { name: 'Noto Sans JP', data: readFileSync(resolve(FONT_DIR, 'NotoSansJP-Bold.ttf')), weight: 700, style: 'normal' },

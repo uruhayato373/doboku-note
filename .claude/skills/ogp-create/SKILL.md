@@ -97,7 +97,7 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 `--debug-wrap` で各ページの実際の改行結果を確認できる:
 
 ```bash
-node .claude/skills/ogp-create/scripts/ogp-create.mjs pe-comprehensive-management-mbo --debug-wrap
+node scripts/ogp-create/ogp-create.mjs pe-comprehensive-management-mbo --debug-wrap
 # → lines: ["目標管理制度", "（MBO）"] / fontSize 54 / template mono-tag
 ```
 
@@ -115,7 +115,7 @@ node .claude/skills/ogp-create/scripts/ogp-create.mjs pe-comprehensive-managemen
 ### ケース1: 単一ページの OGP 生成
 
 ```bash
-node .claude/skills/ogp-create/scripts/ogp-create.mjs pe-comprehensive-management-mbo
+node scripts/ogp-create/ogp-create.mjs pe-comprehensive-management-mbo
 ```
 
 既存 `ogp.png` があればスキップ。強制上書きは `--force`。
@@ -123,21 +123,21 @@ node .claude/skills/ogp-create/scripts/ogp-create.mjs pe-comprehensive-managemen
 ### ケース2: 全ページ生成
 
 ```bash
-node .claude/skills/ogp-create/scripts/ogp-create.mjs --all          # 未生成分のみ
-node .claude/skills/ogp-create/scripts/ogp-create.mjs --all --force  # 全て再生成
+node scripts/ogp-create/ogp-create.mjs --all          # 未生成分のみ
+node scripts/ogp-create/ogp-create.mjs --all --force  # 全て再生成
 ```
 
 ### ケース3: マッピング確認（ファイル生成なし）
 
 ```bash
-node .claude/skills/ogp-create/scripts/ogp-create.mjs --all --dry-run
+node scripts/ogp-create/ogp-create.mjs --all --dry-run
 ```
 
 ### ケース4: タイトル改行のチューニング
 
 ```bash
-node .claude/skills/ogp-create/scripts/ogp-create.mjs pe-comprehensive-management-management-tradeoffs --debug-wrap
-node .claude/skills/ogp-create/scripts/ogp-create.mjs --all --debug-wrap | less
+node scripts/ogp-create/ogp-create.mjs pe-comprehensive-management-management-tradeoffs --debug-wrap
+node scripts/ogp-create/ogp-create.mjs --all --debug-wrap | less
 ```
 
 気に入らないページは `frontmatter.ogp.title` で上書きする（下記参照）。
@@ -183,7 +183,7 @@ ogp:
 
 ## テンプレート追加手順（将来テンプレを増やす場合）
 
-1. `.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs` の `renderers` に新しい render 関数を追加（`renderTemplate(id, props, { width, height })` のシグネチャに従う）
+1. `scripts/ogp-create/lib/ogp-templates.mjs` の `renderers` に新しい render 関数を追加（`renderTemplate(id, props, { width, height })` のシグネチャに従う）
 2. `config/ogp/settings.json` の templates にテンプレ定義を追加（ID・説明）
 3. `.claude/knowledge/reference/ogp-prompts.md` に出典プロンプトと用途を記録
 4. `config/ogp/settings.json` の rules の `default` または `rules[]` で出し分けルールを追加
@@ -232,7 +232,7 @@ cover:
 
 ## 事前条件
 
-- `.claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf` と `Inter-Bold.ttf` が配置済みであること
+- `scripts/assets/fonts/NotoSansJP-Bold.ttf` と `Inter-Bold.ttf` が配置済みであること
 - `satori` `sharp` `gray-matter` が依存関係に含まれていること（既存済み）
 
 ## トラブルシューティング
@@ -252,8 +252,8 @@ cover:
 - テンプレ定義: `config/ogp/settings.json` の templates
 - ルール: `config/ogp/settings.json` の rules
 - 改行・フォント設定: `config/ogp/settings.json` の text
-- レンダラ: `.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs`（mono-tag / magazine-banner / note-cover-g2 / crop-safe-v4 実装の真実源）
-- 改行・フォント計算: `.claude/skills/ogp-create/scripts/lib/ogp-text.mjs`
-- エントリポイント: `.claude/skills/ogp-create/scripts/ogp-create.mjs`
+- レンダラ: `scripts/ogp-create/lib/ogp-templates.mjs`（mono-tag / magazine-banner / note-cover-g2 / crop-safe-v4 実装の真実源）
+- 改行・フォント計算: `scripts/ogp-create/lib/ogp-text.mjs`
+- エントリポイント: `scripts/ogp-create/ogp-create.mjs`
 - note カバー: `scripts/generate-note-covers.mjs`（variant: crop-safe-v4=既定 / variant 無し cover:=G2 レガシー / cover: 無し=mono-tag）
 - noteカバー現行V5: `.claude/knowledge/design-system/note-cover-character-v5.md`（SSOT）／G2履歴: `note-cover.md`／トークン: `.claude/knowledge/design-system/note-cover-tokens.json`（値の真実源）

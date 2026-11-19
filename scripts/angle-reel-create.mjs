@@ -27,10 +27,10 @@ import { parseArgs } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { Resvg } from '@resvg/resvg-js';
 import { IG_HANDLE } from './lib/site-identity.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, FONTS_ROOT } from './lib/repository-paths.mjs';
 
 const IG = join(ROOT, 'content/sns/instagram');
-const FONT = join(ROOT, '.claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf');
+const FONT = join(FONTS_ROOT, 'NotoSansJP-Bold.ttf');
 const CHARDIR = join(ROOT, 'content/sns/_assets/character');
 
 // スライドの character 指定（slug 文字列 or {pose,side,scale}）を解決。無ければ null。
@@ -188,8 +188,8 @@ console.log('  cover.png = 完成フック');
 if (values['png-only']) { console.log('✅ PNG のみ描画（--png-only）。VOICEVOX 起動後に外して動画化。'); process.exit(0); }
 
 // ─── TTS（VOICEVOX 必要）───
-const { synthesize } = await import('../.claude/scripts/lib/sns-common/tts-client.mjs');
-const { applyReadingDict } = await import('../.claude/scripts/lib/sns-common/reading-dict.mjs');
+const { synthesize } = await import('./lib/sns-common/tts-client.mjs');
+const { applyReadingDict } = await import('./lib/sns-common/reading-dict.mjs');
 // 声: CLI --speaker > script.json speaker > 既定 13（青山龍星・成熟男性。発注者の一人称体験に合う）
 const speaker = values.speaker !== undefined ? Number(values.speaker) : (spec.speaker ?? 13);
 

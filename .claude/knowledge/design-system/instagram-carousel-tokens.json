@@ -4,9 +4,9 @@
     "source": "AIDesigner Instagram Carousel prototype (2026-05-27)",
     "appliesTo": "content/sns/instagram/{exam}/exam-packs/**",
     "consumedBy": [
-      ".claude/scripts/lib/sns-common/quiz-slides.mjs",
-      ".claude/skills/ig-post-create/scripts/ig-post-create.mjs",
-      ".claude/scripts/lib/sns-common/sns-config.mjs"
+      "scripts/lib/sns-common/quiz-slides.mjs",
+      "scripts/ig-post-create/ig-post-create.mjs",
+      "scripts/lib/sns-common/sns-config.mjs"
     ],
     "spec": ".claude/knowledge/design-system/instagram-carousel.md",
     "note": "5管理別カラーテーマは廃止。管理識別は cover-title (156px) のテキストで行う。"
@@ -175,7 +175,7 @@
   "highlightStories": {
     "_meta": {
       "purpose": "IG Stories ハイライト用モダンシック意匠。content/sns/instagram/highlights/** で使用。過去問パック (1080×1350) と意匠を切り分け、サムネ識別性とジャンル別カラーで 3 秒判断通過を狙う。",
-      "consumedBy": [".claude/scripts/lib/sns-common/highlight-stories-slides.mjs"],
+      "consumedBy": ["scripts/lib/sns-common/highlight-stories-slides.mjs"],
       "policy": "ハイライトの設計の文書は 2026-10-25 に外した（git の履歴にある）",
       "canvas": "1080×1920 Stories sizes"
     },

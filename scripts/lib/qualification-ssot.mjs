@@ -8,7 +8,7 @@
  *     資格を id／qualification／slug で指す項目と、資格 id（または別名）をキーにした名前を拾う。
  *     資格名と別の属性（試験の正式名など）は qualification-ssot-allow.json に理由つきで登録する。
  *   - 書き込み先（DERIVED_FILES）: npm run sync-qualification-names が書いた名前が registry と一致するか。
- *   - コード（scripts・.claude/scripts・tools/admin-app/src・src）: 資格 id（または別名）→ 日本語の対応表は 1 件でも違反。
+ *   - コード（scripts・tools/admin-app/src・src）: 資格 id（または別名）→ 日本語の対応表は 1 件でも違反。
  *     名前でない日本語（説明文など）の誤検出は、その行か直前の行に `qualification-ssot: allow <理由>` を書く。
  *   別名は note-cover-tokens.json・note-funnel.json・keiken-answer-sheet-limits.json のキー（civil-1・tankan など）。
  */
@@ -23,7 +23,7 @@ import { escapeRegExp } from './regexp-escape.mjs';
 
 export const ALLOW_PATH = '.claude/config/qualification-ssot-allow.json';
 const NAME_KEYS = ['label', 'shortLabel', 'badgeLabel', 'name', 'title', 'short'];
-export const CODE_DIRS = ['scripts', '.claude/scripts', 'tools/admin-app/src', 'src'];
+export const CODE_DIRS = ['scripts', 'tools/admin-app/src', 'src'];
 export const CONFIG_DIRS = ['config', '.claude/config', '.claude/knowledge', 'src/config'];
 const ALIAS_SOURCES = [
   ['.claude/knowledge/design-system/note-cover-tokens.json', (j) => j.exams],

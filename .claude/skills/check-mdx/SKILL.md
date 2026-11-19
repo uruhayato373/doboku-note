@@ -29,15 +29,15 @@ MDX 品質に関する 10 種類の検査ルールを 1 つのスキルに統合
 | Rule | 重大度 | 対象 | 検査内容 | 実装 |
 |---|---|---|---|---|
 | `syntax` | ERROR/WARN | MDX 全般 | MDX 構文（`{}` エスケープ、`<>` タグ、見出し階層、テーブル、数式、未対応記法の混入） | Claude 読解 |
-| `frontmatter` | HIGH/MEDIUM/LOW | frontmatter | zod スキーマ + 内容（description 長・publishedAt・tags allowlist） | `.claude/scripts/lint-frontmatter.mjs` |
+| `frontmatter` | HIGH/MEDIUM/LOW | frontmatter | zod スキーマ + 内容（description 長・publishedAt・tags allowlist） | `scripts/lint-frontmatter.mjs` |
 | `links` | HIGH/INFO | 外部・内部リンク | HTTP HEAD で外部 URL 死活、内部 `/docs/`・`/category/` slug 存在＋`#anchor` 断片検証（note ドラフトも対象） | `scripts/rules/links/` |
 | `svg` | HIGH/MEDIUM/LOW | 埋込 SVG | 文字クリップ、必須属性、viewBox 幅、font-size、テキスト重なり、色トークン | `scripts/rules/svg/` |
 | `staging` | — | Obsidian ステージング | 公開準備度（5 軸 15 点評価） | Claude 読解 |
 | `explanations` | HIGH/MEDIUM | 過去問解説 | 破損解説パターン（P1-headless / P2-examPoint-empty） | `scripts/rules/explanations/` |
 | `empty-container` | HIGH | MDX 全般 | 中身が空の `<Callout>`（空白・コメントのみ）= タイトルだけの無意味な枠（E1-empty-callout）。bulk リンク削除等でコンテナの中身だけ消えて枠が残る事故の再発防止 | `scripts/rules/empty-container/` |
-| `related-keyword` | MEDIUM | キーワードページ | 末尾「関連キーワード: [A]、[B]」列挙パターン（ルール 8-1） | `.claude/scripts/lint-mdx-mobile.mjs` |
+| `related-keyword` | MEDIUM | キーワードページ | 末尾「関連キーワード: [A]、[B]」列挙パターン（ルール 8-1） | `scripts/lint-mdx-mobile.mjs` |
 | `legal-citations` | LOW | 法令引用 | e-Gov 法令検索リンク化されているか（ルール 8-2） | `scripts/rules/legal-citations/` |
-| `note-link` | MEDIUM | note リンク | note 記事リンク（`note.com/dobokunote/n/`）が `<NoteLink>` 外（生 markdown・`<Callout>`・`<LinkCard>`）で書かれていないか（ルール 8-3） | `.claude/scripts/lint-mdx-mobile.mjs` |
+| `note-link` | MEDIUM | note リンク | note 記事リンク（`note.com/dobokunote/n/`）が `<NoteLink>` 外（生 markdown・`<Callout>`・`<LinkCard>`）で書かれていないか（ルール 8-3） | `scripts/lint-mdx-mobile.mjs` |
 
 ### 全体スキーム
 
@@ -88,7 +88,7 @@ next-mdx-remote / MDX v3 のビルドエラーを未然に防ぐ。
 
 **出力**: ERROR / WARN / INFO。Claude が MDX を読んで判定。
 
-### frontmatter — zod + lint（`.claude/scripts/lint-frontmatter.mjs`）
+### frontmatter — zod + lint（`scripts/lint-frontmatter.mjs`）
 
 構造（zod）+ 内容（独自 lint）の 2 層検証。
 
@@ -106,7 +106,7 @@ next-mdx-remote / MDX v3 のビルドエラーを未然に防ぐ。
 | LOW | `sections-missing` | `exams` 複数なのに `sections` 未設定 |
 | LOW | `sections-incomplete` | `sections` に未登録 exam |
 
-**実行**: `node .claude/scripts/lint-frontmatter.mjs <target>`
+**実行**: `node scripts/lint-frontmatter.mjs <target>`
 
 ### links — 外部 URL + 内部リンク
 
@@ -140,7 +140,7 @@ HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `conte
 - `--report <dir>` — `audit-{timestamp}.json` + `latest-report.md` を書き出す
 
 **実行**:
-- 外部: `node .claude/skills/check-mdx/scripts/rules/links/check-external-links.mjs`
+- 外部: `node scripts/check-mdx/rules/links/check-external-links.mjs`
 - 内部: `npm run check-links`（= `check-links.mjs`。`-- --scope note` 等を付与可）
 
 #### 定期監査（quality-audit）
@@ -171,11 +171,11 @@ HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `conte
 **ギャラリー生成（目視 QA）**:
 ```bash
 npm run svg-gallery               # site/note 図版を 1 枚 HTML で（site/note タブ＋資格別フィルタ・site は svg-audit.json 重大度バッジ）
-node .claude/skills/check-mdx/scripts/rules/svg/build-gallery-comment.mjs  # 旧: GitHub コメント用 Markdown
+node scripts/check-mdx/rules/svg/build-gallery-comment.mjs  # 旧: GitHub コメント用 Markdown
 ```
 `npm run svg-gallery` はローカル目視用（`.tmp/svg-gallery.html`・`--open` でブラウザ起動・svg-figure-auditor の視覚確認の足場）。上部タブで「サイト／note」を切替え、各タブ内で資格別（カテゴリ）に絞り込む。`build-gallery-comment.mjs` は GitHub Issue/PR コメント用 Markdown（`.tmp/svg-gallery-comment.md`）で用途が別。
 
-**実行**: `node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs`
+**実行**: `node scripts/check-mdx/rules/svg/audit.mjs`
 
 ### staging — Obsidian 公開準備度（Claude 読解）
 
@@ -202,7 +202,7 @@ node .claude/skills/check-mdx/scripts/rules/svg/build-gallery-comment.mjs  # 旧
 
 **引数**: `--category civil-construction-1` / `--topic 港則法` で絞り込み
 
-**実行**: `node .claude/skills/check-mdx/scripts/rules/explanations/audit.mjs`
+**実行**: `node scripts/check-mdx/rules/explanations/audit.mjs`
 
 **pre-commit 連動**: `scripts/pre-commit-mdx.mjs` が `detect.mjs` を import し、warning 表示（既存 64 件があるためブロックはしない）
 
@@ -217,7 +217,7 @@ node .claude/skills/check-mdx/scripts/rules/svg/build-gallery-comment.mjs  # 旧
 
 **禁止アプローチ**: `sed -i '/^関連キーワード[:：]/d'` のような完全自動置換は **絶対に使わない**（データ消失リスク）。
 
-**実行**: `node .claude/scripts/lint-mdx-mobile.mjs <target> 2>&1 | grep "8-1"`
+**実行**: `node scripts/lint-mdx-mobile.mjs <target> 2>&1 | grep "8-1"`
 
 ### legal-citations — e-Gov 法令リンク
 
@@ -230,10 +230,10 @@ MDX 本文の「〇〇法第◯条」が e-Gov 法令検索にリンクされて
 **自動修正**（`--fix`）:
 ```bash
 # dry-run
-node .claude/skills/check-mdx/scripts/rules/legal-citations/fix-legal-citations.mjs --dry-run
+node scripts/check-mdx/rules/legal-citations/fix-legal-citations.mjs --dry-run
 
 # 適用（バックアップは /tmp/fix-legal-citations-backup/ に保存）
-node .claude/skills/check-mdx/scripts/rules/legal-citations/fix-legal-citations.mjs --apply
+node scripts/check-mdx/rules/legal-citations/fix-legal-citations.mjs --apply
 ```
 
 **法令番号辞書**: `fix-legal-citations.mjs` の `LAW_ID_MAP`（2026-04-13 時点で 31 件登録、HTTP 200 で検証済み）。新法令追加は `LAW_ID_MAP` に `'{法令名}': '{法令番号}'` を足してから実行。
@@ -246,7 +246,7 @@ note.com 記事へのリンク（`note.com/dobokunote/n/`）は `<NoteLink>` コ
 - フェンスコードブロック内は対象外
 - 修正は Generator 側（`<NoteLink>` への置換）が行う。Evaluator は検出のみ
 
-**実行**: `node .claude/scripts/lint-mdx-mobile.mjs <target> 2>&1 | grep "8-3"`
+**実行**: `node scripts/lint-mdx-mobile.mjs <target> 2>&1 | grep "8-3"`
 
 ## 出力フォーマット
 
@@ -322,9 +322,9 @@ OK: 6 files
 
 ## 参照
 
-- `.claude/scripts/lint-frontmatter.mjs` — frontmatter rule 実装
-- `.claude/scripts/lint-mdx-mobile.mjs` — related-keyword (8-1) / legal-citations (8-2) 検出ロジック
-- `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（`--fix` 系で使用）
+- `scripts/lint-frontmatter.mjs` — frontmatter rule 実装
+- `scripts/lint-mdx-mobile.mjs` — related-keyword (8-1) / legal-citations (8-2) 検出ロジック
+- `scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（`--fix` 系で使用）
 - `scripts/rules/{rule}/` — rule 別スクリプト実装
 - `scripts/pre-commit-mdx.mjs` — pre-commit hook 連動
 - `.claude/knowledge/reference/content-authoring.md` — MDX 作成詳細ルール

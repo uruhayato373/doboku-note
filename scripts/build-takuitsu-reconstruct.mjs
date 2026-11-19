@@ -83,7 +83,7 @@ const DISCLAIMER =
 // 場合、選択肢や空欄前後の説明文が body に直接埋め込まれるため、body 全体を
 // 判定対象にすると無関係な語が拾われる（例: 原価管理の設問文中に「品質・
 // 工程・安全・環境」という語句が出るだけで安全管理に誤分類される）。
-// THEMES は IG 論点パック生成（.claude/scripts/sns/generate-civil-theme-packs.mjs）からも
+// THEMES は IG 論点パック生成（scripts/sns/generate-civil-theme-packs.mjs）からも
 // import される。Kindle A系ビルドと IG 論点分類で同一の論点定義・regex を単一源に保つ。
 export const THEMES = {
   anzen: {

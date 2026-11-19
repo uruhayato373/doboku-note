@@ -9110,6 +9110,45 @@
       "commit": "732ee4c00763",
       "verification": "npm run check-domains",
       "note": "エージェント21体（退役6・残す15）とスキル100本（統合2・残す98）の判断を記録。PR #1658・#1659・#1660。hook の撤去は DN-1246 へ移した"
+    },
+    {
+      "id": "DN-0992",
+      "at": "2026-11-19",
+      "task": "1 級二次の経験記述を、シーズン一括の伴走（題数の上限・各題 A 判定まで・不合格なら翌年割引）で試すか決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "29589c38311f",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1248",
+      "at": "2026-11-19",
+      "task": "ココナラの土木の月額の添削の商品画像を、月額・1級2級・月3回の中身に作り直す",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5498ae54e176",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1250",
+      "at": "2026-11-19",
+      "task": "main の定義で develop を checkout するワークフローが呼ぶパスを、PR で消したら止める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e2dd27fdf78a",
+      "verification": "npm run check-main-workflow-paths（無いもの 0 件）・node --test tests/main-workflow-paths.test.mjs（4 件合格）・転送を 1 本外して exit 1 を確認",
+      "note": "check-main-workflow-paths を CI ゲートに入れた（#1663・e2dd27fdf）。main の定義で develop を checkout する workflow 16 本が呼ぶファイル 87 件・npm script 36 件を PR のツリーと照合する。Mac に導入済みの weekly-review.sh の写しは CI から見えないので検査に入れず、回し直しは DN-1249 の手順に入っている"
     }
   ]
 }

@@ -13,7 +13,7 @@ const ALLOWED = new Set(['scripts/lib/coconala-catalog.mjs']);
 const OWN_READER = /id:\\s\*'\(\[\^'\]\+\)',\\s\*status/;
 
 test('ココナラのカタログを独自の正規表現で読むスクリプトが無い（parseCatalog に寄せる）', () => {
-  const roots = ['scripts', '.claude/scripts'].map((d) => join(REPO_ROOT, d));
+  const roots = ['scripts'].map((d) => join(REPO_ROOT, d));
   const files = roots.flatMap((d) => listFiles(d, { ext: '.mjs', allowMissing: true }));
   assert.ok(files.length > 100, `検査したファイルが少なすぎる（${files.length} 本）`);
   const offenders = files

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { resolveWindow, pickByLabelSnapshot } from '../.claude/scripts/lib/ga4-snapshot.mjs';
+import { resolveWindow, pickByLabelSnapshot } from '../scripts/lib/ga4-snapshot.mjs';
 import { latestReportRef, writeReport } from '../scripts/lib/metric-reports.mjs';
 
 /**

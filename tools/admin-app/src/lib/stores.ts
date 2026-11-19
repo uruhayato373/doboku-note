@@ -124,7 +124,7 @@ function refToken(path: string): string {
   return literal.length >= 6 ? literal : (parts[parts.length - 2] ?? literal);
 }
 
-const REF_PATHS = ['scripts', '.claude/scripts', 'tools/admin-app/src', 'src', '.github/workflows', 'package.json'];
+const REF_PATHS = ['scripts', 'tools/admin-app/src', 'src', '.github/workflows', 'package.json'];
 
 function codeRefs(root: string, token: string): string[] {
   try {

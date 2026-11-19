@@ -91,9 +91,9 @@ test('データとしての URL・説明・意図した行は止めない', () =
 test('走査するのはコードだけ（定義・テスト・fixture・docs は対象外）', () => {
   assert.equal(isIdentityScanTarget('scripts/generate-rss.mjs'), true);
   assert.equal(isIdentityScanTarget('src/lib/metadata.ts'), true);
-  assert.equal(isIdentityScanTarget('.claude/scripts/lib/sns-common/sns-config.mjs'), true);
+  assert.equal(isIdentityScanTarget('scripts/lib/sns-common/sns-config.mjs'), true);
   assert.equal(isIdentityScanTarget('tools/admin-app/src/app/materials/page.tsx'), true);
-  assert.equal(isIdentityScanTarget('.claude/scripts/youtube/publish-video-pack.cjs'), true);
+  assert.equal(isIdentityScanTarget('scripts/youtube/publish-video-pack.cjs'), true);
   assert.equal(isIdentityScanTarget('src/config/site-identity.mjs'), false, '定義そのもの');
   assert.equal(isIdentityScanTarget('scripts/lib/site-identity.mjs'), false, '定義そのもの');
   assert.equal(isIdentityScanTarget('tests/site-links.test.mjs'), false);

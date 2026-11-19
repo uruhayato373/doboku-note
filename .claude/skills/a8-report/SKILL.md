@@ -103,4 +103,4 @@ npm run report-buildjob-affiliate
 - `.claude/knowledge/reference/a8-affiliate-pipeline.md` — A8 運用 SSOT
 - `config/a8-report-automation.json` — ラベル/URL/列名/写像
 - `scripts/lib/a8-report-csv.mjs` — 解析コア（`tests/a8-report-csv.test.mjs`・`npm test` に含まれる）
-- `.claude/scripts/report-buildjob-affiliate.mjs` — EPC 消費側
+- `scripts/report-buildjob-affiliate.mjs` — EPC 消費側

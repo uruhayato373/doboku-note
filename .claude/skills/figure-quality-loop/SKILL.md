@@ -46,7 +46,7 @@ node scripts/figure-review-queue.mjs --next 8 --json > .tmp/figure-loop/batch.js
 
 ### 2. ワーカーを並列で回す
 ```
-Workflow({ scriptPath: ".claude/skills/figure-recrop/scripts/figure-crop-batch.workflow.mjs", args: <batch.json の配列> })
+Workflow({ scriptPath: "scripts/figure-recrop/figure-crop-batch.workflow.mjs", args: <batch.json の配列> })
 ```
 各図を `figure-crop-worker`（sonnet・種類: `article-recrop`）が処理する。判定の規則（何を切り、何を残し、いつ needs-source にするか）は `.claude/agents/profiles/crop-figure/article-recrop.md` の「作る」が唯一の正本。
 

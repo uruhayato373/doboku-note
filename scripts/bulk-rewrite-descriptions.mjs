@@ -15,12 +15,12 @@
 //   node scripts/bulk-rewrite-descriptions.mjs --slug X     # 単一 slug
 //   node scripts/bulk-rewrite-descriptions.mjs --limit 10   # 先頭10件のみ
 //
-// 改行コードは .claude/scripts/lib/mdx-io.mjs 経由で保持。
+// 改行コードは scripts/lib/mdx-io.mjs 経由で保持。
 
 import { readdirSync, statSync } from 'node:fs';
 import { join, basename, dirname } from 'node:path';
 import matter from 'gray-matter';
-import { readMdxFile, transformMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { readMdxFile, transformMdxFile } from './lib/mdx-io.mjs';
 import { DESCRIPTION_MAX } from './lib/seo-thresholds.mjs';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 

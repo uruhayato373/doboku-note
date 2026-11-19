@@ -25,7 +25,7 @@ domain: site
 .claude/state/exam-keyword-map.json  （唯一の正源 ─ 人間/Claude が直接編集）
   └ { category: { examDir: { anchor: slug[] } } }
      ↓
-.claude/skills/exam-backlinks/scripts/build-exam-backlinks.mjs
+scripts/exam-backlinks/build-exam-backlinks.mjs
 （MDX はheading text のみ走査、slug は exam-keyword-map.json から取得）
      ↓
 src/config/past-exam-backlinks.json    （キーワード→過去問 逆引き）
@@ -221,7 +221,7 @@ npm run insert-keyword-relations -- --slugs=followership,risk-assessment --apply
 - `--apply` 書き込み実行
 - `--skip-existing` 既に `<RelatedKeywords>` が含まれる MDX はスキップ（デフォルト true）
 
-**挿入位置**: `## 過去問での出題` などの末尾セクション直前。なければファイル末尾。MDX I/O は `.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` を使い CRLF を保持する（pre-commit フック対応）。
+**挿入位置**: `## 過去問での出題` などの末尾セクション直前。なければファイル末尾。MDX I/O は `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` を使い CRLF を保持する（pre-commit フック対応）。
 
 ### Step 5: `verify {slug}` — 特定キーワードの紐付け確認
 
@@ -251,7 +251,7 @@ for (const e of entries) {
 - `## II-1-1` (ASCII II) — H21〜H24
 - `## Ⅱ-1-1` (U+2161 ROMAN NUMERAL TWO) — H21-H22
 
-`.claude/skills/exam-backlinks/scripts/build-exam-backlinks.mjs` の抽出正規表現は `/^(Ⅰ|Ⅱ|Ⅲ|I{1,3}|問題|第)/` でこれらをカバーしている。新しいフォーマットが出現したら正規表現を拡張する。
+`scripts/exam-backlinks/build-exam-backlinks.mjs` の抽出正規表現は `/^(Ⅰ|Ⅱ|Ⅲ|I{1,3}|問題|第)/` でこれらをカバーしている。新しいフォーマットが出現したら正規表現を拡張する。
 
 ## 品質チェック観点
 
@@ -296,10 +296,10 @@ grep -c '�' content/site/pe-comprehensive-management/*/article.mdx | grep -v '
 ## 関連ファイル
 
 - `.claude/state/exam-keyword-map.json` — 過去問⇔キーワード紐付けの**単一正源**（人間/Claude が直接編集する唯一のファイル）
-- `.claude/skills/exam-backlinks/scripts/bootstrap-exam-keyword-map.mjs` — 初期生成スクリプト（移行時のみ使用、通常は実行不要）
-- `.claude/skills/exam-backlinks/scripts/build-exam-backlinks.mjs` — 過去問⇔キーワード生成スクリプト
-- `.claude/skills/exam-backlinks/scripts/build-keyword-relations.mjs` — キーワード⇔キーワード関連生成スクリプト
-- `.claude/skills/exam-backlinks/scripts/insert-keyword-relations.mjs` — 関連 JSON を MDX へバッチ挿入するスクリプト
+- `scripts/exam-backlinks/bootstrap-exam-keyword-map.mjs` — 初期生成スクリプト（移行時のみ使用、通常は実行不要）
+- `scripts/exam-backlinks/build-exam-backlinks.mjs` — 過去問⇔キーワード生成スクリプト
+- `scripts/exam-backlinks/build-keyword-relations.mjs` — キーワード⇔キーワード関連生成スクリプト
+- `scripts/exam-backlinks/insert-keyword-relations.mjs` — 関連 JSON を MDX へバッチ挿入するスクリプト
 - `src/config/past-exam-backlinks.json` — キーワード→過去問 逆引き
 - `src/config/exam-question-keywords.json` — 過去問→キーワード 正引き
 - `src/config/keyword-relations.json` — キーワード→関連キーワード top-5

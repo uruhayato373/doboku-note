@@ -1106,7 +1106,7 @@
       "work": "sokan-kojutsu-tradeoff",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform/scene-001",
@@ -1168,11 +1168,12 @@
       "platform": {
         "id": "DR1vg8BGfac",
         "url": "https://www.youtube.com/watch?v=DR1vg8BGfac",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-19T04:31:00.169Z"
+        },
+        "publishedAt": "2026-11-18T11:30:22.000Z"
       },
       "thumbnail": {
         "status": "set",

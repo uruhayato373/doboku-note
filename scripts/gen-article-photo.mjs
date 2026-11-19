@@ -37,7 +37,7 @@ import { AI_LEDGER_FILE, emptyAiLedger, recordAiImage, vaultPathOf, vaultRefOf }
 import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { discardGenerated, generateWithCodex } from './lib/codex-image.mjs';
 import { loadImageRules } from './lib/image-rules.mjs';
-import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');

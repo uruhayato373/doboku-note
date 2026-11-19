@@ -223,7 +223,7 @@ const RULES = [
     reason: 'slide-data.json から決定論的に焼けるレンダー成果物。publish-ig-bs（人の手元）しか読まないので Google Drive vault（制作物/IGレンダー/・drive-vault.json ig-rendered-image）。2026-09-05 に R2 の byVisibility 配置（public 7 / private 2,133）から移設',
     regenFrom: 'slide-data.json / script.json + caption.txt',
     usedBy: ['publish-ig-bs（投稿時に読む）'],
-    generator: '.claude/scripts/sns/ 系レンダラ',
+    generator: 'scripts/sns/ 系レンダラ',
     visibility: (p) => igPackVisibility(p),
   },
   {
@@ -272,7 +272,7 @@ const RULES = [
     test: (p) => /^config\/ogp\//.test(p), // path-literal-ok: git の全 blob を置き場の接頭辞で分類する規則表の 1 行（config/ogp/ 配下全体が対象で台帳の 1 id ではない）
     bucket: 'KEEP_GIT',
     reason: '資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと生成が不能になる（git-binary-policy.json allowlist で既に判定済み）',
-    regenFrom: null, usedBy: ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/coconala-thumb.mjs', '.claude/skills/ogp-create'], generator: null, visibility: () => 'n/a',
+    regenFrom: null, usedBy: ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/coconala-thumb.mjs', 'scripts/ogp-create'], generator: null, visibility: () => 'n/a',
   },
   {
     id: 'public-static',

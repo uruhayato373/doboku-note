@@ -12,7 +12,7 @@ import {
   buildAffiliateByPageRequests,
   parseAffiliateByPageRows,
   summarizeAffiliateByPage,
-} from "../.claude/scripts/lib/ga4-affiliate-by-page.mjs";
+} from "../scripts/lib/ga4-affiliate-by-page.mjs";
 import { Ga4Reports } from "../scripts/lib/dataset-schemas-search.mjs";
 
 const dims = (req) => req.dimensions.map((d) => d.name);

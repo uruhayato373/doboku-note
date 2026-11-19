@@ -83,7 +83,7 @@ target: textbook
   - `lastRewrittenAt: YYYY-MM-DD`
   - `revisionCycle: 1`（既存値があれば +1）
 - **法令名・他キーワード概念への内部リンクを確認する**: 本文中で法令名（建設業法、労働基準法、道路法等）やキーワード概念に言及している箇所に内部リンクが未設置なら追加する。条文番号に言及している場合は e-Gov リンクも設置する
-- 改行コードは元ファイルを保持（**`.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` を必ず経由する**）
+- 改行コードは元ファイルを保持（**`scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` を必ず経由する**）
 - 文字化け（U+FFFD）を含めない
 
 ### やってはいけないこと
@@ -183,4 +183,4 @@ article-proofreader で再評価
 - `.claude/knowledge/reference/image-policy.md` — 画像出典ポリシー
 - `.claude/agents/article-proofreader.md` — Evaluator 側の評価ルーブリック
 - `.claude/agents/keyword-rewriter.md` — CEM 側の姉妹 Generator（パターン設計の参照）
-- `.claude/scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）
+- `scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）

@@ -18,7 +18,7 @@ target: exam-mapping
 
 > Evaluator のみ — 書き込み判断は持たない
 
-このエージェントは **判定 JSON 出力のみ**を担当する。`exam-keyword-map.json` への反映は別途 `.claude/scripts/apply-audit-result.mjs`（決定論的スクリプト）が機械的に行う。LLM 出力を直接ファイルに書き込まないことで、自動反映時のリスクを抑制する。
+このエージェントは **判定 JSON 出力のみ**を担当する。`exam-keyword-map.json` への反映は別途 `scripts/apply-audit-result.mjs`（決定論的スクリプト）が機械的に行う。LLM 出力を直接ファイルに書き込まないことで、自動反映時のリスクを抑制する。
 
 類似エージェントとの差別化:
 
@@ -162,5 +162,5 @@ confidence は次の 3 要素を加重合計（合計重み 1.0、最大 1.0）:
 - 事前資産: `.claude/state/keyword-summaries.json`（`build-keyword-summaries.mjs` で生成）
 - マスタ: `src/config/pe-chapters.json` / `src/config/tag-dictionary.json`
 - リライト優先度: `.claude/state/improvements/pe-priority-2026-05-11.json`（annotations 付与の参照源、月次更新前提）
-- 反映スクリプト: `.claude/scripts/apply-audit-result.mjs`
+- 反映スクリプト: `scripts/apply-audit-result.mjs`
 - 上位 Skill: `.claude/skills/audit-exam-mapping/SKILL.md`

@@ -66,7 +66,7 @@ frontmatter（`published: false` ＋ `reviewStatus: needs-review` の人間ゲ�
 
 ### 機械ゲート（返却前・必須）
 
-`writeMdxFile`（`.claude/scripts/lib/mdx-io.mjs`、CRLF 保持）経由で書き込み後、以下を**全て自己実行して PASS**させてから返す（不合格のまま返却しない）：
+`writeMdxFile`（`scripts/lib/mdx-io.mjs`、CRLF 保持）経由で書き込み後、以下を**全て自己実行して PASS**させてから返す（不合格のまま返却しない）：
 
 ```bash
 node scripts/essay-shisaku-charcount.mjs "{magazine}" --strict          # 各施策600字超 0

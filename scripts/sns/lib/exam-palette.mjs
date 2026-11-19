@@ -1,0 +1,58 @@
+/**
+ * exam-palette.mjs — 試験パレット解決（多資格SNS展開の試験識別レイヤー用）
+ *
+ * 真実源: .claude/knowledge/design-system/note-cover-tokens.json の `exams`。
+ * note カバー・IG・X・Shorts が同一 token を解決し、試験＝色相 をチャネル横断で統一する。
+ * 設計: .claude/knowledge/reference/sns-image-policy.md §12
+ */
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+import { coverExamNames } from '../../lib/note-character-cover.mjs';
+import { REPO_ROOT as ROOT } from '../../lib/repository-paths.mjs';
+
+const TOKENS = JSON.parse(readFileSync(join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8'));
+
+/** トークンに資格の名前を付ける。名前はトークンに書かず registry から引く（coverExamNames・label=正式名・short=ごく短い名前） */
+const withNames = (slug, v) => {
+  const names = coverExamNames(slug, { tokens: TOKENS });
+  return { slug, ...v, label: names?.label ?? v.label, short: names?.badge ?? v.short };
+};
+
+/** slug / 日本語dir / 名前（正式名・ごく短い名前）のどれでも試験エントリを引く */
+export function resolveExam(key) {
+  const exams = TOKENS.exams;
+  if (exams[key] && typeof exams[key] === 'object') return withNames(key, exams[key]);
+  for (const [slug, v] of Object.entries(exams)) {
+    if (slug === 'comment' || typeof v !== 'object') continue;
+    const e = withNames(slug, v);
+    if (e.dir === key || e.label === key || e.short === key) return e;
+  }
+  throw new Error(`exam-palette: 未知の試験キー "${key}"（slug/dir/label/short のいずれか）。tokens.exams を確認`);
+}
+
+/** 試験色（base/deep/soft）を解決。tone は paid=deep / free=base 既定 */
+export function examColor(key, tone = 'base') {
+  const e = resolveExam(key);
+  return { base: e.base, deep: e.deep, soft: e.soft, accent: e.accent, use: e[tone] || e.base };
+}
+
+/**
+ * カバー帯に出す正式名称の行分割。
+ * 長い「技術士（総合技術監理部門）」は2行（資格冠＋部門）、他は1行。
+ * 返り値: [{ text, size }] （size は base 値。テンプレ側で auto-fit 微調整可）
+ */
+export function officialNameLines(key) {
+  const e = resolveExam(key);
+  const label = e.label;
+  if (e.slug === 'pe-comprehensive') {
+    // 1行表記（全試験1行で統一・帯内すっきり）。正式名の括弧を外しスペース区切り。
+    return [ { text: label.replace(/（(.+)）$/, ' $1'), size: 72 } ];
+  }
+  // 1行。文字数で size を auto-fit（usable≈960px）
+  const n = [...label].length;
+  const size = Math.min(84, Math.floor(900 / Math.max(n, 1)));
+  return [ { text: label, size } ];
+}
+
+export const EXAM_KEYS = Object.keys(TOKENS.exams).filter((k) => k !== 'comment');

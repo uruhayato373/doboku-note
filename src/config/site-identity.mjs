@@ -1,7 +1,7 @@
 /**
  * サイトと note の識別子の唯一の定義（サイトの origin・Search Console のプロパティ・R2 の公開ホスト・note のクリエイター）。
  *
- * サイト本体（src/・TypeScript）と、スクリプト・管理画面・.claude/scripts（Node）が同じ値を使うため、依存の無い
+ * サイト本体（src/・TypeScript）と、スクリプト・管理画面（Node）が同じ値を使うため、依存の無い
  * .mjs にしてある（src/lib/keyword-href.mjs と同じ置き方）。スクリプト側は scripts/lib/site-identity.mjs が
  * これを再公開し、X・Instagram のハンドル（config/x-account.json・config/ig-account.json が正本）を足す。
  *

@@ -212,7 +212,7 @@ export const GATES = [
       /^content\/note\/.+\/article(-[^/]+)?\.md$/i.test(f) ||
       f === 'src/lib/note-magazines.ts' ||
       f === datasetPath('config.note-magazine-membership'),
-    cmd: () => ['node', '.claude/scripts/build-note-published-index.mjs', '--check', '--staged'],
+    cmd: () => ['node', 'scripts/build-note-published-index.mjs', '--check', '--staged'],
   },
 ];
 

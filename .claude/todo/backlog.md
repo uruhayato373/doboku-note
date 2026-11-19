@@ -501,22 +501,29 @@
 **完了条件**: 2026-12-06 より前に note で公開され、サイトの管工事ガイドの CTA から届く。試験後 14 日以内に結果を記録する。
 
 
-### [DN-1235] 「合格まで伴走」（1級土木 二次・¥60,000）と中段の短期集中（¥18,000）を、予約の希望と 7 月の出品で検証する
-タグ: [領域:商品] [時期:2027-01..2027-07] [種類:制作] [起票:2026-11-17] [期日:2027-07-15]
+### [DN-1235] 土木の月額の添削（ココナラの定期購入・月 ¥6,000・月 3 回・定員 5 名）の契約数を 2027-03-31 に判定する
+タグ: [領域:商品] [時期:2027-03] [種類:意思決定] [起票:2026-11-17] [期日:2027-03-31]
 
-**起点**: 2026-11-17 の運営者決定で最上位を「合格まで伴走」（1級土木 二次・月 3 回の添削・翌年度 1 回まで延長・¥59,800／早期 ¥49,800・定員 5 名・まるごとパック同梱）に決めた。2026-11-18 にヘルプ本文と出品画面で確かめ、価格は選択式で ¥59,800 が選べないので ¥60,000／早期 ¥50,000 に寄せた。お届け日数は最大 99 日、トークルームは 120 日で閉じ延長不可、分割払い不可、note の URL 共有不可（教材は PDF をファイル添付）。2026-11-18 に中段の短期集中（¥18,000・添削 3 回・45 日）の追加を運営者が承認。同日のココナラの規約調査で、トークルームが 120 日で閉じる（ヘルプの要約のみ）・外での連絡と決済は禁止・効果の断定は禁止と分かり、1 月に購入してもらう形はやめて 7 月の購入に組み直した。正本は docs/strategy/22_チャネル別商品設計2026-11.md §5・候補 PC-010・PC-012。
+**起点**: 2026-11-19 の運営者決定で「合格まで伴走」（¥60,000）と短期集中（¥18,000）を出品前にやめ、出品中の土木の添削（4418735・`coconala-tensaku-4theme`）を定期購入の月額の添削に作り替えて同日に出した（PR #1662）。正本は docs/strategy/22_チャネル別商品設計2026-11.md §5・候補 PC-010。商品画像は 2026-11-19 に月額の中身へ差し替えた。
+**やること**: 2027-03-31 に `/coconala-status` で契約数・続けた月数・評価の件数を読み、§5 と PC-010 に記録する。契約 0 件なら価格か中身を見直す案を運営者に出す。
 
-**やること**:
-1. 翌年度の延長の渡し方を運営へ問い合わせ、回答を §5 と出品文面に反映する（文面は `content/coconala/products/coconala-civil-banso/listing-draft.md` の末尾・送信は運営者・2027-01-07 まで）。
-2. 出品文面を仕上げる（下書きは `content/coconala/products/coconala-civil-banso/listing-draft.md`・`coconala-civil-shuchu/listing-draft.md`）。
-3. 1級二次の合格発表（2027-01-08）の直後に、伴走の告知を出してココナラのメッセージで予約の希望を受ける（決済しない）。サイトの二次のページ・YouTube・LINE から送る。
-4. 7 月上旬に、短期集中と伴走を出品する（`config/products.json`・`config/coconala-listings.json` へ登録 → `/coconala-publish`）。予約の希望を出した人が早期価格で買える期間を設ける。
-5. 納品のときに合否の報告をお願いする文面を用意する（合格実績を数えるため）。
-
-**完了条件**: 2027-02-28 に予約の希望の件数で判定を記録する（3 件以上＝準備を進める、0〜1 件＝価格か中身を見直す）。7 月の出品後の購入数で実施を記録する。
-
+**完了条件**: 2027-03-31 の判定を記録した。
 
 ## 🟡 中 — 重要度が中くらい
+
+
+
+### [DN-1249] .claude/scripts の転送 9 本と ogp-create の転送 1 本を消し、旧パスを禁止ルートに載せる
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-19]
+
+**起点**: 2026-11-19 に `.claude/scripts/`（153 ファイル）を `scripts/` へ集約した（uruhayato373/doboku-note#1663）。このカードは #1663 が main へ deploy されてから着手する。定期実行のワークフローは定義が main・checkout が develop で、Mac の `~/Library/Application Support/doboku-note/weekly-review.sh`（導入済みの写し）も旧パスの `build-doc-meta-index.mjs` を呼ぶため、旧パスに転送だけのファイルを 9 本残している。
+
+**やること**: (1) 集約が main へ deploy されたことを確かめる（main の `.github/workflows/` に `.claude/scripts/` が 0 件）。(2) Mac で `npm run weekly-review:install` を回し直し、導入済みの写しを新パスにする。(3) `.claude/scripts/` の転送 9 本と `knip.json` の entry `.claude/scripts/*.mjs` を消す。同じ日に事業の実装を移した `.claude/skills/ogp-create/scripts/ogp-create.mjs`（転送・main の `ogp-supply.yml` が呼ぶ）も消し、`tests/claude-dir-has-no-code.test.mjs` の `SHIMS`・`SKILL_SHIMS` を空にする（`.claude/` に残すコードの一覧から転送の 10 本が外れる）。(4) `scripts/lib/repository-paths.mjs` の `MOVED_PATHS` に `[".claude/scripts", "scripts"]` を足し、禁止ルートと旧パス走査に載せる（Obsidian vault の `.claude/scripts/ocr/` を指す `scripts/pdf-to-mdx/book-ocr/` の 2 ファイルは `stalePathLiterals.allowFiles` へ）。
+
+**完了条件**: `git ls-files .claude/scripts | wc -l` が 0。`npm run check-information-architecture` が `.claude/scripts/` への新規ファイルと旧パスの文字列を止める。
+
+
+
 
 ### [DN-1246] エージェント再編の 4 週間後に起動回数を前後で比べ、新設の役の形を直す
 タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-18] [期日:2026-12-16]
@@ -776,7 +783,7 @@
 **起点**: 週次レビュー（2026-11-09〜2026-11-15）。Issue #1445（gsc-indexing-local・11/6〜）が 7 日を超えて開いている。11/14 朝の回は登録リクエスト自体は送れた（受理 10 件）が、記録の commit が pre-commit の `check-category-curriculum` の ERROR（`pe-fisheries.examGuide` の slug 不在: guide-overview が doc-meta-index に無い）で落ちた（`~/Library/Logs/doboku-note/gsc-indexing.log`）。同じ検査は、doc-meta-index を作り直した worktree では通る（slug 参照 348 件・全て実在）。朝の処理が使うチェックアウトの doc-meta-index が古いまま commit している疑い（未確認）。あわせて「button-not-found」で送れない URL が 5 件ある。
 
 **やること**:
-1. gsc-indexing-local が commit する前に `node .claude/scripts/build-doc-meta-index.mjs --ci` を回すか、記録だけの commit が記事の索引に左右されない形にする。
+1. gsc-indexing-local が commit する前に `node scripts/build-doc-meta-index.mjs --ci` を回すか、記録だけの commit が記事の索引に左右されない形にする。
 2. button-not-found の 5 件（主任技士 materials・総監 h21-secondary・水産部門のガイドほか）が、URL 検査の画面で登録できない状態（既に登録済み・上限）なのか、画面の変更なのかを切り分ける。
 
 **進み（2026-11-15）**: 11/15 07:40 の回は rc=0 で記録を develop へ push した（commit の失敗は 11/14 の 1 回だけ）。button-not-found は 5 件 → 21 件に増えた（h21-secondary・水産部門の選択科目・道路構造の基準ほか）。残りはやること 1 の再発防止と 2 の切り分け。Issue #1445 は 11/15 の成功の後も開いたまま（自動で閉じる配線を確かめる）。
@@ -845,7 +852,7 @@
 ### [DN-1181] 正規表現の「バックスラッシュ＋content」の書き損じの残り 2 か所を直し、同じ書き損じを機械で止める
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-13]
 
-**起点**: 2026-11-13 に pre-commit を速くする作業で見つけた。正規表現の先頭を「バックスラッシュ＋content」と書くと、バックスラッシュ＋c＋o が制御文字（U+000F）として読まれ、実在のパスに一致しない。scripts/check-table-references.mjs と scripts/check-orphan-figures.mjs の --staged がこれで、commit 時は毎回 0 件の検査で OK を出していた（全量は CI で回っていた。2 本は同じ PR で直し、tests/staged-site-paths.test.mjs で固定した）。同じ書き方が .claude/skills/check-mdx/scripts/rules/svg/build-gallery-comment.mjs の 64 行と 69 行に残っている（資格とスラグをパスから取る 2 か所で、一致しないので取れていないはず）。
+**起点**: 2026-11-13 に pre-commit を速くする作業で見つけた。正規表現の先頭を「バックスラッシュ＋content」と書くと、バックスラッシュ＋c＋o が制御文字（U+000F）として読まれ、実在のパスに一致しない。scripts/check-table-references.mjs と scripts/check-orphan-figures.mjs の --staged がこれで、commit 時は毎回 0 件の検査で OK を出していた（全量は CI で回っていた。2 本は同じ PR で直し、tests/staged-site-paths.test.mjs で固定した）。同じ書き方が scripts/check-mdx/rules/svg/build-gallery-comment.mjs の 64 行と 69 行に残っている（資格とスラグをパスから取る 2 か所で、一致しないので取れていないはず）。
 
 **やること**: build-gallery-comment.mjs の 2 か所を直し、直す前後で出力がどう変わるかを確かめる。正規表現の中のバックスラッシュ＋英字の書き損じ（\c・\p など意図しないエスケープ）を scripts・.claude/scripts・.claude/skills から探す検査を、決まった合格条件で書けるなら tests に足す。
 
@@ -867,7 +874,7 @@
 
 **起点**: 2026-11-13 の構成・SSOT 監査。台帳 `scripts/lib/datasets.mjs` の置き場（AREAS）は config・data・.claude/state・content/registry の 4 つで、サイトが読む `src/config/` の追跡 30 ファイルは対象外。過去問 3 種・`keyword-relations.json`・`past-exam-backlinks.json`・`popular-pages.json`・`topics.json` などに型も外部キーも無い。記事 slug を指す生成 JSON（`exam-question-keywords.json`・`past-exam-backlinks.json`・`keyword-relations.json`・`popular-pages.json`）を実在と照らす検査は見つからず、記事の削除・改名のあとに古い参照が残っても止まらない。`src/` の型は手書きで JSON を `as` で読む（`as unknown as` が 6 か所）。同じ監査で config 側の 7 データセットには refs を足した（PR #1577）。
 
-**やること**: `src/config/` を台帳の置き場に足す（サイト本体は台帳を import しない決まりなので、宣言と検査だけを scripts 側に置く）。手で書く正本と生成物を種類で分け、生成物から順に型を付ける。記事 slug を持つ欄に refs（to: article）を宣言する。`civil-relations.json` は読む側が `.claude/skills/exam-backlinks/scripts/` の 2 本だけなので、置き場が `src/config/` でよいかも決める。
+**やること**: `src/config/` を台帳の置き場に足す（サイト本体は台帳を import しない決まりなので、宣言と検査だけを scripts 側に置く）。手で書く正本と生成物を種類で分け、生成物から順に型を付ける。記事 slug を持つ欄に refs（to: article）を宣言する。`civil-relations.json` は読む側が `scripts/exam-backlinks/` の 2 本だけなので、置き場が `src/config/` でよいかも決める。
 
 **完了条件**: `npm run check-datasets` が `src/config/` の全ファイルを数え、記事 slug の参照切れを検査件数つきで出す。型の無いファイルが何件残るかが台帳から分かる。
 
@@ -1429,14 +1436,14 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 
-### [DN-1016] scripts と src と .claude/scripts の依存の向きを整理する
+### [DN-1016] scripts と src の依存の向きを整理する
 タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
 
 **起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。grep の概数で scripts→src 59 行、src→scripts 3 行、admin→scripts 191 行、scripts→`.claude/scripts` 41 行、`.claude/scripts`→scripts 193 行。向きが双方向で、層の区別がないので境界の検査を置けない。
 
-**やること**: まず `.claude/scripts/sns/lib/exam-palette.mjs` を `scripts/lib` へ移す（資格キーのカードと一緒に進めてよい）。その後、ブラウザと Node の両方で使う純粋な関数の置き場を決める。
+**やること**: `.claude/scripts/` は 2026-11-19 に `scripts/` へ集約した（相対パスはそのまま）。残りは、`scripts/sns/lib/exam-palette.mjs` を `scripts/lib` へ寄せる（資格キーのカードと一緒に進めてよい）ことと、ブラウザと Node の両方で使う純粋な関数の置き場を決めること。
 
-**完了条件**: scripts から `.claude/scripts` への import が 0 件。純粋な関数の置き場が決まり、向きの検査が入っている。
+**完了条件**: 純粋な関数の置き場が決まり、scripts と src の向きの検査が入っている。
 
 
 
@@ -3803,28 +3810,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 
 
-### [DN-0992] 1 級二次の経験記述を、シーズン一括の伴走（題数の上限・各題 A 判定まで・不合格なら翌年割引）で試すか決める
-タグ: [収益化] [領域:商品] [時期:2027-04..2027-06] [種類:意思決定] [起票:2026-11-05]
-
-**起点**: 2026-11-05 のイシュー分解（施工管理イシューマップ https://claude.ai/artifact/VxoZ6TpF52ZdMg5eHhHCms 。運営者だけが開ける）。施工管理で払われるのは、本人の工事を合格する文章にする人手で、ココナラの競合の売れ筋は添削・作成支援だけ。運営者の「合格まで伴走・添削 月 2 回」の案を、大手講座の型と比べて次の案にした。
-
-**案（2026-11-05 運営者が記録を指示）**:
-1. シーズン一括（1 級二次の 8〜10 月）＋題数の上限＋各題 A 判定になるまで添削。ガチンコ技術士学園の B・C コース（論文 8 題・各題 A 判定まで無制限）と同じ型
-2. 不合格なら翌年の受講を割引。ガチンコの前年受講生価格、アガルート土木の不合格時の 6 か月延長と同じ考え方
-
-「合格するまで（翌年も無料）」は採らない。R7 の 1 級二次の合格率 38.9% では受講者の約 6 割が翌年に持ち越し、作業が年をまたいで上限が読めない（試算で 1 時間あたり約 ¥3,400）。大手の講座にもこの形は無かった（2026-11-05 にアガルート・ガチンコの公式ページで確認）。
-
-**判断理由（共通事業方針）**: 読者の課題＝自分の工事で経験記述を合格水準に仕上げたい 1 級二次の受験者（A: 資格）。支払う理由＝本人の工事は模範解答で代わりがきかず、人手が要る。需要の証拠＝ココナラの土木の経験記述は 93 出品・レビュー計 1,539・中央値 ¥6,000、ちゃんさと技師は累計 1,028 件（2026-10-01）。doboku のココナラ評価は 4 件で、信用の不足が前提条件になる。
-
-**決めること**: 案 1・2 を 2027 年の 1 級二次で試すか。試すなら、価格・題数・各題の上限回数（A 判定の基準）・定員・申込の締切・返却の期限・売り場（note かココナラか）。作成代行はしない（content/note/1級・2級土木/noteコンテンツ計画.md の捏造の線引き）。
-
-**先に満たす前提**: 入口の添削で評価 5 件（2027-03 まで。docs/strategy/22_チャネル別商品設計2026-11.md で承認済み）、メール登録（DN-0632）、作業時間の記録（DN-0368）。
-
-**試算の目安（仮の値）**: 添削 1 本 30 分（実測）。ガチンコ C 型（8 題 × 3〜4 回）なら 1 人 12〜16 時間、定員 5 名で 60〜80 時間。価格は時間単価から逆算する（ガチンコ C ¥151,800 は約 ¥10,000／時間、2026-11-05 に試算したシーズン伴走 ¥29,800 は約 ¥5,200〜5,600／時間）。
-
-**禁止**: 合格を約束すると受け取れる表現（「合格保証」「合格するまで」）を使わない。回数と期限で書く。ココナラで売る場合は、返金・割引の扱いがココナラの規約に合うかを確かめてから出す。
-
-**完了条件**: 試すか見送るかを運営者が決め、試す場合は上の条件を config/products.json の商品に書いた。
 
 
 

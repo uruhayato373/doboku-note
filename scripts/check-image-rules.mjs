@@ -14,7 +14,7 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const SELF = new Set(['scripts/lib/codex-image.mjs', 'scripts/lib/image-rules.mjs', 'scripts/check-image-rules.mjs']);
 const rules = loadImageRules(ROOT);
-const files = ['scripts', '.claude/scripts', '.claude/skills', 'src', 'tools/admin-app/src']
+const files = ['scripts', 'src', 'tools/admin-app/src']
   .flatMap((dir) => listFiles(join(ROOT, dir), { match: (path) => /\.(?:mjs|cjs|js|ts|tsx)$/.test(path), allowMissing: true }))
   .map((path) => relative(ROOT, path)).filter((file) => !SELF.has(file));
 const { callers, errors } = routeViolations(files, (f) => readFileSync(join(ROOT, f), 'utf8'), rules.routes, (f) => existsSync(join(ROOT, f)));

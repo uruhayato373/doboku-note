@@ -53,6 +53,15 @@ export const STATE_ROOT = at('.claude', 'state');
 /** エージェント運用・品質ゲートの基準と許可リスト（CI 書き込み・認証の許可リストもここ＝.claude/ の書き込み保護下） */
 export const AGENT_CONFIG_ROOT = at('.claude', 'config');
 
+// --- 画像生成の共通素材 ----------------------------------------------------
+/**
+ * 生成する画像（OGP・note/Kindle/ココナラのカバー・SNS スライド・動画の字幕）が共用するフォント
+ * （Noto Sans JP Bold・Inter Bold）。サイトの画面は端末のフォントで表示するので、これは使わない。
+ * root を引数で受ける関数は FONTS_REL を、それ以外は FONTS_ROOT を使う（場所を文字列で持たない）。
+ */
+export const FONTS_REL = 'scripts/assets/fonts';
+export const FONTS_ROOT = at('scripts', 'assets', 'fonts');
+
 // --- 正本・記録（2026-10-02 に .claude/ から分離） -------------------------
 /** 事業・試験・商品の正本と、スクリプト・CI・サイトの設定 */
 export const CONFIG_ROOT = at('config');

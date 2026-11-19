@@ -567,7 +567,7 @@ const inspectionDoc = (resultsMax, { requireCounts }) =>
       if (doc.partial !== undefined && doc.total !== undefined && doc.completed !== undefined && doc.partial !== doc.completed < doc.total) flag(ctx, ['partial'], `partial=${doc.partial} が completed ${doc.completed} / total ${doc.total} と合わない`);
     });
 
-/** URL 検査のバッチ（data/gsc/url-inspection/{ts}.json・書き手 .claude/scripts/inspect-url.mjs）。インデックス率の元データ */
+/** URL 検査のバッチ（data/gsc/url-inspection/{ts}.json・書き手 scripts/inspect-url.mjs）。インデックス率の元データ */
 export const GscUrlInspection = inspectionDoc(Infinity, { requireCounts: true }).meta({ title: 'URL 検査（バッチ）' });
 
 /** URL 検査の単発（data/gsc/url-inspection-single/{ts}.json）。古い記録は partial・completed・total が無い */
@@ -816,7 +816,7 @@ export const BingSnapshots = z
   })
   .meta({ title: 'Bing の検索指標' });
 
-// ---- PSI（data/psi/batch/{ts}.json・書き手 .claude/scripts/fetch-psi-data.mjs） ------------------------------------------
+// ---- PSI（data/psi/batch/{ts}.json・書き手 scripts/fetch-psi-data.mjs） ------------------------------------------
 
 const psiScore = z.number().int().min(0).max(100).nullable().describe('Lighthouse のスコア（0〜100・測れなければ null）');
 const psiLab = (what) => z.number().min(0).nullable().describe(`${what}（lab・測れなければ null）`);
@@ -862,7 +862,7 @@ export const PsiBatch = z
   })
   .meta({ title: 'PageSpeed Insights の計測' });
 
-// ---- RUM（data/rum/web-vitals/{date}.json・書き手 .claude/scripts/fetch-ga4-web-vitals.mjs） -------------------------------
+// ---- RUM（data/rum/web-vitals/{date}.json・書き手 scripts/fetch-ga4-web-vitals.mjs） -------------------------------
 
 const RUM_METRICS = ['LCP', 'INP', 'CLS'];
 const rumCounts = z.strictObject({ good: count('良好'), 'needs-improvement': count('要改善'), poor: count('不良') });

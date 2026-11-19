@@ -44,6 +44,8 @@ export function parseCatalog(ts) {
     // paused の理由。'retired'（恒久廃止）と 'absence'（長期不在の一時休止）を区別する。
     // これが無いと一括復帰で恒久廃止した商品まで復活する（coconala-pause --resume --absence が使う）。
     const rm = slice.match(/pauseReason:\s*'([^']*)'/);
+    // 一度に受注可能な件数（定員）。読まないと coconala-edit の orderLimit が渡らず、画面の件数が黙って古いまま残る（2026-11-19）
+    const wm = slice.match(/weeklyCapacity:\s*(\d+)/);
     out[cur.id] = {
       id: cur.id,
       status: cur.status,
@@ -54,6 +56,7 @@ export function parseCatalog(ts) {
       listedAt: lm ? lm[1] : null,
       examScope: em ? [...em[1].matchAll(/'([^']+)'/g)].map((x) => x[1]) : [],
       pauseReason: rm ? rm[1] : null,
+      weeklyCapacity: wm ? parseInt(wm[1], 10) : undefined,
     };
   });
   return out;

@@ -9,7 +9,7 @@ import {
   applySafeFix,
   stripFrontmatter,
   detectSingleDollarBlocks,
-} from '../.claude/scripts/lib/katex-audit.mjs';
+} from '../scripts/lib/katex-audit.mjs';
 
 test('extractMathNodes: inline と display の両方を抽出', () => {
   const nodes = extractMathNodes('本文 $x=1$ と\n\n$$\ny=2\n$$\n');

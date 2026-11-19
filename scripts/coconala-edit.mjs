@@ -73,6 +73,7 @@ const allFields = {
   orderLimit: svc.weeklyCapacity,
   faq: lst.faq,
   options: lst.options,
+  subscribable: lst.subscribable,
 };
 const keyMap = { title: 'title', catchphrase: 'catchphrase', category: 'category', body: 'body', purchaseNote: 'purchaseNote', price: 'priceYen', delivery: 'deliveryDays' };
 let fields = allFields;

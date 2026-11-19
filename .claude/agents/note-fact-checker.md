@@ -49,7 +49,7 @@ note 公開用ドラフトの本文中の **数値・固有名詞・頻度主張
 
 ```bash
 # 記事内の白書由来 数値・固有名を抽出し、その実在を白書ノートブックに問い合わせて照合する
-node .claude/scripts/notebooklm-cross-query.mjs \
+node scripts/notebooklm-cross-query.mjs \
   --notebook-id 2bf7f0dd-3935-49be-8cef-2d428c59eaa9 \
   "次の数値・固有名が白書原文に実在するか、各々ページ/章とともに Yes/No で答えてください: <抽出した数値・事業名リスト>"
 # 認証切れ時は `notebooklm login`（ユーザーの手動 OAuth）。会社PCはプロキシで叩けない → Mac/クラウドで実行
@@ -147,7 +147,7 @@ node .claude/scripts/notebooklm-cross-query.mjs \
 ## past-exam-backlinks.json の使い方
 
 ```javascript
-// 過去問 → キーワードの紐付けは .claude/skills/exam-backlinks/scripts/build-exam-backlinks.mjs で生成される
+// 過去問 → キーワードの紐付けは scripts/exam-backlinks/build-exam-backlinks.mjs で生成される
 // 各エントリ: { question_slug: ["keyword-slug-1", "keyword-slug-2", ...] }
 // あるキーワードが何年で出題されたかを逆引きするには全エントリを走査
 ```

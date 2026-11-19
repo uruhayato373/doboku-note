@@ -14,7 +14,7 @@ domain: sns
 
 - 図の意味・数値・文言：`content/site/{category}/{slug}/img/figure-*.svg` と親記事。
 - 資格名称・略称：`.claude/knowledge/design-system/note-cover-tokens.json` を `exam-palette.mjs` で解決。
-- 図解パックのピル・バッジ・誘導文：`.claude/scripts/sns/lib/figure-pack-labels.mjs` の `figurePackLabels(examDir)`。
+- 図解パックのピル・バッジ・誘導文：`scripts/sns/lib/figure-pack-labels.mjs` の `figurePackLabels(examDir)`。
 - サイト図の寸法・色： [figure-canvas-policy.md](../../knowledge/reference/figure-canvas-policy.md)。SVGは400×500のfeedを使う。`--wide`を縦に引き伸ばさない。
 - ファイルの置き場：[asset-storage-policy.md](../../knowledge/reference/asset-storage-policy.md)。再生成できる入力はGit、手元用PNGはDrive vaultの既存SNS group。生成PNGをGitへ追加しない。
 
@@ -85,7 +85,7 @@ node scripts/check-ig-cta.mjs
 カルーセルとは別に、図1枚をIG・動画サムネ・縦型へ書き出す場合は既存コマンドを使う。資格名は `src/config/categories.json` から自動取得し、`--mgmt` は任意の管理分野・テーマ（16文字以内）とする。総監キーワードの短いslug指定も利用できるが、管理分野は自動推測しない。
 
 ```bash
-node .claude/scripts/sns/render-figure-sns.mjs \
+node scripts/sns/render-figure-sns.mjs \
   --slug civil-construction-1/guide-concrete-key-points \
   --figure figure-aggregate-moisture.svg --concept "骨材の水はどこにある？" \
   --format all --out-dir .tmp/figure-preview
@@ -97,4 +97,4 @@ node .claude/scripts/sns/render-figure-sns.mjs \
 
 `content/sns/x/draft/NNN-slug-diagrams/{tweets.md,status.json,images.json}` に、元記事・元図のパスとsha256、学習上の疑問、投稿番号、画像名を記録する。`node scripts/render-x-figure-drafts.mjs --draft NNN-slug-diagrams --check` で下書き状態と元データを確認し、`--check` を外してPNGを生成する。元記事が変わった場合は内容を再確認してからハッシュを更新する。画像はDriveの `x-rendered-image`、公開状態は既存X台帳で管理する。退避対象は番号付き `*-diagrams` 下書きの `img/tweet-NN-名前.png` のみ。既存Xカードはこのgroupの対象外。
 
-図解Reelsの音声クレジットは、生成時にVOICEVOXの話者一覧から実際のspeaker IDの声名を取得し、`reels/caption.txt` に記録する。既定ID 1はずんだもん（あまあま）。声名を数値IDから推測しない。専門用語は生成前に `.claude/scripts/lib/sns-common/reading-dict.mjs` を適用し、実機の読みを確認する。誤読を直した場合は音声・動画を再生成し、Drive台帳とクラウド実体を再照合する。
+図解Reelsの音声クレジットは、生成時にVOICEVOXの話者一覧から実際のspeaker IDの声名を取得し、`reels/caption.txt` に記録する。既定ID 1はずんだもん（あまあま）。声名を数値IDから推測しない。専門用語は生成前に `scripts/lib/sns-common/reading-dict.mjs` を適用し、実機の読みを確認する。誤読を直した場合は音声・動画を再生成し、Drive台帳とクラウド実体を再照合する。

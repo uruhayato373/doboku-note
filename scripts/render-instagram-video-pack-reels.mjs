@@ -17,7 +17,7 @@ import { buildExplanationNode } from './lib/video-explanation.mjs';
 import { IG_DESIGN, IG_CTA_NARRATION, instagramLogo, instagramCtaNode, instagramReelCover, renderInstagramNode, instagramRendererDigest } from './lib/instagram-video-design.mjs';
 import { narrationInput } from './lib/video-narration-cache.mjs';
 import { subtitleChunks } from './lib/video-subtitles.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, FONTS_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 
 const IG_ROOT = join(ROOT, 'content/sns/instagram/video-packs');
@@ -44,10 +44,10 @@ if (!args.all && !args.dir) {
 }
 
 const { resolveExam } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/exam-palette.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/sns/lib/exam-palette.mjs')).href
 );
 const { isRunning, synthesize } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/tts-client.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/lib/sns-common/tts-client.mjs')).href
 );
 const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await import(
   pathToFileURL(resolve(ROOT, 'scripts/lib/ffmpeg-compose.mjs')).href
@@ -55,7 +55,7 @@ const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await impor
 if (!ffmpegAvailable()) throw new Error('ffmpeg / ffprobe が利用できません');
 if (!args['preview-only'] && !(await isRunning())) throw new Error('VOICEVOX が起動していません（127.0.0.1:50021）');
 
-const FONT_DIR = resolve(ROOT, '.claude/skills/ogp-create/assets/fonts');
+const FONT_DIR = FONTS_ROOT;
 const FONTSOURCE_DIR = resolve(ROOT, 'node_modules/@fontsource');
 const fonts = [
   { name: 'Noto Sans JP', data: readFileSync(resolve(FONT_DIR, 'NotoSansJP-Bold.ttf')), weight: 700, style: 'normal' },

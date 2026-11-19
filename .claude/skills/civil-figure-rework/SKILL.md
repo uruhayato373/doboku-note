@@ -92,7 +92,7 @@ mv content/site/civil-construction-1/primary-r06-a/img/*.webp .tmp/backup/r06-a/
 #### 3b. Crop 実行
 
 ```bash
-node .claude/skills/civil-figure-rework/scripts/run-crop.mjs \
+node scripts/civil-figure-rework/run-crop.mjs \
   --spec .tmp/r06-a-figure-spec.json \
   --out-dir content/site/civil-construction-1/primary-r06-a/img
 ```
@@ -102,7 +102,7 @@ node .claude/skills/civil-figure-rework/scripts/run-crop.mjs \
 #### 3c. MDX へ `<img>` 挿入/差し替え
 
 ```bash
-node .claude/skills/civil-figure-rework/scripts/inject-img-mdx.mjs \
+node scripts/civil-figure-rework/inject-img-mdx.mjs \
   --mdx content/site/civil-construction-1/primary-r06-a/article.mdx \
   --spec .tmp/r06-a-figure-spec.json
 ```
@@ -135,7 +135,7 @@ node .claude/skills/civil-figure-rework/scripts/inject-img-mdx.mjs \
 npm run generate-webp
 
 # 整合性監査
-node .claude/scripts/audit-exam-figures.mjs
+node scripts/audit-exam-figures.mjs
 
 # バックリンク再生成（CLAUDE.md §4 必須）
 npm run refresh-indexes
@@ -242,8 +242,8 @@ skip: `r03-a`, `r04-a`（PDF原本に図参照なし）
 
 - `.claude/agents/figure-crop-worker.md` — Generator agent（種類別の手順は `.claude/agents/profiles/crop-figure/past-exam-page.md` の「作る」）
 - `.claude/agents/figure-crop-auditor.md` — Evaluator agent（同プロファイルの「採点」）
-- `.claude/scripts/audit-exam-figures.mjs` — 既存整合監査スクリプト
-- `.claude/scripts/lib/mdx-io.mjs` — writeMdxFile（CRLF 保持必須）
+- `scripts/audit-exam-figures.mjs` — 既存整合監査スクリプト
+- `scripts/lib/mdx-io.mjs` — writeMdxFile（CRLF 保持必須）
 - `.claude/knowledge/reference/image-policy.md` L165-177 — 過去問図 caption/alt 厳格ルール
 - `.claude/knowledge/reference/agents-registry.md` L71-96 — Generator/Evaluator 分業原則
 - CLAUDE.md §3, §4, §8, §10 — MDX 書き込み・refresh-indexes・レジストリ更新・並行エージェント commit ルール

@@ -9,7 +9,7 @@ import sharp from 'sharp';
 import { coverFonts } from './lib/youtube-cover.mjs';
 import { loadVideoBrand } from './lib/video-brand.mjs';
 import { MIGRATION, sha256 } from './lib/youtube-migration.mjs';
-import { synthesize } from '../.claude/scripts/lib/sns-common/tts-client.mjs';
+import { synthesize } from './lib/sns-common/tts-client.mjs';
 import { narrationInput } from './lib/video-narration-cache.mjs';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 

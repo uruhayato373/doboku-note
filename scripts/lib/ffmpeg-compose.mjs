@@ -14,12 +14,10 @@
 import { spawn, spawnSync } from 'node:child_process';
 import { writeFileSync, mkdirSync, existsSync, renameSync, mkdtempSync, rmSync } from 'node:fs';
 import { dirname, join, resolve, isAbsolute } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { FONTS_ROOT } from './repository-paths.mjs';
 import sharp from 'sharp';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-// scripts/lib/ → ../../ → .claude/skills/ogp-create/assets/fonts/
-const FONT_DIR = resolve(__dirname, '../../.claude/skills/ogp-create/assets/fonts');
+const FONT_DIR = FONTS_ROOT;
 
 // Homebrew の通常版 ffmpeg は libass 非搭載。keg-only の ffmpeg-full がある Mac では
 // 自動的にそちらを使い、PATH の恒久変更や通常版との link 切替を不要にする。
@@ -284,7 +282,7 @@ export async function probeDuration(audioPath) {
  * @param {string} args.outPath     - 出力先 PNG パス
  */
 export async function generateThumbnail({ storyboard, outPath }) {
-  const { renderSlide, TEXT_CONFIG_DEFAULTS } = await import('../../.claude/scripts/lib/sns-common/slide-render.mjs');
+  const { renderSlide, TEXT_CONFIG_DEFAULTS } = await import('./sns-common/slide-render.mjs');
   const { writeFileSync } = await import('node:fs');
 
   const config = {

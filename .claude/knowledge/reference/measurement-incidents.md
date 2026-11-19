@@ -474,11 +474,11 @@ GA4 起点の改善サイクル設計のため `fetch-metrics.yml` と周辺ス�
 - **アラートが一度も鳴らない**: `fetch-metrics.yml` の整合性・日次異常の検査が `node …; echo "exit_code=$?"` だった。既定シェルは `bash -e` なので非 0 で step が先に終わり、`exit_code` が出力されない。後続の `if: …exit_code == '1'` は一度も真にならず、W16 事故（GA4 6 日欠損）の再発防止ゲートが導入以来無効だった。同型が `cloudflare-config-audit` / `cloudflare-metrics` / `fetch-ig-insights` / `verify-yt-status`（2 か所）にもあった（cloudflare-metrics は空値の `!= '0'` で偶然 Issue だけは立っていた）。
   - 対策: 全箇所に `set +e`。fetch-metrics は publish 後に rc=1 を channel `fetch-metrics`、rc=2（検査不成立）を `fetch-metrics-check-invalid` へ起票し、復旧で自動クローズする。`check-workflow-hygiene` にルール 8（errexit 下の `$?`）を追加し回帰テストで固定した
 - **突合の機会表が毎週空**: `report-ga4-gsc-crosswalk.mjs` が `gsc-page-` の前方一致で最新を選び、名前順で末尾に来る `gsc-page-query-*` を拾っていた。1 ページ 1 クエリ行の値で突合するため、`crosswalk-latest.md` の title/順位機会は毎週「該当なし」だった（修正後の同じ入力で各 11 件）。水曜の `index-coverage.yml` が書く 1000 行打ち切り版（`meta.truncated:true`）も同じ接頭辞で、単純な日付一致に直すだけでは次にそれを拾う。
-  - 対策: `pickGscPage`（`.claude/scripts/lib/ga4-snapshot.mjs`）で日付直後かつ非打ち切りの最新を選ぶ。`report-monetization-coverage.mts` は同じ罠を 2026-08 に塞いでいたが、横展開されていなかった
+  - 対策: `pickGscPage`（`scripts/lib/ga4-snapshot.mjs`）で日付直後かつ非打ち切りの最新を選ぶ。`report-monetization-coverage.mts` は同じ罠を 2026-08 に塞いでいたが、横展開されていなかった
 - **月初の金曜に週次計測が丸ごと落ちる**: `fetch-business-metrics.mjs` は週次・月次の両期間を取り、どちらかが GSC 確定前（終了日から 4 日未満）なら throw していた。金曜が 1〜3 日だと月次が未確定で throw し、`continue-on-error` の無い step がジョブを落とす。以降の GA4/GSC 取得と publish も走らず、その週の計測がすべて失われる（次回は 2026-10-02）。
   - 対策: `duePeriods`（`scripts/lib/business-direction.mjs`）で未確定の期間だけ skip し、確定済みの週次は取得する。workflow 側も business step を `continue-on-error` にし、失敗は Issue へ回す
 - **行数の無言の打ち切り**: GA4 ページ別は `--limit 100`（サイトは 1,500 URL 超。crosswalk の結合は 29 ページ）、CTA クリックは `limit: 1000` 固定でページングが無かった（最新ファイルはちょうど 1000 行＝打ち切り）。
-  - 対策: `runReportAll`（`.claude/scripts/lib/ga4-client.mjs`）で `rowCount` まで offset ページングし、`meta.rowCount`・`meta.truncated` を残す。ページ別は `--limit 10000`
+  - 対策: `runReportAll`（`scripts/lib/ga4-client.mjs`）で `rowCount` まで offset ページングし、`meta.rowCount`・`meta.truncated` を残す。ページ別は `--limit 10000`
 - 教訓: 「赤くならない」は「正しい」ではない。**出力の中身（表が空・行数がちょうど上限・判定 step が一度も真にならない）を見る**。前方一致で最新ファイルを選ぶ箇所は、派生ファイル名と打ち切り版の両方を疑う。workflow の終了コード分岐は、分岐先が一度でも実行された履歴があるかで生死を確かめる。
 
 ## 2026-09-21: 暗号化 storageState を hosted CI で使うと Google / Meta / Amazon はセッションを全面失効させる
@@ -1074,10 +1074,10 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 
 ### 関連
 
-- `.claude/scripts/upload-images-to-r2.mjs` - 同期スクリプト（exit 1 化 + パス正規化）
+- `scripts/upload-images-to-r2.mjs` - 同期スクリプト（exit 1 化 + パス正規化）
 - `.github/workflows/r2-sync.yml` - main push 時の R2 同期
 - `.github/workflows/r2-audit.yml` - 週次 diff-r2 監査（新設）
-- `.claude/skills/diff-r2/scripts/diff-r2.mjs` - 差分監査
+- `scripts/diff-r2/diff-r2.mjs` - 差分監査
 - handoff `docs/handoffs/2026-05-29-r2-content-fallback-removal.md`
 
 ## 2026-06-12: OGP 画像が r2-sync の path フィルタ外で 404 → note 外部リンクカード生成不能
@@ -1310,7 +1310,7 @@ Apr 5 の 144 ファイル H1 構造修正（commit [`3f97641b`](https://github.
 - Issue [#83](https://github.com/uruhayato373/doboku-note/issues/83) - Traffic-Drop 事案（close 済）
 - Issue [#130](https://github.com/uruhayato373/doboku-note/issues/130) - 対策 Umbrella
 - commit [`c6ef1148`](https://github.com/uruhayato373/doboku-note/commit/c6ef1148) - BAILOUT 修正
-- `.claude/scripts/check-data-integrity.mjs` - データ整合性検証 lib
+- `scripts/check-data-integrity.mjs` - データ整合性検証 lib
 - `.github/workflows/uptime-ping.yml` - uptime 監視
 
 ---

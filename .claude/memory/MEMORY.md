@@ -75,6 +75,7 @@
 - [ログインは auth:login だけ](feedback_login_only_via_auth_login.md) — 他のブラウザは収集に効かない・失敗印・KDP は端末を記憶
 - [knip裏取りとworktree npm](feedback_knip_grep_scope_and_worktree_npm.md) — repo全体grep・symlink実体化
 - [売り場から外す線引き](feedback_shelving_unsold_products.md) — 試験日で判定・唯一のCTAは残す・無料は数値
+- [スクリプトの移動](feedback_script_move_main_workflow_shim.md) — main の定義が旧パスを呼ぶ・転送を残して 2 段
 
 ## Project
 - [3層・合格者戦略](project_v3_strategy.md) — 運営者は総監合格済・言及ルール
@@ -98,7 +99,7 @@
 - [動画パック](project_video_content_pipeline.md) — YouTube基盤DN-0110
 - [SNS v7・IG](project_sns_v7_pivot.md) — BS投稿のみ・論点パック
 - [チャネル年間計画](project_channel_annual_plan.md) — 枠と型の台帳を一本化・保留の解除は別判断
-- [X返信の運用](project_x_reply_trial.md) — 人が承認・間隔5分・毎朝の承認リスト・終わりなし・無人送信なし
+- [X返信の運用](project_x_reply_trial.md) — 人が承認・毎朝の承認リスト・11/17スパム判定タグ後は1日5件・10〜25分で毎回変える
 - [X運用](project_x_account_reboot_2026_06.md) — 凍結対策・偽成功確認
 - [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・全年度¥1,480
 - [note書込自動化](project_note_write_automation.md) — Playwright・CTAインフラ

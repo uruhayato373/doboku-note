@@ -30,8 +30,8 @@ import { writeDataset } from './lib/dataset-write.mjs';
 import { latestReport } from './lib/metric-reports.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { recordAffiliateExperimentMeasurements } from './lib/affiliate-experiment-report.mjs';
-import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll } from '../.claude/scripts/lib/ga4-client.mjs';
-import { getAuth, fetchSearchAnalytics } from '../.claude/skills/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
+import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll } from './lib/ga4-client.mjs';
+import { getAuth, fetchSearchAnalytics } from './fetch-gsc-data/fetch-gsc-data.mjs';
 
 dotenv.config({ path: '.env.local', quiet: true });
 

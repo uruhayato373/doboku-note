@@ -495,9 +495,9 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 - .claude/agents/gsc-index-auditor.md
 - .github/workflows/fetch-metrics.yml
 - .github/workflows/index-coverage.yml
-- .claude/scripts/inspect-url.mjs
-- .claude/skills/fetch-gsc-data/scripts/fetch-gsc-data.mjs
-- .claude/scripts/fetch-ga4-data.mjs
+- scripts/inspect-url.mjs
+- scripts/fetch-gsc-data/fetch-gsc-data.mjs
+- scripts/fetch-ga4-data.mjs
 
 ゴール:
 1. ログイン済み永続Chromeプロファイルを使い、GSC Page indexingの理由別詳細画面から

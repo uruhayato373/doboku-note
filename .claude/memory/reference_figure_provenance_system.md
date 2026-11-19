@@ -62,7 +62,7 @@ metadata:
 
 **ガイドカードのカバー写真**（PR #276）は 2026-07-07 に廃止し、生成器 `generate-guide-covers.mjs` も 2026-11-13 に消した（DN-1017）。今のカードはページ別の写真サムネイル（`npm run site-thumbs`・`config/site-thumbnails.json`）。
 
-**OGP に写真を載せる時の落とし穴（2026-06-26 検証）**: 現行 OGP テンプレ（`.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs`）は背景の上に **70% オフホワイトのスクリム**（`rgba(253,252,248,0.7)`）を被せ、`generate-ogp-backgrounds.mjs` 側で背景を「淡く正規化」する設計（抽象テクスチャ＋可読タイトル前提）。→ **鮮やかな写真を OGP 背景に置くと ~30% しか見えない薄いゴースト**になる。`resolveBackgroundImage(category)` は per-exam 共有（`config/ogp/backgrounds/<exam-key>.{png,webp,jpg}`）。写真前向きの OGP は 2026-11-13 に別テンプレ `photo-scrim` として新設した（ページ写真 `site-photo.webp` を全面に敷き、左から濃い暗色グラデ＋白文字。写真の無いページは mono-tag）。OGP 一括再生成は全記事 ~2038 枚に及ぶ点も注意（[[reference_figure_provenance_system]]）。関連: [[reference_aidesigner_mcp]]（socialplus 参考のデザイン改善の流れ）。
+**OGP に写真を載せる時の落とし穴（2026-06-26 検証）**: 現行 OGP テンプレ（`scripts/ogp-create/lib/ogp-templates.mjs`）は背景の上に **70% オフホワイトのスクリム**（`rgba(253,252,248,0.7)`）を被せ、`generate-ogp-backgrounds.mjs` 側で背景を「淡く正規化」する設計（抽象テクスチャ＋可読タイトル前提）。→ **鮮やかな写真を OGP 背景に置くと ~30% しか見えない薄いゴースト**になる。`resolveBackgroundImage(category)` は per-exam 共有（`config/ogp/backgrounds/<exam-key>.{png,webp,jpg}`）。写真前向きの OGP は 2026-11-13 に別テンプレ `photo-scrim` として新設した（ページ写真 `site-photo.webp` を全面に敷き、左から濃い暗色グラデ＋白文字。写真の無いページは mono-tag）。OGP 一括再生成は全記事 ~2038 枚に及ぶ点も注意（[[reference_figure_provenance_system]]）。関連: [[reference_aidesigner_mcp]]（socialplus 参考のデザイン改善の流れ）。
 
 ---
 

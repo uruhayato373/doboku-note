@@ -15,7 +15,7 @@ import { Resvg } from '@resvg/resvg-js';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { parseArgs } from 'node:util';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, FONTS_ROOT } from './lib/repository-paths.mjs';
 
 
 const { values: args } = parseArgs({
@@ -35,7 +35,7 @@ const slideData = JSON.parse(readFileSync(join(packDir, 'slide-data.json'), 'utf
 
 // ─── フォント ─────────────────────────────────────────────────
 
-const FONT_DIR = resolve(ROOT, '.claude/skills/ogp-create/assets/fonts');
+const FONT_DIR = FONTS_ROOT;
 const FONTSOURCE_DIR = resolve(ROOT, 'node_modules/@fontsource');
 
 const fonts = [

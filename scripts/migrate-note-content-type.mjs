@@ -4,7 +4,7 @@
 
 import { join, relative } from 'node:path';
 import matter from 'gray-matter';
-import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 import {
   inferNoteContentType,
   isKnownNoteContentType,

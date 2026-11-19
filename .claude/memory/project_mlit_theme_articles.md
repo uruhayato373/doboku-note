@@ -18,7 +18,7 @@ NotebookLM で得た「白書数字 → 5管理間トレードオフ → 解決�
 - **上位ハブ**: 既存 `management-tradeoffs` の末尾に「テーマ別深掘り」H2 追加で 7 テーマへ動線
 
 全 8 記事は `category: pe-comprehensive-management` / `group: guide`。
-`.claude/scripts/build-pillar-exam-questions.mjs` の `EXCLUDE_SLUGS` に登録済み
+`scripts/build-pillar-exam-questions.mjs` の `EXCLUDE_SLUGS` に登録済み
 （既存ピラー過去問計算を保護）。
 
 ## 状態 (2026-05-17 最新)
@@ -51,7 +51,7 @@ NotebookLM で得た「白書数字 → 5管理間トレードオフ → 解決�
 ## 自動化資産
 
 - **`.claude/config/theme-to-questions.json`**: テーマ→過去問マッピング真実源（149 件、AI 推定含む。受験者本人が「(要確認: AI推定)」note を見直して精度向上）
-- **`.claude/scripts/inject-theme-backlinks.mjs`**: 過去問 MDX に Callout 自動挿入（primary は設問単位、secondary は記事冒頭一括、dry-run 対応、MARKER は `{/* theme-backlinks:auto */}` で MDX-JSX 構文準拠）
+- **`scripts/inject-theme-backlinks.mjs`**: 過去問 MDX に Callout 自動挿入（primary は設問単位、secondary は記事冒頭一括、dry-run 対応、MARKER は `{/* theme-backlinks:auto */}` で MDX-JSX 構文準拠）
 - **`src/lib/magazine-placement.ts`**: note 有料マガジン CTA の slug ベース配置。白書ハブは全5マガジン強CTA、各テーマは精読ガイド + 該当ペルソナ自動表示
 - 既存 `lib/mdx-io.mjs` の `writeMdxFile` 経由で CRLF 保持
 

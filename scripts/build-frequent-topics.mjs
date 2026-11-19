@@ -16,7 +16,7 @@
  */
 import { readFileSync, mkdirSync, existsSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { readMdxFile, writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
+import { readMdxFile, writeMdxFile } from "./lib/mdx-io.mjs";
 import { SITE_ORIGIN } from "./lib/site-identity.mjs";
 import { todayJst } from "./lib/jst-date.mjs";
 import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
@@ -222,7 +222,7 @@ ${kanriBlocks}
 
 // --check: 入力の読み込み・集計・MDX 本文の組み立てまでを完走したことだけ確認し、書かない。
 // quality-audit のゲートから毎回呼ぶ。動機は monetization-coverage --check と同じ
-// （.claude/scripts/report-monetization-coverage.mts 参照）——このスクリプトは
+// （scripts/report-monetization-coverage.mts 参照）——このスクリプトは
 // Windows で `new URL("..", import.meta.url).pathname` が `/C:/Users/…` を返すバグにより
 // **一度も実行できていない**期間があった（2026-08-25 発覚）。実行可能性を確かめる検出器が
 // 無かったので、frequent-topics は「17年度・680問」のまま何週間も公開され続けた。

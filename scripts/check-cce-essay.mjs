@@ -23,7 +23,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { evaluateCceEssay, extractAnswerParts, extractHistoryBlocks, findSharedPersonaParts, syncHistoryBlock } from './lib/cce-essay.mjs';
-import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { writeMdxFile } from './lib/mdx-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';

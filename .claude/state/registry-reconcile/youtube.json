@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-18T04:45:10.928Z",
+  "checkedAt": "2026-11-19T04:31:00.169Z",
   "channel": "youtube",
-  "targets": 70,
-  "checked": 70,
-  "observed": 70,
+  "targets": 74,
+  "checked": 74,
+  "observed": 74,
   "advanced": [
-    "pe-comprehensive-management/cm-essay-tradeoff-kakikata/youtube.longform",
-    "pe-comprehensive-management/cm-setsumon3-risk-kokufuku/youtube.longform",
-    "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-breakdown-1",
-    "pe-construction/pe-road-shutsudai-yomikata/youtube.short.point-themename-1"
+    "pe-comprehensive-management/sokan-kojutsu-tradeoff/youtube.longform",
+    "pe-construction/hissu1-infra-roukyuuka/youtube.short.point-funding-2",
+    "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.short.point-kazu-1",
+    "pe-construction/pe-hissu1-konkyo-tsumikata/youtube.longform"
   ],
   "findings": []
 }

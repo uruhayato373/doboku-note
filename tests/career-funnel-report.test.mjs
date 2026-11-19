@@ -24,7 +24,7 @@ import {
   stalenessDays,
   summarizeAfb,
   sumA8,
-} from "../.claude/scripts/report-career-funnel.mjs";
+} from "../scripts/report-career-funnel.mjs";
 import { matchesPage } from "../src/lib/affiliate-placement-core.mjs";
 
 const cfg = JSON.parse(readFileSync(join(ROOT, "config/career-funnel.json"), "utf8"));
@@ -289,7 +289,7 @@ test("attributeByPage: ページ・面・案件・日付でルールを 1 つに
 // --- URL の照合（2026-10-11 の誤報告の再発防止）---------------------------------------------------
 // 2026-08-22 の移行後、GA4 の pagePath と本文の内部リンクは正規 URL（/exam/…）が主になった。旧 /docs/<slug> だけで
 // 照合すると career 記事が「GA4 に 1 本も無い・被リンク 0・GSC 0 行」に見え、EXP-008 の判定材料が狂う。
-import { careerLinkPatterns, countLinkHits } from "../.claude/scripts/report-career-funnel.mjs";
+import { careerLinkPatterns, countLinkHits } from "../scripts/report-career-funnel.mjs";
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test("内部リンク: 旧 /docs/<slug> と正規公開パス（/exam/…）の両方を数え、前方一致の別記事は数えない", () => {

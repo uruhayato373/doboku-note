@@ -15,7 +15,7 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 
 | シリーズ | 用途 | デザイン | パイプライン |
 |---|---|---|---|
-| **A. 択一クイズパック** | 運営者作問のシンプル知識クイズ | 既存 SVG ベース（明色） | `.claude/scripts/sns/render-quiz-pack.mjs` |
+| **A. 択一クイズパック** | 運営者作問のシンプル知識クイズ | 既存 SVG ベース（明色） | `scripts/sns/render-quiz-pack.mjs` |
 | **B. 過去問パック** | 公式試験問題 H21-R8 全 720 問 | AIDesigner 新意匠（単一 brand + semantic、Manrope+NotoSansJP） | `ig-post-create.mjs --exam` |
 | C. 単独 KW 解説（旧） | キーワード 1 件の Study Notebook | notebook デザイン | `ig-post-create.mjs --slug` |
 
@@ -31,19 +31,19 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 
 | 役割 | ファイル |
 |---|---|
-| 過去問パック生成 (B) | `.claude/skills/ig-post-create/scripts/ig-post-create.mjs` (`--exam`) |
+| 過去問パック生成 (B) | `scripts/ig-post-create/ig-post-create.mjs` (`--exam`) |
 | 過去問 MDX パーサ | `scripts/parse-exam-questions.mjs` |
 | 過去問パック構造化 | `scripts/generate-exam-pack-dirs.mjs` |
 | 過去問パック 一括生成 | `scripts/bulk-generate-exam-packs.mjs` |
 | 過去問 SoT | `src/config/exam-questions.json` (720 問) |
 | 過去問 slide-data SoT | `content/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/slide-data.json` |
-| 過去問スライドビルダー | `.claude/scripts/lib/sns-common/quiz-slides.mjs`（tokens.json 参照） |
+| 過去問スライドビルダー | `scripts/lib/sns-common/quiz-slides.mjs`（tokens.json 参照） |
 | 過去問デザイン真実源 | `.claude/knowledge/design-system/instagram-carousel-tokens.json` + `.claude/knowledge/design-system/instagram-carousel.md` |
-| 択一クイズパック生成 (A) | `.claude/scripts/sns/render-quiz-pack.mjs` |
-| 択一クイズ source パーサ | `.claude/scripts/sns/lib/quiz-parser.mjs` |
-| 択一クイズテンプレ | `.claude/scripts/sns/templates/quiz-ig.mjs` |
-| 単独 KW (notebook) ビルダー | `.claude/scripts/lib/sns-common/notebook-slides.mjs` |
-| キャプション生成 | `.claude/scripts/instagram/generate-caption.cjs` |
+| 択一クイズパック生成 (A) | `scripts/sns/render-quiz-pack.mjs` |
+| 択一クイズ source パーサ | `scripts/sns/lib/quiz-parser.mjs` |
+| 択一クイズテンプレ | `scripts/sns/templates/quiz-ig.mjs` |
+| 単独 KW (notebook) ビルダー | `scripts/lib/sns-common/notebook-slides.mjs` |
+| キャプション生成 | `scripts/instagram/generate-caption.cjs` |
 
 ---
 
@@ -90,7 +90,7 @@ node scripts/generate-exam-pack-dirs.mjs --year r07
 # → content/sns/instagram/cem/exam-packs/r07/pack-{01..09}/slide-data.json
 
 # 3. 1 パック分の PNG + caption 生成
-node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size carousel
+node scripts/ig-post-create/ig-post-create.mjs --exam r07-pack-01 --size carousel
 
 # 4. 全パック一括生成
 node scripts/bulk-generate-exam-packs.mjs --year r07 --size carousel
@@ -145,7 +145,7 @@ node scripts/bulk-generate-exam-packs.mjs --all   # 約 130 パック生成
 # フォーマットは content/sns/instagram/_dev/source.md 参照
 
 # 2. レンダリング
-node .claude/scripts/sns/render-quiz-pack.mjs content/sns/<channel>/draft/<NNN>-...
+node scripts/sns/render-quiz-pack.mjs content/sns/<channel>/draft/<NNN>-...
 
 # 出力: <pack-dir>/instagram-carousel/img/{NN-管理名}/{01..10}.{svg,png}
 ```
@@ -184,7 +184,7 @@ node .claude/scripts/sns/render-quiz-pack.mjs content/sns/<channel>/draft/<NNN>-
 ## C. 単独 KW 解説（旧運用・参考保持）
 
 ```bash
-node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --slug heinrich-law --date 2026-05-09 --size carousel
+node scripts/ig-post-create/ig-post-create.mjs --slug heinrich-law --date 2026-05-09 --size carousel
 ```
 
 - 出力: `content/sns/instagram/{date}-{slug}/{reels,carousel}/img/`
@@ -204,7 +204,7 @@ node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --slug heinrich-la
 
 ### フォント
 
-`.claude/skills/ogp-create/assets/fonts/`
+`scripts/assets/fonts/`
 - NotoSansJP-Bold.ttf (日本語・700)
 - Inter-Bold.ttf (英数字・700)
 

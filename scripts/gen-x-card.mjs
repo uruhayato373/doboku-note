@@ -18,7 +18,7 @@ import sharp from "sharp";
 import { coverExamNames } from "./lib/note-character-cover.mjs";
 // 試験色の真実源は note-cover-tokens.json（exam-palette 経由）。ここで hex を直書きすると
 // note カバー・IG・Shorts と色がずれる（x-post-policy §7 は tokens を真実源と定める）。
-import { examColor } from "../.claude/scripts/sns/lib/exam-palette.mjs";
+import { examColor } from "./sns/lib/exam-palette.mjs";
 import { stripTweetMemos } from "./lib/x-tweets-md.mjs";
 import { renderXCharacterCard } from './lib/x-character-card.mjs';
 import { REPO_ROOT as PROJECT_ROOT } from './lib/repository-paths.mjs';

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// スクリプト層（scripts/** ・ .claude/scripts/** ・ .claude/skills/**）の
+// スクリプト層（scripts/**）の
 // **壊れた相対 import** を検出する決定的ゲート。
 //
 // なぜ必要か（tsc の死角）:
 //   tsconfig.json の include は `**/*.ts` `**/*.tsx` のみで、`.mjs` は型検査の対象外。
 //   さらに `.claude/**` は実質ノーチェック。つまり **スクリプト層の import 破損は
 //   誰も見ていない**。実害:
-//     - 2026-07-06: `.claude/scripts/report-monetization-coverage.mts` が
+//     - 2026-07-06: `scripts/report-monetization-coverage.mts` が
 //       magazine-placement.ts の削除済み export を import → 6 週間実行不能。
 //       週次レビューは古い集計を貼り続けた
 //     - スキル移動（`.claude/skills/content/` → `quality/`）に追随せず
@@ -27,7 +27,7 @@ import { join, dirname, resolve, relative } from "node:path";
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOTS = ["scripts", ".claude/scripts", ".claude/skills"];
+const ROOTS = ["scripts"];
 const EXT = /\.(mjs|mts|js|cjs)$/;
 const SKIP_DIR = new Set(["node_modules", ".git", "out", ".next", "dist"]);
 

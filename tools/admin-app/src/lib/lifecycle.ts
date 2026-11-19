@@ -102,7 +102,7 @@ function videoLifecycle(): ChannelLifecycle {
 function siteLifecycle(): ChannelLifecycle {
   const href = '/content/articles';
   // doc-meta-index.json は **published:false を除外して生成される**
-  // （.claude/scripts/build-doc-meta-index.mjs L85-88）。index だけを数えると
+  // （scripts/build-doc-meta-index.mjs L85-88）。index だけを数えると
   // 「下書き 0」という偽の緑になるので、非公開は MDX を直接走査して数える。
   const source = 'src/config/doc-meta-index.json（公開）＋ content/site/**/*.mdx の published:false（下書き）';
   try {

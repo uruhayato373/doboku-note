@@ -92,5 +92,5 @@ figure-crop-worker と figure-crop-auditor が、種類 `scanned` で呼ばれ�
 
 - `.claude/agents/profiles/crop-figure/past-exam-page.md` — 4軸ルーブリック・`adjust_bbox` feedback 形式の参照モデル
 - `.claude/skills/pdf-to-mdx/references/scanned-image-pipeline.md` — `--scanned` 手順書（経路B 図 audit/refine ループ）
-- `.claude/skills/pdf-to-mdx/scripts/scanned/` — locate / crop / apply-deltas / embed スクリプト
+- `scripts/pdf-to-mdx/scanned/` — locate / crop / apply-deltas / embed スクリプト
 - `.claude/knowledge/reference/agents-registry.md` — Generator/Evaluator 分業原則

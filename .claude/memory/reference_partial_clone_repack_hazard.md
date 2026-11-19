@@ -21,7 +21,7 @@ metadata:
 **罠3: `git log --name-status -M` は履歴の blob を丸ごと落としてくる。**
 `-M` の既定は類似度 50% の**非厳密**リネーム検出で、blob の中身を読んで比較する。partial clone では
 これが全 blob の遅延取得になる。2026-08-21 実測——新規 partial clone で `npm run build` を回したら、
-`.claude/scripts/lib/git-dates.mjs` のこの 1 コマンドだけで `.git` が **969 MB → 7.0 GB**、
+`scripts/lib/git-dates.mjs` のこの 1 コマンドだけで `.git` が **969 MB → 7.0 GB**、
 13 分間 CPU 1% のまま downloading を続けた（partial clone にした意味が最初の build で消える）。
 
 **`-M100%`（厳密一致のみ）に変えれば blob の OID 比較で済む。** `GIT_NO_LAZY_FETCH=1` を付けて

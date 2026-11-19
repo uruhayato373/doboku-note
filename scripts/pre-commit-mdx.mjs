@@ -16,9 +16,9 @@ import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
 import { lintFrontmatter, loadTagAllowlist } from "#shared/lint-frontmatter.mjs";
-import { detectBrokenExplanations } from "../.claude/skills/check-mdx/scripts/rules/explanations/detect.mjs";
-import { auditSvgFile } from "../.claude/skills/check-mdx/scripts/rules/svg/detect.mjs";
-import { detectEmptyContainers } from "../.claude/skills/check-mdx/scripts/rules/empty-container/detect.mjs";
+import { detectBrokenExplanations } from "./check-mdx/rules/explanations/detect.mjs";
+import { auditSvgFile } from "./check-mdx/rules/svg/detect.mjs";
+import { detectEmptyContainers } from "./check-mdx/rules/empty-container/detect.mjs";
 import { checkLineEndings } from "./lib/line-endings.mjs";
 import { checkImages } from "./lib/check-mdx-images.mjs";
 import { runGates } from "./pre-commit-ci-gates.mjs";
@@ -86,7 +86,7 @@ function checkImageDimensions(file, content) {
     if (!hasWidth || !hasHeight) {
       errors.push({
         file,
-        error: `<img src="${src}"> needs width/height (CLS prevention). Run: node .claude/scripts/add-img-dimensions.mjs`,
+        error: `<img src="${src}"> needs width/height (CLS prevention). Run: node scripts/add-img-dimensions.mjs`,
       });
     }
   }

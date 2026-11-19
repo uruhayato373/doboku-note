@@ -68,7 +68,7 @@ jobs:
       # git 追跡外の生成物なので、ここで作らないと **commit の瞬間に ENOENT で落ちる**。
       # 症状はワークフロー全体の赤で、本来の処理が終わっていても記録が残らない。
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
 
       - name: Restore service account key
@@ -89,7 +89,7 @@ jobs:
           INPUT_MODE: ${{ inputs.mode }}
         run: |
           mkdir -p .tmp
-          node .claude/scripts/list-sitemap-urls.mjs > .tmp/all-urls.txt
+          node scripts/list-sitemap-urls.mjs > .tmp/all-urls.txt
           echo "SITEMAP_COUNT=$(wc -l < .tmp/all-urls.txt | tr -d ' ')" >> "$GITHUB_ENV"
           if [ "$EVENT" = "schedule" ]; then
             if [ "$SCHEDULE" = "0 2 * * 3" ]; then MODE=new; else MODE=continue; fi
@@ -98,7 +98,7 @@ jobs:
             MODE="${INPUT_MODE:-auto}"
             echo "final=false" >> "$GITHUB_OUTPUT"
           fi
-          node .claude/scripts/inspection-cycle.mjs plan --sitemap .tmp/all-urls.txt --mode "$MODE" \
+          node scripts/inspection-cycle.mjs plan --sitemap .tmp/all-urls.txt --mode "$MODE" \
             --out .tmp/inspect-urls.txt --carry .tmp/inspection-carry.json --outputs "$GITHUB_OUTPUT"
 
       - name: Fetch fresh GSC page snapshot (28d)
@@ -124,7 +124,7 @@ jobs:
             BEFORE=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
             set +e
             timeout -s INT -k 60 180m \
-              node .claude/scripts/inspect-url.mjs --file .tmp/inspect-urls.txt --batch --concurrency 5 --checkpoint-every 100 \
+              node scripts/inspect-url.mjs --file .tmp/inspect-urls.txt --batch --concurrency 5 --checkpoint-every 100 \
               > /tmp/inspect.log 2>&1
             rc=$?
             set -e
@@ -146,7 +146,7 @@ jobs:
               *) exit "$rc" ;;
             esac
           fi
-          node .claude/scripts/inspection-cycle.mjs merge --sitemap .tmp/all-urls.txt --carry .tmp/inspection-carry.json \
+          node scripts/inspection-cycle.mjs merge --sitemap .tmp/all-urls.txt --carry .tmp/inspection-carry.json \
             ${FRESH:+--fresh "$FRESH"} --outputs "$GITHUB_OUTPUT"
 
       - name: Summarize coverage_state (→ job summary)
@@ -196,7 +196,7 @@ jobs:
             echo "partial batch（${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}）: history には追記しない"
             SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) PARTIAL ${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}（周回 ${{ steps.plan.outputs.runs }} 回目） [skip ci]"
           else
-            node .claude/scripts/append-coverage-history.mjs \
+            node scripts/append-coverage-history.mjs \
               --batch "$LATEST" \
               --date "$(date -u +%Y-%m-%d)" \
               --sitemap-count "${SITEMAP_COUNT:-0}" \
@@ -242,7 +242,7 @@ jobs:
       - name: Gate - coverage thresholds
         id: coverage_gate
         if: steps.plan.outputs.action != 'skip' && steps.inspect.outputs.partial != 'true'
-        run: node .claude/scripts/check-coverage-thresholds.mjs
+        run: node scripts/check-coverage-thresholds.mjs
 
       - name: Report - coverage threshold failure
         if: failure() && (steps.coverage_gate.outcome == 'failure' || steps.completeness_gate.outcome == 'failure')
@@ -258,11 +258,11 @@ jobs:
             fi
             echo ""
             echo '```'
-            node .claude/scripts/check-coverage-thresholds.mjs 2>&1 || true
+            node scripts/check-coverage-thresholds.mjs 2>&1 || true
             echo '```'
             echo ""
             echo "- しきい値の真実源: \`.claude/knowledge/reference/gsc-management.md\` の「閾値」節"
-            echo "- 判定ロジック: \`.claude/scripts/check-coverage-thresholds.mjs\`"
+            echo "- 判定ロジック: \`scripts/check-coverage-thresholds.mjs\`"
             echo "- 再実行: \`gh workflow run index-coverage.yml\`"
           } > /tmp/coverage-body.md
           node scripts/report-automation-failure.mjs \

@@ -2,9 +2,8 @@
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "entry": [
     "scripts/**/*.{mjs,cjs,js,ts}",
-    ".claude/scripts/**/*.{mjs,cjs,js}",
-    ".claude/skills/**/scripts/**/*.{mjs,cjs,js}",
-    ".claude/skills/**/scripts-*/**/*.{mjs,cjs,js}",
+    ".claude/scripts/*.mjs",
+    ".claude/skills/ogp-create/scripts/ogp-create.mjs",
     "tests/**/*.test.mjs"
   ],
   "project": [

@@ -5,7 +5,7 @@ import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { renderCharacterFrame } from './character-framing.mjs';
 import { readApprovedCover } from './youtube-approved-cover.mjs';
-import { resolveExam, EXAM_KEYS } from '../../.claude/scripts/sns/lib/exam-palette.mjs';
+import { resolveExam, EXAM_KEYS } from '../sns/lib/exam-palette.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { qualificationShortLabel } from './qualification-names.mjs';
 

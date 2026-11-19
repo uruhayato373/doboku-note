@@ -16,7 +16,7 @@
 
 import { basename, dirname, join, relative } from 'node:path';
 import matter from 'gray-matter';
-import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
 import {
   REFERENCE_BASELINE_PATH,

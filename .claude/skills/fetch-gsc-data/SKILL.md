@@ -108,7 +108,7 @@ JSONファイルを Read ツールで読み込み、以下の観点で分析す�
 
 ## 参照
 
-- `.claude/skills/fetch-gsc-data/scripts/fetch-gsc-data.mjs` — 実装
+- `scripts/fetch-gsc-data/fetch-gsc-data.mjs` — 実装
 - `CLAUDE.md` — プロジェクト概要
 - `gsc-index-auditor` エージェント — URL Inspection から index coverage を診断（`/gsc-review` 経由・月次）
 - `metrics-analyzer` エージェント — GSC/GA4 から performance 改善候補を抽出（`/weekly-improve` 経由・週次）

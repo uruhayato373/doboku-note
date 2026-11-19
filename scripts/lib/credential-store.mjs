@@ -5,7 +5,7 @@
  * 追加モジュール不要）。CI などそれ以外の OS では常に null（CI はログインしない。ログインを要る取得は
  * 土曜の Mac 収集 weekly-collect だけ・DN-0817）。
  * 同じ項目名を両 OS で使うので、呼び出し側は OS を意識しない。stats47 の
- * `.claude/scripts/measurement/credential-store.mjs` と同じ読み口（項目名の接頭辞だけが違う）。
+ * `scripts/measurement/credential-store.mjs` と同じ読み口（項目名の接頭辞だけが違う）。
  *
  * 登録（オーナーが各マシンで 1 回だけ。値を値なしで指定すると対話入力になる）:
  *   Mac:     security add-generic-password -s doboku-note-auth-<service> -a <ログインID> -w

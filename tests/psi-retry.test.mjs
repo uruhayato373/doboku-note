@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { shouldRetryPsi } from '../.claude/scripts/fetch-psi-data.mjs';
+import { shouldRetryPsi } from '../scripts/fetch-psi-data.mjs';
 
 /**
  * PSI 収集のリトライ契約。

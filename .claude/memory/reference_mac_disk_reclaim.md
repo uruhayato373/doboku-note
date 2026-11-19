@@ -83,6 +83,6 @@ generate-note-covers が `--emit-svg` のときだけ `.tmp/` へ出す形に既
 - 大量ファイルの削除は Git Bash の `rm -rf` より **PowerShell `Remove-Item -Recurse -Force`** が速い（`rm -rf` は「Directory not empty」で失敗することもある）。
 - `public/` は毎ビルド `out/` へ全コピーされる。生成物を置かない。`public/pagefind/` は dev のローカル検索用に `fragment/` `index/` ＋ ランタイム 12 点（計 ~950）だけが正しい姿。
 - **CI（Linux ランナー）はこの問題と無関係**。`public/pagefind/` は gitignore 済みでコミットされていないため、Cloudflare デプロイのビルド時間は元から正常だった。これはローカル固有の問題。
-- `git log --all --name-only` は `.git` 13GB に対し 21.5 秒。3 プロセスから呼ばれていたのを `git rev-parse --all` の sha256 をキーにディスクキャッシュ化済み（`.claude/scripts/lib/git-dates.mjs`・ヒット時 ~700ms）。
+- `git log --all --name-only` は `.git` 13GB に対し 21.5 秒。3 プロセスから呼ばれていたのを `git rev-parse --all` の sha256 をキーにディスクキャッシュ化済み（`scripts/lib/git-dates.mjs`・ヒット時 ~700ms）。
 
 関連: [[feedback_metrics_cicd_supplied]] / [[reference_shared_worktree_autostash_hazard]]
