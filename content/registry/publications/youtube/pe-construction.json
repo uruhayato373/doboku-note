@@ -1414,7 +1414,7 @@
       "work": "pe-ii1-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-ii1-kakikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-ii1-kakikata/youtube.longform/scene-001",
@@ -1448,7 +1448,42 @@
         "contentSha256": "8522298e6c456e70a08d6d7ac434ba3e22126475789f59a84b83a1e667ead930"
       },
       "times": {
-        "rendered": "2026-11-19T12:59:03.556Z"
+        "rendered": "2026-11-19T12:59:03.556Z",
+        "uploaded": "2026-11-19T13:06:01.322Z",
+        "scheduled": "2026-11-19T13:06:18.946Z"
+      },
+      "delivery": {
+        "inputSha256": "0bac794acb365c266847412180bee2f443c51d24e38d49e8fb160c148dd15882",
+        "marker": "dn-single-a2f36b7667463c8a640449021e9643140653b416",
+        "uploadRequestedAt": "2026-11-19T13:05:13.637Z",
+        "videoId": "xlsa6X-FBGM",
+        "processedAt": "2026-11-19T13:05:59.727Z",
+        "thumbnailRequestedAt": "2026-11-19T13:06:01.370Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/xlsa6X-FBGM/default.jpg?sqp=CPzn-9cG&rs=AOn4CLDZ8QrUNHsG4pCm5dcMogXsZSy2kw",
+          "https://i9.ytimg.com/vi/xlsa6X-FBGM/mqdefault.jpg?sqp=CPzn-9cG&rs=AOn4CLC8FfBQ4D8jmYhfVeKGiafvna1nxQ",
+          "https://i9.ytimg.com/vi/xlsa6X-FBGM/hqdefault.jpg?sqp=CPzn-9cG&rs=AOn4CLBRxFXsvos7xnlMjdrUxiOM0diRPA",
+          "https://i9.ytimg.com/vi/xlsa6X-FBGM/sddefault.jpg?sqp=CPzn-9cG&rs=AOn4CLCpsaSIyLTi7TxdL07vW6sGm2pqDA",
+          "https://i9.ytimg.com/vi/xlsa6X-FBGM/maxresdefault.jpg?sqp=CPzn-9cG&rs=AOn4CLCfnp-ysTioIBSnR6_lwSykeNIkEg",
+          "https://i9.ytimg.com/vi/xlsa6X-FBGM/fhddefault.jpg?sqp=CPzn-9cG&rs=AOn4CLBdLMGDCZtjyJmSCUtP-vkSnMou-Q"
+        ],
+        "thumbnailAcceptedAt": "2026-11-19T13:06:12.204Z",
+        "scheduleRequestedAt": "2026-11-19T13:06:14.642Z",
+        "scheduleAt": "2026-11-30T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-19T13:06:18.946Z"
+      },
+      "platform": {
+        "id": "xlsa6X-FBGM",
+        "url": "https://www.youtube.com/watch?v=xlsa6X-FBGM",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-ii1-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-19T13:06:12.204Z"
       }
     },
     {
