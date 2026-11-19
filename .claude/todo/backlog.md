@@ -3056,6 +3056,14 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1254] scripts の小さな helper の書き写し（sleep・エスケープ・sha256・git・R2 など）を lib に寄せる
+タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 の scripts 整理の調査。小さな helper の書き写しが多い: `sleep` 53 ファイル（lib の `note-browser.mjs:42`・`coconala-session.mjs:35` も各自 export）・HTML/XML のエスケープ 58（汎用の置き場が無い）・`sha256` 系 55（lib の 4 本が各自 export）・`toPosix` 12・`median` 14（lib 内に 5 本。`ci-stats` は上側の中央値で意味が違う）・`addDays` 7（lib 内に 4 本）・git の自前ラッパー 30（`git ls-files -z` の写し 12）・R2 クライアントの自前生成 8 と `.env.local` の自前読み 4（正規は `lib/asset-storage.mjs` の `makeS3`・`loadEnvLocal`）
+- やること: 置き場の無いもの（エスケープ・git の一覧・日付演算）の lib を決めて作り、置換で済むものから寄せる。意味の違うもの（median・同期版 sleep・`"` を逃がさない esc）は名前を分ける
+- 完了条件: 各 helper の自前定義の数が下がり、code-ratchet に数え方を足して戻りを止める
+
+
 ### [DN-1253] scripts の frontmatter の正規表現読み（約 50 ファイル）を共通部品にそろえる
 タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
 
