@@ -75,6 +75,7 @@
 - [ログインは auth:login だけ](feedback_login_only_via_auth_login.md) — 他のブラウザは収集に効かない・失敗印・KDP は端末を記憶
 - [knip裏取りとworktree npm](feedback_knip_grep_scope_and_worktree_npm.md) — repo全体grep・symlink実体化
 - [売り場から外す線引き](feedback_shelving_unsold_products.md) — 試験日で判定・唯一のCTAは残す・無料は数値
+- [スクリプトの移動](feedback_script_move_main_workflow_shim.md) — main の定義が旧パスを呼ぶ・転送を残して 2 段
 
 ## Project
 - [3層・合格者戦略](project_v3_strategy.md) — 運営者は総監合格済・言及ルール

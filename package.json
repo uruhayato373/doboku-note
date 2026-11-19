@@ -342,6 +342,7 @@
     "youtube-daily": "node scripts/youtube-daily-release.mjs",
     "shorts-factory": "node scripts/shorts-factory.mjs",
     "image-rules": "node scripts/image-rules.mjs",
+    "check-main-workflow-paths": "node scripts/check-main-workflow-paths.mjs",
     "check-unreachable-cli": "node scripts/check-unreachable-cli.mjs",
     "check-image-rules": "node scripts/check-image-rules.mjs",
     "registry-reconcile": "node scripts/registry-reconcile.mjs",

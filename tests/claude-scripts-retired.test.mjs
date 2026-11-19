@@ -16,6 +16,7 @@ const MENTION_OK = new Set([
   'tests/claude-scripts-retired.test.mjs', // この検査
   'knip.json', // 転送の 9 本を entry にしている（DN-1249 で消す）
   '.claude/todo/backlog.md', // DN-1249・DN-1016 の説明
+  '.claude/memory/feedback_script_move_main_workflow_shim.md', // 集約の経緯の記録
   '.claude/knowledge/reference/information-architecture.md', // 廃止したことの記述
   '.claude/skills/pdf-to-mdx/scripts/book-ocr/README.md', // Obsidian vault 側の .claude/scripts/ocr/
   '.claude/skills/pdf-to-mdx/scripts/book-ocr/book_ocr_machine.py', // 同上

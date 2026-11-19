@@ -256,6 +256,7 @@ export const CHECKS = [
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
   { id: 'page-quality-profiles', npm: 'page-quality-inventory', timeout: 120_000, ci: true, note: '全ページが採点プロファイル（台帳 config.page-quality-profiles）のちょうど 1 つの種類に当たり、プロファイルの評価役（.claude/agents）と機械の検査 id が実在するか。評価役の無い資格は失敗にせず一覧で出す（DN-0936・埋めるのは DN-0937）' },
   { id: 'lcp-image-hints', npm: 'check-lcp-image-hints', timeout: 60_000, ci: true, note: '本文フォールド内1枚目の図版は eager+fetchpriority=high（lazy だと低速回線で LCP が数秒伸びる・EXP-005）' },
+  { id: 'main-workflow-paths', npm: 'check-main-workflow-paths', timeout: 60_000, ci: true, note: 'main の workflow の定義が develop を checkout して呼ぶパス・npm script が、いまのツリーにあるか（DN-1250）。develop でスクリプトを移動・改名・削除すると deploy まで定期ジョブが落ちる。origin/main が読めなければ検査不成立（CI は audit の前に fetch する）' },
   { id: 'scheduled-exec-branch', npm: 'check-scheduled-exec-branch', timeout: 60_000, ci: false, note: '定期ジョブの実行ブランチ対応表（棚卸し）。WARN 判定は現ブランチ依存のため CI では意味が薄く report-only。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
   { id: 'home-exam-coverage', npm: 'check-home-exam-coverage', timeout: 60_000, ci: true },
   { id: 'character-avatars', npm: 'check-character-avatars', timeout: 60_000, ci: true, note: 'note CTA のキャラアバター: manifest siteCta ⇔ 配信 webp ⇔ ctaPose union の三者整合（union だけ広げると本番 404）' },
