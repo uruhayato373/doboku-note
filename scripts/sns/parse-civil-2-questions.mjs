@@ -68,7 +68,7 @@ function parseArticle(dir) {
     // 正答表記ゆれ対応: 「正答：N」「正解: (N)」両形式
     const corrM = b.match(/\*\*正(?:答|解)[：:]\s*[（(]?\s*([1-4])\s*[)）]?\*\*/);
     // 公式正答が複数の問題（「正解: (3), (4)」）は correct に最初の番号、correctAll に全部を入れる
-    const multiM = corrM ? null : b.match(/\*\*正(?:答|解)[：:]\s*((?:[（(]?\s*[1-4]\s*[)）]?\s*[,、・と]\s*)+[（(]?\s*[1-4]\s*[)）]?)\*\*/);
+    const multiM = corrM ? null : b.match(/\*\*正(?:答|解)[：:]\s*((?:(?:[（(]\s*)?[1-4](?:\s*[)）])?\s*[,、・と]\s*)+(?:[（(]\s*)?[1-4](?:\s*[)）])?)\*\*/);
     const correctAll = multiM ? [...multiM[1].matchAll(/[1-4]/g)].map((m) => parseInt(m[0], 10)) : null;
     const correct = corrM ? parseInt(corrM[1], 10) : correctAll ? correctAll[0] : null;
     const detailsM = b.match(/<details>([\s\S]*?)<\/details>/);
