@@ -515,6 +515,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1250] main の定義で develop を checkout するワークフローが呼ぶパスを、PR で消したら止める
+タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-19]
+
+**起点**: 2026-11-19 の `.claude/scripts/` 集約（uruhayato373/doboku-note#1663）。定期実行のワークフロー 9 本は定義が main・checkout が develop（`ref: develop`）なので、develop でスクリプトを移動・改名・削除すると、main へ deploy するまで main の定義が無いパスを呼んで落ちる。今回は人が気づいて旧パスに転送を残した。`check-command-guidance` は同じツリーの中の実在しか見ず、`check-scheduled-exec-branch` は逆向き（実行されないブランチでの変更）の WARN だけで、この形は機械で止まらない。
+
+**やること**: PR の CI で、origin/main の `.github/workflows/*.yml` のうち checkout が `ref: develop` のジョブが `run:` で呼ぶリポジトリ内のパス（`node <path>`・`bash <path>`）が、PR のツリーに実在するかを検査する。yml の解析は `scripts/check-scheduled-exec-branch.mjs` のものを使う。origin/main が取れないときは検査不成立（緑にしない）。Mac に導入済みの `weekly-review.sh` の写しが呼ぶパスも同じ検査に入れられるか確かめる。
+
+**完了条件**: main の定義が呼ぶパスを develop 向けの PR で消すと CI が赤になる（回帰テストつき）。検査したワークフロー数とパス数を出力する。
+
+
 ### [DN-1249] .claude/scripts の転送 9 本を消し、旧パスを禁止ルートに載せる
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-19]
 
