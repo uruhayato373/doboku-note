@@ -1468,7 +1468,7 @@ function extractBraced(content, openIdx) {
 /**
  * 9-11 HIGH: <ExamPoint items={[...]}> の各文字列に句読点（、。，．）を含む。
  *
- * scripts/migrate-civil-answer-style.mjs の generateExamPoint() バグで生成された
+ * 旧 migrate-civil-answer-style.mjs（2026-11-19 に削除）の generateExamPoint() バグで生成された
  * 機械分割断片を検出する。末尾の句読点は許容（句点で終わる完結文は OK）、内部の句読点のみ検出。
  *
  * 過去問 MDX も対象（むしろ過去問が主対象）。

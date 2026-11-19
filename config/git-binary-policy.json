@@ -120,7 +120,7 @@
     "content/sns": 60,
     "_content_sources_note": "2026-10-25: 20→30。公的基準の版面のまま残った表を原本照合で組み直した JSON（content/sources/standards/tables・約 1,640 件 13.6 MiB・DN-0850）で 21.2 MiB に達した。生成器（build-standard-articles）が CI のビルドで読む正本の文字データで、R2 へは移せない（散文の成長と同じ扱いで上げる）。",
     "content/sources": 30,
-    "_scripts_note": "2026-09-23: 100→130。I・J系 Kindle 26冊の配布物（表紙 jpg 21 MiB・EPUB 1.7 MiB）で 107.4 MiB に達した。kindle-dist は allowlist で Git 正本と決めている（DN-0151(3)）ため退避せず上限を上げる。表紙は spec と背景から決定的に再生成できるので、次に超えるときは表紙 jpg の追跡をやめて提出時に sync-kindle-dist で作る案を先に検討する",
+    "_scripts_note": "2026-09-23: 100→130。I・J系 Kindle 26冊の配布物（表紙 jpg 21 MiB・EPUB 1.7 MiB）で 107.4 MiB に達した。kindle-dist は allowlist で Git 正本と決めている（DN-0151(3)）ため退避せず上限を上げる。表紙は spec と背景から決定的に再生成できるので、次に超えるときは表紙 jpg の追跡をやめて提出時に sync-kindle-dist で作る案を先に検討する。（追記 2026-11-19: kindle-dist は 2026-10-12 に Git から外して private R2 へ移したので、この時点の「Git 正本」は今は当てはまらない）",
     "scripts": 130
   },
   "derivedPairRules": [
