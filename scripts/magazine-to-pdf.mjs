@@ -5,7 +5,7 @@
 // remark → 印刷用 CSS → Chrome ヘッドレス --print-to-pdf。
 //
 // 使い方:
-//   node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/<magazine>.json [--desktop]
+//   node scripts/magazine-to-pdf.mjs --spec <マガジンのフォルダ>/magazine-pdf.json [--desktop]
 //
 // spec スキーマ:
 //   {

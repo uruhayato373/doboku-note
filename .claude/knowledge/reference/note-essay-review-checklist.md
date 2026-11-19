@@ -231,10 +231,10 @@ node scripts/check-essay-heading-structure.mjs "{persona}" --strict
 
 ## Step 6e: 印刷用PDF（記事別）の生成・配置・冒頭訴求
 
-1. spec を作成（道路担当 `scripts/pdf-specs/総監模範論文-自治体道路担当.json` を複製し srcDir/out を差し替え）
+1. spec を作成（道路担当 `content/note/技術士総監/magazines/総監模範論文-自治体道路担当/magazine-pdf.json` を複製し srcDir/out を差し替え）
 2. 記事別PDFを各記事dirへ直接生成：
    ```
-   node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/{persona}.json --in-place
+   node scripts/magazine-to-pdf.mjs --spec <マガジンのフォルダ>/magazine-pdf.json --in-place
    ```
    （`--in-place` で各 `{RXX}/` 配下に `{out}.pdf` を配置。試験問題＋模範論文のみ＝note CTA・採点者視点・出題予想根拠は除外）
 3. 各記事冒頭「**この記事でわかること**」末尾に PDF 訴求 1 行を追加（例:「**本記事の模範論文を印刷できる PDF 付き** — 答案用紙への手書き書き写し練習に使えます（購入者は本記事からダウンロード可）」）

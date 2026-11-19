@@ -17,7 +17,7 @@
  *
  * 使い方:
  *   node scripts/gen-pdf-specs-civil-keiken.mjs            # dry-run（生成内容を表示）
- *   node scripts/gen-pdf-specs-civil-keiken.mjs --apply    # scripts/pdf-specs/ へ書き出し
+ *   node scripts/gen-pdf-specs-civil-keiken.mjs --apply    # 各マガジンのフォルダの magazine-pdf.json へ書き出し
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'node:fs';
@@ -26,7 +26,6 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const APPLY = process.argv.includes('--apply');
-const OUT_DIR = join(REPO_ROOT, 'scripts/pdf-specs');
 
 const MAGAZINES = [
   // 工事件数を商品表示と一致させるため、総合案内や横断付録は個別工事 PDF に含めない。
@@ -86,7 +85,7 @@ for (const mag of MAGAZINES) {
   totalArticles += articles.length;
   summary.push({ spec: mag.spec, n: articles.length, skipped });
   const spec = { srcDir: mag.dir, articles };
-  const outPath = join(OUT_DIR, mag.spec + '.json');
+  const outPath = join(REPO_ROOT, mag.dir, 'magazine-pdf.json');
   if (APPLY) writeFileSync(outPath, JSON.stringify(spec, null, 2) + '\n', 'utf8');
   console.log(`${mag.spec}: ${articles.length} 記事${skipped.length ? ` / skip ${skipped.length}` : ''} -> ${relative(REPO_ROOT, outPath).split('\\').join('/')}${APPLY ? '' : '（dry-run）'}`);
   skipped.forEach((s) => console.log('    skip:', s));
