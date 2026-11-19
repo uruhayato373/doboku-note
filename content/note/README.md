@@ -172,5 +172,5 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 - 紙用 PDF 変換: `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/<magazine>.json`
 - カバー画像生成: `node scripts/generate-note-covers.mjs [slug部分一致]`（再帰走査・試験別構造に自動対応）
 - UTM 付与: `node scripts/add-note-utm.mjs <slug|prefix>`
-- 図版 render: `scripts/render-figure-*.mjs`（正本は `figure-*.svg`。note へ上げる PNG は投稿時に作る。確認用は `node scripts/render-note-figures.mjs <svg|dir>`）
+- 図版: 正本は `img/figure-*.svg`（直接書く・直す）。note へ上げる PNG は投稿時に作る。確認用は `node scripts/render-note-figures.mjs <svg|dir>`
 - note 公開状態の照合: `npm run verify-note-magazines`
