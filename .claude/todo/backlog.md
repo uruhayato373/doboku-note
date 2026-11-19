@@ -3056,6 +3056,14 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1253] scripts の frontmatter の正規表現読み（約 50 ファイル）を共通部品にそろえる
+タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 の scripts 整理の調査。frontmatter を正規表現で読む自前の関数（`fmField` 8・`fm` 9・`stripFrontmatter` 8・`splitFrontmatter` 5・インラインの `replace(/^---…/)` 22 ファイル）が約 50 ファイルにある。lib の中でも `stripFrontmatter` が 3 か所（`katex-audit`・`page-quality-profiles`・`table-rendering-rules`）で戻り値の形が違う
+- やること: 正規表現の読み（値は文字列のまま）と gray-matter（YAML の型で読む）のどちらに寄せるかを決め、軽量に 1 欄だけ読む共通部品を `scripts/lib/` に置いて置き換える
+- 完了条件: 置き換えた各スクリプトで、変更前後の出力が同じ（全記事で照合）。新しい自前定義を止めるラチェット
+
+
 ### [DN-1252] scripts の引数の手読み（約 105 ファイル）を parseCliArgs にそろえ、ラチェットで止める
 タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
 
