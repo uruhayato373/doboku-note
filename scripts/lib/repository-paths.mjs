@@ -88,6 +88,8 @@ export const MIGRATION_MAP = [
  * 新しく書く記録は新しいパスで書く（旧パスでの新規作成は check-information-architecture が止める）。
  */
 export const MOVED_PATHS = [
+  // 2026-11-19 に .claude/scripts/ を scripts/ へ集約した（.claude/ にコードを置かない）
+  [".claude/scripts", "scripts"],
   [".claude/config/pe-first-stage-historical-sources.json", "config/pe-first-stage-historical-sources.json"],
   [".claude/config/note-intro-standard-civil-cross.json", "config/note-intro-standard-civil-cross.json"],
   [".claude/config/youtube-production-disclosure.json", "config/youtube-production-disclosure.json"],
