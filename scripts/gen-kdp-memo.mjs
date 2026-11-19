@@ -137,7 +137,7 @@ ${book.kdpSelect ? '登録する（独占配信）' : '登録しない（他チ�
 
 
 ─────────────────────────────
-【公開後（ASIN 発番後）】ASIN を Claude に伝える → catalog.json 登録・戦略doc追記まで処理。
+【公開後（ASIN 発番後）】ASIN を Claude に伝える → 商品の正本（npm run product -- set kindle-<書籍id>）登録・戦略doc追記まで処理。
 `
 }
 

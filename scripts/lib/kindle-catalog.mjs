@@ -1,6 +1,7 @@
 /**
- * kindle-catalog.mjs — Kindle 出版データ（catalog.json）を読んで集約・検証する pure module。
- * catalog.json は config/products.json（channel kindle）からの生成物で、書き換えは product-registry.mjs の updateKindleCatalog か npm run product -- set kindle-<書籍id> だけ。
+ * kindle-catalog.mjs — Kindle 書籍の行（商品の正本 config/products.json の Kindle 商品の catalog）を読んで集約・検証する pure module。
+ * 書籍の行は正本の中にだけあり、写しのファイルは作らない（2026-11-20 に写しの catalog.json を廃止）。
+ * 書き換えは product-registry.mjs の updateKindleCatalog か npm run product -- set kindle-<書籍id> だけ。
  *
  * 主な利用者は admin の販売状態（Kindle タブ）（表示専用）。KDP 台帳の母数判定 `kdpLiveBookIdsAsOf` だけは
  * check-kdp-report-freshness と business-direction も共有する。
@@ -14,18 +15,29 @@ import { join, basename } from 'node:path'
 import { REPO_ROOT } from './repository-paths.mjs'
 import { datasetPath } from './datasets.mjs'
 
-export const CATALOG_PATH = join(REPO_ROOT, 'scripts/kindle-published/catalog.json')
+/** 書籍の行を持つファイル（商品の正本）のリポジトリ相対パス */
+export const KINDLE_CATALOG_SOURCE = datasetPath('config.products')
 export const ROYALTIES_PATH = join(REPO_ROOT, datasetPath('kdp.royalties'))
 export const KINDLE_DIST_DIR = join(REPO_ROOT, 'scripts/kindle-dist')
-export const KINDLE_PUBLISHED_DIR = join(REPO_ROOT, 'scripts/kindle-published')
-export const KINDLE_SPECS_DIR = join(REPO_ROOT, 'scripts/kindle-specs')
 
-/** catalog.json を読んで books 配列を返す。壊れていたら throw（呼び手が ok:false にする）。 */
-export function loadKindleCatalog() {
-  const raw = readFileSync(CATALOG_PATH, 'utf8')
-  const parsed = JSON.parse(raw)
-  if (!Array.isArray(parsed.books)) throw new Error('catalog.json: books が配列でない')
-  return parsed.books
+/** 商品の配列から Kindle 書籍の行を order の順に取り出す（純粋） */
+export function kindleBooksOf(products) {
+  return (products ?? []).filter((p) => p.channel === 'kindle').sort((a, b) => a.order - b.order).map((p) => p.catalog)
+}
+
+/**
+ * 書籍の行の配列を返す。root を渡すとその木の正本を読む（テスト用）。
+ * 正本が無い・壊れているときは throw（呼び手が ok:false にする）。0 冊の扱いは呼び手が決める（検査は「検査不成立」で止める）。
+ */
+export function loadKindleCatalog(root = REPO_ROOT) {
+  const parsed = JSON.parse(readFileSync(join(root, KINDLE_CATALOG_SOURCE), 'utf8'))
+  if (!Array.isArray(parsed.products)) throw new Error(`${KINDLE_CATALOG_SOURCE}: products が配列でない`)
+  return kindleBooksOf(parsed.products)
+}
+
+/** 正本が無ければ空配列（集計で「Kindle 無し」として扱う読み手向け）。壊れていれば throw */
+export function loadKindleCatalogIfPresent(root = REPO_ROOT) {
+  return existsSync(join(root, KINDLE_CATALOG_SOURCE)) ? loadKindleCatalog(root) : []
 }
 
 /**

@@ -2,7 +2,7 @@ import { readFileSync, readdirSync, existsSync, mkdirSync, unlinkSync, openSync,
 import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
-import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
+import { kdpLiveBookIdsAsOf, loadKindleCatalogIfPresent } from './kindle-catalog.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
 import { jstDayOf as jst } from './jst-date.mjs';
 import { readJson } from './json-io.mjs';
@@ -418,8 +418,7 @@ export function sourceFacts(root, c, period) {
   const kdpPath = datasetPath('kdp.royalties');
   if (existsSync(join(root, kdpPath))) {
     const ledger = readJson(root, kdpPath);
-    const catalogPath = 'scripts/kindle-published/catalog.json';
-    const catalogBooks = existsSync(join(root, catalogPath)) ? readJson(root, catalogPath).books ?? [] : [];
+    const catalogBooks = loadKindleCatalogIfPresent(root);
     const months = monthsOf(period);
     for (const entry of Object.values(ledger.months ?? {}).filter(row => months.includes(String(row?.range?.start ?? '').slice(0, 7)))) {
       facts.push(...kdpMonthFacts({ entry, catalogBooks, qualificationOf: attribute.book, qualifications: qualificationIds, path: kdpPath }));

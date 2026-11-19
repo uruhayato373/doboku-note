@@ -3,7 +3,7 @@
   "_doc": "商品の正本（全チャネルの全商品・DN-0492）。手で書かず npm run product で読み書きする（並びは channel → id）。note-magazines.ts の生成ブロックは npm run product -- gen。説明は .claude/knowledge/reference/data-storage-decision.md「商品の正本」",
   "channels": {
     "kindle": {
-      "catalogComment": "Kindle 全書籍のマスター登録簿。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は A系だけ git 追跡(kindle-published/)。B-F の配布物は private R2（kindle-dist は 2026-10-12 に Git から外した）. 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
+      "catalogComment": "Kindle 全書籍のマスター登録簿（書籍の行は各商品の catalog。写しのファイルは作らず scripts/lib/kindle-catalog.mjs の loadKindleCatalog で読む）。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は A系だけ git 追跡(kindle-published/)。B-F の配布物は private R2（kindle-dist は 2026-10-12 に Git から外した）. 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
       "catalogSchemaVersion": 1,
       "updatedAt": "2026-09-23"
     }

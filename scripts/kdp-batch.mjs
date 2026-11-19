@@ -14,12 +14,12 @@ import { homedir } from 'node:os'
 import { todayJst } from './lib/jst-date.mjs'
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs'
 import { updateKindleCatalog } from './lib/product-registry.mjs'
+import { loadKindleCatalog } from './lib/kindle-catalog.mjs'
 import { REPO_ROOT as REPO } from './lib/repository-paths.mjs';
 
 const DIST = resolve(REPO, 'scripts/kindle-dist')
 const DL = resolve(homedir(), 'Downloads')
 const PROFILE = resolveProfileDir('kdp', { cwd: REPO, repoRoot: REPO })
-const CATALOG = resolve(REPO, 'scripts/kindle-published/catalog.json')
 const TODAY = todayJst()
 
 const args = process.argv.slice(2)
@@ -55,8 +55,7 @@ const cleanProfile = () => {
   }
 }
 
-const readCatalog = () => JSON.parse(readFileSync(CATALOG, 'utf8'))
-// catalog.json は config/products.json からの生成物。書き換えは updateKindleCatalog（正本へ戻して作り直す）
+// 書籍の行の正本は config/products.json。書き換えは updateKindleCatalog だけ
 const markInReview = (id, draftAsin) =>
   updateKindleCatalog((c) => {
     const b = c.books.find((x) => x.id === id)
@@ -79,7 +78,7 @@ const runStep = (id, extra, logName) => {
 
 let done = 0
 for (const id of ids) {
-  const book = readCatalog().books.find((b) => b.id === id)
+  const book = loadKindleCatalog().find((b) => b.id === id)
   if (!book) { console.error(`STOP: ${id} が catalog に無い`); process.exit(1) }
   if (book.status === 'live' || book.status === 'in_review') {
     console.log(`SKIP ${id}: status=${book.status}（提出済み）`); continue
@@ -113,7 +112,7 @@ for (const id of ids) {
     console.error(p.log.split('\n').slice(-6).join('\n'))
     process.exit(4)
   }
-  const draftAsin = readCatalog().books.find((b) => b.id === id)?.draftAsin || '?'
+  const draftAsin = loadKindleCatalog().find((b) => b.id === id)?.draftAsin || '?'
   markInReview(id, draftAsin)
   console.log(`${id} 出版 OK（審査へ）／catalog=in_review`)
   done++

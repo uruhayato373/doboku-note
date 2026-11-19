@@ -26,7 +26,7 @@ test('重点資格に限らず振り分け、合計はチャネル合計と一�
   w('data/coconala/orders-snapshot.json', { orders: [{ soldOn: '2026-08-10', talkroomId: 1, priceYen: 700 }] });
   w('data/coconala/orders.json', { orders: [{ talkroomId: 1, serviceId: 'coconala-2kyu-tensaku' }] });
   w('data/kdp/royalties.json', { months: { '2026-08': { range: { start: '2026-08-01' }, books: [{ bookId: 'A-01', royalty: 50 }, { bookId: 'other-site', royalty: 999 }] } } });
-  w('scripts/kindle-published/catalog.json', { books: [{ id: 'A-01' }] });
+  w('config/products.json', { products: [{ id: 'kindle-a-01', channel: 'kindle', order: 0, catalog: { id: 'A-01' } }] });
   const rows = salesByQualification(root, { startDate: '2026-08-01', endDate: '2026-08-31' }, config);
   const by = Object.fromEntries(rows.map((r) => [r.id, r.value]));
   assert.deepEqual(by, { 'civil-construction-1': 1050, 'civil-construction-2': 1200, multiple: 300, unclassified: 200 });

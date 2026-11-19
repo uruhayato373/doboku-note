@@ -10,14 +10,11 @@
  * 他サイトの書籍は母数に入れず、土曜の収集の kdp 段の検算（quality-audit の cadence collect・DN-0847）から「取得が止まった」ことを通知する。
  */
 import { existsSync, readFileSync, writeSync } from 'node:fs';
-import { join, relative } from 'node:path';
-import { kdpLiveBookIdsAsOf } from './lib/kindle-catalog.mjs';
+import { kdpLiveBookIdsAsOf, loadKindleCatalog, KINDLE_CATALOG_SOURCE } from './lib/kindle-catalog.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { jstYmd } from './lib/jst-date.mjs';
-import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const STATE = datasetPath('kdp.royalties');
-const CATALOG = join(REPO_ROOT, 'scripts/kindle-published/catalog.json');
 const FINAL_DUE_DAY = 23;
 const ESTIMATE_DUE_DAY = 28;
 const JSON_OUT = process.argv.includes('--json');
@@ -96,13 +93,12 @@ if (isMain) {
     console.error(`${TAG} FAIL: ${STATE} を JSON として読めない — ${error.message}`);
     process.exit(1);
   }
-  let catalog;
-  try { catalog = JSON.parse(readFileSync(CATALOG, 'utf8')); }
+  let catalogBooks;
+  try { catalogBooks = loadKindleCatalog(); }
   catch (error) {
-    console.error(`${TAG} FAIL: ${relative(REPO_ROOT, CATALOG).split('\\').join('/')} を読めない — ${error.message}`);
+    console.error(`${TAG} FAIL: ${KINDLE_CATALOG_SOURCE} の Kindle の書籍を読めない — ${error.message}`);
     process.exit(1);
   }
-  const catalogBooks = catalog.books ?? [];
   const expectedBookIds = kdpLiveBookIdsAsOf(catalogBooks, '9999-12-31');
   const result = assessKdpReport(state, new Date(), catalogBooks);
   if (JSON_OUT) {

@@ -137,7 +137,7 @@ export function coconalaStatusToStage(status, pauseReason = null) {
   }
 }
 
-/** Kindle（scripts/kindle-published/catalog.json） */
+/** Kindle（config/products.json の書籍の行・loadKindleCatalog） */
 export function kindleStatusToStage(status) {
   switch (status) {
     case 'draft':

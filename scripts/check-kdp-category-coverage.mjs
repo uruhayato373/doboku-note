@@ -2,7 +2,7 @@
 /**
  * check-kdp-category-coverage.mjs
  * ---------------------------------------------------------------------------
- * catalog.json の buildSpec 持ち（＝ /kdp-publish の対象になりうる新刊）の id 接頭辞が、
+ * Kindle の書籍の行（商品の正本）の buildSpec 持ち（＝ /kdp-publish の対象になりうる新刊）の id 接頭辞が、
  * すべて config/kdp-memo.json defaults.categoryAssign に明示登録されているか検査する。
  *
  * 背景（2026-08-28）: categoryPathFor() は未登録の接頭辞を警告なく既定 track=gijutsushi
@@ -11,19 +11,14 @@
  * 新シリーズを追加するたびに人が気づくのを待つのではなく、機械で止める。
  * ---------------------------------------------------------------------------
  */
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
 import { getDefaults, uncoveredCategoryBooks } from './lib/kdp-common.mjs'
 import { datasetPath } from './lib/datasets.mjs'
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs'
+import { loadKindleCatalog } from './lib/kindle-catalog.mjs'
 
-const CATALOG = join(ROOT, 'scripts/kindle-published/catalog.json')
-
-const catalog = JSON.parse(readFileSync(CATALOG, 'utf8'))
-const targets = catalog.books.filter((b) => b.buildSpec).map((b) => b.id)
+const targets = loadKindleCatalog().filter((b) => b.buildSpec).map((b) => b.id)
 
 if (!targets.length) {
-  console.error('[check-kdp-category-coverage] 検査対象0件（catalog.books に buildSpec 持ちが無い）＝検査不成立')
+  console.error('[check-kdp-category-coverage] 検査対象0件（Kindle の書籍に buildSpec 持ちが無い）＝検査不成立')
   process.exit(1)
 }
 

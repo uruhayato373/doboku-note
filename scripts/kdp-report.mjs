@@ -41,7 +41,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { isKdpEstimated, kdpMonthsDue } from './lib/net-receipts.mjs';
-import { kdpLiveBookIdsAsOf } from './lib/kindle-catalog.mjs';
+import { kdpLiveBookIdsAsOf, loadKindleCatalogIfPresent } from './lib/kindle-catalog.mjs';
 import { parseKdpMarketplaces, parseKdpKenpTotal, kdpScope, mergeKdpBookRows } from './lib/kdp-report-parsers.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -50,7 +50,6 @@ const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TMP = join(ROOT, '.tmp');
 const STATE = join(ROOT, datasetPath('kdp.royalties'));
-const CATALOG = join(ROOT, 'scripts/kindle-published/catalog.json');
 const BASE = 'https://kdpreports.amazon.co.jp';
 mkdirSync(TMP, { recursive: true });
 
@@ -85,13 +84,10 @@ const num = (s) => Number(String(s).replace(/[¥￥,\s]/g, '')) || 0;
 // 完全一致で外れたら「: 」前の主タイトルで引き直す（主タイトル重複時は曖昧なので引かない）。
 const exactToId = new Map();
 const baseToId = new Map();
-let catalogBooks = [];
-if (existsSync(CATALOG)) {
-  catalogBooks = JSON.parse(readFileSync(CATALOG, 'utf8')).books || [];
-  for (const b of catalogBooks) {
-    exactToId.set(b.subtitle ? `${b.title}: ${b.subtitle}` : b.title, b.id);
-    baseToId.set(b.title, baseToId.has(b.title) ? null : b.id);
-  }
+const catalogBooks = loadKindleCatalogIfPresent();
+for (const b of catalogBooks) {
+  exactToId.set(b.subtitle ? `${b.title}: ${b.subtitle}` : b.title, b.id);
+  baseToId.set(b.title, baseToId.has(b.title) ? null : b.id);
 }
 const lookupId = (t) => exactToId.get(t) ?? baseToId.get(t.split(': ')[0]) ?? null;
 

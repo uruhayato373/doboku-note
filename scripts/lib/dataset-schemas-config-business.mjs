@@ -1294,8 +1294,8 @@ export const NoteProduct = z
   .strict();
 
 /**
- * Kindle の 1 冊の行（scripts/kindle-published/catalog.json の books[] へそのまま書き出す）。
- * 型で宣言するのは先頭キーの id だけにして、ほかの欄は入力の並びのまま通す（生成物のキー順を変えない）
+ * Kindle の 1 冊の行（kindle-catalog.mjs の loadKindleCatalog がそのまま返す）。
+ * 型で宣言するのは先頭キーの id だけにして、ほかの欄は入力の並びのまま通す（欄の順を変えない）
  */
 const kindleBook = z
   .object({ id: z.string().min(1) })
@@ -1363,7 +1363,7 @@ const productChannels = z
     kindle: z
       .object({ catalogComment: text, catalogSchemaVersion: z.number().int(), updatedAt: text })
       .strict()
-      .describe('scripts/kindle-published/catalog.json の先頭の欄（_comment・schemaVersion・updatedAt）'),
+      .describe('Kindle の書籍全体の付帯情報（updateKindleCatalog が受け渡す _comment・schemaVersion・updatedAt）'),
   })
   .partial()
   .strict();

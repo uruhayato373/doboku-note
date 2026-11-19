@@ -12,7 +12,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync, copyFileSync, mkdirSync, existsSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { homedir } from 'node:os'
-import { artifactRelPaths, selectSyncTargets } from './lib/kindle-catalog.mjs'
+import { artifactRelPaths, loadKindleCatalog, selectSyncTargets } from './lib/kindle-catalog.mjs'
 import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 
 const DIST = resolve(REPO, 'scripts/kindle-dist')
@@ -23,10 +23,9 @@ const args = process.argv.slice(2)
 const toDownloads = args.includes('--downloads')
 const ids = args.filter((a) => !a.startsWith('--'))
 
-const cat = JSON.parse(readFileSync(resolve(REPO, 'scripts/kindle-published/catalog.json'), 'utf8'))
 // 対象選定ロジック（id 無指定時は live/in_review を保護）は scripts/lib/kindle-catalog.mjs に
 // 一本化し、tests/kindle-sync-targets.test.mjs で回帰を固定する（実行系はここに置かない）。
-const { targets, skipped } = selectSyncTargets(cat.books, ids)
+const { targets, skipped } = selectSyncTargets(loadKindleCatalog(), ids)
 if (skipped.length) {
   console.log(`保護のため skip（live/in_review 等 ${skipped.length} 冊。id 明示で再ビルド可）: ${skipped.map((b) => b.id).join(' ')}`)
 }

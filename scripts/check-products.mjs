@@ -15,7 +15,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, NOTE_ONLY_MEMBER, productGroups, blockGroupsIn, loadProducts, expectedMembers, renderBlock, replaceBlock, BLOCK_BEGIN, noteKeyOf,
-  writeKindleCatalog, writeCoconalaBlock, syncArticlePrices, syncMagazineTexts,
+  writeCoconalaBlock, syncArticlePrices, syncMagazineTexts,
 } from './lib/product-registry.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { syncIntroStandard, syncCovers, syncListings, personaPacks } from './lib/product-note-derive.mjs';
@@ -57,13 +57,7 @@ for (const [group, mine] of groups) {
   if (replaceBlock(ts, group, renderBlock(group, mine)) !== ts) violations.push(`note-magazines.ts の生成ブロックが正本と違う（${group}）→ npm run product -- gen`);
 }
 
-// 3b. Kindle の catalog.json（正本からの生成物）
 const kindleCount = products.filter((p) => p.channel === 'kindle').length;
-try {
-  if (kindleCount && writeKindleCatalog({ check: true })) violations.push('scripts/kindle-published/catalog.json が正本と違う → npm run product -- gen');
-} catch (e) {
-  violations.push(`Kindle カタログを作れない（${e.message}）`);
-}
 // 3c. ココナラの coconala-services.ts（SERVICES_RAW の生成ブロック）
 const coconalaCount = products.filter((p) => p.channel === 'coconala').length;
 try {

@@ -5,7 +5,7 @@
  * 使い方:
  *   npm run product -- list [--qualification <id>] [--tier pack|magazine|single]   # 一覧（id・層・系列・価格・収録数）
  *   npm run product -- show <id>                                                   # 1 商品の正本を表示
- *   npm run product -- set <id> <path> <json値>                                     # 例: set civil-2-x catalog.price '"¥2,480（8工事セット）"'（Kindle は kindle-<書籍id> で catalog.json も作り直す）
+ *   npm run product -- set <id> <path> <json値>                                     # 例: set civil-2-x catalog.price '"¥2,480（8工事セット）"'（Kindle は kindle-<書籍id>）
  *   npm run product -- add-member <id> <article.md> [...]  / remove-member <id> <article.md> [...]
  *   npm run product -- fmt                                                          # 正本ファイルを正規化して書き直す
  *   npm run product -- gen [--check]                                                # 生成物を書く: note-magazines.ts の生成ブロック・Kindle の catalog.json・ココナラの coconala-services.ts・
@@ -22,7 +22,7 @@ import { join, relative } from 'node:path';
 import { tsImport } from 'tsx/esm/api';
 import {
   ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, PRODUCTS_REL, productGroups, blockGroupsIn, Product, loadProducts, saveProduct, saveProducts, formatProducts, canonicalJson,
-  renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf, writeKindleCatalog, KINDLE_CATALOG_FILE, writeCoconalaBlock, COCONALA_TS, syncArticlePrices, syncMagazineTexts, setArticlePrices,
+  renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf, writeCoconalaBlock, COCONALA_TS, syncArticlePrices, syncMagazineTexts, setArticlePrices,
 } from './lib/product-registry.mjs';
 import { loadLineupConfig, classifyProduct } from './lib/product-lineup.mjs';
 import { syncIntroStandard, syncCovers, syncListings } from './lib/product-note-derive.mjs';
@@ -211,10 +211,8 @@ function gen() {
     console.log(`[product] ${group}: ${mine.length} 件`);
   }
   if (!check && ts !== rawTs.replace(/\r\n/g, '\n')) writeFileSync(NOTE_MAGAZINES_TS, crlf ? ts.replace(/\n/g, '\r\n') : ts);
-  const kindleChanged = writeKindleCatalog({ check });
-  if (check && kindleChanged) die(`${relative(ROOT, KINDLE_CATALOG_FILE)} が正本と違う。npm run product -- gen を実行する`, 1);
   const kindle = products.filter((p) => p.channel === 'kindle').length;
-  console.log(`[product] kindle: ${kindle} 冊${kindleChanged ? '（catalog.json を書いた）' : ''}`);
+  console.log(`[product] kindle: ${kindle} 冊`);
   const coconalaChanged = writeCoconalaBlock({ check });
   if (check && coconalaChanged) die(`${relative(ROOT, COCONALA_TS)} の生成ブロックが正本と違う。npm run product -- gen を実行する`, 1);
   const coconala = products.filter((p) => p.channel === 'coconala').length;
@@ -269,8 +267,7 @@ switch (cmd) {
     }
     setPath(p, path, value);
     console.log(`[product] ${relative(ROOT, saveProduct(p))}`);
-    // Kindle の catalog.json・ココナラの coconala-services.ts は正本からの生成物なので、書き換えたらその場で作り直す
-    if (p.channel === 'kindle' && writeKindleCatalog()) console.log(`[product] ${relative(ROOT, KINDLE_CATALOG_FILE)}`);
+    // ココナラの coconala-services.ts は正本からの生成物なので、書き換えたらその場で作り直す
     if (p.channel === 'coconala' && writeCoconalaBlock()) console.log(`[product] ${relative(ROOT, COCONALA_TS)}`);
     break;
   }

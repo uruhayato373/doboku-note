@@ -24,6 +24,7 @@ import { SNS_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
 import { youtubePublications } from '../../../../scripts/lib/registry-youtube-view.mjs';
 import { articlesIndex, magazines, noteArticleCounts } from './content';
 import { loadKindleView } from './kindle';
+import { KINDLE_CATALOG_SOURCE } from '../../../../scripts/lib/kindle-catalog.mjs';
 import { findRepoRoot, repoPath } from './repo-root';
 
 /**
@@ -203,7 +204,7 @@ function coconalaLifecycle(): ChannelLifecycle {
 
 async function kindleLifecycle(): Promise<ChannelLifecycle> {
   const href = '/product/status?ch=kindle';
-  const source = 'scripts/kindle-published/catalog.json（status）';
+  const source = `${KINDLE_CATALOG_SOURCE} の Kindle の書籍（status）`;
   try {
     // loadKindleView は git log を非同期実行する（同期版は next dev の単一プロセスを
     // ブロックし並行リクエストを詰まらせるため 2026-08-28 に async化）。

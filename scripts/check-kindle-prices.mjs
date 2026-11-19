@@ -4,7 +4,7 @@
  * ---------------------------------------------------------------------------
  * Kindle の価格台帳の整合を検査する。
  *   - spec.price（scripts/kindle-specs/<id>.json・提出と改定の目標値）と
- *     catalog.priceJpy（scripts/kindle-published/catalog.json・台帳）が一致しているか
+ *     catalog.priceJpy（商品の正本 config/products.json の Kindle の書籍の行）が一致しているか
  *   - royalty 0.7 の本が 70% 帯（¥250〜¥1,250）に収まっているか
  *
  * 背景（2026-09-23）: 3段階の価格改定で spec と catalog の片側だけが古いまま残ると、
@@ -14,13 +14,10 @@
  * KDP 上の実価格との突合はログインが要るため `kdp-publish.mjs --sync-status` が担う。
  * ---------------------------------------------------------------------------
  */
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
 import { kindlePriceIssues, loadSpecPrices } from './lib/kdp-common.mjs'
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs'
+import { loadKindleCatalog } from './lib/kindle-catalog.mjs'
 
-const catalog = JSON.parse(readFileSync(join(ROOT, 'scripts/kindle-published/catalog.json'), 'utf8'))
-const targets = catalog.books.filter((b) => ['live', 'ready'].includes(b.status))
+const targets = loadKindleCatalog().filter((b) => ['live', 'ready'].includes(b.status))
 
 if (!targets.length) {
   console.error('[check-kindle-prices] 検査対象0件（catalog に live/ready の本が無い）＝検査不成立')

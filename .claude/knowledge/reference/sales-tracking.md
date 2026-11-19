@@ -274,7 +274,7 @@ npm run check-kdp-report-freshness # 取得期限・全書籍行・catalog紐付
 |---|---|
 | 取得元 | `kdpreports.amazon.co.jp` の `/royalties`（書籍別）＋ `/pmr`（マーケットプレイス別。KENPは「N 既読 KENP」のときだけページ数、金額表示はkenpRoyalty・ページ数null） |
 | 方式 | `scripts/kdp-report.mjs`（Playwright・読み取り専用。ログインは kdp-publish と同じ `.local/playwright-kdp-profile` を共用） |
-| 突合 | 書籍は `scripts/kindle-published/catalog.json` の `title: subtitle` で `bookId` に紐づけ（副題ドリフト時は主タイトルで再照合） |
+| 突合 | 書籍は `config/products.json` の Kindle の書籍（channel kindle の `catalog`） の `title: subtitle` で `bookId` に紐づけ（副題ドリフト時は主タイトルで再照合） |
 | 期間 | 当月と前月のみ（KDP の日付入力は React が握り潰すためカレンダーのプリセットを使う）。それ以前の確定値は `/pmr` を目視 |
 
 **運用**: 土曜の Mac 収集（`weekly-collect` の kdp 段）が毎週、当月（推計）と確定値が入るまでの前月を取り直す（取る月は `kdp-report --list-due`。KENP は翌月15日頃に確定）。
