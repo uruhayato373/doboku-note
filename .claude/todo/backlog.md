@@ -3056,6 +3056,14 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1255] note 記事の列挙（7 か所の自前走査）を lib の 1 関数にまとめる
+タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 の scripts 整理の調査。content/note の article.md を独自に走査する実装が 7 か所ある（lib の `note-attachments.mjs:73 walkArticles`・`note-bank-articles:46`・`note-content-type:26`・`note-cover-inventory:37`・`note-republish-hash`・`note-attach` と、lib の外の `check-magazine-membership.mjs:71 listNoteArticles`）。記事ファイル名の正規表現 `ARTICLE_RE` も 2 か所（`note-attachments:21`・`product-registry:233`）
+- やること: note 記事の列挙を `scripts/lib/` の 1 関数（site の `listSiteMdx` に相当）にまとめ、各所を置き換える
+- 完了条件: 置き換えの前後で列挙される記事の一覧が全件一致
+
+
 ### [DN-1254] scripts の小さな helper の書き写し（sleep・エスケープ・sha256・git・R2 など）を lib に寄せる
 タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
 
