@@ -27,7 +27,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import sharp from 'sharp';
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { SITE_CONTENT_ROOT, REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readJsonIf, writeJson } from './lib/json-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
@@ -40,7 +40,6 @@ import { loadImageRules } from './lib/image-rules.mjs';
 import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 
 function arg(argv, name) {
   const i = argv.indexOf(name);

@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { fileURLToPath } from 'node:url';
 import { joinLongformPlan, loadLongformPlan, loadPlanAudit } from '../scripts/lib/youtube-longform-plan.mjs';
 import { auditLongformPlan, cycleCapacity, inventoryState, mondayOf, scriptQueue, slotProblems, summarizeInventory, weekLimit, shortsSlotFill } from '../scripts/lib/youtube-longform-audit.mjs';
 import { ConfigChannelAnnualPlan } from '../scripts/lib/dataset-schemas-content.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
-const root = fileURLToPath(new URL('../', import.meta.url));
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
+const root = REPO_ROOT;
 const period = { start: '2026-10', end: '2027-09' };
 const pub = { id: 'q/work/youtube.longform', exam: 'q', work: 'work', title: '動画', status: 'qa_passed' };
 const entry = { id: 'finish', exam: 'q', publicationId: pub.id, action: 'finish', priority: 'P1', start: '2026-10-12', ready: '2026-10-20', target: '2026-10-23', note: '図を確認' };

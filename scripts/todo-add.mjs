@@ -19,8 +19,7 @@
  * exit: 0 成功 / 1 検査違反・push 失敗 / 2 引数不正
  */
 import { existsSync, readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { CANONICAL_CATEGORIES, KINDS, TIER, findOrphanHeadings, parseBacklog } from './lib/backlog-lib.mjs';
 import { backlogGitLog, nextId } from './backlog-edit.mjs';
 import { validateCards } from './check-backlog-schema.mjs';
@@ -29,8 +28,8 @@ import { findForbidden } from './lib/exam-calendar-guards.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { commitFileToRemoteBranch } from './lib/git-direct-commit.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const BACKLOG = '.claude/todo/backlog.md';
 const BASELINE = '.claude/config/backlog-vocab-baseline.json';
 

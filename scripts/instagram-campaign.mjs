@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
-import { resolve, join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, dirname } from 'node:path';
 import { CAMPAIGN_PATH, inspectCampaign, json, validateCampaign, buildInstagramSchedule } from './lib/instagram-campaign.mjs';
 import { IG_DESIGN } from './lib/instagram-video-design.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
 import { loadRegistry, qualificationLabel } from './lib/qualification-registry.mjs';
 import { IG_HANDLE } from './lib/site-identity.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..'), args = process.argv.slice(2);
+const root = REPO_ROOT, args = process.argv.slice(2);
 const base = 'content/sns/instagram/video-packs';
 if (args.some(a => ['--prepare', '--check', '--gallery', '--schedule'].includes(a)) && !existsSync(join(root, CAMPAIGN_PATH))) {
   throw new Error('旧 Instagram 112テーマ一括キャンペーンは終了した。新規投稿は個別の台帳行から進める');

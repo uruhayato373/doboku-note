@@ -11,14 +11,13 @@
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { assembleCompilation } from './lib/video-compilation.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
 import { readJson } from './lib/json-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({
   options: { 'pack-dir': { type: 'string' }, check: { type: 'boolean' } },
 });

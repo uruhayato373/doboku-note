@@ -14,12 +14,11 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { loadRegistry, loadRegistryConfig } from './lib/content-registry.mjs';
 import { upsertPublications } from './lib/content-registry-write.mjs';
 import { reconcileYoutube } from './lib/registry-reconcile.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DRY = process.argv.includes('--dry');
 const OUT = '.claude/state/registry-reconcile/youtube.json';
 const log = (...a) => console.log('[registry-reconcile]', ...a);

@@ -30,10 +30,10 @@
  * npm run check-image-origin — 公開記事のラスター画像すべての出所（config/figure-sources.json の provenance の kind。試験ページの設問の図は記事の sources: から導き、<details> の解説の図は導かない）と、写真（AI 生成画像のみ）の状態＝未生成・未監査・不合格・合格を出す。出所なし・実写（CC コメント）・4:3 でない・未生成・未監査・不合格・公的資料の caption に提供者なしで exit 1（quality:audit:ci）。`--ai-queue --json`＝判定待ちの写真（ai-image-fidelity-auditor へ渡す）・`record-ai <verdicts.json>`＝判定を .claude/state/quality/ai-image-review-ledger.json へ（今の画像の sha つき）。罠: 仕様の prompt を書き換えると、画像が同じでも「未生成」に戻る。素材台帳の画像判定の照合は `check-content-registry` の R10（`--media` はない）。未対応フラグを渡してサイト画像の成功を素材検査と読み替えない
  */
 import { readdirSync, readFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { join } from 'node:path';
 import matter from 'gray-matter';
 import sharp from 'sharp';
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { SITE_CONTENT_ROOT, REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
 import { parseJson, readJsonIf, writeJson } from './lib/json-io.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
@@ -45,7 +45,6 @@ import {
   mediaIdOfKey, sourceCommentFor, validateAiVerdict, vaultPathOf,
 } from './lib/image-origin.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 const STATUS_LABEL = { 'not-generated': '未生成', unreviewed: '未監査', failed: '不合格', ok: '合格' };
 
 function loadInputs() {

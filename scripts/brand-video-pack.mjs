@@ -19,7 +19,6 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { createHash } from 'node:crypto';
 import satori from 'satori';
@@ -31,8 +30,8 @@ import { loadVideoBrand, brandedCoverNode, brandedCtaNode } from './lib/video-br
 import { requirePaletteKey } from './lib/qualification-palette.mjs';
 import { mediaPath } from './lib/media-paths.mjs';
 import { pubIdOf } from './lib/content-registry.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({ options: { 'pack-dir': { type: 'string' }, commit: { type: 'boolean' } } });
 if (!args['pack-dir']) {
   console.error('Usage: node scripts/brand-video-pack.mjs --pack-dir content/sns/video-packs/{exam}/{packId} [--commit]');

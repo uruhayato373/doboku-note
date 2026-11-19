@@ -9,12 +9,10 @@
  *
  * exit: 0 期日超過なし / 1 期日超過あり / 2 検査不成立（台帳が 0 件）
  */
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { loadRegistry, loadRegistryConfig } from './lib/content-registry.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({ options: { json: { type: 'boolean' } } });
 const cfg = loadRegistryConfig(ROOT);
 const reg = loadRegistry(ROOT);

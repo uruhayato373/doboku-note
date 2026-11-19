@@ -23,7 +23,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve, sep } from 'node:path';
 import sharp from 'sharp';
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { SITE_CONTENT_ROOT, REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { parseJson, readJsonIf, writeJson } from './lib/json-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
@@ -39,7 +39,6 @@ import {
   syncImageDims, validateVerdict, provenanceEntryFor, verdictsFromResults,
 } from './lib/figure-review.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 const PROVENANCE_FILE = '.claude/state/figure-provenance.json';
 const toPosix = (p) => p.split(sep).join('/');
 

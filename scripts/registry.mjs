@@ -43,7 +43,6 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { execFileSync } from 'node:child_process';
 import { loadRegistry, loadRegistryConfig, publicationStage, resolveCopy } from './lib/content-registry.mjs';
@@ -56,8 +55,8 @@ import { datasetPath } from './lib/datasets.mjs';
 import { acceptedApproval, readPolicy } from './lib/video-publish-gate.mjs';
 import { approvalState } from './lib/media-review.mjs';
 import { canTransition, requiresApproval } from './lib/content-registry.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {

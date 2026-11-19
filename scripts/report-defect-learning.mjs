@@ -12,12 +12,11 @@
  * exit: 0 / 2 検査不成立（backlog・dispatch-log を読めない）
  */
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { DEFECT_KIND, parseBacklog } from './lib/backlog-lib.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BACKLOG = '.claude/todo/backlog.md';
 const DISPATCH_LOG = '.claude/state/dispatch/dispatch-log.json';
 
