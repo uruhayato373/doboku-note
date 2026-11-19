@@ -43,7 +43,7 @@ const slides = scriptJson.slides;
 // ─── 依存モジュール ────────────────────────────────────────────
 
 const { isRunning, synthesize } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/tts-client.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/lib/sns-common/tts-client.mjs')).href
 );
 const { composeShortsVideo, ffmpegAvailable } = await import(
   pathToFileURL(resolve(ROOT, 'scripts/lib/ffmpeg-compose.mjs')).href

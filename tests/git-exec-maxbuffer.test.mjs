@@ -108,7 +108,7 @@ function findGitCalls(source) {
 test('git の一覧・差分・履歴を読む同期呼び出しは maxBuffer を明示している', () => {
   const files = execFileSync(
     'git',
-    ['-c', 'core.quotepath=false', 'ls-files', '-z', 'scripts', '.claude/scripts', 'tests'],
+    ['-c', 'core.quotepath=false', 'ls-files', '-z', 'scripts', 'tests'],
     { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 },
   ).split('\0').filter(Boolean).filter((f) => f.endsWith('.mjs'));
 
@@ -206,7 +206,7 @@ function findHazardousGitCalls(source) {
 test("partial clone で履歴を再ダウンロードする git 呼び出しを書かない", () => {
   const files = execFileSync(
     "git",
-    ["-c", "core.quotepath=false", "ls-files", "-z", "scripts", ".claude/scripts", "tests"],
+    ["-c", "core.quotepath=false", "ls-files", "-z", "scripts", "tests"],
     { cwd: ROOT, encoding: "utf8", maxBuffer: 64 * 1024 * 1024 },
   ).split("\0").filter(Boolean).filter((f) => f.endsWith(".mjs"));
 
@@ -263,7 +263,7 @@ function findPathListingGitCalls(source) {
 test('パスを列挙する git 呼び出しは core.quotepath=false を明示している', () => {
   const files = execFileSync(
     'git',
-    ['-c', 'core.quotepath=false', 'ls-files', '-z', 'scripts', '.claude/scripts'],
+    ['-c', 'core.quotepath=false', 'ls-files', '-z', 'scripts'],
     { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 },
   ).split('\0').filter(Boolean).filter((f) => f.endsWith('.mjs'));
 

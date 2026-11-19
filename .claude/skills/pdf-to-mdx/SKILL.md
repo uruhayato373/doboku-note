@@ -143,7 +143,7 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 - テンプレートの出力パス規則に従う
 - 既存ファイルがある場合は上書き確認
-- CLAUDE.md §3「MDX 書き込みは `writeMdxFile` 経由」に従い、`.claude/scripts/lib/mdx-io.mjs` 経由で書き込み（CRLF 維持）
+- CLAUDE.md §3「MDX 書き込みは `writeMdxFile` 経由」に従い、`scripts/lib/mdx-io.mjs` 経由で書き込み（CRLF 維持）
 
 ### Step 9: post_hooks の実行
 
@@ -215,7 +215,7 @@ MDX での参照は `<ArticleImage src="/posts/{category}/{slug}/img/fig-X-Y.png
 #### Step F: R2 アップロード
 
 ```bash
-node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
+node scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 ```
 
 ## 旧スキルからの移行
@@ -268,4 +268,4 @@ node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 - `.claude/skills/pdf-to-mdx/scripts/text-layer/` — 経路C（テキスト層抽出）判定スクリプト＋実装例＋runbook
 - `.claude/skills/pdf-to-mdx/scripts/occlusion/` — 指の写り込み検出（OCR 着手前のゲート）
 - `.claude/skills/pdf-to-mdx/scripts/book-ocr/` — 経路D（参考文献 bundle の機械 OCR）prep/machine/concat ＋ runbook
-- `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（必須）
+- `scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（必須）

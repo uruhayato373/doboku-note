@@ -24,7 +24,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { figurePackLabels } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
+import { figurePackLabels } from './sns/lib/figure-pack-labels.mjs';
 import { REPO_ROOT, SNS_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';

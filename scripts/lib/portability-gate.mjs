@@ -14,7 +14,7 @@ import { join, relative } from 'node:path';
 import { listFiles, skipHiddenAndNodeModules } from './fs-walk.mjs';
 
 /** 検査する範囲（リポジトリ相対）。ディレクトリは下の拡張子のファイル、ファイルはそのまま */
-const TARGET_DIRS = ['tests', 'scripts', '.claude/scripts'];
+const TARGET_DIRS = ['tests', 'scripts'];
 const TARGET_FILES = ['package.json', '.claude/settings.json'];
 const EXTS = ['.mjs', '.cjs', '.js', '.ts', '.sh', '.py'];
 

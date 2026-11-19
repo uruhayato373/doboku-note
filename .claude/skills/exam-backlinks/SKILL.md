@@ -221,7 +221,7 @@ npm run insert-keyword-relations -- --slugs=followership,risk-assessment --apply
 - `--apply` 書き込み実行
 - `--skip-existing` 既に `<RelatedKeywords>` が含まれる MDX はスキップ（デフォルト true）
 
-**挿入位置**: `## 過去問での出題` などの末尾セクション直前。なければファイル末尾。MDX I/O は `.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` を使い CRLF を保持する（pre-commit フック対応）。
+**挿入位置**: `## 過去問での出題` などの末尾セクション直前。なければファイル末尾。MDX I/O は `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` を使い CRLF を保持する（pre-commit フック対応）。
 
 ### Step 5: `verify {slug}` — 特定キーワードの紐付け確認
 

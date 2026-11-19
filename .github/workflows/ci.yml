@@ -68,7 +68,7 @@ jobs:
       # ビルド時に自動生成されるが、それより前に走る quality:audit:ci の各検査が
       # src/config/doc-meta-index.json を直接読むため、ここで明示的に生成しておく。
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
       # auditジョブも生成物を自分で検査する。別のbuildジョブの存在に依存してskipしない。
       - name: Build standards data for audit
@@ -89,6 +89,11 @@ jobs:
           elif [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
             git fetch --no-tags --depth=1 origin "$BEFORE" && echo "REGISTRY_BASE=$BEFORE" >> "$GITHUB_ENV" || true
           fi
+
+      # check-main-workflow-paths（quality:audit:ci）が main の workflow の定義を読む（DN-1250）。
+      # 取れなければ検査不成立で赤になる（読めないまま緑にしない）。
+      - name: Fetch main workflow definitions
+        run: git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main
 
       # Kindle の配布 EPUB・表紙（scripts/kindle-dist）は private R2 に退避してあり git には無い（DN-0562・2026-10-12）。
       # check-kindle-epub-leak（quality:audit:ci）が展開して読むので、検査の前に取り戻す。
@@ -126,7 +131,7 @@ jobs:
       # テストが読む git 管理外の生成物を、audit の中で走っていたときと同じにそろえる
       # （doc-meta-index・Kindle の配布物・refresh-indexes が書く public/quiz と public/standards-data）。
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
       - name: Hydrate Kindle dist (private R2)
         env:
@@ -163,7 +168,7 @@ jobs:
       # ビルド時に自動生成されるが、それより前に走る quality:audit:ci の各検査が
       # src/config/doc-meta-index.json を直接読むため、ここで明示的に生成しておく。
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
       # Next.js のビルドキャッシュ（Turbopack のファイルシステムキャッシュ）を実行間で引き継ぐ。
       # 形は node_modules/next/dist/docs/01-app/02-guides/ci-build-caching.md の GitHub Actions 例。

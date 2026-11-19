@@ -133,7 +133,7 @@ frontmatter は下書きのまま（`cceEssayPersona` に SSOT `answerModel.pers
 
 ### 機械ゲート（返却前・必須）
 
-`writeMdxFile`（`.claude/scripts/lib/mdx-io.mjs`）で書き込み後、全て PASS させてから返す（commit はしない）:
+`writeMdxFile`（`scripts/lib/mdx-io.mjs`）で書き込み後、全て PASS させてから返す（commit はしない）:
 
 ```bash
 node scripts/check-cce-essay.mjs "<article.md の絶対パス>"   # 型・字数帯・8立場（立場別記事は1立場と(1)(4)の重複なし）・出題年一致・問題文節なし・価格なし

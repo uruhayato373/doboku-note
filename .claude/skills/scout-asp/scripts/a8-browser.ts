@@ -37,9 +37,9 @@ import { todayJst } from "../../../../scripts/lib/jst-date.mjs";
 import { REPO_ROOT as PROJECT_ROOT } from "../../../../scripts/lib/repository-paths.mjs";
 
 const require = createRequire(import.meta.url);
-const core = require("../../../scripts/ads/lib/a8-scout-core.mjs");
-const codeCore = require("../../../scripts/ads/lib/a8-code-core.mjs");
-const applyBudget = require("../../../scripts/ads/check-a8-apply-budget.cjs");
+const core = require("../../../../scripts/ads/lib/a8-scout-core.mjs");
+const codeCore = require("../../../../scripts/ads/lib/a8-code-core.mjs");
+const applyBudget = require("../../../../scripts/ads/check-a8-apply-budget.cjs");
 
 // ─── 設定 ──────────────────────────────────────────
 const AUTH_OPTIONS = { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT };

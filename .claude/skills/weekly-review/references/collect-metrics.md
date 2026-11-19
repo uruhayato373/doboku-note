@@ -17,7 +17,7 @@
 A. NSM 指標取得（既定 = スナップショット読み）:
 - まず後述「スナップショット読み」でコミット済み JSON から WoW を算出するのが既定。
 - creds + 外部到達性が両方ある環境（例: creds 入り macOS）に限り、任意で
-  `node .claude/scripts/lib/metrics-reader.mjs`（markdown 出力）でライブ取得してもよい
+  `node scripts/lib/metrics-reader.mjs`（markdown 出力）でライブ取得してもよい
   → GA4 と GSC から今週 vs 前週の NSM 関連メトリクス（Organic Search users（NSM）、
      全体 sessions、CTR、検索順位、トップクエリ）
 - いずれの出力も「## NSM（オーガニック検索流入）」セクションとしてレビューに埋め込む
@@ -40,7 +40,7 @@ B. 実験進捗レポート:
 - 出力を「## 実験の進捗」セクションとして埋め込む
 
 補助コマンド:
-- `node .claude/scripts/lib/metrics-reader.mjs --json` で生データ
+- `node scripts/lib/metrics-reader.mjs --json` で生データ
 - 追加のディメンション別データ:
   - `npm run fetch-ga4-data -- --dimension page --days 7 --limit 20`
   - `npm run fetch-gsc-data -- --dimension page --days 7`

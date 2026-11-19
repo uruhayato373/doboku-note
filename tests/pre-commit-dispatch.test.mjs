@@ -23,12 +23,12 @@ import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 //                              { docsOrBacklog: true } | { contentQuality: true }
 //  止め方: 'nonzero'（`[ $? -ne 0 ]`）| 'eq1'（`[ $? -eq 1 ]`）
 const LEGACY = [
-  ['.claude/scripts/backfill-mdx-dates.mjs', ['--staged'], { skipEnv: ['SKIP_MDX_DATES', 'eq1'] }],
+  ['scripts/backfill-mdx-dates.mjs', ['--staged'], { skipEnv: ['SKIP_MDX_DATES', 'eq1'] }],
   ['scripts/pre-commit-mdx.mjs', [], 'always'],
   ['scripts/lint-ui.mjs', [], 'always'],
   ['scripts/note-lint.mjs', [], 'always'],
   ['scripts/lint-ja.mjs', ['--staged'], 'always'],
-  ['.claude/scripts/lint-mdx-mobile.mjs', ['--baseline', '--ci', '<published staged mdx>'], { contentQuality: true }],
+  ['scripts/lint-mdx-mobile.mjs', ['--baseline', '--ci', '<published staged mdx>'], { contentQuality: true }],
   ['scripts/check-note-charlimits.mjs', ['--staged'], 'always'],
   ['scripts/keiken-charcount.mjs', ['--staged', '--strict'], 'always'],
   ['scripts/check-magazine-wiring.mjs', ['--staged'], 'always'],
@@ -108,7 +108,7 @@ const EXAM_CALENDAR_ROOTS = ['content/sns/x/draft/', 'docs/strategy/', 'docs/edi
 /** 2 検査の入力（テスト側で独立に持つ。steps の宣言とずれたら下のテストが落ちる） */
 const GATE_INPUTS = {
   'scripts/check-datasets.mjs': { prefixes: ['config/', 'data/', '.claude/', 'scripts/', 'tools/', 'src/', '.github/workflows/', 'content/registry/'], files: ['package.json'], fileSet: true },
-  'scripts/check-qualification-ssot.mjs': { prefixes: ['config/', '.claude/config/', '.claude/knowledge/', 'src/', 'scripts/', '.claude/scripts/', 'tools/admin-app/src/'], files: [], fileSet: false },
+  'scripts/check-qualification-ssot.mjs': { prefixes: ['config/', '.claude/config/', '.claude/knowledge/', 'src/', 'scripts/', 'tools/admin-app/src/'], files: [], fileSet: false },
   // 走査する置き場・試験日の正本と資格の台帳（config/）・検査と部品（scripts/）。台帳と除外が指すパスの実在は追加・削除で変わる（DN-1141）
   'scripts/check-exam-calendar.mjs': { prefixes: [...EXAM_CALENDAR_ROOTS, 'config/', 'scripts/'], files: [], fileSet: true },
   'scripts/check-published-vs-redirects.mjs': { prefixes: ['content/site/'], files: ['public/_redirects'], fileSet: false },
@@ -148,7 +148,7 @@ function legacyPlan(ctx, { gated = false } = {}) {
       if (cond.contentQuality && ctx.contentQualityFiles.length === 0) continue;
     }
     if (gated && gatedOut(ctx).has(script)) continue;
-    out.push([script, script === '.claude/scripts/lint-mdx-mobile.mjs' ? ['--baseline', '--ci', ...ctx.contentQualityFiles] : args]);
+    out.push([script, script === 'scripts/lint-mdx-mobile.mjs' ? ['--baseline', '--ci', ...ctx.contentQualityFiles] : args]);
   }
   return out;
 }
@@ -222,7 +222,7 @@ test('content/site だけを読む 5 検査は、content/site に触れない co
 test('全量を走査する 3 検査は、入力に当たる変更があれば旧フックと同じく回る（コード・設定・データ・台帳の置き場）', () => {
   const triggers = {
     'scripts/check-datasets.mjs': ['config/exam-calendar.json', 'data/note/sales.json', '.claude/state/todo-claims.json', 'content/registry/articles.json', 'scripts/lib/datasets.mjs', 'tools/admin-app/src/x.tsx', 'src/lib/x.ts', '.github/workflows/ci.yml', 'package.json', '.claude/skills/x/SKILL.md'],
-    'scripts/check-qualification-ssot.mjs': ['config/qualification-registry.json', '.claude/config/x.json', '.claude/knowledge/x.json', 'src/config/categories.json', 'scripts/x.mjs', '.claude/scripts/x.mjs', 'tools/admin-app/src/x.ts', 'src/lib/x.ts'],
+    'scripts/check-qualification-ssot.mjs': ['config/qualification-registry.json', '.claude/config/x.json', '.claude/knowledge/x.json', 'src/config/categories.json', 'scripts/x.mjs', 'tools/admin-app/src/x.ts', 'src/lib/x.ts'],
   };
   // 試験日の検査: 走査する置き場・試験日の正本・資格の台帳・検査の部品のどれかに当たれば回す
   triggers['scripts/check-exam-calendar.mjs'] = ['config/exam-calendar.json', 'config/qualification-registry.json', 'docs/strategy/x.md', '.claude/todo/backlog.md', 'src/lib/x.ts', 'content/sns/x/draft/x.md', 'content/note/1級・2級土木/x/article.md', 'content/site/concrete-engineer/a/article.mdx', 'scripts/lib/exam-calendar-guards.mjs'];

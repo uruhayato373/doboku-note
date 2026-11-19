@@ -13,7 +13,7 @@ GSC「インデックス未登録」「impressions 低下」等の数値を **�
 ```bash
 # 1. Issue から URL リスト抽出（クォータ消費 0、~2 分）
 gh issue view {issue} --json comments --jq '.comments[].body' > .tmp/issue-comments.txt
-node .claude/scripts/extract-gsc-coverage-urls.mjs --input .tmp/issue-comments.txt --output-dir .tmp/gsc-urls/
+node scripts/extract-gsc-coverage-urls.mjs --input .tmp/issue-comments.txt --output-dir .tmp/gsc-urls/
 
 # 2. URL Inspection 4 並列（クォータ ~38%、ウォール時間 ~25 分）
 split -l $(($(wc -l < .tmp/gsc-urls/all.txt)/4 + 1)) .tmp/gsc-urls/all.txt .tmp/gsc-urls/chunk-
@@ -27,7 +27,7 @@ npm run fetch-gsc-data -- --dimension query --days 90 --limit 200
 npm run fetch-gsc-data -- --dimension query --days 90 --limit 50 --query "doboku"  # ブランドクエリ
 
 # 4. 集計 + 診断レポート（~3 分）
-node .claude/scripts/analyze-gsc-coverage.mjs \
+node scripts/analyze-gsc-coverage.mjs \
   --inspection-glob "data/metrics/url-inspection/inspection-batch-*.json" \
   --page-data data/metrics/gsc/gsc-page-LATEST.json \
   --query-data data/metrics/gsc/gsc-query-LATEST.json \
@@ -35,9 +35,9 @@ node .claude/scripts/analyze-gsc-coverage.mjs \
   --url-dir .tmp/gsc-urls/
 
 # 5. 補助分析（必要に応じて）
-node .claude/scripts/verify-html-links.mjs --urls .tmp/gsc-urls/ex0.txt --sample 30  # HTML 出力検証
-node .claude/scripts/build-noindex-candidates.mjs --inspection-glob ... --page-data ...  # noindex 候補
-node .claude/scripts/analyze-hubs.mjs --page-data ...  # hub 強化対象特定
+node scripts/verify-html-links.mjs --urls .tmp/gsc-urls/ex0.txt --sample 30  # HTML 出力検証
+node scripts/build-noindex-candidates.mjs --inspection-glob ... --page-data ...  # noindex 候補
+node scripts/analyze-hubs.mjs --page-data ...  # hub 強化対象特定
 ```
 
 **判定マトリクス**（analyze-gsc-coverage.mjs が自動出力）:

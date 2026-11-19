@@ -130,7 +130,7 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 - `.claude/agents/civil-secondary-exam-writer.md` — 姉妹 Generator（サイト過去問用）
 - `content/note/1級・2級土木/1級土木/1級土木施工経験記述プラン.md` / `content/note/1級・2級土木/2級土木/2級土木施工経験記述プラン.md`（プラン doc）
 - 既存マガジン（手本）: `content/note/1級・2級土木/{1級土木,2級土木}/magazines/*-施工経験記述-*/`
-- `.claude/knowledge/reference/content-principles.md` / `.claude/scripts/lib/mdx-io.mjs`
+- `.claude/knowledge/reference/content-principles.md` / `scripts/lib/mdx-io.mjs`
 - メモリ: [[feedback_exam_pdf_cross_reference]]（ハルシネーション）/ [[feedback_no_price_in_mdx_body]]
 
 ### 著者オーソリティバナー（差別化）

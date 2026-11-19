@@ -21,7 +21,7 @@ doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施�
 - **YouTubeはShortsと通常動画の二層**。既存過去問ShortsはIG Reels/per-problem派生を維持し、2026-09-05承認済みの1級・2級土木・コンクリート系は動画パックから通常動画と各2本のShortsを直接制作する。多資格共通のSSOTは [06_動画コンテンツ運用設計](./06_動画コンテンツ運用設計.md)。Shortsは外部URLへ直接送らず、関連通常動画を主導線にする
 - **運営者は総監合格済み（土木系公務員〔発注者〕の退職者）**。v5 までの「合格者を名乗れない（受験中）」制約は解消。**X では合格者の視点・思考・受験体験の断片を一次情報として発信**し、信頼と指名検索を作る。フル受験記・解答再現は引き続き note 有料商品（E-1〜E-4）に囲い込む
 - **二系統のチャネル設計**: **IG → YT = SEO・カタログ動線**（IG が一次制作 → YT は派生・再リーチ／キーワード・過去問を検索/保存資産として量産 → サイト → note）。**X = 信頼・コミュニティ・マネタイズ動線**（合格者の発信で関係を作り → note 無料記事 → note 有料マガジン）
-- 共通基盤 `.claude/scripts/lib/sns-common/` を Instagram・YouTube で共有（1080×1350 と 1080×1920 の両サイズ対応済み）
+- 共通基盤 `scripts/lib/sns-common/` を Instagram・YouTube で共有（1080×1350 と 1080×1920 の両サイズ対応済み）
 - NSM（月間オーガニック検索流入ユーザー数）への直接貢献は限定的でも、**指名検索・被リンク・権威性**を通じて間接的に SEO を底上げする
 
 ## コンテンツ角度フレームワーク（6 切り口・v7.2）
@@ -366,7 +366,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 
 ### Q2（2026年4-6月）: 共通基盤整備【完了・履歴】
 
-YouTube・Instagram のアカウントと OAuth、SNS 共通基盤（`.claude/scripts/lib/sns-common/`）、UTM テンプレート（`config/utm-templates.json`）、YouTube Shorts MVP、GitHub Actions のスケジューラを整えた。本番投稿はせず、品質確認だけを行った。X は当初「主力」想定だったが 6/12 凍結で縮退し（§凍結）、現行の X 運用は `x-post-policy.md` §11 が真実源。アカウントは X `@doboku373`（旧 @dobokunotecom 凍結）・IG `@dobokunotecom` で確定（§3）。当初計画の Red Line 検査（`check-content-redline`）は実装していない。
+YouTube・Instagram のアカウントと OAuth、SNS 共通基盤（`scripts/lib/sns-common/`）、UTM テンプレート（`config/utm-templates.json`）、YouTube Shorts MVP、GitHub Actions のスケジューラを整えた。本番投稿はせず、品質確認だけを行った。X は当初「主力」想定だったが 6/12 凍結で縮退し（§凍結）、現行の X 運用は `x-post-policy.md` §11 が真実源。アカウントは X `@doboku373`（旧 @dobokunotecom 凍結）・IG `@dobokunotecom` で確定（§3）。当初計画の Red Line 検査（`check-content-redline`）は実装していない。
 
 ### Q3（2026年7-9月）: ★Instagram 一次制作 + YouTube 派生稼働（v7）
 
@@ -479,7 +479,7 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 | VOICEVOX の商用利用規約違反 | 低 | SNS-prereq の事前作業で採用キャラのライセンスを確認済み。問題があれば差し替え |
 | API レート制限超過 | 中 | 日次上限を検出したら同日に再試行せず翌日再開。`videos.insert` 100本/日の既定枠に10本の余裕を残し、private uploadは最大45 pack/90本ずつ進める |
 | OAuth トークン失効 | 中 | 共通基盤 `media-uploader.mjs` で自動リフレッシュ + 失敗時は `scripts/report-automation-failure.mjs`（`automation-failure` ラベル）で記録 |
-| Reels CTA とカルーセル CTA の混入バグ | 中 | Reels モード分岐をテンプレレンダラ（`.claude/scripts/sns/templates/quiz-ig.mjs`）で持ち で検証（旧 `ig-reels-qa` は退役） |
+| Reels CTA とカルーセル CTA の混入バグ | 中 | Reels モード分岐をテンプレレンダラ（`scripts/sns/templates/quiz-ig.mjs`）で持ち で検証（旧 `ig-reels-qa` は退役） |
 
 ## 9. 次のアクション
 

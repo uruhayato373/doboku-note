@@ -9136,6 +9136,19 @@
       "commit": "5498ae54e176",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-1250",
+      "at": "2026-11-19",
+      "task": "main の定義で develop を checkout するワークフローが呼ぶパスを、PR で消したら止める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e2dd27fdf78a",
+      "verification": "npm run check-main-workflow-paths（無いもの 0 件）・node --test tests/main-workflow-paths.test.mjs（4 件合格）・転送を 1 本外して exit 1 を確認",
+      "note": "check-main-workflow-paths を CI ゲートに入れた（#1663・e2dd27fdf）。main の定義で develop を checkout する workflow 16 本が呼ぶファイル 87 件・npm script 36 件を PR のツリーと照合する。Mac に導入済みの weekly-review.sh の写しは CI から見えないので検査に入れず、回し直しは DN-1249 の手順に入っている"
     }
   ]
 }

@@ -9,7 +9,7 @@ domain: material
 
 # /visual-research — NotebookLM × 参照URL → 概念図
 
-NotebookLM（`.claude/scripts/notebooklm-cross-query.mjs`、旧 `nlm cross query` 後継）で概念の内部構造を抽出し、参照ページの視覚パターンを着想源として、
+NotebookLM（`scripts/notebooklm-cross-query.mjs`、旧 `nlm cross query` 後継）で概念の内部構造を抽出し、参照ページの視覚パターンを着想源として、
 テキスト根拠に裏付けられた SVG 概念図を生成する。
 
 ## /illustrate-concept との使い分け
@@ -53,7 +53,7 @@ notebooklm login      # 認証期限切れ時のみ、ユーザーが手動実�
 ### Step 2: NotebookLM クエリ（概念構造の抽出）
 
 ```bash
-node .claude/scripts/notebooklm-cross-query.mjs --notebooks "総監標準テキスト" \
+node scripts/notebooklm-cross-query.mjs --notebooks "総監標準テキスト" \
   "「{概念名}」を図で表現するとしたら、どのような構造・フロー・分類・関係性が重要か？
    定義・主要コンポーネント・相互関係・試験での出題パターンを整理してください。"
 ```

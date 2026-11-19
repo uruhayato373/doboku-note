@@ -284,7 +284,7 @@ export async function probeDuration(audioPath) {
  * @param {string} args.outPath     - 出力先 PNG パス
  */
 export async function generateThumbnail({ storyboard, outPath }) {
-  const { renderSlide, TEXT_CONFIG_DEFAULTS } = await import('../../.claude/scripts/lib/sns-common/slide-render.mjs');
+  const { renderSlide, TEXT_CONFIG_DEFAULTS } = await import('./sns-common/slide-render.mjs');
   const { writeFileSync } = await import('node:fs');
 
   const config = {

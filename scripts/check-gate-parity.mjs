@@ -51,7 +51,7 @@ function callersIn(files) {
   for (const p of files) {
     const src = readFileSync(p, 'utf8');
     for (const m of src.matchAll(/npm run ([a-zA-Z0-9:_-]+)/g)) found.add(m[1]);
-    // パスは任意の深さを許す（.claude/scripts/youtube/verify-yt-status.mjs 等）
+    // パスは任意の深さを許す（scripts/youtube/verify-yt-status.mjs 等）
     for (const m of src.matchAll(/([a-zA-Z0-9._/-]+)\.(?:mjs|ts)\b/g)) found.add(m[1].split('/').pop());
   }
   return found;

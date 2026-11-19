@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyStagedDiff, frontmatterEndLine } from '../.claude/scripts/lib/staged-diff-kind.mjs';
+import { classifyStagedDiff, frontmatterEndLine } from '../scripts/lib/staged-diff-kind.mjs';
 
 const raw = ['---', 'title: A', 'tags:', '  - x', 'dateModified: 2026-09-01', '---', '', '## 本文', 'text'].join('\n');
 const FM_END = 6;

@@ -11,7 +11,7 @@
 import { ESLint } from 'eslint';
 
 /** 検査する範囲（リポジトリ相対の glob） */
-export const TARGETS = ['scripts/**/*.{mjs,js}', '.claude/scripts/**/*.mjs', '.claude/skills/**/*.mjs'];
+export const TARGETS = ['scripts/**/*.{mjs,js}', '.claude/skills/**/*.mjs'];
 
 /** page.evaluate・addInitScript の中で動くブラウザ側のグローバル */
 const BROWSER = [

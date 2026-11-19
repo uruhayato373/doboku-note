@@ -1,7 +1,7 @@
 name: R2 Sync Images
 
 # content/site/**/img/** が変更されたとき、R2 に自動同期する。
-# 既存 .claude/scripts/upload-images-to-r2.mjs（S3 API）を流用。
+# 既存 scripts/upload-images-to-r2.mjs（S3 API）を流用。
 # バケットを 1 回一覧して中身（MD5）が変わった画像だけ送る（2026-10-20。旧実装は毎回全件を PutObject していた）。
 # MDX は R2 へ置かない（公開 URL で下書きまで読めるため）。
 # R2 専用 API Token（access key + secret）で認証。

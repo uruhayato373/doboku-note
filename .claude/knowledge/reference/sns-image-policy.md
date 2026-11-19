@@ -36,7 +36,7 @@ Xは `cards.json` を持つドラフトの指定番号へ先生付きテンプ�
 
 ## 0.0 写真は AI 生成だけ（2026-10-08 運営者決定）
 
-SNS（YouTube・Shorts/Reels・Instagram・X・note の図）に載せる機械・現場・変状の写真も、記事と同じく **AI で生成した画像だけ**を使う。Wikimedia Commons などの実写・ストックフォトは使わない（キャラクターと本人写真は §0 のとおり）。記事の写真を流用するときは、`npm run check-image-origin` が合格の画像（`config/figure-sources.json` の `provenance` が `ai-generated`）だけを使う。作り方と監査は [image-policy.md](./image-policy.md)「写真は AI で生成する」。`.claude/scripts/lib/sns-common/image-search.mjs` の Wikimedia 自動検索は外した。
+SNS（YouTube・Shorts/Reels・Instagram・X・note の図）に載せる機械・現場・変状の写真も、記事と同じく **AI で生成した画像だけ**を使う。Wikimedia Commons などの実写・ストックフォトは使わない（キャラクターと本人写真は §0 のとおり）。記事の写真を流用するときは、`npm run check-image-origin` が合格の画像（`config/figure-sources.json` の `provenance` が `ai-generated`）だけを使う。作り方と監査は [image-policy.md](./image-policy.md)「写真は AI で生成する」。`scripts/lib/sns-common/image-search.mjs` の Wikimedia 自動検索は外した。
 
 ## 0.1 予約済み・公開済み素材の更新
 
@@ -52,7 +52,7 @@ SNS（YouTube・Shorts/Reels・Instagram・X・note の図）に載せる機械�
 
 2026-09-08 に確認した [YouTube公式サムネ手順](https://support.google.com/youtube/answer/72431?hl=en) は、通常動画と Shorts のカスタム画像変更を案内している（Shorts は PC の Studio、確認済みアカウントが必要）。[動画差し替えの公式説明](https://support.google.com/youtube/answer/55770?hl=en) は、新規アップロードには新 URL が付くと明記。[X公式編集ヘルプ](https://help.x.com/en/using-x/edit-post) は Premium の対象投稿で送信後 1 時間以内の本文・メディア編集を案内。実行時は最新仕様と対象アカウントの機能を再確認する。Instagram の予約・公開済み編集範囲は今回公式ページの本文を取得できず、実機確認が必要。
 
-YouTube の後付けサムネ処理は `node .claude/scripts/youtube/set-thumbnail-uploaded.mjs`。単一の `--video-id`・`--image`・期待するチャンネルを持つ `--channel-file`（動画パックの youtube.json）を必須とし、既定はローカルdry-run。`--check-live` はアカウントと動画の実査のみ、`--commit --expect-sha256 HASH` は確認した画像だけを送る。APIは `thumbnails.set` だけを書込みに使い、公開設定・予約・本文・動画本体は更新しない。API上限2MBとアカウント一致を検査し、前後記録は `.tmp/youtube-thumbnail-updates/run-*/report.json`。API受理と画面での画像確認は別で、後者はStudio/公開画面で確認する。Shortsは機能の段階的提供があるため、アカウントごとに編集欄を確認する。既存 IG 投稿スキルは新規投稿用で、既存予約を編集済みとは扱わない。
+YouTube の後付けサムネ処理は `node scripts/youtube/set-thumbnail-uploaded.mjs`。単一の `--video-id`・`--image`・期待するチャンネルを持つ `--channel-file`（動画パックの youtube.json）を必須とし、既定はローカルdry-run。`--check-live` はアカウントと動画の実査のみ、`--commit --expect-sha256 HASH` は確認した画像だけを送る。APIは `thumbnails.set` だけを書込みに使い、公開設定・予約・本文・動画本体は更新しない。API上限2MBとアカウント一致を検査し、前後記録は `.tmp/youtube-thumbnail-updates/run-*/report.json`。API受理と画面での画像確認は別で、後者はStudio/公開画面で確認する。Shortsは機能の段階的提供があるため、アカウントごとに編集欄を確認する。既存 IG 投稿スキルは新規投稿用で、既存予約を編集済みとは扱わない。
 
 動画パックに `cover-design.json` を置くと、`npm run youtube-covers -- --spec PATH` で人物＋編集可能な見出しの見本（PNG/SVG/来歴manifest）を `.tmp/youtube-covers/run-*/` へ生成する。採用する表紙の描画は `npm run brand-video-pack -- --pack-dir <pack>`（PNG・来歴、`.tmp/media/{exam}/{packId}/youtube.*/`）。共通実装は `scripts/lib/youtube-cover.mjs`。`covers.longform` は1920×1080、`covers[Shortのkey]` は1080×1920。各specは `format`・試験パレットの `exam`・2〜3行の `headline`（1行8文字以内）・`accentLine`・`subtitle`（24文字以内）・`character: {pose, frame}` を持つ。ただし `layout: diagram-led`・`design: pop-poster-v3`・`approvedImage.normalization.mode: full-frame-v1` の採用PNGはcharacterを不要とする。2級土木動画は[動画ポリシー §4](./video-content-policy.md)の図解主体・控えめな配色を優先し、先生や肩書きの共通構成を一律適用しない。原画像は上書き・引き伸ばしせず、要修正素材と長すぎる見出しは停止する。科目番号は字形のあるASCIIの `I / II / III` を使い、ローマ数字記号 `Ⅰ / Ⅱ / Ⅲ` は拒否する。未指定パックとlegacyレンダラーは従来意匠のまま。
 

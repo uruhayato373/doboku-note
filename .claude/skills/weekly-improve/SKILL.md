@@ -167,6 +167,6 @@ coverage 側は同ログで判断が積み上がっている（`/gsc-review`）�
 - `.claude/skills/nsm-experiment/SKILL.md` — 実験ライフサイクル管理
 - `.claude/skills/nsm-experiment/references/rubric.md` — 優先順位評価軸
 - `.claude/skills/weekly-review/SKILL.md` — 網羅的な振り返り（併用推奨）
-- `.claude/scripts/lib/metrics-reader.mjs` — 週次メトリクス取得ユーティリティ
+- `scripts/lib/metrics-reader.mjs` — 週次メトリクス取得ユーティリティ
 - `.claude/knowledge/reference/affiliate-operations.md` — 転職アフィリの配置面・ラベル規約・A8 月次成果 / EPC 運用の真実源（Phase 3.5）
 - CLAUDE.md §ハーネス設計原則 — Generator/Evaluator 分離・シンプルさ優先

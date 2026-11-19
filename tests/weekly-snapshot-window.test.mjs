@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { completedWeekRanges } from '../.claude/scripts/lib/metrics-reader.mjs';
+import { completedWeekRanges } from '../scripts/lib/metrics-reader.mjs';
 import { reviewPeriod, weekPeriod } from '../scripts/lib/business-direction.mjs';
 
 /**

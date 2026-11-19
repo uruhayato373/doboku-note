@@ -4,7 +4,7 @@
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { chooseProblemLayout } from '../.claude/scripts/lib/sns-common/quiz-slides.mjs';
+import { chooseProblemLayout } from './lib/sns-common/quiz-slides.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const DATA_PATH = resolve(ROOT, 'public/quiz/pe-first-stage.json');

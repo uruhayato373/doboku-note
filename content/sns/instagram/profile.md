@@ -169,7 +169,7 @@ bio 直下に固定表示できる丸アイコン。プロフィール訪問者�
 
 ```bash
 # 1. 各パックの「厳選 4 枚」を抽出（reels から cover/Q1/A1/cta をコピー）
-node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
+node scripts/instagram/build-stories.mjs --pack r07-pack-01
 # → cem/exam-packs/r07/pack-01/stories/img/{01-cover, 02-problem, 03-answer, 04-cta}.png
 
 # 2. 年度入口の「目次カルーセル cover 1 枚」

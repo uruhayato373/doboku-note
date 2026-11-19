@@ -18,7 +18,7 @@ MDX コンテンツを書く・編集するときの詳細ルール集。
 **書き終えたときの決定的ゲート**（2026-10-06・サブエージェントの整形が pre-commit で 67 件止まった）:
 - `npx textlint <file>` を 0 件にする。pre-commit の `lint-ja --staged` は**ファイル全体**を見るので、触っていない既存行の全角数字・prh も commit を止める。`--fix` は prh と全角数字を直すが、送り仮名の置換が動詞の活用（〜ります・〜て）に当たっていないか diff を見る
 - 表→箇条書き・長文の分割など構造だけを変えた編集は `npm run check-mdx-facts -- <file>` で数値と「」の語の減少 0 を確かめる（減少が説明できるなら commit に理由を書く）
-- サブエージェントに MDX の整形を任せるときは、この 2 つと `node .claude/scripts/lint-mdx-mobile.mjs <file>` の結果を受入れ条件として依頼文に書く
+- サブエージェントに MDX の整形を任せるときは、この 2 つと `node scripts/lint-mdx-mobile.mjs <file>` の結果を受入れ条件として依頼文に書く
 
 ## ペルソナ・コンテンツ原則
 
@@ -195,7 +195,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 | 長文セルの3列表 | H3/太字リード＋箇条書き | — |
 | 本当に必要な2軸比較（**短い値**） | 2〜3列表のまま可 | 年度→テーマの2列表 |
 
-ルールの重大度・資格×種別の適用は `config/content-rules.json` が SSOT。機械チェックは `.claude/scripts/lint-mdx-mobile.mjs`（実行点＝品質サイクル `/quality-cycle`・`/check-mdx`・手動、全量は週次ラチェット `check-content-quality`）と `/review-mobile` スキルで実施。pre-commit フックが実行するのは `pre-commit-mdx.mjs`（MDX コンパイル・frontmatter・壊れ表等）で、lint-mdx-mobile とはルールの一部（0-1/1-7 相当）が判定同等という関係。
+ルールの重大度・資格×種別の適用は `config/content-rules.json` が SSOT。機械チェックは `scripts/lint-mdx-mobile.mjs`（実行点＝品質サイクル `/quality-cycle`・`/check-mdx`・手動、全量は週次ラチェット `check-content-quality`）と `/review-mobile` スキルで実施。pre-commit フックが実行するのは `pre-commit-mdx.mjs`（MDX コンパイル・frontmatter・壊れ表等）で、lint-mdx-mobile とはルールの一部（0-1/1-7 相当）が判定同等という関係。
 
 ## 画像配信
 
@@ -208,7 +208,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
   張り忘れると `npm run build` が `public/posts` の stat で ENOENT になる）
 - **本番**: Cloudflare Pages `_redirects` で R2 にリダイレクト
 - **マスター**: `content/site/**/img/` は **git 追跡対象**（PNG・SVG 含む）。複数 PC 間で git pull により同期される
-- **R2 へのアップロード（本番反映）**: 通常は `main` push 時に `r2-sync.yml`（CI）が自動同期する（対象 path = `content/site/**/img/**` のみ）。手動同期は `npm run upload-images-r2`（= `node .claude/scripts/upload-images-to-r2.mjs`）。バケットを 1 回一覧して中身（MD5）が変わった画像だけ送り、公開画像に 1 日のキャッシュを付ける（全件を送り直すのは `--force`・MDX は R2 へ置かない）。同じ URL へ上書きした画像は、r2-sync が続けて `scripts/purge-r2-changed.mjs` で CDN のキャッシュを URL で消し、通常 URL の実体を SHA-256 で照合する（旧版のままなら赤。手動で上げたときは `npm run purge-r2-changed -- --list <--changed-out の JSON>`）。**OGP 画像 `ogp.png` は `img/` の外＝記事ディレクトリ直下**にあり別経路——develop push 時に `ogp-supply.yml`（CI）が生成・R2 供給まで行う（ローカル生成は `npm run ogp`、未供給は CI ゲート `check-ogp-coverage` が検知）
+- **R2 へのアップロード（本番反映）**: 通常は `main` push 時に `r2-sync.yml`（CI）が自動同期する（対象 path = `content/site/**/img/**` のみ）。手動同期は `npm run upload-images-r2`（= `node scripts/upload-images-to-r2.mjs`）。バケットを 1 回一覧して中身（MD5）が変わった画像だけ送り、公開画像に 1 日のキャッシュを付ける（全件を送り直すのは `--force`・MDX は R2 へ置かない）。同じ URL へ上書きした画像は、r2-sync が続けて `scripts/purge-r2-changed.mjs` で CDN のキャッシュを URL で消し、通常 URL の実体を SHA-256 で照合する（旧版のままなら赤。手動で上げたときは `npm run purge-r2-changed -- --list <--changed-out の JSON>`）。**OGP 画像 `ogp.png` は `img/` の外＝記事ディレクトリ直下**にあり別経路——develop push 時に `ogp-supply.yml`（CI）が生成・R2 供給まで行う（ローカル生成は `npm run ogp`、未供給は CI ゲート `check-ogp-coverage` が検知）
 - **R2 からのダウンロード（新規 PC 初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
 - サイト共通のアイコンは `src/app/` 直下の `favicon.ico` / `icon.png` / `apple-icon.png`（Next.js のファイル規約）、logo は `public/logo.png`
 
@@ -353,4 +353,4 @@ faqs:
 - **URL**: 公開先は検索意図別（試験 `/exam/`、実務 `/practice/`、公的資料 `/standards/`、法令 `/laws/`、横断ハブ `/topics/`）。原稿の論理 slug は従来どおり保持し、`src/lib/content-routes.ts` が正規 URL へ変換する
 - **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造、H1 を本文中に複数置かない
 - **絵文字禁止**: 装飾絵文字（❌✅💡🔑📌⚠️ 等）は本文に使わない（Callout の type で表現する）
-- **MDX 書き込み**: `.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` 経由で改行コード保持
+- **MDX 書き込み**: `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` 経由で改行コード保持

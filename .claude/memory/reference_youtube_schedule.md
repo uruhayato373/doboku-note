@@ -8,7 +8,7 @@ YouTube Data API 予約投稿はこの事業に**実装済み・認証済み**�
 
 - 認証: `.env.local` に `YOUTUBE_CLIENT_ID/SECRET/REFRESH_TOKEN` 3点設定済（scope `youtube.upload`、再認証不要）。`oauth-setup.js` で再取得。client は `…d7j.apps.googleusercontent.com`、GCP project `doboku-note-492906`。
 - **OAuth 公開ステータス = 本番環境（In production）を Console で実査確認（2026-06-05）**。→ refresh token は「テスト中アプリの7日失効」対象外＝**期限切れしない**。よって GitHub Secrets に載せれば無人 CI 予約投稿が安全に成立する（残作業は secrets 登録 + mp4 置き場のみ）。公開ステータスは API では読めず Console `https://console.cloud.google.com/auth/audience?project=doboku-note-492906` の「対象(Audience)」で目視。
-- 予約: `node .claude/scripts/youtube/upload.js <mp4> --title --description --tags --schedule <ISO8601>`（任意mp4可）。または dir 方式 `post.js <dir>`（meta.json 駆動）。
+- 予約: `node scripts/youtube/upload.js <mp4> --title --description --tags --schedule <ISO8601>`（任意mp4可）。または dir 方式 `post.js <dir>`（meta.json 駆動）。
 - 仕組み: `--schedule` で `privacyStatus: private` + `publishAt` を設定 → 指定時刻に自動公開（YouTube native 予約）。
 
 **落とし穴（2026-06-05 実証）**:

@@ -178,7 +178,7 @@ Node.js で対象記事を読み込み `/tmp/note-data-<persona>-<RXX>.json` に
 4. 本文をセグメント分割（URL 単独行 vs テキスト。URL は paste 後に plain text のまま＝カード化は Phase 4-3）
 5. `<RXX>/hashtags.txt`（タグ）、`<RXX>/img/cover.png`（アイキャッチ）、`<RXX>/模範論文-*.pdf`（特典）の存在を確認
 
-**Phase 0 ガード**: 本文に未反映プレースホルダー（`{{MAGAZINE_URL}}` または `※note 公開後…予定` 系）が残っていたら、その記事は**公開せず中断**。先に `.claude/scripts/note/inject-magazine-url.cjs <persona> <マガジンURL>` で実 URL を注入しておく。
+**Phase 0 ガード**: 本文に未反映プレースホルダー（`{{MAGAZINE_URL}}` または `※note 公開後…予定` 系）が残っていたら、その記事は**公開せず中断**。先に `scripts/note/inject-magazine-url.cjs <persona> <マガジンURL>` で実 URL を注入しておく。
 
 ### Phase 1: dobokunote アカウント照合ゲート（投稿前に必ず）
 
@@ -284,7 +284,7 @@ note の PDF 添付はプラットフォーム機能で **markdown に現れな�
 ## 参照
 
 - `.claude/skills/publish-note/references/` — note.com エディタ操作ノウハウ（stats47 由来・差分マップで読み替え）
-- `.claude/scripts/note/inject-magazine-url.cjs` — マガジンURLのプレースホルダ一括注入（doboku-note 版）
+- `scripts/note/inject-magazine-url.cjs` — マガジンURLのプレースホルダ一括注入（doboku-note 版）
 - `.claude/knowledge/reference/note-essay-review-checklist.md` Step 10 — 公開後 URL 反映フロー
 - `.claude/skills/publish-x/` — 同系統のブラウザ自動投稿（persistentContext・偽成功検証の設計元）
 - `src/lib/note-magazines.ts` — マガジンの published/noteUrl/price 真実源

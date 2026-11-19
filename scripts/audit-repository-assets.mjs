@@ -223,7 +223,7 @@ const RULES = [
     reason: 'slide-data.json から決定論的に焼けるレンダー成果物。publish-ig-bs（人の手元）しか読まないので Google Drive vault（制作物/IGレンダー/・drive-vault.json ig-rendered-image）。2026-09-05 に R2 の byVisibility 配置（public 7 / private 2,133）から移設',
     regenFrom: 'slide-data.json / script.json + caption.txt',
     usedBy: ['publish-ig-bs（投稿時に読む）'],
-    generator: '.claude/scripts/sns/ 系レンダラ',
+    generator: 'scripts/sns/ 系レンダラ',
     visibility: (p) => igPackVisibility(p),
   },
   {

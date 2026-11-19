@@ -20,7 +20,7 @@ import { parseCliArgs } from '../../../../scripts/lib/cli-args.mjs';
 
 
 // writeMdxFile のロード
-const mdxIoPath = join(REPO_ROOT, '.claude/scripts/lib/mdx-io.mjs');
+const mdxIoPath = join(REPO_ROOT, 'scripts/lib/mdx-io.mjs');
 const { readMdxFile, writeMdxFile } = await import(mdxIoPath);
 
 function parseArgs(argv) {

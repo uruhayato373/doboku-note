@@ -17,7 +17,7 @@ import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
 
 test('GA4 fetcher が campaign 次元を解決できる（sessionCampaignName）', () => {
-  const src = read('.claude/scripts/fetch-ga4-data.mjs');
+  const src = read('scripts/fetch-ga4-data.mjs');
   assert.match(src, /campaign:\s*"sessionCampaignName"/, 'DIMENSION_MAP に campaign が無い');
   assert.match(
     src,
@@ -51,7 +51,7 @@ test('UTM 契約: source は youtube・medium は video・content は longform|s
 test('動画成果ビューが読むスナップショット prefix と fetcher の出力名が一致する', () => {
   // fetcher は日ごとのレポートの枠 `${dimension}${suffix}` に書く（saveJson → writeReport）。
   // admin は台帳の ga4.campaign（latestSnapshot('ga4.campaign')）を読む。台帳の型と fetcher の名前がずれると永久に未取得になる。
-  const fetcher = read('.claude/scripts/fetch-ga4-data.mjs');
+  const fetcher = read('scripts/fetch-ga4-data.mjs');
   assert.match(fetcher, /reportIdOf\("ga4", `\$\{opts\.dimension\}\$\{suffix\}`\)/);
   const view = read('tools/admin-app/src/lib/video-outcomes.ts');
   assert.match(view, /latestSnapshot\('ga4\.campaign'\)/);

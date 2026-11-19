@@ -3,7 +3,7 @@ import { readFileSync, mkdirSync, renameSync, rmSync } from 'node:fs';
 import { resolve, dirname, join, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateFigurePack } from '../../../../../scripts/render-figure-pack.mjs';
-import { renderFigureSns } from '../../../../../.claude/scripts/sns/render-figure-sns.mjs';
+import { renderFigureSns } from '../../../../../scripts/sns/render-figure-sns.mjs';
 const dir = dirname(fileURLToPath(import.meta.url));
 const root = resolve(dir, '../../../../..');
 const images = JSON.parse(readFileSync(join(dir, 'images.json'), 'utf8'));

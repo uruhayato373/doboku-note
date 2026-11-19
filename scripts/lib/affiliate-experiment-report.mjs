@@ -1,5 +1,5 @@
 import { AFFILIATE_EXPERIMENT_ID, AFFILIATE_EXPERIMENT_EVENTS, AFFILIATE_VARIANTS, parseAffiliateExperimentLabel } from '../../src/lib/affiliate-experiment.mjs';
-import { andFilter, japanFilter } from '../../.claude/scripts/lib/ga4-client.mjs';
+import { andFilter, japanFilter } from './ga4-client.mjs';
 
 export function buildAffiliateExperimentRequest({ propertyId, startDate, endDate, japanOnly = true }) {
   return {

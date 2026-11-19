@@ -27,7 +27,7 @@
 import { createHash } from 'node:crypto';
 import { mkdirSync, rmSync, existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { writeMdxFile } from './lib/mdx-io.mjs';
 import { prepareGroupedTable, projectGroupedChapter, groupedCoverageErrors, groupedArtifact } from './lib/standards-grouped-tables.mjs';
 import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
 import { pathToFileURL } from 'node:url';

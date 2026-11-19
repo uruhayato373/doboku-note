@@ -39,7 +39,7 @@ jobs:
 
       # src/config/doc-meta-index.json はビルド生成物で git 追跡していない（ci.yml / e2e.yml と同じ理由）。
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
       - name: Build
         run: npm run build

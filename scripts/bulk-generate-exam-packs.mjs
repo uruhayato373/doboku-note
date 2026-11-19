@@ -26,7 +26,7 @@ import { parseCliArgs } from "./lib/cli-args.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 // cem（総監）の年度パック専用。civil-1/civil-2 は年度括りを廃し「論点パック」へ移行済み
-// （生成: .claude/scripts/sns/generate-civil-theme-packs.mjs ＋ render-civil-theme-packs.mjs）。
+// （生成: scripts/sns/generate-civil-theme-packs.mjs ＋ render-civil-theme-packs.mjs）。
 const EXAM_DIRS = {
   cem:      "cem/exam-packs",
   "pe-first-stage": "pe-first-stage/exam-packs",
@@ -37,7 +37,7 @@ const IG_POST_CREATE = join(
   ROOT,
   ".claude/skills/ig-post-create/scripts/ig-post-create.mjs",
 );
-const CAPTION_GEN = join(ROOT, ".claude/scripts/instagram/generate-caption.cjs");
+const CAPTION_GEN = join(ROOT, "scripts/instagram/generate-caption.cjs");
 
 const args = parseCliArgs({
   year: { type: "string" },

@@ -40,7 +40,7 @@
         "src/config/categories.json",
         "src/config/tags.json",
         "src/config/topics.json",
-        ".claude/scripts/lib/frontmatter-schema.mjs",
+        "scripts/lib/frontmatter-schema.mjs",
         "src/lib/doc-classifier.ts",
         "src/lib/content-routes.ts",
         "src/lib/content-taxonomy.ts",

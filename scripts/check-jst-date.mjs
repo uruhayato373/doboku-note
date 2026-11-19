@@ -53,9 +53,9 @@ export const ALLOW = new Map([
   ['scripts/fetch-gsc-ui-csv.mjs', 'GSC UI へ渡す日付レンジ（GSC は UTC 基準）'],
   ['scripts/check-x-campaign-plan.mjs', 'coverage の日付列挙は UTC 固定で反復する日付演算（時刻を持たない）'],
   ['scripts/lib/repository-paths.mjs', { kinds: ['plus9'], reason: '他の repo ファイルを import しない自己完結の module（tests/check-figure-canvas.test.mjs が単体で複製して動かす）。移動表の旧名の時刻（UTC）を JST の日に直す 1 か所だけ' }],
-  ['.claude/scripts/ads/check-a8-apply-budget.cjs', { kinds: ['plus9'], reason: 'CommonJS（ESM の scripts/lib/jst-date.mjs を同期で import できない。engines が Node 18 を許すので require(esm) に頼らない）' }],
-  ['.claude/scripts/check-daily-anomaly.mjs', { kinds: ['local-ymd'], reason: 'YYYY-MM-DD の文字列から作った範囲を暦で数え上げるだけ（現在時刻を使わない）' }],
-  ['.claude/scripts/check-data-integrity.mjs', { kinds: ['local-ymd'], reason: 'YYYYMMDD の文字列から作った範囲を暦で数え上げるだけ（現在時刻を使わない）' }],
+  ['scripts/ads/check-a8-apply-budget.cjs', { kinds: ['plus9'], reason: 'CommonJS（ESM の scripts/lib/jst-date.mjs を同期で import できない。engines が Node 18 を許すので require(esm) に頼らない）' }],
+  ['scripts/check-daily-anomaly.mjs', { kinds: ['local-ymd'], reason: 'YYYY-MM-DD の文字列から作った範囲を暦で数え上げるだけ（現在時刻を使わない）' }],
+  ['scripts/check-data-integrity.mjs', { kinds: ['local-ymd'], reason: 'YYYYMMDD の文字列から作った範囲を暦で数え上げるだけ（現在時刻を使わない）' }],
   ['.claude/skills/publish-ig-bs/publish-ig-bs.ts', { kinds: ['local-ymd'], reason: 'Business Suite の日付欄へ操作者のローカル時刻（JST の Mac）をそのまま入力する' }],
   ['.claude/skills/publish-x/publish-x.ts', { kinds: ['local-ymd'], reason: 'X の予約画面の日付・時刻へ操作者のローカル時刻（JST の Mac）をそのまま入力する' }],
 ]);

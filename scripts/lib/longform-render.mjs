@@ -10,7 +10,7 @@ import { subtitleChunks } from './video-subtitles.mjs';
  *
  * 真実源:
  *   - キャンバス/尺: config/video-content.json（canvas.longform = 1920×1080）
- *   - 試験色: .claude/scripts/sns/lib/exam-palette.mjs（note-cover-tokens.json の exams）
+ *   - 試験色: scripts/sns/lib/exam-palette.mjs（note-cover-tokens.json の exams）
  *
  * scene の視覚要素（storyboard 追加フィールド・checker には additive）:
  *   visual: { kind?: 'cover'|'points'|'figure'|'compare'|'sheet', heading: string, items?: string[], src?: string }

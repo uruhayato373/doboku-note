@@ -224,6 +224,12 @@
           "role": "点検"
         },
         {
+          "command": "node:lib/metrics-reader",
+          "label": "実験の効果測定に使う週次メトリクス（baseline との差）",
+          "stage": "計画・運用",
+          "role": "判断"
+        },
+        {
           "command": "check-experiment-due",
           "label": "実験の再計測期限",
           "stage": "計画・運用",

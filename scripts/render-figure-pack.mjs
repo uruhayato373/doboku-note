@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { pathToFileURL } from 'node:url';
 import { Resvg } from '@resvg/resvg-js';
-import { figurePackLabels, FIGURE_PACK_CATEGORIES } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
+import { figurePackLabels, FIGURE_PACK_CATEGORIES } from './sns/lib/figure-pack-labels.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 export const FIGURE_SLIDES = ['00-cover', '01-figure', '02-text', '03-cta'];
 function inside(root, path) {

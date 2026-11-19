@@ -51,7 +51,7 @@ export const STEPS = [
   // 回避は SKIP_MDX_DATES=1。作業ツリーと index を書き換えるので、必ず最初に回す。
   {
     id: 'backfill-mdx-dates',
-    script: '.claude/scripts/backfill-mdx-dates.mjs',
+    script: 'scripts/backfill-mdx-dates.mjs',
     inProcess: true,
     args: ['--staged'],
     skipEnv: { name: 'SKIP_MDX_DATES', mode: 'eq1' },
@@ -72,12 +72,12 @@ export const STEPS = [
   {
     // CI の content-quality-ratchet を staged の published: true の記事だけに回す（新規違反だけで止める）
     id: 'content-quality',
-    script: '.claude/scripts/lint-mdx-mobile.mjs',
+    script: 'scripts/lint-mdx-mobile.mjs',
     inProcess: true,
     args: (ctx) => ['--baseline', '--ci', ...ctx.contentQualityFiles],
     when: (ctx) => ctx.contentQualityFiles.length > 0,
     tail: 20,
-    failHint: '[content-quality --staged] baseline に無い新規違反がある。上の指摘を直してから commit する（詳細は node .claude/scripts/lint-mdx-mobile.mjs <file>）',
+    failHint: '[content-quality --staged] baseline に無い新規違反がある。上の指摘を直してから commit する（詳細は node scripts/lint-mdx-mobile.mjs <file>）',
   },
   // 建設部門 BK マガジン模範解答の字数ハード上限（答案枚数×600字）超過検出（手書き不可答案の再発防止）
   s('check-note-charlimits'),

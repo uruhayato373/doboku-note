@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 import { renderFigurePack, validateFigurePack, FIGURE_SLIDES } from '../scripts/render-figure-pack.mjs';
-import { figurePackLabels } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
+import { figurePackLabels } from '../scripts/sns/lib/figure-pack-labels.mjs';
 function fixture(exam) {
   const root=mkdtempSync(join(tmpdir(),'dn-figure-pack-')),pack=`${exam}/keyword-packs/example`;
   const dir=join(root,'content/sns/instagram',pack);mkdirSync(join(dir,'carousel/img'),{recursive:true});

@@ -14,7 +14,7 @@
  *
  * token の解釈（スキーマ v3-unified・後方互換。stats47 と共通 — 正典は
  * `.claude/knowledge/reference/todo-standards.md`、stats47 側実装は
- * `.claude/scripts/lib/backlog-lib.cjs`。改訂は両リポへ同じ差分を当てる）:
+ * `scripts/lib/backlog-lib.cjs`。改訂は両リポへ同じ差分を当てる）:
  *   [Codex候補]        → codex フラグ
  *   [進行中]           → wip フラグ（作業中。自動処理が触らない目印）
  *   [種類:不具合] 等   → kind（省略時 null）

@@ -25,6 +25,7 @@ import { join, dirname, resolve, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import yaml from 'js-yaml';
 import { datasetPath } from './lib/datasets.mjs';
+import { checkoutRefs, runSteps } from './lib/workflow-yaml.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
@@ -45,8 +46,8 @@ const IMPORT_DEPTH = 2;
 
 // コードではないが定期ジョブの挙動を変える設定ファイル。エントリと同じ workflow に紐づける。
 const CONFIG_OF_ENTRY = {
-  '.claude/scripts/fetch-psi-data.mjs': [datasetPath('config.psi-urls')],
-  '.claude/scripts/lint-mdx-mobile.mjs': [datasetPath('config.content-rules')],
+  'scripts/fetch-psi-data.mjs': [datasetPath('config.psi-urls')],
+  'scripts/lint-mdx-mobile.mjs': [datasetPath('config.content-rules')],
 };
 
 // ── git ──
@@ -90,28 +91,8 @@ function scheduleOf(doc) {
 }
 
 // checkout ステップの with.ref。複数あれば最初の 1 つ（実運用上 1 ジョブ 1 checkout）。
-function checkoutRef(doc) {
-  for (const job of Object.values(doc?.jobs ?? {})) {
-    for (const step of job?.steps ?? []) {
-      const uses = typeof step?.uses === 'string' ? step.uses : '';
-      if (uses.startsWith('actions/checkout')) {
-        const ref = step?.with?.ref;
-        if (typeof ref === 'string' && ref.trim()) return ref.trim();
-      }
-    }
-  }
-  return null;
-}
-
-function runCommands(doc) {
-  const cmds = [];
-  for (const job of Object.values(doc?.jobs ?? {})) {
-    for (const step of job?.steps ?? []) {
-      if (typeof step?.run === 'string') cmds.push(step.run);
-    }
-  }
-  return cmds;
-}
+const checkoutRef = (doc) => checkoutRefs(doc)[0] ?? null;
+const runCommands = (doc) => runSteps(doc).map((x) => x.run);
 
 // ── コマンド → ファイル解決 ──
 

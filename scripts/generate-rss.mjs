@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync, writeFileSync, mkdirSync } from 'fs';
 import { join, relative } from 'path';
 import matter from 'gray-matter';
-import { loadGitDates, lookupGitDates } from '../.claude/scripts/lib/git-dates.mjs';
+import { loadGitDates, lookupGitDates } from './lib/git-dates.mjs';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { parseRouteTable } from './lib/legacy-routes.mjs';

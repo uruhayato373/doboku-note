@@ -11,7 +11,7 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { isAbsolute, join, resolve } from 'node:path';
-import { transformMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { transformMdxFile } from './lib/mdx-io.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { replaceFrontmatterField } from './lib/frontmatter-field.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';

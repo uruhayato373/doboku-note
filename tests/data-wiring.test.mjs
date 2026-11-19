@@ -94,7 +94,7 @@ test('SNS・動画・図解の資格キーの表は、資格の registry と表�
     // EXAM_ALIAS はトークンから導く（DN-1012）ので、実行して得た表で見る
     'X の EXAM_ALIAS': (await import('../scripts/lib/registry-x-state.mjs')).EXAM_ALIAS,
     'Instagram の EXAM_OF_DIR': objectLiteral('scripts/lib/registry-ig-state.mjs', 'EXAM_OF_DIR'),
-    '図解パックの FIGURE_PACK_CATEGORIES': objectLiteral('.claude/scripts/sns/lib/figure-pack-labels.mjs', 'FIGURE_PACK_CATEGORIES'),
+    '図解パックの FIGURE_PACK_CATEGORIES': objectLiteral('scripts/sns/lib/figure-pack-labels.mjs', 'FIGURE_PACK_CATEGORIES'),
   };
   for (const [name, table] of Object.entries(tables)) {
     assert.ok(Object.keys(table).length >= 4, `${name} を読めていない`);

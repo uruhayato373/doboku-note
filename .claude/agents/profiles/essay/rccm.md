@@ -84,7 +84,7 @@ cover:
 
 ### 機械ゲート（返却前・必須）
 
-`writeMdxFile`（`.claude/scripts/lib/mdx-io.mjs`）で書き込み後、以下を全て PASS させてから返す：
+`writeMdxFile`（`scripts/lib/mdx-io.mjs`）で書き込み後、以下を全て PASS させてから返す：
 
 ```bash
 node scripts/check-rccm-essay.mjs "<article.md の絶対パス>" --strict   # 字数 1,200〜1,600・指定用語「」4語以上・見出し・試験問題節の不在

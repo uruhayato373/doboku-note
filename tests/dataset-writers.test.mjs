@@ -8,7 +8,7 @@ import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const known = {
   scripts: new Set(['product', 'note-sales-fetch']),
-  files: (p) => p === '.claude/scripts/x.mjs',
+  files: (p) => p === 'scripts/x.mjs',
   automations: new Set(['weekly-review']),
   skills: new Set(['record-sales']),
   agents: new Set(['note-catalog-operator']),

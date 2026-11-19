@@ -53,15 +53,15 @@ on:
       - "scripts/check-standards-data.mjs"
       - "scripts/parse-exam-questions.mjs"
       - "scripts/slim-build-output.mjs"
-      - ".claude/scripts/build-civil-exam-textbook-index.mjs"
-      - ".claude/scripts/build-doc-meta-index.mjs"
-      - ".claude/scripts/build-note-published-index.mjs"
-      - ".claude/scripts/build-pillar-exam-questions.mjs"
-      - ".claude/scripts/build-tag-index.mjs"
-      - ".claude/scripts/generate-webp.mjs"
-      - ".claude/scripts/sns/parse-civil-1-questions.mjs"
-      - ".claude/scripts/sns/parse-civil-2-questions.mjs"
-      - ".claude/scripts/update-mdx-image-refs.mjs"
+      - "scripts/build-civil-exam-textbook-index.mjs"
+      - "scripts/build-doc-meta-index.mjs"
+      - "scripts/build-note-published-index.mjs"
+      - "scripts/build-pillar-exam-questions.mjs"
+      - "scripts/build-tag-index.mjs"
+      - "scripts/generate-webp.mjs"
+      - "scripts/sns/parse-civil-1-questions.mjs"
+      - "scripts/sns/parse-civil-2-questions.mjs"
+      - "scripts/update-mdx-image-refs.mjs"
       - ".claude/skills/exam-backlinks/scripts/build-exam-backlinks.mjs"
       - ".claude/skills/exam-backlinks/scripts/build-keyword-relations.mjs"
   # コンテンツは develop へ直 push されるため PR 経路の E2E を通らない。MDX コンポーネントの誤用で
@@ -106,7 +106,7 @@ jobs:
       # E2E 本体に到達しないまま赤になっていた）。ci.yml / ogp-supply.yml と同じく明示して作る。
       # type-check はここでは回さない（2026-11-11）。PR も develop も ci.yml の audit が同じ commit で回している。
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
       # E2E は dev サーバーではなくビルド成果物（out/）に対して回す。
       # dev だと初めて踏むルートがリクエスト時にコンパイルされ、落ちるテストが実行ごとに

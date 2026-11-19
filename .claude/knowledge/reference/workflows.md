@@ -204,7 +204,7 @@ note 導線の機械監査は CI と土曜の収集が分担する。`quality-au
 
 ```
 1. /keyword-page create or revise              <- Generator: コンテンツ作成・校正
-2. node .claude/scripts/lint-mdx-mobile.mjs <file>     <- 機械リンター（カテゴリ1・6・8・9）
+2. node scripts/lint-mdx-mobile.mjs <file>     <- 機械リンター（カテゴリ1・6・8・9）
                                                   HIGH/MEDIUM ゼロまで修正→再実行ループ
 3. keyword-qa エージェント呼び出し                 <- Evaluator: 5軸ルーブリック評価
 4. 加重スコア ≥ 2.0 → 完了 / < 2.0 → 指摘事項に沿って修正して 2 に戻る

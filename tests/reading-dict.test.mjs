@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
+import { applyReadingDict } from '../scripts/lib/sns-common/reading-dict.mjs';
 test('technical narration distinguishes aggregate and water conditions', () => {
   assert.equal(applyReadingDict('粗骨材・細骨材・骨材：絶乾、気乾、表乾、表面乾燥飽水'), 'そこつざい・さいこつざい・こつざい：ぜっかん、きかん、ひょうかん、ひょうめんかんそうほうすい');
 });
