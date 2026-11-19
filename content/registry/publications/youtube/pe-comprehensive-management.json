@@ -573,7 +573,7 @@
       "work": "gyoumu-keireki-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-001",
@@ -608,7 +608,42 @@
         "contentSha256": "0a410409d093f0e2c13a709021a30c16798db2f357106aa13a0c100d40e11d65"
       },
       "times": {
-        "rendered": "2026-11-19T12:58:57.987Z"
+        "rendered": "2026-11-19T12:58:57.987Z",
+        "uploaded": "2026-11-19T13:03:49.355Z",
+        "scheduled": "2026-11-19T13:04:00.476Z"
+      },
+      "delivery": {
+        "inputSha256": "57b1f416bea486f8cde33be12b6dc83c920223a647041d26426bf2e7c9c22c5b",
+        "marker": "dn-single-498ccff54f6a146f6586e46ce74818edc2999f9b",
+        "uploadRequestedAt": "2026-11-19T13:02:56.984Z",
+        "videoId": "D1n_HBS1VOk",
+        "processedAt": "2026-11-19T13:03:47.933Z",
+        "thumbnailRequestedAt": "2026-11-19T13:03:49.393Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/D1n_HBS1VOk/default.jpg?sqp=CNDl-9cG&rs=AOn4CLAahFrgbyfyUEqj2so0Gx2E04Fy5w",
+          "https://i9.ytimg.com/vi/D1n_HBS1VOk/mqdefault.jpg?sqp=CNDl-9cG&rs=AOn4CLDvmHs9YjAXFgQjrVTWDkXF0bjShA",
+          "https://i9.ytimg.com/vi/D1n_HBS1VOk/hqdefault.jpg?sqp=CNDl-9cG&rs=AOn4CLBgf5njMeDpVYBstuOfdN1l-LzHtQ",
+          "https://i9.ytimg.com/vi/D1n_HBS1VOk/sddefault.jpg?sqp=CNDl-9cG&rs=AOn4CLAzXTxYJEvWNRMJ85DByjqiYn0CFQ",
+          "https://i9.ytimg.com/vi/D1n_HBS1VOk/maxresdefault.jpg?sqp=CNDl-9cG&rs=AOn4CLC2Tv0ae9PpwSzgb9EemEPKngga7w",
+          "https://i9.ytimg.com/vi/D1n_HBS1VOk/fhddefault.jpg?sqp=CNDl-9cG&rs=AOn4CLAL-qYkOeAlA2lvJEz_zNBXuM0CAw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-19T13:03:54.382Z",
+        "scheduleRequestedAt": "2026-11-19T13:03:56.174Z",
+        "scheduleAt": "2026-11-29T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-19T13:04:00.476Z"
+      },
+      "platform": {
+        "id": "D1n_HBS1VOk",
+        "url": "https://www.youtube.com/watch?v=D1n_HBS1VOk",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-19T13:03:54.382Z"
       }
     },
     {
