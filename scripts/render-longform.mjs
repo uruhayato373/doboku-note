@@ -127,7 +127,7 @@ if (!args['skip-tts']) {
   if (!(await isRunning())) { console.error('VOICEVOX が起動していません（PNG/ASS のみ生成するなら --skip-tts）'); process.exit(1); }
 }
 
-// ─── フォント（render-editorial-reels と同一資産） ─────────────
+// ─── フォント（FONTS_ROOT の共通素材） ─────────────
 const FONT_DIR = FONTS_ROOT;
 const FONTSOURCE_DIR = resolve(ROOT, 'node_modules/@fontsource');
 const fonts = [
