@@ -16,16 +16,15 @@
  *
  * npm run youtube-own-metrics — 自社 YouTube の動画ごとの再生数・尺を一覧（yt-dlp）から取り data/youtube/own-videos/YYYY-MM-DD.json へ（月次・動画パックと型を videoId で照合・`--dry-run`）。視聴維持率・クリック率は取れない（Analytics が要る）。罠: 日本語表示の一覧は「万」の再生数を null にするので英語表示と結合している
  */
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { readDataset, readDatasetIf } from './lib/dataset-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { lengthBuckets, listChannel, summarize, titleSignals } from './lib/youtube-listing.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
 const DRY = argv.includes('--dry-run');
 const li = argv.indexOf('--limit');

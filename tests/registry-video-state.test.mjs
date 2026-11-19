@@ -1,15 +1,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { loadRegistry, loadRegistryConfig } from '../scripts/lib/content-registry.mjs';
 import { discoverVideoPacks } from '../scripts/lib/content-registry-check.mjs';
 import { RegistryPublications, RegistryWorks } from '../scripts/lib/dataset-schemas-content.mjs';
 import {
   derivativeToRow, isBareDraft, loadVideoState, planVideoRows, projectVideoState, rowToDerivative, videoPackRows, videoStateDrift, youtubeView,
 } from '../scripts/lib/registry-video-state.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const rules = loadRegistryConfig(ROOT).idRules;
 const MATOME = 'content/sns/video-packs/civil-construction-2/keiken-daizai-erabi';
 

@@ -12,12 +12,12 @@
 // npm run note-character-covers -- --source-root /path/to/source-checkout --output-root /path/to/isolated-output — V5 キャラクターカバーを独立出力先へ全件生成し照合用 manifest を残す（新デザインの全件確認用。note への登録は下の週次）。通常の記事・マガジン生成は `node scripts/generate-note-covers.mjs [dir]` / `node scripts/generate-magazine-covers.mjs [id]` で、同じ描画・同じポーズ割当（[仕様](../design-system/note-cover-character-v5.md)）。文言が枠に入るかは `npm run check-note-cover-fit`（pre-commit は `--staged`・実測幅）。
 import { readFileSync, existsSync, mkdirSync, writeFileSync, renameSync } from 'node:fs';
 import { resolve, join, dirname, relative, isAbsolute } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { renderNoteCharacterCover } from './lib/note-character-cover.mjs';
 import { loadNoteCoverInventory, hashBytes as hash } from './lib/note-cover-inventory.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
-const ownRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const ownRoot = REPO_ROOT;
 const args = process.argv.slice(2);
 const option = name => { const i = args.indexOf(name); return i < 0 ? null : args[i + 1]; };
 const sourceRoot = resolve(option('--source-root') || ownRoot);

@@ -9,12 +9,11 @@
  *
  * npm run check-content-registry — コンテンツ台帳の検査 R01〜R13（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・AI 素材の判定・別作品IDの通常動画の台本重複・完成動画/改訂入力の結線・YouTube の概要欄の VOICEVOX クレジット〔対象・照合・文面なしの行数を出す〕）。FAIL で exit 1
  */
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 import { checkRegistry } from './lib/content-registry-check.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({ options: { base: { type: 'string' }, json: { type: 'boolean' }, verbose: { type: 'boolean' } } });
 // 比較元: --base か、CI が用意する REGISTRY_BASE（PR は base ブランチ・develop への push は直前のコミット。.github/workflows/ci.yml）
 const { issues, counts } = checkRegistry(ROOT, { base: args.base ?? process.env.REGISTRY_BASE ?? null });

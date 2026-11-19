@@ -26,13 +26,13 @@
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { createIgPublisher, GraphApiError, DEFAULT_API_VERSION } from './lib/ig-graph-publish.mjs';
 import { resolvePackDir, resolveMediaFiles, stagePackMedia, cleanupPackMedia } from './stage-ig-media-r2.mjs';
 import { normalizePosted, FORMATS } from './ig-status.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { loadEnvLocal } from './lib/asset-storage.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 function parseArgs(argv) {
   const flags = {};
@@ -96,14 +96,14 @@ const LEDGER_FORMAT = { carousel: 'carousel', reels: 'reel', stories: 'story' };
 /** 台帳の行を読む（無ければ null）。投稿前の二重投稿確認用 */
 export async function readLedgerRow(packDir, format) {
   const store = await import('./lib/registry-ig-store.mjs');
-  const root = fileURLToPath(new URL('..', import.meta.url));
+  const root = REPO_ROOT;
   return store.readIgPublication(root, packDir, LEDGER_FORMAT[format]);
 }
 
 /** 公開したら台帳に published を書く（evidence = graph-api の投稿 ID）。行が無いフォルダは警告のみ・書き込み失敗は投げる */
 export async function recordLedgerPublished(packDir, format, permalink, mediaId, log = console.log) {
   const store = await import('./lib/registry-ig-store.mjs');
-  const root = fileURLToPath(new URL('..', import.meta.url));
+  const root = REPO_ROOT;
   const lf = LEDGER_FORMAT[format];
   const row = await store.readIgPublication(root, packDir, lf);
   if (!row) { log(`[ig-graph-publish] 警告: 台帳に行が無いので台帳は更新しません: ${packDir}`); return null; }

@@ -19,11 +19,10 @@
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
 import { findOverlaps, findPairOverlaps } from '../src/lib/affiliate-placement-core.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 const read = (rel) => JSON.parse(readFileSync(join(ROOT, rel), 'utf8'));
 const DAY = 86400000;
 

@@ -15,8 +15,6 @@
  * 1 チャンネルの失敗は error の行として残して続ける。全チャンネルが失敗したら保存せず exit 1（検査不成立）。
  * ---------------------------------------------------------------------------
  */
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { loadPreviousSnapshot, saveSnapshot } from './lib/competitor-history.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
@@ -24,8 +22,8 @@ import { writeDataset } from './lib/dataset-write.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { lengthBuckets, listChannel, summarize, titleSignals } from './lib/youtube-listing.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ID = 'youtube.competitors';
 const argv = process.argv.slice(2);
 const opt = (flag) => {
