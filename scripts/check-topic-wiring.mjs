@@ -4,11 +4,11 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import matter from 'gray-matter';
-import { pathToFileURL } from 'node:url';
 import { buildAliasMap, normalizeTags } from './lib/content-taxonomy.mjs';
 import { topicsOfDoc } from '../src/lib/topic-membership.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 // 地方 10 機関＋本省（2026-10-14 に施工管理基準の本省版を追加・DN-0393）
 const EXPECTED_AGENCIES = [
@@ -169,7 +169,7 @@ export function auditTopicWiring(root = REPO_ROOT) {
   };
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isCliEntry(import.meta.url)) {
   const result = auditTopicWiring();
   console.log('Topic・基準資料・実務ガイド配線チェック');
   console.log(JSON.stringify(result.summary, null, 2));

@@ -18,11 +18,11 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join, posix } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadDriveConfig, loadDriveManifest, driveGroupFor } from './lib/drive-vault.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const NAME = 'check-past-exam-inventory';
 const INVENTORY_PATH = datasetPath('pastexams.inventory');
@@ -124,4 +124,4 @@ function main() {
   console.log(`[${NAME}] OK（WARN ${warns.length} 件）`);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

@@ -15,7 +15,6 @@ import {
 } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { hostname } from 'node:os';
-import { fileURLToPath } from 'node:url';
 import {
   PROFILE_CACHE_SUBDIRS,
   ensureAuthDirectories,
@@ -36,6 +35,7 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 import { importSharedState, recordAuthStatus } from './lib/auth-session-refresh.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 export { REPO_ROOT };
 
@@ -500,4 +500,4 @@ async function main() {
   }
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) await main();
+if (isCliEntry(import.meta.url)) await main();

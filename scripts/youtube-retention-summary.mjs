@@ -2,13 +2,13 @@
 // npm run youtube-retention-summary — 最新の YouTube Analytics 記録の維持率曲線を storyboard の場面の秒数に重ね、場面ごとの離脱をパックごと・型ごとに出す（読み取りのみ・外部通信なし・DN-1063）。--format <型 id> --pack <packId> --json。視聴回数が基準（RETENTION_MIN_VIEWS）未満は「判断できない」で、型ごとの平均に混ぜない。video-script-writer と video-content-qa が台本の前後に読む
 import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { readDataset, readLatest } from './lib/dataset-io.mjs';
 import { readJson } from './lib/json-io.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { summarizeRetention } from './lib/youtube-retention-scenes.mjs';
 import { formatOf as formatIdOf } from './youtube-own-metrics.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const PACKS = 'content/sns/video-packs';
 
@@ -47,4 +47,4 @@ function main() {
   for (const p of summary.packs.filter((x) => args.pack && x.state === 'undetermined')) console.log(`${p.packId}: 判断できない（${p.reason}）`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) main();
+if (isCliEntry(import.meta.url)) main();

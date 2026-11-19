@@ -2,8 +2,7 @@
 /** Transfer approved covers to the YouTube Actions runner through temporary private R2 objects. */
 import { createHash } from 'node:crypto';
 import { readFileSync, mkdirSync, writeFileSync, renameSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { dirname, join } from 'node:path';
 import { parseArgs } from 'node:util';
 import { GetObjectCommand, PutObjectCommand, DeleteObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
 import { loadEnvLocal, makeS3 } from './lib/asset-storage.mjs';
@@ -11,6 +10,7 @@ import { loadCoverSources } from './lib/youtube-cover-rollout.mjs';
 import { coverInputDigest } from './lib/youtube-approved-cover.mjs';
 import { isAdoptedPngPath } from './lib/media-paths.mjs';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const BUCKET = 'doboku-note-archive';
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -75,7 +75,7 @@ async function main() {
   }));
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main().catch(() => {
+if (isCliEntry(import.meta.url)) main().catch(() => {
   console.error('YouTube cover transfer failed; not complete. Credentials and SDK diagnostics are not printed.');
   process.exitCode = 1;
 });

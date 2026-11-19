@@ -2,12 +2,12 @@
 /** 公開台帳の現役動画を YouTube Analytics API で計測する。認証が無ければ記録を書かず exit 2。 */
 // npm run youtube-analytics -- --check — 公開台帳の計測対象数を外部通信なしで確認。通常実行は YouTube Analytics API から28日窓の視聴回数・平均視聴時間・平均視聴率・流入元・維持率曲線（elapsedVideoTimeRatio 別・DN-1063）を取得し、型検証後 data/youtube/analytics/YYYY-MM-DD.json へ保存（CIのOAuth認証が必要・不足時 exit 2）。サムネイルのインプレッション/CTRはAPIの対象外
 import { readDataset } from './lib/dataset-io.mjs';
-import { fileURLToPath } from 'node:url';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { youtubePublications } from './lib/registry-youtube-view.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { jstDayOf } from './lib/jst-date.mjs';
 import { analyticsSnapshot, queryVideoAnalytics } from './lib/youtube-analytics-report.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const DAY = 86_400_000;
 const REQUIRED = ['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN'];
@@ -58,6 +58,6 @@ async function main() {
   console.log(`[youtube-analytics] 保存: ${file}`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isCliEntry(import.meta.url)) {
   main().catch((error) => { console.error(`[youtube-analytics] 取得失敗・保存なし: ${error.message}`); process.exitCode = 2; });
 }

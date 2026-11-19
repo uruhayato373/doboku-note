@@ -25,10 +25,10 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { diffEntities, extractEntities } from './lib/shadcn-parity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const UI_DIR = join(ROOT, 'tools/admin-app/src/components/ui');
 const APP_SRC = join(ROOT, 'tools/admin-app/src');
@@ -127,4 +127,4 @@ function main() {
   return bad.length || overrides.length ? 1 : 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) process.exitCode = main();
+if (isCliEntry(import.meta.url)) process.exitCode = main();

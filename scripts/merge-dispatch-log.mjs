@@ -14,8 +14,8 @@
  * 登録は scripts/install-pre-commit.mjs（git config merge.dispatch-log.driver）、対象は .gitattributes。依存ゼロ。
  */
 import { readFileSync, writeFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import { formatJson, parseJson } from './lib/json-io.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const keyOf = (e) => JSON.stringify([e?.id ?? null, e?.at ?? null, e?.task ?? null]);
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
@@ -79,4 +79,4 @@ function main() {
   }
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) process.exit(main());
+if (isCliEntry(import.meta.url)) process.exit(main());

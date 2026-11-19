@@ -23,9 +23,9 @@
  */
 import { existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { loadConfig, loadEnvLocal, makeS3, mimeFor, toPosix } from './lib/asset-storage.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 export const IG_DIR = join(ROOT, 'content/sns/instagram');
 const R2_PREFIX = 'sns/ig';
@@ -159,7 +159,7 @@ async function main() {
   }
 }
 
-const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) {
   main();
 }

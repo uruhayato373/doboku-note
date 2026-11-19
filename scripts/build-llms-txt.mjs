@@ -16,11 +16,11 @@
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { loadRegistry, orderedQualifications, qualificationLabel } from './lib/qualification-registry.mjs';
 import { publicPathFromSlug } from './lib/url-normalization.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const DOC_META = join(REPO_ROOT, 'src/config/doc-meta-index.json');
 const CATEGORIES = join(REPO_ROOT, 'src/config/categories.json');
@@ -146,4 +146,4 @@ function main() {
   if (check && changed) process.exitCode = 1;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

@@ -23,8 +23,7 @@
  * npm run growth-digest — 機会ダイジェスト: 成長パック×収益カバレッジ×Bing×実験台帳×triage-log から週次トリアージ対象を安定ID付きで抽出 → growth/digest-YYYY-Www.json。--print で週次レビュー埋め込み用 Markdown（書かない）、--week で指定週、--check は書かずに完走確認。罠: パックが無ければ exit 2
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { join } from 'node:path';
 import { direction, jst } from './lib/business-direction.mjs';
 import { datasetDir, datasetPath, latestFile } from './lib/datasets.mjs';
 import {
@@ -33,6 +32,7 @@ import {
 } from './lib/growth-opportunities.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { buildContentIndex } from './lib/content-index.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const TAG = '[growth-digest]';
 const GROWTH = datasetDir('analysis.growth-pack');
@@ -199,4 +199,4 @@ function main() {
   return 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) process.exitCode = main();
+if (isCliEntry(import.meta.url)) process.exitCode = main();

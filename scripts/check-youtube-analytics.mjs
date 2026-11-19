@@ -2,12 +2,12 @@
 /** 最新の YouTube Analytics 記録と公開台帳を照合する（外部通信なし）。 */
 // npm run check-youtube-analytics — 最新のYouTube Analytics記録を公開台帳のID・対象数・鮮度と照合（維持率曲線の対象数と取得数も出す）。未取得は0件成功にせず exit 1
 import { readDataset, readLatest } from './lib/dataset-io.mjs';
-import { fileURLToPath } from 'node:url';
 import { schemaOf } from './lib/dataset-validate.mjs';
 import { freshnessDays, resolveDataset } from './lib/datasets.mjs';
 import { youtubePublications } from './lib/registry-youtube-view.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { analyticsTargets, reportPeriod } from './youtube-analytics.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 export function checkAnalyticsSnapshot(snapshot, targets, { channelId, now = Date.now(), maxAgeDays = freshnessDays('youtube.analytics', 'warnDays') }) {
   const errors = [];
@@ -52,4 +52,4 @@ function main() {
   if (result.errors.length || result.targets === 0) process.exitCode = 1;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) main();
+if (isCliEntry(import.meta.url)) main();

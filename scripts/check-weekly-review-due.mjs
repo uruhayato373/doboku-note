@@ -19,8 +19,7 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
-import { createOutput, runAsCli } from './lib/cli-run.mjs';
+import { createOutput, runAsCli, isCliEntry } from './lib/cli-run.mjs';
 import { jstClock } from './lib/jst-date.mjs';
 import { isoWeekKey } from './lib/review-week.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -71,5 +70,5 @@ export async function run({ argv = [], quiet = false } = {}) {
   return out.result(due ? 1 : 0);
 }
 
-const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) runAsCli(run);

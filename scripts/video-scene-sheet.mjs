@@ -3,9 +3,9 @@
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import sharp from 'sharp';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 export async function createSceneSheet(root, packId) {
   if (!packId || !/^[a-z0-9-]+$/.test(packId)) throw new Error('Usage: node scripts/video-scene-sheet.mjs <packId>');
@@ -48,7 +48,7 @@ export async function createSceneSheet(root, packId) {
   return { file: basename(output), output, sceneCount: scenes.length };
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (isCliEntry(import.meta.url)) {
   createSceneSheet(REPO_ROOT, process.argv[2]).then(({ output, sceneCount }) => {
     console.log(`場面 ${sceneCount}/${sceneCount} 件を記録順に確認シートへ出力: ${output}`);
   }).catch((error) => { console.error(error.message); process.exitCode = 1; });

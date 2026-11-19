@@ -19,13 +19,12 @@
 //   node scripts/generate-magazine-covers.mjs river-consultant # 1件だけ生成（id 部分一致）
 
 import { writeFileSync, mkdirSync, renameSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
+import { join, dirname } from 'node:path';
 import { renderNoteCharacterCover } from './lib/note-character-cover.mjs';
 import { loadNoteCoverInventory } from './lib/note-cover-inventory.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
+import { isCliEntry } from './lib/cli-run.mjs';
 
 /**
  * 各マガジンの cover 定義。
@@ -743,7 +742,7 @@ async function main() {
 }
 
 // check-note-cover-fit.mjs 等から MAGAZINES を import できるよう、直接実行時のみ main を走らせる
-const __isDirectRun = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const __isDirectRun = isCliEntry(import.meta.url);
 if (__isDirectRun) {
   main().catch((err) => {
     console.error(err);

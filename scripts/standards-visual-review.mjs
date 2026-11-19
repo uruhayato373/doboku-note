@@ -29,7 +29,6 @@
 import { spawnSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetPath } from './lib/datasets.mjs';
@@ -38,6 +37,7 @@ import { todayJst } from './lib/jst-date.mjs';
 import { standardsRenderTargets } from './lib/standards-render-targets.mjs';
 import { inspectInPage } from './lib/rendered-page-inspect.mjs';
 import { reviewTier, summarizeCoverage, validateVerdicts } from './lib/visual-review-ledger.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const ARTICLES_ROOT = join(REPO_ROOT, 'content', 'site', 'standards-articles');
 const SOURCES_ROOT = join(REPO_ROOT, 'content', 'sources', 'standards');
@@ -653,7 +653,7 @@ async function main() {
   return 2;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isCliEntry(import.meta.url)) {
   main()
     .then((code) => process.exit(code))
     .catch((error) => {

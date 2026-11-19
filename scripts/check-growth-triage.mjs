@@ -17,10 +17,10 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { pendingItems } from './lib/growth-triage.mjs';
 import { datasetDir, datasetPath, freshnessDays } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const TAG = '[check-growth-triage]';
 const MAX_DIGEST_AGE_DAYS = freshnessDays('analysis.growth-digest', 'failDays'); // 台帳の値（scripts/lib/datasets.mjs）
@@ -67,4 +67,4 @@ function main() {
   return 0;
 }
 
-if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) process.exitCode = main();
+if (isCliEntry(import.meta.url)) process.exitCode = main();

@@ -43,8 +43,6 @@
 import { execFileSync } from 'node:child_process';
 import { chmodSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
 import {
   AUTO_LOGIN,
   classifyLoginOutcome,
@@ -68,6 +66,7 @@ import {
 } from './lib/playwright-auth-profile.mjs';
 import { mergeLeanOptions } from './lib/playwright-launch.mjs';
 import { REPO_ROOT, statusAuthService } from './playwright-auth.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const TAG = '[auth-session-refresh]';
 const argv = process.argv.slice(2);
@@ -266,7 +265,7 @@ async function main() {
   return results.every((r) => r.status === 'ok') ? 0 : 1;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isCliEntry(import.meta.url)) {
   process.exitCode = await main().catch((e) => {
     console.error(`${TAG} ERROR: ${e.message}`);
     return 1;

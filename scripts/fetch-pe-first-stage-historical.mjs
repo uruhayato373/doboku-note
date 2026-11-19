@@ -10,10 +10,10 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, rmSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { readDataset } from './lib/dataset-io.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const OUT = resolve(ROOT, '.tmp/pe1-historical-sources');
 
@@ -138,4 +138,4 @@ async function main() {
   } else if (fetchFailed || mismatched) process.exitCode = 1;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await main();
+if (isCliEntry(import.meta.url)) await main();

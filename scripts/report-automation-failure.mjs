@@ -46,8 +46,7 @@
  */
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
-import { pathToFileURL } from "node:url";
-
+import { isCliEntry } from './lib/cli-run.mjs';
 export const LABEL = "automation-failure";
 
 /** タイトル規約: `[auto] {channel}: {事象}`。前半が重複判定キーになる。 */
@@ -244,5 +243,5 @@ async function main() {
 }
 
 // import 時は実行しない（テストが純関数を読めるようにする）。
-const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) main();

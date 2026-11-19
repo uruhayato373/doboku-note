@@ -25,13 +25,13 @@ import { spawnSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { R2_PUBLIC_ORIGIN } from './lib/site-identity.mjs';
 import { renderQuizMarkdown } from './lib/quiz-markdown.mjs';
 import { QUIZ_CONTENT_CSS, quizTokensCss } from './lib/quiz-style.mjs';
 import { SOURCES, buildDataset } from './build-quiz-data.mjs';
 import { qualificationOfQuizExam, readLedger, unreadyForApp } from './lib/past-exam-ledger.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const NAME = 'build-ios-quiz-bundle';
 
@@ -264,4 +264,4 @@ function main() {
   console.log(`[${NAME}] 画像 ${rels.length} 件（リポジトリ ${local}・R2 から新規取得 ${fetched}・参照先の欠け 0）・KaTeX フォント ${fonts.length} 件・ID 検査 ${total} 問（前回 manifest ${previous ? 'あり' : 'なし'}）-> ${out}`);
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
+if (isCliEntry(import.meta.url)) main();

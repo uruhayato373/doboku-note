@@ -15,8 +15,8 @@
  */
 import { readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { REPO_ROOT as ROOT, STATE_ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const LOG_PATH = join(STATE_ROOT, 'dispatch/dispatch-log.json');
 export const LEGACY_CUTOFF = '2026-08-18';
@@ -44,7 +44,7 @@ export function validateDispatchLog(json, { legacyCutoff = LEGACY_CUTOFF } = {})
   return { violations, legacy, checked: json.entries.length };
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isCliEntry(import.meta.url)) {
   let json;
   try { json = JSON.parse(readFileSync(LOG_PATH, 'utf8')); }
   catch (e) { console.error(`[check-dispatch-log] 検査不成立: ${relative(ROOT, LOG_PATH).split('\\').join('/')} を読めない: ${e.message}`); process.exit(2); }

@@ -30,7 +30,6 @@ import { join } from 'node:path';
 import { writeMdxFile } from './lib/mdx-io.mjs';
 import { prepareGroupedTable, projectGroupedChapter, groupedCoverageErrors, groupedArtifact } from './lib/standards-grouped-tables.mjs';
 import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
-import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
 import { RE_STANDARD_FIGURE_TITLE, figureLookup, isFigureCaption, renderFigureImage } from './lib/standards-figures.mjs';
 import { editionDuplicateOf } from '../src/lib/standards-editions.mjs';
@@ -52,6 +51,7 @@ import {
   patterns,
   variantsOf,
 } from './lib/standards-structure.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const { RE_TABLE_CAPTION, RE_FIGURE_CAPTION } = patterns;
 /** 基準類の一覧を持つ節・条の題名（`第2節 適用すべき諸基準`・`1-3-2-1 適用すべき諸基準`） */
@@ -888,6 +888,6 @@ function main() {
   if (failed > 0) process.exitCode = 1;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();
 
 export { renderChapter, summarizeChapter };

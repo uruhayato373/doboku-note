@@ -16,11 +16,11 @@
  * ---------------------------------------------------------------------------
  */
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { exitCodeOf, readJsonOrNull } from './lib/run-audit.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const TAG = '[report-technical-seo]';
 export const LIMITS = { buildStaleDays: 3, metaStaleDays: 14, sitemapStaleDays: 14, coverageDropPt: 0.02, sitemapDriftRatio: 0.05, minCoverage: 0.9 };
@@ -100,7 +100,7 @@ export function readTechnicalSeoInputs(root) {
   return { build: at('analysis.seo-build-summary'), meta: at('analysis.seo-meta'), coverage: at('gsc.index-coverage-history'), sitemaps: at('gsc.sitemaps') };
 }
 
-const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) {
   const args = parseCliArgs({ root: { type: 'string' }, now: { type: 'string' }, json: { type: 'boolean' } });
   const r = buildTechnicalSeoReport({ ...readTechnicalSeoInputs(args.root ?? REPO_ROOT), now: args.now ? Date.parse(args.now) : Date.now() });

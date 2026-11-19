@@ -1,3 +1,4 @@
+import { isCliEntry } from './lib/cli-run.mjs';
 // 択一過去問を「年度別」ではなく「論点別」に再構成した教材ソースを生成する試作
 // ジェネレータ。1 ソースから note 用（Markdown / 印刷 HTML）と Kindle 用（EPUB）を出す。
 //
@@ -932,7 +933,7 @@ async function main() {
 }
 
 // CLI 実行時のみ build を走らせる（import されたときは THEMES 等の inline export だけ提供・副作用なし）
-const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+const isMain = isCliEntry(import.meta.url)
 if (isMain) {
   main().catch((e) => {
     console.error('ERROR:', e.message)

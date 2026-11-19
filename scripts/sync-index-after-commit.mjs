@@ -10,8 +10,8 @@
 // 対象は今 commit したファイルのうち「作業ツリー＝HEAD なのに index だけ違う」ものだけ。作業ツリーに未 commit の
 // 変更があるファイル・index にしか無い変更（別セッションが stage したもの）には触らない。失敗しても commit は止めない。
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
 import { existsSync } from 'node:fs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const git = (args, input) =>
   execFileSync('git', args, { encoding: 'utf8', input, stdio: [input === undefined ? 'ignore' : 'pipe', 'pipe', 'ignore'] });
@@ -46,7 +46,7 @@ export function staleIndexPaths() {
   return candidates.filter((p, i) => worktree[i] === head.get(p));
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isCliEntry(import.meta.url)) {
   try {
     const stale = staleIndexPaths();
     if (stale.length > 0) {

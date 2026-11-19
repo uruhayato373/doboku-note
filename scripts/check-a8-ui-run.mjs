@@ -22,13 +22,13 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { basename, isAbsolute, join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
 import { KEY } from './lib/a8-report-csv.mjs';
 import { classifyCrossCheck } from './lib/report-honesty.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { createFindings, exitCodeOf, listRunIds, readJsonOrNull, renderLines, sha256Of } from './lib/run-audit.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const TAG = '[check-a8-ui-run]';
 export const EXPECTED_REPORTS = ['site-summary', 'program-detail', 'period-monthly', 'period-daily'];
@@ -152,7 +152,7 @@ export function auditA8({ root, runId = null }) {
   return { check: 'a8-ui-run', runId: id, checked, fail: f.fail, warn: f.warn, info: f.info };
 }
 
-const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) {
   const args = parseCliArgs({ run: { type: 'string' }, root: { type: 'string' }, json: { type: 'boolean' } });
   const r = auditA8({ root: args.root ?? REPO_ROOT, runId: args.run });

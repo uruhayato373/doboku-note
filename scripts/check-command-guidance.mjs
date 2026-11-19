@@ -40,10 +40,10 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { AREAS } from './lib/datasets.mjs';
 import { scriptsWithoutHeader } from './lib/cmd-help.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 /**
  * 冒頭コメントの無い既存のファイル（2026-11-11 時点の 32 本のうち、残りは配布物の sync.mjs だけ・DN-1140）。**増やさない**。冒頭コメントを書いたらここから消す
@@ -217,4 +217,4 @@ function main() {
   process.exitCode = broken.length || inconclusive ? 1 : 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

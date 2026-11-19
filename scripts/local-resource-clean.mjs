@@ -5,11 +5,11 @@
 import { readFileSync, existsSync, readdirSync, unlinkSync, lstatSync } from 'node:fs';
 import { join, resolve, relative, isAbsolute } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
 import { REPO_ROOT as repoRoot } from './lib/repository-paths.mjs';
 import { resolveAuthRoot } from './lib/playwright-auth-profile.mjs';
 import { safePath, scanTree, processInventory, acquireLock } from './lib/local-resources.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 export function canClean(row, minAgeDays, processes, kind, now = Date.now()) {
   if (row.errors.length || row.links || !row.files) return false;
@@ -91,6 +91,6 @@ export function cleanMain(args = process.argv.slice(2), { root = repoRoot, inspe
     return result;
   } finally { releaseHeavy?.(); release(); }
 }
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isCliEntry(import.meta.url)) {
   if (!cleanMain().complete) process.exitCode = 2;
 }

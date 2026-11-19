@@ -2,12 +2,12 @@
 // 入力の変更（specSha256）、Drive 台帳の group・sha256・verifiedAt・driveFileId の不一致を見る。--local は手元の実体のバイトとハッシュも照合する。
 // exit 1 = 不整合あり / 2 = 実行エラー。採用画像 0 件は検査不成立として problems に積む。
 import { readFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { join } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { loadDriveManifest, realBytesAndHashes } from './lib/drive-vault.mjs';
 import { coverInputDigest } from './lib/youtube-approved-cover.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 // 採用表紙の Drive の group。content-media は ID ごとの置き場（.tmp/media/・DN-0607 で移した）、youtube-approved-cover は移す前の日付フォルダ
 const COVER_GROUPS=['content-media','youtube-approved-cover'];
@@ -31,4 +31,4 @@ async function main(){
  for(const p of problems)console.error(p);
  if(problems.length)process.exitCode=1;
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)main().catch(e=>{console.error(e.message);process.exitCode=2;});
+if(isCliEntry(import.meta.url))main().catch(e=>{console.error(e.message);process.exitCode=2;});

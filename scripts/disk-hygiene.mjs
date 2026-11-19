@@ -20,8 +20,6 @@ import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, rmSync, statSync, statfsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { homedir, tmpdir } from 'node:os';
 import { join, relative, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { cleanMain } from './local-resource-clean.mjs';
@@ -44,6 +42,7 @@ import {
   worktreePlacement,
 } from './lib/disk-hygiene.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const HOME = homedir();
 const CONFIG_PATH = join(REPO_ROOT, datasetPath('config.disk-hygiene'));
@@ -630,7 +629,7 @@ export function applyFixes(items, { dryRun = true, log = console.log } = {}) {
 
 // --- CLI -------------------------------------------------------------------
 
-const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
+const isMain = isCliEntry(import.meta.url);
 if (isMain) {
   const argv = process.argv.slice(2);
   const fix = argv.includes('--fix');

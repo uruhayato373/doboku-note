@@ -23,11 +23,11 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetDir } from './lib/datasets.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { createFindings, exitCodeOf, listRunIds, readJsonOrNull, renderLines, sha256Of } from './lib/run-audit.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const TAG = '[check-gsc-ui-run]';
 export const GSC_EXPORT_CAP = 1000;
@@ -132,7 +132,7 @@ function pack(f) {
   return { fail: f.fail, warn: f.warn, info: f.info };
 }
 
-const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) {
   const args = parseCliArgs({ run: { type: 'string' }, root: { type: 'string' }, json: { type: 'boolean' } });
   const r = auditGscRun({ root: args.root ?? REPO_ROOT, runId: args.run });

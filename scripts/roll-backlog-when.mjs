@@ -17,10 +17,10 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { parseBacklog, parseWhen } from './lib/backlog-lib.mjs';
 import { jstMonth } from './lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const BACKLOG = join(ROOT, '.claude/todo/backlog.md');
 
@@ -80,4 +80,4 @@ function main() {
   }
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) main();
+if (isCliEntry(import.meta.url)) main();

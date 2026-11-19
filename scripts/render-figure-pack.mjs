@@ -4,10 +4,10 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, relative, isAbsolute, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
-import { pathToFileURL } from 'node:url';
 import { Resvg } from '@resvg/resvg-js';
 import { figurePackLabels, FIGURE_PACK_CATEGORIES } from './sns/lib/figure-pack-labels.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 export const FIGURE_SLIDES = ['00-cover', '01-figure', '02-text', '03-cta'];
 function inside(root, path) {
   const full = resolve(root, path), rel = relative(root, full);
@@ -50,7 +50,7 @@ export function renderFigurePack(pack, { root = ROOT, outDir } = {}) {
   mkdirSync(output, { recursive: true });
   return images.map(({ name, png }) => { const file = join(output, `${name}.png`); writeFileSync(file, png); return file; });
 }
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (isCliEntry(import.meta.url)) {
   try {
     const { values } = parseArgs({ options: { pack: { type: 'string' }, 'out-dir': { type: 'string' }, check: { type: 'boolean' } } });
     if (values.check) { validateFigurePack(values.pack); console.log(`${values.pack}: sourceと4枚SVGの検証OK`); }

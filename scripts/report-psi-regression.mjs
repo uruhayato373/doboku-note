@@ -21,11 +21,11 @@
  */
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { exitCodeOf, readJsonOrNull } from './lib/run-audit.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const TAG = '[report-psi-regression]';
 export const REGRESSION = { window: 5, minRecent: 3, minBaseline: 2, performanceDrop: 10, lcpRiseMs: 500, clsRise: 0.05 };
@@ -143,7 +143,7 @@ export function countExpectedUrls(root) {
   return readFileSync(p, 'utf8').split(/\r?\n/).map((l) => l.trim()).filter((l) => l && !l.startsWith('#')).length;
 }
 
-const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) {
   const args = parseCliArgs({ root: { type: 'string' }, json: { type: 'boolean' } });
   const root = args.root ?? REPO_ROOT;

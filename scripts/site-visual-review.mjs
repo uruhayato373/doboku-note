@@ -37,7 +37,6 @@ import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetPath } from './lib/datasets.mjs';
@@ -48,6 +47,7 @@ import { inspectInPage } from './lib/rendered-page-inspect.mjs';
 import { inspectLayoutInPage } from './lib/site-visual-inspect.mjs';
 import { inspectCtaStacksInPage, inspectFeedAdsInPage } from './lib/cta-stack-inspect.mjs';
 import { reviewTier, summarizeCoverage, validateVerdicts } from './lib/visual-review-ledger.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 export const LEDGER_PATH = join(REPO_ROOT, datasetPath('state.site-visual-review'));
 const RUN_ROOT = join(REPO_ROOT, '.tmp', 'site-visual-review');
@@ -535,7 +535,7 @@ async function main() {
   return 2;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isCliEntry(import.meta.url)) {
   main()
     .then((code) => {
       process.exitCode = code;

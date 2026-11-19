@@ -42,10 +42,10 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { datasetDir } from './lib/datasets.mjs';
 import { youtubePublications } from './lib/registry-youtube-view.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const JSON_OUT = process.argv.includes('--json');
 const daysArg = process.argv.indexOf('--days');
@@ -268,5 +268,5 @@ function main() {
   process.exit(1);
 }
 
-const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) main();

@@ -32,10 +32,10 @@
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const APP_DIR = join(ROOT, 'tools/admin-app/src/app');
 const COMPONENTS_DIR = join(ROOT, 'tools/admin-app/src/components');
@@ -141,4 +141,4 @@ function main() {
   return regressions.length ? 1 : 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) process.exitCode = main();
+if (isCliEntry(import.meta.url)) process.exitCode = main();
