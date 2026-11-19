@@ -1,7 +1,7 @@
 // tests/mdx-io.test.mjs
 //
 // 回帰テスト目的:
-// `.claude/scripts/lib/mdx-io.mjs` の writeMdxFile が改行コード保持を誤ると、
+// `scripts/lib/mdx-io.mjs` の writeMdxFile が改行コード保持を誤ると、
 // pre-commit hook が mixed-EOL を検出して 100+ ファイルを reject する事故が再発する。
 // CRLF/LF の保持・混在正規化を決定論的に固定する。
 
@@ -15,7 +15,7 @@ import {
   readMdxFile,
   writeMdxFile,
   transformMdxFile,
-} from '../.claude/scripts/lib/mdx-io.mjs';
+} from '../scripts/lib/mdx-io.mjs';
 
 function makeTmpFile(content) {
   const dir = mkdtempSync(join(tmpdir(), 'mdx-io-test-'));

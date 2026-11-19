@@ -114,7 +114,7 @@ domain: site
 - 既存セクションの流れを壊さないように挿入位置を選定
 - ExamPoint items の更新（missing → covered 移行分を追加）
 - 修正は Edit ツールのみ使用（CLAUDE.md の CRLF/LF 保持原則）
-- 追記後に `node .claude/scripts/lint-mdx-mobile.mjs <path>` を実行、HIGH ゼロを確認
+- 追記後に `node scripts/lint-mdx-mobile.mjs <path>` を実行、HIGH ゼロを確認
 
 ### Step 7: 最終レポート
 

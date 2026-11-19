@@ -130,7 +130,7 @@ test('読み手は閾値を台帳から読む（検査・管理画面に写し�
     ['scripts/lib/gsc-sitemaps.mjs', 'gsc.sitemaps'],
     ['scripts/check-a8-report-due.mjs', 'a8.ui-last-run'],
     ['scripts/check-gsc-ui-due.mjs', 'gsc.ui-last-run'],
-    ['.claude/scripts/report-career-funnel.mjs', 'ga4.reports'],
+    ['scripts/report-career-funnel.mjs', 'ga4.reports'],
   ];
   for (const [file, id] of readers) {
     const src = readFileSync(join(ROOT, file), 'utf8');

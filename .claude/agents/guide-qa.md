@@ -46,7 +46,7 @@ target: guide
 
 | コマンド | 用途 |
 |---|---|
-| `node .claude/scripts/lint-mdx-mobile.mjs <mdx>` | 6-1〜6-6（見出し直下の導入文なし・冒頭リード欠如）・9-14〜16（Callout 連続・例題化・密度）・15-1/15-2（文末単調・文長）・12-x（ガイド末尾構造）・7-1（太字スコープ）の機械根拠 |
+| `node scripts/lint-mdx-mobile.mjs <mdx>` | 6-1〜6-6（見出し直下の導入文なし・冒頭リード欠如）・9-14〜16（Callout 連続・例題化・密度）・15-1/15-2（文末単調・文長）・12-x（ガイド末尾構造）・7-1（太字スコープ）の機械根拠 |
 | `node scripts/check-guide-length.mjs --all` | 本文文字数（§25 の 3,000 字下限） |
 | `/check-mdx <mdx> --rules syntax` | 構造軸のビルド健全性 |
 

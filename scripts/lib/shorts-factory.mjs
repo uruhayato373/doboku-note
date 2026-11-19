@@ -26,7 +26,7 @@ import { narrationInput } from './video-narration-cache.mjs';
 import { coverInputDigest } from './youtube-approved-cover.mjs';
 import { fileRef, packDirOf, readPlan } from './video-factory.mjs';
 import { audioProblems, readPolicy, speechSimilarity } from './video-publish-gate.mjs';
-import { applyReadingDict } from '../../.claude/scripts/lib/sns-common/reading-dict.mjs';
+import { applyReadingDict } from './sns-common/reading-dict.mjs';
 import { loadDriveManifest } from './drive-vault.mjs';
 import { ensureVoicevox, readingOf } from './voicevox-engine.mjs';
 
@@ -366,7 +366,7 @@ export async function renderShort(root, pack, key, { refs = fileRef, log = () =>
   const revision = record.revisions?.[record.activeShorts?.[key]];
   if (!revision) throw new Error(`${key}: 採用した画像が無い。adopt を先に行う`);
   const { composeStaticSlidesVideo, probeDuration } = await import(pathToFileURL(join(root, 'scripts/lib/ffmpeg-compose.mjs')).href);
-  const { synthesize } = await import(pathToFileURL(join(root, '.claude/scripts/lib/sns-common/tts-client.mjs')).href);
+  const { synthesize } = await import(pathToFileURL(join(root, 'scripts/lib/sns-common/tts-client.mjs')).href);
   const out = renderDirOf(root, pack, key);
   const work = join(out, 'work');
   rmSync(work, { recursive: true, force: true });

@@ -78,7 +78,7 @@ Agent を呼び出す際は Agent tool の `subagent_type` で指定し、対象
 NotebookLM CLI（`notebooklm`、旧 `nlm` から 2026-05-11 移行）経由で総監標準テキストとの照合を行う。
 
 ```bash
-node .claude/scripts/notebooklm-cross-query.mjs --notebooks "総監標準テキスト" \
+node scripts/notebooklm-cross-query.mjs --notebooks "総監標準テキスト" \
   "「{title}」の定義・背景・試験での問われ方・テキスト記載の重要論点をまとめてください。"
 ```
 

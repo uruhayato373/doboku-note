@@ -44,10 +44,10 @@ if (!args.all && !args.dir) {
 }
 
 const { resolveExam } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/exam-palette.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/sns/lib/exam-palette.mjs')).href
 );
 const { isRunning, synthesize } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/tts-client.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/lib/sns-common/tts-client.mjs')).href
 );
 const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await import(
   pathToFileURL(resolve(ROOT, 'scripts/lib/ffmpeg-compose.mjs')).href

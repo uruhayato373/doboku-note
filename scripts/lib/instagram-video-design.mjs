@@ -9,7 +9,7 @@ import { coverFonts } from './youtube-cover.mjs';
 import { renderCharacterFrame } from './character-framing.mjs';
 import { readVerifiedVideoPng } from './youtube-approved-cover.mjs';
 import { renderYoutubeCover } from './youtube-cover.mjs';
-import { resolveExam } from '../../.claude/scripts/sns/lib/exam-palette.mjs';
+import { resolveExam } from '../sns/lib/exam-palette.mjs';
 import { readDataset } from './dataset-io.mjs';
 
 export const IG_DESIGN = 'bridge-notebook-a-v1';
@@ -18,7 +18,7 @@ export function instagramRendererDigest(root, type) {
   const files = ['scripts/lib/instagram-video-design.mjs', 'scripts/lib/video-explanation.mjs',
     datasetPath('config.video-brand'), datasetPath('config.character-poses'),
     type === 'carousel' ? 'scripts/render-instagram-video-pack-carousels.mjs' : 'scripts/render-instagram-video-pack-reels.mjs'];
-  if (type === 'reel') files.push('scripts/lib/video-narration-cache.mjs', 'scripts/lib/video-subtitles.mjs', '.claude/scripts/lib/sns-common/reading-dict.mjs');
+  if (type === 'reel') files.push('scripts/lib/video-narration-cache.mjs', 'scripts/lib/video-subtitles.mjs', 'scripts/lib/sns-common/reading-dict.mjs');
   return createHash('sha256').update(Buffer.concat(files.map(p => readFileSync(join(root, p))))).digest('hex');
 }
 const C = { ink: '#0F2742', blue: '#1858B5', paper: '#FFFFFF', yellow: '#FFC53D', light: '#F1F6FC' };

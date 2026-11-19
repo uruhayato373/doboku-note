@@ -30,7 +30,7 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import { writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
+import { writeMdxFile } from "./lib/mdx-io.mjs";
 
 const COMMIT = process.argv.includes("--commit");
 

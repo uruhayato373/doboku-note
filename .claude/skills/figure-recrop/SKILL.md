@@ -54,7 +54,7 @@ node scripts/figure-recrop.mjs <.local/.../img/NAME.webp> --top 0.15
 
 ```bash
 # webp は figure-recrop.mjs が自動再生成済み。MDX width/height も更新済み。
-node .claude/scripts/audit-exam-figures.mjs        # broken_image_reference:0 を確認
+node scripts/audit-exam-figures.mjs        # broken_image_reference:0 を確認
 grep -c "�" <article.mdx>                          # 文字化け 0
 git add <article.mdx> <img/変更した png/webp を明示>   # git add -A 禁止・並行セッション注意
 git commit -m "content(<slug>): 過去問図の写り込みを再クロップで除去（fig-NN…）"

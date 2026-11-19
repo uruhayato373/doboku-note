@@ -161,10 +161,10 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 
 ### 補助ツール（深掘り時）
 
-- 母集合生成: `node .claude/scripts/list-sitemap-urls.mjs`（公開 sitemap → 全 URL・creds 不要）
+- 母集合生成: `node scripts/list-sitemap-urls.mjs`（公開 sitemap → 全 URL・creds 不要）
 - URL Inspection: `npm run inspect-url -- --file <list>`（2,000 URL/日/property 上限）
-- 集計→履歴: `node .claude/scripts/append-coverage-history.mjs --batch <path> --date <YYYY-MM-DD> --sitemap-count N`
-- 既存分析: `.claude/scripts/{analyze-gsc-coverage,analyze-hubs,build-noindex-candidates}.mjs`
+- 集計→履歴: `node scripts/append-coverage-history.mjs --batch <path> --date <YYYY-MM-DD> --sitemap-count N`
+- 既存分析: `scripts/{analyze-gsc-coverage,analyze-hubs,build-noindex-candidates}.mjs`
 
 ## データの所在
 

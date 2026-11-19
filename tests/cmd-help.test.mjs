@@ -20,7 +20,7 @@ test('scriptFile: node / tsx / npx tsx が最初に起動するファイルを�
   assert.equal(scriptFile('node --test --test-concurrency=2 tests/a.test.mjs'), 'tests/a.test.mjs');
   assert.equal(scriptFile('tsx scripts/build-standards-data.ts && node scripts/check-standards-data.mjs'), 'scripts/build-standards-data.ts');
   assert.equal(scriptFile('npx tsx scripts/x.mts --ci'), 'scripts/x.mts');
-  assert.equal(scriptFile('node .claude/scripts/build-doc-meta-index.mjs --ci'), '.claude/scripts/build-doc-meta-index.mjs');
+  assert.equal(scriptFile('node scripts/build-doc-meta-index.mjs --ci'), 'scripts/build-doc-meta-index.mjs');
   assert.equal(scriptFile('tsc --noEmit'), null);
   assert.equal(scriptFile('npm run build-backlinks && npm run build-indexes'), null);
 });

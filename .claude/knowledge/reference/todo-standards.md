@@ -3,7 +3,7 @@
 `.claude/todo/` の層構成・カード構文・タグ語彙の**単一ソース (SSOT)**。
 **この規約は doboku-note と stats47 で共通** (同文コピーを doboku-note
 `.claude/knowledge/reference/todo-standards.md` に置く。改訂は両リポへ同じ差分を当てる)。
-パーサの単一実装は stats47 = `.claude/scripts/lib/backlog-lib.cjs` /
+パーサの単一実装は stats47 = `scripts/lib/backlog-lib.cjs` /
 doboku-note = `scripts/lib/backlog-lib.mjs` (admin・CI・検査はすべてこれを使う。別実装を作らない)。
 
 > 背景 (2026-08-18 統一): stats47 は `### [ID]` + `- **status**:` フィールド行、doboku-note は
@@ -165,14 +165,14 @@ backlog が持つのは**単発で完了がある未着手タスク**だけ = �
 メイン vault `C:\Users\m004195\obsidian` の `projects/` に junction (Windows) / symlink (macOS) で
 両リポの `.claude/todo/` を見せる (コピー・ミラーではないのでドリフトしない — vault 側 todo ミラーを
 2026-07-27 に廃止した判断と両立する)。junction は vault の `.gitignore` 対象で、マシンごとに
-vault の `.claude/scripts/todo/setup-todo-links.mjs` で張る。SSOT は常に各リポ側。
+vault の `scripts/todo/setup-todo-links.mjs` で張る。SSOT は常に各リポ側。
 
 ## 関連
 
-- パーサ: `.claude/scripts/lib/backlog-lib.cjs` (+ `__tests__/backlog-lib.test.cjs`)
+- パーサ: `scripts/lib/backlog-lib.cjs` (+ `__tests__/backlog-lib.test.cjs`)
 - 自動処理 (行削除・gate): stats47 側 rules `backlog-loop`
 - 文書ガバナンス (検査コード DG050/055-059): stats47 側 rules `docs-vs-issues` /
-  `.claude/scripts/lib/check-docs-governance.cjs`
+  `scripts/lib/check-docs-governance.cjs`
 - 管理画面: `apps/admin/app/todo/page.tsx` (アダプタ `apps/admin/lib/server/todo.ts`)
 - doboku-note 側: `scripts/lib/backlog-lib.mjs` / `tools/admin-app/src/lib/todo.ts` /
   agent `todo-planner`・`backlog-curator` / skill `/backlog-sweep`

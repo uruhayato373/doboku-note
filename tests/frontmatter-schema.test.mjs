@@ -10,7 +10,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseFrontmatter } from '../.claude/scripts/lib/frontmatter-schema.mjs';
+import { parseFrontmatter } from '../scripts/lib/frontmatter-schema.mjs';
 
 test('title が無いと parse に失敗する', () => {
   const result = parseFrontmatter({ description: 'no title' });

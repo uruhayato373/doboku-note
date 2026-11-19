@@ -94,7 +94,7 @@ domain: product
 
 - **Generator / Evaluator 分離**: 作る（`pe-essay-draft`）と評価する（`pe-essay-review`）を同一工程に混ぜない。`revise` の反映は必ず Generator 側で行う
 - **人間ゲート必須**: AI が作成・修正した模範論文は `reviewStatus: needs-review`。`approved` への変更は人間のみ
-- **MDX 書き込みは `.claude/scripts/lib/mdx-io.mjs` 経由**（直接 `writeFileSync` は CRLF 混在で pre-commit reject）
+- **MDX 書き込みは `scripts/lib/mdx-io.mjs` 経由**（直接 `writeFileSync` は CRLF 混在で pre-commit reject）
 - **書き込み後に `U+FFFD` チェック**（文字化け検出）
 - **frontmatter 必須**: `title` / `seoTitle` / `description` / `category` / `tags` / `published`
 - **属性キーは 3 種固定**（上表）。日本語表記とキーを取り違えない

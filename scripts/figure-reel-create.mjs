@@ -24,8 +24,8 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, copyFi
 import { join, basename } from 'node:path';
 import { parseArgs } from 'node:util';
 import { spawnSync } from 'node:child_process';
-import { synthesize, listSpeakers } from '../.claude/scripts/lib/sns-common/tts-client.mjs';
-import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
+import { synthesize, listSpeakers } from './lib/sns-common/tts-client.mjs';
+import { applyReadingDict } from './lib/sns-common/reading-dict.mjs';
 import { composeShortsVideo } from './lib/ffmpeg-compose.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 

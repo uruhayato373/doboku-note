@@ -63,7 +63,7 @@ test("記録の commit 前に索引を更新し、失敗時は commit も push �
       run: (cmd, args) => { calls.push([cmd, args]); return code; },
       commitAndPush: (...args) => { calls.push(args); return { status: "committed" }; },
     });
-    assert.deepEqual(calls[0], ["node", [".claude/scripts/build-doc-meta-index.mjs", "--ci"]]);
+    assert.deepEqual(calls[0], ["node", ["scripts/build-doc-meta-index.mjs", "--ci"]]);
     assert.equal(calls.length, code === 0 ? 2 : 1);
     if (code === 0) {
       assert.deepEqual(calls[1], [["record.json"], "記録", { push: false }]);

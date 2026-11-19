@@ -29,7 +29,7 @@ import { chapterDataKeys } from './lib/standards-data-r2.mjs';
 const args = parseCliArgs({ write: { type: 'boolean' } });
 const IMAGE_NAME = '[A-Za-z0-9_.-]+\\.(png|webp|svg|jpg|jpeg|gif)';
 // 参照を探す範囲（削除リスト・台帳・記録・計画は「参照」ではないので含めない）
-const REF_PATHS = ['content', 'src', 'config', 'public', 'scripts', '.claude/scripts', 'tools'];
+const REF_PATHS = ['content', 'src', 'config', 'public', 'scripts', 'tools'];
 
 let standardsDataKeys;
 try { standardsDataKeys = chapterDataKeys(); } catch (error) {

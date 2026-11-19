@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-unreachable-cli.mjs — どこからも呼ばれない CLI（scripts/ と .claude/scripts/ の直下の .mjs）を数える（DN-1017）。
+ * check-unreachable-cli.mjs — どこからも呼ばれない CLI（scripts/ の直下の .mjs）を数える（DN-1017）。
  *
  * knip は scripts/** を全部 entry にしているので、使われなくなった CLI を検出できない。ここでは名前の参照を見る:
  * package.json・GitHub Actions・スキル・エージェント・hooks・CLAUDE.md・docs・作業マニュアル・ほかのスクリプト・管理画面の
@@ -21,10 +21,9 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const BASELINE = join(ROOT, '.claude/config/unreachable-cli-baseline.json'); // path-literal-ok: このラチェットの baseline
-const CLI_DIRS = ['scripts', '.claude/scripts'];
+const CLI_DIRS = ['scripts'];
 const REF_SOURCES = [
   { dir: 'scripts', match: /\.(?:mjs|cjs|js|sh|ps1)$/ },
-  { dir: '.claude/scripts', match: /\.(?:mjs|cjs|js|sh|ps1)$/ },
   { dir: '.claude/skills', match: /\.(?:md|mjs|cjs|js|json|sh)$/ },
   { dir: '.claude/agents', match: /\.md$/ },
   { dir: '.claude/hooks', match: /\.(?:mjs|cjs|js|sh|json)$/ },

@@ -3,7 +3,7 @@
  * check-dead-handles.mjs — 退役したアカウント/ハンドルへの参照を検出する
  * ---------------------------------------------------------------------------
  * 背景（2026-08-13 実発生）:
- *   SNS 共通設定 `.claude/scripts/lib/sns-common/sns-config.mjs` の `noteUrl` が
+ *   SNS 共通設定 `scripts/lib/sns-common/sns-config.mjs` の `noteUrl` が
  *   `note.com/uruhayato`（**HTTP 404**）のままで、そこから生成された YouTube 概要欄
  *   32 本すべてが死んだリンクで公開されていた。生成物は gitignore なので目に触れず、
  *   SSOT 側を誰も見直していなかった。x-repost の `ownHandle` も凍結済みの

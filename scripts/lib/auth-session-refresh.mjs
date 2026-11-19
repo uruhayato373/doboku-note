@@ -1,7 +1,7 @@
 /**
  * auth-session-refresh.mjs の判定と認証メタデータの共通処理。ブラウザ・資格情報の値には触れない。
  *
- * 仕組みは stats47 の `.claude/scripts/measurement/refresh-session.mjs` を doboku-note の認証基盤
+ * 仕組みは stats47 の `scripts/measurement/refresh-session.mjs` を doboku-note の認証基盤
  * （OS 標準 auth root・account assert）へ移したもの。ログイン画面の
  * セレクタは stats47 の実測値をそのまま使う。
  */

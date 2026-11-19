@@ -3,7 +3,7 @@ import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { coverFonts } from './youtube-cover.mjs';
 import { renderCharacterFrame } from './character-framing.mjs';
-import { resolveExam } from '../../.claude/scripts/sns/lib/exam-palette.mjs';
+import { resolveExam } from '../sns/lib/exam-palette.mjs';
 import { cardSpecHash, validateCharacterCard } from './x-character-spec.mjs';
 import { readVerifiedVideoPng } from './youtube-approved-cover.mjs';
 

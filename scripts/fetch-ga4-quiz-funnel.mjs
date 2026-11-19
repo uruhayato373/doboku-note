@@ -5,7 +5,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { reportIdOf, writeReport } from './lib/metric-reports.mjs';
 import dotenv from 'dotenv';
-import { resolveWindow } from '../.claude/scripts/lib/ga4-snapshot.mjs';
+import { resolveWindow } from './lib/ga4-snapshot.mjs';
 import { QUIZ_FUNNEL_EVENT_NAMES } from './lib/quiz-premium-funnel.mjs';
 
 dotenv.config({ path: '.env.local' });

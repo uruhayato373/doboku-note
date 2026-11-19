@@ -37,7 +37,7 @@ export function utmEbook(name) {
 
 /**
  * URL オブジェクトに utm_source・utm_medium・utm_campaign・utm_content を set する（既に付いていれば上書き）。
- * 文字列を組み立て直す .claude/scripts/lib/utm-builder.mjs の buildUtmUrl と違い、URL の他のクエリの順序と
+ * 文字列を組み立て直す scripts/lib/utm-builder.mjs の buildUtmUrl と違い、URL の他のクエリの順序と
  * エンコードは URL オブジェクトに任せる（既存の生成スクリプトの出力を変えないため）。
  * content を渡さなければ契約の既定の配信形式を使う。
  */

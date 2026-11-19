@@ -1715,7 +1715,7 @@ export const WeeklyMetrics = z
   .meta({ title: '週次の計測' });
 
 /**
- * メールの受け箱（data/inbox/mail-events.json）。書き手は別リポジトリ（obsidian の .claude/scripts/mail/triage.mjs・毎日 cron・
+ * メールの受け箱（data/inbox/mail-events.json）。書き手は別リポジトリ（obsidian の scripts/mail/triage.mjs・毎日 cron・
  * GitHub contents API で develop へ直接書く）。売上の正本ではなく、メールから拾った通知の写し（正本は各取得スクリプトの記録）。
  * イベントごとの欄（month・amountYen 等）は obsidian の辞書（.claude/mail-rules.json）で増えるので、共通の欄だけを固定し
  * 残りは受け入れる（ここを strict にすると、辞書に種類を足しただけで doboku-note の書き戻しが全部止まる）。

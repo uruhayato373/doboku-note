@@ -68,7 +68,7 @@ jobs:
       # ビルド時に自動生成されるが、それより前に走る quality:audit:ci の各検査が
       # src/config/doc-meta-index.json を直接読むため、ここで明示的に生成しておく。
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
       # auditジョブも生成物を自分で検査する。別のbuildジョブの存在に依存してskipしない。
       - name: Build standards data for audit
@@ -126,7 +126,7 @@ jobs:
       # テストが読む git 管理外の生成物を、audit の中で走っていたときと同じにそろえる
       # （doc-meta-index・Kindle の配布物・refresh-indexes が書く public/quiz と public/standards-data）。
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
       - name: Hydrate Kindle dist (private R2)
         env:
@@ -163,7 +163,7 @@ jobs:
       # ビルド時に自動生成されるが、それより前に走る quality:audit:ci の各検査が
       # src/config/doc-meta-index.json を直接読むため、ここで明示的に生成しておく。
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
       # Next.js のビルドキャッシュ（Turbopack のファイルシステムキャッシュ）を実行間で引き継ぐ。
       # 形は node_modules/next/dist/docs/01-app/02-guides/ci-build-caching.md の GitHub Actions 例。

@@ -10,7 +10,7 @@
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
 
-const mod = await import('../.claude/scripts/inspect-url.mjs');
+const mod = await import('../scripts/inspect-url.mjs');
 const { batchSummary, buildBatchDocument, shouldRetryInspect, httpStatusOf } = mod;
 
 test('buildBatchDocument: 全件 settled なら partial:false、穴があれば partial:true で穴を落とす', () => {

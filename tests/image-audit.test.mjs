@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 
 import {
   extOf, classifyBySize, isDangerousName, diffBaseline, buildBaseline,
-} from '../.claude/scripts/lib/image-audit.mjs';
+} from '../scripts/lib/image-audit.mjs';
 
 const MAX = { svg: 10240, png: 102400, jpg: 204800, webp: 153600 };
 

@@ -39,7 +39,7 @@ domain: ops
 
 #### 2-A. 再利用の見落とし（Reuse）
 - プロジェクト内に既存のユーティリティがあるのに新規実装している
-  - 例: `.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` を使わず、直接 `readFileSync` / `writeFileSync` を呼んでいる → **HIGH**（CRLF 事故の再発リスク）
+  - 例: `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` を使わず、直接 `readFileSync` / `writeFileSync` を呼んでいる → **HIGH**（CRLF 事故の再発リスク）
   - 例: `src/lib/docs.ts` の `preprocessMDX` と同等の正規表現を別ファイルで再実装
 - グローバルな探索（Grep）で類似関数を確認してから指摘する
 
@@ -68,7 +68,7 @@ domain: ops
 
 <ファイルパス1>
   [HIGH] L42: readFileSync を直接呼んでいる
-    → .claude/scripts/lib/mdx-io.mjs の writeMdxFile を使うべき
+    → scripts/lib/mdx-io.mjs の writeMdxFile を使うべき
     （CRLF 保持が壊れて 100+ ファイル reject の事故歴あり）
   [MEDIUM] L58: 4列の比較表
     → 散文化 or 2軸比較に分割
@@ -95,7 +95,7 @@ Step 4 の修正後、自動で以下を実行して結果を報告する。**�
 
 1. **UI 変更があるなら `node scripts/lint-ui.mjs`** を走らせる（ステージ対象ではなく修正ファイルに対して）
 2. **MDX 変更があるなら `node scripts/pre-commit-mdx.mjs`** を走らせる（staged ではなく修正ファイル対象の軽量検証）
-3. **src/lib や .claude/scripts/lib の変更があるなら `npm test`** を走らせる
+3. **src/lib や scripts/lib の変更があるなら `npm test`** を走らせる
 4. **type-check 変更影響が疑わしければ `npm run type-check`**（.tsx / .ts 変更があれば必ず走らせる）
 
 全部 OK なら Step 6 へ。fail したら内容を報告してユーザに判断を委ねる（本スキルは修正まではしない）。
@@ -135,7 +135,7 @@ Step 4 の修正後、自動で以下を実行して結果を報告する。**�
 ```
 scripts/backfill-category.mjs
   [HIGH] L24: writeFileSync を直接呼んでいる
-    → .claude/scripts/lib/mdx-io.mjs の transformMdxFile を使う
+    → scripts/lib/mdx-io.mjs の transformMdxFile を使う
     （CLAUDE.md の MDX 書き込み規約、CRLF 保持）
 ```
 

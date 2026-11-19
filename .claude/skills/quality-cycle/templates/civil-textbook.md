@@ -86,7 +86,7 @@ node .claude/skills/quality-cycle/scripts-civil-textbook/merge-scores.mjs /tmp/c
 
 - **人間レビュー必須**: AI リライト後は `reviewStatus: needs-review`
 - **バッチ分割コミット**: 5 件ずつコミット推奨
-- **改行コード**: `.claude/scripts/lib/mdx-io.mjs` 経由で書き込み
+- **改行コード**: `scripts/lib/mdx-io.mjs` 経由で書き込み
 - **PDF 照合は別系統**: 網羅率 95% 検証は `/improve-article --mode verify` で実施（本サイクルには含まない）
 
 ## 参照

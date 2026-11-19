@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { runReportAll, andFilter, japanFilter } from "../.claude/scripts/lib/ga4-client.mjs";
-import { pickGscPage } from "../.claude/scripts/lib/ga4-snapshot.mjs";
+import { runReportAll, andFilter, japanFilter } from "../scripts/lib/ga4-client.mjs";
+import { pickGscPage } from "../scripts/lib/ga4-snapshot.mjs";
 import { writeReport } from "../scripts/lib/metric-reports.mjs";
 import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";

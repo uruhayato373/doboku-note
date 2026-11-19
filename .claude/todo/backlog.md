@@ -781,7 +781,7 @@
 **起点**: 週次レビュー（2026-11-09〜2026-11-15）。Issue #1445（gsc-indexing-local・11/6〜）が 7 日を超えて開いている。11/14 朝の回は登録リクエスト自体は送れた（受理 10 件）が、記録の commit が pre-commit の `check-category-curriculum` の ERROR（`pe-fisheries.examGuide` の slug 不在: guide-overview が doc-meta-index に無い）で落ちた（`~/Library/Logs/doboku-note/gsc-indexing.log`）。同じ検査は、doc-meta-index を作り直した worktree では通る（slug 参照 348 件・全て実在）。朝の処理が使うチェックアウトの doc-meta-index が古いまま commit している疑い（未確認）。あわせて「button-not-found」で送れない URL が 5 件ある。
 
 **やること**:
-1. gsc-indexing-local が commit する前に `node .claude/scripts/build-doc-meta-index.mjs --ci` を回すか、記録だけの commit が記事の索引に左右されない形にする。
+1. gsc-indexing-local が commit する前に `node scripts/build-doc-meta-index.mjs --ci` を回すか、記録だけの commit が記事の索引に左右されない形にする。
 2. button-not-found の 5 件（主任技士 materials・総監 h21-secondary・水産部門のガイドほか）が、URL 検査の画面で登録できない状態（既に登録済み・上限）なのか、画面の変更なのかを切り分ける。
 
 **進み（2026-11-15）**: 11/15 07:40 の回は rc=0 で記録を develop へ push した（commit の失敗は 11/14 の 1 回だけ）。button-not-found は 5 件 → 21 件に増えた（h21-secondary・水産部門の選択科目・道路構造の基準ほか）。残りはやること 1 の再発防止と 2 の切り分け。Issue #1445 は 11/15 の成功の後も開いたまま（自動で閉じる配線を確かめる）。
@@ -1434,14 +1434,14 @@ scripts/add-note-utm.mjs の resolveDirectory は name === 'article.md' だけ�
 
 
 
-### [DN-1016] scripts と src と .claude/scripts の依存の向きを整理する
+### [DN-1016] scripts と src の依存の向きを整理する
 タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
 
 **起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。grep の概数で scripts→src 59 行、src→scripts 3 行、admin→scripts 191 行、scripts→`.claude/scripts` 41 行、`.claude/scripts`→scripts 193 行。向きが双方向で、層の区別がないので境界の検査を置けない。
 
-**やること**: まず `.claude/scripts/sns/lib/exam-palette.mjs` を `scripts/lib` へ移す（資格キーのカードと一緒に進めてよい）。その後、ブラウザと Node の両方で使う純粋な関数の置き場を決める。
+**やること**: `.claude/scripts/` は 2026-11-19 に `scripts/` へ集約した（相対パスはそのまま）。残りは、`scripts/sns/lib/exam-palette.mjs` を `scripts/lib` へ寄せる（資格キーのカードと一緒に進めてよい）ことと、ブラウザと Node の両方で使う純粋な関数の置き場を決めること。
 
-**完了条件**: scripts から `.claude/scripts` への import が 0 件。純粋な関数の置き場が決まり、向きの検査が入っている。
+**完了条件**: 純粋な関数の置き場が決まり、scripts と src の向きの検査が入っている。
 
 
 

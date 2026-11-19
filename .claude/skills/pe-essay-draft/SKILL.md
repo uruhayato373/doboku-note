@@ -147,7 +147,7 @@ faqs:                    # 3〜4 問。属性 × テーマの最頻出論点を 
 - **数値は年度固有にする**: 論文内の定量数値（人員削減率・投資額・削減量等）は当該年度の設問テーマと事業規模から導出する。他年度の論文で使用した数値をそのまま転用してはならない（同じペルソナで同一数値が複数年度に出ると「テンプレ流用」として採点評価を下げる）
 - **固有用語の正確性**: i-Construction 2.0・CCUS・流域治水・ブルーカーボン等の制度・数値は事実確認する
 - **frontmatter**: 新規は `published: false` ＋ `reviewStatus: needs-review`（人間ゲート）
-- **書き込みは `.claude/scripts/lib/mdx-io.mjs` の `transformMdxFile` 経由**（CRLF 保持）。書き込み後 `U+FFFD` チェック
+- **書き込みは `scripts/lib/mdx-io.mjs` の `transformMdxFile` 経由**（CRLF 保持）。書き込み後 `U+FFFD` チェック
 - **既存 `*-secondary` の Callout 方針とは別**: 模範論文（`*-essay-*`）は guide 系のため `<Callout type="tip">` を使ってよい
 
 ## 実行手順（revise モード）
@@ -187,6 +187,6 @@ faqs:                    # 3〜4 問。属性 × テーマの最頻出論点を 
 - `content/site/pe-comprehensive-management/pattern-essay-{attr}/article.mdx` — 属性別共通ペルソナ（入力）
 - `content/site/pe-comprehensive-management/r0X-secondary/article.mdx` — 年度別設問（入力）
 - `content/site/pe-comprehensive-management/management-tradeoffs/article.mdx` — 解決フレーム
-- `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（書き込み時必須）
+- `scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（書き込み時必須）
 - `.claude/knowledge/reference/content-authoring.md` — MDX コンポーネント・リンク系の使い分け（note 記事リンクは `<NoteLink>`）
 

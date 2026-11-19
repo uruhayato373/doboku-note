@@ -80,7 +80,7 @@ garbage: 0 bytes / in-pack objects: 120,312
 - **`ig-rendered-png`** — 0.3 MiB / 7 files
   - 理由: slide-data.json から決定論的に焼けるレンダー成果物。asset-storage.json の ig-rendered-image group（byVisibility・visibilityFrom: igPackStatus）で既に大半が R2 へ退避済み（1,990 件・2026-08-29 時点）。投稿済みパックの status.json は R2_PUBLIC、未投稿・判定不能パックは private へ倒す（誤って公開バケットへ置かない）
   - 再生成入力: slide-data.json / script.json + caption.txt
-  - 生成器: `.claude/scripts/sns/ 系レンダラ`
+  - 生成器: `scripts/sns/ 系レンダラ`
   - 参照コード: `publish-ig-bs（投稿時に読む）`
 
 ## 3. 拡張子別 TOP

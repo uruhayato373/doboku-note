@@ -29,7 +29,7 @@
  * 終了コード: 常に 0（--dry は WARN 扱いで GO 判定に影響させない方針のため、長段落ありでも 0）。
  */
 import { statSync } from 'node:fs';
-import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 import { findAnswerStartBlock, isAnswerPart } from './lib/note-answer-zone.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 

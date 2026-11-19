@@ -31,7 +31,7 @@ note 有料教材の **模範答案・模範論文**を 1 記事ずつ生成す�
 2. **既存記事を読む**: 対象マガジンの既存 article.md（手本・使用済みの題材）を読み、構造・語彙レベル・使用済みの工種／立場／論点を把握する。答案本文の重複ゼロが必須。
 3. **執筆**: プロファイルの構造・字数帯・規則に従って書く。frontmatter はプロファイルのテンプレどおり（note 公開メタ `noteUrl` / `noteId` / `notePublishedAt` / `noteStatus` は空で初期化）。
 4. **機械ゲート**: プロファイルの「機械ゲート」のコマンドを返却前に**すべて自己実行して PASS** させる。不合格のまま返さない。字数の超過をカウンタ回避の削除や blockquote 化で誤魔化さない。
-5. **書き込み**: `writeMdxFile`（`.claude/scripts/lib/mdx-io.mjs`、CRLF 保持）経由。MDX/MD を直接 `writeFileSync` しない。
+5. **書き込み**: `writeMdxFile`（`scripts/lib/mdx-io.mjs`、CRLF 保持）経由。MDX/MD を直接 `writeFileSync` しない。
 6. **返却**: 書いたパス、各ゲートの実行結果（コマンドと exit）、プロファイルが定める返却欄、未検証・未解決の点（あれば明示）を返す。commit・push・`git add` はしない（親が行う）。
 
 ## 共通ガードレール

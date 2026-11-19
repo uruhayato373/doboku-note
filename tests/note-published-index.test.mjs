@@ -10,7 +10,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { magazineResolver, toItem } from '../.claude/scripts/build-note-published-index.mjs';
+import { magazineResolver, toItem } from '../scripts/build-note-published-index.mjs';
 import { parseSoT } from '../scripts/check-magazine-membership.mjs';
 
 const resolve = magazineResolver({

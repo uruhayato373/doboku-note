@@ -161,7 +161,7 @@ export const CHECKS = [
   // 0 fail なのに CI が赤になった）。上限は実測の 1.6 倍に置く。手元のスリープ由来の水増しは inconclusive が分ける
   // Node の test runner 自体が並列実行する。lint/MDX 検証との競合で葉の timeout を消費しない。
   { id: 'unit-tests', npm: 'test', timeout: UNIT_TEST_TIMEOUT_MS, ci: true, serial: true },
-  // `npm test` は tests/*.test.mjs しか見ない。.claude/scripts/ads/__tests__/ の 3 本（38 テスト）は
+  // `npm test` は tests/*.test.mjs しか見ない。scripts/ads/__tests__/ の 3 本（38 テスト）は
   // 別 script になっていて、2026-08-17 まで**どの CI にも登録されておらず誰も走らせていなかった**。
   { id: 'ads-tests', npm: 'test:ads', timeout: 120_000, ci: true, note: 'A8/もしも/afb のサイト帰属ガードと CSV 正規化の単体テスト' },
   // 2026-08-17: check-gate-parity で「どこからも呼ばれていない」と判明したため配線（実行して緑を確認）。
@@ -174,7 +174,7 @@ export const CHECKS = [
   { id: 'pe-first-stage-historical', npm: 'check-pe-first-stage-historical', timeout: 60_000, ci: true, note: 'H23-H30の基礎・適性・建設（24ページ）と上下水道 H23-R07 の16回分（16ページ）＝40ページ・1,190問について原典監査JSON・問題構造・汎用解説・OCR/KaTeX破損をラチェット' },
   { id: 'published-vs-redirects', npm: 'check-published-vs-redirects', timeout: 60_000, ci: true, note: '統合済み記事の再公開（published:true なのに 301 の転送元）を検出' },
   { id: 'content-quality-ratchet', npm: 'check-content-quality:ci', timeout: 240_000, ci: true, note: 'latest-report.md を上書き' },
-  { id: 'frontmatter', cmd: ['node', '.claude/scripts/lint-frontmatter.mjs', '--all'], timeout: 180_000, ci: true },
+  { id: 'frontmatter', cmd: ['node', 'scripts/lint-frontmatter.mjs', '--all'], timeout: 180_000, ci: true },
   { id: 'svg-audit', npm: 'audit-svg:ci', timeout: 180_000, ci: true, note: 'svg-audit.json を上書き' },
   { id: 'image-assets', npm: 'check-image-assets:ci', timeout: 120_000, ci: true },
   { id: 'callout-types', npm: 'check-callout-types', timeout: 60_000, ci: true, note: '<Callout type="..."> の未知 type 検出（ランタイムが黙って note へフォールバックして typo を隠す回帰を防止）。2026-08-30 に既存 type="important" 11 件を意味に合う正式 type へ移行し、CI ゲートへ昇格' },
@@ -250,7 +250,7 @@ export const CHECKS = [
   { id: 'kdp-category-coverage', npm: 'check-kdp-category-coverage', timeout: 30_000, ci: true, note: '新刊(buildSpec持ち)の id 接頭辞が categoryAssign に明示登録されているか（2026-08-28・g-01実測: 未登録は警告なく既定「技術士」へ入稿される）' },
   { id: 'kindle-prices', npm: 'check-kindle-prices', timeout: 30_000, ci: true, note: 'spec.price と catalog.priceJpy の一致・royalty 0.7 の本が 70% 帯（¥250〜¥1,650）内か（2026-09-23: 価格改定で片側だけ直すと --set-price が旧値へ戻す／台帳が実売と食い違う）' },
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
-  { id: 'unreachable-cli', npm: 'check-unreachable-cli', timeout: 60_000, ci: true, note: 'scripts/ と .claude/scripts/ の直下の CLI で、package.json・workflow・スキル・docs・ほかのスクリプトのどこからも呼ばれないものが baseline から増えていないか（DN-1017・knip は scripts/** を全部 entry にするので拾えない）' },
+  { id: 'unreachable-cli', npm: 'check-unreachable-cli', timeout: 60_000, ci: true, note: 'scripts/ の直下の CLI で、package.json・workflow・スキル・docs・ほかのスクリプトのどこからも呼ばれないものが baseline から増えていないか（DN-1017・knip は scripts/** を全部 entry にするので拾えない）' },
   { id: 'image-rules', npm: 'check-image-rules', timeout: 30_000, ci: true, note: 'AI 画像の経路が全部共通ルールの設定にあるか、先生の特徴をコードへ書いていないか' },
   { id: 'image-origin', npm: 'check-image-origin', timeout: 180_000, ci: true, note: '公開記事のラスター画像すべてに出所（provenance の kind）があり、写真（AI 生成画像のみ）は 4:3・仕様の指示から生成・実物どおりの判定まで済んでいるか（2026-10-07・DN-0574/0578: 出所なし 56 枚・CC 実写の AI 描き直しで実在しない器械）' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
@@ -428,7 +428,7 @@ export const CHECKS = [
     { label: 'search-opportunities', npm: 'report-search-opportunities', timeout: 30_000, note: '検索キーワード戦略の設定と GSC 検索語×ページ集計から改善候補を組み立てられるか（committed state だけを読む・壁時計に依存しない）。候補の中身は週次レビューが読んで起票する' },
     {
       label: 'monetization-coverage',
-      cmd: ['npx', 'tsx', '.claude/scripts/report-monetization-coverage.mts', '--check'],
+      cmd: ['npx', 'tsx', 'scripts/report-monetization-coverage.mts', '--check'],
       timeout: 120_000,
       note: '収益カバレッジ集計が実行可能か（import 破損・入力欠落を検知）',
     },
@@ -436,13 +436,13 @@ export const CHECKS = [
     // 入力はコミット済み GA4/GSC/A8 スナップショットと doc-meta-index なので creds 不要で常に走る。
     {
       label: 'buildjob-affiliate-report',
-      cmd: ['node', '.claude/scripts/report-buildjob-affiliate.mjs', '--check'],
+      cmd: ['node', 'scripts/report-buildjob-affiliate.mjs', '--check'],
       timeout: 60_000,
       note: 'BuildJob クリック×A8 成果の EPC 集計が実行可能か（成果物は書かない・月次レビューが読む）',
     },
     {
       label: 'career-funnel-report',
-      cmd: ['node', '.claude/scripts/report-career-funnel.mjs', '--check'],
+      cmd: ['node', 'scripts/report-career-funnel.mjs', '--check'],
       timeout: 60_000,
       note: 'キャリアファネル集計（流入→回遊→CTA→成果）が実行可能か（成果物は書かない・月次レビューと EXP-008 が読む）',
     },

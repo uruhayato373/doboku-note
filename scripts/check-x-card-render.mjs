@@ -31,7 +31,7 @@
  */
 import { readFileSync, existsSync, statSync, writeSync } from 'node:fs';
 import { join, dirname, relative, sep } from 'node:path';
-import { examColor } from '../.claude/scripts/sns/lib/exam-palette.mjs';
+import { examColor } from './sns/lib/exam-palette.mjs';
 import { cardSpecHash, validateCharacterCard, validateAdoptedCardLedger } from './lib/x-character-spec.mjs';
 import { isXCardPng, listScopedXCardPngs } from './lib/x-card-render-scope.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';

@@ -13,7 +13,7 @@ import {
   LONGFORM_W, LONGFORM_H, EXAM_TO_PALETTE,
   wrapJp, buildLongformAss, buildSceneNode, planLongformRender,
 } from '../scripts/lib/longform-render.mjs';
-import { resolveExam } from '../.claude/scripts/sns/lib/exam-palette.mjs';
+import { resolveExam } from '../scripts/sns/lib/exam-palette.mjs';
 
 const SCENES = [
   { sceneId: 'hook', start: 0, end: 20, narration: '土工は範囲が広く見えるけれど、出題は用語と概念の対応が中心。', caption: '導入' },

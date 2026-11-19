@@ -71,7 +71,7 @@ export function classifyUiFetchExit(code) {
 
 /** 索引を更新してから記録を commit する。更新失敗時は送信済みの記録を残して止める。 */
 export function commitGscRecords(paths, message, options, { run, commitAndPush }) {
-  const code = run("node", [".claude/scripts/build-doc-meta-index.mjs", "--ci"]);
+  const code = run("node", ["scripts/build-doc-meta-index.mjs", "--ci"]);
   if (code !== 0) return { status: "failed", problem: `doc-meta-index の更新に失敗（exit ${code}）。記録を commit しない。上の生成エラーを確認する` };
   return commitAndPush(paths, message, options);
 }

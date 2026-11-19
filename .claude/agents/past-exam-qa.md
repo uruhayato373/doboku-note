@@ -69,8 +69,8 @@ secondary（記述）は ExamPoint を使わない構造（設問→解答本体
 |---|---|
 | `Read` | 本文・frontmatter・ExamPoint・解説の目視レビュー（主） |
 | `Grep` | `各選択肢の検証`・`<ExamPoint`・`<RelatedKeywords`・`✅/❌`・`正答` の件数把握 |
-| 親が渡す `node .claude/scripts/lint-mdx-mobile.mjs <mdx>` の出力 | lint 9-11（ExamPoint 句読点分割）・表/行長・カテゴリ別件数 |
-| 親が渡す `node .claude/scripts/validate-mdx.mjs` の結果 | MDX パース整合・KaTeX 警告 |
+| 親が渡す `node scripts/lint-mdx-mobile.mjs <mdx>` の出力 | lint 9-11（ExamPoint 句読点分割）・表/行長・カテゴリ別件数 |
+| 親が渡す `node scripts/validate-mdx.mjs` の結果 | MDX パース整合・KaTeX 警告 |
 | 親が渡す slug 実在チェック | RelatedKeywords の slug が本番に存在するか |
 
 > **Bash 不可**: 本エージェントは Bash を使わない。lint / validate / slug 実在の機械結果は**親が実行して渡す**（doc-sync-auditor と同方針）。本エージェントの価値は lint が拾えない**意味的品質**（正答の妥当性・選択肢解説が「なぜ誤りか」を説明できているか・ExamPoint が引っかけを捉えているか）の判定にある。
@@ -187,6 +187,6 @@ Read で各設問ブロックを読み、lint が拾えない品質を判定:
 - `.claude/knowledge/reference/content-principles.md` §5（ExamPoint・過去問特例）/§7.1 / §9（参考資料）
 - `.claude/knowledge/reference/content-authoring.md`「過去問 MDX の構造ルール」
 - `.claude/knowledge/reference/exam-content-policy.md` — 試験別コンテンツ整備・コンテンツ別レビュー視点
-- `.claude/scripts/lint-mdx-mobile.mjs` — 機械チェッカー（9-11 ほか）
+- `scripts/lint-mdx-mobile.mjs` — 機械チェッカー（9-11 ほか）
 - `.claude/agents/past-exam-rewriter.md` — 対の Generator（指摘適用）
 - `.claude/agents/article-proofreader.md` — ルーブリック設計の参考

@@ -87,7 +87,7 @@ Phase 5: 再監査      — 修正箇所のみ /audit-pe-first-stage --year X �
 
 ### 修正時の重要ルール
 
-1. **writeMdxFile 必須**: MDX の書き込みは必ず `import { writeMdxFile } from './.claude/scripts/lib/mdx-io.mjs'` 経由。Python `write_text()` は CRLF を混入するので禁止
+1. **writeMdxFile 必須**: MDX の書き込みは必ず `import { writeMdxFile } from './scripts/lib/mdx-io.mjs'` 経由。Python `write_text()` は CRLF を混入するので禁止
 2. **LF 正規化**: `readFileSync` 後に `content.replace(/\r\n/g, '\n')` を適用
 3. **課題上限**: 並列 fix エージェントに渡す課題は **1エージェントあたり最大5件**。超えると一部がスキップされる
 4. **PNG 参照**: fix エージェントは `.tmp/pe-audit/{year}/{sub}/pNNN.png` を Read ツールで参照してから修正すること（先入観で修正しない）

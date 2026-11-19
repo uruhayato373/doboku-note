@@ -968,7 +968,7 @@
           "usedBy": [
             "publish-ig-bs（投稿時に読む）"
           ],
-          "generator": ".claude/scripts/sns/ 系レンダラ",
+          "generator": "scripts/sns/ 系レンダラ",
           "samples": [
             {
               "path": "content/sns/instagram/cem/exam-packs/r04/pack-06/carousel/img/03-problem.png",

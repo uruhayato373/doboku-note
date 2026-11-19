@@ -6,7 +6,7 @@
 // 案内していたが、その group は gitignore 済みで asset-offload は追跡ファイルしか見ないため
 // 「対象 0 件」で exit 1 になっていた。案内どおりに動かした人が詰まる。
 //
-// もう一つは移設の置き去り。ファイルが scripts/ から .claude/scripts/ へ移っても
+// もう一つは移設の置き去り。ファイルが別の置き場へ移っても
 // usage コメントが旧パスのまま残り、コピーすると Cannot find module になる。
 //
 // **例示のパスをこのファイルに書かないこと。** 書くとこの検査が自分自身を落とす
@@ -25,7 +25,7 @@
 //      cmd-help が冒頭コメントから引く。既存の無いファイルは NO_HEADER_BASELINE に並べ、増やさない
 //
 // 走査の範囲（2026-10-11・DN-0686 で広げた）:
-//   - スクリプト: scripts/ と .claude/scripts/ の .mjs（1・2 とも見る）
+//   - スクリプト: scripts/ の .mjs（1・2 とも見る）
 //   - 正典・手順書: CLAUDE.md・AGENTS.md・.claude/rules・.claude/skills・.claude/knowledge・.claude/agents・docs/ の .md
 //     （1 だけ見る。node パスは例示が混ざる）。docs/handoffs・docs/reviews・.claude/todo は時点の記録なので見ない
 //   - ワークフロー: .github/workflows の .yml（1・2 とも見る。actionlint はコマンドの実在を見ない）
@@ -124,7 +124,7 @@ function main() {
   const exists = (rel) => existsSync(join(REPO_ROOT, rel));
   const pkgScripts = JSON.parse(read('package.json')).scripts || {};
 
-  const files = tracked(['scripts', '.claude/scripts'], (f) => f.endsWith('.mjs'));
+  const files = tracked(['scripts'], (f) => f.endsWith('.mjs'));
 
   // スクリプト同士の案内だけでなく、**人間とエージェントが読む正典・手順書**も見る。
   // 2026-08-30: CLAUDE.md の頻用コマンド表に `npm run serve` が載っていたのに

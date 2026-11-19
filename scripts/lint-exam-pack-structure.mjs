@@ -31,7 +31,7 @@
 
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { chooseProblemLayout } from '../.claude/scripts/lib/sns-common/quiz-slides.mjs';
+import { chooseProblemLayout } from './lib/sns-common/quiz-slides.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const EXAM_KEYS = ['cem', 'pe-first-stage', 'civil-1', 'civil-2', 'pe-construction'];

@@ -51,7 +51,7 @@ import { approvalState, reviewIsCurrent } from './lib/media-review.mjs';
 import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
-import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
+import { applyReadingDict } from './lib/sns-common/reading-dict.mjs';
 import { stagedRenderWorks } from './lib/youtube-single-r2.mjs';
 import { assertCleanTree, dispatchAndWatch, pullRebaseResolvingManifest } from './lib/publish-sync.mjs';
 import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, readingRiskTokens, sceneSimilarity, speechSimilarity, tokenMisreads, uploadsLeft } from './lib/video-publish-gate.mjs';

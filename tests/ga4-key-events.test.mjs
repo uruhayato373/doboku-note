@@ -4,7 +4,7 @@ import {
   buildKeyEventsByPageRequest,
   parseKeyEventsByPageRows,
   summarizeKeyEvents,
-} from "../.claude/scripts/lib/ga4-key-events.mjs";
+} from "../scripts/lib/ga4-key-events.mjs";
 
 const row = (page, values) => ({
   dimensionValues: [{ value: page }],
