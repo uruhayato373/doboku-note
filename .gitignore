@@ -166,6 +166,8 @@ docs/x-posts/draft/**/status.json
 /test.md
 # Codex の画像生成の出力（参照元は Drive の repo-archive へ退避）
 /generated_images/
+# スキル設計の原典 PDF（Anthropic 公式ガイド）。人だけが読むので Drive vault の repo-archive に置く（2026-11-19）
+/.claude/pdfs/
 
 # 一時出力置き場（.tmp/ 配下はすべて untracked、.gitkeep と README.md のみ追跡）
 /.tmp/*
