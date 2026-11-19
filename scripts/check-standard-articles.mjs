@@ -35,11 +35,11 @@ import {
   variantsOf,
 } from './lib/standards-structure.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
-import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
 import { chapterPreambleText, sectionPageMarkdown, splitChapterBySection } from '../src/lib/standards-section-split.mjs';
 import { stripAmendmentBlocks } from './lib/standards-amendments.mjs';
 import { figureImagePath, figureKey, figureRefsOf, loadFigureLedger, validateFigureEntry } from './lib/standards-figures.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 
@@ -1486,6 +1486,6 @@ function emit(report, asJson, fallbackMessage) {
   process.exitCode = report.exitCode;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();
 
 export { CHECK_DEFS, parseHeadings };

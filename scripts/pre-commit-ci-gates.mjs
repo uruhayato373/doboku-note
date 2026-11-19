@@ -17,10 +17,9 @@
  */
 import { execFileSync, spawn } from 'node:child_process';
 import { availableParallelism } from 'node:os';
-import { resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
 import { runPool } from './lib/worker-pool.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 /** スクリプト・ワークフロー・スキル・管理画面のコード（サイトの src/ は CI の全量に任せる） */
 const CODE_FILE = /^(scripts|tools|\.claude\/(scripts|workflows|skills|hooks))\/.+\.(mjs|cjs|js|ts|tsx)$/;
@@ -316,7 +315,7 @@ export async function runGates(staged = stagedFiles()) {
   return failed;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (isCliEntry(import.meta.url)) {
   const staged = stagedFiles();
   const failed = await runGates(staged);
   if (planGates(staged).length === 0) console.log(`[pre-commit-ci-gates] staged ${staged.length} ファイル / 該当する検査なし`);

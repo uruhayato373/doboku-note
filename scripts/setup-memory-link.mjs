@@ -17,8 +17,8 @@ import { execFileSync } from 'node:child_process';
 import { copyFileSync, existsSync, lstatSync, mkdirSync, readdirSync, readlinkSync, realpathSync, renameSync, rmdirSync, rmSync, statSync, symlinkSync, unlinkSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { basename, dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 /** Claude Code のプロジェクトキー（~/.claude/projects/<key>） */
 export function claudeProjectKey(cwd) {
@@ -178,4 +178,4 @@ function main() {
   return ok ? 0 : 1;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) process.exit(main());
+if (isCliEntry(import.meta.url)) process.exit(main());

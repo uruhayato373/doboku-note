@@ -51,6 +51,7 @@ import { BLOCKERS, buildSyncPlan } from './lib/note-sync-plan.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 export const LEDGER_PATH = join(ROOT, '.claude', 'state', 'content-ledger.json');
 const NOTE_ROOT = join(ROOT, 'content', 'note');
@@ -257,7 +258,7 @@ async function build() {
   console.log(`${TAG} note ${notes.length} 本（読み直し ${reread} 本）・同期 反映済み ${plan.counts.synced} / 反映待ち ${plan.counts.ready} / 止まっている ${plan.counts.blocked}・${((Date.now() - started) / 1000).toFixed(1)} 秒 → ${relative(ROOT, LEDGER_PATH)}`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isCliEntry(import.meta.url)) {
   const i = argv.indexOf('--spawn-if-stale');
   if (i >= 0) {
     spawnIfStale(Number(argv[i + 1] || 6));

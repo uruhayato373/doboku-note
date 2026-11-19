@@ -16,9 +16,10 @@
 //
 // npm run session-start — SessionStart の 11 検査（git-sync〔origin との遅れ・develop の CI・古い未コミットの変更〕 / memory / shared-policy / plan-staleness / backlog-due / weekly-review-due / monthly-review-due / gsc-login / resources / disk-hygiene / x-sync）を 1 プロセス内で順次実行し、出力が非空の検査だけ表示（.claude/settings.json の SessionStart はこれ 1 本。各 script が export する run() を import して呼ぶので子の node は立たない・DN-0236。検査を足すときは run({ argv, quiet }) を export し scripts/lib/cli-run.mjs の sink へ書く） x-sync は前回の完走（state.x-sync-last-run）が 4 時間以内なら Playwright を起動しない（2026-10-11・DN-0688）
 
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 /** 順番は「早く終わる・並行セッションの安全に効く」順。timeout は旧 settings.json の値を踏襲 */
 export const CHECKS = [
@@ -87,6 +88,6 @@ async function main() {
 }
 
 // in-process では timeout した検査（Playwright 等）の handle が残り得るので、書き切ってから明示的に終える
-if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
+if (isCliEntry(import.meta.url)) {
   main().then((code) => process.stdout.write('', () => process.exit(code)));
 }

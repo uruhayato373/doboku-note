@@ -23,7 +23,6 @@
 import { execFileSync, spawnSync } from 'node:child_process';
 import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { homedir, tmpdir } from 'node:os';
-import { fileURLToPath } from 'node:url';
 import { join, resolve } from 'node:path';
 import {
   STRAY_GLOBS,
@@ -57,6 +56,7 @@ import {
 } from '../lib/agent-hooks.mjs';
 import { developCiStatus, formatDevelopCi } from '../lib/develop-ci-status.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { isCliEntry } from '../lib/cli-run.mjs';
 
 function readStdin() {
   if (process.stdin.isTTY) return '';
@@ -217,4 +217,4 @@ function main() {
   }
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) process.exit(main());
+if (isCliEntry(import.meta.url)) process.exit(main());

@@ -26,12 +26,13 @@
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL, fileURLToPath } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { createIgPublisher, GraphApiError, DEFAULT_API_VERSION } from './lib/ig-graph-publish.mjs';
 import { resolvePackDir, resolveMediaFiles, stagePackMedia, cleanupPackMedia } from './stage-ig-media-r2.mjs';
 import { normalizePosted, FORMATS } from './ig-status.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { loadEnvLocal } from './lib/asset-storage.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 function parseArgs(argv) {
   const flags = {};
@@ -217,7 +218,7 @@ export async function run(deps = {}) {
   }
 }
 
-const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) {
   loadEnvLocal();
   run().then((code) => process.exit(code));

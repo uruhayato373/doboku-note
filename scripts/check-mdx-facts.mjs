@@ -16,8 +16,7 @@
 // npm run check-mdx-facts -- <file...> [--base <rev>] — 構造だけを変えた編集（表→箇条書き・長文の分割・入れ子の平坦化）で、数値と「」『』の語が比較元（既定 HEAD）より減っていないか。減少で exit 1（説明できる減少なら commit に理由を書く）。frontmatter と全角・半角の差は見ない。サブエージェントに整形を任せたときの受入れにも使う
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
-
+import { isCliEntry } from './lib/cli-run.mjs';
 // frontmatter は比べない（dateModified は pre-commit が進める・title 等は本文の構造変更と関係しない）
 const body = (s) => s.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
 const norm = (s) => body(s).normalize('NFKC').replace(/<br\s*\/?>/g, ' ');
@@ -95,4 +94,4 @@ function main() {
   process.exitCode = failed > 0 ? 1 : 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

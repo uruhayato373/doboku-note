@@ -8,11 +8,11 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { join } from 'node:path';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { readDatasetIf } from './lib/dataset-io.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 const TEXT = /\.(json|md|txt)$/;
 const MEDIA = /\.tmp\/media\/[a-z0-9_-]+\/[^"'\s`)<>]+\.[0-9a-f]{8}\.[a-z0-9]+/g;
 
@@ -29,7 +29,7 @@ export function missingMedia(files, entries) {
   return { checked, missing };
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (isCliEntry(import.meta.url)) {
   const listed = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', 'content/sns'], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).split('\n').filter((f) => TEXT.test(f));
   const files = listed.map((file) => ({ file, text: readFileSync(join(REPO_ROOT, file), 'utf8') }));
   const { checked, missing } = missingMedia(files, loadDriveManifest().entries);

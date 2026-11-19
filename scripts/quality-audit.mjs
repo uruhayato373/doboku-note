@@ -40,7 +40,6 @@ import { spawnSync } from 'node:child_process';
 import { availableParallelism } from 'node:os';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import net from 'node:net';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
@@ -48,6 +47,7 @@ import { listRunIds } from './lib/run-audit.mjs';
 import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { runCheckedCommand, UNIT_TEST_TIMEOUT_MS } from './lib/check-execution.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 export { classifyRun } from './lib/check-execution.mjs';
 
 const OUT_DIR = join(ROOT, '.claude', 'state', 'quality');
@@ -849,5 +849,5 @@ async function main() {
 }
 
 // import 時は実行しない（テストが partitionReportOnly を読めるようにする）。
-const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) main();

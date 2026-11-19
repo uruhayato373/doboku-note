@@ -9,7 +9,6 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { parse } from 'node-html-parser';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
@@ -18,6 +17,7 @@ import { impressionKeyCounts } from './lib/affiliate-link-keys.mjs';
 
 import { PAGE_ALLOWLIST, SURFACE_ALLOWLIST, articleImageKind } from '../src/lib/cta-density-policy.mjs';
 import { RAIL_KINDS } from '../src/lib/rail-kinds.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 export { PAGE_ALLOWLIST, SURFACE_ALLOWLIST };
 
 const attr = (node, key) => node.getAttribute(key) ?? '';
@@ -280,4 +280,4 @@ export function main(argv = process.argv.slice(2)) {
   }
   return report.ok ? 0 : 1;
 }
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) process.exitCode = main();
+if (isCliEntry(import.meta.url)) process.exitCode = main();

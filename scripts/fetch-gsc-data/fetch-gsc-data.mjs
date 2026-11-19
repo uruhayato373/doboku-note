@@ -17,9 +17,8 @@
 
 import { google } from "googleapis";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
-import { join, resolve } from "path";
+import { join } from "path";
 import { reportIdOf, writeReport } from "../lib/metric-reports.mjs";
-import { pathToFileURL } from "node:url";
 import { getDateRange, validateRange } from "../lib/gsc-date-range.mjs";
 import dotenv from "dotenv";
 import { fetchGscPages } from "../lib/gsc-pagination.mjs";
@@ -27,6 +26,7 @@ import { GSC_PROPERTY } from "../lib/site-identity.mjs";
 import { parseCliArgs } from "../lib/cli-args.mjs";
 
 
+import { isCliEntry } from '../lib/cli-run.mjs';
 
 // ── Config ──
 
@@ -239,7 +239,7 @@ async function main() {
   saveJson(data, opts);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main().catch((e) => {
+if (isCliEntry(import.meta.url)) main().catch((e) => {
   if (e.code === "EEXIST") {
     console.error("Snapshot already exists for this second. Retry to append a new file; history was not overwritten.");
   } else if (e.code === 403) {

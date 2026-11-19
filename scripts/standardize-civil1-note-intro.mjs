@@ -23,12 +23,12 @@
  */
 import { existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
@@ -167,4 +167,4 @@ function main() {
   process.exit(reviewed ? 1 : 0);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

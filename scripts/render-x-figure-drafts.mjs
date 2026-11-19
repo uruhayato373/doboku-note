@@ -4,10 +4,10 @@ import { readFileSync, mkdirSync, renameSync, rmSync, realpathSync } from 'node:
 import { resolve, join, basename, relative, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
-import { pathToFileURL } from 'node:url';
 import { splitTweets, tweetLength } from './check-x-length.mjs';
 import { renderFigureSns } from './sns/render-figure-sns.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 export function validateXFigureDraft(draft,root=ROOT,{onlyTweet}={}) {
   if(!/^\d{3}-[a-z0-9-]+$/.test(draft))throw Error('draftは番号付き下書き名で指定');
   const dir=join(root,'content/sns/x/draft',draft);
@@ -47,7 +47,7 @@ export async function renderXFigureDraft(draft,{root=ROOT,outDir}={}) {
   }
   return files;
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
+if(isCliEntry(import.meta.url)){
   try{const {values}=parseArgs({options:{draft:{type:'string'},check:{type:'boolean'},'out-dir':{type:'string'}}});if(values.check)console.log(`入力 ${validateXFigureDraft(values.draft).items.length}件 PASS`);else console.log((await renderXFigureDraft(values.draft,{outDir:values['out-dir']})).join('\n'));}
   catch(error){console.error(error.message);process.exitCode=1;}
 }

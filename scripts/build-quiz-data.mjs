@@ -12,13 +12,13 @@
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname, resolve, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { renderQuizMarkdown, stripMarkdown } from './lib/quiz-markdown.mjs';
 import { jstDayOf } from './lib/jst-date.mjs';
 import { extractStatementExplanations, renderStatementsHtml, withStatementHtml } from './lib/statement-explanations.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { writeJsonIfChanged } from './lib/write-generated.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 // 出力先。既定は配信用の public/quiz。テストは --out-dir で一時ディレクトリへ出し、追跡中の生成物を書き換えない。
 const outDirArg = process.argv.indexOf('--out-dir');
@@ -548,4 +548,4 @@ export function quizSummary(dataset) {
 }
 
 // iOS の書き出しが import して使うので、直接実行されたときだけ public/quiz を書く
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
+if (isCliEntry(import.meta.url)) main();

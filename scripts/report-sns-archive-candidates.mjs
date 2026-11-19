@@ -20,12 +20,12 @@
  */
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { basename, dirname, join, relative } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { readJsonOrNull } from './lib/run-audit.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const TAG = '[report-sns-archive-candidates]';
 export const GROUP_ID = 'sns-archived-media';
@@ -110,7 +110,7 @@ export function collectCandidates({ root, prefix = '', now = Date.now() }) {
   return { error: null, packs };
 }
 
-const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) {
   const args = parseCliArgs({ path: { type: 'string' }, root: { type: 'string' }, now: { type: 'string' }, json: { type: 'boolean' } });
   const { error, packs } = collectCandidates({ root: args.root ?? REPO_ROOT, prefix: args.path ?? '', now: args.now ? Date.parse(args.now) : Date.now() });

@@ -23,6 +23,7 @@ import { writeDataset } from './lib/dataset-write.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { lengthBuckets, listChannel, summarize, titleSignals } from './lib/youtube-listing.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -119,7 +120,7 @@ function main() {
   console.log(`[youtube-own-metrics] 保存: ${file}`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isCliEntry(import.meta.url)) {
   try {
     main();
   } catch (e) {

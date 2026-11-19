@@ -70,8 +70,8 @@ export function classifyTitle(text, sizes) {
 
 // CLI: 文字列を渡して結果を表示
 // node scripts/lib/sns-common/fit-title.mjs "ここでわかること"
-import { fileURLToPath } from 'node:url';
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+import { isCliEntry } from '../cli-run.mjs';
+if (isCliEntry(import.meta.url)) {
   const text = process.argv[2];
   if (!text) {
     console.log('Usage: node fit-title.mjs <text>');

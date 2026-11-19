@@ -14,10 +14,10 @@ import { spawnSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, posix } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { jstDayOf } from './lib/jst-date.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const NAME = 'past-exam-fetch';
 export const INVENTORY_PATH = join(REPO_ROOT, datasetPath('pastexams.inventory'));
@@ -78,4 +78,4 @@ function main() {
   if (ng) process.exit(1);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

@@ -28,10 +28,10 @@
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { basename, join, posix, relative, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadDriveConfig, loadDriveManifest, driveGroupFor, vaultRelFor } from './lib/drive-vault.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const NAME = 'drive-browser-transfer';
 const oneLine = (e) => String(e?.message || e).split(/\r?\n/)[0].slice(0, 200);
@@ -269,6 +269,6 @@ async function main() {
   else throw new Error('使い方: plan --group G | upload --plan P | upload-tree --units U | resolve --plan P --folders F --root-id ID --root-path PATH | verify --plan P --listing L --out DIR');
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isCliEntry(import.meta.url)) {
   main().catch((e) => { console.error(`[${NAME}] ${oneLine(e)}`); process.exit(2); });
 }

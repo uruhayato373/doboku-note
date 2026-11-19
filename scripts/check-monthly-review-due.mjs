@@ -8,8 +8,7 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
-import { createOutput, runAsCli } from './lib/cli-run.mjs';
+import { createOutput, runAsCli, isCliEntry } from './lib/cli-run.mjs';
 import { datasetDir } from './lib/datasets.mjs';
 import { jstClock, todayJst } from './lib/jst-date.mjs';
 import { reviewReader } from './lib/weekly-review-completion.mjs';
@@ -62,5 +61,5 @@ export async function run({ argv = [], quiet = false } = {}) {
   return out.result(args.dueKey ? 0 : args.month ? (result.complete ? 0 : 1) : due ? 1 : 0);
 }
 
-const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) runAsCli(run);

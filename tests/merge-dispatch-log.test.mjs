@@ -40,6 +40,7 @@ function setup({ register }) {
   mkdirSync(join(repo, '.claude/state/dispatch'), { recursive: true });
   copyFileSync(join(ROOT, 'scripts/merge-dispatch-log.mjs'), join(repo, 'scripts/merge-dispatch-log.mjs'));
   copyFileSync(join(ROOT, 'scripts/lib/json-io.mjs'), join(repo, 'scripts/lib/json-io.mjs'));
+  copyFileSync(join(ROOT, 'scripts/lib/cli-run.mjs'), join(repo, 'scripts/lib/cli-run.mjs'));
   git(repo, 'init', '-q', '-b', 'develop');
   const attrs = readFileSync(join(ROOT, '.gitattributes'), 'utf8').split('\n').filter((l) => l.includes('merge=dispatch-log'));
   assert.equal(attrs.length, 1, '.gitattributes に merge=dispatch-log が 1 行ある');

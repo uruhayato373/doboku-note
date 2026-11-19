@@ -1,10 +1,10 @@
 /** Register connector uploads only after full remote byte readback; never uploads or deletes. */
 import { readFileSync } from 'node:fs';
 import { resolve, posix } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadDriveConfig, driveGroupFor, vaultRelFor, realBytesAndHashes,
   loadDriveManifest, writeDriveManifestAtomic } from './lib/drive-vault.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 export async function prepareConnectorEntries(receipt, { root = REPO_ROOT, cfg = loadDriveConfig(), hashes = realBytesAndHashes } = {}) {
   const group = cfg.groups.find(g => g.id === receipt.group && g.status === 'active');
@@ -40,4 +40,4 @@ async function main() {
   if (args.includes('--commit')) { Object.assign(manifest.entries, entries); writeDriveManifestAtomic(manifest); }
   console.log(`[drive-connector-register] ${Object.keys(entries).length} verified entries; ${args.includes('--commit') ? 'registered' : 'dry-run'}`);
 }
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main().catch(e => { console.error(e.message); process.exitCode = 1; });
+if (isCliEntry(import.meta.url)) main().catch(e => { console.error(e.message); process.exitCode = 1; });

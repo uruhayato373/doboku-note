@@ -23,10 +23,10 @@
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { google } from 'googleapis';
 import dotenv from 'dotenv';
 import { datasetPath } from './lib/datasets.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const TAG = '[ga4-admin-api]';
 const DESIRED = datasetPath('config.ga4-admin-desired-state');
@@ -190,7 +190,7 @@ async function main() {
   return createFailures.length ? 1 : 0;
 }
 
-if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
+if (isCliEntry(import.meta.url)) {
   main().then(
     (code) => { process.exitCode = code; },
     (e) => { console.error(`${TAG} 失敗: ${e?.message ?? e}`); process.exitCode = 1; },

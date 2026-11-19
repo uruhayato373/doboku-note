@@ -30,11 +30,11 @@
 
 import { readdirSync, readFileSync, writeFileSync, existsSync, statSync, unlinkSync } from "fs";
 import { join, relative } from "path";
-import { pathToFileURL } from "url";
 import { todayJst } from "./lib/jst-date.mjs";
 import { canTransition, loadRegistryConfig } from "./lib/content-registry.mjs";
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from "./lib/cli-args.mjs";
+import { isCliEntry } from './lib/cli-run.mjs';
 
 export const IG_DIR = join(ROOT, "content/sns/instagram");
 
@@ -334,7 +334,7 @@ function doMigrate() {
 }
 
 // ─── main（直接実行時のみ・import 時は走らせない）──────────────
-const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) {
   if (command === "mark") {
     doMark(resolvePackDir(targetArg)).catch((e) => { console.error(`mark 失敗（posted.json は書いていません）: ${e.message}`); process.exit(1); });

@@ -10,10 +10,10 @@
 // exit: 0 一致・書いた / 1 ずれ（--check） / 2 検査不成立（原本が読めない・マーカーが無い）
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { buildIndex, replaceRegion } from './lib/capability-index.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { loadDomains } from './lib/domains.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const SKILLS_DIR = '.claude/skills';
 const AGENTS_DIR = '.claude/agents';
@@ -67,4 +67,4 @@ function main() {
   for (const d of stale) { writeFileSync(join(ROOT, d.file), d.next); console.log(`  書いた: ${d.file}`); }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

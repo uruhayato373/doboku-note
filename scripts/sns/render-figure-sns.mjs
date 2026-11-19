@@ -5,11 +5,11 @@
  */
 import { Resvg } from '@resvg/resvg-js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { pathToFileURL } from 'node:url';
 import { resolve, join, basename, relative } from 'node:path';
 import { svgDoc, text, rect, line, COLORS, MGMT_COLORS } from './lib/svg-base.mjs';
 import { SITE_HOST } from '../lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { isCliEntry } from '../lib/cli-run.mjs';
 
 const FORMATS = ['ig-single', 'yt-thumb', 'vertical'];
 const categories = JSON.parse(readFileSync(join(ROOT, 'src/config/categories.json'), 'utf8'));
@@ -96,7 +96,7 @@ export function renderFigureSns(args, root = ROOT) {
   return rendered.map(({ format, file, png }) => ({ format, file, bytes: png.length, source: input.svgPath, qualification: input.qualification }));
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (isCliEntry(import.meta.url)) {
   try {
     const args = {};
     for (let i = 2; i < process.argv.length; i++) {

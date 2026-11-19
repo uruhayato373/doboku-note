@@ -24,10 +24,10 @@
  */
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { createLinter } from 'actionlint';
 import { load } from 'js-yaml';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const WORKFLOW_DIR = join(ROOT, '.github/workflows');
 const JSON_OUT = process.argv.includes('--json');
@@ -327,5 +327,5 @@ async function main() {
   process.exit(1);
 }
 
-const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+const isMain = isCliEntry(import.meta.url);
 if (isMain) main();

@@ -35,11 +35,11 @@ import sharp from 'sharp';
 import { createRequire } from 'node:module';
 import { renderTemplate, LAYOUT_CONSTANTS } from './ogp-create/lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from './ogp-create/lib/ogp-text.mjs';
-import { pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
 import { REPO_ROOT, FONTS_ROOT, DESIGN_TOKENS_ROOT } from './lib/repository-paths.mjs';
 import { loadManifest, loadManifestRaw, writeManifestAtomic, toPosix } from './lib/asset-storage.mjs';
 import { loadOverrides } from './lib/standards-structure.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const require = createRequire(import.meta.url);
 const coverTokens = require(path.join(DESIGN_TOKENS_ROOT, 'note-cover-tokens.json'));
@@ -254,4 +254,4 @@ async function main() {
   if (failed.length > 0) process.exitCode = 1;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

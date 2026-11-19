@@ -16,9 +16,10 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { closeSync, existsSync, mkdtempSync, openSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { STEPS, isFailure, planSteps } from './lib/pre-commit-steps.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 /** 旧フックの `xargs` に当たる。1 回の引数が長くなりすぎないよう分けて呼ぶ */
 const ARG_CHUNK = 150;
@@ -205,7 +206,7 @@ async function main() {
 }
 
 // 検査が残したタイマーなどのハンドルで終わらないことがあるので、書き切ってから明示的に終える
-if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
+if (isCliEntry(import.meta.url)) {
   main().then(
     (code) => process.stdout.write('', () => process.stderr.write('', () => process.exit(code))),
     (e) => { console.error(e?.stack || String(e)); process.exit(1); },

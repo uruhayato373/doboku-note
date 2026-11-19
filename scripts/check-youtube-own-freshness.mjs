@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // npm run check-youtube-own-freshness — 自社 YouTube の動画別の再生数（台帳 youtube.own-videos・月次）の最新の日付が、台帳の freshness.warnDays（35 日）を超えていないか。取得は youtube-own-metrics.yml（毎月 1 日 JST）。quality-audit の ops（日次の ops-audit）が読む。記録が 1 件も無いのも失敗（検査ゼロを緑にしない）
-import { fileURLToPath } from 'node:url';
 import { freshnessDays, latestFileDate } from './lib/datasets.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const DAY_MS = 86_400_000;
 
@@ -23,4 +23,4 @@ function main() {
   if (!r.ok) { console.error(`  ${r.reason}`); process.exitCode = 1; }
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) main();
+if (isCliEntry(import.meta.url)) main();

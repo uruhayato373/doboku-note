@@ -19,13 +19,13 @@
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve, relative } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { launchNoteContext, assertAccountGate, sleep, ROOT } from './lib/note-browser.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { recordPublishedHash, recordPublishedAssetHash, loadState, bodyHash } from './lib/note-republish-hash.mjs';
 import { introRangeEndpoints, headingsDiff } from './lib/note-intro-range.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const argv = process.argv.slice(2);
 const val = (k) => (argv.includes(k) ? argv[argv.indexOf(k) + 1] : null);
@@ -279,4 +279,4 @@ async function main() {
   process.exit(fail ? 1 : 0);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

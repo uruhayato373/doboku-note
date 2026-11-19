@@ -17,7 +17,7 @@
  * cherry-pick が止まったら `git cherry-pick --quit` で抜けるだけで、作業ツリーには触れない。
  */
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const REMOTE = 'origin';
 const BASE = 'develop';
@@ -112,7 +112,7 @@ export function replay({ cwd, shas, push = false }) {
   return { code: 0, messages, head, previousHead };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
+if (isCliEntry(import.meta.url)) {
   const argv = process.argv.slice(2);
   const pushFlag = argv.includes('--push');
   const shas = argv.filter((a) => !a.startsWith('-'));

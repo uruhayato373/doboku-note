@@ -26,12 +26,12 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const DAY_MS = 86_400_000;
 const KINDS = new Set(['exam', 'result']);
@@ -102,6 +102,6 @@ function main() {
   return flags.check && actionable.length ? 1 : 0;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isCliEntry(import.meta.url)) {
   process.exitCode = main();
 }

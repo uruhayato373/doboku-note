@@ -13,12 +13,12 @@
 import { execFileSync } from 'node:child_process';
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { guardBrowserLaunch, mergeLeanOptions } from './lib/playwright-launch.mjs';
 import { fetchFailDominant, MAX_FETCH_FAIL_RATE } from './lib/inconclusive-gate.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const VIEWPORTS = { pc: { width: 1440, height: 900 }, sp: { width: 375, height: 812 } };
 // affiliate-layout-shots と同じ遮断対象に afb の計測を追加。バナー画像は取得する。
@@ -285,6 +285,6 @@ export async function main(argv = process.argv.slice(2)) {
   finally { await browser.close(); }
   return finish([...results.values()], tasks.length);
 }
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (isCliEntry(import.meta.url)) {
   main().then(code => { process.exitCode = code; }).catch(e => { console.error(e.message); console.log('対象 0・実測 0・失敗 0（検査不成立）'); process.exitCode = 1; });
 }

@@ -15,11 +15,11 @@
  */
 import { cpSync, existsSync, readFileSync, readdirSync, rmSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { jstDayOf } from './lib/jst-date.mjs';
 import { NOTE_PUBLIC_VIEW_LOCAL_DIR } from './lib/note-public-view.mjs';
 import { reviewCoverage } from './lib/public-view-browser.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 /** 土曜から次の土曜までに 1 日の余裕。これより古い撮影は「今週の画面」と呼ばない */
 export const MAX_SHOT_AGE_DAYS = 8;
@@ -79,4 +79,4 @@ function main() {
   if (services.some((s) => !s.coverage.complete)) process.exitCode = 2;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

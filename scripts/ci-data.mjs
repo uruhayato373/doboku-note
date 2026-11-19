@@ -25,11 +25,11 @@
 import { execFileSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { AREAS, datasetDir, datasetsFor, latestFile, patternOf, resolveDataset } from './lib/datasets.mjs';
 import { validateFiles } from './lib/dataset-validate.mjs';
 import { REPORT_KINDS, latestReportRef } from './lib/metric-reports.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const git = (root, args, input) =>
   execFileSync('git', ['-c', 'core.quotepath=false', ...args], { cwd: root, encoding: 'utf8', input, maxBuffer: 256 * 1024 * 1024 });
@@ -251,4 +251,4 @@ function main() {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isCliEntry(import.meta.url)) main();

@@ -23,6 +23,7 @@ import { readDataset } from './lib/dataset-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { lengthBuckets, listChannel, summarize, titleSignals } from './lib/youtube-listing.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ID = 'youtube.competitors';
@@ -129,7 +130,7 @@ async function main() {
   console.log(`[scout-youtube-competitors] 保存: ${file}（drift ${snapshot.drift.length} 件・基準 ${snapshot.driftBasis ?? 'なし'}）`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isCliEntry(import.meta.url)) {
   main().catch((e) => {
     console.error(`[scout-youtube-competitors] 失敗: ${e.message}`);
     process.exit(1);
