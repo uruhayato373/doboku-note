@@ -122,8 +122,8 @@ notebooklm CLI が使えない場合（未インストール・ネットワー�
 - **description と本文の整合** — description で謳っているトピックが本文に含まれているか
 - **Callout 化されていない試験頻出ポイント** — 過去問で繰り返し問われる数値・区分は `<Callout type="exam" title="頻出論点：...">` でハイライト（全 12 種と使い分けは [`docs/design/callout-gallery.md`](../../../docs/design/callout-gallery.md) 参照）
 - **過去問バックリンクはアンカー付きにする** — `/docs/civil-construction-1-primary-r07-a` のように URL だけで終わらず、**必ず `#問題-no{N}` を付けて該当設問に直接ジャンプさせる**（例: `/docs/civil-construction-1-primary-r07-a#問題-no66`）。問題 ID は H2 見出し「問題 No.N」から自動生成される（ドット `.` は削除、スペースは `-` に置換、日本語は URL エンコードで突合）。バックリンクが多いほど全文検索・内部リンク強度・回遊率が上がる
-- **過去問解説の破損検出** — primary / secondary の MDX を扱う場合は `node .claude/skills/check-mdx/scripts/rules/explanations/audit.mjs --topic=<テーマ>` を走らせ、`」と規定されている` 文頭欠落や `summary="」..."` ExamPoint 欠落がないか確認。検出されたら `/improve-article` の修正案に必ず組み込む。意味矛盾（設問肢と同じ内容なのに ❌）は読者視点で拾う
-- **SVG 品質の静的検査** — 記事に SVG を含む場合は `node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs --path=<img dir>/*.svg` を走らせ、文字クリップ（P1）・必須属性欠落（P3）・テキスト重なり（P2）等を検出。HIGH は必ず修正、MEDIUM は視覚検証（Playwright スクリーンショット）と合わせて判断
+- **過去問解説の破損検出** — primary / secondary の MDX を扱う場合は `node scripts/check-mdx/rules/explanations/audit.mjs --topic=<テーマ>` を走らせ、`」と規定されている` 文頭欠落や `summary="」..."` ExamPoint 欠落がないか確認。検出されたら `/improve-article` の修正案に必ず組み込む。意味矛盾（設問肢と同じ内容なのに ❌）は読者視点で拾う
+- **SVG 品質の静的検査** — 記事に SVG を含む場合は `node scripts/check-mdx/rules/svg/audit.mjs --path=<img dir>/*.svg` を走らせ、文字クリップ（P1）・必須属性欠落（P3）・テキスト重なり（P2）等を検出。HIGH は必ず修正、MEDIUM は視覚検証（Playwright スクリーンショット）と合わせて判断
 - **概念図の欠落チェック（/visual-research 提案）** — `img/` ディレクトリが空または不在の記事で、H2 に「フロー・分類・対比・定量関係」を表す概念（例: 「〜の手法」「〜のプロセス」「〜と〜の比較」）が含まれる場合、`[視覚][LOW] 概念図なし → /visual-research <slug> で追加可能` として提案する。実行するかはユーザーが判断する
 - **散文密度（§17）** — CEM キーワードページの場合、各 H2 に散文 1 段落以上あるか、ページ全体の散文比率が 60% 以上かを確認する。表・リスト・コンポーネントが大半を占める「表依存型」は `lint-mdx-mobile` rule 12-1/12-2 に相当する原則軸減点対象として `[HIGH]` で指摘する
 - **`<SeeAlso>` 配置（§18）** — `<SeeAlso>` が本文中の言及直後に配置されているか確認する。末尾にコンポーネントが塊化している場合は `lint-mdx-mobile` rule 12-3 MEDIUM に相当するとして指摘し、言及箇所への移動を促す
@@ -247,7 +247,7 @@ frontmatter の `category` / `group` から呼び出す Evaluator を決定:
 #### Step 2: 決定論的前処理（旧 verify-pdf-mdx scripts）
 
 ```bash
-node .claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs <mdx-path>
+node scripts/pdf-to-mdx/verify-pdf-mdx.mjs <mdx-path>
 ```
 
 JSON 出力をパースして以下を取得:
@@ -291,7 +291,7 @@ JSON 出力をパースして以下を取得:
 ```
 
 - `<slug-or-path>`: MDX パス or slug（必須）
-- `--pdf`: PDF 原本を明示指定（省略時は `.claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs` の `SLUG_PDF_HINTS` + title glob で自動発見）
+- `--pdf`: PDF 原本を明示指定（省略時は `scripts/pdf-to-mdx/verify-pdf-mdx.mjs` の `SLUG_PDF_HINTS` + title glob で自動発見）
 - `--deep`: 視覚比較を全件実行（既定は 3 件サンプル）
 
 ### verify mode の使い方の例
@@ -330,7 +330,7 @@ JSON 出力をパースして以下を取得:
 - [.claude/agents/article-proofreader.md](../../agents/article-proofreader.md) — 既存記事の校正の評価基準
 - [.claude/agents/keyword-qa.md](../../agents/keyword-qa.md) — CEM 記事の評価基準
 - [.claude/agents/content-qa.md](../../agents/content-qa.md) — 汎用（過去問）の評価基準
-- [.claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs](../pdf-to-mdx/scripts/verify-pdf-mdx.mjs) — verify mode の決定論的前処理スクリプト
+- [scripts/pdf-to-mdx/verify-pdf-mdx.mjs](../../../scripts/pdf-to-mdx/verify-pdf-mdx.mjs) — verify mode の決定論的前処理スクリプト
 - [.claude/skills/create-svg/SKILL.md](../create-svg/SKILL.md) — SVG 図版作成
 - [.claude/skills/quality-cycle/SKILL.md](../quality-cycle/SKILL.md) — CEM バルク処理（本スキルと補完関係）
 - [.claude/knowledge/reference/image-policy.md](../../knowledge/reference/image-policy.md) — 図/写真の判定フロー

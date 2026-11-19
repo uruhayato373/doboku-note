@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// スクリプト層（scripts/** ・ .claude/skills/**）の
+// スクリプト層（scripts/**）の
 // **壊れた相対 import** を検出する決定的ゲート。
 //
 // なぜ必要か（tsc の死角）:
@@ -27,7 +27,7 @@ import { join, dirname, resolve, relative } from "node:path";
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOTS = ["scripts", ".claude/skills"];
+const ROOTS = ["scripts"];
 const EXT = /\.(mjs|mts|js|cjs)$/;
 const SKIP_DIR = new Set(["node_modules", ".git", "out", ".next", "dist"]);
 

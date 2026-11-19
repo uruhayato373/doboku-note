@@ -18,6 +18,7 @@ test('写真カバー: 1280×670 で、左は資格色、右は元写真', async
   try {
     mkdirSync(join(root, 'm'));
     symlinkSync(join(REPO_ROOT, '.claude'), join(root, '.claude'));
+    symlinkSync(join(REPO_ROOT, 'scripts'), join(root, 'scripts')); // フォント（FONTS_REL）は scripts/ の下にある
     writeFileSync(join(root, 'm/_cover-photo.png'), await sharp({ create: { width: 1200, height: 800, channels: 3, background: '#ff0000' } }).png().toBuffer());
     const { buffer, pose, copy } = await renderNoteCharacterCover(root, input('m'));
     const meta = await sharp(buffer).metadata();

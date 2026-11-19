@@ -77,10 +77,10 @@ scripts-civil-textbook/
 **実行例**:
 ```bash
 # CEM プロファイル
-node .claude/skills/quality-cycle/scripts-cem/quality-cycle.mjs --mode score
+node scripts/quality-cycle/cem/quality-cycle.mjs --mode score
 
 # civil-textbook プロファイル
-node .claude/skills/quality-cycle/scripts-civil-textbook/civil-textbook-cycle.mjs --mode score
+node scripts/quality-cycle/civil-textbook/civil-textbook-cycle.mjs --mode score
 ```
 
 SKILL.md では `--profile` フラグを受け取って適切な scripts ディレクトリのエントリを呼び出す。

@@ -41,13 +41,13 @@ domain: sns
 ```bash
 # 1. （自アカウントのハンドルは config/x-account.json の handle。設定不要）
 # 2. 候補を収集
-npx tsx .claude/skills/x-repost/x-repost-discover.ts --interactive
+npx tsx scripts/x-repost/x-repost-discover.ts --interactive
 
 # 3. curate（このスキル実行時に親が x-repost-curator サブエージェントを spawn）
 #    → .claude/state/x-repost/approved.json が生成される
 
 # 4. ★必須★ 引用RP セレクタを dry-run 検証（投稿せず composer 到達まで）
-npx tsx .claude/skills/x-repost/x-repost-exec.ts --dry-run
+npx tsx scripts/x-repost/x-repost-exec.ts --dry-run
 #    成功: .local/playwright-x-debug/*_dry-run-quote-*.png が保存される
 #    失敗: *_no-quote-item-*.png 等を確認し、下の「セレクタ」表を更新
 ```

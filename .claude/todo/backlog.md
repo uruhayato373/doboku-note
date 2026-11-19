@@ -517,12 +517,12 @@
 
 
 
-### [DN-1249] .claude/scripts の転送 9 本を消し、旧パスを禁止ルートに載せる
+### [DN-1249] .claude/scripts の転送 9 本と ogp-create の転送 1 本を消し、旧パスを禁止ルートに載せる
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-19]
 
 **起点**: 2026-11-19 に `.claude/scripts/`（153 ファイル）を `scripts/` へ集約した（uruhayato373/doboku-note#1663）。このカードは #1663 が main へ deploy されてから着手する。定期実行のワークフローは定義が main・checkout が develop で、Mac の `~/Library/Application Support/doboku-note/weekly-review.sh`（導入済みの写し）も旧パスの `build-doc-meta-index.mjs` を呼ぶため、旧パスに転送だけのファイルを 9 本残している。
 
-**やること**: (1) 集約が main へ deploy されたことを確かめる（main の `.github/workflows/` に `.claude/scripts/` が 0 件）。(2) Mac で `npm run weekly-review:install` を回し直し、導入済みの写しを新パスにする。(3) `.claude/scripts/` の転送 9 本と `knip.json` の entry `.claude/scripts/*.mjs` を消す。(4) `scripts/lib/repository-paths.mjs` の `MOVED_PATHS` に `[".claude/scripts", "scripts"]` を足し、禁止ルートと旧パス走査に載せる（Obsidian vault の `.claude/scripts/ocr/` を指す `.claude/skills/pdf-to-mdx/scripts/book-ocr/` の 2 ファイルは `stalePathLiterals.allowFiles` へ）。
+**やること**: (1) 集約が main へ deploy されたことを確かめる（main の `.github/workflows/` に `.claude/scripts/` が 0 件）。(2) Mac で `npm run weekly-review:install` を回し直し、導入済みの写しを新パスにする。(3) `.claude/scripts/` の転送 9 本と `knip.json` の entry `.claude/scripts/*.mjs` を消す。同じ日に事業の実装を移した `.claude/skills/ogp-create/scripts/ogp-create.mjs`（転送・main の `ogp-supply.yml` が呼ぶ）も消し、`tests/claude-dir-has-no-code.test.mjs` の `SHIMS`・`SKILL_SHIMS` を空にする（`.claude/` に残すコードの一覧から転送の 10 本が外れる）。(4) `scripts/lib/repository-paths.mjs` の `MOVED_PATHS` に `[".claude/scripts", "scripts"]` を足し、禁止ルートと旧パス走査に載せる（Obsidian vault の `.claude/scripts/ocr/` を指す `scripts/pdf-to-mdx/book-ocr/` の 2 ファイルは `stalePathLiterals.allowFiles` へ）。
 
 **完了条件**: `git ls-files .claude/scripts | wc -l` が 0。`npm run check-information-architecture` が `.claude/scripts/` への新規ファイルと旧パスの文字列を止める。
 
@@ -862,7 +862,7 @@
 ### [DN-1181] 正規表現の「バックスラッシュ＋content」の書き損じの残り 2 か所を直し、同じ書き損じを機械で止める
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-13]
 
-**起点**: 2026-11-13 に pre-commit を速くする作業で見つけた。正規表現の先頭を「バックスラッシュ＋content」と書くと、バックスラッシュ＋c＋o が制御文字（U+000F）として読まれ、実在のパスに一致しない。scripts/check-table-references.mjs と scripts/check-orphan-figures.mjs の --staged がこれで、commit 時は毎回 0 件の検査で OK を出していた（全量は CI で回っていた。2 本は同じ PR で直し、tests/staged-site-paths.test.mjs で固定した）。同じ書き方が .claude/skills/check-mdx/scripts/rules/svg/build-gallery-comment.mjs の 64 行と 69 行に残っている（資格とスラグをパスから取る 2 か所で、一致しないので取れていないはず）。
+**起点**: 2026-11-13 に pre-commit を速くする作業で見つけた。正規表現の先頭を「バックスラッシュ＋content」と書くと、バックスラッシュ＋c＋o が制御文字（U+000F）として読まれ、実在のパスに一致しない。scripts/check-table-references.mjs と scripts/check-orphan-figures.mjs の --staged がこれで、commit 時は毎回 0 件の検査で OK を出していた（全量は CI で回っていた。2 本は同じ PR で直し、tests/staged-site-paths.test.mjs で固定した）。同じ書き方が scripts/check-mdx/rules/svg/build-gallery-comment.mjs の 64 行と 69 行に残っている（資格とスラグをパスから取る 2 か所で、一致しないので取れていないはず）。
 
 **やること**: build-gallery-comment.mjs の 2 か所を直し、直す前後で出力がどう変わるかを確かめる。正規表現の中のバックスラッシュ＋英字の書き損じ（\c・\p など意図しないエスケープ）を scripts・.claude/scripts・.claude/skills から探す検査を、決まった合格条件で書けるなら tests に足す。
 
@@ -884,7 +884,7 @@
 
 **起点**: 2026-11-13 の構成・SSOT 監査。台帳 `scripts/lib/datasets.mjs` の置き場（AREAS）は config・data・.claude/state・content/registry の 4 つで、サイトが読む `src/config/` の追跡 30 ファイルは対象外。過去問 3 種・`keyword-relations.json`・`past-exam-backlinks.json`・`popular-pages.json`・`topics.json` などに型も外部キーも無い。記事 slug を指す生成 JSON（`exam-question-keywords.json`・`past-exam-backlinks.json`・`keyword-relations.json`・`popular-pages.json`）を実在と照らす検査は見つからず、記事の削除・改名のあとに古い参照が残っても止まらない。`src/` の型は手書きで JSON を `as` で読む（`as unknown as` が 6 か所）。同じ監査で config 側の 7 データセットには refs を足した（PR #1577）。
 
-**やること**: `src/config/` を台帳の置き場に足す（サイト本体は台帳を import しない決まりなので、宣言と検査だけを scripts 側に置く）。手で書く正本と生成物を種類で分け、生成物から順に型を付ける。記事 slug を持つ欄に refs（to: article）を宣言する。`civil-relations.json` は読む側が `.claude/skills/exam-backlinks/scripts/` の 2 本だけなので、置き場が `src/config/` でよいかも決める。
+**やること**: `src/config/` を台帳の置き場に足す（サイト本体は台帳を import しない決まりなので、宣言と検査だけを scripts 側に置く）。手で書く正本と生成物を種類で分け、生成物から順に型を付ける。記事 slug を持つ欄に refs（to: article）を宣言する。`civil-relations.json` は読む側が `scripts/exam-backlinks/` の 2 本だけなので、置き場が `src/config/` でよいかも決める。
 
 **完了条件**: `npm run check-datasets` が `src/config/` の全ファイルを数え、記事 slug の参照切れを検査件数つきで出す。型の無いファイルが何件残るかが台帳から分かる。
 

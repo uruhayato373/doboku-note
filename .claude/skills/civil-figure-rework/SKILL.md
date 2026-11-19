@@ -92,7 +92,7 @@ mv content/site/civil-construction-1/primary-r06-a/img/*.webp .tmp/backup/r06-a/
 #### 3b. Crop 実行
 
 ```bash
-node .claude/skills/civil-figure-rework/scripts/run-crop.mjs \
+node scripts/civil-figure-rework/run-crop.mjs \
   --spec .tmp/r06-a-figure-spec.json \
   --out-dir content/site/civil-construction-1/primary-r06-a/img
 ```
@@ -102,7 +102,7 @@ node .claude/skills/civil-figure-rework/scripts/run-crop.mjs \
 #### 3c. MDX へ `<img>` 挿入/差し替え
 
 ```bash
-node .claude/skills/civil-figure-rework/scripts/inject-img-mdx.mjs \
+node scripts/civil-figure-rework/inject-img-mdx.mjs \
   --mdx content/site/civil-construction-1/primary-r06-a/article.mdx \
   --spec .tmp/r06-a-figure-spec.json
 ```

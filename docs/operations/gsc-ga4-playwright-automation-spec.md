@@ -496,7 +496,7 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 - .github/workflows/fetch-metrics.yml
 - .github/workflows/index-coverage.yml
 - scripts/inspect-url.mjs
-- .claude/skills/fetch-gsc-data/scripts/fetch-gsc-data.mjs
+- scripts/fetch-gsc-data/fetch-gsc-data.mjs
 - scripts/fetch-ga4-data.mjs
 
 ゴール:

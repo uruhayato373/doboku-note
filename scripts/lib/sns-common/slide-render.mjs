@@ -14,6 +14,7 @@ import { Resvg } from '@resvg/resvg-js';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { FONTS_ROOT } from '../repository-paths.mjs';
 
 import { COLORS, FONTS } from './design-tokens.mjs';
 import { wrapTitle, pickFontSize } from './jp-text-wrap.mjs';
@@ -41,7 +42,7 @@ function notebookContainer(width, height) {
 }
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const FONT_DIR = resolve(__dirname, '../../../.claude/skills/ogp-create/assets/fonts');
+const FONT_DIR = FONTS_ROOT;
 // @fontsource/manrope は import でなくこのパスで読む。knip には使っていないように見えるので knip.json の ignoreDependencies に
 // 登録してある（2026-10-11 に未使用と誤判定して消し、renderSlide のテストが CI で落ちた・DN-0687）。
 const FONTSOURCE_DIR = resolve(__dirname, '../../../node_modules/@fontsource');

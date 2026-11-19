@@ -1077,7 +1077,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 - `scripts/upload-images-to-r2.mjs` - 同期スクリプト（exit 1 化 + パス正規化）
 - `.github/workflows/r2-sync.yml` - main push 時の R2 同期
 - `.github/workflows/r2-audit.yml` - 週次 diff-r2 監査（新設）
-- `.claude/skills/diff-r2/scripts/diff-r2.mjs` - 差分監査
+- `scripts/diff-r2/diff-r2.mjs` - 差分監査
 - handoff `docs/handoffs/2026-05-29-r2-content-fallback-removal.md`
 
 ## 2026-06-12: OGP 画像が r2-sync の path フィルタ外で 404 → note 外部リンクカード生成不能

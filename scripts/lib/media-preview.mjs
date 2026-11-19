@@ -13,9 +13,9 @@ import { findDuplicateLongforms } from './video-duplicate-check.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { mediaPath, mimeOf } from './media-paths.mjs';
 import { createSceneSheet } from '../video-scene-sheet.mjs';
+import { FONTS_REL } from './repository-paths.mjs';
 
 const FFMPEG_FULL = '/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg';
-const FONTS_DIR = '.claude/skills/ogp-create/assets/fonts';
 const sha256Of = (buf) => createHash('sha256').update(buf).digest('hex');
 const round1 = (n) => Math.round(n * 10) / 10;
 const round3 = (n) => Math.round(n * 1000) / 1000;
@@ -167,7 +167,7 @@ function buildPreviewMedia(root, { renderDir, manifest, scenes, visualCheck, des
   writeFileSync(join(outAbs, 'preview.txt'), `${previewConcat(scenes)}\n`);
   const assRel = `${renderDir}/subtitles.ass`;
   const vf = ['fps=' + visualCheck.previewFps];
-  if (manifest.subtitles !== false && existsSync(join(root, assRel))) vf.push(`ass=${assRel}:fontsdir=${FONTS_DIR}`);
+  if (manifest.subtitles !== false && existsSync(join(root, assRel))) vf.push(`ass=${assRel}:fontsdir=${FONTS_REL}`);
   vf.push('format=yuv420p');
   runFfmpeg(root, ['-f', 'concat', '-safe', '0', '-i', `${outRel}/preview.txt`, '-vf', vf.join(','), '-t', String(round3(designTotal)), '-an', '-movflags', '+faststart', `${outRel}/preview.mp4`]);
 

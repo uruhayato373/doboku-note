@@ -51,7 +51,7 @@ mcp__aidesigner__get_credit_status   # 残量を確認。残りが少なけれ�
 
 ### Step 5: コードへの落とし込み（量産は `/ogp-create`）
 採用方向が決まったら、**MCP の生成物をそのまま配信せず**、決定論的テンプレに実装する:
-1. レンダラを編集: `.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs`（mono-tag 等の satori レンダ関数）。新テンプレを足す場合は `/ogp-create` の「テンプレート追加手順」に従う（`templates.json` / `rules.json` / `ogp-prompts.md` も更新）。
+1. レンダラを編集: `scripts/ogp-create/lib/ogp-templates.mjs`（mono-tag 等の satori レンダ関数）。新テンプレを足す場合は `/ogp-create` の「テンプレート追加手順」に従う（`templates.json` / `rules.json` / `ogp-prompts.md` も更新）。
 2. デザイン SSOT を更新: `.claude/knowledge/reference/ogp-prompts.md`（レイアウト・配色・**変更履歴**）。テーマ色を変えるなら `.claude/knowledge/design-system/note-cover-tokens.json` の `exams[].base`。
 3. 量産＆QA:
    ```bash
@@ -81,7 +81,7 @@ mcp__aidesigner__get_credit_status   # 残量を確認。残りが少なけれ�
 - 資格別 AI 背景（背景だけを Codex で生成・全記事共有）: `npm run ogp-backgrounds`（`scripts/generate-ogp-backgrounds.mjs`）。mono-tag の最背面に敷く下地用。Gemini は使わない（運営者の決定 2026-10-09）。意匠の全面試作は本スキル、背景下地だけならこちらが軽量。※**2026-07-02〜、現行の資格別背景は Codex 生成のブランド写真プール**（`config/ogp/backgrounds/<exam-key>.png`・真実源 [`.claude/knowledge/reference/brand-image-system.md`](../../knowledge/reference/brand-image-system.md)）。このスクリプトも Codex 生成（`scripts/lib/codex-image.mjs`）で、プール方式とは別の抽象背景用
 - デザイン SSOT: `.claude/knowledge/reference/ogp-prompts.md`（レイアウト・配色・テーマ色・変更履歴）
 - テーマ色トークン（真実源）: `.claude/knowledge/design-system/note-cover-tokens.json`
-- レンダラ実装: `.claude/skills/ogp-create/scripts/lib/ogp-templates.mjs`
+- レンダラ実装: `scripts/ogp-create/lib/ogp-templates.mjs`
 - 一括目視 QA: `npm run ogp-gallery`
 - AI デザイン MCP: `aidesigner`（スキル `/aidesigner` でも起動可）/ Canva（`mcp__claude_ai_Canva__*`）
 - スキル設計規約: `.claude/knowledge/reference/skills-design-guide.md`

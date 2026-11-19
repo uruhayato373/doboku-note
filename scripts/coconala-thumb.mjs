@@ -23,9 +23,9 @@ import { readCatalog, readListings } from './lib/coconala-session.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { requireLocalAsset } from './lib/asset-storage.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
-import { REPO_ROOT as ROOT, COCONALA_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, COCONALA_CONTENT_ROOT, FONTS_ROOT } from './lib/repository-paths.mjs';
 
-const FONTS_DIR = path.join(ROOT, '.claude/skills/ogp-create/assets/fonts');
+const FONTS_DIR = FONTS_ROOT;
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 

@@ -7,10 +7,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import satori from 'satori';
 import sharp from 'sharp';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, FONTS_ROOT } from './lib/repository-paths.mjs';
 
 const OUT_DIR = path.join(ROOT, 'content/coconala/assets');
-const FONTS_DIR = path.join(ROOT, '.claude/skills/ogp-create/assets/fonts');
+const FONTS_DIR = FONTS_ROOT;
 const W = 1200;
 const H = 900;
 

@@ -11,6 +11,7 @@ import { readVerifiedVideoPng } from './youtube-approved-cover.mjs';
 import { renderYoutubeCover } from './youtube-cover.mjs';
 import { resolveExam } from '../sns/lib/exam-palette.mjs';
 import { readDataset } from './dataset-io.mjs';
+import { FONTS_REL } from './repository-paths.mjs';
 
 export const IG_DESIGN = 'bridge-notebook-a-v1';
 export const IG_CTA_NARRATION = 'フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。';
@@ -151,7 +152,7 @@ export function instagramCtaNode(logo, { reel = false } = {}) {
 
 export async function renderInstagramNode(root, node, height) {
   const fonts = [...coverFonts(root), { name: 'Noto Sans JP', weight: 700, style: 'normal',
-    data: readFileSync(join(root, '.claude/skills/ogp-create/assets/fonts/NotoSansJP-Bold.ttf')) }];
+    data: readFileSync(join(root, FONTS_REL, 'NotoSansJP-Bold.ttf')) }];
   const svg = await satori(node, { width: 1080, height, fonts });
   return { svg, buffer: new Resvg(svg).render().asPng() };
 }

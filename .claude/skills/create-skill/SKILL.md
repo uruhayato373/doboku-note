@@ -43,9 +43,9 @@ domain: ops
 | `${CLAUDE_SKILL_DIR}` | SKILL.md のあるディレクトリ絶対パス |
 | `${CLAUDE_SESSION_ID}` | セッション ID |
 
-スクリプト参照は `${CLAUDE_SKILL_DIR}` を使う:
+スクリプトはスキルの中に置かず `scripts/<スキル名>/` に置き、リポジトリのルートからのパスで呼ぶ（`.claude/` にコードを置かない＝`tests/claude-dir-has-no-code.test.mjs` が止める）:
 ```bash
-node "${CLAUDE_SKILL_DIR}/scripts/helper.js" $ARGUMENTS
+node scripts/<スキル名>/helper.mjs $ARGUMENTS
 ```
 
 ### 動的コンテキスト注入
@@ -58,6 +58,8 @@ node "${CLAUDE_SKILL_DIR}/scripts/helper.js" $ARGUMENTS
 ```
 
 ## scripts/ の設計
+
+置き場は `scripts/<スキル名>/`（スキルのディレクトリには SKILL.md・references/・templates/・素材だけを置く）。
 
 ### 2つのパターン
 
@@ -114,7 +116,7 @@ node "${CLAUDE_SKILL_DIR}/scripts/helper.js" $ARGUMENTS
 2. **description は具体的に**: Claude の自動呼出し判断の根拠になる
 3. **副作用のあるスキルは `disable-model-invocation: true`**: デプロイ・DB変更・外部API呼出し等
 4. **一時ファイルは後処理で削除**: CLAUDE.md の作業規約に従う
-5. **スクリプトは `${CLAUDE_SKILL_DIR}` で参照**: 作業ディレクトリに依存しない
+5. **スクリプトは `scripts/<スキル名>/` に置く**: `.claude/` にコードを置かない（CI・テストが読むコードは `scripts/`）
 6. **`context: fork` は明確なタスクがあるときのみ**: ガイドラインだけのスキルをforkすると空の結果が返る
 7. **`allowed-tools` で最小権限**: 読み取り専用スキルには `Read, Grep, Glob` のみ
 

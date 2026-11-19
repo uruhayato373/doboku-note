@@ -51,8 +51,8 @@ const CODE_WALK = {
   skipDir: (p, name) => WALK_IGNORE.has(name) || WALK_IGNORE.has(relative(ROOT, p).split(sep).join('/')),
 };
 
-// 検査対象: scripts/ と .claude/skills/（実装コードのみ。docs/reference の説明文は誤検知源なので対象外）
-const targets = [...listFiles(join(ROOT, 'scripts'), CODE_WALK), ...listFiles(join(ROOT, '.claude/skills'), CODE_WALK)];
+// 検査対象: scripts/（実装コードのみ。.claude/ にコードは置かない＝tests/claude-dir-has-no-code.test.mjs。docs/reference の説明文は誤検知源なので対象外）
+const targets = listFiles(join(ROOT, 'scripts'), CODE_WALK);
 
 const findings = {
   registry: [],
@@ -182,7 +182,7 @@ function saveLastRun(counts) {
 if (JSON_OUT) {
   console.log(JSON.stringify({ targetsScanned: targets.length, inspected, counts, total, findings }, null, 2));
 } else {
-  console.log(`[${NAME}] scripts/ + .claude/skills/ の実装コード ${targets.length} 件を実検査`);
+  console.log(`[${NAME}] scripts/ の実装コード ${targets.length} 件を実検査`);
   console.log(`[${NAME}] 1. registry schema 違反: ${counts.registry}`);
   console.log(`[${NAME}] 2. Mac 絶対パス直書き: ${counts.macAbsolutePath}`);
   for (const f of findings.macAbsolutePath.slice(0, 10)) console.log(`      ${f}`);

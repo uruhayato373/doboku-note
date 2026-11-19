@@ -147,7 +147,7 @@ node scripts/bulk-generate-exam-packs.mjs --all  # 全 130 パック
 ### 単一パック生成・修正
 
 ```bash
-node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size carousel
+node scripts/ig-post-create/ig-post-create.mjs --exam r07-pack-01 --size carousel
 ```
 
 ### 投稿時の調整
@@ -290,7 +290,7 @@ node scripts/sns/render-quiz-pack.mjs content/sns/instagram/_quiz-sample
 
 ```bash
 # Reels サイズ PNG を 1080×1920 で生成
-node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size reels
+node scripts/ig-post-create/ig-post-create.mjs --exam r07-pack-01 --size reels
 
 # stories/img/ に 4 枚（cover/Q1/A1/cta）を抽出 + caption + note.md 自動生成
 node scripts/instagram/build-stories.mjs --pack r07-pack-01

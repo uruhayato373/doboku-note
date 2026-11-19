@@ -48,8 +48,8 @@ target: textbook
 ## 手順
 
 1. **前提確認**: MDX を Read して frontmatter を取る。`group: textbook` でなければ上の振り先を案内して終了。`curl -s -o /dev/null -w "%{http_code}" http://localhost:3020` が `200` でなければ「`npm run dev` を実行してください」と報告して中止。
-2. **PDF 原本の特定**: `.claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs` が slug / title から自動発見する（`SLUG_PDF_HINTS` テーブル＋title の日本語キーワード glob）。失敗時は JSON の `pdf.error` と `pdf.hint_candidates` を見て、親に `--pdf` 明示を案内。例: `concrete-key-points` → `テキスト（土木一般編）/第３章_コンクリート工.pdf`、`earthwork-key-points` → `第１章_土工.pdf`、`construction-machinery-01` → `第２章_建設機械.pdf`、`construction-mgmt-overview` → `テキスト（施工管理・法規編）/第１章_施工管理の概要.pdf`。
-3. **決定論的前処理**: `node .claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs <mdx-path> --pdf <pdf-path>` の JSON を読む。取れるもの: frontmatter、`<img>` の (src, alt, line, exists, naturalWidth, naturalHeight)、MDX の文字数・KaTeX 数式数・表数、PDF の章節見出し、テキスト網羅率（heading-based）と missing topics。
+2. **PDF 原本の特定**: `scripts/pdf-to-mdx/verify-pdf-mdx.mjs` が slug / title から自動発見する（`SLUG_PDF_HINTS` テーブル＋title の日本語キーワード glob）。失敗時は JSON の `pdf.error` と `pdf.hint_candidates` を見て、親に `--pdf` 明示を案内。例: `concrete-key-points` → `テキスト（土木一般編）/第３章_コンクリート工.pdf`、`earthwork-key-points` → `第１章_土工.pdf`、`construction-machinery-01` → `第２章_建設機械.pdf`、`construction-mgmt-overview` → `テキスト（施工管理・法規編）/第１章_施工管理の概要.pdf`。
+3. **決定論的前処理**: `node scripts/pdf-to-mdx/verify-pdf-mdx.mjs <mdx-path> --pdf <pdf-path>` の JSON を読む。取れるもの: frontmatter、`<img>` の (src, alt, line, exists, naturalWidth, naturalHeight)、MDX の文字数・KaTeX 数式数・表数、PDF の章節見出し、テキスト網羅率（heading-based）と missing topics。
 4. **レンダリング検証**: `http://localhost:3020/docs/{slug}`（`civil-construction-1-{group}-{ファイル名拡張子なし}` の形）へ遷移。Desktop 1024px と Mobile 375px（`browser_resize`）で撮影。`browser_evaluate` で全 `<img>` の寸法を取る:
    ```js
    Array.from(document.querySelectorAll('img')).map(img => ({ src: img.src, naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight, displayWidth: img.offsetWidth, displayHeight: img.offsetHeight }))
@@ -96,5 +96,5 @@ target: textbook
 ## 参照
 
 - `.claude/skills/pdf-to-mdx/templates/civil-construction-1.md` — Generator 側のルール
-- `.claude/skills/improve-article/SKILL.md`（`--mode verify`）・`.claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs`
+- `.claude/skills/improve-article/SKILL.md`（`--mode verify`）・`scripts/pdf-to-mdx/verify-pdf-mdx.mjs`
 - `.claude/knowledge/reference/exam-content-policy.md` — 試験別コンテンツ整備方針

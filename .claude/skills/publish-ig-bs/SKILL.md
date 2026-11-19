@@ -45,7 +45,7 @@ CI からの予約投稿（`ops-write.yml`）は廃止した。投稿は運営�
 2. 新規投稿は `content/registry/publications/instagram/` に台帳行があり、予約日時と現版のハッシュ付き最終承認が一致すること。行が無い・未承認ならBusiness Suiteへ進まず停止する。固定投稿の準備手順は `content-registry.md` を参照する。
 3. **初回ログイン**（一度だけ。2FA はブラウザ上で手動）:
    ```bash
-   npx tsx .claude/skills/publish-ig-bs/publish-ig-bs.ts login
+   npx tsx scripts/publish-ig-bs/publish-ig-bs.ts login
    ```
    → `business.facebook.com/latest` に入るとセッションが `<auth root>/profiles/playwright-ig-bs-profile/` に保存され自動終了。
 4. **セッション切れ時**: 同じ `login` で再ログイン。
@@ -61,15 +61,15 @@ CI からの予約投稿（`ops-write.yml`）は廃止した。投稿は運営�
 npm run registry -- import-instagram --folder <新規パックの相対パス> --slot <年間の枠>
 
 # 2) dry-run（初回必須。予約確定の手前まで実行しスクショ）
-npx tsx .claude/skills/publish-ig-bs/publish-ig-bs.ts post \
+npx tsx scripts/publish-ig-bs/publish-ig-bs.ts post \
   "<新規パックの相対パス>" --schedule <未来のJST日時> --dry-run
 
 # 3) 予約ウィジェットのセレクタを対話採取（Inspector を schedule 手前で起動）
-npx tsx .claude/skills/publish-ig-bs/publish-ig-bs.ts post \
+npx tsx scripts/publish-ig-bs/publish-ig-bs.ts post \
   "<新規パックの相対パス>" --schedule <未来のJST日時> --pause
 
 # 4) 本番予約投稿（dry-run 成功後に --dry-run を外す）
-npx tsx .claude/skills/publish-ig-bs/publish-ig-bs.ts post \
+npx tsx scripts/publish-ig-bs/publish-ig-bs.ts post \
   "<新規パックの相対パス>" --schedule <未来のJST日時>
 ```
 
@@ -130,7 +130,7 @@ npx tsx .claude/skills/publish-ig-bs/publish-ig-bs.ts post \
 
 ```bash
 # 予約（初回・更新後は --dry-run 必須）
-npx tsx .claude/skills/publish-ig-bs/publish-ig-bs.ts post \
+npx tsx scripts/publish-ig-bs/publish-ig-bs.ts post \
   "<新規リールパックの相対パス>" --reel --schedule <未来のJST日時> --dry-run
 ```
 
@@ -161,7 +161,7 @@ npx tsx .claude/skills/publish-ig-bs/publish-ig-bs.ts post \
 
 ## スクリプト本体
 
-`.claude/skills/publish-ig-bs/publish-ig-bs.ts`
+`scripts/publish-ig-bs/publish-ig-bs.ts`
 
 ## 混在バッチ
 

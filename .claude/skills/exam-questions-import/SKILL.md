@@ -79,7 +79,7 @@ template で定義された問題フォーマットに従って抽出:
 import 完了後、生成された MDX を `verify-pdf-mdx.mjs` で機械的に検証する:
 
 ```bash
-node .claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs \
+node scripts/pdf-to-mdx/verify-pdf-mdx.mjs \
   {output-mdx-path} \
   --pdf {source-pdf-path} \
   --expected-figures {N}
@@ -105,7 +105,7 @@ node .claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs \
 
 ```bash
 # ① 重複選択肢検出: ○×組合せ・語句組合せで2選択肢が完全一致＝転記ミス確定
-node .claude/skills/exam-questions-import/scripts/check-option-dup.mjs <article.mdx ...>
+node scripts/exam-questions-import/check-option-dup.mjs <article.mdx ...>
 # ② 正答整合: 正答と ✅/❌ の集合・問い方の向き・解説の文と印の食い違い・記述（①〜）の解説の番号・ExamPoint内バッジ混入
 npm run check-answer-marks -- <article.mdx ...>
 ```

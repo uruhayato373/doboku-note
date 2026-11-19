@@ -3,7 +3,7 @@
 > [!warning] 本文の文字起こしは機械 OCR に切り替えた（2026-10-24）
 > この手順書の Step 3（Claude のサブエージェントがページ画像を逐語転記するファンアウト OCR）と校正パスは廃止した。
 > 市販書籍の本文を Claude が書き写すと、私的利用でも複製を作る主体が Claude になる。新しい本は bundle にしてから
-> 経路D の機械 OCR（[`../scripts/book-ocr/README.md`](../scripts/book-ocr/README.md)）で起こす。ここに残すのは
+> 経路D の機械 OCR（[`../../../../scripts/pdf-to-mdx/book-ocr/README.md`](../../../../scripts/pdf-to-mdx/book-ocr/README.md)）で起こす。ここに残すのは
 > 画像の抽出（Step 1–2）・図のクロップ（Step 5–6）の手順と、旧経路の記録。
 
 `pdf-to-mdx --scanned` のメインスレッド側手順書。**テキスト層を持たないスキャン書籍**（自炊した教材・参考書・基準書）を、視覚 OCR で **内部リファレンス Markdown**（`content/sources/textbook/{資格}/{書名}/`）＋図に変換する。

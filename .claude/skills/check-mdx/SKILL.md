@@ -140,7 +140,7 @@ HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `conte
 - `--report <dir>` — `audit-{timestamp}.json` + `latest-report.md` を書き出す
 
 **実行**:
-- 外部: `node .claude/skills/check-mdx/scripts/rules/links/check-external-links.mjs`
+- 外部: `node scripts/check-mdx/rules/links/check-external-links.mjs`
 - 内部: `npm run check-links`（= `check-links.mjs`。`-- --scope note` 等を付与可）
 
 #### 定期監査（quality-audit）
@@ -171,11 +171,11 @@ HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `conte
 **ギャラリー生成（目視 QA）**:
 ```bash
 npm run svg-gallery               # site/note 図版を 1 枚 HTML で（site/note タブ＋資格別フィルタ・site は svg-audit.json 重大度バッジ）
-node .claude/skills/check-mdx/scripts/rules/svg/build-gallery-comment.mjs  # 旧: GitHub コメント用 Markdown
+node scripts/check-mdx/rules/svg/build-gallery-comment.mjs  # 旧: GitHub コメント用 Markdown
 ```
 `npm run svg-gallery` はローカル目視用（`.tmp/svg-gallery.html`・`--open` でブラウザ起動・svg-figure-auditor の視覚確認の足場）。上部タブで「サイト／note」を切替え、各タブ内で資格別（カテゴリ）に絞り込む。`build-gallery-comment.mjs` は GitHub Issue/PR コメント用 Markdown（`.tmp/svg-gallery-comment.md`）で用途が別。
 
-**実行**: `node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs`
+**実行**: `node scripts/check-mdx/rules/svg/audit.mjs`
 
 ### staging — Obsidian 公開準備度（Claude 読解）
 
@@ -202,7 +202,7 @@ node .claude/skills/check-mdx/scripts/rules/svg/build-gallery-comment.mjs  # 旧
 
 **引数**: `--category civil-construction-1` / `--topic 港則法` で絞り込み
 
-**実行**: `node .claude/skills/check-mdx/scripts/rules/explanations/audit.mjs`
+**実行**: `node scripts/check-mdx/rules/explanations/audit.mjs`
 
 **pre-commit 連動**: `scripts/pre-commit-mdx.mjs` が `detect.mjs` を import し、warning 表示（既存 64 件があるためブロックはしない）
 
@@ -230,10 +230,10 @@ MDX 本文の「〇〇法第◯条」が e-Gov 法令検索にリンクされて
 **自動修正**（`--fix`）:
 ```bash
 # dry-run
-node .claude/skills/check-mdx/scripts/rules/legal-citations/fix-legal-citations.mjs --dry-run
+node scripts/check-mdx/rules/legal-citations/fix-legal-citations.mjs --dry-run
 
 # 適用（バックアップは /tmp/fix-legal-citations-backup/ に保存）
-node .claude/skills/check-mdx/scripts/rules/legal-citations/fix-legal-citations.mjs --apply
+node scripts/check-mdx/rules/legal-citations/fix-legal-citations.mjs --apply
 ```
 
 **法令番号辞書**: `fix-legal-citations.mjs` の `LAW_ID_MAP`（2026-04-13 時点で 31 件登録、HTTP 200 で検証済み）。新法令追加は `LAW_ID_MAP` に `'{法令名}': '{法令番号}'` を足してから実行。

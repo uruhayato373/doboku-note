@@ -312,12 +312,12 @@ test('Phase 03 runtimeは共通resolverを使い、account configはlogical serv
     'scripts/x-article-publish.mjs',
     'scripts/lib/x-scheduled-queue.mjs',
     'scripts/x-thread-replies.mjs',
-    '.claude/skills/scout-asp/scripts/a8-browser.ts',
-    '.claude/skills/scout-asp/scripts/login.mjs',
-    '.claude/skills/publish-ig-bs/publish-ig-bs.ts',
-    '.claude/skills/publish-x/publish-x.ts',
-    '.claude/skills/x-repost/x-repost-discover.ts',
-    '.claude/skills/x-repost/x-repost-exec.ts',
+    'scripts/scout-asp/a8-browser.ts',
+    'scripts/scout-asp/login.mjs',
+    'scripts/publish-ig-bs/publish-ig-bs.ts',
+    'scripts/publish-x/publish-x.ts',
+    'scripts/x-repost/x-repost-discover.ts',
+    'scripts/x-repost/x-repost-exec.ts',
   ];
   for (const file of files) {
     const source = readFileSync(join(REPO_ROOT, file), 'utf8');

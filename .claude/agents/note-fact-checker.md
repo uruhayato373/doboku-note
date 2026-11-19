@@ -147,7 +147,7 @@ node scripts/notebooklm-cross-query.mjs \
 ## past-exam-backlinks.json の使い方
 
 ```javascript
-// 過去問 → キーワードの紐付けは .claude/skills/exam-backlinks/scripts/build-exam-backlinks.mjs で生成される
+// 過去問 → キーワードの紐付けは scripts/exam-backlinks/build-exam-backlinks.mjs で生成される
 // 各エントリ: { question_slug: ["keyword-slug-1", "keyword-slug-2", ...] }
 // あるキーワードが何年で出題されたかを逆引きするには全エントリを走査
 ```
