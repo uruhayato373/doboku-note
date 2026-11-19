@@ -6,11 +6,12 @@ import { tmpdir } from 'node:os';
 import { writeReport } from '../scripts/lib/metric-reports.mjs';
 import { lineupQualifier, reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, a8MonthFacts, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily, noteMonthFacts, notePeriodFacts, kdpMonthFacts, coconalaDmDate, coconalaInquiryFacts, coconalaViewFacts } from '../scripts/lib/business-direction.mjs';
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
+const kindleProducts=books=>JSON.stringify({products:books.map((catalog,order)=>({id:`kindle-${catalog.id.toLowerCase()}`,channel:'kindle',order,catalog}))});
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
- for(const p of ['config','.claude/state','data/note/referrers','data/note/articles-pv','data/kdp','data/ga4/reports','data/coconala','data/business','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
+ for(const p of ['config','.claude/state','data/note/referrers','data/note/articles-pv','data/kdp','data/ga4/reports','data/coconala','data/business'])mkdirSync(join(root,p),{recursive:true});
  for(const f of ['business-direction.json','qualification-registry.json','product-lineup.json'])writeFileSync(join(root,'config',f),readFileSync(join('config',f)));
- writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:[]}));
+ writeFileSync(join(root,'config/products.json'),kindleProducts([]));
  writeFileSync(join(root,'data/business/experiments.json'),JSON.stringify({experiments:[{id:'SEO-test'},{id:'perf-lcp-mobile-2026-W17'}]})); return root;
 }
 const measure = (values = { notePv: 10 }) => ({kind:'measurement', qualification:'all', period, channel:'note', subject:'aggregate', source:'note新ダッシュボード・全記事',coverage:'complete',values});
@@ -40,7 +41,7 @@ test('KDP monthly ledger enters business review with completeness and qualificat
   {bookId:'f-01',title:'sokan',royalty:300},
   {bookId:'g-01',title:'concrete',royalty:200},
  ];
- writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:books.map(book=>({id:book.bookId,status:'live'}))}));
+ writeFileSync(join(root,'config/products.json'),kindleProducts(books.map(book=>({id:book.bookId,status:'live'}))));
  writeFileSync(join(root,'data/kdp/royalties.json'),JSON.stringify({months:{'2026-08':{range:{start:'2026-08-01',end:'2026-08-31'},estimated:false,total:{bookCount:3,royalty:1200},kenpPagesRead:88,books}}}));
  const r=buildReport(root,period,now);
  assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='kdpRoyalty').value,1200);

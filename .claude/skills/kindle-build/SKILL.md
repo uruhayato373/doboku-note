@@ -39,7 +39,7 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 | i-01〜i-04 / i-11〜i-24 | I: 1級土木 第2次検定 記述（施工経験記述・学科記述・想定工事14分冊） | `build-essay-kindle.mjs --spec kindle-specs/{id}.json`（`chapterLabel: h1-tail`・`dropLines`・`replaceText`） | spec + 前付け | 2026-09-23 新設 |
 | j-01〜j-03 / j-11〜j-15 | J: 2級土木 第2次検定 記述（同上・想定工事5分冊） | 同上 | spec + 前付け | 2026-09-23 新設 |
 
-表紙は spec の `pop` から `npm run kindle-pop-cover` で作る（採用後は `adoptedImage`＋`scripts/kindle-covers/pop/<id>.pop-image.json` が正本。`adoptedImage` の無い旧本だけ `backgrounds/` から組版で再生成。下記「表紙」参照）。全書籍の状態・ASIN は [`scripts/kindle-published/catalog.json`](../../../scripts/kindle-published/catalog.json)（マスター登録簿）が真実源。
+表紙は spec の `pop` から `npm run kindle-pop-cover` で作る（採用後は `adoptedImage`＋`scripts/kindle-covers/pop/<id>.pop-image.json` が正本。`adoptedImage` の無い旧本だけ `backgrounds/` から組版で再生成。下記「表紙」参照）。全書籍の状態・ASIN は [`config/products.json` の書籍の行](../../../config/products.json)（マスター登録簿）が真実源。
 
 - A系入力: `src/config/civil-1-exam-questions.json`（1,162問）。D/E系入力: 各 `content/site/**/article.mdx`（択一・全問完全解説）。C/F系入力: `content/note/**/article*.md`（記述式模範解答）
 - 出力: `.tmp/kindle-{id}/{id}.epub`。配布物は `scripts/kindle-dist/<id>.epub`（R2 が正本・git 追跡しない） + `<id>.jpg`（`npm run sync-kindle-dist` で spec から再生成）
@@ -125,7 +125,7 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 ## 参照
 
 - 戦略・価格・チェックリストの真実源: [strategy.md](../../../content/kindle/strategy.md)
-- マスター登録簿（全書籍の状態/ASIN）: `scripts/kindle-published/catalog.json` ／ 配布物: `scripts/kindle-dist/`（README あり）
+- マスター登録簿（全書籍の状態/ASIN）: `config/products.json`（channel kindle） ／ 配布物: `scripts/kindle-dist/`（README あり）
 - 択一ビルダー: `scripts/build-takuitsu-reconstruct.mjs`（A・THEMES）/ `scripts/build-pe1-kindle.mjs`（D/E/B・spec）
 - essay ビルダー: `scripts/build-essay-kindle.mjs`（C/F・spec）＋共有レンダラ `scripts/lib/kindle-md.mjs`
 - 書式検査: `scripts/check-kindle-format.mjs`（`npm run check-kindle-format`）

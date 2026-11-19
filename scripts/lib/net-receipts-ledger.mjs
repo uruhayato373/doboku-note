@@ -3,17 +3,13 @@
  * 組み立ては net-receipts.mjs の monthReceipts（純関数）。読み手: 管理画面のトップ（kpi-tree.ts）・scripts/record-net-receipts.mjs。
  * 台帳は土曜の Mac 収集（weekly-collect）が更新する。ここは読むだけで、ブラウザも資格情報も使わない。
  */
-import { existsSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { readDatasetIf } from './dataset-io.mjs';
 import { monthReceipts } from './net-receipts.mjs';
+import { loadKindleCatalogIfPresent } from './kindle-catalog.mjs';
 
-/** KDP の最初の本の出版月（scripts/kindle-published/catalog.json の publishedDate の最小）。 */
+/** KDP の最初の本の出版月（Kindle の書籍の行の publishedDate の最小）。 */
 function kdpFirstMonth(root) {
-  const file = join(root, 'scripts/kindle-published/catalog.json');
-  if (!existsSync(file)) return null;
-  const catalog = JSON.parse(readFileSync(file, 'utf8'));
-  const dates = (catalog.books ?? catalog).map((b) => b.publishedDate).filter(Boolean).sort();
+  const dates = loadKindleCatalogIfPresent(root).map((b) => b.publishedDate).filter(Boolean).sort();
   return dates[0]?.slice(0, 7) ?? null;
 }
 

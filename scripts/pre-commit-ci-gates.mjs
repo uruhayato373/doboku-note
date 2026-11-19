@@ -83,11 +83,11 @@ export const GATES = [
   },
   {
     id: 'products',
-    // 商品の正本（全チャネル・記事の単品価格）と、その写し・生成物（記事の price・掲載文・note-magazines.ts・coconala-services.ts・Kindle の catalog.json）
+    // 商品の正本（全チャネル・記事の単品価格）と、その写し・生成物（記事の price・掲載文・note-magazines.ts・coconala-services.ts）
     match: (f) =>
       f === datasetPath('config.products') ||
       /^content\/note\/.+\/(article(-[^/]+)?\.md|note掲載文\.txt)$/.test(f) ||
-      ['src/lib/note-magazines.ts', 'src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json'].includes(f),
+      ['src/lib/note-magazines.ts', 'src/lib/coconala-services.ts'].includes(f),
     // ファイル指定が無いので全量（手元 7 秒）
     cmd: () => ['node', 'scripts/check-products.mjs'],
   },

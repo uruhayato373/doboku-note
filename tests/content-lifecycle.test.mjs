@@ -16,6 +16,7 @@ import {
   igPackToStage,
 } from '../scripts/lib/content-lifecycle.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+import { loadKindleCatalog } from '../scripts/lib/kindle-catalog.mjs';
 
 test('STAGES は進行順の 6 値で、全てにラベルがある', () => {
   assert.deepEqual(STAGES, ['planned', 'draft', 'review', 'scheduled', 'published', 'retired']);
@@ -63,8 +64,9 @@ test('実カタログのネイティブ値を全て写像できる（coconala / 
   for (const m of coconala.matchAll(/^\s*status: '([a-z_]+)'/gm)) {
     assert.ok(coconalaStatusToStage(m[1], 'retired') !== null, `未写像の coconala status: ${m[1]}`);
   }
-  const catalog = JSON.parse(readFileSync(join(ROOT, 'scripts/kindle-published/catalog.json'), 'utf8'));
-  for (const b of catalog.books) {
+  const books = loadKindleCatalog();
+  assert.ok(books.length > 0, 'Kindle の書籍が 0 冊（検査していない）');
+  for (const b of books) {
     assert.ok(kindleStatusToStage(b.status) !== null, `未写像の kindle status: ${b.status}`);
   }
 });

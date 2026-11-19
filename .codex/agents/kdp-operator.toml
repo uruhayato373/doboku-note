@@ -22,7 +22,7 @@ developer_instructions = """
 | 参照 | 内容 |
 |---|---|
 | `config/kdp-memo.json` | KDP 入稿 SSOT（defaults＝共通申告/カテゴリー経路、books[id]＝固有メタ） |
-| `config/products.json`（channel kindle・id は `kindle-<書籍id>`） | 全書籍の status/ASIN/draftAsin/価格の真実源（冊数もここ）。`scripts/kindle-published/catalog.json` はここからの生成物で、読み手は今までどおり catalog.json を読む。手で直すときは `npm run product -- set kindle-<書籍id> catalog.<欄> <json値>`（catalog.json も作り直す） |
+| `config/products.json`（channel kindle・id は `kindle-<書籍id>`） | 全書籍の status/ASIN/draftAsin/価格の真実源（冊数もここ）。写しのファイルは無い（2026-11-20 に catalog.json を廃止。コードは `scripts/lib/kindle-catalog.mjs` の `loadKindleCatalog` で読む）。手で直すときは `npm run product -- set kindle-<書籍id> catalog.<欄> <json値>` |
 | `scripts/kindle-specs/<id>.json` | title/subtitle/price/sources（ビルド入力） |
 | `.claude/knowledge/reference/kindle-dup-prevention`（memory） | 修正版は既存差し替え・新規作成禁止／提出後 ASIN 即記録 |
 | `content/kindle/strategy.md` | 出版済み一覧（LIVE 化後の記録先の1つ） |
@@ -32,7 +32,7 @@ developer_instructions = """
 1. **提出前ゲート（重複防止）**: `--sync-status` で本棚突合。同タイトルの下書き/審査中/LIVE が
    既にあれば新規提出せず親へ報告（[[kindle-dup-prevention]]）。
 2. **提出駆動**: `kdp-publish.mjs --id <id>`（下書きまで）。`--commit-publish`（出版）は**親/ユーザー承認後のみ**。
-3. **記録**: 下書き保存後は script が config/products.json と生成物の catalog.json に draftAsin・アップロード記録を保存する（status は ready のまま、公開 ASIN と submittedDate は付けない）。出版申請後は `npm run product -- set` で status=in_review・submittedDate を記録する。
+3. **記録**: 下書き保存後は script が config/products.json に draftAsin・アップロード記録を保存する（status は ready のまま、公開 ASIN と submittedDate は付けない）。出版申請後は `npm run product -- set` で status=in_review・submittedDate を記録する。
    LIVE 化検知後（`--sync-status`）は ASIN を **catalog / `content/kindle/strategy.md` / kindle-published README の3箇所**へ。
 4. **価格ドリフトの是正**: `--sync-status` の `PRICE DRIFT` は「KDP UI で人が手動改定したのに
    リポジトリが古い」状態。**ライブを正として** `catalog.priceJpy` と `spec.price` の**両方**を
@@ -123,7 +123,7 @@ developer_instructions = """
 - `scripts/gen-kdp-memo.mjs` — コピペ用メモ生成（メタデータ人手確認。メタデータの作成は `kindle-book-composer`）
 - `scripts/sync-kindle-dist.mjs` — EPUB/表紙の再ビルド→Downloads 配置
 - `config/kdp-memo.json` — KDP 入稿 SSOT
-- `config/products.json`（channel kindle）— 全書籍レジストリの正本（提出後更新）。`scripts/kindle-published/catalog.json` は生成物
+- `config/products.json`（channel kindle）— 全書籍レジストリの正本（提出後更新）
 - `.claude/skills/kdp-publish/SKILL.md` — 手順書（本エージェントの呼出元）
 - memory [[kdp-svg-named-jpeg-bug]]（原稿がKDP変換で落ちる真因）・[[kindle-dup-prevention]]（重複防止鉄則）
 """

@@ -10,11 +10,11 @@ KDP で**公開済み（LIVE）**の Kindle 実物アーカイブ。実際に出
 
 公開済みの各シリーズを下表に記録する。
 
-**機械可読 SSOT = [`catalog.json`](./catalog.json)**（ASIN・価格・状態・版 version の真実源）。下表と `content/kindle/strategy.md` の「出版済み一覧」はここから派生させる。ASIN は Amazon 恒久 ID（アフィリリンク・公開状態照合・外部導線に使用）。
+**機械可読 SSOT = `config/products.json` の Kindle の書籍**（ASIN・価格・状態・版 version の真実源）。下表と `content/kindle/strategy.md` の「出版済み一覧」はここから派生させる。ASIN は Amazon 恒久 ID（アフィリリンク・公開状態照合・外部導線に使用）。
 
 ## 版管理（継続的改善）
 
-EPUB を更新して KDP に再アップしたら、`catalog.json` の当該本の `version` を上げ `versionHistory` に1行足す（例: A-01 は解説補完後の再アップで `1.0 → 1.1`）。リビルドは `node <builder> --theme <buildTheme>` で再現できる（両フィールドは catalog に記録済み）。実物 EPUB もここへ上書き保存して追跡する。
+EPUB を更新して KDP に再アップしたら、正本の当該本の `version` を上げ `versionHistory` に1行足す（例: A-01 は解説補完後の再アップで `1.0 → 1.1`）。リビルドは `node <builder> --theme <buildTheme>` で再現できる（両フィールドは catalog に記録済み）。実物 EPUB もここへ上書き保存して追跡する。
 
 ## 書式インバリアント検査（全シリーズ共通）
 
@@ -69,7 +69,7 @@ A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans`
 | G-02 コンクリート主任技士 | B0HGXLGJ5Y | 1.0 | `kindle-dist/g-02.epub` | `kindle-dist/g-02.jpg` | kdp-memo.json |
 | i-01 1級 施工経験記述 過去問模範答案集 | B0HPZNQRT1 | 1.0 | `kindle-dist/i-01.epub` | `kindle-dist/i-01.jpg` | `KDP入力メモ_i-01.txt` |
 
-> ASIN の真実源は `scripts/kindle-published/catalog.json`（`asin` フィールド）。この表と
+> ASIN の真実源は `config/products.json` の Kindle の書籍（`asin` フィールド）。この表と
 > `content/kindle/strategy.md` は人が読む索引で、**3 箇所とも同時に更新する**
 > （LIVE 化のたびに漏れやすい。2026-07-27 に C-01〜C-09 で本 README だけ記録漏れが発生した）。
 > 審査中で ASIN 未発番の本は catalog の `draftAsin` のみを持ち、この表には載せない。

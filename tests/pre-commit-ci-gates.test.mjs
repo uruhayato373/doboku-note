@@ -29,7 +29,7 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
   assert.deepEqual(planGates(['content/site/a/img/x.svg']).map((g) => g.id), ['image-assets']);
   assert.deepEqual(planGates(['content/site/a/img/photo-x.webp']).map((g) => g.id), ['image-assets']);
   assert.deepEqual(only(['config/products.json']), ['products']);
-  assert.deepEqual(only(['src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json']), ['products']);
+  assert.deepEqual(only(['src/lib/coconala-services.ts']), ['products']);
   // 転職アフィリエイトの配置ルールと、それが突き合わせる正本
   for (const f of ['config/affiliate-placements.json', 'config/affiliate-mats.json', 'config/cta-placements.json', 'data/affiliate/catalog.json', 'src/config/affiliate-creatives.ts']) {
     assert.deepEqual(only([f]), ['affiliate-placements'], f);
@@ -120,7 +120,7 @@ test('planGates: スクリプトとワークフローを変えたら、書き方
     assert.ok(ids.includes('unit-tests') && ids.includes('knip-ratchet'), f);
   }
   assert.ok(!planGates(['src/lib/coconala-services.ts']).some((g) => g.id === 'unit-tests'), 'サイトの src/ は CI の全量に任せる');
-  assert.ok(!planGates(['scripts/kindle-published/catalog.json']).some((g) => g.id === 'unit-tests'), 'コードでない JSON は見ない');
+  assert.ok(!planGates(['src/lib/note-magazines.ts']).some((g) => g.id === 'unit-tests'), '生成物の TS は見ない');
 });
 
 test('unit-tests は hook の GIT_INDEX_FILE などを外して起動する（テストの git が commit 用の index を書き換えない）', () => {

@@ -50,7 +50,7 @@ CI からの提出（`ops-write.yml`）は廃止した。提出は運営者の�
 node scripts/kdp-publish.mjs --id <id>
 ```
 → 詳細→カテゴリー→原稿/表紙アップロード→**原稿処理完了まで待機**→AI申告→アクセシビリティ→価格→下書き保存。
-`.tmp/kdp-<id>-checklist.txt` を出力。発番したドラフト ASIN は catalog.json の `draftAsin` に自動記録（再実行で重複作成しない）。
+`.tmp/kdp-<id>-checklist.txt` を出力。発番したドラフト ASIN は商品の正本（config/products.json）の `draftAsin` に自動記録（再実行で重複作成しない）。
 
 ### 出版（不可逆・承認後）
 ```
@@ -200,6 +200,6 @@ node scripts/kdp-publish.mjs --id <id> --update-cover [--commit [--commit-publis
 - `scripts/lib/kdp-common.mjs` — SSOT 読取り・defaults/override・検証
 - `.claude/agents/kdp-operator.md` — 運用オーケストレーター（本スキルの委譲先）
 - `config/kdp-memo.json` — KDP 入稿 SSOT
-- `scripts/kindle-published/catalog.json` — 全書籍レジストリ
+- `config/products.json`（channel kindle）— 全書籍レジストリ
 - [/kindle-build](../kindle-build/SKILL.md) — 前工程（EPUB 生成）
 - [strategy.md](../../../content/kindle/strategy.md) — 出版戦略・出版済み一覧

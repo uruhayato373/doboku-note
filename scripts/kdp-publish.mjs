@@ -24,7 +24,7 @@
  *   node scripts/kdp-publish.mjs --dump --asin <ASIN> --page <details|content|pricing>  # UI変更時の較正
  *   node scripts/kdp-publish.mjs --diag-category --asin <ASIN>  # カテゴリーカスケードの候補実測(A/E系較正)
  *
- * 再開性(重複防止): 新規提出で発番したドラフト ASIN を catalog.json の draftAsin に永続化し、
+ * 再開性(重複防止): 新規提出で発番したドラフト ASIN を商品の正本（config/products.json）の書籍の行の draftAsin に永続化し、
  *   次回 --id 実行時に draftAsin があれば新規作成せず既存ドラフトへ直行する([[kindle-dup-prevention]])。
  * ---------------------------------------------------------------------------
  */
@@ -42,14 +42,16 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { jstClock, todayJst } from './lib/jst-date.mjs';
 import { updateKindleCatalog } from './lib/product-registry.mjs';
+import { loadKindleCatalog } from './lib/kindle-catalog.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TMP = join(ROOT, '.tmp');
-const CATALOG = join(ROOT, 'scripts/kindle-published/catalog.json');
 mkdirSync(TMP, { recursive: true });
-const readCatalogRow = (id) => (existsSync(CATALOG) ? JSON.parse(readFileSync(CATALOG, 'utf8')).books?.find((b) => b.id === id) || null : null);
+// 書籍の行（正本 config/products.json の Kindle 商品）。読めなければ null（呼び手が止める）
+const readCatalog = () => { try { return { books: loadKindleCatalog() }; } catch { return null; } };
+const readCatalogRow = (id) => readCatalog()?.books.find((b) => b.id === id) || null;
 
 // ── 引数 ─────────────────────────────────────────────────────────────────
 const argv = process.argv.slice(2);
@@ -103,9 +105,8 @@ if (MODE_UPDATE_COVER) {
 }
 
 // ── catalog draftAsin ヘルパ（再開性=重複防止）──────────────────────────
-const readCatalog = () => (existsSync(CATALOG) ? JSON.parse(readFileSync(CATALOG, 'utf8')) : null);
 const getDraftAsin = (id) => { const c = readCatalog(); return c?.books?.find((b) => b.id === id)?.draftAsin || null; };
-// catalog.json は config/products.json からの生成物。書き換えは updateKindleCatalog（正本へ戻して作り直す）
+// 書き換えは updateKindleCatalog（正本へ戻す）だけ
 const setDraftAsin = (id, asin) => {
   const wrote = updateKindleCatalog((c) => {
     const b = c.books.find((x) => x.id === id); if (!b || b.draftAsin === asin) return false;
@@ -258,7 +259,7 @@ const writeCatalogPrice = (id, price, from) => {
     (b.priceHistory ||= []).push({ date: todayJst(), from: Number(from), to: price });
     return true;
   });
-  if (wrote) console.log(`[catalog] ${id} priceJpy = ${price}（商品の正本と catalog.json）`);
+  if (wrote) console.log(`[catalog] ${id} priceJpy = ${price}（商品の正本）`);
 };
 const ROYALTY_RADIO = { 0.7: '70_PERCENT', 0.35: '35_PERCENT' };
 
@@ -613,8 +614,7 @@ try {
   //   「<タイトル> 著: doboku-note Kindle 本 <状態> 提出日: YYYY年M月D日 ¥価格 … ASIN: B0XXXXXXXX」
   //   を1行に持つ。タイトルは UI 上「…」で省略されるため前方一致でしか照合できない。
   if (MODE_SYNC) {
-    const cat = JSON.parse(readFileSync(CATALOG, 'utf8'));
-    const books = Array.isArray(cat) ? cat : (cat.books || Object.values(cat).find(Array.isArray));
+    const books = readCatalog()?.books;
     if (!books || !books.length) { console.error('ABORT: catalog を読めない（検査不成立）'); await ctx.close(); process.exit(1); }
 
     const searchOne = async (title) => {

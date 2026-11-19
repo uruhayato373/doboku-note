@@ -37,7 +37,7 @@
     },
     {
       "id": "generated-ebook",
-      "reason": "EPUB は原稿 md からのビルド成果物。LIVE 済み書籍の同一性は KDP 側と catalog.json が持つ",
+      "reason": "EPUB は原稿 md からのビルド成果物。LIVE 済み書籍の同一性は KDP 側と商品の正本（config/products.json）が持つ",
       "correctPlace": "R2 private（doboku-note-archive/kindle/dist/）または再ビルド",
       "match": {
         "ext": [

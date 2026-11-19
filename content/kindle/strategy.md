@@ -513,7 +513,7 @@
 ## 出版済み一覧
 
 > [!info] 機械可読 SSOT
-> ASIN・価格・状態・版(version)の真実源は `config/products.json`（channel kindle）。[`scripts/kindle-published/catalog.json`](../../scripts/kindle-published/catalog.json) はそこからの生成物（`npm run product -- gen`）で、下表はそこから派生させる。EPUB を更新して再アップしたら catalog の `version` を上げ `versionHistory` に追記する（版管理の運用は `scripts/kindle-published/README.md`）。
+> ASIN・価格・状態・版(version)の真実源は `config/products.json`（channel kindle）。下表はそこから派生させる（写しの catalog.json は 2026-11-20 に廃止）。EPUB を更新して再アップしたら catalog の `version` を上げ `versionHistory` に追記する（版管理の運用は `scripts/kindle-published/README.md`）。
 
 ### Aシリーズ（1級土木 論点別）
 

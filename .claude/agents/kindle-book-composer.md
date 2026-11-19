@@ -53,7 +53,7 @@ kdp-memo 未登録本（C系12/F系16/e-02）の `books[id]` を、spec と原�
 
 ### 4. 既刊・審査中の改訂ロック
 
-- 着手前に `scripts/kindle-published/catalog.json` の対象IDを確認する
+- 着手前に `config/products.json` の Kindle の書籍（`kindle-<書籍id>`）で対象IDを確認する
 - `status` が `in_review` または `live` の書籍は、ユーザーが既刊改訂を明示した場合だけ前付けを変更する
 - 改訂時は EPUB 再ビルド・QA・KDP 差し替え・catalog の `version` / `versionHistory` 更新を一連の作業として親へ引き継ぐ。差し替え手段が未実装なら原稿だけ先行変更しない
 

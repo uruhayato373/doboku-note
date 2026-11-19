@@ -38,7 +38,7 @@ title: コンテンツ ライフサイクル（全チャネル共通ステージ
 | X | `content/sns/x/draft/**/status.json` の tweets[].status | queued→draft／scheduled→scheduled／posted→published／replaced・cancelled→retired |
 | YouTube Shorts | コンテンツ台帳 `content/registry/publications/youtube/` の status（旧 Shorts は作品の kind が `legacy-short`・旧台帳 `youtube-schedule.json` は 2026-10-09 に消した） | 旧 uploaded→published／旧 retired→stopped（user-decision）／消失→stopped（gone）。段階は `youtubePublications` の `stage` |
 | ココナラ | `src/lib/coconala-services.ts` の status（＋pauseReason） | draft→draft／listed→published／paused かつ absence→scheduled／paused（retired・理由不明）→retired／archived→retired |
-| Kindle | `scripts/kindle-published/catalog.json` の status | draft→draft／in_review→review／live→published／unpublished→retired |
+| Kindle | `config/products.json` の Kindle の書籍（channel kindle の `catalog`） の status | draft→draft／in_review→review／live→published／unpublished→retired |
 
 ## 4. 新しいチャネルを足すとき
 

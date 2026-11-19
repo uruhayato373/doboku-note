@@ -12,6 +12,7 @@ import { join } from 'node:path';
 import { classifySale, classifyProduct, loadLineupConfig } from './product-lineup.mjs';
 import { datasetPath } from './datasets.mjs';
 import { readJson } from './json-io.mjs';
+import { loadKindleCatalogIfPresent } from './kindle-catalog.mjs';
 
 const inPeriod = (day, period) => day >= period.startDate && day <= period.endDate;
 
@@ -59,8 +60,7 @@ export function salesByQualification(root, period, config = loadLineupConfig()) 
 
   const kdpPath = datasetPath('kdp.royalties');
   if (existsSync(join(root, kdpPath))) {
-    const catalogPath = 'scripts/kindle-published/catalog.json';
-    const ownBooks = new Set((existsSync(join(root, catalogPath)) ? readJson(root, catalogPath).books ?? [] : []).map((b) => b.id ?? b.bookId));
+    const ownBooks = new Set(loadKindleCatalogIfPresent(root).map((b) => b.id));
     const months = new Set();
     for (let d = new Date(`${period.startDate}T00:00:00Z`); d.toISOString().slice(0, 10) <= period.endDate; d.setUTCMonth(d.getUTCMonth() + 1, 1)) months.add(d.toISOString().slice(0, 7));
     for (const entry of Object.values(readJson(root, kdpPath).months ?? {})) {
