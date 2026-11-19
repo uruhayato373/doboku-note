@@ -4,13 +4,13 @@
 // gen-kdp-memo.mjs（コピペ用メモ生成）と kdp-publish.mjs（Playwright 入稿・出版）の共通基盤。
 // 共通定数を両スクリプトで二重定義しないための単一ソース（真実源は config の defaults）。
 // ---------------------------------------------------------------------------
-import { readFileSync, existsSync, readdirSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { datasetPath } from './datasets.mjs'
 import { REPO_ROOT as REPO } from './repository-paths.mjs'
+import { kindleSpecIds, kindleSpecPath } from './kindle-catalog.mjs'
 
 const CONFIG_PATH = resolve(REPO, datasetPath('config.kdp-memo'))
-const SPEC_DIR = resolve(REPO, 'scripts/kindle-specs')
 
 // config に defaults が無い旧環境でも動く後方互換フォールバック（gen-kdp-memo.mjs 旧定数と同値）
 const FALLBACK_DEFAULTS = {
@@ -61,7 +61,7 @@ export function uncoveredCategoryBooks(bookIds, defaults = getDefaults()) {
 // spec + books[id] + defaults を統合した正規化 book オブジェクトを返す。
 // options.requireMemo=false のとき kdp-memo 未登録でも spec だけで最小構築（--calibrate/--dump 用）。
 export function resolveBook(id, { requireMemo = true } = {}) {
-  const specPath = resolve(SPEC_DIR, `${id}.json`)
+  const specPath = resolve(REPO, kindleSpecPath(id))
   if (!existsSync(specPath)) throw new Error(`spec not found: ${specPath}`)
   const spec = JSON.parse(readFileSync(specPath, 'utf8'))
   const cfg = loadKdpConfig()
@@ -137,19 +137,18 @@ export function kindlePriceIssues(catalogBooks, specPrices) {
   return issues
 }
 
-// scripts/kindle-specs/*.json の price を { id: price } で返す。
+// content/kindle/books/<id>/spec.json の price を { id: price } で返す。
 export function loadSpecPrices() {
   const out = {}
-  for (const f of readdirSync(SPEC_DIR)) {
-    if (!f.endsWith('.json')) continue
-    const spec = JSON.parse(readFileSync(resolve(SPEC_DIR, f), 'utf8'))
-    if (typeof spec.price === 'number') out[f.replace(/\.json$/, '')] = spec.price
+  for (const id of kindleSpecIds()) {
+    const spec = JSON.parse(readFileSync(resolve(REPO, kindleSpecPath(id)), 'utf8'))
+    if (typeof spec.price === 'number') out[id] = spec.price
   }
   return out
 }
 
 export function hasSpec(id) {
-  return existsSync(resolve(SPEC_DIR, `${id}.json`))
+  return existsSync(resolve(REPO, kindleSpecPath(id)))
 }
 
 // メタデータ検証。問題があれば配列で返す（空なら合格）。

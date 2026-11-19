@@ -3,10 +3,10 @@
  * build-pop-cover.mjs — Kindle 表紙の唯一の作り方。文字まで画像生成で描く POP 表紙を、候補の生成 → 目視 → 採用の 2 段で作る。
  *
  *   npm run kindle-pop-cover -- --id c-05 [--candidates 2] [--model <m>]
- *       spec（scripts/kindle-covers/specs/<id>.json）の pop から生成指示を組み、候補を .tmp/kindle-pop/<id>/ に出す。
+ *       spec（content/kindle/books/<id>/cover.json）の pop から生成指示を組み、候補を .tmp/kindle-pop/<id>/ に出す。
  *       原寸と幅 136px（Amazon の検索結果）を並べた確認用の画像と、描くべき文字の一覧を出す。採用はしない。
  *   npm run kindle-pop-cover -- --adopt c-05 --candidate .tmp/kindle-pop/c-05/cand-1.png --review "<確かめたこと>"
- *       候補を 1600×2560 の JPEG にして catalog の表紙の置き場へ書き、制作記録（scripts/kindle-covers/pop/<id>.pop-image.json）を残し、
+ *       候補を 1600×2560 の JPEG にして catalog の表紙の置き場へ書き、制作記録（content/kindle/books/<id>/pop-image.json）を残し、
  *       spec に adoptedImage を足す（npm run sync-kindle-dist はこの本の表紙を作り直さない）。
  *
  * 採用の前に、文字の一覧と画像を 1 文字ずつ照合する（誤字・欠け・余計な文字・手指・顔と印の重なり）。
@@ -20,7 +20,7 @@ import sharp from 'sharp'
 import { parseCliArgs } from '../lib/cli-args.mjs'
 import { generateWithCodexAsync } from '../lib/codex-image.mjs'
 import { examPalette, loadImageRules } from '../lib/image-rules.mjs'
-import { artifactRelPaths, loadKindleCatalog } from '../lib/kindle-catalog.mjs'
+import { artifactRelPaths, kindleBookFile, kindleCoverSpecPath, loadKindleCatalog } from '../lib/kindle-catalog.mjs'
 import { buildKindlePopPrompt, kindleRatioOk, popErrors, popTexts } from '../lib/kindle-pop-cover.mjs'
 import { todayJst } from '../lib/jst-date.mjs'
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs'
@@ -35,11 +35,9 @@ const args = parseCliArgs({
 })
 
 const specPath = (id) => {
-  for (const name of [id, id.toLowerCase()]) {
-    const path = join(ROOT, 'scripts/kindle-covers/specs', `${name}.json`)
-    if (existsSync(path)) return path
-  }
-  throw new Error(`表紙 spec が無い: scripts/kindle-covers/specs/${id}.json`)
+  const path = join(ROOT, kindleCoverSpecPath(id))
+  if (existsSync(path)) return path
+  throw new Error(`表紙 spec が無い: ${kindleCoverSpecPath(id)}`)
 }
 const readSpec = (id) => JSON.parse(readFileSync(specPath(id), 'utf8'))
 const sha256 = (file) => createHash('sha256').update(readFileSync(file)).digest('hex')
@@ -102,7 +100,7 @@ async function adopt(id) {
   mkdirSync(dirname(dest), { recursive: true })
   await sharp(candidate).resize(1600, 2560, { fit: 'fill', kernel: 'lanczos3' }).sharpen({ sigma: 0.8 })
     .jpeg({ quality: 92, mozjpeg: true }).toFile(dest)
-  const recordRel = `scripts/kindle-covers/pop/${id}.pop-image.json`
+  const recordRel = kindleBookFile(id, 'pop-image.json')
   const record = {
     id,
     adoptedAt: todayJst(),
@@ -113,7 +111,7 @@ async function adopt(id) {
     adopted: { path: rel(dest), size: [1600, 2560], format: 'JPEG q92・lanczos3 で拡大・弱いシャープ', sha256: sha256(dest) },
     review: args.review,
   }
-  mkdirSync(join(ROOT, 'scripts/kindle-covers/pop'), { recursive: true })
+  mkdirSync(dirname(join(ROOT, recordRel)), { recursive: true })
   writeFileSync(join(ROOT, recordRel), `${JSON.stringify(record, null, 2)}\n`)
   const { bookId, adoptedImage: _old, ...rest } = spec
   writeFileSync(specPath(id), `${JSON.stringify({ bookId, adoptedImage: recordRel, ...rest }, null, 2)}\n`)

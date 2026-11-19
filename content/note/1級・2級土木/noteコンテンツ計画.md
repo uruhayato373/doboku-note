@@ -173,7 +173,7 @@
 | 一次 計算問題パターン集（土量変化率／ネットワーク工程表／建設機械） | 1級・2級共通 / ¥1,480 | 総監「計算問題パターン集」の移植。**Kindle Aシリーズ（[Kindle 管理SSOT](../../../content/kindle/strategy.md)）との役割書き分け必須**（note＝解法の型・戦略／Kindle＝問題集本体）。一次は7/5に間に合わないため2027春投入（§5.4） |
 
 > [!important] 2級 第1次検定 過去問PDF を SKU 登録（2026-07-11・§9.3 の「択一PDF」を前倒し実施）
-> `civil-2-takuitsu-pdf`（2級土木 第1次検定 過去問PDF 全630問 ¥1,480・`published:false`）を `src/lib/note-magazines.ts` に登録済み。実体は R3-R7 前期後期の全問全選択肢解説を A4 PDF 化し有料エリアに添付する単発記事（原稿 = `content/note/1級・2級土木/2級土木/一次択一-過去問PDF/`、生成 = `npm run build-takuitsu-pdf --spec scripts/kindle-specs/e-01.json`）。Kindle E-01 と同一原稿の note 従チャネル展開で、対象本は **KDP Select 非加入**で同時併売（[Kindle 管理SSOT](../../../content/kindle/strategy.md)）。Red Line #5「一次に添削工数を割かない」は維持（PDF は build-once・添削なし）。残 = 実機 note 公開 → noteUrl 記入 + `published:true`。
+> `civil-2-takuitsu-pdf`（2級土木 第1次検定 過去問PDF 全630問 ¥1,480・`published:false`）を `src/lib/note-magazines.ts` に登録済み。実体は R3-R7 前期後期の全問全選択肢解説を A4 PDF 化し有料エリアに添付する単発記事（原稿 = `content/note/1級・2級土木/2級土木/一次択一-過去問PDF/`、生成 = `npm run build-takuitsu-pdf --spec content/kindle/books/e-01/spec.json`）。Kindle E-01 と同一原稿の note 従チャネル展開で、対象本は **KDP Select 非加入**で同時併売（[Kindle 管理SSOT](../../../content/kindle/strategy.md)）。Red Line #5「一次に添削工数を割かない」は維持（PDF は build-once・添削なし）。残 = 実機 note 公開 → noteUrl 記入 + `published:true`。
 | 一次 出る順・捨て問戦略ノート | 1級 ¥980／2級 ¥580 | H26-R07 12年×全問の頻度分析→「61問中39問選択」の捨て問戦略。**統計のための統計にせず捨て問判断という行動指針に落とす**（総監M1撤回の教訓＝未合格者の独自データ分析販売禁止だが、本商品は公式過去問の客観頻度分析なので対象外） |
 
 ### 9.4 不採用案と理由（再提案の抑止）
@@ -198,7 +198,7 @@
 
 ### 10.1 施策A — 1級 一次択一 過去問PDF `civil-1-takuitsu-pdf`（10月・本命）
 
-> **【2026-07-16 公開直前まで完了】** PDF 生成済み（`scripts/kindle-specs/e-02.json` → `build-takuitsu-pdf`＝全1162問・図109点・818頁）。原稿 `content/note/1級・2級土木/1級土木/一次択一-過去問PDF/article.md`・カバー・SKU（`published:false`）まで準備。**残＝10月上旬に A系 Kindle の KDP Select 自動更新をユーザーが管理画面でオフ → `note-publish.mjs` で公開 → `note-attach-file.mjs --boundary-regex "PDF のダウンロードと使い方" --commit` で PDF 添付 → SKU を published:true + noteUrl**。ビルダーに civil-1 の生 `<img src="/posts/...">` 埋め込みと図キャプション変換を追加済み。
+> **【2026-07-16 公開直前まで完了】** PDF 生成済み（`content/kindle/books/e-02/spec.json` → `build-takuitsu-pdf`＝全1162問・図109点・818頁）。原稿 `content/note/1級・2級土木/1級土木/一次択一-過去問PDF/article.md`・カバー・SKU（`published:false`）まで準備。**残＝10月上旬に A系 Kindle の KDP Select 自動更新をユーザーが管理画面でオフ → `note-publish.mjs` で公開 → `note-attach-file.mjs --boundary-regex "PDF のダウンロードと使い方" --commit` で PDF 添付 → SKU を published:true + noteUrl**。ビルダーに civil-1 の生 `<img src="/posts/...">` 埋め込みと図キャプション変換を追加済み。
 
 - **内容**: `src/config/civil-1-exam-questions.json`（H26-R7・1,162問）を年度別に全問全選択肢解説した PDF。§9.3 の `civil-2-takuitsu-pdf`（630問 ¥1,480・SKU登録済）の 1級版
 - **価格**: **¥1,980**（2級 630問=¥1,480 との規模整合）

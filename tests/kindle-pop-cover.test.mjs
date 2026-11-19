@@ -1,10 +1,10 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readdirSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { buildKindlePopPrompt, kindleRatioOk, popErrors, popTexts, DEFAULT_FOOTER } from '../scripts/lib/kindle-pop-cover.mjs'
 import { examPalette, loadImageRules } from '../scripts/lib/image-rules.mjs'
-import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs'
+import { KINDLE_BOOKS_ROOT, REPO_ROOT } from '../scripts/lib/repository-paths.mjs'
 
 const POP = {
   exam: 'pe-construction', kicker: '技術士 建設部門 第二次試験', title: '道路', titleSub: '模範解答集',
@@ -36,10 +36,9 @@ test('縦横比が 5:8 から 1% を超えて外れた原本は採用しない',
 })
 
 test('adoptedImage のある表紙 spec は pop を持ち、制作記録が実在する', () => {
-  const dir = join(REPO_ROOT, 'scripts/kindle-covers/specs')
   let checked = 0
-  for (const name of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
-    const spec = JSON.parse(readFileSync(join(dir, name), 'utf8'))
+  for (const name of readdirSync(KINDLE_BOOKS_ROOT).filter((d) => existsSync(join(KINDLE_BOOKS_ROOT, d, 'cover.json')))) {
+    const spec = JSON.parse(readFileSync(join(KINDLE_BOOKS_ROOT, name, 'cover.json'), 'utf8'))
     if (!spec.adoptedImage) continue
     checked += 1
     assert.deepEqual(popErrors(spec.pop), [], `${name}: pop の欠け`)

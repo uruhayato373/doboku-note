@@ -27,7 +27,7 @@ Kindle 書籍（[strategy.md](../../content/kindle/strategy.md) のラインナ�
 
 ### 2. B〜F系: spec JSON + 書き下ろし前付け
 
-- spec 作成: `scripts/kindle-specs/{id}.json` — `{bookId, title, subtitle, price, sources, frontMatter, outDir}`。価格は `strategy.md` のシリーズ別ポリシーに準拠
+- spec 作成: `content/kindle/books/{id}/spec.json` — `{bookId, title, subtitle, price, sources, frontMatter, outDir}`。価格は `strategy.md` のシリーズ別ポリシーに準拠
 - 書き下ろし前付け: `content/kindle/books/{id}/front-matter.md` を**spec の原稿ソースを実読して**執筆する
   - はじめに（本書の使い方・対象読者）
   - 7 年分の出題傾向分析（頻出分野・出題形式の変化を実データで。憶測の統計は書かない）

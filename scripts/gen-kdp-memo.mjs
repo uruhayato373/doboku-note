@@ -1,7 +1,7 @@
 // KDP 入稿メモを共通テンプレで生成する（コピペ登録用・記載漏れと表記ゆれを防ぐ）。
 // 共通項（著者=doboku-note・レーベル・AI申告・カテゴリ・KDPフロー）はここに一元化。
 // 各本の固有値は config/kdp-memo.json、title/subtitle/price/creditIssuer は
-// scripts/kindle-specs/<id>.json から取得。出力は scripts/kindle-published/KDP入力メモ_<id>.txt。
+// content/kindle/books/<id>/spec.json から取得。出力は scripts/kindle-published/KDP入力メモ_<id>.txt。
 //
 // 使い方: node scripts/gen-kdp-memo.mjs e-01 d-01 d-02 ...   （複数可・省略で config 全件）
 
@@ -11,6 +11,7 @@ import { getDefaults, resolveBook, ROYALTY70_BAND } from './lib/kdp-common.mjs'
 import { datasetPath } from './lib/datasets.mjs'
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT as REPO } from './lib/repository-paths.mjs';
+import { kindleSpecPath } from './lib/kindle-catalog.mjs';
 
 // ── 共通ルール（真実源 = config/kdp-memo.json の defaults。lib/kdp-common 経由で読む）──
 const DEF = getDefaults()
@@ -146,7 +147,7 @@ const ids = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(c
 for (const id of ids) {
   const d = cfg[id]
   if (!d) { console.error(`config に ${id} がない（${datasetPath('config.kdp-memo')} に追記を）`); continue }
-  const specPath = resolve(REPO, `scripts/kindle-specs/${id}.json`)
+  const specPath = resolve(REPO, kindleSpecPath(id))
   if (!existsSync(specPath)) { console.error(`spec が無い: ${id}`); continue }
   const spec = JSON.parse(readFileSync(specPath, 'utf8'))
   const out = resolve(REPO, `scripts/kindle-published/KDP入力メモ_${id}.txt`)

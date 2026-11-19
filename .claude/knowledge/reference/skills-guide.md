@@ -224,8 +224,8 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
    - 出力先: `.tmp/takuitsu-{key}/{key}.epub`（gitignore）。表紙は `scripts/kindle-covers/`（spec 駆動）
    - Kindle Previewer 確認後、KDP（[kdp.amazon.co.jp](https://kdp.amazon.co.jp)）にアップロード
    - 書籍ID→コマンドの解決表・KDP実運用メモの真実源 → `.claude/skills/kindle-build/SKILL.md`
-2. **B/D/Eシリーズ（択一・合本）**: `node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json`
-3. **C/Fシリーズ（記述式・模範解答/論文）**: `node scripts/build-essay-kindle.mjs --spec scripts/kindle-specs/{id}.json`
+2. **B/D/Eシリーズ（択一・合本）**: `node scripts/build-pe1-kindle.mjs --spec content/kindle/books/{id}/spec.json`
+3. **C/Fシリーズ（記述式・模範解答/論文）**: `node scripts/build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json`
 4. 非公開前付け → `content/kindle/books/{id}/front-matter.md`（`kindle-book-composer` 管理）
 5. 戦略全体・ラインナップ一覧 → `content/kindle/strategy.md`
 

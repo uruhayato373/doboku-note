@@ -4,7 +4,7 @@
 // markdown レンダラは scripts/lib/kindle-md.mjs を共有（択一ビルダーと同一ロジック）。
 //
 // 使い方:
-//   node scripts/build-essay-kindle.mjs --spec scripts/kindle-specs/c-01.json
+//   node scripts/build-essay-kindle.mjs --spec content/kindle/books/c-01/spec.json
 //
 // spec スキーマ:
 //   {
@@ -43,7 +43,7 @@ const DEFAULT_DROP = [/^印刷用PDF/, /^必須科目Ⅰ?I? ?を全年度/, /^�
 
 function parseArgs(argv) {
   const { spec, outDir } = parseCliArgs({ spec: { type: 'string' }, outDir: { type: 'string' } }, argv)
-  if (!spec) throw new Error('--spec <scripts/kindle-specs/*.json> は必須')
+  if (!spec) throw new Error('--spec <content/kindle/books/*/spec.json> は必須')
   return { spec, outDir }
 }
 

@@ -10,15 +10,34 @@
  * 副作用は fs の read-only アクセスと git log（read-only）のみ。ネットワーク・書き込みは
  * 一切しない。`config/kdp-memo.json`（accountEmail 等の秘密混じり）は読まない。
  */
-import { readFileSync, existsSync, statSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs'
 import { join, basename } from 'node:path'
-import { REPO_ROOT } from './repository-paths.mjs'
+import { KINDLE_BOOKS_REL, KINDLE_BOOKS_ROOT, REPO_ROOT } from './repository-paths.mjs'
 import { datasetPath } from './datasets.mjs'
 
 /** 書籍の行を持つファイル（商品の正本）のリポジトリ相対パス */
 export const KINDLE_CATALOG_SOURCE = datasetPath('config.products')
 export const ROYALTIES_PATH = join(REPO_ROOT, datasetPath('kdp.royalties'))
 export const KINDLE_DIST_DIR = join(REPO_ROOT, 'scripts/kindle-dist')
+
+/**
+ * 本のフォルダの中のファイル（spec.json・cover.json・pop-image.json）のリポジトリ相対パス。
+ * フォルダ名は書籍 id（A 系は大文字）。表紙の spec の id が小文字（a-01）でも同じフォルダを引けるよう、大文字小文字は区別しない。
+ * 本のフォルダが無ければ id のままのパスを返す（呼び手が existsSync で確かめる）。
+ */
+export function kindleBookFile(id, name) {
+  const dirs = existsSync(KINDLE_BOOKS_ROOT) ? readdirSync(KINDLE_BOOKS_ROOT) : []
+  const dir = dirs.includes(id) ? id : (dirs.find((d) => d.toLowerCase() === String(id).toLowerCase()) ?? id)
+  return `${KINDLE_BOOKS_REL}/${dir}/${name}`
+}
+export const kindleSpecPath = (id) => kindleBookFile(id, 'spec.json')
+export const kindleCoverSpecPath = (id) => kindleBookFile(id, 'cover.json')
+
+/** spec.json を持つ本の書籍 id（フォルダ名）の一覧 */
+export function kindleSpecIds() {
+  if (!existsSync(KINDLE_BOOKS_ROOT)) return []
+  return readdirSync(KINDLE_BOOKS_ROOT).filter((d) => existsSync(join(KINDLE_BOOKS_ROOT, d, 'spec.json'))).sort()
+}
 
 /** 商品の配列から Kindle 書籍の行を order の順に取り出す（純粋） */
 export function kindleBooksOf(products) {
@@ -45,7 +64,7 @@ export function loadKindleCatalogIfPresent(root = REPO_ROOT) {
  *  - epub/cover: 値が '/' を含む（例 "kindle-dist/e-01.epub"）→ `scripts/` + 値。
  *                含まない（例 "kindle-A-00-goubon.epub"）→ `scripts/kindle-published/` + 値。
  *  - kdpMemo: 値が 'scripts/' で始まる → そのまま。それ以外 → `scripts/kindle-published/` + 値。
- *  - buildSpec: そのまま（'scripts/kindle-specs/<id>.json'）。テーマ駆動の A 系は null。
+ *  - buildSpec: そのまま（'content/kindle/books/<id>/spec.json'）。テーマ駆動の A 系は null。
  */
 export function artifactRelPaths(book) {
   const withPrefix = (v, defaultDir) => {

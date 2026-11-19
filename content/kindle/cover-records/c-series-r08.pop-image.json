@@ -3,7 +3,7 @@
   "createdAt": "2026-11-10",
   "approvedBy": "運営者（c-05 の見本を承認し「この形で進める」・2026-11-10）",
   "review": "12 枚を原寸と縮小で目視。科目名・年度・本数・肩書きの文字、手指、印と顔の重なりを確認して全数合格",
-  "note": "scripts/kindle-covers/specs/c-*.json は旧組版。npm run sync-kindle-dist を c 系に流すと表紙がこの POP 版から旧組版へ戻るので、c 系の表紙はこの記録の adopted を正とする",
+  "note": "content/kindle/books/c-*/cover.json は旧組版。npm run sync-kindle-dist を c 系に流すと表紙がこの POP 版から旧組版へ戻るので、c 系の表紙はこの記録の adopted を正とする",
   "books": {
     "c-01": {
       "reference": "scripts/kindle-dist/c-01.jpg（2026-10-20 制作の旧 POP 表紙・private R2 の旧版）",

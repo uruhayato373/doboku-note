@@ -3,7 +3,7 @@
  * check-kindle-prices.mjs
  * ---------------------------------------------------------------------------
  * Kindle の価格台帳の整合を検査する。
- *   - spec.price（scripts/kindle-specs/<id>.json・提出と改定の目標値）と
+ *   - spec.price（content/kindle/books/<id>/spec.json・提出と改定の目標値）と
  *     catalog.priceJpy（商品の正本 config/products.json の Kindle の書籍の行）が一致しているか
  *   - royalty 0.7 の本が 70% 帯（¥250〜¥1,250）に収まっているか
  *

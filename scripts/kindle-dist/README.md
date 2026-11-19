@@ -17,7 +17,7 @@ A シリーズ（公開済/審査中）の実物は歴史的経緯で [`../kindl
 ## 再生成（spec / theme から決定的に再現できる）
 
 EPUB は B〜G 系の `buildSpec` または A 系の `buildTheme` から再現可能。表紙は、`adoptedImage` のある本は採用済み JPEG と制作記録
-（`kindle-covers/pop/<id>.pop-image.json`）が正本で再生成しない。それ以外の旧本だけ `kindle-covers/specs/<id>.json`＋`backgrounds/` から再現する。A 系は公開済み版を保護するため、ID を明示したときだけ
+（`content/kindle/books/<id>/pop-image.json`）が正本で再生成しない。それ以外の旧本だけ `content/kindle/books/<id>/cover.json`＋`backgrounds/` から再現する。A 系は公開済み版を保護するため、ID を明示したときだけ
 `scripts/kindle-published/` の catalog 配布先へ再生成する。
 
 ```bash

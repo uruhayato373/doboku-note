@@ -984,7 +984,7 @@ DN-1214 の本番反映後は、本文中の最大 3 枠・右欄上端の build
 
 **決めること（運営者）**: 4 冊の新しい価格。d-00 は ¥1,480 以下（または note の PDF を上げる）。分冊は d-00 との差も見る。
 
-**やること**: 表紙の審査が終わったら（`node scripts/kdp-publish.mjs --sync-status` で確認）、決めた価格で `--set-price` を dry-run → `--commit`。`config/products.json` の価格と priceHistory、`scripts/kindle-specs/d-0*.json` を同じ commit で直し、`content/kindle/strategy.md` に判断を書く。
+**やること**: 表紙の審査が終わったら（`node scripts/kdp-publish.mjs --sync-status` で確認）、決めた価格で `--set-price` を dry-run → `--commit`。`config/products.json` の価格と priceHistory、`content/kindle/books/d-0*/spec.json` を同じ commit で直し、`content/kindle/strategy.md` に判断を書く。
 
 **完了条件**: KDP の 4 冊の価格が決めた値になり、catalog と一致している（`npm run check-kindle-prices`）。
 
@@ -1207,7 +1207,7 @@ psi-audit.yml の schedule 実行が 2026-11-10 22:01Z に failure（run 4291064
 
 **判断理由（共通事業方針）**: 読者の課題＝2027 年の 2級一次を過去問中心に仕上げたい受験者（A: 資格）。支払う理由＝最新年度まで入った全問を手元で解ける。需要の証拠＝2級一次の流入はあるが PDF の販売は未検証（DN-0957）。次の検証＝2027 年の前期の山の販売。
 
-**やること**: (1) 掲載を確かめたら past-exam-archive の手順で後期の問題・正答肢を取得し、Drive vault へ退避 (2) exam-questions-import で content/site/civil-construction-2/primary-r08-kouki を作り、原本と 1 問ずつ照合、問題台帳に記録 (3) scripts/kindle-specs/e-01.json に primary-r08-zenki・primary-r08-kouki を足して 2級の一次 過去問 PDF（content/note/1級・2級土木/2級土木/一次択一-過去問PDF）と Kindle e-01 を令和8年度版にする（前期だけで先に作り直さない＝note の添付の上限と再反映の手間を 1 回にする）
+**やること**: (1) 掲載を確かめたら past-exam-archive の手順で後期の問題・正答肢を取得し、Drive vault へ退避 (2) exam-questions-import で content/site/civil-construction-2/primary-r08-kouki を作り、原本と 1 問ずつ照合、問題台帳に記録 (3) content/kindle/books/e-01/spec.json に primary-r08-zenki・primary-r08-kouki を足して 2級の一次 過去問 PDF（content/note/1級・2級土木/2級土木/一次択一-過去問PDF）と Kindle e-01 を令和8年度版にする（前期だけで先に作り直さない＝note の添付の上限と再反映の手間を 1 回にする）
 
 **完了条件**: 2級の一次 過去問 PDF と e-01 が令和3〜8年度（前期・後期）で note・KDP に反映されたら、このカードを削除する。
 
