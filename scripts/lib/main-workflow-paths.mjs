@@ -15,7 +15,23 @@ export function checksOutDevelop(doc) {
 
 // 実行時に作られる場所・リポジトリの外は対象にしない
 const SKIP_PREFIX = /^(?:\.tmp\/|tmp\/|out\/|node_modules\/|\.next\/|\/)/;
-const FILE_CMD = /(?:^|[\s;&|(`"'])(?:node|bash|sh|python3?|tsx)\s+(?:--?[\w-]+(?:=\S+)?\s+)*["']?((?:[\w.-]+\/)*[\w.-]+\.(?:mjs|cjs|js|mts|ts|sh|py))\b/g;
+const RUNNERS = new Set(['node', 'bash', 'sh', 'python', 'python3', 'tsx']);
+const FILE_PATH = /^(?:[\w.-]+\/)*[\w.-]+\.(?:mjs|cjs|js|mts|ts|sh|py)$/;
+const unwrap = (t) => t.replace(/^[;&|(`"']+/, '').replace(/[;&|)`"']+$/, '');
+
+/** run の本文で、実行系（node・bash など）がオプションの次に受け取るファイル。語に分けて読む（正規表現の入れ子にしない）。 */
+function filesInRun(run) {
+  const tokens = run.split(/\s+/).filter(Boolean);
+  const out = [];
+  for (let i = 0; i < tokens.length; i++) {
+    if (!RUNNERS.has(unwrap(tokens[i]))) continue;
+    let j = i + 1;
+    while (j < tokens.length && tokens[j].startsWith('-')) j++;
+    const target = unwrap(tokens[j] ?? '');
+    if (FILE_PATH.test(target)) out.push(target);
+  }
+  return out;
+}
 const NPM_CMD = /\bnpm run (?:-s |--silent )?([A-Za-z0-9:._-]+)/g;
 
 /** 1 本の workflow が呼ぶリポジトリ内のファイルと npm script。重複なし。 */
@@ -23,9 +39,9 @@ export function calledByWorkflow(doc) {
   const files = new Set();
   const npm = new Set();
   for (const { run, cwd } of runSteps(doc)) {
-    for (const m of run.matchAll(FILE_CMD)) {
-      const p = posix.normalize(posix.join(cwd, m[1]));
-      if (!SKIP_PREFIX.test(m[1]) && !p.startsWith('..')) files.add(p);
+    for (const f of filesInRun(run)) {
+      const p = posix.normalize(posix.join(cwd, f));
+      if (!SKIP_PREFIX.test(f) && !p.startsWith('..')) files.add(p);
     }
     if (!cwd) for (const m of run.matchAll(NPM_CMD)) npm.add(m[1]);
   }
