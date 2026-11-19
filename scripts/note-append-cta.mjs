@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // 公開済み note 記事の本文末尾へ CTA（文章 + URL リンクカード）を追記して「更新する」。--note <noteId> --text <文章> --url <URL>。既定は dry-run、実更新は --commit。
 // 罠: 追記のみで本文の全消去・paste はしない（paste は無音失敗する）。追記 URL が既にあれば何もしない。account が dobokunote でなければ中断。詳細は下のブロックコメント。
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-append-cta.mjs
  * ---------------------------------------------------------------------------
@@ -25,14 +24,11 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *       （初回のみ `npm run note-edit-session` で手動ログイン）。
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { launchNoteContext } from './lib/note-browser.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
@@ -58,10 +54,7 @@ mkdirSync(join(ROOT, '.tmp'), { recursive: true });
 
 console.log(`[prep] note=${NOTE} urlKey=${URL_KEY} mode=${COMMIT ? 'COMMIT(更新する)' : 'DRY-RUN(更新しない)'}`);
 
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext();
 let exitCode = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

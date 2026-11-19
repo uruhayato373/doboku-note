@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // note 記事を記事管理ダッシュボード（note.com/notes）経由で削除する。--note <key>・--notes <k1,k2>（公開記事）、--draft '<タイトルの一部>' [--date]（下書き）、--list-drafts（列挙のみ）。既定は probe、実削除は --commit。
 // 罠: 下書きは key で引けずタイトル＋日付で同定する。API は下書きも削除済みも 404 なので下書きの削除確認は一覧の再走査だけ。タイトルが 2 件以上一致したら削除しない。販売実績のある有料記事の削除は不可逆。
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-delete-note.mjs
  * ---------------------------------------------------------------------------
@@ -44,14 +43,11 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   node scripts/note-delete-note.mjs --draft '…' --date '…' --commit  # 下書きを削除
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { launchNoteContext } from './lib/note-browser.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 // --notes k1,k2,... は 1 回のブラウザ起動で順に削除する（旧版の一括撤去用・2026-10-01）
@@ -168,10 +164,7 @@ async function loadAllDrafts(page) {
   return { rows, declared, complete: declared != null && rows.length >= declared };
 }
 
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext();
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   // 1. account ゲート

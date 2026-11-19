@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-create.mjs
  * note掲載文.txt 駆動で note マガジンを新規作成（/magazines/new）。
@@ -8,17 +7,14 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * （無料は 価格/アピール/カテゴリ の入力欄が無く、タイトルと説明だけ・2026-08-06 実測）。
  * note-edit-magazine（編集専用）が扱わない「新規作成」を担う。
  */
-import { chromium } from 'playwright';
 import { spawnSync } from 'node:child_process';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseNoteText } from './lib/note-meta.mjs';
 import { fetchCreatorMagazines } from './lib/note-api.mjs';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { launchNoteContext } from './lib/note-browser.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
@@ -43,10 +39,7 @@ if (COMMIT && !argv.includes('--allow-duplicate')) {
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext();
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 }); await sleep(4000);

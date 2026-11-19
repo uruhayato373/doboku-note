@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // note のクリエイター名（nickname）を確認・変更するブラウザ CLI。既定は現在値の表示のみ、変更は --name <表示名> --commit。
 // 罠: note ID が dobokunote でなければ中断する。保存後は公開 API の nickname まで読み戻して成功とする。Playwright の note プロファイルにログイン済みが前提。詳細は下のブロックコメント。
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-account-name.mjs
  * ---------------------------------------------------------------------------
@@ -31,17 +30,14 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * 真実源: memory `note-membership-publish` / .claude/knowledge/reference/note-api-verification.md
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { spawnSync } from 'node:child_process';
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { launchNoteContext } from './lib/note-browser.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const TMP = join(ROOT, '.tmp');
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const NAME = getArg('--name');
@@ -58,10 +54,7 @@ const publicNickname = () => {
 
 if (COMMIT && !NAME) { console.error('必須: --commit を使うときは --name <表示名>'); process.exit(1); }
 
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext();
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 });

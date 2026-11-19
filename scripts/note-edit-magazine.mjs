@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // note の有料マガジン設定（タイトル・説明・アピール・価格）を _meta.yaml の値へ反映する。npm run note-edit-magazine -- --key <magazineKey> --meta <_meta.yaml> [--articles] [--dry-run]。--articles は収録記事の単品価格も揃える。
 // 罠: タイトル約 30 字・アピール 250 字を超えると保存できない（事前チェックする）。--dry-run は保存せずスクショまで。保存後に note API で price・title を実体検証する。初回は note-edit-session でログインしておく。
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-edit-magazine.mjs
  * ---------------------------------------------------------------------------
@@ -29,18 +28,14 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * 真実源: .claude/knowledge/reference/note-api-verification.md
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
-import { assertAccountGate } from './lib/note-browser.mjs';
+import { assertAccountGate, launchNoteContext } from './lib/note-browser.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { curlJson as apiCurlJson } from './lib/note-api.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 // ---- args ----
 const argv = process.argv.slice(2);
@@ -95,12 +90,7 @@ function articleNotes(key) {
 }
 
 // ---- 実行 ----
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome',
-  proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1100 },
-  args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext({ viewport: { width: 1366, height: 1100 } });
 const page = ctx.pages()[0] || (await ctx.newPage());
 // 別アカウントのまま書き込まない（DN-1009）。設定画面で note のアカウント名が確かめられなければ何もせず止まる
 const accountGate = await assertAccountGate(page);

@@ -272,7 +272,8 @@ test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照す
   for (const file of files) {
     const source = readFileSync(join(REPO_ROOT, file), 'utf8');
     assert.doesNotMatch(source, /\.local\/playwright-(?:note|coconala|kdp)-profile/, file);
-    assert.match(source, /playwright-auth-profile\.mjs/, file);
+    // 直接 resolver を読むか、note-browser の launchNoteContext（中で profileDir()＝resolver を使う）を通す
+    assert.match(source, /playwright-auth-profile\.mjs|\blaunchNoteContext\(/, file);
   }
 });
 
