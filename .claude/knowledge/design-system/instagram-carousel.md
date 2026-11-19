@@ -2,7 +2,7 @@
 
 > **旧過去問パックの設計記録（2026-11-01退役）**: 元の制作ファイルは削除済み。新規投稿の現行手順は [Instagram 投稿素材 README](../../../content/sns/instagram/README.md) を参照する。
 
-> exam-packs（H21〜R7 過去問パック）の真実源。トークンの実体は [`instagram-carousel-tokens.json`](./instagram-carousel-tokens.json)。
+> exam-packs（H21〜R7 過去問パック）の真実源。トークンの実体は [`instagram-carousel-tokens.json`](../../../scripts/assets/design-tokens/instagram-carousel-tokens.json)。
 
 ## 表紙改修の目標（2026-09-08）
 
@@ -190,7 +190,7 @@ import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKENS = JSON.parse(
-  readFileSync(resolve(__dirname, '../../../../.claude/knowledge/design-system/instagram-carousel-tokens.json'), 'utf8')
+  readFileSync(resolve(__dirname, '../../../../scripts/assets/design-tokens/instagram-carousel-tokens.json'), 'utf8')
 );
 
 const brand = TOKENS.colors.brand.presets[TOKENS.colors.brand.active];
@@ -232,7 +232,7 @@ const geo   = TOKENS.geometry;
 
 ## 10. 関連ドキュメント
 
-- [`instagram-carousel-tokens.json`](./instagram-carousel-tokens.json) — 真実源 JSON
+- [`instagram-carousel-tokens.json`](../../../scripts/assets/design-tokens/instagram-carousel-tokens.json) — 真実源 JSON
 - [`.claude/knowledge/reference/ig-carousel-skill.md`](../reference/ig-carousel-skill.md) — 運用方針・2 シリーズ全体像
 - [`.claude/knowledge/reference/ig-carousel-policy.md`](../reference/ig-carousel-policy.md) — slide-data.json v2 スキーマ・ルーブリック
 - [`.claude/skills/ig-post-create/SKILL.md`](../../skills/ig-post-create/SKILL.md) — 単発生成

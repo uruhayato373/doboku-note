@@ -13,7 +13,7 @@ domain: sns
 ## 正典と対象資格
 
 - 図の意味・数値・文言：`content/site/{category}/{slug}/img/figure-*.svg` と親記事。
-- 資格名称・略称：`.claude/knowledge/design-system/note-cover-tokens.json` を `exam-palette.mjs` で解決。
+- 資格名称・略称：`scripts/assets/design-tokens/note-cover-tokens.json` を `exam-palette.mjs` で解決。
 - 図解パックのピル・バッジ・誘導文：`scripts/sns/lib/figure-pack-labels.mjs` の `figurePackLabels(examDir)`。
 - サイト図の寸法・色： [figure-canvas-policy.md](../../knowledge/reference/figure-canvas-policy.md)。SVGは400×500のfeedを使う。`--wide`を縦に引き伸ばさない。
 - ファイルの置き場：[asset-storage-policy.md](../../knowledge/reference/asset-storage-policy.md)。再生成できる入力はGit、手元用PNGはDrive vaultの既存SNS group。生成PNGをGitへ追加しない。

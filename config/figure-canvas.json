@@ -76,7 +76,7 @@
   },
   "references": {
     "policy": ".claude/knowledge/reference/figure-canvas-policy.md",
-    "colorTokens": ".claude/knowledge/design-system/svg-tokens.json",
+    "colorTokens": "scripts/assets/design-tokens/svg-tokens.json",
     "authoring": ".claude/skills/create-svg/SKILL.md",
     "renderer": "scripts/sns/render-figure-sns.mjs",
     "catalog": ".claude/state/svg-catalog.json"

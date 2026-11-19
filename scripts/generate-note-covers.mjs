@@ -25,11 +25,11 @@ import { createRequire } from 'node:module';
 
 import { renderNoteCharacterCover, resolveCoverExam } from './lib/note-character-cover.mjs';
 import { loadNoteCoverInventory } from './lib/note-cover-inventory.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, DESIGN_TOKENS_ROOT } from './lib/repository-paths.mjs';
 
 const require = createRequire(import.meta.url);
 // note カバーの試験パレット（試験=色）の真実源
-const COVER_TOKENS = require(join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
+const COVER_TOKENS = require(join(DESIGN_TOKENS_ROOT, 'note-cover-tokens.json'));
 
 /**
  * dirName（content/note からの相対パス）のセグメントから試験 exam キーを解決する。

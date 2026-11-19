@@ -34,7 +34,7 @@ doboku-note の図版 SVG を **site・note 横断**で監査する **Evaluator 
 | 項目 | 内容 |
 |---|---|
 | 入力 | 単一 SVG のフルパス、または `article.{mdx,md}` のフルパス（本文の図版参照を抽出） |
-| site 枝 真実源 | `.claude/knowledge/design-system/svg-tokens.json` / `.claude/knowledge/reference/image-policy.md` / `.claude/knowledge/design-system/design-system.md` |
+| site 枝 真実源 | `scripts/assets/design-tokens/svg-tokens.json` / `.claude/knowledge/reference/image-policy.md` / `.claude/knowledge/design-system/design-system.md` |
 | note 枝 真実源 | `.claude/knowledge/reference/note-svg-policy.md` |
 | 操作 | Read のみ（**Edit / Write 禁止**） |
 | 範囲外 | `cover.{svg,png}` / `ogp.png`（別スキル管轄）、図クロップ PNG（figure-crop-auditor 管轄）、UI コンポーネント内インライン SVG（design-review 管轄） |

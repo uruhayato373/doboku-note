@@ -24,7 +24,7 @@ import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 import { visualLength, classifyTitle } from './lib/sns-common/fit-title.mjs';
-import { REPO_ROOT as ROOT, SNS_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, SNS_CONTENT_ROOT, DESIGN_TOKENS_ROOT } from './lib/repository-paths.mjs';
 
 const IG_BASE = join(SNS_CONTENT_ROOT, 'instagram');
 const HIGHLIGHTS_BASE = join(IG_BASE, 'highlights');
@@ -34,7 +34,7 @@ const EXAM_PACKS_DIRS = ['cem', 'civil-1', 'civil-2', 'pe-construction'].map(
 
 // tokens.json から閾値を読む
 const tokens = JSON.parse(
-  readFileSync(resolve(ROOT, '.claude/knowledge/design-system/instagram-carousel-tokens.json'), 'utf8'),
+  readFileSync(resolve(DESIGN_TOKENS_ROOT, 'instagram-carousel-tokens.json'), 'utf8'),
 );
 
 // Stories ハイライト用 (highlightStories.typography)

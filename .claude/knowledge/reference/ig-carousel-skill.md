@@ -219,7 +219,7 @@ node scripts/sns/render-quiz-pack.mjs content/sns/instagram/_quiz-sample
 
 ### B 過去問パック（AIDesigner 新意匠）
 
-> **真実源**: [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) + [`.claude/knowledge/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)
+> **真実源**: [`scripts/assets/design-tokens/instagram-carousel-tokens.json`](../../../scripts/assets/design-tokens/instagram-carousel-tokens.json) + [`.claude/knowledge/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)
 
 | 要素 | 仕様 | tokens path |
 |---|---|---|
@@ -383,5 +383,5 @@ slide-data.json
 - 公開状態の照合: `verify-ig-status` でライブ↔SoT 突合（公開の状態の正本は台帳・照合は `verify-ig-status --registry`）。照合の手順書・`/ig-reconcile` スキル・`ig-publish-auditor` は SNS の保留に合わせて 2026-10-25 に外した（git の履歴にある）
 - `scripts/lint-exam-pack-structure.mjs` — 構造違反 lint
 - `.claude/knowledge/design-system/instagram-carousel.md` — デザイン仕様
-- `.claude/knowledge/design-system/instagram-carousel-tokens.json` — トークン真実源
+- `scripts/assets/design-tokens/instagram-carousel-tokens.json` — トークン真実源
 - `.claude/knowledge/reference/links-hub.md` — `/links` SNS bio 中継ページ

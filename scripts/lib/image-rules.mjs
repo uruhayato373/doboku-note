@@ -4,7 +4,7 @@
  * 資格の色の正本は note-cover-tokens.json（exam-palette.mjs と同じ）。
  */
 import { readDataset } from './dataset-io.mjs';
-import { REPO_ROOT } from './repository-paths.mjs';
+import { REPO_ROOT, DESIGN_TOKENS_REL } from './repository-paths.mjs';
 import { readJson } from './json-io.mjs';
 import { paletteKeyOf } from './qualification-palette.mjs';
 
@@ -12,7 +12,7 @@ export const loadImageRules = (root = REPO_ROOT) => readDataset(root, 'config.im
 
 /** 資格の色を生成指示の文へ。未知の資格は投げる（色を推測しない） */
 export function examPalette(exam, root = REPO_ROOT) {
-  const tokens = readJson(root, '.claude/knowledge/design-system/note-cover-tokens.json').exams;
+  const tokens = readJson(root, `${DESIGN_TOKENS_REL}/note-cover-tokens.json`).exams;
   const key = paletteKeyOf(exam, root);
   const color = key ? tokens[key] : null;
   if (!color?.base) throw new Error(`資格の色が無い: ${exam}`);

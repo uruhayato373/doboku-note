@@ -208,7 +208,7 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 | 1級土木 | 「1級土木 過去問 #N」 | 試験色 青（`exam-palette` civil-1） |
 | 2級土木 | 「2級土木 過去問 #N」 | 試験色 緑（`exam-palette` civil-2） |
 
-- 色の真実源は `.claude/knowledge/design-system/note-cover-tokens.json` の `exams`（`exam-palette.mjs` 経由）。総監の管理分野色のみ従来維持。
+- 色の真実源は `scripts/assets/design-tokens/note-cover-tokens.json` の `exams`（`exam-palette.mjs` 経由）。総監の管理分野色のみ従来維持。
 - 1級・2級カードはスマートフォン可読性を優先し、主題52px・本文35px・最大6行とする。本文は要点パネル内で縦中央に置き、下半分が無目的な空白にならないようにする。総監カードは既存レイアウトを維持する。
 - カードは任意（テキスト投稿でも可）。画像添付はエンゲージメントを上げるが必須ではない。
 

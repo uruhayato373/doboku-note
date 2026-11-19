@@ -58,7 +58,7 @@
 ## 過去問パック（exam モード）専用スキーマ
 
 `content/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/slide-data.json` は別構造。
-デザイン真実源は [`.claude/knowledge/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json)、仕様書は [`.claude/knowledge/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)。
+デザイン真実源は [`scripts/assets/design-tokens/instagram-carousel-tokens.json`](../../../scripts/assets/design-tokens/instagram-carousel-tokens.json)、仕様書は [`.claude/knowledge/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)。
 
 ```jsonc
 {

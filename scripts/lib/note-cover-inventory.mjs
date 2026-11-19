@@ -13,6 +13,7 @@ import { resolveCoverExam, assignCoverPoses, coverExamNames } from './note-chara
 import { loadRegistry } from './qualification-registry.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { readJson } from './json-io.mjs';
+import { DESIGN_TOKENS_REL } from './repository-paths.mjs';
 
 export const hashBytes = (value) => createHash('sha256').update(value).digest('hex');
 export const ARTICLE_FILE_RE = /^article(?:-[^/]+)?\.md$/;
@@ -20,7 +21,7 @@ const toPosix = (p) => p.replaceAll('\\', '/');
 
 /** 生成に要る設定を読む。config（補完定義）だけは生成器側の checkout から読めるよう root を分ける。 */
 export function loadCoverSources(sourceRoot, configRoot = sourceRoot) {
-  const tokens = readJson(sourceRoot, '.claude/knowledge/design-system/note-cover-tokens.json');
+  const tokens = readJson(sourceRoot, `${DESIGN_TOKENS_REL}/note-cover-tokens.json`);
   const poseLabels = Object.fromEntries(readDataset(sourceRoot, 'config.character-poses')
     .poses.map((pose) => [pose.slug, pose.label]));
   const v4Map = readDataset(sourceRoot, 'config.note-covers').magazineText;

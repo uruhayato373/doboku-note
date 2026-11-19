@@ -124,7 +124,7 @@ developer_instructions = """
   - **markdown 表**（`| col | col |` 形式）→ `table: { headers: [...], rows: [...] }` フィールドへ
   - これらを bodyLines に散文で書くと PNG 上で読みにくく、しかも lint で E1/E2 エラーになる
 - 執筆後は必ず `node scripts/lint-exam-pack-structure.mjs r07/pack-NN` を実行して構造違反 0 を確認する
-- **色・フォント・余白を本文に書かない**。デザインは `.claude/knowledge/design-system/instagram-carousel-tokens.json` が真実源で、`quiz-slides.mjs` が tokens から塗る。slide-data.json には文字列・数値・選択肢のみを書く。
+- **色・フォント・余白を本文に書かない**。デザインは `scripts/assets/design-tokens/instagram-carousel-tokens.json` が真実源で、`quiz-slides.mjs` が tokens から塗る。slide-data.json には文字列・数値・選択肢のみを書く。
 - 過去問パック（exam モード）の `cover.title` は管理名（経済性管理／人的資源管理／情報管理／安全管理／社会環境管理）のうち 1 つ。156px で 1 行に収まる長さ。
 - 過去問パックで 5管理別配色を意識する記述（`color`, `theme`, `mgmtColor` 等のキー）を slide-data.json に書かない。**5管理別配色は廃止済み**で、識別は cover-title のテキストのみ。
 

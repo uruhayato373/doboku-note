@@ -44,9 +44,9 @@ const templatesConfig = ogpSettings.templates;
 const rulesConfig = ogpSettings.rules;
 const textConfig = ogpSettings.text;
 
-// 試験区分→テーマ色（外枠・チップ）。色の真実源は .claude/knowledge/design-system/note-cover-tokens.json (base)。
+// 試験区分→テーマ色（外枠・チップ）。色の真実源は scripts/assets/design-tokens/note-cover-tokens.json (base)。
 // category(フルslug) → exam キー(short) の対応は lib/category-exam-key.mjs（色は重複させない）。
-const coverTokens = require(path.join(PROJECT_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
+const coverTokens = require(path.join(DESIGN_TOKENS_ROOT, 'note-cover-tokens.json'));
 function resolveAccentColor(category) {
   const key = CATEGORY_TO_EXAM_KEY[category];
   return coverTokens.exams?.[key]?.base || null;
@@ -100,7 +100,7 @@ function deriveTitleParts(rawTitle, examLabel, typeLabel) {
 import { renderTemplate, LAYOUT_CONSTANTS, PHOTO_TITLE_WIDTH } from './lib/ogp-templates.mjs';
 import { CATEGORY_TO_EXAM_KEY } from './lib/category-exam-key.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
-import { REPO_ROOT as PROJECT_ROOT, SITE_CONTENT_ROOT, FONTS_ROOT } from '../lib/repository-paths.mjs';
+import { REPO_ROOT as PROJECT_ROOT, SITE_CONTENT_ROOT, FONTS_ROOT, DESIGN_TOKENS_ROOT } from '../lib/repository-paths.mjs';
 import { datasetDir, datasetPath } from '../lib/datasets.mjs';
 import { requireLocalAsset } from '../lib/asset-storage.mjs';
 import { availablePhotoVersion, pagePhotoPath } from '../lib/site-photo.mjs';

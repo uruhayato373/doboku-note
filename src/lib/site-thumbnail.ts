@@ -1,5 +1,5 @@
 import config from '../../config/site-thumbnails.json';
-import tokens from '../../.claude/knowledge/design-system/note-cover-tokens.json';
+import tokens from '../../scripts/assets/design-tokens/note-cover-tokens.json';
 import categories from '@/config/categories.json';
 import { getOgpDisplayUrl, getPostAssetDisplayUrl } from '@/lib/r2-image-loader';
 

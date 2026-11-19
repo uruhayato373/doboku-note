@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-12T09:09:57.117Z",
+  "updated_at": "2026-11-19T09:48:49.208Z",
   "entries": [
     {
       "date": "2026-04-27",
@@ -676,6 +676,99 @@
         }
       },
       "batch_file": "2026-11-12T09-05-32.json",
+      "notes": "weekly cron (index-coverage.yml・周回 2 回で全件)"
+    },
+    {
+      "date": "2026-11-19",
+      "run_at": "2026-11-19T09:48:49.208Z",
+      "sitemap_urls": 2109,
+      "inspected": 2109,
+      "indexed": 2024,
+      "discovered_not_indexed": 44,
+      "crawled_not_indexed": 3,
+      "redirect": 0,
+      "not_found": 0,
+      "excluded_noindex": 0,
+      "other": 38,
+      "indexed_ratio": 0.96,
+      "by_qualification": {
+        "building-construction": {
+          "inspected": 5,
+          "indexed": 5,
+          "ratio": 1
+        },
+        "civil-construction-1": {
+          "inspected": 185,
+          "indexed": 183,
+          "ratio": 0.9891891891891892
+        },
+        "civil-construction-2": {
+          "inspected": 59,
+          "indexed": 59,
+          "ratio": 1
+        },
+        "concrete-chief-engineer": {
+          "inspected": 20,
+          "indexed": 20,
+          "ratio": 1
+        },
+        "concrete-diagnostician": {
+          "inspected": 18,
+          "indexed": 18,
+          "ratio": 1
+        },
+        "concrete-engineer": {
+          "inspected": 18,
+          "indexed": 18,
+          "ratio": 1
+        },
+        "pavement": {
+          "inspected": 6,
+          "indexed": 6,
+          "ratio": 1
+        },
+        "pe-comprehensive-management": {
+          "inspected": 730,
+          "indexed": 725,
+          "ratio": 0.9931506849315068
+        },
+        "pe-construction": {
+          "inspected": 237,
+          "indexed": 204,
+          "ratio": 0.8607594936708861
+        },
+        "pe-first-stage": {
+          "inspected": 91,
+          "indexed": 90,
+          "ratio": 0.989010989010989
+        },
+        "pe-fisheries": {
+          "inspected": 4,
+          "indexed": 4,
+          "ratio": 1
+        },
+        "pe-water-supply": {
+          "inspected": 4,
+          "indexed": 4,
+          "ratio": 1
+        },
+        "pipe-work": {
+          "inspected": 4,
+          "indexed": 4,
+          "ratio": 1
+        },
+        "rccm": {
+          "inspected": 8,
+          "indexed": 8,
+          "ratio": 1
+        },
+        "surveyor": {
+          "inspected": 17,
+          "indexed": 14,
+          "ratio": 0.8235294117647058
+        }
+      },
+      "batch_file": "2026-11-19T09-44-23.json",
       "notes": "weekly cron (index-coverage.yml・周回 2 回で全件)"
     }
   ]

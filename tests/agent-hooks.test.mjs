@@ -14,6 +14,7 @@ import {
   decisionDocsChanged,
   directMainPush,
   forbiddenGitOps,
+  ghAutoMerge,
   pushesToDevelop,
   shellTrapMessage,
   docSyncMessages,
@@ -258,6 +259,12 @@ test('forbiddenGitOps: 共有チェックアウトで禁止の stash と add -A 
   const addAll = (c) => forbiddenGitOps(c).addAll;
   for (const c of ['git add -A', 'git add --all', 'git add .', 'git add -- .', 'git -C /repo add -A', 'npm test && git add . && git commit -m x', 'git add -v .']) assert.equal(addAll(c), true, c);
   for (const c of ['git add -- scripts/a.mjs', 'git add .gitignore', 'git add ./scripts/a.mjs', 'git add -u', 'git add --pathspec-from-file=list.txt', 'git commit -m "git add -A を止める"', 'git diff --stat .']) assert.equal(addAll(c), false, c);
+});
+
+test('ghAutoMerge: gh pr merge --auto を止め、即時のマージ・文字列の中の言及は通す（必須チェックが無く CI を待たない）', () => {
+  for (const c of ['gh pr merge 1666 --auto --squash', 'gh pr merge --squash --auto', 'cd /r && gh pr merge 12 --auto']) assert.equal(ghAutoMerge(c), true, c);
+  for (const c of ['gh pr merge 1666 --squash --match-head-commit abc', 'gh pr view 1666 --json autoMergeRequest', 'git commit -m "gh pr merge --auto を止める"', 'gh pr checks 1666']) assert.equal(ghAutoMerge(c), false, c);
+  assert.match(shellTrapMessage({ autoMerge: true })[0], /set_auto_merge/);
 });
 
 test('pushesToDevelop: develop への push だけ（feature ブランチ・main・読むだけの操作は対象外）', () => {

@@ -827,7 +827,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor
 //
 // 出典: handoff covers-g2-all.jsx（claude.ai/design「G2 案」）を satori へ移植。
 // 試験区分=ベース色 / 系列(notePricing)=濃淡 の二軸。値の SSoT は
-// .claude/knowledge/design-system/note-cover-tokens.json（呼び出し側 generate-note-covers.mjs が
+// scripts/assets/design-tokens/note-cover-tokens.json（呼び出し側 generate-note-covers.mjs が
 // exam→パレット解決し props.palette として渡す）。mono-tag（OGP・正方形クロップ前提）
 // とは別系統で、1280×670 フル活用しつつ中央 630×630 に最重要テキストを収める。
 

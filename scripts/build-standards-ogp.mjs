@@ -37,12 +37,12 @@ import { renderTemplate, LAYOUT_CONSTANTS } from './ogp-create/lib/ogp-templates
 import { wrapTitle, pickFontSize } from './ogp-create/lib/ogp-text.mjs';
 import { pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
-import { REPO_ROOT, FONTS_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT, FONTS_ROOT, DESIGN_TOKENS_ROOT } from './lib/repository-paths.mjs';
 import { loadManifest, loadManifestRaw, writeManifestAtomic, toPosix } from './lib/asset-storage.mjs';
 import { loadOverrides } from './lib/standards-structure.mjs';
 
 const require = createRequire(import.meta.url);
-const coverTokens = require(path.join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
+const coverTokens = require(path.join(DESIGN_TOKENS_ROOT, 'note-cover-tokens.json'));
 
 const ARTICLES_ROOT = path.join(REPO_ROOT, 'content', 'site', 'standards-articles');
 const FONTS_DIR = FONTS_ROOT;
