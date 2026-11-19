@@ -252,7 +252,7 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 - 各 item は ≤60 字、**内部に句読点を含めない**（末尾の句点は許容しない）
 - 「正答：」「❌」「✅」「適当でないものは N」を items に含めない
 
-機械分割の元凶: `.claude/scripts/migrate-civil-answer-style.mjs` の `generateExamPoint()` で約 1,440 個の壊れた ExamPoint が生成された（DEPRECATED 済み）。一括修復は 2026-05 に完了した（専用の Generator は 2026-11-18 に退役）。再発したら `past-exam-rewriter` で直す。
+機械分割の元凶: `scripts/migrate-civil-answer-style.mjs` の `generateExamPoint()` で約 1,440 個の壊れた ExamPoint が生成された（DEPRECATED 済み）。一括修復は 2026-05 に完了した（専用の Generator は 2026-11-18 に退役）。再発したら `past-exam-rewriter` で直す。
 
 ### 6. 試験での位置づけを明示
 
@@ -523,7 +523,7 @@ note 記事本文（`content/note/**/article.md`）から有料マガジンへ�
   本記事の論点が、実際の答案でどう展開されるかを確認できます。
   ```
 
-**機械検知**: `.claude/scripts/check-note-magazine-cta.mjs`（① markdown リンク形式のマガジンURL ② マガジンURL同一行の ¥ を検出）。`scripts/note-lint.mjs`（pre-commit ゲート）と `/note-prepublish-review` Phase 1 の両方から呼ばれ、コミット時に自動 BLOCK する。価格が CTA から離れた別段落にある旧来パターン（既存マガジン記事）は対象外（誤検知回避のため近接のみ）。
+**機械検知**: `scripts/check-note-magazine-cta.mjs`（① markdown リンク形式のマガジンURL ② マガジンURL同一行の ¥ を検出）。`scripts/note-lint.mjs`（pre-commit ゲート）と `/note-prepublish-review` Phase 1 の両方から呼ばれ、コミット時に自動 BLOCK する。価格が CTA から離れた別段落にある旧来パターン（既存マガジン記事）は対象外（誤検知回避のため近接のみ）。
 
 **もくじ index の例外**: frontmatter `noteSeries: 総合案内`（L1 総合案内・各資格 L2 もくじ）は多数マガジンを一覧する index ページのため、① markdown リンクのコンパクト列挙を許容する（note カードは bare URL でしか生成できず、12 本超を全部カード化すると index が冗長になる）。ただし ② 価格（¥）は index でも禁止（陳腐化する・note カードが実価格を表示する）。in-article CTA は「読者を 1〜2 件へ誘導」＝カード必須、index は「全件の一覧」＝リンク許容、と使い分ける。関連: §14-b（太字内全角括弧）。
 
@@ -541,7 +541,7 @@ note 記事1本の完成条件は **3点セット**: `article.md` + カバー（
 
 **hashtags.txt は「存在」だけでなく「タグ数」も検査する**（下限 `MIN_TAGS`＝既定 40・`NOTE_MIN_HASHTAGS` で調整可）。ハッシュタグは note 検索流入の主要導線で標準は**上限 99 近くの ~90 個**（`/note-hashtags`）。だが「存在だけ」を見ていた旧ゲートを、`/note-hashtags` を実行せず**手書き最小（10 個）や templ 軽量**の `hashtags.txt` が素通りしていた（2026-07-05、civil 二次学科ライン13本が10個・まるごとLP がライブ3個で発覚。バルク公開時に per-article の `/note-hashtags` を省いたのが原因）。下限未満は 3 点セット未完として BLOCK する。バルク記事を作るワークフローは**公開前に必ず `/note-hashtags` を各記事へ回す**（~90 個生成）。
 
-**機械検知**: `.claude/scripts/check-note-3set.mjs`。2 モードで運用する。
+**機械検知**: `scripts/check-note-3set.mjs`。2 モードで運用する。
 
 - `scripts/note-lint.mjs`（pre-commit）: 既定モード＝**公開状態の記事のみ** BLOCK（下書き commit は止めない）。公開状態にしたのにアセットが無いコミットを自動で止める。
 - `/note-prepublish-review` Phase 1（4e）: `--require` モード＝公開意図なので**無条件必須**（公開直前は `noteUrl` 未設定のことが多く state を見ない）。

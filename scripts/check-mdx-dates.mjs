@@ -72,7 +72,7 @@ if (JSON_OUT) {
     console.log('  ✓ 日付はすべて frontmatter に揃っている（ビルドは git 履歴に触れない）');
   } else {
     console.error('\n✗ 問題 ' + problems + ' 件（欠落 ' + missing.length + ' / 形式 ' + badFormat.length + ' / 逆転 ' + inverted.length + '）');
-    console.error('  → node .claude/scripts/backfill-mdx-dates.mjs で frontmatter へ書き込むこと');
+    console.error('  → node scripts/backfill-mdx-dates.mjs で frontmatter へ書き込むこと');
     console.error('  日付が無いとビルドが git 履歴へフォールバックし、反転前の状態（公開 SEO 信号が');
     console.error('  リポジトリ操作で動く・build が全履歴を要求する）に逆戻りする。');
   }

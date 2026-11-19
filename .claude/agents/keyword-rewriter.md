@@ -60,7 +60,7 @@ Pattern H（標準テキスト由来事実取り込み）使用時は section→
 
 ## 品質ガード（書き込み時に必ず守る）
 
-- 改行コード保持: `.claude/scripts/lib/mdx-io.mjs` の `writeMdxFile` 経由（直接 `writeFileSync` 禁止）
+- 改行コード保持: `scripts/lib/mdx-io.mjs` の `writeMdxFile` 経由（直接 `writeFileSync` 禁止）
 - 文字化け（U+FFFD）混入を確認
 - MDX 構文を壊さない（既存の `<details>`、`<ExamPoint>`、表を尊重）
 - 拡張後が `lint-mdx-mobile.mjs` カテゴリ 0/1/9/12 の **HIGH 違反を新たに引き起こさない**
@@ -132,4 +132,4 @@ keyword-qa で再評価
 - [`.claude/knowledge/reference/content-principles.md`](../../.claude/knowledge/reference/content-principles.md) — §5（ExamPoint）, §9（参考資料）, §17/§18（散文中心・配置）
 - `.claude/skills/keyword-page/SKILL.md` — 個別ページ作成テンプレート
 - `.claude/agents/keyword-qa.md` — Evaluator 側のルーブリック
-- `.claude/scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）
+- `scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）

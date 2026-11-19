@@ -28,7 +28,7 @@ import { join } from 'node:path';
 import dotenv from 'dotenv';
 import { addDays, GSC_FINAL_LAG_DAYS, jst } from './lib/business-direction.mjs';
 import { packPeriods, foldLanding, foldEvents, foldGsc, foldGscTotal } from './lib/growth-pack.mjs';
-import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll, isLimited } from '../.claude/scripts/lib/ga4-client.mjs';
+import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll, isLimited } from './lib/ga4-client.mjs';
 import { getAuth, fetchSearchAnalytics } from '../.claude/skills/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
 

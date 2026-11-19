@@ -65,7 +65,7 @@ function getKeywordSlugs() {
 
 function runLint(filePath) {
   try {
-    const output = execSync(`node .claude/scripts/lint-mdx-mobile.mjs "${filePath}" 2>&1`, {
+    const output = execSync(`node scripts/lint-mdx-mobile.mjs "${filePath}" 2>&1`, {
       encoding: 'utf8',
       timeout: 30000,
     });

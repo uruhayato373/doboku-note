@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { applyReadingDict } from '../../.claude/scripts/lib/sns-common/reading-dict.mjs';
+import { applyReadingDict } from './sns-common/reading-dict.mjs';
 export const sha256 = value => createHash('sha256').update(value).digest('hex');
 export function narrationInput(narration, speaker) {
   const text = applyReadingDict(narration);

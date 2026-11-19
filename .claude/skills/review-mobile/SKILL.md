@@ -33,7 +33,7 @@ $ARGUMENTS — レビュー対象のファイルパスまたはディレクト�
 
 ## チェック項目（5カテゴリ）
 
-> **ルールIDの SSOT**: 機械検知ルールの重大度・資格×種別の適用は `config/content-rules.json`、実装は `.claude/scripts/lint-mdx-mobile.mjs` が真実源。本スキルのカテゴリ番号（0〜5）は Claude 校正用の**人間向けチェックリスト分類**で、機械のルールID体系とは一部異なる（例: 数式＝スキル 3-x／機械 11-x、段落＝スキル 4-x／機械 15-x）。機械IDを参照する行は「機械: lint N-M」と明記する。全量ラチェット（`npm run check-content-quality`）は content-rules.json の `fullScan` ルール（表/入れ子リスト/段落長/見出し/文体）だけを追い、baseline 超過の新規違反を赤落ちさせる。
+> **ルールIDの SSOT**: 機械検知ルールの重大度・資格×種別の適用は `config/content-rules.json`、実装は `scripts/lint-mdx-mobile.mjs` が真実源。本スキルのカテゴリ番号（0〜5）は Claude 校正用の**人間向けチェックリスト分類**で、機械のルールID体系とは一部異なる（例: 数式＝スキル 3-x／機械 11-x、段落＝スキル 4-x／機械 15-x）。機械IDを参照する行は「機械: lint N-M」と明記する。全量ラチェット（`npm run check-content-quality`）は content-rules.json の `fullScan` ルール（表/入れ子リスト/段落長/見出し/文体）だけを追い、baseline 超過の新規違反を赤落ちさせる。
 
 ### 0. ファイル整合性
 
@@ -41,7 +41,7 @@ $ARGUMENTS — レビュー対象のファイルパスまたはディレクト�
 |---|---|---|---|
 | 0-1 | 改行コードの混在（CRLF + LF）がないか | HIGH | `\r\n` と単独 `\n` の共存判定 |
 
-**修正提案**: スクリプトで MDX を書き込む場合は必ず `.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` / `transformMdxFile` を経由する。直接 `writeFileSync` を使うと混在が発生する。詳細は `CLAUDE.md` の「MDXファイル書き込みの規約」を参照。
+**修正提案**: スクリプトで MDX を書き込む場合は必ず `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` / `transformMdxFile` を経由する。直接 `writeFileSync` を使うと混在が発生する。詳細は `CLAUDE.md` の「MDXファイル書き込みの規約」を参照。
 
 ### 1. テーブルの適切性
 
@@ -301,7 +301,7 @@ Category 10: SVG 追加候補検出 — 0 件（既存図でカバー済み、�
 まず以下のスクリプトを実行して、機械判定可能な違反を網羅的に検出する。**このステップを省略して目視判定だけで済ませてはならない**。
 
 ```bash
-node .claude/scripts/lint-mdx-mobile.mjs <target>
+node scripts/lint-mdx-mobile.mjs <target>
 ```
 
 - 引数: ファイルパス・ディレクトリ・省略（`git diff` 対象）
@@ -338,7 +338,7 @@ HIGHが1件以上ある場合は修正を促すメッセージを追加する。
 
 ### Step 6: 修正実行（ユーザー確認後）
 
-ユーザーが同意した修正案を Edit ツールで適用する。修正後に再度 `node .claude/scripts/lint-mdx-mobile.mjs` を実行し、違反ゼロを確認してから `/check-mdx --rules syntax` で構文チェックを実行する。
+ユーザーが同意した修正案を Edit ツールで適用する。修正後に再度 `node scripts/lint-mdx-mobile.mjs` を実行し、違反ゼロを確認してから `/check-mdx --rules syntax` で構文チェックを実行する。
 
 ## アンチパターン（やってはいけない）
 

@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { requirePaletteKey } from './lib/qualification-palette.mjs';
-import { resolveExam } from '../.claude/scripts/sns/lib/exam-palette.mjs';
+import { resolveExam } from './sns/lib/exam-palette.mjs';
 import { IG_DESIGN, instagramLogo, instagramCoverNode, instagramPointNode, instagramCtaNode, renderInstagramNode, instagramRendererDigest } from './lib/instagram-video-design.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 

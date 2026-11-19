@@ -122,7 +122,7 @@ SKILL.md では `--profile` フラグを受け取って適切な scripts ディ�
 
 ## 採点カバレッジ census（全 profile 横断・未採点の発見）
 
-`npm run quality-census`（`.claude/scripts/build-quality-census.mjs`）で、published 全記事（真実源 `src/config/doc-meta-index.json`）× 全 `*quality-scores.json` を突合し、**資格 × group × {採点済み / 未採点 / 不合格 / 薄層}** の census を `.claude/state/quality/census.json` に出力する。
+`npm run quality-census`（`scripts/build-quality-census.mjs`）で、published 全記事（真実源 `src/config/doc-meta-index.json`）× 全 `*quality-scores.json` を突合し、**資格 × group × {採点済み / 未採点 / 不合格 / 薄層}** の census を `.claude/state/quality/census.json` に出力する。
 
 - **用途**: どの profile を score モードで回すべきか（未採点の母集団）と、rewrite 対象（不合格 ∪ 薄層）を機械抽出する起点。admin 品質タブ冒頭にも表示（`npm run admin`）。
 - **薄層（thin）**: `keyword/guide/textbook` かつ 本文実質 3,000 字未満（`check-guide-length` と同じ SoT 計測）。**5軸ルーブリックは「本文の実質分量」軸を持たず Google の index selection と直交する**ため、census の body_chars で薄層を機械補完する（2026-07 gsc-management RCA で確立）。
@@ -225,4 +225,4 @@ unscored → scored → rewriting → needs-review → verified → approved
 - `.claude/agents/keyword-rewriter.md` — CEM Generator
 - `.claude/agents/article-proofreader.md` — 1級土木 Evaluator
 - `.claude/knowledge/reference/content-principles.md` — §1-18 コンテンツ原則
-- `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（リライト時に必須）
+- `scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（リライト時に必須）

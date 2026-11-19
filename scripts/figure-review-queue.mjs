@@ -33,7 +33,7 @@ import { driveGroupFor, loadDriveConfig, loadDriveManifest, resolveVaultRoot, va
 import { figuresInExplanation, sourceCandidatesFor, sourceIdsOf } from './lib/figure-source-wiring.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
 import { analyzeImage } from './check-figure-crop-integrity.mjs';
-import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 import {
   LEDGER_FILE, emptyLedger, fileSha, buildQueue, listFigureKeys, describeFigure,
   syncImageDims, validateVerdict, provenanceEntryFor, verdictsFromResults,

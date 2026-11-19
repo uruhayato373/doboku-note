@@ -58,7 +58,7 @@ candidate → applied → approved → harvested → registered → published
 ## スコアリング（curated 値・ハードコードしない）
 
 `score = 0.40·rewardNorm + 0.25·epcNorm + 0.15·confirmNorm + 0.20·gapBonus`。
-係数・上限・blocklist・vertical 写像・`weeklyApplyMax`・`minScore` の SSOT は `.claude/scripts/ads/data/a8-curated.json`。
+係数・上限・blocklist・vertical 写像・`weeklyApplyMax`・`minScore` の SSOT は `scripts/ads/data/a8-curated.json`。
 
 - **vertical（doboku career 3軸）**: `civil-career`（施工管理系＝GKS/ビルドジョブ枠）/ `pe-career`（技術士ハイクラス枠）/
   `career`（汎用フォールバック）。`resolveVertical` は最長一致で `civil-career`/`pe-career` を汎用 `career` に先取りさせない。
@@ -224,10 +224,10 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 
 - ブラウザ: `.claude/skills/scout-asp/scripts/{a8-browser.ts,login.mjs}`
 - skill: `.claude/skills/scout-asp/SKILL.md`（`/scout-asp`・`disable-model-invocation: true`）
-- コア（純関数）: `.claude/scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs`
-- テスト（node:test・30件）: `.claude/scripts/ads/__tests__/*.test.mjs`（`npm run test:ads`）
-- 申請上限: `.claude/scripts/ads/check-a8-apply-budget.cjs`
-- curated（係数・blocklist・vertical・上限・`searchKeywords`）: `.claude/scripts/ads/data/a8-curated.json`
+- コア（純関数）: `scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs`
+- テスト（node:test・30件）: `scripts/ads/__tests__/*.test.mjs`（`npm run test:ads`）
+- 申請上限: `scripts/ads/check-a8-apply-budget.cjs`
+- curated（係数・blocklist・vertical・上限・`searchKeywords`）: `scripts/ads/data/a8-curated.json`
 - カタログ（状態機械）: `data/a8/catalog.json`
 - 実行の正直さ判定（純関数）: `scripts/lib/report-honesty.mjs`（`classifyRun` / `classifyCrossCheck` 等）。
   テスト `tests/report-honesty.test.mjs`（`npm test`）。GSC 側の `gsc-request-indexing` と共用

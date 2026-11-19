@@ -57,7 +57,7 @@ test('週次の GA4 取得（growth-pack・CTA クリック）にイベントが
   const growth = JSON.parse(read('config/growth-cycle.json'));
   assert.ok(growth.events.includes('qualification_bridge_click'));
   assert.ok(growth.events.includes('qualification_bridge_impression'));
-  const fetcher = read('.claude/scripts/fetch-ga4-cta-clicks.mjs');
+  const fetcher = read('scripts/fetch-ga4-cta-clicks.mjs');
   assert.match(fetcher, /"qualification_bridge_click"/);
   assert.match(fetcher, /"qualification_bridge_impression"/);
 });

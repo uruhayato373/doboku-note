@@ -76,7 +76,7 @@ jobs:
       # git 追跡外の生成物なので、ここで作らないと **commit の瞬間に ENOENT で落ちる**。
       # 症状はワークフロー全体の赤で、本来の処理が終わっていても記録が残らない。
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
 
       - name: Restore service account key
@@ -345,7 +345,7 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
           PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
-        run: node .claude/scripts/snapshot-weekly-metrics.mjs --force
+        run: node scripts/snapshot-weekly-metrics.mjs --force
 
       # 収益カバレッジ ダッシュボード生成: ページ別流入(ga4-page) × CTA クリック(ga4-cta-clicks) ×
       # 配置真実源を突合し monetization/coverage-*.{json,md} を生成（オフライン・上の fetch 結果を読む）。
@@ -418,7 +418,7 @@ jobs:
         run: |
           mkdir -p /tmp/metrics-report
           set +e
-          node .claude/scripts/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
+          node scripts/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       - name: Check daily anomaly
@@ -426,7 +426,7 @@ jobs:
         run: |
           mkdir -p /tmp/metrics-report
           set +e
-          node .claude/scripts/check-daily-anomaly.mjs --report /tmp/metrics-report/anomaly.md
+          node scripts/check-daily-anomaly.mjs --report /tmp/metrics-report/anomaly.md
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       # 書いた記録（data/ の追加・変更・削除）を一時退避する。パスは YAML に書かず台帳（scripts/lib/datasets.mjs）から引く。

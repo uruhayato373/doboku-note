@@ -158,7 +158,7 @@
       "regenerable": false,
       "generator": null,
       "requiredBy": [
-        ".claude/scripts/generate-webp.mjs（png から配信用 webp を作る元。webp は Git に残す）",
+        "scripts/generate-webp.mjs（png から配信用 webp を作る元。webp は Git に残す）",
         "scripts/check-figure-crop-integrity.mjs",
         "scripts/figure-review-queue.mjs",
         "scripts/audit-figure-text.mjs"

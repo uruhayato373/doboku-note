@@ -103,24 +103,24 @@ done
 #   `**作成日**: 2026-04-17（v1）/ **SSOT**` のような複数 bold 間の括弧を false-positive
 #   として誤検出するため。Pattern B' のみは行内の隣接パターンなので grep で十分
 echo "BOLD_RENDER:"
-node "$ROOT/.claude/scripts/check-note-bold-paren.mjs" "$F"
+node "$ROOT/scripts/check-note-bold-paren.mjs" "$F"
 Bp=$(grep -nE '\)\*\*（' "$F")
 [ -z "$Bp" ] && echo "  Pattern B' : OK" || { echo "  Pattern B' : NG"; echo "$Bp" | sed 's/^/    /'; }
 
 # 4c. リンク anchor↔slug 整合性（pe-chapters.json + frontmatter fallback）
-node "$ROOT/.claude/scripts/check-note-link-anchor-match.mjs" "$F"
+node "$ROOT/scripts/check-note-link-anchor-match.mjs" "$F"
 
 # 4d. マガジン導線CTA形式（content-principles.md §14-c）
 #   ① markdown リンク形式のマガジンURL `[text](…/m/ID)` — bare URL 単独行（リンクカード）でないとカード化されない
 #   ② マガジンURL／{{MAGAZINE_URL}} と同一行の価格(¥) — 価格改訂で陳腐化。CTA に価格を書かない（SoT=note-magazines.ts）
 echo "MAGAZINE_CTA:"
-node "$ROOT/.claude/scripts/check-note-magazine-cta.mjs" "$F"
+node "$ROOT/scripts/check-note-magazine-cta.mjs" "$F"
 
 # 4e. 3点セット充足（content-principles.md §14-d・BLOCK）
 #   公開前レビューを回す＝公開意図なので、cover.png + hashtags.txt を無条件必須化（--require）。
 #   公開直前は noteUrl 未設定のことが多いため state を見ない。下書きのまま確認したいだけなら無視可。
 echo "THREE_SET:"
-node "$ROOT/.claude/scripts/check-note-3set.mjs" --require "$F"
+node "$ROOT/scripts/check-note-3set.mjs" --require "$F"
 
 # 4f. 段落長（note 可読性・WARN・content-principles.md §14-e）
 #   note はモバイル閲覧主体で 1 段落が長いと読まれない。>120 字の段落を WARN として surface。
@@ -168,7 +168,7 @@ case "$F" in
     fi
     # 7c. 解答字数（設問別・組合せ別）— script が年度別の上限を自動抽出し OK/WARN/NG を判定。
     #     上限超過(NG)は失格相当。過少(上限の85%未満)は出力のマス数÷上限で判定する
-    node "$ROOT/.claude/scripts/note-essay-charcount.mjs" "$F"
+    node "$ROOT/scripts/note-essay-charcount.mjs" "$F"
     # 7d. 答案本文の散文化（課題・リスク・障害・克服策等の箇条書き答案を検出）
     #   本番答案は散文で書くため、これらを「- **…**」の箇条書きにしている箇所は
     #   散文化を推奨。SWOT 8 項目・工程スケジュール・TF メンバーの箇条書きは妥当な
@@ -330,7 +330,7 @@ npm run build-note-catalog
 | `/note-hashtags` | 公開前のハッシュタグ生成 |
 | **`/note-prepublish-review`（本スキル）** | 公開前の **統合品質ゲート** |
 | `scripts/add-note-utm.mjs` | 公開直前の UTM 一括付与 |
-| `.claude/scripts/build-note-published-index.mjs` | 記事カタログ生成（`npm run build-note-catalog`） |
+| `scripts/build-note-published-index.mjs` | 記事カタログ生成（`npm run build-note-catalog`） |
 | `note-link-injector` agent | リンク注入の Generator |
 | `svg-figure-auditor` agent | 図版品質の Evaluator |
 | `note-fact-checker` agent | 事実性の Evaluator |

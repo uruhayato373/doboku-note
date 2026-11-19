@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { findNonPortable, scanText } from '../scripts/lib/portability-gate.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-test('tests・scripts・.claude/scripts・package.json・フックに BSD と GNU で挙動が違う書き方が無い', () => {
+test('tests・scripts・package.json・フックに BSD と GNU で挙動が違う書き方が無い', () => {
   const { files, hits } = findNonPortable(ROOT);
   console.log(`[portability-gate] ${files} ファイルを実検査 / 検出 ${hits.length} 件`);
   assert.ok(files > 1000, `検査したファイルが少なすぎる（${files} 件）＝範囲の指定が壊れている`);

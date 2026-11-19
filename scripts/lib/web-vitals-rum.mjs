@@ -2,7 +2,7 @@
  * web-vitals-rum.mjs — 実ユーザー計測（RUM）の Core Web Vitals を集計・判定する唯一の実装。
  * ---------------------------------------------------------------------------
  * サイトの src/components/WebVitals.tsx が GA4 へ送る `web_vitals` イベント（metric_name・metric_rating）を
- * .claude/scripts/fetch-ga4-web-vitals.mjs が「ページの型 × 端末 × 指標 × 評価」の件数で取り、ここで判定する。
+ * scripts/fetch-ga4-web-vitals.mjs が「ページの型 × 端末 × 指標 × 評価」の件数で取り、ここで判定する。
  * CrUX と同じ考え方で「good が 75% 以上＝良好」「poor が 25% 超＝不良」「それ以外＝要改善」。
  * 件数が MIN_SAMPLES 未満の組は「件数不足」で、良好とも不良とも言わない（欠測を良好へ変換しない）。
  * 読み手: npm run report-web-vitals（週次レビュー）・tests/web-vitals-rum.test.mjs。

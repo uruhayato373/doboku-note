@@ -136,7 +136,6 @@
     ],
     "scanGlobs": [
       "scripts/",
-      ".claude/scripts/",
       ".claude/skills/",
       "src/",
       "tools/",
@@ -149,7 +148,7 @@
       "tests/information-architecture.test.mjs",
       "scripts/check-project-task-refs.mjs",
       "tools/admin-app/src/lib/project.ts",
-      ".claude/scripts/lib/git-dates.mjs",
+      "scripts/lib/git-dates.mjs",
       "tools/admin-app/src/app/project/[...path]/page.tsx",
       "tools/admin-app/src/lib/document-store.ts",
       "tests/admin-document-store.test.mjs",

@@ -8,7 +8,7 @@ import { execFileSync } from 'node:child_process';
 // 中身が同一でも 562 行の差分が出ていた。並びが決定的であることを固定する。
 
 const DICT_PATH = 'src/config/tag-dictionary.json';
-const BUILDER_PATH = '.claude/scripts/build-tag-index.mjs';
+const BUILDER_PATH = 'scripts/build-tag-index.mjs';
 
 // tag-dictionary.json は git で追跡しない生成物（DN-0792）。無ければここで作ってから並びを確かめる。
 if (!existsSync(DICT_PATH)) execFileSync(process.execPath, [BUILDER_PATH], { stdio: 'ignore' });

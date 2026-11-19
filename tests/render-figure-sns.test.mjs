@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtempSync,mkdirSync,writeFileSync,rmSync,existsSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {resolveFigureInput,buildFigureFrame,renderFigureSns} from '../.claude/scripts/sns/render-figure-sns.mjs';
+import {resolveFigureInput,buildFigureFrame,renderFigureSns} from '../scripts/sns/render-figure-sns.mjs';
 const fixture='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" aria-label="図の説明"><rect width="400" height="500" fill="white"/></svg>';
 for(const [category,label] of [['civil-construction-1','1級土木施工管理技士'],['pe-first-stage','技術士 第一次試験'],['civil-practice','土木施工の実務'],['pe-construction','技術士（建設部門）'],['pe-comprehensive-management','技術士（総合技術監理部門）']]) {
  test(`${category}: 全形式へ資格名を供給し、PNGは指定先に再生成できる`,()=>{

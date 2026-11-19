@@ -3,7 +3,7 @@
  *
  * ①〜④・ア〜エの記述を数える／組み合わせる問題は、解説に記述ごとの理由が書いてある。演習データは `N.` の行だけを
  * 選択肢 N の解説として読むので、記述の解説は別に持たせる。取り出す実装は 1 つだけで、1級・2級土木の抽出
- * （.claude/scripts/sns/parse-civil-{1,2}-questions.mjs）・総監（scripts/parse-exam-questions.mjs）・
+ * （scripts/sns/parse-civil-{1,2}-questions.mjs）・総監（scripts/parse-exam-questions.mjs）・
  * 技術士第一次（scripts/build-quiz-data.mjs）が同じ関数を呼ぶ。
  *
  * 取り出す形: { label: '①' | 'ア', text: 印を除いた Markdown, correct: true | false | null }

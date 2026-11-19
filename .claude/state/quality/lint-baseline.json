@@ -1,5 +1,5 @@
 {
-  "_doc": "コンテンツ品質ラチェットの baseline。file × ruleID × 件数。新規違反(baseline 超過)のみ CI で赤落ちさせ、リライトで件数を漸減させる。更新: node .claude/scripts/lint-mdx-mobile.mjs --all --update-baseline",
+  "_doc": "コンテンツ品質ラチェットの baseline。file × ruleID × 件数。新規違反(baseline 超過)のみ CI で赤落ちさせ、リライトで件数を漸減させる。更新: node scripts/lint-mdx-mobile.mjs --all --update-baseline",
   "counts": {
     "content/site/civil-construction-1/guide-age-career/article.mdx": {
       "2-3": 1

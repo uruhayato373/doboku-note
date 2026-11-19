@@ -12,7 +12,7 @@
  *   DESCRIPTION_LINT_MAX  frontmatter の lint が長すぎと指摘する長さ。MAX を超えても metadata.ts が MAX へ整形して
  *                         出すので、MAX 超〜ここまでは lint では指摘しない
  * frontmatter-schema（zod）の description 上限 500 は、スキーマ検証の構文上の上限でこれらとは別物
- * （.claude/scripts/lib/frontmatter-schema.mjs。SEO の長さの目安ではない）。
+ * （scripts/lib/frontmatter-schema.mjs。SEO の長さの目安ではない）。
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';

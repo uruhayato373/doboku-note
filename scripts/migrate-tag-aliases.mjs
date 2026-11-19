@@ -17,7 +17,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { buildAliasMap, rewriteFrontmatterTags } from './lib/content-taxonomy.mjs';
-import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 
 const ARGS = process.argv.slice(2);
 const WRITE = ARGS.includes('--write');

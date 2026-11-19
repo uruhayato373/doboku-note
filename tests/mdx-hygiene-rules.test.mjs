@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 import {
   lintMojibake, lintTodoMarkers, lintDecorativeEmoji,
   lintHeadingAnchorDuplicates, lintImageAltQuality,
-} from '../.claude/scripts/lib/mdx-hygiene-rules.mjs';
+} from '../scripts/lib/mdx-hygiene-rules.mjs';
 
 const run = (fn, text) => { const f = []; fn(text.split('\n'), f); return f; };
 const rules = (f) => f.map((x) => x.rule);

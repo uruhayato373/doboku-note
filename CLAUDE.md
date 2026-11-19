@@ -77,7 +77,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 
 ### 3. 外科的に変更する
 - 触るべき箇所だけ触る。頼まれていない周辺コード・コメントを「改善」しない
-- **MDX 書き込みは `lib/mdx-io.mjs` の `writeMdxFile` 経由**（なぜ: 直接 `writeFileSync` は CRLF 混在を引き起こし pre-commit で reject される）
+- **MDX 書き込みは `scripts/lib/mdx-io.mjs` の `writeMdxFile` 経由**（なぜ: 直接 `writeFileSync` は CRLF 混在を引き起こし pre-commit で reject される）
 - **`git add` は変更したファイルだけ明示指定**（`git add -A` / `git add .` 禁止 — 並行エージェントの変更を巻き込む）
 - コンテンツ編集: 1 記事の修正が完了したら**即 commit**。一時ファイルは `.tmp/` 配下に出す
 

@@ -1,7 +1,7 @@
 import { readdirSync, statSync, readFileSync, existsSync, writeFileSync } from 'fs';
 import { join, relative, sep } from 'path';
 import matter from 'gray-matter';
-import { loadGitDates, lookupGitDates } from '../.claude/scripts/lib/git-dates.mjs';
+import { loadGitDates, lookupGitDates } from './lib/git-dates.mjs';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { renderSitemapEntry, resolveStaticLastmod } from './lib/sitemap-lastmod.mjs';
 import { buildLegacySitemapUrls, renderLegacySitemap, LEGACY_SITEMAP_FILE, LEGACY_SITEMAP_UNTIL } from './lib/legacy-sitemap.mjs';

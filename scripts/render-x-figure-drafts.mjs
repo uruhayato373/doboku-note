@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { pathToFileURL } from 'node:url';
 import { splitTweets, tweetLength } from './check-x-length.mjs';
-import { renderFigureSns } from '../.claude/scripts/sns/render-figure-sns.mjs';
+import { renderFigureSns } from './sns/render-figure-sns.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 export function validateXFigureDraft(draft,root=ROOT,{onlyTweet}={}) {
   if(!/^\d{3}-[a-z0-9-]+$/.test(draft))throw Error('draftは番号付き下書き名で指定');

@@ -133,7 +133,7 @@ jobs:
         run: npm ci --legacy-peer-deps --ignore-scripts
 
       - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build-doc-meta-index.mjs --ci
 
       # 決定的ゲート: 公開ページが GSC の 404/リダイレクト URL を指していたら赤。
       # これは「0 件が正常」な検査なので surfacer と違い hard fail にする。

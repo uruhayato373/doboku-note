@@ -49,7 +49,7 @@ note 公開用ドラフトの本文中の **数値・固有名詞・頻度主張
 
 ```bash
 # 記事内の白書由来 数値・固有名を抽出し、その実在を白書ノートブックに問い合わせて照合する
-node .claude/scripts/notebooklm-cross-query.mjs \
+node scripts/notebooklm-cross-query.mjs \
   --notebook-id 2bf7f0dd-3935-49be-8cef-2d428c59eaa9 \
   "次の数値・固有名が白書原文に実在するか、各々ページ/章とともに Yes/No で答えてください: <抽出した数値・事業名リスト>"
 # 認証切れ時は `notebooklm login`（ユーザーの手動 OAuth）。会社PCはプロキシで叩けない → Mac/クラウドで実行

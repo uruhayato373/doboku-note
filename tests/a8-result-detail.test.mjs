@@ -3,7 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { normalizeA8ResultCsv, periodQueryFor, sitePageOf, REFERRER_FULL_SINCE } from "../scripts/lib/a8-report-csv.mjs";
-import { attributeConversions } from "../.claude/scripts/report-career-funnel.mjs";
+import { attributeConversions } from "../scripts/report-career-funnel.mjs";
 import { matchesPage } from "../src/lib/affiliate-placement-core.mjs";
 
 const cfg = { a8: { targetSite: "doboku-note", relatedSites: ["doboku-note（note）"], programIdMap: { s00000024757004: "buildjob" } } };

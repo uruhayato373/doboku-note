@@ -1,6 +1,6 @@
 // tests/sns-design-tokens.test.mjs
 //
-// SNS 共通デザイントークン (.claude/scripts/lib/sns-common/design-tokens.mjs) が
+// SNS 共通デザイントークン (scripts/lib/sns-common/design-tokens.mjs) が
 // src/styles/globals.css の Light モード値と乖離していないことを確認する。
 //
 // globals.css を真実源として、トークンの hex を抜粋的にマッチさせる。

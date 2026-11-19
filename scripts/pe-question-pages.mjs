@@ -15,7 +15,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
-import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { writeMdxFile } from './lib/mdx-io.mjs';
 import { duplicateTags, extractClaims, extractQuestionSection, parseYearPage, questionSection, questionSlug, scaffoldPage } from './lib/pe-question-pages.mjs';
 
 const NAME = 'pe-question-pages';

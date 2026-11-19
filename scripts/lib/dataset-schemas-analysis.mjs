@@ -238,7 +238,7 @@ export const GrowthDigest = z
   })
   .meta({ title: '成長ダイジェスト（週次の改善機会）' });
 
-// ---- 収益導線の網羅（analysis.monetization-coverage・.claude/scripts/report-monetization-coverage.mts が書く） ----
+// ---- 収益導線の網羅（analysis.monetization-coverage・scripts/report-monetization-coverage.mts が書く） ----
 
 const PairWindow = windowStartEnd('GA4 の取得窓');
 /** 記事・ハブごとの収益導線の網羅（data/analysis/monetization/coverage-{時刻}.json）。読むのは最新 1 本 */
@@ -348,7 +348,7 @@ export const QuizPremiumFunnel = z
   })
   .meta({ title: '演習アプリの有料化ファネル' });
 
-// ---- 転職アフィリエイトのファネル（analysis.career-funnel・.claude/scripts/report-career-funnel.mjs が書く） ----
+// ---- 転職アフィリエイトのファネル（analysis.career-funnel・scripts/report-career-funnel.mjs が書く） ----
 
 const ImprClicks = z.object({ impressions: count('表示'), clicks: count('クリック') }).strict();
 const A8Sum = z.object({ clicks: count('クリック'), conversions: count('発生'), approved: count('確定'), revenueYen: count('確定報酬（円）') }).strict();

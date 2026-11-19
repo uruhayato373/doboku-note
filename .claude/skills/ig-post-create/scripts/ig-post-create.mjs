@@ -28,7 +28,7 @@
  *   --exam: content/sns/instagram/{exam}/exam-packs/{year}/pack-{NN}/{reels,carousel}/img/
  *
  * 関連スキル:
- *   - 択一クイズパック（運営者作問・シリーズ A）: .claude/scripts/sns/render-quiz-pack.mjs
+ *   - 択一クイズパック（運営者作問・シリーズ A）: scripts/sns/render-quiz-pack.mjs
  */
 
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
@@ -175,17 +175,17 @@ function cleanDefinition(definition) {
 // ─── メイン処理 ──────────────────────────────────────────────
 
 const { extractMdx } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/mdx-extract.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/lib/sns-common/mdx-extract.mjs')).href
 );
 const { renderSlide } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/slide-render.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/lib/sns-common/slide-render.mjs')).href
 );
 // 試験識別カバー（多資格）: _meta.exam がある時だけ cover をこの SVG で差し替える
 const { renderExamCoverIg } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/sns/templates/exam-cover-ig.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/sns/templates/exam-cover-ig.mjs')).href
 );
 const { svgToPng } = await import(
-  pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/svg-to-png.mjs')).href
+  pathToFileURL(resolve(ROOT, 'scripts/sns/lib/svg-to-png.mjs')).href
 );
 
 const args = parseArgs(process.argv.slice(2));

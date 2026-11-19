@@ -74,7 +74,7 @@ note の 有料（単体）マガジンは、**既に公開済みで個別有料
 2026-09-16〜17 に 19 SKU（直前パック・まるごとパック・暗記ノート）を 2 日で公開したときの機械側の罠。真実源は各スクリプトのヘッダ。
 
 - **`note-magazine-add-articles` は予約投稿（`noteStatus: reserved`）の記事を収録できない**（exit 7）。会員ドリップを `note-publish --schedule` で先に積むと、特典マガジン収録は各公開日の後に手動（DN-0246 の型）。
-- **`.claude/scripts/note/inject-magazine-url.cjs <dir>` は `<dir>/<slug>/article.md` しか歩かない**。単発の `<dir>/article.md`（パック案内記事）は対象外 → `{{MAGAZINE_URL}}` を直接置換する。
+- **`scripts/note/inject-magazine-url.cjs <dir>` は `<dir>/<slug>/article.md` しか歩かない**。単発の `<dir>/article.md`（パック案内記事）は対象外 → `{{MAGAZINE_URL}}` を直接置換する。
 - **`publish-x` のパーサは `## Tweet NN` から次の `## Tweet` までを本文とみなす**。tweets.md 末尾に「未使用（予備）」等の節を置くと最終ツイートに混入し 280 字超で失敗（104 で実証・予備は `spare.md` へ分離）。
 - **`generate-note-covers.mjs --help` は無い＝引数なし扱いで全 draft を再生成する**。cover.png は gitignore なので git は汚れないが数分かかる。フィルタは dir 名の部分一致。
 - **`note-magazine-membership.json` の `labels` と `packs[id].labels` に同じラベルを書くと二重計上**（期待 +1）。パック案内記事のラベルは `packs` 側だけに書く（1級まるごとと同じ）。

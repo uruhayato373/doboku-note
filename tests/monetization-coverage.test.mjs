@@ -44,7 +44,7 @@ function fixture(pageRows, fn) {
     ] }));
     const result = spawnSync(process.execPath, [
       join(repo, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', join(repo, 'tsconfig.json'),
-      join(repo, '.claude/scripts/report-monetization-coverage.mts'), '--check', '--json',
+      join(repo, 'scripts/report-monetization-coverage.mts'), '--check', '--json',
     ], { cwd: root, encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 });
     fn(result, root);
   } finally {

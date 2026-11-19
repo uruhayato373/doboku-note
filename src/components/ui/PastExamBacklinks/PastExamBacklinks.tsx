@@ -7,7 +7,7 @@
  *   3. civil-construction-2: civil-exam-textbook-index-2.json の textbookToQuestions (2級用、Phase 1 投入後)
  *
  * 更新は `npm run build-backlinks` (PE) と
- * `node .claude/scripts/build-civil-exam-textbook-index.mjs` (Civil 1級/2級両方) で再生成。
+ * `node scripts/build-civil-exam-textbook-index.mjs` (Civil 1級/2級両方) で再生成。
  */
 import Link from 'next/link';
 import backlinksData from '@/config/past-exam-backlinks.json';

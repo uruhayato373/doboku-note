@@ -69,12 +69,12 @@ civil textbook/guide の**バルクリライト運用**（`/civil-textbook-cycle
 
 ## 自己検証（返却前必須）
 
-- `node .claude/scripts/lint-mdx-mobile.mjs <file>` で 6-2〜6-6 / 9-14〜9-16 / 15-1/15-2 / 12-1〜12-3 が全て0件
+- `node scripts/lint-mdx-mobile.mjs <file>` で 6-2〜6-6 / 9-14〜9-16 / 15-1/15-2 / 12-1〜12-3 が全て0件
 - `node scripts/check-guide-length.mjs <file>` で本文3,000字以上
 - frontmatter 必須6項目の欠落なし
 - U+FFFD（文字化け）なし
 - `npx textlint <file>` が 0 件（pre-commit の lint-ja はファイル全体を検査し、触っていない既存行の全角数字・prh も commit を止める）。構造だけを変えた箇所は `npm run check-mdx-facts -- <file>` で数値・「」の語の減少 0（content-authoring.md「書き終えたときの決定的ゲート」）
-- 改行コードは新規作成のため LF 統一（`.claude/scripts/lib/mdx-io.mjs` の `writeMdxFile` 経由）
+- 改行コードは新規作成のため LF 統一（`scripts/lib/mdx-io.mjs` の `writeMdxFile` 経由）
 
 ## 担当外
 

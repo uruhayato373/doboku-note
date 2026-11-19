@@ -1,5 +1,5 @@
 /**
- * site-identity.mjs — スクリプト・管理画面・.claude/scripts が使うサイトとアカウントの識別子。
+ * site-identity.mjs — スクリプト・管理画面が使うサイトとアカウントの識別子。
  *
  * サイトの origin・note のクリエイター・Search Console のプロパティ・R2 の公開ホストは、サイト本体と共有する
  * `src/config/site-identity.mjs`（唯一の定義）をそのまま再公開する。X・Instagram のハンドルは

@@ -248,4 +248,4 @@ transformMdxFile(path, (raw) => modified);
 - `.claude/knowledge/reference/exam-content-policy.md` — Civil secondary 整備方針
 - `content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx` — 解答スタイルの参考実装
 - `content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx` — 解答スタイルの参考実装
-- `.claude/scripts/lib/mdx-io.mjs` — `transformMdxFile` API
+- `scripts/lib/mdx-io.mjs` — `transformMdxFile` API

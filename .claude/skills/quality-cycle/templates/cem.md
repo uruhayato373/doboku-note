@@ -79,4 +79,4 @@ node .claude/skills/quality-cycle/scripts-cem/log-rewrite.mjs /tmp/cem-rewrite-r
 
 - **人間レビュー必須**: AI リライト後は `reviewStatus: needs-review`。`approved` への変更は人間のみ
 - **バッチ分割コミット**: 690 件を 1 コミットにまとめない。5 件ずつコミット推奨（AI 生成シグナル対策）
-- **改行コード**: リライト時は必ず `.claude/scripts/lib/mdx-io.mjs` 経由（CRLF 保持）
+- **改行コード**: リライト時は必ず `scripts/lib/mdx-io.mjs` 経由（CRLF 保持）

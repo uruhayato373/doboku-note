@@ -689,7 +689,7 @@ const A8_STATES = ['candidate', 'applied', 'approved', 'harvested', 'pending-ver
 
 const a8Entry = z.looseObject({
   programId: z.string().min(1).describe('A8 のプログラム id（行の主キー。キーと同じ）'),
-  status: z.enum([...A8_STATES, 'snapshot']).describe('状態機械の状態（.claude/scripts/ads/lib/a8-scout-core.mjs の A8_STATES）。snapshot は状態機械の外の記録（__applying）'),
+  status: z.enum([...A8_STATES, 'snapshot']).describe('状態機械の状態（scripts/ads/lib/a8-scout-core.mjs の A8_STATES）。snapshot は状態機械の外の記録（__applying）'),
   name: z.string().nullable().optional().describe('案件名'),
   genre: z.string().nullable().optional(),
   company: z.string().nullable().optional(),

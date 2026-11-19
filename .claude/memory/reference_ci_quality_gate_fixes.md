@@ -8,7 +8,7 @@ metadata:
 
 **content-quality-ratchet**（`check-content-quality:ci` = `lint-mdx-mobile.mjs --all --baseline --ci`）
 - 新年度の過去問（例 r08-primary/secondary）が baseline 比で新規違反（1-3=4列表／3-1=入れ子リスト／15-3=300字超段落）を出す。
-- **過去問データ表・模範解答の散文は全年度（h21〜r05）が既に baseline 受容済み**（r04-primary は 1-3:13）。≤3列へ崩すのは他年度と不整合＝**`node .claude/scripts/lint-mdx-mobile.mjs --all --update-baseline` で新年度も同様に受容**（差分は当該記事の数エントリのみのはず）。
+- **過去問データ表・模範解答の散文は全年度（h21〜r05）が既に baseline 受容済み**（r04-primary は 1-3:13）。≤3列へ崩すのは他年度と不整合＝**`node scripts/lint-mdx-mobile.mjs --all --update-baseline` で新年度も同様に受容**（差分は当該記事の数エントリのみのはず）。
 
 **note-funnel**（`check-note-funnel` = `audit-note-funnel.mjs --ci`・source のみ）
 - 公開記事(noteStatus:published)に冒頭/末尾 CTA 欠落＝D1。修復は `npm run wire-note-funnel-cta -- --exam <key> --apply`（先に `--apply` 無しで dry-run）。
@@ -71,7 +71,7 @@ GitHub Actions の **scheduled（cron）workflow はデフォルトブランチ 
 
 経緯: `note-funnel.json` の `topCta.text`（`cta:pack-top`）が markdown リンク形式で、「マガジン CTA は bare URL 単独行」（content-principles §14-c / `check-note-magazine-cta.mjs`）と衝突し、staged-gate 修正後に 53 本が編集ブロックされた。
 
-**現在は解消**: `.claude/scripts/check-note-magazine-cta.mjs:21-26,73-80` が `<!-- cta:pack-top -->` / `<!-- cta:pack-top-light -->` ブロック内を免除（`inPackTop`）。2026-09-22 実測で `cta:pack-top` 224 本・`cta:pack-top-light` 3 本・`cta:*-mokuji` 875 本が check-note-funnel と pre-commit を全通過。
+**現在は解消**: `scripts/check-note-magazine-cta.mjs:21-26,73-80` が `<!-- cta:pack-top -->` / `<!-- cta:pack-top-light -->` ブロック内を免除（`inPackTop`）。2026-09-22 実測で `cta:pack-top` 224 本・`cta:pack-top-light` 3 本・`cta:*-mokuji` 875 本が check-note-funnel と pre-commit を全通過。
 
 **How to apply:** この衝突を理由に作業を止めない。ただし**同一行に ¥ を書くと今も落ちる**（価格正本は `src/lib/note-magazines.ts`）。`cta:pack-top-light` は config に無い手書き 3 本で `wire-note-funnel-cta --sync-managed` では保守されない（手で直す）。関連 [[project_r8_yosou_full_matrix_2026_07]]
 - develop の audit が `asset-hydrate --group kindle-dist`（など private R2 の復元）で数件だけ「R2 取得に失敗」になるときは、R2 へ上げた後の `.claude/state/assets/manifest.json` の更新がコミットされていない疑いを先に見る（2026-11-10 d-00〜d-03・別セッションが 08:03 に offload して manifest を作業ツリーに残したまま）。手元の実物・manifest の作業ツリー差分・products/catalog の SHA を照合し、一致すれば manifest だけ pathspec でコミット。asset-offload --skip-existing は dry-run ではスキップ判定しない。

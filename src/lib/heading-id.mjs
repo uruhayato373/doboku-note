@@ -2,7 +2,7 @@
  * 見出し ID 生成・抽出の共有モジュール。
  *
  * サイトの目次（src/lib/toc.ts）と build-exam-backlinks.mjs の過去問変種が使う単一正源（DN-0797 で
- * .claude/scripts/lib から移し、toc.ts の写しを消した。.claude/scripts/lib/heading-id.mjs は再公開）。
+ * scripts/lib から移し、toc.ts の写しを消した。scripts/lib/heading-id.mjs は再公開）。
  * 過去問変種（examMode: true）は章番号 Ⅰ-1-1 / I-1-1 を 1-1 に正規化する。
  */
 

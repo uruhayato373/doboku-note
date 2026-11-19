@@ -1122,7 +1122,7 @@ const RULE_ID = z.string().regex(/^\d+-\d+$/, 'ルール id（0-1 など）');
 const SEVERITY = z.enum(['HIGH', 'MEDIUM', 'LOW']);
 const ruleOverride = z.object({ enabled: z.literal(false).optional().describe('false でこのルールを無効化'), severity: SEVERITY.optional().describe('重大度の上書き') }).strict();
 
-/** サイト記事（content/site/**）の機械品質ルールの重大度・適用範囲。.claude/scripts/lint-mdx-mobile.mjs・check-content-quality・管理画面が読む */
+/** サイト記事（content/site/**）の機械品質ルールの重大度・適用範囲。scripts/lint-mdx-mobile.mjs・check-content-quality・管理画面が読む */
 export const ConfigContentRules = z
   .object({
     schemaVersion: z.literal(1),
