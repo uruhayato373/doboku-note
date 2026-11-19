@@ -47,3 +47,22 @@ test('旧パス .claude/scripts を書いているファイルが無い', () => 
   const bad = hits.filter((f) => !MENTION_OK.has(f));
   assert.deepEqual(bad, [], `旧パスが残っている（scripts/ に直す）: ${bad.join(', ')}`);
 });
+
+// スキルの scripts/ はそのスキルだけが使うもの。package.json・CI から呼ぶ事業の実装は scripts/ に置く（2026-11-19 に 22 本を移した）。
+const SKILL_SHIMS = ['.claude/skills/ogp-create/scripts/ogp-create.mjs']; // main の ogp-supply.yml が旧パスで呼ぶ間だけ残す転送（DN-1249）
+
+test('package.json と workflow は .claude/skills/ のコードを呼ばない', () => {
+  const pkg = JSON.parse(readFileSync(join(REPO_ROOT, 'package.json'), 'utf8'));
+  const entries = Object.entries(pkg.scripts ?? {});
+  const workflows = list(git('ls-files', '-z', '.github/workflows')).filter((f) => /\.ya?ml$/.test(f));
+  assert.ok(entries.length > 100 && workflows.length > 5, `npm script ${entries.length} 件・workflow ${workflows.length} 本＝検査不成立`);
+  const bad = [
+    ...entries.filter(([, cmd]) => cmd.includes('.claude/skills/')).map(([name]) => `package.json: ${name}`),
+    ...workflows.filter((f) => readFileSync(join(REPO_ROOT, f), 'utf8').includes('.claude/skills/')),
+  ];
+  assert.deepEqual(bad, [], `事業の実装は scripts/ に置く: ${bad.join(', ')}`);
+  for (const f of SKILL_SHIMS) {
+    const src = readFileSync(join(REPO_ROOT, f), 'utf8');
+    assert.ok(src.split('\n').length <= 12 && src.includes('spawnSync'), `${f} は転送だけにする`);
+  }
+});

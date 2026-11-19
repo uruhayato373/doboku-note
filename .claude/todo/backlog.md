@@ -517,12 +517,12 @@
 
 
 
-### [DN-1249] .claude/scripts の転送 9 本を消し、旧パスを禁止ルートに載せる
+### [DN-1249] .claude/scripts の転送 9 本と ogp-create の転送 1 本を消し、旧パスを禁止ルートに載せる
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-19]
 
 **起点**: 2026-11-19 に `.claude/scripts/`（153 ファイル）を `scripts/` へ集約した（uruhayato373/doboku-note#1663）。このカードは #1663 が main へ deploy されてから着手する。定期実行のワークフローは定義が main・checkout が develop で、Mac の `~/Library/Application Support/doboku-note/weekly-review.sh`（導入済みの写し）も旧パスの `build-doc-meta-index.mjs` を呼ぶため、旧パスに転送だけのファイルを 9 本残している。
 
-**やること**: (1) 集約が main へ deploy されたことを確かめる（main の `.github/workflows/` に `.claude/scripts/` が 0 件）。(2) Mac で `npm run weekly-review:install` を回し直し、導入済みの写しを新パスにする。(3) `.claude/scripts/` の転送 9 本と `knip.json` の entry `.claude/scripts/*.mjs` を消す。(4) `scripts/lib/repository-paths.mjs` の `MOVED_PATHS` に `[".claude/scripts", "scripts"]` を足し、禁止ルートと旧パス走査に載せる（Obsidian vault の `.claude/scripts/ocr/` を指す `.claude/skills/pdf-to-mdx/scripts/book-ocr/` の 2 ファイルは `stalePathLiterals.allowFiles` へ）。
+**やること**: (1) 集約が main へ deploy されたことを確かめる（main の `.github/workflows/` に `.claude/scripts/` が 0 件）。(2) Mac で `npm run weekly-review:install` を回し直し、導入済みの写しを新パスにする。(3) `.claude/scripts/` の転送 9 本と `knip.json` の entry `.claude/scripts/*.mjs` を消す。同じ日に事業の実装を移した `.claude/skills/ogp-create/scripts/ogp-create.mjs`（転送・main の `ogp-supply.yml` が呼ぶ）も消し、`tests/claude-scripts-retired.test.mjs` の `SHIMS`・`SKILL_SHIMS` を空にする。(4) `scripts/lib/repository-paths.mjs` の `MOVED_PATHS` に `[".claude/scripts", "scripts"]` を足し、禁止ルートと旧パス走査に載せる（Obsidian vault の `.claude/scripts/ocr/` を指す `.claude/skills/pdf-to-mdx/scripts/book-ocr/` の 2 ファイルは `stalePathLiterals.allowFiles` へ）。
 
 **完了条件**: `git ls-files .claude/scripts | wc -l` が 0。`npm run check-information-architecture` が `.claude/scripts/` への新規ファイルと旧パスの文字列を止める。
 

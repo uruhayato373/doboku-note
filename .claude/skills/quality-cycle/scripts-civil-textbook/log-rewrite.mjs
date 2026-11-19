@@ -34,86 +34,8 @@
 //   - 見つからなければ現在時刻で新規エントリを append。
 //   - page.status は 'rewritten' に更新。
 
-import { readFileSync } from 'node:fs';
+import { runLogRewrite } from '../scripts-common/log-rewrite-core.mjs';
 import { readState, writeState } from './lib/civil-state.mjs';
 
-const EXTRA_KEYS = [
-  'applied_patterns',
-  'added_sections',
-  'converted_tables',
-  'migrated_images',
-  'before_chars',
-  'after_chars',
-  'added_chars',
-  'lint_high_before',
-  'lint_high_after',
-  'lint_medium_before',
-  'lint_medium_after',
-  'mojibake',
-];
-
-function pickExtras(r) {
-  const extras = {};
-  for (const key of EXTRA_KEYS) {
-    if (r[key] !== undefined) extras[key] = r[key];
-  }
-  return extras;
-}
-
-const input = process.argv[2];
-if (!input) {
-  console.error('Usage: node scripts/log-rewrite.mjs <results.json>');
-  process.exit(1);
-}
-
-const results = JSON.parse(readFileSync(input, 'utf-8'));
-if (!Array.isArray(results)) {
-  console.error('[log-rewrite] results.json must be a JSON array');
-  process.exit(1);
-}
-
-const state = readState();
-const nowIso = new Date().toISOString();
-
-let merged = 0;
-let appended = 0;
-let skipped = 0;
-
-for (const r of results) {
-  if (!r || !r.slug) {
-    skipped++;
-    continue;
-  }
-  const { slug } = r;
-  const wave = r.wave || `W${(state.cycle || 0) + 1}`;
-
-  if (!state.pages[slug]) {
-    state.pages[slug] = { status: 'unscored', history: [] };
-  }
-  const page = state.pages[slug];
-  page.status = 'rewritten';
-
-  const extras = pickExtras(r);
-
-  const existing = page.history.find(
-    (h) => h.wave === wave && h.action === 'rewritten',
-  );
-  if (existing) {
-    Object.assign(existing, extras);
-    merged++;
-  } else {
-    page.history.push({
-      date: nowIso,
-      action: 'rewritten',
-      wave,
-      ...extras,
-    });
-    appended++;
-  }
-}
-
-writeState(state);
-console.log(
-  `[log-rewrite] merged=${merged} appended=${appended} skipped=${skipped} ` +
-    `total_pages=${Object.keys(state.pages).length}`,
-);
+// 土木は wave が無ければ次の周回（W<cycle+1>）として記録する
+runLogRewrite({ readState, writeState, defaultWave: (state) => `W${(state.cycle || 0) + 1}` });
