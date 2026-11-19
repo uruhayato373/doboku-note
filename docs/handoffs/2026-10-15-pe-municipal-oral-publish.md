@@ -8,7 +8,7 @@
 - **口頭試験（2026-11-04 に公開済み）**: 無料 2 本（`content/note/技術士建設部門/口頭試験-自治体職員の業務の語り方-無料/`・`content/note/技術士上下水道部門/口頭試験-水道下水道職の業務の語り方-無料/`）。有料 2 本への追記（`magazines/建設部門-口頭試験対策`＝発注者Q7問・`magazines/口頭試験対策-全部門共通`＝8問）。
 - **DN-0746**: `content/note/技術士上下水道部門/業務経歴票の書き方/`（無料・draft）。
 - **DN-0746**: 建設部門 BK-01〜BK-11 の II-2 記事 69 本に「立場で変わる手順と調整（発注者の場合／受注者の場合）」の節。答案本文は無変更。
-- 表紙の区分 `pe-water-supply`（技術士上下水道部門）を `.claude/knowledge/design-system/note-cover-tokens.json` に追加済み。
+- 表紙の区分 `pe-water-supply`（技術士上下水道部門）を `scripts/assets/design-tokens/note-cover-tokens.json` に追加済み。
 
 ## 別の PC で始めるとき
 

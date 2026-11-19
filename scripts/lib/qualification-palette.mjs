@@ -5,11 +5,11 @@
  * （qualification-registry.json の groups。例: pavement-1 → pavement）のトークンを使う。どちらも無い資格は null（未対応）。
  * パレットのキーそのもの（civil-1 など）を渡したときは、そのまま返す。描画（longform-render）に依存しない。
  */
-import { REPO_ROOT } from './repository-paths.mjs';
+import { REPO_ROOT, DESIGN_TOKENS_REL } from './repository-paths.mjs';
 import { readJson } from './json-io.mjs';
 import { loadRegistry } from './qualification-registry.mjs';
 
-const TOKENS_PATH = '.claude/knowledge/design-system/note-cover-tokens.json';
+const TOKENS_PATH = `${DESIGN_TOKENS_REL}/note-cover-tokens.json`;
 const cache = new Map();
 
 function load(root) {

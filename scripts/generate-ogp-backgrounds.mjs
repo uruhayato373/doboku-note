@@ -26,13 +26,13 @@ import { createRequire } from 'node:module';
 import { coverExamNames } from './lib/note-character-cover.mjs';
 import { datasetDir } from './lib/datasets.mjs';
 import { generateWithCodex } from './lib/codex-image.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, DESIGN_TOKENS_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { loadImageRules } from './lib/image-rules.mjs';
 
 const require = createRequire(import.meta.url);
 const BACKGROUNDS_DIR = path.join(ROOT, datasetDir('config.ogp-backgrounds'));
-const coverTokens = require(path.join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
+const coverTokens = require(path.join(DESIGN_TOKENS_ROOT, 'note-cover-tokens.json'));
 
 const W = 1200, H = 630;
 

@@ -54,7 +54,7 @@ test('サイトの資格色（globals.css の --exam-*）と note 表紙の色�
   // ライト（最初の定義）だけを比べる。ダークの上書きは後ろに出る
   const site = {};
   for (const m of css.matchAll(/--exam-([a-z0-9-]+):\s*(#[0-9a-fA-F]{6})/g)) site[m[1]] ??= m[2].toLowerCase();
-  const tokens = readJson('.claude/knowledge/design-system/note-cover-tokens.json').exams;
+  const tokens = readJson('scripts/assets/design-tokens/note-cover-tokens.json').exams;
   // サイトの変数名 → 表紙のキー（総監と一次は同じ --exam-pe を使う）
   const pairs = { 'civil-1': 'civil-1', 'civil-2': 'civil-2', pe: 'pe-comprehensive', 'pe-construction': 'pe-construction', concrete: 'concrete-engineer', 'concrete-chief': 'concrete-chief', 'concrete-diagnosis': 'concrete-diagnosis', rccm: 'rccm', surveyor: 'surveyor', pavement: 'pavement' };
   // 意図した差（.claude/knowledge/reference/brand-image-system.md の表に理由を書いたものだけ）
@@ -89,7 +89,7 @@ const objectLiteral = (file, name) => {
 test('SNS・動画・図解の資格キーの表は、資格の registry と表紙の色の定義（note-cover-tokens の qualification）に食い違わない', async () => {
   const { isQualificationRef } = await import('../scripts/lib/qualification-names.mjs');
   const registry = readJson(datasetPath('config.qualification-registry'));
-  const tokens = readJson('.claude/knowledge/design-system/note-cover-tokens.json').exams;
+  const tokens = readJson('scripts/assets/design-tokens/note-cover-tokens.json').exams;
   const tables = {
     // EXAM_ALIAS はトークンから導く（DN-1012）ので、実行して得た表で見る
     'X の EXAM_ALIAS': (await import('../scripts/lib/registry-x-state.mjs')).EXAM_ALIAS,
@@ -116,7 +116,7 @@ test('SNS・動画・図解の資格キーの表は、資格の registry と表�
 test('マガジン表紙の資格ラベル（generate-magazine-covers の category）は registry の名前か、理由を書いた書き分け', async () => {
   const { qualificationLabel, qualificationShortLabel, qualificationBadgeLabel } = await import('../scripts/lib/qualification-names.mjs');
   const registry = readJson(datasetPath('config.qualification-registry'));
-  const tokens = readJson('.claude/knowledge/design-system/note-cover-tokens.json').exams;
+  const tokens = readJson('scripts/assets/design-tokens/note-cover-tokens.json').exams;
   // 意図した書き分け: 建設部門の二次試験の教材だと分かるように「第二次」を付ける
   const VARIANTS = { 'pe-construction': ['技術士（建設部門・第二次）'] };
   const src = readFileSync('scripts/generate-magazine-covers.mjs', 'utf8');

@@ -12,7 +12,7 @@ import { EXAM_ALIAS } from '../scripts/lib/registry-x-state.mjs';
 
 const registry = JSON.parse(readFileSync(join(REPO_ROOT, 'config/qualification-registry.json'), 'utf8'));
 const IDS = [...registry.qualifications.map((q) => q.id), ...Object.keys(registry.groups)];
-const tokens = JSON.parse(readFileSync(join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8')).exams;
+const tokens = JSON.parse(readFileSync(join(REPO_ROOT, 'scripts/assets/design-tokens/note-cover-tokens.json'), 'utf8')).exams;
 
 /** 画像・動画の色を持たない資格（教材を作っていない）。色を足すときは note-cover-tokens.json に qualification つきで足し、ここから外す */
 const NO_PALETTE = [

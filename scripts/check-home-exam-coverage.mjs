@@ -24,11 +24,11 @@
 
 import { readFileSync } from "node:fs";
 import { join, relative } from "node:path";
-import { REPO_ROOT } from "./lib/repository-paths.mjs";
+import { REPO_ROOT, DESIGN_TOKENS_ROOT } from "./lib/repository-paths.mjs";
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 import { CATEGORY_TO_EXAM_KEY } from './ogp-create/lib/category-exam-key.mjs';
 
-const COVER_TOKENS = join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json');
+const COVER_TOKENS = join(DESIGN_TOKENS_ROOT, 'note-cover-tokens.json');
 
 /**
  * 表示中のカテゴリが OGP のテーマ色を持つか。表に無いと ogp-create は枠色なしで画像を作る。

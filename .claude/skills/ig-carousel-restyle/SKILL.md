@@ -11,7 +11,7 @@ domain: sns
 
 > **退役（2026-11-01）**: 旧過去問パックの素材は削除済み。一括再生成は行わず、新規作品は [Instagram 投稿素材 README](../../../content/sns/instagram/README.md) に従って個別に登録する。
 
-`.claude/knowledge/design-system/instagram-carousel-tokens.json` または `quiz-slides.mjs` を変更した後に、既存 `cem/exam-packs/**` の PNG を **3 フォーマット（Carousel + Reels + Stories）すべてで統一再生成**するためのラッパー。
+`scripts/assets/design-tokens/instagram-carousel-tokens.json` または `quiz-slides.mjs` を変更した後に、既存 `cem/exam-packs/**` の PNG を **3 フォーマット（Carousel + Reels + Stories）すべてで統一再生成**するためのラッパー。
 
 ## 人物・見出しと既存投稿の改修
 
@@ -55,7 +55,7 @@ cover の swipeText 系トークンや `quiz-slides.mjs` の `buildQuizCover` �
 
 1. tokens.json の JSON 妥当性を確認:
    ```bash
-   node -e "JSON.parse(require('fs').readFileSync('.claude/knowledge/design-system/instagram-carousel-tokens.json'))" && echo OK
+   node -e "JSON.parse(require('fs').readFileSync('scripts/assets/design-tokens/instagram-carousel-tokens.json'))" && echo OK
    ```
 2. 範囲を決定（変数 RANGE）:
    - `--pack r07-pack-01` → RANGE=`--only r07-pack-01`

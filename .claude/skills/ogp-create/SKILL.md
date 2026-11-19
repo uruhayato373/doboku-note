@@ -42,7 +42,7 @@ note 公開用ドラフト（`content/note/`）のカバー画像（1280×670）
 
 過去 Phase で 5 種テンプレ（navy-white / dark-wood / red-line / blackboard / dark-grid）を併用していたが、2026-04-29 に T06 Mono Tag に統一（理由: SNS シェアでブランド一貫性を担保 + メンテ単純化）。**旧**テンプレの背景画像 (`assets/fonts/ogp-backgrounds/*.png`) は履歴として残置しているが現在は参照されない。新しい資格別 AI 背景は別系統で `config/ogp/backgrounds/<exam-key>.png|webp|jpg` に置き、`ogp-create.mjs` の `resolveBackgroundImage` が参照する（任意・未配置なら従来のオフホワイト+グリッドにフォールバック。下記「資格別 AI 背景」）。
 
-**note 記事・マガジンカバーは V5文字優先POP（本スキル外の `scripts/lib/note-character-cover.mjs`）が標準**。サイトOGP（`mono-tag`）とは別系統で、背景写真は共有せず、フォント（本スキルの`assets/fonts/`）だけを共有する。値の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../../knowledge/design-system/note-cover-tokens.json)、現行レイアウトは [`note-cover-character-v5.md`](../../knowledge/design-system/note-cover-character-v5.md)（G2履歴は [`note-cover.md`](../../knowledge/design-system/note-cover.md)）。
+**note 記事・マガジンカバーは V5文字優先POP（本スキル外の `scripts/lib/note-character-cover.mjs`）が標準**。サイトOGP（`mono-tag`）とは別系統で、背景写真は共有せず、フォント（本スキルの`assets/fonts/`）だけを共有する。値の真実源は [`scripts/assets/design-tokens/note-cover-tokens.json`](../../../scripts/assets/design-tokens/note-cover-tokens.json)、現行レイアウトは [`note-cover-character-v5.md`](../../knowledge/design-system/note-cover-character-v5.md)（G2履歴は [`note-cover.md`](../../knowledge/design-system/note-cover.md)）。
 
 ## 全幅レイアウト（2026-06-16〜）
 
@@ -52,7 +52,7 @@ mono-tag は **全幅レイアウト**。左右 72px パディング内に、**�
 
 ## 資格別テーマ色（16px 外枠）
 
-外枠 16px を資格区分のテーマ色で描き、サムネ一覧でも分野が色で判別できる。**色の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../../knowledge/design-system/note-cover-tokens.json) の `exams[].base`**（note カバーと共通・二重管理しない）。カテゴリ→exam key は `src/config/categories.json` の `layout.ogpExamKey`（`scripts/lib/category-exam-key.mjs`（このスキルの lib）が読む）で解決し、`resolveAccentColor()` が base 色を返す（未マッピングは既定ネイビー `#0f1e3f`）。色の対応表は ogp-prompts.md「テーマ色」を参照。新カテゴリ追加時は **`layout.ogpExamKey` + `note-cover-tokens.json` + ogp-prompts.md** を更新する。
+外枠 16px を資格区分のテーマ色で描き、サムネ一覧でも分野が色で判別できる。**色の真実源は [`scripts/assets/design-tokens/note-cover-tokens.json`](../../../scripts/assets/design-tokens/note-cover-tokens.json) の `exams[].base`**（note カバーと共通・二重管理しない）。カテゴリ→exam key は `src/config/categories.json` の `layout.ogpExamKey`（`scripts/lib/category-exam-key.mjs`（このスキルの lib）が読む）で解決し、`resolveAccentColor()` が base 色を返す（未マッピングは既定ネイビー `#0f1e3f`）。色の対応表は ogp-prompts.md「テーマ色」を参照。新カテゴリ追加時は **`layout.ogpExamKey` + `note-cover-tokens.json` + ogp-prompts.md** を更新する。
 
 ## 資格別 AI 背景（任意・2026-06-18〜）
 
@@ -228,7 +228,7 @@ cover:
   character: reading                  # 任意。ポーズ slug の明示指定（未指定は内容から自動選択）
 ```
 
-`banner` / `meta` / `chips`（G2）と `visualAsset` / `visualPrompt`（V4）は読まれない。仕様・ポーズの使い分けは [`note-cover-character-v5.md`](../../knowledge/design-system/note-cover-character-v5.md)、試験パレットは [`note-cover-tokens.json`](../../knowledge/design-system/note-cover-tokens.json) を参照。
+`banner` / `meta` / `chips`（G2）と `visualAsset` / `visualPrompt`（V4）は読まれない。仕様・ポーズの使い分けは [`note-cover-character-v5.md`](../../knowledge/design-system/note-cover-character-v5.md)、試験パレットは [`note-cover-tokens.json`](../../../scripts/assets/design-tokens/note-cover-tokens.json) を参照。
 
 ## 事前条件
 
@@ -256,4 +256,4 @@ cover:
 - 改行・フォント計算: `scripts/ogp-create/lib/ogp-text.mjs`
 - エントリポイント: `scripts/ogp-create/ogp-create.mjs`
 - note カバー: `scripts/generate-note-covers.mjs`（variant: crop-safe-v4=既定 / variant 無し cover:=G2 レガシー / cover: 無し=mono-tag）
-- noteカバー現行V5: `.claude/knowledge/design-system/note-cover-character-v5.md`（SSOT）／G2履歴: `note-cover.md`／トークン: `.claude/knowledge/design-system/note-cover-tokens.json`（値の真実源）
+- noteカバー現行V5: `.claude/knowledge/design-system/note-cover-character-v5.md`（SSOT）／G2履歴: `note-cover.md`／トークン: `scripts/assets/design-tokens/note-cover-tokens.json`（値の真実源）

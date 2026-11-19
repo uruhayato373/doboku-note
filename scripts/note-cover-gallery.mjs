@@ -22,14 +22,14 @@ import { execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
 import matter from "gray-matter";
 import { coverExamNames } from "./lib/note-character-cover.mjs";
-import { REPO_ROOT as ROOT, NOTE_CONTENT_ROOT } from "./lib/repository-paths.mjs";
+import { REPO_ROOT as ROOT, NOTE_CONTENT_ROOT, DESIGN_TOKENS_ROOT } from "./lib/repository-paths.mjs";
 
 const require = createRequire(import.meta.url);
 const NOTE = NOTE_CONTENT_ROOT;
 const OUT = join(ROOT, ".tmp", "note-cover-gallery.html");
 
 // 試験区分パレット・dir の真実源
-const TOKENS = require(join(ROOT, ".claude", "knowledge", "design-system", "note-cover-tokens.json"));
+const TOKENS = require(join(DESIGN_TOKENS_ROOT, "note-cover-tokens.json"));
 const EXAMS = TOKENS.exams;
 // 定義順（pe-comprehensive, civil-1, ...）を表示順とする
 const EXAM_KEYS = Object.keys(EXAMS).filter((k) => k !== "comment");

@@ -16,8 +16,9 @@ import { fetchNoteDetails, fetchCreatorMagazines } from './note-api.mjs';
 import { parseNoteText } from './note-meta.mjs';
 import { readCoverRecords, saveCoverRecords } from './note-republish-hash.mjs';
 import { NOTE_CREATOR } from './site-identity.mjs';
+import { DESIGN_TOKENS_REL } from './repository-paths.mjs';
 
-const TOKENS_PATH = '.claude/knowledge/design-system/note-cover-tokens.json';
+const TOKENS_PATH = `${DESIGN_TOKENS_REL}/note-cover-tokens.json`;
 // note掲載文.txt が live の説明文と一致しないマガジンは src/lib/note-magazines.ts の noteUrl で同定する
 const MAGAZINE_KEY_OVERRIDE = { 'magazine:river-consultant': 'm32132ecb3033', 'magazine:general-contractor': 'm32aaa137f22e' };
 
