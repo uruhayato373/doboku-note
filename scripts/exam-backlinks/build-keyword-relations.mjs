@@ -16,8 +16,8 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { writeJsonIfChanged } from '../../../../scripts/lib/write-generated.mjs';
-import { REPO_ROOT as ROOT } from '../../../../scripts/lib/repository-paths.mjs';
+import { writeJsonIfChanged } from '../lib/write-generated.mjs';
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 
 const CATEGORY_PREFIX = 'pe-comprehensive-management-';
 

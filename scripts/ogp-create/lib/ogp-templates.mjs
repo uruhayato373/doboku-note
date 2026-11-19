@@ -15,7 +15,7 @@
  *   note カバー=1280×670 の両方をサポート。SAFETY_ZONE_WIDTH=630 は g2/banner 系のセーフ幅算出に使う。
  */
 
-import { SITE_HOST } from '../../../../../scripts/lib/site-identity.mjs';
+import { SITE_HOST } from '../../lib/site-identity.mjs';
 
 const DEFAULT_WIDTH = 1200;
 const DEFAULT_HEIGHT = 630;

@@ -3,16 +3,16 @@
  * curl を使用してプロキシ環境に対応。
  *
  * Usage:
- *   node .claude/skills/sync-r2-images/scripts/download-images-from-r2.mjs              # 全 MDX をスキャン・ダウンロード
- *   node .claude/skills/sync-r2-images/scripts/download-images-from-r2.mjs --dry-run    # プレビューのみ
- *   node .claude/skills/sync-r2-images/scripts/download-images-from-r2.mjs --prefix civil-construction-1/guide-earthwork
- *   node .claude/skills/sync-r2-images/scripts/download-images-from-r2.mjs --prefix civil-construction-1/guide-earthwork --dry-run
+ *   node scripts/sync-r2-images/download-images-from-r2.mjs              # 全 MDX をスキャン・ダウンロード
+ *   node scripts/sync-r2-images/download-images-from-r2.mjs --dry-run    # プレビューのみ
+ *   node scripts/sync-r2-images/download-images-from-r2.mjs --prefix civil-construction-1/guide-earthwork
+ *   node scripts/sync-r2-images/download-images-from-r2.mjs --prefix civil-construction-1/guide-earthwork --dry-run
  */
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
-import { R2_PUBLIC_ORIGIN } from '../../../../scripts/lib/site-identity.mjs';
-import { REPO_ROOT as root } from '../../../../scripts/lib/repository-paths.mjs';
+import { R2_PUBLIC_ORIGIN } from '../lib/site-identity.mjs';
+import { REPO_ROOT as root } from '../lib/repository-paths.mjs';
 
 // Parse command line args
 const args = process.argv.slice(2);

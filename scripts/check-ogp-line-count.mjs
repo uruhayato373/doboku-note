@@ -55,7 +55,7 @@ export function hasExplicitOgp(source) {
 function main() {
   const raw = execFileSync(
     'node',
-    ['.claude/skills/ogp-create/scripts/ogp-create.mjs', '--all', '--debug-wrap'],
+    ['scripts/ogp-create/ogp-create.mjs', '--all', '--debug-wrap'],
     { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 },
   );
   const wraps = parseDebugWrap(raw);

@@ -126,7 +126,7 @@ content/site/pe-comprehensive-management/<slug>/img/figure-{N}.svg
 
 ```bash
 # HIGH 検出でコミット前にブロック（必須）
-node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs \
+node scripts/check-mdx/rules/svg/audit.mjs \
   --file=content/site/pe-comprehensive-management/<slug>/img/figure-{N}.svg \
   --fail-on=HIGH
 ```

@@ -2,20 +2,20 @@
  * Diff local `content/site/` against R2 bucket `doboku-note` (prefix `posts/`).
  *
  * Usage:
- *   node .claude/skills/diff-r2/scripts/diff-r2.mjs                        # 全件を比較
- *   node .claude/skills/diff-r2/scripts/diff-r2.mjs --prefix civil-...     # 特定プレフィックスのみ
- *   node .claude/skills/diff-r2/scripts/diff-r2.mjs --images-only          # 画像のみ
- *   node .claude/skills/diff-r2/scripts/diff-r2.mjs --mdx-only             # MDX のみ
- *   node .claude/skills/diff-r2/scripts/diff-r2.mjs --verbose              # 全差分をリスト出力（デフォルトは上位20件）
- *   node .claude/skills/diff-r2/scripts/diff-r2.mjs --json                 # JSON 出力
+ *   node scripts/diff-r2/diff-r2.mjs                        # 全件を比較
+ *   node scripts/diff-r2/diff-r2.mjs --prefix civil-...     # 特定プレフィックスのみ
+ *   node scripts/diff-r2/diff-r2.mjs --images-only          # 画像のみ
+ *   node scripts/diff-r2/diff-r2.mjs --mdx-only             # MDX のみ
+ *   node scripts/diff-r2/diff-r2.mjs --verbose              # 全差分をリスト出力（デフォルトは上位20件）
+ *   node scripts/diff-r2/diff-r2.mjs --json                 # JSON 出力
  *
  * Exit code: 0 if in sync, 1 if any diff found.
  */
 import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
 import fs from 'fs';
 import path from 'path';
-import { REPO_ROOT as root, SITE_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
-import { listFiles } from '../../../../scripts/lib/fs-walk.mjs';
+import { REPO_ROOT as root, SITE_CONTENT_ROOT } from '../lib/repository-paths.mjs';
+import { listFiles } from '../lib/fs-walk.mjs';
 
 // Load .env.local
 const envPath = path.join(root, '.env.local');

@@ -18,13 +18,13 @@
 import { google } from "googleapis";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join, resolve } from "path";
-import { reportIdOf, writeReport } from "../../../../scripts/lib/metric-reports.mjs";
+import { reportIdOf, writeReport } from "../lib/metric-reports.mjs";
 import { pathToFileURL } from "node:url";
-import { getDateRange, validateRange } from "../../../../scripts/lib/gsc-date-range.mjs";
+import { getDateRange, validateRange } from "../lib/gsc-date-range.mjs";
 import dotenv from "dotenv";
-import { fetchGscPages } from "../../../../scripts/lib/gsc-pagination.mjs";
-import { GSC_PROPERTY } from "../../../../scripts/lib/site-identity.mjs";
-import { parseCliArgs } from "../../../../scripts/lib/cli-args.mjs";
+import { fetchGscPages } from "../lib/gsc-pagination.mjs";
+import { GSC_PROPERTY } from "../lib/site-identity.mjs";
+import { parseCliArgs } from "../lib/cli-args.mjs";
 
 
 

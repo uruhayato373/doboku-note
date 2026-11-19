@@ -62,8 +62,8 @@ on:
       - "scripts/sns/parse-civil-1-questions.mjs"
       - "scripts/sns/parse-civil-2-questions.mjs"
       - "scripts/update-mdx-image-refs.mjs"
-      - ".claude/skills/exam-backlinks/scripts/build-exam-backlinks.mjs"
-      - ".claude/skills/exam-backlinks/scripts/build-keyword-relations.mjs"
+      - "scripts/exam-backlinks/build-exam-backlinks.mjs"
+      - "scripts/exam-backlinks/build-keyword-relations.mjs"
   # コンテンツは develop へ直 push されるため PR 経路の E2E を通らない。MDX コンポーネントの誤用で
   # 画面が壊れても ci.yml（build + check-seo-build）は通ることがあるので、develop を夜間 1 回だけ回す。
   # schedule はデフォルトブランチ（main）版の workflow で動くが、checkout は develop に向ける。

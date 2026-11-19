@@ -24,9 +24,10 @@ import fs from 'fs';
 import path from 'path';
 import { generateHeadingId, extractHeadings } from '#lib/heading-id.mjs';
 import { buildKeywordHref } from '#src/lib/keyword-href.mjs';
-import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from '../../../../../../scripts/lib/repository-paths.mjs';
-import { slugFromKey } from '../../../../../../scripts/lib/url-normalization.mjs';
-import { siteSlugFromParts } from '../../../../../../src/lib/site-slug.mjs';
+import { isLegacyPath } from '../../../lib/legacy-routes.mjs';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from '../../../lib/repository-paths.mjs';
+import { slugFromKey } from '../../../lib/url-normalization.mjs';
+import { siteSlugFromParts } from '../../../../src/lib/site-slug.mjs';
 
 const SITE_DIR = SITE_CONTENT_ROOT;
 const NOTE_DIR = path.join(ROOT, 'content', 'note');
@@ -114,7 +115,7 @@ function normalizeHref(href) {
   let h = raw.replace(/^https?:\/\/(www\.)?doboku-note\.com/i, '');
   if (!h.startsWith('/')) return null; // 外部リンク・mailto 等は対象外
   h = h.split('?')[0]; // クエリ除去（アンカー # は残す）
-  if (h.startsWith('/docs/')) return { kind: 'docs', href: h };
+  if (isLegacyPath(h)) return { kind: 'docs', href: h };
   if (h.startsWith('/category/')) return { kind: 'category', href: h };
   const base = h.split('#')[0];
   // 2026-08-22 移行後の新 URL（note 原稿は DN-0289 で張り替え済み）は旧 slug へ戻して同じ検査にかける。

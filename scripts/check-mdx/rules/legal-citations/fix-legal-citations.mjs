@@ -3,9 +3,9 @@
  * 法令条文を e-Gov 法令検索インラインリンクに一斉変換するスクリプト
  *
  * Usage:
- *   node scripts/fix-legal-citations.mjs --dry-run    # diff 出力のみ
- *   node scripts/fix-legal-citations.mjs --apply      # 実ファイル書き換え
- *   node scripts/fix-legal-citations.mjs --file <p>   # 単一ファイル
+ *   node scripts/check-mdx/rules/legal-citations/fix-legal-citations.mjs --dry-run    # diff 出力のみ
+ *   node scripts/check-mdx/rules/legal-citations/fix-legal-citations.mjs --apply      # 実ファイル書き換え
+ *   node scripts/check-mdx/rules/legal-citations/fix-legal-citations.mjs --file <p>   # 単一ファイル
  *
  * ルール:
  * - 法令名＋第◯条 (+ 第◯項) のパターンを [**法令名第◯条**](url) に置換
@@ -20,7 +20,7 @@
 import { readdirSync, readFileSync, writeFileSync, statSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { readMdxFile, writeMdxFile } from '#lib/mdx-io.mjs';
-import { REPO_ROOT as ROOT } from '../../../../../../scripts/lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT } from '../../../lib/repository-paths.mjs';
 
 const POSTS_ROOT = join(ROOT, 'content/site/pe-comprehensive-management');
 const BACKUP_ROOT = '/tmp/fix-legal-citations-backup';

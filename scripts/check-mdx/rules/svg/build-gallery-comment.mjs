@@ -16,10 +16,10 @@
  *
  * Usage:
  *   # 1. audit 実行で state 更新
- *   node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs
+ *   node scripts/check-mdx/rules/svg/audit.mjs
  *
  *   # 2. ギャラリー生成
- *   node .claude/skills/check-mdx/scripts/rules/svg/build-gallery-comment.mjs
+ *   node scripts/check-mdx/rules/svg/build-gallery-comment.mjs
  *
  * URL 形式:
  *   doboku-note.com/posts/... は Next.js のルートで 301 redirect が
@@ -30,8 +30,8 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { globSync } from "glob";
 import { join, relative } from "path";
-import { R2_PUBLIC_ORIGIN } from "../../../../../../scripts/lib/site-identity.mjs";
-import { REPO_ROOT, STATE_ROOT } from "../../../../../../scripts/lib/repository-paths.mjs";
+import { R2_PUBLIC_ORIGIN } from "../../../lib/site-identity.mjs";
+import { REPO_ROOT, STATE_ROOT } from "../../../lib/repository-paths.mjs";
 
 const AUDIT_STATE = join(STATE_ROOT, "svg-audit.json");
 const OUTPUT = ".tmp/svg-gallery-comment.md";
@@ -39,7 +39,7 @@ const IMAGE_HOST = R2_PUBLIC_ORIGIN;
 
 if (!existsSync(AUDIT_STATE)) {
   console.error(`audit state not found: ${relative(REPO_ROOT, AUDIT_STATE).split("\\").join("/")}`);
-  console.error(`先に audit を実行: node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs`);
+  console.error(`先に audit を実行: node scripts/check-mdx/rules/svg/audit.mjs`);
   process.exit(1);
 }
 
@@ -132,7 +132,7 @@ lines.push("- 🟡 MEDIUM 違反あり（計画的改善）");
 lines.push("- ✅ audit クリア");
 lines.push("");
 lines.push(
-  `**再生成コマンド**: \`node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs && node .claude/skills/check-mdx/scripts/rules/svg/build-gallery-comment.mjs\``
+  `**再生成コマンド**: \`node scripts/check-mdx/rules/svg/audit.mjs && node scripts/check-mdx/rules/svg/build-gallery-comment.mjs\``
 );
 lines.push("");
 lines.push("---");

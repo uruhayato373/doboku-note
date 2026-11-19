@@ -266,10 +266,10 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 
 ```bash
 # 単一ファイル（fail-on=HIGH で exit 1）
-node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs --file=<作成した .svg> --fail-on=HIGH
+node scripts/check-mdx/rules/svg/audit.mjs --file=<作成した .svg> --fail-on=HIGH
 
 # プロジェクト全体
-node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs --severity=HIGH
+node scripts/check-mdx/rules/svg/audit.mjs --severity=HIGH
 ```
 
 検出対象: 文字クリップ（P1）・必須属性欠落（P3: role / aria-label / max-width）・viewBox 超過（P5）・フォント過小（P4）等。詳細は `/check-mdx --rules svg`（`.claude/skills/check-mdx/SKILL.md`）を参照。

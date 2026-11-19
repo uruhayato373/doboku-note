@@ -28,9 +28,9 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { dirname, join, resolve } from "path";
-import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
-import { parseCliArgs } from "../../../../scripts/lib/cli-args.mjs";
-import { parseLegacyRedirects } from "../../../../scripts/lib/legacy-routes.mjs";
+import { datasetPath } from "../lib/datasets.mjs";
+import { parseCliArgs } from "../lib/cli-args.mjs";
+import { parseLegacyRedirects } from "../lib/legacy-routes.mjs";
 import {
   extractSeo,
   runIndexablePageChecks,

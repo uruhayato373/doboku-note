@@ -211,7 +211,7 @@ npm run lint
 | 連携先 | 役割 |
 |---|---|
 | **`.claude/skills/consolidate-duplicate-keyword/scripts/find-duplicate-keywords.mjs`** | Step 0 の候補検出 |
-| **`.claude/skills/exam-backlinks/scripts/build-exam-backlinks.mjs`** | Phase 5 の自動生成 |
+| **`scripts/exam-backlinks/build-exam-backlinks.mjs`** | Phase 5 の自動生成 |
 | **`/keyword-page revise`** モード | Phase 1 の統合リライト時の編集スキル |
 | **`public/_redirects`** | Phase 6 の 301 リダイレクト定義 |
 
@@ -239,6 +239,6 @@ npm run lint
 
 - `src/config/pe-chapters.json` — キーワード集の構造化データ
 - `.claude/skills/consolidate-duplicate-keyword/scripts/find-duplicate-keywords.mjs` — 重複検出（本スキルの入口）
-- `.claude/skills/exam-backlinks/scripts/build-exam-backlinks.mjs` — 自動生成スクリプト
+- `scripts/exam-backlinks/build-exam-backlinks.mjs` — 自動生成スクリプト
 - `public/_redirects` — Cloudflare Pages リダイレクト定義
 - `.claude/knowledge/reference/content-authoring.md` — モバイル視認性ルール（表 → 箇条書きの判断基準）

@@ -5,7 +5,7 @@
  * 現行の exam-question-keywords.json（過去問MDX <RelatedKeywords> から生成済み）を
  * 変換して .claude/state/exam-keyword-map.json を生成する。
  *
- * 実行: node .claude/skills/exam-backlinks/scripts/bootstrap-exam-keyword-map.mjs
+ * 実行: node scripts/exam-backlinks/bootstrap-exam-keyword-map.mjs
  *
  * 出力:
  *   .claude/state/exam-keyword-map.json
@@ -15,7 +15,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { REPO_ROOT as ROOT } from '../../../../scripts/lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 
 const IN_FILE = path.join(ROOT, 'src/config/exam-question-keywords.json');
 const OUT_FILE = path.join(ROOT, '.claude/state/exam-keyword-map.json');

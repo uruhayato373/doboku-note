@@ -4,7 +4,7 @@
 // 表に無いカテゴリは枠色なしで出荷されるので、表示中のカテゴリには ogpExamKey が要る（2026-10-20 に測量士・舗装が漏れた）。
 import { readFileSync } from 'node:fs';
 
-const categories = JSON.parse(readFileSync(new URL('../../../../../src/config/categories.json', import.meta.url), 'utf8'));
+const categories = JSON.parse(readFileSync(new URL('../../../src/config/categories.json', import.meta.url), 'utf8'));
 
 /** categories.json の行の配列 → { slug: ogpExamKey }（テストは架空のカテゴリを足した配列で呼ぶ） */
 export function categoryExamKeys(rows) {

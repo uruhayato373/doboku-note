@@ -6,10 +6,10 @@
  * viewBox 超過・font-size 過小・テキスト重なりを検出。
  *
  * Usage:
- *   node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs
- *   node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs --path=<glob>
- *   node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs --file=<single.svg>
- *   node .claude/skills/check-mdx/scripts/rules/svg/audit.mjs --fail-on=HIGH   # exit 1 if any HIGH finding
+ *   node scripts/check-mdx/rules/svg/audit.mjs
+ *   node scripts/check-mdx/rules/svg/audit.mjs --path=<glob>
+ *   node scripts/check-mdx/rules/svg/audit.mjs --file=<single.svg>
+ *   node scripts/check-mdx/rules/svg/audit.mjs --fail-on=HIGH   # exit 1 if any HIGH finding
  *
  * .claude/state/svg-audit.json へ書くのは全件走査（--path 既定・--file なし・--severity=ALL）のときだけ。
  * --file / --path / --severity を付けた部分実行は所見を標準出力へ全件出すだけ — 1 枚の確認で全体の監査結果を
@@ -23,7 +23,7 @@
 import { writeFileSync, existsSync, mkdirSync } from "fs";
 import { globSync } from "glob";
 import { auditSvgFile } from "./detect.mjs";
-import { parseCliArgs } from "../../../../../../scripts/lib/cli-args.mjs";
+import { parseCliArgs } from "../../../lib/cli-args.mjs";
 
 const DEFAULT_PATH = "content/site/**/img/*.svg";
 

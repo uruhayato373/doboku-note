@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { parseSvg, detectSvgIssues } from '../.claude/skills/check-mdx/scripts/rules/svg/detect.mjs';
+import { parseSvg, detectSvgIssues } from '../scripts/check-mdx/rules/svg/detect.mjs';
 const issues = (body) => detectSvgIssues(parseSvg(`<svg viewBox="0 0 400 500">${body}</svg>`));
 const overlaps = (body) => issues(body).filter(f => f.pattern === 'P2-text-overlap');
 const pair = (y, x = 20, size = 11) => `<text x="20" y="50" font-size="11">行間の確認</text><text x="${x}" y="${y}" font-size="${size}">次の行です</text>`;

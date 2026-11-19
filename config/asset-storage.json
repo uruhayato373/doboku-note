@@ -139,7 +139,7 @@
       "regenerable": false,
       "generator": "npm run site-thumbs",
       "requiredBy": [
-        ".claude/skills/ogp-create/scripts/ogp-create.mjs（OGP の背景）",
+        "scripts/ogp-create/ogp-create.mjs（OGP の背景）",
         ".github/workflows/ogp-supply.yml（CI の OGP 生成の前に取り戻す）"
       ],
       "reason": "site-thumb.webp と同じ Codex の出力を 1200×630 に切った原寸の写真。OGP の背景に使う。再生成すると別の画像になるので原本として保存する",
@@ -179,7 +179,7 @@
       "regenerable": false,
       "generator": "scripts/generate-ogp-backgrounds.mjs",
       "requiredBy": [
-        ".claude/skills/ogp-create/scripts/ogp-create.mjs（サイト OGP・cover の無い note カバー）",
+        "scripts/ogp-create/ogp-create.mjs（サイト OGP・cover の無い note カバー）",
         "scripts/coconala-thumb.mjs（ココナラのサムネイル）",
         ".github/workflows/ogp-supply.yml（CI の OGP 生成の前に asset-hydrate で取り戻す）"
       ],

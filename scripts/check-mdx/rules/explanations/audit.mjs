@@ -5,16 +5,16 @@
  * 過去問 MDX の破損解説を全件スキャンし、.claude/state/broken-explanations.json を出力。
  *
  * Usage:
- *   node .claude/skills/check-mdx/scripts/rules/explanations/audit.mjs
- *   node .claude/skills/check-mdx/scripts/rules/explanations/audit.mjs --category=civil-construction-1
- *   node .claude/skills/check-mdx/scripts/rules/explanations/audit.mjs --topic=港則法
+ *   node scripts/check-mdx/rules/explanations/audit.mjs
+ *   node scripts/check-mdx/rules/explanations/audit.mjs --category=civil-construction-1
+ *   node scripts/check-mdx/rules/explanations/audit.mjs --topic=港則法
  */
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import { globSync } from "glob";
 import matter from "gray-matter";
 import { detectBrokenExplanations, PATTERNS } from "./detect.mjs";
-import { parseCliArgs } from "../../../../../../scripts/lib/cli-args.mjs";
+import { parseCliArgs } from "../../../lib/cli-args.mjs";
 
 const CATEGORY_GLOBS = {
   "civil-construction-1":

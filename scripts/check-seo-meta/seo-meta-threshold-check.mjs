@@ -14,8 +14,8 @@
  */
 
 import { existsSync, readFileSync, writeFileSync } from "fs";
-import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
-import { parseCliArgs } from "../../../../scripts/lib/cli-args.mjs";
+import { datasetPath } from "../lib/datasets.mjs";
+import { parseCliArgs } from "../lib/cli-args.mjs";
 
 function parseArgs() {
   const { file, output, severity, exitOnViolation } = parseCliArgs({

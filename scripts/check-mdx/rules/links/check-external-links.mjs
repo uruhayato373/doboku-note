@@ -5,18 +5,18 @@
  * 全MDXファイル内の外部URL（https://）をHTTP HEADで検証する。
  *
  * Usage:
- *   node scripts/check-external-links.mjs              # 全ファイル
- *   node scripts/check-external-links.mjs --concurrency 5  # 並列数指定
+ *   node scripts/check-mdx/rules/links/check-external-links.mjs              # 全ファイル
+ *   node scripts/check-mdx/rules/links/check-external-links.mjs --concurrency 5  # 並列数指定
  */
 
 import fs from 'fs';
 import path from 'path';
-import { SITE_CONTENT_ROOT } from '../../../../../../scripts/lib/repository-paths.mjs';
-import { R2_PUBLIC_HOST, SITE_HOST } from '../../../../../../scripts/lib/site-identity.mjs';
+import { SITE_CONTENT_ROOT } from '../../../lib/repository-paths.mjs';
+import { R2_PUBLIC_HOST, SITE_HOST } from '../../../lib/site-identity.mjs';
 
-import { classifyExternalLink, summarizeExternalLinks } from '../../../../../../scripts/lib/external-link-results.mjs';
-import { parseCliArgs } from '../../../../../../scripts/lib/cli-args.mjs';
-import { writeJson } from '../../../../../../scripts/lib/json-io.mjs';
+import { classifyExternalLink, summarizeExternalLinks } from '../../../lib/external-link-results.mjs';
+import { parseCliArgs } from '../../../lib/cli-args.mjs';
+import { writeJson } from '../../../lib/json-io.mjs';
 
 const args = parseCliArgs({ concurrency: { type: 'integer', default: 10 }, report: { type: 'string' } });
 const postsDir = SITE_CONTENT_ROOT;
