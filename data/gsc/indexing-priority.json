@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T09:09:57.639Z",
-  "batchFile": "data/gsc/url-inspection/2026-11-12T09-05-32.json",
-  "gscPageFile": "data/gsc/reports/2026-11-12.json#page",
+  "generatedAt": "2026-11-19T09:48:49.596Z",
+  "batchFile": "data/gsc/url-inspection/2026-11-19T09-44-23.json",
+  "gscPageFile": "data/gsc/reports/2026-11-19.json#page",
   "gscPageWindow": {
-    "startDate": "2026-10-13",
-    "endDate": "2026-11-09"
+    "startDate": "2026-10-20",
+    "endDate": "2026-11-16"
   },
   "counts": {
-    "inspected": 2101,
-    "indexed": 1926,
-    "candidates": 167,
-    "withDemand": 3,
-    "cooledDown": 8
+    "inspected": 2109,
+    "indexed": 2024,
+    "candidates": 75,
+    "withDemand": 2,
+    "cooledDown": 10
   },
   "priorityQualifications": [
     "civil-construction-1",
@@ -23,74 +23,32 @@
   "minIndexedForOwnMean": 3,
   "types": [
     {
-      "type": "exam/pe-fisheries/guide",
-      "qualification": "pe-fisheries",
-      "priorityQualification": false,
-      "inspected": 4,
-      "indexed": 0,
-      "unindexed": 4,
-      "unindexedRate": 1,
-      "basis": "substitute",
-      "meanSource": "exam/*/guide",
-      "meanSourceIndexed": 188,
-      "meanImpressions": 108.6,
-      "expectedValue": 108.6
-    },
-    {
-      "type": "exam/surveyor/past-exams",
+      "type": "exam/surveyor/guide",
       "qualification": "surveyor",
       "priorityQualification": false,
-      "inspected": 5,
-      "indexed": 0,
-      "unindexed": 5,
-      "unindexedRate": 1,
-      "basis": "substitute",
-      "meanSource": "exam/*/past-exams",
-      "meanSourceIndexed": 134,
-      "meanImpressions": 9.91,
-      "expectedValue": 9.91
-    },
-    {
-      "type": "exam/concrete-chief-engineer/primary",
-      "qualification": "concrete-chief-engineer",
-      "priorityQualification": false,
-      "inspected": 8,
-      "indexed": 6,
-      "unindexed": 2,
-      "unindexedRate": 0.25,
+      "inspected": 7,
+      "indexed": 4,
+      "unindexed": 3,
+      "unindexedRate": 0.429,
       "basis": "own",
-      "meanSource": "exam/concrete-chief-engineer/primary",
-      "meanSourceIndexed": 6,
-      "meanImpressions": 32.2,
-      "expectedValue": 8.05
+      "meanSource": "exam/surveyor/guide",
+      "meanSourceIndexed": 4,
+      "meanImpressions": 88.67,
+      "expectedValue": 38
     },
     {
-      "type": "practice",
-      "qualification": null,
-      "priorityQualification": false,
-      "inspected": 165,
-      "indexed": 146,
-      "unindexed": 19,
-      "unindexedRate": 0.115,
-      "basis": "own",
-      "meanSource": "practice",
-      "meanSourceIndexed": 146,
-      "meanImpressions": 49.34,
-      "expectedValue": 5.68
-    },
-    {
-      "type": "exam/pe-construction/past-exams",
-      "qualification": "pe-construction",
+      "type": "exam/civil-construction-1/secondary",
+      "qualification": "civil-construction-1",
       "priorityQualification": true,
-      "inspected": 180,
-      "indexed": 100,
-      "unindexed": 80,
-      "unindexedRate": 0.444,
+      "inspected": 17,
+      "indexed": 16,
+      "unindexed": 1,
+      "unindexedRate": 0.059,
       "basis": "own",
-      "meanSource": "exam/pe-construction/past-exams",
-      "meanSourceIndexed": 100,
-      "meanImpressions": 9.85,
-      "expectedValue": 4.38
+      "meanSource": "exam/civil-construction-1/secondary",
+      "meanSourceIndexed": 16,
+      "meanImpressions": 102.93,
+      "expectedValue": 6.05
     },
     {
       "type": "laws",
@@ -103,8 +61,22 @@
       "basis": "own",
       "meanSource": "laws",
       "meanSourceIndexed": 24,
-      "meanImpressions": 18.26,
-      "expectedValue": 1.4
+      "meanImpressions": 24.96,
+      "expectedValue": 1.92
+    },
+    {
+      "type": "exam/pe-construction/past-exams",
+      "qualification": "pe-construction",
+      "priorityQualification": true,
+      "inspected": 180,
+      "indexed": 148,
+      "unindexed": 32,
+      "unindexedRate": 0.178,
+      "basis": "own",
+      "meanSource": "exam/pe-construction/past-exams",
+      "meanSourceIndexed": 148,
+      "meanImpressions": 7.73,
+      "expectedValue": 1.38
     },
     {
       "type": "exam/pe-construction/guide",
@@ -117,8 +89,22 @@
       "basis": "own",
       "meanSource": "exam/pe-construction/guide",
       "meanSourceIndexed": 21,
-      "meanImpressions": 23.8,
-      "expectedValue": 1.08
+      "meanImpressions": 27.5,
+      "expectedValue": 1.25
+    },
+    {
+      "type": "practice",
+      "qualification": null,
+      "priorityQualification": false,
+      "inspected": 165,
+      "indexed": 162,
+      "unindexed": 3,
+      "unindexedRate": 0.018,
+      "basis": "own",
+      "meanSource": "practice",
+      "meanSourceIndexed": 162,
+      "meanImpressions": 54.15,
+      "expectedValue": 0.98
     },
     {
       "type": "exam/civil-construction-1/guide",
@@ -131,50 +117,36 @@
       "basis": "own",
       "meanSource": "exam/civil-construction-1/guide",
       "meanSourceIndexed": 58,
-      "meanImpressions": 36.79,
-      "expectedValue": 0.62
+      "meanImpressions": 45.09,
+      "expectedValue": 0.76
+    },
+    {
+      "type": "exam/pe-first-stage/primary",
+      "qualification": "pe-first-stage",
+      "priorityQualification": false,
+      "inspected": 80,
+      "indexed": 79,
+      "unindexed": 1,
+      "unindexedRate": 0.013,
+      "basis": "own",
+      "meanSource": "exam/pe-first-stage/primary",
+      "meanSourceIndexed": 79,
+      "meanImpressions": 55.56,
+      "expectedValue": 0.69
     },
     {
       "type": "standards/chapters",
       "qualification": null,
       "priorityQualification": false,
       "inspected": 425,
-      "indexed": 371,
-      "unindexed": 54,
-      "unindexedRate": 0.127,
+      "indexed": 390,
+      "unindexed": 35,
+      "unindexedRate": 0.082,
       "basis": "own",
       "meanSource": "standards/chapters",
-      "meanSourceIndexed": 371,
-      "meanImpressions": 4.28,
-      "expectedValue": 0.54
-    },
-    {
-      "type": "exam/pe-comprehensive-management/past-exams",
-      "qualification": "pe-comprehensive-management",
-      "priorityQualification": true,
-      "inspected": 36,
-      "indexed": 34,
-      "unindexed": 2,
-      "unindexedRate": 0.056,
-      "basis": "own",
-      "meanSource": "exam/pe-comprehensive-management/past-exams",
-      "meanSourceIndexed": 34,
-      "meanImpressions": 7.88,
+      "meanSourceIndexed": 390,
+      "meanImpressions": 5.38,
       "expectedValue": 0.44
-    },
-    {
-      "type": "exam/pe-comprehensive-management/keywords",
-      "qualification": "pe-comprehensive-management",
-      "priorityQualification": true,
-      "inspected": 663,
-      "indexed": 659,
-      "unindexed": 4,
-      "unindexedRate": 0.006,
-      "basis": "own",
-      "meanSource": "exam/pe-comprehensive-management/keywords",
-      "meanSourceIndexed": 659,
-      "meanImpressions": 6.98,
-      "expectedValue": 0.04
     },
     {
       "type": "topics",
@@ -193,580 +165,76 @@
   ],
   "items": [
     {
-      "path": "/exam/concrete-chief-engineer/primary/construction",
+      "path": "/exam/pe-first-stage/primary/h28-basic",
       "status": "crawled-not-indexed",
       "reason": "クロール済み - インデックス未登録",
       "impressions": 17,
-      "clicks": 0,
-      "type": "exam/concrete-chief-engineer/primary",
-      "expectedValue": 8.05
+      "clicks": 6,
+      "type": "exam/pe-first-stage/primary",
+      "expectedValue": 0.69
     },
     {
-      "path": "/exam/concrete-chief-engineer/primary/materials",
+      "path": "/exam/civil-construction-1/secondary/earthwork-basics",
       "status": "crawled-not-indexed",
       "reason": "クロール済み - インデックス未登録",
-      "impressions": 4,
+      "impressions": 3,
       "clicks": 0,
-      "type": "exam/concrete-chief-engineer/primary",
-      "expectedValue": 8.05
+      "type": "exam/civil-construction-1/secondary",
+      "expectedValue": 6.05
     },
     {
-      "path": "/exam/pe-comprehensive-management/past-exams/h21-secondary",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 1,
-      "clicks": 1,
-      "type": "exam/pe-comprehensive-management/past-exams",
-      "expectedValue": 0.44
-    },
-    {
-      "path": "/exam/pe-fisheries/guide/hissu-kamoku",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-fisheries/guide",
-      "expectedValue": 108.6
-    },
-    {
-      "path": "/exam/pe-fisheries/guide/overview",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-fisheries/guide",
-      "expectedValue": 108.6
-    },
-    {
-      "path": "/exam/pe-fisheries/guide/sentaku-kamoku",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-fisheries/guide",
-      "expectedValue": 108.6
-    },
-    {
-      "path": "/exam/pe-fisheries/guide/study-plan",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-fisheries/guide",
-      "expectedValue": 108.6
-    },
-    {
-      "path": "/exam/surveyor/past-exams/gozen-r04",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/surveyor/past-exams",
-      "expectedValue": 9.91
-    },
-    {
-      "path": "/exam/surveyor/past-exams/gozen-r05",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/surveyor/past-exams",
-      "expectedValue": 9.91
-    },
-    {
-      "path": "/exam/surveyor/past-exams/gozen-r06",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/surveyor/past-exams",
-      "expectedValue": 9.91
-    },
-    {
-      "path": "/exam/surveyor/past-exams/gozen-r07",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/surveyor/past-exams",
-      "expectedValue": 9.91
-    },
-    {
-      "path": "/exam/surveyor/past-exams/gozen-r08",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/surveyor/past-exams",
-      "expectedValue": 9.91
-    },
-    {
-      "path": "/practice/explaining-to-residents-and-council",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/information-system-procurement",
+      "path": "/exam/surveyor/guide/assistant-keisan",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
+      "type": "exam/surveyor/guide",
+      "expectedValue": 38
     },
     {
-      "path": "/practice/land-acquisition-compensation",
+      "path": "/exam/surveyor/guide/difficulty",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/surveyor/guide",
+      "expectedValue": 38
+    },
+    {
+      "path": "/exam/surveyor/guide/gogo-kotaekata",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
+      "type": "exam/surveyor/guide",
+      "expectedValue": 38
     },
     {
-      "path": "/practice/landscape-planning-public-works",
+      "path": "/laws/coast-act",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
+      "type": "laws",
+      "expectedValue": 1.92
     },
     {
-      "path": "/practice/municipal-engineer-qualifications",
+      "path": "/laws/port-act",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/national-prefecture-municipal-roles",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/nature-oriented-river-works",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/polymer-construction-materials",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/ready-mixed-concrete-ordering",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/road-structure-standards",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/supervision-compliance-surveys",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/survey-informatics-overview",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/waterworks-business",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/weather-information-reading",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/practice/wood-and-stone-materials",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 5.68
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-construction-planning-ii-1-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-construction-planning-ii-1-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-construction-planning-ii-1-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-construction-planning-ii-1-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-construction-planning-ii-2-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-construction-planning-ii-2-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-construction-planning-iii-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-construction-planning-iii-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-geotechnical-ii-1-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-geotechnical-ii-1-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-geotechnical-ii-1-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-geotechnical-ii-1-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-geotechnical-ii-2-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-geotechnical-ii-2-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-geotechnical-iii-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-geotechnical-iii-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-required-i-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "type": "laws",
+      "expectedValue": 1.92
     },
     {
       "path": "/exam/pe-construction/past-exams/r07-required-i-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-river-coast-ii-1-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-river-coast-ii-1-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-river-coast-ii-1-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-river-coast-ii-1-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-river-coast-ii-2-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-river-coast-ii-2-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-river-coast-iii-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-road-ii-1-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-road-ii-1-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-road-ii-1-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-road-ii-1-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-road-ii-2-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-road-ii-2-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-road-iii-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-road-iii-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-steel-concrete-ii-1-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-steel-concrete-ii-1-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-steel-concrete-ii-1-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-steel-concrete-ii-1-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r07-steel-concrete-ii-2-2",
@@ -775,79 +243,43 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r07-steel-concrete-iii-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-construction-planning-ii-1-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-construction-planning-ii-1-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-construction-planning-ii-1-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-construction-planning-ii-1-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-construction-planning-ii-2-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-construction-planning-iii-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-construction-planning-iii-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-1",
@@ -856,61 +288,34 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-geotechnical-ii-1-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-geotechnical-ii-2-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-geotechnical-ii-2-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-geotechnical-iii-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-geotechnical-iii-2",
@@ -919,16 +324,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-required-i-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-required-i-2",
@@ -937,52 +342,25 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-river-coast-ii-1-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-river-coast-ii-1-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-river-coast-ii-1-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-river-coast-ii-1-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-river-coast-ii-2-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-river-coast-ii-2-2",
@@ -991,34 +369,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-river-coast-iii-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-river-coast-iii-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-road-ii-1-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-road-ii-1-2",
@@ -1027,7 +387,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-road-ii-1-3",
@@ -1036,16 +396,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-road-ii-1-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-road-ii-2-1",
@@ -1054,61 +405,43 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-road-ii-2-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-road-iii-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-road-iii-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-1-4",
@@ -1117,7 +450,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-2-1",
@@ -1126,16 +459,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/exam/pe-construction/past-exams/r08-steel-concrete-ii-2-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-steel-concrete-iii-1",
@@ -1144,7 +468,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/past-exams/r08-steel-concrete-iii-2",
@@ -1153,25 +477,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/past-exams",
-      "expectedValue": 4.38
-    },
-    {
-      "path": "/laws/coast-act",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "laws",
-      "expectedValue": 1.4
-    },
-    {
-      "path": "/laws/port-act",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "laws",
-      "expectedValue": 1.4
+      "expectedValue": 1.38
     },
     {
       "path": "/exam/pe-construction/guide/koutou-shiken",
@@ -1180,7 +486,25 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/pe-construction/guide",
-      "expectedValue": 1.08
+      "expectedValue": 1.25
+    },
+    {
+      "path": "/practice/project-request-to-budget",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 0.98
+    },
+    {
+      "path": "/practice/road-work-approval-vs-road-use-permit",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 0.98
     },
     {
       "path": "/exam/civil-construction-1/guide/market-value-check",
@@ -1189,70 +513,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "exam/civil-construction-1/guide",
-      "expectedValue": 0.62
-    },
-    {
-      "path": "/standards/chubu/special/chapters/10-13",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.76
     },
     {
       "path": "/standards/chubu/special/chapters/6-7",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/common/chapters/3-2/sections/1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/common/chapters/3-2/sections/15",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/common/chapters/3-2/sections/17",
       "status": "unknown",
       "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/common/chapters/3-2/sections/4",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/common/chapters/3-2/sections/6",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/8",
@@ -1261,16 +531,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/common/chapters/3-2/sections/9",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/1-1",
@@ -1279,25 +540,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/10-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-11",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-2",
@@ -1306,70 +558,43 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-3",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/12-4",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/12-6",
       "status": "unknown",
       "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
+    },
+    {
+      "path": "/standards/kinki/hikkei/chapters/12-4",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.44
+    },
+    {
+      "path": "/standards/kinki/hikkei/chapters/12-6",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-7",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/12-9",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/2-3",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/3-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/3-2",
@@ -1378,16 +603,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/4-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-2",
@@ -1396,16 +612,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/4-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-4",
@@ -1414,7 +621,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-7",
@@ -1423,52 +630,25 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/4-8",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/5-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/5-2",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kinki/hikkei/chapters/8-3",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kyushu/hikkei-common-08/chapters/1-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/hikkei-common-10/chapters/1-4",
@@ -1477,16 +657,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/hikkei-common-10/chapters/1-7",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/hikkei-common-10/chapters/2-5",
@@ -1495,7 +675,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/hikkei-common-10/chapters/4-8",
@@ -1504,7 +684,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/2-1",
@@ -1513,16 +693,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kyushu/management-manual/chapters/2-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/2-3",
@@ -1531,16 +702,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kyushu/management-manual/chapters/2-8",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-1",
@@ -1549,7 +711,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-2",
@@ -1558,16 +720,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
-    },
-    {
-      "path": "/standards/kyushu/management-manual/chapters/3-4",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/4-1",
@@ -1576,7 +729,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/4-3",
@@ -1585,7 +738,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-2",
@@ -1594,16 +747,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-4",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-5",
@@ -1612,7 +765,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-7",
@@ -1621,16 +774,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/mlit/sekou-kanri-kijun/chapters/3-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/mlit/sekou-kanri-kijun/chapters/9-7",
@@ -1639,16 +792,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/tohoku/reference/chapters/35-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/tohoku/reference/chapters/44-1",
@@ -1657,7 +810,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/tohoku/special/chapters/10-4",
@@ -1666,30 +819,21 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
       "path": "/standards/tohoku/special/chapters/7-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.54
+      "expectedValue": 0.44
     },
     {
-      "path": "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.04
-    },
-    {
-      "path": "/topics/dams-power",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "path": "/topics/concrete",
+      "status": "crawled-not-indexed",
+      "reason": "クロール済み - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "topics",
