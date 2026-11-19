@@ -29,4 +29,4 @@ npm run sync-kindle-dist -- A-00 A-01     # A 系は buildTheme で再生成（�
 
 ## KDP 入稿メモ
 
-各本の入力メモは [`../kindle-published/`](../kindle-published/) の `KDP入力メモ_<id>.txt`（`npm run gen-kdp-memo <id>` で共通テンプレ生成・著者=doboku-note で統一）。
+各本の入力メモは `npm run gen-kdp-memo <id>` で `.tmp/kdp-memo/KDP入力メモ_<id>.txt` に作る（共通テンプレ・著者=doboku-note で統一・Git に残さない）。

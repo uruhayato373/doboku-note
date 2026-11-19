@@ -28,7 +28,7 @@ EPUB を更新して KDP に再アップしたら、正本の当該本の `versi
 
 A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans` の CSS 改ページ）は実装が違うが、同じ UX 不変条件で両方を検証する。ビルド直後の入稿前は `node scripts/check-kindle-format.mjs .tmp/kindle-<id>/*.epub` で個別検査できる。
 
-| 品番 | ASIN | 版 | EPUB | 表紙 | KDP メモ |
+| 品番 | ASIN | 版 | EPUB | 表紙 | KDP メモ（2026-11-20 に追跡をやめた。A 系は Drive の `アーカイブ/repo/`、ほかは `npm run gen-kdp-memo <id>` で `.tmp/kdp-memo/` に作る） |
 |---|---|---|---|---|---|
 | A-00 全科目合本 | B0H8HW139T | 1.0 | `kindle-A-00-goubon.epub` | `kindle-cover-a-00.jpg` | `KDP入力メモ_A-00全科目合本.txt` |
 | A-01 安全管理 | B0H8B1HYRY | 1.1 | `A-01_安全管理_論点別過去問.epub` / `kindle-A-01-anzen-updated.epub` | `kindle-cover-A-01.jpg`（`-確認用` は校正版） | `KDP入力メモ_A-01安全管理.txt` |
