@@ -57,7 +57,7 @@ LLM出力で発生しやすいマルチバイト文字の破損 (U+FFFD) を定�
 
 ```
 Monitor:
-  command: bash .claude/skills/monitor/scripts/check-mojibake.sh 15
+  command: bash scripts/monitor/check-mojibake.sh 15
   description: "Unicode mojibake (U+FFFD) detection in MDX"
   persistent: true
 ```
@@ -126,7 +126,7 @@ title, description, category, tags, published の欠損を定期チェック。
 
 ```
 Monitor:
-  command: node .claude/skills/monitor/scripts/check-frontmatter.mjs 60
+  command: node scripts/monitor/check-frontmatter.mjs 60
   description: "frontmatter required fields check"
   persistent: true
 ```
@@ -137,7 +137,7 @@ Monitor:
 
 ```
 Monitor:
-  command: bash .claude/skills/monitor/scripts/health-check.sh 30
+  command: bash scripts/monitor/health-check.sh 30
   description: "Post-deploy health check"
   persistent: false
   timeout_ms: 120000

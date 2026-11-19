@@ -35,7 +35,7 @@ const examKey = process.argv.find((a) => a.startsWith("--exam="))?.split("=")[1]
 const BASE = join(ROOT, "content/sns/instagram", EXAM_DIRS[examKey] ?? EXAM_DIRS.cem);
 const IG_POST_CREATE = join(
   ROOT,
-  ".claude/skills/ig-post-create/scripts/ig-post-create.mjs",
+  "scripts/ig-post-create/ig-post-create.mjs",
 );
 const CAPTION_GEN = join(ROOT, "scripts/instagram/generate-caption.cjs");
 

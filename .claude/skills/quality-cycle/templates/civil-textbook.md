@@ -60,13 +60,13 @@
 
 ```bash
 # 全 40 件評価
-node .claude/skills/quality-cycle/scripts-civil-textbook/civil-textbook-cycle.mjs --mode score
+node scripts/quality-cycle/civil-textbook/civil-textbook-cycle.mjs --mode score
 
 # リライト（5 件）
-node .claude/skills/quality-cycle/scripts-civil-textbook/civil-textbook-cycle.mjs --mode rewrite --threshold 2.5 --max 5
+node scripts/quality-cycle/civil-textbook/civil-textbook-cycle.mjs --mode rewrite --threshold 2.5 --max 5
 
 # スコア集約
-node .claude/skills/quality-cycle/scripts-civil-textbook/merge-scores.mjs /tmp/civil-score-results.json
+node scripts/quality-cycle/civil-textbook/merge-scores.mjs /tmp/civil-score-results.json
 ```
 
 ## 拡張パターン（civil-textbook-rewriter が適用）

@@ -17,7 +17,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 | **Business Config** | `config/` | 事業・試験・商品の正本と、スクリプト・CI・サイトの設定（人が判断して変える値。2026-10-02 に `.claude/config` から分離） | 記録・エージェントの作業状態 |
 | **Business Data** | `data/` | 外から取ってきた・発生した事業の記録（売上・計測・市場・受注・実験。追記で増える事実。2026-10-02 に `.claude/state` から分離） | 設定・生成索引・作業状態 |
 | **Agent Operations** | `.claude/` | エージェントの運用能力・知識・作業状態・一時フロー | 公開する制作物・事業の正本と記録 |
-| **Application / Tooling** | `src/` / `tools/` / `scripts/` | 実装コードと管理ツール（スクリプトの置き場は `scripts/` だけ。`.claude/scripts/` は 2026-11-19 に集約して廃止。スキルの `scripts/` に置くのはそのスキルだけが使うもので、package.json・CI・pre-commit から呼ぶものは `scripts/`） | 文書・制作物の実体 |
+| **Application / Tooling** | `src/` / `tools/` / `scripts/` | 実装コードと管理ツール（スクリプトの置き場は `scripts/` だけ。`.claude/scripts/` は 2026-11-19 に集約して廃止。`.claude/` にコードは置かない。スキルのスクリプトも `scripts/<スキル名>/`。例外は `.claude/workflows/` と `.claude/shared-policy/`＝`tests/claude-dir-has-no-code.test.mjs`） | 文書・制作物の実体 |
 
 `.claude/` の内訳:
 

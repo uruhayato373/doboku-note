@@ -2,9 +2,9 @@
 // 期待値は、まとめる前の 2 本ずつを同じ入力で動かして採った結果（2026-11-19）。
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { applyRewriteResults } from '../.claude/skills/quality-cycle/scripts-common/log-rewrite-core.mjs';
-import { applyScoreResults } from '../.claude/skills/quality-cycle/scripts-common/merge-scores-core.mjs';
-import { computeWeighted as civilWeighted } from '../.claude/skills/quality-cycle/scripts-civil-textbook/lib/civil-state.mjs';
+import { applyRewriteResults } from '../scripts/quality-cycle/common/log-rewrite-core.mjs';
+import { applyScoreResults } from '../scripts/quality-cycle/common/merge-scores-core.mjs';
+import { computeWeighted as civilWeighted } from '../scripts/quality-cycle/civil-textbook/lib/civil-state.mjs';
 
 const REWRITE = [{"slug":"zz-fixture-a","wave":"T-1","applied_patterns":["G","D"],"added_sections":["## 参考資料"],"converted_tables":0,"migrated_images":5,"before_chars":100,"after_chars":150,"added_chars":50,"lint_high_before":1,"lint_high_after":0,"lint_medium_before":4,"lint_medium_after":0,"mojibake":false,"ignored":"x"},{"slug":"zz-fixture-a","wave":"T-1","after_chars":160},{"slug":"zz-fixture-b","converted_tables":2},{"wave":"T-1"},null];
 const SCORES = [{"slug":"zz-fixture-a","group":"textbook","scores":{"structure":3,"mobile":2,"principle":3,"reference":1,"linking":2,"figures":1},"qualitative_comment":"c"},{"slug":"zz-fixture-b","scores":{"structure":0,"mobile":3,"principle":3,"reference":3,"linking":3,"figures":3},"weak_axes":["structure"]},{"slug":"zz-fixture-c"},null];

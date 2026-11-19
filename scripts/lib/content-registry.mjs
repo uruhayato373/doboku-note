@@ -107,7 +107,10 @@ export function requiresApproval(cfg, status) {
   return statusRank(cfg, status) >= statusRank(cfg, cfg.status.approvalRequiredFrom);
 }
 
-/** 遷移できるか。channel を渡すと、そのチャネルだけに足した遷移（transitionsByChannel）も見る */
+/**
+ * 遷移できるか。channel を渡すと、そのチャネルだけに足した遷移（transitionsByChannel）も見る
+ * @param {any} cfg @param {string} from @param {string} to @param {string | null} [channel]
+ */
 export function canTransition(cfg, from, to, channel = null) {
   if ((cfg.status.transitions[from] ?? []).includes(to)) return true;
   return Boolean(channel && (cfg.status.transitionsByChannel?.[channel]?.[from] ?? []).includes(to));

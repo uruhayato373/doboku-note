@@ -155,7 +155,7 @@ cd "$(git rev-parse --show-toplevel)" && node scripts/figure-reextract.mjs cut -
 
 ### 連携・差別化
 
-- **呼出元**: `/figure-quality-loop`（判定待ちの一覧 `scripts/figure-review-queue.mjs` から 1 周分）と `/figure-recrop` の大量処理モード。どちらも `.claude/skills/figure-recrop/scripts/figure-crop-batch.workflow.mjs` が figKey 単位で spawn する。
+- **呼出元**: `/figure-quality-loop`（判定待ちの一覧 `scripts/figure-review-queue.mjs` から 1 周分）と `/figure-recrop` の大量処理モード。どちらも `scripts/figure-recrop/figure-crop-batch.workflow.mjs` が figKey 単位で spawn する。
 - **親の後工程**: 機械ゲート（`check-figure-crop-integrity.mjs --file`）→ 書き換えた図と `suspect` の図を `figure-qa-sheet.mjs` で検査・新旧比較し親が目視 QA（切り過ぎは `git checkout` で原画を復元して再依頼、見切れ見落としは `crop`→`needs-source` に是正）→ `figure-review-queue.mjs record --from-results <結果ファイル> --pass <QA 合格の figKey>` で判定台帳へ記録（MDX の寸法も合わせる）→ commit。
 - **別物**: 種類 `past-exam-page`（PDF ページ画像から bbox spec を返すのみ・crop しない）／種類 `scanned`（スキャン教材の bbox 監査）。種類 `article-recrop` は**記事に埋め込み済みの画像を実際に切る**。
 - **真実源**: `.claude/knowledge/reference/figure-provenance.md`。逐次型は `scripts/figure-recrop.mjs`。

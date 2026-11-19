@@ -31,7 +31,7 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 
 | 役割 | ファイル |
 |---|---|
-| 過去問パック生成 (B) | `.claude/skills/ig-post-create/scripts/ig-post-create.mjs` (`--exam`) |
+| 過去問パック生成 (B) | `scripts/ig-post-create/ig-post-create.mjs` (`--exam`) |
 | 過去問 MDX パーサ | `scripts/parse-exam-questions.mjs` |
 | 過去問パック構造化 | `scripts/generate-exam-pack-dirs.mjs` |
 | 過去問パック 一括生成 | `scripts/bulk-generate-exam-packs.mjs` |
@@ -90,7 +90,7 @@ node scripts/generate-exam-pack-dirs.mjs --year r07
 # → content/sns/instagram/cem/exam-packs/r07/pack-{01..09}/slide-data.json
 
 # 3. 1 パック分の PNG + caption 生成
-node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size carousel
+node scripts/ig-post-create/ig-post-create.mjs --exam r07-pack-01 --size carousel
 
 # 4. 全パック一括生成
 node scripts/bulk-generate-exam-packs.mjs --year r07 --size carousel
@@ -184,7 +184,7 @@ node scripts/sns/render-quiz-pack.mjs content/sns/<channel>/draft/<NNN>-...
 ## C. 単独 KW 解説（旧運用・参考保持）
 
 ```bash
-node .claude/skills/ig-post-create/scripts/ig-post-create.mjs --slug heinrich-law --date 2026-05-09 --size carousel
+node scripts/ig-post-create/ig-post-create.mjs --slug heinrich-law --date 2026-05-09 --size carousel
 ```
 
 - 出力: `content/sns/instagram/{date}-{slug}/{reels,carousel}/img/`

@@ -13,7 +13,7 @@ domain: site
 
 総合技術監理キーワード集 2026 では、同じ概念が複数セクションに登録されているケースがある（例: 「社会的受容（PA）」が 4.2「コミュニケーションと合意形成」と 5.2「リスクマネジメント」の両方に登場）。個別ページとして作成すると内容が重複し保守負担が高い。本スキルは以下を統合した入口を提供する:
 
-- `pe-chapters.json` の duplicate 検出（`.claude/skills/consolidate-duplicate-keyword/scripts/find-duplicate-keywords.mjs`）
+- `pe-chapters.json` の duplicate 検出（`scripts/consolidate-duplicate-keyword/find-duplicate-keywords.mjs`）
 - 7 フェーズの標準作業手順
 - 過去の統合履歴と経験則警告
 
@@ -51,7 +51,7 @@ domain: site
 ## Step 0: 候補の検出
 
 ```bash
-node .claude/skills/consolidate-duplicate-keyword/scripts/find-duplicate-keywords.mjs
+node scripts/consolidate-duplicate-keyword/find-duplicate-keywords.mjs
 ```
 
 出力:
@@ -210,7 +210,7 @@ npm run lint
 
 | 連携先 | 役割 |
 |---|---|
-| **`.claude/skills/consolidate-duplicate-keyword/scripts/find-duplicate-keywords.mjs`** | Step 0 の候補検出 |
+| **`scripts/consolidate-duplicate-keyword/find-duplicate-keywords.mjs`** | Step 0 の候補検出 |
 | **`scripts/exam-backlinks/build-exam-backlinks.mjs`** | Phase 5 の自動生成 |
 | **`/keyword-page revise`** モード | Phase 1 の統合リライト時の編集スキル |
 | **`public/_redirects`** | Phase 6 の 301 リダイレクト定義 |
@@ -238,7 +238,7 @@ npm run lint
 ## 参照
 
 - `src/config/pe-chapters.json` — キーワード集の構造化データ
-- `.claude/skills/consolidate-duplicate-keyword/scripts/find-duplicate-keywords.mjs` — 重複検出（本スキルの入口）
+- `scripts/consolidate-duplicate-keyword/find-duplicate-keywords.mjs` — 重複検出（本スキルの入口）
 - `scripts/exam-backlinks/build-exam-backlinks.mjs` — 自動生成スクリプト
 - `public/_redirects` — Cloudflare Pages リダイレクト定義
 - `.claude/knowledge/reference/content-authoring.md` — モバイル視認性ルール（表 → 箇条書きの判断基準）

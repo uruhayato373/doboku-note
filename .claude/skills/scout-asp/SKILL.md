@@ -43,11 +43,11 @@ A8.net メディア管理画面 (media-console.a8.net) を Playwright（永続�
 
 1. **A8 手動ログイン** (credential は env に置かない・永続プロファイル方式):
    ```bash
-   node .claude/skills/scout-asp/scripts/login.mjs   # 本体 ~/doboku-note で実行 (worktree 不可)
+   node scripts/scout-asp/login.mjs   # 本体 ~/doboku-note で実行 (worktree 不可)
    ```
 2. **セレクタ実機チューニング** (A8 の DOM は stats47 由来の推測値。初回だけ確定が要る):
    ```bash
-   npx tsx .claude/skills/scout-asp/scripts/a8-browser.ts list --dry-run --headed
+   npx tsx scripts/scout-asp/a8-browser.ts list --dry-run --headed
    # → .local/playwright-a8-debug/ に page 構造 + スクショをダンプ。
    #    a8-browser.ts の A8 定数 (URL/セレクタ) を実機に合わせて調整する。
    ```
@@ -69,13 +69,13 @@ A8.net メディア管理画面 (media-console.a8.net) を Playwright（永続�
 ## サブコマンド直呼び
 
 ```bash
-npx tsx .claude/skills/scout-asp/scripts/a8-browser.ts list [--dry-run] [--headed]
-npx tsx .claude/skills/scout-asp/scripts/a8-browser.ts search [--keyword <語>] [--dry-run] [--limit N]
-npx tsx .claude/skills/scout-asp/scripts/a8-browser.ts import-partnered
-npx tsx .claude/skills/scout-asp/scripts/a8-browser.ts scout [--dry-run] [--limit N]
-npx tsx .claude/skills/scout-asp/scripts/a8-browser.ts apply [--dry-run] [--max N]
-npx tsx .claude/skills/scout-asp/scripts/a8-browser.ts check-approval [--dry-run]
-npx tsx .claude/skills/scout-asp/scripts/a8-browser.ts harvest [--dry-run] [--limit N] [--program <pid>]
+npx tsx scripts/scout-asp/a8-browser.ts list [--dry-run] [--headed]
+npx tsx scripts/scout-asp/a8-browser.ts search [--keyword <語>] [--dry-run] [--limit N]
+npx tsx scripts/scout-asp/a8-browser.ts import-partnered
+npx tsx scripts/scout-asp/a8-browser.ts scout [--dry-run] [--limit N]
+npx tsx scripts/scout-asp/a8-browser.ts apply [--dry-run] [--max N]
+npx tsx scripts/scout-asp/a8-browser.ts check-approval [--dry-run]
+npx tsx scripts/scout-asp/a8-browser.ts harvest [--dry-run] [--limit N] [--program <pid>]
 node scripts/ads/check-a8-apply-budget.cjs                # 今週の申請残枠
 npm run test:ads                                                 # 純関数コアのユニットテスト (node:test・30件)
 ```
@@ -95,6 +95,6 @@ npm run test:ads                                                 # 純関数コ�
 - 正典ルール: `.claude/knowledge/reference/a8-affiliate-pipeline.md`
 - 認証方式: `.claude/knowledge/reference/playwright-auth-profiles.md`（a8 profile）
 - コア: `scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs` / 申請上限 `scripts/ads/check-a8-apply-budget.cjs`
-- ブラウザ: `.claude/skills/scout-asp/scripts/{a8-browser.ts,login.mjs}`
+- ブラウザ: `scripts/scout-asp/{a8-browser.ts,login.mjs}`
 - カタログ: `data/a8/catalog.json`（状態機械）/ curated: `scripts/ads/data/a8-curated.json`
 - 配置先 SSOT: `src/config/affiliate-creatives.ts` / `config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`

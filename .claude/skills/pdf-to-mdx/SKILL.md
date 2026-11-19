@@ -264,8 +264,8 @@ node scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 - `.claude/skills/pdf-to-mdx/templates/` — 試験別テンプレート
 - `.claude/skills/pdf-to-mdx/references/clean-pdf-artifacts.md` — PDF 残骸除去詳細
 - `.claude/skills/pdf-to-mdx/references/scanned-image-pipeline.md` — 旧 `--scanned` 手順書（経路A/B・本文 OCR は廃止。画像抽出と図の知見の記録）
-- `.claude/skills/pdf-to-mdx/scripts/scanned/` — 旧経路B（PyMuPDF 単ページ）のレンダリングと図ループ（本文 OCR の Workflow は廃止）
-- `.claude/skills/pdf-to-mdx/scripts/text-layer/` — 経路C（テキスト層抽出）判定スクリプト＋実装例＋runbook
-- `.claude/skills/pdf-to-mdx/scripts/occlusion/` — 指の写り込み検出（OCR 着手前のゲート）
-- `.claude/skills/pdf-to-mdx/scripts/book-ocr/` — 経路D（参考文献 bundle の機械 OCR）prep/machine/concat ＋ runbook
+- `scripts/pdf-to-mdx/scanned/` — 旧経路B（PyMuPDF 単ページ）のレンダリングと図ループ（本文 OCR の Workflow は廃止）
+- `scripts/pdf-to-mdx/text-layer/` — 経路C（テキスト層抽出）判定スクリプト＋実装例＋runbook
+- `scripts/pdf-to-mdx/occlusion/` — 指の写り込み検出（OCR 着手前のゲート）
+- `scripts/pdf-to-mdx/book-ocr/` — 経路D（参考文献 bundle の機械 OCR）prep/machine/concat ＋ runbook
 - `scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（必須）

@@ -153,8 +153,8 @@ function parseAss(text: string): { total: number; lines: SubtitleLine[] } {
     const f = raw.slice('Dialogue:'.length).split(',');
     if (f.length < 10) continue;
     all.push({
-      start: f[1].trim(),
-      end: f[2].trim(),
+      start: f[1]!.trim(),
+      end: f[2]!.trim(),
       text: f.slice(9).join(',').replace(/\{[^}]*\}/g, '').replace(/\\N/gi, ' ').trim(),
     });
   }

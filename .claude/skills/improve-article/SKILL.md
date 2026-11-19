@@ -247,7 +247,7 @@ frontmatter の `category` / `group` から呼び出す Evaluator を決定:
 #### Step 2: 決定論的前処理（旧 verify-pdf-mdx scripts）
 
 ```bash
-node .claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs <mdx-path>
+node scripts/pdf-to-mdx/verify-pdf-mdx.mjs <mdx-path>
 ```
 
 JSON 出力をパースして以下を取得:
@@ -291,7 +291,7 @@ JSON 出力をパースして以下を取得:
 ```
 
 - `<slug-or-path>`: MDX パス or slug（必須）
-- `--pdf`: PDF 原本を明示指定（省略時は `.claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs` の `SLUG_PDF_HINTS` + title glob で自動発見）
+- `--pdf`: PDF 原本を明示指定（省略時は `scripts/pdf-to-mdx/verify-pdf-mdx.mjs` の `SLUG_PDF_HINTS` + title glob で自動発見）
 - `--deep`: 視覚比較を全件実行（既定は 3 件サンプル）
 
 ### verify mode の使い方の例
@@ -330,7 +330,7 @@ JSON 出力をパースして以下を取得:
 - [.claude/agents/article-proofreader.md](../../agents/article-proofreader.md) — 既存記事の校正の評価基準
 - [.claude/agents/keyword-qa.md](../../agents/keyword-qa.md) — CEM 記事の評価基準
 - [.claude/agents/content-qa.md](../../agents/content-qa.md) — 汎用（過去問）の評価基準
-- [.claude/skills/pdf-to-mdx/scripts/verify-pdf-mdx.mjs](../pdf-to-mdx/scripts/verify-pdf-mdx.mjs) — verify mode の決定論的前処理スクリプト
+- [scripts/pdf-to-mdx/verify-pdf-mdx.mjs](../../../scripts/pdf-to-mdx/verify-pdf-mdx.mjs) — verify mode の決定論的前処理スクリプト
 - [.claude/skills/create-svg/SKILL.md](../create-svg/SKILL.md) — SVG 図版作成
 - [.claude/skills/quality-cycle/SKILL.md](../quality-cycle/SKILL.md) — CEM バルク処理（本スキルと補完関係）
 - [.claude/knowledge/reference/image-policy.md](../../knowledge/reference/image-policy.md) — 図/写真の判定フロー

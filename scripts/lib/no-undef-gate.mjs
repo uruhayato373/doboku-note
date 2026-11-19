@@ -11,7 +11,7 @@
 import { ESLint } from 'eslint';
 
 /** 検査する範囲（リポジトリ相対の glob） */
-export const TARGETS = ['scripts/**/*.{mjs,js}', '.claude/skills/**/*.mjs'];
+export const TARGETS = ['scripts/**/*.{mjs,js}'];
 
 /** page.evaluate・addInitScript の中で動くブラウザ側のグローバル */
 const BROWSER = [
@@ -45,7 +45,7 @@ export async function findUndefined(cwd) {
     },
   });
   // *.workflow.mjs は Workflow の実行環境が関数の中で動かす（最上位の return を含む）ので対象外
-  const results = (await eslint.lintFiles(TARGETS)).filter((r) => !/\.workflow\.mjs$/.test(r.filePath));
+  const results = (await eslint.lintFiles(TARGETS)).filter((r) => !/\.workflow\.(?:mjs|js)$/.test(r.filePath));
   const problems = [];
   for (const r of results) {
     for (const m of r.messages) {

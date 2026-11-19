@@ -36,7 +36,7 @@ X予約の継続確認では `npm run check-x-queue-health` を実行する。X�
 X の UI は頻繁に変わる。**予約モード未確認のまま投稿ボタンを押すと即時投稿が発火する**（2026-04-18 実際に発生）。
 
 ```bash
-npx tsx .claude/skills/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08:00 --dry-run
+npx tsx scripts/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08:00 --dry-run
 ```
 
 - 成功: `.local/playwright-x-debug/` に `dry-run-scheduled-mode.png` が保存される
@@ -110,13 +110,13 @@ npm run x-sync-status
 ls content/sns/x/draft/
 
 # 2. dry-run（初回必須）
-npx tsx .claude/skills/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08:00 --dry-run
+npx tsx scripts/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08:00 --dry-run
 
 # 3a. 即時投稿（特定ツイート）
-npx tsx .claude/skills/publish-x/publish-x.ts 004 --tweet 1 --immediate
+npx tsx scripts/publish-x/publish-x.ts 004 --tweet 1 --immediate
 
 # 3b. 予約投稿（全ツイート、日時をツイート数分並べる）
-npx tsx .claude/skills/publish-x/publish-x.ts 004 \
+npx tsx scripts/publish-x/publish-x.ts 004 \
   2026-05-09T08:00 \
   2026-05-10T08:00 \
   2026-05-11T08:00 \
@@ -197,4 +197,4 @@ npx tsx .claude/skills/publish-x/publish-x.ts 004 \
 
 ## スクリプト本体
 
-`.claude/skills/publish-x/publish-x.ts`
+`scripts/publish-x/publish-x.ts`

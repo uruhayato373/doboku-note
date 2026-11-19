@@ -222,7 +222,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 
 ## ファイル一覧
 
-- ブラウザ: `.claude/skills/scout-asp/scripts/{a8-browser.ts,login.mjs}`
+- ブラウザ: `scripts/scout-asp/{a8-browser.ts,login.mjs}`
 - skill: `.claude/skills/scout-asp/SKILL.md`（`/scout-asp`・`disable-model-invocation: true`）
 - コア（純関数）: `scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs`
 - テスト（node:test・30件）: `scripts/ads/__tests__/*.test.mjs`（`npm run test:ads`）

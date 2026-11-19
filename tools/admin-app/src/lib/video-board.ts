@@ -67,7 +67,7 @@ export function videoPackBoard(): VideoPackBoard {
     const rows = loadPackSummaries(root, loadVideoConfig(root)) as VideoPackRow[];
     const byStage: Record<string, number> = {};
     for (const s of [...STAGES, 'unknown'] as string[]) byStage[s] = 0;
-    for (const r of rows) byStage[r.stage ?? 'unknown'] += 1;
+    for (const r of rows) byStage[r.stage ?? 'unknown']! += 1;
     return { ok: true, reason: null, rows, byStage };
   } catch (e) {
     return { ok: false, reason: (e as Error).message, rows: [], byStage: {} };

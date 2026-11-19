@@ -12,7 +12,7 @@ import { join } from 'node:path';
 import { findUndefined } from '../scripts/lib/no-undef-gate.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-test('scripts・.claude/skills の .mjs に未定義の参照が無い', async () => {
+test('scripts の .mjs に未定義の参照が無い', async () => {
   const { files, problems } = await findUndefined(ROOT);
   console.log(`[scripts-no-undef] ${files} ファイルを実検査 / 未定義 ${problems.length} 件`);
   assert.ok(files > 500, `検査したファイルが少なすぎる（${files} 件）＝範囲の指定が壊れている`);
