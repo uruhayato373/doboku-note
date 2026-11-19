@@ -1,15 +1,15 @@
 {
   "_doc": ".claude/knowledge/reference/coconala-operations.md",
   "approvedAt": "2026-09-27",
-  "design": "資格名・商品名・総監資格を大きく見せるキャラクター入りPOPデザイン。公開中18商品。",
+  "design": "資格名・商品名・総監資格を大きく見せるキャラクター入りPOPデザイン。公開中18商品。 2026-11-19 に coconala-tensaku-4theme を月額の添削の画像（同じ意匠・文字だけ変更）に差し替えた（運営者承認）。",
   "images": {
     "coconala-tensaku-set": {
       "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
       "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
     },
     "coconala-tensaku-4theme": {
-      "path": "content/coconala/assets/pop-20260927/thumb-tensaku-4theme.png",
-      "sha256": "49ca139dc82c3ff1f6e9a6e343d1adfbc798aeec650463d175f8a3cf35387904"
+      "path": "content/coconala/assets/pop-20261119/thumb-tensaku-4theme.png",
+      "sha256": "d72a3be34ab77c6f0ac8dac086e82ee3e45af6c0470a0d6ea8905e86ed137b14"
     },
     "coconala-sakusei": {
       "path": "content/coconala/assets/pop-20260927/thumb-sakusei.png",
