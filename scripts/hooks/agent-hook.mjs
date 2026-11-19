@@ -39,6 +39,7 @@ import {
   docSyncMessages,
   finalAssistantText,
   forbiddenGitOps,
+  ghAutoMerge,
   hasReplacementChar,
   isGitCommitCommand,
   isMdxPath,
@@ -116,8 +117,9 @@ const HANDLERS = {
     const trap = zshModifierTrap(command);
     const mainPush = directMainPush(command);
     const { stash, addAll } = forbiddenGitOps(command);
-    if (trap || mainPush || stash || addAll) {
-      err(shellTrapMessage({ trap, mainPush, stash, addAll }));
+    const autoMerge = ghAutoMerge(command);
+    if (trap || mainPush || stash || addAll || autoMerge) {
+      err(shellTrapMessage({ trap, mainPush, stash, addAll, autoMerge }));
       return 2;
     }
     // develop へ push する直前に、最新の検査結果を 1 行出す（止めない）。赤い develop の上に積み続けるのを防ぐ

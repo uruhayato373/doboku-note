@@ -322,18 +322,27 @@ export function forbiddenGitOps(command) {
   };
 }
 
+/**
+ * `gh pr merge --auto`。develop・main に必須チェックが無いので「緑になったらマージ」の予約にならず、CI の完了前にその場でマージされる
+ * （2026-11-07 の PR #1443・2026-11-19 の PR #1666 で 2 回。メモに書いても繰り返したのでフックで止める）。
+ */
+export function ghAutoMerge(command) {
+  return shellParts(String(command ?? '').replace(/"(?:[^"\\]|\\.)*"/g, '""')).some((p) => /\bgh\s+pr\s+merge\b/.test(p) && /\s--auto\b/.test(p));
+}
+
 /** develop への push（main への push は directMainPush が止める）。 */
 export function pushesToDevelop(command) {
   return shellParts(command).some((p) => new RegExp(`${GIT_HEAD}push\\b`).test(p) && /(?:^|[\s:/])(?:refs\/heads\/)?develop(?:\s|$)/.test(p));
 }
 
 /** モデルへ返す止めた理由と、代わりの書き方。 */
-export function shellTrapMessage({ trap, mainPush, stash, addAll }) {
+export function shellTrapMessage({ trap, mainPush, stash, addAll, autoMerge }) {
   const lines = [];
   if (trap) lines.push(`BLOCK: ${trap} は zsh の修飾子として読まれ、値が壊れる。\${変数} と波括弧で書く。`);
   if (mainPush) lines.push('BLOCK: main へは直接 push しない。npm run deploy:main を使う（検査待ち・push の実体確認・デプロイ待ち・本番確認まで、失敗で止まる）。');
   if (stash) lines.push('BLOCK: git stash は使わない（stash は全セッション共有で、他のセッションが pop して変更を失う）。変更前の版を見るなら git show origin/develop:<path>、退避するならブランチを切って commit する（git switch -c <名前>）。git stash list / show は通す。');
   if (addAll) lines.push('BLOCK: git add -A / --all / . は使わない（並行セッションの変更を巻き込む）。変更したファイルを明示する（git add -- <path> …）。件数が多いときは git add --pathspec-from-file=<一覧>。');
+  if (autoMerge) lines.push('BLOCK: gh pr merge --auto は使わない（必須チェックが無いので CI を待たずにその場でマージされる）。自動マージは mcp__ccd_pr__set_auto_merge で予約し、断られたら CI の完了を gh pr checks で確かめてから gh pr merge --squash を実行する。');
   return lines;
 }
 
