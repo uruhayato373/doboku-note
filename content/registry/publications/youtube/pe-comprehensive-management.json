@@ -573,7 +573,7 @@
       "work": "gyoumu-keireki-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/scene-001",
@@ -592,7 +592,21 @@
         "video": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.json#longform",
+      "publishAt": "2026-11-29T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-19T12:52:04.282Z",
+          "digest": "0cc0b1d738ec21a5912d2df6b85a9a0fd7f3a80a104b119adf52c08d9108c9f9"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-19T12:52:04.282Z",
+        "contentSha256": "0a410409d093f0e2c13a709021a30c16798db2f357106aa13a0c100d40e11d65"
+      }
     },
     {
       "id": "pe-comprehensive-management/gyoumu-keireki-kakikata/youtube.short.point-ippan-1",

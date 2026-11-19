@@ -1414,7 +1414,7 @@
       "work": "pe-ii1-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/pe-ii1-kakikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-ii1-kakikata/youtube.longform/scene-001",
@@ -1432,7 +1432,21 @@
         "video": "pe-construction/pe-ii1-kakikata/youtube.longform/video",
         "subtitles": "pe-construction/pe-ii1-kakikata/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-ii1-kakikata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-ii1-kakikata/youtube.json#longform",
+      "publishAt": "2026-11-30T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-19T12:52:06.345Z",
+          "digest": "07e65e8aff901af589fefff31d21270a10f5d50711f99e6cb142cef34f381701"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-19T12:52:06.345Z",
+        "contentSha256": "8522298e6c456e70a08d6d7ac434ba3e22126475789f59a84b83a1e667ead930"
+      }
     },
     {
       "id": "pe-construction/pe-ii2-kakikata/youtube.longform",

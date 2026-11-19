@@ -874,7 +874,7 @@
       "work": "owner-eye-sekkei-henkou-hantei",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform/scene-001",
@@ -894,7 +894,21 @@
         "video": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform/video",
         "subtitles": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.json#longform",
+      "publishAt": "2026-11-29T03:15:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-19T12:52:03.282Z",
+          "digest": "66cbcc63cc3189c99bc7752d336df1d2b4e8a07415720dc5f8d740fd19735111"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-19T12:52:03.282Z",
+        "contentSha256": "2106a3b737fd350c41249291a2792ce444443e6a47b7356e86b3b3f8d0aac619"
+      }
     },
     {
       "id": "civil-construction-1/owner-eye-sekkei-tosho/youtube.longform",
@@ -994,7 +1008,7 @@
       "work": "owner-eye-suryo-sekisan",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform/scene-001",
@@ -1020,7 +1034,21 @@
         "video": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform/video",
         "subtitles": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/civil-construction-1/owner-eye-suryo-sekisan/youtube.json#longform"
+      "copy": "content/sns/video-packs/civil-construction-1/owner-eye-suryo-sekisan/youtube.json#longform",
+      "publishAt": "2026-11-30T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-19T12:52:09.501Z",
+          "digest": "d812b4e2775bd6a6ab343c54092a3fbfa938a2239848ba73ab517149aca1b951"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-19T12:52:09.501Z",
+        "contentSha256": "db9363080e1c1399cffc2d41cbb5741e07b08be3812542c10fc5534f2d410963"
+      }
     }
   ]
 }
