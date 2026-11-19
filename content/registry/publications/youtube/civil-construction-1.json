@@ -1046,7 +1046,7 @@
       "work": "owner-eye-suryo-sekisan",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform/scene-001",
@@ -1088,7 +1088,42 @@
         "contentSha256": "db9363080e1c1399cffc2d41cbb5741e07b08be3812542c10fc5534f2d410963"
       },
       "times": {
-        "rendered": "2026-11-19T12:59:11.168Z"
+        "rendered": "2026-11-19T12:59:11.168Z",
+        "uploaded": "2026-11-19T13:08:25.995Z",
+        "scheduled": "2026-11-19T13:08:39.675Z"
+      },
+      "delivery": {
+        "inputSha256": "e68cf0a5015268bece49289751d6afe8fad106ce5471e788138fc8c9e9e72bce",
+        "marker": "dn-single-7e3623c7ac510fcdb874b7c4f2fa9404513d0033",
+        "uploadRequestedAt": "2026-11-19T13:07:16.512Z",
+        "videoId": "HQK1qkkBi1k",
+        "processedAt": "2026-11-19T13:08:24.331Z",
+        "thumbnailRequestedAt": "2026-11-19T13:08:26.058Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/HQK1qkkBi1k/default.jpg?sqp=CPzn-9cG&rs=AOn4CLCImb2-uxR3Wvr376AxDMJKsk5nEw",
+          "https://i9.ytimg.com/vi/HQK1qkkBi1k/mqdefault.jpg?sqp=CPzn-9cG&rs=AOn4CLAuED1ro150mmUPM4SPPATVk3kirg",
+          "https://i9.ytimg.com/vi/HQK1qkkBi1k/hqdefault.jpg?sqp=CPzn-9cG&rs=AOn4CLBnn16QX07tlXjORgvEMvPCFG-gTw",
+          "https://i9.ytimg.com/vi/HQK1qkkBi1k/sddefault.jpg?sqp=CPzn-9cG&rs=AOn4CLBb5CJwYLcaiBEX8iSEq3plPRm90g",
+          "https://i9.ytimg.com/vi/HQK1qkkBi1k/maxresdefault.jpg?sqp=CPzn-9cG&rs=AOn4CLAop3PG7OibyqOWX7e2upgO_duhPg",
+          "https://i9.ytimg.com/vi/HQK1qkkBi1k/fhddefault.jpg?sqp=CPzn-9cG&rs=AOn4CLBkI4Bi5Q5Oud861LMLOBZmIKMn7A"
+        ],
+        "thumbnailAcceptedAt": "2026-11-19T13:08:31.184Z",
+        "scheduleRequestedAt": "2026-11-19T13:08:33.170Z",
+        "scheduleAt": "2026-11-30T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-19T13:08:39.675Z"
+      },
+      "platform": {
+        "id": "HQK1qkkBi1k",
+        "url": "https://www.youtube.com/watch?v=HQK1qkkBi1k",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/owner-eye-suryo-sekisan/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-19T13:08:31.184Z"
       }
     }
   ]
