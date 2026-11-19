@@ -3056,6 +3056,15 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1252] scripts の引数の手読み（約 105 ファイル）を parseCliArgs にそろえ、ラチェットで止める
+タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
+
+- 起点: 2026-11-19 の scripts 整理の調査。引数を手で読む関数（`getArg` 39・`arg` 21・`opt` 9・`argValue` 6・`val` 8・`flag` 12 など）が約 105 ファイルにあり、`scripts/lib/cli-args.mjs` の `parseCliArgs` を使っていない。code-ratchet（`scripts/lib/code-ratchets.mjs`）は `parseArgs` という名前しか数えないので増えても止まらない。
+  - 自前の `parseArgs` 17 件のうち 6 件は知らない引数で止める安全策（例 `normalize-a8-csv.mjs:49`・2026-09-26 の事故対策）、6 件は宣言なしの汎用パーサ（`ig-graph-publish`・`stage-ig-media-r2` など同じ中身）
+- やること: `parseCliArgs` に「知らない引数で止める」（strict）を足す。手読みを置き換え、ラチェットの数え方を `getArg|arg|opt|argValue|val|flag` の定義まで広げる
+- 完了条件: 置き換えた各スクリプトの `--help` 相当と主要な引数の組で、変更前後の挙動が同じ。ラチェットの基準値が下がる
+
+
 ### [DN-1251] note の本文の図で SVG の無い 16 件を SVG 化し、残る render-figure-*.mjs 5 本を退役させる
 タグ: [領域:教材] [種類:改善] [起票:2026-11-19]
 
