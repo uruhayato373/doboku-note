@@ -182,9 +182,12 @@ export function scanNoteImages(): { items: NoteImageItem[]; segs: string[] } {
     if (!existsSync(NOTE)) return { items, segs: [] };
     const rels = readdirSync(NOTE, { recursive: true, withFileTypes: false })
       .map((p) => toPosix(String(p)))
-      .filter((p) => /\/img\/(cover(-[A-Za-z0-9-]+)?\.png|figure-[^/]+\.png)$/.test(p));
+      .filter((p) => /\/img\/(cover(-[A-Za-z0-9-]+)?\.png|figure-[^/]+\.(png|svg))$/.test(p));
+    // 本文の図は同名の SVG が正本で、PNG は投稿のときに作る（Git に無い）。対があれば SVG を並べる
+    const has = new Set(rels);
+    const shown = rels.filter((p) => !(/\/img\/figure-[^/]+\.png$/.test(p) && has.has(p.replace(/\.png$/, '.svg'))));
 
-    for (const rel of rels) {
+    for (const rel of shown) {
       const name = rel.split('/').pop() ?? rel;
       const seg = rel.split('/')[0] ?? '';
       const kind: 'cover' | 'figure' = /^cover/.test(name) ? 'cover' : 'figure';

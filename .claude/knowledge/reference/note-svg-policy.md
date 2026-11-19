@@ -4,7 +4,7 @@ title: note 記事用 図解 SVG ポリシー
 
 # note 記事用 図解 SVG ポリシー
 
-note.com に PNG 化して掲載する図解（`content/note/{slug}/img/figure-*.png`）を作るときの真実源。doboku-note 本体の inline SVG とはルールが異なるため、本ドキュメントを優先する。
+note.com に PNG 化して掲載する図解を作るときの真実源。正本は `content/note/{slug}/img/figure-*.svg` で、原稿は同名の `figure-*.png` を指す。PNG は Git で追跡せず、投稿系（note-publish・note-update-body など）が上げる直前に SVG から作る（`scripts/lib/note-figure-png.mjs`・SVG の寸法の 2 倍・白背景・2026-11-19）。doboku-note 本体の inline SVG とはルールが異なるため、本ドキュメントを優先する。
 
 ## 適用範囲
 
@@ -134,7 +134,8 @@ for f in content/note/{slug}/img/figure-*.svg; do
 done
 # → 16 未満が出たら修正
 
-# 2. PNG を Read で目視確認
+# 2. note へ上げるのと同じ PNG を作って Read で目視確認（.tmp/note-figures/ に出る）
+node scripts/render-note-figures.mjs content/note/{slug}/img
 # → レイアウト重なり・密度過多をチェック
 
 # 3. 縮小プレビュー（任意・厳密チェック）
@@ -162,9 +163,9 @@ done
 
 既存図解の修正時:
 
-1. SVG ソースを編集（PNG ではなく）
-2. `node .tmp/gen-figures-{NN}.mjs` で再生成
-3. 上記「5. 検証手順」を実行
-4. 問題があれば 1 へ戻る
+1. SVG ソースを編集する（生成スクリプトがある図はスクリプト側を直して SVG を作り直す）
+2. 上記「5. 検証手順」を実行（PNG は `render-note-figures.mjs` で確認用に作るだけ。コミットしない）
+3. 問題があれば 1 へ戻る
+4. note への反映は `note-update-body`（PNG はその場で SVG から作られる）
 
-PNG だけ修正することは絶対にしない（再生成で消える）。
+PNG は Git に置かない（`.gitignore` の `content/note/**/img/figure-*.png`）。SVG の無い図（PNG 自体が正本）を足すときだけ `git add -f` する。原稿の画像参照が Git の checkout だけで解決できることは `tests/note-figure-sources.test.mjs` が止める。

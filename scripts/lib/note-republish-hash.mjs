@@ -5,6 +5,7 @@ import { dirname } from 'node:path';
 import { createHash } from 'node:crypto';
 import { todayJst } from './jst-date.mjs';
 import { loadSiteRoutes, rewriteLegacySiteLinks } from './site-links.mjs';
+import { figureSvgFor, NOTE_FIGURE_RENDER_VERSION } from './note-figure-png.mjs';
 
 export const STATE = '.claude/state/note-republish-hashes.json';
 
@@ -216,10 +217,17 @@ export function assetHash(articlePath) {
     if (sha) { parts.push(`${label}:${sha.slice(0, 16)}`); return; }
     parts.push(`${label}:MISSING`); // 参照しているのに手元にも台帳にも無い＝それ自体ドリフト
   };
-  // 1. 本文が参照している画像
+  // 1. 本文が参照している画像。同名の SVG がある図は SVG が正本で、上げる PNG は投稿のたびに作る
+  //    （note-figure-png.mjs）ので、SVG の中身と変換の版でハッシュする（PNG は Git に無い）
   try {
     for (const rel of referencedImages(readFileSync(key, 'utf8')).sort()) {
-      add(`body/${rel}`, rel.startsWith('/') ? `.${rel}` : `${dir}/${rel}`);
+      const abs = rel.startsWith('/') ? `.${rel}` : `${dir}/${rel}`;
+      const svg = figureSvgFor(abs);
+      if (svg) {
+        parts.push(`body/${rel}:svg${NOTE_FIGURE_RENDER_VERSION}:${createHash('sha256').update(readFileSync(svg)).digest('hex').slice(0, 16)}`);
+        continue;
+      }
+      add(`body/${rel}`, abs);
     }
   } catch { /* 読めなければ後段だけで判定 */ }
   // 2. PDF（記事 dir 直下と dir/pdf）

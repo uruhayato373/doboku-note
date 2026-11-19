@@ -102,7 +102,7 @@ async function deleteBlocksDesc(page, idxs) {
 }
 
 async function processArticle(page, src) {
-  const { body: tokenMd, images, missing } = extractBodyImages(src.introMd, dirname(src.abs));
+  const { body: tokenMd, images, missing } = extractBodyImages(src.introMd, dirname(src.abs), { render: true });
   if (missing.length) throw new Error(`冒頭の画像がローカルに無い: ${missing.join(' / ')}`);
   await page.goto(`https://editor.note.com/notes/${src.noteId}/edit`, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }); await sleep(2500);

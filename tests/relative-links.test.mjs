@@ -23,6 +23,16 @@ test('実在する相対リンクは通す', () => {
   assert.deepEqual(r, []);
 });
 
+test('note の本文の図: PNG が無くても同名の SVG が追跡されていれば通す（PNG は投稿時に作る）。note の外や SVG 無しは止める', () => {
+  const svg = 'content/note/x/a/img/figure-1.svg';
+  const has = new Set([svg]);
+  assert.deepEqual(auditLinks('content/note/x/a/article.md', '![図](./img/figure-1.png)', exists(has), has), []);
+  assert.equal(auditLinks('content/note/x/a/article.md', '![図](./img/figure-2.png)', exists(has), has).length, 1, 'SVG の無い PNG は欠落');
+  assert.equal(auditLinks('content/note/x/a/article.md', '![図](./img/figure-1.png)', exists(has), new Set()).length, 1, 'SVG が未追跡なら欠落');
+  const site = new Set(['docs/img/f.svg']);
+  assert.equal(auditLinks('docs/a.md', '![図](./img/f.png)', exists(site), site).length, 1, 'note の外は対象外');
+});
+
 test('コードスパン内の記法説明は検査しない（実測された唯一の誤検知源）', () => {
   const src = '`](../../x)` 形式の相対リンクは検査対象外である';
   assert.deepEqual(auditLinks('.claude/todo/backlog.md', src, exists(new Set())), []);

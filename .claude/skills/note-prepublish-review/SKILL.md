@@ -72,7 +72,8 @@ test -f "$F" || exit 1
 #    ./img/ だけだと素通りする。../quality/img/ も拾うこと。
 ART_DIR="$(dirname "$F")"
 grep -oE '!\[[^]]*\]\(\.\.?\/img\/[^)]+\)' "$F" | sed -E 's/.*\((\.\.?\/[^)]+)\).*/\1/' | while read ref; do
-  test -f "$ART_DIR/${ref#./}" || echo "MISSING: $ref"
+  # 本文の図は同名の .svg が正本で、PNG は投稿時に作る（Git に無い）。どちらかがあれば OK
+  p="$ART_DIR/${ref#./}"; test -f "$p" || test -f "${p%.png}.svg" || echo "MISSING: $ref"
 done
 
 # 3. markdown 互換性

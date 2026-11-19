@@ -193,7 +193,7 @@ const RULES = [
     id: 'note-image',
     test: (p) => /^content\/note\//.test(p) && /\.(png|jpe?g|webp|gif)$/i.test(p),
     bucket: 'KEEP_GIT',
-    reason: '記事本文の図版（cover*.png はすでに note-cover-png ルールで先に一致するので、ここに来るのは figure-*.png 等の本文埋め込み画像のみ）。note アップロード時に本文中へ自動アップロードされる原本（lib/note-images.mjs）。R2 台帳の対象外で Git 側が唯一の実体',
+    reason: '記事本文の画像のうち同名の SVG が無いもの（cover*.png は note-cover-png ルールで先に一致する）。SVG のある図の PNG は Git に置かず投稿時に作る（lib/note-figure-png.mjs）ので、ここに来るのは SVG の無い図・見本・元絵だけ。note アップロード時に本文中へ上げる原本（lib/note-images.mjs）。R2 台帳の対象外で Git 側が唯一の実体',
     regenFrom: null, usedBy: ['note 本文中の画像参照（scripts/lib/note-images.mjs）'], generator: null, visibility: () => 'n/a',
   },
   {

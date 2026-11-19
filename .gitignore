@@ -337,6 +337,13 @@ content/sources/textbook/**/*.pdf
 # 2026-08-21・DN-0111 Phase 4-B。
 content/note/**/img/cover*.png
 
+# note の本文の図は同名の figure-*.svg が正本で、note へ上げる PNG は投稿の直前に作る
+# （scripts/lib/note-figure-png.mjs・出力は .tmp/note-figures/）。SVG と書き出しの PNG を両方追跡していた 110 組の
+# PNG を外した（2026-11-19）。render-figure-*.mjs が SVG の隣に書く PNG もここで無視する。
+# SVG の無い図（PNG 自体が正本）を足すときだけ git add -f する。tests/note-figure-sources.test.mjs が
+# 「対の PNG を追跡しない」「原稿の画像参照が checkout だけで解決できる」を止める。
+content/note/**/img/figure-*.png
+
 # 著者オーソリティ バナーの記事ごとの複製（197 本×約 220KB）。原本は
 # content/note/共通/著者オーソリティ/img/figure-author-authority*.png（追跡）で、各記事の img/ には
 # scripts/distribute-author-authority-banner.mjs が複製するだけの成果物。再生成は
