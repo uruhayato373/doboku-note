@@ -1,11 +1,11 @@
 // KDP 入稿メモを共通テンプレで生成する（コピペ登録用・記載漏れと表記ゆれを防ぐ）。
 // 共通項（著者=doboku-note・レーベル・AI申告・カテゴリ・KDPフロー）はここに一元化。
 // 各本の固有値は config/kdp-memo.json、title/subtitle/price/creditIssuer は
-// content/kindle/books/<id>/spec.json から取得。出力は scripts/kindle-published/KDP入力メモ_<id>.txt。
+// content/kindle/books/<id>/spec.json から取得。出力は .tmp/kdp-memo/KDP入力メモ_<id>.txt（Git に残さない。入稿の直前に作って見る）。
 //
 // 使い方: node scripts/gen-kdp-memo.mjs e-01 d-01 d-02 ...   （複数可・省略で config 全件）
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { getDefaults, resolveBook, ROYALTY70_BAND } from './lib/kdp-common.mjs'
 import { datasetPath } from './lib/datasets.mjs'
@@ -150,7 +150,8 @@ for (const id of ids) {
   const specPath = resolve(REPO, kindleSpecPath(id))
   if (!existsSync(specPath)) { console.error(`spec が無い: ${id}`); continue }
   const spec = JSON.parse(readFileSync(specPath, 'utf8'))
-  const out = resolve(REPO, `scripts/kindle-published/KDP入力メモ_${id}.txt`)
+  mkdirSync(resolve(REPO, '.tmp/kdp-memo'), { recursive: true })
+  const out = resolve(REPO, `.tmp/kdp-memo/KDP入力メモ_${id}.txt`)
   writeFileSync(out, memo(id, spec, d))
   console.log(`生成: ${out}`)
 }

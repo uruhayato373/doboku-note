@@ -1547,7 +1547,6 @@
         "buildTheme": "goubon",
         "epub": "kindle-A-00-goubon.epub",
         "cover": "kindle-cover-a-00.jpg",
-        "kdpMemo": "KDP入力メモ_A-00全科目合本.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -1612,7 +1611,6 @@
         "buildTheme": "anzen",
         "epub": "kindle-A-01-anzen-updated.epub",
         "cover": "kindle-cover-A-01.jpg",
-        "kdpMemo": "KDP入力メモ_A-01安全管理.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -1670,7 +1668,6 @@
         "buildTheme": "hoki",
         "epub": "kindle-A-02-hoki.epub",
         "cover": "kindle-cover-a-02.jpg",
-        "kdpMemo": null,
         "version": "1.0",
         "versionHistory": [
           {
@@ -1723,7 +1720,6 @@
         "buildTheme": "sekokeikaku",
         "epub": "kindle-A-03-sekokeikaku.epub",
         "cover": "kindle-cover-a-03.jpg",
-        "kdpMemo": "KDP入力メモ_A-03施工計画.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1776,7 +1772,6 @@
         "buildTheme": "kankyo",
         "epub": "kindle-A-04-kankyo.epub",
         "cover": "kindle-cover-a-04.jpg",
-        "kdpMemo": "KDP入力メモ_A-04環境管理.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1829,7 +1824,6 @@
         "buildTheme": "hinshitsu",
         "epub": "kindle-A-05-hinshitsu.epub",
         "cover": "kindle-cover-a-05.jpg",
-        "kdpMemo": "KDP入力メモ_A-05品質管理.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1883,7 +1877,6 @@
         "buildTheme": "koutei",
         "epub": "kindle-A-06-koutei.epub",
         "cover": "kindle-cover-a-06.jpg",
-        "kdpMemo": "KDP入力メモ_A-06工程管理.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -1933,7 +1926,6 @@
         "buildSpec": "content/kindle/books/b-heisei/spec.json",
         "epub": "kindle-dist/b-heisei.epub",
         "cover": "kindle-dist/b-heisei.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_b-heisei.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -1992,7 +1984,6 @@
         "buildSpec": "content/kindle/books/b-reiwa/spec.json",
         "epub": "kindle-dist/b-reiwa.epub",
         "cover": "kindle-dist/b-reiwa.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_b-reiwa.txt",
         "version": "1.0",
         "notes": "2026-07-16 KDP 新規提出・レビュー中（ASIN 未表示）。LIVE 化後に asin/status=live/publishedDate を更新。",
         "versionHistory": [
@@ -2047,7 +2038,6 @@
         "buildSpec": "content/kindle/books/c-01/spec.json",
         "epub": "kindle-dist/c-01.epub",
         "cover": "kindle-dist/c-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-01.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2110,7 +2100,6 @@
         "buildSpec": "content/kindle/books/c-02/spec.json",
         "epub": "kindle-dist/c-02.epub",
         "cover": "kindle-dist/c-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-02.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2173,7 +2162,6 @@
         "buildSpec": "content/kindle/books/c-03/spec.json",
         "epub": "kindle-dist/c-03.epub",
         "cover": "kindle-dist/c-03.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-03.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2236,7 +2224,6 @@
         "buildSpec": "content/kindle/books/c-04/spec.json",
         "epub": "kindle-dist/c-04.epub",
         "cover": "kindle-dist/c-04.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-04.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2299,7 +2286,6 @@
         "buildSpec": "content/kindle/books/c-05/spec.json",
         "epub": "kindle-dist/c-05.epub",
         "cover": "kindle-dist/c-05.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-05.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2362,7 +2348,6 @@
         "buildSpec": "content/kindle/books/c-06/spec.json",
         "epub": "kindle-dist/c-06.epub",
         "cover": "kindle-dist/c-06.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-06.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2425,7 +2410,6 @@
         "buildSpec": "content/kindle/books/c-07/spec.json",
         "epub": "kindle-dist/c-07.epub",
         "cover": "kindle-dist/c-07.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-07.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2488,7 +2472,6 @@
         "buildSpec": "content/kindle/books/c-08/spec.json",
         "epub": "kindle-dist/c-08.epub",
         "cover": "kindle-dist/c-08.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-08.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2551,7 +2534,6 @@
         "buildSpec": "content/kindle/books/c-09/spec.json",
         "epub": "kindle-dist/c-09.epub",
         "cover": "kindle-dist/c-09.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-09.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2614,7 +2596,6 @@
         "buildSpec": "content/kindle/books/c-10/spec.json",
         "epub": "kindle-dist/c-10.epub",
         "cover": "kindle-dist/c-10.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-10.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2677,7 +2658,6 @@
         "buildSpec": "content/kindle/books/c-11/spec.json",
         "epub": "kindle-dist/c-11.epub",
         "cover": "kindle-dist/c-11.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-11.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2740,7 +2720,6 @@
         "buildSpec": "content/kindle/books/c-I/spec.json",
         "epub": "kindle-dist/c-I.epub",
         "cover": "kindle-dist/c-I.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_c-I.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -2805,7 +2784,6 @@
         "buildSpec": "content/kindle/books/d-00/spec.json",
         "epub": "kindle-dist/d-00.epub",
         "cover": "kindle-dist/d-00.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-00.txt",
         "version": "1.1",
         "notes": "2026-07-23 LIVE確認。2026-09-04 修正版EPUBを既刊へ差し替え、KDP原稿チェック完了・正常保存・誤字脱字0件を再確認。KDP Selectは2026-10-14 PDTまで登録中、自動更新OFFを実機確認。同日、note版とのデジタル独占競合を解消するためKDPサポートへ早期解除を申請（回答待ち）。分冊 d-01/d-02/d-03 との重複コンテンツ規約は審査で実態確認。 2026-09-23 KDP 価格ページで日本の実効レート 35% を実測（KDP セレクト登録なし表示・プランのラジオは 70% のまま）。早期解除が通った可能性。価格は据え置き・要再判断。 2026-10-26 運営者判断（DN-0871）で価格を ¥990 → ¥1,250 に改定（kdp-publish --set-price --commit・日本の実効レート 35% を確認・本棚の表示価格 ¥1,250・販売中）。",
         "versionHistory": [
@@ -2874,7 +2852,6 @@
         "buildSpec": "content/kindle/books/d-01/spec.json",
         "epub": "kindle-dist/d-01.epub",
         "cover": "kindle-dist/d-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-01.txt",
         "version": "1.0",
         "notes": "KDP 本棚の突合で LIVE 判明(2026-07-15確認)。提出が著者統一(7/11)前後の境目のため、LIVE 版の内部 EPUB が最新 QA 版と一致するかは未確認。",
         "versionHistory": [
@@ -2931,7 +2908,6 @@
         "buildSpec": "content/kindle/books/d-02/spec.json",
         "epub": "kindle-dist/d-02.epub",
         "cover": "kindle-dist/d-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-02.txt",
         "version": "1.0",
         "notes": "KDP 本棚の突合で LIVE 判明(2026-07-15確認)。提出が著者統一(7/11)前後の境目のため、LIVE 版の内部 EPUB が最新 QA 版と一致するかは未確認。",
         "versionHistory": [
@@ -2988,7 +2964,6 @@
         "buildSpec": "content/kindle/books/d-03/spec.json",
         "epub": "kindle-dist/d-03.epub",
         "cover": "kindle-dist/d-03.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-03.txt",
         "version": "1.1",
         "notes": "2026-07-23 LIVE確認。2026-09-04 修正版EPUBを既刊へ差し替え、KDP原稿チェック完了・保存後再検証済み。KDP Selectは2026-10-13 PDTまで登録中、自動更新OFFを実機確認。同日、note版とのデジタル独占競合を解消するためKDPサポートへ早期解除を申請（回答待ち）。 2026-09-23 KDP 価格ページで日本の実効レート 35% を実測（KDP セレクト登録なし表示・プランのラジオは 70% のまま）。早期解除が通った可能性。価格は据え置き・要再判断。",
         "versionHistory": [
@@ -3050,7 +3025,6 @@
         "buildSpec": "content/kindle/books/e-01/spec.json",
         "epub": "kindle-dist/e-01.epub",
         "cover": "kindle-dist/e-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-01.txt",
         "version": "1.0",
         "duplicateDraftAsin": "B0H8KH1N6G",
         "notes": "正版 ASIN=B0H8ZZMM7R（LIVE）。7/12 に旧著者版で作った重複タイトル B0H8KH1N6G（下書き・未出版・売上ゼロ）は、ASIN が付いた本のため KDP の操作メニューに削除が無く、2026-11-10 に本棚のアーカイブへ移した。修正版は既存タイトルへ差し替えるべきだったが新規作成して二重発番した経緯。",
@@ -3106,7 +3080,6 @@
         "buildSpec": "content/kindle/books/e-02/spec.json",
         "epub": "kindle-dist/e-02.epub",
         "cover": "kindle-dist/e-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_e-02.txt",
         "version": "1.1",
         "versionHistory": [
           {
@@ -3178,7 +3151,6 @@
         "buildSpec": "content/kindle/books/f-01/spec.json",
         "epub": "kindle-dist/f-01.epub",
         "cover": "kindle-dist/f-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-01.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3229,7 +3201,6 @@
         "buildSpec": "content/kindle/books/f-02/spec.json",
         "epub": "kindle-dist/f-02.epub",
         "cover": "kindle-dist/f-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-02.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3280,7 +3251,6 @@
         "buildSpec": "content/kindle/books/f-03/spec.json",
         "epub": "kindle-dist/f-03.epub",
         "cover": "kindle-dist/f-03.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-03.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3331,7 +3301,6 @@
         "buildSpec": "content/kindle/books/f-04/spec.json",
         "epub": "kindle-dist/f-04.epub",
         "cover": "kindle-dist/f-04.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-04.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3382,7 +3351,6 @@
         "buildSpec": "content/kindle/books/f-05/spec.json",
         "epub": "kindle-dist/f-05.epub",
         "cover": "kindle-dist/f-05.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-05.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3433,7 +3401,6 @@
         "buildSpec": "content/kindle/books/f-06/spec.json",
         "epub": "kindle-dist/f-06.epub",
         "cover": "kindle-dist/f-06.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-06.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3484,7 +3451,6 @@
         "buildSpec": "content/kindle/books/f-07/spec.json",
         "epub": "kindle-dist/f-07.epub",
         "cover": "kindle-dist/f-07.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-07.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3535,7 +3501,6 @@
         "buildSpec": "content/kindle/books/f-08/spec.json",
         "epub": "kindle-dist/f-08.epub",
         "cover": "kindle-dist/f-08.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-08.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3595,7 +3560,6 @@
         "buildSpec": "content/kindle/books/f-09/spec.json",
         "epub": "kindle-dist/f-09.epub",
         "cover": "kindle-dist/f-09.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-09.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3655,7 +3619,6 @@
         "buildSpec": "content/kindle/books/f-10/spec.json",
         "epub": "kindle-dist/f-10.epub",
         "cover": "kindle-dist/f-10.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-10.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3715,7 +3678,6 @@
         "buildSpec": "content/kindle/books/f-11/spec.json",
         "epub": "kindle-dist/f-11.epub",
         "cover": "kindle-dist/f-11.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-11.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3775,7 +3737,6 @@
         "buildSpec": "content/kindle/books/f-12/spec.json",
         "epub": "kindle-dist/f-12.epub",
         "cover": "kindle-dist/f-12.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-12.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3835,7 +3796,6 @@
         "buildSpec": "content/kindle/books/f-13/spec.json",
         "epub": "kindle-dist/f-13.epub",
         "cover": "kindle-dist/f-13.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-13.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3895,7 +3855,6 @@
         "buildSpec": "content/kindle/books/f-14/spec.json",
         "epub": "kindle-dist/f-14.epub",
         "cover": "kindle-dist/f-14.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-14.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -3955,7 +3914,6 @@
         "buildSpec": "content/kindle/books/f-15/spec.json",
         "epub": "kindle-dist/f-15.epub",
         "cover": "kindle-dist/f-15.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-15.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4022,7 +3980,6 @@
         "buildSpec": "content/kindle/books/f-16/spec.json",
         "epub": "kindle-dist/f-16.epub",
         "cover": "kindle-dist/f-16.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_f-16.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4089,7 +4046,6 @@
         "buildSpec": "content/kindle/books/g-01/spec.json",
         "epub": "kindle-dist/g-01.epub",
         "cover": "kindle-dist/g-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_g-01.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4155,7 +4111,6 @@
         "buildSpec": "content/kindle/books/g-02/spec.json",
         "epub": "kindle-dist/g-02.epub",
         "cover": "kindle-dist/g-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_g-02.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4215,7 +4170,6 @@
         "buildSpec": "content/kindle/books/h-01/spec.json",
         "epub": "kindle-dist/h-01.epub",
         "cover": "kindle-dist/h-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_h-01.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4290,7 +4244,6 @@
         "buildSpec": "content/kindle/books/i-01/spec.json",
         "epub": "kindle-dist/i-01.epub",
         "cover": "kindle-dist/i-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-01.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4343,7 +4296,6 @@
         "buildSpec": "content/kindle/books/i-02/spec.json",
         "epub": "kindle-dist/i-02.epub",
         "cover": "kindle-dist/i-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-02.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4383,7 +4335,6 @@
         "buildSpec": "content/kindle/books/i-03/spec.json",
         "epub": "kindle-dist/i-03.epub",
         "cover": "kindle-dist/i-03.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-03.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4423,7 +4374,6 @@
         "buildSpec": "content/kindle/books/i-04/spec.json",
         "epub": "kindle-dist/i-04.epub",
         "cover": "kindle-dist/i-04.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-04.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4463,7 +4413,6 @@
         "buildSpec": "content/kindle/books/i-11/spec.json",
         "epub": "kindle-dist/i-11.epub",
         "cover": "kindle-dist/i-11.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-11.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4503,7 +4452,6 @@
         "buildSpec": "content/kindle/books/i-12/spec.json",
         "epub": "kindle-dist/i-12.epub",
         "cover": "kindle-dist/i-12.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-12.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4543,7 +4491,6 @@
         "buildSpec": "content/kindle/books/i-13/spec.json",
         "epub": "kindle-dist/i-13.epub",
         "cover": "kindle-dist/i-13.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-13.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4583,7 +4530,6 @@
         "buildSpec": "content/kindle/books/i-14/spec.json",
         "epub": "kindle-dist/i-14.epub",
         "cover": "kindle-dist/i-14.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-14.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4623,7 +4569,6 @@
         "buildSpec": "content/kindle/books/i-15/spec.json",
         "epub": "kindle-dist/i-15.epub",
         "cover": "kindle-dist/i-15.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-15.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4663,7 +4608,6 @@
         "buildSpec": "content/kindle/books/i-16/spec.json",
         "epub": "kindle-dist/i-16.epub",
         "cover": "kindle-dist/i-16.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-16.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4703,7 +4647,6 @@
         "buildSpec": "content/kindle/books/i-17/spec.json",
         "epub": "kindle-dist/i-17.epub",
         "cover": "kindle-dist/i-17.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-17.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4743,7 +4686,6 @@
         "buildSpec": "content/kindle/books/i-18/spec.json",
         "epub": "kindle-dist/i-18.epub",
         "cover": "kindle-dist/i-18.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-18.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4783,7 +4725,6 @@
         "buildSpec": "content/kindle/books/i-19/spec.json",
         "epub": "kindle-dist/i-19.epub",
         "cover": "kindle-dist/i-19.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-19.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4823,7 +4764,6 @@
         "buildSpec": "content/kindle/books/i-20/spec.json",
         "epub": "kindle-dist/i-20.epub",
         "cover": "kindle-dist/i-20.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-20.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4863,7 +4803,6 @@
         "buildSpec": "content/kindle/books/i-21/spec.json",
         "epub": "kindle-dist/i-21.epub",
         "cover": "kindle-dist/i-21.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-21.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4903,7 +4842,6 @@
         "buildSpec": "content/kindle/books/i-22/spec.json",
         "epub": "kindle-dist/i-22.epub",
         "cover": "kindle-dist/i-22.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-22.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4943,7 +4881,6 @@
         "buildSpec": "content/kindle/books/i-23/spec.json",
         "epub": "kindle-dist/i-23.epub",
         "cover": "kindle-dist/i-23.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-23.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -4983,7 +4920,6 @@
         "buildSpec": "content/kindle/books/i-24/spec.json",
         "epub": "kindle-dist/i-24.epub",
         "cover": "kindle-dist/i-24.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_i-24.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5023,7 +4959,6 @@
         "buildSpec": "content/kindle/books/j-01/spec.json",
         "epub": "kindle-dist/j-01.epub",
         "cover": "kindle-dist/j-01.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-01.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5080,7 +5015,6 @@
         "buildSpec": "content/kindle/books/j-02/spec.json",
         "epub": "kindle-dist/j-02.epub",
         "cover": "kindle-dist/j-02.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-02.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5120,7 +5054,6 @@
         "buildSpec": "content/kindle/books/j-03/spec.json",
         "epub": "kindle-dist/j-03.epub",
         "cover": "kindle-dist/j-03.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-03.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5177,7 +5110,6 @@
         "buildSpec": "content/kindle/books/j-11/spec.json",
         "epub": "kindle-dist/j-11.epub",
         "cover": "kindle-dist/j-11.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-11.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5217,7 +5149,6 @@
         "buildSpec": "content/kindle/books/j-12/spec.json",
         "epub": "kindle-dist/j-12.epub",
         "cover": "kindle-dist/j-12.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-12.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5257,7 +5188,6 @@
         "buildSpec": "content/kindle/books/j-13/spec.json",
         "epub": "kindle-dist/j-13.epub",
         "cover": "kindle-dist/j-13.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-13.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5297,7 +5227,6 @@
         "buildSpec": "content/kindle/books/j-14/spec.json",
         "epub": "kindle-dist/j-14.epub",
         "cover": "kindle-dist/j-14.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-14.txt",
         "version": "1.0",
         "versionHistory": [
           {
@@ -5337,7 +5266,6 @@
         "buildSpec": "content/kindle/books/j-15/spec.json",
         "epub": "kindle-dist/j-15.epub",
         "cover": "kindle-dist/j-15.jpg",
-        "kdpMemo": "scripts/kindle-published/KDP入力メモ_j-15.txt",
         "version": "1.0",
         "versionHistory": [
           {

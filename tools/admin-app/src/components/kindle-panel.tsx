@@ -124,7 +124,7 @@ export async function KindlePanel({ tab }: { tab?: string }) {
 
       {!freshnessOk && <p className="text-sm project-warning-text">鮮度検査が実行できなかった</p>}
 
-      {current === 'books' && (summary.staleCount > 0 || summary.deadMemoCount > 0 || summary.notRebuildableCount > 0) && (
+      {current === 'books' && (summary.staleCount > 0 || summary.notRebuildableCount > 0) && (
         <PanelCard title="整合・鮮度">
           <ul className="text-sm">
             {summary.staleCount > 0 && (
@@ -132,7 +132,6 @@ export async function KindlePanel({ tab }: { tab?: string }) {
                 EPUB がソースより古い疑い {summary.staleCount} 件: {books.filter((b) => b.freshness === 'stale').map((b) => b.id).join(', ')}
               </li>
             )}
-            {summary.deadMemoCount > 0 && <li>KDP入力メモの参照先が不在 {summary.deadMemoCount} 件</li>}
             {summary.notRebuildableCount > 0 && <li>自動再ビルドの外 {summary.notRebuildableCount} 件: {books.filter((b) => !b.rebuildable).map((b) => b.id).join(', ')}</li>}
           </ul>
         </PanelCard>

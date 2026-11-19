@@ -17,24 +17,22 @@ import {
 test('artifactRelPaths: B-G系(サブディレクトリ持ち)は scripts/ 直下として解決する', () => {
   const rel = artifactRelPaths({
     id: 'e-01', epub: 'kindle-dist/e-01.epub', cover: 'kindle-dist/e-01.jpg',
-    kdpMemo: 'KDP入力メモ_e-01.txt', buildSpec: 'content/kindle/books/e-01/spec.json',
+    buildSpec: 'content/kindle/books/e-01/spec.json',
   })
   assert.deepEqual(rel, {
     epub: 'scripts/kindle-dist/e-01.epub',
     cover: 'scripts/kindle-dist/e-01.jpg',
-    kdpMemo: 'scripts/kindle-published/KDP入力メモ_e-01.txt',
     buildSpec: 'content/kindle/books/e-01/spec.json',
   })
 })
 
 test('artifactRelPaths: A系(裸ファイル名・buildSpec無し)は kindle-published 直下として解決する', () => {
   const rel = artifactRelPaths({
-    id: 'a-00', epub: 'kindle-A-00-goubon.epub', cover: 'kindle-cover-a-00.jpg', kdpMemo: null, buildSpec: undefined,
+    id: 'a-00', epub: 'kindle-A-00-goubon.epub', cover: 'kindle-cover-a-00.jpg', buildSpec: undefined,
   })
   assert.deepEqual(rel, {
     epub: 'scripts/kindle-published/kindle-A-00-goubon.epub',
     cover: 'scripts/kindle-published/kindle-cover-a-00.jpg',
-    kdpMemo: null,
     buildSpec: null,
   })
 })

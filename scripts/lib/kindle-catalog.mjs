@@ -63,7 +63,6 @@ export function loadKindleCatalogIfPresent(root = REPO_ROOT) {
  * 純粋: book → repo 相対パス群（A系/B-G系の2系統を吸収）。
  *  - epub/cover: 値が '/' を含む（例 "kindle-dist/e-01.epub"）→ `scripts/` + 値。
  *                含まない（例 "kindle-A-00-goubon.epub"）→ `scripts/kindle-published/` + 値。
- *  - kdpMemo: 値が 'scripts/' で始まる → そのまま。それ以外 → `scripts/kindle-published/` + 値。
  *  - buildSpec: そのまま（'content/kindle/books/<id>/spec.json'）。テーマ駆動の A 系は null。
  */
 export function artifactRelPaths(book) {
@@ -72,13 +71,9 @@ export function artifactRelPaths(book) {
     if (v.includes('/')) return `scripts/${v}`
     return `${defaultDir}/${v}`
   }
-  const kdpMemo = book.kdpMemo
-    ? (book.kdpMemo.startsWith('scripts/') ? book.kdpMemo : `scripts/kindle-published/${book.kdpMemo}`)
-    : null
   return {
     epub: withPrefix(book.epub, 'scripts/kindle-published'),
     cover: withPrefix(book.cover, 'scripts/kindle-published'),
-    kdpMemo,
     buildSpec: book.buildSpec || null,
   }
 }
@@ -103,9 +98,6 @@ export function inspectKindleInventory(books) {
       id: book.id,
       epub: fileInfo(rel.epub),
       cover: fileInfo(rel.cover),
-      // B-G 系のメモは gen-kdp-memo で必要時に生成する派生物。buildSpec があれば
-      // ファイル未生成を「死ポインタ」と数えない。null は参照自体が無いので dead ではない。
-      kdpMemoDead: rel.kdpMemo ? (!existsSync(abs(rel.kdpMemo)) && !book.buildSpec) : false,
       buildSpec: rel.buildSpec ? fileInfo(rel.buildSpec) : null,
       rebuildable: hasBuildRecipe(book),
     }

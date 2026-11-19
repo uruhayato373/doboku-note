@@ -369,7 +369,7 @@
       "status": "active",
       "audience": "human",
       "match": {
-        "pathRegex": "^(\\.claude/state/ocr-audit/.+|\\.claude/pdfs/.+|scripts/kindle-published/cover-designs/.+|content/sns/_assets/character/_source/.+|generated_images/.+\\.png)$"
+        "pathRegex": "^(\\.claude/state/ocr-audit/.+|\\.claude/pdfs/.+|scripts/kindle-published/cover-designs/.+|scripts/kindle-published/KDP入力メモ_A-.+\\.txt|content/sns/_assets/character/_source/.+|generated_images/.+\\.png)$"
       },
       "vaultDir": "アーカイブ/repo",
       "keyFrom": "repoRelative",
