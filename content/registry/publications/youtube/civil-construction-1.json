@@ -874,7 +874,7 @@
       "work": "owner-eye-sekkei-henkou-hantei",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform/scene-001",
@@ -910,7 +910,42 @@
         "contentSha256": "2106a3b737fd350c41249291a2792ce444443e6a47b7356e86b3b3f8d0aac619"
       },
       "times": {
-        "rendered": "2026-11-19T12:58:50.864Z"
+        "rendered": "2026-11-19T12:58:50.864Z",
+        "uploaded": "2026-11-19T13:01:13.096Z",
+        "scheduled": "2026-11-19T13:01:29.218Z"
+      },
+      "delivery": {
+        "inputSha256": "0772f5161e5ff83670044125e21668535a7c4ce44afe2acc3d3488140cbb1fbb",
+        "marker": "dn-single-7f99f973c3ad36b392a3b8c347d412c105bfa023",
+        "uploadRequestedAt": "2026-11-19T13:00:20.216Z",
+        "videoId": "sZjSNIu5dgw",
+        "processedAt": "2026-11-19T13:01:11.319Z",
+        "thumbnailRequestedAt": "2026-11-19T13:01:13.173Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/sZjSNIu5dgw/default.jpg?sqp=CNDl-9cG&rs=AOn4CLB0zxQynvyJRHiPyBHxwZQXgevazw",
+          "https://i9.ytimg.com/vi/sZjSNIu5dgw/mqdefault.jpg?sqp=CNDl-9cG&rs=AOn4CLCPX3ubviomcuKiPC-djiSHR7Chrw",
+          "https://i9.ytimg.com/vi/sZjSNIu5dgw/hqdefault.jpg?sqp=CNDl-9cG&rs=AOn4CLBYTxl3_CuHvRDpjITDSlz7C7wbAA",
+          "https://i9.ytimg.com/vi/sZjSNIu5dgw/sddefault.jpg?sqp=CNDl-9cG&rs=AOn4CLBhnmxuFVZDX7kyU3mznhjVyLioDw",
+          "https://i9.ytimg.com/vi/sZjSNIu5dgw/maxresdefault.jpg?sqp=CNDl-9cG&rs=AOn4CLDZkg6NVnuh2bGl4B5U4AAf3b9cEw",
+          "https://i9.ytimg.com/vi/sZjSNIu5dgw/fhddefault.jpg?sqp=CNDl-9cG&rs=AOn4CLCOYxCdR-E6Egk5mAnD0wLyPJFfHw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-19T13:01:17.605Z",
+        "scheduleRequestedAt": "2026-11-19T13:01:24.265Z",
+        "scheduleAt": "2026-11-29T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-19T13:01:29.218Z"
+      },
+      "platform": {
+        "id": "sZjSNIu5dgw",
+        "url": "https://www.youtube.com/watch?v=sZjSNIu5dgw",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-19T13:01:17.605Z"
       }
     },
     {
