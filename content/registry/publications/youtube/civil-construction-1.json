@@ -874,7 +874,7 @@
       "work": "owner-eye-sekkei-henkou-hantei",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-sekkei-henkou-hantei/youtube.longform/scene-001",
@@ -908,6 +908,9 @@
         "by": "policy",
         "at": "2026-11-19T12:52:03.282Z",
         "contentSha256": "2106a3b737fd350c41249291a2792ce444443e6a47b7356e86b3b3f8d0aac619"
+      },
+      "times": {
+        "rendered": "2026-11-19T12:58:50.864Z"
       }
     },
     {
@@ -1008,7 +1011,7 @@
       "work": "owner-eye-suryo-sekisan",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform/cover",
         "scene-001": "civil-construction-1/owner-eye-suryo-sekisan/youtube.longform/scene-001",
@@ -1048,6 +1051,9 @@
         "by": "policy",
         "at": "2026-11-19T12:52:09.501Z",
         "contentSha256": "db9363080e1c1399cffc2d41cbb5741e07b08be3812542c10fc5534f2d410963"
+      },
+      "times": {
+        "rendered": "2026-11-19T12:59:11.168Z"
       }
     }
   ]

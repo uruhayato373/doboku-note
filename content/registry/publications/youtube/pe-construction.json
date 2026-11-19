@@ -1414,7 +1414,7 @@
       "work": "pe-ii1-kakikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-construction/pe-ii1-kakikata/youtube.longform/cover",
         "scene-001": "pe-construction/pe-ii1-kakikata/youtube.longform/scene-001",
@@ -1446,6 +1446,9 @@
         "by": "policy",
         "at": "2026-11-19T12:52:06.345Z",
         "contentSha256": "8522298e6c456e70a08d6d7ac434ba3e22126475789f59a84b83a1e667ead930"
+      },
+      "times": {
+        "rendered": "2026-11-19T12:59:03.556Z"
       }
     },
     {
