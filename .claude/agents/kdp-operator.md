@@ -30,7 +30,7 @@ target: kdp
 |---|---|
 | `config/kdp-memo.json` | KDP 入稿 SSOT（defaults＝共通申告/カテゴリー経路、books[id]＝固有メタ） |
 | `config/products.json`（channel kindle・id は `kindle-<書籍id>`） | 全書籍の status/ASIN/draftAsin/価格の真実源（冊数もここ）。写しのファイルは無い（2026-11-20 に catalog.json を廃止。コードは `scripts/lib/kindle-catalog.mjs` の `loadKindleCatalog` で読む）。手で直すときは `npm run product -- set kindle-<書籍id> catalog.<欄> <json値>` |
-| `scripts/kindle-specs/<id>.json` | title/subtitle/price/sources（ビルド入力） |
+| `content/kindle/books/<id>/spec.json` | title/subtitle/price/sources（ビルド入力） |
 | `.claude/knowledge/reference/kindle-dup-prevention`（memory） | 修正版は既存差し替え・新規作成禁止／提出後 ASIN 即記録 |
 | `content/kindle/strategy.md` | 出版済み一覧（LIVE 化後の記録先の1つ） |
 

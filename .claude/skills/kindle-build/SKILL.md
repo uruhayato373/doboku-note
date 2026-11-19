@@ -30,16 +30,16 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 | 書籍ID | シリーズ | ビルド | 構成定義 | 状態 |
 |---|---|---|---|---|
 | A-01〜A-06 / A-00 | A: 1級土木択一・論点別 | `node scripts/build-takuitsu-reconstruct.mjs --theme {anzen\|hoki\|sekokeikaku\|kankyo\|hinshitsu\|koutei\|goubon}` | THEMES（lead判定＋exclude＋parts フィルタ） | 全7冊 LIVE |
-| D-01/02/03 / D-00 | D: 技術士一次 合本 | `node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/{id}.json` | spec + 書き下ろし前付け | 全4冊 LIVE |
-| E-01 | E: 2級土木択一 全期合本 | `build-pe1-kindle.mjs --spec kindle-specs/e-01.json` | spec + 前付け（出典=全国建設研修センター） | LIVE |
-| b-reiwa/b-heisei | B: 総監択一 合本 | `build-pe1-kindle.mjs --spec kindle-specs/{id}.json` | spec + 前付け（出典=第二次試験・spec.examName） | 全2冊 LIVE |
-| c-01〜c-11/c-I | C: 建設二次 模範解答 essay | `node scripts/build-essay-kindle.mjs --spec scripts/kindle-specs/{id}.json` | spec（sources=模範解答 md）+ 前付け | 全12冊 LIVE |
-| f-01〜f-16 | F: 総監 記述式 essay | `build-essay-kindle.mjs --spec kindle-specs/{id}.json` | spec + 前付け | 全16冊 LIVE |
-| h-01 | H: RCCM 問題III 模範論文集 | `build-essay-kindle.mjs --spec kindle-specs/h-01.json`（`creditBody`＝過去問非公開の出典文上書き・`chapterLabel: headline`） | spec + 前付け | in_review（2026-09-23 出版申請） |
-| i-01〜i-04 / i-11〜i-24 | I: 1級土木 第2次検定 記述（施工経験記述・学科記述・想定工事14分冊） | `build-essay-kindle.mjs --spec kindle-specs/{id}.json`（`chapterLabel: h1-tail`・`dropLines`・`replaceText`） | spec + 前付け | 2026-09-23 新設 |
+| D-01/02/03 / D-00 | D: 技術士一次 合本 | `node scripts/build-pe1-kindle.mjs --spec content/kindle/books/{id}/spec.json` | spec + 書き下ろし前付け | 全4冊 LIVE |
+| E-01 | E: 2級土木択一 全期合本 | `build-pe1-kindle.mjs --spec content/kindle/books/e-01/spec.json` | spec + 前付け（出典=全国建設研修センター） | LIVE |
+| b-reiwa/b-heisei | B: 総監択一 合本 | `build-pe1-kindle.mjs --spec content/kindle/books/{id}/spec.json` | spec + 前付け（出典=第二次試験・spec.examName） | 全2冊 LIVE |
+| c-01〜c-11/c-I | C: 建設二次 模範解答 essay | `node scripts/build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json` | spec（sources=模範解答 md）+ 前付け | 全12冊 LIVE |
+| f-01〜f-16 | F: 総監 記述式 essay | `build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json` | spec + 前付け | 全16冊 LIVE |
+| h-01 | H: RCCM 問題III 模範論文集 | `build-essay-kindle.mjs --spec content/kindle/books/h-01/spec.json`（`creditBody`＝過去問非公開の出典文上書き・`chapterLabel: headline`） | spec + 前付け | in_review（2026-09-23 出版申請） |
+| i-01〜i-04 / i-11〜i-24 | I: 1級土木 第2次検定 記述（施工経験記述・学科記述・想定工事14分冊） | `build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json`（`chapterLabel: h1-tail`・`dropLines`・`replaceText`） | spec + 前付け | 2026-09-23 新設 |
 | j-01〜j-03 / j-11〜j-15 | J: 2級土木 第2次検定 記述（同上・想定工事5分冊） | 同上 | spec + 前付け | 2026-09-23 新設 |
 
-表紙は spec の `pop` から `npm run kindle-pop-cover` で作る（採用後は `adoptedImage`＋`scripts/kindle-covers/pop/<id>.pop-image.json` が正本。`adoptedImage` の無い旧本だけ `backgrounds/` から組版で再生成。下記「表紙」参照）。全書籍の状態・ASIN は [`config/products.json` の書籍の行](../../../config/products.json)（マスター登録簿）が真実源。
+表紙は spec の `pop` から `npm run kindle-pop-cover` で作る（採用後は `adoptedImage`＋`content/kindle/books/<id>/pop-image.json` が正本。`adoptedImage` の無い旧本だけ `backgrounds/` から組版で再生成。下記「表紙」参照）。全書籍の状態・ASIN は [`config/products.json` の書籍の行](../../../config/products.json)（マスター登録簿）が真実源。
 
 - A系入力: `src/config/civil-1-exam-questions.json`（1,162問）。D/E系入力: 各 `content/site/**/article.mdx`（択一・全問完全解説）。C/F系入力: `content/note/**/article*.md`（記述式模範解答）
 - 出力: `.tmp/kindle-{id}/{id}.epub`。配布物は `scripts/kindle-dist/<id>.epub`（R2 が正本・git 追跡しない） + `<id>.jpg`（`npm run sync-kindle-dist` で spec から再生成）
@@ -113,7 +113,7 @@ Kindle 出版戦略（[strategy.md](../../../content/kindle/strategy.md) = 真�
 
 **ユーザー本人しかできない工程（自動化・代行不可）**: KDP アカウント登録、**税務情報（マイナンバー＝米国以外の TIN・住所は英語ローマ字入力）・W-8BEN**、銀行口座、最終「出版」クリック。
 
-**表紙（2026-11-10 に一本化）**: `npm run kindle-pop-cover -- --id <id>` で候補を作り、描く文字の一覧と 1 文字ずつ照合して `-- --adopt <id> --candidate <png> --review "…"` で採用する。文言と場面は表紙 spec（`scripts/kindle-covers/specs/<id>.json`）の `pop` に書く。制作記録は `scripts/kindle-covers/pop/<id>.pop-image.json`。旧 `build-kindle-cover.mjs` と `backgrounds/` は、`adoptedImage` の無い本を sync-kindle-dist が作り直すときだけ動く。詳細 → `scripts/kindle-covers/README.md`
+**表紙（2026-11-10 に一本化）**: `npm run kindle-pop-cover -- --id <id>` で候補を作り、描く文字の一覧と 1 文字ずつ照合して `-- --adopt <id> --candidate <png> --review "…"` で採用する。文言と場面は表紙 spec（`content/kindle/books/<id>/cover.json`）の `pop` に書く。制作記録は `content/kindle/books/<id>/pop-image.json`。旧 `build-kindle-cover.mjs` と `backgrounds/` は、`adoptedImage` の無い本を sync-kindle-dist が作り直すときだけ動く。詳細 → `scripts/kindle-covers/README.md`
 
 ## KDP 提出運用（分割提出・catalog 管理）
 

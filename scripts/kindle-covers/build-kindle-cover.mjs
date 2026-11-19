@@ -3,7 +3,7 @@
 // オーバーレイする（画像モデルは日本語を崩すため、文字は必ず後合成する）。
 //
 // 使い方:
-//   node scripts/kindle-covers/build-kindle-cover.mjs --spec scripts/kindle-covers/specs/a-01.json [--out <path>]
+//   node scripts/kindle-covers/build-kindle-cover.mjs --spec content/kindle/books/A-01/cover.json [--out <path>]
 //
 // spec スキーマ（specs/*.json）:
 //   {
@@ -33,7 +33,7 @@ function parseArgs(argv) {
     if (argv[i] === '--spec') a.spec = argv[++i]
     else if (argv[i] === '--out') a.out = argv[++i]
   }
-  if (!a.spec) throw new Error('--spec scripts/kindle-covers/specs/*.json は必須')
+  if (!a.spec) throw new Error('--spec content/kindle/books/*/cover.json は必須')
   return a
 }
 

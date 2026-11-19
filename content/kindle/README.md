@@ -6,10 +6,16 @@ Kindle/KDP 固有の戦略と書き下ろし原稿は、このディレクトリ
 ## 配置
 
 - `strategy.md` — ラインナップ、価格、出版方針、運用チェックリスト
-- `books/{id}/front-matter.md` — EPUB に組み込む書き下ろし前付け
+- `books/{id}/` — 1 冊ぶんの制作物と入力（フォルダ名は書籍 id。A 系は大文字）
+  - `front-matter.md` — EPUB に組み込む書き下ろし前付け
+  - `spec.json` — ビルド定義（題名・価格・収録する原稿）。`--spec` でビルダーへ渡す
+  - `cover.json` — 表紙の仕様（`pop` と採用済みなら `adoptedImage`）
+  - `pop-image.json` — 採用した表紙の制作記録
+- `cover-records/` — 複数冊にまたがる表紙の制作記録
+- コードからは `scripts/lib/kindle-catalog.mjs` の `kindleBookFile` で引く（大文字小文字を区別しない）
 
 書籍の機械可読な状態・ASIN・版は `config/products.json`（channel kindle）、ビルド定義は
-`scripts/kindle-specs/{id}.json` が真実源。
+`content/kindle/books/{id}/spec.json` が真実源。
 
 ## 所有者
 

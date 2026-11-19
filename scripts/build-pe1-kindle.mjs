@@ -3,7 +3,7 @@
 // 戦略・価格の真実源: content/kindle/strategy.md
 //
 // 使い方:
-//   node scripts/build-pe1-kindle.mjs --spec scripts/kindle-specs/d-02.json
+//   node scripts/build-pe1-kindle.mjs --spec content/kindle/books/d-02/spec.json
 //     --outDir <dir>（spec の outDir を上書き。既定 .tmp/kindle-<bookId>）
 //
 // spec スキーマ:
@@ -40,7 +40,7 @@ const DISCLAIMER =
 
 function parseArgs(argv) {
   const { spec, outDir } = parseCliArgs({ spec: { type: 'string' }, outDir: { type: 'string' } }, argv)
-  if (!spec) throw new Error('--spec <scripts/kindle-specs/*.json> は必須')
+  if (!spec) throw new Error('--spec <content/kindle/books/*/spec.json> は必須')
   return { spec, outDir }
 }
 

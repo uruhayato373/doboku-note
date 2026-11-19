@@ -143,7 +143,7 @@ node scripts/kdp-publish.mjs --sync-status   # .tmp/kdp-sync-status.json
 node scripts/kdp-publish.mjs --id <id> --set-price            # dry-run（AI申告の要否・現在価格・目標価格で入れた場合の日本の実効レートを表示。保存しない）
 node scripts/kdp-publish.mjs --id <id> --set-price --commit   # 保存（公開価格が変わる）
 ```
-価格の真実源は `scripts/kindle-specs/<id>.json` の `price`（spec の無い A 系は catalog の `priceJpy`）。**spec だけ直して実行**すれば、成功時に catalog の `priceJpy` と `priceHistory` をスクリプトが書き戻す。片側だけ直った状態は `npm run check-kindle-prices`（CI ゲート）が止める。宛先は catalog の `draftAsin`（title-setup の内部ID）で、欠けていれば `--sync-status` が本棚から補完する。
+価格の真実源は `content/kindle/books/<id>/spec.json` の `price`（spec の無い A 系は catalog の `priceJpy`）。**spec だけ直して実行**すれば、成功時に catalog の `priceJpy` と `priceHistory` をスクリプトが書き戻す。片側だけ直った状態は `npm run check-kindle-prices`（CI ゲート）が止める。宛先は catalog の `draftAsin`（title-setup の内部ID）で、欠けていれば `--sync-status` が本棚から補完する。
 
 - **AI 申告**: KDP が必須化した。未回答の既刊（2026-07 提出分など）は出版が「この項目は必須です」で弾かれるため、`--commit` 時にコンテンツページで config の `aiDeclaration` を入れて下書き保存してから価格へ進む。回答済みの本は書き換えない。
 - **印税率**: 70% 帯は **¥250〜¥1,650**（2026-09-23 に KDP 価格ページの告知で ¥1,250 から拡大を確認）。日本・インド・ブラジル・メキシコの 70% は KDP セレクト登録が条件で、未登録だとプランのラジオが 70% のままでも日本は 35% になる。`catalog.royalty` は**日本の実効レート**を表し、価格入力後の日本の行のレートが一致しないと保存せずに止まる（2026-09-23 d-00/d-03 で実測）。

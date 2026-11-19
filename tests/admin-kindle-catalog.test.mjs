@@ -17,13 +17,13 @@ import {
 test('artifactRelPaths: B-G系(サブディレクトリ持ち)は scripts/ 直下として解決する', () => {
   const rel = artifactRelPaths({
     id: 'e-01', epub: 'kindle-dist/e-01.epub', cover: 'kindle-dist/e-01.jpg',
-    kdpMemo: 'KDP入力メモ_e-01.txt', buildSpec: 'scripts/kindle-specs/e-01.json',
+    kdpMemo: 'KDP入力メモ_e-01.txt', buildSpec: 'content/kindle/books/e-01/spec.json',
   })
   assert.deepEqual(rel, {
     epub: 'scripts/kindle-dist/e-01.epub',
     cover: 'scripts/kindle-dist/e-01.jpg',
     kdpMemo: 'scripts/kindle-published/KDP入力メモ_e-01.txt',
-    buildSpec: 'scripts/kindle-specs/e-01.json',
+    buildSpec: 'content/kindle/books/e-01/spec.json',
   })
 })
 
@@ -85,11 +85,11 @@ test('buildPathDateMap: 空文字列/未定義は空 Map を返す', () => {
 })
 
 test('estimateFreshness: 入力がEPUBより新しければ stale と判定する', () => {
-  const books = [{ id: 'e-01', epub: 'kindle-dist/e-01.epub', buildSpec: 'scripts/kindle-specs/e-01.json', builder: 'scripts/build-pe1-kindle.mjs' }]
+  const books = [{ id: 'e-01', epub: 'kindle-dist/e-01.epub', buildSpec: 'content/kindle/books/e-01/spec.json', builder: 'scripts/build-pe1-kindle.mjs' }]
   const pathDateMap = new Map([
     ['scripts/kindle-dist/e-01.epub', '2026-08-17T00:00:00+09:00'],
     ['content/site/a/article.mdx', '2026-08-26T00:00:00+09:00'], // 08-17 より新しい = stale の原因
-    ['scripts/kindle-specs/e-01.json', '2026-08-01T00:00:00+09:00'],
+    ['content/kindle/books/e-01/spec.json', '2026-08-01T00:00:00+09:00'],
     ['scripts/build-pe1-kindle.mjs', '2026-08-01T00:00:00+09:00'],
   ])
   const readSpec = () => ({ sources: ['content/site/a/article.mdx'] })
@@ -100,7 +100,7 @@ test('estimateFreshness: 入力がEPUBより新しければ stale と判定す�
 })
 
 test('estimateFreshness: EPUB が git log に無い(map 不在)冊は unknown（stale=0 を健全と言わない）', () => {
-  const books = [{ id: 'z-99', epub: 'kindle-dist/z-99.epub', buildSpec: 'scripts/kindle-specs/z-99.json' }]
+  const books = [{ id: 'z-99', epub: 'kindle-dist/z-99.epub', buildSpec: 'content/kindle/books/z-99/spec.json' }]
   const pathDateMap = new Map() // 空 = git log 取得できなかった/対象外パスのケースを模す
   const readSpec = () => ({ sources: ['content/site/z/article.mdx'] })
   const { staleIds, unknownIds, perBook } = estimateFreshness(books, pathDateMap, readSpec)
@@ -122,11 +122,11 @@ test('estimateFreshness: A系(buildSpec無し)は exam-questions.json と builde
 })
 
 test('estimateFreshness: essay builder は共有レンダラ kindle-md.mjs も入力に含める', () => {
-  const books = [{ id: 'c-01', epub: 'kindle-dist/c-01.epub', buildSpec: 'scripts/kindle-specs/c-01.json', builder: 'scripts/build-essay-kindle.mjs' }]
+  const books = [{ id: 'c-01', epub: 'kindle-dist/c-01.epub', buildSpec: 'content/kindle/books/c-01/spec.json', builder: 'scripts/build-essay-kindle.mjs' }]
   const pathDateMap = new Map([
     ['scripts/kindle-dist/c-01.epub', '2026-08-20T00:00:00+09:00'],
     ['scripts/lib/kindle-md.mjs', '2026-08-25T00:00:00+09:00'], // renderer 更新のみが stale の原因
-    ['scripts/kindle-specs/c-01.json', '2026-08-01T00:00:00+09:00'],
+    ['content/kindle/books/c-01/spec.json', '2026-08-01T00:00:00+09:00'],
     ['scripts/build-essay-kindle.mjs', '2026-08-01T00:00:00+09:00'],
   ])
   const { staleIds } = estimateFreshness(books, pathDateMap, () => ({ sources: [] }))

@@ -42,6 +42,9 @@ export const COCONALA_CONTENT_ROOT = at('content', 'coconala');
 export const COCONALA_BLOG_ROOT = at('content', 'coconala', 'blog');
 export const SNS_CONTENT_ROOT = at('content', 'sns');
 export const KINDLE_CONTENT_ROOT = at('content', 'kindle');
+/** Kindle の本ごとのフォルダ（books/<書籍id>/ に spec.json・cover.json・front-matter.md・pop-image.json）。引き方は kindle-catalog.mjs の kindleBookFile */
+export const KINDLE_BOOKS_REL = 'content/kindle/books';
+export const KINDLE_BOOKS_ROOT = at('content', 'kindle', 'books');
 export const CONTENT_SOURCES_ROOT = at('content', 'sources');
 export const TEXTBOOK_SOURCES_ROOT = at('content', 'sources', 'textbook');
 
@@ -200,6 +203,12 @@ export const MOVED_PATHS = [
  * （.claude/config/information-architecture.json には書かない。移動表に載らない旧パスだけをそちらに書く）。
  */
 export const RESTRUCTURED_PATHS = [
+  // 2026-11-20 に Kindle の spec・表紙の仕様・表紙の制作記録を scripts/ から本のフォルダへ移した（A 系の表紙はフォルダ名を大文字に）
+  [/^scripts\/kindle-specs\/([^/]+)\.json$/, "content/kindle/books/$1/spec.json"],
+  [/^scripts\/kindle-covers\/specs\/a-(\d\d)\.json$/, "content/kindle/books/A-$1/cover.json"],
+  [/^scripts\/kindle-covers\/specs\/([^/]+)\.json$/, "content/kindle/books/$1/cover.json"],
+  ["scripts/kindle-covers/pop/c-series-r08.pop-image.json", "content/kindle/cover-records/c-series-r08.pop-image.json"],
+  [/^scripts\/kindle-covers\/pop\/([^/]+)\.pop-image\.json$/, "content/kindle/books/$1/pop-image.json"],
   ["data/sales/sales-log.json", "data/note/sales.json"],
   ["data/sales/kdp-royalties.json", "data/kdp/royalties.json"],
   ["data/note/magazines-snapshot.json", "data/note/magazines.json"],

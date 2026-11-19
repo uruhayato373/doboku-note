@@ -960,7 +960,7 @@ const kdpBook = z
   })
   .strict();
 
-/** KDP 入稿の既定値と各本の固有値。題名・価格は scripts/kindle-specs/<id>.json が正本で、ここには読み・シリーズ・キーワード・説明を置く */
+/** KDP 入稿の既定値と各本の固有値。題名・価格は content/kindle/books/<id>/spec.json が正本で、ここには読み・シリーズ・キーワード・説明を置く */
 export const ConfigKdpMemo = z
   .object({
     schemaVersion: z.literal(1),

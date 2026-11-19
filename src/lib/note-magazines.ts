@@ -1215,7 +1215,7 @@ const MAGAZINES_RAW = {
     ctaButton: '精読ガイドを見てみる',
     ctaPose: 'pointing',
   },
-  // 1級版。PDF は生成済み（scripts/kindle-specs/e-02.json → build-takuitsu-pdf）。
+  // 1級版。PDF は生成済み（content/kindle/books/e-02/spec.json → build-takuitsu-pdf）。
   // Kindle A系（A-01〜A-06）が KDP Select 加入 LIVE のため、独占明け（~2026-10-06）に
   // Select を外してから note 公開する（content/kindle/strategy.md）。それまで published: false。
   'civil-1-takuitsu-pdf': {

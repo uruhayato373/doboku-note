@@ -12,7 +12,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync, copyFileSync, mkdirSync, existsSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { homedir } from 'node:os'
-import { artifactRelPaths, loadKindleCatalog, selectSyncTargets } from './lib/kindle-catalog.mjs'
+import { artifactRelPaths, kindleCoverSpecPath, loadKindleCatalog, selectSyncTargets } from './lib/kindle-catalog.mjs'
 import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 
 const DIST = resolve(REPO, 'scripts/kindle-dist')
@@ -51,9 +51,7 @@ for (const b of books) {
   mkdirSync(dirname(epubDest), { recursive: true })
   copyFileSync(epub, epubDest)
   // 2) 表紙 再合成
-  const exactCoverSpec = resolve(REPO, `scripts/kindle-covers/specs/${id}.json`)
-  const lowerCoverSpec = resolve(REPO, `scripts/kindle-covers/specs/${id.toLowerCase()}.json`)
-  const coverSpec = existsSync(exactCoverSpec) ? exactCoverSpec : lowerCoverSpec
+  const coverSpec = resolve(REPO, kindleCoverSpecPath(id))
   // 全面を画像生成で作った POP 表紙（spec に adoptedImage がある本）は組版で作り直さない。
   // 作り直すと採用済みの表紙が旧組版へ戻る（2026-11-10・C 系の令和8年度版）。採用画像は private R2 の kindle-dist が正本
   const adopted = existsSync(coverSpec) ? JSON.parse(readFileSync(coverSpec, 'utf8')).adoptedImage : null

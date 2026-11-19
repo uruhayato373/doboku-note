@@ -4,6 +4,9 @@
     "_doc": "廃止した置き場。ここへ新規ファイルを作ると旧構成へ逆戻りする。**ファイルを移した旧パスは scripts/lib/repository-paths.mjs の MOVED_PATHS・RESTRUCTURED_PATHS が正本**で、check-information-architecture が検査のたびにここへ足す（旧パスを移動表と JSON の 2 か所に書かない）。ここに書くのは移動表に載らないもの（docs 側の廃止・移動先のない旧ディレクトリ・data/ の旧フォルダ丸ごと）だけ。",
     "paths": [
       "scripts/kindle-published/catalog.json",
+      "scripts/kindle-specs",
+      "scripts/kindle-covers/specs",
+      "scripts/kindle-covers/pop",
       "docs/project",
       "docs/ui",
       "docs/note",
@@ -94,6 +97,9 @@
     "_doc": "ソース中に残った旧パスの文字列。**正規表現リテラル内はスラッシュがエスケープされる**（`/^docs\\/note\\//`）ため、素の文字列置換では素通りする。2026-08-18 の移行で 18 ファイル 27 箇所が残り、check-x-utm --staged が 1 件も拾わず pre-commit で常に緑になっていた（検査ゼロを PASS と呼ばない・CLAUDE.md §9）。ファイルを移した旧パスは repository-paths.mjs の MOVED_PATHS・RESTRUCTURED_PATHS から検査のたびに足される（ディレクトリは末尾 / 付き。残したファイルの前方一致を拾わない）。ここに書くのは移動表に載らない旧パスだけ。",
     "paths": [
       "scripts/kindle-published/catalog.json",
+      "scripts/kindle-specs",
+      "scripts/kindle-covers/specs",
+      "scripts/kindle-covers/pop",
       "docs/project",
       "docs/ui",
       "docs/note",

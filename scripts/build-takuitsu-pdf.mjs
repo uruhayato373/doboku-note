@@ -3,9 +3,9 @@
 // note PDF 販売（従チャネル）向けに紙面レイアウトで書き出す。真実源: content/kindle/strategy.md
 //
 // 使い方:
-//   node scripts/build-takuitsu-pdf.mjs --spec scripts/kindle-specs/e-01.json [--out <path.pdf>]
-//   node scripts/build-takuitsu-pdf.mjs --spec scripts/kindle-specs/e-01.json --sample   # 冒頭数問の見本PNG
-//   node scripts/build-takuitsu-pdf.mjs --spec scripts/kindle-specs/e-01.json --split --out <base.pdf>
+//   node scripts/build-takuitsu-pdf.mjs --spec content/kindle/books/e-01/spec.json [--out <path.pdf>]
+//   node scripts/build-takuitsu-pdf.mjs --spec content/kindle/books/e-01/spec.json --sample   # 冒頭数問の見本PNG
+//   node scripts/build-takuitsu-pdf.mjs --spec content/kindle/books/e-01/spec.json --split --out <base.pdf>
 //     → <base>-問題冊子.pdf（解答・要点を除いた演習用）と <base>-解答解説.pdf（解答・解説・要点だけ）
 //
 // Kindle 版との差分:
@@ -36,7 +36,7 @@ function parseArgs(argv) {
     { spec: { type: 'string' }, out: { type: 'string' }, sample: { type: 'boolean' }, split: { type: 'boolean' } },
     argv,
   )
-  if (!spec) throw new Error('--spec <scripts/kindle-specs/*.json> は必須')
+  if (!spec) throw new Error('--spec <content/kindle/books/*/spec.json> は必須')
   return { spec, out, sample, split }
 }
 
