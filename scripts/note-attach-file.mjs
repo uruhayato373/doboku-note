@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // 公開済み note 記事の本文末尾（有料エリア内）へ PDF 等を添付して再保存する。--note <noteKey> --file <path>。既定は probe（挿入メニューのダンプのみ・保存しない）、--draft-only で下書き保存、--commit で実保存。
 // 罠: 有料境界が「試験問題|予想問題」直前に保たれているか再保存前に検証し、崩れたら中断。既添付なら再公開のみ（複数添付は --force）。account が dobokunote でなければ中断。詳細は下のブロックコメント。
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-attach-file.mjs
  * ---------------------------------------------------------------------------
@@ -25,19 +24,16 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   有料境界が「試験問題|予想問題」直前に保たれていることを再保存前に検証（崩れたら中断）。
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { spawnSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { recordPublishedAssetHash } from './lib/note-republish-hash.mjs';
 import { join, dirname } from 'node:path';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listAttachedFiles, countEmbeds, saveAttachmentDraft } from './lib/note-attach.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
+import { launchNoteContext } from './lib/note-browser.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -69,10 +65,7 @@ if (!existsSync(fileAbs)) {
 console.log(`[prep] note=${NOTE} file=${fileAbs} mode=${COMMIT ? 'COMMIT' : DRAFT_ONLY ? 'DRAFT_ONLY' : 'PROBE'}`);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext();
 let exitCode = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

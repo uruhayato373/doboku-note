@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 // 公開済み note 記事の指定した範囲だけを spec JSON（replaceText など）で更新する。npm run note-update-partial -- --spec <spec.json> または --list <specs.list.txt> [--start N] [--limit N]。既定は dry-run（読み取りのみ）、実更新は --commit。
 // 罠: 全文の select-all・paste はしない。全 operation を preflight し、対象件数がずれていれば本文に触れない。PDF 添付は更新前・直後・再読の 3 点で一致を要求する。有料記事の境界は動かさない（--paid-line-bottom・--trial-line-bottom は境界の置き直し）。spec は build-note-text-partial-specs.mjs でも作れる。
-import { chromium } from 'playwright';
 import { existsSync, readFileSync, mkdirSync } from 'node:fs';
 import { resolve, join } from 'node:path';
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { parseNoteArticle } from './lib/note-frontmatter.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { countEditorImages, settleUploads, uploadAtCaret } from './lib/note-images.mjs';
@@ -17,8 +15,8 @@ import {
   buildTopCtaHtml,
 } from './lib/note-partial-update.mjs';
 import { cardifyBareUrls } from './lib/note-cardify.mjs';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { launchNoteContext } from './lib/note-browser.mjs';
 
 /**
  * 公開済み note 記事の「指定した範囲だけ」を更新する。
@@ -36,8 +34,6 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
  * npm run note-update-partial -- --spec <spec> --commit --trial-line-bottom # 会員記事のほぼ全文プレビューを保持（memberTrial: bottom でも有効）
  */
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (name) => { const index = argv.indexOf(name); return index >= 0 ? argv[index + 1] : null; };
 const SPEC_ARG = getArg('--spec');
@@ -907,14 +903,7 @@ async function runSpec(page, specArg) {
 }
 
 console.log(`[batch] specs=${specArgs.length}/${listedSpecs.length} start=${START} mode=${COMMIT ? 'COMMIT' : 'DRY-READONLY'}`);
-const context = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false,
-  channel: 'chrome',
-  proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true,
-  viewport: { width: 1366, height: 1000 },
-  args: ['--disable-blink-features=AutomationControlled'],
-}));
+const context = await launchNoteContext();
 
 let exitCode = 0;
 try {

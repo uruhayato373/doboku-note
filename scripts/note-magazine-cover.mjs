@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // note 有料マガジンの見出し画像（カバー）をマガジン設定ページからアップロードして保存する。--key <magKey> と --dir <magazineDir>（<dir>/_cover.png が既定）または --image <path.png>。既定は probe（フォーム構造のダンプのみ）、実保存は --commit。
 // 罠: account が dobokunote でなければ中断（名前が出るまで待ち、出なければ exit 2）。保存後に note API で eyecatch が空でないことを実体検証する。
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-cover.mjs
  * ---------------------------------------------------------------------------
@@ -26,17 +25,13 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * 真実源: .claude/knowledge/reference/note-api-verification.md
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { fetchCreatorMagazines } from './lib/note-api.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
-import { assertAccountGate } from './lib/note-browser.mjs';
+import { assertAccountGate, launchNoteContext } from './lib/note-browser.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -63,10 +58,7 @@ async function magazineCover(key) {
 const BEFORE = (await magazineCover(KEY))?.cover ?? null;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1100 }, args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext({ viewport: { width: 1366, height: 1100 } });
 let exitCode = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // npm run note-magazine-delete -- --keys m1,m2 [--commit] — note マガジンを削除する（既定 PROBE・収録記事は消えない・削除後に公開 API の 404 を確認）。記事の削除は `node scripts/note-delete-note.mjs --notes k1,k2 --commit`（一覧を下へ読み進めて古い記事も探す）。
 
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-delete.mjs
  * ---------------------------------------------------------------------------
@@ -22,15 +21,12 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   node scripts/note-magazine-delete.mjs --keys m1,m2 --commit  # 削除
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { launchNoteContext } from './lib/note-browser.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const KEYS = (getArg('--keys') || '').split(',').map((k) => k.trim()).filter(Boolean);
@@ -51,10 +47,7 @@ function magazineExists(key) {
   return null;
 }
 
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1100 }, args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext({ viewport: { width: 1366, height: 1100 } });
 const results = [];
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

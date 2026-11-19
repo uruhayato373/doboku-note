@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // npm run note-update-body -- --sync --list <file> --commit — 記事単位の同期。記事ごとに未反映の部品（本文・カバー・タグ）だけを 1 回のエディタ操作で反映し「更新する」は 1 回。本文を触らない記事は有料境界・試し読みラインを動かさない。配布 PDF は貼り直す（手元に無ければ本文を触らず止まる）。止まっている記事（中断・会員特典の公開範囲未指定など）は飛ばす。部品を明示するなら `--parts cover,tags`。会員特典マガジン内の無料記事は frontmatter `memberTrial: bottom|lock` で公開範囲を決める。
 
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-update-body.mjs
  * ---------------------------------------------------------------------------
@@ -72,7 +71,6 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * 実行はローカル（note ログイン済みプロファイルのある Windows/Mac）限定。会社 PC で可（channel:'chrome'）。
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname, resolve, relative } from 'node:path';
 import { createHash } from 'node:crypto';
@@ -90,12 +88,10 @@ import { assertLiveBody, expectedFreePreviewMin, extractSourceUrls, formatLiveIs
 import { publishLive } from './lib/note-live-publish.mjs';
 import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from './lib/note-attach.mjs';
 import { todayJst } from './lib/jst-date.mjs';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { launchNoteContext } from './lib/note-browser.mjs';
 
 const sha256File = (p) => createHash('sha256').update(readFileSync(p)).digest('hex');
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -836,13 +832,7 @@ function partsFor(rel) {
 }
 let skipped = 0;
 
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome',
-  proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true,
-  viewport: { width: 1366, height: 1000 },
-  args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext();
 
 let ok = 0, fail = 0, deferred = 0;
 try {

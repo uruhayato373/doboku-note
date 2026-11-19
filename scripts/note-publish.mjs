@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-publish.mjs
  * ---------------------------------------------------------------------------
@@ -40,7 +39,6 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * 真実源: .claude/knowledge/reference/note-api-verification.md / publish-note/SKILL.md（手順の元）
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { join, dirname, basename, resolve, relative, sep } from 'node:path';
@@ -49,13 +47,11 @@ import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './l
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
 import { assertLiveBody, expectedFreePreviewMin, extractSourceUrls, formatLiveIssues } from './lib/note-live-check.mjs';
 import { todayJst } from './lib/jst-date.mjs';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { NOTE_PLACEHOLDER_RE } from './lib/note-publication-state.mjs';
+import { launchNoteContext } from './lib/note-browser.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -172,10 +168,7 @@ console.log(`[prep] title="${title.slice(0, 40)}" paid=${isPaid} price=${price} 
 const existingUrl = fmField('noteUrl');
 if (existingUrl && /^https?:\/\//.test(existingUrl)) { console.log('[skip] 既に公開済み: ' + existingUrl); process.exit(0); }
 
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let publishedUrl = null;
 try {

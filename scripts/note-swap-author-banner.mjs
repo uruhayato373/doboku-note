@@ -21,22 +21,18 @@
  *   - CDN 確定待ち、公開 API の新本文/旧キャプション検証、1日あたり成功件数上限
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname, resolve, relative, basename } from 'node:path';
 import { loadBannerReferences, matchBannerBuffer, POP_BANNER_VARIANTS, SQUARE_BANNER_VARIANTS } from './lib/author-banner-match.mjs';
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { countEditorImages, uploadAtCaret, settleUploads } from './lib/note-images.mjs';
 import { listAttachedFiles } from './lib/note-attach.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { fetchNoteBody } from './lib/note-live-check.mjs';
 import { recordPublishedHash } from './lib/note-republish-hash.mjs';
 import { todayJst } from './lib/jst-date.mjs';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { launchNoteContext } from './lib/note-browser.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const DONE_LOG = join(ROOT, '.claude/state/note-swap-banner-done.json');
 const NEW_PROSE_PREFIX = 'この教材は、技術士（総合技術監理部門）を持つ';
 const OLD_CAPTION = '技術士（総合技術監理部門）を持つ元発注者が、施工管理技士の記述を分析して作成';
@@ -1270,14 +1266,7 @@ if (COMMIT) {
 }
 
 if (!stoppedByLimit && !stateError) {
-  const context = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-    headless: false,
-    channel: 'chrome',
-    proxy: PROXY ? { server: PROXY } : undefined,
-    ignoreHTTPSErrors: true,
-    viewport: { width: 1366, height: 1000 },
-    args: ['--disable-blink-features=AutomationControlled'],
-  }));
+  const context = await launchNoteContext();
   try {
     await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: 'https://editor.note.com' });
     const page = context.pages()[0] || (await context.newPage());

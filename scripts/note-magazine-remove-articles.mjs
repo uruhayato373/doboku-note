@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // npm run note-magazine-remove -- --target <mキー> --notes k1,k2 [--commit] — 記事を note マガジンの収録から外す（既定 dry-run・記事は消えない/非公開にならない・実行後に公開 API で収録から消えたことを確認。逆は note-magazine-add。DN-0527）。
 
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-remove-articles.mjs
  * ---------------------------------------------------------------------------
@@ -18,16 +17,13 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   node scripts/note-magazine-remove-articles.mjs --target <magazineKey> --notes <k1,k2> [--limit N] [--commit]
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
-import { assertAccountGate } from './lib/note-browser.mjs';
+import { assertAccountGate, launchNoteContext } from './lib/note-browser.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { curlJson as apiCurlJson } from './lib/note-api.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const TMP = join(ROOT, '.tmp');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
@@ -101,12 +97,7 @@ mkdirSync(TMP, { recursive: true });
 // ---- ブラウザ ----
 let ctx;
 try {
-  ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-    headless: false, channel: 'chrome',
-    proxy: PROXY ? { server: PROXY } : undefined,
-    ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 },
-    args: ['--disable-blink-features=AutomationControlled'],
-  }));
+  ctx = await launchNoteContext();
 } catch (e) {
   const msg = String(e).split('\n')[0];
   console.error('\nLAUNCH_FAIL:', msg);

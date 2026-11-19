@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-article-price-sweep.mjs
  * ---------------------------------------------------------------------------
@@ -34,18 +33,14 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { readFileSync } from 'node:fs';
 import { listAttachedFiles } from './lib/note-attach.mjs';
 import { evaluatePostSaveGate, evaluatePreSaveGate, expectationsByNoteId, recordAttachmentLoss } from './lib/note-attachments.mjs';
 import { join } from 'node:path';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
-import { assertAccountGate } from './lib/note-browser.mjs';
+import { assertAccountGate, launchNoteContext } from './lib/note-browser.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { curlJson as apiCurlJson } from './lib/note-api.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 // ---- args ----
 const argv = process.argv.slice(2);
@@ -214,12 +209,7 @@ if (!COMMIT) {
 // ---- Playwright で価格変更 ----
 console.log(`\n[4] 価格変更を実行（${toChange.length} 件）`);
 
-const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-  headless: false, channel: 'chrome',
-  proxy: PROXY ? { server: PROXY } : undefined,
-  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 },
-  args: ['--disable-blink-features=AutomationControlled'],
-}));
+const ctx = await launchNoteContext();
 const page = ctx.pages()[0] || (await ctx.newPage());
 // 別アカウントのまま書き込まない（DN-1009）。設定画面で note のアカウント名が確かめられなければ何もせず止まる
 const accountGate = await assertAccountGate(page);

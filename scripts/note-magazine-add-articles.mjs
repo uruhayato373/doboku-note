@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // 既存の note 記事を別の有料マガジンへ収録（追加）する。追加対象は「ソースマガジンの収録記事 ∪ 明示指定記事 − ターゲットの現収録」を API 差分で自動算出する（冪等）。既定は dry-run（計画とスクショのみ）、実追加は --commit、--probe は 1 記事目の DOM ダンプ。
 // 罠: 完了後に note API でターゲットの収録数を実体検証する（画面の成功表示を信じない）。設定・価格は note-edit-magazine の担当。
-import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-add-articles.mjs
  * ---------------------------------------------------------------------------
@@ -46,16 +45,13 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * 真実源: .claude/knowledge/reference/note-api-verification.md / 決定: 総監マガジン構成_決定2026.md
  * ---------------------------------------------------------------------------
  */
-import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { leanContextOptions } from './lib/playwright-launch.mjs';
-import { assertAccountGate } from './lib/note-browser.mjs';
+import { assertAccountGate, launchNoteContext } from './lib/note-browser.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { curlJson as apiCurlJson } from './lib/note-api.mjs';
 
-const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const TMP = join(ROOT, '.tmp');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
@@ -145,12 +141,7 @@ mkdirSync(TMP, { recursive: true });
 // ---- ブラウザ ----
 let ctx;
 try {
-  ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
-    headless: false, channel: 'chrome',
-    proxy: PROXY ? { server: PROXY } : undefined,
-    ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 },
-    args: ['--disable-blink-features=AutomationControlled'],
-  }));
+  ctx = await launchNoteContext();
 } catch (e) {
   const msg = String(e).split('\n')[0];
   console.error('\nLAUNCH_FAIL:', msg);
