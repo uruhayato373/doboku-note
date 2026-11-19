@@ -26,3 +26,6 @@ note の無料記事の下書きを commit してから公開する手順を `gi
 
 ## 連結した確認は失敗の後も緑を出す（2026-11-05）
 main への push を `$C:refs/heads/main` と書いたら、zsh が `:r` を修飾子として読んで失敗した。同じコマンドの後段の本番確認が旧版に対して緑を出し、全体は exit 0 で終わった。止まる処理は手でつながず、スクリプトにして「exit 0 は最後の確認まで通ったとき」にする。deploy は `npm run deploy:main`。`$変数:文字` と main への直接 push は `check-shell-traps` フックが止める（tests/agent-hooks.test.mjs・tests/deploy-main.test.mjs）。バックグラウンドの完了通知が exit 0 でも、結果は出力を読んで確かめる。
+
+## 失敗した cd の後に `;` で続けない（2026-11-19）
+YouTube の毎日の予約で `( cd <worktree> && git fetch && s=$(git status …); if [ -z "$s" ]; then git checkout --detach origin/develop; fi )` と書いた。worktree が消えていて cd が失敗したのに、`;` の後の if が s を空と読み、メインのチェックアウトを detached にした（同じコミットだったので `git checkout develop` で戻した）。cd を含む連結は全体を `&&` でつなぐか、先に `[ -d <dir> ] || exit 1` を置く。
