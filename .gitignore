@@ -426,6 +426,8 @@ content/coconala/assets/**
 # 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。
 .claude/state/ocr-audit/**
 scripts/kindle-published/cover-designs/**
+# Kindle の表紙の背景（Drive vault の kindle-cover-backgrounds・2026-11-20）
+/content/kindle/cover-backgrounds/
 content/sns/_assets/character/_source/**
 
 # 公的基準（共通仕様書）のページ画像・ページテキスト（DN / 2026-09-05）。

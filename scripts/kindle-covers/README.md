@@ -24,7 +24,7 @@ npm run kindle-pop-cover -- --adopt c-05 --candidate .tmp/kindle-pop/c-05/cand-1
 - 表紙の仕様と制作記録は本のフォルダにある（2026-11-20 に scripts/ から移した）:
   - `content/kindle/books/<book-id>/cover.json` … 書籍ごとの `pop`（文言・場面・参照画像）と `adoptedImage`
   - `content/kindle/books/<book-id>/pop-image.json` … 採用した表紙の制作記録（C 系 12 冊の初回は `content/kindle/cover-records/c-series-r08.pop-image.json` にまとめて記録）
-- `build-kindle-cover.mjs`・`backgrounds/` … 旧来の組版（背景画像に satori で文字を重ねる）。新しい表紙には使わない。`adoptedImage` の無い本を sync-kindle-dist が作り直すときだけ動く
+- `build-kindle-cover.mjs`・背景 `content/kindle/cover-backgrounds/`（Drive vault・Git 管理外） … 旧来の組版（背景画像に satori で文字を重ねる）。新しい表紙には使わない。`adoptedImage` の無い本を sync-kindle-dist が作り直すときだけ動く
 
 ## 注意
 

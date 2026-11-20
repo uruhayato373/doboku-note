@@ -365,6 +365,22 @@
       "reason": "新しいnoteカバーテンプレートの全件確認用一式。版を上げる前に人が一覧確認し、端末間で共有するためDriveへ置く。note への登録（Mac の週次 note-sync-routine）とは別の確認用成果物。"
     },
     {
+      "id": "kindle-cover-backgrounds",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/kindle/cover-backgrounds/[^/]+\\.png$"
+      },
+      "vaultDir": "制作物/Kindle/表紙の背景",
+      "keyFrom": "stripPrefix:content/kindle/cover-backgrounds/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "scripts/kindle-covers/build-kindle-cover.mjs（adoptedImage の無い本の表紙を組む。npm run sync-kindle-dist から。手元に無ければ ensureLocalFromVault が vault から取り戻す）"
+      ],
+      "reason": "Kindle の旧組版の表紙の背景（AI で作った一点物・7 枚 13.5MB・1 枚 1.5MiB 超）。読むのは手元の sync-kindle-dist だけで CI は読まない（audience=human）ので Drive vault に置く。2026-11-20 に scripts/kindle-covers/backgrounds/ から移して Git の追跡を外した。画像生成は同じ画素を再現しないので保管する"
+    },
+    {
       "id": "repo-archive",
       "status": "active",
       "audience": "human",
