@@ -1016,7 +1016,7 @@
       "account": "youtube:main",
       "format": "short",
       "variant": "point-risk-2",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#shorts/point-risk-2",
       "relatedTo": "pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.longform",
       "idException": "imported-before-cutover",
@@ -1068,13 +1068,14 @@
       "platform": {
         "id": "Ct_83ApQ4H0",
         "url": "https://www.youtube.com/watch?v=Ct_83ApQ4H0",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-construction/pe-geotechnical-shutsudai-yomikata/youtube.json#shorts/point-risk-2"
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-20T04:18:30.679Z"
         },
         "relatedVideoId": "vn-RKeML8Ik",
-        "desiredRelatedVideoId": "vn-RKeML8Ik"
+        "desiredRelatedVideoId": "vn-RKeML8Ik",
+        "publishedAt": "2026-11-19T08:30:34.000Z"
       },
       "thumbnail": {
         "status": "set",
