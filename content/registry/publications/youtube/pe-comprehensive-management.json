@@ -675,7 +675,7 @@
       "work": "hakusho-kadai-erabu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/hakusho-kadai-erabu/youtube.longform/scene-001",
@@ -710,7 +710,42 @@
         "contentSha256": "d214e4d4652a8dcfe248fdbda09e76522d8fd4255738936c5e32bd62e8aa8496"
       },
       "times": {
-        "rendered": "2026-11-20T12:56:35.958Z"
+        "rendered": "2026-11-20T12:56:35.958Z",
+        "uploaded": "2026-11-20T12:58:54.277Z",
+        "scheduled": "2026-11-20T12:59:04.731Z"
+      },
+      "delivery": {
+        "inputSha256": "7bbfabad935f17a918a0b26971871c0c080b2d1b227aa2d5aa072160122d67b4",
+        "marker": "dn-single-23dc747d4599874dd79a345094660719624299ab",
+        "uploadRequestedAt": "2026-11-20T12:58:08.303Z",
+        "videoId": "dQV7Arl6naI",
+        "processedAt": "2026-11-20T12:58:52.886Z",
+        "thumbnailRequestedAt": "2026-11-20T12:58:54.315Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/default.jpg?sqp=CKSGgdgG&rs=AOn4CLDJee6yOwjgeuh3ixYgk_jwLvdDHw",
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/mqdefault.jpg?sqp=CKSGgdgG&rs=AOn4CLA8pLetm2pxSW91ALdxdQRnrcmwuw",
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/hqdefault.jpg?sqp=CKSGgdgG&rs=AOn4CLCUiac408TNAr61SEzHqfWsGebcJQ",
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/sddefault.jpg?sqp=CKSGgdgG&rs=AOn4CLDa_ozpWF9q_J0Bj7fH6iCnb4Khfw",
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/maxresdefault.jpg?sqp=CKSGgdgG&rs=AOn4CLB23usA5UTZOnKSADTJVOS6tp9_Vg",
+          "https://i9.ytimg.com/vi/dQV7Arl6naI/fhddefault.jpg?sqp=CKSGgdgG&rs=AOn4CLD6UnyvGSCIaTVBYCorzMYp3hVV0g"
+        ],
+        "thumbnailAcceptedAt": "2026-11-20T12:58:58.534Z",
+        "scheduleRequestedAt": "2026-11-20T12:59:00.255Z",
+        "scheduleAt": "2026-12-01T03:15:00Z",
+        "scheduledVerifiedAt": "2026-11-20T12:59:04.731Z"
+      },
+      "platform": {
+        "id": "dQV7Arl6naI",
+        "url": "https://www.youtube.com/watch?v=dQV7Arl6naI",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/hakusho-kadai-erabu/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-20T12:58:58.534Z"
       }
     },
     {
