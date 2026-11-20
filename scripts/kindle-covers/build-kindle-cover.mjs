@@ -8,7 +8,7 @@
 // spec スキーマ（specs/*.json）:
 //   {
 //     "bookId": "a-01",
-//     "background": "scripts/kindle-covers/backgrounds/a-01.png", // リポ相対
+//     "background": "content/kindle/cover-backgrounds/a-01.png", // リポ相対（Drive vault・手元に無ければ取り戻す）
 //     "accent": "#1E73C8",                    // 資格テーマ色（下線バー）
 //     "kicker": "1級土木施工管理技士 第1次検定",
 //     "titleLines": [{ "text": "安全管理", "size": 336 }, { "text": "論点別過去問", "size": 196 }],
@@ -23,6 +23,7 @@ import path from 'node:path'
 import satori from 'satori'
 import sharp from 'sharp'
 import { REPO_ROOT as REPO, FONTS_ROOT } from '../lib/repository-paths.mjs'
+import { ensureLocalFromVault } from '../lib/drive-vault.mjs'
 
 const FONT_DIR = FONTS_ROOT
 const W = 1600, H = 2560
@@ -46,7 +47,8 @@ const args = parseArgs(process.argv.slice(2))
 const spec = JSON.parse(fs.readFileSync(path.resolve(REPO, args.spec), 'utf8'))
 const out = path.resolve(REPO, args.out || `.tmp/kindle-cover-${spec.bookId}.jpg`)
 const bgPath = path.resolve(REPO, spec.background)
-if (!fs.existsSync(bgPath)) throw new Error(`背景画像が見つからない: ${bgPath}`)
+// 背景は Drive vault の kindle-cover-backgrounds（Git 管理外・2026-11-20）。手元に無ければ vault から取り戻す
+if (!ensureLocalFromVault(bgPath)) throw new Error(`背景画像が見つからない: ${bgPath}（npm run drive-vault-sync -- --pull --group kindle-cover-backgrounds --commit で取り戻す）`)
 
 const noto = fs.readFileSync(path.join(FONT_DIR, 'NotoSansJP-Bold.ttf'))
 const inter = fs.readFileSync(path.join(FONT_DIR, 'Inter-Bold.ttf'))

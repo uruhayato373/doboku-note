@@ -13,6 +13,7 @@ Kindle/KDP 固有の戦略と書き下ろし原稿は、このディレクトリ
   - `cover.json` — 表紙の仕様（`pop` と採用済みなら `adoptedImage`）
   - `pop-image.json` — 採用した表紙の制作記録
 - `cover-records/` — 複数冊にまたがる表紙の制作記録
+- `cover-backgrounds/` — 旧組版の表紙の背景 PNG（Git 管理外。正本は Drive vault の `制作物/Kindle/表紙の背景/`。使う直前に `build-kindle-cover.mjs` が取り戻す）
 - コードからは `scripts/lib/kindle-catalog.mjs` の `kindleBookFile` で引く（大文字小文字を区別しない）
 
 書籍の機械可読な状態・ASIN・版は `config/products.json`（channel kindle）、ビルド定義は

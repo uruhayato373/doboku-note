@@ -209,6 +209,8 @@ export const RESTRUCTURED_PATHS = [
   [/^scripts\/kindle-covers\/specs\/([^/]+)\.json$/, "content/kindle/books/$1/cover.json"],
   ["scripts/kindle-covers/pop/c-series-r08.pop-image.json", "content/kindle/cover-records/c-series-r08.pop-image.json"],
   [/^scripts\/kindle-covers\/pop\/([^/]+)\.pop-image\.json$/, "content/kindle/books/$1/pop-image.json"],
+  // 2026-11-20 に表紙の背景を content/kindle/cover-backgrounds/（Drive vault・Git 管理外）へ移した
+  ["scripts/kindle-covers/backgrounds", "content/kindle/cover-backgrounds"],
   ["data/sales/sales-log.json", "data/note/sales.json"],
   ["data/sales/kdp-royalties.json", "data/kdp/royalties.json"],
   ["data/note/magazines-snapshot.json", "data/note/magazines.json"],
