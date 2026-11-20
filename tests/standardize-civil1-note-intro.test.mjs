@@ -1,7 +1,7 @@
-// 1級土木 note 冒頭の標準化（scripts/standardize-civil1-note-intro.mjs）の組み直し規則を固定する。
+// 1級土木 note 冒頭の標準化（scripts/note/standardize-civil1-note-intro.mjs）の組み直し規則を固定する。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { rebuildIntro, dropTailBanners, classify } from '../scripts/standardize-civil1-note-intro.mjs';
+import { rebuildIntro, dropTailBanners, classify } from '../scripts/note/standardize-civil1-note-intro.mjs';
 
 const PAST = 'magazines/1級土木-施工経験記述-過去問模範答案集/R06/article.md';
 const PACK = 'magazines/1級土木-経験記述-完全攻略パック/工事101-x/article.md';
@@ -85,7 +85,7 @@ test('2回当てても変わらない（単品カードの URL を迷子にし�
 // 2026-10-06 DN-0250: 1級二次の後は低価格先出し。収録元の無い入口記事（既定の規則）は
 // 完成答案集を先に、完全攻略パックを次に、1 つの案内（pack-top 1 つ・カード 2 枚）として出す。
 import { readFileSync } from 'node:fs';
-import { ladderBlock } from '../scripts/standardize-civil1-note-intro.mjs';
+import { ladderBlock } from '../scripts/note/standardize-civil1-note-intro.mjs';
 
 const ENTRY = '1級経験記述テーマ選び5管理/article.md';
 const ENTRY_URL = 'https://note.com/dobokunote/m/m150c9db08902';

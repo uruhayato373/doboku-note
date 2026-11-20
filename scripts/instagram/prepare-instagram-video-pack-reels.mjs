@@ -1,0 +1,175 @@
+#!/usr/bin/env node
+/**
+ * 動画パック由来の YouTube Shorts 2本/pack を Instagram Reels 用へ展開する。
+ *
+ * - source: content/sns/video-packs/{exam}/{packId}/youtube.json.shorts[]
+ * - output: content/sns/instagram/video-packs/{exam}/{packId}-{key}/reels/{meta.json,caption.txt}
+ * - binary は render-instagram-video-pack-reels.mjs が JIT 生成する（Git 追跡外）。
+ *
+ * 旧224本の準備経路。現在は read-only dry-run のみで、--write は拒否する。
+ * 公開の状態の正本はコンテンツ台帳（content/registry/publications/instagram）。予約済み・公開済みの時刻は台帳から読み、
+ * 新しいリールは書いたあと `npm run registry -- import-instagram --folder <相対フォルダ> --commit` で個別に台帳へ取り込む。
+ */
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { join, relative } from 'node:path';
+import { parseArgs } from 'node:util';
+
+import { loadRegistry, qualificationLabel } from '../lib/qualification-registry.mjs';
+import { IG_HANDLE as ACCOUNT } from '../lib/site-identity.mjs';
+import { todayJst as jstToday } from '../lib/jst-date.mjs';
+import { readIgPublication } from '../lib/registry-ig-store.mjs';
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+
+const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
+const IG_ROOT = join(ROOT, 'content/sns/instagram/video-packs');
+// 既存カルーセルの主力帯（12:00 / 19:00）と衝突させず、朝・昼・夜の3本へ分散する。
+const SLOT_TIMES = ['07:30:00', '12:30:00', '21:00:00'];
+// 名前は registry の正式名（写さない）。タグは Instagram 用の語彙でここが正本
+const REGISTRY = loadRegistry(ROOT);
+const EXAMS = {
+  'civil-construction-1': {
+    label: qualificationLabel(REGISTRY, 'civil-construction-1'),
+    tags: ['#1級土木', '#1級土木施工管理技士', '#土木施工管理技士', '#施工経験記述', '#土木技術者', '#現場監督', '#建設業', '#資格取得'],
+  },
+  'civil-construction-2': {
+    label: qualificationLabel(REGISTRY, 'civil-construction-2'),
+    tags: ['#2級土木', '#2級土木施工管理技士', '#土木施工管理技士', '#施工経験記述', '#土木技術者', '#現場監督', '#建設業', '#資格取得'],
+  },
+  'concrete-engineer': {
+    label: qualificationLabel(REGISTRY, 'concrete-engineer'),
+    tags: ['#コンクリート技士', '#コンクリート', '#JCI', '#配合設計', '#コンクリート材料', '#コンクリート施工', '#品質管理', '#耐久性', '#建設技術', '#資格取得'],
+  },
+  'concrete-chief-engineer': {
+    label: qualificationLabel(REGISTRY, 'concrete-chief-engineer'),
+    tags: ['#コンクリート主任技士', '#コンクリート', '#JCI', '#小論文対策', '#配合設計', '#コンクリート施工', '#品質管理', '#耐久性', '#建設技術', '#資格取得'],
+  },
+};
+
+const todayJst = jstToday();
+const { values: args } = parseArgs({
+  args: process.argv.slice(2),
+  options: {
+    write: { type: 'boolean', default: false },
+    start: { type: 'string', default: todayJst },
+    exam: { type: 'string', default: Object.keys(EXAMS).join(',') },
+  },
+});
+if (!/^\d{4}-\d{2}-\d{2}$/.test(args.start)) throw new Error(`--start は YYYY-MM-DD: ${args.start}`);
+if (args.write) throw new Error('旧224本の Instagram Reels 一括生成は終了した。新規作品を個別に制作・登録する');
+const selected = new Set(args.exam.split(',').filter(Boolean));
+for (const exam of selected) if (!EXAMS[exam]) throw new Error(`未対応の試験: ${exam}`);
+
+function addDays(date, days) {
+  const d = new Date(`${date}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+function chars(value) { return [...String(value ?? '')]; }
+function fit(value, max) {
+  const c = chars(value);
+  return c.length <= max ? c.join('') : `${c.slice(0, max - 1).join('')}…`;
+}
+function cleanTitle(value) {
+  return String(value ?? '')
+    .replace(/\s*#Shorts\s*$/iu, '')
+    .replace(/\s+/gu, ' ')
+    .trim();
+}
+function firstSentence(value, max = 52) {
+  const normalized = String(value ?? '').replace(/\s+/gu, ' ').trim();
+  const sentence = normalized.match(/^.*?[。！？]/u)?.[0] ?? normalized;
+  return fit(sentence, max);
+}
+function captionFor(row) {
+  const body = [
+    fit(cleanTitle(row.short.title), 42),
+    '',
+    firstSentence(row.scene.narration),
+    '',
+    '技術士（総合技術監理部門）取得者が、実務経験と公的資料をもとに企画・監修。AIは音声と映像制作の補助に使用しています。',
+    '',
+    'フォローで試験対策を継続。詳しい解説はプロフィールのリンクから。',
+  ].join('\n');
+  const civil = row.exam.startsWith('civil-construction-');
+  const secondary = /施工経験|経験記述|第二次|二次|2次/u.test(`${row.short.title} ${row.scene.narration}`);
+  const phaseTags = civil ? [secondary ? '#第二次検定' : '#第一次検定', '#合格'] : [];
+  const tags = [...new Set([...EXAMS[row.exam].tags.slice(0, 2), ...phaseTags.slice(0, 1), '#試験対策', '#doboku_note'])].slice(0, 5);
+  return `${body}\n\n${tags.join(' ')}`;
+}
+function loadRows() {
+  const rows = [];
+  for (const exam of Object.keys(EXAMS)) {
+    if (!selected.has(exam)) continue;
+    const examRoot = join(PACKS_ROOT, exam);
+    if (!existsSync(examRoot)) continue;
+    for (const packId of readdirSync(examRoot).sort()) {
+      const sourceDir = join(examRoot, packId);
+      const manifestPath = join(sourceDir, 'video-pack.json');
+      const storyboardPath = join(sourceDir, 'storyboard.json');
+      const youtubePath = join(sourceDir, 'youtube.json');
+      if (![manifestPath, storyboardPath, youtubePath].every(existsSync)) continue;
+      const storyboard = JSON.parse(readFileSync(storyboardPath, 'utf8'));
+      const youtube = JSON.parse(readFileSync(youtubePath, 'utf8'));
+      if (!Array.isArray(youtube.shorts) || youtube.shorts.length !== 2) continue;
+      for (const short of youtube.shorts) {
+        const scene = storyboard.scenes?.find((candidate) => candidate.sceneId === short.sceneId);
+        if (!scene) throw new Error(`${packId}/${short.key}: sceneId=${short.sceneId} がありません`);
+        rows.push({ exam, packId, short, scene });
+      }
+    }
+  }
+  return rows.sort((a, b) => String(a.short.publishAt).localeCompare(String(b.short.publishAt)) || a.packId.localeCompare(b.packId) || a.short.key.localeCompare(b.short.key));
+}
+
+const rows = loadRows();
+const occupied = new Set();
+for (const row of rows) {
+  row.destDir = join(IG_ROOT, row.exam, `${row.packId}-${row.short.key}`);
+  row.caption = captionFor(row);
+  // 予約済み・公開済みの時刻は台帳が正本。台帳にまだ行が無い（取り込み前）か、公開済みで時刻の無い行だけ status.json（P7 で消す旧い写し）を見る
+  const reg = await readIgPublication(ROOT, relative(ROOT, row.destDir).replace(/\\/g, '/'), 'reel');
+  let scheduledAt = ['scheduled', 'published'].includes(reg?.status) ? reg.publishAt : null;
+  if (!reg || (reg.status === 'published' && !scheduledAt)) {
+    const statusPath = join(row.destDir, 'status.json');
+    const reel = existsSync(statusPath) ? JSON.parse(readFileSync(statusPath, 'utf8')).reel : null;
+    if (['scheduled', 'posted'].includes(reel?.status)) scheduledAt = reel.scheduled_at;
+  }
+  if (scheduledAt) {
+    row.publishAt = scheduledAt.replace('.000+09:00', '+09:00');
+    occupied.add(row.publishAt.slice(0, 19));
+  }
+}
+const earliestTime = Date.now() + 20 * 60 * 1000;
+let nextDay = 0;
+let nextSlot = 0;
+for (const row of rows) {
+  if (row.publishAt) continue;
+  for (;;) {
+    const day = addDays(args.start, nextDay);
+    const slot = SLOT_TIMES[nextSlot];
+    const key = `${day}T${slot}`;
+    nextSlot += 1;
+    if (nextSlot >= SLOT_TIMES.length) {
+      nextSlot = 0;
+      nextDay += 1;
+    }
+    if (occupied.has(key) || new Date(`${key}+09:00`).getTime() < earliestTime) continue;
+    row.publishAt = `${key}+09:00`;
+    occupied.add(key);
+    break;
+  }
+}
+
+const counts = Object.fromEntries(Object.keys(EXAMS).map((exam) => [exam, rows.filter((row) => row.exam === exam).length]));
+const publishTimes = rows.map((row) => row.publishAt).sort();
+console.log(JSON.stringify({
+  mode: args.write ? 'write' : 'dry-run',
+  account: ACCOUNT,
+  sourcePacks: new Set(rows.map((row) => row.packId)).size,
+  reels: rows.length,
+  counts,
+  slotsPerDay: SLOT_TIMES,
+  firstPublishAt: publishTimes[0] ?? null,
+  lastPublishAt: publishTimes.at(-1) ?? null,
+  firstTarget: rows[0] ? relative(ROOT, rows[0].destDir).replace(/\\/g, '/') : null,
+}, null, 2));

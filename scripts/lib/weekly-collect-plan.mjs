@@ -181,7 +181,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
     {
       id: 'gsc', phase: 'pre', title: 'GSC の登録リクエスト 10 件と月次の理由別 CSV', timeoutMin: 40, browser: true, selfCommits: true,
       // 前回の送信から 20 時間以内なら送らない・月次 CSV は期日のときだけ（判定は gsc-local-routine 自身）
-      commands: [{ argv: ['scripts/gsc-local-routine.mjs'] }],
+      commands: [{ argv: ['scripts/search/gsc-local-routine.mjs'] }],
       verify: ['gsc-ui-due', 'gsc-indexing-due', 'gsc-ui-run'],
     },
     {

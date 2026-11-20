@@ -19,7 +19,7 @@ const DOC = `${M}/.claude/knowledge/reference/book-coverage-expansion.md`
 const BRIEF = (f) => `${BRIEFS}/${f}.md`
 const QAF = (f) => `${BRIEFS}/${f}.qa.md`
 const WRITER_JSON = (f) => `${BRIEFS}/${f}.writer.json`
-const COMMIT = `node ${M}/scripts/book-coverage-commit.mjs`
+const COMMIT = `node ${M}/scripts/content/book-coverage-commit.mjs`
 
 /** 同時実行の上限つきの順番待ち。prio の大きい（後の段の）仕事を先に回す。同じ prio は先着順 */
 function limiter(n) {

@@ -1,4 +1,4 @@
-// bing-webmaster（純粋ロジック）— Bing Webmaster Tools JSON API の応答を正規化する。I/O は scripts/fetch-bing-webmaster.mjs。
+// bing-webmaster（純粋ロジック）— Bing Webmaster Tools JSON API の応答を正規化する。I/O は scripts/search/fetch-bing-webmaster.mjs。
 //
 // 応答は WCF 形式で `{ d: [ { Date: "/Date(1695366000000-0700)/", Query, Clicks, Impressions, ... } ] }`。
 // GetQueryStats / GetPageStats の Date は集計バケットの開始（週次バケットと見られるが初回取得まで未検証）。

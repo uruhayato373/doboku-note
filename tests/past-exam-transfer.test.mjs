@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pendingFiles, jstDate } from '../scripts/past-exam-fetch.mjs';
+import { pendingFiles, jstDate } from '../scripts/content/past-exam-fetch.mjs';
 import { buildPlan, findRemote, toRepoPath, resolveFolderIds } from '../scripts/drive-browser-transfer.mjs';
 
 const cfg = { groups: [

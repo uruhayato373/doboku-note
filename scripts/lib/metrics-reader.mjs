@@ -6,7 +6,7 @@
  *
  * 参照:
  *   - .claude/skills/nsm-experiment/references/definition.md
- *   - scripts/fetch-ga4-data.mjs / scripts/fetch-gsc-data.mjs / scripts/fetch-psi-data.mjs
+ *   - scripts/search/fetch-ga4-data.mjs / scripts/fetch-gsc-data.mjs / scripts/fetch-psi-data.mjs
  *
  * 必要な環境変数 (.env.local):
  *   GOOGLE_SERVICE_ACCOUNT_KEY_PATH

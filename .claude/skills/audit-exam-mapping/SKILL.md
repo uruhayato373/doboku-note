@@ -155,7 +155,7 @@ git diff .claude/state/exam-keyword-map.json
 2. 各エントリの `exam_question` から年度を抽出し、過去問 MDX の該当 `## Ⅰ-1-N` セクション本文を取得
 3. `notebooklm-cross-query.mjs` で「過去問 notebook + 総監標準テキスト」へ並列クエリ:
    ```bash
-   node scripts/notebooklm-cross-query.mjs \
+   node scripts/content/notebooklm-cross-query.mjs \
      --notebooks "総監一次択一過去問,総監標準テキスト" \
      "{設問の概要}。この設問で {候補 slug の概念} は本質的な論点か？"
    ```

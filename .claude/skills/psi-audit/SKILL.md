@@ -16,7 +16,7 @@ domain: site
 
 ## 設定の真実源
 
-判定の設定は **`config/psi-config.json`**（読むのは `scripts/psi-threshold-check.mjs`）。対象・strategy・頻度は別の場所が持つ:
+判定の設定は **`config/psi-config.json`**（読むのは `scripts/search/psi-threshold-check.mjs`）。対象・strategy・頻度は別の場所が持つ:
 
 | 項目 | 初期値 | 変更する時 |
 |---|---|---|
@@ -143,7 +143,7 @@ High
 ## 関連
 
 - `scripts/fetch-psi-data.mjs` — PSI 計測本体
-- `scripts/psi-threshold-check.mjs` — しきい値比較
+- `scripts/search/psi-threshold-check.mjs` — しきい値比較
 - `scripts/report-psi-regression.mjs` — 重大度・回帰の判定（旧 performance-auditor）
 - `.github/workflows/psi-audit.yml` — 日次自動計測
 - `config/psi-config.json` — 設定の真実源

@@ -127,7 +127,7 @@
       "id": "character-assets",
       "label": "キャラクター素材",
       "kind": "manual",
-      "entry": "scripts/character-extract.mjs",
+      "entry": "scripts/content/character-extract.mjs",
       "audit": "none"
     }
   ],

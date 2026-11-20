@@ -27,7 +27,7 @@ test('Article延期後も元計画に公開URLを結び、告知原稿は新し�
     const planPath = path.join(planDir, '2026-09-civil.json');
     fs.writeFileSync(planPath, JSON.stringify({ posts }));
     const url = 'https://x.com/doboku373/article/123';
-    const result = spawnSync(process.execPath, [path.resolve('scripts/prepare-x-article-teaser.mjs'), '--article', '1', '--url', url], { cwd: root, encoding: 'utf8' });
+    const result = spawnSync(process.execPath, [path.resolve('scripts/x/prepare-x-article-teaser.mjs'), '--article', '1', '--url', url], { cwd: root, encoding: 'utf8' });
     assert.equal(result.status, 0, result.stderr);
     const after = JSON.parse(fs.readFileSync(path.join(draft, 'status.json')));
     assert.equal(after.tweets[1].status, 'posted');

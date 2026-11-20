@@ -25,7 +25,7 @@ const code = (text) => text.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:'"`]
 const SEARCH_FILES = [
   'scripts/lib/search-opportunities.mjs',
   'scripts/lib/search-improvement.mjs',
-  'scripts/search-improvement.mjs',
+  'scripts/search/search-improvement.mjs',
   'scripts/report-search-opportunities.mjs',
   'scripts/checks/check-search-improvements.mjs',
   'scripts/build-weekly-review-draft.mjs',

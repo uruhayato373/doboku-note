@@ -185,7 +185,7 @@ function finalizeLocalState(registry, articleNo, articleUrl) {
   const publishedAt = item.published_at || new Date().toISOString();
   const result = spawnSync(
     process.execPath,
-    ["scripts/prepare-x-article-teaser.mjs", "--article", String(articleNo), "--url", articleUrl],
+    ["scripts/x/prepare-x-article-teaser.mjs", "--article", String(articleNo), "--url", articleUrl],
     { cwd: ROOT, stdio: "inherit" },
   );
   if (result.status !== 0) fail(`Article ${articleNo}: 告知短文の解放に失敗`);

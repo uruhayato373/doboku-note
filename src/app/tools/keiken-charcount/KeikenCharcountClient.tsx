@@ -7,7 +7,7 @@ import { TOOL_INPUT, TOOL_LABEL, ToolLayout, ToolPanel, ToolStatus, ToolSources 
 /**
  * 施工経験記述 文字数チェッカー（クライアント）。
  *
- * 解答欄しきい値の真実源は config/keiken-answer-sheet-limits.json（scripts/keiken-charcount.mjs と同じ）。
+ * 解答欄しきい値の真実源は config/keiken-answer-sheet-limits.json（scripts/content/keiken-charcount.mjs と同じ）。
  * 値は写さず、サーバー側の page.tsx がビルド時に読んで props（limits）で渡す。
  * カウント規則（markdown 装飾・タグ・空白を除いた実文字数、プレースホルダ〇は算入）は
  * スクリプトと一致させている。値の根拠（公式解答欄の行数×字/行）は下部「出典」を参照。

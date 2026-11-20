@@ -51,7 +51,7 @@ on:
       - "scripts/build-search-index.mjs"
       - "scripts/build-standards-data.ts"
       - "scripts/checks/check-standards-data.mjs"
-      - "scripts/parse-exam-questions.mjs"
+      - "scripts/content/parse-exam-questions.mjs"
       - "scripts/slim-build-output.mjs"
       - "scripts/build-civil-exam-textbook-index.mjs"
       - "scripts/build-doc-meta-index.mjs"

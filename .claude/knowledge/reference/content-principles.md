@@ -552,7 +552,7 @@ cover.png はマガジン記事の共用図 `../img/cover.png` も探索する�
 
 note はモバイル閲覧が主体で、**1 段落が長いと読まれない**。本文の段落は **1〜2 文・~120 字以下**を目安にし、論点の切れ目で改行（空行）を入れて余白をつくる。1 段落 150〜300 字の塊は避ける（2026-06-12、建設部門入口 16 本で 402 段落中 185 段落が 120 字超だった）。
 
-**自動化（語句を変えず改行だけ足す）**: `node scripts/reflow-note-paragraphs.mjs [--target N] <file|dir>`（`npm run note-reflow`）。長い段落を**文（。）境界**で再パッキングする決定論ツールで、語句・文意は一切変えない（空白除去後の本文一致で検証可能）。見出し・箇条書き・URL 単独行・太字見出しは対象外。`--dry` で点検のみ。**essay マガジン記事の答案本文（`## 試験問題` 以降）は自動保護**して触らない（模範答案は連続散文のため）。導入部に特化した essay 専用ツールは `scripts/split-essay-intro-paragraphs.mjs`（note-essay-review-checklist Step 3c）。
+**自動化（語句を変えず改行だけ足す）**: `node scripts/note/reflow-note-paragraphs.mjs [--target N] <file|dir>`（`npm run note-reflow`）。長い段落を**文（。）境界**で再パッキングする決定論ツールで、語句・文意は一切変えない（空白除去後の本文一致で検証可能）。見出し・箇条書き・URL 単独行・太字見出しは対象外。`--dry` で点検のみ。**essay マガジン記事の答案本文（`## 試験問題` 以降）は自動保護**して触らない（模範答案は連続散文のため）。導入部に特化した essay 専用ツールは `scripts/content/split-essay-intro-paragraphs.mjs`（note-essay-review-checklist Step 3c）。
 
 **残る長文**: `。` を含まない**単文で 120 字超**は機械分割できない（割ると語句改変になる）。これは `--dry`/公開前レビューが WARN で surface するので、**手動で 2 文に分ける**か、許容するか人が判断する。
 

@@ -260,8 +260,8 @@ test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照す
     'scripts/kindle/kdp-report.mjs',
     'scripts/coconala/coconala-rate-buyer.mjs',
     'scripts/coconala/coconala-research.mjs',
-    'scripts/scout-coconala-blogs.mjs',
-    'scripts/scout-coconala-competitors.mjs',
+    'scripts/coconala/scout-coconala-blogs.mjs',
+    'scripts/coconala/scout-coconala-competitors.mjs',
     ...[
       'account-name', 'append-cta', 'append-list-links', 'article-price-sweep',
       'attach-file', 'comment-reply', 'delete-note', 'edit-magazine', 'edit-session',

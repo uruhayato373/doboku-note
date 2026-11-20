@@ -2,7 +2,7 @@
 /**
  * report-psi-regression.mjs — PSI 計測履歴から、重大度の付与と回帰（直近 5 バッチの中央値）を決める（旧 performance-auditor の判定を移した・DN-1242）
  * ---------------------------------------------------------------------------
- * しきい値違反そのもの（field の実害・lab の改善余地・取得失敗率）は scripts/psi-threshold-check.mjs（npm run psi-audit:check）が持つ。
+ * しきい値違反そのもの（field の実害・lab の改善余地・取得失敗率）は scripts/search/psi-threshold-check.mjs（npm run psi-audit:check）が持つ。
  * こちらは履歴を読み、次を機械で決める。改善案の文章化（何を直すか）は出力の JSON を親が読んで行う。
  *
  * 重大度（原則: field で実害を判定し lab で原因を診断する。真実源 measurement-incidents.md「2026-07-27: lab と field の判定原則」）

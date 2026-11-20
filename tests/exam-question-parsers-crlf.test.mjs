@@ -16,7 +16,7 @@ import { dirname, join, relative, resolve } from 'node:path';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const PARSERS = [
-  { script: 'scripts/parse-exam-questions.mjs', article: 'content/site/pe-comprehensive-management/r07-primary/article.mdx', out: 'src/config/exam-questions.json' },
+  { script: 'scripts/content/parse-exam-questions.mjs', article: 'content/site/pe-comprehensive-management/r07-primary/article.mdx', out: 'src/config/exam-questions.json' },
   { script: 'scripts/sns/parse-civil-1-questions.mjs', article: 'content/site/civil-construction-1/primary-r07-a/article.mdx', out: 'src/config/civil-1-exam-questions.json' },
   { script: 'scripts/sns/parse-civil-2-questions.mjs', article: 'content/site/civil-construction-2/primary-r07-zenki/article.mdx', out: 'src/config/civil-2-exam-questions.json' },
 ];

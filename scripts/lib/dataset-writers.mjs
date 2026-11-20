@@ -150,7 +150,7 @@ export const WRITERS = {
   'gsc.reports': ['automation:fetch-metrics', 'automation:index-coverage'],
   'gsc.sitemaps': ['automation:fetch-metrics'],
   'gsc.index-coverage-history': ['automation:index-coverage'],
-  'gsc.url-inspection': ['file:scripts/inspection-cycle.mjs', 'automation:index-coverage'],
+  'gsc.url-inspection': ['file:scripts/search/inspection-cycle.mjs', 'automation:index-coverage'],
   'gsc.indexing-priority': ['script:gsc-indexing:priority', 'automation:index-coverage'],
   'gsc.indexing-priority-list': ['script:gsc-indexing:priority', 'automation:index-coverage'],
   'gsc.indexing-requests': ['script:gsc-indexing:request', 'automation:weekly-review'],

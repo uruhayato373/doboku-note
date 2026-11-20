@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "_meta": {
-    "purpose": "1級・2級土木 第2次検定 問題1（施工経験記述）の解答欄しきい値。scripts/keiken-charcount.mjs が参照する真実源。級別に分けて管理する（1級と2級で解答欄が異なるため）。",
+    "purpose": "1級・2級土木 第2次検定 問題1（施工経験記述）の解答欄しきい値。scripts/content/keiken-charcount.mjs が参照する真実源。級別に分けて管理する（1級と2級で解答欄が異なるため）。",
     "borderline_tolerance": 0.1,
     "borderline_note": "maxChars の +10% 以内は『borderline（1行字数の幅で収まる可能性）』として許容、+10%超は要圧縮、×1.3超は大幅超過（物理的に収まらない）。",
     "grade_detection": "対象 article.md のパスに『2級土木』を含めば civil-2、『1級土木』を含めば civil-1、いずれでもなければ default_grade。",

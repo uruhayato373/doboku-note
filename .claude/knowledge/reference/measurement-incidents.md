@@ -510,7 +510,7 @@ GA4 起点の改善サイクル設計のため `fetch-metrics.yml` と周辺ス�
 - 対策と検証: 試し読みラインを末尾直前に設定し、未ログインAPIの本文14,114文字と8リンクを確認。最終行の後への設定では更新が成立せず、価格・公開ステータスだけの確認は使わなかった。学習用モデルの説明も公開範囲へ置く。
 - 併発した操作の罠: `insertAfter` でURLを8件連続入力すると末尾URLが編集後検証で欠落し停止した（原因未確定）。既存の `insertBeforeHeadingHtml` によるリンク一覧挿入へ変更。`replaceText` は旧文の残存を検出するため、新文に旧文全体を含める追記型指定も検証NGになる。旧文が残らない文単位の置換にした。
 - 教訓: 無料導線は未購入状態の本文と必要リンクを照合する。UIの更新クリックや `price:0` を成功証拠にしない。既存の公開後API検証が停止できたため、新しい重複ゲートは追加しない。
-- 同日のCIでは、新規有料記事15本のL2導線の無料域配置漏れも検出された。`audit-note-funnel --ci` の合格だけでは `magazines/` 内の配置を保証しない。既存ゲート `node scripts/wire-note-paid-cta.mjs --check` の変更対象0件を確認する。ライブでCTAを境界直前へ移す場合、既存境界の保持だけではCTAが有料域に残るため、元の問題見出しへ境界を再設定し、未購入APIのリンクと添付PDFの不変を照合する。
+- 同日のCIでは、新規有料記事15本のL2導線の無料域配置漏れも検出された。`audit-note-funnel --ci` の合格だけでは `magazines/` 内の配置を保証しない。既存ゲート `node scripts/note/wire-note-paid-cta.mjs --check` の変更対象0件を確認する。ライブでCTAを境界直前へ移す場合、既存境界の保持だけではCTAが有料域に残るため、元の問題見出しへ境界を再設定し、未購入APIのリンクと添付PDFの不変を照合する。
 
 ## 2026-09-09: YouTubeサムネイル更新が送信上限で停止
 
@@ -792,7 +792,7 @@ guard は「先週分のファイルが今あるか」だけを見ていたた�
 | SSOT 整合ゲート | `scripts/checks/check-google-ui-ssot.mjs`（検査ゼロ・runId 不整合・不完全 run を FAIL） |
 | レポートの再現性 | `report-search-growth.mjs` が SSOT を優先読込（`gscUiSource` を md に明記） |
 | プロファイル解決 | `google-console-browser.mjs` の `PROFILE_ROOT_CANDIDATES`（env → `~/doboku-note` → 旧 Mac パス） |
-| GA4 設定の desired state | `config/ga4-admin-desired-state.json` ＋ `scripts/ga4-admin-setup.mjs`（dry-run 既定・`--commit` gate） |
+| GA4 設定の desired state | `config/ga4-admin-desired-state.json` ＋ `scripts/search/ga4-admin-setup.mjs`（dry-run 既定・`--commit` gate） |
 | GA4 設定のドリフト検知 | `scripts/checks/check-ga4-custom-dimensions.mjs`（blocking 未登録は exit 1） |
 | 合成コマンドの修復 | `normalize` の既定を最新 run に／`search-growth:audit` を部分成功許容＋末尾に SSOT ゲート |
 

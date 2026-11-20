@@ -31,7 +31,7 @@ const TOKEN_RE = /〔〔IMG:\d+〕〕/g;
 /**
  * 著者オーソリティ バナーの記事ごとの複製は **生成物で git 管理外**（.gitignore の
  * `content/note/（任意の階層）/img/figure-author-authority*.png`）。原本は下の追跡ディレクトリにあり、
- * 各記事のコピーは scripts/distribute-author-authority-banner.mjs が原本を複製しただけ
+ * 各記事のコピーは scripts/note/distribute-author-authority-banner.mjs が原本を複製しただけ
  * （2026-09-23 に 251 枚すべてが原本 2 種とバイト一致することを確認）。
  *
  * そのため git の checkout（CI の ops-write・worktree）では記事側のファイルが無い。

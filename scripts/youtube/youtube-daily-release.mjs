@@ -100,7 +100,7 @@ function releaseShort(item, policy) {
   if (row.status === 'qa_passed') node('scripts/registry.mjs', 'auto-approve-short', '--pub', row.id);
   row = loadRegistry(ROOT).publications.find((p) => p.id === item.pub);
   if (row.status === 'approved') node('scripts/registry.mjs', 'mark-rendered', '--pub', row.id, '--commit');
-  node('scripts/shorts-factory.mjs', 'restore', '--pack', item.pack, '--key', item.key);
+  node('scripts/youtube/shorts-factory.mjs', 'restore', '--pack', item.pack, '--key', item.key);
   node('scripts/registry.mjs', 'stage-youtube', '--pub', item.pub, '--commit');
   const { digest, blockers } = lastJson(node('scripts/registry.mjs', 'publish-youtube', '--pub', item.pub, '--phase', 'upload'));
   if (blockers.length) throw new Error(`${item.pub}: ${blockers.join(', ')}`);
@@ -114,7 +114,7 @@ function releaseShort(item, policy) {
  */
 function scheduleShort(pub) {
   const { pack, key } = shortRestoreArgs(pub);
-  node('scripts/shorts-factory.mjs', 'restore', '--pack', pack, '--key', key);
+  node('scripts/youtube/shorts-factory.mjs', 'restore', '--pack', pack, '--key', key);
   const { digest, blockers } = lastJson(node('scripts/registry.mjs', 'publish-youtube', '--pub', pub, '--phase', 'upload'));
   if (blockers.length) throw new Error(`${pub}: ${blockers.join(', ')}`);
   pushRegistry(`content(video): ショート ${pub} の関連動画を記録する`);

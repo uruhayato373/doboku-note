@@ -37,7 +37,7 @@ else
 fi
 [ -e "$WT/node_modules" ] || ln -s "$REPO/node_modules" "$WT/node_modules"
 
-if (cd "$WT" && node scripts/gsc-local-routine.mjs) >> "$LOG_FILE" 2>&1; then
+if (cd "$WT" && node scripts/search/gsc-local-routine.mjs) >> "$LOG_FILE" 2>&1; then
   echo "=== $(date -Iseconds) [gsc-indexing] ok ===" >> "$LOG_FILE"
 else
   rc=$?

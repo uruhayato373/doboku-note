@@ -28,7 +28,7 @@ export function articleLabel(article) {
 
 /**
  * 記事が引く法令と条の一覧（本文に初めて出た順）。法令名は e-Gov 法令 API の写し（config/egov-laws.json の laws）から引き、
- * 写しに無い法令 ID は出さない（ID の誤りは scripts/egov-laws.mjs の照合が CI で止める）。条は番号の小さい順。
+ * 写しに無い法令 ID は出さない（ID の誤りは scripts/content/egov-laws.mjs の照合が CI で止める）。条は番号の小さい順。
  * @param {string} text 記事の本文
  * @param {Record<string, { title: string }>} laws config/egov-laws.json の laws
  * @returns {{ lawId: string, title: string, url: string, articles: { article: string, label: string, url: string }[] }[]}

@@ -174,7 +174,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 - ブラウザ: `scripts/fetch-a8-ui-csv.mjs`（`a8-ui:fetch`）／`scripts/lib/a8-report-browser.mjs`
   （**汎用部は `scripts/lib/google-console-browser.mjs` を import 再利用**＝launchContext / downloadTo /
   dumpFailure / findUniqueByLabels。コピーはしない）
-- 正規化: `scripts/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`
+- 正規化: `scripts/affiliate/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`
 - テスト（node:test・20件）: `tests/a8-report-csv.test.mjs`（`npm test` に含まれる）
 - 継続運用: `scripts/checks/check-a8-report-due.mjs`（surfacer）／`scripts/checks/check-affiliate-wiring.mjs`（pre-commit ガード・3 ASP 横断）
 - 設定 SoT: `config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`mediaId`・`reports[].siteScope`）

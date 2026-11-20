@@ -131,7 +131,7 @@ scripts/
 
 ```bash
 # 1. 過去問 MDX を 1 度だけパース（src/config/exam-questions.json 出力）
-node scripts/parse-exam-questions.mjs
+node scripts/content/parse-exam-questions.mjs
 
 # 2. 全年度を 4 問パックに集約
 node scripts/generate-exam-pack-dirs.mjs            # H21-R7 全パック

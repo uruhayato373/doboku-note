@@ -66,7 +66,7 @@ test('scaffold --write は記事のフォルダを作って骨組みを書き、
     copyFileSync(join(DIR, 'r08-road', 'article.mdx'), join(root, 'r08-road', 'article.mdx'));
     mkdirSync(join(root, 'r08-road-ii-1-1'));
     writeFileSync(join(root, 'r08-road-ii-1-1', 'article.mdx'), 'KEEP');
-    const out = execFileSync('node', [join(DIR, '..', '..', '..', 'scripts', 'pe-question-pages.mjs'), 'scaffold', '--year', 'r08', '--subject', 'road', '--write', '--root', root], { encoding: 'utf8' });
+    const out = execFileSync('node', [join(DIR, '..', '..', '..', 'scripts', 'content', 'pe-question-pages.mjs'), 'scaffold', '--year', 'r08', '--subject', 'road', '--write', '--root', root], { encoding: 'utf8' });
     assert.match(out, /作成 7 件・既存 1 件/);
     assert.equal(readFileSync(join(root, 'r08-road-ii-1-1', 'article.mdx'), 'utf8'), 'KEEP');
     assert.match(readFileSync(join(root, 'r08-road-iii-2', 'article.mdx'), 'utf8'), /^published: false$/m);

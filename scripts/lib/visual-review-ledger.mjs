@@ -1,7 +1,7 @@
 /**
  * visual-review-ledger.mjs — 「撮影 → エージェントの目視判定 → 台帳」の検査に共通の、判定の検証・対象の順番・被覆の集計。
  *
- * 使う側: scripts/standards-visual-review.mjs（基準書の章）・scripts/site-visual-review.mjs（サイトのページ × 画面幅）。
+ * 使う側: scripts/standards/standards-visual-review.mjs（基準書の章）・scripts/site-visual-review.mjs（サイトのページ × 画面幅）。
  * 対象（item）は { key, [hashField] } を持つ。ハッシュが変われば判定は古くなり、撮り直しの対象に戻る。
  * 純粋関数だけ（ファイル・ブラウザに触れない）。
  */

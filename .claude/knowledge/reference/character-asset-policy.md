@@ -8,7 +8,7 @@ POP表紙・商品サムネイルでは [共通制作方針](./pop-image-policy.
 - **アイデンティティ（不変条件）の SoT** → `content/sns/_assets/character/CHARACTER-SPEC.md`（設定書）
 - **ポーズ素材の機械可読 SoT** → `config/character-poses.json`（manifest）
 - **素材の実体** → `content/sns/_assets/character/*.png`（透過個別）＋ `_source/`（生成原本：グリッド・個別ポーズ）。個別原本は台帳の `file: _source/<pose>.png` から直接参照できる。
-- **抽出ツール** → `scripts/character-extract.mjs`（`npm run character-extract`）
+- **抽出ツール** → `scripts/content/character-extract.mjs`（`npm run character-extract`）
 
 ## SNS 表紙への適用
 
@@ -88,7 +88,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | **サイト note CTA** | 商品CTAの完成画像、未登録時はヒーロー CTA の円形アバター | 完成画像を選択する商品CTAは `NoteImageCta` を優先し、人物変更は完成画像を再制作する。未登録時のアバターは `npm run character-avatars` で `public/images/character/avatar-{pose}.webp` を派生し、商品台帳の `ctaPose` で選ぶ（[デザインシステム](../design-system/design-system.md)参照） |
 | YouTube | チャンネルアイコン・サムネ・解説ナビ・Shorts 立ち絵・冒頭/締め | サムネは指差し系＋文字スペース確保 |
 | Instagram | カルーセル・まとめ・過去問解説・暗記ポイント | カルーセルは管理別色テーマと併用 |
-| **IG/YT リール** | 角度駆動リールにキャラを合成（登場演出） | beat（hook/point/cta）に応じ pose を選ぶ。角度リールの合成は `scripts/angle-reel-create.mjs` |
+| **IG/YT リール** | 角度駆動リールにキャラを合成（登場演出） | beat（hook/point/cta）に応じ pose を選ぶ。角度リールの合成は `scripts/youtube/angle-reel-create.mjs` |
 | 音声/VOICEVOX | 先生・講師役のナレーション立ち絵 | speaker 13（低め男性）で統一 |
 
 リール合成では manifest の `beats` を目安に pose を選ぶ（hook=つかみ／point=解説／cta=締め）。pose 選択は manifest 引きの**決定的処理**で足りるため専用エージェントは設けない。
@@ -101,7 +101,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | ポーズ一覧・分類・beat・file 配線（機械可読） | `config/character-poses.json` |
 | **サイト CTA で使うポーズの選定** | 同 manifest の **`siteCta: true`**（ここが唯一の真実源。スクリプトも型もこれに従う） |
 | 保存場所・命名・生成/抽出手順・チャネル運用 | 本ドキュメント |
-| 透過抽出（追加ポーズ） | `scripts/character-extract.mjs`（`npm run character-extract`） |
+| 透過抽出（追加ポーズ） | `scripts/content/character-extract.mjs`（`npm run character-extract`） |
 | 円形アイコン（紺グラデ背景・SNS プロフィール用マスター） | `scripts/generate-character-icons.mjs`（`npm run character-icons`）→ `icons/{pose}-{800,400,180}.png` |
 | サイト CTA 配信アバター（上記アイコンの派生） | `scripts/build-character-avatars.mjs`（`npm run character-avatars`）→ `public/images/character/avatar-{pose}.webp` |
 | 上記 3 者の整合ゲート | `scripts/checks/check-character-avatars.mjs`（`npm run check-character-avatars`・`quality:audit` の ci ゲート） |

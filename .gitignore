@@ -346,8 +346,8 @@ content/note/**/img/figure-*.png
 
 # 著者オーソリティ バナーの記事ごとの複製（197 本×約 220KB）。原本は
 # content/note/共通/著者オーソリティ/img/figure-author-authority*.png（追跡）で、各記事の img/ には
-# scripts/distribute-author-authority-banner.mjs が複製するだけの成果物。再生成は
-#   node scripts/distribute-author-authority-banner.mjs --migrate（civil）／--exam concrete --all
+# scripts/note/distribute-author-authority-banner.mjs が複製するだけの成果物。再生成は
+#   node scripts/note/distribute-author-authority-banner.mjs --migrate（civil）／--exam concrete --all
 # 2026-09-05・正方形再設計で 197 本が一斉に差分になったのを機に cover*.png と同じ扱いへ。
 content/note/**/img/figure-author-authority*.png
 !content/note/共通/著者オーソリティ/img/figure-author-authority*.png

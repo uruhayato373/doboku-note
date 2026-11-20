@@ -146,7 +146,7 @@ const NoteCompetitorRow = z
     if (min !== null && !(min <= median && median <= max)) flag(ctx, ['price'], '価格が min ≤ median ≤ max になっていない');
   });
 
-/** note の競合クリエイターの時系列（data/note/competitors/<日付>.json）。取得は scripts/scout-note-competitors.mjs */
+/** note の競合クリエイターの時系列（data/note/competitors/<日付>.json）。取得は scripts/note/scout-note-competitors.mjs */
 export const NoteCompetitors = competitorSnapshot({
   head: {
     notePagesPerCreator: z.number().int().min(1).describe('単品記事を何ページ取ったか（1 ページ 1 作者）'),
@@ -204,7 +204,7 @@ const CoconalaCompetitorRow = z
     if (min !== null && !(min <= median && median <= max)) flag(ctx, ['price'], '価格が min ≤ median ≤ max になっていない');
   });
 
-/** ココナラの競合セラーの時系列（data/coconala/competitors/<日付>.json）。取得は scripts/scout-coconala-competitors.mjs */
+/** ココナラの競合セラーの時系列（data/coconala/competitors/<日付>.json）。取得は scripts/coconala/scout-coconala-competitors.mjs */
 export const CoconalaCompetitors = competitorSnapshot({
   head: { platform: z.literal('coconala'), caveat: z.string().describe('取得の限界') },
   driftTypes: ['new-entrant', 'dropped', 'price', 'new-product', 'removed', 'sales'],
@@ -305,7 +305,7 @@ const XCompetitorRow = z
   .strict()
   .superRefine(requireOnSuccess(['counts', 'cadence', 'platformExtra', 'engagementLeaders']));
 
-/** X の競合アカウントの時系列（data/x/competitors/<日付>.json）。取得は scripts/scout-x-competitors.mjs */
+/** X の競合アカウントの時系列（data/x/competitors/<日付>.json）。取得は scripts/x/scout-x-competitors.mjs */
 export const XCompetitors = competitorSnapshot({
   head: { platform: z.literal('x'), source: z.string().describe('取得元'), caveat: z.string().describe('取得の限界') },
   driftTypes: ['new-entrant', 'dropped', 'followers', 'posts', 'slowdown', 'revived'],
@@ -328,7 +328,7 @@ const IgCompetitorRow = z
   .strict()
   .superRefine(requireOnSuccess(['counts', 'cadence', 'platformExtra']));
 
-/** Instagram の競合アカウントの時系列（data/instagram/competitors/<日付>.json）。取得は scripts/scout-ig-competitors.mjs */
+/** Instagram の競合アカウントの時系列（data/instagram/competitors/<日付>.json）。取得は scripts/instagram/scout-ig-competitors.mjs */
 export const InstagramCompetitors = competitorSnapshot({
   head: { platform: z.literal('ig'), source: z.string().describe('取得元'), caveat: z.string().describe('取得の限界') },
   driftTypes: ['new-entrant', 'dropped', 'followers', 'new-posts', 'removed-posts'],
@@ -340,7 +340,7 @@ export const InstagramCompetitors = competitorSnapshot({
 
 const blogPost = z.object({ title: z.string().nullable(), url: z.url() }).strict();
 
-/** ココナラブログの競合（data/coconala/blog-competitors/<日付>.json）。取得は scripts/scout-coconala-blogs.mjs（検索語ごと・見張るユーザーごと） */
+/** ココナラブログの競合（data/coconala/blog-competitors/<日付>.json）。取得は scripts/coconala/scout-coconala-blogs.mjs（検索語ごと・見張るユーザーごと） */
 export const CoconalaBlogCompetitors = z
   .object({
     schemaVersion: z.literal(1),
@@ -916,7 +916,7 @@ const YoutubeCompetitorRow = z
   .strict()
   .superRefine(requireOnSuccess(['counts', 'cadence', 'platformExtra']));
 
-/** YouTube の競合チャンネルの時系列（data/youtube/competitors/<日付>.json）。取得は scripts/scout-youtube-competitors.mjs（四半期） */
+/** YouTube の競合チャンネルの時系列（data/youtube/competitors/<日付>.json）。取得は scripts/youtube/scout-youtube-competitors.mjs（四半期） */
 export const YoutubeCompetitors = competitorSnapshot({
   head: { platform: z.literal('youtube'), source: z.string().describe('取得元'), caveat: z.string().describe('取得の限界') },
   driftTypes: ['new-entrant', 'dropped', 'subscribers', 'new-videos'],

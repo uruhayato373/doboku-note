@@ -182,8 +182,8 @@
       "interactiveLoginRequired": true,
       "notes": "共通 DOBOKU_AUTH_ROOT を使用。旧 DOBOKU_PROFILE_ROOT（repository root の意味）は Phase 05 完了まで config の legacy path と組み合わせる明示 fallback のみ。Google は datacenter IP からのセッションを全面失効させた（2026-09-21）ため、画面 CSV の取得は運営者の Mac だけで行う。検索の数値と URL 検査は公式 API で CI 取得済み（DN-0318）。",
       "collectors": [
-        "scripts/fetch-gsc-ui-csv.mjs",
-        "scripts/fetch-ga4-ui-csv.mjs"
+        "scripts/search/fetch-gsc-ui-csv.mjs",
+        "scripts/search/fetch-ga4-ui-csv.mjs"
       ],
       "writers": [],
       "credential": {
@@ -208,12 +208,12 @@
       "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。URL の真実源は a8-report-automation.json の baseUrl+homePath（media-console.a8.net）。period-daily は headless で期間入力欄が見つからないため取得対象外（--reports で 3 本に限定）。",
       "collectors": [
         "scripts/fetch-a8-ui-csv.mjs",
-        "scripts/normalize-a8-csv.mjs",
-        "scripts/affiliate-status.mjs",
+        "scripts/affiliate/normalize-a8-csv.mjs",
+        "scripts/affiliate/affiliate-status.mjs",
         "scripts/auth-session-refresh.mjs"
       ],
       "writers": [
-        "scripts/affiliate-apply.mjs"
+        "scripts/affiliate/affiliate-apply.mjs"
       ],
       "credential": {
         "label": "A8.net",
@@ -237,7 +237,7 @@
       "interactiveLoginRequired": true,
       "notes": "2026-11-14 から土曜の収集（auth・moshimo）に参加。loginUrl は 2026-11-15 に資格情報なしの取得で login-form の account・password 欄を確認（/af/login は 404）。",
       "collectors": [
-        "scripts/affiliate-status.mjs",
+        "scripts/affiliate/affiliate-status.mjs",
         "scripts/auth-session-refresh.mjs"
       ],
       "writers": [],
@@ -263,8 +263,8 @@
       "interactiveLoginRequired": true,
       "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。URL は affiliate-asp.json（baseUrl+homePath / readyPath）に合わせ、判定はテキストでなく #top_site_select の DOM（readyMarker）。doboku-note は afb の広告を置いていない（記事のリンク・配置・広告素材 0）ので取得を止めている（運営者判断・DN-0643）。",
       "collectors": [
-        "scripts/afb-scan.mjs",
-        "scripts/affiliate-status.mjs"
+        "scripts/affiliate/afb-scan.mjs",
+        "scripts/affiliate/affiliate-status.mjs"
       ],
       "writers": [],
       "credential": {

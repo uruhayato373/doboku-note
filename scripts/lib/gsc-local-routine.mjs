@@ -3,7 +3,7 @@ import { collectFailedRequests } from "./report-honesty.mjs";
 /**
  * gsc-local-routine.mjs（lib）— Mac の launchd で回す GSC 定期処理の判定（純関数）
  * ---------------------------------------------------------------------------
- * 実行は scripts/gsc-local-routine.mjs。ここは「今日は何をするか」「結果をどう読むか」だけを決める。
+ * 実行は scripts/search/gsc-local-routine.mjs。ここは「今日は何をするか」「結果をどう読むか」だけを決める。
  * ---------------------------------------------------------------------------
  */
 

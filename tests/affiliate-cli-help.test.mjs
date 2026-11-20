@@ -8,7 +8,7 @@ for (const [script, args] of [
   ['moshimo-report.mjs', ['--month', 'invalid']],
 ]) {
   for (const flag of ['--help', '-h']) test(`${script} ${flag} は照合・書込・認証を開始しない`, () => {
-    const output = execFileSync(process.execPath, [fileURLToPath(new URL(`../scripts/${script}`, import.meta.url)), ...args, flag], { encoding: 'utf8', timeout: 10000 });
+    const output = execFileSync(process.execPath, [fileURLToPath(new URL(`../scripts/affiliate/${script}`, import.meta.url)), ...args, flag], { encoding: 'utf8', timeout: 10000 });
     assert.match(output, /^Usage:/);
     assert.doesNotMatch(output, /アフィリ状態照合|検査不成立|ログイン|サイト帰属|unknown/);
   });

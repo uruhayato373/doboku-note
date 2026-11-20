@@ -69,7 +69,7 @@ const result = {
 
 if (!inventory) {
   errors.push(
-    `実機観測がまだ無い（${INVENTORY_PATH} 不在）。\`node scripts/ga4-admin-setup.mjs\` で観測してください。` +
+    `実機観測がまだ無い（${INVENTORY_PATH} 不在）。\`node scripts/search/ga4-admin-setup.mjs\` で観測してください。` +
       ` 未確認のあいだ by-label / by-placement は CI で黙ってスキップされ続けます。`,
   );
 } else {
@@ -108,7 +108,7 @@ if (!inventory) {
     const def = wanted.find((d) => d.parameterName === p);
     errors.push(
       `カスタムディメンション未登録: ${p}（範囲=${def?.scope ?? "EVENT"}）。依存: ${(def?.requiredBy ?? []).join(" / ")}` +
-        ` → \`node scripts/ga4-admin-setup.mjs --commit\``,
+        ` → \`node scripts/search/ga4-admin-setup.mjs --commit\``,
     );
   }
   for (const p of result.missing.filter((x) => !result.blockingMissing.includes(x))) {

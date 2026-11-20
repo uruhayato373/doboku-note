@@ -1,0 +1,472 @@
+#!/usr/bin/env node
+/**
+ * 試験日前に公開する通常動画の予約台帳と YouTube metadata を生成する。
+ *
+ * --schedule: QA 済みパックを approved にし、publishAt を確定する。
+ * --metadata: レンダー実体を検証して youtube.json を生成し、status を rendered にする。
+ * --report:   予約一覧を TSV で表示する（書き込みなし）。
+ * --scope compilation --pack-id ID --publish-at ISO: 総まとめ（compilation.json）1本を予約に載せる。
+ * --scope single --pack-id ID --publish-at ISO: QA済み通常動画1本のmetadataを作る（承認状態は変えない）。
+ *   civil/concrete の予約（DN-0110 の承認済み112本）には総まとめを混ぜない。
+ *   承認前の --metadata は youtube.json だけを書き、state（approvedBy・rendered）は変えない。
+ *
+ * npm run youtube-longform:prepare -- --metadata --scope single --pack-id <ID> --publish-at <ISO日時> — 単発の通常動画の文面を生成。承認・状態は変更しない（--schedule は不可）。編集済みの公開題名・概要欄は再生成前に保持する
+ */
+import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
+
+import { COCONALA_SERVICES } from '../../src/lib/coconala-services.ts';
+import { NOTE_MAGAZINES } from '../../src/lib/note-magazines.ts';
+import { loadRegistry, qualificationLabel, qualificationShortLabel } from '../lib/qualification-registry.mjs';
+import { SITE_ORIGIN } from '../lib/site-identity.mjs';
+import { loadSiteRoutes, siteArticleUrl } from '../lib/site-links.mjs';
+import { setUtmParams } from '../lib/utm-contract.mjs';
+import { readDataset } from '../lib/dataset-io.mjs';
+import { parseJson } from '../lib/json-io.mjs';
+import { voicevoxCredit } from '../lib/voicevox-credit.mjs';
+import { buildYoutubeFunnelDescription, reviseYoutubeFunnelDescription } from '../lib/youtube-funnel-description.mjs';
+import { loadVideoState, saveVideoState } from '../lib/registry-video-state.mjs';
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+
+const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
+const CHANNEL = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' } as const;
+const PRODUCTION_DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
+const TARGET_EXAMS = [
+  'civil-construction-1', 'civil-construction-2',
+  'concrete-engineer', 'concrete-chief-engineer', 'pe-first-stage',
+  'pe-construction', 'pe-comprehensive-management',
+  'rccm', 'concrete-diagnostician',
+] as const;
+
+type TargetExam = (typeof TARGET_EXAMS)[number];
+type Manifest = {
+  packId: string;
+  exam: TargetExam;
+  title: string;
+  audience: string;
+  promise: string;
+  intent: string;
+  primaryCta: { kind: string; targetId?: string; targetPath?: string; campaign: string };
+  sourceRefs?: Array<{ type: string; path?: string; allowUnpublished?: boolean }>;
+};
+
+const argv = process.argv.slice(2);
+const flag = (name: string) => argv.includes(name);
+const val = (name: string, fallback: string) => {
+  const i = argv.indexOf(name);
+  return i >= 0 && argv[i + 1] ? argv[i + 1] : fallback;
+};
+const renderRoot = resolve(val('--render-root', join(ROOT, '.tmp/video-render')));
+const onlyPackId = val('--pack-id', '');
+const scope = val('--scope', 'civil');
+const publishAtArg = val('--publish-at', '');
+
+const readJsonAt = (path: string) => parseJson(readFileSync(path, 'utf8'), path);
+
+function writeJson(path: string, value: unknown) {
+  writeFileSync(path, JSON.stringify(value, null, 2) + '\n');
+}
+
+function loadPacks(exam: TargetExam) {
+  return readdirSync(join(PACKS_ROOT, exam), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => {
+      const dir = join(PACKS_ROOT, exam, entry.name);
+      return { dir, manifest: readJsonAt(join(dir, 'video-pack.json')) as Manifest };
+    })
+    .filter(({ dir, manifest }) => manifest.exam === exam && !existsSync(join(dir, 'compilation.json')));
+}
+
+/** 総まとめ（compilation.json を持つパック）1本を、指定日時で予約に載せる */
+function buildCompilationSchedule() {
+  if (!onlyPackId || !publishAtArg) throw new Error('--scope compilation には --pack-id と --publish-at が要る');
+  if (!Number.isFinite(new Date(publishAtArg).getTime())) throw new Error(`--publish-at が ISO 日時ではない: ${publishAtArg}`);
+  for (const exam of TARGET_EXAMS) {
+    const dir = join(PACKS_ROOT, exam, onlyPackId);
+    if (!existsSync(join(dir, 'compilation.json'))) continue;
+    return [{ dir, manifest: readJsonAt(join(dir, 'video-pack.json')) as Manifest, publishAt: publishAtArg }];
+  }
+  throw new Error(`総まとめパックがない: ${onlyPackId}`);
+}
+
+function buildSingleSchedule() {
+  if (!onlyPackId || !publishAtArg) throw new Error('--scope single には --pack-id と --publish-at が要る');
+  if (!Number.isFinite(new Date(publishAtArg).getTime())) throw new Error(`--publish-at が ISO 日時ではない: ${publishAtArg}`);
+  for (const exam of TARGET_EXAMS) {
+    const dir = join(PACKS_ROOT, exam, onlyPackId);
+    if (!existsSync(join(dir, 'video-pack.json')) || existsSync(join(dir, 'compilation.json'))) continue;
+    return [{ dir, manifest: readJsonAt(join(dir, 'video-pack.json')) as Manifest, publishAt: publishAtArg }];
+  }
+  throw new Error(`通常動画パックがない: ${onlyPackId}`);
+}
+
+const oneKyuEarly = [
+  'niji-junbi-roadmap', 'keiken-r6-shinkeishiki', 'keiken-2theme-heiki',
+  'keiken-taisho-koji', 'keiken-kadai-kakikata', 'keiken-kento-kakikata',
+  'keiken-taio-hyoka', 'keiken-anzen-1kyu', 'keiken-hinshitsu-1kyu',
+  'keiken-kotei-1kyu', 'keiken-kankyo-1kyu', 'keiken-sekokeikaku-1kyu',
+  'niji-kijutsu-doko', 'niji-kijutsu-concrete', 'niji-kijutsu-hinshitsu',
+  'niji-kijutsu-sekokeikaku', 'keiken-soteikoji-katsuyo', 'keiken-ai-sekkei',
+];
+const oneKyuLate = [
+  'kikinagashi-doko-suchi', 'kikinagashi-hinshitsu-kikaku',
+  'kikinagashi-hoki-suchi', 'kikinagashi-anzen-suchi',
+  'keiken-yosou-renshu', 'keiken-nendo-keiko-1kyu',
+  'keiken-dokugaku-genkai', 'keiken-kaizen-example',
+  'keiken-ochiru-toan-1kyu', 'chokuzen-check-1kyu-niji',
+];
+const twoKyuOrder = [
+  'nikyuu-gaiyo-roadmap', 'study-plan-2kyu', 'anzen-ippanron-3riyu',
+  'gakka-2kyu-doko', 'keiken-gaiyo-2kyu', 'gakka-2kyu-concrete',
+  'keiken-anzen-2kyu-kakikata', 'gakka-2kyu-kiso', 'keiken-hinshitsu-kakikata',
+  'gakka-2kyu-sekokeikaku', 'keiken-kotei-kakikata', 'gakka-2kyu-hoki',
+  'gakka-kijutsu-2kyu', 'keiken-2kyu-level', 'keiken-koji-ga-nai',
+  'keiken-genten-kyotsuten', 'keiken-nendo-keiko-2kyu', 'kikinagashi-2kyu-matome',
+];
+
+// 10/23〜11/19 は、技士と主任技士の共通分野を交互に出して両方の視聴者を
+// 早期から獲得する。小論文・予想・直前総仕上げは試験日に近い後半へ置く。
+const concreteOrder = [
+  'gishi-shiken-zentaizou', 'shunin-shiken-zentaizou',
+  'gishi-12week-plan', 'shunin-hinshutsu-yusen',
+  'gishi-materials-ronten', 'shunin-materials-ronten',
+  'gishi-properties-testing-ronten', 'shunin-properties-ronten',
+  'gishi-mix-design-ronten', 'shunin-mix-design-ronten',
+  'gishi-production-qc-ronten', 'shunin-production-qc-ronten',
+  'gishi-construction-ronten', 'shunin-construction-ronten',
+  'gishi-environment-ronten', 'shunin-durability-ronten',
+  'gishi-haigou-keisan', 'shunin-products-ronten',
+  'gishi-jis-handan', 'shunin-structural-design-ronten',
+  'gishi-jukenshikaku-2026', 'shunin-shouronbun-theme',
+  'gishi-shunin-dochira', 'shunin-shouronbun-kousei',
+  'shunin-ochiru-shouronbun', 'shunin-r8-juuten',
+  'kikinagashi-shunin-suchi', 'shunin-chokuzen-senryaku',
+];
+
+function orderedOneKyu(packs: ReturnType<typeof loadPacks>, state: any) {
+  const byId = new Map(packs.map((pack) => [pack.manifest.packId, pack]));
+  const published = new Set(
+    Object.entries(state.packs ?? {})
+      .filter(([, value]: any) => value?.derivatives?.longform?.status === 'published')
+      .map(([id]) => id),
+  );
+  const take = (ids: string[]) => ids.map((id) => byId.get(id)).filter(Boolean) as typeof packs;
+  const reserved = new Set([...oneKyuEarly, ...oneKyuLate, ...published]);
+  const middle = packs
+    .filter(({ manifest }) => !reserved.has(manifest.packId))
+    .sort((a, b) => {
+      const rank = (m: Manifest) => m.packId.startsWith('gakka-') ? 1 : m.intent === 'career' ? 2 : 0;
+      return rank(a.manifest) - rank(b.manifest) || a.manifest.packId.localeCompare(b.manifest.packId);
+    });
+  return [...take(oneKyuEarly), ...middle, ...take(oneKyuLate)].filter(
+    ({ manifest }) => !published.has(manifest.packId),
+  );
+}
+
+function orderedTwoKyu(packs: ReturnType<typeof loadPacks>) {
+  const byId = new Map(packs.map((pack) => [pack.manifest.packId, pack]));
+  const ordered = twoKyuOrder.map((id) => byId.get(id)).filter(Boolean) as typeof packs;
+  if (ordered.length !== packs.length) {
+    const known = new Set(ordered.map(({ manifest }) => manifest.packId));
+    ordered.push(...packs.filter(({ manifest }) => !known.has(manifest.packId)).sort((a, b) => a.manifest.packId.localeCompare(b.manifest.packId)));
+  }
+  return ordered;
+}
+
+function jst(date: string, time: string) {
+  return `${date}T${time}:00+09:00`;
+}
+
+function addDays(date: string, days: number) {
+  const d = new Date(`${date}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+function buildCivilSchedule(state: any) {
+  const one = orderedOneKyu(loadPacks('civil-construction-1'), state);
+  const two = orderedTwoKyu(loadPacks('civil-construction-2'));
+  if (one.length !== 65) throw new Error(`1級の未公開本数が65本でない: ${one.length}`);
+  if (two.length !== 18) throw new Error(`2級の本数が18本でない: ${two.length}`);
+
+  const schedule: Array<{ dir: string; manifest: Manifest; publishAt: string }> = [];
+  let cursor = 0;
+  for (let day = 0; day < 26; day += 1) {
+    const slots = day % 2 === 0 ? ['07:30', '12:30', '20:00'] : ['07:30', '20:00'];
+    for (const time of slots) {
+      const pack = one[cursor++];
+      schedule.push({ ...pack, publishAt: jst(addDays('2026-09-08', day), time) });
+    }
+  }
+  if (cursor !== one.length) throw new Error(`1級の予約割当が不一致: ${cursor}/${one.length}`);
+  two.forEach((pack, day) => schedule.push({ ...pack, publishAt: jst(addDays('2026-10-05', day), '20:00') }));
+  return schedule;
+}
+
+function buildConcreteSchedule() {
+  const packs = [
+    ...loadPacks('concrete-engineer'),
+    ...loadPacks('concrete-chief-engineer'),
+  ];
+  const byId = new Map(packs.map((pack) => [pack.manifest.packId, pack]));
+  const ordered = concreteOrder.map((id) => byId.get(id)).filter(Boolean) as typeof packs;
+  const missing = concreteOrder.filter((id) => !byId.has(id));
+  const extra = packs.filter(({ manifest }) => !concreteOrder.includes(manifest.packId));
+  if (missing.length || extra.length || ordered.length !== 28) {
+    throw new Error(`コンクリート系の予約順が在庫と不一致 missing=${missing.join(',')} extra=${extra.map(({ manifest }) => manifest.packId).join(',')}`);
+  }
+  return ordered.map((pack, day) => ({
+    ...pack,
+    publishAt: jst(addDays('2026-10-23', day), '20:00'),
+  }));
+}
+
+function buildSchedule(state: any) {
+  if (scope === 'civil') return buildCivilSchedule(state);
+  if (scope === 'concrete') return buildConcreteSchedule();
+  if (scope === 'compilation') return buildCompilationSchedule();
+  if (scope === 'single') return buildSingleSchedule();
+  throw new Error(`未知の --scope: ${scope}（civil|concrete|compilation|single）`);
+}
+
+function cta(manifest: Manifest) {
+  const { kind, targetId, targetPath } = manifest.primaryCta;
+  let label: string;
+  let target: string;
+  if (kind === 'note-magazine' && targetId) {
+    const item = (NOTE_MAGAZINES as Record<string, any>)[targetId];
+    if (!item?.published) throw new Error(`${manifest.packId}: 未公開の note CTA ${targetId}`);
+    label = `${item.shortTitle || item.title}を見る（note有料教材）`;
+    target = item.landingUrl || item.noteUrl;
+  } else if (kind === 'coconala-service' && targetId) {
+    const item = (COCONALA_SERVICES as Record<string, any>)[targetId];
+    if (item?.status !== 'listed') throw new Error(`${manifest.packId}: 非公開のココナラ CTA ${targetId}`);
+    label = targetId.includes('kit') ? '経験記述の設計キットを見る' : '経験記述の診断・添削を申し込む';
+    target = item.serviceUrl;
+  } else if (kind === 'site-article' && targetPath) {
+    label = 'サイトの詳しい解説を読む';
+    // targetPath はリポジトリのパス（content/site/…/article.mdx）。そのまま URL にすると存在しないページになる
+    target = siteArticleUrl(targetPath, loadSiteRoutes(join(ROOT, 'public/_redirects')));
+  } else if (kind === 'links-hub') {
+    label = '資格別の学習ガイド・教材一覧を見る';
+    target = `${SITE_ORIGIN}/links`;
+  } else {
+    throw new Error(`${manifest.packId}: CTA を解決できません ${kind}/${targetId ?? targetPath ?? ''}`);
+  }
+  const url = setUtmParams(new URL(target), 'youtube.longform', { campaign: manifest.packId });
+  return { label, url: url.toString() };
+}
+
+function supportingSite(manifest: Manifest) {
+  if (manifest.primaryCta.kind !== 'note-magazine') return null;
+  const ref = manifest.sourceRefs?.find((r) => r.type === 'site' && !r.allowUnpublished && r.path?.startsWith(`content/site/${manifest.exam}/`));
+  if (!ref?.path) return null;
+  let target: string;
+  try { target = siteArticleUrl(ref.path, loadSiteRoutes(join(ROOT, 'public/_redirects'))); }
+  catch (error) { throw new Error(`${manifest.packId}: ${(error as Error).message}`); }
+  const url = setUtmParams(new URL(target), 'youtube.longform', {
+    campaign: manifest.packId,
+  });
+  return url.toString();
+}
+
+function sha256(path: string) {
+  return createHash('sha256').update(readFileSync(path)).digest('hex');
+}
+
+function assertMedia(packId: string, maxSec: number) {
+  const dir = join(renderRoot, packId);
+  const video = join(dir, 'video.mp4');
+  const thumbnail = join(dir, 'img/00-cover.png');
+  const renderManifest = join(dir, 'render-manifest.json');
+  for (const path of [video, thumbnail, renderManifest]) {
+    if (!existsSync(path) || statSync(path).size === 0) throw new Error(`${packId}: レンダー実体がありません ${path}`);
+  }
+  const rendered = readJsonAt(renderManifest);
+  if (!rendered.tts || rendered.mp4 !== 'video.mp4' || rendered.totalSec < 60 || rendered.totalSec > maxSec) {
+    throw new Error(`${packId}: render-manifest が公開条件を満たしません`);
+  }
+  const probe = JSON.parse(execFileSync('ffprobe', [
+    '-v', 'error', '-show_entries', 'stream=codec_type,width,height', '-of', 'json', video,
+  ], { encoding: 'utf8' }));
+  const streams = probe.streams ?? [];
+  if (!streams.some((s: any) => s.codec_type === 'audio')) throw new Error(`${packId}: 音声ストリームがありません`);
+  if (!streams.some((s: any) => s.codec_type === 'video' && s.width === 1920 && s.height === 1080)) {
+    throw new Error(`${packId}: 1920x1080動画ではありません`);
+  }
+  return { video, thumbnail, rendered };
+}
+
+// 資格名は registry（qualification-registry.json）の正式名・短い名前から引く（写さない）。
+// 資格名の後に足す検索語だけ YouTube 用の語彙としてここに置く
+const REGISTRY = loadRegistry(ROOT);
+const EXTRA_KEYWORD: Record<TargetExam, string> = {
+  'civil-construction-1': '土木施工管理技士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'civil-construction-2': '土木施工管理技士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'concrete-engineer': 'コンクリート', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'concrete-chief-engineer': 'コンクリート', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'pe-first-stage': '技術士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'pe-construction': '技術士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'pe-comprehensive-management': '技術士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  rccm: '建設コンサルタント', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'concrete-diagnostician': 'コンクリート', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+};
+function examMeta(exam: TargetExam) {
+  const label = qualificationShortLabel(REGISTRY, exam);
+  const extra = EXTRA_KEYWORD[exam];
+  // 動画タグは「正式名・短い名前」、短い名前が正式名と同じならファミリーの語を足す（従来の並びと同じ）
+  const tags = [...new Set([qualificationLabel(REGISTRY, exam), label, ...(label === qualificationLabel(REGISTRY, exam) ? [extra] : [])])];
+  return { label, tags, hashtags: `#${label.replace(/\s+/g, '')} #${extra} #試験対策` };
+}
+
+function clock(sec: number) {
+  const s = Math.floor(sec);
+  const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), r = s % 60;
+  return h ? `${h}:${String(m).padStart(2, '0')}:${String(r).padStart(2, '0')}` : `${m}:${String(r).padStart(2, '0')}`;
+}
+
+/** 総まとめの概要欄チャプター（0:00 始まり）。章の区切り画面 cNN-title の実尺の開始時刻から作る */
+function compilationChapters(dir: string, rendered: any) {
+  const spec = readJsonAt(join(dir, 'compilation.json'));
+  const titles = spec.parts.flatMap((part: any) => part.chapters.map((c: any) => c.title));
+  const starts: Array<[number, string]> = [];
+  let t = 0;
+  for (const scene of rendered.scenes) {
+    const m = /^c(\d{2})-title$/.exec(scene.sceneId);
+    if (m) starts.push([t, `第${Number(m[1])}章 ${titles[Number(m[1]) - 1]}`]);
+    if (typeof scene.actualSec !== 'number') throw new Error(`${scene.sceneId}: 実尺がない（音声付きで描画してから）`);
+    t += scene.actualSec;
+  }
+  if (starts.length !== titles.length) throw new Error(`章の区切り画面の数（${starts.length}）が章の数（${titles.length}）と違う`);
+  // YouTube のチャプターは 0:00 始まり・各10秒以上でないと表示されない。冒頭が10秒未満なら第1章を 0:00 にする
+  if (starts[0][0] < 10) starts[0][0] = 0; else starts.unshift([0, 'はじめに']);
+  starts.forEach(([at], i) => {
+    const next = i + 1 < starts.length ? starts[i + 1][0] : t;
+    if (Math.floor(next) - Math.floor(at) < 10) throw new Error(`チャプター ${clock(at)} が10秒未満`);
+  });
+  return starts.map(([at, label]) => `${clock(at)} ${label}`);
+}
+
+function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existing: any) {
+  const compilation = existsSync(join(dir, 'compilation.json'));
+  const artifact = assertMedia(manifest.packId, compilation ? 3600 : 1200);
+  const credit = voicevoxCredit(artifact.rendered.speaker);
+  const exam = examMeta(manifest.exam);
+  const link = cta(manifest);
+  const title = `【${exam.label}】${manifest.title}`;
+  if (title.length > 100) throw new Error(`${manifest.packId}: YouTube title が100字超`);
+  const description = buildYoutubeFunnelDescription({
+    intro: `${manifest.audience}向けに、「${manifest.title}」を解説します。`,
+    promise: manifest.promise,
+    primary: link,
+    site: supportingSite(manifest),
+    chapters: compilation ? compilationChapters(dir, artifact.rendered) : [],
+    disclosure: PRODUCTION_DISCLOSURE.authorityNotice,
+    credit: `音声：${credit}`,
+    hashtags: exam.hashtags,
+  });
+  const intentTags: Record<string, string[]> = {
+    'exam-point': ['試験対策', '頻出論点'], howto: ['勉強法', '答案の書き方'],
+    diagnosis: ['施工経験記述', '答案診断'], roadmap: ['勉強計画', '受検対策'], career: ['施工管理', 'キャリア'],
+  };
+  return {
+    schemaVersion: 1,
+    channel: CHANNEL,
+    longform: {
+      key: 'longform', title, description,
+      tags: [...exam.tags, ...(intentTags[manifest.intent] ?? ['試験対策']), ...(compilation ? ['聞き流し', '総まとめ'] : []), 'doboku-note'],
+      categoryId: '27', publishAt,
+      r2Key: `video/render/${manifest.packId}/video.mp4`,
+      thumbnailR2Key: `video/render/${manifest.packId}/img/00-cover.png`,
+      sha256: sha256(artifact.video), thumbnailSha256: sha256(artifact.thumbnail),
+    },
+    shorts: Array.isArray(existing?.shorts) ? existing.shorts : [],
+  };
+}
+
+async function main() {
+  const modes = [flag('--schedule'), flag('--metadata'), flag('--report'), flag('--funnel-refresh')].filter(Boolean).length;
+  if (modes !== 1) throw new Error('Usage: npx tsx scripts/youtube/prepare-youtube-longforms.mts --schedule|--metadata|--report|--funnel-refresh [--pack-id ID] [--apply]');
+  if (flag('--funnel-refresh')) {
+    if (!onlyPackId) throw new Error('--funnel-refresh には --pack-id が必要');
+    const matches = TARGET_EXAMS.flatMap((exam) => loadPacks(exam)).filter(({ manifest }) => manifest.packId === onlyPackId);
+    if (matches.length !== 1) throw new Error(`対象 packId が一意に見つかりません: ${onlyPackId}`);
+    const { dir, manifest } = matches[0];
+    const youtubePath = join(dir, 'youtube.json');
+    const existing = readJsonAt(youtubePath);
+    const description = reviseYoutubeFunnelDescription(existing.longform.description, {
+      primary: cta(manifest), site: supportingSite(manifest),
+    });
+    if (description === existing.longform.description) {
+      console.log(`${onlyPackId}: 概要欄は最新です`);
+    } else if (flag('--apply')) {
+      existing.longform.description = description;
+      writeJson(youtubePath, existing);
+      console.log(`${onlyPackId}: 概要欄を更新しました。台帳の最終承認とYouTube実体への同期が必要です`);
+    } else {
+      console.log(description);
+      console.log('\n[dry-run] --apply で youtube.json の概要欄だけを更新します');
+    }
+    return;
+  }
+  if (scope === 'single' && flag('--schedule')) throw new Error('--scope single の承認は運営者の registry approve だけで行う');
+  // 状態の正本はコンテンツ台帳。読み書きは台帳の入口（registry-video-state.mjs）だけを通す
+  const state = loadVideoState(ROOT);
+  const schedule = buildSchedule(state);
+  const targets = onlyPackId ? schedule.filter(({ manifest }) => manifest.packId === onlyPackId) : schedule;
+  if (onlyPackId && targets.length !== 1) throw new Error(`対象 packId が予約にありません: ${onlyPackId}`);
+
+  if (flag('--report')) {
+    console.log('publishAt\texam\tpackId\ttitle');
+    for (const item of targets) console.log(`${item.publishAt}\t${item.manifest.exam}\t${item.manifest.packId}\t${item.manifest.title}`);
+    return;
+  }
+
+  const now = new Date().toISOString();
+  let updated = 0;
+  for (const item of targets) {
+    const { packId } = item.manifest;
+    const derivative = state.packs?.[packId]?.derivatives?.longform;
+    if (!derivative?.qa || derivative.qa.avg < 2 || derivative.qa.blocks !== 0) {
+      throw new Error(`${packId}: QA PASS がありません`);
+    }
+    if (scope === 'single' && derivative.approvedBy === 'user') throw new Error(`${packId}: 承認後は単発metadataを再生成しない`);
+    state.packs[packId] ??= { derivatives: {} };
+    if (flag('--schedule')) {
+      state.packs[packId].derivatives.longform = {
+        ...derivative, status: 'approved', approvedBy: 'user', approvedAt: now, publishAt: item.publishAt,
+      };
+      updated += 1;
+    } else {
+      const youtubePath = join(item.dir, 'youtube.json');
+      const existing = existsSync(youtubePath) ? readJsonAt(youtubePath) : null;
+      writeJson(youtubePath, makeYoutube(item.dir, item.manifest, item.publishAt, existing));
+      if (derivative.approvedBy !== 'user') {
+        // 承認前は youtube.json を見本として書くだけ。承認（--schedule）を飛ばして rendered にしない
+        console.log(`${packId}: youtube.json を書いた（承認待ち・state は変えない）`);
+        continue;
+      }
+      state.packs[packId].derivatives.longform = {
+        ...derivative, status: 'rendered', approvedBy: 'user', renderedAt: now, publishAt: item.publishAt,
+      };
+      updated += 1;
+    }
+  }
+  const touched = targets.map((t) => t.manifest.packId).filter((id) => state.packs?.[id]?.derivatives?.longform);
+  if (updated) await saveVideoState(ROOT, state, { writer: 'prepare-youtube-longforms', packIds: touched });
+  console.log(`${flag('--schedule') ? 'approved' : 'rendered'}: ${updated}本（state を更新した本数）`);
+  if (scope === 'compilation') {
+    console.log(`総まとめ: ${targets.map((t) => `${t.manifest.packId} ${t.publishAt}`).join(', ')}`);
+  } else if (scope === 'single') {
+    console.log(`通常動画: ${targets.map((t) => `${t.manifest.packId} ${t.publishAt}`).join(', ')}`);
+  } else if (scope === 'civil') {
+    console.log('1級: 2026-09-08〜2026-10-03 / 65本（既公開1本と合計66本）');
+    console.log('2級: 2026-10-05〜2026-10-22 / 18本');
+  } else {
+    console.log('コンクリート技士・主任技士: 2026-10-23〜2026-11-19 / 28本（毎日20:00 JST）');
+  }
+}
+
+await main();
