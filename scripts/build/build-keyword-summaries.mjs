@@ -28,6 +28,7 @@ import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 
 import { join, relative, dirname } from 'node:path';
 import matter from 'gray-matter';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { stripTags } from '../lib/strip-markup.mjs';
 
 const PE_ROOT = join(ROOT, 'content/site/pe-comprehensive-management');
 const OUT_PATH = join(ROOT, '.claude/state/keyword-summaries.json');
@@ -64,12 +65,11 @@ function extractDefinition(body) {
   }
   if (!captured) return '';
   let text = captured.split(/\n\s*\n/)[0].trim();
-  text = text
+  text = stripTags(text
     .replace(/\*\*(.+?)\*\*/g, '$1')
     .replace(/\*(.+?)\*/g, '$1')
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-    .replace(/`([^`]+)`/g, '$1')
-    .replace(/<[^>]+>/g, '')
+    .replace(/`([^`]+)`/g, '$1'))
     .replace(/\s+/g, ' ')
     .trim();
   if (text.length > DEFINITION_MAX_CHARS) text = text.slice(0, DEFINITION_MAX_CHARS - 1) + '…';

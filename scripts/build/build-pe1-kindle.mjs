@@ -26,6 +26,7 @@ import { writeEpub, xhtmlDoc, xesc } from '../lib/epub-writer.mjs'
 import { REPO_ROOT as REPO } from '../lib/repository-paths.mjs'
 import { parseCliArgs } from '../lib/cli-args.mjs'
 import { reviewRequestPage } from '../lib/kindle-review-request.mjs'
+import { stripTags } from '../lib/strip-markup.mjs';
 
 const AUTHOR = 'doboku-note'
 const PUBLISHER = 'doboku-note'
@@ -74,7 +75,7 @@ function sanitizeMathml(html) {
     // (2) 多文字演算子（\bmod 等）で KaTeX が <mo><mrow><mi>..</mi>..</mrow></mo> を出すが
     //     <mo> はテキストのみ許容。内側のタグを剥がしてテキスト化する（例: mod）。
     .replace(/<mo([^>]*)>\s*<mrow>([\s\S]*?)<\/mrow>\s*<\/mo>/g,
-      (_, attrs, inner) => `<mo${attrs}>${inner.replace(/<[^>]+>/g, '')}</mo>`)
+      (_, attrs, inner) => `<mo${attrs}>${stripTags(inner)}</mo>`)
     // (3) mtable/mtd の width 属性は EPUB3 MathML の content model で不許可（RSC-005）。
     //     KaTeX が \begin{array} 等で width="100%" を出す。除去（レイアウトは CSS 側）。
     //     width が正当な mspace には触れない。

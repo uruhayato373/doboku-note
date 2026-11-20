@@ -26,6 +26,7 @@ import type { StandardChapter, StandardArticlesManifest } from '../../src/lib/st
 import type { StandardDocument, StandardsCatalog } from '../../src/lib/standards';
 import { SITE_ORIGIN } from '../../src/config/site-identity.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { stripTags } from '../lib/strip-markup.mjs';
 
 const PUBLIC_ROOT = resolve(ROOT, 'public');
 const OUTPUT_ROOT = resolve(PUBLIC_ROOT, 'standards-data');
@@ -81,12 +82,11 @@ function markdownToPlainText(lines: string[]): string {
   return lines
     .filter((line) => !line.trim().startsWith('<SourceRef '))
     .map((line) =>
-      line
+      stripTags(line
         .replace(/^#{1,6}\s+/u, '')
         .replace(/!\[([^\]]*)\]\([^)]*\)/gu, '$1')
         .replace(/\[([^\]]+)\]\([^)]*\)/gu, '$1')
-        .replace(/[*_`]/gu, '')
-        .replace(/<[^>]+>/gu, '')
+        .replace(/[*_`]/gu, ''))
         .trimEnd(),
     )
     .join('\n')

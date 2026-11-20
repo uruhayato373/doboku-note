@@ -273,7 +273,8 @@ console.log(`[svg-gallery] site ${site.length} 枚（${siteCats.length} 資格�
 
 if (process.argv.includes("--open")) {
   try {
-    execFileSync("cmd", ["/c", "start", "", OUT.replace(/\//g, "\\")], { stdio: "ignore" });
+    // シェル（cmd /c start）を通さず開く。Mac は open、Windows は explorer
+    execFileSync(process.platform === "win32" ? "explorer" : "open", [process.platform === "win32" ? OUT.replace(/\//g, "\\") : OUT], { stdio: "ignore" });
     console.log("[svg-gallery] 既定ブラウザで開きました");
   } catch {
     console.log("[svg-gallery] 自動オープン不可。手動で開いてください:", OUT);

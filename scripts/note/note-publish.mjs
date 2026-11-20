@@ -51,6 +51,8 @@ import { NOTE_BASE } from '../lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { NOTE_PLACEHOLDER_RE } from '../lib/note-publication-state.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { stripHtmlComments } from '../lib/strip-markup.mjs';
+import { escapeRegExp } from '../lib/regexp-escape.mjs';
 
 
 const argv = process.argv.slice(2);
@@ -81,7 +83,7 @@ let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
 // 題名の正本は frontmatter の title（note-update-body も title を反映する）。無ければ本文の見出し 1
 const title = (fmField('title') || body.match(/^#\s+(.+)$/m)?.[1] || fmField('coverTitle')).trim();
 // コメント・H1 を除去（画像は除去せずトークン化して残す＝本文画像の live 反映）
-body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, '').trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
+body = stripHtmlComments(body, { eatNewline: true }).trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
 // cover / hashtags を type サフィックスで解決（article-II1.md → cover-II1.png / hashtags-II1.txt）
 const dir = dirname(articleAbs);
 // 画像行 → トークン化（paste 後に「＋」メニューでアップロード。lib/note-images.mjs）
@@ -145,7 +147,7 @@ const minFreeChars = isPaid ? expectedFreePreviewMin(body, BOUNDARY) : 0;
 // live 検証の期待画像数。有料は API 本文が paywall 切断されるため「境界より前の画像枚数」。
 let expectedImgs = bodyImages.length;
 if (isPaid) {
-  const bre = new RegExp('^##\\s+(' + BOUNDARY + ')');
+  const bre = new RegExp('^##\\s+(' + BOUNDARY.split('|').map(escapeRegExp).join('|') + ')');
   const bIdx = body.split('\n').findIndex((l) => bre.test(l.trim()));
   if (bIdx >= 0) expectedImgs = (body.split('\n').slice(0, bIdx).join('\n').match(/〔〔IMG:\d+〕〕/g) || []).length;
 }

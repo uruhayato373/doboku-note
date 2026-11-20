@@ -264,7 +264,8 @@ console.log(
 
 if (process.argv.includes("--open")) {
   try {
-    execFileSync("cmd", ["/c", "start", "", OUT.replace(/\//g, "\\")], { stdio: "ignore" });
+    // シェル（cmd /c start）を通さず開く。Mac は open、Windows は explorer
+    execFileSync(process.platform === "win32" ? "explorer" : "open", [process.platform === "win32" ? OUT.replace(/\//g, "\\") : OUT], { stdio: "ignore" });
     console.log("[note-cover-gallery] 既定ブラウザで開きました");
   } catch {
     console.log("[note-cover-gallery] 自動オープン不可。手動で開いてください:", OUT);

@@ -38,6 +38,7 @@ import { execSync } from 'node:child_process';
 import { Resvg } from '@resvg/resvg-js';
 import { todayJst } from '../lib/jst-date.mjs';
 import { REPO_ROOT as ROOT, FONTS_ROOT } from '../lib/repository-paths.mjs';
+import { stripTags } from '../lib/strip-markup.mjs';
 
 
 // ─── ヘルパー ────────────────────────────────────────────────
@@ -163,8 +164,7 @@ function resolveFigureImage(slide) {
 
 /** 定義文を板書用に整形 */
 function cleanDefinition(definition) {
-  const cleaned = definition
-    .replace(/<[^>]+>/g, '')
+  const cleaned = stripTags(definition)
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1')
     .trim();

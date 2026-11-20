@@ -90,6 +90,8 @@ import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from '../lib
 import { todayJst } from '../lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 import { launchNoteContext } from '../lib/note-browser.mjs';
+import { stripHtmlComments } from '../lib/strip-markup.mjs';
+import { escapeRegExp } from '../lib/regexp-escape.mjs';
 
 const sha256File = (p) => createHash('sha256').update(readFileSync(p)).digest('hex');
 
@@ -216,7 +218,7 @@ function parseArticle(articlePath) {
   const boundary = BOUNDARY_ARG || fmField('paidBoundary') || '試験問題|予想問題';
   let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
   // 前処理: コメント・H1行を除去（画像は除去せずトークン化して残す＝本文画像の live 反映）
-  body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, '').trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
+  body = stripHtmlComments(body, { eatNewline: true }).trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
   // 画像行 → トークン化。images[].anchor（直前非空・非画像行の正規化先頭30字）を付与（--images-only 用）。
   const dir = dirname(abs);
   const bodyLines = body.split('\n');
@@ -247,7 +249,7 @@ function parseArticle(articlePath) {
   // 有料記事は API 本文が paywall で切断されるため、live 検証の期待画像数は「境界より前の画像枚数」。
   let expectedImgs = images.length;
   if (isPaid) {
-    const bre = new RegExp('^##\\s+(' + boundary + ')');
+    const bre = new RegExp('^##\\s+(' + boundary.split('|').map(escapeRegExp).join('|') + ')');
     const bIdx = tokenBody.split('\n').findIndex((l) => bre.test(l.trim()));
     if (bIdx >= 0) expectedImgs = (tokenBody.split('\n').slice(0, bIdx).join('\n').match(/〔〔IMG:\d+〕〕/g) || []).length;
   }

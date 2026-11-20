@@ -22,6 +22,7 @@ import { resolve, basename, dirname } from 'node:path'
 import { chromium } from 'playwright'
 import { REPO_ROOT as REPO, SITE_CONTENT_ROOT } from '../lib/repository-paths.mjs'
 import { parseCliArgs } from '../lib/cli-args.mjs'
+import { stripTags } from '../lib/strip-markup.mjs';
 
 const AUTHOR = 'doboku-note'
 const DEFAULT_EXAM = '技術士第一次試験'
@@ -67,7 +68,7 @@ function sanitizeMathml(html) {
   return html
     .replace(/<mo[^>]*>[⁡⁢⁣⁤]<\/mo>/g, '')
     .replace(/<mo([^>]*)>\s*<mrow>([\s\S]*?)<\/mrow>\s*<\/mo>/g,
-      (_, attrs, inner) => `<mo${attrs}>${inner.replace(/<[^>]+>/g, '')}</mo>`)
+      (_, attrs, inner) => `<mo${attrs}>${stripTags(inner)}</mo>`)
     .replace(/(<(?:mtable|mtd)\b[^>]*?)\s+width="[^"]*"/g, '$1')
 }
 async function mathToMathml(src, displayMode) {
