@@ -1,10 +1,9 @@
 {
-  "updatedAt": "2026-11-20T00:11:15.726Z",
-  "head": "d1412638ec096aa5b80c8264d9d65b19e5feeaf4",
+  "updatedAt": "2026-11-20T00:28:26.781Z",
+  "head": "2aa397c01e6babe5e78f06eb9a14921c35df98b3",
   "note": "DN-0111 の移行が進むたびに締める。最終目標は全カテゴリ 0。更新: npm run check-git-binary-policy -- --update-baseline",
-  "inspectedBlobs": 15961,
+  "inspectedBlobs": 15954,
   "counts": {
-    "size-limit": 7,
     "magic-mismatch": 1
   },
   "budgets": [
@@ -34,7 +33,7 @@
     },
     {
       "dir": "scripts",
-      "usedMiB": 29.6,
+      "usedMiB": 16.7,
       "capMiB": 130,
       "over": false
     }
