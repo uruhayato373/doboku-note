@@ -1,7 +1,7 @@
 // vision-ocr.swift — macOS の Vision で画像の日本語を読み、行を紙面の上から下・左から右の順に出す。
 // 使い方: swift scripts/lib/vision-ocr.swift <画像> [<画像> …]
 // 出力: 画像ごとに `=== <画像のパス>` の行に続けて、読み取った行（同じ高さの行は左から右へ空白 2 つでつなぐ）。
-// 全文ライブラリの文字化けページ（DN-0767）を起こし直すときの「機械の読み」に使う（scripts/standards-library-mojibake.mjs）。
+// 全文ライブラリの文字化けページ（DN-0767）を起こし直すときの「機械の読み」に使う（scripts/standards/standards-library-mojibake.mjs）。
 import Foundation
 import Vision
 import AppKit

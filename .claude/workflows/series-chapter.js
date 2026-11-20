@@ -27,7 +27,7 @@ const DIR = `${M}/.tmp/book-coverage/series`
 const PACKET = (it) => `${DIR}/${it.slug}.packet.md`
 // brief: "outline" は台帳で管理する確認済みの骨子（content/sources/series/<シリーズ>/<項目>.md）をそのまま brief にする
 const BRIEF = (it) => it.brief === 'outline' ? `${M}/content/sources/series/${it.series}/${it.item}.md` : `${DIR}/${it.slug}.brief.md`
-const COMMIT = `node ${M}/scripts/book-coverage-commit.mjs`
+const COMMIT = `node ${M}/scripts/content/book-coverage-commit.mjs`
 
 /** 同時実行の上限つきの順番待ち。prio の大きい（後の段の）仕事を先に回す。同じ prio は先着順 */
 function limiter(n) {

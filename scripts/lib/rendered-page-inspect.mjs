@@ -2,7 +2,7 @@
  * rendered-page-inspect.mjs — 描画したページで決定的に判定できる崩れを拾う（ブラウザの中で走る関数）。
  *
  * page.evaluate(inspectInPage) で使う。関数の外の変数を参照しない（ブラウザへ文字列で渡るため）。
- * 使う側: scripts/checks/check-rendered-pages.mjs（全ページの一巡）・scripts/standards-visual-review.mjs（基準書の章の目視の前段）。
+ * 使う側: scripts/checks/check-rendered-pages.mjs（全ページの一巡）・scripts/standards/standards-visual-review.mjs（基準書の章の目視の前段）。
  * 返す種類: overflow（横はみ出し）・image（読めない画像）・katex・main（本文なし・極端に短い）・markup（記法が生で出る）・mojibake
  */
 export function inspectInPage() {

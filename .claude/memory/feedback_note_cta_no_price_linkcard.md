@@ -15,7 +15,7 @@ metadata:
 
 ## 本文段落は1〜2文・~120字以下（content-principles §14-e）
 note はモバイル主体で1段落150〜300字の塊は読まれない。2026-06-12、建設部門入口16本で402段落中185段落（46%）が120字超・最長254〜321字だった。
-- 自動是正: `npm run note-reflow -- [--target N] <file|dir>`（`scripts/reflow-note-paragraphs.mjs`）。長段落を文（。）境界で再パッキングする決定論ツールで**語句・文意は変えず改行だけ足す**（空白除去後の本文一致で検証可能）。見出し/箇条書き/URL単独行/太字見出し/frontmatter は対象外。`--dry` で点検のみ。CRLF 保持（writeMdxFile 経由）。単文で120字超（`。`が無く割れない）は手動で2文に分けるか人が許容判断。
+- 自動是正: `npm run note-reflow -- [--target N] <file|dir>`（`scripts/note/reflow-note-paragraphs.mjs`）。長段落を文（。）境界で再パッキングする決定論ツールで**語句・文意は変えず改行だけ足す**（空白除去後の本文一致で検証可能）。見出し/箇条書き/URL単独行/太字見出し/frontmatter は対象外。`--dry` で点検のみ。CRLF 保持（writeMdxFile 経由）。単文で120字超（`。`が無く割れない）は手動で2文に分けるか人が許容判断。
 - 機械検知: `/note-prepublish-review` Phase1 4f が `reflow --dry` を WARN で surface（GO 判定に影響しない＝段落の切り方が編集判断のため BLOCK にしない）。
 - **reflow の alt text 誤分割バグ（2026-06-23 修正 d2c8c3837）**: `isPlainPara` が `![alt](img/...)` 先頭を対象外にしておらず、alt に `。` があると分割されて `![alt\nmore](img/...)` になり画像参照が壊れた（集客記事13本公開時に発覚し fix-alt-text.mjs で事後修正）。`isPlainPara` に `|!\[` を追加済み。reflow 適用後は `git diff` で `![` 行が壊れていないか確認。旧版で実行したファイルは `.tmp/fix-alt-text.mjs` で事後修正可。
 - **公開前に `/note-prepublish-review` を省略しない**: 同日、集客記事を速く公開しようと skill を飛ばして直接 `note-publish-magazine.mjs` を実行し段落長 WARN が未検知のまま公開した。4f WARN が出たら `npm run note-reflow -- "{dir}"` → `git diff` 確認 → commit → publish の順（SKILL.md に追記済み d2c8c3837）。

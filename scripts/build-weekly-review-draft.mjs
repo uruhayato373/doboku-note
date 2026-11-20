@@ -67,7 +67,7 @@ const R = {
   digest: await node('digest', 'scripts/build-growth-digest.mjs', ['--print']),
   business: await node('business', 'scripts/business-review.mjs', ['report', '--start', windowPeriod.startDate, '--end', windowPeriod.endDate, '--json'], { json: true }),
   businessPrev: await node('businessPrev', 'scripts/business-review.mjs', ['report', '--start', prevWindow.startDate, '--end', prevWindow.endDate, '--json'], { json: true }),
-  triage: await node('triage', 'scripts/growth-triage.mjs', ['list', '--json'], { json: true }),
+  triage: await node('triage', 'scripts/search/growth-triage.mjs', ['list', '--json'], { json: true }),
   experiments: await node('experiments', 'scripts/checks/check-experiment-due.mjs', ['--json'], { json: true }),
   checks: await node('checks', 'scripts/review-checks.mjs', ['--cadence', 'weekly', '--run', week], { timeoutMs: commandTimeoutMs('review-checks') }),
   gate: await node('gate', 'scripts/backlog-gate.mjs', ['--weekly']),

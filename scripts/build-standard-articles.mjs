@@ -91,7 +91,7 @@ const sha256 = (value) => createHash('sha256').update(value, 'utf8').digest('hex
  * 中国地方整備局版（chugoku/local）は共通仕様書の条ごとの訂正・追加を 5 列の表で並べた文書で、
  * 各ページの先頭に `【第１編 共通編 第１章 総則 関係】` を刷る（1 ページに 2 章を書くこともある:
  * `第１章 築堤・護岸，第３章 樋門・樋管 関係`）。表は版面の列がずれていてテキストから行を組み直せないので、
- * ページ画像から組み直した行（content/sources/standards/amendments/・scripts/standards-amendments.mjs）が
+ * ページ画像から組み直した行（content/sources/standards/amendments/・scripts/standards/standards-amendments.mjs）が
  * 全ページ承認済みなら条ごとに差し込み、そうでなければ章の冒頭にページへの案内だけを出す。
  */
 function amendmentPagesOf(catalog, amendments, target) {

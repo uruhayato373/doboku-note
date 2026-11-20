@@ -80,7 +80,7 @@ export interface NoteMagazine {
  *      exam-brand.ts に追記）。※note 公開時のマガジンヘッダー _cover.png は別工程で
  *      generate-magazine-covers.mjs が生成（note-magazine-cover.mjs がアップロード）。
  *   2. 売上記録: config/sales-product-map.json の productId マッピング表に追加
- *   3. keiken 系（施工経験記述）なら: scripts/keiken-charcount.mjs の探索フィルタに dir 判別語を追加
+ *   3. keiken 系（施工経験記述）なら: scripts/content/keiken-charcount.mjs の探索フィルタに dir 判別語を追加
  *      （check-magazine-wiring.mjs が pre-commit で漏れを機械検知する）
  *   4. Generator/Evaluator の対応型: .claude/agents/essay-writer.md 等の型リスト＋agents-registry.md
  *   5. 変更後は /doc-sync を1回回して prose 陳腐化を点検（CLAUDE.md §8）

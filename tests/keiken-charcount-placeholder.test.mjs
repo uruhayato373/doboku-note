@@ -15,7 +15,7 @@ function counts(body, tag) {
   mkdirSync(dirname(abs), { recursive: true });
   writeFileSync(abs, body);
   try {
-    const out = JSON.parse(execFileSync('node', [join(ROOT, 'scripts/keiken-charcount.mjs'), rel, '--json'], { encoding: 'utf8', cwd: ROOT }));
+    const out = JSON.parse(execFileSync('node', [join(ROOT, 'scripts/content/keiken-charcount.mjs'), rel, '--json'], { encoding: 'utf8', cwd: ROOT }));
     return out.files.flatMap((f) => f.rows.map((r) => r.chars));
   } finally {
     rmSync(join(ROOT, '.tmp', `test-keiken-charcount-${tag}-${process.pid}`), { recursive: true, force: true });

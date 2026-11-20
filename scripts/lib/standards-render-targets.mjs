@@ -8,7 +8,7 @@
  * manifest と比較データから決めるので、改訂で差分が増えれば対象も増える。
  * scope 'all' は、これに比較の外の文書（必携・マニュアル・特記・参考資料・付表。共通仕様書ではないので
  * 比較データに行が無い）の全ページを足す。ページ数が数倍になるので PR の E2E では使わず、夜間・手動の E2E が使う（DN-0850）。
- * 描画の検査（e2e/standards-render.spec.ts）と目視用の一覧（scripts/standards-table-gallery.mjs）が使う。
+ * 描画の検査（e2e/standards-render.spec.ts）と目視用の一覧（scripts/standards/standards-table-gallery.mjs）が使う。
  * 依存ゼロ（e2e から読むため）。
  */
 import { existsSync, readdirSync } from 'node:fs';

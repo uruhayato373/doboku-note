@@ -365,7 +365,7 @@ function wire() {
   const mediaById = new Map(reg.media.map((m) => [m.id, m]));
   const file = join(ROOT, packDirOf(pack), 'youtube.json');
   if (!existsSync(file)) {
-    execFileSync('npx', ['tsx', 'scripts/prepare-youtube-longforms.mts', '--metadata', '--scope', 'single', '--pack-id', work, '--publish-at', publishAt], { cwd: ROOT, stdio: 'inherit' });
+    execFileSync('npx', ['tsx', 'scripts/youtube/prepare-youtube-longforms.mts', '--metadata', '--scope', 'single', '--pack-id', work, '--publish-at', publishAt], { cwd: ROOT, stdio: 'inherit' });
   }
   const release = JSON.parse(readFileSync(file, 'utf8'));
   const { channel } = readDataset(ROOT, 'config.youtube-formats');

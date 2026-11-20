@@ -173,7 +173,7 @@
       "actions": [
         "1. sitemap.xml の内容検証（旧 URL 除外 + 現行 748 URL 網羅の確認）",
         "2. 現行サイト全 URL を content/site/ から slug ベースで列挙",
-        "3. scripts/inspect-url.mjs で上位 30-50 ページを一括 URL Inspection",
+        "3. scripts/search/inspect-url.mjs で上位 30-50 ページを一括 URL Inspection",
         "4. indexed / not-indexed / excluded の比率算出、未 indexed 上位リスト作成",
         "5. （ユーザー作業）GSC UI で sitemap 再送信",
         "6. （ユーザー作業）未 indexed 上位 10 ページへの手動 indexing リクエスト",

@@ -37,7 +37,7 @@ twitter -c search "コンクリート診断士 対策" -n 15 | grep -oE '@[A-Za-
 ```bash
 npm run scout-note-competitors                 # note（公開API・curl --ssl-no-revoke・会社PC可）
 npm run scout-coconala-competitors              # ココナラ（Playwright・公開プロフィールの販売実績 header + market-research由来の価格・低頻度厳守）
-node scripts/scout-x-competitors.mjs            # X（実アカ Playwright・read-only・安全弁必須）
+node scripts/x/scout-x-competitors.mjs            # X（実アカ Playwright・read-only・安全弁必須）
 npm run scout-ig-competitors                    # IG（未ログイン curl・og:description のフォロワー/投稿数・投稿アカ不使用）
 npm run scan-qualification-market -- --channel youtube   # YouTube（追跡チャンネルの登録者数＋資格キーワードの検索・yt-dlp・ログイン不要）
 npm run scout-youtube-competitors               # YouTube（追跡チャンネルの通常動画100本の再生・尺・題名の語ごとの中央値・yt-dlp の一覧・手動）

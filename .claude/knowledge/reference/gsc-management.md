@@ -39,7 +39,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `check-internal-links-vs-gsc` | Script（ゲート・オフライン） | **公開ページ**が GSC の 404/リダイレクト URL を指していないか（SSOT と全 MDX/src を突合）。旧 URL 件数を能動的に減らせる唯一のレバー | `gsc-ui/ssot` + MDX → exit 0/1 |
 | `check-gsc-indexing-due` | Script（surfacer・オフライン） | 順位表に表示実績のある未登録が残っているのに、受理された登録リクエストが 7 日以上無ければ DUE。順位表が無いときは検査不能として DUE。weekly-review-guard が毎週 job summary へ | `data/gsc/indexing-{priority,history}.json` → DUE |
 | `gsc-request-indexing` | Script（Playwright・**Mac の launchd が毎日 10 件**（`npm run gsc-indexing:install`）・土曜の収集も同じ処理・手動も可） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `data/gsc/indexing-{requests,history}.json` |
-| `gsc-local-routine` | 土曜の Mac 収集（`weekly-collect` の gsc 段・`scripts/gsc-local-routine.mjs`） | ログインしたブラウザが要る GSC 作業（登録リクエスト 10 件・月次 UI CSV）を Mac 自身で回す。収集用 worktree（`.claude/worktrees/weekly-collect`）で実行し台帳を push。未ログインは段が失敗として記録される。運営者が取り直すなら収集用 worktree の端末で `node scripts/weekly-collect.mjs --only gsc`（登録リクエストは 20 時間ルールで間引かれることがある）。**hosted runner は Google が失効させ、self-hosted runner は公開リポジトリで fork PR に Mac 上のコード実行を許しうるため使わない**（2026-09-24）。毎日の launchd `gsc-local` は 2026-10-24 に廃止（DN-0817） | 順位表・UI → `gsc-indexing/*`・`gsc-ui/last-run.json`・`gsc-ui/ssot/` |
+| `gsc-local-routine` | 土曜の Mac 収集（`weekly-collect` の gsc 段・`scripts/search/gsc-local-routine.mjs`） | ログインしたブラウザが要る GSC 作業（登録リクエスト 10 件・月次 UI CSV）を Mac 自身で回す。収集用 worktree（`.claude/worktrees/weekly-collect`）で実行し台帳を push。未ログインは段が失敗として記録される。運営者が取り直すなら収集用 worktree の端末で `node scripts/weekly-collect.mjs --only gsc`（登録リクエストは 20 時間ルールで間引かれることがある）。**hosted runner は Google が失効させ、self-hosted runner は公開リポジトリで fork PR に Mac 上のコード実行を許しうるため使わない**（2026-09-24）。毎日の launchd `gsc-local` は 2026-10-24 に廃止（DN-0817） | 順位表・UI → `gsc-indexing/*`・`gsc-ui/last-run.json`・`gsc-ui/ssot/` |
 | `check-gsc-sitemaps` | Script（surfacer・オフライン） | `data/gsc/sitemaps.json` を見て、記録が古い・robots.txt の sitemap が GSC に未登録・送信失敗（権限不足）・エラー・14 日以上未読み込みなら DUE。旧 URL sitemap のリダイレクト警告は数えない。weekly-review-guard が毎週 job summary へ | `sitemaps-latest.json` → DUE |
 | `search-improvement` | Script（週次レビューが record/triage/close、CI fetch-metrics が sync・28日計測） | 11〜30 位の帯の候補→改善→本番反映起点の前後計測。入口 `/weekly-review`、詳細 [検索キーワード戦略](../../../docs/strategy/16_検索キーワード戦略.md) | `experiments.json`（kind search-strategy）。旧 `data/gsc/rank-watch/<月>.jsonl` は 2026-10-13 廃止後の不変アーカイブ（書き手なし） |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
@@ -161,10 +161,10 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 
 ### 補助ツール（深掘り時）
 
-- 母集合生成: `node scripts/list-sitemap-urls.mjs`（公開 sitemap → 全 URL・creds 不要）
+- 母集合生成: `node scripts/search/list-sitemap-urls.mjs`（公開 sitemap → 全 URL・creds 不要）
 - URL Inspection: `npm run inspect-url -- --file <list>`（2,000 URL/日/property 上限）
-- 集計→履歴: `node scripts/append-coverage-history.mjs --batch <path> --date <YYYY-MM-DD> --sitemap-count N`
-- 既存分析（手順は memory の reference_gsc_diagnosis_toolkit）: `scripts/extract-gsc-coverage-urls.mjs`（未登録の理由ごとの URL 一覧 ex0〜ex4）→ `scripts/analyze-gsc-coverage.mjs`（Inspection と検索の数字の突き合わせ）・`scripts/analyze-hubs.mjs`（hub 強化の優先度）・`scripts/build-noindex-candidates.mjs`（noindex 候補）・`scripts/checks/verify-html-links.mjs`（本番 HTML に内部リンクが出ているか）
+- 集計→履歴: `node scripts/search/append-coverage-history.mjs --batch <path> --date <YYYY-MM-DD> --sitemap-count N`
+- 既存分析（手順は memory の reference_gsc_diagnosis_toolkit）: `scripts/search/extract-gsc-coverage-urls.mjs`（未登録の理由ごとの URL 一覧 ex0〜ex4）→ `scripts/search/analyze-gsc-coverage.mjs`（Inspection と検索の数字の突き合わせ）・`scripts/search/analyze-hubs.mjs`（hub 強化の優先度）・`scripts/search/build-noindex-candidates.mjs`（noindex 候補）・`scripts/checks/verify-html-links.mjs`（本番 HTML に内部リンクが出ているか）
 
 ## データの所在
 

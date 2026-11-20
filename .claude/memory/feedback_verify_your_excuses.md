@@ -23,7 +23,7 @@ metadata:
 ## 見覚えのない差分は自分のコマンドの副産物か先に確認
 2026-09-26、`npm run build`（ピクセル検証）が refresh-indexes を走らせて src/config の5ファイルと frequent-topics 記事を書き換えたのに、「ビルドか別の作業による変更・私の変更ではない」と報告した（実際は自分の build の副産物）。他人のせいにするとユーザーが存在しない並行作業を疑い、正しい片付け（戻す／commit）が遅れる。
 - 未コミット差分を報告する前に、そのセッションで実行した build・refresh-indexes・generate 系の書込先を確認し、`git diff` の中身（generated_at だけか実データか）で帰属と要否を決める。生成物のずれは `npm run check-generated-indexes`。
-- 同日、使い方を見るつもりの `node scripts/normalize-a8-csv.mjs --help` が未知の引数を無視して古い手元 run を取り込み A8 の SSOT 2ファイルを書き換えた（git checkout で復元・引数検証を追加）。**書き込み系スクリプトの使い方は実行せず冒頭 docstring / parseArgs を Read して確認**。
+- 同日、使い方を見るつもりの `node scripts/affiliate/normalize-a8-csv.mjs --help` が未知の引数を無視して古い手元 run を取り込み A8 の SSOT 2ファイルを書き換えた（git checkout で復元・引数検証を追加）。**書き込み系スクリプトの使い方は実行せず冒頭 docstring / parseArgs を Read して確認**。
 - 2026-10-02、構文確認のつもりの `node -e "import('./scripts/report-search-growth.mjs')"` が CLI 本体を実行し `.claude/state/improvements/search-growth-latest.md` を書き換えた（git restore で復元）。**CLI スクリプトの確認は `node --check`、`import()` での確認は副作用の無い lib だけ**。サブエージェントへの指示にも「CLI は実行しない」と書く。同日、`npm run test` が追跡中の `public/quiz` を書き換える既存の副作用も見つかった（DN-0511）ので、テスト後も `git status` で差分の帰属を見る。
 
 ## 異常な件数を見たら、説明を作る前に自分の集計を疑う
@@ -40,7 +40,7 @@ metadata:
 - 書き込み後は `git status --short` / `git diff --stat` / PowerShell `Get-ChildItem`（バイト数）で実体確認してから「完了」と言う。
 - python の print は cp932 で日本語クラッシュ（`UnicodeEncodeError: 'cp932'`）→ `python -X utf8`。日本語の大量出力はファイルに書いて Read。
 - 並列ツール実行は1つの失敗で同一 message 内の全ツールがキャンセル連鎖する。重要な書込・検証・git 操作は逐次（探索的 read のみ並列）。
-- 作業開始時 `git branch --show-current`、commit 前 `git diff --cached --name-only`（[[feedback_multi_session_concurrent_git]]）。白書数値の検証は `scripts/whitepaper-grep-check.mjs`（[[feedback_factcheck_guide_facts]] / [[project_kettei2026_r8_evergreen]]）。
+- 作業開始時 `git branch --show-current`、commit 前 `git diff --cached --name-only`（[[feedback_multi_session_concurrent_git]]）。白書数値の検証は `scripts/content/whitepaper-grep-check.mjs`（[[feedback_factcheck_guide_facts]] / [[project_kettei2026_r8_evergreen]]）。
 
 関連: [[feedback_gate_zero_coverage_false_pass]] [[feedback_ssot_no_hand_copies_self_verify]]
 

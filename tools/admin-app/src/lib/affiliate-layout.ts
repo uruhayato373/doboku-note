@@ -5,7 +5,7 @@ import { datasetDir, datasetFiles } from '../../../../scripts/lib/datasets.mjs';
 
 /**
  * affiliate-layout.ts — 広告配置のスクリーンショット（npm run affiliate:shots の manifest.json）を読む。読み取り専用。
- * 撮影・判定は scripts/affiliate-layout-shots.mjs と scripts/lib/affiliate-layout-judge.mjs。
+ * 撮影・判定は scripts/affiliate/affiliate-layout-shots.mjs と scripts/lib/affiliate-layout-judge.mjs。
  */
 
 export type LayoutCheck = { ok: boolean; detail: string[] };

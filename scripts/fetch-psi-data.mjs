@@ -12,7 +12,7 @@
  *   --top を使う場合のみ GSC サービスアカウント認証が必要。
  *
  * 参照: .claude/skills/nsm-experiment/references/definition.md
- *       scripts/fetch-gsc-data.mjs / scripts/fetch-ga4-data.mjs (パターンの参考)
+ *       scripts/fetch-gsc-data.mjs / scripts/search/fetch-ga4-data.mjs (パターンの参考)
  *
  * Usage:
  *   npm run fetch-psi-data -- --url https://doboku-note.com/

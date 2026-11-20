@@ -182,7 +182,7 @@ test('計測: 新しい回遊の面は internal_nav_click のラベルで分か�
   assert.ok(page.includes('data-cta-label="topic-related"') && page.includes('data-cta-label="topic-page"'), 'テーマページの回遊に計測ラベルが無い');
   assert.ok(read('src/components/category/CategoryTopics.tsx').includes('data-cta-label="category-topics"'), '資格のハブの「テーマから探す」に計測ラベルが無い');
   assert.ok(read('src/components/category/CategoryPage.tsx').includes('<CategoryTopics'), '資格のハブからテーマへのリンクが外れている');
-  assert.ok(read('scripts/fetch-ga4-cta-clicks.mjs').includes('"internal_nav_click"'), 'fetch-ga4-cta-clicks が internal_nav_click を取っていない');
+  assert.ok(read('scripts/search/fetch-ga4-cta-clicks.mjs').includes('"internal_nav_click"'), 'fetch-ga4-cta-clicks が internal_nav_click を取っていない');
 });
 
 test('テーマの有料教材: id は公開中の note の商品を指し、ページは MagazineCard（inline・placement topic-page）で出す', () => {

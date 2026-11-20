@@ -1,5 +1,5 @@
 // growth-triage（純粋ロジック）— 週次レビューが機会ダイジェストの全件を処分するときの検証と台帳への書き込み内容。
-// I/O（ファイル読み書き・git 履歴・スキーマ検査）は scripts/growth-triage.mjs。
+// I/O（ファイル読み書き・git 履歴・スキーマ検査）は scripts/search/growth-triage.mjs。
 //
 // 処分（action）:
 //   backlog    … DN カードを起票（単発実装。CTA 配置・文言、title/description、計測の修理など）

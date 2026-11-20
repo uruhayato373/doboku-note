@@ -71,7 +71,7 @@ jobs:
         run: |
           handle=$(node --input-type=module -e 'import { readDataset } from "./scripts/lib/dataset-io.mjs"; const c = readDataset(process.cwd(), "config.competitors").youtube; console.log(c[0].handle)')
           echo "probe 対象: $handle"
-          node scripts/scout-youtube-competitors.mjs --handle "$handle" --limit 10
+          node scripts/youtube/scout-youtube-competitors.mjs --handle "$handle" --limit 10
 
       - name: Fetch own-channel metrics
         id: fetch

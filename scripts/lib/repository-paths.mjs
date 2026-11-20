@@ -28,7 +28,7 @@ const at = (...segments) => join(REPO_ROOT, ...segments);
  * scripts/ の直下を用途で分けたフォルダ（CLI の置き場。lib・ads など部品や機能単位のフォルダは含めない）。
  * フォルダを足したらここにだけ足す。名前から CLI を引く cliRelPath と、到達しない CLI の検査（check-unreachable-cli）が読む。
  */
-export const CLI_GROUPS = ['checks', 'note', 'coconala', 'x', 'youtube', 'instagram', 'kindle'];
+export const CLI_GROUPS = ['checks', 'note', 'coconala', 'x', 'youtube', 'instagram', 'kindle', 'affiliate', 'search', 'standards', 'content'];
 
 /** CLI の名前（拡張子なし）から、リポジトリ相対のパスを引く。scripts/ の直下か CLI_GROUPS のどれか。見つからなければ投げる */
 export function cliRelPath(name, root = REPO_ROOT) {
@@ -234,6 +234,16 @@ export const RESTRUCTURED_PATHS = [
   [/^scripts\/((?:youtube|video)-[^/]+\.mjs)$/, "scripts/youtube/$1"],
   [/^scripts\/((?:ig|instagram)-[^/]+\.mjs)$/, "scripts/instagram/$1"],
   [/^scripts\/(kdp-[^/]+\.mjs)$/, "scripts/kindle/$1"],
+  // 2026-11-20 に残りのチャネルの CLI と、領域（検索・アフィリエイト・基準書・教材づくり）の CLI を分けた
+  [/^scripts\/((?:prepare-youtube-|refresh-legacy-youtube|brand-video-pack|restore-video-pack|prepare-video-pack|shorts-factory|angle-reel|scout-youtube-)[^/]*\.(?:mjs|mts))$/, "scripts/youtube/$1"],
+  [/^scripts\/((?:prepare-instagram-|publish-instagram-|scout-ig-)[^/]*\.mjs)$/, "scripts/instagram/$1"],
+  [/^scripts\/((?:prepare-x-|scout-x-)[^/]*\.mjs)$/, "scripts/x/$1"],
+  [/^scripts\/((?:scout-note-|wire-note-|reflow-note-|standardize-civil1-note-|distribute-author-)[^/]*\.mjs)$/, "scripts/note/$1"],
+  [/^scripts\/(scout-coconala-[^/]*\.mjs)$/, "scripts/coconala/$1"],
+  [/^scripts\/((?:afb-|affiliate-|moshimo-|normalize-a8-)[^/]*\.mjs)$/, "scripts/affiliate/$1"],
+  [/^scripts\/((?:gsc-|ga4-|google-console-|inspect-url|inspection-|indexnow-|list-sitemap-|psi-|search-|run-search-|growth-|extract-gsc-|analyze-gsc-|analyze-hubs|build-noindex-|verify-html-|normalize-google-|append-coverage-|fetch-gsc-|fetch-ga4-|fetch-bing-)[^/]*\.mjs)$/, "scripts/search/$1"],
+  [/^scripts\/((?:standards-|add-standards-|upload-standards-)[^/]*\.mjs)$/, "scripts/standards/$1"],
+  [/^scripts\/((?:pe-|past-exam-|parse-exam-|keiken-|essay-|split-essay-|book-coverage-|reference-book-|inspect-reference-|notebooklm-|egov-|detect-ocr-|character-extract|whitepaper-|gemini-)[^/]*\.mjs)$/, "scripts/content/$1"],
   [/^scripts\/kindle-specs\/([^/]+)\.json$/, "content/kindle/books/$1/spec.json"],
   [/^scripts\/kindle-covers\/specs\/a-(\d\d)\.json$/, "content/kindle/books/A-$1/cover.json"],
   [/^scripts\/kindle-covers\/specs\/([^/]+)\.json$/, "content/kindle/books/$1/cover.json"],

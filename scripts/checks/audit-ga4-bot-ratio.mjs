@@ -129,7 +129,7 @@ function buildReport(allMap, jpMap, foreignMap, minUsers) {
 }
 
 function loadExistingSpamList() {
-  const fetchPath = "scripts/fetch-ga4-data.mjs";
+  const fetchPath = "scripts/search/fetch-ga4-data.mjs";
   if (!existsSync(fetchPath)) return [];
   const src = readFileSync(fetchPath, "utf-8");
   const match = src.match(/SPAM_REFERRAL_SOURCES\s*=\s*\[([\s\S]*?)\]/);

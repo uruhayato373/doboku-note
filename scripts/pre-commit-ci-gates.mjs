@@ -73,7 +73,7 @@ export const GATES = [
     id: 'note-paid-cta',
     match: (f) => f.startsWith('content/note/') || f === datasetPath('config.note-funnel'),
     // ファイル指定が無いので全量（手元 6 秒）
-    cmd: () => ['node', 'scripts/wire-note-paid-cta.mjs', '--check'],
+    cmd: () => ['node', 'scripts/note/wire-note-paid-cta.mjs', '--check'],
   },
   {
     id: 'search-improvements',

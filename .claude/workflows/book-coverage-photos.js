@@ -16,7 +16,7 @@ const M = args?.root
 if (!M || !M.startsWith('/') && !/^[A-Za-z]:[\\/]/.test(M)) throw new Error('args.root にリポジトリの絶対パスを渡す')
 const items = args.items ?? []
 const DOC = `${M}/.claude/knowledge/reference/book-coverage-expansion.md`
-const COMMIT = `node ${M}/scripts/book-coverage-commit.mjs`
+const COMMIT = `node ${M}/scripts/content/book-coverage-commit.mjs`
 const VERDICTS = (f) => `${M}/.tmp/book-coverage/verdicts-${f}.json`
 
 function limiter(n) {

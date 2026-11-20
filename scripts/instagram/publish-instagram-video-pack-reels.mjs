@@ -1,0 +1,103 @@
+#!/usr/bin/env node
+/**
+ * video-pack 派生 Instagram Reels を、Meta の29日予約窓内だけ Business Suite へ投入する。
+ * 既定 dry-run（先頭1件で最終確定直前まで）。--commit で予約する。
+ */
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { sha256File as sha256 } from '../lib/sha256.mjs';
+import { dirname, join, relative } from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { assertInstagramPublicationReady } from '../lib/instagram-campaign.mjs';
+import { readIgPublication, recordIg } from '../lib/registry-ig-store.mjs';
+import { isSchedulableLedgerRow } from './ig-status.mjs';
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
+import { listFiles } from '../lib/fs-walk.mjs';
+
+const campaign = assertInstagramPublicationReady(ROOT);
+const campaignSchedule = campaign && new Map(campaign.schedule.filter(row => row.format === 'reel').map(row => [row.path, row.publishAt]));
+const BASE = join(ROOT, 'content/sns/instagram/video-packs');
+const PUBLISHER = join(ROOT, 'scripts/publish-ig-bs/publish-ig-bs.ts');
+const argv = process.argv.slice(2);
+const commit = argv.includes('--commit');
+const arg = (name, fallback) => {
+  const index = argv.indexOf(name);
+  return index >= 0 && argv[index + 1] ? argv[index + 1] : fallback;
+};
+const max = Math.max(1, Number(arg('--max', commit ? '999' : '1')) || 1);
+const now = Date.now();
+const minTime = now + 20 * 60 * 1000;
+const maxTime = now + 29 * 24 * 60 * 60 * 1000;
+const metaPaths = [];
+function hydrateVideo(videoPath) {
+  if (existsSync(videoPath)) return;
+  const rel = relative(ROOT, videoPath).replace(/\\/g, '/');
+  console.log(`[ig-video-pack-reels] Driveから復元: ${rel}`);
+  const result = spawnSync('node', [join(ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel, '--commit'], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  });
+  if (result.status !== 0 || !existsSync(videoPath)) throw new Error(`${rel}: Driveから復元できません`);
+}
+// 予約したら台帳へ（書けなければ投げて止める）
+async function recordScheduled(row) {
+  const rel = relative(ROOT, row.packDir).replace(/\\/g, '/');
+  await recordIg(ROOT, rel, 'reel', 'scheduled', { publishAt: row.meta.publishAt });
+  console.log(`[ig-video-pack-reels] 台帳更新: ${rel} → scheduled`);
+}
+metaPaths.push(...listFiles(BASE, { match: (path, name) => name === 'meta.json' && dirname(path).endsWith('/reels'), allowMissing: true, followLinks: true }));
+
+const candidates = (await Promise.all(metaPaths.map(async (metaPath) => {
+  const reelsDir = dirname(metaPath);
+  const packDir = dirname(reelsDir);
+  const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
+  if (campaignSchedule) {
+    const scheduledAt = campaignSchedule.get(relative(ROOT, packDir).replace(/\\/g, '/'));
+    if (!scheduledAt) throw new Error(`固定キャンペーンにないリールです: ${relative(ROOT, packDir)}`);
+    meta.publishAt = scheduledAt;
+  }
+  // 予約してよいかは台帳（正本）で決める。status.json は見ない
+  const ledger = await readIgPublication(ROOT, relative(ROOT, packDir).replace(/\\/g, '/'), 'reel');
+  return { meta, packDir, reelsDir, ledger };
+}))).filter((row) => {
+  const at = new Date(row.meta.publishAt).getTime();
+  if (!row.ledger) { console.warn(`[ig-video-pack-reels] 台帳に行が無いので対象外: ${relative(ROOT, row.packDir)}`); return false; }
+  return isSchedulableLedgerRow(row.ledger) && at >= minTime && at <= maxTime;
+}).sort((a, b) => a.meta.publishAt.localeCompare(b.meta.publishAt)).slice(0, max);
+
+console.log(`[ig-video-pack-reels] ${commit ? 'commit' : 'dry-run'} 対象 ${candidates.length}本（Meta 29日窓）`);
+for (const row of candidates) console.log(`  ${row.meta.publishAt} ${relative(ROOT, row.packDir)}`);
+if (candidates.length === 0) process.exit(0);
+
+for (const row of candidates) {
+  const video = join(row.reelsDir, 'video.mp4');
+  const cover = join(row.reelsDir, 'cover.png');
+  hydrateVideo(video);
+  hydrateVideo(cover);
+  if (!existsSync(video) || !existsSync(cover)) throw new Error(`${row.meta.sourcePackId}/${row.meta.key}: video/cover がありません`);
+  if (row.meta.sha256 !== sha256(video) || row.meta.coverSha256 !== sha256(cover)
+      || !(Number(row.meta.durationSeconds) >= 30 && Number(row.meta.durationSeconds) <= 60)) {
+    throw new Error(`${row.meta.sourcePackId}/${row.meta.key}: 検証済みレンダーではありません`);
+  }
+}
+
+if (commit && candidates.length > 1) {
+  const batchDir = join(ROOT, '.tmp/instagram-video-pack-reels');
+  mkdirSync(batchDir, { recursive: true });
+  const batchFile = join(batchDir, 'publish-batch.json');
+  writeFileSync(batchFile, `${JSON.stringify({ items: candidates.map((row) => ({
+    packArg: row.packDir,
+    schedule: row.meta.publishAt.slice(0, 16),
+  })) }, null, 2)}\n`);
+  const result = spawnSync('npx', ['tsx', PUBLISHER, 'batch', batchFile], { cwd: ROOT, stdio: 'inherit' });
+  if (result.status !== 0) throw new Error('Business Suite 一括予約失敗');
+  for (const row of candidates) await recordScheduled(row);
+} else for (const [index, row] of candidates.entries()) {
+  const dt = row.meta.publishAt.slice(0, 16);
+  const command = ['tsx', PUBLISHER, 'post', row.packDir, '--reel', '--schedule', dt];
+  if (!commit) command.push('--dry-run');
+  console.log(`[${index + 1}/${candidates.length}] ${row.meta.sourcePackId}/${row.meta.key} @ ${dt}`);
+  const result = spawnSync('npx', command, { cwd: ROOT, stdio: 'inherit' });
+  if (result.status !== 0) throw new Error(`${row.meta.sourcePackId}/${row.meta.key}: Business Suite 予約失敗`);
+  if (commit) await recordScheduled(row);
+}
+console.log(`[ig-video-pack-reels] ${commit ? '予約投入' : 'dry-run'} 完了 ${candidates.length}本`);

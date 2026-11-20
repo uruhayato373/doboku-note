@@ -89,7 +89,7 @@ jobs:
           INPUT_MODE: ${{ inputs.mode }}
         run: |
           mkdir -p .tmp
-          node scripts/list-sitemap-urls.mjs > .tmp/all-urls.txt
+          node scripts/search/list-sitemap-urls.mjs > .tmp/all-urls.txt
           echo "SITEMAP_COUNT=$(wc -l < .tmp/all-urls.txt | tr -d ' ')" >> "$GITHUB_ENV"
           if [ "$EVENT" = "schedule" ]; then
             if [ "$SCHEDULE" = "0 2 * * 3" ]; then MODE=new; else MODE=continue; fi
@@ -98,7 +98,7 @@ jobs:
             MODE="${INPUT_MODE:-auto}"
             echo "final=false" >> "$GITHUB_OUTPUT"
           fi
-          node scripts/inspection-cycle.mjs plan --sitemap .tmp/all-urls.txt --mode "$MODE" \
+          node scripts/search/inspection-cycle.mjs plan --sitemap .tmp/all-urls.txt --mode "$MODE" \
             --out .tmp/inspect-urls.txt --carry .tmp/inspection-carry.json --outputs "$GITHUB_OUTPUT"
 
       - name: Fetch fresh GSC page snapshot (28d)
@@ -124,7 +124,7 @@ jobs:
             BEFORE=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
             set +e
             timeout -s INT -k 60 180m \
-              node scripts/inspect-url.mjs --file .tmp/inspect-urls.txt --batch --concurrency 5 --checkpoint-every 100 \
+              node scripts/search/inspect-url.mjs --file .tmp/inspect-urls.txt --batch --concurrency 5 --checkpoint-every 100 \
               > /tmp/inspect.log 2>&1
             rc=$?
             set -e
@@ -146,7 +146,7 @@ jobs:
               *) exit "$rc" ;;
             esac
           fi
-          node scripts/inspection-cycle.mjs merge --sitemap .tmp/all-urls.txt --carry .tmp/inspection-carry.json \
+          node scripts/search/inspection-cycle.mjs merge --sitemap .tmp/all-urls.txt --carry .tmp/inspection-carry.json \
             ${FRESH:+--fresh "$FRESH"} --outputs "$GITHUB_OUTPUT"
 
       - name: Summarize coverage_state (→ job summary)
@@ -196,7 +196,7 @@ jobs:
             echo "partial batch（${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}）: history には追記しない"
             SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) PARTIAL ${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}（周回 ${{ steps.plan.outputs.runs }} 回目） [skip ci]"
           else
-            node scripts/append-coverage-history.mjs \
+            node scripts/search/append-coverage-history.mjs \
               --batch "$LATEST" \
               --date "$(date -u +%Y-%m-%d)" \
               --sitemap-count "${SITEMAP_COUNT:-0}" \

@@ -1,7 +1,7 @@
 /**
  * gsc-sitemaps.mjs（lib）— Search Console の sitemap 送信・読み込み状況の判定（純関数）
  * ---------------------------------------------------------------------------
- * 取得は scripts/gsc-sitemaps.mjs（fetch-metrics.yml・週次・サービスアカウント＝ログイン不要）、
+ * 取得は scripts/search/gsc-sitemaps.mjs（fetch-metrics.yml・週次・サービスアカウント＝ログイン不要）、
  * 週次の見張りは scripts/checks/check-gsc-sitemaps.mjs（weekly-review-guard.yml）。
  * 送るべき sitemap の真実源は本番 robots.txt の `Sitemap:` 行（sitemap.xml と期限内の sitemap-legacy.xml）。
  * ---------------------------------------------------------------------------

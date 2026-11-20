@@ -13,7 +13,7 @@ domain: site
 基準書の章ページを**読者の画面のまま撮り**、**原本のページ画像と見比べて**、崩れ・欠けを章ごとに pass / fail で記録する。
 機械の検査（`check-standard-articles`）が全部 PASS でも、表の記法の文字が画面に出ていた（DN-0916）ことへの対策。
 
-撮影・対象の選定・判定の検証・記録・起票は `scripts/standards-visual-review.mjs` が決める。
+撮影・対象の選定・判定の検証・記録・起票は `scripts/standards/standards-visual-review.mjs` が決める。
 エージェント `standards-page-visual-auditor`（sonnet・audit-only）は撮影を見て判定を書くだけ。
 
 ## いつ回すか

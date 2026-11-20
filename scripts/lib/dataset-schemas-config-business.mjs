@@ -883,7 +883,7 @@ export const ConfigCoconalaAccount = z
 
 // ---- ココナラブログの偵察（config/coconala-blog.json） ------------------------------------------
 
-/** ココナラブログ（記事型）の偵察対象と運用値。scripts/scout-coconala-blogs.mjs が読む */
+/** ココナラブログ（記事型）の偵察対象と運用値。scripts/coconala/scout-coconala-blogs.mjs が読む */
 export const ConfigCoconalaBlog = z
   .object({
     schemaVersion: z.literal(1),
@@ -993,7 +993,7 @@ export const ConfigPeAnswerSheets = z
 const LIMIT_KEYS = ['current2_q1', 'current2_q2', 'legacy3_q1', 'legacy3_q2', 'legacy3_q3', 'yosou'];
 const limitEntry = z.object({ maxChars: positiveInt.describe('解答欄の字数上限'), label: text }).strict();
 
-/** 1級・2級土木 第二次検定 問題 1（施工経験記述）の解答欄しきい値。キーは scripts/keiken-charcount.mjs が読む snake_case */
+/** 1級・2級土木 第二次検定 問題 1（施工経験記述）の解答欄しきい値。キーは scripts/content/keiken-charcount.mjs が読む snake_case */
 export const ConfigKeikenAnswerSheetLimits = z
   .object({
     schemaVersion: z.literal(1),

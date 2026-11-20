@@ -27,5 +27,5 @@ test('Google の画面ログインは CI で使わない（Google が Mac 側の
   assert.ok(g, 'registry に google が無い');
   // ci ブロックは無く、画面 CSV の収集 script は collectors（エージェントのセッションでは拒否・土曜の Mac 収集と運営者だけ）
   assert.equal('ci' in g, false);
-  assert.deepEqual(g.collectors, ['scripts/fetch-gsc-ui-csv.mjs', 'scripts/fetch-ga4-ui-csv.mjs']);
+  assert.deepEqual(g.collectors, ['scripts/search/fetch-gsc-ui-csv.mjs', 'scripts/search/fetch-ga4-ui-csv.mjs']);
 });

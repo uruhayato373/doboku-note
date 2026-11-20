@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { weightedScore, agreement, familyOf } from '../scripts/gemini-scoring-trial.mjs';
+import { weightedScore, agreement, familyOf } from '../scripts/content/gemini-scoring-trial.mjs';
 import { interactionText, parseJsonReply } from '../scripts/lib/gemini-api.mjs';
 
 test('weightedScore: 重みで合計し、0 点の軸があれば 1.0 にクランプする', () => {

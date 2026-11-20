@@ -23,7 +23,7 @@ function summarize(list: LayoutShot[]): { text: string; tone: 'good' | 'bad' | '
 
 /**
  * /affiliate/layout — 広告配置のスクリーンショット。ページの種類 × 画面幅の判定一覧と、選んだページの案ごとの全面画像。
- * 撮影は npm run affiliate:shots（scripts/affiliate-layout-shots.mjs）。画面からは実行しない。
+ * 撮影は npm run affiliate:shots（scripts/affiliate/affiliate-layout-shots.mjs）。画面からは実行しない。
  */
 export default async function AffiliateLayoutPage({ searchParams }: { searchParams: Promise<{ target?: string }> }) {
   const manifest = latestLayoutManifest();

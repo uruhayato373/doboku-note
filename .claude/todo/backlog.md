@@ -511,14 +511,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1260] scripts/checks/・チャネル別への移動で残した転送 23 本を、main へ deploy したあとで消す
+### [DN-1260] scripts/ 直下の整理で残した転送 33 本を、main へ deploy したあとで消す
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-20]
 
 **起点**: 2026-11-20、scripts/ 直下の検査 249 本を scripts/checks/ へ分けた。定期実行のワークフローは定義が main・checkout が develop なので、main の定義が旧パスで呼ぶ 17 本に転送（旧パスに置いた、新パスを子プロセスで呼ぶだけのファイル）を残した（scripts/check-data-integrity.mjs など。冒頭に「転送だけ」と書いてある）。
 
-同日にチャネルの CLI を scripts/<チャネル>/ へ分けたときも、YouTube の 6 本（youtube-own-metrics など）に同じ転送を残した。
+同日にチャネルの CLI を scripts/<チャネル>/ へ分けたときも、YouTube の 6 本（youtube-own-metrics など）に、領域のフォルダへ分けたときも検索の 9 本と scout-youtube-competitors に同じ転送を残した。
 
-**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 23 本（検査 17・YouTube 6）を消す。
+**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 33 本（検査 17・YouTube 7・検索 9）を消す。
 
 **完了条件**: `git grep -l '^// 転送だけ' scripts/` が 0 件で、`check-main-workflow-paths` が通る。
 
@@ -640,7 +640,7 @@
 
 **起点**: 2026-11-15 の施工管理基準 30 章の画面判定（DN-1213・DN-1216）で、作業票の `sourceImages`／shots の `sourcePages` が全章で空になり、判定役が原本のページ画像と見比べられなかった（画面が読めるかだけの判定になった）。
 
-**原因**（DN-1216 の調査）: ページ画像は Drive vault に 269 ページ分ある。`scripts/standards-visual-review.mjs`（353 行付近）は正規 Markdown の要素数と表示後の要素数を順番で照合し、数が合わないと対応付け（mdPages）を null にする。表を見出し＋3 列以下に組み直した文書（`mlit/sekou-kanri-kijun`）は 1 つの元の表が複数の表になるので数が合わない（9-4 は 12 要素 → 27 表）。
+**原因**（DN-1216 の調査）: ページ画像は Drive vault に 269 ページ分ある。`scripts/standards/standards-visual-review.mjs`（353 行付近）は正規 Markdown の要素数と表示後の要素数を順番で照合し、数が合わないと対応付け（mdPages）を null にする。表を見出し＋3 列以下に組み直した文書（`mlit/sekou-kanri-kijun`）は 1 つの元の表が複数の表になるので数が合わない（9-4 は 12 要素 → 27 表）。
 
 **やること**: 組み直した表（`<section data-standard-table="…">`・`*.grouped.json` の key とページ）から、表示後の表ごとに原本のページを引けるようにする。直したら施工管理基準 30 章を原本と見比べて判定し直す。
 
@@ -2811,7 +2811,7 @@ Windows の PowerShell で repo 直下から順に:
 
 **やること**:
 
-1. 生成テンプレート（`scripts/prepare-youtube-longforms.mts` の description）を「1行目＝要約、2〜3行目＝▼主CTA＋URL」に変える。パック固有の主CTAは従来どおりとし、季節の主商品（一次期＝模試・論点、二次期＝経験記述の診断・添削）を置くかは 07 §6 の切替に従う。
+1. 生成テンプレート（`scripts/youtube/prepare-youtube-longforms.mts` の description）を「1行目＝要約、2〜3行目＝▼主CTA＋URL」に変える。パック固有の主CTAは従来どおりとし、季節の主商品（一次期＝模試・論点、二次期＝経験記述の診断・添削）を置くかは 07 §6 の切替に従う。
 2. 制作表記を「技術士（建設部門・総合技術監理部門）・1級土木施工管理技士」に直す。`scripts/update-youtube-authority-metadata.mjs` は最初の「▼」の前に表記を差し込むので、リンクを冒頭へ移すと表記まで上がる。差し込み位置も合わせて直す。
 3. 全 `youtube.json` を再生成し、予約済み・公開済み（`.claude/state/video-content-status.json` の longform と Shorts）へ `publish-video-pack.cjs --phase metadata` で同期する。ローカルに YouTube の資格情報が無いため、CI から実行する経路を用意する。
 

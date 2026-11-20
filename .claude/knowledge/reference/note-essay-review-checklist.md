@@ -71,11 +71,11 @@ title: note 模範論文レビュー手順書
 
 ## Step 2: 字数実測（最優先・決定論ツール）
 
-**真実源ツール**: `scripts/essay-shisaku-charcount.mjs`（施策ブロックの CJK 字数を計測し 600 字超過を検出する決定論ゲート）。
+**真実源ツール**: `scripts/content/essay-shisaku-charcount.mjs`（施策ブロックの CJK 字数を計測し 600 字超過を検出する決定論ゲート）。
 
 ```bash
-node scripts/essay-shisaku-charcount.mjs "総監模範論文-{persona}" --detail   # ブロック別明細
-node scripts/essay-shisaku-charcount.mjs "総監模範論文-{persona}" --strict    # 超過1件で exit 1（ゲート）
+node scripts/content/essay-shisaku-charcount.mjs "総監模範論文-{persona}" --detail   # ブロック別明細
+node scripts/content/essay-shisaku-charcount.mjs "総監模範論文-{persona}" --strict    # 超過1件で exit 1（ゲート）
 ```
 
 - 施策見出しは **`### 施策N:` / `### 方法N` / `### 戦略N`** で統一する（R08 予想等で `**施策N:**` 太字インラインにすると 2 施策が 1 ブロックに合算され誤計上する。必ず `###` 見出しにする）。
@@ -122,7 +122,7 @@ grep -nE "^- \*\*(内容|根拠|効果|障害|課題|方法|利活用|リスク|
 導入部の散文に である調（`〜である。` `〜であり、` `〜だった` `〜だ。` `〜ではない。`）が混じると文体混在。検出：
 
 ```
-node scripts/essay-shisaku-charcount.mjs "{persona}"   # 「導入部文体混在(警告) N」を確認
+node scripts/content/essay-shisaku-charcount.mjs "{persona}"   # 「導入部文体混在(警告) N」を確認
 ```
 
 混在は**警告**（`--strict` の exit には含めない＝既存記事の許容は人間判断）だが、**新規生成時は導入部をですますで書き、警告 0 を目指す**。注: 「であること（です）」のような連体形・「のではなく」のような連結語は である調ではない（ツールも除外済み）。
@@ -134,13 +134,13 @@ node scripts/essay-shisaku-charcount.mjs "{persona}"   # 「導入部文体混�
 既存記事への一括適用は専用スクリプト（冪等・導入部のみ対象）を使う：
 
 ```
-node scripts/split-essay-intro-paragraphs.mjs 自治体下水道担当 --dry   # プレビュー
-node scripts/split-essay-intro-paragraphs.mjs 自治体下水道担当         # 適用
+node scripts/content/split-essay-intro-paragraphs.mjs 自治体下水道担当 --dry   # プレビュー
+node scripts/content/split-essay-intro-paragraphs.mjs 自治体下水道担当         # 適用
 ```
 
 frontmatter 後〜「## 試験問題/予想問題/A 案」直前の非構造行の内部「。」のみを「。\n\n」へ置換し、末尾の。や 。」、見出し・箇条書き・URL・引用は分割しない。再実行しても変化しない（冪等）。
 
-> **ツール使い分け**: 上記 `split-essay-intro-paragraphs.mjs` は essay マガジンの**導入部に特化**（1 文 1 段落・誤分割回避ロジックあり）。一般の note 記事（入口/ガイド/キーワードページ等）の本文段落を短くするときは汎用ツール `npm run note-reflow -- [--target N] <file|dir>`（`scripts/reflow-note-paragraphs.mjs`、>120 字を文境界で再パッキング・1〜2 文/段落・語句不変）を使う。note-reflow も「## 試験問題」以降の答案本文は自動保護するため essay 記事に誤適用しても答案は割れない。真実源: `content-principles.md §14-e`。
+> **ツール使い分け**: 上記 `split-essay-intro-paragraphs.mjs` は essay マガジンの**導入部に特化**（1 文 1 段落・誤分割回避ロジックあり）。一般の note 記事（入口/ガイド/キーワードページ等）の本文段落を短くするときは汎用ツール `npm run note-reflow -- [--target N] <file|dir>`（`scripts/note/reflow-note-paragraphs.mjs`、>120 字を文境界で再パッキング・1〜2 文/段落・語句不変）を使う。note-reflow も「## 試験問題」以降の答案本文は自動保護するため essay 記事に誤適用しても答案は割れない。真実源: `content-principles.md §14-e`。
 
 PDF は `試験問題 → 採点者視点` のみ収録のため、導入部の段落分割は **PDF に影響しない**（再生成不要）。
 
@@ -317,7 +317,7 @@ note でマガジンを作成する際は、**マガジン名・説明・価格�
 | ゲート | コマンド | 合格条件 |
 |---|---|---|
 | ペルソナ採否・分野ラベル | Step 0 / Step 0b（目視） | 真正な経験座（GO）／専門分野が正しい技術士選択科目 or 役割ベース一般化（他部門科目の流用なし） |
-| 字数・散文性 | `node scripts/essay-shisaku-charcount.mjs "{persona}" --strict` | 超過0・箇条書き混入0・答案箇条書き0 |
+| 字数・散文性 | `node scripts/content/essay-shisaku-charcount.mjs "{persona}" --strict` | 超過0・箇条書き混入0・答案箇条書き0 |
 | 導入部の文体（警告） | 同上（`--strict`なしで「導入部文体混在(警告) N」） | 新規は N=0（導入部ですます統一・Step 3b） |
 | note 互換 | `node scripts/note/note-lint.mjs $(find …/{persona} -name article.md)` | 表・太字内全角括弧・文字化け 0 |
 | 見出し構成 | `node scripts/checks/check-essay-heading-structure.mjs "{persona}" --strict` | 構造違反0（特にR08） |

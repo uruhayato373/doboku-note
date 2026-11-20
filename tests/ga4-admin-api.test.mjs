@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { planAdmin, classifyAdminError } from '../scripts/ga4-admin-api.mjs';
+import { planAdmin, classifyAdminError } from '../scripts/search/ga4-admin-api.mjs';
 
 const desired = {
   customDimensions: [{ parameterName: 'event_label' }, { parameterName: 'cta_placement' }],

@@ -3,7 +3,7 @@
  * check-magazine-wiring.mjs — keiken マガジン配線もれ 再発防止ゲート
  * ---------------------------------------------------------------------------
  * 背景: 新しい keiken マガジン（1級・2級土木 施工経験記述系）を追加したのに、
- *   字数ツール `scripts/keiken-charcount.mjs` の探索フィルタ更新を忘れると、
+ *   字数ツール `scripts/content/keiken-charcount.mjs` の探索フィルタ更新を忘れると、
  *   そのマガジンの答案が解答欄字数チェックを **素通り** する
  *   （2026-07-01 想定工事バンクで実際に発生：dir 名に「経験記述」が無く一括スキップ）。
  *
@@ -50,7 +50,7 @@ if (staged) {
   const relevant = changed.split('\n').some((p) =>
     /content\/note\/1級・2級土木\/[12]級土木\/magazines\//.test(p)
     || p.includes('src/lib/note-magazines.ts')
-    || p.includes('scripts/keiken-charcount.mjs'));
+    || p.includes('scripts/content/keiken-charcount.mjs'));
   if (!relevant) __exit(0); // keiken マガジン/字数ツールに無関係な commit → スキップ
 }
 
@@ -85,7 +85,7 @@ for (const base of BASES) {
 if (violations.length) {
   console.error('[check-magazine-wiring] ✗ keiken マガジンが keiken-charcount の探索対象から漏れています:');
   for (const v of violations) console.error(`  - ${v}`);
-  console.error('\n対処: scripts/keiken-charcount.mjs の defaultTargets フィルタ（と isKeikenArticle）に');
+  console.error('\n対処: scripts/content/keiken-charcount.mjs の defaultTargets フィルタ（と isKeikenArticle）に');
   console.error('  このマガジン名の判別語を追加し、本ガード（check-magazine-wiring.mjs）の COVERED も同期する。');
   console.error('  漏れると答案の解答欄字数超過が pre-commit で検知されず素通りします（2026-07-01 再発防止）。');
   __exit(1);

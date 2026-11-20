@@ -45,7 +45,7 @@
     },
     {
       "id": "triage",
-      "command": "node scripts/growth-triage.mjs list --json",
+      "command": "node scripts/search/growth-triage.mjs list --json",
       "rc": 0,
       "status": "pass",
       "durationMs": 158,

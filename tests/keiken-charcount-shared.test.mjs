@@ -16,9 +16,9 @@ test('タグ・バッククォート・*・空白を除き、コードポイン�
 });
 
 test('サイトの字数ツールとスクリプトが同じ関数を使い、自前の定義を持たない', () => {
-  for (const p of ['src/app/tools/keiken-charcount/KeikenCharcountClient.tsx', 'scripts/keiken-charcount.mjs']) {
+  for (const p of ['src/app/tools/keiken-charcount/KeikenCharcountClient.tsx', 'scripts/content/keiken-charcount.mjs']) {
     const src = readFileSync(p, 'utf8');
-    assert.match(src, /import \{ countAnswerChars \} from ['"](?:@\/lib|\.\.\/src\/lib)\/keiken-charcount\.mjs['"]/, `${p} が共有の関数を import していない`);
+    assert.match(src, /import \{ countAnswerChars \} from ['"](?:@\/lib|(?:\.\.\/)+src\/lib)\/keiken-charcount\.mjs['"]/, `${p} が共有の関数を import していない`);
     assert.doesNotMatch(src, /function countChars\s*\(/, `${p} に自前の countChars がある`);
   }
 });

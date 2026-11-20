@@ -10,7 +10,7 @@
     "scripts/build-note-published-index.mjs": 1,
     "scripts/build-quality-census.mjs": 3,
     "scripts/build-svg-catalog.mjs": 2,
-    "scripts/detect-ocr-suspects.mjs": 1,
+    "scripts/content/detect-ocr-suspects.mjs": 1,
     "scripts/checks/lint-mdx-mobile.mjs": 2,
     "scripts/check-mdx/rules/explanations/audit.mjs": 1,
     "scripts/check-mdx/rules/svg/audit.mjs": 1,

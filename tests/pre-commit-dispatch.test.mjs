@@ -30,7 +30,7 @@ const LEGACY = [
   ['scripts/checks/lint-ja.mjs', ['--staged'], 'always'],
   ['scripts/checks/lint-mdx-mobile.mjs', ['--baseline', '--ci', '<published staged mdx>'], { contentQuality: true }],
   ['scripts/checks/check-note-charlimits.mjs', ['--staged'], 'always'],
-  ['scripts/keiken-charcount.mjs', ['--staged', '--strict'], 'always'],
+  ['scripts/content/keiken-charcount.mjs', ['--staged', '--strict'], 'always'],
   ['scripts/checks/check-magazine-wiring.mjs', ['--staged'], 'always'],
   ['scripts/checks/check-magazine-cta-reachability.ts', ['--ci'], { staged: /^src\/lib\/(note-magazines|magazine-placement|hub-cta)\.ts$/, orAddedArticle: true }],
   ['scripts/checks/check-note-price-consistency.mjs', ['--staged'], 'always'],

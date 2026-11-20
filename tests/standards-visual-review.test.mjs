@@ -9,7 +9,7 @@ import {
   selectTargets,
   summarizeStatus,
   STALE_DAYS,
-} from '../scripts/standards-visual-review.mjs';
+} from '../scripts/standards/standards-visual-review.mjs';
 import { inspectInPage } from '../scripts/lib/rendered-page-inspect.mjs';
 
 test('parsePages: 単一・範囲・列挙', () => {
