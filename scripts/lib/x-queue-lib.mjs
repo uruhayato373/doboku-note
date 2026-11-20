@@ -55,6 +55,18 @@ export function parseDatesFromRaw(raw, now) {
 }
 
 /**
+ * 日時を決めずに置いておくストックの印。tweets.md に HTML コメントで 1 行書く:
+ *   <!-- x-stock: x-c1-restart-2027 -->（載せる先の年間計画の枠 id か、担当のカード番号）
+ * 日付が 1 件も読めない下書きでも、印があれば「判定不能（要対応）」でなく「ストック」に数える。
+ * @param {string} raw tweets.md の中身
+ * @returns {string|null} 印の値（無ければ null）
+ */
+export function parseStockMarker(raw) {
+  const m = String(raw || "").match(/<!--\s*x-stock:\s*([^\s>](?:[^>]*?[^\s>])?)\s*-->/);
+  return m ? m[1] : null;
+}
+
+/**
  * status.json の中身から投入状況を集計する。
  * `lastScheduled` は queued の最終日時。連続した予約の充足は保証しない。
  * @param {unknown} data パース済み status.json（壊れていれば null を渡す）

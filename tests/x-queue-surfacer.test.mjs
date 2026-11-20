@@ -13,7 +13,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseDatesFromRaw, summarizeStatus } from '../scripts/lib/x-queue-lib.mjs';
+import { parseDatesFromRaw, parseStockMarker, summarizeStatus } from '../scripts/lib/x-queue-lib.mjs';
 
 const NOW = new Date(2026, 7, 17); // 2026-08-17
 const md = (...headers) => headers.map((h) => `## Tweet ${h}`).join('\n\n本文\n\n');
@@ -117,4 +117,16 @@ test('summarizeStatus: replaced・cancelled は retired に数え、未投入に
   assert.equal(r.queued, 1);
   assert.equal(r.retired, 2);
   assert.equal(r.posted, 0);
+});
+
+test('ストックの印: HTML コメントの x-stock だけを読み、値を返す', () => {
+  assert.equal(parseStockMarker('# 図解\n\n<!-- x-stock: x-c1-restart-2027 -->\n\n## Tweet 01: 本文'), 'x-c1-restart-2027');
+  assert.equal(parseStockMarker('<!--x-stock:DN-0220-->'), 'DN-0220');
+});
+
+test('ストックの印: 無い・コメントの外・値が空なら null', () => {
+  assert.equal(parseStockMarker('# 図解\n\n## Tweet 01: 本文'), null);
+  assert.equal(parseStockMarker('x-stock: x-c1-restart-2027 と本文に書いただけ'), null);
+  assert.equal(parseStockMarker('<!-- x-stock: -->'), null);
+  assert.equal(parseStockMarker(''), null);
 });

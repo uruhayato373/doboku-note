@@ -1,5 +1,7 @@
 # 土工・コンクリートの図解
 
+<!-- x-stock: x-c1-restart-2027 -->
+
 ## Tweet 01: 【1級土木施工管理技士】温度ひび割れ
 
 <!-- 画像: img/tweet-01-thermal-cracking.png -->
