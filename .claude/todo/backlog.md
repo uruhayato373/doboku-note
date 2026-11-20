@@ -3056,6 +3056,19 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1257] Kindle の題名と価格の正本を products.json と spec.json のどちらかに決める
+タグ: [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-11-20]
+
+**起点**: 2026-11-20、scripts/ のデータ置き場を整理したとき（PR #1676〜#1681）。Kindle の題名と価格の正本が文書によって食い違っている。`.claude/rules/operations.md` は「`config/products.json`（priceJpy）が正本」、`scripts/lib/dataset-schemas-config-business.mjs` の ConfigKdpMemo の説明は「題名・価格は `content/kindle/books/<id>/spec.json` が正本」。今は `check-kindle-prices` が両者の一致を見ているので壊れてはいない。
+
+**やること**:
+1. 提出・価格改定の流れ（`kdp-publish.mjs --set-price`・`gen-kdp-memo`・ビルダー）がどちらを読み、どちらへ書くかを確かめる。
+2. 片方を正本に決め、もう片方は正本から引く（写しを持たない）か、検査で一致を保つ理由を書く。
+3. 文書 2 か所の記述をそろえる。
+
+**完了条件**: 題名と価格の正本が 1 か所に決まり、rules・型の説明・kdp-operator の記述が同じことを言う。
+
+
 ### [DN-1256] 到達しない CLI のうち判断待ちの 15 本を、消すか残すか決める
 タグ: [領域:管理] [種類:改善] [起票:2026-11-19]
 
