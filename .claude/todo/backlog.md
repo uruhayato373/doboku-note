@@ -511,6 +511,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1260] scripts/checks/ への移動で残した転送 17 本を、main へ deploy したあとで消す
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-20]
+
+**起点**: 2026-11-20、scripts/ 直下の検査 249 本を scripts/checks/ へ分けた。定期実行のワークフローは定義が main・checkout が develop なので、main の定義が旧パスで呼ぶ 17 本に転送（旧パスに置いた、新パスを子プロセスで呼ぶだけのファイル）を残した（scripts/check-data-integrity.mjs など。冒頭に「転送だけ」と書いてある）。
+
+**やること**: main へ deploy したあと、`npm run check-main-workflow-paths` が転送なしで通ることを確かめてから、scripts/ 直下の転送 17 本を消す。
+
+**完了条件**: `git grep -l '^// 転送だけ' scripts/` が 0 件で、`check-main-workflow-paths` が通る。
+
+
 
 
 
