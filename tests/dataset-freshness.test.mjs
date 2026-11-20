@@ -120,7 +120,7 @@ test('読み手は閾値を台帳から読む（検査・管理画面に写し�
     ['tools/admin-app/src/lib/note-status.ts', 'note.magazines'],
     ['tools/admin-app/src/lib/note-status.ts', 'note.status'],
     ['scripts/checks/check-growth-triage.mjs', 'analysis.growth-digest'],
-    ['scripts/report-web-vitals.mjs', 'rum.web-vitals'],
+    ['scripts/reports/report-web-vitals.mjs', 'rum.web-vitals'],
     ['scripts/checks/check-ga4-custom-dimensions.mjs', 'ga4.admin-inventory'],
     ['scripts/lib/qualification-market.mjs', 'analysis.qualification-market'],
     ['scripts/checks/check-afb-outcomes-freshness.mjs', 'afb.outcomes'],
@@ -130,7 +130,7 @@ test('読み手は閾値を台帳から読む（検査・管理画面に写し�
     ['scripts/lib/gsc-sitemaps.mjs', 'gsc.sitemaps'],
     ['scripts/checks/check-a8-report-due.mjs', 'a8.ui-last-run'],
     ['scripts/checks/check-gsc-ui-due.mjs', 'gsc.ui-last-run'],
-    ['scripts/report-career-funnel.mjs', 'ga4.reports'],
+    ['scripts/reports/report-career-funnel.mjs', 'ga4.reports'],
   ];
   for (const [file, id] of readers) {
     const src = readFileSync(join(ROOT, file), 'utf8');

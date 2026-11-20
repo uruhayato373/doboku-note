@@ -1,10 +1,10 @@
 {
   "_doc": "どこからも呼ばれない CLI の既知の一覧（check-unreachable-cli のラチェット）。消すか呼び出し元を作ったら行を消す。増やすときは呼ばれない理由を確かめてから --update-baseline",
   "unreachable": [
-    "scripts/render-figure-2c-entry-cluster.mjs",
-    "scripts/render-figure-2c-essay-cluster.mjs",
-    "scripts/render-figure-2c-essay-fail.mjs",
-    "scripts/render-figure-civil1-essay-cluster.mjs",
-    "scripts/render-figure-soukan-analysis.mjs"
+    "scripts/build/render-figure-2c-entry-cluster.mjs",
+    "scripts/build/render-figure-2c-essay-cluster.mjs",
+    "scripts/build/render-figure-2c-essay-fail.mjs",
+    "scripts/build/render-figure-civil1-essay-cluster.mjs",
+    "scripts/build/render-figure-soukan-analysis.mjs"
   ]
 }

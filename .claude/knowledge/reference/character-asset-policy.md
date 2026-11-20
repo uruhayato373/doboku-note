@@ -56,9 +56,9 @@ content/sns/_assets/character/
 管理画面の「表示する切り取り」で実プレビューを切り替え、「書き出し幅」で人物素材の幅を指定する。原寸を超える指定は警告し、引き伸ばさず原寸に留める。原画像保存と派生PNG保存は別の操作。要修正・未確認素材は確認用プレビューと原画像保存だけを許可し、通常の派生書き出しは拒否する。
 
 ```bash
-node scripts/render-character-frames.mjs --all                              # 全ポーズ・全形の生成検証（保存なし）
-node scripts/render-character-frames.mjs --pose pointing --frame bust --width 720 --commit
-node scripts/render-character-frames.mjs --all --commit                      # 使用可能な形をまとめて保存
+node scripts/build/render-character-frames.mjs --all                              # 全ポーズ・全形の生成検証（保存なし）
+node scripts/build/render-character-frames.mjs --pose pointing --frame bust --width 720 --commit
+node scripts/build/render-character-frames.mjs --all --commit                      # 使用可能な形をまとめて保存
 ```
 
 派生PNGと来歴（原本/出力sha256・切り取り座標・実寸）は `.tmp/character-frames/run-*/` の一時生成物。原画像は複製・上書きせず、Gitには設定とコードだけ追加する。成果物の恒久保存が必要な投稿では既存の投稿素材ディレクトリへ採用し、[アセット置き場](./asset-storage-policy.md)に従う。CLIは要求数・生成数・適用不可と理由・失敗を分けて報告し、失敗または生成0件ならexit 1。
@@ -102,8 +102,8 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | **サイト CTA で使うポーズの選定** | 同 manifest の **`siteCta: true`**（ここが唯一の真実源。スクリプトも型もこれに従う） |
 | 保存場所・命名・生成/抽出手順・チャネル運用 | 本ドキュメント |
 | 透過抽出（追加ポーズ） | `scripts/content/character-extract.mjs`（`npm run character-extract`） |
-| 円形アイコン（紺グラデ背景・SNS プロフィール用マスター） | `scripts/generate-character-icons.mjs`（`npm run character-icons`）→ `icons/{pose}-{800,400,180}.png` |
-| サイト CTA 配信アバター（上記アイコンの派生） | `scripts/build-character-avatars.mjs`（`npm run character-avatars`）→ `public/images/character/avatar-{pose}.webp` |
+| 円形アイコン（紺グラデ背景・SNS プロフィール用マスター） | `scripts/build/generate-character-icons.mjs`（`npm run character-icons`）→ `icons/{pose}-{800,400,180}.png` |
+| サイト CTA 配信アバター（上記アイコンの派生） | `scripts/build/build-character-avatars.mjs`（`npm run character-avatars`）→ `public/images/character/avatar-{pose}.webp` |
 | 上記 3 者の整合ゲート | `scripts/checks/check-character-avatars.mjs`（`npm run check-character-avatars`・`quality:audit` の ci ゲート） |
 
 - 円の意匠（トリミング・紺グラデ）の真実源は `generate-character-icons.mjs` に一本化し、`build-character-avatars.mjs` は**サイズ/形式を落とす派生層**に徹する（意匠の二重管理を避ける）。

@@ -14,7 +14,7 @@ KDP で公開した本の ASIN・版・配布物を人が引くための表。20
 
 ## 版管理（継続的改善）
 
-EPUB を更新して KDP に再アップしたら、正本の当該本の `version` を上げ `versionHistory` に1行足す（例: A-01 は解説補完後の再アップで `1.0 → 1.1`）。リビルドは `node <builder> --theme <buildTheme>` で再現できる（両フィールドは catalog に記録済み）。上げた EPUB と表紙は `scripts/kindle-dist/` に置き、`node scripts/asset-offload.mjs --group kindle-dist --include-untracked --commit` で R2 へ上げる。
+EPUB を更新して KDP に再アップしたら、正本の当該本の `version` を上げ `versionHistory` に1行足す（例: A-01 は解説補完後の再アップで `1.0 → 1.1`）。リビルドは `node <builder> --theme <buildTheme>` で再現できる（両フィールドは catalog に記録済み）。上げた EPUB と表紙は `scripts/kindle-dist/` に置き、`node scripts/storage/asset-offload.mjs --group kindle-dist --include-untracked --commit` で R2 へ上げる。
 
 ## 書式インバリアント検査（全シリーズ共通）
 

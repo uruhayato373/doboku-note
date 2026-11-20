@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generator": "scripts/build-standard-articles.mjs",
+  "generator": "scripts/build/build-standard-articles.mjs",
   "agencyId": "hokkaido",
   "agencyName": "北海道開発局",
   "documentId": "appendix",
@@ -133,8 +133,8 @@
         28
       ],
       "sourceSha256": "00a0de55d95425a812828dbc3c21d042bdecbe5bf7c1619d7fd0235f21af4935",
-      "outputSha256": "b72269640b15a162e313f298efda547b7b9a5dcb163fdc0627612633ee2c17f1",
-      "outputBytes": 28681,
+      "outputSha256": "8d15d138a04ccd39413f08f2f3f4ecd70f5a472c76810830f72dc4c7e4fbeb87",
+      "outputBytes": 28687,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -178,8 +178,8 @@
         30
       ],
       "sourceSha256": "7fe49aeb85f8ed82a96dd206804bcf4365257bb20991f95959a11e2359f87214",
-      "outputSha256": "2dd719b72328454e6572f89ff7a766a5e0cfeb4c72bd7ceec0b66ad6b2741105",
-      "outputBytes": 2075,
+      "outputSha256": "5f6fe821ecbeffc383cea302162e2df86dab500400615e723aa99bc9e5308cf2",
+      "outputBytes": 2081,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -221,8 +221,8 @@
         32
       ],
       "sourceSha256": "d456a44959a407b1e0269351282320e8b1ecd0a8c180c803f6b3e8f8eec30381",
-      "outputSha256": "910b4170d91eeaceefa1f4ba7450fdc0dd26c7174f0a8e79957c465ea23e1a35",
-      "outputBytes": 3079,
+      "outputSha256": "5f5d560819525ca07b139aa187fe81452e812c1a16ae74f83d7b7c7705060921",
+      "outputBytes": 3085,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -280,8 +280,8 @@
         48
       ],
       "sourceSha256": "329770f709d6f11a9729c4980e8fa4fe8a44e5eeea3210966e5cf757e00a95e1",
-      "outputSha256": "0e4888622c3bd74258166fab46380a5c526ecd6a2cd6b203cd786cea181b2b87",
-      "outputBytes": 25286,
+      "outputSha256": "a1fd772104f26dfce55f34a605a0c5d4c0adfca89018ac547282a8ddb6bd2ff5",
+      "outputBytes": 25292,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -330,8 +330,8 @@
         54
       ],
       "sourceSha256": "fef24912bf19436378605073f15f63f98e1e51054767ae35204230f58ef76707",
-      "outputSha256": "f95cdf524a4b1884306d6de4c9b670d544b951996323cc2b812dee524a6aed4c",
-      "outputBytes": 14194,
+      "outputSha256": "b149d67dd2a405771068386e4c5ee77261450ad3a967e0e8dde5ed5178174fff",
+      "outputBytes": 14200,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -426,8 +426,8 @@
         106
       ],
       "sourceSha256": "e8c291344b433cb363625a302197a018f47d2ffb51c536436f2cb1de39a17671",
-      "outputSha256": "6120c25d4ba8bfcb58cdb941f1c1e6d1b8bf1110461b0fdb5b448f6c8339a195",
-      "outputBytes": 43174,
+      "outputSha256": "1f5def79983ebee1596ed87dd8b155fe4937561c968ff6d3af1c2bccf0528f7c",
+      "outputBytes": 43180,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -476,8 +476,8 @@
         115
       ],
       "sourceSha256": "dcfa2a9e404592ac3b4f060b4cbc776ca25063c1d31f20b44c3d17df17509a46",
-      "outputSha256": "76c84f6ae80d5aa2c3a36d813c2d3d4753cc0c2580df48f8168318d335b5ac6c",
-      "outputBytes": 18689,
+      "outputSha256": "00b8b3ee7a1cd965dde5f5cb97d215dd74e92af1392a691c1342b87f108071bd",
+      "outputBytes": 18695,
       "splitBySection": false,
       "sections": [],
       "plainArticles": true,
@@ -531,8 +531,8 @@
         126
       ],
       "sourceSha256": "a4c77842c54d88b5bdb8c5b680b844f8b9973b2dfa22be7a5f0d8499feb114e7",
-      "outputSha256": "f2c065867495807262ee6a15d0d44ecdcdce069513c16a8ea115fe5f46a3b9f8",
-      "outputBytes": 12735,
+      "outputSha256": "58dea313cc4b51db3b2363347d7674b119a2aff9a705d0e6f861f686545d992f",
+      "outputBytes": 12741,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -582,8 +582,8 @@
         134
       ],
       "sourceSha256": "08199f7181e440bafe44cb65894ad4bdbb738f2718ef72da96d4ce33825f50b0",
-      "outputSha256": "f8443983954503a51571ed2349941f2af1580f69d5f6a5947e621399f0ac3ae3",
-      "outputBytes": 17778,
+      "outputSha256": "deb41f64c178da897c0f5d03df216cf4c5291c3342374e5e93f45dfe5f91e7f5",
+      "outputBytes": 17784,
       "splitBySection": false,
       "sections": [],
       "plainArticles": true,
@@ -632,8 +632,8 @@
         140
       ],
       "sourceSha256": "d5592a7f6659c1a7c95999eabdecd3eafce2facf8c3dbb9111bbfbe4896d96a0",
-      "outputSha256": "279eceb318d65a5fe20f1ef43359d3dac6de1087bf17ddc10cf31327892af346",
-      "outputBytes": 13005,
+      "outputSha256": "28c5a80de00a84676ffa06cd40492d07cc0b5a46cba5c841acdd1d649a37c68e",
+      "outputBytes": 13011,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -696,8 +696,8 @@
         160
       ],
       "sourceSha256": "b4213d3690ff2c542e6869b26c96521b80fe4d6547921d977d72f78c628525fa",
-      "outputSha256": "0d8e00ccf6deffd1f3f203e5b585343cda98cb39f2c80155b765f1d4cabe9cc9",
-      "outputBytes": 58564,
+      "outputSha256": "e8bf0bd843b58fc592dd9f74ab76407e716aab479092a42aa87f5e3ef74e909b",
+      "outputBytes": 58570,
       "splitBySection": false,
       "sections": [],
       "articles": [
@@ -961,8 +961,8 @@
         176
       ],
       "sourceSha256": "b31b3a58edc53be967fb73a45a08c6f0088d237d6574eade3833cb18e36d4542",
-      "outputSha256": "08c7d4e1db00ba2f14344c45747add5ac5149dcbb6248a3a3bb51515ec903294",
-      "outputBytes": 15100,
+      "outputSha256": "06085345cb9b9c7a9884bb412fcd9d9b9f7367340c384e332451df4c35ecf05e",
+      "outputBytes": 15106,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -1011,8 +1011,8 @@
         182
       ],
       "sourceSha256": "7bf162c97b9c061961ca558d3136055634584f86d8aa89e21540ce47de6d85ff",
-      "outputSha256": "36a4e37da8958bb037b4ff9aa2f6cd30e7772646f1dbe94510af59bae34ea18f",
-      "outputBytes": 12059,
+      "outputSha256": "25f97001b129c0256fedd93608eacd8f415f7e035844e7303d43d68761fbae49",
+      "outputBytes": 12065,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -1075,8 +1075,8 @@
         201
       ],
       "sourceSha256": "33abac852f20f155b48fa9766cc098bc964a2ec4811b15008ccd2a21347d7044",
-      "outputSha256": "769ba593ccdfe3f205b7f0d5c9a34ef2f76070402c6a1d92ab3f8fea7fee7455",
-      "outputBytes": 30732,
+      "outputSha256": "7ac02c8f1fb56f7181b01b2851701b696fbc1ea1a859e4d387d9a115cf52d90b",
+      "outputBytes": 30738,
       "splitBySection": false,
       "sections": [],
       "plainArticles": true,
@@ -1139,8 +1139,8 @@
         221
       ],
       "sourceSha256": "58071d107258075b5b40cabe8cbc1e64bf29af6676f0dfa079900030193299f9",
-      "outputSha256": "a885f28398c86e66ce8d673135cf2979dd21437ab699df77a239ee22561a0f10",
-      "outputBytes": 51477,
+      "outputSha256": "33b485389b60bfc9b8acf3a162320113dd30d0e7945f955a80729390bf1947c5",
+      "outputBytes": 51483,
       "splitBySection": false,
       "sections": [],
       "plainArticles": true,
@@ -1201,8 +1201,8 @@
         238
       ],
       "sourceSha256": "37f139671c15c4a9b064f0d53b29258af45fa3c75c740c84dc1a1b32a24e3ef8",
-      "outputSha256": "52e603121728d96565602d73678bffeee386e419c04df78f077696bda5621acf",
-      "outputBytes": 19610,
+      "outputSha256": "04daa7a2c719773e32773bc3a89d7089eefd9e69e4f46c2765902ee6e182927d",
+      "outputBytes": 19616,
       "splitBySection": false,
       "sections": [],
       "stats": {

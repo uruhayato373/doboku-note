@@ -76,7 +76,7 @@ jobs:
       # git 追跡外の生成物なので、ここで作らないと **commit の瞬間に ENOENT で落ちる**。
       # 症状はワークフロー全体の赤で、本来の処理が終わっていても記録が残らない。
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
 
       - name: Restore service account key
@@ -258,7 +258,7 @@ jobs:
         run: node scripts/search/fetch-ga4-quiz-funnel.mjs
 
       - name: Report quiz Premium Phase 0 gate
-        run: node scripts/report-quiz-premium-funnel.mjs
+        run: node scripts/reports/report-quiz-premium-funnel.mjs
 
       # アフィリ面改善用: 配置別（cta_placement）の可視 impression / click。
       # article-mid / article-end-mobile / category-sidebar など配置単位の CTR を出す。
@@ -345,7 +345,7 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
           PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
-        run: node scripts/snapshot-weekly-metrics.mjs --force
+        run: node scripts/reports/snapshot-weekly-metrics.mjs --force
 
       # 収益カバレッジ ダッシュボード生成: ページ別流入(ga4-page) × CTA クリック(ga4-cta-clicks) ×
       # 配置真実源を突合し monetization/coverage-*.{json,md} を生成（オフライン・上の fetch 結果を読む）。
@@ -386,7 +386,7 @@ jobs:
           set +e
           args=()
           if [ -n "$MEASUREMENT_WEEK" ]; then args+=(--week "$MEASUREMENT_WEEK"); fi
-          node scripts/fetch-growth-pack.mjs "${args[@]}"
+          node scripts/fetch/fetch-growth-pack.mjs "${args[@]}"
           echo "rc=$?" >> "$GITHUB_OUTPUT"
 
       # Bing Webmaster（GA4 Organic の bing と照合する実クリック・表示）。キー未設定は rc=2 で検査不成立 Issue へ。
@@ -474,9 +474,9 @@ jobs:
           # 検索改善の実験: カード完了の commit を含む本番デプロイを見つけたら、その日を境目に計測を始める（自動計測より先）
           node scripts/search/search-improvement.mjs sync --write
           echo "search_sync_rc=$?" >> "$GITHUB_OUTPUT"
-          node scripts/measure-experiments.mjs --commit
+          node scripts/reports/measure-experiments.mjs --commit
           echo "measure_rc=$?" >> "$GITHUB_OUTPUT"
-          node scripts/build-growth-digest.mjs
+          node scripts/build/build-growth-digest.mjs
           echo "digest_rc=$?" >> "$GITHUB_OUTPUT"
           set -e
 
@@ -488,7 +488,7 @@ jobs:
 
           # 人気記事（src/config/popular-pages.json）は GA4 ページ別スナップショットから作る生成物。
           # スナップショットと同じ commit で作り直さないと、次にビルドした手元にだけ差分が出る（2026-09-26）。
-          node scripts/build-popular-pages.mjs
+          node scripts/build/build-popular-pages.mjs
           git add src/config/popular-pages.json
           node scripts/ci-data.mjs add --paths data
           if git diff --cached --quiet; then
@@ -586,17 +586,17 @@ jobs:
           status=0
           if [ ${#anomalies[@]} -gt 0 ]; then
             report "${anomalies[@]}"
-            node scripts/report-automation-failure.mjs --channel fetch-metrics --title "計測アラート（${#anomalies[@]} 件）" --body-file /tmp/metrics-alert.md
+            node scripts/reports/report-automation-failure.mjs --channel fetch-metrics --title "計測アラート（${#anomalies[@]} 件）" --body-file /tmp/metrics-alert.md
             status=1
           else
-            node scripts/report-automation-failure.mjs --resolve --channel fetch-metrics --body "復旧 run: $RUN_URL" || true
+            node scripts/reports/report-automation-failure.mjs --resolve --channel fetch-metrics --body "復旧 run: $RUN_URL" || true
           fi
           if [ ${#invalid[@]} -gt 0 ]; then
             report "${invalid[@]}"
-            node scripts/report-automation-failure.mjs --channel fetch-metrics-check-invalid --title "計測検査が不成立（${#invalid[@]} 件）" --body-file /tmp/metrics-alert.md
+            node scripts/reports/report-automation-failure.mjs --channel fetch-metrics-check-invalid --title "計測検査が不成立（${#invalid[@]} 件）" --body-file /tmp/metrics-alert.md
             status=1
           else
-            node scripts/report-automation-failure.mjs --resolve --channel fetch-metrics-check-invalid --body "復旧 run: $RUN_URL" || true
+            node scripts/reports/report-automation-failure.mjs --resolve --channel fetch-metrics-check-invalid --body "復旧 run: $RUN_URL" || true
           fi
           exit $status
 

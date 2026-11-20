@@ -59,7 +59,7 @@ mono-tag は **全幅レイアウト**。左右 72px パディング内に、**�
 mono-tag は資格ごとに **AI 生成背景**を最背面に任意で敷ける。文字・ブランド枠は satori が正確に描き、背景は下地。**背景なしは完全後方互換**（従来のオフホワイト+グリッド）。デザイン仕様の真実源は [`ogp-prompts.md`](../../knowledge/reference/ogp-prompts.md)「資格別 AI 背景」。
 
 - **置き場**: `config/ogp/backgrounds/<exam-key>.png|webp|jpg`（資格ごと1枚を全記事で共有）。`resolveBackgroundImage(category)` が解決し、無ければオフホワイトにフォールバック。
-- **生成**: `npm run ogp-backgrounds`（`scripts/generate-ogp-backgrounds.mjs`）。Codex で生成する（`scripts/lib/codex-image.mjs`。API キー不要）。Gemini は使わない（運営者の決定 2026-10-09）。`--dry-run` はプロンプトのプレビューのみ。
+- **生成**: `npm run ogp-backgrounds`（`scripts/build/generate-ogp-backgrounds.mjs`）。Codex で生成する（`scripts/lib/codex-image.mjs`。API キー不要）。Gemini は使わない（運営者の決定 2026-10-09）。`--dry-run` はプロンプトのプレビューのみ。
 
 ```bash
 npm run ogp-backgrounds -- --all --dry-run   # 6資格のプロンプト確認（Codex を呼ばない）
@@ -73,7 +73,7 @@ npm run ogp -- --all --force                 # 既存 OGP へ焼き込み（任�
 
 ## QA: OGP ギャラリー
 
-一括再生成後の目視チェックは `npm run ogp-gallery` で行う（`scripts/ogp-gallery.mjs`）。`content/site/**/ogp.png` を 1 枚の HTML グリッドに一覧化し、カテゴリ別フィルタで長タイトルのはみ出し・改行崩れ・テーマ色枠・余白をまとめて確認できる。
+一括再生成後の目視チェックは `npm run ogp-gallery` で行う（`scripts/storage/ogp-gallery.mjs`）。`content/site/**/ogp.png` を 1 枚の HTML グリッドに一覧化し、カテゴリ別フィルタで長タイトルのはみ出し・改行崩れ・テーマ色枠・余白をまとめて確認できる。
 
 **ガイド主題フォントの均一ゲート**: `npm run check-ogp-title-fit`（`scripts/checks/check-ogp-title-fit.mjs`）。ガイド（`group: guide`）の OGP 主題を実 wrap+pickFontSize で算出し、56px 未満（長すぎて小さい）を赤落ち検出。`--staged` は pre-commit（編集ガイドのみ・pre-commit-steps.mjs に配線済）、`--all` は全件フォント一覧（バーンダウン）。規約は ogp-prompts.md「ガイドOGPタイトルの統一」。
 
@@ -147,7 +147,7 @@ node scripts/ogp-create/ogp-create.mjs --all --debug-wrap | less
 `ogp.png` は git 追跡せず R2 専用（`r2-sync.yml` の自動同期対象外）。develop へ push すれば CI（`ogp-supply.yml`）が欠落・陳腐化を検知して自動生成・R2 供給まで行うため、通常はこのステップの手動実行は不要。
 
 ```bash
-node scripts/asset-offload.mjs --group site-ogp-png --commit
+node scripts/storage/asset-offload.mjs --group site-ogp-png --commit
 ```
 
 即時反映したい場合（CI の次回 run を待たずに og:image を差し替えたい等）のオプション。未退避は `npm run check-asset-storage`（`quality:audit` に同梱）が検出する。
@@ -198,16 +198,16 @@ ogp:
 
 ## note カバー（兄弟スクリプト・V5 既定）
 
-`scripts/generate-note-covers.mjs` が `content/note/{slug}/img/cover.png`（1280×670）を出力する。**描画は本スキルのテンプレではなくV5文字優先POP**（`scripts/lib/note-character-cover.mjs`・SSOT [`note-cover-character-v5.md`](../../knowledge/design-system/note-cover-character-v5.md)）。本スキルからはフォント（`assets/fonts/`）だけを利用し、資格別ブランド写真プールは使わない。
+`scripts/build/generate-note-covers.mjs` が `content/note/{slug}/img/cover.png`（1280×670）を出力する。**描画は本スキルのテンプレではなくV5文字優先POP**（`scripts/lib/note-character-cover.mjs`・SSOT [`note-cover-character-v5.md`](../../knowledge/design-system/note-cover-character-v5.md)）。本スキルからはフォント（`assets/fonts/`）だけを利用し、資格別ブランド写真プールは使わない。
 
 - コピーは frontmatter `cover:`（leadIn / headline / hi+hiSuffix / benefit）、無ければ `coverTitle`（1 行目=リード・2 行目=主見出し・3 行目=補足）、それも無ければ title。
 - 人物ポーズは `cover.character` の明示指定を最優先し、未指定は内容から自動選択（全件に割り当ててから絞るので 1 記事再生成でも同じポーズ）。
 - 試験区分は `content/note/{技術士総監,共通,...}/` のトップ dir、または `1級・2級土木/{1級土木,2級土木}/` の級サブ dir から（パスセグメント一致で）自動解決し、帯の色を決める（1級=青/2級=緑/1級・2級土木 直下=civil-1-2）。系列(濃淡)は `notePricing`（paid→濃 / free→標準）または `cover.tone` で決まる。
 
 ```bash
-node scripts/generate-note-covers.mjs            # 全 note 記事
-node scripts/generate-note-covers.mjs 1級土木    # slug 部分一致で対象を絞る
-node scripts/generate-note-covers.mjs 安全管理   # slug 部分一致で 1 記事だけ再生成
+node scripts/build/generate-note-covers.mjs            # 全 note 記事
+node scripts/build/generate-note-covers.mjs 1級土木    # slug 部分一致で対象を絞る
+node scripts/build/generate-note-covers.mjs 安全管理   # slug 部分一致で 1 記事だけ再生成
 npm run note-cover-gallery                        # 全 cover を1枚 HTML で目視（OGP の ogp-gallery と対称・資格×種別で絞込）
 npm run check-note-cover-fit                      # 主見出し・リード・補足・訴求帯が描画枠に入るか実測（0件必須・pre-commit でも --staged）
 npm run note-update-body -- --parts cover --list <file> --commit  # 公開済み記事のカバーだけを今すぐ差し替え（通常は Mac の週次 note-sync が本文・タグとまとめて反映）
@@ -248,12 +248,12 @@ cover:
 
 - 意匠の素案試作（前段）: `/ogp-design-explore`（aidesigner / Canva の MCP で OGP デザイン案を試作 → 採用方向を本スキルの satori テンプレに実装して量産）
 - デザイン SSOT: `.claude/knowledge/reference/ogp-prompts.md`（レイアウト・配色・テーマ色・変更履歴の真実源）
-- OGP ギャラリー（一括目視 QA）: `scripts/ogp-gallery.mjs`（`npm run ogp-gallery`）
+- OGP ギャラリー（一括目視 QA）: `scripts/storage/ogp-gallery.mjs`（`npm run ogp-gallery`）
 - テンプレ定義: `config/ogp/settings.json` の templates
 - ルール: `config/ogp/settings.json` の rules
 - 改行・フォント設定: `config/ogp/settings.json` の text
 - レンダラ: `scripts/ogp-create/lib/ogp-templates.mjs`（mono-tag / magazine-banner / note-cover-g2 / crop-safe-v4 実装の真実源）
 - 改行・フォント計算: `scripts/ogp-create/lib/ogp-text.mjs`
 - エントリポイント: `scripts/ogp-create/ogp-create.mjs`
-- note カバー: `scripts/generate-note-covers.mjs`（variant: crop-safe-v4=既定 / variant 無し cover:=G2 レガシー / cover: 無し=mono-tag）
+- note カバー: `scripts/build/generate-note-covers.mjs`（variant: crop-safe-v4=既定 / variant 無し cover:=G2 レガシー / cover: 無し=mono-tag）
 - noteカバー現行V5: `.claude/knowledge/design-system/note-cover-character-v5.md`（SSOT）／G2履歴: `note-cover.md`／トークン: `scripts/assets/design-tokens/note-cover-tokens.json`（値の真実源）

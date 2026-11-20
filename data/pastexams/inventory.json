@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "verifiedAt": "2026-09-29",
-  "policy": "過去問の年度単位の在庫（資格×年度×ファイル）の SSOT。資格 id は exam-formats.json と同じ。対象は試験実施機関が公開する公式の問題・正答・解答例だけ（第三者の解答・解説・模擬試験は教材側 content/sources/textbook/{資格}/過去問解説/）。PDF 本体は Git に入れず dir（content/sources/past-exams/{資格}）配下に {年度}/ で置き、Drive vault の past-exam-source-pdf（原資料PDF/過去問/）へ退避する。取得〜退避〜照合の手順は /past-exam-archive。official は公式掲載の状態（listed=掲載中 / removed=掲載終了 / never=公式に無い・試験中止 / unknown）、acquiredAt は手元に取得した日（未取得は null）。themes は分析結果（記述・経験記述の出題テーマ）を年度ごとに持つ。公式の掲載は直近数年度だけのことが多く、取り逃した年度は二度と手に入らない。npm run check-past-exam-inventory が整合と取得の催促を出し、月次レビュー（手順4）が読む。1級・2級土木と技術士（建設部門・総監）は Drive 台帳から登録した既存分で、acquiredAt は Drive 登録日（実際の取得日ではない）、official は未照合（unknown）。files[] の sha256・pages は固定した原典の検証値（任意。付けたファイルは取得したとき SHA-256 とページ数が一致しなければ採用しない。技術士第一次の H23〜H30 は scripts/fetch-pe-first-stage-historical.mjs がここから読んで取得・検証する）。",
+  "policy": "過去問の年度単位の在庫（資格×年度×ファイル）の SSOT。資格 id は exam-formats.json と同じ。対象は試験実施機関が公開する公式の問題・正答・解答例だけ（第三者の解答・解説・模擬試験は教材側 content/sources/textbook/{資格}/過去問解説/）。PDF 本体は Git に入れず dir（content/sources/past-exams/{資格}）配下に {年度}/ で置き、Drive vault の past-exam-source-pdf（原資料PDF/過去問/）へ退避する。取得〜退避〜照合の手順は /past-exam-archive。official は公式掲載の状態（listed=掲載中 / removed=掲載終了 / never=公式に無い・試験中止 / unknown）、acquiredAt は手元に取得した日（未取得は null）。themes は分析結果（記述・経験記述の出題テーマ）を年度ごとに持つ。公式の掲載は直近数年度だけのことが多く、取り逃した年度は二度と手に入らない。npm run check-past-exam-inventory が整合と取得の催促を出し、月次レビュー（手順4）が読む。1級・2級土木と技術士（建設部門・総監）は Drive 台帳から登録した既存分で、acquiredAt は Drive 登録日（実際の取得日ではない）、official は未照合（unknown）。files[] の sha256・pages は固定した原典の検証値（任意。付けたファイルは取得したとき SHA-256 とページ数が一致しなければ採用しない。技術士第一次の H23〜H30 は scripts/fetch/fetch-pe-first-stage-historical.mjs がここから読んで取得・検証する）。",
   "exams": {
     "pavement-1": {
       "dir": "content/sources/past-exams/１級舗装施工管理技術者",

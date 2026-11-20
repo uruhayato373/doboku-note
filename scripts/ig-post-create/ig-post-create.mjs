@@ -267,7 +267,7 @@ let slideData;
 if (mode === 'exam') {
   if (!existsSync(configPath)) {
     console.error(`Error: slide-data.json not found: ${configPath}`);
-    console.error('Hint: node scripts/generate-exam-pack-dirs.mjs で生成してください');
+    console.error('Hint: node scripts/build/generate-exam-pack-dirs.mjs で生成してください');
     process.exit(1);
   }
   slideData = JSON.parse(readFileSync(configPath, 'utf8'));

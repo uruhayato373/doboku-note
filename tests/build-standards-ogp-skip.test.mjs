@@ -3,7 +3,7 @@
 // していた（develop の bot commit 478 件のうち 308 件）。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { chapterSrcHash, chapterManifestKey, skipReason } from '../scripts/build-standards-ogp.mjs';
+import { chapterSrcHash, chapterManifestKey, skipReason } from '../scripts/build/build-standards-ogp.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 import { join } from 'node:path';
 

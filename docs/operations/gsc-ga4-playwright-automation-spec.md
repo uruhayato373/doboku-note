@@ -345,7 +345,7 @@ allowed-tools: Read, Glob, Grep, Bash, Task
   "gsc-ui:fetch": "node scripts/search/fetch-gsc-ui-csv.mjs",
   "ga4-ui:fetch": "node scripts/search/fetch-ga4-ui-csv.mjs",
   "google-console:normalize": "node scripts/search/normalize-google-console-csv.mjs",
-  "search-growth:report": "node scripts/report-search-growth.mjs",
+  "search-growth:report": "node scripts/reports/report-search-growth.mjs",
   "search-growth:audit": "node scripts/search/run-search-growth-audit.mjs",
   "check-gsc-ui-due": "node scripts/checks/check-gsc-ui-due.mjs",
   "check-google-ui-ssot": "node scripts/checks/check-google-ui-ssot.mjs",
@@ -513,7 +513,7 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 - scripts/search/fetch-gsc-ui-csv.mjs
 - scripts/search/fetch-ga4-ui-csv.mjs
 - scripts/search/normalize-google-console-csv.mjs
-- scripts/report-search-growth.mjs
+- scripts/reports/report-search-growth.mjs
 - config/google-console-automation.json
 - .claude/skills/google-search-growth/SKILL.md
 - .claude/skills/google-search-growth/references/csv-schema.md

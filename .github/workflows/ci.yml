@@ -68,7 +68,7 @@ jobs:
       # ビルド時に自動生成されるが、それより前に走る quality:audit:ci の各検査が
       # src/config/doc-meta-index.json を直接読むため、ここで明示的に生成しておく。
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
       # auditジョブも生成物を自分で検査する。別のbuildジョブの存在に依存してskipしない。
       - name: Build standards data for audit
@@ -103,7 +103,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: node scripts/asset-hydrate.mjs --group kindle-dist
+        run: node scripts/storage/asset-hydrate.mjs --group kindle-dist
 
       # unit-tests は test ジョブが回す。cta-density は build 後の build ジョブが out/ を検査する。
       # 手元の npm run quality:audit:ci は全部回す。
@@ -131,14 +131,14 @@ jobs:
       # テストが読む git 管理外の生成物を、audit の中で走っていたときと同じにそろえる
       # （doc-meta-index・Kindle の配布物・refresh-indexes が書く public/quiz と public/standards-data）。
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
       - name: Hydrate Kindle dist (private R2)
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: node scripts/asset-hydrate.mjs --group kindle-dist
+        run: node scripts/storage/asset-hydrate.mjs --group kindle-dist
 
       - name: Refresh generated indexes
         run: npm run refresh-indexes
@@ -168,7 +168,7 @@ jobs:
       # ビルド時に自動生成されるが、それより前に走る quality:audit:ci の各検査が
       # src/config/doc-meta-index.json を直接読むため、ここで明示的に生成しておく。
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
       # Next.js のビルドキャッシュ（Turbopack のファイルシステムキャッシュ）を実行間で引き継ぐ。
       # 形は node_modules/next/dist/docs/01-app/02-guides/ci-build-caching.md の GitHub Actions 例。
@@ -280,7 +280,7 @@ jobs:
               gh api "repos/${{ github.repository }}/compare/${BASE}...${{ github.sha }}" --jq '.commits[-20:][] | "- `\(.sha[0:9])` \(.commit.message | split("\n")[0])"' || echo "- （取得できなかった）"
             fi
           } > /tmp/ci-body.md
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel pre-merge \
             --title "Pre-merge check が赤（${{ github.ref_name }}）" \
             --body-file /tmp/ci-body.md
@@ -293,5 +293,5 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel pre-merge \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel pre-merge \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

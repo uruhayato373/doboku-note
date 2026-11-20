@@ -4,7 +4,7 @@ title: robots.txt と AI クローラーの運用方針 — ADR
 
 # robots.txt と AI クローラーの運用方針 — ADR
 
-2026-10-11 に運営者の判断で**案B（AI 検索と、利用者の指示で読みに来るエージェントだけを許可し、学習用は拒否のまま）**へ変えた。robots.txt はこのリポジトリの `scripts/lib/robots-txt.mjs` が作り、`scripts/generate-sitemap.mjs` が `out/robots.txt` に書く（`tests/robots-txt.test.mjs` が方針を固定する）。
+2026-10-11 に運営者の判断で**案B（AI 検索と、利用者の指示で読みに来るエージェントだけを許可し、学習用は拒否のまま）**へ変えた。robots.txt はこのリポジトリの `scripts/lib/robots-txt.mjs` が作り、`scripts/build/generate-sitemap.mjs` が `out/robots.txt` に書く（`tests/robots-txt.test.mjs` が方針を固定する）。
 
 ## 決定
 

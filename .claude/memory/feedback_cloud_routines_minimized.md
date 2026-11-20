@@ -16,7 +16,7 @@ metadata:
 - **`update` は nested オブジェクトを丸ごと置換**: `job_config.ccr.session_context` だけ送ったら `events`（＝プロンプト本文4KB）が消えた。触る前に必ず `get` で全文を控え、`environment_id` と `events` を同送。`environment_id` 欠落は HTTP 400（`job_config must set ccr.environment_id`）。
 - **delete アクションは無い**（list/get/create/update/run のみ）。完全削除は claude.ai Web UI のみで、claude.ai はブラウザツールからポリシーで遮断＝人手。停止=`update {enabled:false}` は可逆。
 
-**故障の型（2026-08-16）**: 「停止」より「発火しているのに沈黙」が起きる。2026-W33 欠落時、ルーティンは enabled のまま毎週発火（`last_fired_at` 2026-08-14）していたのに2026-07-31 以降3回連続で成果物ゼロ。診断は `git ls-remote --heads origin "*weekly-pdca*"`（空＝早期失敗）と過去の週次 commit の author（ルーティン産は `claude/weekly-pdca-*` ブランチの PR 経由・人手は直接 commit）。対処＝ルーティン本文に「PR に到達しなければ `scripts/report-automation-failure.mjs` で起票してから終了」を明記。
+**故障の型（2026-08-16）**: 「停止」より「発火しているのに沈黙」が起きる。2026-W33 欠落時、ルーティンは enabled のまま毎週発火（`last_fired_at` 2026-08-14）していたのに2026-07-31 以降3回連続で成果物ゼロ。診断は `git ls-remote --heads origin "*weekly-pdca*"`（空＝早期失敗）と過去の週次 commit の author（ルーティン産は `claude/weekly-pdca-*` ブランチの PR 経由・人手は直接 commit）。対処＝ルーティン本文に「PR に到達しなければ `scripts/reports/report-automation-failure.mjs` で起票してから終了」を明記。
 **How to apply**: 停止機能の手動代替は `/plan-weekly`（todo更新）・`/weekly-improve`（cem採点系）・`/audit-note-funnel`（note導線監査）。新規ルーティン作成前に必ず `/routines`（または RemoteTrigger list）で重複確認（CLAUDE.md「クラウドルーティン作成ルール」・list 制約は上記）。詳細な調査手順は `.claude/knowledge/reference/workflows.md`「発火の信頼性」（[[reference_doc_sync_system]] ではない）。
 
 ## CI/CD の失敗は GitHub Issue（自動クローズ）で拾う（ユーザー決定 2026-09-18）

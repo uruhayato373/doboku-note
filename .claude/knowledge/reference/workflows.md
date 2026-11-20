@@ -57,7 +57,7 @@ title: 推奨ワークフロー
 > - **発火の成否は「PR が存在するか」で見る**（`gh pr list` の `headRefName` が `claude/weekly-pdca-YYYY-Www`）。機械判定は `check-weekly-routine-fired`（npm script・2026-09-19 撤去）
 > - **`git ls-remote` でブランチの有無を見てはいけない**（2026-08-16 に私が踏んだ罠）。PR の close/merge 後にブランチは自動削除されるため、**成功した週でも空になる**。「ブランチが無い＝push 前に落ちた＝起動失敗」と推論したが、これは**不在を証拠と取り違えた誤り**だった。失敗がどの段階で起きているかは、この方法では分からない
 >
-> 対処として、ルーティン本文に **Phase 8.5「沈黙の禁止」**（PR 作成に到達しなければ `scripts/report-automation-failure.mjs` で automation-failure を起票してから終了）を追加し、モデル指定を `claude-sonnet-4-6` から `claude-sonnet-5` へ更新した。**ただし後者は実行ログを見られないまま立てた仮説であり、根本原因は未特定**（環境失効・認証切れ等の可能性が残る）。
+> 対処として、ルーティン本文に **Phase 8.5「沈黙の禁止」**（PR 作成に到達しなければ `scripts/reports/report-automation-failure.mjs` で automation-failure を起票してから終了）を追加し、モデル指定を `claude-sonnet-4-6` から `claude-sonnet-5` へ更新した。**ただし後者は実行ログを見られないまま立てた仮説であり、根本原因は未特定**（環境失効・認証切れ等の可能性が残る）。
 >
 > **`update` は nested オブジェクトを丸ごと置換する**。`job_config.ccr.session_context` だけを送ると `events`（プロンプト本文）が消える。実際に一度消して復元した。触る前に `get` で全文を控え、`environment_id` と `events` を必ず同送すること。
 

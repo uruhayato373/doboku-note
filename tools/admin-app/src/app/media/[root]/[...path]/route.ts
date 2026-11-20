@@ -23,7 +23,7 @@ const MEDIA_ROOTS: Record<string, string> = {
   note: resolve(NOTE_CONTENT_ROOT),
   // Kindle 表紙（全冊 kindle-dist）。/content/kindle の表紙サムネ用。
   kindle: resolve(repoPath('scripts', 'kindle-dist')),
-  // EPUB のページ画像（node scripts/render-kindle-preview.mjs の出力）。/content/kindle/<id> の目視確認用。
+  // EPUB のページ画像（node scripts/build/render-kindle-preview.mjs の出力）。/content/kindle/<id> の目視確認用。
   kindlepreview: resolve(repoPath('.tmp', 'kindle-preview')),
   // ココナラの商品画像（承認済み POP 画像・Drive vault から取り戻したもの）。/content/ledger/coconala/<id> の確認用。
   coconala: resolve(repoPath('content', 'coconala', 'assets')),

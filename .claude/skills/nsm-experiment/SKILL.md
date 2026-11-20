@@ -197,7 +197,7 @@ abandoned  abandoned  running (re-measure)
 
 ### measure 仕様（CI の自動計測・2026-09-24〜）
 
-propose / start のときに、前後比較できる実験には `measure` を付ける。付けた実験は毎週 CI（`fetch-metrics.yml` の publish 内 `scripts/measure-experiments.mjs`）が前後の窓で測り、`measurements[]` に `source: "auto"` で追記する（history は触らない）。事後窓が完了すると `check-experiment-due` が **VERDICT_DUE** を出し、週次レビューのトリアージで裁定（close）する。
+propose / start のときに、前後比較できる実験には `measure` を付ける。付けた実験は毎週 CI（`fetch-metrics.yml` の publish 内 `scripts/reports/measure-experiments.mjs`）が前後の窓で測り、`measurements[]` に `source: "auto"` で追記する（history は触らない）。事後窓が完了すると `check-experiment-due` が **VERDICT_DUE** を出し、週次レビューのトリアージで裁定（close）する。
 
 ```json
 "measure": { "specVersion": 1, "metric": "gsc.clicks", "scope": { "pagePrefix": "/exam/rccm/" },
@@ -253,7 +253,7 @@ propose / start のときに、前後比較できる実験には `measure` を�
 |---|---|
 | **`data/business/experiments.json`** | 実験 state 本体（JSON 直読み書き。専用ヘルパーモジュールは無い） |
 | **`scripts/lib/metrics-reader.mjs`** | baseline と current の計測 |
-| **`scripts/snapshot-weekly-metrics.mjs`** | 週次スナップショット（propose 時の背景データ）|
+| **`scripts/reports/snapshot-weekly-metrics.mjs`** | 週次スナップショット（propose 時の背景データ）|
 | **`.claude/skills/weekly-review/SKILL.md`** | 実験進捗セクションで running を自動表示 |
 | **`.claude/skills/nsm-experiment/references/playbook.md`** | 実験パターンカタログ |
 | **`.claude/skills/nsm-experiment/references/rubric.md`** | 優先順位評価軸 |

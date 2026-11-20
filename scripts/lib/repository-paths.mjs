@@ -28,7 +28,7 @@ const at = (...segments) => join(REPO_ROOT, ...segments);
  * scripts/ の直下を用途で分けたフォルダ（CLI の置き場。lib・ads など部品や機能単位のフォルダは含めない）。
  * フォルダを足したらここにだけ足す。名前から CLI を引く cliRelPath と、到達しない CLI の検査（check-unreachable-cli）が読む。
  */
-export const CLI_GROUPS = ['checks', 'note', 'coconala', 'x', 'youtube', 'instagram', 'kindle', 'affiliate', 'search', 'standards', 'content'];
+export const CLI_GROUPS = ['checks', 'note', 'coconala', 'x', 'youtube', 'instagram', 'kindle', 'affiliate', 'search', 'standards', 'content', 'storage', 'build', 'reports', 'fetch'];
 
 /** CLI の名前（拡張子なし）から、リポジトリ相対のパスを引く。scripts/ の直下か CLI_GROUPS のどれか。見つからなければ投げる */
 export function cliRelPath(name, root = REPO_ROOT) {
@@ -244,6 +244,11 @@ export const RESTRUCTURED_PATHS = [
   [/^scripts\/((?:gsc-|ga4-|google-console-|inspect-url|inspection-|indexnow-|list-sitemap-|psi-|search-|run-search-|growth-|extract-gsc-|analyze-gsc-|analyze-hubs|build-noindex-|verify-html-|normalize-google-|append-coverage-|fetch-gsc-|fetch-ga4-|fetch-bing-)[^/]*\.mjs)$/, "scripts/search/$1"],
   [/^scripts\/((?:standards-|add-standards-|upload-standards-)[^/]*\.mjs)$/, "scripts/standards/$1"],
   [/^scripts\/((?:pe-|past-exam-|parse-exam-|keiken-|essay-|split-essay-|book-coverage-|reference-book-|inspect-reference-|notebooklm-|egov-|detect-ocr-|character-extract|whitepaper-|gemini-)[^/]*\.mjs)$/, "scripts/content/$1"],
+  // 2026-11-20 に用途の CLI（置き場・生成・集計・取得）を分けた（検索の転送 fetch-bing-webmaster などは上の search が先に当たる）
+  [/^scripts\/((?:asset-|drive-|delete-r2-|purge-r2-|upload-images-|ensure-local-media|local-media-|media\.|figure-|ogp-|image-|svg-|find-book-figure)[^/]*\.mjs)$/, "scripts/storage/$1"],
+  [/^scripts\/((?:build-|generate-|gen-|render-|make-)[^/]*\.(?:mjs|ts))$/, "scripts/build/$1"],
+  [/^scripts\/((?:report-|analyze-|sales-|business-review|channel-economics|measure-|snapshot-|quality-snapshot|product-sales|scan-qualification|page-quality|site-layout-census|site-thumbnails|site-visual-review)[^/]*\.(?:mjs|mts))$/, "scripts/reports/$1"],
+  [/^scripts\/((?:fetch-|record-)[^/]*\.mjs)$/, "scripts/fetch/$1"],
   [/^scripts\/kindle-specs\/([^/]+)\.json$/, "content/kindle/books/$1/spec.json"],
   [/^scripts\/kindle-covers\/specs\/a-(\d\d)\.json$/, "content/kindle/books/A-$1/cover.json"],
   [/^scripts\/kindle-covers\/specs\/([^/]+)\.json$/, "content/kindle/books/$1/cover.json"],

@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 
 /**
  * /content/kindle/<id> — 提出前の目視確認用に、表紙と EPUB のページ画像を並べる。
- * 画像は node scripts/render-kindle-preview.mjs --id <id> が .tmp/kindle-preview/<id>/ に出す。
+ * 画像は node scripts/build/render-kindle-preview.mjs --id <id> が .tmp/kindle-preview/<id>/ に出す。
  */
 export default async function KindlePreviewPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

@@ -46,7 +46,7 @@ jobs:
       # git 追跡外の生成物なので、ここで作らないと **commit の瞬間に ENOENT で落ちる**。
       # 症状はワークフロー全体の赤で、本来の処理が終わっていても記録が残らない。
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
 
       - name: Run PSI audit (mobile + desktop)

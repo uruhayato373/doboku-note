@@ -57,7 +57,7 @@ node scripts/checks/check-x-length.mjs --pending-only  # 投稿済み（posted/r
 content/sns/x/
 ├── draft/<NNN>-<exam>-<topic>/      ← 試験を slug に含める（多資格識別）
 │   ├── tweets.md                     ← 280 weighted 以下の投稿群
-│   └── img/tweet-NN-<slug>.png       ← scripts/gen-x-card.mjs 生成（任意）
+│   └── img/tweet-NN-<slug>.png       ← scripts/build/gen-x-card.mjs 生成（任意）
 ├── published/                        ← 投稿済みアーカイブ
 └── README.md                         ← テンプレ規約（本 policy へのリンク）
 ```
@@ -182,7 +182,7 @@ content/sns/x/
   - 新旧の対応の真実源は `public/_redirects`。資格以降をハイフンでつなぐ（`/exam/<資格>/primary-r03-kouki`）と 404 になる。
 - **検証の仕組み化（2026-06-08 新設・2026-09-24 新 URL 対応）**: `node scripts/checks/check-sns-urls.mjs` が `content/sns/**` の新 URL を `public/_redirects` の転送先と、旧 `/docs/` を doc-meta-index と突合し、本番に無いものを検出する（打ち間違いには正しい URL を提案する）。pre-commit に `--staged` で組込済み（broken があるとコミット不可）。旧 `/docs/` は既存の下書きでは `check-x-utm` が警告で数える（予約済み投稿の承認 hash を壊さないため落とさない）。**これから commit する原稿（`--staged`）と note の原稿は旧 `/docs/` 自体を不可**（2026-11-11〜。旧 URL へのリンクが Google に旧 URL を正規と選ばせ続ける）。背景: 2026-06 に X 投稿 149 件のリンク切れ（560+ impressions ロス）が発生 → 接頭辞欠落が原因。
 
-## 7. サマリカード画像（scripts/gen-x-card.mjs）
+## 7. サマリカード画像（scripts/build/gen-x-card.mjs）
 
 ### 先生付きカードと予約原稿の確認
 
@@ -192,14 +192,14 @@ content/sns/x/
 
 PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-review` が「画像の生成・更新が必要」で停止する。採用後はフォルダ名全体と `--tweet N --force` で上記CLIを実行し、描画台帳も更新する。Git管理外のPOPカードは原稿hashと採用参照の一致、端末のPNGは `check-x-review --local` で実体hashを検査する。AIの忠実性判定・外部投稿への反映は別に記録する。
 
-- 生成: `node scripts/gen-x-card.mjs --draft 091-civil-2026-09-b --force`。代表1枚は `--tweet 1` を追加する。ドラフトはフォルダ名全体で指定する。数字だけの指定は候補が一意の場合のみ受理し、同番号の別企画があれば停止する。生成は直列で、PNGはGitへ追加しない。原稿・設定・描画台帳を保持し、先生原本は既存Drive素材を利用する。公開済み画像とのbyte同一性が必要な場合は再生成で代替しない。
+- 生成: `node scripts/build/gen-x-card.mjs --draft 091-civil-2026-09-b --force`。代表1枚は `--tweet 1` を追加する。ドラフトはフォルダ名全体で指定する。数字だけの指定は候補が一意の場合のみ受理し、同番号の別企画があれば停止する。生成は直列で、PNGはGitへ追加しない。原稿・設定・描画台帳を保持し、先生原本は既存Drive素材を利用する。公開済み画像とのbyte同一性が必要な場合は再生成で代替しない。
 - 確認: `npm run x-review` → `http://127.0.0.1:3026`。`content/sns/x/review.json` の期間・対象計画から、画像・本文・日時・note導線を表示する閲覧専用ページ。検索・週別・note絞り込み・拡大・本文コピーに対応。常時起動は不要。
 - 検査: `npm run check-x-review` は期間内の計画と原稿をドラフト・番号・日時で1件ずつ照合し、欠落・余分な原稿・重複・空白日を検出する。日ごとの本数は対象計画に従い、1日3本以内・間隔60分以上・販売1日1本を横断検査する。原稿とstatusの一致、文字数、公開マガジン・UTM・画像用原稿も検査。`-- --local` は端末の全対象PNGをSHA-256照合する。画像のないCIは原稿と描画台帳のみで、画像実体の検査済みとはしない。
 - 状態: 月次計画は当初案として保持し、確認画面ではstatusの `original_scheduled_at`（未設定なら `scheduled_at`）と当初日時の一致を検査したうえで `scheduled_at` の変更後日時へ解決する。Articleの告知解放も当初日時で月次計画のURLを更新し、原稿の見出しには予約台帳の最新タイトルを使う。`scheduled` は予約用原稿、`queued` は既存の投入済み台帳。確認画面や画像生成からXへの予約完了を推定しない。別企画のArticle公開やURL確定待ちは警告表示して保持する。実投入は§11の実キュー照合へ進む。
 
 ### 従来カード
 
-`scripts/gen-x-card.mjs` が `tweets.md` から 1200×675 カードを生成する。**試験別に色・ヘッダを切替**：
+`scripts/build/gen-x-card.mjs` が `tweets.md` から 1200×675 カードを生成する。**試験別に色・ヘッダを切替**：
 
 | 試験 | ヘッダラベル | 色（帯・フッター） |
 |---|---|---|
@@ -394,7 +394,7 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 ## 参照
 
 - 戦略: `docs/marketing/01_SNS集客戦略.md`（X 節）/ `02_チャネル動線設計.md`（UTM）
-- 連携スキル: `social-post`（X 投稿テキスト生成）/ `scripts/gen-x-card.mjs`（カード画像・create-x-card スキルは 2026-10-25 に外した）/ `publish-x`（予約投稿）
+- 連携スキル: `social-post`（X 投稿テキスト生成）/ `scripts/build/gen-x-card.mjs`（カード画像・create-x-card スキルは 2026-10-25 に外した）/ `publish-x`（予約投稿）
 - エージェント: `x-post-writer`（Generator）/ `x-post-qa`（Evaluator）
 - IG 対応物: `ig-carousel-policy.md`（パラレル設計の参考）
 

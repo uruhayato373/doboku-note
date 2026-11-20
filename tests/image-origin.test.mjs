@@ -8,7 +8,7 @@ import { figureSourceFindings, figuresInExplanation, sourceCandidatesFor } from 
 import {
   aiPhotoStatus, aspectOk, captionFor, commentKind, originFindings, originOf, promptSha, sourceCommentFor, validateAiVerdict, mediaIdOfKey,
 } from '../scripts/lib/image-origin.mjs';
-import { fitPhoto } from '../scripts/gen-article-photo.mjs';
+import { fitPhoto } from '../scripts/build/gen-article-photo.mjs';
 
 const cfg = {
   classes: { 'commercial-book': { figureReuse: false }, 'exam-official': { figureReuse: true } },

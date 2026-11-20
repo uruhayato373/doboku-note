@@ -91,7 +91,7 @@ mono-tag は資格ごとに **AI 生成の背景画像**を任意で敷ける（
 - **置き場**: `config/ogp/backgrounds/<exam-key>.png`（資格ごとに 1 枚を全記事で共有）。`ogp-create.mjs` の `resolveBackgroundImage(category)` が category→exam-key で解決し、無ければ null。exam-key は上の「テーマ色」表と同じ。
 - **レイヤー順**（最背面→最前面）: 背景画像（`object-fit: cover`）→ 可読性スクリム（`C_SCRIM`、オフホワイト半透明・既定 **0.7**）→ グリッド → メタ（資格名 kicker＋種別ピル）・タイトル・右下ワードマーク → テーマ色 16px 外枠。（旧・左上シアン/右下紺のアクセントバーは 2026-07-07 撤去）
 - **可読性の二重担保**: ① 生成時に各背景を平均輝度 ~202 へ正規化（暗い出力だけ白へ線形ブレンド、明るい出力は不変）② 描画時にスクリムを重ねる。背景が強すぎ/弱すぎは `ogp-templates.mjs` の `C_SCRIM` alpha で一括調整。
-- **生成**: `npm run ogp-backgrounds`（`scripts/generate-ogp-backgrounds.mjs`）。Codex で生成する（`scripts/lib/codex-image.mjs`・API キー不要）。Gemini は使わない（運営者の決定 2026-10-09）。`--model` で codex のモデルを指定できる。プロンプトは「near-white の淡い地＋テーマ色は細線アクセントのみ・文字なし・左中央は静かに」。画像が出なかったときはリトライで吸収。
+- **生成**: `npm run ogp-backgrounds`（`scripts/build/generate-ogp-backgrounds.mjs`）。Codex で生成する（`scripts/lib/codex-image.mjs`・API キー不要）。Gemini は使わない（運営者の決定 2026-10-09）。`--model` で codex のモデルを指定できる。プロンプトは「near-white の淡い地＋テーマ色は細線アクセントのみ・文字なし・左中央は静かに」。画像が出なかったときはリトライで吸収。
 - **既存 OGP への反映**: 背景を追加/更新したら `npm run ogp -- --all --force` で焼き込む（**任意**）。焼き込まなければ既存 OGP は据え置き、新規記事は通常生成で自動的に背景が乗る。
 
 ## テーマ色（資格別外枠）
@@ -129,7 +129,7 @@ npm run ogp -- --all --force   # 全 ogp.png を再生成
 npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザで開く（カテゴリ別フィルタ付き）
 ```
 
-`scripts/ogp-gallery.mjs` が `content/site/**/ogp.png` を走査し、1 枚の HTML グリッドに一覧化する。長タイトルのはみ出し・改行崩れ・テーマ色枠・余白をまとめて確認できる。
+`scripts/storage/ogp-gallery.mjs` が `content/site/**/ogp.png` を走査し、1 枚の HTML グリッドに一覧化する。長タイトルのはみ出し・改行崩れ・テーマ色枠・余白をまとめて確認できる。
 
 ## 派生テンプレ: magazine-banner（note マガジンヘッダー対応・レガシー）
 

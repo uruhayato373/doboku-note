@@ -89,7 +89,7 @@ test('データとしての URL・説明・意図した行は止めない', () =
 });
 
 test('走査するのはコードだけ（定義・テスト・fixture・docs は対象外）', () => {
-  assert.equal(isIdentityScanTarget('scripts/generate-rss.mjs'), true);
+  assert.equal(isIdentityScanTarget('scripts/build/generate-rss.mjs'), true);
   assert.equal(isIdentityScanTarget('src/lib/metadata.ts'), true);
   assert.equal(isIdentityScanTarget('scripts/lib/sns-common/sns-config.mjs'), true);
   assert.equal(isIdentityScanTarget('tools/admin-app/src/app/materials/page.tsx'), true);

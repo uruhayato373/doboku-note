@@ -517,7 +517,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 
 | スクリプト | 役割 |
 |---|---|
-| 画像生成 | 画像は Codex（`npm run media -- plate`、記事の写真は `scripts/gen-article-photo.mjs`）。Gemini は使わない（運営者の決定 2026-10-09）。使ったら来歴と `ai-image-fidelity-auditor` の判定 ok が要る |
+| 画像生成 | 画像は Codex（`npm run media -- plate`、記事の写真は `scripts/build/gen-article-photo.mjs`）。Gemini は使わない（運営者の決定 2026-10-09）。使ったら来歴と `ai-image-fidelity-auditor` の判定 ok が要る |
 | `scripts/coconala/coconala-thumb.mjs [--service <id>] [--bg <png>]` | data/coconala/thumb-approved.json に登録した商品は原本の SHA-256 を確認してコピー（欠落・不一致は停止、--bg は不可）。未登録の商品は背景＋タイトル/訴求/価格を satori で 1200×900 合成。出力 `content/coconala/assets/thumb-<id>.png` |
 
 素材は `content/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。
@@ -586,7 +586,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | スクリプト | 役割 |
 |---|---|
 | `scripts/lib/strip-note-funnel.mjs` | note 記事から CTA コメントブロック・裸URL・note 商品誘導文・ペイウォール文・**note 専用節（印刷用PDF 案内）・著者バナー画像とその定型キャプション**を機械除去し、最後に**除去で中身が空になった見出し/太字ラベルを落とす**。`assertNoFunnel` で残存検査。境界は `tests/strip-note-funnel.test.mjs` で固定 |
-| `scripts/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9・A1/A2 特典・R1〜R3・K1〜K3・O1）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `content/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7・A1/A2 の源は土木の note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `content/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保）。土木以外（RCCM・技術士・コンクリート）は `noteRelative:true` で `content/note/` からの相対パスで源を引く。strip の後に、公的出典のリンクは出典名だけ残して URL を落とし（HTML コメントも除去）、「本記事」を「本資料」へ置換する。note 固有の一文は商品ごとの `replace` で直し、**置換対象が源に無ければ FAIL**（源の改稿で置換が空振りしたまま納品しないため）。範囲の終端は `includeTo` で指定できる |
+| `scripts/build/build-coconala-content-pdf.mjs` | `PRODUCTS` 定義（C1〜C9・A1/A2 特典・R1〜R3・K1〜K3・O1）の源を strip → クリーン版を staging → `magazine-to-pdf` で PDF 生成 → **pdftotext で note.com/URL が 0件でなければ FAIL**。出力 `content/coconala/assets/pdf/*.pdf`（`CHROME_PATH=... node scripts/build/build-coconala-content-pdf.mjs [--product C8]`）。C1〜C7・A1/A2 の源は土木の note 記事、**C8/C9（模試）は生成 markdown**（`generated:true`・源 `content/coconala/assets/moshi-src/{C8,C9}/`・strip は冪等で二重担保）。土木以外（RCCM・技術士・コンクリート）は `noteRelative:true` で `content/note/` からの相対パスで源を引く。strip の後に、公的出典のリンクは出典名だけ残して URL を落とし（HTML コメントも除去）、「本記事」を「本資料」へ置換する。note 固有の一文は商品ごとの `replace` で直し、**置換対象が源に無ければ FAIL**（源の改稿で置換が空振りしたまま納品しないため）。範囲の終端は `includeTo` で指定できる |
 
 > [!warning] 納品前は「URL 0 件」だけでなく **PDF そのもの**を見る（2026-08-06）
 > ビルドのゲートは「note.com/URL が残っていないか」しか見ない。これは緑のまま、

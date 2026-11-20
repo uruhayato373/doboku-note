@@ -10876,7 +10876,7 @@
       "businessContext": {
         "qualification": "all",
         "readerNeed": "記事を読み進めながら、次に読む記事や転職の選択肢に自然に気づきたい",
-        "verifiedGap": "全ページの実測（2026-11-15・scripts/site-layout-census.mjs）で記事の右の欄の 61% が空・目次は右の欄 1,196 ページ・右の欄の回遊リンク約 4 万本はすべて文字（DN-1218）",
+        "verifiedGap": "全ページの実測（2026-11-15・scripts/reports/site-layout-census.mjs）で記事の右の欄の 61% が空・目次は右の欄 1,196 ページ・右の欄の回遊リンク約 4 万本はすべて文字（DN-1218）",
         "reviewRecord": "data/business/records/review-2026-11-15T00-25-04-354Z-b2f4607d-f80a-4f87-b5e4-aebb98349143.json",
         "metricId": "a8ConfirmedYen"
       },

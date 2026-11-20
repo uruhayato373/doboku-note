@@ -107,7 +107,7 @@ publishedAt: "YYYY-MM-DD"
 
 - マスター: `content/site/civil-construction-1/{group}/{slug}/img/` に PNG/SVG 配置（git 追跡）
 - 配信: R2 (`storage.doboku-note.com/posts/civil-construction-1/{group}/{slug}/img/...`)
-- アップロード: `node scripts/upload-images-to-r2.mjs --prefix civil-construction-1/{group}/{slug}`
+- アップロード: `node scripts/storage/upload-images-to-r2.mjs --prefix civil-construction-1/{group}/{slug}`
 
 ## post_hooks
 

@@ -143,5 +143,5 @@ if (errors.length === 0) {
 }
 for (const e of errors.slice(0, 25)) console.error(`  [${e.rule}] ${e.at}  ${e.msg}`);
 if (errors.length > 25) console.error(`  … ほか ${errors.length - 25} 件`);
-console.error(`\n台帳は gen-x-card.mjs が書く。未登録の画像は \`node scripts/gen-x-card.mjs --all --force\` で載る。`);
+console.error(`\n台帳は gen-x-card.mjs が書く。未登録の画像は \`node scripts/build/gen-x-card.mjs --all --force\` で載る。`);
 process.exit(1);

@@ -18,7 +18,7 @@
   "inputs": [
     {
       "id": "digest",
-      "command": "node scripts/build-growth-digest.mjs --print",
+      "command": "node scripts/build/build-growth-digest.mjs --print",
       "rc": 0,
       "status": "pass",
       "durationMs": 196,
@@ -27,7 +27,7 @@
     },
     {
       "id": "business",
-      "command": "node scripts/business-review.mjs report --start 2026-11-02 --end 2026-11-08 --json",
+      "command": "node scripts/reports/business-review.mjs report --start 2026-11-02 --end 2026-11-08 --json",
       "rc": 0,
       "status": "pass",
       "durationMs": 1695,
@@ -36,7 +36,7 @@
     },
     {
       "id": "businessPrev",
-      "command": "node scripts/business-review.mjs report --start 2026-10-26 --end 2026-11-01 --json",
+      "command": "node scripts/reports/business-review.mjs report --start 2026-10-26 --end 2026-11-01 --json",
       "rc": 0,
       "status": "pass",
       "durationMs": 1477,
@@ -90,7 +90,7 @@
     },
     {
       "id": "search",
-      "command": "node scripts/report-search-opportunities.mjs --json",
+      "command": "node scripts/reports/report-search-opportunities.mjs --json",
       "rc": 0,
       "status": "pass",
       "durationMs": 831,

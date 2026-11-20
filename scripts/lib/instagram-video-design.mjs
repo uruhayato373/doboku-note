@@ -18,7 +18,7 @@ export const IG_CTA_NARRATION = 'フォローして、試験対策を続けま�
 export function instagramRendererDigest(root, type) {
   const files = ['scripts/lib/instagram-video-design.mjs', 'scripts/lib/video-explanation.mjs',
     datasetPath('config.video-brand'), datasetPath('config.character-poses'),
-    type === 'carousel' ? 'scripts/render-instagram-video-pack-carousels.mjs' : 'scripts/render-instagram-video-pack-reels.mjs'];
+    type === 'carousel' ? 'scripts/build/render-instagram-video-pack-carousels.mjs' : 'scripts/build/render-instagram-video-pack-reels.mjs'];
   if (type === 'reel') files.push('scripts/lib/video-narration-cache.mjs', 'scripts/lib/video-subtitles.mjs', 'scripts/lib/sns-common/reading-dict.mjs');
   return createHash('sha256').update(Buffer.concat(files.map(p => readFileSync(join(root, p))))).digest('hex');
 }

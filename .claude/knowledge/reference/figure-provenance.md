@@ -66,7 +66,7 @@ OCR/シャープネスでは検出できない欠陥がある。最重要は **�
 
 **品質ループ（2026-10-06〜・正の運用）**: `/loop /figure-quality-loop` で「判定待ち → 目視判定・修正 → 判定台帳に記録」を判定待ちが 0 になるまで回す。判定待ちは `npm run figure-review-queue` が毎回その場で作る（公開記事の図を画素検査＝EDGE_CUT/STRAY_*・LOW_RES ＋ OCR の needs − 判定台帳で今の画像に効く記録 − manual_needs。写真（kind が ai-generated）は対象外＝check-image-origin が見る。px の無い古い ok と manual_needs の ok は低解像度なら判定待ちに戻る）。始めた時点の census: 公開記事の図 626 枚・兆候あり 264・**判定待ち 220**（優先1: 1・優先2〔EDGE_CUT〕: 176・優先3: 43）・manual_needs で確認済み 40・原典なし 4。最初に目視した EDGE_CUT 上位 4 枚のうち 3 枚は図・ラベルが縁で切れていたのに needs:ok だった（EDGE_CUT は機械だけでは正当な縁接触と区別できない＝目視判定が要る理由）。手順と判定の対応表は `.claude/skills/figure-quality-loop/SKILL.md`。
 
-単発の対象選び: `node scripts/build-figure-provenance.mjs --list <needs>`（公開×掲載のパスを1行1件）。`source_dir` は `.claude/state/figure-provenance.json` の各図に入っている。管理画面（`npm run admin` → 記事図版）は**目視確認専用**で、資格・種別で絞って白地のサムネを見るだけにしている（needs・進捗・バッジは出さない。2026-09-30）。
+単発の対象選び: `node scripts/build/build-figure-provenance.mjs --list <needs>`（公開×掲載のパスを1行1件）。`source_dir` は `.claude/state/figure-provenance.json` の各図に入っている。管理画面（`npm run admin` → 記事図版）は**目視確認専用**で、資格・種別で絞って白地のサムネを見るだけにしている（needs・進捗・バッジは出さない。2026-09-30）。
 
 - **recrop-urgent / recrop** → 該当記事を開き、既存画像を再クロップ（`magick -crop ... -trim` → OCR で写り込みゼロ確認 → MDX の width/height 更新 → 1 ページ 1 commit）。
 - **rescan** → `source_dir` を高解像度再スキャン（会社PCプロキシ制約があれば自宅）。再スキャン後にクロップ→埋め込み→`npm run audit-figures` で検証。
@@ -75,4 +75,4 @@ OCR/シャープネスでは検出できない欠陥がある。最重要は **�
 
 - **クロップパイプラインが provenance を書き込む**: `/figure-quality-loop` の切り出し直しは出典（PDF・ページ・dpi）を `config/figure-sources.json` の `provenance` に残す（2026-10-06 に判定台帳へ記録を始め、10-07 に manual_needs の出典 69 件と合わせて移した）。切り出し枠・回転・後処理（`cropBox`・`rotate`・`post`）も record が worker の結果から残し、`npm run figure-reextract -- <figKey>` が記録から画像を作り直して配信中の画像と照合する（DN-0570。2026-10-12 に枠の分かる 4 枚を画像照合で逆算して記録）。それ以前の記録は枠が無く作り直せない。`civil-figure-rework` の inject / `pdf-to-mdx` の crop は未対応。
 - **原典との結線（2026-10-07・DN-0563/0564）**: 切り出し直しの依頼には、記事の `sources:` → `config/reference-sources.json`（書籍の PDF・向き・OCR、白書の `vaultCopies`）から引いた原典候補が付く（`scripts/lib/figure-source-wiring.mjs`）。`check-reference-sources` は `provenance` と記事の `sources:` を突き合わせ、宣言もれを止め、流用不可（`commercial-book`）の書籍から試験ページ以外の記事か試験ページの解説欄へ切り出した図を baseline（`.claude/config/reference-sources-baseline.json` の `figureReuseDebt`）で管理する。queue はその図を切り出し直しに回さない。
-- 真実源: 台帳と図ごとの出典＝`figure-sources.json`、品質＝`figure-text-audit.json`（audit-figure-text.mjs 生成）、目視判定＝`figure-review-ledger.json`、実装＝`scripts/build-figure-provenance.mjs`・`scripts/figure-review-queue.mjs`・`scripts/lib/figure-source-wiring.mjs`。
+- 真実源: 台帳と図ごとの出典＝`figure-sources.json`、品質＝`figure-text-audit.json`（audit-figure-text.mjs 生成）、目視判定＝`figure-review-ledger.json`、実装＝`scripts/build/build-figure-provenance.mjs`・`scripts/storage/figure-review-queue.mjs`・`scripts/lib/figure-source-wiring.mjs`。

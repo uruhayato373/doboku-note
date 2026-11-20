@@ -103,7 +103,7 @@ jobs:
           node scripts/checks/check-gsc-auto-review.mjs --json > /tmp/auto-review.json || true
           if ! node -e "process.exit(JSON.parse(require('fs').readFileSync('/tmp/auto-review.json','utf8')).anyDue ? 0 : 1)"; then
             echo "GSC 自動レビューは正常（DUE なし）— Issue は起票しない"
-            node scripts/report-automation-failure.mjs --resolve --channel gsc-auto-review --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
+            node scripts/reports/report-automation-failure.mjs --resolve --channel gsc-auto-review --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
             exit 0
           fi
           {
@@ -119,7 +119,7 @@ jobs:
           } > /tmp/auto-review-body.md
           # 記録層の沈黙は土曜の Mac の回が落ちたことが原因のことが多い。同じ原因の Issue（鍵 saturday-mac-run）が
           # 開いていればそこへ追記し、別の Issue を立てない（DN-0935）
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel gsc-auto-review \
             --key saturday-mac-run \
             --title "記録層の沈黙を検知（weekly-review-guard）" \
@@ -133,7 +133,7 @@ jobs:
         run: npm ci --legacy-peer-deps --ignore-scripts
 
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
       # 決定的ゲート: 公開ページが GSC の 404/リダイレクト URL を指していたら赤。
       # これは「0 件が正常」な検査なので surfacer と違い hard fail にする。
@@ -162,7 +162,7 @@ jobs:
           if node scripts/checks/check-workflow-health.mjs --exclude weekly-review-guard.yml > /tmp/wf-health.txt 2>&1; then
             echo 'workflow health: 全て健全'
             cat /tmp/wf-health.txt
-            node scripts/report-automation-failure.mjs --resolve --channel workflow-health --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
+            node scripts/reports/report-automation-failure.mjs --resolve --channel workflow-health --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
             exit 0
           fi
           {
@@ -176,7 +176,7 @@ jobs:
             echo "- 判定ロジック: \`scripts/checks/check-workflow-health.mjs\`"
             echo "- 閾値そのものを変えるときは config に理由を書く（間隔より短い上限は偽赤になる）"
           } > /tmp/wf-health-body.md
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel workflow-health \
             --title "重要 workflow が赤いまま/動いていません" \
             --body-file /tmp/wf-health-body.md
@@ -197,7 +197,7 @@ jobs:
           if node scripts/quality-audit.mjs --report-only > /tmp/report-digest.txt 2>&1; then
             echo 'report 区分: FAIL なし'
             tail -20 /tmp/report-digest.txt
-            node scripts/report-automation-failure.mjs --resolve --channel report-checks --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
+            node scripts/reports/report-automation-failure.mjs --resolve --channel report-checks --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
             exit 0
           fi
           {
@@ -212,7 +212,7 @@ jobs:
             echo "- 再現: \`node scripts/quality-audit.mjs --report-only\`"
             echo "- 直すか、読む人がいないなら検査ごと消す（CLAUDE.md §9）"
           } > /tmp/report-digest-body.md
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel report-checks \
             --title "quality-audit の report 区分に FAIL があります" \
             --body-file /tmp/report-digest-body.md
@@ -249,14 +249,14 @@ jobs:
             echo "- run: $RUN_URL"
           } > /tmp/growth-triage-body.md
           if [ "$rc" = "0" ]; then
-            node scripts/report-automation-failure.mjs --resolve --channel growth-triage --body "復旧 run: $RUN_URL" || true
-            node scripts/report-automation-failure.mjs --resolve --channel growth-triage-check-invalid --body "復旧 run: $RUN_URL" || true
+            node scripts/reports/report-automation-failure.mjs --resolve --channel growth-triage --body "復旧 run: $RUN_URL" || true
+            node scripts/reports/report-automation-failure.mjs --resolve --channel growth-triage-check-invalid --body "復旧 run: $RUN_URL" || true
           elif [ "$rc" = "1" ]; then
-            node scripts/report-automation-failure.mjs --channel growth-triage \
+            node scripts/reports/report-automation-failure.mjs --channel growth-triage \
               --title "計測ダイジェストが週次レビューで処分・反映されていません" \
               --body-file /tmp/growth-triage-body.md
           else
-            node scripts/report-automation-failure.mjs --channel growth-triage-check-invalid \
+            node scripts/reports/report-automation-failure.mjs --channel growth-triage-check-invalid \
               --title "計測ダイジェストの反映検査が不成立（ダイジェスト/レビューが無いか古い）" \
               --body-file /tmp/growth-triage-body.md
           fi

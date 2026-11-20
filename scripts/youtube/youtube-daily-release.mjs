@@ -144,7 +144,7 @@ function run() {
       // wire が書いた文面（youtube.json）を先に出す。publish は台帳だけを commit して pull するので、残ると止まる
       pushRegistry('content(video): 前倒しの予約で通常動画の公開日時を決め、方針で承認する');
       // 投稿の digest は手元の動画（.tmp/media）を読む。専用の worktree には無いので Drive から戻す
-      for (const pack of ok) node('scripts/media.mjs', 'pull', '--work', pack, '--commit');
+      for (const pack of ok) node('scripts/storage/media.mjs', 'pull', '--work', pack, '--commit');
       if (ok.length) node('scripts/youtube/video-factory.mjs', 'publish', '--packs', ok.join(','));
     });
   }

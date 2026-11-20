@@ -105,9 +105,9 @@ cover:
 
 ```bash
 # 描画は V5（note-cover-character-v5.md）。cover: の文言と coverTitle をそのまま使う
-node scripts/generate-note-covers.mjs                       # 全件
-node scripts/generate-note-covers.mjs 1級土木                # slug 部分一致
-node scripts/generate-note-covers.mjs 安全管理               # 1 記事だけ再生成（全件生成と同じポーズ・同じ画像）
+node scripts/build/generate-note-covers.mjs                       # 全件
+node scripts/build/generate-note-covers.mjs 1級土木                # slug 部分一致
+node scripts/build/generate-note-covers.mjs 安全管理               # 1 記事だけ再生成（全件生成と同じポーズ・同じ画像）
 ```
 
 現行V5の実描画枠・安全域は [`note-cover-character-v5.md`](./note-cover-character-v5.md) を正本とする。G2の中央クロップ前提をV5へ適用しない。
@@ -150,6 +150,6 @@ npm run note-update-body -- --parts cover --list .tmp/list.txt --commit
 
 - 値 SSoT: [`note-cover-tokens.json`](note-cover-tokens.json)
 - レンダラ: `scripts/ogp-create/lib/ogp-templates.mjs`（`renderNoteCoverG2` / `renderNoteCoverCropSafeV4`）
-- ジェネレータ: `scripts/generate-note-covers.mjs`
+- ジェネレータ: `scripts/build/generate-note-covers.mjs`
 - Skill: `.claude/skills/ogp-create/SKILL.md`
 - OGP（サイト 1200×630）は別系統の `mono-tag` テンプレ（試験色分けなし、サイト内 OGP 専用）

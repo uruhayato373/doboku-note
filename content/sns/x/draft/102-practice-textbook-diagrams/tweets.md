@@ -1,6 +1,6 @@
 # 実務教材から展開した図解
 
-画像再生成: node scripts/render-x-figure-drafts.mjs --draft 102-practice-textbook-diagrams
+画像再生成: node scripts/build/render-x-figure-drafts.mjs --draft 102-practice-textbook-diagrams
 
 公開前に元記事の本番反映を確認する。防災3本は平時の備えとして使用し、発災時は現在の公的情報と地域の避難行動を優先する。
 

@@ -7,7 +7,7 @@ metadata:
 
 ## 新しいスクリプト・ツール・経路を足したら discoverability 配線＋/doc-sync（2026-06-25）
 ①既存 skill/policy doc から参照を張る ②commit 前に `/doc-sync` を1回回す。
-- **Why:** 機械ゲート（`check-doc-refs`＝壊れた参照 / `check-doc-coupling`＝台帳もれ）は「パスが実在するか」「skill/agent 台帳が同期しているか」しか見ず、**既存の案内が別ツールを指したまま陳腐化した意味ドリフトは構造的に拾えない**（`/doc-sync`＝doc-sync-auditor 専用の守備範囲・[[reference_doc_sync_system]]）。2026-06-24 に figure→reel 経路 `scripts/figure-reel-create.mjs` を新設したのに `ig-figure-pack` SKILL.md は「Reels動画化→`ig-reel-create`」のまま（`ig-reel-create` は過去問 quiz 専用で figure 不可）＝誤案内が残存し、新スクリプトもどの doc からも参照されず発見不能で次セッションが同じ調査をやり直す羽目に。機械ゲートは全部緑だった。
+- **Why:** 機械ゲート（`check-doc-refs`＝壊れた参照 / `check-doc-coupling`＝台帳もれ）は「パスが実在するか」「skill/agent 台帳が同期しているか」しか見ず、**既存の案内が別ツールを指したまま陳腐化した意味ドリフトは構造的に拾えない**（`/doc-sync`＝doc-sync-auditor 専用の守備範囲・[[reference_doc_sync_system]]）。2026-06-24 に figure→reel 経路 `scripts/storage/figure-reel-create.mjs` を新設したのに `ig-figure-pack` SKILL.md は「Reels動画化→`ig-reel-create`」のまま（`ig-reel-create` は過去問 quiz 専用で figure 不可）＝誤案内が残存し、新スクリプトもどの doc からも参照されず発見不能で次セッションが同じ調査をやり直す羽目に。機械ゲートは全部緑だった。
 - **How to apply:** `scripts/**` `.claude/skills/**` `src/**` 等ドキュメント化された面を変更/追加した commit の前に `/doc-sync`（CLAUDE.md §8。ゲートが緑でも省略しない）。新ツールは最も近い既存 skill SKILL.md か reference policy から1行参照（例: ig-figure-pack SKILL.md「担当外」＋ ig-reels-policy.md に figure-reel-create を明記）。似た既存ツールがあれば新旧の棲み分けを明記（figure=figure-reel-create / 過去問=ig-reel-create）。`/doc-sync` を回したか自体は機械ゲート化が難しく運用規律＝チェックリスト化。
 
 ## handoff 棚卸しは /doc-declutter 経由・前送りタスクを抽出してから削除（2026-07-14）

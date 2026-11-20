@@ -51,7 +51,7 @@ Kindle択一(E/B/D)と同一原稿の A4 PDF を有料エリアに添付して�
 
 落とし穴1: **note-attach-file の既定境界regexは「試験問題|予想問題」ハードコード**（note-publish は frontmatter paidBoundary を読むが attach は読まない）。PDF販売記事の境界は「PDF のダウンロードと使い方」なので、attach には必ず `--boundary-regex "PDF のダウンロードと使い方"` を渡す。渡さないと boundary NG で**安全に再公開中断**（無料漏れは起きないが PDF が live に反映されない）。再実行時は既存PDFカード検出で冪等（二重添付なし）。
 
-落とし穴2: **公開状態(noteStatus:published)にすると 3点セットゲート(check-note-3set)が発火**し、pre-commit の note-lint が `img/cover.png` と `#`付きhashtags≥40(標準~90) を要求してコミットをブロックする。build-takuitsu-pdf 直後は cover 未生成・hashtags は`#`なしプレーン8行なので必ず引っかかる。対策: `node scripts/generate-note-covers.mjs "<slug断片>"`（cover.png+svg生成、frontmatter cover: ブロック必須）＋ hashtags.txt を `#`付き~70個へ書き換え。生成物 cover.svg も追跡慣例(git ls-files で453件)。
+落とし穴2: **公開状態(noteStatus:published)にすると 3点セットゲート(check-note-3set)が発火**し、pre-commit の note-lint が `img/cover.png` と `#`付きhashtags≥40(標準~90) を要求してコミットをブロックする。build-takuitsu-pdf 直後は cover 未生成・hashtags は`#`なしプレーン8行なので必ず引っかかる。対策: `node scripts/build/generate-note-covers.mjs "<slug断片>"`（cover.png+svg生成、frontmatter cover: ブロック必須）＋ hashtags.txt を `#`付き~70個へ書き換え。生成物 cover.svg も追跡慣例(git ls-files で453件)。
 
 2026-07-12 に4商品(2級土木630問¥1480/技術士一次560問¥1480/総監令和280問¥980/総監平成400問¥980)を公開・commit 593380d87。live実査 HTTP200+有料維持で確認済。関連: [[project_kindle_publishing_launch]]
 

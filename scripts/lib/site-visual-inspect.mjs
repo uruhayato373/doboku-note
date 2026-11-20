@@ -2,7 +2,7 @@
  * site-visual-inspect.mjs — 1 つの画面幅で、レイアウトと商品導線の状態を測る（ブラウザの中で走る関数）。
  *
  * page.evaluate(inspectLayoutInPage) で使う。関数の外の変数を参照しない（ブラウザへ文字列で渡るため）。
- * 使う側: scripts/site-visual-review.mjs。横はみ出し・読めない画像などは rendered-page-inspect.mjs が別に見る。
+ * 使う側: scripts/reports/site-visual-review.mjs。横はみ出し・読めない画像などは rendered-page-inspect.mjs が別に見る。
  *
  * 返すもの:
  *   blocks  ヘッダー・main の直下の区画・フッターごとの、中身の左端と右端（絶対配置の飾りは除く）

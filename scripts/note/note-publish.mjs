@@ -600,7 +600,7 @@ try {
         if (tags.length && tagsFile && recordPublishedTagHash(relative(ROOT, tagsFile))) console.log('[12c] 再公開タグハッシュ記録');
         // 記事カタログ（.claude/state/note-published.json）も作り直す。回し忘れると次の CI の
         // check-generated-indexes が赤くなる。best-effort（失敗しても公開結果は変えない）。
-        const cat = spawnSync(process.execPath, [join(ROOT, 'scripts/build-note-published-index.mjs')], { cwd: ROOT, encoding: 'utf8' });
+        const cat = spawnSync(process.execPath, [join(ROOT, 'scripts/build/build-note-published-index.mjs')], { cwd: ROOT, encoding: 'utf8' });
         console.log(`[12d] 記事カタログ再生成 ${cat.status === 0 ? 'OK' : `skip（exit ${cat.status}）→ npm run build-note-catalog`}`);
       }
     } catch (e) { console.log('[12] frontmatter 反映 skip:', e.message.split('\n')[0]); }

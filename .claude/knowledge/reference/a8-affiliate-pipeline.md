@@ -171,7 +171,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 
 ### レポート系ファイル
 
-- ブラウザ: `scripts/fetch-a8-ui-csv.mjs`（`a8-ui:fetch`）／`scripts/lib/a8-report-browser.mjs`
+- ブラウザ: `scripts/fetch/fetch-a8-ui-csv.mjs`（`a8-ui:fetch`）／`scripts/lib/a8-report-browser.mjs`
   （**汎用部は `scripts/lib/google-console-browser.mjs` を import 再利用**＝launchContext / downloadTo /
   dumpFailure / findUniqueByLabels。コピーはしない）
 - 正規化: `scripts/affiliate/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`

@@ -56,8 +56,8 @@ for (const { name, gscNeeded, plan, order: expected, attempts = 0, force = false
     git('-C', repo, 'config', 'user.name', 'Test'); git('-C', repo, 'config', 'user.email', 'test@example.invalid'); git('-C', repo, 'config', 'core.hooksPath', '/dev/null');
     const put = (path, text, mode = 0o644) => { mkdirSync(join(repo, path, '..'), { recursive: true }); writeFileSync(join(repo, path), text, { mode }); };
     put('.gitignore', '/node_modules\n/.env.local\n/doc-index-ready\n');
-    put('scripts/report-automation-failure.mjs', 'process.exitCode=0;\n');
-    put('scripts/build-doc-meta-index.mjs', "import {writeFileSync} from 'node:fs'; writeFileSync('doc-index-ready','ready');\n");
+    put('scripts/reports/report-automation-failure.mjs', 'process.exitCode=0;\n');
+    put('scripts/build/build-doc-meta-index.mjs', "import {writeFileSync} from 'node:fs'; writeFileSync('doc-index-ready','ready');\n");
     // 土曜の収集（前・後）（DN-0817）
     put('scripts/weekly-collect.mjs', "import {appendFileSync,existsSync} from 'node:fs'; if(!existsSync('doc-index-ready')) throw new Error('metadata not prepared'); if (process.argv[2] === '--resume-plan') console.log(process.env.TEST_RESUME_PLAN ?? 'all'); else appendFileSync(process.env.HOME + '/order', process.argv[3] + '\\n');\n");
     // GSC の記録層（DN-0849）: 要るときだけ Claude を回し、断片の追記は apply-gsc-records が行う

@@ -40,7 +40,7 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
 // 照合は生成器の実装をそのまま使う。ここで書き直すと 2 実装がドリフトし、
 // ゲートだけが正しく解決できない（civil-1 を civil-1-2 より先に見る特別扱いを取りこぼす）。
-import { resolveExam } from '../generate-note-covers.mjs';
+import { resolveExam } from '../build/generate-note-covers.mjs';
 import { isQualificationRef, loadRegistry } from '../lib/qualification-registry.mjs';
 import { REPO_ROOT as ROOT, DESIGN_TOKENS_ROOT } from '../lib/repository-paths.mjs';
 

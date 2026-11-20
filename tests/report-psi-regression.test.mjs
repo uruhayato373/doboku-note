@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildPsiReport, fieldVerdict, judgeRegression, lcpPattern, median } from '../scripts/report-psi-regression.mjs';
+import { buildPsiReport, fieldVerdict, judgeRegression, lcpPattern, median } from '../scripts/reports/report-psi-regression.mjs';
 import { exitCodeOf } from '../scripts/lib/run-audit.mjs';
 
 const TH = { performance_score_min: 70, LCP_ms_max: 2500, CLS_max: 0.1 };

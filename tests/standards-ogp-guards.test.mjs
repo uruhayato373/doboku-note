@@ -236,7 +236,7 @@ test('ogp-supply.yml の push paths が章記事の manifest とビルダを含�
     `章記事の manifest が trigger paths に無い（章を足しても OGP 供給が発火しない）。現在の paths: ${JSON.stringify(paths)}`,
   );
   assert.ok(
-    paths.includes('scripts/build-standards-ogp.mjs'),
+    paths.includes('scripts/build/build-standards-ogp.mjs'),
     `build-standards-ogp.mjs が trigger paths に無い（生成ロジックを直しても再供給されない）。現在の paths: ${JSON.stringify(paths)}`,
   );
   assert.ok(

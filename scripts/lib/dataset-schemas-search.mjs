@@ -589,7 +589,7 @@ const indexingPriorityType = z.strictObject({
   expectedValue: nonNegative('期待値（meanImpressions × unindexedRate）。表示 0 の候補はこの降順'),
 });
 
-/** 登録を申請する URL の優先順（data/gsc/indexing-priority.json・書き手 scripts/build-gsc-indexing-priority.mjs） */
+/** 登録を申請する URL の優先順（data/gsc/indexing-priority.json・書き手 scripts/build/build-gsc-indexing-priority.mjs） */
 export const GscIndexingPriority = z
   .strictObject({
     schemaVersion: z.literal(1),
@@ -816,7 +816,7 @@ export const BingSnapshots = z
   })
   .meta({ title: 'Bing の検索指標' });
 
-// ---- PSI（data/psi/batch/{ts}.json・書き手 scripts/fetch-psi-data.mjs） ------------------------------------------
+// ---- PSI（data/psi/batch/{ts}.json・書き手 scripts/fetch/fetch-psi-data.mjs） ------------------------------------------
 
 const psiScore = z.number().int().min(0).max(100).nullable().describe('Lighthouse のスコア（0〜100・測れなければ null）');
 const psiLab = (what) => z.number().min(0).nullable().describe(`${what}（lab・測れなければ null）`);

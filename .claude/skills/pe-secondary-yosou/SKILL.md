@@ -91,7 +91,7 @@ domain: product
 - forecast モードで 6 軸採点。平均 ≥2.0 かつ必須ゲート全通過まで writer 修正ループ。軸6（改訂コンピテンシー）が弱ければ三側面/文化的価値/データ活用/合意形成を該当テーマの締めに加筆（字数上限内で）。
 
 ### Step 5: 梱包（親が機械処理・1記事1ディレクトリ）
-1. **カバー**: `node scripts/generate-note-covers.mjs "{magazine_id}_{科目名}"`。再帰探索＋`article.md` 対応済みなので、各記事 dir の `article.md` → 同 dir `img/cover.png` を frontmatter `cover:` ブロックから生成する。
+1. **カバー**: `node scripts/build/generate-note-covers.mjs "{magazine_id}_{科目名}"`。再帰探索＋`article.md` 対応済みなので、各記事 dir の `article.md` → 同 dir `img/cover.png` を frontmatter `cover:` ブロックから生成する。
 2. **ハッシュタグ**: 各記事 dir に `hashtags.txt`（~90〜99 個・**1 行 1 個**）。同マガジンの過去問 hashtags か近縁科目を土台に、年度タグを `#令和8年度`/`#R08予想`/`#予想問題`/`#出題予想`/`#試験直前対策` に差し替え＋テーマ固有タグを足し、重複排除。
 3. **PDF**: 永続 spec `<マガジンのフォルダ>/magazine-pdf.json` に R08-yosou の各記事 dir を追記（`src: "R08-yosou/{dir}/article.md"`、include=`^## 予想問題`→`^## なぜこのテーマ` ＋ `^## フル模範解答`→`^## 採点ポイント`）。`node scripts/note/magazine-to-pdf.mjs --spec <spec> --in-place`（Chrome 必要）。Chrome 不可環境なら PDF はスキップして親が「PDF 未生成」を明示報告。
 

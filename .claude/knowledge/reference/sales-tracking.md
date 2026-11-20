@@ -305,11 +305,11 @@ KENP既読ページは共有口座全体値でサイト帰属できないため�
 |---|---|
 | `config/sales-product-map.json` | 商品名 → productId の対応表（旧 sales-recorder エージェントの表） |
 | `.claude/skills/record-sales/SKILL.md` | 記録スキル |
-| `scripts/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
+| `scripts/reports/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
 | `scripts/note/note-sales-fetch.mjs` | note ダッシュボードからの read-only 自動取得＋検算＋差し替え（`npm run note-sales-fetch`） |
 | `scripts/lib/sales-normalize.mjs` | productId 解決・表記ゆれ正規化・検算の純関数（`tests/sales-normalize.test.mjs`） |
 | `scripts/lib/sales-mapping.mjs` | カタログ（note-magazines.ts）の解析 `catalogMagazines`（`tests/sales-mapping-catalog.test.mjs`） |
-| `scripts/report-site-to-sales.mjs` | 月次のサイト送客→note 売上の突合（純関数 `scripts/lib/site-to-sales.mjs`・`tests/site-to-sales.test.mjs`） |
+| `scripts/reports/report-site-to-sales.mjs` | 月次のサイト送客→note 売上の突合（純関数 `scripts/lib/site-to-sales.mjs`・`tests/site-to-sales.test.mjs`） |
 | `scripts/checks/check-sales-mapping.mjs` | productId が mapping に文書化されているか検証する pre-commit ガード |
 | `scripts/kindle/kdp-report.mjs` | KDP 月次ロイヤリティ取得（`npm run kdp-report`・読み取り専用） |
 | `data/kdp/royalties.json` | Kindle 月次ロイヤリティ（note とは別スキーマ） |

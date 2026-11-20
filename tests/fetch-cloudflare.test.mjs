@@ -8,8 +8,8 @@ import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync } from 
 import { tmpdir } from 'node:os';
 import process from 'node:process';
 import { join } from 'node:path';
-import { run as runAnalytics } from '../scripts/fetch-cloudflare-analytics.mjs';
-import { run as runZoneConfig } from '../scripts/fetch-cloudflare-zone-config.mjs';
+import { run as runAnalytics } from '../scripts/fetch/fetch-cloudflare-analytics.mjs';
+import { run as runZoneConfig } from '../scripts/fetch/fetch-cloudflare-zone-config.mjs';
 
 const FAKE_TOKEN = 'fake-token-do-not-leak-1234567890';
 

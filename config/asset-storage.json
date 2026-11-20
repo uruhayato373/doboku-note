@@ -43,7 +43,7 @@
       "keyFrom": "stripPrefix:content/note/",
       "visibilityFrom": "fixed:private",
       "regenerable": false,
-      "generator": "scripts/generate-note-covers.mjs",
+      "generator": "scripts/build/generate-note-covers.mjs",
       "requiredBy": [
         "scripts/note/note-sync-routine.mjs（登録した版を保存）"
       ],
@@ -158,9 +158,9 @@
       "regenerable": false,
       "generator": null,
       "requiredBy": [
-        "scripts/generate-webp.mjs（png から配信用 webp を作る元。webp は Git に残す）",
+        "scripts/build/generate-webp.mjs（png から配信用 webp を作る元。webp は Git に残す）",
         "scripts/checks/check-figure-crop-integrity.mjs",
-        "scripts/figure-review-queue.mjs",
+        "scripts/storage/figure-review-queue.mjs",
         "scripts/checks/audit-figure-text.mjs"
       ],
       "reason": "記事図の切り出し原本（png）。記事が参照して配信するのは同名の webp（Git に残す）で、png を参照する MDX は 0 件。2026-10-22 に 302 件 19 MiB を Git から外した（DN-0707・DN-0111 Phase 4）。R2 キーは r2-sync（upload-images-to-r2）の `posts/${rel}` と同じなので URL は変わらない。切り出し直しの元 PDF からの再現は byte 一致しないので regenerable=false。",
@@ -177,7 +177,7 @@
       "keyFrom": "stripPrefix:config/ogp/backgrounds/",
       "visibilityFrom": "fixed:private",
       "regenerable": false,
-      "generator": "scripts/generate-ogp-backgrounds.mjs",
+      "generator": "scripts/build/generate-ogp-backgrounds.mjs",
       "requiredBy": [
         "scripts/ogp-create/ogp-create.mjs（サイト OGP・cover の無い note カバー）",
         "scripts/coconala/coconala-thumb.mjs（ココナラのサムネイル）",

@@ -14,7 +14,7 @@ interface PopularData {
 
 const data = popularData as PopularData;
 
-/** GA4 集計窓（直近 28 日・scripts/build-popular-pages.mjs が ga4-page スナップショットから生成）。表示ラベル用。 */
+/** GA4 集計窓（直近 28 日・scripts/build/build-popular-pages.mjs が ga4-page スナップショットから生成）。表示ラベル用。 */
 export const popularWindow = data.window;
 
 export interface PopularDoc {

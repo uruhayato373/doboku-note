@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 export const DOC_META_INDEX = 'src/config/doc-meta-index.json';
-const BUILDER = 'scripts/build-doc-meta-index.mjs';
+const BUILDER = 'scripts/build/build-doc-meta-index.mjs';
 
 export function readDocMetaIndex(root = process.cwd()) {
   const p = join(root, DOC_META_INDEX);

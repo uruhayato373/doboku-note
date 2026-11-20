@@ -49,6 +49,6 @@ title: コンテンツ ライフサイクル（全チャネル共通ステージ
 
 ## 5. 数え方の注意（実測で判明した罠）
 
-- **`src/config/doc-meta-index.json` は published:false を除外して生成される**（`scripts/build-doc-meta-index.mjs`）。index だけを数えるとサイト記事の「下書き 0」という偽の緑になる。非公開は `git grep -l "^published: false" -- content/site` で別に数える
+- **`src/config/doc-meta-index.json` は published:false を除外して生成される**（`scripts/build/build-doc-meta-index.mjs`）。index だけを数えるとサイト記事の「下書き 0」という偽の緑になる。非公開は `git grep -l "^published: false" -- content/site` で別に数える
 - **`igBoard()` は `posted` オブジェクトを返さず、フォーマット別の投稿有無を `CRS` 形式の文字列（未投稿は `-`）へ畳んで `status` に入れる**。`posted` を読もうとすると全件 draft になる
 - **この端末では 1 ファイル読み取りが EDR スキャンで 20〜45ms かかる**（memory: reference_local_build_io_bound）。831 本の note frontmatter を読む `noteArticles()` は 70 秒超。件数だけなら `git ls-files` / `git grep` で 1 秒（`content.ts` の `noteArticleCounts` が同じ判定の高速版・**ルールを変えるときは両方を直す**）

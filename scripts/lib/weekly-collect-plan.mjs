@@ -174,8 +174,8 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       // 受取額は note・ココナラ・KDP が 3 つとも確定した週（KDP は翌月 16 日以降）に入る。逃した週の分を拾うので前々月も回す
       id: 'business-records', phase: 'pre', title: '月の受取額と固定費の記録（前々月と前月）', timeoutMin: 5, browser: false,
       commands: [previousMonth(prev), prev].flatMap((m) => [
-        { argv: ['scripts/record-net-receipts.mjs', '--month', m, '--when-complete', '--commit'] },
-        { argv: ['scripts/record-operating-costs.mjs', '--month', m, '--commit'] },
+        { argv: ['scripts/fetch/record-net-receipts.mjs', '--month', m, '--when-complete', '--commit'] },
+        { argv: ['scripts/fetch/record-operating-costs.mjs', '--month', m, '--commit'] },
       ]),
     },
     {

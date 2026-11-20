@@ -119,7 +119,7 @@ Writer は写真を作らない。返答に「写真を入れたい位置（直�
 
 ### 本の全項目の割り当て（シリーズと本をつなぐ台帳）
 
-`config/content-series-basis.json` は、本の全項目を「シリーズの章（`<シリーズ id>/<項目 id>`）」「ほかの記事（`{ article }`）」「使わない（`{ excluded: 理由 }`）」のどれかに置く台帳で、`check-content-series` が欠け・古い割り当て・無い記事を止める。判定（§0）を済ませた本は `npm run build-series-basis -- --commit` で判定と展開計画から割り当てを作る（候補表は `node scripts/drive-vault-sync.mjs --pull --group reference-book-coverage --commit` で手元に取り戻しておく）。「当時のサイトの範囲の外」として使わなかった項目には `revisit: true` が付き、`check-content-series` が本ごとに「判定し直す候補」の数を出す。**シリーズを作るときは、根拠にする本の `revisit` の項目を先に判定し直し**、使うものは章の値へ、使わないものは理由を直して `revisit` を外す。目次・索引・本の中の重複・過去問・答案例には付けない。
+`config/content-series-basis.json` は、本の全項目を「シリーズの章（`<シリーズ id>/<項目 id>`）」「ほかの記事（`{ article }`）」「使わない（`{ excluded: 理由 }`）」のどれかに置く台帳で、`check-content-series` が欠け・古い割り当て・無い記事を止める。判定（§0）を済ませた本は `npm run build-series-basis -- --commit` で判定と展開計画から割り当てを作る（候補表は `node scripts/storage/drive-vault-sync.mjs --pull --group reference-book-coverage --commit` で手元に取り戻しておく）。「当時のサイトの範囲の外」として使わなかった項目には `revisit: true` が付き、`check-content-series` が本ごとに「判定し直す候補」の数を出す。**シリーズを作るときは、根拠にする本の `revisit` の項目を先に判定し直し**、使うものは章の値へ、使わないものは理由を直して `revisit` を外す。目次・索引・本の中の重複・過去問・答案例には付けない。
 
 ### 親が先にすること
 
@@ -128,7 +128,7 @@ Writer は写真を作らない。返答に「写真を入れたい位置（直�
 3. brief の作り手を決める。章の骨子（下の「章の骨子」）が確認済みなら、それを brief にする（`brief: "outline"`）。骨子の無い章で、本の項目が 3 件以上なら担当（workflow の Brief 段）、0〜2 件の章とハブの章は親が既存記事と一次資料から下の形で `.tmp/book-coverage/series/<slug>.brief.md` を書く（本を読ませる担当を起こすより安い）。
 4. Workflow `series-chapter`（`.claude/workflows/series-chapter.js`）を args `{ root, items }` で回す。item は `{ series, item, article, books, brief: "agent" | "parent" | "outline", dn? }`（`books` はコミットの trailer に書く書籍 id。本の項目が 0 件なら `[]`）。同時 3 体。
 5. 終わったら、返答の `factsVerified` をシリーズの事実ファイル（例 [concrete-practice-sources.md](./concrete-practice-sources.md)・[municipal-civil-engineer-sources.md](./municipal-civil-engineer-sources.md)）へ、`inboundLinks` を既存記事へ、`curriculumHint` を `src/config/category-curriculum.json` へ、`visuals` を台帳の項目へ入れる。
-6. **workflow の Commit 段で記事が develop に入った時点から、親がカリキュラムに並べるまで develop の audit は赤い**（`check-content-series` の「公開した章がカリキュラムに無い」と、記事が新しい法令にリンクしたときの `egov-laws`。どちらも ci: true）。実務記事（civil-practice）は、タグに topic へつながるタグ（`src/config/topics.json` の tags）が無いと `check-topic-wiring` も赤くなる（2026-10-15 第 4 波の 4 本）。2026-10-15 に第 2・第 3 波でこれを起こし、別セッションの PR まで赤くした（DN-0740）。workflow を回す前に、骨子が引く法令を参考文献の台帳と e-Gov の写し（`npm run egov-laws -- --sync`）へ入れ、終わったら最初にカリキュラムへ並べて push する。前の波をカリキュラムに足したあとに同じ作業ツリーで次の波を回すと、作業ツリーの `src/config/doc-meta-index.json`（生成物）が古く、Commit 段の pre-commit（`check-category-curriculum`）が止まる。回す前に `node scripts/build-doc-meta-index.mjs --ci` で作り直す
+6. **workflow の Commit 段で記事が develop に入った時点から、親がカリキュラムに並べるまで develop の audit は赤い**（`check-content-series` の「公開した章がカリキュラムに無い」と、記事が新しい法令にリンクしたときの `egov-laws`。どちらも ci: true）。実務記事（civil-practice）は、タグに topic へつながるタグ（`src/config/topics.json` の tags）が無いと `check-topic-wiring` も赤くなる（2026-10-15 第 4 波の 4 本）。2026-10-15 に第 2・第 3 波でこれを起こし、別セッションの PR まで赤くした（DN-0740）。workflow を回す前に、骨子が引く法令を参考文献の台帳と e-Gov の写し（`npm run egov-laws -- --sync`）へ入れ、終わったら最初にカリキュラムへ並べて push する。前の波をカリキュラムに足したあとに同じ作業ツリーで次の波を回すと、作業ツリーの `src/config/doc-meta-index.json`（生成物）が古く、Commit 段の pre-commit（`check-category-curriculum`）が止まる。回す前に `node scripts/build/build-doc-meta-index.mjs --ci` で作り直す
 
 シリーズの事実ファイルは、執筆担当がまず読み、そこに無い値だけを WebSearch で確かめるためのもの。置き場は `.claude/knowledge/reference/<シリーズ id>-sources.md` で、workflow はこの名前で引く（別の場所なら args `facts`）。別のシリーズを始めたら同じ形のファイルを作る。
 

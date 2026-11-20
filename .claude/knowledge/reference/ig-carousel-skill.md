@@ -29,7 +29,7 @@
 
 ## 1.5 論点パック（シリーズ C・1級/2級土木）
 
-年度括り（旧 `civil-{1,2}/exam-packs`）を廃し、**1論点 × 4問（異なる年度から採録）**で括る。分類は Kindle A系（`scripts/build-takuitsu-reconstruct.mjs` の `THEMES` = 6管理テーマ・39論点）と**同一ロジックを import**して一致させる（テーマ間の重複は GOUBON 順の先勝ちで解消）。
+年度括り（旧 `civil-{1,2}/exam-packs`）を廃し、**1論点 × 4問（異なる年度から採録）**で括る。分類は Kindle A系（`scripts/build/build-takuitsu-reconstruct.mjs` の `THEMES` = 6管理テーマ・39論点）と**同一ロジックを import**して一致させる（テーマ間の重複は GOUBON 順の先勝ちで解消）。
 
 - **対象**: 6管理テーマ（安全/法規/施工計画/環境/品質/工程）＝施工管理法＋法規ドメイン。土木一般・専門土木の技術系論点は THEMES 未定義のため対象外（別途論点設計が必要）
 - **頻出度★**: 論点の出現年数 / 総回数（1級=12・2級=10）を 0.6/0.3 で ★★★/★★☆/★☆☆
@@ -134,9 +134,9 @@ scripts/
 node scripts/content/parse-exam-questions.mjs
 
 # 2. 全年度を 4 問パックに集約
-node scripts/generate-exam-pack-dirs.mjs            # H21-R7 全パック
+node scripts/build/generate-exam-pack-dirs.mjs            # H21-R7 全パック
 # または
-node scripts/generate-exam-pack-dirs.mjs --year r07 # 単年度
+node scripts/build/generate-exam-pack-dirs.mjs --year r07 # 単年度
 
 # 3. PNG + caption 一括生成
 node scripts/bulk-generate-exam-packs.mjs --year r07 --size carousel

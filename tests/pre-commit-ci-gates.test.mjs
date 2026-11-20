@@ -45,7 +45,7 @@ test('note の原稿・マガジンの写し・収録の期待値を stage し�
   assert.deepEqual(ids(['config/note-magazine-membership.json']), ['unit-tests', 'generated-indexes'], '設定の JSON は型の実データのテストも回す');
   assert.ok(!ids(['content/note/1級・2級土木/2級土木/R8二次の出題予想/hashtags.txt']).includes('generated-indexes'));
   const gate = GATES.find((g) => g.id === 'generated-indexes');
-  assert.deepEqual(gate.cmd([]), ['node', 'scripts/build-note-published-index.mjs', '--check', '--staged']);
+  assert.deepEqual(gate.cmd([]), ['node', 'scripts/build/build-note-published-index.mjs', '--check', '--staged']);
   assert.ok(ids(['content/note/x/y/Article.md']).includes('generated-indexes'), 'isNoteArticleFile と同じく大文字小文字を区別しない');
 });
 

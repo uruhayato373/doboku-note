@@ -29,7 +29,7 @@ metadata:
 
 全 published 記事のルーブリック採点カバレッジを一望する census 基盤（2026-07-10 新設・commit 42a32723c）。5/17 GSC急落 RCA で「内部5軸ルーブリックは本文分量軸を持たず Google の index selection/demote と直交する」「採点が総監・civil-1 に偏り他資格ゼロ」が判明したのを受けて構築。真実源は [[project_gsc_pivot_2026_04]] 系でなく本文。
 
-**使い方**: `npm run quality-census`（`scripts/build-quality-census.mjs`）→ `.claude/state/quality/census.json` を生成。`src/config/doc-meta-index.json`（published 真実源）× 全 `*quality-scores.json` を突合し、資格×group×{採点済み/未採点/不合格(weighted<2.0)/薄層} を集計。admin 品質タブ冒頭にも表示（`npm run admin` → `/api/quality-census`）。
+**使い方**: `npm run quality-census`（`scripts/build/build-quality-census.mjs`）→ `.claude/state/quality/census.json` を生成。`src/config/doc-meta-index.json`（published 真実源）× 全 `*quality-scores.json` を突合し、資格×group×{採点済み/未採点/不合格(weighted<2.0)/薄層} を集計。admin 品質タブ冒頭にも表示（`npm run admin` → `/api/quality-census`）。
 
 **薄層(thin)の機械補完**: keyword/guide/textbook かつ 本文実質<3,000字（`check-guide-length` と同じ `body.replace(/\s/g,'').length` 計測=raw MDX・componentタグ込み）。ルーブリックを改変せず body_chars で demote リスクを可視化する設計。
 

@@ -14,7 +14,7 @@ name: Audit ops alerts (投稿・配信・販売計測の遅れ)
 #
 # 通知の到達: Issue は repo owner に assign される（GITHUB_REPOSITORY_OWNER 既定）ので GitHub の
 # 通知メールが届く。Slack にも出したければ secret `SLACK_WEBHOOK_URL` を足すだけでよい
-# （未設定なら何もしない）。真実源: scripts/report-automation-failure.mjs ヘッダ。
+# （未設定なら何もしない）。真実源: scripts/reports/report-automation-failure.mjs ヘッダ。
 #
 # ref は develop: 配信表（content/note/**/README.md）と記事 frontmatter は develop が先行し、
 # main は deploy 時にしか進まない。main を見ると「develop では公開済み」でも赤が出る。
@@ -81,7 +81,7 @@ jobs:
             echo "- 再現: \`node scripts/quality-audit.mjs --ops\`"
             echo "- weekly-collect の赤は土曜の Mac の収集が期限内に回っていない（Mac が寝ていた・launchd が外れた）。Mac で ~/Library/Logs/doboku-note/weekly-review.log を見て npm run weekly-review:install -- --status。段ごとの失敗と取った記録の検算は Issue（channel weekly-collect）と週次レビューが読む（取り直しは node scripts/weekly-collect.mjs --only <段>）"
           } > "$RUNNER_TEMP/ops-body.md"
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel ops \
             --title "投稿・配信・販売計測に遅れがあります" \
             --body-file "$RUNNER_TEMP/ops-body.md"
@@ -92,7 +92,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel ops \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel ops \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       # 月曜の weekly-review-guard が全 workflow の watchdog を回すが、guard 自身が止まると誰も拾わない。
@@ -109,7 +109,7 @@ jobs:
           set -e
           cat "$RUNNER_TEMP/guard-health.txt"
           if [ "$rc" = "0" ]; then
-            node scripts/report-automation-failure.mjs --resolve --channel workflow-health-guard \
+            node scripts/reports/report-automation-failure.mjs --resolve --channel workflow-health-guard \
               --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
             exit 0
           fi
@@ -121,7 +121,7 @@ jobs:
             cat "$RUNNER_TEMP/guard-health.txt"
             echo '```'
           } > "$RUNNER_TEMP/guard-health-body.md"
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel workflow-health-guard \
             --title "weekly-review-guard が止まっています" \
             --body-file "$RUNNER_TEMP/guard-health-body.md"

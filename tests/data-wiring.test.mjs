@@ -119,7 +119,7 @@ test('マガジン表紙の資格ラベル（generate-magazine-covers の catego
   const tokens = readJson('scripts/assets/design-tokens/note-cover-tokens.json').exams;
   // 意図した書き分け: 建設部門の二次試験の教材だと分かるように「第二次」を付ける
   const VARIANTS = { 'pe-construction': ['技術士（建設部門・第二次）'] };
-  const src = readFileSync('scripts/generate-magazine-covers.mjs', 'utf8');
+  const src = readFileSync('scripts/build/generate-magazine-covers.mjs', 'utf8');
   const entries = [...src.matchAll(/magazineDir: '([^']+)'[\s\S]*?category: '([^']+)'/g)].map((m) => ({ dir: m[1], category: m[2] }));
   assert.ok(entries.length >= 50, `表紙の定義を読めていない（${entries.length}）`);
   for (const { dir, category } of entries) {

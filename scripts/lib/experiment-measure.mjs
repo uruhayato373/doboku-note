@@ -1,5 +1,5 @@
 // experiment-measure（純粋ロジック）— 実験台帳の `measure` 仕様から前後の窓を決め、値の比較と判定の目安を出す。
-// 取得（GA4 / GSC / 売上台帳）と台帳への追記は scripts/measure-experiments.mjs。
+// 取得（GA4 / GSC / 売上台帳）と台帳への追記は scripts/reports/measure-experiments.mjs。
 //
 // measure 仕様（experiments[].measure・任意）:
 //   { specVersion: 1,

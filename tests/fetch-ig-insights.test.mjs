@@ -1,4 +1,4 @@
-// fetch-ig-insights.test.mjs — scripts/fetch-ig-insights.mjs の run() テスト。
+// fetch-ig-insights.test.mjs — scripts/fetch/fetch-ig-insights.mjs の run() テスト。
 // fake client（listMedia/mediaInsights/accountInsights/accountFields/debugToken）を注入し、
 // 実 API・実ネットワークは一切叩かない。一時ディレクトリを root として渡し、成果物は
 // リポジトリの .claude/state/ を汚さない。
@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, readFileSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { run } from '../scripts/fetch-ig-insights.mjs';
+import { run } from '../scripts/fetch/fetch-ig-insights.mjs';
 
 function fakeClient(overrides = {}) {
   return {

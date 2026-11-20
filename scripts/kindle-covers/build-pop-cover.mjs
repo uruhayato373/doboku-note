@@ -11,7 +11,7 @@
  *
  * 採用の前に、文字の一覧と画像を 1 文字ずつ照合する（誤字・欠け・余計な文字・手指・顔と印の重なり）。
  * 合否は人か ai-image-fidelity-auditor が決める。このスクリプトは合格と言わない。
- * 採用画像の正本は private R2 の kindle-dist（node scripts/asset-offload.mjs --group kindle-dist --include-untracked --commit で上げる）。
+ * 採用画像の正本は private R2 の kindle-dist（node scripts/storage/asset-offload.mjs --group kindle-dist --include-untracked --commit で上げる）。
  */
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { createHash } from 'node:crypto'

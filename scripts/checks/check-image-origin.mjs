@@ -23,7 +23,7 @@
  *   node scripts/checks/check-image-origin.mjs --json              # 同じ内容を JSON で
  *   node scripts/checks/check-image-origin.mjs --ai-queue [--json] # 判定待ち（未監査）の写真。ai-image-fidelity-auditor へ渡す材料
  *   node scripts/checks/check-image-origin.mjs record-ai <verdicts.json>  # 判定を実績の台帳へ（今の画像のハッシュつき）
- * 生成と配置は scripts/gen-article-photo.mjs（npm run gen-article-photo）。
+ * 生成と配置は scripts/build/gen-article-photo.mjs（npm run gen-article-photo）。
  *
  * 終了コード: 0 = 違反なし / 1 = 違反あり・record の入力が不正 / 2 = 検査不成立（公開記事の画像を 1 枚も読めない）
  *

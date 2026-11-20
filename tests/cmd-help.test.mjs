@@ -18,9 +18,9 @@ test('冒頭コメントの基準: 基準に無いファイルの欠けは止め
 test('scriptFile: node / tsx / npx tsx が最初に起動するファイルを返し、ファイルを起動しない script は null', () => {
   assert.equal(scriptFile('node scripts/deploy-main.mjs'), 'scripts/deploy-main.mjs');
   assert.equal(scriptFile('node --test --test-concurrency=2 tests/a.test.mjs'), 'tests/a.test.mjs');
-  assert.equal(scriptFile('tsx scripts/build-standards-data.ts && node scripts/checks/check-standards-data.mjs'), 'scripts/build-standards-data.ts');
+  assert.equal(scriptFile('tsx scripts/build/build-standards-data.ts && node scripts/checks/check-standards-data.mjs'), 'scripts/build/build-standards-data.ts');
   assert.equal(scriptFile('npx tsx scripts/x.mts --ci'), 'scripts/x.mts');
-  assert.equal(scriptFile('node scripts/build-doc-meta-index.mjs --ci'), 'scripts/build-doc-meta-index.mjs');
+  assert.equal(scriptFile('node scripts/build/build-doc-meta-index.mjs --ci'), 'scripts/build/build-doc-meta-index.mjs');
   assert.equal(scriptFile('tsc --noEmit'), null);
   assert.equal(scriptFile('npm run build-backlinks && npm run build-indexes'), null);
 });

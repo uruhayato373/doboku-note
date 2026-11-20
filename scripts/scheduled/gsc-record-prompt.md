@@ -49,5 +49,5 @@
 
 1. **異常なし**: 3 行以内の要約で終わる（「週次: weekly-entry.md に出力（候補 N 件）/ coverage: スキップ or 出力済み」）
 2. **異常あり**（Phase 0 の鮮度ゲート・Phase 2 の異常判定）: 最終報告の先頭を `【要確認】` にして数値と回復コマンドを列挙し、GitHub Issue に記録する:
-   `node scripts/report-automation-failure.mjs --channel gsc-auto-review --title "<事象を 1 行で>" --body-file .tmp/claude-out/gsc/issue-body.md`
+   `node scripts/reports/report-automation-failure.mjs --channel gsc-auto-review --title "<事象を 1 行で>" --body-file .tmp/claude-out/gsc/issue-body.md`
    （このスクリプトが重複防止を担う。エントリ本文は Issue に貼らない）

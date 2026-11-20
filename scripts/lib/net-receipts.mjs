@@ -3,7 +3,7 @@
  * ---------------------------------------------------------------------------
  * 受取額 = note の手数料控除後売上 ＋ ココナラの手数料控除後売上（トークルームのクローズ日で計上）
  *        ＋ KDP ロイヤリティ確定値（catalog 対象書籍のみ）。振込手数料は含めない（15_KPIツリー.md）。
- * 読み手: scripts/record-net-receipts.mjs（月次の記録）・scripts/note/note-sales-fetch.mjs（集計中の判定）・scripts/kindle/kdp-report.mjs（推計か・取る月）・
+ * 読み手: scripts/fetch/record-net-receipts.mjs（月次の記録）・scripts/note/note-sales-fetch.mjs（集計中の判定）・scripts/kindle/kdp-report.mjs（推計か・取る月）・
  *         管理画面のトップ（net-receipts-ledger.mjs 経由で月の受取額と途中経過）・tests/net-receipts.test.mjs。
  * ---------------------------------------------------------------------------
  */

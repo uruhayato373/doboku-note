@@ -7,9 +7,9 @@ import {
   unsupportedImageSrcs,
   toBundleQuestion,
   bundledImageRels,
-} from '../scripts/build-ios-quiz-bundle.mjs';
-import { SOURCES, buildDataset, optionsFromTable, toYearLabel } from '../scripts/build-quiz-data.mjs';
-import { APPS, APP_YEAR_CODE } from '../scripts/build-ios-quiz-bundle.mjs';
+} from '../scripts/build/build-ios-quiz-bundle.mjs';
+import { SOURCES, buildDataset, optionsFromTable, toYearLabel } from '../scripts/build/build-quiz-data.mjs';
+import { APPS, APP_YEAR_CODE } from '../scripts/build/build-ios-quiz-bundle.mjs';
 import { renderQuizMarkdown } from '../scripts/lib/quiz-markdown.mjs';
 
 const ds = (exam, ids) => ({ exam, questions: ids.map((id) => ({ id })) });

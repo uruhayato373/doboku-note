@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildLedgerEntries, judgeCtas, layoutSha, planTiles, selectTargets, shotScale, shouldShoot, summarizeStatus, STALE_DAYS } from '../scripts/site-visual-review.mjs';
+import { buildLedgerEntries, judgeCtas, layoutSha, planTiles, selectTargets, shotScale, shouldShoot, summarizeStatus, STALE_DAYS } from '../scripts/reports/site-visual-review.mjs';
 import { ConfigSiteVisualReview } from '../scripts/lib/dataset-schemas.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';

@@ -15,7 +15,7 @@ metadata:
 
 **有料境界**: 学科記述=`出る順①`直前（1級施工計画・環境のみ`施工計画・出る順①`）。無料=導入＋出題マトリクス＋出る順ランキング。暗記=`(2.)コンクリート工`直前（無料=使い方＋第1分野）。frontmatter `paidBoundary`。
 
-**この作業で入れた道具**: `scripts/generate-anki-pdf.mjs`（package.json `generate-anki-pdf`・Playwright page.pdf でMac動作 [[feedback_workflow_orchestration_gotchas]]・`--sample`で無料第1分野のみの見本PNG=有料答え流出なし）／`note-attach-file.mjs` に `--boundary-regex`（後方互換）／`note-publish.mjs` account gate 堅牢化。
+**この作業で入れた道具**: `scripts/build/generate-anki-pdf.mjs`（package.json `generate-anki-pdf`・Playwright page.pdf でMac動作 [[feedback_workflow_orchestration_gotchas]]・`--sample`で無料第1分野のみの見本PNG=有料答え流出なし）／`note-attach-file.mjs` に `--boundary-regex`（後方互換）／`note-publish.mjs` account gate 堅牢化。
 
 **noteエディタ自動化の重要な罠（2026-07-04）**:
 - **`Control+End` は Windows専用**。`note-attach-file.mjs` が本文末尾移動にこれを使い Mac で無効→PDFが本文冒頭(無料ゾーン)に入り有料PDF無料流出。JSで contenteditable 末尾へ caret 移動に修正済（コミット済）。

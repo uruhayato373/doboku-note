@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { agentKind, buildIndex, markers, parseEntry, replaceRegion, skillAgentMap } from '../scripts/lib/capability-index.mjs';
-import { planIndex } from '../scripts/build-capability-index.mjs';
+import { planIndex } from '../scripts/build/build-capability-index.mjs';
 import { touchesCapabilityIndex } from '../scripts/checks/check-doc-coupling.mjs';
 
 const skill = (name, category, body = '') => ({ path: `.claude/skills/${name}/SKILL.md`, content: `---\nname: ${name}\ncategory: ${category}\ndescription: >\n  ${name} の説明。\n  Use when user asks to [x|y].\ndomain: ops\n---\n${body}\n` });

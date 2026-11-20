@@ -79,7 +79,7 @@ node scripts/note/note-lint.mjs "<書いた article.md の絶対パス>"        
 
 ### アセット（親と分担）
 
-- カバー: `node scripts/generate-note-covers.mjs "{magazine}"`、ハッシュタグ: `/note-hashtags`（`hashtags.txt`・本文に入れない）。記事ごとに必須（checklist Step 6c）。
+- カバー: `node scripts/build/generate-note-covers.mjs "{magazine}"`、ハッシュタグ: `/note-hashtags`（`hashtags.txt`・本文に入れない）。記事ごとに必須（checklist Step 6c）。
 
 ### 担当外（cem 固有）
 

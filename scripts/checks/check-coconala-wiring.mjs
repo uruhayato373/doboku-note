@@ -242,7 +242,7 @@ for (const s of catalog) {
   // 「商品画像がありません」になる（430725211 から develop の事前検査が赤いままだった）。手元でも同じ所で止める。
   const approvedRel = approvedThumbs[s.id]?.path;
   if (approvedThumbOnlyLocal({ thumb, approvedPath: approvedRel ?? null, inLedger: Boolean(approvedRel && assetLedger[approvedRel]) })) {
-    violations.push(`[${s.id}] 承認済み画像 ${approvedRel} が手元にだけあり、退避台帳に無い（CI では画像なしになる）。node scripts/drive-vault-sync.mjs --group coconala-asset --path ${approvedRel} --commit で台帳へ載せる`);
+    violations.push(`[${s.id}] 承認済み画像 ${approvedRel} が手元にだけあり、退避台帳に無い（CI では画像なしになる）。node scripts/storage/drive-vault-sync.mjs --group coconala-asset --path ${approvedRel} --commit で台帳へ載せる`);
   }
   if (thumb.warn && s.status === 'listed') warnings.push(thumb.warn); // 休止・下書きは出品画面に出ないので警告しない
   if (thumb.source === 'approved') thumbApproved += 1;

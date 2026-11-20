@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { promisify } from 'node:util';
 
 import { auditRuns, healthTargets, latestRun, runListArgs } from '../../../../scripts/checks/check-workflow-health.mjs';
-import { channelOfTitle, LABEL as ISSUE_LABEL } from '../../../../scripts/report-automation-failure.mjs';
+import { channelOfTitle, LABEL as ISSUE_LABEL } from '../../../../scripts/reports/report-automation-failure.mjs';
 import { datasetPath, freshnessDays } from '../../../../scripts/lib/datasets.mjs';
 import { readJsonIf } from '../../../../scripts/lib/json-io.mjs';
 import { readWeeklyDraft, WEEKLY_REVIEW_LOG, weeklyLaunchd } from '../../../../scripts/lib/review-automation.mjs';
@@ -185,7 +185,7 @@ export interface AutomationIssuesView {
   error: string | null;
 }
 
-/** 題名の channel（規約は scripts/report-automation-failure.mjs）を、台帳の readers で Mac と CI に振り分ける（純関数） */
+/** 題名の channel（規約は scripts/reports/report-automation-failure.mjs）を、台帳の readers で Mac と CI に振り分ける（純関数） */
 export function classifyIssues(list: { number: number; title: string; url: string }[], automations: Automation[]): AutomationIssue[] {
   const byChannel = new Map<string, Automation>();
   for (const a of automations) for (const r of a.readers) if (r.startsWith('issue:')) byChannel.set(r.slice('issue:'.length), a);

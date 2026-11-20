@@ -51,7 +51,7 @@ title: 計測・検証事故の記録
 
 **原因**: UTM と GA4 のディメンション（`sessionCampaignName`）は正しい。サイトへ来ているのは動画ごとに 2〜4 回・数秒だけの訪問（リンクのプレビュー・巡回に見える）で、サイト内の教材 CTA を押す人がいない。よって 0 行は「計測漏れ」でも UTM の誤りでもなく、概要欄経由で教材まで進んだ人が観測できなかった、が正しい読み。人の訪問か巡回かは GA4 の画面だけでは断定できない（未確認）。
 
-**対策**: 暦の週・月の `values.youtubeCampaignClicks` は `scripts/fetch-business-metrics.mjs` が `sessionCampaignName` 別の `note_cta_click` から合計して載せる。該当の行が無い週・月は 0 とせず値を載せない（欠測のまま）。概要欄から note への直リンクのクリックは YouTube 側でも取れない（定義に既記）。
+**対策**: 暦の週・月の `values.youtubeCampaignClicks` は `scripts/fetch/fetch-business-metrics.mjs` が `sessionCampaignName` 別の `note_cta_click` から合計して載せる。該当の行が無い週・月は 0 とせず値を載せない（欠測のまま）。概要欄から note への直リンクのクリックは YouTube 側でも取れない（定義に既記）。
 
 **教訓**: 「0 行」を見たら、UTM の一致と、その窓の `campaign` レポートに該当の行があるか、その行のエンゲージメントを先に見る。
 
@@ -166,7 +166,7 @@ title: 計測・検証事故の記録
 - 現象: W42 週次で、同じ日本・web・final・10/5〜10/11 のプロパティ全体が 303 クリック（無次元 byProperty）・byPage 全体が 306 なのに、成長パックのページ明細（dimensions [page]・country=jpn）は 189 行・23 クリック / 1,727 表示（8%）だった
 - 根本原因（実測）: 国の条件を付けたページ別の行の合計は、同じ条件のページ×検索語（471 行）の合計と完全に一致した（週 23 / 1,727、基線 9/7〜10/4 も 77 / 6,493）。Google は条件つきのページ別を検索語の分かる分だけで集計し、匿名化された検索語の分（このサイトでは全体の約 9 割）を入れない。国の条件なしのページ別（CI 日次 `data/gsc/reports/2026-10-17.json`・9/16〜10/13）は 1,315 行・1,203 クリックで、同じ期間のページ×検索語 142 の 8.5 倍あり、条件なしなら匿名化分も入る。取得の不具合ではない（要求は rowLimit 25000・返却 189 行・打ち切りなし）
 - 検出経緯: W42 週次（10/17）で数字の不一致に気づき、DN-0759 で 2 経路の要求条件（dimensions・filters・aggregationType）と行の合計を照合した
-- 対策: 全体の KPI は無次元の集計（byProperty）だけを使う（従来どおり）。ダイジェストのページ明細の表示に、定義（日本で絞ったページ別＝検索語が分かる分だけの下限）と byPage 全体に対する割合を出す（`scripts/build-growth-digest.mjs`）。急落・減衰の検出がこの下限の行で判定している件は、W42 の実測（国で絞る＝byPage 全体の clicks 25%、国の条件なし＝100%）を受けて、ページ別（gscPageWeek・gscPageBase）だけ国の条件なしの取り方へ切り替えた（DN-0806。日本以外の行を含む。ページ×検索語と全体集計は従来どおり）。減衰は取り方が違う週を混ぜず、今週と同じ取り方の週だけで判定する（`gscPageScope`）
+- 対策: 全体の KPI は無次元の集計（byProperty）だけを使う（従来どおり）。ダイジェストのページ明細の表示に、定義（日本で絞ったページ別＝検索語が分かる分だけの下限）と byPage 全体に対する割合を出す（`scripts/build/build-growth-digest.mjs`）。急落・減衰の検出がこの下限の行で判定している件は、W42 の実測（国で絞る＝byPage 全体の clicks 25%、国の条件なし＝100%）を受けて、ページ別（gscPageWeek・gscPageBase）だけ国の条件なしの取り方へ切り替えた（DN-0806。日本以外の行を含む。ページ×検索語と全体集計は従来どおり）。減衰は取り方が違う週を混ぜず、今週と同じ取り方の週だけで判定する（`gscPageScope`）
 - 教訓: GSC で国などの条件を付けたページ別は「ページ×検索語」と同じ母集団になる。ページ別の行の合計を全体の代わりに使わない。2 つの数字を比べるときは、要求条件まで揃えて照合する
 
 ## 2026-10-21 — 場面中点の確認では字幕の語中分断を見落とす
@@ -1074,7 +1074,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 
 ### 関連
 
-- `scripts/upload-images-to-r2.mjs` - 同期スクリプト（exit 1 化 + パス正規化）
+- `scripts/storage/upload-images-to-r2.mjs` - 同期スクリプト（exit 1 化 + パス正規化）
 - `.github/workflows/r2-sync.yml` - main push 時の R2 同期
 - `.github/workflows/r2-audit.yml` - 週次 diff-r2 監査（新設）
 - `scripts/diff-r2/diff-r2.mjs` - 差分監査
@@ -1258,7 +1258,7 @@ Cloudflare Bot 保護下では以下も 403 になる可能性がある:
 - Issue [#80](https://github.com/uruhayato373/doboku-note/issues/80) - RSS/Atom フィード生成（close 済）
 - Issue [#159](https://github.com/uruhayato373/doboku-note/issues/159) - Cloudflare Bot 保護調整（バックログ）
 - PR [#158](https://github.com/uruhayato373/doboku-note/pull/158) - フィード実装（merged）
-- `scripts/generate-rss.mjs` - フィード生成スクリプト
+- `scripts/build/generate-rss.mjs` - フィード生成スクリプト
 
 ## 2026-W16: BAILOUT_TO_CLIENT_SIDE_RENDERING による 6 日間 GA4 完全欠損
 

@@ -177,10 +177,10 @@ async function main() {
         const e = manifest.entries[p];
         if (!e) {
           unsynced++;
-          fail('unsynced', 'ローカルにしか無い（台帳未登録）。このマシンを失うと復元不能: node scripts/drive-vault-sync.mjs --group ' + r.driveActive[0] + ' --commit', p);
+          fail('unsynced', 'ローカルにしか無い（台帳未登録）。このマシンを失うと復元不能: node scripts/storage/drive-vault-sync.mjs --group ' + r.driveActive[0] + ' --commit', p);
         } else if (hashed < 500) {
           const l = await realBytesAndHashes(abs);
-          if (l.sha256 !== e.sha256) { localNewer++; warn('local-newer', 'ローカルの実体が台帳（＝vault）と違う。作り直したものを反映する: node scripts/drive-vault-sync.mjs --path "' + p + '" --commit --force', p); }
+          if (l.sha256 !== e.sha256) { localNewer++; warn('local-newer', 'ローカルの実体が台帳（＝vault）と違う。作り直したものを反映する: node scripts/storage/drive-vault-sync.mjs --path "' + p + '" --commit --force', p); }
         }
       } else if (r.drivePending.length && !manifest.entries[p]) {
         pendingUnsynced++;

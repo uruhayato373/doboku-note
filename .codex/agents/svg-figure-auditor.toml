@@ -92,7 +92,7 @@ doboku-note の図版 SVG を **site・note 横断**で監査する **Evaluator 
 
 1. 入力が記事パスなら本文を Read し、図版参照を抽出（site は `<ArticleImage src="/posts/.../*.svg">`、note は `![](./img/figure-*.png)`）。単一 SVG パスならそれ 1 件。
 2. **パスで枝を判定**（総監 `h{年}-primary/img/*.svg` → pe-exam プロファイル / `content/site/` → site / `content/note/` → note）。誤判定を避けるため最初に明示する。
-3. **note 枝**: PNG を Read で目視確認（マルチモーダルでレイアウト・重なり・可読性を判定。PNG は Git に無いので `node scripts/render-note-figures.mjs <svg>` で `.tmp/note-figures/` に作って見る）＋ 同ディレクトリの `figure-*.svg` ソースを Read し font-size を検査。`note-svg-policy.md` で採点。
+3. **note 枝**: PNG を Read で目視確認（マルチモーダルでレイアウト・重なり・可読性を判定。PNG は Git に無いので `node scripts/build/render-note-figures.mjs <svg>` で `.tmp/note-figures/` に作って見る）＋ 同ディレクトリの `figure-*.svg` ソースを Read し font-size を検査。`note-svg-policy.md` で採点。
 4. **site 枝**: `.svg` ソースを Read（XML テキスト）。座標・font-size・色・必須属性・要素重なりを構造的に判定。`.claude/state/svg-audit.json` があれば該当ファイルの機械検出（P1〜P8）と突き合わせる。`svg-tokens.json` + `image-policy.md` + `design-system.md` で採点。
    - 注: site SVG は PNG 書き出しが無いため視覚レンダリングは確認できない。構造判定 + 機械監査結果 + ギャラリー（`npm run svg-gallery`）目視の併用を前提とし、**視覚断定が必要な指摘は「要目視」と明記**する。
 5. 違反は枝ごとの真実源の該当節と対応づけ、file:line + 重大度（HIGH/MEDIUM/LOW）+ 修正案で記録。

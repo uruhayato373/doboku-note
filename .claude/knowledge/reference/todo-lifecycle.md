@@ -55,5 +55,5 @@ UI はコピーまで（実行はしない）。
 - UI・CLI・Agent は同じ parser（backlog-lib.mjs）と状態導出（todo.ts deriveStatus）・plan 発見（plan-units.mjs）を使い、同じルールを再実装しない
 
 ## 実装の所在
-scripts/todo-{add,claim,release,complete}.mjs／scripts/lib/git-direct-commit.mjs／scripts/report-defect-learning.mjs／scripts/lib/agent-hooks.mjs（check-capture）／scripts/lib/todo-lifecycle.mjs／scripts/lib/plan-units.mjs／
+scripts/todo-{add,claim,release,complete}.mjs／scripts/lib/git-direct-commit.mjs／scripts/reports/report-defect-learning.mjs／scripts/lib/agent-hooks.mjs（check-capture）／scripts/lib/todo-lifecycle.mjs／scripts/lib/plan-units.mjs／
 scripts/checks/check-task-plan-links.mjs／scripts/checks/check-dispatch-log.mjs／tools/admin-app/src/lib/todo.ts

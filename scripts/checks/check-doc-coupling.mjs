@@ -18,7 +18,7 @@
 // 緊急回避: 環境変数 SKIP_DOC_COUPLING=1
 
 import { execFileSync } from 'node:child_process';
-import { planIndex, TARGETS } from '../build-capability-index.mjs';
+import { planIndex, TARGETS } from '../build/build-capability-index.mjs';
 import { runBody, isCliEntry, runAsCli } from '../lib/cli-run.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 

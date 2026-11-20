@@ -405,7 +405,7 @@ live 層を CI に載せないのは、**有料エリア内の添付カードが
 - ツール: `npm run note-magazine-delete -- --keys m1,m2`（既定 PROBE＝マガジン名と削除ボタンの有無を表示）／`--commit`（削除後に公開 API が 404 になったかを確かめる）。
 
 ### PDF 生成の環境依存（2026-07-04 訂正）
-- **Mac でハングするのは `magazine-to-pdf.mjs` の Chrome `--print-to-pdf` 経路だけ**。**Playwright `chromium.launch({headless:true})` → `page.pdf()` は Mac で正常動作**する（実例 `scripts/generate-anki-pdf.mjs`＝A5赤シートPDF・`--sample` で見本PNG）。カスタムHTML→PDF は magazine-to-pdf でなく `page.pdf()` を使う。
+- **Mac でハングするのは `magazine-to-pdf.mjs` の Chrome `--print-to-pdf` 経路だけ**。**Playwright `chromium.launch({headless:true})` → `page.pdf()` は Mac で正常動作**する（実例 `scripts/build/generate-anki-pdf.mjs`＝A5赤シートPDF・`--sample` で見本PNG）。カスタムHTML→PDF は magazine-to-pdf でなく `page.pdf()` を使う。
 
 ## live 本文整合性検査: check-note-live-headings（URL見出し/空引用/画像欠落・過多/見出し食い違い/太字記号/リンク切れ/割れ見出し/長い見出しの検知網）
 

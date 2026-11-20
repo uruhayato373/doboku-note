@@ -2,7 +2,7 @@
 // 消えたページ 10 件を指していた。生成は正規公開パスだけを出し、資格名と並びは registry から引く。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { collectPages, buildIndex, buildFull, hubPathFor } from '../scripts/build-llms-txt.mjs';
+import { collectPages, buildIndex, buildFull, hubPathFor } from '../scripts/build/build-llms-txt.mjs';
 import { loadRegistry, qualificationLabel } from '../scripts/lib/qualification-registry.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 

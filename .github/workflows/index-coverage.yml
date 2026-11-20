@@ -68,7 +68,7 @@ jobs:
       # git 追跡外の生成物なので、ここで作らないと **commit の瞬間に ENOENT で落ちる**。
       # 症状はワークフロー全体の赤で、本来の処理が終わっていても記録が残らない。
       - name: Build doc meta index
-        run: node scripts/build-doc-meta-index.mjs --ci
+        run: node scripts/build/build-doc-meta-index.mjs --ci
 
 
       - name: Restore service account key
@@ -202,7 +202,7 @@ jobs:
               --sitemap-count "${SITEMAP_COUNT:-0}" \
               --notes "weekly cron (index-coverage.yml・周回 ${{ steps.plan.outputs.runs }} 回で全件)"
             # 登録リクエストの順位表（表示実績のある未登録を先頭に、表示 0 は型ごとの期待値の降順）。人間は先頭から 10 件/日送るだけ。
-            node scripts/build-gsc-indexing-priority.mjs
+            node scripts/build/build-gsc-indexing-priority.mjs
             SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           fi
 
@@ -265,7 +265,7 @@ jobs:
             echo "- 判定ロジック: \`scripts/checks/check-coverage-thresholds.mjs\`"
             echo "- 再実行: \`gh workflow run index-coverage.yml\`"
           } > /tmp/coverage-body.md
-          node scripts/report-automation-failure.mjs \
+          node scripts/reports/report-automation-failure.mjs \
             --channel index-coverage \
             --title "閾値ゲートが赤（無条件異常）" \
             --body-file /tmp/coverage-body.md
@@ -277,7 +277,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          node scripts/report-automation-failure.mjs --resolve --channel index-coverage \
+          node scripts/reports/report-automation-failure.mjs --resolve --channel index-coverage \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Cleanup credentials

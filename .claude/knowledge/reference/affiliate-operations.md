@@ -106,7 +106,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 > これは「afb に建設案件が無い」ではなく「**検索できた範囲には無かった**」。
 > カタログの `_openQuestions` に未確認として明記し、`status: "unknown"` と `"none"` を語彙として分けている。
 
-**afb 成果（コンバージョン）は提携状態スキャンとは別系統**: 上の Playwright 走査は提携状態（未提携/申請中/提携中）だけを見る。成果（pending/approved/rejected・報酬額）は afb 公式 conversion API（読み取り専用）で取得する — `node scripts/fetch-afb-outcomes.mjs --commit`（fetch-metrics.yml 週次・`AFB_API_KEY` 必須）。出力は `data/afb/outcomes/（日付別の最新）`（+ 日付付き snapshot・寿命 keep-all）。取得停止の検知は `npm run check-afb-outcomes-freshness`（quality-audit ops 区分・10 日超で FAIL）。
+**afb 成果（コンバージョン）は提携状態スキャンとは別系統**: 上の Playwright 走査は提携状態（未提携/申請中/提携中）だけを見る。成果（pending/approved/rejected・報酬額）は afb 公式 conversion API（読み取り専用）で取得する — `node scripts/fetch/fetch-afb-outcomes.mjs --commit`（fetch-metrics.yml 週次・`AFB_API_KEY` 必須）。出力は `data/afb/outcomes/（日付別の最新）`（+ 日付付き snapshot・寿命 keep-all）。取得停止の検知は `npm run check-afb-outcomes-freshness`（quality-audit ops 区分・10 日超で FAIL）。
 
 ---
 
@@ -365,7 +365,7 @@ npm run a8-ui:normalize -- --latest
 ```
 
 `headless:false` で起動するので、ログインと CAPTCHA だけ人間が通せば以降は自動で進む
-（`scripts/fetch-a8-ui-csv.mjs`・プロファイルは auth root の `playwright-a8-profile`・定期取得は土曜の Mac 収集の a8 段）。
+（`scripts/fetch/fetch-a8-ui-csv.mjs`・プロファイルは auth root の `playwright-a8-profile`・定期取得は土曜の Mac 収集の a8 段）。
 取り込み後の EPC は `npm run report-buildjob-affiliate` で見る。
 
 **当月分の確定額は翌月以降へずれる**。A8 の承認処理が月をまたぐため `revenueYen: 0` は異常ではなく、

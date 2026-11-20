@@ -46,11 +46,11 @@ jobs:
           - 対象: develop の現行通常動画。YouTube Data API から実体を読み戻します。
           - 再現: npm run check-youtube-funnels && node scripts/youtube/youtube-audit-live-funnels.mjs
           EOF
-          node scripts/report-automation-failure.mjs --channel youtube-funnel \
+          node scripts/reports/report-automation-failure.mjs --channel youtube-funnel \
             --title 'YouTube の商品導線に不一致があります' \
             --body-file "$RUNNER_TEMP/youtube-funnel-body.md"
       - name: Resolve drift alert after recovery
         if: success()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/report-automation-failure.mjs --resolve --channel youtube-funnel
+        run: node scripts/reports/report-automation-failure.mjs --resolve --channel youtube-funnel

@@ -482,7 +482,7 @@ const pubDir = (pack, key) => `.tmp/media/${pack}/youtube.short.${key}`;
 const sheetPath = (pack, key) => `.tmp/shorts-stock/${pack.replace('/', '__')}__${key}.png`;
 
 function mediaVault(root, pack, extra) {
-  const run = spawnSync(process.execPath, ['scripts/drive-vault-sync.mjs', '--group', 'content-media', '--path', `.tmp/media/${pack}/`, ...extra], { cwd: root, encoding: 'utf8' });
+  const run = spawnSync(process.execPath, ['scripts/storage/drive-vault-sync.mjs', '--group', 'content-media', '--path', `.tmp/media/${pack}/`, ...extra], { cwd: root, encoding: 'utf8' });
   if (run.status !== 0) throw new Error(`Drive の処理が失敗: ${(run.stderr || run.stdout).trim().split('\n').slice(-3).join(' / ')}`);
 }
 
@@ -561,7 +561,7 @@ export function restoreShort(root, pack, key) {
   const { dir } = packContext(root, pack, key);
   const { revision } = activeRevision(root, dir, key);
   if (!revision?.stock) throw new Error(`${key}: 在庫に入っていない`);
-  const run = spawnSync(process.execPath, ['scripts/drive-vault-sync.mjs', '--pull', '--path', `${pubDir(pack, key)}/`, '--commit'], { cwd: root, encoding: 'utf8' });
+  const run = spawnSync(process.execPath, ['scripts/storage/drive-vault-sync.mjs', '--pull', '--path', `${pubDir(pack, key)}/`, '--commit'], { cwd: root, encoding: 'utf8' });
   if (run.status !== 0) throw new Error(`Drive から戻せない: ${(run.stderr || run.stdout).trim().split('\n').slice(-3).join(' / ')}`);
   for (const file of [revision.stock.video, revision.stock.thumbnail, revision.stock.frames]) {
     if (!existsSync(join(root, file.path)) || hash(readFileSync(join(root, file.path))) !== file.sha256) throw new Error(`${file.path}: 戻した実体の sha が違う`);

@@ -219,13 +219,13 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 ### Kindle EPUB（KDP 出版）を生成したい
 
-1. **Aシリーズ（1級土木 択一・論点別）**: `node scripts/build-takuitsu-reconstruct.mjs --theme {key} --format epub`
+1. **Aシリーズ（1級土木 択一・論点別）**: `node scripts/build/build-takuitsu-reconstruct.mjs --theme {key} --format epub`
    - `--theme` キー（全 THEMES 定義済み・2026-07-08）: `anzen`（安全管理）/`hoki`（法規）/`sekokeikaku`（施工計画）/`kankyo`（環境管理）/`hinshitsu`（品質管理）/`koutei`（工程管理）/`goubon`（全科目合本・EPUB のみ生成）
    - 出力先: `.tmp/takuitsu-{key}/{key}.epub`（gitignore）。表紙は `scripts/kindle-covers/`（spec 駆動）
    - Kindle Previewer 確認後、KDP（[kdp.amazon.co.jp](https://kdp.amazon.co.jp)）にアップロード
    - 書籍ID→コマンドの解決表・KDP実運用メモの真実源 → `.claude/skills/kindle-build/SKILL.md`
-2. **B/D/Eシリーズ（択一・合本）**: `node scripts/build-pe1-kindle.mjs --spec content/kindle/books/{id}/spec.json`
-3. **C/Fシリーズ（記述式・模範解答/論文）**: `node scripts/build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json`
+2. **B/D/Eシリーズ（択一・合本）**: `node scripts/build/build-pe1-kindle.mjs --spec content/kindle/books/{id}/spec.json`
+3. **C/Fシリーズ（記述式・模範解答/論文）**: `node scripts/build/build-essay-kindle.mjs --spec content/kindle/books/{id}/spec.json`
 4. 非公開前付け → `content/kindle/books/{id}/front-matter.md`（`kindle-book-composer` 管理）
 5. 戦略全体・ラインナップ一覧 → `content/kindle/strategy.md`
 

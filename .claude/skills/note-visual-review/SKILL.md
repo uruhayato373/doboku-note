@@ -32,7 +32,7 @@ note の公開ページを**未ログインの読者の画面**で撮り、`note
      --shot-dir "$HOME/Library/Caches/doboku-note/note-public-view"
    ```
    置き場は `scripts/lib/note-public-view.mjs` の `NOTE_PUBLIC_VIEW_LOCAL_DIR`。パスの一部を渡すと対象の記事・グループだけを撮る（一部だけ直したときはこちら）
-3. **取り込む**: `node scripts/fetch-note-public-view-shots.mjs --json`。撮影が `.tmp/note-public-view-review/<撮影日>/` へ写り、`review/index.json` の件数が出る。
+3. **取り込む**: `node scripts/fetch/fetch-note-public-view-shots.mjs --json`。撮影が `.tmp/note-public-view-review/<撮影日>/` へ写り、`review/index.json` の件数が出る。
    **exit 2（撮影なし・8 日より古い・欠け）は「未確認」と書く**。画像 0 枚を「異常なし」と呼ばない。`coverage` の撮影成立数/予定数を確認し、`breakpointDrift` は CSS が全部読めた場合だけ見直しの根拠にする（`unreadable` があれば判定保留）
 4. **判定させる**: `note-page-visual-auditor` を起動する。**1 体**に `review/index.json` と画像の場所を渡す（ページが多いときも体数を増やさず、1 体に束で渡す。同時に動かすのは 3 体まで）。渡すのは作業票（`review/index.json`）のパスと画像の置き場だけ
 5. **親が確かめて起票する**: エージェントの「直す」は、指摘だけでは起票しない。親が該当の画像を開いて確かめてから `npm run todo:add` で起票する。

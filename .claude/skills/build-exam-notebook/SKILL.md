@@ -20,7 +20,7 @@ domain: material
 
 | ファイル | 役割 |
 |---|---|
-| `scripts/build-exam-notebook.mjs` | MDX → MD 変換（JSX 削除、frontmatter 簡略化、U+FFFD 検出） |
+| `scripts/build/build-exam-notebook.mjs` | MDX → MD 変換（JSX 削除、frontmatter 簡略化、U+FFFD 検出） |
 | `scripts/content/notebooklm-notebook-builder.mjs` | notebook 操作 CLI（find-or-create / list-sources / add-source / bulk-add） |
 | `scripts/content/notebooklm-cross-query.mjs` | 構築後のクエリ用（既存ラッパー） |
 | `.tmp/exam-notebook/{year}-primary.md` | 変換結果（gitignore 配下） |
@@ -38,8 +38,8 @@ domain: material
 MDX を変換し `.tmp/exam-notebook/{year}-primary.md` に出力。副作用なし、idempotent。
 
 ```bash
-node scripts/build-exam-notebook.mjs --year r07
-node scripts/build-exam-notebook.mjs --years r03,r04,r05,r06,r07
+node scripts/build/build-exam-notebook.mjs --year r07
+node scripts/build/build-exam-notebook.mjs --years r03,r04,r05,r06,r07
 ```
 
 **変換ポリシー**:
@@ -59,7 +59,7 @@ node scripts/build-exam-notebook.mjs --years r03,r04,r05,r06,r07
 
 ```bash
 # 1. 変換
-node scripts/build-exam-notebook.mjs --years r03,r04,r05,r06,r07
+node scripts/build/build-exam-notebook.mjs --years r03,r04,r05,r06,r07
 
 # 2. マニフェスト作成（年度ごとに { file, title } を列挙）
 cat > .tmp/exam-notebook/manifest-r03-r07.json <<EOF
@@ -100,7 +100,7 @@ node scripts/content/notebooklm-notebook-builder.mjs delete-source \
   --title "R07一次択一40問"
 
 # 2. 再変換
-node scripts/build-exam-notebook.mjs --year r07
+node scripts/build/build-exam-notebook.mjs --year r07
 
 # 3. 再投入
 node scripts/content/notebooklm-notebook-builder.mjs add-source \

@@ -6,7 +6,7 @@
 //   tsconfig.json の include は `**/*.ts` `**/*.tsx` のみで、`.mjs` は型検査の対象外。
 //   さらに `.claude/**` は実質ノーチェック。つまり **スクリプト層の import 破損は
 //   誰も見ていない**。実害:
-//     - 2026-07-06: `scripts/report-monetization-coverage.mts` が
+//     - 2026-07-06: `scripts/reports/report-monetization-coverage.mts` が
 //       magazine-placement.ts の削除済み export を import → 6 週間実行不能。
 //       週次レビューは古い集計を貼り続けた
 //     - スキル移動（`.claude/skills/content/` → `quality/`）に追随せず

@@ -74,7 +74,7 @@ developer_instructions = """
 
 ## 担当外
 
-- 修正の実行（MDX・画像に手を加えない）。PDF→MDX 変換そのもの（`/pdf-to-mdx`）。R2 アップロード（`scripts/upload-images-to-r2.mjs`）。SVG 復元の実行（別スキル・未実装）
+- 修正の実行（MDX・画像に手を加えない）。PDF→MDX 変換そのもの（`/pdf-to-mdx`）。R2 アップロード（`scripts/storage/upload-images-to-r2.mjs`）。SVG 復元の実行（別スキル・未実装）
 
 ## 連携
 

@@ -88,7 +88,7 @@ if ! mkdir "$LOCK" 2>/dev/null; then
   if [ -f "$LOCK/pid" ] && kill -0 "$(cat "$LOCK/pid")" 2>/dev/null; then
     echo "[weekly-review] already running pid=$(cat "$LOCK/pid")" >> "$LOG_FILE"
     if [ -n "$(find "$LOCK" -maxdepth 0 -mmin +"$STUCK_MINUTES" 2>/dev/null)" ]; then
-      (cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-collect --key saturday-mac-run --title "土曜の収集が ${STUCK_MINUTES} 分を超えて動き続けている" --body "前の回（pid $(cat "$LOCK/pid")）が終わらず、この回は始められなかった。ログ: ~/Library/Logs/doboku-note/weekly-review.log") >> "$LOG_FILE" 2>&1 || true
+      (cd "$REPO" && node scripts/reports/report-automation-failure.mjs --channel weekly-collect --key saturday-mac-run --title "土曜の収集が ${STUCK_MINUTES} 分を超えて動き続けている" --body "前の回（pid $(cat "$LOCK/pid")）が終わらず、この回は始められなかった。ログ: ~/Library/Logs/doboku-note/weekly-review.log") >> "$LOG_FILE" 2>&1 || true
     fi
     exit 0
   fi
@@ -113,7 +113,7 @@ notify() { # channel title rc label
     tail -30 "$LOG_FILE" | sed 's/[[:cntrl:]]//g'
     echo '```'
   } > "$body"
-  (cd "$REPO" && node scripts/report-automation-failure.mjs --channel "$1" --key "$KEY" --title "$2" --body-file "$body") >> "$LOG_FILE" 2>&1 || echo "[weekly-review] failure notification also failed ($1)" >> "$LOG_FILE"
+  (cd "$REPO" && node scripts/reports/report-automation-failure.mjs --channel "$1" --key "$KEY" --title "$2" --body-file "$body") >> "$LOG_FILE" 2>&1 || echo "[weekly-review] failure notification also failed ($1)" >> "$LOG_FILE"
   rm -f "$body"
 }
 
@@ -126,9 +126,9 @@ finish() {
   # set -e で途中終了したときは収集の失敗として扱う
   [ "$rc" -eq 0 ] || [ "$collect_rc" -ne 0 ] || [ "$gsc_rc" -ne 0 ] || collect_rc=$rc
   if [ "$collect_rc" -eq 0 ]; then
-    (cd "$REPO" && node scripts/report-automation-failure.mjs --resolve --channel weekly-collect --body "復旧: $week の土曜の収集（前・後）が合格") >> "$LOG_FILE" 2>&1 || true
+    (cd "$REPO" && node scripts/reports/report-automation-failure.mjs --resolve --channel weekly-collect --body "復旧: $week の土曜の収集（前・後）が合格") >> "$LOG_FILE" 2>&1 || true
     if [ "$gsc_rc" -eq 0 ]; then
-      (cd "$REPO" && node scripts/report-automation-failure.mjs --resolve --channel weekly-collect --key "$KEY" --body "復旧: $week の土曜の収集と GSC の記録層がどちらも合格") >> "$LOG_FILE" 2>&1 || true
+      (cd "$REPO" && node scripts/reports/report-automation-failure.mjs --resolve --channel weekly-collect --key "$KEY" --body "復旧: $week の土曜の収集と GSC の記録層がどちらも合格") >> "$LOG_FILE" 2>&1 || true
     fi
   else
     echo "=== $(date -Iseconds) [weekly-collect] FAILED rc=$collect_rc ===" >> "$LOG_FILE"
@@ -183,7 +183,7 @@ prepare_collect_worktree() {
   git -C "$CWT" clean -q -fd || return 1
   link_deps "$CWT"
   # pre-commit が読む生成物（git 追跡外）。無いと commit の瞬間に ENOENT で落ちる
-  (cd "$CWT" && node scripts/build-doc-meta-index.mjs --ci > /dev/null) || return 1
+  (cd "$CWT" && node scripts/build/build-doc-meta-index.mjs --ci > /dev/null) || return 1
 }
 
 collect_phase() { # pre|post
@@ -248,7 +248,7 @@ find "$LOG_DIR" -maxdepth 1 -name 'weekly-collect-attempts-*' -mtime +30 -delete
 if [ "$force" != "1" ] && [ "$attempts" -gt "$MAX_ATTEMPTS" ]; then
   echo "[weekly-collect] 今週は ${MAX_ATTEMPTS} 回起動して終わらなかったので、これ以上は回さない（範囲: ${plan}）"
   quiet_exit=1
-  (cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-collect --key saturday-mac-retries --title "土曜の収集が ${MAX_ATTEMPTS} 回起動しても終わらない" --body "$week の収集（範囲 ${plan}）が終わらないまま ${MAX_ATTEMPTS} 回起動した。Mac が途中で再起動していないか（メモリ不足）を確かめる。ログ: ~/Library/Logs/doboku-note/weekly-review.log") || true
+  (cd "$REPO" && node scripts/reports/report-automation-failure.mjs --channel weekly-collect --key saturday-mac-retries --title "土曜の収集が ${MAX_ATTEMPTS} 回起動しても終わらない" --body "$week の収集（範囲 ${plan}）が終わらないまま ${MAX_ATTEMPTS} 回起動した。Mac が途中で再起動していないか（メモリ不足）を確かめる。ログ: ~/Library/Logs/doboku-note/weekly-review.log") || true
   exit 0
 fi
 echo "$attempts" > "$attempts_file"
